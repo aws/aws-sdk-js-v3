@@ -39,14 +39,34 @@ export interface DescribeSecurityPolicyCommandOutput extends DescribeSecurityPol
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { TransferClient, DescribeSecurityPolicyCommand } from "@aws-sdk/client-transfer"; // ES Modules import
- * // const { TransferClient, DescribeSecurityPolicyCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
+ * import { TransferClient, DescribeSecurityPolicyCommand } from '@aws-sdk/client-transfer'; // ES Modules import
+ * // const { TransferClient, DescribeSecurityPolicyCommand } = require('@aws-sdk/client-transfer'); // CommonJS import
  * const client = new TransferClient(config);
  * const input = { // DescribeSecurityPolicyRequest
- *   SecurityPolicyName: "STRING_VALUE", // required
+ *   SecurityPolicyName: 'STRING_VALUE', // required
  * };
  * const command = new DescribeSecurityPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeSecurityPolicyResponse
+ *   SecurityPolicy: { // DescribedSecurityPolicy
+ *     Fips: true || false,
+ *     SecurityPolicyName: 'STRING_VALUE', // required
+ *     SshCiphers: [ // SecurityPolicyOptions
+ *       'STRING_VALUE',
+ *     ],
+ *     SshKexs: [
+ *       'STRING_VALUE',
+ *     ],
+ *     SshMacs: [
+ *       'STRING_VALUE',
+ *     ],
+ *     TlsCiphers: [
+ *       'STRING_VALUE',
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeSecurityPolicyCommandInput - {@link DescribeSecurityPolicyCommandInput}
@@ -68,6 +88,8 @@ export interface DescribeSecurityPolicyCommandOutput extends DescribeSecurityPol
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request has failed because the Amazon Web ServicesTransfer Family service is not available.</p>
  *
+ * @throws {@link TransferServiceException}
+ * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
  */
 export class DescribeSecurityPolicyCommand extends $Command<

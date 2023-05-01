@@ -40,14 +40,73 @@ export interface DeleteClusterCommandOutput extends DeleteClusterResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DAXClient, DeleteClusterCommand } from "@aws-sdk/client-dax"; // ES Modules import
- * // const { DAXClient, DeleteClusterCommand } = require("@aws-sdk/client-dax"); // CommonJS import
+ * import { DAXClient, DeleteClusterCommand } from '@aws-sdk/client-dax'; // ES Modules import
+ * // const { DAXClient, DeleteClusterCommand } = require('@aws-sdk/client-dax'); // CommonJS import
  * const client = new DAXClient(config);
  * const input = { // DeleteClusterRequest
- *   ClusterName: "STRING_VALUE", // required
+ *   ClusterName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteClusterCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteClusterResponse
+ *   Cluster: { // Cluster
+ *     ClusterName: 'STRING_VALUE',
+ *     Description: 'STRING_VALUE',
+ *     ClusterArn: 'STRING_VALUE',
+ *     TotalNodes: Number('int'),
+ *     ActiveNodes: Number('int'),
+ *     NodeType: 'STRING_VALUE',
+ *     Status: 'STRING_VALUE',
+ *     ClusterDiscoveryEndpoint: { // Endpoint
+ *       Address: 'STRING_VALUE',
+ *       Port: Number('int'),
+ *       URL: 'STRING_VALUE',
+ *     },
+ *     NodeIdsToRemove: [ // NodeIdentifierList
+ *       'STRING_VALUE',
+ *     ],
+ *     Nodes: [ // NodeList
+ *       { // Node
+ *         NodeId: 'STRING_VALUE',
+ *         Endpoint: {
+ *           Address: 'STRING_VALUE',
+ *           Port: Number('int'),
+ *           URL: 'STRING_VALUE',
+ *         },
+ *         NodeCreateTime: new Date('TIMESTAMP'),
+ *         AvailabilityZone: 'STRING_VALUE',
+ *         NodeStatus: 'STRING_VALUE',
+ *         ParameterGroupStatus: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     PreferredMaintenanceWindow: 'STRING_VALUE',
+ *     NotificationConfiguration: { // NotificationConfiguration
+ *       TopicArn: 'STRING_VALUE',
+ *       TopicStatus: 'STRING_VALUE',
+ *     },
+ *     SubnetGroup: 'STRING_VALUE',
+ *     SecurityGroups: [ // SecurityGroupMembershipList
+ *       { // SecurityGroupMembership
+ *         SecurityGroupIdentifier: 'STRING_VALUE',
+ *         Status: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     IamRoleArn: 'STRING_VALUE',
+ *     ParameterGroup: { // ParameterGroupStatus
+ *       ParameterGroupName: 'STRING_VALUE',
+ *       ParameterApplyStatus: 'STRING_VALUE',
+ *       NodeIdsToReboot: [
+ *         'STRING_VALUE',
+ *       ],
+ *     },
+ *     SSEDescription: { // SSEDescription
+ *       Status: 'STRING_VALUE',
+ *     },
+ *     ClusterEndpointEncryptionType: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param DeleteClusterCommandInput - {@link DeleteClusterCommandInput}
@@ -72,6 +131,8 @@ export interface DeleteClusterCommandOutput extends DeleteClusterResponse, __Met
  * @throws {@link ServiceLinkedRoleNotFoundFault} (client fault)
  *  <p>The specified service linked role (SLR) was not found.</p>
  *
+ * @throws {@link DAXServiceException}
+ * <p>Base exception class for all service exceptions from DAX service.</p>
  *
  */
 export class DeleteClusterCommand extends $Command<

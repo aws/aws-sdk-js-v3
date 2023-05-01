@@ -36,17 +36,39 @@ export interface ListUsersCommandOutput extends ListUsersResponse, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { QuickSightClient, ListUsersCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
- * // const { QuickSightClient, ListUsersCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * import { QuickSightClient, ListUsersCommand } from '@aws-sdk/client-quicksight'; // ES Modules import
+ * // const { QuickSightClient, ListUsersCommand } = require('@aws-sdk/client-quicksight'); // CommonJS import
  * const client = new QuickSightClient(config);
  * const input = { // ListUsersRequest
- *   AwsAccountId: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
- *   Namespace: "STRING_VALUE", // required
+ *   AwsAccountId: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
+ *   Namespace: 'STRING_VALUE', // required
  * };
  * const command = new ListUsersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListUsersResponse
+ *   UserList: [ // UserList
+ *     { // User
+ *       Arn: 'STRING_VALUE',
+ *       UserName: 'STRING_VALUE',
+ *       Email: 'STRING_VALUE',
+ *       Role: 'ADMIN' || 'AUTHOR' || 'READER' || 'RESTRICTED_AUTHOR' || 'RESTRICTED_READER',
+ *       IdentityType: 'IAM' || 'QUICKSIGHT',
+ *       Active: true || false,
+ *       PrincipalId: 'STRING_VALUE',
+ *       CustomPermissionsName: 'STRING_VALUE',
+ *       ExternalLoginFederationProviderType: 'STRING_VALUE',
+ *       ExternalLoginFederationProviderUrl: 'STRING_VALUE',
+ *       ExternalLoginId: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ *   RequestId: 'STRING_VALUE',
+ *   Status: Number('int'),
+ * };
+ *
  * ```
  *
  * @param ListUsersCommandInput - {@link ListUsersCommandInput}
@@ -82,6 +104,8 @@ export interface ListUsersCommandOutput extends ListUsersResponse, __MetadataBea
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Access is throttled.</p>
  *
+ * @throws {@link QuickSightServiceException}
+ * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
 export class ListUsersCommand extends $Command<

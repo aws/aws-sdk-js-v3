@@ -50,16 +50,19 @@ export interface PutGroupPolicyCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IAMClient, PutGroupPolicyCommand } from "@aws-sdk/client-iam"; // ES Modules import
- * // const { IAMClient, PutGroupPolicyCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * import { IAMClient, PutGroupPolicyCommand } from '@aws-sdk/client-iam'; // ES Modules import
+ * // const { IAMClient, PutGroupPolicyCommand } = require('@aws-sdk/client-iam'); // CommonJS import
  * const client = new IAMClient(config);
  * const input = { // PutGroupPolicyRequest
- *   GroupName: "STRING_VALUE", // required
- *   PolicyName: "STRING_VALUE", // required
- *   PolicyDocument: "STRING_VALUE", // required
+ *   GroupName: 'STRING_VALUE', // required
+ *   PolicyName: 'STRING_VALUE', // required
+ *   PolicyDocument: 'STRING_VALUE', // required
  * };
  * const command = new PutGroupPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutGroupPolicyCommandInput - {@link PutGroupPolicyCommandInput}
@@ -84,6 +87,8 @@ export interface PutGroupPolicyCommandOutput extends __MetadataBearer {}
  *  <p>The request processing has failed because of an unknown error, exception or
  *       failure.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  * @example To add a policy to a group
  * ```javascript

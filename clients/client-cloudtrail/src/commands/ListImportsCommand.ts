@@ -37,17 +37,33 @@ export interface ListImportsCommandOutput extends ListImportsResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudTrailClient, ListImportsCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
- * // const { CloudTrailClient, ListImportsCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
+ * import { CloudTrailClient, ListImportsCommand } from '@aws-sdk/client-cloudtrail'; // ES Modules import
+ * // const { CloudTrailClient, ListImportsCommand } = require('@aws-sdk/client-cloudtrail'); // CommonJS import
  * const client = new CloudTrailClient(config);
  * const input = { // ListImportsRequest
- *   MaxResults: Number("int"),
- *   Destination: "STRING_VALUE",
- *   ImportStatus: "INITIALIZING" || "IN_PROGRESS" || "FAILED" || "STOPPED" || "COMPLETED",
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   Destination: 'STRING_VALUE',
+ *   ImportStatus: 'INITIALIZING' || 'IN_PROGRESS' || 'FAILED' || 'STOPPED' || 'COMPLETED',
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListImportsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListImportsResponse
+ *   Imports: [ // ImportsList
+ *     { // ImportsListItem
+ *       ImportId: 'STRING_VALUE',
+ *       ImportStatus: 'INITIALIZING' || 'IN_PROGRESS' || 'FAILED' || 'STOPPED' || 'COMPLETED',
+ *       Destinations: [ // ImportDestinations
+ *         'STRING_VALUE',
+ *       ],
+ *       CreatedTimestamp: new Date('TIMESTAMP'),
+ *       UpdatedTimestamp: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListImportsCommandInput - {@link ListImportsCommandInput}
@@ -73,6 +89,8 @@ export interface ListImportsCommandOutput extends ListImportsResponse, __Metadat
  * @throws {@link UnsupportedOperationException} (client fault)
  *  <p>This exception is thrown when the requested operation is not supported.</p>
  *
+ * @throws {@link CloudTrailServiceException}
+ * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
  */
 export class ListImportsCommand extends $Command<

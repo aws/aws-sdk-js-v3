@@ -43,26 +43,26 @@ export interface CreateLaunchCommandOutput extends CreateLaunchResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EvidentlyClient, CreateLaunchCommand } from "@aws-sdk/client-evidently"; // ES Modules import
- * // const { EvidentlyClient, CreateLaunchCommand } = require("@aws-sdk/client-evidently"); // CommonJS import
+ * import { EvidentlyClient, CreateLaunchCommand } from '@aws-sdk/client-evidently'; // ES Modules import
+ * // const { EvidentlyClient, CreateLaunchCommand } = require('@aws-sdk/client-evidently'); // CommonJS import
  * const client = new EvidentlyClient(config);
  * const input = { // CreateLaunchRequest
- *   project: "STRING_VALUE", // required
- *   name: "STRING_VALUE", // required
- *   description: "STRING_VALUE",
+ *   project: 'STRING_VALUE', // required
+ *   name: 'STRING_VALUE', // required
+ *   description: 'STRING_VALUE',
  *   scheduledSplitsConfig: { // ScheduledSplitsLaunchConfig
  *     steps: [ // ScheduledSplitConfigList // required
  *       { // ScheduledSplitConfig
- *         startTime: new Date("TIMESTAMP"), // required
+ *         startTime: new Date('TIMESTAMP'), // required
  *         groupWeights: { // GroupToWeightMap // required
- *           "<keys>": Number("long"),
+ *           '<keys>': Number('long'),
  *         },
  *         segmentOverrides: [ // SegmentOverridesList
  *           { // SegmentOverride
- *             segment: "STRING_VALUE", // required
- *             evaluationOrder: Number("long"), // required
+ *             segment: 'STRING_VALUE', // required
+ *             evaluationOrder: Number('long'), // required
  *             weights: { // required
- *               "<keys>": Number("long"),
+ *               '<keys>': Number('long'),
  *             },
  *           },
  *         ],
@@ -72,29 +72,91 @@ export interface CreateLaunchCommandOutput extends CreateLaunchResponse, __Metad
  *   metricMonitors: [ // MetricMonitorConfigList
  *     { // MetricMonitorConfig
  *       metricDefinition: { // MetricDefinitionConfig
- *         name: "STRING_VALUE", // required
- *         entityIdKey: "STRING_VALUE", // required
- *         valueKey: "STRING_VALUE", // required
- *         eventPattern: "STRING_VALUE",
- *         unitLabel: "STRING_VALUE",
+ *         name: 'STRING_VALUE', // required
+ *         entityIdKey: 'STRING_VALUE', // required
+ *         valueKey: 'STRING_VALUE', // required
+ *         eventPattern: 'STRING_VALUE',
+ *         unitLabel: 'STRING_VALUE',
  *       },
  *     },
  *   ],
  *   groups: [ // LaunchGroupConfigList // required
  *     { // LaunchGroupConfig
- *       name: "STRING_VALUE", // required
- *       description: "STRING_VALUE",
- *       feature: "STRING_VALUE", // required
- *       variation: "STRING_VALUE", // required
+ *       name: 'STRING_VALUE', // required
+ *       description: 'STRING_VALUE',
+ *       feature: 'STRING_VALUE', // required
+ *       variation: 'STRING_VALUE', // required
  *     },
  *   ],
- *   randomizationSalt: "STRING_VALUE",
+ *   randomizationSalt: 'STRING_VALUE',
  *   tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateLaunchCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateLaunchResponse
+ *   launch: { // Launch
+ *     arn: 'STRING_VALUE', // required
+ *     name: 'STRING_VALUE', // required
+ *     project: 'STRING_VALUE',
+ *     status: 'STRING_VALUE', // required
+ *     statusReason: 'STRING_VALUE',
+ *     description: 'STRING_VALUE',
+ *     createdTime: new Date('TIMESTAMP'), // required
+ *     lastUpdatedTime: new Date('TIMESTAMP'), // required
+ *     execution: { // LaunchExecution
+ *       startedTime: new Date('TIMESTAMP'),
+ *       endedTime: new Date('TIMESTAMP'),
+ *     },
+ *     groups: [ // LaunchGroupList
+ *       { // LaunchGroup
+ *         name: 'STRING_VALUE', // required
+ *         description: 'STRING_VALUE',
+ *         featureVariations: { // FeatureToVariationMap // required
+ *           '<keys>': 'STRING_VALUE',
+ *         },
+ *       },
+ *     ],
+ *     metricMonitors: [ // MetricMonitorList
+ *       { // MetricMonitor
+ *         metricDefinition: { // MetricDefinition
+ *           name: 'STRING_VALUE',
+ *           entityIdKey: 'STRING_VALUE',
+ *           valueKey: 'STRING_VALUE',
+ *           eventPattern: 'STRING_VALUE',
+ *           unitLabel: 'STRING_VALUE',
+ *         },
+ *       },
+ *     ],
+ *     randomizationSalt: 'STRING_VALUE',
+ *     type: 'STRING_VALUE', // required
+ *     scheduledSplitsDefinition: { // ScheduledSplitsLaunchDefinition
+ *       steps: [ // ScheduledStepList
+ *         { // ScheduledSplit
+ *           startTime: new Date('TIMESTAMP'), // required
+ *           groupWeights: { // GroupToWeightMap
+ *             '<keys>': Number('long'),
+ *           },
+ *           segmentOverrides: [ // SegmentOverridesList
+ *             { // SegmentOverride
+ *               segment: 'STRING_VALUE', // required
+ *               evaluationOrder: Number('long'), // required
+ *               weights: { // required
+ *                 '<keys>': Number('long'),
+ *               },
+ *             },
+ *           ],
+ *         },
+ *       ],
+ *     },
+ *     tags: { // TagMap
+ *       '<keys>': 'STRING_VALUE',
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateLaunchCommandInput - {@link CreateLaunchCommandInput}
@@ -118,6 +180,8 @@ export interface CreateLaunchCommandOutput extends CreateLaunchResponse, __Metad
  * @throws {@link ValidationException} (client fault)
  *  <p>The value of a parameter in the request caused an error.</p>
  *
+ * @throws {@link EvidentlyServiceException}
+ * <p>Base exception class for all service exceptions from Evidently service.</p>
  *
  */
 export class CreateLaunchCommand extends $Command<

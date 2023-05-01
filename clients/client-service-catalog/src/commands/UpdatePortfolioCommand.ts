@@ -37,27 +37,45 @@ export interface UpdatePortfolioCommandOutput extends UpdatePortfolioOutput, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ServiceCatalogClient, UpdatePortfolioCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
- * // const { ServiceCatalogClient, UpdatePortfolioCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
+ * import { ServiceCatalogClient, UpdatePortfolioCommand } from '@aws-sdk/client-service-catalog'; // ES Modules import
+ * // const { ServiceCatalogClient, UpdatePortfolioCommand } = require('@aws-sdk/client-service-catalog'); // CommonJS import
  * const client = new ServiceCatalogClient(config);
  * const input = { // UpdatePortfolioInput
- *   AcceptLanguage: "STRING_VALUE",
- *   Id: "STRING_VALUE", // required
- *   DisplayName: "STRING_VALUE",
- *   Description: "STRING_VALUE",
- *   ProviderName: "STRING_VALUE",
+ *   AcceptLanguage: 'STRING_VALUE',
+ *   Id: 'STRING_VALUE', // required
+ *   DisplayName: 'STRING_VALUE',
+ *   Description: 'STRING_VALUE',
+ *   ProviderName: 'STRING_VALUE',
  *   AddTags: [ // AddTags
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  *   RemoveTags: [ // TagKeys
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new UpdatePortfolioCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdatePortfolioOutput
+ *   PortfolioDetail: { // PortfolioDetail
+ *     Id: 'STRING_VALUE',
+ *     ARN: 'STRING_VALUE',
+ *     DisplayName: 'STRING_VALUE',
+ *     Description: 'STRING_VALUE',
+ *     CreatedTime: new Date('TIMESTAMP'),
+ *     ProviderName: 'STRING_VALUE',
+ *   },
+ *   Tags: [ // Tags
+ *     { // Tag
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param UpdatePortfolioCommandInput - {@link UpdatePortfolioCommandInput}
@@ -81,6 +99,8 @@ export interface UpdatePortfolioCommandOutput extends UpdatePortfolioOutput, __M
  *          not been performed for this account. Use the Amazon Web Services Management Console to perform the migration
  *          process before retrying the operation.</p>
  *
+ * @throws {@link ServiceCatalogServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
  */
 export class UpdatePortfolioCommand extends $Command<

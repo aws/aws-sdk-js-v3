@@ -44,20 +44,49 @@ export interface ValidateE911AddressCommandOutput extends ValidateE911AddressRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeSDKVoiceClient, ValidateE911AddressCommand } from "@aws-sdk/client-chime-sdk-voice"; // ES Modules import
- * // const { ChimeSDKVoiceClient, ValidateE911AddressCommand } = require("@aws-sdk/client-chime-sdk-voice"); // CommonJS import
+ * import { ChimeSDKVoiceClient, ValidateE911AddressCommand } from '@aws-sdk/client-chime-sdk-voice'; // ES Modules import
+ * // const { ChimeSDKVoiceClient, ValidateE911AddressCommand } = require('@aws-sdk/client-chime-sdk-voice'); // CommonJS import
  * const client = new ChimeSDKVoiceClient(config);
  * const input = { // ValidateE911AddressRequest
- *   AwsAccountId: "STRING_VALUE", // required
- *   StreetNumber: "STRING_VALUE", // required
- *   StreetInfo: "STRING_VALUE", // required
- *   City: "STRING_VALUE", // required
- *   State: "STRING_VALUE", // required
- *   Country: "STRING_VALUE", // required
- *   PostalCode: "STRING_VALUE", // required
+ *   AwsAccountId: 'STRING_VALUE', // required
+ *   StreetNumber: 'STRING_VALUE', // required
+ *   StreetInfo: 'STRING_VALUE', // required
+ *   City: 'STRING_VALUE', // required
+ *   State: 'STRING_VALUE', // required
+ *   Country: 'STRING_VALUE', // required
+ *   PostalCode: 'STRING_VALUE', // required
  * };
  * const command = new ValidateE911AddressCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ValidateE911AddressResponse
+ *   ValidationResult: Number('int'),
+ *   AddressExternalId: 'STRING_VALUE',
+ *   Address: { // Address
+ *     streetName: 'STRING_VALUE',
+ *     streetSuffix: 'STRING_VALUE',
+ *     postDirectional: 'STRING_VALUE',
+ *     preDirectional: 'STRING_VALUE',
+ *     streetNumber: 'STRING_VALUE',
+ *     city: 'STRING_VALUE',
+ *     state: 'STRING_VALUE',
+ *     postalCode: 'STRING_VALUE',
+ *     postalCodePlus4: 'STRING_VALUE',
+ *     country: 'STRING_VALUE',
+ *   },
+ *   CandidateAddressList: [ // CandidateAddressList
+ *     { // CandidateAddress
+ *       streetInfo: 'STRING_VALUE',
+ *       streetNumber: 'STRING_VALUE',
+ *       city: 'STRING_VALUE',
+ *       state: 'STRING_VALUE',
+ *       postalCode: 'STRING_VALUE',
+ *       postalCodePlus4: 'STRING_VALUE',
+ *       country: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ValidateE911AddressCommandInput - {@link ValidateE911AddressCommandInput}
@@ -87,6 +116,8 @@ export interface ValidateE911AddressCommandOutput extends ValidateE911AddressRes
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client isn't authorized to request a resource.</p>
  *
+ * @throws {@link ChimeSDKVoiceServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
  */
 export class ValidateE911AddressCommand extends $Command<

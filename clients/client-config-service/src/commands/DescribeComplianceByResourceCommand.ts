@@ -73,20 +73,38 @@ export interface DescribeComplianceByResourceCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConfigServiceClient, DescribeComplianceByResourceCommand } from "@aws-sdk/client-config-service"; // ES Modules import
- * // const { ConfigServiceClient, DescribeComplianceByResourceCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
+ * import { ConfigServiceClient, DescribeComplianceByResourceCommand } from '@aws-sdk/client-config-service'; // ES Modules import
+ * // const { ConfigServiceClient, DescribeComplianceByResourceCommand } = require('@aws-sdk/client-config-service'); // CommonJS import
  * const client = new ConfigServiceClient(config);
  * const input = { // DescribeComplianceByResourceRequest
- *   ResourceType: "STRING_VALUE",
- *   ResourceId: "STRING_VALUE",
+ *   ResourceType: 'STRING_VALUE',
+ *   ResourceId: 'STRING_VALUE',
  *   ComplianceTypes: [ // ComplianceTypes
- *     "COMPLIANT" || "NON_COMPLIANT" || "NOT_APPLICABLE" || "INSUFFICIENT_DATA",
+ *     'COMPLIANT' || 'NON_COMPLIANT' || 'NOT_APPLICABLE' || 'INSUFFICIENT_DATA',
  *   ],
- *   Limit: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   Limit: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new DescribeComplianceByResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeComplianceByResourceResponse
+ *   ComplianceByResources: [ // ComplianceByResources
+ *     { // ComplianceByResource
+ *       ResourceType: 'STRING_VALUE',
+ *       ResourceId: 'STRING_VALUE',
+ *       Compliance: { // Compliance
+ *         ComplianceType: 'COMPLIANT' || 'NON_COMPLIANT' || 'NOT_APPLICABLE' || 'INSUFFICIENT_DATA',
+ *         ComplianceContributorCount: { // ComplianceContributorCount
+ *           CappedCount: Number('int'),
+ *           CapExceeded: true || false,
+ *         },
+ *       },
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeComplianceByResourceCommandInput - {@link DescribeComplianceByResourceCommandInput}
@@ -104,6 +122,8 @@ export interface DescribeComplianceByResourceCommandOutput
  *  <p>One or more of the specified parameters are not valid. Verify
  * 			that your parameters are valid and try again.</p>
  *
+ * @throws {@link ConfigServiceServiceException}
+ * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
  */
 export class DescribeComplianceByResourceCommand extends $Command<

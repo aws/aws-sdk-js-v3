@@ -37,16 +37,19 @@ export interface UpdateGatewayGroupCommandOutput extends UpdateGatewayGroupRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AlexaForBusinessClient, UpdateGatewayGroupCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
- * // const { AlexaForBusinessClient, UpdateGatewayGroupCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
+ * import { AlexaForBusinessClient, UpdateGatewayGroupCommand } from '@aws-sdk/client-alexa-for-business'; // ES Modules import
+ * // const { AlexaForBusinessClient, UpdateGatewayGroupCommand } = require('@aws-sdk/client-alexa-for-business'); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
  * const input = { // UpdateGatewayGroupRequest
- *   GatewayGroupArn: "STRING_VALUE", // required
- *   Name: "STRING_VALUE",
- *   Description: "STRING_VALUE",
+ *   GatewayGroupArn: 'STRING_VALUE', // required
+ *   Name: 'STRING_VALUE',
+ *   Description: 'STRING_VALUE',
  * };
  * const command = new UpdateGatewayGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateGatewayGroupCommandInput - {@link UpdateGatewayGroupCommandInput}
@@ -61,6 +64,8 @@ export interface UpdateGatewayGroupCommandOutput extends UpdateGatewayGroupRespo
  * @throws {@link NotFoundException} (client fault)
  *  <p>The resource is not found.</p>
  *
+ * @throws {@link AlexaForBusinessServiceException}
+ * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  */
 export class UpdateGatewayGroupCommand extends $Command<

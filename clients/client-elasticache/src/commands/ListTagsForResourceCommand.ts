@@ -41,14 +41,24 @@ export interface ListTagsForResourceCommandOutput extends TagListMessage, __Meta
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElastiCacheClient, ListTagsForResourceCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
- * // const { ElastiCacheClient, ListTagsForResourceCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
+ * import { ElastiCacheClient, ListTagsForResourceCommand } from '@aws-sdk/client-elasticache'; // ES Modules import
+ * // const { ElastiCacheClient, ListTagsForResourceCommand } = require('@aws-sdk/client-elasticache'); // CommonJS import
  * const client = new ElastiCacheClient(config);
  * const input = { // ListTagsForResourceMessage
- *   ResourceName: "STRING_VALUE", // required
+ *   ResourceName: 'STRING_VALUE', // required
  * };
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // TagListMessage
+ *   TagList: [ // TagList
+ *     { // Tag
+ *       Key: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListTagsForResourceCommandInput - {@link ListTagsForResourceCommandInput}
@@ -90,6 +100,8 @@ export interface ListTagsForResourceCommandOutput extends TagListMessage, __Meta
  * @throws {@link UserNotFoundFault} (client fault)
  *  <p>The user does not exist or could not be found.</p>
  *
+ * @throws {@link ElastiCacheServiceException}
+ * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
  * @example ListTagsForResource
  * ```javascript

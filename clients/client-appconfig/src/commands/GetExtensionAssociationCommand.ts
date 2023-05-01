@@ -39,14 +39,26 @@ export interface GetExtensionAssociationCommandOutput extends ExtensionAssociati
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppConfigClient, GetExtensionAssociationCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
- * // const { AppConfigClient, GetExtensionAssociationCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import
+ * import { AppConfigClient, GetExtensionAssociationCommand } from '@aws-sdk/client-appconfig'; // ES Modules import
+ * // const { AppConfigClient, GetExtensionAssociationCommand } = require('@aws-sdk/client-appconfig'); // CommonJS import
  * const client = new AppConfigClient(config);
  * const input = { // GetExtensionAssociationRequest
- *   ExtensionAssociationId: "STRING_VALUE", // required
+ *   ExtensionAssociationId: 'STRING_VALUE', // required
  * };
  * const command = new GetExtensionAssociationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ExtensionAssociation
+ *   Id: 'STRING_VALUE',
+ *   ExtensionArn: 'STRING_VALUE',
+ *   ResourceArn: 'STRING_VALUE',
+ *   Arn: 'STRING_VALUE',
+ *   Parameters: { // ParameterValueMap
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ *   ExtensionVersionNumber: Number('int'),
+ * };
+ *
  * ```
  *
  * @param GetExtensionAssociationCommandInput - {@link GetExtensionAssociationCommandInput}
@@ -64,6 +76,8 @@ export interface GetExtensionAssociationCommandOutput extends ExtensionAssociati
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The requested resource could not be found.</p>
  *
+ * @throws {@link AppConfigServiceException}
+ * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
  */
 export class GetExtensionAssociationCommand extends $Command<

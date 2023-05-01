@@ -41,14 +41,19 @@ export interface DeleteEvaluationCommandOutput extends DeleteEvaluationOutput, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MachineLearningClient, DeleteEvaluationCommand } from "@aws-sdk/client-machine-learning"; // ES Modules import
- * // const { MachineLearningClient, DeleteEvaluationCommand } = require("@aws-sdk/client-machine-learning"); // CommonJS import
+ * import { MachineLearningClient, DeleteEvaluationCommand } from '@aws-sdk/client-machine-learning'; // ES Modules import
+ * // const { MachineLearningClient, DeleteEvaluationCommand } = require('@aws-sdk/client-machine-learning'); // CommonJS import
  * const client = new MachineLearningClient(config);
  * const input = { // DeleteEvaluationInput
- *   EvaluationId: "STRING_VALUE", // required
+ *   EvaluationId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteEvaluationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteEvaluationOutput
+ *   EvaluationId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DeleteEvaluationCommandInput - {@link DeleteEvaluationCommandInput}
@@ -66,6 +71,8 @@ export interface DeleteEvaluationCommandOutput extends DeleteEvaluationOutput, _
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>A specified resource cannot be located.</p>
  *
+ * @throws {@link MachineLearningServiceException}
+ * <p>Base exception class for all service exceptions from MachineLearning service.</p>
  *
  */
 export class DeleteEvaluationCommand extends $Command<

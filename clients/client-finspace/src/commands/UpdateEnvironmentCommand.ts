@@ -36,27 +36,54 @@ export interface UpdateEnvironmentCommandOutput extends UpdateEnvironmentRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FinspaceClient, UpdateEnvironmentCommand } from "@aws-sdk/client-finspace"; // ES Modules import
- * // const { FinspaceClient, UpdateEnvironmentCommand } = require("@aws-sdk/client-finspace"); // CommonJS import
+ * import { FinspaceClient, UpdateEnvironmentCommand } from '@aws-sdk/client-finspace'; // ES Modules import
+ * // const { FinspaceClient, UpdateEnvironmentCommand } = require('@aws-sdk/client-finspace'); // CommonJS import
  * const client = new FinspaceClient(config);
  * const input = { // UpdateEnvironmentRequest
- *   environmentId: "STRING_VALUE", // required
- *   name: "STRING_VALUE",
- *   description: "STRING_VALUE",
- *   federationMode: "STRING_VALUE",
+ *   environmentId: 'STRING_VALUE', // required
+ *   name: 'STRING_VALUE',
+ *   description: 'STRING_VALUE',
+ *   federationMode: 'STRING_VALUE',
  *   federationParameters: { // FederationParameters
- *     samlMetadataDocument: "STRING_VALUE",
- *     samlMetadataURL: "STRING_VALUE",
- *     applicationCallBackURL: "STRING_VALUE",
- *     federationURN: "STRING_VALUE",
- *     federationProviderName: "STRING_VALUE",
+ *     samlMetadataDocument: 'STRING_VALUE',
+ *     samlMetadataURL: 'STRING_VALUE',
+ *     applicationCallBackURL: 'STRING_VALUE',
+ *     federationURN: 'STRING_VALUE',
+ *     federationProviderName: 'STRING_VALUE',
  *     attributeMap: { // AttributeMap
- *       "<keys>": "STRING_VALUE",
+ *       '<keys>': 'STRING_VALUE',
  *     },
  *   },
  * };
  * const command = new UpdateEnvironmentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateEnvironmentResponse
+ *   environment: { // Environment
+ *     name: 'STRING_VALUE',
+ *     environmentId: 'STRING_VALUE',
+ *     awsAccountId: 'STRING_VALUE',
+ *     status: 'STRING_VALUE',
+ *     environmentUrl: 'STRING_VALUE',
+ *     description: 'STRING_VALUE',
+ *     environmentArn: 'STRING_VALUE',
+ *     sageMakerStudioDomainUrl: 'STRING_VALUE',
+ *     kmsKeyId: 'STRING_VALUE',
+ *     dedicatedServiceAccountId: 'STRING_VALUE',
+ *     federationMode: 'STRING_VALUE',
+ *     federationParameters: { // FederationParameters
+ *       samlMetadataDocument: 'STRING_VALUE',
+ *       samlMetadataURL: 'STRING_VALUE',
+ *       applicationCallBackURL: 'STRING_VALUE',
+ *       federationURN: 'STRING_VALUE',
+ *       federationProviderName: 'STRING_VALUE',
+ *       attributeMap: { // AttributeMap
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateEnvironmentCommandInput - {@link UpdateEnvironmentCommandInput}
@@ -81,6 +108,8 @@ export interface UpdateEnvironmentCommandOutput extends UpdateEnvironmentRespons
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link FinspaceServiceException}
+ * <p>Base exception class for all service exceptions from Finspace service.</p>
  *
  */
 export class UpdateEnvironmentCommand extends $Command<

@@ -40,16 +40,31 @@ export interface SelectResourceConfigCommandOutput extends SelectResourceConfigR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConfigServiceClient, SelectResourceConfigCommand } from "@aws-sdk/client-config-service"; // ES Modules import
- * // const { ConfigServiceClient, SelectResourceConfigCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
+ * import { ConfigServiceClient, SelectResourceConfigCommand } from '@aws-sdk/client-config-service'; // ES Modules import
+ * // const { ConfigServiceClient, SelectResourceConfigCommand } = require('@aws-sdk/client-config-service'); // CommonJS import
  * const client = new ConfigServiceClient(config);
  * const input = { // SelectResourceConfigRequest
- *   Expression: "STRING_VALUE", // required
- *   Limit: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   Expression: 'STRING_VALUE', // required
+ *   Limit: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new SelectResourceConfigCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SelectResourceConfigResponse
+ *   Results: [ // Results
+ *     'STRING_VALUE',
+ *   ],
+ *   QueryInfo: { // QueryInfo
+ *     SelectFields: [ // FieldInfoList
+ *       { // FieldInfo
+ *         Name: 'STRING_VALUE',
+ *       },
+ *     ],
+ *   },
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param SelectResourceConfigCommandInput - {@link SelectResourceConfigCommandInput}
@@ -69,6 +84,8 @@ export interface SelectResourceConfigCommandOutput extends SelectResourceConfigR
  * 				<code>nextToken</code> string that was returned in the previous
  * 			response to get the next page of results.</p>
  *
+ * @throws {@link ConfigServiceServiceException}
+ * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
  */
 export class SelectResourceConfigCommand extends $Command<

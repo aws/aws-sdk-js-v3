@@ -82,31 +82,50 @@ export interface GetMetricStatisticsCommandOutput extends GetMetricStatisticsOut
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudWatchClient, GetMetricStatisticsCommand } from "@aws-sdk/client-cloudwatch"; // ES Modules import
- * // const { CloudWatchClient, GetMetricStatisticsCommand } = require("@aws-sdk/client-cloudwatch"); // CommonJS import
+ * import { CloudWatchClient, GetMetricStatisticsCommand } from '@aws-sdk/client-cloudwatch'; // ES Modules import
+ * // const { CloudWatchClient, GetMetricStatisticsCommand } = require('@aws-sdk/client-cloudwatch'); // CommonJS import
  * const client = new CloudWatchClient(config);
  * const input = { // GetMetricStatisticsInput
- *   Namespace: "STRING_VALUE", // required
- *   MetricName: "STRING_VALUE", // required
+ *   Namespace: 'STRING_VALUE', // required
+ *   MetricName: 'STRING_VALUE', // required
  *   Dimensions: [ // Dimensions
  *     { // Dimension
- *       Name: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Name: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
- *   StartTime: new Date("TIMESTAMP"), // required
- *   EndTime: new Date("TIMESTAMP"), // required
- *   Period: Number("int"), // required
+ *   StartTime: new Date('TIMESTAMP'), // required
+ *   EndTime: new Date('TIMESTAMP'), // required
+ *   Period: Number('int'), // required
  *   Statistics: [ // Statistics
- *     "SampleCount" || "Average" || "Sum" || "Minimum" || "Maximum",
+ *     'SampleCount' || 'Average' || 'Sum' || 'Minimum' || 'Maximum',
  *   ],
  *   ExtendedStatistics: [ // ExtendedStatistics
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   Unit: "Seconds" || "Microseconds" || "Milliseconds" || "Bytes" || "Kilobytes" || "Megabytes" || "Gigabytes" || "Terabytes" || "Bits" || "Kilobits" || "Megabits" || "Gigabits" || "Terabits" || "Percent" || "Count" || "Bytes/Second" || "Kilobytes/Second" || "Megabytes/Second" || "Gigabytes/Second" || "Terabytes/Second" || "Bits/Second" || "Kilobits/Second" || "Megabits/Second" || "Gigabits/Second" || "Terabits/Second" || "Count/Second" || "None",
+ *   Unit: 'Seconds' || 'Microseconds' || 'Milliseconds' || 'Bytes' || 'Kilobytes' || 'Megabytes' || 'Gigabytes' || 'Terabytes' || 'Bits' || 'Kilobits' || 'Megabits' || 'Gigabits' || 'Terabits' || 'Percent' || 'Count' || 'Bytes/Second' || 'Kilobytes/Second' || 'Megabytes/Second' || 'Gigabytes/Second' || 'Terabytes/Second' || 'Bits/Second' || 'Kilobits/Second' || 'Megabits/Second' || 'Gigabits/Second' || 'Terabits/Second' || 'Count/Second' || 'None',
  * };
  * const command = new GetMetricStatisticsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetMetricStatisticsOutput
+ *   Label: 'STRING_VALUE',
+ *   Datapoints: [ // Datapoints
+ *     { // Datapoint
+ *       Timestamp: new Date('TIMESTAMP'),
+ *       SampleCount: Number('double'),
+ *       Average: Number('double'),
+ *       Sum: Number('double'),
+ *       Minimum: Number('double'),
+ *       Maximum: Number('double'),
+ *       Unit: 'Seconds' || 'Microseconds' || 'Milliseconds' || 'Bytes' || 'Kilobytes' || 'Megabytes' || 'Gigabytes' || 'Terabytes' || 'Bits' || 'Kilobits' || 'Megabits' || 'Gigabits' || 'Terabits' || 'Percent' || 'Count' || 'Bytes/Second' || 'Kilobytes/Second' || 'Megabytes/Second' || 'Gigabytes/Second' || 'Terabytes/Second' || 'Bits/Second' || 'Kilobits/Second' || 'Megabits/Second' || 'Gigabits/Second' || 'Terabits/Second' || 'Count/Second' || 'None',
+ *       ExtendedStatistics: { // DatapointValueMap
+ *         '<keys>': Number('double'),
+ *       },
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetMetricStatisticsCommandInput - {@link GetMetricStatisticsCommandInput}
@@ -127,6 +146,8 @@ export interface GetMetricStatisticsCommandOutput extends GetMetricStatisticsOut
  * @throws {@link MissingRequiredParameterException} (client fault)
  *  <p>An input parameter that is required is missing.</p>
  *
+ * @throws {@link CloudWatchServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatch service.</p>
  *
  */
 export class GetMetricStatisticsCommand extends $Command<

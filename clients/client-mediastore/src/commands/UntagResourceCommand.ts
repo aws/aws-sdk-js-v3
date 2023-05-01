@@ -36,17 +36,20 @@ export interface UntagResourceCommandOutput extends UntagResourceOutput, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MediaStoreClient, UntagResourceCommand } from "@aws-sdk/client-mediastore"; // ES Modules import
- * // const { MediaStoreClient, UntagResourceCommand } = require("@aws-sdk/client-mediastore"); // CommonJS import
+ * import { MediaStoreClient, UntagResourceCommand } from '@aws-sdk/client-mediastore'; // ES Modules import
+ * // const { MediaStoreClient, UntagResourceCommand } = require('@aws-sdk/client-mediastore'); // CommonJS import
  * const client = new MediaStoreClient(config);
  * const input = { // UntagResourceInput
- *   Resource: "STRING_VALUE", // required
+ *   Resource: 'STRING_VALUE', // required
  *   TagKeys: [ // TagKeyList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new UntagResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UntagResourceCommandInput - {@link UntagResourceCommandInput}
@@ -65,6 +68,8 @@ export interface UntagResourceCommandOutput extends UntagResourceOutput, __Metad
  * @throws {@link InternalServerError} (server fault)
  *  <p>The service is temporarily unavailable.</p>
  *
+ * @throws {@link MediaStoreServiceException}
+ * <p>Base exception class for all service exceptions from MediaStore service.</p>
  *
  */
 export class UntagResourceCommand extends $Command<

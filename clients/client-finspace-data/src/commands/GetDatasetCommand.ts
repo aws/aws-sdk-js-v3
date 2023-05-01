@@ -36,14 +36,41 @@ export interface GetDatasetCommandOutput extends GetDatasetResponse, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FinspaceDataClient, GetDatasetCommand } from "@aws-sdk/client-finspace-data"; // ES Modules import
- * // const { FinspaceDataClient, GetDatasetCommand } = require("@aws-sdk/client-finspace-data"); // CommonJS import
+ * import { FinspaceDataClient, GetDatasetCommand } from '@aws-sdk/client-finspace-data'; // ES Modules import
+ * // const { FinspaceDataClient, GetDatasetCommand } = require('@aws-sdk/client-finspace-data'); // CommonJS import
  * const client = new FinspaceDataClient(config);
  * const input = { // GetDatasetRequest
- *   datasetId: "STRING_VALUE", // required
+ *   datasetId: 'STRING_VALUE', // required
  * };
  * const command = new GetDatasetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetDatasetResponse
+ *   datasetId: 'STRING_VALUE',
+ *   datasetArn: 'STRING_VALUE',
+ *   datasetTitle: 'STRING_VALUE',
+ *   kind: 'STRING_VALUE',
+ *   datasetDescription: 'STRING_VALUE',
+ *   createTime: Number('long'),
+ *   lastModifiedTime: Number('long'),
+ *   schemaDefinition: { // SchemaUnion
+ *     tabularSchemaConfig: { // SchemaDefinition
+ *       columns: [ // ColumnList
+ *         { // ColumnDefinition
+ *           dataType: 'STRING_VALUE',
+ *           columnName: 'STRING_VALUE',
+ *           columnDescription: 'STRING_VALUE',
+ *         },
+ *       ],
+ *       primaryKeyColumns: [ // ColumnNameList
+ *         'STRING_VALUE',
+ *       ],
+ *     },
+ *   },
+ *   alias: 'STRING_VALUE',
+ *   status: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetDatasetCommandInput - {@link GetDatasetCommandInput}
@@ -71,6 +98,8 @@ export interface GetDatasetCommandOutput extends GetDatasetResponse, __MetadataB
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link FinspaceDataServiceException}
+ * <p>Base exception class for all service exceptions from FinspaceData service.</p>
  *
  */
 export class GetDatasetCommand extends $Command<

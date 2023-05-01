@@ -41,22 +41,25 @@ export interface SetDataRetrievalPolicyCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlacierClient, SetDataRetrievalPolicyCommand } from "@aws-sdk/client-glacier"; // ES Modules import
- * // const { GlacierClient, SetDataRetrievalPolicyCommand } = require("@aws-sdk/client-glacier"); // CommonJS import
+ * import { GlacierClient, SetDataRetrievalPolicyCommand } from '@aws-sdk/client-glacier'; // ES Modules import
+ * // const { GlacierClient, SetDataRetrievalPolicyCommand } = require('@aws-sdk/client-glacier'); // CommonJS import
  * const client = new GlacierClient(config);
  * const input = { // SetDataRetrievalPolicyInput
- *   accountId: "STRING_VALUE", // required
+ *   accountId: 'STRING_VALUE', // required
  *   Policy: { // DataRetrievalPolicy
  *     Rules: [ // DataRetrievalRulesList
  *       { // DataRetrievalRule
- *         Strategy: "STRING_VALUE",
- *         BytesPerHour: Number("long"),
+ *         Strategy: 'STRING_VALUE',
+ *         BytesPerHour: Number('long'),
  *       },
  *     ],
  *   },
  * };
  * const command = new SetDataRetrievalPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param SetDataRetrievalPolicyCommandInput - {@link SetDataRetrievalPolicyCommandInput}
@@ -74,6 +77,8 @@ export interface SetDataRetrievalPolicyCommandOutput extends __MetadataBearer {}
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>Returned if the service cannot complete the request.</p>
  *
+ * @throws {@link GlacierServiceException}
+ * <p>Base exception class for all service exceptions from Glacier service.</p>
  *
  * @example To set and then enact a data retrieval policy
  * ```javascript

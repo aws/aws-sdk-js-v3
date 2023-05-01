@@ -48,17 +48,20 @@ export interface UntagLogGroupCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudWatchLogsClient, UntagLogGroupCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
- * // const { CloudWatchLogsClient, UntagLogGroupCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
+ * import { CloudWatchLogsClient, UntagLogGroupCommand } from '@aws-sdk/client-cloudwatch-logs'; // ES Modules import
+ * // const { CloudWatchLogsClient, UntagLogGroupCommand } = require('@aws-sdk/client-cloudwatch-logs'); // CommonJS import
  * const client = new CloudWatchLogsClient(config);
  * const input = { // UntagLogGroupRequest
- *   logGroupName: "STRING_VALUE", // required
+ *   logGroupName: 'STRING_VALUE', // required
  *   tags: [ // TagList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new UntagLogGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UntagLogGroupCommandInput - {@link UntagLogGroupCommandInput}
@@ -70,6 +73,8 @@ export interface UntagLogGroupCommandOutput extends __MetadataBearer {}
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource does not exist.</p>
  *
+ * @throws {@link CloudWatchLogsServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
  */
 export class UntagLogGroupCommand extends $Command<

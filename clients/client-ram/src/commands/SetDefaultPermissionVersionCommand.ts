@@ -43,16 +43,22 @@ export interface SetDefaultPermissionVersionCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RAMClient, SetDefaultPermissionVersionCommand } from "@aws-sdk/client-ram"; // ES Modules import
- * // const { RAMClient, SetDefaultPermissionVersionCommand } = require("@aws-sdk/client-ram"); // CommonJS import
+ * import { RAMClient, SetDefaultPermissionVersionCommand } from '@aws-sdk/client-ram'; // ES Modules import
+ * // const { RAMClient, SetDefaultPermissionVersionCommand } = require('@aws-sdk/client-ram'); // CommonJS import
  * const client = new RAMClient(config);
  * const input = { // SetDefaultPermissionVersionRequest
- *   permissionArn: "STRING_VALUE", // required
- *   permissionVersion: Number("int"), // required
- *   clientToken: "STRING_VALUE",
+ *   permissionArn: 'STRING_VALUE', // required
+ *   permissionVersion: Number('int'), // required
+ *   clientToken: 'STRING_VALUE',
  * };
  * const command = new SetDefaultPermissionVersionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SetDefaultPermissionVersionResponse
+ *   returnValue: true || false,
+ *   clientToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param SetDefaultPermissionVersionCommandInput - {@link SetDefaultPermissionVersionCommandInput}
@@ -86,6 +92,8 @@ export interface SetDefaultPermissionVersionCommandOutput
  * @throws {@link UnknownResourceException} (client fault)
  *  <p>The operation failed because a specified resource couldn't be found.</p>
  *
+ * @throws {@link RAMServiceException}
+ * <p>Base exception class for all service exceptions from RAM service.</p>
  *
  */
 export class SetDefaultPermissionVersionCommand extends $Command<

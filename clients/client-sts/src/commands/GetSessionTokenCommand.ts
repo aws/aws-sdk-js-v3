@@ -95,16 +95,26 @@ export interface GetSessionTokenCommandOutput extends GetSessionTokenResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { STSClient, GetSessionTokenCommand } from "@aws-sdk/client-sts"; // ES Modules import
- * // const { STSClient, GetSessionTokenCommand } = require("@aws-sdk/client-sts"); // CommonJS import
+ * import { STSClient, GetSessionTokenCommand } from '@aws-sdk/client-sts'; // ES Modules import
+ * // const { STSClient, GetSessionTokenCommand } = require('@aws-sdk/client-sts'); // CommonJS import
  * const client = new STSClient(config);
  * const input = { // GetSessionTokenRequest
- *   DurationSeconds: Number("int"),
- *   SerialNumber: "STRING_VALUE",
- *   TokenCode: "STRING_VALUE",
+ *   DurationSeconds: Number('int'),
+ *   SerialNumber: 'STRING_VALUE',
+ *   TokenCode: 'STRING_VALUE',
  * };
  * const command = new GetSessionTokenCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetSessionTokenResponse
+ *   Credentials: { // Credentials
+ *     AccessKeyId: 'STRING_VALUE', // required
+ *     SecretAccessKey: 'STRING_VALUE', // required
+ *     SessionToken: 'STRING_VALUE', // required
+ *     Expiration: new Date('TIMESTAMP'), // required
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetSessionTokenCommandInput - {@link GetSessionTokenCommandInput}
@@ -120,6 +130,8 @@ export interface GetSessionTokenCommandOutput extends GetSessionTokenResponse, _
  *                 Deactivating Amazon Web Services STS in an Amazon Web Services Region</a> in the <i>IAM User
  *                     Guide</i>.</p>
  *
+ * @throws {@link STSServiceException}
+ * <p>Base exception class for all service exceptions from STS service.</p>
  *
  * @example To get temporary credentials for an IAM user or an AWS account
  * ```javascript

@@ -36,18 +36,21 @@ export interface DeregisterPackageVersionCommandOutput extends DeregisterPackage
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PanoramaClient, DeregisterPackageVersionCommand } from "@aws-sdk/client-panorama"; // ES Modules import
- * // const { PanoramaClient, DeregisterPackageVersionCommand } = require("@aws-sdk/client-panorama"); // CommonJS import
+ * import { PanoramaClient, DeregisterPackageVersionCommand } from '@aws-sdk/client-panorama'; // ES Modules import
+ * // const { PanoramaClient, DeregisterPackageVersionCommand } = require('@aws-sdk/client-panorama'); // CommonJS import
  * const client = new PanoramaClient(config);
  * const input = { // DeregisterPackageVersionRequest
- *   OwnerAccount: "STRING_VALUE",
- *   PackageId: "STRING_VALUE", // required
- *   PackageVersion: "STRING_VALUE", // required
- *   PatchVersion: "STRING_VALUE", // required
- *   UpdatedLatestPatchVersion: "STRING_VALUE",
+ *   OwnerAccount: 'STRING_VALUE',
+ *   PackageId: 'STRING_VALUE', // required
+ *   PackageVersion: 'STRING_VALUE', // required
+ *   PatchVersion: 'STRING_VALUE', // required
+ *   UpdatedLatestPatchVersion: 'STRING_VALUE',
  * };
  * const command = new DeregisterPackageVersionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeregisterPackageVersionCommandInput - {@link DeregisterPackageVersionCommandInput}
@@ -71,6 +74,8 @@ export interface DeregisterPackageVersionCommandOutput extends DeregisterPackage
  * @throws {@link ValidationException} (client fault)
  *  <p>The request contains an invalid parameter value.</p>
  *
+ * @throws {@link PanoramaServiceException}
+ * <p>Base exception class for all service exceptions from Panorama service.</p>
  *
  */
 export class DeregisterPackageVersionCommand extends $Command<

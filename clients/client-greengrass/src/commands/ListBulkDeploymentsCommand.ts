@@ -36,15 +36,27 @@ export interface ListBulkDeploymentsCommandOutput extends ListBulkDeploymentsRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GreengrassClient, ListBulkDeploymentsCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
- * // const { GreengrassClient, ListBulkDeploymentsCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
+ * import { GreengrassClient, ListBulkDeploymentsCommand } from '@aws-sdk/client-greengrass'; // ES Modules import
+ * // const { GreengrassClient, ListBulkDeploymentsCommand } = require('@aws-sdk/client-greengrass'); // CommonJS import
  * const client = new GreengrassClient(config);
  * const input = { // ListBulkDeploymentsRequest
- *   MaxResults: "STRING_VALUE",
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: 'STRING_VALUE',
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListBulkDeploymentsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListBulkDeploymentsResponse
+ *   BulkDeployments: [ // BulkDeployments
+ *     { // BulkDeployment
+ *       BulkDeploymentArn: 'STRING_VALUE',
+ *       BulkDeploymentId: 'STRING_VALUE',
+ *       CreatedAt: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListBulkDeploymentsCommandInput - {@link ListBulkDeploymentsCommandInput}
@@ -56,6 +68,8 @@ export interface ListBulkDeploymentsCommandOutput extends ListBulkDeploymentsRes
  * @throws {@link BadRequestException} (client fault)
  *  General error information.
  *
+ * @throws {@link GreengrassServiceException}
+ * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
  */
 export class ListBulkDeploymentsCommand extends $Command<

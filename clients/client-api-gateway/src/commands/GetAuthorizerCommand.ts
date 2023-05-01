@@ -36,15 +36,31 @@ export interface GetAuthorizerCommandOutput extends Authorizer, __MetadataBearer
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { APIGatewayClient, GetAuthorizerCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
- * // const { APIGatewayClient, GetAuthorizerCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
+ * import { APIGatewayClient, GetAuthorizerCommand } from '@aws-sdk/client-api-gateway'; // ES Modules import
+ * // const { APIGatewayClient, GetAuthorizerCommand } = require('@aws-sdk/client-api-gateway'); // CommonJS import
  * const client = new APIGatewayClient(config);
  * const input = { // GetAuthorizerRequest
- *   restApiId: "STRING_VALUE", // required
- *   authorizerId: "STRING_VALUE", // required
+ *   restApiId: 'STRING_VALUE', // required
+ *   authorizerId: 'STRING_VALUE', // required
  * };
  * const command = new GetAuthorizerCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // Authorizer
+ *   id: 'STRING_VALUE',
+ *   name: 'STRING_VALUE',
+ *   type: 'TOKEN' || 'REQUEST' || 'COGNITO_USER_POOLS',
+ *   providerARNs: [ // ListOfARNs
+ *     'STRING_VALUE',
+ *   ],
+ *   authType: 'STRING_VALUE',
+ *   authorizerUri: 'STRING_VALUE',
+ *   authorizerCredentials: 'STRING_VALUE',
+ *   identitySource: 'STRING_VALUE',
+ *   identityValidationExpression: 'STRING_VALUE',
+ *   authorizerResultTtlInSeconds: Number('int'),
+ * };
+ *
  * ```
  *
  * @param GetAuthorizerCommandInput - {@link GetAuthorizerCommandInput}
@@ -65,6 +81,8 @@ export interface GetAuthorizerCommandOutput extends Authorizer, __MetadataBearer
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The request is denied because the caller has insufficient permissions.</p>
  *
+ * @throws {@link APIGatewayServiceException}
+ * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
  */
 export class GetAuthorizerCommand extends $Command<

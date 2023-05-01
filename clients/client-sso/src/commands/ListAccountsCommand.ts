@@ -38,16 +38,28 @@ export interface ListAccountsCommandOutput extends ListAccountsResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSOClient, ListAccountsCommand } from "@aws-sdk/client-sso"; // ES Modules import
- * // const { SSOClient, ListAccountsCommand } = require("@aws-sdk/client-sso"); // CommonJS import
+ * import { SSOClient, ListAccountsCommand } from '@aws-sdk/client-sso'; // ES Modules import
+ * // const { SSOClient, ListAccountsCommand } = require('@aws-sdk/client-sso'); // CommonJS import
  * const client = new SSOClient(config);
  * const input = { // ListAccountsRequest
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
- *   accessToken: "STRING_VALUE", // required
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
+ *   accessToken: 'STRING_VALUE', // required
  * };
  * const command = new ListAccountsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListAccountsResponse
+ *   nextToken: 'STRING_VALUE',
+ *   accountList: [ // AccountListType
+ *     { // AccountInfo
+ *       accountId: 'STRING_VALUE',
+ *       accountName: 'STRING_VALUE',
+ *       emailAddress: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListAccountsCommandInput - {@link ListAccountsCommandInput}
@@ -71,6 +83,8 @@ export interface ListAccountsCommandOutput extends ListAccountsResponse, __Metad
  *  <p>Indicates that the request is not authorized. This can happen due to an invalid access
  *       token in the request.</p>
  *
+ * @throws {@link SSOServiceException}
+ * <p>Base exception class for all service exceptions from SSO service.</p>
  *
  */
 export class ListAccountsCommand extends $Command<

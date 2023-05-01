@@ -40,15 +40,18 @@ export interface DeletePackageCommandOutput extends DeletePackageResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PanoramaClient, DeletePackageCommand } from "@aws-sdk/client-panorama"; // ES Modules import
- * // const { PanoramaClient, DeletePackageCommand } = require("@aws-sdk/client-panorama"); // CommonJS import
+ * import { PanoramaClient, DeletePackageCommand } from '@aws-sdk/client-panorama'; // ES Modules import
+ * // const { PanoramaClient, DeletePackageCommand } = require('@aws-sdk/client-panorama'); // CommonJS import
  * const client = new PanoramaClient(config);
  * const input = { // DeletePackageRequest
- *   PackageId: "STRING_VALUE", // required
+ *   PackageId: 'STRING_VALUE', // required
  *   ForceDelete: true || false,
  * };
  * const command = new DeletePackageCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeletePackageCommandInput - {@link DeletePackageCommandInput}
@@ -72,6 +75,8 @@ export interface DeletePackageCommandOutput extends DeletePackageResponse, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>The request contains an invalid parameter value.</p>
  *
+ * @throws {@link PanoramaServiceException}
+ * <p>Base exception class for all service exceptions from Panorama service.</p>
  *
  */
 export class DeletePackageCommand extends $Command<

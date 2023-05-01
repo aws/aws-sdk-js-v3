@@ -40,15 +40,27 @@ export interface RegisterTransitGatewayCommandOutput extends RegisterTransitGate
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { NetworkManagerClient, RegisterTransitGatewayCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
- * // const { NetworkManagerClient, RegisterTransitGatewayCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
+ * import { NetworkManagerClient, RegisterTransitGatewayCommand } from '@aws-sdk/client-networkmanager'; // ES Modules import
+ * // const { NetworkManagerClient, RegisterTransitGatewayCommand } = require('@aws-sdk/client-networkmanager'); // CommonJS import
  * const client = new NetworkManagerClient(config);
  * const input = { // RegisterTransitGatewayRequest
- *   GlobalNetworkId: "STRING_VALUE", // required
- *   TransitGatewayArn: "STRING_VALUE", // required
+ *   GlobalNetworkId: 'STRING_VALUE', // required
+ *   TransitGatewayArn: 'STRING_VALUE', // required
  * };
  * const command = new RegisterTransitGatewayCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // RegisterTransitGatewayResponse
+ *   TransitGatewayRegistration: { // TransitGatewayRegistration
+ *     GlobalNetworkId: 'STRING_VALUE',
+ *     TransitGatewayArn: 'STRING_VALUE',
+ *     State: { // TransitGatewayRegistrationStateReason
+ *       Code: 'PENDING' || 'AVAILABLE' || 'DELETING' || 'DELETED' || 'FAILED',
+ *       Message: 'STRING_VALUE',
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param RegisterTransitGatewayCommandInput - {@link RegisterTransitGatewayCommandInput}
@@ -76,6 +88,8 @@ export interface RegisterTransitGatewayCommandOutput extends RegisterTransitGate
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints.</p>
  *
+ * @throws {@link NetworkManagerServiceException}
+ * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
  */
 export class RegisterTransitGatewayCommand extends $Command<

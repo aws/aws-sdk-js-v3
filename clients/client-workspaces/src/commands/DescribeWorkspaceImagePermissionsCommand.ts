@@ -41,16 +41,27 @@ export interface DescribeWorkspaceImagePermissionsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkSpacesClient, DescribeWorkspaceImagePermissionsCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
- * // const { WorkSpacesClient, DescribeWorkspaceImagePermissionsCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
+ * import { WorkSpacesClient, DescribeWorkspaceImagePermissionsCommand } from '@aws-sdk/client-workspaces'; // ES Modules import
+ * // const { WorkSpacesClient, DescribeWorkspaceImagePermissionsCommand } = require('@aws-sdk/client-workspaces'); // CommonJS import
  * const client = new WorkSpacesClient(config);
  * const input = { // DescribeWorkspaceImagePermissionsRequest
- *   ImageId: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   ImageId: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new DescribeWorkspaceImagePermissionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeWorkspaceImagePermissionsResult
+ *   ImageId: 'STRING_VALUE',
+ *   ImagePermissions: [ // ImagePermissions
+ *     { // ImagePermission
+ *       SharedAccountId: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeWorkspaceImagePermissionsCommandInput - {@link DescribeWorkspaceImagePermissionsCommandInput}
@@ -68,6 +79,8 @@ export interface DescribeWorkspaceImagePermissionsCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource could not be found.</p>
  *
+ * @throws {@link WorkSpacesServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
  */
 export class DescribeWorkspaceImagePermissionsCommand extends $Command<

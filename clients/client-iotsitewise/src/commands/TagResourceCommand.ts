@@ -37,17 +37,20 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTSiteWiseClient, TagResourceCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
- * // const { IoTSiteWiseClient, TagResourceCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
+ * import { IoTSiteWiseClient, TagResourceCommand } from '@aws-sdk/client-iotsitewise'; // ES Modules import
+ * // const { IoTSiteWiseClient, TagResourceCommand } = require('@aws-sdk/client-iotsitewise'); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
  * const input = { // TagResourceRequest
- *   resourceArn: "STRING_VALUE", // required
+ *   resourceArn: 'STRING_VALUE', // required
  *   tags: { // TagMap // required
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param TagResourceCommandInput - {@link TagResourceCommandInput}
@@ -90,6 +93,8 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized.</p>
  *
+ * @throws {@link IoTSiteWiseServiceException}
+ * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
  */
 export class TagResourceCommand extends $Command<

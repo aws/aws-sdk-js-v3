@@ -37,15 +37,21 @@ export interface DeleteAppAssessmentCommandOutput extends DeleteAppAssessmentRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ResiliencehubClient, DeleteAppAssessmentCommand } from "@aws-sdk/client-resiliencehub"; // ES Modules import
- * // const { ResiliencehubClient, DeleteAppAssessmentCommand } = require("@aws-sdk/client-resiliencehub"); // CommonJS import
+ * import { ResiliencehubClient, DeleteAppAssessmentCommand } from '@aws-sdk/client-resiliencehub'; // ES Modules import
+ * // const { ResiliencehubClient, DeleteAppAssessmentCommand } = require('@aws-sdk/client-resiliencehub'); // CommonJS import
  * const client = new ResiliencehubClient(config);
  * const input = { // DeleteAppAssessmentRequest
- *   assessmentArn: "STRING_VALUE", // required
- *   clientToken: "STRING_VALUE",
+ *   assessmentArn: 'STRING_VALUE', // required
+ *   clientToken: 'STRING_VALUE',
  * };
  * const command = new DeleteAppAssessmentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteAppAssessmentResponse
+ *   assessmentArn: 'STRING_VALUE', // required
+ *   assessmentStatus: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param DeleteAppAssessmentCommandInput - {@link DeleteAppAssessmentCommandInput}
@@ -78,6 +84,8 @@ export interface DeleteAppAssessmentCommandOutput extends DeleteAppAssessmentRes
  * @throws {@link ValidationException} (client fault)
  *  <p>This exception occurs when a request is not valid.</p>
  *
+ * @throws {@link ResiliencehubServiceException}
+ * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
  */
 export class DeleteAppAssessmentCommand extends $Command<

@@ -54,25 +54,40 @@ export interface UpdateRuntimeConfigurationCommandOutput extends UpdateRuntimeCo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GameLiftClient, UpdateRuntimeConfigurationCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
- * // const { GameLiftClient, UpdateRuntimeConfigurationCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
+ * import { GameLiftClient, UpdateRuntimeConfigurationCommand } from '@aws-sdk/client-gamelift'; // ES Modules import
+ * // const { GameLiftClient, UpdateRuntimeConfigurationCommand } = require('@aws-sdk/client-gamelift'); // CommonJS import
  * const client = new GameLiftClient(config);
  * const input = { // UpdateRuntimeConfigurationInput
- *   FleetId: "STRING_VALUE", // required
+ *   FleetId: 'STRING_VALUE', // required
  *   RuntimeConfiguration: { // RuntimeConfiguration
  *     ServerProcesses: [ // ServerProcessList
  *       { // ServerProcess
- *         LaunchPath: "STRING_VALUE", // required
- *         Parameters: "STRING_VALUE",
- *         ConcurrentExecutions: Number("int"), // required
+ *         LaunchPath: 'STRING_VALUE', // required
+ *         Parameters: 'STRING_VALUE',
+ *         ConcurrentExecutions: Number('int'), // required
  *       },
  *     ],
- *     MaxConcurrentGameSessionActivations: Number("int"),
- *     GameSessionActivationTimeoutSeconds: Number("int"),
+ *     MaxConcurrentGameSessionActivations: Number('int'),
+ *     GameSessionActivationTimeoutSeconds: Number('int'),
  *   },
  * };
  * const command = new UpdateRuntimeConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateRuntimeConfigurationOutput
+ *   RuntimeConfiguration: { // RuntimeConfiguration
+ *     ServerProcesses: [ // ServerProcessList
+ *       { // ServerProcess
+ *         LaunchPath: 'STRING_VALUE', // required
+ *         Parameters: 'STRING_VALUE',
+ *         ConcurrentExecutions: Number('int'), // required
+ *       },
+ *     ],
+ *     MaxConcurrentGameSessionActivations: Number('int'),
+ *     GameSessionActivationTimeoutSeconds: Number('int'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateRuntimeConfigurationCommandInput - {@link UpdateRuntimeConfigurationCommandInput}
@@ -100,6 +115,8 @@ export interface UpdateRuntimeConfigurationCommandOutput extends UpdateRuntimeCo
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client failed authentication. Clients should not retry such requests.</p>
  *
+ * @throws {@link GameLiftServiceException}
+ * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
  */
 export class UpdateRuntimeConfigurationCommand extends $Command<

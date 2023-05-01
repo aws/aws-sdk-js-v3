@@ -48,37 +48,37 @@ export interface CreateLaunchConfigurationCommandOutput extends __MetadataBearer
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AutoScalingClient, CreateLaunchConfigurationCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
- * // const { AutoScalingClient, CreateLaunchConfigurationCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
+ * import { AutoScalingClient, CreateLaunchConfigurationCommand } from '@aws-sdk/client-auto-scaling'; // ES Modules import
+ * // const { AutoScalingClient, CreateLaunchConfigurationCommand } = require('@aws-sdk/client-auto-scaling'); // CommonJS import
  * const client = new AutoScalingClient(config);
  * const input = { // CreateLaunchConfigurationType
- *   LaunchConfigurationName: "STRING_VALUE", // required
- *   ImageId: "STRING_VALUE",
- *   KeyName: "STRING_VALUE",
+ *   LaunchConfigurationName: 'STRING_VALUE', // required
+ *   ImageId: 'STRING_VALUE',
+ *   KeyName: 'STRING_VALUE',
  *   SecurityGroups: [ // SecurityGroups
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   ClassicLinkVPCId: "STRING_VALUE",
+ *   ClassicLinkVPCId: 'STRING_VALUE',
  *   ClassicLinkVPCSecurityGroups: [ // ClassicLinkVPCSecurityGroups
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   UserData: "STRING_VALUE",
- *   InstanceId: "STRING_VALUE",
- *   InstanceType: "STRING_VALUE",
- *   KernelId: "STRING_VALUE",
- *   RamdiskId: "STRING_VALUE",
+ *   UserData: 'STRING_VALUE',
+ *   InstanceId: 'STRING_VALUE',
+ *   InstanceType: 'STRING_VALUE',
+ *   KernelId: 'STRING_VALUE',
+ *   RamdiskId: 'STRING_VALUE',
  *   BlockDeviceMappings: [ // BlockDeviceMappings
  *     { // BlockDeviceMapping
- *       VirtualName: "STRING_VALUE",
- *       DeviceName: "STRING_VALUE", // required
+ *       VirtualName: 'STRING_VALUE',
+ *       DeviceName: 'STRING_VALUE', // required
  *       Ebs: { // Ebs
- *         SnapshotId: "STRING_VALUE",
- *         VolumeSize: Number("int"),
- *         VolumeType: "STRING_VALUE",
+ *         SnapshotId: 'STRING_VALUE',
+ *         VolumeSize: Number('int'),
+ *         VolumeType: 'STRING_VALUE',
  *         DeleteOnTermination: true || false,
- *         Iops: Number("int"),
+ *         Iops: Number('int'),
  *         Encrypted: true || false,
- *         Throughput: Number("int"),
+ *         Throughput: Number('int'),
  *       },
  *       NoDevice: true || false,
  *     },
@@ -86,19 +86,22 @@ export interface CreateLaunchConfigurationCommandOutput extends __MetadataBearer
  *   InstanceMonitoring: { // InstanceMonitoring
  *     Enabled: true || false,
  *   },
- *   SpotPrice: "STRING_VALUE",
- *   IamInstanceProfile: "STRING_VALUE",
+ *   SpotPrice: 'STRING_VALUE',
+ *   IamInstanceProfile: 'STRING_VALUE',
  *   EbsOptimized: true || false,
  *   AssociatePublicIpAddress: true || false,
- *   PlacementTenancy: "STRING_VALUE",
+ *   PlacementTenancy: 'STRING_VALUE',
  *   MetadataOptions: { // InstanceMetadataOptions
- *     HttpTokens: "optional" || "required",
- *     HttpPutResponseHopLimit: Number("int"),
- *     HttpEndpoint: "disabled" || "enabled",
+ *     HttpTokens: 'optional' || 'required',
+ *     HttpPutResponseHopLimit: Number('int'),
+ *     HttpEndpoint: 'disabled' || 'enabled',
  *   },
  * };
  * const command = new CreateLaunchConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param CreateLaunchConfigurationCommandInput - {@link CreateLaunchConfigurationCommandInput}
@@ -120,6 +123,8 @@ export interface CreateLaunchConfigurationCommandOutput extends __MetadataBearer
  *  <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group,
  *             instance, or load balancer).</p>
  *
+ * @throws {@link AutoScalingServiceException}
+ * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
  * @example To create a launch configuration
  * ```javascript

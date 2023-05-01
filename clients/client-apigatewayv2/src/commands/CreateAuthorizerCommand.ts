@@ -36,31 +36,53 @@ export interface CreateAuthorizerCommandOutput extends CreateAuthorizerResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ApiGatewayV2Client, CreateAuthorizerCommand } from "@aws-sdk/client-apigatewayv2"; // ES Modules import
- * // const { ApiGatewayV2Client, CreateAuthorizerCommand } = require("@aws-sdk/client-apigatewayv2"); // CommonJS import
+ * import { ApiGatewayV2Client, CreateAuthorizerCommand } from '@aws-sdk/client-apigatewayv2'; // ES Modules import
+ * // const { ApiGatewayV2Client, CreateAuthorizerCommand } = require('@aws-sdk/client-apigatewayv2'); // CommonJS import
  * const client = new ApiGatewayV2Client(config);
  * const input = { // CreateAuthorizerRequest
- *   ApiId: "STRING_VALUE", // required
- *   AuthorizerCredentialsArn: "STRING_VALUE",
- *   AuthorizerPayloadFormatVersion: "STRING_VALUE",
- *   AuthorizerResultTtlInSeconds: Number("int"),
- *   AuthorizerType: "STRING_VALUE", // required
- *   AuthorizerUri: "STRING_VALUE",
+ *   ApiId: 'STRING_VALUE', // required
+ *   AuthorizerCredentialsArn: 'STRING_VALUE',
+ *   AuthorizerPayloadFormatVersion: 'STRING_VALUE',
+ *   AuthorizerResultTtlInSeconds: Number('int'),
+ *   AuthorizerType: 'STRING_VALUE', // required
+ *   AuthorizerUri: 'STRING_VALUE',
  *   EnableSimpleResponses: true || false,
  *   IdentitySource: [ // IdentitySourceList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   IdentityValidationExpression: "STRING_VALUE",
+ *   IdentityValidationExpression: 'STRING_VALUE',
  *   JwtConfiguration: { // JWTConfiguration
  *     Audience: [ // __listOf__string
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
- *     Issuer: "STRING_VALUE",
+ *     Issuer: 'STRING_VALUE',
  *   },
- *   Name: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
  * };
  * const command = new CreateAuthorizerCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateAuthorizerResponse
+ *   AuthorizerCredentialsArn: 'STRING_VALUE',
+ *   AuthorizerId: 'STRING_VALUE',
+ *   AuthorizerPayloadFormatVersion: 'STRING_VALUE',
+ *   AuthorizerResultTtlInSeconds: Number('int'),
+ *   AuthorizerType: 'STRING_VALUE',
+ *   AuthorizerUri: 'STRING_VALUE',
+ *   EnableSimpleResponses: true || false,
+ *   IdentitySource: [ // IdentitySourceList
+ *     'STRING_VALUE',
+ *   ],
+ *   IdentityValidationExpression: 'STRING_VALUE',
+ *   JwtConfiguration: { // JWTConfiguration
+ *     Audience: [ // __listOf__string
+ *       'STRING_VALUE',
+ *     ],
+ *     Issuer: 'STRING_VALUE',
+ *   },
+ *   Name: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateAuthorizerCommandInput - {@link CreateAuthorizerCommandInput}
@@ -81,6 +103,8 @@ export interface CreateAuthorizerCommandOutput extends CreateAuthorizerResponse,
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>A limit has been exceeded. See the accompanying error message for details.</p>
  *
+ * @throws {@link ApiGatewayV2ServiceException}
+ * <p>Base exception class for all service exceptions from ApiGatewayV2 service.</p>
  *
  */
 export class CreateAuthorizerCommand extends $Command<

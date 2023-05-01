@@ -36,88 +36,93 @@ export interface CreateRecipeJobCommandOutput extends CreateRecipeJobResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DataBrewClient, CreateRecipeJobCommand } from "@aws-sdk/client-databrew"; // ES Modules import
- * // const { DataBrewClient, CreateRecipeJobCommand } = require("@aws-sdk/client-databrew"); // CommonJS import
+ * import { DataBrewClient, CreateRecipeJobCommand } from '@aws-sdk/client-databrew'; // ES Modules import
+ * // const { DataBrewClient, CreateRecipeJobCommand } = require('@aws-sdk/client-databrew'); // CommonJS import
  * const client = new DataBrewClient(config);
  * const input = { // CreateRecipeJobRequest
- *   DatasetName: "STRING_VALUE",
- *   EncryptionKeyArn: "STRING_VALUE",
- *   EncryptionMode: "SSE-KMS" || "SSE-S3",
- *   Name: "STRING_VALUE", // required
- *   LogSubscription: "ENABLE" || "DISABLE",
- *   MaxCapacity: Number("int"),
- *   MaxRetries: Number("int"),
+ *   DatasetName: 'STRING_VALUE',
+ *   EncryptionKeyArn: 'STRING_VALUE',
+ *   EncryptionMode: 'SSE-KMS' || 'SSE-S3',
+ *   Name: 'STRING_VALUE', // required
+ *   LogSubscription: 'ENABLE' || 'DISABLE',
+ *   MaxCapacity: Number('int'),
+ *   MaxRetries: Number('int'),
  *   Outputs: [ // OutputList
  *     { // Output
- *       CompressionFormat: "GZIP" || "LZ4" || "SNAPPY" || "BZIP2" || "DEFLATE" || "LZO" || "BROTLI" || "ZSTD" || "ZLIB",
- *       Format: "CSV" || "JSON" || "PARQUET" || "GLUEPARQUET" || "AVRO" || "ORC" || "XML" || "TABLEAUHYPER",
+ *       CompressionFormat: 'GZIP' || 'LZ4' || 'SNAPPY' || 'BZIP2' || 'DEFLATE' || 'LZO' || 'BROTLI' || 'ZSTD' || 'ZLIB',
+ *       Format: 'CSV' || 'JSON' || 'PARQUET' || 'GLUEPARQUET' || 'AVRO' || 'ORC' || 'XML' || 'TABLEAUHYPER',
  *       PartitionColumns: [ // ColumnNameList
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *       Location: { // S3Location
- *         Bucket: "STRING_VALUE", // required
- *         Key: "STRING_VALUE",
- *         BucketOwner: "STRING_VALUE",
+ *         Bucket: 'STRING_VALUE', // required
+ *         Key: 'STRING_VALUE',
+ *         BucketOwner: 'STRING_VALUE',
  *       },
  *       Overwrite: true || false,
  *       FormatOptions: { // OutputFormatOptions
  *         Csv: { // CsvOutputOptions
- *           Delimiter: "STRING_VALUE",
+ *           Delimiter: 'STRING_VALUE',
  *         },
  *       },
- *       MaxOutputFiles: Number("int"),
+ *       MaxOutputFiles: Number('int'),
  *     },
  *   ],
  *   DataCatalogOutputs: [ // DataCatalogOutputList
  *     { // DataCatalogOutput
- *       CatalogId: "STRING_VALUE",
- *       DatabaseName: "STRING_VALUE", // required
- *       TableName: "STRING_VALUE", // required
+ *       CatalogId: 'STRING_VALUE',
+ *       DatabaseName: 'STRING_VALUE', // required
+ *       TableName: 'STRING_VALUE', // required
  *       S3Options: { // S3TableOutputOptions
  *         Location: {
- *           Bucket: "STRING_VALUE", // required
- *           Key: "STRING_VALUE",
- *           BucketOwner: "STRING_VALUE",
+ *           Bucket: 'STRING_VALUE', // required
+ *           Key: 'STRING_VALUE',
+ *           BucketOwner: 'STRING_VALUE',
  *         },
  *       },
  *       DatabaseOptions: { // DatabaseTableOutputOptions
  *         TempDirectory: {
- *           Bucket: "STRING_VALUE", // required
- *           Key: "STRING_VALUE",
- *           BucketOwner: "STRING_VALUE",
+ *           Bucket: 'STRING_VALUE', // required
+ *           Key: 'STRING_VALUE',
+ *           BucketOwner: 'STRING_VALUE',
  *         },
- *         TableName: "STRING_VALUE", // required
+ *         TableName: 'STRING_VALUE', // required
  *       },
  *       Overwrite: true || false,
  *     },
  *   ],
  *   DatabaseOutputs: [ // DatabaseOutputList
  *     { // DatabaseOutput
- *       GlueConnectionName: "STRING_VALUE", // required
+ *       GlueConnectionName: 'STRING_VALUE', // required
  *       DatabaseOptions: {
  *         TempDirectory: {
- *           Bucket: "STRING_VALUE", // required
- *           Key: "STRING_VALUE",
- *           BucketOwner: "STRING_VALUE",
+ *           Bucket: 'STRING_VALUE', // required
+ *           Key: 'STRING_VALUE',
+ *           BucketOwner: 'STRING_VALUE',
  *         },
- *         TableName: "STRING_VALUE", // required
+ *         TableName: 'STRING_VALUE', // required
  *       },
- *       DatabaseOutputMode: "NEW_TABLE",
+ *       DatabaseOutputMode: 'NEW_TABLE',
  *     },
  *   ],
- *   ProjectName: "STRING_VALUE",
+ *   ProjectName: 'STRING_VALUE',
  *   RecipeReference: { // RecipeReference
- *     Name: "STRING_VALUE", // required
- *     RecipeVersion: "STRING_VALUE",
+ *     Name: 'STRING_VALUE', // required
+ *     RecipeVersion: 'STRING_VALUE',
  *   },
- *   RoleArn: "STRING_VALUE", // required
+ *   RoleArn: 'STRING_VALUE', // required
  *   Tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
- *   Timeout: Number("int"),
+ *   Timeout: Number('int'),
  * };
  * const command = new CreateRecipeJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateRecipeJobResponse
+ *   Name: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param CreateRecipeJobCommandInput - {@link CreateRecipeJobCommandInput}
@@ -141,6 +146,8 @@ export interface CreateRecipeJobCommandOutput extends CreateRecipeJobResponse, _
  * @throws {@link ValidationException} (client fault)
  *  <p>The input parameters for this request failed validation.</p>
  *
+ * @throws {@link DataBrewServiceException}
+ * <p>Base exception class for all service exceptions from DataBrew service.</p>
  *
  */
 export class CreateRecipeJobCommand extends $Command<

@@ -41,15 +41,24 @@ export interface DeleteVpcEndpointCommandOutput extends DeleteVpcEndpointRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OpenSearchServerlessClient, DeleteVpcEndpointCommand } from "@aws-sdk/client-opensearchserverless"; // ES Modules import
- * // const { OpenSearchServerlessClient, DeleteVpcEndpointCommand } = require("@aws-sdk/client-opensearchserverless"); // CommonJS import
+ * import { OpenSearchServerlessClient, DeleteVpcEndpointCommand } from '@aws-sdk/client-opensearchserverless'; // ES Modules import
+ * // const { OpenSearchServerlessClient, DeleteVpcEndpointCommand } = require('@aws-sdk/client-opensearchserverless'); // CommonJS import
  * const client = new OpenSearchServerlessClient(config);
  * const input = { // DeleteVpcEndpointRequest
- *   id: "STRING_VALUE", // required
- *   clientToken: "STRING_VALUE",
+ *   id: 'STRING_VALUE', // required
+ *   clientToken: 'STRING_VALUE',
  * };
  * const command = new DeleteVpcEndpointCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteVpcEndpointResponse
+ *   deleteVpcEndpointDetail: { // DeleteVpcEndpointDetail
+ *     id: 'STRING_VALUE',
+ *     name: 'STRING_VALUE',
+ *     status: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param DeleteVpcEndpointCommandInput - {@link DeleteVpcEndpointCommandInput}
@@ -73,6 +82,8 @@ export interface DeleteVpcEndpointCommandOutput extends DeleteVpcEndpointRespons
  *  <p>Thrown when the HTTP request contains invalid input or is missing required
  *             input.</p>
  *
+ * @throws {@link OpenSearchServerlessServiceException}
+ * <p>Base exception class for all service exceptions from OpenSearchServerless service.</p>
  *
  */
 export class DeleteVpcEndpointCommand extends $Command<

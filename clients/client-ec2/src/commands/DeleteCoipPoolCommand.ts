@@ -36,15 +36,33 @@ export interface DeleteCoipPoolCommandOutput extends DeleteCoipPoolResult, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, DeleteCoipPoolCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, DeleteCoipPoolCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, DeleteCoipPoolCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, DeleteCoipPoolCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // DeleteCoipPoolRequest
- *   CoipPoolId: "STRING_VALUE", // required
+ *   CoipPoolId: 'STRING_VALUE', // required
  *   DryRun: true || false,
  * };
  * const command = new DeleteCoipPoolCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteCoipPoolResult
+ *   CoipPool: { // CoipPool
+ *     PoolId: 'STRING_VALUE',
+ *     PoolCidrs: [ // ValueStringList
+ *       'STRING_VALUE',
+ *     ],
+ *     LocalGatewayRouteTableId: 'STRING_VALUE',
+ *     Tags: [ // TagList
+ *       { // Tag
+ *         Key: 'STRING_VALUE',
+ *         Value: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     PoolArn: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param DeleteCoipPoolCommandInput - {@link DeleteCoipPoolCommandInput}
@@ -53,6 +71,8 @@ export interface DeleteCoipPoolCommandOutput extends DeleteCoipPoolResult, __Met
  * @see {@link DeleteCoipPoolCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class DeleteCoipPoolCommand extends $Command<

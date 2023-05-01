@@ -36,17 +36,20 @@ export interface UntagResourceCommandOutput extends UntagResourceOutput, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AthenaClient, UntagResourceCommand } from "@aws-sdk/client-athena"; // ES Modules import
- * // const { AthenaClient, UntagResourceCommand } = require("@aws-sdk/client-athena"); // CommonJS import
+ * import { AthenaClient, UntagResourceCommand } from '@aws-sdk/client-athena'; // ES Modules import
+ * // const { AthenaClient, UntagResourceCommand } = require('@aws-sdk/client-athena'); // CommonJS import
  * const client = new AthenaClient(config);
  * const input = { // UntagResourceInput
- *   ResourceARN: "STRING_VALUE", // required
+ *   ResourceARN: 'STRING_VALUE', // required
  *   TagKeys: [ // TagKeyList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new UntagResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UntagResourceCommandInput - {@link UntagResourceCommandInput}
@@ -66,6 +69,8 @@ export interface UntagResourceCommandOutput extends UntagResourceOutput, __Metad
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>A resource, such as a workgroup, was not found.</p>
  *
+ * @throws {@link AthenaServiceException}
+ * <p>Base exception class for all service exceptions from Athena service.</p>
  *
  */
 export class UntagResourceCommand extends $Command<

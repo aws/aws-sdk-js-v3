@@ -36,15 +36,32 @@ export interface ListInstanceProfilesCommandOutput extends ListInstanceProfilesR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DeviceFarmClient, ListInstanceProfilesCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
- * // const { DeviceFarmClient, ListInstanceProfilesCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
+ * import { DeviceFarmClient, ListInstanceProfilesCommand } from '@aws-sdk/client-device-farm'; // ES Modules import
+ * // const { DeviceFarmClient, ListInstanceProfilesCommand } = require('@aws-sdk/client-device-farm'); // CommonJS import
  * const client = new DeviceFarmClient(config);
  * const input = { // ListInstanceProfilesRequest
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new ListInstanceProfilesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListInstanceProfilesResult
+ *   instanceProfiles: [ // InstanceProfiles
+ *     { // InstanceProfile
+ *       arn: 'STRING_VALUE',
+ *       packageCleanup: true || false,
+ *       excludeAppPackagesFromCleanup: [ // PackageIds
+ *         'STRING_VALUE',
+ *       ],
+ *       rebootAfterUse: true || false,
+ *       name: 'STRING_VALUE',
+ *       description: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListInstanceProfilesCommandInput - {@link ListInstanceProfilesCommandInput}
@@ -65,6 +82,8 @@ export interface ListInstanceProfilesCommandOutput extends ListInstanceProfilesR
  * @throws {@link ServiceAccountException} (client fault)
  *  <p>There was a problem with the service account.</p>
  *
+ * @throws {@link DeviceFarmServiceException}
+ * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
  */
 export class ListInstanceProfilesCommand extends $Command<

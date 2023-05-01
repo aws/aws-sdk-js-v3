@@ -56,14 +56,19 @@ export interface CreateSchemaCommandOutput extends CreateSchemaResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudDirectoryClient, CreateSchemaCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
- * // const { CloudDirectoryClient, CreateSchemaCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
+ * import { CloudDirectoryClient, CreateSchemaCommand } from '@aws-sdk/client-clouddirectory'; // ES Modules import
+ * // const { CloudDirectoryClient, CreateSchemaCommand } = require('@aws-sdk/client-clouddirectory'); // CommonJS import
  * const client = new CloudDirectoryClient(config);
  * const input = { // CreateSchemaRequest
- *   Name: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
  * };
  * const command = new CreateSchemaCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateSchemaResponse
+ *   SchemaArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateSchemaCommandInput - {@link CreateSchemaCommandInput}
@@ -95,6 +100,8 @@ export interface CreateSchemaCommandOutput extends CreateSchemaResponse, __Metad
  *  <p>Indicates that your request is malformed in some manner. See the exception
  *       message.</p>
  *
+ * @throws {@link CloudDirectoryServiceException}
+ * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
  */
 export class CreateSchemaCommand extends $Command<

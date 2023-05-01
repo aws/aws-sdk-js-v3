@@ -41,16 +41,19 @@ export interface DeleteApplicationOutputCommandOutput extends DeleteApplicationO
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KinesisAnalyticsClient, DeleteApplicationOutputCommand } from "@aws-sdk/client-kinesis-analytics"; // ES Modules import
- * // const { KinesisAnalyticsClient, DeleteApplicationOutputCommand } = require("@aws-sdk/client-kinesis-analytics"); // CommonJS import
+ * import { KinesisAnalyticsClient, DeleteApplicationOutputCommand } from '@aws-sdk/client-kinesis-analytics'; // ES Modules import
+ * // const { KinesisAnalyticsClient, DeleteApplicationOutputCommand } = require('@aws-sdk/client-kinesis-analytics'); // CommonJS import
  * const client = new KinesisAnalyticsClient(config);
  * const input = { // DeleteApplicationOutputRequest
- *   ApplicationName: "STRING_VALUE", // required
- *   CurrentApplicationVersionId: Number("long"), // required
- *   OutputId: "STRING_VALUE", // required
+ *   ApplicationName: 'STRING_VALUE', // required
+ *   CurrentApplicationVersionId: Number('long'), // required
+ *   OutputId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteApplicationOutputCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteApplicationOutputCommandInput - {@link DeleteApplicationOutputCommandInput}
@@ -74,6 +77,8 @@ export interface DeleteApplicationOutputCommandOutput extends DeleteApplicationO
  * @throws {@link UnsupportedOperationException} (client fault)
  *  <p>The request was rejected because a specified parameter is not supported or a specified resource is not valid for this operation. </p>
  *
+ * @throws {@link KinesisAnalyticsServiceException}
+ * <p>Base exception class for all service exceptions from KinesisAnalytics service.</p>
  *
  */
 export class DeleteApplicationOutputCommand extends $Command<

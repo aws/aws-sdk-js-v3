@@ -38,27 +38,46 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudTrailClient, CreateChannelCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
- * // const { CloudTrailClient, CreateChannelCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
+ * import { CloudTrailClient, CreateChannelCommand } from '@aws-sdk/client-cloudtrail'; // ES Modules import
+ * // const { CloudTrailClient, CreateChannelCommand } = require('@aws-sdk/client-cloudtrail'); // CommonJS import
  * const client = new CloudTrailClient(config);
  * const input = { // CreateChannelRequest
- *   Name: "STRING_VALUE", // required
- *   Source: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
+ *   Source: 'STRING_VALUE', // required
  *   Destinations: [ // Destinations // required
  *     { // Destination
- *       Type: "EVENT_DATA_STORE" || "AWS_SERVICE", // required
- *       Location: "STRING_VALUE", // required
+ *       Type: 'EVENT_DATA_STORE' || 'AWS_SERVICE', // required
+ *       Location: 'STRING_VALUE', // required
  *     },
  *   ],
  *   Tags: [ // TagsList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new CreateChannelCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateChannelResponse
+ *   ChannelArn: 'STRING_VALUE',
+ *   Name: 'STRING_VALUE',
+ *   Source: 'STRING_VALUE',
+ *   Destinations: [ // Destinations
+ *     { // Destination
+ *       Type: 'EVENT_DATA_STORE' || 'AWS_SERVICE', // required
+ *       Location: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ *   Tags: [ // TagsList
+ *     { // Tag
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param CreateChannelCommandInput - {@link CreateChannelCommandInput}
@@ -111,6 +130,8 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  * @throws {@link UnsupportedOperationException} (client fault)
  *  <p>This exception is thrown when the requested operation is not supported.</p>
  *
+ * @throws {@link CloudTrailServiceException}
+ * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
  */
 export class CreateChannelCommand extends $Command<

@@ -36,30 +36,33 @@ export interface CreateEdgeDeploymentStageCommandOutput extends __MetadataBearer
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, CreateEdgeDeploymentStageCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, CreateEdgeDeploymentStageCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, CreateEdgeDeploymentStageCommand } from '@aws-sdk/client-sagemaker'; // ES Modules import
+ * // const { SageMakerClient, CreateEdgeDeploymentStageCommand } = require('@aws-sdk/client-sagemaker'); // CommonJS import
  * const client = new SageMakerClient(config);
  * const input = { // CreateEdgeDeploymentStageRequest
- *   EdgeDeploymentPlanName: "STRING_VALUE", // required
+ *   EdgeDeploymentPlanName: 'STRING_VALUE', // required
  *   Stages: [ // DeploymentStages // required
  *     { // DeploymentStage
- *       StageName: "STRING_VALUE", // required
+ *       StageName: 'STRING_VALUE', // required
  *       DeviceSelectionConfig: { // DeviceSelectionConfig
- *         DeviceSubsetType: "PERCENTAGE" || "SELECTION" || "NAMECONTAINS", // required
- *         Percentage: Number("int"),
+ *         DeviceSubsetType: 'PERCENTAGE' || 'SELECTION' || 'NAMECONTAINS', // required
+ *         Percentage: Number('int'),
  *         DeviceNames: [ // DeviceNames
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
- *         DeviceNameContains: "STRING_VALUE",
+ *         DeviceNameContains: 'STRING_VALUE',
  *       },
  *       DeploymentConfig: { // EdgeDeploymentConfig
- *         FailureHandlingPolicy: "ROLLBACK_ON_FAILURE" || "DO_NOTHING", // required
+ *         FailureHandlingPolicy: 'ROLLBACK_ON_FAILURE' || 'DO_NOTHING', // required
  *       },
  *     },
  *   ],
  * };
  * const command = new CreateEdgeDeploymentStageCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param CreateEdgeDeploymentStageCommandInput - {@link CreateEdgeDeploymentStageCommandInput}
@@ -72,6 +75,8 @@ export interface CreateEdgeDeploymentStageCommandOutput extends __MetadataBearer
  *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many
  *             training jobs created. </p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class CreateEdgeDeploymentStageCommand extends $Command<

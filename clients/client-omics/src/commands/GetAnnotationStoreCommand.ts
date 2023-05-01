@@ -36,14 +36,51 @@ export interface GetAnnotationStoreCommandOutput extends GetAnnotationStoreRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OmicsClient, GetAnnotationStoreCommand } from "@aws-sdk/client-omics"; // ES Modules import
- * // const { OmicsClient, GetAnnotationStoreCommand } = require("@aws-sdk/client-omics"); // CommonJS import
+ * import { OmicsClient, GetAnnotationStoreCommand } from '@aws-sdk/client-omics'; // ES Modules import
+ * // const { OmicsClient, GetAnnotationStoreCommand } = require('@aws-sdk/client-omics'); // CommonJS import
  * const client = new OmicsClient(config);
  * const input = { // GetAnnotationStoreRequest
- *   name: "STRING_VALUE", // required
+ *   name: 'STRING_VALUE', // required
  * };
  * const command = new GetAnnotationStoreCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetAnnotationStoreResponse
+ *   id: 'STRING_VALUE', // required
+ *   reference: { // ReferenceItem Union: only one key present
+ *     referenceArn: 'STRING_VALUE',
+ *   },
+ *   status: 'STRING_VALUE', // required
+ *   storeArn: 'STRING_VALUE', // required
+ *   name: 'STRING_VALUE', // required
+ *   description: 'STRING_VALUE', // required
+ *   sseConfig: { // SseConfig
+ *     type: 'STRING_VALUE', // required
+ *     keyArn: 'STRING_VALUE',
+ *   },
+ *   creationTime: new Date('TIMESTAMP'), // required
+ *   updateTime: new Date('TIMESTAMP'), // required
+ *   tags: { // TagMap // required
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ *   storeOptions: { // StoreOptions Union: only one key present
+ *     tsvStoreOptions: { // TsvStoreOptions
+ *       annotationType: 'STRING_VALUE',
+ *       formatToHeader: { // FormatToHeader
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *       schema: [ // Schema
+ *         { // SchemaItem
+ *           '<keys>': 'STRING_VALUE',
+ *         },
+ *       ],
+ *     },
+ *   },
+ *   storeFormat: 'STRING_VALUE',
+ *   statusMessage: 'STRING_VALUE', // required
+ *   storeSizeBytes: Number('long'), // required
+ * };
+ *
  * ```
  *
  * @param GetAnnotationStoreCommandInput - {@link GetAnnotationStoreCommandInput}
@@ -67,6 +104,8 @@ export interface GetAnnotationStoreCommandOutput extends GetAnnotationStoreRespo
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link OmicsServiceException}
+ * <p>Base exception class for all service exceptions from Omics service.</p>
  *
  */
 export class GetAnnotationStoreCommand extends $Command<

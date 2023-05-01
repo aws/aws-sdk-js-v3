@@ -41,19 +41,31 @@ export interface CreateRobotCommandOutput extends CreateRobotResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RoboMakerClient, CreateRobotCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
- * // const { RoboMakerClient, CreateRobotCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
+ * import { RoboMakerClient, CreateRobotCommand } from '@aws-sdk/client-robomaker'; // ES Modules import
+ * // const { RoboMakerClient, CreateRobotCommand } = require('@aws-sdk/client-robomaker'); // CommonJS import
  * const client = new RoboMakerClient(config);
  * const input = { // CreateRobotRequest
- *   name: "STRING_VALUE", // required
- *   architecture: "STRING_VALUE", // required
- *   greengrassGroupId: "STRING_VALUE", // required
+ *   name: 'STRING_VALUE', // required
+ *   architecture: 'STRING_VALUE', // required
+ *   greengrassGroupId: 'STRING_VALUE', // required
  *   tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateRobotCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateRobotResponse
+ *   arn: 'STRING_VALUE',
+ *   name: 'STRING_VALUE',
+ *   createdAt: new Date('TIMESTAMP'),
+ *   greengrassGroupId: 'STRING_VALUE',
+ *   architecture: 'STRING_VALUE',
+ *   tags: { // TagMap
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateRobotCommandInput - {@link CreateRobotCommandInput}
@@ -79,6 +91,8 @@ export interface CreateRobotCommandOutput extends CreateRobotResponse, __Metadat
  * @throws {@link ThrottlingException} (client fault)
  *  <p>AWS RoboMaker is temporarily unable to process the request. Try your call again.</p>
  *
+ * @throws {@link RoboMakerServiceException}
+ * <p>Base exception class for all service exceptions from RoboMaker service.</p>
  *
  */
 export class CreateRobotCommand extends $Command<

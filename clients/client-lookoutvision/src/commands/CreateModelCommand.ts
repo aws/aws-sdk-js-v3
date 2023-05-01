@@ -49,29 +49,46 @@ export interface CreateModelCommandOutput extends CreateModelResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LookoutVisionClient, CreateModelCommand } from "@aws-sdk/client-lookoutvision"; // ES Modules import
- * // const { LookoutVisionClient, CreateModelCommand } = require("@aws-sdk/client-lookoutvision"); // CommonJS import
+ * import { LookoutVisionClient, CreateModelCommand } from '@aws-sdk/client-lookoutvision'; // ES Modules import
+ * // const { LookoutVisionClient, CreateModelCommand } = require('@aws-sdk/client-lookoutvision'); // CommonJS import
  * const client = new LookoutVisionClient(config);
  * const input = { // CreateModelRequest
- *   ProjectName: "STRING_VALUE", // required
- *   Description: "STRING_VALUE",
- *   ClientToken: "STRING_VALUE",
+ *   ProjectName: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE',
+ *   ClientToken: 'STRING_VALUE',
  *   OutputConfig: { // OutputConfig
  *     S3Location: { // S3Location
- *       Bucket: "STRING_VALUE", // required
- *       Prefix: "STRING_VALUE",
+ *       Bucket: 'STRING_VALUE', // required
+ *       Prefix: 'STRING_VALUE',
  *     },
  *   },
- *   KmsKeyId: "STRING_VALUE",
+ *   KmsKeyId: 'STRING_VALUE',
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreateModelCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateModelResponse
+ *   ModelMetadata: { // ModelMetadata
+ *     CreationTimestamp: new Date('TIMESTAMP'),
+ *     ModelVersion: 'STRING_VALUE',
+ *     ModelArn: 'STRING_VALUE',
+ *     Description: 'STRING_VALUE',
+ *     Status: 'TRAINING' || 'TRAINED' || 'TRAINING_FAILED' || 'STARTING_HOSTING' || 'HOSTED' || 'HOSTING_FAILED' || 'STOPPING_HOSTING' || 'SYSTEM_UPDATING' || 'DELETING',
+ *     StatusMessage: 'STRING_VALUE',
+ *     Performance: { // ModelPerformance
+ *       F1Score: Number('float'),
+ *       Recall: Number('float'),
+ *       Precision: Number('float'),
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateModelCommandInput - {@link CreateModelCommandInput}
@@ -103,6 +120,8 @@ export interface CreateModelCommandOutput extends CreateModelResponse, __Metadat
  *  <p>An input validation error occured. For example, invalid characters in a project name,
  *       or if a pagination token is invalid.</p>
  *
+ * @throws {@link LookoutVisionServiceException}
+ * <p>Base exception class for all service exceptions from LookoutVision service.</p>
  *
  */
 export class CreateModelCommand extends $Command<

@@ -48,15 +48,18 @@ export interface SetIdentityDkimEnabledCommandOutput extends SetIdentityDkimEnab
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SESClient, SetIdentityDkimEnabledCommand } from "@aws-sdk/client-ses"; // ES Modules import
- * // const { SESClient, SetIdentityDkimEnabledCommand } = require("@aws-sdk/client-ses"); // CommonJS import
+ * import { SESClient, SetIdentityDkimEnabledCommand } from '@aws-sdk/client-ses'; // ES Modules import
+ * // const { SESClient, SetIdentityDkimEnabledCommand } = require('@aws-sdk/client-ses'); // CommonJS import
  * const client = new SESClient(config);
  * const input = { // SetIdentityDkimEnabledRequest
- *   Identity: "STRING_VALUE", // required
+ *   Identity: 'STRING_VALUE', // required
  *   DkimEnabled: true || false, // required
  * };
  * const command = new SetIdentityDkimEnabledCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param SetIdentityDkimEnabledCommandInput - {@link SetIdentityDkimEnabledCommandInput}
@@ -65,6 +68,8 @@ export interface SetIdentityDkimEnabledCommandOutput extends SetIdentityDkimEnab
  * @see {@link SetIdentityDkimEnabledCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
+ * @throws {@link SESServiceException}
+ * <p>Base exception class for all service exceptions from SES service.</p>
  *
  * @example SetIdentityDkimEnabled
  * ```javascript

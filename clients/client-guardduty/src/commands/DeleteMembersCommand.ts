@@ -40,17 +40,27 @@ export interface DeleteMembersCommandOutput extends DeleteMembersResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GuardDutyClient, DeleteMembersCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
- * // const { GuardDutyClient, DeleteMembersCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
+ * import { GuardDutyClient, DeleteMembersCommand } from '@aws-sdk/client-guardduty'; // ES Modules import
+ * // const { GuardDutyClient, DeleteMembersCommand } = require('@aws-sdk/client-guardduty'); // CommonJS import
  * const client = new GuardDutyClient(config);
  * const input = { // DeleteMembersRequest
- *   DetectorId: "STRING_VALUE", // required
+ *   DetectorId: 'STRING_VALUE', // required
  *   AccountIds: [ // AccountIds // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new DeleteMembersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteMembersResponse
+ *   UnprocessedAccounts: [ // UnprocessedAccounts // required
+ *     { // UnprocessedAccount
+ *       AccountId: 'STRING_VALUE', // required
+ *       Result: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DeleteMembersCommandInput - {@link DeleteMembersCommandInput}
@@ -65,6 +75,8 @@ export interface DeleteMembersCommandOutput extends DeleteMembersResponse, __Met
  * @throws {@link InternalServerErrorException} (server fault)
  *  <p>An internal server error exception object.</p>
  *
+ * @throws {@link GuardDutyServiceException}
+ * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
  */
 export class DeleteMembersCommand extends $Command<

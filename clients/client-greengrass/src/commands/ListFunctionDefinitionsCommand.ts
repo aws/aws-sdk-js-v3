@@ -36,15 +36,34 @@ export interface ListFunctionDefinitionsCommandOutput extends ListFunctionDefini
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GreengrassClient, ListFunctionDefinitionsCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
- * // const { GreengrassClient, ListFunctionDefinitionsCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
+ * import { GreengrassClient, ListFunctionDefinitionsCommand } from '@aws-sdk/client-greengrass'; // ES Modules import
+ * // const { GreengrassClient, ListFunctionDefinitionsCommand } = require('@aws-sdk/client-greengrass'); // CommonJS import
  * const client = new GreengrassClient(config);
  * const input = { // ListFunctionDefinitionsRequest
- *   MaxResults: "STRING_VALUE",
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: 'STRING_VALUE',
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListFunctionDefinitionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListFunctionDefinitionsResponse
+ *   Definitions: [ // __listOfDefinitionInformation
+ *     { // DefinitionInformation
+ *       Arn: 'STRING_VALUE',
+ *       CreationTimestamp: 'STRING_VALUE',
+ *       Id: 'STRING_VALUE',
+ *       LastUpdatedTimestamp: 'STRING_VALUE',
+ *       LatestVersion: 'STRING_VALUE',
+ *       LatestVersionArn: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *       Tags: { // Tags
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListFunctionDefinitionsCommandInput - {@link ListFunctionDefinitionsCommandInput}
@@ -53,6 +72,8 @@ export interface ListFunctionDefinitionsCommandOutput extends ListFunctionDefini
  * @see {@link ListFunctionDefinitionsCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
  *
+ * @throws {@link GreengrassServiceException}
+ * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
  */
 export class ListFunctionDefinitionsCommand extends $Command<

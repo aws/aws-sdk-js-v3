@@ -38,17 +38,32 @@ export interface ListAcceptedPortfolioSharesCommandOutput extends ListAcceptedPo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ServiceCatalogClient, ListAcceptedPortfolioSharesCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
- * // const { ServiceCatalogClient, ListAcceptedPortfolioSharesCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
+ * import { ServiceCatalogClient, ListAcceptedPortfolioSharesCommand } from '@aws-sdk/client-service-catalog'; // ES Modules import
+ * // const { ServiceCatalogClient, ListAcceptedPortfolioSharesCommand } = require('@aws-sdk/client-service-catalog'); // CommonJS import
  * const client = new ServiceCatalogClient(config);
  * const input = { // ListAcceptedPortfolioSharesInput
- *   AcceptLanguage: "STRING_VALUE",
- *   PageToken: "STRING_VALUE",
- *   PageSize: Number("int"),
- *   PortfolioShareType: "IMPORTED" || "AWS_SERVICECATALOG" || "AWS_ORGANIZATIONS",
+ *   AcceptLanguage: 'STRING_VALUE',
+ *   PageToken: 'STRING_VALUE',
+ *   PageSize: Number('int'),
+ *   PortfolioShareType: 'IMPORTED' || 'AWS_SERVICECATALOG' || 'AWS_ORGANIZATIONS',
  * };
  * const command = new ListAcceptedPortfolioSharesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListAcceptedPortfolioSharesOutput
+ *   PortfolioDetails: [ // PortfolioDetails
+ *     { // PortfolioDetail
+ *       Id: 'STRING_VALUE',
+ *       ARN: 'STRING_VALUE',
+ *       DisplayName: 'STRING_VALUE',
+ *       Description: 'STRING_VALUE',
+ *       CreatedTime: new Date('TIMESTAMP'),
+ *       ProviderName: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextPageToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListAcceptedPortfolioSharesCommandInput - {@link ListAcceptedPortfolioSharesCommandInput}
@@ -63,6 +78,8 @@ export interface ListAcceptedPortfolioSharesCommandOutput extends ListAcceptedPo
  * @throws {@link OperationNotSupportedException} (client fault)
  *  <p>The operation is not supported.</p>
  *
+ * @throws {@link ServiceCatalogServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
  */
 export class ListAcceptedPortfolioSharesCommand extends $Command<

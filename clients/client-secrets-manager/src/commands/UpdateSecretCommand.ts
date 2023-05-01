@@ -62,19 +62,26 @@ export interface UpdateSecretCommandOutput extends UpdateSecretResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SecretsManagerClient, UpdateSecretCommand } from "@aws-sdk/client-secrets-manager"; // ES Modules import
- * // const { SecretsManagerClient, UpdateSecretCommand } = require("@aws-sdk/client-secrets-manager"); // CommonJS import
+ * import { SecretsManagerClient, UpdateSecretCommand } from '@aws-sdk/client-secrets-manager'; // ES Modules import
+ * // const { SecretsManagerClient, UpdateSecretCommand } = require('@aws-sdk/client-secrets-manager'); // CommonJS import
  * const client = new SecretsManagerClient(config);
  * const input = { // UpdateSecretRequest
- *   SecretId: "STRING_VALUE", // required
- *   ClientRequestToken: "STRING_VALUE",
- *   Description: "STRING_VALUE",
- *   KmsKeyId: "STRING_VALUE",
- *   SecretBinary: "BLOB_VALUE",
- *   SecretString: "STRING_VALUE",
+ *   SecretId: 'STRING_VALUE', // required
+ *   ClientRequestToken: 'STRING_VALUE',
+ *   Description: 'STRING_VALUE',
+ *   KmsKeyId: 'STRING_VALUE',
+ *   SecretBinary: 'BLOB_VALUE',
+ *   SecretString: 'STRING_VALUE',
  * };
  * const command = new UpdateSecretCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateSecretResponse
+ *   ARN: 'STRING_VALUE',
+ *   Name: 'STRING_VALUE',
+ *   VersionId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateSecretCommandInput - {@link UpdateSecretCommandInput}
@@ -130,6 +137,8 @@ export interface UpdateSecretCommandOutput extends UpdateSecretResponse, __Metad
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Secrets Manager can't find the resource that you asked for.</p>
  *
+ * @throws {@link SecretsManagerServiceException}
+ * <p>Base exception class for all service exceptions from SecretsManager service.</p>
  *
  * @example To update the description of a secret
  * ```javascript

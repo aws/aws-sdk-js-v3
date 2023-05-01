@@ -41,46 +41,49 @@ export interface UpdateStackCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OpsWorksClient, UpdateStackCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
- * // const { OpsWorksClient, UpdateStackCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
+ * import { OpsWorksClient, UpdateStackCommand } from '@aws-sdk/client-opsworks'; // ES Modules import
+ * // const { OpsWorksClient, UpdateStackCommand } = require('@aws-sdk/client-opsworks'); // CommonJS import
  * const client = new OpsWorksClient(config);
  * const input = { // UpdateStackRequest
- *   StackId: "STRING_VALUE", // required
- *   Name: "STRING_VALUE",
+ *   StackId: 'STRING_VALUE', // required
+ *   Name: 'STRING_VALUE',
  *   Attributes: { // StackAttributes
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
- *   ServiceRoleArn: "STRING_VALUE",
- *   DefaultInstanceProfileArn: "STRING_VALUE",
- *   DefaultOs: "STRING_VALUE",
- *   HostnameTheme: "STRING_VALUE",
- *   DefaultAvailabilityZone: "STRING_VALUE",
- *   DefaultSubnetId: "STRING_VALUE",
- *   CustomJson: "STRING_VALUE",
+ *   ServiceRoleArn: 'STRING_VALUE',
+ *   DefaultInstanceProfileArn: 'STRING_VALUE',
+ *   DefaultOs: 'STRING_VALUE',
+ *   HostnameTheme: 'STRING_VALUE',
+ *   DefaultAvailabilityZone: 'STRING_VALUE',
+ *   DefaultSubnetId: 'STRING_VALUE',
+ *   CustomJson: 'STRING_VALUE',
  *   ConfigurationManager: { // StackConfigurationManager
- *     Name: "STRING_VALUE",
- *     Version: "STRING_VALUE",
+ *     Name: 'STRING_VALUE',
+ *     Version: 'STRING_VALUE',
  *   },
  *   ChefConfiguration: { // ChefConfiguration
  *     ManageBerkshelf: true || false,
- *     BerkshelfVersion: "STRING_VALUE",
+ *     BerkshelfVersion: 'STRING_VALUE',
  *   },
  *   UseCustomCookbooks: true || false,
  *   CustomCookbooksSource: { // Source
- *     Type: "STRING_VALUE",
- *     Url: "STRING_VALUE",
- *     Username: "STRING_VALUE",
- *     Password: "STRING_VALUE",
- *     SshKey: "STRING_VALUE",
- *     Revision: "STRING_VALUE",
+ *     Type: 'STRING_VALUE',
+ *     Url: 'STRING_VALUE',
+ *     Username: 'STRING_VALUE',
+ *     Password: 'STRING_VALUE',
+ *     SshKey: 'STRING_VALUE',
+ *     Revision: 'STRING_VALUE',
  *   },
- *   DefaultSshKeyName: "STRING_VALUE",
- *   DefaultRootDeviceType: "STRING_VALUE",
+ *   DefaultSshKeyName: 'STRING_VALUE',
+ *   DefaultRootDeviceType: 'STRING_VALUE',
  *   UseOpsworksSecurityGroups: true || false,
- *   AgentVersion: "STRING_VALUE",
+ *   AgentVersion: 'STRING_VALUE',
  * };
  * const command = new UpdateStackCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateStackCommandInput - {@link UpdateStackCommandInput}
@@ -95,6 +98,8 @@ export interface UpdateStackCommandOutput extends __MetadataBearer {}
  * @throws {@link ValidationException} (client fault)
  *  <p>Indicates that a request was not valid.</p>
  *
+ * @throws {@link OpsWorksServiceException}
+ * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
  */
 export class UpdateStackCommand extends $Command<

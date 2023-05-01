@@ -45,16 +45,27 @@ export interface GetArchitectureRecommendationsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Route53RecoveryReadinessClient, GetArchitectureRecommendationsCommand } from "@aws-sdk/client-route53-recovery-readiness"; // ES Modules import
- * // const { Route53RecoveryReadinessClient, GetArchitectureRecommendationsCommand } = require("@aws-sdk/client-route53-recovery-readiness"); // CommonJS import
+ * import { Route53RecoveryReadinessClient, GetArchitectureRecommendationsCommand } from '@aws-sdk/client-route53-recovery-readiness'; // ES Modules import
+ * // const { Route53RecoveryReadinessClient, GetArchitectureRecommendationsCommand } = require('@aws-sdk/client-route53-recovery-readiness'); // CommonJS import
  * const client = new Route53RecoveryReadinessClient(config);
  * const input = { // GetArchitectureRecommendationsRequest
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
- *   RecoveryGroupName: "STRING_VALUE", // required
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
+ *   RecoveryGroupName: 'STRING_VALUE', // required
  * };
  * const command = new GetArchitectureRecommendationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetArchitectureRecommendationsResponse
+ *   LastAuditTimestamp: new Date('TIMESTAMP'),
+ *   NextToken: 'STRING_VALUE',
+ *   Recommendations: [ // __listOfRecommendation
+ *     { // Recommendation
+ *       RecommendationText: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetArchitectureRecommendationsCommandInput - {@link GetArchitectureRecommendationsCommandInput}
@@ -78,6 +89,8 @@ export interface GetArchitectureRecommendationsCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  The input fails to satisfy the constraints specified by an AWS service.
  *
+ * @throws {@link Route53RecoveryReadinessServiceException}
+ * <p>Base exception class for all service exceptions from Route53RecoveryReadiness service.</p>
  *
  */
 export class GetArchitectureRecommendationsCommand extends $Command<

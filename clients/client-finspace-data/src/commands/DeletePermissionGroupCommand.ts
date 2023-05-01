@@ -36,15 +36,20 @@ export interface DeletePermissionGroupCommandOutput extends DeletePermissionGrou
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FinspaceDataClient, DeletePermissionGroupCommand } from "@aws-sdk/client-finspace-data"; // ES Modules import
- * // const { FinspaceDataClient, DeletePermissionGroupCommand } = require("@aws-sdk/client-finspace-data"); // CommonJS import
+ * import { FinspaceDataClient, DeletePermissionGroupCommand } from '@aws-sdk/client-finspace-data'; // ES Modules import
+ * // const { FinspaceDataClient, DeletePermissionGroupCommand } = require('@aws-sdk/client-finspace-data'); // CommonJS import
  * const client = new FinspaceDataClient(config);
  * const input = { // DeletePermissionGroupRequest
- *   permissionGroupId: "STRING_VALUE", // required
- *   clientToken: "STRING_VALUE",
+ *   permissionGroupId: 'STRING_VALUE', // required
+ *   clientToken: 'STRING_VALUE',
  * };
  * const command = new DeletePermissionGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeletePermissionGroupResponse
+ *   permissionGroupId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DeletePermissionGroupCommandInput - {@link DeletePermissionGroupCommandInput}
@@ -75,6 +80,8 @@ export interface DeletePermissionGroupCommandOutput extends DeletePermissionGrou
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link FinspaceDataServiceException}
+ * <p>Base exception class for all service exceptions from FinspaceData service.</p>
  *
  */
 export class DeletePermissionGroupCommand extends $Command<

@@ -40,21 +40,39 @@ export interface UpdateServiceSettingsCommandOutput extends UpdateServiceSetting
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LicenseManagerLinuxSubscriptionsClient, UpdateServiceSettingsCommand } from "@aws-sdk/client-license-manager-linux-subscriptions"; // ES Modules import
- * // const { LicenseManagerLinuxSubscriptionsClient, UpdateServiceSettingsCommand } = require("@aws-sdk/client-license-manager-linux-subscriptions"); // CommonJS import
+ * import { LicenseManagerLinuxSubscriptionsClient, UpdateServiceSettingsCommand } from '@aws-sdk/client-license-manager-linux-subscriptions'; // ES Modules import
+ * // const { LicenseManagerLinuxSubscriptionsClient, UpdateServiceSettingsCommand } = require('@aws-sdk/client-license-manager-linux-subscriptions'); // CommonJS import
  * const client = new LicenseManagerLinuxSubscriptionsClient(config);
  * const input = { // UpdateServiceSettingsRequest
- *   LinuxSubscriptionsDiscovery: "STRING_VALUE", // required
+ *   LinuxSubscriptionsDiscovery: 'STRING_VALUE', // required
  *   LinuxSubscriptionsDiscoverySettings: { // LinuxSubscriptionsDiscoverySettings
  *     SourceRegions: [ // StringList // required
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
- *     OrganizationIntegration: "STRING_VALUE", // required
+ *     OrganizationIntegration: 'STRING_VALUE', // required
  *   },
  *   AllowUpdate: true || false,
  * };
  * const command = new UpdateServiceSettingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateServiceSettingsResponse
+ *   LinuxSubscriptionsDiscovery: 'STRING_VALUE',
+ *   LinuxSubscriptionsDiscoverySettings: { // LinuxSubscriptionsDiscoverySettings
+ *     SourceRegions: [ // StringList // required
+ *       'STRING_VALUE',
+ *     ],
+ *     OrganizationIntegration: 'STRING_VALUE', // required
+ *   },
+ *   Status: 'STRING_VALUE',
+ *   StatusMessage: { // StringMap
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ *   HomeRegions: [
+ *     'STRING_VALUE',
+ *   ],
+ * };
+ *
  * ```
  *
  * @param UpdateServiceSettingsCommandInput - {@link UpdateServiceSettingsCommandInput}
@@ -72,6 +90,8 @@ export interface UpdateServiceSettingsCommandOutput extends UpdateServiceSetting
  * @throws {@link ValidationException} (client fault)
  *  <p>The provided input is not valid. Try your request again.</p>
  *
+ * @throws {@link LicenseManagerLinuxSubscriptionsServiceException}
+ * <p>Base exception class for all service exceptions from LicenseManagerLinuxSubscriptions service.</p>
  *
  */
 export class UpdateServiceSettingsCommand extends $Command<

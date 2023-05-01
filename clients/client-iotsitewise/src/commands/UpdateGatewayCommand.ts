@@ -36,15 +36,18 @@ export interface UpdateGatewayCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTSiteWiseClient, UpdateGatewayCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
- * // const { IoTSiteWiseClient, UpdateGatewayCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
+ * import { IoTSiteWiseClient, UpdateGatewayCommand } from '@aws-sdk/client-iotsitewise'; // ES Modules import
+ * // const { IoTSiteWiseClient, UpdateGatewayCommand } = require('@aws-sdk/client-iotsitewise'); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
  * const input = { // UpdateGatewayRequest
- *   gatewayId: "STRING_VALUE", // required
- *   gatewayName: "STRING_VALUE", // required
+ *   gatewayId: 'STRING_VALUE', // required
+ *   gatewayName: 'STRING_VALUE', // required
  * };
  * const command = new UpdateGatewayCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateGatewayCommandInput - {@link UpdateGatewayCommandInput}
@@ -73,6 +76,8 @@ export interface UpdateGatewayCommandOutput extends __MetadataBearer {}
  *       on.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
  *
+ * @throws {@link IoTSiteWiseServiceException}
+ * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
  */
 export class UpdateGatewayCommand extends $Command<

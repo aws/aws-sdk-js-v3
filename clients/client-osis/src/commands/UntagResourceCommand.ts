@@ -37,17 +37,20 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OSISClient, UntagResourceCommand } from "@aws-sdk/client-osis"; // ES Modules import
- * // const { OSISClient, UntagResourceCommand } = require("@aws-sdk/client-osis"); // CommonJS import
+ * import { OSISClient, UntagResourceCommand } from '@aws-sdk/client-osis'; // ES Modules import
+ * // const { OSISClient, UntagResourceCommand } = require('@aws-sdk/client-osis'); // CommonJS import
  * const client = new OSISClient(config);
  * const input = { // UntagResourceRequest
- *   Arn: "STRING_VALUE", // required
+ *   Arn: 'STRING_VALUE', // required
  *   TagKeys: [ // StringList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new UntagResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UntagResourceCommandInput - {@link UntagResourceCommandInput}
@@ -69,6 +72,8 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception for missing or invalid input fields.</p>
  *
+ * @throws {@link OSISServiceException}
+ * <p>Base exception class for all service exceptions from OSIS service.</p>
  *
  */
 export class UntagResourceCommand extends $Command<

@@ -45,21 +45,29 @@ export interface ListDeploymentInstancesCommandOutput extends ListDeploymentInst
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeDeployClient, ListDeploymentInstancesCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
- * // const { CodeDeployClient, ListDeploymentInstancesCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
+ * import { CodeDeployClient, ListDeploymentInstancesCommand } from '@aws-sdk/client-codedeploy'; // ES Modules import
+ * // const { CodeDeployClient, ListDeploymentInstancesCommand } = require('@aws-sdk/client-codedeploy'); // CommonJS import
  * const client = new CodeDeployClient(config);
  * const input = { // ListDeploymentInstancesInput
- *   deploymentId: "STRING_VALUE", // required
- *   nextToken: "STRING_VALUE",
+ *   deploymentId: 'STRING_VALUE', // required
+ *   nextToken: 'STRING_VALUE',
  *   instanceStatusFilter: [ // InstanceStatusList
- *     "Pending" || "InProgress" || "Succeeded" || "Failed" || "Skipped" || "Unknown" || "Ready",
+ *     'Pending' || 'InProgress' || 'Succeeded' || 'Failed' || 'Skipped' || 'Unknown' || 'Ready',
  *   ],
  *   instanceTypeFilter: [ // InstanceTypeList
- *     "Blue" || "Green",
+ *     'Blue' || 'Green',
  *   ],
  * };
  * const command = new ListDeploymentInstancesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListDeploymentInstancesOutput
+ *   instancesList: [ // InstancesList
+ *     'STRING_VALUE',
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListDeploymentInstancesCommandInput - {@link ListDeploymentInstancesCommandInput}
@@ -102,6 +110,8 @@ export interface ListDeploymentInstancesCommandOutput extends ListDeploymentInst
  * @throws {@link InvalidTargetFilterNameException} (client fault)
  *  <p> The target filter name is invalid. </p>
  *
+ * @throws {@link CodeDeployServiceException}
+ * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
  */
 export class ListDeploymentInstancesCommand extends $Command<

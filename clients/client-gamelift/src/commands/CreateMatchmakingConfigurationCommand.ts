@@ -66,40 +66,70 @@ export interface CreateMatchmakingConfigurationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GameLiftClient, CreateMatchmakingConfigurationCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
- * // const { GameLiftClient, CreateMatchmakingConfigurationCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
+ * import { GameLiftClient, CreateMatchmakingConfigurationCommand } from '@aws-sdk/client-gamelift'; // ES Modules import
+ * // const { GameLiftClient, CreateMatchmakingConfigurationCommand } = require('@aws-sdk/client-gamelift'); // CommonJS import
  * const client = new GameLiftClient(config);
  * const input = { // CreateMatchmakingConfigurationInput
- *   Name: "STRING_VALUE", // required
- *   Description: "STRING_VALUE",
+ *   Name: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE',
  *   GameSessionQueueArns: [ // QueueArnsList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   RequestTimeoutSeconds: Number("int"), // required
- *   AcceptanceTimeoutSeconds: Number("int"),
+ *   RequestTimeoutSeconds: Number('int'), // required
+ *   AcceptanceTimeoutSeconds: Number('int'),
  *   AcceptanceRequired: true || false, // required
- *   RuleSetName: "STRING_VALUE", // required
- *   NotificationTarget: "STRING_VALUE",
- *   AdditionalPlayerCount: Number("int"),
- *   CustomEventData: "STRING_VALUE",
+ *   RuleSetName: 'STRING_VALUE', // required
+ *   NotificationTarget: 'STRING_VALUE',
+ *   AdditionalPlayerCount: Number('int'),
+ *   CustomEventData: 'STRING_VALUE',
  *   GameProperties: [ // GamePropertyList
  *     { // GameProperty
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
- *   GameSessionData: "STRING_VALUE",
- *   BackfillMode: "AUTOMATIC" || "MANUAL",
- *   FlexMatchMode: "STANDALONE" || "WITH_QUEUE",
+ *   GameSessionData: 'STRING_VALUE',
+ *   BackfillMode: 'AUTOMATIC' || 'MANUAL',
+ *   FlexMatchMode: 'STANDALONE' || 'WITH_QUEUE',
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreateMatchmakingConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateMatchmakingConfigurationOutput
+ *   Configuration: { // MatchmakingConfiguration
+ *     Name: 'STRING_VALUE',
+ *     ConfigurationArn: 'STRING_VALUE',
+ *     Description: 'STRING_VALUE',
+ *     GameSessionQueueArns: [ // QueueArnsList
+ *       'STRING_VALUE',
+ *     ],
+ *     RequestTimeoutSeconds: Number('int'),
+ *     AcceptanceTimeoutSeconds: Number('int'),
+ *     AcceptanceRequired: true || false,
+ *     RuleSetName: 'STRING_VALUE',
+ *     RuleSetArn: 'STRING_VALUE',
+ *     NotificationTarget: 'STRING_VALUE',
+ *     AdditionalPlayerCount: Number('int'),
+ *     CustomEventData: 'STRING_VALUE',
+ *     CreationTime: new Date('TIMESTAMP'),
+ *     GameProperties: [ // GamePropertyList
+ *       { // GameProperty
+ *         Key: 'STRING_VALUE', // required
+ *         Value: 'STRING_VALUE', // required
+ *       },
+ *     ],
+ *     GameSessionData: 'STRING_VALUE',
+ *     BackfillMode: 'AUTOMATIC' || 'MANUAL',
+ *     FlexMatchMode: 'STANDALONE' || 'WITH_QUEUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateMatchmakingConfigurationCommandInput - {@link CreateMatchmakingConfigurationCommandInput}
@@ -131,6 +161,8 @@ export interface CreateMatchmakingConfigurationCommandOutput
  * @throws {@link UnsupportedRegionException} (client fault)
  *  <p>The requested operation is not supported in the Region specified.</p>
  *
+ * @throws {@link GameLiftServiceException}
+ * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
  */
 export class CreateMatchmakingConfigurationCommand extends $Command<

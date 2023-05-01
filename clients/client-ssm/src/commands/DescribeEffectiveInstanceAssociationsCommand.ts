@@ -45,16 +45,29 @@ export interface DescribeEffectiveInstanceAssociationsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMClient, DescribeEffectiveInstanceAssociationsCommand } from "@aws-sdk/client-ssm"; // ES Modules import
- * // const { SSMClient, DescribeEffectiveInstanceAssociationsCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * import { SSMClient, DescribeEffectiveInstanceAssociationsCommand } from '@aws-sdk/client-ssm'; // ES Modules import
+ * // const { SSMClient, DescribeEffectiveInstanceAssociationsCommand } = require('@aws-sdk/client-ssm'); // CommonJS import
  * const client = new SSMClient(config);
  * const input = { // DescribeEffectiveInstanceAssociationsRequest
- *   InstanceId: "STRING_VALUE", // required
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   InstanceId: 'STRING_VALUE', // required
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new DescribeEffectiveInstanceAssociationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeEffectiveInstanceAssociationsResult
+ *   Associations: [ // InstanceAssociationList
+ *     { // InstanceAssociation
+ *       AssociationId: 'STRING_VALUE',
+ *       InstanceId: 'STRING_VALUE',
+ *       Content: 'STRING_VALUE',
+ *       AssociationVersion: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeEffectiveInstanceAssociationsCommandInput - {@link DescribeEffectiveInstanceAssociationsCommandInput}
@@ -89,6 +102,8 @@ export interface DescribeEffectiveInstanceAssociationsCommandOutput
  * @throws {@link InvalidNextToken} (client fault)
  *  <p>The specified token isn't valid.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class DescribeEffectiveInstanceAssociationsCommand extends $Command<

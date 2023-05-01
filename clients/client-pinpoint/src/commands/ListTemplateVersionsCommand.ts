@@ -36,17 +36,37 @@ export interface ListTemplateVersionsCommandOutput extends ListTemplateVersionsR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PinpointClient, ListTemplateVersionsCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
- * // const { PinpointClient, ListTemplateVersionsCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
+ * import { PinpointClient, ListTemplateVersionsCommand } from '@aws-sdk/client-pinpoint'; // ES Modules import
+ * // const { PinpointClient, ListTemplateVersionsCommand } = require('@aws-sdk/client-pinpoint'); // CommonJS import
  * const client = new PinpointClient(config);
  * const input = { // ListTemplateVersionsRequest
- *   NextToken: "STRING_VALUE",
- *   PageSize: "STRING_VALUE",
- *   TemplateName: "STRING_VALUE", // required
- *   TemplateType: "STRING_VALUE", // required
+ *   NextToken: 'STRING_VALUE',
+ *   PageSize: 'STRING_VALUE',
+ *   TemplateName: 'STRING_VALUE', // required
+ *   TemplateType: 'STRING_VALUE', // required
  * };
  * const command = new ListTemplateVersionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTemplateVersionsResponse
+ *   TemplateVersionsResponse: { // TemplateVersionsResponse
+ *     Item: [ // ListOfTemplateVersionResponse // required
+ *       { // TemplateVersionResponse
+ *         CreationDate: 'STRING_VALUE', // required
+ *         DefaultSubstitutions: 'STRING_VALUE',
+ *         LastModifiedDate: 'STRING_VALUE', // required
+ *         TemplateDescription: 'STRING_VALUE',
+ *         TemplateName: 'STRING_VALUE', // required
+ *         TemplateType: 'STRING_VALUE', // required
+ *         Version: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     Message: 'STRING_VALUE',
+ *     NextToken: 'STRING_VALUE',
+ *     RequestID: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param ListTemplateVersionsCommandInput - {@link ListTemplateVersionsCommandInput}
@@ -76,6 +96,8 @@ export interface ListTemplateVersionsCommandOutput extends ListTemplateVersionsR
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Provides information about an API request or response.</p>
  *
+ * @throws {@link PinpointServiceException}
+ * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
  */
 export class ListTemplateVersionsCommand extends $Command<

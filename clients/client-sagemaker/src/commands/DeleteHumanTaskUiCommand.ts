@@ -40,14 +40,17 @@ export interface DeleteHumanTaskUiCommandOutput extends DeleteHumanTaskUiRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, DeleteHumanTaskUiCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, DeleteHumanTaskUiCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, DeleteHumanTaskUiCommand } from '@aws-sdk/client-sagemaker'; // ES Modules import
+ * // const { SageMakerClient, DeleteHumanTaskUiCommand } = require('@aws-sdk/client-sagemaker'); // CommonJS import
  * const client = new SageMakerClient(config);
  * const input = { // DeleteHumanTaskUiRequest
- *   HumanTaskUiName: "STRING_VALUE", // required
+ *   HumanTaskUiName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteHumanTaskUiCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteHumanTaskUiCommandInput - {@link DeleteHumanTaskUiCommandInput}
@@ -59,6 +62,8 @@ export interface DeleteHumanTaskUiCommandOutput extends DeleteHumanTaskUiRespons
  * @throws {@link ResourceNotFound} (client fault)
  *  <p>Resource being access is not found.</p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class DeleteHumanTaskUiCommand extends $Command<

@@ -40,21 +40,24 @@ export interface RemoveTagsCommandOutput extends RemoveTagsOutput, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElasticLoadBalancingClient, RemoveTagsCommand } from "@aws-sdk/client-elastic-load-balancing"; // ES Modules import
- * // const { ElasticLoadBalancingClient, RemoveTagsCommand } = require("@aws-sdk/client-elastic-load-balancing"); // CommonJS import
+ * import { ElasticLoadBalancingClient, RemoveTagsCommand } from '@aws-sdk/client-elastic-load-balancing'; // ES Modules import
+ * // const { ElasticLoadBalancingClient, RemoveTagsCommand } = require('@aws-sdk/client-elastic-load-balancing'); // CommonJS import
  * const client = new ElasticLoadBalancingClient(config);
  * const input = { // RemoveTagsInput
  *   LoadBalancerNames: [ // LoadBalancerNames // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   Tags: [ // TagKeyList // required
  *     { // TagKeyOnly
- *       Key: "STRING_VALUE",
+ *       Key: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new RemoveTagsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param RemoveTagsCommandInput - {@link RemoveTagsCommandInput}
@@ -66,6 +69,8 @@ export interface RemoveTagsCommandOutput extends RemoveTagsOutput, __MetadataBea
  * @throws {@link AccessPointNotFoundException} (client fault)
  *  <p>The specified load balancer does not exist.</p>
  *
+ * @throws {@link ElasticLoadBalancingServiceException}
+ * <p>Base exception class for all service exceptions from ElasticLoadBalancing service.</p>
  *
  * @example To remove tags from a load balancer
  * ```javascript

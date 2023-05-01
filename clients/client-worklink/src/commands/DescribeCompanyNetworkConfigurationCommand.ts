@@ -47,14 +47,25 @@ export interface DescribeCompanyNetworkConfigurationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkLinkClient, DescribeCompanyNetworkConfigurationCommand } from "@aws-sdk/client-worklink"; // ES Modules import
- * // const { WorkLinkClient, DescribeCompanyNetworkConfigurationCommand } = require("@aws-sdk/client-worklink"); // CommonJS import
+ * import { WorkLinkClient, DescribeCompanyNetworkConfigurationCommand } from '@aws-sdk/client-worklink'; // ES Modules import
+ * // const { WorkLinkClient, DescribeCompanyNetworkConfigurationCommand } = require('@aws-sdk/client-worklink'); // CommonJS import
  * const client = new WorkLinkClient(config);
  * const input = { // DescribeCompanyNetworkConfigurationRequest
- *   FleetArn: "STRING_VALUE", // required
+ *   FleetArn: 'STRING_VALUE', // required
  * };
  * const command = new DescribeCompanyNetworkConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeCompanyNetworkConfigurationResponse
+ *   VpcId: 'STRING_VALUE',
+ *   SubnetIds: [ // SubnetIds
+ *     'STRING_VALUE',
+ *   ],
+ *   SecurityGroupIds: [ // SecurityGroupIds
+ *     'STRING_VALUE',
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeCompanyNetworkConfigurationCommandInput - {@link DescribeCompanyNetworkConfigurationCommandInput}
@@ -78,6 +89,8 @@ export interface DescribeCompanyNetworkConfigurationCommandOutput
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this action.</p>
  *
+ * @throws {@link WorkLinkServiceException}
+ * <p>Base exception class for all service exceptions from WorkLink service.</p>
  *
  */
 export class DescribeCompanyNetworkConfigurationCommand extends $Command<

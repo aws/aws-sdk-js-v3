@@ -54,40 +54,40 @@ export interface UpdateResponseHeadersPolicyCommandOutput extends UpdateResponse
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudFrontClient, UpdateResponseHeadersPolicyCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
- * // const { CloudFrontClient, UpdateResponseHeadersPolicyCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
+ * import { CloudFrontClient, UpdateResponseHeadersPolicyCommand } from '@aws-sdk/client-cloudfront'; // ES Modules import
+ * // const { CloudFrontClient, UpdateResponseHeadersPolicyCommand } = require('@aws-sdk/client-cloudfront'); // CommonJS import
  * const client = new CloudFrontClient(config);
  * const input = { // UpdateResponseHeadersPolicyRequest
  *   ResponseHeadersPolicyConfig: { // ResponseHeadersPolicyConfig
- *     Comment: "STRING_VALUE",
- *     Name: "STRING_VALUE", // required
+ *     Comment: 'STRING_VALUE',
+ *     Name: 'STRING_VALUE', // required
  *     CorsConfig: { // ResponseHeadersPolicyCorsConfig
  *       AccessControlAllowOrigins: { // ResponseHeadersPolicyAccessControlAllowOrigins
- *         Quantity: Number("int"), // required
+ *         Quantity: Number('int'), // required
  *         Items: [ // AccessControlAllowOriginsList // required
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
  *       },
  *       AccessControlAllowHeaders: { // ResponseHeadersPolicyAccessControlAllowHeaders
- *         Quantity: Number("int"), // required
+ *         Quantity: Number('int'), // required
  *         Items: [ // AccessControlAllowHeadersList // required
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
  *       },
  *       AccessControlAllowMethods: { // ResponseHeadersPolicyAccessControlAllowMethods
- *         Quantity: Number("int"), // required
+ *         Quantity: Number('int'), // required
  *         Items: [ // AccessControlAllowMethodsList // required
- *           "GET" || "POST" || "OPTIONS" || "PUT" || "DELETE" || "PATCH" || "HEAD" || "ALL",
+ *           'GET' || 'POST' || 'OPTIONS' || 'PUT' || 'DELETE' || 'PATCH' || 'HEAD' || 'ALL',
  *         ],
  *       },
  *       AccessControlAllowCredentials: true || false, // required
  *       AccessControlExposeHeaders: { // ResponseHeadersPolicyAccessControlExposeHeaders
- *         Quantity: Number("int"), // required
+ *         Quantity: Number('int'), // required
  *         Items: [ // AccessControlExposeHeadersList
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
  *       },
- *       AccessControlMaxAgeSec: Number("int"),
+ *       AccessControlMaxAgeSec: Number('int'),
  *       OriginOverride: true || false, // required
  *     },
  *     SecurityHeadersConfig: { // ResponseHeadersPolicySecurityHeadersConfig
@@ -95,19 +95,19 @@ export interface UpdateResponseHeadersPolicyCommandOutput extends UpdateResponse
  *         Override: true || false, // required
  *         Protection: true || false, // required
  *         ModeBlock: true || false,
- *         ReportUri: "STRING_VALUE",
+ *         ReportUri: 'STRING_VALUE',
  *       },
  *       FrameOptions: { // ResponseHeadersPolicyFrameOptions
  *         Override: true || false, // required
- *         FrameOption: "DENY" || "SAMEORIGIN", // required
+ *         FrameOption: 'DENY' || 'SAMEORIGIN', // required
  *       },
  *       ReferrerPolicy: { // ResponseHeadersPolicyReferrerPolicy
  *         Override: true || false, // required
- *         ReferrerPolicy: "no-referrer" || "no-referrer-when-downgrade" || "origin" || "origin-when-cross-origin" || "same-origin" || "strict-origin" || "strict-origin-when-cross-origin" || "unsafe-url", // required
+ *         ReferrerPolicy: 'no-referrer' || 'no-referrer-when-downgrade' || 'origin' || 'origin-when-cross-origin' || 'same-origin' || 'strict-origin' || 'strict-origin-when-cross-origin' || 'unsafe-url', // required
  *       },
  *       ContentSecurityPolicy: { // ResponseHeadersPolicyContentSecurityPolicy
  *         Override: true || false, // required
- *         ContentSecurityPolicy: "STRING_VALUE", // required
+ *         ContentSecurityPolicy: 'STRING_VALUE', // required
  *       },
  *       ContentTypeOptions: { // ResponseHeadersPolicyContentTypeOptions
  *         Override: true || false, // required
@@ -116,37 +116,130 @@ export interface UpdateResponseHeadersPolicyCommandOutput extends UpdateResponse
  *         Override: true || false, // required
  *         IncludeSubdomains: true || false,
  *         Preload: true || false,
- *         AccessControlMaxAgeSec: Number("int"), // required
+ *         AccessControlMaxAgeSec: Number('int'), // required
  *       },
  *     },
  *     ServerTimingHeadersConfig: { // ResponseHeadersPolicyServerTimingHeadersConfig
  *       Enabled: true || false, // required
- *       SamplingRate: Number("double"),
+ *       SamplingRate: Number('double'),
  *     },
  *     CustomHeadersConfig: { // ResponseHeadersPolicyCustomHeadersConfig
- *       Quantity: Number("int"), // required
+ *       Quantity: Number('int'), // required
  *       Items: [ // ResponseHeadersPolicyCustomHeaderList
  *         { // ResponseHeadersPolicyCustomHeader
- *           Header: "STRING_VALUE", // required
- *           Value: "STRING_VALUE", // required
+ *           Header: 'STRING_VALUE', // required
+ *           Value: 'STRING_VALUE', // required
  *           Override: true || false, // required
  *         },
  *       ],
  *     },
  *     RemoveHeadersConfig: { // ResponseHeadersPolicyRemoveHeadersConfig
- *       Quantity: Number("int"), // required
+ *       Quantity: Number('int'), // required
  *       Items: [ // ResponseHeadersPolicyRemoveHeaderList
  *         { // ResponseHeadersPolicyRemoveHeader
- *           Header: "STRING_VALUE", // required
+ *           Header: 'STRING_VALUE', // required
  *         },
  *       ],
  *     },
  *   },
- *   Id: "STRING_VALUE", // required
- *   IfMatch: "STRING_VALUE",
+ *   Id: 'STRING_VALUE', // required
+ *   IfMatch: 'STRING_VALUE',
  * };
  * const command = new UpdateResponseHeadersPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateResponseHeadersPolicyResult
+ *   ResponseHeadersPolicy: { // ResponseHeadersPolicy
+ *     Id: 'STRING_VALUE', // required
+ *     LastModifiedTime: new Date('TIMESTAMP'), // required
+ *     ResponseHeadersPolicyConfig: { // ResponseHeadersPolicyConfig
+ *       Comment: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE', // required
+ *       CorsConfig: { // ResponseHeadersPolicyCorsConfig
+ *         AccessControlAllowOrigins: { // ResponseHeadersPolicyAccessControlAllowOrigins
+ *           Quantity: Number('int'), // required
+ *           Items: [ // AccessControlAllowOriginsList // required
+ *             'STRING_VALUE',
+ *           ],
+ *         },
+ *         AccessControlAllowHeaders: { // ResponseHeadersPolicyAccessControlAllowHeaders
+ *           Quantity: Number('int'), // required
+ *           Items: [ // AccessControlAllowHeadersList // required
+ *             'STRING_VALUE',
+ *           ],
+ *         },
+ *         AccessControlAllowMethods: { // ResponseHeadersPolicyAccessControlAllowMethods
+ *           Quantity: Number('int'), // required
+ *           Items: [ // AccessControlAllowMethodsList // required
+ *             'GET' || 'POST' || 'OPTIONS' || 'PUT' || 'DELETE' || 'PATCH' || 'HEAD' || 'ALL',
+ *           ],
+ *         },
+ *         AccessControlAllowCredentials: true || false, // required
+ *         AccessControlExposeHeaders: { // ResponseHeadersPolicyAccessControlExposeHeaders
+ *           Quantity: Number('int'), // required
+ *           Items: [ // AccessControlExposeHeadersList
+ *             'STRING_VALUE',
+ *           ],
+ *         },
+ *         AccessControlMaxAgeSec: Number('int'),
+ *         OriginOverride: true || false, // required
+ *       },
+ *       SecurityHeadersConfig: { // ResponseHeadersPolicySecurityHeadersConfig
+ *         XSSProtection: { // ResponseHeadersPolicyXSSProtection
+ *           Override: true || false, // required
+ *           Protection: true || false, // required
+ *           ModeBlock: true || false,
+ *           ReportUri: 'STRING_VALUE',
+ *         },
+ *         FrameOptions: { // ResponseHeadersPolicyFrameOptions
+ *           Override: true || false, // required
+ *           FrameOption: 'DENY' || 'SAMEORIGIN', // required
+ *         },
+ *         ReferrerPolicy: { // ResponseHeadersPolicyReferrerPolicy
+ *           Override: true || false, // required
+ *           ReferrerPolicy: 'no-referrer' || 'no-referrer-when-downgrade' || 'origin' || 'origin-when-cross-origin' || 'same-origin' || 'strict-origin' || 'strict-origin-when-cross-origin' || 'unsafe-url', // required
+ *         },
+ *         ContentSecurityPolicy: { // ResponseHeadersPolicyContentSecurityPolicy
+ *           Override: true || false, // required
+ *           ContentSecurityPolicy: 'STRING_VALUE', // required
+ *         },
+ *         ContentTypeOptions: { // ResponseHeadersPolicyContentTypeOptions
+ *           Override: true || false, // required
+ *         },
+ *         StrictTransportSecurity: { // ResponseHeadersPolicyStrictTransportSecurity
+ *           Override: true || false, // required
+ *           IncludeSubdomains: true || false,
+ *           Preload: true || false,
+ *           AccessControlMaxAgeSec: Number('int'), // required
+ *         },
+ *       },
+ *       ServerTimingHeadersConfig: { // ResponseHeadersPolicyServerTimingHeadersConfig
+ *         Enabled: true || false, // required
+ *         SamplingRate: Number('double'),
+ *       },
+ *       CustomHeadersConfig: { // ResponseHeadersPolicyCustomHeadersConfig
+ *         Quantity: Number('int'), // required
+ *         Items: [ // ResponseHeadersPolicyCustomHeaderList
+ *           { // ResponseHeadersPolicyCustomHeader
+ *             Header: 'STRING_VALUE', // required
+ *             Value: 'STRING_VALUE', // required
+ *             Override: true || false, // required
+ *           },
+ *         ],
+ *       },
+ *       RemoveHeadersConfig: { // ResponseHeadersPolicyRemoveHeadersConfig
+ *         Quantity: Number('int'), // required
+ *         Items: [ // ResponseHeadersPolicyRemoveHeaderList
+ *           { // ResponseHeadersPolicyRemoveHeader
+ *             Header: 'STRING_VALUE', // required
+ *           },
+ *         ],
+ *       },
+ *     },
+ *   },
+ *   ETag: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateResponseHeadersPolicyCommandInput - {@link UpdateResponseHeadersPolicyCommandInput}
@@ -201,6 +294,8 @@ export interface UpdateResponseHeadersPolicyCommandOutput extends UpdateResponse
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
  * 			<i>Amazon CloudFront Developer Guide</i>.</p>
  *
+ * @throws {@link CloudFrontServiceException}
+ * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
  */
 export class UpdateResponseHeadersPolicyCommand extends $Command<

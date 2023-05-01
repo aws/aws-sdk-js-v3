@@ -36,16 +36,39 @@ export interface ListImportJobsCommandOutput extends ListImportJobsResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SESv2Client, ListImportJobsCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
- * // const { SESv2Client, ListImportJobsCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
+ * import { SESv2Client, ListImportJobsCommand } from '@aws-sdk/client-sesv2'; // ES Modules import
+ * // const { SESv2Client, ListImportJobsCommand } = require('@aws-sdk/client-sesv2'); // CommonJS import
  * const client = new SESv2Client(config);
  * const input = { // ListImportJobsRequest
- *   ImportDestinationType: "SUPPRESSION_LIST" || "CONTACT_LIST",
- *   NextToken: "STRING_VALUE",
- *   PageSize: Number("int"),
+ *   ImportDestinationType: 'SUPPRESSION_LIST' || 'CONTACT_LIST',
+ *   NextToken: 'STRING_VALUE',
+ *   PageSize: Number('int'),
  * };
  * const command = new ListImportJobsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListImportJobsResponse
+ *   ImportJobs: [ // ImportJobSummaryList
+ *     { // ImportJobSummary
+ *       JobId: 'STRING_VALUE',
+ *       ImportDestination: { // ImportDestination
+ *         SuppressionListDestination: { // SuppressionListDestination
+ *           SuppressionListImportAction: 'DELETE' || 'PUT', // required
+ *         },
+ *         ContactListDestination: { // ContactListDestination
+ *           ContactListName: 'STRING_VALUE', // required
+ *           ContactListImportAction: 'DELETE' || 'PUT', // required
+ *         },
+ *       },
+ *       JobStatus: 'CREATED' || 'PROCESSING' || 'COMPLETED' || 'FAILED',
+ *       CreatedTimestamp: new Date('TIMESTAMP'),
+ *       ProcessedRecordsCount: Number('int'),
+ *       FailedRecordsCount: Number('int'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListImportJobsCommandInput - {@link ListImportJobsCommandInput}
@@ -60,6 +83,8 @@ export interface ListImportJobsCommandOutput extends ListImportJobsResponse, __M
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Too many requests have been made to the operation.</p>
  *
+ * @throws {@link SESv2ServiceException}
+ * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
  */
 export class ListImportJobsCommand extends $Command<

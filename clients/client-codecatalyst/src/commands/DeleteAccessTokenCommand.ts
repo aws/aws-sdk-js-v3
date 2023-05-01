@@ -36,14 +36,17 @@ export interface DeleteAccessTokenCommandOutput extends DeleteAccessTokenRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeCatalystClient, DeleteAccessTokenCommand } from "@aws-sdk/client-codecatalyst"; // ES Modules import
- * // const { CodeCatalystClient, DeleteAccessTokenCommand } = require("@aws-sdk/client-codecatalyst"); // CommonJS import
+ * import { CodeCatalystClient, DeleteAccessTokenCommand } from '@aws-sdk/client-codecatalyst'; // ES Modules import
+ * // const { CodeCatalystClient, DeleteAccessTokenCommand } = require('@aws-sdk/client-codecatalyst'); // CommonJS import
  * const client = new CodeCatalystClient(config);
  * const input = { // DeleteAccessTokenRequest
- *   id: "STRING_VALUE", // required
+ *   id: 'STRING_VALUE', // required
  * };
  * const command = new DeleteAccessTokenCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteAccessTokenCommandInput - {@link DeleteAccessTokenCommandInput}
@@ -72,6 +75,8 @@ export interface DeleteAccessTokenCommandOutput extends DeleteAccessTokenRespons
  * @throws {@link ValidationException} (client fault)
  *  <p>The request was denied because an input failed to satisfy the constraints specified by the service. Check the spelling and input requirements, and then try again.</p>
  *
+ * @throws {@link CodeCatalystServiceException}
+ * <p>Base exception class for all service exceptions from CodeCatalyst service.</p>
  *
  */
 export class DeleteAccessTokenCommand extends $Command<

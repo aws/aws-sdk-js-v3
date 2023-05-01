@@ -41,15 +41,26 @@ export interface ListTLSInspectionConfigurationsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { NetworkFirewallClient, ListTLSInspectionConfigurationsCommand } from "@aws-sdk/client-network-firewall"; // ES Modules import
- * // const { NetworkFirewallClient, ListTLSInspectionConfigurationsCommand } = require("@aws-sdk/client-network-firewall"); // CommonJS import
+ * import { NetworkFirewallClient, ListTLSInspectionConfigurationsCommand } from '@aws-sdk/client-network-firewall'; // ES Modules import
+ * // const { NetworkFirewallClient, ListTLSInspectionConfigurationsCommand } = require('@aws-sdk/client-network-firewall'); // CommonJS import
  * const client = new NetworkFirewallClient(config);
  * const input = { // ListTLSInspectionConfigurationsRequest
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListTLSInspectionConfigurationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTLSInspectionConfigurationsResponse
+ *   NextToken: 'STRING_VALUE',
+ *   TLSInspectionConfigurations: [ // TLSInspectionConfigurations
+ *     { // TLSInspectionConfigurationMetadata
+ *       Name: 'STRING_VALUE',
+ *       Arn: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListTLSInspectionConfigurationsCommandInput - {@link ListTLSInspectionConfigurationsCommandInput}
@@ -81,6 +92,8 @@ export interface ListTLSInspectionConfigurationsCommandOutput
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Unable to process the request due to throttling limitations.</p>
  *
+ * @throws {@link NetworkFirewallServiceException}
+ * <p>Base exception class for all service exceptions from NetworkFirewall service.</p>
  *
  */
 export class ListTLSInspectionConfigurationsCommand extends $Command<

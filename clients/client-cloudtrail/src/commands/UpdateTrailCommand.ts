@@ -41,24 +41,41 @@ export interface UpdateTrailCommandOutput extends UpdateTrailResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudTrailClient, UpdateTrailCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
- * // const { CloudTrailClient, UpdateTrailCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
+ * import { CloudTrailClient, UpdateTrailCommand } from '@aws-sdk/client-cloudtrail'; // ES Modules import
+ * // const { CloudTrailClient, UpdateTrailCommand } = require('@aws-sdk/client-cloudtrail'); // CommonJS import
  * const client = new CloudTrailClient(config);
  * const input = { // UpdateTrailRequest
- *   Name: "STRING_VALUE", // required
- *   S3BucketName: "STRING_VALUE",
- *   S3KeyPrefix: "STRING_VALUE",
- *   SnsTopicName: "STRING_VALUE",
+ *   Name: 'STRING_VALUE', // required
+ *   S3BucketName: 'STRING_VALUE',
+ *   S3KeyPrefix: 'STRING_VALUE',
+ *   SnsTopicName: 'STRING_VALUE',
  *   IncludeGlobalServiceEvents: true || false,
  *   IsMultiRegionTrail: true || false,
  *   EnableLogFileValidation: true || false,
- *   CloudWatchLogsLogGroupArn: "STRING_VALUE",
- *   CloudWatchLogsRoleArn: "STRING_VALUE",
- *   KmsKeyId: "STRING_VALUE",
+ *   CloudWatchLogsLogGroupArn: 'STRING_VALUE',
+ *   CloudWatchLogsRoleArn: 'STRING_VALUE',
+ *   KmsKeyId: 'STRING_VALUE',
  *   IsOrganizationTrail: true || false,
  * };
  * const command = new UpdateTrailCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateTrailResponse
+ *   Name: 'STRING_VALUE',
+ *   S3BucketName: 'STRING_VALUE',
+ *   S3KeyPrefix: 'STRING_VALUE',
+ *   SnsTopicName: 'STRING_VALUE',
+ *   SnsTopicARN: 'STRING_VALUE',
+ *   IncludeGlobalServiceEvents: true || false,
+ *   IsMultiRegionTrail: true || false,
+ *   TrailARN: 'STRING_VALUE',
+ *   LogFileValidationEnabled: true || false,
+ *   CloudWatchLogsLogGroupArn: 'STRING_VALUE',
+ *   CloudWatchLogsRoleArn: 'STRING_VALUE',
+ *   KmsKeyId: 'STRING_VALUE',
+ *   IsOrganizationTrail: true || false,
+ * };
+ *
  * ```
  *
  * @param UpdateTrailCommandInput - {@link UpdateTrailCommandInput}
@@ -243,6 +260,8 @@ export interface UpdateTrailCommandOutput extends UpdateTrailResponse, __Metadat
  * @throws {@link UnsupportedOperationException} (client fault)
  *  <p>This exception is thrown when the requested operation is not supported.</p>
  *
+ * @throws {@link CloudTrailServiceException}
+ * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
  */
 export class UpdateTrailCommand extends $Command<

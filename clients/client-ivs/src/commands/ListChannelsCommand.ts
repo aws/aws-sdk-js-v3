@@ -39,17 +39,35 @@ export interface ListChannelsCommandOutput extends ListChannelsResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IvsClient, ListChannelsCommand } from "@aws-sdk/client-ivs"; // ES Modules import
- * // const { IvsClient, ListChannelsCommand } = require("@aws-sdk/client-ivs"); // CommonJS import
+ * import { IvsClient, ListChannelsCommand } from '@aws-sdk/client-ivs'; // ES Modules import
+ * // const { IvsClient, ListChannelsCommand } = require('@aws-sdk/client-ivs'); // CommonJS import
  * const client = new IvsClient(config);
  * const input = { // ListChannelsRequest
- *   filterByName: "STRING_VALUE",
- *   filterByRecordingConfigurationArn: "STRING_VALUE",
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   filterByName: 'STRING_VALUE',
+ *   filterByRecordingConfigurationArn: 'STRING_VALUE',
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new ListChannelsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListChannelsResponse
+ *   channels: [ // ChannelList // required
+ *     { // ChannelSummary
+ *       arn: 'STRING_VALUE',
+ *       name: 'STRING_VALUE',
+ *       latencyMode: 'STRING_VALUE',
+ *       authorized: true || false,
+ *       recordingConfigurationArn: 'STRING_VALUE',
+ *       tags: { // Tags
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *       insecureIngest: true || false,
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListChannelsCommandInput - {@link ListChannelsCommandInput}
@@ -67,6 +85,8 @@ export interface ListChannelsCommandOutput extends ListChannelsResponse, __Metad
  * @throws {@link ValidationException} (client fault)
  *  <p/>
  *
+ * @throws {@link IvsServiceException}
+ * <p>Base exception class for all service exceptions from Ivs service.</p>
  *
  */
 export class ListChannelsCommand extends $Command<

@@ -36,20 +36,25 @@ export interface UpdateSettingsCommandOutput extends UpdateSettingsResult, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DirectoryServiceClient, UpdateSettingsCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
- * // const { DirectoryServiceClient, UpdateSettingsCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
+ * import { DirectoryServiceClient, UpdateSettingsCommand } from '@aws-sdk/client-directory-service'; // ES Modules import
+ * // const { DirectoryServiceClient, UpdateSettingsCommand } = require('@aws-sdk/client-directory-service'); // CommonJS import
  * const client = new DirectoryServiceClient(config);
  * const input = { // UpdateSettingsRequest
- *   DirectoryId: "STRING_VALUE", // required
+ *   DirectoryId: 'STRING_VALUE', // required
  *   Settings: [ // Settings // required
  *     { // Setting
- *       Name: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Name: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new UpdateSettingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateSettingsResult
+ *   DirectoryId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateSettingsCommandInput - {@link UpdateSettingsCommandInput}
@@ -82,6 +87,8 @@ export interface UpdateSettingsCommandOutput extends UpdateSettingsResult, __Met
  * @throws {@link UnsupportedSettingsException} (client fault)
  *  <p>The specified directory setting is not supported.</p>
  *
+ * @throws {@link DirectoryServiceServiceException}
+ * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
  */
 export class UpdateSettingsCommand extends $Command<

@@ -40,17 +40,20 @@ export interface UntagResourceCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Route53RecoveryReadinessClient, UntagResourceCommand } from "@aws-sdk/client-route53-recovery-readiness"; // ES Modules import
- * // const { Route53RecoveryReadinessClient, UntagResourceCommand } = require("@aws-sdk/client-route53-recovery-readiness"); // CommonJS import
+ * import { Route53RecoveryReadinessClient, UntagResourceCommand } from '@aws-sdk/client-route53-recovery-readiness'; // ES Modules import
+ * // const { Route53RecoveryReadinessClient, UntagResourceCommand } = require('@aws-sdk/client-route53-recovery-readiness'); // CommonJS import
  * const client = new Route53RecoveryReadinessClient(config);
  * const input = { // UntagResourceRequest
- *   ResourceArn: "STRING_VALUE", // required
+ *   ResourceArn: 'STRING_VALUE', // required
  *   TagKeys: [ // __listOf__string // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new UntagResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UntagResourceCommandInput - {@link UntagResourceCommandInput}
@@ -68,6 +71,8 @@ export interface UntagResourceCommandOutput extends __MetadataBearer {}
  * @throws {@link ValidationException} (client fault)
  *  The input fails to satisfy the constraints specified by an AWS service.
  *
+ * @throws {@link Route53RecoveryReadinessServiceException}
+ * <p>Base exception class for all service exceptions from Route53RecoveryReadiness service.</p>
  *
  */
 export class UntagResourceCommand extends $Command<

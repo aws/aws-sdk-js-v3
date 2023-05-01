@@ -36,24 +36,44 @@ export interface ListContainerRecipesCommandOutput extends ListContainerRecipesR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ImagebuilderClient, ListContainerRecipesCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
- * // const { ImagebuilderClient, ListContainerRecipesCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
+ * import { ImagebuilderClient, ListContainerRecipesCommand } from '@aws-sdk/client-imagebuilder'; // ES Modules import
+ * // const { ImagebuilderClient, ListContainerRecipesCommand } = require('@aws-sdk/client-imagebuilder'); // CommonJS import
  * const client = new ImagebuilderClient(config);
  * const input = { // ListContainerRecipesRequest
- *   owner: "Self" || "Shared" || "Amazon" || "ThirdParty",
+ *   owner: 'Self' || 'Shared' || 'Amazon' || 'ThirdParty',
  *   filters: [ // FilterList
  *     { // Filter
- *       name: "STRING_VALUE",
+ *       name: 'STRING_VALUE',
  *       values: [ // FilterValues
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new ListContainerRecipesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListContainerRecipesResponse
+ *   requestId: 'STRING_VALUE',
+ *   containerRecipeSummaryList: [ // ContainerRecipeSummaryList
+ *     { // ContainerRecipeSummary
+ *       arn: 'STRING_VALUE',
+ *       containerType: 'DOCKER',
+ *       name: 'STRING_VALUE',
+ *       platform: 'Windows' || 'Linux',
+ *       owner: 'STRING_VALUE',
+ *       parentImage: 'STRING_VALUE',
+ *       dateCreated: 'STRING_VALUE',
+ *       tags: { // TagMap
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListContainerRecipesCommandInput - {@link ListContainerRecipesCommandInput}
@@ -86,6 +106,8 @@ export interface ListContainerRecipesCommandOutput extends ListContainerRecipesR
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service is unable to process your request at this time.</p>
  *
+ * @throws {@link ImagebuilderServiceException}
+ * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
  */
 export class ListContainerRecipesCommand extends $Command<

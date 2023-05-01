@@ -36,20 +36,28 @@ export interface ListDeploymentTargetsCommandOutput extends ListDeploymentTarget
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeDeployClient, ListDeploymentTargetsCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
- * // const { CodeDeployClient, ListDeploymentTargetsCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
+ * import { CodeDeployClient, ListDeploymentTargetsCommand } from '@aws-sdk/client-codedeploy'; // ES Modules import
+ * // const { CodeDeployClient, ListDeploymentTargetsCommand } = require('@aws-sdk/client-codedeploy'); // CommonJS import
  * const client = new CodeDeployClient(config);
  * const input = { // ListDeploymentTargetsInput
- *   deploymentId: "STRING_VALUE",
- *   nextToken: "STRING_VALUE",
+ *   deploymentId: 'STRING_VALUE',
+ *   nextToken: 'STRING_VALUE',
  *   targetFilters: { // TargetFilters
- *     "<keys>": [ // FilterValueList
- *       "STRING_VALUE",
+ *     '<keys>': [ // FilterValueList
+ *       'STRING_VALUE',
  *     ],
  *   },
  * };
  * const command = new ListDeploymentTargetsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListDeploymentTargetsOutput
+ *   targetIds: [ // TargetIdList
+ *     'STRING_VALUE',
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListDeploymentTargetsCommandInput - {@link ListDeploymentTargetsCommandInput}
@@ -86,6 +94,8 @@ export interface ListDeploymentTargetsCommandOutput extends ListDeploymentTarget
  * @throws {@link InvalidNextTokenException} (client fault)
  *  <p>The next token was specified in an invalid format.</p>
  *
+ * @throws {@link CodeDeployServiceException}
+ * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
  */
 export class ListDeploymentTargetsCommand extends $Command<

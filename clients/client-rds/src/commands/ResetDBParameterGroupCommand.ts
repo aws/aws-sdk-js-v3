@@ -43,32 +43,37 @@ export interface ResetDBParameterGroupCommandOutput extends DBParameterGroupName
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RDSClient, ResetDBParameterGroupCommand } from "@aws-sdk/client-rds"; // ES Modules import
- * // const { RDSClient, ResetDBParameterGroupCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * import { RDSClient, ResetDBParameterGroupCommand } from '@aws-sdk/client-rds'; // ES Modules import
+ * // const { RDSClient, ResetDBParameterGroupCommand } = require('@aws-sdk/client-rds'); // CommonJS import
  * const client = new RDSClient(config);
  * const input = { // ResetDBParameterGroupMessage
- *   DBParameterGroupName: "STRING_VALUE", // required
+ *   DBParameterGroupName: 'STRING_VALUE', // required
  *   ResetAllParameters: true || false,
  *   Parameters: [ // ParametersList
  *     { // Parameter
- *       ParameterName: "STRING_VALUE",
- *       ParameterValue: "STRING_VALUE",
- *       Description: "STRING_VALUE",
- *       Source: "STRING_VALUE",
- *       ApplyType: "STRING_VALUE",
- *       DataType: "STRING_VALUE",
- *       AllowedValues: "STRING_VALUE",
+ *       ParameterName: 'STRING_VALUE',
+ *       ParameterValue: 'STRING_VALUE',
+ *       Description: 'STRING_VALUE',
+ *       Source: 'STRING_VALUE',
+ *       ApplyType: 'STRING_VALUE',
+ *       DataType: 'STRING_VALUE',
+ *       AllowedValues: 'STRING_VALUE',
  *       IsModifiable: true || false,
- *       MinimumEngineVersion: "STRING_VALUE",
- *       ApplyMethod: "immediate" || "pending-reboot",
+ *       MinimumEngineVersion: 'STRING_VALUE',
+ *       ApplyMethod: 'immediate' || 'pending-reboot',
  *       SupportedEngineModes: [ // EngineModeList
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
  * };
  * const command = new ResetDBParameterGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DBParameterGroupNameMessage
+ *   DBParameterGroupName: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ResetDBParameterGroupCommandInput - {@link ResetDBParameterGroupCommandInput}
@@ -87,6 +92,8 @@ export interface ResetDBParameterGroupCommandOutput extends DBParameterGroupName
  *             to delete the parameter group, you can't delete it when the parameter group is in
  *             this state.</p>
  *
+ * @throws {@link RDSServiceException}
+ * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  * @example To reset all parameters to their default values
  * ```javascript

@@ -36,23 +36,42 @@ export interface CreateInvalidationCommandOutput extends CreateInvalidationResul
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudFrontClient, CreateInvalidationCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
- * // const { CloudFrontClient, CreateInvalidationCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
+ * import { CloudFrontClient, CreateInvalidationCommand } from '@aws-sdk/client-cloudfront'; // ES Modules import
+ * // const { CloudFrontClient, CreateInvalidationCommand } = require('@aws-sdk/client-cloudfront'); // CommonJS import
  * const client = new CloudFrontClient(config);
  * const input = { // CreateInvalidationRequest
- *   DistributionId: "STRING_VALUE", // required
+ *   DistributionId: 'STRING_VALUE', // required
  *   InvalidationBatch: { // InvalidationBatch
  *     Paths: { // Paths
- *       Quantity: Number("int"), // required
+ *       Quantity: Number('int'), // required
  *       Items: [ // PathList
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
- *     CallerReference: "STRING_VALUE", // required
+ *     CallerReference: 'STRING_VALUE', // required
  *   },
  * };
  * const command = new CreateInvalidationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateInvalidationResult
+ *   Location: 'STRING_VALUE',
+ *   Invalidation: { // Invalidation
+ *     Id: 'STRING_VALUE', // required
+ *     Status: 'STRING_VALUE', // required
+ *     CreateTime: new Date('TIMESTAMP'), // required
+ *     InvalidationBatch: { // InvalidationBatch
+ *       Paths: { // Paths
+ *         Quantity: Number('int'), // required
+ *         Items: [ // PathList
+ *           'STRING_VALUE',
+ *         ],
+ *       },
+ *       CallerReference: 'STRING_VALUE', // required
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateInvalidationCommandInput - {@link CreateInvalidationCommandInput}
@@ -85,6 +104,8 @@ export interface CreateInvalidationCommandOutput extends CreateInvalidationResul
  *  <p>You have exceeded the maximum number of allowable InProgress invalidation batch
  * 			requests, or invalidation objects.</p>
  *
+ * @throws {@link CloudFrontServiceException}
+ * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
  */
 export class CreateInvalidationCommand extends $Command<

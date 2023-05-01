@@ -127,26 +127,31 @@ export interface CreateCustomKeyStoreCommandOutput extends CreateCustomKeyStoreR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KMSClient, CreateCustomKeyStoreCommand } from "@aws-sdk/client-kms"; // ES Modules import
- * // const { KMSClient, CreateCustomKeyStoreCommand } = require("@aws-sdk/client-kms"); // CommonJS import
+ * import { KMSClient, CreateCustomKeyStoreCommand } from '@aws-sdk/client-kms'; // ES Modules import
+ * // const { KMSClient, CreateCustomKeyStoreCommand } = require('@aws-sdk/client-kms'); // CommonJS import
  * const client = new KMSClient(config);
  * const input = { // CreateCustomKeyStoreRequest
- *   CustomKeyStoreName: "STRING_VALUE", // required
- *   CloudHsmClusterId: "STRING_VALUE",
- *   TrustAnchorCertificate: "STRING_VALUE",
- *   KeyStorePassword: "STRING_VALUE",
- *   CustomKeyStoreType: "AWS_CLOUDHSM" || "EXTERNAL_KEY_STORE",
- *   XksProxyUriEndpoint: "STRING_VALUE",
- *   XksProxyUriPath: "STRING_VALUE",
- *   XksProxyVpcEndpointServiceName: "STRING_VALUE",
+ *   CustomKeyStoreName: 'STRING_VALUE', // required
+ *   CloudHsmClusterId: 'STRING_VALUE',
+ *   TrustAnchorCertificate: 'STRING_VALUE',
+ *   KeyStorePassword: 'STRING_VALUE',
+ *   CustomKeyStoreType: 'AWS_CLOUDHSM' || 'EXTERNAL_KEY_STORE',
+ *   XksProxyUriEndpoint: 'STRING_VALUE',
+ *   XksProxyUriPath: 'STRING_VALUE',
+ *   XksProxyVpcEndpointServiceName: 'STRING_VALUE',
  *   XksProxyAuthenticationCredential: { // XksProxyAuthenticationCredentialType
- *     AccessKeyId: "STRING_VALUE", // required
- *     RawSecretAccessKey: "STRING_VALUE", // required
+ *     AccessKeyId: 'STRING_VALUE', // required
+ *     RawSecretAccessKey: 'STRING_VALUE', // required
  *   },
- *   XksProxyConnectivity: "PUBLIC_ENDPOINT" || "VPC_ENDPOINT_SERVICE",
+ *   XksProxyConnectivity: 'PUBLIC_ENDPOINT' || 'VPC_ENDPOINT_SERVICE',
  * };
  * const command = new CreateCustomKeyStoreCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateCustomKeyStoreResponse
+ *   CustomKeyStoreId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateCustomKeyStoreCommandInput - {@link CreateCustomKeyStoreCommandInput}
@@ -279,6 +284,8 @@ export interface CreateCustomKeyStoreCommandOutput extends CreateCustomKeyStoreR
  *       endpoint service includes the KMS service principal for the Region, such as
  *         <code>cks.kms.us-east-1.amazonaws.com</code>.</p>
  *
+ * @throws {@link KMSServiceException}
+ * <p>Base exception class for all service exceptions from KMS service.</p>
  *
  * @example To create an AWS CloudHSM key store
  * ```javascript

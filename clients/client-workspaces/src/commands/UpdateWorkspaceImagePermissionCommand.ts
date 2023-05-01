@@ -63,16 +63,19 @@ export interface UpdateWorkspaceImagePermissionCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkSpacesClient, UpdateWorkspaceImagePermissionCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
- * // const { WorkSpacesClient, UpdateWorkspaceImagePermissionCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
+ * import { WorkSpacesClient, UpdateWorkspaceImagePermissionCommand } from '@aws-sdk/client-workspaces'; // ES Modules import
+ * // const { WorkSpacesClient, UpdateWorkspaceImagePermissionCommand } = require('@aws-sdk/client-workspaces'); // CommonJS import
  * const client = new WorkSpacesClient(config);
  * const input = { // UpdateWorkspaceImagePermissionRequest
- *   ImageId: "STRING_VALUE", // required
+ *   ImageId: 'STRING_VALUE', // required
  *   AllowCopyImage: true || false, // required
- *   SharedAccountId: "STRING_VALUE", // required
+ *   SharedAccountId: 'STRING_VALUE', // required
  * };
  * const command = new UpdateWorkspaceImagePermissionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateWorkspaceImagePermissionCommandInput - {@link UpdateWorkspaceImagePermissionCommandInput}
@@ -96,6 +99,8 @@ export interface UpdateWorkspaceImagePermissionCommandOutput
  * @throws {@link ResourceUnavailableException} (client fault)
  *  <p>The specified resource is not available.</p>
  *
+ * @throws {@link WorkSpacesServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
  */
 export class UpdateWorkspaceImagePermissionCommand extends $Command<

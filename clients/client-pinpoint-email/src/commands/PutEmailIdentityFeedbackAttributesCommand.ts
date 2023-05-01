@@ -54,15 +54,18 @@ export interface PutEmailIdentityFeedbackAttributesCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PinpointEmailClient, PutEmailIdentityFeedbackAttributesCommand } from "@aws-sdk/client-pinpoint-email"; // ES Modules import
- * // const { PinpointEmailClient, PutEmailIdentityFeedbackAttributesCommand } = require("@aws-sdk/client-pinpoint-email"); // CommonJS import
+ * import { PinpointEmailClient, PutEmailIdentityFeedbackAttributesCommand } from '@aws-sdk/client-pinpoint-email'; // ES Modules import
+ * // const { PinpointEmailClient, PutEmailIdentityFeedbackAttributesCommand } = require('@aws-sdk/client-pinpoint-email'); // CommonJS import
  * const client = new PinpointEmailClient(config);
  * const input = { // PutEmailIdentityFeedbackAttributesRequest
- *   EmailIdentity: "STRING_VALUE", // required
+ *   EmailIdentity: 'STRING_VALUE', // required
  *   EmailForwardingEnabled: true || false,
  * };
  * const command = new PutEmailIdentityFeedbackAttributesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutEmailIdentityFeedbackAttributesCommandInput - {@link PutEmailIdentityFeedbackAttributesCommandInput}
@@ -80,6 +83,8 @@ export interface PutEmailIdentityFeedbackAttributesCommandOutput
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Too many requests have been made to the operation.</p>
  *
+ * @throws {@link PinpointEmailServiceException}
+ * <p>Base exception class for all service exceptions from PinpointEmail service.</p>
  *
  */
 export class PutEmailIdentityFeedbackAttributesCommand extends $Command<

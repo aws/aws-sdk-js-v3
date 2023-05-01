@@ -82,53 +82,53 @@ export interface BatchGetItemCommandOutput extends BatchGetItemOutput, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DynamoDBClient, BatchGetItemCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
- * // const { DynamoDBClient, BatchGetItemCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
+ * import { DynamoDBClient, BatchGetItemCommand } from '@aws-sdk/client-dynamodb'; // ES Modules import
+ * // const { DynamoDBClient, BatchGetItemCommand } = require('@aws-sdk/client-dynamodb'); // CommonJS import
  * const client = new DynamoDBClient(config);
  * const input = { // BatchGetItemInput
  *   RequestItems: { // BatchGetRequestMap // required
- *     "<keys>": { // KeysAndAttributes
+ *     '<keys>': { // KeysAndAttributes
  *       Keys: [ // KeyList // required
  *         { // Key
- *           "<keys>": { // AttributeValue Union: only one key present
- *             S: "STRING_VALUE",
- *             N: "STRING_VALUE",
- *             B: "BLOB_VALUE",
+ *           '<keys>': { // AttributeValue Union: only one key present
+ *             S: 'STRING_VALUE',
+ *             N: 'STRING_VALUE',
+ *             B: 'BLOB_VALUE',
  *             SS: [ // StringSetAttributeValue
- *               "STRING_VALUE",
+ *               'STRING_VALUE',
  *             ],
  *             NS: [ // NumberSetAttributeValue
- *               "STRING_VALUE",
+ *               'STRING_VALUE',
  *             ],
  *             BS: [ // BinarySetAttributeValue
- *               "BLOB_VALUE",
+ *               'BLOB_VALUE',
  *             ],
  *             M: { // MapAttributeValue
- *               "<keys>": {//  Union: only one key present
- *                 S: "STRING_VALUE",
- *                 N: "STRING_VALUE",
- *                 B: "BLOB_VALUE",
+ *               '<keys>': {//  Union: only one key present
+ *                 S: 'STRING_VALUE',
+ *                 N: 'STRING_VALUE',
+ *                 B: 'BLOB_VALUE',
  *                 SS: [
- *                   "STRING_VALUE",
+ *                   'STRING_VALUE',
  *                 ],
  *                 NS: [
- *                   "STRING_VALUE",
+ *                   'STRING_VALUE',
  *                 ],
  *                 BS: [
- *                   "BLOB_VALUE",
+ *                   'BLOB_VALUE',
  *                 ],
  *                 M: {
- *                   "<keys>": "<AttributeValue>",
+ *                   '<keys>': '<AttributeValue>',
  *                 },
  *                 L: [ // ListAttributeValue
- *                   "<AttributeValue>",
+ *                   '<AttributeValue>',
  *                 ],
  *                 NULL: true || false,
  *                 BOOL: true || false,
  *               },
  *             },
  *             L: [
- *               "<AttributeValue>",
+ *               '<AttributeValue>',
  *             ],
  *             NULL: true || false,
  *             BOOL: true || false,
@@ -136,19 +136,116 @@ export interface BatchGetItemCommandOutput extends BatchGetItemOutput, __Metadat
  *         },
  *       ],
  *       AttributesToGet: [ // AttributeNameList
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *       ConsistentRead: true || false,
- *       ProjectionExpression: "STRING_VALUE",
+ *       ProjectionExpression: 'STRING_VALUE',
  *       ExpressionAttributeNames: { // ExpressionAttributeNameMap
- *         "<keys>": "STRING_VALUE",
+ *         '<keys>': 'STRING_VALUE',
  *       },
  *     },
  *   },
- *   ReturnConsumedCapacity: "INDEXES" || "TOTAL" || "NONE",
+ *   ReturnConsumedCapacity: 'INDEXES' || 'TOTAL' || 'NONE',
  * };
  * const command = new BatchGetItemCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BatchGetItemOutput
+ *   Responses: { // BatchGetResponseMap
+ *     '<keys>': [ // ItemList
+ *       { // AttributeMap
+ *         '<keys>': { // AttributeValue Union: only one key present
+ *           S: 'STRING_VALUE',
+ *           N: 'STRING_VALUE',
+ *           B: 'BLOB_VALUE',
+ *           SS: [ // StringSetAttributeValue
+ *             'STRING_VALUE',
+ *           ],
+ *           NS: [ // NumberSetAttributeValue
+ *             'STRING_VALUE',
+ *           ],
+ *           BS: [ // BinarySetAttributeValue
+ *             'BLOB_VALUE',
+ *           ],
+ *           M: { // MapAttributeValue
+ *             '<keys>': {//  Union: only one key present
+ *               S: 'STRING_VALUE',
+ *               N: 'STRING_VALUE',
+ *               B: 'BLOB_VALUE',
+ *               SS: [
+ *                 'STRING_VALUE',
+ *               ],
+ *               NS: [
+ *                 'STRING_VALUE',
+ *               ],
+ *               BS: [
+ *                 'BLOB_VALUE',
+ *               ],
+ *               M: {
+ *                 '<keys>': '<AttributeValue>',
+ *               },
+ *               L: [ // ListAttributeValue
+ *                 '<AttributeValue>',
+ *               ],
+ *               NULL: true || false,
+ *               BOOL: true || false,
+ *             },
+ *           },
+ *           L: [
+ *             '<AttributeValue>',
+ *           ],
+ *           NULL: true || false,
+ *           BOOL: true || false,
+ *         },
+ *       },
+ *     ],
+ *   },
+ *   UnprocessedKeys: { // BatchGetRequestMap
+ *     '<keys>': { // KeysAndAttributes
+ *       Keys: [ // KeyList // required
+ *         { // Key
+ *           '<keys>': '<AttributeValue>',
+ *         },
+ *       ],
+ *       AttributesToGet: [ // AttributeNameList
+ *         'STRING_VALUE',
+ *       ],
+ *       ConsistentRead: true || false,
+ *       ProjectionExpression: 'STRING_VALUE',
+ *       ExpressionAttributeNames: { // ExpressionAttributeNameMap
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *     },
+ *   },
+ *   ConsumedCapacity: [ // ConsumedCapacityMultiple
+ *     { // ConsumedCapacity
+ *       TableName: 'STRING_VALUE',
+ *       CapacityUnits: Number('double'),
+ *       ReadCapacityUnits: Number('double'),
+ *       WriteCapacityUnits: Number('double'),
+ *       Table: { // Capacity
+ *         ReadCapacityUnits: Number('double'),
+ *         WriteCapacityUnits: Number('double'),
+ *         CapacityUnits: Number('double'),
+ *       },
+ *       LocalSecondaryIndexes: { // SecondaryIndexesCapacityMap
+ *         '<keys>': {
+ *           ReadCapacityUnits: Number('double'),
+ *           WriteCapacityUnits: Number('double'),
+ *           CapacityUnits: Number('double'),
+ *         },
+ *       },
+ *       GlobalSecondaryIndexes: {
+ *         '<keys>': {
+ *           ReadCapacityUnits: Number('double'),
+ *           WriteCapacityUnits: Number('double'),
+ *           CapacityUnits: Number('double'),
+ *         },
+ *       },
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param BatchGetItemCommandInput - {@link BatchGetItemCommandInput}
@@ -177,6 +274,8 @@ export interface BatchGetItemCommandOutput extends BatchGetItemOutput, __Metadat
  *  <p>The operation tried to access a nonexistent table or index. The resource might not
  *             be specified correctly, or its status might not be <code>ACTIVE</code>.</p>
  *
+ * @throws {@link DynamoDBServiceException}
+ * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
  * @example To retrieve multiple items from a table
  * ```javascript

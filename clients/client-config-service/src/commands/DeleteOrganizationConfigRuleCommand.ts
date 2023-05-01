@@ -44,14 +44,17 @@ export interface DeleteOrganizationConfigRuleCommandOutput extends __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConfigServiceClient, DeleteOrganizationConfigRuleCommand } from "@aws-sdk/client-config-service"; // ES Modules import
- * // const { ConfigServiceClient, DeleteOrganizationConfigRuleCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
+ * import { ConfigServiceClient, DeleteOrganizationConfigRuleCommand } from '@aws-sdk/client-config-service'; // ES Modules import
+ * // const { ConfigServiceClient, DeleteOrganizationConfigRuleCommand } = require('@aws-sdk/client-config-service'); // CommonJS import
  * const client = new ConfigServiceClient(config);
  * const input = { // DeleteOrganizationConfigRuleRequest
- *   OrganizationConfigRuleName: "STRING_VALUE", // required
+ *   OrganizationConfigRuleName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteOrganizationConfigRuleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteOrganizationConfigRuleCommandInput - {@link DeleteOrganizationConfigRuleCommandInput}
@@ -110,6 +113,8 @@ export interface DeleteOrganizationConfigRuleCommandOutput extends __MetadataBea
  *             </li>
  *          </ul>
  *
+ * @throws {@link ConfigServiceServiceException}
+ * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
  */
 export class DeleteOrganizationConfigRuleCommand extends $Command<

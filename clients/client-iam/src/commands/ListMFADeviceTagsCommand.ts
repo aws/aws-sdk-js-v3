@@ -38,16 +38,28 @@ export interface ListMFADeviceTagsCommandOutput extends ListMFADeviceTagsRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IAMClient, ListMFADeviceTagsCommand } from "@aws-sdk/client-iam"; // ES Modules import
- * // const { IAMClient, ListMFADeviceTagsCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * import { IAMClient, ListMFADeviceTagsCommand } from '@aws-sdk/client-iam'; // ES Modules import
+ * // const { IAMClient, ListMFADeviceTagsCommand } = require('@aws-sdk/client-iam'); // CommonJS import
  * const client = new IAMClient(config);
  * const input = { // ListMFADeviceTagsRequest
- *   SerialNumber: "STRING_VALUE", // required
- *   Marker: "STRING_VALUE",
- *   MaxItems: Number("int"),
+ *   SerialNumber: 'STRING_VALUE', // required
+ *   Marker: 'STRING_VALUE',
+ *   MaxItems: Number('int'),
  * };
  * const command = new ListMFADeviceTagsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListMFADeviceTagsResponse
+ *   Tags: [ // tagListType // required
+ *     { // Tag
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ *   IsTruncated: true || false,
+ *   Marker: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListMFADeviceTagsCommandInput - {@link ListMFADeviceTagsCommandInput}
@@ -68,6 +80,8 @@ export interface ListMFADeviceTagsCommandOutput extends ListMFADeviceTagsRespons
  *  <p>The request processing has failed because of an unknown error, exception or
  *       failure.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  */
 export class ListMFADeviceTagsCommand extends $Command<

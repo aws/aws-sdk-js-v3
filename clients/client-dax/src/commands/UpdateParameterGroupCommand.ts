@@ -38,20 +38,28 @@ export interface UpdateParameterGroupCommandOutput extends UpdateParameterGroupR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DAXClient, UpdateParameterGroupCommand } from "@aws-sdk/client-dax"; // ES Modules import
- * // const { DAXClient, UpdateParameterGroupCommand } = require("@aws-sdk/client-dax"); // CommonJS import
+ * import { DAXClient, UpdateParameterGroupCommand } from '@aws-sdk/client-dax'; // ES Modules import
+ * // const { DAXClient, UpdateParameterGroupCommand } = require('@aws-sdk/client-dax'); // CommonJS import
  * const client = new DAXClient(config);
  * const input = { // UpdateParameterGroupRequest
- *   ParameterGroupName: "STRING_VALUE", // required
+ *   ParameterGroupName: 'STRING_VALUE', // required
  *   ParameterNameValues: [ // ParameterNameValueList // required
  *     { // ParameterNameValue
- *       ParameterName: "STRING_VALUE",
- *       ParameterValue: "STRING_VALUE",
+ *       ParameterName: 'STRING_VALUE',
+ *       ParameterValue: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new UpdateParameterGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateParameterGroupResponse
+ *   ParameterGroup: { // ParameterGroup
+ *     ParameterGroupName: 'STRING_VALUE',
+ *     Description: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateParameterGroupCommandInput - {@link UpdateParameterGroupCommandInput}
@@ -75,6 +83,8 @@ export interface UpdateParameterGroupCommandOutput extends UpdateParameterGroupR
  * @throws {@link ServiceLinkedRoleNotFoundFault} (client fault)
  *  <p>The specified service linked role (SLR) was not found.</p>
  *
+ * @throws {@link DAXServiceException}
+ * <p>Base exception class for all service exceptions from DAX service.</p>
  *
  */
 export class UpdateParameterGroupCommand extends $Command<

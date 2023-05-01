@@ -45,17 +45,20 @@ export interface UntagServerCertificateCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IAMClient, UntagServerCertificateCommand } from "@aws-sdk/client-iam"; // ES Modules import
- * // const { IAMClient, UntagServerCertificateCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * import { IAMClient, UntagServerCertificateCommand } from '@aws-sdk/client-iam'; // ES Modules import
+ * // const { IAMClient, UntagServerCertificateCommand } = require('@aws-sdk/client-iam'); // CommonJS import
  * const client = new IAMClient(config);
  * const input = { // UntagServerCertificateRequest
- *   ServerCertificateName: "STRING_VALUE", // required
+ *   ServerCertificateName: 'STRING_VALUE', // required
  *   TagKeys: [ // tagKeyListType // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new UntagServerCertificateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UntagServerCertificateCommandInput - {@link UntagServerCertificateCommandInput}
@@ -80,6 +83,8 @@ export interface UntagServerCertificateCommandOutput extends __MetadataBearer {}
  *  <p>The request processing has failed because of an unknown error, exception or
  *       failure.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  */
 export class UntagServerCertificateCommand extends $Command<

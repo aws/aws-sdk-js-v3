@@ -42,44 +42,44 @@ export interface ValidateSecurityProfileBehaviorsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTClient, ValidateSecurityProfileBehaviorsCommand } from "@aws-sdk/client-iot"; // ES Modules import
- * // const { IoTClient, ValidateSecurityProfileBehaviorsCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * import { IoTClient, ValidateSecurityProfileBehaviorsCommand } from '@aws-sdk/client-iot'; // ES Modules import
+ * // const { IoTClient, ValidateSecurityProfileBehaviorsCommand } = require('@aws-sdk/client-iot'); // CommonJS import
  * const client = new IoTClient(config);
  * const input = { // ValidateSecurityProfileBehaviorsRequest
  *   behaviors: [ // Behaviors // required
  *     { // Behavior
- *       name: "STRING_VALUE", // required
- *       metric: "STRING_VALUE",
+ *       name: 'STRING_VALUE', // required
+ *       metric: 'STRING_VALUE',
  *       metricDimension: { // MetricDimension
- *         dimensionName: "STRING_VALUE", // required
- *         operator: "IN" || "NOT_IN",
+ *         dimensionName: 'STRING_VALUE', // required
+ *         operator: 'IN' || 'NOT_IN',
  *       },
  *       criteria: { // BehaviorCriteria
- *         comparisonOperator: "less-than" || "less-than-equals" || "greater-than" || "greater-than-equals" || "in-cidr-set" || "not-in-cidr-set" || "in-port-set" || "not-in-port-set" || "in-set" || "not-in-set",
+ *         comparisonOperator: 'less-than' || 'less-than-equals' || 'greater-than' || 'greater-than-equals' || 'in-cidr-set' || 'not-in-cidr-set' || 'in-port-set' || 'not-in-port-set' || 'in-set' || 'not-in-set',
  *         value: { // MetricValue
- *           count: Number("long"),
+ *           count: Number('long'),
  *           cidrs: [ // Cidrs
- *             "STRING_VALUE",
+ *             'STRING_VALUE',
  *           ],
  *           ports: [ // Ports
- *             Number("int"),
+ *             Number('int'),
  *           ],
- *           number: Number("double"),
+ *           number: Number('double'),
  *           numbers: [ // NumberList
- *             Number("double"),
+ *             Number('double'),
  *           ],
  *           strings: [ // StringList
- *             "STRING_VALUE",
+ *             'STRING_VALUE',
  *           ],
  *         },
- *         durationSeconds: Number("int"),
- *         consecutiveDatapointsToAlarm: Number("int"),
- *         consecutiveDatapointsToClear: Number("int"),
+ *         durationSeconds: Number('int'),
+ *         consecutiveDatapointsToAlarm: Number('int'),
+ *         consecutiveDatapointsToClear: Number('int'),
  *         statisticalThreshold: { // StatisticalThreshold
- *           statistic: "STRING_VALUE",
+ *           statistic: 'STRING_VALUE',
  *         },
  *         mlDetectionConfig: { // MachineLearningDetectionConfig
- *           confidenceLevel: "LOW" || "MEDIUM" || "HIGH", // required
+ *           confidenceLevel: 'LOW' || 'MEDIUM' || 'HIGH', // required
  *         },
  *       },
  *       suppressAlerts: true || false,
@@ -88,6 +88,16 @@ export interface ValidateSecurityProfileBehaviorsCommandOutput
  * };
  * const command = new ValidateSecurityProfileBehaviorsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ValidateSecurityProfileBehaviorsResponse
+ *   valid: true || false,
+ *   validationErrors: [ // ValidationErrors
+ *     { // ValidationError
+ *       errorMessage: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ValidateSecurityProfileBehaviorsCommandInput - {@link ValidateSecurityProfileBehaviorsCommandInput}
@@ -105,6 +115,8 @@ export interface ValidateSecurityProfileBehaviorsCommandOutput
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The rate exceeds the limit.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class ValidateSecurityProfileBehaviorsCommand extends $Command<

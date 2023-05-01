@@ -37,14 +37,17 @@ export interface DeleteEmailIdentityCommandOutput extends DeleteEmailIdentityRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PinpointEmailClient, DeleteEmailIdentityCommand } from "@aws-sdk/client-pinpoint-email"; // ES Modules import
- * // const { PinpointEmailClient, DeleteEmailIdentityCommand } = require("@aws-sdk/client-pinpoint-email"); // CommonJS import
+ * import { PinpointEmailClient, DeleteEmailIdentityCommand } from '@aws-sdk/client-pinpoint-email'; // ES Modules import
+ * // const { PinpointEmailClient, DeleteEmailIdentityCommand } = require('@aws-sdk/client-pinpoint-email'); // CommonJS import
  * const client = new PinpointEmailClient(config);
  * const input = { // DeleteEmailIdentityRequest
- *   EmailIdentity: "STRING_VALUE", // required
+ *   EmailIdentity: 'STRING_VALUE', // required
  * };
  * const command = new DeleteEmailIdentityCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteEmailIdentityCommandInput - {@link DeleteEmailIdentityCommandInput}
@@ -65,6 +68,8 @@ export interface DeleteEmailIdentityCommandOutput extends DeleteEmailIdentityRes
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Too many requests have been made to the operation.</p>
  *
+ * @throws {@link PinpointEmailServiceException}
+ * <p>Base exception class for all service exceptions from PinpointEmail service.</p>
  *
  */
 export class DeleteEmailIdentityCommand extends $Command<

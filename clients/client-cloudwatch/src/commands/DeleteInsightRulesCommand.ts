@@ -39,16 +39,28 @@ export interface DeleteInsightRulesCommandOutput extends DeleteInsightRulesOutpu
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudWatchClient, DeleteInsightRulesCommand } from "@aws-sdk/client-cloudwatch"; // ES Modules import
- * // const { CloudWatchClient, DeleteInsightRulesCommand } = require("@aws-sdk/client-cloudwatch"); // CommonJS import
+ * import { CloudWatchClient, DeleteInsightRulesCommand } from '@aws-sdk/client-cloudwatch'; // ES Modules import
+ * // const { CloudWatchClient, DeleteInsightRulesCommand } = require('@aws-sdk/client-cloudwatch'); // CommonJS import
  * const client = new CloudWatchClient(config);
  * const input = { // DeleteInsightRulesInput
  *   RuleNames: [ // InsightRuleNames // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new DeleteInsightRulesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteInsightRulesOutput
+ *   Failures: [ // BatchFailures
+ *     { // PartialFailure
+ *       FailureResource: 'STRING_VALUE',
+ *       ExceptionType: 'STRING_VALUE',
+ *       FailureCode: 'STRING_VALUE',
+ *       FailureDescription: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DeleteInsightRulesCommandInput - {@link DeleteInsightRulesCommandInput}
@@ -63,6 +75,8 @@ export interface DeleteInsightRulesCommandOutput extends DeleteInsightRulesOutpu
  * @throws {@link MissingRequiredParameterException} (client fault)
  *  <p>An input parameter that is required is missing.</p>
  *
+ * @throws {@link CloudWatchServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatch service.</p>
  *
  */
 export class DeleteInsightRulesCommand extends $Command<

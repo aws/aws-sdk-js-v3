@@ -38,16 +38,19 @@ export interface MoveAccountCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OrganizationsClient, MoveAccountCommand } from "@aws-sdk/client-organizations"; // ES Modules import
- * // const { OrganizationsClient, MoveAccountCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
+ * import { OrganizationsClient, MoveAccountCommand } from '@aws-sdk/client-organizations'; // ES Modules import
+ * // const { OrganizationsClient, MoveAccountCommand } = require('@aws-sdk/client-organizations'); // CommonJS import
  * const client = new OrganizationsClient(config);
  * const input = { // MoveAccountRequest
- *   AccountId: "STRING_VALUE", // required
- *   SourceParentId: "STRING_VALUE", // required
- *   DestinationParentId: "STRING_VALUE", // required
+ *   AccountId: 'STRING_VALUE', // required
+ *   SourceParentId: 'STRING_VALUE', // required
+ *   DestinationParentId: 'STRING_VALUE', // required
  * };
  * const command = new MoveAccountCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param MoveAccountCommandInput - {@link MoveAccountCommandInput}
@@ -202,6 +205,8 @@ export interface MoveAccountCommandOutput extends __MetadataBearer {}
  *                 <i>Organizations User Guide.</i>
  *          </p>
  *
+ * @throws {@link OrganizationsServiceException}
+ * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
  * @example To move an OU or account to another OU or the root
  * ```javascript

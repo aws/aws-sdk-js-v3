@@ -44,14 +44,17 @@ export interface DeleteTrafficPolicyInstanceCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Route53Client, DeleteTrafficPolicyInstanceCommand } from "@aws-sdk/client-route-53"; // ES Modules import
- * // const { Route53Client, DeleteTrafficPolicyInstanceCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
+ * import { Route53Client, DeleteTrafficPolicyInstanceCommand } from '@aws-sdk/client-route-53'; // ES Modules import
+ * // const { Route53Client, DeleteTrafficPolicyInstanceCommand } = require('@aws-sdk/client-route-53'); // CommonJS import
  * const client = new Route53Client(config);
  * const input = { // DeleteTrafficPolicyInstanceRequest
- *   Id: "STRING_VALUE", // required
+ *   Id: 'STRING_VALUE', // required
  * };
  * const command = new DeleteTrafficPolicyInstanceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteTrafficPolicyInstanceCommandInput - {@link DeleteTrafficPolicyInstanceCommandInput}
@@ -73,6 +76,8 @@ export interface DeleteTrafficPolicyInstanceCommandOutput
  * 			for the same request, we recommend that you wait, in intervals of increasing duration,
  * 			before you try the request again.</p>
  *
+ * @throws {@link Route53ServiceException}
+ * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
  */
 export class DeleteTrafficPolicyInstanceCommand extends $Command<

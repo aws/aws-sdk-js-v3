@@ -43,15 +43,21 @@ export interface CancelChangeSetCommandOutput extends CancelChangeSetResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MarketplaceCatalogClient, CancelChangeSetCommand } from "@aws-sdk/client-marketplace-catalog"; // ES Modules import
- * // const { MarketplaceCatalogClient, CancelChangeSetCommand } = require("@aws-sdk/client-marketplace-catalog"); // CommonJS import
+ * import { MarketplaceCatalogClient, CancelChangeSetCommand } from '@aws-sdk/client-marketplace-catalog'; // ES Modules import
+ * // const { MarketplaceCatalogClient, CancelChangeSetCommand } = require('@aws-sdk/client-marketplace-catalog'); // CommonJS import
  * const client = new MarketplaceCatalogClient(config);
  * const input = { // CancelChangeSetRequest
- *   Catalog: "STRING_VALUE", // required
- *   ChangeSetId: "STRING_VALUE", // required
+ *   Catalog: 'STRING_VALUE', // required
+ *   ChangeSetId: 'STRING_VALUE', // required
  * };
  * const command = new CancelChangeSetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CancelChangeSetResponse
+ *   ChangeSetId: 'STRING_VALUE',
+ *   ChangeSetArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CancelChangeSetCommandInput - {@link CancelChangeSetCommandInput}
@@ -83,6 +89,8 @@ export interface CancelChangeSetCommandOutput extends CancelChangeSetResponse, _
  *  <p>An error occurred during validation.</p>
  *          <p>HTTP status code: 422</p>
  *
+ * @throws {@link MarketplaceCatalogServiceException}
+ * <p>Base exception class for all service exceptions from MarketplaceCatalog service.</p>
  *
  */
 export class CancelChangeSetCommand extends $Command<

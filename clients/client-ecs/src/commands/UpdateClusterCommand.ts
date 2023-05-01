@@ -36,36 +36,107 @@ export interface UpdateClusterCommandOutput extends UpdateClusterResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ECSClient, UpdateClusterCommand } from "@aws-sdk/client-ecs"; // ES Modules import
- * // const { ECSClient, UpdateClusterCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
+ * import { ECSClient, UpdateClusterCommand } from '@aws-sdk/client-ecs'; // ES Modules import
+ * // const { ECSClient, UpdateClusterCommand } = require('@aws-sdk/client-ecs'); // CommonJS import
  * const client = new ECSClient(config);
  * const input = { // UpdateClusterRequest
- *   cluster: "STRING_VALUE", // required
+ *   cluster: 'STRING_VALUE', // required
  *   settings: [ // ClusterSettings
  *     { // ClusterSetting
- *       name: "containerInsights",
- *       value: "STRING_VALUE",
+ *       name: 'containerInsights',
+ *       value: 'STRING_VALUE',
  *     },
  *   ],
  *   configuration: { // ClusterConfiguration
  *     executeCommandConfiguration: { // ExecuteCommandConfiguration
- *       kmsKeyId: "STRING_VALUE",
- *       logging: "NONE" || "DEFAULT" || "OVERRIDE",
+ *       kmsKeyId: 'STRING_VALUE',
+ *       logging: 'NONE' || 'DEFAULT' || 'OVERRIDE',
  *       logConfiguration: { // ExecuteCommandLogConfiguration
- *         cloudWatchLogGroupName: "STRING_VALUE",
+ *         cloudWatchLogGroupName: 'STRING_VALUE',
  *         cloudWatchEncryptionEnabled: true || false,
- *         s3BucketName: "STRING_VALUE",
+ *         s3BucketName: 'STRING_VALUE',
  *         s3EncryptionEnabled: true || false,
- *         s3KeyPrefix: "STRING_VALUE",
+ *         s3KeyPrefix: 'STRING_VALUE',
  *       },
  *     },
  *   },
  *   serviceConnectDefaults: { // ClusterServiceConnectDefaultsRequest
- *     namespace: "STRING_VALUE", // required
+ *     namespace: 'STRING_VALUE', // required
  *   },
  * };
  * const command = new UpdateClusterCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateClusterResponse
+ *   cluster: { // Cluster
+ *     clusterArn: 'STRING_VALUE',
+ *     clusterName: 'STRING_VALUE',
+ *     configuration: { // ClusterConfiguration
+ *       executeCommandConfiguration: { // ExecuteCommandConfiguration
+ *         kmsKeyId: 'STRING_VALUE',
+ *         logging: 'NONE' || 'DEFAULT' || 'OVERRIDE',
+ *         logConfiguration: { // ExecuteCommandLogConfiguration
+ *           cloudWatchLogGroupName: 'STRING_VALUE',
+ *           cloudWatchEncryptionEnabled: true || false,
+ *           s3BucketName: 'STRING_VALUE',
+ *           s3EncryptionEnabled: true || false,
+ *           s3KeyPrefix: 'STRING_VALUE',
+ *         },
+ *       },
+ *     },
+ *     status: 'STRING_VALUE',
+ *     registeredContainerInstancesCount: Number('int'),
+ *     runningTasksCount: Number('int'),
+ *     pendingTasksCount: Number('int'),
+ *     activeServicesCount: Number('int'),
+ *     statistics: [ // Statistics
+ *       { // KeyValuePair
+ *         name: 'STRING_VALUE',
+ *         value: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     tags: [ // Tags
+ *       { // Tag
+ *         key: 'STRING_VALUE',
+ *         value: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     settings: [ // ClusterSettings
+ *       { // ClusterSetting
+ *         name: 'containerInsights',
+ *         value: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     capacityProviders: [ // StringList
+ *       'STRING_VALUE',
+ *     ],
+ *     defaultCapacityProviderStrategy: [ // CapacityProviderStrategy
+ *       { // CapacityProviderStrategyItem
+ *         capacityProvider: 'STRING_VALUE', // required
+ *         weight: Number('int'),
+ *         base: Number('int'),
+ *       },
+ *     ],
+ *     attachments: [ // Attachments
+ *       { // Attachment
+ *         id: 'STRING_VALUE',
+ *         type: 'STRING_VALUE',
+ *         status: 'STRING_VALUE',
+ *         details: [ // AttachmentDetails
+ *           {
+ *             name: 'STRING_VALUE',
+ *             value: 'STRING_VALUE',
+ *           },
+ *         ],
+ *       },
+ *     ],
+ *     attachmentsStatus: 'STRING_VALUE',
+ *     serviceConnectDefaults: { // ClusterServiceConnectDefaults
+ *       namespace: 'STRING_VALUE',
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateClusterCommandInput - {@link UpdateClusterCommandInput}
@@ -89,6 +160,8 @@ export interface UpdateClusterCommandOutput extends UpdateClusterResponse, __Met
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server issue.</p>
  *
+ * @throws {@link ECSServiceException}
+ * <p>Base exception class for all service exceptions from ECS service.</p>
  *
  */
 export class UpdateClusterCommand extends $Command<

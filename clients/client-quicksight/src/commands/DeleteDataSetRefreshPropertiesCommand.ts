@@ -41,15 +41,21 @@ export interface DeleteDataSetRefreshPropertiesCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { QuickSightClient, DeleteDataSetRefreshPropertiesCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
- * // const { QuickSightClient, DeleteDataSetRefreshPropertiesCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * import { QuickSightClient, DeleteDataSetRefreshPropertiesCommand } from '@aws-sdk/client-quicksight'; // ES Modules import
+ * // const { QuickSightClient, DeleteDataSetRefreshPropertiesCommand } = require('@aws-sdk/client-quicksight'); // CommonJS import
  * const client = new QuickSightClient(config);
  * const input = { // DeleteDataSetRefreshPropertiesRequest
- *   AwsAccountId: "STRING_VALUE", // required
- *   DataSetId: "STRING_VALUE", // required
+ *   AwsAccountId: 'STRING_VALUE', // required
+ *   DataSetId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteDataSetRefreshPropertiesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteDataSetRefreshPropertiesResponse
+ *   RequestId: 'STRING_VALUE',
+ *   Status: Number('int'),
+ * };
+ *
  * ```
  *
  * @param DeleteDataSetRefreshPropertiesCommandInput - {@link DeleteDataSetRefreshPropertiesCommandInput}
@@ -82,6 +88,8 @@ export interface DeleteDataSetRefreshPropertiesCommandOutput
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Access is throttled.</p>
  *
+ * @throws {@link QuickSightServiceException}
+ * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
 export class DeleteDataSetRefreshPropertiesCommand extends $Command<

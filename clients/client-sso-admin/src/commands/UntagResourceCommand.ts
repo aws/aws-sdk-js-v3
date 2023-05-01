@@ -36,18 +36,21 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSOAdminClient, UntagResourceCommand } from "@aws-sdk/client-sso-admin"; // ES Modules import
- * // const { SSOAdminClient, UntagResourceCommand } = require("@aws-sdk/client-sso-admin"); // CommonJS import
+ * import { SSOAdminClient, UntagResourceCommand } from '@aws-sdk/client-sso-admin'; // ES Modules import
+ * // const { SSOAdminClient, UntagResourceCommand } = require('@aws-sdk/client-sso-admin'); // CommonJS import
  * const client = new SSOAdminClient(config);
  * const input = { // UntagResourceRequest
- *   InstanceArn: "STRING_VALUE", // required
- *   ResourceArn: "STRING_VALUE", // required
+ *   InstanceArn: 'STRING_VALUE', // required
+ *   ResourceArn: 'STRING_VALUE', // required
  *   TagKeys: [ // TagKeyList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new UntagResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UntagResourceCommandInput - {@link UntagResourceCommandInput}
@@ -79,6 +82,8 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>The request failed because it contains a syntax error.</p>
  *
+ * @throws {@link SSOAdminServiceException}
+ * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
  */
 export class UntagResourceCommand extends $Command<

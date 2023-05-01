@@ -47,18 +47,25 @@ export interface UpdateSipMediaApplicationCallCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeSDKVoiceClient, UpdateSipMediaApplicationCallCommand } from "@aws-sdk/client-chime-sdk-voice"; // ES Modules import
- * // const { ChimeSDKVoiceClient, UpdateSipMediaApplicationCallCommand } = require("@aws-sdk/client-chime-sdk-voice"); // CommonJS import
+ * import { ChimeSDKVoiceClient, UpdateSipMediaApplicationCallCommand } from '@aws-sdk/client-chime-sdk-voice'; // ES Modules import
+ * // const { ChimeSDKVoiceClient, UpdateSipMediaApplicationCallCommand } = require('@aws-sdk/client-chime-sdk-voice'); // CommonJS import
  * const client = new ChimeSDKVoiceClient(config);
  * const input = { // UpdateSipMediaApplicationCallRequest
- *   SipMediaApplicationId: "STRING_VALUE", // required
- *   TransactionId: "STRING_VALUE", // required
+ *   SipMediaApplicationId: 'STRING_VALUE', // required
+ *   TransactionId: 'STRING_VALUE', // required
  *   Arguments: { // SMAUpdateCallArgumentsMap // required
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new UpdateSipMediaApplicationCallCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateSipMediaApplicationCallResponse
+ *   SipMediaApplicationCall: { // SipMediaApplicationCall
+ *     TransactionId: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateSipMediaApplicationCallCommandInput - {@link UpdateSipMediaApplicationCallCommandInput}
@@ -91,6 +98,8 @@ export interface UpdateSipMediaApplicationCallCommandOutput
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client isn't authorized to request a resource.</p>
  *
+ * @throws {@link ChimeSDKVoiceServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
  */
 export class UpdateSipMediaApplicationCallCommand extends $Command<

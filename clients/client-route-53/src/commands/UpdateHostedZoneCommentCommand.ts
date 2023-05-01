@@ -37,15 +37,33 @@ export interface UpdateHostedZoneCommentCommandOutput extends UpdateHostedZoneCo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Route53Client, UpdateHostedZoneCommentCommand } from "@aws-sdk/client-route-53"; // ES Modules import
- * // const { Route53Client, UpdateHostedZoneCommentCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
+ * import { Route53Client, UpdateHostedZoneCommentCommand } from '@aws-sdk/client-route-53'; // ES Modules import
+ * // const { Route53Client, UpdateHostedZoneCommentCommand } = require('@aws-sdk/client-route-53'); // CommonJS import
  * const client = new Route53Client(config);
  * const input = { // UpdateHostedZoneCommentRequest
- *   Id: "STRING_VALUE", // required
- *   Comment: "STRING_VALUE",
+ *   Id: 'STRING_VALUE', // required
+ *   Comment: 'STRING_VALUE',
  * };
  * const command = new UpdateHostedZoneCommentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateHostedZoneCommentResponse
+ *   HostedZone: { // HostedZone
+ *     Id: 'STRING_VALUE', // required
+ *     Name: 'STRING_VALUE', // required
+ *     CallerReference: 'STRING_VALUE', // required
+ *     Config: { // HostedZoneConfig
+ *       Comment: 'STRING_VALUE',
+ *       PrivateZone: true || false,
+ *     },
+ *     ResourceRecordSetCount: Number('long'),
+ *     LinkedService: { // LinkedService
+ *       ServicePrincipal: 'STRING_VALUE',
+ *       Description: 'STRING_VALUE',
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateHostedZoneCommentCommandInput - {@link UpdateHostedZoneCommentCommandInput}
@@ -67,6 +85,8 @@ export interface UpdateHostedZoneCommentCommandOutput extends UpdateHostedZoneCo
  * 			for the same request, we recommend that you wait, in intervals of increasing duration,
  * 			before you try the request again.</p>
  *
+ * @throws {@link Route53ServiceException}
+ * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
  */
 export class UpdateHostedZoneCommentCommand extends $Command<

@@ -41,14 +41,19 @@ export interface DisableDomainTransferLockCommandOutput extends DisableDomainTra
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Route53DomainsClient, DisableDomainTransferLockCommand } from "@aws-sdk/client-route-53-domains"; // ES Modules import
- * // const { Route53DomainsClient, DisableDomainTransferLockCommand } = require("@aws-sdk/client-route-53-domains"); // CommonJS import
+ * import { Route53DomainsClient, DisableDomainTransferLockCommand } from '@aws-sdk/client-route-53-domains'; // ES Modules import
+ * // const { Route53DomainsClient, DisableDomainTransferLockCommand } = require('@aws-sdk/client-route-53-domains'); // CommonJS import
  * const client = new Route53DomainsClient(config);
  * const input = { // DisableDomainTransferLockRequest
- *   DomainName: "STRING_VALUE", // required
+ *   DomainName: 'STRING_VALUE', // required
  * };
  * const command = new DisableDomainTransferLockCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DisableDomainTransferLockResponse
+ *   OperationId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DisableDomainTransferLockCommandInput - {@link DisableDomainTransferLockCommandInput}
@@ -76,6 +81,8 @@ export interface DisableDomainTransferLockCommandOutput extends DisableDomainTra
  * @throws {@link UnsupportedTLD} (client fault)
  *  <p>Amazon Route 53 does not support this top-level domain (TLD).</p>
  *
+ * @throws {@link Route53DomainsServiceException}
+ * <p>Base exception class for all service exceptions from Route53Domains service.</p>
  *
  */
 export class DisableDomainTransferLockCommand extends $Command<

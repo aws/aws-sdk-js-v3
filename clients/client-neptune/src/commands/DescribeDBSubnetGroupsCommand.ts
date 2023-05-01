@@ -38,24 +38,47 @@ export interface DescribeDBSubnetGroupsCommandOutput extends DBSubnetGroupMessag
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { NeptuneClient, DescribeDBSubnetGroupsCommand } from "@aws-sdk/client-neptune"; // ES Modules import
- * // const { NeptuneClient, DescribeDBSubnetGroupsCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
+ * import { NeptuneClient, DescribeDBSubnetGroupsCommand } from '@aws-sdk/client-neptune'; // ES Modules import
+ * // const { NeptuneClient, DescribeDBSubnetGroupsCommand } = require('@aws-sdk/client-neptune'); // CommonJS import
  * const client = new NeptuneClient(config);
  * const input = { // DescribeDBSubnetGroupsMessage
- *   DBSubnetGroupName: "STRING_VALUE",
+ *   DBSubnetGroupName: 'STRING_VALUE',
  *   Filters: [ // FilterList
  *     { // Filter
- *       Name: "STRING_VALUE", // required
+ *       Name: 'STRING_VALUE', // required
  *       Values: [ // FilterValueList // required
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
- *   MaxRecords: Number("int"),
- *   Marker: "STRING_VALUE",
+ *   MaxRecords: Number('int'),
+ *   Marker: 'STRING_VALUE',
  * };
  * const command = new DescribeDBSubnetGroupsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DBSubnetGroupMessage
+ *   Marker: 'STRING_VALUE',
+ *   DBSubnetGroups: [ // DBSubnetGroups
+ *     { // DBSubnetGroup
+ *       DBSubnetGroupName: 'STRING_VALUE',
+ *       DBSubnetGroupDescription: 'STRING_VALUE',
+ *       VpcId: 'STRING_VALUE',
+ *       SubnetGroupStatus: 'STRING_VALUE',
+ *       Subnets: [ // SubnetList
+ *         { // Subnet
+ *           SubnetIdentifier: 'STRING_VALUE',
+ *           SubnetAvailabilityZone: { // AvailabilityZone
+ *             Name: 'STRING_VALUE',
+ *           },
+ *           SubnetStatus: 'STRING_VALUE',
+ *         },
+ *       ],
+ *       DBSubnetGroupArn: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeDBSubnetGroupsCommandInput - {@link DescribeDBSubnetGroupsCommandInput}
@@ -69,6 +92,8 @@ export interface DescribeDBSubnetGroupsCommandOutput extends DBSubnetGroupMessag
  *             <i>DBSubnetGroupName</i> does not refer to an
  *       existing DB subnet group.</p>
  *
+ * @throws {@link NeptuneServiceException}
+ * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
  */
 export class DescribeDBSubnetGroupsCommand extends $Command<

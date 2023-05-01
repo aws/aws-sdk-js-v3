@@ -46,14 +46,29 @@ export interface GetConnectionCommandOutput extends GetConnectionResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OutpostsClient, GetConnectionCommand } from "@aws-sdk/client-outposts"; // ES Modules import
- * // const { OutpostsClient, GetConnectionCommand } = require("@aws-sdk/client-outposts"); // CommonJS import
+ * import { OutpostsClient, GetConnectionCommand } from '@aws-sdk/client-outposts'; // ES Modules import
+ * // const { OutpostsClient, GetConnectionCommand } = require('@aws-sdk/client-outposts'); // CommonJS import
  * const client = new OutpostsClient(config);
  * const input = { // GetConnectionRequest
- *   ConnectionId: "STRING_VALUE", // required
+ *   ConnectionId: 'STRING_VALUE', // required
  * };
  * const command = new GetConnectionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetConnectionResponse
+ *   ConnectionId: 'STRING_VALUE',
+ *   ConnectionDetails: { // ConnectionDetails
+ *     ClientPublicKey: 'STRING_VALUE',
+ *     ServerPublicKey: 'STRING_VALUE',
+ *     ServerEndpoint: 'STRING_VALUE',
+ *     ClientTunnelAddress: 'STRING_VALUE',
+ *     ServerTunnelAddress: 'STRING_VALUE',
+ *     AllowedIps: [ // CIDRList
+ *       'STRING_VALUE',
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetConnectionCommandInput - {@link GetConnectionCommandInput}
@@ -74,6 +89,8 @@ export interface GetConnectionCommandOutput extends GetConnectionResponse, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>A parameter is not valid.</p>
  *
+ * @throws {@link OutpostsServiceException}
+ * <p>Base exception class for all service exceptions from Outposts service.</p>
  *
  */
 export class GetConnectionCommand extends $Command<

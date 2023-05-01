@@ -91,20 +91,44 @@ export interface ListRecordsCommandOutput extends ListRecordsResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CognitoSyncClient, ListRecordsCommand } from "@aws-sdk/client-cognito-sync"; // ES Modules import
- * // const { CognitoSyncClient, ListRecordsCommand } = require("@aws-sdk/client-cognito-sync"); // CommonJS import
+ * import { CognitoSyncClient, ListRecordsCommand } from '@aws-sdk/client-cognito-sync'; // ES Modules import
+ * // const { CognitoSyncClient, ListRecordsCommand } = require('@aws-sdk/client-cognito-sync'); // CommonJS import
  * const client = new CognitoSyncClient(config);
  * const input = { // ListRecordsRequest
- *   IdentityPoolId: "STRING_VALUE", // required
- *   IdentityId: "STRING_VALUE", // required
- *   DatasetName: "STRING_VALUE", // required
- *   LastSyncCount: Number("long"),
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
- *   SyncSessionToken: "STRING_VALUE",
+ *   IdentityPoolId: 'STRING_VALUE', // required
+ *   IdentityId: 'STRING_VALUE', // required
+ *   DatasetName: 'STRING_VALUE', // required
+ *   LastSyncCount: Number('long'),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
+ *   SyncSessionToken: 'STRING_VALUE',
  * };
  * const command = new ListRecordsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListRecordsResponse
+ *   Records: [ // RecordList
+ *     { // Record
+ *       Key: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
+ *       SyncCount: Number('long'),
+ *       LastModifiedDate: new Date('TIMESTAMP'),
+ *       LastModifiedBy: 'STRING_VALUE',
+ *       DeviceLastModifiedDate: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ *   Count: Number('int'),
+ *   DatasetSyncCount: Number('long'),
+ *   LastModifiedBy: 'STRING_VALUE',
+ *   MergedDatasetNames: [ // MergedDatasetNameList
+ *     'STRING_VALUE',
+ *   ],
+ *   DatasetExists: true || false,
+ *   DatasetDeletedAfterRequestedSyncCount: true || false,
+ *   SyncSessionToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListRecordsCommandInput - {@link ListRecordsCommandInput}
@@ -129,6 +153,8 @@ export interface ListRecordsCommandOutput extends ListRecordsResponse, __Metadat
  *  Thrown if the request is
  *       throttled.
  *
+ * @throws {@link CognitoSyncServiceException}
+ * <p>Base exception class for all service exceptions from CognitoSync service.</p>
  *
  */
 export class ListRecordsCommand extends $Command<

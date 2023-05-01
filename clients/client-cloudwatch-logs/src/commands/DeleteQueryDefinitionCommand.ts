@@ -40,14 +40,19 @@ export interface DeleteQueryDefinitionCommandOutput extends DeleteQueryDefinitio
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudWatchLogsClient, DeleteQueryDefinitionCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
- * // const { CloudWatchLogsClient, DeleteQueryDefinitionCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
+ * import { CloudWatchLogsClient, DeleteQueryDefinitionCommand } from '@aws-sdk/client-cloudwatch-logs'; // ES Modules import
+ * // const { CloudWatchLogsClient, DeleteQueryDefinitionCommand } = require('@aws-sdk/client-cloudwatch-logs'); // CommonJS import
  * const client = new CloudWatchLogsClient(config);
  * const input = { // DeleteQueryDefinitionRequest
- *   queryDefinitionId: "STRING_VALUE", // required
+ *   queryDefinitionId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteQueryDefinitionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteQueryDefinitionResponse
+ *   success: true || false,
+ * };
+ *
  * ```
  *
  * @param DeleteQueryDefinitionCommandInput - {@link DeleteQueryDefinitionCommandInput}
@@ -65,6 +70,8 @@ export interface DeleteQueryDefinitionCommandOutput extends DeleteQueryDefinitio
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service cannot complete the request.</p>
  *
+ * @throws {@link CloudWatchLogsServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
  */
 export class DeleteQueryDefinitionCommand extends $Command<

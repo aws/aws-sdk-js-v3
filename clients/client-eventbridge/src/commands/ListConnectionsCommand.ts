@@ -36,17 +36,34 @@ export interface ListConnectionsCommandOutput extends ListConnectionsResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EventBridgeClient, ListConnectionsCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
- * // const { EventBridgeClient, ListConnectionsCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
+ * import { EventBridgeClient, ListConnectionsCommand } from '@aws-sdk/client-eventbridge'; // ES Modules import
+ * // const { EventBridgeClient, ListConnectionsCommand } = require('@aws-sdk/client-eventbridge'); // CommonJS import
  * const client = new EventBridgeClient(config);
  * const input = { // ListConnectionsRequest
- *   NamePrefix: "STRING_VALUE",
- *   ConnectionState: "CREATING" || "UPDATING" || "DELETING" || "AUTHORIZED" || "DEAUTHORIZED" || "AUTHORIZING" || "DEAUTHORIZING",
- *   NextToken: "STRING_VALUE",
- *   Limit: Number("int"),
+ *   NamePrefix: 'STRING_VALUE',
+ *   ConnectionState: 'CREATING' || 'UPDATING' || 'DELETING' || 'AUTHORIZED' || 'DEAUTHORIZED' || 'AUTHORIZING' || 'DEAUTHORIZING',
+ *   NextToken: 'STRING_VALUE',
+ *   Limit: Number('int'),
  * };
  * const command = new ListConnectionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListConnectionsResponse
+ *   Connections: [ // ConnectionResponseList
+ *     { // Connection
+ *       ConnectionArn: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *       ConnectionState: 'CREATING' || 'UPDATING' || 'DELETING' || 'AUTHORIZED' || 'DEAUTHORIZED' || 'AUTHORIZING' || 'DEAUTHORIZING',
+ *       StateReason: 'STRING_VALUE',
+ *       AuthorizationType: 'BASIC' || 'OAUTH_CLIENT_CREDENTIALS' || 'API_KEY',
+ *       CreationTime: new Date('TIMESTAMP'),
+ *       LastModifiedTime: new Date('TIMESTAMP'),
+ *       LastAuthorizedTime: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListConnectionsCommandInput - {@link ListConnectionsCommandInput}
@@ -58,6 +75,8 @@ export interface ListConnectionsCommandOutput extends ListConnectionsResponse, _
  * @throws {@link InternalException} (server fault)
  *  <p>This exception occurs due to unexpected causes.</p>
  *
+ * @throws {@link EventBridgeServiceException}
+ * <p>Base exception class for all service exceptions from EventBridge service.</p>
  *
  */
 export class ListConnectionsCommand extends $Command<

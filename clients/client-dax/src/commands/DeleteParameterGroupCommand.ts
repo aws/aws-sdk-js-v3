@@ -37,14 +37,19 @@ export interface DeleteParameterGroupCommandOutput extends DeleteParameterGroupR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DAXClient, DeleteParameterGroupCommand } from "@aws-sdk/client-dax"; // ES Modules import
- * // const { DAXClient, DeleteParameterGroupCommand } = require("@aws-sdk/client-dax"); // CommonJS import
+ * import { DAXClient, DeleteParameterGroupCommand } from '@aws-sdk/client-dax'; // ES Modules import
+ * // const { DAXClient, DeleteParameterGroupCommand } = require('@aws-sdk/client-dax'); // CommonJS import
  * const client = new DAXClient(config);
  * const input = { // DeleteParameterGroupRequest
- *   ParameterGroupName: "STRING_VALUE", // required
+ *   ParameterGroupName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteParameterGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteParameterGroupResponse
+ *   DeletionMessage: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DeleteParameterGroupCommandInput - {@link DeleteParameterGroupCommandInput}
@@ -68,6 +73,8 @@ export interface DeleteParameterGroupCommandOutput extends DeleteParameterGroupR
  * @throws {@link ServiceLinkedRoleNotFoundFault} (client fault)
  *  <p>The specified service linked role (SLR) was not found.</p>
  *
+ * @throws {@link DAXServiceException}
+ * <p>Base exception class for all service exceptions from DAX service.</p>
  *
  */
 export class DeleteParameterGroupCommand extends $Command<

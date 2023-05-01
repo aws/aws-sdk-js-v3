@@ -44,19 +44,40 @@ export interface UpdatePhoneNumberCommandOutput extends UpdatePhoneNumberResult,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PinpointSMSVoiceV2Client, UpdatePhoneNumberCommand } from "@aws-sdk/client-pinpoint-sms-voice-v2"; // ES Modules import
- * // const { PinpointSMSVoiceV2Client, UpdatePhoneNumberCommand } = require("@aws-sdk/client-pinpoint-sms-voice-v2"); // CommonJS import
+ * import { PinpointSMSVoiceV2Client, UpdatePhoneNumberCommand } from '@aws-sdk/client-pinpoint-sms-voice-v2'; // ES Modules import
+ * // const { PinpointSMSVoiceV2Client, UpdatePhoneNumberCommand } = require('@aws-sdk/client-pinpoint-sms-voice-v2'); // CommonJS import
  * const client = new PinpointSMSVoiceV2Client(config);
  * const input = { // UpdatePhoneNumberRequest
- *   PhoneNumberId: "STRING_VALUE", // required
+ *   PhoneNumberId: 'STRING_VALUE', // required
  *   TwoWayEnabled: true || false,
- *   TwoWayChannelArn: "STRING_VALUE",
+ *   TwoWayChannelArn: 'STRING_VALUE',
  *   SelfManagedOptOutsEnabled: true || false,
- *   OptOutListName: "STRING_VALUE",
+ *   OptOutListName: 'STRING_VALUE',
  *   DeletionProtectionEnabled: true || false,
  * };
  * const command = new UpdatePhoneNumberCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdatePhoneNumberResult
+ *   PhoneNumberArn: 'STRING_VALUE',
+ *   PhoneNumberId: 'STRING_VALUE',
+ *   PhoneNumber: 'STRING_VALUE',
+ *   Status: 'STRING_VALUE',
+ *   IsoCountryCode: 'STRING_VALUE',
+ *   MessageType: 'STRING_VALUE',
+ *   NumberCapabilities: [ // NumberCapabilityList
+ *     'STRING_VALUE',
+ *   ],
+ *   NumberType: 'STRING_VALUE',
+ *   MonthlyLeasingPrice: 'STRING_VALUE',
+ *   TwoWayEnabled: true || false,
+ *   TwoWayChannelArn: 'STRING_VALUE',
+ *   SelfManagedOptOutsEnabled: true || false,
+ *   OptOutListName: 'STRING_VALUE',
+ *   DeletionProtectionEnabled: true || false,
+ *   CreatedTimestamp: new Date('TIMESTAMP'),
+ * };
+ *
  * ```
  *
  * @param UpdatePhoneNumberCommandInput - {@link UpdatePhoneNumberCommandInput}
@@ -89,6 +110,8 @@ export interface UpdatePhoneNumberCommandOutput extends UpdatePhoneNumberResult,
  * @throws {@link ValidationException} (client fault)
  *  <p>A validation exception for a field.</p>
  *
+ * @throws {@link PinpointSMSVoiceV2ServiceException}
+ * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
  *
  */
 export class UpdatePhoneNumberCommand extends $Command<

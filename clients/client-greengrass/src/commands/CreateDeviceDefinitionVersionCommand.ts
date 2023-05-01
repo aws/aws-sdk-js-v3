@@ -41,23 +41,31 @@ export interface CreateDeviceDefinitionVersionCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GreengrassClient, CreateDeviceDefinitionVersionCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
- * // const { GreengrassClient, CreateDeviceDefinitionVersionCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
+ * import { GreengrassClient, CreateDeviceDefinitionVersionCommand } from '@aws-sdk/client-greengrass'; // ES Modules import
+ * // const { GreengrassClient, CreateDeviceDefinitionVersionCommand } = require('@aws-sdk/client-greengrass'); // CommonJS import
  * const client = new GreengrassClient(config);
  * const input = { // CreateDeviceDefinitionVersionRequest
- *   AmznClientToken: "STRING_VALUE",
- *   DeviceDefinitionId: "STRING_VALUE", // required
+ *   AmznClientToken: 'STRING_VALUE',
+ *   DeviceDefinitionId: 'STRING_VALUE', // required
  *   Devices: [ // __listOfDevice
  *     { // Device
- *       CertificateArn: "STRING_VALUE", // required
- *       Id: "STRING_VALUE", // required
+ *       CertificateArn: 'STRING_VALUE', // required
+ *       Id: 'STRING_VALUE', // required
  *       SyncShadow: true || false,
- *       ThingArn: "STRING_VALUE", // required
+ *       ThingArn: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreateDeviceDefinitionVersionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateDeviceDefinitionVersionResponse
+ *   Arn: 'STRING_VALUE',
+ *   CreationTimestamp: 'STRING_VALUE',
+ *   Id: 'STRING_VALUE',
+ *   Version: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateDeviceDefinitionVersionCommandInput - {@link CreateDeviceDefinitionVersionCommandInput}
@@ -69,6 +77,8 @@ export interface CreateDeviceDefinitionVersionCommandOutput
  * @throws {@link BadRequestException} (client fault)
  *  General error information.
  *
+ * @throws {@link GreengrassServiceException}
+ * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
  */
 export class CreateDeviceDefinitionVersionCommand extends $Command<

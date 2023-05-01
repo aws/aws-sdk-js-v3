@@ -45,21 +45,24 @@ export interface PutResourceConfigCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConfigServiceClient, PutResourceConfigCommand } from "@aws-sdk/client-config-service"; // ES Modules import
- * // const { ConfigServiceClient, PutResourceConfigCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
+ * import { ConfigServiceClient, PutResourceConfigCommand } from '@aws-sdk/client-config-service'; // ES Modules import
+ * // const { ConfigServiceClient, PutResourceConfigCommand } = require('@aws-sdk/client-config-service'); // CommonJS import
  * const client = new ConfigServiceClient(config);
  * const input = { // PutResourceConfigRequest
- *   ResourceType: "STRING_VALUE", // required
- *   SchemaVersionId: "STRING_VALUE", // required
- *   ResourceId: "STRING_VALUE", // required
- *   ResourceName: "STRING_VALUE",
- *   Configuration: "STRING_VALUE", // required
+ *   ResourceType: 'STRING_VALUE', // required
+ *   SchemaVersionId: 'STRING_VALUE', // required
+ *   ResourceId: 'STRING_VALUE', // required
+ *   ResourceName: 'STRING_VALUE',
+ *   Configuration: 'STRING_VALUE', // required
  *   Tags: { // Tags
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new PutResourceConfigCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutResourceConfigCommandInput - {@link PutResourceConfigCommandInput}
@@ -106,6 +109,8 @@ export interface PutResourceConfigCommandOutput extends __MetadataBearer {}
  *          <p>For PutStoredQuery, you will see this exception if there are missing required fields or if the input value fails the validation, or if you are trying to create more than 300 queries.</p>
  *          <p>For GetStoredQuery, ListStoredQuery, and DeleteStoredQuery you will see this exception if there are missing required fields or if the input value fails the validation.</p>
  *
+ * @throws {@link ConfigServiceServiceException}
+ * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
  */
 export class PutResourceConfigCommand extends $Command<

@@ -36,18 +36,33 @@ export interface CreateSubnetGroupCommandOutput extends CreateSubnetGroupRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DAXClient, CreateSubnetGroupCommand } from "@aws-sdk/client-dax"; // ES Modules import
- * // const { DAXClient, CreateSubnetGroupCommand } = require("@aws-sdk/client-dax"); // CommonJS import
+ * import { DAXClient, CreateSubnetGroupCommand } from '@aws-sdk/client-dax'; // ES Modules import
+ * // const { DAXClient, CreateSubnetGroupCommand } = require('@aws-sdk/client-dax'); // CommonJS import
  * const client = new DAXClient(config);
  * const input = { // CreateSubnetGroupRequest
- *   SubnetGroupName: "STRING_VALUE", // required
- *   Description: "STRING_VALUE",
+ *   SubnetGroupName: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE',
  *   SubnetIds: [ // SubnetIdentifierList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new CreateSubnetGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateSubnetGroupResponse
+ *   SubnetGroup: { // SubnetGroup
+ *     SubnetGroupName: 'STRING_VALUE',
+ *     Description: 'STRING_VALUE',
+ *     VpcId: 'STRING_VALUE',
+ *     Subnets: [ // SubnetList
+ *       { // Subnet
+ *         SubnetIdentifier: 'STRING_VALUE',
+ *         SubnetAvailabilityZone: 'STRING_VALUE',
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateSubnetGroupCommandInput - {@link CreateSubnetGroupCommandInput}
@@ -73,6 +88,8 @@ export interface CreateSubnetGroupCommandOutput extends CreateSubnetGroupRespons
  *  <p>The request cannot be processed because it would exceed the allowed number of
  *             subnets in a subnet group.</p>
  *
+ * @throws {@link DAXServiceException}
+ * <p>Base exception class for all service exceptions from DAX service.</p>
  *
  */
 export class CreateSubnetGroupCommand extends $Command<

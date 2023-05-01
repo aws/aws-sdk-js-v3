@@ -36,18 +36,35 @@ export interface ListDeploymentsCommandOutput extends ListDeploymentsResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GreengrassV2Client, ListDeploymentsCommand } from "@aws-sdk/client-greengrassv2"; // ES Modules import
- * // const { GreengrassV2Client, ListDeploymentsCommand } = require("@aws-sdk/client-greengrassv2"); // CommonJS import
+ * import { GreengrassV2Client, ListDeploymentsCommand } from '@aws-sdk/client-greengrassv2'; // ES Modules import
+ * // const { GreengrassV2Client, ListDeploymentsCommand } = require('@aws-sdk/client-greengrassv2'); // CommonJS import
  * const client = new GreengrassV2Client(config);
  * const input = { // ListDeploymentsRequest
- *   targetArn: "STRING_VALUE",
- *   historyFilter: "ALL" || "LATEST_ONLY",
- *   parentTargetArn: "STRING_VALUE",
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   targetArn: 'STRING_VALUE',
+ *   historyFilter: 'ALL' || 'LATEST_ONLY',
+ *   parentTargetArn: 'STRING_VALUE',
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new ListDeploymentsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListDeploymentsResponse
+ *   deployments: [ // DeploymentList
+ *     { // Deployment
+ *       targetArn: 'STRING_VALUE',
+ *       revisionId: 'STRING_VALUE',
+ *       deploymentId: 'STRING_VALUE',
+ *       deploymentName: 'STRING_VALUE',
+ *       creationTimestamp: new Date('TIMESTAMP'),
+ *       deploymentStatus: 'ACTIVE' || 'COMPLETED' || 'CANCELED' || 'FAILED' || 'INACTIVE',
+ *       isLatestForTarget: true || false,
+ *       parentTargetArn: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListDeploymentsCommandInput - {@link ListDeploymentsCommandInput}
@@ -70,6 +87,8 @@ export interface ListDeploymentsCommandOutput extends ListDeploymentsResponse, _
  *  <p>The request isn't valid. This can occur if your request contains malformed JSON or
  *       unsupported characters.</p>
  *
+ * @throws {@link GreengrassV2ServiceException}
+ * <p>Base exception class for all service exceptions from GreengrassV2 service.</p>
  *
  */
 export class ListDeploymentsCommand extends $Command<

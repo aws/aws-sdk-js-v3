@@ -40,16 +40,48 @@ export interface DescribeVpcEndpointsCommandOutput extends DescribeVpcEndpointsR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElasticsearchServiceClient, DescribeVpcEndpointsCommand } from "@aws-sdk/client-elasticsearch-service"; // ES Modules import
- * // const { ElasticsearchServiceClient, DescribeVpcEndpointsCommand } = require("@aws-sdk/client-elasticsearch-service"); // CommonJS import
+ * import { ElasticsearchServiceClient, DescribeVpcEndpointsCommand } from '@aws-sdk/client-elasticsearch-service'; // ES Modules import
+ * // const { ElasticsearchServiceClient, DescribeVpcEndpointsCommand } = require('@aws-sdk/client-elasticsearch-service'); // CommonJS import
  * const client = new ElasticsearchServiceClient(config);
  * const input = { // DescribeVpcEndpointsRequest
  *   VpcEndpointIds: [ // VpcEndpointIdList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new DescribeVpcEndpointsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeVpcEndpointsResponse
+ *   VpcEndpoints: [ // VpcEndpoints // required
+ *     { // VpcEndpoint
+ *       VpcEndpointId: 'STRING_VALUE',
+ *       VpcEndpointOwner: 'STRING_VALUE',
+ *       DomainArn: 'STRING_VALUE',
+ *       VpcOptions: { // VPCDerivedInfo
+ *         VPCId: 'STRING_VALUE',
+ *         SubnetIds: [ // StringList
+ *           'STRING_VALUE',
+ *         ],
+ *         AvailabilityZones: [
+ *           'STRING_VALUE',
+ *         ],
+ *         SecurityGroupIds: [
+ *           'STRING_VALUE',
+ *         ],
+ *       },
+ *       Status: 'CREATING' || 'CREATE_FAILED' || 'ACTIVE' || 'UPDATING' || 'UPDATE_FAILED' || 'DELETING' || 'DELETE_FAILED',
+ *       Endpoint: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   VpcEndpointErrors: [ // VpcEndpointErrorList // required
+ *     { // VpcEndpointError
+ *       VpcEndpointId: 'STRING_VALUE',
+ *       ErrorCode: 'ENDPOINT_NOT_FOUND' || 'SERVER_ERROR',
+ *       ErrorMessage: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeVpcEndpointsCommandInput - {@link DescribeVpcEndpointsCommandInput}
@@ -70,6 +102,8 @@ export interface DescribeVpcEndpointsCommandOutput extends DescribeVpcEndpointsR
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception for missing / invalid input fields. Gives http status code of 400.</p>
  *
+ * @throws {@link ElasticsearchServiceServiceException}
+ * <p>Base exception class for all service exceptions from ElasticsearchService service.</p>
  *
  */
 export class DescribeVpcEndpointsCommand extends $Command<

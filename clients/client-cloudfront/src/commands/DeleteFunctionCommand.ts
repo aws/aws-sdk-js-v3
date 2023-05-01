@@ -42,15 +42,18 @@ export interface DeleteFunctionCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudFrontClient, DeleteFunctionCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
- * // const { CloudFrontClient, DeleteFunctionCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
+ * import { CloudFrontClient, DeleteFunctionCommand } from '@aws-sdk/client-cloudfront'; // ES Modules import
+ * // const { CloudFrontClient, DeleteFunctionCommand } = require('@aws-sdk/client-cloudfront'); // CommonJS import
  * const client = new CloudFrontClient(config);
  * const input = { // DeleteFunctionRequest
- *   Name: "STRING_VALUE", // required
- *   IfMatch: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
+ *   IfMatch: 'STRING_VALUE', // required
  * };
  * const command = new DeleteFunctionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteFunctionCommandInput - {@link DeleteFunctionCommandInput}
@@ -76,6 +79,8 @@ export interface DeleteFunctionCommandOutput extends __MetadataBearer {}
  * @throws {@link UnsupportedOperation} (client fault)
  *  <p>This operation is not supported in this region.</p>
  *
+ * @throws {@link CloudFrontServiceException}
+ * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
  */
 export class DeleteFunctionCommand extends $Command<

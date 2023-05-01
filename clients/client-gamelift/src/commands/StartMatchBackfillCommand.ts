@@ -73,37 +73,85 @@ export interface StartMatchBackfillCommandOutput extends StartMatchBackfillOutpu
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GameLiftClient, StartMatchBackfillCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
- * // const { GameLiftClient, StartMatchBackfillCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
+ * import { GameLiftClient, StartMatchBackfillCommand } from '@aws-sdk/client-gamelift'; // ES Modules import
+ * // const { GameLiftClient, StartMatchBackfillCommand } = require('@aws-sdk/client-gamelift'); // CommonJS import
  * const client = new GameLiftClient(config);
  * const input = { // StartMatchBackfillInput
- *   TicketId: "STRING_VALUE",
- *   ConfigurationName: "STRING_VALUE", // required
- *   GameSessionArn: "STRING_VALUE",
+ *   TicketId: 'STRING_VALUE',
+ *   ConfigurationName: 'STRING_VALUE', // required
+ *   GameSessionArn: 'STRING_VALUE',
  *   Players: [ // PlayerList // required
  *     { // Player
- *       PlayerId: "STRING_VALUE",
+ *       PlayerId: 'STRING_VALUE',
  *       PlayerAttributes: { // PlayerAttributeMap
- *         "<keys>": { // AttributeValue
- *           S: "STRING_VALUE",
- *           N: Number("double"),
+ *         '<keys>': { // AttributeValue
+ *           S: 'STRING_VALUE',
+ *           N: Number('double'),
  *           SL: [ // PlayerAttributeStringList
- *             "STRING_VALUE",
+ *             'STRING_VALUE',
  *           ],
  *           SDM: { // PlayerAttributeStringDoubleMap
- *             "<keys>": Number("double"),
+ *             '<keys>': Number('double'),
  *           },
  *         },
  *       },
- *       Team: "STRING_VALUE",
+ *       Team: 'STRING_VALUE',
  *       LatencyInMs: { // LatencyMap
- *         "<keys>": Number("int"),
+ *         '<keys>': Number('int'),
  *       },
  *     },
  *   ],
  * };
  * const command = new StartMatchBackfillCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartMatchBackfillOutput
+ *   MatchmakingTicket: { // MatchmakingTicket
+ *     TicketId: 'STRING_VALUE',
+ *     ConfigurationName: 'STRING_VALUE',
+ *     ConfigurationArn: 'STRING_VALUE',
+ *     Status: 'CANCELLED' || 'COMPLETED' || 'FAILED' || 'PLACING' || 'QUEUED' || 'REQUIRES_ACCEPTANCE' || 'SEARCHING' || 'TIMED_OUT',
+ *     StatusReason: 'STRING_VALUE',
+ *     StatusMessage: 'STRING_VALUE',
+ *     StartTime: new Date('TIMESTAMP'),
+ *     EndTime: new Date('TIMESTAMP'),
+ *     Players: [ // PlayerList
+ *       { // Player
+ *         PlayerId: 'STRING_VALUE',
+ *         PlayerAttributes: { // PlayerAttributeMap
+ *           '<keys>': { // AttributeValue
+ *             S: 'STRING_VALUE',
+ *             N: Number('double'),
+ *             SL: [ // PlayerAttributeStringList
+ *               'STRING_VALUE',
+ *             ],
+ *             SDM: { // PlayerAttributeStringDoubleMap
+ *               '<keys>': Number('double'),
+ *             },
+ *           },
+ *         },
+ *         Team: 'STRING_VALUE',
+ *         LatencyInMs: { // LatencyMap
+ *           '<keys>': Number('int'),
+ *         },
+ *       },
+ *     ],
+ *     GameSessionConnectionInfo: { // GameSessionConnectionInfo
+ *       GameSessionArn: 'STRING_VALUE',
+ *       IpAddress: 'STRING_VALUE',
+ *       DnsName: 'STRING_VALUE',
+ *       Port: Number('int'),
+ *       MatchedPlayerSessions: [ // MatchedPlayerSessionList
+ *         { // MatchedPlayerSession
+ *           PlayerId: 'STRING_VALUE',
+ *           PlayerSessionId: 'STRING_VALUE',
+ *         },
+ *       ],
+ *     },
+ *     EstimatedWaitTime: Number('int'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param StartMatchBackfillCommandInput - {@link StartMatchBackfillCommandInput}
@@ -126,6 +174,8 @@ export interface StartMatchBackfillCommandOutput extends StartMatchBackfillOutpu
  * @throws {@link UnsupportedRegionException} (client fault)
  *  <p>The requested operation is not supported in the Region specified.</p>
  *
+ * @throws {@link GameLiftServiceException}
+ * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
  */
 export class StartMatchBackfillCommand extends $Command<

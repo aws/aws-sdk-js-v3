@@ -39,23 +39,55 @@ export interface ListMonitorEvaluationsCommandOutput extends ListMonitorEvaluati
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ForecastClient, ListMonitorEvaluationsCommand } from "@aws-sdk/client-forecast"; // ES Modules import
- * // const { ForecastClient, ListMonitorEvaluationsCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
+ * import { ForecastClient, ListMonitorEvaluationsCommand } from '@aws-sdk/client-forecast'; // ES Modules import
+ * // const { ForecastClient, ListMonitorEvaluationsCommand } = require('@aws-sdk/client-forecast'); // CommonJS import
  * const client = new ForecastClient(config);
  * const input = { // ListMonitorEvaluationsRequest
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
- *   MonitorArn: "STRING_VALUE", // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
+ *   MonitorArn: 'STRING_VALUE', // required
  *   Filters: [ // Filters
  *     { // Filter
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
- *       Condition: "IS" || "IS_NOT", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
+ *       Condition: 'IS' || 'IS_NOT', // required
  *     },
  *   ],
  * };
  * const command = new ListMonitorEvaluationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListMonitorEvaluationsResponse
+ *   NextToken: 'STRING_VALUE',
+ *   PredictorMonitorEvaluations: [ // PredictorMonitorEvaluations
+ *     { // PredictorMonitorEvaluation
+ *       ResourceArn: 'STRING_VALUE',
+ *       MonitorArn: 'STRING_VALUE',
+ *       EvaluationTime: new Date('TIMESTAMP'),
+ *       EvaluationState: 'STRING_VALUE',
+ *       WindowStartDatetime: new Date('TIMESTAMP'),
+ *       WindowEndDatetime: new Date('TIMESTAMP'),
+ *       PredictorEvent: { // PredictorEvent
+ *         Detail: 'STRING_VALUE',
+ *         Datetime: new Date('TIMESTAMP'),
+ *       },
+ *       MonitorDataSource: { // MonitorDataSource
+ *         DatasetImportJobArn: 'STRING_VALUE',
+ *         ForecastArn: 'STRING_VALUE',
+ *         PredictorArn: 'STRING_VALUE',
+ *       },
+ *       MetricResults: [ // MetricResults
+ *         { // MetricResult
+ *           MetricName: 'STRING_VALUE',
+ *           MetricValue: Number('double'),
+ *         },
+ *       ],
+ *       NumItemsEvaluated: Number('long'),
+ *       Message: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListMonitorEvaluationsCommandInput - {@link ListMonitorEvaluationsCommandInput}
@@ -75,6 +107,8 @@ export interface ListMonitorEvaluationsCommandOutput extends ListMonitorEvaluati
  *  <p>We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try
  *       again.</p>
  *
+ * @throws {@link ForecastServiceException}
+ * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
  */
 export class ListMonitorEvaluationsCommand extends $Command<

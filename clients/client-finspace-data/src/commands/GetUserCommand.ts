@@ -36,14 +36,31 @@ export interface GetUserCommandOutput extends GetUserResponse, __MetadataBearer 
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FinspaceDataClient, GetUserCommand } from "@aws-sdk/client-finspace-data"; // ES Modules import
- * // const { FinspaceDataClient, GetUserCommand } = require("@aws-sdk/client-finspace-data"); // CommonJS import
+ * import { FinspaceDataClient, GetUserCommand } from '@aws-sdk/client-finspace-data'; // ES Modules import
+ * // const { FinspaceDataClient, GetUserCommand } = require('@aws-sdk/client-finspace-data'); // CommonJS import
  * const client = new FinspaceDataClient(config);
  * const input = { // GetUserRequest
- *   userId: "STRING_VALUE", // required
+ *   userId: 'STRING_VALUE', // required
  * };
  * const command = new GetUserCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetUserResponse
+ *   userId: 'STRING_VALUE',
+ *   status: 'STRING_VALUE',
+ *   firstName: 'STRING_VALUE',
+ *   lastName: 'STRING_VALUE',
+ *   emailAddress: 'STRING_VALUE',
+ *   type: 'STRING_VALUE',
+ *   apiAccess: 'STRING_VALUE',
+ *   apiAccessPrincipalArn: 'STRING_VALUE',
+ *   createTime: Number('long'),
+ *   lastEnabledTime: Number('long'),
+ *   lastDisabledTime: Number('long'),
+ *   lastModifiedTime: Number('long'),
+ *   lastLoginTime: Number('long'),
+ * };
+ *
  * ```
  *
  * @param GetUserCommandInput - {@link GetUserCommandInput}
@@ -68,6 +85,8 @@ export interface GetUserCommandOutput extends GetUserResponse, __MetadataBearer 
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link FinspaceDataServiceException}
+ * <p>Base exception class for all service exceptions from FinspaceData service.</p>
  *
  */
 export class GetUserCommand extends $Command<

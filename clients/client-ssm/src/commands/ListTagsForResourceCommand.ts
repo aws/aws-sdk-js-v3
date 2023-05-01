@@ -37,15 +37,25 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMClient, ListTagsForResourceCommand } from "@aws-sdk/client-ssm"; // ES Modules import
- * // const { SSMClient, ListTagsForResourceCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * import { SSMClient, ListTagsForResourceCommand } from '@aws-sdk/client-ssm'; // ES Modules import
+ * // const { SSMClient, ListTagsForResourceCommand } = require('@aws-sdk/client-ssm'); // CommonJS import
  * const client = new SSMClient(config);
  * const input = { // ListTagsForResourceRequest
- *   ResourceType: "Document" || "ManagedInstance" || "MaintenanceWindow" || "Parameter" || "PatchBaseline" || "OpsItem" || "OpsMetadata" || "Automation" || "Association", // required
- *   ResourceId: "STRING_VALUE", // required
+ *   ResourceType: 'Document' || 'ManagedInstance' || 'MaintenanceWindow' || 'Parameter' || 'PatchBaseline' || 'OpsItem' || 'OpsMetadata' || 'Automation' || 'Association', // required
+ *   ResourceId: 'STRING_VALUE', // required
  * };
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTagsForResourceResult
+ *   TagList: [ // TagList
+ *     { // Tag
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListTagsForResourceCommandInput - {@link ListTagsForResourceCommandInput}
@@ -64,6 +74,8 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  *  <p>The resource type isn't valid. For example, if you are attempting to tag an EC2 instance,
  *    the instance must be a registered managed node.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class ListTagsForResourceCommand extends $Command<

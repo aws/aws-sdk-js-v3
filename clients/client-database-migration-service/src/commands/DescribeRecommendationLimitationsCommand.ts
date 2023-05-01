@@ -49,23 +49,38 @@ export interface DescribeRecommendationLimitationsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DatabaseMigrationServiceClient, DescribeRecommendationLimitationsCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
- * // const { DatabaseMigrationServiceClient, DescribeRecommendationLimitationsCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
+ * import { DatabaseMigrationServiceClient, DescribeRecommendationLimitationsCommand } from '@aws-sdk/client-database-migration-service'; // ES Modules import
+ * // const { DatabaseMigrationServiceClient, DescribeRecommendationLimitationsCommand } = require('@aws-sdk/client-database-migration-service'); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
  * const input = { // DescribeRecommendationLimitationsRequest
  *   Filters: [ // FilterList
  *     { // Filter
- *       Name: "STRING_VALUE", // required
+ *       Name: 'STRING_VALUE', // required
  *       Values: [ // FilterValueList // required
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
- *   MaxRecords: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxRecords: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new DescribeRecommendationLimitationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeRecommendationLimitationsResponse
+ *   NextToken: 'STRING_VALUE',
+ *   Limitations: [ // LimitationList
+ *     { // Limitation
+ *       DatabaseId: 'STRING_VALUE',
+ *       EngineName: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *       Description: 'STRING_VALUE',
+ *       Impact: 'STRING_VALUE',
+ *       Type: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeRecommendationLimitationsCommandInput - {@link DescribeRecommendationLimitationsCommandInput}
@@ -81,6 +96,8 @@ export interface DescribeRecommendationLimitationsCommandOutput
  * @throws {@link InvalidResourceStateFault} (client fault)
  *  <p>The resource is in a state that prevents it from being used for database migration.</p>
  *
+ * @throws {@link DatabaseMigrationServiceServiceException}
+ * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
  */
 export class DescribeRecommendationLimitationsCommand extends $Command<

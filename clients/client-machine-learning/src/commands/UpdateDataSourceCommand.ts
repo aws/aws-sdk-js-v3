@@ -37,15 +37,20 @@ export interface UpdateDataSourceCommandOutput extends UpdateDataSourceOutput, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MachineLearningClient, UpdateDataSourceCommand } from "@aws-sdk/client-machine-learning"; // ES Modules import
- * // const { MachineLearningClient, UpdateDataSourceCommand } = require("@aws-sdk/client-machine-learning"); // CommonJS import
+ * import { MachineLearningClient, UpdateDataSourceCommand } from '@aws-sdk/client-machine-learning'; // ES Modules import
+ * // const { MachineLearningClient, UpdateDataSourceCommand } = require('@aws-sdk/client-machine-learning'); // CommonJS import
  * const client = new MachineLearningClient(config);
  * const input = { // UpdateDataSourceInput
- *   DataSourceId: "STRING_VALUE", // required
- *   DataSourceName: "STRING_VALUE", // required
+ *   DataSourceId: 'STRING_VALUE', // required
+ *   DataSourceName: 'STRING_VALUE', // required
  * };
  * const command = new UpdateDataSourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateDataSourceOutput
+ *   DataSourceId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateDataSourceCommandInput - {@link UpdateDataSourceCommandInput}
@@ -63,6 +68,8 @@ export interface UpdateDataSourceCommandOutput extends UpdateDataSourceOutput, _
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>A specified resource cannot be located.</p>
  *
+ * @throws {@link MachineLearningServiceException}
+ * <p>Base exception class for all service exceptions from MachineLearning service.</p>
  *
  */
 export class UpdateDataSourceCommand extends $Command<

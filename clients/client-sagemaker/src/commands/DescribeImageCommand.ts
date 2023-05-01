@@ -36,14 +36,27 @@ export interface DescribeImageCommandOutput extends DescribeImageResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, DescribeImageCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, DescribeImageCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, DescribeImageCommand } from '@aws-sdk/client-sagemaker'; // ES Modules import
+ * // const { SageMakerClient, DescribeImageCommand } = require('@aws-sdk/client-sagemaker'); // CommonJS import
  * const client = new SageMakerClient(config);
  * const input = { // DescribeImageRequest
- *   ImageName: "STRING_VALUE", // required
+ *   ImageName: 'STRING_VALUE', // required
  * };
  * const command = new DescribeImageCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeImageResponse
+ *   CreationTime: new Date('TIMESTAMP'),
+ *   Description: 'STRING_VALUE',
+ *   DisplayName: 'STRING_VALUE',
+ *   FailureReason: 'STRING_VALUE',
+ *   ImageArn: 'STRING_VALUE',
+ *   ImageName: 'STRING_VALUE',
+ *   ImageStatus: 'CREATING' || 'CREATED' || 'CREATE_FAILED' || 'UPDATING' || 'UPDATE_FAILED' || 'DELETING' || 'DELETE_FAILED',
+ *   LastModifiedTime: new Date('TIMESTAMP'),
+ *   RoleArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeImageCommandInput - {@link DescribeImageCommandInput}
@@ -55,6 +68,8 @@ export interface DescribeImageCommandOutput extends DescribeImageResponse, __Met
  * @throws {@link ResourceNotFound} (client fault)
  *  <p>Resource being access is not found.</p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class DescribeImageCommand extends $Command<

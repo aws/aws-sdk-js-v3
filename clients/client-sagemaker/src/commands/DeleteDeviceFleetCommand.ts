@@ -36,14 +36,17 @@ export interface DeleteDeviceFleetCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, DeleteDeviceFleetCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, DeleteDeviceFleetCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, DeleteDeviceFleetCommand } from '@aws-sdk/client-sagemaker'; // ES Modules import
+ * // const { SageMakerClient, DeleteDeviceFleetCommand } = require('@aws-sdk/client-sagemaker'); // CommonJS import
  * const client = new SageMakerClient(config);
  * const input = { // DeleteDeviceFleetRequest
- *   DeviceFleetName: "STRING_VALUE", // required
+ *   DeviceFleetName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteDeviceFleetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteDeviceFleetCommandInput - {@link DeleteDeviceFleetCommandInput}
@@ -55,6 +58,8 @@ export interface DeleteDeviceFleetCommandOutput extends __MetadataBearer {}
  * @throws {@link ResourceInUse} (client fault)
  *  <p>Resource being accessed is in use.</p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class DeleteDeviceFleetCommand extends $Command<

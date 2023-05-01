@@ -41,24 +41,44 @@ export interface DescribePendingMaintenanceActionsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RDSClient, DescribePendingMaintenanceActionsCommand } from "@aws-sdk/client-rds"; // ES Modules import
- * // const { RDSClient, DescribePendingMaintenanceActionsCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * import { RDSClient, DescribePendingMaintenanceActionsCommand } from '@aws-sdk/client-rds'; // ES Modules import
+ * // const { RDSClient, DescribePendingMaintenanceActionsCommand } = require('@aws-sdk/client-rds'); // CommonJS import
  * const client = new RDSClient(config);
  * const input = { // DescribePendingMaintenanceActionsMessage
- *   ResourceIdentifier: "STRING_VALUE",
+ *   ResourceIdentifier: 'STRING_VALUE',
  *   Filters: [ // FilterList
  *     { // Filter
- *       Name: "STRING_VALUE", // required
+ *       Name: 'STRING_VALUE', // required
  *       Values: [ // FilterValueList // required
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
- *   Marker: "STRING_VALUE",
- *   MaxRecords: Number("int"),
+ *   Marker: 'STRING_VALUE',
+ *   MaxRecords: Number('int'),
  * };
  * const command = new DescribePendingMaintenanceActionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PendingMaintenanceActionsMessage
+ *   PendingMaintenanceActions: [ // PendingMaintenanceActions
+ *     { // ResourcePendingMaintenanceActions
+ *       ResourceIdentifier: 'STRING_VALUE',
+ *       PendingMaintenanceActionDetails: [ // PendingMaintenanceActionDetails
+ *         { // PendingMaintenanceAction
+ *           Action: 'STRING_VALUE',
+ *           AutoAppliedAfterDate: new Date('TIMESTAMP'),
+ *           ForcedApplyDate: new Date('TIMESTAMP'),
+ *           OptInStatus: 'STRING_VALUE',
+ *           CurrentApplyDate: new Date('TIMESTAMP'),
+ *           Description: 'STRING_VALUE',
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   Marker: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribePendingMaintenanceActionsCommandInput - {@link DescribePendingMaintenanceActionsCommandInput}
@@ -70,6 +90,8 @@ export interface DescribePendingMaintenanceActionsCommandOutput
  * @throws {@link ResourceNotFoundFault} (client fault)
  *  <p>The specified resource ID was not found.</p>
  *
+ * @throws {@link RDSServiceException}
+ * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  * @example To list resources with at least one pending maintenance action
  * ```javascript

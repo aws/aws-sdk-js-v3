@@ -37,23 +37,39 @@ export interface ListSimulationJobBatchesCommandOutput extends ListSimulationJob
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RoboMakerClient, ListSimulationJobBatchesCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
- * // const { RoboMakerClient, ListSimulationJobBatchesCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
+ * import { RoboMakerClient, ListSimulationJobBatchesCommand } from '@aws-sdk/client-robomaker'; // ES Modules import
+ * // const { RoboMakerClient, ListSimulationJobBatchesCommand } = require('@aws-sdk/client-robomaker'); // CommonJS import
  * const client = new RoboMakerClient(config);
  * const input = { // ListSimulationJobBatchesRequest
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  *   filters: [ // Filters
  *     { // Filter
- *       name: "STRING_VALUE",
+ *       name: 'STRING_VALUE',
  *       values: [ // FilterValues
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
  * };
  * const command = new ListSimulationJobBatchesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListSimulationJobBatchesResponse
+ *   simulationJobBatchSummaries: [ // SimulationJobBatchSummaries
+ *     { // SimulationJobBatchSummary
+ *       arn: 'STRING_VALUE',
+ *       lastUpdatedAt: new Date('TIMESTAMP'),
+ *       createdAt: new Date('TIMESTAMP'),
+ *       status: 'STRING_VALUE',
+ *       failedRequestCount: Number('int'),
+ *       pendingRequestCount: Number('int'),
+ *       createdRequestCount: Number('int'),
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListSimulationJobBatchesCommandInput - {@link ListSimulationJobBatchesCommandInput}
@@ -69,6 +85,8 @@ export interface ListSimulationJobBatchesCommandOutput extends ListSimulationJob
  *  <p>A parameter specified in a request is not valid, is unsupported, or cannot be used. The
  *          returned message provides an explanation of the error value.</p>
  *
+ * @throws {@link RoboMakerServiceException}
+ * <p>Base exception class for all service exceptions from RoboMaker service.</p>
  *
  */
 export class ListSimulationJobBatchesCommand extends $Command<

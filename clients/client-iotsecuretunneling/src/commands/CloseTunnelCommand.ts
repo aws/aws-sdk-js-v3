@@ -43,15 +43,18 @@ export interface CloseTunnelCommandOutput extends CloseTunnelResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTSecureTunnelingClient, CloseTunnelCommand } from "@aws-sdk/client-iotsecuretunneling"; // ES Modules import
- * // const { IoTSecureTunnelingClient, CloseTunnelCommand } = require("@aws-sdk/client-iotsecuretunneling"); // CommonJS import
+ * import { IoTSecureTunnelingClient, CloseTunnelCommand } from '@aws-sdk/client-iotsecuretunneling'; // ES Modules import
+ * // const { IoTSecureTunnelingClient, CloseTunnelCommand } = require('@aws-sdk/client-iotsecuretunneling'); // CommonJS import
  * const client = new IoTSecureTunnelingClient(config);
  * const input = { // CloseTunnelRequest
- *   tunnelId: "STRING_VALUE", // required
+ *   tunnelId: 'STRING_VALUE', // required
  *   delete: true || false,
  * };
  * const command = new CloseTunnelCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param CloseTunnelCommandInput - {@link CloseTunnelCommandInput}
@@ -63,6 +66,8 @@ export interface CloseTunnelCommandOutput extends CloseTunnelResponse, __Metadat
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Thrown when an operation is attempted on a resource that does not exist.</p>
  *
+ * @throws {@link IoTSecureTunnelingServiceException}
+ * <p>Base exception class for all service exceptions from IoTSecureTunneling service.</p>
  *
  */
 export class CloseTunnelCommand extends $Command<

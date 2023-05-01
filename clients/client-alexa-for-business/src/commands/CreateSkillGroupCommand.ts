@@ -36,22 +36,27 @@ export interface CreateSkillGroupCommandOutput extends CreateSkillGroupResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AlexaForBusinessClient, CreateSkillGroupCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
- * // const { AlexaForBusinessClient, CreateSkillGroupCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
+ * import { AlexaForBusinessClient, CreateSkillGroupCommand } from '@aws-sdk/client-alexa-for-business'; // ES Modules import
+ * // const { AlexaForBusinessClient, CreateSkillGroupCommand } = require('@aws-sdk/client-alexa-for-business'); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
  * const input = { // CreateSkillGroupRequest
- *   SkillGroupName: "STRING_VALUE", // required
- *   Description: "STRING_VALUE",
- *   ClientRequestToken: "STRING_VALUE",
+ *   SkillGroupName: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE',
+ *   ClientRequestToken: 'STRING_VALUE',
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreateSkillGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateSkillGroupResponse
+ *   SkillGroupArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateSkillGroupCommandInput - {@link CreateSkillGroupCommandInput}
@@ -69,6 +74,8 @@ export interface CreateSkillGroupCommandOutput extends CreateSkillGroupResponse,
  * @throws {@link LimitExceededException} (client fault)
  *  <p>You are performing an action that would put you beyond your account's limits.</p>
  *
+ * @throws {@link AlexaForBusinessServiceException}
+ * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  */
 export class CreateSkillGroupCommand extends $Command<

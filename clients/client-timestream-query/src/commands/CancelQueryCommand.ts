@@ -42,14 +42,19 @@ export interface CancelQueryCommandOutput extends CancelQueryResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { TimestreamQueryClient, CancelQueryCommand } from "@aws-sdk/client-timestream-query"; // ES Modules import
- * // const { TimestreamQueryClient, CancelQueryCommand } = require("@aws-sdk/client-timestream-query"); // CommonJS import
+ * import { TimestreamQueryClient, CancelQueryCommand } from '@aws-sdk/client-timestream-query'; // ES Modules import
+ * // const { TimestreamQueryClient, CancelQueryCommand } = require('@aws-sdk/client-timestream-query'); // CommonJS import
  * const client = new TimestreamQueryClient(config);
  * const input = { // CancelQueryRequest
- *   QueryId: "STRING_VALUE", // required
+ *   QueryId: 'STRING_VALUE', // required
  * };
  * const command = new CancelQueryCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CancelQueryResponse
+ *   CancellationMessage: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CancelQueryCommandInput - {@link CancelQueryCommandInput}
@@ -75,6 +80,8 @@ export interface CancelQueryCommandOutput extends CancelQueryResponse, __Metadat
  * @throws {@link ValidationException} (client fault)
  *  <p> Invalid or malformed request. </p>
  *
+ * @throws {@link TimestreamQueryServiceException}
+ * <p>Base exception class for all service exceptions from TimestreamQuery service.</p>
  *
  */
 export class CancelQueryCommand extends $Command<

@@ -66,18 +66,21 @@ export interface SetTaskStatusCommandOutput extends SetTaskStatusOutput, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DataPipelineClient, SetTaskStatusCommand } from "@aws-sdk/client-data-pipeline"; // ES Modules import
- * // const { DataPipelineClient, SetTaskStatusCommand } = require("@aws-sdk/client-data-pipeline"); // CommonJS import
+ * import { DataPipelineClient, SetTaskStatusCommand } from '@aws-sdk/client-data-pipeline'; // ES Modules import
+ * // const { DataPipelineClient, SetTaskStatusCommand } = require('@aws-sdk/client-data-pipeline'); // CommonJS import
  * const client = new DataPipelineClient(config);
  * const input = { // SetTaskStatusInput
- *   taskId: "STRING_VALUE", // required
- *   taskStatus: "STRING_VALUE", // required
- *   errorId: "STRING_VALUE",
- *   errorMessage: "STRING_VALUE",
- *   errorStackTrace: "STRING_VALUE",
+ *   taskId: 'STRING_VALUE', // required
+ *   taskStatus: 'STRING_VALUE', // required
+ *   errorId: 'STRING_VALUE',
+ *   errorMessage: 'STRING_VALUE',
+ *   errorStackTrace: 'STRING_VALUE',
  * };
  * const command = new SetTaskStatusCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param SetTaskStatusCommandInput - {@link SetTaskStatusCommandInput}
@@ -101,6 +104,8 @@ export interface SetTaskStatusCommandOutput extends SetTaskStatusOutput, __Metad
  * @throws {@link TaskNotFoundException} (client fault)
  *  <p>The specified task was not found. </p>
  *
+ * @throws {@link DataPipelineServiceException}
+ * <p>Base exception class for all service exceptions from DataPipeline service.</p>
  *
  */
 export class SetTaskStatusCommand extends $Command<

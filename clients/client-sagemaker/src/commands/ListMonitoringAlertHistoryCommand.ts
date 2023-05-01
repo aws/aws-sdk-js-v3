@@ -36,22 +36,35 @@ export interface ListMonitoringAlertHistoryCommandOutput extends ListMonitoringA
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, ListMonitoringAlertHistoryCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, ListMonitoringAlertHistoryCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, ListMonitoringAlertHistoryCommand } from '@aws-sdk/client-sagemaker'; // ES Modules import
+ * // const { SageMakerClient, ListMonitoringAlertHistoryCommand } = require('@aws-sdk/client-sagemaker'); // CommonJS import
  * const client = new SageMakerClient(config);
  * const input = { // ListMonitoringAlertHistoryRequest
- *   MonitoringScheduleName: "STRING_VALUE",
- *   MonitoringAlertName: "STRING_VALUE",
- *   SortBy: "CreationTime" || "Status",
- *   SortOrder: "Ascending" || "Descending",
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
- *   CreationTimeBefore: new Date("TIMESTAMP"),
- *   CreationTimeAfter: new Date("TIMESTAMP"),
- *   StatusEquals: "InAlert" || "OK",
+ *   MonitoringScheduleName: 'STRING_VALUE',
+ *   MonitoringAlertName: 'STRING_VALUE',
+ *   SortBy: 'CreationTime' || 'Status',
+ *   SortOrder: 'Ascending' || 'Descending',
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
+ *   CreationTimeBefore: new Date('TIMESTAMP'),
+ *   CreationTimeAfter: new Date('TIMESTAMP'),
+ *   StatusEquals: 'InAlert' || 'OK',
  * };
  * const command = new ListMonitoringAlertHistoryCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListMonitoringAlertHistoryResponse
+ *   MonitoringAlertHistory: [ // MonitoringAlertHistoryList
+ *     { // MonitoringAlertHistorySummary
+ *       MonitoringScheduleName: 'STRING_VALUE', // required
+ *       MonitoringAlertName: 'STRING_VALUE', // required
+ *       CreationTime: new Date('TIMESTAMP'), // required
+ *       AlertStatus: 'InAlert' || 'OK', // required
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListMonitoringAlertHistoryCommandInput - {@link ListMonitoringAlertHistoryCommandInput}
@@ -63,6 +76,8 @@ export interface ListMonitoringAlertHistoryCommandOutput extends ListMonitoringA
  * @throws {@link ResourceNotFound} (client fault)
  *  <p>Resource being access is not found.</p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class ListMonitoringAlertHistoryCommand extends $Command<

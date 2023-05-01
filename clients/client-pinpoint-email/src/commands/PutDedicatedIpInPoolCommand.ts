@@ -45,15 +45,18 @@ export interface PutDedicatedIpInPoolCommandOutput extends PutDedicatedIpInPoolR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PinpointEmailClient, PutDedicatedIpInPoolCommand } from "@aws-sdk/client-pinpoint-email"; // ES Modules import
- * // const { PinpointEmailClient, PutDedicatedIpInPoolCommand } = require("@aws-sdk/client-pinpoint-email"); // CommonJS import
+ * import { PinpointEmailClient, PutDedicatedIpInPoolCommand } from '@aws-sdk/client-pinpoint-email'; // ES Modules import
+ * // const { PinpointEmailClient, PutDedicatedIpInPoolCommand } = require('@aws-sdk/client-pinpoint-email'); // CommonJS import
  * const client = new PinpointEmailClient(config);
  * const input = { // PutDedicatedIpInPoolRequest
- *   Ip: "STRING_VALUE", // required
- *   DestinationPoolName: "STRING_VALUE", // required
+ *   Ip: 'STRING_VALUE', // required
+ *   DestinationPoolName: 'STRING_VALUE', // required
  * };
  * const command = new PutDedicatedIpInPoolCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutDedicatedIpInPoolCommandInput - {@link PutDedicatedIpInPoolCommandInput}
@@ -71,6 +74,8 @@ export interface PutDedicatedIpInPoolCommandOutput extends PutDedicatedIpInPoolR
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Too many requests have been made to the operation.</p>
  *
+ * @throws {@link PinpointEmailServiceException}
+ * <p>Base exception class for all service exceptions from PinpointEmail service.</p>
  *
  */
 export class PutDedicatedIpInPoolCommand extends $Command<

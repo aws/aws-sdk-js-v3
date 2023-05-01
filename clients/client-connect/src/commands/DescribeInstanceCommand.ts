@@ -45,14 +45,32 @@ export interface DescribeInstanceCommandOutput extends DescribeInstanceResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, DescribeInstanceCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, DescribeInstanceCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, DescribeInstanceCommand } from '@aws-sdk/client-connect'; // ES Modules import
+ * // const { ConnectClient, DescribeInstanceCommand } = require('@aws-sdk/client-connect'); // CommonJS import
  * const client = new ConnectClient(config);
  * const input = { // DescribeInstanceRequest
- *   InstanceId: "STRING_VALUE", // required
+ *   InstanceId: 'STRING_VALUE', // required
  * };
  * const command = new DescribeInstanceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeInstanceResponse
+ *   Instance: { // Instance
+ *     Id: 'STRING_VALUE',
+ *     Arn: 'STRING_VALUE',
+ *     IdentityManagementType: 'SAML' || 'CONNECT_MANAGED' || 'EXISTING_DIRECTORY',
+ *     InstanceAlias: 'STRING_VALUE',
+ *     CreatedTime: new Date('TIMESTAMP'),
+ *     ServiceRole: 'STRING_VALUE',
+ *     InstanceStatus: 'CREATION_IN_PROGRESS' || 'ACTIVE' || 'CREATION_FAILED',
+ *     StatusReason: { // InstanceStatusReason
+ *       Message: 'STRING_VALUE',
+ *     },
+ *     InboundCallsEnabled: true || false,
+ *     OutboundCallsEnabled: true || false,
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeInstanceCommandInput - {@link DescribeInstanceCommandInput}
@@ -70,6 +88,8 @@ export interface DescribeInstanceCommandOutput extends DescribeInstanceResponse,
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class DescribeInstanceCommand extends $Command<

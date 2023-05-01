@@ -37,20 +37,23 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ECRClient, TagResourceCommand } from "@aws-sdk/client-ecr"; // ES Modules import
- * // const { ECRClient, TagResourceCommand } = require("@aws-sdk/client-ecr"); // CommonJS import
+ * import { ECRClient, TagResourceCommand } from '@aws-sdk/client-ecr'; // ES Modules import
+ * // const { ECRClient, TagResourceCommand } = require('@aws-sdk/client-ecr'); // CommonJS import
  * const client = new ECRClient(config);
  * const input = { // TagResourceRequest
- *   resourceArn: "STRING_VALUE", // required
+ *   resourceArn: 'STRING_VALUE', // required
  *   tags: [ // TagList // required
  *     { // Tag
- *       Key: "STRING_VALUE",
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param TagResourceCommandInput - {@link TagResourceCommandInput}
@@ -78,6 +81,8 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  *  <p>The list of tags on the repository is over the limit. The maximum number of tags that
  *             can be applied to a repository is 50.</p>
  *
+ * @throws {@link ECRServiceException}
+ * <p>Base exception class for all service exceptions from ECR service.</p>
  *
  */
 export class TagResourceCommand extends $Command<

@@ -37,15 +37,26 @@ export interface ListVpcEndpointAccessCommandOutput extends ListVpcEndpointAcces
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OpenSearchClient, ListVpcEndpointAccessCommand } from "@aws-sdk/client-opensearch"; // ES Modules import
- * // const { OpenSearchClient, ListVpcEndpointAccessCommand } = require("@aws-sdk/client-opensearch"); // CommonJS import
+ * import { OpenSearchClient, ListVpcEndpointAccessCommand } from '@aws-sdk/client-opensearch'; // ES Modules import
+ * // const { OpenSearchClient, ListVpcEndpointAccessCommand } = require('@aws-sdk/client-opensearch'); // CommonJS import
  * const client = new OpenSearchClient(config);
  * const input = { // ListVpcEndpointAccessRequest
- *   DomainName: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
+ *   DomainName: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListVpcEndpointAccessCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListVpcEndpointAccessResponse
+ *   AuthorizedPrincipalList: [ // AuthorizedPrincipalList // required
+ *     { // AuthorizedPrincipal
+ *       PrincipalType: 'AWS_ACCOUNT' || 'AWS_SERVICE',
+ *       Principal: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param ListVpcEndpointAccessCommandInput - {@link ListVpcEndpointAccessCommandInput}
@@ -66,6 +77,8 @@ export interface ListVpcEndpointAccessCommandOutput extends ListVpcEndpointAcces
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>An exception for accessing or deleting a resource that does not exist..</p>
  *
+ * @throws {@link OpenSearchServiceException}
+ * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
  */
 export class ListVpcEndpointAccessCommand extends $Command<

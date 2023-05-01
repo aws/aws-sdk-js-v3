@@ -40,15 +40,20 @@ export interface CancelJournalKinesisStreamCommandOutput extends CancelJournalKi
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { QLDBClient, CancelJournalKinesisStreamCommand } from "@aws-sdk/client-qldb"; // ES Modules import
- * // const { QLDBClient, CancelJournalKinesisStreamCommand } = require("@aws-sdk/client-qldb"); // CommonJS import
+ * import { QLDBClient, CancelJournalKinesisStreamCommand } from '@aws-sdk/client-qldb'; // ES Modules import
+ * // const { QLDBClient, CancelJournalKinesisStreamCommand } = require('@aws-sdk/client-qldb'); // CommonJS import
  * const client = new QLDBClient(config);
  * const input = { // CancelJournalKinesisStreamRequest
- *   LedgerName: "STRING_VALUE", // required
- *   StreamId: "STRING_VALUE", // required
+ *   LedgerName: 'STRING_VALUE', // required
+ *   StreamId: 'STRING_VALUE', // required
  * };
  * const command = new CancelJournalKinesisStreamCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CancelJournalKinesisStreamResponse
+ *   StreamId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CancelJournalKinesisStreamCommandInput - {@link CancelJournalKinesisStreamCommandInput}
@@ -66,6 +71,8 @@ export interface CancelJournalKinesisStreamCommandOutput extends CancelJournalKi
  * @throws {@link ResourcePreconditionNotMetException} (client fault)
  *  <p>The operation failed because a condition wasn't satisfied in advance.</p>
  *
+ * @throws {@link QLDBServiceException}
+ * <p>Base exception class for all service exceptions from QLDB service.</p>
  *
  */
 export class CancelJournalKinesisStreamCommand extends $Command<

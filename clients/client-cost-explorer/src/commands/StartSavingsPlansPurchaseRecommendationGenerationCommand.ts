@@ -53,12 +53,19 @@ export interface StartSavingsPlansPurchaseRecommendationGenerationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CostExplorerClient, StartSavingsPlansPurchaseRecommendationGenerationCommand } from "@aws-sdk/client-cost-explorer"; // ES Modules import
- * // const { CostExplorerClient, StartSavingsPlansPurchaseRecommendationGenerationCommand } = require("@aws-sdk/client-cost-explorer"); // CommonJS import
+ * import { CostExplorerClient, StartSavingsPlansPurchaseRecommendationGenerationCommand } from '@aws-sdk/client-cost-explorer'; // ES Modules import
+ * // const { CostExplorerClient, StartSavingsPlansPurchaseRecommendationGenerationCommand } = require('@aws-sdk/client-cost-explorer'); // CommonJS import
  * const client = new CostExplorerClient(config);
  * const input = {};
  * const command = new StartSavingsPlansPurchaseRecommendationGenerationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartSavingsPlansPurchaseRecommendationGenerationResponse
+ *   RecommendationId: 'STRING_VALUE',
+ *   GenerationStartedTime: 'STRING_VALUE',
+ *   EstimatedCompletionTime: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param StartSavingsPlansPurchaseRecommendationGenerationCommandInput - {@link StartSavingsPlansPurchaseRecommendationGenerationCommandInput}
@@ -77,6 +84,8 @@ export interface StartSavingsPlansPurchaseRecommendationGenerationCommandOutput
  *  <p> You've reached the limit on the number of resources you can create, or exceeded the
  *             size of an individual resource. </p>
  *
+ * @throws {@link CostExplorerServiceException}
+ * <p>Base exception class for all service exceptions from CostExplorer service.</p>
  *
  */
 export class StartSavingsPlansPurchaseRecommendationGenerationCommand extends $Command<

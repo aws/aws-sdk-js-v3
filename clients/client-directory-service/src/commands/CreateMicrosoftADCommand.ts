@@ -43,30 +43,35 @@ export interface CreateMicrosoftADCommandOutput extends CreateMicrosoftADResult,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DirectoryServiceClient, CreateMicrosoftADCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
- * // const { DirectoryServiceClient, CreateMicrosoftADCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
+ * import { DirectoryServiceClient, CreateMicrosoftADCommand } from '@aws-sdk/client-directory-service'; // ES Modules import
+ * // const { DirectoryServiceClient, CreateMicrosoftADCommand } = require('@aws-sdk/client-directory-service'); // CommonJS import
  * const client = new DirectoryServiceClient(config);
  * const input = { // CreateMicrosoftADRequest
- *   Name: "STRING_VALUE", // required
- *   ShortName: "STRING_VALUE",
- *   Password: "STRING_VALUE", // required
- *   Description: "STRING_VALUE",
+ *   Name: 'STRING_VALUE', // required
+ *   ShortName: 'STRING_VALUE',
+ *   Password: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE',
  *   VpcSettings: { // DirectoryVpcSettings
- *     VpcId: "STRING_VALUE", // required
+ *     VpcId: 'STRING_VALUE', // required
  *     SubnetIds: [ // SubnetIds // required
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *   },
- *   Edition: "Enterprise" || "Standard",
+ *   Edition: 'Enterprise' || 'Standard',
  *   Tags: [ // Tags
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreateMicrosoftADCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateMicrosoftADResult
+ *   DirectoryId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateMicrosoftADCommandInput - {@link CreateMicrosoftADCommandInput}
@@ -92,6 +97,8 @@ export interface CreateMicrosoftADCommandOutput extends CreateMicrosoftADResult,
  * @throws {@link UnsupportedOperationException} (client fault)
  *  <p>The operation is not supported.</p>
  *
+ * @throws {@link DirectoryServiceServiceException}
+ * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
  */
 export class CreateMicrosoftADCommand extends $Command<

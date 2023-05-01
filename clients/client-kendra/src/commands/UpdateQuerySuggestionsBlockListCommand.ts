@@ -49,22 +49,25 @@ export interface UpdateQuerySuggestionsBlockListCommandOutput extends __Metadata
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KendraClient, UpdateQuerySuggestionsBlockListCommand } from "@aws-sdk/client-kendra"; // ES Modules import
- * // const { KendraClient, UpdateQuerySuggestionsBlockListCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
+ * import { KendraClient, UpdateQuerySuggestionsBlockListCommand } from '@aws-sdk/client-kendra'; // ES Modules import
+ * // const { KendraClient, UpdateQuerySuggestionsBlockListCommand } = require('@aws-sdk/client-kendra'); // CommonJS import
  * const client = new KendraClient(config);
  * const input = { // UpdateQuerySuggestionsBlockListRequest
- *   IndexId: "STRING_VALUE", // required
- *   Id: "STRING_VALUE", // required
- *   Name: "STRING_VALUE",
- *   Description: "STRING_VALUE",
+ *   IndexId: 'STRING_VALUE', // required
+ *   Id: 'STRING_VALUE', // required
+ *   Name: 'STRING_VALUE',
+ *   Description: 'STRING_VALUE',
  *   SourceS3Path: { // S3Path
- *     Bucket: "STRING_VALUE", // required
- *     Key: "STRING_VALUE", // required
+ *     Bucket: 'STRING_VALUE', // required
+ *     Key: 'STRING_VALUE', // required
  *   },
- *   RoleArn: "STRING_VALUE",
+ *   RoleArn: 'STRING_VALUE',
  * };
  * const command = new UpdateQuerySuggestionsBlockListCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateQuerySuggestionsBlockListCommandInput - {@link UpdateQuerySuggestionsBlockListCommandInput}
@@ -97,6 +100,8 @@ export interface UpdateQuerySuggestionsBlockListCommandOutput extends __Metadata
  *  <p>The input fails to satisfy the constraints set by the Amazon Kendra service.
  *             Please provide the correct input and try again.</p>
  *
+ * @throws {@link KendraServiceException}
+ * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
  */
 export class UpdateQuerySuggestionsBlockListCommand extends $Command<

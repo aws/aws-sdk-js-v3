@@ -44,15 +44,18 @@ export interface DeleteApplicationFromEnvironmentCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { M2Client, DeleteApplicationFromEnvironmentCommand } from "@aws-sdk/client-m2"; // ES Modules import
- * // const { M2Client, DeleteApplicationFromEnvironmentCommand } = require("@aws-sdk/client-m2"); // CommonJS import
+ * import { M2Client, DeleteApplicationFromEnvironmentCommand } from '@aws-sdk/client-m2'; // ES Modules import
+ * // const { M2Client, DeleteApplicationFromEnvironmentCommand } = require('@aws-sdk/client-m2'); // CommonJS import
  * const client = new M2Client(config);
  * const input = { // DeleteApplicationFromEnvironmentRequest
- *   applicationId: "STRING_VALUE", // required
- *   environmentId: "STRING_VALUE", // required
+ *   applicationId: 'STRING_VALUE', // required
+ *   environmentId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteApplicationFromEnvironmentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteApplicationFromEnvironmentCommandInput - {@link DeleteApplicationFromEnvironmentCommandInput}
@@ -79,6 +82,8 @@ export interface DeleteApplicationFromEnvironmentCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>One or more parameters provided in the request is not valid.</p>
  *
+ * @throws {@link M2ServiceException}
+ * <p>Base exception class for all service exceptions from M2 service.</p>
  *
  */
 export class DeleteApplicationFromEnvironmentCommand extends $Command<

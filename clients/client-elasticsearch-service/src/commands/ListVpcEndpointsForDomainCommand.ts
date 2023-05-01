@@ -40,15 +40,28 @@ export interface ListVpcEndpointsForDomainCommandOutput extends ListVpcEndpoints
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElasticsearchServiceClient, ListVpcEndpointsForDomainCommand } from "@aws-sdk/client-elasticsearch-service"; // ES Modules import
- * // const { ElasticsearchServiceClient, ListVpcEndpointsForDomainCommand } = require("@aws-sdk/client-elasticsearch-service"); // CommonJS import
+ * import { ElasticsearchServiceClient, ListVpcEndpointsForDomainCommand } from '@aws-sdk/client-elasticsearch-service'; // ES Modules import
+ * // const { ElasticsearchServiceClient, ListVpcEndpointsForDomainCommand } = require('@aws-sdk/client-elasticsearch-service'); // CommonJS import
  * const client = new ElasticsearchServiceClient(config);
  * const input = { // ListVpcEndpointsForDomainRequest
- *   DomainName: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
+ *   DomainName: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListVpcEndpointsForDomainCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListVpcEndpointsForDomainResponse
+ *   VpcEndpointSummaryList: [ // VpcEndpointSummaryList // required
+ *     { // VpcEndpointSummary
+ *       VpcEndpointId: 'STRING_VALUE',
+ *       VpcEndpointOwner: 'STRING_VALUE',
+ *       DomainArn: 'STRING_VALUE',
+ *       Status: 'CREATING' || 'CREATE_FAILED' || 'ACTIVE' || 'UPDATING' || 'UPDATE_FAILED' || 'DELETING' || 'DELETE_FAILED',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param ListVpcEndpointsForDomainCommandInput - {@link ListVpcEndpointsForDomainCommandInput}
@@ -69,6 +82,8 @@ export interface ListVpcEndpointsForDomainCommandOutput extends ListVpcEndpoints
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>An exception for accessing or deleting a resource that does not exist. Gives http status code of 400.</p>
  *
+ * @throws {@link ElasticsearchServiceServiceException}
+ * <p>Base exception class for all service exceptions from ElasticsearchService service.</p>
  *
  */
 export class ListVpcEndpointsForDomainCommand extends $Command<

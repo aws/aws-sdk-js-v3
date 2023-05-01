@@ -129,24 +129,43 @@ export interface CreateRateBasedRuleCommandOutput extends CreateRateBasedRuleRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WAFClient, CreateRateBasedRuleCommand } from "@aws-sdk/client-waf"; // ES Modules import
- * // const { WAFClient, CreateRateBasedRuleCommand } = require("@aws-sdk/client-waf"); // CommonJS import
+ * import { WAFClient, CreateRateBasedRuleCommand } from '@aws-sdk/client-waf'; // ES Modules import
+ * // const { WAFClient, CreateRateBasedRuleCommand } = require('@aws-sdk/client-waf'); // CommonJS import
  * const client = new WAFClient(config);
  * const input = { // CreateRateBasedRuleRequest
- *   Name: "STRING_VALUE", // required
- *   MetricName: "STRING_VALUE", // required
- *   RateKey: "STRING_VALUE", // required
- *   RateLimit: Number("long"), // required
- *   ChangeToken: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
+ *   MetricName: 'STRING_VALUE', // required
+ *   RateKey: 'STRING_VALUE', // required
+ *   RateLimit: Number('long'), // required
+ *   ChangeToken: 'STRING_VALUE', // required
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreateRateBasedRuleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateRateBasedRuleResponse
+ *   Rule: { // RateBasedRule
+ *     RuleId: 'STRING_VALUE', // required
+ *     Name: 'STRING_VALUE',
+ *     MetricName: 'STRING_VALUE',
+ *     MatchPredicates: [ // Predicates // required
+ *       { // Predicate
+ *         Negated: true || false, // required
+ *         Type: 'STRING_VALUE', // required
+ *         DataId: 'STRING_VALUE', // required
+ *       },
+ *     ],
+ *     RateKey: 'STRING_VALUE', // required
+ *     RateLimit: Number('long'), // required
+ *   },
+ *   ChangeToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateRateBasedRuleCommandInput - {@link CreateRateBasedRuleCommandInput}
@@ -218,6 +237,8 @@ export interface CreateRateBasedRuleCommandOutput extends CreateRateBasedRuleRes
  * @throws {@link WAFTagOperationInternalErrorException} (server fault)
  *  <p></p>
  *
+ * @throws {@link WAFServiceException}
+ * <p>Base exception class for all service exceptions from WAF service.</p>
  *
  */
 export class CreateRateBasedRuleCommand extends $Command<

@@ -36,23 +36,39 @@ export interface ListRulesCommandOutput extends ListRulesResponse, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RbinClient, ListRulesCommand } from "@aws-sdk/client-rbin"; // ES Modules import
- * // const { RbinClient, ListRulesCommand } = require("@aws-sdk/client-rbin"); // CommonJS import
+ * import { RbinClient, ListRulesCommand } from '@aws-sdk/client-rbin'; // ES Modules import
+ * // const { RbinClient, ListRulesCommand } = require('@aws-sdk/client-rbin'); // CommonJS import
  * const client = new RbinClient(config);
  * const input = { // ListRulesRequest
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
- *   ResourceType: "EBS_SNAPSHOT" || "EC2_IMAGE", // required
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
+ *   ResourceType: 'EBS_SNAPSHOT' || 'EC2_IMAGE', // required
  *   ResourceTags: [ // ResourceTags
  *     { // ResourceTag
- *       ResourceTagKey: "STRING_VALUE", // required
- *       ResourceTagValue: "STRING_VALUE",
+ *       ResourceTagKey: 'STRING_VALUE', // required
+ *       ResourceTagValue: 'STRING_VALUE',
  *     },
  *   ],
- *   LockState: "locked" || "pending_unlock" || "unlocked",
+ *   LockState: 'locked' || 'pending_unlock' || 'unlocked',
  * };
  * const command = new ListRulesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListRulesResponse
+ *   Rules: [ // RuleSummaryList
+ *     { // RuleSummary
+ *       Identifier: 'STRING_VALUE',
+ *       Description: 'STRING_VALUE',
+ *       RetentionPeriod: { // RetentionPeriod
+ *         RetentionPeriodValue: Number('int'), // required
+ *         RetentionPeriodUnit: 'DAYS', // required
+ *       },
+ *       LockState: 'locked' || 'pending_unlock' || 'unlocked',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListRulesCommandInput - {@link ListRulesCommandInput}
@@ -67,6 +83,8 @@ export interface ListRulesCommandOutput extends ListRulesResponse, __MetadataBea
  * @throws {@link ValidationException} (client fault)
  *  <p>One or more of the parameters in the request is not valid.</p>
  *
+ * @throws {@link RbinServiceException}
+ * <p>Base exception class for all service exceptions from Rbin service.</p>
  *
  */
 export class ListRulesCommand extends $Command<

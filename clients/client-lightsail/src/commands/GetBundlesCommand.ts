@@ -44,16 +44,41 @@ export interface GetBundlesCommandOutput extends GetBundlesResult, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LightsailClient, GetBundlesCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
- * // const { LightsailClient, GetBundlesCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
+ * import { LightsailClient, GetBundlesCommand } from '@aws-sdk/client-lightsail'; // ES Modules import
+ * // const { LightsailClient, GetBundlesCommand } = require('@aws-sdk/client-lightsail'); // CommonJS import
  * const client = new LightsailClient(config);
  * const input = { // GetBundlesRequest
  *   includeInactive: true || false,
- *   pageToken: "STRING_VALUE",
- *   appCategory: "LfR",
+ *   pageToken: 'STRING_VALUE',
+ *   appCategory: 'LfR',
  * };
  * const command = new GetBundlesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetBundlesResult
+ *   bundles: [ // BundleList
+ *     { // Bundle
+ *       price: Number('float'),
+ *       cpuCount: Number('int'),
+ *       diskSizeInGb: Number('int'),
+ *       bundleId: 'STRING_VALUE',
+ *       instanceType: 'STRING_VALUE',
+ *       isActive: true || false,
+ *       name: 'STRING_VALUE',
+ *       power: Number('int'),
+ *       ramSizeInGb: Number('float'),
+ *       transferPerMonthInGb: Number('int'),
+ *       supportedPlatforms: [ // InstancePlatformList
+ *         'LINUX_UNIX' || 'WINDOWS',
+ *       ],
+ *       supportedAppCategories: [ // AppCategoryList
+ *         'LfR',
+ *       ],
+ *     },
+ *   ],
+ *   nextPageToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetBundlesCommandInput - {@link GetBundlesCommandInput}
@@ -92,6 +117,8 @@ export interface GetBundlesCommandOutput extends GetBundlesResult, __MetadataBea
  * @throws {@link UnauthenticatedException} (client fault)
  *  <p>Lightsail throws this exception when the user has not been authenticated.</p>
  *
+ * @throws {@link LightsailServiceException}
+ * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
  */
 export class GetBundlesCommand extends $Command<

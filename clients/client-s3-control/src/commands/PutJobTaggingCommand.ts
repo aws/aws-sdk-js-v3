@@ -103,21 +103,24 @@ export interface PutJobTaggingCommandOutput extends PutJobTaggingResult, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { S3ControlClient, PutJobTaggingCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
- * // const { S3ControlClient, PutJobTaggingCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
+ * import { S3ControlClient, PutJobTaggingCommand } from '@aws-sdk/client-s3-control'; // ES Modules import
+ * // const { S3ControlClient, PutJobTaggingCommand } = require('@aws-sdk/client-s3-control'); // CommonJS import
  * const client = new S3ControlClient(config);
  * const input = { // PutJobTaggingRequest
- *   AccountId: "STRING_VALUE",
- *   JobId: "STRING_VALUE", // required
+ *   AccountId: 'STRING_VALUE',
+ *   JobId: 'STRING_VALUE', // required
  *   Tags: [ // S3TagSet // required
  *     { // S3Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new PutJobTaggingCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutJobTaggingCommandInput - {@link PutJobTaggingCommandInput}
@@ -138,6 +141,8 @@ export interface PutJobTaggingCommandOutput extends PutJobTaggingResult, __Metad
  * @throws {@link TooManyTagsException} (client fault)
  *  <p>Amazon S3 throws this exception if you have too many tags in your tag set.</p>
  *
+ * @throws {@link S3ControlServiceException}
+ * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
  */
 export class PutJobTaggingCommand extends $Command<

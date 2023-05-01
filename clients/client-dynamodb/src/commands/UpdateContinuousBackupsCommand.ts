@@ -47,17 +47,29 @@ export interface UpdateContinuousBackupsCommandOutput extends UpdateContinuousBa
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DynamoDBClient, UpdateContinuousBackupsCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
- * // const { DynamoDBClient, UpdateContinuousBackupsCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
+ * import { DynamoDBClient, UpdateContinuousBackupsCommand } from '@aws-sdk/client-dynamodb'; // ES Modules import
+ * // const { DynamoDBClient, UpdateContinuousBackupsCommand } = require('@aws-sdk/client-dynamodb'); // CommonJS import
  * const client = new DynamoDBClient(config);
  * const input = { // UpdateContinuousBackupsInput
- *   TableName: "STRING_VALUE", // required
+ *   TableName: 'STRING_VALUE', // required
  *   PointInTimeRecoverySpecification: { // PointInTimeRecoverySpecification
  *     PointInTimeRecoveryEnabled: true || false, // required
  *   },
  * };
  * const command = new UpdateContinuousBackupsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateContinuousBackupsOutput
+ *   ContinuousBackupsDescription: { // ContinuousBackupsDescription
+ *     ContinuousBackupsStatus: 'ENABLED' || 'DISABLED', // required
+ *     PointInTimeRecoveryDescription: { // PointInTimeRecoveryDescription
+ *       PointInTimeRecoveryStatus: 'ENABLED' || 'DISABLED',
+ *       EarliestRestorableDateTime: new Date('TIMESTAMP'),
+ *       LatestRestorableDateTime: new Date('TIMESTAMP'),
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateContinuousBackupsCommandInput - {@link UpdateContinuousBackupsCommandInput}
@@ -78,6 +90,8 @@ export interface UpdateContinuousBackupsCommandOutput extends UpdateContinuousBa
  *  <p>A source table with the name <code>TableName</code> does not currently exist within
  *             the subscriber's account or the subscriber is operating in the wrong Amazon Web Services Region.</p>
  *
+ * @throws {@link DynamoDBServiceException}
+ * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
  */
 export class UpdateContinuousBackupsCommand extends $Command<

@@ -39,14 +39,20 @@ export interface DescribePartnerEventSourceCommandOutput extends DescribePartner
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EventBridgeClient, DescribePartnerEventSourceCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
- * // const { EventBridgeClient, DescribePartnerEventSourceCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
+ * import { EventBridgeClient, DescribePartnerEventSourceCommand } from '@aws-sdk/client-eventbridge'; // ES Modules import
+ * // const { EventBridgeClient, DescribePartnerEventSourceCommand } = require('@aws-sdk/client-eventbridge'); // CommonJS import
  * const client = new EventBridgeClient(config);
  * const input = { // DescribePartnerEventSourceRequest
- *   Name: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
  * };
  * const command = new DescribePartnerEventSourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribePartnerEventSourceResponse
+ *   Arn: 'STRING_VALUE',
+ *   Name: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribePartnerEventSourceCommandInput - {@link DescribePartnerEventSourceCommandInput}
@@ -64,6 +70,8 @@ export interface DescribePartnerEventSourceCommandOutput extends DescribePartner
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>An entity that you specified does not exist.</p>
  *
+ * @throws {@link EventBridgeServiceException}
+ * <p>Base exception class for all service exceptions from EventBridge service.</p>
  *
  */
 export class DescribePartnerEventSourceCommand extends $Command<

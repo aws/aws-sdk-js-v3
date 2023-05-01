@@ -37,53 +37,98 @@ export interface UpdateRuleCommandOutput extends UpdateRuleResponse, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { VPCLatticeClient, UpdateRuleCommand } from "@aws-sdk/client-vpc-lattice"; // ES Modules import
- * // const { VPCLatticeClient, UpdateRuleCommand } = require("@aws-sdk/client-vpc-lattice"); // CommonJS import
+ * import { VPCLatticeClient, UpdateRuleCommand } from '@aws-sdk/client-vpc-lattice'; // ES Modules import
+ * // const { VPCLatticeClient, UpdateRuleCommand } = require('@aws-sdk/client-vpc-lattice'); // CommonJS import
  * const client = new VPCLatticeClient(config);
  * const input = { // UpdateRuleRequest
- *   serviceIdentifier: "STRING_VALUE", // required
- *   listenerIdentifier: "STRING_VALUE", // required
- *   ruleIdentifier: "STRING_VALUE", // required
+ *   serviceIdentifier: 'STRING_VALUE', // required
+ *   listenerIdentifier: 'STRING_VALUE', // required
+ *   ruleIdentifier: 'STRING_VALUE', // required
  *   match: { // RuleMatch Union: only one key present
  *     httpMatch: { // HttpMatch
- *       method: "STRING_VALUE",
+ *       method: 'STRING_VALUE',
  *       pathMatch: { // PathMatch
  *         match: { // PathMatchType Union: only one key present
- *           exact: "STRING_VALUE",
- *           prefix: "STRING_VALUE",
+ *           exact: 'STRING_VALUE',
+ *           prefix: 'STRING_VALUE',
  *         },
  *         caseSensitive: true || false,
  *       },
  *       headerMatches: [ // HeaderMatchList
  *         { // HeaderMatch
- *           name: "STRING_VALUE", // required
+ *           name: 'STRING_VALUE', // required
  *           match: { // HeaderMatchType Union: only one key present
- *             exact: "STRING_VALUE",
- *             prefix: "STRING_VALUE",
- *             contains: "STRING_VALUE",
+ *             exact: 'STRING_VALUE',
+ *             prefix: 'STRING_VALUE',
+ *             contains: 'STRING_VALUE',
  *           },
  *           caseSensitive: true || false,
  *         },
  *       ],
  *     },
  *   },
- *   priority: Number("int"),
+ *   priority: Number('int'),
  *   action: { // RuleAction Union: only one key present
  *     forward: { // ForwardAction
  *       targetGroups: [ // WeightedTargetGroupList // required
  *         { // WeightedTargetGroup
- *           targetGroupIdentifier: "STRING_VALUE", // required
- *           weight: Number("int"),
+ *           targetGroupIdentifier: 'STRING_VALUE', // required
+ *           weight: Number('int'),
  *         },
  *       ],
  *     },
  *     fixedResponse: { // FixedResponseAction
- *       statusCode: Number("int"), // required
+ *       statusCode: Number('int'), // required
  *     },
  *   },
  * };
  * const command = new UpdateRuleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateRuleResponse
+ *   arn: 'STRING_VALUE',
+ *   id: 'STRING_VALUE',
+ *   name: 'STRING_VALUE',
+ *   isDefault: true || false,
+ *   match: { // RuleMatch Union: only one key present
+ *     httpMatch: { // HttpMatch
+ *       method: 'STRING_VALUE',
+ *       pathMatch: { // PathMatch
+ *         match: { // PathMatchType Union: only one key present
+ *           exact: 'STRING_VALUE',
+ *           prefix: 'STRING_VALUE',
+ *         },
+ *         caseSensitive: true || false,
+ *       },
+ *       headerMatches: [ // HeaderMatchList
+ *         { // HeaderMatch
+ *           name: 'STRING_VALUE', // required
+ *           match: { // HeaderMatchType Union: only one key present
+ *             exact: 'STRING_VALUE',
+ *             prefix: 'STRING_VALUE',
+ *             contains: 'STRING_VALUE',
+ *           },
+ *           caseSensitive: true || false,
+ *         },
+ *       ],
+ *     },
+ *   },
+ *   priority: Number('int'),
+ *   action: { // RuleAction Union: only one key present
+ *     forward: { // ForwardAction
+ *       targetGroups: [ // WeightedTargetGroupList // required
+ *         { // WeightedTargetGroup
+ *           targetGroupIdentifier: 'STRING_VALUE', // required
+ *           weight: Number('int'),
+ *         },
+ *       ],
+ *     },
+ *     fixedResponse: { // FixedResponseAction
+ *       statusCode: Number('int'), // required
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateRuleCommandInput - {@link UpdateRuleCommandInput}
@@ -112,6 +157,8 @@ export interface UpdateRuleCommandOutput extends UpdateRuleResponse, __MetadataB
  *  <p>The input does not satisfy the constraints specified by an Amazon Web Services
  *    service.</p>
  *
+ * @throws {@link VPCLatticeServiceException}
+ * <p>Base exception class for all service exceptions from VPCLattice service.</p>
  *
  */
 export class UpdateRuleCommand extends $Command<

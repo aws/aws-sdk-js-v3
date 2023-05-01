@@ -36,25 +36,28 @@ export interface UpdateRoutingProfileQueuesCommandOutput extends __MetadataBeare
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, UpdateRoutingProfileQueuesCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, UpdateRoutingProfileQueuesCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, UpdateRoutingProfileQueuesCommand } from '@aws-sdk/client-connect'; // ES Modules import
+ * // const { ConnectClient, UpdateRoutingProfileQueuesCommand } = require('@aws-sdk/client-connect'); // CommonJS import
  * const client = new ConnectClient(config);
  * const input = { // UpdateRoutingProfileQueuesRequest
- *   InstanceId: "STRING_VALUE", // required
- *   RoutingProfileId: "STRING_VALUE", // required
+ *   InstanceId: 'STRING_VALUE', // required
+ *   RoutingProfileId: 'STRING_VALUE', // required
  *   QueueConfigs: [ // RoutingProfileQueueConfigList // required
  *     { // RoutingProfileQueueConfig
  *       QueueReference: { // RoutingProfileQueueReference
- *         QueueId: "STRING_VALUE", // required
- *         Channel: "VOICE" || "CHAT" || "TASK", // required
+ *         QueueId: 'STRING_VALUE', // required
+ *         Channel: 'VOICE' || 'CHAT' || 'TASK', // required
  *       },
- *       Priority: Number("int"), // required
- *       Delay: Number("int"), // required
+ *       Priority: Number('int'), // required
+ *       Delay: Number('int'), // required
  *     },
  *   ],
  * };
  * const command = new UpdateRoutingProfileQueuesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateRoutingProfileQueuesCommandInput - {@link UpdateRoutingProfileQueuesCommandInput}
@@ -78,6 +81,8 @@ export interface UpdateRoutingProfileQueuesCommandOutput extends __MetadataBeare
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class UpdateRoutingProfileQueuesCommand extends $Command<

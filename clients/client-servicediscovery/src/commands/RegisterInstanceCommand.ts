@@ -79,19 +79,24 @@ export interface RegisterInstanceCommandOutput extends RegisterInstanceResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ServiceDiscoveryClient, RegisterInstanceCommand } from "@aws-sdk/client-servicediscovery"; // ES Modules import
- * // const { ServiceDiscoveryClient, RegisterInstanceCommand } = require("@aws-sdk/client-servicediscovery"); // CommonJS import
+ * import { ServiceDiscoveryClient, RegisterInstanceCommand } from '@aws-sdk/client-servicediscovery'; // ES Modules import
+ * // const { ServiceDiscoveryClient, RegisterInstanceCommand } = require('@aws-sdk/client-servicediscovery'); // CommonJS import
  * const client = new ServiceDiscoveryClient(config);
  * const input = { // RegisterInstanceRequest
- *   ServiceId: "STRING_VALUE", // required
- *   InstanceId: "STRING_VALUE", // required
- *   CreatorRequestId: "STRING_VALUE",
+ *   ServiceId: 'STRING_VALUE', // required
+ *   InstanceId: 'STRING_VALUE', // required
+ *   CreatorRequestId: 'STRING_VALUE',
  *   Attributes: { // Attributes // required
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new RegisterInstanceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // RegisterInstanceResponse
+ *   OperationId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param RegisterInstanceCommandInput - {@link RegisterInstanceCommandInput}
@@ -119,6 +124,8 @@ export interface RegisterInstanceCommandOutput extends RegisterInstanceResponse,
  * @throws {@link ServiceNotFound} (client fault)
  *  <p>No service exists with the specified ID.</p>
  *
+ * @throws {@link ServiceDiscoveryServiceException}
+ * <p>Base exception class for all service exceptions from ServiceDiscovery service.</p>
  *
  * @example Example: Register Instance
  * ```javascript

@@ -37,16 +37,19 @@ export interface SubscribeToEventCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { InspectorClient, SubscribeToEventCommand } from "@aws-sdk/client-inspector"; // ES Modules import
- * // const { InspectorClient, SubscribeToEventCommand } = require("@aws-sdk/client-inspector"); // CommonJS import
+ * import { InspectorClient, SubscribeToEventCommand } from '@aws-sdk/client-inspector'; // ES Modules import
+ * // const { InspectorClient, SubscribeToEventCommand } = require('@aws-sdk/client-inspector'); // CommonJS import
  * const client = new InspectorClient(config);
  * const input = { // SubscribeToEventRequest
- *   resourceArn: "STRING_VALUE", // required
- *   event: "STRING_VALUE", // required
- *   topicArn: "STRING_VALUE", // required
+ *   resourceArn: 'STRING_VALUE', // required
+ *   event: 'STRING_VALUE', // required
+ *   topicArn: 'STRING_VALUE', // required
  * };
  * const command = new SubscribeToEventCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param SubscribeToEventCommandInput - {@link SubscribeToEventCommandInput}
@@ -76,6 +79,8 @@ export interface SubscribeToEventCommandOutput extends __MetadataBearer {}
  * @throws {@link ServiceTemporarilyUnavailableException} (server fault)
  *  <p>The serice is temporary unavailable.</p>
  *
+ * @throws {@link InspectorServiceException}
+ * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
  * @example Subscribe to event
  * ```javascript

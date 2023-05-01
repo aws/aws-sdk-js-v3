@@ -43,17 +43,23 @@ export interface ReplicateInstanceCommandOutput extends ReplicateInstanceRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, ReplicateInstanceCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, ReplicateInstanceCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, ReplicateInstanceCommand } from '@aws-sdk/client-connect'; // ES Modules import
+ * // const { ConnectClient, ReplicateInstanceCommand } = require('@aws-sdk/client-connect'); // CommonJS import
  * const client = new ConnectClient(config);
  * const input = { // ReplicateInstanceRequest
- *   InstanceId: "STRING_VALUE", // required
- *   ReplicaRegion: "STRING_VALUE", // required
- *   ClientToken: "STRING_VALUE",
- *   ReplicaAlias: "STRING_VALUE", // required
+ *   InstanceId: 'STRING_VALUE', // required
+ *   ReplicaRegion: 'STRING_VALUE', // required
+ *   ClientToken: 'STRING_VALUE',
+ *   ReplicaAlias: 'STRING_VALUE', // required
  * };
  * const command = new ReplicateInstanceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ReplicateInstanceResponse
+ *   Id: 'STRING_VALUE',
+ *   Arn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ReplicateInstanceCommandInput - {@link ReplicateInstanceCommandInput}
@@ -86,6 +92,8 @@ export interface ReplicateInstanceCommandOutput extends ReplicateInstanceRespons
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class ReplicateInstanceCommand extends $Command<

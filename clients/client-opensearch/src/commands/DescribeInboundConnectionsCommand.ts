@@ -38,23 +38,52 @@ export interface DescribeInboundConnectionsCommandOutput extends DescribeInbound
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OpenSearchClient, DescribeInboundConnectionsCommand } from "@aws-sdk/client-opensearch"; // ES Modules import
- * // const { OpenSearchClient, DescribeInboundConnectionsCommand } = require("@aws-sdk/client-opensearch"); // CommonJS import
+ * import { OpenSearchClient, DescribeInboundConnectionsCommand } from '@aws-sdk/client-opensearch'; // ES Modules import
+ * // const { OpenSearchClient, DescribeInboundConnectionsCommand } = require('@aws-sdk/client-opensearch'); // CommonJS import
  * const client = new OpenSearchClient(config);
  * const input = { // DescribeInboundConnectionsRequest
  *   Filters: [ // FilterList
  *     { // Filter
- *       Name: "STRING_VALUE",
+ *       Name: 'STRING_VALUE',
  *       Values: [ // ValueStringList
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new DescribeInboundConnectionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeInboundConnectionsResponse
+ *   Connections: [ // InboundConnections
+ *     { // InboundConnection
+ *       LocalDomainInfo: { // DomainInformationContainer
+ *         AWSDomainInformation: { // AWSDomainInformation
+ *           OwnerId: 'STRING_VALUE',
+ *           DomainName: 'STRING_VALUE', // required
+ *           Region: 'STRING_VALUE',
+ *         },
+ *       },
+ *       RemoteDomainInfo: {
+ *         AWSDomainInformation: {
+ *           OwnerId: 'STRING_VALUE',
+ *           DomainName: 'STRING_VALUE', // required
+ *           Region: 'STRING_VALUE',
+ *         },
+ *       },
+ *       ConnectionId: 'STRING_VALUE',
+ *       ConnectionStatus: { // InboundConnectionStatus
+ *         StatusCode: 'PENDING_ACCEPTANCE' || 'APPROVED' || 'PROVISIONING' || 'ACTIVE' || 'REJECTING' || 'REJECTED' || 'DELETING' || 'DELETED',
+ *         Message: 'STRING_VALUE',
+ *       },
+ *       ConnectionMode: 'DIRECT' || 'VPC_ENDPOINT',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeInboundConnectionsCommandInput - {@link DescribeInboundConnectionsCommandInput}
@@ -69,6 +98,8 @@ export interface DescribeInboundConnectionsCommandOutput extends DescribeInbound
  * @throws {@link InvalidPaginationTokenException} (client fault)
  *  <p>The request processing has failed because you provided an invalid pagination token.</p>
  *
+ * @throws {@link OpenSearchServiceException}
+ * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
  */
 export class DescribeInboundConnectionsCommand extends $Command<

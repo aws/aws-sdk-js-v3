@@ -38,14 +38,17 @@ export interface CancelClusterCommandOutput extends CancelClusterResult, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SnowballClient, CancelClusterCommand } from "@aws-sdk/client-snowball"; // ES Modules import
- * // const { SnowballClient, CancelClusterCommand } = require("@aws-sdk/client-snowball"); // CommonJS import
+ * import { SnowballClient, CancelClusterCommand } from '@aws-sdk/client-snowball'; // ES Modules import
+ * // const { SnowballClient, CancelClusterCommand } = require('@aws-sdk/client-snowball'); // CommonJS import
  * const client = new SnowballClient(config);
  * const input = { // CancelClusterRequest
- *   ClusterId: "STRING_VALUE", // required
+ *   ClusterId: 'STRING_VALUE', // required
  * };
  * const command = new CancelClusterCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param CancelClusterCommandInput - {@link CancelClusterCommandInput}
@@ -66,6 +69,8 @@ export interface CancelClusterCommandOutput extends CancelClusterResult, __Metad
  *  <p>The provided Key Management Service key lacks the permissions to perform the specified
  *         <a>CreateJob</a> or <a>UpdateJob</a> action.</p>
  *
+ * @throws {@link SnowballServiceException}
+ * <p>Base exception class for all service exceptions from Snowball service.</p>
  *
  * @example To cancel a cluster job
  * ```javascript

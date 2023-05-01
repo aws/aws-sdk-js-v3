@@ -45,20 +45,68 @@ export interface GetLaunchProfileInitializationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { NimbleClient, GetLaunchProfileInitializationCommand } from "@aws-sdk/client-nimble"; // ES Modules import
- * // const { NimbleClient, GetLaunchProfileInitializationCommand } = require("@aws-sdk/client-nimble"); // CommonJS import
+ * import { NimbleClient, GetLaunchProfileInitializationCommand } from '@aws-sdk/client-nimble'; // ES Modules import
+ * // const { NimbleClient, GetLaunchProfileInitializationCommand } = require('@aws-sdk/client-nimble'); // CommonJS import
  * const client = new NimbleClient(config);
  * const input = { // GetLaunchProfileInitializationRequest
- *   launchProfileId: "STRING_VALUE", // required
+ *   launchProfileId: 'STRING_VALUE', // required
  *   launchProfileProtocolVersions: [ // StringList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   launchPurpose: "STRING_VALUE", // required
- *   platform: "STRING_VALUE", // required
- *   studioId: "STRING_VALUE", // required
+ *   launchPurpose: 'STRING_VALUE', // required
+ *   platform: 'STRING_VALUE', // required
+ *   studioId: 'STRING_VALUE', // required
  * };
  * const command = new GetLaunchProfileInitializationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetLaunchProfileInitializationResponse
+ *   launchProfileInitialization: { // LaunchProfileInitialization
+ *     activeDirectory: { // LaunchProfileInitializationActiveDirectory
+ *       computerAttributes: [ // ActiveDirectoryComputerAttributeList
+ *         { // ActiveDirectoryComputerAttribute
+ *           name: 'STRING_VALUE',
+ *           value: 'STRING_VALUE',
+ *         },
+ *       ],
+ *       directoryId: 'STRING_VALUE',
+ *       directoryName: 'STRING_VALUE',
+ *       dnsIpAddresses: [ // ActiveDirectoryDnsIpAddressList
+ *         'STRING_VALUE',
+ *       ],
+ *       organizationalUnitDistinguishedName: 'STRING_VALUE',
+ *       studioComponentId: 'STRING_VALUE',
+ *       studioComponentName: 'STRING_VALUE',
+ *     },
+ *     ec2SecurityGroupIds: [ // LaunchProfileSecurityGroupIdList
+ *       'STRING_VALUE',
+ *     ],
+ *     launchProfileId: 'STRING_VALUE',
+ *     launchProfileProtocolVersion: 'STRING_VALUE',
+ *     launchPurpose: 'STRING_VALUE',
+ *     name: 'STRING_VALUE',
+ *     platform: 'LINUX' || 'WINDOWS',
+ *     systemInitializationScripts: [ // LaunchProfileInitializationScriptList
+ *       { // LaunchProfileInitializationScript
+ *         script: 'STRING_VALUE',
+ *         studioComponentId: 'STRING_VALUE',
+ *         studioComponentName: 'STRING_VALUE',
+ *         secureInitializationRoleArn: 'STRING_VALUE',
+ *         runtimeRoleArn: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     userInitializationScripts: [
+ *       {
+ *         script: 'STRING_VALUE',
+ *         studioComponentId: 'STRING_VALUE',
+ *         studioComponentName: 'STRING_VALUE',
+ *         secureInitializationRoleArn: 'STRING_VALUE',
+ *         runtimeRoleArn: 'STRING_VALUE',
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetLaunchProfileInitializationCommandInput - {@link GetLaunchProfileInitializationCommandInput}
@@ -91,6 +139,8 @@ export interface GetLaunchProfileInitializationCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>One of the parameters in the request is invalid.</p>
  *
+ * @throws {@link NimbleServiceException}
+ * <p>Base exception class for all service exceptions from Nimble service.</p>
  *
  */
 export class GetLaunchProfileInitializationCommand extends $Command<

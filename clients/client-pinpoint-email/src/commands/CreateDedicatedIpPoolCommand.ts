@@ -39,20 +39,23 @@ export interface CreateDedicatedIpPoolCommandOutput extends CreateDedicatedIpPoo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PinpointEmailClient, CreateDedicatedIpPoolCommand } from "@aws-sdk/client-pinpoint-email"; // ES Modules import
- * // const { PinpointEmailClient, CreateDedicatedIpPoolCommand } = require("@aws-sdk/client-pinpoint-email"); // CommonJS import
+ * import { PinpointEmailClient, CreateDedicatedIpPoolCommand } from '@aws-sdk/client-pinpoint-email'; // ES Modules import
+ * // const { PinpointEmailClient, CreateDedicatedIpPoolCommand } = require('@aws-sdk/client-pinpoint-email'); // CommonJS import
  * const client = new PinpointEmailClient(config);
  * const input = { // CreateDedicatedIpPoolRequest
- *   PoolName: "STRING_VALUE", // required
+ *   PoolName: 'STRING_VALUE', // required
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreateDedicatedIpPoolCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param CreateDedicatedIpPoolCommandInput - {@link CreateDedicatedIpPoolCommandInput}
@@ -76,6 +79,8 @@ export interface CreateDedicatedIpPoolCommandOutput extends CreateDedicatedIpPoo
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Too many requests have been made to the operation.</p>
  *
+ * @throws {@link PinpointEmailServiceException}
+ * <p>Base exception class for all service exceptions from PinpointEmail service.</p>
  *
  */
 export class CreateDedicatedIpPoolCommand extends $Command<

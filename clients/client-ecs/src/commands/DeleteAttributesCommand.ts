@@ -36,22 +36,34 @@ export interface DeleteAttributesCommandOutput extends DeleteAttributesResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ECSClient, DeleteAttributesCommand } from "@aws-sdk/client-ecs"; // ES Modules import
- * // const { ECSClient, DeleteAttributesCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
+ * import { ECSClient, DeleteAttributesCommand } from '@aws-sdk/client-ecs'; // ES Modules import
+ * // const { ECSClient, DeleteAttributesCommand } = require('@aws-sdk/client-ecs'); // CommonJS import
  * const client = new ECSClient(config);
  * const input = { // DeleteAttributesRequest
- *   cluster: "STRING_VALUE",
+ *   cluster: 'STRING_VALUE',
  *   attributes: [ // Attributes // required
  *     { // Attribute
- *       name: "STRING_VALUE", // required
- *       value: "STRING_VALUE",
- *       targetType: "container-instance",
- *       targetId: "STRING_VALUE",
+ *       name: 'STRING_VALUE', // required
+ *       value: 'STRING_VALUE',
+ *       targetType: 'container-instance',
+ *       targetId: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new DeleteAttributesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteAttributesResponse
+ *   attributes: [ // Attributes
+ *     { // Attribute
+ *       name: 'STRING_VALUE', // required
+ *       value: 'STRING_VALUE',
+ *       targetType: 'container-instance',
+ *       targetId: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DeleteAttributesCommandInput - {@link DeleteAttributesCommandInput}
@@ -72,6 +84,8 @@ export interface DeleteAttributesCommandOutput extends DeleteAttributesResponse,
  * 			with <a>ListContainerInstances</a>. Amazon ECS container instances are
  * 			cluster-specific and Region-specific.</p>
  *
+ * @throws {@link ECSServiceException}
+ * <p>Base exception class for all service exceptions from ECS service.</p>
  *
  */
 export class DeleteAttributesCommand extends $Command<

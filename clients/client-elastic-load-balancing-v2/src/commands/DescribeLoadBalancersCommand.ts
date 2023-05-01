@@ -40,21 +40,62 @@ export interface DescribeLoadBalancersCommandOutput extends DescribeLoadBalancer
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElasticLoadBalancingV2Client, DescribeLoadBalancersCommand } from "@aws-sdk/client-elastic-load-balancing-v2"; // ES Modules import
- * // const { ElasticLoadBalancingV2Client, DescribeLoadBalancersCommand } = require("@aws-sdk/client-elastic-load-balancing-v2"); // CommonJS import
+ * import { ElasticLoadBalancingV2Client, DescribeLoadBalancersCommand } from '@aws-sdk/client-elastic-load-balancing-v2'; // ES Modules import
+ * // const { ElasticLoadBalancingV2Client, DescribeLoadBalancersCommand } = require('@aws-sdk/client-elastic-load-balancing-v2'); // CommonJS import
  * const client = new ElasticLoadBalancingV2Client(config);
  * const input = { // DescribeLoadBalancersInput
  *   LoadBalancerArns: [ // LoadBalancerArns
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   Names: [ // LoadBalancerNames
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   Marker: "STRING_VALUE",
- *   PageSize: Number("int"),
+ *   Marker: 'STRING_VALUE',
+ *   PageSize: Number('int'),
  * };
  * const command = new DescribeLoadBalancersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeLoadBalancersOutput
+ *   LoadBalancers: [ // LoadBalancers
+ *     { // LoadBalancer
+ *       LoadBalancerArn: 'STRING_VALUE',
+ *       DNSName: 'STRING_VALUE',
+ *       CanonicalHostedZoneId: 'STRING_VALUE',
+ *       CreatedTime: new Date('TIMESTAMP'),
+ *       LoadBalancerName: 'STRING_VALUE',
+ *       Scheme: 'internet-facing' || 'internal',
+ *       VpcId: 'STRING_VALUE',
+ *       State: { // LoadBalancerState
+ *         Code: 'active' || 'provisioning' || 'active_impaired' || 'failed',
+ *         Reason: 'STRING_VALUE',
+ *       },
+ *       Type: 'application' || 'network' || 'gateway',
+ *       AvailabilityZones: [ // AvailabilityZones
+ *         { // AvailabilityZone
+ *           ZoneName: 'STRING_VALUE',
+ *           SubnetId: 'STRING_VALUE',
+ *           OutpostId: 'STRING_VALUE',
+ *           LoadBalancerAddresses: [ // LoadBalancerAddresses
+ *             { // LoadBalancerAddress
+ *               IpAddress: 'STRING_VALUE',
+ *               AllocationId: 'STRING_VALUE',
+ *               PrivateIPv4Address: 'STRING_VALUE',
+ *               IPv6Address: 'STRING_VALUE',
+ *             },
+ *           ],
+ *         },
+ *       ],
+ *       SecurityGroups: [ // SecurityGroups
+ *         'STRING_VALUE',
+ *       ],
+ *       IpAddressType: 'ipv4' || 'dualstack',
+ *       CustomerOwnedIpv4Pool: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextMarker: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeLoadBalancersCommandInput - {@link DescribeLoadBalancersCommandInput}
@@ -66,6 +107,8 @@ export interface DescribeLoadBalancersCommandOutput extends DescribeLoadBalancer
  * @throws {@link LoadBalancerNotFoundException} (client fault)
  *  <p>The specified load balancer does not exist.</p>
  *
+ * @throws {@link ElasticLoadBalancingV2ServiceException}
+ * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
  * @example To describe a load balancer
  * ```javascript

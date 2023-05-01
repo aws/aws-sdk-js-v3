@@ -37,14 +37,26 @@ export interface DescribeLocationFsxWindowsCommandOutput extends DescribeLocatio
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DataSyncClient, DescribeLocationFsxWindowsCommand } from "@aws-sdk/client-datasync"; // ES Modules import
- * // const { DataSyncClient, DescribeLocationFsxWindowsCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
+ * import { DataSyncClient, DescribeLocationFsxWindowsCommand } from '@aws-sdk/client-datasync'; // ES Modules import
+ * // const { DataSyncClient, DescribeLocationFsxWindowsCommand } = require('@aws-sdk/client-datasync'); // CommonJS import
  * const client = new DataSyncClient(config);
  * const input = { // DescribeLocationFsxWindowsRequest
- *   LocationArn: "STRING_VALUE", // required
+ *   LocationArn: 'STRING_VALUE', // required
  * };
  * const command = new DescribeLocationFsxWindowsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeLocationFsxWindowsResponse
+ *   LocationArn: 'STRING_VALUE',
+ *   LocationUri: 'STRING_VALUE',
+ *   SecurityGroupArns: [ // Ec2SecurityGroupArnList
+ *     'STRING_VALUE',
+ *   ],
+ *   CreationTime: new Date('TIMESTAMP'),
+ *   User: 'STRING_VALUE',
+ *   Domain: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeLocationFsxWindowsCommandInput - {@link DescribeLocationFsxWindowsCommandInput}
@@ -60,6 +72,8 @@ export interface DescribeLocationFsxWindowsCommandOutput extends DescribeLocatio
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception is thrown when the client submits a malformed request.</p>
  *
+ * @throws {@link DataSyncServiceException}
+ * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
  */
 export class DescribeLocationFsxWindowsCommand extends $Command<

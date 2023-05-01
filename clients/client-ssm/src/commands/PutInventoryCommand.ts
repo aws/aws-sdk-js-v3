@@ -38,30 +38,35 @@ export interface PutInventoryCommandOutput extends PutInventoryResult, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMClient, PutInventoryCommand } from "@aws-sdk/client-ssm"; // ES Modules import
- * // const { SSMClient, PutInventoryCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * import { SSMClient, PutInventoryCommand } from '@aws-sdk/client-ssm'; // ES Modules import
+ * // const { SSMClient, PutInventoryCommand } = require('@aws-sdk/client-ssm'); // CommonJS import
  * const client = new SSMClient(config);
  * const input = { // PutInventoryRequest
- *   InstanceId: "STRING_VALUE", // required
+ *   InstanceId: 'STRING_VALUE', // required
  *   Items: [ // InventoryItemList // required
  *     { // InventoryItem
- *       TypeName: "STRING_VALUE", // required
- *       SchemaVersion: "STRING_VALUE", // required
- *       CaptureTime: "STRING_VALUE", // required
- *       ContentHash: "STRING_VALUE",
+ *       TypeName: 'STRING_VALUE', // required
+ *       SchemaVersion: 'STRING_VALUE', // required
+ *       CaptureTime: 'STRING_VALUE', // required
+ *       ContentHash: 'STRING_VALUE',
  *       Content: [ // InventoryItemEntryList
  *         { // InventoryItemEntry
- *           "<keys>": "STRING_VALUE",
+ *           '<keys>': 'STRING_VALUE',
  *         },
  *       ],
  *       Context: { // InventoryItemContentContext
- *         "<keys>": "STRING_VALUE",
+ *         '<keys>': 'STRING_VALUE',
  *       },
  *     },
  *   ],
  * };
  * const command = new PutInventoryCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutInventoryResult
+ *   Message: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param PutInventoryCommandInput - {@link PutInventoryCommandInput}
@@ -128,6 +133,8 @@ export interface PutInventoryCommandOutput extends PutInventoryResult, __Metadat
  *  <p>Inventory item type schema version has to match supported versions in the service. Check
  *    output of GetInventorySchema to see the available schema version for each type.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class PutInventoryCommand extends $Command<

@@ -40,14 +40,17 @@ export interface DeleteDBSubnetGroupCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DocDBClient, DeleteDBSubnetGroupCommand } from "@aws-sdk/client-docdb"; // ES Modules import
- * // const { DocDBClient, DeleteDBSubnetGroupCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
+ * import { DocDBClient, DeleteDBSubnetGroupCommand } from '@aws-sdk/client-docdb'; // ES Modules import
+ * // const { DocDBClient, DeleteDBSubnetGroupCommand } = require('@aws-sdk/client-docdb'); // CommonJS import
  * const client = new DocDBClient(config);
  * const input = { // DeleteDBSubnetGroupMessage
- *   DBSubnetGroupName: "STRING_VALUE", // required
+ *   DBSubnetGroupName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteDBSubnetGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteDBSubnetGroupCommandInput - {@link DeleteDBSubnetGroupCommandInput}
@@ -66,6 +69,8 @@ export interface DeleteDBSubnetGroupCommandOutput extends __MetadataBearer {}
  * @throws {@link InvalidDBSubnetStateFault} (client fault)
  *  <p> The subnet isn't in the <i>available</i> state. </p>
  *
+ * @throws {@link DocDBServiceException}
+ * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
  */
 export class DeleteDBSubnetGroupCommand extends $Command<

@@ -42,14 +42,23 @@ export interface GetRetainedMessageCommandOutput extends GetRetainedMessageRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTDataPlaneClient, GetRetainedMessageCommand } from "@aws-sdk/client-iot-data-plane"; // ES Modules import
- * // const { IoTDataPlaneClient, GetRetainedMessageCommand } = require("@aws-sdk/client-iot-data-plane"); // CommonJS import
+ * import { IoTDataPlaneClient, GetRetainedMessageCommand } from '@aws-sdk/client-iot-data-plane'; // ES Modules import
+ * // const { IoTDataPlaneClient, GetRetainedMessageCommand } = require('@aws-sdk/client-iot-data-plane'); // CommonJS import
  * const client = new IoTDataPlaneClient(config);
  * const input = { // GetRetainedMessageRequest
- *   topic: "STRING_VALUE", // required
+ *   topic: 'STRING_VALUE', // required
  * };
  * const command = new GetRetainedMessageCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetRetainedMessageResponse
+ *   topic: 'STRING_VALUE',
+ *   payload: 'BLOB_VALUE',
+ *   qos: Number('int'),
+ *   lastModifiedTime: Number('long'),
+ *   userProperties: 'BLOB_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetRetainedMessageCommandInput - {@link GetRetainedMessageCommandInput}
@@ -79,6 +88,8 @@ export interface GetRetainedMessageCommandOutput extends GetRetainedMessageRespo
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this operation.</p>
  *
+ * @throws {@link IoTDataPlaneServiceException}
+ * <p>Base exception class for all service exceptions from IoTDataPlane service.</p>
  *
  */
 export class GetRetainedMessageCommand extends $Command<

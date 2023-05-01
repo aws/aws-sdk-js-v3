@@ -39,14 +39,24 @@ export interface DescribeCustomMetricCommandOutput extends DescribeCustomMetricR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTClient, DescribeCustomMetricCommand } from "@aws-sdk/client-iot"; // ES Modules import
- * // const { IoTClient, DescribeCustomMetricCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * import { IoTClient, DescribeCustomMetricCommand } from '@aws-sdk/client-iot'; // ES Modules import
+ * // const { IoTClient, DescribeCustomMetricCommand } = require('@aws-sdk/client-iot'); // CommonJS import
  * const client = new IoTClient(config);
  * const input = { // DescribeCustomMetricRequest
- *   metricName: "STRING_VALUE", // required
+ *   metricName: 'STRING_VALUE', // required
  * };
  * const command = new DescribeCustomMetricCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeCustomMetricResponse
+ *   metricName: 'STRING_VALUE',
+ *   metricArn: 'STRING_VALUE',
+ *   metricType: 'string-list' || 'ip-address-list' || 'number-list' || 'number',
+ *   displayName: 'STRING_VALUE',
+ *   creationDate: new Date('TIMESTAMP'),
+ *   lastModifiedDate: new Date('TIMESTAMP'),
+ * };
+ *
  * ```
  *
  * @param DescribeCustomMetricCommandInput - {@link DescribeCustomMetricCommandInput}
@@ -67,6 +77,8 @@ export interface DescribeCustomMetricCommandOutput extends DescribeCustomMetricR
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The rate exceeds the limit.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class DescribeCustomMetricCommand extends $Command<

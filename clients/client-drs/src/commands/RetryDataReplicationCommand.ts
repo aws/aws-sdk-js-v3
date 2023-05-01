@@ -40,14 +40,117 @@ export interface RetryDataReplicationCommandOutput extends SourceServer, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DrsClient, RetryDataReplicationCommand } from "@aws-sdk/client-drs"; // ES Modules import
- * // const { DrsClient, RetryDataReplicationCommand } = require("@aws-sdk/client-drs"); // CommonJS import
+ * import { DrsClient, RetryDataReplicationCommand } from '@aws-sdk/client-drs'; // ES Modules import
+ * // const { DrsClient, RetryDataReplicationCommand } = require('@aws-sdk/client-drs'); // CommonJS import
  * const client = new DrsClient(config);
  * const input = { // RetryDataReplicationRequest
- *   sourceServerID: "STRING_VALUE", // required
+ *   sourceServerID: 'STRING_VALUE', // required
  * };
  * const command = new RetryDataReplicationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SourceServer
+ *   sourceServerID: 'STRING_VALUE',
+ *   arn: 'STRING_VALUE',
+ *   tags: { // TagsMap
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ *   recoveryInstanceId: 'STRING_VALUE',
+ *   lastLaunchResult: 'STRING_VALUE',
+ *   dataReplicationInfo: { // DataReplicationInfo
+ *     lagDuration: 'STRING_VALUE',
+ *     etaDateTime: 'STRING_VALUE',
+ *     replicatedDisks: [ // DataReplicationInfoReplicatedDisks
+ *       { // DataReplicationInfoReplicatedDisk
+ *         deviceName: 'STRING_VALUE',
+ *         totalStorageBytes: Number('long'),
+ *         replicatedStorageBytes: Number('long'),
+ *         rescannedStorageBytes: Number('long'),
+ *         backloggedStorageBytes: Number('long'),
+ *       },
+ *     ],
+ *     dataReplicationState: 'STRING_VALUE',
+ *     dataReplicationInitiation: { // DataReplicationInitiation
+ *       startDateTime: 'STRING_VALUE',
+ *       nextAttemptDateTime: 'STRING_VALUE',
+ *       steps: [ // DataReplicationInitiationSteps
+ *         { // DataReplicationInitiationStep
+ *           name: 'STRING_VALUE',
+ *           status: 'STRING_VALUE',
+ *         },
+ *       ],
+ *     },
+ *     dataReplicationError: { // DataReplicationError
+ *       error: 'STRING_VALUE',
+ *       rawError: 'STRING_VALUE',
+ *     },
+ *     stagingAvailabilityZone: 'STRING_VALUE',
+ *   },
+ *   lifeCycle: { // LifeCycle
+ *     addedToServiceDateTime: 'STRING_VALUE',
+ *     firstByteDateTime: 'STRING_VALUE',
+ *     elapsedReplicationDuration: 'STRING_VALUE',
+ *     lastSeenByServiceDateTime: 'STRING_VALUE',
+ *     lastLaunch: { // LifeCycleLastLaunch
+ *       initiated: { // LifeCycleLastLaunchInitiated
+ *         apiCallDateTime: 'STRING_VALUE',
+ *         jobID: 'STRING_VALUE',
+ *         type: 'STRING_VALUE',
+ *       },
+ *       status: 'STRING_VALUE',
+ *     },
+ *   },
+ *   sourceProperties: { // SourceProperties
+ *     lastUpdatedDateTime: 'STRING_VALUE',
+ *     recommendedInstanceType: 'STRING_VALUE',
+ *     identificationHints: { // IdentificationHints
+ *       fqdn: 'STRING_VALUE',
+ *       hostname: 'STRING_VALUE',
+ *       vmWareUuid: 'STRING_VALUE',
+ *       awsInstanceID: 'STRING_VALUE',
+ *     },
+ *     networkInterfaces: [ // NetworkInterfaces
+ *       { // NetworkInterface
+ *         macAddress: 'STRING_VALUE',
+ *         ips: [ // IPsList
+ *           'STRING_VALUE',
+ *         ],
+ *         isPrimary: true || false,
+ *       },
+ *     ],
+ *     disks: [ // Disks
+ *       { // Disk
+ *         deviceName: 'STRING_VALUE',
+ *         bytes: Number('long'),
+ *       },
+ *     ],
+ *     cpus: [ // Cpus
+ *       { // CPU
+ *         cores: Number('long'),
+ *         modelName: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     ramBytes: Number('long'),
+ *     os: { // OS
+ *       fullString: 'STRING_VALUE',
+ *     },
+ *     supportsNitroInstances: true || false,
+ *   },
+ *   stagingArea: { // StagingArea
+ *     status: 'STRING_VALUE',
+ *     stagingAccountID: 'STRING_VALUE',
+ *     stagingSourceServerArn: 'STRING_VALUE',
+ *     errorMessage: 'STRING_VALUE',
+ *   },
+ *   sourceCloudProperties: { // SourceCloudProperties
+ *     originAccountID: 'STRING_VALUE',
+ *     originRegion: 'STRING_VALUE',
+ *     originAvailabilityZone: 'STRING_VALUE',
+ *   },
+ *   replicationDirection: 'STRING_VALUE',
+ *   reversedDirectionSourceServerArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param RetryDataReplicationCommandInput - {@link RetryDataReplicationCommandInput}
@@ -71,6 +174,8 @@ export interface RetryDataReplicationCommandOutput extends SourceServer, __Metad
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by the AWS service.</p>
  *
+ * @throws {@link DrsServiceException}
+ * <p>Base exception class for all service exceptions from Drs service.</p>
  *
  */
 export class RetryDataReplicationCommand extends $Command<

@@ -40,14 +40,20 @@ export interface DeleteVehicleCommandOutput extends DeleteVehicleResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTFleetWiseClient, DeleteVehicleCommand } from "@aws-sdk/client-iotfleetwise"; // ES Modules import
- * // const { IoTFleetWiseClient, DeleteVehicleCommand } = require("@aws-sdk/client-iotfleetwise"); // CommonJS import
+ * import { IoTFleetWiseClient, DeleteVehicleCommand } from '@aws-sdk/client-iotfleetwise'; // ES Modules import
+ * // const { IoTFleetWiseClient, DeleteVehicleCommand } = require('@aws-sdk/client-iotfleetwise'); // CommonJS import
  * const client = new IoTFleetWiseClient(config);
  * const input = { // DeleteVehicleRequest
- *   vehicleName: "STRING_VALUE", // required
+ *   vehicleName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteVehicleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteVehicleResponse
+ *   vehicleName: 'STRING_VALUE', // required
+ *   arn: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param DeleteVehicleCommandInput - {@link DeleteVehicleCommandInput}
@@ -68,6 +74,8 @@ export interface DeleteVehicleCommandOutput extends DeleteVehicleResponse, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
  *
+ * @throws {@link IoTFleetWiseServiceException}
+ * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
  */
 export class DeleteVehicleCommand extends $Command<

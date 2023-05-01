@@ -40,24 +40,49 @@ export interface ListPlatformVersionsCommandOutput extends ListPlatformVersionsR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElasticBeanstalkClient, ListPlatformVersionsCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
- * // const { ElasticBeanstalkClient, ListPlatformVersionsCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
+ * import { ElasticBeanstalkClient, ListPlatformVersionsCommand } from '@aws-sdk/client-elastic-beanstalk'; // ES Modules import
+ * // const { ElasticBeanstalkClient, ListPlatformVersionsCommand } = require('@aws-sdk/client-elastic-beanstalk'); // CommonJS import
  * const client = new ElasticBeanstalkClient(config);
  * const input = { // ListPlatformVersionsRequest
  *   Filters: [ // PlatformFilters
  *     { // PlatformFilter
- *       Type: "STRING_VALUE",
- *       Operator: "STRING_VALUE",
+ *       Type: 'STRING_VALUE',
+ *       Operator: 'STRING_VALUE',
  *       Values: [ // PlatformFilterValueList
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
- *   MaxRecords: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxRecords: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListPlatformVersionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListPlatformVersionsResult
+ *   PlatformSummaryList: [ // PlatformSummaryList
+ *     { // PlatformSummary
+ *       PlatformArn: 'STRING_VALUE',
+ *       PlatformOwner: 'STRING_VALUE',
+ *       PlatformStatus: 'Creating' || 'Failed' || 'Ready' || 'Deleting' || 'Deleted',
+ *       PlatformCategory: 'STRING_VALUE',
+ *       OperatingSystemName: 'STRING_VALUE',
+ *       OperatingSystemVersion: 'STRING_VALUE',
+ *       SupportedTierList: [ // SupportedTierList
+ *         'STRING_VALUE',
+ *       ],
+ *       SupportedAddonList: [ // SupportedAddonList
+ *         'STRING_VALUE',
+ *       ],
+ *       PlatformLifecycleState: 'STRING_VALUE',
+ *       PlatformVersion: 'STRING_VALUE',
+ *       PlatformBranchName: 'STRING_VALUE',
+ *       PlatformBranchLifecycleState: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListPlatformVersionsCommandInput - {@link ListPlatformVersionsCommandInput}
@@ -73,6 +98,8 @@ export interface ListPlatformVersionsCommandOutput extends ListPlatformVersionsR
  *  <p>The specified account does not have sufficient privileges for one or more AWS
  *       services.</p>
  *
+ * @throws {@link ElasticBeanstalkServiceException}
+ * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
  */
 export class ListPlatformVersionsCommand extends $Command<

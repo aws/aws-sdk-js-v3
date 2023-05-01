@@ -37,12 +37,44 @@ export interface GetDatalakeCommandOutput extends GetDatalakeResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SecurityLakeClient, GetDatalakeCommand } from "@aws-sdk/client-securitylake"; // ES Modules import
- * // const { SecurityLakeClient, GetDatalakeCommand } = require("@aws-sdk/client-securitylake"); // CommonJS import
+ * import { SecurityLakeClient, GetDatalakeCommand } from '@aws-sdk/client-securitylake'; // ES Modules import
+ * // const { SecurityLakeClient, GetDatalakeCommand } = require('@aws-sdk/client-securitylake'); // CommonJS import
  * const client = new SecurityLakeClient(config);
  * const input = {};
  * const command = new GetDatalakeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetDatalakeResponse
+ *   configurations: { // LakeConfigurationResponseMap // required
+ *     '<keys>': { // LakeConfigurationResponse
+ *       encryptionKey: 'STRING_VALUE',
+ *       retentionSettings: [ // RetentionSettingList
+ *         { // RetentionSetting
+ *           storageClass: 'STRING_VALUE',
+ *           retentionPeriod: Number('int'),
+ *         },
+ *       ],
+ *       tagsMap: { // TagsMap
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *       replicationDestinationRegions: [ // RegionSet
+ *         'STRING_VALUE',
+ *       ],
+ *       replicationRoleArn: 'STRING_VALUE',
+ *       s3BucketArn: 'STRING_VALUE',
+ *       status: 'STRING_VALUE',
+ *       updateStatus: { // UpdateStatus
+ *         lastUpdateRequestId: 'STRING_VALUE',
+ *         lastUpdateStatus: 'STRING_VALUE',
+ *         lastUpdateFailure: { // LastUpdateFailure
+ *           reason: 'STRING_VALUE',
+ *           code: 'STRING_VALUE',
+ *         },
+ *       },
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetDatalakeCommandInput - {@link GetDatalakeCommandInput}
@@ -72,6 +104,8 @@ export interface GetDatalakeCommandOutput extends GetDatalakeResponse, __Metadat
  * @throws {@link ValidationException} (client fault)
  *  <p>Your signing certificate could not be validated. </p>
  *
+ * @throws {@link SecurityLakeServiceException}
+ * <p>Base exception class for all service exceptions from SecurityLake service.</p>
  *
  */
 export class GetDatalakeCommand extends $Command<

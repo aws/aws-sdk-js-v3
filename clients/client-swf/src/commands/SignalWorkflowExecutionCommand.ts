@@ -74,18 +74,21 @@ export interface SignalWorkflowExecutionCommandOutput extends __MetadataBearer {
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SWFClient, SignalWorkflowExecutionCommand } from "@aws-sdk/client-swf"; // ES Modules import
- * // const { SWFClient, SignalWorkflowExecutionCommand } = require("@aws-sdk/client-swf"); // CommonJS import
+ * import { SWFClient, SignalWorkflowExecutionCommand } from '@aws-sdk/client-swf'; // ES Modules import
+ * // const { SWFClient, SignalWorkflowExecutionCommand } = require('@aws-sdk/client-swf'); // CommonJS import
  * const client = new SWFClient(config);
  * const input = { // SignalWorkflowExecutionInput
- *   domain: "STRING_VALUE", // required
- *   workflowId: "STRING_VALUE", // required
- *   runId: "STRING_VALUE",
- *   signalName: "STRING_VALUE", // required
- *   input: "STRING_VALUE",
+ *   domain: 'STRING_VALUE', // required
+ *   workflowId: 'STRING_VALUE', // required
+ *   runId: 'STRING_VALUE',
+ *   signalName: 'STRING_VALUE', // required
+ *   input: 'STRING_VALUE',
  * };
  * const command = new SignalWorkflowExecutionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param SignalWorkflowExecutionCommandInput - {@link SignalWorkflowExecutionCommandInput}
@@ -100,6 +103,8 @@ export interface SignalWorkflowExecutionCommandOutput extends __MetadataBearer {
  * @throws {@link UnknownResourceFault} (client fault)
  *  <p>Returned when the named resource cannot be found with in the scope of this operation (region or domain). This could happen if the named resource was never created or is no longer available for this operation.</p>
  *
+ * @throws {@link SWFServiceException}
+ * <p>Base exception class for all service exceptions from SWF service.</p>
  *
  */
 export class SignalWorkflowExecutionCommand extends $Command<

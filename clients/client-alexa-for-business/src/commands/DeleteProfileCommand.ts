@@ -36,14 +36,17 @@ export interface DeleteProfileCommandOutput extends DeleteProfileResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AlexaForBusinessClient, DeleteProfileCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
- * // const { AlexaForBusinessClient, DeleteProfileCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
+ * import { AlexaForBusinessClient, DeleteProfileCommand } from '@aws-sdk/client-alexa-for-business'; // ES Modules import
+ * // const { AlexaForBusinessClient, DeleteProfileCommand } = require('@aws-sdk/client-alexa-for-business'); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
  * const input = { // DeleteProfileRequest
- *   ProfileArn: "STRING_VALUE",
+ *   ProfileArn: 'STRING_VALUE',
  * };
  * const command = new DeleteProfileCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteProfileCommandInput - {@link DeleteProfileCommandInput}
@@ -58,6 +61,8 @@ export interface DeleteProfileCommandOutput extends DeleteProfileResponse, __Met
  * @throws {@link NotFoundException} (client fault)
  *  <p>The resource is not found.</p>
  *
+ * @throws {@link AlexaForBusinessServiceException}
+ * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  */
 export class DeleteProfileCommand extends $Command<

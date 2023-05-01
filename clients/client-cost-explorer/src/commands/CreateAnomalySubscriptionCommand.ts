@@ -38,103 +38,108 @@ export interface CreateAnomalySubscriptionCommandOutput extends CreateAnomalySub
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CostExplorerClient, CreateAnomalySubscriptionCommand } from "@aws-sdk/client-cost-explorer"; // ES Modules import
- * // const { CostExplorerClient, CreateAnomalySubscriptionCommand } = require("@aws-sdk/client-cost-explorer"); // CommonJS import
+ * import { CostExplorerClient, CreateAnomalySubscriptionCommand } from '@aws-sdk/client-cost-explorer'; // ES Modules import
+ * // const { CostExplorerClient, CreateAnomalySubscriptionCommand } = require('@aws-sdk/client-cost-explorer'); // CommonJS import
  * const client = new CostExplorerClient(config);
  * const input = { // CreateAnomalySubscriptionRequest
  *   AnomalySubscription: { // AnomalySubscription
- *     SubscriptionArn: "STRING_VALUE",
- *     AccountId: "STRING_VALUE",
+ *     SubscriptionArn: 'STRING_VALUE',
+ *     AccountId: 'STRING_VALUE',
  *     MonitorArnList: [ // MonitorArnList // required
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     Subscribers: [ // Subscribers // required
  *       { // Subscriber
- *         Address: "STRING_VALUE",
- *         Type: "EMAIL" || "SNS",
- *         Status: "CONFIRMED" || "DECLINED",
+ *         Address: 'STRING_VALUE',
+ *         Type: 'EMAIL' || 'SNS',
+ *         Status: 'CONFIRMED' || 'DECLINED',
  *       },
  *     ],
- *     Threshold: Number("double"),
- *     Frequency: "DAILY" || "IMMEDIATE" || "WEEKLY", // required
- *     SubscriptionName: "STRING_VALUE", // required
+ *     Threshold: Number('double'),
+ *     Frequency: 'DAILY' || 'IMMEDIATE' || 'WEEKLY', // required
+ *     SubscriptionName: 'STRING_VALUE', // required
  *     ThresholdExpression: { // Expression
  *       Or: [ // Expressions
  *         {
  *           Or: [
- *             "<Expression>",
+ *             '<Expression>',
  *           ],
  *           And: [
- *             "<Expression>",
+ *             '<Expression>',
  *           ],
- *           Not: "<Expression>",
+ *           Not: '<Expression>',
  *           Dimensions: { // DimensionValues
- *             Key: "AZ" || "INSTANCE_TYPE" || "LINKED_ACCOUNT" || "LINKED_ACCOUNT_NAME" || "OPERATION" || "PURCHASE_TYPE" || "REGION" || "SERVICE" || "SERVICE_CODE" || "USAGE_TYPE" || "USAGE_TYPE_GROUP" || "RECORD_TYPE" || "OPERATING_SYSTEM" || "TENANCY" || "SCOPE" || "PLATFORM" || "SUBSCRIPTION_ID" || "LEGAL_ENTITY_NAME" || "DEPLOYMENT_OPTION" || "DATABASE_ENGINE" || "CACHE_ENGINE" || "INSTANCE_TYPE_FAMILY" || "BILLING_ENTITY" || "RESERVATION_ID" || "RESOURCE_ID" || "RIGHTSIZING_TYPE" || "SAVINGS_PLANS_TYPE" || "SAVINGS_PLAN_ARN" || "PAYMENT_OPTION" || "AGREEMENT_END_DATE_TIME_AFTER" || "AGREEMENT_END_DATE_TIME_BEFORE" || "INVOICING_ENTITY" || "ANOMALY_TOTAL_IMPACT_ABSOLUTE" || "ANOMALY_TOTAL_IMPACT_PERCENTAGE",
+ *             Key: 'AZ' || 'INSTANCE_TYPE' || 'LINKED_ACCOUNT' || 'LINKED_ACCOUNT_NAME' || 'OPERATION' || 'PURCHASE_TYPE' || 'REGION' || 'SERVICE' || 'SERVICE_CODE' || 'USAGE_TYPE' || 'USAGE_TYPE_GROUP' || 'RECORD_TYPE' || 'OPERATING_SYSTEM' || 'TENANCY' || 'SCOPE' || 'PLATFORM' || 'SUBSCRIPTION_ID' || 'LEGAL_ENTITY_NAME' || 'DEPLOYMENT_OPTION' || 'DATABASE_ENGINE' || 'CACHE_ENGINE' || 'INSTANCE_TYPE_FAMILY' || 'BILLING_ENTITY' || 'RESERVATION_ID' || 'RESOURCE_ID' || 'RIGHTSIZING_TYPE' || 'SAVINGS_PLANS_TYPE' || 'SAVINGS_PLAN_ARN' || 'PAYMENT_OPTION' || 'AGREEMENT_END_DATE_TIME_AFTER' || 'AGREEMENT_END_DATE_TIME_BEFORE' || 'INVOICING_ENTITY' || 'ANOMALY_TOTAL_IMPACT_ABSOLUTE' || 'ANOMALY_TOTAL_IMPACT_PERCENTAGE',
  *             Values: [ // Values
- *               "STRING_VALUE",
+ *               'STRING_VALUE',
  *             ],
  *             MatchOptions: [ // MatchOptions
- *               "EQUALS" || "ABSENT" || "STARTS_WITH" || "ENDS_WITH" || "CONTAINS" || "CASE_SENSITIVE" || "CASE_INSENSITIVE" || "GREATER_THAN_OR_EQUAL",
+ *               'EQUALS' || 'ABSENT' || 'STARTS_WITH' || 'ENDS_WITH' || 'CONTAINS' || 'CASE_SENSITIVE' || 'CASE_INSENSITIVE' || 'GREATER_THAN_OR_EQUAL',
  *             ],
  *           },
  *           Tags: { // TagValues
- *             Key: "STRING_VALUE",
+ *             Key: 'STRING_VALUE',
  *             Values: [
- *               "STRING_VALUE",
+ *               'STRING_VALUE',
  *             ],
  *             MatchOptions: [
- *               "EQUALS" || "ABSENT" || "STARTS_WITH" || "ENDS_WITH" || "CONTAINS" || "CASE_SENSITIVE" || "CASE_INSENSITIVE" || "GREATER_THAN_OR_EQUAL",
+ *               'EQUALS' || 'ABSENT' || 'STARTS_WITH' || 'ENDS_WITH' || 'CONTAINS' || 'CASE_SENSITIVE' || 'CASE_INSENSITIVE' || 'GREATER_THAN_OR_EQUAL',
  *             ],
  *           },
  *           CostCategories: { // CostCategoryValues
- *             Key: "STRING_VALUE",
+ *             Key: 'STRING_VALUE',
  *             Values: [
- *               "STRING_VALUE",
+ *               'STRING_VALUE',
  *             ],
  *             MatchOptions: [
- *               "EQUALS" || "ABSENT" || "STARTS_WITH" || "ENDS_WITH" || "CONTAINS" || "CASE_SENSITIVE" || "CASE_INSENSITIVE" || "GREATER_THAN_OR_EQUAL",
+ *               'EQUALS' || 'ABSENT' || 'STARTS_WITH' || 'ENDS_WITH' || 'CONTAINS' || 'CASE_SENSITIVE' || 'CASE_INSENSITIVE' || 'GREATER_THAN_OR_EQUAL',
  *             ],
  *           },
  *         },
  *       ],
  *       And: [
- *         "<Expression>",
+ *         '<Expression>',
  *       ],
- *       Not: "<Expression>",
+ *       Not: '<Expression>',
  *       Dimensions: {
- *         Key: "AZ" || "INSTANCE_TYPE" || "LINKED_ACCOUNT" || "LINKED_ACCOUNT_NAME" || "OPERATION" || "PURCHASE_TYPE" || "REGION" || "SERVICE" || "SERVICE_CODE" || "USAGE_TYPE" || "USAGE_TYPE_GROUP" || "RECORD_TYPE" || "OPERATING_SYSTEM" || "TENANCY" || "SCOPE" || "PLATFORM" || "SUBSCRIPTION_ID" || "LEGAL_ENTITY_NAME" || "DEPLOYMENT_OPTION" || "DATABASE_ENGINE" || "CACHE_ENGINE" || "INSTANCE_TYPE_FAMILY" || "BILLING_ENTITY" || "RESERVATION_ID" || "RESOURCE_ID" || "RIGHTSIZING_TYPE" || "SAVINGS_PLANS_TYPE" || "SAVINGS_PLAN_ARN" || "PAYMENT_OPTION" || "AGREEMENT_END_DATE_TIME_AFTER" || "AGREEMENT_END_DATE_TIME_BEFORE" || "INVOICING_ENTITY" || "ANOMALY_TOTAL_IMPACT_ABSOLUTE" || "ANOMALY_TOTAL_IMPACT_PERCENTAGE",
+ *         Key: 'AZ' || 'INSTANCE_TYPE' || 'LINKED_ACCOUNT' || 'LINKED_ACCOUNT_NAME' || 'OPERATION' || 'PURCHASE_TYPE' || 'REGION' || 'SERVICE' || 'SERVICE_CODE' || 'USAGE_TYPE' || 'USAGE_TYPE_GROUP' || 'RECORD_TYPE' || 'OPERATING_SYSTEM' || 'TENANCY' || 'SCOPE' || 'PLATFORM' || 'SUBSCRIPTION_ID' || 'LEGAL_ENTITY_NAME' || 'DEPLOYMENT_OPTION' || 'DATABASE_ENGINE' || 'CACHE_ENGINE' || 'INSTANCE_TYPE_FAMILY' || 'BILLING_ENTITY' || 'RESERVATION_ID' || 'RESOURCE_ID' || 'RIGHTSIZING_TYPE' || 'SAVINGS_PLANS_TYPE' || 'SAVINGS_PLAN_ARN' || 'PAYMENT_OPTION' || 'AGREEMENT_END_DATE_TIME_AFTER' || 'AGREEMENT_END_DATE_TIME_BEFORE' || 'INVOICING_ENTITY' || 'ANOMALY_TOTAL_IMPACT_ABSOLUTE' || 'ANOMALY_TOTAL_IMPACT_PERCENTAGE',
  *         Values: [
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
  *         MatchOptions: [
- *           "EQUALS" || "ABSENT" || "STARTS_WITH" || "ENDS_WITH" || "CONTAINS" || "CASE_SENSITIVE" || "CASE_INSENSITIVE" || "GREATER_THAN_OR_EQUAL",
+ *           'EQUALS' || 'ABSENT' || 'STARTS_WITH' || 'ENDS_WITH' || 'CONTAINS' || 'CASE_SENSITIVE' || 'CASE_INSENSITIVE' || 'GREATER_THAN_OR_EQUAL',
  *         ],
  *       },
  *       Tags: {
- *         Key: "STRING_VALUE",
+ *         Key: 'STRING_VALUE',
  *         Values: [
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
  *         MatchOptions: [
- *           "EQUALS" || "ABSENT" || "STARTS_WITH" || "ENDS_WITH" || "CONTAINS" || "CASE_SENSITIVE" || "CASE_INSENSITIVE" || "GREATER_THAN_OR_EQUAL",
+ *           'EQUALS' || 'ABSENT' || 'STARTS_WITH' || 'ENDS_WITH' || 'CONTAINS' || 'CASE_SENSITIVE' || 'CASE_INSENSITIVE' || 'GREATER_THAN_OR_EQUAL',
  *         ],
  *       },
  *       CostCategories: {
- *         Key: "STRING_VALUE",
- *         Values: "<Values>",
- *         MatchOptions: "<MatchOptions>",
+ *         Key: 'STRING_VALUE',
+ *         Values: '<Values>',
+ *         MatchOptions: '<MatchOptions>',
  *       },
  *     },
  *   },
  *   ResourceTags: [ // ResourceTagList
  *     { // ResourceTag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreateAnomalySubscriptionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateAnomalySubscriptionResponse
+ *   SubscriptionArn: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param CreateAnomalySubscriptionCommandInput - {@link CreateAnomalySubscriptionCommandInput}
@@ -149,6 +154,8 @@ export interface CreateAnomalySubscriptionCommandOutput extends CreateAnomalySub
  * @throws {@link UnknownMonitorException} (client fault)
  *  <p>The cost anomaly monitor does not exist for the account. </p>
  *
+ * @throws {@link CostExplorerServiceException}
+ * <p>Base exception class for all service exceptions from CostExplorer service.</p>
  *
  */
 export class CreateAnomalySubscriptionCommand extends $Command<

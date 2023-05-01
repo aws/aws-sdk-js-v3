@@ -37,14 +37,29 @@ export interface DescribeDatasetGroupCommandOutput extends DescribeDatasetGroupR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PersonalizeClient, DescribeDatasetGroupCommand } from "@aws-sdk/client-personalize"; // ES Modules import
- * // const { PersonalizeClient, DescribeDatasetGroupCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
+ * import { PersonalizeClient, DescribeDatasetGroupCommand } from '@aws-sdk/client-personalize'; // ES Modules import
+ * // const { PersonalizeClient, DescribeDatasetGroupCommand } = require('@aws-sdk/client-personalize'); // CommonJS import
  * const client = new PersonalizeClient(config);
  * const input = { // DescribeDatasetGroupRequest
- *   datasetGroupArn: "STRING_VALUE", // required
+ *   datasetGroupArn: 'STRING_VALUE', // required
  * };
  * const command = new DescribeDatasetGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeDatasetGroupResponse
+ *   datasetGroup: { // DatasetGroup
+ *     name: 'STRING_VALUE',
+ *     datasetGroupArn: 'STRING_VALUE',
+ *     status: 'STRING_VALUE',
+ *     roleArn: 'STRING_VALUE',
+ *     kmsKeyArn: 'STRING_VALUE',
+ *     creationDateTime: new Date('TIMESTAMP'),
+ *     lastUpdatedDateTime: new Date('TIMESTAMP'),
+ *     failureReason: 'STRING_VALUE',
+ *     domain: 'ECOMMERCE' || 'VIDEO_ON_DEMAND',
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeDatasetGroupCommandInput - {@link DescribeDatasetGroupCommandInput}
@@ -59,6 +74,8 @@ export interface DescribeDatasetGroupCommandOutput extends DescribeDatasetGroupR
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Could not find the specified resource.</p>
  *
+ * @throws {@link PersonalizeServiceException}
+ * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
  */
 export class DescribeDatasetGroupCommand extends $Command<

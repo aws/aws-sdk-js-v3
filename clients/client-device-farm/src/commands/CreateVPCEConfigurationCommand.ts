@@ -37,17 +37,28 @@ export interface CreateVPCEConfigurationCommandOutput extends CreateVPCEConfigur
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DeviceFarmClient, CreateVPCEConfigurationCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
- * // const { DeviceFarmClient, CreateVPCEConfigurationCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
+ * import { DeviceFarmClient, CreateVPCEConfigurationCommand } from '@aws-sdk/client-device-farm'; // ES Modules import
+ * // const { DeviceFarmClient, CreateVPCEConfigurationCommand } = require('@aws-sdk/client-device-farm'); // CommonJS import
  * const client = new DeviceFarmClient(config);
  * const input = { // CreateVPCEConfigurationRequest
- *   vpceConfigurationName: "STRING_VALUE", // required
- *   vpceServiceName: "STRING_VALUE", // required
- *   serviceDnsName: "STRING_VALUE", // required
- *   vpceConfigurationDescription: "STRING_VALUE",
+ *   vpceConfigurationName: 'STRING_VALUE', // required
+ *   vpceServiceName: 'STRING_VALUE', // required
+ *   serviceDnsName: 'STRING_VALUE', // required
+ *   vpceConfigurationDescription: 'STRING_VALUE',
  * };
  * const command = new CreateVPCEConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateVPCEConfigurationResult
+ *   vpceConfiguration: { // VPCEConfiguration
+ *     arn: 'STRING_VALUE',
+ *     vpceConfigurationName: 'STRING_VALUE',
+ *     vpceServiceName: 'STRING_VALUE',
+ *     serviceDnsName: 'STRING_VALUE',
+ *     vpceConfigurationDescription: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateVPCEConfigurationCommandInput - {@link CreateVPCEConfigurationCommandInput}
@@ -65,6 +76,8 @@ export interface CreateVPCEConfigurationCommandOutput extends CreateVPCEConfigur
  * @throws {@link ServiceAccountException} (client fault)
  *  <p>There was a problem with the service account.</p>
  *
+ * @throws {@link DeviceFarmServiceException}
+ * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
  */
 export class CreateVPCEConfigurationCommand extends $Command<

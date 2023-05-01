@@ -64,75 +64,86 @@ export interface PutScalingPolicyCommandOutput extends PutScalingPolicyResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ApplicationAutoScalingClient, PutScalingPolicyCommand } from "@aws-sdk/client-application-auto-scaling"; // ES Modules import
- * // const { ApplicationAutoScalingClient, PutScalingPolicyCommand } = require("@aws-sdk/client-application-auto-scaling"); // CommonJS import
+ * import { ApplicationAutoScalingClient, PutScalingPolicyCommand } from '@aws-sdk/client-application-auto-scaling'; // ES Modules import
+ * // const { ApplicationAutoScalingClient, PutScalingPolicyCommand } = require('@aws-sdk/client-application-auto-scaling'); // CommonJS import
  * const client = new ApplicationAutoScalingClient(config);
  * const input = { // PutScalingPolicyRequest
- *   PolicyName: "STRING_VALUE", // required
- *   ServiceNamespace: "ecs" || "elasticmapreduce" || "ec2" || "appstream" || "dynamodb" || "rds" || "sagemaker" || "custom-resource" || "comprehend" || "lambda" || "cassandra" || "kafka" || "elasticache" || "neptune", // required
- *   ResourceId: "STRING_VALUE", // required
- *   ScalableDimension: "ecs:service:DesiredCount" || "ec2:spot-fleet-request:TargetCapacity" || "elasticmapreduce:instancegroup:InstanceCount" || "appstream:fleet:DesiredCapacity" || "dynamodb:table:ReadCapacityUnits" || "dynamodb:table:WriteCapacityUnits" || "dynamodb:index:ReadCapacityUnits" || "dynamodb:index:WriteCapacityUnits" || "rds:cluster:ReadReplicaCount" || "sagemaker:variant:DesiredInstanceCount" || "custom-resource:ResourceType:Property" || "comprehend:document-classifier-endpoint:DesiredInferenceUnits" || "comprehend:entity-recognizer-endpoint:DesiredInferenceUnits" || "lambda:function:ProvisionedConcurrency" || "cassandra:table:ReadCapacityUnits" || "cassandra:table:WriteCapacityUnits" || "kafka:broker-storage:VolumeSize" || "elasticache:replication-group:NodeGroups" || "elasticache:replication-group:Replicas" || "neptune:cluster:ReadReplicaCount", // required
- *   PolicyType: "StepScaling" || "TargetTrackingScaling",
+ *   PolicyName: 'STRING_VALUE', // required
+ *   ServiceNamespace: 'ecs' || 'elasticmapreduce' || 'ec2' || 'appstream' || 'dynamodb' || 'rds' || 'sagemaker' || 'custom-resource' || 'comprehend' || 'lambda' || 'cassandra' || 'kafka' || 'elasticache' || 'neptune', // required
+ *   ResourceId: 'STRING_VALUE', // required
+ *   ScalableDimension: 'ecs:service:DesiredCount' || 'ec2:spot-fleet-request:TargetCapacity' || 'elasticmapreduce:instancegroup:InstanceCount' || 'appstream:fleet:DesiredCapacity' || 'dynamodb:table:ReadCapacityUnits' || 'dynamodb:table:WriteCapacityUnits' || 'dynamodb:index:ReadCapacityUnits' || 'dynamodb:index:WriteCapacityUnits' || 'rds:cluster:ReadReplicaCount' || 'sagemaker:variant:DesiredInstanceCount' || 'custom-resource:ResourceType:Property' || 'comprehend:document-classifier-endpoint:DesiredInferenceUnits' || 'comprehend:entity-recognizer-endpoint:DesiredInferenceUnits' || 'lambda:function:ProvisionedConcurrency' || 'cassandra:table:ReadCapacityUnits' || 'cassandra:table:WriteCapacityUnits' || 'kafka:broker-storage:VolumeSize' || 'elasticache:replication-group:NodeGroups' || 'elasticache:replication-group:Replicas' || 'neptune:cluster:ReadReplicaCount', // required
+ *   PolicyType: 'StepScaling' || 'TargetTrackingScaling',
  *   StepScalingPolicyConfiguration: { // StepScalingPolicyConfiguration
- *     AdjustmentType: "ChangeInCapacity" || "PercentChangeInCapacity" || "ExactCapacity",
+ *     AdjustmentType: 'ChangeInCapacity' || 'PercentChangeInCapacity' || 'ExactCapacity',
  *     StepAdjustments: [ // StepAdjustments
  *       { // StepAdjustment
- *         MetricIntervalLowerBound: Number("double"),
- *         MetricIntervalUpperBound: Number("double"),
- *         ScalingAdjustment: Number("int"), // required
+ *         MetricIntervalLowerBound: Number('double'),
+ *         MetricIntervalUpperBound: Number('double'),
+ *         ScalingAdjustment: Number('int'), // required
  *       },
  *     ],
- *     MinAdjustmentMagnitude: Number("int"),
- *     Cooldown: Number("int"),
- *     MetricAggregationType: "Average" || "Minimum" || "Maximum",
+ *     MinAdjustmentMagnitude: Number('int'),
+ *     Cooldown: Number('int'),
+ *     MetricAggregationType: 'Average' || 'Minimum' || 'Maximum',
  *   },
  *   TargetTrackingScalingPolicyConfiguration: { // TargetTrackingScalingPolicyConfiguration
- *     TargetValue: Number("double"), // required
+ *     TargetValue: Number('double'), // required
  *     PredefinedMetricSpecification: { // PredefinedMetricSpecification
- *       PredefinedMetricType: "DynamoDBReadCapacityUtilization" || "DynamoDBWriteCapacityUtilization" || "ALBRequestCountPerTarget" || "RDSReaderAverageCPUUtilization" || "RDSReaderAverageDatabaseConnections" || "EC2SpotFleetRequestAverageCPUUtilization" || "EC2SpotFleetRequestAverageNetworkIn" || "EC2SpotFleetRequestAverageNetworkOut" || "SageMakerVariantInvocationsPerInstance" || "ECSServiceAverageCPUUtilization" || "ECSServiceAverageMemoryUtilization" || "AppStreamAverageCapacityUtilization" || "ComprehendInferenceUtilization" || "LambdaProvisionedConcurrencyUtilization" || "CassandraReadCapacityUtilization" || "CassandraWriteCapacityUtilization" || "KafkaBrokerStorageUtilization" || "ElastiCachePrimaryEngineCPUUtilization" || "ElastiCacheReplicaEngineCPUUtilization" || "ElastiCacheDatabaseMemoryUsageCountedForEvictPercentage" || "NeptuneReaderAverageCPUUtilization", // required
- *       ResourceLabel: "STRING_VALUE",
+ *       PredefinedMetricType: 'DynamoDBReadCapacityUtilization' || 'DynamoDBWriteCapacityUtilization' || 'ALBRequestCountPerTarget' || 'RDSReaderAverageCPUUtilization' || 'RDSReaderAverageDatabaseConnections' || 'EC2SpotFleetRequestAverageCPUUtilization' || 'EC2SpotFleetRequestAverageNetworkIn' || 'EC2SpotFleetRequestAverageNetworkOut' || 'SageMakerVariantInvocationsPerInstance' || 'ECSServiceAverageCPUUtilization' || 'ECSServiceAverageMemoryUtilization' || 'AppStreamAverageCapacityUtilization' || 'ComprehendInferenceUtilization' || 'LambdaProvisionedConcurrencyUtilization' || 'CassandraReadCapacityUtilization' || 'CassandraWriteCapacityUtilization' || 'KafkaBrokerStorageUtilization' || 'ElastiCachePrimaryEngineCPUUtilization' || 'ElastiCacheReplicaEngineCPUUtilization' || 'ElastiCacheDatabaseMemoryUsageCountedForEvictPercentage' || 'NeptuneReaderAverageCPUUtilization', // required
+ *       ResourceLabel: 'STRING_VALUE',
  *     },
  *     CustomizedMetricSpecification: { // CustomizedMetricSpecification
- *       MetricName: "STRING_VALUE",
- *       Namespace: "STRING_VALUE",
+ *       MetricName: 'STRING_VALUE',
+ *       Namespace: 'STRING_VALUE',
  *       Dimensions: [ // MetricDimensions
  *         { // MetricDimension
- *           Name: "STRING_VALUE", // required
- *           Value: "STRING_VALUE", // required
+ *           Name: 'STRING_VALUE', // required
+ *           Value: 'STRING_VALUE', // required
  *         },
  *       ],
- *       Statistic: "Average" || "Minimum" || "Maximum" || "SampleCount" || "Sum",
- *       Unit: "STRING_VALUE",
+ *       Statistic: 'Average' || 'Minimum' || 'Maximum' || 'SampleCount' || 'Sum',
+ *       Unit: 'STRING_VALUE',
  *       Metrics: [ // TargetTrackingMetricDataQueries
  *         { // TargetTrackingMetricDataQuery
- *           Expression: "STRING_VALUE",
- *           Id: "STRING_VALUE", // required
- *           Label: "STRING_VALUE",
+ *           Expression: 'STRING_VALUE',
+ *           Id: 'STRING_VALUE', // required
+ *           Label: 'STRING_VALUE',
  *           MetricStat: { // TargetTrackingMetricStat
  *             Metric: { // TargetTrackingMetric
  *               Dimensions: [ // TargetTrackingMetricDimensions
  *                 { // TargetTrackingMetricDimension
- *                   Name: "STRING_VALUE", // required
- *                   Value: "STRING_VALUE", // required
+ *                   Name: 'STRING_VALUE', // required
+ *                   Value: 'STRING_VALUE', // required
  *                 },
  *               ],
- *               MetricName: "STRING_VALUE",
- *               Namespace: "STRING_VALUE",
+ *               MetricName: 'STRING_VALUE',
+ *               Namespace: 'STRING_VALUE',
  *             },
- *             Stat: "STRING_VALUE", // required
- *             Unit: "STRING_VALUE",
+ *             Stat: 'STRING_VALUE', // required
+ *             Unit: 'STRING_VALUE',
  *           },
  *           ReturnData: true || false,
  *         },
  *       ],
  *     },
- *     ScaleOutCooldown: Number("int"),
- *     ScaleInCooldown: Number("int"),
+ *     ScaleOutCooldown: Number('int'),
+ *     ScaleInCooldown: Number('int'),
  *     DisableScaleIn: true || false,
  *   },
  * };
  * const command = new PutScalingPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutScalingPolicyResponse
+ *   PolicyARN: 'STRING_VALUE', // required
+ *   Alarms: [ // Alarms
+ *     { // Alarm
+ *       AlarmName: 'STRING_VALUE', // required
+ *       AlarmARN: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param PutScalingPolicyCommandInput - {@link PutScalingPolicyCommandInput}
@@ -168,6 +179,8 @@ export interface PutScalingPolicyCommandOutput extends PutScalingPolicyResponse,
  *  <p>An exception was thrown for a validation issue. Review the available parameters for the
  *          API request.</p>
  *
+ * @throws {@link ApplicationAutoScalingServiceException}
+ * <p>Base exception class for all service exceptions from ApplicationAutoScaling service.</p>
  *
  * @example To apply a target tracking scaling policy with a predefined metric specification
  * ```javascript

@@ -38,14 +38,19 @@ export interface StartTriggerCommandOutput extends StartTriggerResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlueClient, StartTriggerCommand } from "@aws-sdk/client-glue"; // ES Modules import
- * // const { GlueClient, StartTriggerCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * import { GlueClient, StartTriggerCommand } from '@aws-sdk/client-glue'; // ES Modules import
+ * // const { GlueClient, StartTriggerCommand } = require('@aws-sdk/client-glue'); // CommonJS import
  * const client = new GlueClient(config);
  * const input = { // StartTriggerRequest
- *   Name: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
  * };
  * const command = new StartTriggerCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartTriggerResponse
+ *   Name: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param StartTriggerCommandInput - {@link StartTriggerCommandInput}
@@ -72,6 +77,8 @@ export interface StartTriggerCommandOutput extends StartTriggerResponse, __Metad
  * @throws {@link ResourceNumberLimitExceededException} (client fault)
  *  <p>A resource numerical limit was exceeded.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class StartTriggerCommand extends $Command<

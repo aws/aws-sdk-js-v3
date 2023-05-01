@@ -46,14 +46,17 @@ export interface DeleteAccountCommandOutput extends DeleteAccountResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeClient, DeleteAccountCommand } from "@aws-sdk/client-chime"; // ES Modules import
- * // const { ChimeClient, DeleteAccountCommand } = require("@aws-sdk/client-chime"); // CommonJS import
+ * import { ChimeClient, DeleteAccountCommand } from '@aws-sdk/client-chime'; // ES Modules import
+ * // const { ChimeClient, DeleteAccountCommand } = require('@aws-sdk/client-chime'); // CommonJS import
  * const client = new ChimeClient(config);
  * const input = { // DeleteAccountRequest
- *   AccountId: "STRING_VALUE", // required
+ *   AccountId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteAccountCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteAccountCommandInput - {@link DeleteAccountCommandInput}
@@ -86,6 +89,8 @@ export interface DeleteAccountCommandOutput extends DeleteAccountResponse, __Met
  * @throws {@link UnprocessableEntityException} (client fault)
  *  <p>The request was well-formed but was unable to be followed due to semantic errors.</p>
  *
+ * @throws {@link ChimeServiceException}
+ * <p>Base exception class for all service exceptions from Chime service.</p>
  *
  */
 export class DeleteAccountCommand extends $Command<

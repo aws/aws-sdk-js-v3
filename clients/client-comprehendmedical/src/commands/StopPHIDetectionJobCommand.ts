@@ -40,14 +40,19 @@ export interface StopPHIDetectionJobCommandOutput extends StopPHIDetectionJobRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ComprehendMedicalClient, StopPHIDetectionJobCommand } from "@aws-sdk/client-comprehendmedical"; // ES Modules import
- * // const { ComprehendMedicalClient, StopPHIDetectionJobCommand } = require("@aws-sdk/client-comprehendmedical"); // CommonJS import
+ * import { ComprehendMedicalClient, StopPHIDetectionJobCommand } from '@aws-sdk/client-comprehendmedical'; // ES Modules import
+ * // const { ComprehendMedicalClient, StopPHIDetectionJobCommand } = require('@aws-sdk/client-comprehendmedical'); // CommonJS import
  * const client = new ComprehendMedicalClient(config);
  * const input = { // StopPHIDetectionJobRequest
- *   JobId: "STRING_VALUE", // required
+ *   JobId: 'STRING_VALUE', // required
  * };
  * const command = new StopPHIDetectionJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StopPHIDetectionJobResponse
+ *   JobId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param StopPHIDetectionJobCommandInput - {@link StopPHIDetectionJobCommandInput}
@@ -67,6 +72,8 @@ export interface StopPHIDetectionJobCommandOutput extends StopPHIDetectionJobRes
  *  <p>The resource identified by the specified Amazon Resource Name (ARN) was not found. Check
  *       the ARN and try your request again.</p>
  *
+ * @throws {@link ComprehendMedicalServiceException}
+ * <p>Base exception class for all service exceptions from ComprehendMedical service.</p>
  *
  */
 export class StopPHIDetectionJobCommand extends $Command<

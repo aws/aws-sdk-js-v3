@@ -49,17 +49,37 @@ export interface ListGameServersCommandOutput extends ListGameServersOutput, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GameLiftClient, ListGameServersCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
- * // const { GameLiftClient, ListGameServersCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
+ * import { GameLiftClient, ListGameServersCommand } from '@aws-sdk/client-gamelift'; // ES Modules import
+ * // const { GameLiftClient, ListGameServersCommand } = require('@aws-sdk/client-gamelift'); // CommonJS import
  * const client = new GameLiftClient(config);
  * const input = { // ListGameServersInput
- *   GameServerGroupName: "STRING_VALUE", // required
- *   SortOrder: "ASCENDING" || "DESCENDING",
- *   Limit: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   GameServerGroupName: 'STRING_VALUE', // required
+ *   SortOrder: 'ASCENDING' || 'DESCENDING',
+ *   Limit: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListGameServersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListGameServersOutput
+ *   GameServers: [ // GameServers
+ *     { // GameServer
+ *       GameServerGroupName: 'STRING_VALUE',
+ *       GameServerGroupArn: 'STRING_VALUE',
+ *       GameServerId: 'STRING_VALUE',
+ *       InstanceId: 'STRING_VALUE',
+ *       ConnectionInfo: 'STRING_VALUE',
+ *       GameServerData: 'STRING_VALUE',
+ *       ClaimStatus: 'CLAIMED',
+ *       UtilizationStatus: 'AVAILABLE' || 'UTILIZED',
+ *       RegistrationTime: new Date('TIMESTAMP'),
+ *       LastClaimTime: new Date('TIMESTAMP'),
+ *       LastHealthCheckTime: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListGameServersCommandInput - {@link ListGameServersCommandInput}
@@ -79,6 +99,8 @@ export interface ListGameServersCommandOutput extends ListGameServersOutput, __M
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client failed authentication. Clients should not retry such requests.</p>
  *
+ * @throws {@link GameLiftServiceException}
+ * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
  */
 export class ListGameServersCommand extends $Command<

@@ -39,17 +39,20 @@ export interface UpdateDocumentVersionCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkDocsClient, UpdateDocumentVersionCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
- * // const { WorkDocsClient, UpdateDocumentVersionCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import
+ * import { WorkDocsClient, UpdateDocumentVersionCommand } from '@aws-sdk/client-workdocs'; // ES Modules import
+ * // const { WorkDocsClient, UpdateDocumentVersionCommand } = require('@aws-sdk/client-workdocs'); // CommonJS import
  * const client = new WorkDocsClient(config);
  * const input = { // UpdateDocumentVersionRequest
- *   AuthenticationToken: "STRING_VALUE",
- *   DocumentId: "STRING_VALUE", // required
- *   VersionId: "STRING_VALUE", // required
- *   VersionStatus: "ACTIVE",
+ *   AuthenticationToken: 'STRING_VALUE',
+ *   DocumentId: 'STRING_VALUE', // required
+ *   VersionId: 'STRING_VALUE', // required
+ *   VersionStatus: 'ACTIVE',
  * };
  * const command = new UpdateDocumentVersionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateDocumentVersionCommandInput - {@link UpdateDocumentVersionCommandInput}
@@ -84,6 +87,8 @@ export interface UpdateDocumentVersionCommandOutput extends __MetadataBearer {}
  * @throws {@link UnauthorizedResourceAccessException} (client fault)
  *  <p>The caller does not have access to perform the action on the resource.</p>
  *
+ * @throws {@link WorkDocsServiceException}
+ * <p>Base exception class for all service exceptions from WorkDocs service.</p>
  *
  */
 export class UpdateDocumentVersionCommand extends $Command<

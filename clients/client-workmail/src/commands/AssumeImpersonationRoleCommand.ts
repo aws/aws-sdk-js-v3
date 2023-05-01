@@ -37,15 +37,21 @@ export interface AssumeImpersonationRoleCommandOutput extends AssumeImpersonatio
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkMailClient, AssumeImpersonationRoleCommand } from "@aws-sdk/client-workmail"; // ES Modules import
- * // const { WorkMailClient, AssumeImpersonationRoleCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
+ * import { WorkMailClient, AssumeImpersonationRoleCommand } from '@aws-sdk/client-workmail'; // ES Modules import
+ * // const { WorkMailClient, AssumeImpersonationRoleCommand } = require('@aws-sdk/client-workmail'); // CommonJS import
  * const client = new WorkMailClient(config);
  * const input = { // AssumeImpersonationRoleRequest
- *   OrganizationId: "STRING_VALUE", // required
- *   ImpersonationRoleId: "STRING_VALUE", // required
+ *   OrganizationId: 'STRING_VALUE', // required
+ *   ImpersonationRoleId: 'STRING_VALUE', // required
  * };
  * const command = new AssumeImpersonationRoleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AssumeImpersonationRoleResponse
+ *   Token: 'STRING_VALUE',
+ *   ExpiresIn: Number('long'),
+ * };
+ *
  * ```
  *
  * @param AssumeImpersonationRoleCommandInput - {@link AssumeImpersonationRoleCommandInput}
@@ -68,6 +74,8 @@ export interface AssumeImpersonationRoleCommandOutput extends AssumeImpersonatio
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource cannot be found.</p>
  *
+ * @throws {@link WorkMailServiceException}
+ * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
  */
 export class AssumeImpersonationRoleCommand extends $Command<

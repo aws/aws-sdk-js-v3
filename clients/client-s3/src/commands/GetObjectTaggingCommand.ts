@@ -64,18 +64,29 @@ export interface GetObjectTaggingCommandOutput extends GetObjectTaggingOutput, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { S3Client, GetObjectTaggingCommand } from "@aws-sdk/client-s3"; // ES Modules import
- * // const { S3Client, GetObjectTaggingCommand } = require("@aws-sdk/client-s3"); // CommonJS import
+ * import { S3Client, GetObjectTaggingCommand } from '@aws-sdk/client-s3'; // ES Modules import
+ * // const { S3Client, GetObjectTaggingCommand } = require('@aws-sdk/client-s3'); // CommonJS import
  * const client = new S3Client(config);
  * const input = { // GetObjectTaggingRequest
- *   Bucket: "STRING_VALUE", // required
- *   Key: "STRING_VALUE", // required
- *   VersionId: "STRING_VALUE",
- *   ExpectedBucketOwner: "STRING_VALUE",
- *   RequestPayer: "requester",
+ *   Bucket: 'STRING_VALUE', // required
+ *   Key: 'STRING_VALUE', // required
+ *   VersionId: 'STRING_VALUE',
+ *   ExpectedBucketOwner: 'STRING_VALUE',
+ *   RequestPayer: 'requester',
  * };
  * const command = new GetObjectTaggingCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetObjectTaggingOutput
+ *   VersionId: 'STRING_VALUE',
+ *   TagSet: [ // TagSet // required
+ *     { // Tag
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetObjectTaggingCommandInput - {@link GetObjectTaggingCommandInput}
@@ -84,6 +95,8 @@ export interface GetObjectTaggingCommandOutput extends GetObjectTaggingOutput, _
  * @see {@link GetObjectTaggingCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
+ * @throws {@link S3ServiceException}
+ * <p>Base exception class for all service exceptions from S3 service.</p>
  *
  * @example To retrieve tag set of a specific object version
  * ```javascript

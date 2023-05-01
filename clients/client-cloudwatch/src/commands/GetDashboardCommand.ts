@@ -39,14 +39,21 @@ export interface GetDashboardCommandOutput extends GetDashboardOutput, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudWatchClient, GetDashboardCommand } from "@aws-sdk/client-cloudwatch"; // ES Modules import
- * // const { CloudWatchClient, GetDashboardCommand } = require("@aws-sdk/client-cloudwatch"); // CommonJS import
+ * import { CloudWatchClient, GetDashboardCommand } from '@aws-sdk/client-cloudwatch'; // ES Modules import
+ * // const { CloudWatchClient, GetDashboardCommand } = require('@aws-sdk/client-cloudwatch'); // CommonJS import
  * const client = new CloudWatchClient(config);
  * const input = { // GetDashboardInput
- *   DashboardName: "STRING_VALUE", // required
+ *   DashboardName: 'STRING_VALUE', // required
  * };
  * const command = new GetDashboardCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetDashboardOutput
+ *   DashboardArn: 'STRING_VALUE',
+ *   DashboardBody: 'STRING_VALUE',
+ *   DashboardName: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetDashboardCommandInput - {@link GetDashboardCommandInput}
@@ -64,6 +71,8 @@ export interface GetDashboardCommandOutput extends GetDashboardOutput, __Metadat
  * @throws {@link InvalidParameterValueException} (client fault)
  *  <p>The value of an input parameter is bad or out-of-range.</p>
  *
+ * @throws {@link CloudWatchServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatch service.</p>
  *
  */
 export class GetDashboardCommand extends $Command<

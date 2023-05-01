@@ -36,18 +36,44 @@ export interface ModifyDBSubnetGroupCommandOutput extends ModifyDBSubnetGroupRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RDSClient, ModifyDBSubnetGroupCommand } from "@aws-sdk/client-rds"; // ES Modules import
- * // const { RDSClient, ModifyDBSubnetGroupCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * import { RDSClient, ModifyDBSubnetGroupCommand } from '@aws-sdk/client-rds'; // ES Modules import
+ * // const { RDSClient, ModifyDBSubnetGroupCommand } = require('@aws-sdk/client-rds'); // CommonJS import
  * const client = new RDSClient(config);
  * const input = { // ModifyDBSubnetGroupMessage
- *   DBSubnetGroupName: "STRING_VALUE", // required
- *   DBSubnetGroupDescription: "STRING_VALUE",
+ *   DBSubnetGroupName: 'STRING_VALUE', // required
+ *   DBSubnetGroupDescription: 'STRING_VALUE',
  *   SubnetIds: [ // SubnetIdentifierList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new ModifyDBSubnetGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ModifyDBSubnetGroupResult
+ *   DBSubnetGroup: { // DBSubnetGroup
+ *     DBSubnetGroupName: 'STRING_VALUE',
+ *     DBSubnetGroupDescription: 'STRING_VALUE',
+ *     VpcId: 'STRING_VALUE',
+ *     SubnetGroupStatus: 'STRING_VALUE',
+ *     Subnets: [ // SubnetList
+ *       { // Subnet
+ *         SubnetIdentifier: 'STRING_VALUE',
+ *         SubnetAvailabilityZone: { // AvailabilityZone
+ *           Name: 'STRING_VALUE',
+ *         },
+ *         SubnetOutpost: { // Outpost
+ *           Arn: 'STRING_VALUE',
+ *         },
+ *         SubnetStatus: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     DBSubnetGroupArn: 'STRING_VALUE',
+ *     SupportedNetworkTypes: [ // StringList
+ *       'STRING_VALUE',
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param ModifyDBSubnetGroupCommandInput - {@link ModifyDBSubnetGroupCommandInput}
@@ -73,6 +99,8 @@ export interface ModifyDBSubnetGroupCommandOutput extends ModifyDBSubnetGroupRes
  * @throws {@link SubnetAlreadyInUse} (client fault)
  *  <p>The DB subnet is already in use in the Availability Zone.</p>
  *
+ * @throws {@link RDSServiceException}
+ * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  * @example To modify a DB subnet group
  * ```javascript

@@ -36,27 +36,32 @@ export interface PutRepositoryTriggersCommandOutput extends PutRepositoryTrigger
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeCommitClient, PutRepositoryTriggersCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
- * // const { CodeCommitClient, PutRepositoryTriggersCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
+ * import { CodeCommitClient, PutRepositoryTriggersCommand } from '@aws-sdk/client-codecommit'; // ES Modules import
+ * // const { CodeCommitClient, PutRepositoryTriggersCommand } = require('@aws-sdk/client-codecommit'); // CommonJS import
  * const client = new CodeCommitClient(config);
  * const input = { // PutRepositoryTriggersInput
- *   repositoryName: "STRING_VALUE", // required
+ *   repositoryName: 'STRING_VALUE', // required
  *   triggers: [ // RepositoryTriggersList // required
  *     { // RepositoryTrigger
- *       name: "STRING_VALUE", // required
- *       destinationArn: "STRING_VALUE", // required
- *       customData: "STRING_VALUE",
+ *       name: 'STRING_VALUE', // required
+ *       destinationArn: 'STRING_VALUE', // required
+ *       customData: 'STRING_VALUE',
  *       branches: [ // BranchNameList
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *       events: [ // RepositoryTriggerEventList // required
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
  * };
  * const command = new PutRepositoryTriggersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutRepositoryTriggersOutput
+ *   configurationId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param PutRepositoryTriggersCommandInput - {@link PutRepositoryTriggersCommandInput}
@@ -138,6 +143,8 @@ export interface PutRepositoryTriggersCommandOutput extends PutRepositoryTrigger
  * @throws {@link RepositoryTriggersListRequiredException} (client fault)
  *  <p>The list of triggers for the repository is required, but was not specified.</p>
  *
+ * @throws {@link CodeCommitServiceException}
+ * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
  */
 export class PutRepositoryTriggersCommand extends $Command<

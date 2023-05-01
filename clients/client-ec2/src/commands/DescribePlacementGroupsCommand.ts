@@ -38,28 +38,49 @@ export interface DescribePlacementGroupsCommandOutput extends DescribePlacementG
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, DescribePlacementGroupsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, DescribePlacementGroupsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, DescribePlacementGroupsCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, DescribePlacementGroupsCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // DescribePlacementGroupsRequest
  *   Filters: [ // FilterList
  *     { // Filter
- *       Name: "STRING_VALUE",
+ *       Name: 'STRING_VALUE',
  *       Values: [ // ValueStringList
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
  *   DryRun: true || false,
  *   GroupNames: [ // PlacementGroupStringList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   GroupIds: [ // PlacementGroupIdStringList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new DescribePlacementGroupsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribePlacementGroupsResult
+ *   PlacementGroups: [ // PlacementGroupList
+ *     { // PlacementGroup
+ *       GroupName: 'STRING_VALUE',
+ *       State: 'pending' || 'available' || 'deleting' || 'deleted',
+ *       Strategy: 'cluster' || 'spread' || 'partition',
+ *       PartitionCount: Number('int'),
+ *       GroupId: 'STRING_VALUE',
+ *       Tags: [ // TagList
+ *         { // Tag
+ *           Key: 'STRING_VALUE',
+ *           Value: 'STRING_VALUE',
+ *         },
+ *       ],
+ *       GroupArn: 'STRING_VALUE',
+ *       SpreadLevel: 'host' || 'rack',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribePlacementGroupsCommandInput - {@link DescribePlacementGroupsCommandInput}
@@ -68,6 +89,8 @@ export interface DescribePlacementGroupsCommandOutput extends DescribePlacementG
  * @see {@link DescribePlacementGroupsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class DescribePlacementGroupsCommand extends $Command<

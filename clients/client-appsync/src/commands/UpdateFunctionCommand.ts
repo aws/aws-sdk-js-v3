@@ -36,34 +36,61 @@ export interface UpdateFunctionCommandOutput extends UpdateFunctionResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppSyncClient, UpdateFunctionCommand } from "@aws-sdk/client-appsync"; // ES Modules import
- * // const { AppSyncClient, UpdateFunctionCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
+ * import { AppSyncClient, UpdateFunctionCommand } from '@aws-sdk/client-appsync'; // ES Modules import
+ * // const { AppSyncClient, UpdateFunctionCommand } = require('@aws-sdk/client-appsync'); // CommonJS import
  * const client = new AppSyncClient(config);
  * const input = { // UpdateFunctionRequest
- *   apiId: "STRING_VALUE", // required
- *   name: "STRING_VALUE", // required
- *   description: "STRING_VALUE",
- *   functionId: "STRING_VALUE", // required
- *   dataSourceName: "STRING_VALUE", // required
- *   requestMappingTemplate: "STRING_VALUE",
- *   responseMappingTemplate: "STRING_VALUE",
- *   functionVersion: "STRING_VALUE",
+ *   apiId: 'STRING_VALUE', // required
+ *   name: 'STRING_VALUE', // required
+ *   description: 'STRING_VALUE',
+ *   functionId: 'STRING_VALUE', // required
+ *   dataSourceName: 'STRING_VALUE', // required
+ *   requestMappingTemplate: 'STRING_VALUE',
+ *   responseMappingTemplate: 'STRING_VALUE',
+ *   functionVersion: 'STRING_VALUE',
  *   syncConfig: { // SyncConfig
- *     conflictHandler: "OPTIMISTIC_CONCURRENCY" || "LAMBDA" || "AUTOMERGE" || "NONE",
- *     conflictDetection: "VERSION" || "NONE",
+ *     conflictHandler: 'OPTIMISTIC_CONCURRENCY' || 'LAMBDA' || 'AUTOMERGE' || 'NONE',
+ *     conflictDetection: 'VERSION' || 'NONE',
  *     lambdaConflictHandlerConfig: { // LambdaConflictHandlerConfig
- *       lambdaConflictHandlerArn: "STRING_VALUE",
+ *       lambdaConflictHandlerArn: 'STRING_VALUE',
  *     },
  *   },
- *   maxBatchSize: Number("int"),
+ *   maxBatchSize: Number('int'),
  *   runtime: { // AppSyncRuntime
- *     name: "APPSYNC_JS", // required
- *     runtimeVersion: "STRING_VALUE", // required
+ *     name: 'APPSYNC_JS', // required
+ *     runtimeVersion: 'STRING_VALUE', // required
  *   },
- *   code: "STRING_VALUE",
+ *   code: 'STRING_VALUE',
  * };
  * const command = new UpdateFunctionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateFunctionResponse
+ *   functionConfiguration: { // FunctionConfiguration
+ *     functionId: 'STRING_VALUE',
+ *     functionArn: 'STRING_VALUE',
+ *     name: 'STRING_VALUE',
+ *     description: 'STRING_VALUE',
+ *     dataSourceName: 'STRING_VALUE',
+ *     requestMappingTemplate: 'STRING_VALUE',
+ *     responseMappingTemplate: 'STRING_VALUE',
+ *     functionVersion: 'STRING_VALUE',
+ *     syncConfig: { // SyncConfig
+ *       conflictHandler: 'OPTIMISTIC_CONCURRENCY' || 'LAMBDA' || 'AUTOMERGE' || 'NONE',
+ *       conflictDetection: 'VERSION' || 'NONE',
+ *       lambdaConflictHandlerConfig: { // LambdaConflictHandlerConfig
+ *         lambdaConflictHandlerArn: 'STRING_VALUE',
+ *       },
+ *     },
+ *     maxBatchSize: Number('int'),
+ *     runtime: { // AppSyncRuntime
+ *       name: 'APPSYNC_JS', // required
+ *       runtimeVersion: 'STRING_VALUE', // required
+ *     },
+ *     code: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateFunctionCommandInput - {@link UpdateFunctionCommandInput}
@@ -85,6 +112,8 @@ export interface UpdateFunctionCommandOutput extends UpdateFunctionResponse, __M
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You aren't authorized to perform this operation.</p>
  *
+ * @throws {@link AppSyncServiceException}
+ * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
  */
 export class UpdateFunctionCommand extends $Command<

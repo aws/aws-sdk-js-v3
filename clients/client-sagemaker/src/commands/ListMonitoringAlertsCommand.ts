@@ -36,16 +36,36 @@ export interface ListMonitoringAlertsCommandOutput extends ListMonitoringAlertsR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, ListMonitoringAlertsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, ListMonitoringAlertsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, ListMonitoringAlertsCommand } from '@aws-sdk/client-sagemaker'; // ES Modules import
+ * // const { SageMakerClient, ListMonitoringAlertsCommand } = require('@aws-sdk/client-sagemaker'); // CommonJS import
  * const client = new SageMakerClient(config);
  * const input = { // ListMonitoringAlertsRequest
- *   MonitoringScheduleName: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   MonitoringScheduleName: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListMonitoringAlertsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListMonitoringAlertsResponse
+ *   MonitoringAlertSummaries: [ // MonitoringAlertSummaryList
+ *     { // MonitoringAlertSummary
+ *       MonitoringAlertName: 'STRING_VALUE', // required
+ *       CreationTime: new Date('TIMESTAMP'), // required
+ *       LastModifiedTime: new Date('TIMESTAMP'), // required
+ *       AlertStatus: 'InAlert' || 'OK', // required
+ *       DatapointsToAlert: Number('int'), // required
+ *       EvaluationPeriod: Number('int'), // required
+ *       Actions: { // MonitoringAlertActions
+ *         ModelDashboardIndicator: { // ModelDashboardIndicatorAction
+ *           Enabled: true || false,
+ *         },
+ *       },
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListMonitoringAlertsCommandInput - {@link ListMonitoringAlertsCommandInput}
@@ -57,6 +77,8 @@ export interface ListMonitoringAlertsCommandOutput extends ListMonitoringAlertsR
  * @throws {@link ResourceNotFound} (client fault)
  *  <p>Resource being access is not found.</p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class ListMonitoringAlertsCommand extends $Command<

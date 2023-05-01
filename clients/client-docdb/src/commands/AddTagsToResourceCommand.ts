@@ -39,20 +39,23 @@ export interface AddTagsToResourceCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DocDBClient, AddTagsToResourceCommand } from "@aws-sdk/client-docdb"; // ES Modules import
- * // const { DocDBClient, AddTagsToResourceCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
+ * import { DocDBClient, AddTagsToResourceCommand } from '@aws-sdk/client-docdb'; // ES Modules import
+ * // const { DocDBClient, AddTagsToResourceCommand } = require('@aws-sdk/client-docdb'); // CommonJS import
  * const client = new DocDBClient(config);
  * const input = { // AddTagsToResourceMessage
- *   ResourceName: "STRING_VALUE", // required
+ *   ResourceName: 'STRING_VALUE', // required
  *   Tags: [ // TagList // required
  *     { // Tag
- *       Key: "STRING_VALUE",
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new AddTagsToResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param AddTagsToResourceCommandInput - {@link AddTagsToResourceCommandInput}
@@ -73,6 +76,8 @@ export interface AddTagsToResourceCommandOutput extends __MetadataBearer {}
  *  <p>
  *             <code>DBSnapshotIdentifier</code> doesn't refer to an existing snapshot. </p>
  *
+ * @throws {@link DocDBServiceException}
+ * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
  */
 export class AddTagsToResourceCommand extends $Command<

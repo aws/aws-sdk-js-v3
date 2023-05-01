@@ -37,16 +37,33 @@ export interface ListEventSubscriptionsCommandOutput extends ListEventSubscripti
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { InspectorClient, ListEventSubscriptionsCommand } from "@aws-sdk/client-inspector"; // ES Modules import
- * // const { InspectorClient, ListEventSubscriptionsCommand } = require("@aws-sdk/client-inspector"); // CommonJS import
+ * import { InspectorClient, ListEventSubscriptionsCommand } from '@aws-sdk/client-inspector'; // ES Modules import
+ * // const { InspectorClient, ListEventSubscriptionsCommand } = require('@aws-sdk/client-inspector'); // CommonJS import
  * const client = new InspectorClient(config);
  * const input = { // ListEventSubscriptionsRequest
- *   resourceArn: "STRING_VALUE",
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   resourceArn: 'STRING_VALUE',
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new ListEventSubscriptionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListEventSubscriptionsResponse
+ *   subscriptions: [ // SubscriptionList // required
+ *     { // Subscription
+ *       resourceArn: 'STRING_VALUE', // required
+ *       topicArn: 'STRING_VALUE', // required
+ *       eventSubscriptions: [ // EventSubscriptionList // required
+ *         { // EventSubscription
+ *           event: 'STRING_VALUE', // required
+ *           subscribedAt: new Date('TIMESTAMP'), // required
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListEventSubscriptionsCommandInput - {@link ListEventSubscriptionsCommandInput}
@@ -69,6 +86,8 @@ export interface ListEventSubscriptionsCommandOutput extends ListEventSubscripti
  *  <p>The request was rejected because it referenced an entity that does not exist. The
  *          error code describes the entity.</p>
  *
+ * @throws {@link InspectorServiceException}
+ * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
  * @example List event subscriptions
  * ```javascript

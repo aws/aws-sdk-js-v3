@@ -37,18 +37,18 @@ export interface UpdatePrivateDnsNamespaceCommandOutput extends UpdatePrivateDns
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ServiceDiscoveryClient, UpdatePrivateDnsNamespaceCommand } from "@aws-sdk/client-servicediscovery"; // ES Modules import
- * // const { ServiceDiscoveryClient, UpdatePrivateDnsNamespaceCommand } = require("@aws-sdk/client-servicediscovery"); // CommonJS import
+ * import { ServiceDiscoveryClient, UpdatePrivateDnsNamespaceCommand } from '@aws-sdk/client-servicediscovery'; // ES Modules import
+ * // const { ServiceDiscoveryClient, UpdatePrivateDnsNamespaceCommand } = require('@aws-sdk/client-servicediscovery'); // CommonJS import
  * const client = new ServiceDiscoveryClient(config);
  * const input = { // UpdatePrivateDnsNamespaceRequest
- *   Id: "STRING_VALUE", // required
- *   UpdaterRequestId: "STRING_VALUE",
+ *   Id: 'STRING_VALUE', // required
+ *   UpdaterRequestId: 'STRING_VALUE',
  *   Namespace: { // PrivateDnsNamespaceChange
- *     Description: "STRING_VALUE",
+ *     Description: 'STRING_VALUE',
  *     Properties: { // PrivateDnsNamespacePropertiesChange
  *       DnsProperties: { // PrivateDnsPropertiesMutableChange
  *         SOA: { // SOAChange
- *           TTL: Number("long"), // required
+ *           TTL: Number('long'), // required
  *         },
  *       },
  *     },
@@ -56,6 +56,11 @@ export interface UpdatePrivateDnsNamespaceCommandOutput extends UpdatePrivateDns
  * };
  * const command = new UpdatePrivateDnsNamespaceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdatePrivateDnsNamespaceResponse
+ *   OperationId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdatePrivateDnsNamespaceCommandInput - {@link UpdatePrivateDnsNamespaceCommandInput}
@@ -79,6 +84,8 @@ export interface UpdatePrivateDnsNamespaceCommandOutput extends UpdatePrivateDns
  *  <p>The specified resource can't be deleted because it contains other resources. For example,
  *    you can't delete a service that contains any instances.</p>
  *
+ * @throws {@link ServiceDiscoveryServiceException}
+ * <p>Base exception class for all service exceptions from ServiceDiscovery service.</p>
  *
  */
 export class UpdatePrivateDnsNamespaceCommand extends $Command<

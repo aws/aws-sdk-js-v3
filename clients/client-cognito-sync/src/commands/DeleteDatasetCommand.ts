@@ -40,16 +40,29 @@ export interface DeleteDatasetCommandOutput extends DeleteDatasetResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CognitoSyncClient, DeleteDatasetCommand } from "@aws-sdk/client-cognito-sync"; // ES Modules import
- * // const { CognitoSyncClient, DeleteDatasetCommand } = require("@aws-sdk/client-cognito-sync"); // CommonJS import
+ * import { CognitoSyncClient, DeleteDatasetCommand } from '@aws-sdk/client-cognito-sync'; // ES Modules import
+ * // const { CognitoSyncClient, DeleteDatasetCommand } = require('@aws-sdk/client-cognito-sync'); // CommonJS import
  * const client = new CognitoSyncClient(config);
  * const input = { // DeleteDatasetRequest
- *   IdentityPoolId: "STRING_VALUE", // required
- *   IdentityId: "STRING_VALUE", // required
- *   DatasetName: "STRING_VALUE", // required
+ *   IdentityPoolId: 'STRING_VALUE', // required
+ *   IdentityId: 'STRING_VALUE', // required
+ *   DatasetName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteDatasetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteDatasetResponse
+ *   Dataset: { // Dataset
+ *     IdentityId: 'STRING_VALUE',
+ *     DatasetName: 'STRING_VALUE',
+ *     CreationDate: new Date('TIMESTAMP'),
+ *     LastModifiedDate: new Date('TIMESTAMP'),
+ *     LastModifiedBy: 'STRING_VALUE',
+ *     DataStorage: Number('long'),
+ *     NumRecords: Number('long'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param DeleteDatasetCommandInput - {@link DeleteDatasetCommandInput}
@@ -82,6 +95,8 @@ export interface DeleteDatasetCommandOutput extends DeleteDatasetResponse, __Met
  *  Thrown if the request is
  *       throttled.
  *
+ * @throws {@link CognitoSyncServiceException}
+ * <p>Base exception class for all service exceptions from CognitoSync service.</p>
  *
  */
 export class DeleteDatasetCommand extends $Command<

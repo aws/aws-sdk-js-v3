@@ -41,16 +41,53 @@ export interface ListAppComponentCompliancesCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ResiliencehubClient, ListAppComponentCompliancesCommand } from "@aws-sdk/client-resiliencehub"; // ES Modules import
- * // const { ResiliencehubClient, ListAppComponentCompliancesCommand } = require("@aws-sdk/client-resiliencehub"); // CommonJS import
+ * import { ResiliencehubClient, ListAppComponentCompliancesCommand } from '@aws-sdk/client-resiliencehub'; // ES Modules import
+ * // const { ResiliencehubClient, ListAppComponentCompliancesCommand } = require('@aws-sdk/client-resiliencehub'); // CommonJS import
  * const client = new ResiliencehubClient(config);
  * const input = { // ListAppComponentCompliancesRequest
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
- *   assessmentArn: "STRING_VALUE", // required
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
+ *   assessmentArn: 'STRING_VALUE', // required
  * };
  * const command = new ListAppComponentCompliancesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListAppComponentCompliancesResponse
+ *   componentCompliances: [ // ComponentCompliancesList // required
+ *     { // AppComponentCompliance
+ *       cost: { // Cost
+ *         amount: Number('double'), // required
+ *         currency: 'STRING_VALUE', // required
+ *         frequency: 'STRING_VALUE', // required
+ *       },
+ *       appComponentName: 'STRING_VALUE',
+ *       compliance: { // AssessmentCompliance
+ *         '<keys>': { // DisruptionCompliance
+ *           achievableRtoInSecs: Number('int'),
+ *           currentRtoInSecs: Number('int'),
+ *           rtoReferenceId: 'STRING_VALUE',
+ *           rtoDescription: 'STRING_VALUE',
+ *           currentRpoInSecs: Number('int'),
+ *           rpoReferenceId: 'STRING_VALUE',
+ *           rpoDescription: 'STRING_VALUE',
+ *           complianceStatus: 'STRING_VALUE', // required
+ *           achievableRpoInSecs: Number('int'),
+ *           message: 'STRING_VALUE',
+ *         },
+ *       },
+ *       message: 'STRING_VALUE',
+ *       status: 'STRING_VALUE',
+ *       resiliencyScore: { // ResiliencyScore
+ *         score: Number('double'), // required
+ *         disruptionScore: { // DisruptionResiliencyScore // required
+ *           '<keys>': Number('double'),
+ *         },
+ *       },
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListAppComponentCompliancesCommandInput - {@link ListAppComponentCompliancesCommandInput}
@@ -77,6 +114,8 @@ export interface ListAppComponentCompliancesCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>This exception occurs when a request is not valid.</p>
  *
+ * @throws {@link ResiliencehubServiceException}
+ * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
  */
 export class ListAppComponentCompliancesCommand extends $Command<

@@ -36,15 +36,40 @@ export interface DeleteFirewallPolicyCommandOutput extends DeleteFirewallPolicyR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { NetworkFirewallClient, DeleteFirewallPolicyCommand } from "@aws-sdk/client-network-firewall"; // ES Modules import
- * // const { NetworkFirewallClient, DeleteFirewallPolicyCommand } = require("@aws-sdk/client-network-firewall"); // CommonJS import
+ * import { NetworkFirewallClient, DeleteFirewallPolicyCommand } from '@aws-sdk/client-network-firewall'; // ES Modules import
+ * // const { NetworkFirewallClient, DeleteFirewallPolicyCommand } = require('@aws-sdk/client-network-firewall'); // CommonJS import
  * const client = new NetworkFirewallClient(config);
  * const input = { // DeleteFirewallPolicyRequest
- *   FirewallPolicyName: "STRING_VALUE",
- *   FirewallPolicyArn: "STRING_VALUE",
+ *   FirewallPolicyName: 'STRING_VALUE',
+ *   FirewallPolicyArn: 'STRING_VALUE',
  * };
  * const command = new DeleteFirewallPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteFirewallPolicyResponse
+ *   FirewallPolicyResponse: { // FirewallPolicyResponse
+ *     FirewallPolicyName: 'STRING_VALUE', // required
+ *     FirewallPolicyArn: 'STRING_VALUE', // required
+ *     FirewallPolicyId: 'STRING_VALUE', // required
+ *     Description: 'STRING_VALUE',
+ *     FirewallPolicyStatus: 'ACTIVE' || 'DELETING',
+ *     Tags: [ // TagList
+ *       { // Tag
+ *         Key: 'STRING_VALUE', // required
+ *         Value: 'STRING_VALUE', // required
+ *       },
+ *     ],
+ *     ConsumedStatelessRuleCapacity: Number('int'),
+ *     ConsumedStatefulRuleCapacity: Number('int'),
+ *     NumberOfAssociations: Number('int'),
+ *     EncryptionConfiguration: { // EncryptionConfiguration
+ *       KeyId: 'STRING_VALUE',
+ *       Type: 'CUSTOMER_KMS' || 'AWS_OWNED_KMS_KEY', // required
+ *     },
+ *     LastModifiedTime: new Date('TIMESTAMP'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param DeleteFirewallPolicyCommandInput - {@link DeleteFirewallPolicyCommandInput}
@@ -86,6 +111,8 @@ export interface DeleteFirewallPolicyCommandOutput extends DeleteFirewallPolicyR
  * @throws {@link UnsupportedOperationException} (client fault)
  *  <p>The operation you requested isn't supported by Network Firewall. </p>
  *
+ * @throws {@link NetworkFirewallServiceException}
+ * <p>Base exception class for all service exceptions from NetworkFirewall service.</p>
  *
  */
 export class DeleteFirewallPolicyCommand extends $Command<

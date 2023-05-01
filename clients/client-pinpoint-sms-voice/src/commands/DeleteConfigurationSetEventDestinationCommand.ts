@@ -45,15 +45,18 @@ export interface DeleteConfigurationSetEventDestinationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PinpointSMSVoiceClient, DeleteConfigurationSetEventDestinationCommand } from "@aws-sdk/client-pinpoint-sms-voice"; // ES Modules import
- * // const { PinpointSMSVoiceClient, DeleteConfigurationSetEventDestinationCommand } = require("@aws-sdk/client-pinpoint-sms-voice"); // CommonJS import
+ * import { PinpointSMSVoiceClient, DeleteConfigurationSetEventDestinationCommand } from '@aws-sdk/client-pinpoint-sms-voice'; // ES Modules import
+ * // const { PinpointSMSVoiceClient, DeleteConfigurationSetEventDestinationCommand } = require('@aws-sdk/client-pinpoint-sms-voice'); // CommonJS import
  * const client = new PinpointSMSVoiceClient(config);
  * const input = { // DeleteConfigurationSetEventDestinationRequest
- *   ConfigurationSetName: "STRING_VALUE", // required
- *   EventDestinationName: "STRING_VALUE", // required
+ *   ConfigurationSetName: 'STRING_VALUE', // required
+ *   EventDestinationName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteConfigurationSetEventDestinationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteConfigurationSetEventDestinationCommandInput - {@link DeleteConfigurationSetEventDestinationCommandInput}
@@ -74,6 +77,8 @@ export interface DeleteConfigurationSetEventDestinationCommandOutput
  * @throws {@link TooManyRequestsException} (client fault)
  *  You've issued too many requests to the resource. Wait a few minutes, and then try again.
  *
+ * @throws {@link PinpointSMSVoiceServiceException}
+ * <p>Base exception class for all service exceptions from PinpointSMSVoice service.</p>
  *
  */
 export class DeleteConfigurationSetEventDestinationCommand extends $Command<

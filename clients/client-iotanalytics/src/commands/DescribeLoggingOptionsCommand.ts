@@ -36,12 +36,21 @@ export interface DescribeLoggingOptionsCommandOutput extends DescribeLoggingOpti
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTAnalyticsClient, DescribeLoggingOptionsCommand } from "@aws-sdk/client-iotanalytics"; // ES Modules import
- * // const { IoTAnalyticsClient, DescribeLoggingOptionsCommand } = require("@aws-sdk/client-iotanalytics"); // CommonJS import
+ * import { IoTAnalyticsClient, DescribeLoggingOptionsCommand } from '@aws-sdk/client-iotanalytics'; // ES Modules import
+ * // const { IoTAnalyticsClient, DescribeLoggingOptionsCommand } = require('@aws-sdk/client-iotanalytics'); // CommonJS import
  * const client = new IoTAnalyticsClient(config);
  * const input = {};
  * const command = new DescribeLoggingOptionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeLoggingOptionsResponse
+ *   loggingOptions: { // LoggingOptions
+ *     roleArn: 'STRING_VALUE', // required
+ *     level: 'STRING_VALUE', // required
+ *     enabled: true || false, // required
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeLoggingOptionsCommandInput - {@link DescribeLoggingOptionsCommandInput}
@@ -65,6 +74,8 @@ export interface DescribeLoggingOptionsCommandOutput extends DescribeLoggingOpti
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
  *
+ * @throws {@link IoTAnalyticsServiceException}
+ * <p>Base exception class for all service exceptions from IoTAnalytics service.</p>
  *
  */
 export class DescribeLoggingOptionsCommand extends $Command<

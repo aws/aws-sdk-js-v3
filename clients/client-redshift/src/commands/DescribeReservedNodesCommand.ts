@@ -36,16 +36,43 @@ export interface DescribeReservedNodesCommandOutput extends ReservedNodesMessage
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RedshiftClient, DescribeReservedNodesCommand } from "@aws-sdk/client-redshift"; // ES Modules import
- * // const { RedshiftClient, DescribeReservedNodesCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * import { RedshiftClient, DescribeReservedNodesCommand } from '@aws-sdk/client-redshift'; // ES Modules import
+ * // const { RedshiftClient, DescribeReservedNodesCommand } = require('@aws-sdk/client-redshift'); // CommonJS import
  * const client = new RedshiftClient(config);
  * const input = { // DescribeReservedNodesMessage
- *   ReservedNodeId: "STRING_VALUE",
- *   MaxRecords: Number("int"),
- *   Marker: "STRING_VALUE",
+ *   ReservedNodeId: 'STRING_VALUE',
+ *   MaxRecords: Number('int'),
+ *   Marker: 'STRING_VALUE',
  * };
  * const command = new DescribeReservedNodesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ReservedNodesMessage
+ *   Marker: 'STRING_VALUE',
+ *   ReservedNodes: [ // ReservedNodeList
+ *     { // ReservedNode
+ *       ReservedNodeId: 'STRING_VALUE',
+ *       ReservedNodeOfferingId: 'STRING_VALUE',
+ *       NodeType: 'STRING_VALUE',
+ *       StartTime: new Date('TIMESTAMP'),
+ *       Duration: Number('int'),
+ *       FixedPrice: Number('double'),
+ *       UsagePrice: Number('double'),
+ *       CurrencyCode: 'STRING_VALUE',
+ *       NodeCount: Number('int'),
+ *       State: 'STRING_VALUE',
+ *       OfferingType: 'STRING_VALUE',
+ *       RecurringCharges: [ // RecurringChargeList
+ *         { // RecurringCharge
+ *           RecurringChargeAmount: Number('double'),
+ *           RecurringChargeFrequency: 'STRING_VALUE',
+ *         },
+ *       ],
+ *       ReservedNodeOfferingType: 'Regular' || 'Upgradable',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeReservedNodesCommandInput - {@link DescribeReservedNodesCommandInput}
@@ -61,6 +88,8 @@ export interface DescribeReservedNodesCommandOutput extends ReservedNodesMessage
  * @throws {@link ReservedNodeNotFoundFault} (client fault)
  *  <p>The specified reserved compute node not found.</p>
  *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class DescribeReservedNodesCommand extends $Command<

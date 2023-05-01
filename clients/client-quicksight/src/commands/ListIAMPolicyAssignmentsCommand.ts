@@ -36,18 +36,31 @@ export interface ListIAMPolicyAssignmentsCommandOutput extends ListIAMPolicyAssi
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { QuickSightClient, ListIAMPolicyAssignmentsCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
- * // const { QuickSightClient, ListIAMPolicyAssignmentsCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * import { QuickSightClient, ListIAMPolicyAssignmentsCommand } from '@aws-sdk/client-quicksight'; // ES Modules import
+ * // const { QuickSightClient, ListIAMPolicyAssignmentsCommand } = require('@aws-sdk/client-quicksight'); // CommonJS import
  * const client = new QuickSightClient(config);
  * const input = { // ListIAMPolicyAssignmentsRequest
- *   AwsAccountId: "STRING_VALUE", // required
- *   AssignmentStatus: "ENABLED" || "DRAFT" || "DISABLED",
- *   Namespace: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   AwsAccountId: 'STRING_VALUE', // required
+ *   AssignmentStatus: 'ENABLED' || 'DRAFT' || 'DISABLED',
+ *   Namespace: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListIAMPolicyAssignmentsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListIAMPolicyAssignmentsResponse
+ *   IAMPolicyAssignments: [ // IAMPolicyAssignmentSummaryList
+ *     { // IAMPolicyAssignmentSummary
+ *       AssignmentName: 'STRING_VALUE',
+ *       AssignmentStatus: 'ENABLED' || 'DRAFT' || 'DISABLED',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ *   RequestId: 'STRING_VALUE',
+ *   Status: Number('int'),
+ * };
+ *
  * ```
  *
  * @param ListIAMPolicyAssignmentsCommandInput - {@link ListIAMPolicyAssignmentsCommandInput}
@@ -77,6 +90,8 @@ export interface ListIAMPolicyAssignmentsCommandOutput extends ListIAMPolicyAssi
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Access is throttled.</p>
  *
+ * @throws {@link QuickSightServiceException}
+ * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
 export class ListIAMPolicyAssignmentsCommand extends $Command<

@@ -37,16 +37,19 @@ export interface UpdateDetectorVersionStatusCommandOutput extends UpdateDetector
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FraudDetectorClient, UpdateDetectorVersionStatusCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
- * // const { FraudDetectorClient, UpdateDetectorVersionStatusCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
+ * import { FraudDetectorClient, UpdateDetectorVersionStatusCommand } from '@aws-sdk/client-frauddetector'; // ES Modules import
+ * // const { FraudDetectorClient, UpdateDetectorVersionStatusCommand } = require('@aws-sdk/client-frauddetector'); // CommonJS import
  * const client = new FraudDetectorClient(config);
  * const input = { // UpdateDetectorVersionStatusRequest
- *   detectorId: "STRING_VALUE", // required
- *   detectorVersionId: "STRING_VALUE", // required
- *   status: "DRAFT" || "ACTIVE" || "INACTIVE", // required
+ *   detectorId: 'STRING_VALUE', // required
+ *   detectorVersionId: 'STRING_VALUE', // required
+ *   status: 'DRAFT' || 'ACTIVE' || 'INACTIVE', // required
  * };
  * const command = new UpdateDetectorVersionStatusCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateDetectorVersionStatusCommandInput - {@link UpdateDetectorVersionStatusCommandInput}
@@ -73,6 +76,8 @@ export interface UpdateDetectorVersionStatusCommandOutput extends UpdateDetector
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception indicating a specified value is not allowed.</p>
  *
+ * @throws {@link FraudDetectorServiceException}
+ * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
  */
 export class UpdateDetectorVersionStatusCommand extends $Command<

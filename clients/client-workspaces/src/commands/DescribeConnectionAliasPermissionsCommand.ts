@@ -47,16 +47,28 @@ export interface DescribeConnectionAliasPermissionsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkSpacesClient, DescribeConnectionAliasPermissionsCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
- * // const { WorkSpacesClient, DescribeConnectionAliasPermissionsCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
+ * import { WorkSpacesClient, DescribeConnectionAliasPermissionsCommand } from '@aws-sdk/client-workspaces'; // ES Modules import
+ * // const { WorkSpacesClient, DescribeConnectionAliasPermissionsCommand } = require('@aws-sdk/client-workspaces'); // CommonJS import
  * const client = new WorkSpacesClient(config);
  * const input = { // DescribeConnectionAliasPermissionsRequest
- *   AliasId: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   AliasId: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new DescribeConnectionAliasPermissionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeConnectionAliasPermissionsResult
+ *   AliasId: 'STRING_VALUE',
+ *   ConnectionAliasPermissions: [ // ConnectionAliasPermissions
+ *     { // ConnectionAliasPermission
+ *       SharedAccountId: 'STRING_VALUE', // required
+ *       AllowAssociation: true || false, // required
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeConnectionAliasPermissionsCommandInput - {@link DescribeConnectionAliasPermissionsCommandInput}
@@ -77,6 +89,8 @@ export interface DescribeConnectionAliasPermissionsCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource could not be found.</p>
  *
+ * @throws {@link WorkSpacesServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
  */
 export class DescribeConnectionAliasPermissionsCommand extends $Command<

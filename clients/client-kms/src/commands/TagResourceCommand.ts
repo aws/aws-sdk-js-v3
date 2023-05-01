@@ -82,20 +82,23 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KMSClient, TagResourceCommand } from "@aws-sdk/client-kms"; // ES Modules import
- * // const { KMSClient, TagResourceCommand } = require("@aws-sdk/client-kms"); // CommonJS import
+ * import { KMSClient, TagResourceCommand } from '@aws-sdk/client-kms'; // ES Modules import
+ * // const { KMSClient, TagResourceCommand } = require('@aws-sdk/client-kms'); // CommonJS import
  * const client = new KMSClient(config);
  * const input = { // TagResourceRequest
- *   KeyId: "STRING_VALUE", // required
+ *   KeyId: 'STRING_VALUE', // required
  *   Tags: [ // TagList // required
  *     { // Tag
- *       TagKey: "STRING_VALUE", // required
- *       TagValue: "STRING_VALUE", // required
+ *       TagKey: 'STRING_VALUE', // required
+ *       TagValue: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param TagResourceCommandInput - {@link TagResourceCommandInput}
@@ -141,6 +144,8 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
  * @throws {@link TagException} (client fault)
  *  <p>The request was rejected because one or more tags are not valid.</p>
  *
+ * @throws {@link KMSServiceException}
+ * <p>Base exception class for all service exceptions from KMS service.</p>
  *
  * @example To tag a KMS key
  * ```javascript

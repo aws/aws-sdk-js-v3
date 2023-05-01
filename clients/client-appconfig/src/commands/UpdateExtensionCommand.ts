@@ -39,32 +39,57 @@ export interface UpdateExtensionCommandOutput extends Extension, __MetadataBeare
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppConfigClient, UpdateExtensionCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
- * // const { AppConfigClient, UpdateExtensionCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import
+ * import { AppConfigClient, UpdateExtensionCommand } from '@aws-sdk/client-appconfig'; // ES Modules import
+ * // const { AppConfigClient, UpdateExtensionCommand } = require('@aws-sdk/client-appconfig'); // CommonJS import
  * const client = new AppConfigClient(config);
  * const input = { // UpdateExtensionRequest
- *   ExtensionIdentifier: "STRING_VALUE", // required
- *   Description: "STRING_VALUE",
+ *   ExtensionIdentifier: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE',
  *   Actions: { // ActionsMap
- *     "<keys>": [ // ActionList
+ *     '<keys>': [ // ActionList
  *       { // Action
- *         Name: "STRING_VALUE",
- *         Description: "STRING_VALUE",
- *         Uri: "STRING_VALUE",
- *         RoleArn: "STRING_VALUE",
+ *         Name: 'STRING_VALUE',
+ *         Description: 'STRING_VALUE',
+ *         Uri: 'STRING_VALUE',
+ *         RoleArn: 'STRING_VALUE',
  *       },
  *     ],
  *   },
  *   Parameters: { // ParameterMap
- *     "<keys>": { // Parameter
- *       Description: "STRING_VALUE",
+ *     '<keys>': { // Parameter
+ *       Description: 'STRING_VALUE',
  *       Required: true || false,
  *     },
  *   },
- *   VersionNumber: Number("int"),
+ *   VersionNumber: Number('int'),
  * };
  * const command = new UpdateExtensionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // Extension
+ *   Id: 'STRING_VALUE',
+ *   Name: 'STRING_VALUE',
+ *   VersionNumber: Number('int'),
+ *   Arn: 'STRING_VALUE',
+ *   Description: 'STRING_VALUE',
+ *   Actions: { // ActionsMap
+ *     '<keys>': [ // ActionList
+ *       { // Action
+ *         Name: 'STRING_VALUE',
+ *         Description: 'STRING_VALUE',
+ *         Uri: 'STRING_VALUE',
+ *         RoleArn: 'STRING_VALUE',
+ *       },
+ *     ],
+ *   },
+ *   Parameters: { // ParameterMap
+ *     '<keys>': { // Parameter
+ *       Description: 'STRING_VALUE',
+ *       Required: true || false,
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateExtensionCommandInput - {@link UpdateExtensionCommandInput}
@@ -86,6 +111,8 @@ export interface UpdateExtensionCommandOutput extends Extension, __MetadataBeare
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The requested resource could not be found.</p>
  *
+ * @throws {@link AppConfigServiceException}
+ * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
  */
 export class UpdateExtensionCommand extends $Command<

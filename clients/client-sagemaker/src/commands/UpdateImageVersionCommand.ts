@@ -36,29 +36,34 @@ export interface UpdateImageVersionCommandOutput extends UpdateImageVersionRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, UpdateImageVersionCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, UpdateImageVersionCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, UpdateImageVersionCommand } from '@aws-sdk/client-sagemaker'; // ES Modules import
+ * // const { SageMakerClient, UpdateImageVersionCommand } = require('@aws-sdk/client-sagemaker'); // CommonJS import
  * const client = new SageMakerClient(config);
  * const input = { // UpdateImageVersionRequest
- *   ImageName: "STRING_VALUE", // required
- *   Alias: "STRING_VALUE",
- *   Version: Number("int"),
+ *   ImageName: 'STRING_VALUE', // required
+ *   Alias: 'STRING_VALUE',
+ *   Version: Number('int'),
  *   AliasesToAdd: [ // SageMakerImageVersionAliases
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   AliasesToDelete: [
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   VendorGuidance: "NOT_PROVIDED" || "STABLE" || "TO_BE_ARCHIVED" || "ARCHIVED",
- *   JobType: "TRAINING" || "INFERENCE" || "NOTEBOOK_KERNEL",
- *   MLFramework: "STRING_VALUE",
- *   ProgrammingLang: "STRING_VALUE",
- *   Processor: "CPU" || "GPU",
+ *   VendorGuidance: 'NOT_PROVIDED' || 'STABLE' || 'TO_BE_ARCHIVED' || 'ARCHIVED',
+ *   JobType: 'TRAINING' || 'INFERENCE' || 'NOTEBOOK_KERNEL',
+ *   MLFramework: 'STRING_VALUE',
+ *   ProgrammingLang: 'STRING_VALUE',
+ *   Processor: 'CPU' || 'GPU',
  *   Horovod: true || false,
- *   ReleaseNotes: "STRING_VALUE",
+ *   ReleaseNotes: 'STRING_VALUE',
  * };
  * const command = new UpdateImageVersionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateImageVersionResponse
+ *   ImageVersionArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateImageVersionCommandInput - {@link UpdateImageVersionCommandInput}
@@ -73,6 +78,8 @@ export interface UpdateImageVersionCommandOutput extends UpdateImageVersionRespo
  * @throws {@link ResourceNotFound} (client fault)
  *  <p>Resource being access is not found.</p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class UpdateImageVersionCommand extends $Command<

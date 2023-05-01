@@ -41,19 +41,29 @@ export interface PutAppInstanceRetentionSettingsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeClient, PutAppInstanceRetentionSettingsCommand } from "@aws-sdk/client-chime"; // ES Modules import
- * // const { ChimeClient, PutAppInstanceRetentionSettingsCommand } = require("@aws-sdk/client-chime"); // CommonJS import
+ * import { ChimeClient, PutAppInstanceRetentionSettingsCommand } from '@aws-sdk/client-chime'; // ES Modules import
+ * // const { ChimeClient, PutAppInstanceRetentionSettingsCommand } = require('@aws-sdk/client-chime'); // CommonJS import
  * const client = new ChimeClient(config);
  * const input = { // PutAppInstanceRetentionSettingsRequest
- *   AppInstanceArn: "STRING_VALUE", // required
+ *   AppInstanceArn: 'STRING_VALUE', // required
  *   AppInstanceRetentionSettings: { // AppInstanceRetentionSettings
  *     ChannelRetentionSettings: { // ChannelRetentionSettings
- *       RetentionDays: Number("int"),
+ *       RetentionDays: Number('int'),
  *     },
  *   },
  * };
  * const command = new PutAppInstanceRetentionSettingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutAppInstanceRetentionSettingsResponse
+ *   AppInstanceRetentionSettings: { // AppInstanceRetentionSettings
+ *     ChannelRetentionSettings: { // ChannelRetentionSettings
+ *       RetentionDays: Number('int'),
+ *     },
+ *   },
+ *   InitiateDeletionTimestamp: new Date('TIMESTAMP'),
+ * };
+ *
  * ```
  *
  * @param PutAppInstanceRetentionSettingsCommandInput - {@link PutAppInstanceRetentionSettingsCommandInput}
@@ -87,6 +97,8 @@ export interface PutAppInstanceRetentionSettingsCommandOutput
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeServiceException}
+ * <p>Base exception class for all service exceptions from Chime service.</p>
  *
  */
 export class PutAppInstanceRetentionSettingsCommand extends $Command<

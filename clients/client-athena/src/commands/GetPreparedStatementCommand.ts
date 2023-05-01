@@ -37,15 +37,26 @@ export interface GetPreparedStatementCommandOutput extends GetPreparedStatementO
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AthenaClient, GetPreparedStatementCommand } from "@aws-sdk/client-athena"; // ES Modules import
- * // const { AthenaClient, GetPreparedStatementCommand } = require("@aws-sdk/client-athena"); // CommonJS import
+ * import { AthenaClient, GetPreparedStatementCommand } from '@aws-sdk/client-athena'; // ES Modules import
+ * // const { AthenaClient, GetPreparedStatementCommand } = require('@aws-sdk/client-athena'); // CommonJS import
  * const client = new AthenaClient(config);
  * const input = { // GetPreparedStatementInput
- *   StatementName: "STRING_VALUE", // required
- *   WorkGroup: "STRING_VALUE", // required
+ *   StatementName: 'STRING_VALUE', // required
+ *   WorkGroup: 'STRING_VALUE', // required
  * };
  * const command = new GetPreparedStatementCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetPreparedStatementOutput
+ *   PreparedStatement: { // PreparedStatement
+ *     StatementName: 'STRING_VALUE',
+ *     QueryStatement: 'STRING_VALUE',
+ *     WorkGroupName: 'STRING_VALUE',
+ *     Description: 'STRING_VALUE',
+ *     LastModifiedTime: new Date('TIMESTAMP'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetPreparedStatementCommandInput - {@link GetPreparedStatementCommandInput}
@@ -65,6 +76,8 @@ export interface GetPreparedStatementCommandOutput extends GetPreparedStatementO
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>A resource, such as a workgroup, was not found.</p>
  *
+ * @throws {@link AthenaServiceException}
+ * <p>Base exception class for all service exceptions from Athena service.</p>
  *
  */
 export class GetPreparedStatementCommand extends $Command<

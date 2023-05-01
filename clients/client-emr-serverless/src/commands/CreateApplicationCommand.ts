@@ -36,61 +36,68 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EMRServerlessClient, CreateApplicationCommand } from "@aws-sdk/client-emr-serverless"; // ES Modules import
- * // const { EMRServerlessClient, CreateApplicationCommand } = require("@aws-sdk/client-emr-serverless"); // CommonJS import
+ * import { EMRServerlessClient, CreateApplicationCommand } from '@aws-sdk/client-emr-serverless'; // ES Modules import
+ * // const { EMRServerlessClient, CreateApplicationCommand } = require('@aws-sdk/client-emr-serverless'); // CommonJS import
  * const client = new EMRServerlessClient(config);
  * const input = { // CreateApplicationRequest
- *   name: "STRING_VALUE",
- *   releaseLabel: "STRING_VALUE", // required
- *   type: "STRING_VALUE", // required
- *   clientToken: "STRING_VALUE", // required
+ *   name: 'STRING_VALUE',
+ *   releaseLabel: 'STRING_VALUE', // required
+ *   type: 'STRING_VALUE', // required
+ *   clientToken: 'STRING_VALUE', // required
  *   initialCapacity: { // InitialCapacityConfigMap
- *     "<keys>": { // InitialCapacityConfig
- *       workerCount: Number("long"), // required
+ *     '<keys>': { // InitialCapacityConfig
+ *       workerCount: Number('long'), // required
  *       workerConfiguration: { // WorkerResourceConfig
- *         cpu: "STRING_VALUE", // required
- *         memory: "STRING_VALUE", // required
- *         disk: "STRING_VALUE",
+ *         cpu: 'STRING_VALUE', // required
+ *         memory: 'STRING_VALUE', // required
+ *         disk: 'STRING_VALUE',
  *       },
  *     },
  *   },
  *   maximumCapacity: { // MaximumAllowedResources
- *     cpu: "STRING_VALUE", // required
- *     memory: "STRING_VALUE", // required
- *     disk: "STRING_VALUE",
+ *     cpu: 'STRING_VALUE', // required
+ *     memory: 'STRING_VALUE', // required
+ *     disk: 'STRING_VALUE',
  *   },
  *   tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  *   autoStartConfiguration: { // AutoStartConfig
  *     enabled: true || false,
  *   },
  *   autoStopConfiguration: { // AutoStopConfig
  *     enabled: true || false,
- *     idleTimeoutMinutes: Number("int"),
+ *     idleTimeoutMinutes: Number('int'),
  *   },
  *   networkConfiguration: { // NetworkConfiguration
  *     subnetIds: [ // SubnetIds
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     securityGroupIds: [ // SecurityGroupIds
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *   },
- *   architecture: "STRING_VALUE",
+ *   architecture: 'STRING_VALUE',
  *   imageConfiguration: { // ImageConfigurationInput
- *     imageUri: "STRING_VALUE",
+ *     imageUri: 'STRING_VALUE',
  *   },
  *   workerTypeSpecifications: { // WorkerTypeSpecificationInputMap
- *     "<keys>": { // WorkerTypeSpecificationInput
+ *     '<keys>': { // WorkerTypeSpecificationInput
  *       imageConfiguration: {
- *         imageUri: "STRING_VALUE",
+ *         imageUri: 'STRING_VALUE',
  *       },
  *     },
  *   },
  * };
  * const command = new CreateApplicationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateApplicationResponse
+ *   applicationId: 'STRING_VALUE', // required
+ *   name: 'STRING_VALUE',
+ *   arn: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param CreateApplicationCommandInput - {@link CreateApplicationCommandInput}
@@ -113,6 +120,8 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
  *          service.</p>
  *
+ * @throws {@link EMRServerlessServiceException}
+ * <p>Base exception class for all service exceptions from EMRServerless service.</p>
  *
  */
 export class CreateApplicationCommand extends $Command<

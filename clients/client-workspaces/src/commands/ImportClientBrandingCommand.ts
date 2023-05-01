@@ -63,68 +63,126 @@ export interface ImportClientBrandingCommandOutput extends ImportClientBrandingR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkSpacesClient, ImportClientBrandingCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
- * // const { WorkSpacesClient, ImportClientBrandingCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
+ * import { WorkSpacesClient, ImportClientBrandingCommand } from '@aws-sdk/client-workspaces'; // ES Modules import
+ * // const { WorkSpacesClient, ImportClientBrandingCommand } = require('@aws-sdk/client-workspaces'); // CommonJS import
  * const client = new WorkSpacesClient(config);
  * const input = { // ImportClientBrandingRequest
- *   ResourceId: "STRING_VALUE", // required
+ *   ResourceId: 'STRING_VALUE', // required
  *   DeviceTypeWindows: { // DefaultImportClientBrandingAttributes
- *     Logo: "BLOB_VALUE",
- *     SupportEmail: "STRING_VALUE",
- *     SupportLink: "STRING_VALUE",
- *     ForgotPasswordLink: "STRING_VALUE",
+ *     Logo: 'BLOB_VALUE',
+ *     SupportEmail: 'STRING_VALUE',
+ *     SupportLink: 'STRING_VALUE',
+ *     ForgotPasswordLink: 'STRING_VALUE',
  *     LoginMessage: { // LoginMessage
- *       "<keys>": "STRING_VALUE",
+ *       '<keys>': 'STRING_VALUE',
  *     },
  *   },
  *   DeviceTypeOsx: {
- *     Logo: "BLOB_VALUE",
- *     SupportEmail: "STRING_VALUE",
- *     SupportLink: "STRING_VALUE",
- *     ForgotPasswordLink: "STRING_VALUE",
+ *     Logo: 'BLOB_VALUE',
+ *     SupportEmail: 'STRING_VALUE',
+ *     SupportLink: 'STRING_VALUE',
+ *     ForgotPasswordLink: 'STRING_VALUE',
  *     LoginMessage: {
- *       "<keys>": "STRING_VALUE",
+ *       '<keys>': 'STRING_VALUE',
  *     },
  *   },
  *   DeviceTypeAndroid: {
- *     Logo: "BLOB_VALUE",
- *     SupportEmail: "STRING_VALUE",
- *     SupportLink: "STRING_VALUE",
- *     ForgotPasswordLink: "STRING_VALUE",
+ *     Logo: 'BLOB_VALUE',
+ *     SupportEmail: 'STRING_VALUE',
+ *     SupportLink: 'STRING_VALUE',
+ *     ForgotPasswordLink: 'STRING_VALUE',
  *     LoginMessage: {
- *       "<keys>": "STRING_VALUE",
+ *       '<keys>': 'STRING_VALUE',
  *     },
  *   },
  *   DeviceTypeIos: { // IosImportClientBrandingAttributes
- *     Logo: "BLOB_VALUE",
- *     Logo2x: "BLOB_VALUE",
- *     Logo3x: "BLOB_VALUE",
- *     SupportEmail: "STRING_VALUE",
- *     SupportLink: "STRING_VALUE",
- *     ForgotPasswordLink: "STRING_VALUE",
+ *     Logo: 'BLOB_VALUE',
+ *     Logo2x: 'BLOB_VALUE',
+ *     Logo3x: 'BLOB_VALUE',
+ *     SupportEmail: 'STRING_VALUE',
+ *     SupportLink: 'STRING_VALUE',
+ *     ForgotPasswordLink: 'STRING_VALUE',
  *     LoginMessage: {
- *       "<keys>": "STRING_VALUE",
+ *       '<keys>': 'STRING_VALUE',
  *     },
  *   },
  *   DeviceTypeLinux: {
- *     Logo: "BLOB_VALUE",
- *     SupportEmail: "STRING_VALUE",
- *     SupportLink: "STRING_VALUE",
- *     ForgotPasswordLink: "STRING_VALUE",
+ *     Logo: 'BLOB_VALUE',
+ *     SupportEmail: 'STRING_VALUE',
+ *     SupportLink: 'STRING_VALUE',
+ *     ForgotPasswordLink: 'STRING_VALUE',
  *     LoginMessage: {
- *       "<keys>": "STRING_VALUE",
+ *       '<keys>': 'STRING_VALUE',
  *     },
  *   },
  *   DeviceTypeWeb: {
- *     Logo: "BLOB_VALUE",
- *     SupportEmail: "STRING_VALUE",
- *     SupportLink: "STRING_VALUE",
- *     ForgotPasswordLink: "STRING_VALUE",
- *     LoginMessage: "<LoginMessage>",
+ *     Logo: 'BLOB_VALUE',
+ *     SupportEmail: 'STRING_VALUE',
+ *     SupportLink: 'STRING_VALUE',
+ *     ForgotPasswordLink: 'STRING_VALUE',
+ *     LoginMessage: '<LoginMessage>',
  *   },
  * };
  * const command = new ImportClientBrandingCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ImportClientBrandingResult
+ *   DeviceTypeWindows: { // DefaultClientBrandingAttributes
+ *     LogoUrl: 'STRING_VALUE',
+ *     SupportEmail: 'STRING_VALUE',
+ *     SupportLink: 'STRING_VALUE',
+ *     ForgotPasswordLink: 'STRING_VALUE',
+ *     LoginMessage: { // LoginMessage
+ *       '<keys>': 'STRING_VALUE',
+ *     },
+ *   },
+ *   DeviceTypeOsx: {
+ *     LogoUrl: 'STRING_VALUE',
+ *     SupportEmail: 'STRING_VALUE',
+ *     SupportLink: 'STRING_VALUE',
+ *     ForgotPasswordLink: 'STRING_VALUE',
+ *     LoginMessage: {
+ *       '<keys>': 'STRING_VALUE',
+ *     },
+ *   },
+ *   DeviceTypeAndroid: {
+ *     LogoUrl: 'STRING_VALUE',
+ *     SupportEmail: 'STRING_VALUE',
+ *     SupportLink: 'STRING_VALUE',
+ *     ForgotPasswordLink: 'STRING_VALUE',
+ *     LoginMessage: {
+ *       '<keys>': 'STRING_VALUE',
+ *     },
+ *   },
+ *   DeviceTypeIos: { // IosClientBrandingAttributes
+ *     LogoUrl: 'STRING_VALUE',
+ *     Logo2xUrl: 'STRING_VALUE',
+ *     Logo3xUrl: 'STRING_VALUE',
+ *     SupportEmail: 'STRING_VALUE',
+ *     SupportLink: 'STRING_VALUE',
+ *     ForgotPasswordLink: 'STRING_VALUE',
+ *     LoginMessage: {
+ *       '<keys>': 'STRING_VALUE',
+ *     },
+ *   },
+ *   DeviceTypeLinux: {
+ *     LogoUrl: 'STRING_VALUE',
+ *     SupportEmail: 'STRING_VALUE',
+ *     SupportLink: 'STRING_VALUE',
+ *     ForgotPasswordLink: 'STRING_VALUE',
+ *     LoginMessage: {
+ *       '<keys>': 'STRING_VALUE',
+ *     },
+ *   },
+ *   DeviceTypeWeb: {
+ *     LogoUrl: 'STRING_VALUE',
+ *     SupportEmail: 'STRING_VALUE',
+ *     SupportLink: 'STRING_VALUE',
+ *     ForgotPasswordLink: 'STRING_VALUE',
+ *     LoginMessage: '<LoginMessage>',
+ *   },
+ * };
+ *
  * ```
  *
  * @param ImportClientBrandingCommandInput - {@link ImportClientBrandingCommandInput}
@@ -145,6 +203,8 @@ export interface ImportClientBrandingCommandOutput extends ImportClientBrandingR
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource could not be found.</p>
  *
+ * @throws {@link WorkSpacesServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
  */
 export class ImportClientBrandingCommand extends $Command<

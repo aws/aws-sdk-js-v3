@@ -36,17 +36,33 @@ export interface ListWorkflowsCommandOutput extends ListWorkflowsResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OmicsClient, ListWorkflowsCommand } from "@aws-sdk/client-omics"; // ES Modules import
- * // const { OmicsClient, ListWorkflowsCommand } = require("@aws-sdk/client-omics"); // CommonJS import
+ * import { OmicsClient, ListWorkflowsCommand } from '@aws-sdk/client-omics'; // ES Modules import
+ * // const { OmicsClient, ListWorkflowsCommand } = require('@aws-sdk/client-omics'); // CommonJS import
  * const client = new OmicsClient(config);
  * const input = { // ListWorkflowsRequest
- *   type: "STRING_VALUE",
- *   name: "STRING_VALUE",
- *   startingToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   type: 'STRING_VALUE',
+ *   name: 'STRING_VALUE',
+ *   startingToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new ListWorkflowsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListWorkflowsResponse
+ *   items: [ // WorkflowList
+ *     { // WorkflowListItem
+ *       arn: 'STRING_VALUE',
+ *       id: 'STRING_VALUE',
+ *       name: 'STRING_VALUE',
+ *       status: 'STRING_VALUE',
+ *       type: 'STRING_VALUE',
+ *       digest: 'STRING_VALUE',
+ *       creationTime: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListWorkflowsCommandInput - {@link ListWorkflowsCommandInput}
@@ -79,6 +95,8 @@ export interface ListWorkflowsCommandOutput extends ListWorkflowsResponse, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link OmicsServiceException}
+ * <p>Base exception class for all service exceptions from Omics service.</p>
  *
  */
 export class ListWorkflowsCommand extends $Command<

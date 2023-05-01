@@ -41,15 +41,39 @@ export interface ListKeyGroupsCommandOutput extends ListKeyGroupsResult, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudFrontClient, ListKeyGroupsCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
- * // const { CloudFrontClient, ListKeyGroupsCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
+ * import { CloudFrontClient, ListKeyGroupsCommand } from '@aws-sdk/client-cloudfront'; // ES Modules import
+ * // const { CloudFrontClient, ListKeyGroupsCommand } = require('@aws-sdk/client-cloudfront'); // CommonJS import
  * const client = new CloudFrontClient(config);
  * const input = { // ListKeyGroupsRequest
- *   Marker: "STRING_VALUE",
- *   MaxItems: Number("int"),
+ *   Marker: 'STRING_VALUE',
+ *   MaxItems: Number('int'),
  * };
  * const command = new ListKeyGroupsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListKeyGroupsResult
+ *   KeyGroupList: { // KeyGroupList
+ *     NextMarker: 'STRING_VALUE',
+ *     MaxItems: Number('int'), // required
+ *     Quantity: Number('int'), // required
+ *     Items: [ // KeyGroupSummaryList
+ *       { // KeyGroupSummary
+ *         KeyGroup: { // KeyGroup
+ *           Id: 'STRING_VALUE', // required
+ *           LastModifiedTime: new Date('TIMESTAMP'), // required
+ *           KeyGroupConfig: { // KeyGroupConfig
+ *             Name: 'STRING_VALUE', // required
+ *             Items: [ // PublicKeyIdList // required
+ *               'STRING_VALUE',
+ *             ],
+ *             Comment: 'STRING_VALUE',
+ *           },
+ *         },
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param ListKeyGroupsCommandInput - {@link ListKeyGroupsCommandInput}
@@ -61,6 +85,8 @@ export interface ListKeyGroupsCommandOutput extends ListKeyGroupsResult, __Metad
  * @throws {@link InvalidArgument} (client fault)
  *  <p>An argument is invalid.</p>
  *
+ * @throws {@link CloudFrontServiceException}
+ * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
  */
 export class ListKeyGroupsCommand extends $Command<

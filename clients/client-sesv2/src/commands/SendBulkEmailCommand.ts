@@ -36,60 +36,71 @@ export interface SendBulkEmailCommandOutput extends SendBulkEmailResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SESv2Client, SendBulkEmailCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
- * // const { SESv2Client, SendBulkEmailCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
+ * import { SESv2Client, SendBulkEmailCommand } from '@aws-sdk/client-sesv2'; // ES Modules import
+ * // const { SESv2Client, SendBulkEmailCommand } = require('@aws-sdk/client-sesv2'); // CommonJS import
  * const client = new SESv2Client(config);
  * const input = { // SendBulkEmailRequest
- *   FromEmailAddress: "STRING_VALUE",
- *   FromEmailAddressIdentityArn: "STRING_VALUE",
+ *   FromEmailAddress: 'STRING_VALUE',
+ *   FromEmailAddressIdentityArn: 'STRING_VALUE',
  *   ReplyToAddresses: [ // EmailAddressList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   FeedbackForwardingEmailAddress: "STRING_VALUE",
- *   FeedbackForwardingEmailAddressIdentityArn: "STRING_VALUE",
+ *   FeedbackForwardingEmailAddress: 'STRING_VALUE',
+ *   FeedbackForwardingEmailAddressIdentityArn: 'STRING_VALUE',
  *   DefaultEmailTags: [ // MessageTagList
  *     { // MessageTag
- *       Name: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Name: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  *   DefaultContent: { // BulkEmailContent
  *     Template: { // Template
- *       TemplateName: "STRING_VALUE",
- *       TemplateArn: "STRING_VALUE",
- *       TemplateData: "STRING_VALUE",
+ *       TemplateName: 'STRING_VALUE',
+ *       TemplateArn: 'STRING_VALUE',
+ *       TemplateData: 'STRING_VALUE',
  *     },
  *   },
  *   BulkEmailEntries: [ // BulkEmailEntryList // required
  *     { // BulkEmailEntry
  *       Destination: { // Destination
  *         ToAddresses: [
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
  *         CcAddresses: [
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
  *         BccAddresses: [
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
  *       },
  *       ReplacementTags: [
  *         {
- *           Name: "STRING_VALUE", // required
- *           Value: "STRING_VALUE", // required
+ *           Name: 'STRING_VALUE', // required
+ *           Value: 'STRING_VALUE', // required
  *         },
  *       ],
  *       ReplacementEmailContent: { // ReplacementEmailContent
  *         ReplacementTemplate: { // ReplacementTemplate
- *           ReplacementTemplateData: "STRING_VALUE",
+ *           ReplacementTemplateData: 'STRING_VALUE',
  *         },
  *       },
  *     },
  *   ],
- *   ConfigurationSetName: "STRING_VALUE",
+ *   ConfigurationSetName: 'STRING_VALUE',
  * };
  * const command = new SendBulkEmailCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SendBulkEmailResponse
+ *   BulkEmailEntryResults: [ // BulkEmailEntryResultList // required
+ *     { // BulkEmailEntryResult
+ *       Status: 'SUCCESS' || 'MESSAGE_REJECTED' || 'MAIL_FROM_DOMAIN_NOT_VERIFIED' || 'CONFIGURATION_SET_NOT_FOUND' || 'TEMPLATE_NOT_FOUND' || 'ACCOUNT_SUSPENDED' || 'ACCOUNT_THROTTLED' || 'ACCOUNT_DAILY_QUOTA_EXCEEDED' || 'INVALID_SENDING_POOL_NAME' || 'ACCOUNT_SENDING_PAUSED' || 'CONFIGURATION_SET_SENDING_PAUSED' || 'INVALID_PARAMETER' || 'TRANSIENT_FAILURE' || 'FAILED',
+ *       Error: 'STRING_VALUE',
+ *       MessageId: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param SendBulkEmailCommandInput - {@link SendBulkEmailCommandInput}
@@ -124,6 +135,8 @@ export interface SendBulkEmailCommandOutput extends SendBulkEmailResponse, __Met
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Too many requests have been made to the operation.</p>
  *
+ * @throws {@link SESv2ServiceException}
+ * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
  */
 export class SendBulkEmailCommand extends $Command<

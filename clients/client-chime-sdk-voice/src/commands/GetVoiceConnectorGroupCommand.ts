@@ -37,14 +37,31 @@ export interface GetVoiceConnectorGroupCommandOutput extends GetVoiceConnectorGr
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeSDKVoiceClient, GetVoiceConnectorGroupCommand } from "@aws-sdk/client-chime-sdk-voice"; // ES Modules import
- * // const { ChimeSDKVoiceClient, GetVoiceConnectorGroupCommand } = require("@aws-sdk/client-chime-sdk-voice"); // CommonJS import
+ * import { ChimeSDKVoiceClient, GetVoiceConnectorGroupCommand } from '@aws-sdk/client-chime-sdk-voice'; // ES Modules import
+ * // const { ChimeSDKVoiceClient, GetVoiceConnectorGroupCommand } = require('@aws-sdk/client-chime-sdk-voice'); // CommonJS import
  * const client = new ChimeSDKVoiceClient(config);
  * const input = { // GetVoiceConnectorGroupRequest
- *   VoiceConnectorGroupId: "STRING_VALUE", // required
+ *   VoiceConnectorGroupId: 'STRING_VALUE', // required
  * };
  * const command = new GetVoiceConnectorGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetVoiceConnectorGroupResponse
+ *   VoiceConnectorGroup: { // VoiceConnectorGroup
+ *     VoiceConnectorGroupId: 'STRING_VALUE',
+ *     Name: 'STRING_VALUE',
+ *     VoiceConnectorItems: [ // VoiceConnectorItemList
+ *       { // VoiceConnectorItem
+ *         VoiceConnectorId: 'STRING_VALUE', // required
+ *         Priority: Number('int'), // required
+ *       },
+ *     ],
+ *     CreatedTimestamp: new Date('TIMESTAMP'),
+ *     UpdatedTimestamp: new Date('TIMESTAMP'),
+ *     VoiceConnectorGroupArn: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetVoiceConnectorGroupCommandInput - {@link GetVoiceConnectorGroupCommandInput}
@@ -74,6 +91,8 @@ export interface GetVoiceConnectorGroupCommandOutput extends GetVoiceConnectorGr
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client isn't authorized to request a resource.</p>
  *
+ * @throws {@link ChimeSDKVoiceServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
  */
 export class GetVoiceConnectorGroupCommand extends $Command<

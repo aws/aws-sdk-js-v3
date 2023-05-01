@@ -59,18 +59,21 @@ export interface SetLoadBalancerPoliciesForBackendServerCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElasticLoadBalancingClient, SetLoadBalancerPoliciesForBackendServerCommand } from "@aws-sdk/client-elastic-load-balancing"; // ES Modules import
- * // const { ElasticLoadBalancingClient, SetLoadBalancerPoliciesForBackendServerCommand } = require("@aws-sdk/client-elastic-load-balancing"); // CommonJS import
+ * import { ElasticLoadBalancingClient, SetLoadBalancerPoliciesForBackendServerCommand } from '@aws-sdk/client-elastic-load-balancing'; // ES Modules import
+ * // const { ElasticLoadBalancingClient, SetLoadBalancerPoliciesForBackendServerCommand } = require('@aws-sdk/client-elastic-load-balancing'); // CommonJS import
  * const client = new ElasticLoadBalancingClient(config);
  * const input = { // SetLoadBalancerPoliciesForBackendServerInput
- *   LoadBalancerName: "STRING_VALUE", // required
- *   InstancePort: Number("int"), // required
+ *   LoadBalancerName: 'STRING_VALUE', // required
+ *   InstancePort: Number('int'), // required
  *   PolicyNames: [ // PolicyNames // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new SetLoadBalancerPoliciesForBackendServerCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param SetLoadBalancerPoliciesForBackendServerCommandInput - {@link SetLoadBalancerPoliciesForBackendServerCommandInput}
@@ -88,6 +91,8 @@ export interface SetLoadBalancerPoliciesForBackendServerCommandOutput
  * @throws {@link PolicyNotFoundException} (client fault)
  *  <p>One or more of the specified policies do not exist.</p>
  *
+ * @throws {@link ElasticLoadBalancingServiceException}
+ * <p>Base exception class for all service exceptions from ElasticLoadBalancing service.</p>
  *
  * @example To replace the policies associated with a port for a backend instance
  * ```javascript

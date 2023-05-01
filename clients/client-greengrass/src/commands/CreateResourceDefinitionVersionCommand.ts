@@ -41,52 +41,52 @@ export interface CreateResourceDefinitionVersionCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GreengrassClient, CreateResourceDefinitionVersionCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
- * // const { GreengrassClient, CreateResourceDefinitionVersionCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
+ * import { GreengrassClient, CreateResourceDefinitionVersionCommand } from '@aws-sdk/client-greengrass'; // ES Modules import
+ * // const { GreengrassClient, CreateResourceDefinitionVersionCommand } = require('@aws-sdk/client-greengrass'); // CommonJS import
  * const client = new GreengrassClient(config);
  * const input = { // CreateResourceDefinitionVersionRequest
- *   AmznClientToken: "STRING_VALUE",
- *   ResourceDefinitionId: "STRING_VALUE", // required
+ *   AmznClientToken: 'STRING_VALUE',
+ *   ResourceDefinitionId: 'STRING_VALUE', // required
  *   Resources: [ // __listOfResource
  *     { // Resource
- *       Id: "STRING_VALUE", // required
- *       Name: "STRING_VALUE", // required
+ *       Id: 'STRING_VALUE', // required
+ *       Name: 'STRING_VALUE', // required
  *       ResourceDataContainer: { // ResourceDataContainer
  *         LocalDeviceResourceData: { // LocalDeviceResourceData
  *           GroupOwnerSetting: { // GroupOwnerSetting
  *             AutoAddGroupOwner: true || false,
- *             GroupOwner: "STRING_VALUE",
+ *             GroupOwner: 'STRING_VALUE',
  *           },
- *           SourcePath: "STRING_VALUE",
+ *           SourcePath: 'STRING_VALUE',
  *         },
  *         LocalVolumeResourceData: { // LocalVolumeResourceData
- *           DestinationPath: "STRING_VALUE",
+ *           DestinationPath: 'STRING_VALUE',
  *           GroupOwnerSetting: {
  *             AutoAddGroupOwner: true || false,
- *             GroupOwner: "STRING_VALUE",
+ *             GroupOwner: 'STRING_VALUE',
  *           },
- *           SourcePath: "STRING_VALUE",
+ *           SourcePath: 'STRING_VALUE',
  *         },
  *         S3MachineLearningModelResourceData: { // S3MachineLearningModelResourceData
- *           DestinationPath: "STRING_VALUE",
+ *           DestinationPath: 'STRING_VALUE',
  *           OwnerSetting: { // ResourceDownloadOwnerSetting
- *             GroupOwner: "STRING_VALUE", // required
- *             GroupPermission: "ro" || "rw", // required
+ *             GroupOwner: 'STRING_VALUE', // required
+ *             GroupPermission: 'ro' || 'rw', // required
  *           },
- *           S3Uri: "STRING_VALUE",
+ *           S3Uri: 'STRING_VALUE',
  *         },
  *         SageMakerMachineLearningModelResourceData: { // SageMakerMachineLearningModelResourceData
- *           DestinationPath: "STRING_VALUE",
+ *           DestinationPath: 'STRING_VALUE',
  *           OwnerSetting: {
- *             GroupOwner: "STRING_VALUE", // required
- *             GroupPermission: "ro" || "rw", // required
+ *             GroupOwner: 'STRING_VALUE', // required
+ *             GroupPermission: 'ro' || 'rw', // required
  *           },
- *           SageMakerJobArn: "STRING_VALUE",
+ *           SageMakerJobArn: 'STRING_VALUE',
  *         },
  *         SecretsManagerSecretResourceData: { // SecretsManagerSecretResourceData
- *           ARN: "STRING_VALUE",
+ *           ARN: 'STRING_VALUE',
  *           AdditionalStagingLabelsToDownload: [ // __listOf__string
- *             "STRING_VALUE",
+ *             'STRING_VALUE',
  *           ],
  *         },
  *       },
@@ -95,6 +95,14 @@ export interface CreateResourceDefinitionVersionCommandOutput
  * };
  * const command = new CreateResourceDefinitionVersionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateResourceDefinitionVersionResponse
+ *   Arn: 'STRING_VALUE',
+ *   CreationTimestamp: 'STRING_VALUE',
+ *   Id: 'STRING_VALUE',
+ *   Version: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateResourceDefinitionVersionCommandInput - {@link CreateResourceDefinitionVersionCommandInput}
@@ -106,6 +114,8 @@ export interface CreateResourceDefinitionVersionCommandOutput
  * @throws {@link BadRequestException} (client fault)
  *  General error information.
  *
+ * @throws {@link GreengrassServiceException}
+ * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
  */
 export class CreateResourceDefinitionVersionCommand extends $Command<

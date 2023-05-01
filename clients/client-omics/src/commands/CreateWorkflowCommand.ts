@@ -36,30 +36,40 @@ export interface CreateWorkflowCommandOutput extends CreateWorkflowResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OmicsClient, CreateWorkflowCommand } from "@aws-sdk/client-omics"; // ES Modules import
- * // const { OmicsClient, CreateWorkflowCommand } = require("@aws-sdk/client-omics"); // CommonJS import
+ * import { OmicsClient, CreateWorkflowCommand } from '@aws-sdk/client-omics'; // ES Modules import
+ * // const { OmicsClient, CreateWorkflowCommand } = require('@aws-sdk/client-omics'); // CommonJS import
  * const client = new OmicsClient(config);
  * const input = { // CreateWorkflowRequest
- *   name: "STRING_VALUE",
- *   description: "STRING_VALUE",
- *   engine: "STRING_VALUE",
- *   definitionZip: "BLOB_VALUE",
- *   definitionUri: "STRING_VALUE",
- *   main: "STRING_VALUE",
+ *   name: 'STRING_VALUE',
+ *   description: 'STRING_VALUE',
+ *   engine: 'STRING_VALUE',
+ *   definitionZip: 'BLOB_VALUE',
+ *   definitionUri: 'STRING_VALUE',
+ *   main: 'STRING_VALUE',
  *   parameterTemplate: { // WorkflowParameterTemplate
- *     "<keys>": { // WorkflowParameter
- *       description: "STRING_VALUE",
+ *     '<keys>': { // WorkflowParameter
+ *       description: 'STRING_VALUE',
  *       optional: true || false,
  *     },
  *   },
- *   storageCapacity: Number("int"),
+ *   storageCapacity: Number('int'),
  *   tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
- *   requestId: "STRING_VALUE", // required
+ *   requestId: 'STRING_VALUE', // required
  * };
  * const command = new CreateWorkflowCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateWorkflowResponse
+ *   arn: 'STRING_VALUE',
+ *   id: 'STRING_VALUE',
+ *   status: 'STRING_VALUE',
+ *   tags: { // TagMap
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateWorkflowCommandInput - {@link CreateWorkflowCommandInput}
@@ -92,6 +102,8 @@ export interface CreateWorkflowCommandOutput extends CreateWorkflowResponse, __M
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link OmicsServiceException}
+ * <p>Base exception class for all service exceptions from Omics service.</p>
  *
  */
 export class CreateWorkflowCommand extends $Command<

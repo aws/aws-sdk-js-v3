@@ -76,18 +76,21 @@ export interface StartDeliveryStreamEncryptionCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FirehoseClient, StartDeliveryStreamEncryptionCommand } from "@aws-sdk/client-firehose"; // ES Modules import
- * // const { FirehoseClient, StartDeliveryStreamEncryptionCommand } = require("@aws-sdk/client-firehose"); // CommonJS import
+ * import { FirehoseClient, StartDeliveryStreamEncryptionCommand } from '@aws-sdk/client-firehose'; // ES Modules import
+ * // const { FirehoseClient, StartDeliveryStreamEncryptionCommand } = require('@aws-sdk/client-firehose'); // CommonJS import
  * const client = new FirehoseClient(config);
  * const input = { // StartDeliveryStreamEncryptionInput
- *   DeliveryStreamName: "STRING_VALUE", // required
+ *   DeliveryStreamName: 'STRING_VALUE', // required
  *   DeliveryStreamEncryptionConfigurationInput: { // DeliveryStreamEncryptionConfigurationInput
- *     KeyARN: "STRING_VALUE",
- *     KeyType: "AWS_OWNED_CMK" || "CUSTOMER_MANAGED_CMK", // required
+ *     KeyARN: 'STRING_VALUE',
+ *     KeyType: 'AWS_OWNED_CMK' || 'CUSTOMER_MANAGED_CMK', // required
  *   },
  * };
  * const command = new StartDeliveryStreamEncryptionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param StartDeliveryStreamEncryptionCommandInput - {@link StartDeliveryStreamEncryptionCommandInput}
@@ -115,6 +118,8 @@ export interface StartDeliveryStreamEncryptionCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource could not be found.</p>
  *
+ * @throws {@link FirehoseServiceException}
+ * <p>Base exception class for all service exceptions from Firehose service.</p>
  *
  */
 export class StartDeliveryStreamEncryptionCommand extends $Command<

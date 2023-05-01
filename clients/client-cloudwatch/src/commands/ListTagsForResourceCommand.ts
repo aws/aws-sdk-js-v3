@@ -37,14 +37,24 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOut
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudWatchClient, ListTagsForResourceCommand } from "@aws-sdk/client-cloudwatch"; // ES Modules import
- * // const { CloudWatchClient, ListTagsForResourceCommand } = require("@aws-sdk/client-cloudwatch"); // CommonJS import
+ * import { CloudWatchClient, ListTagsForResourceCommand } from '@aws-sdk/client-cloudwatch'; // ES Modules import
+ * // const { CloudWatchClient, ListTagsForResourceCommand } = require('@aws-sdk/client-cloudwatch'); // CommonJS import
  * const client = new CloudWatchClient(config);
  * const input = { // ListTagsForResourceInput
- *   ResourceARN: "STRING_VALUE", // required
+ *   ResourceARN: 'STRING_VALUE', // required
  * };
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTagsForResourceOutput
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListTagsForResourceCommandInput - {@link ListTagsForResourceCommandInput}
@@ -62,6 +72,8 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOut
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The named resource does not exist.</p>
  *
+ * @throws {@link CloudWatchServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatch service.</p>
  *
  */
 export class ListTagsForResourceCommand extends $Command<

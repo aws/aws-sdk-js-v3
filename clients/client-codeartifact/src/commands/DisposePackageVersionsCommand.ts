@@ -47,26 +47,42 @@ export interface DisposePackageVersionsCommandOutput extends DisposePackageVersi
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeartifactClient, DisposePackageVersionsCommand } from "@aws-sdk/client-codeartifact"; // ES Modules import
- * // const { CodeartifactClient, DisposePackageVersionsCommand } = require("@aws-sdk/client-codeartifact"); // CommonJS import
+ * import { CodeartifactClient, DisposePackageVersionsCommand } from '@aws-sdk/client-codeartifact'; // ES Modules import
+ * // const { CodeartifactClient, DisposePackageVersionsCommand } = require('@aws-sdk/client-codeartifact'); // CommonJS import
  * const client = new CodeartifactClient(config);
  * const input = { // DisposePackageVersionsRequest
- *   domain: "STRING_VALUE", // required
- *   domainOwner: "STRING_VALUE",
- *   repository: "STRING_VALUE", // required
- *   format: "npm" || "pypi" || "maven" || "nuget" || "generic", // required
- *   namespace: "STRING_VALUE",
- *   package: "STRING_VALUE", // required
+ *   domain: 'STRING_VALUE', // required
+ *   domainOwner: 'STRING_VALUE',
+ *   repository: 'STRING_VALUE', // required
+ *   format: 'npm' || 'pypi' || 'maven' || 'nuget' || 'generic', // required
+ *   namespace: 'STRING_VALUE',
+ *   package: 'STRING_VALUE', // required
  *   versions: [ // PackageVersionList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   versionRevisions: { // PackageVersionRevisionMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
- *   expectedStatus: "Published" || "Unfinished" || "Unlisted" || "Archived" || "Disposed" || "Deleted",
+ *   expectedStatus: 'Published' || 'Unfinished' || 'Unlisted' || 'Archived' || 'Disposed' || 'Deleted',
  * };
  * const command = new DisposePackageVersionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DisposePackageVersionsResult
+ *   successfulVersions: { // SuccessfulPackageVersionInfoMap
+ *     '<keys>': { // SuccessfulPackageVersionInfo
+ *       revision: 'STRING_VALUE',
+ *       status: 'Published' || 'Unfinished' || 'Unlisted' || 'Archived' || 'Disposed' || 'Deleted',
+ *     },
+ *   },
+ *   failedVersions: { // PackageVersionErrorMap
+ *     '<keys>': { // PackageVersionError
+ *       errorCode: 'ALREADY_EXISTS' || 'MISMATCHED_REVISION' || 'MISMATCHED_STATUS' || 'NOT_ALLOWED' || 'NOT_FOUND' || 'SKIPPED',
+ *       errorMessage: 'STRING_VALUE',
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param DisposePackageVersionsCommandInput - {@link DisposePackageVersionsCommandInput}
@@ -103,6 +119,8 @@ export interface DisposePackageVersionsCommandOutput extends DisposePackageVersi
  *       The operation did not succeed because a parameter in the request was sent with an invalid value.
  *     </p>
  *
+ * @throws {@link CodeartifactServiceException}
+ * <p>Base exception class for all service exceptions from Codeartifact service.</p>
  *
  */
 export class DisposePackageVersionsCommand extends $Command<

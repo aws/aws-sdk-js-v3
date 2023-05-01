@@ -36,14 +36,19 @@ export interface GetCampaignStateCommandOutput extends GetCampaignStateResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectCampaignsClient, GetCampaignStateCommand } from "@aws-sdk/client-connectcampaigns"; // ES Modules import
- * // const { ConnectCampaignsClient, GetCampaignStateCommand } = require("@aws-sdk/client-connectcampaigns"); // CommonJS import
+ * import { ConnectCampaignsClient, GetCampaignStateCommand } from '@aws-sdk/client-connectcampaigns'; // ES Modules import
+ * // const { ConnectCampaignsClient, GetCampaignStateCommand } = require('@aws-sdk/client-connectcampaigns'); // CommonJS import
  * const client = new ConnectCampaignsClient(config);
  * const input = { // GetCampaignStateRequest
- *   id: "STRING_VALUE", // required
+ *   id: 'STRING_VALUE', // required
  * };
  * const command = new GetCampaignStateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetCampaignStateResponse
+ *   state: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetCampaignStateCommandInput - {@link GetCampaignStateCommandInput}
@@ -67,6 +72,8 @@ export interface GetCampaignStateCommandOutput extends GetCampaignStateResponse,
  * @throws {@link ValidationException} (client fault)
  *  The input fails to satisfy the constraints specified by an AWS service.
  *
+ * @throws {@link ConnectCampaignsServiceException}
+ * <p>Base exception class for all service exceptions from ConnectCampaigns service.</p>
  *
  */
 export class GetCampaignStateCommand extends $Command<

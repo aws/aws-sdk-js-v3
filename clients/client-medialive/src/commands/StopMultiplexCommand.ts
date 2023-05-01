@@ -36,14 +36,43 @@ export interface StopMultiplexCommandOutput extends StopMultiplexResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MediaLiveClient, StopMultiplexCommand } from "@aws-sdk/client-medialive"; // ES Modules import
- * // const { MediaLiveClient, StopMultiplexCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
+ * import { MediaLiveClient, StopMultiplexCommand } from '@aws-sdk/client-medialive'; // ES Modules import
+ * // const { MediaLiveClient, StopMultiplexCommand } = require('@aws-sdk/client-medialive'); // CommonJS import
  * const client = new MediaLiveClient(config);
  * const input = { // StopMultiplexRequest
- *   MultiplexId: "STRING_VALUE", // required
+ *   MultiplexId: 'STRING_VALUE', // required
  * };
  * const command = new StopMultiplexCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StopMultiplexResponse
+ *   Arn: 'STRING_VALUE',
+ *   AvailabilityZones: [ // __listOf__string
+ *     'STRING_VALUE',
+ *   ],
+ *   Destinations: [ // __listOfMultiplexOutputDestination
+ *     { // MultiplexOutputDestination
+ *       MediaConnectSettings: { // MultiplexMediaConnectOutputDestinationSettings
+ *         EntitlementArn: 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ *   Id: 'STRING_VALUE',
+ *   MultiplexSettings: { // MultiplexSettings
+ *     MaximumVideoBufferDelayMilliseconds: Number('int'),
+ *     TransportStreamBitrate: Number('int'), // required
+ *     TransportStreamId: Number('int'), // required
+ *     TransportStreamReservedBitrate: Number('int'),
+ *   },
+ *   Name: 'STRING_VALUE',
+ *   PipelinesRunningCount: Number('int'),
+ *   ProgramCount: Number('int'),
+ *   State: 'CREATING' || 'CREATE_FAILED' || 'IDLE' || 'STARTING' || 'RUNNING' || 'RECOVERING' || 'STOPPING' || 'DELETING' || 'DELETED',
+ *   Tags: { // Tags
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param StopMultiplexCommandInput - {@link StopMultiplexCommandInput}
@@ -76,6 +105,8 @@ export interface StopMultiplexCommandOutput extends StopMultiplexResponse, __Met
  * @throws {@link TooManyRequestsException} (client fault)
  *  Placeholder documentation for TooManyRequestsException
  *
+ * @throws {@link MediaLiveServiceException}
+ * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
  */
 export class StopMultiplexCommand extends $Command<

@@ -36,14 +36,17 @@ export interface StopAccessLoggingCommandOutput extends StopAccessLoggingOutput,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MediaStoreClient, StopAccessLoggingCommand } from "@aws-sdk/client-mediastore"; // ES Modules import
- * // const { MediaStoreClient, StopAccessLoggingCommand } = require("@aws-sdk/client-mediastore"); // CommonJS import
+ * import { MediaStoreClient, StopAccessLoggingCommand } from '@aws-sdk/client-mediastore'; // ES Modules import
+ * // const { MediaStoreClient, StopAccessLoggingCommand } = require('@aws-sdk/client-mediastore'); // CommonJS import
  * const client = new MediaStoreClient(config);
  * const input = { // StopAccessLoggingInput
- *   ContainerName: "STRING_VALUE", // required
+ *   ContainerName: 'STRING_VALUE', // required
  * };
  * const command = new StopAccessLoggingCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param StopAccessLoggingCommandInput - {@link StopAccessLoggingCommandInput}
@@ -62,6 +65,8 @@ export interface StopAccessLoggingCommandOutput extends StopAccessLoggingOutput,
  * @throws {@link InternalServerError} (server fault)
  *  <p>The service is temporarily unavailable.</p>
  *
+ * @throws {@link MediaStoreServiceException}
+ * <p>Base exception class for all service exceptions from MediaStore service.</p>
  *
  */
 export class StopAccessLoggingCommand extends $Command<

@@ -42,15 +42,22 @@ export interface DisableKinesisStreamingDestinationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DynamoDBClient, DisableKinesisStreamingDestinationCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
- * // const { DynamoDBClient, DisableKinesisStreamingDestinationCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
+ * import { DynamoDBClient, DisableKinesisStreamingDestinationCommand } from '@aws-sdk/client-dynamodb'; // ES Modules import
+ * // const { DynamoDBClient, DisableKinesisStreamingDestinationCommand } = require('@aws-sdk/client-dynamodb'); // CommonJS import
  * const client = new DynamoDBClient(config);
  * const input = { // KinesisStreamingDestinationInput
- *   TableName: "STRING_VALUE", // required
- *   StreamArn: "STRING_VALUE", // required
+ *   TableName: 'STRING_VALUE', // required
+ *   StreamArn: 'STRING_VALUE', // required
  * };
  * const command = new DisableKinesisStreamingDestinationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // KinesisStreamingDestinationOutput
+ *   TableName: 'STRING_VALUE',
+ *   StreamArn: 'STRING_VALUE',
+ *   DestinationStatus: 'ENABLING' || 'ACTIVE' || 'DISABLING' || 'DISABLED' || 'ENABLE_FAILED',
+ * };
+ *
  * ```
  *
  * @param DisableKinesisStreamingDestinationCommandInput - {@link DisableKinesisStreamingDestinationCommandInput}
@@ -86,6 +93,8 @@ export interface DisableKinesisStreamingDestinationCommandOutput
  *  <p>The operation tried to access a nonexistent table or index. The resource might not
  *             be specified correctly, or its status might not be <code>ACTIVE</code>.</p>
  *
+ * @throws {@link DynamoDBServiceException}
+ * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
  */
 export class DisableKinesisStreamingDestinationCommand extends $Command<

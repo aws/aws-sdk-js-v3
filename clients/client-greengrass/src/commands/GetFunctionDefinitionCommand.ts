@@ -36,14 +36,28 @@ export interface GetFunctionDefinitionCommandOutput extends GetFunctionDefinitio
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GreengrassClient, GetFunctionDefinitionCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
- * // const { GreengrassClient, GetFunctionDefinitionCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
+ * import { GreengrassClient, GetFunctionDefinitionCommand } from '@aws-sdk/client-greengrass'; // ES Modules import
+ * // const { GreengrassClient, GetFunctionDefinitionCommand } = require('@aws-sdk/client-greengrass'); // CommonJS import
  * const client = new GreengrassClient(config);
  * const input = { // GetFunctionDefinitionRequest
- *   FunctionDefinitionId: "STRING_VALUE", // required
+ *   FunctionDefinitionId: 'STRING_VALUE', // required
  * };
  * const command = new GetFunctionDefinitionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetFunctionDefinitionResponse
+ *   Arn: 'STRING_VALUE',
+ *   CreationTimestamp: 'STRING_VALUE',
+ *   Id: 'STRING_VALUE',
+ *   LastUpdatedTimestamp: 'STRING_VALUE',
+ *   LatestVersion: 'STRING_VALUE',
+ *   LatestVersionArn: 'STRING_VALUE',
+ *   Name: 'STRING_VALUE',
+ *   tags: { // Tags
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetFunctionDefinitionCommandInput - {@link GetFunctionDefinitionCommandInput}
@@ -55,6 +69,8 @@ export interface GetFunctionDefinitionCommandOutput extends GetFunctionDefinitio
  * @throws {@link BadRequestException} (client fault)
  *  General error information.
  *
+ * @throws {@link GreengrassServiceException}
+ * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
  */
 export class GetFunctionDefinitionCommand extends $Command<

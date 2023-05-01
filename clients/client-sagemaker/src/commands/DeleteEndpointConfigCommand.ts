@@ -44,14 +44,17 @@ export interface DeleteEndpointConfigCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, DeleteEndpointConfigCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, DeleteEndpointConfigCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, DeleteEndpointConfigCommand } from '@aws-sdk/client-sagemaker'; // ES Modules import
+ * // const { SageMakerClient, DeleteEndpointConfigCommand } = require('@aws-sdk/client-sagemaker'); // CommonJS import
  * const client = new SageMakerClient(config);
  * const input = { // DeleteEndpointConfigInput
- *   EndpointConfigName: "STRING_VALUE", // required
+ *   EndpointConfigName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteEndpointConfigCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteEndpointConfigCommandInput - {@link DeleteEndpointConfigCommandInput}
@@ -60,6 +63,8 @@ export interface DeleteEndpointConfigCommandOutput extends __MetadataBearer {}
  * @see {@link DeleteEndpointConfigCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class DeleteEndpointConfigCommand extends $Command<

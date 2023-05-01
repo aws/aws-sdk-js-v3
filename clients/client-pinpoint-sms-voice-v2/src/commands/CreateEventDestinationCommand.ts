@@ -48,30 +48,54 @@ export interface CreateEventDestinationCommandOutput extends CreateEventDestinat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PinpointSMSVoiceV2Client, CreateEventDestinationCommand } from "@aws-sdk/client-pinpoint-sms-voice-v2"; // ES Modules import
- * // const { PinpointSMSVoiceV2Client, CreateEventDestinationCommand } = require("@aws-sdk/client-pinpoint-sms-voice-v2"); // CommonJS import
+ * import { PinpointSMSVoiceV2Client, CreateEventDestinationCommand } from '@aws-sdk/client-pinpoint-sms-voice-v2'; // ES Modules import
+ * // const { PinpointSMSVoiceV2Client, CreateEventDestinationCommand } = require('@aws-sdk/client-pinpoint-sms-voice-v2'); // CommonJS import
  * const client = new PinpointSMSVoiceV2Client(config);
  * const input = { // CreateEventDestinationRequest
- *   ConfigurationSetName: "STRING_VALUE", // required
- *   EventDestinationName: "STRING_VALUE", // required
+ *   ConfigurationSetName: 'STRING_VALUE', // required
+ *   EventDestinationName: 'STRING_VALUE', // required
  *   MatchingEventTypes: [ // EventTypeList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   CloudWatchLogsDestination: { // CloudWatchLogsDestination
- *     IamRoleArn: "STRING_VALUE", // required
- *     LogGroupArn: "STRING_VALUE", // required
+ *     IamRoleArn: 'STRING_VALUE', // required
+ *     LogGroupArn: 'STRING_VALUE', // required
  *   },
  *   KinesisFirehoseDestination: { // KinesisFirehoseDestination
- *     IamRoleArn: "STRING_VALUE", // required
- *     DeliveryStreamArn: "STRING_VALUE", // required
+ *     IamRoleArn: 'STRING_VALUE', // required
+ *     DeliveryStreamArn: 'STRING_VALUE', // required
  *   },
  *   SnsDestination: { // SnsDestination
- *     TopicArn: "STRING_VALUE", // required
+ *     TopicArn: 'STRING_VALUE', // required
  *   },
- *   ClientToken: "STRING_VALUE",
+ *   ClientToken: 'STRING_VALUE',
  * };
  * const command = new CreateEventDestinationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateEventDestinationResult
+ *   ConfigurationSetArn: 'STRING_VALUE',
+ *   ConfigurationSetName: 'STRING_VALUE',
+ *   EventDestination: { // EventDestination
+ *     EventDestinationName: 'STRING_VALUE', // required
+ *     Enabled: true || false, // required
+ *     MatchingEventTypes: [ // EventTypeList // required
+ *       'STRING_VALUE',
+ *     ],
+ *     CloudWatchLogsDestination: { // CloudWatchLogsDestination
+ *       IamRoleArn: 'STRING_VALUE', // required
+ *       LogGroupArn: 'STRING_VALUE', // required
+ *     },
+ *     KinesisFirehoseDestination: { // KinesisFirehoseDestination
+ *       IamRoleArn: 'STRING_VALUE', // required
+ *       DeliveryStreamArn: 'STRING_VALUE', // required
+ *     },
+ *     SnsDestination: { // SnsDestination
+ *       TopicArn: 'STRING_VALUE', // required
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateEventDestinationCommandInput - {@link CreateEventDestinationCommandInput}
@@ -107,6 +131,8 @@ export interface CreateEventDestinationCommandOutput extends CreateEventDestinat
  * @throws {@link ValidationException} (client fault)
  *  <p>A validation exception for a field.</p>
  *
+ * @throws {@link PinpointSMSVoiceV2ServiceException}
+ * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
  *
  */
 export class CreateEventDestinationCommand extends $Command<

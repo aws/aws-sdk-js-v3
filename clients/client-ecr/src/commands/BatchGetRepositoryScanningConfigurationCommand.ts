@@ -45,16 +45,41 @@ export interface BatchGetRepositoryScanningConfigurationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ECRClient, BatchGetRepositoryScanningConfigurationCommand } from "@aws-sdk/client-ecr"; // ES Modules import
- * // const { ECRClient, BatchGetRepositoryScanningConfigurationCommand } = require("@aws-sdk/client-ecr"); // CommonJS import
+ * import { ECRClient, BatchGetRepositoryScanningConfigurationCommand } from '@aws-sdk/client-ecr'; // ES Modules import
+ * // const { ECRClient, BatchGetRepositoryScanningConfigurationCommand } = require('@aws-sdk/client-ecr'); // CommonJS import
  * const client = new ECRClient(config);
  * const input = { // BatchGetRepositoryScanningConfigurationRequest
  *   repositoryNames: [ // ScanningConfigurationRepositoryNameList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new BatchGetRepositoryScanningConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BatchGetRepositoryScanningConfigurationResponse
+ *   scanningConfigurations: [ // RepositoryScanningConfigurationList
+ *     { // RepositoryScanningConfiguration
+ *       repositoryArn: 'STRING_VALUE',
+ *       repositoryName: 'STRING_VALUE',
+ *       scanOnPush: true || false,
+ *       scanFrequency: 'STRING_VALUE',
+ *       appliedScanFilters: [ // ScanningRepositoryFilterList
+ *         { // ScanningRepositoryFilter
+ *           filter: 'STRING_VALUE', // required
+ *           filterType: 'STRING_VALUE', // required
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   failures: [ // RepositoryScanningConfigurationFailureList
+ *     { // RepositoryScanningConfigurationFailure
+ *       repositoryName: 'STRING_VALUE',
+ *       failureCode: 'STRING_VALUE',
+ *       failureReason: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param BatchGetRepositoryScanningConfigurationCommandInput - {@link BatchGetRepositoryScanningConfigurationCommandInput}
@@ -77,6 +102,8 @@ export interface BatchGetRepositoryScanningConfigurationCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>There was an exception validating this request.</p>
  *
+ * @throws {@link ECRServiceException}
+ * <p>Base exception class for all service exceptions from ECR service.</p>
  *
  */
 export class BatchGetRepositoryScanningConfigurationCommand extends $Command<

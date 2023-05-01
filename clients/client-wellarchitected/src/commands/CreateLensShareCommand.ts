@@ -56,16 +56,21 @@ export interface CreateLensShareCommandOutput extends CreateLensShareOutput, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WellArchitectedClient, CreateLensShareCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
- * // const { WellArchitectedClient, CreateLensShareCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
+ * import { WellArchitectedClient, CreateLensShareCommand } from '@aws-sdk/client-wellarchitected'; // ES Modules import
+ * // const { WellArchitectedClient, CreateLensShareCommand } = require('@aws-sdk/client-wellarchitected'); // CommonJS import
  * const client = new WellArchitectedClient(config);
  * const input = { // CreateLensShareInput
- *   LensAlias: "STRING_VALUE", // required
- *   SharedWith: "STRING_VALUE", // required
- *   ClientRequestToken: "STRING_VALUE", // required
+ *   LensAlias: 'STRING_VALUE', // required
+ *   SharedWith: 'STRING_VALUE', // required
+ *   ClientRequestToken: 'STRING_VALUE', // required
  * };
  * const command = new CreateLensShareCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateLensShareOutput
+ *   ShareId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateLensShareCommandInput - {@link CreateLensShareCommandInput}
@@ -95,6 +100,8 @@ export interface CreateLensShareCommandOutput extends CreateLensShareOutput, __M
  * @throws {@link ValidationException} (client fault)
  *  <p>The user input is not valid.</p>
  *
+ * @throws {@link WellArchitectedServiceException}
+ * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
  */
 export class CreateLensShareCommand extends $Command<

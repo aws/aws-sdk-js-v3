@@ -40,12 +40,64 @@ export interface GetPortfolioPreferencesCommandOutput extends GetPortfolioPrefer
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MigrationHubStrategyClient, GetPortfolioPreferencesCommand } from "@aws-sdk/client-migrationhubstrategy"; // ES Modules import
- * // const { MigrationHubStrategyClient, GetPortfolioPreferencesCommand } = require("@aws-sdk/client-migrationhubstrategy"); // CommonJS import
+ * import { MigrationHubStrategyClient, GetPortfolioPreferencesCommand } from '@aws-sdk/client-migrationhubstrategy'; // ES Modules import
+ * // const { MigrationHubStrategyClient, GetPortfolioPreferencesCommand } = require('@aws-sdk/client-migrationhubstrategy'); // CommonJS import
  * const client = new MigrationHubStrategyClient(config);
  * const input = {};
  * const command = new GetPortfolioPreferencesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetPortfolioPreferencesResponse
+ *   prioritizeBusinessGoals: { // PrioritizeBusinessGoals
+ *     businessGoals: { // BusinessGoals
+ *       speedOfMigration: Number('int'),
+ *       reduceOperationalOverheadWithManagedServices: Number('int'),
+ *       modernizeInfrastructureWithCloudNativeTechnologies: Number('int'),
+ *       licenseCostReduction: Number('int'),
+ *     },
+ *   },
+ *   applicationPreferences: { // ApplicationPreferences
+ *     managementPreference: { // ManagementPreference Union: only one key present
+ *       awsManagedResources: { // AwsManagedResources
+ *         targetDestination: [ // AwsManagedTargetDestinations // required
+ *           'STRING_VALUE',
+ *         ],
+ *       },
+ *       selfManageResources: { // SelfManageResources
+ *         targetDestination: [ // SelfManageTargetDestinations // required
+ *           'STRING_VALUE',
+ *         ],
+ *       },
+ *       noPreference: { // NoManagementPreference
+ *         targetDestination: [ // NoPreferenceTargetDestinations // required
+ *           'STRING_VALUE',
+ *         ],
+ *       },
+ *     },
+ *   },
+ *   databasePreferences: { // DatabasePreferences
+ *     databaseManagementPreference: 'STRING_VALUE',
+ *     databaseMigrationPreference: { // DatabaseMigrationPreference Union: only one key present
+ *       heterogeneous: { // Heterogeneous
+ *         targetDatabaseEngine: [ // HeterogeneousTargetDatabaseEngines // required
+ *           'STRING_VALUE',
+ *         ],
+ *       },
+ *       homogeneous: { // Homogeneous
+ *         targetDatabaseEngine: [ // HomogeneousTargetDatabaseEngines
+ *           'STRING_VALUE',
+ *         ],
+ *       },
+ *       noPreference: { // NoDatabaseMigrationPreference
+ *         targetDatabaseEngine: [ // TargetDatabaseEngines // required
+ *           'STRING_VALUE',
+ *         ],
+ *       },
+ *     },
+ *   },
+ *   applicationMode: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetPortfolioPreferencesCommandInput - {@link GetPortfolioPreferencesCommandInput}
@@ -67,6 +119,8 @@ export interface GetPortfolioPreferencesCommandOutput extends GetPortfolioPrefer
  * @throws {@link ThrottlingException} (client fault)
  *  <p> The request was denied due to request throttling. </p>
  *
+ * @throws {@link MigrationHubStrategyServiceException}
+ * <p>Base exception class for all service exceptions from MigrationHubStrategy service.</p>
  *
  */
 export class GetPortfolioPreferencesCommand extends $Command<

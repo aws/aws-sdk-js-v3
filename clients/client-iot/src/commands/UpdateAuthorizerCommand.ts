@@ -37,21 +37,27 @@ export interface UpdateAuthorizerCommandOutput extends UpdateAuthorizerResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTClient, UpdateAuthorizerCommand } from "@aws-sdk/client-iot"; // ES Modules import
- * // const { IoTClient, UpdateAuthorizerCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * import { IoTClient, UpdateAuthorizerCommand } from '@aws-sdk/client-iot'; // ES Modules import
+ * // const { IoTClient, UpdateAuthorizerCommand } = require('@aws-sdk/client-iot'); // CommonJS import
  * const client = new IoTClient(config);
  * const input = { // UpdateAuthorizerRequest
- *   authorizerName: "STRING_VALUE", // required
- *   authorizerFunctionArn: "STRING_VALUE",
- *   tokenKeyName: "STRING_VALUE",
+ *   authorizerName: 'STRING_VALUE', // required
+ *   authorizerFunctionArn: 'STRING_VALUE',
+ *   tokenKeyName: 'STRING_VALUE',
  *   tokenSigningPublicKeys: { // PublicKeyMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
- *   status: "ACTIVE" || "INACTIVE",
+ *   status: 'ACTIVE' || 'INACTIVE',
  *   enableCachingForHttp: true || false,
  * };
  * const command = new UpdateAuthorizerCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateAuthorizerResponse
+ *   authorizerName: 'STRING_VALUE',
+ *   authorizerArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateAuthorizerCommandInput - {@link UpdateAuthorizerCommandInput}
@@ -81,6 +87,8 @@ export interface UpdateAuthorizerCommandOutput extends UpdateAuthorizerResponse,
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this operation.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class UpdateAuthorizerCommand extends $Command<

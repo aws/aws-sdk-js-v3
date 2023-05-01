@@ -36,23 +36,34 @@ export interface GetSchemaVersionCommandOutput extends GetSchemaVersionResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlueClient, GetSchemaVersionCommand } from "@aws-sdk/client-glue"; // ES Modules import
- * // const { GlueClient, GetSchemaVersionCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * import { GlueClient, GetSchemaVersionCommand } from '@aws-sdk/client-glue'; // ES Modules import
+ * // const { GlueClient, GetSchemaVersionCommand } = require('@aws-sdk/client-glue'); // CommonJS import
  * const client = new GlueClient(config);
  * const input = { // GetSchemaVersionInput
  *   SchemaId: { // SchemaId
- *     SchemaArn: "STRING_VALUE",
- *     SchemaName: "STRING_VALUE",
- *     RegistryName: "STRING_VALUE",
+ *     SchemaArn: 'STRING_VALUE',
+ *     SchemaName: 'STRING_VALUE',
+ *     RegistryName: 'STRING_VALUE',
  *   },
- *   SchemaVersionId: "STRING_VALUE",
+ *   SchemaVersionId: 'STRING_VALUE',
  *   SchemaVersionNumber: { // SchemaVersionNumber
  *     LatestVersion: true || false,
- *     VersionNumber: Number("long"),
+ *     VersionNumber: Number('long'),
  *   },
  * };
  * const command = new GetSchemaVersionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetSchemaVersionResponse
+ *   SchemaVersionId: 'STRING_VALUE',
+ *   SchemaDefinition: 'STRING_VALUE',
+ *   DataFormat: 'AVRO' || 'JSON' || 'PROTOBUF',
+ *   SchemaArn: 'STRING_VALUE',
+ *   VersionNumber: Number('long'),
+ *   Status: 'AVAILABLE' || 'PENDING' || 'FAILURE' || 'DELETING',
+ *   CreatedTime: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetSchemaVersionCommandInput - {@link GetSchemaVersionCommandInput}
@@ -73,6 +84,8 @@ export interface GetSchemaVersionCommandOutput extends GetSchemaVersionResponse,
  * @throws {@link InvalidInputException} (client fault)
  *  <p>The input provided was not valid.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class GetSchemaVersionCommand extends $Command<

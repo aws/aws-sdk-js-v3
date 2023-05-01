@@ -36,16 +36,40 @@ export interface ListRelatedItemsCommandOutput extends ListRelatedItemsOutput, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMIncidentsClient, ListRelatedItemsCommand } from "@aws-sdk/client-ssm-incidents"; // ES Modules import
- * // const { SSMIncidentsClient, ListRelatedItemsCommand } = require("@aws-sdk/client-ssm-incidents"); // CommonJS import
+ * import { SSMIncidentsClient, ListRelatedItemsCommand } from '@aws-sdk/client-ssm-incidents'; // ES Modules import
+ * // const { SSMIncidentsClient, ListRelatedItemsCommand } = require('@aws-sdk/client-ssm-incidents'); // CommonJS import
  * const client = new SSMIncidentsClient(config);
  * const input = { // ListRelatedItemsInput
- *   incidentRecordArn: "STRING_VALUE", // required
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   incidentRecordArn: 'STRING_VALUE', // required
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new ListRelatedItemsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListRelatedItemsOutput
+ *   relatedItems: [ // RelatedItemList // required
+ *     { // RelatedItem
+ *       identifier: { // ItemIdentifier
+ *         value: { // ItemValue Union: only one key present
+ *           arn: 'STRING_VALUE',
+ *           url: 'STRING_VALUE',
+ *           metricDefinition: 'STRING_VALUE',
+ *           pagerDutyIncidentDetail: { // PagerDutyIncidentDetail
+ *             id: 'STRING_VALUE', // required
+ *             autoResolve: true || false,
+ *             secretId: 'STRING_VALUE',
+ *           },
+ *         },
+ *         type: 'STRING_VALUE', // required
+ *       },
+ *       title: 'STRING_VALUE',
+ *       generatedId: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListRelatedItemsCommandInput - {@link ListRelatedItemsCommandInput}
@@ -68,6 +92,8 @@ export interface ListRelatedItemsCommandOutput extends ListRelatedItemsOutput, _
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
  *       service.</p>
  *
+ * @throws {@link SSMIncidentsServiceException}
+ * <p>Base exception class for all service exceptions from SSMIncidents service.</p>
  *
  */
 export class ListRelatedItemsCommand extends $Command<

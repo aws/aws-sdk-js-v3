@@ -37,18 +37,21 @@ export interface DeleteRuleCommandOutput extends DeleteRuleResult, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FraudDetectorClient, DeleteRuleCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
- * // const { FraudDetectorClient, DeleteRuleCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
+ * import { FraudDetectorClient, DeleteRuleCommand } from '@aws-sdk/client-frauddetector'; // ES Modules import
+ * // const { FraudDetectorClient, DeleteRuleCommand } = require('@aws-sdk/client-frauddetector'); // CommonJS import
  * const client = new FraudDetectorClient(config);
  * const input = { // DeleteRuleRequest
  *   rule: { // Rule
- *     detectorId: "STRING_VALUE", // required
- *     ruleId: "STRING_VALUE", // required
- *     ruleVersion: "STRING_VALUE", // required
+ *     detectorId: 'STRING_VALUE', // required
+ *     ruleId: 'STRING_VALUE', // required
+ *     ruleVersion: 'STRING_VALUE', // required
  *   },
  * };
  * const command = new DeleteRuleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteRuleCommandInput - {@link DeleteRuleCommandInput}
@@ -72,6 +75,8 @@ export interface DeleteRuleCommandOutput extends DeleteRuleResult, __MetadataBea
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception indicating a specified value is not allowed.</p>
  *
+ * @throws {@link FraudDetectorServiceException}
+ * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
  */
 export class DeleteRuleCommand extends $Command<

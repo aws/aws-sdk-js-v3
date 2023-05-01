@@ -38,15 +38,32 @@ export interface DescribeQueryCommandOutput extends DescribeQueryResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudTrailClient, DescribeQueryCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
- * // const { CloudTrailClient, DescribeQueryCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
+ * import { CloudTrailClient, DescribeQueryCommand } from '@aws-sdk/client-cloudtrail'; // ES Modules import
+ * // const { CloudTrailClient, DescribeQueryCommand } = require('@aws-sdk/client-cloudtrail'); // CommonJS import
  * const client = new CloudTrailClient(config);
  * const input = { // DescribeQueryRequest
- *   EventDataStore: "STRING_VALUE",
- *   QueryId: "STRING_VALUE", // required
+ *   EventDataStore: 'STRING_VALUE',
+ *   QueryId: 'STRING_VALUE', // required
  * };
  * const command = new DescribeQueryCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeQueryResponse
+ *   QueryId: 'STRING_VALUE',
+ *   QueryString: 'STRING_VALUE',
+ *   QueryStatus: 'QUEUED' || 'RUNNING' || 'FINISHED' || 'FAILED' || 'CANCELLED' || 'TIMED_OUT',
+ *   QueryStatistics: { // QueryStatisticsForDescribeQuery
+ *     EventsMatched: Number('long'),
+ *     EventsScanned: Number('long'),
+ *     BytesScanned: Number('long'),
+ *     ExecutionTimeInMillis: Number('int'),
+ *     CreationTime: new Date('TIMESTAMP'),
+ *   },
+ *   ErrorMessage: 'STRING_VALUE',
+ *   DeliveryS3Uri: 'STRING_VALUE',
+ *   DeliveryStatus: 'SUCCESS' || 'FAILED' || 'FAILED_SIGNING_FILE' || 'PENDING' || 'RESOURCE_NOT_FOUND' || 'ACCESS_DENIED' || 'ACCESS_DENIED_SIGNING_FILE' || 'CANCELLED' || 'UNKNOWN',
+ * };
+ *
  * ```
  *
  * @param DescribeQueryCommandInput - {@link DescribeQueryCommandInput}
@@ -81,6 +98,8 @@ export interface DescribeQueryCommandOutput extends DescribeQueryResponse, __Met
  * @throws {@link UnsupportedOperationException} (client fault)
  *  <p>This exception is thrown when the requested operation is not supported.</p>
  *
+ * @throws {@link CloudTrailServiceException}
+ * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
  */
 export class DescribeQueryCommand extends $Command<

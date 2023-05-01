@@ -43,15 +43,34 @@ export interface ListControlDomainInsightsCommandOutput extends ListControlDomai
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AuditManagerClient, ListControlDomainInsightsCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
- * // const { AuditManagerClient, ListControlDomainInsightsCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import
+ * import { AuditManagerClient, ListControlDomainInsightsCommand } from '@aws-sdk/client-auditmanager'; // ES Modules import
+ * // const { AuditManagerClient, ListControlDomainInsightsCommand } = require('@aws-sdk/client-auditmanager'); // CommonJS import
  * const client = new AuditManagerClient(config);
  * const input = { // ListControlDomainInsightsRequest
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new ListControlDomainInsightsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListControlDomainInsightsResponse
+ *   controlDomainInsights: [ // ControlDomainInsightsList
+ *     { // ControlDomainInsights
+ *       name: 'STRING_VALUE',
+ *       id: 'STRING_VALUE',
+ *       controlsCountByNoncompliantEvidence: Number('int'),
+ *       totalControlsCount: Number('int'),
+ *       evidenceInsights: { // EvidenceInsights
+ *         noncompliantEvidenceCount: Number('int'),
+ *         compliantEvidenceCount: Number('int'),
+ *         inconclusiveEvidenceCount: Number('int'),
+ *       },
+ *       lastUpdated: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListControlDomainInsightsCommandInput - {@link ListControlDomainInsightsCommandInput}
@@ -74,6 +93,8 @@ export interface ListControlDomainInsightsCommandOutput extends ListControlDomai
  * @throws {@link ValidationException} (client fault)
  *  <p> The request has invalid or missing parameters. </p>
  *
+ * @throws {@link AuditManagerServiceException}
+ * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
  */
 export class ListControlDomainInsightsCommand extends $Command<

@@ -36,14 +36,17 @@ export interface DeleteActivityCommandOutput extends DeleteActivityOutput, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SFNClient, DeleteActivityCommand } from "@aws-sdk/client-sfn"; // ES Modules import
- * // const { SFNClient, DeleteActivityCommand } = require("@aws-sdk/client-sfn"); // CommonJS import
+ * import { SFNClient, DeleteActivityCommand } from '@aws-sdk/client-sfn'; // ES Modules import
+ * // const { SFNClient, DeleteActivityCommand } = require('@aws-sdk/client-sfn'); // CommonJS import
  * const client = new SFNClient(config);
  * const input = { // DeleteActivityInput
- *   activityArn: "STRING_VALUE", // required
+ *   activityArn: 'STRING_VALUE', // required
  * };
  * const command = new DeleteActivityCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteActivityCommandInput - {@link DeleteActivityCommandInput}
@@ -55,6 +58,8 @@ export interface DeleteActivityCommandOutput extends DeleteActivityOutput, __Met
  * @throws {@link InvalidArn} (client fault)
  *  <p>The provided Amazon Resource Name (ARN) is not valid.</p>
  *
+ * @throws {@link SFNServiceException}
+ * <p>Base exception class for all service exceptions from SFN service.</p>
  *
  */
 export class DeleteActivityCommand extends $Command<

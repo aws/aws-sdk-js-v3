@@ -44,18 +44,21 @@ export interface GenerateRecommendationsCommandOutput extends GenerateRecommenda
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DataSyncClient, GenerateRecommendationsCommand } from "@aws-sdk/client-datasync"; // ES Modules import
- * // const { DataSyncClient, GenerateRecommendationsCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
+ * import { DataSyncClient, GenerateRecommendationsCommand } from '@aws-sdk/client-datasync'; // ES Modules import
+ * // const { DataSyncClient, GenerateRecommendationsCommand } = require('@aws-sdk/client-datasync'); // CommonJS import
  * const client = new DataSyncClient(config);
  * const input = { // GenerateRecommendationsRequest
- *   DiscoveryJobArn: "STRING_VALUE", // required
+ *   DiscoveryJobArn: 'STRING_VALUE', // required
  *   ResourceIds: [ // ResourceIds // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   ResourceType: "SVM" || "VOLUME" || "CLUSTER", // required
+ *   ResourceType: 'SVM' || 'VOLUME' || 'CLUSTER', // required
  * };
  * const command = new GenerateRecommendationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param GenerateRecommendationsCommandInput - {@link GenerateRecommendationsCommandInput}
@@ -71,6 +74,8 @@ export interface GenerateRecommendationsCommandOutput extends GenerateRecommenda
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception is thrown when the client submits a malformed request.</p>
  *
+ * @throws {@link DataSyncServiceException}
+ * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
  */
 export class GenerateRecommendationsCommand extends $Command<

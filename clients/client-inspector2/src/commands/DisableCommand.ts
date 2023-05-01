@@ -37,19 +37,47 @@ export interface DisableCommandOutput extends DisableResponse, __MetadataBearer 
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Inspector2Client, DisableCommand } from "@aws-sdk/client-inspector2"; // ES Modules import
- * // const { Inspector2Client, DisableCommand } = require("@aws-sdk/client-inspector2"); // CommonJS import
+ * import { Inspector2Client, DisableCommand } from '@aws-sdk/client-inspector2'; // ES Modules import
+ * // const { Inspector2Client, DisableCommand } = require('@aws-sdk/client-inspector2'); // CommonJS import
  * const client = new Inspector2Client(config);
  * const input = { // DisableRequest
  *   accountIds: [ // AccountIdSet
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   resourceTypes: [ // DisableResourceTypeList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new DisableCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DisableResponse
+ *   accounts: [ // AccountList // required
+ *     { // Account
+ *       accountId: 'STRING_VALUE', // required
+ *       status: 'STRING_VALUE', // required
+ *       resourceStatus: { // ResourceStatus
+ *         ec2: 'STRING_VALUE', // required
+ *         ecr: 'STRING_VALUE', // required
+ *         lambda: 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ *   failedAccounts: [ // FailedAccountList
+ *     { // FailedAccount
+ *       accountId: 'STRING_VALUE', // required
+ *       status: 'STRING_VALUE',
+ *       resourceStatus: {
+ *         ec2: 'STRING_VALUE', // required
+ *         ecr: 'STRING_VALUE', // required
+ *         lambda: 'STRING_VALUE',
+ *       },
+ *       errorCode: 'STRING_VALUE', // required
+ *       errorMessage: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DisableCommandInput - {@link DisableCommandInput}
@@ -74,6 +102,8 @@ export interface DisableCommandOutput extends DisableResponse, __MetadataBearer 
  *  <p>The request has failed validation due to missing required fields or having invalid
  *          inputs.</p>
  *
+ * @throws {@link Inspector2ServiceException}
+ * <p>Base exception class for all service exceptions from Inspector2 service.</p>
  *
  */
 export class DisableCommand extends $Command<

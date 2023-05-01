@@ -40,15 +40,20 @@ export interface SetIpAddressTypeCommandOutput extends SetIpAddressTypeOutput, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElasticLoadBalancingV2Client, SetIpAddressTypeCommand } from "@aws-sdk/client-elastic-load-balancing-v2"; // ES Modules import
- * // const { ElasticLoadBalancingV2Client, SetIpAddressTypeCommand } = require("@aws-sdk/client-elastic-load-balancing-v2"); // CommonJS import
+ * import { ElasticLoadBalancingV2Client, SetIpAddressTypeCommand } from '@aws-sdk/client-elastic-load-balancing-v2'; // ES Modules import
+ * // const { ElasticLoadBalancingV2Client, SetIpAddressTypeCommand } = require('@aws-sdk/client-elastic-load-balancing-v2'); // CommonJS import
  * const client = new ElasticLoadBalancingV2Client(config);
  * const input = { // SetIpAddressTypeInput
- *   LoadBalancerArn: "STRING_VALUE", // required
- *   IpAddressType: "ipv4" || "dualstack", // required
+ *   LoadBalancerArn: 'STRING_VALUE', // required
+ *   IpAddressType: 'ipv4' || 'dualstack', // required
  * };
  * const command = new SetIpAddressTypeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SetIpAddressTypeOutput
+ *   IpAddressType: 'ipv4' || 'dualstack',
+ * };
+ *
  * ```
  *
  * @param SetIpAddressTypeCommandInput - {@link SetIpAddressTypeCommandInput}
@@ -66,6 +71,8 @@ export interface SetIpAddressTypeCommandOutput extends SetIpAddressTypeOutput, _
  * @throws {@link LoadBalancerNotFoundException} (client fault)
  *  <p>The specified load balancer does not exist.</p>
  *
+ * @throws {@link ElasticLoadBalancingV2ServiceException}
+ * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
  */
 export class SetIpAddressTypeCommand extends $Command<

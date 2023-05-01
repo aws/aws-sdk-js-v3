@@ -44,14 +44,19 @@ export interface EnableImportFindingsForProductCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SecurityHubClient, EnableImportFindingsForProductCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
- * // const { SecurityHubClient, EnableImportFindingsForProductCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
+ * import { SecurityHubClient, EnableImportFindingsForProductCommand } from '@aws-sdk/client-securityhub'; // ES Modules import
+ * // const { SecurityHubClient, EnableImportFindingsForProductCommand } = require('@aws-sdk/client-securityhub'); // CommonJS import
  * const client = new SecurityHubClient(config);
  * const input = { // EnableImportFindingsForProductRequest
- *   ProductArn: "STRING_VALUE", // required
+ *   ProductArn: 'STRING_VALUE', // required
  * };
  * const command = new EnableImportFindingsForProductCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // EnableImportFindingsForProductResponse
+ *   ProductSubscriptionArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param EnableImportFindingsForProductCommandInput - {@link EnableImportFindingsForProductCommandInput}
@@ -77,6 +82,8 @@ export interface EnableImportFindingsForProductCommandOutput
  * @throws {@link ResourceConflictException} (client fault)
  *  <p>The resource specified in the request conflicts with an existing resource.</p>
  *
+ * @throws {@link SecurityHubServiceException}
+ * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
  * @example To activate an integration
  * ```javascript

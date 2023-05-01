@@ -41,15 +41,31 @@ export interface DescribeLoggingConfigurationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { NetworkFirewallClient, DescribeLoggingConfigurationCommand } from "@aws-sdk/client-network-firewall"; // ES Modules import
- * // const { NetworkFirewallClient, DescribeLoggingConfigurationCommand } = require("@aws-sdk/client-network-firewall"); // CommonJS import
+ * import { NetworkFirewallClient, DescribeLoggingConfigurationCommand } from '@aws-sdk/client-network-firewall'; // ES Modules import
+ * // const { NetworkFirewallClient, DescribeLoggingConfigurationCommand } = require('@aws-sdk/client-network-firewall'); // CommonJS import
  * const client = new NetworkFirewallClient(config);
  * const input = { // DescribeLoggingConfigurationRequest
- *   FirewallArn: "STRING_VALUE",
- *   FirewallName: "STRING_VALUE",
+ *   FirewallArn: 'STRING_VALUE',
+ *   FirewallName: 'STRING_VALUE',
  * };
  * const command = new DescribeLoggingConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeLoggingConfigurationResponse
+ *   FirewallArn: 'STRING_VALUE',
+ *   LoggingConfiguration: { // LoggingConfiguration
+ *     LogDestinationConfigs: [ // LogDestinationConfigs // required
+ *       { // LogDestinationConfig
+ *         LogType: 'ALERT' || 'FLOW', // required
+ *         LogDestinationType: 'S3' || 'CloudWatchLogs' || 'KinesisDataFirehose', // required
+ *         LogDestination: { // LogDestinationMap // required
+ *           '<keys>': 'STRING_VALUE',
+ *         },
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeLoggingConfigurationCommandInput - {@link DescribeLoggingConfigurationCommandInput}
@@ -84,6 +100,8 @@ export interface DescribeLoggingConfigurationCommandOutput
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Unable to process the request due to throttling limitations.</p>
  *
+ * @throws {@link NetworkFirewallServiceException}
+ * <p>Base exception class for all service exceptions from NetworkFirewall service.</p>
  *
  */
 export class DescribeLoggingConfigurationCommand extends $Command<

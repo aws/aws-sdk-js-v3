@@ -43,16 +43,27 @@ export interface DescribeStreamConsumerCommandOutput extends DescribeStreamConsu
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KinesisClient, DescribeStreamConsumerCommand } from "@aws-sdk/client-kinesis"; // ES Modules import
- * // const { KinesisClient, DescribeStreamConsumerCommand } = require("@aws-sdk/client-kinesis"); // CommonJS import
+ * import { KinesisClient, DescribeStreamConsumerCommand } from '@aws-sdk/client-kinesis'; // ES Modules import
+ * // const { KinesisClient, DescribeStreamConsumerCommand } = require('@aws-sdk/client-kinesis'); // CommonJS import
  * const client = new KinesisClient(config);
  * const input = { // DescribeStreamConsumerInput
- *   StreamARN: "STRING_VALUE",
- *   ConsumerName: "STRING_VALUE",
- *   ConsumerARN: "STRING_VALUE",
+ *   StreamARN: 'STRING_VALUE',
+ *   ConsumerName: 'STRING_VALUE',
+ *   ConsumerARN: 'STRING_VALUE',
  * };
  * const command = new DescribeStreamConsumerCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeStreamConsumerOutput
+ *   ConsumerDescription: { // ConsumerDescription
+ *     ConsumerName: 'STRING_VALUE', // required
+ *     ConsumerARN: 'STRING_VALUE', // required
+ *     ConsumerStatus: 'CREATING' || 'DELETING' || 'ACTIVE', // required
+ *     ConsumerCreationTimestamp: new Date('TIMESTAMP'), // required
+ *     StreamARN: 'STRING_VALUE', // required
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeStreamConsumerCommandInput - {@link DescribeStreamConsumerCommandInput}
@@ -73,6 +84,8 @@ export interface DescribeStreamConsumerCommandOutput extends DescribeStreamConsu
  *  <p>The requested resource could not be found. The stream might not be specified
  *             correctly.</p>
  *
+ * @throws {@link KinesisServiceException}
+ * <p>Base exception class for all service exceptions from Kinesis service.</p>
  *
  */
 export class DescribeStreamConsumerCommand extends $Command<

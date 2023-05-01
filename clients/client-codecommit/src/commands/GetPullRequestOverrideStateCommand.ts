@@ -37,15 +37,21 @@ export interface GetPullRequestOverrideStateCommandOutput extends GetPullRequest
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeCommitClient, GetPullRequestOverrideStateCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
- * // const { CodeCommitClient, GetPullRequestOverrideStateCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
+ * import { CodeCommitClient, GetPullRequestOverrideStateCommand } from '@aws-sdk/client-codecommit'; // ES Modules import
+ * // const { CodeCommitClient, GetPullRequestOverrideStateCommand } = require('@aws-sdk/client-codecommit'); // CommonJS import
  * const client = new CodeCommitClient(config);
  * const input = { // GetPullRequestOverrideStateInput
- *   pullRequestId: "STRING_VALUE", // required
- *   revisionId: "STRING_VALUE", // required
+ *   pullRequestId: 'STRING_VALUE', // required
+ *   revisionId: 'STRING_VALUE', // required
  * };
  * const command = new GetPullRequestOverrideStateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetPullRequestOverrideStateOutput
+ *   overridden: true || false,
+ *   overrider: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetPullRequestOverrideStateCommandInput - {@link GetPullRequestOverrideStateCommandInput}
@@ -84,6 +90,8 @@ export interface GetPullRequestOverrideStateCommandOutput extends GetPullRequest
  * @throws {@link RevisionIdRequiredException} (client fault)
  *  <p>A revision ID is required, but was not provided.</p>
  *
+ * @throws {@link CodeCommitServiceException}
+ * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
  */
 export class GetPullRequestOverrideStateCommand extends $Command<

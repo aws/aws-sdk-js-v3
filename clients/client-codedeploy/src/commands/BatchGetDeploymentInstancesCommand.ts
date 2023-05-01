@@ -45,17 +45,45 @@ export interface BatchGetDeploymentInstancesCommandOutput extends BatchGetDeploy
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeDeployClient, BatchGetDeploymentInstancesCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
- * // const { CodeDeployClient, BatchGetDeploymentInstancesCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
+ * import { CodeDeployClient, BatchGetDeploymentInstancesCommand } from '@aws-sdk/client-codedeploy'; // ES Modules import
+ * // const { CodeDeployClient, BatchGetDeploymentInstancesCommand } = require('@aws-sdk/client-codedeploy'); // CommonJS import
  * const client = new CodeDeployClient(config);
  * const input = { // BatchGetDeploymentInstancesInput
- *   deploymentId: "STRING_VALUE", // required
+ *   deploymentId: 'STRING_VALUE', // required
  *   instanceIds: [ // InstancesList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new BatchGetDeploymentInstancesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BatchGetDeploymentInstancesOutput
+ *   instancesSummary: [ // InstanceSummaryList
+ *     { // InstanceSummary
+ *       deploymentId: 'STRING_VALUE',
+ *       instanceId: 'STRING_VALUE',
+ *       status: 'Pending' || 'InProgress' || 'Succeeded' || 'Failed' || 'Skipped' || 'Unknown' || 'Ready',
+ *       lastUpdatedAt: new Date('TIMESTAMP'),
+ *       lifecycleEvents: [ // LifecycleEventList
+ *         { // LifecycleEvent
+ *           lifecycleEventName: 'STRING_VALUE',
+ *           diagnostics: { // Diagnostics
+ *             errorCode: 'Success' || 'ScriptMissing' || 'ScriptNotExecutable' || 'ScriptTimedOut' || 'ScriptFailed' || 'UnknownError',
+ *             scriptName: 'STRING_VALUE',
+ *             message: 'STRING_VALUE',
+ *             logTail: 'STRING_VALUE',
+ *           },
+ *           startTime: new Date('TIMESTAMP'),
+ *           endTime: new Date('TIMESTAMP'),
+ *           status: 'Pending' || 'InProgress' || 'Succeeded' || 'Failed' || 'Skipped' || 'Unknown',
+ *         },
+ *       ],
+ *       instanceType: 'Blue' || 'Green',
+ *     },
+ *   ],
+ *   errorMessage: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param BatchGetDeploymentInstancesCommandInput - {@link BatchGetDeploymentInstancesCommandInput}
@@ -86,6 +114,8 @@ export interface BatchGetDeploymentInstancesCommandOutput extends BatchGetDeploy
  * @throws {@link InvalidInstanceNameException} (client fault)
  *  <p>The on-premises instance name was specified in an invalid format.</p>
  *
+ * @throws {@link CodeDeployServiceException}
+ * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
  */
 export class BatchGetDeploymentInstancesCommand extends $Command<

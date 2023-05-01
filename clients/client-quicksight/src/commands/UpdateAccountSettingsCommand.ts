@@ -36,17 +36,23 @@ export interface UpdateAccountSettingsCommandOutput extends UpdateAccountSetting
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { QuickSightClient, UpdateAccountSettingsCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
- * // const { QuickSightClient, UpdateAccountSettingsCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * import { QuickSightClient, UpdateAccountSettingsCommand } from '@aws-sdk/client-quicksight'; // ES Modules import
+ * // const { QuickSightClient, UpdateAccountSettingsCommand } = require('@aws-sdk/client-quicksight'); // CommonJS import
  * const client = new QuickSightClient(config);
  * const input = { // UpdateAccountSettingsRequest
- *   AwsAccountId: "STRING_VALUE", // required
- *   DefaultNamespace: "STRING_VALUE", // required
- *   NotificationEmail: "STRING_VALUE",
+ *   AwsAccountId: 'STRING_VALUE', // required
+ *   DefaultNamespace: 'STRING_VALUE', // required
+ *   NotificationEmail: 'STRING_VALUE',
  *   TerminationProtectionEnabled: true || false,
  * };
  * const command = new UpdateAccountSettingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateAccountSettingsResponse
+ *   RequestId: 'STRING_VALUE',
+ *   Status: Number('int'),
+ * };
+ *
  * ```
  *
  * @param UpdateAccountSettingsCommandInput - {@link UpdateAccountSettingsCommandInput}
@@ -76,6 +82,8 @@ export interface UpdateAccountSettingsCommandOutput extends UpdateAccountSetting
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Access is throttled.</p>
  *
+ * @throws {@link QuickSightServiceException}
+ * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
 export class UpdateAccountSettingsCommand extends $Command<

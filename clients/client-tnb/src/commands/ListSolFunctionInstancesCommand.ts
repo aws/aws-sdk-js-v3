@@ -37,15 +37,37 @@ export interface ListSolFunctionInstancesCommandOutput extends ListSolFunctionIn
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { TnbClient, ListSolFunctionInstancesCommand } from "@aws-sdk/client-tnb"; // ES Modules import
- * // const { TnbClient, ListSolFunctionInstancesCommand } = require("@aws-sdk/client-tnb"); // CommonJS import
+ * import { TnbClient, ListSolFunctionInstancesCommand } from '@aws-sdk/client-tnb'; // ES Modules import
+ * // const { TnbClient, ListSolFunctionInstancesCommand } = require('@aws-sdk/client-tnb'); // CommonJS import
  * const client = new TnbClient(config);
  * const input = { // ListSolFunctionInstancesInput
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new ListSolFunctionInstancesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListSolFunctionInstancesOutput
+ *   nextToken: 'STRING_VALUE',
+ *   functionInstances: [ // ListSolFunctionInstanceResources
+ *     { // ListSolFunctionInstanceInfo
+ *       id: 'STRING_VALUE', // required
+ *       arn: 'STRING_VALUE', // required
+ *       nsInstanceId: 'STRING_VALUE', // required
+ *       vnfPkgId: 'STRING_VALUE', // required
+ *       vnfPkgName: 'STRING_VALUE',
+ *       instantiationState: 'INSTANTIATED' || 'NOT_INSTANTIATED', // required
+ *       instantiatedVnfInfo: { // GetSolInstantiatedVnfInfo
+ *         vnfState: 'STARTED' || 'STOPPED',
+ *       },
+ *       metadata: { // ListSolFunctionInstanceMetadata
+ *         createdAt: new Date('TIMESTAMP'), // required
+ *         lastModified: new Date('TIMESTAMP'), // required
+ *       },
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListSolFunctionInstancesCommandInput - {@link ListSolFunctionInstancesCommandInput}
@@ -66,6 +88,8 @@ export interface ListSolFunctionInstancesCommandOutput extends ListSolFunctionIn
  * @throws {@link ValidationException} (client fault)
  *  <p>Unable to process the request because the client provided input failed to satisfy request constraints.</p>
  *
+ * @throws {@link TnbServiceException}
+ * <p>Base exception class for all service exceptions from Tnb service.</p>
  *
  */
 export class ListSolFunctionInstancesCommand extends $Command<

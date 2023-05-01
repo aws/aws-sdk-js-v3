@@ -48,15 +48,18 @@ export interface RemoveRoleFromInstanceProfileCommandOutput extends __MetadataBe
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IAMClient, RemoveRoleFromInstanceProfileCommand } from "@aws-sdk/client-iam"; // ES Modules import
- * // const { IAMClient, RemoveRoleFromInstanceProfileCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * import { IAMClient, RemoveRoleFromInstanceProfileCommand } from '@aws-sdk/client-iam'; // ES Modules import
+ * // const { IAMClient, RemoveRoleFromInstanceProfileCommand } = require('@aws-sdk/client-iam'); // CommonJS import
  * const client = new IAMClient(config);
  * const input = { // RemoveRoleFromInstanceProfileRequest
- *   InstanceProfileName: "STRING_VALUE", // required
- *   RoleName: "STRING_VALUE", // required
+ *   InstanceProfileName: 'STRING_VALUE', // required
+ *   RoleName: 'STRING_VALUE', // required
  * };
  * const command = new RemoveRoleFromInstanceProfileCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param RemoveRoleFromInstanceProfileCommandInput - {@link RemoveRoleFromInstanceProfileCommandInput}
@@ -83,6 +86,8 @@ export interface RemoveRoleFromInstanceProfileCommandOutput extends __MetadataBe
  *       behalf. The error message includes the name of the service that depends on this service-linked
  *       role. You must request the change through that service.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  * @example To remove a role from an instance profile
  * ```javascript

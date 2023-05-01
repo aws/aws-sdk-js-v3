@@ -36,25 +36,44 @@ export interface BatchDeleteCommandOutput extends BatchDeleteResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MediaLiveClient, BatchDeleteCommand } from "@aws-sdk/client-medialive"; // ES Modules import
- * // const { MediaLiveClient, BatchDeleteCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
+ * import { MediaLiveClient, BatchDeleteCommand } from '@aws-sdk/client-medialive'; // ES Modules import
+ * // const { MediaLiveClient, BatchDeleteCommand } = require('@aws-sdk/client-medialive'); // CommonJS import
  * const client = new MediaLiveClient(config);
  * const input = { // BatchDeleteRequest
  *   ChannelIds: [ // __listOf__string
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   InputIds: [
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   InputSecurityGroupIds: [
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   MultiplexIds: [
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new BatchDeleteCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BatchDeleteResponse
+ *   Failed: [ // __listOfBatchFailedResultModel
+ *     { // BatchFailedResultModel
+ *       Arn: 'STRING_VALUE',
+ *       Code: 'STRING_VALUE',
+ *       Id: 'STRING_VALUE',
+ *       Message: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   Successful: [ // __listOfBatchSuccessfulResultModel
+ *     { // BatchSuccessfulResultModel
+ *       Arn: 'STRING_VALUE',
+ *       Id: 'STRING_VALUE',
+ *       State: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param BatchDeleteCommandInput - {@link BatchDeleteCommandInput}
@@ -87,6 +106,8 @@ export interface BatchDeleteCommandOutput extends BatchDeleteResponse, __Metadat
  * @throws {@link TooManyRequestsException} (client fault)
  *  Placeholder documentation for TooManyRequestsException
  *
+ * @throws {@link MediaLiveServiceException}
+ * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
  */
 export class BatchDeleteCommand extends $Command<

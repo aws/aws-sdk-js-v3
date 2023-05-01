@@ -36,17 +36,32 @@ export interface ListGroupsCommandOutput extends ListGroupsResponse, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { QuickSightClient, ListGroupsCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
- * // const { QuickSightClient, ListGroupsCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * import { QuickSightClient, ListGroupsCommand } from '@aws-sdk/client-quicksight'; // ES Modules import
+ * // const { QuickSightClient, ListGroupsCommand } = require('@aws-sdk/client-quicksight'); // CommonJS import
  * const client = new QuickSightClient(config);
  * const input = { // ListGroupsRequest
- *   AwsAccountId: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
- *   Namespace: "STRING_VALUE", // required
+ *   AwsAccountId: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
+ *   Namespace: 'STRING_VALUE', // required
  * };
  * const command = new ListGroupsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListGroupsResponse
+ *   GroupList: [ // GroupList
+ *     { // Group
+ *       Arn: 'STRING_VALUE',
+ *       GroupName: 'STRING_VALUE',
+ *       Description: 'STRING_VALUE',
+ *       PrincipalId: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ *   RequestId: 'STRING_VALUE',
+ *   Status: Number('int'),
+ * };
+ *
  * ```
  *
  * @param ListGroupsCommandInput - {@link ListGroupsCommandInput}
@@ -82,6 +97,8 @@ export interface ListGroupsCommandOutput extends ListGroupsResponse, __MetadataB
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Access is throttled.</p>
  *
+ * @throws {@link QuickSightServiceException}
+ * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
 export class ListGroupsCommand extends $Command<

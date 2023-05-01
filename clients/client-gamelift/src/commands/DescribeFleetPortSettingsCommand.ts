@@ -61,15 +61,31 @@ export interface DescribeFleetPortSettingsCommandOutput extends DescribeFleetPor
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GameLiftClient, DescribeFleetPortSettingsCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
- * // const { GameLiftClient, DescribeFleetPortSettingsCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
+ * import { GameLiftClient, DescribeFleetPortSettingsCommand } from '@aws-sdk/client-gamelift'; // ES Modules import
+ * // const { GameLiftClient, DescribeFleetPortSettingsCommand } = require('@aws-sdk/client-gamelift'); // CommonJS import
  * const client = new GameLiftClient(config);
  * const input = { // DescribeFleetPortSettingsInput
- *   FleetId: "STRING_VALUE", // required
- *   Location: "STRING_VALUE",
+ *   FleetId: 'STRING_VALUE', // required
+ *   Location: 'STRING_VALUE',
  * };
  * const command = new DescribeFleetPortSettingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeFleetPortSettingsOutput
+ *   FleetId: 'STRING_VALUE',
+ *   FleetArn: 'STRING_VALUE',
+ *   InboundPermissions: [ // IpPermissionsList
+ *     { // IpPermission
+ *       FromPort: Number('int'), // required
+ *       ToPort: Number('int'), // required
+ *       IpRange: 'STRING_VALUE', // required
+ *       Protocol: 'TCP' || 'UDP', // required
+ *     },
+ *   ],
+ *   UpdateStatus: 'PENDING_UPDATE',
+ *   Location: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeFleetPortSettingsCommandInput - {@link DescribeFleetPortSettingsCommandInput}
@@ -95,6 +111,8 @@ export interface DescribeFleetPortSettingsCommandOutput extends DescribeFleetPor
  * @throws {@link UnsupportedRegionException} (client fault)
  *  <p>The requested operation is not supported in the Region specified.</p>
  *
+ * @throws {@link GameLiftServiceException}
+ * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
  */
 export class DescribeFleetPortSettingsCommand extends $Command<

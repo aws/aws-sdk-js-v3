@@ -36,25 +36,43 @@ export interface CreateVpcConnectionCommandOutput extends CreateVpcConnectionRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KafkaClient, CreateVpcConnectionCommand } from "@aws-sdk/client-kafka"; // ES Modules import
- * // const { KafkaClient, CreateVpcConnectionCommand } = require("@aws-sdk/client-kafka"); // CommonJS import
+ * import { KafkaClient, CreateVpcConnectionCommand } from '@aws-sdk/client-kafka'; // ES Modules import
+ * // const { KafkaClient, CreateVpcConnectionCommand } = require('@aws-sdk/client-kafka'); // CommonJS import
  * const client = new KafkaClient(config);
  * const input = { // CreateVpcConnectionRequest
- *   TargetClusterArn: "STRING_VALUE", // required
- *   Authentication: "STRING_VALUE", // required
- *   VpcId: "STRING_VALUE", // required
+ *   TargetClusterArn: 'STRING_VALUE', // required
+ *   Authentication: 'STRING_VALUE', // required
+ *   VpcId: 'STRING_VALUE', // required
  *   ClientSubnets: [ // __listOf__string // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   SecurityGroups: [ // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   Tags: { // __mapOf__string
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateVpcConnectionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateVpcConnectionResponse
+ *   VpcConnectionArn: 'STRING_VALUE',
+ *   State: 'CREATING' || 'AVAILABLE' || 'INACTIVE' || 'DEACTIVATING' || 'DELETING' || 'FAILED' || 'REJECTED' || 'REJECTING',
+ *   Authentication: 'STRING_VALUE',
+ *   VpcId: 'STRING_VALUE',
+ *   ClientSubnets: [ // __listOf__string
+ *     'STRING_VALUE',
+ *   ],
+ *   SecurityGroups: [
+ *     'STRING_VALUE',
+ *   ],
+ *   CreationTime: new Date('TIMESTAMP'),
+ *   Tags: { // __mapOf__string
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateVpcConnectionCommandInput - {@link CreateVpcConnectionCommandInput}
@@ -81,6 +99,8 @@ export interface CreateVpcConnectionCommandOutput extends CreateVpcConnectionRes
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>Returns information about an error.</p>
  *
+ * @throws {@link KafkaServiceException}
+ * <p>Base exception class for all service exceptions from Kafka service.</p>
  *
  */
 export class CreateVpcConnectionCommand extends $Command<

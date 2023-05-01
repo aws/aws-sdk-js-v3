@@ -36,15 +36,27 @@ export interface GetRotationOverrideCommandOutput extends GetRotationOverrideRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMContactsClient, GetRotationOverrideCommand } from "@aws-sdk/client-ssm-contacts"; // ES Modules import
- * // const { SSMContactsClient, GetRotationOverrideCommand } = require("@aws-sdk/client-ssm-contacts"); // CommonJS import
+ * import { SSMContactsClient, GetRotationOverrideCommand } from '@aws-sdk/client-ssm-contacts'; // ES Modules import
+ * // const { SSMContactsClient, GetRotationOverrideCommand } = require('@aws-sdk/client-ssm-contacts'); // CommonJS import
  * const client = new SSMContactsClient(config);
  * const input = { // GetRotationOverrideRequest
- *   RotationId: "STRING_VALUE", // required
- *   RotationOverrideId: "STRING_VALUE", // required
+ *   RotationId: 'STRING_VALUE', // required
+ *   RotationOverrideId: 'STRING_VALUE', // required
  * };
  * const command = new GetRotationOverrideCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetRotationOverrideResult
+ *   RotationOverrideId: 'STRING_VALUE',
+ *   RotationArn: 'STRING_VALUE',
+ *   NewContactIds: [ // SsmContactsArnList
+ *     'STRING_VALUE',
+ *   ],
+ *   StartTime: new Date('TIMESTAMP'),
+ *   EndTime: new Date('TIMESTAMP'),
+ *   CreateTime: new Date('TIMESTAMP'),
+ * };
+ *
  * ```
  *
  * @param GetRotationOverrideCommandInput - {@link GetRotationOverrideCommandInput}
@@ -69,6 +81,8 @@ export interface GetRotationOverrideCommandOutput extends GetRotationOverrideRes
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
  *          service.</p>
  *
+ * @throws {@link SSMContactsServiceException}
+ * <p>Base exception class for all service exceptions from SSMContacts service.</p>
  *
  */
 export class GetRotationOverrideCommand extends $Command<

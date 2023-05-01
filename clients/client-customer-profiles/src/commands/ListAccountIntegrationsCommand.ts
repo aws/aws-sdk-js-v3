@@ -36,17 +36,39 @@ export interface ListAccountIntegrationsCommandOutput extends ListAccountIntegra
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CustomerProfilesClient, ListAccountIntegrationsCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
- * // const { CustomerProfilesClient, ListAccountIntegrationsCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
+ * import { CustomerProfilesClient, ListAccountIntegrationsCommand } from '@aws-sdk/client-customer-profiles'; // ES Modules import
+ * // const { CustomerProfilesClient, ListAccountIntegrationsCommand } = require('@aws-sdk/client-customer-profiles'); // CommonJS import
  * const client = new CustomerProfilesClient(config);
  * const input = { // ListAccountIntegrationsRequest
- *   Uri: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   Uri: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  *   IncludeHidden: true || false,
  * };
  * const command = new ListAccountIntegrationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListAccountIntegrationsResponse
+ *   Items: [ // IntegrationList
+ *     { // ListIntegrationItem
+ *       DomainName: 'STRING_VALUE', // required
+ *       Uri: 'STRING_VALUE', // required
+ *       ObjectTypeName: 'STRING_VALUE',
+ *       CreatedAt: new Date('TIMESTAMP'), // required
+ *       LastUpdatedAt: new Date('TIMESTAMP'), // required
+ *       Tags: { // TagMap
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *       ObjectTypeNames: { // ObjectTypeNames
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *       WorkflowId: 'STRING_VALUE',
+ *       IsUnstructured: true || false,
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListAccountIntegrationsCommandInput - {@link ListAccountIntegrationsCommandInput}
@@ -70,6 +92,8 @@ export interface ListAccountIntegrationsCommandOutput extends ListAccountIntegra
  * @throws {@link ThrottlingException} (client fault)
  *  <p>You exceeded the maximum number of requests.</p>
  *
+ * @throws {@link CustomerProfilesServiceException}
+ * <p>Base exception class for all service exceptions from CustomerProfiles service.</p>
  *
  */
 export class ListAccountIntegrationsCommand extends $Command<

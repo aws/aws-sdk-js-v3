@@ -36,14 +36,17 @@ export interface DeleteMetricPolicyCommandOutput extends DeleteMetricPolicyOutpu
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MediaStoreClient, DeleteMetricPolicyCommand } from "@aws-sdk/client-mediastore"; // ES Modules import
- * // const { MediaStoreClient, DeleteMetricPolicyCommand } = require("@aws-sdk/client-mediastore"); // CommonJS import
+ * import { MediaStoreClient, DeleteMetricPolicyCommand } from '@aws-sdk/client-mediastore'; // ES Modules import
+ * // const { MediaStoreClient, DeleteMetricPolicyCommand } = require('@aws-sdk/client-mediastore'); // CommonJS import
  * const client = new MediaStoreClient(config);
  * const input = { // DeleteMetricPolicyInput
- *   ContainerName: "STRING_VALUE", // required
+ *   ContainerName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteMetricPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteMetricPolicyCommandInput - {@link DeleteMetricPolicyCommandInput}
@@ -65,6 +68,8 @@ export interface DeleteMetricPolicyCommandOutput extends DeleteMetricPolicyOutpu
  * @throws {@link PolicyNotFoundException} (client fault)
  *  <p>The policy that you specified in the request does not exist.</p>
  *
+ * @throws {@link MediaStoreServiceException}
+ * <p>Base exception class for all service exceptions from MediaStore service.</p>
  *
  */
 export class DeleteMetricPolicyCommand extends $Command<

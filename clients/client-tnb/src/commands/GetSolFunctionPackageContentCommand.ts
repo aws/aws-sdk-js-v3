@@ -42,15 +42,21 @@ export interface GetSolFunctionPackageContentCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { TnbClient, GetSolFunctionPackageContentCommand } from "@aws-sdk/client-tnb"; // ES Modules import
- * // const { TnbClient, GetSolFunctionPackageContentCommand } = require("@aws-sdk/client-tnb"); // CommonJS import
+ * import { TnbClient, GetSolFunctionPackageContentCommand } from '@aws-sdk/client-tnb'; // ES Modules import
+ * // const { TnbClient, GetSolFunctionPackageContentCommand } = require('@aws-sdk/client-tnb'); // CommonJS import
  * const client = new TnbClient(config);
  * const input = { // GetSolFunctionPackageContentInput
- *   vnfPkgId: "STRING_VALUE", // required
- *   accept: "application/zip", // required
+ *   vnfPkgId: 'STRING_VALUE', // required
+ *   accept: 'application/zip', // required
  * };
  * const command = new GetSolFunctionPackageContentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetSolFunctionPackageContentOutput
+ *   contentType: 'application/zip',
+ *   packageContent: 'BLOB_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetSolFunctionPackageContentCommandInput - {@link GetSolFunctionPackageContentCommandInput}
@@ -74,6 +80,8 @@ export interface GetSolFunctionPackageContentCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>Unable to process the request because the client provided input failed to satisfy request constraints.</p>
  *
+ * @throws {@link TnbServiceException}
+ * <p>Base exception class for all service exceptions from Tnb service.</p>
  *
  */
 export class GetSolFunctionPackageContentCommand extends $Command<

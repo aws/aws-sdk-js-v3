@@ -36,17 +36,44 @@ export interface GetCampaignActivitiesCommandOutput extends GetCampaignActivitie
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PinpointClient, GetCampaignActivitiesCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
- * // const { PinpointClient, GetCampaignActivitiesCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
+ * import { PinpointClient, GetCampaignActivitiesCommand } from '@aws-sdk/client-pinpoint'; // ES Modules import
+ * // const { PinpointClient, GetCampaignActivitiesCommand } = require('@aws-sdk/client-pinpoint'); // CommonJS import
  * const client = new PinpointClient(config);
  * const input = { // GetCampaignActivitiesRequest
- *   ApplicationId: "STRING_VALUE", // required
- *   CampaignId: "STRING_VALUE", // required
- *   PageSize: "STRING_VALUE",
- *   Token: "STRING_VALUE",
+ *   ApplicationId: 'STRING_VALUE', // required
+ *   CampaignId: 'STRING_VALUE', // required
+ *   PageSize: 'STRING_VALUE',
+ *   Token: 'STRING_VALUE',
  * };
  * const command = new GetCampaignActivitiesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetCampaignActivitiesResponse
+ *   ActivitiesResponse: { // ActivitiesResponse
+ *     Item: [ // ListOfActivityResponse // required
+ *       { // ActivityResponse
+ *         ApplicationId: 'STRING_VALUE', // required
+ *         CampaignId: 'STRING_VALUE', // required
+ *         End: 'STRING_VALUE',
+ *         Id: 'STRING_VALUE', // required
+ *         Result: 'STRING_VALUE',
+ *         ScheduledStart: 'STRING_VALUE',
+ *         Start: 'STRING_VALUE',
+ *         State: 'STRING_VALUE',
+ *         SuccessfulEndpointCount: Number('int'),
+ *         TimezonesCompletedCount: Number('int'),
+ *         TimezonesTotalCount: Number('int'),
+ *         TotalEndpointCount: Number('int'),
+ *         TreatmentId: 'STRING_VALUE',
+ *         ExecutionMetrics: { // MapOf__string
+ *           '<keys>': 'STRING_VALUE',
+ *         },
+ *       },
+ *     ],
+ *     NextToken: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetCampaignActivitiesCommandInput - {@link GetCampaignActivitiesCommandInput}
@@ -76,6 +103,8 @@ export interface GetCampaignActivitiesCommandOutput extends GetCampaignActivitie
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Provides information about an API request or response.</p>
  *
+ * @throws {@link PinpointServiceException}
+ * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
  */
 export class GetCampaignActivitiesCommand extends $Command<

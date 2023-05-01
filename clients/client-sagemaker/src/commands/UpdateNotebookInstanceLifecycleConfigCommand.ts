@@ -44,24 +44,27 @@ export interface UpdateNotebookInstanceLifecycleConfigCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, UpdateNotebookInstanceLifecycleConfigCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, UpdateNotebookInstanceLifecycleConfigCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, UpdateNotebookInstanceLifecycleConfigCommand } from '@aws-sdk/client-sagemaker'; // ES Modules import
+ * // const { SageMakerClient, UpdateNotebookInstanceLifecycleConfigCommand } = require('@aws-sdk/client-sagemaker'); // CommonJS import
  * const client = new SageMakerClient(config);
  * const input = { // UpdateNotebookInstanceLifecycleConfigInput
- *   NotebookInstanceLifecycleConfigName: "STRING_VALUE", // required
+ *   NotebookInstanceLifecycleConfigName: 'STRING_VALUE', // required
  *   OnCreate: [ // NotebookInstanceLifecycleConfigList
  *     { // NotebookInstanceLifecycleHook
- *       Content: "STRING_VALUE",
+ *       Content: 'STRING_VALUE',
  *     },
  *   ],
  *   OnStart: [
  *     {
- *       Content: "STRING_VALUE",
+ *       Content: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new UpdateNotebookInstanceLifecycleConfigCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateNotebookInstanceLifecycleConfigCommandInput - {@link UpdateNotebookInstanceLifecycleConfigCommandInput}
@@ -74,6 +77,8 @@ export interface UpdateNotebookInstanceLifecycleConfigCommandOutput
  *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many
  *             training jobs created. </p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class UpdateNotebookInstanceLifecycleConfigCommand extends $Command<

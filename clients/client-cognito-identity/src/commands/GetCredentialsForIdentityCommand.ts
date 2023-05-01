@@ -40,18 +40,29 @@ export interface GetCredentialsForIdentityCommandOutput extends GetCredentialsFo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CognitoIdentityClient, GetCredentialsForIdentityCommand } from "@aws-sdk/client-cognito-identity"; // ES Modules import
- * // const { CognitoIdentityClient, GetCredentialsForIdentityCommand } = require("@aws-sdk/client-cognito-identity"); // CommonJS import
+ * import { CognitoIdentityClient, GetCredentialsForIdentityCommand } from '@aws-sdk/client-cognito-identity'; // ES Modules import
+ * // const { CognitoIdentityClient, GetCredentialsForIdentityCommand } = require('@aws-sdk/client-cognito-identity'); // CommonJS import
  * const client = new CognitoIdentityClient(config);
  * const input = { // GetCredentialsForIdentityInput
- *   IdentityId: "STRING_VALUE", // required
+ *   IdentityId: 'STRING_VALUE', // required
  *   Logins: { // LoginsMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
- *   CustomRoleArn: "STRING_VALUE",
+ *   CustomRoleArn: 'STRING_VALUE',
  * };
  * const command = new GetCredentialsForIdentityCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetCredentialsForIdentityResponse
+ *   IdentityId: 'STRING_VALUE',
+ *   Credentials: { // Credentials
+ *     AccessKeyId: 'STRING_VALUE',
+ *     SecretKey: 'STRING_VALUE',
+ *     SessionToken: 'STRING_VALUE',
+ *     Expiration: new Date('TIMESTAMP'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetCredentialsForIdentityCommandInput - {@link GetCredentialsForIdentityCommandInput}
@@ -88,6 +99,8 @@ export interface GetCredentialsForIdentityCommandOutput extends GetCredentialsFo
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Thrown when a request is throttled.</p>
  *
+ * @throws {@link CognitoIdentityServiceException}
+ * <p>Base exception class for all service exceptions from CognitoIdentity service.</p>
  *
  */
 export class GetCredentialsForIdentityCommand extends $Command<

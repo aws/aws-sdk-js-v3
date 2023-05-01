@@ -38,14 +38,19 @@ export interface DeleteDirectoryCommandOutput extends DeleteDirectoryResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudDirectoryClient, DeleteDirectoryCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
- * // const { CloudDirectoryClient, DeleteDirectoryCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
+ * import { CloudDirectoryClient, DeleteDirectoryCommand } from '@aws-sdk/client-clouddirectory'; // ES Modules import
+ * // const { CloudDirectoryClient, DeleteDirectoryCommand } = require('@aws-sdk/client-clouddirectory'); // CommonJS import
  * const client = new CloudDirectoryClient(config);
  * const input = { // DeleteDirectoryRequest
- *   DirectoryArn: "STRING_VALUE", // required
+ *   DirectoryArn: 'STRING_VALUE', // required
  * };
  * const command = new DeleteDirectoryCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteDirectoryResponse
+ *   DirectoryArn: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param DeleteDirectoryCommandInput - {@link DeleteDirectoryCommandInput}
@@ -83,6 +88,8 @@ export interface DeleteDirectoryCommandOutput extends DeleteDirectoryResponse, _
  *  <p>Indicates that your request is malformed in some manner. See the exception
  *       message.</p>
  *
+ * @throws {@link CloudDirectoryServiceException}
+ * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
  */
 export class DeleteDirectoryCommand extends $Command<

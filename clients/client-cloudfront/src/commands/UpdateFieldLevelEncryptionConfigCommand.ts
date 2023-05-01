@@ -41,21 +41,21 @@ export interface UpdateFieldLevelEncryptionConfigCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudFrontClient, UpdateFieldLevelEncryptionConfigCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
- * // const { CloudFrontClient, UpdateFieldLevelEncryptionConfigCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
+ * import { CloudFrontClient, UpdateFieldLevelEncryptionConfigCommand } from '@aws-sdk/client-cloudfront'; // ES Modules import
+ * // const { CloudFrontClient, UpdateFieldLevelEncryptionConfigCommand } = require('@aws-sdk/client-cloudfront'); // CommonJS import
  * const client = new CloudFrontClient(config);
  * const input = { // UpdateFieldLevelEncryptionConfigRequest
  *   FieldLevelEncryptionConfig: { // FieldLevelEncryptionConfig
- *     CallerReference: "STRING_VALUE", // required
- *     Comment: "STRING_VALUE",
+ *     CallerReference: 'STRING_VALUE', // required
+ *     Comment: 'STRING_VALUE',
  *     QueryArgProfileConfig: { // QueryArgProfileConfig
  *       ForwardWhenQueryArgProfileIsUnknown: true || false, // required
  *       QueryArgProfiles: { // QueryArgProfiles
- *         Quantity: Number("int"), // required
+ *         Quantity: Number('int'), // required
  *         Items: [ // QueryArgProfileList
  *           { // QueryArgProfile
- *             QueryArg: "STRING_VALUE", // required
- *             ProfileId: "STRING_VALUE", // required
+ *             QueryArg: 'STRING_VALUE', // required
+ *             ProfileId: 'STRING_VALUE', // required
  *           },
  *         ],
  *       },
@@ -63,22 +63,60 @@ export interface UpdateFieldLevelEncryptionConfigCommandOutput
  *     ContentTypeProfileConfig: { // ContentTypeProfileConfig
  *       ForwardWhenContentTypeIsUnknown: true || false, // required
  *       ContentTypeProfiles: { // ContentTypeProfiles
- *         Quantity: Number("int"), // required
+ *         Quantity: Number('int'), // required
  *         Items: [ // ContentTypeProfileList
  *           { // ContentTypeProfile
- *             Format: "URLEncoded", // required
- *             ProfileId: "STRING_VALUE",
- *             ContentType: "STRING_VALUE", // required
+ *             Format: 'URLEncoded', // required
+ *             ProfileId: 'STRING_VALUE',
+ *             ContentType: 'STRING_VALUE', // required
  *           },
  *         ],
  *       },
  *     },
  *   },
- *   Id: "STRING_VALUE", // required
- *   IfMatch: "STRING_VALUE",
+ *   Id: 'STRING_VALUE', // required
+ *   IfMatch: 'STRING_VALUE',
  * };
  * const command = new UpdateFieldLevelEncryptionConfigCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateFieldLevelEncryptionConfigResult
+ *   FieldLevelEncryption: { // FieldLevelEncryption
+ *     Id: 'STRING_VALUE', // required
+ *     LastModifiedTime: new Date('TIMESTAMP'), // required
+ *     FieldLevelEncryptionConfig: { // FieldLevelEncryptionConfig
+ *       CallerReference: 'STRING_VALUE', // required
+ *       Comment: 'STRING_VALUE',
+ *       QueryArgProfileConfig: { // QueryArgProfileConfig
+ *         ForwardWhenQueryArgProfileIsUnknown: true || false, // required
+ *         QueryArgProfiles: { // QueryArgProfiles
+ *           Quantity: Number('int'), // required
+ *           Items: [ // QueryArgProfileList
+ *             { // QueryArgProfile
+ *               QueryArg: 'STRING_VALUE', // required
+ *               ProfileId: 'STRING_VALUE', // required
+ *             },
+ *           ],
+ *         },
+ *       },
+ *       ContentTypeProfileConfig: { // ContentTypeProfileConfig
+ *         ForwardWhenContentTypeIsUnknown: true || false, // required
+ *         ContentTypeProfiles: { // ContentTypeProfiles
+ *           Quantity: Number('int'), // required
+ *           Items: [ // ContentTypeProfileList
+ *             { // ContentTypeProfile
+ *               Format: 'URLEncoded', // required
+ *               ProfileId: 'STRING_VALUE',
+ *               ContentType: 'STRING_VALUE', // required
+ *             },
+ *           ],
+ *         },
+ *       },
+ *     },
+ *   },
+ *   ETag: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateFieldLevelEncryptionConfigCommandInput - {@link UpdateFieldLevelEncryptionConfigCommandInput}
@@ -124,6 +162,8 @@ export interface UpdateFieldLevelEncryptionConfigCommandOutput
  *  <p>The maximum number of query arg profiles for field-level encryption have been
  * 			created.</p>
  *
+ * @throws {@link CloudFrontServiceException}
+ * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
  */
 export class UpdateFieldLevelEncryptionConfigCommand extends $Command<

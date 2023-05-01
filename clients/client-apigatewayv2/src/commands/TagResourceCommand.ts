@@ -36,17 +36,20 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ApiGatewayV2Client, TagResourceCommand } from "@aws-sdk/client-apigatewayv2"; // ES Modules import
- * // const { ApiGatewayV2Client, TagResourceCommand } = require("@aws-sdk/client-apigatewayv2"); // CommonJS import
+ * import { ApiGatewayV2Client, TagResourceCommand } from '@aws-sdk/client-apigatewayv2'; // ES Modules import
+ * // const { ApiGatewayV2Client, TagResourceCommand } = require('@aws-sdk/client-apigatewayv2'); // CommonJS import
  * const client = new ApiGatewayV2Client(config);
  * const input = { // TagResourceRequest
- *   ResourceArn: "STRING_VALUE", // required
+ *   ResourceArn: 'STRING_VALUE', // required
  *   Tags: { // Tags
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param TagResourceCommandInput - {@link TagResourceCommandInput}
@@ -67,6 +70,8 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>A limit has been exceeded. See the accompanying error message for details.</p>
  *
+ * @throws {@link ApiGatewayV2ServiceException}
+ * <p>Base exception class for all service exceptions from ApiGatewayV2 service.</p>
  *
  */
 export class TagResourceCommand extends $Command<

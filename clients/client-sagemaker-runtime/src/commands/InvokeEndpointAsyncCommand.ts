@@ -51,21 +51,28 @@ export interface InvokeEndpointAsyncCommandOutput extends InvokeEndpointAsyncOut
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerRuntimeClient, InvokeEndpointAsyncCommand } from "@aws-sdk/client-sagemaker-runtime"; // ES Modules import
- * // const { SageMakerRuntimeClient, InvokeEndpointAsyncCommand } = require("@aws-sdk/client-sagemaker-runtime"); // CommonJS import
+ * import { SageMakerRuntimeClient, InvokeEndpointAsyncCommand } from '@aws-sdk/client-sagemaker-runtime'; // ES Modules import
+ * // const { SageMakerRuntimeClient, InvokeEndpointAsyncCommand } = require('@aws-sdk/client-sagemaker-runtime'); // CommonJS import
  * const client = new SageMakerRuntimeClient(config);
  * const input = { // InvokeEndpointAsyncInput
- *   EndpointName: "STRING_VALUE", // required
- *   ContentType: "STRING_VALUE",
- *   Accept: "STRING_VALUE",
- *   CustomAttributes: "STRING_VALUE",
- *   InferenceId: "STRING_VALUE",
- *   InputLocation: "STRING_VALUE", // required
- *   RequestTTLSeconds: Number("int"),
- *   InvocationTimeoutSeconds: Number("int"),
+ *   EndpointName: 'STRING_VALUE', // required
+ *   ContentType: 'STRING_VALUE',
+ *   Accept: 'STRING_VALUE',
+ *   CustomAttributes: 'STRING_VALUE',
+ *   InferenceId: 'STRING_VALUE',
+ *   InputLocation: 'STRING_VALUE', // required
+ *   RequestTTLSeconds: Number('int'),
+ *   InvocationTimeoutSeconds: Number('int'),
  * };
  * const command = new InvokeEndpointAsyncCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // InvokeEndpointAsyncOutput
+ *   InferenceId: 'STRING_VALUE',
+ *   OutputLocation: 'STRING_VALUE',
+ *   FailureLocation: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param InvokeEndpointAsyncCommandInput - {@link InvokeEndpointAsyncCommandInput}
@@ -83,6 +90,8 @@ export interface InvokeEndpointAsyncCommandOutput extends InvokeEndpointAsyncOut
  * @throws {@link ValidationError} (client fault)
  *  <p> Inspect your request and try again. </p>
  *
+ * @throws {@link SageMakerRuntimeServiceException}
+ * <p>Base exception class for all service exceptions from SageMakerRuntime service.</p>
  *
  */
 export class InvokeEndpointAsyncCommand extends $Command<

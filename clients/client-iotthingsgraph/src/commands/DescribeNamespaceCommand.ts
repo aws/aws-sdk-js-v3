@@ -38,14 +38,23 @@ export interface DescribeNamespaceCommandOutput extends DescribeNamespaceRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTThingsGraphClient, DescribeNamespaceCommand } from "@aws-sdk/client-iotthingsgraph"; // ES Modules import
- * // const { IoTThingsGraphClient, DescribeNamespaceCommand } = require("@aws-sdk/client-iotthingsgraph"); // CommonJS import
+ * import { IoTThingsGraphClient, DescribeNamespaceCommand } from '@aws-sdk/client-iotthingsgraph'; // ES Modules import
+ * // const { IoTThingsGraphClient, DescribeNamespaceCommand } = require('@aws-sdk/client-iotthingsgraph'); // CommonJS import
  * const client = new IoTThingsGraphClient(config);
  * const input = { // DescribeNamespaceRequest
- *   namespaceName: "STRING_VALUE",
+ *   namespaceName: 'STRING_VALUE',
  * };
  * const command = new DescribeNamespaceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeNamespaceResponse
+ *   namespaceArn: 'STRING_VALUE',
+ *   namespaceName: 'STRING_VALUE',
+ *   trackingNamespaceName: 'STRING_VALUE',
+ *   trackingNamespaceVersion: Number('long'),
+ *   namespaceVersion: Number('long'),
+ * };
+ *
  * ```
  *
  * @param DescribeNamespaceCommandInput - {@link DescribeNamespaceCommandInput}
@@ -66,6 +75,8 @@ export interface DescribeNamespaceCommandOutput extends DescribeNamespaceRespons
  * @throws {@link ThrottlingException} (client fault)
  *  <p></p>
  *
+ * @throws {@link IoTThingsGraphServiceException}
+ * <p>Base exception class for all service exceptions from IoTThingsGraph service.</p>
  *
  */
 export class DescribeNamespaceCommand extends $Command<

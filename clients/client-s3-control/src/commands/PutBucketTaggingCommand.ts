@@ -120,23 +120,26 @@ export interface PutBucketTaggingCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { S3ControlClient, PutBucketTaggingCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
- * // const { S3ControlClient, PutBucketTaggingCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
+ * import { S3ControlClient, PutBucketTaggingCommand } from '@aws-sdk/client-s3-control'; // ES Modules import
+ * // const { S3ControlClient, PutBucketTaggingCommand } = require('@aws-sdk/client-s3-control'); // CommonJS import
  * const client = new S3ControlClient(config);
  * const input = { // PutBucketTaggingRequest
- *   AccountId: "STRING_VALUE",
- *   Bucket: "STRING_VALUE", // required
+ *   AccountId: 'STRING_VALUE',
+ *   Bucket: 'STRING_VALUE', // required
  *   Tagging: { // Tagging
  *     TagSet: [ // S3TagSet // required
  *       { // S3Tag
- *         Key: "STRING_VALUE", // required
- *         Value: "STRING_VALUE", // required
+ *         Key: 'STRING_VALUE', // required
+ *         Value: 'STRING_VALUE', // required
  *       },
  *     ],
  *   },
  * };
  * const command = new PutBucketTaggingCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutBucketTaggingCommandInput - {@link PutBucketTaggingCommandInput}
@@ -145,6 +148,8 @@ export interface PutBucketTaggingCommandOutput extends __MetadataBearer {}
  * @see {@link PutBucketTaggingCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
  *
+ * @throws {@link S3ControlServiceException}
+ * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
  */
 export class PutBucketTaggingCommand extends $Command<

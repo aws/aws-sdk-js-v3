@@ -37,16 +37,27 @@ export interface ListPartnerEventSourcesCommandOutput extends ListPartnerEventSo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EventBridgeClient, ListPartnerEventSourcesCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
- * // const { EventBridgeClient, ListPartnerEventSourcesCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
+ * import { EventBridgeClient, ListPartnerEventSourcesCommand } from '@aws-sdk/client-eventbridge'; // ES Modules import
+ * // const { EventBridgeClient, ListPartnerEventSourcesCommand } = require('@aws-sdk/client-eventbridge'); // CommonJS import
  * const client = new EventBridgeClient(config);
  * const input = { // ListPartnerEventSourcesRequest
- *   NamePrefix: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   Limit: Number("int"),
+ *   NamePrefix: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
+ *   Limit: Number('int'),
  * };
  * const command = new ListPartnerEventSourcesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListPartnerEventSourcesResponse
+ *   PartnerEventSources: [ // PartnerEventSourceList
+ *     { // PartnerEventSource
+ *       Arn: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListPartnerEventSourcesCommandInput - {@link ListPartnerEventSourcesCommandInput}
@@ -61,6 +72,8 @@ export interface ListPartnerEventSourcesCommandOutput extends ListPartnerEventSo
  * @throws {@link OperationDisabledException} (client fault)
  *  <p>The operation you are attempting is not available in this region.</p>
  *
+ * @throws {@link EventBridgeServiceException}
+ * <p>Base exception class for all service exceptions from EventBridge service.</p>
  *
  */
 export class ListPartnerEventSourcesCommand extends $Command<

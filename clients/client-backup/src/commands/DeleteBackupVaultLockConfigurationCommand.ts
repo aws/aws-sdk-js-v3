@@ -44,14 +44,17 @@ export interface DeleteBackupVaultLockConfigurationCommandOutput extends __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BackupClient, DeleteBackupVaultLockConfigurationCommand } from "@aws-sdk/client-backup"; // ES Modules import
- * // const { BackupClient, DeleteBackupVaultLockConfigurationCommand } = require("@aws-sdk/client-backup"); // CommonJS import
+ * import { BackupClient, DeleteBackupVaultLockConfigurationCommand } from '@aws-sdk/client-backup'; // ES Modules import
+ * // const { BackupClient, DeleteBackupVaultLockConfigurationCommand } = require('@aws-sdk/client-backup'); // CommonJS import
  * const client = new BackupClient(config);
  * const input = { // DeleteBackupVaultLockConfigurationInput
- *   BackupVaultName: "STRING_VALUE", // required
+ *   BackupVaultName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteBackupVaultLockConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteBackupVaultLockConfigurationCommandInput - {@link DeleteBackupVaultLockConfigurationCommandInput}
@@ -77,6 +80,8 @@ export interface DeleteBackupVaultLockConfigurationCommandOutput extends __Metad
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request failed due to a temporary failure of the server.</p>
  *
+ * @throws {@link BackupServiceException}
+ * <p>Base exception class for all service exceptions from Backup service.</p>
  *
  */
 export class DeleteBackupVaultLockConfigurationCommand extends $Command<

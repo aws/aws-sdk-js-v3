@@ -36,15 +36,20 @@ export interface RegisterAccountCommandOutput extends RegisterAccountResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AuditManagerClient, RegisterAccountCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
- * // const { AuditManagerClient, RegisterAccountCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import
+ * import { AuditManagerClient, RegisterAccountCommand } from '@aws-sdk/client-auditmanager'; // ES Modules import
+ * // const { AuditManagerClient, RegisterAccountCommand } = require('@aws-sdk/client-auditmanager'); // CommonJS import
  * const client = new AuditManagerClient(config);
  * const input = { // RegisterAccountRequest
- *   kmsKey: "STRING_VALUE",
- *   delegatedAdminAccount: "STRING_VALUE",
+ *   kmsKey: 'STRING_VALUE',
+ *   delegatedAdminAccount: 'STRING_VALUE',
  * };
  * const command = new RegisterAccountCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // RegisterAccountResponse
+ *   status: 'ACTIVE' || 'INACTIVE' || 'PENDING_ACTIVATION',
+ * };
+ *
  * ```
  *
  * @param RegisterAccountCommandInput - {@link RegisterAccountCommandInput}
@@ -70,6 +75,8 @@ export interface RegisterAccountCommandOutput extends RegisterAccountResponse, _
  * @throws {@link ValidationException} (client fault)
  *  <p> The request has invalid or missing parameters. </p>
  *
+ * @throws {@link AuditManagerServiceException}
+ * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
  */
 export class RegisterAccountCommand extends $Command<

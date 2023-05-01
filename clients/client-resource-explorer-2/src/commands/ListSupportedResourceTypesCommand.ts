@@ -40,15 +40,26 @@ export interface ListSupportedResourceTypesCommandOutput extends ListSupportedRe
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ResourceExplorer2Client, ListSupportedResourceTypesCommand } from "@aws-sdk/client-resource-explorer-2"; // ES Modules import
- * // const { ResourceExplorer2Client, ListSupportedResourceTypesCommand } = require("@aws-sdk/client-resource-explorer-2"); // CommonJS import
+ * import { ResourceExplorer2Client, ListSupportedResourceTypesCommand } from '@aws-sdk/client-resource-explorer-2'; // ES Modules import
+ * // const { ResourceExplorer2Client, ListSupportedResourceTypesCommand } = require('@aws-sdk/client-resource-explorer-2'); // CommonJS import
  * const client = new ResourceExplorer2Client(config);
  * const input = { // ListSupportedResourceTypesInput
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListSupportedResourceTypesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListSupportedResourceTypesOutput
+ *   ResourceTypes: [ // ResourceTypeList
+ *     { // SupportedResourceType
+ *       Service: 'STRING_VALUE',
+ *       ResourceType: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListSupportedResourceTypesCommandInput - {@link ListSupportedResourceTypesCommandInput}
@@ -74,6 +85,8 @@ export interface ListSupportedResourceTypesCommandOutput extends ListSupportedRe
  *  <p>You provided an invalid value for one of the operation's parameters. Check the syntax
  *             for the operation, and try again.</p>
  *
+ * @throws {@link ResourceExplorer2ServiceException}
+ * <p>Base exception class for all service exceptions from ResourceExplorer2 service.</p>
  *
  */
 export class ListSupportedResourceTypesCommand extends $Command<

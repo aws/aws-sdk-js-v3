@@ -36,104 +36,110 @@ export interface UpdateSignalCatalogCommandOutput extends UpdateSignalCatalogRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTFleetWiseClient, UpdateSignalCatalogCommand } from "@aws-sdk/client-iotfleetwise"; // ES Modules import
- * // const { IoTFleetWiseClient, UpdateSignalCatalogCommand } = require("@aws-sdk/client-iotfleetwise"); // CommonJS import
+ * import { IoTFleetWiseClient, UpdateSignalCatalogCommand } from '@aws-sdk/client-iotfleetwise'; // ES Modules import
+ * // const { IoTFleetWiseClient, UpdateSignalCatalogCommand } = require('@aws-sdk/client-iotfleetwise'); // CommonJS import
  * const client = new IoTFleetWiseClient(config);
  * const input = { // UpdateSignalCatalogRequest
- *   name: "STRING_VALUE", // required
- *   description: "STRING_VALUE",
+ *   name: 'STRING_VALUE', // required
+ *   description: 'STRING_VALUE',
  *   nodesToAdd: [ // Nodes
  *     { // Node Union: only one key present
  *       branch: { // Branch
- *         fullyQualifiedName: "STRING_VALUE", // required
- *         description: "STRING_VALUE",
+ *         fullyQualifiedName: 'STRING_VALUE', // required
+ *         description: 'STRING_VALUE',
  *       },
  *       sensor: { // Sensor
- *         fullyQualifiedName: "STRING_VALUE", // required
- *         dataType: "STRING_VALUE", // required
- *         description: "STRING_VALUE",
- *         unit: "STRING_VALUE",
+ *         fullyQualifiedName: 'STRING_VALUE', // required
+ *         dataType: 'STRING_VALUE', // required
+ *         description: 'STRING_VALUE',
+ *         unit: 'STRING_VALUE',
  *         allowedValues: [ // listOfStrings
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
- *         min: Number("double"),
- *         max: Number("double"),
+ *         min: Number('double'),
+ *         max: Number('double'),
  *       },
  *       actuator: { // Actuator
- *         fullyQualifiedName: "STRING_VALUE", // required
- *         dataType: "STRING_VALUE", // required
- *         description: "STRING_VALUE",
- *         unit: "STRING_VALUE",
+ *         fullyQualifiedName: 'STRING_VALUE', // required
+ *         dataType: 'STRING_VALUE', // required
+ *         description: 'STRING_VALUE',
+ *         unit: 'STRING_VALUE',
  *         allowedValues: [
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
- *         min: Number("double"),
- *         max: Number("double"),
- *         assignedValue: "STRING_VALUE",
+ *         min: Number('double'),
+ *         max: Number('double'),
+ *         assignedValue: 'STRING_VALUE',
  *       },
  *       attribute: { // Attribute
- *         fullyQualifiedName: "STRING_VALUE", // required
- *         dataType: "STRING_VALUE", // required
- *         description: "STRING_VALUE",
- *         unit: "STRING_VALUE",
+ *         fullyQualifiedName: 'STRING_VALUE', // required
+ *         dataType: 'STRING_VALUE', // required
+ *         description: 'STRING_VALUE',
+ *         unit: 'STRING_VALUE',
  *         allowedValues: [
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
- *         min: Number("double"),
- *         max: Number("double"),
- *         assignedValue: "STRING_VALUE",
- *         defaultValue: "STRING_VALUE",
+ *         min: Number('double'),
+ *         max: Number('double'),
+ *         assignedValue: 'STRING_VALUE',
+ *         defaultValue: 'STRING_VALUE',
  *       },
  *     },
  *   ],
  *   nodesToUpdate: [
  *     {//  Union: only one key present
  *       branch: {
- *         fullyQualifiedName: "STRING_VALUE", // required
- *         description: "STRING_VALUE",
+ *         fullyQualifiedName: 'STRING_VALUE', // required
+ *         description: 'STRING_VALUE',
  *       },
  *       sensor: {
- *         fullyQualifiedName: "STRING_VALUE", // required
- *         dataType: "STRING_VALUE", // required
- *         description: "STRING_VALUE",
- *         unit: "STRING_VALUE",
+ *         fullyQualifiedName: 'STRING_VALUE', // required
+ *         dataType: 'STRING_VALUE', // required
+ *         description: 'STRING_VALUE',
+ *         unit: 'STRING_VALUE',
  *         allowedValues: [
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
- *         min: Number("double"),
- *         max: Number("double"),
+ *         min: Number('double'),
+ *         max: Number('double'),
  *       },
  *       actuator: {
- *         fullyQualifiedName: "STRING_VALUE", // required
- *         dataType: "STRING_VALUE", // required
- *         description: "STRING_VALUE",
- *         unit: "STRING_VALUE",
+ *         fullyQualifiedName: 'STRING_VALUE', // required
+ *         dataType: 'STRING_VALUE', // required
+ *         description: 'STRING_VALUE',
+ *         unit: 'STRING_VALUE',
  *         allowedValues: [
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
- *         min: Number("double"),
- *         max: Number("double"),
- *         assignedValue: "STRING_VALUE",
+ *         min: Number('double'),
+ *         max: Number('double'),
+ *         assignedValue: 'STRING_VALUE',
  *       },
  *       attribute: {
- *         fullyQualifiedName: "STRING_VALUE", // required
- *         dataType: "STRING_VALUE", // required
- *         description: "STRING_VALUE",
- *         unit: "STRING_VALUE",
- *         allowedValues: "<listOfStrings>",
- *         min: Number("double"),
- *         max: Number("double"),
- *         assignedValue: "STRING_VALUE",
- *         defaultValue: "STRING_VALUE",
+ *         fullyQualifiedName: 'STRING_VALUE', // required
+ *         dataType: 'STRING_VALUE', // required
+ *         description: 'STRING_VALUE',
+ *         unit: 'STRING_VALUE',
+ *         allowedValues: '<listOfStrings>',
+ *         min: Number('double'),
+ *         max: Number('double'),
+ *         assignedValue: 'STRING_VALUE',
+ *         defaultValue: 'STRING_VALUE',
  *       },
  *     },
  *   ],
  *   nodesToRemove: [ // NodePaths
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new UpdateSignalCatalogCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateSignalCatalogResponse
+ *   name: 'STRING_VALUE', // required
+ *   arn: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param UpdateSignalCatalogCommandInput - {@link UpdateSignalCatalogCommandInput}
@@ -171,6 +177,8 @@ export interface UpdateSignalCatalogCommandOutput extends UpdateSignalCatalogRes
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
  *
+ * @throws {@link IoTFleetWiseServiceException}
+ * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
  */
 export class UpdateSignalCatalogCommand extends $Command<

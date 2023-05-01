@@ -38,14 +38,17 @@ export interface DeleteAccountAliasCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IAMClient, DeleteAccountAliasCommand } from "@aws-sdk/client-iam"; // ES Modules import
- * // const { IAMClient, DeleteAccountAliasCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * import { IAMClient, DeleteAccountAliasCommand } from '@aws-sdk/client-iam'; // ES Modules import
+ * // const { IAMClient, DeleteAccountAliasCommand } = require('@aws-sdk/client-iam'); // CommonJS import
  * const client = new IAMClient(config);
  * const input = { // DeleteAccountAliasRequest
- *   AccountAlias: "STRING_VALUE", // required
+ *   AccountAlias: 'STRING_VALUE', // required
  * };
  * const command = new DeleteAccountAliasCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteAccountAliasCommandInput - {@link DeleteAccountAliasCommandInput}
@@ -66,6 +69,8 @@ export interface DeleteAccountAliasCommandOutput extends __MetadataBearer {}
  *  <p>The request processing has failed because of an unknown error, exception or
  *       failure.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  * @example To delete an account alias
  * ```javascript

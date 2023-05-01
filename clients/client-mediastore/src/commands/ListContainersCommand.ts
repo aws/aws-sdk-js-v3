@@ -44,15 +44,30 @@ export interface ListContainersCommandOutput extends ListContainersOutput, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MediaStoreClient, ListContainersCommand } from "@aws-sdk/client-mediastore"; // ES Modules import
- * // const { MediaStoreClient, ListContainersCommand } = require("@aws-sdk/client-mediastore"); // CommonJS import
+ * import { MediaStoreClient, ListContainersCommand } from '@aws-sdk/client-mediastore'; // ES Modules import
+ * // const { MediaStoreClient, ListContainersCommand } = require('@aws-sdk/client-mediastore'); // CommonJS import
  * const client = new MediaStoreClient(config);
  * const input = { // ListContainersInput
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListContainersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListContainersOutput
+ *   Containers: [ // ContainerList // required
+ *     { // Container
+ *       Endpoint: 'STRING_VALUE',
+ *       CreationTime: new Date('TIMESTAMP'),
+ *       ARN: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *       Status: 'STRING_VALUE',
+ *       AccessLoggingEnabled: true || false,
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListContainersCommandInput - {@link ListContainersCommandInput}
@@ -64,6 +79,8 @@ export interface ListContainersCommandOutput extends ListContainersOutput, __Met
  * @throws {@link InternalServerError} (server fault)
  *  <p>The service is temporarily unavailable.</p>
  *
+ * @throws {@link MediaStoreServiceException}
+ * <p>Base exception class for all service exceptions from MediaStore service.</p>
  *
  */
 export class ListContainersCommand extends $Command<

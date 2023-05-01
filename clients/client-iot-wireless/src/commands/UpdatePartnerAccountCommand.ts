@@ -40,18 +40,21 @@ export interface UpdatePartnerAccountCommandOutput extends UpdatePartnerAccountR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTWirelessClient, UpdatePartnerAccountCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
- * // const { IoTWirelessClient, UpdatePartnerAccountCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
+ * import { IoTWirelessClient, UpdatePartnerAccountCommand } from '@aws-sdk/client-iot-wireless'; // ES Modules import
+ * // const { IoTWirelessClient, UpdatePartnerAccountCommand } = require('@aws-sdk/client-iot-wireless'); // CommonJS import
  * const client = new IoTWirelessClient(config);
  * const input = { // UpdatePartnerAccountRequest
  *   Sidewalk: { // SidewalkUpdateAccount
- *     AppServerPrivateKey: "STRING_VALUE",
+ *     AppServerPrivateKey: 'STRING_VALUE',
  *   },
- *   PartnerAccountId: "STRING_VALUE", // required
- *   PartnerType: "Sidewalk", // required
+ *   PartnerAccountId: 'STRING_VALUE', // required
+ *   PartnerType: 'Sidewalk', // required
  * };
  * const command = new UpdatePartnerAccountCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdatePartnerAccountCommandInput - {@link UpdatePartnerAccountCommandInput}
@@ -72,6 +75,8 @@ export interface UpdatePartnerAccountCommandOutput extends UpdatePartnerAccountR
  * @throws {@link ValidationException} (client fault)
  *  <p>The input did not meet the specified constraints.</p>
  *
+ * @throws {@link IoTWirelessServiceException}
+ * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
  */
 export class UpdatePartnerAccountCommand extends $Command<

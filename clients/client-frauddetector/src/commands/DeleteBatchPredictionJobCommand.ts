@@ -36,14 +36,17 @@ export interface DeleteBatchPredictionJobCommandOutput extends DeleteBatchPredic
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FraudDetectorClient, DeleteBatchPredictionJobCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
- * // const { FraudDetectorClient, DeleteBatchPredictionJobCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
+ * import { FraudDetectorClient, DeleteBatchPredictionJobCommand } from '@aws-sdk/client-frauddetector'; // ES Modules import
+ * // const { FraudDetectorClient, DeleteBatchPredictionJobCommand } = require('@aws-sdk/client-frauddetector'); // CommonJS import
  * const client = new FraudDetectorClient(config);
  * const input = { // DeleteBatchPredictionJobRequest
- *   jobId: "STRING_VALUE", // required
+ *   jobId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteBatchPredictionJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteBatchPredictionJobCommandInput - {@link DeleteBatchPredictionJobCommandInput}
@@ -64,6 +67,8 @@ export interface DeleteBatchPredictionJobCommandOutput extends DeleteBatchPredic
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception indicating a specified value is not allowed.</p>
  *
+ * @throws {@link FraudDetectorServiceException}
+ * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
  */
 export class DeleteBatchPredictionJobCommand extends $Command<

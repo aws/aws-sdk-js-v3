@@ -36,19 +36,32 @@ export interface ListDiscoveredResourcesCommandOutput extends ListDiscoveredReso
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FMSClient, ListDiscoveredResourcesCommand } from "@aws-sdk/client-fms"; // ES Modules import
- * // const { FMSClient, ListDiscoveredResourcesCommand } = require("@aws-sdk/client-fms"); // CommonJS import
+ * import { FMSClient, ListDiscoveredResourcesCommand } from '@aws-sdk/client-fms'; // ES Modules import
+ * // const { FMSClient, ListDiscoveredResourcesCommand } = require('@aws-sdk/client-fms'); // CommonJS import
  * const client = new FMSClient(config);
  * const input = { // ListDiscoveredResourcesRequest
  *   MemberAccountIds: [ // AWSAccountIdList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   ResourceType: "STRING_VALUE", // required
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   ResourceType: 'STRING_VALUE', // required
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListDiscoveredResourcesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListDiscoveredResourcesResponse
+ *   Items: [ // DiscoveredResourceList
+ *     { // DiscoveredResource
+ *       URI: 'STRING_VALUE',
+ *       AccountId: 'STRING_VALUE',
+ *       Type: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListDiscoveredResourcesCommandInput - {@link ListDiscoveredResourcesCommandInput}
@@ -71,6 +84,8 @@ export interface ListDiscoveredResourcesCommandOutput extends ListDiscoveredReso
  *   that's disabled by default, and that you need to enable for the Firewall Manager
  *   administrator account and for Organizations before you can access it.</p>
  *
+ * @throws {@link FMSServiceException}
+ * <p>Base exception class for all service exceptions from FMS service.</p>
  *
  */
 export class ListDiscoveredResourcesCommand extends $Command<

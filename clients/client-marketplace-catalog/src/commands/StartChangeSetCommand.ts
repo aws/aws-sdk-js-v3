@@ -52,39 +52,45 @@ export interface StartChangeSetCommandOutput extends StartChangeSetResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MarketplaceCatalogClient, StartChangeSetCommand } from "@aws-sdk/client-marketplace-catalog"; // ES Modules import
- * // const { MarketplaceCatalogClient, StartChangeSetCommand } = require("@aws-sdk/client-marketplace-catalog"); // CommonJS import
+ * import { MarketplaceCatalogClient, StartChangeSetCommand } from '@aws-sdk/client-marketplace-catalog'; // ES Modules import
+ * // const { MarketplaceCatalogClient, StartChangeSetCommand } = require('@aws-sdk/client-marketplace-catalog'); // CommonJS import
  * const client = new MarketplaceCatalogClient(config);
  * const input = { // StartChangeSetRequest
- *   Catalog: "STRING_VALUE", // required
+ *   Catalog: 'STRING_VALUE', // required
  *   ChangeSet: [ // RequestedChangeList // required
  *     { // Change
- *       ChangeType: "STRING_VALUE", // required
+ *       ChangeType: 'STRING_VALUE', // required
  *       Entity: { // Entity
- *         Type: "STRING_VALUE", // required
- *         Identifier: "STRING_VALUE",
+ *         Type: 'STRING_VALUE', // required
+ *         Identifier: 'STRING_VALUE',
  *       },
  *       EntityTags: [ // TagList
  *         { // Tag
- *           Key: "STRING_VALUE", // required
- *           Value: "STRING_VALUE", // required
+ *           Key: 'STRING_VALUE', // required
+ *           Value: 'STRING_VALUE', // required
  *         },
  *       ],
- *       Details: "STRING_VALUE", // required
- *       ChangeName: "STRING_VALUE",
+ *       Details: 'STRING_VALUE', // required
+ *       ChangeName: 'STRING_VALUE',
  *     },
  *   ],
- *   ChangeSetName: "STRING_VALUE",
- *   ClientRequestToken: "STRING_VALUE",
+ *   ChangeSetName: 'STRING_VALUE',
+ *   ClientRequestToken: 'STRING_VALUE',
  *   ChangeSetTags: [
  *     {
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new StartChangeSetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartChangeSetResponse
+ *   ChangeSetId: 'STRING_VALUE',
+ *   ChangeSetArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param StartChangeSetCommandInput - {@link StartChangeSetCommandInput}
@@ -119,6 +125,8 @@ export interface StartChangeSetCommandOutput extends StartChangeSetResponse, __M
  *  <p>An error occurred during validation.</p>
  *          <p>HTTP status code: 422</p>
  *
+ * @throws {@link MarketplaceCatalogServiceException}
+ * <p>Base exception class for all service exceptions from MarketplaceCatalog service.</p>
  *
  */
 export class StartChangeSetCommand extends $Command<

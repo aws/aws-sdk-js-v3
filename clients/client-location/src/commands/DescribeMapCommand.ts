@@ -36,14 +36,31 @@ export interface DescribeMapCommandOutput extends DescribeMapResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LocationClient, DescribeMapCommand } from "@aws-sdk/client-location"; // ES Modules import
- * // const { LocationClient, DescribeMapCommand } = require("@aws-sdk/client-location"); // CommonJS import
+ * import { LocationClient, DescribeMapCommand } from '@aws-sdk/client-location'; // ES Modules import
+ * // const { LocationClient, DescribeMapCommand } = require('@aws-sdk/client-location'); // CommonJS import
  * const client = new LocationClient(config);
  * const input = { // DescribeMapRequest
- *   MapName: "STRING_VALUE", // required
+ *   MapName: 'STRING_VALUE', // required
  * };
  * const command = new DescribeMapCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeMapResponse
+ *   MapName: 'STRING_VALUE', // required
+ *   MapArn: 'STRING_VALUE', // required
+ *   PricingPlan: 'STRING_VALUE',
+ *   DataSource: 'STRING_VALUE', // required
+ *   Configuration: { // MapConfiguration
+ *     Style: 'STRING_VALUE', // required
+ *   },
+ *   Description: 'STRING_VALUE', // required
+ *   Tags: { // TagMap
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ *   CreateTime: new Date('TIMESTAMP'), // required
+ *   UpdateTime: new Date('TIMESTAMP'), // required
+ * };
+ *
  * ```
  *
  * @param DescribeMapCommandInput - {@link DescribeMapCommandInput}
@@ -68,6 +85,8 @@ export interface DescribeMapCommandOutput extends DescribeMapResponse, __Metadat
  * @throws {@link ValidationException} (client fault)
  *  <p>The input failed to meet the constraints specified by the AWS service. </p>
  *
+ * @throws {@link LocationServiceException}
+ * <p>Base exception class for all service exceptions from Location service.</p>
  *
  */
 export class DescribeMapCommand extends $Command<

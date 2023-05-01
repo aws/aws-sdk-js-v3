@@ -36,15 +36,26 @@ export interface ListServicesCommandOutput extends ListServicesResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ServiceQuotasClient, ListServicesCommand } from "@aws-sdk/client-service-quotas"; // ES Modules import
- * // const { ServiceQuotasClient, ListServicesCommand } = require("@aws-sdk/client-service-quotas"); // CommonJS import
+ * import { ServiceQuotasClient, ListServicesCommand } from '@aws-sdk/client-service-quotas'; // ES Modules import
+ * // const { ServiceQuotasClient, ListServicesCommand } = require('@aws-sdk/client-service-quotas'); // CommonJS import
  * const client = new ServiceQuotasClient(config);
  * const input = { // ListServicesRequest
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListServicesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListServicesResponse
+ *   NextToken: 'STRING_VALUE',
+ *   Services: [ // ServiceInfoListDefinition
+ *     { // ServiceInfo
+ *       ServiceCode: 'STRING_VALUE',
+ *       ServiceName: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListServicesCommandInput - {@link ListServicesCommandInput}
@@ -69,6 +80,8 @@ export interface ListServicesCommandOutput extends ListServicesResponse, __Metad
  *  <p>Due to throttling, the request was denied. Slow down the rate of request calls, or request
  *       an increase for this quota.</p>
  *
+ * @throws {@link ServiceQuotasServiceException}
+ * <p>Base exception class for all service exceptions from ServiceQuotas service.</p>
  *
  */
 export class ListServicesCommand extends $Command<

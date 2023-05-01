@@ -41,18 +41,37 @@ export interface StartNextPendingJobExecutionCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTJobsDataPlaneClient, StartNextPendingJobExecutionCommand } from "@aws-sdk/client-iot-jobs-data-plane"; // ES Modules import
- * // const { IoTJobsDataPlaneClient, StartNextPendingJobExecutionCommand } = require("@aws-sdk/client-iot-jobs-data-plane"); // CommonJS import
+ * import { IoTJobsDataPlaneClient, StartNextPendingJobExecutionCommand } from '@aws-sdk/client-iot-jobs-data-plane'; // ES Modules import
+ * // const { IoTJobsDataPlaneClient, StartNextPendingJobExecutionCommand } = require('@aws-sdk/client-iot-jobs-data-plane'); // CommonJS import
  * const client = new IoTJobsDataPlaneClient(config);
  * const input = { // StartNextPendingJobExecutionRequest
- *   thingName: "STRING_VALUE", // required
+ *   thingName: 'STRING_VALUE', // required
  *   statusDetails: { // DetailsMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
- *   stepTimeoutInMinutes: Number("long"),
+ *   stepTimeoutInMinutes: Number('long'),
  * };
  * const command = new StartNextPendingJobExecutionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartNextPendingJobExecutionResponse
+ *   execution: { // JobExecution
+ *     jobId: 'STRING_VALUE',
+ *     thingName: 'STRING_VALUE',
+ *     status: 'STRING_VALUE',
+ *     statusDetails: { // DetailsMap
+ *       '<keys>': 'STRING_VALUE',
+ *     },
+ *     queuedAt: Number('long'),
+ *     startedAt: Number('long'),
+ *     lastUpdatedAt: Number('long'),
+ *     approximateSecondsBeforeTimedOut: Number('long'),
+ *     versionNumber: Number('long'),
+ *     executionNumber: Number('long'),
+ *     jobDocument: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param StartNextPendingJobExecutionCommandInput - {@link StartNextPendingJobExecutionCommandInput}
@@ -76,6 +95,8 @@ export interface StartNextPendingJobExecutionCommandOutput
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The rate exceeds the limit.</p>
  *
+ * @throws {@link IoTJobsDataPlaneServiceException}
+ * <p>Base exception class for all service exceptions from IoTJobsDataPlane service.</p>
  *
  */
 export class StartNextPendingJobExecutionCommand extends $Command<

@@ -39,17 +39,20 @@ export interface AssociateTimeSeriesToAssetPropertyCommandOutput extends __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTSiteWiseClient, AssociateTimeSeriesToAssetPropertyCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
- * // const { IoTSiteWiseClient, AssociateTimeSeriesToAssetPropertyCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
+ * import { IoTSiteWiseClient, AssociateTimeSeriesToAssetPropertyCommand } from '@aws-sdk/client-iotsitewise'; // ES Modules import
+ * // const { IoTSiteWiseClient, AssociateTimeSeriesToAssetPropertyCommand } = require('@aws-sdk/client-iotsitewise'); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
  * const input = { // AssociateTimeSeriesToAssetPropertyRequest
- *   alias: "STRING_VALUE", // required
- *   assetId: "STRING_VALUE", // required
- *   propertyId: "STRING_VALUE", // required
- *   clientToken: "STRING_VALUE",
+ *   alias: 'STRING_VALUE', // required
+ *   assetId: 'STRING_VALUE', // required
+ *   propertyId: 'STRING_VALUE', // required
+ *   clientToken: 'STRING_VALUE',
  * };
  * const command = new AssociateTimeSeriesToAssetPropertyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param AssociateTimeSeriesToAssetPropertyCommandInput - {@link AssociateTimeSeriesToAssetPropertyCommandInput}
@@ -78,6 +81,8 @@ export interface AssociateTimeSeriesToAssetPropertyCommandOutput extends __Metad
  *       on.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
  *
+ * @throws {@link IoTSiteWiseServiceException}
+ * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
  */
 export class AssociateTimeSeriesToAssetPropertyCommand extends $Command<

@@ -36,23 +36,45 @@ export interface ListOperationsCommandOutput extends ListOperationsOutput, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SsmSapClient, ListOperationsCommand } from "@aws-sdk/client-ssm-sap"; // ES Modules import
- * // const { SsmSapClient, ListOperationsCommand } = require("@aws-sdk/client-ssm-sap"); // CommonJS import
+ * import { SsmSapClient, ListOperationsCommand } from '@aws-sdk/client-ssm-sap'; // ES Modules import
+ * // const { SsmSapClient, ListOperationsCommand } = require('@aws-sdk/client-ssm-sap'); // CommonJS import
  * const client = new SsmSapClient(config);
  * const input = { // ListOperationsInput
- *   ApplicationId: "STRING_VALUE", // required
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   ApplicationId: 'STRING_VALUE', // required
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  *   Filters: [ // FilterList
  *     { // Filter
- *       Name: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
- *       Operator: "STRING_VALUE", // required
+ *       Name: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
+ *       Operator: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new ListOperationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListOperationsOutput
+ *   Operations: [ // OperationList
+ *     { // Operation
+ *       Id: 'STRING_VALUE',
+ *       Type: 'STRING_VALUE',
+ *       Status: 'STRING_VALUE',
+ *       StatusMessage: 'STRING_VALUE',
+ *       Properties: { // OperationProperties
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *       ResourceType: 'STRING_VALUE',
+ *       ResourceId: 'STRING_VALUE',
+ *       ResourceArn: 'STRING_VALUE',
+ *       StartTime: new Date('TIMESTAMP'),
+ *       EndTime: new Date('TIMESTAMP'),
+ *       LastUpdatedTime: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListOperationsCommandInput - {@link ListOperationsCommandInput}
@@ -67,6 +89,8 @@ export interface ListOperationsCommandOutput extends ListOperationsOutput, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service. </p>
  *
+ * @throws {@link SsmSapServiceException}
+ * <p>Base exception class for all service exceptions from SsmSap service.</p>
  *
  */
 export class ListOperationsCommand extends $Command<

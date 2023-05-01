@@ -37,27 +37,39 @@ export interface DescribeDBLogFilesCommandOutput extends DescribeDBLogFilesRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RDSClient, DescribeDBLogFilesCommand } from "@aws-sdk/client-rds"; // ES Modules import
- * // const { RDSClient, DescribeDBLogFilesCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * import { RDSClient, DescribeDBLogFilesCommand } from '@aws-sdk/client-rds'; // ES Modules import
+ * // const { RDSClient, DescribeDBLogFilesCommand } = require('@aws-sdk/client-rds'); // CommonJS import
  * const client = new RDSClient(config);
  * const input = { // DescribeDBLogFilesMessage
- *   DBInstanceIdentifier: "STRING_VALUE", // required
- *   FilenameContains: "STRING_VALUE",
- *   FileLastWritten: Number("long"),
- *   FileSize: Number("long"),
+ *   DBInstanceIdentifier: 'STRING_VALUE', // required
+ *   FilenameContains: 'STRING_VALUE',
+ *   FileLastWritten: Number('long'),
+ *   FileSize: Number('long'),
  *   Filters: [ // FilterList
  *     { // Filter
- *       Name: "STRING_VALUE", // required
+ *       Name: 'STRING_VALUE', // required
  *       Values: [ // FilterValueList // required
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
- *   MaxRecords: Number("int"),
- *   Marker: "STRING_VALUE",
+ *   MaxRecords: Number('int'),
+ *   Marker: 'STRING_VALUE',
  * };
  * const command = new DescribeDBLogFilesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeDBLogFilesResponse
+ *   DescribeDBLogFiles: [ // DescribeDBLogFilesList
+ *     { // DescribeDBLogFilesDetails
+ *       LogFileName: 'STRING_VALUE',
+ *       LastWritten: Number('long'),
+ *       Size: Number('long'),
+ *     },
+ *   ],
+ *   Marker: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeDBLogFilesCommandInput - {@link DescribeDBLogFilesCommandInput}
@@ -70,6 +82,8 @@ export interface DescribeDBLogFilesCommandOutput extends DescribeDBLogFilesRespo
  *  <p>
  *             <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.</p>
  *
+ * @throws {@link RDSServiceException}
+ * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  * @example To describe the log files for a DB instance
  * ```javascript

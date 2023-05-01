@@ -36,16 +36,19 @@ export interface UpdateWorkspaceAliasCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AmpClient, UpdateWorkspaceAliasCommand } from "@aws-sdk/client-amp"; // ES Modules import
- * // const { AmpClient, UpdateWorkspaceAliasCommand } = require("@aws-sdk/client-amp"); // CommonJS import
+ * import { AmpClient, UpdateWorkspaceAliasCommand } from '@aws-sdk/client-amp'; // ES Modules import
+ * // const { AmpClient, UpdateWorkspaceAliasCommand } = require('@aws-sdk/client-amp'); // CommonJS import
  * const client = new AmpClient(config);
  * const input = { // UpdateWorkspaceAliasRequest
- *   workspaceId: "STRING_VALUE", // required
- *   alias: "STRING_VALUE",
- *   clientToken: "STRING_VALUE",
+ *   workspaceId: 'STRING_VALUE', // required
+ *   alias: 'STRING_VALUE',
+ *   clientToken: 'STRING_VALUE',
  * };
  * const command = new UpdateWorkspaceAliasCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateWorkspaceAliasCommandInput - {@link UpdateWorkspaceAliasCommandInput}
@@ -75,6 +78,8 @@ export interface UpdateWorkspaceAliasCommandOutput extends __MetadataBearer {}
  * @throws {@link ValidationException} (client fault)
  *  The input fails to satisfy the constraints specified by an AWS service.
  *
+ * @throws {@link AmpServiceException}
+ * <p>Base exception class for all service exceptions from Amp service.</p>
  *
  */
 export class UpdateWorkspaceAliasCommand extends $Command<

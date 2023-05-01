@@ -38,15 +38,21 @@ export interface DeleteChapCredentialsCommandOutput extends DeleteChapCredential
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { StorageGatewayClient, DeleteChapCredentialsCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
- * // const { StorageGatewayClient, DeleteChapCredentialsCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
+ * import { StorageGatewayClient, DeleteChapCredentialsCommand } from '@aws-sdk/client-storage-gateway'; // ES Modules import
+ * // const { StorageGatewayClient, DeleteChapCredentialsCommand } = require('@aws-sdk/client-storage-gateway'); // CommonJS import
  * const client = new StorageGatewayClient(config);
  * const input = { // DeleteChapCredentialsInput
- *   TargetARN: "STRING_VALUE", // required
- *   InitiatorName: "STRING_VALUE", // required
+ *   TargetARN: 'STRING_VALUE', // required
+ *   InitiatorName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteChapCredentialsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteChapCredentialsOutput
+ *   TargetARN: 'STRING_VALUE',
+ *   InitiatorName: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DeleteChapCredentialsCommandInput - {@link DeleteChapCredentialsCommandInput}
@@ -63,6 +69,8 @@ export interface DeleteChapCredentialsCommandOutput extends DeleteChapCredential
  *  <p>An exception occurred because an invalid gateway request was issued to the service. For
  *          more information, see the error and message fields.</p>
  *
+ * @throws {@link StorageGatewayServiceException}
+ * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
  * @example To delete CHAP credentials
  * ```javascript

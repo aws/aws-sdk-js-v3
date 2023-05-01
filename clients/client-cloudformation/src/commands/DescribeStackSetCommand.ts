@@ -36,15 +36,70 @@ export interface DescribeStackSetCommandOutput extends DescribeStackSetOutput, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudFormationClient, DescribeStackSetCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
- * // const { CloudFormationClient, DescribeStackSetCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
+ * import { CloudFormationClient, DescribeStackSetCommand } from '@aws-sdk/client-cloudformation'; // ES Modules import
+ * // const { CloudFormationClient, DescribeStackSetCommand } = require('@aws-sdk/client-cloudformation'); // CommonJS import
  * const client = new CloudFormationClient(config);
  * const input = { // DescribeStackSetInput
- *   StackSetName: "STRING_VALUE", // required
- *   CallAs: "SELF" || "DELEGATED_ADMIN",
+ *   StackSetName: 'STRING_VALUE', // required
+ *   CallAs: 'SELF' || 'DELEGATED_ADMIN',
  * };
  * const command = new DescribeStackSetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeStackSetOutput
+ *   StackSet: { // StackSet
+ *     StackSetName: 'STRING_VALUE',
+ *     StackSetId: 'STRING_VALUE',
+ *     Description: 'STRING_VALUE',
+ *     Status: 'ACTIVE' || 'DELETED',
+ *     TemplateBody: 'STRING_VALUE',
+ *     Parameters: [ // Parameters
+ *       { // Parameter
+ *         ParameterKey: 'STRING_VALUE',
+ *         ParameterValue: 'STRING_VALUE',
+ *         UsePreviousValue: true || false,
+ *         ResolvedValue: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     Capabilities: [ // Capabilities
+ *       'CAPABILITY_IAM' || 'CAPABILITY_NAMED_IAM' || 'CAPABILITY_AUTO_EXPAND',
+ *     ],
+ *     Tags: [ // Tags
+ *       { // Tag
+ *         Key: 'STRING_VALUE', // required
+ *         Value: 'STRING_VALUE', // required
+ *       },
+ *     ],
+ *     StackSetARN: 'STRING_VALUE',
+ *     AdministrationRoleARN: 'STRING_VALUE',
+ *     ExecutionRoleName: 'STRING_VALUE',
+ *     StackSetDriftDetectionDetails: { // StackSetDriftDetectionDetails
+ *       DriftStatus: 'DRIFTED' || 'IN_SYNC' || 'NOT_CHECKED',
+ *       DriftDetectionStatus: 'COMPLETED' || 'FAILED' || 'PARTIAL_SUCCESS' || 'IN_PROGRESS' || 'STOPPED',
+ *       LastDriftCheckTimestamp: new Date('TIMESTAMP'),
+ *       TotalStackInstancesCount: Number('int'),
+ *       DriftedStackInstancesCount: Number('int'),
+ *       InSyncStackInstancesCount: Number('int'),
+ *       InProgressStackInstancesCount: Number('int'),
+ *       FailedStackInstancesCount: Number('int'),
+ *     },
+ *     AutoDeployment: { // AutoDeployment
+ *       Enabled: true || false,
+ *       RetainStacksOnAccountRemoval: true || false,
+ *     },
+ *     PermissionModel: 'SERVICE_MANAGED' || 'SELF_MANAGED',
+ *     OrganizationalUnitIds: [ // OrganizationalUnitIdList
+ *       'STRING_VALUE',
+ *     ],
+ *     ManagedExecution: { // ManagedExecution
+ *       Active: true || false,
+ *     },
+ *     Regions: [ // RegionList
+ *       'STRING_VALUE',
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeStackSetCommandInput - {@link DescribeStackSetCommandInput}
@@ -56,6 +111,8 @@ export interface DescribeStackSetCommandOutput extends DescribeStackSetOutput, _
  * @throws {@link StackSetNotFoundException} (client fault)
  *  <p>The specified stack set doesn't exist.</p>
  *
+ * @throws {@link CloudFormationServiceException}
+ * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
  */
 export class DescribeStackSetCommand extends $Command<

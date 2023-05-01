@@ -45,14 +45,17 @@ export interface DeleteSMSSandboxPhoneNumberCommandOutput extends DeleteSMSSandb
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SNSClient, DeleteSMSSandboxPhoneNumberCommand } from "@aws-sdk/client-sns"; // ES Modules import
- * // const { SNSClient, DeleteSMSSandboxPhoneNumberCommand } = require("@aws-sdk/client-sns"); // CommonJS import
+ * import { SNSClient, DeleteSMSSandboxPhoneNumberCommand } from '@aws-sdk/client-sns'; // ES Modules import
+ * // const { SNSClient, DeleteSMSSandboxPhoneNumberCommand } = require('@aws-sdk/client-sns'); // CommonJS import
  * const client = new SNSClient(config);
  * const input = { // DeleteSMSSandboxPhoneNumberInput
- *   PhoneNumber: "STRING_VALUE", // required
+ *   PhoneNumber: 'STRING_VALUE', // required
  * };
  * const command = new DeleteSMSSandboxPhoneNumberCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteSMSSandboxPhoneNumberCommandInput - {@link DeleteSMSSandboxPhoneNumberCommandInput}
@@ -82,6 +85,8 @@ export interface DeleteSMSSandboxPhoneNumberCommandOutput extends DeleteSMSSandb
  *  <p>Indicates that a request parameter does not comply with the associated
  *             constraints.</p>
  *
+ * @throws {@link SNSServiceException}
+ * <p>Base exception class for all service exceptions from SNS service.</p>
  *
  */
 export class DeleteSMSSandboxPhoneNumberCommand extends $Command<

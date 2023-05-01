@@ -93,25 +93,30 @@ export interface PutScalingPolicyCommandOutput extends PutScalingPolicyOutput, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GameLiftClient, PutScalingPolicyCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
- * // const { GameLiftClient, PutScalingPolicyCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
+ * import { GameLiftClient, PutScalingPolicyCommand } from '@aws-sdk/client-gamelift'; // ES Modules import
+ * // const { GameLiftClient, PutScalingPolicyCommand } = require('@aws-sdk/client-gamelift'); // CommonJS import
  * const client = new GameLiftClient(config);
  * const input = { // PutScalingPolicyInput
- *   Name: "STRING_VALUE", // required
- *   FleetId: "STRING_VALUE", // required
- *   ScalingAdjustment: Number("int"),
- *   ScalingAdjustmentType: "ChangeInCapacity" || "ExactCapacity" || "PercentChangeInCapacity",
- *   Threshold: Number("double"),
- *   ComparisonOperator: "GreaterThanOrEqualToThreshold" || "GreaterThanThreshold" || "LessThanThreshold" || "LessThanOrEqualToThreshold",
- *   EvaluationPeriods: Number("int"),
- *   MetricName: "ActivatingGameSessions" || "ActiveGameSessions" || "ActiveInstances" || "AvailableGameSessions" || "AvailablePlayerSessions" || "CurrentPlayerSessions" || "IdleInstances" || "PercentAvailableGameSessions" || "PercentIdleInstances" || "QueueDepth" || "WaitTime" || "ConcurrentActivatableGameSessions", // required
- *   PolicyType: "RuleBased" || "TargetBased",
+ *   Name: 'STRING_VALUE', // required
+ *   FleetId: 'STRING_VALUE', // required
+ *   ScalingAdjustment: Number('int'),
+ *   ScalingAdjustmentType: 'ChangeInCapacity' || 'ExactCapacity' || 'PercentChangeInCapacity',
+ *   Threshold: Number('double'),
+ *   ComparisonOperator: 'GreaterThanOrEqualToThreshold' || 'GreaterThanThreshold' || 'LessThanThreshold' || 'LessThanOrEqualToThreshold',
+ *   EvaluationPeriods: Number('int'),
+ *   MetricName: 'ActivatingGameSessions' || 'ActiveGameSessions' || 'ActiveInstances' || 'AvailableGameSessions' || 'AvailablePlayerSessions' || 'CurrentPlayerSessions' || 'IdleInstances' || 'PercentAvailableGameSessions' || 'PercentIdleInstances' || 'QueueDepth' || 'WaitTime' || 'ConcurrentActivatableGameSessions', // required
+ *   PolicyType: 'RuleBased' || 'TargetBased',
  *   TargetConfiguration: { // TargetConfiguration
- *     TargetValue: Number("double"), // required
+ *     TargetValue: Number('double'), // required
  *   },
  * };
  * const command = new PutScalingPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutScalingPolicyOutput
+ *   Name: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param PutScalingPolicyCommandInput - {@link PutScalingPolicyCommandInput}
@@ -134,6 +139,8 @@ export interface PutScalingPolicyCommandOutput extends PutScalingPolicyOutput, _
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client failed authentication. Clients should not retry such requests.</p>
  *
+ * @throws {@link GameLiftServiceException}
+ * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
  */
 export class PutScalingPolicyCommand extends $Command<

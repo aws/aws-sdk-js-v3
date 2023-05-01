@@ -75,19 +75,26 @@ export interface PutRecordCommandOutput extends PutRecordOutput, __MetadataBeare
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KinesisClient, PutRecordCommand } from "@aws-sdk/client-kinesis"; // ES Modules import
- * // const { KinesisClient, PutRecordCommand } = require("@aws-sdk/client-kinesis"); // CommonJS import
+ * import { KinesisClient, PutRecordCommand } from '@aws-sdk/client-kinesis'; // ES Modules import
+ * // const { KinesisClient, PutRecordCommand } = require('@aws-sdk/client-kinesis'); // CommonJS import
  * const client = new KinesisClient(config);
  * const input = { // PutRecordInput
- *   StreamName: "STRING_VALUE",
- *   Data: "BLOB_VALUE", // required
- *   PartitionKey: "STRING_VALUE", // required
- *   ExplicitHashKey: "STRING_VALUE",
- *   SequenceNumberForOrdering: "STRING_VALUE",
- *   StreamARN: "STRING_VALUE",
+ *   StreamName: 'STRING_VALUE',
+ *   Data: 'BLOB_VALUE', // required
+ *   PartitionKey: 'STRING_VALUE', // required
+ *   ExplicitHashKey: 'STRING_VALUE',
+ *   SequenceNumberForOrdering: 'STRING_VALUE',
+ *   StreamARN: 'STRING_VALUE',
  * };
  * const command = new PutRecordCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutRecordOutput
+ *   ShardId: 'STRING_VALUE', // required
+ *   SequenceNumber: 'STRING_VALUE', // required
+ *   EncryptionType: 'NONE' || 'KMS',
+ * };
+ *
  * ```
  *
  * @param PutRecordCommandInput - {@link PutRecordCommandInput}
@@ -142,6 +149,8 @@ export interface PutRecordCommandOutput extends PutRecordOutput, __MetadataBeare
  *  <p>The requested resource could not be found. The stream might not be specified
  *             correctly.</p>
  *
+ * @throws {@link KinesisServiceException}
+ * <p>Base exception class for all service exceptions from Kinesis service.</p>
  *
  */
 export class PutRecordCommand extends $Command<

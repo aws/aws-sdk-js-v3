@@ -36,14 +36,34 @@ export interface DeleteEventSubscriptionCommandOutput extends DeleteEventSubscri
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DocDBClient, DeleteEventSubscriptionCommand } from "@aws-sdk/client-docdb"; // ES Modules import
- * // const { DocDBClient, DeleteEventSubscriptionCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
+ * import { DocDBClient, DeleteEventSubscriptionCommand } from '@aws-sdk/client-docdb'; // ES Modules import
+ * // const { DocDBClient, DeleteEventSubscriptionCommand } = require('@aws-sdk/client-docdb'); // CommonJS import
  * const client = new DocDBClient(config);
  * const input = { // DeleteEventSubscriptionMessage
- *   SubscriptionName: "STRING_VALUE", // required
+ *   SubscriptionName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteEventSubscriptionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteEventSubscriptionResult
+ *   EventSubscription: { // EventSubscription
+ *     CustomerAwsId: 'STRING_VALUE',
+ *     CustSubscriptionId: 'STRING_VALUE',
+ *     SnsTopicArn: 'STRING_VALUE',
+ *     Status: 'STRING_VALUE',
+ *     SubscriptionCreationTime: 'STRING_VALUE',
+ *     SourceType: 'STRING_VALUE',
+ *     SourceIdsList: [ // SourceIdsList
+ *       'STRING_VALUE',
+ *     ],
+ *     EventCategoriesList: [ // EventCategoriesList
+ *       'STRING_VALUE',
+ *     ],
+ *     Enabled: true || false,
+ *     EventSubscriptionArn: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param DeleteEventSubscriptionCommandInput - {@link DeleteEventSubscriptionCommandInput}
@@ -59,6 +79,8 @@ export interface DeleteEventSubscriptionCommandOutput extends DeleteEventSubscri
  * @throws {@link SubscriptionNotFoundFault} (client fault)
  *  <p>The subscription name does not exist. </p>
  *
+ * @throws {@link DocDBServiceException}
+ * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
  */
 export class DeleteEventSubscriptionCommand extends $Command<

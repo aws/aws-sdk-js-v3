@@ -49,14 +49,17 @@ export interface PurgeQueueCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SQSClient, PurgeQueueCommand } from "@aws-sdk/client-sqs"; // ES Modules import
- * // const { SQSClient, PurgeQueueCommand } = require("@aws-sdk/client-sqs"); // CommonJS import
+ * import { SQSClient, PurgeQueueCommand } from '@aws-sdk/client-sqs'; // ES Modules import
+ * // const { SQSClient, PurgeQueueCommand } = require('@aws-sdk/client-sqs'); // CommonJS import
  * const client = new SQSClient(config);
  * const input = { // PurgeQueueRequest
- *   QueueUrl: "STRING_VALUE", // required
+ *   QueueUrl: 'STRING_VALUE', // required
  * };
  * const command = new PurgeQueueCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PurgeQueueCommandInput - {@link PurgeQueueCommandInput}
@@ -71,6 +74,8 @@ export interface PurgeQueueCommandOutput extends __MetadataBearer {}
  * @throws {@link QueueDoesNotExist} (client fault)
  *  <p>The specified queue doesn't exist.</p>
  *
+ * @throws {@link SQSServiceException}
+ * <p>Base exception class for all service exceptions from SQS service.</p>
  *
  */
 export class PurgeQueueCommand extends $Command<

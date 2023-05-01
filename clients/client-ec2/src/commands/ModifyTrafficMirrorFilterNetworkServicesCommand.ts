@@ -48,21 +48,80 @@ export interface ModifyTrafficMirrorFilterNetworkServicesCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, ModifyTrafficMirrorFilterNetworkServicesCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, ModifyTrafficMirrorFilterNetworkServicesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, ModifyTrafficMirrorFilterNetworkServicesCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, ModifyTrafficMirrorFilterNetworkServicesCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // ModifyTrafficMirrorFilterNetworkServicesRequest
- *   TrafficMirrorFilterId: "STRING_VALUE", // required
+ *   TrafficMirrorFilterId: 'STRING_VALUE', // required
  *   AddNetworkServices: [ // TrafficMirrorNetworkServiceList
- *     "amazon-dns",
+ *     'amazon-dns',
  *   ],
  *   RemoveNetworkServices: [
- *     "amazon-dns",
+ *     'amazon-dns',
  *   ],
  *   DryRun: true || false,
  * };
  * const command = new ModifyTrafficMirrorFilterNetworkServicesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ModifyTrafficMirrorFilterNetworkServicesResult
+ *   TrafficMirrorFilter: { // TrafficMirrorFilter
+ *     TrafficMirrorFilterId: 'STRING_VALUE',
+ *     IngressFilterRules: [ // TrafficMirrorFilterRuleList
+ *       { // TrafficMirrorFilterRule
+ *         TrafficMirrorFilterRuleId: 'STRING_VALUE',
+ *         TrafficMirrorFilterId: 'STRING_VALUE',
+ *         TrafficDirection: 'ingress' || 'egress',
+ *         RuleNumber: Number('int'),
+ *         RuleAction: 'accept' || 'reject',
+ *         Protocol: Number('int'),
+ *         DestinationPortRange: { // TrafficMirrorPortRange
+ *           FromPort: Number('int'),
+ *           ToPort: Number('int'),
+ *         },
+ *         SourcePortRange: {
+ *           FromPort: Number('int'),
+ *           ToPort: Number('int'),
+ *         },
+ *         DestinationCidrBlock: 'STRING_VALUE',
+ *         SourceCidrBlock: 'STRING_VALUE',
+ *         Description: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     EgressFilterRules: [
+ *       {
+ *         TrafficMirrorFilterRuleId: 'STRING_VALUE',
+ *         TrafficMirrorFilterId: 'STRING_VALUE',
+ *         TrafficDirection: 'ingress' || 'egress',
+ *         RuleNumber: Number('int'),
+ *         RuleAction: 'accept' || 'reject',
+ *         Protocol: Number('int'),
+ *         DestinationPortRange: {
+ *           FromPort: Number('int'),
+ *           ToPort: Number('int'),
+ *         },
+ *         SourcePortRange: {
+ *           FromPort: Number('int'),
+ *           ToPort: Number('int'),
+ *         },
+ *         DestinationCidrBlock: 'STRING_VALUE',
+ *         SourceCidrBlock: 'STRING_VALUE',
+ *         Description: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     NetworkServices: [ // TrafficMirrorNetworkServiceList
+ *       'amazon-dns',
+ *     ],
+ *     Description: 'STRING_VALUE',
+ *     Tags: [ // TagList
+ *       { // Tag
+ *         Key: 'STRING_VALUE',
+ *         Value: 'STRING_VALUE',
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param ModifyTrafficMirrorFilterNetworkServicesCommandInput - {@link ModifyTrafficMirrorFilterNetworkServicesCommandInput}
@@ -71,6 +130,8 @@ export interface ModifyTrafficMirrorFilterNetworkServicesCommandOutput
  * @see {@link ModifyTrafficMirrorFilterNetworkServicesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class ModifyTrafficMirrorFilterNetworkServicesCommand extends $Command<

@@ -36,14 +36,17 @@ export interface DeleteDataCatalogCommandOutput extends DeleteDataCatalogOutput,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AthenaClient, DeleteDataCatalogCommand } from "@aws-sdk/client-athena"; // ES Modules import
- * // const { AthenaClient, DeleteDataCatalogCommand } = require("@aws-sdk/client-athena"); // CommonJS import
+ * import { AthenaClient, DeleteDataCatalogCommand } from '@aws-sdk/client-athena'; // ES Modules import
+ * // const { AthenaClient, DeleteDataCatalogCommand } = require('@aws-sdk/client-athena'); // CommonJS import
  * const client = new AthenaClient(config);
  * const input = { // DeleteDataCatalogInput
- *   Name: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
  * };
  * const command = new DeleteDataCatalogCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteDataCatalogCommandInput - {@link DeleteDataCatalogCommandInput}
@@ -60,6 +63,8 @@ export interface DeleteDataCatalogCommandOutput extends DeleteDataCatalogOutput,
  *  <p>Indicates that something is wrong with the input to the request. For example, a
  *             required parameter may be missing or out of range.</p>
  *
+ * @throws {@link AthenaServiceException}
+ * <p>Base exception class for all service exceptions from Athena service.</p>
  *
  */
 export class DeleteDataCatalogCommand extends $Command<

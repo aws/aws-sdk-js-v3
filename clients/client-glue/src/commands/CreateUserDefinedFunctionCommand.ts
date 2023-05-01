@@ -36,27 +36,30 @@ export interface CreateUserDefinedFunctionCommandOutput extends CreateUserDefine
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlueClient, CreateUserDefinedFunctionCommand } from "@aws-sdk/client-glue"; // ES Modules import
- * // const { GlueClient, CreateUserDefinedFunctionCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * import { GlueClient, CreateUserDefinedFunctionCommand } from '@aws-sdk/client-glue'; // ES Modules import
+ * // const { GlueClient, CreateUserDefinedFunctionCommand } = require('@aws-sdk/client-glue'); // CommonJS import
  * const client = new GlueClient(config);
  * const input = { // CreateUserDefinedFunctionRequest
- *   CatalogId: "STRING_VALUE",
- *   DatabaseName: "STRING_VALUE", // required
+ *   CatalogId: 'STRING_VALUE',
+ *   DatabaseName: 'STRING_VALUE', // required
  *   FunctionInput: { // UserDefinedFunctionInput
- *     FunctionName: "STRING_VALUE",
- *     ClassName: "STRING_VALUE",
- *     OwnerName: "STRING_VALUE",
- *     OwnerType: "USER" || "ROLE" || "GROUP",
+ *     FunctionName: 'STRING_VALUE',
+ *     ClassName: 'STRING_VALUE',
+ *     OwnerName: 'STRING_VALUE',
+ *     OwnerType: 'USER' || 'ROLE' || 'GROUP',
  *     ResourceUris: [ // ResourceUriList
  *       { // ResourceUri
- *         ResourceType: "JAR" || "FILE" || "ARCHIVE",
- *         Uri: "STRING_VALUE",
+ *         ResourceType: 'JAR' || 'FILE' || 'ARCHIVE',
+ *         Uri: 'STRING_VALUE',
  *       },
  *     ],
  *   },
  * };
  * const command = new CreateUserDefinedFunctionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param CreateUserDefinedFunctionCommandInput - {@link CreateUserDefinedFunctionCommandInput}
@@ -86,6 +89,8 @@ export interface CreateUserDefinedFunctionCommandOutput extends CreateUserDefine
  * @throws {@link ResourceNumberLimitExceededException} (client fault)
  *  <p>A resource numerical limit was exceeded.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class CreateUserDefinedFunctionCommand extends $Command<

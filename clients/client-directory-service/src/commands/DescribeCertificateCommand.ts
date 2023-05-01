@@ -36,15 +36,31 @@ export interface DescribeCertificateCommandOutput extends DescribeCertificateRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DirectoryServiceClient, DescribeCertificateCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
- * // const { DirectoryServiceClient, DescribeCertificateCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
+ * import { DirectoryServiceClient, DescribeCertificateCommand } from '@aws-sdk/client-directory-service'; // ES Modules import
+ * // const { DirectoryServiceClient, DescribeCertificateCommand } = require('@aws-sdk/client-directory-service'); // CommonJS import
  * const client = new DirectoryServiceClient(config);
  * const input = { // DescribeCertificateRequest
- *   DirectoryId: "STRING_VALUE", // required
- *   CertificateId: "STRING_VALUE", // required
+ *   DirectoryId: 'STRING_VALUE', // required
+ *   CertificateId: 'STRING_VALUE', // required
  * };
  * const command = new DescribeCertificateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeCertificateResult
+ *   Certificate: { // Certificate
+ *     CertificateId: 'STRING_VALUE',
+ *     State: 'Registering' || 'Registered' || 'RegisterFailed' || 'Deregistering' || 'Deregistered' || 'DeregisterFailed',
+ *     StateReason: 'STRING_VALUE',
+ *     CommonName: 'STRING_VALUE',
+ *     RegisteredDateTime: new Date('TIMESTAMP'),
+ *     ExpiryDateTime: new Date('TIMESTAMP'),
+ *     Type: 'ClientCertAuth' || 'ClientLDAPS',
+ *     ClientCertAuthSettings: { // ClientCertAuthSettings
+ *       OCSPUrl: 'STRING_VALUE',
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeCertificateCommandInput - {@link DescribeCertificateCommandInput}
@@ -71,6 +87,8 @@ export interface DescribeCertificateCommandOutput extends DescribeCertificateRes
  * @throws {@link UnsupportedOperationException} (client fault)
  *  <p>The operation is not supported.</p>
  *
+ * @throws {@link DirectoryServiceServiceException}
+ * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
  */
 export class DescribeCertificateCommand extends $Command<

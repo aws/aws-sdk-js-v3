@@ -51,36 +51,41 @@ export interface RequestCertificateCommandOutput extends RequestCertificateRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ACMClient, RequestCertificateCommand } from "@aws-sdk/client-acm"; // ES Modules import
- * // const { ACMClient, RequestCertificateCommand } = require("@aws-sdk/client-acm"); // CommonJS import
+ * import { ACMClient, RequestCertificateCommand } from '@aws-sdk/client-acm'; // ES Modules import
+ * // const { ACMClient, RequestCertificateCommand } = require('@aws-sdk/client-acm'); // CommonJS import
  * const client = new ACMClient(config);
  * const input = { // RequestCertificateRequest
- *   DomainName: "STRING_VALUE", // required
- *   ValidationMethod: "EMAIL" || "DNS",
+ *   DomainName: 'STRING_VALUE', // required
+ *   ValidationMethod: 'EMAIL' || 'DNS',
  *   SubjectAlternativeNames: [ // DomainList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   IdempotencyToken: "STRING_VALUE",
+ *   IdempotencyToken: 'STRING_VALUE',
  *   DomainValidationOptions: [ // DomainValidationOptionList
  *     { // DomainValidationOption
- *       DomainName: "STRING_VALUE", // required
- *       ValidationDomain: "STRING_VALUE", // required
+ *       DomainName: 'STRING_VALUE', // required
+ *       ValidationDomain: 'STRING_VALUE', // required
  *     },
  *   ],
  *   Options: { // CertificateOptions
- *     CertificateTransparencyLoggingPreference: "ENABLED" || "DISABLED",
+ *     CertificateTransparencyLoggingPreference: 'ENABLED' || 'DISABLED',
  *   },
- *   CertificateAuthorityArn: "STRING_VALUE",
+ *   CertificateAuthorityArn: 'STRING_VALUE',
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
- *   KeyAlgorithm: "RSA_1024" || "RSA_2048" || "RSA_3072" || "RSA_4096" || "EC_prime256v1" || "EC_secp384r1" || "EC_secp521r1",
+ *   KeyAlgorithm: 'RSA_1024' || 'RSA_2048' || 'RSA_3072' || 'RSA_4096' || 'EC_prime256v1' || 'EC_secp384r1' || 'EC_secp521r1',
  * };
  * const command = new RequestCertificateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // RequestCertificateResponse
+ *   CertificateArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param RequestCertificateCommandInput - {@link RequestCertificateCommandInput}
@@ -112,6 +117,8 @@ export interface RequestCertificateCommandOutput extends RequestCertificateRespo
  * @throws {@link TooManyTagsException} (client fault)
  *  <p>The request contains too many tags. Try the request again with fewer tags.</p>
  *
+ * @throws {@link ACMServiceException}
+ * <p>Base exception class for all service exceptions from ACM service.</p>
  *
  */
 export class RequestCertificateCommand extends $Command<

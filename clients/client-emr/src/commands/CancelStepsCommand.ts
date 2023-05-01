@@ -40,18 +40,29 @@ export interface CancelStepsCommandOutput extends CancelStepsOutput, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EMRClient, CancelStepsCommand } from "@aws-sdk/client-emr"; // ES Modules import
- * // const { EMRClient, CancelStepsCommand } = require("@aws-sdk/client-emr"); // CommonJS import
+ * import { EMRClient, CancelStepsCommand } from '@aws-sdk/client-emr'; // ES Modules import
+ * // const { EMRClient, CancelStepsCommand } = require('@aws-sdk/client-emr'); // CommonJS import
  * const client = new EMRClient(config);
  * const input = { // CancelStepsInput
- *   ClusterId: "STRING_VALUE", // required
+ *   ClusterId: 'STRING_VALUE', // required
  *   StepIds: [ // StepIdsList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   StepCancellationOption: "SEND_INTERRUPT" || "TERMINATE_PROCESS",
+ *   StepCancellationOption: 'SEND_INTERRUPT' || 'TERMINATE_PROCESS',
  * };
  * const command = new CancelStepsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CancelStepsOutput
+ *   CancelStepsInfoList: [ // CancelStepsInfoList
+ *     { // CancelStepsInfo
+ *       StepId: 'STRING_VALUE',
+ *       Status: 'SUBMITTED' || 'FAILED',
+ *       Reason: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param CancelStepsCommandInput - {@link CancelStepsCommandInput}
@@ -67,6 +78,8 @@ export interface CancelStepsCommandOutput extends CancelStepsOutput, __MetadataB
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception occurs when there is something wrong with user input.</p>
  *
+ * @throws {@link EMRServiceException}
+ * <p>Base exception class for all service exceptions from EMR service.</p>
  *
  */
 export class CancelStepsCommand extends $Command<

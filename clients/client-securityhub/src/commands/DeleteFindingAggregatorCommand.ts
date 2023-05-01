@@ -38,14 +38,17 @@ export interface DeleteFindingAggregatorCommandOutput extends DeleteFindingAggre
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SecurityHubClient, DeleteFindingAggregatorCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
- * // const { SecurityHubClient, DeleteFindingAggregatorCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
+ * import { SecurityHubClient, DeleteFindingAggregatorCommand } from '@aws-sdk/client-securityhub'; // ES Modules import
+ * // const { SecurityHubClient, DeleteFindingAggregatorCommand } = require('@aws-sdk/client-securityhub'); // CommonJS import
  * const client = new SecurityHubClient(config);
  * const input = { // DeleteFindingAggregatorRequest
- *   FindingAggregatorArn: "STRING_VALUE", // required
+ *   FindingAggregatorArn: 'STRING_VALUE', // required
  * };
  * const command = new DeleteFindingAggregatorCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteFindingAggregatorCommandInput - {@link DeleteFindingAggregatorCommandInput}
@@ -74,6 +77,8 @@ export interface DeleteFindingAggregatorCommandOutput extends DeleteFindingAggre
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The request was rejected because we can't find the specified resource.</p>
  *
+ * @throws {@link SecurityHubServiceException}
+ * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
  * @example To delete a finding aggregator
  * ```javascript

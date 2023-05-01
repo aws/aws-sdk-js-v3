@@ -46,17 +46,43 @@ export interface ListUsersInGroupCommandOutput extends ListUsersInGroupResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CognitoIdentityProviderClient, ListUsersInGroupCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
- * // const { CognitoIdentityProviderClient, ListUsersInGroupCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
+ * import { CognitoIdentityProviderClient, ListUsersInGroupCommand } from '@aws-sdk/client-cognito-identity-provider'; // ES Modules import
+ * // const { CognitoIdentityProviderClient, ListUsersInGroupCommand } = require('@aws-sdk/client-cognito-identity-provider'); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
  * const input = { // ListUsersInGroupRequest
- *   UserPoolId: "STRING_VALUE", // required
- *   GroupName: "STRING_VALUE", // required
- *   Limit: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   UserPoolId: 'STRING_VALUE', // required
+ *   GroupName: 'STRING_VALUE', // required
+ *   Limit: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListUsersInGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListUsersInGroupResponse
+ *   Users: [ // UsersListType
+ *     { // UserType
+ *       Username: 'STRING_VALUE',
+ *       Attributes: [ // AttributeListType
+ *         { // AttributeType
+ *           Name: 'STRING_VALUE', // required
+ *           Value: 'STRING_VALUE',
+ *         },
+ *       ],
+ *       UserCreateDate: new Date('TIMESTAMP'),
+ *       UserLastModifiedDate: new Date('TIMESTAMP'),
+ *       Enabled: true || false,
+ *       UserStatus: 'UNCONFIRMED' || 'CONFIRMED' || 'ARCHIVED' || 'COMPROMISED' || 'UNKNOWN' || 'RESET_REQUIRED' || 'FORCE_CHANGE_PASSWORD',
+ *       MFAOptions: [ // MFAOptionListType
+ *         { // MFAOptionType
+ *           DeliveryMedium: 'SMS' || 'EMAIL',
+ *           AttributeName: 'STRING_VALUE',
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListUsersInGroupCommandInput - {@link ListUsersInGroupCommandInput}
@@ -83,6 +109,8 @@ export interface ListUsersInGroupCommandOutput extends ListUsersInGroupResponse,
  *  <p>This exception is thrown when the user has made too many requests for a given
  *             operation.</p>
  *
+ * @throws {@link CognitoIdentityProviderServiceException}
+ * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
  */
 export class ListUsersInGroupCommand extends $Command<

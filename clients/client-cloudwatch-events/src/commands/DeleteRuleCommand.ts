@@ -49,16 +49,19 @@ export interface DeleteRuleCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudWatchEventsClient, DeleteRuleCommand } from "@aws-sdk/client-cloudwatch-events"; // ES Modules import
- * // const { CloudWatchEventsClient, DeleteRuleCommand } = require("@aws-sdk/client-cloudwatch-events"); // CommonJS import
+ * import { CloudWatchEventsClient, DeleteRuleCommand } from '@aws-sdk/client-cloudwatch-events'; // ES Modules import
+ * // const { CloudWatchEventsClient, DeleteRuleCommand } = require('@aws-sdk/client-cloudwatch-events'); // CommonJS import
  * const client = new CloudWatchEventsClient(config);
  * const input = { // DeleteRuleRequest
- *   Name: "STRING_VALUE", // required
- *   EventBusName: "STRING_VALUE",
+ *   Name: 'STRING_VALUE', // required
+ *   EventBusName: 'STRING_VALUE',
  *   Force: true || false,
  * };
  * const command = new DeleteRuleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteRuleCommandInput - {@link DeleteRuleCommandInput}
@@ -84,6 +87,8 @@ export interface DeleteRuleCommandOutput extends __MetadataBearer {}
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>An entity that you specified does not exist.</p>
  *
+ * @throws {@link CloudWatchEventsServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatchEvents service.</p>
  *
  */
 export class DeleteRuleCommand extends $Command<

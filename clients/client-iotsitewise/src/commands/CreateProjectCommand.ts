@@ -40,20 +40,26 @@ export interface CreateProjectCommandOutput extends CreateProjectResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTSiteWiseClient, CreateProjectCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
- * // const { IoTSiteWiseClient, CreateProjectCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
+ * import { IoTSiteWiseClient, CreateProjectCommand } from '@aws-sdk/client-iotsitewise'; // ES Modules import
+ * // const { IoTSiteWiseClient, CreateProjectCommand } = require('@aws-sdk/client-iotsitewise'); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
  * const input = { // CreateProjectRequest
- *   portalId: "STRING_VALUE", // required
- *   projectName: "STRING_VALUE", // required
- *   projectDescription: "STRING_VALUE",
- *   clientToken: "STRING_VALUE",
+ *   portalId: 'STRING_VALUE', // required
+ *   projectName: 'STRING_VALUE', // required
+ *   projectDescription: 'STRING_VALUE',
+ *   clientToken: 'STRING_VALUE',
  *   tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateProjectCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateProjectResponse
+ *   projectId: 'STRING_VALUE', // required
+ *   projectArn: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param CreateProjectCommandInput - {@link CreateProjectCommandInput}
@@ -84,6 +90,8 @@ export interface CreateProjectCommandOutput extends CreateProjectResponse, __Met
  *       on.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
  *
+ * @throws {@link IoTSiteWiseServiceException}
+ * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
  */
 export class CreateProjectCommand extends $Command<

@@ -39,14 +39,32 @@ export interface DescribeHubCommandOutput extends DescribeHubResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, DescribeHubCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, DescribeHubCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, DescribeHubCommand } from '@aws-sdk/client-sagemaker'; // ES Modules import
+ * // const { SageMakerClient, DescribeHubCommand } = require('@aws-sdk/client-sagemaker'); // CommonJS import
  * const client = new SageMakerClient(config);
  * const input = { // DescribeHubRequest
- *   HubName: "STRING_VALUE", // required
+ *   HubName: 'STRING_VALUE', // required
  * };
  * const command = new DescribeHubCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeHubResponse
+ *   HubName: 'STRING_VALUE', // required
+ *   HubArn: 'STRING_VALUE', // required
+ *   HubDisplayName: 'STRING_VALUE',
+ *   HubDescription: 'STRING_VALUE',
+ *   HubSearchKeywords: [ // HubSearchKeywordList
+ *     'STRING_VALUE',
+ *   ],
+ *   S3StorageConfig: { // HubS3StorageConfig
+ *     S3OutputPath: 'STRING_VALUE',
+ *   },
+ *   HubStatus: 'InService' || 'Creating' || 'Updating' || 'Deleting' || 'CreateFailed' || 'UpdateFailed' || 'DeleteFailed', // required
+ *   FailureReason: 'STRING_VALUE',
+ *   CreationTime: new Date('TIMESTAMP'), // required
+ *   LastModifiedTime: new Date('TIMESTAMP'), // required
+ * };
+ *
  * ```
  *
  * @param DescribeHubCommandInput - {@link DescribeHubCommandInput}
@@ -58,6 +76,8 @@ export interface DescribeHubCommandOutput extends DescribeHubResponse, __Metadat
  * @throws {@link ResourceNotFound} (client fault)
  *  <p>Resource being access is not found.</p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class DescribeHubCommand extends $Command<

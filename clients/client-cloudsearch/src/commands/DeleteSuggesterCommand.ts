@@ -36,15 +36,36 @@ export interface DeleteSuggesterCommandOutput extends DeleteSuggesterResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudSearchClient, DeleteSuggesterCommand } from "@aws-sdk/client-cloudsearch"; // ES Modules import
- * // const { CloudSearchClient, DeleteSuggesterCommand } = require("@aws-sdk/client-cloudsearch"); // CommonJS import
+ * import { CloudSearchClient, DeleteSuggesterCommand } from '@aws-sdk/client-cloudsearch'; // ES Modules import
+ * // const { CloudSearchClient, DeleteSuggesterCommand } = require('@aws-sdk/client-cloudsearch'); // CommonJS import
  * const client = new CloudSearchClient(config);
  * const input = { // DeleteSuggesterRequest
- *   DomainName: "STRING_VALUE", // required
- *   SuggesterName: "STRING_VALUE", // required
+ *   DomainName: 'STRING_VALUE', // required
+ *   SuggesterName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteSuggesterCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteSuggesterResponse
+ *   Suggester: { // SuggesterStatus
+ *     Options: { // Suggester
+ *       SuggesterName: 'STRING_VALUE', // required
+ *       DocumentSuggesterOptions: { // DocumentSuggesterOptions
+ *         SourceField: 'STRING_VALUE', // required
+ *         FuzzyMatching: 'STRING_VALUE',
+ *         SortExpression: 'STRING_VALUE',
+ *       },
+ *     },
+ *     Status: { // OptionStatus
+ *       CreationDate: new Date('TIMESTAMP'), // required
+ *       UpdateDate: new Date('TIMESTAMP'), // required
+ *       UpdateVersion: Number('int'),
+ *       State: 'STRING_VALUE', // required
+ *       PendingDeletion: true || false,
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param DeleteSuggesterCommandInput - {@link DeleteSuggesterCommandInput}
@@ -69,6 +90,8 @@ export interface DeleteSuggesterCommandOutput extends DeleteSuggesterResponse, _
  * @throws {@link ValidationException} (client fault)
  *  <p>The request was rejected because it has invalid parameters.</p>
  *
+ * @throws {@link CloudSearchServiceException}
+ * <p>Base exception class for all service exceptions from CloudSearch service.</p>
  *
  */
 export class DeleteSuggesterCommand extends $Command<

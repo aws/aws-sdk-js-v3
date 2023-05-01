@@ -44,28 +44,31 @@ export interface ConfirmForgotPasswordCommandOutput extends ConfirmForgotPasswor
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CognitoIdentityProviderClient, ConfirmForgotPasswordCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
- * // const { CognitoIdentityProviderClient, ConfirmForgotPasswordCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
+ * import { CognitoIdentityProviderClient, ConfirmForgotPasswordCommand } from '@aws-sdk/client-cognito-identity-provider'; // ES Modules import
+ * // const { CognitoIdentityProviderClient, ConfirmForgotPasswordCommand } = require('@aws-sdk/client-cognito-identity-provider'); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
  * const input = { // ConfirmForgotPasswordRequest
- *   ClientId: "STRING_VALUE", // required
- *   SecretHash: "STRING_VALUE",
- *   Username: "STRING_VALUE", // required
- *   ConfirmationCode: "STRING_VALUE", // required
- *   Password: "STRING_VALUE", // required
+ *   ClientId: 'STRING_VALUE', // required
+ *   SecretHash: 'STRING_VALUE',
+ *   Username: 'STRING_VALUE', // required
+ *   ConfirmationCode: 'STRING_VALUE', // required
+ *   Password: 'STRING_VALUE', // required
  *   AnalyticsMetadata: { // AnalyticsMetadataType
- *     AnalyticsEndpointId: "STRING_VALUE",
+ *     AnalyticsEndpointId: 'STRING_VALUE',
  *   },
  *   UserContextData: { // UserContextDataType
- *     IpAddress: "STRING_VALUE",
- *     EncodedData: "STRING_VALUE",
+ *     IpAddress: 'STRING_VALUE',
+ *     EncodedData: 'STRING_VALUE',
  *   },
  *   ClientMetadata: { // ClientMetadataType
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new ConfirmForgotPasswordCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param ConfirmForgotPasswordCommandInput - {@link ConfirmForgotPasswordCommandInput}
@@ -130,6 +133,8 @@ export interface ConfirmForgotPasswordCommandOutput extends ConfirmForgotPasswor
  * @throws {@link UserNotFoundException} (client fault)
  *  <p>This exception is thrown when a user isn't found.</p>
  *
+ * @throws {@link CognitoIdentityProviderServiceException}
+ * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
  */
 export class ConfirmForgotPasswordCommand extends $Command<

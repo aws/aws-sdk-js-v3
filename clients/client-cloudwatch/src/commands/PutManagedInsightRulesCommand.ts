@@ -52,18 +52,18 @@ export interface PutManagedInsightRulesCommandOutput extends PutManagedInsightRu
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudWatchClient, PutManagedInsightRulesCommand } from "@aws-sdk/client-cloudwatch"; // ES Modules import
- * // const { CloudWatchClient, PutManagedInsightRulesCommand } = require("@aws-sdk/client-cloudwatch"); // CommonJS import
+ * import { CloudWatchClient, PutManagedInsightRulesCommand } from '@aws-sdk/client-cloudwatch'; // ES Modules import
+ * // const { CloudWatchClient, PutManagedInsightRulesCommand } = require('@aws-sdk/client-cloudwatch'); // CommonJS import
  * const client = new CloudWatchClient(config);
  * const input = { // PutManagedInsightRulesInput
  *   ManagedRules: [ // ManagedRules // required
  *     { // ManagedRule
- *       TemplateName: "STRING_VALUE", // required
- *       ResourceARN: "STRING_VALUE", // required
+ *       TemplateName: 'STRING_VALUE', // required
+ *       ResourceARN: 'STRING_VALUE', // required
  *       Tags: [ // TagList
  *         { // Tag
- *           Key: "STRING_VALUE", // required
- *           Value: "STRING_VALUE", // required
+ *           Key: 'STRING_VALUE', // required
+ *           Value: 'STRING_VALUE', // required
  *         },
  *       ],
  *     },
@@ -71,6 +71,18 @@ export interface PutManagedInsightRulesCommandOutput extends PutManagedInsightRu
  * };
  * const command = new PutManagedInsightRulesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutManagedInsightRulesOutput
+ *   Failures: [ // BatchFailures
+ *     { // PartialFailure
+ *       FailureResource: 'STRING_VALUE',
+ *       ExceptionType: 'STRING_VALUE',
+ *       FailureCode: 'STRING_VALUE',
+ *       FailureDescription: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param PutManagedInsightRulesCommandInput - {@link PutManagedInsightRulesCommandInput}
@@ -85,6 +97,8 @@ export interface PutManagedInsightRulesCommandOutput extends PutManagedInsightRu
  * @throws {@link MissingRequiredParameterException} (client fault)
  *  <p>An input parameter that is required is missing.</p>
  *
+ * @throws {@link CloudWatchServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatch service.</p>
  *
  */
 export class PutManagedInsightRulesCommand extends $Command<

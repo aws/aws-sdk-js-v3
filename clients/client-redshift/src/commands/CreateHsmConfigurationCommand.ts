@@ -42,25 +42,41 @@ export interface CreateHsmConfigurationCommandOutput extends CreateHsmConfigurat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RedshiftClient, CreateHsmConfigurationCommand } from "@aws-sdk/client-redshift"; // ES Modules import
- * // const { RedshiftClient, CreateHsmConfigurationCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * import { RedshiftClient, CreateHsmConfigurationCommand } from '@aws-sdk/client-redshift'; // ES Modules import
+ * // const { RedshiftClient, CreateHsmConfigurationCommand } = require('@aws-sdk/client-redshift'); // CommonJS import
  * const client = new RedshiftClient(config);
  * const input = { // CreateHsmConfigurationMessage
- *   HsmConfigurationIdentifier: "STRING_VALUE", // required
- *   Description: "STRING_VALUE", // required
- *   HsmIpAddress: "STRING_VALUE", // required
- *   HsmPartitionName: "STRING_VALUE", // required
- *   HsmPartitionPassword: "STRING_VALUE", // required
- *   HsmServerPublicCertificate: "STRING_VALUE", // required
+ *   HsmConfigurationIdentifier: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE', // required
+ *   HsmIpAddress: 'STRING_VALUE', // required
+ *   HsmPartitionName: 'STRING_VALUE', // required
+ *   HsmPartitionPassword: 'STRING_VALUE', // required
+ *   HsmServerPublicCertificate: 'STRING_VALUE', // required
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE",
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new CreateHsmConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateHsmConfigurationResult
+ *   HsmConfiguration: { // HsmConfiguration
+ *     HsmConfigurationIdentifier: 'STRING_VALUE',
+ *     Description: 'STRING_VALUE',
+ *     HsmIpAddress: 'STRING_VALUE',
+ *     HsmPartitionName: 'STRING_VALUE',
+ *     Tags: [ // TagList
+ *       { // Tag
+ *         Key: 'STRING_VALUE',
+ *         Value: 'STRING_VALUE',
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateHsmConfigurationCommandInput - {@link CreateHsmConfigurationCommandInput}
@@ -85,6 +101,8 @@ export interface CreateHsmConfigurationCommandOutput extends CreateHsmConfigurat
  * @throws {@link TagLimitExceededFault} (client fault)
  *  <p>You have exceeded the number of tags allowed.</p>
  *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class CreateHsmConfigurationCommand extends $Command<

@@ -40,18 +40,28 @@ export interface CreateReadinessCheckCommandOutput extends CreateReadinessCheckR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Route53RecoveryReadinessClient, CreateReadinessCheckCommand } from "@aws-sdk/client-route53-recovery-readiness"; // ES Modules import
- * // const { Route53RecoveryReadinessClient, CreateReadinessCheckCommand } = require("@aws-sdk/client-route53-recovery-readiness"); // CommonJS import
+ * import { Route53RecoveryReadinessClient, CreateReadinessCheckCommand } from '@aws-sdk/client-route53-recovery-readiness'; // ES Modules import
+ * // const { Route53RecoveryReadinessClient, CreateReadinessCheckCommand } = require('@aws-sdk/client-route53-recovery-readiness'); // CommonJS import
  * const client = new Route53RecoveryReadinessClient(config);
  * const input = { // CreateReadinessCheckRequest
- *   ReadinessCheckName: "STRING_VALUE", // required
- *   ResourceSetName: "STRING_VALUE", // required
+ *   ReadinessCheckName: 'STRING_VALUE', // required
+ *   ResourceSetName: 'STRING_VALUE', // required
  *   Tags: { // Tags
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateReadinessCheckCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateReadinessCheckResponse
+ *   ReadinessCheckArn: 'STRING_VALUE',
+ *   ReadinessCheckName: 'STRING_VALUE',
+ *   ResourceSet: 'STRING_VALUE',
+ *   Tags: { // Tags
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateReadinessCheckCommandInput - {@link CreateReadinessCheckCommandInput}
@@ -75,6 +85,8 @@ export interface CreateReadinessCheckCommandOutput extends CreateReadinessCheckR
  * @throws {@link ValidationException} (client fault)
  *  The input fails to satisfy the constraints specified by an AWS service.
  *
+ * @throws {@link Route53RecoveryReadinessServiceException}
+ * <p>Base exception class for all service exceptions from Route53RecoveryReadiness service.</p>
  *
  */
 export class CreateReadinessCheckCommand extends $Command<

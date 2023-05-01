@@ -36,30 +36,35 @@ export interface StartNotebookExecutionCommandOutput extends StartNotebookExecut
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EMRClient, StartNotebookExecutionCommand } from "@aws-sdk/client-emr"; // ES Modules import
- * // const { EMRClient, StartNotebookExecutionCommand } = require("@aws-sdk/client-emr"); // CommonJS import
+ * import { EMRClient, StartNotebookExecutionCommand } from '@aws-sdk/client-emr'; // ES Modules import
+ * // const { EMRClient, StartNotebookExecutionCommand } = require('@aws-sdk/client-emr'); // CommonJS import
  * const client = new EMRClient(config);
  * const input = { // StartNotebookExecutionInput
- *   EditorId: "STRING_VALUE", // required
- *   RelativePath: "STRING_VALUE", // required
- *   NotebookExecutionName: "STRING_VALUE",
- *   NotebookParams: "STRING_VALUE",
+ *   EditorId: 'STRING_VALUE', // required
+ *   RelativePath: 'STRING_VALUE', // required
+ *   NotebookExecutionName: 'STRING_VALUE',
+ *   NotebookParams: 'STRING_VALUE',
  *   ExecutionEngine: { // ExecutionEngineConfig
- *     Id: "STRING_VALUE", // required
- *     Type: "EMR",
- *     MasterInstanceSecurityGroupId: "STRING_VALUE",
+ *     Id: 'STRING_VALUE', // required
+ *     Type: 'EMR',
+ *     MasterInstanceSecurityGroupId: 'STRING_VALUE',
  *   },
- *   ServiceRole: "STRING_VALUE", // required
- *   NotebookInstanceSecurityGroupId: "STRING_VALUE",
+ *   ServiceRole: 'STRING_VALUE', // required
+ *   NotebookInstanceSecurityGroupId: 'STRING_VALUE',
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE",
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new StartNotebookExecutionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartNotebookExecutionOutput
+ *   NotebookExecutionId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param StartNotebookExecutionCommandInput - {@link StartNotebookExecutionCommandInput}
@@ -75,6 +80,8 @@ export interface StartNotebookExecutionCommandOutput extends StartNotebookExecut
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception occurs when there is something wrong with user input.</p>
  *
+ * @throws {@link EMRServiceException}
+ * <p>Base exception class for all service exceptions from EMR service.</p>
  *
  */
 export class StartNotebookExecutionCommand extends $Command<

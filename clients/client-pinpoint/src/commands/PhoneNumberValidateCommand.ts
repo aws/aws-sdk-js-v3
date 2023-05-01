@@ -36,17 +36,37 @@ export interface PhoneNumberValidateCommandOutput extends PhoneNumberValidateRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PinpointClient, PhoneNumberValidateCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
- * // const { PinpointClient, PhoneNumberValidateCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
+ * import { PinpointClient, PhoneNumberValidateCommand } from '@aws-sdk/client-pinpoint'; // ES Modules import
+ * // const { PinpointClient, PhoneNumberValidateCommand } = require('@aws-sdk/client-pinpoint'); // CommonJS import
  * const client = new PinpointClient(config);
  * const input = { // PhoneNumberValidateRequest
  *   NumberValidateRequest: { // NumberValidateRequest
- *     IsoCountryCode: "STRING_VALUE",
- *     PhoneNumber: "STRING_VALUE",
+ *     IsoCountryCode: 'STRING_VALUE',
+ *     PhoneNumber: 'STRING_VALUE',
  *   },
  * };
  * const command = new PhoneNumberValidateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PhoneNumberValidateResponse
+ *   NumberValidateResponse: { // NumberValidateResponse
+ *     Carrier: 'STRING_VALUE',
+ *     City: 'STRING_VALUE',
+ *     CleansedPhoneNumberE164: 'STRING_VALUE',
+ *     CleansedPhoneNumberNational: 'STRING_VALUE',
+ *     Country: 'STRING_VALUE',
+ *     CountryCodeIso2: 'STRING_VALUE',
+ *     CountryCodeNumeric: 'STRING_VALUE',
+ *     County: 'STRING_VALUE',
+ *     OriginalCountryCodeIso2: 'STRING_VALUE',
+ *     OriginalPhoneNumber: 'STRING_VALUE',
+ *     PhoneType: 'STRING_VALUE',
+ *     PhoneTypeCode: Number('int'),
+ *     Timezone: 'STRING_VALUE',
+ *     ZipCode: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param PhoneNumberValidateCommandInput - {@link PhoneNumberValidateCommandInput}
@@ -76,6 +96,8 @@ export interface PhoneNumberValidateCommandOutput extends PhoneNumberValidateRes
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Provides information about an API request or response.</p>
  *
+ * @throws {@link PinpointServiceException}
+ * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
  */
 export class PhoneNumberValidateCommand extends $Command<

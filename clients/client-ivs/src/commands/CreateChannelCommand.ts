@@ -40,22 +40,48 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IvsClient, CreateChannelCommand } from "@aws-sdk/client-ivs"; // ES Modules import
- * // const { IvsClient, CreateChannelCommand } = require("@aws-sdk/client-ivs"); // CommonJS import
+ * import { IvsClient, CreateChannelCommand } from '@aws-sdk/client-ivs'; // ES Modules import
+ * // const { IvsClient, CreateChannelCommand } = require('@aws-sdk/client-ivs'); // CommonJS import
  * const client = new IvsClient(config);
  * const input = { // CreateChannelRequest
- *   name: "STRING_VALUE",
- *   latencyMode: "STRING_VALUE",
- *   type: "BASIC" || "STANDARD",
+ *   name: 'STRING_VALUE',
+ *   latencyMode: 'STRING_VALUE',
+ *   type: 'BASIC' || 'STANDARD',
  *   authorized: true || false,
- *   recordingConfigurationArn: "STRING_VALUE",
+ *   recordingConfigurationArn: 'STRING_VALUE',
  *   tags: { // Tags
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  *   insecureIngest: true || false,
  * };
  * const command = new CreateChannelCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateChannelResponse
+ *   channel: { // Channel
+ *     arn: 'STRING_VALUE',
+ *     name: 'STRING_VALUE',
+ *     latencyMode: 'STRING_VALUE',
+ *     type: 'BASIC' || 'STANDARD',
+ *     recordingConfigurationArn: 'STRING_VALUE',
+ *     ingestEndpoint: 'STRING_VALUE',
+ *     playbackUrl: 'STRING_VALUE',
+ *     authorized: true || false,
+ *     tags: { // Tags
+ *       '<keys>': 'STRING_VALUE',
+ *     },
+ *     insecureIngest: true || false,
+ *   },
+ *   streamKey: { // StreamKey
+ *     arn: 'STRING_VALUE',
+ *     value: 'STRING_VALUE',
+ *     channelArn: 'STRING_VALUE',
+ *     tags: {
+ *       '<keys>': 'STRING_VALUE',
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateChannelCommandInput - {@link CreateChannelCommandInput}
@@ -79,6 +105,8 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p/>
  *
+ * @throws {@link IvsServiceException}
+ * <p>Base exception class for all service exceptions from Ivs service.</p>
  *
  */
 export class CreateChannelCommand extends $Command<

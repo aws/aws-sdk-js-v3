@@ -37,14 +37,27 @@ export interface GetSuppressedDestinationCommandOutput extends GetSuppressedDest
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SESv2Client, GetSuppressedDestinationCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
- * // const { SESv2Client, GetSuppressedDestinationCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
+ * import { SESv2Client, GetSuppressedDestinationCommand } from '@aws-sdk/client-sesv2'; // ES Modules import
+ * // const { SESv2Client, GetSuppressedDestinationCommand } = require('@aws-sdk/client-sesv2'); // CommonJS import
  * const client = new SESv2Client(config);
  * const input = { // GetSuppressedDestinationRequest
- *   EmailAddress: "STRING_VALUE", // required
+ *   EmailAddress: 'STRING_VALUE', // required
  * };
  * const command = new GetSuppressedDestinationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetSuppressedDestinationResponse
+ *   SuppressedDestination: { // SuppressedDestination
+ *     EmailAddress: 'STRING_VALUE', // required
+ *     Reason: 'BOUNCE' || 'COMPLAINT', // required
+ *     LastUpdateTime: new Date('TIMESTAMP'), // required
+ *     Attributes: { // SuppressedDestinationAttributes
+ *       MessageId: 'STRING_VALUE',
+ *       FeedbackId: 'STRING_VALUE',
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetSuppressedDestinationCommandInput - {@link GetSuppressedDestinationCommandInput}
@@ -62,6 +75,8 @@ export interface GetSuppressedDestinationCommandOutput extends GetSuppressedDest
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Too many requests have been made to the operation.</p>
  *
+ * @throws {@link SESv2ServiceException}
+ * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
  */
 export class GetSuppressedDestinationCommand extends $Command<

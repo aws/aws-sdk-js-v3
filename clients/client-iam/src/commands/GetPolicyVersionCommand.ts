@@ -51,15 +51,25 @@ export interface GetPolicyVersionCommandOutput extends GetPolicyVersionResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IAMClient, GetPolicyVersionCommand } from "@aws-sdk/client-iam"; // ES Modules import
- * // const { IAMClient, GetPolicyVersionCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * import { IAMClient, GetPolicyVersionCommand } from '@aws-sdk/client-iam'; // ES Modules import
+ * // const { IAMClient, GetPolicyVersionCommand } = require('@aws-sdk/client-iam'); // CommonJS import
  * const client = new IAMClient(config);
  * const input = { // GetPolicyVersionRequest
- *   PolicyArn: "STRING_VALUE", // required
- *   VersionId: "STRING_VALUE", // required
+ *   PolicyArn: 'STRING_VALUE', // required
+ *   VersionId: 'STRING_VALUE', // required
  * };
  * const command = new GetPolicyVersionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetPolicyVersionResponse
+ *   PolicyVersion: { // PolicyVersion
+ *     Document: 'STRING_VALUE',
+ *     VersionId: 'STRING_VALUE',
+ *     IsDefaultVersion: true || false,
+ *     CreateDate: new Date('TIMESTAMP'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetPolicyVersionCommandInput - {@link GetPolicyVersionCommandInput}
@@ -80,6 +90,8 @@ export interface GetPolicyVersionCommandOutput extends GetPolicyVersionResponse,
  *  <p>The request processing has failed because of an unknown error, exception or
  *       failure.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  */
 export class GetPolicyVersionCommand extends $Command<

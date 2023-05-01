@@ -36,17 +36,20 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AmplifyClient, TagResourceCommand } from "@aws-sdk/client-amplify"; // ES Modules import
- * // const { AmplifyClient, TagResourceCommand } = require("@aws-sdk/client-amplify"); // CommonJS import
+ * import { AmplifyClient, TagResourceCommand } from '@aws-sdk/client-amplify'; // ES Modules import
+ * // const { AmplifyClient, TagResourceCommand } = require('@aws-sdk/client-amplify'); // CommonJS import
  * const client = new AmplifyClient(config);
  * const input = { // TagResourceRequest
- *   resourceArn: "STRING_VALUE", // required
+ *   resourceArn: 'STRING_VALUE', // required
  *   tags: { // TagMap // required
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param TagResourceCommandInput - {@link TagResourceCommandInput}
@@ -64,6 +67,8 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p> An operation failed due to a non-existent resource. </p>
  *
+ * @throws {@link AmplifyServiceException}
+ * <p>Base exception class for all service exceptions from Amplify service.</p>
  *
  */
 export class TagResourceCommand extends $Command<

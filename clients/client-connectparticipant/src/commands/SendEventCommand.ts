@@ -47,17 +47,23 @@ export interface SendEventCommandOutput extends SendEventResponse, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectParticipantClient, SendEventCommand } from "@aws-sdk/client-connectparticipant"; // ES Modules import
- * // const { ConnectParticipantClient, SendEventCommand } = require("@aws-sdk/client-connectparticipant"); // CommonJS import
+ * import { ConnectParticipantClient, SendEventCommand } from '@aws-sdk/client-connectparticipant'; // ES Modules import
+ * // const { ConnectParticipantClient, SendEventCommand } = require('@aws-sdk/client-connectparticipant'); // CommonJS import
  * const client = new ConnectParticipantClient(config);
  * const input = { // SendEventRequest
- *   ContentType: "STRING_VALUE", // required
- *   Content: "STRING_VALUE",
- *   ClientToken: "STRING_VALUE",
- *   ConnectionToken: "STRING_VALUE", // required
+ *   ContentType: 'STRING_VALUE', // required
+ *   Content: 'STRING_VALUE',
+ *   ClientToken: 'STRING_VALUE',
+ *   ConnectionToken: 'STRING_VALUE', // required
  * };
  * const command = new SendEventCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SendEventResponse
+ *   Id: 'STRING_VALUE',
+ *   AbsoluteTime: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param SendEventCommandInput - {@link SendEventCommandInput}
@@ -78,6 +84,8 @@ export interface SendEventCommandOutput extends SendEventResponse, __MetadataBea
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by Amazon Connect.</p>
  *
+ * @throws {@link ConnectParticipantServiceException}
+ * <p>Base exception class for all service exceptions from ConnectParticipant service.</p>
  *
  */
 export class SendEventCommand extends $Command<

@@ -43,31 +43,53 @@ export interface CreateResourceShareCommandOutput extends CreateResourceShareRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RAMClient, CreateResourceShareCommand } from "@aws-sdk/client-ram"; // ES Modules import
- * // const { RAMClient, CreateResourceShareCommand } = require("@aws-sdk/client-ram"); // CommonJS import
+ * import { RAMClient, CreateResourceShareCommand } from '@aws-sdk/client-ram'; // ES Modules import
+ * // const { RAMClient, CreateResourceShareCommand } = require('@aws-sdk/client-ram'); // CommonJS import
  * const client = new RAMClient(config);
  * const input = { // CreateResourceShareRequest
- *   name: "STRING_VALUE", // required
+ *   name: 'STRING_VALUE', // required
  *   resourceArns: [ // ResourceArnList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   principals: [ // PrincipalArnOrIdList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   tags: [ // TagList
  *     { // Tag
- *       key: "STRING_VALUE",
- *       value: "STRING_VALUE",
+ *       key: 'STRING_VALUE',
+ *       value: 'STRING_VALUE',
  *     },
  *   ],
  *   allowExternalPrincipals: true || false,
- *   clientToken: "STRING_VALUE",
+ *   clientToken: 'STRING_VALUE',
  *   permissionArns: [ // PermissionArnList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new CreateResourceShareCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateResourceShareResponse
+ *   resourceShare: { // ResourceShare
+ *     resourceShareArn: 'STRING_VALUE',
+ *     name: 'STRING_VALUE',
+ *     owningAccountId: 'STRING_VALUE',
+ *     allowExternalPrincipals: true || false,
+ *     status: 'PENDING' || 'ACTIVE' || 'FAILED' || 'DELETING' || 'DELETED',
+ *     statusMessage: 'STRING_VALUE',
+ *     tags: [ // TagList
+ *       { // Tag
+ *         key: 'STRING_VALUE',
+ *         value: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     creationTime: new Date('TIMESTAMP'),
+ *     lastUpdatedTime: new Date('TIMESTAMP'),
+ *     featureSet: 'CREATED_FROM_POLICY' || 'PROMOTING_TO_STANDARD' || 'STANDARD',
+ *   },
+ *   clientToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateResourceShareCommandInput - {@link CreateResourceShareCommandInput}
@@ -117,6 +139,8 @@ export interface CreateResourceShareCommandOutput extends CreateResourceShareRes
  * @throws {@link UnknownResourceException} (client fault)
  *  <p>The operation failed because a specified resource couldn't be found.</p>
  *
+ * @throws {@link RAMServiceException}
+ * <p>Base exception class for all service exceptions from RAM service.</p>
  *
  */
 export class CreateResourceShareCommand extends $Command<

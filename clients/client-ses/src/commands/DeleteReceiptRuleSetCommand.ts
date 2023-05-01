@@ -42,14 +42,17 @@ export interface DeleteReceiptRuleSetCommandOutput extends DeleteReceiptRuleSetR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SESClient, DeleteReceiptRuleSetCommand } from "@aws-sdk/client-ses"; // ES Modules import
- * // const { SESClient, DeleteReceiptRuleSetCommand } = require("@aws-sdk/client-ses"); // CommonJS import
+ * import { SESClient, DeleteReceiptRuleSetCommand } from '@aws-sdk/client-ses'; // ES Modules import
+ * // const { SESClient, DeleteReceiptRuleSetCommand } = require('@aws-sdk/client-ses'); // CommonJS import
  * const client = new SESClient(config);
  * const input = { // DeleteReceiptRuleSetRequest
- *   RuleSetName: "STRING_VALUE", // required
+ *   RuleSetName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteReceiptRuleSetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteReceiptRuleSetCommandInput - {@link DeleteReceiptRuleSetCommandInput}
@@ -61,6 +64,8 @@ export interface DeleteReceiptRuleSetCommandOutput extends DeleteReceiptRuleSetR
  * @throws {@link CannotDeleteException} (client fault)
  *  <p>Indicates that the delete operation could not be completed.</p>
  *
+ * @throws {@link SESServiceException}
+ * <p>Base exception class for all service exceptions from SES service.</p>
  *
  * @example DeleteReceiptRuleSet
  * ```javascript

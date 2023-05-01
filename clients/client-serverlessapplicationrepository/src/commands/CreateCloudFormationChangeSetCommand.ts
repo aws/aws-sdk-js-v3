@@ -45,50 +45,58 @@ export interface CreateCloudFormationChangeSetCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ServerlessApplicationRepositoryClient, CreateCloudFormationChangeSetCommand } from "@aws-sdk/client-serverlessapplicationrepository"; // ES Modules import
- * // const { ServerlessApplicationRepositoryClient, CreateCloudFormationChangeSetCommand } = require("@aws-sdk/client-serverlessapplicationrepository"); // CommonJS import
+ * import { ServerlessApplicationRepositoryClient, CreateCloudFormationChangeSetCommand } from '@aws-sdk/client-serverlessapplicationrepository'; // ES Modules import
+ * // const { ServerlessApplicationRepositoryClient, CreateCloudFormationChangeSetCommand } = require('@aws-sdk/client-serverlessapplicationrepository'); // CommonJS import
  * const client = new ServerlessApplicationRepositoryClient(config);
  * const input = { // CreateCloudFormationChangeSetRequest
- *   ApplicationId: "STRING_VALUE", // required
+ *   ApplicationId: 'STRING_VALUE', // required
  *   Capabilities: [ // __listOf__string
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   ChangeSetName: "STRING_VALUE",
- *   ClientToken: "STRING_VALUE",
- *   Description: "STRING_VALUE",
+ *   ChangeSetName: 'STRING_VALUE',
+ *   ClientToken: 'STRING_VALUE',
+ *   Description: 'STRING_VALUE',
  *   NotificationArns: [
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   ParameterOverrides: [ // __listOfParameterValue
  *     { // ParameterValue
- *       Name: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Name: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  *   ResourceTypes: [
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   RollbackConfiguration: { // RollbackConfiguration
- *     MonitoringTimeInMinutes: Number("int"),
+ *     MonitoringTimeInMinutes: Number('int'),
  *     RollbackTriggers: [ // __listOfRollbackTrigger
  *       { // RollbackTrigger
- *         Arn: "STRING_VALUE", // required
- *         Type: "STRING_VALUE", // required
+ *         Arn: 'STRING_VALUE', // required
+ *         Type: 'STRING_VALUE', // required
  *       },
  *     ],
  *   },
- *   SemanticVersion: "STRING_VALUE",
- *   StackName: "STRING_VALUE", // required
+ *   SemanticVersion: 'STRING_VALUE',
+ *   StackName: 'STRING_VALUE', // required
  *   Tags: [ // __listOfTag
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
- *   TemplateId: "STRING_VALUE",
+ *   TemplateId: 'STRING_VALUE',
  * };
  * const command = new CreateCloudFormationChangeSetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateCloudFormationChangeSetResponse
+ *   ApplicationId: 'STRING_VALUE',
+ *   ChangeSetId: 'STRING_VALUE',
+ *   SemanticVersion: 'STRING_VALUE',
+ *   StackId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateCloudFormationChangeSetCommandInput - {@link CreateCloudFormationChangeSetCommandInput}
@@ -109,6 +117,8 @@ export interface CreateCloudFormationChangeSetCommandOutput
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>The client is sending more than the allowed number of requests per unit of time.</p>
  *
+ * @throws {@link ServerlessApplicationRepositoryServiceException}
+ * <p>Base exception class for all service exceptions from ServerlessApplicationRepository service.</p>
  *
  */
 export class CreateCloudFormationChangeSetCommand extends $Command<

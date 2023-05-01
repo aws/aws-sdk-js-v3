@@ -37,16 +37,42 @@ export interface ListDataSetsCommandOutput extends ListDataSetsResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { QuickSightClient, ListDataSetsCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
- * // const { QuickSightClient, ListDataSetsCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * import { QuickSightClient, ListDataSetsCommand } from '@aws-sdk/client-quicksight'; // ES Modules import
+ * // const { QuickSightClient, ListDataSetsCommand } = require('@aws-sdk/client-quicksight'); // CommonJS import
  * const client = new QuickSightClient(config);
  * const input = { // ListDataSetsRequest
- *   AwsAccountId: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   AwsAccountId: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListDataSetsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListDataSetsResponse
+ *   DataSetSummaries: [ // DataSetSummaryList
+ *     { // DataSetSummary
+ *       Arn: 'STRING_VALUE',
+ *       DataSetId: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *       CreatedTime: new Date('TIMESTAMP'),
+ *       LastUpdatedTime: new Date('TIMESTAMP'),
+ *       ImportMode: 'SPICE' || 'DIRECT_QUERY',
+ *       RowLevelPermissionDataSet: { // RowLevelPermissionDataSet
+ *         Namespace: 'STRING_VALUE',
+ *         Arn: 'STRING_VALUE', // required
+ *         PermissionPolicy: 'GRANT_ACCESS' || 'DENY_ACCESS', // required
+ *         FormatVersion: 'VERSION_1' || 'VERSION_2',
+ *         Status: 'ENABLED' || 'DISABLED',
+ *       },
+ *       RowLevelPermissionTagConfigurationApplied: true || false,
+ *       ColumnLevelPermissionRulesApplied: true || false,
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ *   RequestId: 'STRING_VALUE',
+ *   Status: Number('int'),
+ * };
+ *
  * ```
  *
  * @param ListDataSetsCommandInput - {@link ListDataSetsCommandInput}
@@ -73,6 +99,8 @@ export interface ListDataSetsCommandOutput extends ListDataSetsResponse, __Metad
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Access is throttled.</p>
  *
+ * @throws {@link QuickSightServiceException}
+ * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
 export class ListDataSetsCommand extends $Command<

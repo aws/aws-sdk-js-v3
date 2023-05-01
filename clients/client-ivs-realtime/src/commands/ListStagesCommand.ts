@@ -36,15 +36,30 @@ export interface ListStagesCommandOutput extends ListStagesResponse, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IVSRealTimeClient, ListStagesCommand } from "@aws-sdk/client-ivs-realtime"; // ES Modules import
- * // const { IVSRealTimeClient, ListStagesCommand } = require("@aws-sdk/client-ivs-realtime"); // CommonJS import
+ * import { IVSRealTimeClient, ListStagesCommand } from '@aws-sdk/client-ivs-realtime'; // ES Modules import
+ * // const { IVSRealTimeClient, ListStagesCommand } = require('@aws-sdk/client-ivs-realtime'); // CommonJS import
  * const client = new IVSRealTimeClient(config);
  * const input = { // ListStagesRequest
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new ListStagesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListStagesResponse
+ *   stages: [ // StageSummaryList // required
+ *     { // StageSummary
+ *       arn: 'STRING_VALUE', // required
+ *       name: 'STRING_VALUE',
+ *       activeSessionId: 'STRING_VALUE',
+ *       tags: { // Tags
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListStagesCommandInput - {@link ListStagesCommandInput}
@@ -62,6 +77,8 @@ export interface ListStagesCommandOutput extends ListStagesResponse, __MetadataB
  * @throws {@link ValidationException} (client fault)
  *  <p/>
  *
+ * @throws {@link IVSRealTimeServiceException}
+ * <p>Base exception class for all service exceptions from IVSRealTime service.</p>
  *
  */
 export class ListStagesCommand extends $Command<

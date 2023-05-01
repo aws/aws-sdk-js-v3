@@ -36,20 +36,38 @@ export interface GetDocumentationPartsCommandOutput extends DocumentationParts, 
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { APIGatewayClient, GetDocumentationPartsCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
- * // const { APIGatewayClient, GetDocumentationPartsCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
+ * import { APIGatewayClient, GetDocumentationPartsCommand } from '@aws-sdk/client-api-gateway'; // ES Modules import
+ * // const { APIGatewayClient, GetDocumentationPartsCommand } = require('@aws-sdk/client-api-gateway'); // CommonJS import
  * const client = new APIGatewayClient(config);
  * const input = { // GetDocumentationPartsRequest
- *   restApiId: "STRING_VALUE", // required
- *   type: "API" || "AUTHORIZER" || "MODEL" || "RESOURCE" || "METHOD" || "PATH_PARAMETER" || "QUERY_PARAMETER" || "REQUEST_HEADER" || "REQUEST_BODY" || "RESPONSE" || "RESPONSE_HEADER" || "RESPONSE_BODY",
- *   nameQuery: "STRING_VALUE",
- *   path: "STRING_VALUE",
- *   position: "STRING_VALUE",
- *   limit: Number("int"),
- *   locationStatus: "DOCUMENTED" || "UNDOCUMENTED",
+ *   restApiId: 'STRING_VALUE', // required
+ *   type: 'API' || 'AUTHORIZER' || 'MODEL' || 'RESOURCE' || 'METHOD' || 'PATH_PARAMETER' || 'QUERY_PARAMETER' || 'REQUEST_HEADER' || 'REQUEST_BODY' || 'RESPONSE' || 'RESPONSE_HEADER' || 'RESPONSE_BODY',
+ *   nameQuery: 'STRING_VALUE',
+ *   path: 'STRING_VALUE',
+ *   position: 'STRING_VALUE',
+ *   limit: Number('int'),
+ *   locationStatus: 'DOCUMENTED' || 'UNDOCUMENTED',
  * };
  * const command = new GetDocumentationPartsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DocumentationParts
+ *   items: [ // ListOfDocumentationPart
+ *     { // DocumentationPart
+ *       id: 'STRING_VALUE',
+ *       location: { // DocumentationPartLocation
+ *         type: 'API' || 'AUTHORIZER' || 'MODEL' || 'RESOURCE' || 'METHOD' || 'PATH_PARAMETER' || 'QUERY_PARAMETER' || 'REQUEST_HEADER' || 'REQUEST_BODY' || 'RESPONSE' || 'RESPONSE_HEADER' || 'RESPONSE_BODY', // required
+ *         path: 'STRING_VALUE',
+ *         method: 'STRING_VALUE',
+ *         statusCode: 'STRING_VALUE',
+ *         name: 'STRING_VALUE',
+ *       },
+ *       properties: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   position: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetDocumentationPartsCommandInput - {@link GetDocumentationPartsCommandInput}
@@ -70,6 +88,8 @@ export interface GetDocumentationPartsCommandOutput extends DocumentationParts, 
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The request is denied because the caller has insufficient permissions.</p>
  *
+ * @throws {@link APIGatewayServiceException}
+ * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
  */
 export class GetDocumentationPartsCommand extends $Command<

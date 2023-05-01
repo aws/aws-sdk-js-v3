@@ -40,14 +40,17 @@ export interface DeleteSystemInstanceCommandOutput extends DeleteSystemInstanceR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTThingsGraphClient, DeleteSystemInstanceCommand } from "@aws-sdk/client-iotthingsgraph"; // ES Modules import
- * // const { IoTThingsGraphClient, DeleteSystemInstanceCommand } = require("@aws-sdk/client-iotthingsgraph"); // CommonJS import
+ * import { IoTThingsGraphClient, DeleteSystemInstanceCommand } from '@aws-sdk/client-iotthingsgraph'; // ES Modules import
+ * // const { IoTThingsGraphClient, DeleteSystemInstanceCommand } = require('@aws-sdk/client-iotthingsgraph'); // CommonJS import
  * const client = new IoTThingsGraphClient(config);
  * const input = { // DeleteSystemInstanceRequest
- *   id: "STRING_VALUE",
+ *   id: 'STRING_VALUE',
  * };
  * const command = new DeleteSystemInstanceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteSystemInstanceCommandInput - {@link DeleteSystemInstanceCommandInput}
@@ -68,6 +71,8 @@ export interface DeleteSystemInstanceCommandOutput extends DeleteSystemInstanceR
  * @throws {@link ThrottlingException} (client fault)
  *  <p></p>
  *
+ * @throws {@link IoTThingsGraphServiceException}
+ * <p>Base exception class for all service exceptions from IoTThingsGraph service.</p>
  *
  */
 export class DeleteSystemInstanceCommand extends $Command<

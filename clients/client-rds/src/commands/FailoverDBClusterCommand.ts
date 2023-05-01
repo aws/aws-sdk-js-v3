@@ -52,15 +52,165 @@ export interface FailoverDBClusterCommandOutput extends FailoverDBClusterResult,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RDSClient, FailoverDBClusterCommand } from "@aws-sdk/client-rds"; // ES Modules import
- * // const { RDSClient, FailoverDBClusterCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * import { RDSClient, FailoverDBClusterCommand } from '@aws-sdk/client-rds'; // ES Modules import
+ * // const { RDSClient, FailoverDBClusterCommand } = require('@aws-sdk/client-rds'); // CommonJS import
  * const client = new RDSClient(config);
  * const input = { // FailoverDBClusterMessage
- *   DBClusterIdentifier: "STRING_VALUE", // required
- *   TargetDBInstanceIdentifier: "STRING_VALUE",
+ *   DBClusterIdentifier: 'STRING_VALUE', // required
+ *   TargetDBInstanceIdentifier: 'STRING_VALUE',
  * };
  * const command = new FailoverDBClusterCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // FailoverDBClusterResult
+ *   DBCluster: { // DBCluster
+ *     AllocatedStorage: Number('int'),
+ *     AvailabilityZones: [ // AvailabilityZones
+ *       'STRING_VALUE',
+ *     ],
+ *     BackupRetentionPeriod: Number('int'),
+ *     CharacterSetName: 'STRING_VALUE',
+ *     DatabaseName: 'STRING_VALUE',
+ *     DBClusterIdentifier: 'STRING_VALUE',
+ *     DBClusterParameterGroup: 'STRING_VALUE',
+ *     DBSubnetGroup: 'STRING_VALUE',
+ *     Status: 'STRING_VALUE',
+ *     AutomaticRestartTime: new Date('TIMESTAMP'),
+ *     PercentProgress: 'STRING_VALUE',
+ *     EarliestRestorableTime: new Date('TIMESTAMP'),
+ *     Endpoint: 'STRING_VALUE',
+ *     ReaderEndpoint: 'STRING_VALUE',
+ *     CustomEndpoints: [ // StringList
+ *       'STRING_VALUE',
+ *     ],
+ *     MultiAZ: true || false,
+ *     Engine: 'STRING_VALUE',
+ *     EngineVersion: 'STRING_VALUE',
+ *     LatestRestorableTime: new Date('TIMESTAMP'),
+ *     Port: Number('int'),
+ *     MasterUsername: 'STRING_VALUE',
+ *     DBClusterOptionGroupMemberships: [ // DBClusterOptionGroupMemberships
+ *       { // DBClusterOptionGroupStatus
+ *         DBClusterOptionGroupName: 'STRING_VALUE',
+ *         Status: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     PreferredBackupWindow: 'STRING_VALUE',
+ *     PreferredMaintenanceWindow: 'STRING_VALUE',
+ *     ReplicationSourceIdentifier: 'STRING_VALUE',
+ *     ReadReplicaIdentifiers: [ // ReadReplicaIdentifierList
+ *       'STRING_VALUE',
+ *     ],
+ *     DBClusterMembers: [ // DBClusterMemberList
+ *       { // DBClusterMember
+ *         DBInstanceIdentifier: 'STRING_VALUE',
+ *         IsClusterWriter: true || false,
+ *         DBClusterParameterGroupStatus: 'STRING_VALUE',
+ *         PromotionTier: Number('int'),
+ *       },
+ *     ],
+ *     VpcSecurityGroups: [ // VpcSecurityGroupMembershipList
+ *       { // VpcSecurityGroupMembership
+ *         VpcSecurityGroupId: 'STRING_VALUE',
+ *         Status: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     HostedZoneId: 'STRING_VALUE',
+ *     StorageEncrypted: true || false,
+ *     KmsKeyId: 'STRING_VALUE',
+ *     DbClusterResourceId: 'STRING_VALUE',
+ *     DBClusterArn: 'STRING_VALUE',
+ *     AssociatedRoles: [ // DBClusterRoles
+ *       { // DBClusterRole
+ *         RoleArn: 'STRING_VALUE',
+ *         Status: 'STRING_VALUE',
+ *         FeatureName: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     IAMDatabaseAuthenticationEnabled: true || false,
+ *     CloneGroupId: 'STRING_VALUE',
+ *     ClusterCreateTime: new Date('TIMESTAMP'),
+ *     EarliestBacktrackTime: new Date('TIMESTAMP'),
+ *     BacktrackWindow: Number('long'),
+ *     BacktrackConsumedChangeRecords: Number('long'),
+ *     EnabledCloudwatchLogsExports: [ // LogTypeList
+ *       'STRING_VALUE',
+ *     ],
+ *     Capacity: Number('int'),
+ *     EngineMode: 'STRING_VALUE',
+ *     ScalingConfigurationInfo: { // ScalingConfigurationInfo
+ *       MinCapacity: Number('int'),
+ *       MaxCapacity: Number('int'),
+ *       AutoPause: true || false,
+ *       SecondsUntilAutoPause: Number('int'),
+ *       TimeoutAction: 'STRING_VALUE',
+ *       SecondsBeforeTimeout: Number('int'),
+ *     },
+ *     DeletionProtection: true || false,
+ *     HttpEndpointEnabled: true || false,
+ *     ActivityStreamMode: 'sync' || 'async',
+ *     ActivityStreamStatus: 'stopped' || 'starting' || 'started' || 'stopping',
+ *     ActivityStreamKmsKeyId: 'STRING_VALUE',
+ *     ActivityStreamKinesisStreamName: 'STRING_VALUE',
+ *     CopyTagsToSnapshot: true || false,
+ *     CrossAccountClone: true || false,
+ *     DomainMemberships: [ // DomainMembershipList
+ *       { // DomainMembership
+ *         Domain: 'STRING_VALUE',
+ *         Status: 'STRING_VALUE',
+ *         FQDN: 'STRING_VALUE',
+ *         IAMRoleName: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     TagList: [ // TagList
+ *       { // Tag
+ *         Key: 'STRING_VALUE',
+ *         Value: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     GlobalWriteForwardingStatus: 'enabled' || 'disabled' || 'enabling' || 'disabling' || 'unknown',
+ *     GlobalWriteForwardingRequested: true || false,
+ *     PendingModifiedValues: { // ClusterPendingModifiedValues
+ *       PendingCloudwatchLogsExports: { // PendingCloudwatchLogsExports
+ *         LogTypesToEnable: [
+ *           'STRING_VALUE',
+ *         ],
+ *         LogTypesToDisable: [
+ *           'STRING_VALUE',
+ *         ],
+ *       },
+ *       DBClusterIdentifier: 'STRING_VALUE',
+ *       MasterUserPassword: 'STRING_VALUE',
+ *       IAMDatabaseAuthenticationEnabled: true || false,
+ *       EngineVersion: 'STRING_VALUE',
+ *       BackupRetentionPeriod: Number('int'),
+ *       AllocatedStorage: Number('int'),
+ *       Iops: Number('int'),
+ *     },
+ *     DBClusterInstanceClass: 'STRING_VALUE',
+ *     StorageType: 'STRING_VALUE',
+ *     Iops: Number('int'),
+ *     PubliclyAccessible: true || false,
+ *     AutoMinorVersionUpgrade: true || false,
+ *     MonitoringInterval: Number('int'),
+ *     MonitoringRoleArn: 'STRING_VALUE',
+ *     PerformanceInsightsEnabled: true || false,
+ *     PerformanceInsightsKMSKeyId: 'STRING_VALUE',
+ *     PerformanceInsightsRetentionPeriod: Number('int'),
+ *     ServerlessV2ScalingConfiguration: { // ServerlessV2ScalingConfigurationInfo
+ *       MinCapacity: Number('double'),
+ *       MaxCapacity: Number('double'),
+ *     },
+ *     NetworkType: 'STRING_VALUE',
+ *     DBSystemId: 'STRING_VALUE',
+ *     MasterUserSecret: { // MasterUserSecret
+ *       SecretArn: 'STRING_VALUE',
+ *       SecretStatus: 'STRING_VALUE',
+ *       KmsKeyId: 'STRING_VALUE',
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param FailoverDBClusterCommandInput - {@link FailoverDBClusterCommandInput}
@@ -79,6 +229,8 @@ export interface FailoverDBClusterCommandOutput extends FailoverDBClusterResult,
  * @throws {@link InvalidDBInstanceStateFault} (client fault)
  *  <p>The DB instance isn't in a valid state.</p>
  *
+ * @throws {@link RDSServiceException}
+ * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  * @example To perform a failover for a DB cluster
  * ```javascript

@@ -42,14 +42,24 @@ export interface GetInsightSelectorsCommandOutput extends GetInsightSelectorsRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudTrailClient, GetInsightSelectorsCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
- * // const { CloudTrailClient, GetInsightSelectorsCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
+ * import { CloudTrailClient, GetInsightSelectorsCommand } from '@aws-sdk/client-cloudtrail'; // ES Modules import
+ * // const { CloudTrailClient, GetInsightSelectorsCommand } = require('@aws-sdk/client-cloudtrail'); // CommonJS import
  * const client = new CloudTrailClient(config);
  * const input = { // GetInsightSelectorsRequest
- *   TrailName: "STRING_VALUE", // required
+ *   TrailName: 'STRING_VALUE', // required
  * };
  * const command = new GetInsightSelectorsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetInsightSelectorsResponse
+ *   TrailARN: 'STRING_VALUE',
+ *   InsightSelectors: [ // InsightSelectors
+ *     { // InsightSelector
+ *       InsightType: 'ApiCallRateInsight' || 'ApiErrorRateInsight',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetInsightSelectorsCommandInput - {@link GetInsightSelectorsCommandInput}
@@ -113,6 +123,8 @@ export interface GetInsightSelectorsCommandOutput extends GetInsightSelectorsRes
  * @throws {@link UnsupportedOperationException} (client fault)
  *  <p>This exception is thrown when the requested operation is not supported.</p>
  *
+ * @throws {@link CloudTrailServiceException}
+ * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
  */
 export class GetInsightSelectorsCommand extends $Command<

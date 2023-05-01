@@ -53,17 +53,37 @@ export interface ListCustomRoutingPortMappingsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlobalAcceleratorClient, ListCustomRoutingPortMappingsCommand } from "@aws-sdk/client-global-accelerator"; // ES Modules import
- * // const { GlobalAcceleratorClient, ListCustomRoutingPortMappingsCommand } = require("@aws-sdk/client-global-accelerator"); // CommonJS import
+ * import { GlobalAcceleratorClient, ListCustomRoutingPortMappingsCommand } from '@aws-sdk/client-global-accelerator'; // ES Modules import
+ * // const { GlobalAcceleratorClient, ListCustomRoutingPortMappingsCommand } = require('@aws-sdk/client-global-accelerator'); // CommonJS import
  * const client = new GlobalAcceleratorClient(config);
  * const input = { // ListCustomRoutingPortMappingsRequest
- *   AcceleratorArn: "STRING_VALUE", // required
- *   EndpointGroupArn: "STRING_VALUE",
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   AcceleratorArn: 'STRING_VALUE', // required
+ *   EndpointGroupArn: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListCustomRoutingPortMappingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListCustomRoutingPortMappingsResponse
+ *   PortMappings: [ // PortMappings
+ *     { // PortMapping
+ *       AcceleratorPort: Number('int'),
+ *       EndpointGroupArn: 'STRING_VALUE',
+ *       EndpointId: 'STRING_VALUE',
+ *       DestinationSocketAddress: { // SocketAddress
+ *         IpAddress: 'STRING_VALUE',
+ *         Port: Number('int'),
+ *       },
+ *       Protocols: [ // CustomRoutingProtocols
+ *         'TCP' || 'UDP',
+ *       ],
+ *       DestinationTrafficState: 'ALLOW' || 'DENY',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListCustomRoutingPortMappingsCommandInput - {@link ListCustomRoutingPortMappingsCommandInput}
@@ -87,6 +107,8 @@ export interface ListCustomRoutingPortMappingsCommandOutput
  * @throws {@link InvalidNextTokenException} (client fault)
  *  <p>There isn't another item to return.</p>
  *
+ * @throws {@link GlobalAcceleratorServiceException}
+ * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
  */
 export class ListCustomRoutingPortMappingsCommand extends $Command<

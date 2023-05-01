@@ -65,15 +65,27 @@ export interface ListKeysCommandOutput extends ListKeysResponse, __MetadataBeare
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KMSClient, ListKeysCommand } from "@aws-sdk/client-kms"; // ES Modules import
- * // const { KMSClient, ListKeysCommand } = require("@aws-sdk/client-kms"); // CommonJS import
+ * import { KMSClient, ListKeysCommand } from '@aws-sdk/client-kms'; // ES Modules import
+ * // const { KMSClient, ListKeysCommand } = require('@aws-sdk/client-kms'); // CommonJS import
  * const client = new KMSClient(config);
  * const input = { // ListKeysRequest
- *   Limit: Number("int"),
- *   Marker: "STRING_VALUE",
+ *   Limit: Number('int'),
+ *   Marker: 'STRING_VALUE',
  * };
  * const command = new ListKeysCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListKeysResponse
+ *   Keys: [ // KeyList
+ *     { // KeyListEntry
+ *       KeyId: 'STRING_VALUE',
+ *       KeyArn: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextMarker: 'STRING_VALUE',
+ *   Truncated: true || false,
+ * };
+ *
  * ```
  *
  * @param ListKeysCommandInput - {@link ListKeysCommandInput}
@@ -94,6 +106,8 @@ export interface ListKeysCommandOutput extends ListKeysResponse, __MetadataBeare
  *  <p>The request was rejected because an internal exception occurred. The request can be
  *       retried.</p>
  *
+ * @throws {@link KMSServiceException}
+ * <p>Base exception class for all service exceptions from KMS service.</p>
  *
  * @example To list KMS keys
  * ```javascript

@@ -44,16 +44,21 @@ export interface TransferCertificateCommandOutput extends TransferCertificateRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTClient, TransferCertificateCommand } from "@aws-sdk/client-iot"; // ES Modules import
- * // const { IoTClient, TransferCertificateCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * import { IoTClient, TransferCertificateCommand } from '@aws-sdk/client-iot'; // ES Modules import
+ * // const { IoTClient, TransferCertificateCommand } = require('@aws-sdk/client-iot'); // CommonJS import
  * const client = new IoTClient(config);
  * const input = { // TransferCertificateRequest
- *   certificateId: "STRING_VALUE", // required
- *   targetAwsAccount: "STRING_VALUE", // required
- *   transferMessage: "STRING_VALUE",
+ *   certificateId: 'STRING_VALUE', // required
+ *   targetAwsAccount: 'STRING_VALUE', // required
+ *   transferMessage: 'STRING_VALUE',
  * };
  * const command = new TransferCertificateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // TransferCertificateResponse
+ *   transferredCertificateArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param TransferCertificateCommandInput - {@link TransferCertificateCommandInput}
@@ -87,6 +92,8 @@ export interface TransferCertificateCommandOutput extends TransferCertificateRes
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this operation.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class TransferCertificateCommand extends $Command<

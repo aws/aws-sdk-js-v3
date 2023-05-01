@@ -41,14 +41,97 @@ export interface DescribeEntityRecognizerCommandOutput extends DescribeEntityRec
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ComprehendClient, DescribeEntityRecognizerCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
- * // const { ComprehendClient, DescribeEntityRecognizerCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
+ * import { ComprehendClient, DescribeEntityRecognizerCommand } from '@aws-sdk/client-comprehend'; // ES Modules import
+ * // const { ComprehendClient, DescribeEntityRecognizerCommand } = require('@aws-sdk/client-comprehend'); // CommonJS import
  * const client = new ComprehendClient(config);
  * const input = { // DescribeEntityRecognizerRequest
- *   EntityRecognizerArn: "STRING_VALUE", // required
+ *   EntityRecognizerArn: 'STRING_VALUE', // required
  * };
  * const command = new DescribeEntityRecognizerCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeEntityRecognizerResponse
+ *   EntityRecognizerProperties: { // EntityRecognizerProperties
+ *     EntityRecognizerArn: 'STRING_VALUE',
+ *     LanguageCode: 'en' || 'es' || 'fr' || 'de' || 'it' || 'pt' || 'ar' || 'hi' || 'ja' || 'ko' || 'zh' || 'zh-TW',
+ *     Status: 'SUBMITTED' || 'TRAINING' || 'DELETING' || 'STOP_REQUESTED' || 'STOPPED' || 'IN_ERROR' || 'TRAINED' || 'TRAINED_WITH_WARNING',
+ *     Message: 'STRING_VALUE',
+ *     SubmitTime: new Date('TIMESTAMP'),
+ *     EndTime: new Date('TIMESTAMP'),
+ *     TrainingStartTime: new Date('TIMESTAMP'),
+ *     TrainingEndTime: new Date('TIMESTAMP'),
+ *     InputDataConfig: { // EntityRecognizerInputDataConfig
+ *       DataFormat: 'COMPREHEND_CSV' || 'AUGMENTED_MANIFEST',
+ *       EntityTypes: [ // EntityTypesList // required
+ *         { // EntityTypesListItem
+ *           Type: 'STRING_VALUE', // required
+ *         },
+ *       ],
+ *       Documents: { // EntityRecognizerDocuments
+ *         S3Uri: 'STRING_VALUE', // required
+ *         TestS3Uri: 'STRING_VALUE',
+ *         InputFormat: 'ONE_DOC_PER_FILE' || 'ONE_DOC_PER_LINE',
+ *       },
+ *       Annotations: { // EntityRecognizerAnnotations
+ *         S3Uri: 'STRING_VALUE', // required
+ *         TestS3Uri: 'STRING_VALUE',
+ *       },
+ *       EntityList: { // EntityRecognizerEntityList
+ *         S3Uri: 'STRING_VALUE', // required
+ *       },
+ *       AugmentedManifests: [ // EntityRecognizerAugmentedManifestsList
+ *         { // AugmentedManifestsListItem
+ *           S3Uri: 'STRING_VALUE', // required
+ *           Split: 'TRAIN' || 'TEST',
+ *           AttributeNames: [ // AttributeNamesList // required
+ *             'STRING_VALUE',
+ *           ],
+ *           AnnotationDataS3Uri: 'STRING_VALUE',
+ *           SourceDocumentsS3Uri: 'STRING_VALUE',
+ *           DocumentType: 'PLAIN_TEXT_DOCUMENT' || 'SEMI_STRUCTURED_DOCUMENT',
+ *         },
+ *       ],
+ *     },
+ *     RecognizerMetadata: { // EntityRecognizerMetadata
+ *       NumberOfTrainedDocuments: Number('int'),
+ *       NumberOfTestDocuments: Number('int'),
+ *       EvaluationMetrics: { // EntityRecognizerEvaluationMetrics
+ *         Precision: Number('double'),
+ *         Recall: Number('double'),
+ *         F1Score: Number('double'),
+ *       },
+ *       EntityTypes: [ // EntityRecognizerMetadataEntityTypesList
+ *         { // EntityRecognizerMetadataEntityTypesListItem
+ *           Type: 'STRING_VALUE',
+ *           EvaluationMetrics: { // EntityTypesEvaluationMetrics
+ *             Precision: Number('double'),
+ *             Recall: Number('double'),
+ *             F1Score: Number('double'),
+ *           },
+ *           NumberOfTrainMentions: Number('int'),
+ *         },
+ *       ],
+ *     },
+ *     DataAccessRoleArn: 'STRING_VALUE',
+ *     VolumeKmsKeyId: 'STRING_VALUE',
+ *     VpcConfig: { // VpcConfig
+ *       SecurityGroupIds: [ // SecurityGroupIds // required
+ *         'STRING_VALUE',
+ *       ],
+ *       Subnets: [ // Subnets // required
+ *         'STRING_VALUE',
+ *       ],
+ *     },
+ *     ModelKmsKeyId: 'STRING_VALUE',
+ *     VersionName: 'STRING_VALUE',
+ *     SourceModelArn: 'STRING_VALUE',
+ *     FlywheelArn: 'STRING_VALUE',
+ *     OutputDataConfig: { // EntityRecognizerOutputDataConfig
+ *       FlywheelStatsS3Prefix: 'STRING_VALUE',
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeEntityRecognizerCommandInput - {@link DescribeEntityRecognizerCommandInput}
@@ -69,6 +152,8 @@ export interface DescribeEntityRecognizerCommandOutput extends DescribeEntityRec
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>The number of requests exceeds the limit. Resubmit your request later.</p>
  *
+ * @throws {@link ComprehendServiceException}
+ * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
  */
 export class DescribeEntityRecognizerCommand extends $Command<

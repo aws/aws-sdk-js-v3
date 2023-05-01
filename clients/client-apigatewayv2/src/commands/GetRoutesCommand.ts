@@ -36,16 +36,46 @@ export interface GetRoutesCommandOutput extends GetRoutesResponse, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ApiGatewayV2Client, GetRoutesCommand } from "@aws-sdk/client-apigatewayv2"; // ES Modules import
- * // const { ApiGatewayV2Client, GetRoutesCommand } = require("@aws-sdk/client-apigatewayv2"); // CommonJS import
+ * import { ApiGatewayV2Client, GetRoutesCommand } from '@aws-sdk/client-apigatewayv2'; // ES Modules import
+ * // const { ApiGatewayV2Client, GetRoutesCommand } = require('@aws-sdk/client-apigatewayv2'); // CommonJS import
  * const client = new ApiGatewayV2Client(config);
  * const input = { // GetRoutesRequest
- *   ApiId: "STRING_VALUE", // required
- *   MaxResults: "STRING_VALUE",
- *   NextToken: "STRING_VALUE",
+ *   ApiId: 'STRING_VALUE', // required
+ *   MaxResults: 'STRING_VALUE',
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new GetRoutesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetRoutesResponse
+ *   Items: [ // __listOfRoute
+ *     { // Route
+ *       ApiGatewayManaged: true || false,
+ *       ApiKeyRequired: true || false,
+ *       AuthorizationScopes: [ // AuthorizationScopes
+ *         'STRING_VALUE',
+ *       ],
+ *       AuthorizationType: 'STRING_VALUE',
+ *       AuthorizerId: 'STRING_VALUE',
+ *       ModelSelectionExpression: 'STRING_VALUE',
+ *       OperationName: 'STRING_VALUE',
+ *       RequestModels: { // RouteModels
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *       RequestParameters: { // RouteParameters
+ *         '<keys>': { // ParameterConstraints
+ *           Required: true || false,
+ *         },
+ *       },
+ *       RouteId: 'STRING_VALUE',
+ *       RouteKey: 'STRING_VALUE', // required
+ *       RouteResponseSelectionExpression: 'STRING_VALUE',
+ *       Target: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetRoutesCommandInput - {@link GetRoutesCommandInput}
@@ -63,6 +93,8 @@ export interface GetRoutesCommandOutput extends GetRoutesResponse, __MetadataBea
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>A limit has been exceeded. See the accompanying error message for details.</p>
  *
+ * @throws {@link ApiGatewayV2ServiceException}
+ * <p>Base exception class for all service exceptions from ApiGatewayV2 service.</p>
  *
  */
 export class GetRoutesCommand extends $Command<

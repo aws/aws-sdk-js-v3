@@ -52,14 +52,24 @@ export interface DescribeSeverityLevelsCommandOutput extends DescribeSeverityLev
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SupportClient, DescribeSeverityLevelsCommand } from "@aws-sdk/client-support"; // ES Modules import
- * // const { SupportClient, DescribeSeverityLevelsCommand } = require("@aws-sdk/client-support"); // CommonJS import
+ * import { SupportClient, DescribeSeverityLevelsCommand } from '@aws-sdk/client-support'; // ES Modules import
+ * // const { SupportClient, DescribeSeverityLevelsCommand } = require('@aws-sdk/client-support'); // CommonJS import
  * const client = new SupportClient(config);
  * const input = { // DescribeSeverityLevelsRequest
- *   language: "STRING_VALUE",
+ *   language: 'STRING_VALUE',
  * };
  * const command = new DescribeSeverityLevelsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeSeverityLevelsResponse
+ *   severityLevels: [ // SeverityLevelsList
+ *     { // SeverityLevel
+ *       code: 'STRING_VALUE',
+ *       name: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeSeverityLevelsCommandInput - {@link DescribeSeverityLevelsCommandInput}
@@ -71,6 +81,8 @@ export interface DescribeSeverityLevelsCommandOutput extends DescribeSeverityLev
  * @throws {@link InternalServerError} (server fault)
  *  <p>An internal server error occurred.</p>
  *
+ * @throws {@link SupportServiceException}
+ * <p>Base exception class for all service exceptions from Support service.</p>
  *
  */
 export class DescribeSeverityLevelsCommand extends $Command<

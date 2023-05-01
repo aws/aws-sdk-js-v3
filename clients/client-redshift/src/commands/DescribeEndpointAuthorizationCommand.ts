@@ -39,18 +39,38 @@ export interface DescribeEndpointAuthorizationCommandOutput extends EndpointAuth
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RedshiftClient, DescribeEndpointAuthorizationCommand } from "@aws-sdk/client-redshift"; // ES Modules import
- * // const { RedshiftClient, DescribeEndpointAuthorizationCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * import { RedshiftClient, DescribeEndpointAuthorizationCommand } from '@aws-sdk/client-redshift'; // ES Modules import
+ * // const { RedshiftClient, DescribeEndpointAuthorizationCommand } = require('@aws-sdk/client-redshift'); // CommonJS import
  * const client = new RedshiftClient(config);
  * const input = { // DescribeEndpointAuthorizationMessage
- *   ClusterIdentifier: "STRING_VALUE",
- *   Account: "STRING_VALUE",
+ *   ClusterIdentifier: 'STRING_VALUE',
+ *   Account: 'STRING_VALUE',
  *   Grantee: true || false,
- *   MaxRecords: Number("int"),
- *   Marker: "STRING_VALUE",
+ *   MaxRecords: Number('int'),
+ *   Marker: 'STRING_VALUE',
  * };
  * const command = new DescribeEndpointAuthorizationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // EndpointAuthorizationList
+ *   EndpointAuthorizationList: [ // EndpointAuthorizations
+ *     { // EndpointAuthorization
+ *       Grantor: 'STRING_VALUE',
+ *       Grantee: 'STRING_VALUE',
+ *       ClusterIdentifier: 'STRING_VALUE',
+ *       AuthorizeTime: new Date('TIMESTAMP'),
+ *       ClusterStatus: 'STRING_VALUE',
+ *       Status: 'Authorized' || 'Revoking',
+ *       AllowedAllVPCs: true || false,
+ *       AllowedVPCs: [ // VpcIdentifierList
+ *         'STRING_VALUE',
+ *       ],
+ *       EndpointCount: Number('int'),
+ *     },
+ *   ],
+ *   Marker: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeEndpointAuthorizationCommandInput - {@link DescribeEndpointAuthorizationCommandInput}
@@ -66,6 +86,8 @@ export interface DescribeEndpointAuthorizationCommandOutput extends EndpointAuth
  * @throws {@link UnsupportedOperationFault} (client fault)
  *  <p>The requested operation isn't supported.</p>
  *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class DescribeEndpointAuthorizationCommand extends $Command<

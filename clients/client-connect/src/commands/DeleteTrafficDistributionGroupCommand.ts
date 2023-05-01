@@ -44,14 +44,17 @@ export interface DeleteTrafficDistributionGroupCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, DeleteTrafficDistributionGroupCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, DeleteTrafficDistributionGroupCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, DeleteTrafficDistributionGroupCommand } from '@aws-sdk/client-connect'; // ES Modules import
+ * // const { ConnectClient, DeleteTrafficDistributionGroupCommand } = require('@aws-sdk/client-connect'); // CommonJS import
  * const client = new ConnectClient(config);
  * const input = { // DeleteTrafficDistributionGroupRequest
- *   TrafficDistributionGroupId: "STRING_VALUE", // required
+ *   TrafficDistributionGroupId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteTrafficDistributionGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteTrafficDistributionGroupCommandInput - {@link DeleteTrafficDistributionGroupCommandInput}
@@ -75,6 +78,8 @@ export interface DeleteTrafficDistributionGroupCommandOutput
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class DeleteTrafficDistributionGroupCommand extends $Command<

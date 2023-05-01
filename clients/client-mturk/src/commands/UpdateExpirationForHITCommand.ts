@@ -39,15 +39,18 @@ export interface UpdateExpirationForHITCommandOutput extends UpdateExpirationFor
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MTurkClient, UpdateExpirationForHITCommand } from "@aws-sdk/client-mturk"; // ES Modules import
- * // const { MTurkClient, UpdateExpirationForHITCommand } = require("@aws-sdk/client-mturk"); // CommonJS import
+ * import { MTurkClient, UpdateExpirationForHITCommand } from '@aws-sdk/client-mturk'; // ES Modules import
+ * // const { MTurkClient, UpdateExpirationForHITCommand } = require('@aws-sdk/client-mturk'); // CommonJS import
  * const client = new MTurkClient(config);
  * const input = { // UpdateExpirationForHITRequest
- *   HITId: "STRING_VALUE", // required
- *   ExpireAt: new Date("TIMESTAMP"), // required
+ *   HITId: 'STRING_VALUE', // required
+ *   ExpireAt: new Date('TIMESTAMP'), // required
  * };
  * const command = new UpdateExpirationForHITCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateExpirationForHITCommandInput - {@link UpdateExpirationForHITCommandInput}
@@ -62,6 +65,8 @@ export interface UpdateExpirationForHITCommandOutput extends UpdateExpirationFor
  * @throws {@link ServiceFault} (server fault)
  *  <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
  *
+ * @throws {@link MTurkServiceException}
+ * <p>Base exception class for all service exceptions from MTurk service.</p>
  *
  */
 export class UpdateExpirationForHITCommand extends $Command<

@@ -39,14 +39,17 @@ export interface StartConfigurationRecorderCommandOutput extends __MetadataBeare
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConfigServiceClient, StartConfigurationRecorderCommand } from "@aws-sdk/client-config-service"; // ES Modules import
- * // const { ConfigServiceClient, StartConfigurationRecorderCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
+ * import { ConfigServiceClient, StartConfigurationRecorderCommand } from '@aws-sdk/client-config-service'; // ES Modules import
+ * // const { ConfigServiceClient, StartConfigurationRecorderCommand } = require('@aws-sdk/client-config-service'); // CommonJS import
  * const client = new ConfigServiceClient(config);
  * const input = { // StartConfigurationRecorderRequest
- *   ConfigurationRecorderName: "STRING_VALUE", // required
+ *   ConfigurationRecorderName: 'STRING_VALUE', // required
  * };
  * const command = new StartConfigurationRecorderCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param StartConfigurationRecorderCommandInput - {@link StartConfigurationRecorderCommandInput}
@@ -63,6 +66,8 @@ export interface StartConfigurationRecorderCommandOutput extends __MetadataBeare
  *  <p>You have specified a configuration recorder that does not
  * 			exist.</p>
  *
+ * @throws {@link ConfigServiceServiceException}
+ * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
  */
 export class StartConfigurationRecorderCommand extends $Command<

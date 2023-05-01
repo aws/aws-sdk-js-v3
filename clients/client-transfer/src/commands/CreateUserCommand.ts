@@ -42,39 +42,45 @@ export interface CreateUserCommandOutput extends CreateUserResponse, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { TransferClient, CreateUserCommand } from "@aws-sdk/client-transfer"; // ES Modules import
- * // const { TransferClient, CreateUserCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
+ * import { TransferClient, CreateUserCommand } from '@aws-sdk/client-transfer'; // ES Modules import
+ * // const { TransferClient, CreateUserCommand } = require('@aws-sdk/client-transfer'); // CommonJS import
  * const client = new TransferClient(config);
  * const input = { // CreateUserRequest
- *   HomeDirectory: "STRING_VALUE",
- *   HomeDirectoryType: "PATH" || "LOGICAL",
+ *   HomeDirectory: 'STRING_VALUE',
+ *   HomeDirectoryType: 'PATH' || 'LOGICAL',
  *   HomeDirectoryMappings: [ // HomeDirectoryMappings
  *     { // HomeDirectoryMapEntry
- *       Entry: "STRING_VALUE", // required
- *       Target: "STRING_VALUE", // required
+ *       Entry: 'STRING_VALUE', // required
+ *       Target: 'STRING_VALUE', // required
  *     },
  *   ],
- *   Policy: "STRING_VALUE",
+ *   Policy: 'STRING_VALUE',
  *   PosixProfile: { // PosixProfile
- *     Uid: Number("long"), // required
- *     Gid: Number("long"), // required
+ *     Uid: Number('long'), // required
+ *     Gid: Number('long'), // required
  *     SecondaryGids: [ // SecondaryGids
- *       Number("long"),
+ *       Number('long'),
  *     ],
  *   },
- *   Role: "STRING_VALUE", // required
- *   ServerId: "STRING_VALUE", // required
- *   SshPublicKeyBody: "STRING_VALUE",
+ *   Role: 'STRING_VALUE', // required
+ *   ServerId: 'STRING_VALUE', // required
+ *   SshPublicKeyBody: 'STRING_VALUE',
  *   Tags: [ // Tags
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
- *   UserName: "STRING_VALUE", // required
+ *   UserName: 'STRING_VALUE', // required
  * };
  * const command = new CreateUserCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateUserResponse
+ *   ServerId: 'STRING_VALUE', // required
+ *   UserName: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param CreateUserCommandInput - {@link CreateUserCommandInput}
@@ -99,6 +105,8 @@ export interface CreateUserCommandOutput extends CreateUserResponse, __MetadataB
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request has failed because the Amazon Web ServicesTransfer Family service is not available.</p>
  *
+ * @throws {@link TransferServiceException}
+ * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
  */
 export class CreateUserCommand extends $Command<

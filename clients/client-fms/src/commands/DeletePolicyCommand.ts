@@ -36,15 +36,18 @@ export interface DeletePolicyCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FMSClient, DeletePolicyCommand } from "@aws-sdk/client-fms"; // ES Modules import
- * // const { FMSClient, DeletePolicyCommand } = require("@aws-sdk/client-fms"); // CommonJS import
+ * import { FMSClient, DeletePolicyCommand } from '@aws-sdk/client-fms'; // ES Modules import
+ * // const { FMSClient, DeletePolicyCommand } = require('@aws-sdk/client-fms'); // CommonJS import
  * const client = new FMSClient(config);
  * const input = { // DeletePolicyRequest
- *   PolicyId: "STRING_VALUE", // required
+ *   PolicyId: 'STRING_VALUE', // required
  *   DeleteAllPolicyResources: true || false,
  * };
  * const command = new DeletePolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeletePolicyCommandInput - {@link DeletePolicyCommandInput}
@@ -76,6 +79,8 @@ export interface DeletePolicyCommandOutput extends __MetadataBearer {}
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link FMSServiceException}
+ * <p>Base exception class for all service exceptions from FMS service.</p>
  *
  */
 export class DeletePolicyCommand extends $Command<

@@ -39,14 +39,20 @@ export interface GetCertificateCommandOutput extends GetCertificateResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ACMClient, GetCertificateCommand } from "@aws-sdk/client-acm"; // ES Modules import
- * // const { ACMClient, GetCertificateCommand } = require("@aws-sdk/client-acm"); // CommonJS import
+ * import { ACMClient, GetCertificateCommand } from '@aws-sdk/client-acm'; // ES Modules import
+ * // const { ACMClient, GetCertificateCommand } = require('@aws-sdk/client-acm'); // CommonJS import
  * const client = new ACMClient(config);
  * const input = { // GetCertificateRequest
- *   CertificateArn: "STRING_VALUE", // required
+ *   CertificateArn: 'STRING_VALUE', // required
  * };
  * const command = new GetCertificateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetCertificateResponse
+ *   Certificate: 'STRING_VALUE',
+ *   CertificateChain: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetCertificateCommandInput - {@link GetCertificateCommandInput}
@@ -66,6 +72,8 @@ export interface GetCertificateCommandOutput extends GetCertificateResponse, __M
  *  <p>The specified certificate cannot be found in the caller's account or the caller's account
  *       cannot be found.</p>
  *
+ * @throws {@link ACMServiceException}
+ * <p>Base exception class for all service exceptions from ACM service.</p>
  *
  */
 export class GetCertificateCommand extends $Command<

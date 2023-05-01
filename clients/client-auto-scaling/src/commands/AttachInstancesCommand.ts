@@ -45,17 +45,20 @@ export interface AttachInstancesCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AutoScalingClient, AttachInstancesCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
- * // const { AutoScalingClient, AttachInstancesCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
+ * import { AutoScalingClient, AttachInstancesCommand } from '@aws-sdk/client-auto-scaling'; // ES Modules import
+ * // const { AutoScalingClient, AttachInstancesCommand } = require('@aws-sdk/client-auto-scaling'); // CommonJS import
  * const client = new AutoScalingClient(config);
  * const input = { // AttachInstancesQuery
  *   InstanceIds: [ // InstanceIds
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   AutoScalingGroupName: "STRING_VALUE", // required
+ *   AutoScalingGroupName: 'STRING_VALUE', // required
  * };
  * const command = new AttachInstancesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param AttachInstancesCommandInput - {@link AttachInstancesCommandInput}
@@ -71,6 +74,8 @@ export interface AttachInstancesCommandOutput extends __MetadataBearer {}
  * @throws {@link ServiceLinkedRoleFailure} (server fault)
  *  <p>The service-linked role is not yet ready for use.</p>
  *
+ * @throws {@link AutoScalingServiceException}
+ * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
  * @example To attach an instance to an Auto Scaling group
  * ```javascript

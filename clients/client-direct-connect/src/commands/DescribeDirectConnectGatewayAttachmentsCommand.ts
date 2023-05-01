@@ -49,17 +49,33 @@ export interface DescribeDirectConnectGatewayAttachmentsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DirectConnectClient, DescribeDirectConnectGatewayAttachmentsCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
- * // const { DirectConnectClient, DescribeDirectConnectGatewayAttachmentsCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
+ * import { DirectConnectClient, DescribeDirectConnectGatewayAttachmentsCommand } from '@aws-sdk/client-direct-connect'; // ES Modules import
+ * // const { DirectConnectClient, DescribeDirectConnectGatewayAttachmentsCommand } = require('@aws-sdk/client-direct-connect'); // CommonJS import
  * const client = new DirectConnectClient(config);
  * const input = { // DescribeDirectConnectGatewayAttachmentsRequest
- *   directConnectGatewayId: "STRING_VALUE",
- *   virtualInterfaceId: "STRING_VALUE",
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   directConnectGatewayId: 'STRING_VALUE',
+ *   virtualInterfaceId: 'STRING_VALUE',
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new DescribeDirectConnectGatewayAttachmentsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeDirectConnectGatewayAttachmentsResult
+ *   directConnectGatewayAttachments: [ // DirectConnectGatewayAttachmentList
+ *     { // DirectConnectGatewayAttachment
+ *       directConnectGatewayId: 'STRING_VALUE',
+ *       virtualInterfaceId: 'STRING_VALUE',
+ *       virtualInterfaceRegion: 'STRING_VALUE',
+ *       virtualInterfaceOwnerAccount: 'STRING_VALUE',
+ *       attachmentState: 'attaching' || 'attached' || 'detaching' || 'detached',
+ *       attachmentType: 'TransitVirtualInterface' || 'PrivateVirtualInterface',
+ *       stateChangeError: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeDirectConnectGatewayAttachmentsCommandInput - {@link DescribeDirectConnectGatewayAttachmentsCommandInput}
@@ -74,6 +90,8 @@ export interface DescribeDirectConnectGatewayAttachmentsCommandOutput
  * @throws {@link DirectConnectServerException} (server fault)
  *  <p>A server-side error occurred.</p>
  *
+ * @throws {@link DirectConnectServiceException}
+ * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
  */
 export class DescribeDirectConnectGatewayAttachmentsCommand extends $Command<

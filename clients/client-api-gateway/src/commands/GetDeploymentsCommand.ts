@@ -36,16 +36,36 @@ export interface GetDeploymentsCommandOutput extends Deployments, __MetadataBear
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { APIGatewayClient, GetDeploymentsCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
- * // const { APIGatewayClient, GetDeploymentsCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
+ * import { APIGatewayClient, GetDeploymentsCommand } from '@aws-sdk/client-api-gateway'; // ES Modules import
+ * // const { APIGatewayClient, GetDeploymentsCommand } = require('@aws-sdk/client-api-gateway'); // CommonJS import
  * const client = new APIGatewayClient(config);
  * const input = { // GetDeploymentsRequest
- *   restApiId: "STRING_VALUE", // required
- *   position: "STRING_VALUE",
- *   limit: Number("int"),
+ *   restApiId: 'STRING_VALUE', // required
+ *   position: 'STRING_VALUE',
+ *   limit: Number('int'),
  * };
  * const command = new GetDeploymentsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // Deployments
+ *   items: [ // ListOfDeployment
+ *     { // Deployment
+ *       id: 'STRING_VALUE',
+ *       description: 'STRING_VALUE',
+ *       createdDate: new Date('TIMESTAMP'),
+ *       apiSummary: { // PathToMapOfMethodSnapshot
+ *         '<keys>': { // MapOfMethodSnapshot
+ *           '<keys>': { // MethodSnapshot
+ *             authorizationType: 'STRING_VALUE',
+ *             apiKeyRequired: true || false,
+ *           },
+ *         },
+ *       },
+ *     },
+ *   ],
+ *   position: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetDeploymentsCommandInput - {@link GetDeploymentsCommandInput}
@@ -69,6 +89,8 @@ export interface GetDeploymentsCommandOutput extends Deployments, __MetadataBear
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The request is denied because the caller has insufficient permissions.</p>
  *
+ * @throws {@link APIGatewayServiceException}
+ * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
  */
 export class GetDeploymentsCommand extends $Command<

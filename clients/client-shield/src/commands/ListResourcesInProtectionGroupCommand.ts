@@ -41,16 +41,24 @@ export interface ListResourcesInProtectionGroupCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ShieldClient, ListResourcesInProtectionGroupCommand } from "@aws-sdk/client-shield"; // ES Modules import
- * // const { ShieldClient, ListResourcesInProtectionGroupCommand } = require("@aws-sdk/client-shield"); // CommonJS import
+ * import { ShieldClient, ListResourcesInProtectionGroupCommand } from '@aws-sdk/client-shield'; // ES Modules import
+ * // const { ShieldClient, ListResourcesInProtectionGroupCommand } = require('@aws-sdk/client-shield'); // CommonJS import
  * const client = new ShieldClient(config);
  * const input = { // ListResourcesInProtectionGroupRequest
- *   ProtectionGroupId: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   ProtectionGroupId: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListResourcesInProtectionGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListResourcesInProtectionGroupResponse
+ *   ResourceArns: [ // ResourceArnList // required
+ *     'STRING_VALUE',
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListResourcesInProtectionGroupCommandInput - {@link ListResourcesInProtectionGroupCommandInput}
@@ -68,6 +76,8 @@ export interface ListResourcesInProtectionGroupCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Exception indicating the specified resource does not exist. If available, this exception includes details in additional properties. </p>
  *
+ * @throws {@link ShieldServiceException}
+ * <p>Base exception class for all service exceptions from Shield service.</p>
  *
  */
 export class ListResourcesInProtectionGroupCommand extends $Command<

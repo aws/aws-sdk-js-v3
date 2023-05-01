@@ -38,14 +38,17 @@ export interface DeleteReportCommandOutput extends DeleteReportOutput, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeBuildClient, DeleteReportCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
- * // const { CodeBuildClient, DeleteReportCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import
+ * import { CodeBuildClient, DeleteReportCommand } from '@aws-sdk/client-codebuild'; // ES Modules import
+ * // const { CodeBuildClient, DeleteReportCommand } = require('@aws-sdk/client-codebuild'); // CommonJS import
  * const client = new CodeBuildClient(config);
  * const input = { // DeleteReportInput
- *   arn: "STRING_VALUE", // required
+ *   arn: 'STRING_VALUE', // required
  * };
  * const command = new DeleteReportCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteReportCommandInput - {@link DeleteReportCommandInput}
@@ -57,6 +60,8 @@ export interface DeleteReportCommandOutput extends DeleteReportOutput, __Metadat
  * @throws {@link InvalidInputException} (client fault)
  *  <p>The input value that was provided is not valid.</p>
  *
+ * @throws {@link CodeBuildServiceException}
+ * <p>Base exception class for all service exceptions from CodeBuild service.</p>
  *
  */
 export class DeleteReportCommand extends $Command<

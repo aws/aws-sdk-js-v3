@@ -36,16 +36,55 @@ export interface GetIntegrationsCommandOutput extends GetIntegrationsResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ApiGatewayV2Client, GetIntegrationsCommand } from "@aws-sdk/client-apigatewayv2"; // ES Modules import
- * // const { ApiGatewayV2Client, GetIntegrationsCommand } = require("@aws-sdk/client-apigatewayv2"); // CommonJS import
+ * import { ApiGatewayV2Client, GetIntegrationsCommand } from '@aws-sdk/client-apigatewayv2'; // ES Modules import
+ * // const { ApiGatewayV2Client, GetIntegrationsCommand } = require('@aws-sdk/client-apigatewayv2'); // CommonJS import
  * const client = new ApiGatewayV2Client(config);
  * const input = { // GetIntegrationsRequest
- *   ApiId: "STRING_VALUE", // required
- *   MaxResults: "STRING_VALUE",
- *   NextToken: "STRING_VALUE",
+ *   ApiId: 'STRING_VALUE', // required
+ *   MaxResults: 'STRING_VALUE',
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new GetIntegrationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetIntegrationsResponse
+ *   Items: [ // __listOfIntegration
+ *     { // Integration
+ *       ApiGatewayManaged: true || false,
+ *       ConnectionId: 'STRING_VALUE',
+ *       ConnectionType: 'STRING_VALUE',
+ *       ContentHandlingStrategy: 'STRING_VALUE',
+ *       CredentialsArn: 'STRING_VALUE',
+ *       Description: 'STRING_VALUE',
+ *       IntegrationId: 'STRING_VALUE',
+ *       IntegrationMethod: 'STRING_VALUE',
+ *       IntegrationResponseSelectionExpression: 'STRING_VALUE',
+ *       IntegrationSubtype: 'STRING_VALUE',
+ *       IntegrationType: 'STRING_VALUE',
+ *       IntegrationUri: 'STRING_VALUE',
+ *       PassthroughBehavior: 'STRING_VALUE',
+ *       PayloadFormatVersion: 'STRING_VALUE',
+ *       RequestParameters: { // IntegrationParameters
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *       RequestTemplates: { // TemplateMap
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *       ResponseParameters: { // ResponseParameters
+ *         '<keys>': {
+ *           '<keys>': 'STRING_VALUE',
+ *         },
+ *       },
+ *       TemplateSelectionExpression: 'STRING_VALUE',
+ *       TimeoutInMillis: Number('int'),
+ *       TlsConfig: { // TlsConfig
+ *         ServerNameToVerify: 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetIntegrationsCommandInput - {@link GetIntegrationsCommandInput}
@@ -63,6 +102,8 @@ export interface GetIntegrationsCommandOutput extends GetIntegrationsResponse, _
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>A limit has been exceeded. See the accompanying error message for details.</p>
  *
+ * @throws {@link ApiGatewayV2ServiceException}
+ * <p>Base exception class for all service exceptions from ApiGatewayV2 service.</p>
  *
  */
 export class GetIntegrationsCommand extends $Command<

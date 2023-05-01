@@ -36,23 +36,37 @@ export interface SearchDevicesCommandOutput extends SearchDevicesResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BraketClient, SearchDevicesCommand } from "@aws-sdk/client-braket"; // ES Modules import
- * // const { BraketClient, SearchDevicesCommand } = require("@aws-sdk/client-braket"); // CommonJS import
+ * import { BraketClient, SearchDevicesCommand } from '@aws-sdk/client-braket'; // ES Modules import
+ * // const { BraketClient, SearchDevicesCommand } = require('@aws-sdk/client-braket'); // CommonJS import
  * const client = new BraketClient(config);
  * const input = { // SearchDevicesRequest
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  *   filters: [ // SearchDevicesFilterList // required
  *     { // SearchDevicesFilter
- *       name: "STRING_VALUE", // required
+ *       name: 'STRING_VALUE', // required
  *       values: [ // String256List // required
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
  * };
  * const command = new SearchDevicesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SearchDevicesResponse
+ *   devices: [ // DeviceSummaryList // required
+ *     { // DeviceSummary
+ *       deviceArn: 'STRING_VALUE', // required
+ *       deviceName: 'STRING_VALUE', // required
+ *       providerName: 'STRING_VALUE', // required
+ *       deviceType: 'STRING_VALUE', // required
+ *       deviceStatus: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param SearchDevicesCommandInput - {@link SearchDevicesCommandInput}
@@ -74,6 +88,8 @@ export interface SearchDevicesCommandOutput extends SearchDevicesResponse, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link BraketServiceException}
+ * <p>Base exception class for all service exceptions from Braket service.</p>
  *
  */
 export class SearchDevicesCommand extends $Command<

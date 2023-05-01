@@ -37,25 +37,30 @@ export interface RegisterAVSDeviceCommandOutput extends RegisterAVSDeviceRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AlexaForBusinessClient, RegisterAVSDeviceCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
- * // const { AlexaForBusinessClient, RegisterAVSDeviceCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
+ * import { AlexaForBusinessClient, RegisterAVSDeviceCommand } from '@aws-sdk/client-alexa-for-business'; // ES Modules import
+ * // const { AlexaForBusinessClient, RegisterAVSDeviceCommand } = require('@aws-sdk/client-alexa-for-business'); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
  * const input = { // RegisterAVSDeviceRequest
- *   ClientId: "STRING_VALUE", // required
- *   UserCode: "STRING_VALUE", // required
- *   ProductId: "STRING_VALUE", // required
- *   DeviceSerialNumber: "STRING_VALUE",
- *   AmazonId: "STRING_VALUE", // required
- *   RoomArn: "STRING_VALUE",
+ *   ClientId: 'STRING_VALUE', // required
+ *   UserCode: 'STRING_VALUE', // required
+ *   ProductId: 'STRING_VALUE', // required
+ *   DeviceSerialNumber: 'STRING_VALUE',
+ *   AmazonId: 'STRING_VALUE', // required
+ *   RoomArn: 'STRING_VALUE',
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new RegisterAVSDeviceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // RegisterAVSDeviceResponse
+ *   DeviceArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param RegisterAVSDeviceCommandInput - {@link RegisterAVSDeviceCommandInput}
@@ -76,6 +81,8 @@ export interface RegisterAVSDeviceCommandOutput extends RegisterAVSDeviceRespons
  * @throws {@link NotFoundException} (client fault)
  *  <p>The resource is not found.</p>
  *
+ * @throws {@link AlexaForBusinessServiceException}
+ * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  */
 export class RegisterAVSDeviceCommand extends $Command<

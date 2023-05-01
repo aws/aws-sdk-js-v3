@@ -44,21 +44,24 @@ export interface DeleteRecommendationPreferencesCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ComputeOptimizerClient, DeleteRecommendationPreferencesCommand } from "@aws-sdk/client-compute-optimizer"; // ES Modules import
- * // const { ComputeOptimizerClient, DeleteRecommendationPreferencesCommand } = require("@aws-sdk/client-compute-optimizer"); // CommonJS import
+ * import { ComputeOptimizerClient, DeleteRecommendationPreferencesCommand } from '@aws-sdk/client-compute-optimizer'; // ES Modules import
+ * // const { ComputeOptimizerClient, DeleteRecommendationPreferencesCommand } = require('@aws-sdk/client-compute-optimizer'); // CommonJS import
  * const client = new ComputeOptimizerClient(config);
  * const input = { // DeleteRecommendationPreferencesRequest
- *   resourceType: "Ec2Instance" || "AutoScalingGroup" || "EbsVolume" || "LambdaFunction" || "NotApplicable" || "EcsService", // required
+ *   resourceType: 'Ec2Instance' || 'AutoScalingGroup' || 'EbsVolume' || 'LambdaFunction' || 'NotApplicable' || 'EcsService', // required
  *   scope: { // Scope
- *     name: "Organization" || "AccountId" || "ResourceArn",
- *     value: "STRING_VALUE",
+ *     name: 'Organization' || 'AccountId' || 'ResourceArn',
+ *     value: 'STRING_VALUE',
  *   },
  *   recommendationPreferenceNames: [ // RecommendationPreferenceNames // required
- *     "EnhancedInfrastructureMetrics" || "InferredWorkloadTypes" || "ExternalMetricsPreference",
+ *     'EnhancedInfrastructureMetrics' || 'InferredWorkloadTypes' || 'ExternalMetricsPreference',
  *   ],
  * };
  * const command = new DeleteRecommendationPreferencesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteRecommendationPreferencesCommandInput - {@link DeleteRecommendationPreferencesCommandInput}
@@ -92,6 +95,8 @@ export interface DeleteRecommendationPreferencesCommandOutput
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
  *
+ * @throws {@link ComputeOptimizerServiceException}
+ * <p>Base exception class for all service exceptions from ComputeOptimizer service.</p>
  *
  */
 export class DeleteRecommendationPreferencesCommand extends $Command<

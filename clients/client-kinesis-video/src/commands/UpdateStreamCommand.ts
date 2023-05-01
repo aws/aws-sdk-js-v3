@@ -45,18 +45,21 @@ export interface UpdateStreamCommandOutput extends UpdateStreamOutput, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KinesisVideoClient, UpdateStreamCommand } from "@aws-sdk/client-kinesis-video"; // ES Modules import
- * // const { KinesisVideoClient, UpdateStreamCommand } = require("@aws-sdk/client-kinesis-video"); // CommonJS import
+ * import { KinesisVideoClient, UpdateStreamCommand } from '@aws-sdk/client-kinesis-video'; // ES Modules import
+ * // const { KinesisVideoClient, UpdateStreamCommand } = require('@aws-sdk/client-kinesis-video'); // CommonJS import
  * const client = new KinesisVideoClient(config);
  * const input = { // UpdateStreamInput
- *   StreamName: "STRING_VALUE",
- *   StreamARN: "STRING_VALUE",
- *   CurrentVersion: "STRING_VALUE", // required
- *   DeviceName: "STRING_VALUE",
- *   MediaType: "STRING_VALUE",
+ *   StreamName: 'STRING_VALUE',
+ *   StreamARN: 'STRING_VALUE',
+ *   CurrentVersion: 'STRING_VALUE', // required
+ *   DeviceName: 'STRING_VALUE',
+ *   MediaType: 'STRING_VALUE',
  * };
  * const command = new UpdateStreamCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateStreamCommandInput - {@link UpdateStreamCommandInput}
@@ -103,6 +106,8 @@ export interface UpdateStreamCommandOutput extends UpdateStreamOutput, __Metadat
  *             version, use the <a href="https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_DescribeStream.html">DescribeStream</a>
  *             API.</p>
  *
+ * @throws {@link KinesisVideoServiceException}
+ * <p>Base exception class for all service exceptions from KinesisVideo service.</p>
  *
  */
 export class UpdateStreamCommand extends $Command<

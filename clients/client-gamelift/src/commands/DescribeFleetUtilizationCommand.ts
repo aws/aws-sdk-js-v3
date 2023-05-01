@@ -71,18 +71,34 @@ export interface DescribeFleetUtilizationCommandOutput extends DescribeFleetUtil
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GameLiftClient, DescribeFleetUtilizationCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
- * // const { GameLiftClient, DescribeFleetUtilizationCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
+ * import { GameLiftClient, DescribeFleetUtilizationCommand } from '@aws-sdk/client-gamelift'; // ES Modules import
+ * // const { GameLiftClient, DescribeFleetUtilizationCommand } = require('@aws-sdk/client-gamelift'); // CommonJS import
  * const client = new GameLiftClient(config);
  * const input = { // DescribeFleetUtilizationInput
  *   FleetIds: [ // FleetIdOrArnList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   Limit: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   Limit: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new DescribeFleetUtilizationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeFleetUtilizationOutput
+ *   FleetUtilization: [ // FleetUtilizationList
+ *     { // FleetUtilization
+ *       FleetId: 'STRING_VALUE',
+ *       FleetArn: 'STRING_VALUE',
+ *       ActiveServerProcessCount: Number('int'),
+ *       ActiveGameSessionCount: Number('int'),
+ *       CurrentPlayerSessionCount: Number('int'),
+ *       MaximumPlayerSessionCount: Number('int'),
+ *       Location: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeFleetUtilizationCommandInput - {@link DescribeFleetUtilizationCommandInput}
@@ -105,6 +121,8 @@ export interface DescribeFleetUtilizationCommandOutput extends DescribeFleetUtil
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client failed authentication. Clients should not retry such requests.</p>
  *
+ * @throws {@link GameLiftServiceException}
+ * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
  */
 export class DescribeFleetUtilizationCommand extends $Command<

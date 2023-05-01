@@ -39,16 +39,26 @@ export interface DeleteIdentitiesCommandOutput extends DeleteIdentitiesResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CognitoIdentityClient, DeleteIdentitiesCommand } from "@aws-sdk/client-cognito-identity"; // ES Modules import
- * // const { CognitoIdentityClient, DeleteIdentitiesCommand } = require("@aws-sdk/client-cognito-identity"); // CommonJS import
+ * import { CognitoIdentityClient, DeleteIdentitiesCommand } from '@aws-sdk/client-cognito-identity'; // ES Modules import
+ * // const { CognitoIdentityClient, DeleteIdentitiesCommand } = require('@aws-sdk/client-cognito-identity'); // CommonJS import
  * const client = new CognitoIdentityClient(config);
  * const input = { // DeleteIdentitiesInput
  *   IdentityIdsToDelete: [ // IdentityIdList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new DeleteIdentitiesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteIdentitiesResponse
+ *   UnprocessedIdentityIds: [ // UnprocessedIdentityIdList
+ *     { // UnprocessedIdentityId
+ *       IdentityId: 'STRING_VALUE',
+ *       ErrorCode: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DeleteIdentitiesCommandInput - {@link DeleteIdentitiesCommandInput}
@@ -66,6 +76,8 @@ export interface DeleteIdentitiesCommandOutput extends DeleteIdentitiesResponse,
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Thrown when a request is throttled.</p>
  *
+ * @throws {@link CognitoIdentityServiceException}
+ * <p>Base exception class for all service exceptions from CognitoIdentity service.</p>
  *
  */
 export class DeleteIdentitiesCommand extends $Command<

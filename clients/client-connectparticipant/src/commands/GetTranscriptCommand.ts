@@ -49,24 +49,62 @@ export interface GetTranscriptCommandOutput extends GetTranscriptResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectParticipantClient, GetTranscriptCommand } from "@aws-sdk/client-connectparticipant"; // ES Modules import
- * // const { ConnectParticipantClient, GetTranscriptCommand } = require("@aws-sdk/client-connectparticipant"); // CommonJS import
+ * import { ConnectParticipantClient, GetTranscriptCommand } from '@aws-sdk/client-connectparticipant'; // ES Modules import
+ * // const { ConnectParticipantClient, GetTranscriptCommand } = require('@aws-sdk/client-connectparticipant'); // CommonJS import
  * const client = new ConnectParticipantClient(config);
  * const input = { // GetTranscriptRequest
- *   ContactId: "STRING_VALUE",
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
- *   ScanDirection: "FORWARD" || "BACKWARD",
- *   SortOrder: "DESCENDING" || "ASCENDING",
+ *   ContactId: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
+ *   ScanDirection: 'FORWARD' || 'BACKWARD',
+ *   SortOrder: 'DESCENDING' || 'ASCENDING',
  *   StartPosition: { // StartPosition
- *     Id: "STRING_VALUE",
- *     AbsoluteTime: "STRING_VALUE",
- *     MostRecent: Number("int"),
+ *     Id: 'STRING_VALUE',
+ *     AbsoluteTime: 'STRING_VALUE',
+ *     MostRecent: Number('int'),
  *   },
- *   ConnectionToken: "STRING_VALUE", // required
+ *   ConnectionToken: 'STRING_VALUE', // required
  * };
  * const command = new GetTranscriptCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetTranscriptResponse
+ *   InitialContactId: 'STRING_VALUE',
+ *   Transcript: [ // Transcript
+ *     { // Item
+ *       AbsoluteTime: 'STRING_VALUE',
+ *       Content: 'STRING_VALUE',
+ *       ContentType: 'STRING_VALUE',
+ *       Id: 'STRING_VALUE',
+ *       Type: 'TYPING' || 'PARTICIPANT_JOINED' || 'PARTICIPANT_LEFT' || 'CHAT_ENDED' || 'TRANSFER_SUCCEEDED' || 'TRANSFER_FAILED' || 'MESSAGE' || 'EVENT' || 'ATTACHMENT' || 'CONNECTION_ACK' || 'MESSAGE_DELIVERED' || 'MESSAGE_READ',
+ *       ParticipantId: 'STRING_VALUE',
+ *       DisplayName: 'STRING_VALUE',
+ *       ParticipantRole: 'AGENT' || 'CUSTOMER' || 'SYSTEM',
+ *       Attachments: [ // Attachments
+ *         { // AttachmentItem
+ *           ContentType: 'STRING_VALUE',
+ *           AttachmentId: 'STRING_VALUE',
+ *           AttachmentName: 'STRING_VALUE',
+ *           Status: 'APPROVED' || 'REJECTED' || 'IN_PROGRESS',
+ *         },
+ *       ],
+ *       MessageMetadata: { // MessageMetadata
+ *         MessageId: 'STRING_VALUE',
+ *         Receipts: [ // Receipts
+ *           { // Receipt
+ *             DeliveredTimestamp: 'STRING_VALUE',
+ *             ReadTimestamp: 'STRING_VALUE',
+ *             RecipientParticipantId: 'STRING_VALUE',
+ *           },
+ *         ],
+ *       },
+ *       RelatedContactId: 'STRING_VALUE',
+ *       ContactId: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetTranscriptCommandInput - {@link GetTranscriptCommandInput}
@@ -87,6 +125,8 @@ export interface GetTranscriptCommandOutput extends GetTranscriptResponse, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by Amazon Connect.</p>
  *
+ * @throws {@link ConnectParticipantServiceException}
+ * <p>Base exception class for all service exceptions from ConnectParticipant service.</p>
  *
  */
 export class GetTranscriptCommand extends $Command<

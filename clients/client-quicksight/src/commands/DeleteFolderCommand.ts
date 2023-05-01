@@ -36,15 +36,23 @@ export interface DeleteFolderCommandOutput extends DeleteFolderResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { QuickSightClient, DeleteFolderCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
- * // const { QuickSightClient, DeleteFolderCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * import { QuickSightClient, DeleteFolderCommand } from '@aws-sdk/client-quicksight'; // ES Modules import
+ * // const { QuickSightClient, DeleteFolderCommand } = require('@aws-sdk/client-quicksight'); // CommonJS import
  * const client = new QuickSightClient(config);
  * const input = { // DeleteFolderRequest
- *   AwsAccountId: "STRING_VALUE", // required
- *   FolderId: "STRING_VALUE", // required
+ *   AwsAccountId: 'STRING_VALUE', // required
+ *   FolderId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteFolderCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteFolderResponse
+ *   Status: Number('int'),
+ *   Arn: 'STRING_VALUE',
+ *   FolderId: 'STRING_VALUE',
+ *   RequestId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DeleteFolderCommandInput - {@link DeleteFolderCommandInput}
@@ -83,6 +91,8 @@ export interface DeleteFolderCommandOutput extends DeleteFolderResponse, __Metad
  * 			Amazon QuickSight currently has Standard Edition and Enterprise Edition. Not every operation and
  * 			capability is available in every edition.</p>
  *
+ * @throws {@link QuickSightServiceException}
+ * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
 export class DeleteFolderCommand extends $Command<

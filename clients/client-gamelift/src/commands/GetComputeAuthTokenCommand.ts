@@ -39,15 +39,25 @@ export interface GetComputeAuthTokenCommandOutput extends GetComputeAuthTokenOut
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GameLiftClient, GetComputeAuthTokenCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
- * // const { GameLiftClient, GetComputeAuthTokenCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
+ * import { GameLiftClient, GetComputeAuthTokenCommand } from '@aws-sdk/client-gamelift'; // ES Modules import
+ * // const { GameLiftClient, GetComputeAuthTokenCommand } = require('@aws-sdk/client-gamelift'); // CommonJS import
  * const client = new GameLiftClient(config);
  * const input = { // GetComputeAuthTokenInput
- *   FleetId: "STRING_VALUE", // required
- *   ComputeName: "STRING_VALUE", // required
+ *   FleetId: 'STRING_VALUE', // required
+ *   ComputeName: 'STRING_VALUE', // required
  * };
  * const command = new GetComputeAuthTokenCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetComputeAuthTokenOutput
+ *   FleetId: 'STRING_VALUE',
+ *   FleetArn: 'STRING_VALUE',
+ *   ComputeName: 'STRING_VALUE',
+ *   ComputeArn: 'STRING_VALUE',
+ *   AuthToken: 'STRING_VALUE',
+ *   ExpirationTimestamp: new Date('TIMESTAMP'),
+ * };
+ *
  * ```
  *
  * @param GetComputeAuthTokenCommandInput - {@link GetComputeAuthTokenCommandInput}
@@ -70,6 +80,8 @@ export interface GetComputeAuthTokenCommandOutput extends GetComputeAuthTokenOut
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client failed authentication. Clients should not retry such requests.</p>
  *
+ * @throws {@link GameLiftServiceException}
+ * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
  */
 export class GetComputeAuthTokenCommand extends $Command<

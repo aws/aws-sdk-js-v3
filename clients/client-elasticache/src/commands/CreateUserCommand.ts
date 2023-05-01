@@ -36,33 +36,51 @@ export interface CreateUserCommandOutput extends User, __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElastiCacheClient, CreateUserCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
- * // const { ElastiCacheClient, CreateUserCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
+ * import { ElastiCacheClient, CreateUserCommand } from '@aws-sdk/client-elasticache'; // ES Modules import
+ * // const { ElastiCacheClient, CreateUserCommand } = require('@aws-sdk/client-elasticache'); // CommonJS import
  * const client = new ElastiCacheClient(config);
  * const input = { // CreateUserMessage
- *   UserId: "STRING_VALUE", // required
- *   UserName: "STRING_VALUE", // required
- *   Engine: "STRING_VALUE", // required
+ *   UserId: 'STRING_VALUE', // required
+ *   UserName: 'STRING_VALUE', // required
+ *   Engine: 'STRING_VALUE', // required
  *   Passwords: [ // PasswordListInput
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   AccessString: "STRING_VALUE", // required
+ *   AccessString: 'STRING_VALUE', // required
  *   NoPasswordRequired: true || false,
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE",
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
  *   AuthenticationMode: { // AuthenticationMode
- *     Type: "password" || "no-password-required" || "iam",
+ *     Type: 'password' || 'no-password-required' || 'iam',
  *     Passwords: [
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *   },
  * };
  * const command = new CreateUserCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // User
+ *   UserId: 'STRING_VALUE',
+ *   UserName: 'STRING_VALUE',
+ *   Status: 'STRING_VALUE',
+ *   Engine: 'STRING_VALUE',
+ *   MinimumEngineVersion: 'STRING_VALUE',
+ *   AccessString: 'STRING_VALUE',
+ *   UserGroupIds: [ // UserGroupIdList
+ *     'STRING_VALUE',
+ *   ],
+ *   Authentication: { // Authentication
+ *     Type: 'password' || 'no-password' || 'iam',
+ *     PasswordCount: Number('int'),
+ *   },
+ *   ARN: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateUserCommandInput - {@link CreateUserCommandInput}
@@ -92,6 +110,8 @@ export interface CreateUserCommandOutput extends User, __MetadataBearer {}
  * @throws {@link UserQuotaExceededFault} (client fault)
  *  <p>The quota of users has been exceeded.</p>
  *
+ * @throws {@link ElastiCacheServiceException}
+ * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
  */
 export class CreateUserCommand extends $Command<

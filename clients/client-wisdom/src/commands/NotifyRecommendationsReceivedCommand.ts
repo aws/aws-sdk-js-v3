@@ -43,18 +43,31 @@ export interface NotifyRecommendationsReceivedCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WisdomClient, NotifyRecommendationsReceivedCommand } from "@aws-sdk/client-wisdom"; // ES Modules import
- * // const { WisdomClient, NotifyRecommendationsReceivedCommand } = require("@aws-sdk/client-wisdom"); // CommonJS import
+ * import { WisdomClient, NotifyRecommendationsReceivedCommand } from '@aws-sdk/client-wisdom'; // ES Modules import
+ * // const { WisdomClient, NotifyRecommendationsReceivedCommand } = require('@aws-sdk/client-wisdom'); // CommonJS import
  * const client = new WisdomClient(config);
  * const input = { // NotifyRecommendationsReceivedRequest
- *   assistantId: "STRING_VALUE", // required
- *   sessionId: "STRING_VALUE", // required
+ *   assistantId: 'STRING_VALUE', // required
+ *   sessionId: 'STRING_VALUE', // required
  *   recommendationIds: [ // RecommendationIdList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new NotifyRecommendationsReceivedCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // NotifyRecommendationsReceivedResponse
+ *   recommendationIds: [ // RecommendationIdList
+ *     'STRING_VALUE',
+ *   ],
+ *   errors: [ // NotifyRecommendationsReceivedErrorList
+ *     { // NotifyRecommendationsReceivedError
+ *       recommendationId: 'STRING_VALUE',
+ *       message: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param NotifyRecommendationsReceivedCommandInput - {@link NotifyRecommendationsReceivedCommandInput}
@@ -72,6 +85,8 @@ export interface NotifyRecommendationsReceivedCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by a service.</p>
  *
+ * @throws {@link WisdomServiceException}
+ * <p>Base exception class for all service exceptions from Wisdom service.</p>
  *
  */
 export class NotifyRecommendationsReceivedCommand extends $Command<

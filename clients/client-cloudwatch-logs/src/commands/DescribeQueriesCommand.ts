@@ -38,17 +38,31 @@ export interface DescribeQueriesCommandOutput extends DescribeQueriesResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudWatchLogsClient, DescribeQueriesCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
- * // const { CloudWatchLogsClient, DescribeQueriesCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
+ * import { CloudWatchLogsClient, DescribeQueriesCommand } from '@aws-sdk/client-cloudwatch-logs'; // ES Modules import
+ * // const { CloudWatchLogsClient, DescribeQueriesCommand } = require('@aws-sdk/client-cloudwatch-logs'); // CommonJS import
  * const client = new CloudWatchLogsClient(config);
  * const input = { // DescribeQueriesRequest
- *   logGroupName: "STRING_VALUE",
- *   status: "Scheduled" || "Running" || "Complete" || "Failed" || "Cancelled" || "Timeout" || "Unknown",
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   logGroupName: 'STRING_VALUE',
+ *   status: 'Scheduled' || 'Running' || 'Complete' || 'Failed' || 'Cancelled' || 'Timeout' || 'Unknown',
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new DescribeQueriesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeQueriesResponse
+ *   queries: [ // QueryInfoList
+ *     { // QueryInfo
+ *       queryId: 'STRING_VALUE',
+ *       queryString: 'STRING_VALUE',
+ *       status: 'Scheduled' || 'Running' || 'Complete' || 'Failed' || 'Cancelled' || 'Timeout' || 'Unknown',
+ *       createTime: Number('long'),
+ *       logGroupName: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeQueriesCommandInput - {@link DescribeQueriesCommandInput}
@@ -66,6 +80,8 @@ export interface DescribeQueriesCommandOutput extends DescribeQueriesResponse, _
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service cannot complete the request.</p>
  *
+ * @throws {@link CloudWatchLogsServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
  */
 export class DescribeQueriesCommand extends $Command<

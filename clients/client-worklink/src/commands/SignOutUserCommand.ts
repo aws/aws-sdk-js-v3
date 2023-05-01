@@ -39,15 +39,18 @@ export interface SignOutUserCommandOutput extends SignOutUserResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkLinkClient, SignOutUserCommand } from "@aws-sdk/client-worklink"; // ES Modules import
- * // const { WorkLinkClient, SignOutUserCommand } = require("@aws-sdk/client-worklink"); // CommonJS import
+ * import { WorkLinkClient, SignOutUserCommand } from '@aws-sdk/client-worklink'; // ES Modules import
+ * // const { WorkLinkClient, SignOutUserCommand } = require('@aws-sdk/client-worklink'); // CommonJS import
  * const client = new WorkLinkClient(config);
  * const input = { // SignOutUserRequest
- *   FleetArn: "STRING_VALUE", // required
- *   Username: "STRING_VALUE", // required
+ *   FleetArn: 'STRING_VALUE', // required
+ *   Username: 'STRING_VALUE', // required
  * };
  * const command = new SignOutUserCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param SignOutUserCommandInput - {@link SignOutUserCommandInput}
@@ -71,6 +74,8 @@ export interface SignOutUserCommandOutput extends SignOutUserResponse, __Metadat
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this action.</p>
  *
+ * @throws {@link WorkLinkServiceException}
+ * <p>Base exception class for all service exceptions from WorkLink service.</p>
  *
  */
 export class SignOutUserCommand extends $Command<

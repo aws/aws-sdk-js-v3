@@ -46,16 +46,27 @@ export interface BatchDeleteImportDataCommandOutput extends BatchDeleteImportDat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ApplicationDiscoveryServiceClient, BatchDeleteImportDataCommand } from "@aws-sdk/client-application-discovery-service"; // ES Modules import
- * // const { ApplicationDiscoveryServiceClient, BatchDeleteImportDataCommand } = require("@aws-sdk/client-application-discovery-service"); // CommonJS import
+ * import { ApplicationDiscoveryServiceClient, BatchDeleteImportDataCommand } from '@aws-sdk/client-application-discovery-service'; // ES Modules import
+ * // const { ApplicationDiscoveryServiceClient, BatchDeleteImportDataCommand } = require('@aws-sdk/client-application-discovery-service'); // CommonJS import
  * const client = new ApplicationDiscoveryServiceClient(config);
  * const input = { // BatchDeleteImportDataRequest
  *   importTaskIds: [ // ToDeleteIdentifierList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new BatchDeleteImportDataCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BatchDeleteImportDataResponse
+ *   errors: [ // BatchDeleteImportDataErrorList
+ *     { // BatchDeleteImportDataError
+ *       importTaskId: 'STRING_VALUE',
+ *       errorCode: 'NOT_FOUND' || 'INTERNAL_SERVER_ERROR' || 'OVER_LIMIT',
+ *       errorDescription: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param BatchDeleteImportDataCommandInput - {@link BatchDeleteImportDataCommandInput}
@@ -81,6 +92,8 @@ export interface BatchDeleteImportDataCommandOutput extends BatchDeleteImportDat
  * @throws {@link ServerInternalErrorException} (server fault)
  *  <p>The server experienced an internal error. Try again.</p>
  *
+ * @throws {@link ApplicationDiscoveryServiceServiceException}
+ * <p>Base exception class for all service exceptions from ApplicationDiscoveryService service.</p>
  *
  */
 export class BatchDeleteImportDataCommand extends $Command<

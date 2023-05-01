@@ -36,14 +36,22 @@ export interface GetSolutionMetricsCommandOutput extends GetSolutionMetricsRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PersonalizeClient, GetSolutionMetricsCommand } from "@aws-sdk/client-personalize"; // ES Modules import
- * // const { PersonalizeClient, GetSolutionMetricsCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
+ * import { PersonalizeClient, GetSolutionMetricsCommand } from '@aws-sdk/client-personalize'; // ES Modules import
+ * // const { PersonalizeClient, GetSolutionMetricsCommand } = require('@aws-sdk/client-personalize'); // CommonJS import
  * const client = new PersonalizeClient(config);
  * const input = { // GetSolutionMetricsRequest
- *   solutionVersionArn: "STRING_VALUE", // required
+ *   solutionVersionArn: 'STRING_VALUE', // required
  * };
  * const command = new GetSolutionMetricsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetSolutionMetricsResponse
+ *   solutionVersionArn: 'STRING_VALUE',
+ *   metrics: { // Metrics
+ *     '<keys>': Number('double'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetSolutionMetricsCommandInput - {@link GetSolutionMetricsCommandInput}
@@ -61,6 +69,8 @@ export interface GetSolutionMetricsCommandOutput extends GetSolutionMetricsRespo
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Could not find the specified resource.</p>
  *
+ * @throws {@link PersonalizeServiceException}
+ * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
  */
 export class GetSolutionMetricsCommand extends $Command<

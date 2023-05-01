@@ -41,15 +41,18 @@ export interface DisassociateBudgetFromResourceCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ServiceCatalogClient, DisassociateBudgetFromResourceCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
- * // const { ServiceCatalogClient, DisassociateBudgetFromResourceCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
+ * import { ServiceCatalogClient, DisassociateBudgetFromResourceCommand } from '@aws-sdk/client-service-catalog'; // ES Modules import
+ * // const { ServiceCatalogClient, DisassociateBudgetFromResourceCommand } = require('@aws-sdk/client-service-catalog'); // CommonJS import
  * const client = new ServiceCatalogClient(config);
  * const input = { // DisassociateBudgetFromResourceInput
- *   BudgetName: "STRING_VALUE", // required
- *   ResourceId: "STRING_VALUE", // required
+ *   BudgetName: 'STRING_VALUE', // required
+ *   ResourceId: 'STRING_VALUE', // required
  * };
  * const command = new DisassociateBudgetFromResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DisassociateBudgetFromResourceCommandInput - {@link DisassociateBudgetFromResourceCommandInput}
@@ -61,6 +64,8 @@ export interface DisassociateBudgetFromResourceCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link ServiceCatalogServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
  */
 export class DisassociateBudgetFromResourceCommand extends $Command<

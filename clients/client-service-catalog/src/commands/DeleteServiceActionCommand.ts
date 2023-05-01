@@ -36,15 +36,18 @@ export interface DeleteServiceActionCommandOutput extends DeleteServiceActionOut
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ServiceCatalogClient, DeleteServiceActionCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
- * // const { ServiceCatalogClient, DeleteServiceActionCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
+ * import { ServiceCatalogClient, DeleteServiceActionCommand } from '@aws-sdk/client-service-catalog'; // ES Modules import
+ * // const { ServiceCatalogClient, DeleteServiceActionCommand } = require('@aws-sdk/client-service-catalog'); // CommonJS import
  * const client = new ServiceCatalogClient(config);
  * const input = { // DeleteServiceActionInput
- *   Id: "STRING_VALUE", // required
- *   AcceptLanguage: "STRING_VALUE",
+ *   Id: 'STRING_VALUE', // required
+ *   AcceptLanguage: 'STRING_VALUE',
  * };
  * const command = new DeleteServiceActionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteServiceActionCommandInput - {@link DeleteServiceActionCommandInput}
@@ -59,6 +62,8 @@ export interface DeleteServiceActionCommandOutput extends DeleteServiceActionOut
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link ServiceCatalogServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
  */
 export class DeleteServiceActionCommand extends $Command<

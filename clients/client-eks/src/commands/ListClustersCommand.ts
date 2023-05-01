@@ -37,18 +37,26 @@ export interface ListClustersCommandOutput extends ListClustersResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EKSClient, ListClustersCommand } from "@aws-sdk/client-eks"; // ES Modules import
- * // const { EKSClient, ListClustersCommand } = require("@aws-sdk/client-eks"); // CommonJS import
+ * import { EKSClient, ListClustersCommand } from '@aws-sdk/client-eks'; // ES Modules import
+ * // const { EKSClient, ListClustersCommand } = require('@aws-sdk/client-eks'); // CommonJS import
  * const client = new EKSClient(config);
  * const input = { // ListClustersRequest
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  *   include: [ // IncludeClustersList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new ListClustersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListClustersResponse
+ *   clusters: [ // StringList
+ *     'STRING_VALUE',
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListClustersCommandInput - {@link ListClustersCommandInput}
@@ -72,6 +80,8 @@ export interface ListClustersCommandOutput extends ListClustersResponse, __Metad
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service is unavailable. Back off and retry the operation.</p>
  *
+ * @throws {@link EKSServiceException}
+ * <p>Base exception class for all service exceptions from EKS service.</p>
  *
  * @example To list your available clusters
  * ```javascript

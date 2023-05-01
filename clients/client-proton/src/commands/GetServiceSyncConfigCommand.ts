@@ -36,14 +36,25 @@ export interface GetServiceSyncConfigCommandOutput extends GetServiceSyncConfigO
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ProtonClient, GetServiceSyncConfigCommand } from "@aws-sdk/client-proton"; // ES Modules import
- * // const { ProtonClient, GetServiceSyncConfigCommand } = require("@aws-sdk/client-proton"); // CommonJS import
+ * import { ProtonClient, GetServiceSyncConfigCommand } from '@aws-sdk/client-proton'; // ES Modules import
+ * // const { ProtonClient, GetServiceSyncConfigCommand } = require('@aws-sdk/client-proton'); // CommonJS import
  * const client = new ProtonClient(config);
  * const input = { // GetServiceSyncConfigInput
- *   serviceName: "STRING_VALUE", // required
+ *   serviceName: 'STRING_VALUE', // required
  * };
  * const command = new GetServiceSyncConfigCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetServiceSyncConfigOutput
+ *   serviceSyncConfig: { // ServiceSyncConfig
+ *     serviceName: 'STRING_VALUE', // required
+ *     repositoryProvider: 'STRING_VALUE', // required
+ *     repositoryName: 'STRING_VALUE', // required
+ *     branch: 'STRING_VALUE', // required
+ *     filePath: 'STRING_VALUE', // required
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetServiceSyncConfigCommandInput - {@link GetServiceSyncConfigCommandInput}
@@ -67,6 +78,8 @@ export interface GetServiceSyncConfigCommandOutput extends GetServiceSyncConfigO
  * @throws {@link ValidationException} (client fault)
  *  <p>The input is invalid or an out-of-range value was supplied for the input parameter.</p>
  *
+ * @throws {@link ProtonServiceException}
+ * <p>Base exception class for all service exceptions from Proton service.</p>
  *
  */
 export class GetServiceSyncConfigCommand extends $Command<

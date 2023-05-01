@@ -36,19 +36,27 @@ export interface ListTypeRegistrationsCommandOutput extends ListTypeRegistration
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudFormationClient, ListTypeRegistrationsCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
- * // const { CloudFormationClient, ListTypeRegistrationsCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
+ * import { CloudFormationClient, ListTypeRegistrationsCommand } from '@aws-sdk/client-cloudformation'; // ES Modules import
+ * // const { CloudFormationClient, ListTypeRegistrationsCommand } = require('@aws-sdk/client-cloudformation'); // CommonJS import
  * const client = new CloudFormationClient(config);
  * const input = { // ListTypeRegistrationsInput
- *   Type: "RESOURCE" || "MODULE" || "HOOK",
- *   TypeName: "STRING_VALUE",
- *   TypeArn: "STRING_VALUE",
- *   RegistrationStatusFilter: "COMPLETE" || "IN_PROGRESS" || "FAILED",
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   Type: 'RESOURCE' || 'MODULE' || 'HOOK',
+ *   TypeName: 'STRING_VALUE',
+ *   TypeArn: 'STRING_VALUE',
+ *   RegistrationStatusFilter: 'COMPLETE' || 'IN_PROGRESS' || 'FAILED',
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListTypeRegistrationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTypeRegistrationsOutput
+ *   RegistrationTokenList: [ // RegistrationTokenList
+ *     'STRING_VALUE',
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListTypeRegistrationsCommandInput - {@link ListTypeRegistrationsCommandInput}
@@ -60,6 +68,8 @@ export interface ListTypeRegistrationsCommandOutput extends ListTypeRegistration
  * @throws {@link CFNRegistryException} (client fault)
  *  <p>An error occurred during a CloudFormation registry operation.</p>
  *
+ * @throws {@link CloudFormationServiceException}
+ * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
  */
 export class ListTypeRegistrationsCommand extends $Command<

@@ -44,14 +44,17 @@ export interface DisassociateConnectionAliasCommandOutput extends DisassociateCo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkSpacesClient, DisassociateConnectionAliasCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
- * // const { WorkSpacesClient, DisassociateConnectionAliasCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
+ * import { WorkSpacesClient, DisassociateConnectionAliasCommand } from '@aws-sdk/client-workspaces'; // ES Modules import
+ * // const { WorkSpacesClient, DisassociateConnectionAliasCommand } = require('@aws-sdk/client-workspaces'); // CommonJS import
  * const client = new WorkSpacesClient(config);
  * const input = { // DisassociateConnectionAliasRequest
- *   AliasId: "STRING_VALUE", // required
+ *   AliasId: 'STRING_VALUE', // required
  * };
  * const command = new DisassociateConnectionAliasCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DisassociateConnectionAliasCommandInput - {@link DisassociateConnectionAliasCommandInput}
@@ -75,6 +78,8 @@ export interface DisassociateConnectionAliasCommandOutput extends DisassociateCo
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource could not be found.</p>
  *
+ * @throws {@link WorkSpacesServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
  */
 export class DisassociateConnectionAliasCommand extends $Command<

@@ -36,14 +36,24 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTFleetWiseClient, ListTagsForResourceCommand } from "@aws-sdk/client-iotfleetwise"; // ES Modules import
- * // const { IoTFleetWiseClient, ListTagsForResourceCommand } = require("@aws-sdk/client-iotfleetwise"); // CommonJS import
+ * import { IoTFleetWiseClient, ListTagsForResourceCommand } from '@aws-sdk/client-iotfleetwise'; // ES Modules import
+ * // const { IoTFleetWiseClient, ListTagsForResourceCommand } = require('@aws-sdk/client-iotfleetwise'); // CommonJS import
  * const client = new IoTFleetWiseClient(config);
  * const input = { // ListTagsForResourceRequest
- *   ResourceARN: "STRING_VALUE", // required
+ *   ResourceARN: 'STRING_VALUE', // required
  * };
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTagsForResourceResponse
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListTagsForResourceCommandInput - {@link ListTagsForResourceCommandInput}
@@ -67,6 +77,8 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
  *
+ * @throws {@link IoTFleetWiseServiceException}
+ * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
  */
 export class ListTagsForResourceCommand extends $Command<

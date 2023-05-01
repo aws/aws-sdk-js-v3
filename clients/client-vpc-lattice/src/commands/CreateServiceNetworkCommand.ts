@@ -39,19 +39,27 @@ export interface CreateServiceNetworkCommandOutput extends CreateServiceNetworkR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { VPCLatticeClient, CreateServiceNetworkCommand } from "@aws-sdk/client-vpc-lattice"; // ES Modules import
- * // const { VPCLatticeClient, CreateServiceNetworkCommand } = require("@aws-sdk/client-vpc-lattice"); // CommonJS import
+ * import { VPCLatticeClient, CreateServiceNetworkCommand } from '@aws-sdk/client-vpc-lattice'; // ES Modules import
+ * // const { VPCLatticeClient, CreateServiceNetworkCommand } = require('@aws-sdk/client-vpc-lattice'); // CommonJS import
  * const client = new VPCLatticeClient(config);
  * const input = { // CreateServiceNetworkRequest
- *   clientToken: "STRING_VALUE",
- *   name: "STRING_VALUE", // required
- *   authType: "STRING_VALUE",
+ *   clientToken: 'STRING_VALUE',
+ *   name: 'STRING_VALUE', // required
+ *   authType: 'STRING_VALUE',
  *   tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateServiceNetworkCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateServiceNetworkResponse
+ *   id: 'STRING_VALUE',
+ *   name: 'STRING_VALUE',
+ *   arn: 'STRING_VALUE',
+ *   authType: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateServiceNetworkCommandInput - {@link CreateServiceNetworkCommandInput}
@@ -83,6 +91,8 @@ export interface CreateServiceNetworkCommandOutput extends CreateServiceNetworkR
  *  <p>The input does not satisfy the constraints specified by an Amazon Web Services
  *    service.</p>
  *
+ * @throws {@link VPCLatticeServiceException}
+ * <p>Base exception class for all service exceptions from VPCLattice service.</p>
  *
  */
 export class CreateServiceNetworkCommand extends $Command<

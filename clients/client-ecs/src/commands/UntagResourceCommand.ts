@@ -36,17 +36,20 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ECSClient, UntagResourceCommand } from "@aws-sdk/client-ecs"; // ES Modules import
- * // const { ECSClient, UntagResourceCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
+ * import { ECSClient, UntagResourceCommand } from '@aws-sdk/client-ecs'; // ES Modules import
+ * // const { ECSClient, UntagResourceCommand } = require('@aws-sdk/client-ecs'); // CommonJS import
  * const client = new ECSClient(config);
  * const input = { // UntagResourceRequest
- *   resourceArn: "STRING_VALUE", // required
+ *   resourceArn: 'STRING_VALUE', // required
  *   tagKeys: [ // TagKeys // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new UntagResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UntagResourceCommandInput - {@link UntagResourceCommandInput}
@@ -73,6 +76,8 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server issue.</p>
  *
+ * @throws {@link ECSServiceException}
+ * <p>Base exception class for all service exceptions from ECS service.</p>
  *
  * @example To untag a cluster.
  * ```javascript

@@ -41,16 +41,19 @@ export interface SetTopicAttributesCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SNSClient, SetTopicAttributesCommand } from "@aws-sdk/client-sns"; // ES Modules import
- * // const { SNSClient, SetTopicAttributesCommand } = require("@aws-sdk/client-sns"); // CommonJS import
+ * import { SNSClient, SetTopicAttributesCommand } from '@aws-sdk/client-sns'; // ES Modules import
+ * // const { SNSClient, SetTopicAttributesCommand } = require('@aws-sdk/client-sns'); // CommonJS import
  * const client = new SNSClient(config);
  * const input = { // SetTopicAttributesInput
- *   TopicArn: "STRING_VALUE", // required
- *   AttributeName: "STRING_VALUE", // required
- *   AttributeValue: "STRING_VALUE",
+ *   TopicArn: 'STRING_VALUE', // required
+ *   AttributeName: 'STRING_VALUE', // required
+ *   AttributeValue: 'STRING_VALUE',
  * };
  * const command = new SetTopicAttributesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param SetTopicAttributesCommandInput - {@link SetTopicAttributesCommandInput}
@@ -76,6 +79,8 @@ export interface SetTopicAttributesCommandOutput extends __MetadataBearer {}
  * @throws {@link NotFoundException} (client fault)
  *  <p>Indicates that the requested resource does not exist.</p>
  *
+ * @throws {@link SNSServiceException}
+ * <p>Base exception class for all service exceptions from SNS service.</p>
  *
  */
 export class SetTopicAttributesCommand extends $Command<

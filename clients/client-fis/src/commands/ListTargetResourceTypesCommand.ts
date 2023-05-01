@@ -36,15 +36,26 @@ export interface ListTargetResourceTypesCommandOutput extends ListTargetResource
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FisClient, ListTargetResourceTypesCommand } from "@aws-sdk/client-fis"; // ES Modules import
- * // const { FisClient, ListTargetResourceTypesCommand } = require("@aws-sdk/client-fis"); // CommonJS import
+ * import { FisClient, ListTargetResourceTypesCommand } from '@aws-sdk/client-fis'; // ES Modules import
+ * // const { FisClient, ListTargetResourceTypesCommand } = require('@aws-sdk/client-fis'); // CommonJS import
  * const client = new FisClient(config);
  * const input = { // ListTargetResourceTypesRequest
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new ListTargetResourceTypesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTargetResourceTypesResponse
+ *   targetResourceTypes: [ // TargetResourceTypeSummaryList
+ *     { // TargetResourceTypeSummary
+ *       resourceType: 'STRING_VALUE',
+ *       description: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListTargetResourceTypesCommandInput - {@link ListTargetResourceTypesCommandInput}
@@ -56,6 +67,8 @@ export interface ListTargetResourceTypesCommandOutput extends ListTargetResource
  * @throws {@link ValidationException} (client fault)
  *  <p>The specified input is not valid, or fails to satisfy the constraints for the request.</p>
  *
+ * @throws {@link FisServiceException}
+ * <p>Base exception class for all service exceptions from Fis service.</p>
  *
  */
 export class ListTargetResourceTypesCommand extends $Command<

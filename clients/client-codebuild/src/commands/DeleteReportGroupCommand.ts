@@ -36,15 +36,18 @@ export interface DeleteReportGroupCommandOutput extends DeleteReportGroupOutput,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeBuildClient, DeleteReportGroupCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
- * // const { CodeBuildClient, DeleteReportGroupCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import
+ * import { CodeBuildClient, DeleteReportGroupCommand } from '@aws-sdk/client-codebuild'; // ES Modules import
+ * // const { CodeBuildClient, DeleteReportGroupCommand } = require('@aws-sdk/client-codebuild'); // CommonJS import
  * const client = new CodeBuildClient(config);
  * const input = { // DeleteReportGroupInput
- *   arn: "STRING_VALUE", // required
+ *   arn: 'STRING_VALUE', // required
  *   deleteReports: true || false,
  * };
  * const command = new DeleteReportGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteReportGroupCommandInput - {@link DeleteReportGroupCommandInput}
@@ -56,6 +59,8 @@ export interface DeleteReportGroupCommandOutput extends DeleteReportGroupOutput,
  * @throws {@link InvalidInputException} (client fault)
  *  <p>The input value that was provided is not valid.</p>
  *
+ * @throws {@link CodeBuildServiceException}
+ * <p>Base exception class for all service exceptions from CodeBuild service.</p>
  *
  */
 export class DeleteReportGroupCommand extends $Command<

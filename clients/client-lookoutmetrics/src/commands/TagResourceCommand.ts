@@ -36,17 +36,20 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LookoutMetricsClient, TagResourceCommand } from "@aws-sdk/client-lookoutmetrics"; // ES Modules import
- * // const { LookoutMetricsClient, TagResourceCommand } = require("@aws-sdk/client-lookoutmetrics"); // CommonJS import
+ * import { LookoutMetricsClient, TagResourceCommand } from '@aws-sdk/client-lookoutmetrics'; // ES Modules import
+ * // const { LookoutMetricsClient, TagResourceCommand } = require('@aws-sdk/client-lookoutmetrics'); // CommonJS import
  * const client = new LookoutMetricsClient(config);
  * const input = { // TagResourceRequest
- *   ResourceArn: "STRING_VALUE", // required
+ *   ResourceArn: 'STRING_VALUE', // required
  *   Tags: { // TagMap // required
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param TagResourceCommandInput - {@link TagResourceCommandInput}
@@ -65,6 +68,8 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  *  <p>The input fails to satisfy the constraints specified by the AWS service. Check your input values and try
  *       again.</p>
  *
+ * @throws {@link LookoutMetricsServiceException}
+ * <p>Base exception class for all service exceptions from LookoutMetrics service.</p>
  *
  */
 export class TagResourceCommand extends $Command<

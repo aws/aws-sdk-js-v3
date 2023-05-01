@@ -36,14 +36,17 @@ export interface DeletePipelineCommandOutput extends DeletePipelineResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OSISClient, DeletePipelineCommand } from "@aws-sdk/client-osis"; // ES Modules import
- * // const { OSISClient, DeletePipelineCommand } = require("@aws-sdk/client-osis"); // CommonJS import
+ * import { OSISClient, DeletePipelineCommand } from '@aws-sdk/client-osis'; // ES Modules import
+ * // const { OSISClient, DeletePipelineCommand } = require('@aws-sdk/client-osis'); // CommonJS import
  * const client = new OSISClient(config);
  * const input = { // DeletePipelineRequest
- *   PipelineName: "STRING_VALUE", // required
+ *   PipelineName: 'STRING_VALUE', // required
  * };
  * const command = new DeletePipelineCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeletePipelineCommandInput - {@link DeletePipelineCommandInput}
@@ -68,6 +71,8 @@ export interface DeletePipelineCommandOutput extends DeletePipelineResponse, __M
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception for missing or invalid input fields.</p>
  *
+ * @throws {@link OSISServiceException}
+ * <p>Base exception class for all service exceptions from OSIS service.</p>
  *
  */
 export class DeletePipelineCommand extends $Command<

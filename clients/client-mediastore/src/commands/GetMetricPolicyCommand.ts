@@ -36,14 +36,27 @@ export interface GetMetricPolicyCommandOutput extends GetMetricPolicyOutput, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MediaStoreClient, GetMetricPolicyCommand } from "@aws-sdk/client-mediastore"; // ES Modules import
- * // const { MediaStoreClient, GetMetricPolicyCommand } = require("@aws-sdk/client-mediastore"); // CommonJS import
+ * import { MediaStoreClient, GetMetricPolicyCommand } from '@aws-sdk/client-mediastore'; // ES Modules import
+ * // const { MediaStoreClient, GetMetricPolicyCommand } = require('@aws-sdk/client-mediastore'); // CommonJS import
  * const client = new MediaStoreClient(config);
  * const input = { // GetMetricPolicyInput
- *   ContainerName: "STRING_VALUE", // required
+ *   ContainerName: 'STRING_VALUE', // required
  * };
  * const command = new GetMetricPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetMetricPolicyOutput
+ *   MetricPolicy: { // MetricPolicy
+ *     ContainerLevelMetrics: 'STRING_VALUE', // required
+ *     MetricPolicyRules: [ // MetricPolicyRules
+ *       { // MetricPolicyRule
+ *         ObjectGroup: 'STRING_VALUE', // required
+ *         ObjectGroupName: 'STRING_VALUE', // required
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetMetricPolicyCommandInput - {@link GetMetricPolicyCommandInput}
@@ -65,6 +78,8 @@ export interface GetMetricPolicyCommandOutput extends GetMetricPolicyOutput, __M
  * @throws {@link PolicyNotFoundException} (client fault)
  *  <p>The policy that you specified in the request does not exist.</p>
  *
+ * @throws {@link MediaStoreServiceException}
+ * <p>Base exception class for all service exceptions from MediaStore service.</p>
  *
  */
 export class GetMetricPolicyCommand extends $Command<

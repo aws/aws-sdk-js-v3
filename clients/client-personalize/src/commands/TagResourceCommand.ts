@@ -36,20 +36,23 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PersonalizeClient, TagResourceCommand } from "@aws-sdk/client-personalize"; // ES Modules import
- * // const { PersonalizeClient, TagResourceCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
+ * import { PersonalizeClient, TagResourceCommand } from '@aws-sdk/client-personalize'; // ES Modules import
+ * // const { PersonalizeClient, TagResourceCommand } = require('@aws-sdk/client-personalize'); // CommonJS import
  * const client = new PersonalizeClient(config);
  * const input = { // TagResourceRequest
- *   resourceArn: "STRING_VALUE", // required
+ *   resourceArn: 'STRING_VALUE', // required
  *   tags: [ // Tags // required
  *     { // Tag
- *       tagKey: "STRING_VALUE", // required
- *       tagValue: "STRING_VALUE", // required
+ *       tagKey: 'STRING_VALUE', // required
+ *       tagValue: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param TagResourceCommandInput - {@link TagResourceCommandInput}
@@ -73,6 +76,8 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @throws {@link TooManyTagsException} (client fault)
  *  <p>You have exceeded the maximum number of tags you can apply to this resource. </p>
  *
+ * @throws {@link PersonalizeServiceException}
+ * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
  */
 export class TagResourceCommand extends $Command<

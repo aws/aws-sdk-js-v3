@@ -54,30 +54,57 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MigrationHubRefactorSpacesClient, CreateServiceCommand } from "@aws-sdk/client-migration-hub-refactor-spaces"; // ES Modules import
- * // const { MigrationHubRefactorSpacesClient, CreateServiceCommand } = require("@aws-sdk/client-migration-hub-refactor-spaces"); // CommonJS import
+ * import { MigrationHubRefactorSpacesClient, CreateServiceCommand } from '@aws-sdk/client-migration-hub-refactor-spaces'; // ES Modules import
+ * // const { MigrationHubRefactorSpacesClient, CreateServiceCommand } = require('@aws-sdk/client-migration-hub-refactor-spaces'); // CommonJS import
  * const client = new MigrationHubRefactorSpacesClient(config);
  * const input = { // CreateServiceRequest
- *   Name: "STRING_VALUE", // required
- *   Description: "STRING_VALUE",
- *   EnvironmentIdentifier: "STRING_VALUE", // required
- *   ApplicationIdentifier: "STRING_VALUE", // required
- *   VpcId: "STRING_VALUE",
- *   EndpointType: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE',
+ *   EnvironmentIdentifier: 'STRING_VALUE', // required
+ *   ApplicationIdentifier: 'STRING_VALUE', // required
+ *   VpcId: 'STRING_VALUE',
+ *   EndpointType: 'STRING_VALUE', // required
  *   UrlEndpoint: { // UrlEndpointInput
- *     Url: "STRING_VALUE", // required
- *     HealthUrl: "STRING_VALUE",
+ *     Url: 'STRING_VALUE', // required
+ *     HealthUrl: 'STRING_VALUE',
  *   },
  *   LambdaEndpoint: { // LambdaEndpointInput
- *     Arn: "STRING_VALUE", // required
+ *     Arn: 'STRING_VALUE', // required
  *   },
  *   Tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
- *   ClientToken: "STRING_VALUE",
+ *   ClientToken: 'STRING_VALUE',
  * };
  * const command = new CreateServiceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateServiceResponse
+ *   ServiceId: 'STRING_VALUE',
+ *   Name: 'STRING_VALUE',
+ *   Arn: 'STRING_VALUE',
+ *   OwnerAccountId: 'STRING_VALUE',
+ *   CreatedByAccountId: 'STRING_VALUE',
+ *   Description: 'STRING_VALUE',
+ *   EnvironmentId: 'STRING_VALUE',
+ *   ApplicationId: 'STRING_VALUE',
+ *   VpcId: 'STRING_VALUE',
+ *   EndpointType: 'STRING_VALUE',
+ *   UrlEndpoint: { // UrlEndpointInput
+ *     Url: 'STRING_VALUE', // required
+ *     HealthUrl: 'STRING_VALUE',
+ *   },
+ *   LambdaEndpoint: { // LambdaEndpointInput
+ *     Arn: 'STRING_VALUE', // required
+ *   },
+ *   State: 'STRING_VALUE',
+ *   Tags: { // TagMap
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ *   LastUpdatedTime: new Date('TIMESTAMP'),
+ *   CreatedTime: new Date('TIMESTAMP'),
+ * };
+ *
  * ```
  *
  * @param CreateServiceCommandInput - {@link CreateServiceCommandInput}
@@ -108,6 +135,8 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  *  <p>The input does not satisfy the constraints specified by an Amazon Web Service.
  *     </p>
  *
+ * @throws {@link MigrationHubRefactorSpacesServiceException}
+ * <p>Base exception class for all service exceptions from MigrationHubRefactorSpaces service.</p>
  *
  */
 export class CreateServiceCommand extends $Command<

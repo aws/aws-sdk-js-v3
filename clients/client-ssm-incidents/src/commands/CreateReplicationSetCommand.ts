@@ -37,22 +37,27 @@ export interface CreateReplicationSetCommandOutput extends CreateReplicationSetO
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMIncidentsClient, CreateReplicationSetCommand } from "@aws-sdk/client-ssm-incidents"; // ES Modules import
- * // const { SSMIncidentsClient, CreateReplicationSetCommand } = require("@aws-sdk/client-ssm-incidents"); // CommonJS import
+ * import { SSMIncidentsClient, CreateReplicationSetCommand } from '@aws-sdk/client-ssm-incidents'; // ES Modules import
+ * // const { SSMIncidentsClient, CreateReplicationSetCommand } = require('@aws-sdk/client-ssm-incidents'); // CommonJS import
  * const client = new SSMIncidentsClient(config);
  * const input = { // CreateReplicationSetInput
  *   regions: { // RegionMapInput // required
- *     "<keys>": { // RegionMapInputValue
- *       sseKmsKeyId: "STRING_VALUE",
+ *     '<keys>': { // RegionMapInputValue
+ *       sseKmsKeyId: 'STRING_VALUE',
  *     },
  *   },
- *   clientToken: "STRING_VALUE",
+ *   clientToken: 'STRING_VALUE',
  *   tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateReplicationSetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateReplicationSetOutput
+ *   arn: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param CreateReplicationSetCommandInput - {@link CreateReplicationSetCommandInput}
@@ -81,6 +86,8 @@ export interface CreateReplicationSetCommandOutput extends CreateReplicationSetO
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
  *       service.</p>
  *
+ * @throws {@link SSMIncidentsServiceException}
+ * <p>Base exception class for all service exceptions from SSMIncidents service.</p>
  *
  */
 export class CreateReplicationSetCommand extends $Command<

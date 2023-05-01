@@ -39,18 +39,34 @@ export interface StartBgpFailoverTestCommandOutput extends StartBgpFailoverTestR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DirectConnectClient, StartBgpFailoverTestCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
- * // const { DirectConnectClient, StartBgpFailoverTestCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
+ * import { DirectConnectClient, StartBgpFailoverTestCommand } from '@aws-sdk/client-direct-connect'; // ES Modules import
+ * // const { DirectConnectClient, StartBgpFailoverTestCommand } = require('@aws-sdk/client-direct-connect'); // CommonJS import
  * const client = new DirectConnectClient(config);
  * const input = { // StartBgpFailoverTestRequest
- *   virtualInterfaceId: "STRING_VALUE", // required
+ *   virtualInterfaceId: 'STRING_VALUE', // required
  *   bgpPeers: [ // BGPPeerIdList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   testDurationInMinutes: Number("int"),
+ *   testDurationInMinutes: Number('int'),
  * };
  * const command = new StartBgpFailoverTestCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartBgpFailoverTestResponse
+ *   virtualInterfaceTest: { // VirtualInterfaceTestHistory
+ *     testId: 'STRING_VALUE',
+ *     virtualInterfaceId: 'STRING_VALUE',
+ *     bgpPeers: [ // BGPPeerIdList
+ *       'STRING_VALUE',
+ *     ],
+ *     status: 'STRING_VALUE',
+ *     ownerAccount: 'STRING_VALUE',
+ *     testDurationInMinutes: Number('int'),
+ *     startTime: new Date('TIMESTAMP'),
+ *     endTime: new Date('TIMESTAMP'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param StartBgpFailoverTestCommandInput - {@link StartBgpFailoverTestCommandInput}
@@ -65,6 +81,8 @@ export interface StartBgpFailoverTestCommandOutput extends StartBgpFailoverTestR
  * @throws {@link DirectConnectServerException} (server fault)
  *  <p>A server-side error occurred.</p>
  *
+ * @throws {@link DirectConnectServiceException}
+ * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
  */
 export class StartBgpFailoverTestCommand extends $Command<

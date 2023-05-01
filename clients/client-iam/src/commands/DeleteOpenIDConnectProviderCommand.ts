@@ -41,14 +41,17 @@ export interface DeleteOpenIDConnectProviderCommandOutput extends __MetadataBear
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IAMClient, DeleteOpenIDConnectProviderCommand } from "@aws-sdk/client-iam"; // ES Modules import
- * // const { IAMClient, DeleteOpenIDConnectProviderCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * import { IAMClient, DeleteOpenIDConnectProviderCommand } from '@aws-sdk/client-iam'; // ES Modules import
+ * // const { IAMClient, DeleteOpenIDConnectProviderCommand } = require('@aws-sdk/client-iam'); // CommonJS import
  * const client = new IAMClient(config);
  * const input = { // DeleteOpenIDConnectProviderRequest
- *   OpenIDConnectProviderArn: "STRING_VALUE", // required
+ *   OpenIDConnectProviderArn: 'STRING_VALUE', // required
  * };
  * const command = new DeleteOpenIDConnectProviderCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteOpenIDConnectProviderCommandInput - {@link DeleteOpenIDConnectProviderCommandInput}
@@ -69,6 +72,8 @@ export interface DeleteOpenIDConnectProviderCommandOutput extends __MetadataBear
  *  <p>The request processing has failed because of an unknown error, exception or
  *       failure.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  */
 export class DeleteOpenIDConnectProviderCommand extends $Command<

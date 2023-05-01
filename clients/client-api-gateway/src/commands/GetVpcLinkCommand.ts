@@ -36,14 +36,29 @@ export interface GetVpcLinkCommandOutput extends VpcLink, __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { APIGatewayClient, GetVpcLinkCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
- * // const { APIGatewayClient, GetVpcLinkCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
+ * import { APIGatewayClient, GetVpcLinkCommand } from '@aws-sdk/client-api-gateway'; // ES Modules import
+ * // const { APIGatewayClient, GetVpcLinkCommand } = require('@aws-sdk/client-api-gateway'); // CommonJS import
  * const client = new APIGatewayClient(config);
  * const input = { // GetVpcLinkRequest
- *   vpcLinkId: "STRING_VALUE", // required
+ *   vpcLinkId: 'STRING_VALUE', // required
  * };
  * const command = new GetVpcLinkCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // VpcLink
+ *   id: 'STRING_VALUE',
+ *   name: 'STRING_VALUE',
+ *   description: 'STRING_VALUE',
+ *   targetArns: [ // ListOfString
+ *     'STRING_VALUE',
+ *   ],
+ *   status: 'AVAILABLE' || 'PENDING' || 'DELETING' || 'FAILED',
+ *   statusMessage: 'STRING_VALUE',
+ *   tags: { // MapOfStringToString
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetVpcLinkCommandInput - {@link GetVpcLinkCommandInput}
@@ -64,6 +79,8 @@ export interface GetVpcLinkCommandOutput extends VpcLink, __MetadataBearer {}
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The request is denied because the caller has insufficient permissions.</p>
  *
+ * @throws {@link APIGatewayServiceException}
+ * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
  */
 export class GetVpcLinkCommand extends $Command<

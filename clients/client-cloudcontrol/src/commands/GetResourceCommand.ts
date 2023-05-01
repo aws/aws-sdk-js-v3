@@ -39,17 +39,26 @@ export interface GetResourceCommandOutput extends GetResourceOutput, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudControlClient, GetResourceCommand } from "@aws-sdk/client-cloudcontrol"; // ES Modules import
- * // const { CloudControlClient, GetResourceCommand } = require("@aws-sdk/client-cloudcontrol"); // CommonJS import
+ * import { CloudControlClient, GetResourceCommand } from '@aws-sdk/client-cloudcontrol'; // ES Modules import
+ * // const { CloudControlClient, GetResourceCommand } = require('@aws-sdk/client-cloudcontrol'); // CommonJS import
  * const client = new CloudControlClient(config);
  * const input = { // GetResourceInput
- *   TypeName: "STRING_VALUE", // required
- *   TypeVersionId: "STRING_VALUE",
- *   RoleArn: "STRING_VALUE",
- *   Identifier: "STRING_VALUE", // required
+ *   TypeName: 'STRING_VALUE', // required
+ *   TypeVersionId: 'STRING_VALUE',
+ *   RoleArn: 'STRING_VALUE',
+ *   Identifier: 'STRING_VALUE', // required
  * };
  * const command = new GetResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetResourceOutput
+ *   TypeName: 'STRING_VALUE',
+ *   ResourceDescription: { // ResourceDescription
+ *     Identifier: 'STRING_VALUE',
+ *     Properties: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetResourceCommandInput - {@link GetResourceCommandInput}
@@ -123,6 +132,8 @@ export interface GetResourceCommandOutput extends GetResourceOutput, __MetadataB
  * @throws {@link UnsupportedActionException} (client fault)
  *  <p>The specified resource doesn't support this resource operation.</p>
  *
+ * @throws {@link CloudControlServiceException}
+ * <p>Base exception class for all service exceptions from CloudControl service.</p>
  *
  */
 export class GetResourceCommand extends $Command<

@@ -44,14 +44,35 @@ export interface DescribeReplayCommandOutput extends DescribeReplayResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EventBridgeClient, DescribeReplayCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
- * // const { EventBridgeClient, DescribeReplayCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
+ * import { EventBridgeClient, DescribeReplayCommand } from '@aws-sdk/client-eventbridge'; // ES Modules import
+ * // const { EventBridgeClient, DescribeReplayCommand } = require('@aws-sdk/client-eventbridge'); // CommonJS import
  * const client = new EventBridgeClient(config);
  * const input = { // DescribeReplayRequest
- *   ReplayName: "STRING_VALUE", // required
+ *   ReplayName: 'STRING_VALUE', // required
  * };
  * const command = new DescribeReplayCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeReplayResponse
+ *   ReplayName: 'STRING_VALUE',
+ *   ReplayArn: 'STRING_VALUE',
+ *   Description: 'STRING_VALUE',
+ *   State: 'STARTING' || 'RUNNING' || 'CANCELLING' || 'COMPLETED' || 'CANCELLED' || 'FAILED',
+ *   StateReason: 'STRING_VALUE',
+ *   EventSourceArn: 'STRING_VALUE',
+ *   Destination: { // ReplayDestination
+ *     Arn: 'STRING_VALUE', // required
+ *     FilterArns: [ // ReplayDestinationFilters
+ *       'STRING_VALUE',
+ *     ],
+ *   },
+ *   EventStartTime: new Date('TIMESTAMP'),
+ *   EventEndTime: new Date('TIMESTAMP'),
+ *   EventLastReplayedTime: new Date('TIMESTAMP'),
+ *   ReplayStartTime: new Date('TIMESTAMP'),
+ *   ReplayEndTime: new Date('TIMESTAMP'),
+ * };
+ *
  * ```
  *
  * @param DescribeReplayCommandInput - {@link DescribeReplayCommandInput}
@@ -66,6 +87,8 @@ export interface DescribeReplayCommandOutput extends DescribeReplayResponse, __M
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>An entity that you specified does not exist.</p>
  *
+ * @throws {@link EventBridgeServiceException}
+ * <p>Base exception class for all service exceptions from EventBridge service.</p>
  *
  */
 export class DescribeReplayCommand extends $Command<

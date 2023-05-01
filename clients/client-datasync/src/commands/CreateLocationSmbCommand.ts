@@ -40,30 +40,35 @@ export interface CreateLocationSmbCommandOutput extends CreateLocationSmbRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DataSyncClient, CreateLocationSmbCommand } from "@aws-sdk/client-datasync"; // ES Modules import
- * // const { DataSyncClient, CreateLocationSmbCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
+ * import { DataSyncClient, CreateLocationSmbCommand } from '@aws-sdk/client-datasync'; // ES Modules import
+ * // const { DataSyncClient, CreateLocationSmbCommand } = require('@aws-sdk/client-datasync'); // CommonJS import
  * const client = new DataSyncClient(config);
  * const input = { // CreateLocationSmbRequest
- *   Subdirectory: "STRING_VALUE", // required
- *   ServerHostname: "STRING_VALUE", // required
- *   User: "STRING_VALUE", // required
- *   Domain: "STRING_VALUE",
- *   Password: "STRING_VALUE", // required
+ *   Subdirectory: 'STRING_VALUE', // required
+ *   ServerHostname: 'STRING_VALUE', // required
+ *   User: 'STRING_VALUE', // required
+ *   Domain: 'STRING_VALUE',
+ *   Password: 'STRING_VALUE', // required
  *   AgentArns: [ // AgentArnList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   MountOptions: { // SmbMountOptions
- *     Version: "AUTOMATIC" || "SMB2" || "SMB3" || "SMB1" || "SMB2_0",
+ *     Version: 'AUTOMATIC' || 'SMB2' || 'SMB3' || 'SMB1' || 'SMB2_0',
  *   },
  *   Tags: [ // InputTagList
  *     { // TagListEntry
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new CreateLocationSmbCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateLocationSmbResponse
+ *   LocationArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateLocationSmbCommandInput - {@link CreateLocationSmbCommandInput}
@@ -79,6 +84,8 @@ export interface CreateLocationSmbCommandOutput extends CreateLocationSmbRespons
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception is thrown when the client submits a malformed request.</p>
  *
+ * @throws {@link DataSyncServiceException}
+ * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
  */
 export class CreateLocationSmbCommand extends $Command<

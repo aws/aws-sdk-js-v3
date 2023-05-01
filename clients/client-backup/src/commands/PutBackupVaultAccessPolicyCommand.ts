@@ -38,15 +38,18 @@ export interface PutBackupVaultAccessPolicyCommandOutput extends __MetadataBeare
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BackupClient, PutBackupVaultAccessPolicyCommand } from "@aws-sdk/client-backup"; // ES Modules import
- * // const { BackupClient, PutBackupVaultAccessPolicyCommand } = require("@aws-sdk/client-backup"); // CommonJS import
+ * import { BackupClient, PutBackupVaultAccessPolicyCommand } from '@aws-sdk/client-backup'; // ES Modules import
+ * // const { BackupClient, PutBackupVaultAccessPolicyCommand } = require('@aws-sdk/client-backup'); // CommonJS import
  * const client = new BackupClient(config);
  * const input = { // PutBackupVaultAccessPolicyInput
- *   BackupVaultName: "STRING_VALUE", // required
- *   Policy: "STRING_VALUE",
+ *   BackupVaultName: 'STRING_VALUE', // required
+ *   Policy: 'STRING_VALUE',
  * };
  * const command = new PutBackupVaultAccessPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutBackupVaultAccessPolicyCommandInput - {@link PutBackupVaultAccessPolicyCommandInput}
@@ -68,6 +71,8 @@ export interface PutBackupVaultAccessPolicyCommandOutput extends __MetadataBeare
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request failed due to a temporary failure of the server.</p>
  *
+ * @throws {@link BackupServiceException}
+ * <p>Base exception class for all service exceptions from Backup service.</p>
  *
  */
 export class PutBackupVaultAccessPolicyCommand extends $Command<

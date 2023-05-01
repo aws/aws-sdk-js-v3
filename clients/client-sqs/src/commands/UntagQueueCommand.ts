@@ -42,17 +42,20 @@ export interface UntagQueueCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SQSClient, UntagQueueCommand } from "@aws-sdk/client-sqs"; // ES Modules import
- * // const { SQSClient, UntagQueueCommand } = require("@aws-sdk/client-sqs"); // CommonJS import
+ * import { SQSClient, UntagQueueCommand } from '@aws-sdk/client-sqs'; // ES Modules import
+ * // const { SQSClient, UntagQueueCommand } = require('@aws-sdk/client-sqs'); // CommonJS import
  * const client = new SQSClient(config);
  * const input = { // UntagQueueRequest
- *   QueueUrl: "STRING_VALUE", // required
+ *   QueueUrl: 'STRING_VALUE', // required
  *   TagKeys: [ // TagKeyList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new UntagQueueCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UntagQueueCommandInput - {@link UntagQueueCommandInput}
@@ -61,6 +64,8 @@ export interface UntagQueueCommandOutput extends __MetadataBearer {}
  * @see {@link UntagQueueCommandOutput} for command's `response` shape.
  * @see {@link SQSClientResolvedConfig | config} for SQSClient's `config` shape.
  *
+ * @throws {@link SQSServiceException}
+ * <p>Base exception class for all service exceptions from SQS service.</p>
  *
  */
 export class UntagQueueCommand extends $Command<

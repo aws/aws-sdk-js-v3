@@ -36,17 +36,49 @@ export interface GetDocumentCommandOutput extends GetDocumentResult, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMClient, GetDocumentCommand } from "@aws-sdk/client-ssm"; // ES Modules import
- * // const { SSMClient, GetDocumentCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * import { SSMClient, GetDocumentCommand } from '@aws-sdk/client-ssm'; // ES Modules import
+ * // const { SSMClient, GetDocumentCommand } = require('@aws-sdk/client-ssm'); // CommonJS import
  * const client = new SSMClient(config);
  * const input = { // GetDocumentRequest
- *   Name: "STRING_VALUE", // required
- *   VersionName: "STRING_VALUE",
- *   DocumentVersion: "STRING_VALUE",
- *   DocumentFormat: "YAML" || "JSON" || "TEXT",
+ *   Name: 'STRING_VALUE', // required
+ *   VersionName: 'STRING_VALUE',
+ *   DocumentVersion: 'STRING_VALUE',
+ *   DocumentFormat: 'YAML' || 'JSON' || 'TEXT',
  * };
  * const command = new GetDocumentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetDocumentResult
+ *   Name: 'STRING_VALUE',
+ *   CreatedDate: new Date('TIMESTAMP'),
+ *   DisplayName: 'STRING_VALUE',
+ *   VersionName: 'STRING_VALUE',
+ *   DocumentVersion: 'STRING_VALUE',
+ *   Status: 'Creating' || 'Active' || 'Updating' || 'Deleting' || 'Failed',
+ *   StatusInformation: 'STRING_VALUE',
+ *   Content: 'STRING_VALUE',
+ *   DocumentType: 'Command' || 'Policy' || 'Automation' || 'Session' || 'Package' || 'ApplicationConfiguration' || 'ApplicationConfigurationSchema' || 'DeploymentStrategy' || 'ChangeCalendar' || 'Automation.ChangeTemplate' || 'ProblemAnalysis' || 'ProblemAnalysisTemplate' || 'CloudFormation' || 'ConformancePackTemplate' || 'QuickSetup',
+ *   DocumentFormat: 'YAML' || 'JSON' || 'TEXT',
+ *   Requires: [ // DocumentRequiresList
+ *     { // DocumentRequires
+ *       Name: 'STRING_VALUE', // required
+ *       Version: 'STRING_VALUE',
+ *       RequireType: 'STRING_VALUE',
+ *       VersionName: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   AttachmentsContent: [ // AttachmentContentList
+ *     { // AttachmentContent
+ *       Name: 'STRING_VALUE',
+ *       Size: Number('long'),
+ *       Hash: 'STRING_VALUE',
+ *       HashType: 'Sha256',
+ *       Url: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   ReviewStatus: 'APPROVED' || 'NOT_REVIEWED' || 'PENDING' || 'REJECTED',
+ * };
+ *
  * ```
  *
  * @param GetDocumentCommandInput - {@link GetDocumentCommandInput}
@@ -64,6 +96,8 @@ export interface GetDocumentCommandOutput extends GetDocumentResult, __MetadataB
  * @throws {@link InvalidDocumentVersion} (client fault)
  *  <p>The document version isn't valid or doesn't exist.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class GetDocumentCommand extends $Command<

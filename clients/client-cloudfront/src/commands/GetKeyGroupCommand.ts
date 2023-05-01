@@ -42,14 +42,30 @@ export interface GetKeyGroupCommandOutput extends GetKeyGroupResult, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudFrontClient, GetKeyGroupCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
- * // const { CloudFrontClient, GetKeyGroupCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
+ * import { CloudFrontClient, GetKeyGroupCommand } from '@aws-sdk/client-cloudfront'; // ES Modules import
+ * // const { CloudFrontClient, GetKeyGroupCommand } = require('@aws-sdk/client-cloudfront'); // CommonJS import
  * const client = new CloudFrontClient(config);
  * const input = { // GetKeyGroupRequest
- *   Id: "STRING_VALUE", // required
+ *   Id: 'STRING_VALUE', // required
  * };
  * const command = new GetKeyGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetKeyGroupResult
+ *   KeyGroup: { // KeyGroup
+ *     Id: 'STRING_VALUE', // required
+ *     LastModifiedTime: new Date('TIMESTAMP'), // required
+ *     KeyGroupConfig: { // KeyGroupConfig
+ *       Name: 'STRING_VALUE', // required
+ *       Items: [ // PublicKeyIdList // required
+ *         'STRING_VALUE',
+ *       ],
+ *       Comment: 'STRING_VALUE',
+ *     },
+ *   },
+ *   ETag: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetKeyGroupCommandInput - {@link GetKeyGroupCommandInput}
@@ -61,6 +77,8 @@ export interface GetKeyGroupCommandOutput extends GetKeyGroupResult, __MetadataB
  * @throws {@link NoSuchResource} (client fault)
  *  <p>A resource that was specified is not valid.</p>
  *
+ * @throws {@link CloudFrontServiceException}
+ * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
  */
 export class GetKeyGroupCommand extends $Command<

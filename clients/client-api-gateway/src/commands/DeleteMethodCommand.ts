@@ -36,16 +36,19 @@ export interface DeleteMethodCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { APIGatewayClient, DeleteMethodCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
- * // const { APIGatewayClient, DeleteMethodCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
+ * import { APIGatewayClient, DeleteMethodCommand } from '@aws-sdk/client-api-gateway'; // ES Modules import
+ * // const { APIGatewayClient, DeleteMethodCommand } = require('@aws-sdk/client-api-gateway'); // CommonJS import
  * const client = new APIGatewayClient(config);
  * const input = { // DeleteMethodRequest
- *   restApiId: "STRING_VALUE", // required
- *   resourceId: "STRING_VALUE", // required
- *   httpMethod: "STRING_VALUE", // required
+ *   restApiId: 'STRING_VALUE', // required
+ *   resourceId: 'STRING_VALUE', // required
+ *   httpMethod: 'STRING_VALUE', // required
  * };
  * const command = new DeleteMethodCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteMethodCommandInput - {@link DeleteMethodCommandInput}
@@ -66,6 +69,8 @@ export interface DeleteMethodCommandOutput extends __MetadataBearer {}
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The request is denied because the caller has insufficient permissions.</p>
  *
+ * @throws {@link APIGatewayServiceException}
+ * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
  */
 export class DeleteMethodCommand extends $Command<

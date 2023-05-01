@@ -37,16 +37,33 @@ export interface PreviewAgentsCommandOutput extends PreviewAgentsResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { InspectorClient, PreviewAgentsCommand } from "@aws-sdk/client-inspector"; // ES Modules import
- * // const { InspectorClient, PreviewAgentsCommand } = require("@aws-sdk/client-inspector"); // CommonJS import
+ * import { InspectorClient, PreviewAgentsCommand } from '@aws-sdk/client-inspector'; // ES Modules import
+ * // const { InspectorClient, PreviewAgentsCommand } = require('@aws-sdk/client-inspector'); // CommonJS import
  * const client = new InspectorClient(config);
  * const input = { // PreviewAgentsRequest
- *   previewAgentsArn: "STRING_VALUE", // required
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   previewAgentsArn: 'STRING_VALUE', // required
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new PreviewAgentsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PreviewAgentsResponse
+ *   agentPreviews: [ // AgentPreviewList // required
+ *     { // AgentPreview
+ *       hostname: 'STRING_VALUE',
+ *       agentId: 'STRING_VALUE', // required
+ *       autoScalingGroup: 'STRING_VALUE',
+ *       agentHealth: 'STRING_VALUE',
+ *       agentVersion: 'STRING_VALUE',
+ *       operatingSystem: 'STRING_VALUE',
+ *       kernelVersion: 'STRING_VALUE',
+ *       ipv4Address: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param PreviewAgentsCommandInput - {@link PreviewAgentsCommandInput}
@@ -73,6 +90,8 @@ export interface PreviewAgentsCommandOutput extends PreviewAgentsResponse, __Met
  *  <p>The request was rejected because it referenced an entity that does not exist. The
  *          error code describes the entity.</p>
  *
+ * @throws {@link InspectorServiceException}
+ * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
  * @example Preview agents
  * ```javascript

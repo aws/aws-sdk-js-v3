@@ -41,15 +41,20 @@ export interface GetQueueUrlCommandOutput extends GetQueueUrlResult, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SQSClient, GetQueueUrlCommand } from "@aws-sdk/client-sqs"; // ES Modules import
- * // const { SQSClient, GetQueueUrlCommand } = require("@aws-sdk/client-sqs"); // CommonJS import
+ * import { SQSClient, GetQueueUrlCommand } from '@aws-sdk/client-sqs'; // ES Modules import
+ * // const { SQSClient, GetQueueUrlCommand } = require('@aws-sdk/client-sqs'); // CommonJS import
  * const client = new SQSClient(config);
  * const input = { // GetQueueUrlRequest
- *   QueueName: "STRING_VALUE", // required
- *   QueueOwnerAWSAccountId: "STRING_VALUE",
+ *   QueueName: 'STRING_VALUE', // required
+ *   QueueOwnerAWSAccountId: 'STRING_VALUE',
  * };
  * const command = new GetQueueUrlCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetQueueUrlResult
+ *   QueueUrl: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetQueueUrlCommandInput - {@link GetQueueUrlCommandInput}
@@ -61,6 +66,8 @@ export interface GetQueueUrlCommandOutput extends GetQueueUrlResult, __MetadataB
  * @throws {@link QueueDoesNotExist} (client fault)
  *  <p>The specified queue doesn't exist.</p>
  *
+ * @throws {@link SQSServiceException}
+ * <p>Base exception class for all service exceptions from SQS service.</p>
  *
  */
 export class GetQueueUrlCommand extends $Command<

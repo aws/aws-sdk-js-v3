@@ -47,21 +47,31 @@ export interface GetScalingPlanResourceForecastDataCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AutoScalingPlansClient, GetScalingPlanResourceForecastDataCommand } from "@aws-sdk/client-auto-scaling-plans"; // ES Modules import
- * // const { AutoScalingPlansClient, GetScalingPlanResourceForecastDataCommand } = require("@aws-sdk/client-auto-scaling-plans"); // CommonJS import
+ * import { AutoScalingPlansClient, GetScalingPlanResourceForecastDataCommand } from '@aws-sdk/client-auto-scaling-plans'; // ES Modules import
+ * // const { AutoScalingPlansClient, GetScalingPlanResourceForecastDataCommand } = require('@aws-sdk/client-auto-scaling-plans'); // CommonJS import
  * const client = new AutoScalingPlansClient(config);
  * const input = { // GetScalingPlanResourceForecastDataRequest
- *   ScalingPlanName: "STRING_VALUE", // required
- *   ScalingPlanVersion: Number("long"), // required
- *   ServiceNamespace: "STRING_VALUE", // required
- *   ResourceId: "STRING_VALUE", // required
- *   ScalableDimension: "STRING_VALUE", // required
- *   ForecastDataType: "STRING_VALUE", // required
- *   StartTime: new Date("TIMESTAMP"), // required
- *   EndTime: new Date("TIMESTAMP"), // required
+ *   ScalingPlanName: 'STRING_VALUE', // required
+ *   ScalingPlanVersion: Number('long'), // required
+ *   ServiceNamespace: 'STRING_VALUE', // required
+ *   ResourceId: 'STRING_VALUE', // required
+ *   ScalableDimension: 'STRING_VALUE', // required
+ *   ForecastDataType: 'STRING_VALUE', // required
+ *   StartTime: new Date('TIMESTAMP'), // required
+ *   EndTime: new Date('TIMESTAMP'), // required
  * };
  * const command = new GetScalingPlanResourceForecastDataCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetScalingPlanResourceForecastDataResponse
+ *   Datapoints: [ // Datapoints // required
+ *     { // Datapoint
+ *       Timestamp: new Date('TIMESTAMP'),
+ *       Value: Number('double'),
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetScalingPlanResourceForecastDataCommandInput - {@link GetScalingPlanResourceForecastDataCommandInput}
@@ -76,6 +86,8 @@ export interface GetScalingPlanResourceForecastDataCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception was thrown for a validation issue. Review the parameters provided.</p>
  *
+ * @throws {@link AutoScalingPlansServiceException}
+ * <p>Base exception class for all service exceptions from AutoScalingPlans service.</p>
  *
  */
 export class GetScalingPlanResourceForecastDataCommand extends $Command<

@@ -39,39 +39,44 @@ export interface CreateWorkteamCommandOutput extends CreateWorkteamResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, CreateWorkteamCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, CreateWorkteamCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, CreateWorkteamCommand } from '@aws-sdk/client-sagemaker'; // ES Modules import
+ * // const { SageMakerClient, CreateWorkteamCommand } = require('@aws-sdk/client-sagemaker'); // CommonJS import
  * const client = new SageMakerClient(config);
  * const input = { // CreateWorkteamRequest
- *   WorkteamName: "STRING_VALUE", // required
- *   WorkforceName: "STRING_VALUE",
+ *   WorkteamName: 'STRING_VALUE', // required
+ *   WorkforceName: 'STRING_VALUE',
  *   MemberDefinitions: [ // MemberDefinitions // required
  *     { // MemberDefinition
  *       CognitoMemberDefinition: { // CognitoMemberDefinition
- *         UserPool: "STRING_VALUE", // required
- *         UserGroup: "STRING_VALUE", // required
- *         ClientId: "STRING_VALUE", // required
+ *         UserPool: 'STRING_VALUE', // required
+ *         UserGroup: 'STRING_VALUE', // required
+ *         ClientId: 'STRING_VALUE', // required
  *       },
  *       OidcMemberDefinition: { // OidcMemberDefinition
  *         Groups: [ // Groups // required
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
  *       },
  *     },
  *   ],
- *   Description: "STRING_VALUE", // required
+ *   Description: 'STRING_VALUE', // required
  *   NotificationConfiguration: { // NotificationConfiguration
- *     NotificationTopicArn: "STRING_VALUE",
+ *     NotificationTopicArn: 'STRING_VALUE',
  *   },
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreateWorkteamCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateWorkteamResponse
+ *   WorkteamArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateWorkteamCommandInput - {@link CreateWorkteamCommandInput}
@@ -87,6 +92,8 @@ export interface CreateWorkteamCommandOutput extends CreateWorkteamResponse, __M
  *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many
  *             training jobs created. </p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class CreateWorkteamCommand extends $Command<

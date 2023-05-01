@@ -50,22 +50,34 @@ export interface ListConformancePackComplianceScoresCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConfigServiceClient, ListConformancePackComplianceScoresCommand } from "@aws-sdk/client-config-service"; // ES Modules import
- * // const { ConfigServiceClient, ListConformancePackComplianceScoresCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
+ * import { ConfigServiceClient, ListConformancePackComplianceScoresCommand } from '@aws-sdk/client-config-service'; // ES Modules import
+ * // const { ConfigServiceClient, ListConformancePackComplianceScoresCommand } = require('@aws-sdk/client-config-service'); // CommonJS import
  * const client = new ConfigServiceClient(config);
  * const input = { // ListConformancePackComplianceScoresRequest
  *   Filters: { // ConformancePackComplianceScoresFilters
  *     ConformancePackNames: [ // ConformancePackNameFilter // required
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *   },
- *   SortOrder: "ASCENDING" || "DESCENDING",
- *   SortBy: "SCORE",
- *   Limit: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   SortOrder: 'ASCENDING' || 'DESCENDING',
+ *   SortBy: 'SCORE',
+ *   Limit: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListConformancePackComplianceScoresCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListConformancePackComplianceScoresResponse
+ *   NextToken: 'STRING_VALUE',
+ *   ConformancePackComplianceScores: [ // ConformancePackComplianceScores // required
+ *     { // ConformancePackComplianceScore
+ *       Score: 'STRING_VALUE',
+ *       ConformancePackName: 'STRING_VALUE',
+ *       LastUpdatedTime: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListConformancePackComplianceScoresCommandInput - {@link ListConformancePackComplianceScoresCommandInput}
@@ -86,6 +98,8 @@ export interface ListConformancePackComplianceScoresCommandOutput
  *  <p>One or more of the specified parameters are not valid. Verify
  * 			that your parameters are valid and try again.</p>
  *
+ * @throws {@link ConfigServiceServiceException}
+ * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
  */
 export class ListConformancePackComplianceScoresCommand extends $Command<

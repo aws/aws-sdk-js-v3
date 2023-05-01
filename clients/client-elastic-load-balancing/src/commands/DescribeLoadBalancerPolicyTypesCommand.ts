@@ -52,16 +52,35 @@ export interface DescribeLoadBalancerPolicyTypesCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElasticLoadBalancingClient, DescribeLoadBalancerPolicyTypesCommand } from "@aws-sdk/client-elastic-load-balancing"; // ES Modules import
- * // const { ElasticLoadBalancingClient, DescribeLoadBalancerPolicyTypesCommand } = require("@aws-sdk/client-elastic-load-balancing"); // CommonJS import
+ * import { ElasticLoadBalancingClient, DescribeLoadBalancerPolicyTypesCommand } from '@aws-sdk/client-elastic-load-balancing'; // ES Modules import
+ * // const { ElasticLoadBalancingClient, DescribeLoadBalancerPolicyTypesCommand } = require('@aws-sdk/client-elastic-load-balancing'); // CommonJS import
  * const client = new ElasticLoadBalancingClient(config);
  * const input = { // DescribeLoadBalancerPolicyTypesInput
  *   PolicyTypeNames: [ // PolicyTypeNames
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new DescribeLoadBalancerPolicyTypesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeLoadBalancerPolicyTypesOutput
+ *   PolicyTypeDescriptions: [ // PolicyTypeDescriptions
+ *     { // PolicyTypeDescription
+ *       PolicyTypeName: 'STRING_VALUE',
+ *       Description: 'STRING_VALUE',
+ *       PolicyAttributeTypeDescriptions: [ // PolicyAttributeTypeDescriptions
+ *         { // PolicyAttributeTypeDescription
+ *           AttributeName: 'STRING_VALUE',
+ *           AttributeType: 'STRING_VALUE',
+ *           Description: 'STRING_VALUE',
+ *           DefaultValue: 'STRING_VALUE',
+ *           Cardinality: 'STRING_VALUE',
+ *         },
+ *       ],
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeLoadBalancerPolicyTypesCommandInput - {@link DescribeLoadBalancerPolicyTypesCommandInput}
@@ -73,6 +92,8 @@ export interface DescribeLoadBalancerPolicyTypesCommandOutput
  * @throws {@link PolicyTypeNotFoundException} (client fault)
  *  <p>One or more of the specified policy types do not exist.</p>
  *
+ * @throws {@link ElasticLoadBalancingServiceException}
+ * <p>Base exception class for all service exceptions from ElasticLoadBalancing service.</p>
  *
  * @example To describe a load balancer policy type defined by Elastic Load Balancing
  * ```javascript

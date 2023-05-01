@@ -41,26 +41,57 @@ export interface ModifyTargetGroupCommandOutput extends ModifyTargetGroupOutput,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElasticLoadBalancingV2Client, ModifyTargetGroupCommand } from "@aws-sdk/client-elastic-load-balancing-v2"; // ES Modules import
- * // const { ElasticLoadBalancingV2Client, ModifyTargetGroupCommand } = require("@aws-sdk/client-elastic-load-balancing-v2"); // CommonJS import
+ * import { ElasticLoadBalancingV2Client, ModifyTargetGroupCommand } from '@aws-sdk/client-elastic-load-balancing-v2'; // ES Modules import
+ * // const { ElasticLoadBalancingV2Client, ModifyTargetGroupCommand } = require('@aws-sdk/client-elastic-load-balancing-v2'); // CommonJS import
  * const client = new ElasticLoadBalancingV2Client(config);
  * const input = { // ModifyTargetGroupInput
- *   TargetGroupArn: "STRING_VALUE", // required
- *   HealthCheckProtocol: "HTTP" || "HTTPS" || "TCP" || "TLS" || "UDP" || "TCP_UDP" || "GENEVE",
- *   HealthCheckPort: "STRING_VALUE",
- *   HealthCheckPath: "STRING_VALUE",
+ *   TargetGroupArn: 'STRING_VALUE', // required
+ *   HealthCheckProtocol: 'HTTP' || 'HTTPS' || 'TCP' || 'TLS' || 'UDP' || 'TCP_UDP' || 'GENEVE',
+ *   HealthCheckPort: 'STRING_VALUE',
+ *   HealthCheckPath: 'STRING_VALUE',
  *   HealthCheckEnabled: true || false,
- *   HealthCheckIntervalSeconds: Number("int"),
- *   HealthCheckTimeoutSeconds: Number("int"),
- *   HealthyThresholdCount: Number("int"),
- *   UnhealthyThresholdCount: Number("int"),
+ *   HealthCheckIntervalSeconds: Number('int'),
+ *   HealthCheckTimeoutSeconds: Number('int'),
+ *   HealthyThresholdCount: Number('int'),
+ *   UnhealthyThresholdCount: Number('int'),
  *   Matcher: { // Matcher
- *     HttpCode: "STRING_VALUE",
- *     GrpcCode: "STRING_VALUE",
+ *     HttpCode: 'STRING_VALUE',
+ *     GrpcCode: 'STRING_VALUE',
  *   },
  * };
  * const command = new ModifyTargetGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ModifyTargetGroupOutput
+ *   TargetGroups: [ // TargetGroups
+ *     { // TargetGroup
+ *       TargetGroupArn: 'STRING_VALUE',
+ *       TargetGroupName: 'STRING_VALUE',
+ *       Protocol: 'HTTP' || 'HTTPS' || 'TCP' || 'TLS' || 'UDP' || 'TCP_UDP' || 'GENEVE',
+ *       Port: Number('int'),
+ *       VpcId: 'STRING_VALUE',
+ *       HealthCheckProtocol: 'HTTP' || 'HTTPS' || 'TCP' || 'TLS' || 'UDP' || 'TCP_UDP' || 'GENEVE',
+ *       HealthCheckPort: 'STRING_VALUE',
+ *       HealthCheckEnabled: true || false,
+ *       HealthCheckIntervalSeconds: Number('int'),
+ *       HealthCheckTimeoutSeconds: Number('int'),
+ *       HealthyThresholdCount: Number('int'),
+ *       UnhealthyThresholdCount: Number('int'),
+ *       HealthCheckPath: 'STRING_VALUE',
+ *       Matcher: { // Matcher
+ *         HttpCode: 'STRING_VALUE',
+ *         GrpcCode: 'STRING_VALUE',
+ *       },
+ *       LoadBalancerArns: [ // LoadBalancerArns
+ *         'STRING_VALUE',
+ *       ],
+ *       TargetType: 'instance' || 'ip' || 'lambda' || 'alb',
+ *       ProtocolVersion: 'STRING_VALUE',
+ *       IpAddressType: 'ipv4' || 'ipv6',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ModifyTargetGroupCommandInput - {@link ModifyTargetGroupCommandInput}
@@ -75,6 +106,8 @@ export interface ModifyTargetGroupCommandOutput extends ModifyTargetGroupOutput,
  * @throws {@link TargetGroupNotFoundException} (client fault)
  *  <p>The specified target group does not exist.</p>
  *
+ * @throws {@link ElasticLoadBalancingV2ServiceException}
+ * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
  * @example To modify the health check configuration for a target group
  * ```javascript

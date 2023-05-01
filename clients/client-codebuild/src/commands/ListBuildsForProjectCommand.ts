@@ -37,16 +37,24 @@ export interface ListBuildsForProjectCommandOutput extends ListBuildsForProjectO
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeBuildClient, ListBuildsForProjectCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
- * // const { CodeBuildClient, ListBuildsForProjectCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import
+ * import { CodeBuildClient, ListBuildsForProjectCommand } from '@aws-sdk/client-codebuild'; // ES Modules import
+ * // const { CodeBuildClient, ListBuildsForProjectCommand } = require('@aws-sdk/client-codebuild'); // CommonJS import
  * const client = new CodeBuildClient(config);
  * const input = { // ListBuildsForProjectInput
- *   projectName: "STRING_VALUE", // required
- *   sortOrder: "STRING_VALUE",
- *   nextToken: "STRING_VALUE",
+ *   projectName: 'STRING_VALUE', // required
+ *   sortOrder: 'STRING_VALUE',
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new ListBuildsForProjectCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListBuildsForProjectOutput
+ *   ids: [ // BuildIds
+ *     'STRING_VALUE',
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListBuildsForProjectCommandInput - {@link ListBuildsForProjectCommandInput}
@@ -61,6 +69,8 @@ export interface ListBuildsForProjectCommandOutput extends ListBuildsForProjectO
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified Amazon Web Services resource cannot be found.</p>
  *
+ * @throws {@link CodeBuildServiceException}
+ * <p>Base exception class for all service exceptions from CodeBuild service.</p>
  *
  */
 export class ListBuildsForProjectCommand extends $Command<

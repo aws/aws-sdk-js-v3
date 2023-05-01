@@ -46,15 +46,55 @@ export interface ListContinuousDeploymentPoliciesCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudFrontClient, ListContinuousDeploymentPoliciesCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
- * // const { CloudFrontClient, ListContinuousDeploymentPoliciesCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
+ * import { CloudFrontClient, ListContinuousDeploymentPoliciesCommand } from '@aws-sdk/client-cloudfront'; // ES Modules import
+ * // const { CloudFrontClient, ListContinuousDeploymentPoliciesCommand } = require('@aws-sdk/client-cloudfront'); // CommonJS import
  * const client = new CloudFrontClient(config);
  * const input = { // ListContinuousDeploymentPoliciesRequest
- *   Marker: "STRING_VALUE",
- *   MaxItems: Number("int"),
+ *   Marker: 'STRING_VALUE',
+ *   MaxItems: Number('int'),
  * };
  * const command = new ListContinuousDeploymentPoliciesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListContinuousDeploymentPoliciesResult
+ *   ContinuousDeploymentPolicyList: { // ContinuousDeploymentPolicyList
+ *     NextMarker: 'STRING_VALUE',
+ *     MaxItems: Number('int'), // required
+ *     Quantity: Number('int'), // required
+ *     Items: [ // ContinuousDeploymentPolicySummaryList
+ *       { // ContinuousDeploymentPolicySummary
+ *         ContinuousDeploymentPolicy: { // ContinuousDeploymentPolicy
+ *           Id: 'STRING_VALUE', // required
+ *           LastModifiedTime: new Date('TIMESTAMP'), // required
+ *           ContinuousDeploymentPolicyConfig: { // ContinuousDeploymentPolicyConfig
+ *             StagingDistributionDnsNames: { // StagingDistributionDnsNames
+ *               Quantity: Number('int'), // required
+ *               Items: [ // StagingDistributionDnsNameList
+ *                 'STRING_VALUE',
+ *               ],
+ *             },
+ *             Enabled: true || false, // required
+ *             TrafficConfig: { // TrafficConfig
+ *               SingleWeightConfig: { // ContinuousDeploymentSingleWeightConfig
+ *                 Weight: Number('float'), // required
+ *                 SessionStickinessConfig: { // SessionStickinessConfig
+ *                   IdleTTL: Number('int'), // required
+ *                   MaximumTTL: Number('int'), // required
+ *                 },
+ *               },
+ *               SingleHeaderConfig: { // ContinuousDeploymentSingleHeaderConfig
+ *                 Header: 'STRING_VALUE', // required
+ *                 Value: 'STRING_VALUE', // required
+ *               },
+ *               Type: 'SingleWeight' || 'SingleHeader', // required
+ *             },
+ *           },
+ *         },
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param ListContinuousDeploymentPoliciesCommandInput - {@link ListContinuousDeploymentPoliciesCommandInput}
@@ -72,6 +112,8 @@ export interface ListContinuousDeploymentPoliciesCommandOutput
  * @throws {@link NoSuchContinuousDeploymentPolicy} (client fault)
  *  <p>The continuous deployment policy doesn't exist.</p>
  *
+ * @throws {@link CloudFrontServiceException}
+ * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
  */
 export class ListContinuousDeploymentPoliciesCommand extends $Command<

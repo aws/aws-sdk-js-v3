@@ -43,17 +43,42 @@ export interface DisassociateExternalConnectionCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeartifactClient, DisassociateExternalConnectionCommand } from "@aws-sdk/client-codeartifact"; // ES Modules import
- * // const { CodeartifactClient, DisassociateExternalConnectionCommand } = require("@aws-sdk/client-codeartifact"); // CommonJS import
+ * import { CodeartifactClient, DisassociateExternalConnectionCommand } from '@aws-sdk/client-codeartifact'; // ES Modules import
+ * // const { CodeartifactClient, DisassociateExternalConnectionCommand } = require('@aws-sdk/client-codeartifact'); // CommonJS import
  * const client = new CodeartifactClient(config);
  * const input = { // DisassociateExternalConnectionRequest
- *   domain: "STRING_VALUE", // required
- *   domainOwner: "STRING_VALUE",
- *   repository: "STRING_VALUE", // required
- *   externalConnection: "STRING_VALUE", // required
+ *   domain: 'STRING_VALUE', // required
+ *   domainOwner: 'STRING_VALUE',
+ *   repository: 'STRING_VALUE', // required
+ *   externalConnection: 'STRING_VALUE', // required
  * };
  * const command = new DisassociateExternalConnectionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DisassociateExternalConnectionResult
+ *   repository: { // RepositoryDescription
+ *     name: 'STRING_VALUE',
+ *     administratorAccount: 'STRING_VALUE',
+ *     domainName: 'STRING_VALUE',
+ *     domainOwner: 'STRING_VALUE',
+ *     arn: 'STRING_VALUE',
+ *     description: 'STRING_VALUE',
+ *     upstreams: [ // UpstreamRepositoryInfoList
+ *       { // UpstreamRepositoryInfo
+ *         repositoryName: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     externalConnections: [ // RepositoryExternalConnectionInfoList
+ *       { // RepositoryExternalConnectionInfo
+ *         externalConnectionName: 'STRING_VALUE',
+ *         packageFormat: 'npm' || 'pypi' || 'maven' || 'nuget' || 'generic',
+ *         status: 'Available',
+ *       },
+ *     ],
+ *     createdTime: new Date('TIMESTAMP'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param DisassociateExternalConnectionCommandInput - {@link DisassociateExternalConnectionCommandInput}
@@ -95,6 +120,8 @@ export interface DisassociateExternalConnectionCommandOutput
  *       The operation did not succeed because a parameter in the request was sent with an invalid value.
  *     </p>
  *
+ * @throws {@link CodeartifactServiceException}
+ * <p>Base exception class for all service exceptions from Codeartifact service.</p>
  *
  */
 export class DisassociateExternalConnectionCommand extends $Command<

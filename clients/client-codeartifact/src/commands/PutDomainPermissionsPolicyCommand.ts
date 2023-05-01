@@ -43,17 +43,26 @@ export interface PutDomainPermissionsPolicyCommandOutput extends PutDomainPermis
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeartifactClient, PutDomainPermissionsPolicyCommand } from "@aws-sdk/client-codeartifact"; // ES Modules import
- * // const { CodeartifactClient, PutDomainPermissionsPolicyCommand } = require("@aws-sdk/client-codeartifact"); // CommonJS import
+ * import { CodeartifactClient, PutDomainPermissionsPolicyCommand } from '@aws-sdk/client-codeartifact'; // ES Modules import
+ * // const { CodeartifactClient, PutDomainPermissionsPolicyCommand } = require('@aws-sdk/client-codeartifact'); // CommonJS import
  * const client = new CodeartifactClient(config);
  * const input = { // PutDomainPermissionsPolicyRequest
- *   domain: "STRING_VALUE", // required
- *   domainOwner: "STRING_VALUE",
- *   policyRevision: "STRING_VALUE",
- *   policyDocument: "STRING_VALUE", // required
+ *   domain: 'STRING_VALUE', // required
+ *   domainOwner: 'STRING_VALUE',
+ *   policyRevision: 'STRING_VALUE',
+ *   policyDocument: 'STRING_VALUE', // required
  * };
  * const command = new PutDomainPermissionsPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutDomainPermissionsPolicyResult
+ *   policy: { // ResourcePolicy
+ *     resourceArn: 'STRING_VALUE',
+ *     revision: 'STRING_VALUE',
+ *     document: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param PutDomainPermissionsPolicyCommandInput - {@link PutDomainPermissionsPolicyCommandInput}
@@ -95,6 +104,8 @@ export interface PutDomainPermissionsPolicyCommandOutput extends PutDomainPermis
  *       The operation did not succeed because a parameter in the request was sent with an invalid value.
  *     </p>
  *
+ * @throws {@link CodeartifactServiceException}
+ * <p>Base exception class for all service exceptions from Codeartifact service.</p>
  *
  */
 export class PutDomainPermissionsPolicyCommand extends $Command<

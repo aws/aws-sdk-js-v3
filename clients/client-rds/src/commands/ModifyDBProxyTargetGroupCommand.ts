@@ -36,25 +36,47 @@ export interface ModifyDBProxyTargetGroupCommandOutput extends ModifyDBProxyTarg
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RDSClient, ModifyDBProxyTargetGroupCommand } from "@aws-sdk/client-rds"; // ES Modules import
- * // const { RDSClient, ModifyDBProxyTargetGroupCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * import { RDSClient, ModifyDBProxyTargetGroupCommand } from '@aws-sdk/client-rds'; // ES Modules import
+ * // const { RDSClient, ModifyDBProxyTargetGroupCommand } = require('@aws-sdk/client-rds'); // CommonJS import
  * const client = new RDSClient(config);
  * const input = { // ModifyDBProxyTargetGroupRequest
- *   TargetGroupName: "STRING_VALUE", // required
- *   DBProxyName: "STRING_VALUE", // required
+ *   TargetGroupName: 'STRING_VALUE', // required
+ *   DBProxyName: 'STRING_VALUE', // required
  *   ConnectionPoolConfig: { // ConnectionPoolConfiguration
- *     MaxConnectionsPercent: Number("int"),
- *     MaxIdleConnectionsPercent: Number("int"),
- *     ConnectionBorrowTimeout: Number("int"),
+ *     MaxConnectionsPercent: Number('int'),
+ *     MaxIdleConnectionsPercent: Number('int'),
+ *     ConnectionBorrowTimeout: Number('int'),
  *     SessionPinningFilters: [ // StringList
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
- *     InitQuery: "STRING_VALUE",
+ *     InitQuery: 'STRING_VALUE',
  *   },
- *   NewName: "STRING_VALUE",
+ *   NewName: 'STRING_VALUE',
  * };
  * const command = new ModifyDBProxyTargetGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ModifyDBProxyTargetGroupResponse
+ *   DBProxyTargetGroup: { // DBProxyTargetGroup
+ *     DBProxyName: 'STRING_VALUE',
+ *     TargetGroupName: 'STRING_VALUE',
+ *     TargetGroupArn: 'STRING_VALUE',
+ *     IsDefault: true || false,
+ *     Status: 'STRING_VALUE',
+ *     ConnectionPoolConfig: { // ConnectionPoolConfigurationInfo
+ *       MaxConnectionsPercent: Number('int'),
+ *       MaxIdleConnectionsPercent: Number('int'),
+ *       ConnectionBorrowTimeout: Number('int'),
+ *       SessionPinningFilters: [ // StringList
+ *         'STRING_VALUE',
+ *       ],
+ *       InitQuery: 'STRING_VALUE',
+ *     },
+ *     CreatedDate: new Date('TIMESTAMP'),
+ *     UpdatedDate: new Date('TIMESTAMP'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param ModifyDBProxyTargetGroupCommandInput - {@link ModifyDBProxyTargetGroupCommandInput}
@@ -72,6 +94,8 @@ export interface ModifyDBProxyTargetGroupCommandOutput extends ModifyDBProxyTarg
  * @throws {@link InvalidDBProxyStateFault} (client fault)
  *  <p>The requested operation can't be performed while the proxy is in this state.</p>
  *
+ * @throws {@link RDSServiceException}
+ * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  */
 export class ModifyDBProxyTargetGroupCommand extends $Command<

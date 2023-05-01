@@ -46,15 +46,18 @@ export interface AssociateAliasCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudFrontClient, AssociateAliasCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
- * // const { CloudFrontClient, AssociateAliasCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
+ * import { CloudFrontClient, AssociateAliasCommand } from '@aws-sdk/client-cloudfront'; // ES Modules import
+ * // const { CloudFrontClient, AssociateAliasCommand } = require('@aws-sdk/client-cloudfront'); // CommonJS import
  * const client = new CloudFrontClient(config);
  * const input = { // AssociateAliasRequest
- *   TargetDistributionId: "STRING_VALUE", // required
- *   Alias: "STRING_VALUE", // required
+ *   TargetDistributionId: 'STRING_VALUE', // required
+ *   Alias: 'STRING_VALUE', // required
  * };
  * const command = new AssociateAliasCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param AssociateAliasCommandInput - {@link AssociateAliasCommandInput}
@@ -78,6 +81,8 @@ export interface AssociateAliasCommandOutput extends __MetadataBearer {}
  * @throws {@link TooManyDistributionCNAMEs} (client fault)
  *  <p>Your request contains more CNAMEs than are allowed per distribution.</p>
  *
+ * @throws {@link CloudFrontServiceException}
+ * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
  */
 export class AssociateAliasCommand extends $Command<

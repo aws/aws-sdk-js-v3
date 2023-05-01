@@ -44,14 +44,17 @@ export interface DeleteWirelessGatewayTaskDefinitionCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTWirelessClient, DeleteWirelessGatewayTaskDefinitionCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
- * // const { IoTWirelessClient, DeleteWirelessGatewayTaskDefinitionCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
+ * import { IoTWirelessClient, DeleteWirelessGatewayTaskDefinitionCommand } from '@aws-sdk/client-iot-wireless'; // ES Modules import
+ * // const { IoTWirelessClient, DeleteWirelessGatewayTaskDefinitionCommand } = require('@aws-sdk/client-iot-wireless'); // CommonJS import
  * const client = new IoTWirelessClient(config);
  * const input = { // DeleteWirelessGatewayTaskDefinitionRequest
- *   Id: "STRING_VALUE", // required
+ *   Id: 'STRING_VALUE', // required
  * };
  * const command = new DeleteWirelessGatewayTaskDefinitionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteWirelessGatewayTaskDefinitionCommandInput - {@link DeleteWirelessGatewayTaskDefinitionCommandInput}
@@ -75,6 +78,8 @@ export interface DeleteWirelessGatewayTaskDefinitionCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The input did not meet the specified constraints.</p>
  *
+ * @throws {@link IoTWirelessServiceException}
+ * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
  */
 export class DeleteWirelessGatewayTaskDefinitionCommand extends $Command<

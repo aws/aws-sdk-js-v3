@@ -45,14 +45,17 @@ export interface DeleteReplicationConfigurationTemplateCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DrsClient, DeleteReplicationConfigurationTemplateCommand } from "@aws-sdk/client-drs"; // ES Modules import
- * // const { DrsClient, DeleteReplicationConfigurationTemplateCommand } = require("@aws-sdk/client-drs"); // CommonJS import
+ * import { DrsClient, DeleteReplicationConfigurationTemplateCommand } from '@aws-sdk/client-drs'; // ES Modules import
+ * // const { DrsClient, DeleteReplicationConfigurationTemplateCommand } = require('@aws-sdk/client-drs'); // CommonJS import
  * const client = new DrsClient(config);
  * const input = { // DeleteReplicationConfigurationTemplateRequest
- *   replicationConfigurationTemplateID: "STRING_VALUE", // required
+ *   replicationConfigurationTemplateID: 'STRING_VALUE', // required
  * };
  * const command = new DeleteReplicationConfigurationTemplateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteReplicationConfigurationTemplateCommandInput - {@link DeleteReplicationConfigurationTemplateCommandInput}
@@ -76,6 +79,8 @@ export interface DeleteReplicationConfigurationTemplateCommandOutput
  * @throws {@link UninitializedAccountException} (client fault)
  *  <p>The account performing the request has not been initialized.</p>
  *
+ * @throws {@link DrsServiceException}
+ * <p>Base exception class for all service exceptions from Drs service.</p>
  *
  */
 export class DeleteReplicationConfigurationTemplateCommand extends $Command<

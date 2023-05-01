@@ -36,14 +36,20 @@ export interface StopDiscovererCommandOutput extends StopDiscovererResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SchemasClient, StopDiscovererCommand } from "@aws-sdk/client-schemas"; // ES Modules import
- * // const { SchemasClient, StopDiscovererCommand } = require("@aws-sdk/client-schemas"); // CommonJS import
+ * import { SchemasClient, StopDiscovererCommand } from '@aws-sdk/client-schemas'; // ES Modules import
+ * // const { SchemasClient, StopDiscovererCommand } = require('@aws-sdk/client-schemas'); // CommonJS import
  * const client = new SchemasClient(config);
  * const input = { // StopDiscovererRequest
- *   DiscovererId: "STRING_VALUE", // required
+ *   DiscovererId: 'STRING_VALUE', // required
  * };
  * const command = new StopDiscovererCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StopDiscovererResponse
+ *   DiscovererId: 'STRING_VALUE',
+ *   State: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param StopDiscovererCommandInput - {@link StopDiscovererCommandInput}
@@ -64,6 +70,8 @@ export interface StopDiscovererCommandOutput extends StopDiscovererResponse, __M
  *
  * @throws {@link UnauthorizedException} (client fault)
  *
+ * @throws {@link SchemasServiceException}
+ * <p>Base exception class for all service exceptions from Schemas service.</p>
  *
  */
 export class StopDiscovererCommand extends $Command<

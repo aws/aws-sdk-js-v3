@@ -37,16 +37,28 @@ export interface ListComponentVersionsCommandOutput extends ListComponentVersion
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GreengrassV2Client, ListComponentVersionsCommand } from "@aws-sdk/client-greengrassv2"; // ES Modules import
- * // const { GreengrassV2Client, ListComponentVersionsCommand } = require("@aws-sdk/client-greengrassv2"); // CommonJS import
+ * import { GreengrassV2Client, ListComponentVersionsCommand } from '@aws-sdk/client-greengrassv2'; // ES Modules import
+ * // const { GreengrassV2Client, ListComponentVersionsCommand } = require('@aws-sdk/client-greengrassv2'); // CommonJS import
  * const client = new GreengrassV2Client(config);
  * const input = { // ListComponentVersionsRequest
- *   arn: "STRING_VALUE", // required
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   arn: 'STRING_VALUE', // required
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new ListComponentVersionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListComponentVersionsResponse
+ *   componentVersions: [ // ComponentVersionList
+ *     { // ComponentVersionListItem
+ *       componentName: 'STRING_VALUE',
+ *       componentVersion: 'STRING_VALUE',
+ *       arn: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListComponentVersionsCommandInput - {@link ListComponentVersionsCommandInput}
@@ -72,6 +84,8 @@ export interface ListComponentVersionsCommandOutput extends ListComponentVersion
  *  <p>The request isn't valid. This can occur if your request contains malformed JSON or
  *       unsupported characters.</p>
  *
+ * @throws {@link GreengrassV2ServiceException}
+ * <p>Base exception class for all service exceptions from GreengrassV2 service.</p>
  *
  */
 export class ListComponentVersionsCommand extends $Command<

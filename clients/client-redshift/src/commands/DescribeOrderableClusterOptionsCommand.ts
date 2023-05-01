@@ -49,17 +49,39 @@ export interface DescribeOrderableClusterOptionsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RedshiftClient, DescribeOrderableClusterOptionsCommand } from "@aws-sdk/client-redshift"; // ES Modules import
- * // const { RedshiftClient, DescribeOrderableClusterOptionsCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * import { RedshiftClient, DescribeOrderableClusterOptionsCommand } from '@aws-sdk/client-redshift'; // ES Modules import
+ * // const { RedshiftClient, DescribeOrderableClusterOptionsCommand } = require('@aws-sdk/client-redshift'); // CommonJS import
  * const client = new RedshiftClient(config);
  * const input = { // DescribeOrderableClusterOptionsMessage
- *   ClusterVersion: "STRING_VALUE",
- *   NodeType: "STRING_VALUE",
- *   MaxRecords: Number("int"),
- *   Marker: "STRING_VALUE",
+ *   ClusterVersion: 'STRING_VALUE',
+ *   NodeType: 'STRING_VALUE',
+ *   MaxRecords: Number('int'),
+ *   Marker: 'STRING_VALUE',
  * };
  * const command = new DescribeOrderableClusterOptionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // OrderableClusterOptionsMessage
+ *   OrderableClusterOptions: [ // OrderableClusterOptionsList
+ *     { // OrderableClusterOption
+ *       ClusterVersion: 'STRING_VALUE',
+ *       ClusterType: 'STRING_VALUE',
+ *       NodeType: 'STRING_VALUE',
+ *       AvailabilityZones: [ // AvailabilityZoneList
+ *         { // AvailabilityZone
+ *           Name: 'STRING_VALUE',
+ *           SupportedPlatforms: [ // SupportedPlatformsList
+ *             { // SupportedPlatform
+ *               Name: 'STRING_VALUE',
+ *             },
+ *           ],
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   Marker: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeOrderableClusterOptionsCommandInput - {@link DescribeOrderableClusterOptionsCommandInput}
@@ -68,6 +90,8 @@ export interface DescribeOrderableClusterOptionsCommandOutput
  * @see {@link DescribeOrderableClusterOptionsCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class DescribeOrderableClusterOptionsCommand extends $Command<

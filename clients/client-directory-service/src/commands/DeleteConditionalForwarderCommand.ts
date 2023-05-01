@@ -37,15 +37,18 @@ export interface DeleteConditionalForwarderCommandOutput extends DeleteCondition
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DirectoryServiceClient, DeleteConditionalForwarderCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
- * // const { DirectoryServiceClient, DeleteConditionalForwarderCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
+ * import { DirectoryServiceClient, DeleteConditionalForwarderCommand } from '@aws-sdk/client-directory-service'; // ES Modules import
+ * // const { DirectoryServiceClient, DeleteConditionalForwarderCommand } = require('@aws-sdk/client-directory-service'); // CommonJS import
  * const client = new DirectoryServiceClient(config);
  * const input = { // DeleteConditionalForwarderRequest
- *   DirectoryId: "STRING_VALUE", // required
- *   RemoteDomainName: "STRING_VALUE", // required
+ *   DirectoryId: 'STRING_VALUE', // required
+ *   RemoteDomainName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteConditionalForwarderCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteConditionalForwarderCommandInput - {@link DeleteConditionalForwarderCommandInput}
@@ -72,6 +75,8 @@ export interface DeleteConditionalForwarderCommandOutput extends DeleteCondition
  * @throws {@link UnsupportedOperationException} (client fault)
  *  <p>The operation is not supported.</p>
  *
+ * @throws {@link DirectoryServiceServiceException}
+ * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
  */
 export class DeleteConditionalForwarderCommand extends $Command<

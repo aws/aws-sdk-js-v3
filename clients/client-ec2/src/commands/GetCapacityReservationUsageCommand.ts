@@ -38,17 +38,33 @@ export interface GetCapacityReservationUsageCommandOutput extends GetCapacityRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, GetCapacityReservationUsageCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, GetCapacityReservationUsageCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, GetCapacityReservationUsageCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, GetCapacityReservationUsageCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // GetCapacityReservationUsageRequest
- *   CapacityReservationId: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   CapacityReservationId: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  *   DryRun: true || false,
  * };
  * const command = new GetCapacityReservationUsageCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetCapacityReservationUsageResult
+ *   NextToken: 'STRING_VALUE',
+ *   CapacityReservationId: 'STRING_VALUE',
+ *   InstanceType: 'STRING_VALUE',
+ *   TotalInstanceCount: Number('int'),
+ *   AvailableInstanceCount: Number('int'),
+ *   State: 'active' || 'expired' || 'cancelled' || 'pending' || 'failed',
+ *   InstanceUsages: [ // InstanceUsageSet
+ *     { // InstanceUsage
+ *       AccountId: 'STRING_VALUE',
+ *       UsedInstanceCount: Number('int'),
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetCapacityReservationUsageCommandInput - {@link GetCapacityReservationUsageCommandInput}
@@ -57,6 +73,8 @@ export interface GetCapacityReservationUsageCommandOutput extends GetCapacityRes
  * @see {@link GetCapacityReservationUsageCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class GetCapacityReservationUsageCommand extends $Command<

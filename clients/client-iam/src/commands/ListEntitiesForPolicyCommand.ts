@@ -43,19 +43,43 @@ export interface ListEntitiesForPolicyCommandOutput extends ListEntitiesForPolic
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IAMClient, ListEntitiesForPolicyCommand } from "@aws-sdk/client-iam"; // ES Modules import
- * // const { IAMClient, ListEntitiesForPolicyCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * import { IAMClient, ListEntitiesForPolicyCommand } from '@aws-sdk/client-iam'; // ES Modules import
+ * // const { IAMClient, ListEntitiesForPolicyCommand } = require('@aws-sdk/client-iam'); // CommonJS import
  * const client = new IAMClient(config);
  * const input = { // ListEntitiesForPolicyRequest
- *   PolicyArn: "STRING_VALUE", // required
- *   EntityFilter: "User" || "Role" || "Group" || "LocalManagedPolicy" || "AWSManagedPolicy",
- *   PathPrefix: "STRING_VALUE",
- *   PolicyUsageFilter: "PermissionsPolicy" || "PermissionsBoundary",
- *   Marker: "STRING_VALUE",
- *   MaxItems: Number("int"),
+ *   PolicyArn: 'STRING_VALUE', // required
+ *   EntityFilter: 'User' || 'Role' || 'Group' || 'LocalManagedPolicy' || 'AWSManagedPolicy',
+ *   PathPrefix: 'STRING_VALUE',
+ *   PolicyUsageFilter: 'PermissionsPolicy' || 'PermissionsBoundary',
+ *   Marker: 'STRING_VALUE',
+ *   MaxItems: Number('int'),
  * };
  * const command = new ListEntitiesForPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListEntitiesForPolicyResponse
+ *   PolicyGroups: [ // PolicyGroupListType
+ *     { // PolicyGroup
+ *       GroupName: 'STRING_VALUE',
+ *       GroupId: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   PolicyUsers: [ // PolicyUserListType
+ *     { // PolicyUser
+ *       UserName: 'STRING_VALUE',
+ *       UserId: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   PolicyRoles: [ // PolicyRoleListType
+ *     { // PolicyRole
+ *       RoleName: 'STRING_VALUE',
+ *       RoleId: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   IsTruncated: true || false,
+ *   Marker: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListEntitiesForPolicyCommandInput - {@link ListEntitiesForPolicyCommandInput}
@@ -76,6 +100,8 @@ export interface ListEntitiesForPolicyCommandOutput extends ListEntitiesForPolic
  *  <p>The request processing has failed because of an unknown error, exception or
  *       failure.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  */
 export class ListEntitiesForPolicyCommand extends $Command<

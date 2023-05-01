@@ -117,22 +117,36 @@ export interface RecognizeUtteranceCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LexRuntimeV2Client, RecognizeUtteranceCommand } from "@aws-sdk/client-lex-runtime-v2"; // ES Modules import
- * // const { LexRuntimeV2Client, RecognizeUtteranceCommand } = require("@aws-sdk/client-lex-runtime-v2"); // CommonJS import
+ * import { LexRuntimeV2Client, RecognizeUtteranceCommand } from '@aws-sdk/client-lex-runtime-v2'; // ES Modules import
+ * // const { LexRuntimeV2Client, RecognizeUtteranceCommand } = require('@aws-sdk/client-lex-runtime-v2'); // CommonJS import
  * const client = new LexRuntimeV2Client(config);
  * const input = { // RecognizeUtteranceRequest
- *   botId: "STRING_VALUE", // required
- *   botAliasId: "STRING_VALUE", // required
- *   localeId: "STRING_VALUE", // required
- *   sessionId: "STRING_VALUE", // required
- *   sessionState: "STRING_VALUE",
- *   requestAttributes: "STRING_VALUE",
- *   requestContentType: "STRING_VALUE", // required
- *   responseContentType: "STRING_VALUE",
- *   inputStream: "STREAMING_BLOB_VALUE",
+ *   botId: 'STRING_VALUE', // required
+ *   botAliasId: 'STRING_VALUE', // required
+ *   localeId: 'STRING_VALUE', // required
+ *   sessionId: 'STRING_VALUE', // required
+ *   sessionState: 'STRING_VALUE',
+ *   requestAttributes: 'STRING_VALUE',
+ *   requestContentType: 'STRING_VALUE', // required
+ *   responseContentType: 'STRING_VALUE',
+ *   inputStream: 'STREAMING_BLOB_VALUE',
  * };
  * const command = new RecognizeUtteranceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // RecognizeUtteranceResponse
+ *   inputMode: 'STRING_VALUE',
+ *   contentType: 'STRING_VALUE',
+ *   messages: 'STRING_VALUE',
+ *   interpretations: 'STRING_VALUE',
+ *   sessionState: 'STRING_VALUE',
+ *   requestAttributes: 'STRING_VALUE',
+ *   sessionId: 'STRING_VALUE',
+ *   inputTranscript: 'STRING_VALUE',
+ *   audioStream: 'STREAMING_BLOB_VALUE',
+ *   recognizedBotMember: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param RecognizeUtteranceCommandInput - {@link RecognizeUtteranceCommandInput}
@@ -165,6 +179,8 @@ export interface RecognizeUtteranceCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p></p>
  *
+ * @throws {@link LexRuntimeV2ServiceException}
+ * <p>Base exception class for all service exceptions from LexRuntimeV2 service.</p>
  *
  */
 export class RecognizeUtteranceCommand extends $Command<

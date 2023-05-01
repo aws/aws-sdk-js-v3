@@ -36,21 +36,42 @@ export interface ListJobRunsCommandOutput extends ListJobRunsResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EMRServerlessClient, ListJobRunsCommand } from "@aws-sdk/client-emr-serverless"; // ES Modules import
- * // const { EMRServerlessClient, ListJobRunsCommand } = require("@aws-sdk/client-emr-serverless"); // CommonJS import
+ * import { EMRServerlessClient, ListJobRunsCommand } from '@aws-sdk/client-emr-serverless'; // ES Modules import
+ * // const { EMRServerlessClient, ListJobRunsCommand } = require('@aws-sdk/client-emr-serverless'); // CommonJS import
  * const client = new EMRServerlessClient(config);
  * const input = { // ListJobRunsRequest
- *   applicationId: "STRING_VALUE", // required
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
- *   createdAtAfter: new Date("TIMESTAMP"),
- *   createdAtBefore: new Date("TIMESTAMP"),
+ *   applicationId: 'STRING_VALUE', // required
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
+ *   createdAtAfter: new Date('TIMESTAMP'),
+ *   createdAtBefore: new Date('TIMESTAMP'),
  *   states: [ // JobRunStateSet
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new ListJobRunsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListJobRunsResponse
+ *   jobRuns: [ // JobRuns // required
+ *     { // JobRunSummary
+ *       applicationId: 'STRING_VALUE', // required
+ *       id: 'STRING_VALUE', // required
+ *       name: 'STRING_VALUE',
+ *       arn: 'STRING_VALUE', // required
+ *       createdBy: 'STRING_VALUE', // required
+ *       createdAt: new Date('TIMESTAMP'), // required
+ *       updatedAt: new Date('TIMESTAMP'), // required
+ *       executionRole: 'STRING_VALUE', // required
+ *       state: 'STRING_VALUE', // required
+ *       stateDetails: 'STRING_VALUE', // required
+ *       releaseLabel: 'STRING_VALUE', // required
+ *       type: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListJobRunsCommandInput - {@link ListJobRunsCommandInput}
@@ -66,6 +87,8 @@ export interface ListJobRunsCommandOutput extends ListJobRunsResponse, __Metadat
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
  *          service.</p>
  *
+ * @throws {@link EMRServerlessServiceException}
+ * <p>Base exception class for all service exceptions from EMRServerless service.</p>
  *
  */
 export class ListJobRunsCommand extends $Command<

@@ -37,16 +37,28 @@ export interface ListMitigationActionsCommandOutput extends ListMitigationAction
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTClient, ListMitigationActionsCommand } from "@aws-sdk/client-iot"; // ES Modules import
- * // const { IoTClient, ListMitigationActionsCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * import { IoTClient, ListMitigationActionsCommand } from '@aws-sdk/client-iot'; // ES Modules import
+ * // const { IoTClient, ListMitigationActionsCommand } = require('@aws-sdk/client-iot'); // CommonJS import
  * const client = new IoTClient(config);
  * const input = { // ListMitigationActionsRequest
- *   actionType: "UPDATE_DEVICE_CERTIFICATE" || "UPDATE_CA_CERTIFICATE" || "ADD_THINGS_TO_THING_GROUP" || "REPLACE_DEFAULT_POLICY_VERSION" || "ENABLE_IOT_LOGGING" || "PUBLISH_FINDING_TO_SNS",
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   actionType: 'UPDATE_DEVICE_CERTIFICATE' || 'UPDATE_CA_CERTIFICATE' || 'ADD_THINGS_TO_THING_GROUP' || 'REPLACE_DEFAULT_POLICY_VERSION' || 'ENABLE_IOT_LOGGING' || 'PUBLISH_FINDING_TO_SNS',
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new ListMitigationActionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListMitigationActionsResponse
+ *   actionIdentifiers: [ // MitigationActionIdentifierList
+ *     { // MitigationActionIdentifier
+ *       actionName: 'STRING_VALUE',
+ *       actionArn: 'STRING_VALUE',
+ *       creationDate: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListMitigationActionsCommandInput - {@link ListMitigationActionsCommandInput}
@@ -64,6 +76,8 @@ export interface ListMitigationActionsCommandOutput extends ListMitigationAction
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The rate exceeds the limit.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class ListMitigationActionsCommand extends $Command<

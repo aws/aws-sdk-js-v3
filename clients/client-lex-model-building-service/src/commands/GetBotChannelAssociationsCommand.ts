@@ -48,18 +48,38 @@ export interface GetBotChannelAssociationsCommandOutput extends GetBotChannelAss
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LexModelBuildingServiceClient, GetBotChannelAssociationsCommand } from "@aws-sdk/client-lex-model-building-service"; // ES Modules import
- * // const { LexModelBuildingServiceClient, GetBotChannelAssociationsCommand } = require("@aws-sdk/client-lex-model-building-service"); // CommonJS import
+ * import { LexModelBuildingServiceClient, GetBotChannelAssociationsCommand } from '@aws-sdk/client-lex-model-building-service'; // ES Modules import
+ * // const { LexModelBuildingServiceClient, GetBotChannelAssociationsCommand } = require('@aws-sdk/client-lex-model-building-service'); // CommonJS import
  * const client = new LexModelBuildingServiceClient(config);
  * const input = { // GetBotChannelAssociationsRequest
- *   botName: "STRING_VALUE", // required
- *   botAlias: "STRING_VALUE", // required
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
- *   nameContains: "STRING_VALUE",
+ *   botName: 'STRING_VALUE', // required
+ *   botAlias: 'STRING_VALUE', // required
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
+ *   nameContains: 'STRING_VALUE',
  * };
  * const command = new GetBotChannelAssociationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetBotChannelAssociationsResponse
+ *   botChannelAssociations: [ // BotChannelAssociationList
+ *     { // BotChannelAssociation
+ *       name: 'STRING_VALUE',
+ *       description: 'STRING_VALUE',
+ *       botAlias: 'STRING_VALUE',
+ *       botName: 'STRING_VALUE',
+ *       createdDate: new Date('TIMESTAMP'),
+ *       type: 'STRING_VALUE',
+ *       botConfiguration: { // ChannelConfigurationMap
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *       status: 'STRING_VALUE',
+ *       failureReason: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetBotChannelAssociationsCommandInput - {@link GetBotChannelAssociationsCommandInput}
@@ -79,6 +99,8 @@ export interface GetBotChannelAssociationsCommandOutput extends GetBotChannelAss
  * @throws {@link LimitExceededException} (client fault)
  *  <p>The request exceeded a limit. Try your request again.</p>
  *
+ * @throws {@link LexModelBuildingServiceServiceException}
+ * <p>Base exception class for all service exceptions from LexModelBuildingService service.</p>
  *
  */
 export class GetBotChannelAssociationsCommand extends $Command<

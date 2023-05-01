@@ -50,19 +50,29 @@ export interface AddCustomRoutingEndpointsCommandOutput extends AddCustomRouting
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlobalAcceleratorClient, AddCustomRoutingEndpointsCommand } from "@aws-sdk/client-global-accelerator"; // ES Modules import
- * // const { GlobalAcceleratorClient, AddCustomRoutingEndpointsCommand } = require("@aws-sdk/client-global-accelerator"); // CommonJS import
+ * import { GlobalAcceleratorClient, AddCustomRoutingEndpointsCommand } from '@aws-sdk/client-global-accelerator'; // ES Modules import
+ * // const { GlobalAcceleratorClient, AddCustomRoutingEndpointsCommand } = require('@aws-sdk/client-global-accelerator'); // CommonJS import
  * const client = new GlobalAcceleratorClient(config);
  * const input = { // AddCustomRoutingEndpointsRequest
  *   EndpointConfigurations: [ // CustomRoutingEndpointConfigurations // required
  *     { // CustomRoutingEndpointConfiguration
- *       EndpointId: "STRING_VALUE",
+ *       EndpointId: 'STRING_VALUE',
  *     },
  *   ],
- *   EndpointGroupArn: "STRING_VALUE", // required
+ *   EndpointGroupArn: 'STRING_VALUE', // required
  * };
  * const command = new AddCustomRoutingEndpointsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AddCustomRoutingEndpointsResponse
+ *   EndpointDescriptions: [ // CustomRoutingEndpointDescriptions
+ *     { // CustomRoutingEndpointDescription
+ *       EndpointId: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   EndpointGroupArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param AddCustomRoutingEndpointsCommandInput - {@link AddCustomRoutingEndpointsCommandInput}
@@ -92,6 +102,8 @@ export interface AddCustomRoutingEndpointsCommandOutput extends AddCustomRouting
  * @throws {@link LimitExceededException} (client fault)
  *  <p>Processing your request would cause you to exceed an Global Accelerator limit.</p>
  *
+ * @throws {@link GlobalAcceleratorServiceException}
+ * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
  */
 export class AddCustomRoutingEndpointsCommand extends $Command<

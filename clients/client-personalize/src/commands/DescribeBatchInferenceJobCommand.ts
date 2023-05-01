@@ -38,14 +38,47 @@ export interface DescribeBatchInferenceJobCommandOutput extends DescribeBatchInf
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PersonalizeClient, DescribeBatchInferenceJobCommand } from "@aws-sdk/client-personalize"; // ES Modules import
- * // const { PersonalizeClient, DescribeBatchInferenceJobCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
+ * import { PersonalizeClient, DescribeBatchInferenceJobCommand } from '@aws-sdk/client-personalize'; // ES Modules import
+ * // const { PersonalizeClient, DescribeBatchInferenceJobCommand } = require('@aws-sdk/client-personalize'); // CommonJS import
  * const client = new PersonalizeClient(config);
  * const input = { // DescribeBatchInferenceJobRequest
- *   batchInferenceJobArn: "STRING_VALUE", // required
+ *   batchInferenceJobArn: 'STRING_VALUE', // required
  * };
  * const command = new DescribeBatchInferenceJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeBatchInferenceJobResponse
+ *   batchInferenceJob: { // BatchInferenceJob
+ *     jobName: 'STRING_VALUE',
+ *     batchInferenceJobArn: 'STRING_VALUE',
+ *     filterArn: 'STRING_VALUE',
+ *     failureReason: 'STRING_VALUE',
+ *     solutionVersionArn: 'STRING_VALUE',
+ *     numResults: Number('int'),
+ *     jobInput: { // BatchInferenceJobInput
+ *       s3DataSource: { // S3DataConfig
+ *         path: 'STRING_VALUE', // required
+ *         kmsKeyArn: 'STRING_VALUE',
+ *       },
+ *     },
+ *     jobOutput: { // BatchInferenceJobOutput
+ *       s3DataDestination: {
+ *         path: 'STRING_VALUE', // required
+ *         kmsKeyArn: 'STRING_VALUE',
+ *       },
+ *     },
+ *     batchInferenceJobConfig: { // BatchInferenceJobConfig
+ *       itemExplorationConfig: { // HyperParameters
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *     },
+ *     roleArn: 'STRING_VALUE',
+ *     status: 'STRING_VALUE',
+ *     creationDateTime: new Date('TIMESTAMP'),
+ *     lastUpdatedDateTime: new Date('TIMESTAMP'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeBatchInferenceJobCommandInput - {@link DescribeBatchInferenceJobCommandInput}
@@ -60,6 +93,8 @@ export interface DescribeBatchInferenceJobCommandOutput extends DescribeBatchInf
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Could not find the specified resource.</p>
  *
+ * @throws {@link PersonalizeServiceException}
+ * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
  */
 export class DescribeBatchInferenceJobCommand extends $Command<

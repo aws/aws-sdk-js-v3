@@ -38,14 +38,17 @@ export interface PutAccountAliasCommandOutput extends PutAccountAliasResult, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SupportAppClient, PutAccountAliasCommand } from "@aws-sdk/client-support-app"; // ES Modules import
- * // const { SupportAppClient, PutAccountAliasCommand } = require("@aws-sdk/client-support-app"); // CommonJS import
+ * import { SupportAppClient, PutAccountAliasCommand } from '@aws-sdk/client-support-app'; // ES Modules import
+ * // const { SupportAppClient, PutAccountAliasCommand } = require('@aws-sdk/client-support-app'); // CommonJS import
  * const client = new SupportAppClient(config);
  * const input = { // PutAccountAliasRequest
- *   accountAlias: "STRING_VALUE", // required
+ *   accountAlias: 'STRING_VALUE', // required
  * };
  * const command = new PutAccountAliasCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutAccountAliasCommandInput - {@link PutAccountAliasCommandInput}
@@ -63,6 +66,8 @@ export interface PutAccountAliasCommandOutput extends PutAccountAliasResult, __M
  * @throws {@link ValidationException} (client fault)
  *  <p>Your request input doesn't meet the constraints that the Amazon Web Services Support App specifies.</p>
  *
+ * @throws {@link SupportAppServiceException}
+ * <p>Base exception class for all service exceptions from SupportApp service.</p>
  *
  */
 export class PutAccountAliasCommand extends $Command<

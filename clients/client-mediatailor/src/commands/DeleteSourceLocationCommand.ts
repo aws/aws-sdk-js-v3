@@ -36,14 +36,17 @@ export interface DeleteSourceLocationCommandOutput extends DeleteSourceLocationR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MediaTailorClient, DeleteSourceLocationCommand } from "@aws-sdk/client-mediatailor"; // ES Modules import
- * // const { MediaTailorClient, DeleteSourceLocationCommand } = require("@aws-sdk/client-mediatailor"); // CommonJS import
+ * import { MediaTailorClient, DeleteSourceLocationCommand } from '@aws-sdk/client-mediatailor'; // ES Modules import
+ * // const { MediaTailorClient, DeleteSourceLocationCommand } = require('@aws-sdk/client-mediatailor'); // CommonJS import
  * const client = new MediaTailorClient(config);
  * const input = { // DeleteSourceLocationRequest
- *   SourceLocationName: "STRING_VALUE", // required
+ *   SourceLocationName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteSourceLocationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteSourceLocationCommandInput - {@link DeleteSourceLocationCommandInput}
@@ -52,6 +55,8 @@ export interface DeleteSourceLocationCommandOutput extends DeleteSourceLocationR
  * @see {@link DeleteSourceLocationCommandOutput} for command's `response` shape.
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.
  *
+ * @throws {@link MediaTailorServiceException}
+ * <p>Base exception class for all service exceptions from MediaTailor service.</p>
  *
  */
 export class DeleteSourceLocationCommand extends $Command<

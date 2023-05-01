@@ -45,17 +45,24 @@ export interface PutSipMediaApplicationLoggingConfigurationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeSDKVoiceClient, PutSipMediaApplicationLoggingConfigurationCommand } from "@aws-sdk/client-chime-sdk-voice"; // ES Modules import
- * // const { ChimeSDKVoiceClient, PutSipMediaApplicationLoggingConfigurationCommand } = require("@aws-sdk/client-chime-sdk-voice"); // CommonJS import
+ * import { ChimeSDKVoiceClient, PutSipMediaApplicationLoggingConfigurationCommand } from '@aws-sdk/client-chime-sdk-voice'; // ES Modules import
+ * // const { ChimeSDKVoiceClient, PutSipMediaApplicationLoggingConfigurationCommand } = require('@aws-sdk/client-chime-sdk-voice'); // CommonJS import
  * const client = new ChimeSDKVoiceClient(config);
  * const input = { // PutSipMediaApplicationLoggingConfigurationRequest
- *   SipMediaApplicationId: "STRING_VALUE", // required
+ *   SipMediaApplicationId: 'STRING_VALUE', // required
  *   SipMediaApplicationLoggingConfiguration: { // SipMediaApplicationLoggingConfiguration
  *     EnableSipMediaApplicationMessageLogs: true || false,
  *   },
  * };
  * const command = new PutSipMediaApplicationLoggingConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutSipMediaApplicationLoggingConfigurationResponse
+ *   SipMediaApplicationLoggingConfiguration: { // SipMediaApplicationLoggingConfiguration
+ *     EnableSipMediaApplicationMessageLogs: true || false,
+ *   },
+ * };
+ *
  * ```
  *
  * @param PutSipMediaApplicationLoggingConfigurationCommandInput - {@link PutSipMediaApplicationLoggingConfigurationCommandInput}
@@ -85,6 +92,8 @@ export interface PutSipMediaApplicationLoggingConfigurationCommandOutput
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client isn't authorized to request a resource.</p>
  *
+ * @throws {@link ChimeSDKVoiceServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
  */
 export class PutSipMediaApplicationLoggingConfigurationCommand extends $Command<

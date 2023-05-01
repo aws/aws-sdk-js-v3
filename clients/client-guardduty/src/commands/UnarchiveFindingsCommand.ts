@@ -36,17 +36,20 @@ export interface UnarchiveFindingsCommandOutput extends UnarchiveFindingsRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GuardDutyClient, UnarchiveFindingsCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
- * // const { GuardDutyClient, UnarchiveFindingsCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
+ * import { GuardDutyClient, UnarchiveFindingsCommand } from '@aws-sdk/client-guardduty'; // ES Modules import
+ * // const { GuardDutyClient, UnarchiveFindingsCommand } = require('@aws-sdk/client-guardduty'); // CommonJS import
  * const client = new GuardDutyClient(config);
  * const input = { // UnarchiveFindingsRequest
- *   DetectorId: "STRING_VALUE", // required
+ *   DetectorId: 'STRING_VALUE', // required
  *   FindingIds: [ // FindingIds // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new UnarchiveFindingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UnarchiveFindingsCommandInput - {@link UnarchiveFindingsCommandInput}
@@ -61,6 +64,8 @@ export interface UnarchiveFindingsCommandOutput extends UnarchiveFindingsRespons
  * @throws {@link InternalServerErrorException} (server fault)
  *  <p>An internal server error exception object.</p>
  *
+ * @throws {@link GuardDutyServiceException}
+ * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
  */
 export class UnarchiveFindingsCommand extends $Command<

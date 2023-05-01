@@ -36,28 +36,39 @@ export interface CreateDeviceDefinitionCommandOutput extends CreateDeviceDefinit
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GreengrassClient, CreateDeviceDefinitionCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
- * // const { GreengrassClient, CreateDeviceDefinitionCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
+ * import { GreengrassClient, CreateDeviceDefinitionCommand } from '@aws-sdk/client-greengrass'; // ES Modules import
+ * // const { GreengrassClient, CreateDeviceDefinitionCommand } = require('@aws-sdk/client-greengrass'); // CommonJS import
  * const client = new GreengrassClient(config);
  * const input = { // CreateDeviceDefinitionRequest
- *   AmznClientToken: "STRING_VALUE",
+ *   AmznClientToken: 'STRING_VALUE',
  *   InitialVersion: { // DeviceDefinitionVersion
  *     Devices: [ // __listOfDevice
  *       { // Device
- *         CertificateArn: "STRING_VALUE", // required
- *         Id: "STRING_VALUE", // required
+ *         CertificateArn: 'STRING_VALUE', // required
+ *         Id: 'STRING_VALUE', // required
  *         SyncShadow: true || false,
- *         ThingArn: "STRING_VALUE", // required
+ *         ThingArn: 'STRING_VALUE', // required
  *       },
  *     ],
  *   },
- *   Name: "STRING_VALUE",
+ *   Name: 'STRING_VALUE',
  *   tags: { // Tags
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateDeviceDefinitionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateDeviceDefinitionResponse
+ *   Arn: 'STRING_VALUE',
+ *   CreationTimestamp: 'STRING_VALUE',
+ *   Id: 'STRING_VALUE',
+ *   LastUpdatedTimestamp: 'STRING_VALUE',
+ *   LatestVersion: 'STRING_VALUE',
+ *   LatestVersionArn: 'STRING_VALUE',
+ *   Name: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateDeviceDefinitionCommandInput - {@link CreateDeviceDefinitionCommandInput}
@@ -69,6 +80,8 @@ export interface CreateDeviceDefinitionCommandOutput extends CreateDeviceDefinit
  * @throws {@link BadRequestException} (client fault)
  *  General error information.
  *
+ * @throws {@link GreengrassServiceException}
+ * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
  */
 export class CreateDeviceDefinitionCommand extends $Command<

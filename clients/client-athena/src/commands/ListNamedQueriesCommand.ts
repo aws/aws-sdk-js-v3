@@ -41,16 +41,24 @@ export interface ListNamedQueriesCommandOutput extends ListNamedQueriesOutput, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AthenaClient, ListNamedQueriesCommand } from "@aws-sdk/client-athena"; // ES Modules import
- * // const { AthenaClient, ListNamedQueriesCommand } = require("@aws-sdk/client-athena"); // CommonJS import
+ * import { AthenaClient, ListNamedQueriesCommand } from '@aws-sdk/client-athena'; // ES Modules import
+ * // const { AthenaClient, ListNamedQueriesCommand } = require('@aws-sdk/client-athena'); // CommonJS import
  * const client = new AthenaClient(config);
  * const input = { // ListNamedQueriesInput
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
- *   WorkGroup: "STRING_VALUE",
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
+ *   WorkGroup: 'STRING_VALUE',
  * };
  * const command = new ListNamedQueriesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListNamedQueriesOutput
+ *   NamedQueryIds: [ // NamedQueryIdList
+ *     'STRING_VALUE',
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListNamedQueriesCommandInput - {@link ListNamedQueriesCommandInput}
@@ -67,6 +75,8 @@ export interface ListNamedQueriesCommandOutput extends ListNamedQueriesOutput, _
  *  <p>Indicates that something is wrong with the input to the request. For example, a
  *             required parameter may be missing or out of range.</p>
  *
+ * @throws {@link AthenaServiceException}
+ * <p>Base exception class for all service exceptions from Athena service.</p>
  *
  */
 export class ListNamedQueriesCommand extends $Command<

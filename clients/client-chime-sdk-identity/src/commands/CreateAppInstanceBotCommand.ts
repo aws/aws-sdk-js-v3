@@ -41,31 +41,36 @@ export interface CreateAppInstanceBotCommandOutput extends CreateAppInstanceBotR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeSDKIdentityClient, CreateAppInstanceBotCommand } from "@aws-sdk/client-chime-sdk-identity"; // ES Modules import
- * // const { ChimeSDKIdentityClient, CreateAppInstanceBotCommand } = require("@aws-sdk/client-chime-sdk-identity"); // CommonJS import
+ * import { ChimeSDKIdentityClient, CreateAppInstanceBotCommand } from '@aws-sdk/client-chime-sdk-identity'; // ES Modules import
+ * // const { ChimeSDKIdentityClient, CreateAppInstanceBotCommand } = require('@aws-sdk/client-chime-sdk-identity'); // CommonJS import
  * const client = new ChimeSDKIdentityClient(config);
  * const input = { // CreateAppInstanceBotRequest
- *   AppInstanceArn: "STRING_VALUE", // required
- *   Name: "STRING_VALUE",
- *   Metadata: "STRING_VALUE",
- *   ClientRequestToken: "STRING_VALUE", // required
+ *   AppInstanceArn: 'STRING_VALUE', // required
+ *   Name: 'STRING_VALUE',
+ *   Metadata: 'STRING_VALUE',
+ *   ClientRequestToken: 'STRING_VALUE', // required
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  *   Configuration: { // Configuration
  *     Lex: { // LexConfiguration
- *       RespondsTo: "STANDARD_MESSAGES", // required
- *       LexBotAliasArn: "STRING_VALUE", // required
- *       LocaleId: "STRING_VALUE", // required
- *       WelcomeIntent: "STRING_VALUE",
+ *       RespondsTo: 'STANDARD_MESSAGES', // required
+ *       LexBotAliasArn: 'STRING_VALUE', // required
+ *       LocaleId: 'STRING_VALUE', // required
+ *       WelcomeIntent: 'STRING_VALUE',
  *     },
  *   },
  * };
  * const command = new CreateAppInstanceBotCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateAppInstanceBotResponse
+ *   AppInstanceBotArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateAppInstanceBotCommandInput - {@link CreateAppInstanceBotCommandInput}
@@ -99,6 +104,8 @@ export interface CreateAppInstanceBotCommandOutput extends CreateAppInstanceBotR
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeSDKIdentityServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKIdentity service.</p>
  *
  */
 export class CreateAppInstanceBotCommand extends $Command<

@@ -40,23 +40,37 @@ export interface DescribeEndpointTypesCommandOutput extends DescribeEndpointType
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DatabaseMigrationServiceClient, DescribeEndpointTypesCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
- * // const { DatabaseMigrationServiceClient, DescribeEndpointTypesCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
+ * import { DatabaseMigrationServiceClient, DescribeEndpointTypesCommand } from '@aws-sdk/client-database-migration-service'; // ES Modules import
+ * // const { DatabaseMigrationServiceClient, DescribeEndpointTypesCommand } = require('@aws-sdk/client-database-migration-service'); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
  * const input = { // DescribeEndpointTypesMessage
  *   Filters: [ // FilterList
  *     { // Filter
- *       Name: "STRING_VALUE", // required
+ *       Name: 'STRING_VALUE', // required
  *       Values: [ // FilterValueList // required
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
- *   MaxRecords: Number("int"),
- *   Marker: "STRING_VALUE",
+ *   MaxRecords: Number('int'),
+ *   Marker: 'STRING_VALUE',
  * };
  * const command = new DescribeEndpointTypesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeEndpointTypesResponse
+ *   Marker: 'STRING_VALUE',
+ *   SupportedEndpointTypes: [ // SupportedEndpointTypeList
+ *     { // SupportedEndpointType
+ *       EngineName: 'STRING_VALUE',
+ *       SupportsCDC: true || false,
+ *       EndpointType: 'source' || 'target',
+ *       ReplicationInstanceEngineMinimumVersion: 'STRING_VALUE',
+ *       EngineDisplayName: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeEndpointTypesCommandInput - {@link DescribeEndpointTypesCommandInput}
@@ -65,6 +79,8 @@ export interface DescribeEndpointTypesCommandOutput extends DescribeEndpointType
  * @see {@link DescribeEndpointTypesCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
+ * @throws {@link DatabaseMigrationServiceServiceException}
+ * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
  * @example Describe endpoint types
  * ```javascript

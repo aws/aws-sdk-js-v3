@@ -76,36 +76,59 @@ export interface AdminCreateUserCommandOutput extends AdminCreateUserResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CognitoIdentityProviderClient, AdminCreateUserCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
- * // const { CognitoIdentityProviderClient, AdminCreateUserCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
+ * import { CognitoIdentityProviderClient, AdminCreateUserCommand } from '@aws-sdk/client-cognito-identity-provider'; // ES Modules import
+ * // const { CognitoIdentityProviderClient, AdminCreateUserCommand } = require('@aws-sdk/client-cognito-identity-provider'); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
  * const input = { // AdminCreateUserRequest
- *   UserPoolId: "STRING_VALUE", // required
- *   Username: "STRING_VALUE", // required
+ *   UserPoolId: 'STRING_VALUE', // required
+ *   Username: 'STRING_VALUE', // required
  *   UserAttributes: [ // AttributeListType
  *     { // AttributeType
- *       Name: "STRING_VALUE", // required
- *       Value: "STRING_VALUE",
+ *       Name: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
  *   ValidationData: [
  *     {
- *       Name: "STRING_VALUE", // required
- *       Value: "STRING_VALUE",
+ *       Name: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
- *   TemporaryPassword: "STRING_VALUE",
+ *   TemporaryPassword: 'STRING_VALUE',
  *   ForceAliasCreation: true || false,
- *   MessageAction: "RESEND" || "SUPPRESS",
+ *   MessageAction: 'RESEND' || 'SUPPRESS',
  *   DesiredDeliveryMediums: [ // DeliveryMediumListType
- *     "SMS" || "EMAIL",
+ *     'SMS' || 'EMAIL',
  *   ],
  *   ClientMetadata: { // ClientMetadataType
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new AdminCreateUserCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AdminCreateUserResponse
+ *   User: { // UserType
+ *     Username: 'STRING_VALUE',
+ *     Attributes: [ // AttributeListType
+ *       { // AttributeType
+ *         Name: 'STRING_VALUE', // required
+ *         Value: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     UserCreateDate: new Date('TIMESTAMP'),
+ *     UserLastModifiedDate: new Date('TIMESTAMP'),
+ *     Enabled: true || false,
+ *     UserStatus: 'UNCONFIRMED' || 'CONFIRMED' || 'ARCHIVED' || 'COMPROMISED' || 'UNKNOWN' || 'RESET_REQUIRED' || 'FORCE_CHANGE_PASSWORD',
+ *     MFAOptions: [ // MFAOptionListType
+ *       { // MFAOptionType
+ *         DeliveryMedium: 'SMS' || 'EMAIL',
+ *         AttributeName: 'STRING_VALUE',
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param AdminCreateUserCommandInput - {@link AdminCreateUserCommandInput}
@@ -173,6 +196,8 @@ export interface AdminCreateUserCommandOutput extends AdminCreateUserResponse, _
  * @throws {@link UserNotFoundException} (client fault)
  *  <p>This exception is thrown when a user isn't found.</p>
  *
+ * @throws {@link CognitoIdentityProviderServiceException}
+ * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
  */
 export class AdminCreateUserCommand extends $Command<

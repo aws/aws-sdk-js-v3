@@ -41,21 +41,41 @@ export interface BatchDeleteImageCommandOutput extends BatchDeleteImageResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ECRClient, BatchDeleteImageCommand } from "@aws-sdk/client-ecr"; // ES Modules import
- * // const { ECRClient, BatchDeleteImageCommand } = require("@aws-sdk/client-ecr"); // CommonJS import
+ * import { ECRClient, BatchDeleteImageCommand } from '@aws-sdk/client-ecr'; // ES Modules import
+ * // const { ECRClient, BatchDeleteImageCommand } = require('@aws-sdk/client-ecr'); // CommonJS import
  * const client = new ECRClient(config);
  * const input = { // BatchDeleteImageRequest
- *   registryId: "STRING_VALUE",
- *   repositoryName: "STRING_VALUE", // required
+ *   registryId: 'STRING_VALUE',
+ *   repositoryName: 'STRING_VALUE', // required
  *   imageIds: [ // ImageIdentifierList // required
  *     { // ImageIdentifier
- *       imageDigest: "STRING_VALUE",
- *       imageTag: "STRING_VALUE",
+ *       imageDigest: 'STRING_VALUE',
+ *       imageTag: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new BatchDeleteImageCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BatchDeleteImageResponse
+ *   imageIds: [ // ImageIdentifierList
+ *     { // ImageIdentifier
+ *       imageDigest: 'STRING_VALUE',
+ *       imageTag: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   failures: [ // ImageFailureList
+ *     { // ImageFailure
+ *       imageId: {
+ *         imageDigest: 'STRING_VALUE',
+ *         imageTag: 'STRING_VALUE',
+ *       },
+ *       failureCode: 'STRING_VALUE',
+ *       failureReason: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param BatchDeleteImageCommandInput - {@link BatchDeleteImageCommandInput}
@@ -75,6 +95,8 @@ export interface BatchDeleteImageCommandOutput extends BatchDeleteImageResponse,
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server-side issue.</p>
  *
+ * @throws {@link ECRServiceException}
+ * <p>Base exception class for all service exceptions from ECR service.</p>
  *
  * @example To delete multiple images
  * ```javascript

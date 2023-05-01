@@ -45,16 +45,28 @@ export interface RetrieveEnvironmentInfoCommandOutput extends RetrieveEnvironmen
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElasticBeanstalkClient, RetrieveEnvironmentInfoCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
- * // const { ElasticBeanstalkClient, RetrieveEnvironmentInfoCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
+ * import { ElasticBeanstalkClient, RetrieveEnvironmentInfoCommand } from '@aws-sdk/client-elastic-beanstalk'; // ES Modules import
+ * // const { ElasticBeanstalkClient, RetrieveEnvironmentInfoCommand } = require('@aws-sdk/client-elastic-beanstalk'); // CommonJS import
  * const client = new ElasticBeanstalkClient(config);
  * const input = { // RetrieveEnvironmentInfoMessage
- *   EnvironmentId: "STRING_VALUE",
- *   EnvironmentName: "STRING_VALUE",
- *   InfoType: "tail" || "bundle", // required
+ *   EnvironmentId: 'STRING_VALUE',
+ *   EnvironmentName: 'STRING_VALUE',
+ *   InfoType: 'tail' || 'bundle', // required
  * };
  * const command = new RetrieveEnvironmentInfoCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // RetrieveEnvironmentInfoResultMessage
+ *   EnvironmentInfo: [ // EnvironmentInfoDescriptionList
+ *     { // EnvironmentInfoDescription
+ *       InfoType: 'tail' || 'bundle',
+ *       Ec2InstanceId: 'STRING_VALUE',
+ *       SampleTimestamp: new Date('TIMESTAMP'),
+ *       Message: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param RetrieveEnvironmentInfoCommandInput - {@link RetrieveEnvironmentInfoCommandInput}
@@ -63,6 +75,8 @@ export interface RetrieveEnvironmentInfoCommandOutput extends RetrieveEnvironmen
  * @see {@link RetrieveEnvironmentInfoCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
+ * @throws {@link ElasticBeanstalkServiceException}
+ * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
  * @example To retrieve tailed logs
  * ```javascript

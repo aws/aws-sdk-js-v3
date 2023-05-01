@@ -37,18 +37,56 @@ export interface SearchIndexCommandOutput extends SearchIndexResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTClient, SearchIndexCommand } from "@aws-sdk/client-iot"; // ES Modules import
- * // const { IoTClient, SearchIndexCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * import { IoTClient, SearchIndexCommand } from '@aws-sdk/client-iot'; // ES Modules import
+ * // const { IoTClient, SearchIndexCommand } = require('@aws-sdk/client-iot'); // CommonJS import
  * const client = new IoTClient(config);
  * const input = { // SearchIndexRequest
- *   indexName: "STRING_VALUE",
- *   queryString: "STRING_VALUE", // required
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
- *   queryVersion: "STRING_VALUE",
+ *   indexName: 'STRING_VALUE',
+ *   queryString: 'STRING_VALUE', // required
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
+ *   queryVersion: 'STRING_VALUE',
  * };
  * const command = new SearchIndexCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SearchIndexResponse
+ *   nextToken: 'STRING_VALUE',
+ *   things: [ // ThingDocumentList
+ *     { // ThingDocument
+ *       thingName: 'STRING_VALUE',
+ *       thingId: 'STRING_VALUE',
+ *       thingTypeName: 'STRING_VALUE',
+ *       thingGroupNames: [ // ThingGroupNameList
+ *         'STRING_VALUE',
+ *       ],
+ *       attributes: { // Attributes
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *       shadow: 'STRING_VALUE',
+ *       deviceDefender: 'STRING_VALUE',
+ *       connectivity: { // ThingConnectivity
+ *         connected: true || false,
+ *         timestamp: Number('long'),
+ *         disconnectReason: 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ *   thingGroups: [ // ThingGroupDocumentList
+ *     { // ThingGroupDocument
+ *       thingGroupName: 'STRING_VALUE',
+ *       thingGroupId: 'STRING_VALUE',
+ *       thingGroupDescription: 'STRING_VALUE',
+ *       attributes: {
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *       parentGroupNames: [
+ *         'STRING_VALUE',
+ *       ],
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param SearchIndexCommandInput - {@link SearchIndexCommandInput}
@@ -81,6 +119,8 @@ export interface SearchIndexCommandOutput extends SearchIndexResponse, __Metadat
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this operation.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class SearchIndexCommand extends $Command<

@@ -36,20 +36,38 @@ export interface ListFlywheelsCommandOutput extends ListFlywheelsResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ComprehendClient, ListFlywheelsCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
- * // const { ComprehendClient, ListFlywheelsCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
+ * import { ComprehendClient, ListFlywheelsCommand } from '@aws-sdk/client-comprehend'; // ES Modules import
+ * // const { ComprehendClient, ListFlywheelsCommand } = require('@aws-sdk/client-comprehend'); // CommonJS import
  * const client = new ComprehendClient(config);
  * const input = { // ListFlywheelsRequest
  *   Filter: { // FlywheelFilter
- *     Status: "CREATING" || "ACTIVE" || "UPDATING" || "DELETING" || "FAILED",
- *     CreationTimeAfter: new Date("TIMESTAMP"),
- *     CreationTimeBefore: new Date("TIMESTAMP"),
+ *     Status: 'CREATING' || 'ACTIVE' || 'UPDATING' || 'DELETING' || 'FAILED',
+ *     CreationTimeAfter: new Date('TIMESTAMP'),
+ *     CreationTimeBefore: new Date('TIMESTAMP'),
  *   },
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListFlywheelsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListFlywheelsResponse
+ *   FlywheelSummaryList: [ // FlywheelSummaryList
+ *     { // FlywheelSummary
+ *       FlywheelArn: 'STRING_VALUE',
+ *       ActiveModelArn: 'STRING_VALUE',
+ *       DataLakeS3Uri: 'STRING_VALUE',
+ *       Status: 'CREATING' || 'ACTIVE' || 'UPDATING' || 'DELETING' || 'FAILED',
+ *       ModelType: 'DOCUMENT_CLASSIFIER' || 'ENTITY_RECOGNIZER',
+ *       Message: 'STRING_VALUE',
+ *       CreationTime: new Date('TIMESTAMP'),
+ *       LastModifiedTime: new Date('TIMESTAMP'),
+ *       LatestFlywheelIteration: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListFlywheelsCommandInput - {@link ListFlywheelsCommandInput}
@@ -71,6 +89,8 @@ export interface ListFlywheelsCommandOutput extends ListFlywheelsResponse, __Met
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>The number of requests exceeds the limit. Resubmit your request later.</p>
  *
+ * @throws {@link ComprehendServiceException}
+ * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
  */
 export class ListFlywheelsCommand extends $Command<

@@ -57,15 +57,21 @@ export interface GetActivityTaskCommandOutput extends GetActivityTaskOutput, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SFNClient, GetActivityTaskCommand } from "@aws-sdk/client-sfn"; // ES Modules import
- * // const { SFNClient, GetActivityTaskCommand } = require("@aws-sdk/client-sfn"); // CommonJS import
+ * import { SFNClient, GetActivityTaskCommand } from '@aws-sdk/client-sfn'; // ES Modules import
+ * // const { SFNClient, GetActivityTaskCommand } = require('@aws-sdk/client-sfn'); // CommonJS import
  * const client = new SFNClient(config);
  * const input = { // GetActivityTaskInput
- *   activityArn: "STRING_VALUE", // required
- *   workerName: "STRING_VALUE",
+ *   activityArn: 'STRING_VALUE', // required
+ *   workerName: 'STRING_VALUE',
  * };
  * const command = new GetActivityTaskCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetActivityTaskOutput
+ *   taskToken: 'STRING_VALUE',
+ *   input: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetActivityTaskCommandInput - {@link GetActivityTaskCommandInput}
@@ -84,6 +90,8 @@ export interface GetActivityTaskCommandOutput extends GetActivityTaskOutput, __M
  * @throws {@link InvalidArn} (client fault)
  *  <p>The provided Amazon Resource Name (ARN) is not valid.</p>
  *
+ * @throws {@link SFNServiceException}
+ * <p>Base exception class for all service exceptions from SFN service.</p>
  *
  */
 export class GetActivityTaskCommand extends $Command<

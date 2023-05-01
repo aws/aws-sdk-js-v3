@@ -39,23 +39,38 @@ export interface CreateIAMPolicyAssignmentCommandOutput extends CreateIAMPolicyA
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { QuickSightClient, CreateIAMPolicyAssignmentCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
- * // const { QuickSightClient, CreateIAMPolicyAssignmentCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * import { QuickSightClient, CreateIAMPolicyAssignmentCommand } from '@aws-sdk/client-quicksight'; // ES Modules import
+ * // const { QuickSightClient, CreateIAMPolicyAssignmentCommand } = require('@aws-sdk/client-quicksight'); // CommonJS import
  * const client = new QuickSightClient(config);
  * const input = { // CreateIAMPolicyAssignmentRequest
- *   AwsAccountId: "STRING_VALUE", // required
- *   AssignmentName: "STRING_VALUE", // required
- *   AssignmentStatus: "ENABLED" || "DRAFT" || "DISABLED", // required
- *   PolicyArn: "STRING_VALUE",
+ *   AwsAccountId: 'STRING_VALUE', // required
+ *   AssignmentName: 'STRING_VALUE', // required
+ *   AssignmentStatus: 'ENABLED' || 'DRAFT' || 'DISABLED', // required
+ *   PolicyArn: 'STRING_VALUE',
  *   Identities: { // IdentityMap
- *     "<keys>": [ // IdentityNameList
- *       "STRING_VALUE",
+ *     '<keys>': [ // IdentityNameList
+ *       'STRING_VALUE',
  *     ],
  *   },
- *   Namespace: "STRING_VALUE", // required
+ *   Namespace: 'STRING_VALUE', // required
  * };
  * const command = new CreateIAMPolicyAssignmentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateIAMPolicyAssignmentResponse
+ *   AssignmentName: 'STRING_VALUE',
+ *   AssignmentId: 'STRING_VALUE',
+ *   AssignmentStatus: 'ENABLED' || 'DRAFT' || 'DISABLED',
+ *   PolicyArn: 'STRING_VALUE',
+ *   Identities: { // IdentityMap
+ *     '<keys>': [ // IdentityNameList
+ *       'STRING_VALUE',
+ *     ],
+ *   },
+ *   RequestId: 'STRING_VALUE',
+ *   Status: Number('int'),
+ * };
+ *
  * ```
  *
  * @param CreateIAMPolicyAssignmentCommandInput - {@link CreateIAMPolicyAssignmentCommandInput}
@@ -89,6 +104,8 @@ export interface CreateIAMPolicyAssignmentCommandOutput extends CreateIAMPolicyA
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Access is throttled.</p>
  *
+ * @throws {@link QuickSightServiceException}
+ * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
 export class CreateIAMPolicyAssignmentCommand extends $Command<

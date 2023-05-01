@@ -45,51 +45,56 @@ export interface CreateTrialComponentCommandOutput extends CreateTrialComponentR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, CreateTrialComponentCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, CreateTrialComponentCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, CreateTrialComponentCommand } from '@aws-sdk/client-sagemaker'; // ES Modules import
+ * // const { SageMakerClient, CreateTrialComponentCommand } = require('@aws-sdk/client-sagemaker'); // CommonJS import
  * const client = new SageMakerClient(config);
  * const input = { // CreateTrialComponentRequest
- *   TrialComponentName: "STRING_VALUE", // required
- *   DisplayName: "STRING_VALUE",
+ *   TrialComponentName: 'STRING_VALUE', // required
+ *   DisplayName: 'STRING_VALUE',
  *   Status: { // TrialComponentStatus
- *     PrimaryStatus: "InProgress" || "Completed" || "Failed" || "Stopping" || "Stopped",
- *     Message: "STRING_VALUE",
+ *     PrimaryStatus: 'InProgress' || 'Completed' || 'Failed' || 'Stopping' || 'Stopped',
+ *     Message: 'STRING_VALUE',
  *   },
- *   StartTime: new Date("TIMESTAMP"),
- *   EndTime: new Date("TIMESTAMP"),
+ *   StartTime: new Date('TIMESTAMP'),
+ *   EndTime: new Date('TIMESTAMP'),
  *   Parameters: { // TrialComponentParameters
- *     "<keys>": { // TrialComponentParameterValue Union: only one key present
- *       StringValue: "STRING_VALUE",
- *       NumberValue: Number("double"),
+ *     '<keys>': { // TrialComponentParameterValue Union: only one key present
+ *       StringValue: 'STRING_VALUE',
+ *       NumberValue: Number('double'),
  *     },
  *   },
  *   InputArtifacts: { // TrialComponentArtifacts
- *     "<keys>": { // TrialComponentArtifact
- *       MediaType: "STRING_VALUE",
- *       Value: "STRING_VALUE", // required
+ *     '<keys>': { // TrialComponentArtifact
+ *       MediaType: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   },
  *   OutputArtifacts: {
- *     "<keys>": {
- *       MediaType: "STRING_VALUE",
- *       Value: "STRING_VALUE", // required
+ *     '<keys>': {
+ *       MediaType: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   },
  *   MetadataProperties: { // MetadataProperties
- *     CommitId: "STRING_VALUE",
- *     Repository: "STRING_VALUE",
- *     GeneratedBy: "STRING_VALUE",
- *     ProjectId: "STRING_VALUE",
+ *     CommitId: 'STRING_VALUE',
+ *     Repository: 'STRING_VALUE',
+ *     GeneratedBy: 'STRING_VALUE',
+ *     ProjectId: 'STRING_VALUE',
  *   },
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreateTrialComponentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateTrialComponentResponse
+ *   TrialComponentArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateTrialComponentCommandInput - {@link CreateTrialComponentCommandInput}
@@ -102,6 +107,8 @@ export interface CreateTrialComponentCommandOutput extends CreateTrialComponentR
  *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many
  *             training jobs created. </p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class CreateTrialComponentCommand extends $Command<

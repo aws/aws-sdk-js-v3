@@ -37,20 +37,23 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTAnalyticsClient, TagResourceCommand } from "@aws-sdk/client-iotanalytics"; // ES Modules import
- * // const { IoTAnalyticsClient, TagResourceCommand } = require("@aws-sdk/client-iotanalytics"); // CommonJS import
+ * import { IoTAnalyticsClient, TagResourceCommand } from '@aws-sdk/client-iotanalytics'; // ES Modules import
+ * // const { IoTAnalyticsClient, TagResourceCommand } = require('@aws-sdk/client-iotanalytics'); // CommonJS import
  * const client = new IoTAnalyticsClient(config);
  * const input = { // TagResourceRequest
- *   resourceArn: "STRING_VALUE", // required
+ *   resourceArn: 'STRING_VALUE', // required
  *   tags: [ // TagList // required
  *     { // Tag
- *       key: "STRING_VALUE", // required
- *       value: "STRING_VALUE", // required
+ *       key: 'STRING_VALUE', // required
+ *       value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param TagResourceCommandInput - {@link TagResourceCommandInput}
@@ -77,6 +80,8 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
  *
+ * @throws {@link IoTAnalyticsServiceException}
+ * <p>Base exception class for all service exceptions from IoTAnalytics service.</p>
  *
  */
 export class TagResourceCommand extends $Command<

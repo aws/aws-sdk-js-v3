@@ -48,17 +48,23 @@ export interface DeleteApplicationVpcConfigurationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KinesisAnalyticsV2Client, DeleteApplicationVpcConfigurationCommand } from "@aws-sdk/client-kinesis-analytics-v2"; // ES Modules import
- * // const { KinesisAnalyticsV2Client, DeleteApplicationVpcConfigurationCommand } = require("@aws-sdk/client-kinesis-analytics-v2"); // CommonJS import
+ * import { KinesisAnalyticsV2Client, DeleteApplicationVpcConfigurationCommand } from '@aws-sdk/client-kinesis-analytics-v2'; // ES Modules import
+ * // const { KinesisAnalyticsV2Client, DeleteApplicationVpcConfigurationCommand } = require('@aws-sdk/client-kinesis-analytics-v2'); // CommonJS import
  * const client = new KinesisAnalyticsV2Client(config);
  * const input = { // DeleteApplicationVpcConfigurationRequest
- *   ApplicationName: "STRING_VALUE", // required
- *   CurrentApplicationVersionId: Number("long"),
- *   VpcConfigurationId: "STRING_VALUE", // required
- *   ConditionalToken: "STRING_VALUE",
+ *   ApplicationName: 'STRING_VALUE', // required
+ *   CurrentApplicationVersionId: Number('long'),
+ *   VpcConfigurationId: 'STRING_VALUE', // required
+ *   ConditionalToken: 'STRING_VALUE',
  * };
  * const command = new DeleteApplicationVpcConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteApplicationVpcConfigurationResponse
+ *   ApplicationARN: 'STRING_VALUE',
+ *   ApplicationVersionId: Number('long'),
+ * };
+ *
  * ```
  *
  * @param DeleteApplicationVpcConfigurationCommandInput - {@link DeleteApplicationVpcConfigurationCommandInput}
@@ -84,6 +90,8 @@ export interface DeleteApplicationVpcConfigurationCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Specified application can't be found.</p>
  *
+ * @throws {@link KinesisAnalyticsV2ServiceException}
+ * <p>Base exception class for all service exceptions from KinesisAnalyticsV2 service.</p>
  *
  */
 export class DeleteApplicationVpcConfigurationCommand extends $Command<

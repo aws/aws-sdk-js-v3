@@ -115,39 +115,44 @@ export interface UpdateWebACLCommandOutput extends UpdateWebACLResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WAFClient, UpdateWebACLCommand } from "@aws-sdk/client-waf"; // ES Modules import
- * // const { WAFClient, UpdateWebACLCommand } = require("@aws-sdk/client-waf"); // CommonJS import
+ * import { WAFClient, UpdateWebACLCommand } from '@aws-sdk/client-waf'; // ES Modules import
+ * // const { WAFClient, UpdateWebACLCommand } = require('@aws-sdk/client-waf'); // CommonJS import
  * const client = new WAFClient(config);
  * const input = { // UpdateWebACLRequest
- *   WebACLId: "STRING_VALUE", // required
- *   ChangeToken: "STRING_VALUE", // required
+ *   WebACLId: 'STRING_VALUE', // required
+ *   ChangeToken: 'STRING_VALUE', // required
  *   Updates: [ // WebACLUpdates
  *     { // WebACLUpdate
- *       Action: "STRING_VALUE", // required
+ *       Action: 'STRING_VALUE', // required
  *       ActivatedRule: { // ActivatedRule
- *         Priority: Number("int"), // required
- *         RuleId: "STRING_VALUE", // required
+ *         Priority: Number('int'), // required
+ *         RuleId: 'STRING_VALUE', // required
  *         Action: { // WafAction
- *           Type: "STRING_VALUE", // required
+ *           Type: 'STRING_VALUE', // required
  *         },
  *         OverrideAction: { // WafOverrideAction
- *           Type: "STRING_VALUE", // required
+ *           Type: 'STRING_VALUE', // required
  *         },
- *         Type: "STRING_VALUE",
+ *         Type: 'STRING_VALUE',
  *         ExcludedRules: [ // ExcludedRules
  *           { // ExcludedRule
- *             RuleId: "STRING_VALUE", // required
+ *             RuleId: 'STRING_VALUE', // required
  *           },
  *         ],
  *       },
  *     },
  *   ],
  *   DefaultAction: {
- *     Type: "STRING_VALUE", // required
+ *     Type: 'STRING_VALUE', // required
  *   },
  * };
  * const command = new UpdateWebACLCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateWebACLResponse
+ *   ChangeToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateWebACLCommandInput - {@link UpdateWebACLCommandInput}
@@ -268,6 +273,8 @@ export interface UpdateWebACLCommandOutput extends UpdateWebACLResponse, __Metad
  * @throws {@link WAFSubscriptionNotFoundException} (client fault)
  *  <p>The specified subscription does not exist.</p>
  *
+ * @throws {@link WAFServiceException}
+ * <p>Base exception class for all service exceptions from WAF service.</p>
  *
  * @example To update a Web ACL
  * ```javascript

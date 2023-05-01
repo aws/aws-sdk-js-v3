@@ -39,16 +39,33 @@ export interface ListTrafficPolicyVersionsCommandOutput extends ListTrafficPolic
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Route53Client, ListTrafficPolicyVersionsCommand } from "@aws-sdk/client-route-53"; // ES Modules import
- * // const { Route53Client, ListTrafficPolicyVersionsCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
+ * import { Route53Client, ListTrafficPolicyVersionsCommand } from '@aws-sdk/client-route-53'; // ES Modules import
+ * // const { Route53Client, ListTrafficPolicyVersionsCommand } = require('@aws-sdk/client-route-53'); // CommonJS import
  * const client = new Route53Client(config);
  * const input = { // ListTrafficPolicyVersionsRequest
- *   Id: "STRING_VALUE", // required
- *   TrafficPolicyVersionMarker: "STRING_VALUE",
- *   MaxItems: Number("int"),
+ *   Id: 'STRING_VALUE', // required
+ *   TrafficPolicyVersionMarker: 'STRING_VALUE',
+ *   MaxItems: Number('int'),
  * };
  * const command = new ListTrafficPolicyVersionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTrafficPolicyVersionsResponse
+ *   TrafficPolicies: [ // TrafficPolicies // required
+ *     { // TrafficPolicy
+ *       Id: 'STRING_VALUE', // required
+ *       Version: Number('int'), // required
+ *       Name: 'STRING_VALUE', // required
+ *       Type: 'SOA' || 'A' || 'TXT' || 'NS' || 'CNAME' || 'MX' || 'NAPTR' || 'PTR' || 'SRV' || 'SPF' || 'AAAA' || 'CAA' || 'DS', // required
+ *       Document: 'STRING_VALUE', // required
+ *       Comment: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   IsTruncated: true || false, // required
+ *   TrafficPolicyVersionMarker: 'STRING_VALUE', // required
+ *   MaxItems: Number('int'), // required
+ * };
+ *
  * ```
  *
  * @param ListTrafficPolicyVersionsCommandInput - {@link ListTrafficPolicyVersionsCommandInput}
@@ -63,6 +80,8 @@ export interface ListTrafficPolicyVersionsCommandOutput extends ListTrafficPolic
  * @throws {@link NoSuchTrafficPolicy} (client fault)
  *  <p>No traffic policy exists with the specified ID.</p>
  *
+ * @throws {@link Route53ServiceException}
+ * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
  */
 export class ListTrafficPolicyVersionsCommand extends $Command<

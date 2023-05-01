@@ -36,22 +36,31 @@ export interface StartReadSetExportJobCommandOutput extends StartReadSetExportJo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OmicsClient, StartReadSetExportJobCommand } from "@aws-sdk/client-omics"; // ES Modules import
- * // const { OmicsClient, StartReadSetExportJobCommand } = require("@aws-sdk/client-omics"); // CommonJS import
+ * import { OmicsClient, StartReadSetExportJobCommand } from '@aws-sdk/client-omics'; // ES Modules import
+ * // const { OmicsClient, StartReadSetExportJobCommand } = require('@aws-sdk/client-omics'); // CommonJS import
  * const client = new OmicsClient(config);
  * const input = { // StartReadSetExportJobRequest
- *   sequenceStoreId: "STRING_VALUE", // required
- *   destination: "STRING_VALUE", // required
- *   roleArn: "STRING_VALUE", // required
- *   clientToken: "STRING_VALUE",
+ *   sequenceStoreId: 'STRING_VALUE', // required
+ *   destination: 'STRING_VALUE', // required
+ *   roleArn: 'STRING_VALUE', // required
+ *   clientToken: 'STRING_VALUE',
  *   sources: [ // ExportReadSetList // required
  *     { // ExportReadSet
- *       readSetId: "STRING_VALUE", // required
+ *       readSetId: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new StartReadSetExportJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartReadSetExportJobResponse
+ *   id: 'STRING_VALUE', // required
+ *   sequenceStoreId: 'STRING_VALUE', // required
+ *   destination: 'STRING_VALUE', // required
+ *   status: 'STRING_VALUE', // required
+ *   creationTime: new Date('TIMESTAMP'), // required
+ * };
+ *
  * ```
  *
  * @param StartReadSetExportJobCommandInput - {@link StartReadSetExportJobCommandInput}
@@ -81,6 +90,8 @@ export interface StartReadSetExportJobCommandOutput extends StartReadSetExportJo
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link OmicsServiceException}
+ * <p>Base exception class for all service exceptions from Omics service.</p>
  *
  */
 export class StartReadSetExportJobCommand extends $Command<

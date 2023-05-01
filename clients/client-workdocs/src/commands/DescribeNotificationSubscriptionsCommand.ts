@@ -44,16 +44,28 @@ export interface DescribeNotificationSubscriptionsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkDocsClient, DescribeNotificationSubscriptionsCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
- * // const { WorkDocsClient, DescribeNotificationSubscriptionsCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import
+ * import { WorkDocsClient, DescribeNotificationSubscriptionsCommand } from '@aws-sdk/client-workdocs'; // ES Modules import
+ * // const { WorkDocsClient, DescribeNotificationSubscriptionsCommand } = require('@aws-sdk/client-workdocs'); // CommonJS import
  * const client = new WorkDocsClient(config);
  * const input = { // DescribeNotificationSubscriptionsRequest
- *   OrganizationId: "STRING_VALUE", // required
- *   Marker: "STRING_VALUE",
- *   Limit: Number("int"),
+ *   OrganizationId: 'STRING_VALUE', // required
+ *   Marker: 'STRING_VALUE',
+ *   Limit: Number('int'),
  * };
  * const command = new DescribeNotificationSubscriptionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeNotificationSubscriptionsResponse
+ *   Subscriptions: [ // SubscriptionList
+ *     { // Subscription
+ *       SubscriptionId: 'STRING_VALUE',
+ *       EndPoint: 'STRING_VALUE',
+ *       Protocol: 'HTTPS' || 'SQS',
+ *     },
+ *   ],
+ *   Marker: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeNotificationSubscriptionsCommandInput - {@link DescribeNotificationSubscriptionsCommandInput}
@@ -71,6 +83,8 @@ export interface DescribeNotificationSubscriptionsCommandOutput
  * @throws {@link UnauthorizedResourceAccessException} (client fault)
  *  <p>The caller does not have access to perform the action on the resource.</p>
  *
+ * @throws {@link WorkDocsServiceException}
+ * <p>Base exception class for all service exceptions from WorkDocs service.</p>
  *
  */
 export class DescribeNotificationSubscriptionsCommand extends $Command<

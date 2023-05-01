@@ -36,16 +36,29 @@ export interface DescribeClientPropertiesCommandOutput extends DescribeClientPro
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkSpacesClient, DescribeClientPropertiesCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
- * // const { WorkSpacesClient, DescribeClientPropertiesCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
+ * import { WorkSpacesClient, DescribeClientPropertiesCommand } from '@aws-sdk/client-workspaces'; // ES Modules import
+ * // const { WorkSpacesClient, DescribeClientPropertiesCommand } = require('@aws-sdk/client-workspaces'); // CommonJS import
  * const client = new WorkSpacesClient(config);
  * const input = { // DescribeClientPropertiesRequest
  *   ResourceIds: [ // ResourceIdList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new DescribeClientPropertiesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeClientPropertiesResult
+ *   ClientPropertiesList: [ // ClientPropertiesList
+ *     { // ClientPropertiesResult
+ *       ResourceId: 'STRING_VALUE',
+ *       ClientProperties: { // ClientProperties
+ *         ReconnectEnabled: 'ENABLED' || 'DISABLED',
+ *         LogUploadEnabled: 'ENABLED' || 'DISABLED',
+ *       },
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeClientPropertiesCommandInput - {@link DescribeClientPropertiesCommandInput}
@@ -63,6 +76,8 @@ export interface DescribeClientPropertiesCommandOutput extends DescribeClientPro
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource could not be found.</p>
  *
+ * @throws {@link WorkSpacesServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
  */
 export class DescribeClientPropertiesCommand extends $Command<

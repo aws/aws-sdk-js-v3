@@ -38,102 +38,105 @@ export interface CreateCrawlerCommandOutput extends CreateCrawlerResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlueClient, CreateCrawlerCommand } from "@aws-sdk/client-glue"; // ES Modules import
- * // const { GlueClient, CreateCrawlerCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * import { GlueClient, CreateCrawlerCommand } from '@aws-sdk/client-glue'; // ES Modules import
+ * // const { GlueClient, CreateCrawlerCommand } = require('@aws-sdk/client-glue'); // CommonJS import
  * const client = new GlueClient(config);
  * const input = { // CreateCrawlerRequest
- *   Name: "STRING_VALUE", // required
- *   Role: "STRING_VALUE", // required
- *   DatabaseName: "STRING_VALUE",
- *   Description: "STRING_VALUE",
+ *   Name: 'STRING_VALUE', // required
+ *   Role: 'STRING_VALUE', // required
+ *   DatabaseName: 'STRING_VALUE',
+ *   Description: 'STRING_VALUE',
  *   Targets: { // CrawlerTargets
  *     S3Targets: [ // S3TargetList
  *       { // S3Target
- *         Path: "STRING_VALUE",
+ *         Path: 'STRING_VALUE',
  *         Exclusions: [ // PathList
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
- *         ConnectionName: "STRING_VALUE",
- *         SampleSize: Number("int"),
- *         EventQueueArn: "STRING_VALUE",
- *         DlqEventQueueArn: "STRING_VALUE",
+ *         ConnectionName: 'STRING_VALUE',
+ *         SampleSize: Number('int'),
+ *         EventQueueArn: 'STRING_VALUE',
+ *         DlqEventQueueArn: 'STRING_VALUE',
  *       },
  *     ],
  *     JdbcTargets: [ // JdbcTargetList
  *       { // JdbcTarget
- *         ConnectionName: "STRING_VALUE",
- *         Path: "STRING_VALUE",
+ *         ConnectionName: 'STRING_VALUE',
+ *         Path: 'STRING_VALUE',
  *         Exclusions: [
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
  *         EnableAdditionalMetadata: [ // EnableAdditionalMetadata
- *           "COMMENTS" || "RAWTYPES",
+ *           'COMMENTS' || 'RAWTYPES',
  *         ],
  *       },
  *     ],
  *     MongoDBTargets: [ // MongoDBTargetList
  *       { // MongoDBTarget
- *         ConnectionName: "STRING_VALUE",
- *         Path: "STRING_VALUE",
+ *         ConnectionName: 'STRING_VALUE',
+ *         Path: 'STRING_VALUE',
  *         ScanAll: true || false,
  *       },
  *     ],
  *     DynamoDBTargets: [ // DynamoDBTargetList
  *       { // DynamoDBTarget
- *         Path: "STRING_VALUE",
+ *         Path: 'STRING_VALUE',
  *         scanAll: true || false,
- *         scanRate: Number("double"),
+ *         scanRate: Number('double'),
  *       },
  *     ],
  *     CatalogTargets: [ // CatalogTargetList
  *       { // CatalogTarget
- *         DatabaseName: "STRING_VALUE", // required
+ *         DatabaseName: 'STRING_VALUE', // required
  *         Tables: [ // CatalogTablesList // required
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
- *         ConnectionName: "STRING_VALUE",
- *         EventQueueArn: "STRING_VALUE",
- *         DlqEventQueueArn: "STRING_VALUE",
+ *         ConnectionName: 'STRING_VALUE',
+ *         EventQueueArn: 'STRING_VALUE',
+ *         DlqEventQueueArn: 'STRING_VALUE',
  *       },
  *     ],
  *     DeltaTargets: [ // DeltaTargetList
  *       { // DeltaTarget
  *         DeltaTables: [
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
- *         ConnectionName: "STRING_VALUE",
+ *         ConnectionName: 'STRING_VALUE',
  *         WriteManifest: true || false,
  *         CreateNativeDeltaTable: true || false,
  *       },
  *     ],
  *   },
- *   Schedule: "STRING_VALUE",
+ *   Schedule: 'STRING_VALUE',
  *   Classifiers: [ // ClassifierNameList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   TablePrefix: "STRING_VALUE",
+ *   TablePrefix: 'STRING_VALUE',
  *   SchemaChangePolicy: { // SchemaChangePolicy
- *     UpdateBehavior: "LOG" || "UPDATE_IN_DATABASE",
- *     DeleteBehavior: "LOG" || "DELETE_FROM_DATABASE" || "DEPRECATE_IN_DATABASE",
+ *     UpdateBehavior: 'LOG' || 'UPDATE_IN_DATABASE',
+ *     DeleteBehavior: 'LOG' || 'DELETE_FROM_DATABASE' || 'DEPRECATE_IN_DATABASE',
  *   },
  *   RecrawlPolicy: { // RecrawlPolicy
- *     RecrawlBehavior: "CRAWL_EVERYTHING" || "CRAWL_NEW_FOLDERS_ONLY" || "CRAWL_EVENT_MODE",
+ *     RecrawlBehavior: 'CRAWL_EVERYTHING' || 'CRAWL_NEW_FOLDERS_ONLY' || 'CRAWL_EVENT_MODE',
  *   },
  *   LineageConfiguration: { // LineageConfiguration
- *     CrawlerLineageSettings: "ENABLE" || "DISABLE",
+ *     CrawlerLineageSettings: 'ENABLE' || 'DISABLE',
  *   },
  *   LakeFormationConfiguration: { // LakeFormationConfiguration
  *     UseLakeFormationCredentials: true || false,
- *     AccountId: "STRING_VALUE",
+ *     AccountId: 'STRING_VALUE',
  *   },
- *   Configuration: "STRING_VALUE",
- *   CrawlerSecurityConfiguration: "STRING_VALUE",
+ *   Configuration: 'STRING_VALUE',
+ *   CrawlerSecurityConfiguration: 'STRING_VALUE',
  *   Tags: { // TagsMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateCrawlerCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param CreateCrawlerCommandInput - {@link CreateCrawlerCommandInput}
@@ -154,6 +157,8 @@ export interface CreateCrawlerCommandOutput extends CreateCrawlerResponse, __Met
  * @throws {@link ResourceNumberLimitExceededException} (client fault)
  *  <p>A resource numerical limit was exceeded.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class CreateCrawlerCommand extends $Command<

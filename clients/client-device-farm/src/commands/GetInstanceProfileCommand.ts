@@ -36,14 +36,28 @@ export interface GetInstanceProfileCommandOutput extends GetInstanceProfileResul
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DeviceFarmClient, GetInstanceProfileCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
- * // const { DeviceFarmClient, GetInstanceProfileCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
+ * import { DeviceFarmClient, GetInstanceProfileCommand } from '@aws-sdk/client-device-farm'; // ES Modules import
+ * // const { DeviceFarmClient, GetInstanceProfileCommand } = require('@aws-sdk/client-device-farm'); // CommonJS import
  * const client = new DeviceFarmClient(config);
  * const input = { // GetInstanceProfileRequest
- *   arn: "STRING_VALUE", // required
+ *   arn: 'STRING_VALUE', // required
  * };
  * const command = new GetInstanceProfileCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetInstanceProfileResult
+ *   instanceProfile: { // InstanceProfile
+ *     arn: 'STRING_VALUE',
+ *     packageCleanup: true || false,
+ *     excludeAppPackagesFromCleanup: [ // PackageIds
+ *       'STRING_VALUE',
+ *     ],
+ *     rebootAfterUse: true || false,
+ *     name: 'STRING_VALUE',
+ *     description: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetInstanceProfileCommandInput - {@link GetInstanceProfileCommandInput}
@@ -64,6 +78,8 @@ export interface GetInstanceProfileCommandOutput extends GetInstanceProfileResul
  * @throws {@link ServiceAccountException} (client fault)
  *  <p>There was a problem with the service account.</p>
  *
+ * @throws {@link DeviceFarmServiceException}
+ * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
  */
 export class GetInstanceProfileCommand extends $Command<

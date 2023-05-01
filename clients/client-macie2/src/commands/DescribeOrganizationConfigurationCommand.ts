@@ -44,12 +44,18 @@ export interface DescribeOrganizationConfigurationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Macie2Client, DescribeOrganizationConfigurationCommand } from "@aws-sdk/client-macie2"; // ES Modules import
- * // const { Macie2Client, DescribeOrganizationConfigurationCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
+ * import { Macie2Client, DescribeOrganizationConfigurationCommand } from '@aws-sdk/client-macie2'; // ES Modules import
+ * // const { Macie2Client, DescribeOrganizationConfigurationCommand } = require('@aws-sdk/client-macie2'); // CommonJS import
  * const client = new Macie2Client(config);
  * const input = {};
  * const command = new DescribeOrganizationConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeOrganizationConfigurationResponse
+ *   autoEnable: true || false,
+ *   maxAccountLimitReached: true || false,
+ * };
+ *
  * ```
  *
  * @param DescribeOrganizationConfigurationCommandInput - {@link DescribeOrganizationConfigurationCommandInput}
@@ -79,6 +85,8 @@ export interface DescribeOrganizationConfigurationCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>Provides information about an error that occurred due to a syntax error in a request.</p>
  *
+ * @throws {@link Macie2ServiceException}
+ * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
  */
 export class DescribeOrganizationConfigurationCommand extends $Command<

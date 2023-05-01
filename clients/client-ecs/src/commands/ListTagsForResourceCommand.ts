@@ -36,14 +36,24 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ECSClient, ListTagsForResourceCommand } from "@aws-sdk/client-ecs"; // ES Modules import
- * // const { ECSClient, ListTagsForResourceCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
+ * import { ECSClient, ListTagsForResourceCommand } from '@aws-sdk/client-ecs'; // ES Modules import
+ * // const { ECSClient, ListTagsForResourceCommand } = require('@aws-sdk/client-ecs'); // CommonJS import
  * const client = new ECSClient(config);
  * const input = { // ListTagsForResourceRequest
- *   resourceArn: "STRING_VALUE", // required
+ *   resourceArn: 'STRING_VALUE', // required
  * };
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTagsForResourceResponse
+ *   tags: [ // Tags
+ *     { // Tag
+ *       key: 'STRING_VALUE',
+ *       value: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListTagsForResourceCommandInput - {@link ListTagsForResourceCommandInput}
@@ -67,6 +77,8 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server issue.</p>
  *
+ * @throws {@link ECSServiceException}
+ * <p>Base exception class for all service exceptions from ECS service.</p>
  *
  * @example To list the tags for a cluster.
  * ```javascript

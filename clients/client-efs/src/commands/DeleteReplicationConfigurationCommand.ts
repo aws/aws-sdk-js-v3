@@ -44,14 +44,17 @@ export interface DeleteReplicationConfigurationCommandOutput extends __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EFSClient, DeleteReplicationConfigurationCommand } from "@aws-sdk/client-efs"; // ES Modules import
- * // const { EFSClient, DeleteReplicationConfigurationCommand } = require("@aws-sdk/client-efs"); // CommonJS import
+ * import { EFSClient, DeleteReplicationConfigurationCommand } from '@aws-sdk/client-efs'; // ES Modules import
+ * // const { EFSClient, DeleteReplicationConfigurationCommand } = require('@aws-sdk/client-efs'); // CommonJS import
  * const client = new EFSClient(config);
  * const input = { // DeleteReplicationConfigurationRequest
- *   SourceFileSystemId: "STRING_VALUE", // required
+ *   SourceFileSystemId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteReplicationConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteReplicationConfigurationCommandInput - {@link DeleteReplicationConfigurationCommandInput}
@@ -75,6 +78,8 @@ export interface DeleteReplicationConfigurationCommandOutput extends __MetadataB
  *  <p>Returned if the specified file system does not have a replication
  *             configuration.</p>
  *
+ * @throws {@link EFSServiceException}
+ * <p>Base exception class for all service exceptions from EFS service.</p>
  *
  */
 export class DeleteReplicationConfigurationCommand extends $Command<

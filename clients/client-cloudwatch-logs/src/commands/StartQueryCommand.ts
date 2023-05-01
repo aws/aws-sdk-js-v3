@@ -47,24 +47,29 @@ export interface StartQueryCommandOutput extends StartQueryResponse, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudWatchLogsClient, StartQueryCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
- * // const { CloudWatchLogsClient, StartQueryCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
+ * import { CloudWatchLogsClient, StartQueryCommand } from '@aws-sdk/client-cloudwatch-logs'; // ES Modules import
+ * // const { CloudWatchLogsClient, StartQueryCommand } = require('@aws-sdk/client-cloudwatch-logs'); // CommonJS import
  * const client = new CloudWatchLogsClient(config);
  * const input = { // StartQueryRequest
- *   logGroupName: "STRING_VALUE",
+ *   logGroupName: 'STRING_VALUE',
  *   logGroupNames: [ // LogGroupNames
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   logGroupIdentifiers: [ // LogGroupIdentifiers
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   startTime: Number("long"), // required
- *   endTime: Number("long"), // required
- *   queryString: "STRING_VALUE", // required
- *   limit: Number("int"),
+ *   startTime: Number('long'), // required
+ *   endTime: Number('long'), // required
+ *   queryString: 'STRING_VALUE', // required
+ *   limit: Number('int'),
  * };
  * const command = new StartQueryCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartQueryResponse
+ *   queryId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param StartQueryCommandInput - {@link StartQueryCommandInput}
@@ -92,6 +97,8 @@ export interface StartQueryCommandOutput extends StartQueryResponse, __MetadataB
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service cannot complete the request.</p>
  *
+ * @throws {@link CloudWatchLogsServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
  */
 export class StartQueryCommand extends $Command<

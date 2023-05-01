@@ -36,15 +36,43 @@ export interface GetAppsListCommandOutput extends GetAppsListResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FMSClient, GetAppsListCommand } from "@aws-sdk/client-fms"; // ES Modules import
- * // const { FMSClient, GetAppsListCommand } = require("@aws-sdk/client-fms"); // CommonJS import
+ * import { FMSClient, GetAppsListCommand } from '@aws-sdk/client-fms'; // ES Modules import
+ * // const { FMSClient, GetAppsListCommand } = require('@aws-sdk/client-fms'); // CommonJS import
  * const client = new FMSClient(config);
  * const input = { // GetAppsListRequest
- *   ListId: "STRING_VALUE", // required
+ *   ListId: 'STRING_VALUE', // required
  *   DefaultList: true || false,
  * };
  * const command = new GetAppsListCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetAppsListResponse
+ *   AppsList: { // AppsListData
+ *     ListId: 'STRING_VALUE',
+ *     ListName: 'STRING_VALUE', // required
+ *     ListUpdateToken: 'STRING_VALUE',
+ *     CreateTime: new Date('TIMESTAMP'),
+ *     LastUpdateTime: new Date('TIMESTAMP'),
+ *     AppsList: [ // AppsList // required
+ *       { // App
+ *         AppName: 'STRING_VALUE', // required
+ *         Protocol: 'STRING_VALUE', // required
+ *         Port: Number('long'), // required
+ *       },
+ *     ],
+ *     PreviousAppsList: { // PreviousAppsList
+ *       '<keys>': [
+ *         {
+ *           AppName: 'STRING_VALUE', // required
+ *           Protocol: 'STRING_VALUE', // required
+ *           Port: Number('long'), // required
+ *         },
+ *       ],
+ *     },
+ *   },
+ *   AppsListArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetAppsListCommandInput - {@link GetAppsListCommandInput}
@@ -67,6 +95,8 @@ export interface GetAppsListCommandOutput extends GetAppsListResponse, __Metadat
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link FMSServiceException}
+ * <p>Base exception class for all service exceptions from FMS service.</p>
  *
  */
 export class GetAppsListCommand extends $Command<

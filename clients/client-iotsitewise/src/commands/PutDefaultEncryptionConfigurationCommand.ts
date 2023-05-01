@@ -46,15 +46,28 @@ export interface PutDefaultEncryptionConfigurationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTSiteWiseClient, PutDefaultEncryptionConfigurationCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
- * // const { IoTSiteWiseClient, PutDefaultEncryptionConfigurationCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
+ * import { IoTSiteWiseClient, PutDefaultEncryptionConfigurationCommand } from '@aws-sdk/client-iotsitewise'; // ES Modules import
+ * // const { IoTSiteWiseClient, PutDefaultEncryptionConfigurationCommand } = require('@aws-sdk/client-iotsitewise'); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
  * const input = { // PutDefaultEncryptionConfigurationRequest
- *   encryptionType: "SITEWISE_DEFAULT_ENCRYPTION" || "KMS_BASED_ENCRYPTION", // required
- *   kmsKeyId: "STRING_VALUE",
+ *   encryptionType: 'SITEWISE_DEFAULT_ENCRYPTION' || 'KMS_BASED_ENCRYPTION', // required
+ *   kmsKeyId: 'STRING_VALUE',
  * };
  * const command = new PutDefaultEncryptionConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutDefaultEncryptionConfigurationResponse
+ *   encryptionType: 'SITEWISE_DEFAULT_ENCRYPTION' || 'KMS_BASED_ENCRYPTION', // required
+ *   kmsKeyArn: 'STRING_VALUE',
+ *   configurationStatus: { // ConfigurationStatus
+ *     state: 'ACTIVE' || 'UPDATE_IN_PROGRESS' || 'UPDATE_FAILED', // required
+ *     error: { // ConfigurationErrorDetails
+ *       code: 'VALIDATION_ERROR' || 'INTERNAL_FAILURE', // required
+ *       message: 'STRING_VALUE', // required
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param PutDefaultEncryptionConfigurationCommandInput - {@link PutDefaultEncryptionConfigurationCommandInput}
@@ -86,6 +99,8 @@ export interface PutDefaultEncryptionConfigurationCommandOutput
  *       on.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
  *
+ * @throws {@link IoTSiteWiseServiceException}
+ * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
  */
 export class PutDefaultEncryptionConfigurationCommand extends $Command<

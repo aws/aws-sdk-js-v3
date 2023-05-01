@@ -62,17 +62,20 @@ export interface UpdateOpenIDConnectProviderThumbprintCommandOutput extends __Me
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IAMClient, UpdateOpenIDConnectProviderThumbprintCommand } from "@aws-sdk/client-iam"; // ES Modules import
- * // const { IAMClient, UpdateOpenIDConnectProviderThumbprintCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * import { IAMClient, UpdateOpenIDConnectProviderThumbprintCommand } from '@aws-sdk/client-iam'; // ES Modules import
+ * // const { IAMClient, UpdateOpenIDConnectProviderThumbprintCommand } = require('@aws-sdk/client-iam'); // CommonJS import
  * const client = new IAMClient(config);
  * const input = { // UpdateOpenIDConnectProviderThumbprintRequest
- *   OpenIDConnectProviderArn: "STRING_VALUE", // required
+ *   OpenIDConnectProviderArn: 'STRING_VALUE', // required
  *   ThumbprintList: [ // thumbprintListType // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new UpdateOpenIDConnectProviderThumbprintCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateOpenIDConnectProviderThumbprintCommandInput - {@link UpdateOpenIDConnectProviderThumbprintCommandInput}
@@ -93,6 +96,8 @@ export interface UpdateOpenIDConnectProviderThumbprintCommandOutput extends __Me
  *  <p>The request processing has failed because of an unknown error, exception or
  *       failure.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  */
 export class UpdateOpenIDConnectProviderThumbprintCommand extends $Command<

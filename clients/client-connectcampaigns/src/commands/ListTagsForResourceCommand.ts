@@ -36,14 +36,21 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectCampaignsClient, ListTagsForResourceCommand } from "@aws-sdk/client-connectcampaigns"; // ES Modules import
- * // const { ConnectCampaignsClient, ListTagsForResourceCommand } = require("@aws-sdk/client-connectcampaigns"); // CommonJS import
+ * import { ConnectCampaignsClient, ListTagsForResourceCommand } from '@aws-sdk/client-connectcampaigns'; // ES Modules import
+ * // const { ConnectCampaignsClient, ListTagsForResourceCommand } = require('@aws-sdk/client-connectcampaigns'); // CommonJS import
  * const client = new ConnectCampaignsClient(config);
  * const input = { // ListTagsForResourceRequest
- *   arn: "STRING_VALUE", // required
+ *   arn: 'STRING_VALUE', // required
  * };
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTagsForResourceResponse
+ *   tags: { // TagMap
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param ListTagsForResourceCommandInput - {@link ListTagsForResourceCommandInput}
@@ -67,6 +74,8 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @throws {@link ValidationException} (client fault)
  *  The input fails to satisfy the constraints specified by an AWS service.
  *
+ * @throws {@link ConnectCampaignsServiceException}
+ * <p>Base exception class for all service exceptions from ConnectCampaigns service.</p>
  *
  */
 export class ListTagsForResourceCommand extends $Command<

@@ -36,14 +36,24 @@ export interface GetApiAssociationCommandOutput extends GetApiAssociationRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppSyncClient, GetApiAssociationCommand } from "@aws-sdk/client-appsync"; // ES Modules import
- * // const { AppSyncClient, GetApiAssociationCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
+ * import { AppSyncClient, GetApiAssociationCommand } from '@aws-sdk/client-appsync'; // ES Modules import
+ * // const { AppSyncClient, GetApiAssociationCommand } = require('@aws-sdk/client-appsync'); // CommonJS import
  * const client = new AppSyncClient(config);
  * const input = { // GetApiAssociationRequest
- *   domainName: "STRING_VALUE", // required
+ *   domainName: 'STRING_VALUE', // required
  * };
  * const command = new GetApiAssociationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetApiAssociationResponse
+ *   apiAssociation: { // ApiAssociation
+ *     domainName: 'STRING_VALUE',
+ *     apiId: 'STRING_VALUE',
+ *     associationStatus: 'PROCESSING' || 'FAILED' || 'SUCCESS',
+ *     deploymentDetail: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetApiAssociationCommandInput - {@link GetApiAssociationCommandInput}
@@ -65,6 +75,8 @@ export interface GetApiAssociationCommandOutput extends GetApiAssociationRespons
  * @throws {@link NotFoundException} (client fault)
  *  <p>The resource specified in the request was not found. Check the resource, and then try again.</p>
  *
+ * @throws {@link AppSyncServiceException}
+ * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
  */
 export class GetApiAssociationCommand extends $Command<

@@ -36,17 +36,62 @@ export interface TerminateEnvironmentCommandOutput extends EnvironmentDescriptio
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElasticBeanstalkClient, TerminateEnvironmentCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
- * // const { ElasticBeanstalkClient, TerminateEnvironmentCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
+ * import { ElasticBeanstalkClient, TerminateEnvironmentCommand } from '@aws-sdk/client-elastic-beanstalk'; // ES Modules import
+ * // const { ElasticBeanstalkClient, TerminateEnvironmentCommand } = require('@aws-sdk/client-elastic-beanstalk'); // CommonJS import
  * const client = new ElasticBeanstalkClient(config);
  * const input = { // TerminateEnvironmentMessage
- *   EnvironmentId: "STRING_VALUE",
- *   EnvironmentName: "STRING_VALUE",
+ *   EnvironmentId: 'STRING_VALUE',
+ *   EnvironmentName: 'STRING_VALUE',
  *   TerminateResources: true || false,
  *   ForceTerminate: true || false,
  * };
  * const command = new TerminateEnvironmentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // EnvironmentDescription
+ *   EnvironmentName: 'STRING_VALUE',
+ *   EnvironmentId: 'STRING_VALUE',
+ *   ApplicationName: 'STRING_VALUE',
+ *   VersionLabel: 'STRING_VALUE',
+ *   SolutionStackName: 'STRING_VALUE',
+ *   PlatformArn: 'STRING_VALUE',
+ *   TemplateName: 'STRING_VALUE',
+ *   Description: 'STRING_VALUE',
+ *   EndpointURL: 'STRING_VALUE',
+ *   CNAME: 'STRING_VALUE',
+ *   DateCreated: new Date('TIMESTAMP'),
+ *   DateUpdated: new Date('TIMESTAMP'),
+ *   Status: 'Aborting' || 'Launching' || 'Updating' || 'LinkingFrom' || 'LinkingTo' || 'Ready' || 'Terminating' || 'Terminated',
+ *   AbortableOperationInProgress: true || false,
+ *   Health: 'Green' || 'Yellow' || 'Red' || 'Grey',
+ *   HealthStatus: 'NoData' || 'Unknown' || 'Pending' || 'Ok' || 'Info' || 'Warning' || 'Degraded' || 'Severe' || 'Suspended',
+ *   Resources: { // EnvironmentResourcesDescription
+ *     LoadBalancer: { // LoadBalancerDescription
+ *       LoadBalancerName: 'STRING_VALUE',
+ *       Domain: 'STRING_VALUE',
+ *       Listeners: [ // LoadBalancerListenersDescription
+ *         { // Listener
+ *           Protocol: 'STRING_VALUE',
+ *           Port: Number('int'),
+ *         },
+ *       ],
+ *     },
+ *   },
+ *   Tier: { // EnvironmentTier
+ *     Name: 'STRING_VALUE',
+ *     Type: 'STRING_VALUE',
+ *     Version: 'STRING_VALUE',
+ *   },
+ *   EnvironmentLinks: [ // EnvironmentLinks
+ *     { // EnvironmentLink
+ *       LinkName: 'STRING_VALUE',
+ *       EnvironmentName: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   EnvironmentArn: 'STRING_VALUE',
+ *   OperationsRole: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param TerminateEnvironmentCommandInput - {@link TerminateEnvironmentCommandInput}
@@ -59,6 +104,8 @@ export interface TerminateEnvironmentCommandOutput extends EnvironmentDescriptio
  *  <p>The specified account does not have sufficient privileges for one or more AWS
  *       services.</p>
  *
+ * @throws {@link ElasticBeanstalkServiceException}
+ * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
  * @example To terminate an environment
  * ```javascript

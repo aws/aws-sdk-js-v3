@@ -53,21 +53,24 @@ export interface PutRawMessageContentCommandOutput extends PutRawMessageContentR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkMailMessageFlowClient, PutRawMessageContentCommand } from "@aws-sdk/client-workmailmessageflow"; // ES Modules import
- * // const { WorkMailMessageFlowClient, PutRawMessageContentCommand } = require("@aws-sdk/client-workmailmessageflow"); // CommonJS import
+ * import { WorkMailMessageFlowClient, PutRawMessageContentCommand } from '@aws-sdk/client-workmailmessageflow'; // ES Modules import
+ * // const { WorkMailMessageFlowClient, PutRawMessageContentCommand } = require('@aws-sdk/client-workmailmessageflow'); // CommonJS import
  * const client = new WorkMailMessageFlowClient(config);
  * const input = { // PutRawMessageContentRequest
- *   messageId: "STRING_VALUE", // required
+ *   messageId: 'STRING_VALUE', // required
  *   content: { // RawMessageContent
  *     s3Reference: { // S3Reference
- *       bucket: "STRING_VALUE", // required
- *       key: "STRING_VALUE", // required
- *       objectVersion: "STRING_VALUE",
+ *       bucket: 'STRING_VALUE', // required
+ *       key: 'STRING_VALUE', // required
+ *       objectVersion: 'STRING_VALUE',
  *     },
  *   },
  * };
  * const command = new PutRawMessageContentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutRawMessageContentCommandInput - {@link PutRawMessageContentCommandInput}
@@ -105,6 +108,8 @@ export interface PutRawMessageContentCommandOutput extends PutRawMessageContentR
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The requested email message is not found.</p>
  *
+ * @throws {@link WorkMailMessageFlowServiceException}
+ * <p>Base exception class for all service exceptions from WorkMailMessageFlow service.</p>
  *
  */
 export class PutRawMessageContentCommand extends $Command<

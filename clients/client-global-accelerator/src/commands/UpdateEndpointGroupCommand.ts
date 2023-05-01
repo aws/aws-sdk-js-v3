@@ -40,33 +40,62 @@ export interface UpdateEndpointGroupCommandOutput extends UpdateEndpointGroupRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlobalAcceleratorClient, UpdateEndpointGroupCommand } from "@aws-sdk/client-global-accelerator"; // ES Modules import
- * // const { GlobalAcceleratorClient, UpdateEndpointGroupCommand } = require("@aws-sdk/client-global-accelerator"); // CommonJS import
+ * import { GlobalAcceleratorClient, UpdateEndpointGroupCommand } from '@aws-sdk/client-global-accelerator'; // ES Modules import
+ * // const { GlobalAcceleratorClient, UpdateEndpointGroupCommand } = require('@aws-sdk/client-global-accelerator'); // CommonJS import
  * const client = new GlobalAcceleratorClient(config);
  * const input = { // UpdateEndpointGroupRequest
- *   EndpointGroupArn: "STRING_VALUE", // required
+ *   EndpointGroupArn: 'STRING_VALUE', // required
  *   EndpointConfigurations: [ // EndpointConfigurations
  *     { // EndpointConfiguration
- *       EndpointId: "STRING_VALUE",
- *       Weight: Number("int"),
+ *       EndpointId: 'STRING_VALUE',
+ *       Weight: Number('int'),
  *       ClientIPPreservationEnabled: true || false,
  *     },
  *   ],
- *   TrafficDialPercentage: Number("float"),
- *   HealthCheckPort: Number("int"),
- *   HealthCheckProtocol: "TCP" || "HTTP" || "HTTPS",
- *   HealthCheckPath: "STRING_VALUE",
- *   HealthCheckIntervalSeconds: Number("int"),
- *   ThresholdCount: Number("int"),
+ *   TrafficDialPercentage: Number('float'),
+ *   HealthCheckPort: Number('int'),
+ *   HealthCheckProtocol: 'TCP' || 'HTTP' || 'HTTPS',
+ *   HealthCheckPath: 'STRING_VALUE',
+ *   HealthCheckIntervalSeconds: Number('int'),
+ *   ThresholdCount: Number('int'),
  *   PortOverrides: [ // PortOverrides
  *     { // PortOverride
- *       ListenerPort: Number("int"),
- *       EndpointPort: Number("int"),
+ *       ListenerPort: Number('int'),
+ *       EndpointPort: Number('int'),
  *     },
  *   ],
  * };
  * const command = new UpdateEndpointGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateEndpointGroupResponse
+ *   EndpointGroup: { // EndpointGroup
+ *     EndpointGroupArn: 'STRING_VALUE',
+ *     EndpointGroupRegion: 'STRING_VALUE',
+ *     EndpointDescriptions: [ // EndpointDescriptions
+ *       { // EndpointDescription
+ *         EndpointId: 'STRING_VALUE',
+ *         Weight: Number('int'),
+ *         HealthState: 'INITIAL' || 'HEALTHY' || 'UNHEALTHY',
+ *         HealthReason: 'STRING_VALUE',
+ *         ClientIPPreservationEnabled: true || false,
+ *       },
+ *     ],
+ *     TrafficDialPercentage: Number('float'),
+ *     HealthCheckPort: Number('int'),
+ *     HealthCheckProtocol: 'TCP' || 'HTTP' || 'HTTPS',
+ *     HealthCheckPath: 'STRING_VALUE',
+ *     HealthCheckIntervalSeconds: Number('int'),
+ *     ThresholdCount: Number('int'),
+ *     PortOverrides: [ // PortOverrides
+ *       { // PortOverride
+ *         ListenerPort: Number('int'),
+ *         EndpointPort: Number('int'),
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateEndpointGroupCommandInput - {@link UpdateEndpointGroupCommandInput}
@@ -90,6 +119,8 @@ export interface UpdateEndpointGroupCommandOutput extends UpdateEndpointGroupRes
  * @throws {@link LimitExceededException} (client fault)
  *  <p>Processing your request would cause you to exceed an Global Accelerator limit.</p>
  *
+ * @throws {@link GlobalAcceleratorServiceException}
+ * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
  */
 export class UpdateEndpointGroupCommand extends $Command<

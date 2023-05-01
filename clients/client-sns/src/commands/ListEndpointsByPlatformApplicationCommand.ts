@@ -53,15 +53,28 @@ export interface ListEndpointsByPlatformApplicationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SNSClient, ListEndpointsByPlatformApplicationCommand } from "@aws-sdk/client-sns"; // ES Modules import
- * // const { SNSClient, ListEndpointsByPlatformApplicationCommand } = require("@aws-sdk/client-sns"); // CommonJS import
+ * import { SNSClient, ListEndpointsByPlatformApplicationCommand } from '@aws-sdk/client-sns'; // ES Modules import
+ * // const { SNSClient, ListEndpointsByPlatformApplicationCommand } = require('@aws-sdk/client-sns'); // CommonJS import
  * const client = new SNSClient(config);
  * const input = { // ListEndpointsByPlatformApplicationInput
- *   PlatformApplicationArn: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
+ *   PlatformApplicationArn: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListEndpointsByPlatformApplicationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListEndpointsByPlatformApplicationResponse
+ *   Endpoints: [ // ListOfEndpoints
+ *     { // Endpoint
+ *       EndpointArn: 'STRING_VALUE',
+ *       Attributes: { // MapStringToString
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListEndpointsByPlatformApplicationCommandInput - {@link ListEndpointsByPlatformApplicationCommandInput}
@@ -83,6 +96,8 @@ export interface ListEndpointsByPlatformApplicationCommandOutput
  * @throws {@link NotFoundException} (client fault)
  *  <p>Indicates that the requested resource does not exist.</p>
  *
+ * @throws {@link SNSServiceException}
+ * <p>Base exception class for all service exceptions from SNS service.</p>
  *
  */
 export class ListEndpointsByPlatformApplicationCommand extends $Command<

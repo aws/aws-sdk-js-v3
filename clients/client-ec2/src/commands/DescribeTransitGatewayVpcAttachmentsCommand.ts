@@ -45,27 +45,56 @@ export interface DescribeTransitGatewayVpcAttachmentsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, DescribeTransitGatewayVpcAttachmentsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, DescribeTransitGatewayVpcAttachmentsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, DescribeTransitGatewayVpcAttachmentsCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, DescribeTransitGatewayVpcAttachmentsCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // DescribeTransitGatewayVpcAttachmentsRequest
  *   TransitGatewayAttachmentIds: [ // TransitGatewayAttachmentIdStringList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   Filters: [ // FilterList
  *     { // Filter
- *       Name: "STRING_VALUE",
+ *       Name: 'STRING_VALUE',
  *       Values: [ // ValueStringList
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  *   DryRun: true || false,
  * };
  * const command = new DescribeTransitGatewayVpcAttachmentsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeTransitGatewayVpcAttachmentsResult
+ *   TransitGatewayVpcAttachments: [ // TransitGatewayVpcAttachmentList
+ *     { // TransitGatewayVpcAttachment
+ *       TransitGatewayAttachmentId: 'STRING_VALUE',
+ *       TransitGatewayId: 'STRING_VALUE',
+ *       VpcId: 'STRING_VALUE',
+ *       VpcOwnerId: 'STRING_VALUE',
+ *       State: 'initiating' || 'initiatingRequest' || 'pendingAcceptance' || 'rollingBack' || 'pending' || 'available' || 'modifying' || 'deleting' || 'deleted' || 'failed' || 'rejected' || 'rejecting' || 'failing',
+ *       SubnetIds: [ // ValueStringList
+ *         'STRING_VALUE',
+ *       ],
+ *       CreationTime: new Date('TIMESTAMP'),
+ *       Options: { // TransitGatewayVpcAttachmentOptions
+ *         DnsSupport: 'enable' || 'disable',
+ *         Ipv6Support: 'enable' || 'disable',
+ *         ApplianceModeSupport: 'enable' || 'disable',
+ *       },
+ *       Tags: [ // TagList
+ *         { // Tag
+ *           Key: 'STRING_VALUE',
+ *           Value: 'STRING_VALUE',
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeTransitGatewayVpcAttachmentsCommandInput - {@link DescribeTransitGatewayVpcAttachmentsCommandInput}
@@ -74,6 +103,8 @@ export interface DescribeTransitGatewayVpcAttachmentsCommandOutput
  * @see {@link DescribeTransitGatewayVpcAttachmentsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class DescribeTransitGatewayVpcAttachmentsCommand extends $Command<

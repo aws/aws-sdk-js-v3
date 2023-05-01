@@ -84,27 +84,58 @@ export interface CreateFileSystemCommandOutput extends FileSystemDescription, __
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EFSClient, CreateFileSystemCommand } from "@aws-sdk/client-efs"; // ES Modules import
- * // const { EFSClient, CreateFileSystemCommand } = require("@aws-sdk/client-efs"); // CommonJS import
+ * import { EFSClient, CreateFileSystemCommand } from '@aws-sdk/client-efs'; // ES Modules import
+ * // const { EFSClient, CreateFileSystemCommand } = require('@aws-sdk/client-efs'); // CommonJS import
  * const client = new EFSClient(config);
  * const input = { // CreateFileSystemRequest
- *   CreationToken: "STRING_VALUE", // required
- *   PerformanceMode: "generalPurpose" || "maxIO",
+ *   CreationToken: 'STRING_VALUE', // required
+ *   PerformanceMode: 'generalPurpose' || 'maxIO',
  *   Encrypted: true || false,
- *   KmsKeyId: "STRING_VALUE",
- *   ThroughputMode: "bursting" || "provisioned" || "elastic",
- *   ProvisionedThroughputInMibps: Number("double"),
- *   AvailabilityZoneName: "STRING_VALUE",
+ *   KmsKeyId: 'STRING_VALUE',
+ *   ThroughputMode: 'bursting' || 'provisioned' || 'elastic',
+ *   ProvisionedThroughputInMibps: Number('double'),
+ *   AvailabilityZoneName: 'STRING_VALUE',
  *   Backup: true || false,
  *   Tags: [ // Tags
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreateFileSystemCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // FileSystemDescription
+ *   OwnerId: 'STRING_VALUE', // required
+ *   CreationToken: 'STRING_VALUE', // required
+ *   FileSystemId: 'STRING_VALUE', // required
+ *   FileSystemArn: 'STRING_VALUE',
+ *   CreationTime: new Date('TIMESTAMP'), // required
+ *   LifeCycleState: 'creating' || 'available' || 'updating' || 'deleting' || 'deleted' || 'error', // required
+ *   Name: 'STRING_VALUE',
+ *   NumberOfMountTargets: Number('int'), // required
+ *   SizeInBytes: { // FileSystemSize
+ *     Value: Number('long'), // required
+ *     Timestamp: new Date('TIMESTAMP'),
+ *     ValueInIA: Number('long'),
+ *     ValueInStandard: Number('long'),
+ *   },
+ *   PerformanceMode: 'generalPurpose' || 'maxIO', // required
+ *   Encrypted: true || false,
+ *   KmsKeyId: 'STRING_VALUE',
+ *   ThroughputMode: 'bursting' || 'provisioned' || 'elastic',
+ *   ProvisionedThroughputInMibps: Number('double'),
+ *   AvailabilityZoneName: 'STRING_VALUE',
+ *   AvailabilityZoneId: 'STRING_VALUE',
+ *   Tags: [ // Tags // required
+ *     { // Tag
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param CreateFileSystemCommandInput - {@link CreateFileSystemCommandInput}
@@ -142,6 +173,8 @@ export interface CreateFileSystemCommandOutput extends FileSystemDescription, __
  * @throws {@link UnsupportedAvailabilityZone} (client fault)
  *  <p>Returned if the requested Amazon EFS functionality is not available in the specified Availability Zone.</p>
  *
+ * @throws {@link EFSServiceException}
+ * <p>Base exception class for all service exceptions from EFS service.</p>
  *
  * @example To create a new file system
  * ```javascript

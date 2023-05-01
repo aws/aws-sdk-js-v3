@@ -39,15 +39,18 @@ export interface DisassociateTeamMemberCommandOutput extends DisassociateTeamMem
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeStarClient, DisassociateTeamMemberCommand } from "@aws-sdk/client-codestar"; // ES Modules import
- * // const { CodeStarClient, DisassociateTeamMemberCommand } = require("@aws-sdk/client-codestar"); // CommonJS import
+ * import { CodeStarClient, DisassociateTeamMemberCommand } from '@aws-sdk/client-codestar'; // ES Modules import
+ * // const { CodeStarClient, DisassociateTeamMemberCommand } = require('@aws-sdk/client-codestar'); // CommonJS import
  * const client = new CodeStarClient(config);
  * const input = { // DisassociateTeamMemberRequest
- *   projectId: "STRING_VALUE", // required
- *   userArn: "STRING_VALUE", // required
+ *   projectId: 'STRING_VALUE', // required
+ *   userArn: 'STRING_VALUE', // required
  * };
  * const command = new DisassociateTeamMemberCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DisassociateTeamMemberCommandInput - {@link DisassociateTeamMemberCommandInput}
@@ -69,6 +72,8 @@ export interface DisassociateTeamMemberCommandOutput extends DisassociateTeamMem
  * @throws {@link ValidationException} (client fault)
  *  <p>The specified input is either not valid, or it could not be validated.</p>
  *
+ * @throws {@link CodeStarServiceException}
+ * <p>Base exception class for all service exceptions from CodeStar service.</p>
  *
  */
 export class DisassociateTeamMemberCommand extends $Command<

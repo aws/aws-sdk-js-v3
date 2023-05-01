@@ -38,15 +38,21 @@ export interface StartFlywheelIterationCommandOutput extends StartFlywheelIterat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ComprehendClient, StartFlywheelIterationCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
- * // const { ComprehendClient, StartFlywheelIterationCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
+ * import { ComprehendClient, StartFlywheelIterationCommand } from '@aws-sdk/client-comprehend'; // ES Modules import
+ * // const { ComprehendClient, StartFlywheelIterationCommand } = require('@aws-sdk/client-comprehend'); // CommonJS import
  * const client = new ComprehendClient(config);
  * const input = { // StartFlywheelIterationRequest
- *   FlywheelArn: "STRING_VALUE", // required
- *   ClientRequestToken: "STRING_VALUE",
+ *   FlywheelArn: 'STRING_VALUE', // required
+ *   ClientRequestToken: 'STRING_VALUE',
  * };
  * const command = new StartFlywheelIterationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartFlywheelIterationResponse
+ *   FlywheelArn: 'STRING_VALUE',
+ *   FlywheelIterationId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param StartFlywheelIterationCommandInput - {@link StartFlywheelIterationCommandInput}
@@ -71,6 +77,8 @@ export interface StartFlywheelIterationCommandOutput extends StartFlywheelIterat
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>The number of requests exceeds the limit. Resubmit your request later.</p>
  *
+ * @throws {@link ComprehendServiceException}
+ * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
  */
 export class StartFlywheelIterationCommand extends $Command<

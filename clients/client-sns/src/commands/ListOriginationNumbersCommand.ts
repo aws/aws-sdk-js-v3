@@ -38,15 +38,32 @@ export interface ListOriginationNumbersCommandOutput extends ListOriginationNumb
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SNSClient, ListOriginationNumbersCommand } from "@aws-sdk/client-sns"; // ES Modules import
- * // const { SNSClient, ListOriginationNumbersCommand } = require("@aws-sdk/client-sns"); // CommonJS import
+ * import { SNSClient, ListOriginationNumbersCommand } from '@aws-sdk/client-sns'; // ES Modules import
+ * // const { SNSClient, ListOriginationNumbersCommand } = require('@aws-sdk/client-sns'); // CommonJS import
  * const client = new SNSClient(config);
  * const input = { // ListOriginationNumbersRequest
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListOriginationNumbersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListOriginationNumbersResult
+ *   NextToken: 'STRING_VALUE',
+ *   PhoneNumbers: [ // PhoneNumberInformationList
+ *     { // PhoneNumberInformation
+ *       CreatedAt: new Date('TIMESTAMP'),
+ *       PhoneNumber: 'STRING_VALUE',
+ *       Status: 'STRING_VALUE',
+ *       Iso2CountryCode: 'STRING_VALUE',
+ *       RouteType: 'Transactional' || 'Promotional' || 'Premium',
+ *       NumberCapabilities: [ // NumberCapabilityList
+ *         'SMS' || 'MMS' || 'VOICE',
+ *       ],
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListOriginationNumbersCommandInput - {@link ListOriginationNumbersCommandInput}
@@ -71,6 +88,8 @@ export interface ListOriginationNumbersCommandOutput extends ListOriginationNumb
  * @throws {@link ValidationException} (client fault)
  *  <p>Indicates that a parameter in the request is invalid.</p>
  *
+ * @throws {@link SNSServiceException}
+ * <p>Base exception class for all service exceptions from SNS service.</p>
  *
  */
 export class ListOriginationNumbersCommand extends $Command<

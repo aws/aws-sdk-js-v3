@@ -40,15 +40,20 @@ export interface DetachVolumeCommandOutput extends DetachVolumeOutput, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { StorageGatewayClient, DetachVolumeCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
- * // const { StorageGatewayClient, DetachVolumeCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
+ * import { StorageGatewayClient, DetachVolumeCommand } from '@aws-sdk/client-storage-gateway'; // ES Modules import
+ * // const { StorageGatewayClient, DetachVolumeCommand } = require('@aws-sdk/client-storage-gateway'); // CommonJS import
  * const client = new StorageGatewayClient(config);
  * const input = { // DetachVolumeInput
- *   VolumeARN: "STRING_VALUE", // required
+ *   VolumeARN: 'STRING_VALUE', // required
  *   ForceDetach: true || false,
  * };
  * const command = new DetachVolumeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DetachVolumeOutput
+ *   VolumeARN: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DetachVolumeCommandInput - {@link DetachVolumeCommandInput}
@@ -65,6 +70,8 @@ export interface DetachVolumeCommandOutput extends DetachVolumeOutput, __Metadat
  *  <p>An exception occurred because an invalid gateway request was issued to the service. For
  *          more information, see the error and message fields.</p>
  *
+ * @throws {@link StorageGatewayServiceException}
+ * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
  */
 export class DetachVolumeCommand extends $Command<

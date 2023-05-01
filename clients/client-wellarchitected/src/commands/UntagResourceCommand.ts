@@ -43,17 +43,20 @@ export interface UntagResourceCommandOutput extends UntagResourceOutput, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WellArchitectedClient, UntagResourceCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
- * // const { WellArchitectedClient, UntagResourceCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
+ * import { WellArchitectedClient, UntagResourceCommand } from '@aws-sdk/client-wellarchitected'; // ES Modules import
+ * // const { WellArchitectedClient, UntagResourceCommand } = require('@aws-sdk/client-wellarchitected'); // CommonJS import
  * const client = new WellArchitectedClient(config);
  * const input = { // UntagResourceInput
- *   WorkloadArn: "STRING_VALUE", // required
+ *   WorkloadArn: 'STRING_VALUE', // required
  *   TagKeys: [ // TagKeyList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new UntagResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UntagResourceCommandInput - {@link UntagResourceCommandInput}
@@ -68,6 +71,8 @@ export interface UntagResourceCommandOutput extends UntagResourceOutput, __Metad
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The requested resource was not found.</p>
  *
+ * @throws {@link WellArchitectedServiceException}
+ * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
  */
 export class UntagResourceCommand extends $Command<

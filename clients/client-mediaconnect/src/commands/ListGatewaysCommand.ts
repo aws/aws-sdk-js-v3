@@ -36,15 +36,27 @@ export interface ListGatewaysCommandOutput extends ListGatewaysResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MediaConnectClient, ListGatewaysCommand } from "@aws-sdk/client-mediaconnect"; // ES Modules import
- * // const { MediaConnectClient, ListGatewaysCommand } = require("@aws-sdk/client-mediaconnect"); // CommonJS import
+ * import { MediaConnectClient, ListGatewaysCommand } from '@aws-sdk/client-mediaconnect'; // ES Modules import
+ * // const { MediaConnectClient, ListGatewaysCommand } = require('@aws-sdk/client-mediaconnect'); // CommonJS import
  * const client = new MediaConnectClient(config);
  * const input = { // ListGatewaysRequest
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListGatewaysCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListGatewaysResponse
+ *   Gateways: [ // __listOfListedGateway
+ *     { // ListedGateway
+ *       GatewayArn: 'STRING_VALUE', // required
+ *       GatewayState: 'CREATING' || 'ACTIVE' || 'UPDATING' || 'ERROR' || 'DELETING' || 'DELETED', // required
+ *       Name: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListGatewaysCommandInput - {@link ListGatewaysCommandInput}
@@ -68,6 +80,8 @@ export interface ListGatewaysCommandOutput extends ListGatewaysResponse, __Metad
  * @throws {@link TooManyRequestsException} (client fault)
  *  Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
  *
+ * @throws {@link MediaConnectServiceException}
+ * <p>Base exception class for all service exceptions from MediaConnect service.</p>
  *
  */
 export class ListGatewaysCommand extends $Command<

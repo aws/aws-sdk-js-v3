@@ -45,31 +45,55 @@ export interface CreateExportCommandOutput extends CreateExportResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LexModelsV2Client, CreateExportCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
- * // const { LexModelsV2Client, CreateExportCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
+ * import { LexModelsV2Client, CreateExportCommand } from '@aws-sdk/client-lex-models-v2'; // ES Modules import
+ * // const { LexModelsV2Client, CreateExportCommand } = require('@aws-sdk/client-lex-models-v2'); // CommonJS import
  * const client = new LexModelsV2Client(config);
  * const input = { // CreateExportRequest
  *   resourceSpecification: { // ExportResourceSpecification
  *     botExportSpecification: { // BotExportSpecification
- *       botId: "STRING_VALUE", // required
- *       botVersion: "STRING_VALUE", // required
+ *       botId: 'STRING_VALUE', // required
+ *       botVersion: 'STRING_VALUE', // required
  *     },
  *     botLocaleExportSpecification: { // BotLocaleExportSpecification
- *       botId: "STRING_VALUE", // required
- *       botVersion: "STRING_VALUE", // required
- *       localeId: "STRING_VALUE", // required
+ *       botId: 'STRING_VALUE', // required
+ *       botVersion: 'STRING_VALUE', // required
+ *       localeId: 'STRING_VALUE', // required
  *     },
  *     customVocabularyExportSpecification: { // CustomVocabularyExportSpecification
- *       botId: "STRING_VALUE", // required
- *       botVersion: "STRING_VALUE", // required
- *       localeId: "STRING_VALUE", // required
+ *       botId: 'STRING_VALUE', // required
+ *       botVersion: 'STRING_VALUE', // required
+ *       localeId: 'STRING_VALUE', // required
  *     },
  *   },
- *   fileFormat: "LexJson" || "TSV", // required
- *   filePassword: "STRING_VALUE",
+ *   fileFormat: 'LexJson' || 'TSV', // required
+ *   filePassword: 'STRING_VALUE',
  * };
  * const command = new CreateExportCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateExportResponse
+ *   exportId: 'STRING_VALUE',
+ *   resourceSpecification: { // ExportResourceSpecification
+ *     botExportSpecification: { // BotExportSpecification
+ *       botId: 'STRING_VALUE', // required
+ *       botVersion: 'STRING_VALUE', // required
+ *     },
+ *     botLocaleExportSpecification: { // BotLocaleExportSpecification
+ *       botId: 'STRING_VALUE', // required
+ *       botVersion: 'STRING_VALUE', // required
+ *       localeId: 'STRING_VALUE', // required
+ *     },
+ *     customVocabularyExportSpecification: { // CustomVocabularyExportSpecification
+ *       botId: 'STRING_VALUE', // required
+ *       botVersion: 'STRING_VALUE', // required
+ *       localeId: 'STRING_VALUE', // required
+ *     },
+ *   },
+ *   fileFormat: 'LexJson' || 'TSV',
+ *   exportStatus: 'InProgress' || 'Completed' || 'Failed' || 'Deleting',
+ *   creationDateTime: new Date('TIMESTAMP'),
+ * };
+ *
  * ```
  *
  * @param CreateExportCommandInput - {@link CreateExportCommandInput}
@@ -102,6 +126,8 @@ export interface CreateExportCommandOutput extends CreateExportResponse, __Metad
  *  <p>One of the input parameters in your request isn't valid. Check the
  *          parameters and try your request again.</p>
  *
+ * @throws {@link LexModelsV2ServiceException}
+ * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
  */
 export class CreateExportCommand extends $Command<

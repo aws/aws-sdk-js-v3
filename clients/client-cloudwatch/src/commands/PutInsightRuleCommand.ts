@@ -40,22 +40,25 @@ export interface PutInsightRuleCommandOutput extends PutInsightRuleOutput, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudWatchClient, PutInsightRuleCommand } from "@aws-sdk/client-cloudwatch"; // ES Modules import
- * // const { CloudWatchClient, PutInsightRuleCommand } = require("@aws-sdk/client-cloudwatch"); // CommonJS import
+ * import { CloudWatchClient, PutInsightRuleCommand } from '@aws-sdk/client-cloudwatch'; // ES Modules import
+ * // const { CloudWatchClient, PutInsightRuleCommand } = require('@aws-sdk/client-cloudwatch'); // CommonJS import
  * const client = new CloudWatchClient(config);
  * const input = { // PutInsightRuleInput
- *   RuleName: "STRING_VALUE", // required
- *   RuleState: "STRING_VALUE",
- *   RuleDefinition: "STRING_VALUE", // required
+ *   RuleName: 'STRING_VALUE', // required
+ *   RuleState: 'STRING_VALUE',
+ *   RuleDefinition: 'STRING_VALUE', // required
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new PutInsightRuleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutInsightRuleCommandInput - {@link PutInsightRuleCommandInput}
@@ -73,6 +76,8 @@ export interface PutInsightRuleCommandOutput extends PutInsightRuleOutput, __Met
  * @throws {@link MissingRequiredParameterException} (client fault)
  *  <p>An input parameter that is required is missing.</p>
  *
+ * @throws {@link CloudWatchServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatch service.</p>
  *
  */
 export class PutInsightRuleCommand extends $Command<

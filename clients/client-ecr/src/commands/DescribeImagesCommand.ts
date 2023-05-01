@@ -42,26 +42,57 @@ export interface DescribeImagesCommandOutput extends DescribeImagesResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ECRClient, DescribeImagesCommand } from "@aws-sdk/client-ecr"; // ES Modules import
- * // const { ECRClient, DescribeImagesCommand } = require("@aws-sdk/client-ecr"); // CommonJS import
+ * import { ECRClient, DescribeImagesCommand } from '@aws-sdk/client-ecr'; // ES Modules import
+ * // const { ECRClient, DescribeImagesCommand } = require('@aws-sdk/client-ecr'); // CommonJS import
  * const client = new ECRClient(config);
  * const input = { // DescribeImagesRequest
- *   registryId: "STRING_VALUE",
- *   repositoryName: "STRING_VALUE", // required
+ *   registryId: 'STRING_VALUE',
+ *   repositoryName: 'STRING_VALUE', // required
  *   imageIds: [ // ImageIdentifierList
  *     { // ImageIdentifier
- *       imageDigest: "STRING_VALUE",
- *       imageTag: "STRING_VALUE",
+ *       imageDigest: 'STRING_VALUE',
+ *       imageTag: 'STRING_VALUE',
  *     },
  *   ],
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  *   filter: { // DescribeImagesFilter
- *     tagStatus: "STRING_VALUE",
+ *     tagStatus: 'STRING_VALUE',
  *   },
  * };
  * const command = new DescribeImagesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeImagesResponse
+ *   imageDetails: [ // ImageDetailList
+ *     { // ImageDetail
+ *       registryId: 'STRING_VALUE',
+ *       repositoryName: 'STRING_VALUE',
+ *       imageDigest: 'STRING_VALUE',
+ *       imageTags: [ // ImageTagList
+ *         'STRING_VALUE',
+ *       ],
+ *       imageSizeInBytes: Number('long'),
+ *       imagePushedAt: new Date('TIMESTAMP'),
+ *       imageScanStatus: { // ImageScanStatus
+ *         status: 'STRING_VALUE',
+ *         description: 'STRING_VALUE',
+ *       },
+ *       imageScanFindingsSummary: { // ImageScanFindingsSummary
+ *         imageScanCompletedAt: new Date('TIMESTAMP'),
+ *         vulnerabilitySourceUpdatedAt: new Date('TIMESTAMP'),
+ *         findingSeverityCounts: { // FindingSeverityCounts
+ *           '<keys>': Number('int'),
+ *         },
+ *       },
+ *       imageManifestMediaType: 'STRING_VALUE',
+ *       artifactMediaType: 'STRING_VALUE',
+ *       lastRecordedPullTime: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeImagesCommandInput - {@link DescribeImagesCommandInput}
@@ -84,6 +115,8 @@ export interface DescribeImagesCommandOutput extends DescribeImagesResponse, __M
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server-side issue.</p>
  *
+ * @throws {@link ECRServiceException}
+ * <p>Base exception class for all service exceptions from ECR service.</p>
  *
  */
 export class DescribeImagesCommand extends $Command<

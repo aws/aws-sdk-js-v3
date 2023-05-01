@@ -42,14 +42,28 @@ export interface DescribeLocationObjectStorageCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DataSyncClient, DescribeLocationObjectStorageCommand } from "@aws-sdk/client-datasync"; // ES Modules import
- * // const { DataSyncClient, DescribeLocationObjectStorageCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
+ * import { DataSyncClient, DescribeLocationObjectStorageCommand } from '@aws-sdk/client-datasync'; // ES Modules import
+ * // const { DataSyncClient, DescribeLocationObjectStorageCommand } = require('@aws-sdk/client-datasync'); // CommonJS import
  * const client = new DataSyncClient(config);
  * const input = { // DescribeLocationObjectStorageRequest
- *   LocationArn: "STRING_VALUE", // required
+ *   LocationArn: 'STRING_VALUE', // required
  * };
  * const command = new DescribeLocationObjectStorageCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeLocationObjectStorageResponse
+ *   LocationArn: 'STRING_VALUE',
+ *   LocationUri: 'STRING_VALUE',
+ *   AccessKey: 'STRING_VALUE',
+ *   ServerPort: Number('int'),
+ *   ServerProtocol: 'HTTPS' || 'HTTP',
+ *   AgentArns: [ // AgentArnList
+ *     'STRING_VALUE',
+ *   ],
+ *   CreationTime: new Date('TIMESTAMP'),
+ *   ServerCertificate: 'BLOB_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeLocationObjectStorageCommandInput - {@link DescribeLocationObjectStorageCommandInput}
@@ -65,6 +79,8 @@ export interface DescribeLocationObjectStorageCommandOutput
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception is thrown when the client submits a malformed request.</p>
  *
+ * @throws {@link DataSyncServiceException}
+ * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
  */
 export class DescribeLocationObjectStorageCommand extends $Command<

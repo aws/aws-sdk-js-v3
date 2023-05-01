@@ -36,25 +36,38 @@ export interface PutIntegrationResponseCommandOutput extends IntegrationResponse
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { APIGatewayClient, PutIntegrationResponseCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
- * // const { APIGatewayClient, PutIntegrationResponseCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
+ * import { APIGatewayClient, PutIntegrationResponseCommand } from '@aws-sdk/client-api-gateway'; // ES Modules import
+ * // const { APIGatewayClient, PutIntegrationResponseCommand } = require('@aws-sdk/client-api-gateway'); // CommonJS import
  * const client = new APIGatewayClient(config);
  * const input = { // PutIntegrationResponseRequest
- *   restApiId: "STRING_VALUE", // required
- *   resourceId: "STRING_VALUE", // required
- *   httpMethod: "STRING_VALUE", // required
- *   statusCode: "STRING_VALUE", // required
- *   selectionPattern: "STRING_VALUE",
+ *   restApiId: 'STRING_VALUE', // required
+ *   resourceId: 'STRING_VALUE', // required
+ *   httpMethod: 'STRING_VALUE', // required
+ *   statusCode: 'STRING_VALUE', // required
+ *   selectionPattern: 'STRING_VALUE',
  *   responseParameters: { // MapOfStringToString
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  *   responseTemplates: {
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
- *   contentHandling: "CONVERT_TO_BINARY" || "CONVERT_TO_TEXT",
+ *   contentHandling: 'CONVERT_TO_BINARY' || 'CONVERT_TO_TEXT',
  * };
  * const command = new PutIntegrationResponseCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // IntegrationResponse
+ *   statusCode: 'STRING_VALUE',
+ *   selectionPattern: 'STRING_VALUE',
+ *   responseParameters: { // MapOfStringToString
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ *   responseTemplates: {
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ *   contentHandling: 'CONVERT_TO_BINARY' || 'CONVERT_TO_TEXT',
+ * };
+ *
  * ```
  *
  * @param PutIntegrationResponseCommandInput - {@link PutIntegrationResponseCommandInput}
@@ -81,6 +94,8 @@ export interface PutIntegrationResponseCommandOutput extends IntegrationResponse
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The request is denied because the caller has insufficient permissions.</p>
  *
+ * @throws {@link APIGatewayServiceException}
+ * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
  */
 export class PutIntegrationResponseCommand extends $Command<

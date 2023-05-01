@@ -50,15 +50,18 @@ export interface DeleteAutoScalingGroupCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AutoScalingClient, DeleteAutoScalingGroupCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
- * // const { AutoScalingClient, DeleteAutoScalingGroupCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
+ * import { AutoScalingClient, DeleteAutoScalingGroupCommand } from '@aws-sdk/client-auto-scaling'; // ES Modules import
+ * // const { AutoScalingClient, DeleteAutoScalingGroupCommand } = require('@aws-sdk/client-auto-scaling'); // CommonJS import
  * const client = new AutoScalingClient(config);
  * const input = { // DeleteAutoScalingGroupType
- *   AutoScalingGroupName: "STRING_VALUE", // required
+ *   AutoScalingGroupName: 'STRING_VALUE', // required
  *   ForceDelete: true || false,
  * };
  * const command = new DeleteAutoScalingGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteAutoScalingGroupCommandInput - {@link DeleteAutoScalingGroupCommandInput}
@@ -78,6 +81,8 @@ export interface DeleteAutoScalingGroupCommandOutput extends __MetadataBearer {}
  *  <p>The operation can't be performed because there are scaling activities in
  *             progress.</p>
  *
+ * @throws {@link AutoScalingServiceException}
+ * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
  * @example To delete an Auto Scaling group
  * ```javascript

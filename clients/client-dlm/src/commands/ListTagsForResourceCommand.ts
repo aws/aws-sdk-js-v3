@@ -36,14 +36,21 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DLMClient, ListTagsForResourceCommand } from "@aws-sdk/client-dlm"; // ES Modules import
- * // const { DLMClient, ListTagsForResourceCommand } = require("@aws-sdk/client-dlm"); // CommonJS import
+ * import { DLMClient, ListTagsForResourceCommand } from '@aws-sdk/client-dlm'; // ES Modules import
+ * // const { DLMClient, ListTagsForResourceCommand } = require('@aws-sdk/client-dlm'); // CommonJS import
  * const client = new DLMClient(config);
  * const input = { // ListTagsForResourceRequest
- *   ResourceArn: "STRING_VALUE", // required
+ *   ResourceArn: 'STRING_VALUE', // required
  * };
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTagsForResourceResponse
+ *   Tags: { // TagMap
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param ListTagsForResourceCommandInput - {@link ListTagsForResourceCommandInput}
@@ -62,6 +69,8 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>A requested resource was not found.</p>
  *
+ * @throws {@link DLMServiceException}
+ * <p>Base exception class for all service exceptions from DLM service.</p>
  *
  */
 export class ListTagsForResourceCommand extends $Command<

@@ -36,15 +36,32 @@ export interface ListUserSettingsCommandOutput extends ListUserSettingsResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkSpacesWebClient, ListUserSettingsCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
- * // const { WorkSpacesWebClient, ListUserSettingsCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
+ * import { WorkSpacesWebClient, ListUserSettingsCommand } from '@aws-sdk/client-workspaces-web'; // ES Modules import
+ * // const { WorkSpacesWebClient, ListUserSettingsCommand } = require('@aws-sdk/client-workspaces-web'); // CommonJS import
  * const client = new WorkSpacesWebClient(config);
  * const input = { // ListUserSettingsRequest
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new ListUserSettingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListUserSettingsResponse
+ *   userSettings: [ // UserSettingsList
+ *     { // UserSettingsSummary
+ *       userSettingsArn: 'STRING_VALUE',
+ *       copyAllowed: 'STRING_VALUE',
+ *       pasteAllowed: 'STRING_VALUE',
+ *       downloadAllowed: 'STRING_VALUE',
+ *       uploadAllowed: 'STRING_VALUE',
+ *       printAllowed: 'STRING_VALUE',
+ *       disconnectTimeoutInMinutes: Number('int'),
+ *       idleDisconnectTimeoutInMinutes: Number('int'),
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListUserSettingsCommandInput - {@link ListUserSettingsCommandInput}
@@ -65,6 +82,8 @@ export interface ListUserSettingsCommandOutput extends ListUserSettingsResponse,
  * @throws {@link ValidationException} (client fault)
  *  <p>There is a validation error.</p>
  *
+ * @throws {@link WorkSpacesWebServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
  */
 export class ListUserSettingsCommand extends $Command<

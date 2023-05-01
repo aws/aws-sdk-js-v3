@@ -36,16 +36,42 @@ export interface DescribeInventoryDeletionsCommandOutput extends DescribeInvento
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMClient, DescribeInventoryDeletionsCommand } from "@aws-sdk/client-ssm"; // ES Modules import
- * // const { SSMClient, DescribeInventoryDeletionsCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * import { SSMClient, DescribeInventoryDeletionsCommand } from '@aws-sdk/client-ssm'; // ES Modules import
+ * // const { SSMClient, DescribeInventoryDeletionsCommand } = require('@aws-sdk/client-ssm'); // CommonJS import
  * const client = new SSMClient(config);
  * const input = { // DescribeInventoryDeletionsRequest
- *   DeletionId: "STRING_VALUE",
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   DeletionId: 'STRING_VALUE',
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new DescribeInventoryDeletionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeInventoryDeletionsResult
+ *   InventoryDeletions: [ // InventoryDeletionsList
+ *     { // InventoryDeletionStatusItem
+ *       DeletionId: 'STRING_VALUE',
+ *       TypeName: 'STRING_VALUE',
+ *       DeletionStartTime: new Date('TIMESTAMP'),
+ *       LastStatus: 'InProgress' || 'Complete',
+ *       LastStatusMessage: 'STRING_VALUE',
+ *       DeletionSummary: { // InventoryDeletionSummary
+ *         TotalCount: Number('int'),
+ *         RemainingCount: Number('int'),
+ *         SummaryItems: [ // InventoryDeletionSummaryItems
+ *           { // InventoryDeletionSummaryItem
+ *             Version: 'STRING_VALUE',
+ *             Count: Number('int'),
+ *             RemainingCount: Number('int'),
+ *           },
+ *         ],
+ *       },
+ *       LastStatusUpdateTime: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeInventoryDeletionsCommandInput - {@link DescribeInventoryDeletionsCommandInput}
@@ -64,6 +90,8 @@ export interface DescribeInventoryDeletionsCommandOutput extends DescribeInvento
  * @throws {@link InvalidNextToken} (client fault)
  *  <p>The specified token isn't valid.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class DescribeInventoryDeletionsCommand extends $Command<

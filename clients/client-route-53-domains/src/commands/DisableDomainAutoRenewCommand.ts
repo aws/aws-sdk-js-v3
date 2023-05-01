@@ -37,14 +37,17 @@ export interface DisableDomainAutoRenewCommandOutput extends DisableDomainAutoRe
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Route53DomainsClient, DisableDomainAutoRenewCommand } from "@aws-sdk/client-route-53-domains"; // ES Modules import
- * // const { Route53DomainsClient, DisableDomainAutoRenewCommand } = require("@aws-sdk/client-route-53-domains"); // CommonJS import
+ * import { Route53DomainsClient, DisableDomainAutoRenewCommand } from '@aws-sdk/client-route-53-domains'; // ES Modules import
+ * // const { Route53DomainsClient, DisableDomainAutoRenewCommand } = require('@aws-sdk/client-route-53-domains'); // CommonJS import
  * const client = new Route53DomainsClient(config);
  * const input = { // DisableDomainAutoRenewRequest
- *   DomainName: "STRING_VALUE", // required
+ *   DomainName: 'STRING_VALUE', // required
  * };
  * const command = new DisableDomainAutoRenewCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DisableDomainAutoRenewCommandInput - {@link DisableDomainAutoRenewCommandInput}
@@ -62,6 +65,8 @@ export interface DisableDomainAutoRenewCommandOutput extends DisableDomainAutoRe
  * @throws {@link UnsupportedTLD} (client fault)
  *  <p>Amazon Route 53 does not support this top-level domain (TLD).</p>
  *
+ * @throws {@link Route53DomainsServiceException}
+ * <p>Base exception class for all service exceptions from Route53Domains service.</p>
  *
  */
 export class DisableDomainAutoRenewCommand extends $Command<

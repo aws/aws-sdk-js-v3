@@ -45,20 +45,20 @@ export interface DescribeVerifiedAccessInstanceLoggingConfigurationsCommandOutpu
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, DescribeVerifiedAccessInstanceLoggingConfigurationsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, DescribeVerifiedAccessInstanceLoggingConfigurationsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, DescribeVerifiedAccessInstanceLoggingConfigurationsCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, DescribeVerifiedAccessInstanceLoggingConfigurationsCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // DescribeVerifiedAccessInstanceLoggingConfigurationsRequest
  *   VerifiedAccessInstanceIds: [ // VerifiedAccessInstanceIdList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  *   Filters: [ // FilterList
  *     { // Filter
- *       Name: "STRING_VALUE",
+ *       Name: 'STRING_VALUE',
  *       Values: [ // ValueStringList
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
@@ -66,6 +66,44 @@ export interface DescribeVerifiedAccessInstanceLoggingConfigurationsCommandOutpu
  * };
  * const command = new DescribeVerifiedAccessInstanceLoggingConfigurationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeVerifiedAccessInstanceLoggingConfigurationsResult
+ *   LoggingConfigurations: [ // VerifiedAccessInstanceLoggingConfigurationList
+ *     { // VerifiedAccessInstanceLoggingConfiguration
+ *       VerifiedAccessInstanceId: 'STRING_VALUE',
+ *       AccessLogs: { // VerifiedAccessLogs
+ *         S3: { // VerifiedAccessLogS3Destination
+ *           Enabled: true || false,
+ *           DeliveryStatus: { // VerifiedAccessLogDeliveryStatus
+ *             Code: 'success' || 'failed',
+ *             Message: 'STRING_VALUE',
+ *           },
+ *           BucketName: 'STRING_VALUE',
+ *           Prefix: 'STRING_VALUE',
+ *           BucketOwner: 'STRING_VALUE',
+ *         },
+ *         CloudWatchLogs: { // VerifiedAccessLogCloudWatchLogsDestination
+ *           Enabled: true || false,
+ *           DeliveryStatus: {
+ *             Code: 'success' || 'failed',
+ *             Message: 'STRING_VALUE',
+ *           },
+ *           LogGroup: 'STRING_VALUE',
+ *         },
+ *         KinesisDataFirehose: { // VerifiedAccessLogKinesisDataFirehoseDestination
+ *           Enabled: true || false,
+ *           DeliveryStatus: {
+ *             Code: 'success' || 'failed',
+ *             Message: 'STRING_VALUE',
+ *           },
+ *           DeliveryStream: 'STRING_VALUE',
+ *         },
+ *       },
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeVerifiedAccessInstanceLoggingConfigurationsCommandInput - {@link DescribeVerifiedAccessInstanceLoggingConfigurationsCommandInput}
@@ -74,6 +112,8 @@ export interface DescribeVerifiedAccessInstanceLoggingConfigurationsCommandOutpu
  * @see {@link DescribeVerifiedAccessInstanceLoggingConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class DescribeVerifiedAccessInstanceLoggingConfigurationsCommand extends $Command<

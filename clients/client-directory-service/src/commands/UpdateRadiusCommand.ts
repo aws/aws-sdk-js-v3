@@ -37,26 +37,29 @@ export interface UpdateRadiusCommandOutput extends UpdateRadiusResult, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DirectoryServiceClient, UpdateRadiusCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
- * // const { DirectoryServiceClient, UpdateRadiusCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
+ * import { DirectoryServiceClient, UpdateRadiusCommand } from '@aws-sdk/client-directory-service'; // ES Modules import
+ * // const { DirectoryServiceClient, UpdateRadiusCommand } = require('@aws-sdk/client-directory-service'); // CommonJS import
  * const client = new DirectoryServiceClient(config);
  * const input = { // UpdateRadiusRequest
- *   DirectoryId: "STRING_VALUE", // required
+ *   DirectoryId: 'STRING_VALUE', // required
  *   RadiusSettings: { // RadiusSettings
  *     RadiusServers: [ // Servers
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
- *     RadiusPort: Number("int"),
- *     RadiusTimeout: Number("int"),
- *     RadiusRetries: Number("int"),
- *     SharedSecret: "STRING_VALUE",
- *     AuthenticationProtocol: "PAP" || "CHAP" || "MS-CHAPv1" || "MS-CHAPv2",
- *     DisplayLabel: "STRING_VALUE",
+ *     RadiusPort: Number('int'),
+ *     RadiusTimeout: Number('int'),
+ *     RadiusRetries: Number('int'),
+ *     SharedSecret: 'STRING_VALUE',
+ *     AuthenticationProtocol: 'PAP' || 'CHAP' || 'MS-CHAPv1' || 'MS-CHAPv2',
+ *     DisplayLabel: 'STRING_VALUE',
  *     UseSameUsername: true || false,
  *   },
  * };
  * const command = new UpdateRadiusCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateRadiusCommandInput - {@link UpdateRadiusCommandInput}
@@ -77,6 +80,8 @@ export interface UpdateRadiusCommandOutput extends UpdateRadiusResult, __Metadat
  * @throws {@link ServiceException} (server fault)
  *  <p>An exception has occurred in Directory Service.</p>
  *
+ * @throws {@link DirectoryServiceServiceException}
+ * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
  */
 export class UpdateRadiusCommand extends $Command<

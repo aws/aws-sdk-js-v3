@@ -36,64 +36,71 @@ export interface StartJobRunCommandOutput extends StartJobRunResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EMRServerlessClient, StartJobRunCommand } from "@aws-sdk/client-emr-serverless"; // ES Modules import
- * // const { EMRServerlessClient, StartJobRunCommand } = require("@aws-sdk/client-emr-serverless"); // CommonJS import
+ * import { EMRServerlessClient, StartJobRunCommand } from '@aws-sdk/client-emr-serverless'; // ES Modules import
+ * // const { EMRServerlessClient, StartJobRunCommand } = require('@aws-sdk/client-emr-serverless'); // CommonJS import
  * const client = new EMRServerlessClient(config);
  * const input = { // StartJobRunRequest
- *   applicationId: "STRING_VALUE", // required
- *   clientToken: "STRING_VALUE", // required
- *   executionRoleArn: "STRING_VALUE", // required
+ *   applicationId: 'STRING_VALUE', // required
+ *   clientToken: 'STRING_VALUE', // required
+ *   executionRoleArn: 'STRING_VALUE', // required
  *   jobDriver: { // JobDriver Union: only one key present
  *     sparkSubmit: { // SparkSubmit
- *       entryPoint: "STRING_VALUE", // required
+ *       entryPoint: 'STRING_VALUE', // required
  *       entryPointArguments: [ // EntryPointArguments
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
- *       sparkSubmitParameters: "STRING_VALUE",
+ *       sparkSubmitParameters: 'STRING_VALUE',
  *     },
  *     hive: { // Hive
- *       query: "STRING_VALUE", // required
- *       initQueryFile: "STRING_VALUE",
- *       parameters: "STRING_VALUE",
+ *       query: 'STRING_VALUE', // required
+ *       initQueryFile: 'STRING_VALUE',
+ *       parameters: 'STRING_VALUE',
  *     },
  *   },
  *   configurationOverrides: { // ConfigurationOverrides
  *     applicationConfiguration: [ // ConfigurationList
  *       { // Configuration
- *         classification: "STRING_VALUE", // required
+ *         classification: 'STRING_VALUE', // required
  *         properties: { // SensitivePropertiesMap
- *           "<keys>": "STRING_VALUE",
+ *           '<keys>': 'STRING_VALUE',
  *         },
  *         configurations: [
  *           {
- *             classification: "STRING_VALUE", // required
+ *             classification: 'STRING_VALUE', // required
  *             properties: {
- *               "<keys>": "STRING_VALUE",
+ *               '<keys>': 'STRING_VALUE',
  *             },
- *             configurations: "<ConfigurationList>",
+ *             configurations: '<ConfigurationList>',
  *           },
  *         ],
  *       },
  *     ],
  *     monitoringConfiguration: { // MonitoringConfiguration
  *       s3MonitoringConfiguration: { // S3MonitoringConfiguration
- *         logUri: "STRING_VALUE",
- *         encryptionKeyArn: "STRING_VALUE",
+ *         logUri: 'STRING_VALUE',
+ *         encryptionKeyArn: 'STRING_VALUE',
  *       },
  *       managedPersistenceMonitoringConfiguration: { // ManagedPersistenceMonitoringConfiguration
  *         enabled: true || false,
- *         encryptionKeyArn: "STRING_VALUE",
+ *         encryptionKeyArn: 'STRING_VALUE',
  *       },
  *     },
  *   },
  *   tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
- *   executionTimeoutMinutes: Number("long"),
- *   name: "STRING_VALUE",
+ *   executionTimeoutMinutes: Number('long'),
+ *   name: 'STRING_VALUE',
  * };
  * const command = new StartJobRunCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartJobRunResponse
+ *   applicationId: 'STRING_VALUE', // required
+ *   jobRunId: 'STRING_VALUE', // required
+ *   arn: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param StartJobRunCommandInput - {@link StartJobRunCommandInput}
@@ -116,6 +123,8 @@ export interface StartJobRunCommandOutput extends StartJobRunResponse, __Metadat
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
  *          service.</p>
  *
+ * @throws {@link EMRServerlessServiceException}
+ * <p>Base exception class for all service exceptions from EMRServerless service.</p>
  *
  */
 export class StartJobRunCommand extends $Command<

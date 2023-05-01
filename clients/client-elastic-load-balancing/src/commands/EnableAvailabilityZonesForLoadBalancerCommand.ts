@@ -50,17 +50,24 @@ export interface EnableAvailabilityZonesForLoadBalancerCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElasticLoadBalancingClient, EnableAvailabilityZonesForLoadBalancerCommand } from "@aws-sdk/client-elastic-load-balancing"; // ES Modules import
- * // const { ElasticLoadBalancingClient, EnableAvailabilityZonesForLoadBalancerCommand } = require("@aws-sdk/client-elastic-load-balancing"); // CommonJS import
+ * import { ElasticLoadBalancingClient, EnableAvailabilityZonesForLoadBalancerCommand } from '@aws-sdk/client-elastic-load-balancing'; // ES Modules import
+ * // const { ElasticLoadBalancingClient, EnableAvailabilityZonesForLoadBalancerCommand } = require('@aws-sdk/client-elastic-load-balancing'); // CommonJS import
  * const client = new ElasticLoadBalancingClient(config);
  * const input = { // AddAvailabilityZonesInput
- *   LoadBalancerName: "STRING_VALUE", // required
+ *   LoadBalancerName: 'STRING_VALUE', // required
  *   AvailabilityZones: [ // AvailabilityZones // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new EnableAvailabilityZonesForLoadBalancerCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AddAvailabilityZonesOutput
+ *   AvailabilityZones: [ // AvailabilityZones
+ *     'STRING_VALUE',
+ *   ],
+ * };
+ *
  * ```
  *
  * @param EnableAvailabilityZonesForLoadBalancerCommandInput - {@link EnableAvailabilityZonesForLoadBalancerCommandInput}
@@ -72,6 +79,8 @@ export interface EnableAvailabilityZonesForLoadBalancerCommandOutput
  * @throws {@link AccessPointNotFoundException} (client fault)
  *  <p>The specified load balancer does not exist.</p>
  *
+ * @throws {@link ElasticLoadBalancingServiceException}
+ * <p>Base exception class for all service exceptions from ElasticLoadBalancing service.</p>
  *
  * @example To enable an Availability Zone for a load balancer
  * ```javascript

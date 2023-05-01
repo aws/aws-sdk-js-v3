@@ -37,25 +37,47 @@ export interface ListOpsItemRelatedItemsCommandOutput extends ListOpsItemRelated
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMClient, ListOpsItemRelatedItemsCommand } from "@aws-sdk/client-ssm"; // ES Modules import
- * // const { SSMClient, ListOpsItemRelatedItemsCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * import { SSMClient, ListOpsItemRelatedItemsCommand } from '@aws-sdk/client-ssm'; // ES Modules import
+ * // const { SSMClient, ListOpsItemRelatedItemsCommand } = require('@aws-sdk/client-ssm'); // CommonJS import
  * const client = new SSMClient(config);
  * const input = { // ListOpsItemRelatedItemsRequest
- *   OpsItemId: "STRING_VALUE",
+ *   OpsItemId: 'STRING_VALUE',
  *   Filters: [ // OpsItemRelatedItemsFilters
  *     { // OpsItemRelatedItemsFilter
- *       Key: "ResourceType" || "AssociationId" || "ResourceUri", // required
+ *       Key: 'ResourceType' || 'AssociationId' || 'ResourceUri', // required
  *       Values: [ // OpsItemRelatedItemsFilterValues // required
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
- *       Operator: "Equal", // required
+ *       Operator: 'Equal', // required
  *     },
  *   ],
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListOpsItemRelatedItemsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListOpsItemRelatedItemsResponse
+ *   NextToken: 'STRING_VALUE',
+ *   Summaries: [ // OpsItemRelatedItemSummaries
+ *     { // OpsItemRelatedItemSummary
+ *       OpsItemId: 'STRING_VALUE',
+ *       AssociationId: 'STRING_VALUE',
+ *       ResourceType: 'STRING_VALUE',
+ *       AssociationType: 'STRING_VALUE',
+ *       ResourceUri: 'STRING_VALUE',
+ *       CreatedBy: { // OpsItemIdentity
+ *         Arn: 'STRING_VALUE',
+ *       },
+ *       CreatedTime: new Date('TIMESTAMP'),
+ *       LastModifiedBy: {
+ *         Arn: 'STRING_VALUE',
+ *       },
+ *       LastModifiedTime: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListOpsItemRelatedItemsCommandInput - {@link ListOpsItemRelatedItemsCommandInput}
@@ -71,6 +93,8 @@ export interface ListOpsItemRelatedItemsCommandOutput extends ListOpsItemRelated
  *  <p>A specified parameter argument isn't valid. Verify the available arguments and try
  *    again.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class ListOpsItemRelatedItemsCommand extends $Command<

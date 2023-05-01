@@ -36,29 +36,29 @@ export interface UpdateLicenseConfigurationCommandOutput extends UpdateLicenseCo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LicenseManagerClient, UpdateLicenseConfigurationCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
- * // const { LicenseManagerClient, UpdateLicenseConfigurationCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
+ * import { LicenseManagerClient, UpdateLicenseConfigurationCommand } from '@aws-sdk/client-license-manager'; // ES Modules import
+ * // const { LicenseManagerClient, UpdateLicenseConfigurationCommand } = require('@aws-sdk/client-license-manager'); // CommonJS import
  * const client = new LicenseManagerClient(config);
  * const input = { // UpdateLicenseConfigurationRequest
- *   LicenseConfigurationArn: "STRING_VALUE", // required
- *   LicenseConfigurationStatus: "AVAILABLE" || "DISABLED",
+ *   LicenseConfigurationArn: 'STRING_VALUE', // required
+ *   LicenseConfigurationStatus: 'AVAILABLE' || 'DISABLED',
  *   LicenseRules: [ // StringList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   LicenseCount: Number("long"),
+ *   LicenseCount: Number('long'),
  *   LicenseCountHardLimit: true || false,
- *   Name: "STRING_VALUE",
- *   Description: "STRING_VALUE",
+ *   Name: 'STRING_VALUE',
+ *   Description: 'STRING_VALUE',
  *   ProductInformationList: [ // ProductInformationList
  *     { // ProductInformation
- *       ResourceType: "STRING_VALUE", // required
+ *       ResourceType: 'STRING_VALUE', // required
  *       ProductInformationFilterList: [ // ProductInformationFilterList // required
  *         { // ProductInformationFilter
- *           ProductInformationFilterName: "STRING_VALUE", // required
+ *           ProductInformationFilterName: 'STRING_VALUE', // required
  *           ProductInformationFilterValue: [
- *             "STRING_VALUE",
+ *             'STRING_VALUE',
  *           ],
- *           ProductInformationFilterComparator: "STRING_VALUE", // required
+ *           ProductInformationFilterComparator: 'STRING_VALUE', // required
  *         },
  *       ],
  *     },
@@ -67,6 +67,9 @@ export interface UpdateLicenseConfigurationCommandOutput extends UpdateLicenseCo
  * };
  * const command = new UpdateLicenseConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateLicenseConfigurationCommandInput - {@link UpdateLicenseConfigurationCommandInput}
@@ -94,6 +97,8 @@ export interface UpdateLicenseConfigurationCommandOutput extends UpdateLicenseCo
  * @throws {@link ServerInternalException} (server fault)
  *  <p>The server experienced an internal error. Try again.</p>
  *
+ * @throws {@link LicenseManagerServiceException}
+ * <p>Base exception class for all service exceptions from LicenseManager service.</p>
  *
  */
 export class UpdateLicenseConfigurationCommand extends $Command<

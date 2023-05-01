@@ -36,44 +36,50 @@ export interface CreateWirelessGatewayCommandOutput extends CreateWirelessGatewa
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTWirelessClient, CreateWirelessGatewayCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
- * // const { IoTWirelessClient, CreateWirelessGatewayCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
+ * import { IoTWirelessClient, CreateWirelessGatewayCommand } from '@aws-sdk/client-iot-wireless'; // ES Modules import
+ * // const { IoTWirelessClient, CreateWirelessGatewayCommand } = require('@aws-sdk/client-iot-wireless'); // CommonJS import
  * const client = new IoTWirelessClient(config);
  * const input = { // CreateWirelessGatewayRequest
- *   Name: "STRING_VALUE",
- *   Description: "STRING_VALUE",
+ *   Name: 'STRING_VALUE',
+ *   Description: 'STRING_VALUE',
  *   LoRaWAN: { // LoRaWANGateway
- *     GatewayEui: "STRING_VALUE",
- *     RfRegion: "STRING_VALUE",
+ *     GatewayEui: 'STRING_VALUE',
+ *     RfRegion: 'STRING_VALUE',
  *     JoinEuiFilters: [ // JoinEuiFilters
  *       [ // JoinEuiRange
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     ],
  *     NetIdFilters: [ // NetIdFilters
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     SubBands: [ // SubBands
- *       Number("int"),
+ *       Number('int'),
  *     ],
  *     Beaconing: { // Beaconing
- *       DataRate: Number("int"),
+ *       DataRate: Number('int'),
  *       Frequencies: [ // BeaconingFrequencies
- *         Number("int"),
+ *         Number('int'),
  *       ],
  *     },
- *     MaxEirp: Number("float"),
+ *     MaxEirp: Number('float'),
  *   },
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
- *   ClientRequestToken: "STRING_VALUE",
+ *   ClientRequestToken: 'STRING_VALUE',
  * };
  * const command = new CreateWirelessGatewayCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateWirelessGatewayResponse
+ *   Arn: 'STRING_VALUE',
+ *   Id: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateWirelessGatewayCommandInput - {@link CreateWirelessGatewayCommandInput}
@@ -97,6 +103,8 @@ export interface CreateWirelessGatewayCommandOutput extends CreateWirelessGatewa
  * @throws {@link ValidationException} (client fault)
  *  <p>The input did not meet the specified constraints.</p>
  *
+ * @throws {@link IoTWirelessServiceException}
+ * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
  */
 export class CreateWirelessGatewayCommand extends $Command<

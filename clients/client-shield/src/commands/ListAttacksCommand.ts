@@ -37,26 +37,44 @@ export interface ListAttacksCommandOutput extends ListAttacksResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ShieldClient, ListAttacksCommand } from "@aws-sdk/client-shield"; // ES Modules import
- * // const { ShieldClient, ListAttacksCommand } = require("@aws-sdk/client-shield"); // CommonJS import
+ * import { ShieldClient, ListAttacksCommand } from '@aws-sdk/client-shield'; // ES Modules import
+ * // const { ShieldClient, ListAttacksCommand } = require('@aws-sdk/client-shield'); // CommonJS import
  * const client = new ShieldClient(config);
  * const input = { // ListAttacksRequest
  *   ResourceArns: [ // ResourceArnFilterList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   StartTime: { // TimeRange
- *     FromInclusive: new Date("TIMESTAMP"),
- *     ToExclusive: new Date("TIMESTAMP"),
+ *     FromInclusive: new Date('TIMESTAMP'),
+ *     ToExclusive: new Date('TIMESTAMP'),
  *   },
  *   EndTime: {
- *     FromInclusive: new Date("TIMESTAMP"),
- *     ToExclusive: new Date("TIMESTAMP"),
+ *     FromInclusive: new Date('TIMESTAMP'),
+ *     ToExclusive: new Date('TIMESTAMP'),
  *   },
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListAttacksCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListAttacksResponse
+ *   AttackSummaries: [ // AttackSummaries
+ *     { // AttackSummary
+ *       AttackId: 'STRING_VALUE',
+ *       ResourceArn: 'STRING_VALUE',
+ *       StartTime: new Date('TIMESTAMP'),
+ *       EndTime: new Date('TIMESTAMP'),
+ *       AttackVectors: [ // AttackVectorDescriptionList
+ *         { // AttackVectorDescription
+ *           VectorType: 'STRING_VALUE', // required
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListAttacksCommandInput - {@link ListAttacksCommandInput}
@@ -74,6 +92,8 @@ export interface ListAttacksCommandOutput extends ListAttacksResponse, __Metadat
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>Exception that indicates that the parameters passed to the API are invalid. If available, this exception includes details in additional properties. </p>
  *
+ * @throws {@link ShieldServiceException}
+ * <p>Base exception class for all service exceptions from Shield service.</p>
  *
  */
 export class ListAttacksCommand extends $Command<

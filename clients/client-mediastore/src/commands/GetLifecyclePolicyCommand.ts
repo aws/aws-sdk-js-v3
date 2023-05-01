@@ -36,14 +36,19 @@ export interface GetLifecyclePolicyCommandOutput extends GetLifecyclePolicyOutpu
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MediaStoreClient, GetLifecyclePolicyCommand } from "@aws-sdk/client-mediastore"; // ES Modules import
- * // const { MediaStoreClient, GetLifecyclePolicyCommand } = require("@aws-sdk/client-mediastore"); // CommonJS import
+ * import { MediaStoreClient, GetLifecyclePolicyCommand } from '@aws-sdk/client-mediastore'; // ES Modules import
+ * // const { MediaStoreClient, GetLifecyclePolicyCommand } = require('@aws-sdk/client-mediastore'); // CommonJS import
  * const client = new MediaStoreClient(config);
  * const input = { // GetLifecyclePolicyInput
- *   ContainerName: "STRING_VALUE", // required
+ *   ContainerName: 'STRING_VALUE', // required
  * };
  * const command = new GetLifecyclePolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetLifecyclePolicyOutput
+ *   LifecyclePolicy: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param GetLifecyclePolicyCommandInput - {@link GetLifecyclePolicyCommandInput}
@@ -65,6 +70,8 @@ export interface GetLifecyclePolicyCommandOutput extends GetLifecyclePolicyOutpu
  * @throws {@link PolicyNotFoundException} (client fault)
  *  <p>The policy that you specified in the request does not exist.</p>
  *
+ * @throws {@link MediaStoreServiceException}
+ * <p>Base exception class for all service exceptions from MediaStore service.</p>
  *
  */
 export class GetLifecyclePolicyCommand extends $Command<

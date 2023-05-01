@@ -42,41 +42,76 @@ export interface StartBotRecommendationCommandOutput extends StartBotRecommendat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LexModelsV2Client, StartBotRecommendationCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
- * // const { LexModelsV2Client, StartBotRecommendationCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
+ * import { LexModelsV2Client, StartBotRecommendationCommand } from '@aws-sdk/client-lex-models-v2'; // ES Modules import
+ * // const { LexModelsV2Client, StartBotRecommendationCommand } = require('@aws-sdk/client-lex-models-v2'); // CommonJS import
  * const client = new LexModelsV2Client(config);
  * const input = { // StartBotRecommendationRequest
- *   botId: "STRING_VALUE", // required
- *   botVersion: "STRING_VALUE", // required
- *   localeId: "STRING_VALUE", // required
+ *   botId: 'STRING_VALUE', // required
+ *   botVersion: 'STRING_VALUE', // required
+ *   localeId: 'STRING_VALUE', // required
  *   transcriptSourceSetting: { // TranscriptSourceSetting
  *     s3BucketTranscriptSource: { // S3BucketTranscriptSource
- *       s3BucketName: "STRING_VALUE", // required
+ *       s3BucketName: 'STRING_VALUE', // required
  *       pathFormat: { // PathFormat
  *         objectPrefixes: [ // ObjectPrefixes
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
  *       },
- *       transcriptFormat: "Lex", // required
+ *       transcriptFormat: 'Lex', // required
  *       transcriptFilter: { // TranscriptFilter
  *         lexTranscriptFilter: { // LexTranscriptFilter
  *           dateRangeFilter: { // DateRangeFilter
- *             startDateTime: new Date("TIMESTAMP"), // required
- *             endDateTime: new Date("TIMESTAMP"), // required
+ *             startDateTime: new Date('TIMESTAMP'), // required
+ *             endDateTime: new Date('TIMESTAMP'), // required
  *           },
  *         },
  *       },
- *       kmsKeyArn: "STRING_VALUE",
+ *       kmsKeyArn: 'STRING_VALUE',
  *     },
  *   },
  *   encryptionSetting: { // EncryptionSetting
- *     kmsKeyArn: "STRING_VALUE",
- *     botLocaleExportPassword: "STRING_VALUE",
- *     associatedTranscriptsPassword: "STRING_VALUE",
+ *     kmsKeyArn: 'STRING_VALUE',
+ *     botLocaleExportPassword: 'STRING_VALUE',
+ *     associatedTranscriptsPassword: 'STRING_VALUE',
  *   },
  * };
  * const command = new StartBotRecommendationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartBotRecommendationResponse
+ *   botId: 'STRING_VALUE',
+ *   botVersion: 'STRING_VALUE',
+ *   localeId: 'STRING_VALUE',
+ *   botRecommendationStatus: 'Processing' || 'Deleting' || 'Deleted' || 'Downloading' || 'Updating' || 'Available' || 'Failed' || 'Stopping' || 'Stopped',
+ *   botRecommendationId: 'STRING_VALUE',
+ *   creationDateTime: new Date('TIMESTAMP'),
+ *   transcriptSourceSetting: { // TranscriptSourceSetting
+ *     s3BucketTranscriptSource: { // S3BucketTranscriptSource
+ *       s3BucketName: 'STRING_VALUE', // required
+ *       pathFormat: { // PathFormat
+ *         objectPrefixes: [ // ObjectPrefixes
+ *           'STRING_VALUE',
+ *         ],
+ *       },
+ *       transcriptFormat: 'Lex', // required
+ *       transcriptFilter: { // TranscriptFilter
+ *         lexTranscriptFilter: { // LexTranscriptFilter
+ *           dateRangeFilter: { // DateRangeFilter
+ *             startDateTime: new Date('TIMESTAMP'), // required
+ *             endDateTime: new Date('TIMESTAMP'), // required
+ *           },
+ *         },
+ *       },
+ *       kmsKeyArn: 'STRING_VALUE',
+ *     },
+ *   },
+ *   encryptionSetting: { // EncryptionSetting
+ *     kmsKeyArn: 'STRING_VALUE',
+ *     botLocaleExportPassword: 'STRING_VALUE',
+ *     associatedTranscriptsPassword: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param StartBotRecommendationCommandInput - {@link StartBotRecommendationCommandInput}
@@ -114,6 +149,8 @@ export interface StartBotRecommendationCommandOutput extends StartBotRecommendat
  *  <p>One of the input parameters in your request isn't valid. Check the
  *          parameters and try your request again.</p>
  *
+ * @throws {@link LexModelsV2ServiceException}
+ * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
  */
 export class StartBotRecommendationCommand extends $Command<

@@ -36,17 +36,22 @@ export interface ReplaceVpnTunnelCommandOutput extends ReplaceVpnTunnelResult, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, ReplaceVpnTunnelCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, ReplaceVpnTunnelCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, ReplaceVpnTunnelCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, ReplaceVpnTunnelCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // ReplaceVpnTunnelRequest
- *   VpnConnectionId: "STRING_VALUE", // required
- *   VpnTunnelOutsideIpAddress: "STRING_VALUE", // required
+ *   VpnConnectionId: 'STRING_VALUE', // required
+ *   VpnTunnelOutsideIpAddress: 'STRING_VALUE', // required
  *   ApplyPendingMaintenance: true || false,
  *   DryRun: true || false,
  * };
  * const command = new ReplaceVpnTunnelCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ReplaceVpnTunnelResult
+ *   Return: true || false,
+ * };
+ *
  * ```
  *
  * @param ReplaceVpnTunnelCommandInput - {@link ReplaceVpnTunnelCommandInput}
@@ -55,6 +60,8 @@ export interface ReplaceVpnTunnelCommandOutput extends ReplaceVpnTunnelResult, _
  * @see {@link ReplaceVpnTunnelCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class ReplaceVpnTunnelCommand extends $Command<

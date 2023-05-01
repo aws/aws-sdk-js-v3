@@ -36,14 +36,24 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ECRClient, ListTagsForResourceCommand } from "@aws-sdk/client-ecr"; // ES Modules import
- * // const { ECRClient, ListTagsForResourceCommand } = require("@aws-sdk/client-ecr"); // CommonJS import
+ * import { ECRClient, ListTagsForResourceCommand } from '@aws-sdk/client-ecr'; // ES Modules import
+ * // const { ECRClient, ListTagsForResourceCommand } = require('@aws-sdk/client-ecr'); // CommonJS import
  * const client = new ECRClient(config);
  * const input = { // ListTagsForResourceRequest
- *   resourceArn: "STRING_VALUE", // required
+ *   resourceArn: 'STRING_VALUE', // required
  * };
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTagsForResourceResponse
+ *   tags: [ // TagList
+ *     { // Tag
+ *       Key: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListTagsForResourceCommandInput - {@link ListTagsForResourceCommandInput}
@@ -63,6 +73,8 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server-side issue.</p>
  *
+ * @throws {@link ECRServiceException}
+ * <p>Base exception class for all service exceptions from ECR service.</p>
  *
  */
 export class ListTagsForResourceCommand extends $Command<

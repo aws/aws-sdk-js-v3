@@ -36,17 +36,20 @@ export interface DisassociateApplicationsCommandOutput extends DisassociateAppli
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MgnClient, DisassociateApplicationsCommand } from "@aws-sdk/client-mgn"; // ES Modules import
- * // const { MgnClient, DisassociateApplicationsCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
+ * import { MgnClient, DisassociateApplicationsCommand } from '@aws-sdk/client-mgn'; // ES Modules import
+ * // const { MgnClient, DisassociateApplicationsCommand } = require('@aws-sdk/client-mgn'); // CommonJS import
  * const client = new MgnClient(config);
  * const input = { // DisassociateApplicationsRequest
- *   waveID: "STRING_VALUE", // required
+ *   waveID: 'STRING_VALUE', // required
  *   applicationIDs: [ // ApplicationIDs // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new DisassociateApplicationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DisassociateApplicationsCommandInput - {@link DisassociateApplicationsCommandInput}
@@ -64,6 +67,8 @@ export interface DisassociateApplicationsCommandOutput extends DisassociateAppli
  * @throws {@link UninitializedAccountException} (client fault)
  *  <p>Uninitialized account exception.</p>
  *
+ * @throws {@link MgnServiceException}
+ * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
  */
 export class DisassociateApplicationsCommand extends $Command<

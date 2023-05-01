@@ -36,23 +36,23 @@ export interface ModifySecurityGroupRulesCommandOutput extends ModifySecurityGro
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, ModifySecurityGroupRulesCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, ModifySecurityGroupRulesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, ModifySecurityGroupRulesCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, ModifySecurityGroupRulesCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // ModifySecurityGroupRulesRequest
- *   GroupId: "STRING_VALUE", // required
+ *   GroupId: 'STRING_VALUE', // required
  *   SecurityGroupRules: [ // SecurityGroupRuleUpdateList // required
  *     { // SecurityGroupRuleUpdate
- *       SecurityGroupRuleId: "STRING_VALUE", // required
+ *       SecurityGroupRuleId: 'STRING_VALUE', // required
  *       SecurityGroupRule: { // SecurityGroupRuleRequest
- *         IpProtocol: "STRING_VALUE",
- *         FromPort: Number("int"),
- *         ToPort: Number("int"),
- *         CidrIpv4: "STRING_VALUE",
- *         CidrIpv6: "STRING_VALUE",
- *         PrefixListId: "STRING_VALUE",
- *         ReferencedGroupId: "STRING_VALUE",
- *         Description: "STRING_VALUE",
+ *         IpProtocol: 'STRING_VALUE',
+ *         FromPort: Number('int'),
+ *         ToPort: Number('int'),
+ *         CidrIpv4: 'STRING_VALUE',
+ *         CidrIpv6: 'STRING_VALUE',
+ *         PrefixListId: 'STRING_VALUE',
+ *         ReferencedGroupId: 'STRING_VALUE',
+ *         Description: 'STRING_VALUE',
  *       },
  *     },
  *   ],
@@ -60,6 +60,11 @@ export interface ModifySecurityGroupRulesCommandOutput extends ModifySecurityGro
  * };
  * const command = new ModifySecurityGroupRulesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ModifySecurityGroupRulesResult
+ *   Return: true || false,
+ * };
+ *
  * ```
  *
  * @param ModifySecurityGroupRulesCommandInput - {@link ModifySecurityGroupRulesCommandInput}
@@ -68,6 +73,8 @@ export interface ModifySecurityGroupRulesCommandOutput extends ModifySecurityGro
  * @see {@link ModifySecurityGroupRulesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class ModifySecurityGroupRulesCommand extends $Command<

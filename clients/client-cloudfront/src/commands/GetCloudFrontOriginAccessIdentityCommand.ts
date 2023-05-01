@@ -41,14 +41,27 @@ export interface GetCloudFrontOriginAccessIdentityCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudFrontClient, GetCloudFrontOriginAccessIdentityCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
- * // const { CloudFrontClient, GetCloudFrontOriginAccessIdentityCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
+ * import { CloudFrontClient, GetCloudFrontOriginAccessIdentityCommand } from '@aws-sdk/client-cloudfront'; // ES Modules import
+ * // const { CloudFrontClient, GetCloudFrontOriginAccessIdentityCommand } = require('@aws-sdk/client-cloudfront'); // CommonJS import
  * const client = new CloudFrontClient(config);
  * const input = { // GetCloudFrontOriginAccessIdentityRequest
- *   Id: "STRING_VALUE", // required
+ *   Id: 'STRING_VALUE', // required
  * };
  * const command = new GetCloudFrontOriginAccessIdentityCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetCloudFrontOriginAccessIdentityResult
+ *   CloudFrontOriginAccessIdentity: { // CloudFrontOriginAccessIdentity
+ *     Id: 'STRING_VALUE', // required
+ *     S3CanonicalUserId: 'STRING_VALUE', // required
+ *     CloudFrontOriginAccessIdentityConfig: { // CloudFrontOriginAccessIdentityConfig
+ *       CallerReference: 'STRING_VALUE', // required
+ *       Comment: 'STRING_VALUE', // required
+ *     },
+ *   },
+ *   ETag: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetCloudFrontOriginAccessIdentityCommandInput - {@link GetCloudFrontOriginAccessIdentityCommandInput}
@@ -63,6 +76,8 @@ export interface GetCloudFrontOriginAccessIdentityCommandOutput
  * @throws {@link NoSuchCloudFrontOriginAccessIdentity} (client fault)
  *  <p>The specified origin access identity does not exist.</p>
  *
+ * @throws {@link CloudFrontServiceException}
+ * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
  */
 export class GetCloudFrontOriginAccessIdentityCommand extends $Command<

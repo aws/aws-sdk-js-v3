@@ -36,14 +36,27 @@ export interface DeleteWebhookCommandOutput extends DeleteWebhookResult, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AmplifyClient, DeleteWebhookCommand } from "@aws-sdk/client-amplify"; // ES Modules import
- * // const { AmplifyClient, DeleteWebhookCommand } = require("@aws-sdk/client-amplify"); // CommonJS import
+ * import { AmplifyClient, DeleteWebhookCommand } from '@aws-sdk/client-amplify'; // ES Modules import
+ * // const { AmplifyClient, DeleteWebhookCommand } = require('@aws-sdk/client-amplify'); // CommonJS import
  * const client = new AmplifyClient(config);
  * const input = { // DeleteWebhookRequest
- *   webhookId: "STRING_VALUE", // required
+ *   webhookId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteWebhookCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteWebhookResult
+ *   webhook: { // Webhook
+ *     webhookArn: 'STRING_VALUE', // required
+ *     webhookId: 'STRING_VALUE', // required
+ *     webhookUrl: 'STRING_VALUE', // required
+ *     branchName: 'STRING_VALUE', // required
+ *     description: 'STRING_VALUE', // required
+ *     createTime: new Date('TIMESTAMP'), // required
+ *     updateTime: new Date('TIMESTAMP'), // required
+ *   },
+ * };
+ *
  * ```
  *
  * @param DeleteWebhookCommandInput - {@link DeleteWebhookCommandInput}
@@ -67,6 +80,8 @@ export interface DeleteWebhookCommandOutput extends DeleteWebhookResult, __Metad
  * @throws {@link UnauthorizedException} (client fault)
  *  <p> An operation failed due to a lack of access. </p>
  *
+ * @throws {@link AmplifyServiceException}
+ * <p>Base exception class for all service exceptions from Amplify service.</p>
  *
  */
 export class DeleteWebhookCommand extends $Command<

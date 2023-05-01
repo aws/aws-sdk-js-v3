@@ -41,23 +41,38 @@ export interface DescribeAlarmHistoryCommandOutput extends DescribeAlarmHistoryO
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudWatchClient, DescribeAlarmHistoryCommand } from "@aws-sdk/client-cloudwatch"; // ES Modules import
- * // const { CloudWatchClient, DescribeAlarmHistoryCommand } = require("@aws-sdk/client-cloudwatch"); // CommonJS import
+ * import { CloudWatchClient, DescribeAlarmHistoryCommand } from '@aws-sdk/client-cloudwatch'; // ES Modules import
+ * // const { CloudWatchClient, DescribeAlarmHistoryCommand } = require('@aws-sdk/client-cloudwatch'); // CommonJS import
  * const client = new CloudWatchClient(config);
  * const input = { // DescribeAlarmHistoryInput
- *   AlarmName: "STRING_VALUE",
+ *   AlarmName: 'STRING_VALUE',
  *   AlarmTypes: [ // AlarmTypes
- *     "CompositeAlarm" || "MetricAlarm",
+ *     'CompositeAlarm' || 'MetricAlarm',
  *   ],
- *   HistoryItemType: "ConfigurationUpdate" || "StateUpdate" || "Action",
- *   StartDate: new Date("TIMESTAMP"),
- *   EndDate: new Date("TIMESTAMP"),
- *   MaxRecords: Number("int"),
- *   NextToken: "STRING_VALUE",
- *   ScanBy: "TimestampDescending" || "TimestampAscending",
+ *   HistoryItemType: 'ConfigurationUpdate' || 'StateUpdate' || 'Action',
+ *   StartDate: new Date('TIMESTAMP'),
+ *   EndDate: new Date('TIMESTAMP'),
+ *   MaxRecords: Number('int'),
+ *   NextToken: 'STRING_VALUE',
+ *   ScanBy: 'TimestampDescending' || 'TimestampAscending',
  * };
  * const command = new DescribeAlarmHistoryCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeAlarmHistoryOutput
+ *   AlarmHistoryItems: [ // AlarmHistoryItems
+ *     { // AlarmHistoryItem
+ *       AlarmName: 'STRING_VALUE',
+ *       AlarmType: 'CompositeAlarm' || 'MetricAlarm',
+ *       Timestamp: new Date('TIMESTAMP'),
+ *       HistoryItemType: 'ConfigurationUpdate' || 'StateUpdate' || 'Action',
+ *       HistorySummary: 'STRING_VALUE',
+ *       HistoryData: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeAlarmHistoryCommandInput - {@link DescribeAlarmHistoryCommandInput}
@@ -69,6 +84,8 @@ export interface DescribeAlarmHistoryCommandOutput extends DescribeAlarmHistoryO
  * @throws {@link InvalidNextToken} (client fault)
  *  <p>The next token specified is invalid.</p>
  *
+ * @throws {@link CloudWatchServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatch service.</p>
  *
  */
 export class DescribeAlarmHistoryCommand extends $Command<

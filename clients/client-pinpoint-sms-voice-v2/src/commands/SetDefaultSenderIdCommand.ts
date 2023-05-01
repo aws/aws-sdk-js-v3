@@ -43,15 +43,22 @@ export interface SetDefaultSenderIdCommandOutput extends SetDefaultSenderIdResul
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PinpointSMSVoiceV2Client, SetDefaultSenderIdCommand } from "@aws-sdk/client-pinpoint-sms-voice-v2"; // ES Modules import
- * // const { PinpointSMSVoiceV2Client, SetDefaultSenderIdCommand } = require("@aws-sdk/client-pinpoint-sms-voice-v2"); // CommonJS import
+ * import { PinpointSMSVoiceV2Client, SetDefaultSenderIdCommand } from '@aws-sdk/client-pinpoint-sms-voice-v2'; // ES Modules import
+ * // const { PinpointSMSVoiceV2Client, SetDefaultSenderIdCommand } = require('@aws-sdk/client-pinpoint-sms-voice-v2'); // CommonJS import
  * const client = new PinpointSMSVoiceV2Client(config);
  * const input = { // SetDefaultSenderIdRequest
- *   ConfigurationSetName: "STRING_VALUE", // required
- *   SenderId: "STRING_VALUE", // required
+ *   ConfigurationSetName: 'STRING_VALUE', // required
+ *   SenderId: 'STRING_VALUE', // required
  * };
  * const command = new SetDefaultSenderIdCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SetDefaultSenderIdResult
+ *   ConfigurationSetArn: 'STRING_VALUE',
+ *   ConfigurationSetName: 'STRING_VALUE',
+ *   SenderId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param SetDefaultSenderIdCommandInput - {@link SetDefaultSenderIdCommandInput}
@@ -78,6 +85,8 @@ export interface SetDefaultSenderIdCommandOutput extends SetDefaultSenderIdResul
  * @throws {@link ValidationException} (client fault)
  *  <p>A validation exception for a field.</p>
  *
+ * @throws {@link PinpointSMSVoiceV2ServiceException}
+ * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
  *
  */
 export class SetDefaultSenderIdCommand extends $Command<

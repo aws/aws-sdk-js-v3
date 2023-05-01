@@ -36,15 +36,18 @@ export interface DeleteTypeCommandOutput extends DeleteTypeResponse, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppSyncClient, DeleteTypeCommand } from "@aws-sdk/client-appsync"; // ES Modules import
- * // const { AppSyncClient, DeleteTypeCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
+ * import { AppSyncClient, DeleteTypeCommand } from '@aws-sdk/client-appsync'; // ES Modules import
+ * // const { AppSyncClient, DeleteTypeCommand } = require('@aws-sdk/client-appsync'); // CommonJS import
  * const client = new AppSyncClient(config);
  * const input = { // DeleteTypeRequest
- *   apiId: "STRING_VALUE", // required
- *   typeName: "STRING_VALUE", // required
+ *   apiId: 'STRING_VALUE', // required
+ *   typeName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteTypeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteTypeCommandInput - {@link DeleteTypeCommandInput}
@@ -70,6 +73,8 @@ export interface DeleteTypeCommandOutput extends DeleteTypeResponse, __MetadataB
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You aren't authorized to perform this operation.</p>
  *
+ * @throws {@link AppSyncServiceException}
+ * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
  */
 export class DeleteTypeCommand extends $Command<

@@ -42,15 +42,21 @@ export interface InitiateLayerUploadCommandOutput extends InitiateLayerUploadRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ECRPUBLICClient, InitiateLayerUploadCommand } from "@aws-sdk/client-ecr-public"; // ES Modules import
- * // const { ECRPUBLICClient, InitiateLayerUploadCommand } = require("@aws-sdk/client-ecr-public"); // CommonJS import
+ * import { ECRPUBLICClient, InitiateLayerUploadCommand } from '@aws-sdk/client-ecr-public'; // ES Modules import
+ * // const { ECRPUBLICClient, InitiateLayerUploadCommand } = require('@aws-sdk/client-ecr-public'); // CommonJS import
  * const client = new ECRPUBLICClient(config);
  * const input = { // InitiateLayerUploadRequest
- *   registryId: "STRING_VALUE",
- *   repositoryName: "STRING_VALUE", // required
+ *   registryId: 'STRING_VALUE',
+ *   repositoryName: 'STRING_VALUE', // required
  * };
  * const command = new InitiateLayerUploadCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // InitiateLayerUploadResponse
+ *   uploadId: 'STRING_VALUE',
+ *   partSize: Number('long'),
+ * };
+ *
  * ```
  *
  * @param InitiateLayerUploadCommandInput - {@link InitiateLayerUploadCommandInput}
@@ -76,6 +82,8 @@ export interface InitiateLayerUploadCommandOutput extends InitiateLayerUploadRes
  * @throws {@link UnsupportedCommandException} (client fault)
  *  <p>The action isn't supported in this Region.</p>
  *
+ * @throws {@link ECRPUBLICServiceException}
+ * <p>Base exception class for all service exceptions from ECRPUBLIC service.</p>
  *
  */
 export class InitiateLayerUploadCommand extends $Command<

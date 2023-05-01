@@ -49,14 +49,30 @@ export interface DeploySystemInstanceCommandOutput extends DeploySystemInstanceR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTThingsGraphClient, DeploySystemInstanceCommand } from "@aws-sdk/client-iotthingsgraph"; // ES Modules import
- * // const { IoTThingsGraphClient, DeploySystemInstanceCommand } = require("@aws-sdk/client-iotthingsgraph"); // CommonJS import
+ * import { IoTThingsGraphClient, DeploySystemInstanceCommand } from '@aws-sdk/client-iotthingsgraph'; // ES Modules import
+ * // const { IoTThingsGraphClient, DeploySystemInstanceCommand } = require('@aws-sdk/client-iotthingsgraph'); // CommonJS import
  * const client = new IoTThingsGraphClient(config);
  * const input = { // DeploySystemInstanceRequest
- *   id: "STRING_VALUE",
+ *   id: 'STRING_VALUE',
  * };
  * const command = new DeploySystemInstanceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeploySystemInstanceResponse
+ *   summary: { // SystemInstanceSummary
+ *     id: 'STRING_VALUE',
+ *     arn: 'STRING_VALUE',
+ *     status: 'STRING_VALUE',
+ *     target: 'STRING_VALUE',
+ *     greengrassGroupName: 'STRING_VALUE',
+ *     createdAt: new Date('TIMESTAMP'),
+ *     updatedAt: new Date('TIMESTAMP'),
+ *     greengrassGroupId: 'STRING_VALUE',
+ *     greengrassGroupVersionId: 'STRING_VALUE',
+ *   },
+ *   greengrassDeploymentId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DeploySystemInstanceCommandInput - {@link DeploySystemInstanceCommandInput}
@@ -80,6 +96,8 @@ export interface DeploySystemInstanceCommandOutput extends DeploySystemInstanceR
  * @throws {@link ThrottlingException} (client fault)
  *  <p></p>
  *
+ * @throws {@link IoTThingsGraphServiceException}
+ * <p>Base exception class for all service exceptions from IoTThingsGraph service.</p>
  *
  */
 export class DeploySystemInstanceCommand extends $Command<

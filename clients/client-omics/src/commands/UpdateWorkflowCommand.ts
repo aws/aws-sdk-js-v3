@@ -36,16 +36,19 @@ export interface UpdateWorkflowCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OmicsClient, UpdateWorkflowCommand } from "@aws-sdk/client-omics"; // ES Modules import
- * // const { OmicsClient, UpdateWorkflowCommand } = require("@aws-sdk/client-omics"); // CommonJS import
+ * import { OmicsClient, UpdateWorkflowCommand } from '@aws-sdk/client-omics'; // ES Modules import
+ * // const { OmicsClient, UpdateWorkflowCommand } = require('@aws-sdk/client-omics'); // CommonJS import
  * const client = new OmicsClient(config);
  * const input = { // UpdateWorkflowRequest
- *   id: "STRING_VALUE", // required
- *   name: "STRING_VALUE",
- *   description: "STRING_VALUE",
+ *   id: 'STRING_VALUE', // required
+ *   name: 'STRING_VALUE',
+ *   description: 'STRING_VALUE',
  * };
  * const command = new UpdateWorkflowCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateWorkflowCommandInput - {@link UpdateWorkflowCommandInput}
@@ -78,6 +81,8 @@ export interface UpdateWorkflowCommandOutput extends __MetadataBearer {}
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link OmicsServiceException}
+ * <p>Base exception class for all service exceptions from Omics service.</p>
  *
  */
 export class UpdateWorkflowCommand extends $Command<

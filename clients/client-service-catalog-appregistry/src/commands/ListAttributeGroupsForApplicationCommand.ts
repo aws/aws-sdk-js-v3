@@ -48,16 +48,29 @@ export interface ListAttributeGroupsForApplicationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ServiceCatalogAppRegistryClient, ListAttributeGroupsForApplicationCommand } from "@aws-sdk/client-service-catalog-appregistry"; // ES Modules import
- * // const { ServiceCatalogAppRegistryClient, ListAttributeGroupsForApplicationCommand } = require("@aws-sdk/client-service-catalog-appregistry"); // CommonJS import
+ * import { ServiceCatalogAppRegistryClient, ListAttributeGroupsForApplicationCommand } from '@aws-sdk/client-service-catalog-appregistry'; // ES Modules import
+ * // const { ServiceCatalogAppRegistryClient, ListAttributeGroupsForApplicationCommand } = require('@aws-sdk/client-service-catalog-appregistry'); // CommonJS import
  * const client = new ServiceCatalogAppRegistryClient(config);
  * const input = { // ListAttributeGroupsForApplicationRequest
- *   application: "STRING_VALUE", // required
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   application: 'STRING_VALUE', // required
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new ListAttributeGroupsForApplicationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListAttributeGroupsForApplicationResponse
+ *   attributeGroupsDetails: [ // AttributeGroupDetailsList
+ *     { // AttributeGroupDetails
+ *       id: 'STRING_VALUE',
+ *       arn: 'STRING_VALUE',
+ *       name: 'STRING_VALUE',
+ *       createdBy: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListAttributeGroupsForApplicationCommandInput - {@link ListAttributeGroupsForApplicationCommandInput}
@@ -75,6 +88,8 @@ export interface ListAttributeGroupsForApplicationCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The request has invalid or missing parameters.</p>
  *
+ * @throws {@link ServiceCatalogAppRegistryServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalogAppRegistry service.</p>
  *
  */
 export class ListAttributeGroupsForApplicationCommand extends $Command<

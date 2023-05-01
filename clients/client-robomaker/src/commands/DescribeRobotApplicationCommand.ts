@@ -36,15 +36,43 @@ export interface DescribeRobotApplicationCommandOutput extends DescribeRobotAppl
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RoboMakerClient, DescribeRobotApplicationCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
- * // const { RoboMakerClient, DescribeRobotApplicationCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
+ * import { RoboMakerClient, DescribeRobotApplicationCommand } from '@aws-sdk/client-robomaker'; // ES Modules import
+ * // const { RoboMakerClient, DescribeRobotApplicationCommand } = require('@aws-sdk/client-robomaker'); // CommonJS import
  * const client = new RoboMakerClient(config);
  * const input = { // DescribeRobotApplicationRequest
- *   application: "STRING_VALUE", // required
- *   applicationVersion: "STRING_VALUE",
+ *   application: 'STRING_VALUE', // required
+ *   applicationVersion: 'STRING_VALUE',
  * };
  * const command = new DescribeRobotApplicationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeRobotApplicationResponse
+ *   arn: 'STRING_VALUE',
+ *   name: 'STRING_VALUE',
+ *   version: 'STRING_VALUE',
+ *   sources: [ // Sources
+ *     { // Source
+ *       s3Bucket: 'STRING_VALUE',
+ *       s3Key: 'STRING_VALUE',
+ *       etag: 'STRING_VALUE',
+ *       architecture: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   robotSoftwareSuite: { // RobotSoftwareSuite
+ *     name: 'STRING_VALUE',
+ *     version: 'STRING_VALUE',
+ *   },
+ *   revisionId: 'STRING_VALUE',
+ *   lastUpdatedAt: new Date('TIMESTAMP'),
+ *   tags: { // TagMap
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ *   environment: { // Environment
+ *     uri: 'STRING_VALUE',
+ *   },
+ *   imageDigest: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeRobotApplicationCommandInput - {@link DescribeRobotApplicationCommandInput}
@@ -66,6 +94,8 @@ export interface DescribeRobotApplicationCommandOutput extends DescribeRobotAppl
  * @throws {@link ThrottlingException} (client fault)
  *  <p>AWS RoboMaker is temporarily unable to process the request. Try your call again.</p>
  *
+ * @throws {@link RoboMakerServiceException}
+ * <p>Base exception class for all service exceptions from RoboMaker service.</p>
  *
  */
 export class DescribeRobotApplicationCommand extends $Command<

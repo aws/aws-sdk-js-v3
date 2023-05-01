@@ -36,14 +36,17 @@ export interface DeleteWorkerCommandOutput extends DeleteWorkerResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTRoboRunnerClient, DeleteWorkerCommand } from "@aws-sdk/client-iot-roborunner"; // ES Modules import
- * // const { IoTRoboRunnerClient, DeleteWorkerCommand } = require("@aws-sdk/client-iot-roborunner"); // CommonJS import
+ * import { IoTRoboRunnerClient, DeleteWorkerCommand } from '@aws-sdk/client-iot-roborunner'; // ES Modules import
+ * // const { IoTRoboRunnerClient, DeleteWorkerCommand } = require('@aws-sdk/client-iot-roborunner'); // CommonJS import
  * const client = new IoTRoboRunnerClient(config);
  * const input = { // DeleteWorkerRequest
- *   id: "STRING_VALUE", // required
+ *   id: 'STRING_VALUE', // required
  * };
  * const command = new DeleteWorkerCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteWorkerCommandInput - {@link DeleteWorkerCommandInput}
@@ -70,6 +73,8 @@ export interface DeleteWorkerCommandOutput extends DeleteWorkerResponse, __Metad
  * @throws {@link ValidationException} (client fault)
  *  Exception thrown if an invalid parameter is provided to an API.
  *
+ * @throws {@link IoTRoboRunnerServiceException}
+ * <p>Base exception class for all service exceptions from IoTRoboRunner service.</p>
  *
  */
 export class DeleteWorkerCommand extends $Command<

@@ -52,20 +52,23 @@ export interface UpdateQueueOutboundCallerConfigCommandOutput extends __Metadata
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, UpdateQueueOutboundCallerConfigCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, UpdateQueueOutboundCallerConfigCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, UpdateQueueOutboundCallerConfigCommand } from '@aws-sdk/client-connect'; // ES Modules import
+ * // const { ConnectClient, UpdateQueueOutboundCallerConfigCommand } = require('@aws-sdk/client-connect'); // CommonJS import
  * const client = new ConnectClient(config);
  * const input = { // UpdateQueueOutboundCallerConfigRequest
- *   InstanceId: "STRING_VALUE", // required
- *   QueueId: "STRING_VALUE", // required
+ *   InstanceId: 'STRING_VALUE', // required
+ *   QueueId: 'STRING_VALUE', // required
  *   OutboundCallerConfig: { // OutboundCallerConfig
- *     OutboundCallerIdName: "STRING_VALUE",
- *     OutboundCallerIdNumberId: "STRING_VALUE",
- *     OutboundFlowId: "STRING_VALUE",
+ *     OutboundCallerIdName: 'STRING_VALUE',
+ *     OutboundCallerIdNumberId: 'STRING_VALUE',
+ *     OutboundFlowId: 'STRING_VALUE',
  *   },
  * };
  * const command = new UpdateQueueOutboundCallerConfigCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateQueueOutboundCallerConfigCommandInput - {@link UpdateQueueOutboundCallerConfigCommandInput}
@@ -89,6 +92,8 @@ export interface UpdateQueueOutboundCallerConfigCommandOutput extends __Metadata
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class UpdateQueueOutboundCallerConfigCommand extends $Command<

@@ -39,12 +39,18 @@ export interface GetServiceRoleForAccountCommandOutput extends GetServiceRoleFor
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GreengrassV2Client, GetServiceRoleForAccountCommand } from "@aws-sdk/client-greengrassv2"; // ES Modules import
- * // const { GreengrassV2Client, GetServiceRoleForAccountCommand } = require("@aws-sdk/client-greengrassv2"); // CommonJS import
+ * import { GreengrassV2Client, GetServiceRoleForAccountCommand } from '@aws-sdk/client-greengrassv2'; // ES Modules import
+ * // const { GreengrassV2Client, GetServiceRoleForAccountCommand } = require('@aws-sdk/client-greengrassv2'); // CommonJS import
  * const client = new GreengrassV2Client(config);
  * const input = {};
  * const command = new GetServiceRoleForAccountCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetServiceRoleForAccountResponse
+ *   associatedAt: 'STRING_VALUE',
+ *   roleArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetServiceRoleForAccountCommandInput - {@link GetServiceRoleForAccountCommandInput}
@@ -56,6 +62,8 @@ export interface GetServiceRoleForAccountCommandOutput extends GetServiceRoleFor
  * @throws {@link InternalServerException} (server fault)
  *  <p>IoT Greengrass can't process your request right now. Try again later.</p>
  *
+ * @throws {@link GreengrassV2ServiceException}
+ * <p>Base exception class for all service exceptions from GreengrassV2 service.</p>
  *
  */
 export class GetServiceRoleForAccountCommand extends $Command<

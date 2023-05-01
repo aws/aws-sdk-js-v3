@@ -36,12 +36,15 @@ export interface InitializeServiceCommandOutput extends InitializeServiceRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MgnClient, InitializeServiceCommand } from "@aws-sdk/client-mgn"; // ES Modules import
- * // const { MgnClient, InitializeServiceCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
+ * import { MgnClient, InitializeServiceCommand } from '@aws-sdk/client-mgn'; // ES Modules import
+ * // const { MgnClient, InitializeServiceCommand } = require('@aws-sdk/client-mgn'); // CommonJS import
  * const client = new MgnClient(config);
  * const input = {};
  * const command = new InitializeServiceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param InitializeServiceCommandInput - {@link InitializeServiceCommandInput}
@@ -56,6 +59,8 @@ export interface InitializeServiceCommandOutput extends InitializeServiceRespons
  * @throws {@link ValidationException} (client fault)
  *  <p>Validate exception.</p>
  *
+ * @throws {@link MgnServiceException}
+ * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
  */
 export class InitializeServiceCommand extends $Command<

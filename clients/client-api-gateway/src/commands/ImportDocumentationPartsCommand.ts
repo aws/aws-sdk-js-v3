@@ -36,17 +36,27 @@ export interface ImportDocumentationPartsCommandOutput extends DocumentationPart
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { APIGatewayClient, ImportDocumentationPartsCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
- * // const { APIGatewayClient, ImportDocumentationPartsCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
+ * import { APIGatewayClient, ImportDocumentationPartsCommand } from '@aws-sdk/client-api-gateway'; // ES Modules import
+ * // const { APIGatewayClient, ImportDocumentationPartsCommand } = require('@aws-sdk/client-api-gateway'); // CommonJS import
  * const client = new APIGatewayClient(config);
  * const input = { // ImportDocumentationPartsRequest
- *   restApiId: "STRING_VALUE", // required
- *   mode: "merge" || "overwrite",
+ *   restApiId: 'STRING_VALUE', // required
+ *   mode: 'merge' || 'overwrite',
  *   failOnWarnings: true || false,
- *   body: "BLOB_VALUE", // required
+ *   body: 'BLOB_VALUE', // required
  * };
  * const command = new ImportDocumentationPartsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DocumentationPartIds
+ *   ids: [ // ListOfString
+ *     'STRING_VALUE',
+ *   ],
+ *   warnings: [
+ *     'STRING_VALUE',
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ImportDocumentationPartsCommandInput - {@link ImportDocumentationPartsCommandInput}
@@ -73,6 +83,8 @@ export interface ImportDocumentationPartsCommandOutput extends DocumentationPart
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The request is denied because the caller has insufficient permissions.</p>
  *
+ * @throws {@link APIGatewayServiceException}
+ * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
  */
 export class ImportDocumentationPartsCommand extends $Command<

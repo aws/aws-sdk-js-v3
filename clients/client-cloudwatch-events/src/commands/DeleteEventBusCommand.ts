@@ -37,14 +37,17 @@ export interface DeleteEventBusCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudWatchEventsClient, DeleteEventBusCommand } from "@aws-sdk/client-cloudwatch-events"; // ES Modules import
- * // const { CloudWatchEventsClient, DeleteEventBusCommand } = require("@aws-sdk/client-cloudwatch-events"); // CommonJS import
+ * import { CloudWatchEventsClient, DeleteEventBusCommand } from '@aws-sdk/client-cloudwatch-events'; // ES Modules import
+ * // const { CloudWatchEventsClient, DeleteEventBusCommand } = require('@aws-sdk/client-cloudwatch-events'); // CommonJS import
  * const client = new CloudWatchEventsClient(config);
  * const input = { // DeleteEventBusRequest
- *   Name: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
  * };
  * const command = new DeleteEventBusCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteEventBusCommandInput - {@link DeleteEventBusCommandInput}
@@ -59,6 +62,8 @@ export interface DeleteEventBusCommandOutput extends __MetadataBearer {}
  * @throws {@link InternalException} (server fault)
  *  <p>This exception occurs due to unexpected causes.</p>
  *
+ * @throws {@link CloudWatchEventsServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatchEvents service.</p>
  *
  */
 export class DeleteEventBusCommand extends $Command<

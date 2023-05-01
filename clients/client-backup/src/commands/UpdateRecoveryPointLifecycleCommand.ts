@@ -53,19 +53,33 @@ export interface UpdateRecoveryPointLifecycleCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BackupClient, UpdateRecoveryPointLifecycleCommand } from "@aws-sdk/client-backup"; // ES Modules import
- * // const { BackupClient, UpdateRecoveryPointLifecycleCommand } = require("@aws-sdk/client-backup"); // CommonJS import
+ * import { BackupClient, UpdateRecoveryPointLifecycleCommand } from '@aws-sdk/client-backup'; // ES Modules import
+ * // const { BackupClient, UpdateRecoveryPointLifecycleCommand } = require('@aws-sdk/client-backup'); // CommonJS import
  * const client = new BackupClient(config);
  * const input = { // UpdateRecoveryPointLifecycleInput
- *   BackupVaultName: "STRING_VALUE", // required
- *   RecoveryPointArn: "STRING_VALUE", // required
+ *   BackupVaultName: 'STRING_VALUE', // required
+ *   RecoveryPointArn: 'STRING_VALUE', // required
  *   Lifecycle: { // Lifecycle
- *     MoveToColdStorageAfterDays: Number("long"),
- *     DeleteAfterDays: Number("long"),
+ *     MoveToColdStorageAfterDays: Number('long'),
+ *     DeleteAfterDays: Number('long'),
  *   },
  * };
  * const command = new UpdateRecoveryPointLifecycleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateRecoveryPointLifecycleOutput
+ *   BackupVaultArn: 'STRING_VALUE',
+ *   RecoveryPointArn: 'STRING_VALUE',
+ *   Lifecycle: { // Lifecycle
+ *     MoveToColdStorageAfterDays: Number('long'),
+ *     DeleteAfterDays: Number('long'),
+ *   },
+ *   CalculatedLifecycle: { // CalculatedLifecycle
+ *     MoveToColdStorageAt: new Date('TIMESTAMP'),
+ *     DeleteAt: new Date('TIMESTAMP'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateRecoveryPointLifecycleCommandInput - {@link UpdateRecoveryPointLifecycleCommandInput}
@@ -91,6 +105,8 @@ export interface UpdateRecoveryPointLifecycleCommandOutput
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request failed due to a temporary failure of the server.</p>
  *
+ * @throws {@link BackupServiceException}
+ * <p>Base exception class for all service exceptions from Backup service.</p>
  *
  */
 export class UpdateRecoveryPointLifecycleCommand extends $Command<

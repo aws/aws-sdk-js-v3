@@ -36,14 +36,21 @@ export interface GetApplicationCommandOutput extends Application, __MetadataBear
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppConfigClient, GetApplicationCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
- * // const { AppConfigClient, GetApplicationCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import
+ * import { AppConfigClient, GetApplicationCommand } from '@aws-sdk/client-appconfig'; // ES Modules import
+ * // const { AppConfigClient, GetApplicationCommand } = require('@aws-sdk/client-appconfig'); // CommonJS import
  * const client = new AppConfigClient(config);
  * const input = { // GetApplicationRequest
- *   ApplicationId: "STRING_VALUE", // required
+ *   ApplicationId: 'STRING_VALUE', // required
  * };
  * const command = new GetApplicationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // Application
+ *   Id: 'STRING_VALUE',
+ *   Name: 'STRING_VALUE',
+ *   Description: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetApplicationCommandInput - {@link GetApplicationCommandInput}
@@ -61,6 +68,8 @@ export interface GetApplicationCommandOutput extends Application, __MetadataBear
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The requested resource could not be found.</p>
  *
+ * @throws {@link AppConfigServiceException}
+ * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
  * @example To list details of an application
  * ```javascript

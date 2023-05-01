@@ -51,17 +51,20 @@ export interface UntagResourceCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SecretsManagerClient, UntagResourceCommand } from "@aws-sdk/client-secrets-manager"; // ES Modules import
- * // const { SecretsManagerClient, UntagResourceCommand } = require("@aws-sdk/client-secrets-manager"); // CommonJS import
+ * import { SecretsManagerClient, UntagResourceCommand } from '@aws-sdk/client-secrets-manager'; // ES Modules import
+ * // const { SecretsManagerClient, UntagResourceCommand } = require('@aws-sdk/client-secrets-manager'); // CommonJS import
  * const client = new SecretsManagerClient(config);
  * const input = { // UntagResourceRequest
- *   SecretId: "STRING_VALUE", // required
+ *   SecretId: 'STRING_VALUE', // required
  *   TagKeys: [ // TagKeyListType // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new UntagResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UntagResourceCommandInput - {@link UntagResourceCommandInput}
@@ -97,6 +100,8 @@ export interface UntagResourceCommandOutput extends __MetadataBearer {}
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Secrets Manager can't find the resource that you asked for.</p>
  *
+ * @throws {@link SecretsManagerServiceException}
+ * <p>Base exception class for all service exceptions from SecretsManager service.</p>
  *
  * @example To remove tags from a secret
  * ```javascript

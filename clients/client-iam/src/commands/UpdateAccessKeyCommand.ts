@@ -46,16 +46,19 @@ export interface UpdateAccessKeyCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IAMClient, UpdateAccessKeyCommand } from "@aws-sdk/client-iam"; // ES Modules import
- * // const { IAMClient, UpdateAccessKeyCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * import { IAMClient, UpdateAccessKeyCommand } from '@aws-sdk/client-iam'; // ES Modules import
+ * // const { IAMClient, UpdateAccessKeyCommand } = require('@aws-sdk/client-iam'); // CommonJS import
  * const client = new IAMClient(config);
  * const input = { // UpdateAccessKeyRequest
- *   UserName: "STRING_VALUE",
- *   AccessKeyId: "STRING_VALUE", // required
- *   Status: "Active" || "Inactive", // required
+ *   UserName: 'STRING_VALUE',
+ *   AccessKeyId: 'STRING_VALUE', // required
+ *   Status: 'Active' || 'Inactive', // required
  * };
  * const command = new UpdateAccessKeyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateAccessKeyCommandInput - {@link UpdateAccessKeyCommandInput}
@@ -76,6 +79,8 @@ export interface UpdateAccessKeyCommandOutput extends __MetadataBearer {}
  *  <p>The request processing has failed because of an unknown error, exception or
  *       failure.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  * @example To activate or deactivate an access key for an IAM user
  * ```javascript

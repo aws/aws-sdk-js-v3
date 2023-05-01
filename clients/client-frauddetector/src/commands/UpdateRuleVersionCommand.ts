@@ -40,30 +40,39 @@ export interface UpdateRuleVersionCommandOutput extends UpdateRuleVersionResult,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FraudDetectorClient, UpdateRuleVersionCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
- * // const { FraudDetectorClient, UpdateRuleVersionCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
+ * import { FraudDetectorClient, UpdateRuleVersionCommand } from '@aws-sdk/client-frauddetector'; // ES Modules import
+ * // const { FraudDetectorClient, UpdateRuleVersionCommand } = require('@aws-sdk/client-frauddetector'); // CommonJS import
  * const client = new FraudDetectorClient(config);
  * const input = { // UpdateRuleVersionRequest
  *   rule: { // Rule
- *     detectorId: "STRING_VALUE", // required
- *     ruleId: "STRING_VALUE", // required
- *     ruleVersion: "STRING_VALUE", // required
+ *     detectorId: 'STRING_VALUE', // required
+ *     ruleId: 'STRING_VALUE', // required
+ *     ruleVersion: 'STRING_VALUE', // required
  *   },
- *   description: "STRING_VALUE",
- *   expression: "STRING_VALUE", // required
- *   language: "DETECTORPL", // required
+ *   description: 'STRING_VALUE',
+ *   expression: 'STRING_VALUE', // required
+ *   language: 'DETECTORPL', // required
  *   outcomes: [ // NonEmptyListOfStrings // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   tags: [ // tagList
  *     { // Tag
- *       key: "STRING_VALUE", // required
- *       value: "STRING_VALUE", // required
+ *       key: 'STRING_VALUE', // required
+ *       value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new UpdateRuleVersionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateRuleVersionResult
+ *   rule: { // Rule
+ *     detectorId: 'STRING_VALUE', // required
+ *     ruleId: 'STRING_VALUE', // required
+ *     ruleVersion: 'STRING_VALUE', // required
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateRuleVersionCommandInput - {@link UpdateRuleVersionCommandInput}
@@ -90,6 +99,8 @@ export interface UpdateRuleVersionCommandOutput extends UpdateRuleVersionResult,
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception indicating a specified value is not allowed.</p>
  *
+ * @throws {@link FraudDetectorServiceException}
+ * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
  */
 export class UpdateRuleVersionCommand extends $Command<

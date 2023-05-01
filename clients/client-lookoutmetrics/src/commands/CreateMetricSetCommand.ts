@@ -36,122 +36,122 @@ export interface CreateMetricSetCommandOutput extends CreateMetricSetResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LookoutMetricsClient, CreateMetricSetCommand } from "@aws-sdk/client-lookoutmetrics"; // ES Modules import
- * // const { LookoutMetricsClient, CreateMetricSetCommand } = require("@aws-sdk/client-lookoutmetrics"); // CommonJS import
+ * import { LookoutMetricsClient, CreateMetricSetCommand } from '@aws-sdk/client-lookoutmetrics'; // ES Modules import
+ * // const { LookoutMetricsClient, CreateMetricSetCommand } = require('@aws-sdk/client-lookoutmetrics'); // CommonJS import
  * const client = new LookoutMetricsClient(config);
  * const input = { // CreateMetricSetRequest
- *   AnomalyDetectorArn: "STRING_VALUE", // required
- *   MetricSetName: "STRING_VALUE", // required
- *   MetricSetDescription: "STRING_VALUE",
+ *   AnomalyDetectorArn: 'STRING_VALUE', // required
+ *   MetricSetName: 'STRING_VALUE', // required
+ *   MetricSetDescription: 'STRING_VALUE',
  *   MetricList: [ // MetricList // required
  *     { // Metric
- *       MetricName: "STRING_VALUE", // required
- *       AggregationFunction: "STRING_VALUE", // required
- *       Namespace: "STRING_VALUE",
+ *       MetricName: 'STRING_VALUE', // required
+ *       AggregationFunction: 'STRING_VALUE', // required
+ *       Namespace: 'STRING_VALUE',
  *     },
  *   ],
- *   Offset: Number("int"),
+ *   Offset: Number('int'),
  *   TimestampColumn: { // TimestampColumn
- *     ColumnName: "STRING_VALUE",
- *     ColumnFormat: "STRING_VALUE",
+ *     ColumnName: 'STRING_VALUE',
+ *     ColumnFormat: 'STRING_VALUE',
  *   },
  *   DimensionList: [ // DimensionList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   MetricSetFrequency: "STRING_VALUE",
+ *   MetricSetFrequency: 'STRING_VALUE',
  *   MetricSource: { // MetricSource
  *     S3SourceConfig: { // S3SourceConfig
- *       RoleArn: "STRING_VALUE",
+ *       RoleArn: 'STRING_VALUE',
  *       TemplatedPathList: [ // TemplatedPathList
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *       HistoricalDataPathList: [ // HistoricalDataPathList
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *       FileFormatDescriptor: { // FileFormatDescriptor
  *         CsvFormatDescriptor: { // CsvFormatDescriptor
- *           FileCompression: "STRING_VALUE",
- *           Charset: "STRING_VALUE",
+ *           FileCompression: 'STRING_VALUE',
+ *           Charset: 'STRING_VALUE',
  *           ContainsHeader: true || false,
- *           Delimiter: "STRING_VALUE",
+ *           Delimiter: 'STRING_VALUE',
  *           HeaderList: [ // HeaderList
- *             "STRING_VALUE",
+ *             'STRING_VALUE',
  *           ],
- *           QuoteSymbol: "STRING_VALUE",
+ *           QuoteSymbol: 'STRING_VALUE',
  *         },
  *         JsonFormatDescriptor: { // JsonFormatDescriptor
- *           FileCompression: "STRING_VALUE",
- *           Charset: "STRING_VALUE",
+ *           FileCompression: 'STRING_VALUE',
+ *           Charset: 'STRING_VALUE',
  *         },
  *       },
  *     },
  *     AppFlowConfig: { // AppFlowConfig
- *       RoleArn: "STRING_VALUE",
- *       FlowName: "STRING_VALUE",
+ *       RoleArn: 'STRING_VALUE',
+ *       FlowName: 'STRING_VALUE',
  *     },
  *     CloudWatchConfig: { // CloudWatchConfig
- *       RoleArn: "STRING_VALUE",
+ *       RoleArn: 'STRING_VALUE',
  *       BackTestConfiguration: { // BackTestConfiguration
  *         RunBackTestMode: true || false, // required
  *       },
  *     },
  *     RDSSourceConfig: { // RDSSourceConfig
- *       DBInstanceIdentifier: "STRING_VALUE",
- *       DatabaseHost: "STRING_VALUE",
- *       DatabasePort: Number("int"),
- *       SecretManagerArn: "STRING_VALUE",
- *       DatabaseName: "STRING_VALUE",
- *       TableName: "STRING_VALUE",
- *       RoleArn: "STRING_VALUE",
+ *       DBInstanceIdentifier: 'STRING_VALUE',
+ *       DatabaseHost: 'STRING_VALUE',
+ *       DatabasePort: Number('int'),
+ *       SecretManagerArn: 'STRING_VALUE',
+ *       DatabaseName: 'STRING_VALUE',
+ *       TableName: 'STRING_VALUE',
+ *       RoleArn: 'STRING_VALUE',
  *       VpcConfiguration: { // VpcConfiguration
  *         SubnetIdList: [ // SubnetIdList // required
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
  *         SecurityGroupIdList: [ // SecurityGroupIdList // required
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
  *       },
  *     },
  *     RedshiftSourceConfig: { // RedshiftSourceConfig
- *       ClusterIdentifier: "STRING_VALUE",
- *       DatabaseHost: "STRING_VALUE",
- *       DatabasePort: Number("int"),
- *       SecretManagerArn: "STRING_VALUE",
- *       DatabaseName: "STRING_VALUE",
- *       TableName: "STRING_VALUE",
- *       RoleArn: "STRING_VALUE",
+ *       ClusterIdentifier: 'STRING_VALUE',
+ *       DatabaseHost: 'STRING_VALUE',
+ *       DatabasePort: Number('int'),
+ *       SecretManagerArn: 'STRING_VALUE',
+ *       DatabaseName: 'STRING_VALUE',
+ *       TableName: 'STRING_VALUE',
+ *       RoleArn: 'STRING_VALUE',
  *       VpcConfiguration: {
  *         SubnetIdList: [ // required
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
  *         SecurityGroupIdList: [ // required
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
  *       },
  *     },
  *     AthenaSourceConfig: { // AthenaSourceConfig
- *       RoleArn: "STRING_VALUE",
- *       DatabaseName: "STRING_VALUE",
- *       DataCatalog: "STRING_VALUE",
- *       TableName: "STRING_VALUE",
- *       WorkGroupName: "STRING_VALUE",
- *       S3ResultsPath: "STRING_VALUE",
+ *       RoleArn: 'STRING_VALUE',
+ *       DatabaseName: 'STRING_VALUE',
+ *       DataCatalog: 'STRING_VALUE',
+ *       TableName: 'STRING_VALUE',
+ *       WorkGroupName: 'STRING_VALUE',
+ *       S3ResultsPath: 'STRING_VALUE',
  *       BackTestConfiguration: {
  *         RunBackTestMode: true || false, // required
  *       },
  *     },
  *   },
- *   Timezone: "STRING_VALUE",
+ *   Timezone: 'STRING_VALUE',
  *   Tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  *   DimensionFilterList: [ // MetricSetDimensionFilterList
  *     { // MetricSetDimensionFilter
- *       Name: "STRING_VALUE",
+ *       Name: 'STRING_VALUE',
  *       FilterList: [ // FilterList
  *         { // Filter
- *           DimensionValue: "STRING_VALUE",
- *           FilterOperation: "STRING_VALUE",
+ *           DimensionValue: 'STRING_VALUE',
+ *           FilterOperation: 'STRING_VALUE',
  *         },
  *       ],
  *     },
@@ -159,6 +159,11 @@ export interface CreateMetricSetCommandOutput extends CreateMetricSetResponse, _
  * };
  * const command = new CreateMetricSetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateMetricSetResponse
+ *   MetricSetArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateMetricSetCommandInput - {@link CreateMetricSetCommandInput}
@@ -189,6 +194,8 @@ export interface CreateMetricSetCommandOutput extends CreateMetricSetResponse, _
  *  <p>The input fails to satisfy the constraints specified by the AWS service. Check your input values and try
  *       again.</p>
  *
+ * @throws {@link LookoutMetricsServiceException}
+ * <p>Base exception class for all service exceptions from LookoutMetrics service.</p>
  *
  */
 export class CreateMetricSetCommand extends $Command<

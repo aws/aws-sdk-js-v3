@@ -36,25 +36,43 @@ export interface CreateVpcIngressConnectionCommandOutput extends CreateVpcIngres
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppRunnerClient, CreateVpcIngressConnectionCommand } from "@aws-sdk/client-apprunner"; // ES Modules import
- * // const { AppRunnerClient, CreateVpcIngressConnectionCommand } = require("@aws-sdk/client-apprunner"); // CommonJS import
+ * import { AppRunnerClient, CreateVpcIngressConnectionCommand } from '@aws-sdk/client-apprunner'; // ES Modules import
+ * // const { AppRunnerClient, CreateVpcIngressConnectionCommand } = require('@aws-sdk/client-apprunner'); // CommonJS import
  * const client = new AppRunnerClient(config);
  * const input = { // CreateVpcIngressConnectionRequest
- *   ServiceArn: "STRING_VALUE", // required
- *   VpcIngressConnectionName: "STRING_VALUE", // required
+ *   ServiceArn: 'STRING_VALUE', // required
+ *   VpcIngressConnectionName: 'STRING_VALUE', // required
  *   IngressVpcConfiguration: { // IngressVpcConfiguration
- *     VpcId: "STRING_VALUE",
- *     VpcEndpointId: "STRING_VALUE",
+ *     VpcId: 'STRING_VALUE',
+ *     VpcEndpointId: 'STRING_VALUE',
  *   },
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE",
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new CreateVpcIngressConnectionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateVpcIngressConnectionResponse
+ *   VpcIngressConnection: { // VpcIngressConnection
+ *     VpcIngressConnectionArn: 'STRING_VALUE',
+ *     VpcIngressConnectionName: 'STRING_VALUE',
+ *     ServiceArn: 'STRING_VALUE',
+ *     Status: 'AVAILABLE' || 'PENDING_CREATION' || 'PENDING_UPDATE' || 'PENDING_DELETION' || 'FAILED_CREATION' || 'FAILED_UPDATE' || 'FAILED_DELETION' || 'DELETED',
+ *     AccountId: 'STRING_VALUE',
+ *     DomainName: 'STRING_VALUE',
+ *     IngressVpcConfiguration: { // IngressVpcConfiguration
+ *       VpcId: 'STRING_VALUE',
+ *       VpcEndpointId: 'STRING_VALUE',
+ *     },
+ *     CreatedAt: new Date('TIMESTAMP'),
+ *     DeletedAt: new Date('TIMESTAMP'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateVpcIngressConnectionCommandInput - {@link CreateVpcIngressConnectionCommandInput}
@@ -77,6 +95,8 @@ export interface CreateVpcIngressConnectionCommandOutput extends CreateVpcIngres
  *          <p>For App Runner per-resource quotas, see <a href="https://docs.aws.amazon.com/general/latest/gr/apprunner.html">App Runner endpoints and quotas</a> in the
  *         <i>Amazon Web Services General Reference</i>.</p>
  *
+ * @throws {@link AppRunnerServiceException}
+ * <p>Base exception class for all service exceptions from AppRunner service.</p>
  *
  */
 export class CreateVpcIngressConnectionCommand extends $Command<

@@ -36,18 +36,33 @@ export interface AuthorizeEndpointAccessCommandOutput extends EndpointAuthorizat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RedshiftClient, AuthorizeEndpointAccessCommand } from "@aws-sdk/client-redshift"; // ES Modules import
- * // const { RedshiftClient, AuthorizeEndpointAccessCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * import { RedshiftClient, AuthorizeEndpointAccessCommand } from '@aws-sdk/client-redshift'; // ES Modules import
+ * // const { RedshiftClient, AuthorizeEndpointAccessCommand } = require('@aws-sdk/client-redshift'); // CommonJS import
  * const client = new RedshiftClient(config);
  * const input = { // AuthorizeEndpointAccessMessage
- *   ClusterIdentifier: "STRING_VALUE",
- *   Account: "STRING_VALUE", // required
+ *   ClusterIdentifier: 'STRING_VALUE',
+ *   Account: 'STRING_VALUE', // required
  *   VpcIds: [ // VpcIdentifierList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new AuthorizeEndpointAccessCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // EndpointAuthorization
+ *   Grantor: 'STRING_VALUE',
+ *   Grantee: 'STRING_VALUE',
+ *   ClusterIdentifier: 'STRING_VALUE',
+ *   AuthorizeTime: new Date('TIMESTAMP'),
+ *   ClusterStatus: 'STRING_VALUE',
+ *   Status: 'Authorized' || 'Revoking',
+ *   AllowedAllVPCs: true || false,
+ *   AllowedVPCs: [ // VpcIdentifierList
+ *     'STRING_VALUE',
+ *   ],
+ *   EndpointCount: Number('int'),
+ * };
+ *
  * ```
  *
  * @param AuthorizeEndpointAccessCommandInput - {@link AuthorizeEndpointAccessCommandInput}
@@ -75,6 +90,8 @@ export interface AuthorizeEndpointAccessCommandOutput extends EndpointAuthorizat
  * @throws {@link UnsupportedOperationFault} (client fault)
  *  <p>The requested operation isn't supported.</p>
  *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class AuthorizeEndpointAccessCommand extends $Command<

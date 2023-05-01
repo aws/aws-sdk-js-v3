@@ -42,27 +42,32 @@ export interface CreateNetworkSettingsCommandOutput extends CreateNetworkSetting
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkSpacesWebClient, CreateNetworkSettingsCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
- * // const { WorkSpacesWebClient, CreateNetworkSettingsCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
+ * import { WorkSpacesWebClient, CreateNetworkSettingsCommand } from '@aws-sdk/client-workspaces-web'; // ES Modules import
+ * // const { WorkSpacesWebClient, CreateNetworkSettingsCommand } = require('@aws-sdk/client-workspaces-web'); // CommonJS import
  * const client = new WorkSpacesWebClient(config);
  * const input = { // CreateNetworkSettingsRequest
- *   vpcId: "STRING_VALUE", // required
+ *   vpcId: 'STRING_VALUE', // required
  *   subnetIds: [ // SubnetIdList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   securityGroupIds: [ // SecurityGroupIdList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
- *   clientToken: "STRING_VALUE",
+ *   clientToken: 'STRING_VALUE',
  * };
  * const command = new CreateNetworkSettingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateNetworkSettingsResponse
+ *   networkSettingsArn: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param CreateNetworkSettingsCommandInput - {@link CreateNetworkSettingsCommandInput}
@@ -89,6 +94,8 @@ export interface CreateNetworkSettingsCommandOutput extends CreateNetworkSetting
  * @throws {@link ValidationException} (client fault)
  *  <p>There is a validation error.</p>
  *
+ * @throws {@link WorkSpacesWebServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
  */
 export class CreateNetworkSettingsCommand extends $Command<

@@ -43,14 +43,21 @@ export interface GetPlatformApplicationAttributesCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SNSClient, GetPlatformApplicationAttributesCommand } from "@aws-sdk/client-sns"; // ES Modules import
- * // const { SNSClient, GetPlatformApplicationAttributesCommand } = require("@aws-sdk/client-sns"); // CommonJS import
+ * import { SNSClient, GetPlatformApplicationAttributesCommand } from '@aws-sdk/client-sns'; // ES Modules import
+ * // const { SNSClient, GetPlatformApplicationAttributesCommand } = require('@aws-sdk/client-sns'); // CommonJS import
  * const client = new SNSClient(config);
  * const input = { // GetPlatformApplicationAttributesInput
- *   PlatformApplicationArn: "STRING_VALUE", // required
+ *   PlatformApplicationArn: 'STRING_VALUE', // required
  * };
  * const command = new GetPlatformApplicationAttributesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetPlatformApplicationAttributesResponse
+ *   Attributes: { // MapStringToString
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetPlatformApplicationAttributesCommandInput - {@link GetPlatformApplicationAttributesCommandInput}
@@ -72,6 +79,8 @@ export interface GetPlatformApplicationAttributesCommandOutput
  * @throws {@link NotFoundException} (client fault)
  *  <p>Indicates that the requested resource does not exist.</p>
  *
+ * @throws {@link SNSServiceException}
+ * <p>Base exception class for all service exceptions from SNS service.</p>
  *
  */
 export class GetPlatformApplicationAttributesCommand extends $Command<

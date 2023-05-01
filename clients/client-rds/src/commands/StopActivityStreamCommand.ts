@@ -44,15 +44,22 @@ export interface StopActivityStreamCommandOutput extends StopActivityStreamRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RDSClient, StopActivityStreamCommand } from "@aws-sdk/client-rds"; // ES Modules import
- * // const { RDSClient, StopActivityStreamCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * import { RDSClient, StopActivityStreamCommand } from '@aws-sdk/client-rds'; // ES Modules import
+ * // const { RDSClient, StopActivityStreamCommand } = require('@aws-sdk/client-rds'); // CommonJS import
  * const client = new RDSClient(config);
  * const input = { // StopActivityStreamRequest
- *   ResourceArn: "STRING_VALUE", // required
+ *   ResourceArn: 'STRING_VALUE', // required
  *   ApplyImmediately: true || false,
  * };
  * const command = new StopActivityStreamCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StopActivityStreamResponse
+ *   KmsKeyId: 'STRING_VALUE',
+ *   KinesisStreamName: 'STRING_VALUE',
+ *   Status: 'stopped' || 'starting' || 'started' || 'stopping',
+ * };
+ *
  * ```
  *
  * @param StopActivityStreamCommandInput - {@link StopActivityStreamCommandInput}
@@ -78,6 +85,8 @@ export interface StopActivityStreamCommandOutput extends StopActivityStreamRespo
  * @throws {@link ResourceNotFoundFault} (client fault)
  *  <p>The specified resource ID was not found.</p>
  *
+ * @throws {@link RDSServiceException}
+ * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  * @example To stop a database activity stream
  * ```javascript

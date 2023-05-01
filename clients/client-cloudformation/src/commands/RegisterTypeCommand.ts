@@ -62,22 +62,27 @@ export interface RegisterTypeCommandOutput extends RegisterTypeOutput, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudFormationClient, RegisterTypeCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
- * // const { CloudFormationClient, RegisterTypeCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
+ * import { CloudFormationClient, RegisterTypeCommand } from '@aws-sdk/client-cloudformation'; // ES Modules import
+ * // const { CloudFormationClient, RegisterTypeCommand } = require('@aws-sdk/client-cloudformation'); // CommonJS import
  * const client = new CloudFormationClient(config);
  * const input = { // RegisterTypeInput
- *   Type: "RESOURCE" || "MODULE" || "HOOK",
- *   TypeName: "STRING_VALUE", // required
- *   SchemaHandlerPackage: "STRING_VALUE", // required
+ *   Type: 'RESOURCE' || 'MODULE' || 'HOOK',
+ *   TypeName: 'STRING_VALUE', // required
+ *   SchemaHandlerPackage: 'STRING_VALUE', // required
  *   LoggingConfig: { // LoggingConfig
- *     LogRoleArn: "STRING_VALUE", // required
- *     LogGroupName: "STRING_VALUE", // required
+ *     LogRoleArn: 'STRING_VALUE', // required
+ *     LogGroupName: 'STRING_VALUE', // required
  *   },
- *   ExecutionRoleArn: "STRING_VALUE",
- *   ClientRequestToken: "STRING_VALUE",
+ *   ExecutionRoleArn: 'STRING_VALUE',
+ *   ClientRequestToken: 'STRING_VALUE',
  * };
  * const command = new RegisterTypeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // RegisterTypeOutput
+ *   RegistrationToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param RegisterTypeCommandInput - {@link RegisterTypeCommandInput}
@@ -89,6 +94,8 @@ export interface RegisterTypeCommandOutput extends RegisterTypeOutput, __Metadat
  * @throws {@link CFNRegistryException} (client fault)
  *  <p>An error occurred during a CloudFormation registry operation.</p>
  *
+ * @throws {@link CloudFormationServiceException}
+ * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
  */
 export class RegisterTypeCommand extends $Command<

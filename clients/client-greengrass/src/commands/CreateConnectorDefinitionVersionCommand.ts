@@ -41,24 +41,32 @@ export interface CreateConnectorDefinitionVersionCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GreengrassClient, CreateConnectorDefinitionVersionCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
- * // const { GreengrassClient, CreateConnectorDefinitionVersionCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
+ * import { GreengrassClient, CreateConnectorDefinitionVersionCommand } from '@aws-sdk/client-greengrass'; // ES Modules import
+ * // const { GreengrassClient, CreateConnectorDefinitionVersionCommand } = require('@aws-sdk/client-greengrass'); // CommonJS import
  * const client = new GreengrassClient(config);
  * const input = { // CreateConnectorDefinitionVersionRequest
- *   AmznClientToken: "STRING_VALUE",
- *   ConnectorDefinitionId: "STRING_VALUE", // required
+ *   AmznClientToken: 'STRING_VALUE',
+ *   ConnectorDefinitionId: 'STRING_VALUE', // required
  *   Connectors: [ // __listOfConnector
  *     { // Connector
- *       ConnectorArn: "STRING_VALUE", // required
- *       Id: "STRING_VALUE", // required
+ *       ConnectorArn: 'STRING_VALUE', // required
+ *       Id: 'STRING_VALUE', // required
  *       Parameters: { // __mapOf__string
- *         "<keys>": "STRING_VALUE",
+ *         '<keys>': 'STRING_VALUE',
  *       },
  *     },
  *   ],
  * };
  * const command = new CreateConnectorDefinitionVersionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateConnectorDefinitionVersionResponse
+ *   Arn: 'STRING_VALUE',
+ *   CreationTimestamp: 'STRING_VALUE',
+ *   Id: 'STRING_VALUE',
+ *   Version: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateConnectorDefinitionVersionCommandInput - {@link CreateConnectorDefinitionVersionCommandInput}
@@ -70,6 +78,8 @@ export interface CreateConnectorDefinitionVersionCommandOutput
  * @throws {@link BadRequestException} (client fault)
  *  General error information.
  *
+ * @throws {@link GreengrassServiceException}
+ * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
  */
 export class CreateConnectorDefinitionVersionCommand extends $Command<

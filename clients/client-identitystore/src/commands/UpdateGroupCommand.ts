@@ -36,21 +36,24 @@ export interface UpdateGroupCommandOutput extends UpdateGroupResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IdentitystoreClient, UpdateGroupCommand } from "@aws-sdk/client-identitystore"; // ES Modules import
- * // const { IdentitystoreClient, UpdateGroupCommand } = require("@aws-sdk/client-identitystore"); // CommonJS import
+ * import { IdentitystoreClient, UpdateGroupCommand } from '@aws-sdk/client-identitystore'; // ES Modules import
+ * // const { IdentitystoreClient, UpdateGroupCommand } = require('@aws-sdk/client-identitystore'); // CommonJS import
  * const client = new IdentitystoreClient(config);
  * const input = { // UpdateGroupRequest
- *   IdentityStoreId: "STRING_VALUE", // required
- *   GroupId: "STRING_VALUE", // required
+ *   IdentityStoreId: 'STRING_VALUE', // required
+ *   GroupId: 'STRING_VALUE', // required
  *   Operations: [ // AttributeOperations // required
  *     { // AttributeOperation
- *       AttributePath: "STRING_VALUE", // required
- *       AttributeValue: "DOCUMENT_VALUE",
+ *       AttributePath: 'STRING_VALUE', // required
+ *       AttributeValue: 'DOCUMENT_VALUE',
  *     },
  *   ],
  * };
  * const command = new UpdateGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateGroupCommandInput - {@link UpdateGroupCommandInput}
@@ -88,6 +91,8 @@ export interface UpdateGroupCommandOutput extends UpdateGroupResponse, __Metadat
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Indicates that the principal has crossed the throttling limits of the API operations.</p>
  *
+ * @throws {@link IdentitystoreServiceException}
+ * <p>Base exception class for all service exceptions from Identitystore service.</p>
  *
  */
 export class UpdateGroupCommand extends $Command<

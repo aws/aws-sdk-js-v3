@@ -37,14 +37,17 @@ export interface DeleteReplicationSetCommandOutput extends DeleteReplicationSetO
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMIncidentsClient, DeleteReplicationSetCommand } from "@aws-sdk/client-ssm-incidents"; // ES Modules import
- * // const { SSMIncidentsClient, DeleteReplicationSetCommand } = require("@aws-sdk/client-ssm-incidents"); // CommonJS import
+ * import { SSMIncidentsClient, DeleteReplicationSetCommand } from '@aws-sdk/client-ssm-incidents'; // ES Modules import
+ * // const { SSMIncidentsClient, DeleteReplicationSetCommand } = require('@aws-sdk/client-ssm-incidents'); // CommonJS import
  * const client = new SSMIncidentsClient(config);
  * const input = { // DeleteReplicationSetInput
- *   arn: "STRING_VALUE", // required
+ *   arn: 'STRING_VALUE', // required
  * };
  * const command = new DeleteReplicationSetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteReplicationSetCommandInput - {@link DeleteReplicationSetCommandInput}
@@ -70,6 +73,8 @@ export interface DeleteReplicationSetCommandOutput extends DeleteReplicationSetO
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
  *       service.</p>
  *
+ * @throws {@link SSMIncidentsServiceException}
+ * <p>Base exception class for all service exceptions from SSMIncidents service.</p>
  *
  */
 export class DeleteReplicationSetCommand extends $Command<

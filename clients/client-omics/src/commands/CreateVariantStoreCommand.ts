@@ -36,25 +36,36 @@ export interface CreateVariantStoreCommandOutput extends CreateVariantStoreRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OmicsClient, CreateVariantStoreCommand } from "@aws-sdk/client-omics"; // ES Modules import
- * // const { OmicsClient, CreateVariantStoreCommand } = require("@aws-sdk/client-omics"); // CommonJS import
+ * import { OmicsClient, CreateVariantStoreCommand } from '@aws-sdk/client-omics'; // ES Modules import
+ * // const { OmicsClient, CreateVariantStoreCommand } = require('@aws-sdk/client-omics'); // CommonJS import
  * const client = new OmicsClient(config);
  * const input = { // CreateVariantStoreRequest
  *   reference: { // ReferenceItem Union: only one key present
- *     referenceArn: "STRING_VALUE",
+ *     referenceArn: 'STRING_VALUE',
  *   },
- *   name: "STRING_VALUE",
- *   description: "STRING_VALUE",
+ *   name: 'STRING_VALUE',
+ *   description: 'STRING_VALUE',
  *   tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  *   sseConfig: { // SseConfig
- *     type: "STRING_VALUE", // required
- *     keyArn: "STRING_VALUE",
+ *     type: 'STRING_VALUE', // required
+ *     keyArn: 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateVariantStoreCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateVariantStoreResponse
+ *   id: 'STRING_VALUE', // required
+ *   reference: { // ReferenceItem Union: only one key present
+ *     referenceArn: 'STRING_VALUE',
+ *   },
+ *   status: 'STRING_VALUE', // required
+ *   name: 'STRING_VALUE', // required
+ *   creationTime: new Date('TIMESTAMP'), // required
+ * };
+ *
  * ```
  *
  * @param CreateVariantStoreCommandInput - {@link CreateVariantStoreCommandInput}
@@ -84,6 +95,8 @@ export interface CreateVariantStoreCommandOutput extends CreateVariantStoreRespo
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link OmicsServiceException}
+ * <p>Base exception class for all service exceptions from Omics service.</p>
  *
  */
 export class CreateVariantStoreCommand extends $Command<

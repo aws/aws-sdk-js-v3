@@ -37,21 +37,38 @@ export interface CreateFirewallRuleGroupCommandOutput extends CreateFirewallRule
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Route53ResolverClient, CreateFirewallRuleGroupCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
- * // const { Route53ResolverClient, CreateFirewallRuleGroupCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
+ * import { Route53ResolverClient, CreateFirewallRuleGroupCommand } from '@aws-sdk/client-route53resolver'; // ES Modules import
+ * // const { Route53ResolverClient, CreateFirewallRuleGroupCommand } = require('@aws-sdk/client-route53resolver'); // CommonJS import
  * const client = new Route53ResolverClient(config);
  * const input = { // CreateFirewallRuleGroupRequest
- *   CreatorRequestId: "STRING_VALUE", // required
- *   Name: "STRING_VALUE", // required
+ *   CreatorRequestId: 'STRING_VALUE', // required
+ *   Name: 'STRING_VALUE', // required
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreateFirewallRuleGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateFirewallRuleGroupResponse
+ *   FirewallRuleGroup: { // FirewallRuleGroup
+ *     Id: 'STRING_VALUE',
+ *     Arn: 'STRING_VALUE',
+ *     Name: 'STRING_VALUE',
+ *     RuleCount: Number('int'),
+ *     Status: 'COMPLETE' || 'DELETING' || 'UPDATING',
+ *     StatusMessage: 'STRING_VALUE',
+ *     OwnerId: 'STRING_VALUE',
+ *     CreatorRequestId: 'STRING_VALUE',
+ *     ShareStatus: 'NOT_SHARED' || 'SHARED_WITH_ME' || 'SHARED_BY_ME',
+ *     CreationTime: 'STRING_VALUE',
+ *     ModificationTime: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateFirewallRuleGroupCommandInput - {@link CreateFirewallRuleGroupCommandInput}
@@ -76,6 +93,8 @@ export interface CreateFirewallRuleGroupCommandOutput extends CreateFirewallRule
  *  <p>You have provided an invalid command. Supported values are <code>ADD</code>,
  * 			<code>REMOVE</code>, or <code>REPLACE</code> a domain.</p>
  *
+ * @throws {@link Route53ResolverServiceException}
+ * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
  */
 export class CreateFirewallRuleGroupCommand extends $Command<

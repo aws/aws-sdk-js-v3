@@ -36,17 +36,20 @@ export interface UntagResourceCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DataExchangeClient, UntagResourceCommand } from "@aws-sdk/client-dataexchange"; // ES Modules import
- * // const { DataExchangeClient, UntagResourceCommand } = require("@aws-sdk/client-dataexchange"); // CommonJS import
+ * import { DataExchangeClient, UntagResourceCommand } from '@aws-sdk/client-dataexchange'; // ES Modules import
+ * // const { DataExchangeClient, UntagResourceCommand } = require('@aws-sdk/client-dataexchange'); // CommonJS import
  * const client = new DataExchangeClient(config);
  * const input = { // UntagResourceRequest
- *   ResourceArn: "STRING_VALUE", // required
+ *   ResourceArn: 'STRING_VALUE', // required
  *   TagKeys: [ // ListOf__string // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new UntagResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UntagResourceCommandInput - {@link UntagResourceCommandInput}
@@ -55,6 +58,8 @@ export interface UntagResourceCommandOutput extends __MetadataBearer {}
  * @see {@link UntagResourceCommandOutput} for command's `response` shape.
  * @see {@link DataExchangeClientResolvedConfig | config} for DataExchangeClient's `config` shape.
  *
+ * @throws {@link DataExchangeServiceException}
+ * <p>Base exception class for all service exceptions from DataExchange service.</p>
  *
  */
 export class UntagResourceCommand extends $Command<

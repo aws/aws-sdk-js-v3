@@ -36,16 +36,24 @@ export interface ListFiltersCommandOutput extends ListFiltersResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GuardDutyClient, ListFiltersCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
- * // const { GuardDutyClient, ListFiltersCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
+ * import { GuardDutyClient, ListFiltersCommand } from '@aws-sdk/client-guardduty'; // ES Modules import
+ * // const { GuardDutyClient, ListFiltersCommand } = require('@aws-sdk/client-guardduty'); // CommonJS import
  * const client = new GuardDutyClient(config);
  * const input = { // ListFiltersRequest
- *   DetectorId: "STRING_VALUE", // required
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   DetectorId: 'STRING_VALUE', // required
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListFiltersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListFiltersResponse
+ *   FilterNames: [ // FilterNames // required
+ *     'STRING_VALUE',
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListFiltersCommandInput - {@link ListFiltersCommandInput}
@@ -60,6 +68,8 @@ export interface ListFiltersCommandOutput extends ListFiltersResponse, __Metadat
  * @throws {@link InternalServerErrorException} (server fault)
  *  <p>An internal server error exception object.</p>
  *
+ * @throws {@link GuardDutyServiceException}
+ * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
  */
 export class ListFiltersCommand extends $Command<

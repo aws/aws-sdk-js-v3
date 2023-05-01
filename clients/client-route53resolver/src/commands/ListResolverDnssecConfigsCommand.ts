@@ -36,23 +36,36 @@ export interface ListResolverDnssecConfigsCommandOutput extends ListResolverDnss
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Route53ResolverClient, ListResolverDnssecConfigsCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
- * // const { Route53ResolverClient, ListResolverDnssecConfigsCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
+ * import { Route53ResolverClient, ListResolverDnssecConfigsCommand } from '@aws-sdk/client-route53resolver'; // ES Modules import
+ * // const { Route53ResolverClient, ListResolverDnssecConfigsCommand } = require('@aws-sdk/client-route53resolver'); // CommonJS import
  * const client = new Route53ResolverClient(config);
  * const input = { // ListResolverDnssecConfigsRequest
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  *   Filters: [ // Filters
  *     { // Filter
- *       Name: "STRING_VALUE",
+ *       Name: 'STRING_VALUE',
  *       Values: [ // FilterValues
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
  * };
  * const command = new ListResolverDnssecConfigsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListResolverDnssecConfigsResponse
+ *   NextToken: 'STRING_VALUE',
+ *   ResolverDnssecConfigs: [ // ResolverDnssecConfigList
+ *     { // ResolverDnssecConfig
+ *       Id: 'STRING_VALUE',
+ *       OwnerId: 'STRING_VALUE',
+ *       ResourceId: 'STRING_VALUE',
+ *       ValidationStatus: 'ENABLING' || 'ENABLED' || 'DISABLING' || 'DISABLED' || 'UPDATING_TO_USE_LOCAL_RESOURCE_SETTING' || 'USE_LOCAL_RESOURCE_SETTING',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListResolverDnssecConfigsCommandInput - {@link ListResolverDnssecConfigsCommandInput}
@@ -79,6 +92,8 @@ export interface ListResolverDnssecConfigsCommandOutput extends ListResolverDnss
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was throttled. Try again in a few minutes.</p>
  *
+ * @throws {@link Route53ResolverServiceException}
+ * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
  */
 export class ListResolverDnssecConfigsCommand extends $Command<

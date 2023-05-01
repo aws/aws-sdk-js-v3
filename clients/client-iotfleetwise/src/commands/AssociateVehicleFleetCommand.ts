@@ -36,15 +36,18 @@ export interface AssociateVehicleFleetCommandOutput extends AssociateVehicleFlee
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTFleetWiseClient, AssociateVehicleFleetCommand } from "@aws-sdk/client-iotfleetwise"; // ES Modules import
- * // const { IoTFleetWiseClient, AssociateVehicleFleetCommand } = require("@aws-sdk/client-iotfleetwise"); // CommonJS import
+ * import { IoTFleetWiseClient, AssociateVehicleFleetCommand } from '@aws-sdk/client-iotfleetwise'; // ES Modules import
+ * // const { IoTFleetWiseClient, AssociateVehicleFleetCommand } = require('@aws-sdk/client-iotfleetwise'); // CommonJS import
  * const client = new IoTFleetWiseClient(config);
  * const input = { // AssociateVehicleFleetRequest
- *   vehicleName: "STRING_VALUE", // required
- *   fleetId: "STRING_VALUE", // required
+ *   vehicleName: 'STRING_VALUE', // required
+ *   fleetId: 'STRING_VALUE', // required
  * };
  * const command = new AssociateVehicleFleetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param AssociateVehicleFleetCommandInput - {@link AssociateVehicleFleetCommandInput}
@@ -68,6 +71,8 @@ export interface AssociateVehicleFleetCommandOutput extends AssociateVehicleFlee
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
  *
+ * @throws {@link IoTFleetWiseServiceException}
+ * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
  */
 export class AssociateVehicleFleetCommand extends $Command<

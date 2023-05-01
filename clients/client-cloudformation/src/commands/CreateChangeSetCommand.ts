@@ -56,57 +56,57 @@ export interface CreateChangeSetCommandOutput extends CreateChangeSetOutput, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudFormationClient, CreateChangeSetCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
- * // const { CloudFormationClient, CreateChangeSetCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
+ * import { CloudFormationClient, CreateChangeSetCommand } from '@aws-sdk/client-cloudformation'; // ES Modules import
+ * // const { CloudFormationClient, CreateChangeSetCommand } = require('@aws-sdk/client-cloudformation'); // CommonJS import
  * const client = new CloudFormationClient(config);
  * const input = { // CreateChangeSetInput
- *   StackName: "STRING_VALUE", // required
- *   TemplateBody: "STRING_VALUE",
- *   TemplateURL: "STRING_VALUE",
+ *   StackName: 'STRING_VALUE', // required
+ *   TemplateBody: 'STRING_VALUE',
+ *   TemplateURL: 'STRING_VALUE',
  *   UsePreviousTemplate: true || false,
  *   Parameters: [ // Parameters
  *     { // Parameter
- *       ParameterKey: "STRING_VALUE",
- *       ParameterValue: "STRING_VALUE",
+ *       ParameterKey: 'STRING_VALUE',
+ *       ParameterValue: 'STRING_VALUE',
  *       UsePreviousValue: true || false,
- *       ResolvedValue: "STRING_VALUE",
+ *       ResolvedValue: 'STRING_VALUE',
  *     },
  *   ],
  *   Capabilities: [ // Capabilities
- *     "CAPABILITY_IAM" || "CAPABILITY_NAMED_IAM" || "CAPABILITY_AUTO_EXPAND",
+ *     'CAPABILITY_IAM' || 'CAPABILITY_NAMED_IAM' || 'CAPABILITY_AUTO_EXPAND',
  *   ],
  *   ResourceTypes: [ // ResourceTypes
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   RoleARN: "STRING_VALUE",
+ *   RoleARN: 'STRING_VALUE',
  *   RollbackConfiguration: { // RollbackConfiguration
  *     RollbackTriggers: [ // RollbackTriggers
  *       { // RollbackTrigger
- *         Arn: "STRING_VALUE", // required
- *         Type: "STRING_VALUE", // required
+ *         Arn: 'STRING_VALUE', // required
+ *         Type: 'STRING_VALUE', // required
  *       },
  *     ],
- *     MonitoringTimeInMinutes: Number("int"),
+ *     MonitoringTimeInMinutes: Number('int'),
  *   },
  *   NotificationARNs: [ // NotificationARNs
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   Tags: [ // Tags
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
- *   ChangeSetName: "STRING_VALUE", // required
- *   ClientToken: "STRING_VALUE",
- *   Description: "STRING_VALUE",
- *   ChangeSetType: "CREATE" || "UPDATE" || "IMPORT",
+ *   ChangeSetName: 'STRING_VALUE', // required
+ *   ClientToken: 'STRING_VALUE',
+ *   Description: 'STRING_VALUE',
+ *   ChangeSetType: 'CREATE' || 'UPDATE' || 'IMPORT',
  *   ResourcesToImport: [ // ResourcesToImport
  *     { // ResourceToImport
- *       ResourceType: "STRING_VALUE", // required
- *       LogicalResourceId: "STRING_VALUE", // required
+ *       ResourceType: 'STRING_VALUE', // required
+ *       LogicalResourceId: 'STRING_VALUE', // required
  *       ResourceIdentifier: { // ResourceIdentifierProperties // required
- *         "<keys>": "STRING_VALUE",
+ *         '<keys>': 'STRING_VALUE',
  *       },
  *     },
  *   ],
@@ -114,6 +114,12 @@ export interface CreateChangeSetCommandOutput extends CreateChangeSetOutput, __M
  * };
  * const command = new CreateChangeSetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateChangeSetOutput
+ *   Id: 'STRING_VALUE',
+ *   StackId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateChangeSetCommandInput - {@link CreateChangeSetCommandInput}
@@ -134,6 +140,8 @@ export interface CreateChangeSetCommandOutput extends CreateChangeSetOutput, __M
  *          <p>For information about resource and stack limitations, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cloudformation-limits.html">CloudFormation
  *             quotas</a> in the <i>CloudFormation User Guide</i>.</p>
  *
+ * @throws {@link CloudFormationServiceException}
+ * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
  */
 export class CreateChangeSetCommand extends $Command<

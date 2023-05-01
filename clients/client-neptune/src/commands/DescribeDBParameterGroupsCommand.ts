@@ -38,24 +38,37 @@ export interface DescribeDBParameterGroupsCommandOutput extends DBParameterGroup
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { NeptuneClient, DescribeDBParameterGroupsCommand } from "@aws-sdk/client-neptune"; // ES Modules import
- * // const { NeptuneClient, DescribeDBParameterGroupsCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
+ * import { NeptuneClient, DescribeDBParameterGroupsCommand } from '@aws-sdk/client-neptune'; // ES Modules import
+ * // const { NeptuneClient, DescribeDBParameterGroupsCommand } = require('@aws-sdk/client-neptune'); // CommonJS import
  * const client = new NeptuneClient(config);
  * const input = { // DescribeDBParameterGroupsMessage
- *   DBParameterGroupName: "STRING_VALUE",
+ *   DBParameterGroupName: 'STRING_VALUE',
  *   Filters: [ // FilterList
  *     { // Filter
- *       Name: "STRING_VALUE", // required
+ *       Name: 'STRING_VALUE', // required
  *       Values: [ // FilterValueList // required
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
- *   MaxRecords: Number("int"),
- *   Marker: "STRING_VALUE",
+ *   MaxRecords: Number('int'),
+ *   Marker: 'STRING_VALUE',
  * };
  * const command = new DescribeDBParameterGroupsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DBParameterGroupsMessage
+ *   Marker: 'STRING_VALUE',
+ *   DBParameterGroups: [ // DBParameterGroupList
+ *     { // DBParameterGroup
+ *       DBParameterGroupName: 'STRING_VALUE',
+ *       DBParameterGroupFamily: 'STRING_VALUE',
+ *       Description: 'STRING_VALUE',
+ *       DBParameterGroupArn: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeDBParameterGroupsCommandInput - {@link DescribeDBParameterGroupsCommandInput}
@@ -69,6 +82,8 @@ export interface DescribeDBParameterGroupsCommandOutput extends DBParameterGroup
  *             <i>DBParameterGroupName</i> does not refer to an
  *       existing DB parameter group.</p>
  *
+ * @throws {@link NeptuneServiceException}
+ * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
  */
 export class DescribeDBParameterGroupsCommand extends $Command<

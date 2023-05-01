@@ -48,14 +48,35 @@ export interface DeleteResolverEndpointCommandOutput extends DeleteResolverEndpo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Route53ResolverClient, DeleteResolverEndpointCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
- * // const { Route53ResolverClient, DeleteResolverEndpointCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
+ * import { Route53ResolverClient, DeleteResolverEndpointCommand } from '@aws-sdk/client-route53resolver'; // ES Modules import
+ * // const { Route53ResolverClient, DeleteResolverEndpointCommand } = require('@aws-sdk/client-route53resolver'); // CommonJS import
  * const client = new Route53ResolverClient(config);
  * const input = { // DeleteResolverEndpointRequest
- *   ResolverEndpointId: "STRING_VALUE", // required
+ *   ResolverEndpointId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteResolverEndpointCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteResolverEndpointResponse
+ *   ResolverEndpoint: { // ResolverEndpoint
+ *     Id: 'STRING_VALUE',
+ *     CreatorRequestId: 'STRING_VALUE',
+ *     Arn: 'STRING_VALUE',
+ *     Name: 'STRING_VALUE',
+ *     SecurityGroupIds: [ // SecurityGroupIds
+ *       'STRING_VALUE',
+ *     ],
+ *     Direction: 'INBOUND' || 'OUTBOUND',
+ *     IpAddressCount: Number('int'),
+ *     HostVPCId: 'STRING_VALUE',
+ *     Status: 'CREATING' || 'OPERATIONAL' || 'UPDATING' || 'AUTO_RECOVERING' || 'ACTION_NEEDED' || 'DELETING',
+ *     StatusMessage: 'STRING_VALUE',
+ *     CreationTime: 'STRING_VALUE',
+ *     ModificationTime: 'STRING_VALUE',
+ *     ResolverEndpointType: 'IPV6' || 'IPV4' || 'DUALSTACK',
+ *   },
+ * };
+ *
  * ```
  *
  * @param DeleteResolverEndpointCommandInput - {@link DeleteResolverEndpointCommandInput}
@@ -79,6 +100,8 @@ export interface DeleteResolverEndpointCommandOutput extends DeleteResolverEndpo
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was throttled. Try again in a few minutes.</p>
  *
+ * @throws {@link Route53ResolverServiceException}
+ * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
  */
 export class DeleteResolverEndpointCommand extends $Command<

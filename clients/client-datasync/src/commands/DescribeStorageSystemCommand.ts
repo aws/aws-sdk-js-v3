@@ -37,14 +37,33 @@ export interface DescribeStorageSystemCommandOutput extends DescribeStorageSyste
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DataSyncClient, DescribeStorageSystemCommand } from "@aws-sdk/client-datasync"; // ES Modules import
- * // const { DataSyncClient, DescribeStorageSystemCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
+ * import { DataSyncClient, DescribeStorageSystemCommand } from '@aws-sdk/client-datasync'; // ES Modules import
+ * // const { DataSyncClient, DescribeStorageSystemCommand } = require('@aws-sdk/client-datasync'); // CommonJS import
  * const client = new DataSyncClient(config);
  * const input = { // DescribeStorageSystemRequest
- *   StorageSystemArn: "STRING_VALUE", // required
+ *   StorageSystemArn: 'STRING_VALUE', // required
  * };
  * const command = new DescribeStorageSystemCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeStorageSystemResponse
+ *   StorageSystemArn: 'STRING_VALUE',
+ *   ServerConfiguration: { // DiscoveryServerConfiguration
+ *     ServerHostname: 'STRING_VALUE', // required
+ *     ServerPort: Number('int'),
+ *   },
+ *   SystemType: 'NetAppONTAP',
+ *   AgentArns: [ // DiscoveryAgentArnList
+ *     'STRING_VALUE',
+ *   ],
+ *   Name: 'STRING_VALUE',
+ *   ErrorMessage: 'STRING_VALUE',
+ *   ConnectivityStatus: 'PASS' || 'FAIL' || 'UNKNOWN',
+ *   CloudWatchLogGroupArn: 'STRING_VALUE',
+ *   CreationTime: new Date('TIMESTAMP'),
+ *   SecretsManagerArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeStorageSystemCommandInput - {@link DescribeStorageSystemCommandInput}
@@ -60,6 +79,8 @@ export interface DescribeStorageSystemCommandOutput extends DescribeStorageSyste
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception is thrown when the client submits a malformed request.</p>
  *
+ * @throws {@link DataSyncServiceException}
+ * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
  */
 export class DescribeStorageSystemCommand extends $Command<

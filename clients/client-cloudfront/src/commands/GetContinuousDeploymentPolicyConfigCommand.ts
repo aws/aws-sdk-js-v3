@@ -44,14 +44,42 @@ export interface GetContinuousDeploymentPolicyConfigCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudFrontClient, GetContinuousDeploymentPolicyConfigCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
- * // const { CloudFrontClient, GetContinuousDeploymentPolicyConfigCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
+ * import { CloudFrontClient, GetContinuousDeploymentPolicyConfigCommand } from '@aws-sdk/client-cloudfront'; // ES Modules import
+ * // const { CloudFrontClient, GetContinuousDeploymentPolicyConfigCommand } = require('@aws-sdk/client-cloudfront'); // CommonJS import
  * const client = new CloudFrontClient(config);
  * const input = { // GetContinuousDeploymentPolicyConfigRequest
- *   Id: "STRING_VALUE", // required
+ *   Id: 'STRING_VALUE', // required
  * };
  * const command = new GetContinuousDeploymentPolicyConfigCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetContinuousDeploymentPolicyConfigResult
+ *   ContinuousDeploymentPolicyConfig: { // ContinuousDeploymentPolicyConfig
+ *     StagingDistributionDnsNames: { // StagingDistributionDnsNames
+ *       Quantity: Number('int'), // required
+ *       Items: [ // StagingDistributionDnsNameList
+ *         'STRING_VALUE',
+ *       ],
+ *     },
+ *     Enabled: true || false, // required
+ *     TrafficConfig: { // TrafficConfig
+ *       SingleWeightConfig: { // ContinuousDeploymentSingleWeightConfig
+ *         Weight: Number('float'), // required
+ *         SessionStickinessConfig: { // SessionStickinessConfig
+ *           IdleTTL: Number('int'), // required
+ *           MaximumTTL: Number('int'), // required
+ *         },
+ *       },
+ *       SingleHeaderConfig: { // ContinuousDeploymentSingleHeaderConfig
+ *         Header: 'STRING_VALUE', // required
+ *         Value: 'STRING_VALUE', // required
+ *       },
+ *       Type: 'SingleWeight' || 'SingleHeader', // required
+ *     },
+ *   },
+ *   ETag: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetContinuousDeploymentPolicyConfigCommandInput - {@link GetContinuousDeploymentPolicyConfigCommandInput}
@@ -66,6 +94,8 @@ export interface GetContinuousDeploymentPolicyConfigCommandOutput
  * @throws {@link NoSuchContinuousDeploymentPolicy} (client fault)
  *  <p>The continuous deployment policy doesn't exist.</p>
  *
+ * @throws {@link CloudFrontServiceException}
+ * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
  */
 export class GetContinuousDeploymentPolicyConfigCommand extends $Command<

@@ -55,19 +55,25 @@ export interface ImportLensCommandOutput extends ImportLensOutput, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WellArchitectedClient, ImportLensCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
- * // const { WellArchitectedClient, ImportLensCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
+ * import { WellArchitectedClient, ImportLensCommand } from '@aws-sdk/client-wellarchitected'; // ES Modules import
+ * // const { WellArchitectedClient, ImportLensCommand } = require('@aws-sdk/client-wellarchitected'); // CommonJS import
  * const client = new WellArchitectedClient(config);
  * const input = { // ImportLensInput
- *   LensAlias: "STRING_VALUE",
- *   JSONString: "STRING_VALUE", // required
- *   ClientRequestToken: "STRING_VALUE", // required
+ *   LensAlias: 'STRING_VALUE',
+ *   JSONString: 'STRING_VALUE', // required
+ *   ClientRequestToken: 'STRING_VALUE', // required
  *   Tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new ImportLensCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ImportLensOutput
+ *   LensArn: 'STRING_VALUE',
+ *   Status: 'IN_PROGRESS' || 'COMPLETE' || 'ERROR',
+ * };
+ *
  * ```
  *
  * @param ImportLensCommandInput - {@link ImportLensCommandInput}
@@ -97,6 +103,8 @@ export interface ImportLensCommandOutput extends ImportLensOutput, __MetadataBea
  * @throws {@link ValidationException} (client fault)
  *  <p>The user input is not valid.</p>
  *
+ * @throws {@link WellArchitectedServiceException}
+ * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
  */
 export class ImportLensCommand extends $Command<

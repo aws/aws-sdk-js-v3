@@ -36,17 +36,32 @@ export interface UpdateRevisionCommandOutput extends UpdateRevisionResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DataExchangeClient, UpdateRevisionCommand } from "@aws-sdk/client-dataexchange"; // ES Modules import
- * // const { DataExchangeClient, UpdateRevisionCommand } = require("@aws-sdk/client-dataexchange"); // CommonJS import
+ * import { DataExchangeClient, UpdateRevisionCommand } from '@aws-sdk/client-dataexchange'; // ES Modules import
+ * // const { DataExchangeClient, UpdateRevisionCommand } = require('@aws-sdk/client-dataexchange'); // CommonJS import
  * const client = new DataExchangeClient(config);
  * const input = { // UpdateRevisionRequest
- *   Comment: "STRING_VALUE",
- *   DataSetId: "STRING_VALUE", // required
+ *   Comment: 'STRING_VALUE',
+ *   DataSetId: 'STRING_VALUE', // required
  *   Finalized: true || false,
- *   RevisionId: "STRING_VALUE", // required
+ *   RevisionId: 'STRING_VALUE', // required
  * };
  * const command = new UpdateRevisionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateRevisionResponse
+ *   Arn: 'STRING_VALUE',
+ *   Comment: 'STRING_VALUE',
+ *   CreatedAt: new Date('TIMESTAMP'),
+ *   DataSetId: 'STRING_VALUE',
+ *   Finalized: true || false,
+ *   Id: 'STRING_VALUE',
+ *   SourceId: 'STRING_VALUE',
+ *   UpdatedAt: new Date('TIMESTAMP'),
+ *   RevocationComment: 'STRING_VALUE',
+ *   Revoked: true || false,
+ *   RevokedAt: new Date('TIMESTAMP'),
+ * };
+ *
  * ```
  *
  * @param UpdateRevisionCommandInput - {@link UpdateRevisionCommandInput}
@@ -73,6 +88,8 @@ export interface UpdateRevisionCommandOutput extends UpdateRevisionResponse, __M
  * @throws {@link ValidationException} (client fault)
  *  <p>The request was invalid.</p>
  *
+ * @throws {@link DataExchangeServiceException}
+ * <p>Base exception class for all service exceptions from DataExchange service.</p>
  *
  */
 export class UpdateRevisionCommand extends $Command<

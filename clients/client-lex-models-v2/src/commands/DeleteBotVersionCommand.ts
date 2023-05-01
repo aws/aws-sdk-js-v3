@@ -37,16 +37,23 @@ export interface DeleteBotVersionCommandOutput extends DeleteBotVersionResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LexModelsV2Client, DeleteBotVersionCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
- * // const { LexModelsV2Client, DeleteBotVersionCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
+ * import { LexModelsV2Client, DeleteBotVersionCommand } from '@aws-sdk/client-lex-models-v2'; // ES Modules import
+ * // const { LexModelsV2Client, DeleteBotVersionCommand } = require('@aws-sdk/client-lex-models-v2'); // CommonJS import
  * const client = new LexModelsV2Client(config);
  * const input = { // DeleteBotVersionRequest
- *   botId: "STRING_VALUE", // required
- *   botVersion: "STRING_VALUE", // required
+ *   botId: 'STRING_VALUE', // required
+ *   botVersion: 'STRING_VALUE', // required
  *   skipResourceInUseCheck: true || false,
  * };
  * const command = new DeleteBotVersionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteBotVersionResponse
+ *   botId: 'STRING_VALUE',
+ *   botVersion: 'STRING_VALUE',
+ *   botStatus: 'Creating' || 'Available' || 'Inactive' || 'Deleting' || 'Failed' || 'Versioning' || 'Importing' || 'Updating',
+ * };
+ *
  * ```
  *
  * @param DeleteBotVersionCommandInput - {@link DeleteBotVersionCommandInput}
@@ -80,6 +87,8 @@ export interface DeleteBotVersionCommandOutput extends DeleteBotVersionResponse,
  *  <p>One of the input parameters in your request isn't valid. Check the
  *          parameters and try your request again.</p>
  *
+ * @throws {@link LexModelsV2ServiceException}
+ * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
  */
 export class DeleteBotVersionCommand extends $Command<

@@ -36,16 +36,30 @@ export interface ListDevicesJobsCommandOutput extends ListDevicesJobsResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PanoramaClient, ListDevicesJobsCommand } from "@aws-sdk/client-panorama"; // ES Modules import
- * // const { PanoramaClient, ListDevicesJobsCommand } = require("@aws-sdk/client-panorama"); // CommonJS import
+ * import { PanoramaClient, ListDevicesJobsCommand } from '@aws-sdk/client-panorama'; // ES Modules import
+ * // const { PanoramaClient, ListDevicesJobsCommand } = require('@aws-sdk/client-panorama'); // CommonJS import
  * const client = new PanoramaClient(config);
  * const input = { // ListDevicesJobsRequest
- *   DeviceId: "STRING_VALUE",
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   DeviceId: 'STRING_VALUE',
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListDevicesJobsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListDevicesJobsResponse
+ *   DeviceJobs: [ // DeviceJobList
+ *     { // DeviceJob
+ *       DeviceName: 'STRING_VALUE',
+ *       DeviceId: 'STRING_VALUE',
+ *       JobId: 'STRING_VALUE',
+ *       CreatedTime: new Date('TIMESTAMP'),
+ *       JobType: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListDevicesJobsCommandInput - {@link ListDevicesJobsCommandInput}
@@ -69,6 +83,8 @@ export interface ListDevicesJobsCommandOutput extends ListDevicesJobsResponse, _
  * @throws {@link ValidationException} (client fault)
  *  <p>The request contains an invalid parameter value.</p>
  *
+ * @throws {@link PanoramaServiceException}
+ * <p>Base exception class for all service exceptions from Panorama service.</p>
  *
  */
 export class ListDevicesJobsCommand extends $Command<

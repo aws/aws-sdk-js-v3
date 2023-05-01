@@ -36,14 +36,21 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GameSparksClient, ListTagsForResourceCommand } from "@aws-sdk/client-gamesparks"; // ES Modules import
- * // const { GameSparksClient, ListTagsForResourceCommand } = require("@aws-sdk/client-gamesparks"); // CommonJS import
+ * import { GameSparksClient, ListTagsForResourceCommand } from '@aws-sdk/client-gamesparks'; // ES Modules import
+ * // const { GameSparksClient, ListTagsForResourceCommand } = require('@aws-sdk/client-gamesparks'); // CommonJS import
  * const client = new GameSparksClient(config);
  * const input = { // ListTagsForResourceRequest
- *   ResourceArn: "STRING_VALUE", // required
+ *   ResourceArn: 'STRING_VALUE', // required
  * };
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTagsForResourceResult
+ *   tags: { // TagMap
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param ListTagsForResourceCommandInput - {@link ListTagsForResourceCommandInput}
@@ -61,6 +68,8 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @throws {@link ValidationException} (client fault)
  *  <p>One of the parameters in the request is invalid.</p>
  *
+ * @throws {@link GameSparksServiceException}
+ * <p>Base exception class for all service exceptions from GameSparks service.</p>
  *
  */
 export class ListTagsForResourceCommand extends $Command<

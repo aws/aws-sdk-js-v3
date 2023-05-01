@@ -44,31 +44,34 @@ export interface UpdateNetworkAnalyzerConfigurationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTWirelessClient, UpdateNetworkAnalyzerConfigurationCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
- * // const { IoTWirelessClient, UpdateNetworkAnalyzerConfigurationCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
+ * import { IoTWirelessClient, UpdateNetworkAnalyzerConfigurationCommand } from '@aws-sdk/client-iot-wireless'; // ES Modules import
+ * // const { IoTWirelessClient, UpdateNetworkAnalyzerConfigurationCommand } = require('@aws-sdk/client-iot-wireless'); // CommonJS import
  * const client = new IoTWirelessClient(config);
  * const input = { // UpdateNetworkAnalyzerConfigurationRequest
- *   ConfigurationName: "STRING_VALUE", // required
+ *   ConfigurationName: 'STRING_VALUE', // required
  *   TraceContent: { // TraceContent
- *     WirelessDeviceFrameInfo: "ENABLED" || "DISABLED",
- *     LogLevel: "INFO" || "ERROR" || "DISABLED",
+ *     WirelessDeviceFrameInfo: 'ENABLED' || 'DISABLED',
+ *     LogLevel: 'INFO' || 'ERROR' || 'DISABLED',
  *   },
  *   WirelessDevicesToAdd: [ // WirelessDeviceList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   WirelessDevicesToRemove: [
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   WirelessGatewaysToAdd: [ // WirelessGatewayList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   WirelessGatewaysToRemove: [
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   Description: "STRING_VALUE",
+ *   Description: 'STRING_VALUE',
  * };
  * const command = new UpdateNetworkAnalyzerConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateNetworkAnalyzerConfigurationCommandInput - {@link UpdateNetworkAnalyzerConfigurationCommandInput}
@@ -92,6 +95,8 @@ export interface UpdateNetworkAnalyzerConfigurationCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The input did not meet the specified constraints.</p>
  *
+ * @throws {@link IoTWirelessServiceException}
+ * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
  */
 export class UpdateNetworkAnalyzerConfigurationCommand extends $Command<

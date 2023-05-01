@@ -36,14 +36,17 @@ export interface DeleteDeviceDefinitionCommandOutput extends DeleteDeviceDefinit
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GreengrassClient, DeleteDeviceDefinitionCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
- * // const { GreengrassClient, DeleteDeviceDefinitionCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
+ * import { GreengrassClient, DeleteDeviceDefinitionCommand } from '@aws-sdk/client-greengrass'; // ES Modules import
+ * // const { GreengrassClient, DeleteDeviceDefinitionCommand } = require('@aws-sdk/client-greengrass'); // CommonJS import
  * const client = new GreengrassClient(config);
  * const input = { // DeleteDeviceDefinitionRequest
- *   DeviceDefinitionId: "STRING_VALUE", // required
+ *   DeviceDefinitionId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteDeviceDefinitionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteDeviceDefinitionCommandInput - {@link DeleteDeviceDefinitionCommandInput}
@@ -55,6 +58,8 @@ export interface DeleteDeviceDefinitionCommandOutput extends DeleteDeviceDefinit
  * @throws {@link BadRequestException} (client fault)
  *  General error information.
  *
+ * @throws {@link GreengrassServiceException}
+ * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
  */
 export class DeleteDeviceDefinitionCommand extends $Command<

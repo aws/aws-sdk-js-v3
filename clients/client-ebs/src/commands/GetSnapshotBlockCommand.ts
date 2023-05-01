@@ -45,16 +45,24 @@ export interface GetSnapshotBlockCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EBSClient, GetSnapshotBlockCommand } from "@aws-sdk/client-ebs"; // ES Modules import
- * // const { EBSClient, GetSnapshotBlockCommand } = require("@aws-sdk/client-ebs"); // CommonJS import
+ * import { EBSClient, GetSnapshotBlockCommand } from '@aws-sdk/client-ebs'; // ES Modules import
+ * // const { EBSClient, GetSnapshotBlockCommand } = require('@aws-sdk/client-ebs'); // CommonJS import
  * const client = new EBSClient(config);
  * const input = { // GetSnapshotBlockRequest
- *   SnapshotId: "STRING_VALUE", // required
- *   BlockIndex: Number("int"), // required
- *   BlockToken: "STRING_VALUE", // required
+ *   SnapshotId: 'STRING_VALUE', // required
+ *   BlockIndex: Number('int'), // required
+ *   BlockToken: 'STRING_VALUE', // required
  * };
  * const command = new GetSnapshotBlockCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetSnapshotBlockResponse
+ *   DataLength: Number('int'),
+ *   BlockData: 'STREAMING_BLOB_VALUE',
+ *   Checksum: 'STRING_VALUE',
+ *   ChecksumAlgorithm: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetSnapshotBlockCommandInput - {@link GetSnapshotBlockCommandInput}
@@ -82,6 +90,8 @@ export interface GetSnapshotBlockCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints of the EBS direct APIs.</p>
  *
+ * @throws {@link EBSServiceException}
+ * <p>Base exception class for all service exceptions from EBS service.</p>
  *
  */
 export class GetSnapshotBlockCommand extends $Command<

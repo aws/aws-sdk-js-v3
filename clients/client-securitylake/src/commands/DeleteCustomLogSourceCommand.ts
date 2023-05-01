@@ -36,14 +36,19 @@ export interface DeleteCustomLogSourceCommandOutput extends DeleteCustomLogSourc
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SecurityLakeClient, DeleteCustomLogSourceCommand } from "@aws-sdk/client-securitylake"; // ES Modules import
- * // const { SecurityLakeClient, DeleteCustomLogSourceCommand } = require("@aws-sdk/client-securitylake"); // CommonJS import
+ * import { SecurityLakeClient, DeleteCustomLogSourceCommand } from '@aws-sdk/client-securitylake'; // ES Modules import
+ * // const { SecurityLakeClient, DeleteCustomLogSourceCommand } = require('@aws-sdk/client-securitylake'); // CommonJS import
  * const client = new SecurityLakeClient(config);
  * const input = { // DeleteCustomLogSourceRequest
- *   customSourceName: "STRING_VALUE", // required
+ *   customSourceName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteCustomLogSourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteCustomLogSourceResponse
+ *   customDataLocation: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param DeleteCustomLogSourceCommandInput - {@link DeleteCustomLogSourceCommandInput}
@@ -80,6 +85,8 @@ export interface DeleteCustomLogSourceCommandOutput extends DeleteCustomLogSourc
  * @throws {@link ValidationException} (client fault)
  *  <p>Your signing certificate could not be validated. </p>
  *
+ * @throws {@link SecurityLakeServiceException}
+ * <p>Base exception class for all service exceptions from SecurityLake service.</p>
  *
  */
 export class DeleteCustomLogSourceCommand extends $Command<

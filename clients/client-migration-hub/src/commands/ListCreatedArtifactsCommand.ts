@@ -50,17 +50,28 @@ export interface ListCreatedArtifactsCommandOutput extends ListCreatedArtifactsR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MigrationHubClient, ListCreatedArtifactsCommand } from "@aws-sdk/client-migration-hub"; // ES Modules import
- * // const { MigrationHubClient, ListCreatedArtifactsCommand } = require("@aws-sdk/client-migration-hub"); // CommonJS import
+ * import { MigrationHubClient, ListCreatedArtifactsCommand } from '@aws-sdk/client-migration-hub'; // ES Modules import
+ * // const { MigrationHubClient, ListCreatedArtifactsCommand } = require('@aws-sdk/client-migration-hub'); // CommonJS import
  * const client = new MigrationHubClient(config);
  * const input = { // ListCreatedArtifactsRequest
- *   ProgressUpdateStream: "STRING_VALUE", // required
- *   MigrationTaskName: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   ProgressUpdateStream: 'STRING_VALUE', // required
+ *   MigrationTaskName: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListCreatedArtifactsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListCreatedArtifactsResult
+ *   NextToken: 'STRING_VALUE',
+ *   CreatedArtifactList: [ // CreatedArtifactList
+ *     { // CreatedArtifact
+ *       Name: 'STRING_VALUE', // required
+ *       Description: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListCreatedArtifactsCommandInput - {@link ListCreatedArtifactsCommandInput}
@@ -95,6 +106,8 @@ export interface ListCreatedArtifactsCommandOutput extends ListCreatedArtifactsR
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
  *
+ * @throws {@link MigrationHubServiceException}
+ * <p>Base exception class for all service exceptions from MigrationHub service.</p>
  *
  */
 export class ListCreatedArtifactsCommand extends $Command<

@@ -41,15 +41,24 @@ export interface DeleteCollectionCommandOutput extends DeleteCollectionResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OpenSearchServerlessClient, DeleteCollectionCommand } from "@aws-sdk/client-opensearchserverless"; // ES Modules import
- * // const { OpenSearchServerlessClient, DeleteCollectionCommand } = require("@aws-sdk/client-opensearchserverless"); // CommonJS import
+ * import { OpenSearchServerlessClient, DeleteCollectionCommand } from '@aws-sdk/client-opensearchserverless'; // ES Modules import
+ * // const { OpenSearchServerlessClient, DeleteCollectionCommand } = require('@aws-sdk/client-opensearchserverless'); // CommonJS import
  * const client = new OpenSearchServerlessClient(config);
  * const input = { // DeleteCollectionRequest
- *   id: "STRING_VALUE", // required
- *   clientToken: "STRING_VALUE",
+ *   id: 'STRING_VALUE', // required
+ *   clientToken: 'STRING_VALUE',
  * };
  * const command = new DeleteCollectionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteCollectionResponse
+ *   deleteCollectionDetail: { // DeleteCollectionDetail
+ *     id: 'STRING_VALUE',
+ *     name: 'STRING_VALUE',
+ *     status: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param DeleteCollectionCommandInput - {@link DeleteCollectionCommandInput}
@@ -73,6 +82,8 @@ export interface DeleteCollectionCommandOutput extends DeleteCollectionResponse,
  *  <p>Thrown when the HTTP request contains invalid input or is missing required
  *             input.</p>
  *
+ * @throws {@link OpenSearchServerlessServiceException}
+ * <p>Base exception class for all service exceptions from OpenSearchServerless service.</p>
  *
  */
 export class DeleteCollectionCommand extends $Command<

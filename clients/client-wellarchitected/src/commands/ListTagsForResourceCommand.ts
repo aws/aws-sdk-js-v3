@@ -39,14 +39,21 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOut
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WellArchitectedClient, ListTagsForResourceCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
- * // const { WellArchitectedClient, ListTagsForResourceCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
+ * import { WellArchitectedClient, ListTagsForResourceCommand } from '@aws-sdk/client-wellarchitected'; // ES Modules import
+ * // const { WellArchitectedClient, ListTagsForResourceCommand } = require('@aws-sdk/client-wellarchitected'); // CommonJS import
  * const client = new WellArchitectedClient(config);
  * const input = { // ListTagsForResourceInput
- *   WorkloadArn: "STRING_VALUE", // required
+ *   WorkloadArn: 'STRING_VALUE', // required
  * };
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTagsForResourceOutput
+ *   Tags: { // TagMap
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param ListTagsForResourceCommandInput - {@link ListTagsForResourceCommandInput}
@@ -61,6 +68,8 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOut
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The requested resource was not found.</p>
  *
+ * @throws {@link WellArchitectedServiceException}
+ * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
  */
 export class ListTagsForResourceCommand extends $Command<

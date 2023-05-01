@@ -39,17 +39,20 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTFleetHubClient, TagResourceCommand } from "@aws-sdk/client-iotfleethub"; // ES Modules import
- * // const { IoTFleetHubClient, TagResourceCommand } = require("@aws-sdk/client-iotfleethub"); // CommonJS import
+ * import { IoTFleetHubClient, TagResourceCommand } from '@aws-sdk/client-iotfleethub'; // ES Modules import
+ * // const { IoTFleetHubClient, TagResourceCommand } = require('@aws-sdk/client-iotfleethub'); // CommonJS import
  * const client = new IoTFleetHubClient(config);
  * const input = { // TagResourceRequest
- *   resourceArn: "STRING_VALUE", // required
+ *   resourceArn: 'STRING_VALUE', // required
  *   tags: { // TagMap // required
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param TagResourceCommandInput - {@link TagResourceCommandInput}
@@ -67,6 +70,8 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource does not exist.</p>
  *
+ * @throws {@link IoTFleetHubServiceException}
+ * <p>Base exception class for all service exceptions from IoTFleetHub service.</p>
  *
  */
 export class TagResourceCommand extends $Command<

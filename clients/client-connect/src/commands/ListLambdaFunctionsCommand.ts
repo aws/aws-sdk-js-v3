@@ -38,16 +38,24 @@ export interface ListLambdaFunctionsCommandOutput extends ListLambdaFunctionsRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, ListLambdaFunctionsCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, ListLambdaFunctionsCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, ListLambdaFunctionsCommand } from '@aws-sdk/client-connect'; // ES Modules import
+ * // const { ConnectClient, ListLambdaFunctionsCommand } = require('@aws-sdk/client-connect'); // CommonJS import
  * const client = new ConnectClient(config);
  * const input = { // ListLambdaFunctionsRequest
- *   InstanceId: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   InstanceId: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListLambdaFunctionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListLambdaFunctionsResponse
+ *   LambdaFunctions: [ // FunctionArnsList
+ *     'STRING_VALUE',
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListLambdaFunctionsCommandInput - {@link ListLambdaFunctionsCommandInput}
@@ -71,6 +79,8 @@ export interface ListLambdaFunctionsCommandOutput extends ListLambdaFunctionsRes
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class ListLambdaFunctionsCommand extends $Command<

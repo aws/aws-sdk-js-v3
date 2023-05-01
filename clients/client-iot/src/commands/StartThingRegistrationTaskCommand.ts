@@ -37,17 +37,22 @@ export interface StartThingRegistrationTaskCommandOutput extends StartThingRegis
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTClient, StartThingRegistrationTaskCommand } from "@aws-sdk/client-iot"; // ES Modules import
- * // const { IoTClient, StartThingRegistrationTaskCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * import { IoTClient, StartThingRegistrationTaskCommand } from '@aws-sdk/client-iot'; // ES Modules import
+ * // const { IoTClient, StartThingRegistrationTaskCommand } = require('@aws-sdk/client-iot'); // CommonJS import
  * const client = new IoTClient(config);
  * const input = { // StartThingRegistrationTaskRequest
- *   templateBody: "STRING_VALUE", // required
- *   inputFileBucket: "STRING_VALUE", // required
- *   inputFileKey: "STRING_VALUE", // required
- *   roleArn: "STRING_VALUE", // required
+ *   templateBody: 'STRING_VALUE', // required
+ *   inputFileBucket: 'STRING_VALUE', // required
+ *   inputFileKey: 'STRING_VALUE', // required
+ *   roleArn: 'STRING_VALUE', // required
  * };
  * const command = new StartThingRegistrationTaskCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartThingRegistrationTaskResponse
+ *   taskId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param StartThingRegistrationTaskCommandInput - {@link StartThingRegistrationTaskCommandInput}
@@ -68,6 +73,8 @@ export interface StartThingRegistrationTaskCommandOutput extends StartThingRegis
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this operation.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class StartThingRegistrationTaskCommand extends $Command<

@@ -38,16 +38,30 @@ export interface ListSubscribedWorkteamsCommandOutput extends ListSubscribedWork
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, ListSubscribedWorkteamsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, ListSubscribedWorkteamsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, ListSubscribedWorkteamsCommand } from '@aws-sdk/client-sagemaker'; // ES Modules import
+ * // const { SageMakerClient, ListSubscribedWorkteamsCommand } = require('@aws-sdk/client-sagemaker'); // CommonJS import
  * const client = new SageMakerClient(config);
  * const input = { // ListSubscribedWorkteamsRequest
- *   NameContains: "STRING_VALUE",
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NameContains: 'STRING_VALUE',
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListSubscribedWorkteamsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListSubscribedWorkteamsResponse
+ *   SubscribedWorkteams: [ // SubscribedWorkteams // required
+ *     { // SubscribedWorkteam
+ *       WorkteamArn: 'STRING_VALUE', // required
+ *       MarketplaceTitle: 'STRING_VALUE',
+ *       SellerName: 'STRING_VALUE',
+ *       MarketplaceDescription: 'STRING_VALUE',
+ *       ListingId: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListSubscribedWorkteamsCommandInput - {@link ListSubscribedWorkteamsCommandInput}
@@ -56,6 +70,8 @@ export interface ListSubscribedWorkteamsCommandOutput extends ListSubscribedWork
  * @see {@link ListSubscribedWorkteamsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class ListSubscribedWorkteamsCommand extends $Command<

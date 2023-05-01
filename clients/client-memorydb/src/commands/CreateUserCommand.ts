@@ -36,27 +36,45 @@ export interface CreateUserCommandOutput extends CreateUserResponse, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MemoryDBClient, CreateUserCommand } from "@aws-sdk/client-memorydb"; // ES Modules import
- * // const { MemoryDBClient, CreateUserCommand } = require("@aws-sdk/client-memorydb"); // CommonJS import
+ * import { MemoryDBClient, CreateUserCommand } from '@aws-sdk/client-memorydb'; // ES Modules import
+ * // const { MemoryDBClient, CreateUserCommand } = require('@aws-sdk/client-memorydb'); // CommonJS import
  * const client = new MemoryDBClient(config);
  * const input = { // CreateUserRequest
- *   UserName: "STRING_VALUE", // required
+ *   UserName: 'STRING_VALUE', // required
  *   AuthenticationMode: { // AuthenticationMode
- *     Type: "password",
+ *     Type: 'password',
  *     Passwords: [ // PasswordListInput
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *   },
- *   AccessString: "STRING_VALUE", // required
+ *   AccessString: 'STRING_VALUE', // required
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE",
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new CreateUserCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateUserResponse
+ *   User: { // User
+ *     Name: 'STRING_VALUE',
+ *     Status: 'STRING_VALUE',
+ *     AccessString: 'STRING_VALUE',
+ *     ACLNames: [ // ACLNameList
+ *       'STRING_VALUE',
+ *     ],
+ *     MinimumEngineVersion: 'STRING_VALUE',
+ *     Authentication: { // Authentication
+ *       Type: 'password' || 'no-password',
+ *       PasswordCount: Number('int'),
+ *     },
+ *     ARN: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateUserCommandInput - {@link CreateUserCommandInput}
@@ -83,6 +101,8 @@ export interface CreateUserCommandOutput extends CreateUserResponse, __MetadataB
  * @throws {@link UserQuotaExceededFault} (client fault)
  *  <p></p>
  *
+ * @throws {@link MemoryDBServiceException}
+ * <p>Base exception class for all service exceptions from MemoryDB service.</p>
  *
  */
 export class CreateUserCommand extends $Command<

@@ -37,19 +37,27 @@ export interface GetProtectionStatusCommandOutput extends GetProtectionStatusRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FMSClient, GetProtectionStatusCommand } from "@aws-sdk/client-fms"; // ES Modules import
- * // const { FMSClient, GetProtectionStatusCommand } = require("@aws-sdk/client-fms"); // CommonJS import
+ * import { FMSClient, GetProtectionStatusCommand } from '@aws-sdk/client-fms'; // ES Modules import
+ * // const { FMSClient, GetProtectionStatusCommand } = require('@aws-sdk/client-fms'); // CommonJS import
  * const client = new FMSClient(config);
  * const input = { // GetProtectionStatusRequest
- *   PolicyId: "STRING_VALUE", // required
- *   MemberAccountId: "STRING_VALUE",
- *   StartTime: new Date("TIMESTAMP"),
- *   EndTime: new Date("TIMESTAMP"),
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   PolicyId: 'STRING_VALUE', // required
+ *   MemberAccountId: 'STRING_VALUE',
+ *   StartTime: new Date('TIMESTAMP'),
+ *   EndTime: new Date('TIMESTAMP'),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new GetProtectionStatusCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetProtectionStatusResponse
+ *   AdminAccountId: 'STRING_VALUE',
+ *   ServiceType: 'WAF' || 'WAFV2' || 'SHIELD_ADVANCED' || 'SECURITY_GROUPS_COMMON' || 'SECURITY_GROUPS_CONTENT_AUDIT' || 'SECURITY_GROUPS_USAGE_AUDIT' || 'NETWORK_FIREWALL' || 'DNS_FIREWALL' || 'THIRD_PARTY_FIREWALL' || 'IMPORT_NETWORK_FIREWALL',
+ *   Data: 'STRING_VALUE',
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetProtectionStatusCommandInput - {@link GetProtectionStatusCommandInput}
@@ -68,6 +76,8 @@ export interface GetProtectionStatusCommandOutput extends GetProtectionStatusRes
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link FMSServiceException}
+ * <p>Base exception class for all service exceptions from FMS service.</p>
  *
  */
 export class GetProtectionStatusCommand extends $Command<

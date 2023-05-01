@@ -63,38 +63,63 @@ export interface UpdateClusterConfigCommandOutput extends UpdateClusterConfigRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EKSClient, UpdateClusterConfigCommand } from "@aws-sdk/client-eks"; // ES Modules import
- * // const { EKSClient, UpdateClusterConfigCommand } = require("@aws-sdk/client-eks"); // CommonJS import
+ * import { EKSClient, UpdateClusterConfigCommand } from '@aws-sdk/client-eks'; // ES Modules import
+ * // const { EKSClient, UpdateClusterConfigCommand } = require('@aws-sdk/client-eks'); // CommonJS import
  * const client = new EKSClient(config);
  * const input = { // UpdateClusterConfigRequest
- *   name: "STRING_VALUE", // required
+ *   name: 'STRING_VALUE', // required
  *   resourcesVpcConfig: { // VpcConfigRequest
  *     subnetIds: [ // StringList
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     securityGroupIds: [
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     endpointPublicAccess: true || false,
  *     endpointPrivateAccess: true || false,
  *     publicAccessCidrs: [
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *   },
  *   logging: { // Logging
  *     clusterLogging: [ // LogSetups
  *       { // LogSetup
  *         types: [ // LogTypes
- *           "api" || "audit" || "authenticator" || "controllerManager" || "scheduler",
+ *           'api' || 'audit' || 'authenticator' || 'controllerManager' || 'scheduler',
  *         ],
  *         enabled: true || false,
  *       },
  *     ],
  *   },
- *   clientRequestToken: "STRING_VALUE",
+ *   clientRequestToken: 'STRING_VALUE',
  * };
  * const command = new UpdateClusterConfigCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateClusterConfigResponse
+ *   update: { // Update
+ *     id: 'STRING_VALUE',
+ *     status: 'InProgress' || 'Failed' || 'Cancelled' || 'Successful',
+ *     type: 'VersionUpdate' || 'EndpointAccessUpdate' || 'LoggingUpdate' || 'ConfigUpdate' || 'AssociateIdentityProviderConfig' || 'DisassociateIdentityProviderConfig' || 'AssociateEncryptionConfig' || 'AddonUpdate',
+ *     params: [ // UpdateParams
+ *       { // UpdateParam
+ *         type: 'Version' || 'PlatformVersion' || 'EndpointPrivateAccess' || 'EndpointPublicAccess' || 'ClusterLogging' || 'DesiredSize' || 'LabelsToAdd' || 'LabelsToRemove' || 'TaintsToAdd' || 'TaintsToRemove' || 'MaxSize' || 'MinSize' || 'ReleaseVersion' || 'PublicAccessCidrs' || 'LaunchTemplateName' || 'LaunchTemplateVersion' || 'IdentityProviderConfig' || 'EncryptionConfig' || 'AddonVersion' || 'ServiceAccountRoleArn' || 'ResolveConflicts' || 'MaxUnavailable' || 'MaxUnavailablePercentage',
+ *         value: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     createdAt: new Date('TIMESTAMP'),
+ *     errors: [ // ErrorDetails
+ *       { // ErrorDetail
+ *         errorCode: 'SubnetNotFound' || 'SecurityGroupNotFound' || 'EniLimitReached' || 'IpNotAvailable' || 'AccessDenied' || 'OperationNotPermitted' || 'VpcIdNotFound' || 'Unknown' || 'NodeCreationFailure' || 'PodEvictionFailure' || 'InsufficientFreeAddresses' || 'ClusterUnreachable' || 'InsufficientNumberOfReplicas' || 'ConfigurationConflict' || 'AdmissionRequestDenied' || 'UnsupportedAddonModification' || 'K8sResourceNotFound',
+ *         errorMessage: 'STRING_VALUE',
+ *         resourceIds: [ // StringList
+ *           'STRING_VALUE',
+ *         ],
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateClusterConfigCommandInput - {@link UpdateClusterConfigCommandInput}
@@ -128,6 +153,8 @@ export interface UpdateClusterConfigCommandOutput extends UpdateClusterConfigRes
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server-side issue.</p>
  *
+ * @throws {@link EKSServiceException}
+ * <p>Base exception class for all service exceptions from EKS service.</p>
  *
  */
 export class UpdateClusterConfigCommand extends $Command<

@@ -37,23 +37,28 @@ export interface EstimateTemplateCostCommandOutput extends EstimateTemplateCostO
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudFormationClient, EstimateTemplateCostCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
- * // const { CloudFormationClient, EstimateTemplateCostCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
+ * import { CloudFormationClient, EstimateTemplateCostCommand } from '@aws-sdk/client-cloudformation'; // ES Modules import
+ * // const { CloudFormationClient, EstimateTemplateCostCommand } = require('@aws-sdk/client-cloudformation'); // CommonJS import
  * const client = new CloudFormationClient(config);
  * const input = { // EstimateTemplateCostInput
- *   TemplateBody: "STRING_VALUE",
- *   TemplateURL: "STRING_VALUE",
+ *   TemplateBody: 'STRING_VALUE',
+ *   TemplateURL: 'STRING_VALUE',
  *   Parameters: [ // Parameters
  *     { // Parameter
- *       ParameterKey: "STRING_VALUE",
- *       ParameterValue: "STRING_VALUE",
+ *       ParameterKey: 'STRING_VALUE',
+ *       ParameterValue: 'STRING_VALUE',
  *       UsePreviousValue: true || false,
- *       ResolvedValue: "STRING_VALUE",
+ *       ResolvedValue: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new EstimateTemplateCostCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // EstimateTemplateCostOutput
+ *   Url: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param EstimateTemplateCostCommandInput - {@link EstimateTemplateCostCommandInput}
@@ -62,6 +67,8 @@ export interface EstimateTemplateCostCommandOutput extends EstimateTemplateCostO
  * @see {@link EstimateTemplateCostCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
+ * @throws {@link CloudFormationServiceException}
+ * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
  */
 export class EstimateTemplateCostCommand extends $Command<

@@ -36,15 +36,18 @@ export interface DisableClientAuthenticationCommandOutput extends DisableClientA
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DirectoryServiceClient, DisableClientAuthenticationCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
- * // const { DirectoryServiceClient, DisableClientAuthenticationCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
+ * import { DirectoryServiceClient, DisableClientAuthenticationCommand } from '@aws-sdk/client-directory-service'; // ES Modules import
+ * // const { DirectoryServiceClient, DisableClientAuthenticationCommand } = require('@aws-sdk/client-directory-service'); // CommonJS import
  * const client = new DirectoryServiceClient(config);
  * const input = { // DisableClientAuthenticationRequest
- *   DirectoryId: "STRING_VALUE", // required
- *   Type: "SmartCard" || "SmartCardOrPassword", // required
+ *   DirectoryId: 'STRING_VALUE', // required
+ *   Type: 'SmartCard' || 'SmartCardOrPassword', // required
  * };
  * const command = new DisableClientAuthenticationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DisableClientAuthenticationCommandInput - {@link DisableClientAuthenticationCommandInput}
@@ -71,6 +74,8 @@ export interface DisableClientAuthenticationCommandOutput extends DisableClientA
  * @throws {@link UnsupportedOperationException} (client fault)
  *  <p>The operation is not supported.</p>
  *
+ * @throws {@link DirectoryServiceServiceException}
+ * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
  */
 export class DisableClientAuthenticationCommand extends $Command<

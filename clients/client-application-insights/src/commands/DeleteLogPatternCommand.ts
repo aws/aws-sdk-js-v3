@@ -40,16 +40,19 @@ export interface DeleteLogPatternCommandOutput extends DeleteLogPatternResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ApplicationInsightsClient, DeleteLogPatternCommand } from "@aws-sdk/client-application-insights"; // ES Modules import
- * // const { ApplicationInsightsClient, DeleteLogPatternCommand } = require("@aws-sdk/client-application-insights"); // CommonJS import
+ * import { ApplicationInsightsClient, DeleteLogPatternCommand } from '@aws-sdk/client-application-insights'; // ES Modules import
+ * // const { ApplicationInsightsClient, DeleteLogPatternCommand } = require('@aws-sdk/client-application-insights'); // CommonJS import
  * const client = new ApplicationInsightsClient(config);
  * const input = { // DeleteLogPatternRequest
- *   ResourceGroupName: "STRING_VALUE", // required
- *   PatternSetName: "STRING_VALUE", // required
- *   PatternName: "STRING_VALUE", // required
+ *   ResourceGroupName: 'STRING_VALUE', // required
+ *   PatternSetName: 'STRING_VALUE', // required
+ *   PatternName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteLogPatternCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteLogPatternCommandInput - {@link DeleteLogPatternCommandInput}
@@ -70,6 +73,8 @@ export interface DeleteLogPatternCommandOutput extends DeleteLogPatternResponse,
  * @throws {@link ValidationException} (client fault)
  *  <p>The parameter is not valid.</p>
  *
+ * @throws {@link ApplicationInsightsServiceException}
+ * <p>Base exception class for all service exceptions from ApplicationInsights service.</p>
  *
  */
 export class DeleteLogPatternCommand extends $Command<

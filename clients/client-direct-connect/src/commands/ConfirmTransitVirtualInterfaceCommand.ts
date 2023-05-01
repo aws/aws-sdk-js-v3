@@ -42,15 +42,20 @@ export interface ConfirmTransitVirtualInterfaceCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DirectConnectClient, ConfirmTransitVirtualInterfaceCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
- * // const { DirectConnectClient, ConfirmTransitVirtualInterfaceCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
+ * import { DirectConnectClient, ConfirmTransitVirtualInterfaceCommand } from '@aws-sdk/client-direct-connect'; // ES Modules import
+ * // const { DirectConnectClient, ConfirmTransitVirtualInterfaceCommand } = require('@aws-sdk/client-direct-connect'); // CommonJS import
  * const client = new DirectConnectClient(config);
  * const input = { // ConfirmTransitVirtualInterfaceRequest
- *   virtualInterfaceId: "STRING_VALUE", // required
- *   directConnectGatewayId: "STRING_VALUE", // required
+ *   virtualInterfaceId: 'STRING_VALUE', // required
+ *   directConnectGatewayId: 'STRING_VALUE', // required
  * };
  * const command = new ConfirmTransitVirtualInterfaceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ConfirmTransitVirtualInterfaceResponse
+ *   virtualInterfaceState: 'confirming' || 'verifying' || 'pending' || 'available' || 'down' || 'deleting' || 'deleted' || 'rejected' || 'unknown',
+ * };
+ *
  * ```
  *
  * @param ConfirmTransitVirtualInterfaceCommandInput - {@link ConfirmTransitVirtualInterfaceCommandInput}
@@ -65,6 +70,8 @@ export interface ConfirmTransitVirtualInterfaceCommandOutput
  * @throws {@link DirectConnectServerException} (server fault)
  *  <p>A server-side error occurred.</p>
  *
+ * @throws {@link DirectConnectServiceException}
+ * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
  */
 export class ConfirmTransitVirtualInterfaceCommand extends $Command<

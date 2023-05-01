@@ -37,15 +37,48 @@ export interface ListSubscribersCommandOutput extends ListSubscribersResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SecurityLakeClient, ListSubscribersCommand } from "@aws-sdk/client-securitylake"; // ES Modules import
- * // const { SecurityLakeClient, ListSubscribersCommand } = require("@aws-sdk/client-securitylake"); // CommonJS import
+ * import { SecurityLakeClient, ListSubscribersCommand } from '@aws-sdk/client-securitylake'; // ES Modules import
+ * // const { SecurityLakeClient, ListSubscribersCommand } = require('@aws-sdk/client-securitylake'); // CommonJS import
  * const client = new SecurityLakeClient(config);
  * const input = { // ListSubscribersRequest
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new ListSubscribersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListSubscribersResponse
+ *   subscribers: [ // SubscriberList // required
+ *     { // SubscriberResource
+ *       subscriptionId: 'STRING_VALUE', // required
+ *       sourceTypes: [ // SourceTypeList // required
+ *         { // SourceType Union: only one key present
+ *           awsSourceType: 'STRING_VALUE',
+ *           customSourceType: 'STRING_VALUE',
+ *         },
+ *       ],
+ *       accountId: 'STRING_VALUE', // required
+ *       subscriberName: 'STRING_VALUE',
+ *       subscriberDescription: 'STRING_VALUE',
+ *       subscriptionStatus: 'STRING_VALUE',
+ *       roleArn: 'STRING_VALUE',
+ *       snsArn: 'STRING_VALUE',
+ *       s3BucketArn: 'STRING_VALUE',
+ *       accessTypes: [ // AccessTypeList
+ *         'STRING_VALUE',
+ *       ],
+ *       subscriptionEndpoint: 'STRING_VALUE',
+ *       subscriptionProtocol: 'STRING_VALUE',
+ *       externalId: 'STRING_VALUE',
+ *       createdAt: new Date('TIMESTAMP'),
+ *       updatedAt: new Date('TIMESTAMP'),
+ *       resourceShareArn: 'STRING_VALUE',
+ *       resourceShareName: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListSubscribersCommandInput - {@link ListSubscribersCommandInput}
@@ -79,6 +112,8 @@ export interface ListSubscribersCommandOutput extends ListSubscribersResponse, _
  * @throws {@link ValidationException} (client fault)
  *  <p>Your signing certificate could not be validated. </p>
  *
+ * @throws {@link SecurityLakeServiceException}
+ * <p>Base exception class for all service exceptions from SecurityLake service.</p>
  *
  */
 export class ListSubscribersCommand extends $Command<

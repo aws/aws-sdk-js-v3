@@ -37,15 +37,25 @@ export interface UpdateResolverConfigCommandOutput extends UpdateResolverConfigR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Route53ResolverClient, UpdateResolverConfigCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
- * // const { Route53ResolverClient, UpdateResolverConfigCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
+ * import { Route53ResolverClient, UpdateResolverConfigCommand } from '@aws-sdk/client-route53resolver'; // ES Modules import
+ * // const { Route53ResolverClient, UpdateResolverConfigCommand } = require('@aws-sdk/client-route53resolver'); // CommonJS import
  * const client = new Route53ResolverClient(config);
  * const input = { // UpdateResolverConfigRequest
- *   ResourceId: "STRING_VALUE", // required
- *   AutodefinedReverseFlag: "ENABLE" || "DISABLE" || "USE_LOCAL_RESOURCE_SETTING", // required
+ *   ResourceId: 'STRING_VALUE', // required
+ *   AutodefinedReverseFlag: 'ENABLE' || 'DISABLE' || 'USE_LOCAL_RESOURCE_SETTING', // required
  * };
  * const command = new UpdateResolverConfigCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateResolverConfigResponse
+ *   ResolverConfig: { // ResolverConfig
+ *     Id: 'STRING_VALUE',
+ *     ResourceId: 'STRING_VALUE',
+ *     OwnerId: 'STRING_VALUE',
+ *     AutodefinedReverse: 'ENABLING' || 'ENABLED' || 'DISABLING' || 'DISABLED' || 'UPDATING_TO_USE_LOCAL_RESOURCE_SETTING' || 'USE_LOCAL_RESOURCE_SETTING',
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateResolverConfigCommandInput - {@link UpdateResolverConfigCommandInput}
@@ -82,6 +92,8 @@ export interface UpdateResolverConfigCommandOutput extends UpdateResolverConfigR
  *  <p>You have provided an invalid command. Supported values are <code>ADD</code>,
  * 			<code>REMOVE</code>, or <code>REPLACE</code> a domain.</p>
  *
+ * @throws {@link Route53ResolverServiceException}
+ * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
  */
 export class UpdateResolverConfigCommand extends $Command<

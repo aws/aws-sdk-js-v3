@@ -42,24 +42,27 @@ export interface PutDataCatalogEncryptionSettingsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlueClient, PutDataCatalogEncryptionSettingsCommand } from "@aws-sdk/client-glue"; // ES Modules import
- * // const { GlueClient, PutDataCatalogEncryptionSettingsCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * import { GlueClient, PutDataCatalogEncryptionSettingsCommand } from '@aws-sdk/client-glue'; // ES Modules import
+ * // const { GlueClient, PutDataCatalogEncryptionSettingsCommand } = require('@aws-sdk/client-glue'); // CommonJS import
  * const client = new GlueClient(config);
  * const input = { // PutDataCatalogEncryptionSettingsRequest
- *   CatalogId: "STRING_VALUE",
+ *   CatalogId: 'STRING_VALUE',
  *   DataCatalogEncryptionSettings: { // DataCatalogEncryptionSettings
  *     EncryptionAtRest: { // EncryptionAtRest
- *       CatalogEncryptionMode: "DISABLED" || "SSE-KMS", // required
- *       SseAwsKmsKeyId: "STRING_VALUE",
+ *       CatalogEncryptionMode: 'DISABLED' || 'SSE-KMS', // required
+ *       SseAwsKmsKeyId: 'STRING_VALUE',
  *     },
  *     ConnectionPasswordEncryption: { // ConnectionPasswordEncryption
  *       ReturnConnectionPasswordEncrypted: true || false, // required
- *       AwsKmsKeyId: "STRING_VALUE",
+ *       AwsKmsKeyId: 'STRING_VALUE',
  *     },
  *   },
  * };
  * const command = new PutDataCatalogEncryptionSettingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutDataCatalogEncryptionSettingsCommandInput - {@link PutDataCatalogEncryptionSettingsCommandInput}
@@ -77,6 +80,8 @@ export interface PutDataCatalogEncryptionSettingsCommandOutput
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class PutDataCatalogEncryptionSettingsCommand extends $Command<

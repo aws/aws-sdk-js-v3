@@ -54,23 +54,28 @@ export interface CopyImageCommandOutput extends CopyImageResult, __MetadataBeare
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, CopyImageCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, CopyImageCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, CopyImageCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, CopyImageCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // CopyImageRequest
- *   ClientToken: "STRING_VALUE",
- *   Description: "STRING_VALUE",
+ *   ClientToken: 'STRING_VALUE',
+ *   Description: 'STRING_VALUE',
  *   Encrypted: true || false,
- *   KmsKeyId: "STRING_VALUE",
- *   Name: "STRING_VALUE", // required
- *   SourceImageId: "STRING_VALUE", // required
- *   SourceRegion: "STRING_VALUE", // required
- *   DestinationOutpostArn: "STRING_VALUE",
+ *   KmsKeyId: 'STRING_VALUE',
+ *   Name: 'STRING_VALUE', // required
+ *   SourceImageId: 'STRING_VALUE', // required
+ *   SourceRegion: 'STRING_VALUE', // required
+ *   DestinationOutpostArn: 'STRING_VALUE',
  *   DryRun: true || false,
  *   CopyImageTags: true || false,
  * };
  * const command = new CopyImageCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CopyImageResult
+ *   ImageId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CopyImageCommandInput - {@link CopyImageCommandInput}
@@ -79,6 +84,8 @@ export interface CopyImageCommandOutput extends CopyImageResult, __MetadataBeare
  * @see {@link CopyImageCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @example To copy an AMI to another region
  * ```javascript

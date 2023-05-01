@@ -45,29 +45,34 @@ export interface StartDataQualityRuleRecommendationRunCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlueClient, StartDataQualityRuleRecommendationRunCommand } from "@aws-sdk/client-glue"; // ES Modules import
- * // const { GlueClient, StartDataQualityRuleRecommendationRunCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * import { GlueClient, StartDataQualityRuleRecommendationRunCommand } from '@aws-sdk/client-glue'; // ES Modules import
+ * // const { GlueClient, StartDataQualityRuleRecommendationRunCommand } = require('@aws-sdk/client-glue'); // CommonJS import
  * const client = new GlueClient(config);
  * const input = { // StartDataQualityRuleRecommendationRunRequest
  *   DataSource: { // DataSource
  *     GlueTable: { // GlueTable
- *       DatabaseName: "STRING_VALUE", // required
- *       TableName: "STRING_VALUE", // required
- *       CatalogId: "STRING_VALUE",
- *       ConnectionName: "STRING_VALUE",
+ *       DatabaseName: 'STRING_VALUE', // required
+ *       TableName: 'STRING_VALUE', // required
+ *       CatalogId: 'STRING_VALUE',
+ *       ConnectionName: 'STRING_VALUE',
  *       AdditionalOptions: { // GlueTableAdditionalOptions
- *         "<keys>": "STRING_VALUE",
+ *         '<keys>': 'STRING_VALUE',
  *       },
  *     },
  *   },
- *   Role: "STRING_VALUE", // required
- *   NumberOfWorkers: Number("int"),
- *   Timeout: Number("int"),
- *   CreatedRulesetName: "STRING_VALUE",
- *   ClientToken: "STRING_VALUE",
+ *   Role: 'STRING_VALUE', // required
+ *   NumberOfWorkers: Number('int'),
+ *   Timeout: Number('int'),
+ *   CreatedRulesetName: 'STRING_VALUE',
+ *   ClientToken: 'STRING_VALUE',
  * };
  * const command = new StartDataQualityRuleRecommendationRunCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartDataQualityRuleRecommendationRunResponse
+ *   RunId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param StartDataQualityRuleRecommendationRunCommandInput - {@link StartDataQualityRuleRecommendationRunCommandInput}
@@ -88,6 +93,8 @@ export interface StartDataQualityRuleRecommendationRunCommandOutput
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class StartDataQualityRuleRecommendationRunCommand extends $Command<

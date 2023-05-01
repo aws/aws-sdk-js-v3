@@ -36,37 +36,40 @@ export interface RegisterApplicationRevisionCommandOutput extends __MetadataBear
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeDeployClient, RegisterApplicationRevisionCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
- * // const { CodeDeployClient, RegisterApplicationRevisionCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
+ * import { CodeDeployClient, RegisterApplicationRevisionCommand } from '@aws-sdk/client-codedeploy'; // ES Modules import
+ * // const { CodeDeployClient, RegisterApplicationRevisionCommand } = require('@aws-sdk/client-codedeploy'); // CommonJS import
  * const client = new CodeDeployClient(config);
  * const input = { // RegisterApplicationRevisionInput
- *   applicationName: "STRING_VALUE", // required
- *   description: "STRING_VALUE",
+ *   applicationName: 'STRING_VALUE', // required
+ *   description: 'STRING_VALUE',
  *   revision: { // RevisionLocation
- *     revisionType: "S3" || "GitHub" || "String" || "AppSpecContent",
+ *     revisionType: 'S3' || 'GitHub' || 'String' || 'AppSpecContent',
  *     s3Location: { // S3Location
- *       bucket: "STRING_VALUE",
- *       key: "STRING_VALUE",
- *       bundleType: "tar" || "tgz" || "zip" || "YAML" || "JSON",
- *       version: "STRING_VALUE",
- *       eTag: "STRING_VALUE",
+ *       bucket: 'STRING_VALUE',
+ *       key: 'STRING_VALUE',
+ *       bundleType: 'tar' || 'tgz' || 'zip' || 'YAML' || 'JSON',
+ *       version: 'STRING_VALUE',
+ *       eTag: 'STRING_VALUE',
  *     },
  *     gitHubLocation: { // GitHubLocation
- *       repository: "STRING_VALUE",
- *       commitId: "STRING_VALUE",
+ *       repository: 'STRING_VALUE',
+ *       commitId: 'STRING_VALUE',
  *     },
  *     string: { // RawString
- *       content: "STRING_VALUE",
- *       sha256: "STRING_VALUE",
+ *       content: 'STRING_VALUE',
+ *       sha256: 'STRING_VALUE',
  *     },
  *     appSpecContent: { // AppSpecContent
- *       content: "STRING_VALUE",
- *       sha256: "STRING_VALUE",
+ *       content: 'STRING_VALUE',
+ *       sha256: 'STRING_VALUE',
  *     },
  *   },
  * };
  * const command = new RegisterApplicationRevisionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param RegisterApplicationRevisionCommandInput - {@link RegisterApplicationRevisionCommandInput}
@@ -93,6 +96,8 @@ export interface RegisterApplicationRevisionCommandOutput extends __MetadataBear
  * @throws {@link RevisionRequiredException} (client fault)
  *  <p>The revision ID was not specified.</p>
  *
+ * @throws {@link CodeDeployServiceException}
+ * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
  */
 export class RegisterApplicationRevisionCommand extends $Command<

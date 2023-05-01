@@ -36,15 +36,20 @@ export interface DeleteFpgaImageCommandOutput extends DeleteFpgaImageResult, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, DeleteFpgaImageCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, DeleteFpgaImageCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, DeleteFpgaImageCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, DeleteFpgaImageCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // DeleteFpgaImageRequest
  *   DryRun: true || false,
- *   FpgaImageId: "STRING_VALUE", // required
+ *   FpgaImageId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteFpgaImageCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteFpgaImageResult
+ *   Return: true || false,
+ * };
+ *
  * ```
  *
  * @param DeleteFpgaImageCommandInput - {@link DeleteFpgaImageCommandInput}
@@ -53,6 +58,8 @@ export interface DeleteFpgaImageCommandOutput extends DeleteFpgaImageResult, __M
  * @see {@link DeleteFpgaImageCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class DeleteFpgaImageCommand extends $Command<

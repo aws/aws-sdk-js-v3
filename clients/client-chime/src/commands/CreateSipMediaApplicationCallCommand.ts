@@ -46,19 +46,26 @@ export interface CreateSipMediaApplicationCallCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeClient, CreateSipMediaApplicationCallCommand } from "@aws-sdk/client-chime"; // ES Modules import
- * // const { ChimeClient, CreateSipMediaApplicationCallCommand } = require("@aws-sdk/client-chime"); // CommonJS import
+ * import { ChimeClient, CreateSipMediaApplicationCallCommand } from '@aws-sdk/client-chime'; // ES Modules import
+ * // const { ChimeClient, CreateSipMediaApplicationCallCommand } = require('@aws-sdk/client-chime'); // CommonJS import
  * const client = new ChimeClient(config);
  * const input = { // CreateSipMediaApplicationCallRequest
- *   FromPhoneNumber: "STRING_VALUE", // required
- *   ToPhoneNumber: "STRING_VALUE", // required
- *   SipMediaApplicationId: "STRING_VALUE", // required
+ *   FromPhoneNumber: 'STRING_VALUE', // required
+ *   ToPhoneNumber: 'STRING_VALUE', // required
+ *   SipMediaApplicationId: 'STRING_VALUE', // required
  *   SipHeaders: { // SipHeadersMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateSipMediaApplicationCallCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateSipMediaApplicationCallResponse
+ *   SipMediaApplicationCall: { // SipMediaApplicationCall
+ *     TransactionId: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateSipMediaApplicationCallCommandInput - {@link CreateSipMediaApplicationCallCommandInput}
@@ -91,6 +98,8 @@ export interface CreateSipMediaApplicationCallCommandOutput
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeServiceException}
+ * <p>Base exception class for all service exceptions from Chime service.</p>
  *
  */
 export class CreateSipMediaApplicationCallCommand extends $Command<

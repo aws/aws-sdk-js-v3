@@ -41,20 +41,25 @@ export interface UpdateFileSystemAssociationCommandOutput extends UpdateFileSyst
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { StorageGatewayClient, UpdateFileSystemAssociationCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
- * // const { StorageGatewayClient, UpdateFileSystemAssociationCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
+ * import { StorageGatewayClient, UpdateFileSystemAssociationCommand } from '@aws-sdk/client-storage-gateway'; // ES Modules import
+ * // const { StorageGatewayClient, UpdateFileSystemAssociationCommand } = require('@aws-sdk/client-storage-gateway'); // CommonJS import
  * const client = new StorageGatewayClient(config);
  * const input = { // UpdateFileSystemAssociationInput
- *   FileSystemAssociationARN: "STRING_VALUE", // required
- *   UserName: "STRING_VALUE",
- *   Password: "STRING_VALUE",
- *   AuditDestinationARN: "STRING_VALUE",
+ *   FileSystemAssociationARN: 'STRING_VALUE', // required
+ *   UserName: 'STRING_VALUE',
+ *   Password: 'STRING_VALUE',
+ *   AuditDestinationARN: 'STRING_VALUE',
  *   CacheAttributes: { // CacheAttributes
- *     CacheStaleTimeoutInSeconds: Number("int"),
+ *     CacheStaleTimeoutInSeconds: Number('int'),
  *   },
  * };
  * const command = new UpdateFileSystemAssociationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateFileSystemAssociationOutput
+ *   FileSystemAssociationARN: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateFileSystemAssociationCommandInput - {@link UpdateFileSystemAssociationCommandInput}
@@ -71,6 +76,8 @@ export interface UpdateFileSystemAssociationCommandOutput extends UpdateFileSyst
  *  <p>An exception occurred because an invalid gateway request was issued to the service. For
  *          more information, see the error and message fields.</p>
  *
+ * @throws {@link StorageGatewayServiceException}
+ * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
  */
 export class UpdateFileSystemAssociationCommand extends $Command<

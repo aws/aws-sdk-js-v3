@@ -38,15 +38,36 @@ export interface ListCodeSigningConfigsCommandOutput extends ListCodeSigningConf
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LambdaClient, ListCodeSigningConfigsCommand } from "@aws-sdk/client-lambda"; // ES Modules import
- * // const { LambdaClient, ListCodeSigningConfigsCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
+ * import { LambdaClient, ListCodeSigningConfigsCommand } from '@aws-sdk/client-lambda'; // ES Modules import
+ * // const { LambdaClient, ListCodeSigningConfigsCommand } = require('@aws-sdk/client-lambda'); // CommonJS import
  * const client = new LambdaClient(config);
  * const input = { // ListCodeSigningConfigsRequest
- *   Marker: "STRING_VALUE",
- *   MaxItems: Number("int"),
+ *   Marker: 'STRING_VALUE',
+ *   MaxItems: Number('int'),
  * };
  * const command = new ListCodeSigningConfigsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListCodeSigningConfigsResponse
+ *   NextMarker: 'STRING_VALUE',
+ *   CodeSigningConfigs: [ // CodeSigningConfigList
+ *     { // CodeSigningConfig
+ *       CodeSigningConfigId: 'STRING_VALUE', // required
+ *       CodeSigningConfigArn: 'STRING_VALUE', // required
+ *       Description: 'STRING_VALUE',
+ *       AllowedPublishers: { // AllowedPublishers
+ *         SigningProfileVersionArns: [ // SigningProfileVersionArns // required
+ *           'STRING_VALUE',
+ *         ],
+ *       },
+ *       CodeSigningPolicies: { // CodeSigningPolicies
+ *         UntrustedArtifactOnDeployment: 'Warn' || 'Enforce',
+ *       },
+ *       LastModified: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListCodeSigningConfigsCommandInput - {@link ListCodeSigningConfigsCommandInput}
@@ -61,6 +82,8 @@ export interface ListCodeSigningConfigsCommandOutput extends ListCodeSigningConf
  * @throws {@link ServiceException} (server fault)
  *  <p>The Lambda service encountered an internal error.</p>
  *
+ * @throws {@link LambdaServiceException}
+ * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
  */
 export class ListCodeSigningConfigsCommand extends $Command<

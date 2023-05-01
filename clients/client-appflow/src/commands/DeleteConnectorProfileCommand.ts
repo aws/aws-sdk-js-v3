@@ -36,15 +36,18 @@ export interface DeleteConnectorProfileCommandOutput extends DeleteConnectorProf
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppflowClient, DeleteConnectorProfileCommand } from "@aws-sdk/client-appflow"; // ES Modules import
- * // const { AppflowClient, DeleteConnectorProfileCommand } = require("@aws-sdk/client-appflow"); // CommonJS import
+ * import { AppflowClient, DeleteConnectorProfileCommand } from '@aws-sdk/client-appflow'; // ES Modules import
+ * // const { AppflowClient, DeleteConnectorProfileCommand } = require('@aws-sdk/client-appflow'); // CommonJS import
  * const client = new AppflowClient(config);
  * const input = { // DeleteConnectorProfileRequest
- *   connectorProfileName: "STRING_VALUE", // required
+ *   connectorProfileName: 'STRING_VALUE', // required
  *   forceDelete: true || false,
  * };
  * const command = new DeleteConnectorProfileCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteConnectorProfileCommandInput - {@link DeleteConnectorProfileCommandInput}
@@ -65,6 +68,8 @@ export interface DeleteConnectorProfileCommandOutput extends DeleteConnectorProf
  *  <p> The resource specified in the request (such as the source or destination connector
  *       profile) is not found. </p>
  *
+ * @throws {@link AppflowServiceException}
+ * <p>Base exception class for all service exceptions from Appflow service.</p>
  *
  */
 export class DeleteConnectorProfileCommand extends $Command<

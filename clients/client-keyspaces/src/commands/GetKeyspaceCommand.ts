@@ -36,14 +36,20 @@ export interface GetKeyspaceCommandOutput extends GetKeyspaceResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KeyspacesClient, GetKeyspaceCommand } from "@aws-sdk/client-keyspaces"; // ES Modules import
- * // const { KeyspacesClient, GetKeyspaceCommand } = require("@aws-sdk/client-keyspaces"); // CommonJS import
+ * import { KeyspacesClient, GetKeyspaceCommand } from '@aws-sdk/client-keyspaces'; // ES Modules import
+ * // const { KeyspacesClient, GetKeyspaceCommand } = require('@aws-sdk/client-keyspaces'); // CommonJS import
  * const client = new KeyspacesClient(config);
  * const input = { // GetKeyspaceRequest
- *   keyspaceName: "STRING_VALUE", // required
+ *   keyspaceName: 'STRING_VALUE', // required
  * };
  * const command = new GetKeyspaceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetKeyspaceResponse
+ *   keyspaceName: 'STRING_VALUE', // required
+ *   resourceArn: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param GetKeyspaceCommandInput - {@link GetKeyspaceCommandInput}
@@ -68,6 +74,8 @@ export interface GetKeyspaceCommandOutput extends GetKeyspaceResponse, __Metadat
  * @throws {@link ValidationException} (client fault)
  *  <p>The operation failed due to an invalid or malformed request.</p>
  *
+ * @throws {@link KeyspacesServiceException}
+ * <p>Base exception class for all service exceptions from Keyspaces service.</p>
  *
  */
 export class GetKeyspaceCommand extends $Command<

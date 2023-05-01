@@ -45,19 +45,33 @@ export interface GetTransitGatewayConnectPeerAssociationsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { NetworkManagerClient, GetTransitGatewayConnectPeerAssociationsCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
- * // const { NetworkManagerClient, GetTransitGatewayConnectPeerAssociationsCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
+ * import { NetworkManagerClient, GetTransitGatewayConnectPeerAssociationsCommand } from '@aws-sdk/client-networkmanager'; // ES Modules import
+ * // const { NetworkManagerClient, GetTransitGatewayConnectPeerAssociationsCommand } = require('@aws-sdk/client-networkmanager'); // CommonJS import
  * const client = new NetworkManagerClient(config);
  * const input = { // GetTransitGatewayConnectPeerAssociationsRequest
- *   GlobalNetworkId: "STRING_VALUE", // required
+ *   GlobalNetworkId: 'STRING_VALUE', // required
  *   TransitGatewayConnectPeerArns: [ // TransitGatewayConnectPeerArnList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new GetTransitGatewayConnectPeerAssociationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetTransitGatewayConnectPeerAssociationsResponse
+ *   TransitGatewayConnectPeerAssociations: [ // TransitGatewayConnectPeerAssociationList
+ *     { // TransitGatewayConnectPeerAssociation
+ *       TransitGatewayConnectPeerArn: 'STRING_VALUE',
+ *       GlobalNetworkId: 'STRING_VALUE',
+ *       DeviceId: 'STRING_VALUE',
+ *       LinkId: 'STRING_VALUE',
+ *       State: 'PENDING' || 'AVAILABLE' || 'DELETING' || 'DELETED',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetTransitGatewayConnectPeerAssociationsCommandInput - {@link GetTransitGatewayConnectPeerAssociationsCommandInput}
@@ -85,6 +99,8 @@ export interface GetTransitGatewayConnectPeerAssociationsCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints.</p>
  *
+ * @throws {@link NetworkManagerServiceException}
+ * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
  */
 export class GetTransitGatewayConnectPeerAssociationsCommand extends $Command<

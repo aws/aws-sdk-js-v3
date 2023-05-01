@@ -39,19 +39,22 @@ export interface CreateTemplateCommandOutput extends CreateTemplateResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SESClient, CreateTemplateCommand } from "@aws-sdk/client-ses"; // ES Modules import
- * // const { SESClient, CreateTemplateCommand } = require("@aws-sdk/client-ses"); // CommonJS import
+ * import { SESClient, CreateTemplateCommand } from '@aws-sdk/client-ses'; // ES Modules import
+ * // const { SESClient, CreateTemplateCommand } = require('@aws-sdk/client-ses'); // CommonJS import
  * const client = new SESClient(config);
  * const input = { // CreateTemplateRequest
  *   Template: { // Template
- *     TemplateName: "STRING_VALUE", // required
- *     SubjectPart: "STRING_VALUE",
- *     TextPart: "STRING_VALUE",
- *     HtmlPart: "STRING_VALUE",
+ *     TemplateName: 'STRING_VALUE', // required
+ *     SubjectPart: 'STRING_VALUE',
+ *     TextPart: 'STRING_VALUE',
+ *     HtmlPart: 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateTemplateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param CreateTemplateCommandInput - {@link CreateTemplateCommandInput}
@@ -72,6 +75,8 @@ export interface CreateTemplateCommandOutput extends CreateTemplateResponse, __M
  *             of Amazon SES limits, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/limits.html">Amazon SES Developer
  *             Guide</a>.</p>
  *
+ * @throws {@link SESServiceException}
+ * <p>Base exception class for all service exceptions from SES service.</p>
  *
  */
 export class CreateTemplateCommand extends $Command<

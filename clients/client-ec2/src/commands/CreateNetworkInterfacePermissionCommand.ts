@@ -43,18 +43,33 @@ export interface CreateNetworkInterfacePermissionCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, CreateNetworkInterfacePermissionCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, CreateNetworkInterfacePermissionCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, CreateNetworkInterfacePermissionCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, CreateNetworkInterfacePermissionCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // CreateNetworkInterfacePermissionRequest
- *   NetworkInterfaceId: "STRING_VALUE", // required
- *   AwsAccountId: "STRING_VALUE",
- *   AwsService: "STRING_VALUE",
- *   Permission: "INSTANCE-ATTACH" || "EIP-ASSOCIATE", // required
+ *   NetworkInterfaceId: 'STRING_VALUE', // required
+ *   AwsAccountId: 'STRING_VALUE',
+ *   AwsService: 'STRING_VALUE',
+ *   Permission: 'INSTANCE-ATTACH' || 'EIP-ASSOCIATE', // required
  *   DryRun: true || false,
  * };
  * const command = new CreateNetworkInterfacePermissionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateNetworkInterfacePermissionResult
+ *   InterfacePermission: { // NetworkInterfacePermission
+ *     NetworkInterfacePermissionId: 'STRING_VALUE',
+ *     NetworkInterfaceId: 'STRING_VALUE',
+ *     AwsAccountId: 'STRING_VALUE',
+ *     AwsService: 'STRING_VALUE',
+ *     Permission: 'INSTANCE-ATTACH' || 'EIP-ASSOCIATE',
+ *     PermissionState: { // NetworkInterfacePermissionState
+ *       State: 'pending' || 'granted' || 'revoking' || 'revoked',
+ *       StatusMessage: 'STRING_VALUE',
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateNetworkInterfacePermissionCommandInput - {@link CreateNetworkInterfacePermissionCommandInput}
@@ -63,6 +78,8 @@ export interface CreateNetworkInterfacePermissionCommandOutput
  * @see {@link CreateNetworkInterfacePermissionCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class CreateNetworkInterfacePermissionCommand extends $Command<

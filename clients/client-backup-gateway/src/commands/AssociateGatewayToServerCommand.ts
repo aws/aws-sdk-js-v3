@@ -37,15 +37,20 @@ export interface AssociateGatewayToServerCommandOutput extends AssociateGatewayT
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BackupGatewayClient, AssociateGatewayToServerCommand } from "@aws-sdk/client-backup-gateway"; // ES Modules import
- * // const { BackupGatewayClient, AssociateGatewayToServerCommand } = require("@aws-sdk/client-backup-gateway"); // CommonJS import
+ * import { BackupGatewayClient, AssociateGatewayToServerCommand } from '@aws-sdk/client-backup-gateway'; // ES Modules import
+ * // const { BackupGatewayClient, AssociateGatewayToServerCommand } = require('@aws-sdk/client-backup-gateway'); // CommonJS import
  * const client = new BackupGatewayClient(config);
  * const input = { // AssociateGatewayToServerInput
- *   GatewayArn: "STRING_VALUE", // required
- *   ServerArn: "STRING_VALUE", // required
+ *   GatewayArn: 'STRING_VALUE', // required
+ *   ServerArn: 'STRING_VALUE', // required
  * };
  * const command = new AssociateGatewayToServerCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AssociateGatewayToServerOutput
+ *   GatewayArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param AssociateGatewayToServerCommandInput - {@link AssociateGatewayToServerCommandInput}
@@ -67,6 +72,8 @@ export interface AssociateGatewayToServerCommandOutput extends AssociateGatewayT
  * @throws {@link ValidationException} (client fault)
  *  <p>The operation did not succeed because a validation error occurred.</p>
  *
+ * @throws {@link BackupGatewayServiceException}
+ * <p>Base exception class for all service exceptions from BackupGateway service.</p>
  *
  */
 export class AssociateGatewayToServerCommand extends $Command<

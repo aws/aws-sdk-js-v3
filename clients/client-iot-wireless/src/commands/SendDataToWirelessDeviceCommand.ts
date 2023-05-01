@@ -36,36 +36,41 @@ export interface SendDataToWirelessDeviceCommandOutput extends SendDataToWireles
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTWirelessClient, SendDataToWirelessDeviceCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
- * // const { IoTWirelessClient, SendDataToWirelessDeviceCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
+ * import { IoTWirelessClient, SendDataToWirelessDeviceCommand } from '@aws-sdk/client-iot-wireless'; // ES Modules import
+ * // const { IoTWirelessClient, SendDataToWirelessDeviceCommand } = require('@aws-sdk/client-iot-wireless'); // CommonJS import
  * const client = new IoTWirelessClient(config);
  * const input = { // SendDataToWirelessDeviceRequest
- *   Id: "STRING_VALUE", // required
- *   TransmitMode: Number("int"), // required
- *   PayloadData: "STRING_VALUE", // required
+ *   Id: 'STRING_VALUE', // required
+ *   TransmitMode: Number('int'), // required
+ *   PayloadData: 'STRING_VALUE', // required
  *   WirelessMetadata: { // WirelessMetadata
  *     LoRaWAN: { // LoRaWANSendDataToDevice
- *       FPort: Number("int"),
+ *       FPort: Number('int'),
  *       ParticipatingGateways: { // ParticipatingGateways
- *         DownlinkMode: "SEQUENTIAL" || "CONCURRENT" || "USING_UPLINK_GATEWAY", // required
+ *         DownlinkMode: 'SEQUENTIAL' || 'CONCURRENT' || 'USING_UPLINK_GATEWAY', // required
  *         GatewayList: [ // GatewayList // required
  *           { // GatewayListItem
- *             GatewayId: "STRING_VALUE", // required
- *             DownlinkFrequency: Number("int"), // required
+ *             GatewayId: 'STRING_VALUE', // required
+ *             DownlinkFrequency: Number('int'), // required
  *           },
  *         ],
- *         TransmissionInterval: Number("int"), // required
+ *         TransmissionInterval: Number('int'), // required
  *       },
  *     },
  *     Sidewalk: { // SidewalkSendDataToDevice
- *       Seq: Number("int"),
- *       MessageType: "CUSTOM_COMMAND_ID_NOTIFY" || "CUSTOM_COMMAND_ID_GET" || "CUSTOM_COMMAND_ID_SET" || "CUSTOM_COMMAND_ID_RESP",
- *       AckModeRetryDurationSecs: Number("int"),
+ *       Seq: Number('int'),
+ *       MessageType: 'CUSTOM_COMMAND_ID_NOTIFY' || 'CUSTOM_COMMAND_ID_GET' || 'CUSTOM_COMMAND_ID_SET' || 'CUSTOM_COMMAND_ID_RESP',
+ *       AckModeRetryDurationSecs: Number('int'),
  *     },
  *   },
  * };
  * const command = new SendDataToWirelessDeviceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SendDataToWirelessDeviceResponse
+ *   MessageId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param SendDataToWirelessDeviceCommandInput - {@link SendDataToWirelessDeviceCommandInput}
@@ -86,6 +91,8 @@ export interface SendDataToWirelessDeviceCommandOutput extends SendDataToWireles
  * @throws {@link ValidationException} (client fault)
  *  <p>The input did not meet the specified constraints.</p>
  *
+ * @throws {@link IoTWirelessServiceException}
+ * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
  */
 export class SendDataToWirelessDeviceCommand extends $Command<

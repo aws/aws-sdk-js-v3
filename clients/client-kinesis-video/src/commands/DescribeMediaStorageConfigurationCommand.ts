@@ -42,15 +42,23 @@ export interface DescribeMediaStorageConfigurationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KinesisVideoClient, DescribeMediaStorageConfigurationCommand } from "@aws-sdk/client-kinesis-video"; // ES Modules import
- * // const { KinesisVideoClient, DescribeMediaStorageConfigurationCommand } = require("@aws-sdk/client-kinesis-video"); // CommonJS import
+ * import { KinesisVideoClient, DescribeMediaStorageConfigurationCommand } from '@aws-sdk/client-kinesis-video'; // ES Modules import
+ * // const { KinesisVideoClient, DescribeMediaStorageConfigurationCommand } = require('@aws-sdk/client-kinesis-video'); // CommonJS import
  * const client = new KinesisVideoClient(config);
  * const input = { // DescribeMediaStorageConfigurationInput
- *   ChannelName: "STRING_VALUE",
- *   ChannelARN: "STRING_VALUE",
+ *   ChannelName: 'STRING_VALUE',
+ *   ChannelARN: 'STRING_VALUE',
  * };
  * const command = new DescribeMediaStorageConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeMediaStorageConfigurationOutput
+ *   MediaStorageConfiguration: { // MediaStorageConfiguration
+ *     StreamARN: 'STRING_VALUE',
+ *     Status: 'ENABLED' || 'DISABLED', // required
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeMediaStorageConfigurationCommandInput - {@link DescribeMediaStorageConfigurationCommandInput}
@@ -72,6 +80,8 @@ export interface DescribeMediaStorageConfigurationCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Amazon Kinesis Video Streams can't find the stream that you specified.</p>
  *
+ * @throws {@link KinesisVideoServiceException}
+ * <p>Base exception class for all service exceptions from KinesisVideo service.</p>
  *
  */
 export class DescribeMediaStorageConfigurationCommand extends $Command<

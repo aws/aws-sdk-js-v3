@@ -39,34 +39,58 @@ export interface CreateListenerCommandOutput extends CreateListenerResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { VPCLatticeClient, CreateListenerCommand } from "@aws-sdk/client-vpc-lattice"; // ES Modules import
- * // const { VPCLatticeClient, CreateListenerCommand } = require("@aws-sdk/client-vpc-lattice"); // CommonJS import
+ * import { VPCLatticeClient, CreateListenerCommand } from '@aws-sdk/client-vpc-lattice'; // ES Modules import
+ * // const { VPCLatticeClient, CreateListenerCommand } = require('@aws-sdk/client-vpc-lattice'); // CommonJS import
  * const client = new VPCLatticeClient(config);
  * const input = { // CreateListenerRequest
- *   serviceIdentifier: "STRING_VALUE", // required
- *   name: "STRING_VALUE", // required
- *   protocol: "STRING_VALUE", // required
- *   port: Number("int"),
+ *   serviceIdentifier: 'STRING_VALUE', // required
+ *   name: 'STRING_VALUE', // required
+ *   protocol: 'STRING_VALUE', // required
+ *   port: Number('int'),
  *   defaultAction: { // RuleAction Union: only one key present
  *     forward: { // ForwardAction
  *       targetGroups: [ // WeightedTargetGroupList // required
  *         { // WeightedTargetGroup
- *           targetGroupIdentifier: "STRING_VALUE", // required
- *           weight: Number("int"),
+ *           targetGroupIdentifier: 'STRING_VALUE', // required
+ *           weight: Number('int'),
  *         },
  *       ],
  *     },
  *     fixedResponse: { // FixedResponseAction
- *       statusCode: Number("int"), // required
+ *       statusCode: Number('int'), // required
  *     },
  *   },
- *   clientToken: "STRING_VALUE",
+ *   clientToken: 'STRING_VALUE',
  *   tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateListenerCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateListenerResponse
+ *   arn: 'STRING_VALUE',
+ *   id: 'STRING_VALUE',
+ *   name: 'STRING_VALUE',
+ *   protocol: 'STRING_VALUE',
+ *   port: Number('int'),
+ *   serviceArn: 'STRING_VALUE',
+ *   serviceId: 'STRING_VALUE',
+ *   defaultAction: { // RuleAction Union: only one key present
+ *     forward: { // ForwardAction
+ *       targetGroups: [ // WeightedTargetGroupList // required
+ *         { // WeightedTargetGroup
+ *           targetGroupIdentifier: 'STRING_VALUE', // required
+ *           weight: Number('int'),
+ *         },
+ *       ],
+ *     },
+ *     fixedResponse: { // FixedResponseAction
+ *       statusCode: Number('int'), // required
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateListenerCommandInput - {@link CreateListenerCommandInput}
@@ -98,6 +122,8 @@ export interface CreateListenerCommandOutput extends CreateListenerResponse, __M
  *  <p>The input does not satisfy the constraints specified by an Amazon Web Services
  *    service.</p>
  *
+ * @throws {@link VPCLatticeServiceException}
+ * <p>Base exception class for all service exceptions from VPCLattice service.</p>
  *
  */
 export class CreateListenerCommand extends $Command<

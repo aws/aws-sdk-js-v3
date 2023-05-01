@@ -36,15 +36,28 @@ export interface GetGroupCommandOutput extends GetGroupResult, __MetadataBearer 
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { XRayClient, GetGroupCommand } from "@aws-sdk/client-xray"; // ES Modules import
- * // const { XRayClient, GetGroupCommand } = require("@aws-sdk/client-xray"); // CommonJS import
+ * import { XRayClient, GetGroupCommand } from '@aws-sdk/client-xray'; // ES Modules import
+ * // const { XRayClient, GetGroupCommand } = require('@aws-sdk/client-xray'); // CommonJS import
  * const client = new XRayClient(config);
  * const input = { // GetGroupRequest
- *   GroupName: "STRING_VALUE",
- *   GroupARN: "STRING_VALUE",
+ *   GroupName: 'STRING_VALUE',
+ *   GroupARN: 'STRING_VALUE',
  * };
  * const command = new GetGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetGroupResult
+ *   Group: { // Group
+ *     GroupName: 'STRING_VALUE',
+ *     GroupARN: 'STRING_VALUE',
+ *     FilterExpression: 'STRING_VALUE',
+ *     InsightsConfiguration: { // InsightsConfiguration
+ *       InsightsEnabled: true || false,
+ *       NotificationsEnabled: true || false,
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetGroupCommandInput - {@link GetGroupCommandInput}
@@ -59,6 +72,8 @@ export interface GetGroupCommandOutput extends GetGroupResult, __MetadataBearer 
  * @throws {@link ThrottledException} (client fault)
  *  <p>The request exceeds the maximum number of requests per second.</p>
  *
+ * @throws {@link XRayServiceException}
+ * <p>Base exception class for all service exceptions from XRay service.</p>
  *
  */
 export class GetGroupCommand extends $Command<GetGroupCommandInput, GetGroupCommandOutput, XRayClientResolvedConfig> {

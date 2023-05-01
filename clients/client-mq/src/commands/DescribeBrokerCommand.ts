@@ -36,14 +36,124 @@ export interface DescribeBrokerCommandOutput extends DescribeBrokerResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MqClient, DescribeBrokerCommand } from "@aws-sdk/client-mq"; // ES Modules import
- * // const { MqClient, DescribeBrokerCommand } = require("@aws-sdk/client-mq"); // CommonJS import
+ * import { MqClient, DescribeBrokerCommand } from '@aws-sdk/client-mq'; // ES Modules import
+ * // const { MqClient, DescribeBrokerCommand } = require('@aws-sdk/client-mq'); // CommonJS import
  * const client = new MqClient(config);
  * const input = { // DescribeBrokerRequest
- *   BrokerId: "STRING_VALUE", // required
+ *   BrokerId: 'STRING_VALUE', // required
  * };
  * const command = new DescribeBrokerCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeBrokerResponse
+ *   ActionsRequired: [ // __listOfActionRequired
+ *     { // ActionRequired
+ *       ActionRequiredCode: 'STRING_VALUE',
+ *       ActionRequiredInfo: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   AuthenticationStrategy: 'STRING_VALUE',
+ *   AutoMinorVersionUpgrade: true || false,
+ *   BrokerArn: 'STRING_VALUE',
+ *   BrokerId: 'STRING_VALUE',
+ *   BrokerInstances: [ // __listOfBrokerInstance
+ *     { // BrokerInstance
+ *       ConsoleURL: 'STRING_VALUE',
+ *       Endpoints: [ // __listOf__string
+ *         'STRING_VALUE',
+ *       ],
+ *       IpAddress: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   BrokerName: 'STRING_VALUE',
+ *   BrokerState: 'STRING_VALUE',
+ *   Configurations: { // Configurations
+ *     Current: { // ConfigurationId
+ *       Id: 'STRING_VALUE', // required
+ *       Revision: Number('int'),
+ *     },
+ *     History: [ // __listOfConfigurationId
+ *       {
+ *         Id: 'STRING_VALUE', // required
+ *         Revision: Number('int'),
+ *       },
+ *     ],
+ *     Pending: {
+ *       Id: 'STRING_VALUE', // required
+ *       Revision: Number('int'),
+ *     },
+ *   },
+ *   Created: new Date('TIMESTAMP'),
+ *   DeploymentMode: 'STRING_VALUE',
+ *   EncryptionOptions: { // EncryptionOptions
+ *     KmsKeyId: 'STRING_VALUE',
+ *     UseAwsOwnedKey: true || false, // required
+ *   },
+ *   EngineType: 'STRING_VALUE',
+ *   EngineVersion: 'STRING_VALUE',
+ *   HostInstanceType: 'STRING_VALUE',
+ *   LdapServerMetadata: { // LdapServerMetadataOutput
+ *     Hosts: [ // required
+ *       'STRING_VALUE',
+ *     ],
+ *     RoleBase: 'STRING_VALUE', // required
+ *     RoleName: 'STRING_VALUE',
+ *     RoleSearchMatching: 'STRING_VALUE', // required
+ *     RoleSearchSubtree: true || false,
+ *     ServiceAccountUsername: 'STRING_VALUE', // required
+ *     UserBase: 'STRING_VALUE', // required
+ *     UserRoleName: 'STRING_VALUE',
+ *     UserSearchMatching: 'STRING_VALUE', // required
+ *     UserSearchSubtree: true || false,
+ *   },
+ *   Logs: { // LogsSummary
+ *     Audit: true || false,
+ *     AuditLogGroup: 'STRING_VALUE',
+ *     General: true || false, // required
+ *     GeneralLogGroup: 'STRING_VALUE', // required
+ *     Pending: { // PendingLogs
+ *       Audit: true || false,
+ *       General: true || false,
+ *     },
+ *   },
+ *   MaintenanceWindowStartTime: { // WeeklyStartTime
+ *     DayOfWeek: 'STRING_VALUE', // required
+ *     TimeOfDay: 'STRING_VALUE', // required
+ *     TimeZone: 'STRING_VALUE',
+ *   },
+ *   PendingAuthenticationStrategy: 'STRING_VALUE',
+ *   PendingEngineVersion: 'STRING_VALUE',
+ *   PendingHostInstanceType: 'STRING_VALUE',
+ *   PendingLdapServerMetadata: {
+ *     Hosts: [ // required
+ *       'STRING_VALUE',
+ *     ],
+ *     RoleBase: 'STRING_VALUE', // required
+ *     RoleName: 'STRING_VALUE',
+ *     RoleSearchMatching: 'STRING_VALUE', // required
+ *     RoleSearchSubtree: true || false,
+ *     ServiceAccountUsername: 'STRING_VALUE', // required
+ *     UserBase: 'STRING_VALUE', // required
+ *     UserRoleName: 'STRING_VALUE',
+ *     UserSearchMatching: 'STRING_VALUE', // required
+ *     UserSearchSubtree: true || false,
+ *   },
+ *   PendingSecurityGroups: '<__listOf__string>',
+ *   PubliclyAccessible: true || false,
+ *   SecurityGroups: '<__listOf__string>',
+ *   StorageType: 'STRING_VALUE',
+ *   SubnetIds: '<__listOf__string>',
+ *   Tags: { // __mapOf__string
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ *   Users: [ // __listOfUserSummary
+ *     { // UserSummary
+ *       PendingChange: 'STRING_VALUE',
+ *       Username: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeBrokerCommandInput - {@link DescribeBrokerCommandInput}
@@ -64,6 +174,8 @@ export interface DescribeBrokerCommandOutput extends DescribeBrokerResponse, __M
  * @throws {@link NotFoundException} (client fault)
  *  <p>Returns information about an error.</p>
  *
+ * @throws {@link MqServiceException}
+ * <p>Base exception class for all service exceptions from Mq service.</p>
  *
  */
 export class DescribeBrokerCommand extends $Command<

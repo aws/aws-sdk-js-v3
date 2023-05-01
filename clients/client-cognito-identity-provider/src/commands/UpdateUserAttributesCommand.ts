@@ -62,23 +62,34 @@ export interface UpdateUserAttributesCommandOutput extends UpdateUserAttributesR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CognitoIdentityProviderClient, UpdateUserAttributesCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
- * // const { CognitoIdentityProviderClient, UpdateUserAttributesCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
+ * import { CognitoIdentityProviderClient, UpdateUserAttributesCommand } from '@aws-sdk/client-cognito-identity-provider'; // ES Modules import
+ * // const { CognitoIdentityProviderClient, UpdateUserAttributesCommand } = require('@aws-sdk/client-cognito-identity-provider'); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
  * const input = { // UpdateUserAttributesRequest
  *   UserAttributes: [ // AttributeListType // required
  *     { // AttributeType
- *       Name: "STRING_VALUE", // required
- *       Value: "STRING_VALUE",
+ *       Name: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
- *   AccessToken: "STRING_VALUE", // required
+ *   AccessToken: 'STRING_VALUE', // required
  *   ClientMetadata: { // ClientMetadataType
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new UpdateUserAttributesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateUserAttributesResponse
+ *   CodeDeliveryDetailsList: [ // CodeDeliveryDetailsListType
+ *     { // CodeDeliveryDetailsType
+ *       Destination: 'STRING_VALUE',
+ *       DeliveryMedium: 'SMS' || 'EMAIL',
+ *       AttributeName: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param UpdateUserAttributesCommandInput - {@link UpdateUserAttributesCommandInput}
@@ -160,6 +171,8 @@ export interface UpdateUserAttributesCommandOutput extends UpdateUserAttributesR
  * @throws {@link UserNotFoundException} (client fault)
  *  <p>This exception is thrown when a user isn't found.</p>
  *
+ * @throws {@link CognitoIdentityProviderServiceException}
+ * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
  */
 export class UpdateUserAttributesCommand extends $Command<

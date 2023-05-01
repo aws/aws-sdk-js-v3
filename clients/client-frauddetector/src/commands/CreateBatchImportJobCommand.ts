@@ -36,24 +36,27 @@ export interface CreateBatchImportJobCommandOutput extends CreateBatchImportJobR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FraudDetectorClient, CreateBatchImportJobCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
- * // const { FraudDetectorClient, CreateBatchImportJobCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
+ * import { FraudDetectorClient, CreateBatchImportJobCommand } from '@aws-sdk/client-frauddetector'; // ES Modules import
+ * // const { FraudDetectorClient, CreateBatchImportJobCommand } = require('@aws-sdk/client-frauddetector'); // CommonJS import
  * const client = new FraudDetectorClient(config);
  * const input = { // CreateBatchImportJobRequest
- *   jobId: "STRING_VALUE", // required
- *   inputPath: "STRING_VALUE", // required
- *   outputPath: "STRING_VALUE", // required
- *   eventTypeName: "STRING_VALUE", // required
- *   iamRoleArn: "STRING_VALUE", // required
+ *   jobId: 'STRING_VALUE', // required
+ *   inputPath: 'STRING_VALUE', // required
+ *   outputPath: 'STRING_VALUE', // required
+ *   eventTypeName: 'STRING_VALUE', // required
+ *   iamRoleArn: 'STRING_VALUE', // required
  *   tags: [ // tagList
  *     { // Tag
- *       key: "STRING_VALUE", // required
- *       value: "STRING_VALUE", // required
+ *       key: 'STRING_VALUE', // required
+ *       value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreateBatchImportJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param CreateBatchImportJobCommandInput - {@link CreateBatchImportJobCommandInput}
@@ -77,6 +80,8 @@ export interface CreateBatchImportJobCommandOutput extends CreateBatchImportJobR
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception indicating a specified value is not allowed.</p>
  *
+ * @throws {@link FraudDetectorServiceException}
+ * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
  */
 export class CreateBatchImportJobCommand extends $Command<

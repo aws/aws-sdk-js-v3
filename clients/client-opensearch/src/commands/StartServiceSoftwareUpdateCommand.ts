@@ -38,16 +38,30 @@ export interface StartServiceSoftwareUpdateCommandOutput extends StartServiceSof
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OpenSearchClient, StartServiceSoftwareUpdateCommand } from "@aws-sdk/client-opensearch"; // ES Modules import
- * // const { OpenSearchClient, StartServiceSoftwareUpdateCommand } = require("@aws-sdk/client-opensearch"); // CommonJS import
+ * import { OpenSearchClient, StartServiceSoftwareUpdateCommand } from '@aws-sdk/client-opensearch'; // ES Modules import
+ * // const { OpenSearchClient, StartServiceSoftwareUpdateCommand } = require('@aws-sdk/client-opensearch'); // CommonJS import
  * const client = new OpenSearchClient(config);
  * const input = { // StartServiceSoftwareUpdateRequest
- *   DomainName: "STRING_VALUE", // required
- *   ScheduleAt: "NOW" || "TIMESTAMP" || "OFF_PEAK_WINDOW",
- *   DesiredStartTime: Number("long"),
+ *   DomainName: 'STRING_VALUE', // required
+ *   ScheduleAt: 'NOW' || 'TIMESTAMP' || 'OFF_PEAK_WINDOW',
+ *   DesiredStartTime: Number('long'),
  * };
  * const command = new StartServiceSoftwareUpdateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartServiceSoftwareUpdateResponse
+ *   ServiceSoftwareOptions: { // ServiceSoftwareOptions
+ *     CurrentVersion: 'STRING_VALUE',
+ *     NewVersion: 'STRING_VALUE',
+ *     UpdateAvailable: true || false,
+ *     Cancellable: true || false,
+ *     UpdateStatus: 'PENDING_UPDATE' || 'IN_PROGRESS' || 'COMPLETED' || 'NOT_ELIGIBLE' || 'ELIGIBLE',
+ *     Description: 'STRING_VALUE',
+ *     AutomatedUpdateDate: new Date('TIMESTAMP'),
+ *     OptionalDeployment: true || false,
+ *   },
+ * };
+ *
  * ```
  *
  * @param StartServiceSoftwareUpdateCommandInput - {@link StartServiceSoftwareUpdateCommandInput}
@@ -68,6 +82,8 @@ export interface StartServiceSoftwareUpdateCommandOutput extends StartServiceSof
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception for accessing or deleting a resource that doesn't exist.</p>
  *
+ * @throws {@link OpenSearchServiceException}
+ * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
  */
 export class StartServiceSoftwareUpdateCommand extends $Command<

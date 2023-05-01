@@ -73,17 +73,31 @@ export interface DescribeAccountAttributesCommandOutput extends DescribeAccountA
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, DescribeAccountAttributesCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, DescribeAccountAttributesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, DescribeAccountAttributesCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, DescribeAccountAttributesCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // DescribeAccountAttributesRequest
  *   AttributeNames: [ // AccountAttributeNameStringList
- *     "supported-platforms" || "default-vpc",
+ *     'supported-platforms' || 'default-vpc',
  *   ],
  *   DryRun: true || false,
  * };
  * const command = new DescribeAccountAttributesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeAccountAttributesResult
+ *   AccountAttributes: [ // AccountAttributeList
+ *     { // AccountAttribute
+ *       AttributeName: 'STRING_VALUE',
+ *       AttributeValues: [ // AccountAttributeValueList
+ *         { // AccountAttributeValue
+ *           AttributeValue: 'STRING_VALUE',
+ *         },
+ *       ],
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeAccountAttributesCommandInput - {@link DescribeAccountAttributesCommandInput}
@@ -92,6 +106,8 @@ export interface DescribeAccountAttributesCommandOutput extends DescribeAccountA
  * @see {@link DescribeAccountAttributesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @example To describe a single attribute for your AWS account
  * ```javascript

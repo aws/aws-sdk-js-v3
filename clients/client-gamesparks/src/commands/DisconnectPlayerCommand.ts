@@ -39,16 +39,26 @@ export interface DisconnectPlayerCommandOutput extends DisconnectPlayerResult, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GameSparksClient, DisconnectPlayerCommand } from "@aws-sdk/client-gamesparks"; // ES Modules import
- * // const { GameSparksClient, DisconnectPlayerCommand } = require("@aws-sdk/client-gamesparks"); // CommonJS import
+ * import { GameSparksClient, DisconnectPlayerCommand } from '@aws-sdk/client-gamesparks'; // ES Modules import
+ * // const { GameSparksClient, DisconnectPlayerCommand } = require('@aws-sdk/client-gamesparks'); // CommonJS import
  * const client = new GameSparksClient(config);
  * const input = { // DisconnectPlayerRequest
- *   PlayerId: "STRING_VALUE", // required
- *   GameName: "STRING_VALUE", // required
- *   StageName: "STRING_VALUE", // required
+ *   PlayerId: 'STRING_VALUE', // required
+ *   GameName: 'STRING_VALUE', // required
+ *   StageName: 'STRING_VALUE', // required
  * };
  * const command = new DisconnectPlayerCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DisconnectPlayerResult
+ *   DisconnectSuccesses: [ // ConnectionIdList
+ *     'STRING_VALUE',
+ *   ],
+ *   DisconnectFailures: [
+ *     'STRING_VALUE',
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DisconnectPlayerCommandInput - {@link DisconnectPlayerCommandInput}
@@ -72,6 +82,8 @@ export interface DisconnectPlayerCommandOutput extends DisconnectPlayerResult, _
  * @throws {@link ValidationException} (client fault)
  *  <p>One of the parameters in the request is invalid.</p>
  *
+ * @throws {@link GameSparksServiceException}
+ * <p>Base exception class for all service exceptions from GameSparks service.</p>
  *
  */
 export class DisconnectPlayerCommand extends $Command<

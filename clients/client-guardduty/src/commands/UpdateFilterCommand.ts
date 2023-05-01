@@ -36,44 +36,49 @@ export interface UpdateFilterCommandOutput extends UpdateFilterResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GuardDutyClient, UpdateFilterCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
- * // const { GuardDutyClient, UpdateFilterCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
+ * import { GuardDutyClient, UpdateFilterCommand } from '@aws-sdk/client-guardduty'; // ES Modules import
+ * // const { GuardDutyClient, UpdateFilterCommand } = require('@aws-sdk/client-guardduty'); // CommonJS import
  * const client = new GuardDutyClient(config);
  * const input = { // UpdateFilterRequest
- *   DetectorId: "STRING_VALUE", // required
- *   FilterName: "STRING_VALUE", // required
- *   Description: "STRING_VALUE",
- *   Action: "NOOP" || "ARCHIVE",
- *   Rank: Number("int"),
+ *   DetectorId: 'STRING_VALUE', // required
+ *   FilterName: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE',
+ *   Action: 'NOOP' || 'ARCHIVE',
+ *   Rank: Number('int'),
  *   FindingCriteria: { // FindingCriteria
  *     Criterion: { // Criterion
- *       "<keys>": { // Condition
+ *       '<keys>': { // Condition
  *         Eq: [ // Eq
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
  *         Neq: [ // Neq
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
- *         Gt: Number("int"),
- *         Gte: Number("int"),
- *         Lt: Number("int"),
- *         Lte: Number("int"),
+ *         Gt: Number('int'),
+ *         Gte: Number('int'),
+ *         Lt: Number('int'),
+ *         Lte: Number('int'),
  *         Equals: [ // Equals
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
  *         NotEquals: [ // NotEquals
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
- *         GreaterThan: Number("long"),
- *         GreaterThanOrEqual: Number("long"),
- *         LessThan: Number("long"),
- *         LessThanOrEqual: Number("long"),
+ *         GreaterThan: Number('long'),
+ *         GreaterThanOrEqual: Number('long'),
+ *         LessThan: Number('long'),
+ *         LessThanOrEqual: Number('long'),
  *       },
  *     },
  *   },
  * };
  * const command = new UpdateFilterCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateFilterResponse
+ *   Name: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param UpdateFilterCommandInput - {@link UpdateFilterCommandInput}
@@ -88,6 +93,8 @@ export interface UpdateFilterCommandOutput extends UpdateFilterResponse, __Metad
  * @throws {@link InternalServerErrorException} (server fault)
  *  <p>An internal server error exception object.</p>
  *
+ * @throws {@link GuardDutyServiceException}
+ * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
  */
 export class UpdateFilterCommand extends $Command<

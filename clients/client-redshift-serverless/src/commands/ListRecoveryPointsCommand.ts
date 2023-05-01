@@ -40,19 +40,34 @@ export interface ListRecoveryPointsCommandOutput extends ListRecoveryPointsRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RedshiftServerlessClient, ListRecoveryPointsCommand } from "@aws-sdk/client-redshift-serverless"; // ES Modules import
- * // const { RedshiftServerlessClient, ListRecoveryPointsCommand } = require("@aws-sdk/client-redshift-serverless"); // CommonJS import
+ * import { RedshiftServerlessClient, ListRecoveryPointsCommand } from '@aws-sdk/client-redshift-serverless'; // ES Modules import
+ * // const { RedshiftServerlessClient, ListRecoveryPointsCommand } = require('@aws-sdk/client-redshift-serverless'); // CommonJS import
  * const client = new RedshiftServerlessClient(config);
  * const input = { // ListRecoveryPointsRequest
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
- *   startTime: new Date("TIMESTAMP"),
- *   endTime: new Date("TIMESTAMP"),
- *   namespaceName: "STRING_VALUE",
- *   namespaceArn: "STRING_VALUE",
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
+ *   startTime: new Date('TIMESTAMP'),
+ *   endTime: new Date('TIMESTAMP'),
+ *   namespaceName: 'STRING_VALUE',
+ *   namespaceArn: 'STRING_VALUE',
  * };
  * const command = new ListRecoveryPointsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListRecoveryPointsResponse
+ *   recoveryPoints: [ // RecoveryPointList
+ *     { // RecoveryPoint
+ *       recoveryPointId: 'STRING_VALUE',
+ *       recoveryPointCreateTime: new Date('TIMESTAMP'),
+ *       totalSizeInMegaBytes: Number('double'),
+ *       namespaceName: 'STRING_VALUE',
+ *       workgroupName: 'STRING_VALUE',
+ *       namespaceArn: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListRecoveryPointsCommandInput - {@link ListRecoveryPointsCommandInput}
@@ -67,6 +82,8 @@ export interface ListRecoveryPointsCommandOutput extends ListRecoveryPointsRespo
  * @throws {@link ValidationException} (client fault)
  *  <p>The input failed to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link RedshiftServerlessServiceException}
+ * <p>Base exception class for all service exceptions from RedshiftServerless service.</p>
  *
  */
 export class ListRecoveryPointsCommand extends $Command<

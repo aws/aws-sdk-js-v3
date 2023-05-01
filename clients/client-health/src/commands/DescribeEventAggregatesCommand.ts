@@ -41,68 +41,79 @@ export interface DescribeEventAggregatesCommandOutput extends DescribeEventAggre
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { HealthClient, DescribeEventAggregatesCommand } from "@aws-sdk/client-health"; // ES Modules import
- * // const { HealthClient, DescribeEventAggregatesCommand } = require("@aws-sdk/client-health"); // CommonJS import
+ * import { HealthClient, DescribeEventAggregatesCommand } from '@aws-sdk/client-health'; // ES Modules import
+ * // const { HealthClient, DescribeEventAggregatesCommand } = require('@aws-sdk/client-health'); // CommonJS import
  * const client = new HealthClient(config);
  * const input = { // DescribeEventAggregatesRequest
  *   filter: { // EventFilter
  *     eventArns: [ // eventArnList
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     eventTypeCodes: [ // eventTypeList2
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     services: [ // serviceList
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     regions: [ // regionList
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     availabilityZones: [ // availabilityZones
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     startTimes: [ // dateTimeRangeList
  *       { // DateTimeRange
- *         from: new Date("TIMESTAMP"),
- *         to: new Date("TIMESTAMP"),
+ *         from: new Date('TIMESTAMP'),
+ *         to: new Date('TIMESTAMP'),
  *       },
  *     ],
  *     endTimes: [
  *       {
- *         from: new Date("TIMESTAMP"),
- *         to: new Date("TIMESTAMP"),
+ *         from: new Date('TIMESTAMP'),
+ *         to: new Date('TIMESTAMP'),
  *       },
  *     ],
  *     lastUpdatedTimes: [
  *       {
- *         from: new Date("TIMESTAMP"),
- *         to: new Date("TIMESTAMP"),
+ *         from: new Date('TIMESTAMP'),
+ *         to: new Date('TIMESTAMP'),
  *       },
  *     ],
  *     entityArns: [ // entityArnList
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     entityValues: [ // entityValueList
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     eventTypeCategories: [ // eventTypeCategoryList2
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     tags: [ // tagFilter
  *       { // tagSet
- *         "<keys>": "STRING_VALUE",
+ *         '<keys>': 'STRING_VALUE',
  *       },
  *     ],
  *     eventStatusCodes: [ // eventStatusCodeList
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *   },
- *   aggregateField: "STRING_VALUE", // required
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   aggregateField: 'STRING_VALUE', // required
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new DescribeEventAggregatesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeEventAggregatesResponse
+ *   eventAggregates: [ // EventAggregateList
+ *     { // EventAggregate
+ *       aggregateValue: 'STRING_VALUE',
+ *       count: Number('int'),
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeEventAggregatesCommandInput - {@link DescribeEventAggregatesCommandInput}
@@ -114,6 +125,8 @@ export interface DescribeEventAggregatesCommandOutput extends DescribeEventAggre
  * @throws {@link InvalidPaginationToken} (client fault)
  *  <p>The specified pagination token (<code>nextToken</code>) is not valid.</p>
  *
+ * @throws {@link HealthServiceException}
+ * <p>Base exception class for all service exceptions from Health service.</p>
  *
  */
 export class DescribeEventAggregatesCommand extends $Command<

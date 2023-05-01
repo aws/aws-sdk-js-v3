@@ -39,16 +39,24 @@ export interface StartLifecyclePolicyPreviewCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ECRClient, StartLifecyclePolicyPreviewCommand } from "@aws-sdk/client-ecr"; // ES Modules import
- * // const { ECRClient, StartLifecyclePolicyPreviewCommand } = require("@aws-sdk/client-ecr"); // CommonJS import
+ * import { ECRClient, StartLifecyclePolicyPreviewCommand } from '@aws-sdk/client-ecr'; // ES Modules import
+ * // const { ECRClient, StartLifecyclePolicyPreviewCommand } = require('@aws-sdk/client-ecr'); // CommonJS import
  * const client = new ECRClient(config);
  * const input = { // StartLifecyclePolicyPreviewRequest
- *   registryId: "STRING_VALUE",
- *   repositoryName: "STRING_VALUE", // required
- *   lifecyclePolicyText: "STRING_VALUE",
+ *   registryId: 'STRING_VALUE',
+ *   repositoryName: 'STRING_VALUE', // required
+ *   lifecyclePolicyText: 'STRING_VALUE',
  * };
  * const command = new StartLifecyclePolicyPreviewCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartLifecyclePolicyPreviewResponse
+ *   registryId: 'STRING_VALUE',
+ *   repositoryName: 'STRING_VALUE',
+ *   lifecyclePolicyText: 'STRING_VALUE',
+ *   status: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param StartLifecyclePolicyPreviewCommandInput - {@link StartLifecyclePolicyPreviewCommandInput}
@@ -76,6 +84,8 @@ export interface StartLifecyclePolicyPreviewCommandOutput
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server-side issue.</p>
  *
+ * @throws {@link ECRServiceException}
+ * <p>Base exception class for all service exceptions from ECR service.</p>
  *
  */
 export class StartLifecyclePolicyPreviewCommand extends $Command<

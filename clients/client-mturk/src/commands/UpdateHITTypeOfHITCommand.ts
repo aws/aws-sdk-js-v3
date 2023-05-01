@@ -43,15 +43,18 @@ export interface UpdateHITTypeOfHITCommandOutput extends UpdateHITTypeOfHITRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MTurkClient, UpdateHITTypeOfHITCommand } from "@aws-sdk/client-mturk"; // ES Modules import
- * // const { MTurkClient, UpdateHITTypeOfHITCommand } = require("@aws-sdk/client-mturk"); // CommonJS import
+ * import { MTurkClient, UpdateHITTypeOfHITCommand } from '@aws-sdk/client-mturk'; // ES Modules import
+ * // const { MTurkClient, UpdateHITTypeOfHITCommand } = require('@aws-sdk/client-mturk'); // CommonJS import
  * const client = new MTurkClient(config);
  * const input = { // UpdateHITTypeOfHITRequest
- *   HITId: "STRING_VALUE", // required
- *   HITTypeId: "STRING_VALUE", // required
+ *   HITId: 'STRING_VALUE', // required
+ *   HITTypeId: 'STRING_VALUE', // required
  * };
  * const command = new UpdateHITTypeOfHITCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateHITTypeOfHITCommandInput - {@link UpdateHITTypeOfHITCommandInput}
@@ -66,6 +69,8 @@ export interface UpdateHITTypeOfHITCommandOutput extends UpdateHITTypeOfHITRespo
  * @throws {@link ServiceFault} (server fault)
  *  <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
  *
+ * @throws {@link MTurkServiceException}
+ * <p>Base exception class for all service exceptions from MTurk service.</p>
  *
  */
 export class UpdateHITTypeOfHITCommand extends $Command<

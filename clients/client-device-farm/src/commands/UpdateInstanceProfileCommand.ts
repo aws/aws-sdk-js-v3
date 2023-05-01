@@ -36,21 +36,35 @@ export interface UpdateInstanceProfileCommandOutput extends UpdateInstanceProfil
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DeviceFarmClient, UpdateInstanceProfileCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
- * // const { DeviceFarmClient, UpdateInstanceProfileCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
+ * import { DeviceFarmClient, UpdateInstanceProfileCommand } from '@aws-sdk/client-device-farm'; // ES Modules import
+ * // const { DeviceFarmClient, UpdateInstanceProfileCommand } = require('@aws-sdk/client-device-farm'); // CommonJS import
  * const client = new DeviceFarmClient(config);
  * const input = { // UpdateInstanceProfileRequest
- *   arn: "STRING_VALUE", // required
- *   name: "STRING_VALUE",
- *   description: "STRING_VALUE",
+ *   arn: 'STRING_VALUE', // required
+ *   name: 'STRING_VALUE',
+ *   description: 'STRING_VALUE',
  *   packageCleanup: true || false,
  *   excludeAppPackagesFromCleanup: [ // PackageIds
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   rebootAfterUse: true || false,
  * };
  * const command = new UpdateInstanceProfileCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateInstanceProfileResult
+ *   instanceProfile: { // InstanceProfile
+ *     arn: 'STRING_VALUE',
+ *     packageCleanup: true || false,
+ *     excludeAppPackagesFromCleanup: [ // PackageIds
+ *       'STRING_VALUE',
+ *     ],
+ *     rebootAfterUse: true || false,
+ *     name: 'STRING_VALUE',
+ *     description: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateInstanceProfileCommandInput - {@link UpdateInstanceProfileCommandInput}
@@ -71,6 +85,8 @@ export interface UpdateInstanceProfileCommandOutput extends UpdateInstanceProfil
  * @throws {@link ServiceAccountException} (client fault)
  *  <p>There was a problem with the service account.</p>
  *
+ * @throws {@link DeviceFarmServiceException}
+ * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
  */
 export class UpdateInstanceProfileCommand extends $Command<

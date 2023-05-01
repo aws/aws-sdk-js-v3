@@ -37,21 +37,26 @@ export interface StartEngagementCommandOutput extends StartEngagementResult, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMContactsClient, StartEngagementCommand } from "@aws-sdk/client-ssm-contacts"; // ES Modules import
- * // const { SSMContactsClient, StartEngagementCommand } = require("@aws-sdk/client-ssm-contacts"); // CommonJS import
+ * import { SSMContactsClient, StartEngagementCommand } from '@aws-sdk/client-ssm-contacts'; // ES Modules import
+ * // const { SSMContactsClient, StartEngagementCommand } = require('@aws-sdk/client-ssm-contacts'); // CommonJS import
  * const client = new SSMContactsClient(config);
  * const input = { // StartEngagementRequest
- *   ContactId: "STRING_VALUE", // required
- *   Sender: "STRING_VALUE", // required
- *   Subject: "STRING_VALUE", // required
- *   Content: "STRING_VALUE", // required
- *   PublicSubject: "STRING_VALUE",
- *   PublicContent: "STRING_VALUE",
- *   IncidentId: "STRING_VALUE",
- *   IdempotencyToken: "STRING_VALUE",
+ *   ContactId: 'STRING_VALUE', // required
+ *   Sender: 'STRING_VALUE', // required
+ *   Subject: 'STRING_VALUE', // required
+ *   Content: 'STRING_VALUE', // required
+ *   PublicSubject: 'STRING_VALUE',
+ *   PublicContent: 'STRING_VALUE',
+ *   IncidentId: 'STRING_VALUE',
+ *   IdempotencyToken: 'STRING_VALUE',
  * };
  * const command = new StartEngagementCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartEngagementResult
+ *   EngagementArn: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param StartEngagementCommandInput - {@link StartEngagementCommandInput}
@@ -79,6 +84,8 @@ export interface StartEngagementCommandOutput extends StartEngagementResult, __M
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
  *          service.</p>
  *
+ * @throws {@link SSMContactsServiceException}
+ * <p>Base exception class for all service exceptions from SSMContacts service.</p>
  *
  */
 export class StartEngagementCommand extends $Command<

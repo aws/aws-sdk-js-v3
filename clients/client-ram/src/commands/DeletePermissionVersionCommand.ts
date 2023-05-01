@@ -39,16 +39,23 @@ export interface DeletePermissionVersionCommandOutput extends DeletePermissionVe
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RAMClient, DeletePermissionVersionCommand } from "@aws-sdk/client-ram"; // ES Modules import
- * // const { RAMClient, DeletePermissionVersionCommand } = require("@aws-sdk/client-ram"); // CommonJS import
+ * import { RAMClient, DeletePermissionVersionCommand } from '@aws-sdk/client-ram'; // ES Modules import
+ * // const { RAMClient, DeletePermissionVersionCommand } = require('@aws-sdk/client-ram'); // CommonJS import
  * const client = new RAMClient(config);
  * const input = { // DeletePermissionVersionRequest
- *   permissionArn: "STRING_VALUE", // required
- *   permissionVersion: Number("int"), // required
- *   clientToken: "STRING_VALUE",
+ *   permissionArn: 'STRING_VALUE', // required
+ *   permissionVersion: Number('int'), // required
+ *   clientToken: 'STRING_VALUE',
  * };
  * const command = new DeletePermissionVersionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeletePermissionVersionResponse
+ *   returnValue: true || false,
+ *   clientToken: 'STRING_VALUE',
+ *   permissionStatus: 'ATTACHABLE' || 'UNATTACHABLE' || 'DELETING' || 'DELETED',
+ * };
+ *
  * ```
  *
  * @param DeletePermissionVersionCommandInput - {@link DeletePermissionVersionCommandInput}
@@ -85,6 +92,8 @@ export interface DeletePermissionVersionCommandOutput extends DeletePermissionVe
  * @throws {@link UnknownResourceException} (client fault)
  *  <p>The operation failed because a specified resource couldn't be found.</p>
  *
+ * @throws {@link RAMServiceException}
+ * <p>Base exception class for all service exceptions from RAM service.</p>
  *
  */
 export class DeletePermissionVersionCommand extends $Command<

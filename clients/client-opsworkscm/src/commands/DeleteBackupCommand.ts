@@ -43,14 +43,17 @@ export interface DeleteBackupCommandOutput extends DeleteBackupResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OpsWorksCMClient, DeleteBackupCommand } from "@aws-sdk/client-opsworkscm"; // ES Modules import
- * // const { OpsWorksCMClient, DeleteBackupCommand } = require("@aws-sdk/client-opsworkscm"); // CommonJS import
+ * import { OpsWorksCMClient, DeleteBackupCommand } from '@aws-sdk/client-opsworkscm'; // ES Modules import
+ * // const { OpsWorksCMClient, DeleteBackupCommand } = require('@aws-sdk/client-opsworkscm'); // CommonJS import
  * const client = new OpsWorksCMClient(config);
  * const input = { // DeleteBackupRequest
- *   BackupId: "STRING_VALUE", // required
+ *   BackupId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteBackupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteBackupCommandInput - {@link DeleteBackupCommandInput}
@@ -71,6 +74,8 @@ export interface DeleteBackupCommandOutput extends DeleteBackupResponse, __Metad
  *  <p>One or more of the provided request parameters are not valid.
  *     </p>
  *
+ * @throws {@link OpsWorksCMServiceException}
+ * <p>Base exception class for all service exceptions from OpsWorksCM service.</p>
  *
  */
 export class DeleteBackupCommand extends $Command<

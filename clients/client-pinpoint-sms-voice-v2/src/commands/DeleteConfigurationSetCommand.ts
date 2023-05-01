@@ -43,14 +43,43 @@ export interface DeleteConfigurationSetCommandOutput extends DeleteConfiguration
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PinpointSMSVoiceV2Client, DeleteConfigurationSetCommand } from "@aws-sdk/client-pinpoint-sms-voice-v2"; // ES Modules import
- * // const { PinpointSMSVoiceV2Client, DeleteConfigurationSetCommand } = require("@aws-sdk/client-pinpoint-sms-voice-v2"); // CommonJS import
+ * import { PinpointSMSVoiceV2Client, DeleteConfigurationSetCommand } from '@aws-sdk/client-pinpoint-sms-voice-v2'; // ES Modules import
+ * // const { PinpointSMSVoiceV2Client, DeleteConfigurationSetCommand } = require('@aws-sdk/client-pinpoint-sms-voice-v2'); // CommonJS import
  * const client = new PinpointSMSVoiceV2Client(config);
  * const input = { // DeleteConfigurationSetRequest
- *   ConfigurationSetName: "STRING_VALUE", // required
+ *   ConfigurationSetName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteConfigurationSetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteConfigurationSetResult
+ *   ConfigurationSetArn: 'STRING_VALUE',
+ *   ConfigurationSetName: 'STRING_VALUE',
+ *   EventDestinations: [ // EventDestinationList
+ *     { // EventDestination
+ *       EventDestinationName: 'STRING_VALUE', // required
+ *       Enabled: true || false, // required
+ *       MatchingEventTypes: [ // EventTypeList // required
+ *         'STRING_VALUE',
+ *       ],
+ *       CloudWatchLogsDestination: { // CloudWatchLogsDestination
+ *         IamRoleArn: 'STRING_VALUE', // required
+ *         LogGroupArn: 'STRING_VALUE', // required
+ *       },
+ *       KinesisFirehoseDestination: { // KinesisFirehoseDestination
+ *         IamRoleArn: 'STRING_VALUE', // required
+ *         DeliveryStreamArn: 'STRING_VALUE', // required
+ *       },
+ *       SnsDestination: { // SnsDestination
+ *         TopicArn: 'STRING_VALUE', // required
+ *       },
+ *     },
+ *   ],
+ *   DefaultMessageType: 'STRING_VALUE',
+ *   DefaultSenderId: 'STRING_VALUE',
+ *   CreatedTimestamp: new Date('TIMESTAMP'),
+ * };
+ *
  * ```
  *
  * @param DeleteConfigurationSetCommandInput - {@link DeleteConfigurationSetCommandInput}
@@ -77,6 +106,8 @@ export interface DeleteConfigurationSetCommandOutput extends DeleteConfiguration
  * @throws {@link ValidationException} (client fault)
  *  <p>A validation exception for a field.</p>
  *
+ * @throws {@link PinpointSMSVoiceV2ServiceException}
+ * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
  *
  */
 export class DeleteConfigurationSetCommand extends $Command<

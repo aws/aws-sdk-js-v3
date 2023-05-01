@@ -37,14 +37,29 @@ export interface DescribeLedgerCommandOutput extends DescribeLedgerResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { QLDBClient, DescribeLedgerCommand } from "@aws-sdk/client-qldb"; // ES Modules import
- * // const { QLDBClient, DescribeLedgerCommand } = require("@aws-sdk/client-qldb"); // CommonJS import
+ * import { QLDBClient, DescribeLedgerCommand } from '@aws-sdk/client-qldb'; // ES Modules import
+ * // const { QLDBClient, DescribeLedgerCommand } = require('@aws-sdk/client-qldb'); // CommonJS import
  * const client = new QLDBClient(config);
  * const input = { // DescribeLedgerRequest
- *   Name: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
  * };
  * const command = new DescribeLedgerCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeLedgerResponse
+ *   Name: 'STRING_VALUE',
+ *   Arn: 'STRING_VALUE',
+ *   State: 'CREATING' || 'ACTIVE' || 'DELETING' || 'DELETED',
+ *   CreationDateTime: new Date('TIMESTAMP'),
+ *   PermissionsMode: 'ALLOW_ALL' || 'STANDARD',
+ *   DeletionProtection: true || false,
+ *   EncryptionDescription: { // LedgerEncryptionDescription
+ *     KmsKeyArn: 'STRING_VALUE', // required
+ *     EncryptionStatus: 'ENABLED' || 'UPDATING' || 'KMS_KEY_INACCESSIBLE', // required
+ *     InaccessibleKmsKeyDateTime: new Date('TIMESTAMP'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeLedgerCommandInput - {@link DescribeLedgerCommandInput}
@@ -59,6 +74,8 @@ export interface DescribeLedgerCommandOutput extends DescribeLedgerResponse, __M
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource doesn't exist.</p>
  *
+ * @throws {@link QLDBServiceException}
+ * <p>Base exception class for all service exceptions from QLDB service.</p>
  *
  */
 export class DescribeLedgerCommand extends $Command<

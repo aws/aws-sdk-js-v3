@@ -51,14 +51,24 @@ export interface GetChangeCommandOutput extends GetChangeResponse, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Route53Client, GetChangeCommand } from "@aws-sdk/client-route-53"; // ES Modules import
- * // const { Route53Client, GetChangeCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
+ * import { Route53Client, GetChangeCommand } from '@aws-sdk/client-route-53'; // ES Modules import
+ * // const { Route53Client, GetChangeCommand } = require('@aws-sdk/client-route-53'); // CommonJS import
  * const client = new Route53Client(config);
  * const input = { // GetChangeRequest
- *   Id: "STRING_VALUE", // required
+ *   Id: 'STRING_VALUE', // required
  * };
  * const command = new GetChangeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetChangeResponse
+ *   ChangeInfo: { // ChangeInfo
+ *     Id: 'STRING_VALUE', // required
+ *     Status: 'PENDING' || 'INSYNC', // required
+ *     SubmittedAt: new Date('TIMESTAMP'), // required
+ *     Comment: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetChangeCommandInput - {@link GetChangeCommandInput}
@@ -73,6 +83,8 @@ export interface GetChangeCommandOutput extends GetChangeResponse, __MetadataBea
  * @throws {@link NoSuchChange} (client fault)
  *  <p>A change with the specified change ID does not exist.</p>
  *
+ * @throws {@link Route53ServiceException}
+ * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
  */
 export class GetChangeCommand extends $Command<

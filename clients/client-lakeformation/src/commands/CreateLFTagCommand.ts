@@ -36,18 +36,21 @@ export interface CreateLFTagCommandOutput extends CreateLFTagResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LakeFormationClient, CreateLFTagCommand } from "@aws-sdk/client-lakeformation"; // ES Modules import
- * // const { LakeFormationClient, CreateLFTagCommand } = require("@aws-sdk/client-lakeformation"); // CommonJS import
+ * import { LakeFormationClient, CreateLFTagCommand } from '@aws-sdk/client-lakeformation'; // ES Modules import
+ * // const { LakeFormationClient, CreateLFTagCommand } = require('@aws-sdk/client-lakeformation'); // CommonJS import
  * const client = new LakeFormationClient(config);
  * const input = { // CreateLFTagRequest
- *   CatalogId: "STRING_VALUE",
- *   TagKey: "STRING_VALUE", // required
+ *   CatalogId: 'STRING_VALUE',
+ *   TagKey: 'STRING_VALUE', // required
  *   TagValues: [ // TagValueList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new CreateLFTagCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param CreateLFTagCommandInput - {@link CreateLFTagCommandInput}
@@ -74,6 +77,8 @@ export interface CreateLFTagCommandOutput extends CreateLFTagResponse, __Metadat
  * @throws {@link ResourceNumberLimitExceededException} (client fault)
  *  <p>A resource numerical limit was exceeded.</p>
  *
+ * @throws {@link LakeFormationServiceException}
+ * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
  */
 export class CreateLFTagCommand extends $Command<

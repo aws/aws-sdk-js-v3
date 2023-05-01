@@ -37,15 +37,41 @@ export interface ListDeviceInstancesCommandOutput extends ListDeviceInstancesRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DeviceFarmClient, ListDeviceInstancesCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
- * // const { DeviceFarmClient, ListDeviceInstancesCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
+ * import { DeviceFarmClient, ListDeviceInstancesCommand } from '@aws-sdk/client-device-farm'; // ES Modules import
+ * // const { DeviceFarmClient, ListDeviceInstancesCommand } = require('@aws-sdk/client-device-farm'); // CommonJS import
  * const client = new DeviceFarmClient(config);
  * const input = { // ListDeviceInstancesRequest
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new ListDeviceInstancesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListDeviceInstancesResult
+ *   deviceInstances: [ // DeviceInstances
+ *     { // DeviceInstance
+ *       arn: 'STRING_VALUE',
+ *       deviceArn: 'STRING_VALUE',
+ *       labels: [ // InstanceLabels
+ *         'STRING_VALUE',
+ *       ],
+ *       status: 'IN_USE' || 'PREPARING' || 'AVAILABLE' || 'NOT_AVAILABLE',
+ *       udid: 'STRING_VALUE',
+ *       instanceProfile: { // InstanceProfile
+ *         arn: 'STRING_VALUE',
+ *         packageCleanup: true || false,
+ *         excludeAppPackagesFromCleanup: [ // PackageIds
+ *           'STRING_VALUE',
+ *         ],
+ *         rebootAfterUse: true || false,
+ *         name: 'STRING_VALUE',
+ *         description: 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListDeviceInstancesCommandInput - {@link ListDeviceInstancesCommandInput}
@@ -66,6 +92,8 @@ export interface ListDeviceInstancesCommandOutput extends ListDeviceInstancesRes
  * @throws {@link ServiceAccountException} (client fault)
  *  <p>There was a problem with the service account.</p>
  *
+ * @throws {@link DeviceFarmServiceException}
+ * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
  */
 export class ListDeviceInstancesCommand extends $Command<

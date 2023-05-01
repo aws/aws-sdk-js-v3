@@ -36,21 +36,37 @@ export interface DescribeRecoverySnapshotsCommandOutput extends DescribeRecovery
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DrsClient, DescribeRecoverySnapshotsCommand } from "@aws-sdk/client-drs"; // ES Modules import
- * // const { DrsClient, DescribeRecoverySnapshotsCommand } = require("@aws-sdk/client-drs"); // CommonJS import
+ * import { DrsClient, DescribeRecoverySnapshotsCommand } from '@aws-sdk/client-drs'; // ES Modules import
+ * // const { DrsClient, DescribeRecoverySnapshotsCommand } = require('@aws-sdk/client-drs'); // CommonJS import
  * const client = new DrsClient(config);
  * const input = { // DescribeRecoverySnapshotsRequest
- *   sourceServerID: "STRING_VALUE", // required
+ *   sourceServerID: 'STRING_VALUE', // required
  *   filters: { // DescribeRecoverySnapshotsRequestFilters
- *     fromDateTime: "STRING_VALUE",
- *     toDateTime: "STRING_VALUE",
+ *     fromDateTime: 'STRING_VALUE',
+ *     toDateTime: 'STRING_VALUE',
  *   },
- *   order: "STRING_VALUE",
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   order: 'STRING_VALUE',
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new DescribeRecoverySnapshotsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeRecoverySnapshotsResponse
+ *   items: [ // RecoverySnapshotsList
+ *     { // RecoverySnapshot
+ *       snapshotID: 'STRING_VALUE', // required
+ *       sourceServerID: 'STRING_VALUE', // required
+ *       expectedTimestamp: 'STRING_VALUE', // required
+ *       timestamp: 'STRING_VALUE',
+ *       ebsSnapshots: [ // EbsSnapshotsList
+ *         'STRING_VALUE',
+ *       ],
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeRecoverySnapshotsCommandInput - {@link DescribeRecoverySnapshotsCommandInput}
@@ -74,6 +90,8 @@ export interface DescribeRecoverySnapshotsCommandOutput extends DescribeRecovery
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by the AWS service.</p>
  *
+ * @throws {@link DrsServiceException}
+ * <p>Base exception class for all service exceptions from Drs service.</p>
  *
  */
 export class DescribeRecoverySnapshotsCommand extends $Command<

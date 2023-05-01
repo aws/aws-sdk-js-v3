@@ -42,16 +42,24 @@ export interface ListQueryExecutionsCommandOutput extends ListQueryExecutionsOut
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AthenaClient, ListQueryExecutionsCommand } from "@aws-sdk/client-athena"; // ES Modules import
- * // const { AthenaClient, ListQueryExecutionsCommand } = require("@aws-sdk/client-athena"); // CommonJS import
+ * import { AthenaClient, ListQueryExecutionsCommand } from '@aws-sdk/client-athena'; // ES Modules import
+ * // const { AthenaClient, ListQueryExecutionsCommand } = require('@aws-sdk/client-athena'); // CommonJS import
  * const client = new AthenaClient(config);
  * const input = { // ListQueryExecutionsInput
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
- *   WorkGroup: "STRING_VALUE",
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
+ *   WorkGroup: 'STRING_VALUE',
  * };
  * const command = new ListQueryExecutionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListQueryExecutionsOutput
+ *   QueryExecutionIds: [ // QueryExecutionIdList
+ *     'STRING_VALUE',
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListQueryExecutionsCommandInput - {@link ListQueryExecutionsCommandInput}
@@ -68,6 +76,8 @@ export interface ListQueryExecutionsCommandOutput extends ListQueryExecutionsOut
  *  <p>Indicates that something is wrong with the input to the request. For example, a
  *             required parameter may be missing or out of range.</p>
  *
+ * @throws {@link AthenaServiceException}
+ * <p>Base exception class for all service exceptions from Athena service.</p>
  *
  */
 export class ListQueryExecutionsCommand extends $Command<

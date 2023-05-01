@@ -57,29 +57,34 @@ export interface PutObjectLockConfigurationCommandOutput extends PutObjectLockCo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { S3Client, PutObjectLockConfigurationCommand } from "@aws-sdk/client-s3"; // ES Modules import
- * // const { S3Client, PutObjectLockConfigurationCommand } = require("@aws-sdk/client-s3"); // CommonJS import
+ * import { S3Client, PutObjectLockConfigurationCommand } from '@aws-sdk/client-s3'; // ES Modules import
+ * // const { S3Client, PutObjectLockConfigurationCommand } = require('@aws-sdk/client-s3'); // CommonJS import
  * const client = new S3Client(config);
  * const input = { // PutObjectLockConfigurationRequest
- *   Bucket: "STRING_VALUE", // required
+ *   Bucket: 'STRING_VALUE', // required
  *   ObjectLockConfiguration: { // ObjectLockConfiguration
- *     ObjectLockEnabled: "Enabled",
+ *     ObjectLockEnabled: 'Enabled',
  *     Rule: { // ObjectLockRule
  *       DefaultRetention: { // DefaultRetention
- *         Mode: "GOVERNANCE" || "COMPLIANCE",
- *         Days: Number("int"),
- *         Years: Number("int"),
+ *         Mode: 'GOVERNANCE' || 'COMPLIANCE',
+ *         Days: Number('int'),
+ *         Years: Number('int'),
  *       },
  *     },
  *   },
- *   RequestPayer: "requester",
- *   Token: "STRING_VALUE",
- *   ContentMD5: "STRING_VALUE",
- *   ChecksumAlgorithm: "CRC32" || "CRC32C" || "SHA1" || "SHA256",
- *   ExpectedBucketOwner: "STRING_VALUE",
+ *   RequestPayer: 'requester',
+ *   Token: 'STRING_VALUE',
+ *   ContentMD5: 'STRING_VALUE',
+ *   ChecksumAlgorithm: 'CRC32' || 'CRC32C' || 'SHA1' || 'SHA256',
+ *   ExpectedBucketOwner: 'STRING_VALUE',
  * };
  * const command = new PutObjectLockConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutObjectLockConfigurationOutput
+ *   RequestCharged: 'requester',
+ * };
+ *
  * ```
  *
  * @param PutObjectLockConfigurationCommandInput - {@link PutObjectLockConfigurationCommandInput}
@@ -88,6 +93,8 @@ export interface PutObjectLockConfigurationCommandOutput extends PutObjectLockCo
  * @see {@link PutObjectLockConfigurationCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
+ * @throws {@link S3ServiceException}
+ * <p>Base exception class for all service exceptions from S3 service.</p>
  *
  */
 export class PutObjectLockConfigurationCommand extends $Command<

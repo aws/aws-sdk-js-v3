@@ -37,23 +37,50 @@ export interface ListBatchJobExecutionsCommandOutput extends ListBatchJobExecuti
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { M2Client, ListBatchJobExecutionsCommand } from "@aws-sdk/client-m2"; // ES Modules import
- * // const { M2Client, ListBatchJobExecutionsCommand } = require("@aws-sdk/client-m2"); // CommonJS import
+ * import { M2Client, ListBatchJobExecutionsCommand } from '@aws-sdk/client-m2'; // ES Modules import
+ * // const { M2Client, ListBatchJobExecutionsCommand } = require('@aws-sdk/client-m2'); // CommonJS import
  * const client = new M2Client(config);
  * const input = { // ListBatchJobExecutionsRequest
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
- *   applicationId: "STRING_VALUE", // required
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
+ *   applicationId: 'STRING_VALUE', // required
  *   executionIds: [ // IdentifierList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   jobName: "STRING_VALUE",
- *   status: "STRING_VALUE",
- *   startedAfter: new Date("TIMESTAMP"),
- *   startedBefore: new Date("TIMESTAMP"),
+ *   jobName: 'STRING_VALUE',
+ *   status: 'STRING_VALUE',
+ *   startedAfter: new Date('TIMESTAMP'),
+ *   startedBefore: new Date('TIMESTAMP'),
  * };
  * const command = new ListBatchJobExecutionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListBatchJobExecutionsResponse
+ *   batchJobExecutions: [ // BatchJobExecutionSummaryList // required
+ *     { // BatchJobExecutionSummary
+ *       executionId: 'STRING_VALUE', // required
+ *       applicationId: 'STRING_VALUE', // required
+ *       jobId: 'STRING_VALUE',
+ *       jobName: 'STRING_VALUE',
+ *       jobType: 'STRING_VALUE',
+ *       status: 'STRING_VALUE', // required
+ *       startTime: new Date('TIMESTAMP'), // required
+ *       endTime: new Date('TIMESTAMP'),
+ *       returnCode: 'STRING_VALUE',
+ *       batchJobIdentifier: { // BatchJobIdentifier Union: only one key present
+ *         fileBatchJobIdentifier: { // FileBatchJobIdentifier
+ *           fileName: 'STRING_VALUE', // required
+ *           folderPath: 'STRING_VALUE',
+ *         },
+ *         scriptBatchJobIdentifier: { // ScriptBatchJobIdentifier
+ *           scriptName: 'STRING_VALUE', // required
+ *         },
+ *       },
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListBatchJobExecutionsCommandInput - {@link ListBatchJobExecutionsCommandInput}
@@ -77,6 +104,8 @@ export interface ListBatchJobExecutionsCommandOutput extends ListBatchJobExecuti
  * @throws {@link ValidationException} (client fault)
  *  <p>One or more parameters provided in the request is not valid.</p>
  *
+ * @throws {@link M2ServiceException}
+ * <p>Base exception class for all service exceptions from M2 service.</p>
  *
  */
 export class ListBatchJobExecutionsCommand extends $Command<

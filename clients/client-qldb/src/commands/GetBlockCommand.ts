@@ -50,20 +50,30 @@ export interface GetBlockCommandOutput extends GetBlockResponse, __MetadataBeare
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { QLDBClient, GetBlockCommand } from "@aws-sdk/client-qldb"; // ES Modules import
- * // const { QLDBClient, GetBlockCommand } = require("@aws-sdk/client-qldb"); // CommonJS import
+ * import { QLDBClient, GetBlockCommand } from '@aws-sdk/client-qldb'; // ES Modules import
+ * // const { QLDBClient, GetBlockCommand } = require('@aws-sdk/client-qldb'); // CommonJS import
  * const client = new QLDBClient(config);
  * const input = { // GetBlockRequest
- *   Name: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
  *   BlockAddress: { // ValueHolder
- *     IonText: "STRING_VALUE",
+ *     IonText: 'STRING_VALUE',
  *   },
  *   DigestTipAddress: {
- *     IonText: "STRING_VALUE",
+ *     IonText: 'STRING_VALUE',
  *   },
  * };
  * const command = new GetBlockCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetBlockResponse
+ *   Block: { // ValueHolder
+ *     IonText: 'STRING_VALUE',
+ *   },
+ *   Proof: {
+ *     IonText: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetBlockCommandInput - {@link GetBlockCommandInput}
@@ -81,6 +91,8 @@ export interface GetBlockCommandOutput extends GetBlockResponse, __MetadataBeare
  * @throws {@link ResourcePreconditionNotMetException} (client fault)
  *  <p>The operation failed because a condition wasn't satisfied in advance.</p>
  *
+ * @throws {@link QLDBServiceException}
+ * <p>Base exception class for all service exceptions from QLDB service.</p>
  *
  */
 export class GetBlockCommand extends $Command<GetBlockCommandInput, GetBlockCommandOutput, QLDBClientResolvedConfig> {

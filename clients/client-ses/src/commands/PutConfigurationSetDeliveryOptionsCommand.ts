@@ -44,17 +44,20 @@ export interface PutConfigurationSetDeliveryOptionsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SESClient, PutConfigurationSetDeliveryOptionsCommand } from "@aws-sdk/client-ses"; // ES Modules import
- * // const { SESClient, PutConfigurationSetDeliveryOptionsCommand } = require("@aws-sdk/client-ses"); // CommonJS import
+ * import { SESClient, PutConfigurationSetDeliveryOptionsCommand } from '@aws-sdk/client-ses'; // ES Modules import
+ * // const { SESClient, PutConfigurationSetDeliveryOptionsCommand } = require('@aws-sdk/client-ses'); // CommonJS import
  * const client = new SESClient(config);
  * const input = { // PutConfigurationSetDeliveryOptionsRequest
- *   ConfigurationSetName: "STRING_VALUE", // required
+ *   ConfigurationSetName: 'STRING_VALUE', // required
  *   DeliveryOptions: { // DeliveryOptions
- *     TlsPolicy: "STRING_VALUE",
+ *     TlsPolicy: 'STRING_VALUE',
  *   },
  * };
  * const command = new PutConfigurationSetDeliveryOptionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutConfigurationSetDeliveryOptionsCommandInput - {@link PutConfigurationSetDeliveryOptionsCommandInput}
@@ -69,6 +72,8 @@ export interface PutConfigurationSetDeliveryOptionsCommandOutput
  * @throws {@link InvalidDeliveryOptionsException} (client fault)
  *  <p>Indicates that provided delivery option is invalid.</p>
  *
+ * @throws {@link SESServiceException}
+ * <p>Base exception class for all service exceptions from SES service.</p>
  *
  */
 export class PutConfigurationSetDeliveryOptionsCommand extends $Command<

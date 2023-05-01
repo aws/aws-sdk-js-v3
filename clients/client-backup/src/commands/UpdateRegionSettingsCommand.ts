@@ -41,19 +41,22 @@ export interface UpdateRegionSettingsCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BackupClient, UpdateRegionSettingsCommand } from "@aws-sdk/client-backup"; // ES Modules import
- * // const { BackupClient, UpdateRegionSettingsCommand } = require("@aws-sdk/client-backup"); // CommonJS import
+ * import { BackupClient, UpdateRegionSettingsCommand } from '@aws-sdk/client-backup'; // ES Modules import
+ * // const { BackupClient, UpdateRegionSettingsCommand } = require('@aws-sdk/client-backup'); // CommonJS import
  * const client = new BackupClient(config);
  * const input = { // UpdateRegionSettingsInput
  *   ResourceTypeOptInPreference: { // ResourceTypeOptInPreference
- *     "<keys>": true || false,
+ *     '<keys>': true || false,
  *   },
  *   ResourceTypeManagementPreference: { // ResourceTypeManagementPreference
- *     "<keys>": true || false,
+ *     '<keys>': true || false,
  *   },
  * };
  * const command = new UpdateRegionSettingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateRegionSettingsCommandInput - {@link UpdateRegionSettingsCommandInput}
@@ -72,6 +75,8 @@ export interface UpdateRegionSettingsCommandOutput extends __MetadataBearer {}
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request failed due to a temporary failure of the server.</p>
  *
+ * @throws {@link BackupServiceException}
+ * <p>Base exception class for all service exceptions from Backup service.</p>
  *
  */
 export class UpdateRegionSettingsCommand extends $Command<

@@ -41,17 +41,20 @@ export interface DeleteClientBrandingCommandOutput extends DeleteClientBrandingR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkSpacesClient, DeleteClientBrandingCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
- * // const { WorkSpacesClient, DeleteClientBrandingCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
+ * import { WorkSpacesClient, DeleteClientBrandingCommand } from '@aws-sdk/client-workspaces'; // ES Modules import
+ * // const { WorkSpacesClient, DeleteClientBrandingCommand } = require('@aws-sdk/client-workspaces'); // CommonJS import
  * const client = new WorkSpacesClient(config);
  * const input = { // DeleteClientBrandingRequest
- *   ResourceId: "STRING_VALUE", // required
+ *   ResourceId: 'STRING_VALUE', // required
  *   Platforms: [ // ClientDeviceTypeList // required
- *     "DeviceTypeWindows" || "DeviceTypeOsx" || "DeviceTypeAndroid" || "DeviceTypeIos" || "DeviceTypeLinux" || "DeviceTypeWeb",
+ *     'DeviceTypeWindows' || 'DeviceTypeOsx' || 'DeviceTypeAndroid' || 'DeviceTypeIos' || 'DeviceTypeLinux' || 'DeviceTypeWeb',
  *   ],
  * };
  * const command = new DeleteClientBrandingCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteClientBrandingCommandInput - {@link DeleteClientBrandingCommandInput}
@@ -69,6 +72,8 @@ export interface DeleteClientBrandingCommandOutput extends DeleteClientBrandingR
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource could not be found.</p>
  *
+ * @throws {@link WorkSpacesServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
  */
 export class DeleteClientBrandingCommand extends $Command<

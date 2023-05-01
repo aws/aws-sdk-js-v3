@@ -37,15 +37,44 @@ export interface ListLoggingConfigurationsCommandOutput extends ListLoggingConfi
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IvschatClient, ListLoggingConfigurationsCommand } from "@aws-sdk/client-ivschat"; // ES Modules import
- * // const { IvschatClient, ListLoggingConfigurationsCommand } = require("@aws-sdk/client-ivschat"); // CommonJS import
+ * import { IvschatClient, ListLoggingConfigurationsCommand } from '@aws-sdk/client-ivschat'; // ES Modules import
+ * // const { IvschatClient, ListLoggingConfigurationsCommand } = require('@aws-sdk/client-ivschat'); // CommonJS import
  * const client = new IvschatClient(config);
  * const input = { // ListLoggingConfigurationsRequest
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new ListLoggingConfigurationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListLoggingConfigurationsResponse
+ *   loggingConfigurations: [ // LoggingConfigurationList // required
+ *     { // LoggingConfigurationSummary
+ *       arn: 'STRING_VALUE',
+ *       id: 'STRING_VALUE',
+ *       createTime: new Date('TIMESTAMP'),
+ *       updateTime: new Date('TIMESTAMP'),
+ *       name: 'STRING_VALUE',
+ *       destinationConfiguration: { // DestinationConfiguration Union: only one key present
+ *         s3: { // S3DestinationConfiguration
+ *           bucketName: 'STRING_VALUE', // required
+ *         },
+ *         cloudWatchLogs: { // CloudWatchLogsDestinationConfiguration
+ *           logGroupName: 'STRING_VALUE', // required
+ *         },
+ *         firehose: { // FirehoseDestinationConfiguration
+ *           deliveryStreamName: 'STRING_VALUE', // required
+ *         },
+ *       },
+ *       state: 'STRING_VALUE',
+ *       tags: { // Tags
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListLoggingConfigurationsCommandInput - {@link ListLoggingConfigurationsCommandInput}
@@ -60,6 +89,8 @@ export interface ListLoggingConfigurationsCommandOutput extends ListLoggingConfi
  * @throws {@link ValidationException} (client fault)
  *  <p/>
  *
+ * @throws {@link IvschatServiceException}
+ * <p>Base exception class for all service exceptions from Ivschat service.</p>
  *
  */
 export class ListLoggingConfigurationsCommand extends $Command<

@@ -36,24 +36,24 @@ export interface UpdateContactCommandOutput extends UpdateContactResult, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMContactsClient, UpdateContactCommand } from "@aws-sdk/client-ssm-contacts"; // ES Modules import
- * // const { SSMContactsClient, UpdateContactCommand } = require("@aws-sdk/client-ssm-contacts"); // CommonJS import
+ * import { SSMContactsClient, UpdateContactCommand } from '@aws-sdk/client-ssm-contacts'; // ES Modules import
+ * // const { SSMContactsClient, UpdateContactCommand } = require('@aws-sdk/client-ssm-contacts'); // CommonJS import
  * const client = new SSMContactsClient(config);
  * const input = { // UpdateContactRequest
- *   ContactId: "STRING_VALUE", // required
- *   DisplayName: "STRING_VALUE",
+ *   ContactId: 'STRING_VALUE', // required
+ *   DisplayName: 'STRING_VALUE',
  *   Plan: { // Plan
  *     Stages: [ // StagesList
  *       { // Stage
- *         DurationInMinutes: Number("int"), // required
+ *         DurationInMinutes: Number('int'), // required
  *         Targets: [ // TargetsList // required
  *           { // Target
  *             ChannelTargetInfo: { // ChannelTargetInfo
- *               ContactChannelId: "STRING_VALUE", // required
- *               RetryIntervalInMinutes: Number("int"),
+ *               ContactChannelId: 'STRING_VALUE', // required
+ *               RetryIntervalInMinutes: Number('int'),
  *             },
  *             ContactTargetInfo: { // ContactTargetInfo
- *               ContactId: "STRING_VALUE",
+ *               ContactId: 'STRING_VALUE',
  *               IsEssential: true || false, // required
  *             },
  *           },
@@ -61,12 +61,15 @@ export interface UpdateContactCommandOutput extends UpdateContactResult, __Metad
  *       },
  *     ],
  *     RotationIds: [ // SsmContactsArnList
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *   },
  * };
  * const command = new UpdateContactCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateContactCommandInput - {@link UpdateContactCommandInput}
@@ -97,6 +100,8 @@ export interface UpdateContactCommandOutput extends UpdateContactResult, __Metad
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
  *          service.</p>
  *
+ * @throws {@link SSMContactsServiceException}
+ * <p>Base exception class for all service exceptions from SSMContacts service.</p>
  *
  */
 export class UpdateContactCommand extends $Command<

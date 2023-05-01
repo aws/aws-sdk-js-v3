@@ -37,24 +37,44 @@ export interface CreateDBSubnetGroupCommandOutput extends CreateDBSubnetGroupRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { NeptuneClient, CreateDBSubnetGroupCommand } from "@aws-sdk/client-neptune"; // ES Modules import
- * // const { NeptuneClient, CreateDBSubnetGroupCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
+ * import { NeptuneClient, CreateDBSubnetGroupCommand } from '@aws-sdk/client-neptune'; // ES Modules import
+ * // const { NeptuneClient, CreateDBSubnetGroupCommand } = require('@aws-sdk/client-neptune'); // CommonJS import
  * const client = new NeptuneClient(config);
  * const input = { // CreateDBSubnetGroupMessage
- *   DBSubnetGroupName: "STRING_VALUE", // required
- *   DBSubnetGroupDescription: "STRING_VALUE", // required
+ *   DBSubnetGroupName: 'STRING_VALUE', // required
+ *   DBSubnetGroupDescription: 'STRING_VALUE', // required
  *   SubnetIds: [ // SubnetIdentifierList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE",
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new CreateDBSubnetGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateDBSubnetGroupResult
+ *   DBSubnetGroup: { // DBSubnetGroup
+ *     DBSubnetGroupName: 'STRING_VALUE',
+ *     DBSubnetGroupDescription: 'STRING_VALUE',
+ *     VpcId: 'STRING_VALUE',
+ *     SubnetGroupStatus: 'STRING_VALUE',
+ *     Subnets: [ // SubnetList
+ *       { // Subnet
+ *         SubnetIdentifier: 'STRING_VALUE',
+ *         SubnetAvailabilityZone: { // AvailabilityZone
+ *           Name: 'STRING_VALUE',
+ *         },
+ *         SubnetStatus: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     DBSubnetGroupArn: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateDBSubnetGroupCommandInput - {@link CreateDBSubnetGroupCommandInput}
@@ -81,6 +101,8 @@ export interface CreateDBSubnetGroupCommandOutput extends CreateDBSubnetGroupRes
  *  <p>The requested subnet is invalid, or multiple subnets were requested that are
  *       not all in a common VPC.</p>
  *
+ * @throws {@link NeptuneServiceException}
+ * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
  */
 export class CreateDBSubnetGroupCommand extends $Command<

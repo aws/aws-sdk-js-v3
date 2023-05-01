@@ -36,14 +36,17 @@ export interface CancelCapacityReservationCommandOutput extends CancelCapacityRe
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AthenaClient, CancelCapacityReservationCommand } from "@aws-sdk/client-athena"; // ES Modules import
- * // const { AthenaClient, CancelCapacityReservationCommand } = require("@aws-sdk/client-athena"); // CommonJS import
+ * import { AthenaClient, CancelCapacityReservationCommand } from '@aws-sdk/client-athena'; // ES Modules import
+ * // const { AthenaClient, CancelCapacityReservationCommand } = require('@aws-sdk/client-athena'); // CommonJS import
  * const client = new AthenaClient(config);
  * const input = { // CancelCapacityReservationInput
- *   Name: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
  * };
  * const command = new CancelCapacityReservationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param CancelCapacityReservationCommandInput - {@link CancelCapacityReservationCommandInput}
@@ -60,6 +63,8 @@ export interface CancelCapacityReservationCommandOutput extends CancelCapacityRe
  *  <p>Indicates that something is wrong with the input to the request. For example, a
  *             required parameter may be missing or out of range.</p>
  *
+ * @throws {@link AthenaServiceException}
+ * <p>Base exception class for all service exceptions from Athena service.</p>
  *
  */
 export class CancelCapacityReservationCommand extends $Command<

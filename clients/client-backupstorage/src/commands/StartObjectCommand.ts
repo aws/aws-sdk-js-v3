@@ -36,16 +36,21 @@ export interface StartObjectCommandOutput extends StartObjectOutput, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BackupStorageClient, StartObjectCommand } from "@aws-sdk/client-backupstorage"; // ES Modules import
- * // const { BackupStorageClient, StartObjectCommand } = require("@aws-sdk/client-backupstorage"); // CommonJS import
+ * import { BackupStorageClient, StartObjectCommand } from '@aws-sdk/client-backupstorage'; // ES Modules import
+ * // const { BackupStorageClient, StartObjectCommand } = require('@aws-sdk/client-backupstorage'); // CommonJS import
  * const client = new BackupStorageClient(config);
  * const input = { // StartObjectInput
- *   BackupJobId: "STRING_VALUE", // required
- *   ObjectName: "STRING_VALUE", // required
+ *   BackupJobId: 'STRING_VALUE', // required
+ *   ObjectName: 'STRING_VALUE', // required
  *   ThrowOnDuplicate: true || false,
  * };
  * const command = new StartObjectCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartObjectOutput
+ *   UploadId: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param StartObjectCommandInput - {@link StartObjectCommandInput}
@@ -79,6 +84,8 @@ export interface StartObjectCommandOutput extends StartObjectOutput, __MetadataB
  * @throws {@link ThrottlingException} (client fault)
  *  Increased rate over throttling limits. Can be retried with exponential backoff.
  *
+ * @throws {@link BackupStorageServiceException}
+ * <p>Base exception class for all service exceptions from BackupStorage service.</p>
  *
  */
 export class StartObjectCommand extends $Command<

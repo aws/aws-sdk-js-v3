@@ -38,20 +38,23 @@ export interface AddTagsToResourceCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RDSClient, AddTagsToResourceCommand } from "@aws-sdk/client-rds"; // ES Modules import
- * // const { RDSClient, AddTagsToResourceCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * import { RDSClient, AddTagsToResourceCommand } from '@aws-sdk/client-rds'; // ES Modules import
+ * // const { RDSClient, AddTagsToResourceCommand } = require('@aws-sdk/client-rds'); // CommonJS import
  * const client = new RDSClient(config);
  * const input = { // AddTagsToResourceMessage
- *   ResourceName: "STRING_VALUE", // required
+ *   ResourceName: 'STRING_VALUE', // required
  *   Tags: [ // TagList // required
  *     { // Tag
- *       Key: "STRING_VALUE",
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new AddTagsToResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param AddTagsToResourceCommandInput - {@link AddTagsToResourceCommandInput}
@@ -82,6 +85,8 @@ export interface AddTagsToResourceCommandOutput extends __MetadataBearer {}
  *  <p>
  *             <code>DBSnapshotIdentifier</code> doesn't refer to an existing DB snapshot.</p>
  *
+ * @throws {@link RDSServiceException}
+ * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  * @example To add tags to a resource
  * ```javascript

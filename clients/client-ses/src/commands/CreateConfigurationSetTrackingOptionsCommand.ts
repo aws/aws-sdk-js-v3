@@ -49,17 +49,20 @@ export interface CreateConfigurationSetTrackingOptionsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SESClient, CreateConfigurationSetTrackingOptionsCommand } from "@aws-sdk/client-ses"; // ES Modules import
- * // const { SESClient, CreateConfigurationSetTrackingOptionsCommand } = require("@aws-sdk/client-ses"); // CommonJS import
+ * import { SESClient, CreateConfigurationSetTrackingOptionsCommand } from '@aws-sdk/client-ses'; // ES Modules import
+ * // const { SESClient, CreateConfigurationSetTrackingOptionsCommand } = require('@aws-sdk/client-ses'); // CommonJS import
  * const client = new SESClient(config);
  * const input = { // CreateConfigurationSetTrackingOptionsRequest
- *   ConfigurationSetName: "STRING_VALUE", // required
+ *   ConfigurationSetName: 'STRING_VALUE', // required
  *   TrackingOptions: { // TrackingOptions
- *     CustomRedirectDomain: "STRING_VALUE",
+ *     CustomRedirectDomain: 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateConfigurationSetTrackingOptionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param CreateConfigurationSetTrackingOptionsCommandInput - {@link CreateConfigurationSetTrackingOptionsCommandInput}
@@ -88,6 +91,8 @@ export interface CreateConfigurationSetTrackingOptionsCommandOutput
  *  <p>Indicates that the configuration set you specified already contains a TrackingOptions
  *             object.</p>
  *
+ * @throws {@link SESServiceException}
+ * <p>Base exception class for all service exceptions from SES service.</p>
  *
  */
 export class CreateConfigurationSetTrackingOptionsCommand extends $Command<

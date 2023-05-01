@@ -49,33 +49,43 @@ export interface ExportLambdaFunctionRecommendationsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ComputeOptimizerClient, ExportLambdaFunctionRecommendationsCommand } from "@aws-sdk/client-compute-optimizer"; // ES Modules import
- * // const { ComputeOptimizerClient, ExportLambdaFunctionRecommendationsCommand } = require("@aws-sdk/client-compute-optimizer"); // CommonJS import
+ * import { ComputeOptimizerClient, ExportLambdaFunctionRecommendationsCommand } from '@aws-sdk/client-compute-optimizer'; // ES Modules import
+ * // const { ComputeOptimizerClient, ExportLambdaFunctionRecommendationsCommand } = require('@aws-sdk/client-compute-optimizer'); // CommonJS import
  * const client = new ComputeOptimizerClient(config);
  * const input = { // ExportLambdaFunctionRecommendationsRequest
  *   accountIds: [ // AccountIds
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   filters: [ // LambdaFunctionRecommendationFilters
  *     { // LambdaFunctionRecommendationFilter
- *       name: "Finding" || "FindingReasonCode",
+ *       name: 'Finding' || 'FindingReasonCode',
  *       values: [ // FilterValues
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
  *   fieldsToExport: [ // ExportableLambdaFunctionFields
- *     "AccountId" || "FunctionArn" || "FunctionVersion" || "Finding" || "FindingReasonCodes" || "NumberOfInvocations" || "UtilizationMetricsDurationMaximum" || "UtilizationMetricsDurationAverage" || "UtilizationMetricsMemoryMaximum" || "UtilizationMetricsMemoryAverage" || "LookbackPeriodInDays" || "CurrentConfigurationMemorySize" || "CurrentConfigurationTimeout" || "CurrentCostTotal" || "CurrentCostAverage" || "RecommendationOptionsConfigurationMemorySize" || "RecommendationOptionsCostLow" || "RecommendationOptionsCostHigh" || "RecommendationOptionsProjectedUtilizationMetricsDurationLowerBound" || "RecommendationOptionsProjectedUtilizationMetricsDurationUpperBound" || "RecommendationOptionsProjectedUtilizationMetricsDurationExpected" || "LastRefreshTimestamp" || "CurrentPerformanceRisk" || "RecommendationOptionsSavingsOpportunityPercentage" || "RecommendationOptionsEstimatedMonthlySavingsCurrency" || "RecommendationOptionsEstimatedMonthlySavingsValue",
+ *     'AccountId' || 'FunctionArn' || 'FunctionVersion' || 'Finding' || 'FindingReasonCodes' || 'NumberOfInvocations' || 'UtilizationMetricsDurationMaximum' || 'UtilizationMetricsDurationAverage' || 'UtilizationMetricsMemoryMaximum' || 'UtilizationMetricsMemoryAverage' || 'LookbackPeriodInDays' || 'CurrentConfigurationMemorySize' || 'CurrentConfigurationTimeout' || 'CurrentCostTotal' || 'CurrentCostAverage' || 'RecommendationOptionsConfigurationMemorySize' || 'RecommendationOptionsCostLow' || 'RecommendationOptionsCostHigh' || 'RecommendationOptionsProjectedUtilizationMetricsDurationLowerBound' || 'RecommendationOptionsProjectedUtilizationMetricsDurationUpperBound' || 'RecommendationOptionsProjectedUtilizationMetricsDurationExpected' || 'LastRefreshTimestamp' || 'CurrentPerformanceRisk' || 'RecommendationOptionsSavingsOpportunityPercentage' || 'RecommendationOptionsEstimatedMonthlySavingsCurrency' || 'RecommendationOptionsEstimatedMonthlySavingsValue',
  *   ],
  *   s3DestinationConfig: { // S3DestinationConfig
- *     bucket: "STRING_VALUE",
- *     keyPrefix: "STRING_VALUE",
+ *     bucket: 'STRING_VALUE',
+ *     keyPrefix: 'STRING_VALUE',
  *   },
- *   fileFormat: "Csv",
+ *   fileFormat: 'Csv',
  *   includeMemberAccounts: true || false,
  * };
  * const command = new ExportLambdaFunctionRecommendationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ExportLambdaFunctionRecommendationsResponse
+ *   jobId: 'STRING_VALUE',
+ *   s3Destination: { // S3Destination
+ *     bucket: 'STRING_VALUE',
+ *     key: 'STRING_VALUE',
+ *     metadataKey: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param ExportLambdaFunctionRecommendationsCommandInput - {@link ExportLambdaFunctionRecommendationsCommandInput}
@@ -109,6 +119,8 @@ export interface ExportLambdaFunctionRecommendationsCommandOutput
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
  *
+ * @throws {@link ComputeOptimizerServiceException}
+ * <p>Base exception class for all service exceptions from ComputeOptimizer service.</p>
  *
  */
 export class ExportLambdaFunctionRecommendationsCommand extends $Command<

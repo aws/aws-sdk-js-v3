@@ -41,15 +41,18 @@ export interface DeleteApplicationCommandOutput extends DeleteApplicationRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KinesisAnalyticsClient, DeleteApplicationCommand } from "@aws-sdk/client-kinesis-analytics"; // ES Modules import
- * // const { KinesisAnalyticsClient, DeleteApplicationCommand } = require("@aws-sdk/client-kinesis-analytics"); // CommonJS import
+ * import { KinesisAnalyticsClient, DeleteApplicationCommand } from '@aws-sdk/client-kinesis-analytics'; // ES Modules import
+ * // const { KinesisAnalyticsClient, DeleteApplicationCommand } = require('@aws-sdk/client-kinesis-analytics'); // CommonJS import
  * const client = new KinesisAnalyticsClient(config);
  * const input = { // DeleteApplicationRequest
- *   ApplicationName: "STRING_VALUE", // required
- *   CreateTimestamp: new Date("TIMESTAMP"), // required
+ *   ApplicationName: 'STRING_VALUE', // required
+ *   CreateTimestamp: new Date('TIMESTAMP'), // required
  * };
  * const command = new DeleteApplicationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteApplicationCommandInput - {@link DeleteApplicationCommandInput}
@@ -70,6 +73,8 @@ export interface DeleteApplicationCommandOutput extends DeleteApplicationRespons
  * @throws {@link UnsupportedOperationException} (client fault)
  *  <p>The request was rejected because a specified parameter is not supported or a specified resource is not valid for this operation. </p>
  *
+ * @throws {@link KinesisAnalyticsServiceException}
+ * <p>Base exception class for all service exceptions from KinesisAnalytics service.</p>
  *
  */
 export class DeleteApplicationCommand extends $Command<

@@ -36,14 +36,17 @@ export interface DeleteGameCommandOutput extends DeleteGameResult, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GameSparksClient, DeleteGameCommand } from "@aws-sdk/client-gamesparks"; // ES Modules import
- * // const { GameSparksClient, DeleteGameCommand } = require("@aws-sdk/client-gamesparks"); // CommonJS import
+ * import { GameSparksClient, DeleteGameCommand } from '@aws-sdk/client-gamesparks'; // ES Modules import
+ * // const { GameSparksClient, DeleteGameCommand } = require('@aws-sdk/client-gamesparks'); // CommonJS import
  * const client = new GameSparksClient(config);
  * const input = { // DeleteGameRequest
- *   GameName: "STRING_VALUE", // required
+ *   GameName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteGameCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteGameCommandInput - {@link DeleteGameCommandInput}
@@ -67,6 +70,8 @@ export interface DeleteGameCommandOutput extends DeleteGameResult, __MetadataBea
  * @throws {@link ValidationException} (client fault)
  *  <p>One of the parameters in the request is invalid.</p>
  *
+ * @throws {@link GameSparksServiceException}
+ * <p>Base exception class for all service exceptions from GameSparks service.</p>
  *
  */
 export class DeleteGameCommand extends $Command<

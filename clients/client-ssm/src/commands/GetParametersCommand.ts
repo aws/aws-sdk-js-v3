@@ -40,17 +40,37 @@ export interface GetParametersCommandOutput extends GetParametersResult, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMClient, GetParametersCommand } from "@aws-sdk/client-ssm"; // ES Modules import
- * // const { SSMClient, GetParametersCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * import { SSMClient, GetParametersCommand } from '@aws-sdk/client-ssm'; // ES Modules import
+ * // const { SSMClient, GetParametersCommand } = require('@aws-sdk/client-ssm'); // CommonJS import
  * const client = new SSMClient(config);
  * const input = { // GetParametersRequest
  *   Names: [ // ParameterNameList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   WithDecryption: true || false,
  * };
  * const command = new GetParametersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetParametersResult
+ *   Parameters: [ // ParameterList
+ *     { // Parameter
+ *       Name: 'STRING_VALUE',
+ *       Type: 'String' || 'StringList' || 'SecureString',
+ *       Value: 'STRING_VALUE',
+ *       Version: Number('long'),
+ *       Selector: 'STRING_VALUE',
+ *       SourceResult: 'STRING_VALUE',
+ *       LastModifiedDate: new Date('TIMESTAMP'),
+ *       ARN: 'STRING_VALUE',
+ *       DataType: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   InvalidParameters: [ // ParameterNameList
+ *     'STRING_VALUE',
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetParametersCommandInput - {@link GetParametersCommandInput}
@@ -65,6 +85,8 @@ export interface GetParametersCommandOutput extends GetParametersResult, __Metad
  * @throws {@link InvalidKeyId} (client fault)
  *  <p>The query key ID isn't valid.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class GetParametersCommand extends $Command<

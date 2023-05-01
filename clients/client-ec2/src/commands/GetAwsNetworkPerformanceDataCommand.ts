@@ -38,28 +38,51 @@ export interface GetAwsNetworkPerformanceDataCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, GetAwsNetworkPerformanceDataCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, GetAwsNetworkPerformanceDataCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, GetAwsNetworkPerformanceDataCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, GetAwsNetworkPerformanceDataCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // GetAwsNetworkPerformanceDataRequest
  *   DataQueries: [ // DataQueries
  *     { // DataQuery
- *       Id: "STRING_VALUE",
- *       Source: "STRING_VALUE",
- *       Destination: "STRING_VALUE",
- *       Metric: "aggregate-latency",
- *       Statistic: "p50",
- *       Period: "five-minutes" || "fifteen-minutes" || "one-hour" || "three-hours" || "one-day" || "one-week",
+ *       Id: 'STRING_VALUE',
+ *       Source: 'STRING_VALUE',
+ *       Destination: 'STRING_VALUE',
+ *       Metric: 'aggregate-latency',
+ *       Statistic: 'p50',
+ *       Period: 'five-minutes' || 'fifteen-minutes' || 'one-hour' || 'three-hours' || 'one-day' || 'one-week',
  *     },
  *   ],
- *   StartTime: new Date("TIMESTAMP"),
- *   EndTime: new Date("TIMESTAMP"),
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   StartTime: new Date('TIMESTAMP'),
+ *   EndTime: new Date('TIMESTAMP'),
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  *   DryRun: true || false,
  * };
  * const command = new GetAwsNetworkPerformanceDataCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetAwsNetworkPerformanceDataResult
+ *   DataResponses: [ // DataResponses
+ *     { // DataResponse
+ *       Id: 'STRING_VALUE',
+ *       Source: 'STRING_VALUE',
+ *       Destination: 'STRING_VALUE',
+ *       Metric: 'aggregate-latency',
+ *       Statistic: 'p50',
+ *       Period: 'five-minutes' || 'fifteen-minutes' || 'one-hour' || 'three-hours' || 'one-day' || 'one-week',
+ *       MetricPoints: [ // MetricPoints
+ *         { // MetricPoint
+ *           StartDate: new Date('TIMESTAMP'),
+ *           EndDate: new Date('TIMESTAMP'),
+ *           Value: Number('float'),
+ *           Status: 'STRING_VALUE',
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetAwsNetworkPerformanceDataCommandInput - {@link GetAwsNetworkPerformanceDataCommandInput}
@@ -68,6 +91,8 @@ export interface GetAwsNetworkPerformanceDataCommandOutput
  * @see {@link GetAwsNetworkPerformanceDataCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class GetAwsNetworkPerformanceDataCommand extends $Command<

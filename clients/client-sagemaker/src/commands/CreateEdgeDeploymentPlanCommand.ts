@@ -36,43 +36,48 @@ export interface CreateEdgeDeploymentPlanCommandOutput extends CreateEdgeDeploym
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, CreateEdgeDeploymentPlanCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, CreateEdgeDeploymentPlanCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, CreateEdgeDeploymentPlanCommand } from '@aws-sdk/client-sagemaker'; // ES Modules import
+ * // const { SageMakerClient, CreateEdgeDeploymentPlanCommand } = require('@aws-sdk/client-sagemaker'); // CommonJS import
  * const client = new SageMakerClient(config);
  * const input = { // CreateEdgeDeploymentPlanRequest
- *   EdgeDeploymentPlanName: "STRING_VALUE", // required
+ *   EdgeDeploymentPlanName: 'STRING_VALUE', // required
  *   ModelConfigs: [ // EdgeDeploymentModelConfigs // required
  *     { // EdgeDeploymentModelConfig
- *       ModelHandle: "STRING_VALUE", // required
- *       EdgePackagingJobName: "STRING_VALUE", // required
+ *       ModelHandle: 'STRING_VALUE', // required
+ *       EdgePackagingJobName: 'STRING_VALUE', // required
  *     },
  *   ],
- *   DeviceFleetName: "STRING_VALUE", // required
+ *   DeviceFleetName: 'STRING_VALUE', // required
  *   Stages: [ // DeploymentStages
  *     { // DeploymentStage
- *       StageName: "STRING_VALUE", // required
+ *       StageName: 'STRING_VALUE', // required
  *       DeviceSelectionConfig: { // DeviceSelectionConfig
- *         DeviceSubsetType: "PERCENTAGE" || "SELECTION" || "NAMECONTAINS", // required
- *         Percentage: Number("int"),
+ *         DeviceSubsetType: 'PERCENTAGE' || 'SELECTION' || 'NAMECONTAINS', // required
+ *         Percentage: Number('int'),
  *         DeviceNames: [ // DeviceNames
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
- *         DeviceNameContains: "STRING_VALUE",
+ *         DeviceNameContains: 'STRING_VALUE',
  *       },
  *       DeploymentConfig: { // EdgeDeploymentConfig
- *         FailureHandlingPolicy: "ROLLBACK_ON_FAILURE" || "DO_NOTHING", // required
+ *         FailureHandlingPolicy: 'ROLLBACK_ON_FAILURE' || 'DO_NOTHING', // required
  *       },
  *     },
  *   ],
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreateEdgeDeploymentPlanCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateEdgeDeploymentPlanResponse
+ *   EdgeDeploymentPlanArn: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param CreateEdgeDeploymentPlanCommandInput - {@link CreateEdgeDeploymentPlanCommandInput}
@@ -85,6 +90,8 @@ export interface CreateEdgeDeploymentPlanCommandOutput extends CreateEdgeDeploym
  *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many
  *             training jobs created. </p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class CreateEdgeDeploymentPlanCommand extends $Command<

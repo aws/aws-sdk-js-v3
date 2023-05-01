@@ -36,16 +36,38 @@ export interface ListMembershipsCommandOutput extends ListMembershipsOutput, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CleanRoomsClient, ListMembershipsCommand } from "@aws-sdk/client-cleanrooms"; // ES Modules import
- * // const { CleanRoomsClient, ListMembershipsCommand } = require("@aws-sdk/client-cleanrooms"); // CommonJS import
+ * import { CleanRoomsClient, ListMembershipsCommand } from '@aws-sdk/client-cleanrooms'; // ES Modules import
+ * // const { CleanRoomsClient, ListMembershipsCommand } = require('@aws-sdk/client-cleanrooms'); // CommonJS import
  * const client = new CleanRoomsClient(config);
  * const input = { // ListMembershipsInput
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
- *   status: "STRING_VALUE",
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
+ *   status: 'STRING_VALUE',
  * };
  * const command = new ListMembershipsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListMembershipsOutput
+ *   nextToken: 'STRING_VALUE',
+ *   membershipSummaries: [ // MembershipSummaryList // required
+ *     { // MembershipSummary
+ *       id: 'STRING_VALUE', // required
+ *       arn: 'STRING_VALUE', // required
+ *       collaborationArn: 'STRING_VALUE', // required
+ *       collaborationId: 'STRING_VALUE', // required
+ *       collaborationCreatorAccountId: 'STRING_VALUE', // required
+ *       collaborationCreatorDisplayName: 'STRING_VALUE', // required
+ *       collaborationName: 'STRING_VALUE', // required
+ *       createTime: new Date('TIMESTAMP'), // required
+ *       updateTime: new Date('TIMESTAMP'), // required
+ *       status: 'STRING_VALUE', // required
+ *       memberAbilities: [ // MemberAbilities // required
+ *         'STRING_VALUE',
+ *       ],
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListMembershipsCommandInput - {@link ListMembershipsCommandInput}
@@ -66,6 +88,8 @@ export interface ListMembershipsCommandOutput extends ListMembershipsOutput, __M
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the specified constraints.</p>
  *
+ * @throws {@link CleanRoomsServiceException}
+ * <p>Base exception class for all service exceptions from CleanRooms service.</p>
  *
  */
 export class ListMembershipsCommand extends $Command<

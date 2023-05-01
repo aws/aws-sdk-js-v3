@@ -36,16 +36,29 @@ export interface ListGatewayInstancesCommandOutput extends ListGatewayInstancesR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MediaConnectClient, ListGatewayInstancesCommand } from "@aws-sdk/client-mediaconnect"; // ES Modules import
- * // const { MediaConnectClient, ListGatewayInstancesCommand } = require("@aws-sdk/client-mediaconnect"); // CommonJS import
+ * import { MediaConnectClient, ListGatewayInstancesCommand } from '@aws-sdk/client-mediaconnect'; // ES Modules import
+ * // const { MediaConnectClient, ListGatewayInstancesCommand } = require('@aws-sdk/client-mediaconnect'); // CommonJS import
  * const client = new MediaConnectClient(config);
  * const input = { // ListGatewayInstancesRequest
- *   FilterArn: "STRING_VALUE",
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   FilterArn: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListGatewayInstancesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListGatewayInstancesResponse
+ *   Instances: [ // __listOfListedGatewayInstance
+ *     { // ListedGatewayInstance
+ *       GatewayArn: 'STRING_VALUE', // required
+ *       GatewayInstanceArn: 'STRING_VALUE', // required
+ *       InstanceId: 'STRING_VALUE', // required
+ *       InstanceState: 'REGISTERING' || 'ACTIVE' || 'DEREGISTERING' || 'DEREGISTERED' || 'REGISTRATION_ERROR' || 'DEREGISTRATION_ERROR',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListGatewayInstancesCommandInput - {@link ListGatewayInstancesCommandInput}
@@ -69,6 +82,8 @@ export interface ListGatewayInstancesCommandOutput extends ListGatewayInstancesR
  * @throws {@link TooManyRequestsException} (client fault)
  *  Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
  *
+ * @throws {@link MediaConnectServiceException}
+ * <p>Base exception class for all service exceptions from MediaConnect service.</p>
  *
  */
 export class ListGatewayInstancesCommand extends $Command<

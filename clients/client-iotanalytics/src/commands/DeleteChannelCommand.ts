@@ -36,14 +36,17 @@ export interface DeleteChannelCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTAnalyticsClient, DeleteChannelCommand } from "@aws-sdk/client-iotanalytics"; // ES Modules import
- * // const { IoTAnalyticsClient, DeleteChannelCommand } = require("@aws-sdk/client-iotanalytics"); // CommonJS import
+ * import { IoTAnalyticsClient, DeleteChannelCommand } from '@aws-sdk/client-iotanalytics'; // ES Modules import
+ * // const { IoTAnalyticsClient, DeleteChannelCommand } = require('@aws-sdk/client-iotanalytics'); // CommonJS import
  * const client = new IoTAnalyticsClient(config);
  * const input = { // DeleteChannelRequest
- *   channelName: "STRING_VALUE", // required
+ *   channelName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteChannelCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteChannelCommandInput - {@link DeleteChannelCommandInput}
@@ -67,6 +70,8 @@ export interface DeleteChannelCommandOutput extends __MetadataBearer {}
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
  *
+ * @throws {@link IoTAnalyticsServiceException}
+ * <p>Base exception class for all service exceptions from IoTAnalytics service.</p>
  *
  */
 export class DeleteChannelCommand extends $Command<

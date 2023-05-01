@@ -46,22 +46,55 @@ export interface DescribeClusterSubnetGroupsCommandOutput extends ClusterSubnetG
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RedshiftClient, DescribeClusterSubnetGroupsCommand } from "@aws-sdk/client-redshift"; // ES Modules import
- * // const { RedshiftClient, DescribeClusterSubnetGroupsCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * import { RedshiftClient, DescribeClusterSubnetGroupsCommand } from '@aws-sdk/client-redshift'; // ES Modules import
+ * // const { RedshiftClient, DescribeClusterSubnetGroupsCommand } = require('@aws-sdk/client-redshift'); // CommonJS import
  * const client = new RedshiftClient(config);
  * const input = { // DescribeClusterSubnetGroupsMessage
- *   ClusterSubnetGroupName: "STRING_VALUE",
- *   MaxRecords: Number("int"),
- *   Marker: "STRING_VALUE",
+ *   ClusterSubnetGroupName: 'STRING_VALUE',
+ *   MaxRecords: Number('int'),
+ *   Marker: 'STRING_VALUE',
  *   TagKeys: [ // TagKeyList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   TagValues: [ // TagValueList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new DescribeClusterSubnetGroupsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ClusterSubnetGroupMessage
+ *   Marker: 'STRING_VALUE',
+ *   ClusterSubnetGroups: [ // ClusterSubnetGroups
+ *     { // ClusterSubnetGroup
+ *       ClusterSubnetGroupName: 'STRING_VALUE',
+ *       Description: 'STRING_VALUE',
+ *       VpcId: 'STRING_VALUE',
+ *       SubnetGroupStatus: 'STRING_VALUE',
+ *       Subnets: [ // SubnetList
+ *         { // Subnet
+ *           SubnetIdentifier: 'STRING_VALUE',
+ *           SubnetAvailabilityZone: { // AvailabilityZone
+ *             Name: 'STRING_VALUE',
+ *             SupportedPlatforms: [ // SupportedPlatformsList
+ *               { // SupportedPlatform
+ *                 Name: 'STRING_VALUE',
+ *               },
+ *             ],
+ *           },
+ *           SubnetStatus: 'STRING_VALUE',
+ *         },
+ *       ],
+ *       Tags: [ // TagList
+ *         { // Tag
+ *           Key: 'STRING_VALUE',
+ *           Value: 'STRING_VALUE',
+ *         },
+ *       ],
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeClusterSubnetGroupsCommandInput - {@link DescribeClusterSubnetGroupsCommandInput}
@@ -77,6 +110,8 @@ export interface DescribeClusterSubnetGroupsCommandOutput extends ClusterSubnetG
  * @throws {@link InvalidTagFault} (client fault)
  *  <p>The tag is invalid.</p>
  *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class DescribeClusterSubnetGroupsCommand extends $Command<

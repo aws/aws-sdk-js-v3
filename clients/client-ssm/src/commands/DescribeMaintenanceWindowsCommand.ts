@@ -40,23 +40,44 @@ export interface DescribeMaintenanceWindowsCommandOutput extends DescribeMainten
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMClient, DescribeMaintenanceWindowsCommand } from "@aws-sdk/client-ssm"; // ES Modules import
- * // const { SSMClient, DescribeMaintenanceWindowsCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * import { SSMClient, DescribeMaintenanceWindowsCommand } from '@aws-sdk/client-ssm'; // ES Modules import
+ * // const { SSMClient, DescribeMaintenanceWindowsCommand } = require('@aws-sdk/client-ssm'); // CommonJS import
  * const client = new SSMClient(config);
  * const input = { // DescribeMaintenanceWindowsRequest
  *   Filters: [ // MaintenanceWindowFilterList
  *     { // MaintenanceWindowFilter
- *       Key: "STRING_VALUE",
+ *       Key: 'STRING_VALUE',
  *       Values: [ // MaintenanceWindowFilterValues
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new DescribeMaintenanceWindowsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeMaintenanceWindowsResult
+ *   WindowIdentities: [ // MaintenanceWindowIdentityList
+ *     { // MaintenanceWindowIdentity
+ *       WindowId: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *       Description: 'STRING_VALUE',
+ *       Enabled: true || false,
+ *       Duration: Number('int'),
+ *       Cutoff: Number('int'),
+ *       Schedule: 'STRING_VALUE',
+ *       ScheduleTimezone: 'STRING_VALUE',
+ *       ScheduleOffset: Number('int'),
+ *       EndDate: 'STRING_VALUE',
+ *       StartDate: 'STRING_VALUE',
+ *       NextExecutionTime: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeMaintenanceWindowsCommandInput - {@link DescribeMaintenanceWindowsCommandInput}
@@ -68,6 +89,8 @@ export interface DescribeMaintenanceWindowsCommandOutput extends DescribeMainten
  * @throws {@link InternalServerError} (server fault)
  *  <p>An error occurred on the server side.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class DescribeMaintenanceWindowsCommand extends $Command<

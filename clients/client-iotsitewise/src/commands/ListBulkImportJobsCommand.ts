@@ -37,16 +37,28 @@ export interface ListBulkImportJobsCommandOutput extends ListBulkImportJobsRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTSiteWiseClient, ListBulkImportJobsCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
- * // const { IoTSiteWiseClient, ListBulkImportJobsCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
+ * import { IoTSiteWiseClient, ListBulkImportJobsCommand } from '@aws-sdk/client-iotsitewise'; // ES Modules import
+ * // const { IoTSiteWiseClient, ListBulkImportJobsCommand } = require('@aws-sdk/client-iotsitewise'); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
  * const input = { // ListBulkImportJobsRequest
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
- *   filter: "ALL" || "PENDING" || "RUNNING" || "CANCELLED" || "FAILED" || "COMPLETED_WITH_FAILURES" || "COMPLETED",
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
+ *   filter: 'ALL' || 'PENDING' || 'RUNNING' || 'CANCELLED' || 'FAILED' || 'COMPLETED_WITH_FAILURES' || 'COMPLETED',
  * };
  * const command = new ListBulkImportJobsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListBulkImportJobsResponse
+ *   jobSummaries: [ // JobSummaries // required
+ *     { // JobSummary
+ *       id: 'STRING_VALUE', // required
+ *       name: 'STRING_VALUE', // required
+ *       status: 'PENDING' || 'CANCELLED' || 'RUNNING' || 'COMPLETED' || 'FAILED' || 'COMPLETED_WITH_FAILURES', // required
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListBulkImportJobsCommandInput - {@link ListBulkImportJobsCommandInput}
@@ -71,6 +83,8 @@ export interface ListBulkImportJobsCommandOutput extends ListBulkImportJobsRespo
  *       on.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
  *
+ * @throws {@link IoTSiteWiseServiceException}
+ * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
  */
 export class ListBulkImportJobsCommand extends $Command<

@@ -38,17 +38,24 @@ export interface SetRepositoryPolicyCommandOutput extends SetRepositoryPolicyRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ECRClient, SetRepositoryPolicyCommand } from "@aws-sdk/client-ecr"; // ES Modules import
- * // const { ECRClient, SetRepositoryPolicyCommand } = require("@aws-sdk/client-ecr"); // CommonJS import
+ * import { ECRClient, SetRepositoryPolicyCommand } from '@aws-sdk/client-ecr'; // ES Modules import
+ * // const { ECRClient, SetRepositoryPolicyCommand } = require('@aws-sdk/client-ecr'); // CommonJS import
  * const client = new ECRClient(config);
  * const input = { // SetRepositoryPolicyRequest
- *   registryId: "STRING_VALUE",
- *   repositoryName: "STRING_VALUE", // required
- *   policyText: "STRING_VALUE", // required
+ *   registryId: 'STRING_VALUE',
+ *   repositoryName: 'STRING_VALUE', // required
+ *   policyText: 'STRING_VALUE', // required
  *   force: true || false,
  * };
  * const command = new SetRepositoryPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SetRepositoryPolicyResponse
+ *   registryId: 'STRING_VALUE',
+ *   repositoryName: 'STRING_VALUE',
+ *   policyText: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param SetRepositoryPolicyCommandInput - {@link SetRepositoryPolicyCommandInput}
@@ -68,6 +75,8 @@ export interface SetRepositoryPolicyCommandOutput extends SetRepositoryPolicyRes
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server-side issue.</p>
  *
+ * @throws {@link ECRServiceException}
+ * <p>Base exception class for all service exceptions from ECR service.</p>
  *
  */
 export class SetRepositoryPolicyCommand extends $Command<

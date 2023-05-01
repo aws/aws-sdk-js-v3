@@ -43,16 +43,19 @@ export interface RevokeTokenCommandOutput extends RevokeTokenResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CognitoIdentityProviderClient, RevokeTokenCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
- * // const { CognitoIdentityProviderClient, RevokeTokenCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
+ * import { CognitoIdentityProviderClient, RevokeTokenCommand } from '@aws-sdk/client-cognito-identity-provider'; // ES Modules import
+ * // const { CognitoIdentityProviderClient, RevokeTokenCommand } = require('@aws-sdk/client-cognito-identity-provider'); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
  * const input = { // RevokeTokenRequest
- *   Token: "STRING_VALUE", // required
- *   ClientId: "STRING_VALUE", // required
- *   ClientSecret: "STRING_VALUE",
+ *   Token: 'STRING_VALUE', // required
+ *   ClientId: 'STRING_VALUE', // required
+ *   ClientSecret: 'STRING_VALUE',
  * };
  * const command = new RevokeTokenCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param RevokeTokenCommandInput - {@link RevokeTokenCommandInput}
@@ -86,6 +89,8 @@ export interface RevokeTokenCommandOutput extends RevokeTokenResponse, __Metadat
  * @throws {@link UnsupportedTokenTypeException} (client fault)
  *  <p>Exception that is thrown when an unsupported token is passed to an operation.</p>
  *
+ * @throws {@link CognitoIdentityProviderServiceException}
+ * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
  */
 export class RevokeTokenCommand extends $Command<

@@ -37,29 +37,32 @@ export interface PutJobSuccessResultCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodePipelineClient, PutJobSuccessResultCommand } from "@aws-sdk/client-codepipeline"; // ES Modules import
- * // const { CodePipelineClient, PutJobSuccessResultCommand } = require("@aws-sdk/client-codepipeline"); // CommonJS import
+ * import { CodePipelineClient, PutJobSuccessResultCommand } from '@aws-sdk/client-codepipeline'; // ES Modules import
+ * // const { CodePipelineClient, PutJobSuccessResultCommand } = require('@aws-sdk/client-codepipeline'); // CommonJS import
  * const client = new CodePipelineClient(config);
  * const input = { // PutJobSuccessResultInput
- *   jobId: "STRING_VALUE", // required
+ *   jobId: 'STRING_VALUE', // required
  *   currentRevision: { // CurrentRevision
- *     revision: "STRING_VALUE", // required
- *     changeIdentifier: "STRING_VALUE", // required
- *     created: new Date("TIMESTAMP"),
- *     revisionSummary: "STRING_VALUE",
+ *     revision: 'STRING_VALUE', // required
+ *     changeIdentifier: 'STRING_VALUE', // required
+ *     created: new Date('TIMESTAMP'),
+ *     revisionSummary: 'STRING_VALUE',
  *   },
- *   continuationToken: "STRING_VALUE",
+ *   continuationToken: 'STRING_VALUE',
  *   executionDetails: { // ExecutionDetails
- *     summary: "STRING_VALUE",
- *     externalExecutionId: "STRING_VALUE",
- *     percentComplete: Number("int"),
+ *     summary: 'STRING_VALUE',
+ *     externalExecutionId: 'STRING_VALUE',
+ *     percentComplete: Number('int'),
  *   },
  *   outputVariables: { // OutputVariablesMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new PutJobSuccessResultCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutJobSuccessResultCommandInput - {@link PutJobSuccessResultCommandInput}
@@ -80,6 +83,8 @@ export interface PutJobSuccessResultCommandOutput extends __MetadataBearer {}
  * @throws {@link ValidationException} (client fault)
  *  <p>The validation was specified in an invalid format.</p>
  *
+ * @throws {@link CodePipelineServiceException}
+ * <p>Base exception class for all service exceptions from CodePipeline service.</p>
  *
  */
 export class PutJobSuccessResultCommand extends $Command<

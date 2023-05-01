@@ -38,30 +38,36 @@ export interface CreateSecurityConfigurationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlueClient, CreateSecurityConfigurationCommand } from "@aws-sdk/client-glue"; // ES Modules import
- * // const { GlueClient, CreateSecurityConfigurationCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * import { GlueClient, CreateSecurityConfigurationCommand } from '@aws-sdk/client-glue'; // ES Modules import
+ * // const { GlueClient, CreateSecurityConfigurationCommand } = require('@aws-sdk/client-glue'); // CommonJS import
  * const client = new GlueClient(config);
  * const input = { // CreateSecurityConfigurationRequest
- *   Name: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
  *   EncryptionConfiguration: { // EncryptionConfiguration
  *     S3Encryption: [ // S3EncryptionList
  *       { // S3Encryption
- *         S3EncryptionMode: "DISABLED" || "SSE-KMS" || "SSE-S3",
- *         KmsKeyArn: "STRING_VALUE",
+ *         S3EncryptionMode: 'DISABLED' || 'SSE-KMS' || 'SSE-S3',
+ *         KmsKeyArn: 'STRING_VALUE',
  *       },
  *     ],
  *     CloudWatchEncryption: { // CloudWatchEncryption
- *       CloudWatchEncryptionMode: "DISABLED" || "SSE-KMS",
- *       KmsKeyArn: "STRING_VALUE",
+ *       CloudWatchEncryptionMode: 'DISABLED' || 'SSE-KMS',
+ *       KmsKeyArn: 'STRING_VALUE',
  *     },
  *     JobBookmarksEncryption: { // JobBookmarksEncryption
- *       JobBookmarksEncryptionMode: "DISABLED" || "CSE-KMS",
- *       KmsKeyArn: "STRING_VALUE",
+ *       JobBookmarksEncryptionMode: 'DISABLED' || 'CSE-KMS',
+ *       KmsKeyArn: 'STRING_VALUE',
  *     },
  *   },
  * };
  * const command = new CreateSecurityConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateSecurityConfigurationResponse
+ *   Name: 'STRING_VALUE',
+ *   CreatedTimestamp: new Date('TIMESTAMP'),
+ * };
+ *
  * ```
  *
  * @param CreateSecurityConfigurationCommandInput - {@link CreateSecurityConfigurationCommandInput}
@@ -85,6 +91,8 @@ export interface CreateSecurityConfigurationCommandOutput
  * @throws {@link ResourceNumberLimitExceededException} (client fault)
  *  <p>A resource numerical limit was exceeded.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class CreateSecurityConfigurationCommand extends $Command<

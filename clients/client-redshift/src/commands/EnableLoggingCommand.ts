@@ -37,20 +37,34 @@ export interface EnableLoggingCommandOutput extends LoggingStatus, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RedshiftClient, EnableLoggingCommand } from "@aws-sdk/client-redshift"; // ES Modules import
- * // const { RedshiftClient, EnableLoggingCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * import { RedshiftClient, EnableLoggingCommand } from '@aws-sdk/client-redshift'; // ES Modules import
+ * // const { RedshiftClient, EnableLoggingCommand } = require('@aws-sdk/client-redshift'); // CommonJS import
  * const client = new RedshiftClient(config);
  * const input = { // EnableLoggingMessage
- *   ClusterIdentifier: "STRING_VALUE", // required
- *   BucketName: "STRING_VALUE",
- *   S3KeyPrefix: "STRING_VALUE",
- *   LogDestinationType: "s3" || "cloudwatch",
+ *   ClusterIdentifier: 'STRING_VALUE', // required
+ *   BucketName: 'STRING_VALUE',
+ *   S3KeyPrefix: 'STRING_VALUE',
+ *   LogDestinationType: 's3' || 'cloudwatch',
  *   LogExports: [ // LogTypeList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new EnableLoggingCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // LoggingStatus
+ *   LoggingEnabled: true || false,
+ *   BucketName: 'STRING_VALUE',
+ *   S3KeyPrefix: 'STRING_VALUE',
+ *   LastSuccessfulDeliveryTime: new Date('TIMESTAMP'),
+ *   LastFailureTime: new Date('TIMESTAMP'),
+ *   LastFailureMessage: 'STRING_VALUE',
+ *   LogDestinationType: 's3' || 'cloudwatch',
+ *   LogExports: [ // LogTypeList
+ *     'STRING_VALUE',
+ *   ],
+ * };
+ *
  * ```
  *
  * @param EnableLoggingCommandInput - {@link EnableLoggingCommandInput}
@@ -83,6 +97,8 @@ export interface EnableLoggingCommandOutput extends LoggingStatus, __MetadataBea
  *  <p>The string specified for the logging S3 key prefix does not comply with the
  *             documented constraints.</p>
  *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class EnableLoggingCommand extends $Command<

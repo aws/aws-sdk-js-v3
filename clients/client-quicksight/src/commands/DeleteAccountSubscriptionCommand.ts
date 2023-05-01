@@ -36,14 +36,20 @@ export interface DeleteAccountSubscriptionCommandOutput extends DeleteAccountSub
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { QuickSightClient, DeleteAccountSubscriptionCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
- * // const { QuickSightClient, DeleteAccountSubscriptionCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * import { QuickSightClient, DeleteAccountSubscriptionCommand } from '@aws-sdk/client-quicksight'; // ES Modules import
+ * // const { QuickSightClient, DeleteAccountSubscriptionCommand } = require('@aws-sdk/client-quicksight'); // CommonJS import
  * const client = new QuickSightClient(config);
  * const input = { // DeleteAccountSubscriptionRequest
- *   AwsAccountId: "STRING_VALUE", // required
+ *   AwsAccountId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteAccountSubscriptionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteAccountSubscriptionResponse
+ *   RequestId: 'STRING_VALUE',
+ *   Status: Number('int'),
+ * };
+ *
  * ```
  *
  * @param DeleteAccountSubscriptionCommandInput - {@link DeleteAccountSubscriptionCommandInput}
@@ -76,6 +82,8 @@ export interface DeleteAccountSubscriptionCommandOutput extends DeleteAccountSub
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Access is throttled.</p>
  *
+ * @throws {@link QuickSightServiceException}
+ * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
 export class DeleteAccountSubscriptionCommand extends $Command<

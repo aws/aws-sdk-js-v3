@@ -39,25 +39,32 @@ export interface CreateDatasetCommandOutput extends CreateDatasetResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LookoutEquipmentClient, CreateDatasetCommand } from "@aws-sdk/client-lookoutequipment"; // ES Modules import
- * // const { LookoutEquipmentClient, CreateDatasetCommand } = require("@aws-sdk/client-lookoutequipment"); // CommonJS import
+ * import { LookoutEquipmentClient, CreateDatasetCommand } from '@aws-sdk/client-lookoutequipment'; // ES Modules import
+ * // const { LookoutEquipmentClient, CreateDatasetCommand } = require('@aws-sdk/client-lookoutequipment'); // CommonJS import
  * const client = new LookoutEquipmentClient(config);
  * const input = { // CreateDatasetRequest
- *   DatasetName: "STRING_VALUE", // required
+ *   DatasetName: 'STRING_VALUE', // required
  *   DatasetSchema: { // DatasetSchema
- *     InlineDataSchema: "STRING_VALUE",
+ *     InlineDataSchema: 'STRING_VALUE',
  *   },
- *   ServerSideKmsKeyId: "STRING_VALUE",
- *   ClientToken: "STRING_VALUE", // required
+ *   ServerSideKmsKeyId: 'STRING_VALUE',
+ *   ClientToken: 'STRING_VALUE', // required
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreateDatasetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateDatasetResponse
+ *   DatasetName: 'STRING_VALUE',
+ *   DatasetArn: 'STRING_VALUE',
+ *   Status: 'CREATED' || 'INGESTION_IN_PROGRESS' || 'ACTIVE',
+ * };
+ *
  * ```
  *
  * @param CreateDatasetCommandInput - {@link CreateDatasetCommandInput}
@@ -88,6 +95,8 @@ export interface CreateDatasetCommandOutput extends CreateDatasetResponse, __Met
  *  <p> The input fails to satisfy constraints specified by Amazon Lookout for Equipment or a
  *          related AWS service that's being utilized. </p>
  *
+ * @throws {@link LookoutEquipmentServiceException}
+ * <p>Base exception class for all service exceptions from LookoutEquipment service.</p>
  *
  */
 export class CreateDatasetCommand extends $Command<

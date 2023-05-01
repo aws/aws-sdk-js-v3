@@ -44,19 +44,28 @@ export interface CreateMonitoringSubscriptionCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudFrontClient, CreateMonitoringSubscriptionCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
- * // const { CloudFrontClient, CreateMonitoringSubscriptionCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
+ * import { CloudFrontClient, CreateMonitoringSubscriptionCommand } from '@aws-sdk/client-cloudfront'; // ES Modules import
+ * // const { CloudFrontClient, CreateMonitoringSubscriptionCommand } = require('@aws-sdk/client-cloudfront'); // CommonJS import
  * const client = new CloudFrontClient(config);
  * const input = { // CreateMonitoringSubscriptionRequest
- *   DistributionId: "STRING_VALUE", // required
+ *   DistributionId: 'STRING_VALUE', // required
  *   MonitoringSubscription: { // MonitoringSubscription
  *     RealtimeMetricsSubscriptionConfig: { // RealtimeMetricsSubscriptionConfig
- *       RealtimeMetricsSubscriptionStatus: "Enabled" || "Disabled", // required
+ *       RealtimeMetricsSubscriptionStatus: 'Enabled' || 'Disabled', // required
  *     },
  *   },
  * };
  * const command = new CreateMonitoringSubscriptionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateMonitoringSubscriptionResult
+ *   MonitoringSubscription: { // MonitoringSubscription
+ *     RealtimeMetricsSubscriptionConfig: { // RealtimeMetricsSubscriptionConfig
+ *       RealtimeMetricsSubscriptionStatus: 'Enabled' || 'Disabled', // required
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateMonitoringSubscriptionCommandInput - {@link CreateMonitoringSubscriptionCommandInput}
@@ -77,6 +86,8 @@ export interface CreateMonitoringSubscriptionCommandOutput
  * @throws {@link UnsupportedOperation} (client fault)
  *  <p>This operation is not supported in this region.</p>
  *
+ * @throws {@link CloudFrontServiceException}
+ * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
  */
 export class CreateMonitoringSubscriptionCommand extends $Command<

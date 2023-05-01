@@ -37,16 +37,26 @@ export interface DeleteParametersCommandOutput extends DeleteParametersResult, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMClient, DeleteParametersCommand } from "@aws-sdk/client-ssm"; // ES Modules import
- * // const { SSMClient, DeleteParametersCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * import { SSMClient, DeleteParametersCommand } from '@aws-sdk/client-ssm'; // ES Modules import
+ * // const { SSMClient, DeleteParametersCommand } = require('@aws-sdk/client-ssm'); // CommonJS import
  * const client = new SSMClient(config);
  * const input = { // DeleteParametersRequest
  *   Names: [ // ParameterNameList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new DeleteParametersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteParametersResult
+ *   DeletedParameters: [ // ParameterNameList
+ *     'STRING_VALUE',
+ *   ],
+ *   InvalidParameters: [
+ *     'STRING_VALUE',
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DeleteParametersCommandInput - {@link DeleteParametersCommandInput}
@@ -58,6 +68,8 @@ export interface DeleteParametersCommandOutput extends DeleteParametersResult, _
  * @throws {@link InternalServerError} (server fault)
  *  <p>An error occurred on the server side.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class DeleteParametersCommand extends $Command<

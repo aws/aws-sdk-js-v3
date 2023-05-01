@@ -36,26 +36,31 @@ export interface StartPipelineExecutionCommandOutput extends StartPipelineExecut
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, StartPipelineExecutionCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, StartPipelineExecutionCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, StartPipelineExecutionCommand } from '@aws-sdk/client-sagemaker'; // ES Modules import
+ * // const { SageMakerClient, StartPipelineExecutionCommand } = require('@aws-sdk/client-sagemaker'); // CommonJS import
  * const client = new SageMakerClient(config);
  * const input = { // StartPipelineExecutionRequest
- *   PipelineName: "STRING_VALUE", // required
- *   PipelineExecutionDisplayName: "STRING_VALUE",
+ *   PipelineName: 'STRING_VALUE', // required
+ *   PipelineExecutionDisplayName: 'STRING_VALUE',
  *   PipelineParameters: [ // ParameterList
  *     { // Parameter
- *       Name: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Name: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
- *   PipelineExecutionDescription: "STRING_VALUE",
- *   ClientRequestToken: "STRING_VALUE", // required
+ *   PipelineExecutionDescription: 'STRING_VALUE',
+ *   ClientRequestToken: 'STRING_VALUE', // required
  *   ParallelismConfiguration: { // ParallelismConfiguration
- *     MaxParallelExecutionSteps: Number("int"), // required
+ *     MaxParallelExecutionSteps: Number('int'), // required
  *   },
  * };
  * const command = new StartPipelineExecutionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartPipelineExecutionResponse
+ *   PipelineExecutionArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param StartPipelineExecutionCommandInput - {@link StartPipelineExecutionCommandInput}
@@ -71,6 +76,8 @@ export interface StartPipelineExecutionCommandOutput extends StartPipelineExecut
  * @throws {@link ResourceNotFound} (client fault)
  *  <p>Resource being access is not found.</p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class StartPipelineExecutionCommand extends $Command<

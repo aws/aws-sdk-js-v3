@@ -38,16 +38,28 @@ export interface ListRumMetricsDestinationsCommandOutput extends ListRumMetricsD
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RUMClient, ListRumMetricsDestinationsCommand } from "@aws-sdk/client-rum"; // ES Modules import
- * // const { RUMClient, ListRumMetricsDestinationsCommand } = require("@aws-sdk/client-rum"); // CommonJS import
+ * import { RUMClient, ListRumMetricsDestinationsCommand } from '@aws-sdk/client-rum'; // ES Modules import
+ * // const { RUMClient, ListRumMetricsDestinationsCommand } = require('@aws-sdk/client-rum'); // CommonJS import
  * const client = new RUMClient(config);
  * const input = { // ListRumMetricsDestinationsRequest
- *   AppMonitorName: "STRING_VALUE", // required
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   AppMonitorName: 'STRING_VALUE', // required
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListRumMetricsDestinationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListRumMetricsDestinationsResponse
+ *   Destinations: [ // MetricDestinationSummaryList
+ *     { // MetricDestinationSummary
+ *       Destination: 'STRING_VALUE',
+ *       DestinationArn: 'STRING_VALUE',
+ *       IamRoleArn: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListRumMetricsDestinationsCommandInput - {@link ListRumMetricsDestinationsCommandInput}
@@ -68,6 +80,8 @@ export interface ListRumMetricsDestinationsCommandOutput extends ListRumMetricsD
  * @throws {@link ValidationException} (client fault)
  *  <p>One of the arguments for the request is not valid.</p>
  *
+ * @throws {@link RUMServiceException}
+ * <p>Base exception class for all service exceptions from RUM service.</p>
  *
  */
 export class ListRumMetricsDestinationsCommand extends $Command<

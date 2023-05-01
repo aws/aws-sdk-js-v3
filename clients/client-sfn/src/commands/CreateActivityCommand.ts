@@ -52,20 +52,26 @@ export interface CreateActivityCommandOutput extends CreateActivityOutput, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SFNClient, CreateActivityCommand } from "@aws-sdk/client-sfn"; // ES Modules import
- * // const { SFNClient, CreateActivityCommand } = require("@aws-sdk/client-sfn"); // CommonJS import
+ * import { SFNClient, CreateActivityCommand } from '@aws-sdk/client-sfn'; // ES Modules import
+ * // const { SFNClient, CreateActivityCommand } = require('@aws-sdk/client-sfn'); // CommonJS import
  * const client = new SFNClient(config);
  * const input = { // CreateActivityInput
- *   name: "STRING_VALUE", // required
+ *   name: 'STRING_VALUE', // required
  *   tags: [ // TagList
  *     { // Tag
- *       key: "STRING_VALUE",
- *       value: "STRING_VALUE",
+ *       key: 'STRING_VALUE',
+ *       value: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new CreateActivityCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateActivityOutput
+ *   activityArn: 'STRING_VALUE', // required
+ *   creationDate: new Date('TIMESTAMP'), // required
+ * };
+ *
  * ```
  *
  * @param CreateActivityCommandInput - {@link CreateActivityCommandInput}
@@ -85,6 +91,8 @@ export interface CreateActivityCommandOutput extends CreateActivityOutput, __Met
  *  <p>You've exceeded the number of tags allowed for a resource. See the <a href="https://docs.aws.amazon.com/step-functions/latest/dg/limits.html"> Limits Topic</a> in the
  *       Step Functions Developer Guide.</p>
  *
+ * @throws {@link SFNServiceException}
+ * <p>Base exception class for all service exceptions from SFN service.</p>
  *
  */
 export class CreateActivityCommand extends $Command<

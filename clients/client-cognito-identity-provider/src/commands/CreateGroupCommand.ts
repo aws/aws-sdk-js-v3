@@ -42,18 +42,31 @@ export interface CreateGroupCommandOutput extends CreateGroupResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CognitoIdentityProviderClient, CreateGroupCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
- * // const { CognitoIdentityProviderClient, CreateGroupCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
+ * import { CognitoIdentityProviderClient, CreateGroupCommand } from '@aws-sdk/client-cognito-identity-provider'; // ES Modules import
+ * // const { CognitoIdentityProviderClient, CreateGroupCommand } = require('@aws-sdk/client-cognito-identity-provider'); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
  * const input = { // CreateGroupRequest
- *   GroupName: "STRING_VALUE", // required
- *   UserPoolId: "STRING_VALUE", // required
- *   Description: "STRING_VALUE",
- *   RoleArn: "STRING_VALUE",
- *   Precedence: Number("int"),
+ *   GroupName: 'STRING_VALUE', // required
+ *   UserPoolId: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE',
+ *   RoleArn: 'STRING_VALUE',
+ *   Precedence: Number('int'),
  * };
  * const command = new CreateGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateGroupResponse
+ *   Group: { // GroupType
+ *     GroupName: 'STRING_VALUE',
+ *     UserPoolId: 'STRING_VALUE',
+ *     Description: 'STRING_VALUE',
+ *     RoleArn: 'STRING_VALUE',
+ *     Precedence: Number('int'),
+ *     LastModifiedDate: new Date('TIMESTAMP'),
+ *     CreationDate: new Date('TIMESTAMP'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateGroupCommandInput - {@link CreateGroupCommandInput}
@@ -88,6 +101,8 @@ export interface CreateGroupCommandOutput extends CreateGroupResponse, __Metadat
  *  <p>This exception is thrown when the user has made too many requests for a given
  *             operation.</p>
  *
+ * @throws {@link CognitoIdentityProviderServiceException}
+ * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
  */
 export class CreateGroupCommand extends $Command<

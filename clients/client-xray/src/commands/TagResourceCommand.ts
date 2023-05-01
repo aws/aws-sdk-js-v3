@@ -36,20 +36,23 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { XRayClient, TagResourceCommand } from "@aws-sdk/client-xray"; // ES Modules import
- * // const { XRayClient, TagResourceCommand } = require("@aws-sdk/client-xray"); // CommonJS import
+ * import { XRayClient, TagResourceCommand } from '@aws-sdk/client-xray'; // ES Modules import
+ * // const { XRayClient, TagResourceCommand } = require('@aws-sdk/client-xray'); // CommonJS import
  * const client = new XRayClient(config);
  * const input = { // TagResourceRequest
- *   ResourceARN: "STRING_VALUE", // required
+ *   ResourceARN: 'STRING_VALUE', // required
  *   Tags: [ // TagList // required
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param TagResourceCommandInput - {@link TagResourceCommandInput}
@@ -71,6 +74,8 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @throws {@link TooManyTagsException} (client fault)
  *  <p>You have exceeded the maximum number of tags you can apply to this resource.</p>
  *
+ * @throws {@link XRayServiceException}
+ * <p>Base exception class for all service exceptions from XRay service.</p>
  *
  */
 export class TagResourceCommand extends $Command<

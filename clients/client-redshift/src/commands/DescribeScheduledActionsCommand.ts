@@ -37,28 +37,64 @@ export interface DescribeScheduledActionsCommandOutput extends ScheduledActionsM
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RedshiftClient, DescribeScheduledActionsCommand } from "@aws-sdk/client-redshift"; // ES Modules import
- * // const { RedshiftClient, DescribeScheduledActionsCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * import { RedshiftClient, DescribeScheduledActionsCommand } from '@aws-sdk/client-redshift'; // ES Modules import
+ * // const { RedshiftClient, DescribeScheduledActionsCommand } = require('@aws-sdk/client-redshift'); // CommonJS import
  * const client = new RedshiftClient(config);
  * const input = { // DescribeScheduledActionsMessage
- *   ScheduledActionName: "STRING_VALUE",
- *   TargetActionType: "ResizeCluster" || "PauseCluster" || "ResumeCluster",
- *   StartTime: new Date("TIMESTAMP"),
- *   EndTime: new Date("TIMESTAMP"),
+ *   ScheduledActionName: 'STRING_VALUE',
+ *   TargetActionType: 'ResizeCluster' || 'PauseCluster' || 'ResumeCluster',
+ *   StartTime: new Date('TIMESTAMP'),
+ *   EndTime: new Date('TIMESTAMP'),
  *   Active: true || false,
  *   Filters: [ // ScheduledActionFilterList
  *     { // ScheduledActionFilter
- *       Name: "cluster-identifier" || "iam-role", // required
+ *       Name: 'cluster-identifier' || 'iam-role', // required
  *       Values: [ // ValueStringList // required
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
- *   Marker: "STRING_VALUE",
- *   MaxRecords: Number("int"),
+ *   Marker: 'STRING_VALUE',
+ *   MaxRecords: Number('int'),
  * };
  * const command = new DescribeScheduledActionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ScheduledActionsMessage
+ *   Marker: 'STRING_VALUE',
+ *   ScheduledActions: [ // ScheduledActionList
+ *     { // ScheduledAction
+ *       ScheduledActionName: 'STRING_VALUE',
+ *       TargetAction: { // ScheduledActionType
+ *         ResizeCluster: { // ResizeClusterMessage
+ *           ClusterIdentifier: 'STRING_VALUE', // required
+ *           ClusterType: 'STRING_VALUE',
+ *           NodeType: 'STRING_VALUE',
+ *           NumberOfNodes: Number('int'),
+ *           Classic: true || false,
+ *           ReservedNodeId: 'STRING_VALUE',
+ *           TargetReservedNodeOfferingId: 'STRING_VALUE',
+ *         },
+ *         PauseCluster: { // PauseClusterMessage
+ *           ClusterIdentifier: 'STRING_VALUE', // required
+ *         },
+ *         ResumeCluster: { // ResumeClusterMessage
+ *           ClusterIdentifier: 'STRING_VALUE', // required
+ *         },
+ *       },
+ *       Schedule: 'STRING_VALUE',
+ *       IamRole: 'STRING_VALUE',
+ *       ScheduledActionDescription: 'STRING_VALUE',
+ *       State: 'ACTIVE' || 'DISABLED',
+ *       NextInvocations: [ // ScheduledActionTimeList
+ *         new Date('TIMESTAMP'),
+ *       ],
+ *       StartTime: new Date('TIMESTAMP'),
+ *       EndTime: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeScheduledActionsCommandInput - {@link DescribeScheduledActionsCommandInput}
@@ -73,6 +109,8 @@ export interface DescribeScheduledActionsCommandOutput extends ScheduledActionsM
  * @throws {@link UnauthorizedOperation} (client fault)
  *  <p>Your account is not authorized to perform the requested operation.</p>
  *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class DescribeScheduledActionsCommand extends $Command<

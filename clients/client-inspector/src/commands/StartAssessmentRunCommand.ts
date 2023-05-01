@@ -38,15 +38,20 @@ export interface StartAssessmentRunCommandOutput extends StartAssessmentRunRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { InspectorClient, StartAssessmentRunCommand } from "@aws-sdk/client-inspector"; // ES Modules import
- * // const { InspectorClient, StartAssessmentRunCommand } = require("@aws-sdk/client-inspector"); // CommonJS import
+ * import { InspectorClient, StartAssessmentRunCommand } from '@aws-sdk/client-inspector'; // ES Modules import
+ * // const { InspectorClient, StartAssessmentRunCommand } = require('@aws-sdk/client-inspector'); // CommonJS import
  * const client = new InspectorClient(config);
  * const input = { // StartAssessmentRunRequest
- *   assessmentTemplateArn: "STRING_VALUE", // required
- *   assessmentRunName: "STRING_VALUE",
+ *   assessmentTemplateArn: 'STRING_VALUE', // required
+ *   assessmentRunName: 'STRING_VALUE',
  * };
  * const command = new StartAssessmentRunCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartAssessmentRunResponse
+ *   assessmentRunArn: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param StartAssessmentRunCommandInput - {@link StartAssessmentRunCommandInput}
@@ -84,6 +89,8 @@ export interface StartAssessmentRunCommandOutput extends StartAssessmentRunRespo
  * @throws {@link ServiceTemporarilyUnavailableException} (server fault)
  *  <p>The serice is temporary unavailable.</p>
  *
+ * @throws {@link InspectorServiceException}
+ * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
  * @example Start assessment run
  * ```javascript

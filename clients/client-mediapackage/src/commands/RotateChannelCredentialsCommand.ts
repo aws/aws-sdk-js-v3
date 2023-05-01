@@ -38,14 +38,41 @@ export interface RotateChannelCredentialsCommandOutput extends RotateChannelCred
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MediaPackageClient, RotateChannelCredentialsCommand } from "@aws-sdk/client-mediapackage"; // ES Modules import
- * // const { MediaPackageClient, RotateChannelCredentialsCommand } = require("@aws-sdk/client-mediapackage"); // CommonJS import
+ * import { MediaPackageClient, RotateChannelCredentialsCommand } from '@aws-sdk/client-mediapackage'; // ES Modules import
+ * // const { MediaPackageClient, RotateChannelCredentialsCommand } = require('@aws-sdk/client-mediapackage'); // CommonJS import
  * const client = new MediaPackageClient(config);
  * const input = { // RotateChannelCredentialsRequest
- *   Id: "STRING_VALUE", // required
+ *   Id: 'STRING_VALUE', // required
  * };
  * const command = new RotateChannelCredentialsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // RotateChannelCredentialsResponse
+ *   Arn: 'STRING_VALUE',
+ *   CreatedAt: 'STRING_VALUE',
+ *   Description: 'STRING_VALUE',
+ *   EgressAccessLogs: { // EgressAccessLogs
+ *     LogGroupName: 'STRING_VALUE',
+ *   },
+ *   HlsIngest: { // HlsIngest
+ *     IngestEndpoints: [ // __listOfIngestEndpoint
+ *       { // IngestEndpoint
+ *         Id: 'STRING_VALUE',
+ *         Password: 'STRING_VALUE',
+ *         Url: 'STRING_VALUE',
+ *         Username: 'STRING_VALUE',
+ *       },
+ *     ],
+ *   },
+ *   Id: 'STRING_VALUE',
+ *   IngressAccessLogs: { // IngressAccessLogs
+ *     LogGroupName: 'STRING_VALUE',
+ *   },
+ *   Tags: { // Tags
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param RotateChannelCredentialsCommandInput - {@link RotateChannelCredentialsCommandInput}
@@ -72,6 +99,8 @@ export interface RotateChannelCredentialsCommandOutput extends RotateChannelCred
  * @throws {@link UnprocessableEntityException} (client fault)
  *  The parameters sent in the request are not valid.
  *
+ * @throws {@link MediaPackageServiceException}
+ * <p>Base exception class for all service exceptions from MediaPackage service.</p>
  *
  */
 export class RotateChannelCredentialsCommand extends $Command<

@@ -38,15 +38,18 @@ export interface DeleteWarmPoolCommandOutput extends DeleteWarmPoolAnswer, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AutoScalingClient, DeleteWarmPoolCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
- * // const { AutoScalingClient, DeleteWarmPoolCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
+ * import { AutoScalingClient, DeleteWarmPoolCommand } from '@aws-sdk/client-auto-scaling'; // ES Modules import
+ * // const { AutoScalingClient, DeleteWarmPoolCommand } = require('@aws-sdk/client-auto-scaling'); // CommonJS import
  * const client = new AutoScalingClient(config);
  * const input = { // DeleteWarmPoolType
- *   AutoScalingGroupName: "STRING_VALUE", // required
+ *   AutoScalingGroupName: 'STRING_VALUE', // required
  *   ForceDelete: true || false,
  * };
  * const command = new DeleteWarmPoolCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteWarmPoolCommandInput - {@link DeleteWarmPoolCommandInput}
@@ -72,6 +75,8 @@ export interface DeleteWarmPoolCommandOutput extends DeleteWarmPoolAnswer, __Met
  *  <p>The operation can't be performed because there are scaling activities in
  *             progress.</p>
  *
+ * @throws {@link AutoScalingServiceException}
+ * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
  */
 export class DeleteWarmPoolCommand extends $Command<

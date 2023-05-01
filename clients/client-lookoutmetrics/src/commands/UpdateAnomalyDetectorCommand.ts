@@ -36,19 +36,24 @@ export interface UpdateAnomalyDetectorCommandOutput extends UpdateAnomalyDetecto
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LookoutMetricsClient, UpdateAnomalyDetectorCommand } from "@aws-sdk/client-lookoutmetrics"; // ES Modules import
- * // const { LookoutMetricsClient, UpdateAnomalyDetectorCommand } = require("@aws-sdk/client-lookoutmetrics"); // CommonJS import
+ * import { LookoutMetricsClient, UpdateAnomalyDetectorCommand } from '@aws-sdk/client-lookoutmetrics'; // ES Modules import
+ * // const { LookoutMetricsClient, UpdateAnomalyDetectorCommand } = require('@aws-sdk/client-lookoutmetrics'); // CommonJS import
  * const client = new LookoutMetricsClient(config);
  * const input = { // UpdateAnomalyDetectorRequest
- *   AnomalyDetectorArn: "STRING_VALUE", // required
- *   KmsKeyArn: "STRING_VALUE",
- *   AnomalyDetectorDescription: "STRING_VALUE",
+ *   AnomalyDetectorArn: 'STRING_VALUE', // required
+ *   KmsKeyArn: 'STRING_VALUE',
+ *   AnomalyDetectorDescription: 'STRING_VALUE',
  *   AnomalyDetectorConfig: { // AnomalyDetectorConfig
- *     AnomalyDetectorFrequency: "STRING_VALUE",
+ *     AnomalyDetectorFrequency: 'STRING_VALUE',
  *   },
  * };
  * const command = new UpdateAnomalyDetectorCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateAnomalyDetectorResponse
+ *   AnomalyDetectorArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateAnomalyDetectorCommandInput - {@link UpdateAnomalyDetectorCommandInput}
@@ -73,6 +78,8 @@ export interface UpdateAnomalyDetectorCommandOutput extends UpdateAnomalyDetecto
  *  <p>The input fails to satisfy the constraints specified by the AWS service. Check your input values and try
  *       again.</p>
  *
+ * @throws {@link LookoutMetricsServiceException}
+ * <p>Base exception class for all service exceptions from LookoutMetrics service.</p>
  *
  */
 export class UpdateAnomalyDetectorCommand extends $Command<

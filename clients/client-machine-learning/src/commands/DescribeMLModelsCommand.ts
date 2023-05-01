@@ -36,24 +36,59 @@ export interface DescribeMLModelsCommandOutput extends DescribeMLModelsOutput, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MachineLearningClient, DescribeMLModelsCommand } from "@aws-sdk/client-machine-learning"; // ES Modules import
- * // const { MachineLearningClient, DescribeMLModelsCommand } = require("@aws-sdk/client-machine-learning"); // CommonJS import
+ * import { MachineLearningClient, DescribeMLModelsCommand } from '@aws-sdk/client-machine-learning'; // ES Modules import
+ * // const { MachineLearningClient, DescribeMLModelsCommand } = require('@aws-sdk/client-machine-learning'); // CommonJS import
  * const client = new MachineLearningClient(config);
  * const input = { // DescribeMLModelsInput
- *   FilterVariable: "STRING_VALUE",
- *   EQ: "STRING_VALUE",
- *   GT: "STRING_VALUE",
- *   LT: "STRING_VALUE",
- *   GE: "STRING_VALUE",
- *   LE: "STRING_VALUE",
- *   NE: "STRING_VALUE",
- *   Prefix: "STRING_VALUE",
- *   SortOrder: "STRING_VALUE",
- *   NextToken: "STRING_VALUE",
- *   Limit: Number("int"),
+ *   FilterVariable: 'STRING_VALUE',
+ *   EQ: 'STRING_VALUE',
+ *   GT: 'STRING_VALUE',
+ *   LT: 'STRING_VALUE',
+ *   GE: 'STRING_VALUE',
+ *   LE: 'STRING_VALUE',
+ *   NE: 'STRING_VALUE',
+ *   Prefix: 'STRING_VALUE',
+ *   SortOrder: 'STRING_VALUE',
+ *   NextToken: 'STRING_VALUE',
+ *   Limit: Number('int'),
  * };
  * const command = new DescribeMLModelsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeMLModelsOutput
+ *   Results: [ // MLModels
+ *     { // MLModel
+ *       MLModelId: 'STRING_VALUE',
+ *       TrainingDataSourceId: 'STRING_VALUE',
+ *       CreatedByIamUser: 'STRING_VALUE',
+ *       CreatedAt: new Date('TIMESTAMP'),
+ *       LastUpdatedAt: new Date('TIMESTAMP'),
+ *       Name: 'STRING_VALUE',
+ *       Status: 'STRING_VALUE',
+ *       SizeInBytes: Number('long'),
+ *       EndpointInfo: { // RealtimeEndpointInfo
+ *         PeakRequestsPerSecond: Number('int'),
+ *         CreatedAt: new Date('TIMESTAMP'),
+ *         EndpointUrl: 'STRING_VALUE',
+ *         EndpointStatus: 'STRING_VALUE',
+ *       },
+ *       TrainingParameters: { // TrainingParameters
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *       InputDataLocationS3: 'STRING_VALUE',
+ *       Algorithm: 'STRING_VALUE',
+ *       MLModelType: 'STRING_VALUE',
+ *       ScoreThreshold: Number('float'),
+ *       ScoreThresholdLastUpdatedAt: new Date('TIMESTAMP'),
+ *       Message: 'STRING_VALUE',
+ *       ComputeTime: Number('long'),
+ *       FinishedAt: new Date('TIMESTAMP'),
+ *       StartedAt: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeMLModelsCommandInput - {@link DescribeMLModelsCommandInput}
@@ -68,6 +103,8 @@ export interface DescribeMLModelsCommandOutput extends DescribeMLModelsOutput, _
  * @throws {@link InvalidInputException} (client fault)
  *  <p>An error on the client occurred. Typically, the cause is an invalid input value.</p>
  *
+ * @throws {@link MachineLearningServiceException}
+ * <p>Base exception class for all service exceptions from MachineLearning service.</p>
  *
  */
 export class DescribeMLModelsCommand extends $Command<

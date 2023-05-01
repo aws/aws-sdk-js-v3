@@ -49,16 +49,31 @@ export interface GetIdentityNotificationAttributesCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SESClient, GetIdentityNotificationAttributesCommand } from "@aws-sdk/client-ses"; // ES Modules import
- * // const { SESClient, GetIdentityNotificationAttributesCommand } = require("@aws-sdk/client-ses"); // CommonJS import
+ * import { SESClient, GetIdentityNotificationAttributesCommand } from '@aws-sdk/client-ses'; // ES Modules import
+ * // const { SESClient, GetIdentityNotificationAttributesCommand } = require('@aws-sdk/client-ses'); // CommonJS import
  * const client = new SESClient(config);
  * const input = { // GetIdentityNotificationAttributesRequest
  *   Identities: [ // IdentityList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new GetIdentityNotificationAttributesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetIdentityNotificationAttributesResponse
+ *   NotificationAttributes: { // NotificationAttributes // required
+ *     '<keys>': { // IdentityNotificationAttributes
+ *       BounceTopic: 'STRING_VALUE', // required
+ *       ComplaintTopic: 'STRING_VALUE', // required
+ *       DeliveryTopic: 'STRING_VALUE', // required
+ *       ForwardingEnabled: true || false, // required
+ *       HeadersInBounceNotificationsEnabled: true || false,
+ *       HeadersInComplaintNotificationsEnabled: true || false,
+ *       HeadersInDeliveryNotificationsEnabled: true || false,
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetIdentityNotificationAttributesCommandInput - {@link GetIdentityNotificationAttributesCommandInput}
@@ -67,6 +82,8 @@ export interface GetIdentityNotificationAttributesCommandOutput
  * @see {@link GetIdentityNotificationAttributesCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
+ * @throws {@link SESServiceException}
+ * <p>Base exception class for all service exceptions from SES service.</p>
  *
  * @example GetIdentityNotificationAttributes
  * ```javascript

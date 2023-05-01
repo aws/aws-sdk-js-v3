@@ -49,26 +49,42 @@ export interface UpdateMaintenanceWindowCommandOutput extends UpdateMaintenanceW
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMClient, UpdateMaintenanceWindowCommand } from "@aws-sdk/client-ssm"; // ES Modules import
- * // const { SSMClient, UpdateMaintenanceWindowCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * import { SSMClient, UpdateMaintenanceWindowCommand } from '@aws-sdk/client-ssm'; // ES Modules import
+ * // const { SSMClient, UpdateMaintenanceWindowCommand } = require('@aws-sdk/client-ssm'); // CommonJS import
  * const client = new SSMClient(config);
  * const input = { // UpdateMaintenanceWindowRequest
- *   WindowId: "STRING_VALUE", // required
- *   Name: "STRING_VALUE",
- *   Description: "STRING_VALUE",
- *   StartDate: "STRING_VALUE",
- *   EndDate: "STRING_VALUE",
- *   Schedule: "STRING_VALUE",
- *   ScheduleTimezone: "STRING_VALUE",
- *   ScheduleOffset: Number("int"),
- *   Duration: Number("int"),
- *   Cutoff: Number("int"),
+ *   WindowId: 'STRING_VALUE', // required
+ *   Name: 'STRING_VALUE',
+ *   Description: 'STRING_VALUE',
+ *   StartDate: 'STRING_VALUE',
+ *   EndDate: 'STRING_VALUE',
+ *   Schedule: 'STRING_VALUE',
+ *   ScheduleTimezone: 'STRING_VALUE',
+ *   ScheduleOffset: Number('int'),
+ *   Duration: Number('int'),
+ *   Cutoff: Number('int'),
  *   AllowUnassociatedTargets: true || false,
  *   Enabled: true || false,
  *   Replace: true || false,
  * };
  * const command = new UpdateMaintenanceWindowCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateMaintenanceWindowResult
+ *   WindowId: 'STRING_VALUE',
+ *   Name: 'STRING_VALUE',
+ *   Description: 'STRING_VALUE',
+ *   StartDate: 'STRING_VALUE',
+ *   EndDate: 'STRING_VALUE',
+ *   Schedule: 'STRING_VALUE',
+ *   ScheduleTimezone: 'STRING_VALUE',
+ *   ScheduleOffset: Number('int'),
+ *   Duration: Number('int'),
+ *   Cutoff: Number('int'),
+ *   AllowUnassociatedTargets: true || false,
+ *   Enabled: true || false,
+ * };
+ *
  * ```
  *
  * @param UpdateMaintenanceWindowCommandInput - {@link UpdateMaintenanceWindowCommandInput}
@@ -86,6 +102,8 @@ export interface UpdateMaintenanceWindowCommandOutput extends UpdateMaintenanceW
  * @throws {@link InternalServerError} (server fault)
  *  <p>An error occurred on the server side.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class UpdateMaintenanceWindowCommand extends $Command<

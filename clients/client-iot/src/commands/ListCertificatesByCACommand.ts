@@ -37,17 +37,31 @@ export interface ListCertificatesByCACommandOutput extends ListCertificatesByCAR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTClient, ListCertificatesByCACommand } from "@aws-sdk/client-iot"; // ES Modules import
- * // const { IoTClient, ListCertificatesByCACommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * import { IoTClient, ListCertificatesByCACommand } from '@aws-sdk/client-iot'; // ES Modules import
+ * // const { IoTClient, ListCertificatesByCACommand } = require('@aws-sdk/client-iot'); // CommonJS import
  * const client = new IoTClient(config);
  * const input = { // ListCertificatesByCARequest
- *   caCertificateId: "STRING_VALUE", // required
- *   pageSize: Number("int"),
- *   marker: "STRING_VALUE",
+ *   caCertificateId: 'STRING_VALUE', // required
+ *   pageSize: Number('int'),
+ *   marker: 'STRING_VALUE',
  *   ascendingOrder: true || false,
  * };
  * const command = new ListCertificatesByCACommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListCertificatesByCAResponse
+ *   certificates: [ // Certificates
+ *     { // Certificate
+ *       certificateArn: 'STRING_VALUE',
+ *       certificateId: 'STRING_VALUE',
+ *       status: 'ACTIVE' || 'INACTIVE' || 'REVOKED' || 'PENDING_TRANSFER' || 'REGISTER_INACTIVE' || 'PENDING_ACTIVATION',
+ *       certificateMode: 'DEFAULT' || 'SNI_ONLY',
+ *       creationDate: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   nextMarker: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListCertificatesByCACommandInput - {@link ListCertificatesByCACommandInput}
@@ -71,6 +85,8 @@ export interface ListCertificatesByCACommandOutput extends ListCertificatesByCAR
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this operation.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class ListCertificatesByCACommand extends $Command<

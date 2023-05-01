@@ -45,18 +45,26 @@ export interface ListPermissionSetsProvisionedToAccountCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSOAdminClient, ListPermissionSetsProvisionedToAccountCommand } from "@aws-sdk/client-sso-admin"; // ES Modules import
- * // const { SSOAdminClient, ListPermissionSetsProvisionedToAccountCommand } = require("@aws-sdk/client-sso-admin"); // CommonJS import
+ * import { SSOAdminClient, ListPermissionSetsProvisionedToAccountCommand } from '@aws-sdk/client-sso-admin'; // ES Modules import
+ * // const { SSOAdminClient, ListPermissionSetsProvisionedToAccountCommand } = require('@aws-sdk/client-sso-admin'); // CommonJS import
  * const client = new SSOAdminClient(config);
  * const input = { // ListPermissionSetsProvisionedToAccountRequest
- *   InstanceArn: "STRING_VALUE", // required
- *   AccountId: "STRING_VALUE", // required
- *   ProvisioningStatus: "LATEST_PERMISSION_SET_PROVISIONED" || "LATEST_PERMISSION_SET_NOT_PROVISIONED",
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   InstanceArn: 'STRING_VALUE', // required
+ *   AccountId: 'STRING_VALUE', // required
+ *   ProvisioningStatus: 'LATEST_PERMISSION_SET_PROVISIONED' || 'LATEST_PERMISSION_SET_NOT_PROVISIONED',
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListPermissionSetsProvisionedToAccountCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListPermissionSetsProvisionedToAccountResponse
+ *   NextToken: 'STRING_VALUE',
+ *   PermissionSets: [ // PermissionSetList
+ *     'STRING_VALUE',
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListPermissionSetsProvisionedToAccountCommandInput - {@link ListPermissionSetsProvisionedToAccountCommandInput}
@@ -82,6 +90,8 @@ export interface ListPermissionSetsProvisionedToAccountCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The request failed because it contains a syntax error.</p>
  *
+ * @throws {@link SSOAdminServiceException}
+ * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
  */
 export class ListPermissionSetsProvisionedToAccountCommand extends $Command<

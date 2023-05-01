@@ -37,17 +37,24 @@ export interface PutRuntimeManagementConfigCommandOutput extends PutRuntimeManag
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LambdaClient, PutRuntimeManagementConfigCommand } from "@aws-sdk/client-lambda"; // ES Modules import
- * // const { LambdaClient, PutRuntimeManagementConfigCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
+ * import { LambdaClient, PutRuntimeManagementConfigCommand } from '@aws-sdk/client-lambda'; // ES Modules import
+ * // const { LambdaClient, PutRuntimeManagementConfigCommand } = require('@aws-sdk/client-lambda'); // CommonJS import
  * const client = new LambdaClient(config);
  * const input = { // PutRuntimeManagementConfigRequest
- *   FunctionName: "STRING_VALUE", // required
- *   Qualifier: "STRING_VALUE",
- *   UpdateRuntimeOn: "Auto" || "Manual" || "FunctionUpdate", // required
- *   RuntimeVersionArn: "STRING_VALUE",
+ *   FunctionName: 'STRING_VALUE', // required
+ *   Qualifier: 'STRING_VALUE',
+ *   UpdateRuntimeOn: 'Auto' || 'Manual' || 'FunctionUpdate', // required
+ *   RuntimeVersionArn: 'STRING_VALUE',
  * };
  * const command = new PutRuntimeManagementConfigCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutRuntimeManagementConfigResponse
+ *   UpdateRuntimeOn: 'Auto' || 'Manual' || 'FunctionUpdate', // required
+ *   FunctionArn: 'STRING_VALUE', // required
+ *   RuntimeVersionArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param PutRuntimeManagementConfigCommandInput - {@link PutRuntimeManagementConfigCommandInput}
@@ -71,6 +78,8 @@ export interface PutRuntimeManagementConfigCommandOutput extends PutRuntimeManag
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>The request throughput limit was exceeded. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests">Lambda quotas</a>.</p>
  *
+ * @throws {@link LambdaServiceException}
+ * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
  */
 export class PutRuntimeManagementConfigCommand extends $Command<

@@ -39,62 +39,62 @@ export interface CreateWorkflowCommandOutput extends CreateWorkflowResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { TransferClient, CreateWorkflowCommand } from "@aws-sdk/client-transfer"; // ES Modules import
- * // const { TransferClient, CreateWorkflowCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
+ * import { TransferClient, CreateWorkflowCommand } from '@aws-sdk/client-transfer'; // ES Modules import
+ * // const { TransferClient, CreateWorkflowCommand } = require('@aws-sdk/client-transfer'); // CommonJS import
  * const client = new TransferClient(config);
  * const input = { // CreateWorkflowRequest
- *   Description: "STRING_VALUE",
+ *   Description: 'STRING_VALUE',
  *   Steps: [ // WorkflowSteps // required
  *     { // WorkflowStep
- *       Type: "COPY" || "CUSTOM" || "TAG" || "DELETE" || "DECRYPT",
+ *       Type: 'COPY' || 'CUSTOM' || 'TAG' || 'DELETE' || 'DECRYPT',
  *       CopyStepDetails: { // CopyStepDetails
- *         Name: "STRING_VALUE",
+ *         Name: 'STRING_VALUE',
  *         DestinationFileLocation: { // InputFileLocation
  *           S3FileLocation: { // S3InputFileLocation
- *             Bucket: "STRING_VALUE",
- *             Key: "STRING_VALUE",
+ *             Bucket: 'STRING_VALUE',
+ *             Key: 'STRING_VALUE',
  *           },
  *           EfsFileLocation: { // EfsFileLocation
- *             FileSystemId: "STRING_VALUE",
- *             Path: "STRING_VALUE",
+ *             FileSystemId: 'STRING_VALUE',
+ *             Path: 'STRING_VALUE',
  *           },
  *         },
- *         OverwriteExisting: "TRUE" || "FALSE",
- *         SourceFileLocation: "STRING_VALUE",
+ *         OverwriteExisting: 'TRUE' || 'FALSE',
+ *         SourceFileLocation: 'STRING_VALUE',
  *       },
  *       CustomStepDetails: { // CustomStepDetails
- *         Name: "STRING_VALUE",
- *         Target: "STRING_VALUE",
- *         TimeoutSeconds: Number("int"),
- *         SourceFileLocation: "STRING_VALUE",
+ *         Name: 'STRING_VALUE',
+ *         Target: 'STRING_VALUE',
+ *         TimeoutSeconds: Number('int'),
+ *         SourceFileLocation: 'STRING_VALUE',
  *       },
  *       DeleteStepDetails: { // DeleteStepDetails
- *         Name: "STRING_VALUE",
- *         SourceFileLocation: "STRING_VALUE",
+ *         Name: 'STRING_VALUE',
+ *         SourceFileLocation: 'STRING_VALUE',
  *       },
  *       TagStepDetails: { // TagStepDetails
- *         Name: "STRING_VALUE",
+ *         Name: 'STRING_VALUE',
  *         Tags: [ // S3Tags
  *           { // S3Tag
- *             Key: "STRING_VALUE", // required
- *             Value: "STRING_VALUE", // required
+ *             Key: 'STRING_VALUE', // required
+ *             Value: 'STRING_VALUE', // required
  *           },
  *         ],
- *         SourceFileLocation: "STRING_VALUE",
+ *         SourceFileLocation: 'STRING_VALUE',
  *       },
  *       DecryptStepDetails: { // DecryptStepDetails
- *         Name: "STRING_VALUE",
- *         Type: "PGP", // required
- *         SourceFileLocation: "STRING_VALUE",
- *         OverwriteExisting: "TRUE" || "FALSE",
+ *         Name: 'STRING_VALUE',
+ *         Type: 'PGP', // required
+ *         SourceFileLocation: 'STRING_VALUE',
+ *         OverwriteExisting: 'TRUE' || 'FALSE',
  *         DestinationFileLocation: {
  *           S3FileLocation: {
- *             Bucket: "STRING_VALUE",
- *             Key: "STRING_VALUE",
+ *             Bucket: 'STRING_VALUE',
+ *             Key: 'STRING_VALUE',
  *           },
  *           EfsFileLocation: {
- *             FileSystemId: "STRING_VALUE",
- *             Path: "STRING_VALUE",
+ *             FileSystemId: 'STRING_VALUE',
+ *             Path: 'STRING_VALUE',
  *           },
  *         },
  *       },
@@ -102,55 +102,55 @@ export interface CreateWorkflowCommandOutput extends CreateWorkflowResponse, __M
  *   ],
  *   OnExceptionSteps: [
  *     {
- *       Type: "COPY" || "CUSTOM" || "TAG" || "DELETE" || "DECRYPT",
+ *       Type: 'COPY' || 'CUSTOM' || 'TAG' || 'DELETE' || 'DECRYPT',
  *       CopyStepDetails: {
- *         Name: "STRING_VALUE",
+ *         Name: 'STRING_VALUE',
  *         DestinationFileLocation: {
  *           S3FileLocation: {
- *             Bucket: "STRING_VALUE",
- *             Key: "STRING_VALUE",
+ *             Bucket: 'STRING_VALUE',
+ *             Key: 'STRING_VALUE',
  *           },
  *           EfsFileLocation: {
- *             FileSystemId: "STRING_VALUE",
- *             Path: "STRING_VALUE",
+ *             FileSystemId: 'STRING_VALUE',
+ *             Path: 'STRING_VALUE',
  *           },
  *         },
- *         OverwriteExisting: "TRUE" || "FALSE",
- *         SourceFileLocation: "STRING_VALUE",
+ *         OverwriteExisting: 'TRUE' || 'FALSE',
+ *         SourceFileLocation: 'STRING_VALUE',
  *       },
  *       CustomStepDetails: {
- *         Name: "STRING_VALUE",
- *         Target: "STRING_VALUE",
- *         TimeoutSeconds: Number("int"),
- *         SourceFileLocation: "STRING_VALUE",
+ *         Name: 'STRING_VALUE',
+ *         Target: 'STRING_VALUE',
+ *         TimeoutSeconds: Number('int'),
+ *         SourceFileLocation: 'STRING_VALUE',
  *       },
  *       DeleteStepDetails: {
- *         Name: "STRING_VALUE",
- *         SourceFileLocation: "STRING_VALUE",
+ *         Name: 'STRING_VALUE',
+ *         SourceFileLocation: 'STRING_VALUE',
  *       },
  *       TagStepDetails: {
- *         Name: "STRING_VALUE",
+ *         Name: 'STRING_VALUE',
  *         Tags: [
  *           {
- *             Key: "STRING_VALUE", // required
- *             Value: "STRING_VALUE", // required
+ *             Key: 'STRING_VALUE', // required
+ *             Value: 'STRING_VALUE', // required
  *           },
  *         ],
- *         SourceFileLocation: "STRING_VALUE",
+ *         SourceFileLocation: 'STRING_VALUE',
  *       },
  *       DecryptStepDetails: {
- *         Name: "STRING_VALUE",
- *         Type: "PGP", // required
- *         SourceFileLocation: "STRING_VALUE",
- *         OverwriteExisting: "TRUE" || "FALSE",
+ *         Name: 'STRING_VALUE',
+ *         Type: 'PGP', // required
+ *         SourceFileLocation: 'STRING_VALUE',
+ *         OverwriteExisting: 'TRUE' || 'FALSE',
  *         DestinationFileLocation: {
  *           S3FileLocation: {
- *             Bucket: "STRING_VALUE",
- *             Key: "STRING_VALUE",
+ *             Bucket: 'STRING_VALUE',
+ *             Key: 'STRING_VALUE',
  *           },
  *           EfsFileLocation: {
- *             FileSystemId: "STRING_VALUE",
- *             Path: "STRING_VALUE",
+ *             FileSystemId: 'STRING_VALUE',
+ *             Path: 'STRING_VALUE',
  *           },
  *         },
  *       },
@@ -158,13 +158,18 @@ export interface CreateWorkflowCommandOutput extends CreateWorkflowResponse, __M
  *   ],
  *   Tags: [ // Tags
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreateWorkflowCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateWorkflowResponse
+ *   WorkflowId: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param CreateWorkflowCommandInput - {@link CreateWorkflowCommandInput}
@@ -191,6 +196,8 @@ export interface CreateWorkflowCommandOutput extends CreateWorkflowResponse, __M
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
  *
+ * @throws {@link TransferServiceException}
+ * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
  */
 export class CreateWorkflowCommand extends $Command<

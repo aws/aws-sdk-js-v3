@@ -47,28 +47,33 @@ export interface CreateAgentCommandOutput extends CreateAgentResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DataSyncClient, CreateAgentCommand } from "@aws-sdk/client-datasync"; // ES Modules import
- * // const { DataSyncClient, CreateAgentCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
+ * import { DataSyncClient, CreateAgentCommand } from '@aws-sdk/client-datasync'; // ES Modules import
+ * // const { DataSyncClient, CreateAgentCommand } = require('@aws-sdk/client-datasync'); // CommonJS import
  * const client = new DataSyncClient(config);
  * const input = { // CreateAgentRequest
- *   ActivationKey: "STRING_VALUE", // required
- *   AgentName: "STRING_VALUE",
+ *   ActivationKey: 'STRING_VALUE', // required
+ *   AgentName: 'STRING_VALUE',
  *   Tags: [ // InputTagList
  *     { // TagListEntry
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
- *   VpcEndpointId: "STRING_VALUE",
+ *   VpcEndpointId: 'STRING_VALUE',
  *   SubnetArns: [ // PLSubnetArnList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   SecurityGroupArns: [ // PLSecurityGroupArnList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new CreateAgentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateAgentResponse
+ *   AgentArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateAgentCommandInput - {@link CreateAgentCommandInput}
@@ -84,6 +89,8 @@ export interface CreateAgentCommandOutput extends CreateAgentResponse, __Metadat
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception is thrown when the client submits a malformed request.</p>
  *
+ * @throws {@link DataSyncServiceException}
+ * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
  */
 export class CreateAgentCommand extends $Command<

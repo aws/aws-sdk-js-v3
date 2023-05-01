@@ -40,35 +40,93 @@ export interface UpdateNetworkSitePlanCommandOutput extends UpdateNetworkSiteRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PrivateNetworksClient, UpdateNetworkSitePlanCommand } from "@aws-sdk/client-privatenetworks"; // ES Modules import
- * // const { PrivateNetworksClient, UpdateNetworkSitePlanCommand } = require("@aws-sdk/client-privatenetworks"); // CommonJS import
+ * import { PrivateNetworksClient, UpdateNetworkSitePlanCommand } from '@aws-sdk/client-privatenetworks'; // ES Modules import
+ * // const { PrivateNetworksClient, UpdateNetworkSitePlanCommand } = require('@aws-sdk/client-privatenetworks'); // CommonJS import
  * const client = new PrivateNetworksClient(config);
  * const input = { // UpdateNetworkSitePlanRequest
- *   networkSiteArn: "STRING_VALUE", // required
+ *   networkSiteArn: 'STRING_VALUE', // required
  *   pendingPlan: { // SitePlan
  *     resourceDefinitions: [ // NetworkResourceDefinitions
  *       { // NetworkResourceDefinition
- *         type: "STRING_VALUE", // required
+ *         type: 'STRING_VALUE', // required
  *         options: [ // Options
  *           { // NameValuePair
- *             name: "STRING_VALUE", // required
- *             value: "STRING_VALUE",
+ *             name: 'STRING_VALUE', // required
+ *             value: 'STRING_VALUE',
  *           },
  *         ],
- *         count: Number("int"), // required
+ *         count: Number('int'), // required
  *       },
  *     ],
  *     options: [
  *       {
- *         name: "STRING_VALUE", // required
- *         value: "STRING_VALUE",
+ *         name: 'STRING_VALUE', // required
+ *         value: 'STRING_VALUE',
  *       },
  *     ],
  *   },
- *   clientToken: "STRING_VALUE",
+ *   clientToken: 'STRING_VALUE',
  * };
  * const command = new UpdateNetworkSitePlanCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateNetworkSiteResponse
+ *   networkSite: { // NetworkSite
+ *     networkSiteArn: 'STRING_VALUE', // required
+ *     networkSiteName: 'STRING_VALUE', // required
+ *     description: 'STRING_VALUE',
+ *     status: 'STRING_VALUE', // required
+ *     statusReason: 'STRING_VALUE',
+ *     networkArn: 'STRING_VALUE', // required
+ *     pendingPlan: { // SitePlan
+ *       resourceDefinitions: [ // NetworkResourceDefinitions
+ *         { // NetworkResourceDefinition
+ *           type: 'STRING_VALUE', // required
+ *           options: [ // Options
+ *             { // NameValuePair
+ *               name: 'STRING_VALUE', // required
+ *               value: 'STRING_VALUE',
+ *             },
+ *           ],
+ *           count: Number('int'), // required
+ *         },
+ *       ],
+ *       options: [
+ *         {
+ *           name: 'STRING_VALUE', // required
+ *           value: 'STRING_VALUE',
+ *         },
+ *       ],
+ *     },
+ *     currentPlan: {
+ *       resourceDefinitions: [
+ *         {
+ *           type: 'STRING_VALUE', // required
+ *           options: [
+ *             {
+ *               name: 'STRING_VALUE', // required
+ *               value: 'STRING_VALUE',
+ *             },
+ *           ],
+ *           count: Number('int'), // required
+ *         },
+ *       ],
+ *       options: [
+ *         {
+ *           name: 'STRING_VALUE', // required
+ *           value: 'STRING_VALUE',
+ *         },
+ *       ],
+ *     },
+ *     createdAt: new Date('TIMESTAMP'),
+ *     availabilityZone: 'STRING_VALUE',
+ *     availabilityZoneId: 'STRING_VALUE',
+ *   },
+ *   tags: { // TagMap
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateNetworkSitePlanCommandInput - {@link UpdateNetworkSitePlanCommandInput}
@@ -86,6 +144,8 @@ export interface UpdateNetworkSitePlanCommandOutput extends UpdateNetworkSiteRes
  * @throws {@link ValidationException} (client fault)
  *  <p>The request failed validation.</p>
  *
+ * @throws {@link PrivateNetworksServiceException}
+ * <p>Base exception class for all service exceptions from PrivateNetworks service.</p>
  *
  */
 export class UpdateNetworkSitePlanCommand extends $Command<

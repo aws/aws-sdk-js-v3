@@ -47,14 +47,35 @@ export interface GetResourceEvaluationSummaryCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConfigServiceClient, GetResourceEvaluationSummaryCommand } from "@aws-sdk/client-config-service"; // ES Modules import
- * // const { ConfigServiceClient, GetResourceEvaluationSummaryCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
+ * import { ConfigServiceClient, GetResourceEvaluationSummaryCommand } from '@aws-sdk/client-config-service'; // ES Modules import
+ * // const { ConfigServiceClient, GetResourceEvaluationSummaryCommand } = require('@aws-sdk/client-config-service'); // CommonJS import
  * const client = new ConfigServiceClient(config);
  * const input = { // GetResourceEvaluationSummaryRequest
- *   ResourceEvaluationId: "STRING_VALUE", // required
+ *   ResourceEvaluationId: 'STRING_VALUE', // required
  * };
  * const command = new GetResourceEvaluationSummaryCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetResourceEvaluationSummaryResponse
+ *   ResourceEvaluationId: 'STRING_VALUE',
+ *   EvaluationMode: 'DETECTIVE' || 'PROACTIVE',
+ *   EvaluationStatus: { // EvaluationStatus
+ *     Status: 'IN_PROGRESS' || 'FAILED' || 'SUCCEEDED', // required
+ *     FailureReason: 'STRING_VALUE',
+ *   },
+ *   EvaluationStartTimestamp: new Date('TIMESTAMP'),
+ *   Compliance: 'COMPLIANT' || 'NON_COMPLIANT' || 'NOT_APPLICABLE' || 'INSUFFICIENT_DATA',
+ *   EvaluationContext: { // EvaluationContext
+ *     EvaluationContextIdentifier: 'STRING_VALUE',
+ *   },
+ *   ResourceDetails: { // ResourceDetails
+ *     ResourceId: 'STRING_VALUE', // required
+ *     ResourceType: 'STRING_VALUE', // required
+ *     ResourceConfiguration: 'STRING_VALUE', // required
+ *     ResourceConfigurationSchemaType: 'CFN_RESOURCE_SCHEMA',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetResourceEvaluationSummaryCommandInput - {@link GetResourceEvaluationSummaryCommandInput}
@@ -66,6 +87,8 @@ export interface GetResourceEvaluationSummaryCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>You have specified a resource that does not exist.</p>
  *
+ * @throws {@link ConfigServiceServiceException}
+ * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
  */
 export class GetResourceEvaluationSummaryCommand extends $Command<

@@ -36,14 +36,17 @@ export interface DeleteStudioLifecycleConfigCommandOutput extends __MetadataBear
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, DeleteStudioLifecycleConfigCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, DeleteStudioLifecycleConfigCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, DeleteStudioLifecycleConfigCommand } from '@aws-sdk/client-sagemaker'; // ES Modules import
+ * // const { SageMakerClient, DeleteStudioLifecycleConfigCommand } = require('@aws-sdk/client-sagemaker'); // CommonJS import
  * const client = new SageMakerClient(config);
  * const input = { // DeleteStudioLifecycleConfigRequest
- *   StudioLifecycleConfigName: "STRING_VALUE", // required
+ *   StudioLifecycleConfigName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteStudioLifecycleConfigCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteStudioLifecycleConfigCommandInput - {@link DeleteStudioLifecycleConfigCommandInput}
@@ -58,6 +61,8 @@ export interface DeleteStudioLifecycleConfigCommandOutput extends __MetadataBear
  * @throws {@link ResourceNotFound} (client fault)
  *  <p>Resource being access is not found.</p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class DeleteStudioLifecycleConfigCommand extends $Command<

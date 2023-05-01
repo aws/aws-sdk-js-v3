@@ -48,17 +48,24 @@ export interface DetachLoadBalancerFromSubnetsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElasticLoadBalancingClient, DetachLoadBalancerFromSubnetsCommand } from "@aws-sdk/client-elastic-load-balancing"; // ES Modules import
- * // const { ElasticLoadBalancingClient, DetachLoadBalancerFromSubnetsCommand } = require("@aws-sdk/client-elastic-load-balancing"); // CommonJS import
+ * import { ElasticLoadBalancingClient, DetachLoadBalancerFromSubnetsCommand } from '@aws-sdk/client-elastic-load-balancing'; // ES Modules import
+ * // const { ElasticLoadBalancingClient, DetachLoadBalancerFromSubnetsCommand } = require('@aws-sdk/client-elastic-load-balancing'); // CommonJS import
  * const client = new ElasticLoadBalancingClient(config);
  * const input = { // DetachLoadBalancerFromSubnetsInput
- *   LoadBalancerName: "STRING_VALUE", // required
+ *   LoadBalancerName: 'STRING_VALUE', // required
  *   Subnets: [ // Subnets // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new DetachLoadBalancerFromSubnetsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DetachLoadBalancerFromSubnetsOutput
+ *   Subnets: [ // Subnets
+ *     'STRING_VALUE',
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DetachLoadBalancerFromSubnetsCommandInput - {@link DetachLoadBalancerFromSubnetsCommandInput}
@@ -73,6 +80,8 @@ export interface DetachLoadBalancerFromSubnetsCommandOutput
  * @throws {@link InvalidConfigurationRequestException} (client fault)
  *  <p>The requested configuration change is not valid.</p>
  *
+ * @throws {@link ElasticLoadBalancingServiceException}
+ * <p>Base exception class for all service exceptions from ElasticLoadBalancing service.</p>
  *
  * @example To detach a load balancer from a subnet
  * ```javascript

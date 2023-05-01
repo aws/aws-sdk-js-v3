@@ -52,40 +52,63 @@ export interface CreateApplicationVersionCommandOutput extends ApplicationVersio
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElasticBeanstalkClient, CreateApplicationVersionCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
- * // const { ElasticBeanstalkClient, CreateApplicationVersionCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
+ * import { ElasticBeanstalkClient, CreateApplicationVersionCommand } from '@aws-sdk/client-elastic-beanstalk'; // ES Modules import
+ * // const { ElasticBeanstalkClient, CreateApplicationVersionCommand } = require('@aws-sdk/client-elastic-beanstalk'); // CommonJS import
  * const client = new ElasticBeanstalkClient(config);
  * const input = { // CreateApplicationVersionMessage
- *   ApplicationName: "STRING_VALUE", // required
- *   VersionLabel: "STRING_VALUE", // required
- *   Description: "STRING_VALUE",
+ *   ApplicationName: 'STRING_VALUE', // required
+ *   VersionLabel: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE',
  *   SourceBuildInformation: { // SourceBuildInformation
- *     SourceType: "Git" || "Zip", // required
- *     SourceRepository: "CodeCommit" || "S3", // required
- *     SourceLocation: "STRING_VALUE", // required
+ *     SourceType: 'Git' || 'Zip', // required
+ *     SourceRepository: 'CodeCommit' || 'S3', // required
+ *     SourceLocation: 'STRING_VALUE', // required
  *   },
  *   SourceBundle: { // S3Location
- *     S3Bucket: "STRING_VALUE",
- *     S3Key: "STRING_VALUE",
+ *     S3Bucket: 'STRING_VALUE',
+ *     S3Key: 'STRING_VALUE',
  *   },
  *   BuildConfiguration: { // BuildConfiguration
- *     ArtifactName: "STRING_VALUE",
- *     CodeBuildServiceRole: "STRING_VALUE", // required
- *     ComputeType: "BUILD_GENERAL1_SMALL" || "BUILD_GENERAL1_MEDIUM" || "BUILD_GENERAL1_LARGE",
- *     Image: "STRING_VALUE", // required
- *     TimeoutInMinutes: Number("int"),
+ *     ArtifactName: 'STRING_VALUE',
+ *     CodeBuildServiceRole: 'STRING_VALUE', // required
+ *     ComputeType: 'BUILD_GENERAL1_SMALL' || 'BUILD_GENERAL1_MEDIUM' || 'BUILD_GENERAL1_LARGE',
+ *     Image: 'STRING_VALUE', // required
+ *     TimeoutInMinutes: Number('int'),
  *   },
  *   AutoCreateApplication: true || false,
  *   Process: true || false,
  *   Tags: [ // Tags
  *     { // Tag
- *       Key: "STRING_VALUE",
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new CreateApplicationVersionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ApplicationVersionDescriptionMessage
+ *   ApplicationVersion: { // ApplicationVersionDescription
+ *     ApplicationVersionArn: 'STRING_VALUE',
+ *     ApplicationName: 'STRING_VALUE',
+ *     Description: 'STRING_VALUE',
+ *     VersionLabel: 'STRING_VALUE',
+ *     SourceBuildInformation: { // SourceBuildInformation
+ *       SourceType: 'Git' || 'Zip', // required
+ *       SourceRepository: 'CodeCommit' || 'S3', // required
+ *       SourceLocation: 'STRING_VALUE', // required
+ *     },
+ *     BuildArn: 'STRING_VALUE',
+ *     SourceBundle: { // S3Location
+ *       S3Bucket: 'STRING_VALUE',
+ *       S3Key: 'STRING_VALUE',
+ *     },
+ *     DateCreated: new Date('TIMESTAMP'),
+ *     DateUpdated: new Date('TIMESTAMP'),
+ *     Status: 'Processed' || 'Unprocessed' || 'Failed' || 'Processing' || 'Building',
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateApplicationVersionCommandInput - {@link CreateApplicationVersionCommandInput}
@@ -122,6 +145,8 @@ export interface CreateApplicationVersionCommandOutput extends ApplicationVersio
  * @throws {@link TooManyApplicationVersionsException} (client fault)
  *  <p>The specified account has reached its limit of application versions.</p>
  *
+ * @throws {@link ElasticBeanstalkServiceException}
+ * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
  * @example To create a new application
  * ```javascript

@@ -45,17 +45,29 @@ export interface ListStackInstancesForProvisionedProductCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ServiceCatalogClient, ListStackInstancesForProvisionedProductCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
- * // const { ServiceCatalogClient, ListStackInstancesForProvisionedProductCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
+ * import { ServiceCatalogClient, ListStackInstancesForProvisionedProductCommand } from '@aws-sdk/client-service-catalog'; // ES Modules import
+ * // const { ServiceCatalogClient, ListStackInstancesForProvisionedProductCommand } = require('@aws-sdk/client-service-catalog'); // CommonJS import
  * const client = new ServiceCatalogClient(config);
  * const input = { // ListStackInstancesForProvisionedProductInput
- *   AcceptLanguage: "STRING_VALUE",
- *   ProvisionedProductId: "STRING_VALUE", // required
- *   PageToken: "STRING_VALUE",
- *   PageSize: Number("int"),
+ *   AcceptLanguage: 'STRING_VALUE',
+ *   ProvisionedProductId: 'STRING_VALUE', // required
+ *   PageToken: 'STRING_VALUE',
+ *   PageSize: Number('int'),
  * };
  * const command = new ListStackInstancesForProvisionedProductCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListStackInstancesForProvisionedProductOutput
+ *   StackInstances: [ // StackInstances
+ *     { // StackInstance
+ *       Account: 'STRING_VALUE',
+ *       Region: 'STRING_VALUE',
+ *       StackInstanceStatus: 'CURRENT' || 'OUTDATED' || 'INOPERABLE',
+ *     },
+ *   ],
+ *   NextPageToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListStackInstancesForProvisionedProductCommandInput - {@link ListStackInstancesForProvisionedProductCommandInput}
@@ -70,6 +82,8 @@ export interface ListStackInstancesForProvisionedProductCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link ServiceCatalogServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
  */
 export class ListStackInstancesForProvisionedProductCommand extends $Command<

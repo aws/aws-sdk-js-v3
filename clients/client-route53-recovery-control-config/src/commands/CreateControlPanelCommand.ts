@@ -40,19 +40,31 @@ export interface CreateControlPanelCommandOutput extends CreateControlPanelRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Route53RecoveryControlConfigClient, CreateControlPanelCommand } from "@aws-sdk/client-route53-recovery-control-config"; // ES Modules import
- * // const { Route53RecoveryControlConfigClient, CreateControlPanelCommand } = require("@aws-sdk/client-route53-recovery-control-config"); // CommonJS import
+ * import { Route53RecoveryControlConfigClient, CreateControlPanelCommand } from '@aws-sdk/client-route53-recovery-control-config'; // ES Modules import
+ * // const { Route53RecoveryControlConfigClient, CreateControlPanelCommand } = require('@aws-sdk/client-route53-recovery-control-config'); // CommonJS import
  * const client = new Route53RecoveryControlConfigClient(config);
  * const input = { // CreateControlPanelRequest
- *   ClientToken: "STRING_VALUE",
- *   ClusterArn: "STRING_VALUE", // required
- *   ControlPanelName: "STRING_VALUE", // required
+ *   ClientToken: 'STRING_VALUE',
+ *   ClusterArn: 'STRING_VALUE', // required
+ *   ControlPanelName: 'STRING_VALUE', // required
  *   Tags: { // __mapOf__stringMin0Max256PatternS
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateControlPanelCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateControlPanelResponse
+ *   ControlPanel: { // ControlPanel
+ *     ClusterArn: 'STRING_VALUE',
+ *     ControlPanelArn: 'STRING_VALUE',
+ *     DefaultControlPanel: true || false,
+ *     Name: 'STRING_VALUE',
+ *     RoutingControlCount: Number('int'),
+ *     Status: 'PENDING' || 'DEPLOYED' || 'PENDING_DELETION',
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateControlPanelCommandInput - {@link CreateControlPanelCommandInput}
@@ -82,6 +94,8 @@ export interface CreateControlPanelCommandOutput extends CreateControlPanelRespo
  * @throws {@link ValidationException} (client fault)
  *  <p>400 response - Multiple causes. For example, you might have a malformed query string and input parameter might be out of range, or you might have used parameters together incorrectly.</p>
  *
+ * @throws {@link Route53RecoveryControlConfigServiceException}
+ * <p>Base exception class for all service exceptions from Route53RecoveryControlConfig service.</p>
  *
  */
 export class CreateControlPanelCommand extends $Command<

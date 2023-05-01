@@ -39,16 +39,19 @@ export interface UpdateAssessmentTargetCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { InspectorClient, UpdateAssessmentTargetCommand } from "@aws-sdk/client-inspector"; // ES Modules import
- * // const { InspectorClient, UpdateAssessmentTargetCommand } = require("@aws-sdk/client-inspector"); // CommonJS import
+ * import { InspectorClient, UpdateAssessmentTargetCommand } from '@aws-sdk/client-inspector'; // ES Modules import
+ * // const { InspectorClient, UpdateAssessmentTargetCommand } = require('@aws-sdk/client-inspector'); // CommonJS import
  * const client = new InspectorClient(config);
  * const input = { // UpdateAssessmentTargetRequest
- *   assessmentTargetArn: "STRING_VALUE", // required
- *   assessmentTargetName: "STRING_VALUE", // required
- *   resourceGroupArn: "STRING_VALUE",
+ *   assessmentTargetArn: 'STRING_VALUE', // required
+ *   assessmentTargetName: 'STRING_VALUE', // required
+ *   resourceGroupArn: 'STRING_VALUE',
  * };
  * const command = new UpdateAssessmentTargetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateAssessmentTargetCommandInput - {@link UpdateAssessmentTargetCommandInput}
@@ -74,6 +77,8 @@ export interface UpdateAssessmentTargetCommandOutput extends __MetadataBearer {}
  * @throws {@link ServiceTemporarilyUnavailableException} (server fault)
  *  <p>The serice is temporary unavailable.</p>
  *
+ * @throws {@link InspectorServiceException}
+ * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
  * @example Update assessment target
  * ```javascript

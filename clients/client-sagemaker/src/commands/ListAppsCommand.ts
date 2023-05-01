@@ -36,20 +36,36 @@ export interface ListAppsCommandOutput extends ListAppsResponse, __MetadataBeare
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, ListAppsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, ListAppsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, ListAppsCommand } from '@aws-sdk/client-sagemaker'; // ES Modules import
+ * // const { SageMakerClient, ListAppsCommand } = require('@aws-sdk/client-sagemaker'); // CommonJS import
  * const client = new SageMakerClient(config);
  * const input = { // ListAppsRequest
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
- *   SortOrder: "Ascending" || "Descending",
- *   SortBy: "CreationTime",
- *   DomainIdEquals: "STRING_VALUE",
- *   UserProfileNameEquals: "STRING_VALUE",
- *   SpaceNameEquals: "STRING_VALUE",
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
+ *   SortOrder: 'Ascending' || 'Descending',
+ *   SortBy: 'CreationTime',
+ *   DomainIdEquals: 'STRING_VALUE',
+ *   UserProfileNameEquals: 'STRING_VALUE',
+ *   SpaceNameEquals: 'STRING_VALUE',
  * };
  * const command = new ListAppsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListAppsResponse
+ *   Apps: [ // AppList
+ *     { // AppDetails
+ *       DomainId: 'STRING_VALUE',
+ *       UserProfileName: 'STRING_VALUE',
+ *       AppType: 'JupyterServer' || 'KernelGateway' || 'TensorBoard' || 'RStudioServerPro' || 'RSessionGateway',
+ *       AppName: 'STRING_VALUE',
+ *       Status: 'Deleted' || 'Deleting' || 'Failed' || 'InService' || 'Pending',
+ *       CreationTime: new Date('TIMESTAMP'),
+ *       SpaceName: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListAppsCommandInput - {@link ListAppsCommandInput}
@@ -58,6 +74,8 @@ export interface ListAppsCommandOutput extends ListAppsResponse, __MetadataBeare
  * @see {@link ListAppsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class ListAppsCommand extends $Command<

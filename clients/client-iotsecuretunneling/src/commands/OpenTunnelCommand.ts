@@ -42,29 +42,37 @@ export interface OpenTunnelCommandOutput extends OpenTunnelResponse, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTSecureTunnelingClient, OpenTunnelCommand } from "@aws-sdk/client-iotsecuretunneling"; // ES Modules import
- * // const { IoTSecureTunnelingClient, OpenTunnelCommand } = require("@aws-sdk/client-iotsecuretunneling"); // CommonJS import
+ * import { IoTSecureTunnelingClient, OpenTunnelCommand } from '@aws-sdk/client-iotsecuretunneling'; // ES Modules import
+ * // const { IoTSecureTunnelingClient, OpenTunnelCommand } = require('@aws-sdk/client-iotsecuretunneling'); // CommonJS import
  * const client = new IoTSecureTunnelingClient(config);
  * const input = { // OpenTunnelRequest
- *   description: "STRING_VALUE",
+ *   description: 'STRING_VALUE',
  *   tags: [ // TagList
  *     { // Tag
- *       key: "STRING_VALUE", // required
- *       value: "STRING_VALUE", // required
+ *       key: 'STRING_VALUE', // required
+ *       value: 'STRING_VALUE', // required
  *     },
  *   ],
  *   destinationConfig: { // DestinationConfig
- *     thingName: "STRING_VALUE",
+ *     thingName: 'STRING_VALUE',
  *     services: [ // ServiceList // required
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *   },
  *   timeoutConfig: { // TimeoutConfig
- *     maxLifetimeTimeoutMinutes: Number("int"),
+ *     maxLifetimeTimeoutMinutes: Number('int'),
  *   },
  * };
  * const command = new OpenTunnelCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // OpenTunnelResponse
+ *   tunnelId: 'STRING_VALUE',
+ *   tunnelArn: 'STRING_VALUE',
+ *   sourceAccessToken: 'STRING_VALUE',
+ *   destinationAccessToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param OpenTunnelCommandInput - {@link OpenTunnelCommandInput}
@@ -76,6 +84,8 @@ export interface OpenTunnelCommandOutput extends OpenTunnelResponse, __MetadataB
  * @throws {@link LimitExceededException} (client fault)
  *  <p>Thrown when a tunnel limit is exceeded.</p>
  *
+ * @throws {@link IoTSecureTunnelingServiceException}
+ * <p>Base exception class for all service exceptions from IoTSecureTunneling service.</p>
  *
  */
 export class OpenTunnelCommand extends $Command<

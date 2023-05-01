@@ -43,16 +43,25 @@ export interface ListUserPoliciesCommandOutput extends ListUserPoliciesResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IAMClient, ListUserPoliciesCommand } from "@aws-sdk/client-iam"; // ES Modules import
- * // const { IAMClient, ListUserPoliciesCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * import { IAMClient, ListUserPoliciesCommand } from '@aws-sdk/client-iam'; // ES Modules import
+ * // const { IAMClient, ListUserPoliciesCommand } = require('@aws-sdk/client-iam'); // CommonJS import
  * const client = new IAMClient(config);
  * const input = { // ListUserPoliciesRequest
- *   UserName: "STRING_VALUE", // required
- *   Marker: "STRING_VALUE",
- *   MaxItems: Number("int"),
+ *   UserName: 'STRING_VALUE', // required
+ *   Marker: 'STRING_VALUE',
+ *   MaxItems: Number('int'),
  * };
  * const command = new ListUserPoliciesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListUserPoliciesResponse
+ *   PolicyNames: [ // policyNameListType // required
+ *     'STRING_VALUE',
+ *   ],
+ *   IsTruncated: true || false,
+ *   Marker: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListUserPoliciesCommandInput - {@link ListUserPoliciesCommandInput}
@@ -69,6 +78,8 @@ export interface ListUserPoliciesCommandOutput extends ListUserPoliciesResponse,
  *  <p>The request processing has failed because of an unknown error, exception or
  *       failure.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  */
 export class ListUserPoliciesCommand extends $Command<

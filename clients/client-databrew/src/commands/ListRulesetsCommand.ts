@@ -37,16 +37,38 @@ export interface ListRulesetsCommandOutput extends ListRulesetsResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DataBrewClient, ListRulesetsCommand } from "@aws-sdk/client-databrew"; // ES Modules import
- * // const { DataBrewClient, ListRulesetsCommand } = require("@aws-sdk/client-databrew"); // CommonJS import
+ * import { DataBrewClient, ListRulesetsCommand } from '@aws-sdk/client-databrew'; // ES Modules import
+ * // const { DataBrewClient, ListRulesetsCommand } = require('@aws-sdk/client-databrew'); // CommonJS import
  * const client = new DataBrewClient(config);
  * const input = { // ListRulesetsRequest
- *   TargetArn: "STRING_VALUE",
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   TargetArn: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListRulesetsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListRulesetsResponse
+ *   Rulesets: [ // RulesetItemList // required
+ *     { // RulesetItem
+ *       AccountId: 'STRING_VALUE',
+ *       CreatedBy: 'STRING_VALUE',
+ *       CreateDate: new Date('TIMESTAMP'),
+ *       Description: 'STRING_VALUE',
+ *       LastModifiedBy: 'STRING_VALUE',
+ *       LastModifiedDate: new Date('TIMESTAMP'),
+ *       Name: 'STRING_VALUE', // required
+ *       ResourceArn: 'STRING_VALUE',
+ *       RuleCount: Number('int'),
+ *       Tags: { // TagMap
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *       TargetArn: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListRulesetsCommandInput - {@link ListRulesetsCommandInput}
@@ -61,6 +83,8 @@ export interface ListRulesetsCommandOutput extends ListRulesetsResponse, __Metad
  * @throws {@link ValidationException} (client fault)
  *  <p>The input parameters for this request failed validation.</p>
  *
+ * @throws {@link DataBrewServiceException}
+ * <p>Base exception class for all service exceptions from DataBrew service.</p>
  *
  */
 export class ListRulesetsCommand extends $Command<

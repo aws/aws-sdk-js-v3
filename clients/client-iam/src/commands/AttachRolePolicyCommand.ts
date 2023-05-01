@@ -50,15 +50,18 @@ export interface AttachRolePolicyCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IAMClient, AttachRolePolicyCommand } from "@aws-sdk/client-iam"; // ES Modules import
- * // const { IAMClient, AttachRolePolicyCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * import { IAMClient, AttachRolePolicyCommand } from '@aws-sdk/client-iam'; // ES Modules import
+ * // const { IAMClient, AttachRolePolicyCommand } = require('@aws-sdk/client-iam'); // CommonJS import
  * const client = new IAMClient(config);
  * const input = { // AttachRolePolicyRequest
- *   RoleName: "STRING_VALUE", // required
- *   PolicyArn: "STRING_VALUE", // required
+ *   RoleName: 'STRING_VALUE', // required
+ *   PolicyArn: 'STRING_VALUE', // required
  * };
  * const command = new AttachRolePolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param AttachRolePolicyCommandInput - {@link AttachRolePolicyCommandInput}
@@ -93,6 +96,8 @@ export interface AttachRolePolicyCommandOutput extends __MetadataBearer {}
  *       behalf. The error message includes the name of the service that depends on this service-linked
  *       role. You must request the change through that service.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  * @example To attach a managed policy to an IAM role
  * ```javascript

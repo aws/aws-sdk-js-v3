@@ -36,53 +36,53 @@ export interface StartAutomationExecutionCommandOutput extends StartAutomationEx
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMClient, StartAutomationExecutionCommand } from "@aws-sdk/client-ssm"; // ES Modules import
- * // const { SSMClient, StartAutomationExecutionCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * import { SSMClient, StartAutomationExecutionCommand } from '@aws-sdk/client-ssm'; // ES Modules import
+ * // const { SSMClient, StartAutomationExecutionCommand } = require('@aws-sdk/client-ssm'); // CommonJS import
  * const client = new SSMClient(config);
  * const input = { // StartAutomationExecutionRequest
- *   DocumentName: "STRING_VALUE", // required
- *   DocumentVersion: "STRING_VALUE",
+ *   DocumentName: 'STRING_VALUE', // required
+ *   DocumentVersion: 'STRING_VALUE',
  *   Parameters: { // AutomationParameterMap
- *     "<keys>": [ // AutomationParameterValueList
- *       "STRING_VALUE",
+ *     '<keys>': [ // AutomationParameterValueList
+ *       'STRING_VALUE',
  *     ],
  *   },
- *   ClientToken: "STRING_VALUE",
- *   Mode: "Auto" || "Interactive",
- *   TargetParameterName: "STRING_VALUE",
+ *   ClientToken: 'STRING_VALUE',
+ *   Mode: 'Auto' || 'Interactive',
+ *   TargetParameterName: 'STRING_VALUE',
  *   Targets: [ // Targets
  *     { // Target
- *       Key: "STRING_VALUE",
+ *       Key: 'STRING_VALUE',
  *       Values: [ // TargetValues
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
  *   TargetMaps: [ // TargetMaps
  *     { // TargetMap
- *       "<keys>": [ // TargetMapValueList
- *         "STRING_VALUE",
+ *       '<keys>': [ // TargetMapValueList
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
- *   MaxConcurrency: "STRING_VALUE",
- *   MaxErrors: "STRING_VALUE",
+ *   MaxConcurrency: 'STRING_VALUE',
+ *   MaxErrors: 'STRING_VALUE',
  *   TargetLocations: [ // TargetLocations
  *     { // TargetLocation
  *       Accounts: [ // Accounts
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *       Regions: [ // Regions
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
- *       TargetLocationMaxConcurrency: "STRING_VALUE",
- *       TargetLocationMaxErrors: "STRING_VALUE",
- *       ExecutionRoleName: "STRING_VALUE",
+ *       TargetLocationMaxConcurrency: 'STRING_VALUE',
+ *       TargetLocationMaxErrors: 'STRING_VALUE',
+ *       ExecutionRoleName: 'STRING_VALUE',
  *       TargetLocationAlarmConfiguration: { // AlarmConfiguration
  *         IgnorePollAlarmFailure: true || false,
  *         Alarms: [ // AlarmList // required
  *           { // Alarm
- *             Name: "STRING_VALUE", // required
+ *             Name: 'STRING_VALUE', // required
  *           },
  *         ],
  *       },
@@ -90,21 +90,26 @@ export interface StartAutomationExecutionCommandOutput extends StartAutomationEx
  *   ],
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  *   AlarmConfiguration: {
  *     IgnorePollAlarmFailure: true || false,
  *     Alarms: [ // required
  *       {
- *         Name: "STRING_VALUE", // required
+ *         Name: 'STRING_VALUE', // required
  *       },
  *     ],
  *   },
  * };
  * const command = new StartAutomationExecutionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartAutomationExecutionResult
+ *   AutomationExecutionId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param StartAutomationExecutionCommandInput - {@link StartAutomationExecutionCommandInput}
@@ -139,6 +144,8 @@ export interface StartAutomationExecutionCommandOutput extends StartAutomationEx
  *  <p>The target isn't valid or doesn't exist. It might not be configured for Systems Manager or you might
  *    not have permission to perform the operation.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class StartAutomationExecutionCommand extends $Command<

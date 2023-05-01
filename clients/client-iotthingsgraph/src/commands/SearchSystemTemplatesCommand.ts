@@ -38,23 +38,36 @@ export interface SearchSystemTemplatesCommandOutput extends SearchSystemTemplate
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTThingsGraphClient, SearchSystemTemplatesCommand } from "@aws-sdk/client-iotthingsgraph"; // ES Modules import
- * // const { IoTThingsGraphClient, SearchSystemTemplatesCommand } = require("@aws-sdk/client-iotthingsgraph"); // CommonJS import
+ * import { IoTThingsGraphClient, SearchSystemTemplatesCommand } from '@aws-sdk/client-iotthingsgraph'; // ES Modules import
+ * // const { IoTThingsGraphClient, SearchSystemTemplatesCommand } = require('@aws-sdk/client-iotthingsgraph'); // CommonJS import
  * const client = new IoTThingsGraphClient(config);
  * const input = { // SearchSystemTemplatesRequest
  *   filters: [ // SystemTemplateFilters
  *     { // SystemTemplateFilter
- *       name: "STRING_VALUE", // required
+ *       name: 'STRING_VALUE', // required
  *       value: [ // SystemTemplateFilterValues // required
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new SearchSystemTemplatesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SearchSystemTemplatesResponse
+ *   summaries: [ // SystemTemplateSummaries
+ *     { // SystemTemplateSummary
+ *       id: 'STRING_VALUE',
+ *       arn: 'STRING_VALUE',
+ *       revisionNumber: Number('long'),
+ *       createdAt: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param SearchSystemTemplatesCommandInput - {@link SearchSystemTemplatesCommandInput}
@@ -72,6 +85,8 @@ export interface SearchSystemTemplatesCommandOutput extends SearchSystemTemplate
  * @throws {@link ThrottlingException} (client fault)
  *  <p></p>
  *
+ * @throws {@link IoTThingsGraphServiceException}
+ * <p>Base exception class for all service exceptions from IoTThingsGraph service.</p>
  *
  */
 export class SearchSystemTemplatesCommand extends $Command<

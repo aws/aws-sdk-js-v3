@@ -36,15 +36,39 @@ export interface GetPermissionCommandOutput extends GetPermissionResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RAMClient, GetPermissionCommand } from "@aws-sdk/client-ram"; // ES Modules import
- * // const { RAMClient, GetPermissionCommand } = require("@aws-sdk/client-ram"); // CommonJS import
+ * import { RAMClient, GetPermissionCommand } from '@aws-sdk/client-ram'; // ES Modules import
+ * // const { RAMClient, GetPermissionCommand } = require('@aws-sdk/client-ram'); // CommonJS import
  * const client = new RAMClient(config);
  * const input = { // GetPermissionRequest
- *   permissionArn: "STRING_VALUE", // required
- *   permissionVersion: Number("int"),
+ *   permissionArn: 'STRING_VALUE', // required
+ *   permissionVersion: Number('int'),
  * };
  * const command = new GetPermissionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetPermissionResponse
+ *   permission: { // ResourceSharePermissionDetail
+ *     arn: 'STRING_VALUE',
+ *     version: 'STRING_VALUE',
+ *     defaultVersion: true || false,
+ *     name: 'STRING_VALUE',
+ *     resourceType: 'STRING_VALUE',
+ *     permission: 'STRING_VALUE',
+ *     creationTime: new Date('TIMESTAMP'),
+ *     lastUpdatedTime: new Date('TIMESTAMP'),
+ *     isResourceTypeDefault: true || false,
+ *     permissionType: 'CUSTOMER_MANAGED' || 'AWS_MANAGED',
+ *     featureSet: 'CREATED_FROM_POLICY' || 'PROMOTING_TO_STANDARD' || 'STANDARD',
+ *     status: 'ATTACHABLE' || 'UNATTACHABLE' || 'DELETING' || 'DELETED',
+ *     tags: [ // TagList
+ *       { // Tag
+ *         key: 'STRING_VALUE',
+ *         value: 'STRING_VALUE',
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetPermissionCommandInput - {@link GetPermissionCommandInput}
@@ -73,6 +97,8 @@ export interface GetPermissionCommandOutput extends GetPermissionResponse, __Met
  * @throws {@link UnknownResourceException} (client fault)
  *  <p>The operation failed because a specified resource couldn't be found.</p>
  *
+ * @throws {@link RAMServiceException}
+ * <p>Base exception class for all service exceptions from RAM service.</p>
  *
  */
 export class GetPermissionCommand extends $Command<

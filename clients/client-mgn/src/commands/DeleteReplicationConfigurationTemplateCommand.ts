@@ -45,14 +45,17 @@ export interface DeleteReplicationConfigurationTemplateCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MgnClient, DeleteReplicationConfigurationTemplateCommand } from "@aws-sdk/client-mgn"; // ES Modules import
- * // const { MgnClient, DeleteReplicationConfigurationTemplateCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
+ * import { MgnClient, DeleteReplicationConfigurationTemplateCommand } from '@aws-sdk/client-mgn'; // ES Modules import
+ * // const { MgnClient, DeleteReplicationConfigurationTemplateCommand } = require('@aws-sdk/client-mgn'); // CommonJS import
  * const client = new MgnClient(config);
  * const input = { // DeleteReplicationConfigurationTemplateRequest
- *   replicationConfigurationTemplateID: "STRING_VALUE", // required
+ *   replicationConfigurationTemplateID: 'STRING_VALUE', // required
  * };
  * const command = new DeleteReplicationConfigurationTemplateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteReplicationConfigurationTemplateCommandInput - {@link DeleteReplicationConfigurationTemplateCommandInput}
@@ -70,6 +73,8 @@ export interface DeleteReplicationConfigurationTemplateCommandOutput
  * @throws {@link UninitializedAccountException} (client fault)
  *  <p>Uninitialized account exception.</p>
  *
+ * @throws {@link MgnServiceException}
+ * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
  */
 export class DeleteReplicationConfigurationTemplateCommand extends $Command<

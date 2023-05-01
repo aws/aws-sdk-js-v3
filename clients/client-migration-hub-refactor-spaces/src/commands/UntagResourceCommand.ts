@@ -46,17 +46,20 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MigrationHubRefactorSpacesClient, UntagResourceCommand } from "@aws-sdk/client-migration-hub-refactor-spaces"; // ES Modules import
- * // const { MigrationHubRefactorSpacesClient, UntagResourceCommand } = require("@aws-sdk/client-migration-hub-refactor-spaces"); // CommonJS import
+ * import { MigrationHubRefactorSpacesClient, UntagResourceCommand } from '@aws-sdk/client-migration-hub-refactor-spaces'; // ES Modules import
+ * // const { MigrationHubRefactorSpacesClient, UntagResourceCommand } = require('@aws-sdk/client-migration-hub-refactor-spaces'); // CommonJS import
  * const client = new MigrationHubRefactorSpacesClient(config);
  * const input = { // UntagResourceRequest
- *   ResourceArn: "STRING_VALUE", // required
+ *   ResourceArn: 'STRING_VALUE', // required
  *   TagKeys: [ // TagKeys // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new UntagResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UntagResourceCommandInput - {@link UntagResourceCommandInput}
@@ -75,6 +78,8 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  *  <p>The input does not satisfy the constraints specified by an Amazon Web Service.
  *     </p>
  *
+ * @throws {@link MigrationHubRefactorSpacesServiceException}
+ * <p>Base exception class for all service exceptions from MigrationHubRefactorSpaces service.</p>
  *
  */
 export class UntagResourceCommand extends $Command<

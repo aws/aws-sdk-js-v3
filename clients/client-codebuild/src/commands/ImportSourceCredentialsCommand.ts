@@ -41,18 +41,23 @@ export interface ImportSourceCredentialsCommandOutput extends ImportSourceCreden
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeBuildClient, ImportSourceCredentialsCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
- * // const { CodeBuildClient, ImportSourceCredentialsCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import
+ * import { CodeBuildClient, ImportSourceCredentialsCommand } from '@aws-sdk/client-codebuild'; // ES Modules import
+ * // const { CodeBuildClient, ImportSourceCredentialsCommand } = require('@aws-sdk/client-codebuild'); // CommonJS import
  * const client = new CodeBuildClient(config);
  * const input = { // ImportSourceCredentialsInput
- *   username: "STRING_VALUE",
- *   token: "STRING_VALUE", // required
- *   serverType: "STRING_VALUE", // required
- *   authType: "STRING_VALUE", // required
+ *   username: 'STRING_VALUE',
+ *   token: 'STRING_VALUE', // required
+ *   serverType: 'STRING_VALUE', // required
+ *   authType: 'STRING_VALUE', // required
  *   shouldOverwrite: true || false,
  * };
  * const command = new ImportSourceCredentialsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ImportSourceCredentialsOutput
+ *   arn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ImportSourceCredentialsCommandInput - {@link ImportSourceCredentialsCommandInput}
@@ -71,6 +76,8 @@ export interface ImportSourceCredentialsCommandOutput extends ImportSourceCreden
  *  <p>The specified Amazon Web Services resource cannot be created, because an Amazon Web Services resource with the same
  *             settings already exists.</p>
  *
+ * @throws {@link CodeBuildServiceException}
+ * <p>Base exception class for all service exceptions from CodeBuild service.</p>
  *
  */
 export class ImportSourceCredentialsCommand extends $Command<

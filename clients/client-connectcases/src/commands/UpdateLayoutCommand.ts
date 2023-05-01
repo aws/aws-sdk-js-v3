@@ -44,23 +44,23 @@ export interface UpdateLayoutCommandOutput extends UpdateLayoutResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectCasesClient, UpdateLayoutCommand } from "@aws-sdk/client-connectcases"; // ES Modules import
- * // const { ConnectCasesClient, UpdateLayoutCommand } = require("@aws-sdk/client-connectcases"); // CommonJS import
+ * import { ConnectCasesClient, UpdateLayoutCommand } from '@aws-sdk/client-connectcases'; // ES Modules import
+ * // const { ConnectCasesClient, UpdateLayoutCommand } = require('@aws-sdk/client-connectcases'); // CommonJS import
  * const client = new ConnectCasesClient(config);
  * const input = { // UpdateLayoutRequest
- *   domainId: "STRING_VALUE", // required
- *   layoutId: "STRING_VALUE", // required
- *   name: "STRING_VALUE",
+ *   domainId: 'STRING_VALUE', // required
+ *   layoutId: 'STRING_VALUE', // required
+ *   name: 'STRING_VALUE',
  *   content: { // LayoutContent Union: only one key present
  *     basic: { // BasicLayout
  *       topPanel: { // LayoutSections
  *         sections: [ // SectionsList
  *           { // Section Union: only one key present
  *             fieldGroup: { // FieldGroup
- *               name: "STRING_VALUE",
+ *               name: 'STRING_VALUE',
  *               fields: [ // FieldList // required
  *                 { // FieldItem
- *                   id: "STRING_VALUE", // required
+ *                   id: 'STRING_VALUE', // required
  *                 },
  *               ],
  *             },
@@ -71,10 +71,10 @@ export interface UpdateLayoutCommandOutput extends UpdateLayoutResponse, __Metad
  *         sections: [
  *           {//  Union: only one key present
  *             fieldGroup: {
- *               name: "STRING_VALUE",
+ *               name: 'STRING_VALUE',
  *               fields: [ // required
  *                 {
- *                   id: "STRING_VALUE", // required
+ *                   id: 'STRING_VALUE', // required
  *                 },
  *               ],
  *             },
@@ -86,6 +86,9 @@ export interface UpdateLayoutCommandOutput extends UpdateLayoutResponse, __Metad
  * };
  * const command = new UpdateLayoutCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateLayoutCommandInput - {@link UpdateLayoutCommandInput}
@@ -120,6 +123,8 @@ export interface UpdateLayoutCommandOutput extends UpdateLayoutResponse, __Metad
  * @throws {@link ValidationException} (client fault)
  *  <p>The request isn't valid. Check the syntax and try again.</p>
  *
+ * @throws {@link ConnectCasesServiceException}
+ * <p>Base exception class for all service exceptions from ConnectCases service.</p>
  *
  */
 export class UpdateLayoutCommand extends $Command<

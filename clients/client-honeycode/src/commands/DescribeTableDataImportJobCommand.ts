@@ -42,16 +42,50 @@ export interface DescribeTableDataImportJobCommandOutput extends DescribeTableDa
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { HoneycodeClient, DescribeTableDataImportJobCommand } from "@aws-sdk/client-honeycode"; // ES Modules import
- * // const { HoneycodeClient, DescribeTableDataImportJobCommand } = require("@aws-sdk/client-honeycode"); // CommonJS import
+ * import { HoneycodeClient, DescribeTableDataImportJobCommand } from '@aws-sdk/client-honeycode'; // ES Modules import
+ * // const { HoneycodeClient, DescribeTableDataImportJobCommand } = require('@aws-sdk/client-honeycode'); // CommonJS import
  * const client = new HoneycodeClient(config);
  * const input = { // DescribeTableDataImportJobRequest
- *   workbookId: "STRING_VALUE", // required
- *   tableId: "STRING_VALUE", // required
- *   jobId: "STRING_VALUE", // required
+ *   workbookId: 'STRING_VALUE', // required
+ *   tableId: 'STRING_VALUE', // required
+ *   jobId: 'STRING_VALUE', // required
  * };
  * const command = new DescribeTableDataImportJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeTableDataImportJobResult
+ *   jobStatus: 'STRING_VALUE', // required
+ *   message: 'STRING_VALUE', // required
+ *   jobMetadata: { // TableDataImportJobMetadata
+ *     submitter: { // ImportJobSubmitter
+ *       email: 'STRING_VALUE',
+ *       userArn: 'STRING_VALUE',
+ *     },
+ *     submitTime: new Date('TIMESTAMP'), // required
+ *     importOptions: { // ImportOptions
+ *       destinationOptions: { // DestinationOptions
+ *         columnMap: { // ImportColumnMap
+ *           '<keys>': { // SourceDataColumnProperties
+ *             columnIndex: Number('int'),
+ *           },
+ *         },
+ *       },
+ *       delimitedTextOptions: { // DelimitedTextImportOptions
+ *         delimiter: 'STRING_VALUE', // required
+ *         hasHeaderRow: true || false,
+ *         ignoreEmptyRows: true || false,
+ *         dataCharacterEncoding: 'STRING_VALUE',
+ *       },
+ *     },
+ *     dataSource: { // ImportDataSource
+ *       dataSourceConfig: { // ImportDataSourceConfig
+ *         dataSourceUrl: 'STRING_VALUE',
+ *       },
+ *     },
+ *   },
+ *   errorCode: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeTableDataImportJobCommandInput - {@link DescribeTableDataImportJobCommandInput}
@@ -86,6 +120,8 @@ export interface DescribeTableDataImportJobCommandOutput extends DescribeTableDa
  *             Request is invalid. The message in the response contains details on why the request is invalid.
  *         </p>
  *
+ * @throws {@link HoneycodeServiceException}
+ * <p>Base exception class for all service exceptions from Honeycode service.</p>
  *
  */
 export class DescribeTableDataImportJobCommand extends $Command<

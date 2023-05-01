@@ -36,14 +36,17 @@ export interface DeleteJobCommandOutput extends DeleteJobResponse, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DrsClient, DeleteJobCommand } from "@aws-sdk/client-drs"; // ES Modules import
- * // const { DrsClient, DeleteJobCommand } = require("@aws-sdk/client-drs"); // CommonJS import
+ * import { DrsClient, DeleteJobCommand } from '@aws-sdk/client-drs'; // ES Modules import
+ * // const { DrsClient, DeleteJobCommand } = require('@aws-sdk/client-drs'); // CommonJS import
  * const client = new DrsClient(config);
  * const input = { // DeleteJobRequest
- *   jobID: "STRING_VALUE", // required
+ *   jobID: 'STRING_VALUE', // required
  * };
  * const command = new DeleteJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteJobCommandInput - {@link DeleteJobCommandInput}
@@ -67,6 +70,8 @@ export interface DeleteJobCommandOutput extends DeleteJobResponse, __MetadataBea
  * @throws {@link UninitializedAccountException} (client fault)
  *  <p>The account performing the request has not been initialized.</p>
  *
+ * @throws {@link DrsServiceException}
+ * <p>Base exception class for all service exceptions from Drs service.</p>
  *
  */
 export class DeleteJobCommand extends $Command<DeleteJobCommandInput, DeleteJobCommandOutput, DrsClientResolvedConfig> {

@@ -37,19 +37,44 @@ export interface DescribeWorkspaceImagesCommandOutput extends DescribeWorkspaceI
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkSpacesClient, DescribeWorkspaceImagesCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
- * // const { WorkSpacesClient, DescribeWorkspaceImagesCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
+ * import { WorkSpacesClient, DescribeWorkspaceImagesCommand } from '@aws-sdk/client-workspaces'; // ES Modules import
+ * // const { WorkSpacesClient, DescribeWorkspaceImagesCommand } = require('@aws-sdk/client-workspaces'); // CommonJS import
  * const client = new WorkSpacesClient(config);
  * const input = { // DescribeWorkspaceImagesRequest
  *   ImageIds: [ // WorkspaceImageIdList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   ImageType: "OWNED" || "SHARED",
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   ImageType: 'OWNED' || 'SHARED',
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new DescribeWorkspaceImagesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeWorkspaceImagesResult
+ *   Images: [ // WorkspaceImageList
+ *     { // WorkspaceImage
+ *       ImageId: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *       Description: 'STRING_VALUE',
+ *       OperatingSystem: { // OperatingSystem
+ *         Type: 'WINDOWS' || 'LINUX',
+ *       },
+ *       State: 'AVAILABLE' || 'PENDING' || 'ERROR',
+ *       RequiredTenancy: 'DEFAULT' || 'DEDICATED',
+ *       ErrorCode: 'STRING_VALUE',
+ *       ErrorMessage: 'STRING_VALUE',
+ *       Created: new Date('TIMESTAMP'),
+ *       OwnerAccountId: 'STRING_VALUE',
+ *       Updates: { // UpdateResult
+ *         UpdateAvailable: true || false,
+ *         Description: 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeWorkspaceImagesCommandInput - {@link DescribeWorkspaceImagesCommandInput}
@@ -61,6 +86,8 @@ export interface DescribeWorkspaceImagesCommandOutput extends DescribeWorkspaceI
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>The user is not authorized to access a resource.</p>
  *
+ * @throws {@link WorkSpacesServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
  */
 export class DescribeWorkspaceImagesCommand extends $Command<

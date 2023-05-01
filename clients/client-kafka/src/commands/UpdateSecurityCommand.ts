@@ -36,8 +36,8 @@ export interface UpdateSecurityCommandOutput extends UpdateSecurityResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KafkaClient, UpdateSecurityCommand } from "@aws-sdk/client-kafka"; // ES Modules import
- * // const { KafkaClient, UpdateSecurityCommand } = require("@aws-sdk/client-kafka"); // CommonJS import
+ * import { KafkaClient, UpdateSecurityCommand } from '@aws-sdk/client-kafka'; // ES Modules import
+ * // const { KafkaClient, UpdateSecurityCommand } = require('@aws-sdk/client-kafka'); // CommonJS import
  * const client = new KafkaClient(config);
  * const input = { // UpdateSecurityRequest
  *   ClientAuthentication: { // ClientAuthentication
@@ -51,7 +51,7 @@ export interface UpdateSecurityCommandOutput extends UpdateSecurityResponse, __M
  *     },
  *     Tls: { // Tls
  *       CertificateAuthorityArnList: [ // __listOf__string
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *       Enabled: true || false,
  *     },
@@ -59,20 +59,26 @@ export interface UpdateSecurityCommandOutput extends UpdateSecurityResponse, __M
  *       Enabled: true || false,
  *     },
  *   },
- *   ClusterArn: "STRING_VALUE", // required
- *   CurrentVersion: "STRING_VALUE", // required
+ *   ClusterArn: 'STRING_VALUE', // required
+ *   CurrentVersion: 'STRING_VALUE', // required
  *   EncryptionInfo: { // EncryptionInfo
  *     EncryptionAtRest: { // EncryptionAtRest
- *       DataVolumeKMSKeyId: "STRING_VALUE", // required
+ *       DataVolumeKMSKeyId: 'STRING_VALUE', // required
  *     },
  *     EncryptionInTransit: { // EncryptionInTransit
- *       ClientBroker: "TLS" || "TLS_PLAINTEXT" || "PLAINTEXT",
+ *       ClientBroker: 'TLS' || 'TLS_PLAINTEXT' || 'PLAINTEXT',
  *       InCluster: true || false,
  *     },
  *   },
  * };
  * const command = new UpdateSecurityCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateSecurityResponse
+ *   ClusterArn: 'STRING_VALUE',
+ *   ClusterOperationArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateSecurityCommandInput - {@link UpdateSecurityCommandInput}
@@ -102,6 +108,8 @@ export interface UpdateSecurityCommandOutput extends UpdateSecurityResponse, __M
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>Returns information about an error.</p>
  *
+ * @throws {@link KafkaServiceException}
+ * <p>Base exception class for all service exceptions from Kafka service.</p>
  *
  */
 export class UpdateSecurityCommand extends $Command<

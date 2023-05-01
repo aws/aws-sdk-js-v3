@@ -36,15 +36,61 @@ export interface GetApisCommandOutput extends GetApisResponse, __MetadataBearer 
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ApiGatewayV2Client, GetApisCommand } from "@aws-sdk/client-apigatewayv2"; // ES Modules import
- * // const { ApiGatewayV2Client, GetApisCommand } = require("@aws-sdk/client-apigatewayv2"); // CommonJS import
+ * import { ApiGatewayV2Client, GetApisCommand } from '@aws-sdk/client-apigatewayv2'; // ES Modules import
+ * // const { ApiGatewayV2Client, GetApisCommand } = require('@aws-sdk/client-apigatewayv2'); // CommonJS import
  * const client = new ApiGatewayV2Client(config);
  * const input = { // GetApisRequest
- *   MaxResults: "STRING_VALUE",
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: 'STRING_VALUE',
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new GetApisCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetApisResponse
+ *   Items: [ // __listOfApi
+ *     { // Api
+ *       ApiEndpoint: 'STRING_VALUE',
+ *       ApiGatewayManaged: true || false,
+ *       ApiId: 'STRING_VALUE',
+ *       ApiKeySelectionExpression: 'STRING_VALUE',
+ *       CorsConfiguration: { // Cors
+ *         AllowCredentials: true || false,
+ *         AllowHeaders: [ // CorsHeaderList
+ *           'STRING_VALUE',
+ *         ],
+ *         AllowMethods: [ // CorsMethodList
+ *           'STRING_VALUE',
+ *         ],
+ *         AllowOrigins: [ // CorsOriginList
+ *           'STRING_VALUE',
+ *         ],
+ *         ExposeHeaders: [
+ *           'STRING_VALUE',
+ *         ],
+ *         MaxAge: Number('int'),
+ *       },
+ *       CreatedDate: new Date('TIMESTAMP'),
+ *       Description: 'STRING_VALUE',
+ *       DisableSchemaValidation: true || false,
+ *       DisableExecuteApiEndpoint: true || false,
+ *       ImportInfo: [ // __listOf__string
+ *         'STRING_VALUE',
+ *       ],
+ *       Name: 'STRING_VALUE', // required
+ *       ProtocolType: 'STRING_VALUE', // required
+ *       RouteSelectionExpression: 'STRING_VALUE', // required
+ *       Tags: { // Tags
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *       Version: 'STRING_VALUE',
+ *       Warnings: [
+ *         'STRING_VALUE',
+ *       ],
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetApisCommandInput - {@link GetApisCommandInput}
@@ -62,6 +108,8 @@ export interface GetApisCommandOutput extends GetApisResponse, __MetadataBearer 
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>A limit has been exceeded. See the accompanying error message for details.</p>
  *
+ * @throws {@link ApiGatewayV2ServiceException}
+ * <p>Base exception class for all service exceptions from ApiGatewayV2 service.</p>
  *
  */
 export class GetApisCommand extends $Command<

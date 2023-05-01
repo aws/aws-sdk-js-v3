@@ -67,15 +67,15 @@ export interface CreateAccessPointCommandOutput extends CreateAccessPointResult,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { S3ControlClient, CreateAccessPointCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
- * // const { S3ControlClient, CreateAccessPointCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
+ * import { S3ControlClient, CreateAccessPointCommand } from '@aws-sdk/client-s3-control'; // ES Modules import
+ * // const { S3ControlClient, CreateAccessPointCommand } = require('@aws-sdk/client-s3-control'); // CommonJS import
  * const client = new S3ControlClient(config);
  * const input = { // CreateAccessPointRequest
- *   AccountId: "STRING_VALUE",
- *   Name: "STRING_VALUE", // required
- *   Bucket: "STRING_VALUE", // required
+ *   AccountId: 'STRING_VALUE',
+ *   Name: 'STRING_VALUE', // required
+ *   Bucket: 'STRING_VALUE', // required
  *   VpcConfiguration: { // VpcConfiguration
- *     VpcId: "STRING_VALUE", // required
+ *     VpcId: 'STRING_VALUE', // required
  *   },
  *   PublicAccessBlockConfiguration: { // PublicAccessBlockConfiguration
  *     BlockPublicAcls: true || false,
@@ -83,10 +83,16 @@ export interface CreateAccessPointCommandOutput extends CreateAccessPointResult,
  *     BlockPublicPolicy: true || false,
  *     RestrictPublicBuckets: true || false,
  *   },
- *   BucketAccountId: "STRING_VALUE",
+ *   BucketAccountId: 'STRING_VALUE',
  * };
  * const command = new CreateAccessPointCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateAccessPointResult
+ *   AccessPointArn: 'STRING_VALUE',
+ *   Alias: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateAccessPointCommandInput - {@link CreateAccessPointCommandInput}
@@ -95,6 +101,8 @@ export interface CreateAccessPointCommandOutput extends CreateAccessPointResult,
  * @see {@link CreateAccessPointCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
  *
+ * @throws {@link S3ControlServiceException}
+ * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
  */
 export class CreateAccessPointCommand extends $Command<

@@ -46,18 +46,48 @@ export interface DescribeReplicationConfigurationTemplatesCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MgnClient, DescribeReplicationConfigurationTemplatesCommand } from "@aws-sdk/client-mgn"; // ES Modules import
- * // const { MgnClient, DescribeReplicationConfigurationTemplatesCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
+ * import { MgnClient, DescribeReplicationConfigurationTemplatesCommand } from '@aws-sdk/client-mgn'; // ES Modules import
+ * // const { MgnClient, DescribeReplicationConfigurationTemplatesCommand } = require('@aws-sdk/client-mgn'); // CommonJS import
  * const client = new MgnClient(config);
  * const input = { // DescribeReplicationConfigurationTemplatesRequest
  *   replicationConfigurationTemplateIDs: [ // ReplicationConfigurationTemplateIDs
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new DescribeReplicationConfigurationTemplatesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeReplicationConfigurationTemplatesResponse
+ *   items: [ // ReplicationConfigurationTemplates
+ *     { // ReplicationConfigurationTemplate
+ *       replicationConfigurationTemplateID: 'STRING_VALUE', // required
+ *       arn: 'STRING_VALUE',
+ *       stagingAreaSubnetId: 'STRING_VALUE',
+ *       associateDefaultSecurityGroup: true || false,
+ *       replicationServersSecurityGroupsIDs: [ // ReplicationServersSecurityGroupsIDs
+ *         'STRING_VALUE',
+ *       ],
+ *       replicationServerInstanceType: 'STRING_VALUE',
+ *       useDedicatedReplicationServer: true || false,
+ *       defaultLargeStagingDiskType: 'STRING_VALUE',
+ *       ebsEncryption: 'STRING_VALUE',
+ *       ebsEncryptionKeyArn: 'STRING_VALUE',
+ *       bandwidthThrottling: Number('long'),
+ *       dataPlaneRouting: 'STRING_VALUE',
+ *       createPublicIP: true || false,
+ *       stagingAreaTags: { // TagsMap
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *       tags: {
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeReplicationConfigurationTemplatesCommandInput - {@link DescribeReplicationConfigurationTemplatesCommandInput}
@@ -75,6 +105,8 @@ export interface DescribeReplicationConfigurationTemplatesCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>Validate exception.</p>
  *
+ * @throws {@link MgnServiceException}
+ * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
  */
 export class DescribeReplicationConfigurationTemplatesCommand extends $Command<

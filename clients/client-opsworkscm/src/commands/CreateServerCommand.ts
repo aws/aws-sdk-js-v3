@@ -68,48 +68,87 @@ export interface CreateServerCommandOutput extends CreateServerResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OpsWorksCMClient, CreateServerCommand } from "@aws-sdk/client-opsworkscm"; // ES Modules import
- * // const { OpsWorksCMClient, CreateServerCommand } = require("@aws-sdk/client-opsworkscm"); // CommonJS import
+ * import { OpsWorksCMClient, CreateServerCommand } from '@aws-sdk/client-opsworkscm'; // ES Modules import
+ * // const { OpsWorksCMClient, CreateServerCommand } = require('@aws-sdk/client-opsworkscm'); // CommonJS import
  * const client = new OpsWorksCMClient(config);
  * const input = { // CreateServerRequest
  *   AssociatePublicIpAddress: true || false,
- *   CustomDomain: "STRING_VALUE",
- *   CustomCertificate: "STRING_VALUE",
- *   CustomPrivateKey: "STRING_VALUE",
+ *   CustomDomain: 'STRING_VALUE',
+ *   CustomCertificate: 'STRING_VALUE',
+ *   CustomPrivateKey: 'STRING_VALUE',
  *   DisableAutomatedBackup: true || false,
- *   Engine: "STRING_VALUE", // required
- *   EngineModel: "STRING_VALUE",
- *   EngineVersion: "STRING_VALUE",
+ *   Engine: 'STRING_VALUE', // required
+ *   EngineModel: 'STRING_VALUE',
+ *   EngineVersion: 'STRING_VALUE',
  *   EngineAttributes: [ // EngineAttributes
  *     { // EngineAttribute
- *       Name: "STRING_VALUE",
- *       Value: "STRING_VALUE",
+ *       Name: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
- *   BackupRetentionCount: Number("int"),
- *   ServerName: "STRING_VALUE", // required
- *   InstanceProfileArn: "STRING_VALUE", // required
- *   InstanceType: "STRING_VALUE", // required
- *   KeyPair: "STRING_VALUE",
- *   PreferredMaintenanceWindow: "STRING_VALUE",
- *   PreferredBackupWindow: "STRING_VALUE",
+ *   BackupRetentionCount: Number('int'),
+ *   ServerName: 'STRING_VALUE', // required
+ *   InstanceProfileArn: 'STRING_VALUE', // required
+ *   InstanceType: 'STRING_VALUE', // required
+ *   KeyPair: 'STRING_VALUE',
+ *   PreferredMaintenanceWindow: 'STRING_VALUE',
+ *   PreferredBackupWindow: 'STRING_VALUE',
  *   SecurityGroupIds: [ // Strings
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   ServiceRoleArn: "STRING_VALUE", // required
+ *   ServiceRoleArn: 'STRING_VALUE', // required
  *   SubnetIds: [
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
- *   BackupId: "STRING_VALUE",
+ *   BackupId: 'STRING_VALUE',
  * };
  * const command = new CreateServerCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateServerResponse
+ *   Server: { // Server
+ *     AssociatePublicIpAddress: true || false,
+ *     BackupRetentionCount: Number('int'),
+ *     ServerName: 'STRING_VALUE',
+ *     CreatedAt: new Date('TIMESTAMP'),
+ *     CloudFormationStackArn: 'STRING_VALUE',
+ *     CustomDomain: 'STRING_VALUE',
+ *     DisableAutomatedBackup: true || false,
+ *     Endpoint: 'STRING_VALUE',
+ *     Engine: 'STRING_VALUE',
+ *     EngineModel: 'STRING_VALUE',
+ *     EngineAttributes: [ // EngineAttributes
+ *       { // EngineAttribute
+ *         Name: 'STRING_VALUE',
+ *         Value: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     EngineVersion: 'STRING_VALUE',
+ *     InstanceProfileArn: 'STRING_VALUE',
+ *     InstanceType: 'STRING_VALUE',
+ *     KeyPair: 'STRING_VALUE',
+ *     MaintenanceStatus: 'STRING_VALUE',
+ *     PreferredMaintenanceWindow: 'STRING_VALUE',
+ *     PreferredBackupWindow: 'STRING_VALUE',
+ *     SecurityGroupIds: [ // Strings
+ *       'STRING_VALUE',
+ *     ],
+ *     ServiceRoleArn: 'STRING_VALUE',
+ *     Status: 'STRING_VALUE',
+ *     StatusReason: 'STRING_VALUE',
+ *     SubnetIds: [
+ *       'STRING_VALUE',
+ *     ],
+ *     ServerArn: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateServerCommandInput - {@link CreateServerCommandInput}
@@ -134,6 +173,8 @@ export interface CreateServerCommandOutput extends CreateServerResponse, __Metad
  *  <p>One or more of the provided request parameters are not valid.
  *     </p>
  *
+ * @throws {@link OpsWorksCMServiceException}
+ * <p>Base exception class for all service exceptions from OpsWorksCM service.</p>
  *
  */
 export class CreateServerCommand extends $Command<

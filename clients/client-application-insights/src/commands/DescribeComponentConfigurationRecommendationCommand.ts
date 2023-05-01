@@ -49,16 +49,21 @@ export interface DescribeComponentConfigurationRecommendationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ApplicationInsightsClient, DescribeComponentConfigurationRecommendationCommand } from "@aws-sdk/client-application-insights"; // ES Modules import
- * // const { ApplicationInsightsClient, DescribeComponentConfigurationRecommendationCommand } = require("@aws-sdk/client-application-insights"); // CommonJS import
+ * import { ApplicationInsightsClient, DescribeComponentConfigurationRecommendationCommand } from '@aws-sdk/client-application-insights'; // ES Modules import
+ * // const { ApplicationInsightsClient, DescribeComponentConfigurationRecommendationCommand } = require('@aws-sdk/client-application-insights'); // CommonJS import
  * const client = new ApplicationInsightsClient(config);
  * const input = { // DescribeComponentConfigurationRecommendationRequest
- *   ResourceGroupName: "STRING_VALUE", // required
- *   ComponentName: "STRING_VALUE", // required
- *   Tier: "STRING_VALUE", // required
+ *   ResourceGroupName: 'STRING_VALUE', // required
+ *   ComponentName: 'STRING_VALUE', // required
+ *   Tier: 'STRING_VALUE', // required
  * };
  * const command = new DescribeComponentConfigurationRecommendationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeComponentConfigurationRecommendationResponse
+ *   ComponentConfiguration: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeComponentConfigurationRecommendationCommandInput - {@link DescribeComponentConfigurationRecommendationCommandInput}
@@ -76,6 +81,8 @@ export interface DescribeComponentConfigurationRecommendationCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The parameter is not valid.</p>
  *
+ * @throws {@link ApplicationInsightsServiceException}
+ * <p>Base exception class for all service exceptions from ApplicationInsights service.</p>
  *
  */
 export class DescribeComponentConfigurationRecommendationCommand extends $Command<

@@ -46,15 +46,18 @@ export interface DeleteVpcPeeringConnectionCommandOutput extends DeleteVpcPeerin
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GameLiftClient, DeleteVpcPeeringConnectionCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
- * // const { GameLiftClient, DeleteVpcPeeringConnectionCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
+ * import { GameLiftClient, DeleteVpcPeeringConnectionCommand } from '@aws-sdk/client-gamelift'; // ES Modules import
+ * // const { GameLiftClient, DeleteVpcPeeringConnectionCommand } = require('@aws-sdk/client-gamelift'); // CommonJS import
  * const client = new GameLiftClient(config);
  * const input = { // DeleteVpcPeeringConnectionInput
- *   FleetId: "STRING_VALUE", // required
- *   VpcPeeringConnectionId: "STRING_VALUE", // required
+ *   FleetId: 'STRING_VALUE', // required
+ *   VpcPeeringConnectionId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteVpcPeeringConnectionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteVpcPeeringConnectionCommandInput - {@link DeleteVpcPeeringConnectionCommandInput}
@@ -77,6 +80,8 @@ export interface DeleteVpcPeeringConnectionCommandOutput extends DeleteVpcPeerin
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client failed authentication. Clients should not retry such requests.</p>
  *
+ * @throws {@link GameLiftServiceException}
+ * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
  */
 export class DeleteVpcPeeringConnectionCommand extends $Command<

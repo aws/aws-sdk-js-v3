@@ -36,21 +36,26 @@ export interface UpdateTrustStoreCommandOutput extends UpdateTrustStoreResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkSpacesWebClient, UpdateTrustStoreCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
- * // const { WorkSpacesWebClient, UpdateTrustStoreCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
+ * import { WorkSpacesWebClient, UpdateTrustStoreCommand } from '@aws-sdk/client-workspaces-web'; // ES Modules import
+ * // const { WorkSpacesWebClient, UpdateTrustStoreCommand } = require('@aws-sdk/client-workspaces-web'); // CommonJS import
  * const client = new WorkSpacesWebClient(config);
  * const input = { // UpdateTrustStoreRequest
- *   trustStoreArn: "STRING_VALUE", // required
+ *   trustStoreArn: 'STRING_VALUE', // required
  *   certificatesToAdd: [ // CertificateList
- *     "BLOB_VALUE",
+ *     'BLOB_VALUE',
  *   ],
  *   certificatesToDelete: [ // CertificateThumbprintList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   clientToken: "STRING_VALUE",
+ *   clientToken: 'STRING_VALUE',
  * };
  * const command = new UpdateTrustStoreCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateTrustStoreResponse
+ *   trustStoreArn: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param UpdateTrustStoreCommandInput - {@link UpdateTrustStoreCommandInput}
@@ -77,6 +82,8 @@ export interface UpdateTrustStoreCommandOutput extends UpdateTrustStoreResponse,
  * @throws {@link ValidationException} (client fault)
  *  <p>There is a validation error.</p>
  *
+ * @throws {@link WorkSpacesWebServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
  */
 export class UpdateTrustStoreCommand extends $Command<

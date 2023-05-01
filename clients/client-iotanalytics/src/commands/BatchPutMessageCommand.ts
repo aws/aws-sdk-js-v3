@@ -36,20 +36,31 @@ export interface BatchPutMessageCommandOutput extends BatchPutMessageResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTAnalyticsClient, BatchPutMessageCommand } from "@aws-sdk/client-iotanalytics"; // ES Modules import
- * // const { IoTAnalyticsClient, BatchPutMessageCommand } = require("@aws-sdk/client-iotanalytics"); // CommonJS import
+ * import { IoTAnalyticsClient, BatchPutMessageCommand } from '@aws-sdk/client-iotanalytics'; // ES Modules import
+ * // const { IoTAnalyticsClient, BatchPutMessageCommand } = require('@aws-sdk/client-iotanalytics'); // CommonJS import
  * const client = new IoTAnalyticsClient(config);
  * const input = { // BatchPutMessageRequest
- *   channelName: "STRING_VALUE", // required
+ *   channelName: 'STRING_VALUE', // required
  *   messages: [ // Messages // required
  *     { // Message
- *       messageId: "STRING_VALUE", // required
- *       payload: "BLOB_VALUE", // required
+ *       messageId: 'STRING_VALUE', // required
+ *       payload: 'BLOB_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new BatchPutMessageCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BatchPutMessageResponse
+ *   batchPutMessageErrorEntries: [ // BatchPutMessageErrorEntries
+ *     { // BatchPutMessageErrorEntry
+ *       messageId: 'STRING_VALUE',
+ *       errorCode: 'STRING_VALUE',
+ *       errorMessage: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param BatchPutMessageCommandInput - {@link BatchPutMessageCommandInput}
@@ -73,6 +84,8 @@ export interface BatchPutMessageCommandOutput extends BatchPutMessageResponse, _
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
  *
+ * @throws {@link IoTAnalyticsServiceException}
+ * <p>Base exception class for all service exceptions from IoTAnalytics service.</p>
  *
  */
 export class BatchPutMessageCommand extends $Command<

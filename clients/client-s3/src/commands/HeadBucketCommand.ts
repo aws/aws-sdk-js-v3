@@ -46,15 +46,18 @@ export interface HeadBucketCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { S3Client, HeadBucketCommand } from "@aws-sdk/client-s3"; // ES Modules import
- * // const { S3Client, HeadBucketCommand } = require("@aws-sdk/client-s3"); // CommonJS import
+ * import { S3Client, HeadBucketCommand } from '@aws-sdk/client-s3'; // ES Modules import
+ * // const { S3Client, HeadBucketCommand } = require('@aws-sdk/client-s3'); // CommonJS import
  * const client = new S3Client(config);
  * const input = { // HeadBucketRequest
- *   Bucket: "STRING_VALUE", // required
- *   ExpectedBucketOwner: "STRING_VALUE",
+ *   Bucket: 'STRING_VALUE', // required
+ *   ExpectedBucketOwner: 'STRING_VALUE',
  * };
  * const command = new HeadBucketCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param HeadBucketCommandInput - {@link HeadBucketCommandInput}
@@ -66,6 +69,8 @@ export interface HeadBucketCommandOutput extends __MetadataBearer {}
  * @throws {@link NotFound} (client fault)
  *  <p>The specified content does not exist.</p>
  *
+ * @throws {@link S3ServiceException}
+ * <p>Base exception class for all service exceptions from S3 service.</p>
  *
  * @example To determine if bucket exists
  * ```javascript

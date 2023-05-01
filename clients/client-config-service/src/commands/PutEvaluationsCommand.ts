@@ -38,24 +38,37 @@ export interface PutEvaluationsCommandOutput extends PutEvaluationsResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConfigServiceClient, PutEvaluationsCommand } from "@aws-sdk/client-config-service"; // ES Modules import
- * // const { ConfigServiceClient, PutEvaluationsCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
+ * import { ConfigServiceClient, PutEvaluationsCommand } from '@aws-sdk/client-config-service'; // ES Modules import
+ * // const { ConfigServiceClient, PutEvaluationsCommand } = require('@aws-sdk/client-config-service'); // CommonJS import
  * const client = new ConfigServiceClient(config);
  * const input = { // PutEvaluationsRequest
  *   Evaluations: [ // Evaluations
  *     { // Evaluation
- *       ComplianceResourceType: "STRING_VALUE", // required
- *       ComplianceResourceId: "STRING_VALUE", // required
- *       ComplianceType: "COMPLIANT" || "NON_COMPLIANT" || "NOT_APPLICABLE" || "INSUFFICIENT_DATA", // required
- *       Annotation: "STRING_VALUE",
- *       OrderingTimestamp: new Date("TIMESTAMP"), // required
+ *       ComplianceResourceType: 'STRING_VALUE', // required
+ *       ComplianceResourceId: 'STRING_VALUE', // required
+ *       ComplianceType: 'COMPLIANT' || 'NON_COMPLIANT' || 'NOT_APPLICABLE' || 'INSUFFICIENT_DATA', // required
+ *       Annotation: 'STRING_VALUE',
+ *       OrderingTimestamp: new Date('TIMESTAMP'), // required
  *     },
  *   ],
- *   ResultToken: "STRING_VALUE", // required
+ *   ResultToken: 'STRING_VALUE', // required
  *   TestMode: true || false,
  * };
  * const command = new PutEvaluationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutEvaluationsResponse
+ *   FailedEvaluations: [ // Evaluations
+ *     { // Evaluation
+ *       ComplianceResourceType: 'STRING_VALUE', // required
+ *       ComplianceResourceId: 'STRING_VALUE', // required
+ *       ComplianceType: 'COMPLIANT' || 'NON_COMPLIANT' || 'NOT_APPLICABLE' || 'INSUFFICIENT_DATA', // required
+ *       Annotation: 'STRING_VALUE',
+ *       OrderingTimestamp: new Date('TIMESTAMP'), // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param PutEvaluationsCommandInput - {@link PutEvaluationsCommandInput}
@@ -74,6 +87,8 @@ export interface PutEvaluationsCommandOutput extends PutEvaluationsResponse, __M
  * @throws {@link NoSuchConfigRuleException} (client fault)
  *  <p>The Config rule in the request is not valid. Verify that the rule is an Config Process Check rule, that the rule name is correct, and that valid Amazon Resouce Names (ARNs) are used before trying again.</p>
  *
+ * @throws {@link ConfigServiceServiceException}
+ * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
  */
 export class PutEvaluationsCommand extends $Command<

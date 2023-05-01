@@ -36,14 +36,19 @@ export interface GetAppliedSchemaVersionCommandOutput extends GetAppliedSchemaVe
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudDirectoryClient, GetAppliedSchemaVersionCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
- * // const { CloudDirectoryClient, GetAppliedSchemaVersionCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
+ * import { CloudDirectoryClient, GetAppliedSchemaVersionCommand } from '@aws-sdk/client-clouddirectory'; // ES Modules import
+ * // const { CloudDirectoryClient, GetAppliedSchemaVersionCommand } = require('@aws-sdk/client-clouddirectory'); // CommonJS import
  * const client = new CloudDirectoryClient(config);
  * const input = { // GetAppliedSchemaVersionRequest
- *   SchemaArn: "STRING_VALUE", // required
+ *   SchemaArn: 'STRING_VALUE', // required
  * };
  * const command = new GetAppliedSchemaVersionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetAppliedSchemaVersionResponse
+ *   AppliedSchemaArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetAppliedSchemaVersionCommandInput - {@link GetAppliedSchemaVersionCommandInput}
@@ -74,6 +79,8 @@ export interface GetAppliedSchemaVersionCommandOutput extends GetAppliedSchemaVe
  *  <p>Indicates that your request is malformed in some manner. See the exception
  *       message.</p>
  *
+ * @throws {@link CloudDirectoryServiceException}
+ * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
  */
 export class GetAppliedSchemaVersionCommand extends $Command<

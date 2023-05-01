@@ -37,17 +37,29 @@ export interface ListAnalyzedResourcesCommandOutput extends ListAnalyzedResource
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AccessAnalyzerClient, ListAnalyzedResourcesCommand } from "@aws-sdk/client-accessanalyzer"; // ES Modules import
- * // const { AccessAnalyzerClient, ListAnalyzedResourcesCommand } = require("@aws-sdk/client-accessanalyzer"); // CommonJS import
+ * import { AccessAnalyzerClient, ListAnalyzedResourcesCommand } from '@aws-sdk/client-accessanalyzer'; // ES Modules import
+ * // const { AccessAnalyzerClient, ListAnalyzedResourcesCommand } = require('@aws-sdk/client-accessanalyzer'); // CommonJS import
  * const client = new AccessAnalyzerClient(config);
  * const input = { // ListAnalyzedResourcesRequest
- *   analyzerArn: "STRING_VALUE", // required
- *   resourceType: "STRING_VALUE",
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   analyzerArn: 'STRING_VALUE', // required
+ *   resourceType: 'STRING_VALUE',
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new ListAnalyzedResourcesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListAnalyzedResourcesResponse
+ *   analyzedResources: [ // AnalyzedResourcesList // required
+ *     { // AnalyzedResourceSummary
+ *       resourceArn: 'STRING_VALUE', // required
+ *       resourceOwnerAccount: 'STRING_VALUE', // required
+ *       resourceType: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListAnalyzedResourcesCommandInput - {@link ListAnalyzedResourcesCommandInput}
@@ -71,6 +83,8 @@ export interface ListAnalyzedResourcesCommandOutput extends ListAnalyzedResource
  * @throws {@link ValidationException} (client fault)
  *  <p>Validation exception error.</p>
  *
+ * @throws {@link AccessAnalyzerServiceException}
+ * <p>Base exception class for all service exceptions from AccessAnalyzer service.</p>
  *
  */
 export class ListAnalyzedResourcesCommand extends $Command<

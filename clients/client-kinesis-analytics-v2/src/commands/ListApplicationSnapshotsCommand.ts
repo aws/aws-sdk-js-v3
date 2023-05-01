@@ -40,16 +40,29 @@ export interface ListApplicationSnapshotsCommandOutput extends ListApplicationSn
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KinesisAnalyticsV2Client, ListApplicationSnapshotsCommand } from "@aws-sdk/client-kinesis-analytics-v2"; // ES Modules import
- * // const { KinesisAnalyticsV2Client, ListApplicationSnapshotsCommand } = require("@aws-sdk/client-kinesis-analytics-v2"); // CommonJS import
+ * import { KinesisAnalyticsV2Client, ListApplicationSnapshotsCommand } from '@aws-sdk/client-kinesis-analytics-v2'; // ES Modules import
+ * // const { KinesisAnalyticsV2Client, ListApplicationSnapshotsCommand } = require('@aws-sdk/client-kinesis-analytics-v2'); // CommonJS import
  * const client = new KinesisAnalyticsV2Client(config);
  * const input = { // ListApplicationSnapshotsRequest
- *   ApplicationName: "STRING_VALUE", // required
- *   Limit: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   ApplicationName: 'STRING_VALUE', // required
+ *   Limit: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListApplicationSnapshotsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListApplicationSnapshotsResponse
+ *   SnapshotSummaries: [ // SnapshotSummaries
+ *     { // SnapshotDetails
+ *       SnapshotName: 'STRING_VALUE', // required
+ *       SnapshotStatus: 'CREATING' || 'READY' || 'DELETING' || 'FAILED', // required
+ *       ApplicationVersionId: Number('long'), // required
+ *       SnapshotCreationTimestamp: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListApplicationSnapshotsCommandInput - {@link ListApplicationSnapshotsCommandInput}
@@ -65,6 +78,8 @@ export interface ListApplicationSnapshotsCommandOutput extends ListApplicationSn
  *  <p>The request was rejected because a specified parameter is not supported or a specified resource is not valid for this
  *       operation. </p>
  *
+ * @throws {@link KinesisAnalyticsV2ServiceException}
+ * <p>Base exception class for all service exceptions from KinesisAnalyticsV2 service.</p>
  *
  */
 export class ListApplicationSnapshotsCommand extends $Command<

@@ -73,23 +73,46 @@ export interface DescribeTableCommandOutput extends DescribeTableResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RedshiftDataClient, DescribeTableCommand } from "@aws-sdk/client-redshift-data"; // ES Modules import
- * // const { RedshiftDataClient, DescribeTableCommand } = require("@aws-sdk/client-redshift-data"); // CommonJS import
+ * import { RedshiftDataClient, DescribeTableCommand } from '@aws-sdk/client-redshift-data'; // ES Modules import
+ * // const { RedshiftDataClient, DescribeTableCommand } = require('@aws-sdk/client-redshift-data'); // CommonJS import
  * const client = new RedshiftDataClient(config);
  * const input = { // DescribeTableRequest
- *   ClusterIdentifier: "STRING_VALUE",
- *   SecretArn: "STRING_VALUE",
- *   DbUser: "STRING_VALUE",
- *   Database: "STRING_VALUE", // required
- *   ConnectedDatabase: "STRING_VALUE",
- *   Schema: "STRING_VALUE",
- *   Table: "STRING_VALUE",
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
- *   WorkgroupName: "STRING_VALUE",
+ *   ClusterIdentifier: 'STRING_VALUE',
+ *   SecretArn: 'STRING_VALUE',
+ *   DbUser: 'STRING_VALUE',
+ *   Database: 'STRING_VALUE', // required
+ *   ConnectedDatabase: 'STRING_VALUE',
+ *   Schema: 'STRING_VALUE',
+ *   Table: 'STRING_VALUE',
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
+ *   WorkgroupName: 'STRING_VALUE',
  * };
  * const command = new DescribeTableCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeTableResponse
+ *   TableName: 'STRING_VALUE',
+ *   ColumnList: [ // ColumnList
+ *     { // ColumnMetadata
+ *       isCaseSensitive: true || false,
+ *       isCurrency: true || false,
+ *       isSigned: true || false,
+ *       label: 'STRING_VALUE',
+ *       name: 'STRING_VALUE',
+ *       nullable: Number('int'),
+ *       precision: Number('int'),
+ *       scale: Number('int'),
+ *       schemaName: 'STRING_VALUE',
+ *       tableName: 'STRING_VALUE',
+ *       typeName: 'STRING_VALUE',
+ *       length: Number('int'),
+ *       columnDefault: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeTableCommandInput - {@link DescribeTableCommandInput}
@@ -107,6 +130,8 @@ export interface DescribeTableCommandOutput extends DescribeTableResponse, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>The Amazon Redshift Data API operation failed due to invalid input. </p>
  *
+ * @throws {@link RedshiftDataServiceException}
+ * <p>Base exception class for all service exceptions from RedshiftData service.</p>
  *
  */
 export class DescribeTableCommand extends $Command<

@@ -37,16 +37,27 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OpsWorksCMClient, ListTagsForResourceCommand } from "@aws-sdk/client-opsworkscm"; // ES Modules import
- * // const { OpsWorksCMClient, ListTagsForResourceCommand } = require("@aws-sdk/client-opsworkscm"); // CommonJS import
+ * import { OpsWorksCMClient, ListTagsForResourceCommand } from '@aws-sdk/client-opsworkscm'; // ES Modules import
+ * // const { OpsWorksCMClient, ListTagsForResourceCommand } = require('@aws-sdk/client-opsworkscm'); // CommonJS import
  * const client = new OpsWorksCMClient(config);
  * const input = { // ListTagsForResourceRequest
- *   ResourceArn: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   ResourceArn: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTagsForResourceResponse
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListTagsForResourceCommandInput - {@link ListTagsForResourceCommandInput}
@@ -63,6 +74,8 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  *  <p>One or more of the provided request parameters are not valid.
  *     </p>
  *
+ * @throws {@link OpsWorksCMServiceException}
+ * <p>Base exception class for all service exceptions from OpsWorksCM service.</p>
  *
  */
 export class ListTagsForResourceCommand extends $Command<

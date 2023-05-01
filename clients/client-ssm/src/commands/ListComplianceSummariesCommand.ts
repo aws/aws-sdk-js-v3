@@ -38,24 +38,56 @@ export interface ListComplianceSummariesCommandOutput extends ListComplianceSumm
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMClient, ListComplianceSummariesCommand } from "@aws-sdk/client-ssm"; // ES Modules import
- * // const { SSMClient, ListComplianceSummariesCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * import { SSMClient, ListComplianceSummariesCommand } from '@aws-sdk/client-ssm'; // ES Modules import
+ * // const { SSMClient, ListComplianceSummariesCommand } = require('@aws-sdk/client-ssm'); // CommonJS import
  * const client = new SSMClient(config);
  * const input = { // ListComplianceSummariesRequest
  *   Filters: [ // ComplianceStringFilterList
  *     { // ComplianceStringFilter
- *       Key: "STRING_VALUE",
+ *       Key: 'STRING_VALUE',
  *       Values: [ // ComplianceStringFilterValueList
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
- *       Type: "EQUAL" || "NOT_EQUAL" || "BEGIN_WITH" || "LESS_THAN" || "GREATER_THAN",
+ *       Type: 'EQUAL' || 'NOT_EQUAL' || 'BEGIN_WITH' || 'LESS_THAN' || 'GREATER_THAN',
  *     },
  *   ],
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListComplianceSummariesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListComplianceSummariesResult
+ *   ComplianceSummaryItems: [ // ComplianceSummaryItemList
+ *     { // ComplianceSummaryItem
+ *       ComplianceType: 'STRING_VALUE',
+ *       CompliantSummary: { // CompliantSummary
+ *         CompliantCount: Number('int'),
+ *         SeveritySummary: { // SeveritySummary
+ *           CriticalCount: Number('int'),
+ *           HighCount: Number('int'),
+ *           MediumCount: Number('int'),
+ *           LowCount: Number('int'),
+ *           InformationalCount: Number('int'),
+ *           UnspecifiedCount: Number('int'),
+ *         },
+ *       },
+ *       NonCompliantSummary: { // NonCompliantSummary
+ *         NonCompliantCount: Number('int'),
+ *         SeveritySummary: {
+ *           CriticalCount: Number('int'),
+ *           HighCount: Number('int'),
+ *           MediumCount: Number('int'),
+ *           LowCount: Number('int'),
+ *           InformationalCount: Number('int'),
+ *           UnspecifiedCount: Number('int'),
+ *         },
+ *       },
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListComplianceSummariesCommandInput - {@link ListComplianceSummariesCommandInput}
@@ -73,6 +105,8 @@ export interface ListComplianceSummariesCommandOutput extends ListComplianceSumm
  * @throws {@link InvalidNextToken} (client fault)
  *  <p>The specified token isn't valid.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class ListComplianceSummariesCommand extends $Command<

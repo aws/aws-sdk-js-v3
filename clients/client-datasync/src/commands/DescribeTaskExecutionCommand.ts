@@ -36,14 +36,67 @@ export interface DescribeTaskExecutionCommandOutput extends DescribeTaskExecutio
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DataSyncClient, DescribeTaskExecutionCommand } from "@aws-sdk/client-datasync"; // ES Modules import
- * // const { DataSyncClient, DescribeTaskExecutionCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
+ * import { DataSyncClient, DescribeTaskExecutionCommand } from '@aws-sdk/client-datasync'; // ES Modules import
+ * // const { DataSyncClient, DescribeTaskExecutionCommand } = require('@aws-sdk/client-datasync'); // CommonJS import
  * const client = new DataSyncClient(config);
  * const input = { // DescribeTaskExecutionRequest
- *   TaskExecutionArn: "STRING_VALUE", // required
+ *   TaskExecutionArn: 'STRING_VALUE', // required
  * };
  * const command = new DescribeTaskExecutionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeTaskExecutionResponse
+ *   TaskExecutionArn: 'STRING_VALUE',
+ *   Status: 'QUEUED' || 'LAUNCHING' || 'PREPARING' || 'TRANSFERRING' || 'VERIFYING' || 'SUCCESS' || 'ERROR',
+ *   Options: { // Options
+ *     VerifyMode: 'POINT_IN_TIME_CONSISTENT' || 'ONLY_FILES_TRANSFERRED' || 'NONE',
+ *     OverwriteMode: 'ALWAYS' || 'NEVER',
+ *     Atime: 'NONE' || 'BEST_EFFORT',
+ *     Mtime: 'NONE' || 'PRESERVE',
+ *     Uid: 'NONE' || 'INT_VALUE' || 'NAME' || 'BOTH',
+ *     Gid: 'NONE' || 'INT_VALUE' || 'NAME' || 'BOTH',
+ *     PreserveDeletedFiles: 'PRESERVE' || 'REMOVE',
+ *     PreserveDevices: 'NONE' || 'PRESERVE',
+ *     PosixPermissions: 'NONE' || 'PRESERVE',
+ *     BytesPerSecond: Number('long'),
+ *     TaskQueueing: 'ENABLED' || 'DISABLED',
+ *     LogLevel: 'OFF' || 'BASIC' || 'TRANSFER',
+ *     TransferMode: 'CHANGED' || 'ALL',
+ *     SecurityDescriptorCopyFlags: 'NONE' || 'OWNER_DACL' || 'OWNER_DACL_SACL',
+ *     ObjectTags: 'PRESERVE' || 'NONE',
+ *   },
+ *   Excludes: [ // FilterList
+ *     { // FilterRule
+ *       FilterType: 'SIMPLE_PATTERN',
+ *       Value: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   Includes: [
+ *     {
+ *       FilterType: 'SIMPLE_PATTERN',
+ *       Value: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   StartTime: new Date('TIMESTAMP'),
+ *   EstimatedFilesToTransfer: Number('long'),
+ *   EstimatedBytesToTransfer: Number('long'),
+ *   FilesTransferred: Number('long'),
+ *   BytesWritten: Number('long'),
+ *   BytesTransferred: Number('long'),
+ *   Result: { // TaskExecutionResultDetail
+ *     PrepareDuration: Number('long'),
+ *     PrepareStatus: 'PENDING' || 'SUCCESS' || 'ERROR',
+ *     TotalDuration: Number('long'),
+ *     TransferDuration: Number('long'),
+ *     TransferStatus: 'PENDING' || 'SUCCESS' || 'ERROR',
+ *     VerifyDuration: Number('long'),
+ *     VerifyStatus: 'PENDING' || 'SUCCESS' || 'ERROR',
+ *     ErrorCode: 'STRING_VALUE',
+ *     ErrorDetail: 'STRING_VALUE',
+ *   },
+ *   BytesCompressed: Number('long'),
+ * };
+ *
  * ```
  *
  * @param DescribeTaskExecutionCommandInput - {@link DescribeTaskExecutionCommandInput}
@@ -59,6 +112,8 @@ export interface DescribeTaskExecutionCommandOutput extends DescribeTaskExecutio
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception is thrown when the client submits a malformed request.</p>
  *
+ * @throws {@link DataSyncServiceException}
+ * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
  */
 export class DescribeTaskExecutionCommand extends $Command<

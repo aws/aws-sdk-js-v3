@@ -41,16 +41,16 @@ export interface CreateNodeCommandOutput extends CreateNodeOutput, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ManagedBlockchainClient, CreateNodeCommand } from "@aws-sdk/client-managedblockchain"; // ES Modules import
- * // const { ManagedBlockchainClient, CreateNodeCommand } = require("@aws-sdk/client-managedblockchain"); // CommonJS import
+ * import { ManagedBlockchainClient, CreateNodeCommand } from '@aws-sdk/client-managedblockchain'; // ES Modules import
+ * // const { ManagedBlockchainClient, CreateNodeCommand } = require('@aws-sdk/client-managedblockchain'); // CommonJS import
  * const client = new ManagedBlockchainClient(config);
  * const input = { // CreateNodeInput
- *   ClientRequestToken: "STRING_VALUE", // required
- *   NetworkId: "STRING_VALUE", // required
- *   MemberId: "STRING_VALUE",
+ *   ClientRequestToken: 'STRING_VALUE', // required
+ *   NetworkId: 'STRING_VALUE', // required
+ *   MemberId: 'STRING_VALUE',
  *   NodeConfiguration: { // NodeConfiguration
- *     InstanceType: "STRING_VALUE", // required
- *     AvailabilityZone: "STRING_VALUE",
+ *     InstanceType: 'STRING_VALUE', // required
+ *     AvailabilityZone: 'STRING_VALUE',
  *     LogPublishingConfiguration: { // NodeLogPublishingConfiguration
  *       Fabric: { // NodeFabricLogPublishingConfiguration
  *         ChaincodeLogs: { // LogConfigurations
@@ -65,14 +65,19 @@ export interface CreateNodeCommandOutput extends CreateNodeOutput, __MetadataBea
  *         },
  *       },
  *     },
- *     StateDB: "LevelDB" || "CouchDB",
+ *     StateDB: 'LevelDB' || 'CouchDB',
  *   },
  *   Tags: { // InputTagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateNodeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateNodeOutput
+ *   NodeId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateNodeCommandInput - {@link CreateNodeCommandInput}
@@ -112,6 +117,8 @@ export interface CreateNodeCommandOutput extends CreateNodeOutput, __MetadataBea
  * @throws {@link TooManyTagsException} (client fault)
  *  <p></p>
  *
+ * @throws {@link ManagedBlockchainServiceException}
+ * <p>Base exception class for all service exceptions from ManagedBlockchain service.</p>
  *
  */
 export class CreateNodeCommand extends $Command<

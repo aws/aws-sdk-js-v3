@@ -40,22 +40,39 @@ export interface PutAuditEventsCommandOutput extends PutAuditEventsResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudTrailDataClient, PutAuditEventsCommand } from "@aws-sdk/client-cloudtrail-data"; // ES Modules import
- * // const { CloudTrailDataClient, PutAuditEventsCommand } = require("@aws-sdk/client-cloudtrail-data"); // CommonJS import
+ * import { CloudTrailDataClient, PutAuditEventsCommand } from '@aws-sdk/client-cloudtrail-data'; // ES Modules import
+ * // const { CloudTrailDataClient, PutAuditEventsCommand } = require('@aws-sdk/client-cloudtrail-data'); // CommonJS import
  * const client = new CloudTrailDataClient(config);
  * const input = { // PutAuditEventsRequest
  *   auditEvents: [ // AuditEvents // required
  *     { // AuditEvent
- *       id: "STRING_VALUE", // required
- *       eventData: "STRING_VALUE", // required
- *       eventDataChecksum: "STRING_VALUE",
+ *       id: 'STRING_VALUE', // required
+ *       eventData: 'STRING_VALUE', // required
+ *       eventDataChecksum: 'STRING_VALUE',
  *     },
  *   ],
- *   channelArn: "STRING_VALUE", // required
- *   externalId: "STRING_VALUE",
+ *   channelArn: 'STRING_VALUE', // required
+ *   externalId: 'STRING_VALUE',
  * };
  * const command = new PutAuditEventsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutAuditEventsResponse
+ *   successful: [ // AuditEventResultEntries // required
+ *     { // AuditEventResultEntry
+ *       id: 'STRING_VALUE', // required
+ *       eventID: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ *   failed: [ // ResultErrorEntries // required
+ *     { // ResultErrorEntry
+ *       id: 'STRING_VALUE', // required
+ *       errorCode: 'STRING_VALUE', // required
+ *       errorMessage: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param PutAuditEventsCommandInput - {@link PutAuditEventsCommandInput}
@@ -83,6 +100,8 @@ export interface PutAuditEventsCommandOutput extends PutAuditEventsResponse, __M
  * @throws {@link UnsupportedOperationException} (client fault)
  *  <p>The operation requested is not supported in this region or account.</p>
  *
+ * @throws {@link CloudTrailDataServiceException}
+ * <p>Base exception class for all service exceptions from CloudTrailData service.</p>
  *
  */
 export class PutAuditEventsCommand extends $Command<

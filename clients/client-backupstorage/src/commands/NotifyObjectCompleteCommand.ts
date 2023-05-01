@@ -49,22 +49,28 @@ export interface NotifyObjectCompleteCommandOutput extends NotifyObjectCompleteO
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BackupStorageClient, NotifyObjectCompleteCommand } from "@aws-sdk/client-backupstorage"; // ES Modules import
- * // const { BackupStorageClient, NotifyObjectCompleteCommand } = require("@aws-sdk/client-backupstorage"); // CommonJS import
+ * import { BackupStorageClient, NotifyObjectCompleteCommand } from '@aws-sdk/client-backupstorage'; // ES Modules import
+ * // const { BackupStorageClient, NotifyObjectCompleteCommand } = require('@aws-sdk/client-backupstorage'); // CommonJS import
  * const client = new BackupStorageClient(config);
  * const input = { // NotifyObjectCompleteInput
- *   BackupJobId: "STRING_VALUE", // required
- *   UploadId: "STRING_VALUE", // required
- *   ObjectChecksum: "STRING_VALUE", // required
- *   ObjectChecksumAlgorithm: "STRING_VALUE", // required
- *   MetadataString: "STRING_VALUE",
- *   MetadataBlob: "STREAMING_BLOB_VALUE",
- *   MetadataBlobLength: Number("long"),
- *   MetadataBlobChecksum: "STRING_VALUE",
- *   MetadataBlobChecksumAlgorithm: "STRING_VALUE",
+ *   BackupJobId: 'STRING_VALUE', // required
+ *   UploadId: 'STRING_VALUE', // required
+ *   ObjectChecksum: 'STRING_VALUE', // required
+ *   ObjectChecksumAlgorithm: 'STRING_VALUE', // required
+ *   MetadataString: 'STRING_VALUE',
+ *   MetadataBlob: 'STREAMING_BLOB_VALUE',
+ *   MetadataBlobLength: Number('long'),
+ *   MetadataBlobChecksum: 'STRING_VALUE',
+ *   MetadataBlobChecksumAlgorithm: 'STRING_VALUE',
  * };
  * const command = new NotifyObjectCompleteCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // NotifyObjectCompleteOutput
+ *   ObjectChecksum: 'STRING_VALUE', // required
+ *   ObjectChecksumAlgorithm: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param NotifyObjectCompleteCommandInput - {@link NotifyObjectCompleteCommandInput}
@@ -97,6 +103,8 @@ export interface NotifyObjectCompleteCommandOutput extends NotifyObjectCompleteO
  * @throws {@link ThrottlingException} (client fault)
  *  Increased rate over throttling limits. Can be retried with exponential backoff.
  *
+ * @throws {@link BackupStorageServiceException}
+ * <p>Base exception class for all service exceptions from BackupStorage service.</p>
  *
  */
 export class NotifyObjectCompleteCommand extends $Command<

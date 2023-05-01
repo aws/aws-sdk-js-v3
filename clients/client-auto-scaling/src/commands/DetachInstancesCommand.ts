@@ -45,18 +45,38 @@ export interface DetachInstancesCommandOutput extends DetachInstancesAnswer, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AutoScalingClient, DetachInstancesCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
- * // const { AutoScalingClient, DetachInstancesCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
+ * import { AutoScalingClient, DetachInstancesCommand } from '@aws-sdk/client-auto-scaling'; // ES Modules import
+ * // const { AutoScalingClient, DetachInstancesCommand } = require('@aws-sdk/client-auto-scaling'); // CommonJS import
  * const client = new AutoScalingClient(config);
  * const input = { // DetachInstancesQuery
  *   InstanceIds: [ // InstanceIds
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   AutoScalingGroupName: "STRING_VALUE", // required
+ *   AutoScalingGroupName: 'STRING_VALUE', // required
  *   ShouldDecrementDesiredCapacity: true || false, // required
  * };
  * const command = new DetachInstancesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DetachInstancesAnswer
+ *   Activities: [ // Activities
+ *     { // Activity
+ *       ActivityId: 'STRING_VALUE', // required
+ *       AutoScalingGroupName: 'STRING_VALUE', // required
+ *       Description: 'STRING_VALUE',
+ *       Cause: 'STRING_VALUE', // required
+ *       StartTime: new Date('TIMESTAMP'), // required
+ *       EndTime: new Date('TIMESTAMP'),
+ *       StatusCode: 'PendingSpotBidPlacement' || 'WaitingForSpotInstanceRequestId' || 'WaitingForSpotInstanceId' || 'WaitingForInstanceId' || 'PreInService' || 'InProgress' || 'WaitingForELBConnectionDraining' || 'MidLifecycleAction' || 'WaitingForInstanceWarmup' || 'Successful' || 'Failed' || 'Cancelled' || 'WaitingForConnectionDraining', // required
+ *       StatusMessage: 'STRING_VALUE',
+ *       Progress: Number('int'),
+ *       Details: 'STRING_VALUE',
+ *       AutoScalingGroupState: 'STRING_VALUE',
+ *       AutoScalingGroupARN: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DetachInstancesCommandInput - {@link DetachInstancesCommandInput}
@@ -69,6 +89,8 @@ export interface DetachInstancesCommandOutput extends DetachInstancesAnswer, __M
  *  <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group,
  *             instance, or load balancer).</p>
  *
+ * @throws {@link AutoScalingServiceException}
+ * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
  * @example To detach an instance from an Auto Scaling group
  * ```javascript

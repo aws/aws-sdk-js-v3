@@ -47,17 +47,24 @@ export interface ApplySecurityGroupsToLoadBalancerCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElasticLoadBalancingClient, ApplySecurityGroupsToLoadBalancerCommand } from "@aws-sdk/client-elastic-load-balancing"; // ES Modules import
- * // const { ElasticLoadBalancingClient, ApplySecurityGroupsToLoadBalancerCommand } = require("@aws-sdk/client-elastic-load-balancing"); // CommonJS import
+ * import { ElasticLoadBalancingClient, ApplySecurityGroupsToLoadBalancerCommand } from '@aws-sdk/client-elastic-load-balancing'; // ES Modules import
+ * // const { ElasticLoadBalancingClient, ApplySecurityGroupsToLoadBalancerCommand } = require('@aws-sdk/client-elastic-load-balancing'); // CommonJS import
  * const client = new ElasticLoadBalancingClient(config);
  * const input = { // ApplySecurityGroupsToLoadBalancerInput
- *   LoadBalancerName: "STRING_VALUE", // required
+ *   LoadBalancerName: 'STRING_VALUE', // required
  *   SecurityGroups: [ // SecurityGroups // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new ApplySecurityGroupsToLoadBalancerCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ApplySecurityGroupsToLoadBalancerOutput
+ *   SecurityGroups: [ // SecurityGroups
+ *     'STRING_VALUE',
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ApplySecurityGroupsToLoadBalancerCommandInput - {@link ApplySecurityGroupsToLoadBalancerCommandInput}
@@ -75,6 +82,8 @@ export interface ApplySecurityGroupsToLoadBalancerCommandOutput
  * @throws {@link InvalidSecurityGroupException} (client fault)
  *  <p>One or more of the specified security groups do not exist.</p>
  *
+ * @throws {@link ElasticLoadBalancingServiceException}
+ * <p>Base exception class for all service exceptions from ElasticLoadBalancing service.</p>
  *
  * @example To associate a security group with a load balancer in a VPC
  * ```javascript

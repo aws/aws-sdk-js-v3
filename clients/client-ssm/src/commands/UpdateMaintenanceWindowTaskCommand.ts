@@ -96,97 +96,184 @@ export interface UpdateMaintenanceWindowTaskCommandOutput extends UpdateMaintena
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMClient, UpdateMaintenanceWindowTaskCommand } from "@aws-sdk/client-ssm"; // ES Modules import
- * // const { SSMClient, UpdateMaintenanceWindowTaskCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * import { SSMClient, UpdateMaintenanceWindowTaskCommand } from '@aws-sdk/client-ssm'; // ES Modules import
+ * // const { SSMClient, UpdateMaintenanceWindowTaskCommand } = require('@aws-sdk/client-ssm'); // CommonJS import
  * const client = new SSMClient(config);
  * const input = { // UpdateMaintenanceWindowTaskRequest
- *   WindowId: "STRING_VALUE", // required
- *   WindowTaskId: "STRING_VALUE", // required
+ *   WindowId: 'STRING_VALUE', // required
+ *   WindowTaskId: 'STRING_VALUE', // required
  *   Targets: [ // Targets
  *     { // Target
- *       Key: "STRING_VALUE",
+ *       Key: 'STRING_VALUE',
  *       Values: [ // TargetValues
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
- *   TaskArn: "STRING_VALUE",
- *   ServiceRoleArn: "STRING_VALUE",
+ *   TaskArn: 'STRING_VALUE',
+ *   ServiceRoleArn: 'STRING_VALUE',
  *   TaskParameters: { // MaintenanceWindowTaskParameters
- *     "<keys>": { // MaintenanceWindowTaskParameterValueExpression
+ *     '<keys>': { // MaintenanceWindowTaskParameterValueExpression
  *       Values: [ // MaintenanceWindowTaskParameterValueList
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   },
  *   TaskInvocationParameters: { // MaintenanceWindowTaskInvocationParameters
  *     RunCommand: { // MaintenanceWindowRunCommandParameters
- *       Comment: "STRING_VALUE",
+ *       Comment: 'STRING_VALUE',
  *       CloudWatchOutputConfig: { // CloudWatchOutputConfig
- *         CloudWatchLogGroupName: "STRING_VALUE",
+ *         CloudWatchLogGroupName: 'STRING_VALUE',
  *         CloudWatchOutputEnabled: true || false,
  *       },
- *       DocumentHash: "STRING_VALUE",
- *       DocumentHashType: "Sha256" || "Sha1",
- *       DocumentVersion: "STRING_VALUE",
+ *       DocumentHash: 'STRING_VALUE',
+ *       DocumentHashType: 'Sha256' || 'Sha1',
+ *       DocumentVersion: 'STRING_VALUE',
  *       NotificationConfig: { // NotificationConfig
- *         NotificationArn: "STRING_VALUE",
+ *         NotificationArn: 'STRING_VALUE',
  *         NotificationEvents: [ // NotificationEventList
- *           "All" || "InProgress" || "Success" || "TimedOut" || "Cancelled" || "Failed",
+ *           'All' || 'InProgress' || 'Success' || 'TimedOut' || 'Cancelled' || 'Failed',
  *         ],
- *         NotificationType: "Command" || "Invocation",
+ *         NotificationType: 'Command' || 'Invocation',
  *       },
- *       OutputS3BucketName: "STRING_VALUE",
- *       OutputS3KeyPrefix: "STRING_VALUE",
+ *       OutputS3BucketName: 'STRING_VALUE',
+ *       OutputS3KeyPrefix: 'STRING_VALUE',
  *       Parameters: { // Parameters
- *         "<keys>": [ // ParameterValueList
- *           "STRING_VALUE",
+ *         '<keys>': [ // ParameterValueList
+ *           'STRING_VALUE',
  *         ],
  *       },
- *       ServiceRoleArn: "STRING_VALUE",
- *       TimeoutSeconds: Number("int"),
+ *       ServiceRoleArn: 'STRING_VALUE',
+ *       TimeoutSeconds: Number('int'),
  *     },
  *     Automation: { // MaintenanceWindowAutomationParameters
- *       DocumentVersion: "STRING_VALUE",
+ *       DocumentVersion: 'STRING_VALUE',
  *       Parameters: { // AutomationParameterMap
- *         "<keys>": [ // AutomationParameterValueList
- *           "STRING_VALUE",
+ *         '<keys>': [ // AutomationParameterValueList
+ *           'STRING_VALUE',
  *         ],
  *       },
  *     },
  *     StepFunctions: { // MaintenanceWindowStepFunctionsParameters
- *       Input: "STRING_VALUE",
- *       Name: "STRING_VALUE",
+ *       Input: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
  *     },
  *     Lambda: { // MaintenanceWindowLambdaParameters
- *       ClientContext: "STRING_VALUE",
- *       Qualifier: "STRING_VALUE",
- *       Payload: "BLOB_VALUE",
+ *       ClientContext: 'STRING_VALUE',
+ *       Qualifier: 'STRING_VALUE',
+ *       Payload: 'BLOB_VALUE',
  *     },
  *   },
- *   Priority: Number("int"),
- *   MaxConcurrency: "STRING_VALUE",
- *   MaxErrors: "STRING_VALUE",
+ *   Priority: Number('int'),
+ *   MaxConcurrency: 'STRING_VALUE',
+ *   MaxErrors: 'STRING_VALUE',
  *   LoggingInfo: { // LoggingInfo
- *     S3BucketName: "STRING_VALUE", // required
- *     S3KeyPrefix: "STRING_VALUE",
- *     S3Region: "STRING_VALUE", // required
+ *     S3BucketName: 'STRING_VALUE', // required
+ *     S3KeyPrefix: 'STRING_VALUE',
+ *     S3Region: 'STRING_VALUE', // required
  *   },
- *   Name: "STRING_VALUE",
- *   Description: "STRING_VALUE",
+ *   Name: 'STRING_VALUE',
+ *   Description: 'STRING_VALUE',
  *   Replace: true || false,
- *   CutoffBehavior: "CONTINUE_TASK" || "CANCEL_TASK",
+ *   CutoffBehavior: 'CONTINUE_TASK' || 'CANCEL_TASK',
  *   AlarmConfiguration: { // AlarmConfiguration
  *     IgnorePollAlarmFailure: true || false,
  *     Alarms: [ // AlarmList // required
  *       { // Alarm
- *         Name: "STRING_VALUE", // required
+ *         Name: 'STRING_VALUE', // required
  *       },
  *     ],
  *   },
  * };
  * const command = new UpdateMaintenanceWindowTaskCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateMaintenanceWindowTaskResult
+ *   WindowId: 'STRING_VALUE',
+ *   WindowTaskId: 'STRING_VALUE',
+ *   Targets: [ // Targets
+ *     { // Target
+ *       Key: 'STRING_VALUE',
+ *       Values: [ // TargetValues
+ *         'STRING_VALUE',
+ *       ],
+ *     },
+ *   ],
+ *   TaskArn: 'STRING_VALUE',
+ *   ServiceRoleArn: 'STRING_VALUE',
+ *   TaskParameters: { // MaintenanceWindowTaskParameters
+ *     '<keys>': { // MaintenanceWindowTaskParameterValueExpression
+ *       Values: [ // MaintenanceWindowTaskParameterValueList
+ *         'STRING_VALUE',
+ *       ],
+ *     },
+ *   },
+ *   TaskInvocationParameters: { // MaintenanceWindowTaskInvocationParameters
+ *     RunCommand: { // MaintenanceWindowRunCommandParameters
+ *       Comment: 'STRING_VALUE',
+ *       CloudWatchOutputConfig: { // CloudWatchOutputConfig
+ *         CloudWatchLogGroupName: 'STRING_VALUE',
+ *         CloudWatchOutputEnabled: true || false,
+ *       },
+ *       DocumentHash: 'STRING_VALUE',
+ *       DocumentHashType: 'Sha256' || 'Sha1',
+ *       DocumentVersion: 'STRING_VALUE',
+ *       NotificationConfig: { // NotificationConfig
+ *         NotificationArn: 'STRING_VALUE',
+ *         NotificationEvents: [ // NotificationEventList
+ *           'All' || 'InProgress' || 'Success' || 'TimedOut' || 'Cancelled' || 'Failed',
+ *         ],
+ *         NotificationType: 'Command' || 'Invocation',
+ *       },
+ *       OutputS3BucketName: 'STRING_VALUE',
+ *       OutputS3KeyPrefix: 'STRING_VALUE',
+ *       Parameters: { // Parameters
+ *         '<keys>': [ // ParameterValueList
+ *           'STRING_VALUE',
+ *         ],
+ *       },
+ *       ServiceRoleArn: 'STRING_VALUE',
+ *       TimeoutSeconds: Number('int'),
+ *     },
+ *     Automation: { // MaintenanceWindowAutomationParameters
+ *       DocumentVersion: 'STRING_VALUE',
+ *       Parameters: { // AutomationParameterMap
+ *         '<keys>': [ // AutomationParameterValueList
+ *           'STRING_VALUE',
+ *         ],
+ *       },
+ *     },
+ *     StepFunctions: { // MaintenanceWindowStepFunctionsParameters
+ *       Input: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *     },
+ *     Lambda: { // MaintenanceWindowLambdaParameters
+ *       ClientContext: 'STRING_VALUE',
+ *       Qualifier: 'STRING_VALUE',
+ *       Payload: 'BLOB_VALUE',
+ *     },
+ *   },
+ *   Priority: Number('int'),
+ *   MaxConcurrency: 'STRING_VALUE',
+ *   MaxErrors: 'STRING_VALUE',
+ *   LoggingInfo: { // LoggingInfo
+ *     S3BucketName: 'STRING_VALUE', // required
+ *     S3KeyPrefix: 'STRING_VALUE',
+ *     S3Region: 'STRING_VALUE', // required
+ *   },
+ *   Name: 'STRING_VALUE',
+ *   Description: 'STRING_VALUE',
+ *   CutoffBehavior: 'CONTINUE_TASK' || 'CANCEL_TASK',
+ *   AlarmConfiguration: { // AlarmConfiguration
+ *     IgnorePollAlarmFailure: true || false,
+ *     Alarms: [ // AlarmList // required
+ *       { // Alarm
+ *         Name: 'STRING_VALUE', // required
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateMaintenanceWindowTaskCommandInput - {@link UpdateMaintenanceWindowTaskCommandInput}
@@ -204,6 +291,8 @@ export interface UpdateMaintenanceWindowTaskCommandOutput extends UpdateMaintena
  * @throws {@link InternalServerError} (server fault)
  *  <p>An error occurred on the server side.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class UpdateMaintenanceWindowTaskCommand extends $Command<

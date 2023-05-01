@@ -38,15 +38,28 @@ export interface DescribeRuntimeVersionsCommandOutput extends DescribeRuntimeVer
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SyntheticsClient, DescribeRuntimeVersionsCommand } from "@aws-sdk/client-synthetics"; // ES Modules import
- * // const { SyntheticsClient, DescribeRuntimeVersionsCommand } = require("@aws-sdk/client-synthetics"); // CommonJS import
+ * import { SyntheticsClient, DescribeRuntimeVersionsCommand } from '@aws-sdk/client-synthetics'; // ES Modules import
+ * // const { SyntheticsClient, DescribeRuntimeVersionsCommand } = require('@aws-sdk/client-synthetics'); // CommonJS import
  * const client = new SyntheticsClient(config);
  * const input = { // DescribeRuntimeVersionsRequest
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new DescribeRuntimeVersionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeRuntimeVersionsResponse
+ *   RuntimeVersions: [ // RuntimeVersionList
+ *     { // RuntimeVersion
+ *       VersionName: 'STRING_VALUE',
+ *       Description: 'STRING_VALUE',
+ *       ReleaseDate: new Date('TIMESTAMP'),
+ *       DeprecationDate: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeRuntimeVersionsCommandInput - {@link DescribeRuntimeVersionsCommandInput}
@@ -61,6 +74,8 @@ export interface DescribeRuntimeVersionsCommandOutput extends DescribeRuntimeVer
  * @throws {@link ValidationException} (client fault)
  *  <p>A parameter could not be validated.</p>
  *
+ * @throws {@link SyntheticsServiceException}
+ * <p>Base exception class for all service exceptions from Synthetics service.</p>
  *
  */
 export class DescribeRuntimeVersionsCommand extends $Command<

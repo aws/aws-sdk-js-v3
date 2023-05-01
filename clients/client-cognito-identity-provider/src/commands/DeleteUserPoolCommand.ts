@@ -41,14 +41,17 @@ export interface DeleteUserPoolCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CognitoIdentityProviderClient, DeleteUserPoolCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
- * // const { CognitoIdentityProviderClient, DeleteUserPoolCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
+ * import { CognitoIdentityProviderClient, DeleteUserPoolCommand } from '@aws-sdk/client-cognito-identity-provider'; // ES Modules import
+ * // const { CognitoIdentityProviderClient, DeleteUserPoolCommand } = require('@aws-sdk/client-cognito-identity-provider'); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
  * const input = { // DeleteUserPoolRequest
- *   UserPoolId: "STRING_VALUE", // required
+ *   UserPoolId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteUserPoolCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteUserPoolCommandInput - {@link DeleteUserPoolCommandInput}
@@ -79,6 +82,8 @@ export interface DeleteUserPoolCommandOutput extends __MetadataBearer {}
  *  <p>This exception is thrown when you're trying to modify a user pool while a user import
  *             job is in progress for that pool.</p>
  *
+ * @throws {@link CognitoIdentityProviderServiceException}
+ * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
  */
 export class DeleteUserPoolCommand extends $Command<

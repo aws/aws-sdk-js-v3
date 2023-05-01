@@ -37,29 +37,44 @@ export interface DeleteVolumeCommandOutput extends DeleteVolumeResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FSxClient, DeleteVolumeCommand } from "@aws-sdk/client-fsx"; // ES Modules import
- * // const { FSxClient, DeleteVolumeCommand } = require("@aws-sdk/client-fsx"); // CommonJS import
+ * import { FSxClient, DeleteVolumeCommand } from '@aws-sdk/client-fsx'; // ES Modules import
+ * // const { FSxClient, DeleteVolumeCommand } = require('@aws-sdk/client-fsx'); // CommonJS import
  * const client = new FSxClient(config);
  * const input = { // DeleteVolumeRequest
- *   ClientRequestToken: "STRING_VALUE",
- *   VolumeId: "STRING_VALUE", // required
+ *   ClientRequestToken: 'STRING_VALUE',
+ *   VolumeId: 'STRING_VALUE', // required
  *   OntapConfiguration: { // DeleteVolumeOntapConfiguration
  *     SkipFinalBackup: true || false,
  *     FinalBackupTags: [ // Tags
  *       { // Tag
- *         Key: "STRING_VALUE", // required
- *         Value: "STRING_VALUE", // required
+ *         Key: 'STRING_VALUE', // required
+ *         Value: 'STRING_VALUE', // required
  *       },
  *     ],
  *   },
  *   OpenZFSConfiguration: { // DeleteVolumeOpenZFSConfiguration
  *     Options: [ // DeleteOpenZFSVolumeOptions
- *       "DELETE_CHILD_VOLUMES_AND_SNAPSHOTS",
+ *       'DELETE_CHILD_VOLUMES_AND_SNAPSHOTS',
  *     ],
  *   },
  * };
  * const command = new DeleteVolumeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteVolumeResponse
+ *   VolumeId: 'STRING_VALUE',
+ *   Lifecycle: 'CREATING' || 'CREATED' || 'DELETING' || 'FAILED' || 'MISCONFIGURED' || 'PENDING' || 'AVAILABLE',
+ *   OntapResponse: { // DeleteVolumeOntapResponse
+ *     FinalBackupId: 'STRING_VALUE',
+ *     FinalBackupTags: [ // Tags
+ *       { // Tag
+ *         Key: 'STRING_VALUE', // required
+ *         Value: 'STRING_VALUE', // required
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param DeleteVolumeCommandInput - {@link DeleteVolumeCommandInput}
@@ -82,6 +97,8 @@ export interface DeleteVolumeCommandOutput extends DeleteVolumeResponse, __Metad
  * @throws {@link VolumeNotFound} (client fault)
  *  <p>No Amazon FSx volumes were found based upon the supplied parameters.</p>
  *
+ * @throws {@link FSxServiceException}
+ * <p>Base exception class for all service exceptions from FSx service.</p>
  *
  */
 export class DeleteVolumeCommand extends $Command<

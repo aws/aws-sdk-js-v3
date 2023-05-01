@@ -37,16 +37,19 @@ export interface AssociateDefaultVocabularyCommandOutput extends AssociateDefaul
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, AssociateDefaultVocabularyCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, AssociateDefaultVocabularyCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, AssociateDefaultVocabularyCommand } from '@aws-sdk/client-connect'; // ES Modules import
+ * // const { ConnectClient, AssociateDefaultVocabularyCommand } = require('@aws-sdk/client-connect'); // CommonJS import
  * const client = new ConnectClient(config);
  * const input = { // AssociateDefaultVocabularyRequest
- *   InstanceId: "STRING_VALUE", // required
- *   LanguageCode: "ar-AE" || "de-CH" || "de-DE" || "en-AB" || "en-AU" || "en-GB" || "en-IE" || "en-IN" || "en-US" || "en-WL" || "es-ES" || "es-US" || "fr-CA" || "fr-FR" || "hi-IN" || "it-IT" || "ja-JP" || "ko-KR" || "pt-BR" || "pt-PT" || "zh-CN" || "en-NZ" || "en-ZA", // required
- *   VocabularyId: "STRING_VALUE",
+ *   InstanceId: 'STRING_VALUE', // required
+ *   LanguageCode: 'ar-AE' || 'de-CH' || 'de-DE' || 'en-AB' || 'en-AU' || 'en-GB' || 'en-IE' || 'en-IN' || 'en-US' || 'en-WL' || 'es-ES' || 'es-US' || 'fr-CA' || 'fr-FR' || 'hi-IN' || 'it-IT' || 'ja-JP' || 'ko-KR' || 'pt-BR' || 'pt-PT' || 'zh-CN' || 'en-NZ' || 'en-ZA', // required
+ *   VocabularyId: 'STRING_VALUE',
  * };
  * const command = new AssociateDefaultVocabularyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param AssociateDefaultVocabularyCommandInput - {@link AssociateDefaultVocabularyCommandInput}
@@ -70,6 +73,8 @@ export interface AssociateDefaultVocabularyCommandOutput extends AssociateDefaul
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class AssociateDefaultVocabularyCommand extends $Command<

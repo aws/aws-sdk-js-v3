@@ -36,15 +36,18 @@ export interface DeletePublicKeyCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudFrontClient, DeletePublicKeyCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
- * // const { CloudFrontClient, DeletePublicKeyCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
+ * import { CloudFrontClient, DeletePublicKeyCommand } from '@aws-sdk/client-cloudfront'; // ES Modules import
+ * // const { CloudFrontClient, DeletePublicKeyCommand } = require('@aws-sdk/client-cloudfront'); // CommonJS import
  * const client = new CloudFrontClient(config);
  * const input = { // DeletePublicKeyRequest
- *   Id: "STRING_VALUE", // required
- *   IfMatch: "STRING_VALUE",
+ *   Id: 'STRING_VALUE', // required
+ *   IfMatch: 'STRING_VALUE',
  * };
  * const command = new DeletePublicKeyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeletePublicKeyCommandInput - {@link DeletePublicKeyCommandInput}
@@ -69,6 +72,8 @@ export interface DeletePublicKeyCommandOutput extends __MetadataBearer {}
  * @throws {@link PublicKeyInUse} (client fault)
  *  <p>The specified public key is in use.</p>
  *
+ * @throws {@link CloudFrontServiceException}
+ * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
  */
 export class DeletePublicKeyCommand extends $Command<

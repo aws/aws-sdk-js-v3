@@ -37,15 +37,36 @@ export interface ListChangeSetsCommandOutput extends ListChangeSetsOutput, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudFormationClient, ListChangeSetsCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
- * // const { CloudFormationClient, ListChangeSetsCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
+ * import { CloudFormationClient, ListChangeSetsCommand } from '@aws-sdk/client-cloudformation'; // ES Modules import
+ * // const { CloudFormationClient, ListChangeSetsCommand } = require('@aws-sdk/client-cloudformation'); // CommonJS import
  * const client = new CloudFormationClient(config);
  * const input = { // ListChangeSetsInput
- *   StackName: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
+ *   StackName: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListChangeSetsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListChangeSetsOutput
+ *   Summaries: [ // ChangeSetSummaries
+ *     { // ChangeSetSummary
+ *       StackId: 'STRING_VALUE',
+ *       StackName: 'STRING_VALUE',
+ *       ChangeSetId: 'STRING_VALUE',
+ *       ChangeSetName: 'STRING_VALUE',
+ *       ExecutionStatus: 'UNAVAILABLE' || 'AVAILABLE' || 'EXECUTE_IN_PROGRESS' || 'EXECUTE_COMPLETE' || 'EXECUTE_FAILED' || 'OBSOLETE',
+ *       Status: 'CREATE_PENDING' || 'CREATE_IN_PROGRESS' || 'CREATE_COMPLETE' || 'DELETE_PENDING' || 'DELETE_IN_PROGRESS' || 'DELETE_COMPLETE' || 'DELETE_FAILED' || 'FAILED',
+ *       StatusReason: 'STRING_VALUE',
+ *       CreationTime: new Date('TIMESTAMP'),
+ *       Description: 'STRING_VALUE',
+ *       IncludeNestedStacks: true || false,
+ *       ParentChangeSetId: 'STRING_VALUE',
+ *       RootChangeSetId: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListChangeSetsCommandInput - {@link ListChangeSetsCommandInput}
@@ -54,6 +75,8 @@ export interface ListChangeSetsCommandOutput extends ListChangeSetsOutput, __Met
  * @see {@link ListChangeSetsCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
+ * @throws {@link CloudFormationServiceException}
+ * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
  */
 export class ListChangeSetsCommand extends $Command<

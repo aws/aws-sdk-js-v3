@@ -39,15 +39,23 @@ export interface GetDecryptedAPIKeyCommandOutput extends GetDecryptedAPIKeyRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WAFV2Client, GetDecryptedAPIKeyCommand } from "@aws-sdk/client-wafv2"; // ES Modules import
- * // const { WAFV2Client, GetDecryptedAPIKeyCommand } = require("@aws-sdk/client-wafv2"); // CommonJS import
+ * import { WAFV2Client, GetDecryptedAPIKeyCommand } from '@aws-sdk/client-wafv2'; // ES Modules import
+ * // const { WAFV2Client, GetDecryptedAPIKeyCommand } = require('@aws-sdk/client-wafv2'); // CommonJS import
  * const client = new WAFV2Client(config);
  * const input = { // GetDecryptedAPIKeyRequest
- *   Scope: "CLOUDFRONT" || "REGIONAL", // required
- *   APIKey: "STRING_VALUE", // required
+ *   Scope: 'CLOUDFRONT' || 'REGIONAL', // required
+ *   APIKey: 'STRING_VALUE', // required
  * };
  * const command = new GetDecryptedAPIKeyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetDecryptedAPIKeyResponse
+ *   TokenDomains: [ // TokenDomains
+ *     'STRING_VALUE',
+ *   ],
+ *   CreationTimestamp: new Date('TIMESTAMP'),
+ * };
+ *
  * ```
  *
  * @param GetDecryptedAPIKeyCommandInput - {@link GetDecryptedAPIKeyCommandInput}
@@ -88,6 +96,8 @@ export interface GetDecryptedAPIKeyCommandOutput extends GetDecryptedAPIKeyRespo
  *  <p>WAF couldn’t perform the operation because the resource that you requested isn’t
  *          valid. Check the resource, and try again.</p>
  *
+ * @throws {@link WAFV2ServiceException}
+ * <p>Base exception class for all service exceptions from WAFV2 service.</p>
  *
  */
 export class GetDecryptedAPIKeyCommand extends $Command<

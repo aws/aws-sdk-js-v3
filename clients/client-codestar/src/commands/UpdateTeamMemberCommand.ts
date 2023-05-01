@@ -38,17 +38,24 @@ export interface UpdateTeamMemberCommandOutput extends UpdateTeamMemberResult, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeStarClient, UpdateTeamMemberCommand } from "@aws-sdk/client-codestar"; // ES Modules import
- * // const { CodeStarClient, UpdateTeamMemberCommand } = require("@aws-sdk/client-codestar"); // CommonJS import
+ * import { CodeStarClient, UpdateTeamMemberCommand } from '@aws-sdk/client-codestar'; // ES Modules import
+ * // const { CodeStarClient, UpdateTeamMemberCommand } = require('@aws-sdk/client-codestar'); // CommonJS import
  * const client = new CodeStarClient(config);
  * const input = { // UpdateTeamMemberRequest
- *   projectId: "STRING_VALUE", // required
- *   userArn: "STRING_VALUE", // required
- *   projectRole: "STRING_VALUE",
+ *   projectId: 'STRING_VALUE', // required
+ *   userArn: 'STRING_VALUE', // required
+ *   projectRole: 'STRING_VALUE',
  *   remoteAccessAllowed: true || false,
  * };
  * const command = new UpdateTeamMemberCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateTeamMemberResult
+ *   userArn: 'STRING_VALUE',
+ *   projectRole: 'STRING_VALUE',
+ *   remoteAccessAllowed: true || false,
+ * };
+ *
  * ```
  *
  * @param UpdateTeamMemberCommandInput - {@link UpdateTeamMemberCommandInput}
@@ -79,6 +86,8 @@ export interface UpdateTeamMemberCommandOutput extends UpdateTeamMemberResult, _
  * @throws {@link ValidationException} (client fault)
  *  <p>The specified input is either not valid, or it could not be validated.</p>
  *
+ * @throws {@link CodeStarServiceException}
+ * <p>Base exception class for all service exceptions from CodeStar service.</p>
  *
  */
 export class UpdateTeamMemberCommand extends $Command<

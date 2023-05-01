@@ -39,14 +39,32 @@ export interface GetLoadBalancerTlsPoliciesCommandOutput extends GetLoadBalancer
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LightsailClient, GetLoadBalancerTlsPoliciesCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
- * // const { LightsailClient, GetLoadBalancerTlsPoliciesCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
+ * import { LightsailClient, GetLoadBalancerTlsPoliciesCommand } from '@aws-sdk/client-lightsail'; // ES Modules import
+ * // const { LightsailClient, GetLoadBalancerTlsPoliciesCommand } = require('@aws-sdk/client-lightsail'); // CommonJS import
  * const client = new LightsailClient(config);
  * const input = { // GetLoadBalancerTlsPoliciesRequest
- *   pageToken: "STRING_VALUE",
+ *   pageToken: 'STRING_VALUE',
  * };
  * const command = new GetLoadBalancerTlsPoliciesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetLoadBalancerTlsPoliciesResult
+ *   tlsPolicies: [ // LoadBalancerTlsPolicyList
+ *     { // LoadBalancerTlsPolicy
+ *       name: 'STRING_VALUE',
+ *       isDefault: true || false,
+ *       description: 'STRING_VALUE',
+ *       protocols: [ // StringList
+ *         'STRING_VALUE',
+ *       ],
+ *       ciphers: [
+ *         'STRING_VALUE',
+ *       ],
+ *     },
+ *   ],
+ *   nextPageToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetLoadBalancerTlsPoliciesCommandInput - {@link GetLoadBalancerTlsPoliciesCommandInput}
@@ -79,6 +97,8 @@ export interface GetLoadBalancerTlsPoliciesCommandOutput extends GetLoadBalancer
  * @throws {@link UnauthenticatedException} (client fault)
  *  <p>Lightsail throws this exception when the user has not been authenticated.</p>
  *
+ * @throws {@link LightsailServiceException}
+ * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
  */
 export class GetLoadBalancerTlsPoliciesCommand extends $Command<

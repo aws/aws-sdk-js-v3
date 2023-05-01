@@ -36,20 +36,23 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LicenseManagerClient, TagResourceCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
- * // const { LicenseManagerClient, TagResourceCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
+ * import { LicenseManagerClient, TagResourceCommand } from '@aws-sdk/client-license-manager'; // ES Modules import
+ * // const { LicenseManagerClient, TagResourceCommand } = require('@aws-sdk/client-license-manager'); // CommonJS import
  * const client = new LicenseManagerClient(config);
  * const input = { // TagResourceRequest
- *   ResourceArn: "STRING_VALUE", // required
+ *   ResourceArn: 'STRING_VALUE', // required
  *   Tags: [ // TagList // required
  *     { // Tag
- *       Key: "STRING_VALUE",
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param TagResourceCommandInput - {@link TagResourceCommandInput}
@@ -74,6 +77,8 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @throws {@link ServerInternalException} (server fault)
  *  <p>The server experienced an internal error. Try again.</p>
  *
+ * @throws {@link LicenseManagerServiceException}
+ * <p>Base exception class for all service exceptions from LicenseManager service.</p>
  *
  */
 export class TagResourceCommand extends $Command<

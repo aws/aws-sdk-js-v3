@@ -52,27 +52,49 @@ export interface CreateRecordingConfigurationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IvsClient, CreateRecordingConfigurationCommand } from "@aws-sdk/client-ivs"; // ES Modules import
- * // const { IvsClient, CreateRecordingConfigurationCommand } = require("@aws-sdk/client-ivs"); // CommonJS import
+ * import { IvsClient, CreateRecordingConfigurationCommand } from '@aws-sdk/client-ivs'; // ES Modules import
+ * // const { IvsClient, CreateRecordingConfigurationCommand } = require('@aws-sdk/client-ivs'); // CommonJS import
  * const client = new IvsClient(config);
  * const input = { // CreateRecordingConfigurationRequest
- *   name: "STRING_VALUE",
+ *   name: 'STRING_VALUE',
  *   destinationConfiguration: { // DestinationConfiguration
  *     s3: { // S3DestinationConfiguration
- *       bucketName: "STRING_VALUE", // required
+ *       bucketName: 'STRING_VALUE', // required
  *     },
  *   },
  *   tags: { // Tags
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  *   thumbnailConfiguration: { // ThumbnailConfiguration
- *     recordingMode: "STRING_VALUE",
- *     targetIntervalSeconds: Number("long"),
+ *     recordingMode: 'STRING_VALUE',
+ *     targetIntervalSeconds: Number('long'),
  *   },
- *   recordingReconnectWindowSeconds: Number("int"),
+ *   recordingReconnectWindowSeconds: Number('int'),
  * };
  * const command = new CreateRecordingConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateRecordingConfigurationResponse
+ *   recordingConfiguration: { // RecordingConfiguration
+ *     arn: 'STRING_VALUE', // required
+ *     name: 'STRING_VALUE',
+ *     destinationConfiguration: { // DestinationConfiguration
+ *       s3: { // S3DestinationConfiguration
+ *         bucketName: 'STRING_VALUE', // required
+ *       },
+ *     },
+ *     state: 'STRING_VALUE', // required
+ *     tags: { // Tags
+ *       '<keys>': 'STRING_VALUE',
+ *     },
+ *     thumbnailConfiguration: { // ThumbnailConfiguration
+ *       recordingMode: 'STRING_VALUE',
+ *       targetIntervalSeconds: Number('long'),
+ *     },
+ *     recordingReconnectWindowSeconds: Number('int'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateRecordingConfigurationCommandInput - {@link CreateRecordingConfigurationCommandInput}
@@ -99,6 +121,8 @@ export interface CreateRecordingConfigurationCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p/>
  *
+ * @throws {@link IvsServiceException}
+ * <p>Base exception class for all service exceptions from Ivs service.</p>
  *
  */
 export class CreateRecordingConfigurationCommand extends $Command<

@@ -45,18 +45,31 @@ export interface ListServiceActionsForProvisioningArtifactCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ServiceCatalogClient, ListServiceActionsForProvisioningArtifactCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
- * // const { ServiceCatalogClient, ListServiceActionsForProvisioningArtifactCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
+ * import { ServiceCatalogClient, ListServiceActionsForProvisioningArtifactCommand } from '@aws-sdk/client-service-catalog'; // ES Modules import
+ * // const { ServiceCatalogClient, ListServiceActionsForProvisioningArtifactCommand } = require('@aws-sdk/client-service-catalog'); // CommonJS import
  * const client = new ServiceCatalogClient(config);
  * const input = { // ListServiceActionsForProvisioningArtifactInput
- *   ProductId: "STRING_VALUE", // required
- *   ProvisioningArtifactId: "STRING_VALUE", // required
- *   PageSize: Number("int"),
- *   PageToken: "STRING_VALUE",
- *   AcceptLanguage: "STRING_VALUE",
+ *   ProductId: 'STRING_VALUE', // required
+ *   ProvisioningArtifactId: 'STRING_VALUE', // required
+ *   PageSize: Number('int'),
+ *   PageToken: 'STRING_VALUE',
+ *   AcceptLanguage: 'STRING_VALUE',
  * };
  * const command = new ListServiceActionsForProvisioningArtifactCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListServiceActionsForProvisioningArtifactOutput
+ *   ServiceActionSummaries: [ // ServiceActionSummaries
+ *     { // ServiceActionSummary
+ *       Id: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *       Description: 'STRING_VALUE',
+ *       DefinitionType: 'SSM_AUTOMATION',
+ *     },
+ *   ],
+ *   NextPageToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListServiceActionsForProvisioningArtifactCommandInput - {@link ListServiceActionsForProvisioningArtifactCommandInput}
@@ -71,6 +84,8 @@ export interface ListServiceActionsForProvisioningArtifactCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link ServiceCatalogServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
  */
 export class ListServiceActionsForProvisioningArtifactCommand extends $Command<

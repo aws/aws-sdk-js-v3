@@ -54,15 +54,20 @@ export interface GenerateRandomCommandOutput extends GenerateRandomResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KMSClient, GenerateRandomCommand } from "@aws-sdk/client-kms"; // ES Modules import
- * // const { KMSClient, GenerateRandomCommand } = require("@aws-sdk/client-kms"); // CommonJS import
+ * import { KMSClient, GenerateRandomCommand } from '@aws-sdk/client-kms'; // ES Modules import
+ * // const { KMSClient, GenerateRandomCommand } = require('@aws-sdk/client-kms'); // CommonJS import
  * const client = new KMSClient(config);
  * const input = { // GenerateRandomRequest
- *   NumberOfBytes: Number("int"),
- *   CustomKeyStoreId: "STRING_VALUE",
+ *   NumberOfBytes: Number('int'),
+ *   CustomKeyStoreId: 'STRING_VALUE',
  * };
  * const command = new GenerateRandomCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GenerateRandomResponse
+ *   Plaintext: 'BLOB_VALUE',
+ * };
+ *
  * ```
  *
  * @param GenerateRandomCommandInput - {@link GenerateRandomCommandInput}
@@ -123,6 +128,8 @@ export interface GenerateRandomCommandOutput extends GenerateRandomResponse, __M
  *  <p>The request was rejected because a specified parameter is not supported or a specified
  *       resource is not valid for this operation.</p>
  *
+ * @throws {@link KMSServiceException}
+ * <p>Base exception class for all service exceptions from KMS service.</p>
  *
  * @example To generate random data
  * ```javascript

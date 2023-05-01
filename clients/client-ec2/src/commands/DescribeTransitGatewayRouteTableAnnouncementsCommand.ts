@@ -45,27 +45,52 @@ export interface DescribeTransitGatewayRouteTableAnnouncementsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, DescribeTransitGatewayRouteTableAnnouncementsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, DescribeTransitGatewayRouteTableAnnouncementsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, DescribeTransitGatewayRouteTableAnnouncementsCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, DescribeTransitGatewayRouteTableAnnouncementsCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // DescribeTransitGatewayRouteTableAnnouncementsRequest
  *   TransitGatewayRouteTableAnnouncementIds: [ // TransitGatewayRouteTableAnnouncementIdStringList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   Filters: [ // FilterList
  *     { // Filter
- *       Name: "STRING_VALUE",
+ *       Name: 'STRING_VALUE',
  *       Values: [ // ValueStringList
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  *   DryRun: true || false,
  * };
  * const command = new DescribeTransitGatewayRouteTableAnnouncementsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeTransitGatewayRouteTableAnnouncementsResult
+ *   TransitGatewayRouteTableAnnouncements: [ // TransitGatewayRouteTableAnnouncementList
+ *     { // TransitGatewayRouteTableAnnouncement
+ *       TransitGatewayRouteTableAnnouncementId: 'STRING_VALUE',
+ *       TransitGatewayId: 'STRING_VALUE',
+ *       CoreNetworkId: 'STRING_VALUE',
+ *       PeerTransitGatewayId: 'STRING_VALUE',
+ *       PeerCoreNetworkId: 'STRING_VALUE',
+ *       PeeringAttachmentId: 'STRING_VALUE',
+ *       AnnouncementDirection: 'outgoing' || 'incoming',
+ *       TransitGatewayRouteTableId: 'STRING_VALUE',
+ *       State: 'available' || 'pending' || 'failing' || 'failed' || 'deleting' || 'deleted',
+ *       CreationTime: new Date('TIMESTAMP'),
+ *       Tags: [ // TagList
+ *         { // Tag
+ *           Key: 'STRING_VALUE',
+ *           Value: 'STRING_VALUE',
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeTransitGatewayRouteTableAnnouncementsCommandInput - {@link DescribeTransitGatewayRouteTableAnnouncementsCommandInput}
@@ -74,6 +99,8 @@ export interface DescribeTransitGatewayRouteTableAnnouncementsCommandOutput
  * @see {@link DescribeTransitGatewayRouteTableAnnouncementsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class DescribeTransitGatewayRouteTableAnnouncementsCommand extends $Command<

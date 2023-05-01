@@ -36,14 +36,38 @@ export interface DescribePackageCommandOutput extends DescribePackageResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PanoramaClient, DescribePackageCommand } from "@aws-sdk/client-panorama"; // ES Modules import
- * // const { PanoramaClient, DescribePackageCommand } = require("@aws-sdk/client-panorama"); // CommonJS import
+ * import { PanoramaClient, DescribePackageCommand } from '@aws-sdk/client-panorama'; // ES Modules import
+ * // const { PanoramaClient, DescribePackageCommand } = require('@aws-sdk/client-panorama'); // CommonJS import
  * const client = new PanoramaClient(config);
  * const input = { // DescribePackageRequest
- *   PackageId: "STRING_VALUE", // required
+ *   PackageId: 'STRING_VALUE', // required
  * };
  * const command = new DescribePackageCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribePackageResponse
+ *   PackageId: 'STRING_VALUE', // required
+ *   PackageName: 'STRING_VALUE', // required
+ *   Arn: 'STRING_VALUE', // required
+ *   StorageLocation: { // StorageLocation
+ *     Bucket: 'STRING_VALUE', // required
+ *     RepoPrefixLocation: 'STRING_VALUE', // required
+ *     GeneratedPrefixLocation: 'STRING_VALUE', // required
+ *     BinaryPrefixLocation: 'STRING_VALUE', // required
+ *     ManifestPrefixLocation: 'STRING_VALUE', // required
+ *   },
+ *   ReadAccessPrincipalArns: [ // PrincipalArnsList
+ *     'STRING_VALUE',
+ *   ],
+ *   WriteAccessPrincipalArns: [
+ *     'STRING_VALUE',
+ *   ],
+ *   CreatedTime: new Date('TIMESTAMP'), // required
+ *   Tags: { // TagMap // required
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribePackageCommandInput - {@link DescribePackageCommandInput}
@@ -67,6 +91,8 @@ export interface DescribePackageCommandOutput extends DescribePackageResponse, _
  * @throws {@link ValidationException} (client fault)
  *  <p>The request contains an invalid parameter value.</p>
  *
+ * @throws {@link PanoramaServiceException}
+ * <p>Base exception class for all service exceptions from Panorama service.</p>
  *
  */
 export class DescribePackageCommand extends $Command<

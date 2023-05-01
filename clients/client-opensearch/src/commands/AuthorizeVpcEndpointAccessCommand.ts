@@ -37,15 +37,23 @@ export interface AuthorizeVpcEndpointAccessCommandOutput extends AuthorizeVpcEnd
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OpenSearchClient, AuthorizeVpcEndpointAccessCommand } from "@aws-sdk/client-opensearch"; // ES Modules import
- * // const { OpenSearchClient, AuthorizeVpcEndpointAccessCommand } = require("@aws-sdk/client-opensearch"); // CommonJS import
+ * import { OpenSearchClient, AuthorizeVpcEndpointAccessCommand } from '@aws-sdk/client-opensearch'; // ES Modules import
+ * // const { OpenSearchClient, AuthorizeVpcEndpointAccessCommand } = require('@aws-sdk/client-opensearch'); // CommonJS import
  * const client = new OpenSearchClient(config);
  * const input = { // AuthorizeVpcEndpointAccessRequest
- *   DomainName: "STRING_VALUE", // required
- *   Account: "STRING_VALUE", // required
+ *   DomainName: 'STRING_VALUE', // required
+ *   Account: 'STRING_VALUE', // required
  * };
  * const command = new AuthorizeVpcEndpointAccessCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AuthorizeVpcEndpointAccessResponse
+ *   AuthorizedPrincipal: { // AuthorizedPrincipal
+ *     PrincipalType: 'AWS_ACCOUNT' || 'AWS_SERVICE',
+ *     Principal: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param AuthorizeVpcEndpointAccessCommandInput - {@link AuthorizeVpcEndpointAccessCommandInput}
@@ -72,6 +80,8 @@ export interface AuthorizeVpcEndpointAccessCommandOutput extends AuthorizeVpcEnd
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception for accessing or deleting a resource that doesn't exist.</p>
  *
+ * @throws {@link OpenSearchServiceException}
+ * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
  */
 export class AuthorizeVpcEndpointAccessCommand extends $Command<

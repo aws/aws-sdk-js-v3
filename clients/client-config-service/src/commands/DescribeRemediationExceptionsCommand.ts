@@ -48,22 +48,36 @@ export interface DescribeRemediationExceptionsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConfigServiceClient, DescribeRemediationExceptionsCommand } from "@aws-sdk/client-config-service"; // ES Modules import
- * // const { ConfigServiceClient, DescribeRemediationExceptionsCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
+ * import { ConfigServiceClient, DescribeRemediationExceptionsCommand } from '@aws-sdk/client-config-service'; // ES Modules import
+ * // const { ConfigServiceClient, DescribeRemediationExceptionsCommand } = require('@aws-sdk/client-config-service'); // CommonJS import
  * const client = new ConfigServiceClient(config);
  * const input = { // DescribeRemediationExceptionsRequest
- *   ConfigRuleName: "STRING_VALUE", // required
+ *   ConfigRuleName: 'STRING_VALUE', // required
  *   ResourceKeys: [ // RemediationExceptionResourceKeys
  *     { // RemediationExceptionResourceKey
- *       ResourceType: "STRING_VALUE",
- *       ResourceId: "STRING_VALUE",
+ *       ResourceType: 'STRING_VALUE',
+ *       ResourceId: 'STRING_VALUE',
  *     },
  *   ],
- *   Limit: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   Limit: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new DescribeRemediationExceptionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeRemediationExceptionsResponse
+ *   RemediationExceptions: [ // RemediationExceptions
+ *     { // RemediationException
+ *       ConfigRuleName: 'STRING_VALUE', // required
+ *       ResourceType: 'STRING_VALUE', // required
+ *       ResourceId: 'STRING_VALUE', // required
+ *       Message: 'STRING_VALUE',
+ *       ExpirationTime: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeRemediationExceptionsCommandInput - {@link DescribeRemediationExceptionsCommandInput}
@@ -81,6 +95,8 @@ export interface DescribeRemediationExceptionsCommandOutput
  *  <p>One or more of the specified parameters are not valid. Verify
  * 			that your parameters are valid and try again.</p>
  *
+ * @throws {@link ConfigServiceServiceException}
+ * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
  */
 export class DescribeRemediationExceptionsCommand extends $Command<

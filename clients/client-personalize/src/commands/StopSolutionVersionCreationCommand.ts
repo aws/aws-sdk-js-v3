@@ -49,14 +49,17 @@ export interface StopSolutionVersionCreationCommandOutput extends __MetadataBear
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PersonalizeClient, StopSolutionVersionCreationCommand } from "@aws-sdk/client-personalize"; // ES Modules import
- * // const { PersonalizeClient, StopSolutionVersionCreationCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
+ * import { PersonalizeClient, StopSolutionVersionCreationCommand } from '@aws-sdk/client-personalize'; // ES Modules import
+ * // const { PersonalizeClient, StopSolutionVersionCreationCommand } = require('@aws-sdk/client-personalize'); // CommonJS import
  * const client = new PersonalizeClient(config);
  * const input = { // StopSolutionVersionCreationRequest
- *   solutionVersionArn: "STRING_VALUE", // required
+ *   solutionVersionArn: 'STRING_VALUE', // required
  * };
  * const command = new StopSolutionVersionCreationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param StopSolutionVersionCreationCommandInput - {@link StopSolutionVersionCreationCommandInput}
@@ -74,6 +77,8 @@ export interface StopSolutionVersionCreationCommandOutput extends __MetadataBear
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Could not find the specified resource.</p>
  *
+ * @throws {@link PersonalizeServiceException}
+ * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
  */
 export class StopSolutionVersionCreationCommand extends $Command<

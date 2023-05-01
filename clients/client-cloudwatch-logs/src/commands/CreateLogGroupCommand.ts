@@ -64,18 +64,21 @@ export interface CreateLogGroupCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudWatchLogsClient, CreateLogGroupCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
- * // const { CloudWatchLogsClient, CreateLogGroupCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
+ * import { CloudWatchLogsClient, CreateLogGroupCommand } from '@aws-sdk/client-cloudwatch-logs'; // ES Modules import
+ * // const { CloudWatchLogsClient, CreateLogGroupCommand } = require('@aws-sdk/client-cloudwatch-logs'); // CommonJS import
  * const client = new CloudWatchLogsClient(config);
  * const input = { // CreateLogGroupRequest
- *   logGroupName: "STRING_VALUE", // required
- *   kmsKeyId: "STRING_VALUE",
+ *   logGroupName: 'STRING_VALUE', // required
+ *   kmsKeyId: 'STRING_VALUE',
  *   tags: { // Tags
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateLogGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param CreateLogGroupCommandInput - {@link CreateLogGroupCommandInput}
@@ -99,6 +102,8 @@ export interface CreateLogGroupCommandOutput extends __MetadataBearer {}
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service cannot complete the request.</p>
  *
+ * @throws {@link CloudWatchLogsServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
  */
 export class CreateLogGroupCommand extends $Command<

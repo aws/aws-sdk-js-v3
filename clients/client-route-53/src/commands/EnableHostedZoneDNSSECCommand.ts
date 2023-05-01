@@ -37,14 +37,24 @@ export interface EnableHostedZoneDNSSECCommandOutput extends EnableHostedZoneDNS
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Route53Client, EnableHostedZoneDNSSECCommand } from "@aws-sdk/client-route-53"; // ES Modules import
- * // const { Route53Client, EnableHostedZoneDNSSECCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
+ * import { Route53Client, EnableHostedZoneDNSSECCommand } from '@aws-sdk/client-route-53'; // ES Modules import
+ * // const { Route53Client, EnableHostedZoneDNSSECCommand } = require('@aws-sdk/client-route-53'); // CommonJS import
  * const client = new Route53Client(config);
  * const input = { // EnableHostedZoneDNSSECRequest
- *   HostedZoneId: "STRING_VALUE", // required
+ *   HostedZoneId: 'STRING_VALUE', // required
  * };
  * const command = new EnableHostedZoneDNSSECCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // EnableHostedZoneDNSSECResponse
+ *   ChangeInfo: { // ChangeInfo
+ *     Id: 'STRING_VALUE', // required
+ *     Status: 'PENDING' || 'INSYNC', // required
+ *     SubmittedAt: new Date('TIMESTAMP'), // required
+ *     Comment: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param EnableHostedZoneDNSSECCommandInput - {@link EnableHostedZoneDNSSECCommandInput}
@@ -84,6 +94,8 @@ export interface EnableHostedZoneDNSSECCommandOutput extends EnableHostedZoneDNS
  * @throws {@link NoSuchHostedZone} (client fault)
  *  <p>No hosted zone exists with the ID that you specified.</p>
  *
+ * @throws {@link Route53ServiceException}
+ * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
  */
 export class EnableHostedZoneDNSSECCommand extends $Command<

@@ -48,17 +48,28 @@ export interface DescribeRetentionConfigurationsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConfigServiceClient, DescribeRetentionConfigurationsCommand } from "@aws-sdk/client-config-service"; // ES Modules import
- * // const { ConfigServiceClient, DescribeRetentionConfigurationsCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
+ * import { ConfigServiceClient, DescribeRetentionConfigurationsCommand } from '@aws-sdk/client-config-service'; // ES Modules import
+ * // const { ConfigServiceClient, DescribeRetentionConfigurationsCommand } = require('@aws-sdk/client-config-service'); // CommonJS import
  * const client = new ConfigServiceClient(config);
  * const input = { // DescribeRetentionConfigurationsRequest
  *   RetentionConfigurationNames: [ // RetentionConfigurationNameList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   NextToken: "STRING_VALUE",
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new DescribeRetentionConfigurationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeRetentionConfigurationsResponse
+ *   RetentionConfigurations: [ // RetentionConfigurationList
+ *     { // RetentionConfiguration
+ *       Name: 'STRING_VALUE', // required
+ *       RetentionPeriodInDays: Number('int'), // required
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeRetentionConfigurationsCommandInput - {@link DescribeRetentionConfigurationsCommandInput}
@@ -79,6 +90,8 @@ export interface DescribeRetentionConfigurationsCommandOutput
  * @throws {@link NoSuchRetentionConfigurationException} (client fault)
  *  <p>You have specified a retention configuration that does not exist.</p>
  *
+ * @throws {@link ConfigServiceServiceException}
+ * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
  */
 export class DescribeRetentionConfigurationsCommand extends $Command<

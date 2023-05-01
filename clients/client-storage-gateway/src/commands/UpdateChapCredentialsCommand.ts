@@ -48,17 +48,23 @@ export interface UpdateChapCredentialsCommandOutput extends UpdateChapCredential
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { StorageGatewayClient, UpdateChapCredentialsCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
- * // const { StorageGatewayClient, UpdateChapCredentialsCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
+ * import { StorageGatewayClient, UpdateChapCredentialsCommand } from '@aws-sdk/client-storage-gateway'; // ES Modules import
+ * // const { StorageGatewayClient, UpdateChapCredentialsCommand } = require('@aws-sdk/client-storage-gateway'); // CommonJS import
  * const client = new StorageGatewayClient(config);
  * const input = { // UpdateChapCredentialsInput
- *   TargetARN: "STRING_VALUE", // required
- *   SecretToAuthenticateInitiator: "STRING_VALUE", // required
- *   InitiatorName: "STRING_VALUE", // required
- *   SecretToAuthenticateTarget: "STRING_VALUE",
+ *   TargetARN: 'STRING_VALUE', // required
+ *   SecretToAuthenticateInitiator: 'STRING_VALUE', // required
+ *   InitiatorName: 'STRING_VALUE', // required
+ *   SecretToAuthenticateTarget: 'STRING_VALUE',
  * };
  * const command = new UpdateChapCredentialsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateChapCredentialsOutput
+ *   TargetARN: 'STRING_VALUE',
+ *   InitiatorName: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateChapCredentialsCommandInput - {@link UpdateChapCredentialsCommandInput}
@@ -75,6 +81,8 @@ export interface UpdateChapCredentialsCommandOutput extends UpdateChapCredential
  *  <p>An exception occurred because an invalid gateway request was issued to the service. For
  *          more information, see the error and message fields.</p>
  *
+ * @throws {@link StorageGatewayServiceException}
+ * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
  * @example To update CHAP credentials for an iSCSI target
  * ```javascript

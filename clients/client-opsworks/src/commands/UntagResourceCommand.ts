@@ -36,17 +36,20 @@ export interface UntagResourceCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OpsWorksClient, UntagResourceCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
- * // const { OpsWorksClient, UntagResourceCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
+ * import { OpsWorksClient, UntagResourceCommand } from '@aws-sdk/client-opsworks'; // ES Modules import
+ * // const { OpsWorksClient, UntagResourceCommand } = require('@aws-sdk/client-opsworks'); // CommonJS import
  * const client = new OpsWorksClient(config);
  * const input = { // UntagResourceRequest
- *   ResourceArn: "STRING_VALUE", // required
+ *   ResourceArn: 'STRING_VALUE', // required
  *   TagKeys: [ // TagKeys // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new UntagResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UntagResourceCommandInput - {@link UntagResourceCommandInput}
@@ -61,6 +64,8 @@ export interface UntagResourceCommandOutput extends __MetadataBearer {}
  * @throws {@link ValidationException} (client fault)
  *  <p>Indicates that a request was not valid.</p>
  *
+ * @throws {@link OpsWorksServiceException}
+ * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
  */
 export class UntagResourceCommand extends $Command<

@@ -37,15 +37,29 @@ export interface ListFirewallDomainListsCommandOutput extends ListFirewallDomain
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Route53ResolverClient, ListFirewallDomainListsCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
- * // const { Route53ResolverClient, ListFirewallDomainListsCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
+ * import { Route53ResolverClient, ListFirewallDomainListsCommand } from '@aws-sdk/client-route53resolver'; // ES Modules import
+ * // const { Route53ResolverClient, ListFirewallDomainListsCommand } = require('@aws-sdk/client-route53resolver'); // CommonJS import
  * const client = new Route53ResolverClient(config);
  * const input = { // ListFirewallDomainListsRequest
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListFirewallDomainListsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListFirewallDomainListsResponse
+ *   NextToken: 'STRING_VALUE',
+ *   FirewallDomainLists: [ // FirewallDomainListMetadataList
+ *     { // FirewallDomainListMetadata
+ *       Id: 'STRING_VALUE',
+ *       Arn: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *       CreatorRequestId: 'STRING_VALUE',
+ *       ManagedOwnerName: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListFirewallDomainListsCommandInput - {@link ListFirewallDomainListsCommandInput}
@@ -67,6 +81,8 @@ export interface ListFirewallDomainListsCommandOutput extends ListFirewallDomain
  *  <p>You have provided an invalid command. Supported values are <code>ADD</code>,
  * 			<code>REMOVE</code>, or <code>REPLACE</code> a domain.</p>
  *
+ * @throws {@link Route53ResolverServiceException}
+ * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
  */
 export class ListFirewallDomainListsCommand extends $Command<

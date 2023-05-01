@@ -47,19 +47,22 @@ export interface UpdateComponentConfigurationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ApplicationInsightsClient, UpdateComponentConfigurationCommand } from "@aws-sdk/client-application-insights"; // ES Modules import
- * // const { ApplicationInsightsClient, UpdateComponentConfigurationCommand } = require("@aws-sdk/client-application-insights"); // CommonJS import
+ * import { ApplicationInsightsClient, UpdateComponentConfigurationCommand } from '@aws-sdk/client-application-insights'; // ES Modules import
+ * // const { ApplicationInsightsClient, UpdateComponentConfigurationCommand } = require('@aws-sdk/client-application-insights'); // CommonJS import
  * const client = new ApplicationInsightsClient(config);
  * const input = { // UpdateComponentConfigurationRequest
- *   ResourceGroupName: "STRING_VALUE", // required
- *   ComponentName: "STRING_VALUE", // required
+ *   ResourceGroupName: 'STRING_VALUE', // required
+ *   ComponentName: 'STRING_VALUE', // required
  *   Monitor: true || false,
- *   Tier: "STRING_VALUE",
- *   ComponentConfiguration: "STRING_VALUE",
+ *   Tier: 'STRING_VALUE',
+ *   ComponentConfiguration: 'STRING_VALUE',
  *   AutoConfigEnabled: true || false,
  * };
  * const command = new UpdateComponentConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateComponentConfigurationCommandInput - {@link UpdateComponentConfigurationCommandInput}
@@ -77,6 +80,8 @@ export interface UpdateComponentConfigurationCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The parameter is not valid.</p>
  *
+ * @throws {@link ApplicationInsightsServiceException}
+ * <p>Base exception class for all service exceptions from ApplicationInsights service.</p>
  *
  */
 export class UpdateComponentConfigurationCommand extends $Command<

@@ -36,15 +36,23 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOut
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KinesisVideoClient, ListTagsForResourceCommand } from "@aws-sdk/client-kinesis-video"; // ES Modules import
- * // const { KinesisVideoClient, ListTagsForResourceCommand } = require("@aws-sdk/client-kinesis-video"); // CommonJS import
+ * import { KinesisVideoClient, ListTagsForResourceCommand } from '@aws-sdk/client-kinesis-video'; // ES Modules import
+ * // const { KinesisVideoClient, ListTagsForResourceCommand } = require('@aws-sdk/client-kinesis-video'); // CommonJS import
  * const client = new KinesisVideoClient(config);
  * const input = { // ListTagsForResourceInput
- *   NextToken: "STRING_VALUE",
- *   ResourceARN: "STRING_VALUE", // required
+ *   NextToken: 'STRING_VALUE',
+ *   ResourceARN: 'STRING_VALUE', // required
  * };
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTagsForResourceOutput
+ *   NextToken: 'STRING_VALUE',
+ *   Tags: { // ResourceTags
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param ListTagsForResourceCommandInput - {@link ListTagsForResourceCommandInput}
@@ -66,6 +74,8 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOut
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Amazon Kinesis Video Streams can't find the stream that you specified.</p>
  *
+ * @throws {@link KinesisVideoServiceException}
+ * <p>Base exception class for all service exceptions from KinesisVideo service.</p>
  *
  */
 export class ListTagsForResourceCommand extends $Command<

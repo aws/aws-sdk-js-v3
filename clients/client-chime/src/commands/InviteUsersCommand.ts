@@ -43,18 +43,30 @@ export interface InviteUsersCommandOutput extends InviteUsersResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeClient, InviteUsersCommand } from "@aws-sdk/client-chime"; // ES Modules import
- * // const { ChimeClient, InviteUsersCommand } = require("@aws-sdk/client-chime"); // CommonJS import
+ * import { ChimeClient, InviteUsersCommand } from '@aws-sdk/client-chime'; // ES Modules import
+ * // const { ChimeClient, InviteUsersCommand } = require('@aws-sdk/client-chime'); // CommonJS import
  * const client = new ChimeClient(config);
  * const input = { // InviteUsersRequest
- *   AccountId: "STRING_VALUE", // required
+ *   AccountId: 'STRING_VALUE', // required
  *   UserEmailList: [ // UserEmailList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   UserType: "PrivateUser" || "SharedDevice",
+ *   UserType: 'PrivateUser' || 'SharedDevice',
  * };
  * const command = new InviteUsersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // InviteUsersResponse
+ *   Invites: [ // InviteList
+ *     { // Invite
+ *       InviteId: 'STRING_VALUE',
+ *       Status: 'Pending' || 'Accepted' || 'Failed',
+ *       EmailAddress: 'STRING_VALUE',
+ *       EmailStatus: 'NotSent' || 'Sent' || 'Failed',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param InviteUsersCommandInput - {@link InviteUsersCommandInput}
@@ -84,6 +96,8 @@ export interface InviteUsersCommandOutput extends InviteUsersResponse, __Metadat
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeServiceException}
+ * <p>Base exception class for all service exceptions from Chime service.</p>
  *
  */
 export class InviteUsersCommand extends $Command<

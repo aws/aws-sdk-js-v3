@@ -40,14 +40,19 @@ export interface DeleteNotificationRuleCommandOutput extends DeleteNotificationR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodestarNotificationsClient, DeleteNotificationRuleCommand } from "@aws-sdk/client-codestar-notifications"; // ES Modules import
- * // const { CodestarNotificationsClient, DeleteNotificationRuleCommand } = require("@aws-sdk/client-codestar-notifications"); // CommonJS import
+ * import { CodestarNotificationsClient, DeleteNotificationRuleCommand } from '@aws-sdk/client-codestar-notifications'; // ES Modules import
+ * // const { CodestarNotificationsClient, DeleteNotificationRuleCommand } = require('@aws-sdk/client-codestar-notifications'); // CommonJS import
  * const client = new CodestarNotificationsClient(config);
  * const input = { // DeleteNotificationRuleRequest
- *   Arn: "STRING_VALUE", // required
+ *   Arn: 'STRING_VALUE', // required
  * };
  * const command = new DeleteNotificationRuleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteNotificationRuleResult
+ *   Arn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DeleteNotificationRuleCommandInput - {@link DeleteNotificationRuleCommandInput}
@@ -68,6 +73,8 @@ export interface DeleteNotificationRuleCommandOutput extends DeleteNotificationR
  * @throws {@link ValidationException} (client fault)
  *  <p>One or more parameter values are not valid.</p>
  *
+ * @throws {@link CodestarNotificationsServiceException}
+ * <p>Base exception class for all service exceptions from CodestarNotifications service.</p>
  *
  */
 export class DeleteNotificationRuleCommand extends $Command<

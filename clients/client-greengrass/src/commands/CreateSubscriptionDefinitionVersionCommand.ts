@@ -44,23 +44,31 @@ export interface CreateSubscriptionDefinitionVersionCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GreengrassClient, CreateSubscriptionDefinitionVersionCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
- * // const { GreengrassClient, CreateSubscriptionDefinitionVersionCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
+ * import { GreengrassClient, CreateSubscriptionDefinitionVersionCommand } from '@aws-sdk/client-greengrass'; // ES Modules import
+ * // const { GreengrassClient, CreateSubscriptionDefinitionVersionCommand } = require('@aws-sdk/client-greengrass'); // CommonJS import
  * const client = new GreengrassClient(config);
  * const input = { // CreateSubscriptionDefinitionVersionRequest
- *   AmznClientToken: "STRING_VALUE",
- *   SubscriptionDefinitionId: "STRING_VALUE", // required
+ *   AmznClientToken: 'STRING_VALUE',
+ *   SubscriptionDefinitionId: 'STRING_VALUE', // required
  *   Subscriptions: [ // __listOfSubscription
  *     { // Subscription
- *       Id: "STRING_VALUE", // required
- *       Source: "STRING_VALUE", // required
- *       Subject: "STRING_VALUE", // required
- *       Target: "STRING_VALUE", // required
+ *       Id: 'STRING_VALUE', // required
+ *       Source: 'STRING_VALUE', // required
+ *       Subject: 'STRING_VALUE', // required
+ *       Target: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreateSubscriptionDefinitionVersionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateSubscriptionDefinitionVersionResponse
+ *   Arn: 'STRING_VALUE',
+ *   CreationTimestamp: 'STRING_VALUE',
+ *   Id: 'STRING_VALUE',
+ *   Version: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateSubscriptionDefinitionVersionCommandInput - {@link CreateSubscriptionDefinitionVersionCommandInput}
@@ -72,6 +80,8 @@ export interface CreateSubscriptionDefinitionVersionCommandOutput
  * @throws {@link BadRequestException} (client fault)
  *  General error information.
  *
+ * @throws {@link GreengrassServiceException}
+ * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
  */
 export class CreateSubscriptionDefinitionVersionCommand extends $Command<

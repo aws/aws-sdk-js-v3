@@ -37,12 +37,19 @@ export interface ListVerifiedEmailAddressesCommandOutput extends ListVerifiedEma
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SESClient, ListVerifiedEmailAddressesCommand } from "@aws-sdk/client-ses"; // ES Modules import
- * // const { SESClient, ListVerifiedEmailAddressesCommand } = require("@aws-sdk/client-ses"); // CommonJS import
+ * import { SESClient, ListVerifiedEmailAddressesCommand } from '@aws-sdk/client-ses'; // ES Modules import
+ * // const { SESClient, ListVerifiedEmailAddressesCommand } = require('@aws-sdk/client-ses'); // CommonJS import
  * const client = new SESClient(config);
  * const input = {};
  * const command = new ListVerifiedEmailAddressesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListVerifiedEmailAddressesResponse
+ *   VerifiedEmailAddresses: [ // AddressList
+ *     'STRING_VALUE',
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListVerifiedEmailAddressesCommandInput - {@link ListVerifiedEmailAddressesCommandInput}
@@ -51,6 +58,8 @@ export interface ListVerifiedEmailAddressesCommandOutput extends ListVerifiedEma
  * @see {@link ListVerifiedEmailAddressesCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
+ * @throws {@link SESServiceException}
+ * <p>Base exception class for all service exceptions from SES service.</p>
  *
  * @example ListVerifiedEmailAddresses
  * ```javascript

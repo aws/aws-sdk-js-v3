@@ -45,16 +45,19 @@ export interface UpdateDeviceStatusCommandOutput extends UpdateDeviceStatusRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CognitoIdentityProviderClient, UpdateDeviceStatusCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
- * // const { CognitoIdentityProviderClient, UpdateDeviceStatusCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
+ * import { CognitoIdentityProviderClient, UpdateDeviceStatusCommand } from '@aws-sdk/client-cognito-identity-provider'; // ES Modules import
+ * // const { CognitoIdentityProviderClient, UpdateDeviceStatusCommand } = require('@aws-sdk/client-cognito-identity-provider'); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
  * const input = { // UpdateDeviceStatusRequest
- *   AccessToken: "STRING_VALUE", // required
- *   DeviceKey: "STRING_VALUE", // required
- *   DeviceRememberedStatus: "remembered" || "not_remembered",
+ *   AccessToken: 'STRING_VALUE', // required
+ *   DeviceKey: 'STRING_VALUE', // required
+ *   DeviceRememberedStatus: 'remembered' || 'not_remembered',
  * };
  * const command = new UpdateDeviceStatusCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateDeviceStatusCommandInput - {@link UpdateDeviceStatusCommandInput}
@@ -96,6 +99,8 @@ export interface UpdateDeviceStatusCommandOutput extends UpdateDeviceStatusRespo
  * @throws {@link UserNotFoundException} (client fault)
  *  <p>This exception is thrown when a user isn't found.</p>
  *
+ * @throws {@link CognitoIdentityProviderServiceException}
+ * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
  */
 export class UpdateDeviceStatusCommand extends $Command<

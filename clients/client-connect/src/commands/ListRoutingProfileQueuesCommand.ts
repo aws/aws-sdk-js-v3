@@ -36,17 +36,32 @@ export interface ListRoutingProfileQueuesCommandOutput extends ListRoutingProfil
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, ListRoutingProfileQueuesCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, ListRoutingProfileQueuesCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, ListRoutingProfileQueuesCommand } from '@aws-sdk/client-connect'; // ES Modules import
+ * // const { ConnectClient, ListRoutingProfileQueuesCommand } = require('@aws-sdk/client-connect'); // CommonJS import
  * const client = new ConnectClient(config);
  * const input = { // ListRoutingProfileQueuesRequest
- *   InstanceId: "STRING_VALUE", // required
- *   RoutingProfileId: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   InstanceId: 'STRING_VALUE', // required
+ *   RoutingProfileId: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListRoutingProfileQueuesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListRoutingProfileQueuesResponse
+ *   NextToken: 'STRING_VALUE',
+ *   RoutingProfileQueueConfigSummaryList: [ // RoutingProfileQueueConfigSummaryList
+ *     { // RoutingProfileQueueConfigSummary
+ *       QueueId: 'STRING_VALUE', // required
+ *       QueueArn: 'STRING_VALUE', // required
+ *       QueueName: 'STRING_VALUE', // required
+ *       Priority: Number('int'), // required
+ *       Delay: Number('int'), // required
+ *       Channel: 'VOICE' || 'CHAT' || 'TASK', // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListRoutingProfileQueuesCommandInput - {@link ListRoutingProfileQueuesCommandInput}
@@ -70,6 +85,8 @@ export interface ListRoutingProfileQueuesCommandOutput extends ListRoutingProfil
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class ListRoutingProfileQueuesCommand extends $Command<

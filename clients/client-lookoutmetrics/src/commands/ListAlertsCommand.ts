@@ -38,16 +38,36 @@ export interface ListAlertsCommandOutput extends ListAlertsResponse, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LookoutMetricsClient, ListAlertsCommand } from "@aws-sdk/client-lookoutmetrics"; // ES Modules import
- * // const { LookoutMetricsClient, ListAlertsCommand } = require("@aws-sdk/client-lookoutmetrics"); // CommonJS import
+ * import { LookoutMetricsClient, ListAlertsCommand } from '@aws-sdk/client-lookoutmetrics'; // ES Modules import
+ * // const { LookoutMetricsClient, ListAlertsCommand } = require('@aws-sdk/client-lookoutmetrics'); // CommonJS import
  * const client = new LookoutMetricsClient(config);
  * const input = { // ListAlertsRequest
- *   AnomalyDetectorArn: "STRING_VALUE",
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   AnomalyDetectorArn: 'STRING_VALUE',
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListAlertsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListAlertsResponse
+ *   AlertSummaryList: [ // AlertSummaryList
+ *     { // AlertSummary
+ *       AlertArn: 'STRING_VALUE',
+ *       AnomalyDetectorArn: 'STRING_VALUE',
+ *       AlertName: 'STRING_VALUE',
+ *       AlertSensitivityThreshold: Number('int'),
+ *       AlertType: 'STRING_VALUE',
+ *       AlertStatus: 'STRING_VALUE',
+ *       LastModificationTime: new Date('TIMESTAMP'),
+ *       CreationTime: new Date('TIMESTAMP'),
+ *       Tags: { // TagMap
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListAlertsCommandInput - {@link ListAlertsCommandInput}
@@ -72,6 +92,8 @@ export interface ListAlertsCommandOutput extends ListAlertsResponse, __MetadataB
  *  <p>The input fails to satisfy the constraints specified by the AWS service. Check your input values and try
  *       again.</p>
  *
+ * @throws {@link LookoutMetricsServiceException}
+ * <p>Base exception class for all service exceptions from LookoutMetrics service.</p>
  *
  */
 export class ListAlertsCommand extends $Command<

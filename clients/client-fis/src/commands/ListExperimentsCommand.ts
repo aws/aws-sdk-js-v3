@@ -36,15 +36,34 @@ export interface ListExperimentsCommandOutput extends ListExperimentsResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FisClient, ListExperimentsCommand } from "@aws-sdk/client-fis"; // ES Modules import
- * // const { FisClient, ListExperimentsCommand } = require("@aws-sdk/client-fis"); // CommonJS import
+ * import { FisClient, ListExperimentsCommand } from '@aws-sdk/client-fis'; // ES Modules import
+ * // const { FisClient, ListExperimentsCommand } = require('@aws-sdk/client-fis'); // CommonJS import
  * const client = new FisClient(config);
  * const input = { // ListExperimentsRequest
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new ListExperimentsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListExperimentsResponse
+ *   experiments: [ // ExperimentSummaryList
+ *     { // ExperimentSummary
+ *       id: 'STRING_VALUE',
+ *       experimentTemplateId: 'STRING_VALUE',
+ *       state: { // ExperimentState
+ *         status: 'pending' || 'initiating' || 'running' || 'completed' || 'stopping' || 'stopped' || 'failed',
+ *         reason: 'STRING_VALUE',
+ *       },
+ *       creationTime: new Date('TIMESTAMP'),
+ *       tags: { // TagMap
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListExperimentsCommandInput - {@link ListExperimentsCommandInput}
@@ -56,6 +75,8 @@ export interface ListExperimentsCommandOutput extends ListExperimentsResponse, _
  * @throws {@link ValidationException} (client fault)
  *  <p>The specified input is not valid, or fails to satisfy the constraints for the request.</p>
  *
+ * @throws {@link FisServiceException}
+ * <p>Base exception class for all service exceptions from Fis service.</p>
  *
  */
 export class ListExperimentsCommand extends $Command<

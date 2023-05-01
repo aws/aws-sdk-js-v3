@@ -36,15 +36,39 @@ export interface ListMultiplexesCommandOutput extends ListMultiplexesResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MediaLiveClient, ListMultiplexesCommand } from "@aws-sdk/client-medialive"; // ES Modules import
- * // const { MediaLiveClient, ListMultiplexesCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
+ * import { MediaLiveClient, ListMultiplexesCommand } from '@aws-sdk/client-medialive'; // ES Modules import
+ * // const { MediaLiveClient, ListMultiplexesCommand } = require('@aws-sdk/client-medialive'); // CommonJS import
  * const client = new MediaLiveClient(config);
  * const input = { // ListMultiplexesRequest
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListMultiplexesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListMultiplexesResponse
+ *   Multiplexes: [ // __listOfMultiplexSummary
+ *     { // MultiplexSummary
+ *       Arn: 'STRING_VALUE',
+ *       AvailabilityZones: [ // __listOf__string
+ *         'STRING_VALUE',
+ *       ],
+ *       Id: 'STRING_VALUE',
+ *       MultiplexSettings: { // MultiplexSettingsSummary
+ *         TransportStreamBitrate: Number('int'),
+ *       },
+ *       Name: 'STRING_VALUE',
+ *       PipelinesRunningCount: Number('int'),
+ *       ProgramCount: Number('int'),
+ *       State: 'CREATING' || 'CREATE_FAILED' || 'IDLE' || 'STARTING' || 'RUNNING' || 'RECOVERING' || 'STOPPING' || 'DELETING' || 'DELETED',
+ *       Tags: { // Tags
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListMultiplexesCommandInput - {@link ListMultiplexesCommandInput}
@@ -71,6 +95,8 @@ export interface ListMultiplexesCommandOutput extends ListMultiplexesResponse, _
  * @throws {@link TooManyRequestsException} (client fault)
  *  Placeholder documentation for TooManyRequestsException
  *
+ * @throws {@link MediaLiveServiceException}
+ * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
  */
 export class ListMultiplexesCommand extends $Command<

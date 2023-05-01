@@ -36,15 +36,21 @@ export interface DeleteWorkspaceApiKeyCommandOutput extends DeleteWorkspaceApiKe
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GrafanaClient, DeleteWorkspaceApiKeyCommand } from "@aws-sdk/client-grafana"; // ES Modules import
- * // const { GrafanaClient, DeleteWorkspaceApiKeyCommand } = require("@aws-sdk/client-grafana"); // CommonJS import
+ * import { GrafanaClient, DeleteWorkspaceApiKeyCommand } from '@aws-sdk/client-grafana'; // ES Modules import
+ * // const { GrafanaClient, DeleteWorkspaceApiKeyCommand } = require('@aws-sdk/client-grafana'); // CommonJS import
  * const client = new GrafanaClient(config);
  * const input = { // DeleteWorkspaceApiKeyRequest
- *   keyName: "STRING_VALUE", // required
- *   workspaceId: "STRING_VALUE", // required
+ *   keyName: 'STRING_VALUE', // required
+ *   workspaceId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteWorkspaceApiKeyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteWorkspaceApiKeyResponse
+ *   keyName: 'STRING_VALUE', // required
+ *   workspaceId: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param DeleteWorkspaceApiKeyCommandInput - {@link DeleteWorkspaceApiKeyCommandInput}
@@ -71,6 +77,8 @@ export interface DeleteWorkspaceApiKeyCommandOutput extends DeleteWorkspaceApiKe
  * @throws {@link ValidationException} (client fault)
  *  <p>The value of a parameter in the request caused an error.</p>
  *
+ * @throws {@link GrafanaServiceException}
+ * <p>Base exception class for all service exceptions from Grafana service.</p>
  *
  */
 export class DeleteWorkspaceApiKeyCommand extends $Command<

@@ -41,15 +41,23 @@ export interface ListImportsCommandOutput extends ListImportsOutput, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudFormationClient, ListImportsCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
- * // const { CloudFormationClient, ListImportsCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
+ * import { CloudFormationClient, ListImportsCommand } from '@aws-sdk/client-cloudformation'; // ES Modules import
+ * // const { CloudFormationClient, ListImportsCommand } = require('@aws-sdk/client-cloudformation'); // CommonJS import
  * const client = new CloudFormationClient(config);
  * const input = { // ListImportsInput
- *   ExportName: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
+ *   ExportName: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListImportsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListImportsOutput
+ *   Imports: [ // Imports
+ *     'STRING_VALUE',
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListImportsCommandInput - {@link ListImportsCommandInput}
@@ -58,6 +66,8 @@ export interface ListImportsCommandOutput extends ListImportsOutput, __MetadataB
  * @see {@link ListImportsCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
+ * @throws {@link CloudFormationServiceException}
+ * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
  */
 export class ListImportsCommand extends $Command<

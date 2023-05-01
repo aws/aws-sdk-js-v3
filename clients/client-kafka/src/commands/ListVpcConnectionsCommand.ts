@@ -36,15 +36,30 @@ export interface ListVpcConnectionsCommandOutput extends ListVpcConnectionsRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KafkaClient, ListVpcConnectionsCommand } from "@aws-sdk/client-kafka"; // ES Modules import
- * // const { KafkaClient, ListVpcConnectionsCommand } = require("@aws-sdk/client-kafka"); // CommonJS import
+ * import { KafkaClient, ListVpcConnectionsCommand } from '@aws-sdk/client-kafka'; // ES Modules import
+ * // const { KafkaClient, ListVpcConnectionsCommand } = require('@aws-sdk/client-kafka'); // CommonJS import
  * const client = new KafkaClient(config);
  * const input = { // ListVpcConnectionsRequest
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListVpcConnectionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListVpcConnectionsResponse
+ *   VpcConnections: [ // __listOfVpcConnection
+ *     { // VpcConnection
+ *       VpcConnectionArn: 'STRING_VALUE', // required
+ *       TargetClusterArn: 'STRING_VALUE', // required
+ *       CreationTime: new Date('TIMESTAMP'),
+ *       Authentication: 'STRING_VALUE',
+ *       VpcId: 'STRING_VALUE',
+ *       State: 'CREATING' || 'AVAILABLE' || 'INACTIVE' || 'DEACTIVATING' || 'DELETING' || 'FAILED' || 'REJECTED' || 'REJECTING',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListVpcConnectionsCommandInput - {@link ListVpcConnectionsCommandInput}
@@ -68,6 +83,8 @@ export interface ListVpcConnectionsCommandOutput extends ListVpcConnectionsRespo
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>Returns information about an error.</p>
  *
+ * @throws {@link KafkaServiceException}
+ * <p>Base exception class for all service exceptions from Kafka service.</p>
  *
  */
 export class ListVpcConnectionsCommand extends $Command<

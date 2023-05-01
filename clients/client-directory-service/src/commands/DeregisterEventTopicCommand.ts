@@ -36,15 +36,18 @@ export interface DeregisterEventTopicCommandOutput extends DeregisterEventTopicR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DirectoryServiceClient, DeregisterEventTopicCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
- * // const { DirectoryServiceClient, DeregisterEventTopicCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
+ * import { DirectoryServiceClient, DeregisterEventTopicCommand } from '@aws-sdk/client-directory-service'; // ES Modules import
+ * // const { DirectoryServiceClient, DeregisterEventTopicCommand } = require('@aws-sdk/client-directory-service'); // CommonJS import
  * const client = new DirectoryServiceClient(config);
  * const input = { // DeregisterEventTopicRequest
- *   DirectoryId: "STRING_VALUE", // required
- *   TopicName: "STRING_VALUE", // required
+ *   DirectoryId: 'STRING_VALUE', // required
+ *   TopicName: 'STRING_VALUE', // required
  * };
  * const command = new DeregisterEventTopicCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeregisterEventTopicCommandInput - {@link DeregisterEventTopicCommandInput}
@@ -65,6 +68,8 @@ export interface DeregisterEventTopicCommandOutput extends DeregisterEventTopicR
  * @throws {@link ServiceException} (server fault)
  *  <p>An exception has occurred in Directory Service.</p>
  *
+ * @throws {@link DirectoryServiceServiceException}
+ * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
  */
 export class DeregisterEventTopicCommand extends $Command<

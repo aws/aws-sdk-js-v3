@@ -62,51 +62,51 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KinesisAnalyticsClient, CreateApplicationCommand } from "@aws-sdk/client-kinesis-analytics"; // ES Modules import
- * // const { KinesisAnalyticsClient, CreateApplicationCommand } = require("@aws-sdk/client-kinesis-analytics"); // CommonJS import
+ * import { KinesisAnalyticsClient, CreateApplicationCommand } from '@aws-sdk/client-kinesis-analytics'; // ES Modules import
+ * // const { KinesisAnalyticsClient, CreateApplicationCommand } = require('@aws-sdk/client-kinesis-analytics'); // CommonJS import
  * const client = new KinesisAnalyticsClient(config);
  * const input = { // CreateApplicationRequest
- *   ApplicationName: "STRING_VALUE", // required
- *   ApplicationDescription: "STRING_VALUE",
+ *   ApplicationName: 'STRING_VALUE', // required
+ *   ApplicationDescription: 'STRING_VALUE',
  *   Inputs: [ // Inputs
  *     { // Input
- *       NamePrefix: "STRING_VALUE", // required
+ *       NamePrefix: 'STRING_VALUE', // required
  *       InputProcessingConfiguration: { // InputProcessingConfiguration
  *         InputLambdaProcessor: { // InputLambdaProcessor
- *           ResourceARN: "STRING_VALUE", // required
- *           RoleARN: "STRING_VALUE", // required
+ *           ResourceARN: 'STRING_VALUE', // required
+ *           RoleARN: 'STRING_VALUE', // required
  *         },
  *       },
  *       KinesisStreamsInput: { // KinesisStreamsInput
- *         ResourceARN: "STRING_VALUE", // required
- *         RoleARN: "STRING_VALUE", // required
+ *         ResourceARN: 'STRING_VALUE', // required
+ *         RoleARN: 'STRING_VALUE', // required
  *       },
  *       KinesisFirehoseInput: { // KinesisFirehoseInput
- *         ResourceARN: "STRING_VALUE", // required
- *         RoleARN: "STRING_VALUE", // required
+ *         ResourceARN: 'STRING_VALUE', // required
+ *         RoleARN: 'STRING_VALUE', // required
  *       },
  *       InputParallelism: { // InputParallelism
- *         Count: Number("int"),
+ *         Count: Number('int'),
  *       },
  *       InputSchema: { // SourceSchema
  *         RecordFormat: { // RecordFormat
- *           RecordFormatType: "STRING_VALUE", // required
+ *           RecordFormatType: 'STRING_VALUE', // required
  *           MappingParameters: { // MappingParameters
  *             JSONMappingParameters: { // JSONMappingParameters
- *               RecordRowPath: "STRING_VALUE", // required
+ *               RecordRowPath: 'STRING_VALUE', // required
  *             },
  *             CSVMappingParameters: { // CSVMappingParameters
- *               RecordRowDelimiter: "STRING_VALUE", // required
- *               RecordColumnDelimiter: "STRING_VALUE", // required
+ *               RecordRowDelimiter: 'STRING_VALUE', // required
+ *               RecordColumnDelimiter: 'STRING_VALUE', // required
  *             },
  *           },
  *         },
- *         RecordEncoding: "STRING_VALUE",
+ *         RecordEncoding: 'STRING_VALUE',
  *         RecordColumns: [ // RecordColumns // required
  *           { // RecordColumn
- *             Name: "STRING_VALUE", // required
- *             Mapping: "STRING_VALUE",
- *             SqlType: "STRING_VALUE", // required
+ *             Name: 'STRING_VALUE', // required
+ *             Mapping: 'STRING_VALUE',
+ *             SqlType: 'STRING_VALUE', // required
  *           },
  *         ],
  *       },
@@ -114,40 +114,49 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  *   ],
  *   Outputs: [ // Outputs
  *     { // Output
- *       Name: "STRING_VALUE", // required
+ *       Name: 'STRING_VALUE', // required
  *       KinesisStreamsOutput: { // KinesisStreamsOutput
- *         ResourceARN: "STRING_VALUE", // required
- *         RoleARN: "STRING_VALUE", // required
+ *         ResourceARN: 'STRING_VALUE', // required
+ *         RoleARN: 'STRING_VALUE', // required
  *       },
  *       KinesisFirehoseOutput: { // KinesisFirehoseOutput
- *         ResourceARN: "STRING_VALUE", // required
- *         RoleARN: "STRING_VALUE", // required
+ *         ResourceARN: 'STRING_VALUE', // required
+ *         RoleARN: 'STRING_VALUE', // required
  *       },
  *       LambdaOutput: { // LambdaOutput
- *         ResourceARN: "STRING_VALUE", // required
- *         RoleARN: "STRING_VALUE", // required
+ *         ResourceARN: 'STRING_VALUE', // required
+ *         RoleARN: 'STRING_VALUE', // required
  *       },
  *       DestinationSchema: { // DestinationSchema
- *         RecordFormatType: "STRING_VALUE", // required
+ *         RecordFormatType: 'STRING_VALUE', // required
  *       },
  *     },
  *   ],
  *   CloudWatchLoggingOptions: [ // CloudWatchLoggingOptions
  *     { // CloudWatchLoggingOption
- *       LogStreamARN: "STRING_VALUE", // required
- *       RoleARN: "STRING_VALUE", // required
+ *       LogStreamARN: 'STRING_VALUE', // required
+ *       RoleARN: 'STRING_VALUE', // required
  *     },
  *   ],
- *   ApplicationCode: "STRING_VALUE",
+ *   ApplicationCode: 'STRING_VALUE',
  *   Tags: [ // Tags
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new CreateApplicationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateApplicationResponse
+ *   ApplicationSummary: { // ApplicationSummary
+ *     ApplicationName: 'STRING_VALUE', // required
+ *     ApplicationARN: 'STRING_VALUE', // required
+ *     ApplicationStatus: 'STRING_VALUE', // required
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateApplicationCommandInput - {@link CreateApplicationCommandInput}
@@ -174,6 +183,8 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  * @throws {@link TooManyTagsException} (client fault)
  *  <p>Application created with too many tags, or too many tags added to an application. Note that the maximum number of application tags includes system tags. The maximum number of user-defined application tags is 50.</p>
  *
+ * @throws {@link KinesisAnalyticsServiceException}
+ * <p>Base exception class for all service exceptions from KinesisAnalytics service.</p>
  *
  */
 export class CreateApplicationCommand extends $Command<

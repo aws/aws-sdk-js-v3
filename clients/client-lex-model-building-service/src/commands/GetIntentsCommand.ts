@@ -54,16 +54,30 @@ export interface GetIntentsCommandOutput extends GetIntentsResponse, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LexModelBuildingServiceClient, GetIntentsCommand } from "@aws-sdk/client-lex-model-building-service"; // ES Modules import
- * // const { LexModelBuildingServiceClient, GetIntentsCommand } = require("@aws-sdk/client-lex-model-building-service"); // CommonJS import
+ * import { LexModelBuildingServiceClient, GetIntentsCommand } from '@aws-sdk/client-lex-model-building-service'; // ES Modules import
+ * // const { LexModelBuildingServiceClient, GetIntentsCommand } = require('@aws-sdk/client-lex-model-building-service'); // CommonJS import
  * const client = new LexModelBuildingServiceClient(config);
  * const input = { // GetIntentsRequest
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
- *   nameContains: "STRING_VALUE",
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
+ *   nameContains: 'STRING_VALUE',
  * };
  * const command = new GetIntentsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetIntentsResponse
+ *   intents: [ // IntentMetadataList
+ *     { // IntentMetadata
+ *       name: 'STRING_VALUE',
+ *       description: 'STRING_VALUE',
+ *       lastUpdatedDate: new Date('TIMESTAMP'),
+ *       createdDate: new Date('TIMESTAMP'),
+ *       version: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetIntentsCommandInput - {@link GetIntentsCommandInput}
@@ -87,6 +101,8 @@ export interface GetIntentsCommandOutput extends GetIntentsResponse, __MetadataB
  *  <p>The resource specified in the request was not found. Check the
  *       resource and try again.</p>
  *
+ * @throws {@link LexModelBuildingServiceServiceException}
+ * <p>Base exception class for all service exceptions from LexModelBuildingService service.</p>
  *
  * @example To get a list of intents
  * ```javascript

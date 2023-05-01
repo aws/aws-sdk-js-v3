@@ -37,76 +37,143 @@ export interface UpdateSecurityProfileCommandOutput extends UpdateSecurityProfil
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTClient, UpdateSecurityProfileCommand } from "@aws-sdk/client-iot"; // ES Modules import
- * // const { IoTClient, UpdateSecurityProfileCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * import { IoTClient, UpdateSecurityProfileCommand } from '@aws-sdk/client-iot'; // ES Modules import
+ * // const { IoTClient, UpdateSecurityProfileCommand } = require('@aws-sdk/client-iot'); // CommonJS import
  * const client = new IoTClient(config);
  * const input = { // UpdateSecurityProfileRequest
- *   securityProfileName: "STRING_VALUE", // required
- *   securityProfileDescription: "STRING_VALUE",
+ *   securityProfileName: 'STRING_VALUE', // required
+ *   securityProfileDescription: 'STRING_VALUE',
  *   behaviors: [ // Behaviors
  *     { // Behavior
- *       name: "STRING_VALUE", // required
- *       metric: "STRING_VALUE",
+ *       name: 'STRING_VALUE', // required
+ *       metric: 'STRING_VALUE',
  *       metricDimension: { // MetricDimension
- *         dimensionName: "STRING_VALUE", // required
- *         operator: "IN" || "NOT_IN",
+ *         dimensionName: 'STRING_VALUE', // required
+ *         operator: 'IN' || 'NOT_IN',
  *       },
  *       criteria: { // BehaviorCriteria
- *         comparisonOperator: "less-than" || "less-than-equals" || "greater-than" || "greater-than-equals" || "in-cidr-set" || "not-in-cidr-set" || "in-port-set" || "not-in-port-set" || "in-set" || "not-in-set",
+ *         comparisonOperator: 'less-than' || 'less-than-equals' || 'greater-than' || 'greater-than-equals' || 'in-cidr-set' || 'not-in-cidr-set' || 'in-port-set' || 'not-in-port-set' || 'in-set' || 'not-in-set',
  *         value: { // MetricValue
- *           count: Number("long"),
+ *           count: Number('long'),
  *           cidrs: [ // Cidrs
- *             "STRING_VALUE",
+ *             'STRING_VALUE',
  *           ],
  *           ports: [ // Ports
- *             Number("int"),
+ *             Number('int'),
  *           ],
- *           number: Number("double"),
+ *           number: Number('double'),
  *           numbers: [ // NumberList
- *             Number("double"),
+ *             Number('double'),
  *           ],
  *           strings: [ // StringList
- *             "STRING_VALUE",
+ *             'STRING_VALUE',
  *           ],
  *         },
- *         durationSeconds: Number("int"),
- *         consecutiveDatapointsToAlarm: Number("int"),
- *         consecutiveDatapointsToClear: Number("int"),
+ *         durationSeconds: Number('int'),
+ *         consecutiveDatapointsToAlarm: Number('int'),
+ *         consecutiveDatapointsToClear: Number('int'),
  *         statisticalThreshold: { // StatisticalThreshold
- *           statistic: "STRING_VALUE",
+ *           statistic: 'STRING_VALUE',
  *         },
  *         mlDetectionConfig: { // MachineLearningDetectionConfig
- *           confidenceLevel: "LOW" || "MEDIUM" || "HIGH", // required
+ *           confidenceLevel: 'LOW' || 'MEDIUM' || 'HIGH', // required
  *         },
  *       },
  *       suppressAlerts: true || false,
  *     },
  *   ],
  *   alertTargets: { // AlertTargets
- *     "<keys>": { // AlertTarget
- *       alertTargetArn: "STRING_VALUE", // required
- *       roleArn: "STRING_VALUE", // required
+ *     '<keys>': { // AlertTarget
+ *       alertTargetArn: 'STRING_VALUE', // required
+ *       roleArn: 'STRING_VALUE', // required
  *     },
  *   },
  *   additionalMetricsToRetain: [ // AdditionalMetricsToRetainList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   additionalMetricsToRetainV2: [ // AdditionalMetricsToRetainV2List
  *     { // MetricToRetain
- *       metric: "STRING_VALUE", // required
+ *       metric: 'STRING_VALUE', // required
  *       metricDimension: {
- *         dimensionName: "STRING_VALUE", // required
- *         operator: "IN" || "NOT_IN",
+ *         dimensionName: 'STRING_VALUE', // required
+ *         operator: 'IN' || 'NOT_IN',
  *       },
  *     },
  *   ],
  *   deleteBehaviors: true || false,
  *   deleteAlertTargets: true || false,
  *   deleteAdditionalMetricsToRetain: true || false,
- *   expectedVersion: Number("long"),
+ *   expectedVersion: Number('long'),
  * };
  * const command = new UpdateSecurityProfileCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateSecurityProfileResponse
+ *   securityProfileName: 'STRING_VALUE',
+ *   securityProfileArn: 'STRING_VALUE',
+ *   securityProfileDescription: 'STRING_VALUE',
+ *   behaviors: [ // Behaviors
+ *     { // Behavior
+ *       name: 'STRING_VALUE', // required
+ *       metric: 'STRING_VALUE',
+ *       metricDimension: { // MetricDimension
+ *         dimensionName: 'STRING_VALUE', // required
+ *         operator: 'IN' || 'NOT_IN',
+ *       },
+ *       criteria: { // BehaviorCriteria
+ *         comparisonOperator: 'less-than' || 'less-than-equals' || 'greater-than' || 'greater-than-equals' || 'in-cidr-set' || 'not-in-cidr-set' || 'in-port-set' || 'not-in-port-set' || 'in-set' || 'not-in-set',
+ *         value: { // MetricValue
+ *           count: Number('long'),
+ *           cidrs: [ // Cidrs
+ *             'STRING_VALUE',
+ *           ],
+ *           ports: [ // Ports
+ *             Number('int'),
+ *           ],
+ *           number: Number('double'),
+ *           numbers: [ // NumberList
+ *             Number('double'),
+ *           ],
+ *           strings: [ // StringList
+ *             'STRING_VALUE',
+ *           ],
+ *         },
+ *         durationSeconds: Number('int'),
+ *         consecutiveDatapointsToAlarm: Number('int'),
+ *         consecutiveDatapointsToClear: Number('int'),
+ *         statisticalThreshold: { // StatisticalThreshold
+ *           statistic: 'STRING_VALUE',
+ *         },
+ *         mlDetectionConfig: { // MachineLearningDetectionConfig
+ *           confidenceLevel: 'LOW' || 'MEDIUM' || 'HIGH', // required
+ *         },
+ *       },
+ *       suppressAlerts: true || false,
+ *     },
+ *   ],
+ *   alertTargets: { // AlertTargets
+ *     '<keys>': { // AlertTarget
+ *       alertTargetArn: 'STRING_VALUE', // required
+ *       roleArn: 'STRING_VALUE', // required
+ *     },
+ *   },
+ *   additionalMetricsToRetain: [ // AdditionalMetricsToRetainList
+ *     'STRING_VALUE',
+ *   ],
+ *   additionalMetricsToRetainV2: [ // AdditionalMetricsToRetainV2List
+ *     { // MetricToRetain
+ *       metric: 'STRING_VALUE', // required
+ *       metricDimension: {
+ *         dimensionName: 'STRING_VALUE', // required
+ *         operator: 'IN' || 'NOT_IN',
+ *       },
+ *     },
+ *   ],
+ *   version: Number('long'),
+ *   creationDate: new Date('TIMESTAMP'),
+ *   lastModifiedDate: new Date('TIMESTAMP'),
+ * };
+ *
  * ```
  *
  * @param UpdateSecurityProfileCommandInput - {@link UpdateSecurityProfileCommandInput}
@@ -132,6 +199,8 @@ export interface UpdateSecurityProfileCommandOutput extends UpdateSecurityProfil
  *             <code>expectedVersion</code> parameter does not match the latest version in the
  *          system.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class UpdateSecurityProfileCommand extends $Command<

@@ -51,19 +51,22 @@ export interface AddApplicationCloudWatchLoggingOptionCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KinesisAnalyticsClient, AddApplicationCloudWatchLoggingOptionCommand } from "@aws-sdk/client-kinesis-analytics"; // ES Modules import
- * // const { KinesisAnalyticsClient, AddApplicationCloudWatchLoggingOptionCommand } = require("@aws-sdk/client-kinesis-analytics"); // CommonJS import
+ * import { KinesisAnalyticsClient, AddApplicationCloudWatchLoggingOptionCommand } from '@aws-sdk/client-kinesis-analytics'; // ES Modules import
+ * // const { KinesisAnalyticsClient, AddApplicationCloudWatchLoggingOptionCommand } = require('@aws-sdk/client-kinesis-analytics'); // CommonJS import
  * const client = new KinesisAnalyticsClient(config);
  * const input = { // AddApplicationCloudWatchLoggingOptionRequest
- *   ApplicationName: "STRING_VALUE", // required
- *   CurrentApplicationVersionId: Number("long"), // required
+ *   ApplicationName: 'STRING_VALUE', // required
+ *   CurrentApplicationVersionId: Number('long'), // required
  *   CloudWatchLoggingOption: { // CloudWatchLoggingOption
- *     LogStreamARN: "STRING_VALUE", // required
- *     RoleARN: "STRING_VALUE", // required
+ *     LogStreamARN: 'STRING_VALUE', // required
+ *     RoleARN: 'STRING_VALUE', // required
  *   },
  * };
  * const command = new AddApplicationCloudWatchLoggingOptionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param AddApplicationCloudWatchLoggingOptionCommandInput - {@link AddApplicationCloudWatchLoggingOptionCommandInput}
@@ -87,6 +90,8 @@ export interface AddApplicationCloudWatchLoggingOptionCommandOutput
  * @throws {@link UnsupportedOperationException} (client fault)
  *  <p>The request was rejected because a specified parameter is not supported or a specified resource is not valid for this operation. </p>
  *
+ * @throws {@link KinesisAnalyticsServiceException}
+ * <p>Base exception class for all service exceptions from KinesisAnalytics service.</p>
  *
  */
 export class AddApplicationCloudWatchLoggingOptionCommand extends $Command<

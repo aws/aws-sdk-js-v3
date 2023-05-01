@@ -38,17 +38,20 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CognitoIdentityClient, UntagResourceCommand } from "@aws-sdk/client-cognito-identity"; // ES Modules import
- * // const { CognitoIdentityClient, UntagResourceCommand } = require("@aws-sdk/client-cognito-identity"); // CommonJS import
+ * import { CognitoIdentityClient, UntagResourceCommand } from '@aws-sdk/client-cognito-identity'; // ES Modules import
+ * // const { CognitoIdentityClient, UntagResourceCommand } = require('@aws-sdk/client-cognito-identity'); // CommonJS import
  * const client = new CognitoIdentityClient(config);
  * const input = { // UntagResourceInput
- *   ResourceArn: "STRING_VALUE", // required
+ *   ResourceArn: 'STRING_VALUE', // required
  *   TagKeys: [ // IdentityPoolTagsListType // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new UntagResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UntagResourceCommandInput - {@link UntagResourceCommandInput}
@@ -73,6 +76,8 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Thrown when a request is throttled.</p>
  *
+ * @throws {@link CognitoIdentityServiceException}
+ * <p>Base exception class for all service exceptions from CognitoIdentity service.</p>
  *
  */
 export class UntagResourceCommand extends $Command<

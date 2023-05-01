@@ -44,19 +44,32 @@ export interface UpdateCloudFrontOriginAccessIdentityCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudFrontClient, UpdateCloudFrontOriginAccessIdentityCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
- * // const { CloudFrontClient, UpdateCloudFrontOriginAccessIdentityCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
+ * import { CloudFrontClient, UpdateCloudFrontOriginAccessIdentityCommand } from '@aws-sdk/client-cloudfront'; // ES Modules import
+ * // const { CloudFrontClient, UpdateCloudFrontOriginAccessIdentityCommand } = require('@aws-sdk/client-cloudfront'); // CommonJS import
  * const client = new CloudFrontClient(config);
  * const input = { // UpdateCloudFrontOriginAccessIdentityRequest
  *   CloudFrontOriginAccessIdentityConfig: { // CloudFrontOriginAccessIdentityConfig
- *     CallerReference: "STRING_VALUE", // required
- *     Comment: "STRING_VALUE", // required
+ *     CallerReference: 'STRING_VALUE', // required
+ *     Comment: 'STRING_VALUE', // required
  *   },
- *   Id: "STRING_VALUE", // required
- *   IfMatch: "STRING_VALUE",
+ *   Id: 'STRING_VALUE', // required
+ *   IfMatch: 'STRING_VALUE',
  * };
  * const command = new UpdateCloudFrontOriginAccessIdentityCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateCloudFrontOriginAccessIdentityResult
+ *   CloudFrontOriginAccessIdentity: { // CloudFrontOriginAccessIdentity
+ *     Id: 'STRING_VALUE', // required
+ *     S3CanonicalUserId: 'STRING_VALUE', // required
+ *     CloudFrontOriginAccessIdentityConfig: { // CloudFrontOriginAccessIdentityConfig
+ *       CallerReference: 'STRING_VALUE', // required
+ *       Comment: 'STRING_VALUE', // required
+ *     },
+ *   },
+ *   ETag: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateCloudFrontOriginAccessIdentityCommandInput - {@link UpdateCloudFrontOriginAccessIdentityCommandInput}
@@ -92,6 +105,8 @@ export interface UpdateCloudFrontOriginAccessIdentityCommandOutput
  *  <p>The precondition in one or more of the request fields evaluated to
  * 			<code>false</code>.</p>
  *
+ * @throws {@link CloudFrontServiceException}
+ * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
  */
 export class UpdateCloudFrontOriginAccessIdentityCommand extends $Command<

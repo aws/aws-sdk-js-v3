@@ -45,16 +45,33 @@ export interface ListDelegatedAdministratorsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OrganizationsClient, ListDelegatedAdministratorsCommand } from "@aws-sdk/client-organizations"; // ES Modules import
- * // const { OrganizationsClient, ListDelegatedAdministratorsCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
+ * import { OrganizationsClient, ListDelegatedAdministratorsCommand } from '@aws-sdk/client-organizations'; // ES Modules import
+ * // const { OrganizationsClient, ListDelegatedAdministratorsCommand } = require('@aws-sdk/client-organizations'); // CommonJS import
  * const client = new OrganizationsClient(config);
  * const input = { // ListDelegatedAdministratorsRequest
- *   ServicePrincipal: "STRING_VALUE",
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   ServicePrincipal: 'STRING_VALUE',
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListDelegatedAdministratorsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListDelegatedAdministratorsResponse
+ *   DelegatedAdministrators: [ // DelegatedAdministrators
+ *     { // DelegatedAdministrator
+ *       Id: 'STRING_VALUE',
+ *       Arn: 'STRING_VALUE',
+ *       Email: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *       Status: 'ACTIVE' || 'SUSPENDED' || 'PENDING_CLOSURE',
+ *       JoinedMethod: 'INVITED' || 'CREATED',
+ *       JoinedTimestamp: new Date('TIMESTAMP'),
+ *       DelegationEnabledDate: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListDelegatedAdministratorsCommandInput - {@link ListDelegatedAdministratorsCommandInput}
@@ -389,6 +406,8 @@ export interface ListDelegatedAdministratorsCommandOutput
  * @throws {@link UnsupportedAPIEndpointException} (client fault)
  *  <p>This action isn't available in the current Amazon Web Services Region.</p>
  *
+ * @throws {@link OrganizationsServiceException}
+ * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
  */
 export class ListDelegatedAdministratorsCommand extends $Command<

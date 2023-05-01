@@ -36,16 +36,22 @@ export interface PutResourcePolicyCommandOutput extends PutResourcePolicyRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SchemasClient, PutResourcePolicyCommand } from "@aws-sdk/client-schemas"; // ES Modules import
- * // const { SchemasClient, PutResourcePolicyCommand } = require("@aws-sdk/client-schemas"); // CommonJS import
+ * import { SchemasClient, PutResourcePolicyCommand } from '@aws-sdk/client-schemas'; // ES Modules import
+ * // const { SchemasClient, PutResourcePolicyCommand } = require('@aws-sdk/client-schemas'); // CommonJS import
  * const client = new SchemasClient(config);
  * const input = { // PutResourcePolicyRequest
- *   Policy: "STRING_VALUE", // required
- *   RegistryName: "STRING_VALUE",
- *   RevisionId: "STRING_VALUE",
+ *   Policy: 'STRING_VALUE', // required
+ *   RegistryName: 'STRING_VALUE',
+ *   RevisionId: 'STRING_VALUE',
  * };
  * const command = new PutResourcePolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutResourcePolicyResponse
+ *   Policy: 'STRING_VALUE',
+ *   RevisionId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param PutResourcePolicyCommandInput - {@link PutResourcePolicyCommandInput}
@@ -68,6 +74,8 @@ export interface PutResourcePolicyCommandOutput extends PutResourcePolicyRespons
  *
  * @throws {@link UnauthorizedException} (client fault)
  *
+ * @throws {@link SchemasServiceException}
+ * <p>Base exception class for all service exceptions from Schemas service.</p>
  *
  */
 export class PutResourcePolicyCommand extends $Command<

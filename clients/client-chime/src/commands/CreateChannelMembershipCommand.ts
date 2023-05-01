@@ -73,17 +73,26 @@ export interface CreateChannelMembershipCommandOutput extends CreateChannelMembe
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeClient, CreateChannelMembershipCommand } from "@aws-sdk/client-chime"; // ES Modules import
- * // const { ChimeClient, CreateChannelMembershipCommand } = require("@aws-sdk/client-chime"); // CommonJS import
+ * import { ChimeClient, CreateChannelMembershipCommand } from '@aws-sdk/client-chime'; // ES Modules import
+ * // const { ChimeClient, CreateChannelMembershipCommand } = require('@aws-sdk/client-chime'); // CommonJS import
  * const client = new ChimeClient(config);
  * const input = { // CreateChannelMembershipRequest
- *   ChannelArn: "STRING_VALUE", // required
- *   MemberArn: "STRING_VALUE", // required
- *   Type: "DEFAULT" || "HIDDEN", // required
- *   ChimeBearer: "STRING_VALUE",
+ *   ChannelArn: 'STRING_VALUE', // required
+ *   MemberArn: 'STRING_VALUE', // required
+ *   Type: 'DEFAULT' || 'HIDDEN', // required
+ *   ChimeBearer: 'STRING_VALUE',
  * };
  * const command = new CreateChannelMembershipCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateChannelMembershipResponse
+ *   ChannelArn: 'STRING_VALUE',
+ *   Member: { // Identity
+ *     Arn: 'STRING_VALUE',
+ *     Name: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateChannelMembershipCommandInput - {@link CreateChannelMembershipCommandInput}
@@ -117,6 +126,8 @@ export interface CreateChannelMembershipCommandOutput extends CreateChannelMembe
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeServiceException}
+ * <p>Base exception class for all service exceptions from Chime service.</p>
  *
  */
 export class CreateChannelMembershipCommand extends $Command<

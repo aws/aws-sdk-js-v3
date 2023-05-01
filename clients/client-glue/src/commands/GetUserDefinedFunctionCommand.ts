@@ -36,16 +36,35 @@ export interface GetUserDefinedFunctionCommandOutput extends GetUserDefinedFunct
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlueClient, GetUserDefinedFunctionCommand } from "@aws-sdk/client-glue"; // ES Modules import
- * // const { GlueClient, GetUserDefinedFunctionCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * import { GlueClient, GetUserDefinedFunctionCommand } from '@aws-sdk/client-glue'; // ES Modules import
+ * // const { GlueClient, GetUserDefinedFunctionCommand } = require('@aws-sdk/client-glue'); // CommonJS import
  * const client = new GlueClient(config);
  * const input = { // GetUserDefinedFunctionRequest
- *   CatalogId: "STRING_VALUE",
- *   DatabaseName: "STRING_VALUE", // required
- *   FunctionName: "STRING_VALUE", // required
+ *   CatalogId: 'STRING_VALUE',
+ *   DatabaseName: 'STRING_VALUE', // required
+ *   FunctionName: 'STRING_VALUE', // required
  * };
  * const command = new GetUserDefinedFunctionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetUserDefinedFunctionResponse
+ *   UserDefinedFunction: { // UserDefinedFunction
+ *     FunctionName: 'STRING_VALUE',
+ *     DatabaseName: 'STRING_VALUE',
+ *     ClassName: 'STRING_VALUE',
+ *     OwnerName: 'STRING_VALUE',
+ *     OwnerType: 'USER' || 'ROLE' || 'GROUP',
+ *     CreateTime: new Date('TIMESTAMP'),
+ *     ResourceUris: [ // ResourceUriList
+ *       { // ResourceUri
+ *         ResourceType: 'JAR' || 'FILE' || 'ARCHIVE',
+ *         Uri: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     CatalogId: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetUserDefinedFunctionCommandInput - {@link GetUserDefinedFunctionCommandInput}
@@ -69,6 +88,8 @@ export interface GetUserDefinedFunctionCommandOutput extends GetUserDefinedFunct
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class GetUserDefinedFunctionCommand extends $Command<

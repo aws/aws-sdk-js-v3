@@ -39,16 +39,19 @@ export interface AssociateEntityToThingCommandOutput extends AssociateEntityToTh
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTThingsGraphClient, AssociateEntityToThingCommand } from "@aws-sdk/client-iotthingsgraph"; // ES Modules import
- * // const { IoTThingsGraphClient, AssociateEntityToThingCommand } = require("@aws-sdk/client-iotthingsgraph"); // CommonJS import
+ * import { IoTThingsGraphClient, AssociateEntityToThingCommand } from '@aws-sdk/client-iotthingsgraph'; // ES Modules import
+ * // const { IoTThingsGraphClient, AssociateEntityToThingCommand } = require('@aws-sdk/client-iotthingsgraph'); // CommonJS import
  * const client = new IoTThingsGraphClient(config);
  * const input = { // AssociateEntityToThingRequest
- *   thingName: "STRING_VALUE", // required
- *   entityId: "STRING_VALUE", // required
- *   namespaceVersion: Number("long"),
+ *   thingName: 'STRING_VALUE', // required
+ *   entityId: 'STRING_VALUE', // required
+ *   namespaceVersion: Number('long'),
  * };
  * const command = new AssociateEntityToThingCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param AssociateEntityToThingCommandInput - {@link AssociateEntityToThingCommandInput}
@@ -69,6 +72,8 @@ export interface AssociateEntityToThingCommandOutput extends AssociateEntityToTh
  * @throws {@link ThrottlingException} (client fault)
  *  <p></p>
  *
+ * @throws {@link IoTThingsGraphServiceException}
+ * <p>Base exception class for all service exceptions from IoTThingsGraph service.</p>
  *
  */
 export class AssociateEntityToThingCommand extends $Command<

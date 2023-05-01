@@ -36,19 +36,25 @@ export interface CreateUserHierarchyGroupCommandOutput extends CreateUserHierarc
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, CreateUserHierarchyGroupCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, CreateUserHierarchyGroupCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, CreateUserHierarchyGroupCommand } from '@aws-sdk/client-connect'; // ES Modules import
+ * // const { ConnectClient, CreateUserHierarchyGroupCommand } = require('@aws-sdk/client-connect'); // CommonJS import
  * const client = new ConnectClient(config);
  * const input = { // CreateUserHierarchyGroupRequest
- *   Name: "STRING_VALUE", // required
- *   ParentGroupId: "STRING_VALUE",
- *   InstanceId: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
+ *   ParentGroupId: 'STRING_VALUE',
+ *   InstanceId: 'STRING_VALUE', // required
  *   Tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateUserHierarchyGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateUserHierarchyGroupResponse
+ *   HierarchyGroupId: 'STRING_VALUE',
+ *   HierarchyGroupArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateUserHierarchyGroupCommandInput - {@link CreateUserHierarchyGroupCommandInput}
@@ -78,6 +84,8 @@ export interface CreateUserHierarchyGroupCommandOutput extends CreateUserHierarc
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class CreateUserHierarchyGroupCommand extends $Command<

@@ -36,16 +36,32 @@ export interface ListListenersCommandOutput extends ListListenersResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { VPCLatticeClient, ListListenersCommand } from "@aws-sdk/client-vpc-lattice"; // ES Modules import
- * // const { VPCLatticeClient, ListListenersCommand } = require("@aws-sdk/client-vpc-lattice"); // CommonJS import
+ * import { VPCLatticeClient, ListListenersCommand } from '@aws-sdk/client-vpc-lattice'; // ES Modules import
+ * // const { VPCLatticeClient, ListListenersCommand } = require('@aws-sdk/client-vpc-lattice'); // CommonJS import
  * const client = new VPCLatticeClient(config);
  * const input = { // ListListenersRequest
- *   serviceIdentifier: "STRING_VALUE", // required
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   serviceIdentifier: 'STRING_VALUE', // required
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new ListListenersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListListenersResponse
+ *   items: [ // ListenerSummaryList // required
+ *     { // ListenerSummary
+ *       arn: 'STRING_VALUE',
+ *       id: 'STRING_VALUE',
+ *       name: 'STRING_VALUE',
+ *       protocol: 'STRING_VALUE',
+ *       port: Number('int'),
+ *       createdAt: new Date('TIMESTAMP'),
+ *       lastUpdatedAt: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListListenersCommandInput - {@link ListListenersCommandInput}
@@ -70,6 +86,8 @@ export interface ListListenersCommandOutput extends ListListenersResponse, __Met
  *  <p>The input does not satisfy the constraints specified by an Amazon Web Services
  *    service.</p>
  *
+ * @throws {@link VPCLatticeServiceException}
+ * <p>Base exception class for all service exceptions from VPCLattice service.</p>
  *
  */
 export class ListListenersCommand extends $Command<

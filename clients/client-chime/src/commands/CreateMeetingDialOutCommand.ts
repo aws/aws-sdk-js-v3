@@ -43,17 +43,22 @@ export interface CreateMeetingDialOutCommandOutput extends CreateMeetingDialOutR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeClient, CreateMeetingDialOutCommand } from "@aws-sdk/client-chime"; // ES Modules import
- * // const { ChimeClient, CreateMeetingDialOutCommand } = require("@aws-sdk/client-chime"); // CommonJS import
+ * import { ChimeClient, CreateMeetingDialOutCommand } from '@aws-sdk/client-chime'; // ES Modules import
+ * // const { ChimeClient, CreateMeetingDialOutCommand } = require('@aws-sdk/client-chime'); // CommonJS import
  * const client = new ChimeClient(config);
  * const input = { // CreateMeetingDialOutRequest
- *   MeetingId: "STRING_VALUE", // required
- *   FromPhoneNumber: "STRING_VALUE", // required
- *   ToPhoneNumber: "STRING_VALUE", // required
- *   JoinToken: "STRING_VALUE", // required
+ *   MeetingId: 'STRING_VALUE', // required
+ *   FromPhoneNumber: 'STRING_VALUE', // required
+ *   ToPhoneNumber: 'STRING_VALUE', // required
+ *   JoinToken: 'STRING_VALUE', // required
  * };
  * const command = new CreateMeetingDialOutCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateMeetingDialOutResponse
+ *   TransactionId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateMeetingDialOutCommandInput - {@link CreateMeetingDialOutCommandInput}
@@ -86,6 +91,8 @@ export interface CreateMeetingDialOutCommandOutput extends CreateMeetingDialOutR
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeServiceException}
+ * <p>Base exception class for all service exceptions from Chime service.</p>
  *
  */
 export class CreateMeetingDialOutCommand extends $Command<

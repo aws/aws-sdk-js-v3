@@ -36,14 +36,20 @@ export interface DeleteCustomPluginCommandOutput extends DeleteCustomPluginRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KafkaConnectClient, DeleteCustomPluginCommand } from "@aws-sdk/client-kafkaconnect"; // ES Modules import
- * // const { KafkaConnectClient, DeleteCustomPluginCommand } = require("@aws-sdk/client-kafkaconnect"); // CommonJS import
+ * import { KafkaConnectClient, DeleteCustomPluginCommand } from '@aws-sdk/client-kafkaconnect'; // ES Modules import
+ * // const { KafkaConnectClient, DeleteCustomPluginCommand } = require('@aws-sdk/client-kafkaconnect'); // CommonJS import
  * const client = new KafkaConnectClient(config);
  * const input = { // DeleteCustomPluginRequest
- *   customPluginArn: "STRING_VALUE", // required
+ *   customPluginArn: 'STRING_VALUE', // required
  * };
  * const command = new DeleteCustomPluginCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteCustomPluginResponse
+ *   customPluginArn: 'STRING_VALUE',
+ *   customPluginState: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DeleteCustomPluginCommandInput - {@link DeleteCustomPluginCommandInput}
@@ -79,6 +85,8 @@ export interface DeleteCustomPluginCommandOutput extends DeleteCustomPluginRespo
  *  <p>HTTP Status Code 401: Unauthorized request. The provided credentials couldn't be
  *          validated.</p>
  *
+ * @throws {@link KafkaConnectServiceException}
+ * <p>Base exception class for all service exceptions from KafkaConnect service.</p>
  *
  */
 export class DeleteCustomPluginCommand extends $Command<

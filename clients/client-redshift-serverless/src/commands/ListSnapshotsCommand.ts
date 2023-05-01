@@ -40,20 +40,53 @@ export interface ListSnapshotsCommandOutput extends ListSnapshotsResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RedshiftServerlessClient, ListSnapshotsCommand } from "@aws-sdk/client-redshift-serverless"; // ES Modules import
- * // const { RedshiftServerlessClient, ListSnapshotsCommand } = require("@aws-sdk/client-redshift-serverless"); // CommonJS import
+ * import { RedshiftServerlessClient, ListSnapshotsCommand } from '@aws-sdk/client-redshift-serverless'; // ES Modules import
+ * // const { RedshiftServerlessClient, ListSnapshotsCommand } = require('@aws-sdk/client-redshift-serverless'); // CommonJS import
  * const client = new RedshiftServerlessClient(config);
  * const input = { // ListSnapshotsRequest
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
- *   namespaceName: "STRING_VALUE",
- *   namespaceArn: "STRING_VALUE",
- *   ownerAccount: "STRING_VALUE",
- *   startTime: new Date("TIMESTAMP"),
- *   endTime: new Date("TIMESTAMP"),
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
+ *   namespaceName: 'STRING_VALUE',
+ *   namespaceArn: 'STRING_VALUE',
+ *   ownerAccount: 'STRING_VALUE',
+ *   startTime: new Date('TIMESTAMP'),
+ *   endTime: new Date('TIMESTAMP'),
  * };
  * const command = new ListSnapshotsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListSnapshotsResponse
+ *   nextToken: 'STRING_VALUE',
+ *   snapshots: [ // SnapshotList
+ *     { // Snapshot
+ *       namespaceName: 'STRING_VALUE',
+ *       namespaceArn: 'STRING_VALUE',
+ *       snapshotName: 'STRING_VALUE',
+ *       snapshotCreateTime: new Date('TIMESTAMP'),
+ *       adminUsername: 'STRING_VALUE',
+ *       status: 'STRING_VALUE',
+ *       kmsKeyId: 'STRING_VALUE',
+ *       ownerAccount: 'STRING_VALUE',
+ *       totalBackupSizeInMegaBytes: Number('double'),
+ *       actualIncrementalBackupSizeInMegaBytes: Number('double'),
+ *       backupProgressInMegaBytes: Number('double'),
+ *       currentBackupRateInMegaBytesPerSecond: Number('double'),
+ *       estimatedSecondsToCompletion: Number('long'),
+ *       elapsedTimeInSeconds: Number('long'),
+ *       snapshotRetentionPeriod: Number('int'),
+ *       snapshotRemainingDays: Number('int'),
+ *       snapshotRetentionStartTime: new Date('TIMESTAMP'),
+ *       snapshotArn: 'STRING_VALUE',
+ *       accountsWithRestoreAccess: [ // AccountIdList
+ *         'STRING_VALUE',
+ *       ],
+ *       accountsWithProvisionedRestoreAccess: [
+ *         'STRING_VALUE',
+ *       ],
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListSnapshotsCommandInput - {@link ListSnapshotsCommandInput}
@@ -71,6 +104,8 @@ export interface ListSnapshotsCommandOutput extends ListSnapshotsResponse, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>The input failed to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link RedshiftServerlessServiceException}
+ * <p>Base exception class for all service exceptions from RedshiftServerless service.</p>
  *
  */
 export class ListSnapshotsCommand extends $Command<

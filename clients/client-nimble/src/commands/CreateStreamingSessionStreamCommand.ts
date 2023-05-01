@@ -47,17 +47,31 @@ export interface CreateStreamingSessionStreamCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { NimbleClient, CreateStreamingSessionStreamCommand } from "@aws-sdk/client-nimble"; // ES Modules import
- * // const { NimbleClient, CreateStreamingSessionStreamCommand } = require("@aws-sdk/client-nimble"); // CommonJS import
+ * import { NimbleClient, CreateStreamingSessionStreamCommand } from '@aws-sdk/client-nimble'; // ES Modules import
+ * // const { NimbleClient, CreateStreamingSessionStreamCommand } = require('@aws-sdk/client-nimble'); // CommonJS import
  * const client = new NimbleClient(config);
  * const input = { // CreateStreamingSessionStreamRequest
- *   clientToken: "STRING_VALUE",
- *   expirationInSeconds: Number("int"),
- *   sessionId: "STRING_VALUE", // required
- *   studioId: "STRING_VALUE", // required
+ *   clientToken: 'STRING_VALUE',
+ *   expirationInSeconds: Number('int'),
+ *   sessionId: 'STRING_VALUE', // required
+ *   studioId: 'STRING_VALUE', // required
  * };
  * const command = new CreateStreamingSessionStreamCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateStreamingSessionStreamResponse
+ *   stream: { // StreamingSessionStream
+ *     createdAt: new Date('TIMESTAMP'),
+ *     createdBy: 'STRING_VALUE',
+ *     expiresAt: new Date('TIMESTAMP'),
+ *     ownedBy: 'STRING_VALUE',
+ *     state: 'READY' || 'CREATE_IN_PROGRESS' || 'DELETE_IN_PROGRESS' || 'DELETED' || 'CREATE_FAILED' || 'DELETE_FAILED',
+ *     statusCode: 'STREAM_CREATE_IN_PROGRESS' || 'STREAM_READY' || 'STREAM_DELETE_IN_PROGRESS' || 'STREAM_DELETED' || 'INTERNAL_ERROR' || 'NETWORK_CONNECTION_ERROR',
+ *     streamId: 'STRING_VALUE',
+ *     url: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateStreamingSessionStreamCommandInput - {@link CreateStreamingSessionStreamCommandInput}
@@ -90,6 +104,8 @@ export interface CreateStreamingSessionStreamCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>One of the parameters in the request is invalid.</p>
  *
+ * @throws {@link NimbleServiceException}
+ * <p>Base exception class for all service exceptions from Nimble service.</p>
  *
  */
 export class CreateStreamingSessionStreamCommand extends $Command<

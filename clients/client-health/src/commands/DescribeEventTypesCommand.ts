@@ -43,27 +43,39 @@ export interface DescribeEventTypesCommandOutput extends DescribeEventTypesRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { HealthClient, DescribeEventTypesCommand } from "@aws-sdk/client-health"; // ES Modules import
- * // const { HealthClient, DescribeEventTypesCommand } = require("@aws-sdk/client-health"); // CommonJS import
+ * import { HealthClient, DescribeEventTypesCommand } from '@aws-sdk/client-health'; // ES Modules import
+ * // const { HealthClient, DescribeEventTypesCommand } = require('@aws-sdk/client-health'); // CommonJS import
  * const client = new HealthClient(config);
  * const input = { // DescribeEventTypesRequest
  *   filter: { // EventTypeFilter
  *     eventTypeCodes: [ // EventTypeCodeList
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     services: [ // serviceList
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     eventTypeCategories: [ // EventTypeCategoryList
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *   },
- *   locale: "STRING_VALUE",
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   locale: 'STRING_VALUE',
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new DescribeEventTypesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeEventTypesResponse
+ *   eventTypes: [ // EventTypeList
+ *     { // EventType
+ *       service: 'STRING_VALUE',
+ *       code: 'STRING_VALUE',
+ *       category: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeEventTypesCommandInput - {@link DescribeEventTypesCommandInput}
@@ -78,6 +90,8 @@ export interface DescribeEventTypesCommandOutput extends DescribeEventTypesRespo
  * @throws {@link UnsupportedLocale} (client fault)
  *  <p>The specified locale is not supported.</p>
  *
+ * @throws {@link HealthServiceException}
+ * <p>Base exception class for all service exceptions from Health service.</p>
  *
  */
 export class DescribeEventTypesCommand extends $Command<

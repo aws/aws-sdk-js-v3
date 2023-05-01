@@ -36,20 +36,32 @@ export interface ListEndpointConfigsCommandOutput extends ListEndpointConfigsOut
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, ListEndpointConfigsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, ListEndpointConfigsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, ListEndpointConfigsCommand } from '@aws-sdk/client-sagemaker'; // ES Modules import
+ * // const { SageMakerClient, ListEndpointConfigsCommand } = require('@aws-sdk/client-sagemaker'); // CommonJS import
  * const client = new SageMakerClient(config);
  * const input = { // ListEndpointConfigsInput
- *   SortBy: "Name" || "CreationTime",
- *   SortOrder: "Ascending" || "Descending",
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
- *   NameContains: "STRING_VALUE",
- *   CreationTimeBefore: new Date("TIMESTAMP"),
- *   CreationTimeAfter: new Date("TIMESTAMP"),
+ *   SortBy: 'Name' || 'CreationTime',
+ *   SortOrder: 'Ascending' || 'Descending',
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
+ *   NameContains: 'STRING_VALUE',
+ *   CreationTimeBefore: new Date('TIMESTAMP'),
+ *   CreationTimeAfter: new Date('TIMESTAMP'),
  * };
  * const command = new ListEndpointConfigsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListEndpointConfigsOutput
+ *   EndpointConfigs: [ // EndpointConfigSummaryList // required
+ *     { // EndpointConfigSummary
+ *       EndpointConfigName: 'STRING_VALUE', // required
+ *       EndpointConfigArn: 'STRING_VALUE', // required
+ *       CreationTime: new Date('TIMESTAMP'), // required
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListEndpointConfigsCommandInput - {@link ListEndpointConfigsCommandInput}
@@ -58,6 +70,8 @@ export interface ListEndpointConfigsCommandOutput extends ListEndpointConfigsOut
  * @see {@link ListEndpointConfigsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class ListEndpointConfigsCommand extends $Command<

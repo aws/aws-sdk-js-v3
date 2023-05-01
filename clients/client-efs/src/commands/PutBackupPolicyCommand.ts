@@ -36,17 +36,24 @@ export interface PutBackupPolicyCommandOutput extends BackupPolicyDescription, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EFSClient, PutBackupPolicyCommand } from "@aws-sdk/client-efs"; // ES Modules import
- * // const { EFSClient, PutBackupPolicyCommand } = require("@aws-sdk/client-efs"); // CommonJS import
+ * import { EFSClient, PutBackupPolicyCommand } from '@aws-sdk/client-efs'; // ES Modules import
+ * // const { EFSClient, PutBackupPolicyCommand } = require('@aws-sdk/client-efs'); // CommonJS import
  * const client = new EFSClient(config);
  * const input = { // PutBackupPolicyRequest
- *   FileSystemId: "STRING_VALUE", // required
+ *   FileSystemId: 'STRING_VALUE', // required
  *   BackupPolicy: { // BackupPolicy
- *     Status: "ENABLED" || "ENABLING" || "DISABLED" || "DISABLING", // required
+ *     Status: 'ENABLED' || 'ENABLING' || 'DISABLED' || 'DISABLING', // required
  *   },
  * };
  * const command = new PutBackupPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BackupPolicyDescription
+ *   BackupPolicy: { // BackupPolicy
+ *     Status: 'ENABLED' || 'ENABLING' || 'DISABLED' || 'DISABLING', // required
+ *   },
+ * };
+ *
  * ```
  *
  * @param PutBackupPolicyCommandInput - {@link PutBackupPolicyCommandInput}
@@ -72,6 +79,8 @@ export interface PutBackupPolicyCommandOutput extends BackupPolicyDescription, _
  * @throws {@link ValidationException} (client fault)
  *  <p>Returned if the Backup service is not available in the Amazon Web Services Region in which the request was made.</p>
  *
+ * @throws {@link EFSServiceException}
+ * <p>Base exception class for all service exceptions from EFS service.</p>
  *
  */
 export class PutBackupPolicyCommand extends $Command<

@@ -41,27 +41,49 @@ export interface CreateResiliencyPolicyCommandOutput extends CreateResiliencyPol
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ResiliencehubClient, CreateResiliencyPolicyCommand } from "@aws-sdk/client-resiliencehub"; // ES Modules import
- * // const { ResiliencehubClient, CreateResiliencyPolicyCommand } = require("@aws-sdk/client-resiliencehub"); // CommonJS import
+ * import { ResiliencehubClient, CreateResiliencyPolicyCommand } from '@aws-sdk/client-resiliencehub'; // ES Modules import
+ * // const { ResiliencehubClient, CreateResiliencyPolicyCommand } = require('@aws-sdk/client-resiliencehub'); // CommonJS import
  * const client = new ResiliencehubClient(config);
  * const input = { // CreateResiliencyPolicyRequest
- *   policyName: "STRING_VALUE", // required
- *   policyDescription: "STRING_VALUE",
- *   dataLocationConstraint: "STRING_VALUE",
- *   tier: "STRING_VALUE", // required
+ *   policyName: 'STRING_VALUE', // required
+ *   policyDescription: 'STRING_VALUE',
+ *   dataLocationConstraint: 'STRING_VALUE',
+ *   tier: 'STRING_VALUE', // required
  *   policy: { // DisruptionPolicy // required
- *     "<keys>": { // FailurePolicy
- *       rtoInSecs: Number("int"), // required
- *       rpoInSecs: Number("int"), // required
+ *     '<keys>': { // FailurePolicy
+ *       rtoInSecs: Number('int'), // required
+ *       rpoInSecs: Number('int'), // required
  *     },
  *   },
- *   clientToken: "STRING_VALUE",
+ *   clientToken: 'STRING_VALUE',
  *   tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateResiliencyPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateResiliencyPolicyResponse
+ *   policy: { // ResiliencyPolicy
+ *     policyArn: 'STRING_VALUE',
+ *     policyName: 'STRING_VALUE',
+ *     policyDescription: 'STRING_VALUE',
+ *     dataLocationConstraint: 'STRING_VALUE',
+ *     tier: 'STRING_VALUE',
+ *     estimatedCostTier: 'STRING_VALUE',
+ *     policy: { // DisruptionPolicy
+ *       '<keys>': { // FailurePolicy
+ *         rtoInSecs: Number('int'), // required
+ *         rpoInSecs: Number('int'), // required
+ *       },
+ *     },
+ *     creationTime: new Date('TIMESTAMP'),
+ *     tags: { // TagMap
+ *       '<keys>': 'STRING_VALUE',
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateResiliencyPolicyCommandInput - {@link CreateResiliencyPolicyCommandInput}
@@ -95,6 +117,8 @@ export interface CreateResiliencyPolicyCommandOutput extends CreateResiliencyPol
  * @throws {@link ValidationException} (client fault)
  *  <p>This exception occurs when a request is not valid.</p>
  *
+ * @throws {@link ResiliencehubServiceException}
+ * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
  */
 export class CreateResiliencyPolicyCommand extends $Command<

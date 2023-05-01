@@ -175,19 +175,33 @@ export interface CreateMountTargetCommandOutput extends MountTargetDescription, 
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EFSClient, CreateMountTargetCommand } from "@aws-sdk/client-efs"; // ES Modules import
- * // const { EFSClient, CreateMountTargetCommand } = require("@aws-sdk/client-efs"); // CommonJS import
+ * import { EFSClient, CreateMountTargetCommand } from '@aws-sdk/client-efs'; // ES Modules import
+ * // const { EFSClient, CreateMountTargetCommand } = require('@aws-sdk/client-efs'); // CommonJS import
  * const client = new EFSClient(config);
  * const input = { // CreateMountTargetRequest
- *   FileSystemId: "STRING_VALUE", // required
- *   SubnetId: "STRING_VALUE", // required
- *   IpAddress: "STRING_VALUE",
+ *   FileSystemId: 'STRING_VALUE', // required
+ *   SubnetId: 'STRING_VALUE', // required
+ *   IpAddress: 'STRING_VALUE',
  *   SecurityGroups: [ // SecurityGroups
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new CreateMountTargetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // MountTargetDescription
+ *   OwnerId: 'STRING_VALUE',
+ *   MountTargetId: 'STRING_VALUE', // required
+ *   FileSystemId: 'STRING_VALUE', // required
+ *   SubnetId: 'STRING_VALUE', // required
+ *   LifeCycleState: 'creating' || 'available' || 'updating' || 'deleting' || 'deleted' || 'error', // required
+ *   IpAddress: 'STRING_VALUE',
+ *   NetworkInterfaceId: 'STRING_VALUE',
+ *   AvailabilityZoneId: 'STRING_VALUE',
+ *   AvailabilityZoneName: 'STRING_VALUE',
+ *   VpcId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateMountTargetCommandInput - {@link CreateMountTargetCommandInput}
@@ -250,6 +264,8 @@ export interface CreateMountTargetCommandOutput extends MountTargetDescription, 
  * @throws {@link UnsupportedAvailabilityZone} (client fault)
  *  <p>Returned if the requested Amazon EFS functionality is not available in the specified Availability Zone.</p>
  *
+ * @throws {@link EFSServiceException}
+ * <p>Base exception class for all service exceptions from EFS service.</p>
  *
  * @example To create a new mount target
  * ```javascript

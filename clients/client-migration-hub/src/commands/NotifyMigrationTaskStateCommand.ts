@@ -53,23 +53,26 @@ export interface NotifyMigrationTaskStateCommandOutput extends NotifyMigrationTa
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MigrationHubClient, NotifyMigrationTaskStateCommand } from "@aws-sdk/client-migration-hub"; // ES Modules import
- * // const { MigrationHubClient, NotifyMigrationTaskStateCommand } = require("@aws-sdk/client-migration-hub"); // CommonJS import
+ * import { MigrationHubClient, NotifyMigrationTaskStateCommand } from '@aws-sdk/client-migration-hub'; // ES Modules import
+ * // const { MigrationHubClient, NotifyMigrationTaskStateCommand } = require('@aws-sdk/client-migration-hub'); // CommonJS import
  * const client = new MigrationHubClient(config);
  * const input = { // NotifyMigrationTaskStateRequest
- *   ProgressUpdateStream: "STRING_VALUE", // required
- *   MigrationTaskName: "STRING_VALUE", // required
+ *   ProgressUpdateStream: 'STRING_VALUE', // required
+ *   MigrationTaskName: 'STRING_VALUE', // required
  *   Task: { // Task
- *     Status: "STRING_VALUE", // required
- *     StatusDetail: "STRING_VALUE",
- *     ProgressPercent: Number("int"),
+ *     Status: 'STRING_VALUE', // required
+ *     StatusDetail: 'STRING_VALUE',
+ *     ProgressPercent: Number('int'),
  *   },
- *   UpdateDateTime: new Date("TIMESTAMP"), // required
- *   NextUpdateSeconds: Number("int"), // required
+ *   UpdateDateTime: new Date('TIMESTAMP'), // required
+ *   NextUpdateSeconds: Number('int'), // required
  *   DryRun: true || false,
  * };
  * const command = new NotifyMigrationTaskStateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param NotifyMigrationTaskStateCommandInput - {@link NotifyMigrationTaskStateCommandInput}
@@ -112,6 +115,8 @@ export interface NotifyMigrationTaskStateCommandOutput extends NotifyMigrationTa
  *  <p>Exception raised to indicate a request was not authorized when the <code>DryRun</code>
  *          flag is set to "true".</p>
  *
+ * @throws {@link MigrationHubServiceException}
+ * <p>Base exception class for all service exceptions from MigrationHub service.</p>
  *
  */
 export class NotifyMigrationTaskStateCommand extends $Command<

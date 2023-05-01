@@ -46,25 +46,30 @@ export interface StartResourceEvaluationCommandOutput extends StartResourceEvalu
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConfigServiceClient, StartResourceEvaluationCommand } from "@aws-sdk/client-config-service"; // ES Modules import
- * // const { ConfigServiceClient, StartResourceEvaluationCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
+ * import { ConfigServiceClient, StartResourceEvaluationCommand } from '@aws-sdk/client-config-service'; // ES Modules import
+ * // const { ConfigServiceClient, StartResourceEvaluationCommand } = require('@aws-sdk/client-config-service'); // CommonJS import
  * const client = new ConfigServiceClient(config);
  * const input = { // StartResourceEvaluationRequest
  *   ResourceDetails: { // ResourceDetails
- *     ResourceId: "STRING_VALUE", // required
- *     ResourceType: "STRING_VALUE", // required
- *     ResourceConfiguration: "STRING_VALUE", // required
- *     ResourceConfigurationSchemaType: "CFN_RESOURCE_SCHEMA",
+ *     ResourceId: 'STRING_VALUE', // required
+ *     ResourceType: 'STRING_VALUE', // required
+ *     ResourceConfiguration: 'STRING_VALUE', // required
+ *     ResourceConfigurationSchemaType: 'CFN_RESOURCE_SCHEMA',
  *   },
  *   EvaluationContext: { // EvaluationContext
- *     EvaluationContextIdentifier: "STRING_VALUE",
+ *     EvaluationContextIdentifier: 'STRING_VALUE',
  *   },
- *   EvaluationMode: "DETECTIVE" || "PROACTIVE", // required
- *   EvaluationTimeout: Number("int"),
- *   ClientToken: "STRING_VALUE",
+ *   EvaluationMode: 'DETECTIVE' || 'PROACTIVE', // required
+ *   EvaluationTimeout: Number('int'),
+ *   ClientToken: 'STRING_VALUE',
  * };
  * const command = new StartResourceEvaluationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartResourceEvaluationResponse
+ *   ResourceEvaluationId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param StartResourceEvaluationCommandInput - {@link StartResourceEvaluationCommandInput}
@@ -80,6 +85,8 @@ export interface StartResourceEvaluationCommandOutput extends StartResourceEvalu
  *  <p>One or more of the specified parameters are not valid. Verify
  * 			that your parameters are valid and try again.</p>
  *
+ * @throws {@link ConfigServiceServiceException}
+ * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
  */
 export class StartResourceEvaluationCommand extends $Command<

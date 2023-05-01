@@ -36,16 +36,37 @@ export interface ListImportsCommandOutput extends ListImportsOutput, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DynamoDBClient, ListImportsCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
- * // const { DynamoDBClient, ListImportsCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
+ * import { DynamoDBClient, ListImportsCommand } from '@aws-sdk/client-dynamodb'; // ES Modules import
+ * // const { DynamoDBClient, ListImportsCommand } = require('@aws-sdk/client-dynamodb'); // CommonJS import
  * const client = new DynamoDBClient(config);
  * const input = { // ListImportsInput
- *   TableArn: "STRING_VALUE",
- *   PageSize: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   TableArn: 'STRING_VALUE',
+ *   PageSize: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListImportsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListImportsOutput
+ *   ImportSummaryList: [ // ImportSummaryList
+ *     { // ImportSummary
+ *       ImportArn: 'STRING_VALUE',
+ *       ImportStatus: 'IN_PROGRESS' || 'COMPLETED' || 'CANCELLING' || 'CANCELLED' || 'FAILED',
+ *       TableArn: 'STRING_VALUE',
+ *       S3BucketSource: { // S3BucketSource
+ *         S3BucketOwner: 'STRING_VALUE',
+ *         S3Bucket: 'STRING_VALUE', // required
+ *         S3KeyPrefix: 'STRING_VALUE',
+ *       },
+ *       CloudWatchLogGroupArn: 'STRING_VALUE',
+ *       InputFormat: 'DYNAMODB_JSON' || 'ION' || 'CSV',
+ *       StartTime: new Date('TIMESTAMP'),
+ *       EndTime: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListImportsCommandInput - {@link ListImportsCommandInput}
@@ -67,6 +88,8 @@ export interface ListImportsCommandOutput extends ListImportsOutput, __MetadataB
  *          <p>When importing into DynamoDB, up to 50 simultaneous import table operations are allowed per account.</p>
  *          <p>There is a soft account quota of 2,500 tables.</p>
  *
+ * @throws {@link DynamoDBServiceException}
+ * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
  */
 export class ListImportsCommand extends $Command<

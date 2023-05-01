@@ -36,15 +36,22 @@ export interface GetBasePathMappingCommandOutput extends BasePathMapping, __Meta
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { APIGatewayClient, GetBasePathMappingCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
- * // const { APIGatewayClient, GetBasePathMappingCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
+ * import { APIGatewayClient, GetBasePathMappingCommand } from '@aws-sdk/client-api-gateway'; // ES Modules import
+ * // const { APIGatewayClient, GetBasePathMappingCommand } = require('@aws-sdk/client-api-gateway'); // CommonJS import
  * const client = new APIGatewayClient(config);
  * const input = { // GetBasePathMappingRequest
- *   domainName: "STRING_VALUE", // required
- *   basePath: "STRING_VALUE", // required
+ *   domainName: 'STRING_VALUE', // required
+ *   basePath: 'STRING_VALUE', // required
  * };
  * const command = new GetBasePathMappingCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BasePathMapping
+ *   basePath: 'STRING_VALUE',
+ *   restApiId: 'STRING_VALUE',
+ *   stage: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetBasePathMappingCommandInput - {@link GetBasePathMappingCommandInput}
@@ -65,6 +72,8 @@ export interface GetBasePathMappingCommandOutput extends BasePathMapping, __Meta
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The request is denied because the caller has insufficient permissions.</p>
  *
+ * @throws {@link APIGatewayServiceException}
+ * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
  */
 export class GetBasePathMappingCommand extends $Command<

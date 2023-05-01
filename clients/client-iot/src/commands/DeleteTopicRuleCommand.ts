@@ -37,14 +37,17 @@ export interface DeleteTopicRuleCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTClient, DeleteTopicRuleCommand } from "@aws-sdk/client-iot"; // ES Modules import
- * // const { IoTClient, DeleteTopicRuleCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * import { IoTClient, DeleteTopicRuleCommand } from '@aws-sdk/client-iot'; // ES Modules import
+ * // const { IoTClient, DeleteTopicRuleCommand } = require('@aws-sdk/client-iot'); // CommonJS import
  * const client = new IoTClient(config);
  * const input = { // DeleteTopicRuleRequest
- *   ruleName: "STRING_VALUE", // required
+ *   ruleName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteTopicRuleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteTopicRuleCommandInput - {@link DeleteTopicRuleCommandInput}
@@ -69,6 +72,8 @@ export interface DeleteTopicRuleCommandOutput extends __MetadataBearer {}
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this operation.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class DeleteTopicRuleCommand extends $Command<

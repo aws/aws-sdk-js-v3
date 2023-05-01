@@ -36,18 +36,32 @@ export interface ListEulaAcceptancesCommandOutput extends ListEulaAcceptancesRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { NimbleClient, ListEulaAcceptancesCommand } from "@aws-sdk/client-nimble"; // ES Modules import
- * // const { NimbleClient, ListEulaAcceptancesCommand } = require("@aws-sdk/client-nimble"); // CommonJS import
+ * import { NimbleClient, ListEulaAcceptancesCommand } from '@aws-sdk/client-nimble'; // ES Modules import
+ * // const { NimbleClient, ListEulaAcceptancesCommand } = require('@aws-sdk/client-nimble'); // CommonJS import
  * const client = new NimbleClient(config);
  * const input = { // ListEulaAcceptancesRequest
  *   eulaIds: [ // StringList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   nextToken: "STRING_VALUE",
- *   studioId: "STRING_VALUE", // required
+ *   nextToken: 'STRING_VALUE',
+ *   studioId: 'STRING_VALUE', // required
  * };
  * const command = new ListEulaAcceptancesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListEulaAcceptancesResponse
+ *   eulaAcceptances: [ // EulaAcceptanceList
+ *     { // EulaAcceptance
+ *       acceptedAt: new Date('TIMESTAMP'),
+ *       acceptedBy: 'STRING_VALUE',
+ *       accepteeId: 'STRING_VALUE',
+ *       eulaAcceptanceId: 'STRING_VALUE',
+ *       eulaId: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListEulaAcceptancesCommandInput - {@link ListEulaAcceptancesCommandInput}
@@ -80,6 +94,8 @@ export interface ListEulaAcceptancesCommandOutput extends ListEulaAcceptancesRes
  * @throws {@link ValidationException} (client fault)
  *  <p>One of the parameters in the request is invalid.</p>
  *
+ * @throws {@link NimbleServiceException}
+ * <p>Base exception class for all service exceptions from Nimble service.</p>
  *
  */
 export class ListEulaAcceptancesCommand extends $Command<

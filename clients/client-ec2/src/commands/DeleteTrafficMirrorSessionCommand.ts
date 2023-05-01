@@ -36,15 +36,20 @@ export interface DeleteTrafficMirrorSessionCommandOutput extends DeleteTrafficMi
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, DeleteTrafficMirrorSessionCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, DeleteTrafficMirrorSessionCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, DeleteTrafficMirrorSessionCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, DeleteTrafficMirrorSessionCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // DeleteTrafficMirrorSessionRequest
- *   TrafficMirrorSessionId: "STRING_VALUE", // required
+ *   TrafficMirrorSessionId: 'STRING_VALUE', // required
  *   DryRun: true || false,
  * };
  * const command = new DeleteTrafficMirrorSessionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteTrafficMirrorSessionResult
+ *   TrafficMirrorSessionId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DeleteTrafficMirrorSessionCommandInput - {@link DeleteTrafficMirrorSessionCommandInput}
@@ -53,6 +58,8 @@ export interface DeleteTrafficMirrorSessionCommandOutput extends DeleteTrafficMi
  * @see {@link DeleteTrafficMirrorSessionCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class DeleteTrafficMirrorSessionCommand extends $Command<

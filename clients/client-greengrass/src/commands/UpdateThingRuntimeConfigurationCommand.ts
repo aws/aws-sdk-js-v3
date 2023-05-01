@@ -41,17 +41,20 @@ export interface UpdateThingRuntimeConfigurationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GreengrassClient, UpdateThingRuntimeConfigurationCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
- * // const { GreengrassClient, UpdateThingRuntimeConfigurationCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
+ * import { GreengrassClient, UpdateThingRuntimeConfigurationCommand } from '@aws-sdk/client-greengrass'; // ES Modules import
+ * // const { GreengrassClient, UpdateThingRuntimeConfigurationCommand } = require('@aws-sdk/client-greengrass'); // CommonJS import
  * const client = new GreengrassClient(config);
  * const input = { // UpdateThingRuntimeConfigurationRequest
  *   TelemetryConfiguration: { // TelemetryConfigurationUpdate
- *     Telemetry: "On" || "Off", // required
+ *     Telemetry: 'On' || 'Off', // required
  *   },
- *   ThingName: "STRING_VALUE", // required
+ *   ThingName: 'STRING_VALUE', // required
  * };
  * const command = new UpdateThingRuntimeConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateThingRuntimeConfigurationCommandInput - {@link UpdateThingRuntimeConfigurationCommandInput}
@@ -66,6 +69,8 @@ export interface UpdateThingRuntimeConfigurationCommandOutput
  * @throws {@link InternalServerErrorException} (server fault)
  *  General error information.
  *
+ * @throws {@link GreengrassServiceException}
+ * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
  */
 export class UpdateThingRuntimeConfigurationCommand extends $Command<

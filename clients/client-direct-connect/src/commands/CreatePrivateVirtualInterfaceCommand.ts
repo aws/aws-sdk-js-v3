@@ -49,26 +49,26 @@ export interface CreatePrivateVirtualInterfaceCommandOutput extends VirtualInter
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DirectConnectClient, CreatePrivateVirtualInterfaceCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
- * // const { DirectConnectClient, CreatePrivateVirtualInterfaceCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
+ * import { DirectConnectClient, CreatePrivateVirtualInterfaceCommand } from '@aws-sdk/client-direct-connect'; // ES Modules import
+ * // const { DirectConnectClient, CreatePrivateVirtualInterfaceCommand } = require('@aws-sdk/client-direct-connect'); // CommonJS import
  * const client = new DirectConnectClient(config);
  * const input = { // CreatePrivateVirtualInterfaceRequest
- *   connectionId: "STRING_VALUE", // required
+ *   connectionId: 'STRING_VALUE', // required
  *   newPrivateVirtualInterface: { // NewPrivateVirtualInterface
- *     virtualInterfaceName: "STRING_VALUE", // required
- *     vlan: Number("int"), // required
- *     asn: Number("int"), // required
- *     mtu: Number("int"),
- *     authKey: "STRING_VALUE",
- *     amazonAddress: "STRING_VALUE",
- *     customerAddress: "STRING_VALUE",
- *     addressFamily: "ipv4" || "ipv6",
- *     virtualGatewayId: "STRING_VALUE",
- *     directConnectGatewayId: "STRING_VALUE",
+ *     virtualInterfaceName: 'STRING_VALUE', // required
+ *     vlan: Number('int'), // required
+ *     asn: Number('int'), // required
+ *     mtu: Number('int'),
+ *     authKey: 'STRING_VALUE',
+ *     amazonAddress: 'STRING_VALUE',
+ *     customerAddress: 'STRING_VALUE',
+ *     addressFamily: 'ipv4' || 'ipv6',
+ *     virtualGatewayId: 'STRING_VALUE',
+ *     directConnectGatewayId: 'STRING_VALUE',
  *     tags: [ // TagList
  *       { // Tag
- *         key: "STRING_VALUE", // required
- *         value: "STRING_VALUE",
+ *         key: 'STRING_VALUE', // required
+ *         value: 'STRING_VALUE',
  *       },
  *     ],
  *     enableSiteLink: true || false,
@@ -76,6 +76,58 @@ export interface CreatePrivateVirtualInterfaceCommandOutput extends VirtualInter
  * };
  * const command = new CreatePrivateVirtualInterfaceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // VirtualInterface
+ *   ownerAccount: 'STRING_VALUE',
+ *   virtualInterfaceId: 'STRING_VALUE',
+ *   location: 'STRING_VALUE',
+ *   connectionId: 'STRING_VALUE',
+ *   virtualInterfaceType: 'STRING_VALUE',
+ *   virtualInterfaceName: 'STRING_VALUE',
+ *   vlan: Number('int'),
+ *   asn: Number('int'),
+ *   amazonSideAsn: Number('long'),
+ *   authKey: 'STRING_VALUE',
+ *   amazonAddress: 'STRING_VALUE',
+ *   customerAddress: 'STRING_VALUE',
+ *   addressFamily: 'ipv4' || 'ipv6',
+ *   virtualInterfaceState: 'confirming' || 'verifying' || 'pending' || 'available' || 'down' || 'deleting' || 'deleted' || 'rejected' || 'unknown',
+ *   customerRouterConfig: 'STRING_VALUE',
+ *   mtu: Number('int'),
+ *   jumboFrameCapable: true || false,
+ *   virtualGatewayId: 'STRING_VALUE',
+ *   directConnectGatewayId: 'STRING_VALUE',
+ *   routeFilterPrefixes: [ // RouteFilterPrefixList
+ *     { // RouteFilterPrefix
+ *       cidr: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   bgpPeers: [ // BGPPeerList
+ *     { // BGPPeer
+ *       bgpPeerId: 'STRING_VALUE',
+ *       asn: Number('int'),
+ *       authKey: 'STRING_VALUE',
+ *       addressFamily: 'ipv4' || 'ipv6',
+ *       amazonAddress: 'STRING_VALUE',
+ *       customerAddress: 'STRING_VALUE',
+ *       bgpPeerState: 'verifying' || 'pending' || 'available' || 'deleting' || 'deleted',
+ *       bgpStatus: 'up' || 'down' || 'unknown',
+ *       awsDeviceV2: 'STRING_VALUE',
+ *       awsLogicalDeviceId: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   region: 'STRING_VALUE',
+ *   awsDeviceV2: 'STRING_VALUE',
+ *   awsLogicalDeviceId: 'STRING_VALUE',
+ *   tags: [ // TagList
+ *     { // Tag
+ *       key: 'STRING_VALUE', // required
+ *       value: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   siteLinkEnabled: true || false,
+ * };
+ *
  * ```
  *
  * @param CreatePrivateVirtualInterfaceCommandInput - {@link CreatePrivateVirtualInterfaceCommandInput}
@@ -96,6 +148,8 @@ export interface CreatePrivateVirtualInterfaceCommandOutput extends VirtualInter
  * @throws {@link TooManyTagsException} (client fault)
  *  <p>You have reached the limit on the number of tags that can be assigned.</p>
  *
+ * @throws {@link DirectConnectServiceException}
+ * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
  */
 export class CreatePrivateVirtualInterfaceCommand extends $Command<

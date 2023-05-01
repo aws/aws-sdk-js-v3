@@ -36,18 +36,21 @@ export interface UpdateRunGroupCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OmicsClient, UpdateRunGroupCommand } from "@aws-sdk/client-omics"; // ES Modules import
- * // const { OmicsClient, UpdateRunGroupCommand } = require("@aws-sdk/client-omics"); // CommonJS import
+ * import { OmicsClient, UpdateRunGroupCommand } from '@aws-sdk/client-omics'; // ES Modules import
+ * // const { OmicsClient, UpdateRunGroupCommand } = require('@aws-sdk/client-omics'); // CommonJS import
  * const client = new OmicsClient(config);
  * const input = { // UpdateRunGroupRequest
- *   id: "STRING_VALUE", // required
- *   name: "STRING_VALUE",
- *   maxCpus: Number("int"),
- *   maxRuns: Number("int"),
- *   maxDuration: Number("int"),
+ *   id: 'STRING_VALUE', // required
+ *   name: 'STRING_VALUE',
+ *   maxCpus: Number('int'),
+ *   maxRuns: Number('int'),
+ *   maxDuration: Number('int'),
  * };
  * const command = new UpdateRunGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateRunGroupCommandInput - {@link UpdateRunGroupCommandInput}
@@ -80,6 +83,8 @@ export interface UpdateRunGroupCommandOutput extends __MetadataBearer {}
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link OmicsServiceException}
+ * <p>Base exception class for all service exceptions from Omics service.</p>
  *
  */
 export class UpdateRunGroupCommand extends $Command<

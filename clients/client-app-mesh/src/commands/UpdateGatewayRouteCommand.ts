@@ -37,178 +37,359 @@ export interface UpdateGatewayRouteCommandOutput extends UpdateGatewayRouteOutpu
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppMeshClient, UpdateGatewayRouteCommand } from "@aws-sdk/client-app-mesh"; // ES Modules import
- * // const { AppMeshClient, UpdateGatewayRouteCommand } = require("@aws-sdk/client-app-mesh"); // CommonJS import
+ * import { AppMeshClient, UpdateGatewayRouteCommand } from '@aws-sdk/client-app-mesh'; // ES Modules import
+ * // const { AppMeshClient, UpdateGatewayRouteCommand } = require('@aws-sdk/client-app-mesh'); // CommonJS import
  * const client = new AppMeshClient(config);
  * const input = { // UpdateGatewayRouteInput
- *   gatewayRouteName: "STRING_VALUE", // required
- *   meshName: "STRING_VALUE", // required
- *   virtualGatewayName: "STRING_VALUE", // required
+ *   gatewayRouteName: 'STRING_VALUE', // required
+ *   meshName: 'STRING_VALUE', // required
+ *   virtualGatewayName: 'STRING_VALUE', // required
  *   spec: { // GatewayRouteSpec
- *     priority: Number("int"),
+ *     priority: Number('int'),
  *     httpRoute: { // HttpGatewayRoute
  *       match: { // HttpGatewayRouteMatch
- *         prefix: "STRING_VALUE",
+ *         prefix: 'STRING_VALUE',
  *         path: { // HttpPathMatch
- *           exact: "STRING_VALUE",
- *           regex: "STRING_VALUE",
+ *           exact: 'STRING_VALUE',
+ *           regex: 'STRING_VALUE',
  *         },
  *         queryParameters: [ // HttpQueryParameters
  *           { // HttpQueryParameter
- *             name: "STRING_VALUE", // required
+ *             name: 'STRING_VALUE', // required
  *             match: { // QueryParameterMatch
- *               exact: "STRING_VALUE",
+ *               exact: 'STRING_VALUE',
  *             },
  *           },
  *         ],
- *         method: "STRING_VALUE",
+ *         method: 'STRING_VALUE',
  *         hostname: { // GatewayRouteHostnameMatch
- *           exact: "STRING_VALUE",
- *           suffix: "STRING_VALUE",
+ *           exact: 'STRING_VALUE',
+ *           suffix: 'STRING_VALUE',
  *         },
  *         headers: [ // HttpGatewayRouteHeaders
  *           { // HttpGatewayRouteHeader
- *             name: "STRING_VALUE", // required
+ *             name: 'STRING_VALUE', // required
  *             invert: true || false,
  *             match: { // HeaderMatchMethod Union: only one key present
- *               exact: "STRING_VALUE",
- *               regex: "STRING_VALUE",
+ *               exact: 'STRING_VALUE',
+ *               regex: 'STRING_VALUE',
  *               range: { // MatchRange
- *                 start: Number("long"), // required
- *                 end: Number("long"), // required
+ *                 start: Number('long'), // required
+ *                 end: Number('long'), // required
  *               },
- *               prefix: "STRING_VALUE",
- *               suffix: "STRING_VALUE",
+ *               prefix: 'STRING_VALUE',
+ *               suffix: 'STRING_VALUE',
  *             },
  *           },
  *         ],
- *         port: Number("int"),
+ *         port: Number('int'),
  *       },
  *       action: { // HttpGatewayRouteAction
  *         target: { // GatewayRouteTarget
  *           virtualService: { // GatewayRouteVirtualService
- *             virtualServiceName: "STRING_VALUE", // required
+ *             virtualServiceName: 'STRING_VALUE', // required
  *           },
- *           port: Number("int"),
+ *           port: Number('int'),
  *         },
  *         rewrite: { // HttpGatewayRouteRewrite
  *           prefix: { // HttpGatewayRoutePrefixRewrite
- *             defaultPrefix: "STRING_VALUE",
- *             value: "STRING_VALUE",
+ *             defaultPrefix: 'STRING_VALUE',
+ *             value: 'STRING_VALUE',
  *           },
  *           path: { // HttpGatewayRoutePathRewrite
- *             exact: "STRING_VALUE",
+ *             exact: 'STRING_VALUE',
  *           },
  *           hostname: { // GatewayRouteHostnameRewrite
- *             defaultTargetHostname: "STRING_VALUE",
+ *             defaultTargetHostname: 'STRING_VALUE',
  *           },
  *         },
  *       },
  *     },
  *     http2Route: {
  *       match: {
- *         prefix: "STRING_VALUE",
+ *         prefix: 'STRING_VALUE',
  *         path: {
- *           exact: "STRING_VALUE",
- *           regex: "STRING_VALUE",
+ *           exact: 'STRING_VALUE',
+ *           regex: 'STRING_VALUE',
  *         },
  *         queryParameters: [
  *           {
- *             name: "STRING_VALUE", // required
+ *             name: 'STRING_VALUE', // required
  *             match: {
- *               exact: "STRING_VALUE",
+ *               exact: 'STRING_VALUE',
  *             },
  *           },
  *         ],
- *         method: "STRING_VALUE",
+ *         method: 'STRING_VALUE',
  *         hostname: {
- *           exact: "STRING_VALUE",
- *           suffix: "STRING_VALUE",
+ *           exact: 'STRING_VALUE',
+ *           suffix: 'STRING_VALUE',
  *         },
  *         headers: [
  *           {
- *             name: "STRING_VALUE", // required
+ *             name: 'STRING_VALUE', // required
  *             invert: true || false,
  *             match: {//  Union: only one key present
- *               exact: "STRING_VALUE",
- *               regex: "STRING_VALUE",
+ *               exact: 'STRING_VALUE',
+ *               regex: 'STRING_VALUE',
  *               range: {
- *                 start: Number("long"), // required
- *                 end: Number("long"), // required
+ *                 start: Number('long'), // required
+ *                 end: Number('long'), // required
  *               },
- *               prefix: "STRING_VALUE",
- *               suffix: "STRING_VALUE",
+ *               prefix: 'STRING_VALUE',
+ *               suffix: 'STRING_VALUE',
  *             },
  *           },
  *         ],
- *         port: Number("int"),
+ *         port: Number('int'),
  *       },
  *       action: {
  *         target: {
  *           virtualService: {
- *             virtualServiceName: "STRING_VALUE", // required
+ *             virtualServiceName: 'STRING_VALUE', // required
  *           },
- *           port: Number("int"),
+ *           port: Number('int'),
  *         },
  *         rewrite: {
  *           prefix: {
- *             defaultPrefix: "STRING_VALUE",
- *             value: "STRING_VALUE",
+ *             defaultPrefix: 'STRING_VALUE',
+ *             value: 'STRING_VALUE',
  *           },
  *           path: {
- *             exact: "STRING_VALUE",
+ *             exact: 'STRING_VALUE',
  *           },
  *           hostname: {
- *             defaultTargetHostname: "STRING_VALUE",
+ *             defaultTargetHostname: 'STRING_VALUE',
  *           },
  *         },
  *       },
  *     },
  *     grpcRoute: { // GrpcGatewayRoute
  *       match: { // GrpcGatewayRouteMatch
- *         serviceName: "STRING_VALUE",
+ *         serviceName: 'STRING_VALUE',
  *         hostname: {
- *           exact: "STRING_VALUE",
- *           suffix: "STRING_VALUE",
+ *           exact: 'STRING_VALUE',
+ *           suffix: 'STRING_VALUE',
  *         },
  *         metadata: [ // GrpcGatewayRouteMetadataList
  *           { // GrpcGatewayRouteMetadata
- *             name: "STRING_VALUE", // required
+ *             name: 'STRING_VALUE', // required
  *             invert: true || false,
  *             match: { // GrpcMetadataMatchMethod Union: only one key present
- *               exact: "STRING_VALUE",
- *               regex: "STRING_VALUE",
+ *               exact: 'STRING_VALUE',
+ *               regex: 'STRING_VALUE',
  *               range: {
- *                 start: Number("long"), // required
- *                 end: Number("long"), // required
+ *                 start: Number('long'), // required
+ *                 end: Number('long'), // required
  *               },
- *               prefix: "STRING_VALUE",
- *               suffix: "STRING_VALUE",
+ *               prefix: 'STRING_VALUE',
+ *               suffix: 'STRING_VALUE',
  *             },
  *           },
  *         ],
- *         port: Number("int"),
+ *         port: Number('int'),
  *       },
  *       action: { // GrpcGatewayRouteAction
  *         target: {
  *           virtualService: {
- *             virtualServiceName: "STRING_VALUE", // required
+ *             virtualServiceName: 'STRING_VALUE', // required
  *           },
- *           port: Number("int"),
+ *           port: Number('int'),
  *         },
  *         rewrite: { // GrpcGatewayRouteRewrite
  *           hostname: {
- *             defaultTargetHostname: "STRING_VALUE",
+ *             defaultTargetHostname: 'STRING_VALUE',
  *           },
  *         },
  *       },
  *     },
  *   },
- *   clientToken: "STRING_VALUE",
- *   meshOwner: "STRING_VALUE",
+ *   clientToken: 'STRING_VALUE',
+ *   meshOwner: 'STRING_VALUE',
  * };
  * const command = new UpdateGatewayRouteCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateGatewayRouteOutput
+ *   gatewayRoute: { // GatewayRouteData
+ *     meshName: 'STRING_VALUE', // required
+ *     gatewayRouteName: 'STRING_VALUE', // required
+ *     virtualGatewayName: 'STRING_VALUE', // required
+ *     spec: { // GatewayRouteSpec
+ *       priority: Number('int'),
+ *       httpRoute: { // HttpGatewayRoute
+ *         match: { // HttpGatewayRouteMatch
+ *           prefix: 'STRING_VALUE',
+ *           path: { // HttpPathMatch
+ *             exact: 'STRING_VALUE',
+ *             regex: 'STRING_VALUE',
+ *           },
+ *           queryParameters: [ // HttpQueryParameters
+ *             { // HttpQueryParameter
+ *               name: 'STRING_VALUE', // required
+ *               match: { // QueryParameterMatch
+ *                 exact: 'STRING_VALUE',
+ *               },
+ *             },
+ *           ],
+ *           method: 'STRING_VALUE',
+ *           hostname: { // GatewayRouteHostnameMatch
+ *             exact: 'STRING_VALUE',
+ *             suffix: 'STRING_VALUE',
+ *           },
+ *           headers: [ // HttpGatewayRouteHeaders
+ *             { // HttpGatewayRouteHeader
+ *               name: 'STRING_VALUE', // required
+ *               invert: true || false,
+ *               match: { // HeaderMatchMethod Union: only one key present
+ *                 exact: 'STRING_VALUE',
+ *                 regex: 'STRING_VALUE',
+ *                 range: { // MatchRange
+ *                   start: Number('long'), // required
+ *                   end: Number('long'), // required
+ *                 },
+ *                 prefix: 'STRING_VALUE',
+ *                 suffix: 'STRING_VALUE',
+ *               },
+ *             },
+ *           ],
+ *           port: Number('int'),
+ *         },
+ *         action: { // HttpGatewayRouteAction
+ *           target: { // GatewayRouteTarget
+ *             virtualService: { // GatewayRouteVirtualService
+ *               virtualServiceName: 'STRING_VALUE', // required
+ *             },
+ *             port: Number('int'),
+ *           },
+ *           rewrite: { // HttpGatewayRouteRewrite
+ *             prefix: { // HttpGatewayRoutePrefixRewrite
+ *               defaultPrefix: 'STRING_VALUE',
+ *               value: 'STRING_VALUE',
+ *             },
+ *             path: { // HttpGatewayRoutePathRewrite
+ *               exact: 'STRING_VALUE',
+ *             },
+ *             hostname: { // GatewayRouteHostnameRewrite
+ *               defaultTargetHostname: 'STRING_VALUE',
+ *             },
+ *           },
+ *         },
+ *       },
+ *       http2Route: {
+ *         match: {
+ *           prefix: 'STRING_VALUE',
+ *           path: {
+ *             exact: 'STRING_VALUE',
+ *             regex: 'STRING_VALUE',
+ *           },
+ *           queryParameters: [
+ *             {
+ *               name: 'STRING_VALUE', // required
+ *               match: {
+ *                 exact: 'STRING_VALUE',
+ *               },
+ *             },
+ *           ],
+ *           method: 'STRING_VALUE',
+ *           hostname: {
+ *             exact: 'STRING_VALUE',
+ *             suffix: 'STRING_VALUE',
+ *           },
+ *           headers: [
+ *             {
+ *               name: 'STRING_VALUE', // required
+ *               invert: true || false,
+ *               match: {//  Union: only one key present
+ *                 exact: 'STRING_VALUE',
+ *                 regex: 'STRING_VALUE',
+ *                 range: {
+ *                   start: Number('long'), // required
+ *                   end: Number('long'), // required
+ *                 },
+ *                 prefix: 'STRING_VALUE',
+ *                 suffix: 'STRING_VALUE',
+ *               },
+ *             },
+ *           ],
+ *           port: Number('int'),
+ *         },
+ *         action: {
+ *           target: {
+ *             virtualService: {
+ *               virtualServiceName: 'STRING_VALUE', // required
+ *             },
+ *             port: Number('int'),
+ *           },
+ *           rewrite: {
+ *             prefix: {
+ *               defaultPrefix: 'STRING_VALUE',
+ *               value: 'STRING_VALUE',
+ *             },
+ *             path: {
+ *               exact: 'STRING_VALUE',
+ *             },
+ *             hostname: {
+ *               defaultTargetHostname: 'STRING_VALUE',
+ *             },
+ *           },
+ *         },
+ *       },
+ *       grpcRoute: { // GrpcGatewayRoute
+ *         match: { // GrpcGatewayRouteMatch
+ *           serviceName: 'STRING_VALUE',
+ *           hostname: {
+ *             exact: 'STRING_VALUE',
+ *             suffix: 'STRING_VALUE',
+ *           },
+ *           metadata: [ // GrpcGatewayRouteMetadataList
+ *             { // GrpcGatewayRouteMetadata
+ *               name: 'STRING_VALUE', // required
+ *               invert: true || false,
+ *               match: { // GrpcMetadataMatchMethod Union: only one key present
+ *                 exact: 'STRING_VALUE',
+ *                 regex: 'STRING_VALUE',
+ *                 range: {
+ *                   start: Number('long'), // required
+ *                   end: Number('long'), // required
+ *                 },
+ *                 prefix: 'STRING_VALUE',
+ *                 suffix: 'STRING_VALUE',
+ *               },
+ *             },
+ *           ],
+ *           port: Number('int'),
+ *         },
+ *         action: { // GrpcGatewayRouteAction
+ *           target: {
+ *             virtualService: {
+ *               virtualServiceName: 'STRING_VALUE', // required
+ *             },
+ *             port: Number('int'),
+ *           },
+ *           rewrite: { // GrpcGatewayRouteRewrite
+ *             hostname: {
+ *               defaultTargetHostname: 'STRING_VALUE',
+ *             },
+ *           },
+ *         },
+ *       },
+ *     },
+ *     metadata: { // ResourceMetadata
+ *       arn: 'STRING_VALUE', // required
+ *       version: Number('long'), // required
+ *       uid: 'STRING_VALUE', // required
+ *       createdAt: new Date('TIMESTAMP'), // required
+ *       lastUpdatedAt: new Date('TIMESTAMP'), // required
+ *       meshOwner: 'STRING_VALUE', // required
+ *       resourceOwner: 'STRING_VALUE', // required
+ *     },
+ *     status: { // GatewayRouteStatus
+ *       status: 'STRING_VALUE', // required
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateGatewayRouteCommandInput - {@link UpdateGatewayRouteCommandInput}
@@ -246,6 +427,8 @@ export interface UpdateGatewayRouteCommandOutput extends UpdateGatewayRouteOutpu
  *          your account. For best results, use an increasing or variable sleep interval between
  *          requests.</p>
  *
+ * @throws {@link AppMeshServiceException}
+ * <p>Base exception class for all service exceptions from AppMesh service.</p>
  *
  */
 export class UpdateGatewayRouteCommand extends $Command<

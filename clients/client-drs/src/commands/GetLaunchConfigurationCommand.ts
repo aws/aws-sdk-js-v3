@@ -36,14 +36,28 @@ export interface GetLaunchConfigurationCommandOutput extends LaunchConfiguration
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DrsClient, GetLaunchConfigurationCommand } from "@aws-sdk/client-drs"; // ES Modules import
- * // const { DrsClient, GetLaunchConfigurationCommand } = require("@aws-sdk/client-drs"); // CommonJS import
+ * import { DrsClient, GetLaunchConfigurationCommand } from '@aws-sdk/client-drs'; // ES Modules import
+ * // const { DrsClient, GetLaunchConfigurationCommand } = require('@aws-sdk/client-drs'); // CommonJS import
  * const client = new DrsClient(config);
  * const input = { // GetLaunchConfigurationRequest
- *   sourceServerID: "STRING_VALUE", // required
+ *   sourceServerID: 'STRING_VALUE', // required
  * };
  * const command = new GetLaunchConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // LaunchConfiguration
+ *   sourceServerID: 'STRING_VALUE',
+ *   name: 'STRING_VALUE',
+ *   ec2LaunchTemplateID: 'STRING_VALUE',
+ *   launchDisposition: 'STRING_VALUE',
+ *   targetInstanceTypeRightSizingMethod: 'STRING_VALUE',
+ *   copyPrivateIp: true || false,
+ *   copyTags: true || false,
+ *   licensing: { // Licensing
+ *     osByol: true || false,
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetLaunchConfigurationCommandInput - {@link GetLaunchConfigurationCommandInput}
@@ -64,6 +78,8 @@ export interface GetLaunchConfigurationCommandOutput extends LaunchConfiguration
  * @throws {@link UninitializedAccountException} (client fault)
  *  <p>The account performing the request has not been initialized.</p>
  *
+ * @throws {@link DrsServiceException}
+ * <p>Base exception class for all service exceptions from Drs service.</p>
  *
  */
 export class GetLaunchConfigurationCommand extends $Command<

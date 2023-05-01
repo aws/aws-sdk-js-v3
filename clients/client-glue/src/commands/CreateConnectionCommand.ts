@@ -36,35 +36,38 @@ export interface CreateConnectionCommandOutput extends CreateConnectionResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlueClient, CreateConnectionCommand } from "@aws-sdk/client-glue"; // ES Modules import
- * // const { GlueClient, CreateConnectionCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * import { GlueClient, CreateConnectionCommand } from '@aws-sdk/client-glue'; // ES Modules import
+ * // const { GlueClient, CreateConnectionCommand } = require('@aws-sdk/client-glue'); // CommonJS import
  * const client = new GlueClient(config);
  * const input = { // CreateConnectionRequest
- *   CatalogId: "STRING_VALUE",
+ *   CatalogId: 'STRING_VALUE',
  *   ConnectionInput: { // ConnectionInput
- *     Name: "STRING_VALUE", // required
- *     Description: "STRING_VALUE",
- *     ConnectionType: "JDBC" || "SFTP" || "MONGODB" || "KAFKA" || "NETWORK" || "MARKETPLACE" || "CUSTOM", // required
+ *     Name: 'STRING_VALUE', // required
+ *     Description: 'STRING_VALUE',
+ *     ConnectionType: 'JDBC' || 'SFTP' || 'MONGODB' || 'KAFKA' || 'NETWORK' || 'MARKETPLACE' || 'CUSTOM', // required
  *     MatchCriteria: [ // MatchCriteria
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     ConnectionProperties: { // ConnectionProperties // required
- *       "<keys>": "STRING_VALUE",
+ *       '<keys>': 'STRING_VALUE',
  *     },
  *     PhysicalConnectionRequirements: { // PhysicalConnectionRequirements
- *       SubnetId: "STRING_VALUE",
+ *       SubnetId: 'STRING_VALUE',
  *       SecurityGroupIdList: [ // SecurityGroupIdList
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
- *       AvailabilityZone: "STRING_VALUE",
+ *       AvailabilityZone: 'STRING_VALUE',
  *     },
  *   },
  *   Tags: { // TagsMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateConnectionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param CreateConnectionCommandInput - {@link CreateConnectionCommandInput}
@@ -88,6 +91,8 @@ export interface CreateConnectionCommandOutput extends CreateConnectionResponse,
  * @throws {@link ResourceNumberLimitExceededException} (client fault)
  *  <p>A resource numerical limit was exceeded.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class CreateConnectionCommand extends $Command<

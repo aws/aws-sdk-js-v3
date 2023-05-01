@@ -36,48 +36,78 @@ export interface GetNetworkRoutesCommandOutput extends GetNetworkRoutesResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { NetworkManagerClient, GetNetworkRoutesCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
- * // const { NetworkManagerClient, GetNetworkRoutesCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
+ * import { NetworkManagerClient, GetNetworkRoutesCommand } from '@aws-sdk/client-networkmanager'; // ES Modules import
+ * // const { NetworkManagerClient, GetNetworkRoutesCommand } = require('@aws-sdk/client-networkmanager'); // CommonJS import
  * const client = new NetworkManagerClient(config);
  * const input = { // GetNetworkRoutesRequest
- *   GlobalNetworkId: "STRING_VALUE", // required
+ *   GlobalNetworkId: 'STRING_VALUE', // required
  *   RouteTableIdentifier: { // RouteTableIdentifier
- *     TransitGatewayRouteTableArn: "STRING_VALUE",
+ *     TransitGatewayRouteTableArn: 'STRING_VALUE',
  *     CoreNetworkSegmentEdge: { // CoreNetworkSegmentEdgeIdentifier
- *       CoreNetworkId: "STRING_VALUE",
- *       SegmentName: "STRING_VALUE",
- *       EdgeLocation: "STRING_VALUE",
+ *       CoreNetworkId: 'STRING_VALUE',
+ *       SegmentName: 'STRING_VALUE',
+ *       EdgeLocation: 'STRING_VALUE',
  *     },
  *   },
  *   ExactCidrMatches: [ // ConstrainedStringList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   LongestPrefixMatches: [
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   SubnetOfMatches: [
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   SupernetOfMatches: [
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   PrefixListIds: [
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   States: [ // RouteStateList
- *     "ACTIVE" || "BLACKHOLE",
+ *     'ACTIVE' || 'BLACKHOLE',
  *   ],
  *   Types: [ // RouteTypeList
- *     "PROPAGATED" || "STATIC",
+ *     'PROPAGATED' || 'STATIC',
  *   ],
  *   DestinationFilters: { // FilterMap
- *     "<keys>": [ // FilterValues
- *       "STRING_VALUE",
+ *     '<keys>': [ // FilterValues
+ *       'STRING_VALUE',
  *     ],
  *   },
  * };
  * const command = new GetNetworkRoutesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetNetworkRoutesResponse
+ *   RouteTableArn: 'STRING_VALUE',
+ *   CoreNetworkSegmentEdge: { // CoreNetworkSegmentEdgeIdentifier
+ *     CoreNetworkId: 'STRING_VALUE',
+ *     SegmentName: 'STRING_VALUE',
+ *     EdgeLocation: 'STRING_VALUE',
+ *   },
+ *   RouteTableType: 'TRANSIT_GATEWAY_ROUTE_TABLE' || 'CORE_NETWORK_SEGMENT',
+ *   RouteTableTimestamp: new Date('TIMESTAMP'),
+ *   NetworkRoutes: [ // NetworkRouteList
+ *     { // NetworkRoute
+ *       DestinationCidrBlock: 'STRING_VALUE',
+ *       Destinations: [ // NetworkRouteDestinationList
+ *         { // NetworkRouteDestination
+ *           CoreNetworkAttachmentId: 'STRING_VALUE',
+ *           TransitGatewayAttachmentId: 'STRING_VALUE',
+ *           SegmentName: 'STRING_VALUE',
+ *           EdgeLocation: 'STRING_VALUE',
+ *           ResourceType: 'STRING_VALUE',
+ *           ResourceId: 'STRING_VALUE',
+ *         },
+ *       ],
+ *       PrefixListId: 'STRING_VALUE',
+ *       State: 'ACTIVE' || 'BLACKHOLE',
+ *       Type: 'PROPAGATED' || 'STATIC',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetNetworkRoutesCommandInput - {@link GetNetworkRoutesCommandInput}
@@ -101,6 +131,8 @@ export interface GetNetworkRoutesCommandOutput extends GetNetworkRoutesResponse,
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints.</p>
  *
+ * @throws {@link NetworkManagerServiceException}
+ * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
  */
 export class GetNetworkRoutesCommand extends $Command<

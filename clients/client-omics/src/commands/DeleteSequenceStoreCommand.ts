@@ -36,14 +36,17 @@ export interface DeleteSequenceStoreCommandOutput extends DeleteSequenceStoreRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OmicsClient, DeleteSequenceStoreCommand } from "@aws-sdk/client-omics"; // ES Modules import
- * // const { OmicsClient, DeleteSequenceStoreCommand } = require("@aws-sdk/client-omics"); // CommonJS import
+ * import { OmicsClient, DeleteSequenceStoreCommand } from '@aws-sdk/client-omics'; // ES Modules import
+ * // const { OmicsClient, DeleteSequenceStoreCommand } = require('@aws-sdk/client-omics'); // CommonJS import
  * const client = new OmicsClient(config);
  * const input = { // DeleteSequenceStoreRequest
- *   id: "STRING_VALUE", // required
+ *   id: 'STRING_VALUE', // required
  * };
  * const command = new DeleteSequenceStoreCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteSequenceStoreCommandInput - {@link DeleteSequenceStoreCommandInput}
@@ -73,6 +76,8 @@ export interface DeleteSequenceStoreCommandOutput extends DeleteSequenceStoreRes
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link OmicsServiceException}
+ * <p>Base exception class for all service exceptions from Omics service.</p>
  *
  */
 export class DeleteSequenceStoreCommand extends $Command<

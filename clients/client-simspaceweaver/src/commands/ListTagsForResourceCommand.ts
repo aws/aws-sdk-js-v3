@@ -36,14 +36,21 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOut
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SimSpaceWeaverClient, ListTagsForResourceCommand } from "@aws-sdk/client-simspaceweaver"; // ES Modules import
- * // const { SimSpaceWeaverClient, ListTagsForResourceCommand } = require("@aws-sdk/client-simspaceweaver"); // CommonJS import
+ * import { SimSpaceWeaverClient, ListTagsForResourceCommand } from '@aws-sdk/client-simspaceweaver'; // ES Modules import
+ * // const { SimSpaceWeaverClient, ListTagsForResourceCommand } = require('@aws-sdk/client-simspaceweaver'); // CommonJS import
  * const client = new SimSpaceWeaverClient(config);
  * const input = { // ListTagsForResourceInput
- *   ResourceArn: "STRING_VALUE", // required
+ *   ResourceArn: 'STRING_VALUE', // required
  * };
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTagsForResourceOutput
+ *   Tags: { // TagMap
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param ListTagsForResourceCommandInput - {@link ListTagsForResourceCommandInput}
@@ -58,6 +65,8 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOut
  * @throws {@link ValidationException} (client fault)
  *  <p/>
  *
+ * @throws {@link SimSpaceWeaverServiceException}
+ * <p>Base exception class for all service exceptions from SimSpaceWeaver service.</p>
  *
  */
 export class ListTagsForResourceCommand extends $Command<

@@ -69,15 +69,30 @@ export interface CreateIPSetCommandOutput extends CreateIPSetResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WAFClient, CreateIPSetCommand } from "@aws-sdk/client-waf"; // ES Modules import
- * // const { WAFClient, CreateIPSetCommand } = require("@aws-sdk/client-waf"); // CommonJS import
+ * import { WAFClient, CreateIPSetCommand } from '@aws-sdk/client-waf'; // ES Modules import
+ * // const { WAFClient, CreateIPSetCommand } = require('@aws-sdk/client-waf'); // CommonJS import
  * const client = new WAFClient(config);
  * const input = { // CreateIPSetRequest
- *   Name: "STRING_VALUE", // required
- *   ChangeToken: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
+ *   ChangeToken: 'STRING_VALUE', // required
  * };
  * const command = new CreateIPSetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateIPSetResponse
+ *   IPSet: { // IPSet
+ *     IPSetId: 'STRING_VALUE', // required
+ *     Name: 'STRING_VALUE',
+ *     IPSetDescriptors: [ // IPSetDescriptors // required
+ *       { // IPSetDescriptor
+ *         Type: 'STRING_VALUE', // required
+ *         Value: 'STRING_VALUE', // required
+ *       },
+ *     ],
+ *   },
+ *   ChangeToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateIPSetCommandInput - {@link CreateIPSetCommandInput}
@@ -143,6 +158,8 @@ export interface CreateIPSetCommandOutput extends CreateIPSetResponse, __Metadat
  * @throws {@link WAFStaleDataException} (client fault)
  *  <p>The operation failed because you tried to create, update, or delete an object by using a change token that has already been used.</p>
  *
+ * @throws {@link WAFServiceException}
+ * <p>Base exception class for all service exceptions from WAF service.</p>
  *
  * @example To create an IP set
  * ```javascript

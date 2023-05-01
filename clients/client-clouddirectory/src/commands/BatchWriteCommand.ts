@@ -37,160 +37,160 @@ export interface BatchWriteCommandOutput extends BatchWriteResponse, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudDirectoryClient, BatchWriteCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
- * // const { CloudDirectoryClient, BatchWriteCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
+ * import { CloudDirectoryClient, BatchWriteCommand } from '@aws-sdk/client-clouddirectory'; // ES Modules import
+ * // const { CloudDirectoryClient, BatchWriteCommand } = require('@aws-sdk/client-clouddirectory'); // CommonJS import
  * const client = new CloudDirectoryClient(config);
  * const input = { // BatchWriteRequest
- *   DirectoryArn: "STRING_VALUE", // required
+ *   DirectoryArn: 'STRING_VALUE', // required
  *   Operations: [ // BatchWriteOperationList // required
  *     { // BatchWriteOperation
  *       CreateObject: { // BatchCreateObject
  *         SchemaFacet: [ // SchemaFacetList // required
  *           { // SchemaFacet
- *             SchemaArn: "STRING_VALUE",
- *             FacetName: "STRING_VALUE",
+ *             SchemaArn: 'STRING_VALUE',
+ *             FacetName: 'STRING_VALUE',
  *           },
  *         ],
  *         ObjectAttributeList: [ // AttributeKeyAndValueList // required
  *           { // AttributeKeyAndValue
  *             Key: { // AttributeKey
- *               SchemaArn: "STRING_VALUE", // required
- *               FacetName: "STRING_VALUE", // required
- *               Name: "STRING_VALUE", // required
+ *               SchemaArn: 'STRING_VALUE', // required
+ *               FacetName: 'STRING_VALUE', // required
+ *               Name: 'STRING_VALUE', // required
  *             },
  *             Value: { // TypedAttributeValue Union: only one key present
- *               StringValue: "STRING_VALUE",
- *               BinaryValue: "BLOB_VALUE",
+ *               StringValue: 'STRING_VALUE',
+ *               BinaryValue: 'BLOB_VALUE',
  *               BooleanValue: true || false,
- *               NumberValue: "STRING_VALUE",
- *               DatetimeValue: new Date("TIMESTAMP"),
+ *               NumberValue: 'STRING_VALUE',
+ *               DatetimeValue: new Date('TIMESTAMP'),
  *             },
  *           },
  *         ],
  *         ParentReference: { // ObjectReference
- *           Selector: "STRING_VALUE",
+ *           Selector: 'STRING_VALUE',
  *         },
- *         LinkName: "STRING_VALUE",
- *         BatchReferenceName: "STRING_VALUE",
+ *         LinkName: 'STRING_VALUE',
+ *         BatchReferenceName: 'STRING_VALUE',
  *       },
  *       AttachObject: { // BatchAttachObject
  *         ParentReference: {
- *           Selector: "STRING_VALUE",
+ *           Selector: 'STRING_VALUE',
  *         },
  *         ChildReference: {
- *           Selector: "STRING_VALUE",
+ *           Selector: 'STRING_VALUE',
  *         },
- *         LinkName: "STRING_VALUE", // required
+ *         LinkName: 'STRING_VALUE', // required
  *       },
  *       DetachObject: { // BatchDetachObject
  *         ParentReference: {
- *           Selector: "STRING_VALUE",
+ *           Selector: 'STRING_VALUE',
  *         },
- *         LinkName: "STRING_VALUE", // required
- *         BatchReferenceName: "STRING_VALUE",
+ *         LinkName: 'STRING_VALUE', // required
+ *         BatchReferenceName: 'STRING_VALUE',
  *       },
  *       UpdateObjectAttributes: { // BatchUpdateObjectAttributes
  *         ObjectReference: {
- *           Selector: "STRING_VALUE",
+ *           Selector: 'STRING_VALUE',
  *         },
  *         AttributeUpdates: [ // ObjectAttributeUpdateList // required
  *           { // ObjectAttributeUpdate
  *             ObjectAttributeKey: {
- *               SchemaArn: "STRING_VALUE", // required
- *               FacetName: "STRING_VALUE", // required
- *               Name: "STRING_VALUE", // required
+ *               SchemaArn: 'STRING_VALUE', // required
+ *               FacetName: 'STRING_VALUE', // required
+ *               Name: 'STRING_VALUE', // required
  *             },
  *             ObjectAttributeAction: { // ObjectAttributeAction
- *               ObjectAttributeActionType: "CREATE_OR_UPDATE" || "DELETE",
+ *               ObjectAttributeActionType: 'CREATE_OR_UPDATE' || 'DELETE',
  *               ObjectAttributeUpdateValue: {//  Union: only one key present
- *                 StringValue: "STRING_VALUE",
- *                 BinaryValue: "BLOB_VALUE",
+ *                 StringValue: 'STRING_VALUE',
+ *                 BinaryValue: 'BLOB_VALUE',
  *                 BooleanValue: true || false,
- *                 NumberValue: "STRING_VALUE",
- *                 DatetimeValue: new Date("TIMESTAMP"),
+ *                 NumberValue: 'STRING_VALUE',
+ *                 DatetimeValue: new Date('TIMESTAMP'),
  *               },
  *             },
  *           },
  *         ],
  *       },
  *       DeleteObject: { // BatchDeleteObject
- *         ObjectReference: "<ObjectReference>", // required
+ *         ObjectReference: '<ObjectReference>', // required
  *       },
  *       AddFacetToObject: { // BatchAddFacetToObject
  *         SchemaFacet: {
- *           SchemaArn: "STRING_VALUE",
- *           FacetName: "STRING_VALUE",
+ *           SchemaArn: 'STRING_VALUE',
+ *           FacetName: 'STRING_VALUE',
  *         },
  *         ObjectAttributeList: [ // required
  *           {
  *             Key: {
- *               SchemaArn: "STRING_VALUE", // required
- *               FacetName: "STRING_VALUE", // required
- *               Name: "STRING_VALUE", // required
+ *               SchemaArn: 'STRING_VALUE', // required
+ *               FacetName: 'STRING_VALUE', // required
+ *               Name: 'STRING_VALUE', // required
  *             },
  *             Value: {//  Union: only one key present
- *               StringValue: "STRING_VALUE",
- *               BinaryValue: "BLOB_VALUE",
+ *               StringValue: 'STRING_VALUE',
+ *               BinaryValue: 'BLOB_VALUE',
  *               BooleanValue: true || false,
- *               NumberValue: "STRING_VALUE",
- *               DatetimeValue: new Date("TIMESTAMP"),
+ *               NumberValue: 'STRING_VALUE',
+ *               DatetimeValue: new Date('TIMESTAMP'),
  *             },
  *           },
  *         ],
- *         ObjectReference: "<ObjectReference>", // required
+ *         ObjectReference: '<ObjectReference>', // required
  *       },
  *       RemoveFacetFromObject: { // BatchRemoveFacetFromObject
  *         SchemaFacet: {
- *           SchemaArn: "STRING_VALUE",
- *           FacetName: "STRING_VALUE",
+ *           SchemaArn: 'STRING_VALUE',
+ *           FacetName: 'STRING_VALUE',
  *         },
- *         ObjectReference: "<ObjectReference>", // required
+ *         ObjectReference: '<ObjectReference>', // required
  *       },
  *       AttachPolicy: { // BatchAttachPolicy
- *         PolicyReference: "<ObjectReference>", // required
- *         ObjectReference: "<ObjectReference>", // required
+ *         PolicyReference: '<ObjectReference>', // required
+ *         ObjectReference: '<ObjectReference>', // required
  *       },
  *       DetachPolicy: { // BatchDetachPolicy
- *         PolicyReference: "<ObjectReference>", // required
- *         ObjectReference: "<ObjectReference>", // required
+ *         PolicyReference: '<ObjectReference>', // required
+ *         ObjectReference: '<ObjectReference>', // required
  *       },
  *       CreateIndex: { // BatchCreateIndex
  *         OrderedIndexedAttributeList: [ // AttributeKeyList // required
  *           {
- *             SchemaArn: "STRING_VALUE", // required
- *             FacetName: "STRING_VALUE", // required
- *             Name: "STRING_VALUE", // required
+ *             SchemaArn: 'STRING_VALUE', // required
+ *             FacetName: 'STRING_VALUE', // required
+ *             Name: 'STRING_VALUE', // required
  *           },
  *         ],
  *         IsUnique: true || false, // required
- *         ParentReference: "<ObjectReference>",
- *         LinkName: "STRING_VALUE",
- *         BatchReferenceName: "STRING_VALUE",
+ *         ParentReference: '<ObjectReference>',
+ *         LinkName: 'STRING_VALUE',
+ *         BatchReferenceName: 'STRING_VALUE',
  *       },
  *       AttachToIndex: { // BatchAttachToIndex
- *         IndexReference: "<ObjectReference>", // required
- *         TargetReference: "<ObjectReference>", // required
+ *         IndexReference: '<ObjectReference>', // required
+ *         TargetReference: '<ObjectReference>', // required
  *       },
  *       DetachFromIndex: { // BatchDetachFromIndex
- *         IndexReference: "<ObjectReference>", // required
- *         TargetReference: "<ObjectReference>", // required
+ *         IndexReference: '<ObjectReference>', // required
+ *         TargetReference: '<ObjectReference>', // required
  *       },
  *       AttachTypedLink: { // BatchAttachTypedLink
- *         SourceObjectReference: "<ObjectReference>", // required
- *         TargetObjectReference: "<ObjectReference>", // required
+ *         SourceObjectReference: '<ObjectReference>', // required
+ *         TargetObjectReference: '<ObjectReference>', // required
  *         TypedLinkFacet: { // TypedLinkSchemaAndFacetName
- *           SchemaArn: "STRING_VALUE", // required
- *           TypedLinkName: "STRING_VALUE", // required
+ *           SchemaArn: 'STRING_VALUE', // required
+ *           TypedLinkName: 'STRING_VALUE', // required
  *         },
  *         Attributes: [ // AttributeNameAndValueList // required
  *           { // AttributeNameAndValue
- *             AttributeName: "STRING_VALUE", // required
+ *             AttributeName: 'STRING_VALUE', // required
  *             Value: {//  Union: only one key present
- *               StringValue: "STRING_VALUE",
- *               BinaryValue: "BLOB_VALUE",
+ *               StringValue: 'STRING_VALUE',
+ *               BinaryValue: 'BLOB_VALUE',
  *               BooleanValue: true || false,
- *               NumberValue: "STRING_VALUE",
- *               DatetimeValue: new Date("TIMESTAMP"),
+ *               NumberValue: 'STRING_VALUE',
+ *               DatetimeValue: new Date('TIMESTAMP'),
  *             },
  *           },
  *         ],
@@ -198,20 +198,20 @@ export interface BatchWriteCommandOutput extends BatchWriteResponse, __MetadataB
  *       DetachTypedLink: { // BatchDetachTypedLink
  *         TypedLinkSpecifier: { // TypedLinkSpecifier
  *           TypedLinkFacet: {
- *             SchemaArn: "STRING_VALUE", // required
- *             TypedLinkName: "STRING_VALUE", // required
+ *             SchemaArn: 'STRING_VALUE', // required
+ *             TypedLinkName: 'STRING_VALUE', // required
  *           },
- *           SourceObjectReference: "<ObjectReference>", // required
- *           TargetObjectReference: "<ObjectReference>", // required
+ *           SourceObjectReference: '<ObjectReference>', // required
+ *           TargetObjectReference: '<ObjectReference>', // required
  *           IdentityAttributeValues: [ // required
  *             {
- *               AttributeName: "STRING_VALUE", // required
+ *               AttributeName: 'STRING_VALUE', // required
  *               Value: {//  Union: only one key present
- *                 StringValue: "STRING_VALUE",
- *                 BinaryValue: "BLOB_VALUE",
+ *                 StringValue: 'STRING_VALUE',
+ *                 BinaryValue: 'BLOB_VALUE',
  *                 BooleanValue: true || false,
- *                 NumberValue: "STRING_VALUE",
- *                 DatetimeValue: new Date("TIMESTAMP"),
+ *                 NumberValue: 'STRING_VALUE',
+ *                 DatetimeValue: new Date('TIMESTAMP'),
  *               },
  *             },
  *           ],
@@ -220,28 +220,28 @@ export interface BatchWriteCommandOutput extends BatchWriteResponse, __MetadataB
  *       UpdateLinkAttributes: { // BatchUpdateLinkAttributes
  *         TypedLinkSpecifier: {
  *           TypedLinkFacet: {
- *             SchemaArn: "STRING_VALUE", // required
- *             TypedLinkName: "STRING_VALUE", // required
+ *             SchemaArn: 'STRING_VALUE', // required
+ *             TypedLinkName: 'STRING_VALUE', // required
  *           },
- *           SourceObjectReference: "<ObjectReference>", // required
- *           TargetObjectReference: "<ObjectReference>", // required
+ *           SourceObjectReference: '<ObjectReference>', // required
+ *           TargetObjectReference: '<ObjectReference>', // required
  *           IdentityAttributeValues: [ // required
  *             {
- *               AttributeName: "STRING_VALUE", // required
- *               Value: "<TypedAttributeValue>", // required
+ *               AttributeName: 'STRING_VALUE', // required
+ *               Value: '<TypedAttributeValue>', // required
  *             },
  *           ],
  *         },
  *         AttributeUpdates: [ // LinkAttributeUpdateList // required
  *           { // LinkAttributeUpdate
  *             AttributeKey: {
- *               SchemaArn: "STRING_VALUE", // required
- *               FacetName: "STRING_VALUE", // required
- *               Name: "STRING_VALUE", // required
+ *               SchemaArn: 'STRING_VALUE', // required
+ *               FacetName: 'STRING_VALUE', // required
+ *               Name: 'STRING_VALUE', // required
  *             },
  *             AttributeAction: { // LinkAttributeAction
- *               AttributeActionType: "CREATE_OR_UPDATE" || "DELETE",
- *               AttributeUpdateValue: "<TypedAttributeValue>",
+ *               AttributeActionType: 'CREATE_OR_UPDATE' || 'DELETE',
+ *               AttributeUpdateValue: '<TypedAttributeValue>',
  *             },
  *           },
  *         ],
@@ -251,6 +251,68 @@ export interface BatchWriteCommandOutput extends BatchWriteResponse, __MetadataB
  * };
  * const command = new BatchWriteCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BatchWriteResponse
+ *   Responses: [ // BatchWriteOperationResponseList
+ *     { // BatchWriteOperationResponse
+ *       CreateObject: { // BatchCreateObjectResponse
+ *         ObjectIdentifier: 'STRING_VALUE',
+ *       },
+ *       AttachObject: { // BatchAttachObjectResponse
+ *         attachedObjectIdentifier: 'STRING_VALUE',
+ *       },
+ *       DetachObject: { // BatchDetachObjectResponse
+ *         detachedObjectIdentifier: 'STRING_VALUE',
+ *       },
+ *       UpdateObjectAttributes: { // BatchUpdateObjectAttributesResponse
+ *         ObjectIdentifier: 'STRING_VALUE',
+ *       },
+ *       DeleteObject: {},
+ *       AddFacetToObject: {},
+ *       RemoveFacetFromObject: {},
+ *       AttachPolicy: {},
+ *       DetachPolicy: {},
+ *       CreateIndex: { // BatchCreateIndexResponse
+ *         ObjectIdentifier: 'STRING_VALUE',
+ *       },
+ *       AttachToIndex: { // BatchAttachToIndexResponse
+ *         AttachedObjectIdentifier: 'STRING_VALUE',
+ *       },
+ *       DetachFromIndex: { // BatchDetachFromIndexResponse
+ *         DetachedObjectIdentifier: 'STRING_VALUE',
+ *       },
+ *       AttachTypedLink: { // BatchAttachTypedLinkResponse
+ *         TypedLinkSpecifier: { // TypedLinkSpecifier
+ *           TypedLinkFacet: { // TypedLinkSchemaAndFacetName
+ *             SchemaArn: 'STRING_VALUE', // required
+ *             TypedLinkName: 'STRING_VALUE', // required
+ *           },
+ *           SourceObjectReference: { // ObjectReference
+ *             Selector: 'STRING_VALUE',
+ *           },
+ *           TargetObjectReference: {
+ *             Selector: 'STRING_VALUE',
+ *           },
+ *           IdentityAttributeValues: [ // AttributeNameAndValueList // required
+ *             { // AttributeNameAndValue
+ *               AttributeName: 'STRING_VALUE', // required
+ *               Value: { // TypedAttributeValue Union: only one key present
+ *                 StringValue: 'STRING_VALUE',
+ *                 BinaryValue: 'BLOB_VALUE',
+ *                 BooleanValue: true || false,
+ *                 NumberValue: 'STRING_VALUE',
+ *                 DatetimeValue: new Date('TIMESTAMP'),
+ *               },
+ *             },
+ *           ],
+ *         },
+ *       },
+ *       DetachTypedLink: {},
+ *       UpdateLinkAttributes: {},
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param BatchWriteCommandInput - {@link BatchWriteCommandInput}
@@ -284,6 +346,8 @@ export interface BatchWriteCommandOutput extends BatchWriteResponse, __MetadataB
  *  <p>Indicates that your request is malformed in some manner. See the exception
  *       message.</p>
  *
+ * @throws {@link CloudDirectoryServiceException}
+ * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
  */
 export class BatchWriteCommand extends $Command<

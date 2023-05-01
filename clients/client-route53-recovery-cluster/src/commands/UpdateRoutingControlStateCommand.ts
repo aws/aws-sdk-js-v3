@@ -73,18 +73,21 @@ export interface UpdateRoutingControlStateCommandOutput extends UpdateRoutingCon
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Route53RecoveryClusterClient, UpdateRoutingControlStateCommand } from "@aws-sdk/client-route53-recovery-cluster"; // ES Modules import
- * // const { Route53RecoveryClusterClient, UpdateRoutingControlStateCommand } = require("@aws-sdk/client-route53-recovery-cluster"); // CommonJS import
+ * import { Route53RecoveryClusterClient, UpdateRoutingControlStateCommand } from '@aws-sdk/client-route53-recovery-cluster'; // ES Modules import
+ * // const { Route53RecoveryClusterClient, UpdateRoutingControlStateCommand } = require('@aws-sdk/client-route53-recovery-cluster'); // CommonJS import
  * const client = new Route53RecoveryClusterClient(config);
  * const input = { // UpdateRoutingControlStateRequest
- *   RoutingControlArn: "STRING_VALUE", // required
- *   RoutingControlState: "STRING_VALUE", // required
+ *   RoutingControlArn: 'STRING_VALUE', // required
+ *   RoutingControlState: 'STRING_VALUE', // required
  *   SafetyRulesToOverride: [ // Arns
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new UpdateRoutingControlStateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateRoutingControlStateCommandInput - {@link UpdateRoutingControlStateCommandInput}
@@ -114,6 +117,8 @@ export interface UpdateRoutingControlStateCommandOutput extends UpdateRoutingCon
  * @throws {@link ValidationException} (client fault)
  *  <p>There was a validation error on the request.</p>
  *
+ * @throws {@link Route53RecoveryClusterServiceException}
+ * <p>Base exception class for all service exceptions from Route53RecoveryCluster service.</p>
  *
  */
 export class UpdateRoutingControlStateCommand extends $Command<

@@ -42,19 +42,38 @@ export interface AssociateTrunkInterfaceCommandOutput extends AssociateTrunkInte
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, AssociateTrunkInterfaceCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, AssociateTrunkInterfaceCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, AssociateTrunkInterfaceCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, AssociateTrunkInterfaceCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // AssociateTrunkInterfaceRequest
- *   BranchInterfaceId: "STRING_VALUE", // required
- *   TrunkInterfaceId: "STRING_VALUE", // required
- *   VlanId: Number("int"),
- *   GreKey: Number("int"),
- *   ClientToken: "STRING_VALUE",
+ *   BranchInterfaceId: 'STRING_VALUE', // required
+ *   TrunkInterfaceId: 'STRING_VALUE', // required
+ *   VlanId: Number('int'),
+ *   GreKey: Number('int'),
+ *   ClientToken: 'STRING_VALUE',
  *   DryRun: true || false,
  * };
  * const command = new AssociateTrunkInterfaceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AssociateTrunkInterfaceResult
+ *   InterfaceAssociation: { // TrunkInterfaceAssociation
+ *     AssociationId: 'STRING_VALUE',
+ *     BranchInterfaceId: 'STRING_VALUE',
+ *     TrunkInterfaceId: 'STRING_VALUE',
+ *     InterfaceProtocol: 'VLAN' || 'GRE',
+ *     VlanId: Number('int'),
+ *     GreKey: Number('int'),
+ *     Tags: [ // TagList
+ *       { // Tag
+ *         Key: 'STRING_VALUE',
+ *         Value: 'STRING_VALUE',
+ *       },
+ *     ],
+ *   },
+ *   ClientToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param AssociateTrunkInterfaceCommandInput - {@link AssociateTrunkInterfaceCommandInput}
@@ -63,6 +82,8 @@ export interface AssociateTrunkInterfaceCommandOutput extends AssociateTrunkInte
  * @see {@link AssociateTrunkInterfaceCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class AssociateTrunkInterfaceCommand extends $Command<

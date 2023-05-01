@@ -38,25 +38,50 @@ export interface DescribeDBProxyTargetGroupsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RDSClient, DescribeDBProxyTargetGroupsCommand } from "@aws-sdk/client-rds"; // ES Modules import
- * // const { RDSClient, DescribeDBProxyTargetGroupsCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * import { RDSClient, DescribeDBProxyTargetGroupsCommand } from '@aws-sdk/client-rds'; // ES Modules import
+ * // const { RDSClient, DescribeDBProxyTargetGroupsCommand } = require('@aws-sdk/client-rds'); // CommonJS import
  * const client = new RDSClient(config);
  * const input = { // DescribeDBProxyTargetGroupsRequest
- *   DBProxyName: "STRING_VALUE", // required
- *   TargetGroupName: "STRING_VALUE",
+ *   DBProxyName: 'STRING_VALUE', // required
+ *   TargetGroupName: 'STRING_VALUE',
  *   Filters: [ // FilterList
  *     { // Filter
- *       Name: "STRING_VALUE", // required
+ *       Name: 'STRING_VALUE', // required
  *       Values: [ // FilterValueList // required
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
- *   Marker: "STRING_VALUE",
- *   MaxRecords: Number("int"),
+ *   Marker: 'STRING_VALUE',
+ *   MaxRecords: Number('int'),
  * };
  * const command = new DescribeDBProxyTargetGroupsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeDBProxyTargetGroupsResponse
+ *   TargetGroups: [ // TargetGroupList
+ *     { // DBProxyTargetGroup
+ *       DBProxyName: 'STRING_VALUE',
+ *       TargetGroupName: 'STRING_VALUE',
+ *       TargetGroupArn: 'STRING_VALUE',
+ *       IsDefault: true || false,
+ *       Status: 'STRING_VALUE',
+ *       ConnectionPoolConfig: { // ConnectionPoolConfigurationInfo
+ *         MaxConnectionsPercent: Number('int'),
+ *         MaxIdleConnectionsPercent: Number('int'),
+ *         ConnectionBorrowTimeout: Number('int'),
+ *         SessionPinningFilters: [ // StringList
+ *           'STRING_VALUE',
+ *         ],
+ *         InitQuery: 'STRING_VALUE',
+ *       },
+ *       CreatedDate: new Date('TIMESTAMP'),
+ *       UpdatedDate: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   Marker: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeDBProxyTargetGroupsCommandInput - {@link DescribeDBProxyTargetGroupsCommandInput}
@@ -74,6 +99,8 @@ export interface DescribeDBProxyTargetGroupsCommandOutput
  * @throws {@link InvalidDBProxyStateFault} (client fault)
  *  <p>The requested operation can't be performed while the proxy is in this state.</p>
  *
+ * @throws {@link RDSServiceException}
+ * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  */
 export class DescribeDBProxyTargetGroupsCommand extends $Command<

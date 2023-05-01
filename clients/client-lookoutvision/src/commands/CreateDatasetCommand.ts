@@ -45,25 +45,35 @@ export interface CreateDatasetCommandOutput extends CreateDatasetResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LookoutVisionClient, CreateDatasetCommand } from "@aws-sdk/client-lookoutvision"; // ES Modules import
- * // const { LookoutVisionClient, CreateDatasetCommand } = require("@aws-sdk/client-lookoutvision"); // CommonJS import
+ * import { LookoutVisionClient, CreateDatasetCommand } from '@aws-sdk/client-lookoutvision'; // ES Modules import
+ * // const { LookoutVisionClient, CreateDatasetCommand } = require('@aws-sdk/client-lookoutvision'); // CommonJS import
  * const client = new LookoutVisionClient(config);
  * const input = { // CreateDatasetRequest
- *   ProjectName: "STRING_VALUE", // required
- *   DatasetType: "STRING_VALUE", // required
+ *   ProjectName: 'STRING_VALUE', // required
+ *   DatasetType: 'STRING_VALUE', // required
  *   DatasetSource: { // DatasetSource
  *     GroundTruthManifest: { // DatasetGroundTruthManifest
  *       S3Object: { // InputS3Object
- *         Bucket: "STRING_VALUE", // required
- *         Key: "STRING_VALUE", // required
- *         VersionId: "STRING_VALUE",
+ *         Bucket: 'STRING_VALUE', // required
+ *         Key: 'STRING_VALUE', // required
+ *         VersionId: 'STRING_VALUE',
  *       },
  *     },
  *   },
- *   ClientToken: "STRING_VALUE",
+ *   ClientToken: 'STRING_VALUE',
  * };
  * const command = new CreateDatasetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateDatasetResponse
+ *   DatasetMetadata: { // DatasetMetadata
+ *     DatasetType: 'STRING_VALUE',
+ *     CreationTimestamp: new Date('TIMESTAMP'),
+ *     Status: 'CREATE_IN_PROGRESS' || 'CREATE_COMPLETE' || 'CREATE_FAILED' || 'UPDATE_IN_PROGRESS' || 'UPDATE_COMPLETE' || 'UPDATE_FAILED_ROLLBACK_IN_PROGRESS' || 'UPDATE_FAILED_ROLLBACK_COMPLETE' || 'DELETE_IN_PROGRESS' || 'DELETE_COMPLETE' || 'DELETE_FAILED',
+ *     StatusMessage: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateDatasetCommandInput - {@link CreateDatasetCommandInput}
@@ -95,6 +105,8 @@ export interface CreateDatasetCommandOutput extends CreateDatasetResponse, __Met
  *  <p>An input validation error occured. For example, invalid characters in a project name,
  *       or if a pagination token is invalid.</p>
  *
+ * @throws {@link LookoutVisionServiceException}
+ * <p>Base exception class for all service exceptions from LookoutVision service.</p>
  *
  */
 export class CreateDatasetCommand extends $Command<

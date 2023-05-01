@@ -37,15 +37,26 @@ export interface ListBackupPlanTemplatesCommandOutput extends ListBackupPlanTemp
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BackupClient, ListBackupPlanTemplatesCommand } from "@aws-sdk/client-backup"; // ES Modules import
- * // const { BackupClient, ListBackupPlanTemplatesCommand } = require("@aws-sdk/client-backup"); // CommonJS import
+ * import { BackupClient, ListBackupPlanTemplatesCommand } from '@aws-sdk/client-backup'; // ES Modules import
+ * // const { BackupClient, ListBackupPlanTemplatesCommand } = require('@aws-sdk/client-backup'); // CommonJS import
  * const client = new BackupClient(config);
  * const input = { // ListBackupPlanTemplatesInput
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListBackupPlanTemplatesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListBackupPlanTemplatesOutput
+ *   NextToken: 'STRING_VALUE',
+ *   BackupPlanTemplatesList: [ // BackupPlanTemplatesList
+ *     { // BackupPlanTemplatesListMember
+ *       BackupPlanTemplateId: 'STRING_VALUE',
+ *       BackupPlanTemplateName: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListBackupPlanTemplatesCommandInput - {@link ListBackupPlanTemplatesCommandInput}
@@ -67,6 +78,8 @@ export interface ListBackupPlanTemplatesCommandOutput extends ListBackupPlanTemp
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request failed due to a temporary failure of the server.</p>
  *
+ * @throws {@link BackupServiceException}
+ * <p>Base exception class for all service exceptions from Backup service.</p>
  *
  */
 export class ListBackupPlanTemplatesCommand extends $Command<

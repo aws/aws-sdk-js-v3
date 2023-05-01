@@ -39,23 +39,26 @@ export interface PutManagedScalingPolicyCommandOutput extends PutManagedScalingP
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EMRClient, PutManagedScalingPolicyCommand } from "@aws-sdk/client-emr"; // ES Modules import
- * // const { EMRClient, PutManagedScalingPolicyCommand } = require("@aws-sdk/client-emr"); // CommonJS import
+ * import { EMRClient, PutManagedScalingPolicyCommand } from '@aws-sdk/client-emr'; // ES Modules import
+ * // const { EMRClient, PutManagedScalingPolicyCommand } = require('@aws-sdk/client-emr'); // CommonJS import
  * const client = new EMRClient(config);
  * const input = { // PutManagedScalingPolicyInput
- *   ClusterId: "STRING_VALUE", // required
+ *   ClusterId: 'STRING_VALUE', // required
  *   ManagedScalingPolicy: { // ManagedScalingPolicy
  *     ComputeLimits: { // ComputeLimits
- *       UnitType: "InstanceFleetUnits" || "Instances" || "VCPU", // required
- *       MinimumCapacityUnits: Number("int"), // required
- *       MaximumCapacityUnits: Number("int"), // required
- *       MaximumOnDemandCapacityUnits: Number("int"),
- *       MaximumCoreCapacityUnits: Number("int"),
+ *       UnitType: 'InstanceFleetUnits' || 'Instances' || 'VCPU', // required
+ *       MinimumCapacityUnits: Number('int'), // required
+ *       MaximumCapacityUnits: Number('int'), // required
+ *       MaximumOnDemandCapacityUnits: Number('int'),
+ *       MaximumCoreCapacityUnits: Number('int'),
  *     },
  *   },
  * };
  * const command = new PutManagedScalingPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutManagedScalingPolicyCommandInput - {@link PutManagedScalingPolicyCommandInput}
@@ -64,6 +67,8 @@ export interface PutManagedScalingPolicyCommandOutput extends PutManagedScalingP
  * @see {@link PutManagedScalingPolicyCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
  *
+ * @throws {@link EMRServiceException}
+ * <p>Base exception class for all service exceptions from EMR service.</p>
  *
  */
 export class PutManagedScalingPolicyCommand extends $Command<

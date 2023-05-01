@@ -45,23 +45,31 @@ export interface PutObjectCommandOutput extends PutObjectOutput, __MetadataBeare
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BackupStorageClient, PutObjectCommand } from "@aws-sdk/client-backupstorage"; // ES Modules import
- * // const { BackupStorageClient, PutObjectCommand } = require("@aws-sdk/client-backupstorage"); // CommonJS import
+ * import { BackupStorageClient, PutObjectCommand } from '@aws-sdk/client-backupstorage'; // ES Modules import
+ * // const { BackupStorageClient, PutObjectCommand } = require('@aws-sdk/client-backupstorage'); // CommonJS import
  * const client = new BackupStorageClient(config);
  * const input = { // PutObjectInput
- *   BackupJobId: "STRING_VALUE", // required
- *   ObjectName: "STRING_VALUE", // required
- *   MetadataString: "STRING_VALUE",
- *   InlineChunk: "STREAMING_BLOB_VALUE",
- *   InlineChunkLength: Number("long"),
- *   InlineChunkChecksum: "STRING_VALUE",
- *   InlineChunkChecksumAlgorithm: "STRING_VALUE",
- *   ObjectChecksum: "STRING_VALUE",
- *   ObjectChecksumAlgorithm: "STRING_VALUE",
+ *   BackupJobId: 'STRING_VALUE', // required
+ *   ObjectName: 'STRING_VALUE', // required
+ *   MetadataString: 'STRING_VALUE',
+ *   InlineChunk: 'STREAMING_BLOB_VALUE',
+ *   InlineChunkLength: Number('long'),
+ *   InlineChunkChecksum: 'STRING_VALUE',
+ *   InlineChunkChecksumAlgorithm: 'STRING_VALUE',
+ *   ObjectChecksum: 'STRING_VALUE',
+ *   ObjectChecksumAlgorithm: 'STRING_VALUE',
  *   ThrowOnDuplicate: true || false,
  * };
  * const command = new PutObjectCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutObjectOutput
+ *   InlineChunkChecksum: 'STRING_VALUE', // required
+ *   InlineChunkChecksumAlgorithm: 'STRING_VALUE', // required
+ *   ObjectChecksum: 'STRING_VALUE', // required
+ *   ObjectChecksumAlgorithm: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param PutObjectCommandInput - {@link PutObjectCommandInput}
@@ -94,6 +102,8 @@ export interface PutObjectCommandOutput extends PutObjectOutput, __MetadataBeare
  * @throws {@link ThrottlingException} (client fault)
  *  Increased rate over throttling limits. Can be retried with exponential backoff.
  *
+ * @throws {@link BackupStorageServiceException}
+ * <p>Base exception class for all service exceptions from BackupStorage service.</p>
  *
  */
 export class PutObjectCommand extends $Command<

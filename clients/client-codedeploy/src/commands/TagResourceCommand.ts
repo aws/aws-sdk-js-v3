@@ -37,20 +37,23 @@ export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeDeployClient, TagResourceCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
- * // const { CodeDeployClient, TagResourceCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
+ * import { CodeDeployClient, TagResourceCommand } from '@aws-sdk/client-codedeploy'; // ES Modules import
+ * // const { CodeDeployClient, TagResourceCommand } = require('@aws-sdk/client-codedeploy'); // CommonJS import
  * const client = new CodeDeployClient(config);
  * const input = { // TagResourceInput
- *   ResourceArn: "STRING_VALUE", // required
+ *   ResourceArn: 'STRING_VALUE', // required
  *   Tags: [ // TagList // required
  *     { // Tag
- *       Key: "STRING_VALUE",
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param TagResourceCommandInput - {@link TagResourceCommandInput}
@@ -85,6 +88,8 @@ export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataB
  * @throws {@link TagRequiredException} (client fault)
  *  <p>A tag was not specified.</p>
  *
+ * @throws {@link CodeDeployServiceException}
+ * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
  */
 export class TagResourceCommand extends $Command<

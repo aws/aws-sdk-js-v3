@@ -37,24 +37,36 @@ export interface PutPartnerEventsCommandOutput extends PutPartnerEventsResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EventBridgeClient, PutPartnerEventsCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
- * // const { EventBridgeClient, PutPartnerEventsCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
+ * import { EventBridgeClient, PutPartnerEventsCommand } from '@aws-sdk/client-eventbridge'; // ES Modules import
+ * // const { EventBridgeClient, PutPartnerEventsCommand } = require('@aws-sdk/client-eventbridge'); // CommonJS import
  * const client = new EventBridgeClient(config);
  * const input = { // PutPartnerEventsRequest
  *   Entries: [ // PutPartnerEventsRequestEntryList // required
  *     { // PutPartnerEventsRequestEntry
- *       Time: new Date("TIMESTAMP"),
- *       Source: "STRING_VALUE",
+ *       Time: new Date('TIMESTAMP'),
+ *       Source: 'STRING_VALUE',
  *       Resources: [ // EventResourceList
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
- *       DetailType: "STRING_VALUE",
- *       Detail: "STRING_VALUE",
+ *       DetailType: 'STRING_VALUE',
+ *       Detail: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new PutPartnerEventsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutPartnerEventsResponse
+ *   FailedEntryCount: Number('int'),
+ *   Entries: [ // PutPartnerEventsResultEntryList
+ *     { // PutPartnerEventsResultEntry
+ *       EventId: 'STRING_VALUE',
+ *       ErrorCode: 'STRING_VALUE',
+ *       ErrorMessage: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param PutPartnerEventsCommandInput - {@link PutPartnerEventsCommandInput}
@@ -69,6 +81,8 @@ export interface PutPartnerEventsCommandOutput extends PutPartnerEventsResponse,
  * @throws {@link OperationDisabledException} (client fault)
  *  <p>The operation you are attempting is not available in this region.</p>
  *
+ * @throws {@link EventBridgeServiceException}
+ * <p>Base exception class for all service exceptions from EventBridge service.</p>
  *
  */
 export class PutPartnerEventsCommand extends $Command<

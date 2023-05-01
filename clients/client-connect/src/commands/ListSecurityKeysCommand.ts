@@ -37,16 +37,28 @@ export interface ListSecurityKeysCommandOutput extends ListSecurityKeysResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, ListSecurityKeysCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, ListSecurityKeysCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, ListSecurityKeysCommand } from '@aws-sdk/client-connect'; // ES Modules import
+ * // const { ConnectClient, ListSecurityKeysCommand } = require('@aws-sdk/client-connect'); // CommonJS import
  * const client = new ConnectClient(config);
  * const input = { // ListSecurityKeysRequest
- *   InstanceId: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   InstanceId: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListSecurityKeysCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListSecurityKeysResponse
+ *   SecurityKeys: [ // SecurityKeysList
+ *     { // SecurityKey
+ *       AssociationId: 'STRING_VALUE',
+ *       Key: 'STRING_VALUE',
+ *       CreationTime: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListSecurityKeysCommandInput - {@link ListSecurityKeysCommandInput}
@@ -70,6 +82,8 @@ export interface ListSecurityKeysCommandOutput extends ListSecurityKeysResponse,
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class ListSecurityKeysCommand extends $Command<

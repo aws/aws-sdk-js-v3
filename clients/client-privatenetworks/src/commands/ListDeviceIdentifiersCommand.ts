@@ -44,21 +44,39 @@ export interface ListDeviceIdentifiersCommandOutput extends ListDeviceIdentifier
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PrivateNetworksClient, ListDeviceIdentifiersCommand } from "@aws-sdk/client-privatenetworks"; // ES Modules import
- * // const { PrivateNetworksClient, ListDeviceIdentifiersCommand } = require("@aws-sdk/client-privatenetworks"); // CommonJS import
+ * import { PrivateNetworksClient, ListDeviceIdentifiersCommand } from '@aws-sdk/client-privatenetworks'; // ES Modules import
+ * // const { PrivateNetworksClient, ListDeviceIdentifiersCommand } = require('@aws-sdk/client-privatenetworks'); // CommonJS import
  * const client = new PrivateNetworksClient(config);
  * const input = { // ListDeviceIdentifiersRequest
  *   filters: { // DeviceIdentifierFilters
- *     "<keys>": [ // DeviceIdentifierFilterValues
- *       "STRING_VALUE",
+ *     '<keys>': [ // DeviceIdentifierFilterValues
+ *       'STRING_VALUE',
  *     ],
  *   },
- *   networkArn: "STRING_VALUE", // required
- *   startToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   networkArn: 'STRING_VALUE', // required
+ *   startToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new ListDeviceIdentifiersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListDeviceIdentifiersResponse
+ *   deviceIdentifiers: [ // DeviceIdentifierList
+ *     { // DeviceIdentifier
+ *       deviceIdentifierArn: 'STRING_VALUE',
+ *       trafficGroupArn: 'STRING_VALUE',
+ *       networkArn: 'STRING_VALUE',
+ *       imsi: 'STRING_VALUE',
+ *       iccid: 'STRING_VALUE',
+ *       vendor: 'STRING_VALUE',
+ *       status: 'STRING_VALUE',
+ *       orderArn: 'STRING_VALUE',
+ *       createdAt: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListDeviceIdentifiersCommandInput - {@link ListDeviceIdentifiersCommandInput}
@@ -76,6 +94,8 @@ export interface ListDeviceIdentifiersCommandOutput extends ListDeviceIdentifier
  * @throws {@link ValidationException} (client fault)
  *  <p>The request failed validation.</p>
  *
+ * @throws {@link PrivateNetworksServiceException}
+ * <p>Base exception class for all service exceptions from PrivateNetworks service.</p>
  *
  */
 export class ListDeviceIdentifiersCommand extends $Command<

@@ -190,26 +190,60 @@ export interface GetObjectAttributesCommandOutput extends GetObjectAttributesOut
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { S3Client, GetObjectAttributesCommand } from "@aws-sdk/client-s3"; // ES Modules import
- * // const { S3Client, GetObjectAttributesCommand } = require("@aws-sdk/client-s3"); // CommonJS import
+ * import { S3Client, GetObjectAttributesCommand } from '@aws-sdk/client-s3'; // ES Modules import
+ * // const { S3Client, GetObjectAttributesCommand } = require('@aws-sdk/client-s3'); // CommonJS import
  * const client = new S3Client(config);
  * const input = { // GetObjectAttributesRequest
- *   Bucket: "STRING_VALUE", // required
- *   Key: "STRING_VALUE", // required
- *   VersionId: "STRING_VALUE",
- *   MaxParts: Number("int"),
- *   PartNumberMarker: "STRING_VALUE",
- *   SSECustomerAlgorithm: "STRING_VALUE",
- *   SSECustomerKey: "STRING_VALUE",
- *   SSECustomerKeyMD5: "STRING_VALUE",
- *   RequestPayer: "requester",
- *   ExpectedBucketOwner: "STRING_VALUE",
+ *   Bucket: 'STRING_VALUE', // required
+ *   Key: 'STRING_VALUE', // required
+ *   VersionId: 'STRING_VALUE',
+ *   MaxParts: Number('int'),
+ *   PartNumberMarker: 'STRING_VALUE',
+ *   SSECustomerAlgorithm: 'STRING_VALUE',
+ *   SSECustomerKey: 'STRING_VALUE',
+ *   SSECustomerKeyMD5: 'STRING_VALUE',
+ *   RequestPayer: 'requester',
+ *   ExpectedBucketOwner: 'STRING_VALUE',
  *   ObjectAttributes: [ // ObjectAttributesList // required
- *     "ETag" || "Checksum" || "ObjectParts" || "StorageClass" || "ObjectSize",
+ *     'ETag' || 'Checksum' || 'ObjectParts' || 'StorageClass' || 'ObjectSize',
  *   ],
  * };
  * const command = new GetObjectAttributesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetObjectAttributesOutput
+ *   DeleteMarker: true || false,
+ *   LastModified: new Date('TIMESTAMP'),
+ *   VersionId: 'STRING_VALUE',
+ *   RequestCharged: 'requester',
+ *   ETag: 'STRING_VALUE',
+ *   Checksum: { // Checksum
+ *     ChecksumCRC32: 'STRING_VALUE',
+ *     ChecksumCRC32C: 'STRING_VALUE',
+ *     ChecksumSHA1: 'STRING_VALUE',
+ *     ChecksumSHA256: 'STRING_VALUE',
+ *   },
+ *   ObjectParts: { // GetObjectAttributesParts
+ *     TotalPartsCount: Number('int'),
+ *     PartNumberMarker: 'STRING_VALUE',
+ *     NextPartNumberMarker: 'STRING_VALUE',
+ *     MaxParts: Number('int'),
+ *     IsTruncated: true || false,
+ *     Parts: [ // PartsList
+ *       { // ObjectPart
+ *         PartNumber: Number('int'),
+ *         Size: Number('long'),
+ *         ChecksumCRC32: 'STRING_VALUE',
+ *         ChecksumCRC32C: 'STRING_VALUE',
+ *         ChecksumSHA1: 'STRING_VALUE',
+ *         ChecksumSHA256: 'STRING_VALUE',
+ *       },
+ *     ],
+ *   },
+ *   StorageClass: 'STANDARD' || 'REDUCED_REDUNDANCY' || 'STANDARD_IA' || 'ONEZONE_IA' || 'INTELLIGENT_TIERING' || 'GLACIER' || 'DEEP_ARCHIVE' || 'OUTPOSTS' || 'GLACIER_IR' || 'SNOW',
+ *   ObjectSize: Number('long'),
+ * };
+ *
  * ```
  *
  * @param GetObjectAttributesCommandInput - {@link GetObjectAttributesCommandInput}
@@ -221,6 +255,8 @@ export interface GetObjectAttributesCommandOutput extends GetObjectAttributesOut
  * @throws {@link NoSuchKey} (client fault)
  *  <p>The specified key does not exist.</p>
  *
+ * @throws {@link S3ServiceException}
+ * <p>Base exception class for all service exceptions from S3 service.</p>
  *
  */
 export class GetObjectAttributesCommand extends $Command<

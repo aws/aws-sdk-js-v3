@@ -40,17 +40,20 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ApplicationInsightsClient, UntagResourceCommand } from "@aws-sdk/client-application-insights"; // ES Modules import
- * // const { ApplicationInsightsClient, UntagResourceCommand } = require("@aws-sdk/client-application-insights"); // CommonJS import
+ * import { ApplicationInsightsClient, UntagResourceCommand } from '@aws-sdk/client-application-insights'; // ES Modules import
+ * // const { ApplicationInsightsClient, UntagResourceCommand } = require('@aws-sdk/client-application-insights'); // CommonJS import
  * const client = new ApplicationInsightsClient(config);
  * const input = { // UntagResourceRequest
- *   ResourceARN: "STRING_VALUE", // required
+ *   ResourceARN: 'STRING_VALUE', // required
  *   TagKeys: [ // TagKeyList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new UntagResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UntagResourceCommandInput - {@link UntagResourceCommandInput}
@@ -65,6 +68,8 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>The parameter is not valid.</p>
  *
+ * @throws {@link ApplicationInsightsServiceException}
+ * <p>Base exception class for all service exceptions from ApplicationInsights service.</p>
  *
  */
 export class UntagResourceCommand extends $Command<

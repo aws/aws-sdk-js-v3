@@ -48,18 +48,80 @@ export interface DescribeClustersCommandOutput extends DescribeClustersResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DAXClient, DescribeClustersCommand } from "@aws-sdk/client-dax"; // ES Modules import
- * // const { DAXClient, DescribeClustersCommand } = require("@aws-sdk/client-dax"); // CommonJS import
+ * import { DAXClient, DescribeClustersCommand } from '@aws-sdk/client-dax'; // ES Modules import
+ * // const { DAXClient, DescribeClustersCommand } = require('@aws-sdk/client-dax'); // CommonJS import
  * const client = new DAXClient(config);
  * const input = { // DescribeClustersRequest
  *   ClusterNames: [ // ClusterNameList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new DescribeClustersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeClustersResponse
+ *   NextToken: 'STRING_VALUE',
+ *   Clusters: [ // ClusterList
+ *     { // Cluster
+ *       ClusterName: 'STRING_VALUE',
+ *       Description: 'STRING_VALUE',
+ *       ClusterArn: 'STRING_VALUE',
+ *       TotalNodes: Number('int'),
+ *       ActiveNodes: Number('int'),
+ *       NodeType: 'STRING_VALUE',
+ *       Status: 'STRING_VALUE',
+ *       ClusterDiscoveryEndpoint: { // Endpoint
+ *         Address: 'STRING_VALUE',
+ *         Port: Number('int'),
+ *         URL: 'STRING_VALUE',
+ *       },
+ *       NodeIdsToRemove: [ // NodeIdentifierList
+ *         'STRING_VALUE',
+ *       ],
+ *       Nodes: [ // NodeList
+ *         { // Node
+ *           NodeId: 'STRING_VALUE',
+ *           Endpoint: {
+ *             Address: 'STRING_VALUE',
+ *             Port: Number('int'),
+ *             URL: 'STRING_VALUE',
+ *           },
+ *           NodeCreateTime: new Date('TIMESTAMP'),
+ *           AvailabilityZone: 'STRING_VALUE',
+ *           NodeStatus: 'STRING_VALUE',
+ *           ParameterGroupStatus: 'STRING_VALUE',
+ *         },
+ *       ],
+ *       PreferredMaintenanceWindow: 'STRING_VALUE',
+ *       NotificationConfiguration: { // NotificationConfiguration
+ *         TopicArn: 'STRING_VALUE',
+ *         TopicStatus: 'STRING_VALUE',
+ *       },
+ *       SubnetGroup: 'STRING_VALUE',
+ *       SecurityGroups: [ // SecurityGroupMembershipList
+ *         { // SecurityGroupMembership
+ *           SecurityGroupIdentifier: 'STRING_VALUE',
+ *           Status: 'STRING_VALUE',
+ *         },
+ *       ],
+ *       IamRoleArn: 'STRING_VALUE',
+ *       ParameterGroup: { // ParameterGroupStatus
+ *         ParameterGroupName: 'STRING_VALUE',
+ *         ParameterApplyStatus: 'STRING_VALUE',
+ *         NodeIdsToReboot: [
+ *           'STRING_VALUE',
+ *         ],
+ *       },
+ *       SSEDescription: { // SSEDescription
+ *         Status: 'STRING_VALUE',
+ *       },
+ *       ClusterEndpointEncryptionType: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeClustersCommandInput - {@link DescribeClustersCommandInput}
@@ -80,6 +142,8 @@ export interface DescribeClustersCommandOutput extends DescribeClustersResponse,
  * @throws {@link ServiceLinkedRoleNotFoundFault} (client fault)
  *  <p>The specified service linked role (SLR) was not found.</p>
  *
+ * @throws {@link DAXServiceException}
+ * <p>Base exception class for all service exceptions from DAX service.</p>
  *
  */
 export class DescribeClustersCommand extends $Command<

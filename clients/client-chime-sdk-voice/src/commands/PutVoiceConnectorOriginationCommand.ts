@@ -41,19 +41,19 @@ export interface PutVoiceConnectorOriginationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeSDKVoiceClient, PutVoiceConnectorOriginationCommand } from "@aws-sdk/client-chime-sdk-voice"; // ES Modules import
- * // const { ChimeSDKVoiceClient, PutVoiceConnectorOriginationCommand } = require("@aws-sdk/client-chime-sdk-voice"); // CommonJS import
+ * import { ChimeSDKVoiceClient, PutVoiceConnectorOriginationCommand } from '@aws-sdk/client-chime-sdk-voice'; // ES Modules import
+ * // const { ChimeSDKVoiceClient, PutVoiceConnectorOriginationCommand } = require('@aws-sdk/client-chime-sdk-voice'); // CommonJS import
  * const client = new ChimeSDKVoiceClient(config);
  * const input = { // PutVoiceConnectorOriginationRequest
- *   VoiceConnectorId: "STRING_VALUE", // required
+ *   VoiceConnectorId: 'STRING_VALUE', // required
  *   Origination: { // Origination
  *     Routes: [ // OriginationRouteList
  *       { // OriginationRoute
- *         Host: "STRING_VALUE",
- *         Port: Number("int"),
- *         Protocol: "TCP" || "UDP",
- *         Priority: Number("int"),
- *         Weight: Number("int"),
+ *         Host: 'STRING_VALUE',
+ *         Port: Number('int'),
+ *         Protocol: 'TCP' || 'UDP',
+ *         Priority: Number('int'),
+ *         Weight: Number('int'),
  *       },
  *     ],
  *     Disabled: true || false,
@@ -61,6 +61,22 @@ export interface PutVoiceConnectorOriginationCommandOutput
  * };
  * const command = new PutVoiceConnectorOriginationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutVoiceConnectorOriginationResponse
+ *   Origination: { // Origination
+ *     Routes: [ // OriginationRouteList
+ *       { // OriginationRoute
+ *         Host: 'STRING_VALUE',
+ *         Port: Number('int'),
+ *         Protocol: 'TCP' || 'UDP',
+ *         Priority: Number('int'),
+ *         Weight: Number('int'),
+ *       },
+ *     ],
+ *     Disabled: true || false,
+ *   },
+ * };
+ *
  * ```
  *
  * @param PutVoiceConnectorOriginationCommandInput - {@link PutVoiceConnectorOriginationCommandInput}
@@ -90,6 +106,8 @@ export interface PutVoiceConnectorOriginationCommandOutput
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client isn't authorized to request a resource.</p>
  *
+ * @throws {@link ChimeSDKVoiceServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
  */
 export class PutVoiceConnectorOriginationCommand extends $Command<

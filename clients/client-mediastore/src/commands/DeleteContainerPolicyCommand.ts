@@ -36,14 +36,17 @@ export interface DeleteContainerPolicyCommandOutput extends DeleteContainerPolic
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MediaStoreClient, DeleteContainerPolicyCommand } from "@aws-sdk/client-mediastore"; // ES Modules import
- * // const { MediaStoreClient, DeleteContainerPolicyCommand } = require("@aws-sdk/client-mediastore"); // CommonJS import
+ * import { MediaStoreClient, DeleteContainerPolicyCommand } from '@aws-sdk/client-mediastore'; // ES Modules import
+ * // const { MediaStoreClient, DeleteContainerPolicyCommand } = require('@aws-sdk/client-mediastore'); // CommonJS import
  * const client = new MediaStoreClient(config);
  * const input = { // DeleteContainerPolicyInput
- *   ContainerName: "STRING_VALUE", // required
+ *   ContainerName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteContainerPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteContainerPolicyCommandInput - {@link DeleteContainerPolicyCommandInput}
@@ -65,6 +68,8 @@ export interface DeleteContainerPolicyCommandOutput extends DeleteContainerPolic
  * @throws {@link PolicyNotFoundException} (client fault)
  *  <p>The policy that you specified in the request does not exist.</p>
  *
+ * @throws {@link MediaStoreServiceException}
+ * <p>Base exception class for all service exceptions from MediaStore service.</p>
  *
  */
 export class DeleteContainerPolicyCommand extends $Command<

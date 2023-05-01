@@ -55,93 +55,142 @@ export interface GetSavingsPlansUtilizationDetailsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CostExplorerClient, GetSavingsPlansUtilizationDetailsCommand } from "@aws-sdk/client-cost-explorer"; // ES Modules import
- * // const { CostExplorerClient, GetSavingsPlansUtilizationDetailsCommand } = require("@aws-sdk/client-cost-explorer"); // CommonJS import
+ * import { CostExplorerClient, GetSavingsPlansUtilizationDetailsCommand } from '@aws-sdk/client-cost-explorer'; // ES Modules import
+ * // const { CostExplorerClient, GetSavingsPlansUtilizationDetailsCommand } = require('@aws-sdk/client-cost-explorer'); // CommonJS import
  * const client = new CostExplorerClient(config);
  * const input = { // GetSavingsPlansUtilizationDetailsRequest
  *   TimePeriod: { // DateInterval
- *     Start: "STRING_VALUE", // required
- *     End: "STRING_VALUE", // required
+ *     Start: 'STRING_VALUE', // required
+ *     End: 'STRING_VALUE', // required
  *   },
  *   Filter: { // Expression
  *     Or: [ // Expressions
  *       {
  *         Or: [
- *           "<Expression>",
+ *           '<Expression>',
  *         ],
  *         And: [
- *           "<Expression>",
+ *           '<Expression>',
  *         ],
- *         Not: "<Expression>",
+ *         Not: '<Expression>',
  *         Dimensions: { // DimensionValues
- *           Key: "AZ" || "INSTANCE_TYPE" || "LINKED_ACCOUNT" || "LINKED_ACCOUNT_NAME" || "OPERATION" || "PURCHASE_TYPE" || "REGION" || "SERVICE" || "SERVICE_CODE" || "USAGE_TYPE" || "USAGE_TYPE_GROUP" || "RECORD_TYPE" || "OPERATING_SYSTEM" || "TENANCY" || "SCOPE" || "PLATFORM" || "SUBSCRIPTION_ID" || "LEGAL_ENTITY_NAME" || "DEPLOYMENT_OPTION" || "DATABASE_ENGINE" || "CACHE_ENGINE" || "INSTANCE_TYPE_FAMILY" || "BILLING_ENTITY" || "RESERVATION_ID" || "RESOURCE_ID" || "RIGHTSIZING_TYPE" || "SAVINGS_PLANS_TYPE" || "SAVINGS_PLAN_ARN" || "PAYMENT_OPTION" || "AGREEMENT_END_DATE_TIME_AFTER" || "AGREEMENT_END_DATE_TIME_BEFORE" || "INVOICING_ENTITY" || "ANOMALY_TOTAL_IMPACT_ABSOLUTE" || "ANOMALY_TOTAL_IMPACT_PERCENTAGE",
+ *           Key: 'AZ' || 'INSTANCE_TYPE' || 'LINKED_ACCOUNT' || 'LINKED_ACCOUNT_NAME' || 'OPERATION' || 'PURCHASE_TYPE' || 'REGION' || 'SERVICE' || 'SERVICE_CODE' || 'USAGE_TYPE' || 'USAGE_TYPE_GROUP' || 'RECORD_TYPE' || 'OPERATING_SYSTEM' || 'TENANCY' || 'SCOPE' || 'PLATFORM' || 'SUBSCRIPTION_ID' || 'LEGAL_ENTITY_NAME' || 'DEPLOYMENT_OPTION' || 'DATABASE_ENGINE' || 'CACHE_ENGINE' || 'INSTANCE_TYPE_FAMILY' || 'BILLING_ENTITY' || 'RESERVATION_ID' || 'RESOURCE_ID' || 'RIGHTSIZING_TYPE' || 'SAVINGS_PLANS_TYPE' || 'SAVINGS_PLAN_ARN' || 'PAYMENT_OPTION' || 'AGREEMENT_END_DATE_TIME_AFTER' || 'AGREEMENT_END_DATE_TIME_BEFORE' || 'INVOICING_ENTITY' || 'ANOMALY_TOTAL_IMPACT_ABSOLUTE' || 'ANOMALY_TOTAL_IMPACT_PERCENTAGE',
  *           Values: [ // Values
- *             "STRING_VALUE",
+ *             'STRING_VALUE',
  *           ],
  *           MatchOptions: [ // MatchOptions
- *             "EQUALS" || "ABSENT" || "STARTS_WITH" || "ENDS_WITH" || "CONTAINS" || "CASE_SENSITIVE" || "CASE_INSENSITIVE" || "GREATER_THAN_OR_EQUAL",
+ *             'EQUALS' || 'ABSENT' || 'STARTS_WITH' || 'ENDS_WITH' || 'CONTAINS' || 'CASE_SENSITIVE' || 'CASE_INSENSITIVE' || 'GREATER_THAN_OR_EQUAL',
  *           ],
  *         },
  *         Tags: { // TagValues
- *           Key: "STRING_VALUE",
+ *           Key: 'STRING_VALUE',
  *           Values: [
- *             "STRING_VALUE",
+ *             'STRING_VALUE',
  *           ],
  *           MatchOptions: [
- *             "EQUALS" || "ABSENT" || "STARTS_WITH" || "ENDS_WITH" || "CONTAINS" || "CASE_SENSITIVE" || "CASE_INSENSITIVE" || "GREATER_THAN_OR_EQUAL",
+ *             'EQUALS' || 'ABSENT' || 'STARTS_WITH' || 'ENDS_WITH' || 'CONTAINS' || 'CASE_SENSITIVE' || 'CASE_INSENSITIVE' || 'GREATER_THAN_OR_EQUAL',
  *           ],
  *         },
  *         CostCategories: { // CostCategoryValues
- *           Key: "STRING_VALUE",
+ *           Key: 'STRING_VALUE',
  *           Values: [
- *             "STRING_VALUE",
+ *             'STRING_VALUE',
  *           ],
  *           MatchOptions: [
- *             "EQUALS" || "ABSENT" || "STARTS_WITH" || "ENDS_WITH" || "CONTAINS" || "CASE_SENSITIVE" || "CASE_INSENSITIVE" || "GREATER_THAN_OR_EQUAL",
+ *             'EQUALS' || 'ABSENT' || 'STARTS_WITH' || 'ENDS_WITH' || 'CONTAINS' || 'CASE_SENSITIVE' || 'CASE_INSENSITIVE' || 'GREATER_THAN_OR_EQUAL',
  *           ],
  *         },
  *       },
  *     ],
  *     And: [
- *       "<Expression>",
+ *       '<Expression>',
  *     ],
- *     Not: "<Expression>",
+ *     Not: '<Expression>',
  *     Dimensions: {
- *       Key: "AZ" || "INSTANCE_TYPE" || "LINKED_ACCOUNT" || "LINKED_ACCOUNT_NAME" || "OPERATION" || "PURCHASE_TYPE" || "REGION" || "SERVICE" || "SERVICE_CODE" || "USAGE_TYPE" || "USAGE_TYPE_GROUP" || "RECORD_TYPE" || "OPERATING_SYSTEM" || "TENANCY" || "SCOPE" || "PLATFORM" || "SUBSCRIPTION_ID" || "LEGAL_ENTITY_NAME" || "DEPLOYMENT_OPTION" || "DATABASE_ENGINE" || "CACHE_ENGINE" || "INSTANCE_TYPE_FAMILY" || "BILLING_ENTITY" || "RESERVATION_ID" || "RESOURCE_ID" || "RIGHTSIZING_TYPE" || "SAVINGS_PLANS_TYPE" || "SAVINGS_PLAN_ARN" || "PAYMENT_OPTION" || "AGREEMENT_END_DATE_TIME_AFTER" || "AGREEMENT_END_DATE_TIME_BEFORE" || "INVOICING_ENTITY" || "ANOMALY_TOTAL_IMPACT_ABSOLUTE" || "ANOMALY_TOTAL_IMPACT_PERCENTAGE",
+ *       Key: 'AZ' || 'INSTANCE_TYPE' || 'LINKED_ACCOUNT' || 'LINKED_ACCOUNT_NAME' || 'OPERATION' || 'PURCHASE_TYPE' || 'REGION' || 'SERVICE' || 'SERVICE_CODE' || 'USAGE_TYPE' || 'USAGE_TYPE_GROUP' || 'RECORD_TYPE' || 'OPERATING_SYSTEM' || 'TENANCY' || 'SCOPE' || 'PLATFORM' || 'SUBSCRIPTION_ID' || 'LEGAL_ENTITY_NAME' || 'DEPLOYMENT_OPTION' || 'DATABASE_ENGINE' || 'CACHE_ENGINE' || 'INSTANCE_TYPE_FAMILY' || 'BILLING_ENTITY' || 'RESERVATION_ID' || 'RESOURCE_ID' || 'RIGHTSIZING_TYPE' || 'SAVINGS_PLANS_TYPE' || 'SAVINGS_PLAN_ARN' || 'PAYMENT_OPTION' || 'AGREEMENT_END_DATE_TIME_AFTER' || 'AGREEMENT_END_DATE_TIME_BEFORE' || 'INVOICING_ENTITY' || 'ANOMALY_TOTAL_IMPACT_ABSOLUTE' || 'ANOMALY_TOTAL_IMPACT_PERCENTAGE',
  *       Values: [
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *       MatchOptions: [
- *         "EQUALS" || "ABSENT" || "STARTS_WITH" || "ENDS_WITH" || "CONTAINS" || "CASE_SENSITIVE" || "CASE_INSENSITIVE" || "GREATER_THAN_OR_EQUAL",
+ *         'EQUALS' || 'ABSENT' || 'STARTS_WITH' || 'ENDS_WITH' || 'CONTAINS' || 'CASE_SENSITIVE' || 'CASE_INSENSITIVE' || 'GREATER_THAN_OR_EQUAL',
  *       ],
  *     },
  *     Tags: {
- *       Key: "STRING_VALUE",
+ *       Key: 'STRING_VALUE',
  *       Values: [
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *       MatchOptions: [
- *         "EQUALS" || "ABSENT" || "STARTS_WITH" || "ENDS_WITH" || "CONTAINS" || "CASE_SENSITIVE" || "CASE_INSENSITIVE" || "GREATER_THAN_OR_EQUAL",
+ *         'EQUALS' || 'ABSENT' || 'STARTS_WITH' || 'ENDS_WITH' || 'CONTAINS' || 'CASE_SENSITIVE' || 'CASE_INSENSITIVE' || 'GREATER_THAN_OR_EQUAL',
  *       ],
  *     },
  *     CostCategories: {
- *       Key: "STRING_VALUE",
- *       Values: "<Values>",
- *       MatchOptions: "<MatchOptions>",
+ *       Key: 'STRING_VALUE',
+ *       Values: '<Values>',
+ *       MatchOptions: '<MatchOptions>',
  *     },
  *   },
  *   DataType: [ // SavingsPlansDataTypes
- *     "ATTRIBUTES" || "UTILIZATION" || "AMORTIZED_COMMITMENT" || "SAVINGS",
+ *     'ATTRIBUTES' || 'UTILIZATION' || 'AMORTIZED_COMMITMENT' || 'SAVINGS',
  *   ],
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  *   SortBy: { // SortDefinition
- *     Key: "STRING_VALUE", // required
- *     SortOrder: "ASCENDING" || "DESCENDING",
+ *     Key: 'STRING_VALUE', // required
+ *     SortOrder: 'ASCENDING' || 'DESCENDING',
  *   },
  * };
  * const command = new GetSavingsPlansUtilizationDetailsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetSavingsPlansUtilizationDetailsResponse
+ *   SavingsPlansUtilizationDetails: [ // SavingsPlansUtilizationDetails // required
+ *     { // SavingsPlansUtilizationDetail
+ *       SavingsPlanArn: 'STRING_VALUE',
+ *       Attributes: { // Attributes
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *       Utilization: { // SavingsPlansUtilization
+ *         TotalCommitment: 'STRING_VALUE',
+ *         UsedCommitment: 'STRING_VALUE',
+ *         UnusedCommitment: 'STRING_VALUE',
+ *         UtilizationPercentage: 'STRING_VALUE',
+ *       },
+ *       Savings: { // SavingsPlansSavings
+ *         NetSavings: 'STRING_VALUE',
+ *         OnDemandCostEquivalent: 'STRING_VALUE',
+ *       },
+ *       AmortizedCommitment: { // SavingsPlansAmortizedCommitment
+ *         AmortizedRecurringCommitment: 'STRING_VALUE',
+ *         AmortizedUpfrontCommitment: 'STRING_VALUE',
+ *         TotalAmortizedCommitment: 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ *   Total: { // SavingsPlansUtilizationAggregates
+ *     Utilization: {
+ *       TotalCommitment: 'STRING_VALUE',
+ *       UsedCommitment: 'STRING_VALUE',
+ *       UnusedCommitment: 'STRING_VALUE',
+ *       UtilizationPercentage: 'STRING_VALUE',
+ *     },
+ *     Savings: {
+ *       NetSavings: 'STRING_VALUE',
+ *       OnDemandCostEquivalent: 'STRING_VALUE',
+ *     },
+ *     AmortizedCommitment: {
+ *       AmortizedRecurringCommitment: 'STRING_VALUE',
+ *       AmortizedUpfrontCommitment: 'STRING_VALUE',
+ *       TotalAmortizedCommitment: 'STRING_VALUE',
+ *     },
+ *   },
+ *   TimePeriod: { // DateInterval
+ *     Start: 'STRING_VALUE', // required
+ *     End: 'STRING_VALUE', // required
+ *   },
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetSavingsPlansUtilizationDetailsCommandInput - {@link GetSavingsPlansUtilizationDetailsCommandInput}
@@ -159,6 +208,8 @@ export interface GetSavingsPlansUtilizationDetailsCommandOutput
  * @throws {@link LimitExceededException} (client fault)
  *  <p>You made too many calls in a short period of time. Try again later.</p>
  *
+ * @throws {@link CostExplorerServiceException}
+ * <p>Base exception class for all service exceptions from CostExplorer service.</p>
  *
  */
 export class GetSavingsPlansUtilizationDetailsCommand extends $Command<

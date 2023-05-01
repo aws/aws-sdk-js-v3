@@ -42,15 +42,21 @@ export interface AssociateAttributeGroupCommandOutput extends AssociateAttribute
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ServiceCatalogAppRegistryClient, AssociateAttributeGroupCommand } from "@aws-sdk/client-service-catalog-appregistry"; // ES Modules import
- * // const { ServiceCatalogAppRegistryClient, AssociateAttributeGroupCommand } = require("@aws-sdk/client-service-catalog-appregistry"); // CommonJS import
+ * import { ServiceCatalogAppRegistryClient, AssociateAttributeGroupCommand } from '@aws-sdk/client-service-catalog-appregistry'; // ES Modules import
+ * // const { ServiceCatalogAppRegistryClient, AssociateAttributeGroupCommand } = require('@aws-sdk/client-service-catalog-appregistry'); // CommonJS import
  * const client = new ServiceCatalogAppRegistryClient(config);
  * const input = { // AssociateAttributeGroupRequest
- *   application: "STRING_VALUE", // required
- *   attributeGroup: "STRING_VALUE", // required
+ *   application: 'STRING_VALUE', // required
+ *   attributeGroup: 'STRING_VALUE', // required
  * };
  * const command = new AssociateAttributeGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AssociateAttributeGroupResponse
+ *   applicationArn: 'STRING_VALUE',
+ *   attributeGroupArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param AssociateAttributeGroupCommandInput - {@link AssociateAttributeGroupCommandInput}
@@ -78,6 +84,8 @@ export interface AssociateAttributeGroupCommandOutput extends AssociateAttribute
  * @throws {@link ValidationException} (client fault)
  *  <p>The request has invalid or missing parameters.</p>
  *
+ * @throws {@link ServiceCatalogAppRegistryServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalogAppRegistry service.</p>
  *
  */
 export class AssociateAttributeGroupCommand extends $Command<

@@ -44,15 +44,21 @@ export interface RegisterCertificateWithoutCACommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTClient, RegisterCertificateWithoutCACommand } from "@aws-sdk/client-iot"; // ES Modules import
- * // const { IoTClient, RegisterCertificateWithoutCACommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * import { IoTClient, RegisterCertificateWithoutCACommand } from '@aws-sdk/client-iot'; // ES Modules import
+ * // const { IoTClient, RegisterCertificateWithoutCACommand } = require('@aws-sdk/client-iot'); // CommonJS import
  * const client = new IoTClient(config);
  * const input = { // RegisterCertificateWithoutCARequest
- *   certificatePem: "STRING_VALUE", // required
- *   status: "ACTIVE" || "INACTIVE" || "REVOKED" || "PENDING_TRANSFER" || "REGISTER_INACTIVE" || "PENDING_ACTIVATION",
+ *   certificatePem: 'STRING_VALUE', // required
+ *   status: 'ACTIVE' || 'INACTIVE' || 'REVOKED' || 'PENDING_TRANSFER' || 'REGISTER_INACTIVE' || 'PENDING_ACTIVATION',
  * };
  * const command = new RegisterCertificateWithoutCACommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // RegisterCertificateWithoutCAResponse
+ *   certificateArn: 'STRING_VALUE',
+ *   certificateId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param RegisterCertificateWithoutCACommandInput - {@link RegisterCertificateWithoutCACommandInput}
@@ -85,6 +91,8 @@ export interface RegisterCertificateWithoutCACommandOutput
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this operation.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class RegisterCertificateWithoutCACommand extends $Command<

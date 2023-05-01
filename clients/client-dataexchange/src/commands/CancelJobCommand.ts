@@ -36,14 +36,17 @@ export interface CancelJobCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DataExchangeClient, CancelJobCommand } from "@aws-sdk/client-dataexchange"; // ES Modules import
- * // const { DataExchangeClient, CancelJobCommand } = require("@aws-sdk/client-dataexchange"); // CommonJS import
+ * import { DataExchangeClient, CancelJobCommand } from '@aws-sdk/client-dataexchange'; // ES Modules import
+ * // const { DataExchangeClient, CancelJobCommand } = require('@aws-sdk/client-dataexchange'); // CommonJS import
  * const client = new DataExchangeClient(config);
  * const input = { // CancelJobRequest
- *   JobId: "STRING_VALUE", // required
+ *   JobId: 'STRING_VALUE', // required
  * };
  * const command = new CancelJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param CancelJobCommandInput - {@link CancelJobCommandInput}
@@ -67,6 +70,8 @@ export interface CancelJobCommandOutput extends __MetadataBearer {}
  * @throws {@link ValidationException} (client fault)
  *  <p>The request was invalid.</p>
  *
+ * @throws {@link DataExchangeServiceException}
+ * <p>Base exception class for all service exceptions from DataExchange service.</p>
  *
  */
 export class CancelJobCommand extends $Command<

@@ -36,29 +36,40 @@ export interface CreateConnectorDefinitionCommandOutput extends CreateConnectorD
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GreengrassClient, CreateConnectorDefinitionCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
- * // const { GreengrassClient, CreateConnectorDefinitionCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
+ * import { GreengrassClient, CreateConnectorDefinitionCommand } from '@aws-sdk/client-greengrass'; // ES Modules import
+ * // const { GreengrassClient, CreateConnectorDefinitionCommand } = require('@aws-sdk/client-greengrass'); // CommonJS import
  * const client = new GreengrassClient(config);
  * const input = { // CreateConnectorDefinitionRequest
- *   AmznClientToken: "STRING_VALUE",
+ *   AmznClientToken: 'STRING_VALUE',
  *   InitialVersion: { // ConnectorDefinitionVersion
  *     Connectors: [ // __listOfConnector
  *       { // Connector
- *         ConnectorArn: "STRING_VALUE", // required
- *         Id: "STRING_VALUE", // required
+ *         ConnectorArn: 'STRING_VALUE', // required
+ *         Id: 'STRING_VALUE', // required
  *         Parameters: { // __mapOf__string
- *           "<keys>": "STRING_VALUE",
+ *           '<keys>': 'STRING_VALUE',
  *         },
  *       },
  *     ],
  *   },
- *   Name: "STRING_VALUE",
+ *   Name: 'STRING_VALUE',
  *   tags: { // Tags
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateConnectorDefinitionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateConnectorDefinitionResponse
+ *   Arn: 'STRING_VALUE',
+ *   CreationTimestamp: 'STRING_VALUE',
+ *   Id: 'STRING_VALUE',
+ *   LastUpdatedTimestamp: 'STRING_VALUE',
+ *   LatestVersion: 'STRING_VALUE',
+ *   LatestVersionArn: 'STRING_VALUE',
+ *   Name: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateConnectorDefinitionCommandInput - {@link CreateConnectorDefinitionCommandInput}
@@ -70,6 +81,8 @@ export interface CreateConnectorDefinitionCommandOutput extends CreateConnectorD
  * @throws {@link BadRequestException} (client fault)
  *  General error information.
  *
+ * @throws {@link GreengrassServiceException}
+ * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
  */
 export class CreateConnectorDefinitionCommand extends $Command<

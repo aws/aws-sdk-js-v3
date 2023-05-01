@@ -39,14 +39,24 @@ export interface GetMasterAccountCommandOutput extends GetMasterAccountResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GuardDutyClient, GetMasterAccountCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
- * // const { GuardDutyClient, GetMasterAccountCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
+ * import { GuardDutyClient, GetMasterAccountCommand } from '@aws-sdk/client-guardduty'; // ES Modules import
+ * // const { GuardDutyClient, GetMasterAccountCommand } = require('@aws-sdk/client-guardduty'); // CommonJS import
  * const client = new GuardDutyClient(config);
  * const input = { // GetMasterAccountRequest
- *   DetectorId: "STRING_VALUE", // required
+ *   DetectorId: 'STRING_VALUE', // required
  * };
  * const command = new GetMasterAccountCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetMasterAccountResponse
+ *   Master: { // Master
+ *     AccountId: 'STRING_VALUE',
+ *     InvitationId: 'STRING_VALUE',
+ *     RelationshipStatus: 'STRING_VALUE',
+ *     InvitedAt: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetMasterAccountCommandInput - {@link GetMasterAccountCommandInput}
@@ -61,6 +71,8 @@ export interface GetMasterAccountCommandOutput extends GetMasterAccountResponse,
  * @throws {@link InternalServerErrorException} (server fault)
  *  <p>An internal server error exception object.</p>
  *
+ * @throws {@link GuardDutyServiceException}
+ * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
  */
 export class GetMasterAccountCommand extends $Command<

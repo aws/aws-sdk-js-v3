@@ -41,14 +41,56 @@ export interface DescribeStatementCommandOutput extends DescribeStatementRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RedshiftDataClient, DescribeStatementCommand } from "@aws-sdk/client-redshift-data"; // ES Modules import
- * // const { RedshiftDataClient, DescribeStatementCommand } = require("@aws-sdk/client-redshift-data"); // CommonJS import
+ * import { RedshiftDataClient, DescribeStatementCommand } from '@aws-sdk/client-redshift-data'; // ES Modules import
+ * // const { RedshiftDataClient, DescribeStatementCommand } = require('@aws-sdk/client-redshift-data'); // CommonJS import
  * const client = new RedshiftDataClient(config);
  * const input = { // DescribeStatementRequest
- *   Id: "STRING_VALUE", // required
+ *   Id: 'STRING_VALUE', // required
  * };
  * const command = new DescribeStatementCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeStatementResponse
+ *   Id: 'STRING_VALUE', // required
+ *   SecretArn: 'STRING_VALUE',
+ *   DbUser: 'STRING_VALUE',
+ *   Database: 'STRING_VALUE',
+ *   ClusterIdentifier: 'STRING_VALUE',
+ *   Duration: Number('long'),
+ *   Error: 'STRING_VALUE',
+ *   Status: 'STRING_VALUE',
+ *   CreatedAt: new Date('TIMESTAMP'),
+ *   UpdatedAt: new Date('TIMESTAMP'),
+ *   RedshiftPid: Number('long'),
+ *   HasResultSet: true || false,
+ *   QueryString: 'STRING_VALUE',
+ *   ResultRows: Number('long'),
+ *   ResultSize: Number('long'),
+ *   RedshiftQueryId: Number('long'),
+ *   QueryParameters: [ // SqlParametersList
+ *     { // SqlParameter
+ *       name: 'STRING_VALUE', // required
+ *       value: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ *   SubStatements: [ // SubStatementList
+ *     { // SubStatementData
+ *       Id: 'STRING_VALUE', // required
+ *       Duration: Number('long'),
+ *       Error: 'STRING_VALUE',
+ *       Status: 'STRING_VALUE',
+ *       CreatedAt: new Date('TIMESTAMP'),
+ *       UpdatedAt: new Date('TIMESTAMP'),
+ *       QueryString: 'STRING_VALUE',
+ *       ResultRows: Number('long'),
+ *       ResultSize: Number('long'),
+ *       RedshiftQueryId: Number('long'),
+ *       HasResultSet: true || false,
+ *     },
+ *   ],
+ *   WorkgroupName: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeStatementCommandInput - {@link DescribeStatementCommandInput}
@@ -66,6 +108,8 @@ export interface DescribeStatementCommandOutput extends DescribeStatementRespons
  * @throws {@link ValidationException} (client fault)
  *  <p>The Amazon Redshift Data API operation failed due to invalid input. </p>
  *
+ * @throws {@link RedshiftDataServiceException}
+ * <p>Base exception class for all service exceptions from RedshiftData service.</p>
  *
  */
 export class DescribeStatementCommand extends $Command<

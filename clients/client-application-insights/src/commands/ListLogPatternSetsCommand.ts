@@ -40,16 +40,25 @@ export interface ListLogPatternSetsCommandOutput extends ListLogPatternSetsRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ApplicationInsightsClient, ListLogPatternSetsCommand } from "@aws-sdk/client-application-insights"; // ES Modules import
- * // const { ApplicationInsightsClient, ListLogPatternSetsCommand } = require("@aws-sdk/client-application-insights"); // CommonJS import
+ * import { ApplicationInsightsClient, ListLogPatternSetsCommand } from '@aws-sdk/client-application-insights'; // ES Modules import
+ * // const { ApplicationInsightsClient, ListLogPatternSetsCommand } = require('@aws-sdk/client-application-insights'); // CommonJS import
  * const client = new ApplicationInsightsClient(config);
  * const input = { // ListLogPatternSetsRequest
- *   ResourceGroupName: "STRING_VALUE", // required
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   ResourceGroupName: 'STRING_VALUE', // required
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListLogPatternSetsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListLogPatternSetsResponse
+ *   ResourceGroupName: 'STRING_VALUE',
+ *   LogPatternSets: [ // LogPatternSetList
+ *     'STRING_VALUE',
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListLogPatternSetsCommandInput - {@link ListLogPatternSetsCommandInput}
@@ -67,6 +76,8 @@ export interface ListLogPatternSetsCommandOutput extends ListLogPatternSetsRespo
  * @throws {@link ValidationException} (client fault)
  *  <p>The parameter is not valid.</p>
  *
+ * @throws {@link ApplicationInsightsServiceException}
+ * <p>Base exception class for all service exceptions from ApplicationInsights service.</p>
  *
  */
 export class ListLogPatternSetsCommand extends $Command<

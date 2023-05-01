@@ -44,26 +44,31 @@ export interface PutBandwidthRateLimitScheduleCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BackupGatewayClient, PutBandwidthRateLimitScheduleCommand } from "@aws-sdk/client-backup-gateway"; // ES Modules import
- * // const { BackupGatewayClient, PutBandwidthRateLimitScheduleCommand } = require("@aws-sdk/client-backup-gateway"); // CommonJS import
+ * import { BackupGatewayClient, PutBandwidthRateLimitScheduleCommand } from '@aws-sdk/client-backup-gateway'; // ES Modules import
+ * // const { BackupGatewayClient, PutBandwidthRateLimitScheduleCommand } = require('@aws-sdk/client-backup-gateway'); // CommonJS import
  * const client = new BackupGatewayClient(config);
  * const input = { // PutBandwidthRateLimitScheduleInput
- *   GatewayArn: "STRING_VALUE", // required
+ *   GatewayArn: 'STRING_VALUE', // required
  *   BandwidthRateLimitIntervals: [ // BandwidthRateLimitIntervals // required
  *     { // BandwidthRateLimitInterval
- *       AverageUploadRateLimitInBitsPerSec: Number("long"),
- *       StartHourOfDay: Number("int"), // required
- *       EndHourOfDay: Number("int"), // required
- *       StartMinuteOfHour: Number("int"), // required
- *       EndMinuteOfHour: Number("int"), // required
+ *       AverageUploadRateLimitInBitsPerSec: Number('long'),
+ *       StartHourOfDay: Number('int'), // required
+ *       EndHourOfDay: Number('int'), // required
+ *       StartMinuteOfHour: Number('int'), // required
+ *       EndMinuteOfHour: Number('int'), // required
  *       DaysOfWeek: [ // DaysOfWeek // required
- *         Number("int"),
+ *         Number('int'),
  *       ],
  *     },
  *   ],
  * };
  * const command = new PutBandwidthRateLimitScheduleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutBandwidthRateLimitScheduleOutput
+ *   GatewayArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param PutBandwidthRateLimitScheduleCommandInput - {@link PutBandwidthRateLimitScheduleCommandInput}
@@ -85,6 +90,8 @@ export interface PutBandwidthRateLimitScheduleCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The operation did not succeed because a validation error occurred.</p>
  *
+ * @throws {@link BackupGatewayServiceException}
+ * <p>Base exception class for all service exceptions from BackupGateway service.</p>
  *
  */
 export class PutBandwidthRateLimitScheduleCommand extends $Command<

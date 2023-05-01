@@ -39,16 +39,26 @@ export interface DeleteInvitationsCommandOutput extends DeleteInvitationsRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SecurityHubClient, DeleteInvitationsCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
- * // const { SecurityHubClient, DeleteInvitationsCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
+ * import { SecurityHubClient, DeleteInvitationsCommand } from '@aws-sdk/client-securityhub'; // ES Modules import
+ * // const { SecurityHubClient, DeleteInvitationsCommand } = require('@aws-sdk/client-securityhub'); // CommonJS import
  * const client = new SecurityHubClient(config);
  * const input = { // DeleteInvitationsRequest
  *   AccountIds: [ // AccountIdList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new DeleteInvitationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteInvitationsResponse
+ *   UnprocessedAccounts: [ // ResultList
+ *     { // Result
+ *       AccountId: 'STRING_VALUE',
+ *       ProcessingResult: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DeleteInvitationsCommandInput - {@link DeleteInvitationsCommandInput}
@@ -74,6 +84,8 @@ export interface DeleteInvitationsCommandOutput extends DeleteInvitationsRespons
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The request was rejected because we can't find the specified resource.</p>
  *
+ * @throws {@link SecurityHubServiceException}
+ * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
  * @example To delete a custom insight
  * ```javascript

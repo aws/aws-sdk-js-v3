@@ -36,14 +36,17 @@ export interface FlushApiCacheCommandOutput extends FlushApiCacheResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppSyncClient, FlushApiCacheCommand } from "@aws-sdk/client-appsync"; // ES Modules import
- * // const { AppSyncClient, FlushApiCacheCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
+ * import { AppSyncClient, FlushApiCacheCommand } from '@aws-sdk/client-appsync'; // ES Modules import
+ * // const { AppSyncClient, FlushApiCacheCommand } = require('@aws-sdk/client-appsync'); // CommonJS import
  * const client = new AppSyncClient(config);
  * const input = { // FlushApiCacheRequest
- *   apiId: "STRING_VALUE", // required
+ *   apiId: 'STRING_VALUE', // required
  * };
  * const command = new FlushApiCacheCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param FlushApiCacheCommandInput - {@link FlushApiCacheCommandInput}
@@ -69,6 +72,8 @@ export interface FlushApiCacheCommandOutput extends FlushApiCacheResponse, __Met
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You aren't authorized to perform this operation.</p>
  *
+ * @throws {@link AppSyncServiceException}
+ * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
  */
 export class FlushApiCacheCommand extends $Command<

@@ -54,14 +54,17 @@ export interface DeleteQualificationTypeCommandOutput extends DeleteQualificatio
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MTurkClient, DeleteQualificationTypeCommand } from "@aws-sdk/client-mturk"; // ES Modules import
- * // const { MTurkClient, DeleteQualificationTypeCommand } = require("@aws-sdk/client-mturk"); // CommonJS import
+ * import { MTurkClient, DeleteQualificationTypeCommand } from '@aws-sdk/client-mturk'; // ES Modules import
+ * // const { MTurkClient, DeleteQualificationTypeCommand } = require('@aws-sdk/client-mturk'); // CommonJS import
  * const client = new MTurkClient(config);
  * const input = { // DeleteQualificationTypeRequest
- *   QualificationTypeId: "STRING_VALUE", // required
+ *   QualificationTypeId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteQualificationTypeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteQualificationTypeCommandInput - {@link DeleteQualificationTypeCommandInput}
@@ -76,6 +79,8 @@ export interface DeleteQualificationTypeCommandOutput extends DeleteQualificatio
  * @throws {@link ServiceFault} (server fault)
  *  <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
  *
+ * @throws {@link MTurkServiceException}
+ * <p>Base exception class for all service exceptions from MTurk service.</p>
  *
  */
 export class DeleteQualificationTypeCommand extends $Command<

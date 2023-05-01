@@ -37,20 +37,29 @@ export interface CreateParticipantCommandOutput extends CreateParticipantRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, CreateParticipantCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, CreateParticipantCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, CreateParticipantCommand } from '@aws-sdk/client-connect'; // ES Modules import
+ * // const { ConnectClient, CreateParticipantCommand } = require('@aws-sdk/client-connect'); // CommonJS import
  * const client = new ConnectClient(config);
  * const input = { // CreateParticipantRequest
- *   InstanceId: "STRING_VALUE", // required
- *   ContactId: "STRING_VALUE", // required
- *   ClientToken: "STRING_VALUE",
+ *   InstanceId: 'STRING_VALUE', // required
+ *   ContactId: 'STRING_VALUE', // required
+ *   ClientToken: 'STRING_VALUE',
  *   ParticipantDetails: { // ParticipantDetailsToAdd
- *     ParticipantRole: "AGENT" || "CUSTOMER" || "SYSTEM" || "CUSTOM_BOT",
- *     DisplayName: "STRING_VALUE",
+ *     ParticipantRole: 'AGENT' || 'CUSTOMER' || 'SYSTEM' || 'CUSTOM_BOT',
+ *     DisplayName: 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateParticipantCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateParticipantResponse
+ *   ParticipantCredentials: { // ParticipantTokenCredentials
+ *     ParticipantToken: 'STRING_VALUE',
+ *     Expiry: 'STRING_VALUE',
+ *   },
+ *   ParticipantId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateParticipantCommandInput - {@link CreateParticipantCommandInput}
@@ -77,6 +86,8 @@ export interface CreateParticipantCommandOutput extends CreateParticipantRespons
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class CreateParticipantCommand extends $Command<

@@ -40,14 +40,21 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoT1ClickProjectsClient, ListTagsForResourceCommand } from "@aws-sdk/client-iot-1click-projects"; // ES Modules import
- * // const { IoT1ClickProjectsClient, ListTagsForResourceCommand } = require("@aws-sdk/client-iot-1click-projects"); // CommonJS import
+ * import { IoT1ClickProjectsClient, ListTagsForResourceCommand } from '@aws-sdk/client-iot-1click-projects'; // ES Modules import
+ * // const { IoT1ClickProjectsClient, ListTagsForResourceCommand } = require('@aws-sdk/client-iot-1click-projects'); // CommonJS import
  * const client = new IoT1ClickProjectsClient(config);
  * const input = { // ListTagsForResourceRequest
- *   resourceArn: "STRING_VALUE", // required
+ *   resourceArn: 'STRING_VALUE', // required
  * };
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTagsForResourceResponse
+ *   tags: { // TagMap
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param ListTagsForResourceCommandInput - {@link ListTagsForResourceCommandInput}
@@ -65,6 +72,8 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p></p>
  *
+ * @throws {@link IoT1ClickProjectsServiceException}
+ * <p>Base exception class for all service exceptions from IoT1ClickProjects service.</p>
  *
  */
 export class ListTagsForResourceCommand extends $Command<

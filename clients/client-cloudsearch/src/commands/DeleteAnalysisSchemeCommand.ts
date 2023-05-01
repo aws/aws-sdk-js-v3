@@ -36,15 +36,39 @@ export interface DeleteAnalysisSchemeCommandOutput extends DeleteAnalysisSchemeR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudSearchClient, DeleteAnalysisSchemeCommand } from "@aws-sdk/client-cloudsearch"; // ES Modules import
- * // const { CloudSearchClient, DeleteAnalysisSchemeCommand } = require("@aws-sdk/client-cloudsearch"); // CommonJS import
+ * import { CloudSearchClient, DeleteAnalysisSchemeCommand } from '@aws-sdk/client-cloudsearch'; // ES Modules import
+ * // const { CloudSearchClient, DeleteAnalysisSchemeCommand } = require('@aws-sdk/client-cloudsearch'); // CommonJS import
  * const client = new CloudSearchClient(config);
  * const input = { // DeleteAnalysisSchemeRequest
- *   DomainName: "STRING_VALUE", // required
- *   AnalysisSchemeName: "STRING_VALUE", // required
+ *   DomainName: 'STRING_VALUE', // required
+ *   AnalysisSchemeName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteAnalysisSchemeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteAnalysisSchemeResponse
+ *   AnalysisScheme: { // AnalysisSchemeStatus
+ *     Options: { // AnalysisScheme
+ *       AnalysisSchemeName: 'STRING_VALUE', // required
+ *       AnalysisSchemeLanguage: 'STRING_VALUE', // required
+ *       AnalysisOptions: { // AnalysisOptions
+ *         Synonyms: 'STRING_VALUE',
+ *         Stopwords: 'STRING_VALUE',
+ *         StemmingDictionary: 'STRING_VALUE',
+ *         JapaneseTokenizationDictionary: 'STRING_VALUE',
+ *         AlgorithmicStemming: 'STRING_VALUE',
+ *       },
+ *     },
+ *     Status: { // OptionStatus
+ *       CreationDate: new Date('TIMESTAMP'), // required
+ *       UpdateDate: new Date('TIMESTAMP'), // required
+ *       UpdateVersion: Number('int'),
+ *       State: 'STRING_VALUE', // required
+ *       PendingDeletion: true || false,
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param DeleteAnalysisSchemeCommandInput - {@link DeleteAnalysisSchemeCommandInput}
@@ -69,6 +93,8 @@ export interface DeleteAnalysisSchemeCommandOutput extends DeleteAnalysisSchemeR
  * @throws {@link ValidationException} (client fault)
  *  <p>The request was rejected because it has invalid parameters.</p>
  *
+ * @throws {@link CloudSearchServiceException}
+ * <p>Base exception class for all service exceptions from CloudSearch service.</p>
  *
  */
 export class DeleteAnalysisSchemeCommand extends $Command<

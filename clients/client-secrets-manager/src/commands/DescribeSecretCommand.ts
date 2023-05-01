@@ -44,14 +44,57 @@ export interface DescribeSecretCommandOutput extends DescribeSecretResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SecretsManagerClient, DescribeSecretCommand } from "@aws-sdk/client-secrets-manager"; // ES Modules import
- * // const { SecretsManagerClient, DescribeSecretCommand } = require("@aws-sdk/client-secrets-manager"); // CommonJS import
+ * import { SecretsManagerClient, DescribeSecretCommand } from '@aws-sdk/client-secrets-manager'; // ES Modules import
+ * // const { SecretsManagerClient, DescribeSecretCommand } = require('@aws-sdk/client-secrets-manager'); // CommonJS import
  * const client = new SecretsManagerClient(config);
  * const input = { // DescribeSecretRequest
- *   SecretId: "STRING_VALUE", // required
+ *   SecretId: 'STRING_VALUE', // required
  * };
  * const command = new DescribeSecretCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeSecretResponse
+ *   ARN: 'STRING_VALUE',
+ *   Name: 'STRING_VALUE',
+ *   Description: 'STRING_VALUE',
+ *   KmsKeyId: 'STRING_VALUE',
+ *   RotationEnabled: true || false,
+ *   RotationLambdaARN: 'STRING_VALUE',
+ *   RotationRules: { // RotationRulesType
+ *     AutomaticallyAfterDays: Number('long'),
+ *     Duration: 'STRING_VALUE',
+ *     ScheduleExpression: 'STRING_VALUE',
+ *   },
+ *   LastRotatedDate: new Date('TIMESTAMP'),
+ *   LastChangedDate: new Date('TIMESTAMP'),
+ *   LastAccessedDate: new Date('TIMESTAMP'),
+ *   DeletedDate: new Date('TIMESTAMP'),
+ *   NextRotationDate: new Date('TIMESTAMP'),
+ *   Tags: [ // TagListType
+ *     { // Tag
+ *       Key: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   VersionIdsToStages: { // SecretVersionsToStagesMapType
+ *     '<keys>': [ // SecretVersionStagesType
+ *       'STRING_VALUE',
+ *     ],
+ *   },
+ *   OwningService: 'STRING_VALUE',
+ *   CreatedDate: new Date('TIMESTAMP'),
+ *   PrimaryRegion: 'STRING_VALUE',
+ *   ReplicationStatus: [ // ReplicationStatusListType
+ *     { // ReplicationStatusType
+ *       Region: 'STRING_VALUE',
+ *       KmsKeyId: 'STRING_VALUE',
+ *       Status: 'InSync' || 'Failed' || 'InProgress',
+ *       StatusMessage: 'STRING_VALUE',
+ *       LastAccessedDate: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeSecretCommandInput - {@link DescribeSecretCommandInput}
@@ -69,6 +112,8 @@ export interface DescribeSecretCommandOutput extends DescribeSecretResponse, __M
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Secrets Manager can't find the resource that you asked for.</p>
  *
+ * @throws {@link SecretsManagerServiceException}
+ * <p>Base exception class for all service exceptions from SecretsManager service.</p>
  *
  * @example To retrieve the details of a secret
  * ```javascript

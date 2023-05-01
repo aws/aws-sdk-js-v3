@@ -40,16 +40,89 @@ export interface ListAssociationVersionsCommandOutput extends ListAssociationVer
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMClient, ListAssociationVersionsCommand } from "@aws-sdk/client-ssm"; // ES Modules import
- * // const { SSMClient, ListAssociationVersionsCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * import { SSMClient, ListAssociationVersionsCommand } from '@aws-sdk/client-ssm'; // ES Modules import
+ * // const { SSMClient, ListAssociationVersionsCommand } = require('@aws-sdk/client-ssm'); // CommonJS import
  * const client = new SSMClient(config);
  * const input = { // ListAssociationVersionsRequest
- *   AssociationId: "STRING_VALUE", // required
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   AssociationId: 'STRING_VALUE', // required
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListAssociationVersionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListAssociationVersionsResult
+ *   AssociationVersions: [ // AssociationVersionList
+ *     { // AssociationVersionInfo
+ *       AssociationId: 'STRING_VALUE',
+ *       AssociationVersion: 'STRING_VALUE',
+ *       CreatedDate: new Date('TIMESTAMP'),
+ *       Name: 'STRING_VALUE',
+ *       DocumentVersion: 'STRING_VALUE',
+ *       Parameters: { // Parameters
+ *         '<keys>': [ // ParameterValueList
+ *           'STRING_VALUE',
+ *         ],
+ *       },
+ *       Targets: [ // Targets
+ *         { // Target
+ *           Key: 'STRING_VALUE',
+ *           Values: [ // TargetValues
+ *             'STRING_VALUE',
+ *           ],
+ *         },
+ *       ],
+ *       ScheduleExpression: 'STRING_VALUE',
+ *       OutputLocation: { // InstanceAssociationOutputLocation
+ *         S3Location: { // S3OutputLocation
+ *           OutputS3Region: 'STRING_VALUE',
+ *           OutputS3BucketName: 'STRING_VALUE',
+ *           OutputS3KeyPrefix: 'STRING_VALUE',
+ *         },
+ *       },
+ *       AssociationName: 'STRING_VALUE',
+ *       MaxErrors: 'STRING_VALUE',
+ *       MaxConcurrency: 'STRING_VALUE',
+ *       ComplianceSeverity: 'CRITICAL' || 'HIGH' || 'MEDIUM' || 'LOW' || 'UNSPECIFIED',
+ *       SyncCompliance: 'AUTO' || 'MANUAL',
+ *       ApplyOnlyAtCronInterval: true || false,
+ *       CalendarNames: [ // CalendarNameOrARNList
+ *         'STRING_VALUE',
+ *       ],
+ *       TargetLocations: [ // TargetLocations
+ *         { // TargetLocation
+ *           Accounts: [ // Accounts
+ *             'STRING_VALUE',
+ *           ],
+ *           Regions: [ // Regions
+ *             'STRING_VALUE',
+ *           ],
+ *           TargetLocationMaxConcurrency: 'STRING_VALUE',
+ *           TargetLocationMaxErrors: 'STRING_VALUE',
+ *           ExecutionRoleName: 'STRING_VALUE',
+ *           TargetLocationAlarmConfiguration: { // AlarmConfiguration
+ *             IgnorePollAlarmFailure: true || false,
+ *             Alarms: [ // AlarmList // required
+ *               { // Alarm
+ *                 Name: 'STRING_VALUE', // required
+ *               },
+ *             ],
+ *           },
+ *         },
+ *       ],
+ *       ScheduleOffset: Number('int'),
+ *       TargetMaps: [ // TargetMaps
+ *         { // TargetMap
+ *           '<keys>': [ // TargetMapValueList
+ *             'STRING_VALUE',
+ *           ],
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListAssociationVersionsCommandInput - {@link ListAssociationVersionsCommandInput}
@@ -67,6 +140,8 @@ export interface ListAssociationVersionsCommandOutput extends ListAssociationVer
  * @throws {@link InvalidNextToken} (client fault)
  *  <p>The specified token isn't valid.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class ListAssociationVersionsCommand extends $Command<

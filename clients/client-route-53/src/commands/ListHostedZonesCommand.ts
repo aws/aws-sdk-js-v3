@@ -42,16 +42,40 @@ export interface ListHostedZonesCommandOutput extends ListHostedZonesResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Route53Client, ListHostedZonesCommand } from "@aws-sdk/client-route-53"; // ES Modules import
- * // const { Route53Client, ListHostedZonesCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
+ * import { Route53Client, ListHostedZonesCommand } from '@aws-sdk/client-route-53'; // ES Modules import
+ * // const { Route53Client, ListHostedZonesCommand } = require('@aws-sdk/client-route-53'); // CommonJS import
  * const client = new Route53Client(config);
  * const input = { // ListHostedZonesRequest
- *   Marker: "STRING_VALUE",
- *   MaxItems: Number("int"),
- *   DelegationSetId: "STRING_VALUE",
+ *   Marker: 'STRING_VALUE',
+ *   MaxItems: Number('int'),
+ *   DelegationSetId: 'STRING_VALUE',
  * };
  * const command = new ListHostedZonesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListHostedZonesResponse
+ *   HostedZones: [ // HostedZones // required
+ *     { // HostedZone
+ *       Id: 'STRING_VALUE', // required
+ *       Name: 'STRING_VALUE', // required
+ *       CallerReference: 'STRING_VALUE', // required
+ *       Config: { // HostedZoneConfig
+ *         Comment: 'STRING_VALUE',
+ *         PrivateZone: true || false,
+ *       },
+ *       ResourceRecordSetCount: Number('long'),
+ *       LinkedService: { // LinkedService
+ *         ServicePrincipal: 'STRING_VALUE',
+ *         Description: 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ *   Marker: 'STRING_VALUE', // required
+ *   IsTruncated: true || false, // required
+ *   NextMarker: 'STRING_VALUE',
+ *   MaxItems: Number('int'), // required
+ * };
+ *
  * ```
  *
  * @param ListHostedZonesCommandInput - {@link ListHostedZonesCommandInput}
@@ -69,6 +93,8 @@ export interface ListHostedZonesCommandOutput extends ListHostedZonesResponse, _
  * @throws {@link NoSuchDelegationSet} (client fault)
  *  <p>A reusable delegation set with the specified ID does not exist.</p>
  *
+ * @throws {@link Route53ServiceException}
+ * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
  */
 export class ListHostedZonesCommand extends $Command<

@@ -40,17 +40,20 @@ export interface RemoveTagsCommandOutput extends RemoveTagsOutput, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EMRClient, RemoveTagsCommand } from "@aws-sdk/client-emr"; // ES Modules import
- * // const { EMRClient, RemoveTagsCommand } = require("@aws-sdk/client-emr"); // CommonJS import
+ * import { EMRClient, RemoveTagsCommand } from '@aws-sdk/client-emr'; // ES Modules import
+ * // const { EMRClient, RemoveTagsCommand } = require('@aws-sdk/client-emr'); // CommonJS import
  * const client = new EMRClient(config);
  * const input = { // RemoveTagsInput
- *   ResourceId: "STRING_VALUE", // required
+ *   ResourceId: 'STRING_VALUE', // required
  *   TagKeys: [ // StringList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new RemoveTagsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param RemoveTagsCommandInput - {@link RemoveTagsCommandInput}
@@ -66,6 +69,8 @@ export interface RemoveTagsCommandOutput extends RemoveTagsOutput, __MetadataBea
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception occurs when there is something wrong with user input.</p>
  *
+ * @throws {@link EMRServiceException}
+ * <p>Base exception class for all service exceptions from EMR service.</p>
  *
  */
 export class RemoveTagsCommand extends $Command<

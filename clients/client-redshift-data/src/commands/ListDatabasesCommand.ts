@@ -72,20 +72,28 @@ export interface ListDatabasesCommandOutput extends ListDatabasesResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RedshiftDataClient, ListDatabasesCommand } from "@aws-sdk/client-redshift-data"; // ES Modules import
- * // const { RedshiftDataClient, ListDatabasesCommand } = require("@aws-sdk/client-redshift-data"); // CommonJS import
+ * import { RedshiftDataClient, ListDatabasesCommand } from '@aws-sdk/client-redshift-data'; // ES Modules import
+ * // const { RedshiftDataClient, ListDatabasesCommand } = require('@aws-sdk/client-redshift-data'); // CommonJS import
  * const client = new RedshiftDataClient(config);
  * const input = { // ListDatabasesRequest
- *   ClusterIdentifier: "STRING_VALUE",
- *   Database: "STRING_VALUE", // required
- *   SecretArn: "STRING_VALUE",
- *   DbUser: "STRING_VALUE",
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
- *   WorkgroupName: "STRING_VALUE",
+ *   ClusterIdentifier: 'STRING_VALUE',
+ *   Database: 'STRING_VALUE', // required
+ *   SecretArn: 'STRING_VALUE',
+ *   DbUser: 'STRING_VALUE',
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
+ *   WorkgroupName: 'STRING_VALUE',
  * };
  * const command = new ListDatabasesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListDatabasesResponse
+ *   Databases: [ // DatabaseList
+ *     'STRING_VALUE',
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListDatabasesCommandInput - {@link ListDatabasesCommandInput}
@@ -103,6 +111,8 @@ export interface ListDatabasesCommandOutput extends ListDatabasesResponse, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>The Amazon Redshift Data API operation failed due to invalid input. </p>
  *
+ * @throws {@link RedshiftDataServiceException}
+ * <p>Base exception class for all service exceptions from RedshiftData service.</p>
  *
  */
 export class ListDatabasesCommand extends $Command<

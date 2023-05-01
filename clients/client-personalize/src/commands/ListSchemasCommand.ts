@@ -38,15 +38,29 @@ export interface ListSchemasCommandOutput extends ListSchemasResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PersonalizeClient, ListSchemasCommand } from "@aws-sdk/client-personalize"; // ES Modules import
- * // const { PersonalizeClient, ListSchemasCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
+ * import { PersonalizeClient, ListSchemasCommand } from '@aws-sdk/client-personalize'; // ES Modules import
+ * // const { PersonalizeClient, ListSchemasCommand } = require('@aws-sdk/client-personalize'); // CommonJS import
  * const client = new PersonalizeClient(config);
  * const input = { // ListSchemasRequest
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new ListSchemasCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListSchemasResponse
+ *   schemas: [ // Schemas
+ *     { // DatasetSchemaSummary
+ *       name: 'STRING_VALUE',
+ *       schemaArn: 'STRING_VALUE',
+ *       creationDateTime: new Date('TIMESTAMP'),
+ *       lastUpdatedDateTime: new Date('TIMESTAMP'),
+ *       domain: 'ECOMMERCE' || 'VIDEO_ON_DEMAND',
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListSchemasCommandInput - {@link ListSchemasCommandInput}
@@ -58,6 +72,8 @@ export interface ListSchemasCommandOutput extends ListSchemasResponse, __Metadat
  * @throws {@link InvalidNextTokenException} (client fault)
  *  <p>The token is not valid.</p>
  *
+ * @throws {@link PersonalizeServiceException}
+ * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
  */
 export class ListSchemasCommand extends $Command<

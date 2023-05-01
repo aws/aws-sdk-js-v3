@@ -39,16 +39,21 @@ export interface DetachClassicLinkVpcCommandOutput extends DetachClassicLinkVpcR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, DetachClassicLinkVpcCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, DetachClassicLinkVpcCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, DetachClassicLinkVpcCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, DetachClassicLinkVpcCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // DetachClassicLinkVpcRequest
  *   DryRun: true || false,
- *   InstanceId: "STRING_VALUE", // required
- *   VpcId: "STRING_VALUE", // required
+ *   InstanceId: 'STRING_VALUE', // required
+ *   VpcId: 'STRING_VALUE', // required
  * };
  * const command = new DetachClassicLinkVpcCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DetachClassicLinkVpcResult
+ *   Return: true || false,
+ * };
+ *
  * ```
  *
  * @param DetachClassicLinkVpcCommandInput - {@link DetachClassicLinkVpcCommandInput}
@@ -57,6 +62,8 @@ export interface DetachClassicLinkVpcCommandOutput extends DetachClassicLinkVpcR
  * @see {@link DetachClassicLinkVpcCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class DetachClassicLinkVpcCommand extends $Command<

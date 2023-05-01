@@ -39,24 +39,50 @@ export interface BatchGetImageCommandOutput extends BatchGetImageResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ECRClient, BatchGetImageCommand } from "@aws-sdk/client-ecr"; // ES Modules import
- * // const { ECRClient, BatchGetImageCommand } = require("@aws-sdk/client-ecr"); // CommonJS import
+ * import { ECRClient, BatchGetImageCommand } from '@aws-sdk/client-ecr'; // ES Modules import
+ * // const { ECRClient, BatchGetImageCommand } = require('@aws-sdk/client-ecr'); // CommonJS import
  * const client = new ECRClient(config);
  * const input = { // BatchGetImageRequest
- *   registryId: "STRING_VALUE",
- *   repositoryName: "STRING_VALUE", // required
+ *   registryId: 'STRING_VALUE',
+ *   repositoryName: 'STRING_VALUE', // required
  *   imageIds: [ // ImageIdentifierList // required
  *     { // ImageIdentifier
- *       imageDigest: "STRING_VALUE",
- *       imageTag: "STRING_VALUE",
+ *       imageDigest: 'STRING_VALUE',
+ *       imageTag: 'STRING_VALUE',
  *     },
  *   ],
  *   acceptedMediaTypes: [ // MediaTypeList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new BatchGetImageCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BatchGetImageResponse
+ *   images: [ // ImageList
+ *     { // Image
+ *       registryId: 'STRING_VALUE',
+ *       repositoryName: 'STRING_VALUE',
+ *       imageId: { // ImageIdentifier
+ *         imageDigest: 'STRING_VALUE',
+ *         imageTag: 'STRING_VALUE',
+ *       },
+ *       imageManifest: 'STRING_VALUE',
+ *       imageManifestMediaType: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   failures: [ // ImageFailureList
+ *     { // ImageFailure
+ *       imageId: {
+ *         imageDigest: 'STRING_VALUE',
+ *         imageTag: 'STRING_VALUE',
+ *       },
+ *       failureCode: 'STRING_VALUE',
+ *       failureReason: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param BatchGetImageCommandInput - {@link BatchGetImageCommandInput}
@@ -76,6 +102,8 @@ export interface BatchGetImageCommandOutput extends BatchGetImageResponse, __Met
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server-side issue.</p>
  *
+ * @throws {@link ECRServiceException}
+ * <p>Base exception class for all service exceptions from ECR service.</p>
  *
  * @example To obtain multiple images in a single request
  * ```javascript

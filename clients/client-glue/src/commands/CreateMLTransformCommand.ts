@@ -46,52 +46,57 @@ export interface CreateMLTransformCommandOutput extends CreateMLTransformRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlueClient, CreateMLTransformCommand } from "@aws-sdk/client-glue"; // ES Modules import
- * // const { GlueClient, CreateMLTransformCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * import { GlueClient, CreateMLTransformCommand } from '@aws-sdk/client-glue'; // ES Modules import
+ * // const { GlueClient, CreateMLTransformCommand } = require('@aws-sdk/client-glue'); // CommonJS import
  * const client = new GlueClient(config);
  * const input = { // CreateMLTransformRequest
- *   Name: "STRING_VALUE", // required
- *   Description: "STRING_VALUE",
+ *   Name: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE',
  *   InputRecordTables: [ // GlueTables // required
  *     { // GlueTable
- *       DatabaseName: "STRING_VALUE", // required
- *       TableName: "STRING_VALUE", // required
- *       CatalogId: "STRING_VALUE",
- *       ConnectionName: "STRING_VALUE",
+ *       DatabaseName: 'STRING_VALUE', // required
+ *       TableName: 'STRING_VALUE', // required
+ *       CatalogId: 'STRING_VALUE',
+ *       ConnectionName: 'STRING_VALUE',
  *       AdditionalOptions: { // GlueTableAdditionalOptions
- *         "<keys>": "STRING_VALUE",
+ *         '<keys>': 'STRING_VALUE',
  *       },
  *     },
  *   ],
  *   Parameters: { // TransformParameters
- *     TransformType: "FIND_MATCHES", // required
+ *     TransformType: 'FIND_MATCHES', // required
  *     FindMatchesParameters: { // FindMatchesParameters
- *       PrimaryKeyColumnName: "STRING_VALUE",
- *       PrecisionRecallTradeoff: Number("double"),
- *       AccuracyCostTradeoff: Number("double"),
+ *       PrimaryKeyColumnName: 'STRING_VALUE',
+ *       PrecisionRecallTradeoff: Number('double'),
+ *       AccuracyCostTradeoff: Number('double'),
  *       EnforceProvidedLabels: true || false,
  *     },
  *   },
- *   Role: "STRING_VALUE", // required
- *   GlueVersion: "STRING_VALUE",
- *   MaxCapacity: Number("double"),
- *   WorkerType: "Standard" || "G.1X" || "G.2X" || "G.025X",
- *   NumberOfWorkers: Number("int"),
- *   Timeout: Number("int"),
- *   MaxRetries: Number("int"),
+ *   Role: 'STRING_VALUE', // required
+ *   GlueVersion: 'STRING_VALUE',
+ *   MaxCapacity: Number('double'),
+ *   WorkerType: 'Standard' || 'G.1X' || 'G.2X' || 'G.025X',
+ *   NumberOfWorkers: Number('int'),
+ *   Timeout: Number('int'),
+ *   MaxRetries: Number('int'),
  *   Tags: { // TagsMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  *   TransformEncryption: { // TransformEncryption
  *     MlUserDataEncryption: { // MLUserDataEncryption
- *       MlUserDataEncryptionMode: "DISABLED" || "SSE-KMS", // required
- *       KmsKeyId: "STRING_VALUE",
+ *       MlUserDataEncryptionMode: 'DISABLED' || 'SSE-KMS', // required
+ *       KmsKeyId: 'STRING_VALUE',
  *     },
- *     TaskRunSecurityConfigurationName: "STRING_VALUE",
+ *     TaskRunSecurityConfigurationName: 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateMLTransformCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateMLTransformResponse
+ *   TransformId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateMLTransformCommandInput - {@link CreateMLTransformCommandInput}
@@ -121,6 +126,8 @@ export interface CreateMLTransformCommandOutput extends CreateMLTransformRespons
  * @throws {@link ResourceNumberLimitExceededException} (client fault)
  *  <p>A resource numerical limit was exceeded.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class CreateMLTransformCommand extends $Command<

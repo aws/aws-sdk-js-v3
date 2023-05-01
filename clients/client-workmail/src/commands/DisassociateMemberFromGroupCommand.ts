@@ -38,16 +38,19 @@ export interface DisassociateMemberFromGroupCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkMailClient, DisassociateMemberFromGroupCommand } from "@aws-sdk/client-workmail"; // ES Modules import
- * // const { WorkMailClient, DisassociateMemberFromGroupCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
+ * import { WorkMailClient, DisassociateMemberFromGroupCommand } from '@aws-sdk/client-workmail'; // ES Modules import
+ * // const { WorkMailClient, DisassociateMemberFromGroupCommand } = require('@aws-sdk/client-workmail'); // CommonJS import
  * const client = new WorkMailClient(config);
  * const input = { // DisassociateMemberFromGroupRequest
- *   OrganizationId: "STRING_VALUE", // required
- *   GroupId: "STRING_VALUE", // required
- *   MemberId: "STRING_VALUE", // required
+ *   OrganizationId: 'STRING_VALUE', // required
+ *   GroupId: 'STRING_VALUE', // required
+ *   MemberId: 'STRING_VALUE', // required
  * };
  * const command = new DisassociateMemberFromGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DisassociateMemberFromGroupCommandInput - {@link DisassociateMemberFromGroupCommandInput}
@@ -84,6 +87,8 @@ export interface DisassociateMemberFromGroupCommandOutput
  * @throws {@link UnsupportedOperationException} (client fault)
  *  <p>You can't perform a write operation against a read-only directory.</p>
  *
+ * @throws {@link WorkMailServiceException}
+ * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
  */
 export class DisassociateMemberFromGroupCommand extends $Command<

@@ -41,15 +41,27 @@ export interface ListProfileObjectTypeTemplatesCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CustomerProfilesClient, ListProfileObjectTypeTemplatesCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
- * // const { CustomerProfilesClient, ListProfileObjectTypeTemplatesCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
+ * import { CustomerProfilesClient, ListProfileObjectTypeTemplatesCommand } from '@aws-sdk/client-customer-profiles'; // ES Modules import
+ * // const { CustomerProfilesClient, ListProfileObjectTypeTemplatesCommand } = require('@aws-sdk/client-customer-profiles'); // CommonJS import
  * const client = new CustomerProfilesClient(config);
  * const input = { // ListProfileObjectTypeTemplatesRequest
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListProfileObjectTypeTemplatesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListProfileObjectTypeTemplatesResponse
+ *   Items: [ // ProfileObjectTypeTemplateList
+ *     { // ListProfileObjectTypeTemplateItem
+ *       TemplateId: 'STRING_VALUE',
+ *       SourceName: 'STRING_VALUE',
+ *       SourceObject: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListProfileObjectTypeTemplatesCommandInput - {@link ListProfileObjectTypeTemplatesCommandInput}
@@ -73,6 +85,8 @@ export interface ListProfileObjectTypeTemplatesCommandOutput
  * @throws {@link ThrottlingException} (client fault)
  *  <p>You exceeded the maximum number of requests.</p>
  *
+ * @throws {@link CustomerProfilesServiceException}
+ * <p>Base exception class for all service exceptions from CustomerProfiles service.</p>
  *
  */
 export class ListProfileObjectTypeTemplatesCommand extends $Command<

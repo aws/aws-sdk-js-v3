@@ -37,16 +37,19 @@ export interface RevokeSignatureCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SignerClient, RevokeSignatureCommand } from "@aws-sdk/client-signer"; // ES Modules import
- * // const { SignerClient, RevokeSignatureCommand } = require("@aws-sdk/client-signer"); // CommonJS import
+ * import { SignerClient, RevokeSignatureCommand } from '@aws-sdk/client-signer'; // ES Modules import
+ * // const { SignerClient, RevokeSignatureCommand } = require('@aws-sdk/client-signer'); // CommonJS import
  * const client = new SignerClient(config);
  * const input = { // RevokeSignatureRequest
- *   jobId: "STRING_VALUE", // required
- *   jobOwner: "STRING_VALUE",
- *   reason: "STRING_VALUE", // required
+ *   jobId: 'STRING_VALUE', // required
+ *   jobOwner: 'STRING_VALUE',
+ *   reason: 'STRING_VALUE', // required
  * };
  * const command = new RevokeSignatureCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param RevokeSignatureCommandInput - {@link RevokeSignatureCommandInput}
@@ -71,6 +74,8 @@ export interface RevokeSignatureCommandOutput extends __MetadataBearer {}
  * @throws {@link ValidationException} (client fault)
  *  <p>You signing certificate could not be validated.</p>
  *
+ * @throws {@link SignerServiceException}
+ * <p>Base exception class for all service exceptions from Signer service.</p>
  *
  */
 export class RevokeSignatureCommand extends $Command<

@@ -36,14 +36,38 @@ export interface GetAllowListCommandOutput extends GetAllowListResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Macie2Client, GetAllowListCommand } from "@aws-sdk/client-macie2"; // ES Modules import
- * // const { Macie2Client, GetAllowListCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
+ * import { Macie2Client, GetAllowListCommand } from '@aws-sdk/client-macie2'; // ES Modules import
+ * // const { Macie2Client, GetAllowListCommand } = require('@aws-sdk/client-macie2'); // CommonJS import
  * const client = new Macie2Client(config);
  * const input = { // GetAllowListRequest
- *   id: "STRING_VALUE", // required
+ *   id: 'STRING_VALUE', // required
  * };
  * const command = new GetAllowListCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetAllowListResponse
+ *   arn: 'STRING_VALUE',
+ *   createdAt: new Date('TIMESTAMP'),
+ *   criteria: { // AllowListCriteria
+ *     regex: 'STRING_VALUE',
+ *     s3WordsList: { // S3WordsList
+ *       bucketName: 'STRING_VALUE', // required
+ *       objectKey: 'STRING_VALUE', // required
+ *     },
+ *   },
+ *   description: 'STRING_VALUE',
+ *   id: 'STRING_VALUE',
+ *   name: 'STRING_VALUE',
+ *   status: { // AllowListStatus
+ *     code: 'OK' || 'S3_OBJECT_NOT_FOUND' || 'S3_USER_ACCESS_DENIED' || 'S3_OBJECT_ACCESS_DENIED' || 'S3_THROTTLED' || 'S3_OBJECT_OVERSIZE' || 'S3_OBJECT_EMPTY' || 'UNKNOWN_ERROR', // required
+ *     description: 'STRING_VALUE',
+ *   },
+ *   tags: { // TagMap
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ *   updatedAt: new Date('TIMESTAMP'),
+ * };
+ *
  * ```
  *
  * @param GetAllowListCommandInput - {@link GetAllowListCommandInput}
@@ -67,6 +91,8 @@ export interface GetAllowListCommandOutput extends GetAllowListResponse, __Metad
  * @throws {@link ValidationException} (client fault)
  *  <p>Provides information about an error that occurred due to a syntax error in a request.</p>
  *
+ * @throws {@link Macie2ServiceException}
+ * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
  */
 export class GetAllowListCommand extends $Command<

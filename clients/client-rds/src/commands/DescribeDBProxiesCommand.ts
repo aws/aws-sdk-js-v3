@@ -36,24 +36,61 @@ export interface DescribeDBProxiesCommandOutput extends DescribeDBProxiesRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RDSClient, DescribeDBProxiesCommand } from "@aws-sdk/client-rds"; // ES Modules import
- * // const { RDSClient, DescribeDBProxiesCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * import { RDSClient, DescribeDBProxiesCommand } from '@aws-sdk/client-rds'; // ES Modules import
+ * // const { RDSClient, DescribeDBProxiesCommand } = require('@aws-sdk/client-rds'); // CommonJS import
  * const client = new RDSClient(config);
  * const input = { // DescribeDBProxiesRequest
- *   DBProxyName: "STRING_VALUE",
+ *   DBProxyName: 'STRING_VALUE',
  *   Filters: [ // FilterList
  *     { // Filter
- *       Name: "STRING_VALUE", // required
+ *       Name: 'STRING_VALUE', // required
  *       Values: [ // FilterValueList // required
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
- *   Marker: "STRING_VALUE",
- *   MaxRecords: Number("int"),
+ *   Marker: 'STRING_VALUE',
+ *   MaxRecords: Number('int'),
  * };
  * const command = new DescribeDBProxiesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeDBProxiesResponse
+ *   DBProxies: [ // DBProxyList
+ *     { // DBProxy
+ *       DBProxyName: 'STRING_VALUE',
+ *       DBProxyArn: 'STRING_VALUE',
+ *       Status: 'available' || 'modifying' || 'incompatible-network' || 'insufficient-resource-limits' || 'creating' || 'deleting' || 'suspended' || 'suspending' || 'reactivating',
+ *       EngineFamily: 'STRING_VALUE',
+ *       VpcId: 'STRING_VALUE',
+ *       VpcSecurityGroupIds: [ // StringList
+ *         'STRING_VALUE',
+ *       ],
+ *       VpcSubnetIds: [
+ *         'STRING_VALUE',
+ *       ],
+ *       Auth: [ // UserAuthConfigInfoList
+ *         { // UserAuthConfigInfo
+ *           Description: 'STRING_VALUE',
+ *           UserName: 'STRING_VALUE',
+ *           AuthScheme: 'SECRETS',
+ *           SecretArn: 'STRING_VALUE',
+ *           IAMAuth: 'DISABLED' || 'REQUIRED' || 'ENABLED',
+ *           ClientPasswordAuthType: 'MYSQL_NATIVE_PASSWORD' || 'POSTGRES_SCRAM_SHA_256' || 'POSTGRES_MD5' || 'SQL_SERVER_AUTHENTICATION',
+ *         },
+ *       ],
+ *       RoleArn: 'STRING_VALUE',
+ *       Endpoint: 'STRING_VALUE',
+ *       RequireTLS: true || false,
+ *       IdleClientTimeout: Number('int'),
+ *       DebugLogging: true || false,
+ *       CreatedDate: new Date('TIMESTAMP'),
+ *       UpdatedDate: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   Marker: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeDBProxiesCommandInput - {@link DescribeDBProxiesCommandInput}
@@ -65,6 +102,8 @@ export interface DescribeDBProxiesCommandOutput extends DescribeDBProxiesRespons
  * @throws {@link DBProxyNotFoundFault} (client fault)
  *  <p>The specified proxy name doesn't correspond to a proxy owned by your Amazon Web Services account in the specified Amazon Web Services Region.</p>
  *
+ * @throws {@link RDSServiceException}
+ * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  */
 export class DescribeDBProxiesCommand extends $Command<

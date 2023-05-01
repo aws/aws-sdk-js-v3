@@ -51,16 +51,35 @@ export interface ListControlDomainInsightsByAssessmentCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AuditManagerClient, ListControlDomainInsightsByAssessmentCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
- * // const { AuditManagerClient, ListControlDomainInsightsByAssessmentCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import
+ * import { AuditManagerClient, ListControlDomainInsightsByAssessmentCommand } from '@aws-sdk/client-auditmanager'; // ES Modules import
+ * // const { AuditManagerClient, ListControlDomainInsightsByAssessmentCommand } = require('@aws-sdk/client-auditmanager'); // CommonJS import
  * const client = new AuditManagerClient(config);
  * const input = { // ListControlDomainInsightsByAssessmentRequest
- *   assessmentId: "STRING_VALUE", // required
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   assessmentId: 'STRING_VALUE', // required
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new ListControlDomainInsightsByAssessmentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListControlDomainInsightsByAssessmentResponse
+ *   controlDomainInsights: [ // ControlDomainInsightsList
+ *     { // ControlDomainInsights
+ *       name: 'STRING_VALUE',
+ *       id: 'STRING_VALUE',
+ *       controlsCountByNoncompliantEvidence: Number('int'),
+ *       totalControlsCount: Number('int'),
+ *       evidenceInsights: { // EvidenceInsights
+ *         noncompliantEvidenceCount: Number('int'),
+ *         compliantEvidenceCount: Number('int'),
+ *         inconclusiveEvidenceCount: Number('int'),
+ *       },
+ *       lastUpdated: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListControlDomainInsightsByAssessmentCommandInput - {@link ListControlDomainInsightsByAssessmentCommandInput}
@@ -83,6 +102,8 @@ export interface ListControlDomainInsightsByAssessmentCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p> The request has invalid or missing parameters. </p>
  *
+ * @throws {@link AuditManagerServiceException}
+ * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
  */
 export class ListControlDomainInsightsByAssessmentCommand extends $Command<

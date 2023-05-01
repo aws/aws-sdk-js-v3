@@ -45,21 +45,29 @@ export interface SearchAvailablePhoneNumbersCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeSDKVoiceClient, SearchAvailablePhoneNumbersCommand } from "@aws-sdk/client-chime-sdk-voice"; // ES Modules import
- * // const { ChimeSDKVoiceClient, SearchAvailablePhoneNumbersCommand } = require("@aws-sdk/client-chime-sdk-voice"); // CommonJS import
+ * import { ChimeSDKVoiceClient, SearchAvailablePhoneNumbersCommand } from '@aws-sdk/client-chime-sdk-voice'; // ES Modules import
+ * // const { ChimeSDKVoiceClient, SearchAvailablePhoneNumbersCommand } = require('@aws-sdk/client-chime-sdk-voice'); // CommonJS import
  * const client = new ChimeSDKVoiceClient(config);
  * const input = { // SearchAvailablePhoneNumbersRequest
- *   AreaCode: "STRING_VALUE",
- *   City: "STRING_VALUE",
- *   Country: "STRING_VALUE",
- *   State: "STRING_VALUE",
- *   TollFreePrefix: "STRING_VALUE",
- *   PhoneNumberType: "Local" || "TollFree",
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   AreaCode: 'STRING_VALUE',
+ *   City: 'STRING_VALUE',
+ *   Country: 'STRING_VALUE',
+ *   State: 'STRING_VALUE',
+ *   TollFreePrefix: 'STRING_VALUE',
+ *   PhoneNumberType: 'Local' || 'TollFree',
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new SearchAvailablePhoneNumbersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SearchAvailablePhoneNumbersResponse
+ *   E164PhoneNumbers: [ // E164PhoneNumberList
+ *     'STRING_VALUE',
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param SearchAvailablePhoneNumbersCommandInput - {@link SearchAvailablePhoneNumbersCommandInput}
@@ -89,6 +97,8 @@ export interface SearchAvailablePhoneNumbersCommandOutput
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client isn't authorized to request a resource.</p>
  *
+ * @throws {@link ChimeSDKVoiceServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
  */
 export class SearchAvailablePhoneNumbersCommand extends $Command<

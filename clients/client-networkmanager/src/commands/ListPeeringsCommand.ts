@@ -36,19 +36,43 @@ export interface ListPeeringsCommandOutput extends ListPeeringsResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { NetworkManagerClient, ListPeeringsCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
- * // const { NetworkManagerClient, ListPeeringsCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
+ * import { NetworkManagerClient, ListPeeringsCommand } from '@aws-sdk/client-networkmanager'; // ES Modules import
+ * // const { NetworkManagerClient, ListPeeringsCommand } = require('@aws-sdk/client-networkmanager'); // CommonJS import
  * const client = new NetworkManagerClient(config);
  * const input = { // ListPeeringsRequest
- *   CoreNetworkId: "STRING_VALUE",
- *   PeeringType: "TRANSIT_GATEWAY",
- *   EdgeLocation: "STRING_VALUE",
- *   State: "CREATING" || "FAILED" || "AVAILABLE" || "DELETING",
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   CoreNetworkId: 'STRING_VALUE',
+ *   PeeringType: 'TRANSIT_GATEWAY',
+ *   EdgeLocation: 'STRING_VALUE',
+ *   State: 'CREATING' || 'FAILED' || 'AVAILABLE' || 'DELETING',
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListPeeringsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListPeeringsResponse
+ *   Peerings: [ // PeeringList
+ *     { // Peering
+ *       CoreNetworkId: 'STRING_VALUE',
+ *       CoreNetworkArn: 'STRING_VALUE',
+ *       PeeringId: 'STRING_VALUE',
+ *       OwnerAccountId: 'STRING_VALUE',
+ *       PeeringType: 'TRANSIT_GATEWAY',
+ *       State: 'CREATING' || 'FAILED' || 'AVAILABLE' || 'DELETING',
+ *       EdgeLocation: 'STRING_VALUE',
+ *       ResourceArn: 'STRING_VALUE',
+ *       Tags: [ // TagList
+ *         { // Tag
+ *           Key: 'STRING_VALUE',
+ *           Value: 'STRING_VALUE',
+ *         },
+ *       ],
+ *       CreatedAt: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListPeeringsCommandInput - {@link ListPeeringsCommandInput}
@@ -69,6 +93,8 @@ export interface ListPeeringsCommandOutput extends ListPeeringsResponse, __Metad
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints.</p>
  *
+ * @throws {@link NetworkManagerServiceException}
+ * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
  */
 export class ListPeeringsCommand extends $Command<

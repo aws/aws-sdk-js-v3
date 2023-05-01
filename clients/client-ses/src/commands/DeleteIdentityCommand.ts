@@ -38,14 +38,17 @@ export interface DeleteIdentityCommandOutput extends DeleteIdentityResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SESClient, DeleteIdentityCommand } from "@aws-sdk/client-ses"; // ES Modules import
- * // const { SESClient, DeleteIdentityCommand } = require("@aws-sdk/client-ses"); // CommonJS import
+ * import { SESClient, DeleteIdentityCommand } from '@aws-sdk/client-ses'; // ES Modules import
+ * // const { SESClient, DeleteIdentityCommand } = require('@aws-sdk/client-ses'); // CommonJS import
  * const client = new SESClient(config);
  * const input = { // DeleteIdentityRequest
- *   Identity: "STRING_VALUE", // required
+ *   Identity: 'STRING_VALUE', // required
  * };
  * const command = new DeleteIdentityCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteIdentityCommandInput - {@link DeleteIdentityCommandInput}
@@ -54,6 +57,8 @@ export interface DeleteIdentityCommandOutput extends DeleteIdentityResponse, __M
  * @see {@link DeleteIdentityCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
+ * @throws {@link SESServiceException}
+ * <p>Base exception class for all service exceptions from SES service.</p>
  *
  * @example DeleteIdentity
  * ```javascript

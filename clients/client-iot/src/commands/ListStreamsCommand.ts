@@ -37,16 +37,29 @@ export interface ListStreamsCommandOutput extends ListStreamsResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTClient, ListStreamsCommand } from "@aws-sdk/client-iot"; // ES Modules import
- * // const { IoTClient, ListStreamsCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * import { IoTClient, ListStreamsCommand } from '@aws-sdk/client-iot'; // ES Modules import
+ * // const { IoTClient, ListStreamsCommand } = require('@aws-sdk/client-iot'); // CommonJS import
  * const client = new IoTClient(config);
  * const input = { // ListStreamsRequest
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  *   ascendingOrder: true || false,
  * };
  * const command = new ListStreamsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListStreamsResponse
+ *   streams: [ // StreamsSummary
+ *     { // StreamSummary
+ *       streamId: 'STRING_VALUE',
+ *       streamArn: 'STRING_VALUE',
+ *       streamVersion: Number('int'),
+ *       description: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListStreamsCommandInput - {@link ListStreamsCommandInput}
@@ -70,6 +83,8 @@ export interface ListStreamsCommandOutput extends ListStreamsResponse, __Metadat
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this operation.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class ListStreamsCommand extends $Command<

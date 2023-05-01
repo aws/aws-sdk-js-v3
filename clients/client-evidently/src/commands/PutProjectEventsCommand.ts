@@ -37,21 +37,33 @@ export interface PutProjectEventsCommandOutput extends PutProjectEventsResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EvidentlyClient, PutProjectEventsCommand } from "@aws-sdk/client-evidently"; // ES Modules import
- * // const { EvidentlyClient, PutProjectEventsCommand } = require("@aws-sdk/client-evidently"); // CommonJS import
+ * import { EvidentlyClient, PutProjectEventsCommand } from '@aws-sdk/client-evidently'; // ES Modules import
+ * // const { EvidentlyClient, PutProjectEventsCommand } = require('@aws-sdk/client-evidently'); // CommonJS import
  * const client = new EvidentlyClient(config);
  * const input = { // PutProjectEventsRequest
- *   project: "STRING_VALUE", // required
+ *   project: 'STRING_VALUE', // required
  *   events: [ // EventList // required
  *     { // Event
- *       timestamp: new Date("TIMESTAMP"), // required
- *       type: "STRING_VALUE", // required
- *       data: "STRING_VALUE", // required
+ *       timestamp: new Date('TIMESTAMP'), // required
+ *       type: 'STRING_VALUE', // required
+ *       data: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new PutProjectEventsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutProjectEventsResponse
+ *   failedEventCount: Number('int'),
+ *   eventResults: [ // PutProjectEventsResultEntryList
+ *     { // PutProjectEventsResultEntry
+ *       eventId: 'STRING_VALUE',
+ *       errorCode: 'STRING_VALUE',
+ *       errorMessage: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param PutProjectEventsCommandInput - {@link PutProjectEventsCommandInput}
@@ -72,6 +84,8 @@ export interface PutProjectEventsCommandOutput extends PutProjectEventsResponse,
  * @throws {@link ValidationException} (client fault)
  *  <p>The value of a parameter in the request caused an error.</p>
  *
+ * @throws {@link EvidentlyServiceException}
+ * <p>Base exception class for all service exceptions from Evidently service.</p>
  *
  */
 export class PutProjectEventsCommand extends $Command<

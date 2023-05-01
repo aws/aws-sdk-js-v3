@@ -36,21 +36,46 @@ export interface ListVariantStoresCommandOutput extends ListVariantStoresRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OmicsClient, ListVariantStoresCommand } from "@aws-sdk/client-omics"; // ES Modules import
- * // const { OmicsClient, ListVariantStoresCommand } = require("@aws-sdk/client-omics"); // CommonJS import
+ * import { OmicsClient, ListVariantStoresCommand } from '@aws-sdk/client-omics'; // ES Modules import
+ * // const { OmicsClient, ListVariantStoresCommand } = require('@aws-sdk/client-omics'); // CommonJS import
  * const client = new OmicsClient(config);
  * const input = { // ListVariantStoresRequest
- *   maxResults: Number("int"),
+ *   maxResults: Number('int'),
  *   ids: [ // IdList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   nextToken: "STRING_VALUE",
+ *   nextToken: 'STRING_VALUE',
  *   filter: { // ListVariantStoresFilter
- *     status: "STRING_VALUE",
+ *     status: 'STRING_VALUE',
  *   },
  * };
  * const command = new ListVariantStoresCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListVariantStoresResponse
+ *   variantStores: [ // VariantStoreItems
+ *     { // VariantStoreItem
+ *       id: 'STRING_VALUE', // required
+ *       reference: { // ReferenceItem Union: only one key present
+ *         referenceArn: 'STRING_VALUE',
+ *       },
+ *       status: 'STRING_VALUE', // required
+ *       storeArn: 'STRING_VALUE', // required
+ *       name: 'STRING_VALUE', // required
+ *       description: 'STRING_VALUE', // required
+ *       sseConfig: { // SseConfig
+ *         type: 'STRING_VALUE', // required
+ *         keyArn: 'STRING_VALUE',
+ *       },
+ *       creationTime: new Date('TIMESTAMP'), // required
+ *       updateTime: new Date('TIMESTAMP'), // required
+ *       statusMessage: 'STRING_VALUE', // required
+ *       storeSizeBytes: Number('long'), // required
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListVariantStoresCommandInput - {@link ListVariantStoresCommandInput}
@@ -74,6 +99,8 @@ export interface ListVariantStoresCommandOutput extends ListVariantStoresRespons
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link OmicsServiceException}
+ * <p>Base exception class for all service exceptions from Omics service.</p>
  *
  */
 export class ListVariantStoresCommand extends $Command<

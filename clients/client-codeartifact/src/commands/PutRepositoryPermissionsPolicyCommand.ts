@@ -48,18 +48,27 @@ export interface PutRepositoryPermissionsPolicyCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeartifactClient, PutRepositoryPermissionsPolicyCommand } from "@aws-sdk/client-codeartifact"; // ES Modules import
- * // const { CodeartifactClient, PutRepositoryPermissionsPolicyCommand } = require("@aws-sdk/client-codeartifact"); // CommonJS import
+ * import { CodeartifactClient, PutRepositoryPermissionsPolicyCommand } from '@aws-sdk/client-codeartifact'; // ES Modules import
+ * // const { CodeartifactClient, PutRepositoryPermissionsPolicyCommand } = require('@aws-sdk/client-codeartifact'); // CommonJS import
  * const client = new CodeartifactClient(config);
  * const input = { // PutRepositoryPermissionsPolicyRequest
- *   domain: "STRING_VALUE", // required
- *   domainOwner: "STRING_VALUE",
- *   repository: "STRING_VALUE", // required
- *   policyRevision: "STRING_VALUE",
- *   policyDocument: "STRING_VALUE", // required
+ *   domain: 'STRING_VALUE', // required
+ *   domainOwner: 'STRING_VALUE',
+ *   repository: 'STRING_VALUE', // required
+ *   policyRevision: 'STRING_VALUE',
+ *   policyDocument: 'STRING_VALUE', // required
  * };
  * const command = new PutRepositoryPermissionsPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutRepositoryPermissionsPolicyResult
+ *   policy: { // ResourcePolicy
+ *     resourceArn: 'STRING_VALUE',
+ *     revision: 'STRING_VALUE',
+ *     document: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param PutRepositoryPermissionsPolicyCommandInput - {@link PutRepositoryPermissionsPolicyCommandInput}
@@ -101,6 +110,8 @@ export interface PutRepositoryPermissionsPolicyCommandOutput
  *       The operation did not succeed because a parameter in the request was sent with an invalid value.
  *     </p>
  *
+ * @throws {@link CodeartifactServiceException}
+ * <p>Base exception class for all service exceptions from Codeartifact service.</p>
  *
  */
 export class PutRepositoryPermissionsPolicyCommand extends $Command<

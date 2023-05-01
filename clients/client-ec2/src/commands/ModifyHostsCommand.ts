@@ -44,21 +44,37 @@ export interface ModifyHostsCommandOutput extends ModifyHostsResult, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, ModifyHostsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, ModifyHostsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, ModifyHostsCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, ModifyHostsCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // ModifyHostsRequest
- *   AutoPlacement: "on" || "off",
+ *   AutoPlacement: 'on' || 'off',
  *   HostIds: [ // RequestHostIdList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   HostRecovery: "on" || "off",
- *   InstanceType: "STRING_VALUE",
- *   InstanceFamily: "STRING_VALUE",
- *   HostMaintenance: "on" || "off",
+ *   HostRecovery: 'on' || 'off',
+ *   InstanceType: 'STRING_VALUE',
+ *   InstanceFamily: 'STRING_VALUE',
+ *   HostMaintenance: 'on' || 'off',
  * };
  * const command = new ModifyHostsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ModifyHostsResult
+ *   Successful: [ // ResponseHostIdList
+ *     'STRING_VALUE',
+ *   ],
+ *   Unsuccessful: [ // UnsuccessfulItemList
+ *     { // UnsuccessfulItem
+ *       Error: { // UnsuccessfulItemError
+ *         Code: 'STRING_VALUE',
+ *         Message: 'STRING_VALUE',
+ *       },
+ *       ResourceId: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ModifyHostsCommandInput - {@link ModifyHostsCommandInput}
@@ -67,6 +83,8 @@ export interface ModifyHostsCommandOutput extends ModifyHostsResult, __MetadataB
  * @see {@link ModifyHostsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class ModifyHostsCommand extends $Command<

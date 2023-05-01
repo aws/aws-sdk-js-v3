@@ -36,14 +36,26 @@ export interface DeleteEventStreamCommandOutput extends DeleteEventStreamRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PinpointClient, DeleteEventStreamCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
- * // const { PinpointClient, DeleteEventStreamCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
+ * import { PinpointClient, DeleteEventStreamCommand } from '@aws-sdk/client-pinpoint'; // ES Modules import
+ * // const { PinpointClient, DeleteEventStreamCommand } = require('@aws-sdk/client-pinpoint'); // CommonJS import
  * const client = new PinpointClient(config);
  * const input = { // DeleteEventStreamRequest
- *   ApplicationId: "STRING_VALUE", // required
+ *   ApplicationId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteEventStreamCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteEventStreamResponse
+ *   EventStream: { // EventStream
+ *     ApplicationId: 'STRING_VALUE', // required
+ *     DestinationStreamArn: 'STRING_VALUE', // required
+ *     ExternalId: 'STRING_VALUE',
+ *     LastModifiedDate: 'STRING_VALUE',
+ *     LastUpdatedBy: 'STRING_VALUE',
+ *     RoleArn: 'STRING_VALUE', // required
+ *   },
+ * };
+ *
  * ```
  *
  * @param DeleteEventStreamCommandInput - {@link DeleteEventStreamCommandInput}
@@ -73,6 +85,8 @@ export interface DeleteEventStreamCommandOutput extends DeleteEventStreamRespons
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Provides information about an API request or response.</p>
  *
+ * @throws {@link PinpointServiceException}
+ * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
  */
 export class DeleteEventStreamCommand extends $Command<

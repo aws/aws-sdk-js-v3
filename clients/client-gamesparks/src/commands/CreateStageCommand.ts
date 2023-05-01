@@ -36,21 +36,39 @@ export interface CreateStageCommandOutput extends CreateStageResult, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GameSparksClient, CreateStageCommand } from "@aws-sdk/client-gamesparks"; // ES Modules import
- * // const { GameSparksClient, CreateStageCommand } = require("@aws-sdk/client-gamesparks"); // CommonJS import
+ * import { GameSparksClient, CreateStageCommand } from '@aws-sdk/client-gamesparks'; // ES Modules import
+ * // const { GameSparksClient, CreateStageCommand } = require('@aws-sdk/client-gamesparks'); // CommonJS import
  * const client = new GameSparksClient(config);
  * const input = { // CreateStageRequest
- *   GameName: "STRING_VALUE", // required
- *   StageName: "STRING_VALUE", // required
- *   Role: "STRING_VALUE", // required
- *   Description: "STRING_VALUE",
- *   ClientToken: "STRING_VALUE",
+ *   GameName: 'STRING_VALUE', // required
+ *   StageName: 'STRING_VALUE', // required
+ *   Role: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE',
+ *   ClientToken: 'STRING_VALUE',
  *   Tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateStageCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateStageResult
+ *   Stage: { // StageDetails
+ *     Name: 'STRING_VALUE',
+ *     GameKey: 'STRING_VALUE',
+ *     Arn: 'STRING_VALUE',
+ *     Role: 'STRING_VALUE',
+ *     Description: 'STRING_VALUE',
+ *     Created: new Date('TIMESTAMP'),
+ *     LastUpdated: new Date('TIMESTAMP'),
+ *     State: 'STRING_VALUE',
+ *     Tags: { // TagMap
+ *       '<keys>': 'STRING_VALUE',
+ *     },
+ *     LogGroup: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateStageCommandInput - {@link CreateStageCommandInput}
@@ -77,6 +95,8 @@ export interface CreateStageCommandOutput extends CreateStageResult, __MetadataB
  * @throws {@link ValidationException} (client fault)
  *  <p>One of the parameters in the request is invalid.</p>
  *
+ * @throws {@link GameSparksServiceException}
+ * <p>Base exception class for all service exceptions from GameSparks service.</p>
  *
  */
 export class CreateStageCommand extends $Command<

@@ -36,16 +36,46 @@ export interface DescribeJobLogItemsCommandOutput extends DescribeJobLogItemsRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DrsClient, DescribeJobLogItemsCommand } from "@aws-sdk/client-drs"; // ES Modules import
- * // const { DrsClient, DescribeJobLogItemsCommand } = require("@aws-sdk/client-drs"); // CommonJS import
+ * import { DrsClient, DescribeJobLogItemsCommand } from '@aws-sdk/client-drs'; // ES Modules import
+ * // const { DrsClient, DescribeJobLogItemsCommand } = require('@aws-sdk/client-drs'); // CommonJS import
  * const client = new DrsClient(config);
  * const input = { // DescribeJobLogItemsRequest
- *   jobID: "STRING_VALUE", // required
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   jobID: 'STRING_VALUE', // required
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new DescribeJobLogItemsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeJobLogItemsResponse
+ *   items: [ // JobLogs
+ *     { // JobLog
+ *       logDateTime: 'STRING_VALUE',
+ *       event: 'STRING_VALUE',
+ *       eventData: { // JobLogEventData
+ *         sourceServerID: 'STRING_VALUE',
+ *         conversionServerID: 'STRING_VALUE',
+ *         targetInstanceID: 'STRING_VALUE',
+ *         rawError: 'STRING_VALUE',
+ *         conversionProperties: { // ConversionProperties
+ *           volumeToConversionMap: { // VolumeToConversionMap
+ *             '<keys>': { // ConversionMap
+ *               '<keys>': 'STRING_VALUE',
+ *             },
+ *           },
+ *           rootVolumeName: 'STRING_VALUE',
+ *           forceUefi: true || false,
+ *           dataTimestamp: 'STRING_VALUE',
+ *           volumeToVolumeSize: { // VolumeToSizeMap
+ *             '<keys>': Number('long'),
+ *           },
+ *         },
+ *       },
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeJobLogItemsCommandInput - {@link DescribeJobLogItemsCommandInput}
@@ -66,6 +96,8 @@ export interface DescribeJobLogItemsCommandOutput extends DescribeJobLogItemsRes
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by the AWS service.</p>
  *
+ * @throws {@link DrsServiceException}
+ * <p>Base exception class for all service exceptions from Drs service.</p>
  *
  */
 export class DescribeJobLogItemsCommand extends $Command<

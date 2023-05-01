@@ -40,15 +40,44 @@ export interface GetProxySessionCommandOutput extends GetProxySessionResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeSDKVoiceClient, GetProxySessionCommand } from "@aws-sdk/client-chime-sdk-voice"; // ES Modules import
- * // const { ChimeSDKVoiceClient, GetProxySessionCommand } = require("@aws-sdk/client-chime-sdk-voice"); // CommonJS import
+ * import { ChimeSDKVoiceClient, GetProxySessionCommand } from '@aws-sdk/client-chime-sdk-voice'; // ES Modules import
+ * // const { ChimeSDKVoiceClient, GetProxySessionCommand } = require('@aws-sdk/client-chime-sdk-voice'); // CommonJS import
  * const client = new ChimeSDKVoiceClient(config);
  * const input = { // GetProxySessionRequest
- *   VoiceConnectorId: "STRING_VALUE", // required
- *   ProxySessionId: "STRING_VALUE", // required
+ *   VoiceConnectorId: 'STRING_VALUE', // required
+ *   ProxySessionId: 'STRING_VALUE', // required
  * };
  * const command = new GetProxySessionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetProxySessionResponse
+ *   ProxySession: { // ProxySession
+ *     VoiceConnectorId: 'STRING_VALUE',
+ *     ProxySessionId: 'STRING_VALUE',
+ *     Name: 'STRING_VALUE',
+ *     Status: 'Open' || 'InProgress' || 'Closed',
+ *     ExpiryMinutes: Number('int'),
+ *     Capabilities: [ // CapabilityList
+ *       'Voice' || 'SMS',
+ *     ],
+ *     CreatedTimestamp: new Date('TIMESTAMP'),
+ *     UpdatedTimestamp: new Date('TIMESTAMP'),
+ *     EndedTimestamp: new Date('TIMESTAMP'),
+ *     Participants: [ // Participants
+ *       { // Participant
+ *         PhoneNumber: 'STRING_VALUE',
+ *         ProxyPhoneNumber: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     NumberSelectionBehavior: 'PreferSticky' || 'AvoidSticky',
+ *     GeoMatchLevel: 'Country' || 'AreaCode',
+ *     GeoMatchParams: { // GeoMatchParams
+ *       Country: 'STRING_VALUE', // required
+ *       AreaCode: 'STRING_VALUE', // required
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetProxySessionCommandInput - {@link GetProxySessionCommandInput}
@@ -78,6 +107,8 @@ export interface GetProxySessionCommandOutput extends GetProxySessionResponse, _
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client isn't authorized to request a resource.</p>
  *
+ * @throws {@link ChimeSDKVoiceServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
  */
 export class GetProxySessionCommand extends $Command<

@@ -37,18 +37,23 @@ export interface UpdateMaintenanceStartTimeCommandOutput extends UpdateMaintenan
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { StorageGatewayClient, UpdateMaintenanceStartTimeCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
- * // const { StorageGatewayClient, UpdateMaintenanceStartTimeCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
+ * import { StorageGatewayClient, UpdateMaintenanceStartTimeCommand } from '@aws-sdk/client-storage-gateway'; // ES Modules import
+ * // const { StorageGatewayClient, UpdateMaintenanceStartTimeCommand } = require('@aws-sdk/client-storage-gateway'); // CommonJS import
  * const client = new StorageGatewayClient(config);
  * const input = { // UpdateMaintenanceStartTimeInput
- *   GatewayARN: "STRING_VALUE", // required
- *   HourOfDay: Number("int"), // required
- *   MinuteOfHour: Number("int"), // required
- *   DayOfWeek: Number("int"),
- *   DayOfMonth: Number("int"),
+ *   GatewayARN: 'STRING_VALUE', // required
+ *   HourOfDay: Number('int'), // required
+ *   MinuteOfHour: Number('int'), // required
+ *   DayOfWeek: Number('int'),
+ *   DayOfMonth: Number('int'),
  * };
  * const command = new UpdateMaintenanceStartTimeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateMaintenanceStartTimeOutput
+ *   GatewayARN: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateMaintenanceStartTimeCommandInput - {@link UpdateMaintenanceStartTimeCommandInput}
@@ -65,6 +70,8 @@ export interface UpdateMaintenanceStartTimeCommandOutput extends UpdateMaintenan
  *  <p>An exception occurred because an invalid gateway request was issued to the service. For
  *          more information, see the error and message fields.</p>
  *
+ * @throws {@link StorageGatewayServiceException}
+ * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
  * @example To update a gateway's maintenance start time
  * ```javascript

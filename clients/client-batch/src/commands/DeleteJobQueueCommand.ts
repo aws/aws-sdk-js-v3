@@ -39,14 +39,17 @@ export interface DeleteJobQueueCommandOutput extends DeleteJobQueueResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BatchClient, DeleteJobQueueCommand } from "@aws-sdk/client-batch"; // ES Modules import
- * // const { BatchClient, DeleteJobQueueCommand } = require("@aws-sdk/client-batch"); // CommonJS import
+ * import { BatchClient, DeleteJobQueueCommand } from '@aws-sdk/client-batch'; // ES Modules import
+ * // const { BatchClient, DeleteJobQueueCommand } = require('@aws-sdk/client-batch'); // CommonJS import
  * const client = new BatchClient(config);
  * const input = { // DeleteJobQueueRequest
- *   jobQueue: "STRING_VALUE", // required
+ *   jobQueue: 'STRING_VALUE', // required
  * };
  * const command = new DeleteJobQueueCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteJobQueueCommandInput - {@link DeleteJobQueueCommandInput}
@@ -63,6 +66,8 @@ export interface DeleteJobQueueCommandOutput extends DeleteJobQueueResponse, __M
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server issue.</p>
  *
+ * @throws {@link BatchServiceException}
+ * <p>Base exception class for all service exceptions from Batch service.</p>
  *
  * @example To delete a job queue
  * ```javascript

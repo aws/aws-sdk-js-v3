@@ -42,16 +42,24 @@ export interface ListFunctionsByCodeSigningConfigCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LambdaClient, ListFunctionsByCodeSigningConfigCommand } from "@aws-sdk/client-lambda"; // ES Modules import
- * // const { LambdaClient, ListFunctionsByCodeSigningConfigCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
+ * import { LambdaClient, ListFunctionsByCodeSigningConfigCommand } from '@aws-sdk/client-lambda'; // ES Modules import
+ * // const { LambdaClient, ListFunctionsByCodeSigningConfigCommand } = require('@aws-sdk/client-lambda'); // CommonJS import
  * const client = new LambdaClient(config);
  * const input = { // ListFunctionsByCodeSigningConfigRequest
- *   CodeSigningConfigArn: "STRING_VALUE", // required
- *   Marker: "STRING_VALUE",
- *   MaxItems: Number("int"),
+ *   CodeSigningConfigArn: 'STRING_VALUE', // required
+ *   Marker: 'STRING_VALUE',
+ *   MaxItems: Number('int'),
  * };
  * const command = new ListFunctionsByCodeSigningConfigCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListFunctionsByCodeSigningConfigResponse
+ *   NextMarker: 'STRING_VALUE',
+ *   FunctionArns: [ // FunctionArnList
+ *     'STRING_VALUE',
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListFunctionsByCodeSigningConfigCommandInput - {@link ListFunctionsByCodeSigningConfigCommandInput}
@@ -69,6 +77,8 @@ export interface ListFunctionsByCodeSigningConfigCommandOutput
  * @throws {@link ServiceException} (server fault)
  *  <p>The Lambda service encountered an internal error.</p>
  *
+ * @throws {@link LambdaServiceException}
+ * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
  */
 export class ListFunctionsByCodeSigningConfigCommand extends $Command<

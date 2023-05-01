@@ -37,14 +37,17 @@ export interface DeleteStreamProcessorCommandOutput extends DeleteStreamProcesso
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RekognitionClient, DeleteStreamProcessorCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
- * // const { RekognitionClient, DeleteStreamProcessorCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
+ * import { RekognitionClient, DeleteStreamProcessorCommand } from '@aws-sdk/client-rekognition'; // ES Modules import
+ * // const { RekognitionClient, DeleteStreamProcessorCommand } = require('@aws-sdk/client-rekognition'); // CommonJS import
  * const client = new RekognitionClient(config);
  * const input = { // DeleteStreamProcessorRequest
- *   Name: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
  * };
  * const command = new DeleteStreamProcessorCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteStreamProcessorCommandInput - {@link DeleteStreamProcessorCommandInput}
@@ -76,6 +79,8 @@ export interface DeleteStreamProcessorCommandOutput extends DeleteStreamProcesso
  * @throws {@link ThrottlingException} (server fault)
  *  <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
  *
+ * @throws {@link RekognitionServiceException}
+ * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
  */
 export class DeleteStreamProcessorCommand extends $Command<

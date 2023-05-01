@@ -36,16 +36,21 @@ export interface UpdateWorkspaceCommandOutput extends UpdateWorkspaceResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTTwinMakerClient, UpdateWorkspaceCommand } from "@aws-sdk/client-iottwinmaker"; // ES Modules import
- * // const { IoTTwinMakerClient, UpdateWorkspaceCommand } = require("@aws-sdk/client-iottwinmaker"); // CommonJS import
+ * import { IoTTwinMakerClient, UpdateWorkspaceCommand } from '@aws-sdk/client-iottwinmaker'; // ES Modules import
+ * // const { IoTTwinMakerClient, UpdateWorkspaceCommand } = require('@aws-sdk/client-iottwinmaker'); // CommonJS import
  * const client = new IoTTwinMakerClient(config);
  * const input = { // UpdateWorkspaceRequest
- *   workspaceId: "STRING_VALUE", // required
- *   description: "STRING_VALUE",
- *   role: "STRING_VALUE",
+ *   workspaceId: 'STRING_VALUE', // required
+ *   description: 'STRING_VALUE',
+ *   role: 'STRING_VALUE',
  * };
  * const command = new UpdateWorkspaceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateWorkspaceResponse
+ *   updateDateTime: new Date('TIMESTAMP'), // required
+ * };
+ *
  * ```
  *
  * @param UpdateWorkspaceCommandInput - {@link UpdateWorkspaceCommandInput}
@@ -72,6 +77,8 @@ export interface UpdateWorkspaceCommandOutput extends UpdateWorkspaceResponse, _
  * @throws {@link ValidationException} (client fault)
  *  <p>Failed</p>
  *
+ * @throws {@link IoTTwinMakerServiceException}
+ * <p>Base exception class for all service exceptions from IoTTwinMaker service.</p>
  *
  */
 export class UpdateWorkspaceCommand extends $Command<

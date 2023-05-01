@@ -37,14 +37,25 @@ export interface ListProvisionedCapacityCommandOutput extends ListProvisionedCap
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlacierClient, ListProvisionedCapacityCommand } from "@aws-sdk/client-glacier"; // ES Modules import
- * // const { GlacierClient, ListProvisionedCapacityCommand } = require("@aws-sdk/client-glacier"); // CommonJS import
+ * import { GlacierClient, ListProvisionedCapacityCommand } from '@aws-sdk/client-glacier'; // ES Modules import
+ * // const { GlacierClient, ListProvisionedCapacityCommand } = require('@aws-sdk/client-glacier'); // CommonJS import
  * const client = new GlacierClient(config);
  * const input = { // ListProvisionedCapacityInput
- *   accountId: "STRING_VALUE", // required
+ *   accountId: 'STRING_VALUE', // required
  * };
  * const command = new ListProvisionedCapacityCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListProvisionedCapacityOutput
+ *   ProvisionedCapacityList: [ // ProvisionedCapacityList
+ *     { // ProvisionedCapacityDescription
+ *       CapacityId: 'STRING_VALUE',
+ *       StartDate: 'STRING_VALUE',
+ *       ExpirationDate: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListProvisionedCapacityCommandInput - {@link ListProvisionedCapacityCommandInput}
@@ -62,6 +73,8 @@ export interface ListProvisionedCapacityCommandOutput extends ListProvisionedCap
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>Returned if the service cannot complete the request.</p>
  *
+ * @throws {@link GlacierServiceException}
+ * <p>Base exception class for all service exceptions from Glacier service.</p>
  *
  * @example To list the provisioned capacity units for an account
  * ```javascript

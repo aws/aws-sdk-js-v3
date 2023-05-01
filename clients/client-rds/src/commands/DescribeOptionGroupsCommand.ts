@@ -36,26 +36,80 @@ export interface DescribeOptionGroupsCommandOutput extends OptionGroups, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RDSClient, DescribeOptionGroupsCommand } from "@aws-sdk/client-rds"; // ES Modules import
- * // const { RDSClient, DescribeOptionGroupsCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * import { RDSClient, DescribeOptionGroupsCommand } from '@aws-sdk/client-rds'; // ES Modules import
+ * // const { RDSClient, DescribeOptionGroupsCommand } = require('@aws-sdk/client-rds'); // CommonJS import
  * const client = new RDSClient(config);
  * const input = { // DescribeOptionGroupsMessage
- *   OptionGroupName: "STRING_VALUE",
+ *   OptionGroupName: 'STRING_VALUE',
  *   Filters: [ // FilterList
  *     { // Filter
- *       Name: "STRING_VALUE", // required
+ *       Name: 'STRING_VALUE', // required
  *       Values: [ // FilterValueList // required
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
- *   Marker: "STRING_VALUE",
- *   MaxRecords: Number("int"),
- *   EngineName: "STRING_VALUE",
- *   MajorEngineVersion: "STRING_VALUE",
+ *   Marker: 'STRING_VALUE',
+ *   MaxRecords: Number('int'),
+ *   EngineName: 'STRING_VALUE',
+ *   MajorEngineVersion: 'STRING_VALUE',
  * };
  * const command = new DescribeOptionGroupsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // OptionGroups
+ *   OptionGroupsList: [ // OptionGroupsList
+ *     { // OptionGroup
+ *       OptionGroupName: 'STRING_VALUE',
+ *       OptionGroupDescription: 'STRING_VALUE',
+ *       EngineName: 'STRING_VALUE',
+ *       MajorEngineVersion: 'STRING_VALUE',
+ *       Options: [ // OptionsList
+ *         { // Option
+ *           OptionName: 'STRING_VALUE',
+ *           OptionDescription: 'STRING_VALUE',
+ *           Persistent: true || false,
+ *           Permanent: true || false,
+ *           Port: Number('int'),
+ *           OptionVersion: 'STRING_VALUE',
+ *           OptionSettings: [ // OptionSettingConfigurationList
+ *             { // OptionSetting
+ *               Name: 'STRING_VALUE',
+ *               Value: 'STRING_VALUE',
+ *               DefaultValue: 'STRING_VALUE',
+ *               Description: 'STRING_VALUE',
+ *               ApplyType: 'STRING_VALUE',
+ *               DataType: 'STRING_VALUE',
+ *               AllowedValues: 'STRING_VALUE',
+ *               IsModifiable: true || false,
+ *               IsCollection: true || false,
+ *             },
+ *           ],
+ *           DBSecurityGroupMemberships: [ // DBSecurityGroupMembershipList
+ *             { // DBSecurityGroupMembership
+ *               DBSecurityGroupName: 'STRING_VALUE',
+ *               Status: 'STRING_VALUE',
+ *             },
+ *           ],
+ *           VpcSecurityGroupMemberships: [ // VpcSecurityGroupMembershipList
+ *             { // VpcSecurityGroupMembership
+ *               VpcSecurityGroupId: 'STRING_VALUE',
+ *               Status: 'STRING_VALUE',
+ *             },
+ *           ],
+ *         },
+ *       ],
+ *       AllowsVpcAndNonVpcInstanceMemberships: true || false,
+ *       VpcId: 'STRING_VALUE',
+ *       OptionGroupArn: 'STRING_VALUE',
+ *       SourceOptionGroup: 'STRING_VALUE',
+ *       SourceAccountId: 'STRING_VALUE',
+ *       CopyTimestamp: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   Marker: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeOptionGroupsCommandInput - {@link DescribeOptionGroupsCommandInput}
@@ -67,6 +121,8 @@ export interface DescribeOptionGroupsCommandOutput extends OptionGroups, __Metad
  * @throws {@link OptionGroupNotFoundFault} (client fault)
  *  <p>The specified option group could not be found.</p>
  *
+ * @throws {@link RDSServiceException}
+ * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  * @example To describe the available option groups
  * ```javascript

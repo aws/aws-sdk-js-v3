@@ -36,21 +36,59 @@ export interface DescribeCapacityProvidersCommandOutput extends DescribeCapacity
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ECSClient, DescribeCapacityProvidersCommand } from "@aws-sdk/client-ecs"; // ES Modules import
- * // const { ECSClient, DescribeCapacityProvidersCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
+ * import { ECSClient, DescribeCapacityProvidersCommand } from '@aws-sdk/client-ecs'; // ES Modules import
+ * // const { ECSClient, DescribeCapacityProvidersCommand } = require('@aws-sdk/client-ecs'); // CommonJS import
  * const client = new ECSClient(config);
  * const input = { // DescribeCapacityProvidersRequest
  *   capacityProviders: [ // StringList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   include: [ // CapacityProviderFieldList
- *     "TAGS",
+ *     'TAGS',
  *   ],
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new DescribeCapacityProvidersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeCapacityProvidersResponse
+ *   capacityProviders: [ // CapacityProviders
+ *     { // CapacityProvider
+ *       capacityProviderArn: 'STRING_VALUE',
+ *       name: 'STRING_VALUE',
+ *       status: 'ACTIVE' || 'INACTIVE',
+ *       autoScalingGroupProvider: { // AutoScalingGroupProvider
+ *         autoScalingGroupArn: 'STRING_VALUE', // required
+ *         managedScaling: { // ManagedScaling
+ *           status: 'ENABLED' || 'DISABLED',
+ *           targetCapacity: Number('int'),
+ *           minimumScalingStepSize: Number('int'),
+ *           maximumScalingStepSize: Number('int'),
+ *           instanceWarmupPeriod: Number('int'),
+ *         },
+ *         managedTerminationProtection: 'ENABLED' || 'DISABLED',
+ *       },
+ *       updateStatus: 'DELETE_IN_PROGRESS' || 'DELETE_COMPLETE' || 'DELETE_FAILED' || 'UPDATE_IN_PROGRESS' || 'UPDATE_COMPLETE' || 'UPDATE_FAILED',
+ *       updateStatusReason: 'STRING_VALUE',
+ *       tags: [ // Tags
+ *         { // Tag
+ *           key: 'STRING_VALUE',
+ *           value: 'STRING_VALUE',
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   failures: [ // Failures
+ *     { // Failure
+ *       arn: 'STRING_VALUE',
+ *       reason: 'STRING_VALUE',
+ *       detail: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeCapacityProvidersCommandInput - {@link DescribeCapacityProvidersCommandInput}
@@ -71,6 +109,8 @@ export interface DescribeCapacityProvidersCommandOutput extends DescribeCapacity
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server issue.</p>
  *
+ * @throws {@link ECSServiceException}
+ * <p>Base exception class for all service exceptions from ECS service.</p>
  *
  */
 export class DescribeCapacityProvidersCommand extends $Command<

@@ -37,15 +37,18 @@ export interface DeleteEnvironmentCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppConfigClient, DeleteEnvironmentCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
- * // const { AppConfigClient, DeleteEnvironmentCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import
+ * import { AppConfigClient, DeleteEnvironmentCommand } from '@aws-sdk/client-appconfig'; // ES Modules import
+ * // const { AppConfigClient, DeleteEnvironmentCommand } = require('@aws-sdk/client-appconfig'); // CommonJS import
  * const client = new AppConfigClient(config);
  * const input = { // DeleteEnvironmentRequest
- *   ApplicationId: "STRING_VALUE", // required
- *   EnvironmentId: "STRING_VALUE", // required
+ *   ApplicationId: 'STRING_VALUE', // required
+ *   EnvironmentId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteEnvironmentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteEnvironmentCommandInput - {@link DeleteEnvironmentCommandInput}
@@ -67,6 +70,8 @@ export interface DeleteEnvironmentCommandOutput extends __MetadataBearer {}
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The requested resource could not be found.</p>
  *
+ * @throws {@link AppConfigServiceException}
+ * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
  * @example To delete an environment
  * ```javascript

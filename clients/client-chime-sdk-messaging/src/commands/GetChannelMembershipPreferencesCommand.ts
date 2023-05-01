@@ -58,16 +58,31 @@ export interface GetChannelMembershipPreferencesCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeSDKMessagingClient, GetChannelMembershipPreferencesCommand } from "@aws-sdk/client-chime-sdk-messaging"; // ES Modules import
- * // const { ChimeSDKMessagingClient, GetChannelMembershipPreferencesCommand } = require("@aws-sdk/client-chime-sdk-messaging"); // CommonJS import
+ * import { ChimeSDKMessagingClient, GetChannelMembershipPreferencesCommand } from '@aws-sdk/client-chime-sdk-messaging'; // ES Modules import
+ * // const { ChimeSDKMessagingClient, GetChannelMembershipPreferencesCommand } = require('@aws-sdk/client-chime-sdk-messaging'); // CommonJS import
  * const client = new ChimeSDKMessagingClient(config);
  * const input = { // GetChannelMembershipPreferencesRequest
- *   ChannelArn: "STRING_VALUE", // required
- *   MemberArn: "STRING_VALUE", // required
- *   ChimeBearer: "STRING_VALUE", // required
+ *   ChannelArn: 'STRING_VALUE', // required
+ *   MemberArn: 'STRING_VALUE', // required
+ *   ChimeBearer: 'STRING_VALUE', // required
  * };
  * const command = new GetChannelMembershipPreferencesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetChannelMembershipPreferencesResponse
+ *   ChannelArn: 'STRING_VALUE',
+ *   Member: { // Identity
+ *     Arn: 'STRING_VALUE',
+ *     Name: 'STRING_VALUE',
+ *   },
+ *   Preferences: { // ChannelMembershipPreferences
+ *     PushNotifications: { // PushNotificationPreferences
+ *       AllowNotifications: 'ALL' || 'NONE' || 'FILTERED', // required
+ *       FilterRule: 'STRING_VALUE',
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetChannelMembershipPreferencesCommandInput - {@link GetChannelMembershipPreferencesCommandInput}
@@ -94,6 +109,8 @@ export interface GetChannelMembershipPreferencesCommandOutput
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeSDKMessagingServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKMessaging service.</p>
  *
  */
 export class GetChannelMembershipPreferencesCommand extends $Command<

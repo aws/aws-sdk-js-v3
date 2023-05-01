@@ -37,17 +37,27 @@ export interface MoveByoipCidrToIpamCommandOutput extends MoveByoipCidrToIpamRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, MoveByoipCidrToIpamCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, MoveByoipCidrToIpamCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, MoveByoipCidrToIpamCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, MoveByoipCidrToIpamCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // MoveByoipCidrToIpamRequest
  *   DryRun: true || false,
- *   Cidr: "STRING_VALUE", // required
- *   IpamPoolId: "STRING_VALUE", // required
- *   IpamPoolOwner: "STRING_VALUE", // required
+ *   Cidr: 'STRING_VALUE', // required
+ *   IpamPoolId: 'STRING_VALUE', // required
+ *   IpamPoolOwner: 'STRING_VALUE', // required
  * };
  * const command = new MoveByoipCidrToIpamCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // MoveByoipCidrToIpamResult
+ *   ByoipCidr: { // ByoipCidr
+ *     Cidr: 'STRING_VALUE',
+ *     Description: 'STRING_VALUE',
+ *     StatusMessage: 'STRING_VALUE',
+ *     State: 'advertised' || 'deprovisioned' || 'failed-deprovision' || 'failed-provision' || 'pending-deprovision' || 'pending-provision' || 'provisioned' || 'provisioned-not-publicly-advertisable',
+ *   },
+ * };
+ *
  * ```
  *
  * @param MoveByoipCidrToIpamCommandInput - {@link MoveByoipCidrToIpamCommandInput}
@@ -56,6 +66,8 @@ export interface MoveByoipCidrToIpamCommandOutput extends MoveByoipCidrToIpamRes
  * @see {@link MoveByoipCidrToIpamCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class MoveByoipCidrToIpamCommand extends $Command<

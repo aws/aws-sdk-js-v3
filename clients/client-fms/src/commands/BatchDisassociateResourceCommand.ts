@@ -36,17 +36,28 @@ export interface BatchDisassociateResourceCommandOutput extends BatchDisassociat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FMSClient, BatchDisassociateResourceCommand } from "@aws-sdk/client-fms"; // ES Modules import
- * // const { FMSClient, BatchDisassociateResourceCommand } = require("@aws-sdk/client-fms"); // CommonJS import
+ * import { FMSClient, BatchDisassociateResourceCommand } from '@aws-sdk/client-fms'; // ES Modules import
+ * // const { FMSClient, BatchDisassociateResourceCommand } = require('@aws-sdk/client-fms'); // CommonJS import
  * const client = new FMSClient(config);
  * const input = { // BatchDisassociateResourceRequest
- *   ResourceSetIdentifier: "STRING_VALUE", // required
+ *   ResourceSetIdentifier: 'STRING_VALUE', // required
  *   Items: [ // IdentifierList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new BatchDisassociateResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BatchDisassociateResourceResponse
+ *   ResourceSetIdentifier: 'STRING_VALUE', // required
+ *   FailedItems: [ // FailedItemList // required
+ *     { // FailedItem
+ *       URI: 'STRING_VALUE',
+ *       Reason: 'NOT_VALID_ARN' || 'NOT_VALID_PARTITION' || 'NOT_VALID_REGION' || 'NOT_VALID_SERVICE' || 'NOT_VALID_RESOURCE_TYPE' || 'NOT_VALID_ACCOUNT_ID',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param BatchDisassociateResourceCommandInput - {@link BatchDisassociateResourceCommandInput}
@@ -72,6 +83,8 @@ export interface BatchDisassociateResourceCommandOutput extends BatchDisassociat
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link FMSServiceException}
+ * <p>Base exception class for all service exceptions from FMS service.</p>
  *
  */
 export class BatchDisassociateResourceCommand extends $Command<

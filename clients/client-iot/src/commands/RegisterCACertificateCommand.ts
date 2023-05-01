@@ -39,29 +39,35 @@ export interface RegisterCACertificateCommandOutput extends RegisterCACertificat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTClient, RegisterCACertificateCommand } from "@aws-sdk/client-iot"; // ES Modules import
- * // const { IoTClient, RegisterCACertificateCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * import { IoTClient, RegisterCACertificateCommand } from '@aws-sdk/client-iot'; // ES Modules import
+ * // const { IoTClient, RegisterCACertificateCommand } = require('@aws-sdk/client-iot'); // CommonJS import
  * const client = new IoTClient(config);
  * const input = { // RegisterCACertificateRequest
- *   caCertificate: "STRING_VALUE", // required
- *   verificationCertificate: "STRING_VALUE",
+ *   caCertificate: 'STRING_VALUE', // required
+ *   verificationCertificate: 'STRING_VALUE',
  *   setAsActive: true || false,
  *   allowAutoRegistration: true || false,
  *   registrationConfig: { // RegistrationConfig
- *     templateBody: "STRING_VALUE",
- *     roleArn: "STRING_VALUE",
- *     templateName: "STRING_VALUE",
+ *     templateBody: 'STRING_VALUE',
+ *     roleArn: 'STRING_VALUE',
+ *     templateName: 'STRING_VALUE',
  *   },
  *   tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
- *   certificateMode: "DEFAULT" || "SNI_ONLY",
+ *   certificateMode: 'DEFAULT' || 'SNI_ONLY',
  * };
  * const command = new RegisterCACertificateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // RegisterCACertificateResponse
+ *   certificateArn: 'STRING_VALUE',
+ *   certificateId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param RegisterCACertificateCommandInput - {@link RegisterCACertificateCommandInput}
@@ -100,6 +106,8 @@ export interface RegisterCACertificateCommandOutput extends RegisterCACertificat
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this operation.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class RegisterCACertificateCommand extends $Command<

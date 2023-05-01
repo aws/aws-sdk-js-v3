@@ -36,19 +36,22 @@ export interface UpdateFindingsFeedbackCommandOutput extends UpdateFindingsFeedb
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GuardDutyClient, UpdateFindingsFeedbackCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
- * // const { GuardDutyClient, UpdateFindingsFeedbackCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
+ * import { GuardDutyClient, UpdateFindingsFeedbackCommand } from '@aws-sdk/client-guardduty'; // ES Modules import
+ * // const { GuardDutyClient, UpdateFindingsFeedbackCommand } = require('@aws-sdk/client-guardduty'); // CommonJS import
  * const client = new GuardDutyClient(config);
  * const input = { // UpdateFindingsFeedbackRequest
- *   DetectorId: "STRING_VALUE", // required
+ *   DetectorId: 'STRING_VALUE', // required
  *   FindingIds: [ // FindingIds // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   Feedback: "USEFUL" || "NOT_USEFUL", // required
- *   Comments: "STRING_VALUE",
+ *   Feedback: 'USEFUL' || 'NOT_USEFUL', // required
+ *   Comments: 'STRING_VALUE',
  * };
  * const command = new UpdateFindingsFeedbackCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateFindingsFeedbackCommandInput - {@link UpdateFindingsFeedbackCommandInput}
@@ -63,6 +66,8 @@ export interface UpdateFindingsFeedbackCommandOutput extends UpdateFindingsFeedb
  * @throws {@link InternalServerErrorException} (server fault)
  *  <p>An internal server error exception object.</p>
  *
+ * @throws {@link GuardDutyServiceException}
+ * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
  */
 export class UpdateFindingsFeedbackCommand extends $Command<

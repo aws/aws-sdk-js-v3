@@ -44,14 +44,17 @@ export interface DeleteUserPermissionsBoundaryCommandOutput extends __MetadataBe
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IAMClient, DeleteUserPermissionsBoundaryCommand } from "@aws-sdk/client-iam"; // ES Modules import
- * // const { IAMClient, DeleteUserPermissionsBoundaryCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * import { IAMClient, DeleteUserPermissionsBoundaryCommand } from '@aws-sdk/client-iam'; // ES Modules import
+ * // const { IAMClient, DeleteUserPermissionsBoundaryCommand } = require('@aws-sdk/client-iam'); // CommonJS import
  * const client = new IAMClient(config);
  * const input = { // DeleteUserPermissionsBoundaryRequest
- *   UserName: "STRING_VALUE", // required
+ *   UserName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteUserPermissionsBoundaryCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteUserPermissionsBoundaryCommandInput - {@link DeleteUserPermissionsBoundaryCommandInput}
@@ -68,6 +71,8 @@ export interface DeleteUserPermissionsBoundaryCommandOutput extends __MetadataBe
  *  <p>The request processing has failed because of an unknown error, exception or
  *       failure.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  */
 export class DeleteUserPermissionsBoundaryCommand extends $Command<

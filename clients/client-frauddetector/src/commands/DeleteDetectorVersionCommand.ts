@@ -37,15 +37,18 @@ export interface DeleteDetectorVersionCommandOutput extends DeleteDetectorVersio
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FraudDetectorClient, DeleteDetectorVersionCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
- * // const { FraudDetectorClient, DeleteDetectorVersionCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
+ * import { FraudDetectorClient, DeleteDetectorVersionCommand } from '@aws-sdk/client-frauddetector'; // ES Modules import
+ * // const { FraudDetectorClient, DeleteDetectorVersionCommand } = require('@aws-sdk/client-frauddetector'); // CommonJS import
  * const client = new FraudDetectorClient(config);
  * const input = { // DeleteDetectorVersionRequest
- *   detectorId: "STRING_VALUE", // required
- *   detectorVersionId: "STRING_VALUE", // required
+ *   detectorId: 'STRING_VALUE', // required
+ *   detectorVersionId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteDetectorVersionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteDetectorVersionCommandInput - {@link DeleteDetectorVersionCommandInput}
@@ -72,6 +75,8 @@ export interface DeleteDetectorVersionCommandOutput extends DeleteDetectorVersio
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception indicating a specified value is not allowed.</p>
  *
+ * @throws {@link FraudDetectorServiceException}
+ * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
  */
 export class DeleteDetectorVersionCommand extends $Command<

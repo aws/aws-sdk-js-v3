@@ -38,14 +38,17 @@ export interface DeleteVoiceConnectorCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeSDKVoiceClient, DeleteVoiceConnectorCommand } from "@aws-sdk/client-chime-sdk-voice"; // ES Modules import
- * // const { ChimeSDKVoiceClient, DeleteVoiceConnectorCommand } = require("@aws-sdk/client-chime-sdk-voice"); // CommonJS import
+ * import { ChimeSDKVoiceClient, DeleteVoiceConnectorCommand } from '@aws-sdk/client-chime-sdk-voice'; // ES Modules import
+ * // const { ChimeSDKVoiceClient, DeleteVoiceConnectorCommand } = require('@aws-sdk/client-chime-sdk-voice'); // CommonJS import
  * const client = new ChimeSDKVoiceClient(config);
  * const input = { // DeleteVoiceConnectorRequest
- *   VoiceConnectorId: "STRING_VALUE", // required
+ *   VoiceConnectorId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteVoiceConnectorCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteVoiceConnectorCommandInput - {@link DeleteVoiceConnectorCommandInput}
@@ -78,6 +81,8 @@ export interface DeleteVoiceConnectorCommandOutput extends __MetadataBearer {}
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client isn't authorized to request a resource.</p>
  *
+ * @throws {@link ChimeSDKVoiceServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
  */
 export class DeleteVoiceConnectorCommand extends $Command<

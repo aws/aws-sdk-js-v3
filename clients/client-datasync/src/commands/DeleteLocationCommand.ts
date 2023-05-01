@@ -36,14 +36,17 @@ export interface DeleteLocationCommandOutput extends DeleteLocationResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DataSyncClient, DeleteLocationCommand } from "@aws-sdk/client-datasync"; // ES Modules import
- * // const { DataSyncClient, DeleteLocationCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
+ * import { DataSyncClient, DeleteLocationCommand } from '@aws-sdk/client-datasync'; // ES Modules import
+ * // const { DataSyncClient, DeleteLocationCommand } = require('@aws-sdk/client-datasync'); // CommonJS import
  * const client = new DataSyncClient(config);
  * const input = { // DeleteLocationRequest
- *   LocationArn: "STRING_VALUE", // required
+ *   LocationArn: 'STRING_VALUE', // required
  * };
  * const command = new DeleteLocationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteLocationCommandInput - {@link DeleteLocationCommandInput}
@@ -59,6 +62,8 @@ export interface DeleteLocationCommandOutput extends DeleteLocationResponse, __M
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception is thrown when the client submits a malformed request.</p>
  *
+ * @throws {@link DataSyncServiceException}
+ * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
  */
 export class DeleteLocationCommand extends $Command<

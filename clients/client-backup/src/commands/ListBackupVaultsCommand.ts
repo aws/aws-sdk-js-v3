@@ -37,15 +37,34 @@ export interface ListBackupVaultsCommandOutput extends ListBackupVaultsOutput, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BackupClient, ListBackupVaultsCommand } from "@aws-sdk/client-backup"; // ES Modules import
- * // const { BackupClient, ListBackupVaultsCommand } = require("@aws-sdk/client-backup"); // CommonJS import
+ * import { BackupClient, ListBackupVaultsCommand } from '@aws-sdk/client-backup'; // ES Modules import
+ * // const { BackupClient, ListBackupVaultsCommand } = require('@aws-sdk/client-backup'); // CommonJS import
  * const client = new BackupClient(config);
  * const input = { // ListBackupVaultsInput
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListBackupVaultsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListBackupVaultsOutput
+ *   BackupVaultList: [ // BackupVaultList
+ *     { // BackupVaultListMember
+ *       BackupVaultName: 'STRING_VALUE',
+ *       BackupVaultArn: 'STRING_VALUE',
+ *       CreationDate: new Date('TIMESTAMP'),
+ *       EncryptionKeyArn: 'STRING_VALUE',
+ *       CreatorRequestId: 'STRING_VALUE',
+ *       NumberOfRecoveryPoints: Number('long'),
+ *       Locked: true || false,
+ *       MinRetentionDays: Number('long'),
+ *       MaxRetentionDays: Number('long'),
+ *       LockDate: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListBackupVaultsCommandInput - {@link ListBackupVaultsCommandInput}
@@ -67,6 +86,8 @@ export interface ListBackupVaultsCommandOutput extends ListBackupVaultsOutput, _
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request failed due to a temporary failure of the server.</p>
  *
+ * @throws {@link BackupServiceException}
+ * <p>Base exception class for all service exceptions from Backup service.</p>
  *
  */
 export class ListBackupVaultsCommand extends $Command<

@@ -40,66 +40,66 @@ export interface CreateAssetModelCommandOutput extends CreateAssetModelResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTSiteWiseClient, CreateAssetModelCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
- * // const { IoTSiteWiseClient, CreateAssetModelCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
+ * import { IoTSiteWiseClient, CreateAssetModelCommand } from '@aws-sdk/client-iotsitewise'; // ES Modules import
+ * // const { IoTSiteWiseClient, CreateAssetModelCommand } = require('@aws-sdk/client-iotsitewise'); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
  * const input = { // CreateAssetModelRequest
- *   assetModelName: "STRING_VALUE", // required
- *   assetModelDescription: "STRING_VALUE",
+ *   assetModelName: 'STRING_VALUE', // required
+ *   assetModelDescription: 'STRING_VALUE',
  *   assetModelProperties: [ // AssetModelPropertyDefinitions
  *     { // AssetModelPropertyDefinition
- *       name: "STRING_VALUE", // required
- *       dataType: "STRING" || "INTEGER" || "DOUBLE" || "BOOLEAN" || "STRUCT", // required
- *       dataTypeSpec: "STRING_VALUE",
- *       unit: "STRING_VALUE",
+ *       name: 'STRING_VALUE', // required
+ *       dataType: 'STRING' || 'INTEGER' || 'DOUBLE' || 'BOOLEAN' || 'STRUCT', // required
+ *       dataTypeSpec: 'STRING_VALUE',
+ *       unit: 'STRING_VALUE',
  *       type: { // PropertyType
  *         attribute: { // Attribute
- *           defaultValue: "STRING_VALUE",
+ *           defaultValue: 'STRING_VALUE',
  *         },
  *         measurement: { // Measurement
  *           processingConfig: { // MeasurementProcessingConfig
  *             forwardingConfig: { // ForwardingConfig
- *               state: "DISABLED" || "ENABLED", // required
+ *               state: 'DISABLED' || 'ENABLED', // required
  *             },
  *           },
  *         },
  *         transform: { // Transform
- *           expression: "STRING_VALUE", // required
+ *           expression: 'STRING_VALUE', // required
  *           variables: [ // ExpressionVariables // required
  *             { // ExpressionVariable
- *               name: "STRING_VALUE", // required
+ *               name: 'STRING_VALUE', // required
  *               value: { // VariableValue
- *                 propertyId: "STRING_VALUE", // required
- *                 hierarchyId: "STRING_VALUE",
+ *                 propertyId: 'STRING_VALUE', // required
+ *                 hierarchyId: 'STRING_VALUE',
  *               },
  *             },
  *           ],
  *           processingConfig: { // TransformProcessingConfig
- *             computeLocation: "EDGE" || "CLOUD", // required
+ *             computeLocation: 'EDGE' || 'CLOUD', // required
  *             forwardingConfig: {
- *               state: "DISABLED" || "ENABLED", // required
+ *               state: 'DISABLED' || 'ENABLED', // required
  *             },
  *           },
  *         },
  *         metric: { // Metric
- *           expression: "STRING_VALUE", // required
+ *           expression: 'STRING_VALUE', // required
  *           variables: [ // required
  *             {
- *               name: "STRING_VALUE", // required
+ *               name: 'STRING_VALUE', // required
  *               value: {
- *                 propertyId: "STRING_VALUE", // required
- *                 hierarchyId: "STRING_VALUE",
+ *                 propertyId: 'STRING_VALUE', // required
+ *                 hierarchyId: 'STRING_VALUE',
  *               },
  *             },
  *           ],
  *           window: { // MetricWindow
  *             tumbling: { // TumblingWindow
- *               interval: "STRING_VALUE", // required
- *               offset: "STRING_VALUE",
+ *               interval: 'STRING_VALUE', // required
+ *               offset: 'STRING_VALUE',
  *             },
  *           },
  *           processingConfig: { // MetricProcessingConfig
- *             computeLocation: "EDGE" || "CLOUD", // required
+ *             computeLocation: 'EDGE' || 'CLOUD', // required
  *           },
  *         },
  *       },
@@ -107,69 +107,69 @@ export interface CreateAssetModelCommandOutput extends CreateAssetModelResponse,
  *   ],
  *   assetModelHierarchies: [ // AssetModelHierarchyDefinitions
  *     { // AssetModelHierarchyDefinition
- *       name: "STRING_VALUE", // required
- *       childAssetModelId: "STRING_VALUE", // required
+ *       name: 'STRING_VALUE', // required
+ *       childAssetModelId: 'STRING_VALUE', // required
  *     },
  *   ],
  *   assetModelCompositeModels: [ // AssetModelCompositeModelDefinitions
  *     { // AssetModelCompositeModelDefinition
- *       name: "STRING_VALUE", // required
- *       description: "STRING_VALUE",
- *       type: "STRING_VALUE", // required
+ *       name: 'STRING_VALUE', // required
+ *       description: 'STRING_VALUE',
+ *       type: 'STRING_VALUE', // required
  *       properties: [
  *         {
- *           name: "STRING_VALUE", // required
- *           dataType: "STRING" || "INTEGER" || "DOUBLE" || "BOOLEAN" || "STRUCT", // required
- *           dataTypeSpec: "STRING_VALUE",
- *           unit: "STRING_VALUE",
+ *           name: 'STRING_VALUE', // required
+ *           dataType: 'STRING' || 'INTEGER' || 'DOUBLE' || 'BOOLEAN' || 'STRUCT', // required
+ *           dataTypeSpec: 'STRING_VALUE',
+ *           unit: 'STRING_VALUE',
  *           type: {
  *             attribute: {
- *               defaultValue: "STRING_VALUE",
+ *               defaultValue: 'STRING_VALUE',
  *             },
  *             measurement: {
  *               processingConfig: {
  *                 forwardingConfig: {
- *                   state: "DISABLED" || "ENABLED", // required
+ *                   state: 'DISABLED' || 'ENABLED', // required
  *                 },
  *               },
  *             },
  *             transform: {
- *               expression: "STRING_VALUE", // required
+ *               expression: 'STRING_VALUE', // required
  *               variables: [ // required
  *                 {
- *                   name: "STRING_VALUE", // required
+ *                   name: 'STRING_VALUE', // required
  *                   value: {
- *                     propertyId: "STRING_VALUE", // required
- *                     hierarchyId: "STRING_VALUE",
+ *                     propertyId: 'STRING_VALUE', // required
+ *                     hierarchyId: 'STRING_VALUE',
  *                   },
  *                 },
  *               ],
  *               processingConfig: {
- *                 computeLocation: "EDGE" || "CLOUD", // required
+ *                 computeLocation: 'EDGE' || 'CLOUD', // required
  *                 forwardingConfig: {
- *                   state: "DISABLED" || "ENABLED", // required
+ *                   state: 'DISABLED' || 'ENABLED', // required
  *                 },
  *               },
  *             },
  *             metric: {
- *               expression: "STRING_VALUE", // required
+ *               expression: 'STRING_VALUE', // required
  *               variables: [ // required
  *                 {
- *                   name: "STRING_VALUE", // required
+ *                   name: 'STRING_VALUE', // required
  *                   value: {
- *                     propertyId: "STRING_VALUE", // required
- *                     hierarchyId: "STRING_VALUE",
+ *                     propertyId: 'STRING_VALUE', // required
+ *                     hierarchyId: 'STRING_VALUE',
  *                   },
  *                 },
  *               ],
  *               window: {
  *                 tumbling: {
- *                   interval: "STRING_VALUE", // required
- *                   offset: "STRING_VALUE",
+ *                   interval: 'STRING_VALUE', // required
+ *                   offset: 'STRING_VALUE',
  *                 },
  *               },
  *               processingConfig: {
- *                 computeLocation: "EDGE" || "CLOUD", // required
+ *                 computeLocation: 'EDGE' || 'CLOUD', // required
  *               },
  *             },
  *           },
@@ -177,13 +177,32 @@ export interface CreateAssetModelCommandOutput extends CreateAssetModelResponse,
  *       ],
  *     },
  *   ],
- *   clientToken: "STRING_VALUE",
+ *   clientToken: 'STRING_VALUE',
  *   tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateAssetModelCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateAssetModelResponse
+ *   assetModelId: 'STRING_VALUE', // required
+ *   assetModelArn: 'STRING_VALUE', // required
+ *   assetModelStatus: { // AssetModelStatus
+ *     state: 'CREATING' || 'ACTIVE' || 'UPDATING' || 'PROPAGATING' || 'DELETING' || 'FAILED', // required
+ *     error: { // ErrorDetails
+ *       code: 'VALIDATION_ERROR' || 'INTERNAL_FAILURE', // required
+ *       message: 'STRING_VALUE', // required
+ *       details: [ // DetailedErrors
+ *         { // DetailedError
+ *           code: 'INCOMPATIBLE_COMPUTE_LOCATION' || 'INCOMPATIBLE_FORWARDING_CONFIGURATION', // required
+ *           message: 'STRING_VALUE', // required
+ *         },
+ *       ],
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateAssetModelCommandInput - {@link CreateAssetModelCommandInput}
@@ -221,6 +240,8 @@ export interface CreateAssetModelCommandOutput extends CreateAssetModelResponse,
  *       on.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
  *
+ * @throws {@link IoTSiteWiseServiceException}
+ * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
  */
 export class CreateAssetModelCommand extends $Command<

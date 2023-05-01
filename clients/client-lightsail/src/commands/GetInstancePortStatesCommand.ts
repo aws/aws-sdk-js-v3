@@ -37,14 +37,35 @@ export interface GetInstancePortStatesCommandOutput extends GetInstancePortState
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LightsailClient, GetInstancePortStatesCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
- * // const { LightsailClient, GetInstancePortStatesCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
+ * import { LightsailClient, GetInstancePortStatesCommand } from '@aws-sdk/client-lightsail'; // ES Modules import
+ * // const { LightsailClient, GetInstancePortStatesCommand } = require('@aws-sdk/client-lightsail'); // CommonJS import
  * const client = new LightsailClient(config);
  * const input = { // GetInstancePortStatesRequest
- *   instanceName: "STRING_VALUE", // required
+ *   instanceName: 'STRING_VALUE', // required
  * };
  * const command = new GetInstancePortStatesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetInstancePortStatesResult
+ *   portStates: [ // InstancePortStateList
+ *     { // InstancePortState
+ *       fromPort: Number('int'),
+ *       toPort: Number('int'),
+ *       protocol: 'tcp' || 'all' || 'udp' || 'icmp',
+ *       state: 'open' || 'closed',
+ *       cidrs: [ // StringList
+ *         'STRING_VALUE',
+ *       ],
+ *       ipv6Cidrs: [
+ *         'STRING_VALUE',
+ *       ],
+ *       cidrListAliases: [
+ *         'STRING_VALUE',
+ *       ],
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetInstancePortStatesCommandInput - {@link GetInstancePortStatesCommandInput}
@@ -83,6 +104,8 @@ export interface GetInstancePortStatesCommandOutput extends GetInstancePortState
  * @throws {@link UnauthenticatedException} (client fault)
  *  <p>Lightsail throws this exception when the user has not been authenticated.</p>
  *
+ * @throws {@link LightsailServiceException}
+ * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
  */
 export class GetInstancePortStatesCommand extends $Command<

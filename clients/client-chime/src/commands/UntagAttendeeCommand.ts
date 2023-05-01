@@ -36,18 +36,21 @@ export interface UntagAttendeeCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeClient, UntagAttendeeCommand } from "@aws-sdk/client-chime"; // ES Modules import
- * // const { ChimeClient, UntagAttendeeCommand } = require("@aws-sdk/client-chime"); // CommonJS import
+ * import { ChimeClient, UntagAttendeeCommand } from '@aws-sdk/client-chime'; // ES Modules import
+ * // const { ChimeClient, UntagAttendeeCommand } = require('@aws-sdk/client-chime'); // CommonJS import
  * const client = new ChimeClient(config);
  * const input = { // UntagAttendeeRequest
- *   MeetingId: "STRING_VALUE", // required
- *   AttendeeId: "STRING_VALUE", // required
+ *   MeetingId: 'STRING_VALUE', // required
+ *   AttendeeId: 'STRING_VALUE', // required
  *   TagKeys: [ // AttendeeTagKeyList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new UntagAttendeeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UntagAttendeeCommandInput - {@link UntagAttendeeCommandInput}
@@ -77,6 +80,8 @@ export interface UntagAttendeeCommandOutput extends __MetadataBearer {}
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeServiceException}
+ * <p>Base exception class for all service exceptions from Chime service.</p>
  *
  */
 export class UntagAttendeeCommand extends $Command<

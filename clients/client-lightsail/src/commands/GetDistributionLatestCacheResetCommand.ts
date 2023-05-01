@@ -42,14 +42,20 @@ export interface GetDistributionLatestCacheResetCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LightsailClient, GetDistributionLatestCacheResetCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
- * // const { LightsailClient, GetDistributionLatestCacheResetCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
+ * import { LightsailClient, GetDistributionLatestCacheResetCommand } from '@aws-sdk/client-lightsail'; // ES Modules import
+ * // const { LightsailClient, GetDistributionLatestCacheResetCommand } = require('@aws-sdk/client-lightsail'); // CommonJS import
  * const client = new LightsailClient(config);
  * const input = { // GetDistributionLatestCacheResetRequest
- *   distributionName: "STRING_VALUE",
+ *   distributionName: 'STRING_VALUE',
  * };
  * const command = new GetDistributionLatestCacheResetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetDistributionLatestCacheResetResult
+ *   status: 'STRING_VALUE',
+ *   createTime: new Date('TIMESTAMP'),
+ * };
+ *
  * ```
  *
  * @param GetDistributionLatestCacheResetCommandInput - {@link GetDistributionLatestCacheResetCommandInput}
@@ -84,6 +90,8 @@ export interface GetDistributionLatestCacheResetCommandOutput
  * @throws {@link UnauthenticatedException} (client fault)
  *  <p>Lightsail throws this exception when the user has not been authenticated.</p>
  *
+ * @throws {@link LightsailServiceException}
+ * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
  */
 export class GetDistributionLatestCacheResetCommand extends $Command<

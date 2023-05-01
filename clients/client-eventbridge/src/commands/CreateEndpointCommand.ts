@@ -38,34 +38,60 @@ export interface CreateEndpointCommandOutput extends CreateEndpointResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EventBridgeClient, CreateEndpointCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
- * // const { EventBridgeClient, CreateEndpointCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
+ * import { EventBridgeClient, CreateEndpointCommand } from '@aws-sdk/client-eventbridge'; // ES Modules import
+ * // const { EventBridgeClient, CreateEndpointCommand } = require('@aws-sdk/client-eventbridge'); // CommonJS import
  * const client = new EventBridgeClient(config);
  * const input = { // CreateEndpointRequest
- *   Name: "STRING_VALUE", // required
- *   Description: "STRING_VALUE",
+ *   Name: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE',
  *   RoutingConfig: { // RoutingConfig
  *     FailoverConfig: { // FailoverConfig
  *       Primary: { // Primary
- *         HealthCheck: "STRING_VALUE", // required
+ *         HealthCheck: 'STRING_VALUE', // required
  *       },
  *       Secondary: { // Secondary
- *         Route: "STRING_VALUE", // required
+ *         Route: 'STRING_VALUE', // required
  *       },
  *     },
  *   },
  *   ReplicationConfig: { // ReplicationConfig
- *     State: "ENABLED" || "DISABLED",
+ *     State: 'ENABLED' || 'DISABLED',
  *   },
  *   EventBuses: [ // EndpointEventBusList // required
  *     { // EndpointEventBus
- *       EventBusArn: "STRING_VALUE", // required
+ *       EventBusArn: 'STRING_VALUE', // required
  *     },
  *   ],
- *   RoleArn: "STRING_VALUE",
+ *   RoleArn: 'STRING_VALUE',
  * };
  * const command = new CreateEndpointCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateEndpointResponse
+ *   Name: 'STRING_VALUE',
+ *   Arn: 'STRING_VALUE',
+ *   RoutingConfig: { // RoutingConfig
+ *     FailoverConfig: { // FailoverConfig
+ *       Primary: { // Primary
+ *         HealthCheck: 'STRING_VALUE', // required
+ *       },
+ *       Secondary: { // Secondary
+ *         Route: 'STRING_VALUE', // required
+ *       },
+ *     },
+ *   },
+ *   ReplicationConfig: { // ReplicationConfig
+ *     State: 'ENABLED' || 'DISABLED',
+ *   },
+ *   EventBuses: [ // EndpointEventBusList
+ *     { // EndpointEventBus
+ *       EventBusArn: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ *   RoleArn: 'STRING_VALUE',
+ *   State: 'ACTIVE' || 'CREATING' || 'UPDATING' || 'DELETING' || 'CREATE_FAILED' || 'UPDATE_FAILED' || 'DELETE_FAILED',
+ * };
+ *
  * ```
  *
  * @param CreateEndpointCommandInput - {@link CreateEndpointCommandInput}
@@ -84,6 +110,8 @@ export interface CreateEndpointCommandOutput extends CreateEndpointResponse, __M
  * @throws {@link ResourceAlreadyExistsException} (client fault)
  *  <p>The resource you are trying to create already exists.</p>
  *
+ * @throws {@link EventBridgeServiceException}
+ * <p>Base exception class for all service exceptions from EventBridge service.</p>
  *
  */
 export class CreateEndpointCommand extends $Command<

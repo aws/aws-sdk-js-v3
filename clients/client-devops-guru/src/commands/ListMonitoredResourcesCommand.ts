@@ -38,21 +38,49 @@ export interface ListMonitoredResourcesCommandOutput extends ListMonitoredResour
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DevOpsGuruClient, ListMonitoredResourcesCommand } from "@aws-sdk/client-devops-guru"; // ES Modules import
- * // const { DevOpsGuruClient, ListMonitoredResourcesCommand } = require("@aws-sdk/client-devops-guru"); // CommonJS import
+ * import { DevOpsGuruClient, ListMonitoredResourcesCommand } from '@aws-sdk/client-devops-guru'; // ES Modules import
+ * // const { DevOpsGuruClient, ListMonitoredResourcesCommand } = require('@aws-sdk/client-devops-guru'); // CommonJS import
  * const client = new DevOpsGuruClient(config);
  * const input = { // ListMonitoredResourcesRequest
  *   Filters: { // ListMonitoredResourcesFilters
- *     ResourcePermission: "FULL_PERMISSION" || "MISSING_PERMISSION", // required
+ *     ResourcePermission: 'FULL_PERMISSION' || 'MISSING_PERMISSION', // required
  *     ResourceTypeFilters: [ // ResourceTypeFilters // required
- *       "LOG_GROUPS" || "CLOUDFRONT_DISTRIBUTION" || "DYNAMODB_TABLE" || "EC2_NAT_GATEWAY" || "ECS_CLUSTER" || "ECS_SERVICE" || "EKS_CLUSTER" || "ELASTIC_BEANSTALK_ENVIRONMENT" || "ELASTIC_LOAD_BALANCER_LOAD_BALANCER" || "ELASTIC_LOAD_BALANCING_V2_LOAD_BALANCER" || "ELASTIC_LOAD_BALANCING_V2_TARGET_GROUP" || "ELASTICACHE_CACHE_CLUSTER" || "ELASTICSEARCH_DOMAIN" || "KINESIS_STREAM" || "LAMBDA_FUNCTION" || "OPEN_SEARCH_SERVICE_DOMAIN" || "RDS_DB_INSTANCE" || "RDS_DB_CLUSTER" || "REDSHIFT_CLUSTER" || "ROUTE53_HOSTED_ZONE" || "ROUTE53_HEALTH_CHECK" || "S3_BUCKET" || "SAGEMAKER_ENDPOINT" || "SNS_TOPIC" || "SQS_QUEUE" || "STEP_FUNCTIONS_ACTIVITY" || "STEP_FUNCTIONS_STATE_MACHINE",
+ *       'LOG_GROUPS' || 'CLOUDFRONT_DISTRIBUTION' || 'DYNAMODB_TABLE' || 'EC2_NAT_GATEWAY' || 'ECS_CLUSTER' || 'ECS_SERVICE' || 'EKS_CLUSTER' || 'ELASTIC_BEANSTALK_ENVIRONMENT' || 'ELASTIC_LOAD_BALANCER_LOAD_BALANCER' || 'ELASTIC_LOAD_BALANCING_V2_LOAD_BALANCER' || 'ELASTIC_LOAD_BALANCING_V2_TARGET_GROUP' || 'ELASTICACHE_CACHE_CLUSTER' || 'ELASTICSEARCH_DOMAIN' || 'KINESIS_STREAM' || 'LAMBDA_FUNCTION' || 'OPEN_SEARCH_SERVICE_DOMAIN' || 'RDS_DB_INSTANCE' || 'RDS_DB_CLUSTER' || 'REDSHIFT_CLUSTER' || 'ROUTE53_HOSTED_ZONE' || 'ROUTE53_HEALTH_CHECK' || 'S3_BUCKET' || 'SAGEMAKER_ENDPOINT' || 'SNS_TOPIC' || 'SQS_QUEUE' || 'STEP_FUNCTIONS_ACTIVITY' || 'STEP_FUNCTIONS_STATE_MACHINE',
  *     ],
  *   },
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListMonitoredResourcesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListMonitoredResourcesResponse
+ *   MonitoredResourceIdentifiers: [ // MonitoredResourceIdentifiers // required
+ *     { // MonitoredResourceIdentifier
+ *       MonitoredResourceName: 'STRING_VALUE',
+ *       Type: 'STRING_VALUE',
+ *       ResourcePermission: 'FULL_PERMISSION' || 'MISSING_PERMISSION',
+ *       LastUpdated: new Date('TIMESTAMP'),
+ *       ResourceCollection: { // ResourceCollection
+ *         CloudFormation: { // CloudFormationCollection
+ *           StackNames: [ // StackNames
+ *             'STRING_VALUE',
+ *           ],
+ *         },
+ *         Tags: [ // TagCollections
+ *           { // TagCollection
+ *             AppBoundaryKey: 'STRING_VALUE', // required
+ *             TagValues: [ // TagValues // required
+ *               'STRING_VALUE',
+ *             ],
+ *           },
+ *         ],
+ *       },
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListMonitoredResourcesCommandInput - {@link ListMonitoredResourcesCommandInput}
@@ -74,6 +102,8 @@ export interface ListMonitoredResourcesCommandOutput extends ListMonitoredResour
  *  <p> Contains information about data passed in to a field during a request that is not
  * 			valid. </p>
  *
+ * @throws {@link DevOpsGuruServiceException}
+ * <p>Base exception class for all service exceptions from DevOpsGuru service.</p>
  *
  */
 export class ListMonitoredResourcesCommand extends $Command<

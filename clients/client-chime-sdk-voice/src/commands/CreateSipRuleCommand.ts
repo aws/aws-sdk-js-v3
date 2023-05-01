@@ -37,24 +37,44 @@ export interface CreateSipRuleCommandOutput extends CreateSipRuleResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeSDKVoiceClient, CreateSipRuleCommand } from "@aws-sdk/client-chime-sdk-voice"; // ES Modules import
- * // const { ChimeSDKVoiceClient, CreateSipRuleCommand } = require("@aws-sdk/client-chime-sdk-voice"); // CommonJS import
+ * import { ChimeSDKVoiceClient, CreateSipRuleCommand } from '@aws-sdk/client-chime-sdk-voice'; // ES Modules import
+ * // const { ChimeSDKVoiceClient, CreateSipRuleCommand } = require('@aws-sdk/client-chime-sdk-voice'); // CommonJS import
  * const client = new ChimeSDKVoiceClient(config);
  * const input = { // CreateSipRuleRequest
- *   Name: "STRING_VALUE", // required
- *   TriggerType: "ToPhoneNumber" || "RequestUriHostname", // required
- *   TriggerValue: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
+ *   TriggerType: 'ToPhoneNumber' || 'RequestUriHostname', // required
+ *   TriggerValue: 'STRING_VALUE', // required
  *   Disabled: true || false,
  *   TargetApplications: [ // SipRuleTargetApplicationList
  *     { // SipRuleTargetApplication
- *       SipMediaApplicationId: "STRING_VALUE",
- *       Priority: Number("int"),
- *       AwsRegion: "STRING_VALUE",
+ *       SipMediaApplicationId: 'STRING_VALUE',
+ *       Priority: Number('int'),
+ *       AwsRegion: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new CreateSipRuleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateSipRuleResponse
+ *   SipRule: { // SipRule
+ *     SipRuleId: 'STRING_VALUE',
+ *     Name: 'STRING_VALUE',
+ *     Disabled: true || false,
+ *     TriggerType: 'ToPhoneNumber' || 'RequestUriHostname',
+ *     TriggerValue: 'STRING_VALUE',
+ *     TargetApplications: [ // SipRuleTargetApplicationList
+ *       { // SipRuleTargetApplication
+ *         SipMediaApplicationId: 'STRING_VALUE',
+ *         Priority: Number('int'),
+ *         AwsRegion: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     CreatedTimestamp: new Date('TIMESTAMP'),
+ *     UpdatedTimestamp: new Date('TIMESTAMP'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateSipRuleCommandInput - {@link CreateSipRuleCommandInput}
@@ -90,6 +110,8 @@ export interface CreateSipRuleCommandOutput extends CreateSipRuleResponse, __Met
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client isn't authorized to request a resource.</p>
  *
+ * @throws {@link ChimeSDKVoiceServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
  */
 export class CreateSipRuleCommand extends $Command<

@@ -36,17 +36,28 @@ export interface BatchAssociateResourceCommandOutput extends BatchAssociateResou
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FMSClient, BatchAssociateResourceCommand } from "@aws-sdk/client-fms"; // ES Modules import
- * // const { FMSClient, BatchAssociateResourceCommand } = require("@aws-sdk/client-fms"); // CommonJS import
+ * import { FMSClient, BatchAssociateResourceCommand } from '@aws-sdk/client-fms'; // ES Modules import
+ * // const { FMSClient, BatchAssociateResourceCommand } = require('@aws-sdk/client-fms'); // CommonJS import
  * const client = new FMSClient(config);
  * const input = { // BatchAssociateResourceRequest
- *   ResourceSetIdentifier: "STRING_VALUE", // required
+ *   ResourceSetIdentifier: 'STRING_VALUE', // required
  *   Items: [ // IdentifierList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new BatchAssociateResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BatchAssociateResourceResponse
+ *   ResourceSetIdentifier: 'STRING_VALUE', // required
+ *   FailedItems: [ // FailedItemList // required
+ *     { // FailedItem
+ *       URI: 'STRING_VALUE',
+ *       Reason: 'NOT_VALID_ARN' || 'NOT_VALID_PARTITION' || 'NOT_VALID_REGION' || 'NOT_VALID_SERVICE' || 'NOT_VALID_RESOURCE_TYPE' || 'NOT_VALID_ACCOUNT_ID',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param BatchAssociateResourceCommandInput - {@link BatchAssociateResourceCommandInput}
@@ -78,6 +89,8 @@ export interface BatchAssociateResourceCommandOutput extends BatchAssociateResou
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link FMSServiceException}
+ * <p>Base exception class for all service exceptions from FMS service.</p>
  *
  */
 export class BatchAssociateResourceCommand extends $Command<

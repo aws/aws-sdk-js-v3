@@ -59,15 +59,20 @@ export interface DeleteGeoMatchSetCommandOutput extends DeleteGeoMatchSetRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WAFClient, DeleteGeoMatchSetCommand } from "@aws-sdk/client-waf"; // ES Modules import
- * // const { WAFClient, DeleteGeoMatchSetCommand } = require("@aws-sdk/client-waf"); // CommonJS import
+ * import { WAFClient, DeleteGeoMatchSetCommand } from '@aws-sdk/client-waf'; // ES Modules import
+ * // const { WAFClient, DeleteGeoMatchSetCommand } = require('@aws-sdk/client-waf'); // CommonJS import
  * const client = new WAFClient(config);
  * const input = { // DeleteGeoMatchSetRequest
- *   GeoMatchSetId: "STRING_VALUE", // required
- *   ChangeToken: "STRING_VALUE", // required
+ *   GeoMatchSetId: 'STRING_VALUE', // required
+ *   ChangeToken: 'STRING_VALUE', // required
  * };
  * const command = new DeleteGeoMatchSetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteGeoMatchSetResponse
+ *   ChangeToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DeleteGeoMatchSetCommandInput - {@link DeleteGeoMatchSetCommandInput}
@@ -117,6 +122,8 @@ export interface DeleteGeoMatchSetCommandOutput extends DeleteGeoMatchSetRespons
  * @throws {@link WAFStaleDataException} (client fault)
  *  <p>The operation failed because you tried to create, update, or delete an object by using a change token that has already been used.</p>
  *
+ * @throws {@link WAFServiceException}
+ * <p>Base exception class for all service exceptions from WAF service.</p>
  *
  */
 export class DeleteGeoMatchSetCommand extends $Command<

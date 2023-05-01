@@ -68,22 +68,41 @@ export interface UpdateQualificationTypeCommandOutput extends UpdateQualificatio
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MTurkClient, UpdateQualificationTypeCommand } from "@aws-sdk/client-mturk"; // ES Modules import
- * // const { MTurkClient, UpdateQualificationTypeCommand } = require("@aws-sdk/client-mturk"); // CommonJS import
+ * import { MTurkClient, UpdateQualificationTypeCommand } from '@aws-sdk/client-mturk'; // ES Modules import
+ * // const { MTurkClient, UpdateQualificationTypeCommand } = require('@aws-sdk/client-mturk'); // CommonJS import
  * const client = new MTurkClient(config);
  * const input = { // UpdateQualificationTypeRequest
- *   QualificationTypeId: "STRING_VALUE", // required
- *   Description: "STRING_VALUE",
- *   QualificationTypeStatus: "STRING_VALUE",
- *   Test: "STRING_VALUE",
- *   AnswerKey: "STRING_VALUE",
- *   TestDurationInSeconds: Number("long"),
- *   RetryDelayInSeconds: Number("long"),
+ *   QualificationTypeId: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE',
+ *   QualificationTypeStatus: 'STRING_VALUE',
+ *   Test: 'STRING_VALUE',
+ *   AnswerKey: 'STRING_VALUE',
+ *   TestDurationInSeconds: Number('long'),
+ *   RetryDelayInSeconds: Number('long'),
  *   AutoGranted: true || false,
- *   AutoGrantedValue: Number("int"),
+ *   AutoGrantedValue: Number('int'),
  * };
  * const command = new UpdateQualificationTypeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateQualificationTypeResponse
+ *   QualificationType: { // QualificationType
+ *     QualificationTypeId: 'STRING_VALUE',
+ *     CreationTime: new Date('TIMESTAMP'),
+ *     Name: 'STRING_VALUE',
+ *     Description: 'STRING_VALUE',
+ *     Keywords: 'STRING_VALUE',
+ *     QualificationTypeStatus: 'STRING_VALUE',
+ *     Test: 'STRING_VALUE',
+ *     TestDurationInSeconds: Number('long'),
+ *     AnswerKey: 'STRING_VALUE',
+ *     RetryDelayInSeconds: Number('long'),
+ *     IsRequestable: true || false,
+ *     AutoGranted: true || false,
+ *     AutoGrantedValue: Number('int'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateQualificationTypeCommandInput - {@link UpdateQualificationTypeCommandInput}
@@ -98,6 +117,8 @@ export interface UpdateQualificationTypeCommandOutput extends UpdateQualificatio
  * @throws {@link ServiceFault} (server fault)
  *  <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
  *
+ * @throws {@link MTurkServiceException}
+ * <p>Base exception class for all service exceptions from MTurk service.</p>
  *
  */
 export class UpdateQualificationTypeCommand extends $Command<

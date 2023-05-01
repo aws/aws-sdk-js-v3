@@ -37,15 +37,18 @@ export interface DeleteBillingGroupCommandOutput extends DeleteBillingGroupRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTClient, DeleteBillingGroupCommand } from "@aws-sdk/client-iot"; // ES Modules import
- * // const { IoTClient, DeleteBillingGroupCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * import { IoTClient, DeleteBillingGroupCommand } from '@aws-sdk/client-iot'; // ES Modules import
+ * // const { IoTClient, DeleteBillingGroupCommand } = require('@aws-sdk/client-iot'); // CommonJS import
  * const client = new IoTClient(config);
  * const input = { // DeleteBillingGroupRequest
- *   billingGroupName: "STRING_VALUE", // required
- *   expectedVersion: Number("long"),
+ *   billingGroupName: 'STRING_VALUE', // required
+ *   expectedVersion: Number('long'),
  * };
  * const command = new DeleteBillingGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteBillingGroupCommandInput - {@link DeleteBillingGroupCommandInput}
@@ -68,6 +71,8 @@ export interface DeleteBillingGroupCommandOutput extends DeleteBillingGroupRespo
  *             <code>expectedVersion</code> parameter does not match the latest version in the
  *          system.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class DeleteBillingGroupCommand extends $Command<

@@ -36,15 +36,28 @@ export interface GetDataSetImportTaskCommandOutput extends GetDataSetImportTaskR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { M2Client, GetDataSetImportTaskCommand } from "@aws-sdk/client-m2"; // ES Modules import
- * // const { M2Client, GetDataSetImportTaskCommand } = require("@aws-sdk/client-m2"); // CommonJS import
+ * import { M2Client, GetDataSetImportTaskCommand } from '@aws-sdk/client-m2'; // ES Modules import
+ * // const { M2Client, GetDataSetImportTaskCommand } = require('@aws-sdk/client-m2'); // CommonJS import
  * const client = new M2Client(config);
  * const input = { // GetDataSetImportTaskRequest
- *   applicationId: "STRING_VALUE", // required
- *   taskId: "STRING_VALUE", // required
+ *   applicationId: 'STRING_VALUE', // required
+ *   taskId: 'STRING_VALUE', // required
  * };
  * const command = new GetDataSetImportTaskCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetDataSetImportTaskResponse
+ *   taskId: 'STRING_VALUE', // required
+ *   status: 'STRING_VALUE', // required
+ *   summary: { // DataSetImportSummary
+ *     total: Number('int'), // required
+ *     succeeded: Number('int'), // required
+ *     failed: Number('int'), // required
+ *     pending: Number('int'), // required
+ *     inProgress: Number('int'), // required
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetDataSetImportTaskCommandInput - {@link GetDataSetImportTaskCommandInput}
@@ -68,6 +81,8 @@ export interface GetDataSetImportTaskCommandOutput extends GetDataSetImportTaskR
  * @throws {@link ValidationException} (client fault)
  *  <p>One or more parameters provided in the request is not valid.</p>
  *
+ * @throws {@link M2ServiceException}
+ * <p>Base exception class for all service exceptions from M2 service.</p>
  *
  */
 export class GetDataSetImportTaskCommand extends $Command<

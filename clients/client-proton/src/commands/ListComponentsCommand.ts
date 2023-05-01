@@ -39,18 +39,38 @@ export interface ListComponentsCommandOutput extends ListComponentsOutput, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ProtonClient, ListComponentsCommand } from "@aws-sdk/client-proton"; // ES Modules import
- * // const { ProtonClient, ListComponentsCommand } = require("@aws-sdk/client-proton"); // CommonJS import
+ * import { ProtonClient, ListComponentsCommand } from '@aws-sdk/client-proton'; // ES Modules import
+ * // const { ProtonClient, ListComponentsCommand } = require('@aws-sdk/client-proton'); // CommonJS import
  * const client = new ProtonClient(config);
  * const input = { // ListComponentsInput
- *   nextToken: "STRING_VALUE",
- *   environmentName: "STRING_VALUE",
- *   serviceName: "STRING_VALUE",
- *   serviceInstanceName: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   nextToken: 'STRING_VALUE',
+ *   environmentName: 'STRING_VALUE',
+ *   serviceName: 'STRING_VALUE',
+ *   serviceInstanceName: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new ListComponentsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListComponentsOutput
+ *   nextToken: 'STRING_VALUE',
+ *   components: [ // ComponentSummaryList // required
+ *     { // ComponentSummary
+ *       name: 'STRING_VALUE', // required
+ *       arn: 'STRING_VALUE', // required
+ *       environmentName: 'STRING_VALUE', // required
+ *       serviceName: 'STRING_VALUE',
+ *       serviceInstanceName: 'STRING_VALUE',
+ *       createdAt: new Date('TIMESTAMP'), // required
+ *       lastModifiedAt: new Date('TIMESTAMP'), // required
+ *       lastDeploymentAttemptedAt: new Date('TIMESTAMP'),
+ *       lastDeploymentSucceededAt: new Date('TIMESTAMP'),
+ *       deploymentStatus: 'STRING_VALUE', // required
+ *       deploymentStatusMessage: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListComponentsCommandInput - {@link ListComponentsCommandInput}
@@ -71,6 +91,8 @@ export interface ListComponentsCommandOutput extends ListComponentsOutput, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>The input is invalid or an out-of-range value was supplied for the input parameter.</p>
  *
+ * @throws {@link ProtonServiceException}
+ * <p>Base exception class for all service exceptions from Proton service.</p>
  *
  */
 export class ListComponentsCommand extends $Command<

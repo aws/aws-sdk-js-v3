@@ -37,14 +37,17 @@ export interface DeleteRunCommandOutput extends DeleteRunResult, __MetadataBeare
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DeviceFarmClient, DeleteRunCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
- * // const { DeviceFarmClient, DeleteRunCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
+ * import { DeviceFarmClient, DeleteRunCommand } from '@aws-sdk/client-device-farm'; // ES Modules import
+ * // const { DeviceFarmClient, DeleteRunCommand } = require('@aws-sdk/client-device-farm'); // CommonJS import
  * const client = new DeviceFarmClient(config);
  * const input = { // DeleteRunRequest
- *   arn: "STRING_VALUE", // required
+ *   arn: 'STRING_VALUE', // required
  * };
  * const command = new DeleteRunCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteRunCommandInput - {@link DeleteRunCommandInput}
@@ -65,6 +68,8 @@ export interface DeleteRunCommandOutput extends DeleteRunResult, __MetadataBeare
  * @throws {@link ServiceAccountException} (client fault)
  *  <p>There was a problem with the service account.</p>
  *
+ * @throws {@link DeviceFarmServiceException}
+ * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
  * @example To delete a run
  * ```javascript

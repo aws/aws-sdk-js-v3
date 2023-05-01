@@ -36,15 +36,24 @@ export interface PutEncryptionConfigCommandOutput extends PutEncryptionConfigRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { XRayClient, PutEncryptionConfigCommand } from "@aws-sdk/client-xray"; // ES Modules import
- * // const { XRayClient, PutEncryptionConfigCommand } = require("@aws-sdk/client-xray"); // CommonJS import
+ * import { XRayClient, PutEncryptionConfigCommand } from '@aws-sdk/client-xray'; // ES Modules import
+ * // const { XRayClient, PutEncryptionConfigCommand } = require('@aws-sdk/client-xray'); // CommonJS import
  * const client = new XRayClient(config);
  * const input = { // PutEncryptionConfigRequest
- *   KeyId: "STRING_VALUE",
- *   Type: "NONE" || "KMS", // required
+ *   KeyId: 'STRING_VALUE',
+ *   Type: 'NONE' || 'KMS', // required
  * };
  * const command = new PutEncryptionConfigCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutEncryptionConfigResult
+ *   EncryptionConfig: { // EncryptionConfig
+ *     KeyId: 'STRING_VALUE',
+ *     Status: 'UPDATING' || 'ACTIVE',
+ *     Type: 'NONE' || 'KMS',
+ *   },
+ * };
+ *
  * ```
  *
  * @param PutEncryptionConfigCommandInput - {@link PutEncryptionConfigCommandInput}
@@ -59,6 +68,8 @@ export interface PutEncryptionConfigCommandOutput extends PutEncryptionConfigRes
  * @throws {@link ThrottledException} (client fault)
  *  <p>The request exceeds the maximum number of requests per second.</p>
  *
+ * @throws {@link XRayServiceException}
+ * <p>Base exception class for all service exceptions from XRay service.</p>
  *
  */
 export class PutEncryptionConfigCommand extends $Command<

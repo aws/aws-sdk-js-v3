@@ -36,16 +36,33 @@ export interface ListTemplatesCommandOutput extends ListTemplatesResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { QuickSightClient, ListTemplatesCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
- * // const { QuickSightClient, ListTemplatesCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * import { QuickSightClient, ListTemplatesCommand } from '@aws-sdk/client-quicksight'; // ES Modules import
+ * // const { QuickSightClient, ListTemplatesCommand } = require('@aws-sdk/client-quicksight'); // CommonJS import
  * const client = new QuickSightClient(config);
  * const input = { // ListTemplatesRequest
- *   AwsAccountId: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   AwsAccountId: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListTemplatesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTemplatesResponse
+ *   TemplateSummaryList: [ // TemplateSummaryList
+ *     { // TemplateSummary
+ *       Arn: 'STRING_VALUE',
+ *       TemplateId: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *       LatestVersionNumber: Number('long'),
+ *       CreatedTime: new Date('TIMESTAMP'),
+ *       LastUpdatedTime: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ *   Status: Number('int'),
+ *   RequestId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListTemplatesCommandInput - {@link ListTemplatesCommandInput}
@@ -75,6 +92,8 @@ export interface ListTemplatesCommandOutput extends ListTemplatesResponse, __Met
  * 			Amazon QuickSight currently has Standard Edition and Enterprise Edition. Not every operation and
  * 			capability is available in every edition.</p>
  *
+ * @throws {@link QuickSightServiceException}
+ * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
 export class ListTemplatesCommand extends $Command<

@@ -56,14 +56,17 @@ export interface DeleteSlotTypeCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LexModelBuildingServiceClient, DeleteSlotTypeCommand } from "@aws-sdk/client-lex-model-building-service"; // ES Modules import
- * // const { LexModelBuildingServiceClient, DeleteSlotTypeCommand } = require("@aws-sdk/client-lex-model-building-service"); // CommonJS import
+ * import { LexModelBuildingServiceClient, DeleteSlotTypeCommand } from '@aws-sdk/client-lex-model-building-service'; // ES Modules import
+ * // const { LexModelBuildingServiceClient, DeleteSlotTypeCommand } = require('@aws-sdk/client-lex-model-building-service'); // CommonJS import
  * const client = new LexModelBuildingServiceClient(config);
  * const input = { // DeleteSlotTypeRequest
- *   name: "STRING_VALUE", // required
+ *   name: 'STRING_VALUE', // required
  * };
  * const command = new DeleteSlotTypeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteSlotTypeCommandInput - {@link DeleteSlotTypeCommandInput}
@@ -109,6 +112,8 @@ export interface DeleteSlotTypeCommandOutput extends __MetadataBearer {}
  *           <i>string</i> } }</code>
  *          </p>
  *
+ * @throws {@link LexModelBuildingServiceServiceException}
+ * <p>Base exception class for all service exceptions from LexModelBuildingService service.</p>
  *
  */
 export class DeleteSlotTypeCommand extends $Command<

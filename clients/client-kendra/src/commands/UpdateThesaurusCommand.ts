@@ -36,22 +36,25 @@ export interface UpdateThesaurusCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KendraClient, UpdateThesaurusCommand } from "@aws-sdk/client-kendra"; // ES Modules import
- * // const { KendraClient, UpdateThesaurusCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
+ * import { KendraClient, UpdateThesaurusCommand } from '@aws-sdk/client-kendra'; // ES Modules import
+ * // const { KendraClient, UpdateThesaurusCommand } = require('@aws-sdk/client-kendra'); // CommonJS import
  * const client = new KendraClient(config);
  * const input = { // UpdateThesaurusRequest
- *   Id: "STRING_VALUE", // required
- *   Name: "STRING_VALUE",
- *   IndexId: "STRING_VALUE", // required
- *   Description: "STRING_VALUE",
- *   RoleArn: "STRING_VALUE",
+ *   Id: 'STRING_VALUE', // required
+ *   Name: 'STRING_VALUE',
+ *   IndexId: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE',
+ *   RoleArn: 'STRING_VALUE',
  *   SourceS3Path: { // S3Path
- *     Bucket: "STRING_VALUE", // required
- *     Key: "STRING_VALUE", // required
+ *     Bucket: 'STRING_VALUE', // required
+ *     Key: 'STRING_VALUE', // required
  *   },
  * };
  * const command = new UpdateThesaurusCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateThesaurusCommandInput - {@link UpdateThesaurusCommandInput}
@@ -84,6 +87,8 @@ export interface UpdateThesaurusCommandOutput extends __MetadataBearer {}
  *  <p>The input fails to satisfy the constraints set by the Amazon Kendra service.
  *             Please provide the correct input and try again.</p>
  *
+ * @throws {@link KendraServiceException}
+ * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
  */
 export class UpdateThesaurusCommand extends $Command<

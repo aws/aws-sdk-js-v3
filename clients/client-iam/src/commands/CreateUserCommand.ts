@@ -38,22 +38,44 @@ export interface CreateUserCommandOutput extends CreateUserResponse, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IAMClient, CreateUserCommand } from "@aws-sdk/client-iam"; // ES Modules import
- * // const { IAMClient, CreateUserCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * import { IAMClient, CreateUserCommand } from '@aws-sdk/client-iam'; // ES Modules import
+ * // const { IAMClient, CreateUserCommand } = require('@aws-sdk/client-iam'); // CommonJS import
  * const client = new IAMClient(config);
  * const input = { // CreateUserRequest
- *   Path: "STRING_VALUE",
- *   UserName: "STRING_VALUE", // required
- *   PermissionsBoundary: "STRING_VALUE",
+ *   Path: 'STRING_VALUE',
+ *   UserName: 'STRING_VALUE', // required
+ *   PermissionsBoundary: 'STRING_VALUE',
  *   Tags: [ // tagListType
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreateUserCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateUserResponse
+ *   User: { // User
+ *     Path: 'STRING_VALUE', // required
+ *     UserName: 'STRING_VALUE', // required
+ *     UserId: 'STRING_VALUE', // required
+ *     Arn: 'STRING_VALUE', // required
+ *     CreateDate: new Date('TIMESTAMP'), // required
+ *     PasswordLastUsed: new Date('TIMESTAMP'),
+ *     PermissionsBoundary: { // AttachedPermissionsBoundary
+ *       PermissionsBoundaryType: 'PermissionsBoundaryPolicy',
+ *       PermissionsBoundaryArn: 'STRING_VALUE',
+ *     },
+ *     Tags: [ // tagListType
+ *       { // Tag
+ *         Key: 'STRING_VALUE', // required
+ *         Value: 'STRING_VALUE', // required
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateUserCommandInput - {@link CreateUserCommandInput}
@@ -86,6 +108,8 @@ export interface CreateUserCommandOutput extends CreateUserResponse, __MetadataB
  *  <p>The request processing has failed because of an unknown error, exception or
  *       failure.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  * @example To create an IAM user
  * ```javascript

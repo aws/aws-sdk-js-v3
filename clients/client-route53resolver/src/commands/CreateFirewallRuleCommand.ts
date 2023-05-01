@@ -36,23 +36,41 @@ export interface CreateFirewallRuleCommandOutput extends CreateFirewallRuleRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Route53ResolverClient, CreateFirewallRuleCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
- * // const { Route53ResolverClient, CreateFirewallRuleCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
+ * import { Route53ResolverClient, CreateFirewallRuleCommand } from '@aws-sdk/client-route53resolver'; // ES Modules import
+ * // const { Route53ResolverClient, CreateFirewallRuleCommand } = require('@aws-sdk/client-route53resolver'); // CommonJS import
  * const client = new Route53ResolverClient(config);
  * const input = { // CreateFirewallRuleRequest
- *   CreatorRequestId: "STRING_VALUE", // required
- *   FirewallRuleGroupId: "STRING_VALUE", // required
- *   FirewallDomainListId: "STRING_VALUE", // required
- *   Priority: Number("int"), // required
- *   Action: "ALLOW" || "BLOCK" || "ALERT", // required
- *   BlockResponse: "NODATA" || "NXDOMAIN" || "OVERRIDE",
- *   BlockOverrideDomain: "STRING_VALUE",
- *   BlockOverrideDnsType: "CNAME",
- *   BlockOverrideTtl: Number("int"),
- *   Name: "STRING_VALUE", // required
+ *   CreatorRequestId: 'STRING_VALUE', // required
+ *   FirewallRuleGroupId: 'STRING_VALUE', // required
+ *   FirewallDomainListId: 'STRING_VALUE', // required
+ *   Priority: Number('int'), // required
+ *   Action: 'ALLOW' || 'BLOCK' || 'ALERT', // required
+ *   BlockResponse: 'NODATA' || 'NXDOMAIN' || 'OVERRIDE',
+ *   BlockOverrideDomain: 'STRING_VALUE',
+ *   BlockOverrideDnsType: 'CNAME',
+ *   BlockOverrideTtl: Number('int'),
+ *   Name: 'STRING_VALUE', // required
  * };
  * const command = new CreateFirewallRuleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateFirewallRuleResponse
+ *   FirewallRule: { // FirewallRule
+ *     FirewallRuleGroupId: 'STRING_VALUE',
+ *     FirewallDomainListId: 'STRING_VALUE',
+ *     Name: 'STRING_VALUE',
+ *     Priority: Number('int'),
+ *     Action: 'ALLOW' || 'BLOCK' || 'ALERT',
+ *     BlockResponse: 'NODATA' || 'NXDOMAIN' || 'OVERRIDE',
+ *     BlockOverrideDomain: 'STRING_VALUE',
+ *     BlockOverrideDnsType: 'CNAME',
+ *     BlockOverrideTtl: Number('int'),
+ *     CreatorRequestId: 'STRING_VALUE',
+ *     CreationTime: 'STRING_VALUE',
+ *     ModificationTime: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateFirewallRuleCommandInput - {@link CreateFirewallRuleCommandInput}
@@ -80,6 +98,8 @@ export interface CreateFirewallRuleCommandOutput extends CreateFirewallRuleRespo
  *  <p>You have provided an invalid command. Supported values are <code>ADD</code>,
  * 			<code>REMOVE</code>, or <code>REPLACE</code> a domain.</p>
  *
+ * @throws {@link Route53ResolverServiceException}
+ * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
  */
 export class CreateFirewallRuleCommand extends $Command<

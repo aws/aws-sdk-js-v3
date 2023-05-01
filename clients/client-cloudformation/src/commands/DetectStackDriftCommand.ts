@@ -56,17 +56,22 @@ export interface DetectStackDriftCommandOutput extends DetectStackDriftOutput, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudFormationClient, DetectStackDriftCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
- * // const { CloudFormationClient, DetectStackDriftCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
+ * import { CloudFormationClient, DetectStackDriftCommand } from '@aws-sdk/client-cloudformation'; // ES Modules import
+ * // const { CloudFormationClient, DetectStackDriftCommand } = require('@aws-sdk/client-cloudformation'); // CommonJS import
  * const client = new CloudFormationClient(config);
  * const input = { // DetectStackDriftInput
- *   StackName: "STRING_VALUE", // required
+ *   StackName: 'STRING_VALUE', // required
  *   LogicalResourceIds: [ // LogicalResourceIds
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new DetectStackDriftCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DetectStackDriftOutput
+ *   StackDriftDetectionId: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param DetectStackDriftCommandInput - {@link DetectStackDriftCommandInput}
@@ -75,6 +80,8 @@ export interface DetectStackDriftCommandOutput extends DetectStackDriftOutput, _
  * @see {@link DetectStackDriftCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
+ * @throws {@link CloudFormationServiceException}
+ * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
  */
 export class DetectStackDriftCommand extends $Command<

@@ -37,20 +37,39 @@ export interface CreateAssetCommandOutput extends CreateAssetResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTSiteWiseClient, CreateAssetCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
- * // const { IoTSiteWiseClient, CreateAssetCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
+ * import { IoTSiteWiseClient, CreateAssetCommand } from '@aws-sdk/client-iotsitewise'; // ES Modules import
+ * // const { IoTSiteWiseClient, CreateAssetCommand } = require('@aws-sdk/client-iotsitewise'); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
  * const input = { // CreateAssetRequest
- *   assetName: "STRING_VALUE", // required
- *   assetModelId: "STRING_VALUE", // required
- *   clientToken: "STRING_VALUE",
+ *   assetName: 'STRING_VALUE', // required
+ *   assetModelId: 'STRING_VALUE', // required
+ *   clientToken: 'STRING_VALUE',
  *   tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
- *   assetDescription: "STRING_VALUE",
+ *   assetDescription: 'STRING_VALUE',
  * };
  * const command = new CreateAssetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateAssetResponse
+ *   assetId: 'STRING_VALUE', // required
+ *   assetArn: 'STRING_VALUE', // required
+ *   assetStatus: { // AssetStatus
+ *     state: 'CREATING' || 'ACTIVE' || 'UPDATING' || 'DELETING' || 'FAILED', // required
+ *     error: { // ErrorDetails
+ *       code: 'VALIDATION_ERROR' || 'INTERNAL_FAILURE', // required
+ *       message: 'STRING_VALUE', // required
+ *       details: [ // DetailedErrors
+ *         { // DetailedError
+ *           code: 'INCOMPATIBLE_COMPUTE_LOCATION' || 'INCOMPATIBLE_FORWARDING_CONFIGURATION', // required
+ *           message: 'STRING_VALUE', // required
+ *         },
+ *       ],
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateAssetCommandInput - {@link CreateAssetCommandInput}
@@ -88,6 +107,8 @@ export interface CreateAssetCommandOutput extends CreateAssetResponse, __Metadat
  *       on.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
  *
+ * @throws {@link IoTSiteWiseServiceException}
+ * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
  */
 export class CreateAssetCommand extends $Command<

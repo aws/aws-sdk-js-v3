@@ -37,16 +37,56 @@ export interface ListActionTypesCommandOutput extends ListActionTypesOutput, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodePipelineClient, ListActionTypesCommand } from "@aws-sdk/client-codepipeline"; // ES Modules import
- * // const { CodePipelineClient, ListActionTypesCommand } = require("@aws-sdk/client-codepipeline"); // CommonJS import
+ * import { CodePipelineClient, ListActionTypesCommand } from '@aws-sdk/client-codepipeline'; // ES Modules import
+ * // const { CodePipelineClient, ListActionTypesCommand } = require('@aws-sdk/client-codepipeline'); // CommonJS import
  * const client = new CodePipelineClient(config);
  * const input = { // ListActionTypesInput
- *   actionOwnerFilter: "STRING_VALUE",
- *   nextToken: "STRING_VALUE",
- *   regionFilter: "STRING_VALUE",
+ *   actionOwnerFilter: 'STRING_VALUE',
+ *   nextToken: 'STRING_VALUE',
+ *   regionFilter: 'STRING_VALUE',
  * };
  * const command = new ListActionTypesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListActionTypesOutput
+ *   actionTypes: [ // ActionTypeList // required
+ *     { // ActionType
+ *       id: { // ActionTypeId
+ *         category: 'STRING_VALUE', // required
+ *         owner: 'STRING_VALUE', // required
+ *         provider: 'STRING_VALUE', // required
+ *         version: 'STRING_VALUE', // required
+ *       },
+ *       settings: { // ActionTypeSettings
+ *         thirdPartyConfigurationUrl: 'STRING_VALUE',
+ *         entityUrlTemplate: 'STRING_VALUE',
+ *         executionUrlTemplate: 'STRING_VALUE',
+ *         revisionUrlTemplate: 'STRING_VALUE',
+ *       },
+ *       actionConfigurationProperties: [ // ActionConfigurationPropertyList
+ *         { // ActionConfigurationProperty
+ *           name: 'STRING_VALUE', // required
+ *           required: true || false, // required
+ *           key: true || false, // required
+ *           secret: true || false, // required
+ *           queryable: true || false,
+ *           description: 'STRING_VALUE',
+ *           type: 'STRING_VALUE',
+ *         },
+ *       ],
+ *       inputArtifactDetails: { // ArtifactDetails
+ *         minimumCount: Number('int'), // required
+ *         maximumCount: Number('int'), // required
+ *       },
+ *       outputArtifactDetails: {
+ *         minimumCount: Number('int'), // required
+ *         maximumCount: Number('int'), // required
+ *       },
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListActionTypesCommandInput - {@link ListActionTypesCommandInput}
@@ -62,6 +102,8 @@ export interface ListActionTypesCommandOutput extends ListActionTypesOutput, __M
  * @throws {@link ValidationException} (client fault)
  *  <p>The validation was specified in an invalid format.</p>
  *
+ * @throws {@link CodePipelineServiceException}
+ * <p>Base exception class for all service exceptions from CodePipeline service.</p>
  *
  */
 export class ListActionTypesCommand extends $Command<

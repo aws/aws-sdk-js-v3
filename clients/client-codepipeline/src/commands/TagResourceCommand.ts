@@ -37,20 +37,23 @@ export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodePipelineClient, TagResourceCommand } from "@aws-sdk/client-codepipeline"; // ES Modules import
- * // const { CodePipelineClient, TagResourceCommand } = require("@aws-sdk/client-codepipeline"); // CommonJS import
+ * import { CodePipelineClient, TagResourceCommand } from '@aws-sdk/client-codepipeline'; // ES Modules import
+ * // const { CodePipelineClient, TagResourceCommand } = require('@aws-sdk/client-codepipeline'); // CommonJS import
  * const client = new CodePipelineClient(config);
  * const input = { // TagResourceInput
- *   resourceArn: "STRING_VALUE", // required
+ *   resourceArn: 'STRING_VALUE', // required
  *   tags: [ // TagList // required
  *     { // Tag
- *       key: "STRING_VALUE", // required
- *       value: "STRING_VALUE", // required
+ *       key: 'STRING_VALUE', // required
+ *       value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param TagResourceCommandInput - {@link TagResourceCommandInput}
@@ -77,6 +80,8 @@ export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataB
  * @throws {@link ValidationException} (client fault)
  *  <p>The validation was specified in an invalid format.</p>
  *
+ * @throws {@link CodePipelineServiceException}
+ * <p>Base exception class for all service exceptions from CodePipeline service.</p>
  *
  */
 export class TagResourceCommand extends $Command<

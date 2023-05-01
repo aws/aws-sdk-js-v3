@@ -36,20 +36,25 @@ export interface CreateRotationOverrideCommandOutput extends CreateRotationOverr
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMContactsClient, CreateRotationOverrideCommand } from "@aws-sdk/client-ssm-contacts"; // ES Modules import
- * // const { SSMContactsClient, CreateRotationOverrideCommand } = require("@aws-sdk/client-ssm-contacts"); // CommonJS import
+ * import { SSMContactsClient, CreateRotationOverrideCommand } from '@aws-sdk/client-ssm-contacts'; // ES Modules import
+ * // const { SSMContactsClient, CreateRotationOverrideCommand } = require('@aws-sdk/client-ssm-contacts'); // CommonJS import
  * const client = new SSMContactsClient(config);
  * const input = { // CreateRotationOverrideRequest
- *   RotationId: "STRING_VALUE", // required
+ *   RotationId: 'STRING_VALUE', // required
  *   NewContactIds: [ // RotationOverrideContactsArnList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   StartTime: new Date("TIMESTAMP"), // required
- *   EndTime: new Date("TIMESTAMP"), // required
- *   IdempotencyToken: "STRING_VALUE",
+ *   StartTime: new Date('TIMESTAMP'), // required
+ *   EndTime: new Date('TIMESTAMP'), // required
+ *   IdempotencyToken: 'STRING_VALUE',
  * };
  * const command = new CreateRotationOverrideCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateRotationOverrideResult
+ *   RotationOverrideId: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param CreateRotationOverrideCommandInput - {@link CreateRotationOverrideCommandInput}
@@ -77,6 +82,8 @@ export interface CreateRotationOverrideCommandOutput extends CreateRotationOverr
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
  *          service.</p>
  *
+ * @throws {@link SSMContactsServiceException}
+ * <p>Base exception class for all service exceptions from SSMContacts service.</p>
  *
  */
 export class CreateRotationOverrideCommand extends $Command<

@@ -36,19 +36,25 @@ export interface CreateStreamingURLCommandOutput extends CreateStreamingURLResul
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppStreamClient, CreateStreamingURLCommand } from "@aws-sdk/client-appstream"; // ES Modules import
- * // const { AppStreamClient, CreateStreamingURLCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
+ * import { AppStreamClient, CreateStreamingURLCommand } from '@aws-sdk/client-appstream'; // ES Modules import
+ * // const { AppStreamClient, CreateStreamingURLCommand } = require('@aws-sdk/client-appstream'); // CommonJS import
  * const client = new AppStreamClient(config);
  * const input = { // CreateStreamingURLRequest
- *   StackName: "STRING_VALUE", // required
- *   FleetName: "STRING_VALUE", // required
- *   UserId: "STRING_VALUE", // required
- *   ApplicationId: "STRING_VALUE",
- *   Validity: Number("long"),
- *   SessionContext: "STRING_VALUE",
+ *   StackName: 'STRING_VALUE', // required
+ *   FleetName: 'STRING_VALUE', // required
+ *   UserId: 'STRING_VALUE', // required
+ *   ApplicationId: 'STRING_VALUE',
+ *   Validity: Number('long'),
+ *   SessionContext: 'STRING_VALUE',
  * };
  * const command = new CreateStreamingURLCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateStreamingURLResult
+ *   StreamingURL: 'STRING_VALUE',
+ *   Expires: new Date('TIMESTAMP'),
+ * };
+ *
  * ```
  *
  * @param CreateStreamingURLCommandInput - {@link CreateStreamingURLCommandInput}
@@ -69,6 +75,8 @@ export interface CreateStreamingURLCommandOutput extends CreateStreamingURLResul
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link AppStreamServiceException}
+ * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
  */
 export class CreateStreamingURLCommand extends $Command<

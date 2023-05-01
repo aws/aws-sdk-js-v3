@@ -43,24 +43,39 @@ export interface ListUsageForLicenseConfigurationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LicenseManagerClient, ListUsageForLicenseConfigurationCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
- * // const { LicenseManagerClient, ListUsageForLicenseConfigurationCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
+ * import { LicenseManagerClient, ListUsageForLicenseConfigurationCommand } from '@aws-sdk/client-license-manager'; // ES Modules import
+ * // const { LicenseManagerClient, ListUsageForLicenseConfigurationCommand } = require('@aws-sdk/client-license-manager'); // CommonJS import
  * const client = new LicenseManagerClient(config);
  * const input = { // ListUsageForLicenseConfigurationRequest
- *   LicenseConfigurationArn: "STRING_VALUE", // required
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   LicenseConfigurationArn: 'STRING_VALUE', // required
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  *   Filters: [ // Filters
  *     { // Filter
- *       Name: "STRING_VALUE",
+ *       Name: 'STRING_VALUE',
  *       Values: [ // FilterValues
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
  * };
  * const command = new ListUsageForLicenseConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListUsageForLicenseConfigurationResponse
+ *   LicenseConfigurationUsageList: [ // LicenseConfigurationUsageList
+ *     { // LicenseConfigurationUsage
+ *       ResourceArn: 'STRING_VALUE',
+ *       ResourceType: 'EC2_INSTANCE' || 'EC2_HOST' || 'EC2_AMI' || 'RDS' || 'SYSTEMS_MANAGER_MANAGED_INSTANCE',
+ *       ResourceStatus: 'STRING_VALUE',
+ *       ResourceOwnerId: 'STRING_VALUE',
+ *       AssociationTime: new Date('TIMESTAMP'),
+ *       ConsumedLicenses: Number('long'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListUsageForLicenseConfigurationCommandInput - {@link ListUsageForLicenseConfigurationCommandInput}
@@ -88,6 +103,8 @@ export interface ListUsageForLicenseConfigurationCommandOutput
  * @throws {@link ServerInternalException} (server fault)
  *  <p>The server experienced an internal error. Try again.</p>
  *
+ * @throws {@link LicenseManagerServiceException}
+ * <p>Base exception class for all service exceptions from LicenseManager service.</p>
  *
  */
 export class ListUsageForLicenseConfigurationCommand extends $Command<

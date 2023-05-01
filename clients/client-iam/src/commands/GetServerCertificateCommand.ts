@@ -40,14 +40,36 @@ export interface GetServerCertificateCommandOutput extends GetServerCertificateR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IAMClient, GetServerCertificateCommand } from "@aws-sdk/client-iam"; // ES Modules import
- * // const { IAMClient, GetServerCertificateCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * import { IAMClient, GetServerCertificateCommand } from '@aws-sdk/client-iam'; // ES Modules import
+ * // const { IAMClient, GetServerCertificateCommand } = require('@aws-sdk/client-iam'); // CommonJS import
  * const client = new IAMClient(config);
  * const input = { // GetServerCertificateRequest
- *   ServerCertificateName: "STRING_VALUE", // required
+ *   ServerCertificateName: 'STRING_VALUE', // required
  * };
  * const command = new GetServerCertificateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetServerCertificateResponse
+ *   ServerCertificate: { // ServerCertificate
+ *     ServerCertificateMetadata: { // ServerCertificateMetadata
+ *       Path: 'STRING_VALUE', // required
+ *       ServerCertificateName: 'STRING_VALUE', // required
+ *       ServerCertificateId: 'STRING_VALUE', // required
+ *       Arn: 'STRING_VALUE', // required
+ *       UploadDate: new Date('TIMESTAMP'),
+ *       Expiration: new Date('TIMESTAMP'),
+ *     },
+ *     CertificateBody: 'STRING_VALUE', // required
+ *     CertificateChain: 'STRING_VALUE',
+ *     Tags: [ // tagListType
+ *       { // Tag
+ *         Key: 'STRING_VALUE', // required
+ *         Value: 'STRING_VALUE', // required
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetServerCertificateCommandInput - {@link GetServerCertificateCommandInput}
@@ -64,6 +86,8 @@ export interface GetServerCertificateCommandOutput extends GetServerCertificateR
  *  <p>The request processing has failed because of an unknown error, exception or
  *       failure.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  */
 export class GetServerCertificateCommand extends $Command<

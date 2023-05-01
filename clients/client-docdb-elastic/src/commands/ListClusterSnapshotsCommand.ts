@@ -36,16 +36,30 @@ export interface ListClusterSnapshotsCommandOutput extends ListClusterSnapshotsO
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DocDBElasticClient, ListClusterSnapshotsCommand } from "@aws-sdk/client-docdb-elastic"; // ES Modules import
- * // const { DocDBElasticClient, ListClusterSnapshotsCommand } = require("@aws-sdk/client-docdb-elastic"); // CommonJS import
+ * import { DocDBElasticClient, ListClusterSnapshotsCommand } from '@aws-sdk/client-docdb-elastic'; // ES Modules import
+ * // const { DocDBElasticClient, ListClusterSnapshotsCommand } = require('@aws-sdk/client-docdb-elastic'); // CommonJS import
  * const client = new DocDBElasticClient(config);
  * const input = { // ListClusterSnapshotsInput
- *   clusterArn: "STRING_VALUE",
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   clusterArn: 'STRING_VALUE',
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new ListClusterSnapshotsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListClusterSnapshotsOutput
+ *   snapshots: [ // ClusterSnapshotList
+ *     { // ClusterSnapshotInList
+ *       snapshotName: 'STRING_VALUE', // required
+ *       snapshotArn: 'STRING_VALUE', // required
+ *       clusterArn: 'STRING_VALUE', // required
+ *       status: 'STRING_VALUE', // required
+ *       snapshotCreationTime: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListClusterSnapshotsCommandInput - {@link ListClusterSnapshotsCommandInput}
@@ -66,6 +80,8 @@ export interface ListClusterSnapshotsCommandOutput extends ListClusterSnapshotsO
  * @throws {@link ValidationException} (client fault)
  *  <p>A structure defining a validation exception.</p>
  *
+ * @throws {@link DocDBElasticServiceException}
+ * <p>Base exception class for all service exceptions from DocDBElastic service.</p>
  *
  */
 export class ListClusterSnapshotsCommand extends $Command<

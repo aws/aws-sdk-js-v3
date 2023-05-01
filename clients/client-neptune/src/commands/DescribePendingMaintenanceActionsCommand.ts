@@ -42,24 +42,44 @@ export interface DescribePendingMaintenanceActionsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { NeptuneClient, DescribePendingMaintenanceActionsCommand } from "@aws-sdk/client-neptune"; // ES Modules import
- * // const { NeptuneClient, DescribePendingMaintenanceActionsCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
+ * import { NeptuneClient, DescribePendingMaintenanceActionsCommand } from '@aws-sdk/client-neptune'; // ES Modules import
+ * // const { NeptuneClient, DescribePendingMaintenanceActionsCommand } = require('@aws-sdk/client-neptune'); // CommonJS import
  * const client = new NeptuneClient(config);
  * const input = { // DescribePendingMaintenanceActionsMessage
- *   ResourceIdentifier: "STRING_VALUE",
+ *   ResourceIdentifier: 'STRING_VALUE',
  *   Filters: [ // FilterList
  *     { // Filter
- *       Name: "STRING_VALUE", // required
+ *       Name: 'STRING_VALUE', // required
  *       Values: [ // FilterValueList // required
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
- *   Marker: "STRING_VALUE",
- *   MaxRecords: Number("int"),
+ *   Marker: 'STRING_VALUE',
+ *   MaxRecords: Number('int'),
  * };
  * const command = new DescribePendingMaintenanceActionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PendingMaintenanceActionsMessage
+ *   PendingMaintenanceActions: [ // PendingMaintenanceActions
+ *     { // ResourcePendingMaintenanceActions
+ *       ResourceIdentifier: 'STRING_VALUE',
+ *       PendingMaintenanceActionDetails: [ // PendingMaintenanceActionDetails
+ *         { // PendingMaintenanceAction
+ *           Action: 'STRING_VALUE',
+ *           AutoAppliedAfterDate: new Date('TIMESTAMP'),
+ *           ForcedApplyDate: new Date('TIMESTAMP'),
+ *           OptInStatus: 'STRING_VALUE',
+ *           CurrentApplyDate: new Date('TIMESTAMP'),
+ *           Description: 'STRING_VALUE',
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   Marker: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribePendingMaintenanceActionsCommandInput - {@link DescribePendingMaintenanceActionsCommandInput}
@@ -71,6 +91,8 @@ export interface DescribePendingMaintenanceActionsCommandOutput
  * @throws {@link ResourceNotFoundFault} (client fault)
  *  <p>The specified resource ID was not found.</p>
  *
+ * @throws {@link NeptuneServiceException}
+ * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
  */
 export class DescribePendingMaintenanceActionsCommand extends $Command<

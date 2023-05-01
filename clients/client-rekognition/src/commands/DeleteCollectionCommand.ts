@@ -40,14 +40,19 @@ export interface DeleteCollectionCommandOutput extends DeleteCollectionResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RekognitionClient, DeleteCollectionCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
- * // const { RekognitionClient, DeleteCollectionCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
+ * import { RekognitionClient, DeleteCollectionCommand } from '@aws-sdk/client-rekognition'; // ES Modules import
+ * // const { RekognitionClient, DeleteCollectionCommand } = require('@aws-sdk/client-rekognition'); // CommonJS import
  * const client = new RekognitionClient(config);
  * const input = { // DeleteCollectionRequest
- *   CollectionId: "STRING_VALUE", // required
+ *   CollectionId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteCollectionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteCollectionResponse
+ *   StatusCode: Number('int'),
+ * };
+ *
  * ```
  *
  * @param DeleteCollectionCommandInput - {@link DeleteCollectionCommandInput}
@@ -76,6 +81,8 @@ export interface DeleteCollectionCommandOutput extends DeleteCollectionResponse,
  * @throws {@link ThrottlingException} (server fault)
  *  <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
  *
+ * @throws {@link RekognitionServiceException}
+ * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
  * @example To delete a collection
  * ```javascript

@@ -52,41 +52,46 @@ export interface CreateWhatIfAnalysisCommandOutput extends CreateWhatIfAnalysisR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ForecastClient, CreateWhatIfAnalysisCommand } from "@aws-sdk/client-forecast"; // ES Modules import
- * // const { ForecastClient, CreateWhatIfAnalysisCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
+ * import { ForecastClient, CreateWhatIfAnalysisCommand } from '@aws-sdk/client-forecast'; // ES Modules import
+ * // const { ForecastClient, CreateWhatIfAnalysisCommand } = require('@aws-sdk/client-forecast'); // CommonJS import
  * const client = new ForecastClient(config);
  * const input = { // CreateWhatIfAnalysisRequest
- *   WhatIfAnalysisName: "STRING_VALUE", // required
- *   ForecastArn: "STRING_VALUE", // required
+ *   WhatIfAnalysisName: 'STRING_VALUE', // required
+ *   ForecastArn: 'STRING_VALUE', // required
  *   TimeSeriesSelector: { // TimeSeriesSelector
  *     TimeSeriesIdentifiers: { // TimeSeriesIdentifiers
  *       DataSource: { // DataSource
  *         S3Config: { // S3Config
- *           Path: "STRING_VALUE", // required
- *           RoleArn: "STRING_VALUE", // required
- *           KMSKeyArn: "STRING_VALUE",
+ *           Path: 'STRING_VALUE', // required
+ *           RoleArn: 'STRING_VALUE', // required
+ *           KMSKeyArn: 'STRING_VALUE',
  *         },
  *       },
  *       Schema: { // Schema
  *         Attributes: [ // SchemaAttributes
  *           { // SchemaAttribute
- *             AttributeName: "STRING_VALUE",
- *             AttributeType: "string" || "integer" || "float" || "timestamp" || "geolocation",
+ *             AttributeName: 'STRING_VALUE',
+ *             AttributeType: 'string' || 'integer' || 'float' || 'timestamp' || 'geolocation',
  *           },
  *         ],
  *       },
- *       Format: "STRING_VALUE",
+ *       Format: 'STRING_VALUE',
  *     },
  *   },
  *   Tags: [ // Tags
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreateWhatIfAnalysisCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateWhatIfAnalysisResponse
+ *   WhatIfAnalysisArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateWhatIfAnalysisCommandInput - {@link CreateWhatIfAnalysisCommandInput}
@@ -112,6 +117,8 @@ export interface CreateWhatIfAnalysisCommandOutput extends CreateWhatIfAnalysisR
  *  <p>We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try
  *       again.</p>
  *
+ * @throws {@link ForecastServiceException}
+ * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
  */
 export class CreateWhatIfAnalysisCommand extends $Command<

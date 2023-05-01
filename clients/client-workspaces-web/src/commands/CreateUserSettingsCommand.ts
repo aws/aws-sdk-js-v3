@@ -42,27 +42,32 @@ export interface CreateUserSettingsCommandOutput extends CreateUserSettingsRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkSpacesWebClient, CreateUserSettingsCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
- * // const { WorkSpacesWebClient, CreateUserSettingsCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
+ * import { WorkSpacesWebClient, CreateUserSettingsCommand } from '@aws-sdk/client-workspaces-web'; // ES Modules import
+ * // const { WorkSpacesWebClient, CreateUserSettingsCommand } = require('@aws-sdk/client-workspaces-web'); // CommonJS import
  * const client = new WorkSpacesWebClient(config);
  * const input = { // CreateUserSettingsRequest
- *   copyAllowed: "STRING_VALUE", // required
- *   pasteAllowed: "STRING_VALUE", // required
- *   downloadAllowed: "STRING_VALUE", // required
- *   uploadAllowed: "STRING_VALUE", // required
- *   printAllowed: "STRING_VALUE", // required
+ *   copyAllowed: 'STRING_VALUE', // required
+ *   pasteAllowed: 'STRING_VALUE', // required
+ *   downloadAllowed: 'STRING_VALUE', // required
+ *   uploadAllowed: 'STRING_VALUE', // required
+ *   printAllowed: 'STRING_VALUE', // required
  *   tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
- *   disconnectTimeoutInMinutes: Number("int"),
- *   idleDisconnectTimeoutInMinutes: Number("int"),
- *   clientToken: "STRING_VALUE",
+ *   disconnectTimeoutInMinutes: Number('int'),
+ *   idleDisconnectTimeoutInMinutes: Number('int'),
+ *   clientToken: 'STRING_VALUE',
  * };
  * const command = new CreateUserSettingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateUserSettingsResponse
+ *   userSettingsArn: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param CreateUserSettingsCommandInput - {@link CreateUserSettingsCommandInput}
@@ -89,6 +94,8 @@ export interface CreateUserSettingsCommandOutput extends CreateUserSettingsRespo
  * @throws {@link ValidationException} (client fault)
  *  <p>There is a validation error.</p>
  *
+ * @throws {@link WorkSpacesWebServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
  */
 export class CreateUserSettingsCommand extends $Command<

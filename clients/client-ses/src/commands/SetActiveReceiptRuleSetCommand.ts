@@ -42,14 +42,17 @@ export interface SetActiveReceiptRuleSetCommandOutput extends SetActiveReceiptRu
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SESClient, SetActiveReceiptRuleSetCommand } from "@aws-sdk/client-ses"; // ES Modules import
- * // const { SESClient, SetActiveReceiptRuleSetCommand } = require("@aws-sdk/client-ses"); // CommonJS import
+ * import { SESClient, SetActiveReceiptRuleSetCommand } from '@aws-sdk/client-ses'; // ES Modules import
+ * // const { SESClient, SetActiveReceiptRuleSetCommand } = require('@aws-sdk/client-ses'); // CommonJS import
  * const client = new SESClient(config);
  * const input = { // SetActiveReceiptRuleSetRequest
- *   RuleSetName: "STRING_VALUE",
+ *   RuleSetName: 'STRING_VALUE',
  * };
  * const command = new SetActiveReceiptRuleSetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param SetActiveReceiptRuleSetCommandInput - {@link SetActiveReceiptRuleSetCommandInput}
@@ -61,6 +64,8 @@ export interface SetActiveReceiptRuleSetCommandOutput extends SetActiveReceiptRu
  * @throws {@link RuleSetDoesNotExistException} (client fault)
  *  <p>Indicates that the provided receipt rule set does not exist.</p>
  *
+ * @throws {@link SESServiceException}
+ * <p>Base exception class for all service exceptions from SES service.</p>
  *
  * @example SetActiveReceiptRuleSet
  * ```javascript

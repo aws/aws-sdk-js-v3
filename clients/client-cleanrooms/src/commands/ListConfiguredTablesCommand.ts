@@ -36,15 +36,33 @@ export interface ListConfiguredTablesCommandOutput extends ListConfiguredTablesO
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CleanRoomsClient, ListConfiguredTablesCommand } from "@aws-sdk/client-cleanrooms"; // ES Modules import
- * // const { CleanRoomsClient, ListConfiguredTablesCommand } = require("@aws-sdk/client-cleanrooms"); // CommonJS import
+ * import { CleanRoomsClient, ListConfiguredTablesCommand } from '@aws-sdk/client-cleanrooms'; // ES Modules import
+ * // const { CleanRoomsClient, ListConfiguredTablesCommand } = require('@aws-sdk/client-cleanrooms'); // CommonJS import
  * const client = new CleanRoomsClient(config);
  * const input = { // ListConfiguredTablesInput
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new ListConfiguredTablesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListConfiguredTablesOutput
+ *   configuredTableSummaries: [ // ConfiguredTableSummaryList // required
+ *     { // ConfiguredTableSummary
+ *       id: 'STRING_VALUE', // required
+ *       arn: 'STRING_VALUE', // required
+ *       name: 'STRING_VALUE', // required
+ *       createTime: new Date('TIMESTAMP'), // required
+ *       updateTime: new Date('TIMESTAMP'), // required
+ *       analysisRuleTypes: [ // ConfiguredTableAnalysisRuleTypeList // required
+ *         'AGGREGATION' || 'LIST',
+ *       ],
+ *       analysisMethod: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListConfiguredTablesCommandInput - {@link ListConfiguredTablesCommandInput}
@@ -65,6 +83,8 @@ export interface ListConfiguredTablesCommandOutput extends ListConfiguredTablesO
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the specified constraints.</p>
  *
+ * @throws {@link CleanRoomsServiceException}
+ * <p>Base exception class for all service exceptions from CleanRooms service.</p>
  *
  */
 export class ListConfiguredTablesCommand extends $Command<

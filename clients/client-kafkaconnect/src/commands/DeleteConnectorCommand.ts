@@ -36,15 +36,21 @@ export interface DeleteConnectorCommandOutput extends DeleteConnectorResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KafkaConnectClient, DeleteConnectorCommand } from "@aws-sdk/client-kafkaconnect"; // ES Modules import
- * // const { KafkaConnectClient, DeleteConnectorCommand } = require("@aws-sdk/client-kafkaconnect"); // CommonJS import
+ * import { KafkaConnectClient, DeleteConnectorCommand } from '@aws-sdk/client-kafkaconnect'; // ES Modules import
+ * // const { KafkaConnectClient, DeleteConnectorCommand } = require('@aws-sdk/client-kafkaconnect'); // CommonJS import
  * const client = new KafkaConnectClient(config);
  * const input = { // DeleteConnectorRequest
- *   connectorArn: "STRING_VALUE", // required
- *   currentVersion: "STRING_VALUE",
+ *   connectorArn: 'STRING_VALUE', // required
+ *   currentVersion: 'STRING_VALUE',
  * };
  * const command = new DeleteConnectorCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteConnectorResponse
+ *   connectorArn: 'STRING_VALUE',
+ *   connectorState: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DeleteConnectorCommandInput - {@link DeleteConnectorCommandInput}
@@ -80,6 +86,8 @@ export interface DeleteConnectorCommandOutput extends DeleteConnectorResponse, _
  *  <p>HTTP Status Code 401: Unauthorized request. The provided credentials couldn't be
  *          validated.</p>
  *
+ * @throws {@link KafkaConnectServiceException}
+ * <p>Base exception class for all service exceptions from KafkaConnect service.</p>
  *
  */
 export class DeleteConnectorCommand extends $Command<

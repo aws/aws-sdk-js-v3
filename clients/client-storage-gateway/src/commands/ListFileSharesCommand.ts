@@ -38,16 +38,31 @@ export interface ListFileSharesCommandOutput extends ListFileSharesOutput, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { StorageGatewayClient, ListFileSharesCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
- * // const { StorageGatewayClient, ListFileSharesCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
+ * import { StorageGatewayClient, ListFileSharesCommand } from '@aws-sdk/client-storage-gateway'; // ES Modules import
+ * // const { StorageGatewayClient, ListFileSharesCommand } = require('@aws-sdk/client-storage-gateway'); // CommonJS import
  * const client = new StorageGatewayClient(config);
  * const input = { // ListFileSharesInput
- *   GatewayARN: "STRING_VALUE",
- *   Limit: Number("int"),
- *   Marker: "STRING_VALUE",
+ *   GatewayARN: 'STRING_VALUE',
+ *   Limit: Number('int'),
+ *   Marker: 'STRING_VALUE',
  * };
  * const command = new ListFileSharesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListFileSharesOutput
+ *   Marker: 'STRING_VALUE',
+ *   NextMarker: 'STRING_VALUE',
+ *   FileShareInfoList: [ // FileShareInfoList
+ *     { // FileShareInfo
+ *       FileShareType: 'STRING_VALUE',
+ *       FileShareARN: 'STRING_VALUE',
+ *       FileShareId: 'STRING_VALUE',
+ *       FileShareStatus: 'STRING_VALUE',
+ *       GatewayARN: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListFileSharesCommandInput - {@link ListFileSharesCommandInput}
@@ -64,6 +79,8 @@ export interface ListFileSharesCommandOutput extends ListFileSharesOutput, __Met
  *  <p>An exception occurred because an invalid gateway request was issued to the service. For
  *          more information, see the error and message fields.</p>
  *
+ * @throws {@link StorageGatewayServiceException}
+ * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
  */
 export class ListFileSharesCommand extends $Command<

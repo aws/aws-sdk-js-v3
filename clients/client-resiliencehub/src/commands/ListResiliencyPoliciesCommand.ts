@@ -40,16 +40,41 @@ export interface ListResiliencyPoliciesCommandOutput extends ListResiliencyPolic
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ResiliencehubClient, ListResiliencyPoliciesCommand } from "@aws-sdk/client-resiliencehub"; // ES Modules import
- * // const { ResiliencehubClient, ListResiliencyPoliciesCommand } = require("@aws-sdk/client-resiliencehub"); // CommonJS import
+ * import { ResiliencehubClient, ListResiliencyPoliciesCommand } from '@aws-sdk/client-resiliencehub'; // ES Modules import
+ * // const { ResiliencehubClient, ListResiliencyPoliciesCommand } = require('@aws-sdk/client-resiliencehub'); // CommonJS import
  * const client = new ResiliencehubClient(config);
  * const input = { // ListResiliencyPoliciesRequest
- *   policyName: "STRING_VALUE",
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   policyName: 'STRING_VALUE',
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new ListResiliencyPoliciesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListResiliencyPoliciesResponse
+ *   resiliencyPolicies: [ // ResiliencyPolicies // required
+ *     { // ResiliencyPolicy
+ *       policyArn: 'STRING_VALUE',
+ *       policyName: 'STRING_VALUE',
+ *       policyDescription: 'STRING_VALUE',
+ *       dataLocationConstraint: 'STRING_VALUE',
+ *       tier: 'STRING_VALUE',
+ *       estimatedCostTier: 'STRING_VALUE',
+ *       policy: { // DisruptionPolicy
+ *         '<keys>': { // FailurePolicy
+ *           rtoInSecs: Number('int'), // required
+ *           rpoInSecs: Number('int'), // required
+ *         },
+ *       },
+ *       creationTime: new Date('TIMESTAMP'),
+ *       tags: { // TagMap
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListResiliencyPoliciesCommandInput - {@link ListResiliencyPoliciesCommandInput}
@@ -76,6 +101,8 @@ export interface ListResiliencyPoliciesCommandOutput extends ListResiliencyPolic
  * @throws {@link ValidationException} (client fault)
  *  <p>This exception occurs when a request is not valid.</p>
  *
+ * @throws {@link ResiliencehubServiceException}
+ * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
  */
 export class ListResiliencyPoliciesCommand extends $Command<

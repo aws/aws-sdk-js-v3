@@ -36,14 +36,29 @@ export interface DescribeArchiveCommandOutput extends DescribeArchiveResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EventBridgeClient, DescribeArchiveCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
- * // const { EventBridgeClient, DescribeArchiveCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
+ * import { EventBridgeClient, DescribeArchiveCommand } from '@aws-sdk/client-eventbridge'; // ES Modules import
+ * // const { EventBridgeClient, DescribeArchiveCommand } = require('@aws-sdk/client-eventbridge'); // CommonJS import
  * const client = new EventBridgeClient(config);
  * const input = { // DescribeArchiveRequest
- *   ArchiveName: "STRING_VALUE", // required
+ *   ArchiveName: 'STRING_VALUE', // required
  * };
  * const command = new DescribeArchiveCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeArchiveResponse
+ *   ArchiveArn: 'STRING_VALUE',
+ *   ArchiveName: 'STRING_VALUE',
+ *   EventSourceArn: 'STRING_VALUE',
+ *   Description: 'STRING_VALUE',
+ *   EventPattern: 'STRING_VALUE',
+ *   State: 'ENABLED' || 'DISABLED' || 'CREATING' || 'UPDATING' || 'CREATE_FAILED' || 'UPDATE_FAILED',
+ *   StateReason: 'STRING_VALUE',
+ *   RetentionDays: Number('int'),
+ *   SizeBytes: Number('long'),
+ *   EventCount: Number('long'),
+ *   CreationTime: new Date('TIMESTAMP'),
+ * };
+ *
  * ```
  *
  * @param DescribeArchiveCommandInput - {@link DescribeArchiveCommandInput}
@@ -61,6 +76,8 @@ export interface DescribeArchiveCommandOutput extends DescribeArchiveResponse, _
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>An entity that you specified does not exist.</p>
  *
+ * @throws {@link EventBridgeServiceException}
+ * <p>Base exception class for all service exceptions from EventBridge service.</p>
  *
  */
 export class DescribeArchiveCommand extends $Command<

@@ -36,20 +36,47 @@ export interface ConfigureLogsCommandOutput extends ConfigureLogsResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MediaPackageClient, ConfigureLogsCommand } from "@aws-sdk/client-mediapackage"; // ES Modules import
- * // const { MediaPackageClient, ConfigureLogsCommand } = require("@aws-sdk/client-mediapackage"); // CommonJS import
+ * import { MediaPackageClient, ConfigureLogsCommand } from '@aws-sdk/client-mediapackage'; // ES Modules import
+ * // const { MediaPackageClient, ConfigureLogsCommand } = require('@aws-sdk/client-mediapackage'); // CommonJS import
  * const client = new MediaPackageClient(config);
  * const input = { // ConfigureLogsRequest
  *   EgressAccessLogs: { // EgressAccessLogs
- *     LogGroupName: "STRING_VALUE",
+ *     LogGroupName: 'STRING_VALUE',
  *   },
- *   Id: "STRING_VALUE", // required
+ *   Id: 'STRING_VALUE', // required
  *   IngressAccessLogs: { // IngressAccessLogs
- *     LogGroupName: "STRING_VALUE",
+ *     LogGroupName: 'STRING_VALUE',
  *   },
  * };
  * const command = new ConfigureLogsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ConfigureLogsResponse
+ *   Arn: 'STRING_VALUE',
+ *   CreatedAt: 'STRING_VALUE',
+ *   Description: 'STRING_VALUE',
+ *   EgressAccessLogs: { // EgressAccessLogs
+ *     LogGroupName: 'STRING_VALUE',
+ *   },
+ *   HlsIngest: { // HlsIngest
+ *     IngestEndpoints: [ // __listOfIngestEndpoint
+ *       { // IngestEndpoint
+ *         Id: 'STRING_VALUE',
+ *         Password: 'STRING_VALUE',
+ *         Url: 'STRING_VALUE',
+ *         Username: 'STRING_VALUE',
+ *       },
+ *     ],
+ *   },
+ *   Id: 'STRING_VALUE',
+ *   IngressAccessLogs: { // IngressAccessLogs
+ *     LogGroupName: 'STRING_VALUE',
+ *   },
+ *   Tags: { // Tags
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param ConfigureLogsCommandInput - {@link ConfigureLogsCommandInput}
@@ -76,6 +103,8 @@ export interface ConfigureLogsCommandOutput extends ConfigureLogsResponse, __Met
  * @throws {@link UnprocessableEntityException} (client fault)
  *  The parameters sent in the request are not valid.
  *
+ * @throws {@link MediaPackageServiceException}
+ * <p>Base exception class for all service exceptions from MediaPackage service.</p>
  *
  */
 export class ConfigureLogsCommand extends $Command<

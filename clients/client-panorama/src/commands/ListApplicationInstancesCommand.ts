@@ -36,17 +36,47 @@ export interface ListApplicationInstancesCommandOutput extends ListApplicationIn
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PanoramaClient, ListApplicationInstancesCommand } from "@aws-sdk/client-panorama"; // ES Modules import
- * // const { PanoramaClient, ListApplicationInstancesCommand } = require("@aws-sdk/client-panorama"); // CommonJS import
+ * import { PanoramaClient, ListApplicationInstancesCommand } from '@aws-sdk/client-panorama'; // ES Modules import
+ * // const { PanoramaClient, ListApplicationInstancesCommand } = require('@aws-sdk/client-panorama'); // CommonJS import
  * const client = new PanoramaClient(config);
  * const input = { // ListApplicationInstancesRequest
- *   DeviceId: "STRING_VALUE",
- *   StatusFilter: "STRING_VALUE",
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   DeviceId: 'STRING_VALUE',
+ *   StatusFilter: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListApplicationInstancesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListApplicationInstancesResponse
+ *   ApplicationInstances: [ // ApplicationInstances
+ *     { // ApplicationInstance
+ *       Name: 'STRING_VALUE',
+ *       ApplicationInstanceId: 'STRING_VALUE',
+ *       DefaultRuntimeContextDevice: 'STRING_VALUE',
+ *       DefaultRuntimeContextDeviceName: 'STRING_VALUE',
+ *       Description: 'STRING_VALUE',
+ *       Status: 'STRING_VALUE',
+ *       HealthStatus: 'STRING_VALUE',
+ *       StatusDescription: 'STRING_VALUE',
+ *       CreatedTime: new Date('TIMESTAMP'),
+ *       Arn: 'STRING_VALUE',
+ *       Tags: { // TagMap
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *       RuntimeContextStates: [ // ReportedRuntimeContextStates
+ *         { // ReportedRuntimeContextState
+ *           DesiredState: 'STRING_VALUE', // required
+ *           RuntimeContextName: 'STRING_VALUE', // required
+ *           DeviceReportedStatus: 'STRING_VALUE', // required
+ *           DeviceReportedTime: new Date('TIMESTAMP'), // required
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListApplicationInstancesCommandInput - {@link ListApplicationInstancesCommandInput}
@@ -61,6 +91,8 @@ export interface ListApplicationInstancesCommandOutput extends ListApplicationIn
  * @throws {@link InternalServerException} (server fault)
  *  <p>An internal error occurred.</p>
  *
+ * @throws {@link PanoramaServiceException}
+ * <p>Base exception class for all service exceptions from Panorama service.</p>
  *
  */
 export class ListApplicationInstancesCommand extends $Command<

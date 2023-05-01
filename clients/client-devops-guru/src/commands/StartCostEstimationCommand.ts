@@ -37,29 +37,32 @@ export interface StartCostEstimationCommandOutput extends StartCostEstimationRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DevOpsGuruClient, StartCostEstimationCommand } from "@aws-sdk/client-devops-guru"; // ES Modules import
- * // const { DevOpsGuruClient, StartCostEstimationCommand } = require("@aws-sdk/client-devops-guru"); // CommonJS import
+ * import { DevOpsGuruClient, StartCostEstimationCommand } from '@aws-sdk/client-devops-guru'; // ES Modules import
+ * // const { DevOpsGuruClient, StartCostEstimationCommand } = require('@aws-sdk/client-devops-guru'); // CommonJS import
  * const client = new DevOpsGuruClient(config);
  * const input = { // StartCostEstimationRequest
  *   ResourceCollection: { // CostEstimationResourceCollectionFilter
  *     CloudFormation: { // CloudFormationCostEstimationResourceCollectionFilter
  *       StackNames: [ // CostEstimationStackNames
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *     Tags: [ // TagCostEstimationResourceCollectionFilters
  *       { // TagCostEstimationResourceCollectionFilter
- *         AppBoundaryKey: "STRING_VALUE", // required
+ *         AppBoundaryKey: 'STRING_VALUE', // required
  *         TagValues: [ // CostEstimationTagValues // required
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
  *       },
  *     ],
  *   },
- *   ClientToken: "STRING_VALUE",
+ *   ClientToken: 'STRING_VALUE',
  * };
  * const command = new StartCostEstimationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param StartCostEstimationCommandInput - {@link StartCostEstimationCommandInput}
@@ -90,6 +93,8 @@ export interface StartCostEstimationCommandOutput extends StartCostEstimationRes
  *  <p> Contains information about data passed in to a field during a request that is not
  * 			valid. </p>
  *
+ * @throws {@link DevOpsGuruServiceException}
+ * <p>Base exception class for all service exceptions from DevOpsGuru service.</p>
  *
  */
 export class StartCostEstimationCommand extends $Command<

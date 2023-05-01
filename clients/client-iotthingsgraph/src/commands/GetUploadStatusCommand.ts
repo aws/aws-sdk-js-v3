@@ -38,14 +38,27 @@ export interface GetUploadStatusCommandOutput extends GetUploadStatusResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTThingsGraphClient, GetUploadStatusCommand } from "@aws-sdk/client-iotthingsgraph"; // ES Modules import
- * // const { IoTThingsGraphClient, GetUploadStatusCommand } = require("@aws-sdk/client-iotthingsgraph"); // CommonJS import
+ * import { IoTThingsGraphClient, GetUploadStatusCommand } from '@aws-sdk/client-iotthingsgraph'; // ES Modules import
+ * // const { IoTThingsGraphClient, GetUploadStatusCommand } = require('@aws-sdk/client-iotthingsgraph'); // CommonJS import
  * const client = new IoTThingsGraphClient(config);
  * const input = { // GetUploadStatusRequest
- *   uploadId: "STRING_VALUE", // required
+ *   uploadId: 'STRING_VALUE', // required
  * };
  * const command = new GetUploadStatusCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetUploadStatusResponse
+ *   uploadId: 'STRING_VALUE', // required
+ *   uploadStatus: 'STRING_VALUE', // required
+ *   namespaceArn: 'STRING_VALUE',
+ *   namespaceName: 'STRING_VALUE',
+ *   namespaceVersion: Number('long'),
+ *   failureReason: [ // StringList
+ *     'STRING_VALUE',
+ *   ],
+ *   createdDate: new Date('TIMESTAMP'), // required
+ * };
+ *
  * ```
  *
  * @param GetUploadStatusCommandInput - {@link GetUploadStatusCommandInput}
@@ -66,6 +79,8 @@ export interface GetUploadStatusCommandOutput extends GetUploadStatusResponse, _
  * @throws {@link ThrottlingException} (client fault)
  *  <p></p>
  *
+ * @throws {@link IoTThingsGraphServiceException}
+ * <p>Base exception class for all service exceptions from IoTThingsGraph service.</p>
  *
  */
 export class GetUploadStatusCommand extends $Command<

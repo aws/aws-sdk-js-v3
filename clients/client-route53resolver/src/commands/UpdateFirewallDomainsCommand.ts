@@ -36,18 +36,26 @@ export interface UpdateFirewallDomainsCommandOutput extends UpdateFirewallDomain
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Route53ResolverClient, UpdateFirewallDomainsCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
- * // const { Route53ResolverClient, UpdateFirewallDomainsCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
+ * import { Route53ResolverClient, UpdateFirewallDomainsCommand } from '@aws-sdk/client-route53resolver'; // ES Modules import
+ * // const { Route53ResolverClient, UpdateFirewallDomainsCommand } = require('@aws-sdk/client-route53resolver'); // CommonJS import
  * const client = new Route53ResolverClient(config);
  * const input = { // UpdateFirewallDomainsRequest
- *   FirewallDomainListId: "STRING_VALUE", // required
- *   Operation: "ADD" || "REMOVE" || "REPLACE", // required
+ *   FirewallDomainListId: 'STRING_VALUE', // required
+ *   Operation: 'ADD' || 'REMOVE' || 'REPLACE', // required
  *   Domains: [ // FirewallDomains // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new UpdateFirewallDomainsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateFirewallDomainsResponse
+ *   Id: 'STRING_VALUE',
+ *   Name: 'STRING_VALUE',
+ *   Status: 'COMPLETE' || 'COMPLETE_IMPORT_FAILED' || 'IMPORTING' || 'DELETING' || 'UPDATING',
+ *   StatusMessage: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateFirewallDomainsCommandInput - {@link UpdateFirewallDomainsCommandInput}
@@ -80,6 +88,8 @@ export interface UpdateFirewallDomainsCommandOutput extends UpdateFirewallDomain
  *  <p>You have provided an invalid command. Supported values are <code>ADD</code>,
  * 			<code>REMOVE</code>, or <code>REPLACE</code> a domain.</p>
  *
+ * @throws {@link Route53ResolverServiceException}
+ * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
  */
 export class UpdateFirewallDomainsCommand extends $Command<

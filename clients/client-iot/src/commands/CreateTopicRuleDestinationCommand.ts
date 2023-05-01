@@ -37,28 +37,52 @@ export interface CreateTopicRuleDestinationCommandOutput extends CreateTopicRule
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTClient, CreateTopicRuleDestinationCommand } from "@aws-sdk/client-iot"; // ES Modules import
- * // const { IoTClient, CreateTopicRuleDestinationCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * import { IoTClient, CreateTopicRuleDestinationCommand } from '@aws-sdk/client-iot'; // ES Modules import
+ * // const { IoTClient, CreateTopicRuleDestinationCommand } = require('@aws-sdk/client-iot'); // CommonJS import
  * const client = new IoTClient(config);
  * const input = { // CreateTopicRuleDestinationRequest
  *   destinationConfiguration: { // TopicRuleDestinationConfiguration
  *     httpUrlConfiguration: { // HttpUrlDestinationConfiguration
- *       confirmationUrl: "STRING_VALUE", // required
+ *       confirmationUrl: 'STRING_VALUE', // required
  *     },
  *     vpcConfiguration: { // VpcDestinationConfiguration
  *       subnetIds: [ // SubnetIdList // required
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *       securityGroups: [ // SecurityGroupList
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
- *       vpcId: "STRING_VALUE", // required
- *       roleArn: "STRING_VALUE", // required
+ *       vpcId: 'STRING_VALUE', // required
+ *       roleArn: 'STRING_VALUE', // required
  *     },
  *   },
  * };
  * const command = new CreateTopicRuleDestinationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateTopicRuleDestinationResponse
+ *   topicRuleDestination: { // TopicRuleDestination
+ *     arn: 'STRING_VALUE',
+ *     status: 'ENABLED' || 'IN_PROGRESS' || 'DISABLED' || 'ERROR' || 'DELETING',
+ *     createdAt: new Date('TIMESTAMP'),
+ *     lastUpdatedAt: new Date('TIMESTAMP'),
+ *     statusReason: 'STRING_VALUE',
+ *     httpUrlProperties: { // HttpUrlDestinationProperties
+ *       confirmationUrl: 'STRING_VALUE',
+ *     },
+ *     vpcProperties: { // VpcDestinationProperties
+ *       subnetIds: [ // SubnetIdList
+ *         'STRING_VALUE',
+ *       ],
+ *       securityGroups: [ // SecurityGroupList
+ *         'STRING_VALUE',
+ *       ],
+ *       vpcId: 'STRING_VALUE',
+ *       roleArn: 'STRING_VALUE',
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateTopicRuleDestinationCommandInput - {@link CreateTopicRuleDestinationCommandInput}
@@ -83,6 +107,8 @@ export interface CreateTopicRuleDestinationCommandOutput extends CreateTopicRule
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service is temporarily unavailable.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class CreateTopicRuleDestinationCommand extends $Command<

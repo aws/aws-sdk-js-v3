@@ -50,17 +50,31 @@ export interface ListChannelBansCommandOutput extends ListChannelBansResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeSDKMessagingClient, ListChannelBansCommand } from "@aws-sdk/client-chime-sdk-messaging"; // ES Modules import
- * // const { ChimeSDKMessagingClient, ListChannelBansCommand } = require("@aws-sdk/client-chime-sdk-messaging"); // CommonJS import
+ * import { ChimeSDKMessagingClient, ListChannelBansCommand } from '@aws-sdk/client-chime-sdk-messaging'; // ES Modules import
+ * // const { ChimeSDKMessagingClient, ListChannelBansCommand } = require('@aws-sdk/client-chime-sdk-messaging'); // CommonJS import
  * const client = new ChimeSDKMessagingClient(config);
  * const input = { // ListChannelBansRequest
- *   ChannelArn: "STRING_VALUE", // required
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
- *   ChimeBearer: "STRING_VALUE", // required
+ *   ChannelArn: 'STRING_VALUE', // required
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
+ *   ChimeBearer: 'STRING_VALUE', // required
  * };
  * const command = new ListChannelBansCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListChannelBansResponse
+ *   ChannelArn: 'STRING_VALUE',
+ *   NextToken: 'STRING_VALUE',
+ *   ChannelBans: [ // ChannelBanSummaryList
+ *     { // ChannelBanSummary
+ *       Member: { // Identity
+ *         Arn: 'STRING_VALUE',
+ *         Name: 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListChannelBansCommandInput - {@link ListChannelBansCommandInput}
@@ -87,6 +101,8 @@ export interface ListChannelBansCommandOutput extends ListChannelBansResponse, _
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeSDKMessagingServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKMessaging service.</p>
  *
  */
 export class ListChannelBansCommand extends $Command<

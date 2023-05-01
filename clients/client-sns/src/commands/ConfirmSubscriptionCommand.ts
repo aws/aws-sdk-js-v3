@@ -40,16 +40,21 @@ export interface ConfirmSubscriptionCommandOutput extends ConfirmSubscriptionRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SNSClient, ConfirmSubscriptionCommand } from "@aws-sdk/client-sns"; // ES Modules import
- * // const { SNSClient, ConfirmSubscriptionCommand } = require("@aws-sdk/client-sns"); // CommonJS import
+ * import { SNSClient, ConfirmSubscriptionCommand } from '@aws-sdk/client-sns'; // ES Modules import
+ * // const { SNSClient, ConfirmSubscriptionCommand } = require('@aws-sdk/client-sns'); // CommonJS import
  * const client = new SNSClient(config);
  * const input = { // ConfirmSubscriptionInput
- *   TopicArn: "STRING_VALUE", // required
- *   Token: "STRING_VALUE", // required
- *   AuthenticateOnUnsubscribe: "STRING_VALUE",
+ *   TopicArn: 'STRING_VALUE', // required
+ *   Token: 'STRING_VALUE', // required
+ *   AuthenticateOnUnsubscribe: 'STRING_VALUE',
  * };
  * const command = new ConfirmSubscriptionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ConfirmSubscriptionResponse
+ *   SubscriptionArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ConfirmSubscriptionCommandInput - {@link ConfirmSubscriptionCommandInput}
@@ -80,6 +85,8 @@ export interface ConfirmSubscriptionCommandOutput extends ConfirmSubscriptionRes
  *  <p>Indicates that the customer already owns the maximum allowed number of
  *             subscriptions.</p>
  *
+ * @throws {@link SNSServiceException}
+ * <p>Base exception class for all service exceptions from SNS service.</p>
  *
  */
 export class ConfirmSubscriptionCommand extends $Command<

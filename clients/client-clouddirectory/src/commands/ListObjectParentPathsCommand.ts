@@ -43,19 +43,32 @@ export interface ListObjectParentPathsCommandOutput extends ListObjectParentPath
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudDirectoryClient, ListObjectParentPathsCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
- * // const { CloudDirectoryClient, ListObjectParentPathsCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
+ * import { CloudDirectoryClient, ListObjectParentPathsCommand } from '@aws-sdk/client-clouddirectory'; // ES Modules import
+ * // const { CloudDirectoryClient, ListObjectParentPathsCommand } = require('@aws-sdk/client-clouddirectory'); // CommonJS import
  * const client = new CloudDirectoryClient(config);
  * const input = { // ListObjectParentPathsRequest
- *   DirectoryArn: "STRING_VALUE", // required
+ *   DirectoryArn: 'STRING_VALUE', // required
  *   ObjectReference: { // ObjectReference
- *     Selector: "STRING_VALUE",
+ *     Selector: 'STRING_VALUE',
  *   },
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListObjectParentPathsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListObjectParentPathsResponse
+ *   PathToObjectIdentifiersList: [ // PathToObjectIdentifiersList
+ *     { // PathToObjectIdentifiers
+ *       Path: 'STRING_VALUE',
+ *       ObjectIdentifiers: [ // ObjectIdentifierList
+ *         'STRING_VALUE',
+ *       ],
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListObjectParentPathsCommandInput - {@link ListObjectParentPathsCommandInput}
@@ -92,6 +105,8 @@ export interface ListObjectParentPathsCommandOutput extends ListObjectParentPath
  *  <p>Indicates that your request is malformed in some manner. See the exception
  *       message.</p>
  *
+ * @throws {@link CloudDirectoryServiceException}
+ * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
  */
 export class ListObjectParentPathsCommand extends $Command<

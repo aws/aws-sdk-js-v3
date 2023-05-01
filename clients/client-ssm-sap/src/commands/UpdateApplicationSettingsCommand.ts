@@ -41,28 +41,36 @@ export interface UpdateApplicationSettingsCommandOutput extends UpdateApplicatio
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SsmSapClient, UpdateApplicationSettingsCommand } from "@aws-sdk/client-ssm-sap"; // ES Modules import
- * // const { SsmSapClient, UpdateApplicationSettingsCommand } = require("@aws-sdk/client-ssm-sap"); // CommonJS import
+ * import { SsmSapClient, UpdateApplicationSettingsCommand } from '@aws-sdk/client-ssm-sap'; // ES Modules import
+ * // const { SsmSapClient, UpdateApplicationSettingsCommand } = require('@aws-sdk/client-ssm-sap'); // CommonJS import
  * const client = new SsmSapClient(config);
  * const input = { // UpdateApplicationSettingsInput
- *   ApplicationId: "STRING_VALUE", // required
+ *   ApplicationId: 'STRING_VALUE', // required
  *   CredentialsToAddOrUpdate: [ // ApplicationCredentialList
  *     { // ApplicationCredential
- *       DatabaseName: "STRING_VALUE", // required
- *       CredentialType: "STRING_VALUE", // required
- *       SecretId: "STRING_VALUE", // required
+ *       DatabaseName: 'STRING_VALUE', // required
+ *       CredentialType: 'STRING_VALUE', // required
+ *       SecretId: 'STRING_VALUE', // required
  *     },
  *   ],
  *   CredentialsToRemove: [
  *     {
- *       DatabaseName: "STRING_VALUE", // required
- *       CredentialType: "STRING_VALUE", // required
- *       SecretId: "STRING_VALUE", // required
+ *       DatabaseName: 'STRING_VALUE', // required
+ *       CredentialType: 'STRING_VALUE', // required
+ *       SecretId: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new UpdateApplicationSettingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateApplicationSettingsOutput
+ *   Message: 'STRING_VALUE',
+ *   OperationIds: [ // OperationIdList
+ *     'STRING_VALUE',
+ *   ],
+ * };
+ *
  * ```
  *
  * @param UpdateApplicationSettingsCommandInput - {@link UpdateApplicationSettingsCommandInput}
@@ -80,6 +88,8 @@ export interface UpdateApplicationSettingsCommandOutput extends UpdateApplicatio
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service. </p>
  *
+ * @throws {@link SsmSapServiceException}
+ * <p>Base exception class for all service exceptions from SsmSap service.</p>
  *
  */
 export class UpdateApplicationSettingsCommand extends $Command<

@@ -41,22 +41,48 @@ export interface ListVirtualClustersCommandOutput extends ListVirtualClustersRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EMRContainersClient, ListVirtualClustersCommand } from "@aws-sdk/client-emr-containers"; // ES Modules import
- * // const { EMRContainersClient, ListVirtualClustersCommand } = require("@aws-sdk/client-emr-containers"); // CommonJS import
+ * import { EMRContainersClient, ListVirtualClustersCommand } from '@aws-sdk/client-emr-containers'; // ES Modules import
+ * // const { EMRContainersClient, ListVirtualClustersCommand } = require('@aws-sdk/client-emr-containers'); // CommonJS import
  * const client = new EMRContainersClient(config);
  * const input = { // ListVirtualClustersRequest
- *   containerProviderId: "STRING_VALUE",
- *   containerProviderType: "EKS",
- *   createdAfter: new Date("TIMESTAMP"),
- *   createdBefore: new Date("TIMESTAMP"),
+ *   containerProviderId: 'STRING_VALUE',
+ *   containerProviderType: 'EKS',
+ *   createdAfter: new Date('TIMESTAMP'),
+ *   createdBefore: new Date('TIMESTAMP'),
  *   states: [ // VirtualClusterStates
- *     "RUNNING" || "TERMINATING" || "TERMINATED" || "ARRESTED",
+ *     'RUNNING' || 'TERMINATING' || 'TERMINATED' || 'ARRESTED',
  *   ],
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new ListVirtualClustersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListVirtualClustersResponse
+ *   virtualClusters: [ // VirtualClusters
+ *     { // VirtualCluster
+ *       id: 'STRING_VALUE',
+ *       name: 'STRING_VALUE',
+ *       arn: 'STRING_VALUE',
+ *       state: 'RUNNING' || 'TERMINATING' || 'TERMINATED' || 'ARRESTED',
+ *       containerProvider: { // ContainerProvider
+ *         type: 'EKS', // required
+ *         id: 'STRING_VALUE', // required
+ *         info: { // ContainerInfo Union: only one key present
+ *           eksInfo: { // EksInfo
+ *             namespace: 'STRING_VALUE',
+ *           },
+ *         },
+ *       },
+ *       createdAt: new Date('TIMESTAMP'),
+ *       tags: { // TagMap
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListVirtualClustersCommandInput - {@link ListVirtualClustersCommandInput}
@@ -71,6 +97,8 @@ export interface ListVirtualClustersCommandOutput extends ListVirtualClustersRes
  * @throws {@link ValidationException} (client fault)
  *  <p>There are invalid parameters in the client request.</p>
  *
+ * @throws {@link EMRContainersServiceException}
+ * <p>Base exception class for all service exceptions from EMRContainers service.</p>
  *
  */
 export class ListVirtualClustersCommand extends $Command<

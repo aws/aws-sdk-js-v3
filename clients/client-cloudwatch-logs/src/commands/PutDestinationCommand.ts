@@ -45,19 +45,31 @@ export interface PutDestinationCommandOutput extends PutDestinationResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudWatchLogsClient, PutDestinationCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
- * // const { CloudWatchLogsClient, PutDestinationCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
+ * import { CloudWatchLogsClient, PutDestinationCommand } from '@aws-sdk/client-cloudwatch-logs'; // ES Modules import
+ * // const { CloudWatchLogsClient, PutDestinationCommand } = require('@aws-sdk/client-cloudwatch-logs'); // CommonJS import
  * const client = new CloudWatchLogsClient(config);
  * const input = { // PutDestinationRequest
- *   destinationName: "STRING_VALUE", // required
- *   targetArn: "STRING_VALUE", // required
- *   roleArn: "STRING_VALUE", // required
+ *   destinationName: 'STRING_VALUE', // required
+ *   targetArn: 'STRING_VALUE', // required
+ *   roleArn: 'STRING_VALUE', // required
  *   tags: { // Tags
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new PutDestinationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutDestinationResponse
+ *   destination: { // Destination
+ *     destinationName: 'STRING_VALUE',
+ *     targetArn: 'STRING_VALUE',
+ *     roleArn: 'STRING_VALUE',
+ *     accessPolicy: 'STRING_VALUE',
+ *     arn: 'STRING_VALUE',
+ *     creationTime: Number('long'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param PutDestinationCommandInput - {@link PutDestinationCommandInput}
@@ -75,6 +87,8 @@ export interface PutDestinationCommandOutput extends PutDestinationResponse, __M
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service cannot complete the request.</p>
  *
+ * @throws {@link CloudWatchLogsServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
  */
 export class PutDestinationCommand extends $Command<

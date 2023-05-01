@@ -41,19 +41,35 @@ export interface ListMembersCommandOutput extends ListMembersOutput, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ManagedBlockchainClient, ListMembersCommand } from "@aws-sdk/client-managedblockchain"; // ES Modules import
- * // const { ManagedBlockchainClient, ListMembersCommand } = require("@aws-sdk/client-managedblockchain"); // CommonJS import
+ * import { ManagedBlockchainClient, ListMembersCommand } from '@aws-sdk/client-managedblockchain'; // ES Modules import
+ * // const { ManagedBlockchainClient, ListMembersCommand } = require('@aws-sdk/client-managedblockchain'); // CommonJS import
  * const client = new ManagedBlockchainClient(config);
  * const input = { // ListMembersInput
- *   NetworkId: "STRING_VALUE", // required
- *   Name: "STRING_VALUE",
- *   Status: "CREATING" || "AVAILABLE" || "CREATE_FAILED" || "UPDATING" || "DELETING" || "DELETED" || "INACCESSIBLE_ENCRYPTION_KEY",
+ *   NetworkId: 'STRING_VALUE', // required
+ *   Name: 'STRING_VALUE',
+ *   Status: 'CREATING' || 'AVAILABLE' || 'CREATE_FAILED' || 'UPDATING' || 'DELETING' || 'DELETED' || 'INACCESSIBLE_ENCRYPTION_KEY',
  *   IsOwned: true || false,
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListMembersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListMembersOutput
+ *   Members: [ // MemberSummaryList
+ *     { // MemberSummary
+ *       Id: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *       Description: 'STRING_VALUE',
+ *       Status: 'CREATING' || 'AVAILABLE' || 'CREATE_FAILED' || 'UPDATING' || 'DELETING' || 'DELETED' || 'INACCESSIBLE_ENCRYPTION_KEY',
+ *       CreationDate: new Date('TIMESTAMP'),
+ *       IsOwned: true || false,
+ *       Arn: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListMembersCommandInput - {@link ListMembersCommandInput}
@@ -77,6 +93,8 @@ export interface ListMembersCommandOutput extends ListMembersOutput, __MetadataB
  *          creating resources that exceed your service limit for this resource type.
  *          Request a limit increase or delete unused resources if possible.</p>
  *
+ * @throws {@link ManagedBlockchainServiceException}
+ * <p>Base exception class for all service exceptions from ManagedBlockchain service.</p>
  *
  */
 export class ListMembersCommand extends $Command<

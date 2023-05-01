@@ -45,30 +45,54 @@ export interface UpdateEventDestinationCommandOutput extends UpdateEventDestinat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PinpointSMSVoiceV2Client, UpdateEventDestinationCommand } from "@aws-sdk/client-pinpoint-sms-voice-v2"; // ES Modules import
- * // const { PinpointSMSVoiceV2Client, UpdateEventDestinationCommand } = require("@aws-sdk/client-pinpoint-sms-voice-v2"); // CommonJS import
+ * import { PinpointSMSVoiceV2Client, UpdateEventDestinationCommand } from '@aws-sdk/client-pinpoint-sms-voice-v2'; // ES Modules import
+ * // const { PinpointSMSVoiceV2Client, UpdateEventDestinationCommand } = require('@aws-sdk/client-pinpoint-sms-voice-v2'); // CommonJS import
  * const client = new PinpointSMSVoiceV2Client(config);
  * const input = { // UpdateEventDestinationRequest
- *   ConfigurationSetName: "STRING_VALUE", // required
- *   EventDestinationName: "STRING_VALUE", // required
+ *   ConfigurationSetName: 'STRING_VALUE', // required
+ *   EventDestinationName: 'STRING_VALUE', // required
  *   Enabled: true || false,
  *   MatchingEventTypes: [ // EventTypeList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   CloudWatchLogsDestination: { // CloudWatchLogsDestination
- *     IamRoleArn: "STRING_VALUE", // required
- *     LogGroupArn: "STRING_VALUE", // required
+ *     IamRoleArn: 'STRING_VALUE', // required
+ *     LogGroupArn: 'STRING_VALUE', // required
  *   },
  *   KinesisFirehoseDestination: { // KinesisFirehoseDestination
- *     IamRoleArn: "STRING_VALUE", // required
- *     DeliveryStreamArn: "STRING_VALUE", // required
+ *     IamRoleArn: 'STRING_VALUE', // required
+ *     DeliveryStreamArn: 'STRING_VALUE', // required
  *   },
  *   SnsDestination: { // SnsDestination
- *     TopicArn: "STRING_VALUE", // required
+ *     TopicArn: 'STRING_VALUE', // required
  *   },
  * };
  * const command = new UpdateEventDestinationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateEventDestinationResult
+ *   ConfigurationSetArn: 'STRING_VALUE',
+ *   ConfigurationSetName: 'STRING_VALUE',
+ *   EventDestination: { // EventDestination
+ *     EventDestinationName: 'STRING_VALUE', // required
+ *     Enabled: true || false, // required
+ *     MatchingEventTypes: [ // EventTypeList // required
+ *       'STRING_VALUE',
+ *     ],
+ *     CloudWatchLogsDestination: { // CloudWatchLogsDestination
+ *       IamRoleArn: 'STRING_VALUE', // required
+ *       LogGroupArn: 'STRING_VALUE', // required
+ *     },
+ *     KinesisFirehoseDestination: { // KinesisFirehoseDestination
+ *       IamRoleArn: 'STRING_VALUE', // required
+ *       DeliveryStreamArn: 'STRING_VALUE', // required
+ *     },
+ *     SnsDestination: { // SnsDestination
+ *       TopicArn: 'STRING_VALUE', // required
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateEventDestinationCommandInput - {@link UpdateEventDestinationCommandInput}
@@ -101,6 +125,8 @@ export interface UpdateEventDestinationCommandOutput extends UpdateEventDestinat
  * @throws {@link ValidationException} (client fault)
  *  <p>A validation exception for a field.</p>
  *
+ * @throws {@link PinpointSMSVoiceV2ServiceException}
+ * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
  *
  */
 export class UpdateEventDestinationCommand extends $Command<

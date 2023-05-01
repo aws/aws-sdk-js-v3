@@ -41,18 +41,31 @@ export interface CreateUsageLimitCommandOutput extends CreateUsageLimitResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RedshiftServerlessClient, CreateUsageLimitCommand } from "@aws-sdk/client-redshift-serverless"; // ES Modules import
- * // const { RedshiftServerlessClient, CreateUsageLimitCommand } = require("@aws-sdk/client-redshift-serverless"); // CommonJS import
+ * import { RedshiftServerlessClient, CreateUsageLimitCommand } from '@aws-sdk/client-redshift-serverless'; // ES Modules import
+ * // const { RedshiftServerlessClient, CreateUsageLimitCommand } = require('@aws-sdk/client-redshift-serverless'); // CommonJS import
  * const client = new RedshiftServerlessClient(config);
  * const input = { // CreateUsageLimitRequest
- *   resourceArn: "STRING_VALUE", // required
- *   usageType: "STRING_VALUE", // required
- *   amount: Number("long"), // required
- *   period: "STRING_VALUE",
- *   breachAction: "STRING_VALUE",
+ *   resourceArn: 'STRING_VALUE', // required
+ *   usageType: 'STRING_VALUE', // required
+ *   amount: Number('long'), // required
+ *   period: 'STRING_VALUE',
+ *   breachAction: 'STRING_VALUE',
  * };
  * const command = new CreateUsageLimitCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateUsageLimitResponse
+ *   usageLimit: { // UsageLimit
+ *     usageLimitId: 'STRING_VALUE',
+ *     usageLimitArn: 'STRING_VALUE',
+ *     resourceArn: 'STRING_VALUE',
+ *     usageType: 'STRING_VALUE',
+ *     amount: Number('long'),
+ *     period: 'STRING_VALUE',
+ *     breachAction: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateUsageLimitCommandInput - {@link CreateUsageLimitCommandInput}
@@ -76,6 +89,8 @@ export interface CreateUsageLimitCommandOutput extends CreateUsageLimitResponse,
  * @throws {@link ValidationException} (client fault)
  *  <p>The input failed to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link RedshiftServerlessServiceException}
+ * <p>Base exception class for all service exceptions from RedshiftServerless service.</p>
  *
  */
 export class CreateUsageLimitCommand extends $Command<

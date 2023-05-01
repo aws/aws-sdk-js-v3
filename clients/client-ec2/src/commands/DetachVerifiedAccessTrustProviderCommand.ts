@@ -45,17 +45,70 @@ export interface DetachVerifiedAccessTrustProviderCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, DetachVerifiedAccessTrustProviderCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, DetachVerifiedAccessTrustProviderCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, DetachVerifiedAccessTrustProviderCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, DetachVerifiedAccessTrustProviderCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // DetachVerifiedAccessTrustProviderRequest
- *   VerifiedAccessInstanceId: "STRING_VALUE", // required
- *   VerifiedAccessTrustProviderId: "STRING_VALUE", // required
- *   ClientToken: "STRING_VALUE",
+ *   VerifiedAccessInstanceId: 'STRING_VALUE', // required
+ *   VerifiedAccessTrustProviderId: 'STRING_VALUE', // required
+ *   ClientToken: 'STRING_VALUE',
  *   DryRun: true || false,
  * };
  * const command = new DetachVerifiedAccessTrustProviderCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DetachVerifiedAccessTrustProviderResult
+ *   VerifiedAccessTrustProvider: { // VerifiedAccessTrustProvider
+ *     VerifiedAccessTrustProviderId: 'STRING_VALUE',
+ *     Description: 'STRING_VALUE',
+ *     TrustProviderType: 'user' || 'device',
+ *     UserTrustProviderType: 'iam-identity-center' || 'oidc',
+ *     DeviceTrustProviderType: 'jamf' || 'crowdstrike',
+ *     OidcOptions: { // OidcOptions
+ *       Issuer: 'STRING_VALUE',
+ *       AuthorizationEndpoint: 'STRING_VALUE',
+ *       TokenEndpoint: 'STRING_VALUE',
+ *       UserInfoEndpoint: 'STRING_VALUE',
+ *       ClientId: 'STRING_VALUE',
+ *       ClientSecret: 'STRING_VALUE',
+ *       Scope: 'STRING_VALUE',
+ *     },
+ *     DeviceOptions: { // DeviceOptions
+ *       TenantId: 'STRING_VALUE',
+ *     },
+ *     PolicyReferenceName: 'STRING_VALUE',
+ *     CreationTime: 'STRING_VALUE',
+ *     LastUpdatedTime: 'STRING_VALUE',
+ *     Tags: [ // TagList
+ *       { // Tag
+ *         Key: 'STRING_VALUE',
+ *         Value: 'STRING_VALUE',
+ *       },
+ *     ],
+ *   },
+ *   VerifiedAccessInstance: { // VerifiedAccessInstance
+ *     VerifiedAccessInstanceId: 'STRING_VALUE',
+ *     Description: 'STRING_VALUE',
+ *     VerifiedAccessTrustProviders: [ // VerifiedAccessTrustProviderCondensedList
+ *       { // VerifiedAccessTrustProviderCondensed
+ *         VerifiedAccessTrustProviderId: 'STRING_VALUE',
+ *         Description: 'STRING_VALUE',
+ *         TrustProviderType: 'user' || 'device',
+ *         UserTrustProviderType: 'iam-identity-center' || 'oidc',
+ *         DeviceTrustProviderType: 'jamf' || 'crowdstrike',
+ *       },
+ *     ],
+ *     CreationTime: 'STRING_VALUE',
+ *     LastUpdatedTime: 'STRING_VALUE',
+ *     Tags: [
+ *       {
+ *         Key: 'STRING_VALUE',
+ *         Value: 'STRING_VALUE',
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param DetachVerifiedAccessTrustProviderCommandInput - {@link DetachVerifiedAccessTrustProviderCommandInput}
@@ -64,6 +117,8 @@ export interface DetachVerifiedAccessTrustProviderCommandOutput
  * @see {@link DetachVerifiedAccessTrustProviderCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class DetachVerifiedAccessTrustProviderCommand extends $Command<

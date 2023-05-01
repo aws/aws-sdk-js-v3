@@ -39,23 +39,28 @@ export interface CreateEventIntegrationCommandOutput extends CreateEventIntegrat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppIntegrationsClient, CreateEventIntegrationCommand } from "@aws-sdk/client-appintegrations"; // ES Modules import
- * // const { AppIntegrationsClient, CreateEventIntegrationCommand } = require("@aws-sdk/client-appintegrations"); // CommonJS import
+ * import { AppIntegrationsClient, CreateEventIntegrationCommand } from '@aws-sdk/client-appintegrations'; // ES Modules import
+ * // const { AppIntegrationsClient, CreateEventIntegrationCommand } = require('@aws-sdk/client-appintegrations'); // CommonJS import
  * const client = new AppIntegrationsClient(config);
  * const input = { // CreateEventIntegrationRequest
- *   Name: "STRING_VALUE", // required
- *   Description: "STRING_VALUE",
+ *   Name: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE',
  *   EventFilter: { // EventFilter
- *     Source: "STRING_VALUE", // required
+ *     Source: 'STRING_VALUE', // required
  *   },
- *   EventBridgeBus: "STRING_VALUE", // required
- *   ClientToken: "STRING_VALUE",
+ *   EventBridgeBus: 'STRING_VALUE', // required
+ *   ClientToken: 'STRING_VALUE',
  *   Tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateEventIntegrationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateEventIntegrationResponse
+ *   EventIntegrationArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateEventIntegrationCommandInput - {@link CreateEventIntegrationCommandInput}
@@ -82,6 +87,8 @@ export interface CreateEventIntegrationCommandOutput extends CreateEventIntegrat
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link AppIntegrationsServiceException}
+ * <p>Base exception class for all service exceptions from AppIntegrations service.</p>
  *
  */
 export class CreateEventIntegrationCommand extends $Command<

@@ -36,14 +36,17 @@ export interface DisassociateTrustStoreCommandOutput extends DisassociateTrustSt
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkSpacesWebClient, DisassociateTrustStoreCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
- * // const { WorkSpacesWebClient, DisassociateTrustStoreCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
+ * import { WorkSpacesWebClient, DisassociateTrustStoreCommand } from '@aws-sdk/client-workspaces-web'; // ES Modules import
+ * // const { WorkSpacesWebClient, DisassociateTrustStoreCommand } = require('@aws-sdk/client-workspaces-web'); // CommonJS import
  * const client = new WorkSpacesWebClient(config);
  * const input = { // DisassociateTrustStoreRequest
- *   portalArn: "STRING_VALUE", // required
+ *   portalArn: 'STRING_VALUE', // required
  * };
  * const command = new DisassociateTrustStoreCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DisassociateTrustStoreCommandInput - {@link DisassociateTrustStoreCommandInput}
@@ -67,6 +70,8 @@ export interface DisassociateTrustStoreCommandOutput extends DisassociateTrustSt
  * @throws {@link ValidationException} (client fault)
  *  <p>There is a validation error.</p>
  *
+ * @throws {@link WorkSpacesWebServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
  */
 export class DisassociateTrustStoreCommand extends $Command<

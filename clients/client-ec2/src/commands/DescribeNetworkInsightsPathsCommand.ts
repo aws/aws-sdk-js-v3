@@ -38,27 +38,77 @@ export interface DescribeNetworkInsightsPathsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, DescribeNetworkInsightsPathsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, DescribeNetworkInsightsPathsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, DescribeNetworkInsightsPathsCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, DescribeNetworkInsightsPathsCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // DescribeNetworkInsightsPathsRequest
  *   NetworkInsightsPathIds: [ // NetworkInsightsPathIdList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   Filters: [ // FilterList
  *     { // Filter
- *       Name: "STRING_VALUE",
+ *       Name: 'STRING_VALUE',
  *       Values: [ // ValueStringList
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
- *   MaxResults: Number("int"),
+ *   MaxResults: Number('int'),
  *   DryRun: true || false,
- *   NextToken: "STRING_VALUE",
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new DescribeNetworkInsightsPathsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeNetworkInsightsPathsResult
+ *   NetworkInsightsPaths: [ // NetworkInsightsPathList
+ *     { // NetworkInsightsPath
+ *       NetworkInsightsPathId: 'STRING_VALUE',
+ *       NetworkInsightsPathArn: 'STRING_VALUE',
+ *       CreatedDate: new Date('TIMESTAMP'),
+ *       Source: 'STRING_VALUE',
+ *       Destination: 'STRING_VALUE',
+ *       SourceArn: 'STRING_VALUE',
+ *       DestinationArn: 'STRING_VALUE',
+ *       SourceIp: 'STRING_VALUE',
+ *       DestinationIp: 'STRING_VALUE',
+ *       Protocol: 'tcp' || 'udp',
+ *       DestinationPort: Number('int'),
+ *       Tags: [ // TagList
+ *         { // Tag
+ *           Key: 'STRING_VALUE',
+ *           Value: 'STRING_VALUE',
+ *         },
+ *       ],
+ *       FilterAtSource: { // PathFilter
+ *         SourceAddress: 'STRING_VALUE',
+ *         SourcePortRange: { // FilterPortRange
+ *           FromPort: Number('int'),
+ *           ToPort: Number('int'),
+ *         },
+ *         DestinationAddress: 'STRING_VALUE',
+ *         DestinationPortRange: {
+ *           FromPort: Number('int'),
+ *           ToPort: Number('int'),
+ *         },
+ *       },
+ *       FilterAtDestination: {
+ *         SourceAddress: 'STRING_VALUE',
+ *         SourcePortRange: {
+ *           FromPort: Number('int'),
+ *           ToPort: Number('int'),
+ *         },
+ *         DestinationAddress: 'STRING_VALUE',
+ *         DestinationPortRange: {
+ *           FromPort: Number('int'),
+ *           ToPort: Number('int'),
+ *         },
+ *       },
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeNetworkInsightsPathsCommandInput - {@link DescribeNetworkInsightsPathsCommandInput}
@@ -67,6 +117,8 @@ export interface DescribeNetworkInsightsPathsCommandOutput
  * @see {@link DescribeNetworkInsightsPathsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class DescribeNetworkInsightsPathsCommand extends $Command<

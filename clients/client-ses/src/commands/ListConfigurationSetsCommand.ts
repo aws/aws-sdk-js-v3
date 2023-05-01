@@ -45,15 +45,25 @@ export interface ListConfigurationSetsCommandOutput extends ListConfigurationSet
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SESClient, ListConfigurationSetsCommand } from "@aws-sdk/client-ses"; // ES Modules import
- * // const { SESClient, ListConfigurationSetsCommand } = require("@aws-sdk/client-ses"); // CommonJS import
+ * import { SESClient, ListConfigurationSetsCommand } from '@aws-sdk/client-ses'; // ES Modules import
+ * // const { SESClient, ListConfigurationSetsCommand } = require('@aws-sdk/client-ses'); // CommonJS import
  * const client = new SESClient(config);
  * const input = { // ListConfigurationSetsRequest
- *   NextToken: "STRING_VALUE",
- *   MaxItems: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxItems: Number('int'),
  * };
  * const command = new ListConfigurationSetsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListConfigurationSetsResponse
+ *   ConfigurationSets: [ // ConfigurationSets
+ *     { // ConfigurationSet
+ *       Name: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListConfigurationSetsCommandInput - {@link ListConfigurationSetsCommandInput}
@@ -62,6 +72,8 @@ export interface ListConfigurationSetsCommandOutput extends ListConfigurationSet
  * @see {@link ListConfigurationSetsCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
+ * @throws {@link SESServiceException}
+ * <p>Base exception class for all service exceptions from SES service.</p>
  *
  */
 export class ListConfigurationSetsCommand extends $Command<

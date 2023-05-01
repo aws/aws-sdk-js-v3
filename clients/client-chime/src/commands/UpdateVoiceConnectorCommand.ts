@@ -36,16 +36,30 @@ export interface UpdateVoiceConnectorCommandOutput extends UpdateVoiceConnectorR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeClient, UpdateVoiceConnectorCommand } from "@aws-sdk/client-chime"; // ES Modules import
- * // const { ChimeClient, UpdateVoiceConnectorCommand } = require("@aws-sdk/client-chime"); // CommonJS import
+ * import { ChimeClient, UpdateVoiceConnectorCommand } from '@aws-sdk/client-chime'; // ES Modules import
+ * // const { ChimeClient, UpdateVoiceConnectorCommand } = require('@aws-sdk/client-chime'); // CommonJS import
  * const client = new ChimeClient(config);
  * const input = { // UpdateVoiceConnectorRequest
- *   VoiceConnectorId: "STRING_VALUE", // required
- *   Name: "STRING_VALUE", // required
+ *   VoiceConnectorId: 'STRING_VALUE', // required
+ *   Name: 'STRING_VALUE', // required
  *   RequireEncryption: true || false, // required
  * };
  * const command = new UpdateVoiceConnectorCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateVoiceConnectorResponse
+ *   VoiceConnector: { // VoiceConnector
+ *     VoiceConnectorId: 'STRING_VALUE',
+ *     AwsRegion: 'us-east-1' || 'us-west-2',
+ *     Name: 'STRING_VALUE',
+ *     OutboundHostName: 'STRING_VALUE',
+ *     RequireEncryption: true || false,
+ *     CreatedTimestamp: new Date('TIMESTAMP'),
+ *     UpdatedTimestamp: new Date('TIMESTAMP'),
+ *     VoiceConnectorArn: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateVoiceConnectorCommandInput - {@link UpdateVoiceConnectorCommandInput}
@@ -75,6 +89,8 @@ export interface UpdateVoiceConnectorCommandOutput extends UpdateVoiceConnectorR
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeServiceException}
+ * <p>Base exception class for all service exceptions from Chime service.</p>
  *
  */
 export class UpdateVoiceConnectorCommand extends $Command<

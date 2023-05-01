@@ -44,15 +44,20 @@ export interface StartExportLabelsTaskRunCommandOutput extends StartExportLabels
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlueClient, StartExportLabelsTaskRunCommand } from "@aws-sdk/client-glue"; // ES Modules import
- * // const { GlueClient, StartExportLabelsTaskRunCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * import { GlueClient, StartExportLabelsTaskRunCommand } from '@aws-sdk/client-glue'; // ES Modules import
+ * // const { GlueClient, StartExportLabelsTaskRunCommand } = require('@aws-sdk/client-glue'); // CommonJS import
  * const client = new GlueClient(config);
  * const input = { // StartExportLabelsTaskRunRequest
- *   TransformId: "STRING_VALUE", // required
- *   OutputS3Path: "STRING_VALUE", // required
+ *   TransformId: 'STRING_VALUE', // required
+ *   OutputS3Path: 'STRING_VALUE', // required
  * };
  * const command = new StartExportLabelsTaskRunCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartExportLabelsTaskRunResponse
+ *   TaskRunId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param StartExportLabelsTaskRunCommandInput - {@link StartExportLabelsTaskRunCommandInput}
@@ -73,6 +78,8 @@ export interface StartExportLabelsTaskRunCommandOutput extends StartExportLabels
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class StartExportLabelsTaskRunCommand extends $Command<

@@ -37,24 +37,27 @@ export interface UpdateDocumentMetadataCommandOutput extends UpdateDocumentMetad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMClient, UpdateDocumentMetadataCommand } from "@aws-sdk/client-ssm"; // ES Modules import
- * // const { SSMClient, UpdateDocumentMetadataCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * import { SSMClient, UpdateDocumentMetadataCommand } from '@aws-sdk/client-ssm'; // ES Modules import
+ * // const { SSMClient, UpdateDocumentMetadataCommand } = require('@aws-sdk/client-ssm'); // CommonJS import
  * const client = new SSMClient(config);
  * const input = { // UpdateDocumentMetadataRequest
- *   Name: "STRING_VALUE", // required
- *   DocumentVersion: "STRING_VALUE",
+ *   Name: 'STRING_VALUE', // required
+ *   DocumentVersion: 'STRING_VALUE',
  *   DocumentReviews: { // DocumentReviews
- *     Action: "SendForReview" || "UpdateReview" || "Approve" || "Reject", // required
+ *     Action: 'SendForReview' || 'UpdateReview' || 'Approve' || 'Reject', // required
  *     Comment: [ // DocumentReviewCommentList
  *       { // DocumentReviewCommentSource
- *         Type: "Comment",
- *         Content: "STRING_VALUE",
+ *         Type: 'Comment',
+ *         Content: 'STRING_VALUE',
  *       },
  *     ],
  *   },
  * };
  * const command = new UpdateDocumentMetadataCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateDocumentMetadataCommandInput - {@link UpdateDocumentMetadataCommandInput}
@@ -76,6 +79,8 @@ export interface UpdateDocumentMetadataCommandOutput extends UpdateDocumentMetad
  * @throws {@link InvalidDocumentVersion} (client fault)
  *  <p>The document version isn't valid or doesn't exist.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class UpdateDocumentMetadataCommand extends $Command<

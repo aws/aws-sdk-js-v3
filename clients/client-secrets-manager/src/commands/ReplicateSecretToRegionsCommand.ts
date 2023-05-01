@@ -43,21 +43,35 @@ export interface ReplicateSecretToRegionsCommandOutput extends ReplicateSecretTo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SecretsManagerClient, ReplicateSecretToRegionsCommand } from "@aws-sdk/client-secrets-manager"; // ES Modules import
- * // const { SecretsManagerClient, ReplicateSecretToRegionsCommand } = require("@aws-sdk/client-secrets-manager"); // CommonJS import
+ * import { SecretsManagerClient, ReplicateSecretToRegionsCommand } from '@aws-sdk/client-secrets-manager'; // ES Modules import
+ * // const { SecretsManagerClient, ReplicateSecretToRegionsCommand } = require('@aws-sdk/client-secrets-manager'); // CommonJS import
  * const client = new SecretsManagerClient(config);
  * const input = { // ReplicateSecretToRegionsRequest
- *   SecretId: "STRING_VALUE", // required
+ *   SecretId: 'STRING_VALUE', // required
  *   AddReplicaRegions: [ // AddReplicaRegionListType // required
  *     { // ReplicaRegionType
- *       Region: "STRING_VALUE",
- *       KmsKeyId: "STRING_VALUE",
+ *       Region: 'STRING_VALUE',
+ *       KmsKeyId: 'STRING_VALUE',
  *     },
  *   ],
  *   ForceOverwriteReplicaSecret: true || false,
  * };
  * const command = new ReplicateSecretToRegionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ReplicateSecretToRegionsResponse
+ *   ARN: 'STRING_VALUE',
+ *   ReplicationStatus: [ // ReplicationStatusListType
+ *     { // ReplicationStatusType
+ *       Region: 'STRING_VALUE',
+ *       KmsKeyId: 'STRING_VALUE',
+ *       Status: 'InSync' || 'Failed' || 'InProgress',
+ *       StatusMessage: 'STRING_VALUE',
+ *       LastAccessedDate: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ReplicateSecretToRegionsCommandInput - {@link ReplicateSecretToRegionsCommandInput}
@@ -93,6 +107,8 @@ export interface ReplicateSecretToRegionsCommandOutput extends ReplicateSecretTo
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Secrets Manager can't find the resource that you asked for.</p>
  *
+ * @throws {@link SecretsManagerServiceException}
+ * <p>Base exception class for all service exceptions from SecretsManager service.</p>
  *
  * @example Example
  * ```javascript

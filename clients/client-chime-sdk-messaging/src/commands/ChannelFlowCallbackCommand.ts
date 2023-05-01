@@ -56,35 +56,41 @@ export interface ChannelFlowCallbackCommandOutput extends ChannelFlowCallbackRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeSDKMessagingClient, ChannelFlowCallbackCommand } from "@aws-sdk/client-chime-sdk-messaging"; // ES Modules import
- * // const { ChimeSDKMessagingClient, ChannelFlowCallbackCommand } = require("@aws-sdk/client-chime-sdk-messaging"); // CommonJS import
+ * import { ChimeSDKMessagingClient, ChannelFlowCallbackCommand } from '@aws-sdk/client-chime-sdk-messaging'; // ES Modules import
+ * // const { ChimeSDKMessagingClient, ChannelFlowCallbackCommand } = require('@aws-sdk/client-chime-sdk-messaging'); // CommonJS import
  * const client = new ChimeSDKMessagingClient(config);
  * const input = { // ChannelFlowCallbackRequest
- *   CallbackId: "STRING_VALUE", // required
- *   ChannelArn: "STRING_VALUE", // required
+ *   CallbackId: 'STRING_VALUE', // required
+ *   ChannelArn: 'STRING_VALUE', // required
  *   DeleteResource: true || false,
  *   ChannelMessage: { // ChannelMessageCallback
- *     MessageId: "STRING_VALUE", // required
- *     Content: "STRING_VALUE",
- *     Metadata: "STRING_VALUE",
+ *     MessageId: 'STRING_VALUE', // required
+ *     Content: 'STRING_VALUE',
+ *     Metadata: 'STRING_VALUE',
  *     PushNotification: { // PushNotificationConfiguration
- *       Title: "STRING_VALUE",
- *       Body: "STRING_VALUE",
- *       Type: "DEFAULT" || "VOIP",
+ *       Title: 'STRING_VALUE',
+ *       Body: 'STRING_VALUE',
+ *       Type: 'DEFAULT' || 'VOIP',
  *     },
  *     MessageAttributes: { // MessageAttributeMap
- *       "<keys>": { // MessageAttributeValue
+ *       '<keys>': { // MessageAttributeValue
  *         StringValues: [ // MessageAttributeStringValues
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
  *       },
  *     },
- *     SubChannelId: "STRING_VALUE",
- *     ContentType: "STRING_VALUE",
+ *     SubChannelId: 'STRING_VALUE',
+ *     ContentType: 'STRING_VALUE',
  *   },
  * };
  * const command = new ChannelFlowCallbackCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ChannelFlowCallbackResponse
+ *   ChannelArn: 'STRING_VALUE',
+ *   CallbackId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ChannelFlowCallbackCommandInput - {@link ChannelFlowCallbackCommandInput}
@@ -115,6 +121,8 @@ export interface ChannelFlowCallbackCommandOutput extends ChannelFlowCallbackRes
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeSDKMessagingServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKMessaging service.</p>
  *
  */
 export class ChannelFlowCallbackCommand extends $Command<

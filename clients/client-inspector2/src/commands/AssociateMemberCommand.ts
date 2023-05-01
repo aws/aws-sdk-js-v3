@@ -36,14 +36,19 @@ export interface AssociateMemberCommandOutput extends AssociateMemberResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Inspector2Client, AssociateMemberCommand } from "@aws-sdk/client-inspector2"; // ES Modules import
- * // const { Inspector2Client, AssociateMemberCommand } = require("@aws-sdk/client-inspector2"); // CommonJS import
+ * import { Inspector2Client, AssociateMemberCommand } from '@aws-sdk/client-inspector2'; // ES Modules import
+ * // const { Inspector2Client, AssociateMemberCommand } = require('@aws-sdk/client-inspector2'); // CommonJS import
  * const client = new Inspector2Client(config);
  * const input = { // AssociateMemberRequest
- *   accountId: "STRING_VALUE", // required
+ *   accountId: 'STRING_VALUE', // required
  * };
  * const command = new AssociateMemberCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AssociateMemberResponse
+ *   accountId: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param AssociateMemberCommandInput - {@link AssociateMemberCommandInput}
@@ -65,6 +70,8 @@ export interface AssociateMemberCommandOutput extends AssociateMemberResponse, _
  *  <p>The request has failed validation due to missing required fields or having invalid
  *          inputs.</p>
  *
+ * @throws {@link Inspector2ServiceException}
+ * <p>Base exception class for all service exceptions from Inspector2 service.</p>
  *
  */
 export class AssociateMemberCommand extends $Command<

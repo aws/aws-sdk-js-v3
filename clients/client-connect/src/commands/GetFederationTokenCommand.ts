@@ -48,14 +48,27 @@ export interface GetFederationTokenCommandOutput extends GetFederationTokenRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, GetFederationTokenCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, GetFederationTokenCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, GetFederationTokenCommand } from '@aws-sdk/client-connect'; // ES Modules import
+ * // const { ConnectClient, GetFederationTokenCommand } = require('@aws-sdk/client-connect'); // CommonJS import
  * const client = new ConnectClient(config);
  * const input = { // GetFederationTokenRequest
- *   InstanceId: "STRING_VALUE", // required
+ *   InstanceId: 'STRING_VALUE', // required
  * };
  * const command = new GetFederationTokenCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetFederationTokenResponse
+ *   Credentials: { // Credentials
+ *     AccessToken: 'STRING_VALUE',
+ *     AccessTokenExpiration: new Date('TIMESTAMP'),
+ *     RefreshToken: 'STRING_VALUE',
+ *     RefreshTokenExpiration: new Date('TIMESTAMP'),
+ *   },
+ *   SignInUrl: 'STRING_VALUE',
+ *   UserArn: 'STRING_VALUE',
+ *   UserId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetFederationTokenCommandInput - {@link GetFederationTokenCommandInput}
@@ -82,6 +95,8 @@ export interface GetFederationTokenCommandOutput extends GetFederationTokenRespo
  * @throws {@link UserNotFoundException} (client fault)
  *  <p>No user with the specified credentials was found in the Amazon Connect instance.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class GetFederationTokenCommand extends $Command<

@@ -42,14 +42,27 @@ export interface ListVolumeRecoveryPointsCommandOutput extends ListVolumeRecover
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { StorageGatewayClient, ListVolumeRecoveryPointsCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
- * // const { StorageGatewayClient, ListVolumeRecoveryPointsCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
+ * import { StorageGatewayClient, ListVolumeRecoveryPointsCommand } from '@aws-sdk/client-storage-gateway'; // ES Modules import
+ * // const { StorageGatewayClient, ListVolumeRecoveryPointsCommand } = require('@aws-sdk/client-storage-gateway'); // CommonJS import
  * const client = new StorageGatewayClient(config);
  * const input = { // ListVolumeRecoveryPointsInput
- *   GatewayARN: "STRING_VALUE", // required
+ *   GatewayARN: 'STRING_VALUE', // required
  * };
  * const command = new ListVolumeRecoveryPointsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListVolumeRecoveryPointsOutput
+ *   GatewayARN: 'STRING_VALUE',
+ *   VolumeRecoveryPointInfos: [ // VolumeRecoveryPointInfos
+ *     { // VolumeRecoveryPointInfo
+ *       VolumeARN: 'STRING_VALUE',
+ *       VolumeSizeInBytes: Number('long'),
+ *       VolumeUsageInBytes: Number('long'),
+ *       VolumeRecoveryPointTime: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListVolumeRecoveryPointsCommandInput - {@link ListVolumeRecoveryPointsCommandInput}
@@ -66,6 +79,8 @@ export interface ListVolumeRecoveryPointsCommandOutput extends ListVolumeRecover
  *  <p>An exception occurred because an invalid gateway request was issued to the service. For
  *          more information, see the error and message fields.</p>
  *
+ * @throws {@link StorageGatewayServiceException}
+ * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
  * @example To list recovery points for a gateway
  * ```javascript

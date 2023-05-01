@@ -36,77 +36,77 @@ export interface PutEventsCommandOutput extends PutEventsResponse, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PinpointClient, PutEventsCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
- * // const { PinpointClient, PutEventsCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
+ * import { PinpointClient, PutEventsCommand } from '@aws-sdk/client-pinpoint'; // ES Modules import
+ * // const { PinpointClient, PutEventsCommand } = require('@aws-sdk/client-pinpoint'); // CommonJS import
  * const client = new PinpointClient(config);
  * const input = { // PutEventsRequest
- *   ApplicationId: "STRING_VALUE", // required
+ *   ApplicationId: 'STRING_VALUE', // required
  *   EventsRequest: { // EventsRequest
  *     BatchItem: { // MapOfEventsBatch // required
- *       "<keys>": { // EventsBatch
+ *       '<keys>': { // EventsBatch
  *         Endpoint: { // PublicEndpoint
- *           Address: "STRING_VALUE",
+ *           Address: 'STRING_VALUE',
  *           Attributes: { // MapOfListOf__string
- *             "<keys>": [ // ListOf__string
- *               "STRING_VALUE",
+ *             '<keys>': [ // ListOf__string
+ *               'STRING_VALUE',
  *             ],
  *           },
- *           ChannelType: "PUSH" || "GCM" || "APNS" || "APNS_SANDBOX" || "APNS_VOIP" || "APNS_VOIP_SANDBOX" || "ADM" || "SMS" || "VOICE" || "EMAIL" || "BAIDU" || "CUSTOM" || "IN_APP",
+ *           ChannelType: 'PUSH' || 'GCM' || 'APNS' || 'APNS_SANDBOX' || 'APNS_VOIP' || 'APNS_VOIP_SANDBOX' || 'ADM' || 'SMS' || 'VOICE' || 'EMAIL' || 'BAIDU' || 'CUSTOM' || 'IN_APP',
  *           Demographic: { // EndpointDemographic
- *             AppVersion: "STRING_VALUE",
- *             Locale: "STRING_VALUE",
- *             Make: "STRING_VALUE",
- *             Model: "STRING_VALUE",
- *             ModelVersion: "STRING_VALUE",
- *             Platform: "STRING_VALUE",
- *             PlatformVersion: "STRING_VALUE",
- *             Timezone: "STRING_VALUE",
+ *             AppVersion: 'STRING_VALUE',
+ *             Locale: 'STRING_VALUE',
+ *             Make: 'STRING_VALUE',
+ *             Model: 'STRING_VALUE',
+ *             ModelVersion: 'STRING_VALUE',
+ *             Platform: 'STRING_VALUE',
+ *             PlatformVersion: 'STRING_VALUE',
+ *             Timezone: 'STRING_VALUE',
  *           },
- *           EffectiveDate: "STRING_VALUE",
- *           EndpointStatus: "STRING_VALUE",
+ *           EffectiveDate: 'STRING_VALUE',
+ *           EndpointStatus: 'STRING_VALUE',
  *           Location: { // EndpointLocation
- *             City: "STRING_VALUE",
- *             Country: "STRING_VALUE",
- *             Latitude: Number("double"),
- *             Longitude: Number("double"),
- *             PostalCode: "STRING_VALUE",
- *             Region: "STRING_VALUE",
+ *             City: 'STRING_VALUE',
+ *             Country: 'STRING_VALUE',
+ *             Latitude: Number('double'),
+ *             Longitude: Number('double'),
+ *             PostalCode: 'STRING_VALUE',
+ *             Region: 'STRING_VALUE',
  *           },
  *           Metrics: { // MapOf__double
- *             "<keys>": Number("double"),
+ *             '<keys>': Number('double'),
  *           },
- *           OptOut: "STRING_VALUE",
- *           RequestId: "STRING_VALUE",
+ *           OptOut: 'STRING_VALUE',
+ *           RequestId: 'STRING_VALUE',
  *           User: { // EndpointUser
  *             UserAttributes: {
- *               "<keys>": [
- *                 "STRING_VALUE",
+ *               '<keys>': [
+ *                 'STRING_VALUE',
  *               ],
  *             },
- *             UserId: "STRING_VALUE",
+ *             UserId: 'STRING_VALUE',
  *           },
  *         },
  *         Events: { // MapOfEvent // required
- *           "<keys>": { // Event
- *             AppPackageName: "STRING_VALUE",
- *             AppTitle: "STRING_VALUE",
- *             AppVersionCode: "STRING_VALUE",
+ *           '<keys>': { // Event
+ *             AppPackageName: 'STRING_VALUE',
+ *             AppTitle: 'STRING_VALUE',
+ *             AppVersionCode: 'STRING_VALUE',
  *             Attributes: { // MapOf__string
- *               "<keys>": "STRING_VALUE",
+ *               '<keys>': 'STRING_VALUE',
  *             },
- *             ClientSdkVersion: "STRING_VALUE",
- *             EventType: "STRING_VALUE", // required
+ *             ClientSdkVersion: 'STRING_VALUE',
+ *             EventType: 'STRING_VALUE', // required
  *             Metrics: {
- *               "<keys>": Number("double"),
+ *               '<keys>': Number('double'),
  *             },
- *             SdkName: "STRING_VALUE",
+ *             SdkName: 'STRING_VALUE',
  *             Session: { // Session
- *               Duration: Number("int"),
- *               Id: "STRING_VALUE", // required
- *               StartTimestamp: "STRING_VALUE", // required
- *               StopTimestamp: "STRING_VALUE",
+ *               Duration: Number('int'),
+ *               Id: 'STRING_VALUE', // required
+ *               StartTimestamp: 'STRING_VALUE', // required
+ *               StopTimestamp: 'STRING_VALUE',
  *             },
- *             Timestamp: "STRING_VALUE", // required
+ *             Timestamp: 'STRING_VALUE', // required
  *           },
  *         },
  *       },
@@ -115,6 +115,26 @@ export interface PutEventsCommandOutput extends PutEventsResponse, __MetadataBea
  * };
  * const command = new PutEventsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutEventsResponse
+ *   EventsResponse: { // EventsResponse
+ *     Results: { // MapOfItemResponse
+ *       '<keys>': { // ItemResponse
+ *         EndpointItemResponse: { // EndpointItemResponse
+ *           Message: 'STRING_VALUE',
+ *           StatusCode: Number('int'),
+ *         },
+ *         EventsItemResponse: { // MapOfEventItemResponse
+ *           '<keys>': { // EventItemResponse
+ *             Message: 'STRING_VALUE',
+ *             StatusCode: Number('int'),
+ *           },
+ *         },
+ *       },
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param PutEventsCommandInput - {@link PutEventsCommandInput}
@@ -144,6 +164,8 @@ export interface PutEventsCommandOutput extends PutEventsResponse, __MetadataBea
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Provides information about an API request or response.</p>
  *
+ * @throws {@link PinpointServiceException}
+ * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
  */
 export class PutEventsCommand extends $Command<

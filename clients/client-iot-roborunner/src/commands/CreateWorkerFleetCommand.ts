@@ -36,17 +36,25 @@ export interface CreateWorkerFleetCommandOutput extends CreateWorkerFleetRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTRoboRunnerClient, CreateWorkerFleetCommand } from "@aws-sdk/client-iot-roborunner"; // ES Modules import
- * // const { IoTRoboRunnerClient, CreateWorkerFleetCommand } = require("@aws-sdk/client-iot-roborunner"); // CommonJS import
+ * import { IoTRoboRunnerClient, CreateWorkerFleetCommand } from '@aws-sdk/client-iot-roborunner'; // ES Modules import
+ * // const { IoTRoboRunnerClient, CreateWorkerFleetCommand } = require('@aws-sdk/client-iot-roborunner'); // CommonJS import
  * const client = new IoTRoboRunnerClient(config);
  * const input = { // CreateWorkerFleetRequest
- *   clientToken: "STRING_VALUE",
- *   name: "STRING_VALUE", // required
- *   site: "STRING_VALUE", // required
- *   additionalFixedProperties: "STRING_VALUE",
+ *   clientToken: 'STRING_VALUE',
+ *   name: 'STRING_VALUE', // required
+ *   site: 'STRING_VALUE', // required
+ *   additionalFixedProperties: 'STRING_VALUE',
  * };
  * const command = new CreateWorkerFleetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateWorkerFleetResponse
+ *   arn: 'STRING_VALUE', // required
+ *   id: 'STRING_VALUE', // required
+ *   createdAt: new Date('TIMESTAMP'), // required
+ *   updatedAt: new Date('TIMESTAMP'), // required
+ * };
+ *
  * ```
  *
  * @param CreateWorkerFleetCommandInput - {@link CreateWorkerFleetCommandInput}
@@ -76,6 +84,8 @@ export interface CreateWorkerFleetCommandOutput extends CreateWorkerFleetRespons
  * @throws {@link ValidationException} (client fault)
  *  Exception thrown if an invalid parameter is provided to an API.
  *
+ * @throws {@link IoTRoboRunnerServiceException}
+ * <p>Base exception class for all service exceptions from IoTRoboRunner service.</p>
  *
  */
 export class CreateWorkerFleetCommand extends $Command<

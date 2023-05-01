@@ -97,16 +97,29 @@ export interface DescribeAccountCustomizationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { QuickSightClient, DescribeAccountCustomizationCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
- * // const { QuickSightClient, DescribeAccountCustomizationCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * import { QuickSightClient, DescribeAccountCustomizationCommand } from '@aws-sdk/client-quicksight'; // ES Modules import
+ * // const { QuickSightClient, DescribeAccountCustomizationCommand } = require('@aws-sdk/client-quicksight'); // CommonJS import
  * const client = new QuickSightClient(config);
  * const input = { // DescribeAccountCustomizationRequest
- *   AwsAccountId: "STRING_VALUE", // required
- *   Namespace: "STRING_VALUE",
+ *   AwsAccountId: 'STRING_VALUE', // required
+ *   Namespace: 'STRING_VALUE',
  *   Resolved: true || false,
  * };
  * const command = new DescribeAccountCustomizationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeAccountCustomizationResponse
+ *   Arn: 'STRING_VALUE',
+ *   AwsAccountId: 'STRING_VALUE',
+ *   Namespace: 'STRING_VALUE',
+ *   AccountCustomization: { // AccountCustomization
+ *     DefaultTheme: 'STRING_VALUE',
+ *     DefaultEmailCustomizationTemplate: 'STRING_VALUE',
+ *   },
+ *   RequestId: 'STRING_VALUE',
+ *   Status: Number('int'),
+ * };
+ *
  * ```
  *
  * @param DescribeAccountCustomizationCommandInput - {@link DescribeAccountCustomizationCommandInput}
@@ -136,6 +149,8 @@ export interface DescribeAccountCustomizationCommandOutput
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Access is throttled.</p>
  *
+ * @throws {@link QuickSightServiceException}
+ * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
 export class DescribeAccountCustomizationCommand extends $Command<

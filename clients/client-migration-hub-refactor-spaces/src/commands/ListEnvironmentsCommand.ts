@@ -45,15 +45,47 @@ export interface ListEnvironmentsCommandOutput extends ListEnvironmentsResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MigrationHubRefactorSpacesClient, ListEnvironmentsCommand } from "@aws-sdk/client-migration-hub-refactor-spaces"; // ES Modules import
- * // const { MigrationHubRefactorSpacesClient, ListEnvironmentsCommand } = require("@aws-sdk/client-migration-hub-refactor-spaces"); // CommonJS import
+ * import { MigrationHubRefactorSpacesClient, ListEnvironmentsCommand } from '@aws-sdk/client-migration-hub-refactor-spaces'; // ES Modules import
+ * // const { MigrationHubRefactorSpacesClient, ListEnvironmentsCommand } = require('@aws-sdk/client-migration-hub-refactor-spaces'); // CommonJS import
  * const client = new MigrationHubRefactorSpacesClient(config);
  * const input = { // ListEnvironmentsRequest
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListEnvironmentsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListEnvironmentsResponse
+ *   EnvironmentSummaryList: [ // EnvironmentSummaries
+ *     { // EnvironmentSummary
+ *       Name: 'STRING_VALUE',
+ *       Arn: 'STRING_VALUE',
+ *       Description: 'STRING_VALUE',
+ *       EnvironmentId: 'STRING_VALUE',
+ *       NetworkFabricType: 'STRING_VALUE',
+ *       OwnerAccountId: 'STRING_VALUE',
+ *       TransitGatewayId: 'STRING_VALUE',
+ *       State: 'STRING_VALUE',
+ *       Tags: { // TagMap
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *       Error: { // ErrorResponse
+ *         Code: 'STRING_VALUE',
+ *         Message: 'STRING_VALUE',
+ *         AccountId: 'STRING_VALUE',
+ *         ResourceIdentifier: 'STRING_VALUE',
+ *         ResourceType: 'STRING_VALUE',
+ *         AdditionalDetails: { // AdditionalDetails
+ *           '<keys>': 'STRING_VALUE',
+ *         },
+ *       },
+ *       LastUpdatedTime: new Date('TIMESTAMP'),
+ *       CreatedTime: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListEnvironmentsCommandInput - {@link ListEnvironmentsCommandInput}
@@ -78,6 +110,8 @@ export interface ListEnvironmentsCommandOutput extends ListEnvironmentsResponse,
  *  <p>The input does not satisfy the constraints specified by an Amazon Web Service.
  *     </p>
  *
+ * @throws {@link MigrationHubRefactorSpacesServiceException}
+ * <p>Base exception class for all service exceptions from MigrationHubRefactorSpaces service.</p>
  *
  */
 export class ListEnvironmentsCommand extends $Command<

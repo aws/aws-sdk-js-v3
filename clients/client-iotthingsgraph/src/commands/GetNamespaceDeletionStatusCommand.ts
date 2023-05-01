@@ -38,12 +38,21 @@ export interface GetNamespaceDeletionStatusCommandOutput extends GetNamespaceDel
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTThingsGraphClient, GetNamespaceDeletionStatusCommand } from "@aws-sdk/client-iotthingsgraph"; // ES Modules import
- * // const { IoTThingsGraphClient, GetNamespaceDeletionStatusCommand } = require("@aws-sdk/client-iotthingsgraph"); // CommonJS import
+ * import { IoTThingsGraphClient, GetNamespaceDeletionStatusCommand } from '@aws-sdk/client-iotthingsgraph'; // ES Modules import
+ * // const { IoTThingsGraphClient, GetNamespaceDeletionStatusCommand } = require('@aws-sdk/client-iotthingsgraph'); // CommonJS import
  * const client = new IoTThingsGraphClient(config);
  * const input = {};
  * const command = new GetNamespaceDeletionStatusCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetNamespaceDeletionStatusResponse
+ *   namespaceArn: 'STRING_VALUE',
+ *   namespaceName: 'STRING_VALUE',
+ *   status: 'STRING_VALUE',
+ *   errorCode: 'STRING_VALUE',
+ *   errorMessage: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetNamespaceDeletionStatusCommandInput - {@link GetNamespaceDeletionStatusCommandInput}
@@ -61,6 +70,8 @@ export interface GetNamespaceDeletionStatusCommandOutput extends GetNamespaceDel
  * @throws {@link ThrottlingException} (client fault)
  *  <p></p>
  *
+ * @throws {@link IoTThingsGraphServiceException}
+ * <p>Base exception class for all service exceptions from IoTThingsGraph service.</p>
  *
  */
 export class GetNamespaceDeletionStatusCommand extends $Command<

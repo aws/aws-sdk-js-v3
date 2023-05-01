@@ -36,23 +36,38 @@ export interface UpdateDeploymentCommandOutput extends Deployment, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { APIGatewayClient, UpdateDeploymentCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
- * // const { APIGatewayClient, UpdateDeploymentCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
+ * import { APIGatewayClient, UpdateDeploymentCommand } from '@aws-sdk/client-api-gateway'; // ES Modules import
+ * // const { APIGatewayClient, UpdateDeploymentCommand } = require('@aws-sdk/client-api-gateway'); // CommonJS import
  * const client = new APIGatewayClient(config);
  * const input = { // UpdateDeploymentRequest
- *   restApiId: "STRING_VALUE", // required
- *   deploymentId: "STRING_VALUE", // required
+ *   restApiId: 'STRING_VALUE', // required
+ *   deploymentId: 'STRING_VALUE', // required
  *   patchOperations: [ // ListOfPatchOperation
  *     { // PatchOperation
- *       op: "add" || "remove" || "replace" || "move" || "copy" || "test",
- *       path: "STRING_VALUE",
- *       value: "STRING_VALUE",
- *       from: "STRING_VALUE",
+ *       op: 'add' || 'remove' || 'replace' || 'move' || 'copy' || 'test',
+ *       path: 'STRING_VALUE',
+ *       value: 'STRING_VALUE',
+ *       from: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new UpdateDeploymentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // Deployment
+ *   id: 'STRING_VALUE',
+ *   description: 'STRING_VALUE',
+ *   createdDate: new Date('TIMESTAMP'),
+ *   apiSummary: { // PathToMapOfMethodSnapshot
+ *     '<keys>': { // MapOfMethodSnapshot
+ *       '<keys>': { // MethodSnapshot
+ *         authorizationType: 'STRING_VALUE',
+ *         apiKeyRequired: true || false,
+ *       },
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateDeploymentCommandInput - {@link UpdateDeploymentCommandInput}
@@ -82,6 +97,8 @@ export interface UpdateDeploymentCommandOutput extends Deployment, __MetadataBea
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The request is denied because the caller has insufficient permissions.</p>
  *
+ * @throws {@link APIGatewayServiceException}
+ * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
  */
 export class UpdateDeploymentCommand extends $Command<

@@ -41,16 +41,48 @@ export interface FailoverGlobalReplicationGroupCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElastiCacheClient, FailoverGlobalReplicationGroupCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
- * // const { ElastiCacheClient, FailoverGlobalReplicationGroupCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
+ * import { ElastiCacheClient, FailoverGlobalReplicationGroupCommand } from '@aws-sdk/client-elasticache'; // ES Modules import
+ * // const { ElastiCacheClient, FailoverGlobalReplicationGroupCommand } = require('@aws-sdk/client-elasticache'); // CommonJS import
  * const client = new ElastiCacheClient(config);
  * const input = { // FailoverGlobalReplicationGroupMessage
- *   GlobalReplicationGroupId: "STRING_VALUE", // required
- *   PrimaryRegion: "STRING_VALUE", // required
- *   PrimaryReplicationGroupId: "STRING_VALUE", // required
+ *   GlobalReplicationGroupId: 'STRING_VALUE', // required
+ *   PrimaryRegion: 'STRING_VALUE', // required
+ *   PrimaryReplicationGroupId: 'STRING_VALUE', // required
  * };
  * const command = new FailoverGlobalReplicationGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // FailoverGlobalReplicationGroupResult
+ *   GlobalReplicationGroup: { // GlobalReplicationGroup
+ *     GlobalReplicationGroupId: 'STRING_VALUE',
+ *     GlobalReplicationGroupDescription: 'STRING_VALUE',
+ *     Status: 'STRING_VALUE',
+ *     CacheNodeType: 'STRING_VALUE',
+ *     Engine: 'STRING_VALUE',
+ *     EngineVersion: 'STRING_VALUE',
+ *     Members: [ // GlobalReplicationGroupMemberList
+ *       { // GlobalReplicationGroupMember
+ *         ReplicationGroupId: 'STRING_VALUE',
+ *         ReplicationGroupRegion: 'STRING_VALUE',
+ *         Role: 'STRING_VALUE',
+ *         AutomaticFailover: 'enabled' || 'disabled' || 'enabling' || 'disabling',
+ *         Status: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     ClusterEnabled: true || false,
+ *     GlobalNodeGroups: [ // GlobalNodeGroupList
+ *       { // GlobalNodeGroup
+ *         GlobalNodeGroupId: 'STRING_VALUE',
+ *         Slots: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     AuthTokenEnabled: true || false,
+ *     TransitEncryptionEnabled: true || false,
+ *     AtRestEncryptionEnabled: true || false,
+ *     ARN: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param FailoverGlobalReplicationGroupCommandInput - {@link FailoverGlobalReplicationGroupCommandInput}
@@ -71,6 +103,8 @@ export interface FailoverGlobalReplicationGroupCommandOutput
  * @throws {@link InvalidParameterValueException} (client fault)
  *  <p>The value for a parameter is invalid.</p>
  *
+ * @throws {@link ElastiCacheServiceException}
+ * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
  */
 export class FailoverGlobalReplicationGroupCommand extends $Command<

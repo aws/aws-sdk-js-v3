@@ -42,23 +42,45 @@ export interface BatchCreateCustomVocabularyItemCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LexModelsV2Client, BatchCreateCustomVocabularyItemCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
- * // const { LexModelsV2Client, BatchCreateCustomVocabularyItemCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
+ * import { LexModelsV2Client, BatchCreateCustomVocabularyItemCommand } from '@aws-sdk/client-lex-models-v2'; // ES Modules import
+ * // const { LexModelsV2Client, BatchCreateCustomVocabularyItemCommand } = require('@aws-sdk/client-lex-models-v2'); // CommonJS import
  * const client = new LexModelsV2Client(config);
  * const input = { // BatchCreateCustomVocabularyItemRequest
- *   botId: "STRING_VALUE", // required
- *   botVersion: "STRING_VALUE", // required
- *   localeId: "STRING_VALUE", // required
+ *   botId: 'STRING_VALUE', // required
+ *   botVersion: 'STRING_VALUE', // required
+ *   localeId: 'STRING_VALUE', // required
  *   customVocabularyItemList: [ // CreateCustomVocabularyItemsList // required
  *     { // NewCustomVocabularyItem
- *       phrase: "STRING_VALUE", // required
- *       weight: Number("int"),
- *       displayAs: "STRING_VALUE",
+ *       phrase: 'STRING_VALUE', // required
+ *       weight: Number('int'),
+ *       displayAs: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new BatchCreateCustomVocabularyItemCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BatchCreateCustomVocabularyItemResponse
+ *   botId: 'STRING_VALUE',
+ *   botVersion: 'STRING_VALUE',
+ *   localeId: 'STRING_VALUE',
+ *   errors: [ // FailedCustomVocabularyItems
+ *     { // FailedCustomVocabularyItem
+ *       itemId: 'STRING_VALUE',
+ *       errorMessage: 'STRING_VALUE',
+ *       errorCode: 'DUPLICATE_INPUT' || 'RESOURCE_DOES_NOT_EXIST' || 'RESOURCE_ALREADY_EXISTS' || 'INTERNAL_SERVER_FAILURE',
+ *     },
+ *   ],
+ *   resources: [ // CustomVocabularyItems
+ *     { // CustomVocabularyItem
+ *       itemId: 'STRING_VALUE', // required
+ *       phrase: 'STRING_VALUE', // required
+ *       weight: Number('int'),
+ *       displayAs: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param BatchCreateCustomVocabularyItemCommandInput - {@link BatchCreateCustomVocabularyItemCommandInput}
@@ -86,6 +108,8 @@ export interface BatchCreateCustomVocabularyItemCommandOutput
  *  <p>One of the input parameters in your request isn't valid. Check the
  *          parameters and try your request again.</p>
  *
+ * @throws {@link LexModelsV2ServiceException}
+ * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
  */
 export class BatchCreateCustomVocabularyItemCommand extends $Command<

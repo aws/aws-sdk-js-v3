@@ -45,15 +45,18 @@ export interface AcceptInvitationCommandOutput extends AcceptInvitationResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SecurityHubClient, AcceptInvitationCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
- * // const { SecurityHubClient, AcceptInvitationCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
+ * import { SecurityHubClient, AcceptInvitationCommand } from '@aws-sdk/client-securityhub'; // ES Modules import
+ * // const { SecurityHubClient, AcceptInvitationCommand } = require('@aws-sdk/client-securityhub'); // CommonJS import
  * const client = new SecurityHubClient(config);
  * const input = { // AcceptInvitationRequest
- *   MasterId: "STRING_VALUE", // required
- *   InvitationId: "STRING_VALUE", // required
+ *   MasterId: 'STRING_VALUE', // required
+ *   InvitationId: 'STRING_VALUE', // required
  * };
  * const command = new AcceptInvitationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param AcceptInvitationCommandInput - {@link AcceptInvitationCommandInput}
@@ -79,6 +82,8 @@ export interface AcceptInvitationCommandOutput extends AcceptInvitationResponse,
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The request was rejected because we can't find the specified resource.</p>
  *
+ * @throws {@link SecurityHubServiceException}
+ * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
  */
 export class AcceptInvitationCommand extends $Command<

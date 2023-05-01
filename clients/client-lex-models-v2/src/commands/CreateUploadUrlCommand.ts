@@ -37,12 +37,18 @@ export interface CreateUploadUrlCommandOutput extends CreateUploadUrlResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LexModelsV2Client, CreateUploadUrlCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
- * // const { LexModelsV2Client, CreateUploadUrlCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
+ * import { LexModelsV2Client, CreateUploadUrlCommand } from '@aws-sdk/client-lex-models-v2'; // ES Modules import
+ * // const { LexModelsV2Client, CreateUploadUrlCommand } = require('@aws-sdk/client-lex-models-v2'); // CommonJS import
  * const client = new LexModelsV2Client(config);
  * const input = {};
  * const command = new CreateUploadUrlCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateUploadUrlResponse
+ *   importId: 'STRING_VALUE',
+ *   uploadUrl: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateUploadUrlCommandInput - {@link CreateUploadUrlCommandInput}
@@ -72,6 +78,8 @@ export interface CreateUploadUrlCommandOutput extends CreateUploadUrlResponse, _
  *  <p>One of the input parameters in your request isn't valid. Check the
  *          parameters and try your request again.</p>
  *
+ * @throws {@link LexModelsV2ServiceException}
+ * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
  */
 export class CreateUploadUrlCommand extends $Command<

@@ -46,12 +46,19 @@ export interface ListAvailableZonesCommandOutput extends ListAvailableZonesRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudHSMClient, ListAvailableZonesCommand } from "@aws-sdk/client-cloudhsm"; // ES Modules import
- * // const { CloudHSMClient, ListAvailableZonesCommand } = require("@aws-sdk/client-cloudhsm"); // CommonJS import
+ * import { CloudHSMClient, ListAvailableZonesCommand } from '@aws-sdk/client-cloudhsm'; // ES Modules import
+ * // const { CloudHSMClient, ListAvailableZonesCommand } = require('@aws-sdk/client-cloudhsm'); // CommonJS import
  * const client = new CloudHSMClient(config);
  * const input = {};
  * const command = new ListAvailableZonesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListAvailableZonesResponse
+ *   AZList: [ // AZList
+ *     'STRING_VALUE',
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListAvailableZonesCommandInput - {@link ListAvailableZonesCommandInput}
@@ -69,6 +76,8 @@ export interface ListAvailableZonesCommandOutput extends ListAvailableZonesRespo
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>Indicates that one or more of the request parameters are not valid.</p>
  *
+ * @throws {@link CloudHSMServiceException}
+ * <p>Base exception class for all service exceptions from CloudHSM service.</p>
  *
  */
 export class ListAvailableZonesCommand extends $Command<

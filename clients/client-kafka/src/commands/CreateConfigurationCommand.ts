@@ -36,19 +36,32 @@ export interface CreateConfigurationCommandOutput extends CreateConfigurationRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KafkaClient, CreateConfigurationCommand } from "@aws-sdk/client-kafka"; // ES Modules import
- * // const { KafkaClient, CreateConfigurationCommand } = require("@aws-sdk/client-kafka"); // CommonJS import
+ * import { KafkaClient, CreateConfigurationCommand } from '@aws-sdk/client-kafka'; // ES Modules import
+ * // const { KafkaClient, CreateConfigurationCommand } = require('@aws-sdk/client-kafka'); // CommonJS import
  * const client = new KafkaClient(config);
  * const input = { // CreateConfigurationRequest
- *   Description: "STRING_VALUE",
+ *   Description: 'STRING_VALUE',
  *   KafkaVersions: [ // __listOf__string
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   Name: "STRING_VALUE", // required
- *   ServerProperties: "BLOB_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
+ *   ServerProperties: 'BLOB_VALUE', // required
  * };
  * const command = new CreateConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateConfigurationResponse
+ *   Arn: 'STRING_VALUE',
+ *   CreationTime: new Date('TIMESTAMP'),
+ *   LatestRevision: { // ConfigurationRevision
+ *     CreationTime: new Date('TIMESTAMP'), // required
+ *     Description: 'STRING_VALUE',
+ *     Revision: Number('long'), // required
+ *   },
+ *   Name: 'STRING_VALUE',
+ *   State: 'ACTIVE' || 'DELETING' || 'DELETE_FAILED',
+ * };
+ *
  * ```
  *
  * @param CreateConfigurationCommandInput - {@link CreateConfigurationCommandInput}
@@ -78,6 +91,8 @@ export interface CreateConfigurationCommandOutput extends CreateConfigurationRes
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>Returns information about an error.</p>
  *
+ * @throws {@link KafkaServiceException}
+ * <p>Base exception class for all service exceptions from Kafka service.</p>
  *
  */
 export class CreateConfigurationCommand extends $Command<

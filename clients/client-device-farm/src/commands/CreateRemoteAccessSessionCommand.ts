@@ -36,30 +36,119 @@ export interface CreateRemoteAccessSessionCommandOutput extends CreateRemoteAcce
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DeviceFarmClient, CreateRemoteAccessSessionCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
- * // const { DeviceFarmClient, CreateRemoteAccessSessionCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
+ * import { DeviceFarmClient, CreateRemoteAccessSessionCommand } from '@aws-sdk/client-device-farm'; // ES Modules import
+ * // const { DeviceFarmClient, CreateRemoteAccessSessionCommand } = require('@aws-sdk/client-device-farm'); // CommonJS import
  * const client = new DeviceFarmClient(config);
  * const input = { // CreateRemoteAccessSessionRequest
- *   projectArn: "STRING_VALUE", // required
- *   deviceArn: "STRING_VALUE", // required
- *   instanceArn: "STRING_VALUE",
- *   sshPublicKey: "STRING_VALUE",
+ *   projectArn: 'STRING_VALUE', // required
+ *   deviceArn: 'STRING_VALUE', // required
+ *   instanceArn: 'STRING_VALUE',
+ *   sshPublicKey: 'STRING_VALUE',
  *   remoteDebugEnabled: true || false,
  *   remoteRecordEnabled: true || false,
- *   remoteRecordAppArn: "STRING_VALUE",
- *   name: "STRING_VALUE",
- *   clientId: "STRING_VALUE",
+ *   remoteRecordAppArn: 'STRING_VALUE',
+ *   name: 'STRING_VALUE',
+ *   clientId: 'STRING_VALUE',
  *   configuration: { // CreateRemoteAccessSessionConfiguration
- *     billingMethod: "METERED" || "UNMETERED",
+ *     billingMethod: 'METERED' || 'UNMETERED',
  *     vpceConfigurationArns: [ // AmazonResourceNames
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *   },
- *   interactionMode: "INTERACTIVE" || "NO_VIDEO" || "VIDEO_ONLY",
+ *   interactionMode: 'INTERACTIVE' || 'NO_VIDEO' || 'VIDEO_ONLY',
  *   skipAppResign: true || false,
  * };
  * const command = new CreateRemoteAccessSessionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateRemoteAccessSessionResult
+ *   remoteAccessSession: { // RemoteAccessSession
+ *     arn: 'STRING_VALUE',
+ *     name: 'STRING_VALUE',
+ *     created: new Date('TIMESTAMP'),
+ *     status: 'PENDING' || 'PENDING_CONCURRENCY' || 'PENDING_DEVICE' || 'PROCESSING' || 'SCHEDULING' || 'PREPARING' || 'RUNNING' || 'COMPLETED' || 'STOPPING',
+ *     result: 'PENDING' || 'PASSED' || 'WARNED' || 'FAILED' || 'SKIPPED' || 'ERRORED' || 'STOPPED',
+ *     message: 'STRING_VALUE',
+ *     started: new Date('TIMESTAMP'),
+ *     stopped: new Date('TIMESTAMP'),
+ *     device: { // Device
+ *       arn: 'STRING_VALUE',
+ *       name: 'STRING_VALUE',
+ *       manufacturer: 'STRING_VALUE',
+ *       model: 'STRING_VALUE',
+ *       modelId: 'STRING_VALUE',
+ *       formFactor: 'PHONE' || 'TABLET',
+ *       platform: 'ANDROID' || 'IOS',
+ *       os: 'STRING_VALUE',
+ *       cpu: { // CPU
+ *         frequency: 'STRING_VALUE',
+ *         architecture: 'STRING_VALUE',
+ *         clock: Number('double'),
+ *       },
+ *       resolution: { // Resolution
+ *         width: Number('int'),
+ *         height: Number('int'),
+ *       },
+ *       heapSize: Number('long'),
+ *       memory: Number('long'),
+ *       image: 'STRING_VALUE',
+ *       carrier: 'STRING_VALUE',
+ *       radio: 'STRING_VALUE',
+ *       remoteAccessEnabled: true || false,
+ *       remoteDebugEnabled: true || false,
+ *       fleetType: 'STRING_VALUE',
+ *       fleetName: 'STRING_VALUE',
+ *       instances: [ // DeviceInstances
+ *         { // DeviceInstance
+ *           arn: 'STRING_VALUE',
+ *           deviceArn: 'STRING_VALUE',
+ *           labels: [ // InstanceLabels
+ *             'STRING_VALUE',
+ *           ],
+ *           status: 'IN_USE' || 'PREPARING' || 'AVAILABLE' || 'NOT_AVAILABLE',
+ *           udid: 'STRING_VALUE',
+ *           instanceProfile: { // InstanceProfile
+ *             arn: 'STRING_VALUE',
+ *             packageCleanup: true || false,
+ *             excludeAppPackagesFromCleanup: [ // PackageIds
+ *               'STRING_VALUE',
+ *             ],
+ *             rebootAfterUse: true || false,
+ *             name: 'STRING_VALUE',
+ *             description: 'STRING_VALUE',
+ *           },
+ *         },
+ *       ],
+ *       availability: 'TEMPORARY_NOT_AVAILABLE' || 'BUSY' || 'AVAILABLE' || 'HIGHLY_AVAILABLE',
+ *     },
+ *     instanceArn: 'STRING_VALUE',
+ *     remoteDebugEnabled: true || false,
+ *     remoteRecordEnabled: true || false,
+ *     remoteRecordAppArn: 'STRING_VALUE',
+ *     hostAddress: 'STRING_VALUE',
+ *     clientId: 'STRING_VALUE',
+ *     billingMethod: 'METERED' || 'UNMETERED',
+ *     deviceMinutes: { // DeviceMinutes
+ *       total: Number('double'),
+ *       metered: Number('double'),
+ *       unmetered: Number('double'),
+ *     },
+ *     endpoint: 'STRING_VALUE',
+ *     deviceUdid: 'STRING_VALUE',
+ *     interactionMode: 'INTERACTIVE' || 'NO_VIDEO' || 'VIDEO_ONLY',
+ *     skipAppResign: true || false,
+ *     vpcConfig: { // VpcConfig
+ *       securityGroupIds: [ // VpcSecurityGroupIds // required
+ *         'STRING_VALUE',
+ *       ],
+ *       subnetIds: [ // VpcSubnetIds // required
+ *         'STRING_VALUE',
+ *       ],
+ *       vpcId: 'STRING_VALUE', // required
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateRemoteAccessSessionCommandInput - {@link CreateRemoteAccessSessionCommandInput}
@@ -80,6 +169,8 @@ export interface CreateRemoteAccessSessionCommandOutput extends CreateRemoteAcce
  * @throws {@link ServiceAccountException} (client fault)
  *  <p>There was a problem with the service account.</p>
  *
+ * @throws {@link DeviceFarmServiceException}
+ * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
  * @example To create a remote access session
  * ```javascript

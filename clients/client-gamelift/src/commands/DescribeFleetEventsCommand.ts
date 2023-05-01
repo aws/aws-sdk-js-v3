@@ -50,18 +50,33 @@ export interface DescribeFleetEventsCommandOutput extends DescribeFleetEventsOut
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GameLiftClient, DescribeFleetEventsCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
- * // const { GameLiftClient, DescribeFleetEventsCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
+ * import { GameLiftClient, DescribeFleetEventsCommand } from '@aws-sdk/client-gamelift'; // ES Modules import
+ * // const { GameLiftClient, DescribeFleetEventsCommand } = require('@aws-sdk/client-gamelift'); // CommonJS import
  * const client = new GameLiftClient(config);
  * const input = { // DescribeFleetEventsInput
- *   FleetId: "STRING_VALUE", // required
- *   StartTime: new Date("TIMESTAMP"),
- *   EndTime: new Date("TIMESTAMP"),
- *   Limit: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   FleetId: 'STRING_VALUE', // required
+ *   StartTime: new Date('TIMESTAMP'),
+ *   EndTime: new Date('TIMESTAMP'),
+ *   Limit: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new DescribeFleetEventsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeFleetEventsOutput
+ *   Events: [ // EventList
+ *     { // Event
+ *       EventId: 'STRING_VALUE',
+ *       ResourceId: 'STRING_VALUE',
+ *       EventCode: 'GENERIC_EVENT' || 'FLEET_CREATED' || 'FLEET_DELETED' || 'FLEET_SCALING_EVENT' || 'FLEET_STATE_DOWNLOADING' || 'FLEET_STATE_VALIDATING' || 'FLEET_STATE_BUILDING' || 'FLEET_STATE_ACTIVATING' || 'FLEET_STATE_ACTIVE' || 'FLEET_STATE_ERROR' || 'FLEET_INITIALIZATION_FAILED' || 'FLEET_BINARY_DOWNLOAD_FAILED' || 'FLEET_VALIDATION_LAUNCH_PATH_NOT_FOUND' || 'FLEET_VALIDATION_EXECUTABLE_RUNTIME_FAILURE' || 'FLEET_VALIDATION_TIMED_OUT' || 'FLEET_ACTIVATION_FAILED' || 'FLEET_ACTIVATION_FAILED_NO_INSTANCES' || 'FLEET_NEW_GAME_SESSION_PROTECTION_POLICY_UPDATED' || 'SERVER_PROCESS_INVALID_PATH' || 'SERVER_PROCESS_SDK_INITIALIZATION_TIMEOUT' || 'SERVER_PROCESS_PROCESS_READY_TIMEOUT' || 'SERVER_PROCESS_CRASHED' || 'SERVER_PROCESS_TERMINATED_UNHEALTHY' || 'SERVER_PROCESS_FORCE_TERMINATED' || 'SERVER_PROCESS_PROCESS_EXIT_TIMEOUT' || 'GAME_SESSION_ACTIVATION_TIMEOUT' || 'FLEET_CREATION_EXTRACTING_BUILD' || 'FLEET_CREATION_RUNNING_INSTALLER' || 'FLEET_CREATION_VALIDATING_RUNTIME_CONFIG' || 'FLEET_VPC_PEERING_SUCCEEDED' || 'FLEET_VPC_PEERING_FAILED' || 'FLEET_VPC_PEERING_DELETED' || 'INSTANCE_INTERRUPTED' || 'INSTANCE_RECYCLED',
+ *       Message: 'STRING_VALUE',
+ *       EventTime: new Date('TIMESTAMP'),
+ *       PreSignedLogUrl: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeFleetEventsCommandInput - {@link DescribeFleetEventsCommandInput}
@@ -84,6 +99,8 @@ export interface DescribeFleetEventsCommandOutput extends DescribeFleetEventsOut
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client failed authentication. Clients should not retry such requests.</p>
  *
+ * @throws {@link GameLiftServiceException}
+ * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
  */
 export class DescribeFleetEventsCommand extends $Command<

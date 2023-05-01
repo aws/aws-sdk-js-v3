@@ -38,14 +38,42 @@ export interface GetDNSSECCommandOutput extends GetDNSSECResponse, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Route53Client, GetDNSSECCommand } from "@aws-sdk/client-route-53"; // ES Modules import
- * // const { Route53Client, GetDNSSECCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
+ * import { Route53Client, GetDNSSECCommand } from '@aws-sdk/client-route-53'; // ES Modules import
+ * // const { Route53Client, GetDNSSECCommand } = require('@aws-sdk/client-route-53'); // CommonJS import
  * const client = new Route53Client(config);
  * const input = { // GetDNSSECRequest
- *   HostedZoneId: "STRING_VALUE", // required
+ *   HostedZoneId: 'STRING_VALUE', // required
  * };
  * const command = new GetDNSSECCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetDNSSECResponse
+ *   Status: { // DNSSECStatus
+ *     ServeSignature: 'STRING_VALUE',
+ *     StatusMessage: 'STRING_VALUE',
+ *   },
+ *   KeySigningKeys: [ // KeySigningKeys // required
+ *     { // KeySigningKey
+ *       Name: 'STRING_VALUE',
+ *       KmsArn: 'STRING_VALUE',
+ *       Flag: Number('int'),
+ *       SigningAlgorithmMnemonic: 'STRING_VALUE',
+ *       SigningAlgorithmType: Number('int'),
+ *       DigestAlgorithmMnemonic: 'STRING_VALUE',
+ *       DigestAlgorithmType: Number('int'),
+ *       KeyTag: Number('int'),
+ *       DigestValue: 'STRING_VALUE',
+ *       PublicKey: 'STRING_VALUE',
+ *       DSRecord: 'STRING_VALUE',
+ *       DNSKEYRecord: 'STRING_VALUE',
+ *       Status: 'STRING_VALUE',
+ *       StatusMessage: 'STRING_VALUE',
+ *       CreatedDate: new Date('TIMESTAMP'),
+ *       LastModifiedDate: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetDNSSECCommandInput - {@link GetDNSSECCommandInput}
@@ -63,6 +91,8 @@ export interface GetDNSSECCommandOutput extends GetDNSSECResponse, __MetadataBea
  * @throws {@link NoSuchHostedZone} (client fault)
  *  <p>No hosted zone exists with the ID that you specified.</p>
  *
+ * @throws {@link Route53ServiceException}
+ * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
  */
 export class GetDNSSECCommand extends $Command<

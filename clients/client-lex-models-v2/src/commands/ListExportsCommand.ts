@@ -37,31 +37,64 @@ export interface ListExportsCommandOutput extends ListExportsResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LexModelsV2Client, ListExportsCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
- * // const { LexModelsV2Client, ListExportsCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
+ * import { LexModelsV2Client, ListExportsCommand } from '@aws-sdk/client-lex-models-v2'; // ES Modules import
+ * // const { LexModelsV2Client, ListExportsCommand } = require('@aws-sdk/client-lex-models-v2'); // CommonJS import
  * const client = new LexModelsV2Client(config);
  * const input = { // ListExportsRequest
- *   botId: "STRING_VALUE",
- *   botVersion: "STRING_VALUE",
+ *   botId: 'STRING_VALUE',
+ *   botVersion: 'STRING_VALUE',
  *   sortBy: { // ExportSortBy
- *     attribute: "LastUpdatedDateTime", // required
- *     order: "Ascending" || "Descending", // required
+ *     attribute: 'LastUpdatedDateTime', // required
+ *     order: 'Ascending' || 'Descending', // required
  *   },
  *   filters: [ // ExportFilters
  *     { // ExportFilter
- *       name: "ExportResourceType", // required
+ *       name: 'ExportResourceType', // required
  *       values: [ // FilterValues // required
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
- *       operator: "CO" || "EQ", // required
+ *       operator: 'CO' || 'EQ', // required
  *     },
  *   ],
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
- *   localeId: "STRING_VALUE",
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
+ *   localeId: 'STRING_VALUE',
  * };
  * const command = new ListExportsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListExportsResponse
+ *   botId: 'STRING_VALUE',
+ *   botVersion: 'STRING_VALUE',
+ *   exportSummaries: [ // ExportSummaryList
+ *     { // ExportSummary
+ *       exportId: 'STRING_VALUE',
+ *       resourceSpecification: { // ExportResourceSpecification
+ *         botExportSpecification: { // BotExportSpecification
+ *           botId: 'STRING_VALUE', // required
+ *           botVersion: 'STRING_VALUE', // required
+ *         },
+ *         botLocaleExportSpecification: { // BotLocaleExportSpecification
+ *           botId: 'STRING_VALUE', // required
+ *           botVersion: 'STRING_VALUE', // required
+ *           localeId: 'STRING_VALUE', // required
+ *         },
+ *         customVocabularyExportSpecification: { // CustomVocabularyExportSpecification
+ *           botId: 'STRING_VALUE', // required
+ *           botVersion: 'STRING_VALUE', // required
+ *           localeId: 'STRING_VALUE', // required
+ *         },
+ *       },
+ *       fileFormat: 'LexJson' || 'TSV',
+ *       exportStatus: 'InProgress' || 'Completed' || 'Failed' || 'Deleting',
+ *       creationDateTime: new Date('TIMESTAMP'),
+ *       lastUpdatedDateTime: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ *   localeId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListExportsCommandInput - {@link ListExportsCommandInput}
@@ -82,6 +115,8 @@ export interface ListExportsCommandOutput extends ListExportsResponse, __Metadat
  *  <p>One of the input parameters in your request isn't valid. Check the
  *          parameters and try your request again.</p>
  *
+ * @throws {@link LexModelsV2ServiceException}
+ * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
  */
 export class ListExportsCommand extends $Command<

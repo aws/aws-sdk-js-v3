@@ -41,27 +41,43 @@ export interface UpdateVpcEndpointCommandOutput extends UpdateVpcEndpointRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OpenSearchServerlessClient, UpdateVpcEndpointCommand } from "@aws-sdk/client-opensearchserverless"; // ES Modules import
- * // const { OpenSearchServerlessClient, UpdateVpcEndpointCommand } = require("@aws-sdk/client-opensearchserverless"); // CommonJS import
+ * import { OpenSearchServerlessClient, UpdateVpcEndpointCommand } from '@aws-sdk/client-opensearchserverless'; // ES Modules import
+ * // const { OpenSearchServerlessClient, UpdateVpcEndpointCommand } = require('@aws-sdk/client-opensearchserverless'); // CommonJS import
  * const client = new OpenSearchServerlessClient(config);
  * const input = { // UpdateVpcEndpointRequest
- *   id: "STRING_VALUE", // required
+ *   id: 'STRING_VALUE', // required
  *   addSubnetIds: [ // SubnetIds
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   removeSubnetIds: [
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   addSecurityGroupIds: [ // SecurityGroupIds
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   removeSecurityGroupIds: [
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   clientToken: "STRING_VALUE",
+ *   clientToken: 'STRING_VALUE',
  * };
  * const command = new UpdateVpcEndpointCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateVpcEndpointResponse
+ *   UpdateVpcEndpointDetail: { // UpdateVpcEndpointDetail
+ *     id: 'STRING_VALUE',
+ *     name: 'STRING_VALUE',
+ *     status: 'STRING_VALUE',
+ *     subnetIds: [ // SubnetIds
+ *       'STRING_VALUE',
+ *     ],
+ *     securityGroupIds: [ // SecurityGroupIds
+ *       'STRING_VALUE',
+ *     ],
+ *     lastModifiedDate: Number('long'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateVpcEndpointCommandInput - {@link UpdateVpcEndpointCommandInput}
@@ -82,6 +98,8 @@ export interface UpdateVpcEndpointCommandOutput extends UpdateVpcEndpointRespons
  *  <p>Thrown when the HTTP request contains invalid input or is missing required
  *             input.</p>
  *
+ * @throws {@link OpenSearchServerlessServiceException}
+ * <p>Base exception class for all service exceptions from OpenSearchServerless service.</p>
  *
  */
 export class UpdateVpcEndpointCommand extends $Command<

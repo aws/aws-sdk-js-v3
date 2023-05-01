@@ -37,15 +37,18 @@ export interface StopAssessmentRunCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { InspectorClient, StopAssessmentRunCommand } from "@aws-sdk/client-inspector"; // ES Modules import
- * // const { InspectorClient, StopAssessmentRunCommand } = require("@aws-sdk/client-inspector"); // CommonJS import
+ * import { InspectorClient, StopAssessmentRunCommand } from '@aws-sdk/client-inspector'; // ES Modules import
+ * // const { InspectorClient, StopAssessmentRunCommand } = require('@aws-sdk/client-inspector'); // CommonJS import
  * const client = new InspectorClient(config);
  * const input = { // StopAssessmentRunRequest
- *   assessmentRunArn: "STRING_VALUE", // required
- *   stopAction: "STRING_VALUE",
+ *   assessmentRunArn: 'STRING_VALUE', // required
+ *   stopAction: 'STRING_VALUE',
  * };
  * const command = new StopAssessmentRunCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param StopAssessmentRunCommandInput - {@link StopAssessmentRunCommandInput}
@@ -71,6 +74,8 @@ export interface StopAssessmentRunCommandOutput extends __MetadataBearer {}
  * @throws {@link ServiceTemporarilyUnavailableException} (server fault)
  *  <p>The serice is temporary unavailable.</p>
  *
+ * @throws {@link InspectorServiceException}
+ * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
  * @example Stop assessment run
  * ```javascript

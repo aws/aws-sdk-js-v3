@@ -37,14 +37,45 @@ export interface DescribeThingGroupCommandOutput extends DescribeThingGroupRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTClient, DescribeThingGroupCommand } from "@aws-sdk/client-iot"; // ES Modules import
- * // const { IoTClient, DescribeThingGroupCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * import { IoTClient, DescribeThingGroupCommand } from '@aws-sdk/client-iot'; // ES Modules import
+ * // const { IoTClient, DescribeThingGroupCommand } = require('@aws-sdk/client-iot'); // CommonJS import
  * const client = new IoTClient(config);
  * const input = { // DescribeThingGroupRequest
- *   thingGroupName: "STRING_VALUE", // required
+ *   thingGroupName: 'STRING_VALUE', // required
  * };
  * const command = new DescribeThingGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeThingGroupResponse
+ *   thingGroupName: 'STRING_VALUE',
+ *   thingGroupId: 'STRING_VALUE',
+ *   thingGroupArn: 'STRING_VALUE',
+ *   version: Number('long'),
+ *   thingGroupProperties: { // ThingGroupProperties
+ *     thingGroupDescription: 'STRING_VALUE',
+ *     attributePayload: { // AttributePayload
+ *       attributes: { // Attributes
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *       merge: true || false,
+ *     },
+ *   },
+ *   thingGroupMetadata: { // ThingGroupMetadata
+ *     parentGroupName: 'STRING_VALUE',
+ *     rootToParentThingGroups: [ // ThingGroupNameAndArnList
+ *       { // GroupNameAndArn
+ *         groupName: 'STRING_VALUE',
+ *         groupArn: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     creationDate: new Date('TIMESTAMP'),
+ *   },
+ *   indexName: 'STRING_VALUE',
+ *   queryString: 'STRING_VALUE',
+ *   queryVersion: 'STRING_VALUE',
+ *   status: 'ACTIVE' || 'BUILDING' || 'REBUILDING',
+ * };
+ *
  * ```
  *
  * @param DescribeThingGroupCommandInput - {@link DescribeThingGroupCommandInput}
@@ -65,6 +96,8 @@ export interface DescribeThingGroupCommandOutput extends DescribeThingGroupRespo
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The rate exceeds the limit.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class DescribeThingGroupCommand extends $Command<

@@ -38,16 +38,29 @@ export interface ListDomainsCommandOutput extends ListDomainsResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkLinkClient, ListDomainsCommand } from "@aws-sdk/client-worklink"; // ES Modules import
- * // const { WorkLinkClient, ListDomainsCommand } = require("@aws-sdk/client-worklink"); // CommonJS import
+ * import { WorkLinkClient, ListDomainsCommand } from '@aws-sdk/client-worklink'; // ES Modules import
+ * // const { WorkLinkClient, ListDomainsCommand } = require('@aws-sdk/client-worklink'); // CommonJS import
  * const client = new WorkLinkClient(config);
  * const input = { // ListDomainsRequest
- *   FleetArn: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   FleetArn: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListDomainsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListDomainsResponse
+ *   Domains: [ // DomainSummaryList
+ *     { // DomainSummary
+ *       DomainName: 'STRING_VALUE', // required
+ *       DisplayName: 'STRING_VALUE',
+ *       CreatedTime: new Date('TIMESTAMP'), // required
+ *       DomainStatus: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListDomainsCommandInput - {@link ListDomainsCommandInput}
@@ -71,6 +84,8 @@ export interface ListDomainsCommandOutput extends ListDomainsResponse, __Metadat
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this action.</p>
  *
+ * @throws {@link WorkLinkServiceException}
+ * <p>Base exception class for all service exceptions from WorkLink service.</p>
  *
  */
 export class ListDomainsCommand extends $Command<

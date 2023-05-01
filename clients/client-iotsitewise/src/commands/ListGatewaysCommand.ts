@@ -36,15 +36,42 @@ export interface ListGatewaysCommandOutput extends ListGatewaysResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTSiteWiseClient, ListGatewaysCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
- * // const { IoTSiteWiseClient, ListGatewaysCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
+ * import { IoTSiteWiseClient, ListGatewaysCommand } from '@aws-sdk/client-iotsitewise'; // ES Modules import
+ * // const { IoTSiteWiseClient, ListGatewaysCommand } = require('@aws-sdk/client-iotsitewise'); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
  * const input = { // ListGatewaysRequest
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new ListGatewaysCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListGatewaysResponse
+ *   gatewaySummaries: [ // GatewaySummaries // required
+ *     { // GatewaySummary
+ *       gatewayId: 'STRING_VALUE', // required
+ *       gatewayName: 'STRING_VALUE', // required
+ *       gatewayPlatform: { // GatewayPlatform
+ *         greengrass: { // Greengrass
+ *           groupArn: 'STRING_VALUE', // required
+ *         },
+ *         greengrassV2: { // GreengrassV2
+ *           coreDeviceThingName: 'STRING_VALUE', // required
+ *         },
+ *       },
+ *       gatewayCapabilitySummaries: [ // GatewayCapabilitySummaries
+ *         { // GatewayCapabilitySummary
+ *           capabilityNamespace: 'STRING_VALUE', // required
+ *           capabilitySyncStatus: 'IN_SYNC' || 'OUT_OF_SYNC' || 'SYNC_FAILED' || 'UNKNOWN', // required
+ *         },
+ *       ],
+ *       creationDate: new Date('TIMESTAMP'), // required
+ *       lastUpdateDate: new Date('TIMESTAMP'), // required
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListGatewaysCommandInput - {@link ListGatewaysCommandInput}
@@ -66,6 +93,8 @@ export interface ListGatewaysCommandOutput extends ListGatewaysResponse, __Metad
  *       on.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
  *
+ * @throws {@link IoTSiteWiseServiceException}
+ * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
  */
 export class ListGatewaysCommand extends $Command<

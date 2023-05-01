@@ -36,14 +36,19 @@ export interface DeleteAuthenticationProfileCommandOutput extends DeleteAuthenti
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RedshiftClient, DeleteAuthenticationProfileCommand } from "@aws-sdk/client-redshift"; // ES Modules import
- * // const { RedshiftClient, DeleteAuthenticationProfileCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * import { RedshiftClient, DeleteAuthenticationProfileCommand } from '@aws-sdk/client-redshift'; // ES Modules import
+ * // const { RedshiftClient, DeleteAuthenticationProfileCommand } = require('@aws-sdk/client-redshift'); // CommonJS import
  * const client = new RedshiftClient(config);
  * const input = { // DeleteAuthenticationProfileMessage
- *   AuthenticationProfileName: "STRING_VALUE", // required
+ *   AuthenticationProfileName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteAuthenticationProfileCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteAuthenticationProfileResult
+ *   AuthenticationProfileName: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DeleteAuthenticationProfileCommandInput - {@link DeleteAuthenticationProfileCommandInput}
@@ -59,6 +64,8 @@ export interface DeleteAuthenticationProfileCommandOutput extends DeleteAuthenti
  *  <p>The authentication profile request is not valid. The profile name can't be null or empty.
  *             The authentication profile API operation must be available in the Amazon Web Services Region.</p>
  *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class DeleteAuthenticationProfileCommand extends $Command<

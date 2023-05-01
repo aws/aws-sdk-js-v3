@@ -49,16 +49,30 @@ export interface ListAccessKeysCommandOutput extends ListAccessKeysResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IAMClient, ListAccessKeysCommand } from "@aws-sdk/client-iam"; // ES Modules import
- * // const { IAMClient, ListAccessKeysCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * import { IAMClient, ListAccessKeysCommand } from '@aws-sdk/client-iam'; // ES Modules import
+ * // const { IAMClient, ListAccessKeysCommand } = require('@aws-sdk/client-iam'); // CommonJS import
  * const client = new IAMClient(config);
  * const input = { // ListAccessKeysRequest
- *   UserName: "STRING_VALUE",
- *   Marker: "STRING_VALUE",
- *   MaxItems: Number("int"),
+ *   UserName: 'STRING_VALUE',
+ *   Marker: 'STRING_VALUE',
+ *   MaxItems: Number('int'),
  * };
  * const command = new ListAccessKeysCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListAccessKeysResponse
+ *   AccessKeyMetadata: [ // accessKeyMetadataListType // required
+ *     { // AccessKeyMetadata
+ *       UserName: 'STRING_VALUE',
+ *       AccessKeyId: 'STRING_VALUE',
+ *       Status: 'Active' || 'Inactive',
+ *       CreateDate: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   IsTruncated: true || false,
+ *   Marker: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListAccessKeysCommandInput - {@link ListAccessKeysCommandInput}
@@ -75,6 +89,8 @@ export interface ListAccessKeysCommandOutput extends ListAccessKeysResponse, __M
  *  <p>The request processing has failed because of an unknown error, exception or
  *       failure.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  * @example To list the access key IDs for an IAM user
  * ```javascript

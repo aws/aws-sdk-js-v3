@@ -36,17 +36,29 @@ export interface DescribeLDAPSSettingsCommandOutput extends DescribeLDAPSSetting
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DirectoryServiceClient, DescribeLDAPSSettingsCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
- * // const { DirectoryServiceClient, DescribeLDAPSSettingsCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
+ * import { DirectoryServiceClient, DescribeLDAPSSettingsCommand } from '@aws-sdk/client-directory-service'; // ES Modules import
+ * // const { DirectoryServiceClient, DescribeLDAPSSettingsCommand } = require('@aws-sdk/client-directory-service'); // CommonJS import
  * const client = new DirectoryServiceClient(config);
  * const input = { // DescribeLDAPSSettingsRequest
- *   DirectoryId: "STRING_VALUE", // required
- *   Type: "Client",
- *   NextToken: "STRING_VALUE",
- *   Limit: Number("int"),
+ *   DirectoryId: 'STRING_VALUE', // required
+ *   Type: 'Client',
+ *   NextToken: 'STRING_VALUE',
+ *   Limit: Number('int'),
  * };
  * const command = new DescribeLDAPSSettingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeLDAPSSettingsResult
+ *   LDAPSSettingsInfo: [ // LDAPSSettingsInfo
+ *     { // LDAPSSettingInfo
+ *       LDAPSStatus: 'Enabling' || 'Enabled' || 'EnableFailed' || 'Disabled',
+ *       LDAPSStatusReason: 'STRING_VALUE',
+ *       LastUpdatedDateTime: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeLDAPSSettingsCommandInput - {@link DescribeLDAPSSettingsCommandInput}
@@ -73,6 +85,8 @@ export interface DescribeLDAPSSettingsCommandOutput extends DescribeLDAPSSetting
  * @throws {@link UnsupportedOperationException} (client fault)
  *  <p>The operation is not supported.</p>
  *
+ * @throws {@link DirectoryServiceServiceException}
+ * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
  */
 export class DescribeLDAPSSettingsCommand extends $Command<

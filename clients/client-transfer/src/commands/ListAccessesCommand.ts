@@ -36,16 +36,30 @@ export interface ListAccessesCommandOutput extends ListAccessesResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { TransferClient, ListAccessesCommand } from "@aws-sdk/client-transfer"; // ES Modules import
- * // const { TransferClient, ListAccessesCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
+ * import { TransferClient, ListAccessesCommand } from '@aws-sdk/client-transfer'; // ES Modules import
+ * // const { TransferClient, ListAccessesCommand } = require('@aws-sdk/client-transfer'); // CommonJS import
  * const client = new TransferClient(config);
  * const input = { // ListAccessesRequest
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
- *   ServerId: "STRING_VALUE", // required
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
+ *   ServerId: 'STRING_VALUE', // required
  * };
  * const command = new ListAccessesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListAccessesResponse
+ *   NextToken: 'STRING_VALUE',
+ *   ServerId: 'STRING_VALUE', // required
+ *   Accesses: [ // ListedAccesses // required
+ *     { // ListedAccess
+ *       HomeDirectory: 'STRING_VALUE',
+ *       HomeDirectoryType: 'PATH' || 'LOGICAL',
+ *       Role: 'STRING_VALUE',
+ *       ExternalId: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListAccessesCommandInput - {@link ListAccessesCommandInput}
@@ -70,6 +84,8 @@ export interface ListAccessesCommandOutput extends ListAccessesResponse, __Metad
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request has failed because the Amazon Web ServicesTransfer Family service is not available.</p>
  *
+ * @throws {@link TransferServiceException}
+ * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
  */
 export class ListAccessesCommand extends $Command<

@@ -36,16 +36,32 @@ export interface ListFaqsCommandOutput extends ListFaqsResponse, __MetadataBeare
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KendraClient, ListFaqsCommand } from "@aws-sdk/client-kendra"; // ES Modules import
- * // const { KendraClient, ListFaqsCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
+ * import { KendraClient, ListFaqsCommand } from '@aws-sdk/client-kendra'; // ES Modules import
+ * // const { KendraClient, ListFaqsCommand } = require('@aws-sdk/client-kendra'); // CommonJS import
  * const client = new KendraClient(config);
  * const input = { // ListFaqsRequest
- *   IndexId: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   IndexId: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListFaqsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListFaqsResponse
+ *   NextToken: 'STRING_VALUE',
+ *   FaqSummaryItems: [ // FaqSummaryItems
+ *     { // FaqSummary
+ *       Id: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *       Status: 'CREATING' || 'UPDATING' || 'ACTIVE' || 'DELETING' || 'FAILED',
+ *       CreatedAt: new Date('TIMESTAMP'),
+ *       UpdatedAt: new Date('TIMESTAMP'),
+ *       FileFormat: 'CSV' || 'CSV_WITH_HEADER' || 'JSON',
+ *       LanguageCode: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListFaqsCommandInput - {@link ListFaqsCommandInput}
@@ -74,6 +90,8 @@ export interface ListFaqsCommandOutput extends ListFaqsResponse, __MetadataBeare
  *  <p>The input fails to satisfy the constraints set by the Amazon Kendra service.
  *             Please provide the correct input and try again.</p>
  *
+ * @throws {@link KendraServiceException}
+ * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
  */
 export class ListFaqsCommand extends $Command<ListFaqsCommandInput, ListFaqsCommandOutput, KendraClientResolvedConfig> {

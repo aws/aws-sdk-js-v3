@@ -36,14 +36,27 @@ export interface ListVpcEndpointsCommandOutput extends ListVpcEndpointsResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OpenSearchClient, ListVpcEndpointsCommand } from "@aws-sdk/client-opensearch"; // ES Modules import
- * // const { OpenSearchClient, ListVpcEndpointsCommand } = require("@aws-sdk/client-opensearch"); // CommonJS import
+ * import { OpenSearchClient, ListVpcEndpointsCommand } from '@aws-sdk/client-opensearch'; // ES Modules import
+ * // const { OpenSearchClient, ListVpcEndpointsCommand } = require('@aws-sdk/client-opensearch'); // CommonJS import
  * const client = new OpenSearchClient(config);
  * const input = { // ListVpcEndpointsRequest
- *   NextToken: "STRING_VALUE",
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListVpcEndpointsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListVpcEndpointsResponse
+ *   VpcEndpointSummaryList: [ // VpcEndpointSummaryList // required
+ *     { // VpcEndpointSummary
+ *       VpcEndpointId: 'STRING_VALUE',
+ *       VpcEndpointOwner: 'STRING_VALUE',
+ *       DomainArn: 'STRING_VALUE',
+ *       Status: 'CREATING' || 'CREATE_FAILED' || 'ACTIVE' || 'UPDATING' || 'UPDATE_FAILED' || 'DELETING' || 'DELETE_FAILED',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param ListVpcEndpointsCommandInput - {@link ListVpcEndpointsCommandInput}
@@ -61,6 +74,8 @@ export interface ListVpcEndpointsCommandOutput extends ListVpcEndpointsResponse,
  * @throws {@link InternalException} (server fault)
  *  <p>Request processing failed because of an unknown error, exception, or internal failure.</p>
  *
+ * @throws {@link OpenSearchServiceException}
+ * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
  */
 export class ListVpcEndpointsCommand extends $Command<

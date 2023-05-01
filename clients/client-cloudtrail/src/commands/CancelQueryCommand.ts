@@ -41,15 +41,21 @@ export interface CancelQueryCommandOutput extends CancelQueryResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudTrailClient, CancelQueryCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
- * // const { CloudTrailClient, CancelQueryCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
+ * import { CloudTrailClient, CancelQueryCommand } from '@aws-sdk/client-cloudtrail'; // ES Modules import
+ * // const { CloudTrailClient, CancelQueryCommand } = require('@aws-sdk/client-cloudtrail'); // CommonJS import
  * const client = new CloudTrailClient(config);
  * const input = { // CancelQueryRequest
- *   EventDataStore: "STRING_VALUE",
- *   QueryId: "STRING_VALUE", // required
+ *   EventDataStore: 'STRING_VALUE',
+ *   QueryId: 'STRING_VALUE', // required
  * };
  * const command = new CancelQueryCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CancelQueryResponse
+ *   QueryId: 'STRING_VALUE', // required
+ *   QueryStatus: 'QUEUED' || 'RUNNING' || 'FINISHED' || 'FAILED' || 'CANCELLED' || 'TIMED_OUT', // required
+ * };
+ *
  * ```
  *
  * @param CancelQueryCommandInput - {@link CancelQueryCommandInput}
@@ -94,6 +100,8 @@ export interface CancelQueryCommandOutput extends CancelQueryResponse, __Metadat
  * @throws {@link UnsupportedOperationException} (client fault)
  *  <p>This exception is thrown when the requested operation is not supported.</p>
  *
+ * @throws {@link CloudTrailServiceException}
+ * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
  */
 export class CancelQueryCommand extends $Command<

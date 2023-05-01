@@ -37,15 +37,38 @@ export interface ListProjectsCommandOutput extends ListProjectsResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EvidentlyClient, ListProjectsCommand } from "@aws-sdk/client-evidently"; // ES Modules import
- * // const { EvidentlyClient, ListProjectsCommand } = require("@aws-sdk/client-evidently"); // CommonJS import
+ * import { EvidentlyClient, ListProjectsCommand } from '@aws-sdk/client-evidently'; // ES Modules import
+ * // const { EvidentlyClient, ListProjectsCommand } = require('@aws-sdk/client-evidently'); // CommonJS import
  * const client = new EvidentlyClient(config);
  * const input = { // ListProjectsRequest
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new ListProjectsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListProjectsResponse
+ *   projects: [ // ProjectSummariesList
+ *     { // ProjectSummary
+ *       arn: 'STRING_VALUE', // required
+ *       name: 'STRING_VALUE', // required
+ *       status: 'STRING_VALUE', // required
+ *       description: 'STRING_VALUE',
+ *       createdTime: new Date('TIMESTAMP'), // required
+ *       lastUpdatedTime: new Date('TIMESTAMP'), // required
+ *       featureCount: Number('long'),
+ *       launchCount: Number('long'),
+ *       activeLaunchCount: Number('long'),
+ *       experimentCount: Number('long'),
+ *       activeExperimentCount: Number('long'),
+ *       tags: { // TagMap
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListProjectsCommandInput - {@link ListProjectsCommandInput}
@@ -63,6 +86,8 @@ export interface ListProjectsCommandOutput extends ListProjectsResponse, __Metad
  * @throws {@link ValidationException} (client fault)
  *  <p>The value of a parameter in the request caused an error.</p>
  *
+ * @throws {@link EvidentlyServiceException}
+ * <p>Base exception class for all service exceptions from Evidently service.</p>
  *
  */
 export class ListProjectsCommand extends $Command<

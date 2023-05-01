@@ -37,18 +37,23 @@ export interface UpdateBillingGroupCommandOutput extends UpdateBillingGroupRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTClient, UpdateBillingGroupCommand } from "@aws-sdk/client-iot"; // ES Modules import
- * // const { IoTClient, UpdateBillingGroupCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * import { IoTClient, UpdateBillingGroupCommand } from '@aws-sdk/client-iot'; // ES Modules import
+ * // const { IoTClient, UpdateBillingGroupCommand } = require('@aws-sdk/client-iot'); // CommonJS import
  * const client = new IoTClient(config);
  * const input = { // UpdateBillingGroupRequest
- *   billingGroupName: "STRING_VALUE", // required
+ *   billingGroupName: 'STRING_VALUE', // required
  *   billingGroupProperties: { // BillingGroupProperties
- *     billingGroupDescription: "STRING_VALUE",
+ *     billingGroupDescription: 'STRING_VALUE',
  *   },
- *   expectedVersion: Number("long"),
+ *   expectedVersion: Number('long'),
  * };
  * const command = new UpdateBillingGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateBillingGroupResponse
+ *   version: Number('long'),
+ * };
+ *
  * ```
  *
  * @param UpdateBillingGroupCommandInput - {@link UpdateBillingGroupCommandInput}
@@ -74,6 +79,8 @@ export interface UpdateBillingGroupCommandOutput extends UpdateBillingGroupRespo
  *             <code>expectedVersion</code> parameter does not match the latest version in the
  *          system.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class UpdateBillingGroupCommand extends $Command<

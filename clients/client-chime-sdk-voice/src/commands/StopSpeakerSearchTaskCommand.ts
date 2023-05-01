@@ -36,15 +36,18 @@ export interface StopSpeakerSearchTaskCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeSDKVoiceClient, StopSpeakerSearchTaskCommand } from "@aws-sdk/client-chime-sdk-voice"; // ES Modules import
- * // const { ChimeSDKVoiceClient, StopSpeakerSearchTaskCommand } = require("@aws-sdk/client-chime-sdk-voice"); // CommonJS import
+ * import { ChimeSDKVoiceClient, StopSpeakerSearchTaskCommand } from '@aws-sdk/client-chime-sdk-voice'; // ES Modules import
+ * // const { ChimeSDKVoiceClient, StopSpeakerSearchTaskCommand } = require('@aws-sdk/client-chime-sdk-voice'); // CommonJS import
  * const client = new ChimeSDKVoiceClient(config);
  * const input = { // StopSpeakerSearchTaskRequest
- *   VoiceConnectorId: "STRING_VALUE", // required
- *   SpeakerSearchTaskId: "STRING_VALUE", // required
+ *   VoiceConnectorId: 'STRING_VALUE', // required
+ *   SpeakerSearchTaskId: 'STRING_VALUE', // required
  * };
  * const command = new StopSpeakerSearchTaskCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param StopSpeakerSearchTaskCommandInput - {@link StopSpeakerSearchTaskCommandInput}
@@ -83,6 +86,8 @@ export interface StopSpeakerSearchTaskCommandOutput extends __MetadataBearer {}
  * @throws {@link UnprocessableEntityException} (client fault)
  *  <p>A well-formed request couldn't be followed due to semantic errors.</p>
  *
+ * @throws {@link ChimeSDKVoiceServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
  */
 export class StopSpeakerSearchTaskCommand extends $Command<

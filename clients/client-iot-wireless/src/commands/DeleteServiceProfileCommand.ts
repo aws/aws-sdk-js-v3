@@ -36,14 +36,17 @@ export interface DeleteServiceProfileCommandOutput extends DeleteServiceProfileR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTWirelessClient, DeleteServiceProfileCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
- * // const { IoTWirelessClient, DeleteServiceProfileCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
+ * import { IoTWirelessClient, DeleteServiceProfileCommand } from '@aws-sdk/client-iot-wireless'; // ES Modules import
+ * // const { IoTWirelessClient, DeleteServiceProfileCommand } = require('@aws-sdk/client-iot-wireless'); // CommonJS import
  * const client = new IoTWirelessClient(config);
  * const input = { // DeleteServiceProfileRequest
- *   Id: "STRING_VALUE", // required
+ *   Id: 'STRING_VALUE', // required
  * };
  * const command = new DeleteServiceProfileCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteServiceProfileCommandInput - {@link DeleteServiceProfileCommandInput}
@@ -70,6 +73,8 @@ export interface DeleteServiceProfileCommandOutput extends DeleteServiceProfileR
  * @throws {@link ValidationException} (client fault)
  *  <p>The input did not meet the specified constraints.</p>
  *
+ * @throws {@link IoTWirelessServiceException}
+ * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
  */
 export class DeleteServiceProfileCommand extends $Command<

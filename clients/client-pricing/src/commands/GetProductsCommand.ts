@@ -36,24 +36,33 @@ export interface GetProductsCommandOutput extends GetProductsResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PricingClient, GetProductsCommand } from "@aws-sdk/client-pricing"; // ES Modules import
- * // const { PricingClient, GetProductsCommand } = require("@aws-sdk/client-pricing"); // CommonJS import
+ * import { PricingClient, GetProductsCommand } from '@aws-sdk/client-pricing'; // ES Modules import
+ * // const { PricingClient, GetProductsCommand } = require('@aws-sdk/client-pricing'); // CommonJS import
  * const client = new PricingClient(config);
  * const input = { // GetProductsRequest
- *   ServiceCode: "STRING_VALUE", // required
+ *   ServiceCode: 'STRING_VALUE', // required
  *   Filters: [ // Filters
  *     { // Filter
- *       Type: "TERM_MATCH", // required
- *       Field: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Type: 'TERM_MATCH', // required
+ *       Field: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
- *   FormatVersion: "STRING_VALUE",
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   FormatVersion: 'STRING_VALUE',
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new GetProductsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetProductsResponse
+ *   FormatVersion: 'STRING_VALUE',
+ *   PriceList: [ // PriceListJsonItems
+ *     'STRING_VALUE',
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetProductsCommandInput - {@link GetProductsCommandInput}
@@ -77,6 +86,8 @@ export interface GetProductsCommandOutput extends GetProductsResponse, __Metadat
  * @throws {@link NotFoundException} (client fault)
  *  <p>The requested resource can't be found.</p>
  *
+ * @throws {@link PricingServiceException}
+ * <p>Base exception class for all service exceptions from Pricing service.</p>
  *
  */
 export class GetProductsCommand extends $Command<

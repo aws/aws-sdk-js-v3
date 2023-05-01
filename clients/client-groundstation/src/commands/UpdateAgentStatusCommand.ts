@@ -39,32 +39,37 @@ export interface UpdateAgentStatusCommandOutput extends UpdateAgentStatusRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GroundStationClient, UpdateAgentStatusCommand } from "@aws-sdk/client-groundstation"; // ES Modules import
- * // const { GroundStationClient, UpdateAgentStatusCommand } = require("@aws-sdk/client-groundstation"); // CommonJS import
+ * import { GroundStationClient, UpdateAgentStatusCommand } from '@aws-sdk/client-groundstation'; // ES Modules import
+ * // const { GroundStationClient, UpdateAgentStatusCommand } = require('@aws-sdk/client-groundstation'); // CommonJS import
  * const client = new GroundStationClient(config);
  * const input = { // UpdateAgentStatusRequest
- *   agentId: "STRING_VALUE", // required
- *   taskId: "STRING_VALUE", // required
+ *   agentId: 'STRING_VALUE', // required
+ *   taskId: 'STRING_VALUE', // required
  *   aggregateStatus: { // AggregateStatus
- *     status: "STRING_VALUE", // required
+ *     status: 'STRING_VALUE', // required
  *     signatureMap: { // SignatureMap
- *       "<keys>": true || false,
+ *       '<keys>': true || false,
  *     },
  *   },
  *   componentStatuses: [ // ComponentStatusList // required
  *     { // ComponentStatusData
- *       componentType: "STRING_VALUE", // required
- *       capabilityArn: "STRING_VALUE", // required
- *       status: "STRING_VALUE", // required
- *       bytesSent: Number("long"),
- *       bytesReceived: Number("long"),
- *       packetsDropped: Number("long"),
- *       dataflowId: "STRING_VALUE", // required
+ *       componentType: 'STRING_VALUE', // required
+ *       capabilityArn: 'STRING_VALUE', // required
+ *       status: 'STRING_VALUE', // required
+ *       bytesSent: Number('long'),
+ *       bytesReceived: Number('long'),
+ *       packetsDropped: Number('long'),
+ *       dataflowId: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new UpdateAgentStatusCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateAgentStatusResponse
+ *   agentId: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param UpdateAgentStatusCommandInput - {@link UpdateAgentStatusCommandInput}
@@ -82,6 +87,8 @@ export interface UpdateAgentStatusCommandOutput extends UpdateAgentStatusRespons
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Resource was not found.</p>
  *
+ * @throws {@link GroundStationServiceException}
+ * <p>Base exception class for all service exceptions from GroundStation service.</p>
  *
  */
 export class UpdateAgentStatusCommand extends $Command<

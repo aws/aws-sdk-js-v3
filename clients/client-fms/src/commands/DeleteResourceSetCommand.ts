@@ -36,14 +36,17 @@ export interface DeleteResourceSetCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FMSClient, DeleteResourceSetCommand } from "@aws-sdk/client-fms"; // ES Modules import
- * // const { FMSClient, DeleteResourceSetCommand } = require("@aws-sdk/client-fms"); // CommonJS import
+ * import { FMSClient, DeleteResourceSetCommand } from '@aws-sdk/client-fms'; // ES Modules import
+ * // const { FMSClient, DeleteResourceSetCommand } = require('@aws-sdk/client-fms'); // CommonJS import
  * const client = new FMSClient(config);
  * const input = { // DeleteResourceSetRequest
- *   Identifier: "STRING_VALUE", // required
+ *   Identifier: 'STRING_VALUE', // required
  * };
  * const command = new DeleteResourceSetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteResourceSetCommandInput - {@link DeleteResourceSetCommandInput}
@@ -69,6 +72,8 @@ export interface DeleteResourceSetCommandOutput extends __MetadataBearer {}
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link FMSServiceException}
+ * <p>Base exception class for all service exceptions from FMS service.</p>
  *
  */
 export class DeleteResourceSetCommand extends $Command<

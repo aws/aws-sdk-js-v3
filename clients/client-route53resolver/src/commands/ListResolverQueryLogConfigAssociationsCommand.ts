@@ -45,25 +45,43 @@ export interface ListResolverQueryLogConfigAssociationsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Route53ResolverClient, ListResolverQueryLogConfigAssociationsCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
- * // const { Route53ResolverClient, ListResolverQueryLogConfigAssociationsCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
+ * import { Route53ResolverClient, ListResolverQueryLogConfigAssociationsCommand } from '@aws-sdk/client-route53resolver'; // ES Modules import
+ * // const { Route53ResolverClient, ListResolverQueryLogConfigAssociationsCommand } = require('@aws-sdk/client-route53resolver'); // CommonJS import
  * const client = new Route53ResolverClient(config);
  * const input = { // ListResolverQueryLogConfigAssociationsRequest
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  *   Filters: [ // Filters
  *     { // Filter
- *       Name: "STRING_VALUE",
+ *       Name: 'STRING_VALUE',
  *       Values: [ // FilterValues
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
- *   SortBy: "STRING_VALUE",
- *   SortOrder: "ASCENDING" || "DESCENDING",
+ *   SortBy: 'STRING_VALUE',
+ *   SortOrder: 'ASCENDING' || 'DESCENDING',
  * };
  * const command = new ListResolverQueryLogConfigAssociationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListResolverQueryLogConfigAssociationsResponse
+ *   NextToken: 'STRING_VALUE',
+ *   TotalCount: Number('int'),
+ *   TotalFilteredCount: Number('int'),
+ *   ResolverQueryLogConfigAssociations: [ // ResolverQueryLogConfigAssociationList
+ *     { // ResolverQueryLogConfigAssociation
+ *       Id: 'STRING_VALUE',
+ *       ResolverQueryLogConfigId: 'STRING_VALUE',
+ *       ResourceId: 'STRING_VALUE',
+ *       Status: 'CREATING' || 'ACTIVE' || 'ACTION_NEEDED' || 'DELETING' || 'FAILED',
+ *       Error: 'NONE' || 'DESTINATION_NOT_FOUND' || 'ACCESS_DENIED' || 'INTERNAL_SERVICE_ERROR',
+ *       ErrorMessage: 'STRING_VALUE',
+ *       CreationTime: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListResolverQueryLogConfigAssociationsCommandInput - {@link ListResolverQueryLogConfigAssociationsCommandInput}
@@ -90,6 +108,8 @@ export interface ListResolverQueryLogConfigAssociationsCommandOutput
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was throttled. Try again in a few minutes.</p>
  *
+ * @throws {@link Route53ResolverServiceException}
+ * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
  */
 export class ListResolverQueryLogConfigAssociationsCommand extends $Command<

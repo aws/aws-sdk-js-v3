@@ -41,14 +41,21 @@ export interface GetRelationalDatabaseLogStreamsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LightsailClient, GetRelationalDatabaseLogStreamsCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
- * // const { LightsailClient, GetRelationalDatabaseLogStreamsCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
+ * import { LightsailClient, GetRelationalDatabaseLogStreamsCommand } from '@aws-sdk/client-lightsail'; // ES Modules import
+ * // const { LightsailClient, GetRelationalDatabaseLogStreamsCommand } = require('@aws-sdk/client-lightsail'); // CommonJS import
  * const client = new LightsailClient(config);
  * const input = { // GetRelationalDatabaseLogStreamsRequest
- *   relationalDatabaseName: "STRING_VALUE", // required
+ *   relationalDatabaseName: 'STRING_VALUE', // required
  * };
  * const command = new GetRelationalDatabaseLogStreamsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetRelationalDatabaseLogStreamsResult
+ *   logStreams: [ // StringList
+ *     'STRING_VALUE',
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetRelationalDatabaseLogStreamsCommandInput - {@link GetRelationalDatabaseLogStreamsCommandInput}
@@ -87,6 +94,8 @@ export interface GetRelationalDatabaseLogStreamsCommandOutput
  * @throws {@link UnauthenticatedException} (client fault)
  *  <p>Lightsail throws this exception when the user has not been authenticated.</p>
  *
+ * @throws {@link LightsailServiceException}
+ * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
  */
 export class GetRelationalDatabaseLogStreamsCommand extends $Command<

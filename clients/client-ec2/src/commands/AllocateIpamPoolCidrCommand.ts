@@ -39,23 +39,36 @@ export interface AllocateIpamPoolCidrCommandOutput extends AllocateIpamPoolCidrR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, AllocateIpamPoolCidrCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, AllocateIpamPoolCidrCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, AllocateIpamPoolCidrCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, AllocateIpamPoolCidrCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // AllocateIpamPoolCidrRequest
  *   DryRun: true || false,
- *   IpamPoolId: "STRING_VALUE", // required
- *   Cidr: "STRING_VALUE",
- *   NetmaskLength: Number("int"),
- *   ClientToken: "STRING_VALUE",
- *   Description: "STRING_VALUE",
+ *   IpamPoolId: 'STRING_VALUE', // required
+ *   Cidr: 'STRING_VALUE',
+ *   NetmaskLength: Number('int'),
+ *   ClientToken: 'STRING_VALUE',
+ *   Description: 'STRING_VALUE',
  *   PreviewNextCidr: true || false,
  *   DisallowedCidrs: [ // IpamPoolAllocationDisallowedCidrs
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new AllocateIpamPoolCidrCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AllocateIpamPoolCidrResult
+ *   IpamPoolAllocation: { // IpamPoolAllocation
+ *     Cidr: 'STRING_VALUE',
+ *     IpamPoolAllocationId: 'STRING_VALUE',
+ *     Description: 'STRING_VALUE',
+ *     ResourceId: 'STRING_VALUE',
+ *     ResourceType: 'ipam-pool' || 'vpc' || 'ec2-public-ipv4-pool' || 'custom',
+ *     ResourceRegion: 'STRING_VALUE',
+ *     ResourceOwner: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param AllocateIpamPoolCidrCommandInput - {@link AllocateIpamPoolCidrCommandInput}
@@ -64,6 +77,8 @@ export interface AllocateIpamPoolCidrCommandOutput extends AllocateIpamPoolCidrR
  * @see {@link AllocateIpamPoolCidrCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class AllocateIpamPoolCidrCommand extends $Command<

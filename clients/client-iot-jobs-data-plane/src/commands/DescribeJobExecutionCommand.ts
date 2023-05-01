@@ -36,17 +36,36 @@ export interface DescribeJobExecutionCommandOutput extends DescribeJobExecutionR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTJobsDataPlaneClient, DescribeJobExecutionCommand } from "@aws-sdk/client-iot-jobs-data-plane"; // ES Modules import
- * // const { IoTJobsDataPlaneClient, DescribeJobExecutionCommand } = require("@aws-sdk/client-iot-jobs-data-plane"); // CommonJS import
+ * import { IoTJobsDataPlaneClient, DescribeJobExecutionCommand } from '@aws-sdk/client-iot-jobs-data-plane'; // ES Modules import
+ * // const { IoTJobsDataPlaneClient, DescribeJobExecutionCommand } = require('@aws-sdk/client-iot-jobs-data-plane'); // CommonJS import
  * const client = new IoTJobsDataPlaneClient(config);
  * const input = { // DescribeJobExecutionRequest
- *   jobId: "STRING_VALUE", // required
- *   thingName: "STRING_VALUE", // required
+ *   jobId: 'STRING_VALUE', // required
+ *   thingName: 'STRING_VALUE', // required
  *   includeJobDocument: true || false,
- *   executionNumber: Number("long"),
+ *   executionNumber: Number('long'),
  * };
  * const command = new DescribeJobExecutionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeJobExecutionResponse
+ *   execution: { // JobExecution
+ *     jobId: 'STRING_VALUE',
+ *     thingName: 'STRING_VALUE',
+ *     status: 'STRING_VALUE',
+ *     statusDetails: { // DetailsMap
+ *       '<keys>': 'STRING_VALUE',
+ *     },
+ *     queuedAt: Number('long'),
+ *     startedAt: Number('long'),
+ *     lastUpdatedAt: Number('long'),
+ *     approximateSecondsBeforeTimedOut: Number('long'),
+ *     versionNumber: Number('long'),
+ *     executionNumber: Number('long'),
+ *     jobDocument: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeJobExecutionCommandInput - {@link DescribeJobExecutionCommandInput}
@@ -73,6 +92,8 @@ export interface DescribeJobExecutionCommandOutput extends DescribeJobExecutionR
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The rate exceeds the limit.</p>
  *
+ * @throws {@link IoTJobsDataPlaneServiceException}
+ * <p>Base exception class for all service exceptions from IoTJobsDataPlane service.</p>
  *
  */
 export class DescribeJobExecutionCommand extends $Command<

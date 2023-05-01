@@ -41,17 +41,20 @@ export interface UntagResourceCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoT1ClickDevicesServiceClient, UntagResourceCommand } from "@aws-sdk/client-iot-1click-devices-service"; // ES Modules import
- * // const { IoT1ClickDevicesServiceClient, UntagResourceCommand } = require("@aws-sdk/client-iot-1click-devices-service"); // CommonJS import
+ * import { IoT1ClickDevicesServiceClient, UntagResourceCommand } from '@aws-sdk/client-iot-1click-devices-service'; // ES Modules import
+ * // const { IoT1ClickDevicesServiceClient, UntagResourceCommand } = require('@aws-sdk/client-iot-1click-devices-service'); // CommonJS import
  * const client = new IoT1ClickDevicesServiceClient(config);
  * const input = { // UntagResourceRequest
- *   ResourceArn: "STRING_VALUE", // required
+ *   ResourceArn: 'STRING_VALUE', // required
  *   TagKeys: [ // __listOf__string // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new UntagResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UntagResourceCommandInput - {@link UntagResourceCommandInput}
@@ -66,6 +69,8 @@ export interface UntagResourceCommandOutput extends __MetadataBearer {}
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *
+ * @throws {@link IoT1ClickDevicesServiceServiceException}
+ * <p>Base exception class for all service exceptions from IoT1ClickDevicesService service.</p>
  *
  */
 export class UntagResourceCommand extends $Command<

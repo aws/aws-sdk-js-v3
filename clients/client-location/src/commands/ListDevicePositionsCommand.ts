@@ -40,16 +40,36 @@ export interface ListDevicePositionsCommandOutput extends ListDevicePositionsRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LocationClient, ListDevicePositionsCommand } from "@aws-sdk/client-location"; // ES Modules import
- * // const { LocationClient, ListDevicePositionsCommand } = require("@aws-sdk/client-location"); // CommonJS import
+ * import { LocationClient, ListDevicePositionsCommand } from '@aws-sdk/client-location'; // ES Modules import
+ * // const { LocationClient, ListDevicePositionsCommand } = require('@aws-sdk/client-location'); // CommonJS import
  * const client = new LocationClient(config);
  * const input = { // ListDevicePositionsRequest
- *   TrackerName: "STRING_VALUE", // required
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   TrackerName: 'STRING_VALUE', // required
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListDevicePositionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListDevicePositionsResponse
+ *   Entries: [ // ListDevicePositionsResponseEntryList // required
+ *     { // ListDevicePositionsResponseEntry
+ *       DeviceId: 'STRING_VALUE', // required
+ *       SampleTime: new Date('TIMESTAMP'), // required
+ *       Position: [ // Position // required
+ *         Number('double'),
+ *       ],
+ *       Accuracy: { // PositionalAccuracy
+ *         Horizontal: Number('double'), // required
+ *       },
+ *       PositionProperties: { // PropertyMap
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListDevicePositionsCommandInput - {@link ListDevicePositionsCommandInput}
@@ -71,6 +91,8 @@ export interface ListDevicePositionsCommandOutput extends ListDevicePositionsRes
  * @throws {@link ValidationException} (client fault)
  *  <p>The input failed to meet the constraints specified by the AWS service. </p>
  *
+ * @throws {@link LocationServiceException}
+ * <p>Base exception class for all service exceptions from Location service.</p>
  *
  */
 export class ListDevicePositionsCommand extends $Command<

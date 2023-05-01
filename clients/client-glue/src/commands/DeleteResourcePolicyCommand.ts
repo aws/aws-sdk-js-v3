@@ -36,15 +36,18 @@ export interface DeleteResourcePolicyCommandOutput extends DeleteResourcePolicyR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlueClient, DeleteResourcePolicyCommand } from "@aws-sdk/client-glue"; // ES Modules import
- * // const { GlueClient, DeleteResourcePolicyCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * import { GlueClient, DeleteResourcePolicyCommand } from '@aws-sdk/client-glue'; // ES Modules import
+ * // const { GlueClient, DeleteResourcePolicyCommand } = require('@aws-sdk/client-glue'); // CommonJS import
  * const client = new GlueClient(config);
  * const input = { // DeleteResourcePolicyRequest
- *   PolicyHashCondition: "STRING_VALUE",
- *   ResourceArn: "STRING_VALUE",
+ *   PolicyHashCondition: 'STRING_VALUE',
+ *   ResourceArn: 'STRING_VALUE',
  * };
  * const command = new DeleteResourcePolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteResourcePolicyCommandInput - {@link DeleteResourcePolicyCommandInput}
@@ -68,6 +71,8 @@ export interface DeleteResourcePolicyCommandOutput extends DeleteResourcePolicyR
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class DeleteResourcePolicyCommand extends $Command<

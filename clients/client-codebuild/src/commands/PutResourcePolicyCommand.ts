@@ -37,15 +37,20 @@ export interface PutResourcePolicyCommandOutput extends PutResourcePolicyOutput,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeBuildClient, PutResourcePolicyCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
- * // const { CodeBuildClient, PutResourcePolicyCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import
+ * import { CodeBuildClient, PutResourcePolicyCommand } from '@aws-sdk/client-codebuild'; // ES Modules import
+ * // const { CodeBuildClient, PutResourcePolicyCommand } = require('@aws-sdk/client-codebuild'); // CommonJS import
  * const client = new CodeBuildClient(config);
  * const input = { // PutResourcePolicyInput
- *   policy: "STRING_VALUE", // required
- *   resourceArn: "STRING_VALUE", // required
+ *   policy: 'STRING_VALUE', // required
+ *   resourceArn: 'STRING_VALUE', // required
  * };
  * const command = new PutResourcePolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutResourcePolicyOutput
+ *   resourceArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param PutResourcePolicyCommandInput - {@link PutResourcePolicyCommandInput}
@@ -60,6 +65,8 @@ export interface PutResourcePolicyCommandOutput extends PutResourcePolicyOutput,
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified Amazon Web Services resource cannot be found.</p>
  *
+ * @throws {@link CodeBuildServiceException}
+ * <p>Base exception class for all service exceptions from CodeBuild service.</p>
  *
  */
 export class PutResourcePolicyCommand extends $Command<

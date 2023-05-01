@@ -48,14 +48,17 @@ export interface StartReportCreationCommandOutput extends StartReportCreationOut
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ResourceGroupsTaggingAPIClient, StartReportCreationCommand } from "@aws-sdk/client-resource-groups-tagging-api"; // ES Modules import
- * // const { ResourceGroupsTaggingAPIClient, StartReportCreationCommand } = require("@aws-sdk/client-resource-groups-tagging-api"); // CommonJS import
+ * import { ResourceGroupsTaggingAPIClient, StartReportCreationCommand } from '@aws-sdk/client-resource-groups-tagging-api'; // ES Modules import
+ * // const { ResourceGroupsTaggingAPIClient, StartReportCreationCommand } = require('@aws-sdk/client-resource-groups-tagging-api'); // CommonJS import
  * const client = new ResourceGroupsTaggingAPIClient(config);
  * const input = { // StartReportCreationInput
- *   S3Bucket: "STRING_VALUE", // required
+ *   S3Bucket: 'STRING_VALUE', // required
  * };
  * const command = new StartReportCreationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param StartReportCreationCommandInput - {@link StartReportCreationCommandInput}
@@ -120,6 +123,8 @@ export interface StartReportCreationCommandOutput extends StartReportCreationOut
  * @throws {@link ThrottledException} (client fault)
  *  <p>The request was denied to limit the frequency of submitted requests.</p>
  *
+ * @throws {@link ResourceGroupsTaggingAPIServiceException}
+ * <p>Base exception class for all service exceptions from ResourceGroupsTaggingAPI service.</p>
  *
  */
 export class StartReportCreationCommand extends $Command<

@@ -39,14 +39,17 @@ export interface ResendOperationAuthorizationCommandOutput extends __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Route53DomainsClient, ResendOperationAuthorizationCommand } from "@aws-sdk/client-route-53-domains"; // ES Modules import
- * // const { Route53DomainsClient, ResendOperationAuthorizationCommand } = require("@aws-sdk/client-route-53-domains"); // CommonJS import
+ * import { Route53DomainsClient, ResendOperationAuthorizationCommand } from '@aws-sdk/client-route-53-domains'; // ES Modules import
+ * // const { Route53DomainsClient, ResendOperationAuthorizationCommand } = require('@aws-sdk/client-route-53-domains'); // CommonJS import
  * const client = new Route53DomainsClient(config);
  * const input = { // ResendOperationAuthorizationRequest
- *   OperationId: "STRING_VALUE", // required
+ *   OperationId: 'STRING_VALUE', // required
  * };
  * const command = new ResendOperationAuthorizationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param ResendOperationAuthorizationCommandInput - {@link ResendOperationAuthorizationCommandInput}
@@ -61,6 +64,8 @@ export interface ResendOperationAuthorizationCommandOutput extends __MetadataBea
  * 			submitted the request. For <code>AcceptDomainTransferFromAnotherAwsAccount</code>, the
  * 			password might be invalid.</p>
  *
+ * @throws {@link Route53DomainsServiceException}
+ * <p>Base exception class for all service exceptions from Route53Domains service.</p>
  *
  */
 export class ResendOperationAuthorizationCommand extends $Command<

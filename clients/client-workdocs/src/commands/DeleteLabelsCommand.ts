@@ -36,19 +36,22 @@ export interface DeleteLabelsCommandOutput extends DeleteLabelsResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkDocsClient, DeleteLabelsCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
- * // const { WorkDocsClient, DeleteLabelsCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import
+ * import { WorkDocsClient, DeleteLabelsCommand } from '@aws-sdk/client-workdocs'; // ES Modules import
+ * // const { WorkDocsClient, DeleteLabelsCommand } = require('@aws-sdk/client-workdocs'); // CommonJS import
  * const client = new WorkDocsClient(config);
  * const input = { // DeleteLabelsRequest
- *   ResourceId: "STRING_VALUE", // required
- *   AuthenticationToken: "STRING_VALUE",
+ *   ResourceId: 'STRING_VALUE', // required
+ *   AuthenticationToken: 'STRING_VALUE',
  *   Labels: [ // SharedLabels
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   DeleteAll: true || false,
  * };
  * const command = new DeleteLabelsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteLabelsCommandInput - {@link DeleteLabelsCommandInput}
@@ -77,6 +80,8 @@ export interface DeleteLabelsCommandOutput extends DeleteLabelsResponse, __Metad
  * @throws {@link UnauthorizedResourceAccessException} (client fault)
  *  <p>The caller does not have access to perform the action on the resource.</p>
  *
+ * @throws {@link WorkDocsServiceException}
+ * <p>Base exception class for all service exceptions from WorkDocs service.</p>
  *
  */
 export class DeleteLabelsCommand extends $Command<

@@ -40,35 +40,74 @@ export interface CreateFeatureCommandOutput extends CreateFeatureResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EvidentlyClient, CreateFeatureCommand } from "@aws-sdk/client-evidently"; // ES Modules import
- * // const { EvidentlyClient, CreateFeatureCommand } = require("@aws-sdk/client-evidently"); // CommonJS import
+ * import { EvidentlyClient, CreateFeatureCommand } from '@aws-sdk/client-evidently'; // ES Modules import
+ * // const { EvidentlyClient, CreateFeatureCommand } = require('@aws-sdk/client-evidently'); // CommonJS import
  * const client = new EvidentlyClient(config);
  * const input = { // CreateFeatureRequest
- *   project: "STRING_VALUE", // required
- *   name: "STRING_VALUE", // required
- *   evaluationStrategy: "STRING_VALUE",
- *   description: "STRING_VALUE",
+ *   project: 'STRING_VALUE', // required
+ *   name: 'STRING_VALUE', // required
+ *   evaluationStrategy: 'STRING_VALUE',
+ *   description: 'STRING_VALUE',
  *   variations: [ // VariationConfigsList // required
  *     { // VariationConfig
- *       name: "STRING_VALUE", // required
+ *       name: 'STRING_VALUE', // required
  *       value: { // VariableValue Union: only one key present
  *         boolValue: true || false,
- *         stringValue: "STRING_VALUE",
- *         longValue: Number("long"),
- *         doubleValue: Number("double"),
+ *         stringValue: 'STRING_VALUE',
+ *         longValue: Number('long'),
+ *         doubleValue: Number('double'),
  *       },
  *     },
  *   ],
- *   defaultVariation: "STRING_VALUE",
+ *   defaultVariation: 'STRING_VALUE',
  *   tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  *   entityOverrides: { // EntityOverrideMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateFeatureCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateFeatureResponse
+ *   feature: { // Feature
+ *     arn: 'STRING_VALUE', // required
+ *     name: 'STRING_VALUE', // required
+ *     project: 'STRING_VALUE',
+ *     status: 'STRING_VALUE', // required
+ *     createdTime: new Date('TIMESTAMP'), // required
+ *     lastUpdatedTime: new Date('TIMESTAMP'), // required
+ *     description: 'STRING_VALUE',
+ *     evaluationStrategy: 'STRING_VALUE', // required
+ *     valueType: 'STRING_VALUE', // required
+ *     variations: [ // VariationsList // required
+ *       { // Variation
+ *         name: 'STRING_VALUE',
+ *         value: { // VariableValue Union: only one key present
+ *           boolValue: true || false,
+ *           stringValue: 'STRING_VALUE',
+ *           longValue: Number('long'),
+ *           doubleValue: Number('double'),
+ *         },
+ *       },
+ *     ],
+ *     defaultVariation: 'STRING_VALUE',
+ *     evaluationRules: [ // EvaluationRulesList
+ *       { // EvaluationRule
+ *         name: 'STRING_VALUE',
+ *         type: 'STRING_VALUE', // required
+ *       },
+ *     ],
+ *     tags: { // TagMap
+ *       '<keys>': 'STRING_VALUE',
+ *     },
+ *     entityOverrides: { // EntityOverrideMap
+ *       '<keys>': 'STRING_VALUE',
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateFeatureCommandInput - {@link CreateFeatureCommandInput}
@@ -92,6 +131,8 @@ export interface CreateFeatureCommandOutput extends CreateFeatureResponse, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>The value of a parameter in the request caused an error.</p>
  *
+ * @throws {@link EvidentlyServiceException}
+ * <p>Base exception class for all service exceptions from Evidently service.</p>
  *
  */
 export class CreateFeatureCommand extends $Command<

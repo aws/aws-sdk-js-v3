@@ -38,19 +38,26 @@ export interface RegisterSchemaVersionCommandOutput extends RegisterSchemaVersio
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlueClient, RegisterSchemaVersionCommand } from "@aws-sdk/client-glue"; // ES Modules import
- * // const { GlueClient, RegisterSchemaVersionCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * import { GlueClient, RegisterSchemaVersionCommand } from '@aws-sdk/client-glue'; // ES Modules import
+ * // const { GlueClient, RegisterSchemaVersionCommand } = require('@aws-sdk/client-glue'); // CommonJS import
  * const client = new GlueClient(config);
  * const input = { // RegisterSchemaVersionInput
  *   SchemaId: { // SchemaId
- *     SchemaArn: "STRING_VALUE",
- *     SchemaName: "STRING_VALUE",
- *     RegistryName: "STRING_VALUE",
+ *     SchemaArn: 'STRING_VALUE',
+ *     SchemaName: 'STRING_VALUE',
+ *     RegistryName: 'STRING_VALUE',
  *   },
- *   SchemaDefinition: "STRING_VALUE", // required
+ *   SchemaDefinition: 'STRING_VALUE', // required
  * };
  * const command = new RegisterSchemaVersionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // RegisterSchemaVersionResponse
+ *   SchemaVersionId: 'STRING_VALUE',
+ *   VersionNumber: Number('long'),
+ *   Status: 'AVAILABLE' || 'PENDING' || 'FAILURE' || 'DELETING',
+ * };
+ *
  * ```
  *
  * @param RegisterSchemaVersionCommandInput - {@link RegisterSchemaVersionCommandInput}
@@ -77,6 +84,8 @@ export interface RegisterSchemaVersionCommandOutput extends RegisterSchemaVersio
  * @throws {@link ResourceNumberLimitExceededException} (client fault)
  *  <p>A resource numerical limit was exceeded.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class RegisterSchemaVersionCommand extends $Command<

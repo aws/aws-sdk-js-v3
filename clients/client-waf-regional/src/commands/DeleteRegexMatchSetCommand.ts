@@ -59,15 +59,20 @@ export interface DeleteRegexMatchSetCommandOutput extends DeleteRegexMatchSetRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WAFRegionalClient, DeleteRegexMatchSetCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
- * // const { WAFRegionalClient, DeleteRegexMatchSetCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import
+ * import { WAFRegionalClient, DeleteRegexMatchSetCommand } from '@aws-sdk/client-waf-regional'; // ES Modules import
+ * // const { WAFRegionalClient, DeleteRegexMatchSetCommand } = require('@aws-sdk/client-waf-regional'); // CommonJS import
  * const client = new WAFRegionalClient(config);
  * const input = { // DeleteRegexMatchSetRequest
- *   RegexMatchSetId: "STRING_VALUE", // required
- *   ChangeToken: "STRING_VALUE", // required
+ *   RegexMatchSetId: 'STRING_VALUE', // required
+ *   ChangeToken: 'STRING_VALUE', // required
  * };
  * const command = new DeleteRegexMatchSetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteRegexMatchSetResponse
+ *   ChangeToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DeleteRegexMatchSetCommandInput - {@link DeleteRegexMatchSetCommandInput}
@@ -117,6 +122,8 @@ export interface DeleteRegexMatchSetCommandOutput extends DeleteRegexMatchSetRes
  * @throws {@link WAFStaleDataException} (client fault)
  *  <p>The operation failed because you tried to create, update, or delete an object by using a change token that has already been used.</p>
  *
+ * @throws {@link WAFRegionalServiceException}
+ * <p>Base exception class for all service exceptions from WAFRegional service.</p>
  *
  */
 export class DeleteRegexMatchSetCommand extends $Command<

@@ -36,34 +36,43 @@ export interface StartReadSetImportJobCommandOutput extends StartReadSetImportJo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OmicsClient, StartReadSetImportJobCommand } from "@aws-sdk/client-omics"; // ES Modules import
- * // const { OmicsClient, StartReadSetImportJobCommand } = require("@aws-sdk/client-omics"); // CommonJS import
+ * import { OmicsClient, StartReadSetImportJobCommand } from '@aws-sdk/client-omics'; // ES Modules import
+ * // const { OmicsClient, StartReadSetImportJobCommand } = require('@aws-sdk/client-omics'); // CommonJS import
  * const client = new OmicsClient(config);
  * const input = { // StartReadSetImportJobRequest
- *   sequenceStoreId: "STRING_VALUE", // required
- *   roleArn: "STRING_VALUE", // required
- *   clientToken: "STRING_VALUE",
+ *   sequenceStoreId: 'STRING_VALUE', // required
+ *   roleArn: 'STRING_VALUE', // required
+ *   clientToken: 'STRING_VALUE',
  *   sources: [ // StartReadSetImportJobSourceList // required
  *     { // StartReadSetImportJobSourceItem
  *       sourceFiles: { // SourceFiles
- *         source1: "STRING_VALUE", // required
- *         source2: "STRING_VALUE",
+ *         source1: 'STRING_VALUE', // required
+ *         source2: 'STRING_VALUE',
  *       },
- *       sourceFileType: "STRING_VALUE", // required
- *       subjectId: "STRING_VALUE", // required
- *       sampleId: "STRING_VALUE", // required
- *       generatedFrom: "STRING_VALUE",
- *       referenceArn: "STRING_VALUE", // required
- *       name: "STRING_VALUE",
- *       description: "STRING_VALUE",
+ *       sourceFileType: 'STRING_VALUE', // required
+ *       subjectId: 'STRING_VALUE', // required
+ *       sampleId: 'STRING_VALUE', // required
+ *       generatedFrom: 'STRING_VALUE',
+ *       referenceArn: 'STRING_VALUE', // required
+ *       name: 'STRING_VALUE',
+ *       description: 'STRING_VALUE',
  *       tags: { // TagMap
- *         "<keys>": "STRING_VALUE",
+ *         '<keys>': 'STRING_VALUE',
  *       },
  *     },
  *   ],
  * };
  * const command = new StartReadSetImportJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartReadSetImportJobResponse
+ *   id: 'STRING_VALUE', // required
+ *   sequenceStoreId: 'STRING_VALUE', // required
+ *   roleArn: 'STRING_VALUE', // required
+ *   status: 'STRING_VALUE', // required
+ *   creationTime: new Date('TIMESTAMP'), // required
+ * };
+ *
  * ```
  *
  * @param StartReadSetImportJobCommandInput - {@link StartReadSetImportJobCommandInput}
@@ -93,6 +102,8 @@ export interface StartReadSetImportJobCommandOutput extends StartReadSetImportJo
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link OmicsServiceException}
+ * <p>Base exception class for all service exceptions from Omics service.</p>
  *
  */
 export class StartReadSetImportJobCommand extends $Command<

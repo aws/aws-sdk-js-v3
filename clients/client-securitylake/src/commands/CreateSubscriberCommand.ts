@@ -37,26 +37,36 @@ export interface CreateSubscriberCommandOutput extends CreateSubscriberResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SecurityLakeClient, CreateSubscriberCommand } from "@aws-sdk/client-securitylake"; // ES Modules import
- * // const { SecurityLakeClient, CreateSubscriberCommand } = require("@aws-sdk/client-securitylake"); // CommonJS import
+ * import { SecurityLakeClient, CreateSubscriberCommand } from '@aws-sdk/client-securitylake'; // ES Modules import
+ * // const { SecurityLakeClient, CreateSubscriberCommand } = require('@aws-sdk/client-securitylake'); // CommonJS import
  * const client = new SecurityLakeClient(config);
  * const input = { // CreateSubscriberRequest
  *   sourceTypes: [ // SourceTypeList // required
  *     { // SourceType Union: only one key present
- *       awsSourceType: "STRING_VALUE",
- *       customSourceType: "STRING_VALUE",
+ *       awsSourceType: 'STRING_VALUE',
+ *       customSourceType: 'STRING_VALUE',
  *     },
  *   ],
- *   accountId: "STRING_VALUE", // required
- *   externalId: "STRING_VALUE", // required
+ *   accountId: 'STRING_VALUE', // required
+ *   externalId: 'STRING_VALUE', // required
  *   accessTypes: [ // AccessTypeList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   subscriberName: "STRING_VALUE", // required
- *   subscriberDescription: "STRING_VALUE",
+ *   subscriberName: 'STRING_VALUE', // required
+ *   subscriberDescription: 'STRING_VALUE',
  * };
  * const command = new CreateSubscriberCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateSubscriberResponse
+ *   subscriptionId: 'STRING_VALUE', // required
+ *   roleArn: 'STRING_VALUE',
+ *   snsArn: 'STRING_VALUE',
+ *   s3BucketArn: 'STRING_VALUE',
+ *   resourceShareArn: 'STRING_VALUE',
+ *   resourceShareName: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateSubscriberCommandInput - {@link CreateSubscriberCommandInput}
@@ -97,6 +107,8 @@ export interface CreateSubscriberCommandOutput extends CreateSubscriberResponse,
  * @throws {@link ValidationException} (client fault)
  *  <p>Your signing certificate could not be validated. </p>
  *
+ * @throws {@link SecurityLakeServiceException}
+ * <p>Base exception class for all service exceptions from SecurityLake service.</p>
  *
  */
 export class CreateSubscriberCommand extends $Command<

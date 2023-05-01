@@ -36,14 +36,17 @@ export interface DeleteMediaCapturePipelineCommandOutput extends __MetadataBeare
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeClient, DeleteMediaCapturePipelineCommand } from "@aws-sdk/client-chime"; // ES Modules import
- * // const { ChimeClient, DeleteMediaCapturePipelineCommand } = require("@aws-sdk/client-chime"); // CommonJS import
+ * import { ChimeClient, DeleteMediaCapturePipelineCommand } from '@aws-sdk/client-chime'; // ES Modules import
+ * // const { ChimeClient, DeleteMediaCapturePipelineCommand } = require('@aws-sdk/client-chime'); // CommonJS import
  * const client = new ChimeClient(config);
  * const input = { // DeleteMediaCapturePipelineRequest
- *   MediaPipelineId: "STRING_VALUE", // required
+ *   MediaPipelineId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteMediaCapturePipelineCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteMediaCapturePipelineCommandInput - {@link DeleteMediaCapturePipelineCommandInput}
@@ -73,6 +76,8 @@ export interface DeleteMediaCapturePipelineCommandOutput extends __MetadataBeare
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeServiceException}
+ * <p>Base exception class for all service exceptions from Chime service.</p>
  *
  */
 export class DeleteMediaCapturePipelineCommand extends $Command<

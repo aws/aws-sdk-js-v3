@@ -39,17 +39,20 @@ export interface UntagResourceCommandOutput extends UntagResourceResult, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { HoneycodeClient, UntagResourceCommand } from "@aws-sdk/client-honeycode"; // ES Modules import
- * // const { HoneycodeClient, UntagResourceCommand } = require("@aws-sdk/client-honeycode"); // CommonJS import
+ * import { HoneycodeClient, UntagResourceCommand } from '@aws-sdk/client-honeycode'; // ES Modules import
+ * // const { HoneycodeClient, UntagResourceCommand } = require('@aws-sdk/client-honeycode'); // CommonJS import
  * const client = new HoneycodeClient(config);
  * const input = { // UntagResourceRequest
- *   resourceArn: "STRING_VALUE", // required
+ *   resourceArn: 'STRING_VALUE', // required
  *   tagKeys: [ // TagKeysList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new UntagResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UntagResourceCommandInput - {@link UntagResourceCommandInput}
@@ -84,6 +87,8 @@ export interface UntagResourceCommandOutput extends UntagResourceResult, __Metad
  *             Request is invalid. The message in the response contains details on why the request is invalid.
  *         </p>
  *
+ * @throws {@link HoneycodeServiceException}
+ * <p>Base exception class for all service exceptions from Honeycode service.</p>
  *
  */
 export class UntagResourceCommand extends $Command<

@@ -42,16 +42,31 @@ export interface ListSecurityConfigsCommandOutput extends ListSecurityConfigsRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OpenSearchServerlessClient, ListSecurityConfigsCommand } from "@aws-sdk/client-opensearchserverless"; // ES Modules import
- * // const { OpenSearchServerlessClient, ListSecurityConfigsCommand } = require("@aws-sdk/client-opensearchserverless"); // CommonJS import
+ * import { OpenSearchServerlessClient, ListSecurityConfigsCommand } from '@aws-sdk/client-opensearchserverless'; // ES Modules import
+ * // const { OpenSearchServerlessClient, ListSecurityConfigsCommand } = require('@aws-sdk/client-opensearchserverless'); // CommonJS import
  * const client = new OpenSearchServerlessClient(config);
  * const input = { // ListSecurityConfigsRequest
- *   type: "STRING_VALUE", // required
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   type: 'STRING_VALUE', // required
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new ListSecurityConfigsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListSecurityConfigsResponse
+ *   securityConfigSummaries: [ // SecurityConfigSummaries
+ *     { // SecurityConfigSummary
+ *       id: 'STRING_VALUE',
+ *       type: 'STRING_VALUE',
+ *       configVersion: 'STRING_VALUE',
+ *       description: 'STRING_VALUE',
+ *       createdDate: Number('long'),
+ *       lastModifiedDate: Number('long'),
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListSecurityConfigsCommandInput - {@link ListSecurityConfigsCommandInput}
@@ -67,6 +82,8 @@ export interface ListSecurityConfigsCommandOutput extends ListSecurityConfigsRes
  *  <p>Thrown when the HTTP request contains invalid input or is missing required
  *             input.</p>
  *
+ * @throws {@link OpenSearchServerlessServiceException}
+ * <p>Base exception class for all service exceptions from OpenSearchServerless service.</p>
  *
  */
 export class ListSecurityConfigsCommand extends $Command<

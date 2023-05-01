@@ -41,16 +41,19 @@ export interface StopContactRecordingCommandOutput extends StopContactRecordingR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, StopContactRecordingCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, StopContactRecordingCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, StopContactRecordingCommand } from '@aws-sdk/client-connect'; // ES Modules import
+ * // const { ConnectClient, StopContactRecordingCommand } = require('@aws-sdk/client-connect'); // CommonJS import
  * const client = new ConnectClient(config);
  * const input = { // StopContactRecordingRequest
- *   InstanceId: "STRING_VALUE", // required
- *   ContactId: "STRING_VALUE", // required
- *   InitialContactId: "STRING_VALUE", // required
+ *   InstanceId: 'STRING_VALUE', // required
+ *   ContactId: 'STRING_VALUE', // required
+ *   InitialContactId: 'STRING_VALUE', // required
  * };
  * const command = new StopContactRecordingCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param StopContactRecordingCommandInput - {@link StopContactRecordingCommandInput}
@@ -68,6 +71,8 @@ export interface StopContactRecordingCommandOutput extends StopContactRecordingR
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class StopContactRecordingCommand extends $Command<

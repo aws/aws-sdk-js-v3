@@ -41,14 +41,34 @@ export interface GetRequestedServiceQuotaChangeCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ServiceQuotasClient, GetRequestedServiceQuotaChangeCommand } from "@aws-sdk/client-service-quotas"; // ES Modules import
- * // const { ServiceQuotasClient, GetRequestedServiceQuotaChangeCommand } = require("@aws-sdk/client-service-quotas"); // CommonJS import
+ * import { ServiceQuotasClient, GetRequestedServiceQuotaChangeCommand } from '@aws-sdk/client-service-quotas'; // ES Modules import
+ * // const { ServiceQuotasClient, GetRequestedServiceQuotaChangeCommand } = require('@aws-sdk/client-service-quotas'); // CommonJS import
  * const client = new ServiceQuotasClient(config);
  * const input = { // GetRequestedServiceQuotaChangeRequest
- *   RequestId: "STRING_VALUE", // required
+ *   RequestId: 'STRING_VALUE', // required
  * };
  * const command = new GetRequestedServiceQuotaChangeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetRequestedServiceQuotaChangeResponse
+ *   RequestedQuota: { // RequestedServiceQuotaChange
+ *     Id: 'STRING_VALUE',
+ *     CaseId: 'STRING_VALUE',
+ *     ServiceCode: 'STRING_VALUE',
+ *     ServiceName: 'STRING_VALUE',
+ *     QuotaCode: 'STRING_VALUE',
+ *     QuotaName: 'STRING_VALUE',
+ *     DesiredValue: Number('double'),
+ *     Status: 'STRING_VALUE',
+ *     Created: new Date('TIMESTAMP'),
+ *     LastUpdated: new Date('TIMESTAMP'),
+ *     Requester: 'STRING_VALUE',
+ *     QuotaArn: 'STRING_VALUE',
+ *     GlobalQuota: true || false,
+ *     Unit: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetRequestedServiceQuotaChangeCommandInput - {@link GetRequestedServiceQuotaChangeCommandInput}
@@ -73,6 +93,8 @@ export interface GetRequestedServiceQuotaChangeCommandOutput
  *  <p>Due to throttling, the request was denied. Slow down the rate of request calls, or request
  *       an increase for this quota.</p>
  *
+ * @throws {@link ServiceQuotasServiceException}
+ * <p>Base exception class for all service exceptions from ServiceQuotas service.</p>
  *
  */
 export class GetRequestedServiceQuotaChangeCommand extends $Command<

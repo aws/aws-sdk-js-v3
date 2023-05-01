@@ -57,16 +57,19 @@ export interface ResetUserPasswordCommandOutput extends ResetUserPasswordResult,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DirectoryServiceClient, ResetUserPasswordCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
- * // const { DirectoryServiceClient, ResetUserPasswordCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
+ * import { DirectoryServiceClient, ResetUserPasswordCommand } from '@aws-sdk/client-directory-service'; // ES Modules import
+ * // const { DirectoryServiceClient, ResetUserPasswordCommand } = require('@aws-sdk/client-directory-service'); // CommonJS import
  * const client = new DirectoryServiceClient(config);
  * const input = { // ResetUserPasswordRequest
- *   DirectoryId: "STRING_VALUE", // required
- *   UserName: "STRING_VALUE", // required
- *   NewPassword: "STRING_VALUE", // required
+ *   DirectoryId: 'STRING_VALUE', // required
+ *   UserName: 'STRING_VALUE', // required
+ *   NewPassword: 'STRING_VALUE', // required
  * };
  * const command = new ResetUserPasswordCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param ResetUserPasswordCommandInput - {@link ResetUserPasswordCommandInput}
@@ -97,6 +100,8 @@ export interface ResetUserPasswordCommandOutput extends ResetUserPasswordResult,
  * @throws {@link UserDoesNotExistException} (client fault)
  *  <p>The user provided a username that does not exist in your directory.</p>
  *
+ * @throws {@link DirectoryServiceServiceException}
+ * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
  */
 export class ResetUserPasswordCommand extends $Command<

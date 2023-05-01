@@ -47,14 +47,20 @@ export interface GetCertificateAuthorityCertificateCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ACMPCAClient, GetCertificateAuthorityCertificateCommand } from "@aws-sdk/client-acm-pca"; // ES Modules import
- * // const { ACMPCAClient, GetCertificateAuthorityCertificateCommand } = require("@aws-sdk/client-acm-pca"); // CommonJS import
+ * import { ACMPCAClient, GetCertificateAuthorityCertificateCommand } from '@aws-sdk/client-acm-pca'; // ES Modules import
+ * // const { ACMPCAClient, GetCertificateAuthorityCertificateCommand } = require('@aws-sdk/client-acm-pca'); // CommonJS import
  * const client = new ACMPCAClient(config);
  * const input = { // GetCertificateAuthorityCertificateRequest
- *   CertificateAuthorityArn: "STRING_VALUE", // required
+ *   CertificateAuthorityArn: 'STRING_VALUE', // required
  * };
  * const command = new GetCertificateAuthorityCertificateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetCertificateAuthorityCertificateResponse
+ *   Certificate: 'STRING_VALUE',
+ *   CertificateChain: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetCertificateAuthorityCertificateCommandInput - {@link GetCertificateAuthorityCertificateCommandInput}
@@ -74,6 +80,8 @@ export interface GetCertificateAuthorityCertificateCommandOutput
  *  <p>A resource such as a private CA, S3 bucket, certificate, audit report, or policy
  * 			cannot be found.</p>
  *
+ * @throws {@link ACMPCAServiceException}
+ * <p>Base exception class for all service exceptions from ACMPCA service.</p>
  *
  */
 export class GetCertificateAuthorityCertificateCommand extends $Command<

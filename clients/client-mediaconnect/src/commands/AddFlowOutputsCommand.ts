@@ -36,65 +36,138 @@ export interface AddFlowOutputsCommandOutput extends AddFlowOutputsResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MediaConnectClient, AddFlowOutputsCommand } from "@aws-sdk/client-mediaconnect"; // ES Modules import
- * // const { MediaConnectClient, AddFlowOutputsCommand } = require("@aws-sdk/client-mediaconnect"); // CommonJS import
+ * import { MediaConnectClient, AddFlowOutputsCommand } from '@aws-sdk/client-mediaconnect'; // ES Modules import
+ * // const { MediaConnectClient, AddFlowOutputsCommand } = require('@aws-sdk/client-mediaconnect'); // CommonJS import
  * const client = new MediaConnectClient(config);
  * const input = { // AddFlowOutputsRequest
- *   FlowArn: "STRING_VALUE", // required
+ *   FlowArn: 'STRING_VALUE', // required
  *   Outputs: [ // __listOfAddOutputRequest // required
  *     { // AddOutputRequest
  *       CidrAllowList: [ // __listOf__string
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
- *       Description: "STRING_VALUE",
- *       Destination: "STRING_VALUE",
+ *       Description: 'STRING_VALUE',
+ *       Destination: 'STRING_VALUE',
  *       Encryption: { // Encryption
- *         Algorithm: "aes128" || "aes192" || "aes256",
- *         ConstantInitializationVector: "STRING_VALUE",
- *         DeviceId: "STRING_VALUE",
- *         KeyType: "speke" || "static-key" || "srt-password",
- *         Region: "STRING_VALUE",
- *         ResourceId: "STRING_VALUE",
- *         RoleArn: "STRING_VALUE", // required
- *         SecretArn: "STRING_VALUE",
- *         Url: "STRING_VALUE",
+ *         Algorithm: 'aes128' || 'aes192' || 'aes256',
+ *         ConstantInitializationVector: 'STRING_VALUE',
+ *         DeviceId: 'STRING_VALUE',
+ *         KeyType: 'speke' || 'static-key' || 'srt-password',
+ *         Region: 'STRING_VALUE',
+ *         ResourceId: 'STRING_VALUE',
+ *         RoleArn: 'STRING_VALUE', // required
+ *         SecretArn: 'STRING_VALUE',
+ *         Url: 'STRING_VALUE',
  *       },
- *       MaxLatency: Number("int"),
+ *       MaxLatency: Number('int'),
  *       MediaStreamOutputConfigurations: [ // __listOfMediaStreamOutputConfigurationRequest
  *         { // MediaStreamOutputConfigurationRequest
  *           DestinationConfigurations: [ // __listOfDestinationConfigurationRequest
  *             { // DestinationConfigurationRequest
- *               DestinationIp: "STRING_VALUE", // required
- *               DestinationPort: Number("int"), // required
+ *               DestinationIp: 'STRING_VALUE', // required
+ *               DestinationPort: Number('int'), // required
  *               Interface: { // InterfaceRequest
- *                 Name: "STRING_VALUE", // required
+ *                 Name: 'STRING_VALUE', // required
  *               },
  *             },
  *           ],
- *           EncodingName: "jxsv" || "raw" || "smpte291" || "pcm", // required
+ *           EncodingName: 'jxsv' || 'raw' || 'smpte291' || 'pcm', // required
  *           EncodingParameters: { // EncodingParametersRequest
- *             CompressionFactor: Number("double"), // required
- *             EncoderProfile: "main" || "high", // required
+ *             CompressionFactor: Number('double'), // required
+ *             EncoderProfile: 'main' || 'high', // required
  *           },
- *           MediaStreamName: "STRING_VALUE", // required
+ *           MediaStreamName: 'STRING_VALUE', // required
  *         },
  *       ],
- *       MinLatency: Number("int"),
- *       Name: "STRING_VALUE",
- *       Port: Number("int"),
- *       Protocol: "zixi-push" || "rtp-fec" || "rtp" || "zixi-pull" || "rist" || "st2110-jpegxs" || "cdi" || "srt-listener" || "srt-caller" || "fujitsu-qos" || "udp", // required
- *       RemoteId: "STRING_VALUE",
- *       SenderControlPort: Number("int"),
- *       SmoothingLatency: Number("int"),
- *       StreamId: "STRING_VALUE",
+ *       MinLatency: Number('int'),
+ *       Name: 'STRING_VALUE',
+ *       Port: Number('int'),
+ *       Protocol: 'zixi-push' || 'rtp-fec' || 'rtp' || 'zixi-pull' || 'rist' || 'st2110-jpegxs' || 'cdi' || 'srt-listener' || 'srt-caller' || 'fujitsu-qos' || 'udp', // required
+ *       RemoteId: 'STRING_VALUE',
+ *       SenderControlPort: Number('int'),
+ *       SmoothingLatency: Number('int'),
+ *       StreamId: 'STRING_VALUE',
  *       VpcInterfaceAttachment: { // VpcInterfaceAttachment
- *         VpcInterfaceName: "STRING_VALUE",
+ *         VpcInterfaceName: 'STRING_VALUE',
  *       },
  *     },
  *   ],
  * };
  * const command = new AddFlowOutputsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AddFlowOutputsResponse
+ *   FlowArn: 'STRING_VALUE',
+ *   Outputs: [ // __listOfOutput
+ *     { // Output
+ *       DataTransferSubscriberFeePercent: Number('int'),
+ *       Description: 'STRING_VALUE',
+ *       Destination: 'STRING_VALUE',
+ *       Encryption: { // Encryption
+ *         Algorithm: 'aes128' || 'aes192' || 'aes256',
+ *         ConstantInitializationVector: 'STRING_VALUE',
+ *         DeviceId: 'STRING_VALUE',
+ *         KeyType: 'speke' || 'static-key' || 'srt-password',
+ *         Region: 'STRING_VALUE',
+ *         ResourceId: 'STRING_VALUE',
+ *         RoleArn: 'STRING_VALUE', // required
+ *         SecretArn: 'STRING_VALUE',
+ *         Url: 'STRING_VALUE',
+ *       },
+ *       EntitlementArn: 'STRING_VALUE',
+ *       ListenerAddress: 'STRING_VALUE',
+ *       MediaLiveInputArn: 'STRING_VALUE',
+ *       MediaStreamOutputConfigurations: [ // __listOfMediaStreamOutputConfiguration
+ *         { // MediaStreamOutputConfiguration
+ *           DestinationConfigurations: [ // __listOfDestinationConfiguration
+ *             { // DestinationConfiguration
+ *               DestinationIp: 'STRING_VALUE', // required
+ *               DestinationPort: Number('int'), // required
+ *               Interface: { // Interface
+ *                 Name: 'STRING_VALUE', // required
+ *               },
+ *               OutboundIp: 'STRING_VALUE', // required
+ *             },
+ *           ],
+ *           EncodingName: 'jxsv' || 'raw' || 'smpte291' || 'pcm', // required
+ *           EncodingParameters: { // EncodingParameters
+ *             CompressionFactor: Number('double'), // required
+ *             EncoderProfile: 'main' || 'high', // required
+ *           },
+ *           MediaStreamName: 'STRING_VALUE', // required
+ *         },
+ *       ],
+ *       Name: 'STRING_VALUE', // required
+ *       OutputArn: 'STRING_VALUE', // required
+ *       Port: Number('int'),
+ *       Transport: { // Transport
+ *         CidrAllowList: [ // __listOf__string
+ *           'STRING_VALUE',
+ *         ],
+ *         MaxBitrate: Number('int'),
+ *         MaxLatency: Number('int'),
+ *         MaxSyncBuffer: Number('int'),
+ *         MinLatency: Number('int'),
+ *         Protocol: 'zixi-push' || 'rtp-fec' || 'rtp' || 'zixi-pull' || 'rist' || 'st2110-jpegxs' || 'cdi' || 'srt-listener' || 'srt-caller' || 'fujitsu-qos' || 'udp', // required
+ *         RemoteId: 'STRING_VALUE',
+ *         SenderControlPort: Number('int'),
+ *         SenderIpAddress: 'STRING_VALUE',
+ *         SmoothingLatency: Number('int'),
+ *         SourceListenerAddress: 'STRING_VALUE',
+ *         SourceListenerPort: Number('int'),
+ *         StreamId: 'STRING_VALUE',
+ *       },
+ *       VpcInterfaceAttachment: { // VpcInterfaceAttachment
+ *         VpcInterfaceName: 'STRING_VALUE',
+ *       },
+ *       BridgeArn: 'STRING_VALUE',
+ *       BridgePorts: [ // __listOf__integer
+ *         Number('int'),
+ *       ],
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param AddFlowOutputsCommandInput - {@link AddFlowOutputsCommandInput}
@@ -124,6 +197,8 @@ export interface AddFlowOutputsCommandOutput extends AddFlowOutputsResponse, __M
  * @throws {@link TooManyRequestsException} (client fault)
  *  Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
  *
+ * @throws {@link MediaConnectServiceException}
+ * <p>Base exception class for all service exceptions from MediaConnect service.</p>
  *
  */
 export class AddFlowOutputsCommand extends $Command<

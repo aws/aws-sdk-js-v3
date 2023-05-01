@@ -44,15 +44,58 @@ export interface PrepareQueryCommandOutput extends PrepareQueryResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { TimestreamQueryClient, PrepareQueryCommand } from "@aws-sdk/client-timestream-query"; // ES Modules import
- * // const { TimestreamQueryClient, PrepareQueryCommand } = require("@aws-sdk/client-timestream-query"); // CommonJS import
+ * import { TimestreamQueryClient, PrepareQueryCommand } from '@aws-sdk/client-timestream-query'; // ES Modules import
+ * // const { TimestreamQueryClient, PrepareQueryCommand } = require('@aws-sdk/client-timestream-query'); // CommonJS import
  * const client = new TimestreamQueryClient(config);
  * const input = { // PrepareQueryRequest
- *   QueryString: "STRING_VALUE", // required
+ *   QueryString: 'STRING_VALUE', // required
  *   ValidateOnly: true || false,
  * };
  * const command = new PrepareQueryCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PrepareQueryResponse
+ *   QueryString: 'STRING_VALUE', // required
+ *   Columns: [ // SelectColumnList // required
+ *     { // SelectColumn
+ *       Name: 'STRING_VALUE',
+ *       Type: { // Type
+ *         ScalarType: 'STRING_VALUE',
+ *         ArrayColumnInfo: { // ColumnInfo
+ *           Name: 'STRING_VALUE',
+ *           Type: {
+ *             ScalarType: 'STRING_VALUE',
+ *             ArrayColumnInfo: {
+ *               Name: 'STRING_VALUE',
+ *               Type: '<Type>', // required
+ *             },
+ *             TimeSeriesMeasureValueColumnInfo: {
+ *               Name: 'STRING_VALUE',
+ *               Type: '<Type>', // required
+ *             },
+ *             RowColumnInfo: [ // ColumnInfoList
+ *               '<ColumnInfo>',
+ *             ],
+ *           },
+ *         },
+ *         TimeSeriesMeasureValueColumnInfo: '<ColumnInfo>',
+ *         RowColumnInfo: [
+ *           '<ColumnInfo>',
+ *         ],
+ *       },
+ *       DatabaseName: 'STRING_VALUE',
+ *       TableName: 'STRING_VALUE',
+ *       Aliased: true || false,
+ *     },
+ *   ],
+ *   Parameters: [ // ParameterMappingList // required
+ *     { // ParameterMapping
+ *       Name: 'STRING_VALUE', // required
+ *       Type: '<Type>', // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param PrepareQueryCommandInput - {@link PrepareQueryCommandInput}
@@ -78,6 +121,8 @@ export interface PrepareQueryCommandOutput extends PrepareQueryResponse, __Metad
  * @throws {@link ValidationException} (client fault)
  *  <p> Invalid or malformed request. </p>
  *
+ * @throws {@link TimestreamQueryServiceException}
+ * <p>Base exception class for all service exceptions from TimestreamQuery service.</p>
  *
  */
 export class PrepareQueryCommand extends $Command<

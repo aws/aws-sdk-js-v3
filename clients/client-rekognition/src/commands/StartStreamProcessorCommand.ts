@@ -39,23 +39,28 @@ export interface StartStreamProcessorCommandOutput extends StartStreamProcessorR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RekognitionClient, StartStreamProcessorCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
- * // const { RekognitionClient, StartStreamProcessorCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
+ * import { RekognitionClient, StartStreamProcessorCommand } from '@aws-sdk/client-rekognition'; // ES Modules import
+ * // const { RekognitionClient, StartStreamProcessorCommand } = require('@aws-sdk/client-rekognition'); // CommonJS import
  * const client = new RekognitionClient(config);
  * const input = { // StartStreamProcessorRequest
- *   Name: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
  *   StartSelector: { // StreamProcessingStartSelector
  *     KVSStreamStartSelector: { // KinesisVideoStreamStartSelector
- *       ProducerTimestamp: Number("long"),
- *       FragmentNumber: "STRING_VALUE",
+ *       ProducerTimestamp: Number('long'),
+ *       FragmentNumber: 'STRING_VALUE',
  *     },
  *   },
  *   StopSelector: { // StreamProcessingStopSelector
- *     MaxDurationInSeconds: Number("long"),
+ *     MaxDurationInSeconds: Number('long'),
  *   },
  * };
  * const command = new StartStreamProcessorCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartStreamProcessorResponse
+ *   SessionId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param StartStreamProcessorCommandInput - {@link StartStreamProcessorCommandInput}
@@ -87,6 +92,8 @@ export interface StartStreamProcessorCommandOutput extends StartStreamProcessorR
  * @throws {@link ThrottlingException} (server fault)
  *  <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
  *
+ * @throws {@link RekognitionServiceException}
+ * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
  */
 export class StartStreamProcessorCommand extends $Command<

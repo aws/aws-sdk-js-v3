@@ -37,16 +37,21 @@ export interface StopExecutionCommandOutput extends StopExecutionOutput, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SFNClient, StopExecutionCommand } from "@aws-sdk/client-sfn"; // ES Modules import
- * // const { SFNClient, StopExecutionCommand } = require("@aws-sdk/client-sfn"); // CommonJS import
+ * import { SFNClient, StopExecutionCommand } from '@aws-sdk/client-sfn'; // ES Modules import
+ * // const { SFNClient, StopExecutionCommand } = require('@aws-sdk/client-sfn'); // CommonJS import
  * const client = new SFNClient(config);
  * const input = { // StopExecutionInput
- *   executionArn: "STRING_VALUE", // required
- *   error: "STRING_VALUE",
- *   cause: "STRING_VALUE",
+ *   executionArn: 'STRING_VALUE', // required
+ *   error: 'STRING_VALUE',
+ *   cause: 'STRING_VALUE',
  * };
  * const command = new StopExecutionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StopExecutionOutput
+ *   stopDate: new Date('TIMESTAMP'), // required
+ * };
+ *
  * ```
  *
  * @param StopExecutionCommandInput - {@link StopExecutionCommandInput}
@@ -64,6 +69,8 @@ export interface StopExecutionCommandOutput extends StopExecutionOutput, __Metad
  * @throws {@link ValidationException} (client fault)
  *  <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
  *
+ * @throws {@link SFNServiceException}
+ * <p>Base exception class for all service exceptions from SFN service.</p>
  *
  */
 export class StopExecutionCommand extends $Command<

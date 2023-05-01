@@ -36,18 +36,42 @@ export interface ListAnomalyGroupTimeSeriesCommandOutput extends ListAnomalyGrou
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LookoutMetricsClient, ListAnomalyGroupTimeSeriesCommand } from "@aws-sdk/client-lookoutmetrics"; // ES Modules import
- * // const { LookoutMetricsClient, ListAnomalyGroupTimeSeriesCommand } = require("@aws-sdk/client-lookoutmetrics"); // CommonJS import
+ * import { LookoutMetricsClient, ListAnomalyGroupTimeSeriesCommand } from '@aws-sdk/client-lookoutmetrics'; // ES Modules import
+ * // const { LookoutMetricsClient, ListAnomalyGroupTimeSeriesCommand } = require('@aws-sdk/client-lookoutmetrics'); // CommonJS import
  * const client = new LookoutMetricsClient(config);
  * const input = { // ListAnomalyGroupTimeSeriesRequest
- *   AnomalyDetectorArn: "STRING_VALUE", // required
- *   AnomalyGroupId: "STRING_VALUE", // required
- *   MetricName: "STRING_VALUE", // required
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   AnomalyDetectorArn: 'STRING_VALUE', // required
+ *   AnomalyGroupId: 'STRING_VALUE', // required
+ *   MetricName: 'STRING_VALUE', // required
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListAnomalyGroupTimeSeriesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListAnomalyGroupTimeSeriesResponse
+ *   AnomalyGroupId: 'STRING_VALUE',
+ *   MetricName: 'STRING_VALUE',
+ *   TimestampList: [ // TimestampList
+ *     'STRING_VALUE',
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ *   TimeSeriesList: [ // TimeSeriesList
+ *     { // TimeSeries
+ *       TimeSeriesId: 'STRING_VALUE', // required
+ *       DimensionList: [ // DimensionNameValueList // required
+ *         { // DimensionNameValue
+ *           DimensionName: 'STRING_VALUE', // required
+ *           DimensionValue: 'STRING_VALUE', // required
+ *         },
+ *       ],
+ *       MetricValueList: [ // MetricValueList // required
+ *         Number('double'),
+ *       ],
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListAnomalyGroupTimeSeriesCommandInput - {@link ListAnomalyGroupTimeSeriesCommandInput}
@@ -72,6 +96,8 @@ export interface ListAnomalyGroupTimeSeriesCommandOutput extends ListAnomalyGrou
  *  <p>The input fails to satisfy the constraints specified by the AWS service. Check your input values and try
  *       again.</p>
  *
+ * @throws {@link LookoutMetricsServiceException}
+ * <p>Base exception class for all service exceptions from LookoutMetrics service.</p>
  *
  */
 export class ListAnomalyGroupTimeSeriesCommand extends $Command<

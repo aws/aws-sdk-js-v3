@@ -53,37 +53,37 @@ export interface AddApplicationReferenceDataSourceCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KinesisAnalyticsV2Client, AddApplicationReferenceDataSourceCommand } from "@aws-sdk/client-kinesis-analytics-v2"; // ES Modules import
- * // const { KinesisAnalyticsV2Client, AddApplicationReferenceDataSourceCommand } = require("@aws-sdk/client-kinesis-analytics-v2"); // CommonJS import
+ * import { KinesisAnalyticsV2Client, AddApplicationReferenceDataSourceCommand } from '@aws-sdk/client-kinesis-analytics-v2'; // ES Modules import
+ * // const { KinesisAnalyticsV2Client, AddApplicationReferenceDataSourceCommand } = require('@aws-sdk/client-kinesis-analytics-v2'); // CommonJS import
  * const client = new KinesisAnalyticsV2Client(config);
  * const input = { // AddApplicationReferenceDataSourceRequest
- *   ApplicationName: "STRING_VALUE", // required
- *   CurrentApplicationVersionId: Number("long"), // required
+ *   ApplicationName: 'STRING_VALUE', // required
+ *   CurrentApplicationVersionId: Number('long'), // required
  *   ReferenceDataSource: { // ReferenceDataSource
- *     TableName: "STRING_VALUE", // required
+ *     TableName: 'STRING_VALUE', // required
  *     S3ReferenceDataSource: { // S3ReferenceDataSource
- *       BucketARN: "STRING_VALUE",
- *       FileKey: "STRING_VALUE",
+ *       BucketARN: 'STRING_VALUE',
+ *       FileKey: 'STRING_VALUE',
  *     },
  *     ReferenceSchema: { // SourceSchema
  *       RecordFormat: { // RecordFormat
- *         RecordFormatType: "JSON" || "CSV", // required
+ *         RecordFormatType: 'JSON' || 'CSV', // required
  *         MappingParameters: { // MappingParameters
  *           JSONMappingParameters: { // JSONMappingParameters
- *             RecordRowPath: "STRING_VALUE", // required
+ *             RecordRowPath: 'STRING_VALUE', // required
  *           },
  *           CSVMappingParameters: { // CSVMappingParameters
- *             RecordRowDelimiter: "STRING_VALUE", // required
- *             RecordColumnDelimiter: "STRING_VALUE", // required
+ *             RecordRowDelimiter: 'STRING_VALUE', // required
+ *             RecordColumnDelimiter: 'STRING_VALUE', // required
  *           },
  *         },
  *       },
- *       RecordEncoding: "STRING_VALUE",
+ *       RecordEncoding: 'STRING_VALUE',
  *       RecordColumns: [ // RecordColumns // required
  *         { // RecordColumn
- *           Name: "STRING_VALUE", // required
- *           Mapping: "STRING_VALUE",
- *           SqlType: "STRING_VALUE", // required
+ *           Name: 'STRING_VALUE', // required
+ *           Mapping: 'STRING_VALUE',
+ *           SqlType: 'STRING_VALUE', // required
  *         },
  *       ],
  *     },
@@ -91,6 +91,45 @@ export interface AddApplicationReferenceDataSourceCommandOutput
  * };
  * const command = new AddApplicationReferenceDataSourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AddApplicationReferenceDataSourceResponse
+ *   ApplicationARN: 'STRING_VALUE',
+ *   ApplicationVersionId: Number('long'),
+ *   ReferenceDataSourceDescriptions: [ // ReferenceDataSourceDescriptions
+ *     { // ReferenceDataSourceDescription
+ *       ReferenceId: 'STRING_VALUE', // required
+ *       TableName: 'STRING_VALUE', // required
+ *       S3ReferenceDataSourceDescription: { // S3ReferenceDataSourceDescription
+ *         BucketARN: 'STRING_VALUE', // required
+ *         FileKey: 'STRING_VALUE', // required
+ *         ReferenceRoleARN: 'STRING_VALUE',
+ *       },
+ *       ReferenceSchema: { // SourceSchema
+ *         RecordFormat: { // RecordFormat
+ *           RecordFormatType: 'JSON' || 'CSV', // required
+ *           MappingParameters: { // MappingParameters
+ *             JSONMappingParameters: { // JSONMappingParameters
+ *               RecordRowPath: 'STRING_VALUE', // required
+ *             },
+ *             CSVMappingParameters: { // CSVMappingParameters
+ *               RecordRowDelimiter: 'STRING_VALUE', // required
+ *               RecordColumnDelimiter: 'STRING_VALUE', // required
+ *             },
+ *           },
+ *         },
+ *         RecordEncoding: 'STRING_VALUE',
+ *         RecordColumns: [ // RecordColumns // required
+ *           { // RecordColumn
+ *             Name: 'STRING_VALUE', // required
+ *             Mapping: 'STRING_VALUE',
+ *             SqlType: 'STRING_VALUE', // required
+ *           },
+ *         ],
+ *       },
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param AddApplicationReferenceDataSourceCommandInput - {@link AddApplicationReferenceDataSourceCommandInput}
@@ -116,6 +155,8 @@ export interface AddApplicationReferenceDataSourceCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Specified application can't be found.</p>
  *
+ * @throws {@link KinesisAnalyticsV2ServiceException}
+ * <p>Base exception class for all service exceptions from KinesisAnalyticsV2 service.</p>
  *
  */
 export class AddApplicationReferenceDataSourceCommand extends $Command<

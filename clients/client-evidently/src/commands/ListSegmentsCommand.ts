@@ -36,15 +36,35 @@ export interface ListSegmentsCommandOutput extends ListSegmentsResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EvidentlyClient, ListSegmentsCommand } from "@aws-sdk/client-evidently"; // ES Modules import
- * // const { EvidentlyClient, ListSegmentsCommand } = require("@aws-sdk/client-evidently"); // CommonJS import
+ * import { EvidentlyClient, ListSegmentsCommand } from '@aws-sdk/client-evidently'; // ES Modules import
+ * // const { EvidentlyClient, ListSegmentsCommand } = require('@aws-sdk/client-evidently'); // CommonJS import
  * const client = new EvidentlyClient(config);
  * const input = { // ListSegmentsRequest
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new ListSegmentsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListSegmentsResponse
+ *   segments: [ // SegmentList
+ *     { // Segment
+ *       arn: 'STRING_VALUE', // required
+ *       name: 'STRING_VALUE', // required
+ *       pattern: 'STRING_VALUE', // required
+ *       createdTime: new Date('TIMESTAMP'), // required
+ *       lastUpdatedTime: new Date('TIMESTAMP'), // required
+ *       description: 'STRING_VALUE',
+ *       experimentCount: Number('long'),
+ *       launchCount: Number('long'),
+ *       tags: { // TagMap
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListSegmentsCommandInput - {@link ListSegmentsCommandInput}
@@ -62,6 +82,8 @@ export interface ListSegmentsCommandOutput extends ListSegmentsResponse, __Metad
  * @throws {@link ValidationException} (client fault)
  *  <p>The value of a parameter in the request caused an error.</p>
  *
+ * @throws {@link EvidentlyServiceException}
+ * <p>Base exception class for all service exceptions from Evidently service.</p>
  *
  */
 export class ListSegmentsCommand extends $Command<

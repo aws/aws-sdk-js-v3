@@ -36,15 +36,77 @@ export interface DescribeDatastoreCommandOutput extends DescribeDatastoreRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTAnalyticsClient, DescribeDatastoreCommand } from "@aws-sdk/client-iotanalytics"; // ES Modules import
- * // const { IoTAnalyticsClient, DescribeDatastoreCommand } = require("@aws-sdk/client-iotanalytics"); // CommonJS import
+ * import { IoTAnalyticsClient, DescribeDatastoreCommand } from '@aws-sdk/client-iotanalytics'; // ES Modules import
+ * // const { IoTAnalyticsClient, DescribeDatastoreCommand } = require('@aws-sdk/client-iotanalytics'); // CommonJS import
  * const client = new IoTAnalyticsClient(config);
  * const input = { // DescribeDatastoreRequest
- *   datastoreName: "STRING_VALUE", // required
+ *   datastoreName: 'STRING_VALUE', // required
  *   includeStatistics: true || false,
  * };
  * const command = new DescribeDatastoreCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeDatastoreResponse
+ *   datastore: { // Datastore
+ *     name: 'STRING_VALUE',
+ *     storage: { // DatastoreStorage Union: only one key present
+ *       serviceManagedS3: {},
+ *       customerManagedS3: { // CustomerManagedDatastoreS3Storage
+ *         bucket: 'STRING_VALUE', // required
+ *         keyPrefix: 'STRING_VALUE',
+ *         roleArn: 'STRING_VALUE', // required
+ *       },
+ *       iotSiteWiseMultiLayerStorage: { // DatastoreIotSiteWiseMultiLayerStorage
+ *         customerManagedS3Storage: { // IotSiteWiseCustomerManagedDatastoreS3Storage
+ *           bucket: 'STRING_VALUE', // required
+ *           keyPrefix: 'STRING_VALUE',
+ *         },
+ *       },
+ *     },
+ *     arn: 'STRING_VALUE',
+ *     status: 'STRING_VALUE',
+ *     retentionPeriod: { // RetentionPeriod
+ *       unlimited: true || false,
+ *       numberOfDays: Number('int'),
+ *     },
+ *     creationTime: new Date('TIMESTAMP'),
+ *     lastUpdateTime: new Date('TIMESTAMP'),
+ *     lastMessageArrivalTime: new Date('TIMESTAMP'),
+ *     fileFormatConfiguration: { // FileFormatConfiguration
+ *       jsonConfiguration: {},
+ *       parquetConfiguration: { // ParquetConfiguration
+ *         schemaDefinition: { // SchemaDefinition
+ *           columns: [ // Columns
+ *             { // Column
+ *               name: 'STRING_VALUE', // required
+ *               type: 'STRING_VALUE', // required
+ *             },
+ *           ],
+ *         },
+ *       },
+ *     },
+ *     datastorePartitions: { // DatastorePartitions
+ *       partitions: [ // Partitions
+ *         { // DatastorePartition
+ *           attributePartition: { // Partition
+ *             attributeName: 'STRING_VALUE', // required
+ *           },
+ *           timestampPartition: { // TimestampPartition
+ *             attributeName: 'STRING_VALUE', // required
+ *             timestampFormat: 'STRING_VALUE',
+ *           },
+ *         },
+ *       ],
+ *     },
+ *   },
+ *   statistics: { // DatastoreStatistics
+ *     size: { // EstimatedResourceSize
+ *       estimatedSizeInBytes: Number('double'),
+ *       estimatedOn: new Date('TIMESTAMP'),
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeDatastoreCommandInput - {@link DescribeDatastoreCommandInput}
@@ -68,6 +130,8 @@ export interface DescribeDatastoreCommandOutput extends DescribeDatastoreRespons
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
  *
+ * @throws {@link IoTAnalyticsServiceException}
+ * <p>Base exception class for all service exceptions from IoTAnalytics service.</p>
  *
  */
 export class DescribeDatastoreCommand extends $Command<

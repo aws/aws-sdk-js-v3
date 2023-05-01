@@ -43,12 +43,21 @@ export interface GetConfigurationCommandOutput extends GetConfigurationResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ServiceCatalogAppRegistryClient, GetConfigurationCommand } from "@aws-sdk/client-service-catalog-appregistry"; // ES Modules import
- * // const { ServiceCatalogAppRegistryClient, GetConfigurationCommand } = require("@aws-sdk/client-service-catalog-appregistry"); // CommonJS import
+ * import { ServiceCatalogAppRegistryClient, GetConfigurationCommand } from '@aws-sdk/client-service-catalog-appregistry'; // ES Modules import
+ * // const { ServiceCatalogAppRegistryClient, GetConfigurationCommand } = require('@aws-sdk/client-service-catalog-appregistry'); // CommonJS import
  * const client = new ServiceCatalogAppRegistryClient(config);
  * const input = {};
  * const command = new GetConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetConfigurationResponse
+ *   configuration: { // AppRegistryConfiguration
+ *     tagQueryConfiguration: { // TagQueryConfiguration
+ *       tagKey: 'STRING_VALUE',
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetConfigurationCommandInput - {@link GetConfigurationCommandInput}
@@ -60,6 +69,8 @@ export interface GetConfigurationCommandOutput extends GetConfigurationResponse,
  * @throws {@link InternalServerException} (server fault)
  *  <p>The service is experiencing internal problems.</p>
  *
+ * @throws {@link ServiceCatalogAppRegistryServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalogAppRegistry service.</p>
  *
  */
 export class GetConfigurationCommand extends $Command<

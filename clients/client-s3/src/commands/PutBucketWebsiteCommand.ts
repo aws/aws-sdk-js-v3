@@ -158,44 +158,47 @@ export interface PutBucketWebsiteCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { S3Client, PutBucketWebsiteCommand } from "@aws-sdk/client-s3"; // ES Modules import
- * // const { S3Client, PutBucketWebsiteCommand } = require("@aws-sdk/client-s3"); // CommonJS import
+ * import { S3Client, PutBucketWebsiteCommand } from '@aws-sdk/client-s3'; // ES Modules import
+ * // const { S3Client, PutBucketWebsiteCommand } = require('@aws-sdk/client-s3'); // CommonJS import
  * const client = new S3Client(config);
  * const input = { // PutBucketWebsiteRequest
- *   Bucket: "STRING_VALUE", // required
- *   ContentMD5: "STRING_VALUE",
- *   ChecksumAlgorithm: "CRC32" || "CRC32C" || "SHA1" || "SHA256",
+ *   Bucket: 'STRING_VALUE', // required
+ *   ContentMD5: 'STRING_VALUE',
+ *   ChecksumAlgorithm: 'CRC32' || 'CRC32C' || 'SHA1' || 'SHA256',
  *   WebsiteConfiguration: { // WebsiteConfiguration
  *     ErrorDocument: { // ErrorDocument
- *       Key: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
  *     },
  *     IndexDocument: { // IndexDocument
- *       Suffix: "STRING_VALUE", // required
+ *       Suffix: 'STRING_VALUE', // required
  *     },
  *     RedirectAllRequestsTo: { // RedirectAllRequestsTo
- *       HostName: "STRING_VALUE", // required
- *       Protocol: "http" || "https",
+ *       HostName: 'STRING_VALUE', // required
+ *       Protocol: 'http' || 'https',
  *     },
  *     RoutingRules: [ // RoutingRules
  *       { // RoutingRule
  *         Condition: { // Condition
- *           HttpErrorCodeReturnedEquals: "STRING_VALUE",
- *           KeyPrefixEquals: "STRING_VALUE",
+ *           HttpErrorCodeReturnedEquals: 'STRING_VALUE',
+ *           KeyPrefixEquals: 'STRING_VALUE',
  *         },
  *         Redirect: { // Redirect
- *           HostName: "STRING_VALUE",
- *           HttpRedirectCode: "STRING_VALUE",
- *           Protocol: "http" || "https",
- *           ReplaceKeyPrefixWith: "STRING_VALUE",
- *           ReplaceKeyWith: "STRING_VALUE",
+ *           HostName: 'STRING_VALUE',
+ *           HttpRedirectCode: 'STRING_VALUE',
+ *           Protocol: 'http' || 'https',
+ *           ReplaceKeyPrefixWith: 'STRING_VALUE',
+ *           ReplaceKeyWith: 'STRING_VALUE',
  *         },
  *       },
  *     ],
  *   },
- *   ExpectedBucketOwner: "STRING_VALUE",
+ *   ExpectedBucketOwner: 'STRING_VALUE',
  * };
  * const command = new PutBucketWebsiteCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutBucketWebsiteCommandInput - {@link PutBucketWebsiteCommandInput}
@@ -204,6 +207,8 @@ export interface PutBucketWebsiteCommandOutput extends __MetadataBearer {}
  * @see {@link PutBucketWebsiteCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
+ * @throws {@link S3ServiceException}
+ * <p>Base exception class for all service exceptions from S3 service.</p>
  *
  * @example Set website configuration on a bucket
  * ```javascript

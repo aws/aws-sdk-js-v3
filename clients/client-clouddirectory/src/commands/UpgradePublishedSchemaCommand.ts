@@ -36,17 +36,22 @@ export interface UpgradePublishedSchemaCommandOutput extends UpgradePublishedSch
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudDirectoryClient, UpgradePublishedSchemaCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
- * // const { CloudDirectoryClient, UpgradePublishedSchemaCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
+ * import { CloudDirectoryClient, UpgradePublishedSchemaCommand } from '@aws-sdk/client-clouddirectory'; // ES Modules import
+ * // const { CloudDirectoryClient, UpgradePublishedSchemaCommand } = require('@aws-sdk/client-clouddirectory'); // CommonJS import
  * const client = new CloudDirectoryClient(config);
  * const input = { // UpgradePublishedSchemaRequest
- *   DevelopmentSchemaArn: "STRING_VALUE", // required
- *   PublishedSchemaArn: "STRING_VALUE", // required
- *   MinorVersion: "STRING_VALUE", // required
+ *   DevelopmentSchemaArn: 'STRING_VALUE', // required
+ *   PublishedSchemaArn: 'STRING_VALUE', // required
+ *   MinorVersion: 'STRING_VALUE', // required
  *   DryRun: true || false,
  * };
  * const command = new UpgradePublishedSchemaCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpgradePublishedSchemaResponse
+ *   UpgradedSchemaArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpgradePublishedSchemaCommandInput - {@link UpgradePublishedSchemaCommandInput}
@@ -84,6 +89,8 @@ export interface UpgradePublishedSchemaCommandOutput extends UpgradePublishedSch
  *  <p>Indicates that your request is malformed in some manner. See the exception
  *       message.</p>
  *
+ * @throws {@link CloudDirectoryServiceException}
+ * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
  */
 export class UpgradePublishedSchemaCommand extends $Command<

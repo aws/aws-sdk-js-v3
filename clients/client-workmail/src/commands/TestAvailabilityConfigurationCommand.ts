@@ -52,23 +52,29 @@ export interface TestAvailabilityConfigurationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkMailClient, TestAvailabilityConfigurationCommand } from "@aws-sdk/client-workmail"; // ES Modules import
- * // const { WorkMailClient, TestAvailabilityConfigurationCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
+ * import { WorkMailClient, TestAvailabilityConfigurationCommand } from '@aws-sdk/client-workmail'; // ES Modules import
+ * // const { WorkMailClient, TestAvailabilityConfigurationCommand } = require('@aws-sdk/client-workmail'); // CommonJS import
  * const client = new WorkMailClient(config);
  * const input = { // TestAvailabilityConfigurationRequest
- *   OrganizationId: "STRING_VALUE", // required
- *   DomainName: "STRING_VALUE",
+ *   OrganizationId: 'STRING_VALUE', // required
+ *   DomainName: 'STRING_VALUE',
  *   EwsProvider: { // EwsAvailabilityProvider
- *     EwsEndpoint: "STRING_VALUE", // required
- *     EwsUsername: "STRING_VALUE", // required
- *     EwsPassword: "STRING_VALUE", // required
+ *     EwsEndpoint: 'STRING_VALUE', // required
+ *     EwsUsername: 'STRING_VALUE', // required
+ *     EwsPassword: 'STRING_VALUE', // required
  *   },
  *   LambdaProvider: { // LambdaAvailabilityProvider
- *     LambdaArn: "STRING_VALUE", // required
+ *     LambdaArn: 'STRING_VALUE', // required
  *   },
  * };
  * const command = new TestAvailabilityConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // TestAvailabilityConfigurationResponse
+ *   TestPassed: true || false,
+ *   FailureReason: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param TestAvailabilityConfigurationCommandInput - {@link TestAvailabilityConfigurationCommandInput}
@@ -91,6 +97,8 @@ export interface TestAvailabilityConfigurationCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource cannot be found.</p>
  *
+ * @throws {@link WorkMailServiceException}
+ * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
  */
 export class TestAvailabilityConfigurationCommand extends $Command<

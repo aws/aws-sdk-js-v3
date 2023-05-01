@@ -38,14 +38,19 @@ export interface DeleteTapePoolCommandOutput extends DeleteTapePoolOutput, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { StorageGatewayClient, DeleteTapePoolCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
- * // const { StorageGatewayClient, DeleteTapePoolCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
+ * import { StorageGatewayClient, DeleteTapePoolCommand } from '@aws-sdk/client-storage-gateway'; // ES Modules import
+ * // const { StorageGatewayClient, DeleteTapePoolCommand } = require('@aws-sdk/client-storage-gateway'); // CommonJS import
  * const client = new StorageGatewayClient(config);
  * const input = { // DeleteTapePoolInput
- *   PoolARN: "STRING_VALUE", // required
+ *   PoolARN: 'STRING_VALUE', // required
  * };
  * const command = new DeleteTapePoolCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteTapePoolOutput
+ *   PoolARN: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DeleteTapePoolCommandInput - {@link DeleteTapePoolCommandInput}
@@ -62,6 +67,8 @@ export interface DeleteTapePoolCommandOutput extends DeleteTapePoolOutput, __Met
  *  <p>An exception occurred because an invalid gateway request was issued to the service. For
  *          more information, see the error and message fields.</p>
  *
+ * @throws {@link StorageGatewayServiceException}
+ * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
  */
 export class DeleteTapePoolCommand extends $Command<

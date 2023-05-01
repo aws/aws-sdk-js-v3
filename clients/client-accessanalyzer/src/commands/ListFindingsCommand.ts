@@ -37,34 +37,71 @@ export interface ListFindingsCommandOutput extends ListFindingsResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AccessAnalyzerClient, ListFindingsCommand } from "@aws-sdk/client-accessanalyzer"; // ES Modules import
- * // const { AccessAnalyzerClient, ListFindingsCommand } = require("@aws-sdk/client-accessanalyzer"); // CommonJS import
+ * import { AccessAnalyzerClient, ListFindingsCommand } from '@aws-sdk/client-accessanalyzer'; // ES Modules import
+ * // const { AccessAnalyzerClient, ListFindingsCommand } = require('@aws-sdk/client-accessanalyzer'); // CommonJS import
  * const client = new AccessAnalyzerClient(config);
  * const input = { // ListFindingsRequest
- *   analyzerArn: "STRING_VALUE", // required
+ *   analyzerArn: 'STRING_VALUE', // required
  *   filter: { // FilterCriteriaMap
- *     "<keys>": { // Criterion
+ *     '<keys>': { // Criterion
  *       eq: [ // ValueList
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *       neq: [
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *       contains: [
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *       exists: true || false,
  *     },
  *   },
  *   sort: { // SortCriteria
- *     attributeName: "STRING_VALUE",
- *     orderBy: "STRING_VALUE",
+ *     attributeName: 'STRING_VALUE',
+ *     orderBy: 'STRING_VALUE',
  *   },
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new ListFindingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListFindingsResponse
+ *   findings: [ // FindingsList // required
+ *     { // FindingSummary
+ *       id: 'STRING_VALUE', // required
+ *       principal: { // PrincipalMap
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *       action: [ // ActionList
+ *         'STRING_VALUE',
+ *       ],
+ *       resource: 'STRING_VALUE',
+ *       isPublic: true || false,
+ *       resourceType: 'STRING_VALUE', // required
+ *       condition: { // ConditionKeyMap // required
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *       createdAt: new Date('TIMESTAMP'), // required
+ *       analyzedAt: new Date('TIMESTAMP'), // required
+ *       updatedAt: new Date('TIMESTAMP'), // required
+ *       status: 'STRING_VALUE', // required
+ *       resourceOwnerAccount: 'STRING_VALUE', // required
+ *       error: 'STRING_VALUE',
+ *       sources: [ // FindingSourceList
+ *         { // FindingSource
+ *           type: 'STRING_VALUE', // required
+ *           detail: { // FindingSourceDetail
+ *             accessPointArn: 'STRING_VALUE',
+ *             accessPointAccount: 'STRING_VALUE',
+ *           },
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListFindingsCommandInput - {@link ListFindingsCommandInput}
@@ -88,6 +125,8 @@ export interface ListFindingsCommandOutput extends ListFindingsResponse, __Metad
  * @throws {@link ValidationException} (client fault)
  *  <p>Validation exception error.</p>
  *
+ * @throws {@link AccessAnalyzerServiceException}
+ * <p>Base exception class for all service exceptions from AccessAnalyzer service.</p>
  *
  */
 export class ListFindingsCommand extends $Command<

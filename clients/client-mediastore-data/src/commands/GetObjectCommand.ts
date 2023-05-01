@@ -39,15 +39,27 @@ export interface GetObjectCommandOutput extends __WithSdkStreamMixin<GetObjectRe
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MediaStoreDataClient, GetObjectCommand } from "@aws-sdk/client-mediastore-data"; // ES Modules import
- * // const { MediaStoreDataClient, GetObjectCommand } = require("@aws-sdk/client-mediastore-data"); // CommonJS import
+ * import { MediaStoreDataClient, GetObjectCommand } from '@aws-sdk/client-mediastore-data'; // ES Modules import
+ * // const { MediaStoreDataClient, GetObjectCommand } = require('@aws-sdk/client-mediastore-data'); // CommonJS import
  * const client = new MediaStoreDataClient(config);
  * const input = { // GetObjectRequest
- *   Path: "STRING_VALUE", // required
- *   Range: "STRING_VALUE",
+ *   Path: 'STRING_VALUE', // required
+ *   Range: 'STRING_VALUE',
  * };
  * const command = new GetObjectCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetObjectResponse
+ *   Body: 'STREAMING_BLOB_VALUE',
+ *   CacheControl: 'STRING_VALUE',
+ *   ContentRange: 'STRING_VALUE',
+ *   ContentLength: Number('long'),
+ *   ContentType: 'STRING_VALUE',
+ *   ETag: 'STRING_VALUE',
+ *   LastModified: new Date('TIMESTAMP'),
+ *   StatusCode: Number('int'), // required
+ * };
+ *
  * ```
  *
  * @param GetObjectCommandInput - {@link GetObjectCommandInput}
@@ -68,6 +80,8 @@ export interface GetObjectCommandOutput extends __WithSdkStreamMixin<GetObjectRe
  * @throws {@link RequestedRangeNotSatisfiableException} (client fault)
  *  <p>The requested content range is not valid.</p>
  *
+ * @throws {@link MediaStoreDataServiceException}
+ * <p>Base exception class for all service exceptions from MediaStoreData service.</p>
  *
  */
 export class GetObjectCommand extends $Command<

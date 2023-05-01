@@ -53,16 +53,25 @@ export interface DescribeAffectedAccountsForOrganizationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { HealthClient, DescribeAffectedAccountsForOrganizationCommand } from "@aws-sdk/client-health"; // ES Modules import
- * // const { HealthClient, DescribeAffectedAccountsForOrganizationCommand } = require("@aws-sdk/client-health"); // CommonJS import
+ * import { HealthClient, DescribeAffectedAccountsForOrganizationCommand } from '@aws-sdk/client-health'; // ES Modules import
+ * // const { HealthClient, DescribeAffectedAccountsForOrganizationCommand } = require('@aws-sdk/client-health'); // CommonJS import
  * const client = new HealthClient(config);
  * const input = { // DescribeAffectedAccountsForOrganizationRequest
- *   eventArn: "STRING_VALUE", // required
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   eventArn: 'STRING_VALUE', // required
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new DescribeAffectedAccountsForOrganizationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeAffectedAccountsForOrganizationResponse
+ *   affectedAccounts: [ // affectedAccountsList
+ *     'STRING_VALUE',
+ *   ],
+ *   eventScopeCode: 'STRING_VALUE',
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeAffectedAccountsForOrganizationCommandInput - {@link DescribeAffectedAccountsForOrganizationCommandInput}
@@ -74,6 +83,8 @@ export interface DescribeAffectedAccountsForOrganizationCommandOutput
  * @throws {@link InvalidPaginationToken} (client fault)
  *  <p>The specified pagination token (<code>nextToken</code>) is not valid.</p>
  *
+ * @throws {@link HealthServiceException}
+ * <p>Base exception class for all service exceptions from Health service.</p>
  *
  */
 export class DescribeAffectedAccountsForOrganizationCommand extends $Command<

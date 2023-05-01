@@ -43,15 +43,21 @@ export interface GetSolFunctionPackageDescriptorCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { TnbClient, GetSolFunctionPackageDescriptorCommand } from "@aws-sdk/client-tnb"; // ES Modules import
- * // const { TnbClient, GetSolFunctionPackageDescriptorCommand } = require("@aws-sdk/client-tnb"); // CommonJS import
+ * import { TnbClient, GetSolFunctionPackageDescriptorCommand } from '@aws-sdk/client-tnb'; // ES Modules import
+ * // const { TnbClient, GetSolFunctionPackageDescriptorCommand } = require('@aws-sdk/client-tnb'); // CommonJS import
  * const client = new TnbClient(config);
  * const input = { // GetSolFunctionPackageDescriptorInput
- *   vnfPkgId: "STRING_VALUE", // required
- *   accept: "text/plain", // required
+ *   vnfPkgId: 'STRING_VALUE', // required
+ *   accept: 'text/plain', // required
  * };
  * const command = new GetSolFunctionPackageDescriptorCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetSolFunctionPackageDescriptorOutput
+ *   contentType: 'text/plain',
+ *   vnfd: 'BLOB_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetSolFunctionPackageDescriptorCommandInput - {@link GetSolFunctionPackageDescriptorCommandInput}
@@ -75,6 +81,8 @@ export interface GetSolFunctionPackageDescriptorCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>Unable to process the request because the client provided input failed to satisfy request constraints.</p>
  *
+ * @throws {@link TnbServiceException}
+ * <p>Base exception class for all service exceptions from Tnb service.</p>
  *
  */
 export class GetSolFunctionPackageDescriptorCommand extends $Command<

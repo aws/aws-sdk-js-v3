@@ -36,20 +36,25 @@ export interface UpdateUserCommandOutput extends UpdateUserResponse, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FinspaceDataClient, UpdateUserCommand } from "@aws-sdk/client-finspace-data"; // ES Modules import
- * // const { FinspaceDataClient, UpdateUserCommand } = require("@aws-sdk/client-finspace-data"); // CommonJS import
+ * import { FinspaceDataClient, UpdateUserCommand } from '@aws-sdk/client-finspace-data'; // ES Modules import
+ * // const { FinspaceDataClient, UpdateUserCommand } = require('@aws-sdk/client-finspace-data'); // CommonJS import
  * const client = new FinspaceDataClient(config);
  * const input = { // UpdateUserRequest
- *   userId: "STRING_VALUE", // required
- *   type: "STRING_VALUE",
- *   firstName: "STRING_VALUE",
- *   lastName: "STRING_VALUE",
- *   apiAccess: "STRING_VALUE",
- *   apiAccessPrincipalArn: "STRING_VALUE",
- *   clientToken: "STRING_VALUE",
+ *   userId: 'STRING_VALUE', // required
+ *   type: 'STRING_VALUE',
+ *   firstName: 'STRING_VALUE',
+ *   lastName: 'STRING_VALUE',
+ *   apiAccess: 'STRING_VALUE',
+ *   apiAccessPrincipalArn: 'STRING_VALUE',
+ *   clientToken: 'STRING_VALUE',
  * };
  * const command = new UpdateUserCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateUserResponse
+ *   userId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateUserCommandInput - {@link UpdateUserCommandInput}
@@ -77,6 +82,8 @@ export interface UpdateUserCommandOutput extends UpdateUserResponse, __MetadataB
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link FinspaceDataServiceException}
+ * <p>Base exception class for all service exceptions from FinspaceData service.</p>
  *
  */
 export class UpdateUserCommand extends $Command<

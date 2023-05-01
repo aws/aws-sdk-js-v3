@@ -42,25 +42,143 @@ export interface DescribeStorageSystemResourcesCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DataSyncClient, DescribeStorageSystemResourcesCommand } from "@aws-sdk/client-datasync"; // ES Modules import
- * // const { DataSyncClient, DescribeStorageSystemResourcesCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
+ * import { DataSyncClient, DescribeStorageSystemResourcesCommand } from '@aws-sdk/client-datasync'; // ES Modules import
+ * // const { DataSyncClient, DescribeStorageSystemResourcesCommand } = require('@aws-sdk/client-datasync'); // CommonJS import
  * const client = new DataSyncClient(config);
  * const input = { // DescribeStorageSystemResourcesRequest
- *   DiscoveryJobArn: "STRING_VALUE", // required
- *   ResourceType: "SVM" || "VOLUME" || "CLUSTER", // required
+ *   DiscoveryJobArn: 'STRING_VALUE', // required
+ *   ResourceType: 'SVM' || 'VOLUME' || 'CLUSTER', // required
  *   ResourceIds: [ // ResourceIds
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   Filter: { // ResourceFilters
- *     "<keys>": [ // FilterMembers
- *       "STRING_VALUE",
+ *     '<keys>': [ // FilterMembers
+ *       'STRING_VALUE',
  *     ],
  *   },
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new DescribeStorageSystemResourcesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeStorageSystemResourcesResponse
+ *   ResourceDetails: { // ResourceDetails
+ *     NetAppONTAPSVMs: [ // NetAppONTAPSVMs
+ *       { // NetAppONTAPSVM
+ *         ClusterUuid: 'STRING_VALUE',
+ *         ResourceId: 'STRING_VALUE',
+ *         SvmName: 'STRING_VALUE',
+ *         CifsShareCount: Number('long'),
+ *         EnabledProtocols: [ // EnabledProtocols
+ *           'STRING_VALUE',
+ *         ],
+ *         TotalCapacityUsed: Number('long'),
+ *         TotalCapacityProvisioned: Number('long'),
+ *         TotalLogicalCapacityUsed: Number('long'),
+ *         MaxP95Performance: { // MaxP95Performance
+ *           IopsRead: Number('double'),
+ *           IopsWrite: Number('double'),
+ *           IopsOther: Number('double'),
+ *           IopsTotal: Number('double'),
+ *           ThroughputRead: Number('double'),
+ *           ThroughputWrite: Number('double'),
+ *           ThroughputOther: Number('double'),
+ *           ThroughputTotal: Number('double'),
+ *           LatencyRead: Number('double'),
+ *           LatencyWrite: Number('double'),
+ *           LatencyOther: Number('double'),
+ *         },
+ *         Recommendations: [ // Recommendations
+ *           { // Recommendation
+ *             StorageType: 'STRING_VALUE',
+ *             StorageConfiguration: { // RecommendationsConfigMap
+ *               '<keys>': 'STRING_VALUE',
+ *             },
+ *             EstimatedMonthlyStorageCost: 'STRING_VALUE',
+ *           },
+ *         ],
+ *         NfsExportedVolumes: Number('long'),
+ *         RecommendationStatus: 'NONE' || 'IN_PROGRESS' || 'COMPLETED' || 'FAILED',
+ *         TotalSnapshotCapacityUsed: Number('long'),
+ *       },
+ *     ],
+ *     NetAppONTAPVolumes: [ // NetAppONTAPVolumes
+ *       { // NetAppONTAPVolume
+ *         VolumeName: 'STRING_VALUE',
+ *         ResourceId: 'STRING_VALUE',
+ *         CifsShareCount: Number('long'),
+ *         SecurityStyle: 'STRING_VALUE',
+ *         SvmUuid: 'STRING_VALUE',
+ *         SvmName: 'STRING_VALUE',
+ *         CapacityUsed: Number('long'),
+ *         CapacityProvisioned: Number('long'),
+ *         LogicalCapacityUsed: Number('long'),
+ *         NfsExported: true || false,
+ *         SnapshotCapacityUsed: Number('long'),
+ *         MaxP95Performance: {
+ *           IopsRead: Number('double'),
+ *           IopsWrite: Number('double'),
+ *           IopsOther: Number('double'),
+ *           IopsTotal: Number('double'),
+ *           ThroughputRead: Number('double'),
+ *           ThroughputWrite: Number('double'),
+ *           ThroughputOther: Number('double'),
+ *           ThroughputTotal: Number('double'),
+ *           LatencyRead: Number('double'),
+ *           LatencyWrite: Number('double'),
+ *           LatencyOther: Number('double'),
+ *         },
+ *         Recommendations: [
+ *           {
+ *             StorageType: 'STRING_VALUE',
+ *             StorageConfiguration: {
+ *               '<keys>': 'STRING_VALUE',
+ *             },
+ *             EstimatedMonthlyStorageCost: 'STRING_VALUE',
+ *           },
+ *         ],
+ *         RecommendationStatus: 'NONE' || 'IN_PROGRESS' || 'COMPLETED' || 'FAILED',
+ *       },
+ *     ],
+ *     NetAppONTAPClusters: [ // NetAppONTAPClusters
+ *       { // NetAppONTAPCluster
+ *         CifsShareCount: Number('long'),
+ *         NfsExportedVolumes: Number('long'),
+ *         ResourceId: 'STRING_VALUE',
+ *         ClusterName: 'STRING_VALUE',
+ *         MaxP95Performance: {
+ *           IopsRead: Number('double'),
+ *           IopsWrite: Number('double'),
+ *           IopsOther: Number('double'),
+ *           IopsTotal: Number('double'),
+ *           ThroughputRead: Number('double'),
+ *           ThroughputWrite: Number('double'),
+ *           ThroughputOther: Number('double'),
+ *           ThroughputTotal: Number('double'),
+ *           LatencyRead: Number('double'),
+ *           LatencyWrite: Number('double'),
+ *           LatencyOther: Number('double'),
+ *         },
+ *         ClusterBlockStorageSize: Number('long'),
+ *         ClusterBlockStorageUsed: Number('long'),
+ *         ClusterBlockStorageLogicalUsed: Number('long'),
+ *         Recommendations: [
+ *           {
+ *             StorageType: 'STRING_VALUE',
+ *             StorageConfiguration: {
+ *               '<keys>': 'STRING_VALUE',
+ *             },
+ *             EstimatedMonthlyStorageCost: 'STRING_VALUE',
+ *           },
+ *         ],
+ *         RecommendationStatus: 'NONE' || 'IN_PROGRESS' || 'COMPLETED' || 'FAILED',
+ *       },
+ *     ],
+ *   },
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeStorageSystemResourcesCommandInput - {@link DescribeStorageSystemResourcesCommandInput}
@@ -76,6 +194,8 @@ export interface DescribeStorageSystemResourcesCommandOutput
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception is thrown when the client submits a malformed request.</p>
  *
+ * @throws {@link DataSyncServiceException}
+ * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
  */
 export class DescribeStorageSystemResourcesCommand extends $Command<

@@ -41,28 +41,57 @@ export interface CreateProxySessionCommandOutput extends CreateProxySessionRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeClient, CreateProxySessionCommand } from "@aws-sdk/client-chime"; // ES Modules import
- * // const { ChimeClient, CreateProxySessionCommand } = require("@aws-sdk/client-chime"); // CommonJS import
+ * import { ChimeClient, CreateProxySessionCommand } from '@aws-sdk/client-chime'; // ES Modules import
+ * // const { ChimeClient, CreateProxySessionCommand } = require('@aws-sdk/client-chime'); // CommonJS import
  * const client = new ChimeClient(config);
  * const input = { // CreateProxySessionRequest
- *   VoiceConnectorId: "STRING_VALUE", // required
+ *   VoiceConnectorId: 'STRING_VALUE', // required
  *   ParticipantPhoneNumbers: [ // ParticipantPhoneNumberList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   Name: "STRING_VALUE",
- *   ExpiryMinutes: Number("int"),
+ *   Name: 'STRING_VALUE',
+ *   ExpiryMinutes: Number('int'),
  *   Capabilities: [ // CapabilityList // required
- *     "Voice" || "SMS",
+ *     'Voice' || 'SMS',
  *   ],
- *   NumberSelectionBehavior: "PreferSticky" || "AvoidSticky",
- *   GeoMatchLevel: "Country" || "AreaCode",
+ *   NumberSelectionBehavior: 'PreferSticky' || 'AvoidSticky',
+ *   GeoMatchLevel: 'Country' || 'AreaCode',
  *   GeoMatchParams: { // GeoMatchParams
- *     Country: "STRING_VALUE", // required
- *     AreaCode: "STRING_VALUE", // required
+ *     Country: 'STRING_VALUE', // required
+ *     AreaCode: 'STRING_VALUE', // required
  *   },
  * };
  * const command = new CreateProxySessionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateProxySessionResponse
+ *   ProxySession: { // ProxySession
+ *     VoiceConnectorId: 'STRING_VALUE',
+ *     ProxySessionId: 'STRING_VALUE',
+ *     Name: 'STRING_VALUE',
+ *     Status: 'Open' || 'InProgress' || 'Closed',
+ *     ExpiryMinutes: Number('int'),
+ *     Capabilities: [ // CapabilityList
+ *       'Voice' || 'SMS',
+ *     ],
+ *     CreatedTimestamp: new Date('TIMESTAMP'),
+ *     UpdatedTimestamp: new Date('TIMESTAMP'),
+ *     EndedTimestamp: new Date('TIMESTAMP'),
+ *     Participants: [ // Participants
+ *       { // Participant
+ *         PhoneNumber: 'STRING_VALUE',
+ *         ProxyPhoneNumber: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     NumberSelectionBehavior: 'PreferSticky' || 'AvoidSticky',
+ *     GeoMatchLevel: 'Country' || 'AreaCode',
+ *     GeoMatchParams: { // GeoMatchParams
+ *       Country: 'STRING_VALUE', // required
+ *       AreaCode: 'STRING_VALUE', // required
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateProxySessionCommandInput - {@link CreateProxySessionCommandInput}
@@ -92,6 +121,8 @@ export interface CreateProxySessionCommandOutput extends CreateProxySessionRespo
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeServiceException}
+ * <p>Base exception class for all service exceptions from Chime service.</p>
  *
  */
 export class CreateProxySessionCommand extends $Command<

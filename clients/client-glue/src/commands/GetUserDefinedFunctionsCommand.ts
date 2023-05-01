@@ -36,18 +36,40 @@ export interface GetUserDefinedFunctionsCommandOutput extends GetUserDefinedFunc
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlueClient, GetUserDefinedFunctionsCommand } from "@aws-sdk/client-glue"; // ES Modules import
- * // const { GlueClient, GetUserDefinedFunctionsCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * import { GlueClient, GetUserDefinedFunctionsCommand } from '@aws-sdk/client-glue'; // ES Modules import
+ * // const { GlueClient, GetUserDefinedFunctionsCommand } = require('@aws-sdk/client-glue'); // CommonJS import
  * const client = new GlueClient(config);
  * const input = { // GetUserDefinedFunctionsRequest
- *   CatalogId: "STRING_VALUE",
- *   DatabaseName: "STRING_VALUE",
- *   Pattern: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   CatalogId: 'STRING_VALUE',
+ *   DatabaseName: 'STRING_VALUE',
+ *   Pattern: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new GetUserDefinedFunctionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetUserDefinedFunctionsResponse
+ *   UserDefinedFunctions: [ // UserDefinedFunctionList
+ *     { // UserDefinedFunction
+ *       FunctionName: 'STRING_VALUE',
+ *       DatabaseName: 'STRING_VALUE',
+ *       ClassName: 'STRING_VALUE',
+ *       OwnerName: 'STRING_VALUE',
+ *       OwnerType: 'USER' || 'ROLE' || 'GROUP',
+ *       CreateTime: new Date('TIMESTAMP'),
+ *       ResourceUris: [ // ResourceUriList
+ *         { // ResourceUri
+ *           ResourceType: 'JAR' || 'FILE' || 'ARCHIVE',
+ *           Uri: 'STRING_VALUE',
+ *         },
+ *       ],
+ *       CatalogId: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetUserDefinedFunctionsCommandInput - {@link GetUserDefinedFunctionsCommandInput}
@@ -71,6 +93,8 @@ export interface GetUserDefinedFunctionsCommandOutput extends GetUserDefinedFunc
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class GetUserDefinedFunctionsCommand extends $Command<

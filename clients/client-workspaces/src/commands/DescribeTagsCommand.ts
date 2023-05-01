@@ -36,14 +36,24 @@ export interface DescribeTagsCommandOutput extends DescribeTagsResult, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkSpacesClient, DescribeTagsCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
- * // const { WorkSpacesClient, DescribeTagsCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
+ * import { WorkSpacesClient, DescribeTagsCommand } from '@aws-sdk/client-workspaces'; // ES Modules import
+ * // const { WorkSpacesClient, DescribeTagsCommand } = require('@aws-sdk/client-workspaces'); // CommonJS import
  * const client = new WorkSpacesClient(config);
  * const input = { // DescribeTagsRequest
- *   ResourceId: "STRING_VALUE", // required
+ *   ResourceId: 'STRING_VALUE', // required
  * };
  * const command = new DescribeTagsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeTagsResult
+ *   TagList: [ // TagList
+ *     { // Tag
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeTagsCommandInput - {@link DescribeTagsCommandInput}
@@ -55,6 +65,8 @@ export interface DescribeTagsCommandOutput extends DescribeTagsResult, __Metadat
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource could not be found.</p>
  *
+ * @throws {@link WorkSpacesServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
  */
 export class DescribeTagsCommand extends $Command<

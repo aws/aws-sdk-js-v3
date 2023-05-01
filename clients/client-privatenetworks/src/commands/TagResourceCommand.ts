@@ -38,17 +38,20 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PrivateNetworksClient, TagResourceCommand } from "@aws-sdk/client-privatenetworks"; // ES Modules import
- * // const { PrivateNetworksClient, TagResourceCommand } = require("@aws-sdk/client-privatenetworks"); // CommonJS import
+ * import { PrivateNetworksClient, TagResourceCommand } from '@aws-sdk/client-privatenetworks'; // ES Modules import
+ * // const { PrivateNetworksClient, TagResourceCommand } = require('@aws-sdk/client-privatenetworks'); // CommonJS import
  * const client = new PrivateNetworksClient(config);
  * const input = { // TagResourceRequest
- *   resourceArn: "STRING_VALUE", // required
+ *   resourceArn: 'STRING_VALUE', // required
  *   tags: { // TagMap // required
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param TagResourceCommandInput - {@link TagResourceCommandInput}
@@ -74,6 +77,8 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @throws {@link ValidationException} (client fault)
  *  <p>The request failed validation.</p>
  *
+ * @throws {@link PrivateNetworksServiceException}
+ * <p>Base exception class for all service exceptions from PrivateNetworks service.</p>
  *
  */
 export class TagResourceCommand extends $Command<

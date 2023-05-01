@@ -40,15 +40,18 @@ export interface DeleteUserCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, DeleteUserCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, DeleteUserCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, DeleteUserCommand } from '@aws-sdk/client-connect'; // ES Modules import
+ * // const { ConnectClient, DeleteUserCommand } = require('@aws-sdk/client-connect'); // CommonJS import
  * const client = new ConnectClient(config);
  * const input = { // DeleteUserRequest
- *   InstanceId: "STRING_VALUE", // required
- *   UserId: "STRING_VALUE", // required
+ *   InstanceId: 'STRING_VALUE', // required
+ *   UserId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteUserCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteUserCommandInput - {@link DeleteUserCommandInput}
@@ -72,6 +75,8 @@ export interface DeleteUserCommandOutput extends __MetadataBearer {}
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class DeleteUserCommand extends $Command<

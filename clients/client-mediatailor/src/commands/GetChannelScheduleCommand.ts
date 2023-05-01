@@ -36,17 +36,43 @@ export interface GetChannelScheduleCommandOutput extends GetChannelScheduleRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MediaTailorClient, GetChannelScheduleCommand } from "@aws-sdk/client-mediatailor"; // ES Modules import
- * // const { MediaTailorClient, GetChannelScheduleCommand } = require("@aws-sdk/client-mediatailor"); // CommonJS import
+ * import { MediaTailorClient, GetChannelScheduleCommand } from '@aws-sdk/client-mediatailor'; // ES Modules import
+ * // const { MediaTailorClient, GetChannelScheduleCommand } = require('@aws-sdk/client-mediatailor'); // CommonJS import
  * const client = new MediaTailorClient(config);
  * const input = { // GetChannelScheduleRequest
- *   ChannelName: "STRING_VALUE", // required
- *   DurationMinutes: "STRING_VALUE",
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   ChannelName: 'STRING_VALUE', // required
+ *   DurationMinutes: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new GetChannelScheduleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetChannelScheduleResponse
+ *   Items: [ // __listOfScheduleEntry
+ *     { // ScheduleEntry
+ *       ApproximateDurationSeconds: Number('long'),
+ *       ApproximateStartTime: new Date('TIMESTAMP'),
+ *       Arn: 'STRING_VALUE', // required
+ *       ChannelName: 'STRING_VALUE', // required
+ *       LiveSourceName: 'STRING_VALUE',
+ *       ProgramName: 'STRING_VALUE', // required
+ *       ScheduleAdBreaks: [ // __listOfScheduleAdBreak
+ *         { // ScheduleAdBreak
+ *           ApproximateDurationSeconds: Number('long'),
+ *           ApproximateStartTime: new Date('TIMESTAMP'),
+ *           SourceLocationName: 'STRING_VALUE',
+ *           VodSourceName: 'STRING_VALUE',
+ *         },
+ *       ],
+ *       ScheduleEntryType: 'PROGRAM' || 'FILLER_SLATE',
+ *       SourceLocationName: 'STRING_VALUE', // required
+ *       VodSourceName: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetChannelScheduleCommandInput - {@link GetChannelScheduleCommandInput}
@@ -55,6 +81,8 @@ export interface GetChannelScheduleCommandOutput extends GetChannelScheduleRespo
  * @see {@link GetChannelScheduleCommandOutput} for command's `response` shape.
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.
  *
+ * @throws {@link MediaTailorServiceException}
+ * <p>Base exception class for all service exceptions from MediaTailor service.</p>
  *
  */
 export class GetChannelScheduleCommand extends $Command<

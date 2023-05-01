@@ -45,18 +45,23 @@ export interface DisableAwsNetworkPerformanceMetricSubscriptionCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, DisableAwsNetworkPerformanceMetricSubscriptionCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, DisableAwsNetworkPerformanceMetricSubscriptionCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, DisableAwsNetworkPerformanceMetricSubscriptionCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, DisableAwsNetworkPerformanceMetricSubscriptionCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // DisableAwsNetworkPerformanceMetricSubscriptionRequest
- *   Source: "STRING_VALUE",
- *   Destination: "STRING_VALUE",
- *   Metric: "aggregate-latency",
- *   Statistic: "p50",
+ *   Source: 'STRING_VALUE',
+ *   Destination: 'STRING_VALUE',
+ *   Metric: 'aggregate-latency',
+ *   Statistic: 'p50',
  *   DryRun: true || false,
  * };
  * const command = new DisableAwsNetworkPerformanceMetricSubscriptionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DisableAwsNetworkPerformanceMetricSubscriptionResult
+ *   Output: true || false,
+ * };
+ *
  * ```
  *
  * @param DisableAwsNetworkPerformanceMetricSubscriptionCommandInput - {@link DisableAwsNetworkPerformanceMetricSubscriptionCommandInput}
@@ -65,6 +70,8 @@ export interface DisableAwsNetworkPerformanceMetricSubscriptionCommandOutput
  * @see {@link DisableAwsNetworkPerformanceMetricSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class DisableAwsNetworkPerformanceMetricSubscriptionCommand extends $Command<

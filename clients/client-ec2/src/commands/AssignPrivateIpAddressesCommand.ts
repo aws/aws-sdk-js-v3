@@ -51,23 +51,38 @@ export interface AssignPrivateIpAddressesCommandOutput extends AssignPrivateIpAd
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, AssignPrivateIpAddressesCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, AssignPrivateIpAddressesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, AssignPrivateIpAddressesCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, AssignPrivateIpAddressesCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // AssignPrivateIpAddressesRequest
  *   AllowReassignment: true || false,
- *   NetworkInterfaceId: "STRING_VALUE", // required
+ *   NetworkInterfaceId: 'STRING_VALUE', // required
  *   PrivateIpAddresses: [ // PrivateIpAddressStringList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   SecondaryPrivateIpAddressCount: Number("int"),
+ *   SecondaryPrivateIpAddressCount: Number('int'),
  *   Ipv4Prefixes: [ // IpPrefixList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   Ipv4PrefixCount: Number("int"),
+ *   Ipv4PrefixCount: Number('int'),
  * };
  * const command = new AssignPrivateIpAddressesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AssignPrivateIpAddressesResult
+ *   NetworkInterfaceId: 'STRING_VALUE',
+ *   AssignedPrivateIpAddresses: [ // AssignedPrivateIpAddressList
+ *     { // AssignedPrivateIpAddress
+ *       PrivateIpAddress: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   AssignedIpv4Prefixes: [ // Ipv4PrefixesList
+ *     { // Ipv4PrefixSpecification
+ *       Ipv4Prefix: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param AssignPrivateIpAddressesCommandInput - {@link AssignPrivateIpAddressesCommandInput}
@@ -76,6 +91,8 @@ export interface AssignPrivateIpAddressesCommandOutput extends AssignPrivateIpAd
  * @see {@link AssignPrivateIpAddressesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @example To assign a specific secondary private IP address to an interface
  * ```javascript

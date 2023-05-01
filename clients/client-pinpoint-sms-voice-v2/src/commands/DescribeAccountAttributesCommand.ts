@@ -46,15 +46,26 @@ export interface DescribeAccountAttributesCommandOutput extends DescribeAccountA
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PinpointSMSVoiceV2Client, DescribeAccountAttributesCommand } from "@aws-sdk/client-pinpoint-sms-voice-v2"; // ES Modules import
- * // const { PinpointSMSVoiceV2Client, DescribeAccountAttributesCommand } = require("@aws-sdk/client-pinpoint-sms-voice-v2"); // CommonJS import
+ * import { PinpointSMSVoiceV2Client, DescribeAccountAttributesCommand } from '@aws-sdk/client-pinpoint-sms-voice-v2'; // ES Modules import
+ * // const { PinpointSMSVoiceV2Client, DescribeAccountAttributesCommand } = require('@aws-sdk/client-pinpoint-sms-voice-v2'); // CommonJS import
  * const client = new PinpointSMSVoiceV2Client(config);
  * const input = { // DescribeAccountAttributesRequest
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new DescribeAccountAttributesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeAccountAttributesResult
+ *   AccountAttributes: [ // AccountAttributeList
+ *     { // AccountAttribute
+ *       Name: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeAccountAttributesCommandInput - {@link DescribeAccountAttributesCommandInput}
@@ -78,6 +89,8 @@ export interface DescribeAccountAttributesCommandOutput extends DescribeAccountA
  * @throws {@link ValidationException} (client fault)
  *  <p>A validation exception for a field.</p>
  *
+ * @throws {@link PinpointSMSVoiceV2ServiceException}
+ * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
  *
  */
 export class DescribeAccountAttributesCommand extends $Command<

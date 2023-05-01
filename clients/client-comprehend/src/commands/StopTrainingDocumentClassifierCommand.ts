@@ -46,14 +46,17 @@ export interface StopTrainingDocumentClassifierCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ComprehendClient, StopTrainingDocumentClassifierCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
- * // const { ComprehendClient, StopTrainingDocumentClassifierCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
+ * import { ComprehendClient, StopTrainingDocumentClassifierCommand } from '@aws-sdk/client-comprehend'; // ES Modules import
+ * // const { ComprehendClient, StopTrainingDocumentClassifierCommand } = require('@aws-sdk/client-comprehend'); // CommonJS import
  * const client = new ComprehendClient(config);
  * const input = { // StopTrainingDocumentClassifierRequest
- *   DocumentClassifierArn: "STRING_VALUE", // required
+ *   DocumentClassifierArn: 'STRING_VALUE', // required
  * };
  * const command = new StopTrainingDocumentClassifierCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param StopTrainingDocumentClassifierCommandInput - {@link StopTrainingDocumentClassifierCommandInput}
@@ -74,6 +77,8 @@ export interface StopTrainingDocumentClassifierCommandOutput
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>The number of requests exceeds the limit. Resubmit your request later.</p>
  *
+ * @throws {@link ComprehendServiceException}
+ * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
  */
 export class StopTrainingDocumentClassifierCommand extends $Command<

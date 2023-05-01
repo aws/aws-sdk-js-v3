@@ -43,14 +43,19 @@ export interface DeleteProjectVersionCommandOutput extends DeleteProjectVersionR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RekognitionClient, DeleteProjectVersionCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
- * // const { RekognitionClient, DeleteProjectVersionCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
+ * import { RekognitionClient, DeleteProjectVersionCommand } from '@aws-sdk/client-rekognition'; // ES Modules import
+ * // const { RekognitionClient, DeleteProjectVersionCommand } = require('@aws-sdk/client-rekognition'); // CommonJS import
  * const client = new RekognitionClient(config);
  * const input = { // DeleteProjectVersionRequest
- *   ProjectVersionArn: "STRING_VALUE", // required
+ *   ProjectVersionArn: 'STRING_VALUE', // required
  * };
  * const command = new DeleteProjectVersionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteProjectVersionResponse
+ *   Status: 'TRAINING_IN_PROGRESS' || 'TRAINING_COMPLETED' || 'TRAINING_FAILED' || 'STARTING' || 'RUNNING' || 'FAILED' || 'STOPPING' || 'STOPPED' || 'DELETING' || 'COPYING_IN_PROGRESS' || 'COPYING_COMPLETED' || 'COPYING_FAILED',
+ * };
+ *
  * ```
  *
  * @param DeleteProjectVersionCommandInput - {@link DeleteProjectVersionCommandInput}
@@ -82,6 +87,8 @@ export interface DeleteProjectVersionCommandOutput extends DeleteProjectVersionR
  * @throws {@link ThrottlingException} (server fault)
  *  <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
  *
+ * @throws {@link RekognitionServiceException}
+ * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
  */
 export class DeleteProjectVersionCommand extends $Command<

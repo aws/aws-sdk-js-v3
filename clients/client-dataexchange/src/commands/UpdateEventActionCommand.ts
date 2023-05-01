@@ -36,26 +36,51 @@ export interface UpdateEventActionCommandOutput extends UpdateEventActionRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DataExchangeClient, UpdateEventActionCommand } from "@aws-sdk/client-dataexchange"; // ES Modules import
- * // const { DataExchangeClient, UpdateEventActionCommand } = require("@aws-sdk/client-dataexchange"); // CommonJS import
+ * import { DataExchangeClient, UpdateEventActionCommand } from '@aws-sdk/client-dataexchange'; // ES Modules import
+ * // const { DataExchangeClient, UpdateEventActionCommand } = require('@aws-sdk/client-dataexchange'); // CommonJS import
  * const client = new DataExchangeClient(config);
  * const input = { // UpdateEventActionRequest
  *   Action: { // Action
  *     ExportRevisionToS3: { // AutoExportRevisionToS3RequestDetails
  *       Encryption: { // ExportServerSideEncryption
- *         KmsKeyArn: "STRING_VALUE",
- *         Type: "STRING_VALUE", // required
+ *         KmsKeyArn: 'STRING_VALUE',
+ *         Type: 'STRING_VALUE', // required
  *       },
  *       RevisionDestination: { // AutoExportRevisionDestinationEntry
- *         Bucket: "STRING_VALUE", // required
- *         KeyPattern: "STRING_VALUE",
+ *         Bucket: 'STRING_VALUE', // required
+ *         KeyPattern: 'STRING_VALUE',
  *       },
  *     },
  *   },
- *   EventActionId: "STRING_VALUE", // required
+ *   EventActionId: 'STRING_VALUE', // required
  * };
  * const command = new UpdateEventActionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateEventActionResponse
+ *   Action: { // Action
+ *     ExportRevisionToS3: { // AutoExportRevisionToS3RequestDetails
+ *       Encryption: { // ExportServerSideEncryption
+ *         KmsKeyArn: 'STRING_VALUE',
+ *         Type: 'STRING_VALUE', // required
+ *       },
+ *       RevisionDestination: { // AutoExportRevisionDestinationEntry
+ *         Bucket: 'STRING_VALUE', // required
+ *         KeyPattern: 'STRING_VALUE',
+ *       },
+ *     },
+ *   },
+ *   Arn: 'STRING_VALUE',
+ *   CreatedAt: new Date('TIMESTAMP'),
+ *   Event: { // Event
+ *     RevisionPublished: { // RevisionPublished
+ *       DataSetId: 'STRING_VALUE', // required
+ *     },
+ *   },
+ *   Id: 'STRING_VALUE',
+ *   UpdatedAt: new Date('TIMESTAMP'),
+ * };
+ *
  * ```
  *
  * @param UpdateEventActionCommandInput - {@link UpdateEventActionCommandInput}
@@ -79,6 +104,8 @@ export interface UpdateEventActionCommandOutput extends UpdateEventActionRespons
  * @throws {@link ValidationException} (client fault)
  *  <p>The request was invalid.</p>
  *
+ * @throws {@link DataExchangeServiceException}
+ * <p>Base exception class for all service exceptions from DataExchange service.</p>
  *
  */
 export class UpdateEventActionCommand extends $Command<

@@ -51,26 +51,46 @@ export interface FilterLogEventsCommandOutput extends FilterLogEventsResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudWatchLogsClient, FilterLogEventsCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
- * // const { CloudWatchLogsClient, FilterLogEventsCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
+ * import { CloudWatchLogsClient, FilterLogEventsCommand } from '@aws-sdk/client-cloudwatch-logs'; // ES Modules import
+ * // const { CloudWatchLogsClient, FilterLogEventsCommand } = require('@aws-sdk/client-cloudwatch-logs'); // CommonJS import
  * const client = new CloudWatchLogsClient(config);
  * const input = { // FilterLogEventsRequest
- *   logGroupName: "STRING_VALUE",
- *   logGroupIdentifier: "STRING_VALUE",
+ *   logGroupName: 'STRING_VALUE',
+ *   logGroupIdentifier: 'STRING_VALUE',
  *   logStreamNames: [ // InputLogStreamNames
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   logStreamNamePrefix: "STRING_VALUE",
- *   startTime: Number("long"),
- *   endTime: Number("long"),
- *   filterPattern: "STRING_VALUE",
- *   nextToken: "STRING_VALUE",
- *   limit: Number("int"),
+ *   logStreamNamePrefix: 'STRING_VALUE',
+ *   startTime: Number('long'),
+ *   endTime: Number('long'),
+ *   filterPattern: 'STRING_VALUE',
+ *   nextToken: 'STRING_VALUE',
+ *   limit: Number('int'),
  *   interleaved: true || false,
  *   unmask: true || false,
  * };
  * const command = new FilterLogEventsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // FilterLogEventsResponse
+ *   events: [ // FilteredLogEvents
+ *     { // FilteredLogEvent
+ *       logStreamName: 'STRING_VALUE',
+ *       timestamp: Number('long'),
+ *       message: 'STRING_VALUE',
+ *       ingestionTime: Number('long'),
+ *       eventId: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   searchedLogStreams: [ // SearchedLogStreams
+ *     { // SearchedLogStream
+ *       logStreamName: 'STRING_VALUE',
+ *       searchedCompletely: true || false,
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param FilterLogEventsCommandInput - {@link FilterLogEventsCommandInput}
@@ -88,6 +108,8 @@ export interface FilterLogEventsCommandOutput extends FilterLogEventsResponse, _
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service cannot complete the request.</p>
  *
+ * @throws {@link CloudWatchLogsServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
  */
 export class FilterLogEventsCommand extends $Command<

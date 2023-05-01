@@ -44,16 +44,19 @@ export interface ResendValidationEmailCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ACMClient, ResendValidationEmailCommand } from "@aws-sdk/client-acm"; // ES Modules import
- * // const { ACMClient, ResendValidationEmailCommand } = require("@aws-sdk/client-acm"); // CommonJS import
+ * import { ACMClient, ResendValidationEmailCommand } from '@aws-sdk/client-acm'; // ES Modules import
+ * // const { ACMClient, ResendValidationEmailCommand } = require('@aws-sdk/client-acm'); // CommonJS import
  * const client = new ACMClient(config);
  * const input = { // ResendValidationEmailRequest
- *   CertificateArn: "STRING_VALUE", // required
- *   Domain: "STRING_VALUE", // required
- *   ValidationDomain: "STRING_VALUE", // required
+ *   CertificateArn: 'STRING_VALUE', // required
+ *   Domain: 'STRING_VALUE', // required
+ *   ValidationDomain: 'STRING_VALUE', // required
  * };
  * const command = new ResendValidationEmailCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param ResendValidationEmailCommandInput - {@link ResendValidationEmailCommandInput}
@@ -76,6 +79,8 @@ export interface ResendValidationEmailCommandOutput extends __MetadataBearer {}
  *  <p>The specified certificate cannot be found in the caller's account or the caller's account
  *       cannot be found.</p>
  *
+ * @throws {@link ACMServiceException}
+ * <p>Base exception class for all service exceptions from ACM service.</p>
  *
  */
 export class ResendValidationEmailCommand extends $Command<

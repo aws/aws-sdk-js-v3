@@ -37,18 +37,26 @@ export interface ListPortfolioAccessCommandOutput extends ListPortfolioAccessOut
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ServiceCatalogClient, ListPortfolioAccessCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
- * // const { ServiceCatalogClient, ListPortfolioAccessCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
+ * import { ServiceCatalogClient, ListPortfolioAccessCommand } from '@aws-sdk/client-service-catalog'; // ES Modules import
+ * // const { ServiceCatalogClient, ListPortfolioAccessCommand } = require('@aws-sdk/client-service-catalog'); // CommonJS import
  * const client = new ServiceCatalogClient(config);
  * const input = { // ListPortfolioAccessInput
- *   AcceptLanguage: "STRING_VALUE",
- *   PortfolioId: "STRING_VALUE", // required
- *   OrganizationParentId: "STRING_VALUE",
- *   PageToken: "STRING_VALUE",
- *   PageSize: Number("int"),
+ *   AcceptLanguage: 'STRING_VALUE',
+ *   PortfolioId: 'STRING_VALUE', // required
+ *   OrganizationParentId: 'STRING_VALUE',
+ *   PageToken: 'STRING_VALUE',
+ *   PageSize: Number('int'),
  * };
  * const command = new ListPortfolioAccessCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListPortfolioAccessOutput
+ *   AccountIds: [ // AccountIds
+ *     'STRING_VALUE',
+ *   ],
+ *   NextPageToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListPortfolioAccessCommandInput - {@link ListPortfolioAccessCommandInput}
@@ -63,6 +71,8 @@ export interface ListPortfolioAccessCommandOutput extends ListPortfolioAccessOut
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link ServiceCatalogServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
  */
 export class ListPortfolioAccessCommand extends $Command<

@@ -53,29 +53,34 @@ export interface CreateForecastExportJobCommandOutput extends CreateForecastExpo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ForecastClient, CreateForecastExportJobCommand } from "@aws-sdk/client-forecast"; // ES Modules import
- * // const { ForecastClient, CreateForecastExportJobCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
+ * import { ForecastClient, CreateForecastExportJobCommand } from '@aws-sdk/client-forecast'; // ES Modules import
+ * // const { ForecastClient, CreateForecastExportJobCommand } = require('@aws-sdk/client-forecast'); // CommonJS import
  * const client = new ForecastClient(config);
  * const input = { // CreateForecastExportJobRequest
- *   ForecastExportJobName: "STRING_VALUE", // required
- *   ForecastArn: "STRING_VALUE", // required
+ *   ForecastExportJobName: 'STRING_VALUE', // required
+ *   ForecastArn: 'STRING_VALUE', // required
  *   Destination: { // DataDestination
  *     S3Config: { // S3Config
- *       Path: "STRING_VALUE", // required
- *       RoleArn: "STRING_VALUE", // required
- *       KMSKeyArn: "STRING_VALUE",
+ *       Path: 'STRING_VALUE', // required
+ *       RoleArn: 'STRING_VALUE', // required
+ *       KMSKeyArn: 'STRING_VALUE',
  *     },
  *   },
  *   Tags: [ // Tags
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
- *   Format: "STRING_VALUE",
+ *   Format: 'STRING_VALUE',
  * };
  * const command = new CreateForecastExportJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateForecastExportJobResponse
+ *   ForecastExportJobArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateForecastExportJobCommandInput - {@link CreateForecastExportJobCommandInput}
@@ -101,6 +106,8 @@ export interface CreateForecastExportJobCommandOutput extends CreateForecastExpo
  *  <p>We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try
  *       again.</p>
  *
+ * @throws {@link ForecastServiceException}
+ * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
  */
 export class CreateForecastExportJobCommand extends $Command<

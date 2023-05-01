@@ -37,16 +37,32 @@ export interface ListHostKeysCommandOutput extends ListHostKeysResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { TransferClient, ListHostKeysCommand } from "@aws-sdk/client-transfer"; // ES Modules import
- * // const { TransferClient, ListHostKeysCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
+ * import { TransferClient, ListHostKeysCommand } from '@aws-sdk/client-transfer'; // ES Modules import
+ * // const { TransferClient, ListHostKeysCommand } = require('@aws-sdk/client-transfer'); // CommonJS import
  * const client = new TransferClient(config);
  * const input = { // ListHostKeysRequest
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
- *   ServerId: "STRING_VALUE", // required
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
+ *   ServerId: 'STRING_VALUE', // required
  * };
  * const command = new ListHostKeysCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListHostKeysResponse
+ *   NextToken: 'STRING_VALUE',
+ *   ServerId: 'STRING_VALUE', // required
+ *   HostKeys: [ // ListedHostKeys // required
+ *     { // ListedHostKey
+ *       Arn: 'STRING_VALUE', // required
+ *       HostKeyId: 'STRING_VALUE',
+ *       Fingerprint: 'STRING_VALUE',
+ *       Description: 'STRING_VALUE',
+ *       Type: 'STRING_VALUE',
+ *       DateImported: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListHostKeysCommandInput - {@link ListHostKeysCommandInput}
@@ -71,6 +87,8 @@ export interface ListHostKeysCommandOutput extends ListHostKeysResponse, __Metad
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request has failed because the Amazon Web ServicesTransfer Family service is not available.</p>
  *
+ * @throws {@link TransferServiceException}
+ * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
  */
 export class ListHostKeysCommand extends $Command<

@@ -36,15 +36,26 @@ export interface ListSkillsStoreCategoriesCommandOutput extends ListSkillsStoreC
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AlexaForBusinessClient, ListSkillsStoreCategoriesCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
- * // const { AlexaForBusinessClient, ListSkillsStoreCategoriesCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
+ * import { AlexaForBusinessClient, ListSkillsStoreCategoriesCommand } from '@aws-sdk/client-alexa-for-business'; // ES Modules import
+ * // const { AlexaForBusinessClient, ListSkillsStoreCategoriesCommand } = require('@aws-sdk/client-alexa-for-business'); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
  * const input = { // ListSkillsStoreCategoriesRequest
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListSkillsStoreCategoriesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListSkillsStoreCategoriesResponse
+ *   CategoryList: [ // CategoryList
+ *     { // Category
+ *       CategoryId: Number('long'),
+ *       CategoryName: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListSkillsStoreCategoriesCommandInput - {@link ListSkillsStoreCategoriesCommandInput}
@@ -53,6 +64,8 @@ export interface ListSkillsStoreCategoriesCommandOutput extends ListSkillsStoreC
  * @see {@link ListSkillsStoreCategoriesCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
  *
+ * @throws {@link AlexaForBusinessServiceException}
+ * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  */
 export class ListSkillsStoreCategoriesCommand extends $Command<

@@ -38,15 +38,21 @@ export interface DeleteManagedEndpointCommandOutput extends DeleteManagedEndpoin
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EMRContainersClient, DeleteManagedEndpointCommand } from "@aws-sdk/client-emr-containers"; // ES Modules import
- * // const { EMRContainersClient, DeleteManagedEndpointCommand } = require("@aws-sdk/client-emr-containers"); // CommonJS import
+ * import { EMRContainersClient, DeleteManagedEndpointCommand } from '@aws-sdk/client-emr-containers'; // ES Modules import
+ * // const { EMRContainersClient, DeleteManagedEndpointCommand } = require('@aws-sdk/client-emr-containers'); // CommonJS import
  * const client = new EMRContainersClient(config);
  * const input = { // DeleteManagedEndpointRequest
- *   id: "STRING_VALUE", // required
- *   virtualClusterId: "STRING_VALUE", // required
+ *   id: 'STRING_VALUE', // required
+ *   virtualClusterId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteManagedEndpointCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteManagedEndpointResponse
+ *   id: 'STRING_VALUE',
+ *   virtualClusterId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DeleteManagedEndpointCommandInput - {@link DeleteManagedEndpointCommandInput}
@@ -61,6 +67,8 @@ export interface DeleteManagedEndpointCommandOutput extends DeleteManagedEndpoin
  * @throws {@link ValidationException} (client fault)
  *  <p>There are invalid parameters in the client request.</p>
  *
+ * @throws {@link EMRContainersServiceException}
+ * <p>Base exception class for all service exceptions from EMRContainers service.</p>
  *
  */
 export class DeleteManagedEndpointCommand extends $Command<

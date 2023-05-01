@@ -42,17 +42,25 @@ export interface ListPolicyPrincipalsCommandOutput extends ListPolicyPrincipalsR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTClient, ListPolicyPrincipalsCommand } from "@aws-sdk/client-iot"; // ES Modules import
- * // const { IoTClient, ListPolicyPrincipalsCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * import { IoTClient, ListPolicyPrincipalsCommand } from '@aws-sdk/client-iot'; // ES Modules import
+ * // const { IoTClient, ListPolicyPrincipalsCommand } = require('@aws-sdk/client-iot'); // CommonJS import
  * const client = new IoTClient(config);
  * const input = { // ListPolicyPrincipalsRequest
- *   policyName: "STRING_VALUE", // required
- *   marker: "STRING_VALUE",
- *   pageSize: Number("int"),
+ *   policyName: 'STRING_VALUE', // required
+ *   marker: 'STRING_VALUE',
+ *   pageSize: Number('int'),
  *   ascendingOrder: true || false,
  * };
  * const command = new ListPolicyPrincipalsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListPolicyPrincipalsResponse
+ *   principals: [ // Principals
+ *     'STRING_VALUE',
+ *   ],
+ *   nextMarker: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListPolicyPrincipalsCommandInput - {@link ListPolicyPrincipalsCommandInput}
@@ -79,6 +87,8 @@ export interface ListPolicyPrincipalsCommandOutput extends ListPolicyPrincipalsR
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this operation.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class ListPolicyPrincipalsCommand extends $Command<

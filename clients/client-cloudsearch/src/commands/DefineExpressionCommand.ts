@@ -36,18 +36,35 @@ export interface DefineExpressionCommandOutput extends DefineExpressionResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudSearchClient, DefineExpressionCommand } from "@aws-sdk/client-cloudsearch"; // ES Modules import
- * // const { CloudSearchClient, DefineExpressionCommand } = require("@aws-sdk/client-cloudsearch"); // CommonJS import
+ * import { CloudSearchClient, DefineExpressionCommand } from '@aws-sdk/client-cloudsearch'; // ES Modules import
+ * // const { CloudSearchClient, DefineExpressionCommand } = require('@aws-sdk/client-cloudsearch'); // CommonJS import
  * const client = new CloudSearchClient(config);
  * const input = { // DefineExpressionRequest
- *   DomainName: "STRING_VALUE", // required
+ *   DomainName: 'STRING_VALUE', // required
  *   Expression: { // Expression
- *     ExpressionName: "STRING_VALUE", // required
- *     ExpressionValue: "STRING_VALUE", // required
+ *     ExpressionName: 'STRING_VALUE', // required
+ *     ExpressionValue: 'STRING_VALUE', // required
  *   },
  * };
  * const command = new DefineExpressionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DefineExpressionResponse
+ *   Expression: { // ExpressionStatus
+ *     Options: { // Expression
+ *       ExpressionName: 'STRING_VALUE', // required
+ *       ExpressionValue: 'STRING_VALUE', // required
+ *     },
+ *     Status: { // OptionStatus
+ *       CreationDate: new Date('TIMESTAMP'), // required
+ *       UpdateDate: new Date('TIMESTAMP'), // required
+ *       UpdateVersion: Number('int'),
+ *       State: 'STRING_VALUE', // required
+ *       PendingDeletion: true || false,
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param DefineExpressionCommandInput - {@link DefineExpressionCommandInput}
@@ -75,6 +92,8 @@ export interface DefineExpressionCommandOutput extends DefineExpressionResponse,
  * @throws {@link ValidationException} (client fault)
  *  <p>The request was rejected because it has invalid parameters.</p>
  *
+ * @throws {@link CloudSearchServiceException}
+ * <p>Base exception class for all service exceptions from CloudSearch service.</p>
  *
  */
 export class DefineExpressionCommand extends $Command<

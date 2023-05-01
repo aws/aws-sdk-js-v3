@@ -80,17 +80,20 @@ export interface UnsubscribeFromDatasetCommandOutput extends UnsubscribeFromData
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CognitoSyncClient, UnsubscribeFromDatasetCommand } from "@aws-sdk/client-cognito-sync"; // ES Modules import
- * // const { CognitoSyncClient, UnsubscribeFromDatasetCommand } = require("@aws-sdk/client-cognito-sync"); // CommonJS import
+ * import { CognitoSyncClient, UnsubscribeFromDatasetCommand } from '@aws-sdk/client-cognito-sync'; // ES Modules import
+ * // const { CognitoSyncClient, UnsubscribeFromDatasetCommand } = require('@aws-sdk/client-cognito-sync'); // CommonJS import
  * const client = new CognitoSyncClient(config);
  * const input = { // UnsubscribeFromDatasetRequest
- *   IdentityPoolId: "STRING_VALUE", // required
- *   IdentityId: "STRING_VALUE", // required
- *   DatasetName: "STRING_VALUE", // required
- *   DeviceId: "STRING_VALUE", // required
+ *   IdentityPoolId: 'STRING_VALUE', // required
+ *   IdentityId: 'STRING_VALUE', // required
+ *   DatasetName: 'STRING_VALUE', // required
+ *   DeviceId: 'STRING_VALUE', // required
  * };
  * const command = new UnsubscribeFromDatasetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UnsubscribeFromDatasetCommandInput - {@link UnsubscribeFromDatasetCommandInput}
@@ -121,6 +124,8 @@ export interface UnsubscribeFromDatasetCommandOutput extends UnsubscribeFromData
  *  Thrown if the request is
  *       throttled.
  *
+ * @throws {@link CognitoSyncServiceException}
+ * <p>Base exception class for all service exceptions from CognitoSync service.</p>
  *
  */
 export class UnsubscribeFromDatasetCommand extends $Command<

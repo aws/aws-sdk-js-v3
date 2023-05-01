@@ -37,35 +37,35 @@ export interface PutAdminAccountCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FMSClient, PutAdminAccountCommand } from "@aws-sdk/client-fms"; // ES Modules import
- * // const { FMSClient, PutAdminAccountCommand } = require("@aws-sdk/client-fms"); // CommonJS import
+ * import { FMSClient, PutAdminAccountCommand } from '@aws-sdk/client-fms'; // ES Modules import
+ * // const { FMSClient, PutAdminAccountCommand } = require('@aws-sdk/client-fms'); // CommonJS import
  * const client = new FMSClient(config);
  * const input = { // PutAdminAccountRequest
- *   AdminAccount: "STRING_VALUE", // required
+ *   AdminAccount: 'STRING_VALUE', // required
  *   AdminScope: { // AdminScope
  *     AccountScope: { // AccountScope
  *       Accounts: [ // AccountIdList
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *       AllAccountsEnabled: true || false,
  *       ExcludeSpecifiedAccounts: true || false,
  *     },
  *     OrganizationalUnitScope: { // OrganizationalUnitScope
  *       OrganizationalUnits: [ // OrganizationalUnitIdList
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *       AllOrganizationalUnitsEnabled: true || false,
  *       ExcludeSpecifiedOrganizationalUnits: true || false,
  *     },
  *     RegionScope: { // RegionScope
  *       Regions: [ // AWSRegionList
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *       AllRegionsEnabled: true || false,
  *     },
  *     PolicyTypeScope: { // PolicyTypeScope
  *       PolicyTypes: [ // SecurityServiceTypeList
- *         "WAF" || "WAFV2" || "SHIELD_ADVANCED" || "SECURITY_GROUPS_COMMON" || "SECURITY_GROUPS_CONTENT_AUDIT" || "SECURITY_GROUPS_USAGE_AUDIT" || "NETWORK_FIREWALL" || "DNS_FIREWALL" || "THIRD_PARTY_FIREWALL" || "IMPORT_NETWORK_FIREWALL",
+ *         'WAF' || 'WAFV2' || 'SHIELD_ADVANCED' || 'SECURITY_GROUPS_COMMON' || 'SECURITY_GROUPS_CONTENT_AUDIT' || 'SECURITY_GROUPS_USAGE_AUDIT' || 'NETWORK_FIREWALL' || 'DNS_FIREWALL' || 'THIRD_PARTY_FIREWALL' || 'IMPORT_NETWORK_FIREWALL',
  *       ],
  *       AllPolicyTypesEnabled: true || false,
  *     },
@@ -73,6 +73,9 @@ export interface PutAdminAccountCommandOutput extends __MetadataBearer {}
  * };
  * const command = new PutAdminAccountCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutAdminAccountCommandInput - {@link PutAdminAccountCommandInput}
@@ -101,6 +104,8 @@ export interface PutAdminAccountCommandOutput extends __MetadataBearer {}
  *       see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/fms-limits.html">Firewall
  *         Manager Limits</a> in the <i>WAF Developer Guide</i>.</p>
  *
+ * @throws {@link FMSServiceException}
+ * <p>Base exception class for all service exceptions from FMS service.</p>
  *
  */
 export class PutAdminAccountCommand extends $Command<

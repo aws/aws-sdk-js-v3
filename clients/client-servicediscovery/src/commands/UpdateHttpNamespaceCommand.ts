@@ -37,18 +37,23 @@ export interface UpdateHttpNamespaceCommandOutput extends UpdateHttpNamespaceRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ServiceDiscoveryClient, UpdateHttpNamespaceCommand } from "@aws-sdk/client-servicediscovery"; // ES Modules import
- * // const { ServiceDiscoveryClient, UpdateHttpNamespaceCommand } = require("@aws-sdk/client-servicediscovery"); // CommonJS import
+ * import { ServiceDiscoveryClient, UpdateHttpNamespaceCommand } from '@aws-sdk/client-servicediscovery'; // ES Modules import
+ * // const { ServiceDiscoveryClient, UpdateHttpNamespaceCommand } = require('@aws-sdk/client-servicediscovery'); // CommonJS import
  * const client = new ServiceDiscoveryClient(config);
  * const input = { // UpdateHttpNamespaceRequest
- *   Id: "STRING_VALUE", // required
- *   UpdaterRequestId: "STRING_VALUE",
+ *   Id: 'STRING_VALUE', // required
+ *   UpdaterRequestId: 'STRING_VALUE',
  *   Namespace: { // HttpNamespaceChange
- *     Description: "STRING_VALUE", // required
+ *     Description: 'STRING_VALUE', // required
  *   },
  * };
  * const command = new UpdateHttpNamespaceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateHttpNamespaceResponse
+ *   OperationId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateHttpNamespaceCommandInput - {@link UpdateHttpNamespaceCommandInput}
@@ -72,6 +77,8 @@ export interface UpdateHttpNamespaceCommandOutput extends UpdateHttpNamespaceRes
  *  <p>The specified resource can't be deleted because it contains other resources. For example,
  *    you can't delete a service that contains any instances.</p>
  *
+ * @throws {@link ServiceDiscoveryServiceException}
+ * <p>Base exception class for all service exceptions from ServiceDiscovery service.</p>
  *
  */
 export class UpdateHttpNamespaceCommand extends $Command<

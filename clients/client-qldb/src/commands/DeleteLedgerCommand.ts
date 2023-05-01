@@ -38,14 +38,17 @@ export interface DeleteLedgerCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { QLDBClient, DeleteLedgerCommand } from "@aws-sdk/client-qldb"; // ES Modules import
- * // const { QLDBClient, DeleteLedgerCommand } = require("@aws-sdk/client-qldb"); // CommonJS import
+ * import { QLDBClient, DeleteLedgerCommand } from '@aws-sdk/client-qldb'; // ES Modules import
+ * // const { QLDBClient, DeleteLedgerCommand } = require('@aws-sdk/client-qldb'); // CommonJS import
  * const client = new QLDBClient(config);
  * const input = { // DeleteLedgerRequest
- *   Name: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
  * };
  * const command = new DeleteLedgerCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteLedgerCommandInput - {@link DeleteLedgerCommandInput}
@@ -66,6 +69,8 @@ export interface DeleteLedgerCommandOutput extends __MetadataBearer {}
  * @throws {@link ResourcePreconditionNotMetException} (client fault)
  *  <p>The operation failed because a condition wasn't satisfied in advance.</p>
  *
+ * @throws {@link QLDBServiceException}
+ * <p>Base exception class for all service exceptions from QLDB service.</p>
  *
  */
 export class DeleteLedgerCommand extends $Command<

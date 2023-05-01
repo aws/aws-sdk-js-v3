@@ -45,32 +45,67 @@ export interface ModifyVerifiedAccessInstanceLoggingConfigurationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, ModifyVerifiedAccessInstanceLoggingConfigurationCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, ModifyVerifiedAccessInstanceLoggingConfigurationCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, ModifyVerifiedAccessInstanceLoggingConfigurationCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, ModifyVerifiedAccessInstanceLoggingConfigurationCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // ModifyVerifiedAccessInstanceLoggingConfigurationRequest
- *   VerifiedAccessInstanceId: "STRING_VALUE", // required
+ *   VerifiedAccessInstanceId: 'STRING_VALUE', // required
  *   AccessLogs: { // VerifiedAccessLogOptions
  *     S3: { // VerifiedAccessLogS3DestinationOptions
  *       Enabled: true || false, // required
- *       BucketName: "STRING_VALUE",
- *       Prefix: "STRING_VALUE",
- *       BucketOwner: "STRING_VALUE",
+ *       BucketName: 'STRING_VALUE',
+ *       Prefix: 'STRING_VALUE',
+ *       BucketOwner: 'STRING_VALUE',
  *     },
  *     CloudWatchLogs: { // VerifiedAccessLogCloudWatchLogsDestinationOptions
  *       Enabled: true || false, // required
- *       LogGroup: "STRING_VALUE",
+ *       LogGroup: 'STRING_VALUE',
  *     },
  *     KinesisDataFirehose: { // VerifiedAccessLogKinesisDataFirehoseDestinationOptions
  *       Enabled: true || false, // required
- *       DeliveryStream: "STRING_VALUE",
+ *       DeliveryStream: 'STRING_VALUE',
  *     },
  *   },
  *   DryRun: true || false,
- *   ClientToken: "STRING_VALUE",
+ *   ClientToken: 'STRING_VALUE',
  * };
  * const command = new ModifyVerifiedAccessInstanceLoggingConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ModifyVerifiedAccessInstanceLoggingConfigurationResult
+ *   LoggingConfiguration: { // VerifiedAccessInstanceLoggingConfiguration
+ *     VerifiedAccessInstanceId: 'STRING_VALUE',
+ *     AccessLogs: { // VerifiedAccessLogs
+ *       S3: { // VerifiedAccessLogS3Destination
+ *         Enabled: true || false,
+ *         DeliveryStatus: { // VerifiedAccessLogDeliveryStatus
+ *           Code: 'success' || 'failed',
+ *           Message: 'STRING_VALUE',
+ *         },
+ *         BucketName: 'STRING_VALUE',
+ *         Prefix: 'STRING_VALUE',
+ *         BucketOwner: 'STRING_VALUE',
+ *       },
+ *       CloudWatchLogs: { // VerifiedAccessLogCloudWatchLogsDestination
+ *         Enabled: true || false,
+ *         DeliveryStatus: {
+ *           Code: 'success' || 'failed',
+ *           Message: 'STRING_VALUE',
+ *         },
+ *         LogGroup: 'STRING_VALUE',
+ *       },
+ *       KinesisDataFirehose: { // VerifiedAccessLogKinesisDataFirehoseDestination
+ *         Enabled: true || false,
+ *         DeliveryStatus: {
+ *           Code: 'success' || 'failed',
+ *           Message: 'STRING_VALUE',
+ *         },
+ *         DeliveryStream: 'STRING_VALUE',
+ *       },
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param ModifyVerifiedAccessInstanceLoggingConfigurationCommandInput - {@link ModifyVerifiedAccessInstanceLoggingConfigurationCommandInput}
@@ -79,6 +114,8 @@ export interface ModifyVerifiedAccessInstanceLoggingConfigurationCommandOutput
  * @see {@link ModifyVerifiedAccessInstanceLoggingConfigurationCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class ModifyVerifiedAccessInstanceLoggingConfigurationCommand extends $Command<

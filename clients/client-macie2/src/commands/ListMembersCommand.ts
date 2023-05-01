@@ -36,16 +36,36 @@ export interface ListMembersCommandOutput extends ListMembersResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Macie2Client, ListMembersCommand } from "@aws-sdk/client-macie2"; // ES Modules import
- * // const { Macie2Client, ListMembersCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
+ * import { Macie2Client, ListMembersCommand } from '@aws-sdk/client-macie2'; // ES Modules import
+ * // const { Macie2Client, ListMembersCommand } = require('@aws-sdk/client-macie2'); // CommonJS import
  * const client = new Macie2Client(config);
  * const input = { // ListMembersRequest
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
- *   onlyAssociated: "STRING_VALUE",
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
+ *   onlyAssociated: 'STRING_VALUE',
  * };
  * const command = new ListMembersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListMembersResponse
+ *   members: [ // __listOfMember
+ *     { // Member
+ *       accountId: 'STRING_VALUE',
+ *       administratorAccountId: 'STRING_VALUE',
+ *       arn: 'STRING_VALUE',
+ *       email: 'STRING_VALUE',
+ *       invitedAt: new Date('TIMESTAMP'),
+ *       masterAccountId: 'STRING_VALUE',
+ *       relationshipStatus: 'Enabled' || 'Paused' || 'Invited' || 'Created' || 'Removed' || 'Resigned' || 'EmailVerificationInProgress' || 'EmailVerificationFailed' || 'RegionDisabled' || 'AccountSuspended',
+ *       tags: { // TagMap
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *       updatedAt: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListMembersCommandInput - {@link ListMembersCommandInput}
@@ -75,6 +95,8 @@ export interface ListMembersCommandOutput extends ListMembersResponse, __Metadat
  * @throws {@link ValidationException} (client fault)
  *  <p>Provides information about an error that occurred due to a syntax error in a request.</p>
  *
+ * @throws {@link Macie2ServiceException}
+ * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
  */
 export class ListMembersCommand extends $Command<

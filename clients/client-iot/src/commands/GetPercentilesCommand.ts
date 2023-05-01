@@ -45,20 +45,30 @@ export interface GetPercentilesCommandOutput extends GetPercentilesResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTClient, GetPercentilesCommand } from "@aws-sdk/client-iot"; // ES Modules import
- * // const { IoTClient, GetPercentilesCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * import { IoTClient, GetPercentilesCommand } from '@aws-sdk/client-iot'; // ES Modules import
+ * // const { IoTClient, GetPercentilesCommand } = require('@aws-sdk/client-iot'); // CommonJS import
  * const client = new IoTClient(config);
  * const input = { // GetPercentilesRequest
- *   indexName: "STRING_VALUE",
- *   queryString: "STRING_VALUE", // required
- *   aggregationField: "STRING_VALUE",
- *   queryVersion: "STRING_VALUE",
+ *   indexName: 'STRING_VALUE',
+ *   queryString: 'STRING_VALUE', // required
+ *   aggregationField: 'STRING_VALUE',
+ *   queryVersion: 'STRING_VALUE',
  *   percents: [ // PercentList
- *     Number("double"),
+ *     Number('double'),
  *   ],
  * };
  * const command = new GetPercentilesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetPercentilesResponse
+ *   percentiles: [ // Percentiles
+ *     { // PercentPair
+ *       percent: Number('double'),
+ *       value: Number('double'),
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetPercentilesCommandInput - {@link GetPercentilesCommandInput}
@@ -94,6 +104,8 @@ export interface GetPercentilesCommandOutput extends GetPercentilesResponse, __M
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this operation.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class GetPercentilesCommand extends $Command<

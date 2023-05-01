@@ -40,14 +40,22 @@ export interface DescribeCollectionCommandOutput extends DescribeCollectionRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RekognitionClient, DescribeCollectionCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
- * // const { RekognitionClient, DescribeCollectionCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
+ * import { RekognitionClient, DescribeCollectionCommand } from '@aws-sdk/client-rekognition'; // ES Modules import
+ * // const { RekognitionClient, DescribeCollectionCommand } = require('@aws-sdk/client-rekognition'); // CommonJS import
  * const client = new RekognitionClient(config);
  * const input = { // DescribeCollectionRequest
- *   CollectionId: "STRING_VALUE", // required
+ *   CollectionId: 'STRING_VALUE', // required
  * };
  * const command = new DescribeCollectionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeCollectionResponse
+ *   FaceCount: Number('long'),
+ *   FaceModelVersion: 'STRING_VALUE',
+ *   CollectionARN: 'STRING_VALUE',
+ *   CreationTimestamp: new Date('TIMESTAMP'),
+ * };
+ *
  * ```
  *
  * @param DescribeCollectionCommandInput - {@link DescribeCollectionCommandInput}
@@ -76,6 +84,8 @@ export interface DescribeCollectionCommandOutput extends DescribeCollectionRespo
  * @throws {@link ThrottlingException} (server fault)
  *  <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
  *
+ * @throws {@link RekognitionServiceException}
+ * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
  */
 export class DescribeCollectionCommand extends $Command<

@@ -39,14 +39,17 @@ export interface StartNotebookInstanceCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, StartNotebookInstanceCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, StartNotebookInstanceCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, StartNotebookInstanceCommand } from '@aws-sdk/client-sagemaker'; // ES Modules import
+ * // const { SageMakerClient, StartNotebookInstanceCommand } = require('@aws-sdk/client-sagemaker'); // CommonJS import
  * const client = new SageMakerClient(config);
  * const input = { // StartNotebookInstanceInput
- *   NotebookInstanceName: "STRING_VALUE", // required
+ *   NotebookInstanceName: 'STRING_VALUE', // required
  * };
  * const command = new StartNotebookInstanceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param StartNotebookInstanceCommandInput - {@link StartNotebookInstanceCommandInput}
@@ -59,6 +62,8 @@ export interface StartNotebookInstanceCommandOutput extends __MetadataBearer {}
  *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many
  *             training jobs created. </p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class StartNotebookInstanceCommand extends $Command<

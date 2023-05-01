@@ -38,21 +38,26 @@ export interface UpdateAgreementCommandOutput extends UpdateAgreementResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { TransferClient, UpdateAgreementCommand } from "@aws-sdk/client-transfer"; // ES Modules import
- * // const { TransferClient, UpdateAgreementCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
+ * import { TransferClient, UpdateAgreementCommand } from '@aws-sdk/client-transfer'; // ES Modules import
+ * // const { TransferClient, UpdateAgreementCommand } = require('@aws-sdk/client-transfer'); // CommonJS import
  * const client = new TransferClient(config);
  * const input = { // UpdateAgreementRequest
- *   AgreementId: "STRING_VALUE", // required
- *   ServerId: "STRING_VALUE", // required
- *   Description: "STRING_VALUE",
- *   Status: "ACTIVE" || "INACTIVE",
- *   LocalProfileId: "STRING_VALUE",
- *   PartnerProfileId: "STRING_VALUE",
- *   BaseDirectory: "STRING_VALUE",
- *   AccessRole: "STRING_VALUE",
+ *   AgreementId: 'STRING_VALUE', // required
+ *   ServerId: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE',
+ *   Status: 'ACTIVE' || 'INACTIVE',
+ *   LocalProfileId: 'STRING_VALUE',
+ *   PartnerProfileId: 'STRING_VALUE',
+ *   BaseDirectory: 'STRING_VALUE',
+ *   AccessRole: 'STRING_VALUE',
  * };
  * const command = new UpdateAgreementCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateAgreementResponse
+ *   AgreementId: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param UpdateAgreementCommandInput - {@link UpdateAgreementCommandInput}
@@ -80,6 +85,8 @@ export interface UpdateAgreementCommandOutput extends UpdateAgreementResponse, _
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
  *
+ * @throws {@link TransferServiceException}
+ * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
  */
 export class UpdateAgreementCommand extends $Command<

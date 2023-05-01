@@ -45,17 +45,34 @@ export interface DescribeEnvironmentManagedActionHistoryCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElasticBeanstalkClient, DescribeEnvironmentManagedActionHistoryCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
- * // const { ElasticBeanstalkClient, DescribeEnvironmentManagedActionHistoryCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
+ * import { ElasticBeanstalkClient, DescribeEnvironmentManagedActionHistoryCommand } from '@aws-sdk/client-elastic-beanstalk'; // ES Modules import
+ * // const { ElasticBeanstalkClient, DescribeEnvironmentManagedActionHistoryCommand } = require('@aws-sdk/client-elastic-beanstalk'); // CommonJS import
  * const client = new ElasticBeanstalkClient(config);
  * const input = { // DescribeEnvironmentManagedActionHistoryRequest
- *   EnvironmentId: "STRING_VALUE",
- *   EnvironmentName: "STRING_VALUE",
- *   NextToken: "STRING_VALUE",
- *   MaxItems: Number("int"),
+ *   EnvironmentId: 'STRING_VALUE',
+ *   EnvironmentName: 'STRING_VALUE',
+ *   NextToken: 'STRING_VALUE',
+ *   MaxItems: Number('int'),
  * };
  * const command = new DescribeEnvironmentManagedActionHistoryCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeEnvironmentManagedActionHistoryResult
+ *   ManagedActionHistoryItems: [ // ManagedActionHistoryItems
+ *     { // ManagedActionHistoryItem
+ *       ActionId: 'STRING_VALUE',
+ *       ActionType: 'InstanceRefresh' || 'PlatformUpdate' || 'Unknown',
+ *       ActionDescription: 'STRING_VALUE',
+ *       FailureType: 'UpdateCancelled' || 'CancellationFailed' || 'RollbackFailed' || 'RollbackSuccessful' || 'InternalFailure' || 'InvalidEnvironmentState' || 'PermissionsError',
+ *       Status: 'Completed' || 'Failed' || 'Unknown',
+ *       FailureDescription: 'STRING_VALUE',
+ *       ExecutedTime: new Date('TIMESTAMP'),
+ *       FinishedTime: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeEnvironmentManagedActionHistoryCommandInput - {@link DescribeEnvironmentManagedActionHistoryCommandInput}
@@ -67,6 +84,8 @@ export interface DescribeEnvironmentManagedActionHistoryCommandOutput
  * @throws {@link ElasticBeanstalkServiceException} (client fault)
  *  <p>A generic service exception has occurred.</p>
  *
+ * @throws {@link ElasticBeanstalkServiceException}
+ * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
  */
 export class DescribeEnvironmentManagedActionHistoryCommand extends $Command<

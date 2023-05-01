@@ -54,17 +54,22 @@ export interface UpdateDatasetEntriesCommandOutput extends UpdateDatasetEntriesR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LookoutVisionClient, UpdateDatasetEntriesCommand } from "@aws-sdk/client-lookoutvision"; // ES Modules import
- * // const { LookoutVisionClient, UpdateDatasetEntriesCommand } = require("@aws-sdk/client-lookoutvision"); // CommonJS import
+ * import { LookoutVisionClient, UpdateDatasetEntriesCommand } from '@aws-sdk/client-lookoutvision'; // ES Modules import
+ * // const { LookoutVisionClient, UpdateDatasetEntriesCommand } = require('@aws-sdk/client-lookoutvision'); // CommonJS import
  * const client = new LookoutVisionClient(config);
  * const input = { // UpdateDatasetEntriesRequest
- *   ProjectName: "STRING_VALUE", // required
- *   DatasetType: "STRING_VALUE", // required
- *   Changes: "BLOB_VALUE", // required
- *   ClientToken: "STRING_VALUE",
+ *   ProjectName: 'STRING_VALUE', // required
+ *   DatasetType: 'STRING_VALUE', // required
+ *   Changes: 'BLOB_VALUE', // required
+ *   ClientToken: 'STRING_VALUE',
  * };
  * const command = new UpdateDatasetEntriesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateDatasetEntriesResponse
+ *   Status: 'CREATE_IN_PROGRESS' || 'CREATE_COMPLETE' || 'CREATE_FAILED' || 'UPDATE_IN_PROGRESS' || 'UPDATE_COMPLETE' || 'UPDATE_FAILED_ROLLBACK_IN_PROGRESS' || 'UPDATE_FAILED_ROLLBACK_COMPLETE' || 'DELETE_IN_PROGRESS' || 'DELETE_COMPLETE' || 'DELETE_FAILED',
+ * };
+ *
  * ```
  *
  * @param UpdateDatasetEntriesCommandInput - {@link UpdateDatasetEntriesCommandInput}
@@ -92,6 +97,8 @@ export interface UpdateDatasetEntriesCommandOutput extends UpdateDatasetEntriesR
  *  <p>An input validation error occured. For example, invalid characters in a project name,
  *       or if a pagination token is invalid.</p>
  *
+ * @throws {@link LookoutVisionServiceException}
+ * <p>Base exception class for all service exceptions from LookoutVision service.</p>
  *
  */
 export class UpdateDatasetEntriesCommand extends $Command<

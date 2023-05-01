@@ -36,15 +36,32 @@ export interface DescribeFeatureMetadataCommandOutput extends DescribeFeatureMet
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, DescribeFeatureMetadataCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, DescribeFeatureMetadataCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, DescribeFeatureMetadataCommand } from '@aws-sdk/client-sagemaker'; // ES Modules import
+ * // const { SageMakerClient, DescribeFeatureMetadataCommand } = require('@aws-sdk/client-sagemaker'); // CommonJS import
  * const client = new SageMakerClient(config);
  * const input = { // DescribeFeatureMetadataRequest
- *   FeatureGroupName: "STRING_VALUE", // required
- *   FeatureName: "STRING_VALUE", // required
+ *   FeatureGroupName: 'STRING_VALUE', // required
+ *   FeatureName: 'STRING_VALUE', // required
  * };
  * const command = new DescribeFeatureMetadataCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeFeatureMetadataResponse
+ *   FeatureGroupArn: 'STRING_VALUE', // required
+ *   FeatureGroupName: 'STRING_VALUE', // required
+ *   FeatureName: 'STRING_VALUE', // required
+ *   FeatureType: 'Integral' || 'Fractional' || 'String', // required
+ *   CreationTime: new Date('TIMESTAMP'), // required
+ *   LastModifiedTime: new Date('TIMESTAMP'), // required
+ *   Description: 'STRING_VALUE',
+ *   Parameters: [ // FeatureParameters
+ *     { // FeatureParameter
+ *       Key: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeFeatureMetadataCommandInput - {@link DescribeFeatureMetadataCommandInput}
@@ -56,6 +73,8 @@ export interface DescribeFeatureMetadataCommandOutput extends DescribeFeatureMet
  * @throws {@link ResourceNotFound} (client fault)
  *  <p>Resource being access is not found.</p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class DescribeFeatureMetadataCommand extends $Command<

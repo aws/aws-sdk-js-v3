@@ -46,44 +46,44 @@ export interface CreateStreamingDistributionWithTagsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudFrontClient, CreateStreamingDistributionWithTagsCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
- * // const { CloudFrontClient, CreateStreamingDistributionWithTagsCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
+ * import { CloudFrontClient, CreateStreamingDistributionWithTagsCommand } from '@aws-sdk/client-cloudfront'; // ES Modules import
+ * // const { CloudFrontClient, CreateStreamingDistributionWithTagsCommand } = require('@aws-sdk/client-cloudfront'); // CommonJS import
  * const client = new CloudFrontClient(config);
  * const input = { // CreateStreamingDistributionWithTagsRequest
  *   StreamingDistributionConfigWithTags: { // StreamingDistributionConfigWithTags
  *     StreamingDistributionConfig: { // StreamingDistributionConfig
- *       CallerReference: "STRING_VALUE", // required
+ *       CallerReference: 'STRING_VALUE', // required
  *       S3Origin: { // S3Origin
- *         DomainName: "STRING_VALUE", // required
- *         OriginAccessIdentity: "STRING_VALUE", // required
+ *         DomainName: 'STRING_VALUE', // required
+ *         OriginAccessIdentity: 'STRING_VALUE', // required
  *       },
  *       Aliases: { // Aliases
- *         Quantity: Number("int"), // required
+ *         Quantity: Number('int'), // required
  *         Items: [ // AliasList
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
  *       },
- *       Comment: "STRING_VALUE", // required
+ *       Comment: 'STRING_VALUE', // required
  *       Logging: { // StreamingLoggingConfig
  *         Enabled: true || false, // required
- *         Bucket: "STRING_VALUE", // required
- *         Prefix: "STRING_VALUE", // required
+ *         Bucket: 'STRING_VALUE', // required
+ *         Prefix: 'STRING_VALUE', // required
  *       },
  *       TrustedSigners: { // TrustedSigners
  *         Enabled: true || false, // required
- *         Quantity: Number("int"), // required
+ *         Quantity: Number('int'), // required
  *         Items: [ // AwsAccountNumberList
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
  *       },
- *       PriceClass: "PriceClass_100" || "PriceClass_200" || "PriceClass_All",
+ *       PriceClass: 'PriceClass_100' || 'PriceClass_200' || 'PriceClass_All',
  *       Enabled: true || false, // required
  *     },
  *     Tags: { // Tags
  *       Items: [ // TagList
  *         { // Tag
- *           Key: "STRING_VALUE", // required
- *           Value: "STRING_VALUE",
+ *           Key: 'STRING_VALUE', // required
+ *           Value: 'STRING_VALUE',
  *         },
  *       ],
  *     },
@@ -91,6 +91,62 @@ export interface CreateStreamingDistributionWithTagsCommandOutput
  * };
  * const command = new CreateStreamingDistributionWithTagsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateStreamingDistributionWithTagsResult
+ *   StreamingDistribution: { // StreamingDistribution
+ *     Id: 'STRING_VALUE', // required
+ *     ARN: 'STRING_VALUE', // required
+ *     Status: 'STRING_VALUE', // required
+ *     LastModifiedTime: new Date('TIMESTAMP'),
+ *     DomainName: 'STRING_VALUE', // required
+ *     ActiveTrustedSigners: { // ActiveTrustedSigners
+ *       Enabled: true || false, // required
+ *       Quantity: Number('int'), // required
+ *       Items: [ // SignerList
+ *         { // Signer
+ *           AwsAccountNumber: 'STRING_VALUE',
+ *           KeyPairIds: { // KeyPairIds
+ *             Quantity: Number('int'), // required
+ *             Items: [ // KeyPairIdList
+ *               'STRING_VALUE',
+ *             ],
+ *           },
+ *         },
+ *       ],
+ *     },
+ *     StreamingDistributionConfig: { // StreamingDistributionConfig
+ *       CallerReference: 'STRING_VALUE', // required
+ *       S3Origin: { // S3Origin
+ *         DomainName: 'STRING_VALUE', // required
+ *         OriginAccessIdentity: 'STRING_VALUE', // required
+ *       },
+ *       Aliases: { // Aliases
+ *         Quantity: Number('int'), // required
+ *         Items: [ // AliasList
+ *           'STRING_VALUE',
+ *         ],
+ *       },
+ *       Comment: 'STRING_VALUE', // required
+ *       Logging: { // StreamingLoggingConfig
+ *         Enabled: true || false, // required
+ *         Bucket: 'STRING_VALUE', // required
+ *         Prefix: 'STRING_VALUE', // required
+ *       },
+ *       TrustedSigners: { // TrustedSigners
+ *         Enabled: true || false, // required
+ *         Quantity: Number('int'), // required
+ *         Items: [ // AwsAccountNumberList
+ *           'STRING_VALUE',
+ *         ],
+ *       },
+ *       PriceClass: 'PriceClass_100' || 'PriceClass_200' || 'PriceClass_All',
+ *       Enabled: true || false, // required
+ *     },
+ *   },
+ *   Location: 'STRING_VALUE',
+ *   ETag: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateStreamingDistributionWithTagsCommandInput - {@link CreateStreamingDistributionWithTagsCommandInput}
@@ -145,6 +201,8 @@ export interface CreateStreamingDistributionWithTagsCommandOutput
  * @throws {@link TrustedSignerDoesNotExist} (client fault)
  *  <p>One or more of your trusted signers don't exist.</p>
  *
+ * @throws {@link CloudFrontServiceException}
+ * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
  */
 export class CreateStreamingDistributionWithTagsCommand extends $Command<

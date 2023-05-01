@@ -36,16 +36,32 @@ export interface ListAccessLogSubscriptionsCommandOutput extends ListAccessLogSu
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { VPCLatticeClient, ListAccessLogSubscriptionsCommand } from "@aws-sdk/client-vpc-lattice"; // ES Modules import
- * // const { VPCLatticeClient, ListAccessLogSubscriptionsCommand } = require("@aws-sdk/client-vpc-lattice"); // CommonJS import
+ * import { VPCLatticeClient, ListAccessLogSubscriptionsCommand } from '@aws-sdk/client-vpc-lattice'; // ES Modules import
+ * // const { VPCLatticeClient, ListAccessLogSubscriptionsCommand } = require('@aws-sdk/client-vpc-lattice'); // CommonJS import
  * const client = new VPCLatticeClient(config);
  * const input = { // ListAccessLogSubscriptionsRequest
- *   resourceIdentifier: "STRING_VALUE", // required
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   resourceIdentifier: 'STRING_VALUE', // required
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new ListAccessLogSubscriptionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListAccessLogSubscriptionsResponse
+ *   items: [ // AccessLogSubscriptionList // required
+ *     { // AccessLogSubscriptionSummary
+ *       id: 'STRING_VALUE', // required
+ *       arn: 'STRING_VALUE', // required
+ *       resourceId: 'STRING_VALUE', // required
+ *       resourceArn: 'STRING_VALUE', // required
+ *       destinationArn: 'STRING_VALUE', // required
+ *       createdAt: new Date('TIMESTAMP'), // required
+ *       lastUpdatedAt: new Date('TIMESTAMP'), // required
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListAccessLogSubscriptionsCommandInput - {@link ListAccessLogSubscriptionsCommandInput}
@@ -64,6 +80,8 @@ export interface ListAccessLogSubscriptionsCommandOutput extends ListAccessLogSu
  *  <p>The input does not satisfy the constraints specified by an Amazon Web Services
  *    service.</p>
  *
+ * @throws {@link VPCLatticeServiceException}
+ * <p>Base exception class for all service exceptions from VPCLattice service.</p>
  *
  */
 export class ListAccessLogSubscriptionsCommand extends $Command<

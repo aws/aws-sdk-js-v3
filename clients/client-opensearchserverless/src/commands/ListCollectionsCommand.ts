@@ -45,19 +45,32 @@ export interface ListCollectionsCommandOutput extends ListCollectionsResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OpenSearchServerlessClient, ListCollectionsCommand } from "@aws-sdk/client-opensearchserverless"; // ES Modules import
- * // const { OpenSearchServerlessClient, ListCollectionsCommand } = require("@aws-sdk/client-opensearchserverless"); // CommonJS import
+ * import { OpenSearchServerlessClient, ListCollectionsCommand } from '@aws-sdk/client-opensearchserverless'; // ES Modules import
+ * // const { OpenSearchServerlessClient, ListCollectionsCommand } = require('@aws-sdk/client-opensearchserverless'); // CommonJS import
  * const client = new OpenSearchServerlessClient(config);
  * const input = { // ListCollectionsRequest
  *   collectionFilters: { // CollectionFilters
- *     name: "STRING_VALUE",
- *     status: "STRING_VALUE",
+ *     name: 'STRING_VALUE',
+ *     status: 'STRING_VALUE',
  *   },
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new ListCollectionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListCollectionsResponse
+ *   collectionSummaries: [ // CollectionSummaries
+ *     { // CollectionSummary
+ *       id: 'STRING_VALUE',
+ *       name: 'STRING_VALUE',
+ *       status: 'STRING_VALUE',
+ *       arn: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListCollectionsCommandInput - {@link ListCollectionsCommandInput}
@@ -73,6 +86,8 @@ export interface ListCollectionsCommandOutput extends ListCollectionsResponse, _
  *  <p>Thrown when the HTTP request contains invalid input or is missing required
  *             input.</p>
  *
+ * @throws {@link OpenSearchServerlessServiceException}
+ * <p>Base exception class for all service exceptions from OpenSearchServerless service.</p>
  *
  */
 export class ListCollectionsCommand extends $Command<

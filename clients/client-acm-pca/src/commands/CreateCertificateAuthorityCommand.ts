@@ -56,32 +56,32 @@ export interface CreateCertificateAuthorityCommandOutput extends CreateCertifica
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ACMPCAClient, CreateCertificateAuthorityCommand } from "@aws-sdk/client-acm-pca"; // ES Modules import
- * // const { ACMPCAClient, CreateCertificateAuthorityCommand } = require("@aws-sdk/client-acm-pca"); // CommonJS import
+ * import { ACMPCAClient, CreateCertificateAuthorityCommand } from '@aws-sdk/client-acm-pca'; // ES Modules import
+ * // const { ACMPCAClient, CreateCertificateAuthorityCommand } = require('@aws-sdk/client-acm-pca'); // CommonJS import
  * const client = new ACMPCAClient(config);
  * const input = { // CreateCertificateAuthorityRequest
  *   CertificateAuthorityConfiguration: { // CertificateAuthorityConfiguration
- *     KeyAlgorithm: "RSA_2048" || "RSA_4096" || "EC_prime256v1" || "EC_secp384r1", // required
- *     SigningAlgorithm: "SHA256WITHECDSA" || "SHA384WITHECDSA" || "SHA512WITHECDSA" || "SHA256WITHRSA" || "SHA384WITHRSA" || "SHA512WITHRSA", // required
+ *     KeyAlgorithm: 'RSA_2048' || 'RSA_4096' || 'EC_prime256v1' || 'EC_secp384r1', // required
+ *     SigningAlgorithm: 'SHA256WITHECDSA' || 'SHA384WITHECDSA' || 'SHA512WITHECDSA' || 'SHA256WITHRSA' || 'SHA384WITHRSA' || 'SHA512WITHRSA', // required
  *     Subject: { // ASN1Subject
- *       Country: "STRING_VALUE",
- *       Organization: "STRING_VALUE",
- *       OrganizationalUnit: "STRING_VALUE",
- *       DistinguishedNameQualifier: "STRING_VALUE",
- *       State: "STRING_VALUE",
- *       CommonName: "STRING_VALUE",
- *       SerialNumber: "STRING_VALUE",
- *       Locality: "STRING_VALUE",
- *       Title: "STRING_VALUE",
- *       Surname: "STRING_VALUE",
- *       GivenName: "STRING_VALUE",
- *       Initials: "STRING_VALUE",
- *       Pseudonym: "STRING_VALUE",
- *       GenerationQualifier: "STRING_VALUE",
+ *       Country: 'STRING_VALUE',
+ *       Organization: 'STRING_VALUE',
+ *       OrganizationalUnit: 'STRING_VALUE',
+ *       DistinguishedNameQualifier: 'STRING_VALUE',
+ *       State: 'STRING_VALUE',
+ *       CommonName: 'STRING_VALUE',
+ *       SerialNumber: 'STRING_VALUE',
+ *       Locality: 'STRING_VALUE',
+ *       Title: 'STRING_VALUE',
+ *       Surname: 'STRING_VALUE',
+ *       GivenName: 'STRING_VALUE',
+ *       Initials: 'STRING_VALUE',
+ *       Pseudonym: 'STRING_VALUE',
+ *       GenerationQualifier: 'STRING_VALUE',
  *       CustomAttributes: [ // CustomAttributeList
  *         { // CustomAttribute
- *           ObjectIdentifier: "STRING_VALUE", // required
- *           Value: "STRING_VALUE", // required
+ *           ObjectIdentifier: 'STRING_VALUE', // required
+ *           Value: 'STRING_VALUE', // required
  *         },
  *       ],
  *     },
@@ -100,45 +100,45 @@ export interface CreateCertificateAuthorityCommandOutput extends CreateCertifica
  *       SubjectInformationAccess: [ // AccessDescriptionList
  *         { // AccessDescription
  *           AccessMethod: { // AccessMethod
- *             CustomObjectIdentifier: "STRING_VALUE",
- *             AccessMethodType: "CA_REPOSITORY" || "RESOURCE_PKI_MANIFEST" || "RESOURCE_PKI_NOTIFY",
+ *             CustomObjectIdentifier: 'STRING_VALUE',
+ *             AccessMethodType: 'CA_REPOSITORY' || 'RESOURCE_PKI_MANIFEST' || 'RESOURCE_PKI_NOTIFY',
  *           },
  *           AccessLocation: { // GeneralName
  *             OtherName: { // OtherName
- *               TypeId: "STRING_VALUE", // required
- *               Value: "STRING_VALUE", // required
+ *               TypeId: 'STRING_VALUE', // required
+ *               Value: 'STRING_VALUE', // required
  *             },
- *             Rfc822Name: "STRING_VALUE",
- *             DnsName: "STRING_VALUE",
+ *             Rfc822Name: 'STRING_VALUE',
+ *             DnsName: 'STRING_VALUE',
  *             DirectoryName: {
- *               Country: "STRING_VALUE",
- *               Organization: "STRING_VALUE",
- *               OrganizationalUnit: "STRING_VALUE",
- *               DistinguishedNameQualifier: "STRING_VALUE",
- *               State: "STRING_VALUE",
- *               CommonName: "STRING_VALUE",
- *               SerialNumber: "STRING_VALUE",
- *               Locality: "STRING_VALUE",
- *               Title: "STRING_VALUE",
- *               Surname: "STRING_VALUE",
- *               GivenName: "STRING_VALUE",
- *               Initials: "STRING_VALUE",
- *               Pseudonym: "STRING_VALUE",
- *               GenerationQualifier: "STRING_VALUE",
+ *               Country: 'STRING_VALUE',
+ *               Organization: 'STRING_VALUE',
+ *               OrganizationalUnit: 'STRING_VALUE',
+ *               DistinguishedNameQualifier: 'STRING_VALUE',
+ *               State: 'STRING_VALUE',
+ *               CommonName: 'STRING_VALUE',
+ *               SerialNumber: 'STRING_VALUE',
+ *               Locality: 'STRING_VALUE',
+ *               Title: 'STRING_VALUE',
+ *               Surname: 'STRING_VALUE',
+ *               GivenName: 'STRING_VALUE',
+ *               Initials: 'STRING_VALUE',
+ *               Pseudonym: 'STRING_VALUE',
+ *               GenerationQualifier: 'STRING_VALUE',
  *               CustomAttributes: [
  *                 {
- *                   ObjectIdentifier: "STRING_VALUE", // required
- *                   Value: "STRING_VALUE", // required
+ *                   ObjectIdentifier: 'STRING_VALUE', // required
+ *                   Value: 'STRING_VALUE', // required
  *                 },
  *               ],
  *             },
  *             EdiPartyName: { // EdiPartyName
- *               PartyName: "STRING_VALUE", // required
- *               NameAssigner: "STRING_VALUE",
+ *               PartyName: 'STRING_VALUE', // required
+ *               NameAssigner: 'STRING_VALUE',
  *             },
- *             UniformResourceIdentifier: "STRING_VALUE",
- *             IpAddress: "STRING_VALUE",
- *             RegisteredId: "STRING_VALUE",
+ *             UniformResourceIdentifier: 'STRING_VALUE',
+ *             IpAddress: 'STRING_VALUE',
+ *             RegisteredId: 'STRING_VALUE',
  *           },
  *         },
  *       ],
@@ -147,29 +147,34 @@ export interface CreateCertificateAuthorityCommandOutput extends CreateCertifica
  *   RevocationConfiguration: { // RevocationConfiguration
  *     CrlConfiguration: { // CrlConfiguration
  *       Enabled: true || false, // required
- *       ExpirationInDays: Number("int"),
- *       CustomCname: "STRING_VALUE",
- *       S3BucketName: "STRING_VALUE",
- *       S3ObjectAcl: "PUBLIC_READ" || "BUCKET_OWNER_FULL_CONTROL",
+ *       ExpirationInDays: Number('int'),
+ *       CustomCname: 'STRING_VALUE',
+ *       S3BucketName: 'STRING_VALUE',
+ *       S3ObjectAcl: 'PUBLIC_READ' || 'BUCKET_OWNER_FULL_CONTROL',
  *     },
  *     OcspConfiguration: { // OcspConfiguration
  *       Enabled: true || false, // required
- *       OcspCustomCname: "STRING_VALUE",
+ *       OcspCustomCname: 'STRING_VALUE',
  *     },
  *   },
- *   CertificateAuthorityType: "ROOT" || "SUBORDINATE", // required
- *   IdempotencyToken: "STRING_VALUE",
- *   KeyStorageSecurityStandard: "FIPS_140_2_LEVEL_2_OR_HIGHER" || "FIPS_140_2_LEVEL_3_OR_HIGHER",
+ *   CertificateAuthorityType: 'ROOT' || 'SUBORDINATE', // required
+ *   IdempotencyToken: 'STRING_VALUE',
+ *   KeyStorageSecurityStandard: 'FIPS_140_2_LEVEL_2_OR_HIGHER' || 'FIPS_140_2_LEVEL_3_OR_HIGHER',
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
- *   UsageMode: "GENERAL_PURPOSE" || "SHORT_LIVED_CERTIFICATE",
+ *   UsageMode: 'GENERAL_PURPOSE' || 'SHORT_LIVED_CERTIFICATE',
  * };
  * const command = new CreateCertificateAuthorityCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateCertificateAuthorityResponse
+ *   CertificateAuthorityArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateCertificateAuthorityCommandInput - {@link CreateCertificateAuthorityCommandInput}
@@ -193,6 +198,8 @@ export interface CreateCertificateAuthorityCommandOutput extends CreateCertifica
  *  <p>An Amazon Web Services Private CA quota has been exceeded. See the exception message returned to determine
  * 			the quota that was exceeded.</p>
  *
+ * @throws {@link ACMPCAServiceException}
+ * <p>Base exception class for all service exceptions from ACMPCA service.</p>
  *
  */
 export class CreateCertificateAuthorityCommand extends $Command<

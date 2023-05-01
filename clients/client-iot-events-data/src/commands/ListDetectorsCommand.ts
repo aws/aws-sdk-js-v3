@@ -36,17 +36,34 @@ export interface ListDetectorsCommandOutput extends ListDetectorsResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTEventsDataClient, ListDetectorsCommand } from "@aws-sdk/client-iot-events-data"; // ES Modules import
- * // const { IoTEventsDataClient, ListDetectorsCommand } = require("@aws-sdk/client-iot-events-data"); // CommonJS import
+ * import { IoTEventsDataClient, ListDetectorsCommand } from '@aws-sdk/client-iot-events-data'; // ES Modules import
+ * // const { IoTEventsDataClient, ListDetectorsCommand } = require('@aws-sdk/client-iot-events-data'); // CommonJS import
  * const client = new IoTEventsDataClient(config);
  * const input = { // ListDetectorsRequest
- *   detectorModelName: "STRING_VALUE", // required
- *   stateName: "STRING_VALUE",
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   detectorModelName: 'STRING_VALUE', // required
+ *   stateName: 'STRING_VALUE',
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new ListDetectorsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListDetectorsResponse
+ *   detectorSummaries: [ // DetectorSummaries
+ *     { // DetectorSummary
+ *       detectorModelName: 'STRING_VALUE',
+ *       keyValue: 'STRING_VALUE',
+ *       detectorModelVersion: 'STRING_VALUE',
+ *       state: { // DetectorStateSummary
+ *         stateName: 'STRING_VALUE',
+ *       },
+ *       creationTime: new Date('TIMESTAMP'),
+ *       lastUpdateTime: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListDetectorsCommandInput - {@link ListDetectorsCommandInput}
@@ -70,6 +87,8 @@ export interface ListDetectorsCommandOutput extends ListDetectorsResponse, __Met
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request could not be completed due to throttling.</p>
  *
+ * @throws {@link IoTEventsDataServiceException}
+ * <p>Base exception class for all service exceptions from IoTEventsData service.</p>
  *
  */
 export class ListDetectorsCommand extends $Command<

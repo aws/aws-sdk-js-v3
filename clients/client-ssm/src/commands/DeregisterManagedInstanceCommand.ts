@@ -38,14 +38,17 @@ export interface DeregisterManagedInstanceCommandOutput extends DeregisterManage
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMClient, DeregisterManagedInstanceCommand } from "@aws-sdk/client-ssm"; // ES Modules import
- * // const { SSMClient, DeregisterManagedInstanceCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * import { SSMClient, DeregisterManagedInstanceCommand } from '@aws-sdk/client-ssm'; // ES Modules import
+ * // const { SSMClient, DeregisterManagedInstanceCommand } = require('@aws-sdk/client-ssm'); // CommonJS import
  * const client = new SSMClient(config);
  * const input = { // DeregisterManagedInstanceRequest
- *   InstanceId: "STRING_VALUE", // required
+ *   InstanceId: 'STRING_VALUE', // required
  * };
  * const command = new DeregisterManagedInstanceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeregisterManagedInstanceCommandInput - {@link DeregisterManagedInstanceCommandInput}
@@ -77,6 +80,8 @@ export interface DeregisterManagedInstanceCommandOutput extends DeregisterManage
  *             </li>
  *          </ul>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class DeregisterManagedInstanceCommand extends $Command<

@@ -40,14 +40,21 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOut
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { TnbClient, ListTagsForResourceCommand } from "@aws-sdk/client-tnb"; // ES Modules import
- * // const { TnbClient, ListTagsForResourceCommand } = require("@aws-sdk/client-tnb"); // CommonJS import
+ * import { TnbClient, ListTagsForResourceCommand } from '@aws-sdk/client-tnb'; // ES Modules import
+ * // const { TnbClient, ListTagsForResourceCommand } = require('@aws-sdk/client-tnb'); // CommonJS import
  * const client = new TnbClient(config);
  * const input = { // ListTagsForResourceInput
- *   resourceArn: "STRING_VALUE", // required
+ *   resourceArn: 'STRING_VALUE', // required
  * };
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTagsForResourceOutput
+ *   tags: { // TagMap // required
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param ListTagsForResourceCommandInput - {@link ListTagsForResourceCommandInput}
@@ -71,6 +78,8 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOut
  * @throws {@link ValidationException} (client fault)
  *  <p>Unable to process the request because the client provided input failed to satisfy request constraints.</p>
  *
+ * @throws {@link TnbServiceException}
+ * <p>Base exception class for all service exceptions from Tnb service.</p>
  *
  */
 export class ListTagsForResourceCommand extends $Command<

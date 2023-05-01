@@ -36,18 +36,36 @@ export interface GetEnabledStandardsCommandOutput extends GetEnabledStandardsRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SecurityHubClient, GetEnabledStandardsCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
- * // const { SecurityHubClient, GetEnabledStandardsCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
+ * import { SecurityHubClient, GetEnabledStandardsCommand } from '@aws-sdk/client-securityhub'; // ES Modules import
+ * // const { SecurityHubClient, GetEnabledStandardsCommand } = require('@aws-sdk/client-securityhub'); // CommonJS import
  * const client = new SecurityHubClient(config);
  * const input = { // GetEnabledStandardsRequest
  *   StandardsSubscriptionArns: [ // StandardsSubscriptionArns
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new GetEnabledStandardsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetEnabledStandardsResponse
+ *   StandardsSubscriptions: [ // StandardsSubscriptions
+ *     { // StandardsSubscription
+ *       StandardsSubscriptionArn: 'STRING_VALUE', // required
+ *       StandardsArn: 'STRING_VALUE', // required
+ *       StandardsInput: { // StandardsInputParameterMap // required
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *       StandardsStatus: 'PENDING' || 'READY' || 'FAILED' || 'DELETING' || 'INCOMPLETE', // required
+ *       StandardsStatusReason: { // StandardsStatusReason
+ *         StatusReasonCode: 'NO_AVAILABLE_CONFIGURATION_RECORDER' || 'INTERNAL_ERROR', // required
+ *       },
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetEnabledStandardsCommandInput - {@link GetEnabledStandardsCommandInput}
@@ -70,6 +88,8 @@ export interface GetEnabledStandardsCommandOutput extends GetEnabledStandardsRes
  *  <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services
  *          account or throttling limits. The error code describes the limit exceeded.</p>
  *
+ * @throws {@link SecurityHubServiceException}
+ * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
  * @example To return a list of enabled standards
  * ```javascript

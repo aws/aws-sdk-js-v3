@@ -44,25 +44,44 @@ export interface EnableFastLaunchCommandOutput extends EnableFastLaunchResult, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, EnableFastLaunchCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, EnableFastLaunchCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, EnableFastLaunchCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, EnableFastLaunchCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // EnableFastLaunchRequest
- *   ImageId: "STRING_VALUE", // required
- *   ResourceType: "STRING_VALUE",
+ *   ImageId: 'STRING_VALUE', // required
+ *   ResourceType: 'STRING_VALUE',
  *   SnapshotConfiguration: { // FastLaunchSnapshotConfigurationRequest
- *     TargetResourceCount: Number("int"),
+ *     TargetResourceCount: Number('int'),
  *   },
  *   LaunchTemplate: { // FastLaunchLaunchTemplateSpecificationRequest
- *     LaunchTemplateId: "STRING_VALUE",
- *     LaunchTemplateName: "STRING_VALUE",
- *     Version: "STRING_VALUE", // required
+ *     LaunchTemplateId: 'STRING_VALUE',
+ *     LaunchTemplateName: 'STRING_VALUE',
+ *     Version: 'STRING_VALUE', // required
  *   },
- *   MaxParallelLaunches: Number("int"),
+ *   MaxParallelLaunches: Number('int'),
  *   DryRun: true || false,
  * };
  * const command = new EnableFastLaunchCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // EnableFastLaunchResult
+ *   ImageId: 'STRING_VALUE',
+ *   ResourceType: 'snapshot',
+ *   SnapshotConfiguration: { // FastLaunchSnapshotConfigurationResponse
+ *     TargetResourceCount: Number('int'),
+ *   },
+ *   LaunchTemplate: { // FastLaunchLaunchTemplateSpecificationResponse
+ *     LaunchTemplateId: 'STRING_VALUE',
+ *     LaunchTemplateName: 'STRING_VALUE',
+ *     Version: 'STRING_VALUE',
+ *   },
+ *   MaxParallelLaunches: Number('int'),
+ *   OwnerId: 'STRING_VALUE',
+ *   State: 'enabling' || 'enabling-failed' || 'enabled' || 'enabled-failed' || 'disabling' || 'disabling-failed',
+ *   StateTransitionReason: 'STRING_VALUE',
+ *   StateTransitionTime: new Date('TIMESTAMP'),
+ * };
+ *
  * ```
  *
  * @param EnableFastLaunchCommandInput - {@link EnableFastLaunchCommandInput}
@@ -71,6 +90,8 @@ export interface EnableFastLaunchCommandOutput extends EnableFastLaunchResult, _
  * @see {@link EnableFastLaunchCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class EnableFastLaunchCommand extends $Command<

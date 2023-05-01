@@ -50,14 +50,22 @@ export interface ListHapgsCommandOutput extends ListHapgsResponse, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudHSMClient, ListHapgsCommand } from "@aws-sdk/client-cloudhsm"; // ES Modules import
- * // const { CloudHSMClient, ListHapgsCommand } = require("@aws-sdk/client-cloudhsm"); // CommonJS import
+ * import { CloudHSMClient, ListHapgsCommand } from '@aws-sdk/client-cloudhsm'; // ES Modules import
+ * // const { CloudHSMClient, ListHapgsCommand } = require('@aws-sdk/client-cloudhsm'); // CommonJS import
  * const client = new CloudHSMClient(config);
  * const input = { // ListHapgsRequest
- *   NextToken: "STRING_VALUE",
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListHapgsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListHapgsResponse
+ *   HapgList: [ // HapgList // required
+ *     'STRING_VALUE',
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListHapgsCommandInput - {@link ListHapgsCommandInput}
@@ -75,6 +83,8 @@ export interface ListHapgsCommandOutput extends ListHapgsResponse, __MetadataBea
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>Indicates that one or more of the request parameters are not valid.</p>
  *
+ * @throws {@link CloudHSMServiceException}
+ * <p>Base exception class for all service exceptions from CloudHSM service.</p>
  *
  */
 export class ListHapgsCommand extends $Command<

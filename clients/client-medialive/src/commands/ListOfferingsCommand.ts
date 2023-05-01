@@ -36,25 +36,54 @@ export interface ListOfferingsCommandOutput extends ListOfferingsResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MediaLiveClient, ListOfferingsCommand } from "@aws-sdk/client-medialive"; // ES Modules import
- * // const { MediaLiveClient, ListOfferingsCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
+ * import { MediaLiveClient, ListOfferingsCommand } from '@aws-sdk/client-medialive'; // ES Modules import
+ * // const { MediaLiveClient, ListOfferingsCommand } = require('@aws-sdk/client-medialive'); // CommonJS import
  * const client = new MediaLiveClient(config);
  * const input = { // ListOfferingsRequest
- *   ChannelClass: "STRING_VALUE",
- *   ChannelConfiguration: "STRING_VALUE",
- *   Codec: "STRING_VALUE",
- *   Duration: "STRING_VALUE",
- *   MaxResults: Number("int"),
- *   MaximumBitrate: "STRING_VALUE",
- *   MaximumFramerate: "STRING_VALUE",
- *   NextToken: "STRING_VALUE",
- *   Resolution: "STRING_VALUE",
- *   ResourceType: "STRING_VALUE",
- *   SpecialFeature: "STRING_VALUE",
- *   VideoQuality: "STRING_VALUE",
+ *   ChannelClass: 'STRING_VALUE',
+ *   ChannelConfiguration: 'STRING_VALUE',
+ *   Codec: 'STRING_VALUE',
+ *   Duration: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
+ *   MaximumBitrate: 'STRING_VALUE',
+ *   MaximumFramerate: 'STRING_VALUE',
+ *   NextToken: 'STRING_VALUE',
+ *   Resolution: 'STRING_VALUE',
+ *   ResourceType: 'STRING_VALUE',
+ *   SpecialFeature: 'STRING_VALUE',
+ *   VideoQuality: 'STRING_VALUE',
  * };
  * const command = new ListOfferingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListOfferingsResponse
+ *   NextToken: 'STRING_VALUE',
+ *   Offerings: [ // __listOfOffering
+ *     { // Offering
+ *       Arn: 'STRING_VALUE',
+ *       CurrencyCode: 'STRING_VALUE',
+ *       Duration: Number('int'),
+ *       DurationUnits: 'MONTHS',
+ *       FixedPrice: Number('double'),
+ *       OfferingDescription: 'STRING_VALUE',
+ *       OfferingId: 'STRING_VALUE',
+ *       OfferingType: 'NO_UPFRONT',
+ *       Region: 'STRING_VALUE',
+ *       ResourceSpecification: { // ReservationResourceSpecification
+ *         ChannelClass: 'STANDARD' || 'SINGLE_PIPELINE',
+ *         Codec: 'MPEG2' || 'AVC' || 'HEVC' || 'AUDIO' || 'LINK',
+ *         MaximumBitrate: 'MAX_10_MBPS' || 'MAX_20_MBPS' || 'MAX_50_MBPS',
+ *         MaximumFramerate: 'MAX_30_FPS' || 'MAX_60_FPS',
+ *         Resolution: 'SD' || 'HD' || 'FHD' || 'UHD',
+ *         ResourceType: 'INPUT' || 'OUTPUT' || 'MULTIPLEX' || 'CHANNEL',
+ *         SpecialFeature: 'ADVANCED_AUDIO' || 'AUDIO_NORMALIZATION' || 'MGHD' || 'MGUHD',
+ *         VideoQuality: 'STANDARD' || 'ENHANCED' || 'PREMIUM',
+ *       },
+ *       UsagePrice: Number('double'),
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListOfferingsCommandInput - {@link ListOfferingsCommandInput}
@@ -81,6 +110,8 @@ export interface ListOfferingsCommandOutput extends ListOfferingsResponse, __Met
  * @throws {@link TooManyRequestsException} (client fault)
  *  Placeholder documentation for TooManyRequestsException
  *
+ * @throws {@link MediaLiveServiceException}
+ * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
  */
 export class ListOfferingsCommand extends $Command<

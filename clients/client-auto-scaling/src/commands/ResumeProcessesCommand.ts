@@ -39,17 +39,20 @@ export interface ResumeProcessesCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AutoScalingClient, ResumeProcessesCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
- * // const { AutoScalingClient, ResumeProcessesCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
+ * import { AutoScalingClient, ResumeProcessesCommand } from '@aws-sdk/client-auto-scaling'; // ES Modules import
+ * // const { AutoScalingClient, ResumeProcessesCommand } = require('@aws-sdk/client-auto-scaling'); // CommonJS import
  * const client = new AutoScalingClient(config);
  * const input = { // ScalingProcessQuery
- *   AutoScalingGroupName: "STRING_VALUE", // required
+ *   AutoScalingGroupName: 'STRING_VALUE', // required
  *   ScalingProcesses: [ // ProcessNames
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new ResumeProcessesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param ResumeProcessesCommandInput - {@link ResumeProcessesCommandInput}
@@ -65,6 +68,8 @@ export interface ResumeProcessesCommandOutput extends __MetadataBearer {}
  * @throws {@link ResourceInUseFault} (client fault)
  *  <p>The operation can't be performed because the resource is in use.</p>
  *
+ * @throws {@link AutoScalingServiceException}
+ * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
  * @example To resume Auto Scaling processes
  * ```javascript

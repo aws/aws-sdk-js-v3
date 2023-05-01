@@ -49,22 +49,30 @@ export interface GetPackageVersionAssetCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeartifactClient, GetPackageVersionAssetCommand } from "@aws-sdk/client-codeartifact"; // ES Modules import
- * // const { CodeartifactClient, GetPackageVersionAssetCommand } = require("@aws-sdk/client-codeartifact"); // CommonJS import
+ * import { CodeartifactClient, GetPackageVersionAssetCommand } from '@aws-sdk/client-codeartifact'; // ES Modules import
+ * // const { CodeartifactClient, GetPackageVersionAssetCommand } = require('@aws-sdk/client-codeartifact'); // CommonJS import
  * const client = new CodeartifactClient(config);
  * const input = { // GetPackageVersionAssetRequest
- *   domain: "STRING_VALUE", // required
- *   domainOwner: "STRING_VALUE",
- *   repository: "STRING_VALUE", // required
- *   format: "npm" || "pypi" || "maven" || "nuget" || "generic", // required
- *   namespace: "STRING_VALUE",
- *   package: "STRING_VALUE", // required
- *   packageVersion: "STRING_VALUE", // required
- *   asset: "STRING_VALUE", // required
- *   packageVersionRevision: "STRING_VALUE",
+ *   domain: 'STRING_VALUE', // required
+ *   domainOwner: 'STRING_VALUE',
+ *   repository: 'STRING_VALUE', // required
+ *   format: 'npm' || 'pypi' || 'maven' || 'nuget' || 'generic', // required
+ *   namespace: 'STRING_VALUE',
+ *   package: 'STRING_VALUE', // required
+ *   packageVersion: 'STRING_VALUE', // required
+ *   asset: 'STRING_VALUE', // required
+ *   packageVersionRevision: 'STRING_VALUE',
  * };
  * const command = new GetPackageVersionAssetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetPackageVersionAssetResult
+ *   asset: 'STREAMING_BLOB_VALUE',
+ *   assetName: 'STRING_VALUE',
+ *   packageVersion: 'STRING_VALUE',
+ *   packageVersionRevision: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetPackageVersionAssetCommandInput - {@link GetPackageVersionAssetCommandInput}
@@ -101,6 +109,8 @@ export interface GetPackageVersionAssetCommandOutput
  *       The operation did not succeed because a parameter in the request was sent with an invalid value.
  *     </p>
  *
+ * @throws {@link CodeartifactServiceException}
+ * <p>Base exception class for all service exceptions from Codeartifact service.</p>
  *
  */
 export class GetPackageVersionAssetCommand extends $Command<

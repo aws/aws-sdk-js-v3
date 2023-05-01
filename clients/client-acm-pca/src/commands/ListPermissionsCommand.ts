@@ -63,16 +63,33 @@ export interface ListPermissionsCommandOutput extends ListPermissionsResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ACMPCAClient, ListPermissionsCommand } from "@aws-sdk/client-acm-pca"; // ES Modules import
- * // const { ACMPCAClient, ListPermissionsCommand } = require("@aws-sdk/client-acm-pca"); // CommonJS import
+ * import { ACMPCAClient, ListPermissionsCommand } from '@aws-sdk/client-acm-pca'; // ES Modules import
+ * // const { ACMPCAClient, ListPermissionsCommand } = require('@aws-sdk/client-acm-pca'); // CommonJS import
  * const client = new ACMPCAClient(config);
  * const input = { // ListPermissionsRequest
- *   CertificateAuthorityArn: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   CertificateAuthorityArn: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListPermissionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListPermissionsResponse
+ *   Permissions: [ // PermissionList
+ *     { // Permission
+ *       CertificateAuthorityArn: 'STRING_VALUE',
+ *       CreatedAt: new Date('TIMESTAMP'),
+ *       Principal: 'STRING_VALUE',
+ *       SourceAccount: 'STRING_VALUE',
+ *       Actions: [ // ActionList
+ *         'IssueCertificate' || 'GetCertificate' || 'ListPermissions',
+ *       ],
+ *       Policy: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListPermissionsCommandInput - {@link ListPermissionsCommandInput}
@@ -99,6 +116,8 @@ export interface ListPermissionsCommandOutput extends ListPermissionsResponse, _
  *  <p>A resource such as a private CA, S3 bucket, certificate, audit report, or policy
  * 			cannot be found.</p>
  *
+ * @throws {@link ACMPCAServiceException}
+ * <p>Base exception class for all service exceptions from ACMPCA service.</p>
  *
  */
 export class ListPermissionsCommand extends $Command<

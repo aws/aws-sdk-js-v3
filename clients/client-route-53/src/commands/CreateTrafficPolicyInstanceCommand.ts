@@ -44,18 +44,34 @@ export interface CreateTrafficPolicyInstanceCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Route53Client, CreateTrafficPolicyInstanceCommand } from "@aws-sdk/client-route-53"; // ES Modules import
- * // const { Route53Client, CreateTrafficPolicyInstanceCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
+ * import { Route53Client, CreateTrafficPolicyInstanceCommand } from '@aws-sdk/client-route-53'; // ES Modules import
+ * // const { Route53Client, CreateTrafficPolicyInstanceCommand } = require('@aws-sdk/client-route-53'); // CommonJS import
  * const client = new Route53Client(config);
  * const input = { // CreateTrafficPolicyInstanceRequest
- *   HostedZoneId: "STRING_VALUE", // required
- *   Name: "STRING_VALUE", // required
- *   TTL: Number("long"), // required
- *   TrafficPolicyId: "STRING_VALUE", // required
- *   TrafficPolicyVersion: Number("int"), // required
+ *   HostedZoneId: 'STRING_VALUE', // required
+ *   Name: 'STRING_VALUE', // required
+ *   TTL: Number('long'), // required
+ *   TrafficPolicyId: 'STRING_VALUE', // required
+ *   TrafficPolicyVersion: Number('int'), // required
  * };
  * const command = new CreateTrafficPolicyInstanceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateTrafficPolicyInstanceResponse
+ *   TrafficPolicyInstance: { // TrafficPolicyInstance
+ *     Id: 'STRING_VALUE', // required
+ *     HostedZoneId: 'STRING_VALUE', // required
+ *     Name: 'STRING_VALUE', // required
+ *     TTL: Number('long'), // required
+ *     State: 'STRING_VALUE', // required
+ *     Message: 'STRING_VALUE', // required
+ *     TrafficPolicyId: 'STRING_VALUE', // required
+ *     TrafficPolicyVersion: Number('int'), // required
+ *     TrafficPolicyType: 'SOA' || 'A' || 'TXT' || 'NS' || 'CNAME' || 'MX' || 'NAPTR' || 'PTR' || 'SRV' || 'SPF' || 'AAAA' || 'CAA' || 'DS', // required
+ *   },
+ *   Location: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param CreateTrafficPolicyInstanceCommandInput - {@link CreateTrafficPolicyInstanceCommandInput}
@@ -85,6 +101,8 @@ export interface CreateTrafficPolicyInstanceCommandOutput
  * @throws {@link TrafficPolicyInstanceAlreadyExists} (client fault)
  *  <p>There is already a traffic policy instance with the specified ID.</p>
  *
+ * @throws {@link Route53ServiceException}
+ * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
  */
 export class CreateTrafficPolicyInstanceCommand extends $Command<

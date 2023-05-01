@@ -36,33 +36,38 @@ export interface CreatePipelineCommandOutput extends CreatePipelineResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, CreatePipelineCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, CreatePipelineCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, CreatePipelineCommand } from '@aws-sdk/client-sagemaker'; // ES Modules import
+ * // const { SageMakerClient, CreatePipelineCommand } = require('@aws-sdk/client-sagemaker'); // CommonJS import
  * const client = new SageMakerClient(config);
  * const input = { // CreatePipelineRequest
- *   PipelineName: "STRING_VALUE", // required
- *   PipelineDisplayName: "STRING_VALUE",
- *   PipelineDefinition: "STRING_VALUE",
+ *   PipelineName: 'STRING_VALUE', // required
+ *   PipelineDisplayName: 'STRING_VALUE',
+ *   PipelineDefinition: 'STRING_VALUE',
  *   PipelineDefinitionS3Location: { // PipelineDefinitionS3Location
- *     Bucket: "STRING_VALUE", // required
- *     ObjectKey: "STRING_VALUE", // required
- *     VersionId: "STRING_VALUE",
+ *     Bucket: 'STRING_VALUE', // required
+ *     ObjectKey: 'STRING_VALUE', // required
+ *     VersionId: 'STRING_VALUE',
  *   },
- *   PipelineDescription: "STRING_VALUE",
- *   ClientRequestToken: "STRING_VALUE", // required
- *   RoleArn: "STRING_VALUE", // required
+ *   PipelineDescription: 'STRING_VALUE',
+ *   ClientRequestToken: 'STRING_VALUE', // required
+ *   RoleArn: 'STRING_VALUE', // required
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  *   ParallelismConfiguration: { // ParallelismConfiguration
- *     MaxParallelExecutionSteps: Number("int"), // required
+ *     MaxParallelExecutionSteps: Number('int'), // required
  *   },
  * };
  * const command = new CreatePipelineCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreatePipelineResponse
+ *   PipelineArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreatePipelineCommandInput - {@link CreatePipelineCommandInput}
@@ -78,6 +83,8 @@ export interface CreatePipelineCommandOutput extends CreatePipelineResponse, __M
  * @throws {@link ResourceNotFound} (client fault)
  *  <p>Resource being access is not found.</p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class CreatePipelineCommand extends $Command<

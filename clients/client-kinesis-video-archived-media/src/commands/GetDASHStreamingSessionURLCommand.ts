@@ -186,27 +186,32 @@ export interface GetDASHStreamingSessionURLCommandOutput extends GetDASHStreamin
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KinesisVideoArchivedMediaClient, GetDASHStreamingSessionURLCommand } from "@aws-sdk/client-kinesis-video-archived-media"; // ES Modules import
- * // const { KinesisVideoArchivedMediaClient, GetDASHStreamingSessionURLCommand } = require("@aws-sdk/client-kinesis-video-archived-media"); // CommonJS import
+ * import { KinesisVideoArchivedMediaClient, GetDASHStreamingSessionURLCommand } from '@aws-sdk/client-kinesis-video-archived-media'; // ES Modules import
+ * // const { KinesisVideoArchivedMediaClient, GetDASHStreamingSessionURLCommand } = require('@aws-sdk/client-kinesis-video-archived-media'); // CommonJS import
  * const client = new KinesisVideoArchivedMediaClient(config);
  * const input = { // GetDASHStreamingSessionURLInput
- *   StreamName: "STRING_VALUE",
- *   StreamARN: "STRING_VALUE",
- *   PlaybackMode: "STRING_VALUE",
- *   DisplayFragmentTimestamp: "STRING_VALUE",
- *   DisplayFragmentNumber: "STRING_VALUE",
+ *   StreamName: 'STRING_VALUE',
+ *   StreamARN: 'STRING_VALUE',
+ *   PlaybackMode: 'STRING_VALUE',
+ *   DisplayFragmentTimestamp: 'STRING_VALUE',
+ *   DisplayFragmentNumber: 'STRING_VALUE',
  *   DASHFragmentSelector: { // DASHFragmentSelector
- *     FragmentSelectorType: "STRING_VALUE",
+ *     FragmentSelectorType: 'STRING_VALUE',
  *     TimestampRange: { // DASHTimestampRange
- *       StartTimestamp: new Date("TIMESTAMP"),
- *       EndTimestamp: new Date("TIMESTAMP"),
+ *       StartTimestamp: new Date('TIMESTAMP'),
+ *       EndTimestamp: new Date('TIMESTAMP'),
  *     },
  *   },
- *   Expires: Number("int"),
- *   MaxManifestFragmentResults: Number("long"),
+ *   Expires: Number('int'),
+ *   MaxManifestFragmentResults: Number('long'),
  * };
  * const command = new GetDASHStreamingSessionURLCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetDASHStreamingSessionURLOutput
+ *   DASHStreamingSessionURL: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetDASHStreamingSessionURLCommandInput - {@link GetDASHStreamingSessionURLCommandInput}
@@ -255,6 +260,8 @@ export interface GetDASHStreamingSessionURLCommandOutput extends GetDASHStreamin
  *             session. The codec ID for track 1 should be <code>V_MPEG/ISO/AVC</code> and, optionally,
  *             the codec ID for track 2 should be <code>A_AAC</code>.</p>
  *
+ * @throws {@link KinesisVideoArchivedMediaServiceException}
+ * <p>Base exception class for all service exceptions from KinesisVideoArchivedMedia service.</p>
  *
  */
 export class GetDASHStreamingSessionURLCommand extends $Command<

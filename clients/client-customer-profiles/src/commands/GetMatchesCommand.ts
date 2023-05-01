@@ -80,16 +80,32 @@ export interface GetMatchesCommandOutput extends GetMatchesResponse, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CustomerProfilesClient, GetMatchesCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
- * // const { CustomerProfilesClient, GetMatchesCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
+ * import { CustomerProfilesClient, GetMatchesCommand } from '@aws-sdk/client-customer-profiles'; // ES Modules import
+ * // const { CustomerProfilesClient, GetMatchesCommand } = require('@aws-sdk/client-customer-profiles'); // CommonJS import
  * const client = new CustomerProfilesClient(config);
  * const input = { // GetMatchesRequest
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
- *   DomainName: "STRING_VALUE", // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
+ *   DomainName: 'STRING_VALUE', // required
  * };
  * const command = new GetMatchesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetMatchesResponse
+ *   NextToken: 'STRING_VALUE',
+ *   MatchGenerationDate: new Date('TIMESTAMP'),
+ *   PotentialMatches: Number('int'),
+ *   Matches: [ // MatchesList
+ *     { // MatchItem
+ *       MatchId: 'STRING_VALUE',
+ *       ProfileIds: [ // ProfileIdList
+ *         'STRING_VALUE',
+ *       ],
+ *       ConfidenceScore: Number('double'),
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetMatchesCommandInput - {@link GetMatchesCommandInput}
@@ -113,6 +129,8 @@ export interface GetMatchesCommandOutput extends GetMatchesResponse, __MetadataB
  * @throws {@link ThrottlingException} (client fault)
  *  <p>You exceeded the maximum number of requests.</p>
  *
+ * @throws {@link CustomerProfilesServiceException}
+ * <p>Base exception class for all service exceptions from CustomerProfiles service.</p>
  *
  */
 export class GetMatchesCommand extends $Command<

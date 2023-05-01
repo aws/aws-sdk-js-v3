@@ -39,15 +39,18 @@ export interface DeleteNotificationSubscriptionCommandOutput extends __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkDocsClient, DeleteNotificationSubscriptionCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
- * // const { WorkDocsClient, DeleteNotificationSubscriptionCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import
+ * import { WorkDocsClient, DeleteNotificationSubscriptionCommand } from '@aws-sdk/client-workdocs'; // ES Modules import
+ * // const { WorkDocsClient, DeleteNotificationSubscriptionCommand } = require('@aws-sdk/client-workdocs'); // CommonJS import
  * const client = new WorkDocsClient(config);
  * const input = { // DeleteNotificationSubscriptionRequest
- *   SubscriptionId: "STRING_VALUE", // required
- *   OrganizationId: "STRING_VALUE", // required
+ *   SubscriptionId: 'STRING_VALUE', // required
+ *   OrganizationId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteNotificationSubscriptionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteNotificationSubscriptionCommandInput - {@link DeleteNotificationSubscriptionCommandInput}
@@ -68,6 +71,8 @@ export interface DeleteNotificationSubscriptionCommandOutput extends __MetadataB
  * @throws {@link UnauthorizedResourceAccessException} (client fault)
  *  <p>The caller does not have access to perform the action on the resource.</p>
  *
+ * @throws {@link WorkDocsServiceException}
+ * <p>Base exception class for all service exceptions from WorkDocs service.</p>
  *
  */
 export class DeleteNotificationSubscriptionCommand extends $Command<

@@ -38,15 +38,32 @@ export interface GetSystemTemplateCommandOutput extends GetSystemTemplateRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTThingsGraphClient, GetSystemTemplateCommand } from "@aws-sdk/client-iotthingsgraph"; // ES Modules import
- * // const { IoTThingsGraphClient, GetSystemTemplateCommand } = require("@aws-sdk/client-iotthingsgraph"); // CommonJS import
+ * import { IoTThingsGraphClient, GetSystemTemplateCommand } from '@aws-sdk/client-iotthingsgraph'; // ES Modules import
+ * // const { IoTThingsGraphClient, GetSystemTemplateCommand } = require('@aws-sdk/client-iotthingsgraph'); // CommonJS import
  * const client = new IoTThingsGraphClient(config);
  * const input = { // GetSystemTemplateRequest
- *   id: "STRING_VALUE", // required
- *   revisionNumber: Number("long"),
+ *   id: 'STRING_VALUE', // required
+ *   revisionNumber: Number('long'),
  * };
  * const command = new GetSystemTemplateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetSystemTemplateResponse
+ *   description: { // SystemTemplateDescription
+ *     summary: { // SystemTemplateSummary
+ *       id: 'STRING_VALUE',
+ *       arn: 'STRING_VALUE',
+ *       revisionNumber: Number('long'),
+ *       createdAt: new Date('TIMESTAMP'),
+ *     },
+ *     definition: { // DefinitionDocument
+ *       language: 'STRING_VALUE', // required
+ *       text: 'STRING_VALUE', // required
+ *     },
+ *     validatedNamespaceVersion: Number('long'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetSystemTemplateCommandInput - {@link GetSystemTemplateCommandInput}
@@ -67,6 +84,8 @@ export interface GetSystemTemplateCommandOutput extends GetSystemTemplateRespons
  * @throws {@link ThrottlingException} (client fault)
  *  <p></p>
  *
+ * @throws {@link IoTThingsGraphServiceException}
+ * <p>Base exception class for all service exceptions from IoTThingsGraph service.</p>
  *
  */
 export class GetSystemTemplateCommand extends $Command<

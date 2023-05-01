@@ -78,52 +78,63 @@ export interface SendBulkTemplatedEmailCommandOutput extends SendBulkTemplatedEm
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SESClient, SendBulkTemplatedEmailCommand } from "@aws-sdk/client-ses"; // ES Modules import
- * // const { SESClient, SendBulkTemplatedEmailCommand } = require("@aws-sdk/client-ses"); // CommonJS import
+ * import { SESClient, SendBulkTemplatedEmailCommand } from '@aws-sdk/client-ses'; // ES Modules import
+ * // const { SESClient, SendBulkTemplatedEmailCommand } = require('@aws-sdk/client-ses'); // CommonJS import
  * const client = new SESClient(config);
  * const input = { // SendBulkTemplatedEmailRequest
- *   Source: "STRING_VALUE", // required
- *   SourceArn: "STRING_VALUE",
+ *   Source: 'STRING_VALUE', // required
+ *   SourceArn: 'STRING_VALUE',
  *   ReplyToAddresses: [ // AddressList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   ReturnPath: "STRING_VALUE",
- *   ReturnPathArn: "STRING_VALUE",
- *   ConfigurationSetName: "STRING_VALUE",
+ *   ReturnPath: 'STRING_VALUE',
+ *   ReturnPathArn: 'STRING_VALUE',
+ *   ConfigurationSetName: 'STRING_VALUE',
  *   DefaultTags: [ // MessageTagList
  *     { // MessageTag
- *       Name: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Name: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
- *   Template: "STRING_VALUE", // required
- *   TemplateArn: "STRING_VALUE",
- *   DefaultTemplateData: "STRING_VALUE",
+ *   Template: 'STRING_VALUE', // required
+ *   TemplateArn: 'STRING_VALUE',
+ *   DefaultTemplateData: 'STRING_VALUE',
  *   Destinations: [ // BulkEmailDestinationList // required
  *     { // BulkEmailDestination
  *       Destination: { // Destination
  *         ToAddresses: [
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
  *         CcAddresses: [
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
  *         BccAddresses: [
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
  *       },
  *       ReplacementTags: [
  *         {
- *           Name: "STRING_VALUE", // required
- *           Value: "STRING_VALUE", // required
+ *           Name: 'STRING_VALUE', // required
+ *           Value: 'STRING_VALUE', // required
  *         },
  *       ],
- *       ReplacementTemplateData: "STRING_VALUE",
+ *       ReplacementTemplateData: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new SendBulkTemplatedEmailCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SendBulkTemplatedEmailResponse
+ *   Status: [ // BulkEmailDestinationStatusList // required
+ *     { // BulkEmailDestinationStatus
+ *       Status: 'STRING_VALUE',
+ *       Error: 'STRING_VALUE',
+ *       MessageId: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param SendBulkTemplatedEmailCommandInput - {@link SendBulkTemplatedEmailCommandInput}
@@ -157,6 +168,8 @@ export interface SendBulkTemplatedEmailCommandOutput extends SendBulkTemplatedEm
  *  <p>Indicates that the Template object you specified does not exist in your Amazon SES
  *             account.</p>
  *
+ * @throws {@link SESServiceException}
+ * <p>Base exception class for all service exceptions from SES service.</p>
  *
  */
 export class SendBulkTemplatedEmailCommand extends $Command<

@@ -37,19 +37,19 @@ export interface UpdateAlarmModelCommandOutput extends UpdateAlarmModelResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTEventsClient, UpdateAlarmModelCommand } from "@aws-sdk/client-iot-events"; // ES Modules import
- * // const { IoTEventsClient, UpdateAlarmModelCommand } = require("@aws-sdk/client-iot-events"); // CommonJS import
+ * import { IoTEventsClient, UpdateAlarmModelCommand } from '@aws-sdk/client-iot-events'; // ES Modules import
+ * // const { IoTEventsClient, UpdateAlarmModelCommand } = require('@aws-sdk/client-iot-events'); // CommonJS import
  * const client = new IoTEventsClient(config);
  * const input = { // UpdateAlarmModelRequest
- *   alarmModelName: "STRING_VALUE", // required
- *   alarmModelDescription: "STRING_VALUE",
- *   roleArn: "STRING_VALUE", // required
- *   severity: Number("int"),
+ *   alarmModelName: 'STRING_VALUE', // required
+ *   alarmModelDescription: 'STRING_VALUE',
+ *   roleArn: 'STRING_VALUE', // required
+ *   severity: Number('int'),
  *   alarmRule: { // AlarmRule
  *     simpleRule: { // SimpleRule
- *       inputProperty: "STRING_VALUE", // required
- *       comparisonOperator: "STRING_VALUE", // required
- *       threshold: "STRING_VALUE", // required
+ *       inputProperty: 'STRING_VALUE', // required
+ *       comparisonOperator: 'STRING_VALUE', // required
+ *       threshold: 'STRING_VALUE', // required
  *     },
  *   },
  *   alarmNotification: { // AlarmNotification
@@ -57,22 +57,22 @@ export interface UpdateAlarmModelCommandOutput extends UpdateAlarmModelResponse,
  *       { // NotificationAction
  *         action: { // NotificationTargetActions
  *           lambdaAction: { // LambdaAction
- *             functionArn: "STRING_VALUE", // required
+ *             functionArn: 'STRING_VALUE', // required
  *             payload: { // Payload
- *               contentExpression: "STRING_VALUE", // required
- *               type: "STRING_VALUE", // required
+ *               contentExpression: 'STRING_VALUE', // required
+ *               type: 'STRING_VALUE', // required
  *             },
  *           },
  *         },
  *         smsConfigurations: [ // SMSConfigurations
  *           { // SMSConfiguration
- *             senderId: "STRING_VALUE",
- *             additionalMessage: "STRING_VALUE",
+ *             senderId: 'STRING_VALUE',
+ *             additionalMessage: 'STRING_VALUE',
  *             recipients: [ // RecipientDetails // required
  *               { // RecipientDetail
  *                 ssoIdentity: { // SSOIdentity
- *                   identityStoreId: "STRING_VALUE", // required
- *                   userId: "STRING_VALUE",
+ *                   identityStoreId: 'STRING_VALUE', // required
+ *                   userId: 'STRING_VALUE',
  *                 },
  *               },
  *             ],
@@ -80,17 +80,17 @@ export interface UpdateAlarmModelCommandOutput extends UpdateAlarmModelResponse,
  *         ],
  *         emailConfigurations: [ // EmailConfigurations
  *           { // EmailConfiguration
- *             from: "STRING_VALUE", // required
+ *             from: 'STRING_VALUE', // required
  *             content: { // EmailContent
- *               subject: "STRING_VALUE",
- *               additionalMessage: "STRING_VALUE",
+ *               subject: 'STRING_VALUE',
+ *               additionalMessage: 'STRING_VALUE',
  *             },
  *             recipients: { // EmailRecipients
  *               to: [
  *                 {
  *                   ssoIdentity: {
- *                     identityStoreId: "STRING_VALUE", // required
- *                     userId: "STRING_VALUE",
+ *                     identityStoreId: 'STRING_VALUE', // required
+ *                     userId: 'STRING_VALUE',
  *                   },
  *                 },
  *               ],
@@ -104,76 +104,76 @@ export interface UpdateAlarmModelCommandOutput extends UpdateAlarmModelResponse,
  *     alarmActions: [ // AlarmActions
  *       { // AlarmAction
  *         sns: { // SNSTopicPublishAction
- *           targetArn: "STRING_VALUE", // required
+ *           targetArn: 'STRING_VALUE', // required
  *           payload: {
- *             contentExpression: "STRING_VALUE", // required
- *             type: "STRING_VALUE", // required
+ *             contentExpression: 'STRING_VALUE', // required
+ *             type: 'STRING_VALUE', // required
  *           },
  *         },
  *         iotTopicPublish: { // IotTopicPublishAction
- *           mqttTopic: "STRING_VALUE", // required
+ *           mqttTopic: 'STRING_VALUE', // required
  *           payload: {
- *             contentExpression: "STRING_VALUE", // required
- *             type: "STRING_VALUE", // required
+ *             contentExpression: 'STRING_VALUE', // required
+ *             type: 'STRING_VALUE', // required
  *           },
  *         },
  *         lambda: {
- *           functionArn: "STRING_VALUE", // required
+ *           functionArn: 'STRING_VALUE', // required
  *           payload: {
- *             contentExpression: "STRING_VALUE", // required
- *             type: "STRING_VALUE", // required
+ *             contentExpression: 'STRING_VALUE', // required
+ *             type: 'STRING_VALUE', // required
  *           },
  *         },
  *         iotEvents: { // IotEventsAction
- *           inputName: "STRING_VALUE", // required
+ *           inputName: 'STRING_VALUE', // required
  *           payload: {
- *             contentExpression: "STRING_VALUE", // required
- *             type: "STRING_VALUE", // required
+ *             contentExpression: 'STRING_VALUE', // required
+ *             type: 'STRING_VALUE', // required
  *           },
  *         },
  *         sqs: { // SqsAction
- *           queueUrl: "STRING_VALUE", // required
+ *           queueUrl: 'STRING_VALUE', // required
  *           useBase64: true || false,
- *           payload: "<Payload>",
+ *           payload: '<Payload>',
  *         },
  *         firehose: { // FirehoseAction
- *           deliveryStreamName: "STRING_VALUE", // required
- *           separator: "STRING_VALUE",
- *           payload: "<Payload>",
+ *           deliveryStreamName: 'STRING_VALUE', // required
+ *           separator: 'STRING_VALUE',
+ *           payload: '<Payload>',
  *         },
  *         dynamoDB: { // DynamoDBAction
- *           hashKeyType: "STRING_VALUE",
- *           hashKeyField: "STRING_VALUE", // required
- *           hashKeyValue: "STRING_VALUE", // required
- *           rangeKeyType: "STRING_VALUE",
- *           rangeKeyField: "STRING_VALUE",
- *           rangeKeyValue: "STRING_VALUE",
- *           operation: "STRING_VALUE",
- *           payloadField: "STRING_VALUE",
- *           tableName: "STRING_VALUE", // required
- *           payload: "<Payload>",
+ *           hashKeyType: 'STRING_VALUE',
+ *           hashKeyField: 'STRING_VALUE', // required
+ *           hashKeyValue: 'STRING_VALUE', // required
+ *           rangeKeyType: 'STRING_VALUE',
+ *           rangeKeyField: 'STRING_VALUE',
+ *           rangeKeyValue: 'STRING_VALUE',
+ *           operation: 'STRING_VALUE',
+ *           payloadField: 'STRING_VALUE',
+ *           tableName: 'STRING_VALUE', // required
+ *           payload: '<Payload>',
  *         },
  *         dynamoDBv2: { // DynamoDBv2Action
- *           tableName: "STRING_VALUE", // required
- *           payload: "<Payload>",
+ *           tableName: 'STRING_VALUE', // required
+ *           payload: '<Payload>',
  *         },
  *         iotSiteWise: { // IotSiteWiseAction
- *           entryId: "STRING_VALUE",
- *           assetId: "STRING_VALUE",
- *           propertyId: "STRING_VALUE",
- *           propertyAlias: "STRING_VALUE",
+ *           entryId: 'STRING_VALUE',
+ *           assetId: 'STRING_VALUE',
+ *           propertyId: 'STRING_VALUE',
+ *           propertyAlias: 'STRING_VALUE',
  *           propertyValue: { // AssetPropertyValue
  *             value: { // AssetPropertyVariant
- *               stringValue: "STRING_VALUE",
- *               integerValue: "STRING_VALUE",
- *               doubleValue: "STRING_VALUE",
- *               booleanValue: "STRING_VALUE",
+ *               stringValue: 'STRING_VALUE',
+ *               integerValue: 'STRING_VALUE',
+ *               doubleValue: 'STRING_VALUE',
+ *               booleanValue: 'STRING_VALUE',
  *             },
  *             timestamp: { // AssetPropertyTimestamp
- *               timeInSeconds: "STRING_VALUE", // required
- *               offsetInNanos: "STRING_VALUE",
+ *               timeInSeconds: 'STRING_VALUE', // required
+ *               offsetInNanos: 'STRING_VALUE',
  *             },
- *             quality: "STRING_VALUE",
+ *             quality: 'STRING_VALUE',
  *           },
  *         },
  *       },
@@ -190,6 +190,15 @@ export interface UpdateAlarmModelCommandOutput extends UpdateAlarmModelResponse,
  * };
  * const command = new UpdateAlarmModelCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateAlarmModelResponse
+ *   creationTime: new Date('TIMESTAMP'),
+ *   alarmModelArn: 'STRING_VALUE',
+ *   alarmModelVersion: 'STRING_VALUE',
+ *   lastUpdateTime: new Date('TIMESTAMP'),
+ *   status: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateAlarmModelCommandInput - {@link UpdateAlarmModelCommandInput}
@@ -216,6 +225,8 @@ export interface UpdateAlarmModelCommandOutput extends UpdateAlarmModelResponse,
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request could not be completed due to throttling.</p>
  *
+ * @throws {@link IoTEventsServiceException}
+ * <p>Base exception class for all service exceptions from IoTEvents service.</p>
  *
  */
 export class UpdateAlarmModelCommand extends $Command<

@@ -36,14 +36,24 @@ export interface GetFleetCommandOutput extends GetFleetResponse, __MetadataBeare
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTFleetWiseClient, GetFleetCommand } from "@aws-sdk/client-iotfleetwise"; // ES Modules import
- * // const { IoTFleetWiseClient, GetFleetCommand } = require("@aws-sdk/client-iotfleetwise"); // CommonJS import
+ * import { IoTFleetWiseClient, GetFleetCommand } from '@aws-sdk/client-iotfleetwise'; // ES Modules import
+ * // const { IoTFleetWiseClient, GetFleetCommand } = require('@aws-sdk/client-iotfleetwise'); // CommonJS import
  * const client = new IoTFleetWiseClient(config);
  * const input = { // GetFleetRequest
- *   fleetId: "STRING_VALUE", // required
+ *   fleetId: 'STRING_VALUE', // required
  * };
  * const command = new GetFleetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetFleetResponse
+ *   id: 'STRING_VALUE', // required
+ *   arn: 'STRING_VALUE', // required
+ *   description: 'STRING_VALUE',
+ *   signalCatalogArn: 'STRING_VALUE', // required
+ *   creationTime: new Date('TIMESTAMP'), // required
+ *   lastModificationTime: new Date('TIMESTAMP'), // required
+ * };
+ *
  * ```
  *
  * @param GetFleetCommandInput - {@link GetFleetCommandInput}
@@ -67,6 +77,8 @@ export interface GetFleetCommandOutput extends GetFleetResponse, __MetadataBeare
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
  *
+ * @throws {@link IoTFleetWiseServiceException}
+ * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
  */
 export class GetFleetCommand extends $Command<

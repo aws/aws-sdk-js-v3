@@ -41,37 +41,69 @@ export interface UpdateSimulationApplicationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RoboMakerClient, UpdateSimulationApplicationCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
- * // const { RoboMakerClient, UpdateSimulationApplicationCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
+ * import { RoboMakerClient, UpdateSimulationApplicationCommand } from '@aws-sdk/client-robomaker'; // ES Modules import
+ * // const { RoboMakerClient, UpdateSimulationApplicationCommand } = require('@aws-sdk/client-robomaker'); // CommonJS import
  * const client = new RoboMakerClient(config);
  * const input = { // UpdateSimulationApplicationRequest
- *   application: "STRING_VALUE", // required
+ *   application: 'STRING_VALUE', // required
  *   sources: [ // SourceConfigs
  *     { // SourceConfig
- *       s3Bucket: "STRING_VALUE",
- *       s3Key: "STRING_VALUE",
- *       architecture: "STRING_VALUE",
+ *       s3Bucket: 'STRING_VALUE',
+ *       s3Key: 'STRING_VALUE',
+ *       architecture: 'STRING_VALUE',
  *     },
  *   ],
  *   simulationSoftwareSuite: { // SimulationSoftwareSuite
- *     name: "STRING_VALUE",
- *     version: "STRING_VALUE",
+ *     name: 'STRING_VALUE',
+ *     version: 'STRING_VALUE',
  *   },
  *   robotSoftwareSuite: { // RobotSoftwareSuite
- *     name: "STRING_VALUE",
- *     version: "STRING_VALUE",
+ *     name: 'STRING_VALUE',
+ *     version: 'STRING_VALUE',
  *   },
  *   renderingEngine: { // RenderingEngine
- *     name: "STRING_VALUE",
- *     version: "STRING_VALUE",
+ *     name: 'STRING_VALUE',
+ *     version: 'STRING_VALUE',
  *   },
- *   currentRevisionId: "STRING_VALUE",
+ *   currentRevisionId: 'STRING_VALUE',
  *   environment: { // Environment
- *     uri: "STRING_VALUE",
+ *     uri: 'STRING_VALUE',
  *   },
  * };
  * const command = new UpdateSimulationApplicationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateSimulationApplicationResponse
+ *   arn: 'STRING_VALUE',
+ *   name: 'STRING_VALUE',
+ *   version: 'STRING_VALUE',
+ *   sources: [ // Sources
+ *     { // Source
+ *       s3Bucket: 'STRING_VALUE',
+ *       s3Key: 'STRING_VALUE',
+ *       etag: 'STRING_VALUE',
+ *       architecture: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   simulationSoftwareSuite: { // SimulationSoftwareSuite
+ *     name: 'STRING_VALUE',
+ *     version: 'STRING_VALUE',
+ *   },
+ *   robotSoftwareSuite: { // RobotSoftwareSuite
+ *     name: 'STRING_VALUE',
+ *     version: 'STRING_VALUE',
+ *   },
+ *   renderingEngine: { // RenderingEngine
+ *     name: 'STRING_VALUE',
+ *     version: 'STRING_VALUE',
+ *   },
+ *   lastUpdatedAt: new Date('TIMESTAMP'),
+ *   revisionId: 'STRING_VALUE',
+ *   environment: { // Environment
+ *     uri: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateSimulationApplicationCommandInput - {@link UpdateSimulationApplicationCommandInput}
@@ -97,6 +129,8 @@ export interface UpdateSimulationApplicationCommandOutput
  * @throws {@link ThrottlingException} (client fault)
  *  <p>AWS RoboMaker is temporarily unable to process the request. Try your call again.</p>
  *
+ * @throws {@link RoboMakerServiceException}
+ * <p>Base exception class for all service exceptions from RoboMaker service.</p>
  *
  */
 export class UpdateSimulationApplicationCommand extends $Command<

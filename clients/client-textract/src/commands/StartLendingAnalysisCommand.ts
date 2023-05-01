@@ -66,31 +66,36 @@ export interface StartLendingAnalysisCommandOutput extends StartLendingAnalysisR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { TextractClient, StartLendingAnalysisCommand } from "@aws-sdk/client-textract"; // ES Modules import
- * // const { TextractClient, StartLendingAnalysisCommand } = require("@aws-sdk/client-textract"); // CommonJS import
+ * import { TextractClient, StartLendingAnalysisCommand } from '@aws-sdk/client-textract'; // ES Modules import
+ * // const { TextractClient, StartLendingAnalysisCommand } = require('@aws-sdk/client-textract'); // CommonJS import
  * const client = new TextractClient(config);
  * const input = { // StartLendingAnalysisRequest
  *   DocumentLocation: { // DocumentLocation
  *     S3Object: { // S3Object
- *       Bucket: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *       Version: "STRING_VALUE",
+ *       Bucket: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *       Version: 'STRING_VALUE',
  *     },
  *   },
- *   ClientRequestToken: "STRING_VALUE",
- *   JobTag: "STRING_VALUE",
+ *   ClientRequestToken: 'STRING_VALUE',
+ *   JobTag: 'STRING_VALUE',
  *   NotificationChannel: { // NotificationChannel
- *     SNSTopicArn: "STRING_VALUE", // required
- *     RoleArn: "STRING_VALUE", // required
+ *     SNSTopicArn: 'STRING_VALUE', // required
+ *     RoleArn: 'STRING_VALUE', // required
  *   },
  *   OutputConfig: { // OutputConfig
- *     S3Bucket: "STRING_VALUE", // required
- *     S3Prefix: "STRING_VALUE",
+ *     S3Bucket: 'STRING_VALUE', // required
+ *     S3Prefix: 'STRING_VALUE',
  *   },
- *   KMSKeyId: "STRING_VALUE",
+ *   KMSKeyId: 'STRING_VALUE',
  * };
  * const command = new StartLendingAnalysisCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartLendingAnalysisResponse
+ *   JobId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param StartLendingAnalysisCommandInput - {@link StartLendingAnalysisCommandInput}
@@ -155,6 +160,8 @@ export interface StartLendingAnalysisCommandOutput extends StartLendingAnalysisR
  *  <p>The format of the input document isn't supported. Documents for operations can be in
  *          PNG, JPEG, PDF, or TIFF format.</p>
  *
+ * @throws {@link TextractServiceException}
+ * <p>Base exception class for all service exceptions from Textract service.</p>
  *
  */
 export class StartLendingAnalysisCommand extends $Command<

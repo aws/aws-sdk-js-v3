@@ -36,15 +36,22 @@ export interface GetMetadataCommandOutput extends GetMetadataResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AmplifyUIBuilderClient, GetMetadataCommand } from "@aws-sdk/client-amplifyuibuilder"; // ES Modules import
- * // const { AmplifyUIBuilderClient, GetMetadataCommand } = require("@aws-sdk/client-amplifyuibuilder"); // CommonJS import
+ * import { AmplifyUIBuilderClient, GetMetadataCommand } from '@aws-sdk/client-amplifyuibuilder'; // ES Modules import
+ * // const { AmplifyUIBuilderClient, GetMetadataCommand } = require('@aws-sdk/client-amplifyuibuilder'); // CommonJS import
  * const client = new AmplifyUIBuilderClient(config);
  * const input = { // GetMetadataRequest
- *   appId: "STRING_VALUE", // required
- *   environmentName: "STRING_VALUE", // required
+ *   appId: 'STRING_VALUE', // required
+ *   environmentName: 'STRING_VALUE', // required
  * };
  * const command = new GetMetadataCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetMetadataResponse
+ *   features: { // FeaturesMap // required
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetMetadataCommandInput - {@link GetMetadataCommandInput}
@@ -59,6 +66,8 @@ export interface GetMetadataCommandOutput extends GetMetadataResponse, __Metadat
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You don't have permission to perform this operation.</p>
  *
+ * @throws {@link AmplifyUIBuilderServiceException}
+ * <p>Base exception class for all service exceptions from AmplifyUIBuilder service.</p>
  *
  */
 export class GetMetadataCommand extends $Command<

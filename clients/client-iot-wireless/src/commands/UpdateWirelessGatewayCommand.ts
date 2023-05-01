@@ -36,25 +36,28 @@ export interface UpdateWirelessGatewayCommandOutput extends UpdateWirelessGatewa
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTWirelessClient, UpdateWirelessGatewayCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
- * // const { IoTWirelessClient, UpdateWirelessGatewayCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
+ * import { IoTWirelessClient, UpdateWirelessGatewayCommand } from '@aws-sdk/client-iot-wireless'; // ES Modules import
+ * // const { IoTWirelessClient, UpdateWirelessGatewayCommand } = require('@aws-sdk/client-iot-wireless'); // CommonJS import
  * const client = new IoTWirelessClient(config);
  * const input = { // UpdateWirelessGatewayRequest
- *   Id: "STRING_VALUE", // required
- *   Name: "STRING_VALUE",
- *   Description: "STRING_VALUE",
+ *   Id: 'STRING_VALUE', // required
+ *   Name: 'STRING_VALUE',
+ *   Description: 'STRING_VALUE',
  *   JoinEuiFilters: [ // JoinEuiFilters
  *     [ // JoinEuiRange
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *   ],
  *   NetIdFilters: [ // NetIdFilters
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   MaxEirp: Number("float"),
+ *   MaxEirp: Number('float'),
  * };
  * const command = new UpdateWirelessGatewayCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateWirelessGatewayCommandInput - {@link UpdateWirelessGatewayCommandInput}
@@ -78,6 +81,8 @@ export interface UpdateWirelessGatewayCommandOutput extends UpdateWirelessGatewa
  * @throws {@link ValidationException} (client fault)
  *  <p>The input did not meet the specified constraints.</p>
  *
+ * @throws {@link IoTWirelessServiceException}
+ * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
  */
 export class UpdateWirelessGatewayCommand extends $Command<

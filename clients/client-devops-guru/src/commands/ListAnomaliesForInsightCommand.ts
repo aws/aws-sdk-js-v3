@@ -37,28 +37,287 @@ export interface ListAnomaliesForInsightCommandOutput extends ListAnomaliesForIn
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DevOpsGuruClient, ListAnomaliesForInsightCommand } from "@aws-sdk/client-devops-guru"; // ES Modules import
- * // const { DevOpsGuruClient, ListAnomaliesForInsightCommand } = require("@aws-sdk/client-devops-guru"); // CommonJS import
+ * import { DevOpsGuruClient, ListAnomaliesForInsightCommand } from '@aws-sdk/client-devops-guru'; // ES Modules import
+ * // const { DevOpsGuruClient, ListAnomaliesForInsightCommand } = require('@aws-sdk/client-devops-guru'); // CommonJS import
  * const client = new DevOpsGuruClient(config);
  * const input = { // ListAnomaliesForInsightRequest
- *   InsightId: "STRING_VALUE", // required
+ *   InsightId: 'STRING_VALUE', // required
  *   StartTimeRange: { // StartTimeRange
- *     FromTime: new Date("TIMESTAMP"),
- *     ToTime: new Date("TIMESTAMP"),
+ *     FromTime: new Date('TIMESTAMP'),
+ *     ToTime: new Date('TIMESTAMP'),
  *   },
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
- *   AccountId: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
+ *   AccountId: 'STRING_VALUE',
  *   Filters: { // ListAnomaliesForInsightFilters
  *     ServiceCollection: { // ServiceCollection
  *       ServiceNames: [ // ServiceNames
- *         "API_GATEWAY" || "APPLICATION_ELB" || "AUTO_SCALING_GROUP" || "CLOUD_FRONT" || "DYNAMO_DB" || "EC2" || "ECS" || "EKS" || "ELASTIC_BEANSTALK" || "ELASTI_CACHE" || "ELB" || "ES" || "KINESIS" || "LAMBDA" || "NAT_GATEWAY" || "NETWORK_ELB" || "RDS" || "REDSHIFT" || "ROUTE_53" || "S3" || "SAGE_MAKER" || "SNS" || "SQS" || "STEP_FUNCTIONS" || "SWF",
+ *         'API_GATEWAY' || 'APPLICATION_ELB' || 'AUTO_SCALING_GROUP' || 'CLOUD_FRONT' || 'DYNAMO_DB' || 'EC2' || 'ECS' || 'EKS' || 'ELASTIC_BEANSTALK' || 'ELASTI_CACHE' || 'ELB' || 'ES' || 'KINESIS' || 'LAMBDA' || 'NAT_GATEWAY' || 'NETWORK_ELB' || 'RDS' || 'REDSHIFT' || 'ROUTE_53' || 'S3' || 'SAGE_MAKER' || 'SNS' || 'SQS' || 'STEP_FUNCTIONS' || 'SWF',
  *       ],
  *     },
  *   },
  * };
  * const command = new ListAnomaliesForInsightCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListAnomaliesForInsightResponse
+ *   ProactiveAnomalies: [ // ProactiveAnomalies
+ *     { // ProactiveAnomalySummary
+ *       Id: 'STRING_VALUE',
+ *       Severity: 'LOW' || 'MEDIUM' || 'HIGH',
+ *       Status: 'ONGOING' || 'CLOSED',
+ *       UpdateTime: new Date('TIMESTAMP'),
+ *       AnomalyTimeRange: { // AnomalyTimeRange
+ *         StartTime: new Date('TIMESTAMP'), // required
+ *         EndTime: new Date('TIMESTAMP'),
+ *       },
+ *       AnomalyReportedTimeRange: { // AnomalyReportedTimeRange
+ *         OpenTime: new Date('TIMESTAMP'), // required
+ *         CloseTime: new Date('TIMESTAMP'),
+ *       },
+ *       PredictionTimeRange: { // PredictionTimeRange
+ *         StartTime: new Date('TIMESTAMP'), // required
+ *         EndTime: new Date('TIMESTAMP'),
+ *       },
+ *       SourceDetails: { // AnomalySourceDetails
+ *         CloudWatchMetrics: [ // CloudWatchMetricsDetails
+ *           { // CloudWatchMetricsDetail
+ *             MetricName: 'STRING_VALUE',
+ *             Namespace: 'STRING_VALUE',
+ *             Dimensions: [ // CloudWatchMetricsDimensions
+ *               { // CloudWatchMetricsDimension
+ *                 Name: 'STRING_VALUE',
+ *                 Value: 'STRING_VALUE',
+ *               },
+ *             ],
+ *             Stat: 'Sum' || 'Average' || 'SampleCount' || 'Minimum' || 'Maximum' || 'p99' || 'p90' || 'p50',
+ *             Unit: 'STRING_VALUE',
+ *             Period: Number('int'),
+ *             MetricDataSummary: { // CloudWatchMetricsDataSummary
+ *               TimestampMetricValuePairList: [ // TimestampMetricValuePairList
+ *                 { // TimestampMetricValuePair
+ *                   Timestamp: new Date('TIMESTAMP'),
+ *                   MetricValue: Number('double'),
+ *                 },
+ *               ],
+ *               StatusCode: 'Complete' || 'InternalError' || 'PartialData',
+ *             },
+ *           },
+ *         ],
+ *         PerformanceInsightsMetrics: [ // PerformanceInsightsMetricsDetails
+ *           { // PerformanceInsightsMetricsDetail
+ *             MetricDisplayName: 'STRING_VALUE',
+ *             Unit: 'STRING_VALUE',
+ *             MetricQuery: { // PerformanceInsightsMetricQuery
+ *               Metric: 'STRING_VALUE',
+ *               GroupBy: { // PerformanceInsightsMetricDimensionGroup
+ *                 Group: 'STRING_VALUE',
+ *                 Dimensions: [ // PerformanceInsightsMetricDimensions
+ *                   'STRING_VALUE',
+ *                 ],
+ *                 Limit: Number('int'),
+ *               },
+ *               Filter: { // PerformanceInsightsMetricFilterMap
+ *                 '<keys>': 'STRING_VALUE',
+ *               },
+ *             },
+ *             ReferenceData: [ // PerformanceInsightsReferenceDataList
+ *               { // PerformanceInsightsReferenceData
+ *                 Name: 'STRING_VALUE',
+ *                 ComparisonValues: { // PerformanceInsightsReferenceComparisonValues
+ *                   ReferenceScalar: { // PerformanceInsightsReferenceScalar
+ *                     Value: Number('double'),
+ *                   },
+ *                   ReferenceMetric: { // PerformanceInsightsReferenceMetric
+ *                     MetricQuery: {
+ *                       Metric: 'STRING_VALUE',
+ *                       GroupBy: {
+ *                         Group: 'STRING_VALUE',
+ *                         Dimensions: [
+ *                           'STRING_VALUE',
+ *                         ],
+ *                         Limit: Number('int'),
+ *                       },
+ *                       Filter: {
+ *                         '<keys>': 'STRING_VALUE',
+ *                       },
+ *                     },
+ *                   },
+ *                 },
+ *               },
+ *             ],
+ *             StatsAtAnomaly: [ // PerformanceInsightsStats
+ *               { // PerformanceInsightsStat
+ *                 Type: 'STRING_VALUE',
+ *                 Value: Number('double'),
+ *               },
+ *             ],
+ *             StatsAtBaseline: [
+ *               {
+ *                 Type: 'STRING_VALUE',
+ *                 Value: Number('double'),
+ *               },
+ *             ],
+ *           },
+ *         ],
+ *       },
+ *       AssociatedInsightId: 'STRING_VALUE',
+ *       ResourceCollection: { // ResourceCollection
+ *         CloudFormation: { // CloudFormationCollection
+ *           StackNames: [ // StackNames
+ *             'STRING_VALUE',
+ *           ],
+ *         },
+ *         Tags: [ // TagCollections
+ *           { // TagCollection
+ *             AppBoundaryKey: 'STRING_VALUE', // required
+ *             TagValues: [ // TagValues // required
+ *               'STRING_VALUE',
+ *             ],
+ *           },
+ *         ],
+ *       },
+ *       Limit: Number('double'),
+ *       SourceMetadata: { // AnomalySourceMetadata
+ *         Source: 'STRING_VALUE',
+ *         SourceResourceName: 'STRING_VALUE',
+ *         SourceResourceType: 'STRING_VALUE',
+ *       },
+ *       AnomalyResources: [ // AnomalyResources
+ *         { // AnomalyResource
+ *           Name: 'STRING_VALUE',
+ *           Type: 'STRING_VALUE',
+ *         },
+ *       ],
+ *       Description: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   ReactiveAnomalies: [ // ReactiveAnomalies
+ *     { // ReactiveAnomalySummary
+ *       Id: 'STRING_VALUE',
+ *       Severity: 'LOW' || 'MEDIUM' || 'HIGH',
+ *       Status: 'ONGOING' || 'CLOSED',
+ *       AnomalyTimeRange: {
+ *         StartTime: new Date('TIMESTAMP'), // required
+ *         EndTime: new Date('TIMESTAMP'),
+ *       },
+ *       AnomalyReportedTimeRange: {
+ *         OpenTime: new Date('TIMESTAMP'), // required
+ *         CloseTime: new Date('TIMESTAMP'),
+ *       },
+ *       SourceDetails: {
+ *         CloudWatchMetrics: [
+ *           {
+ *             MetricName: 'STRING_VALUE',
+ *             Namespace: 'STRING_VALUE',
+ *             Dimensions: [
+ *               {
+ *                 Name: 'STRING_VALUE',
+ *                 Value: 'STRING_VALUE',
+ *               },
+ *             ],
+ *             Stat: 'Sum' || 'Average' || 'SampleCount' || 'Minimum' || 'Maximum' || 'p99' || 'p90' || 'p50',
+ *             Unit: 'STRING_VALUE',
+ *             Period: Number('int'),
+ *             MetricDataSummary: {
+ *               TimestampMetricValuePairList: [
+ *                 {
+ *                   Timestamp: new Date('TIMESTAMP'),
+ *                   MetricValue: Number('double'),
+ *                 },
+ *               ],
+ *               StatusCode: 'Complete' || 'InternalError' || 'PartialData',
+ *             },
+ *           },
+ *         ],
+ *         PerformanceInsightsMetrics: [
+ *           {
+ *             MetricDisplayName: 'STRING_VALUE',
+ *             Unit: 'STRING_VALUE',
+ *             MetricQuery: {
+ *               Metric: 'STRING_VALUE',
+ *               GroupBy: {
+ *                 Group: 'STRING_VALUE',
+ *                 Dimensions: [
+ *                   'STRING_VALUE',
+ *                 ],
+ *                 Limit: Number('int'),
+ *               },
+ *               Filter: {
+ *                 '<keys>': 'STRING_VALUE',
+ *               },
+ *             },
+ *             ReferenceData: [
+ *               {
+ *                 Name: 'STRING_VALUE',
+ *                 ComparisonValues: {
+ *                   ReferenceScalar: {
+ *                     Value: Number('double'),
+ *                   },
+ *                   ReferenceMetric: {
+ *                     MetricQuery: {
+ *                       Metric: 'STRING_VALUE',
+ *                       GroupBy: {
+ *                         Group: 'STRING_VALUE',
+ *                         Dimensions: [
+ *                           'STRING_VALUE',
+ *                         ],
+ *                         Limit: Number('int'),
+ *                       },
+ *                       Filter: {
+ *                         '<keys>': 'STRING_VALUE',
+ *                       },
+ *                     },
+ *                   },
+ *                 },
+ *               },
+ *             ],
+ *             StatsAtAnomaly: [
+ *               {
+ *                 Type: 'STRING_VALUE',
+ *                 Value: Number('double'),
+ *               },
+ *             ],
+ *             StatsAtBaseline: [
+ *               {
+ *                 Type: 'STRING_VALUE',
+ *                 Value: Number('double'),
+ *               },
+ *             ],
+ *           },
+ *         ],
+ *       },
+ *       AssociatedInsightId: 'STRING_VALUE',
+ *       ResourceCollection: {
+ *         CloudFormation: {
+ *           StackNames: [
+ *             'STRING_VALUE',
+ *           ],
+ *         },
+ *         Tags: [
+ *           {
+ *             AppBoundaryKey: 'STRING_VALUE', // required
+ *             TagValues: [ // required
+ *               'STRING_VALUE',
+ *             ],
+ *           },
+ *         ],
+ *       },
+ *       Type: 'CAUSAL' || 'CONTEXTUAL',
+ *       Name: 'STRING_VALUE',
+ *       Description: 'STRING_VALUE',
+ *       CausalAnomalyId: 'STRING_VALUE',
+ *       AnomalyResources: [
+ *         {
+ *           Name: 'STRING_VALUE',
+ *           Type: 'STRING_VALUE',
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListAnomaliesForInsightCommandInput - {@link ListAnomaliesForInsightCommandInput}
@@ -86,6 +345,8 @@ export interface ListAnomaliesForInsightCommandOutput extends ListAnomaliesForIn
  *  <p> Contains information about data passed in to a field during a request that is not
  * 			valid. </p>
  *
+ * @throws {@link DevOpsGuruServiceException}
+ * <p>Base exception class for all service exceptions from DevOpsGuru service.</p>
  *
  */
 export class ListAnomaliesForInsightCommand extends $Command<

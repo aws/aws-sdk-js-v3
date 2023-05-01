@@ -40,14 +40,17 @@ export interface DeleteQueryLoggingConfigCommandOutput extends DeleteQueryLoggin
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Route53Client, DeleteQueryLoggingConfigCommand } from "@aws-sdk/client-route-53"; // ES Modules import
- * // const { Route53Client, DeleteQueryLoggingConfigCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
+ * import { Route53Client, DeleteQueryLoggingConfigCommand } from '@aws-sdk/client-route-53'; // ES Modules import
+ * // const { Route53Client, DeleteQueryLoggingConfigCommand } = require('@aws-sdk/client-route-53'); // CommonJS import
  * const client = new Route53Client(config);
  * const input = { // DeleteQueryLoggingConfigRequest
- *   Id: "STRING_VALUE", // required
+ *   Id: 'STRING_VALUE', // required
  * };
  * const command = new DeleteQueryLoggingConfigCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteQueryLoggingConfigCommandInput - {@link DeleteQueryLoggingConfigCommandInput}
@@ -66,6 +69,8 @@ export interface DeleteQueryLoggingConfigCommandOutput extends DeleteQueryLoggin
  * @throws {@link NoSuchQueryLoggingConfig} (client fault)
  *  <p>There is no DNS query logging configuration with the specified ID.</p>
  *
+ * @throws {@link Route53ServiceException}
+ * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
  */
 export class DeleteQueryLoggingConfigCommand extends $Command<

@@ -38,16 +38,45 @@ export interface DescribeStorediSCSIVolumesCommandOutput extends DescribeStoredi
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { StorageGatewayClient, DescribeStorediSCSIVolumesCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
- * // const { StorageGatewayClient, DescribeStorediSCSIVolumesCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
+ * import { StorageGatewayClient, DescribeStorediSCSIVolumesCommand } from '@aws-sdk/client-storage-gateway'; // ES Modules import
+ * // const { StorageGatewayClient, DescribeStorediSCSIVolumesCommand } = require('@aws-sdk/client-storage-gateway'); // CommonJS import
  * const client = new StorageGatewayClient(config);
  * const input = { // DescribeStorediSCSIVolumesInput
  *   VolumeARNs: [ // VolumeARNs // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new DescribeStorediSCSIVolumesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeStorediSCSIVolumesOutput
+ *   StorediSCSIVolumes: [ // StorediSCSIVolumes
+ *     { // StorediSCSIVolume
+ *       VolumeARN: 'STRING_VALUE',
+ *       VolumeId: 'STRING_VALUE',
+ *       VolumeType: 'STRING_VALUE',
+ *       VolumeStatus: 'STRING_VALUE',
+ *       VolumeAttachmentStatus: 'STRING_VALUE',
+ *       VolumeSizeInBytes: Number('long'),
+ *       VolumeProgress: Number('double'),
+ *       VolumeDiskId: 'STRING_VALUE',
+ *       SourceSnapshotId: 'STRING_VALUE',
+ *       PreservedExistingData: true || false,
+ *       VolumeiSCSIAttributes: { // VolumeiSCSIAttributes
+ *         TargetARN: 'STRING_VALUE',
+ *         NetworkInterfaceId: 'STRING_VALUE',
+ *         NetworkInterfacePort: Number('int'),
+ *         LunNumber: Number('int'),
+ *         ChapEnabled: true || false,
+ *       },
+ *       CreatedDate: new Date('TIMESTAMP'),
+ *       VolumeUsedInBytes: Number('long'),
+ *       KMSKey: 'STRING_VALUE',
+ *       TargetName: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeStorediSCSIVolumesCommandInput - {@link DescribeStorediSCSIVolumesCommandInput}
@@ -64,6 +93,8 @@ export interface DescribeStorediSCSIVolumesCommandOutput extends DescribeStoredi
  *  <p>An exception occurred because an invalid gateway request was issued to the service. For
  *          more information, see the error and message fields.</p>
  *
+ * @throws {@link StorageGatewayServiceException}
+ * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
  * @example To describe the volumes of a gateway
  * ```javascript

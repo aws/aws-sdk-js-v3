@@ -38,16 +38,51 @@ export interface DeleteAddonCommandOutput extends DeleteAddonResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EKSClient, DeleteAddonCommand } from "@aws-sdk/client-eks"; // ES Modules import
- * // const { EKSClient, DeleteAddonCommand } = require("@aws-sdk/client-eks"); // CommonJS import
+ * import { EKSClient, DeleteAddonCommand } from '@aws-sdk/client-eks'; // ES Modules import
+ * // const { EKSClient, DeleteAddonCommand } = require('@aws-sdk/client-eks'); // CommonJS import
  * const client = new EKSClient(config);
  * const input = { // DeleteAddonRequest
- *   clusterName: "STRING_VALUE", // required
- *   addonName: "STRING_VALUE", // required
+ *   clusterName: 'STRING_VALUE', // required
+ *   addonName: 'STRING_VALUE', // required
  *   preserve: true || false,
  * };
  * const command = new DeleteAddonCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteAddonResponse
+ *   addon: { // Addon
+ *     addonName: 'STRING_VALUE',
+ *     clusterName: 'STRING_VALUE',
+ *     status: 'CREATING' || 'ACTIVE' || 'CREATE_FAILED' || 'UPDATING' || 'DELETING' || 'DELETE_FAILED' || 'DEGRADED' || 'UPDATE_FAILED',
+ *     addonVersion: 'STRING_VALUE',
+ *     health: { // AddonHealth
+ *       issues: [ // AddonIssueList
+ *         { // AddonIssue
+ *           code: 'AccessDenied' || 'InternalFailure' || 'ClusterUnreachable' || 'InsufficientNumberOfReplicas' || 'ConfigurationConflict' || 'AdmissionRequestDenied' || 'UnsupportedAddonModification' || 'K8sResourceNotFound',
+ *           message: 'STRING_VALUE',
+ *           resourceIds: [ // StringList
+ *             'STRING_VALUE',
+ *           ],
+ *         },
+ *       ],
+ *     },
+ *     addonArn: 'STRING_VALUE',
+ *     createdAt: new Date('TIMESTAMP'),
+ *     modifiedAt: new Date('TIMESTAMP'),
+ *     serviceAccountRoleArn: 'STRING_VALUE',
+ *     tags: { // TagMap
+ *       '<keys>': 'STRING_VALUE',
+ *     },
+ *     publisher: 'STRING_VALUE',
+ *     owner: 'STRING_VALUE',
+ *     marketplaceInformation: { // MarketplaceInformation
+ *       productId: 'STRING_VALUE',
+ *       productUrl: 'STRING_VALUE',
+ *     },
+ *     configurationValues: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param DeleteAddonCommandInput - {@link DeleteAddonCommandInput}
@@ -78,6 +113,8 @@ export interface DeleteAddonCommandOutput extends DeleteAddonResponse, __Metadat
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server-side issue.</p>
  *
+ * @throws {@link EKSServiceException}
+ * <p>Base exception class for all service exceptions from EKS service.</p>
  *
  */
 export class DeleteAddonCommand extends $Command<

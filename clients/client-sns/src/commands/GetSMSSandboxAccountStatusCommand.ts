@@ -45,12 +45,17 @@ export interface GetSMSSandboxAccountStatusCommandOutput extends GetSMSSandboxAc
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SNSClient, GetSMSSandboxAccountStatusCommand } from "@aws-sdk/client-sns"; // ES Modules import
- * // const { SNSClient, GetSMSSandboxAccountStatusCommand } = require("@aws-sdk/client-sns"); // CommonJS import
+ * import { SNSClient, GetSMSSandboxAccountStatusCommand } from '@aws-sdk/client-sns'; // ES Modules import
+ * // const { SNSClient, GetSMSSandboxAccountStatusCommand } = require('@aws-sdk/client-sns'); // CommonJS import
  * const client = new SNSClient(config);
  * const input = {};
  * const command = new GetSMSSandboxAccountStatusCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetSMSSandboxAccountStatusResult
+ *   IsInSandbox: true || false, // required
+ * };
+ *
  * ```
  *
  * @param GetSMSSandboxAccountStatusCommandInput - {@link GetSMSSandboxAccountStatusCommandInput}
@@ -68,6 +73,8 @@ export interface GetSMSSandboxAccountStatusCommandOutput extends GetSMSSandboxAc
  * @throws {@link ThrottledException} (client fault)
  *  <p>Indicates that the rate at which requests have been submitted for this action exceeds the limit for your Amazon Web Services account.</p>
  *
+ * @throws {@link SNSServiceException}
+ * <p>Base exception class for all service exceptions from SNS service.</p>
  *
  */
 export class GetSMSSandboxAccountStatusCommand extends $Command<

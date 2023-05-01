@@ -40,14 +40,33 @@ export interface DescribeAppInstanceBotCommandOutput extends DescribeAppInstance
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeSDKIdentityClient, DescribeAppInstanceBotCommand } from "@aws-sdk/client-chime-sdk-identity"; // ES Modules import
- * // const { ChimeSDKIdentityClient, DescribeAppInstanceBotCommand } = require("@aws-sdk/client-chime-sdk-identity"); // CommonJS import
+ * import { ChimeSDKIdentityClient, DescribeAppInstanceBotCommand } from '@aws-sdk/client-chime-sdk-identity'; // ES Modules import
+ * // const { ChimeSDKIdentityClient, DescribeAppInstanceBotCommand } = require('@aws-sdk/client-chime-sdk-identity'); // CommonJS import
  * const client = new ChimeSDKIdentityClient(config);
  * const input = { // DescribeAppInstanceBotRequest
- *   AppInstanceBotArn: "STRING_VALUE", // required
+ *   AppInstanceBotArn: 'STRING_VALUE', // required
  * };
  * const command = new DescribeAppInstanceBotCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeAppInstanceBotResponse
+ *   AppInstanceBot: { // AppInstanceBot
+ *     AppInstanceBotArn: 'STRING_VALUE',
+ *     Name: 'STRING_VALUE',
+ *     Configuration: { // Configuration
+ *       Lex: { // LexConfiguration
+ *         RespondsTo: 'STANDARD_MESSAGES', // required
+ *         LexBotAliasArn: 'STRING_VALUE', // required
+ *         LocaleId: 'STRING_VALUE', // required
+ *         WelcomeIntent: 'STRING_VALUE',
+ *       },
+ *     },
+ *     CreatedTimestamp: new Date('TIMESTAMP'),
+ *     LastUpdatedTimestamp: new Date('TIMESTAMP'),
+ *     Metadata: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeAppInstanceBotCommandInput - {@link DescribeAppInstanceBotCommandInput}
@@ -77,6 +96,8 @@ export interface DescribeAppInstanceBotCommandOutput extends DescribeAppInstance
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeSDKIdentityServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKIdentity service.</p>
  *
  */
 export class DescribeAppInstanceBotCommand extends $Command<

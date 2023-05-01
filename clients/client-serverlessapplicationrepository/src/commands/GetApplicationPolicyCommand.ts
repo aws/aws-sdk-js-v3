@@ -40,14 +40,32 @@ export interface GetApplicationPolicyCommandOutput extends GetApplicationPolicyR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ServerlessApplicationRepositoryClient, GetApplicationPolicyCommand } from "@aws-sdk/client-serverlessapplicationrepository"; // ES Modules import
- * // const { ServerlessApplicationRepositoryClient, GetApplicationPolicyCommand } = require("@aws-sdk/client-serverlessapplicationrepository"); // CommonJS import
+ * import { ServerlessApplicationRepositoryClient, GetApplicationPolicyCommand } from '@aws-sdk/client-serverlessapplicationrepository'; // ES Modules import
+ * // const { ServerlessApplicationRepositoryClient, GetApplicationPolicyCommand } = require('@aws-sdk/client-serverlessapplicationrepository'); // CommonJS import
  * const client = new ServerlessApplicationRepositoryClient(config);
  * const input = { // GetApplicationPolicyRequest
- *   ApplicationId: "STRING_VALUE", // required
+ *   ApplicationId: 'STRING_VALUE', // required
  * };
  * const command = new GetApplicationPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetApplicationPolicyResponse
+ *   Statements: [ // __listOfApplicationPolicyStatement
+ *     { // ApplicationPolicyStatement
+ *       Actions: [ // __listOf__string // required
+ *         'STRING_VALUE',
+ *       ],
+ *       PrincipalOrgIDs: [
+ *         'STRING_VALUE',
+ *       ],
+ *       Principals: [ // required
+ *         'STRING_VALUE',
+ *       ],
+ *       StatementId: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetApplicationPolicyCommandInput - {@link GetApplicationPolicyCommandInput}
@@ -71,6 +89,8 @@ export interface GetApplicationPolicyCommandOutput extends GetApplicationPolicyR
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>The client is sending more than the allowed number of requests per unit of time.</p>
  *
+ * @throws {@link ServerlessApplicationRepositoryServiceException}
+ * <p>Base exception class for all service exceptions from ServerlessApplicationRepository service.</p>
  *
  */
 export class GetApplicationPolicyCommand extends $Command<

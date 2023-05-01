@@ -36,14 +36,24 @@ export interface DescribeLocationFsxLustreCommandOutput extends DescribeLocation
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DataSyncClient, DescribeLocationFsxLustreCommand } from "@aws-sdk/client-datasync"; // ES Modules import
- * // const { DataSyncClient, DescribeLocationFsxLustreCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
+ * import { DataSyncClient, DescribeLocationFsxLustreCommand } from '@aws-sdk/client-datasync'; // ES Modules import
+ * // const { DataSyncClient, DescribeLocationFsxLustreCommand } = require('@aws-sdk/client-datasync'); // CommonJS import
  * const client = new DataSyncClient(config);
  * const input = { // DescribeLocationFsxLustreRequest
- *   LocationArn: "STRING_VALUE", // required
+ *   LocationArn: 'STRING_VALUE', // required
  * };
  * const command = new DescribeLocationFsxLustreCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeLocationFsxLustreResponse
+ *   LocationArn: 'STRING_VALUE',
+ *   LocationUri: 'STRING_VALUE',
+ *   SecurityGroupArns: [ // Ec2SecurityGroupArnList
+ *     'STRING_VALUE',
+ *   ],
+ *   CreationTime: new Date('TIMESTAMP'),
+ * };
+ *
  * ```
  *
  * @param DescribeLocationFsxLustreCommandInput - {@link DescribeLocationFsxLustreCommandInput}
@@ -59,6 +69,8 @@ export interface DescribeLocationFsxLustreCommandOutput extends DescribeLocation
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception is thrown when the client submits a malformed request.</p>
  *
+ * @throws {@link DataSyncServiceException}
+ * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
  */
 export class DescribeLocationFsxLustreCommand extends $Command<

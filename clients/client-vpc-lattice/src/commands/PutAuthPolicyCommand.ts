@@ -37,15 +37,21 @@ export interface PutAuthPolicyCommandOutput extends PutAuthPolicyResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { VPCLatticeClient, PutAuthPolicyCommand } from "@aws-sdk/client-vpc-lattice"; // ES Modules import
- * // const { VPCLatticeClient, PutAuthPolicyCommand } = require("@aws-sdk/client-vpc-lattice"); // CommonJS import
+ * import { VPCLatticeClient, PutAuthPolicyCommand } from '@aws-sdk/client-vpc-lattice'; // ES Modules import
+ * // const { VPCLatticeClient, PutAuthPolicyCommand } = require('@aws-sdk/client-vpc-lattice'); // CommonJS import
  * const client = new VPCLatticeClient(config);
  * const input = { // PutAuthPolicyRequest
- *   resourceIdentifier: "STRING_VALUE", // required
- *   policy: "STRING_VALUE", // required
+ *   resourceIdentifier: 'STRING_VALUE', // required
+ *   policy: 'STRING_VALUE', // required
  * };
  * const command = new PutAuthPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutAuthPolicyResponse
+ *   policy: 'STRING_VALUE',
+ *   state: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param PutAuthPolicyCommandInput - {@link PutAuthPolicyCommandInput}
@@ -70,6 +76,8 @@ export interface PutAuthPolicyCommandOutput extends PutAuthPolicyResponse, __Met
  *  <p>The input does not satisfy the constraints specified by an Amazon Web Services
  *    service.</p>
  *
+ * @throws {@link VPCLatticeServiceException}
+ * <p>Base exception class for all service exceptions from VPCLattice service.</p>
  *
  */
 export class PutAuthPolicyCommand extends $Command<

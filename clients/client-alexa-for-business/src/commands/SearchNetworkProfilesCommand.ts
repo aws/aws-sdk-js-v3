@@ -37,29 +37,46 @@ export interface SearchNetworkProfilesCommandOutput extends SearchNetworkProfile
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AlexaForBusinessClient, SearchNetworkProfilesCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
- * // const { AlexaForBusinessClient, SearchNetworkProfilesCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
+ * import { AlexaForBusinessClient, SearchNetworkProfilesCommand } from '@aws-sdk/client-alexa-for-business'; // ES Modules import
+ * // const { AlexaForBusinessClient, SearchNetworkProfilesCommand } = require('@aws-sdk/client-alexa-for-business'); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
  * const input = { // SearchNetworkProfilesRequest
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  *   Filters: [ // FilterList
  *     { // Filter
- *       Key: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
  *       Values: [ // FilterValueList // required
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
  *   SortCriteria: [ // SortList
  *     { // Sort
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new SearchNetworkProfilesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SearchNetworkProfilesResponse
+ *   NetworkProfiles: [ // NetworkProfileDataList
+ *     { // NetworkProfileData
+ *       NetworkProfileArn: 'STRING_VALUE',
+ *       NetworkProfileName: 'STRING_VALUE',
+ *       Description: 'STRING_VALUE',
+ *       Ssid: 'STRING_VALUE',
+ *       SecurityType: 'STRING_VALUE',
+ *       EapMethod: 'STRING_VALUE',
+ *       CertificateAuthorityArn: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ *   TotalCount: Number('int'),
+ * };
+ *
  * ```
  *
  * @param SearchNetworkProfilesCommandInput - {@link SearchNetworkProfilesCommandInput}
@@ -68,6 +85,8 @@ export interface SearchNetworkProfilesCommandOutput extends SearchNetworkProfile
  * @see {@link SearchNetworkProfilesCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
  *
+ * @throws {@link AlexaForBusinessServiceException}
+ * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  */
 export class SearchNetworkProfilesCommand extends $Command<

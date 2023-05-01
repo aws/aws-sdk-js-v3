@@ -41,24 +41,37 @@ export interface DescribeDBClusterParameterGroupsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DocDBClient, DescribeDBClusterParameterGroupsCommand } from "@aws-sdk/client-docdb"; // ES Modules import
- * // const { DocDBClient, DescribeDBClusterParameterGroupsCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
+ * import { DocDBClient, DescribeDBClusterParameterGroupsCommand } from '@aws-sdk/client-docdb'; // ES Modules import
+ * // const { DocDBClient, DescribeDBClusterParameterGroupsCommand } = require('@aws-sdk/client-docdb'); // CommonJS import
  * const client = new DocDBClient(config);
  * const input = { // DescribeDBClusterParameterGroupsMessage
- *   DBClusterParameterGroupName: "STRING_VALUE",
+ *   DBClusterParameterGroupName: 'STRING_VALUE',
  *   Filters: [ // FilterList
  *     { // Filter
- *       Name: "STRING_VALUE", // required
+ *       Name: 'STRING_VALUE', // required
  *       Values: [ // FilterValueList // required
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
- *   MaxRecords: Number("int"),
- *   Marker: "STRING_VALUE",
+ *   MaxRecords: Number('int'),
+ *   Marker: 'STRING_VALUE',
  * };
  * const command = new DescribeDBClusterParameterGroupsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DBClusterParameterGroupsMessage
+ *   Marker: 'STRING_VALUE',
+ *   DBClusterParameterGroups: [ // DBClusterParameterGroupList
+ *     { // DBClusterParameterGroup
+ *       DBClusterParameterGroupName: 'STRING_VALUE',
+ *       DBParameterGroupFamily: 'STRING_VALUE',
+ *       Description: 'STRING_VALUE',
+ *       DBClusterParameterGroupArn: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeDBClusterParameterGroupsCommandInput - {@link DescribeDBClusterParameterGroupsCommandInput}
@@ -71,6 +84,8 @@ export interface DescribeDBClusterParameterGroupsCommandOutput
  *  <p>
  *             <code>DBParameterGroupName</code> doesn't refer to an existing parameter group. </p>
  *
+ * @throws {@link DocDBServiceException}
+ * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
  */
 export class DescribeDBClusterParameterGroupsCommand extends $Command<

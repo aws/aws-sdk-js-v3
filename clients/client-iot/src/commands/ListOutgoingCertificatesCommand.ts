@@ -37,16 +37,31 @@ export interface ListOutgoingCertificatesCommandOutput extends ListOutgoingCerti
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTClient, ListOutgoingCertificatesCommand } from "@aws-sdk/client-iot"; // ES Modules import
- * // const { IoTClient, ListOutgoingCertificatesCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * import { IoTClient, ListOutgoingCertificatesCommand } from '@aws-sdk/client-iot'; // ES Modules import
+ * // const { IoTClient, ListOutgoingCertificatesCommand } = require('@aws-sdk/client-iot'); // CommonJS import
  * const client = new IoTClient(config);
  * const input = { // ListOutgoingCertificatesRequest
- *   pageSize: Number("int"),
- *   marker: "STRING_VALUE",
+ *   pageSize: Number('int'),
+ *   marker: 'STRING_VALUE',
  *   ascendingOrder: true || false,
  * };
  * const command = new ListOutgoingCertificatesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListOutgoingCertificatesResponse
+ *   outgoingCertificates: [ // OutgoingCertificates
+ *     { // OutgoingCertificate
+ *       certificateArn: 'STRING_VALUE',
+ *       certificateId: 'STRING_VALUE',
+ *       transferredTo: 'STRING_VALUE',
+ *       transferDate: new Date('TIMESTAMP'),
+ *       transferMessage: 'STRING_VALUE',
+ *       creationDate: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   nextMarker: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListOutgoingCertificatesCommandInput - {@link ListOutgoingCertificatesCommandInput}
@@ -70,6 +85,8 @@ export interface ListOutgoingCertificatesCommandOutput extends ListOutgoingCerti
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this operation.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class ListOutgoingCertificatesCommand extends $Command<

@@ -37,15 +37,23 @@ export interface GenerateChangeSetCommandOutput extends GenerateChangeSetRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SMSClient, GenerateChangeSetCommand } from "@aws-sdk/client-sms"; // ES Modules import
- * // const { SMSClient, GenerateChangeSetCommand } = require("@aws-sdk/client-sms"); // CommonJS import
+ * import { SMSClient, GenerateChangeSetCommand } from '@aws-sdk/client-sms'; // ES Modules import
+ * // const { SMSClient, GenerateChangeSetCommand } = require('@aws-sdk/client-sms'); // CommonJS import
  * const client = new SMSClient(config);
  * const input = { // GenerateChangeSetRequest
- *   appId: "STRING_VALUE",
- *   changesetFormat: "JSON" || "YAML",
+ *   appId: 'STRING_VALUE',
+ *   changesetFormat: 'JSON' || 'YAML',
  * };
  * const command = new GenerateChangeSetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GenerateChangeSetResponse
+ *   s3Location: { // S3Location
+ *     bucket: 'STRING_VALUE',
+ *     key: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GenerateChangeSetCommandInput - {@link GenerateChangeSetCommandInput}
@@ -70,6 +78,8 @@ export interface GenerateChangeSetCommandOutput extends GenerateChangeSetRespons
  *  <p>You lack permissions needed to perform this operation. Check your IAM policies,
  *             and ensure that you are using the correct access keys.</p>
  *
+ * @throws {@link SMSServiceException}
+ * <p>Base exception class for all service exceptions from SMS service.</p>
  *
  */
 export class GenerateChangeSetCommand extends $Command<

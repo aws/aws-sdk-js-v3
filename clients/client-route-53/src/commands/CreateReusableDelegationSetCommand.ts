@@ -96,15 +96,27 @@ export interface CreateReusableDelegationSetCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Route53Client, CreateReusableDelegationSetCommand } from "@aws-sdk/client-route-53"; // ES Modules import
- * // const { Route53Client, CreateReusableDelegationSetCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
+ * import { Route53Client, CreateReusableDelegationSetCommand } from '@aws-sdk/client-route-53'; // ES Modules import
+ * // const { Route53Client, CreateReusableDelegationSetCommand } = require('@aws-sdk/client-route-53'); // CommonJS import
  * const client = new Route53Client(config);
  * const input = { // CreateReusableDelegationSetRequest
- *   CallerReference: "STRING_VALUE", // required
- *   HostedZoneId: "STRING_VALUE",
+ *   CallerReference: 'STRING_VALUE', // required
+ *   HostedZoneId: 'STRING_VALUE',
  * };
  * const command = new CreateReusableDelegationSetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateReusableDelegationSetResponse
+ *   DelegationSet: { // DelegationSet
+ *     Id: 'STRING_VALUE',
+ *     CallerReference: 'STRING_VALUE',
+ *     NameServers: [ // DelegationSetNameServers // required
+ *       'STRING_VALUE',
+ *     ],
+ *   },
+ *   Location: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param CreateReusableDelegationSetCommandInput - {@link CreateReusableDelegationSetCommandInput}
@@ -140,6 +152,8 @@ export interface CreateReusableDelegationSetCommandOutput
  * 			limit on the resource you are trying to create. To request a higher limit, <a href="http://aws.amazon.com/route53-request">create a case</a> with the Amazon Web Services Support
  * 			Center.</p>
  *
+ * @throws {@link Route53ServiceException}
+ * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
  */
 export class CreateReusableDelegationSetCommand extends $Command<

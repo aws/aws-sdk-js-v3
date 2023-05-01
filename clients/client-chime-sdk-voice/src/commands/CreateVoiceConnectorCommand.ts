@@ -43,22 +43,36 @@ export interface CreateVoiceConnectorCommandOutput extends CreateVoiceConnectorR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeSDKVoiceClient, CreateVoiceConnectorCommand } from "@aws-sdk/client-chime-sdk-voice"; // ES Modules import
- * // const { ChimeSDKVoiceClient, CreateVoiceConnectorCommand } = require("@aws-sdk/client-chime-sdk-voice"); // CommonJS import
+ * import { ChimeSDKVoiceClient, CreateVoiceConnectorCommand } from '@aws-sdk/client-chime-sdk-voice'; // ES Modules import
+ * // const { ChimeSDKVoiceClient, CreateVoiceConnectorCommand } = require('@aws-sdk/client-chime-sdk-voice'); // CommonJS import
  * const client = new ChimeSDKVoiceClient(config);
  * const input = { // CreateVoiceConnectorRequest
- *   Name: "STRING_VALUE", // required
- *   AwsRegion: "us-east-1" || "us-west-2" || "ca-central-1" || "eu-central-1" || "eu-west-1" || "eu-west-2" || "ap-northeast-2" || "ap-northeast-1" || "ap-southeast-1" || "ap-southeast-2",
+ *   Name: 'STRING_VALUE', // required
+ *   AwsRegion: 'us-east-1' || 'us-west-2' || 'ca-central-1' || 'eu-central-1' || 'eu-west-1' || 'eu-west-2' || 'ap-northeast-2' || 'ap-northeast-1' || 'ap-southeast-1' || 'ap-southeast-2',
  *   RequireEncryption: true || false, // required
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreateVoiceConnectorCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateVoiceConnectorResponse
+ *   VoiceConnector: { // VoiceConnector
+ *     VoiceConnectorId: 'STRING_VALUE',
+ *     AwsRegion: 'us-east-1' || 'us-west-2' || 'ca-central-1' || 'eu-central-1' || 'eu-west-1' || 'eu-west-2' || 'ap-northeast-2' || 'ap-northeast-1' || 'ap-southeast-1' || 'ap-southeast-2',
+ *     Name: 'STRING_VALUE',
+ *     OutboundHostName: 'STRING_VALUE',
+ *     RequireEncryption: true || false,
+ *     CreatedTimestamp: new Date('TIMESTAMP'),
+ *     UpdatedTimestamp: new Date('TIMESTAMP'),
+ *     VoiceConnectorArn: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateVoiceConnectorCommandInput - {@link CreateVoiceConnectorCommandInput}
@@ -91,6 +105,8 @@ export interface CreateVoiceConnectorCommandOutput extends CreateVoiceConnectorR
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client isn't authorized to request a resource.</p>
  *
+ * @throws {@link ChimeSDKVoiceServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
  */
 export class CreateVoiceConnectorCommand extends $Command<

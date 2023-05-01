@@ -41,15 +41,18 @@ export interface PutDedicatedIpWarmupAttributesCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PinpointEmailClient, PutDedicatedIpWarmupAttributesCommand } from "@aws-sdk/client-pinpoint-email"; // ES Modules import
- * // const { PinpointEmailClient, PutDedicatedIpWarmupAttributesCommand } = require("@aws-sdk/client-pinpoint-email"); // CommonJS import
+ * import { PinpointEmailClient, PutDedicatedIpWarmupAttributesCommand } from '@aws-sdk/client-pinpoint-email'; // ES Modules import
+ * // const { PinpointEmailClient, PutDedicatedIpWarmupAttributesCommand } = require('@aws-sdk/client-pinpoint-email'); // CommonJS import
  * const client = new PinpointEmailClient(config);
  * const input = { // PutDedicatedIpWarmupAttributesRequest
- *   Ip: "STRING_VALUE", // required
- *   WarmupPercentage: Number("int"), // required
+ *   Ip: 'STRING_VALUE', // required
+ *   WarmupPercentage: Number('int'), // required
  * };
  * const command = new PutDedicatedIpWarmupAttributesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutDedicatedIpWarmupAttributesCommandInput - {@link PutDedicatedIpWarmupAttributesCommandInput}
@@ -67,6 +70,8 @@ export interface PutDedicatedIpWarmupAttributesCommandOutput
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Too many requests have been made to the operation.</p>
  *
+ * @throws {@link PinpointEmailServiceException}
+ * <p>Base exception class for all service exceptions from PinpointEmail service.</p>
  *
  */
 export class PutDedicatedIpWarmupAttributesCommand extends $Command<

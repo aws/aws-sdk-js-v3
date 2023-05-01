@@ -36,16 +36,26 @@ export interface UpdateConfigurationCommandOutput extends UpdateConfigurationRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KafkaClient, UpdateConfigurationCommand } from "@aws-sdk/client-kafka"; // ES Modules import
- * // const { KafkaClient, UpdateConfigurationCommand } = require("@aws-sdk/client-kafka"); // CommonJS import
+ * import { KafkaClient, UpdateConfigurationCommand } from '@aws-sdk/client-kafka'; // ES Modules import
+ * // const { KafkaClient, UpdateConfigurationCommand } = require('@aws-sdk/client-kafka'); // CommonJS import
  * const client = new KafkaClient(config);
  * const input = { // UpdateConfigurationRequest
- *   Arn: "STRING_VALUE", // required
- *   Description: "STRING_VALUE",
- *   ServerProperties: "BLOB_VALUE", // required
+ *   Arn: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE',
+ *   ServerProperties: 'BLOB_VALUE', // required
  * };
  * const command = new UpdateConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateConfigurationResponse
+ *   Arn: 'STRING_VALUE',
+ *   LatestRevision: { // ConfigurationRevision
+ *     CreationTime: new Date('TIMESTAMP'), // required
+ *     Description: 'STRING_VALUE',
+ *     Revision: Number('long'), // required
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateConfigurationCommandInput - {@link UpdateConfigurationCommandInput}
@@ -72,6 +82,8 @@ export interface UpdateConfigurationCommandOutput extends UpdateConfigurationRes
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>Returns information about an error.</p>
  *
+ * @throws {@link KafkaServiceException}
+ * <p>Base exception class for all service exceptions from Kafka service.</p>
  *
  */
 export class UpdateConfigurationCommand extends $Command<

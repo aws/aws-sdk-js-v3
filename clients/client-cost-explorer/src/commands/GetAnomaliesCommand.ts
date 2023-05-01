@@ -38,26 +38,61 @@ export interface GetAnomaliesCommandOutput extends GetAnomaliesResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CostExplorerClient, GetAnomaliesCommand } from "@aws-sdk/client-cost-explorer"; // ES Modules import
- * // const { CostExplorerClient, GetAnomaliesCommand } = require("@aws-sdk/client-cost-explorer"); // CommonJS import
+ * import { CostExplorerClient, GetAnomaliesCommand } from '@aws-sdk/client-cost-explorer'; // ES Modules import
+ * // const { CostExplorerClient, GetAnomaliesCommand } = require('@aws-sdk/client-cost-explorer'); // CommonJS import
  * const client = new CostExplorerClient(config);
  * const input = { // GetAnomaliesRequest
- *   MonitorArn: "STRING_VALUE",
+ *   MonitorArn: 'STRING_VALUE',
  *   DateInterval: { // AnomalyDateInterval
- *     StartDate: "STRING_VALUE", // required
- *     EndDate: "STRING_VALUE",
+ *     StartDate: 'STRING_VALUE', // required
+ *     EndDate: 'STRING_VALUE',
  *   },
- *   Feedback: "YES" || "NO" || "PLANNED_ACTIVITY",
+ *   Feedback: 'YES' || 'NO' || 'PLANNED_ACTIVITY',
  *   TotalImpact: { // TotalImpactFilter
- *     NumericOperator: "EQUAL" || "GREATER_THAN_OR_EQUAL" || "LESS_THAN_OR_EQUAL" || "GREATER_THAN" || "LESS_THAN" || "BETWEEN", // required
- *     StartValue: Number("double"), // required
- *     EndValue: Number("double"),
+ *     NumericOperator: 'EQUAL' || 'GREATER_THAN_OR_EQUAL' || 'LESS_THAN_OR_EQUAL' || 'GREATER_THAN' || 'LESS_THAN' || 'BETWEEN', // required
+ *     StartValue: Number('double'), // required
+ *     EndValue: Number('double'),
  *   },
- *   NextPageToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextPageToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new GetAnomaliesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetAnomaliesResponse
+ *   Anomalies: [ // Anomalies // required
+ *     { // Anomaly
+ *       AnomalyId: 'STRING_VALUE', // required
+ *       AnomalyStartDate: 'STRING_VALUE',
+ *       AnomalyEndDate: 'STRING_VALUE',
+ *       DimensionValue: 'STRING_VALUE',
+ *       RootCauses: [ // RootCauses
+ *         { // RootCause
+ *           Service: 'STRING_VALUE',
+ *           Region: 'STRING_VALUE',
+ *           LinkedAccount: 'STRING_VALUE',
+ *           UsageType: 'STRING_VALUE',
+ *           LinkedAccountName: 'STRING_VALUE',
+ *         },
+ *       ],
+ *       AnomalyScore: { // AnomalyScore
+ *         MaxScore: Number('double'), // required
+ *         CurrentScore: Number('double'), // required
+ *       },
+ *       Impact: { // Impact
+ *         MaxImpact: Number('double'), // required
+ *         TotalImpact: Number('double'),
+ *         TotalActualSpend: Number('double'),
+ *         TotalExpectedSpend: Number('double'),
+ *         TotalImpactPercentage: Number('double'),
+ *       },
+ *       MonitorArn: 'STRING_VALUE', // required
+ *       Feedback: 'YES' || 'NO' || 'PLANNED_ACTIVITY',
+ *     },
+ *   ],
+ *   NextPageToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetAnomaliesCommandInput - {@link GetAnomaliesCommandInput}
@@ -72,6 +107,8 @@ export interface GetAnomaliesCommandOutput extends GetAnomaliesResponse, __Metad
  * @throws {@link LimitExceededException} (client fault)
  *  <p>You made too many calls in a short period of time. Try again later.</p>
  *
+ * @throws {@link CostExplorerServiceException}
+ * <p>Base exception class for all service exceptions from CostExplorer service.</p>
  *
  */
 export class GetAnomaliesCommand extends $Command<

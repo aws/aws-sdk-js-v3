@@ -37,18 +37,36 @@ export interface GetDatalakeStatusCommandOutput extends GetDatalakeStatusRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SecurityLakeClient, GetDatalakeStatusCommand } from "@aws-sdk/client-securitylake"; // ES Modules import
- * // const { SecurityLakeClient, GetDatalakeStatusCommand } = require("@aws-sdk/client-securitylake"); // CommonJS import
+ * import { SecurityLakeClient, GetDatalakeStatusCommand } from '@aws-sdk/client-securitylake'; // ES Modules import
+ * // const { SecurityLakeClient, GetDatalakeStatusCommand } = require('@aws-sdk/client-securitylake'); // CommonJS import
  * const client = new SecurityLakeClient(config);
  * const input = { // GetDatalakeStatusRequest
  *   accountSet: [ // InputSet
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   maxAccountResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   maxAccountResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new GetDatalakeStatusCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetDatalakeStatusResponse
+ *   accountSourcesList: [ // AccountSourcesList // required
+ *     { // AccountSources
+ *       account: 'STRING_VALUE', // required
+ *       sourceType: 'STRING_VALUE', // required
+ *       logsStatus: [ // LogsStatusList
+ *         { // LogsStatus
+ *           pathToLogs: 'STRING_VALUE', // required
+ *           healthStatus: 'STRING_VALUE', // required
+ *         },
+ *       ],
+ *       eventClass: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetDatalakeStatusCommandInput - {@link GetDatalakeStatusCommandInput}
@@ -75,6 +93,8 @@ export interface GetDatalakeStatusCommandOutput extends GetDatalakeStatusRespons
  * @throws {@link ValidationException} (client fault)
  *  <p>Your signing certificate could not be validated. </p>
  *
+ * @throws {@link SecurityLakeServiceException}
+ * <p>Base exception class for all service exceptions from SecurityLake service.</p>
  *
  */
 export class GetDatalakeStatusCommand extends $Command<

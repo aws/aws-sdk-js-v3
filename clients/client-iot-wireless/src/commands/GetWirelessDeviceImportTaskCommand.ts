@@ -42,14 +42,34 @@ export interface GetWirelessDeviceImportTaskCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTWirelessClient, GetWirelessDeviceImportTaskCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
- * // const { IoTWirelessClient, GetWirelessDeviceImportTaskCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
+ * import { IoTWirelessClient, GetWirelessDeviceImportTaskCommand } from '@aws-sdk/client-iot-wireless'; // ES Modules import
+ * // const { IoTWirelessClient, GetWirelessDeviceImportTaskCommand } = require('@aws-sdk/client-iot-wireless'); // CommonJS import
  * const client = new IoTWirelessClient(config);
  * const input = { // GetWirelessDeviceImportTaskRequest
- *   Id: "STRING_VALUE", // required
+ *   Id: 'STRING_VALUE', // required
  * };
  * const command = new GetWirelessDeviceImportTaskCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetWirelessDeviceImportTaskResponse
+ *   Id: 'STRING_VALUE',
+ *   Arn: 'STRING_VALUE',
+ *   DestinationName: 'STRING_VALUE',
+ *   Sidewalk: { // SidewalkGetStartImportInfo
+ *     DeviceCreationFileList: [ // DeviceCreationFileList
+ *       'STRING_VALUE',
+ *     ],
+ *     Role: 'STRING_VALUE',
+ *   },
+ *   CreationTime: new Date('TIMESTAMP'),
+ *   Status: 'INITIALIZING' || 'INITIALIZED' || 'PENDING' || 'COMPLETE' || 'FAILED' || 'DELETING',
+ *   StatusReason: 'STRING_VALUE',
+ *   InitializedImportedDeviceCount: Number('long'),
+ *   PendingImportedDeviceCount: Number('long'),
+ *   OnboardedImportedDeviceCount: Number('long'),
+ *   FailedImportedDeviceCount: Number('long'),
+ * };
+ *
  * ```
  *
  * @param GetWirelessDeviceImportTaskCommandInput - {@link GetWirelessDeviceImportTaskCommandInput}
@@ -76,6 +96,8 @@ export interface GetWirelessDeviceImportTaskCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The input did not meet the specified constraints.</p>
  *
+ * @throws {@link IoTWirelessServiceException}
+ * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
  */
 export class GetWirelessDeviceImportTaskCommand extends $Command<

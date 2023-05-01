@@ -41,46 +41,49 @@ export interface UpdateResourceEventConfigurationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTWirelessClient, UpdateResourceEventConfigurationCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
- * // const { IoTWirelessClient, UpdateResourceEventConfigurationCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
+ * import { IoTWirelessClient, UpdateResourceEventConfigurationCommand } from '@aws-sdk/client-iot-wireless'; // ES Modules import
+ * // const { IoTWirelessClient, UpdateResourceEventConfigurationCommand } = require('@aws-sdk/client-iot-wireless'); // CommonJS import
  * const client = new IoTWirelessClient(config);
  * const input = { // UpdateResourceEventConfigurationRequest
- *   Identifier: "STRING_VALUE", // required
- *   IdentifierType: "PartnerAccountId" || "DevEui" || "GatewayEui" || "WirelessDeviceId" || "WirelessGatewayId", // required
- *   PartnerType: "Sidewalk",
+ *   Identifier: 'STRING_VALUE', // required
+ *   IdentifierType: 'PartnerAccountId' || 'DevEui' || 'GatewayEui' || 'WirelessDeviceId' || 'WirelessGatewayId', // required
+ *   PartnerType: 'Sidewalk',
  *   DeviceRegistrationState: { // DeviceRegistrationStateEventConfiguration
  *     Sidewalk: { // SidewalkEventNotificationConfigurations
- *       AmazonIdEventTopic: "Enabled" || "Disabled",
+ *       AmazonIdEventTopic: 'Enabled' || 'Disabled',
  *     },
- *     WirelessDeviceIdEventTopic: "Enabled" || "Disabled",
+ *     WirelessDeviceIdEventTopic: 'Enabled' || 'Disabled',
  *   },
  *   Proximity: { // ProximityEventConfiguration
  *     Sidewalk: {
- *       AmazonIdEventTopic: "Enabled" || "Disabled",
+ *       AmazonIdEventTopic: 'Enabled' || 'Disabled',
  *     },
- *     WirelessDeviceIdEventTopic: "Enabled" || "Disabled",
+ *     WirelessDeviceIdEventTopic: 'Enabled' || 'Disabled',
  *   },
  *   Join: { // JoinEventConfiguration
  *     LoRaWAN: { // LoRaWANJoinEventNotificationConfigurations
- *       DevEuiEventTopic: "Enabled" || "Disabled",
+ *       DevEuiEventTopic: 'Enabled' || 'Disabled',
  *     },
- *     WirelessDeviceIdEventTopic: "Enabled" || "Disabled",
+ *     WirelessDeviceIdEventTopic: 'Enabled' || 'Disabled',
  *   },
  *   ConnectionStatus: { // ConnectionStatusEventConfiguration
  *     LoRaWAN: { // LoRaWANConnectionStatusEventNotificationConfigurations
- *       GatewayEuiEventTopic: "Enabled" || "Disabled",
+ *       GatewayEuiEventTopic: 'Enabled' || 'Disabled',
  *     },
- *     WirelessGatewayIdEventTopic: "Enabled" || "Disabled",
+ *     WirelessGatewayIdEventTopic: 'Enabled' || 'Disabled',
  *   },
  *   MessageDeliveryStatus: { // MessageDeliveryStatusEventConfiguration
  *     Sidewalk: {
- *       AmazonIdEventTopic: "Enabled" || "Disabled",
+ *       AmazonIdEventTopic: 'Enabled' || 'Disabled',
  *     },
- *     WirelessDeviceIdEventTopic: "Enabled" || "Disabled",
+ *     WirelessDeviceIdEventTopic: 'Enabled' || 'Disabled',
  *   },
  * };
  * const command = new UpdateResourceEventConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateResourceEventConfigurationCommandInput - {@link UpdateResourceEventConfigurationCommandInput}
@@ -107,6 +110,8 @@ export interface UpdateResourceEventConfigurationCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The input did not meet the specified constraints.</p>
  *
+ * @throws {@link IoTWirelessServiceException}
+ * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
  */
 export class UpdateResourceEventConfigurationCommand extends $Command<

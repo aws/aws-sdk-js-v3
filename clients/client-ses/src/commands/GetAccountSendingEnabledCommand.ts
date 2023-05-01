@@ -37,12 +37,17 @@ export interface GetAccountSendingEnabledCommandOutput extends GetAccountSending
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SESClient, GetAccountSendingEnabledCommand } from "@aws-sdk/client-ses"; // ES Modules import
- * // const { SESClient, GetAccountSendingEnabledCommand } = require("@aws-sdk/client-ses"); // CommonJS import
+ * import { SESClient, GetAccountSendingEnabledCommand } from '@aws-sdk/client-ses'; // ES Modules import
+ * // const { SESClient, GetAccountSendingEnabledCommand } = require('@aws-sdk/client-ses'); // CommonJS import
  * const client = new SESClient(config);
  * const input = {};
  * const command = new GetAccountSendingEnabledCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetAccountSendingEnabledResponse
+ *   Enabled: true || false,
+ * };
+ *
  * ```
  *
  * @param GetAccountSendingEnabledCommandInput - {@link GetAccountSendingEnabledCommandInput}
@@ -51,6 +56,8 @@ export interface GetAccountSendingEnabledCommandOutput extends GetAccountSending
  * @see {@link GetAccountSendingEnabledCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
+ * @throws {@link SESServiceException}
+ * <p>Base exception class for all service exceptions from SES service.</p>
  *
  * @example GetAccountSendingEnabled
  * ```javascript

@@ -50,15 +50,35 @@ export interface GetBucketLoggingCommandOutput extends GetBucketLoggingOutput, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { S3Client, GetBucketLoggingCommand } from "@aws-sdk/client-s3"; // ES Modules import
- * // const { S3Client, GetBucketLoggingCommand } = require("@aws-sdk/client-s3"); // CommonJS import
+ * import { S3Client, GetBucketLoggingCommand } from '@aws-sdk/client-s3'; // ES Modules import
+ * // const { S3Client, GetBucketLoggingCommand } = require('@aws-sdk/client-s3'); // CommonJS import
  * const client = new S3Client(config);
  * const input = { // GetBucketLoggingRequest
- *   Bucket: "STRING_VALUE", // required
- *   ExpectedBucketOwner: "STRING_VALUE",
+ *   Bucket: 'STRING_VALUE', // required
+ *   ExpectedBucketOwner: 'STRING_VALUE',
  * };
  * const command = new GetBucketLoggingCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetBucketLoggingOutput
+ *   LoggingEnabled: { // LoggingEnabled
+ *     TargetBucket: 'STRING_VALUE', // required
+ *     TargetGrants: [ // TargetGrants
+ *       { // TargetGrant
+ *         Grantee: { // Grantee
+ *           DisplayName: 'STRING_VALUE',
+ *           EmailAddress: 'STRING_VALUE',
+ *           ID: 'STRING_VALUE',
+ *           URI: 'STRING_VALUE',
+ *           Type: 'CanonicalUser' || 'AmazonCustomerByEmail' || 'Group', // required
+ *         },
+ *         Permission: 'FULL_CONTROL' || 'READ' || 'WRITE',
+ *       },
+ *     ],
+ *     TargetPrefix: 'STRING_VALUE', // required
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetBucketLoggingCommandInput - {@link GetBucketLoggingCommandInput}
@@ -67,6 +87,8 @@ export interface GetBucketLoggingCommandOutput extends GetBucketLoggingOutput, _
  * @see {@link GetBucketLoggingCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
+ * @throws {@link S3ServiceException}
+ * <p>Base exception class for all service exceptions from S3 service.</p>
  *
  */
 export class GetBucketLoggingCommand extends $Command<

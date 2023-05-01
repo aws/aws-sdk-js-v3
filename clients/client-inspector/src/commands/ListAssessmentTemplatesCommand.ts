@@ -37,28 +37,36 @@ export interface ListAssessmentTemplatesCommandOutput extends ListAssessmentTemp
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { InspectorClient, ListAssessmentTemplatesCommand } from "@aws-sdk/client-inspector"; // ES Modules import
- * // const { InspectorClient, ListAssessmentTemplatesCommand } = require("@aws-sdk/client-inspector"); // CommonJS import
+ * import { InspectorClient, ListAssessmentTemplatesCommand } from '@aws-sdk/client-inspector'; // ES Modules import
+ * // const { InspectorClient, ListAssessmentTemplatesCommand } = require('@aws-sdk/client-inspector'); // CommonJS import
  * const client = new InspectorClient(config);
  * const input = { // ListAssessmentTemplatesRequest
  *   assessmentTargetArns: [ // ListParentArnList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   filter: { // AssessmentTemplateFilter
- *     namePattern: "STRING_VALUE",
+ *     namePattern: 'STRING_VALUE',
  *     durationRange: { // DurationRange
- *       minSeconds: Number("int"),
- *       maxSeconds: Number("int"),
+ *       minSeconds: Number('int'),
+ *       maxSeconds: Number('int'),
  *     },
  *     rulesPackageArns: [ // FilterRulesPackageArnList
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *   },
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new ListAssessmentTemplatesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListAssessmentTemplatesResponse
+ *   assessmentTemplateArns: [ // ListReturnedArnList // required
+ *     'STRING_VALUE',
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListAssessmentTemplatesCommandInput - {@link ListAssessmentTemplatesCommandInput}
@@ -81,6 +89,8 @@ export interface ListAssessmentTemplatesCommandOutput extends ListAssessmentTemp
  *  <p>The request was rejected because it referenced an entity that does not exist. The
  *          error code describes the entity.</p>
  *
+ * @throws {@link InspectorServiceException}
+ * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
  * @example List assessment templates
  * ```javascript

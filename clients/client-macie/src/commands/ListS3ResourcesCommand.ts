@@ -40,16 +40,31 @@ export interface ListS3ResourcesCommandOutput extends ListS3ResourcesResult, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MacieClient, ListS3ResourcesCommand } from "@aws-sdk/client-macie"; // ES Modules import
- * // const { MacieClient, ListS3ResourcesCommand } = require("@aws-sdk/client-macie"); // CommonJS import
+ * import { MacieClient, ListS3ResourcesCommand } from '@aws-sdk/client-macie'; // ES Modules import
+ * // const { MacieClient, ListS3ResourcesCommand } = require('@aws-sdk/client-macie'); // CommonJS import
  * const client = new MacieClient(config);
  * const input = { // ListS3ResourcesRequest
- *   memberAccountId: "STRING_VALUE",
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   memberAccountId: 'STRING_VALUE',
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new ListS3ResourcesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListS3ResourcesResult
+ *   s3Resources: [ // S3ResourcesClassification
+ *     { // S3ResourceClassification
+ *       bucketName: 'STRING_VALUE', // required
+ *       prefix: 'STRING_VALUE',
+ *       classificationType: { // ClassificationType
+ *         oneTime: 'STRING_VALUE', // required
+ *         continuous: 'STRING_VALUE', // required
+ *       },
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListS3ResourcesCommandInput - {@link ListS3ResourcesCommandInput}
@@ -68,6 +83,8 @@ export interface ListS3ResourcesCommandOutput extends ListS3ResourcesResult, __M
  *  <p>(Discontinued) The request was rejected because an invalid or out-of-range value was supplied for an
  *       input parameter.</p>
  *
+ * @throws {@link MacieServiceException}
+ * <p>Base exception class for all service exceptions from Macie service.</p>
  *
  */
 export class ListS3ResourcesCommand extends $Command<

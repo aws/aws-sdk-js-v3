@@ -37,16 +37,24 @@ export interface ListFirewallDomainsCommandOutput extends ListFirewallDomainsRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Route53ResolverClient, ListFirewallDomainsCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
- * // const { Route53ResolverClient, ListFirewallDomainsCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
+ * import { Route53ResolverClient, ListFirewallDomainsCommand } from '@aws-sdk/client-route53resolver'; // ES Modules import
+ * // const { Route53ResolverClient, ListFirewallDomainsCommand } = require('@aws-sdk/client-route53resolver'); // CommonJS import
  * const client = new Route53ResolverClient(config);
  * const input = { // ListFirewallDomainsRequest
- *   FirewallDomainListId: "STRING_VALUE", // required
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   FirewallDomainListId: 'STRING_VALUE', // required
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListFirewallDomainsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListFirewallDomainsResponse
+ *   NextToken: 'STRING_VALUE',
+ *   Domains: [ // FirewallDomains
+ *     'STRING_VALUE',
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListFirewallDomainsCommandInput - {@link ListFirewallDomainsCommandInput}
@@ -71,6 +79,8 @@ export interface ListFirewallDomainsCommandOutput extends ListFirewallDomainsRes
  *  <p>You have provided an invalid command. Supported values are <code>ADD</code>,
  * 			<code>REMOVE</code>, or <code>REPLACE</code> a domain.</p>
  *
+ * @throws {@link Route53ResolverServiceException}
+ * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
  */
 export class ListFirewallDomainsCommand extends $Command<

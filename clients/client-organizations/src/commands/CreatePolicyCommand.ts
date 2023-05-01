@@ -42,23 +42,38 @@ export interface CreatePolicyCommandOutput extends CreatePolicyResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OrganizationsClient, CreatePolicyCommand } from "@aws-sdk/client-organizations"; // ES Modules import
- * // const { OrganizationsClient, CreatePolicyCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
+ * import { OrganizationsClient, CreatePolicyCommand } from '@aws-sdk/client-organizations'; // ES Modules import
+ * // const { OrganizationsClient, CreatePolicyCommand } = require('@aws-sdk/client-organizations'); // CommonJS import
  * const client = new OrganizationsClient(config);
  * const input = { // CreatePolicyRequest
- *   Content: "STRING_VALUE", // required
- *   Description: "STRING_VALUE", // required
- *   Name: "STRING_VALUE", // required
- *   Type: "SERVICE_CONTROL_POLICY" || "TAG_POLICY" || "BACKUP_POLICY" || "AISERVICES_OPT_OUT_POLICY", // required
+ *   Content: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE', // required
+ *   Name: 'STRING_VALUE', // required
+ *   Type: 'SERVICE_CONTROL_POLICY' || 'TAG_POLICY' || 'BACKUP_POLICY' || 'AISERVICES_OPT_OUT_POLICY', // required
  *   Tags: [ // Tags
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreatePolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreatePolicyResponse
+ *   Policy: { // Policy
+ *     PolicySummary: { // PolicySummary
+ *       Id: 'STRING_VALUE',
+ *       Arn: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *       Description: 'STRING_VALUE',
+ *       Type: 'SERVICE_CONTROL_POLICY' || 'TAG_POLICY' || 'BACKUP_POLICY' || 'AISERVICES_OPT_OUT_POLICY',
+ *       AwsManaged: true || false,
+ *     },
+ *     Content: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreatePolicyCommandInput - {@link CreatePolicyCommandInput}
@@ -414,6 +429,8 @@ export interface CreatePolicyCommandOutput extends CreatePolicyResponse, __Metad
  * @throws {@link UnsupportedAPIEndpointException} (client fault)
  *  <p>This action isn't available in the current Amazon Web Services Region.</p>
  *
+ * @throws {@link OrganizationsServiceException}
+ * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
  * @example To create a service control policy
  * ```javascript

@@ -48,14 +48,46 @@ export interface DescribeCampaignCommandOutput extends DescribeCampaignResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PersonalizeClient, DescribeCampaignCommand } from "@aws-sdk/client-personalize"; // ES Modules import
- * // const { PersonalizeClient, DescribeCampaignCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
+ * import { PersonalizeClient, DescribeCampaignCommand } from '@aws-sdk/client-personalize'; // ES Modules import
+ * // const { PersonalizeClient, DescribeCampaignCommand } = require('@aws-sdk/client-personalize'); // CommonJS import
  * const client = new PersonalizeClient(config);
  * const input = { // DescribeCampaignRequest
- *   campaignArn: "STRING_VALUE", // required
+ *   campaignArn: 'STRING_VALUE', // required
  * };
  * const command = new DescribeCampaignCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeCampaignResponse
+ *   campaign: { // Campaign
+ *     name: 'STRING_VALUE',
+ *     campaignArn: 'STRING_VALUE',
+ *     solutionVersionArn: 'STRING_VALUE',
+ *     minProvisionedTPS: Number('int'),
+ *     campaignConfig: { // CampaignConfig
+ *       itemExplorationConfig: { // HyperParameters
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *     },
+ *     status: 'STRING_VALUE',
+ *     failureReason: 'STRING_VALUE',
+ *     creationDateTime: new Date('TIMESTAMP'),
+ *     lastUpdatedDateTime: new Date('TIMESTAMP'),
+ *     latestCampaignUpdate: { // CampaignUpdateSummary
+ *       solutionVersionArn: 'STRING_VALUE',
+ *       minProvisionedTPS: Number('int'),
+ *       campaignConfig: {
+ *         itemExplorationConfig: {
+ *           '<keys>': 'STRING_VALUE',
+ *         },
+ *       },
+ *       status: 'STRING_VALUE',
+ *       failureReason: 'STRING_VALUE',
+ *       creationDateTime: new Date('TIMESTAMP'),
+ *       lastUpdatedDateTime: new Date('TIMESTAMP'),
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeCampaignCommandInput - {@link DescribeCampaignCommandInput}
@@ -70,6 +102,8 @@ export interface DescribeCampaignCommandOutput extends DescribeCampaignResponse,
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Could not find the specified resource.</p>
  *
+ * @throws {@link PersonalizeServiceException}
+ * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
  */
 export class DescribeCampaignCommand extends $Command<

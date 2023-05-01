@@ -36,15 +36,21 @@ export interface DeregisterGatewayInstanceCommandOutput extends DeregisterGatewa
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MediaConnectClient, DeregisterGatewayInstanceCommand } from "@aws-sdk/client-mediaconnect"; // ES Modules import
- * // const { MediaConnectClient, DeregisterGatewayInstanceCommand } = require("@aws-sdk/client-mediaconnect"); // CommonJS import
+ * import { MediaConnectClient, DeregisterGatewayInstanceCommand } from '@aws-sdk/client-mediaconnect'; // ES Modules import
+ * // const { MediaConnectClient, DeregisterGatewayInstanceCommand } = require('@aws-sdk/client-mediaconnect'); // CommonJS import
  * const client = new MediaConnectClient(config);
  * const input = { // DeregisterGatewayInstanceRequest
  *   Force: true || false,
- *   GatewayInstanceArn: "STRING_VALUE", // required
+ *   GatewayInstanceArn: 'STRING_VALUE', // required
  * };
  * const command = new DeregisterGatewayInstanceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeregisterGatewayInstanceResponse
+ *   GatewayInstanceArn: 'STRING_VALUE',
+ *   InstanceState: 'REGISTERING' || 'ACTIVE' || 'DEREGISTERING' || 'DEREGISTERED' || 'REGISTRATION_ERROR' || 'DEREGISTRATION_ERROR',
+ * };
+ *
  * ```
  *
  * @param DeregisterGatewayInstanceCommandInput - {@link DeregisterGatewayInstanceCommandInput}
@@ -74,6 +80,8 @@ export interface DeregisterGatewayInstanceCommandOutput extends DeregisterGatewa
  * @throws {@link TooManyRequestsException} (client fault)
  *  Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
  *
+ * @throws {@link MediaConnectServiceException}
+ * <p>Base exception class for all service exceptions from MediaConnect service.</p>
  *
  */
 export class DeregisterGatewayInstanceCommand extends $Command<

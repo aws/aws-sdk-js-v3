@@ -65,17 +65,36 @@ export interface GroupResourcesCommandOutput extends GroupResourcesOutput, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ResourceGroupsClient, GroupResourcesCommand } from "@aws-sdk/client-resource-groups"; // ES Modules import
- * // const { ResourceGroupsClient, GroupResourcesCommand } = require("@aws-sdk/client-resource-groups"); // CommonJS import
+ * import { ResourceGroupsClient, GroupResourcesCommand } from '@aws-sdk/client-resource-groups'; // ES Modules import
+ * // const { ResourceGroupsClient, GroupResourcesCommand } = require('@aws-sdk/client-resource-groups'); // CommonJS import
  * const client = new ResourceGroupsClient(config);
  * const input = { // GroupResourcesInput
- *   Group: "STRING_VALUE", // required
+ *   Group: 'STRING_VALUE', // required
  *   ResourceArns: [ // ResourceArnList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new GroupResourcesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GroupResourcesOutput
+ *   Succeeded: [ // ResourceArnList
+ *     'STRING_VALUE',
+ *   ],
+ *   Failed: [ // FailedResourceList
+ *     { // FailedResource
+ *       ResourceArn: 'STRING_VALUE',
+ *       ErrorMessage: 'STRING_VALUE',
+ *       ErrorCode: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   Pending: [ // PendingResourceList
+ *     { // PendingResource
+ *       ResourceArn: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GroupResourcesCommandInput - {@link GroupResourcesCommandInput}
@@ -103,6 +122,8 @@ export interface GroupResourcesCommandOutput extends GroupResourcesOutput, __Met
  *  <p>You've exceeded throttling limits by making too many requests in a period of
  *             time.</p>
  *
+ * @throws {@link ResourceGroupsServiceException}
+ * <p>Base exception class for all service exceptions from ResourceGroups service.</p>
  *
  */
 export class GroupResourcesCommand extends $Command<

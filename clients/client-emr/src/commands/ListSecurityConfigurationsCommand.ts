@@ -39,14 +39,25 @@ export interface ListSecurityConfigurationsCommandOutput extends ListSecurityCon
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EMRClient, ListSecurityConfigurationsCommand } from "@aws-sdk/client-emr"; // ES Modules import
- * // const { EMRClient, ListSecurityConfigurationsCommand } = require("@aws-sdk/client-emr"); // CommonJS import
+ * import { EMRClient, ListSecurityConfigurationsCommand } from '@aws-sdk/client-emr'; // ES Modules import
+ * // const { EMRClient, ListSecurityConfigurationsCommand } = require('@aws-sdk/client-emr'); // CommonJS import
  * const client = new EMRClient(config);
  * const input = { // ListSecurityConfigurationsInput
- *   Marker: "STRING_VALUE",
+ *   Marker: 'STRING_VALUE',
  * };
  * const command = new ListSecurityConfigurationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListSecurityConfigurationsOutput
+ *   SecurityConfigurations: [ // SecurityConfigurationList
+ *     { // SecurityConfigurationSummary
+ *       Name: 'STRING_VALUE',
+ *       CreationDateTime: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   Marker: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListSecurityConfigurationsCommandInput - {@link ListSecurityConfigurationsCommandInput}
@@ -62,6 +73,8 @@ export interface ListSecurityConfigurationsCommandOutput extends ListSecurityCon
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception occurs when there is something wrong with user input.</p>
  *
+ * @throws {@link EMRServiceException}
+ * <p>Base exception class for all service exceptions from EMR service.</p>
  *
  */
 export class ListSecurityConfigurationsCommand extends $Command<

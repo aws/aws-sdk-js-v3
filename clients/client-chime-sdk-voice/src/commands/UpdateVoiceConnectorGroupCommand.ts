@@ -36,21 +36,38 @@ export interface UpdateVoiceConnectorGroupCommandOutput extends UpdateVoiceConne
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeSDKVoiceClient, UpdateVoiceConnectorGroupCommand } from "@aws-sdk/client-chime-sdk-voice"; // ES Modules import
- * // const { ChimeSDKVoiceClient, UpdateVoiceConnectorGroupCommand } = require("@aws-sdk/client-chime-sdk-voice"); // CommonJS import
+ * import { ChimeSDKVoiceClient, UpdateVoiceConnectorGroupCommand } from '@aws-sdk/client-chime-sdk-voice'; // ES Modules import
+ * // const { ChimeSDKVoiceClient, UpdateVoiceConnectorGroupCommand } = require('@aws-sdk/client-chime-sdk-voice'); // CommonJS import
  * const client = new ChimeSDKVoiceClient(config);
  * const input = { // UpdateVoiceConnectorGroupRequest
- *   VoiceConnectorGroupId: "STRING_VALUE", // required
- *   Name: "STRING_VALUE", // required
+ *   VoiceConnectorGroupId: 'STRING_VALUE', // required
+ *   Name: 'STRING_VALUE', // required
  *   VoiceConnectorItems: [ // VoiceConnectorItemList // required
  *     { // VoiceConnectorItem
- *       VoiceConnectorId: "STRING_VALUE", // required
- *       Priority: Number("int"), // required
+ *       VoiceConnectorId: 'STRING_VALUE', // required
+ *       Priority: Number('int'), // required
  *     },
  *   ],
  * };
  * const command = new UpdateVoiceConnectorGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateVoiceConnectorGroupResponse
+ *   VoiceConnectorGroup: { // VoiceConnectorGroup
+ *     VoiceConnectorGroupId: 'STRING_VALUE',
+ *     Name: 'STRING_VALUE',
+ *     VoiceConnectorItems: [ // VoiceConnectorItemList
+ *       { // VoiceConnectorItem
+ *         VoiceConnectorId: 'STRING_VALUE', // required
+ *         Priority: Number('int'), // required
+ *       },
+ *     ],
+ *     CreatedTimestamp: new Date('TIMESTAMP'),
+ *     UpdatedTimestamp: new Date('TIMESTAMP'),
+ *     VoiceConnectorGroupArn: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateVoiceConnectorGroupCommandInput - {@link UpdateVoiceConnectorGroupCommandInput}
@@ -83,6 +100,8 @@ export interface UpdateVoiceConnectorGroupCommandOutput extends UpdateVoiceConne
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client isn't authorized to request a resource.</p>
  *
+ * @throws {@link ChimeSDKVoiceServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
  */
 export class UpdateVoiceConnectorGroupCommand extends $Command<

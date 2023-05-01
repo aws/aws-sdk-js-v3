@@ -37,14 +37,37 @@ export interface DeleteGlobalClusterCommandOutput extends DeleteGlobalClusterRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { NeptuneClient, DeleteGlobalClusterCommand } from "@aws-sdk/client-neptune"; // ES Modules import
- * // const { NeptuneClient, DeleteGlobalClusterCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
+ * import { NeptuneClient, DeleteGlobalClusterCommand } from '@aws-sdk/client-neptune'; // ES Modules import
+ * // const { NeptuneClient, DeleteGlobalClusterCommand } = require('@aws-sdk/client-neptune'); // CommonJS import
  * const client = new NeptuneClient(config);
  * const input = { // DeleteGlobalClusterMessage
- *   GlobalClusterIdentifier: "STRING_VALUE", // required
+ *   GlobalClusterIdentifier: 'STRING_VALUE', // required
  * };
  * const command = new DeleteGlobalClusterCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteGlobalClusterResult
+ *   GlobalCluster: { // GlobalCluster
+ *     GlobalClusterIdentifier: 'STRING_VALUE',
+ *     GlobalClusterResourceId: 'STRING_VALUE',
+ *     GlobalClusterArn: 'STRING_VALUE',
+ *     Status: 'STRING_VALUE',
+ *     Engine: 'STRING_VALUE',
+ *     EngineVersion: 'STRING_VALUE',
+ *     StorageEncrypted: true || false,
+ *     DeletionProtection: true || false,
+ *     GlobalClusterMembers: [ // GlobalClusterMemberList
+ *       { // GlobalClusterMember
+ *         DBClusterArn: 'STRING_VALUE',
+ *         Readers: [ // ReadersArnList
+ *           'STRING_VALUE',
+ *         ],
+ *         IsWriter: true || false,
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param DeleteGlobalClusterCommandInput - {@link DeleteGlobalClusterCommandInput}
@@ -59,6 +82,8 @@ export interface DeleteGlobalClusterCommandOutput extends DeleteGlobalClusterRes
  * @throws {@link InvalidGlobalClusterStateFault} (client fault)
  *  <p>The global cluster is in an invalid state and can't perform the requested operation. </p>
  *
+ * @throws {@link NeptuneServiceException}
+ * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
  */
 export class DeleteGlobalClusterCommand extends $Command<

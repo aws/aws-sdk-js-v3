@@ -40,16 +40,31 @@ export interface UpdateApplicationCommandOutput extends UpdateApplicationRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ServiceCatalogAppRegistryClient, UpdateApplicationCommand } from "@aws-sdk/client-service-catalog-appregistry"; // ES Modules import
- * // const { ServiceCatalogAppRegistryClient, UpdateApplicationCommand } = require("@aws-sdk/client-service-catalog-appregistry"); // CommonJS import
+ * import { ServiceCatalogAppRegistryClient, UpdateApplicationCommand } from '@aws-sdk/client-service-catalog-appregistry'; // ES Modules import
+ * // const { ServiceCatalogAppRegistryClient, UpdateApplicationCommand } = require('@aws-sdk/client-service-catalog-appregistry'); // CommonJS import
  * const client = new ServiceCatalogAppRegistryClient(config);
  * const input = { // UpdateApplicationRequest
- *   application: "STRING_VALUE", // required
- *   name: "STRING_VALUE",
- *   description: "STRING_VALUE",
+ *   application: 'STRING_VALUE', // required
+ *   name: 'STRING_VALUE',
+ *   description: 'STRING_VALUE',
  * };
  * const command = new UpdateApplicationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateApplicationResponse
+ *   application: { // Application
+ *     id: 'STRING_VALUE',
+ *     arn: 'STRING_VALUE',
+ *     name: 'STRING_VALUE',
+ *     description: 'STRING_VALUE',
+ *     creationTime: new Date('TIMESTAMP'),
+ *     lastUpdateTime: new Date('TIMESTAMP'),
+ *     tags: { // Tags
+ *       '<keys>': 'STRING_VALUE',
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateApplicationCommandInput - {@link UpdateApplicationCommandInput}
@@ -78,6 +93,8 @@ export interface UpdateApplicationCommandOutput extends UpdateApplicationRespons
  * @throws {@link ValidationException} (client fault)
  *  <p>The request has invalid or missing parameters.</p>
  *
+ * @throws {@link ServiceCatalogAppRegistryServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalogAppRegistry service.</p>
  *
  */
 export class UpdateApplicationCommand extends $Command<

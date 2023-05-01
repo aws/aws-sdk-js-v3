@@ -46,19 +46,28 @@ export interface CreateAccessLogSubscriptionCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { VPCLatticeClient, CreateAccessLogSubscriptionCommand } from "@aws-sdk/client-vpc-lattice"; // ES Modules import
- * // const { VPCLatticeClient, CreateAccessLogSubscriptionCommand } = require("@aws-sdk/client-vpc-lattice"); // CommonJS import
+ * import { VPCLatticeClient, CreateAccessLogSubscriptionCommand } from '@aws-sdk/client-vpc-lattice'; // ES Modules import
+ * // const { VPCLatticeClient, CreateAccessLogSubscriptionCommand } = require('@aws-sdk/client-vpc-lattice'); // CommonJS import
  * const client = new VPCLatticeClient(config);
  * const input = { // CreateAccessLogSubscriptionRequest
- *   clientToken: "STRING_VALUE",
- *   resourceIdentifier: "STRING_VALUE", // required
- *   destinationArn: "STRING_VALUE", // required
+ *   clientToken: 'STRING_VALUE',
+ *   resourceIdentifier: 'STRING_VALUE', // required
+ *   destinationArn: 'STRING_VALUE', // required
  *   tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateAccessLogSubscriptionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateAccessLogSubscriptionResponse
+ *   id: 'STRING_VALUE', // required
+ *   arn: 'STRING_VALUE', // required
+ *   resourceId: 'STRING_VALUE', // required
+ *   resourceArn: 'STRING_VALUE', // required
+ *   destinationArn: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param CreateAccessLogSubscriptionCommandInput - {@link CreateAccessLogSubscriptionCommandInput}
@@ -87,6 +96,8 @@ export interface CreateAccessLogSubscriptionCommandOutput
  *  <p>The input does not satisfy the constraints specified by an Amazon Web Services
  *    service.</p>
  *
+ * @throws {@link VPCLatticeServiceException}
+ * <p>Base exception class for all service exceptions from VPCLattice service.</p>
  *
  */
 export class CreateAccessLogSubscriptionCommand extends $Command<

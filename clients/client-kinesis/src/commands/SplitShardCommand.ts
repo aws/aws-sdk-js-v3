@@ -80,17 +80,20 @@ export interface SplitShardCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KinesisClient, SplitShardCommand } from "@aws-sdk/client-kinesis"; // ES Modules import
- * // const { KinesisClient, SplitShardCommand } = require("@aws-sdk/client-kinesis"); // CommonJS import
+ * import { KinesisClient, SplitShardCommand } from '@aws-sdk/client-kinesis'; // ES Modules import
+ * // const { KinesisClient, SplitShardCommand } = require('@aws-sdk/client-kinesis'); // CommonJS import
  * const client = new KinesisClient(config);
  * const input = { // SplitShardInput
- *   StreamName: "STRING_VALUE",
- *   ShardToSplit: "STRING_VALUE", // required
- *   NewStartingHashKey: "STRING_VALUE", // required
- *   StreamARN: "STRING_VALUE",
+ *   StreamName: 'STRING_VALUE',
+ *   ShardToSplit: 'STRING_VALUE', // required
+ *   NewStartingHashKey: 'STRING_VALUE', // required
+ *   StreamARN: 'STRING_VALUE',
  * };
  * const command = new SplitShardCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param SplitShardCommandInput - {@link SplitShardCommandInput}
@@ -124,6 +127,8 @@ export interface SplitShardCommandOutput extends __MetadataBearer {}
  *             capacity mode. This API is only supported for data streams with the provisioned capacity
  *             mode. </p>
  *
+ * @throws {@link KinesisServiceException}
+ * <p>Base exception class for all service exceptions from Kinesis service.</p>
  *
  */
 export class SplitShardCommand extends $Command<

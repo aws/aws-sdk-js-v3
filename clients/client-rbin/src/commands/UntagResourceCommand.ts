@@ -36,17 +36,20 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RbinClient, UntagResourceCommand } from "@aws-sdk/client-rbin"; // ES Modules import
- * // const { RbinClient, UntagResourceCommand } = require("@aws-sdk/client-rbin"); // CommonJS import
+ * import { RbinClient, UntagResourceCommand } from '@aws-sdk/client-rbin'; // ES Modules import
+ * // const { RbinClient, UntagResourceCommand } = require('@aws-sdk/client-rbin'); // CommonJS import
  * const client = new RbinClient(config);
  * const input = { // UntagResourceRequest
- *   ResourceArn: "STRING_VALUE", // required
+ *   ResourceArn: 'STRING_VALUE', // required
  *   TagKeys: [ // TagKeyList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new UntagResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UntagResourceCommandInput - {@link UntagResourceCommandInput}
@@ -64,6 +67,8 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>One or more of the parameters in the request is not valid.</p>
  *
+ * @throws {@link RbinServiceException}
+ * <p>Base exception class for all service exceptions from Rbin service.</p>
  *
  */
 export class UntagResourceCommand extends $Command<

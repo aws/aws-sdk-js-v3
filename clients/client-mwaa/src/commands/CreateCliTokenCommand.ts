@@ -40,14 +40,20 @@ export interface CreateCliTokenCommandOutput extends CreateCliTokenResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MWAAClient, CreateCliTokenCommand } from "@aws-sdk/client-mwaa"; // ES Modules import
- * // const { MWAAClient, CreateCliTokenCommand } = require("@aws-sdk/client-mwaa"); // CommonJS import
+ * import { MWAAClient, CreateCliTokenCommand } from '@aws-sdk/client-mwaa'; // ES Modules import
+ * // const { MWAAClient, CreateCliTokenCommand } = require('@aws-sdk/client-mwaa'); // CommonJS import
  * const client = new MWAAClient(config);
  * const input = { // CreateCliTokenRequest
- *   Name: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
  * };
  * const command = new CreateCliTokenCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateCliTokenResponse
+ *   CliToken: 'STRING_VALUE',
+ *   WebServerHostname: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateCliTokenCommandInput - {@link CreateCliTokenCommandInput}
@@ -59,6 +65,8 @@ export interface CreateCliTokenCommandOutput extends CreateCliTokenResponse, __M
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>ResourceNotFoundException: The resource is not available.</p>
  *
+ * @throws {@link MWAAServiceException}
+ * <p>Base exception class for all service exceptions from MWAA service.</p>
  *
  */
 export class CreateCliTokenCommand extends $Command<

@@ -44,42 +44,48 @@ export interface CreateModelCommandOutput extends CreateModelResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LookoutEquipmentClient, CreateModelCommand } from "@aws-sdk/client-lookoutequipment"; // ES Modules import
- * // const { LookoutEquipmentClient, CreateModelCommand } = require("@aws-sdk/client-lookoutequipment"); // CommonJS import
+ * import { LookoutEquipmentClient, CreateModelCommand } from '@aws-sdk/client-lookoutequipment'; // ES Modules import
+ * // const { LookoutEquipmentClient, CreateModelCommand } = require('@aws-sdk/client-lookoutequipment'); // CommonJS import
  * const client = new LookoutEquipmentClient(config);
  * const input = { // CreateModelRequest
- *   ModelName: "STRING_VALUE", // required
- *   DatasetName: "STRING_VALUE", // required
+ *   ModelName: 'STRING_VALUE', // required
+ *   DatasetName: 'STRING_VALUE', // required
  *   DatasetSchema: { // DatasetSchema
- *     InlineDataSchema: "STRING_VALUE",
+ *     InlineDataSchema: 'STRING_VALUE',
  *   },
  *   LabelsInputConfiguration: { // LabelsInputConfiguration
  *     S3InputConfiguration: { // LabelsS3InputConfiguration
- *       Bucket: "STRING_VALUE", // required
- *       Prefix: "STRING_VALUE",
+ *       Bucket: 'STRING_VALUE', // required
+ *       Prefix: 'STRING_VALUE',
  *     },
- *     LabelGroupName: "STRING_VALUE",
+ *     LabelGroupName: 'STRING_VALUE',
  *   },
- *   ClientToken: "STRING_VALUE", // required
- *   TrainingDataStartTime: new Date("TIMESTAMP"),
- *   TrainingDataEndTime: new Date("TIMESTAMP"),
- *   EvaluationDataStartTime: new Date("TIMESTAMP"),
- *   EvaluationDataEndTime: new Date("TIMESTAMP"),
- *   RoleArn: "STRING_VALUE",
+ *   ClientToken: 'STRING_VALUE', // required
+ *   TrainingDataStartTime: new Date('TIMESTAMP'),
+ *   TrainingDataEndTime: new Date('TIMESTAMP'),
+ *   EvaluationDataStartTime: new Date('TIMESTAMP'),
+ *   EvaluationDataEndTime: new Date('TIMESTAMP'),
+ *   RoleArn: 'STRING_VALUE',
  *   DataPreProcessingConfiguration: { // DataPreProcessingConfiguration
- *     TargetSamplingRate: "PT1S" || "PT5S" || "PT10S" || "PT15S" || "PT30S" || "PT1M" || "PT5M" || "PT10M" || "PT15M" || "PT30M" || "PT1H",
+ *     TargetSamplingRate: 'PT1S' || 'PT5S' || 'PT10S' || 'PT15S' || 'PT30S' || 'PT1M' || 'PT5M' || 'PT10M' || 'PT15M' || 'PT30M' || 'PT1H',
  *   },
- *   ServerSideKmsKeyId: "STRING_VALUE",
+ *   ServerSideKmsKeyId: 'STRING_VALUE',
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
- *   OffCondition: "STRING_VALUE",
+ *   OffCondition: 'STRING_VALUE',
  * };
  * const command = new CreateModelCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateModelResponse
+ *   ModelArn: 'STRING_VALUE',
+ *   Status: 'IN_PROGRESS' || 'SUCCESS' || 'FAILED',
+ * };
+ *
  * ```
  *
  * @param CreateModelCommandInput - {@link CreateModelCommandInput}
@@ -114,6 +120,8 @@ export interface CreateModelCommandOutput extends CreateModelResponse, __Metadat
  *  <p> The input fails to satisfy constraints specified by Amazon Lookout for Equipment or a
  *          related AWS service that's being utilized. </p>
  *
+ * @throws {@link LookoutEquipmentServiceException}
+ * <p>Base exception class for all service exceptions from LookoutEquipment service.</p>
  *
  */
 export class CreateModelCommand extends $Command<

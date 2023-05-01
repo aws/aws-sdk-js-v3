@@ -36,20 +36,42 @@ export interface ListExportsCommandOutput extends ListExportsResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MgnClient, ListExportsCommand } from "@aws-sdk/client-mgn"; // ES Modules import
- * // const { MgnClient, ListExportsCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
+ * import { MgnClient, ListExportsCommand } from '@aws-sdk/client-mgn'; // ES Modules import
+ * // const { MgnClient, ListExportsCommand } = require('@aws-sdk/client-mgn'); // CommonJS import
  * const client = new MgnClient(config);
  * const input = { // ListExportsRequest
  *   filters: { // ListExportsRequestFilters
  *     exportIDs: [ // ListExportsRequestFiltersExportIDs
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *   },
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new ListExportsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListExportsResponse
+ *   items: [ // ExportsList
+ *     { // ExportTask
+ *       exportID: 'STRING_VALUE',
+ *       s3Bucket: 'STRING_VALUE',
+ *       s3Key: 'STRING_VALUE',
+ *       s3BucketOwner: 'STRING_VALUE',
+ *       creationDateTime: 'STRING_VALUE',
+ *       endDateTime: 'STRING_VALUE',
+ *       status: 'STRING_VALUE',
+ *       progressPercentage: Number('float'),
+ *       summary: { // ExportTaskSummary
+ *         serversCount: Number('long'),
+ *         applicationsCount: Number('long'),
+ *         wavesCount: Number('long'),
+ *       },
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListExportsCommandInput - {@link ListExportsCommandInput}
@@ -61,6 +83,8 @@ export interface ListExportsCommandOutput extends ListExportsResponse, __Metadat
  * @throws {@link UninitializedAccountException} (client fault)
  *  <p>Uninitialized account exception.</p>
  *
+ * @throws {@link MgnServiceException}
+ * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
  */
 export class ListExportsCommand extends $Command<

@@ -41,14 +41,17 @@ export interface DeletePlaybackConfigurationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MediaTailorClient, DeletePlaybackConfigurationCommand } from "@aws-sdk/client-mediatailor"; // ES Modules import
- * // const { MediaTailorClient, DeletePlaybackConfigurationCommand } = require("@aws-sdk/client-mediatailor"); // CommonJS import
+ * import { MediaTailorClient, DeletePlaybackConfigurationCommand } from '@aws-sdk/client-mediatailor'; // ES Modules import
+ * // const { MediaTailorClient, DeletePlaybackConfigurationCommand } = require('@aws-sdk/client-mediatailor'); // CommonJS import
  * const client = new MediaTailorClient(config);
  * const input = { // DeletePlaybackConfigurationRequest
- *   Name: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
  * };
  * const command = new DeletePlaybackConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeletePlaybackConfigurationCommandInput - {@link DeletePlaybackConfigurationCommandInput}
@@ -57,6 +60,8 @@ export interface DeletePlaybackConfigurationCommandOutput
  * @see {@link DeletePlaybackConfigurationCommandOutput} for command's `response` shape.
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.
  *
+ * @throws {@link MediaTailorServiceException}
+ * <p>Base exception class for all service exceptions from MediaTailor service.</p>
  *
  */
 export class DeletePlaybackConfigurationCommand extends $Command<

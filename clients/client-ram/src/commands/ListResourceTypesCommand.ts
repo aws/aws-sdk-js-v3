@@ -36,16 +36,28 @@ export interface ListResourceTypesCommandOutput extends ListResourceTypesRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RAMClient, ListResourceTypesCommand } from "@aws-sdk/client-ram"; // ES Modules import
- * // const { RAMClient, ListResourceTypesCommand } = require("@aws-sdk/client-ram"); // CommonJS import
+ * import { RAMClient, ListResourceTypesCommand } from '@aws-sdk/client-ram'; // ES Modules import
+ * // const { RAMClient, ListResourceTypesCommand } = require('@aws-sdk/client-ram'); // CommonJS import
  * const client = new RAMClient(config);
  * const input = { // ListResourceTypesRequest
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
- *   resourceRegionScope: "ALL" || "REGIONAL" || "GLOBAL",
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
+ *   resourceRegionScope: 'ALL' || 'REGIONAL' || 'GLOBAL',
  * };
  * const command = new ListResourceTypesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListResourceTypesResponse
+ *   resourceTypes: [ // ServiceNameAndResourceTypeList
+ *     { // ServiceNameAndResourceType
+ *       resourceType: 'STRING_VALUE',
+ *       serviceName: 'STRING_VALUE',
+ *       resourceRegionScope: 'REGIONAL' || 'GLOBAL',
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListResourceTypesCommandInput - {@link ListResourceTypesCommandInput}
@@ -69,6 +81,8 @@ export interface ListResourceTypesCommandOutput extends ListResourceTypesRespons
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The operation failed because the service isn't available. Try again later.</p>
  *
+ * @throws {@link RAMServiceException}
+ * <p>Base exception class for all service exceptions from RAM service.</p>
  *
  */
 export class ListResourceTypesCommand extends $Command<

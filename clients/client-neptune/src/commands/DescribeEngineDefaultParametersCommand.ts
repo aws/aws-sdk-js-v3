@@ -42,24 +42,46 @@ export interface DescribeEngineDefaultParametersCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { NeptuneClient, DescribeEngineDefaultParametersCommand } from "@aws-sdk/client-neptune"; // ES Modules import
- * // const { NeptuneClient, DescribeEngineDefaultParametersCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
+ * import { NeptuneClient, DescribeEngineDefaultParametersCommand } from '@aws-sdk/client-neptune'; // ES Modules import
+ * // const { NeptuneClient, DescribeEngineDefaultParametersCommand } = require('@aws-sdk/client-neptune'); // CommonJS import
  * const client = new NeptuneClient(config);
  * const input = { // DescribeEngineDefaultParametersMessage
- *   DBParameterGroupFamily: "STRING_VALUE", // required
+ *   DBParameterGroupFamily: 'STRING_VALUE', // required
  *   Filters: [ // FilterList
  *     { // Filter
- *       Name: "STRING_VALUE", // required
+ *       Name: 'STRING_VALUE', // required
  *       Values: [ // FilterValueList // required
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
- *   MaxRecords: Number("int"),
- *   Marker: "STRING_VALUE",
+ *   MaxRecords: Number('int'),
+ *   Marker: 'STRING_VALUE',
  * };
  * const command = new DescribeEngineDefaultParametersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeEngineDefaultParametersResult
+ *   EngineDefaults: { // EngineDefaults
+ *     DBParameterGroupFamily: 'STRING_VALUE',
+ *     Marker: 'STRING_VALUE',
+ *     Parameters: [ // ParametersList
+ *       { // Parameter
+ *         ParameterName: 'STRING_VALUE',
+ *         ParameterValue: 'STRING_VALUE',
+ *         Description: 'STRING_VALUE',
+ *         Source: 'STRING_VALUE',
+ *         ApplyType: 'STRING_VALUE',
+ *         DataType: 'STRING_VALUE',
+ *         AllowedValues: 'STRING_VALUE',
+ *         IsModifiable: true || false,
+ *         MinimumEngineVersion: 'STRING_VALUE',
+ *         ApplyMethod: 'immediate' || 'pending-reboot',
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeEngineDefaultParametersCommandInput - {@link DescribeEngineDefaultParametersCommandInput}
@@ -68,6 +90,8 @@ export interface DescribeEngineDefaultParametersCommandOutput
  * @see {@link DescribeEngineDefaultParametersCommandOutput} for command's `response` shape.
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
  *
+ * @throws {@link NeptuneServiceException}
+ * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
  */
 export class DescribeEngineDefaultParametersCommand extends $Command<

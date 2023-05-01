@@ -41,16 +41,53 @@ export interface GetDocumentCommandOutput extends GetDocumentResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkDocsClient, GetDocumentCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
- * // const { WorkDocsClient, GetDocumentCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import
+ * import { WorkDocsClient, GetDocumentCommand } from '@aws-sdk/client-workdocs'; // ES Modules import
+ * // const { WorkDocsClient, GetDocumentCommand } = require('@aws-sdk/client-workdocs'); // CommonJS import
  * const client = new WorkDocsClient(config);
  * const input = { // GetDocumentRequest
- *   AuthenticationToken: "STRING_VALUE",
- *   DocumentId: "STRING_VALUE", // required
+ *   AuthenticationToken: 'STRING_VALUE',
+ *   DocumentId: 'STRING_VALUE', // required
  *   IncludeCustomMetadata: true || false,
  * };
  * const command = new GetDocumentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetDocumentResponse
+ *   Metadata: { // DocumentMetadata
+ *     Id: 'STRING_VALUE',
+ *     CreatorId: 'STRING_VALUE',
+ *     ParentFolderId: 'STRING_VALUE',
+ *     CreatedTimestamp: new Date('TIMESTAMP'),
+ *     ModifiedTimestamp: new Date('TIMESTAMP'),
+ *     LatestVersionMetadata: { // DocumentVersionMetadata
+ *       Id: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *       ContentType: 'STRING_VALUE',
+ *       Size: Number('long'),
+ *       Signature: 'STRING_VALUE',
+ *       Status: 'INITIALIZED' || 'ACTIVE',
+ *       CreatedTimestamp: new Date('TIMESTAMP'),
+ *       ModifiedTimestamp: new Date('TIMESTAMP'),
+ *       ContentCreatedTimestamp: new Date('TIMESTAMP'),
+ *       ContentModifiedTimestamp: new Date('TIMESTAMP'),
+ *       CreatorId: 'STRING_VALUE',
+ *       Thumbnail: { // DocumentThumbnailUrlMap
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *       Source: { // DocumentSourceUrlMap
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *     },
+ *     ResourceState: 'ACTIVE' || 'RESTORING' || 'RECYCLING' || 'RECYCLED',
+ *     Labels: [ // SharedLabels
+ *       'STRING_VALUE',
+ *     ],
+ *   },
+ *   CustomMetadata: { // CustomMetadataMap
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetDocumentCommandInput - {@link GetDocumentCommandInput}
@@ -82,6 +119,8 @@ export interface GetDocumentCommandOutput extends GetDocumentResponse, __Metadat
  * @throws {@link UnauthorizedResourceAccessException} (client fault)
  *  <p>The caller does not have access to perform the action on the resource.</p>
  *
+ * @throws {@link WorkDocsServiceException}
+ * <p>Base exception class for all service exceptions from WorkDocs service.</p>
  *
  */
 export class GetDocumentCommand extends $Command<

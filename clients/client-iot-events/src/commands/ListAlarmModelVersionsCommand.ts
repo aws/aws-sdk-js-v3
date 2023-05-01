@@ -37,16 +37,33 @@ export interface ListAlarmModelVersionsCommandOutput extends ListAlarmModelVersi
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTEventsClient, ListAlarmModelVersionsCommand } from "@aws-sdk/client-iot-events"; // ES Modules import
- * // const { IoTEventsClient, ListAlarmModelVersionsCommand } = require("@aws-sdk/client-iot-events"); // CommonJS import
+ * import { IoTEventsClient, ListAlarmModelVersionsCommand } from '@aws-sdk/client-iot-events'; // ES Modules import
+ * // const { IoTEventsClient, ListAlarmModelVersionsCommand } = require('@aws-sdk/client-iot-events'); // CommonJS import
  * const client = new IoTEventsClient(config);
  * const input = { // ListAlarmModelVersionsRequest
- *   alarmModelName: "STRING_VALUE", // required
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   alarmModelName: 'STRING_VALUE', // required
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new ListAlarmModelVersionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListAlarmModelVersionsResponse
+ *   alarmModelVersionSummaries: [ // AlarmModelVersionSummaries
+ *     { // AlarmModelVersionSummary
+ *       alarmModelName: 'STRING_VALUE',
+ *       alarmModelArn: 'STRING_VALUE',
+ *       alarmModelVersion: 'STRING_VALUE',
+ *       roleArn: 'STRING_VALUE',
+ *       creationTime: new Date('TIMESTAMP'),
+ *       lastUpdateTime: new Date('TIMESTAMP'),
+ *       status: 'STRING_VALUE',
+ *       statusMessage: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListAlarmModelVersionsCommandInput - {@link ListAlarmModelVersionsCommandInput}
@@ -70,6 +87,8 @@ export interface ListAlarmModelVersionsCommandOutput extends ListAlarmModelVersi
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request could not be completed due to throttling.</p>
  *
+ * @throws {@link IoTEventsServiceException}
+ * <p>Base exception class for all service exceptions from IoTEvents service.</p>
  *
  */
 export class ListAlarmModelVersionsCommand extends $Command<

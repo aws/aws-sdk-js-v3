@@ -36,17 +36,32 @@ export interface ListPortfoliosForProductCommandOutput extends ListPortfoliosFor
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ServiceCatalogClient, ListPortfoliosForProductCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
- * // const { ServiceCatalogClient, ListPortfoliosForProductCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
+ * import { ServiceCatalogClient, ListPortfoliosForProductCommand } from '@aws-sdk/client-service-catalog'; // ES Modules import
+ * // const { ServiceCatalogClient, ListPortfoliosForProductCommand } = require('@aws-sdk/client-service-catalog'); // CommonJS import
  * const client = new ServiceCatalogClient(config);
  * const input = { // ListPortfoliosForProductInput
- *   AcceptLanguage: "STRING_VALUE",
- *   ProductId: "STRING_VALUE", // required
- *   PageToken: "STRING_VALUE",
- *   PageSize: Number("int"),
+ *   AcceptLanguage: 'STRING_VALUE',
+ *   ProductId: 'STRING_VALUE', // required
+ *   PageToken: 'STRING_VALUE',
+ *   PageSize: Number('int'),
  * };
  * const command = new ListPortfoliosForProductCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListPortfoliosForProductOutput
+ *   PortfolioDetails: [ // PortfolioDetails
+ *     { // PortfolioDetail
+ *       Id: 'STRING_VALUE',
+ *       ARN: 'STRING_VALUE',
+ *       DisplayName: 'STRING_VALUE',
+ *       Description: 'STRING_VALUE',
+ *       CreatedTime: new Date('TIMESTAMP'),
+ *       ProviderName: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextPageToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListPortfoliosForProductCommandInput - {@link ListPortfoliosForProductCommandInput}
@@ -61,6 +76,8 @@ export interface ListPortfoliosForProductCommandOutput extends ListPortfoliosFor
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link ServiceCatalogServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
  */
 export class ListPortfoliosForProductCommand extends $Command<

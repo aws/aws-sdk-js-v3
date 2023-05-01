@@ -42,22 +42,27 @@ export interface CreateFaceLivenessSessionCommandOutput extends CreateFaceLivene
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RekognitionClient, CreateFaceLivenessSessionCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
- * // const { RekognitionClient, CreateFaceLivenessSessionCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
+ * import { RekognitionClient, CreateFaceLivenessSessionCommand } from '@aws-sdk/client-rekognition'; // ES Modules import
+ * // const { RekognitionClient, CreateFaceLivenessSessionCommand } = require('@aws-sdk/client-rekognition'); // CommonJS import
  * const client = new RekognitionClient(config);
  * const input = { // CreateFaceLivenessSessionRequest
- *   KmsKeyId: "STRING_VALUE",
+ *   KmsKeyId: 'STRING_VALUE',
  *   Settings: { // CreateFaceLivenessSessionRequestSettings
  *     OutputConfig: { // LivenessOutputConfig
- *       S3Bucket: "STRING_VALUE", // required
- *       S3KeyPrefix: "STRING_VALUE",
+ *       S3Bucket: 'STRING_VALUE', // required
+ *       S3KeyPrefix: 'STRING_VALUE',
  *     },
- *     AuditImagesLimit: Number("int"),
+ *     AuditImagesLimit: Number('int'),
  *   },
- *   ClientRequestToken: "STRING_VALUE",
+ *   ClientRequestToken: 'STRING_VALUE',
  * };
  * const command = new CreateFaceLivenessSessionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateFaceLivenessSessionResponse
+ *   SessionId: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param CreateFaceLivenessSessionCommandInput - {@link CreateFaceLivenessSessionCommandInput}
@@ -83,6 +88,8 @@ export interface CreateFaceLivenessSessionCommandOutput extends CreateFaceLivene
  * @throws {@link ThrottlingException} (server fault)
  *  <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
  *
+ * @throws {@link RekognitionServiceException}
+ * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
  */
 export class CreateFaceLivenessSessionCommand extends $Command<

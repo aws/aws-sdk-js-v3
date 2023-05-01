@@ -36,17 +36,20 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTTwinMakerClient, TagResourceCommand } from "@aws-sdk/client-iottwinmaker"; // ES Modules import
- * // const { IoTTwinMakerClient, TagResourceCommand } = require("@aws-sdk/client-iottwinmaker"); // CommonJS import
+ * import { IoTTwinMakerClient, TagResourceCommand } from '@aws-sdk/client-iottwinmaker'; // ES Modules import
+ * // const { IoTTwinMakerClient, TagResourceCommand } = require('@aws-sdk/client-iottwinmaker'); // CommonJS import
  * const client = new IoTTwinMakerClient(config);
  * const input = { // TagResourceRequest
- *   resourceARN: "STRING_VALUE", // required
+ *   resourceARN: 'STRING_VALUE', // required
  *   tags: { // TagMap // required
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param TagResourceCommandInput - {@link TagResourceCommandInput}
@@ -64,6 +67,8 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @throws {@link TooManyTagsException} (client fault)
  *  <p>The number of tags exceeds the limit.</p>
  *
+ * @throws {@link IoTTwinMakerServiceException}
+ * <p>Base exception class for all service exceptions from IoTTwinMaker service.</p>
  *
  */
 export class TagResourceCommand extends $Command<

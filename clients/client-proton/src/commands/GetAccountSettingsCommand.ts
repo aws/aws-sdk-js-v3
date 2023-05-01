@@ -36,12 +36,26 @@ export interface GetAccountSettingsCommandOutput extends GetAccountSettingsOutpu
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ProtonClient, GetAccountSettingsCommand } from "@aws-sdk/client-proton"; // ES Modules import
- * // const { ProtonClient, GetAccountSettingsCommand } = require("@aws-sdk/client-proton"); // CommonJS import
+ * import { ProtonClient, GetAccountSettingsCommand } from '@aws-sdk/client-proton'; // ES Modules import
+ * // const { ProtonClient, GetAccountSettingsCommand } = require('@aws-sdk/client-proton'); // CommonJS import
  * const client = new ProtonClient(config);
  * const input = {};
  * const command = new GetAccountSettingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetAccountSettingsOutput
+ *   accountSettings: { // AccountSettings
+ *     pipelineServiceRoleArn: 'STRING_VALUE',
+ *     pipelineProvisioningRepository: { // RepositoryBranch
+ *       arn: 'STRING_VALUE', // required
+ *       provider: 'STRING_VALUE', // required
+ *       name: 'STRING_VALUE', // required
+ *       branch: 'STRING_VALUE', // required
+ *     },
+ *     pipelineCodebuildRoleArn: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetAccountSettingsCommandInput - {@link GetAccountSettingsCommandInput}
@@ -65,6 +79,8 @@ export interface GetAccountSettingsCommandOutput extends GetAccountSettingsOutpu
  * @throws {@link ValidationException} (client fault)
  *  <p>The input is invalid or an out-of-range value was supplied for the input parameter.</p>
  *
+ * @throws {@link ProtonServiceException}
+ * <p>Base exception class for all service exceptions from Proton service.</p>
  *
  */
 export class GetAccountSettingsCommand extends $Command<

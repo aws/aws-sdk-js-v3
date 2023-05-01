@@ -56,14 +56,17 @@ export interface DeleteBotCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LexModelBuildingServiceClient, DeleteBotCommand } from "@aws-sdk/client-lex-model-building-service"; // ES Modules import
- * // const { LexModelBuildingServiceClient, DeleteBotCommand } = require("@aws-sdk/client-lex-model-building-service"); // CommonJS import
+ * import { LexModelBuildingServiceClient, DeleteBotCommand } from '@aws-sdk/client-lex-model-building-service'; // ES Modules import
+ * // const { LexModelBuildingServiceClient, DeleteBotCommand } = require('@aws-sdk/client-lex-model-building-service'); // CommonJS import
  * const client = new LexModelBuildingServiceClient(config);
  * const input = { // DeleteBotRequest
- *   name: "STRING_VALUE", // required
+ *   name: 'STRING_VALUE', // required
  * };
  * const command = new DeleteBotCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteBotCommandInput - {@link DeleteBotCommandInput}
@@ -109,6 +112,8 @@ export interface DeleteBotCommandOutput extends __MetadataBearer {}
  *           <i>string</i> } }</code>
  *          </p>
  *
+ * @throws {@link LexModelBuildingServiceServiceException}
+ * <p>Base exception class for all service exceptions from LexModelBuildingService service.</p>
  *
  */
 export class DeleteBotCommand extends $Command<

@@ -36,17 +36,20 @@ export interface DeletePartitionIndexCommandOutput extends DeletePartitionIndexR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlueClient, DeletePartitionIndexCommand } from "@aws-sdk/client-glue"; // ES Modules import
- * // const { GlueClient, DeletePartitionIndexCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * import { GlueClient, DeletePartitionIndexCommand } from '@aws-sdk/client-glue'; // ES Modules import
+ * // const { GlueClient, DeletePartitionIndexCommand } = require('@aws-sdk/client-glue'); // CommonJS import
  * const client = new GlueClient(config);
  * const input = { // DeletePartitionIndexRequest
- *   CatalogId: "STRING_VALUE",
- *   DatabaseName: "STRING_VALUE", // required
- *   TableName: "STRING_VALUE", // required
- *   IndexName: "STRING_VALUE", // required
+ *   CatalogId: 'STRING_VALUE',
+ *   DatabaseName: 'STRING_VALUE', // required
+ *   TableName: 'STRING_VALUE', // required
+ *   IndexName: 'STRING_VALUE', // required
  * };
  * const command = new DeletePartitionIndexCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeletePartitionIndexCommandInput - {@link DeletePartitionIndexCommandInput}
@@ -73,6 +76,8 @@ export interface DeletePartitionIndexCommandOutput extends DeletePartitionIndexR
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class DeletePartitionIndexCommand extends $Command<

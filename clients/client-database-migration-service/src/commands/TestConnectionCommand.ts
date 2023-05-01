@@ -40,15 +40,27 @@ export interface TestConnectionCommandOutput extends TestConnectionResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DatabaseMigrationServiceClient, TestConnectionCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
- * // const { DatabaseMigrationServiceClient, TestConnectionCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
+ * import { DatabaseMigrationServiceClient, TestConnectionCommand } from '@aws-sdk/client-database-migration-service'; // ES Modules import
+ * // const { DatabaseMigrationServiceClient, TestConnectionCommand } = require('@aws-sdk/client-database-migration-service'); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
  * const input = { // TestConnectionMessage
- *   ReplicationInstanceArn: "STRING_VALUE", // required
- *   EndpointArn: "STRING_VALUE", // required
+ *   ReplicationInstanceArn: 'STRING_VALUE', // required
+ *   EndpointArn: 'STRING_VALUE', // required
  * };
  * const command = new TestConnectionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // TestConnectionResponse
+ *   Connection: { // Connection
+ *     ReplicationInstanceArn: 'STRING_VALUE',
+ *     EndpointArn: 'STRING_VALUE',
+ *     Status: 'STRING_VALUE',
+ *     LastFailureMessage: 'STRING_VALUE',
+ *     EndpointIdentifier: 'STRING_VALUE',
+ *     ReplicationInstanceIdentifier: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param TestConnectionCommandInput - {@link TestConnectionCommandInput}
@@ -73,6 +85,8 @@ export interface TestConnectionCommandOutput extends TestConnectionResponse, __M
  * @throws {@link ResourceQuotaExceededFault} (client fault)
  *  <p>The quota for this resource quota has been exceeded.</p>
  *
+ * @throws {@link DatabaseMigrationServiceServiceException}
+ * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
  * @example Test conection
  * ```javascript

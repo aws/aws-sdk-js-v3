@@ -40,14 +40,24 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RedshiftServerlessClient, ListTagsForResourceCommand } from "@aws-sdk/client-redshift-serverless"; // ES Modules import
- * // const { RedshiftServerlessClient, ListTagsForResourceCommand } = require("@aws-sdk/client-redshift-serverless"); // CommonJS import
+ * import { RedshiftServerlessClient, ListTagsForResourceCommand } from '@aws-sdk/client-redshift-serverless'; // ES Modules import
+ * // const { RedshiftServerlessClient, ListTagsForResourceCommand } = require('@aws-sdk/client-redshift-serverless'); // CommonJS import
  * const client = new RedshiftServerlessClient(config);
  * const input = { // ListTagsForResourceRequest
- *   resourceArn: "STRING_VALUE", // required
+ *   resourceArn: 'STRING_VALUE', // required
  * };
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTagsForResourceResponse
+ *   tags: [ // TagList
+ *     { // Tag
+ *       key: 'STRING_VALUE', // required
+ *       value: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListTagsForResourceCommandInput - {@link ListTagsForResourceCommandInput}
@@ -68,6 +78,8 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @throws {@link ValidationException} (client fault)
  *  <p>The input failed to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link RedshiftServerlessServiceException}
+ * <p>Base exception class for all service exceptions from RedshiftServerless service.</p>
  *
  */
 export class ListTagsForResourceCommand extends $Command<

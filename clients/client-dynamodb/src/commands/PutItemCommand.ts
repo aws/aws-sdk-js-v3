@@ -57,80 +57,162 @@ export interface PutItemCommandOutput extends PutItemOutput, __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DynamoDBClient, PutItemCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
- * // const { DynamoDBClient, PutItemCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
+ * import { DynamoDBClient, PutItemCommand } from '@aws-sdk/client-dynamodb'; // ES Modules import
+ * // const { DynamoDBClient, PutItemCommand } = require('@aws-sdk/client-dynamodb'); // CommonJS import
  * const client = new DynamoDBClient(config);
  * const input = { // PutItemInput
- *   TableName: "STRING_VALUE", // required
+ *   TableName: 'STRING_VALUE', // required
  *   Item: { // PutItemInputAttributeMap // required
- *     "<keys>": { // AttributeValue Union: only one key present
- *       S: "STRING_VALUE",
- *       N: "STRING_VALUE",
- *       B: "BLOB_VALUE",
+ *     '<keys>': { // AttributeValue Union: only one key present
+ *       S: 'STRING_VALUE',
+ *       N: 'STRING_VALUE',
+ *       B: 'BLOB_VALUE',
  *       SS: [ // StringSetAttributeValue
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *       NS: [ // NumberSetAttributeValue
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *       BS: [ // BinarySetAttributeValue
- *         "BLOB_VALUE",
+ *         'BLOB_VALUE',
  *       ],
  *       M: { // MapAttributeValue
- *         "<keys>": {//  Union: only one key present
- *           S: "STRING_VALUE",
- *           N: "STRING_VALUE",
- *           B: "BLOB_VALUE",
+ *         '<keys>': {//  Union: only one key present
+ *           S: 'STRING_VALUE',
+ *           N: 'STRING_VALUE',
+ *           B: 'BLOB_VALUE',
  *           SS: [
- *             "STRING_VALUE",
+ *             'STRING_VALUE',
  *           ],
  *           NS: [
- *             "STRING_VALUE",
+ *             'STRING_VALUE',
  *           ],
  *           BS: [
- *             "BLOB_VALUE",
+ *             'BLOB_VALUE',
  *           ],
  *           M: {
- *             "<keys>": "<AttributeValue>",
+ *             '<keys>': '<AttributeValue>',
  *           },
  *           L: [ // ListAttributeValue
- *             "<AttributeValue>",
+ *             '<AttributeValue>',
  *           ],
  *           NULL: true || false,
  *           BOOL: true || false,
  *         },
  *       },
  *       L: [
- *         "<AttributeValue>",
+ *         '<AttributeValue>',
  *       ],
  *       NULL: true || false,
  *       BOOL: true || false,
  *     },
  *   },
  *   Expected: { // ExpectedAttributeMap
- *     "<keys>": { // ExpectedAttributeValue
- *       Value: "<AttributeValue>",
+ *     '<keys>': { // ExpectedAttributeValue
+ *       Value: '<AttributeValue>',
  *       Exists: true || false,
- *       ComparisonOperator: "EQ" || "NE" || "IN" || "LE" || "LT" || "GE" || "GT" || "BETWEEN" || "NOT_NULL" || "NULL" || "CONTAINS" || "NOT_CONTAINS" || "BEGINS_WITH",
+ *       ComparisonOperator: 'EQ' || 'NE' || 'IN' || 'LE' || 'LT' || 'GE' || 'GT' || 'BETWEEN' || 'NOT_NULL' || 'NULL' || 'CONTAINS' || 'NOT_CONTAINS' || 'BEGINS_WITH',
  *       AttributeValueList: [ // AttributeValueList
- *         "<AttributeValue>",
+ *         '<AttributeValue>',
  *       ],
  *     },
  *   },
- *   ReturnValues: "NONE" || "ALL_OLD" || "UPDATED_OLD" || "ALL_NEW" || "UPDATED_NEW",
- *   ReturnConsumedCapacity: "INDEXES" || "TOTAL" || "NONE",
- *   ReturnItemCollectionMetrics: "SIZE" || "NONE",
- *   ConditionalOperator: "AND" || "OR",
- *   ConditionExpression: "STRING_VALUE",
+ *   ReturnValues: 'NONE' || 'ALL_OLD' || 'UPDATED_OLD' || 'ALL_NEW' || 'UPDATED_NEW',
+ *   ReturnConsumedCapacity: 'INDEXES' || 'TOTAL' || 'NONE',
+ *   ReturnItemCollectionMetrics: 'SIZE' || 'NONE',
+ *   ConditionalOperator: 'AND' || 'OR',
+ *   ConditionExpression: 'STRING_VALUE',
  *   ExpressionAttributeNames: { // ExpressionAttributeNameMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  *   ExpressionAttributeValues: { // ExpressionAttributeValueMap
- *     "<keys>": "<AttributeValue>",
+ *     '<keys>': '<AttributeValue>',
  *   },
  * };
  * const command = new PutItemCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutItemOutput
+ *   Attributes: { // AttributeMap
+ *     '<keys>': { // AttributeValue Union: only one key present
+ *       S: 'STRING_VALUE',
+ *       N: 'STRING_VALUE',
+ *       B: 'BLOB_VALUE',
+ *       SS: [ // StringSetAttributeValue
+ *         'STRING_VALUE',
+ *       ],
+ *       NS: [ // NumberSetAttributeValue
+ *         'STRING_VALUE',
+ *       ],
+ *       BS: [ // BinarySetAttributeValue
+ *         'BLOB_VALUE',
+ *       ],
+ *       M: { // MapAttributeValue
+ *         '<keys>': {//  Union: only one key present
+ *           S: 'STRING_VALUE',
+ *           N: 'STRING_VALUE',
+ *           B: 'BLOB_VALUE',
+ *           SS: [
+ *             'STRING_VALUE',
+ *           ],
+ *           NS: [
+ *             'STRING_VALUE',
+ *           ],
+ *           BS: [
+ *             'BLOB_VALUE',
+ *           ],
+ *           M: {
+ *             '<keys>': '<AttributeValue>',
+ *           },
+ *           L: [ // ListAttributeValue
+ *             '<AttributeValue>',
+ *           ],
+ *           NULL: true || false,
+ *           BOOL: true || false,
+ *         },
+ *       },
+ *       L: [
+ *         '<AttributeValue>',
+ *       ],
+ *       NULL: true || false,
+ *       BOOL: true || false,
+ *     },
+ *   },
+ *   ConsumedCapacity: { // ConsumedCapacity
+ *     TableName: 'STRING_VALUE',
+ *     CapacityUnits: Number('double'),
+ *     ReadCapacityUnits: Number('double'),
+ *     WriteCapacityUnits: Number('double'),
+ *     Table: { // Capacity
+ *       ReadCapacityUnits: Number('double'),
+ *       WriteCapacityUnits: Number('double'),
+ *       CapacityUnits: Number('double'),
+ *     },
+ *     LocalSecondaryIndexes: { // SecondaryIndexesCapacityMap
+ *       '<keys>': {
+ *         ReadCapacityUnits: Number('double'),
+ *         WriteCapacityUnits: Number('double'),
+ *         CapacityUnits: Number('double'),
+ *       },
+ *     },
+ *     GlobalSecondaryIndexes: {
+ *       '<keys>': {
+ *         ReadCapacityUnits: Number('double'),
+ *         WriteCapacityUnits: Number('double'),
+ *         CapacityUnits: Number('double'),
+ *       },
+ *     },
+ *   },
+ *   ItemCollectionMetrics: { // ItemCollectionMetrics
+ *     ItemCollectionKey: { // ItemCollectionKeyAttributeMap
+ *       '<keys>': '<AttributeValue>',
+ *     },
+ *     SizeEstimateRangeGB: [ // ItemCollectionSizeEstimateRange
+ *       Number('double'),
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param PutItemCommandInput - {@link PutItemCommandInput}
@@ -170,6 +252,8 @@ export interface PutItemCommandOutput extends PutItemOutput, __MetadataBearer {}
  *  <p>Operation was rejected because there is an ongoing transaction for the
  *             item.</p>
  *
+ * @throws {@link DynamoDBServiceException}
+ * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
  * @example To add an item to a table
  * ```javascript

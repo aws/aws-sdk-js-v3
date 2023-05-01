@@ -37,17 +37,43 @@ export interface GetInsightImpactGraphCommandOutput extends GetInsightImpactGrap
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { XRayClient, GetInsightImpactGraphCommand } from "@aws-sdk/client-xray"; // ES Modules import
- * // const { XRayClient, GetInsightImpactGraphCommand } = require("@aws-sdk/client-xray"); // CommonJS import
+ * import { XRayClient, GetInsightImpactGraphCommand } from '@aws-sdk/client-xray'; // ES Modules import
+ * // const { XRayClient, GetInsightImpactGraphCommand } = require('@aws-sdk/client-xray'); // CommonJS import
  * const client = new XRayClient(config);
  * const input = { // GetInsightImpactGraphRequest
- *   InsightId: "STRING_VALUE", // required
- *   StartTime: new Date("TIMESTAMP"), // required
- *   EndTime: new Date("TIMESTAMP"), // required
- *   NextToken: "STRING_VALUE",
+ *   InsightId: 'STRING_VALUE', // required
+ *   StartTime: new Date('TIMESTAMP'), // required
+ *   EndTime: new Date('TIMESTAMP'), // required
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new GetInsightImpactGraphCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetInsightImpactGraphResult
+ *   InsightId: 'STRING_VALUE',
+ *   StartTime: new Date('TIMESTAMP'),
+ *   EndTime: new Date('TIMESTAMP'),
+ *   ServiceGraphStartTime: new Date('TIMESTAMP'),
+ *   ServiceGraphEndTime: new Date('TIMESTAMP'),
+ *   Services: [ // InsightImpactGraphServiceList
+ *     { // InsightImpactGraphService
+ *       ReferenceId: Number('int'),
+ *       Type: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *       Names: [ // ServiceNames
+ *         'STRING_VALUE',
+ *       ],
+ *       AccountId: 'STRING_VALUE',
+ *       Edges: [ // InsightImpactGraphEdgeList
+ *         { // InsightImpactGraphEdge
+ *           ReferenceId: Number('int'),
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetInsightImpactGraphCommandInput - {@link GetInsightImpactGraphCommandInput}
@@ -62,6 +88,8 @@ export interface GetInsightImpactGraphCommandOutput extends GetInsightImpactGrap
  * @throws {@link ThrottledException} (client fault)
  *  <p>The request exceeds the maximum number of requests per second.</p>
  *
+ * @throws {@link XRayServiceException}
+ * <p>Base exception class for all service exceptions from XRay service.</p>
  *
  */
 export class GetInsightImpactGraphCommand extends $Command<

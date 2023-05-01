@@ -42,14 +42,36 @@ export interface DescribePortfolioShareStatusCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ServiceCatalogClient, DescribePortfolioShareStatusCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
- * // const { ServiceCatalogClient, DescribePortfolioShareStatusCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
+ * import { ServiceCatalogClient, DescribePortfolioShareStatusCommand } from '@aws-sdk/client-service-catalog'; // ES Modules import
+ * // const { ServiceCatalogClient, DescribePortfolioShareStatusCommand } = require('@aws-sdk/client-service-catalog'); // CommonJS import
  * const client = new ServiceCatalogClient(config);
  * const input = { // DescribePortfolioShareStatusInput
- *   PortfolioShareToken: "STRING_VALUE", // required
+ *   PortfolioShareToken: 'STRING_VALUE', // required
  * };
  * const command = new DescribePortfolioShareStatusCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribePortfolioShareStatusOutput
+ *   PortfolioShareToken: 'STRING_VALUE',
+ *   PortfolioId: 'STRING_VALUE',
+ *   OrganizationNodeValue: 'STRING_VALUE',
+ *   Status: 'NOT_STARTED' || 'IN_PROGRESS' || 'COMPLETED' || 'COMPLETED_WITH_ERRORS' || 'ERROR',
+ *   ShareDetails: { // ShareDetails
+ *     SuccessfulShares: [ // SuccessfulShares
+ *       'STRING_VALUE',
+ *     ],
+ *     ShareErrors: [ // ShareErrors
+ *       { // ShareError
+ *         Accounts: [ // Namespaces
+ *           'STRING_VALUE',
+ *         ],
+ *         Message: 'STRING_VALUE',
+ *         Error: 'STRING_VALUE',
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribePortfolioShareStatusCommandInput - {@link DescribePortfolioShareStatusCommandInput}
@@ -67,6 +89,8 @@ export interface DescribePortfolioShareStatusCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link ServiceCatalogServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
  */
 export class DescribePortfolioShareStatusCommand extends $Command<

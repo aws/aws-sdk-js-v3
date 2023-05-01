@@ -49,16 +49,31 @@ export interface ListMigrationTasksCommandOutput extends ListMigrationTasksResul
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MigrationHubClient, ListMigrationTasksCommand } from "@aws-sdk/client-migration-hub"; // ES Modules import
- * // const { MigrationHubClient, ListMigrationTasksCommand } = require("@aws-sdk/client-migration-hub"); // CommonJS import
+ * import { MigrationHubClient, ListMigrationTasksCommand } from '@aws-sdk/client-migration-hub'; // ES Modules import
+ * // const { MigrationHubClient, ListMigrationTasksCommand } = require('@aws-sdk/client-migration-hub'); // CommonJS import
  * const client = new MigrationHubClient(config);
  * const input = { // ListMigrationTasksRequest
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
- *   ResourceName: "STRING_VALUE",
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
+ *   ResourceName: 'STRING_VALUE',
  * };
  * const command = new ListMigrationTasksCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListMigrationTasksResult
+ *   NextToken: 'STRING_VALUE',
+ *   MigrationTaskSummaryList: [ // MigrationTaskSummaryList
+ *     { // MigrationTaskSummary
+ *       ProgressUpdateStream: 'STRING_VALUE',
+ *       MigrationTaskName: 'STRING_VALUE',
+ *       Status: 'STRING_VALUE',
+ *       ProgressPercent: Number('int'),
+ *       StatusDetail: 'STRING_VALUE',
+ *       UpdateDateTime: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListMigrationTasksCommandInput - {@link ListMigrationTasksCommandInput}
@@ -98,6 +113,8 @@ export interface ListMigrationTasksCommandOutput extends ListMigrationTasksResul
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
  *
+ * @throws {@link MigrationHubServiceException}
+ * <p>Base exception class for all service exceptions from MigrationHub service.</p>
  *
  */
 export class ListMigrationTasksCommand extends $Command<

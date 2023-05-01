@@ -45,31 +45,37 @@ export interface CreateResourcePolicyStatementCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LexModelsV2Client, CreateResourcePolicyStatementCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
- * // const { LexModelsV2Client, CreateResourcePolicyStatementCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
+ * import { LexModelsV2Client, CreateResourcePolicyStatementCommand } from '@aws-sdk/client-lex-models-v2'; // ES Modules import
+ * // const { LexModelsV2Client, CreateResourcePolicyStatementCommand } = require('@aws-sdk/client-lex-models-v2'); // CommonJS import
  * const client = new LexModelsV2Client(config);
  * const input = { // CreateResourcePolicyStatementRequest
- *   resourceArn: "STRING_VALUE", // required
- *   statementId: "STRING_VALUE", // required
- *   effect: "Allow" || "Deny", // required
+ *   resourceArn: 'STRING_VALUE', // required
+ *   statementId: 'STRING_VALUE', // required
+ *   effect: 'Allow' || 'Deny', // required
  *   principal: [ // PrincipalList // required
  *     { // Principal
- *       service: "STRING_VALUE",
- *       arn: "STRING_VALUE",
+ *       service: 'STRING_VALUE',
+ *       arn: 'STRING_VALUE',
  *     },
  *   ],
  *   action: [ // OperationList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   condition: { // ConditionMap
- *     "<keys>": { // ConditionKeyValueMap
- *       "<keys>": "STRING_VALUE",
+ *     '<keys>': { // ConditionKeyValueMap
+ *       '<keys>': 'STRING_VALUE',
  *     },
  *   },
- *   expectedRevisionId: "STRING_VALUE",
+ *   expectedRevisionId: 'STRING_VALUE',
  * };
  * const command = new CreateResourcePolicyStatementCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateResourcePolicyStatementResponse
+ *   resourceArn: 'STRING_VALUE',
+ *   revisionId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateResourcePolicyStatementCommandInput - {@link CreateResourcePolicyStatementCommandInput}
@@ -107,6 +113,8 @@ export interface CreateResourcePolicyStatementCommandOutput
  *  <p>One of the input parameters in your request isn't valid. Check the
  *          parameters and try your request again.</p>
  *
+ * @throws {@link LexModelsV2ServiceException}
+ * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
  */
 export class CreateResourcePolicyStatementCommand extends $Command<

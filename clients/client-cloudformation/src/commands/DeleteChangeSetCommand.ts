@@ -43,15 +43,18 @@ export interface DeleteChangeSetCommandOutput extends DeleteChangeSetOutput, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudFormationClient, DeleteChangeSetCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
- * // const { CloudFormationClient, DeleteChangeSetCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
+ * import { CloudFormationClient, DeleteChangeSetCommand } from '@aws-sdk/client-cloudformation'; // ES Modules import
+ * // const { CloudFormationClient, DeleteChangeSetCommand } = require('@aws-sdk/client-cloudformation'); // CommonJS import
  * const client = new CloudFormationClient(config);
  * const input = { // DeleteChangeSetInput
- *   ChangeSetName: "STRING_VALUE", // required
- *   StackName: "STRING_VALUE",
+ *   ChangeSetName: 'STRING_VALUE', // required
+ *   StackName: 'STRING_VALUE',
  * };
  * const command = new DeleteChangeSetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteChangeSetCommandInput - {@link DeleteChangeSetCommandInput}
@@ -65,6 +68,8 @@ export interface DeleteChangeSetCommandOutput extends DeleteChangeSetOutput, __M
  *          status might be <code>CREATE_IN_PROGRESS</code>, or the stack status might be
  *             <code>UPDATE_IN_PROGRESS</code>.</p>
  *
+ * @throws {@link CloudFormationServiceException}
+ * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
  */
 export class DeleteChangeSetCommand extends $Command<

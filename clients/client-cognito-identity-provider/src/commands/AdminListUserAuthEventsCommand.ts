@@ -46,17 +46,53 @@ export interface AdminListUserAuthEventsCommandOutput extends AdminListUserAuthE
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CognitoIdentityProviderClient, AdminListUserAuthEventsCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
- * // const { CognitoIdentityProviderClient, AdminListUserAuthEventsCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
+ * import { CognitoIdentityProviderClient, AdminListUserAuthEventsCommand } from '@aws-sdk/client-cognito-identity-provider'; // ES Modules import
+ * // const { CognitoIdentityProviderClient, AdminListUserAuthEventsCommand } = require('@aws-sdk/client-cognito-identity-provider'); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
  * const input = { // AdminListUserAuthEventsRequest
- *   UserPoolId: "STRING_VALUE", // required
- *   Username: "STRING_VALUE", // required
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   UserPoolId: 'STRING_VALUE', // required
+ *   Username: 'STRING_VALUE', // required
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new AdminListUserAuthEventsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AdminListUserAuthEventsResponse
+ *   AuthEvents: [ // AuthEventsType
+ *     { // AuthEventType
+ *       EventId: 'STRING_VALUE',
+ *       EventType: 'SignIn' || 'SignUp' || 'ForgotPassword' || 'PasswordChange' || 'ResendCode',
+ *       CreationDate: new Date('TIMESTAMP'),
+ *       EventResponse: 'Pass' || 'Fail' || 'InProgress',
+ *       EventRisk: { // EventRiskType
+ *         RiskDecision: 'NoRisk' || 'AccountTakeover' || 'Block',
+ *         RiskLevel: 'Low' || 'Medium' || 'High',
+ *         CompromisedCredentialsDetected: true || false,
+ *       },
+ *       ChallengeResponses: [ // ChallengeResponseListType
+ *         { // ChallengeResponseType
+ *           ChallengeName: 'Password' || 'Mfa',
+ *           ChallengeResponse: 'Success' || 'Failure',
+ *         },
+ *       ],
+ *       EventContextData: { // EventContextDataType
+ *         IpAddress: 'STRING_VALUE',
+ *         DeviceName: 'STRING_VALUE',
+ *         Timezone: 'STRING_VALUE',
+ *         City: 'STRING_VALUE',
+ *         Country: 'STRING_VALUE',
+ *       },
+ *       EventFeedback: { // EventFeedbackType
+ *         FeedbackValue: 'Valid' || 'Invalid', // required
+ *         Provider: 'STRING_VALUE', // required
+ *         FeedbackDate: new Date('TIMESTAMP'),
+ *       },
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param AdminListUserAuthEventsCommandInput - {@link AdminListUserAuthEventsCommandInput}
@@ -89,6 +125,8 @@ export interface AdminListUserAuthEventsCommandOutput extends AdminListUserAuthE
  * @throws {@link UserPoolAddOnNotEnabledException} (client fault)
  *  <p>This exception is thrown when user pool add-ons aren't enabled.</p>
  *
+ * @throws {@link CognitoIdentityProviderServiceException}
+ * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
  */
 export class AdminListUserAuthEventsCommand extends $Command<

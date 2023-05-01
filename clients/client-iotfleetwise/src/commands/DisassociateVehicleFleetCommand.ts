@@ -41,15 +41,18 @@ export interface DisassociateVehicleFleetCommandOutput extends DisassociateVehic
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTFleetWiseClient, DisassociateVehicleFleetCommand } from "@aws-sdk/client-iotfleetwise"; // ES Modules import
- * // const { IoTFleetWiseClient, DisassociateVehicleFleetCommand } = require("@aws-sdk/client-iotfleetwise"); // CommonJS import
+ * import { IoTFleetWiseClient, DisassociateVehicleFleetCommand } from '@aws-sdk/client-iotfleetwise'; // ES Modules import
+ * // const { IoTFleetWiseClient, DisassociateVehicleFleetCommand } = require('@aws-sdk/client-iotfleetwise'); // CommonJS import
  * const client = new IoTFleetWiseClient(config);
  * const input = { // DisassociateVehicleFleetRequest
- *   vehicleName: "STRING_VALUE", // required
- *   fleetId: "STRING_VALUE", // required
+ *   vehicleName: 'STRING_VALUE', // required
+ *   fleetId: 'STRING_VALUE', // required
  * };
  * const command = new DisassociateVehicleFleetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DisassociateVehicleFleetCommandInput - {@link DisassociateVehicleFleetCommandInput}
@@ -73,6 +76,8 @@ export interface DisassociateVehicleFleetCommandOutput extends DisassociateVehic
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
  *
+ * @throws {@link IoTFleetWiseServiceException}
+ * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
  */
 export class DisassociateVehicleFleetCommand extends $Command<

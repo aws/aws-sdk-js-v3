@@ -36,14 +36,36 @@ export interface GetRecordingConfigurationCommandOutput extends GetRecordingConf
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IvsClient, GetRecordingConfigurationCommand } from "@aws-sdk/client-ivs"; // ES Modules import
- * // const { IvsClient, GetRecordingConfigurationCommand } = require("@aws-sdk/client-ivs"); // CommonJS import
+ * import { IvsClient, GetRecordingConfigurationCommand } from '@aws-sdk/client-ivs'; // ES Modules import
+ * // const { IvsClient, GetRecordingConfigurationCommand } = require('@aws-sdk/client-ivs'); // CommonJS import
  * const client = new IvsClient(config);
  * const input = { // GetRecordingConfigurationRequest
- *   arn: "STRING_VALUE", // required
+ *   arn: 'STRING_VALUE', // required
  * };
  * const command = new GetRecordingConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetRecordingConfigurationResponse
+ *   recordingConfiguration: { // RecordingConfiguration
+ *     arn: 'STRING_VALUE', // required
+ *     name: 'STRING_VALUE',
+ *     destinationConfiguration: { // DestinationConfiguration
+ *       s3: { // S3DestinationConfiguration
+ *         bucketName: 'STRING_VALUE', // required
+ *       },
+ *     },
+ *     state: 'STRING_VALUE', // required
+ *     tags: { // Tags
+ *       '<keys>': 'STRING_VALUE',
+ *     },
+ *     thumbnailConfiguration: { // ThumbnailConfiguration
+ *       recordingMode: 'STRING_VALUE',
+ *       targetIntervalSeconds: Number('long'),
+ *     },
+ *     recordingReconnectWindowSeconds: Number('int'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetRecordingConfigurationCommandInput - {@link GetRecordingConfigurationCommandInput}
@@ -64,6 +86,8 @@ export interface GetRecordingConfigurationCommandOutput extends GetRecordingConf
  * @throws {@link ValidationException} (client fault)
  *  <p/>
  *
+ * @throws {@link IvsServiceException}
+ * <p>Base exception class for all service exceptions from Ivs service.</p>
  *
  */
 export class GetRecordingConfigurationCommand extends $Command<

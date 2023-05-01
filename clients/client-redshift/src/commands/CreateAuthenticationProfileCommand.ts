@@ -36,15 +36,21 @@ export interface CreateAuthenticationProfileCommandOutput extends CreateAuthenti
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RedshiftClient, CreateAuthenticationProfileCommand } from "@aws-sdk/client-redshift"; // ES Modules import
- * // const { RedshiftClient, CreateAuthenticationProfileCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * import { RedshiftClient, CreateAuthenticationProfileCommand } from '@aws-sdk/client-redshift'; // ES Modules import
+ * // const { RedshiftClient, CreateAuthenticationProfileCommand } = require('@aws-sdk/client-redshift'); // CommonJS import
  * const client = new RedshiftClient(config);
  * const input = { // CreateAuthenticationProfileMessage
- *   AuthenticationProfileName: "STRING_VALUE", // required
- *   AuthenticationProfileContent: "STRING_VALUE", // required
+ *   AuthenticationProfileName: 'STRING_VALUE', // required
+ *   AuthenticationProfileContent: 'STRING_VALUE', // required
  * };
  * const command = new CreateAuthenticationProfileCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateAuthenticationProfileResult
+ *   AuthenticationProfileName: 'STRING_VALUE',
+ *   AuthenticationProfileContent: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateAuthenticationProfileCommandInput - {@link CreateAuthenticationProfileCommandInput}
@@ -64,6 +70,8 @@ export interface CreateAuthenticationProfileCommandOutput extends CreateAuthenti
  *  <p>The authentication profile request is not valid. The profile name can't be null or empty.
  *             The authentication profile API operation must be available in the Amazon Web Services Region.</p>
  *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class CreateAuthenticationProfileCommand extends $Command<

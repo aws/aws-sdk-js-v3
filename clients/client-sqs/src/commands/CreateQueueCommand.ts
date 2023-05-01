@@ -87,20 +87,25 @@ export interface CreateQueueCommandOutput extends CreateQueueResult, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SQSClient, CreateQueueCommand } from "@aws-sdk/client-sqs"; // ES Modules import
- * // const { SQSClient, CreateQueueCommand } = require("@aws-sdk/client-sqs"); // CommonJS import
+ * import { SQSClient, CreateQueueCommand } from '@aws-sdk/client-sqs'; // ES Modules import
+ * // const { SQSClient, CreateQueueCommand } = require('@aws-sdk/client-sqs'); // CommonJS import
  * const client = new SQSClient(config);
  * const input = { // CreateQueueRequest
- *   QueueName: "STRING_VALUE", // required
+ *   QueueName: 'STRING_VALUE', // required
  *   tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  *   Attributes: { // QueueAttributeMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateQueueCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateQueueResult
+ *   QueueUrl: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateQueueCommandInput - {@link CreateQueueCommandInput}
@@ -117,6 +122,8 @@ export interface CreateQueueCommandOutput extends CreateQueueResult, __MetadataB
  *  <p>A queue with this name already exists. Amazon SQS returns this error only if the request
  *             includes attributes whose values differ from those of the existing queue.</p>
  *
+ * @throws {@link SQSServiceException}
+ * <p>Base exception class for all service exceptions from SQS service.</p>
  *
  */
 export class CreateQueueCommand extends $Command<

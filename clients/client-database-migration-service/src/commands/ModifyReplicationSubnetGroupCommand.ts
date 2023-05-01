@@ -45,18 +45,40 @@ export interface ModifyReplicationSubnetGroupCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DatabaseMigrationServiceClient, ModifyReplicationSubnetGroupCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
- * // const { DatabaseMigrationServiceClient, ModifyReplicationSubnetGroupCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
+ * import { DatabaseMigrationServiceClient, ModifyReplicationSubnetGroupCommand } from '@aws-sdk/client-database-migration-service'; // ES Modules import
+ * // const { DatabaseMigrationServiceClient, ModifyReplicationSubnetGroupCommand } = require('@aws-sdk/client-database-migration-service'); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
  * const input = { // ModifyReplicationSubnetGroupMessage
- *   ReplicationSubnetGroupIdentifier: "STRING_VALUE", // required
- *   ReplicationSubnetGroupDescription: "STRING_VALUE",
+ *   ReplicationSubnetGroupIdentifier: 'STRING_VALUE', // required
+ *   ReplicationSubnetGroupDescription: 'STRING_VALUE',
  *   SubnetIds: [ // SubnetIdentifierList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new ModifyReplicationSubnetGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ModifyReplicationSubnetGroupResponse
+ *   ReplicationSubnetGroup: { // ReplicationSubnetGroup
+ *     ReplicationSubnetGroupIdentifier: 'STRING_VALUE',
+ *     ReplicationSubnetGroupDescription: 'STRING_VALUE',
+ *     VpcId: 'STRING_VALUE',
+ *     SubnetGroupStatus: 'STRING_VALUE',
+ *     Subnets: [ // SubnetList
+ *       { // Subnet
+ *         SubnetIdentifier: 'STRING_VALUE',
+ *         SubnetAvailabilityZone: { // AvailabilityZone
+ *           Name: 'STRING_VALUE',
+ *         },
+ *         SubnetStatus: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     SupportedNetworkTypes: [ // StringList
+ *       'STRING_VALUE',
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param ModifyReplicationSubnetGroupCommandInput - {@link ModifyReplicationSubnetGroupCommandInput}
@@ -84,6 +106,8 @@ export interface ModifyReplicationSubnetGroupCommandOutput
  * @throws {@link SubnetAlreadyInUse} (client fault)
  *  <p>The specified subnet is already in use.</p>
  *
+ * @throws {@link DatabaseMigrationServiceServiceException}
+ * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
  * @example Modify replication subnet group
  * ```javascript

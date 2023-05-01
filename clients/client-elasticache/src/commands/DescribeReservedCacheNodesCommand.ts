@@ -37,21 +37,48 @@ export interface DescribeReservedCacheNodesCommandOutput extends ReservedCacheNo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElastiCacheClient, DescribeReservedCacheNodesCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
- * // const { ElastiCacheClient, DescribeReservedCacheNodesCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
+ * import { ElastiCacheClient, DescribeReservedCacheNodesCommand } from '@aws-sdk/client-elasticache'; // ES Modules import
+ * // const { ElastiCacheClient, DescribeReservedCacheNodesCommand } = require('@aws-sdk/client-elasticache'); // CommonJS import
  * const client = new ElastiCacheClient(config);
  * const input = { // DescribeReservedCacheNodesMessage
- *   ReservedCacheNodeId: "STRING_VALUE",
- *   ReservedCacheNodesOfferingId: "STRING_VALUE",
- *   CacheNodeType: "STRING_VALUE",
- *   Duration: "STRING_VALUE",
- *   ProductDescription: "STRING_VALUE",
- *   OfferingType: "STRING_VALUE",
- *   MaxRecords: Number("int"),
- *   Marker: "STRING_VALUE",
+ *   ReservedCacheNodeId: 'STRING_VALUE',
+ *   ReservedCacheNodesOfferingId: 'STRING_VALUE',
+ *   CacheNodeType: 'STRING_VALUE',
+ *   Duration: 'STRING_VALUE',
+ *   ProductDescription: 'STRING_VALUE',
+ *   OfferingType: 'STRING_VALUE',
+ *   MaxRecords: Number('int'),
+ *   Marker: 'STRING_VALUE',
  * };
  * const command = new DescribeReservedCacheNodesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ReservedCacheNodeMessage
+ *   Marker: 'STRING_VALUE',
+ *   ReservedCacheNodes: [ // ReservedCacheNodeList
+ *     { // ReservedCacheNode
+ *       ReservedCacheNodeId: 'STRING_VALUE',
+ *       ReservedCacheNodesOfferingId: 'STRING_VALUE',
+ *       CacheNodeType: 'STRING_VALUE',
+ *       StartTime: new Date('TIMESTAMP'),
+ *       Duration: Number('int'),
+ *       FixedPrice: Number('double'),
+ *       UsagePrice: Number('double'),
+ *       CacheNodeCount: Number('int'),
+ *       ProductDescription: 'STRING_VALUE',
+ *       OfferingType: 'STRING_VALUE',
+ *       State: 'STRING_VALUE',
+ *       RecurringCharges: [ // RecurringChargeList
+ *         { // RecurringCharge
+ *           RecurringChargeAmount: Number('double'),
+ *           RecurringChargeFrequency: 'STRING_VALUE',
+ *         },
+ *       ],
+ *       ReservationARN: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeReservedCacheNodesCommandInput - {@link DescribeReservedCacheNodesCommandInput}
@@ -69,6 +96,8 @@ export interface DescribeReservedCacheNodesCommandOutput extends ReservedCacheNo
  * @throws {@link ReservedCacheNodeNotFoundFault} (client fault)
  *  <p>The requested reserved cache node was not found.</p>
  *
+ * @throws {@link ElastiCacheServiceException}
+ * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
  * @example DescribeReservedCacheNodes
  * ```javascript

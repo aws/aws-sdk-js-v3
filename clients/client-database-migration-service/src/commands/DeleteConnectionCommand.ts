@@ -40,15 +40,27 @@ export interface DeleteConnectionCommandOutput extends DeleteConnectionResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DatabaseMigrationServiceClient, DeleteConnectionCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
- * // const { DatabaseMigrationServiceClient, DeleteConnectionCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
+ * import { DatabaseMigrationServiceClient, DeleteConnectionCommand } from '@aws-sdk/client-database-migration-service'; // ES Modules import
+ * // const { DatabaseMigrationServiceClient, DeleteConnectionCommand } = require('@aws-sdk/client-database-migration-service'); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
  * const input = { // DeleteConnectionMessage
- *   EndpointArn: "STRING_VALUE", // required
- *   ReplicationInstanceArn: "STRING_VALUE", // required
+ *   EndpointArn: 'STRING_VALUE', // required
+ *   ReplicationInstanceArn: 'STRING_VALUE', // required
  * };
  * const command = new DeleteConnectionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteConnectionResponse
+ *   Connection: { // Connection
+ *     ReplicationInstanceArn: 'STRING_VALUE',
+ *     EndpointArn: 'STRING_VALUE',
+ *     Status: 'STRING_VALUE',
+ *     LastFailureMessage: 'STRING_VALUE',
+ *     EndpointIdentifier: 'STRING_VALUE',
+ *     ReplicationInstanceIdentifier: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param DeleteConnectionCommandInput - {@link DeleteConnectionCommandInput}
@@ -67,6 +79,8 @@ export interface DeleteConnectionCommandOutput extends DeleteConnectionResponse,
  * @throws {@link ResourceNotFoundFault} (client fault)
  *  <p>The resource could not be found.</p>
  *
+ * @throws {@link DatabaseMigrationServiceServiceException}
+ * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
  * @example Delete Connection
  * ```javascript

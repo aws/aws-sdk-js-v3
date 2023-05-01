@@ -36,20 +36,37 @@ export interface ListBackendJobsCommandOutput extends ListBackendJobsResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AmplifyBackendClient, ListBackendJobsCommand } from "@aws-sdk/client-amplifybackend"; // ES Modules import
- * // const { AmplifyBackendClient, ListBackendJobsCommand } = require("@aws-sdk/client-amplifybackend"); // CommonJS import
+ * import { AmplifyBackendClient, ListBackendJobsCommand } from '@aws-sdk/client-amplifybackend'; // ES Modules import
+ * // const { AmplifyBackendClient, ListBackendJobsCommand } = require('@aws-sdk/client-amplifybackend'); // CommonJS import
  * const client = new AmplifyBackendClient(config);
  * const input = { // ListBackendJobsRequest
- *   AppId: "STRING_VALUE", // required
- *   BackendEnvironmentName: "STRING_VALUE", // required
- *   JobId: "STRING_VALUE",
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
- *   Operation: "STRING_VALUE",
- *   Status: "STRING_VALUE",
+ *   AppId: 'STRING_VALUE', // required
+ *   BackendEnvironmentName: 'STRING_VALUE', // required
+ *   JobId: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
+ *   Operation: 'STRING_VALUE',
+ *   Status: 'STRING_VALUE',
  * };
  * const command = new ListBackendJobsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListBackendJobsResponse
+ *   Jobs: [ // ListOfBackendJobRespObj
+ *     { // BackendJobRespObj
+ *       AppId: 'STRING_VALUE', // required
+ *       BackendEnvironmentName: 'STRING_VALUE', // required
+ *       CreateTime: 'STRING_VALUE',
+ *       Error: 'STRING_VALUE',
+ *       JobId: 'STRING_VALUE',
+ *       Operation: 'STRING_VALUE',
+ *       Status: 'STRING_VALUE',
+ *       UpdateTime: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListBackendJobsCommandInput - {@link ListBackendJobsCommandInput}
@@ -70,6 +87,8 @@ export interface ListBackendJobsCommandOutput extends ListBackendJobsResponse, _
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>An error that is returned when a limit of a specific type has been exceeded.</p>
  *
+ * @throws {@link AmplifyBackendServiceException}
+ * <p>Base exception class for all service exceptions from AmplifyBackend service.</p>
  *
  */
 export class ListBackendJobsCommand extends $Command<

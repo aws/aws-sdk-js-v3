@@ -39,22 +39,44 @@ export interface ListForecastExportJobsCommandOutput extends ListForecastExportJ
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ForecastClient, ListForecastExportJobsCommand } from "@aws-sdk/client-forecast"; // ES Modules import
- * // const { ForecastClient, ListForecastExportJobsCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
+ * import { ForecastClient, ListForecastExportJobsCommand } from '@aws-sdk/client-forecast'; // ES Modules import
+ * // const { ForecastClient, ListForecastExportJobsCommand } = require('@aws-sdk/client-forecast'); // CommonJS import
  * const client = new ForecastClient(config);
  * const input = { // ListForecastExportJobsRequest
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  *   Filters: [ // Filters
  *     { // Filter
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
- *       Condition: "IS" || "IS_NOT", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
+ *       Condition: 'IS' || 'IS_NOT', // required
  *     },
  *   ],
  * };
  * const command = new ListForecastExportJobsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListForecastExportJobsResponse
+ *   ForecastExportJobs: [ // ForecastExportJobs
+ *     { // ForecastExportJobSummary
+ *       ForecastExportJobArn: 'STRING_VALUE',
+ *       ForecastExportJobName: 'STRING_VALUE',
+ *       Destination: { // DataDestination
+ *         S3Config: { // S3Config
+ *           Path: 'STRING_VALUE', // required
+ *           RoleArn: 'STRING_VALUE', // required
+ *           KMSKeyArn: 'STRING_VALUE',
+ *         },
+ *       },
+ *       Status: 'STRING_VALUE',
+ *       Message: 'STRING_VALUE',
+ *       CreationTime: new Date('TIMESTAMP'),
+ *       LastModificationTime: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListForecastExportJobsCommandInput - {@link ListForecastExportJobsCommandInput}
@@ -70,6 +92,8 @@ export interface ListForecastExportJobsCommandOutput extends ListForecastExportJ
  * @throws {@link InvalidNextTokenException} (client fault)
  *  <p>The token is not valid. Tokens expire after 24 hours.</p>
  *
+ * @throws {@link ForecastServiceException}
+ * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
  */
 export class ListForecastExportJobsCommand extends $Command<

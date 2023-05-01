@@ -36,39 +36,45 @@ export interface CreateRoutingProfileCommandOutput extends CreateRoutingProfileR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, CreateRoutingProfileCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, CreateRoutingProfileCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, CreateRoutingProfileCommand } from '@aws-sdk/client-connect'; // ES Modules import
+ * // const { ConnectClient, CreateRoutingProfileCommand } = require('@aws-sdk/client-connect'); // CommonJS import
  * const client = new ConnectClient(config);
  * const input = { // CreateRoutingProfileRequest
- *   InstanceId: "STRING_VALUE", // required
- *   Name: "STRING_VALUE", // required
- *   Description: "STRING_VALUE", // required
- *   DefaultOutboundQueueId: "STRING_VALUE", // required
+ *   InstanceId: 'STRING_VALUE', // required
+ *   Name: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE', // required
+ *   DefaultOutboundQueueId: 'STRING_VALUE', // required
  *   QueueConfigs: [ // RoutingProfileQueueConfigList
  *     { // RoutingProfileQueueConfig
  *       QueueReference: { // RoutingProfileQueueReference
- *         QueueId: "STRING_VALUE", // required
- *         Channel: "VOICE" || "CHAT" || "TASK", // required
+ *         QueueId: 'STRING_VALUE', // required
+ *         Channel: 'VOICE' || 'CHAT' || 'TASK', // required
  *       },
- *       Priority: Number("int"), // required
- *       Delay: Number("int"), // required
+ *       Priority: Number('int'), // required
+ *       Delay: Number('int'), // required
  *     },
  *   ],
  *   MediaConcurrencies: [ // MediaConcurrencies // required
  *     { // MediaConcurrency
- *       Channel: "VOICE" || "CHAT" || "TASK", // required
- *       Concurrency: Number("int"), // required
+ *       Channel: 'VOICE' || 'CHAT' || 'TASK', // required
+ *       Concurrency: Number('int'), // required
  *       CrossChannelBehavior: { // CrossChannelBehavior
- *         BehaviorType: "ROUTE_CURRENT_CHANNEL_ONLY" || "ROUTE_ANY_CHANNEL", // required
+ *         BehaviorType: 'ROUTE_CURRENT_CHANNEL_ONLY' || 'ROUTE_ANY_CHANNEL', // required
  *       },
  *     },
  *   ],
  *   Tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateRoutingProfileCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateRoutingProfileResponse
+ *   RoutingProfileArn: 'STRING_VALUE',
+ *   RoutingProfileId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateRoutingProfileCommandInput - {@link CreateRoutingProfileCommandInput}
@@ -98,6 +104,8 @@ export interface CreateRoutingProfileCommandOutput extends CreateRoutingProfileR
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class CreateRoutingProfileCommand extends $Command<

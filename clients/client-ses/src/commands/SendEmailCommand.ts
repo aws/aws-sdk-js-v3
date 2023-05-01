@@ -80,54 +80,59 @@ export interface SendEmailCommandOutput extends SendEmailResponse, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SESClient, SendEmailCommand } from "@aws-sdk/client-ses"; // ES Modules import
- * // const { SESClient, SendEmailCommand } = require("@aws-sdk/client-ses"); // CommonJS import
+ * import { SESClient, SendEmailCommand } from '@aws-sdk/client-ses'; // ES Modules import
+ * // const { SESClient, SendEmailCommand } = require('@aws-sdk/client-ses'); // CommonJS import
  * const client = new SESClient(config);
  * const input = { // SendEmailRequest
- *   Source: "STRING_VALUE", // required
+ *   Source: 'STRING_VALUE', // required
  *   Destination: { // Destination
  *     ToAddresses: [ // AddressList
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     CcAddresses: [
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     BccAddresses: [
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *   },
  *   Message: { // Message
  *     Subject: { // Content
- *       Data: "STRING_VALUE", // required
- *       Charset: "STRING_VALUE",
+ *       Data: 'STRING_VALUE', // required
+ *       Charset: 'STRING_VALUE',
  *     },
  *     Body: { // Body
  *       Text: {
- *         Data: "STRING_VALUE", // required
- *         Charset: "STRING_VALUE",
+ *         Data: 'STRING_VALUE', // required
+ *         Charset: 'STRING_VALUE',
  *       },
  *       Html: {
- *         Data: "STRING_VALUE", // required
- *         Charset: "STRING_VALUE",
+ *         Data: 'STRING_VALUE', // required
+ *         Charset: 'STRING_VALUE',
  *       },
  *     },
  *   },
  *   ReplyToAddresses: [
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   ReturnPath: "STRING_VALUE",
- *   SourceArn: "STRING_VALUE",
- *   ReturnPathArn: "STRING_VALUE",
+ *   ReturnPath: 'STRING_VALUE',
+ *   SourceArn: 'STRING_VALUE',
+ *   ReturnPathArn: 'STRING_VALUE',
  *   Tags: [ // MessageTagList
  *     { // MessageTag
- *       Name: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Name: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
- *   ConfigurationSetName: "STRING_VALUE",
+ *   ConfigurationSetName: 'STRING_VALUE',
  * };
  * const command = new SendEmailCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SendEmailResponse
+ *   MessageId: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param SendEmailCommandInput - {@link SendEmailCommandInput}
@@ -157,6 +162,8 @@ export interface SendEmailCommandOutput extends SendEmailResponse, __MetadataBea
  *  <p>Indicates that the action failed, and the message could not be sent. Check the error
  *             stack for more information about what caused the error.</p>
  *
+ * @throws {@link SESServiceException}
+ * <p>Base exception class for all service exceptions from SES service.</p>
  *
  * @example SendEmail
  * ```javascript

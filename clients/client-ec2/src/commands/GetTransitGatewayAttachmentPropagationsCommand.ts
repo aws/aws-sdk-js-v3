@@ -45,25 +45,36 @@ export interface GetTransitGatewayAttachmentPropagationsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, GetTransitGatewayAttachmentPropagationsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, GetTransitGatewayAttachmentPropagationsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, GetTransitGatewayAttachmentPropagationsCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, GetTransitGatewayAttachmentPropagationsCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // GetTransitGatewayAttachmentPropagationsRequest
- *   TransitGatewayAttachmentId: "STRING_VALUE", // required
+ *   TransitGatewayAttachmentId: 'STRING_VALUE', // required
  *   Filters: [ // FilterList
  *     { // Filter
- *       Name: "STRING_VALUE",
+ *       Name: 'STRING_VALUE',
  *       Values: [ // ValueStringList
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  *   DryRun: true || false,
  * };
  * const command = new GetTransitGatewayAttachmentPropagationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetTransitGatewayAttachmentPropagationsResult
+ *   TransitGatewayAttachmentPropagations: [ // TransitGatewayAttachmentPropagationList
+ *     { // TransitGatewayAttachmentPropagation
+ *       TransitGatewayRouteTableId: 'STRING_VALUE',
+ *       State: 'enabling' || 'enabled' || 'disabling' || 'disabled',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetTransitGatewayAttachmentPropagationsCommandInput - {@link GetTransitGatewayAttachmentPropagationsCommandInput}
@@ -72,6 +83,8 @@ export interface GetTransitGatewayAttachmentPropagationsCommandOutput
  * @see {@link GetTransitGatewayAttachmentPropagationsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class GetTransitGatewayAttachmentPropagationsCommand extends $Command<

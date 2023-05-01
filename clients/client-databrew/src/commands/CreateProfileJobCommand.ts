@@ -36,59 +36,59 @@ export interface CreateProfileJobCommandOutput extends CreateProfileJobResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DataBrewClient, CreateProfileJobCommand } from "@aws-sdk/client-databrew"; // ES Modules import
- * // const { DataBrewClient, CreateProfileJobCommand } = require("@aws-sdk/client-databrew"); // CommonJS import
+ * import { DataBrewClient, CreateProfileJobCommand } from '@aws-sdk/client-databrew'; // ES Modules import
+ * // const { DataBrewClient, CreateProfileJobCommand } = require('@aws-sdk/client-databrew'); // CommonJS import
  * const client = new DataBrewClient(config);
  * const input = { // CreateProfileJobRequest
- *   DatasetName: "STRING_VALUE", // required
- *   EncryptionKeyArn: "STRING_VALUE",
- *   EncryptionMode: "SSE-KMS" || "SSE-S3",
- *   Name: "STRING_VALUE", // required
- *   LogSubscription: "ENABLE" || "DISABLE",
- *   MaxCapacity: Number("int"),
- *   MaxRetries: Number("int"),
+ *   DatasetName: 'STRING_VALUE', // required
+ *   EncryptionKeyArn: 'STRING_VALUE',
+ *   EncryptionMode: 'SSE-KMS' || 'SSE-S3',
+ *   Name: 'STRING_VALUE', // required
+ *   LogSubscription: 'ENABLE' || 'DISABLE',
+ *   MaxCapacity: Number('int'),
+ *   MaxRetries: Number('int'),
  *   OutputLocation: { // S3Location
- *     Bucket: "STRING_VALUE", // required
- *     Key: "STRING_VALUE",
- *     BucketOwner: "STRING_VALUE",
+ *     Bucket: 'STRING_VALUE', // required
+ *     Key: 'STRING_VALUE',
+ *     BucketOwner: 'STRING_VALUE',
  *   },
  *   Configuration: { // ProfileConfiguration
  *     DatasetStatisticsConfiguration: { // StatisticsConfiguration
  *       IncludedStatistics: [ // StatisticList
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *       Overrides: [ // StatisticOverrideList
  *         { // StatisticOverride
- *           Statistic: "STRING_VALUE", // required
+ *           Statistic: 'STRING_VALUE', // required
  *           Parameters: { // ParameterMap // required
- *             "<keys>": "STRING_VALUE",
+ *             '<keys>': 'STRING_VALUE',
  *           },
  *         },
  *       ],
  *     },
  *     ProfileColumns: [ // ColumnSelectorList
  *       { // ColumnSelector
- *         Regex: "STRING_VALUE",
- *         Name: "STRING_VALUE",
+ *         Regex: 'STRING_VALUE',
+ *         Name: 'STRING_VALUE',
  *       },
  *     ],
  *     ColumnStatisticsConfigurations: [ // ColumnStatisticsConfigurationList
  *       { // ColumnStatisticsConfiguration
  *         Selectors: [
  *           {
- *             Regex: "STRING_VALUE",
- *             Name: "STRING_VALUE",
+ *             Regex: 'STRING_VALUE',
+ *             Name: 'STRING_VALUE',
  *           },
  *         ],
  *         Statistics: {
  *           IncludedStatistics: [
- *             "STRING_VALUE",
+ *             'STRING_VALUE',
  *           ],
  *           Overrides: [
  *             {
- *               Statistic: "STRING_VALUE", // required
+ *               Statistic: 'STRING_VALUE', // required
  *               Parameters: { // required
- *                 "<keys>": "STRING_VALUE",
+ *                 '<keys>': 'STRING_VALUE',
  *               },
  *             },
  *           ],
@@ -97,12 +97,12 @@ export interface CreateProfileJobCommandOutput extends CreateProfileJobResponse,
  *     ],
  *     EntityDetectorConfiguration: { // EntityDetectorConfiguration
  *       EntityTypes: [ // EntityTypeList // required
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *       AllowedStatistics: [ // AllowedStatisticList
  *         { // AllowedStatistics
  *           Statistics: [ // required
- *             "STRING_VALUE",
+ *             'STRING_VALUE',
  *           ],
  *         },
  *       ],
@@ -110,22 +110,27 @@ export interface CreateProfileJobCommandOutput extends CreateProfileJobResponse,
  *   },
  *   ValidationConfigurations: [ // ValidationConfigurationList
  *     { // ValidationConfiguration
- *       RulesetArn: "STRING_VALUE", // required
- *       ValidationMode: "CHECK_ALL",
+ *       RulesetArn: 'STRING_VALUE', // required
+ *       ValidationMode: 'CHECK_ALL',
  *     },
  *   ],
- *   RoleArn: "STRING_VALUE", // required
+ *   RoleArn: 'STRING_VALUE', // required
  *   Tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
- *   Timeout: Number("int"),
+ *   Timeout: Number('int'),
  *   JobSample: { // JobSample
- *     Mode: "FULL_DATASET" || "CUSTOM_ROWS",
- *     Size: Number("long"),
+ *     Mode: 'FULL_DATASET' || 'CUSTOM_ROWS',
+ *     Size: Number('long'),
  *   },
  * };
  * const command = new CreateProfileJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateProfileJobResponse
+ *   Name: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param CreateProfileJobCommandInput - {@link CreateProfileJobCommandInput}
@@ -149,6 +154,8 @@ export interface CreateProfileJobCommandOutput extends CreateProfileJobResponse,
  * @throws {@link ValidationException} (client fault)
  *  <p>The input parameters for this request failed validation.</p>
  *
+ * @throws {@link DataBrewServiceException}
+ * <p>Base exception class for all service exceptions from DataBrew service.</p>
  *
  */
 export class CreateProfileJobCommand extends $Command<

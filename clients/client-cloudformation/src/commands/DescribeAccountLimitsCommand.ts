@@ -38,14 +38,25 @@ export interface DescribeAccountLimitsCommandOutput extends DescribeAccountLimit
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudFormationClient, DescribeAccountLimitsCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
- * // const { CloudFormationClient, DescribeAccountLimitsCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
+ * import { CloudFormationClient, DescribeAccountLimitsCommand } from '@aws-sdk/client-cloudformation'; // ES Modules import
+ * // const { CloudFormationClient, DescribeAccountLimitsCommand } = require('@aws-sdk/client-cloudformation'); // CommonJS import
  * const client = new CloudFormationClient(config);
  * const input = { // DescribeAccountLimitsInput
- *   NextToken: "STRING_VALUE",
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new DescribeAccountLimitsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeAccountLimitsOutput
+ *   AccountLimits: [ // AccountLimitList
+ *     { // AccountLimit
+ *       Name: 'STRING_VALUE',
+ *       Value: Number('int'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeAccountLimitsCommandInput - {@link DescribeAccountLimitsCommandInput}
@@ -54,6 +65,8 @@ export interface DescribeAccountLimitsCommandOutput extends DescribeAccountLimit
  * @see {@link DescribeAccountLimitsCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
+ * @throws {@link CloudFormationServiceException}
+ * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
  */
 export class DescribeAccountLimitsCommand extends $Command<

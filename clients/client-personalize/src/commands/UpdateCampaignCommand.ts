@@ -47,21 +47,26 @@ export interface UpdateCampaignCommandOutput extends UpdateCampaignResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PersonalizeClient, UpdateCampaignCommand } from "@aws-sdk/client-personalize"; // ES Modules import
- * // const { PersonalizeClient, UpdateCampaignCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
+ * import { PersonalizeClient, UpdateCampaignCommand } from '@aws-sdk/client-personalize'; // ES Modules import
+ * // const { PersonalizeClient, UpdateCampaignCommand } = require('@aws-sdk/client-personalize'); // CommonJS import
  * const client = new PersonalizeClient(config);
  * const input = { // UpdateCampaignRequest
- *   campaignArn: "STRING_VALUE", // required
- *   solutionVersionArn: "STRING_VALUE",
- *   minProvisionedTPS: Number("int"),
+ *   campaignArn: 'STRING_VALUE', // required
+ *   solutionVersionArn: 'STRING_VALUE',
+ *   minProvisionedTPS: Number('int'),
  *   campaignConfig: { // CampaignConfig
  *     itemExplorationConfig: { // HyperParameters
- *       "<keys>": "STRING_VALUE",
+ *       '<keys>': 'STRING_VALUE',
  *     },
  *   },
  * };
  * const command = new UpdateCampaignCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateCampaignResponse
+ *   campaignArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateCampaignCommandInput - {@link UpdateCampaignCommandInput}
@@ -79,6 +84,8 @@ export interface UpdateCampaignCommandOutput extends UpdateCampaignResponse, __M
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Could not find the specified resource.</p>
  *
+ * @throws {@link PersonalizeServiceException}
+ * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
  */
 export class UpdateCampaignCommand extends $Command<

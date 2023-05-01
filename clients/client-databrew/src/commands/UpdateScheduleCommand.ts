@@ -36,18 +36,23 @@ export interface UpdateScheduleCommandOutput extends UpdateScheduleResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DataBrewClient, UpdateScheduleCommand } from "@aws-sdk/client-databrew"; // ES Modules import
- * // const { DataBrewClient, UpdateScheduleCommand } = require("@aws-sdk/client-databrew"); // CommonJS import
+ * import { DataBrewClient, UpdateScheduleCommand } from '@aws-sdk/client-databrew'; // ES Modules import
+ * // const { DataBrewClient, UpdateScheduleCommand } = require('@aws-sdk/client-databrew'); // CommonJS import
  * const client = new DataBrewClient(config);
  * const input = { // UpdateScheduleRequest
  *   JobNames: [ // JobNameList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   CronExpression: "STRING_VALUE", // required
- *   Name: "STRING_VALUE", // required
+ *   CronExpression: 'STRING_VALUE', // required
+ *   Name: 'STRING_VALUE', // required
  * };
  * const command = new UpdateScheduleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateScheduleResponse
+ *   Name: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param UpdateScheduleCommandInput - {@link UpdateScheduleCommandInput}
@@ -65,6 +70,8 @@ export interface UpdateScheduleCommandOutput extends UpdateScheduleResponse, __M
  * @throws {@link ValidationException} (client fault)
  *  <p>The input parameters for this request failed validation.</p>
  *
+ * @throws {@link DataBrewServiceException}
+ * <p>Base exception class for all service exceptions from DataBrew service.</p>
  *
  */
 export class UpdateScheduleCommand extends $Command<

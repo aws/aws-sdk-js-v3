@@ -37,26 +37,31 @@ export interface StartBatchJobCommandOutput extends StartBatchJobResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { M2Client, StartBatchJobCommand } from "@aws-sdk/client-m2"; // ES Modules import
- * // const { M2Client, StartBatchJobCommand } = require("@aws-sdk/client-m2"); // CommonJS import
+ * import { M2Client, StartBatchJobCommand } from '@aws-sdk/client-m2'; // ES Modules import
+ * // const { M2Client, StartBatchJobCommand } = require('@aws-sdk/client-m2'); // CommonJS import
  * const client = new M2Client(config);
  * const input = { // StartBatchJobRequest
- *   applicationId: "STRING_VALUE", // required
+ *   applicationId: 'STRING_VALUE', // required
  *   batchJobIdentifier: { // BatchJobIdentifier Union: only one key present
  *     fileBatchJobIdentifier: { // FileBatchJobIdentifier
- *       fileName: "STRING_VALUE", // required
- *       folderPath: "STRING_VALUE",
+ *       fileName: 'STRING_VALUE', // required
+ *       folderPath: 'STRING_VALUE',
  *     },
  *     scriptBatchJobIdentifier: { // ScriptBatchJobIdentifier
- *       scriptName: "STRING_VALUE", // required
+ *       scriptName: 'STRING_VALUE', // required
  *     },
  *   },
  *   jobParams: { // BatchJobParametersMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new StartBatchJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartBatchJobResponse
+ *   executionId: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param StartBatchJobCommandInput - {@link StartBatchJobCommandInput}
@@ -83,6 +88,8 @@ export interface StartBatchJobCommandOutput extends StartBatchJobResponse, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>One or more parameters provided in the request is not valid.</p>
  *
+ * @throws {@link M2ServiceException}
+ * <p>Base exception class for all service exceptions from M2 service.</p>
  *
  */
 export class StartBatchJobCommand extends $Command<

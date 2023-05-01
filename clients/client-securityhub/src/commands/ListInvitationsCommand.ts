@@ -38,15 +38,28 @@ export interface ListInvitationsCommandOutput extends ListInvitationsResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SecurityHubClient, ListInvitationsCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
- * // const { SecurityHubClient, ListInvitationsCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
+ * import { SecurityHubClient, ListInvitationsCommand } from '@aws-sdk/client-securityhub'; // ES Modules import
+ * // const { SecurityHubClient, ListInvitationsCommand } = require('@aws-sdk/client-securityhub'); // CommonJS import
  * const client = new SecurityHubClient(config);
  * const input = { // ListInvitationsRequest
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListInvitationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListInvitationsResponse
+ *   Invitations: [ // InvitationList
+ *     { // Invitation
+ *       AccountId: 'STRING_VALUE',
+ *       InvitationId: 'STRING_VALUE',
+ *       InvitedAt: new Date('TIMESTAMP'),
+ *       MemberStatus: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListInvitationsCommandInput - {@link ListInvitationsCommandInput}
@@ -69,6 +82,8 @@ export interface ListInvitationsCommandOutput extends ListInvitationsResponse, _
  *  <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services
  *          account or throttling limits. The error code describes the limit exceeded.</p>
  *
+ * @throws {@link SecurityHubServiceException}
+ * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
  * @example To list membership invitations to calling account
  * ```javascript

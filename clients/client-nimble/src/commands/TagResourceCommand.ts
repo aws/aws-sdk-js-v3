@@ -36,17 +36,20 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { NimbleClient, TagResourceCommand } from "@aws-sdk/client-nimble"; // ES Modules import
- * // const { NimbleClient, TagResourceCommand } = require("@aws-sdk/client-nimble"); // CommonJS import
+ * import { NimbleClient, TagResourceCommand } from '@aws-sdk/client-nimble'; // ES Modules import
+ * // const { NimbleClient, TagResourceCommand } = require('@aws-sdk/client-nimble'); // CommonJS import
  * const client = new NimbleClient(config);
  * const input = { // TagResourceRequest
- *   resourceArn: "STRING_VALUE", // required
+ *   resourceArn: 'STRING_VALUE', // required
  *   tags: { // Tags
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param TagResourceCommandInput - {@link TagResourceCommandInput}
@@ -79,6 +82,8 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @throws {@link ValidationException} (client fault)
  *  <p>One of the parameters in the request is invalid.</p>
  *
+ * @throws {@link NimbleServiceException}
+ * <p>Base exception class for all service exceptions from Nimble service.</p>
  *
  */
 export class TagResourceCommand extends $Command<

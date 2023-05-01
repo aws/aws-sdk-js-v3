@@ -36,15 +36,22 @@ export interface GetWorkflowRunPropertiesCommandOutput extends GetWorkflowRunPro
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlueClient, GetWorkflowRunPropertiesCommand } from "@aws-sdk/client-glue"; // ES Modules import
- * // const { GlueClient, GetWorkflowRunPropertiesCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * import { GlueClient, GetWorkflowRunPropertiesCommand } from '@aws-sdk/client-glue'; // ES Modules import
+ * // const { GlueClient, GetWorkflowRunPropertiesCommand } = require('@aws-sdk/client-glue'); // CommonJS import
  * const client = new GlueClient(config);
  * const input = { // GetWorkflowRunPropertiesRequest
- *   Name: "STRING_VALUE", // required
- *   RunId: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
+ *   RunId: 'STRING_VALUE', // required
  * };
  * const command = new GetWorkflowRunPropertiesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetWorkflowRunPropertiesResponse
+ *   RunProperties: { // WorkflowRunProperties
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetWorkflowRunPropertiesCommandInput - {@link GetWorkflowRunPropertiesCommandInput}
@@ -65,6 +72,8 @@ export interface GetWorkflowRunPropertiesCommandOutput extends GetWorkflowRunPro
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class GetWorkflowRunPropertiesCommand extends $Command<

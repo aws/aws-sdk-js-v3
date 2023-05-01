@@ -41,17 +41,34 @@ export interface DisassociateDataShareConsumerCommandOutput extends DataShare, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RedshiftClient, DisassociateDataShareConsumerCommand } from "@aws-sdk/client-redshift"; // ES Modules import
- * // const { RedshiftClient, DisassociateDataShareConsumerCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * import { RedshiftClient, DisassociateDataShareConsumerCommand } from '@aws-sdk/client-redshift'; // ES Modules import
+ * // const { RedshiftClient, DisassociateDataShareConsumerCommand } = require('@aws-sdk/client-redshift'); // CommonJS import
  * const client = new RedshiftClient(config);
  * const input = { // DisassociateDataShareConsumerMessage
- *   DataShareArn: "STRING_VALUE", // required
+ *   DataShareArn: 'STRING_VALUE', // required
  *   DisassociateEntireAccount: true || false,
- *   ConsumerArn: "STRING_VALUE",
- *   ConsumerRegion: "STRING_VALUE",
+ *   ConsumerArn: 'STRING_VALUE',
+ *   ConsumerRegion: 'STRING_VALUE',
  * };
  * const command = new DisassociateDataShareConsumerCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DataShare
+ *   DataShareArn: 'STRING_VALUE',
+ *   ProducerArn: 'STRING_VALUE',
+ *   AllowPubliclyAccessibleConsumers: true || false,
+ *   DataShareAssociations: [ // DataShareAssociationList
+ *     { // DataShareAssociation
+ *       ConsumerIdentifier: 'STRING_VALUE',
+ *       Status: 'ACTIVE' || 'PENDING_AUTHORIZATION' || 'AUTHORIZED' || 'DEAUTHORIZED' || 'REJECTED' || 'AVAILABLE',
+ *       ConsumerRegion: 'STRING_VALUE',
+ *       CreatedDate: new Date('TIMESTAMP'),
+ *       StatusChangeDate: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   ManagedBy: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DisassociateDataShareConsumerCommandInput - {@link DisassociateDataShareConsumerCommandInput}
@@ -66,6 +83,8 @@ export interface DisassociateDataShareConsumerCommandOutput extends DataShare, _
  * @throws {@link InvalidNamespaceFault} (client fault)
  *  <p>The namespace isn't valid because the namespace doesn't exist. Provide a valid namespace.</p>
  *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class DisassociateDataShareConsumerCommand extends $Command<

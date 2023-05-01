@@ -41,28 +41,28 @@ export interface CreateBulkImportJobCommandOutput extends CreateBulkImportJobRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTSiteWiseClient, CreateBulkImportJobCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
- * // const { IoTSiteWiseClient, CreateBulkImportJobCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
+ * import { IoTSiteWiseClient, CreateBulkImportJobCommand } from '@aws-sdk/client-iotsitewise'; // ES Modules import
+ * // const { IoTSiteWiseClient, CreateBulkImportJobCommand } = require('@aws-sdk/client-iotsitewise'); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
  * const input = { // CreateBulkImportJobRequest
- *   jobName: "STRING_VALUE", // required
- *   jobRoleArn: "STRING_VALUE", // required
+ *   jobName: 'STRING_VALUE', // required
+ *   jobRoleArn: 'STRING_VALUE', // required
  *   files: [ // Files // required
  *     { // File
- *       bucket: "STRING_VALUE", // required
- *       key: "STRING_VALUE", // required
- *       versionId: "STRING_VALUE",
+ *       bucket: 'STRING_VALUE', // required
+ *       key: 'STRING_VALUE', // required
+ *       versionId: 'STRING_VALUE',
  *     },
  *   ],
  *   errorReportLocation: { // ErrorReportLocation
- *     bucket: "STRING_VALUE", // required
- *     prefix: "STRING_VALUE", // required
+ *     bucket: 'STRING_VALUE', // required
+ *     prefix: 'STRING_VALUE', // required
  *   },
  *   jobConfiguration: { // JobConfiguration
  *     fileFormat: { // FileFormat
  *       csv: { // Csv
  *         columnNames: [ // ColumnNames
- *           "ALIAS" || "ASSET_ID" || "PROPERTY_ID" || "DATA_TYPE" || "TIMESTAMP_SECONDS" || "TIMESTAMP_NANO_OFFSET" || "QUALITY" || "VALUE",
+ *           'ALIAS' || 'ASSET_ID' || 'PROPERTY_ID' || 'DATA_TYPE' || 'TIMESTAMP_SECONDS' || 'TIMESTAMP_NANO_OFFSET' || 'QUALITY' || 'VALUE',
  *         ],
  *       },
  *     },
@@ -70,6 +70,13 @@ export interface CreateBulkImportJobCommandOutput extends CreateBulkImportJobRes
  * };
  * const command = new CreateBulkImportJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateBulkImportJobResponse
+ *   jobId: 'STRING_VALUE', // required
+ *   jobName: 'STRING_VALUE', // required
+ *   jobStatus: 'PENDING' || 'CANCELLED' || 'RUNNING' || 'COMPLETED' || 'FAILED' || 'COMPLETED_WITH_FAILURES', // required
+ * };
+ *
  * ```
  *
  * @param CreateBulkImportJobCommandInput - {@link CreateBulkImportJobCommandInput}
@@ -107,6 +114,8 @@ export interface CreateBulkImportJobCommandOutput extends CreateBulkImportJobRes
  *       on.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
  *
+ * @throws {@link IoTSiteWiseServiceException}
+ * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
  */
 export class CreateBulkImportJobCommand extends $Command<

@@ -38,15 +38,29 @@ export interface DescribeLabelCommandOutput extends DescribeLabelResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LookoutEquipmentClient, DescribeLabelCommand } from "@aws-sdk/client-lookoutequipment"; // ES Modules import
- * // const { LookoutEquipmentClient, DescribeLabelCommand } = require("@aws-sdk/client-lookoutequipment"); // CommonJS import
+ * import { LookoutEquipmentClient, DescribeLabelCommand } from '@aws-sdk/client-lookoutequipment'; // ES Modules import
+ * // const { LookoutEquipmentClient, DescribeLabelCommand } = require('@aws-sdk/client-lookoutequipment'); // CommonJS import
  * const client = new LookoutEquipmentClient(config);
  * const input = { // DescribeLabelRequest
- *   LabelGroupName: "STRING_VALUE", // required
- *   LabelId: "STRING_VALUE", // required
+ *   LabelGroupName: 'STRING_VALUE', // required
+ *   LabelId: 'STRING_VALUE', // required
  * };
  * const command = new DescribeLabelCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeLabelResponse
+ *   LabelGroupName: 'STRING_VALUE',
+ *   LabelGroupArn: 'STRING_VALUE',
+ *   LabelId: 'STRING_VALUE',
+ *   StartTime: new Date('TIMESTAMP'),
+ *   EndTime: new Date('TIMESTAMP'),
+ *   Rating: 'ANOMALY' || 'NO_ANOMALY' || 'NEUTRAL',
+ *   FaultCode: 'STRING_VALUE',
+ *   Notes: 'STRING_VALUE',
+ *   Equipment: 'STRING_VALUE',
+ *   CreatedAt: new Date('TIMESTAMP'),
+ * };
+ *
  * ```
  *
  * @param DescribeLabelCommandInput - {@link DescribeLabelCommandInput}
@@ -74,6 +88,8 @@ export interface DescribeLabelCommandOutput extends DescribeLabelResponse, __Met
  *  <p> The input fails to satisfy constraints specified by Amazon Lookout for Equipment or a
  *          related AWS service that's being utilized. </p>
  *
+ * @throws {@link LookoutEquipmentServiceException}
+ * <p>Base exception class for all service exceptions from LookoutEquipment service.</p>
  *
  */
 export class DescribeLabelCommand extends $Command<

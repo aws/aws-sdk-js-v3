@@ -41,19 +41,36 @@ export interface LookupPolicyCommandOutput extends LookupPolicyResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudDirectoryClient, LookupPolicyCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
- * // const { CloudDirectoryClient, LookupPolicyCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
+ * import { CloudDirectoryClient, LookupPolicyCommand } from '@aws-sdk/client-clouddirectory'; // ES Modules import
+ * // const { CloudDirectoryClient, LookupPolicyCommand } = require('@aws-sdk/client-clouddirectory'); // CommonJS import
  * const client = new CloudDirectoryClient(config);
  * const input = { // LookupPolicyRequest
- *   DirectoryArn: "STRING_VALUE", // required
+ *   DirectoryArn: 'STRING_VALUE', // required
  *   ObjectReference: { // ObjectReference
- *     Selector: "STRING_VALUE",
+ *     Selector: 'STRING_VALUE',
  *   },
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new LookupPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // LookupPolicyResponse
+ *   PolicyToPathList: [ // PolicyToPathList
+ *     { // PolicyToPath
+ *       Path: 'STRING_VALUE',
+ *       Policies: [ // PolicyAttachmentList
+ *         { // PolicyAttachment
+ *           PolicyId: 'STRING_VALUE',
+ *           ObjectIdentifier: 'STRING_VALUE',
+ *           PolicyType: 'STRING_VALUE',
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param LookupPolicyCommandInput - {@link LookupPolicyCommandInput}
@@ -90,6 +107,8 @@ export interface LookupPolicyCommandOutput extends LookupPolicyResponse, __Metad
  *  <p>Indicates that your request is malformed in some manner. See the exception
  *       message.</p>
  *
+ * @throws {@link CloudDirectoryServiceException}
+ * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
  */
 export class LookupPolicyCommand extends $Command<

@@ -44,18 +44,29 @@ export interface ListOrganizationPortfolioAccessCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ServiceCatalogClient, ListOrganizationPortfolioAccessCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
- * // const { ServiceCatalogClient, ListOrganizationPortfolioAccessCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
+ * import { ServiceCatalogClient, ListOrganizationPortfolioAccessCommand } from '@aws-sdk/client-service-catalog'; // ES Modules import
+ * // const { ServiceCatalogClient, ListOrganizationPortfolioAccessCommand } = require('@aws-sdk/client-service-catalog'); // CommonJS import
  * const client = new ServiceCatalogClient(config);
  * const input = { // ListOrganizationPortfolioAccessInput
- *   AcceptLanguage: "STRING_VALUE",
- *   PortfolioId: "STRING_VALUE", // required
- *   OrganizationNodeType: "ORGANIZATION" || "ORGANIZATIONAL_UNIT" || "ACCOUNT", // required
- *   PageToken: "STRING_VALUE",
- *   PageSize: Number("int"),
+ *   AcceptLanguage: 'STRING_VALUE',
+ *   PortfolioId: 'STRING_VALUE', // required
+ *   OrganizationNodeType: 'ORGANIZATION' || 'ORGANIZATIONAL_UNIT' || 'ACCOUNT', // required
+ *   PageToken: 'STRING_VALUE',
+ *   PageSize: Number('int'),
  * };
  * const command = new ListOrganizationPortfolioAccessCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListOrganizationPortfolioAccessOutput
+ *   OrganizationNodes: [ // OrganizationNodes
+ *     { // OrganizationNode
+ *       Type: 'ORGANIZATION' || 'ORGANIZATIONAL_UNIT' || 'ACCOUNT',
+ *       Value: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextPageToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListOrganizationPortfolioAccessCommandInput - {@link ListOrganizationPortfolioAccessCommandInput}
@@ -73,6 +84,8 @@ export interface ListOrganizationPortfolioAccessCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link ServiceCatalogServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
  */
 export class ListOrganizationPortfolioAccessCommand extends $Command<

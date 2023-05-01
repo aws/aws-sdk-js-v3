@@ -50,17 +50,20 @@ export interface SetTerminationProtectionCommandOutput extends __MetadataBearer 
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EMRClient, SetTerminationProtectionCommand } from "@aws-sdk/client-emr"; // ES Modules import
- * // const { EMRClient, SetTerminationProtectionCommand } = require("@aws-sdk/client-emr"); // CommonJS import
+ * import { EMRClient, SetTerminationProtectionCommand } from '@aws-sdk/client-emr'; // ES Modules import
+ * // const { EMRClient, SetTerminationProtectionCommand } = require('@aws-sdk/client-emr'); // CommonJS import
  * const client = new EMRClient(config);
  * const input = { // SetTerminationProtectionInput
  *   JobFlowIds: [ // XmlStringList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   TerminationProtected: true || false, // required
  * };
  * const command = new SetTerminationProtectionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param SetTerminationProtectionCommandInput - {@link SetTerminationProtectionCommandInput}
@@ -73,6 +76,8 @@ export interface SetTerminationProtectionCommandOutput extends __MetadataBearer 
  *  <p>Indicates that an error occurred while processing the request and that the request was
  *          not completed.</p>
  *
+ * @throws {@link EMRServiceException}
+ * <p>Base exception class for all service exceptions from EMR service.</p>
  *
  */
 export class SetTerminationProtectionCommand extends $Command<

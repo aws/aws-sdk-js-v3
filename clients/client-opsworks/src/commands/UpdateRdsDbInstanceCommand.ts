@@ -41,16 +41,19 @@ export interface UpdateRdsDbInstanceCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OpsWorksClient, UpdateRdsDbInstanceCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
- * // const { OpsWorksClient, UpdateRdsDbInstanceCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
+ * import { OpsWorksClient, UpdateRdsDbInstanceCommand } from '@aws-sdk/client-opsworks'; // ES Modules import
+ * // const { OpsWorksClient, UpdateRdsDbInstanceCommand } = require('@aws-sdk/client-opsworks'); // CommonJS import
  * const client = new OpsWorksClient(config);
  * const input = { // UpdateRdsDbInstanceRequest
- *   RdsDbInstanceArn: "STRING_VALUE", // required
- *   DbUser: "STRING_VALUE",
- *   DbPassword: "STRING_VALUE",
+ *   RdsDbInstanceArn: 'STRING_VALUE', // required
+ *   DbUser: 'STRING_VALUE',
+ *   DbPassword: 'STRING_VALUE',
  * };
  * const command = new UpdateRdsDbInstanceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateRdsDbInstanceCommandInput - {@link UpdateRdsDbInstanceCommandInput}
@@ -65,6 +68,8 @@ export interface UpdateRdsDbInstanceCommandOutput extends __MetadataBearer {}
  * @throws {@link ValidationException} (client fault)
  *  <p>Indicates that a request was not valid.</p>
  *
+ * @throws {@link OpsWorksServiceException}
+ * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
  */
 export class UpdateRdsDbInstanceCommand extends $Command<

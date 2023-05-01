@@ -45,14 +45,22 @@ export interface GetSensitiveDataOccurrencesAvailabilityCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Macie2Client, GetSensitiveDataOccurrencesAvailabilityCommand } from "@aws-sdk/client-macie2"; // ES Modules import
- * // const { Macie2Client, GetSensitiveDataOccurrencesAvailabilityCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
+ * import { Macie2Client, GetSensitiveDataOccurrencesAvailabilityCommand } from '@aws-sdk/client-macie2'; // ES Modules import
+ * // const { Macie2Client, GetSensitiveDataOccurrencesAvailabilityCommand } = require('@aws-sdk/client-macie2'); // CommonJS import
  * const client = new Macie2Client(config);
  * const input = { // GetSensitiveDataOccurrencesAvailabilityRequest
- *   findingId: "STRING_VALUE", // required
+ *   findingId: 'STRING_VALUE', // required
  * };
  * const command = new GetSensitiveDataOccurrencesAvailabilityCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetSensitiveDataOccurrencesAvailabilityResponse
+ *   code: 'AVAILABLE' || 'UNAVAILABLE',
+ *   reasons: [ // __listOfUnavailabilityReasonCode
+ *     'OBJECT_EXCEEDS_SIZE_QUOTA' || 'UNSUPPORTED_OBJECT_TYPE' || 'UNSUPPORTED_FINDING_TYPE' || 'INVALID_CLASSIFICATION_RESULT' || 'OBJECT_UNAVAILABLE',
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetSensitiveDataOccurrencesAvailabilityCommandInput - {@link GetSensitiveDataOccurrencesAvailabilityCommandInput}
@@ -73,6 +81,8 @@ export interface GetSensitiveDataOccurrencesAvailabilityCommandOutput
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Provides information about an error that occurred because too many requests were sent during a certain amount of time.</p>
  *
+ * @throws {@link Macie2ServiceException}
+ * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
  */
 export class GetSensitiveDataOccurrencesAvailabilityCommand extends $Command<

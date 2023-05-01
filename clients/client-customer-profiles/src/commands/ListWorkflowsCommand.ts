@@ -36,20 +36,35 @@ export interface ListWorkflowsCommandOutput extends ListWorkflowsResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CustomerProfilesClient, ListWorkflowsCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
- * // const { CustomerProfilesClient, ListWorkflowsCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
+ * import { CustomerProfilesClient, ListWorkflowsCommand } from '@aws-sdk/client-customer-profiles'; // ES Modules import
+ * // const { CustomerProfilesClient, ListWorkflowsCommand } = require('@aws-sdk/client-customer-profiles'); // CommonJS import
  * const client = new CustomerProfilesClient(config);
  * const input = { // ListWorkflowsRequest
- *   DomainName: "STRING_VALUE", // required
- *   WorkflowType: "APPFLOW_INTEGRATION",
- *   Status: "NOT_STARTED" || "IN_PROGRESS" || "COMPLETE" || "FAILED" || "SPLIT" || "RETRY" || "CANCELLED",
- *   QueryStartDate: new Date("TIMESTAMP"),
- *   QueryEndDate: new Date("TIMESTAMP"),
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   DomainName: 'STRING_VALUE', // required
+ *   WorkflowType: 'APPFLOW_INTEGRATION',
+ *   Status: 'NOT_STARTED' || 'IN_PROGRESS' || 'COMPLETE' || 'FAILED' || 'SPLIT' || 'RETRY' || 'CANCELLED',
+ *   QueryStartDate: new Date('TIMESTAMP'),
+ *   QueryEndDate: new Date('TIMESTAMP'),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListWorkflowsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListWorkflowsResponse
+ *   Items: [ // WorkflowList
+ *     { // ListWorkflowsItem
+ *       WorkflowType: 'APPFLOW_INTEGRATION', // required
+ *       WorkflowId: 'STRING_VALUE', // required
+ *       Status: 'NOT_STARTED' || 'IN_PROGRESS' || 'COMPLETE' || 'FAILED' || 'SPLIT' || 'RETRY' || 'CANCELLED', // required
+ *       StatusDescription: 'STRING_VALUE', // required
+ *       CreatedAt: new Date('TIMESTAMP'), // required
+ *       LastUpdatedAt: new Date('TIMESTAMP'), // required
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListWorkflowsCommandInput - {@link ListWorkflowsCommandInput}
@@ -73,6 +88,8 @@ export interface ListWorkflowsCommandOutput extends ListWorkflowsResponse, __Met
  * @throws {@link ThrottlingException} (client fault)
  *  <p>You exceeded the maximum number of requests.</p>
  *
+ * @throws {@link CustomerProfilesServiceException}
+ * <p>Base exception class for all service exceptions from CustomerProfiles service.</p>
  *
  */
 export class ListWorkflowsCommand extends $Command<

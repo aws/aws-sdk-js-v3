@@ -36,14 +36,44 @@ export interface GetContactCommandOutput extends GetContactResult, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMContactsClient, GetContactCommand } from "@aws-sdk/client-ssm-contacts"; // ES Modules import
- * // const { SSMContactsClient, GetContactCommand } = require("@aws-sdk/client-ssm-contacts"); // CommonJS import
+ * import { SSMContactsClient, GetContactCommand } from '@aws-sdk/client-ssm-contacts'; // ES Modules import
+ * // const { SSMContactsClient, GetContactCommand } = require('@aws-sdk/client-ssm-contacts'); // CommonJS import
  * const client = new SSMContactsClient(config);
  * const input = { // GetContactRequest
- *   ContactId: "STRING_VALUE", // required
+ *   ContactId: 'STRING_VALUE', // required
  * };
  * const command = new GetContactCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetContactResult
+ *   ContactArn: 'STRING_VALUE', // required
+ *   Alias: 'STRING_VALUE', // required
+ *   DisplayName: 'STRING_VALUE',
+ *   Type: 'PERSONAL' || 'ESCALATION' || 'ONCALL_SCHEDULE', // required
+ *   Plan: { // Plan
+ *     Stages: [ // StagesList
+ *       { // Stage
+ *         DurationInMinutes: Number('int'), // required
+ *         Targets: [ // TargetsList // required
+ *           { // Target
+ *             ChannelTargetInfo: { // ChannelTargetInfo
+ *               ContactChannelId: 'STRING_VALUE', // required
+ *               RetryIntervalInMinutes: Number('int'),
+ *             },
+ *             ContactTargetInfo: { // ContactTargetInfo
+ *               ContactId: 'STRING_VALUE',
+ *               IsEssential: true || false, // required
+ *             },
+ *           },
+ *         ],
+ *       },
+ *     ],
+ *     RotationIds: [ // SsmContactsArnList
+ *       'STRING_VALUE',
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetContactCommandInput - {@link GetContactCommandInput}
@@ -71,6 +101,8 @@ export interface GetContactCommandOutput extends GetContactResult, __MetadataBea
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
  *          service.</p>
  *
+ * @throws {@link SSMContactsServiceException}
+ * <p>Base exception class for all service exceptions from SSMContacts service.</p>
  *
  */
 export class GetContactCommand extends $Command<

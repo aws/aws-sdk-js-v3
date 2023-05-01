@@ -36,17 +36,20 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DetectiveClient, TagResourceCommand } from "@aws-sdk/client-detective"; // ES Modules import
- * // const { DetectiveClient, TagResourceCommand } = require("@aws-sdk/client-detective"); // CommonJS import
+ * import { DetectiveClient, TagResourceCommand } from '@aws-sdk/client-detective'; // ES Modules import
+ * // const { DetectiveClient, TagResourceCommand } = require('@aws-sdk/client-detective'); // CommonJS import
  * const client = new DetectiveClient(config);
  * const input = { // TagResourceRequest
- *   ResourceArn: "STRING_VALUE", // required
+ *   ResourceArn: 'STRING_VALUE', // required
  *   Tags: { // TagMap // required
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param TagResourceCommandInput - {@link TagResourceCommandInput}
@@ -68,6 +71,8 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @throws {@link ValidationException} (client fault)
  *  <p>The request parameters are invalid.</p>
  *
+ * @throws {@link DetectiveServiceException}
+ * <p>Base exception class for all service exceptions from Detective service.</p>
  *
  */
 export class TagResourceCommand extends $Command<

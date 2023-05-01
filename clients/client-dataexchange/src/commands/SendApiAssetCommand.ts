@@ -36,25 +36,33 @@ export interface SendApiAssetCommandOutput extends SendApiAssetResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DataExchangeClient, SendApiAssetCommand } from "@aws-sdk/client-dataexchange"; // ES Modules import
- * // const { DataExchangeClient, SendApiAssetCommand } = require("@aws-sdk/client-dataexchange"); // CommonJS import
+ * import { DataExchangeClient, SendApiAssetCommand } from '@aws-sdk/client-dataexchange'; // ES Modules import
+ * // const { DataExchangeClient, SendApiAssetCommand } = require('@aws-sdk/client-dataexchange'); // CommonJS import
  * const client = new DataExchangeClient(config);
  * const input = { // SendApiAssetRequest
- *   Body: "STRING_VALUE",
+ *   Body: 'STRING_VALUE',
  *   QueryStringParameters: { // MapOf__string
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
- *   AssetId: "STRING_VALUE", // required
- *   DataSetId: "STRING_VALUE", // required
+ *   AssetId: 'STRING_VALUE', // required
+ *   DataSetId: 'STRING_VALUE', // required
  *   RequestHeaders: {
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
- *   Method: "STRING_VALUE",
- *   Path: "STRING_VALUE",
- *   RevisionId: "STRING_VALUE", // required
+ *   Method: 'STRING_VALUE',
+ *   Path: 'STRING_VALUE',
+ *   RevisionId: 'STRING_VALUE', // required
  * };
  * const command = new SendApiAssetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SendApiAssetResponse
+ *   Body: 'STRING_VALUE',
+ *   ResponseHeaders: { // MapOf__string
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param SendApiAssetCommandInput - {@link SendApiAssetCommandInput}
@@ -78,6 +86,8 @@ export interface SendApiAssetCommandOutput extends SendApiAssetResponse, __Metad
  * @throws {@link ValidationException} (client fault)
  *  <p>The request was invalid.</p>
  *
+ * @throws {@link DataExchangeServiceException}
+ * <p>Base exception class for all service exceptions from DataExchange service.</p>
  *
  */
 export class SendApiAssetCommand extends $Command<

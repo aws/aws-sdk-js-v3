@@ -49,36 +49,69 @@ export interface CreateContinuousDeploymentPolicyCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudFrontClient, CreateContinuousDeploymentPolicyCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
- * // const { CloudFrontClient, CreateContinuousDeploymentPolicyCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
+ * import { CloudFrontClient, CreateContinuousDeploymentPolicyCommand } from '@aws-sdk/client-cloudfront'; // ES Modules import
+ * // const { CloudFrontClient, CreateContinuousDeploymentPolicyCommand } = require('@aws-sdk/client-cloudfront'); // CommonJS import
  * const client = new CloudFrontClient(config);
  * const input = { // CreateContinuousDeploymentPolicyRequest
  *   ContinuousDeploymentPolicyConfig: { // ContinuousDeploymentPolicyConfig
  *     StagingDistributionDnsNames: { // StagingDistributionDnsNames
- *       Quantity: Number("int"), // required
+ *       Quantity: Number('int'), // required
  *       Items: [ // StagingDistributionDnsNameList
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *     Enabled: true || false, // required
  *     TrafficConfig: { // TrafficConfig
  *       SingleWeightConfig: { // ContinuousDeploymentSingleWeightConfig
- *         Weight: Number("float"), // required
+ *         Weight: Number('float'), // required
  *         SessionStickinessConfig: { // SessionStickinessConfig
- *           IdleTTL: Number("int"), // required
- *           MaximumTTL: Number("int"), // required
+ *           IdleTTL: Number('int'), // required
+ *           MaximumTTL: Number('int'), // required
  *         },
  *       },
  *       SingleHeaderConfig: { // ContinuousDeploymentSingleHeaderConfig
- *         Header: "STRING_VALUE", // required
- *         Value: "STRING_VALUE", // required
+ *         Header: 'STRING_VALUE', // required
+ *         Value: 'STRING_VALUE', // required
  *       },
- *       Type: "SingleWeight" || "SingleHeader", // required
+ *       Type: 'SingleWeight' || 'SingleHeader', // required
  *     },
  *   },
  * };
  * const command = new CreateContinuousDeploymentPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateContinuousDeploymentPolicyResult
+ *   ContinuousDeploymentPolicy: { // ContinuousDeploymentPolicy
+ *     Id: 'STRING_VALUE', // required
+ *     LastModifiedTime: new Date('TIMESTAMP'), // required
+ *     ContinuousDeploymentPolicyConfig: { // ContinuousDeploymentPolicyConfig
+ *       StagingDistributionDnsNames: { // StagingDistributionDnsNames
+ *         Quantity: Number('int'), // required
+ *         Items: [ // StagingDistributionDnsNameList
+ *           'STRING_VALUE',
+ *         ],
+ *       },
+ *       Enabled: true || false, // required
+ *       TrafficConfig: { // TrafficConfig
+ *         SingleWeightConfig: { // ContinuousDeploymentSingleWeightConfig
+ *           Weight: Number('float'), // required
+ *           SessionStickinessConfig: { // SessionStickinessConfig
+ *             IdleTTL: Number('int'), // required
+ *             MaximumTTL: Number('int'), // required
+ *           },
+ *         },
+ *         SingleHeaderConfig: { // ContinuousDeploymentSingleHeaderConfig
+ *           Header: 'STRING_VALUE', // required
+ *           Value: 'STRING_VALUE', // required
+ *         },
+ *         Type: 'SingleWeight' || 'SingleHeader', // required
+ *       },
+ *     },
+ *   },
+ *   Location: 'STRING_VALUE',
+ *   ETag: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateContinuousDeploymentPolicyCommandInput - {@link CreateContinuousDeploymentPolicyCommandInput}
@@ -107,6 +140,8 @@ export interface CreateContinuousDeploymentPolicyCommandOutput
  *  <p>You have reached the maximum number of continuous deployment policies for this
  * 			Amazon Web Services account.</p>
  *
+ * @throws {@link CloudFrontServiceException}
+ * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
  */
 export class CreateContinuousDeploymentPolicyCommand extends $Command<

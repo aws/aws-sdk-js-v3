@@ -42,51 +42,54 @@ export interface UpdateIndexingConfigurationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTClient, UpdateIndexingConfigurationCommand } from "@aws-sdk/client-iot"; // ES Modules import
- * // const { IoTClient, UpdateIndexingConfigurationCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * import { IoTClient, UpdateIndexingConfigurationCommand } from '@aws-sdk/client-iot'; // ES Modules import
+ * // const { IoTClient, UpdateIndexingConfigurationCommand } = require('@aws-sdk/client-iot'); // CommonJS import
  * const client = new IoTClient(config);
  * const input = { // UpdateIndexingConfigurationRequest
  *   thingIndexingConfiguration: { // ThingIndexingConfiguration
- *     thingIndexingMode: "OFF" || "REGISTRY" || "REGISTRY_AND_SHADOW", // required
- *     thingConnectivityIndexingMode: "OFF" || "STATUS",
- *     deviceDefenderIndexingMode: "OFF" || "VIOLATIONS",
- *     namedShadowIndexingMode: "OFF" || "ON",
+ *     thingIndexingMode: 'OFF' || 'REGISTRY' || 'REGISTRY_AND_SHADOW', // required
+ *     thingConnectivityIndexingMode: 'OFF' || 'STATUS',
+ *     deviceDefenderIndexingMode: 'OFF' || 'VIOLATIONS',
+ *     namedShadowIndexingMode: 'OFF' || 'ON',
  *     managedFields: [ // Fields
  *       { // Field
- *         name: "STRING_VALUE",
- *         type: "Number" || "String" || "Boolean",
+ *         name: 'STRING_VALUE',
+ *         type: 'Number' || 'String' || 'Boolean',
  *       },
  *     ],
  *     customFields: [
  *       {
- *         name: "STRING_VALUE",
- *         type: "Number" || "String" || "Boolean",
+ *         name: 'STRING_VALUE',
+ *         type: 'Number' || 'String' || 'Boolean',
  *       },
  *     ],
  *     filter: { // IndexingFilter
  *       namedShadowNames: [ // NamedShadowNamesFilter
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   },
  *   thingGroupIndexingConfiguration: { // ThingGroupIndexingConfiguration
- *     thingGroupIndexingMode: "OFF" || "ON", // required
+ *     thingGroupIndexingMode: 'OFF' || 'ON', // required
  *     managedFields: [
  *       {
- *         name: "STRING_VALUE",
- *         type: "Number" || "String" || "Boolean",
+ *         name: 'STRING_VALUE',
+ *         type: 'Number' || 'String' || 'Boolean',
  *       },
  *     ],
  *     customFields: [
  *       {
- *         name: "STRING_VALUE",
- *         type: "Number" || "String" || "Boolean",
+ *         name: 'STRING_VALUE',
+ *         type: 'Number' || 'String' || 'Boolean',
  *       },
  *     ],
  *   },
  * };
  * const command = new UpdateIndexingConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateIndexingConfigurationCommandInput - {@link UpdateIndexingConfigurationCommandInput}
@@ -110,6 +113,8 @@ export interface UpdateIndexingConfigurationCommandOutput
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this operation.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class UpdateIndexingConfigurationCommand extends $Command<

@@ -43,14 +43,17 @@ export interface DeleteLoadBalancerCommandOutput extends DeleteAccessPointOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElasticLoadBalancingClient, DeleteLoadBalancerCommand } from "@aws-sdk/client-elastic-load-balancing"; // ES Modules import
- * // const { ElasticLoadBalancingClient, DeleteLoadBalancerCommand } = require("@aws-sdk/client-elastic-load-balancing"); // CommonJS import
+ * import { ElasticLoadBalancingClient, DeleteLoadBalancerCommand } from '@aws-sdk/client-elastic-load-balancing'; // ES Modules import
+ * // const { ElasticLoadBalancingClient, DeleteLoadBalancerCommand } = require('@aws-sdk/client-elastic-load-balancing'); // CommonJS import
  * const client = new ElasticLoadBalancingClient(config);
  * const input = { // DeleteAccessPointInput
- *   LoadBalancerName: "STRING_VALUE", // required
+ *   LoadBalancerName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteLoadBalancerCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteLoadBalancerCommandInput - {@link DeleteLoadBalancerCommandInput}
@@ -59,6 +62,8 @@ export interface DeleteLoadBalancerCommandOutput extends DeleteAccessPointOutput
  * @see {@link DeleteLoadBalancerCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.
  *
+ * @throws {@link ElasticLoadBalancingServiceException}
+ * <p>Base exception class for all service exceptions from ElasticLoadBalancing service.</p>
  *
  * @example To delete a load balancer
  * ```javascript

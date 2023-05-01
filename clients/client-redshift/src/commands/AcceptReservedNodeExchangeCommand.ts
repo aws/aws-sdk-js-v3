@@ -40,15 +40,39 @@ export interface AcceptReservedNodeExchangeCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RedshiftClient, AcceptReservedNodeExchangeCommand } from "@aws-sdk/client-redshift"; // ES Modules import
- * // const { RedshiftClient, AcceptReservedNodeExchangeCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * import { RedshiftClient, AcceptReservedNodeExchangeCommand } from '@aws-sdk/client-redshift'; // ES Modules import
+ * // const { RedshiftClient, AcceptReservedNodeExchangeCommand } = require('@aws-sdk/client-redshift'); // CommonJS import
  * const client = new RedshiftClient(config);
  * const input = { // AcceptReservedNodeExchangeInputMessage
- *   ReservedNodeId: "STRING_VALUE", // required
- *   TargetReservedNodeOfferingId: "STRING_VALUE", // required
+ *   ReservedNodeId: 'STRING_VALUE', // required
+ *   TargetReservedNodeOfferingId: 'STRING_VALUE', // required
  * };
  * const command = new AcceptReservedNodeExchangeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AcceptReservedNodeExchangeOutputMessage
+ *   ExchangedReservedNode: { // ReservedNode
+ *     ReservedNodeId: 'STRING_VALUE',
+ *     ReservedNodeOfferingId: 'STRING_VALUE',
+ *     NodeType: 'STRING_VALUE',
+ *     StartTime: new Date('TIMESTAMP'),
+ *     Duration: Number('int'),
+ *     FixedPrice: Number('double'),
+ *     UsagePrice: Number('double'),
+ *     CurrencyCode: 'STRING_VALUE',
+ *     NodeCount: Number('int'),
+ *     State: 'STRING_VALUE',
+ *     OfferingType: 'STRING_VALUE',
+ *     RecurringCharges: [ // RecurringChargeList
+ *       { // RecurringCharge
+ *         RecurringChargeAmount: Number('double'),
+ *         RecurringChargeFrequency: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     ReservedNodeOfferingType: 'Regular' || 'Upgradable',
+ *   },
+ * };
+ *
  * ```
  *
  * @param AcceptReservedNodeExchangeCommandInput - {@link AcceptReservedNodeExchangeCommandInput}
@@ -79,6 +103,8 @@ export interface AcceptReservedNodeExchangeCommandOutput
  * @throws {@link UnsupportedOperationFault} (client fault)
  *  <p>The requested operation isn't supported.</p>
  *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class AcceptReservedNodeExchangeCommand extends $Command<

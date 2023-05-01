@@ -40,14 +40,29 @@ export interface GetCellCommandOutput extends GetCellResponse, __MetadataBearer 
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Route53RecoveryReadinessClient, GetCellCommand } from "@aws-sdk/client-route53-recovery-readiness"; // ES Modules import
- * // const { Route53RecoveryReadinessClient, GetCellCommand } = require("@aws-sdk/client-route53-recovery-readiness"); // CommonJS import
+ * import { Route53RecoveryReadinessClient, GetCellCommand } from '@aws-sdk/client-route53-recovery-readiness'; // ES Modules import
+ * // const { Route53RecoveryReadinessClient, GetCellCommand } = require('@aws-sdk/client-route53-recovery-readiness'); // CommonJS import
  * const client = new Route53RecoveryReadinessClient(config);
  * const input = { // GetCellRequest
- *   CellName: "STRING_VALUE", // required
+ *   CellName: 'STRING_VALUE', // required
  * };
  * const command = new GetCellCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetCellResponse
+ *   CellArn: 'STRING_VALUE',
+ *   CellName: 'STRING_VALUE',
+ *   Cells: [ // __listOf__string
+ *     'STRING_VALUE',
+ *   ],
+ *   ParentReadinessScopes: [
+ *     'STRING_VALUE',
+ *   ],
+ *   Tags: { // Tags
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetCellCommandInput - {@link GetCellCommandInput}
@@ -71,6 +86,8 @@ export interface GetCellCommandOutput extends GetCellResponse, __MetadataBearer 
  * @throws {@link ValidationException} (client fault)
  *  The input fails to satisfy the constraints specified by an AWS service.
  *
+ * @throws {@link Route53RecoveryReadinessServiceException}
+ * <p>Base exception class for all service exceptions from Route53RecoveryReadiness service.</p>
  *
  */
 export class GetCellCommand extends $Command<

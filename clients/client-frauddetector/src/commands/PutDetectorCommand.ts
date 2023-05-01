@@ -36,22 +36,25 @@ export interface PutDetectorCommandOutput extends PutDetectorResult, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FraudDetectorClient, PutDetectorCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
- * // const { FraudDetectorClient, PutDetectorCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
+ * import { FraudDetectorClient, PutDetectorCommand } from '@aws-sdk/client-frauddetector'; // ES Modules import
+ * // const { FraudDetectorClient, PutDetectorCommand } = require('@aws-sdk/client-frauddetector'); // CommonJS import
  * const client = new FraudDetectorClient(config);
  * const input = { // PutDetectorRequest
- *   detectorId: "STRING_VALUE", // required
- *   description: "STRING_VALUE",
- *   eventTypeName: "STRING_VALUE", // required
+ *   detectorId: 'STRING_VALUE', // required
+ *   description: 'STRING_VALUE',
+ *   eventTypeName: 'STRING_VALUE', // required
  *   tags: [ // tagList
  *     { // Tag
- *       key: "STRING_VALUE", // required
- *       value: "STRING_VALUE", // required
+ *       key: 'STRING_VALUE', // required
+ *       value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new PutDetectorCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutDetectorCommandInput - {@link PutDetectorCommandInput}
@@ -75,6 +78,8 @@ export interface PutDetectorCommandOutput extends PutDetectorResult, __MetadataB
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception indicating a specified value is not allowed.</p>
  *
+ * @throws {@link FraudDetectorServiceException}
+ * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
  */
 export class PutDetectorCommand extends $Command<

@@ -36,14 +36,25 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ComprehendClient, ListTagsForResourceCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
- * // const { ComprehendClient, ListTagsForResourceCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
+ * import { ComprehendClient, ListTagsForResourceCommand } from '@aws-sdk/client-comprehend'; // ES Modules import
+ * // const { ComprehendClient, ListTagsForResourceCommand } = require('@aws-sdk/client-comprehend'); // CommonJS import
  * const client = new ComprehendClient(config);
  * const input = { // ListTagsForResourceRequest
- *   ResourceArn: "STRING_VALUE", // required
+ *   ResourceArn: 'STRING_VALUE', // required
  * };
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTagsForResourceResponse
+ *   ResourceArn: 'STRING_VALUE',
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListTagsForResourceCommandInput - {@link ListTagsForResourceCommandInput}
@@ -61,6 +72,8 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource ARN was not found. Check the ARN and try your request again.</p>
  *
+ * @throws {@link ComprehendServiceException}
+ * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
  */
 export class ListTagsForResourceCommand extends $Command<

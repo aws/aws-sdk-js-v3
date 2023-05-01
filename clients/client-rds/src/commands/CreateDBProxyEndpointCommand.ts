@@ -38,28 +38,49 @@ export interface CreateDBProxyEndpointCommandOutput extends CreateDBProxyEndpoin
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RDSClient, CreateDBProxyEndpointCommand } from "@aws-sdk/client-rds"; // ES Modules import
- * // const { RDSClient, CreateDBProxyEndpointCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * import { RDSClient, CreateDBProxyEndpointCommand } from '@aws-sdk/client-rds'; // ES Modules import
+ * // const { RDSClient, CreateDBProxyEndpointCommand } = require('@aws-sdk/client-rds'); // CommonJS import
  * const client = new RDSClient(config);
  * const input = { // CreateDBProxyEndpointRequest
- *   DBProxyName: "STRING_VALUE", // required
- *   DBProxyEndpointName: "STRING_VALUE", // required
+ *   DBProxyName: 'STRING_VALUE', // required
+ *   DBProxyEndpointName: 'STRING_VALUE', // required
  *   VpcSubnetIds: [ // StringList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   VpcSecurityGroupIds: [
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   TargetRole: "READ_WRITE" || "READ_ONLY",
+ *   TargetRole: 'READ_WRITE' || 'READ_ONLY',
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE",
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new CreateDBProxyEndpointCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateDBProxyEndpointResponse
+ *   DBProxyEndpoint: { // DBProxyEndpoint
+ *     DBProxyEndpointName: 'STRING_VALUE',
+ *     DBProxyEndpointArn: 'STRING_VALUE',
+ *     DBProxyName: 'STRING_VALUE',
+ *     Status: 'available' || 'modifying' || 'incompatible-network' || 'insufficient-resource-limits' || 'creating' || 'deleting',
+ *     VpcId: 'STRING_VALUE',
+ *     VpcSecurityGroupIds: [ // StringList
+ *       'STRING_VALUE',
+ *     ],
+ *     VpcSubnetIds: [
+ *       'STRING_VALUE',
+ *     ],
+ *     Endpoint: 'STRING_VALUE',
+ *     CreatedDate: new Date('TIMESTAMP'),
+ *     TargetRole: 'READ_WRITE' || 'READ_ONLY',
+ *     IsDefault: true || false,
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateDBProxyEndpointCommandInput - {@link CreateDBProxyEndpointCommandInput}
@@ -83,6 +104,8 @@ export interface CreateDBProxyEndpointCommandOutput extends CreateDBProxyEndpoin
  * @throws {@link InvalidSubnet} (client fault)
  *  <p>The requested subnet is invalid, or multiple subnets were requested that are not all in a common VPC.</p>
  *
+ * @throws {@link RDSServiceException}
+ * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  */
 export class CreateDBProxyEndpointCommand extends $Command<

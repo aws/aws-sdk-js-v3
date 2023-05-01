@@ -36,14 +36,50 @@ export interface DescribeRulesetCommandOutput extends DescribeRulesetResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DataBrewClient, DescribeRulesetCommand } from "@aws-sdk/client-databrew"; // ES Modules import
- * // const { DataBrewClient, DescribeRulesetCommand } = require("@aws-sdk/client-databrew"); // CommonJS import
+ * import { DataBrewClient, DescribeRulesetCommand } from '@aws-sdk/client-databrew'; // ES Modules import
+ * // const { DataBrewClient, DescribeRulesetCommand } = require('@aws-sdk/client-databrew'); // CommonJS import
  * const client = new DataBrewClient(config);
  * const input = { // DescribeRulesetRequest
- *   Name: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
  * };
  * const command = new DescribeRulesetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeRulesetResponse
+ *   Name: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE',
+ *   TargetArn: 'STRING_VALUE',
+ *   Rules: [ // RuleList
+ *     { // Rule
+ *       Name: 'STRING_VALUE', // required
+ *       Disabled: true || false,
+ *       CheckExpression: 'STRING_VALUE', // required
+ *       SubstitutionMap: { // ValuesMap
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *       Threshold: { // Threshold
+ *         Value: Number('double'), // required
+ *         Type: 'GREATER_THAN_OR_EQUAL' || 'LESS_THAN_OR_EQUAL' || 'GREATER_THAN' || 'LESS_THAN',
+ *         Unit: 'COUNT' || 'PERCENTAGE',
+ *       },
+ *       ColumnSelectors: [ // ColumnSelectorList
+ *         { // ColumnSelector
+ *           Regex: 'STRING_VALUE',
+ *           Name: 'STRING_VALUE',
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   CreateDate: new Date('TIMESTAMP'),
+ *   CreatedBy: 'STRING_VALUE',
+ *   LastModifiedBy: 'STRING_VALUE',
+ *   LastModifiedDate: new Date('TIMESTAMP'),
+ *   ResourceArn: 'STRING_VALUE',
+ *   Tags: { // TagMap
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeRulesetCommandInput - {@link DescribeRulesetCommandInput}
@@ -58,6 +94,8 @@ export interface DescribeRulesetCommandOutput extends DescribeRulesetResponse, _
  * @throws {@link ValidationException} (client fault)
  *  <p>The input parameters for this request failed validation.</p>
  *
+ * @throws {@link DataBrewServiceException}
+ * <p>Base exception class for all service exceptions from DataBrew service.</p>
  *
  */
 export class DescribeRulesetCommand extends $Command<

@@ -36,17 +36,26 @@ export interface StopBotRecommendationCommandOutput extends StopBotRecommendatio
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LexModelsV2Client, StopBotRecommendationCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
- * // const { LexModelsV2Client, StopBotRecommendationCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
+ * import { LexModelsV2Client, StopBotRecommendationCommand } from '@aws-sdk/client-lex-models-v2'; // ES Modules import
+ * // const { LexModelsV2Client, StopBotRecommendationCommand } = require('@aws-sdk/client-lex-models-v2'); // CommonJS import
  * const client = new LexModelsV2Client(config);
  * const input = { // StopBotRecommendationRequest
- *   botId: "STRING_VALUE", // required
- *   botVersion: "STRING_VALUE", // required
- *   localeId: "STRING_VALUE", // required
- *   botRecommendationId: "STRING_VALUE", // required
+ *   botId: 'STRING_VALUE', // required
+ *   botVersion: 'STRING_VALUE', // required
+ *   localeId: 'STRING_VALUE', // required
+ *   botRecommendationId: 'STRING_VALUE', // required
  * };
  * const command = new StopBotRecommendationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StopBotRecommendationResponse
+ *   botId: 'STRING_VALUE',
+ *   botVersion: 'STRING_VALUE',
+ *   localeId: 'STRING_VALUE',
+ *   botRecommendationStatus: 'Processing' || 'Deleting' || 'Deleted' || 'Downloading' || 'Updating' || 'Available' || 'Failed' || 'Stopping' || 'Stopped',
+ *   botRecommendationId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param StopBotRecommendationCommandInput - {@link StopBotRecommendationCommandInput}
@@ -84,6 +93,8 @@ export interface StopBotRecommendationCommandOutput extends StopBotRecommendatio
  *  <p>One of the input parameters in your request isn't valid. Check the
  *          parameters and try your request again.</p>
  *
+ * @throws {@link LexModelsV2ServiceException}
+ * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
  */
 export class StopBotRecommendationCommand extends $Command<

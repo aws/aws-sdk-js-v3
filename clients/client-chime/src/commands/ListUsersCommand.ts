@@ -42,18 +42,43 @@ export interface ListUsersCommandOutput extends ListUsersResponse, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeClient, ListUsersCommand } from "@aws-sdk/client-chime"; // ES Modules import
- * // const { ChimeClient, ListUsersCommand } = require("@aws-sdk/client-chime"); // CommonJS import
+ * import { ChimeClient, ListUsersCommand } from '@aws-sdk/client-chime'; // ES Modules import
+ * // const { ChimeClient, ListUsersCommand } = require('@aws-sdk/client-chime'); // CommonJS import
  * const client = new ChimeClient(config);
  * const input = { // ListUsersRequest
- *   AccountId: "STRING_VALUE", // required
- *   UserEmail: "STRING_VALUE",
- *   UserType: "PrivateUser" || "SharedDevice",
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   AccountId: 'STRING_VALUE', // required
+ *   UserEmail: 'STRING_VALUE',
+ *   UserType: 'PrivateUser' || 'SharedDevice',
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListUsersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListUsersResponse
+ *   Users: [ // UserList
+ *     { // User
+ *       UserId: 'STRING_VALUE', // required
+ *       AccountId: 'STRING_VALUE',
+ *       PrimaryEmail: 'STRING_VALUE',
+ *       PrimaryProvisionedNumber: 'STRING_VALUE',
+ *       DisplayName: 'STRING_VALUE',
+ *       LicenseType: 'Basic' || 'Plus' || 'Pro' || 'ProTrial',
+ *       UserType: 'PrivateUser' || 'SharedDevice',
+ *       UserRegistrationStatus: 'Unregistered' || 'Registered' || 'Suspended',
+ *       UserInvitationStatus: 'Pending' || 'Accepted' || 'Failed',
+ *       RegisteredOn: new Date('TIMESTAMP'),
+ *       InvitedOn: new Date('TIMESTAMP'),
+ *       AlexaForBusinessMetadata: { // AlexaForBusinessMetadata
+ *         IsAlexaForBusinessEnabled: true || false,
+ *         AlexaForBusinessRoomArn: 'STRING_VALUE',
+ *       },
+ *       PersonalPIN: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListUsersCommandInput - {@link ListUsersCommandInput}
@@ -83,6 +108,8 @@ export interface ListUsersCommandOutput extends ListUsersResponse, __MetadataBea
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeServiceException}
+ * <p>Base exception class for all service exceptions from Chime service.</p>
  *
  */
 export class ListUsersCommand extends $Command<

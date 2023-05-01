@@ -40,16 +40,35 @@ export interface GetReadinessCheckStatusCommandOutput extends GetReadinessCheckS
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Route53RecoveryReadinessClient, GetReadinessCheckStatusCommand } from "@aws-sdk/client-route53-recovery-readiness"; // ES Modules import
- * // const { Route53RecoveryReadinessClient, GetReadinessCheckStatusCommand } = require("@aws-sdk/client-route53-recovery-readiness"); // CommonJS import
+ * import { Route53RecoveryReadinessClient, GetReadinessCheckStatusCommand } from '@aws-sdk/client-route53-recovery-readiness'; // ES Modules import
+ * // const { Route53RecoveryReadinessClient, GetReadinessCheckStatusCommand } = require('@aws-sdk/client-route53-recovery-readiness'); // CommonJS import
  * const client = new Route53RecoveryReadinessClient(config);
  * const input = { // GetReadinessCheckStatusRequest
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
- *   ReadinessCheckName: "STRING_VALUE", // required
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
+ *   ReadinessCheckName: 'STRING_VALUE', // required
  * };
  * const command = new GetReadinessCheckStatusCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetReadinessCheckStatusResponse
+ *   Messages: [ // __listOfMessage
+ *     { // Message
+ *       MessageText: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ *   Readiness: 'STRING_VALUE',
+ *   Resources: [ // __listOfResourceResult
+ *     { // ResourceResult
+ *       ComponentId: 'STRING_VALUE',
+ *       LastCheckedTimestamp: new Date('TIMESTAMP'), // required
+ *       Readiness: 'STRING_VALUE', // required
+ *       ResourceArn: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetReadinessCheckStatusCommandInput - {@link GetReadinessCheckStatusCommandInput}
@@ -73,6 +92,8 @@ export interface GetReadinessCheckStatusCommandOutput extends GetReadinessCheckS
  * @throws {@link ValidationException} (client fault)
  *  The input fails to satisfy the constraints specified by an AWS service.
  *
+ * @throws {@link Route53RecoveryReadinessServiceException}
+ * <p>Base exception class for all service exceptions from Route53RecoveryReadiness service.</p>
  *
  */
 export class GetReadinessCheckStatusCommand extends $Command<

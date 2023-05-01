@@ -49,61 +49,135 @@ export interface CreateNodegroupCommandOutput extends CreateNodegroupResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EKSClient, CreateNodegroupCommand } from "@aws-sdk/client-eks"; // ES Modules import
- * // const { EKSClient, CreateNodegroupCommand } = require("@aws-sdk/client-eks"); // CommonJS import
+ * import { EKSClient, CreateNodegroupCommand } from '@aws-sdk/client-eks'; // ES Modules import
+ * // const { EKSClient, CreateNodegroupCommand } = require('@aws-sdk/client-eks'); // CommonJS import
  * const client = new EKSClient(config);
  * const input = { // CreateNodegroupRequest
- *   clusterName: "STRING_VALUE", // required
- *   nodegroupName: "STRING_VALUE", // required
+ *   clusterName: 'STRING_VALUE', // required
+ *   nodegroupName: 'STRING_VALUE', // required
  *   scalingConfig: { // NodegroupScalingConfig
- *     minSize: Number("int"),
- *     maxSize: Number("int"),
- *     desiredSize: Number("int"),
+ *     minSize: Number('int'),
+ *     maxSize: Number('int'),
+ *     desiredSize: Number('int'),
  *   },
- *   diskSize: Number("int"),
+ *   diskSize: Number('int'),
  *   subnets: [ // StringList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   instanceTypes: [
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   amiType: "AL2_x86_64" || "AL2_x86_64_GPU" || "AL2_ARM_64" || "CUSTOM" || "BOTTLEROCKET_ARM_64" || "BOTTLEROCKET_x86_64" || "BOTTLEROCKET_ARM_64_NVIDIA" || "BOTTLEROCKET_x86_64_NVIDIA" || "WINDOWS_CORE_2019_x86_64" || "WINDOWS_FULL_2019_x86_64" || "WINDOWS_CORE_2022_x86_64" || "WINDOWS_FULL_2022_x86_64",
+ *   amiType: 'AL2_x86_64' || 'AL2_x86_64_GPU' || 'AL2_ARM_64' || 'CUSTOM' || 'BOTTLEROCKET_ARM_64' || 'BOTTLEROCKET_x86_64' || 'BOTTLEROCKET_ARM_64_NVIDIA' || 'BOTTLEROCKET_x86_64_NVIDIA' || 'WINDOWS_CORE_2019_x86_64' || 'WINDOWS_FULL_2019_x86_64' || 'WINDOWS_CORE_2022_x86_64' || 'WINDOWS_FULL_2022_x86_64',
  *   remoteAccess: { // RemoteAccessConfig
- *     ec2SshKey: "STRING_VALUE",
+ *     ec2SshKey: 'STRING_VALUE',
  *     sourceSecurityGroups: [
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *   },
- *   nodeRole: "STRING_VALUE", // required
+ *   nodeRole: 'STRING_VALUE', // required
  *   labels: { // labelsMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  *   taints: [ // taintsList
  *     { // Taint
- *       key: "STRING_VALUE",
- *       value: "STRING_VALUE",
- *       effect: "NO_SCHEDULE" || "NO_EXECUTE" || "PREFER_NO_SCHEDULE",
+ *       key: 'STRING_VALUE',
+ *       value: 'STRING_VALUE',
+ *       effect: 'NO_SCHEDULE' || 'NO_EXECUTE' || 'PREFER_NO_SCHEDULE',
  *     },
  *   ],
  *   tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
- *   clientRequestToken: "STRING_VALUE",
+ *   clientRequestToken: 'STRING_VALUE',
  *   launchTemplate: { // LaunchTemplateSpecification
- *     name: "STRING_VALUE",
- *     version: "STRING_VALUE",
- *     id: "STRING_VALUE",
+ *     name: 'STRING_VALUE',
+ *     version: 'STRING_VALUE',
+ *     id: 'STRING_VALUE',
  *   },
  *   updateConfig: { // NodegroupUpdateConfig
- *     maxUnavailable: Number("int"),
- *     maxUnavailablePercentage: Number("int"),
+ *     maxUnavailable: Number('int'),
+ *     maxUnavailablePercentage: Number('int'),
  *   },
- *   capacityType: "ON_DEMAND" || "SPOT",
- *   version: "STRING_VALUE",
- *   releaseVersion: "STRING_VALUE",
+ *   capacityType: 'ON_DEMAND' || 'SPOT',
+ *   version: 'STRING_VALUE',
+ *   releaseVersion: 'STRING_VALUE',
  * };
  * const command = new CreateNodegroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateNodegroupResponse
+ *   nodegroup: { // Nodegroup
+ *     nodegroupName: 'STRING_VALUE',
+ *     nodegroupArn: 'STRING_VALUE',
+ *     clusterName: 'STRING_VALUE',
+ *     version: 'STRING_VALUE',
+ *     releaseVersion: 'STRING_VALUE',
+ *     createdAt: new Date('TIMESTAMP'),
+ *     modifiedAt: new Date('TIMESTAMP'),
+ *     status: 'CREATING' || 'ACTIVE' || 'UPDATING' || 'DELETING' || 'CREATE_FAILED' || 'DELETE_FAILED' || 'DEGRADED',
+ *     capacityType: 'ON_DEMAND' || 'SPOT',
+ *     scalingConfig: { // NodegroupScalingConfig
+ *       minSize: Number('int'),
+ *       maxSize: Number('int'),
+ *       desiredSize: Number('int'),
+ *     },
+ *     instanceTypes: [ // StringList
+ *       'STRING_VALUE',
+ *     ],
+ *     subnets: [
+ *       'STRING_VALUE',
+ *     ],
+ *     remoteAccess: { // RemoteAccessConfig
+ *       ec2SshKey: 'STRING_VALUE',
+ *       sourceSecurityGroups: [
+ *         'STRING_VALUE',
+ *       ],
+ *     },
+ *     amiType: 'AL2_x86_64' || 'AL2_x86_64_GPU' || 'AL2_ARM_64' || 'CUSTOM' || 'BOTTLEROCKET_ARM_64' || 'BOTTLEROCKET_x86_64' || 'BOTTLEROCKET_ARM_64_NVIDIA' || 'BOTTLEROCKET_x86_64_NVIDIA' || 'WINDOWS_CORE_2019_x86_64' || 'WINDOWS_FULL_2019_x86_64' || 'WINDOWS_CORE_2022_x86_64' || 'WINDOWS_FULL_2022_x86_64',
+ *     nodeRole: 'STRING_VALUE',
+ *     labels: { // labelsMap
+ *       '<keys>': 'STRING_VALUE',
+ *     },
+ *     taints: [ // taintsList
+ *       { // Taint
+ *         key: 'STRING_VALUE',
+ *         value: 'STRING_VALUE',
+ *         effect: 'NO_SCHEDULE' || 'NO_EXECUTE' || 'PREFER_NO_SCHEDULE',
+ *       },
+ *     ],
+ *     resources: { // NodegroupResources
+ *       autoScalingGroups: [ // AutoScalingGroupList
+ *         { // AutoScalingGroup
+ *           name: 'STRING_VALUE',
+ *         },
+ *       ],
+ *       remoteAccessSecurityGroup: 'STRING_VALUE',
+ *     },
+ *     diskSize: Number('int'),
+ *     health: { // NodegroupHealth
+ *       issues: [ // IssueList
+ *         { // Issue
+ *           code: 'AutoScalingGroupNotFound' || 'AutoScalingGroupInvalidConfiguration' || 'Ec2SecurityGroupNotFound' || 'Ec2SecurityGroupDeletionFailure' || 'Ec2LaunchTemplateNotFound' || 'Ec2LaunchTemplateVersionMismatch' || 'Ec2SubnetNotFound' || 'Ec2SubnetInvalidConfiguration' || 'IamInstanceProfileNotFound' || 'IamLimitExceeded' || 'IamNodeRoleNotFound' || 'NodeCreationFailure' || 'AsgInstanceLaunchFailures' || 'InstanceLimitExceeded' || 'InsufficientFreeAddresses' || 'AccessDenied' || 'InternalFailure' || 'ClusterUnreachable' || 'Ec2SubnetMissingIpv6Assignment',
+ *           message: 'STRING_VALUE',
+ *           resourceIds: '<StringList>',
+ *         },
+ *       ],
+ *     },
+ *     updateConfig: { // NodegroupUpdateConfig
+ *       maxUnavailable: Number('int'),
+ *       maxUnavailablePercentage: Number('int'),
+ *     },
+ *     launchTemplate: { // LaunchTemplateSpecification
+ *       name: 'STRING_VALUE',
+ *       version: 'STRING_VALUE',
+ *       id: 'STRING_VALUE',
+ *     },
+ *     tags: { // TagMap
+ *       '<keys>': 'STRING_VALUE',
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateNodegroupCommandInput - {@link CreateNodegroupCommandInput}
@@ -137,6 +211,8 @@ export interface CreateNodegroupCommandOutput extends CreateNodegroupResponse, _
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service is unavailable. Back off and retry the operation.</p>
  *
+ * @throws {@link EKSServiceException}
+ * <p>Base exception class for all service exceptions from EKS service.</p>
  *
  */
 export class CreateNodegroupCommand extends $Command<

@@ -54,18 +54,31 @@ export interface DescribeUserStackAssociationsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppStreamClient, DescribeUserStackAssociationsCommand } from "@aws-sdk/client-appstream"; // ES Modules import
- * // const { AppStreamClient, DescribeUserStackAssociationsCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
+ * import { AppStreamClient, DescribeUserStackAssociationsCommand } from '@aws-sdk/client-appstream'; // ES Modules import
+ * // const { AppStreamClient, DescribeUserStackAssociationsCommand } = require('@aws-sdk/client-appstream'); // CommonJS import
  * const client = new AppStreamClient(config);
  * const input = { // DescribeUserStackAssociationsRequest
- *   StackName: "STRING_VALUE",
- *   UserName: "STRING_VALUE",
- *   AuthenticationType: "API" || "SAML" || "USERPOOL" || "AWS_AD",
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   StackName: 'STRING_VALUE',
+ *   UserName: 'STRING_VALUE',
+ *   AuthenticationType: 'API' || 'SAML' || 'USERPOOL' || 'AWS_AD',
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new DescribeUserStackAssociationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeUserStackAssociationsResult
+ *   UserStackAssociations: [ // UserStackAssociationList
+ *     { // UserStackAssociation
+ *       StackName: 'STRING_VALUE', // required
+ *       UserName: 'STRING_VALUE', // required
+ *       AuthenticationType: 'API' || 'SAML' || 'USERPOOL' || 'AWS_AD', // required
+ *       SendEmailNotification: true || false,
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeUserStackAssociationsCommandInput - {@link DescribeUserStackAssociationsCommandInput}
@@ -80,6 +93,8 @@ export interface DescribeUserStackAssociationsCommandOutput
  * @throws {@link OperationNotPermittedException} (client fault)
  *  <p>The attempted operation is not permitted.</p>
  *
+ * @throws {@link AppStreamServiceException}
+ * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
  */
 export class DescribeUserStackAssociationsCommand extends $Command<

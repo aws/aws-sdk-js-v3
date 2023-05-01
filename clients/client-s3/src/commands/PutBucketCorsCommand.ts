@@ -92,37 +92,40 @@ export interface PutBucketCorsCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { S3Client, PutBucketCorsCommand } from "@aws-sdk/client-s3"; // ES Modules import
- * // const { S3Client, PutBucketCorsCommand } = require("@aws-sdk/client-s3"); // CommonJS import
+ * import { S3Client, PutBucketCorsCommand } from '@aws-sdk/client-s3'; // ES Modules import
+ * // const { S3Client, PutBucketCorsCommand } = require('@aws-sdk/client-s3'); // CommonJS import
  * const client = new S3Client(config);
  * const input = { // PutBucketCorsRequest
- *   Bucket: "STRING_VALUE", // required
+ *   Bucket: 'STRING_VALUE', // required
  *   CORSConfiguration: { // CORSConfiguration
  *     CORSRules: [ // CORSRules // required
  *       { // CORSRule
- *         ID: "STRING_VALUE",
+ *         ID: 'STRING_VALUE',
  *         AllowedHeaders: [ // AllowedHeaders
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
  *         AllowedMethods: [ // AllowedMethods // required
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
  *         AllowedOrigins: [ // AllowedOrigins // required
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
  *         ExposeHeaders: [ // ExposeHeaders
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
- *         MaxAgeSeconds: Number("int"),
+ *         MaxAgeSeconds: Number('int'),
  *       },
  *     ],
  *   },
- *   ContentMD5: "STRING_VALUE",
- *   ChecksumAlgorithm: "CRC32" || "CRC32C" || "SHA1" || "SHA256",
- *   ExpectedBucketOwner: "STRING_VALUE",
+ *   ContentMD5: 'STRING_VALUE',
+ *   ChecksumAlgorithm: 'CRC32' || 'CRC32C' || 'SHA1' || 'SHA256',
+ *   ExpectedBucketOwner: 'STRING_VALUE',
  * };
  * const command = new PutBucketCorsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutBucketCorsCommandInput - {@link PutBucketCorsCommandInput}
@@ -131,6 +134,8 @@ export interface PutBucketCorsCommandOutput extends __MetadataBearer {}
  * @see {@link PutBucketCorsCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
+ * @throws {@link S3ServiceException}
+ * <p>Base exception class for all service exceptions from S3 service.</p>
  *
  * @example To set cors configuration on a bucket.
  * ```javascript

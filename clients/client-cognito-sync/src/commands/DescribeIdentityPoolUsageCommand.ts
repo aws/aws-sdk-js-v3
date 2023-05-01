@@ -84,14 +84,24 @@ export interface DescribeIdentityPoolUsageCommandOutput extends DescribeIdentity
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CognitoSyncClient, DescribeIdentityPoolUsageCommand } from "@aws-sdk/client-cognito-sync"; // ES Modules import
- * // const { CognitoSyncClient, DescribeIdentityPoolUsageCommand } = require("@aws-sdk/client-cognito-sync"); // CommonJS import
+ * import { CognitoSyncClient, DescribeIdentityPoolUsageCommand } from '@aws-sdk/client-cognito-sync'; // ES Modules import
+ * // const { CognitoSyncClient, DescribeIdentityPoolUsageCommand } = require('@aws-sdk/client-cognito-sync'); // CommonJS import
  * const client = new CognitoSyncClient(config);
  * const input = { // DescribeIdentityPoolUsageRequest
- *   IdentityPoolId: "STRING_VALUE", // required
+ *   IdentityPoolId: 'STRING_VALUE', // required
  * };
  * const command = new DescribeIdentityPoolUsageCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeIdentityPoolUsageResponse
+ *   IdentityPoolUsage: { // IdentityPoolUsage
+ *     IdentityPoolId: 'STRING_VALUE',
+ *     SyncSessionsCount: Number('long'),
+ *     DataStorage: Number('long'),
+ *     LastModifiedDate: new Date('TIMESTAMP'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeIdentityPoolUsageCommandInput - {@link DescribeIdentityPoolUsageCommandInput}
@@ -120,6 +130,8 @@ export interface DescribeIdentityPoolUsageCommandOutput extends DescribeIdentity
  *  Thrown if the request is
  *       throttled.
  *
+ * @throws {@link CognitoSyncServiceException}
+ * <p>Base exception class for all service exceptions from CognitoSync service.</p>
  *
  */
 export class DescribeIdentityPoolUsageCommand extends $Command<

@@ -38,15 +38,32 @@ export interface AuthorizeDataShareCommandOutput extends DataShare, __MetadataBe
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RedshiftClient, AuthorizeDataShareCommand } from "@aws-sdk/client-redshift"; // ES Modules import
- * // const { RedshiftClient, AuthorizeDataShareCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * import { RedshiftClient, AuthorizeDataShareCommand } from '@aws-sdk/client-redshift'; // ES Modules import
+ * // const { RedshiftClient, AuthorizeDataShareCommand } = require('@aws-sdk/client-redshift'); // CommonJS import
  * const client = new RedshiftClient(config);
  * const input = { // AuthorizeDataShareMessage
- *   DataShareArn: "STRING_VALUE", // required
- *   ConsumerIdentifier: "STRING_VALUE", // required
+ *   DataShareArn: 'STRING_VALUE', // required
+ *   ConsumerIdentifier: 'STRING_VALUE', // required
  * };
  * const command = new AuthorizeDataShareCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DataShare
+ *   DataShareArn: 'STRING_VALUE',
+ *   ProducerArn: 'STRING_VALUE',
+ *   AllowPubliclyAccessibleConsumers: true || false,
+ *   DataShareAssociations: [ // DataShareAssociationList
+ *     { // DataShareAssociation
+ *       ConsumerIdentifier: 'STRING_VALUE',
+ *       Status: 'ACTIVE' || 'PENDING_AUTHORIZATION' || 'AUTHORIZED' || 'DEAUTHORIZED' || 'REJECTED' || 'AVAILABLE',
+ *       ConsumerRegion: 'STRING_VALUE',
+ *       CreatedDate: new Date('TIMESTAMP'),
+ *       StatusChangeDate: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   ManagedBy: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param AuthorizeDataShareCommandInput - {@link AuthorizeDataShareCommandInput}
@@ -58,6 +75,8 @@ export interface AuthorizeDataShareCommandOutput extends DataShare, __MetadataBe
  * @throws {@link InvalidDataShareFault} (client fault)
  *  <p>There is an error with the datashare.</p>
  *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class AuthorizeDataShareCommand extends $Command<

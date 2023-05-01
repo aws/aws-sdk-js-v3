@@ -46,22 +46,33 @@ export interface AssignIpv6AddressesCommandOutput extends AssignIpv6AddressesRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, AssignIpv6AddressesCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, AssignIpv6AddressesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, AssignIpv6AddressesCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, AssignIpv6AddressesCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // AssignIpv6AddressesRequest
- *   Ipv6AddressCount: Number("int"),
+ *   Ipv6AddressCount: Number('int'),
  *   Ipv6Addresses: [ // Ipv6AddressList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   Ipv6PrefixCount: Number("int"),
+ *   Ipv6PrefixCount: Number('int'),
  *   Ipv6Prefixes: [ // IpPrefixList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   NetworkInterfaceId: "STRING_VALUE", // required
+ *   NetworkInterfaceId: 'STRING_VALUE', // required
  * };
  * const command = new AssignIpv6AddressesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AssignIpv6AddressesResult
+ *   AssignedIpv6Addresses: [ // Ipv6AddressList
+ *     'STRING_VALUE',
+ *   ],
+ *   AssignedIpv6Prefixes: [ // IpPrefixList
+ *     'STRING_VALUE',
+ *   ],
+ *   NetworkInterfaceId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param AssignIpv6AddressesCommandInput - {@link AssignIpv6AddressesCommandInput}
@@ -70,6 +81,8 @@ export interface AssignIpv6AddressesCommandOutput extends AssignIpv6AddressesRes
  * @see {@link AssignIpv6AddressesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class AssignIpv6AddressesCommand extends $Command<

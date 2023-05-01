@@ -44,15 +44,33 @@ export interface GetRelationalDatabaseBundlesCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LightsailClient, GetRelationalDatabaseBundlesCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
- * // const { LightsailClient, GetRelationalDatabaseBundlesCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
+ * import { LightsailClient, GetRelationalDatabaseBundlesCommand } from '@aws-sdk/client-lightsail'; // ES Modules import
+ * // const { LightsailClient, GetRelationalDatabaseBundlesCommand } = require('@aws-sdk/client-lightsail'); // CommonJS import
  * const client = new LightsailClient(config);
  * const input = { // GetRelationalDatabaseBundlesRequest
- *   pageToken: "STRING_VALUE",
+ *   pageToken: 'STRING_VALUE',
  *   includeInactive: true || false,
  * };
  * const command = new GetRelationalDatabaseBundlesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetRelationalDatabaseBundlesResult
+ *   bundles: [ // RelationalDatabaseBundleList
+ *     { // RelationalDatabaseBundle
+ *       bundleId: 'STRING_VALUE',
+ *       name: 'STRING_VALUE',
+ *       price: Number('float'),
+ *       ramSizeInGb: Number('float'),
+ *       diskSizeInGb: Number('int'),
+ *       transferPerMonthInGb: Number('int'),
+ *       cpuCount: Number('int'),
+ *       isEncrypted: true || false,
+ *       isActive: true || false,
+ *     },
+ *   ],
+ *   nextPageToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetRelationalDatabaseBundlesCommandInput - {@link GetRelationalDatabaseBundlesCommandInput}
@@ -91,6 +109,8 @@ export interface GetRelationalDatabaseBundlesCommandOutput
  * @throws {@link UnauthenticatedException} (client fault)
  *  <p>Lightsail throws this exception when the user has not been authenticated.</p>
  *
+ * @throws {@link LightsailServiceException}
+ * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
  */
 export class GetRelationalDatabaseBundlesCommand extends $Command<

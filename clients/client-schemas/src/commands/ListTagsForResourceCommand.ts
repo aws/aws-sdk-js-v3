@@ -36,14 +36,21 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SchemasClient, ListTagsForResourceCommand } from "@aws-sdk/client-schemas"; // ES Modules import
- * // const { SchemasClient, ListTagsForResourceCommand } = require("@aws-sdk/client-schemas"); // CommonJS import
+ * import { SchemasClient, ListTagsForResourceCommand } from '@aws-sdk/client-schemas'; // ES Modules import
+ * // const { SchemasClient, ListTagsForResourceCommand } = require('@aws-sdk/client-schemas'); // CommonJS import
  * const client = new SchemasClient(config);
  * const input = { // ListTagsForResourceRequest
- *   ResourceArn: "STRING_VALUE", // required
+ *   ResourceArn: 'STRING_VALUE', // required
  * };
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTagsForResourceResponse
+ *   Tags: { // Tags
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param ListTagsForResourceCommandInput - {@link ListTagsForResourceCommandInput}
@@ -60,6 +67,8 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  *
  * @throws {@link NotFoundException} (client fault)
  *
+ * @throws {@link SchemasServiceException}
+ * <p>Base exception class for all service exceptions from Schemas service.</p>
  *
  */
 export class ListTagsForResourceCommand extends $Command<

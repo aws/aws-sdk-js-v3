@@ -37,16 +37,22 @@ export interface UpdateHostKeyCommandOutput extends UpdateHostKeyResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { TransferClient, UpdateHostKeyCommand } from "@aws-sdk/client-transfer"; // ES Modules import
- * // const { TransferClient, UpdateHostKeyCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
+ * import { TransferClient, UpdateHostKeyCommand } from '@aws-sdk/client-transfer'; // ES Modules import
+ * // const { TransferClient, UpdateHostKeyCommand } = require('@aws-sdk/client-transfer'); // CommonJS import
  * const client = new TransferClient(config);
  * const input = { // UpdateHostKeyRequest
- *   ServerId: "STRING_VALUE", // required
- *   HostKeyId: "STRING_VALUE", // required
- *   Description: "STRING_VALUE", // required
+ *   ServerId: 'STRING_VALUE', // required
+ *   HostKeyId: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE', // required
  * };
  * const command = new UpdateHostKeyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateHostKeyResponse
+ *   ServerId: 'STRING_VALUE', // required
+ *   HostKeyId: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param UpdateHostKeyCommandInput - {@link UpdateHostKeyCommandInput}
@@ -71,6 +77,8 @@ export interface UpdateHostKeyCommandOutput extends UpdateHostKeyResponse, __Met
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
  *
+ * @throws {@link TransferServiceException}
+ * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
  */
 export class UpdateHostKeyCommand extends $Command<

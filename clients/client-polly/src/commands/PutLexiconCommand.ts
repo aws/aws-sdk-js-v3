@@ -41,15 +41,18 @@ export interface PutLexiconCommandOutput extends PutLexiconOutput, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PollyClient, PutLexiconCommand } from "@aws-sdk/client-polly"; // ES Modules import
- * // const { PollyClient, PutLexiconCommand } = require("@aws-sdk/client-polly"); // CommonJS import
+ * import { PollyClient, PutLexiconCommand } from '@aws-sdk/client-polly'; // ES Modules import
+ * // const { PollyClient, PutLexiconCommand } = require('@aws-sdk/client-polly'); // CommonJS import
  * const client = new PollyClient(config);
  * const input = { // PutLexiconInput
- *   Name: "STRING_VALUE", // required
- *   Content: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
+ *   Content: 'STRING_VALUE', // required
  * };
  * const command = new PutLexiconCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutLexiconCommandInput - {@link PutLexiconCommandInput}
@@ -85,6 +88,8 @@ export interface PutLexiconCommandOutput extends PutLexiconOutput, __MetadataBea
  *  <p>The language specified in the lexicon is unsupported. For a list of
  *       supported languages, see <a href="https://docs.aws.amazon.com/polly/latest/dg/API_LexiconAttributes.html">Lexicon Attributes</a>.</p>
  *
+ * @throws {@link PollyServiceException}
+ * <p>Base exception class for all service exceptions from Polly service.</p>
  *
  * @example To save a lexicon
  * ```javascript

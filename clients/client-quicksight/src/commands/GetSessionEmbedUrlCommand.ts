@@ -65,17 +65,24 @@ export interface GetSessionEmbedUrlCommandOutput extends GetSessionEmbedUrlRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { QuickSightClient, GetSessionEmbedUrlCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
- * // const { QuickSightClient, GetSessionEmbedUrlCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * import { QuickSightClient, GetSessionEmbedUrlCommand } from '@aws-sdk/client-quicksight'; // ES Modules import
+ * // const { QuickSightClient, GetSessionEmbedUrlCommand } = require('@aws-sdk/client-quicksight'); // CommonJS import
  * const client = new QuickSightClient(config);
  * const input = { // GetSessionEmbedUrlRequest
- *   AwsAccountId: "STRING_VALUE", // required
- *   EntryPoint: "STRING_VALUE",
- *   SessionLifetimeInMinutes: Number("long"),
- *   UserArn: "STRING_VALUE",
+ *   AwsAccountId: 'STRING_VALUE', // required
+ *   EntryPoint: 'STRING_VALUE',
+ *   SessionLifetimeInMinutes: Number('long'),
+ *   UserArn: 'STRING_VALUE',
  * };
  * const command = new GetSessionEmbedUrlCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetSessionEmbedUrlResponse
+ *   EmbedUrl: 'STRING_VALUE',
+ *   Status: Number('int'),
+ *   RequestId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetSessionEmbedUrlCommandInput - {@link GetSessionEmbedUrlCommandInput}
@@ -120,6 +127,8 @@ export interface GetSessionEmbedUrlCommandOutput extends GetSessionEmbedUrlRespo
  * 			Amazon QuickSight currently has Standard Edition and Enterprise Edition. Not every operation and
  * 			capability is available in every edition.</p>
  *
+ * @throws {@link QuickSightServiceException}
+ * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
 export class GetSessionEmbedUrlCommand extends $Command<

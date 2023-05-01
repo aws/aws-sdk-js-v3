@@ -36,16 +36,87 @@ export interface DescribeDocumentCommandOutput extends DescribeDocumentResult, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMClient, DescribeDocumentCommand } from "@aws-sdk/client-ssm"; // ES Modules import
- * // const { SSMClient, DescribeDocumentCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * import { SSMClient, DescribeDocumentCommand } from '@aws-sdk/client-ssm'; // ES Modules import
+ * // const { SSMClient, DescribeDocumentCommand } = require('@aws-sdk/client-ssm'); // CommonJS import
  * const client = new SSMClient(config);
  * const input = { // DescribeDocumentRequest
- *   Name: "STRING_VALUE", // required
- *   DocumentVersion: "STRING_VALUE",
- *   VersionName: "STRING_VALUE",
+ *   Name: 'STRING_VALUE', // required
+ *   DocumentVersion: 'STRING_VALUE',
+ *   VersionName: 'STRING_VALUE',
  * };
  * const command = new DescribeDocumentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeDocumentResult
+ *   Document: { // DocumentDescription
+ *     Sha1: 'STRING_VALUE',
+ *     Hash: 'STRING_VALUE',
+ *     HashType: 'Sha256' || 'Sha1',
+ *     Name: 'STRING_VALUE',
+ *     DisplayName: 'STRING_VALUE',
+ *     VersionName: 'STRING_VALUE',
+ *     Owner: 'STRING_VALUE',
+ *     CreatedDate: new Date('TIMESTAMP'),
+ *     Status: 'Creating' || 'Active' || 'Updating' || 'Deleting' || 'Failed',
+ *     StatusInformation: 'STRING_VALUE',
+ *     DocumentVersion: 'STRING_VALUE',
+ *     Description: 'STRING_VALUE',
+ *     Parameters: [ // DocumentParameterList
+ *       { // DocumentParameter
+ *         Name: 'STRING_VALUE',
+ *         Type: 'String' || 'StringList',
+ *         Description: 'STRING_VALUE',
+ *         DefaultValue: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     PlatformTypes: [ // PlatformTypeList
+ *       'Windows' || 'Linux' || 'MacOS',
+ *     ],
+ *     DocumentType: 'Command' || 'Policy' || 'Automation' || 'Session' || 'Package' || 'ApplicationConfiguration' || 'ApplicationConfigurationSchema' || 'DeploymentStrategy' || 'ChangeCalendar' || 'Automation.ChangeTemplate' || 'ProblemAnalysis' || 'ProblemAnalysisTemplate' || 'CloudFormation' || 'ConformancePackTemplate' || 'QuickSetup',
+ *     SchemaVersion: 'STRING_VALUE',
+ *     LatestVersion: 'STRING_VALUE',
+ *     DefaultVersion: 'STRING_VALUE',
+ *     DocumentFormat: 'YAML' || 'JSON' || 'TEXT',
+ *     TargetType: 'STRING_VALUE',
+ *     Tags: [ // TagList
+ *       { // Tag
+ *         Key: 'STRING_VALUE', // required
+ *         Value: 'STRING_VALUE', // required
+ *       },
+ *     ],
+ *     AttachmentsInformation: [ // AttachmentInformationList
+ *       { // AttachmentInformation
+ *         Name: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     Requires: [ // DocumentRequiresList
+ *       { // DocumentRequires
+ *         Name: 'STRING_VALUE', // required
+ *         Version: 'STRING_VALUE',
+ *         RequireType: 'STRING_VALUE',
+ *         VersionName: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     Author: 'STRING_VALUE',
+ *     ReviewInformation: [ // ReviewInformationList
+ *       { // ReviewInformation
+ *         ReviewedTime: new Date('TIMESTAMP'),
+ *         Status: 'APPROVED' || 'NOT_REVIEWED' || 'PENDING' || 'REJECTED',
+ *         Reviewer: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     ApprovedVersion: 'STRING_VALUE',
+ *     PendingReviewVersion: 'STRING_VALUE',
+ *     ReviewStatus: 'APPROVED' || 'NOT_REVIEWED' || 'PENDING' || 'REJECTED',
+ *     Category: [ // CategoryList
+ *       'STRING_VALUE',
+ *     ],
+ *     CategoryEnum: [ // CategoryEnumList
+ *       'STRING_VALUE',
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeDocumentCommandInput - {@link DescribeDocumentCommandInput}
@@ -63,6 +134,8 @@ export interface DescribeDocumentCommandOutput extends DescribeDocumentResult, _
  * @throws {@link InvalidDocumentVersion} (client fault)
  *  <p>The document version isn't valid or doesn't exist.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class DescribeDocumentCommand extends $Command<

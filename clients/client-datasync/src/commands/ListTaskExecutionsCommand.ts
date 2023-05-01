@@ -36,16 +36,27 @@ export interface ListTaskExecutionsCommandOutput extends ListTaskExecutionsRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DataSyncClient, ListTaskExecutionsCommand } from "@aws-sdk/client-datasync"; // ES Modules import
- * // const { DataSyncClient, ListTaskExecutionsCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
+ * import { DataSyncClient, ListTaskExecutionsCommand } from '@aws-sdk/client-datasync'; // ES Modules import
+ * // const { DataSyncClient, ListTaskExecutionsCommand } = require('@aws-sdk/client-datasync'); // CommonJS import
  * const client = new DataSyncClient(config);
  * const input = { // ListTaskExecutionsRequest
- *   TaskArn: "STRING_VALUE",
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   TaskArn: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListTaskExecutionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTaskExecutionsResponse
+ *   TaskExecutions: [ // TaskExecutionList
+ *     { // TaskExecutionListEntry
+ *       TaskExecutionArn: 'STRING_VALUE',
+ *       Status: 'QUEUED' || 'LAUNCHING' || 'PREPARING' || 'TRANSFERRING' || 'VERIFYING' || 'SUCCESS' || 'ERROR',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListTaskExecutionsCommandInput - {@link ListTaskExecutionsCommandInput}
@@ -61,6 +72,8 @@ export interface ListTaskExecutionsCommandOutput extends ListTaskExecutionsRespo
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception is thrown when the client submits a malformed request.</p>
  *
+ * @throws {@link DataSyncServiceException}
+ * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
  */
 export class ListTaskExecutionsCommand extends $Command<

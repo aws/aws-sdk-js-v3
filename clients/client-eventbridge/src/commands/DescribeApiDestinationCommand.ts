@@ -36,14 +36,28 @@ export interface DescribeApiDestinationCommandOutput extends DescribeApiDestinat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EventBridgeClient, DescribeApiDestinationCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
- * // const { EventBridgeClient, DescribeApiDestinationCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
+ * import { EventBridgeClient, DescribeApiDestinationCommand } from '@aws-sdk/client-eventbridge'; // ES Modules import
+ * // const { EventBridgeClient, DescribeApiDestinationCommand } = require('@aws-sdk/client-eventbridge'); // CommonJS import
  * const client = new EventBridgeClient(config);
  * const input = { // DescribeApiDestinationRequest
- *   Name: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
  * };
  * const command = new DescribeApiDestinationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeApiDestinationResponse
+ *   ApiDestinationArn: 'STRING_VALUE',
+ *   Name: 'STRING_VALUE',
+ *   Description: 'STRING_VALUE',
+ *   ApiDestinationState: 'ACTIVE' || 'INACTIVE',
+ *   ConnectionArn: 'STRING_VALUE',
+ *   InvocationEndpoint: 'STRING_VALUE',
+ *   HttpMethod: 'POST' || 'GET' || 'HEAD' || 'OPTIONS' || 'PUT' || 'PATCH' || 'DELETE',
+ *   InvocationRateLimitPerSecond: Number('int'),
+ *   CreationTime: new Date('TIMESTAMP'),
+ *   LastModifiedTime: new Date('TIMESTAMP'),
+ * };
+ *
  * ```
  *
  * @param DescribeApiDestinationCommandInput - {@link DescribeApiDestinationCommandInput}
@@ -58,6 +72,8 @@ export interface DescribeApiDestinationCommandOutput extends DescribeApiDestinat
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>An entity that you specified does not exist.</p>
  *
+ * @throws {@link EventBridgeServiceException}
+ * <p>Base exception class for all service exceptions from EventBridge service.</p>
  *
  */
 export class DescribeApiDestinationCommand extends $Command<

@@ -65,20 +65,23 @@ export interface DeleteRecordCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerFeatureStoreRuntimeClient, DeleteRecordCommand } from "@aws-sdk/client-sagemaker-featurestore-runtime"; // ES Modules import
- * // const { SageMakerFeatureStoreRuntimeClient, DeleteRecordCommand } = require("@aws-sdk/client-sagemaker-featurestore-runtime"); // CommonJS import
+ * import { SageMakerFeatureStoreRuntimeClient, DeleteRecordCommand } from '@aws-sdk/client-sagemaker-featurestore-runtime'; // ES Modules import
+ * // const { SageMakerFeatureStoreRuntimeClient, DeleteRecordCommand } = require('@aws-sdk/client-sagemaker-featurestore-runtime'); // CommonJS import
  * const client = new SageMakerFeatureStoreRuntimeClient(config);
  * const input = { // DeleteRecordRequest
- *   FeatureGroupName: "STRING_VALUE", // required
- *   RecordIdentifierValueAsString: "STRING_VALUE", // required
- *   EventTime: "STRING_VALUE", // required
+ *   FeatureGroupName: 'STRING_VALUE', // required
+ *   RecordIdentifierValueAsString: 'STRING_VALUE', // required
+ *   EventTime: 'STRING_VALUE', // required
  *   TargetStores: [ // TargetStores
- *     "OnlineStore" || "OfflineStore",
+ *     'OnlineStore' || 'OfflineStore',
  *   ],
- *   DeletionMode: "SoftDelete" || "HardDelete",
+ *   DeletionMode: 'SoftDelete' || 'HardDelete',
  * };
  * const command = new DeleteRecordCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteRecordCommandInput - {@link DeleteRecordCommandInput}
@@ -100,6 +103,8 @@ export interface DeleteRecordCommandOutput extends __MetadataBearer {}
  * @throws {@link ValidationError} (client fault)
  *  <p>There was an error validating your request.</p>
  *
+ * @throws {@link SageMakerFeatureStoreRuntimeServiceException}
+ * <p>Base exception class for all service exceptions from SageMakerFeatureStoreRuntime service.</p>
  *
  */
 export class DeleteRecordCommand extends $Command<

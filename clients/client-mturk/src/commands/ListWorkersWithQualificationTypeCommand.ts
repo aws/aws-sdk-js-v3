@@ -44,17 +44,36 @@ export interface ListWorkersWithQualificationTypeCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MTurkClient, ListWorkersWithQualificationTypeCommand } from "@aws-sdk/client-mturk"; // ES Modules import
- * // const { MTurkClient, ListWorkersWithQualificationTypeCommand } = require("@aws-sdk/client-mturk"); // CommonJS import
+ * import { MTurkClient, ListWorkersWithQualificationTypeCommand } from '@aws-sdk/client-mturk'; // ES Modules import
+ * // const { MTurkClient, ListWorkersWithQualificationTypeCommand } = require('@aws-sdk/client-mturk'); // CommonJS import
  * const client = new MTurkClient(config);
  * const input = { // ListWorkersWithQualificationTypeRequest
- *   QualificationTypeId: "STRING_VALUE", // required
- *   Status: "STRING_VALUE",
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   QualificationTypeId: 'STRING_VALUE', // required
+ *   Status: 'STRING_VALUE',
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListWorkersWithQualificationTypeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListWorkersWithQualificationTypeResponse
+ *   NextToken: 'STRING_VALUE',
+ *   NumResults: Number('int'),
+ *   Qualifications: [ // QualificationList
+ *     { // Qualification
+ *       QualificationTypeId: 'STRING_VALUE',
+ *       WorkerId: 'STRING_VALUE',
+ *       GrantTime: new Date('TIMESTAMP'),
+ *       IntegerValue: Number('int'),
+ *       LocaleValue: { // Locale
+ *         Country: 'STRING_VALUE', // required
+ *         Subdivision: 'STRING_VALUE',
+ *       },
+ *       Status: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListWorkersWithQualificationTypeCommandInput - {@link ListWorkersWithQualificationTypeCommandInput}
@@ -69,6 +88,8 @@ export interface ListWorkersWithQualificationTypeCommandOutput
  * @throws {@link ServiceFault} (server fault)
  *  <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
  *
+ * @throws {@link MTurkServiceException}
+ * <p>Base exception class for all service exceptions from MTurk service.</p>
  *
  */
 export class ListWorkersWithQualificationTypeCommand extends $Command<

@@ -37,22 +37,32 @@ export interface AddAttributesToFindingsCommandOutput extends AddAttributesToFin
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { InspectorClient, AddAttributesToFindingsCommand } from "@aws-sdk/client-inspector"; // ES Modules import
- * // const { InspectorClient, AddAttributesToFindingsCommand } = require("@aws-sdk/client-inspector"); // CommonJS import
+ * import { InspectorClient, AddAttributesToFindingsCommand } from '@aws-sdk/client-inspector'; // ES Modules import
+ * // const { InspectorClient, AddAttributesToFindingsCommand } = require('@aws-sdk/client-inspector'); // CommonJS import
  * const client = new InspectorClient(config);
  * const input = { // AddAttributesToFindingsRequest
  *   findingArns: [ // AddRemoveAttributesFindingArnList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   attributes: [ // UserAttributeList // required
  *     { // Attribute
- *       key: "STRING_VALUE", // required
- *       value: "STRING_VALUE",
+ *       key: 'STRING_VALUE', // required
+ *       value: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new AddAttributesToFindingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AddAttributesToFindingsResponse
+ *   failedItems: { // FailedItems // required
+ *     '<keys>': { // FailedItemDetails
+ *       failureCode: 'STRING_VALUE', // required
+ *       retryable: true || false, // required
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param AddAttributesToFindingsCommandInput - {@link AddAttributesToFindingsCommandInput}
@@ -78,6 +88,8 @@ export interface AddAttributesToFindingsCommandOutput extends AddAttributesToFin
  * @throws {@link ServiceTemporarilyUnavailableException} (server fault)
  *  <p>The serice is temporary unavailable.</p>
  *
+ * @throws {@link InspectorServiceException}
+ * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
  * @example Add attributes to findings
  * ```javascript

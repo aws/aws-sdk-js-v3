@@ -37,17 +37,20 @@ export interface UntagResourceCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EFSClient, UntagResourceCommand } from "@aws-sdk/client-efs"; // ES Modules import
- * // const { EFSClient, UntagResourceCommand } = require("@aws-sdk/client-efs"); // CommonJS import
+ * import { EFSClient, UntagResourceCommand } from '@aws-sdk/client-efs'; // ES Modules import
+ * // const { EFSClient, UntagResourceCommand } = require('@aws-sdk/client-efs'); // CommonJS import
  * const client = new EFSClient(config);
  * const input = { // UntagResourceRequest
- *   ResourceId: "STRING_VALUE", // required
+ *   ResourceId: 'STRING_VALUE', // required
  *   TagKeys: [ // TagKeys // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new UntagResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UntagResourceCommandInput - {@link UntagResourceCommandInput}
@@ -71,6 +74,8 @@ export interface UntagResourceCommandOutput extends __MetadataBearer {}
  * @throws {@link InternalServerError} (server fault)
  *  <p>Returned if an error occurred on the server side.</p>
  *
+ * @throws {@link EFSServiceException}
+ * <p>Base exception class for all service exceptions from EFS service.</p>
  *
  */
 export class UntagResourceCommand extends $Command<

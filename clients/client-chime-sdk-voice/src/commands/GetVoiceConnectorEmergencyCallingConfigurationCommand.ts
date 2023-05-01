@@ -46,14 +46,27 @@ export interface GetVoiceConnectorEmergencyCallingConfigurationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeSDKVoiceClient, GetVoiceConnectorEmergencyCallingConfigurationCommand } from "@aws-sdk/client-chime-sdk-voice"; // ES Modules import
- * // const { ChimeSDKVoiceClient, GetVoiceConnectorEmergencyCallingConfigurationCommand } = require("@aws-sdk/client-chime-sdk-voice"); // CommonJS import
+ * import { ChimeSDKVoiceClient, GetVoiceConnectorEmergencyCallingConfigurationCommand } from '@aws-sdk/client-chime-sdk-voice'; // ES Modules import
+ * // const { ChimeSDKVoiceClient, GetVoiceConnectorEmergencyCallingConfigurationCommand } = require('@aws-sdk/client-chime-sdk-voice'); // CommonJS import
  * const client = new ChimeSDKVoiceClient(config);
  * const input = { // GetVoiceConnectorEmergencyCallingConfigurationRequest
- *   VoiceConnectorId: "STRING_VALUE", // required
+ *   VoiceConnectorId: 'STRING_VALUE', // required
  * };
  * const command = new GetVoiceConnectorEmergencyCallingConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetVoiceConnectorEmergencyCallingConfigurationResponse
+ *   EmergencyCallingConfiguration: { // EmergencyCallingConfiguration
+ *     DNIS: [ // DNISEmergencyCallingConfigurationList
+ *       { // DNISEmergencyCallingConfiguration
+ *         EmergencyPhoneNumber: 'STRING_VALUE', // required
+ *         TestPhoneNumber: 'STRING_VALUE',
+ *         CallingCountry: 'STRING_VALUE', // required
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetVoiceConnectorEmergencyCallingConfigurationCommandInput - {@link GetVoiceConnectorEmergencyCallingConfigurationCommandInput}
@@ -83,6 +96,8 @@ export interface GetVoiceConnectorEmergencyCallingConfigurationCommandOutput
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client isn't authorized to request a resource.</p>
  *
+ * @throws {@link ChimeSDKVoiceServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
  */
 export class GetVoiceConnectorEmergencyCallingConfigurationCommand extends $Command<

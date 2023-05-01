@@ -53,41 +53,60 @@ export interface DescribeAffectedEntitiesCommandOutput extends DescribeAffectedE
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { HealthClient, DescribeAffectedEntitiesCommand } from "@aws-sdk/client-health"; // ES Modules import
- * // const { HealthClient, DescribeAffectedEntitiesCommand } = require("@aws-sdk/client-health"); // CommonJS import
+ * import { HealthClient, DescribeAffectedEntitiesCommand } from '@aws-sdk/client-health'; // ES Modules import
+ * // const { HealthClient, DescribeAffectedEntitiesCommand } = require('@aws-sdk/client-health'); // CommonJS import
  * const client = new HealthClient(config);
  * const input = { // DescribeAffectedEntitiesRequest
  *   filter: { // EntityFilter
  *     eventArns: [ // eventArnList // required
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     entityArns: [ // entityArnList
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     entityValues: [ // entityValueList
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     lastUpdatedTimes: [ // dateTimeRangeList
  *       { // DateTimeRange
- *         from: new Date("TIMESTAMP"),
- *         to: new Date("TIMESTAMP"),
+ *         from: new Date('TIMESTAMP'),
+ *         to: new Date('TIMESTAMP'),
  *       },
  *     ],
  *     tags: [ // tagFilter
  *       { // tagSet
- *         "<keys>": "STRING_VALUE",
+ *         '<keys>': 'STRING_VALUE',
  *       },
  *     ],
  *     statusCodes: [ // entityStatusCodeList
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *   },
- *   locale: "STRING_VALUE",
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   locale: 'STRING_VALUE',
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new DescribeAffectedEntitiesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeAffectedEntitiesResponse
+ *   entities: [ // EntityList
+ *     { // AffectedEntity
+ *       entityArn: 'STRING_VALUE',
+ *       eventArn: 'STRING_VALUE',
+ *       entityValue: 'STRING_VALUE',
+ *       entityUrl: 'STRING_VALUE',
+ *       awsAccountId: 'STRING_VALUE',
+ *       lastUpdatedTime: new Date('TIMESTAMP'),
+ *       statusCode: 'STRING_VALUE',
+ *       tags: { // tagSet
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeAffectedEntitiesCommandInput - {@link DescribeAffectedEntitiesCommandInput}
@@ -102,6 +121,8 @@ export interface DescribeAffectedEntitiesCommandOutput extends DescribeAffectedE
  * @throws {@link UnsupportedLocale} (client fault)
  *  <p>The specified locale is not supported.</p>
  *
+ * @throws {@link HealthServiceException}
+ * <p>Base exception class for all service exceptions from Health service.</p>
  *
  */
 export class DescribeAffectedEntitiesCommand extends $Command<

@@ -42,16 +42,26 @@ export interface GetRoleCredentialsCommandOutput extends GetRoleCredentialsRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSOClient, GetRoleCredentialsCommand } from "@aws-sdk/client-sso"; // ES Modules import
- * // const { SSOClient, GetRoleCredentialsCommand } = require("@aws-sdk/client-sso"); // CommonJS import
+ * import { SSOClient, GetRoleCredentialsCommand } from '@aws-sdk/client-sso'; // ES Modules import
+ * // const { SSOClient, GetRoleCredentialsCommand } = require('@aws-sdk/client-sso'); // CommonJS import
  * const client = new SSOClient(config);
  * const input = { // GetRoleCredentialsRequest
- *   roleName: "STRING_VALUE", // required
- *   accountId: "STRING_VALUE", // required
- *   accessToken: "STRING_VALUE", // required
+ *   roleName: 'STRING_VALUE', // required
+ *   accountId: 'STRING_VALUE', // required
+ *   accessToken: 'STRING_VALUE', // required
  * };
  * const command = new GetRoleCredentialsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetRoleCredentialsResponse
+ *   roleCredentials: { // RoleCredentials
+ *     accessKeyId: 'STRING_VALUE',
+ *     secretAccessKey: 'STRING_VALUE',
+ *     sessionToken: 'STRING_VALUE',
+ *     expiration: Number('long'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetRoleCredentialsCommandInput - {@link GetRoleCredentialsCommandInput}
@@ -75,6 +85,8 @@ export interface GetRoleCredentialsCommandOutput extends GetRoleCredentialsRespo
  *  <p>Indicates that the request is not authorized. This can happen due to an invalid access
  *       token in the request.</p>
  *
+ * @throws {@link SSOServiceException}
+ * <p>Base exception class for all service exceptions from SSO service.</p>
  *
  */
 export class GetRoleCredentialsCommand extends $Command<

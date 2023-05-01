@@ -36,17 +36,20 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppflowClient, UntagResourceCommand } from "@aws-sdk/client-appflow"; // ES Modules import
- * // const { AppflowClient, UntagResourceCommand } = require("@aws-sdk/client-appflow"); // CommonJS import
+ * import { AppflowClient, UntagResourceCommand } from '@aws-sdk/client-appflow'; // ES Modules import
+ * // const { AppflowClient, UntagResourceCommand } = require('@aws-sdk/client-appflow'); // CommonJS import
  * const client = new AppflowClient(config);
  * const input = { // UntagResourceRequest
- *   resourceArn: "STRING_VALUE", // required
+ *   resourceArn: 'STRING_VALUE', // required
  *   tagKeys: [ // TagKeyList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new UntagResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UntagResourceCommandInput - {@link UntagResourceCommandInput}
@@ -66,6 +69,8 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p> The request has invalid or missing parameters. </p>
  *
+ * @throws {@link AppflowServiceException}
+ * <p>Base exception class for all service exceptions from Appflow service.</p>
  *
  */
 export class UntagResourceCommand extends $Command<

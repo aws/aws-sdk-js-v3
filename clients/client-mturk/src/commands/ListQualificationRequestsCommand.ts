@@ -43,16 +43,32 @@ export interface ListQualificationRequestsCommandOutput extends ListQualificatio
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MTurkClient, ListQualificationRequestsCommand } from "@aws-sdk/client-mturk"; // ES Modules import
- * // const { MTurkClient, ListQualificationRequestsCommand } = require("@aws-sdk/client-mturk"); // CommonJS import
+ * import { MTurkClient, ListQualificationRequestsCommand } from '@aws-sdk/client-mturk'; // ES Modules import
+ * // const { MTurkClient, ListQualificationRequestsCommand } = require('@aws-sdk/client-mturk'); // CommonJS import
  * const client = new MTurkClient(config);
  * const input = { // ListQualificationRequestsRequest
- *   QualificationTypeId: "STRING_VALUE",
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   QualificationTypeId: 'STRING_VALUE',
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListQualificationRequestsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListQualificationRequestsResponse
+ *   NumResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
+ *   QualificationRequests: [ // QualificationRequestList
+ *     { // QualificationRequest
+ *       QualificationRequestId: 'STRING_VALUE',
+ *       QualificationTypeId: 'STRING_VALUE',
+ *       WorkerId: 'STRING_VALUE',
+ *       Test: 'STRING_VALUE',
+ *       Answer: 'STRING_VALUE',
+ *       SubmitTime: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListQualificationRequestsCommandInput - {@link ListQualificationRequestsCommandInput}
@@ -67,6 +83,8 @@ export interface ListQualificationRequestsCommandOutput extends ListQualificatio
  * @throws {@link ServiceFault} (server fault)
  *  <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
  *
+ * @throws {@link MTurkServiceException}
+ * <p>Base exception class for all service exceptions from MTurk service.</p>
  *
  */
 export class ListQualificationRequestsCommand extends $Command<

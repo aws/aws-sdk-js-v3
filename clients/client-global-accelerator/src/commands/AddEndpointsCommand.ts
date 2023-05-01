@@ -55,21 +55,35 @@ export interface AddEndpointsCommandOutput extends AddEndpointsResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlobalAcceleratorClient, AddEndpointsCommand } from "@aws-sdk/client-global-accelerator"; // ES Modules import
- * // const { GlobalAcceleratorClient, AddEndpointsCommand } = require("@aws-sdk/client-global-accelerator"); // CommonJS import
+ * import { GlobalAcceleratorClient, AddEndpointsCommand } from '@aws-sdk/client-global-accelerator'; // ES Modules import
+ * // const { GlobalAcceleratorClient, AddEndpointsCommand } = require('@aws-sdk/client-global-accelerator'); // CommonJS import
  * const client = new GlobalAcceleratorClient(config);
  * const input = { // AddEndpointsRequest
  *   EndpointConfigurations: [ // EndpointConfigurations // required
  *     { // EndpointConfiguration
- *       EndpointId: "STRING_VALUE",
- *       Weight: Number("int"),
+ *       EndpointId: 'STRING_VALUE',
+ *       Weight: Number('int'),
  *       ClientIPPreservationEnabled: true || false,
  *     },
  *   ],
- *   EndpointGroupArn: "STRING_VALUE", // required
+ *   EndpointGroupArn: 'STRING_VALUE', // required
  * };
  * const command = new AddEndpointsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AddEndpointsResponse
+ *   EndpointDescriptions: [ // EndpointDescriptions
+ *     { // EndpointDescription
+ *       EndpointId: 'STRING_VALUE',
+ *       Weight: Number('int'),
+ *       HealthState: 'INITIAL' || 'HEALTHY' || 'UNHEALTHY',
+ *       HealthReason: 'STRING_VALUE',
+ *       ClientIPPreservationEnabled: true || false,
+ *     },
+ *   ],
+ *   EndpointGroupArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param AddEndpointsCommandInput - {@link AddEndpointsCommandInput}
@@ -96,6 +110,8 @@ export interface AddEndpointsCommandOutput extends AddEndpointsResponse, __Metad
  * @throws {@link TransactionInProgressException} (client fault)
  *  <p>There's already a transaction in progress. Another transaction can't be processed.</p>
  *
+ * @throws {@link GlobalAcceleratorServiceException}
+ * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
  */
 export class AddEndpointsCommand extends $Command<

@@ -36,22 +36,45 @@ export interface ListDataSourceSyncJobsCommandOutput extends ListDataSourceSyncJ
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KendraClient, ListDataSourceSyncJobsCommand } from "@aws-sdk/client-kendra"; // ES Modules import
- * // const { KendraClient, ListDataSourceSyncJobsCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
+ * import { KendraClient, ListDataSourceSyncJobsCommand } from '@aws-sdk/client-kendra'; // ES Modules import
+ * // const { KendraClient, ListDataSourceSyncJobsCommand } = require('@aws-sdk/client-kendra'); // CommonJS import
  * const client = new KendraClient(config);
  * const input = { // ListDataSourceSyncJobsRequest
- *   Id: "STRING_VALUE", // required
- *   IndexId: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   Id: 'STRING_VALUE', // required
+ *   IndexId: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  *   StartTimeFilter: { // TimeRange
- *     StartTime: new Date("TIMESTAMP"),
- *     EndTime: new Date("TIMESTAMP"),
+ *     StartTime: new Date('TIMESTAMP'),
+ *     EndTime: new Date('TIMESTAMP'),
  *   },
- *   StatusFilter: "FAILED" || "SUCCEEDED" || "SYNCING" || "INCOMPLETE" || "STOPPING" || "ABORTED" || "SYNCING_INDEXING",
+ *   StatusFilter: 'FAILED' || 'SUCCEEDED' || 'SYNCING' || 'INCOMPLETE' || 'STOPPING' || 'ABORTED' || 'SYNCING_INDEXING',
  * };
  * const command = new ListDataSourceSyncJobsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListDataSourceSyncJobsResponse
+ *   History: [ // DataSourceSyncJobHistoryList
+ *     { // DataSourceSyncJob
+ *       ExecutionId: 'STRING_VALUE',
+ *       StartTime: new Date('TIMESTAMP'),
+ *       EndTime: new Date('TIMESTAMP'),
+ *       Status: 'FAILED' || 'SUCCEEDED' || 'SYNCING' || 'INCOMPLETE' || 'STOPPING' || 'ABORTED' || 'SYNCING_INDEXING',
+ *       ErrorMessage: 'STRING_VALUE',
+ *       ErrorCode: 'InternalError' || 'InvalidRequest',
+ *       DataSourceErrorCode: 'STRING_VALUE',
+ *       Metrics: { // DataSourceSyncJobMetrics
+ *         DocumentsAdded: 'STRING_VALUE',
+ *         DocumentsModified: 'STRING_VALUE',
+ *         DocumentsDeleted: 'STRING_VALUE',
+ *         DocumentsFailed: 'STRING_VALUE',
+ *         DocumentsScanned: 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListDataSourceSyncJobsCommandInput - {@link ListDataSourceSyncJobsCommandInput}
@@ -84,6 +107,8 @@ export interface ListDataSourceSyncJobsCommandOutput extends ListDataSourceSyncJ
  *  <p>The input fails to satisfy the constraints set by the Amazon Kendra service.
  *             Please provide the correct input and try again.</p>
  *
+ * @throws {@link KendraServiceException}
+ * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
  */
 export class ListDataSourceSyncJobsCommand extends $Command<

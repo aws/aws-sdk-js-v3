@@ -36,14 +36,17 @@ export interface DeleteSourceServerCommandOutput extends DeleteSourceServerRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MgnClient, DeleteSourceServerCommand } from "@aws-sdk/client-mgn"; // ES Modules import
- * // const { MgnClient, DeleteSourceServerCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
+ * import { MgnClient, DeleteSourceServerCommand } from '@aws-sdk/client-mgn'; // ES Modules import
+ * // const { MgnClient, DeleteSourceServerCommand } = require('@aws-sdk/client-mgn'); // CommonJS import
  * const client = new MgnClient(config);
  * const input = { // DeleteSourceServerRequest
- *   sourceServerID: "STRING_VALUE", // required
+ *   sourceServerID: 'STRING_VALUE', // required
  * };
  * const command = new DeleteSourceServerCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteSourceServerCommandInput - {@link DeleteSourceServerCommandInput}
@@ -61,6 +64,8 @@ export interface DeleteSourceServerCommandOutput extends DeleteSourceServerRespo
  * @throws {@link UninitializedAccountException} (client fault)
  *  <p>Uninitialized account exception.</p>
  *
+ * @throws {@link MgnServiceException}
+ * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
  */
 export class DeleteSourceServerCommand extends $Command<

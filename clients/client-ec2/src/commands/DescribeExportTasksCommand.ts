@@ -36,24 +36,52 @@ export interface DescribeExportTasksCommandOutput extends DescribeExportTasksRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, DescribeExportTasksCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, DescribeExportTasksCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, DescribeExportTasksCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, DescribeExportTasksCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // DescribeExportTasksRequest
  *   ExportTaskIds: [ // ExportTaskIdStringList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   Filters: [ // FilterList
  *     { // Filter
- *       Name: "STRING_VALUE",
+ *       Name: 'STRING_VALUE',
  *       Values: [ // ValueStringList
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
  * };
  * const command = new DescribeExportTasksCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeExportTasksResult
+ *   ExportTasks: [ // ExportTaskList
+ *     { // ExportTask
+ *       Description: 'STRING_VALUE',
+ *       ExportTaskId: 'STRING_VALUE',
+ *       ExportToS3Task: { // ExportToS3Task
+ *         ContainerFormat: 'ova',
+ *         DiskImageFormat: 'VMDK' || 'RAW' || 'VHD',
+ *         S3Bucket: 'STRING_VALUE',
+ *         S3Key: 'STRING_VALUE',
+ *       },
+ *       InstanceExportDetails: { // InstanceExportDetails
+ *         InstanceId: 'STRING_VALUE',
+ *         TargetEnvironment: 'citrix' || 'vmware' || 'microsoft',
+ *       },
+ *       State: 'active' || 'cancelling' || 'cancelled' || 'completed',
+ *       StatusMessage: 'STRING_VALUE',
+ *       Tags: [ // TagList
+ *         { // Tag
+ *           Key: 'STRING_VALUE',
+ *           Value: 'STRING_VALUE',
+ *         },
+ *       ],
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeExportTasksCommandInput - {@link DescribeExportTasksCommandInput}
@@ -62,6 +90,8 @@ export interface DescribeExportTasksCommandOutput extends DescribeExportTasksRes
  * @see {@link DescribeExportTasksCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class DescribeExportTasksCommand extends $Command<

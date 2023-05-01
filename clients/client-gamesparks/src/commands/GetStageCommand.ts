@@ -36,15 +36,33 @@ export interface GetStageCommandOutput extends GetStageResult, __MetadataBearer 
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GameSparksClient, GetStageCommand } from "@aws-sdk/client-gamesparks"; // ES Modules import
- * // const { GameSparksClient, GetStageCommand } = require("@aws-sdk/client-gamesparks"); // CommonJS import
+ * import { GameSparksClient, GetStageCommand } from '@aws-sdk/client-gamesparks'; // ES Modules import
+ * // const { GameSparksClient, GetStageCommand } = require('@aws-sdk/client-gamesparks'); // CommonJS import
  * const client = new GameSparksClient(config);
  * const input = { // GetStageRequest
- *   GameName: "STRING_VALUE", // required
- *   StageName: "STRING_VALUE", // required
+ *   GameName: 'STRING_VALUE', // required
+ *   StageName: 'STRING_VALUE', // required
  * };
  * const command = new GetStageCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetStageResult
+ *   Stage: { // StageDetails
+ *     Name: 'STRING_VALUE',
+ *     GameKey: 'STRING_VALUE',
+ *     Arn: 'STRING_VALUE',
+ *     Role: 'STRING_VALUE',
+ *     Description: 'STRING_VALUE',
+ *     Created: new Date('TIMESTAMP'),
+ *     LastUpdated: new Date('TIMESTAMP'),
+ *     State: 'STRING_VALUE',
+ *     Tags: { // TagMap
+ *       '<keys>': 'STRING_VALUE',
+ *     },
+ *     LogGroup: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetStageCommandInput - {@link GetStageCommandInput}
@@ -68,6 +86,8 @@ export interface GetStageCommandOutput extends GetStageResult, __MetadataBearer 
  * @throws {@link ValidationException} (client fault)
  *  <p>One of the parameters in the request is invalid.</p>
  *
+ * @throws {@link GameSparksServiceException}
+ * <p>Base exception class for all service exceptions from GameSparks service.</p>
  *
  */
 export class GetStageCommand extends $Command<

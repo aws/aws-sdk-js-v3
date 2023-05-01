@@ -37,14 +37,17 @@ export interface DeleteSchedulingPolicyCommandOutput extends DeleteSchedulingPol
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BatchClient, DeleteSchedulingPolicyCommand } from "@aws-sdk/client-batch"; // ES Modules import
- * // const { BatchClient, DeleteSchedulingPolicyCommand } = require("@aws-sdk/client-batch"); // CommonJS import
+ * import { BatchClient, DeleteSchedulingPolicyCommand } from '@aws-sdk/client-batch'; // ES Modules import
+ * // const { BatchClient, DeleteSchedulingPolicyCommand } = require('@aws-sdk/client-batch'); // CommonJS import
  * const client = new BatchClient(config);
  * const input = { // DeleteSchedulingPolicyRequest
- *   arn: "STRING_VALUE", // required
+ *   arn: 'STRING_VALUE', // required
  * };
  * const command = new DeleteSchedulingPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteSchedulingPolicyCommandInput - {@link DeleteSchedulingPolicyCommandInput}
@@ -61,6 +64,8 @@ export interface DeleteSchedulingPolicyCommandOutput extends DeleteSchedulingPol
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server issue.</p>
  *
+ * @throws {@link BatchServiceException}
+ * <p>Base exception class for all service exceptions from Batch service.</p>
  *
  */
 export class DeleteSchedulingPolicyCommand extends $Command<

@@ -41,14 +41,17 @@ export interface DeleteSuppressedDestinationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SESv2Client, DeleteSuppressedDestinationCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
- * // const { SESv2Client, DeleteSuppressedDestinationCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
+ * import { SESv2Client, DeleteSuppressedDestinationCommand } from '@aws-sdk/client-sesv2'; // ES Modules import
+ * // const { SESv2Client, DeleteSuppressedDestinationCommand } = require('@aws-sdk/client-sesv2'); // CommonJS import
  * const client = new SESv2Client(config);
  * const input = { // DeleteSuppressedDestinationRequest
- *   EmailAddress: "STRING_VALUE", // required
+ *   EmailAddress: 'STRING_VALUE', // required
  * };
  * const command = new DeleteSuppressedDestinationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteSuppressedDestinationCommandInput - {@link DeleteSuppressedDestinationCommandInput}
@@ -66,6 +69,8 @@ export interface DeleteSuppressedDestinationCommandOutput
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Too many requests have been made to the operation.</p>
  *
+ * @throws {@link SESv2ServiceException}
+ * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
  */
 export class DeleteSuppressedDestinationCommand extends $Command<

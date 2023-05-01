@@ -43,14 +43,17 @@ export interface DeleteHostCommandOutput extends DeleteHostOutput, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeStarConnectionsClient, DeleteHostCommand } from "@aws-sdk/client-codestar-connections"; // ES Modules import
- * // const { CodeStarConnectionsClient, DeleteHostCommand } = require("@aws-sdk/client-codestar-connections"); // CommonJS import
+ * import { CodeStarConnectionsClient, DeleteHostCommand } from '@aws-sdk/client-codestar-connections'; // ES Modules import
+ * // const { CodeStarConnectionsClient, DeleteHostCommand } = require('@aws-sdk/client-codestar-connections'); // CommonJS import
  * const client = new CodeStarConnectionsClient(config);
  * const input = { // DeleteHostInput
- *   HostArn: "STRING_VALUE", // required
+ *   HostArn: 'STRING_VALUE', // required
  * };
  * const command = new DeleteHostCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteHostCommandInput - {@link DeleteHostCommandInput}
@@ -65,6 +68,8 @@ export interface DeleteHostCommandOutput extends DeleteHostOutput, __MetadataBea
  * @throws {@link ResourceUnavailableException} (client fault)
  *  <p>Resource not found. Verify the ARN for the host resource and try again.</p>
  *
+ * @throws {@link CodeStarConnectionsServiceException}
+ * <p>Base exception class for all service exceptions from CodeStarConnections service.</p>
  *
  */
 export class DeleteHostCommand extends $Command<

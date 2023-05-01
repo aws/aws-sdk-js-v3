@@ -93,25 +93,25 @@ export interface PutBucketNotificationConfigurationCommandOutput extends __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { S3Client, PutBucketNotificationConfigurationCommand } from "@aws-sdk/client-s3"; // ES Modules import
- * // const { S3Client, PutBucketNotificationConfigurationCommand } = require("@aws-sdk/client-s3"); // CommonJS import
+ * import { S3Client, PutBucketNotificationConfigurationCommand } from '@aws-sdk/client-s3'; // ES Modules import
+ * // const { S3Client, PutBucketNotificationConfigurationCommand } = require('@aws-sdk/client-s3'); // CommonJS import
  * const client = new S3Client(config);
  * const input = { // PutBucketNotificationConfigurationRequest
- *   Bucket: "STRING_VALUE", // required
+ *   Bucket: 'STRING_VALUE', // required
  *   NotificationConfiguration: { // NotificationConfiguration
  *     TopicConfigurations: [ // TopicConfigurationList
  *       { // TopicConfiguration
- *         Id: "STRING_VALUE",
- *         TopicArn: "STRING_VALUE", // required
+ *         Id: 'STRING_VALUE',
+ *         TopicArn: 'STRING_VALUE', // required
  *         Events: [ // EventList // required
- *           "s3:ReducedRedundancyLostObject" || "s3:ObjectCreated:*" || "s3:ObjectCreated:Put" || "s3:ObjectCreated:Post" || "s3:ObjectCreated:Copy" || "s3:ObjectCreated:CompleteMultipartUpload" || "s3:ObjectRemoved:*" || "s3:ObjectRemoved:Delete" || "s3:ObjectRemoved:DeleteMarkerCreated" || "s3:ObjectRestore:*" || "s3:ObjectRestore:Post" || "s3:ObjectRestore:Completed" || "s3:Replication:*" || "s3:Replication:OperationFailedReplication" || "s3:Replication:OperationNotTracked" || "s3:Replication:OperationMissedThreshold" || "s3:Replication:OperationReplicatedAfterThreshold" || "s3:ObjectRestore:Delete" || "s3:LifecycleTransition" || "s3:IntelligentTiering" || "s3:ObjectAcl:Put" || "s3:LifecycleExpiration:*" || "s3:LifecycleExpiration:Delete" || "s3:LifecycleExpiration:DeleteMarkerCreated" || "s3:ObjectTagging:*" || "s3:ObjectTagging:Put" || "s3:ObjectTagging:Delete",
+ *           's3:ReducedRedundancyLostObject' || 's3:ObjectCreated:*' || 's3:ObjectCreated:Put' || 's3:ObjectCreated:Post' || 's3:ObjectCreated:Copy' || 's3:ObjectCreated:CompleteMultipartUpload' || 's3:ObjectRemoved:*' || 's3:ObjectRemoved:Delete' || 's3:ObjectRemoved:DeleteMarkerCreated' || 's3:ObjectRestore:*' || 's3:ObjectRestore:Post' || 's3:ObjectRestore:Completed' || 's3:Replication:*' || 's3:Replication:OperationFailedReplication' || 's3:Replication:OperationNotTracked' || 's3:Replication:OperationMissedThreshold' || 's3:Replication:OperationReplicatedAfterThreshold' || 's3:ObjectRestore:Delete' || 's3:LifecycleTransition' || 's3:IntelligentTiering' || 's3:ObjectAcl:Put' || 's3:LifecycleExpiration:*' || 's3:LifecycleExpiration:Delete' || 's3:LifecycleExpiration:DeleteMarkerCreated' || 's3:ObjectTagging:*' || 's3:ObjectTagging:Put' || 's3:ObjectTagging:Delete',
  *         ],
  *         Filter: { // NotificationConfigurationFilter
  *           Key: { // S3KeyFilter
  *             FilterRules: [ // FilterRuleList
  *               { // FilterRule
- *                 Name: "prefix" || "suffix",
- *                 Value: "STRING_VALUE",
+ *                 Name: 'prefix' || 'suffix',
+ *                 Value: 'STRING_VALUE',
  *               },
  *             ],
  *           },
@@ -120,17 +120,17 @@ export interface PutBucketNotificationConfigurationCommandOutput extends __Metad
  *     ],
  *     QueueConfigurations: [ // QueueConfigurationList
  *       { // QueueConfiguration
- *         Id: "STRING_VALUE",
- *         QueueArn: "STRING_VALUE", // required
+ *         Id: 'STRING_VALUE',
+ *         QueueArn: 'STRING_VALUE', // required
  *         Events: [ // required
- *           "s3:ReducedRedundancyLostObject" || "s3:ObjectCreated:*" || "s3:ObjectCreated:Put" || "s3:ObjectCreated:Post" || "s3:ObjectCreated:Copy" || "s3:ObjectCreated:CompleteMultipartUpload" || "s3:ObjectRemoved:*" || "s3:ObjectRemoved:Delete" || "s3:ObjectRemoved:DeleteMarkerCreated" || "s3:ObjectRestore:*" || "s3:ObjectRestore:Post" || "s3:ObjectRestore:Completed" || "s3:Replication:*" || "s3:Replication:OperationFailedReplication" || "s3:Replication:OperationNotTracked" || "s3:Replication:OperationMissedThreshold" || "s3:Replication:OperationReplicatedAfterThreshold" || "s3:ObjectRestore:Delete" || "s3:LifecycleTransition" || "s3:IntelligentTiering" || "s3:ObjectAcl:Put" || "s3:LifecycleExpiration:*" || "s3:LifecycleExpiration:Delete" || "s3:LifecycleExpiration:DeleteMarkerCreated" || "s3:ObjectTagging:*" || "s3:ObjectTagging:Put" || "s3:ObjectTagging:Delete",
+ *           's3:ReducedRedundancyLostObject' || 's3:ObjectCreated:*' || 's3:ObjectCreated:Put' || 's3:ObjectCreated:Post' || 's3:ObjectCreated:Copy' || 's3:ObjectCreated:CompleteMultipartUpload' || 's3:ObjectRemoved:*' || 's3:ObjectRemoved:Delete' || 's3:ObjectRemoved:DeleteMarkerCreated' || 's3:ObjectRestore:*' || 's3:ObjectRestore:Post' || 's3:ObjectRestore:Completed' || 's3:Replication:*' || 's3:Replication:OperationFailedReplication' || 's3:Replication:OperationNotTracked' || 's3:Replication:OperationMissedThreshold' || 's3:Replication:OperationReplicatedAfterThreshold' || 's3:ObjectRestore:Delete' || 's3:LifecycleTransition' || 's3:IntelligentTiering' || 's3:ObjectAcl:Put' || 's3:LifecycleExpiration:*' || 's3:LifecycleExpiration:Delete' || 's3:LifecycleExpiration:DeleteMarkerCreated' || 's3:ObjectTagging:*' || 's3:ObjectTagging:Put' || 's3:ObjectTagging:Delete',
  *         ],
  *         Filter: {
  *           Key: {
  *             FilterRules: [
  *               {
- *                 Name: "prefix" || "suffix",
- *                 Value: "STRING_VALUE",
+ *                 Name: 'prefix' || 'suffix',
+ *                 Value: 'STRING_VALUE',
  *               },
  *             ],
  *           },
@@ -139,17 +139,17 @@ export interface PutBucketNotificationConfigurationCommandOutput extends __Metad
  *     ],
  *     LambdaFunctionConfigurations: [ // LambdaFunctionConfigurationList
  *       { // LambdaFunctionConfiguration
- *         Id: "STRING_VALUE",
- *         LambdaFunctionArn: "STRING_VALUE", // required
+ *         Id: 'STRING_VALUE',
+ *         LambdaFunctionArn: 'STRING_VALUE', // required
  *         Events: [ // required
- *           "s3:ReducedRedundancyLostObject" || "s3:ObjectCreated:*" || "s3:ObjectCreated:Put" || "s3:ObjectCreated:Post" || "s3:ObjectCreated:Copy" || "s3:ObjectCreated:CompleteMultipartUpload" || "s3:ObjectRemoved:*" || "s3:ObjectRemoved:Delete" || "s3:ObjectRemoved:DeleteMarkerCreated" || "s3:ObjectRestore:*" || "s3:ObjectRestore:Post" || "s3:ObjectRestore:Completed" || "s3:Replication:*" || "s3:Replication:OperationFailedReplication" || "s3:Replication:OperationNotTracked" || "s3:Replication:OperationMissedThreshold" || "s3:Replication:OperationReplicatedAfterThreshold" || "s3:ObjectRestore:Delete" || "s3:LifecycleTransition" || "s3:IntelligentTiering" || "s3:ObjectAcl:Put" || "s3:LifecycleExpiration:*" || "s3:LifecycleExpiration:Delete" || "s3:LifecycleExpiration:DeleteMarkerCreated" || "s3:ObjectTagging:*" || "s3:ObjectTagging:Put" || "s3:ObjectTagging:Delete",
+ *           's3:ReducedRedundancyLostObject' || 's3:ObjectCreated:*' || 's3:ObjectCreated:Put' || 's3:ObjectCreated:Post' || 's3:ObjectCreated:Copy' || 's3:ObjectCreated:CompleteMultipartUpload' || 's3:ObjectRemoved:*' || 's3:ObjectRemoved:Delete' || 's3:ObjectRemoved:DeleteMarkerCreated' || 's3:ObjectRestore:*' || 's3:ObjectRestore:Post' || 's3:ObjectRestore:Completed' || 's3:Replication:*' || 's3:Replication:OperationFailedReplication' || 's3:Replication:OperationNotTracked' || 's3:Replication:OperationMissedThreshold' || 's3:Replication:OperationReplicatedAfterThreshold' || 's3:ObjectRestore:Delete' || 's3:LifecycleTransition' || 's3:IntelligentTiering' || 's3:ObjectAcl:Put' || 's3:LifecycleExpiration:*' || 's3:LifecycleExpiration:Delete' || 's3:LifecycleExpiration:DeleteMarkerCreated' || 's3:ObjectTagging:*' || 's3:ObjectTagging:Put' || 's3:ObjectTagging:Delete',
  *         ],
  *         Filter: {
  *           Key: {
  *             FilterRules: [
  *               {
- *                 Name: "prefix" || "suffix",
- *                 Value: "STRING_VALUE",
+ *                 Name: 'prefix' || 'suffix',
+ *                 Value: 'STRING_VALUE',
  *               },
  *             ],
  *           },
@@ -158,11 +158,14 @@ export interface PutBucketNotificationConfigurationCommandOutput extends __Metad
  *     ],
  *     EventBridgeConfiguration: {},
  *   },
- *   ExpectedBucketOwner: "STRING_VALUE",
+ *   ExpectedBucketOwner: 'STRING_VALUE',
  *   SkipDestinationValidation: true || false,
  * };
  * const command = new PutBucketNotificationConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutBucketNotificationConfigurationCommandInput - {@link PutBucketNotificationConfigurationCommandInput}
@@ -171,6 +174,8 @@ export interface PutBucketNotificationConfigurationCommandOutput extends __Metad
  * @see {@link PutBucketNotificationConfigurationCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
+ * @throws {@link S3ServiceException}
+ * <p>Base exception class for all service exceptions from S3 service.</p>
  *
  * @example Set notification configuration for a bucket
  * ```javascript

@@ -36,16 +36,19 @@ export interface UpdateResourceCommandOutput extends UpdateResourceResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LakeFormationClient, UpdateResourceCommand } from "@aws-sdk/client-lakeformation"; // ES Modules import
- * // const { LakeFormationClient, UpdateResourceCommand } = require("@aws-sdk/client-lakeformation"); // CommonJS import
+ * import { LakeFormationClient, UpdateResourceCommand } from '@aws-sdk/client-lakeformation'; // ES Modules import
+ * // const { LakeFormationClient, UpdateResourceCommand } = require('@aws-sdk/client-lakeformation'); // CommonJS import
  * const client = new LakeFormationClient(config);
  * const input = { // UpdateResourceRequest
- *   RoleArn: "STRING_VALUE", // required
- *   ResourceArn: "STRING_VALUE", // required
+ *   RoleArn: 'STRING_VALUE', // required
+ *   ResourceArn: 'STRING_VALUE', // required
  *   WithFederation: true || false,
  * };
  * const command = new UpdateResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateResourceCommandInput - {@link UpdateResourceCommandInput}
@@ -66,6 +69,8 @@ export interface UpdateResourceCommandOutput extends UpdateResourceResponse, __M
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link LakeFormationServiceException}
+ * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
  */
 export class UpdateResourceCommand extends $Command<

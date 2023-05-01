@@ -66,57 +66,57 @@ export interface CreateStreamProcessorCommandOutput extends CreateStreamProcesso
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RekognitionClient, CreateStreamProcessorCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
- * // const { RekognitionClient, CreateStreamProcessorCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
+ * import { RekognitionClient, CreateStreamProcessorCommand } from '@aws-sdk/client-rekognition'; // ES Modules import
+ * // const { RekognitionClient, CreateStreamProcessorCommand } = require('@aws-sdk/client-rekognition'); // CommonJS import
  * const client = new RekognitionClient(config);
  * const input = { // CreateStreamProcessorRequest
  *   Input: { // StreamProcessorInput
  *     KinesisVideoStream: { // KinesisVideoStream
- *       Arn: "STRING_VALUE",
+ *       Arn: 'STRING_VALUE',
  *     },
  *   },
  *   Output: { // StreamProcessorOutput
  *     KinesisDataStream: { // KinesisDataStream
- *       Arn: "STRING_VALUE",
+ *       Arn: 'STRING_VALUE',
  *     },
  *     S3Destination: { // S3Destination
- *       Bucket: "STRING_VALUE",
- *       KeyPrefix: "STRING_VALUE",
+ *       Bucket: 'STRING_VALUE',
+ *       KeyPrefix: 'STRING_VALUE',
  *     },
  *   },
- *   Name: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
  *   Settings: { // StreamProcessorSettings
  *     FaceSearch: { // FaceSearchSettings
- *       CollectionId: "STRING_VALUE",
- *       FaceMatchThreshold: Number("float"),
+ *       CollectionId: 'STRING_VALUE',
+ *       FaceMatchThreshold: Number('float'),
  *     },
  *     ConnectedHome: { // ConnectedHomeSettings
  *       Labels: [ // ConnectedHomeLabels // required
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
- *       MinConfidence: Number("float"),
+ *       MinConfidence: Number('float'),
  *     },
  *   },
- *   RoleArn: "STRING_VALUE", // required
+ *   RoleArn: 'STRING_VALUE', // required
  *   Tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  *   NotificationChannel: { // StreamProcessorNotificationChannel
- *     SNSTopicArn: "STRING_VALUE", // required
+ *     SNSTopicArn: 'STRING_VALUE', // required
  *   },
- *   KmsKeyId: "STRING_VALUE",
+ *   KmsKeyId: 'STRING_VALUE',
  *   RegionsOfInterest: [ // RegionsOfInterest
  *     { // RegionOfInterest
  *       BoundingBox: { // BoundingBox
- *         Width: Number("float"),
- *         Height: Number("float"),
- *         Left: Number("float"),
- *         Top: Number("float"),
+ *         Width: Number('float'),
+ *         Height: Number('float'),
+ *         Left: Number('float'),
+ *         Top: Number('float'),
  *       },
  *       Polygon: [ // Polygon
  *         { // Point
- *           X: Number("float"),
- *           Y: Number("float"),
+ *           X: Number('float'),
+ *           Y: Number('float'),
  *         },
  *       ],
  *     },
@@ -127,6 +127,11 @@ export interface CreateStreamProcessorCommandOutput extends CreateStreamProcesso
  * };
  * const command = new CreateStreamProcessorCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateStreamProcessorResponse
+ *   StreamProcessorArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateStreamProcessorCommandInput - {@link CreateStreamProcessorCommandInput}
@@ -165,6 +170,8 @@ export interface CreateStreamProcessorCommandOutput extends CreateStreamProcesso
  * @throws {@link ThrottlingException} (server fault)
  *  <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
  *
+ * @throws {@link RekognitionServiceException}
+ * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
  */
 export class CreateStreamProcessorCommand extends $Command<

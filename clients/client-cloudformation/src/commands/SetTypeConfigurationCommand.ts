@@ -48,18 +48,23 @@ export interface SetTypeConfigurationCommandOutput extends SetTypeConfigurationO
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudFormationClient, SetTypeConfigurationCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
- * // const { CloudFormationClient, SetTypeConfigurationCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
+ * import { CloudFormationClient, SetTypeConfigurationCommand } from '@aws-sdk/client-cloudformation'; // ES Modules import
+ * // const { CloudFormationClient, SetTypeConfigurationCommand } = require('@aws-sdk/client-cloudformation'); // CommonJS import
  * const client = new CloudFormationClient(config);
  * const input = { // SetTypeConfigurationInput
- *   TypeArn: "STRING_VALUE",
- *   Configuration: "STRING_VALUE", // required
- *   ConfigurationAlias: "STRING_VALUE",
- *   TypeName: "STRING_VALUE",
- *   Type: "RESOURCE" || "MODULE" || "HOOK",
+ *   TypeArn: 'STRING_VALUE',
+ *   Configuration: 'STRING_VALUE', // required
+ *   ConfigurationAlias: 'STRING_VALUE',
+ *   TypeName: 'STRING_VALUE',
+ *   Type: 'RESOURCE' || 'MODULE' || 'HOOK',
  * };
  * const command = new SetTypeConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SetTypeConfigurationOutput
+ *   ConfigurationArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param SetTypeConfigurationCommandInput - {@link SetTypeConfigurationCommandInput}
@@ -74,6 +79,8 @@ export interface SetTypeConfigurationCommandOutput extends SetTypeConfigurationO
  * @throws {@link TypeNotFoundException} (client fault)
  *  <p>The specified extension doesn't exist in the CloudFormation registry.</p>
  *
+ * @throws {@link CloudFormationServiceException}
+ * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
  */
 export class SetTypeConfigurationCommand extends $Command<

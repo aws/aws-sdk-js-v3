@@ -41,23 +41,44 @@ export interface ListDistributionConfigurationsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ImagebuilderClient, ListDistributionConfigurationsCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
- * // const { ImagebuilderClient, ListDistributionConfigurationsCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
+ * import { ImagebuilderClient, ListDistributionConfigurationsCommand } from '@aws-sdk/client-imagebuilder'; // ES Modules import
+ * // const { ImagebuilderClient, ListDistributionConfigurationsCommand } = require('@aws-sdk/client-imagebuilder'); // CommonJS import
  * const client = new ImagebuilderClient(config);
  * const input = { // ListDistributionConfigurationsRequest
  *   filters: [ // FilterList
  *     { // Filter
- *       name: "STRING_VALUE",
+ *       name: 'STRING_VALUE',
  *       values: [ // FilterValues
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new ListDistributionConfigurationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListDistributionConfigurationsResponse
+ *   requestId: 'STRING_VALUE',
+ *   distributionConfigurationSummaryList: [ // DistributionConfigurationSummaryList
+ *     { // DistributionConfigurationSummary
+ *       arn: 'STRING_VALUE',
+ *       name: 'STRING_VALUE',
+ *       description: 'STRING_VALUE',
+ *       dateCreated: 'STRING_VALUE',
+ *       dateUpdated: 'STRING_VALUE',
+ *       tags: { // TagMap
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *       regions: [ // RegionList
+ *         'STRING_VALUE',
+ *       ],
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListDistributionConfigurationsCommandInput - {@link ListDistributionConfigurationsCommandInput}
@@ -90,6 +111,8 @@ export interface ListDistributionConfigurationsCommandOutput
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service is unable to process your request at this time.</p>
  *
+ * @throws {@link ImagebuilderServiceException}
+ * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
  */
 export class ListDistributionConfigurationsCommand extends $Command<

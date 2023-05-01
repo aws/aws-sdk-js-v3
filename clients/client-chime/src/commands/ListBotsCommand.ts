@@ -36,16 +36,34 @@ export interface ListBotsCommandOutput extends ListBotsResponse, __MetadataBeare
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeClient, ListBotsCommand } from "@aws-sdk/client-chime"; // ES Modules import
- * // const { ChimeClient, ListBotsCommand } = require("@aws-sdk/client-chime"); // CommonJS import
+ * import { ChimeClient, ListBotsCommand } from '@aws-sdk/client-chime'; // ES Modules import
+ * // const { ChimeClient, ListBotsCommand } = require('@aws-sdk/client-chime'); // CommonJS import
  * const client = new ChimeClient(config);
  * const input = { // ListBotsRequest
- *   AccountId: "STRING_VALUE", // required
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   AccountId: 'STRING_VALUE', // required
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListBotsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListBotsResponse
+ *   Bots: [ // BotList
+ *     { // Bot
+ *       BotId: 'STRING_VALUE',
+ *       UserId: 'STRING_VALUE',
+ *       DisplayName: 'STRING_VALUE',
+ *       BotType: 'ChatBot',
+ *       Disabled: true || false,
+ *       CreatedTimestamp: new Date('TIMESTAMP'),
+ *       UpdatedTimestamp: new Date('TIMESTAMP'),
+ *       BotEmail: 'STRING_VALUE',
+ *       SecurityToken: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListBotsCommandInput - {@link ListBotsCommandInput}
@@ -75,6 +93,8 @@ export interface ListBotsCommandOutput extends ListBotsResponse, __MetadataBeare
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeServiceException}
+ * <p>Base exception class for all service exceptions from Chime service.</p>
  *
  */
 export class ListBotsCommand extends $Command<ListBotsCommandInput, ListBotsCommandOutput, ChimeClientResolvedConfig> {

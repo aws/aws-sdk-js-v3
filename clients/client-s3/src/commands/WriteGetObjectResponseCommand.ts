@@ -67,55 +67,58 @@ export interface WriteGetObjectResponseCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { S3Client, WriteGetObjectResponseCommand } from "@aws-sdk/client-s3"; // ES Modules import
- * // const { S3Client, WriteGetObjectResponseCommand } = require("@aws-sdk/client-s3"); // CommonJS import
+ * import { S3Client, WriteGetObjectResponseCommand } from '@aws-sdk/client-s3'; // ES Modules import
+ * // const { S3Client, WriteGetObjectResponseCommand } = require('@aws-sdk/client-s3'); // CommonJS import
  * const client = new S3Client(config);
  * const input = { // WriteGetObjectResponseRequest
- *   RequestRoute: "STRING_VALUE", // required
- *   RequestToken: "STRING_VALUE", // required
- *   Body: "STREAMING_BLOB_VALUE",
- *   StatusCode: Number("int"),
- *   ErrorCode: "STRING_VALUE",
- *   ErrorMessage: "STRING_VALUE",
- *   AcceptRanges: "STRING_VALUE",
- *   CacheControl: "STRING_VALUE",
- *   ContentDisposition: "STRING_VALUE",
- *   ContentEncoding: "STRING_VALUE",
- *   ContentLanguage: "STRING_VALUE",
- *   ContentLength: Number("long"),
- *   ContentRange: "STRING_VALUE",
- *   ContentType: "STRING_VALUE",
- *   ChecksumCRC32: "STRING_VALUE",
- *   ChecksumCRC32C: "STRING_VALUE",
- *   ChecksumSHA1: "STRING_VALUE",
- *   ChecksumSHA256: "STRING_VALUE",
+ *   RequestRoute: 'STRING_VALUE', // required
+ *   RequestToken: 'STRING_VALUE', // required
+ *   Body: 'STREAMING_BLOB_VALUE',
+ *   StatusCode: Number('int'),
+ *   ErrorCode: 'STRING_VALUE',
+ *   ErrorMessage: 'STRING_VALUE',
+ *   AcceptRanges: 'STRING_VALUE',
+ *   CacheControl: 'STRING_VALUE',
+ *   ContentDisposition: 'STRING_VALUE',
+ *   ContentEncoding: 'STRING_VALUE',
+ *   ContentLanguage: 'STRING_VALUE',
+ *   ContentLength: Number('long'),
+ *   ContentRange: 'STRING_VALUE',
+ *   ContentType: 'STRING_VALUE',
+ *   ChecksumCRC32: 'STRING_VALUE',
+ *   ChecksumCRC32C: 'STRING_VALUE',
+ *   ChecksumSHA1: 'STRING_VALUE',
+ *   ChecksumSHA256: 'STRING_VALUE',
  *   DeleteMarker: true || false,
- *   ETag: "STRING_VALUE",
- *   Expires: new Date("TIMESTAMP"),
- *   Expiration: "STRING_VALUE",
- *   LastModified: new Date("TIMESTAMP"),
- *   MissingMeta: Number("int"),
+ *   ETag: 'STRING_VALUE',
+ *   Expires: new Date('TIMESTAMP'),
+ *   Expiration: 'STRING_VALUE',
+ *   LastModified: new Date('TIMESTAMP'),
+ *   MissingMeta: Number('int'),
  *   Metadata: { // Metadata
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
- *   ObjectLockMode: "GOVERNANCE" || "COMPLIANCE",
- *   ObjectLockLegalHoldStatus: "ON" || "OFF",
- *   ObjectLockRetainUntilDate: new Date("TIMESTAMP"),
- *   PartsCount: Number("int"),
- *   ReplicationStatus: "COMPLETE" || "PENDING" || "FAILED" || "REPLICA",
- *   RequestCharged: "requester",
- *   Restore: "STRING_VALUE",
- *   ServerSideEncryption: "AES256" || "aws:kms",
- *   SSECustomerAlgorithm: "STRING_VALUE",
- *   SSEKMSKeyId: "STRING_VALUE",
- *   SSECustomerKeyMD5: "STRING_VALUE",
- *   StorageClass: "STANDARD" || "REDUCED_REDUNDANCY" || "STANDARD_IA" || "ONEZONE_IA" || "INTELLIGENT_TIERING" || "GLACIER" || "DEEP_ARCHIVE" || "OUTPOSTS" || "GLACIER_IR" || "SNOW",
- *   TagCount: Number("int"),
- *   VersionId: "STRING_VALUE",
+ *   ObjectLockMode: 'GOVERNANCE' || 'COMPLIANCE',
+ *   ObjectLockLegalHoldStatus: 'ON' || 'OFF',
+ *   ObjectLockRetainUntilDate: new Date('TIMESTAMP'),
+ *   PartsCount: Number('int'),
+ *   ReplicationStatus: 'COMPLETE' || 'PENDING' || 'FAILED' || 'REPLICA',
+ *   RequestCharged: 'requester',
+ *   Restore: 'STRING_VALUE',
+ *   ServerSideEncryption: 'AES256' || 'aws:kms',
+ *   SSECustomerAlgorithm: 'STRING_VALUE',
+ *   SSEKMSKeyId: 'STRING_VALUE',
+ *   SSECustomerKeyMD5: 'STRING_VALUE',
+ *   StorageClass: 'STANDARD' || 'REDUCED_REDUNDANCY' || 'STANDARD_IA' || 'ONEZONE_IA' || 'INTELLIGENT_TIERING' || 'GLACIER' || 'DEEP_ARCHIVE' || 'OUTPOSTS' || 'GLACIER_IR' || 'SNOW',
+ *   TagCount: Number('int'),
+ *   VersionId: 'STRING_VALUE',
  *   BucketKeyEnabled: true || false,
  * };
  * const command = new WriteGetObjectResponseCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param WriteGetObjectResponseCommandInput - {@link WriteGetObjectResponseCommandInput}
@@ -124,6 +127,8 @@ export interface WriteGetObjectResponseCommandOutput extends __MetadataBearer {}
  * @see {@link WriteGetObjectResponseCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
+ * @throws {@link S3ServiceException}
+ * <p>Base exception class for all service exceptions from S3 service.</p>
  *
  */
 export class WriteGetObjectResponseCommand extends $Command<

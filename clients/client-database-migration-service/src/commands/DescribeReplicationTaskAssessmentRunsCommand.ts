@@ -57,23 +57,47 @@ export interface DescribeReplicationTaskAssessmentRunsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DatabaseMigrationServiceClient, DescribeReplicationTaskAssessmentRunsCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
- * // const { DatabaseMigrationServiceClient, DescribeReplicationTaskAssessmentRunsCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
+ * import { DatabaseMigrationServiceClient, DescribeReplicationTaskAssessmentRunsCommand } from '@aws-sdk/client-database-migration-service'; // ES Modules import
+ * // const { DatabaseMigrationServiceClient, DescribeReplicationTaskAssessmentRunsCommand } = require('@aws-sdk/client-database-migration-service'); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
  * const input = { // DescribeReplicationTaskAssessmentRunsMessage
  *   Filters: [ // FilterList
  *     { // Filter
- *       Name: "STRING_VALUE", // required
+ *       Name: 'STRING_VALUE', // required
  *       Values: [ // FilterValueList // required
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
- *   MaxRecords: Number("int"),
- *   Marker: "STRING_VALUE",
+ *   MaxRecords: Number('int'),
+ *   Marker: 'STRING_VALUE',
  * };
  * const command = new DescribeReplicationTaskAssessmentRunsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeReplicationTaskAssessmentRunsResponse
+ *   Marker: 'STRING_VALUE',
+ *   ReplicationTaskAssessmentRuns: [ // ReplicationTaskAssessmentRunList
+ *     { // ReplicationTaskAssessmentRun
+ *       ReplicationTaskAssessmentRunArn: 'STRING_VALUE',
+ *       ReplicationTaskArn: 'STRING_VALUE',
+ *       Status: 'STRING_VALUE',
+ *       ReplicationTaskAssessmentRunCreationDate: new Date('TIMESTAMP'),
+ *       AssessmentProgress: { // ReplicationTaskAssessmentRunProgress
+ *         IndividualAssessmentCount: Number('int'),
+ *         IndividualAssessmentCompletedCount: Number('int'),
+ *       },
+ *       LastFailureMessage: 'STRING_VALUE',
+ *       ServiceAccessRoleArn: 'STRING_VALUE',
+ *       ResultLocationBucket: 'STRING_VALUE',
+ *       ResultLocationFolder: 'STRING_VALUE',
+ *       ResultEncryptionMode: 'STRING_VALUE',
+ *       ResultKmsKeyArn: 'STRING_VALUE',
+ *       AssessmentRunName: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeReplicationTaskAssessmentRunsCommandInput - {@link DescribeReplicationTaskAssessmentRunsCommandInput}
@@ -85,6 +109,8 @@ export interface DescribeReplicationTaskAssessmentRunsCommandOutput
  * @throws {@link ResourceNotFoundFault} (client fault)
  *  <p>The resource could not be found.</p>
  *
+ * @throws {@link DatabaseMigrationServiceServiceException}
+ * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
  */
 export class DescribeReplicationTaskAssessmentRunsCommand extends $Command<

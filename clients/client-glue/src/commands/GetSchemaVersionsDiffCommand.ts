@@ -37,27 +37,32 @@ export interface GetSchemaVersionsDiffCommandOutput extends GetSchemaVersionsDif
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlueClient, GetSchemaVersionsDiffCommand } from "@aws-sdk/client-glue"; // ES Modules import
- * // const { GlueClient, GetSchemaVersionsDiffCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * import { GlueClient, GetSchemaVersionsDiffCommand } from '@aws-sdk/client-glue'; // ES Modules import
+ * // const { GlueClient, GetSchemaVersionsDiffCommand } = require('@aws-sdk/client-glue'); // CommonJS import
  * const client = new GlueClient(config);
  * const input = { // GetSchemaVersionsDiffInput
  *   SchemaId: { // SchemaId
- *     SchemaArn: "STRING_VALUE",
- *     SchemaName: "STRING_VALUE",
- *     RegistryName: "STRING_VALUE",
+ *     SchemaArn: 'STRING_VALUE',
+ *     SchemaName: 'STRING_VALUE',
+ *     RegistryName: 'STRING_VALUE',
  *   },
  *   FirstSchemaVersionNumber: { // SchemaVersionNumber
  *     LatestVersion: true || false,
- *     VersionNumber: Number("long"),
+ *     VersionNumber: Number('long'),
  *   },
  *   SecondSchemaVersionNumber: {
  *     LatestVersion: true || false,
- *     VersionNumber: Number("long"),
+ *     VersionNumber: Number('long'),
  *   },
- *   SchemaDiffType: "SYNTAX_DIFF", // required
+ *   SchemaDiffType: 'SYNTAX_DIFF', // required
  * };
  * const command = new GetSchemaVersionsDiffCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetSchemaVersionsDiffResponse
+ *   Diff: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetSchemaVersionsDiffCommandInput - {@link GetSchemaVersionsDiffCommandInput}
@@ -78,6 +83,8 @@ export interface GetSchemaVersionsDiffCommandOutput extends GetSchemaVersionsDif
  * @throws {@link InvalidInputException} (client fault)
  *  <p>The input provided was not valid.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class GetSchemaVersionsDiffCommand extends $Command<

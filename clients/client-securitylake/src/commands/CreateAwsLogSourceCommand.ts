@@ -50,31 +50,41 @@ export interface CreateAwsLogSourceCommandOutput extends CreateAwsLogSourceRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SecurityLakeClient, CreateAwsLogSourceCommand } from "@aws-sdk/client-securitylake"; // ES Modules import
- * // const { SecurityLakeClient, CreateAwsLogSourceCommand } = require("@aws-sdk/client-securitylake"); // CommonJS import
+ * import { SecurityLakeClient, CreateAwsLogSourceCommand } from '@aws-sdk/client-securitylake'; // ES Modules import
+ * // const { SecurityLakeClient, CreateAwsLogSourceCommand } = require('@aws-sdk/client-securitylake'); // CommonJS import
  * const client = new SecurityLakeClient(config);
  * const input = { // CreateAwsLogSourceRequest
  *   inputOrder: [ // DimensionSet // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   enableAllDimensions: { // AllDimensionsMap
- *     "<keys>": { // TwoDimensionsMap
- *       "<keys>": [ // ValueSet
- *         "STRING_VALUE",
+ *     '<keys>': { // TwoDimensionsMap
+ *       '<keys>': [ // ValueSet
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   },
  *   enableTwoDimensions: {
- *     "<keys>": [
- *       "STRING_VALUE",
+ *     '<keys>': [
+ *       'STRING_VALUE',
  *     ],
  *   },
  *   enableSingleDimension: [ // InputSet
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new CreateAwsLogSourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateAwsLogSourceResponse
+ *   processing: [ // AccountList
+ *     'STRING_VALUE',
+ *   ],
+ *   failed: [
+ *     'STRING_VALUE',
+ *   ],
+ * };
+ *
  * ```
  *
  * @param CreateAwsLogSourceCommandInput - {@link CreateAwsLogSourceCommandInput}
@@ -110,6 +120,8 @@ export interface CreateAwsLogSourceCommandOutput extends CreateAwsLogSourceRespo
  * @throws {@link ValidationException} (client fault)
  *  <p>Your signing certificate could not be validated. </p>
  *
+ * @throws {@link SecurityLakeServiceException}
+ * <p>Base exception class for all service exceptions from SecurityLake service.</p>
  *
  */
 export class CreateAwsLogSourceCommand extends $Command<

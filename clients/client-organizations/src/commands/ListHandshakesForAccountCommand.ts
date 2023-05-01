@@ -54,19 +54,53 @@ export interface ListHandshakesForAccountCommandOutput extends ListHandshakesFor
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OrganizationsClient, ListHandshakesForAccountCommand } from "@aws-sdk/client-organizations"; // ES Modules import
- * // const { OrganizationsClient, ListHandshakesForAccountCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
+ * import { OrganizationsClient, ListHandshakesForAccountCommand } from '@aws-sdk/client-organizations'; // ES Modules import
+ * // const { OrganizationsClient, ListHandshakesForAccountCommand } = require('@aws-sdk/client-organizations'); // CommonJS import
  * const client = new OrganizationsClient(config);
  * const input = { // ListHandshakesForAccountRequest
  *   Filter: { // HandshakeFilter
- *     ActionType: "INVITE" || "ENABLE_ALL_FEATURES" || "APPROVE_ALL_FEATURES" || "ADD_ORGANIZATIONS_SERVICE_LINKED_ROLE",
- *     ParentHandshakeId: "STRING_VALUE",
+ *     ActionType: 'INVITE' || 'ENABLE_ALL_FEATURES' || 'APPROVE_ALL_FEATURES' || 'ADD_ORGANIZATIONS_SERVICE_LINKED_ROLE',
+ *     ParentHandshakeId: 'STRING_VALUE',
  *   },
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListHandshakesForAccountCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListHandshakesForAccountResponse
+ *   Handshakes: [ // Handshakes
+ *     { // Handshake
+ *       Id: 'STRING_VALUE',
+ *       Arn: 'STRING_VALUE',
+ *       Parties: [ // HandshakeParties
+ *         { // HandshakeParty
+ *           Id: 'STRING_VALUE', // required
+ *           Type: 'ACCOUNT' || 'ORGANIZATION' || 'EMAIL', // required
+ *         },
+ *       ],
+ *       State: 'REQUESTED' || 'OPEN' || 'CANCELED' || 'ACCEPTED' || 'DECLINED' || 'EXPIRED',
+ *       RequestedTimestamp: new Date('TIMESTAMP'),
+ *       ExpirationTimestamp: new Date('TIMESTAMP'),
+ *       Action: 'INVITE' || 'ENABLE_ALL_FEATURES' || 'APPROVE_ALL_FEATURES' || 'ADD_ORGANIZATIONS_SERVICE_LINKED_ROLE',
+ *       Resources: [ // HandshakeResources
+ *         { // HandshakeResource
+ *           Value: 'STRING_VALUE',
+ *           Type: 'ACCOUNT' || 'ORGANIZATION' || 'ORGANIZATION_FEATURE_SET' || 'EMAIL' || 'MASTER_EMAIL' || 'MASTER_NAME' || 'NOTES' || 'PARENT_HANDSHAKE',
+ *           Resources: [
+ *             {
+ *               Value: 'STRING_VALUE',
+ *               Type: 'ACCOUNT' || 'ORGANIZATION' || 'ORGANIZATION_FEATURE_SET' || 'EMAIL' || 'MASTER_EMAIL' || 'MASTER_NAME' || 'NOTES' || 'PARENT_HANDSHAKE',
+ *               Resources: '<HandshakeResources>',
+ *             },
+ *           ],
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListHandshakesForAccountCommandInput - {@link ListHandshakesForAccountCommandInput}
@@ -201,6 +235,8 @@ export interface ListHandshakesForAccountCommandOutput extends ListHandshakesFor
  *                 <i>Organizations User Guide.</i>
  *          </p>
  *
+ * @throws {@link OrganizationsServiceException}
+ * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
  * @example To retrieve a list of the handshakes sent to an account
  * ```javascript

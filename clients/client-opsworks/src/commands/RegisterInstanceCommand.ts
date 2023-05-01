@@ -54,23 +54,28 @@ export interface RegisterInstanceCommandOutput extends RegisterInstanceResult, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OpsWorksClient, RegisterInstanceCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
- * // const { OpsWorksClient, RegisterInstanceCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
+ * import { OpsWorksClient, RegisterInstanceCommand } from '@aws-sdk/client-opsworks'; // ES Modules import
+ * // const { OpsWorksClient, RegisterInstanceCommand } = require('@aws-sdk/client-opsworks'); // CommonJS import
  * const client = new OpsWorksClient(config);
  * const input = { // RegisterInstanceRequest
- *   StackId: "STRING_VALUE", // required
- *   Hostname: "STRING_VALUE",
- *   PublicIp: "STRING_VALUE",
- *   PrivateIp: "STRING_VALUE",
- *   RsaPublicKey: "STRING_VALUE",
- *   RsaPublicKeyFingerprint: "STRING_VALUE",
+ *   StackId: 'STRING_VALUE', // required
+ *   Hostname: 'STRING_VALUE',
+ *   PublicIp: 'STRING_VALUE',
+ *   PrivateIp: 'STRING_VALUE',
+ *   RsaPublicKey: 'STRING_VALUE',
+ *   RsaPublicKeyFingerprint: 'STRING_VALUE',
  *   InstanceIdentity: { // InstanceIdentity
- *     Document: "STRING_VALUE",
- *     Signature: "STRING_VALUE",
+ *     Document: 'STRING_VALUE',
+ *     Signature: 'STRING_VALUE',
  *   },
  * };
  * const command = new RegisterInstanceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // RegisterInstanceResult
+ *   InstanceId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param RegisterInstanceCommandInput - {@link RegisterInstanceCommandInput}
@@ -85,6 +90,8 @@ export interface RegisterInstanceCommandOutput extends RegisterInstanceResult, _
  * @throws {@link ValidationException} (client fault)
  *  <p>Indicates that a request was not valid.</p>
  *
+ * @throws {@link OpsWorksServiceException}
+ * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
  */
 export class RegisterInstanceCommand extends $Command<

@@ -44,22 +44,34 @@ export interface DescribeEventCategoriesCommandOutput extends DescribeEventCateg
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DatabaseMigrationServiceClient, DescribeEventCategoriesCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
- * // const { DatabaseMigrationServiceClient, DescribeEventCategoriesCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
+ * import { DatabaseMigrationServiceClient, DescribeEventCategoriesCommand } from '@aws-sdk/client-database-migration-service'; // ES Modules import
+ * // const { DatabaseMigrationServiceClient, DescribeEventCategoriesCommand } = require('@aws-sdk/client-database-migration-service'); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
  * const input = { // DescribeEventCategoriesMessage
- *   SourceType: "STRING_VALUE",
+ *   SourceType: 'STRING_VALUE',
  *   Filters: [ // FilterList
  *     { // Filter
- *       Name: "STRING_VALUE", // required
+ *       Name: 'STRING_VALUE', // required
  *       Values: [ // FilterValueList // required
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
  * };
  * const command = new DescribeEventCategoriesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeEventCategoriesResponse
+ *   EventCategoryGroupList: [ // EventCategoryGroupList
+ *     { // EventCategoryGroup
+ *       SourceType: 'STRING_VALUE',
+ *       EventCategories: [ // EventCategoriesList
+ *         'STRING_VALUE',
+ *       ],
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeEventCategoriesCommandInput - {@link DescribeEventCategoriesCommandInput}
@@ -68,6 +80,8 @@ export interface DescribeEventCategoriesCommandOutput extends DescribeEventCateg
  * @see {@link DescribeEventCategoriesCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
+ * @throws {@link DatabaseMigrationServiceServiceException}
+ * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
  */
 export class DescribeEventCategoriesCommand extends $Command<

@@ -42,14 +42,19 @@ export interface CheckIfPhoneNumberIsOptedOutCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SNSClient, CheckIfPhoneNumberIsOptedOutCommand } from "@aws-sdk/client-sns"; // ES Modules import
- * // const { SNSClient, CheckIfPhoneNumberIsOptedOutCommand } = require("@aws-sdk/client-sns"); // CommonJS import
+ * import { SNSClient, CheckIfPhoneNumberIsOptedOutCommand } from '@aws-sdk/client-sns'; // ES Modules import
+ * // const { SNSClient, CheckIfPhoneNumberIsOptedOutCommand } = require('@aws-sdk/client-sns'); // CommonJS import
  * const client = new SNSClient(config);
  * const input = { // CheckIfPhoneNumberIsOptedOutInput
- *   phoneNumber: "STRING_VALUE", // required
+ *   phoneNumber: 'STRING_VALUE', // required
  * };
  * const command = new CheckIfPhoneNumberIsOptedOutCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CheckIfPhoneNumberIsOptedOutResponse
+ *   isOptedOut: true || false,
+ * };
+ *
  * ```
  *
  * @param CheckIfPhoneNumberIsOptedOutCommandInput - {@link CheckIfPhoneNumberIsOptedOutCommandInput}
@@ -71,6 +76,8 @@ export interface CheckIfPhoneNumberIsOptedOutCommandOutput
  * @throws {@link ThrottledException} (client fault)
  *  <p>Indicates that the rate at which requests have been submitted for this action exceeds the limit for your Amazon Web Services account.</p>
  *
+ * @throws {@link SNSServiceException}
+ * <p>Base exception class for all service exceptions from SNS service.</p>
  *
  */
 export class CheckIfPhoneNumberIsOptedOutCommand extends $Command<

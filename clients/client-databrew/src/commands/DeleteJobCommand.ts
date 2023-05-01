@@ -36,14 +36,19 @@ export interface DeleteJobCommandOutput extends DeleteJobResponse, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DataBrewClient, DeleteJobCommand } from "@aws-sdk/client-databrew"; // ES Modules import
- * // const { DataBrewClient, DeleteJobCommand } = require("@aws-sdk/client-databrew"); // CommonJS import
+ * import { DataBrewClient, DeleteJobCommand } from '@aws-sdk/client-databrew'; // ES Modules import
+ * // const { DataBrewClient, DeleteJobCommand } = require('@aws-sdk/client-databrew'); // CommonJS import
  * const client = new DataBrewClient(config);
  * const input = { // DeleteJobRequest
- *   Name: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
  * };
  * const command = new DeleteJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteJobResponse
+ *   Name: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param DeleteJobCommandInput - {@link DeleteJobCommandInput}
@@ -61,6 +66,8 @@ export interface DeleteJobCommandOutput extends DeleteJobResponse, __MetadataBea
  * @throws {@link ValidationException} (client fault)
  *  <p>The input parameters for this request failed validation.</p>
  *
+ * @throws {@link DataBrewServiceException}
+ * <p>Base exception class for all service exceptions from DataBrew service.</p>
  *
  */
 export class DeleteJobCommand extends $Command<

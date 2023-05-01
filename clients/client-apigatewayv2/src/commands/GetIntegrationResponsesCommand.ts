@@ -36,17 +36,36 @@ export interface GetIntegrationResponsesCommandOutput extends GetIntegrationResp
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ApiGatewayV2Client, GetIntegrationResponsesCommand } from "@aws-sdk/client-apigatewayv2"; // ES Modules import
- * // const { ApiGatewayV2Client, GetIntegrationResponsesCommand } = require("@aws-sdk/client-apigatewayv2"); // CommonJS import
+ * import { ApiGatewayV2Client, GetIntegrationResponsesCommand } from '@aws-sdk/client-apigatewayv2'; // ES Modules import
+ * // const { ApiGatewayV2Client, GetIntegrationResponsesCommand } = require('@aws-sdk/client-apigatewayv2'); // CommonJS import
  * const client = new ApiGatewayV2Client(config);
  * const input = { // GetIntegrationResponsesRequest
- *   ApiId: "STRING_VALUE", // required
- *   IntegrationId: "STRING_VALUE", // required
- *   MaxResults: "STRING_VALUE",
- *   NextToken: "STRING_VALUE",
+ *   ApiId: 'STRING_VALUE', // required
+ *   IntegrationId: 'STRING_VALUE', // required
+ *   MaxResults: 'STRING_VALUE',
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new GetIntegrationResponsesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetIntegrationResponsesResponse
+ *   Items: [ // __listOfIntegrationResponse
+ *     { // IntegrationResponse
+ *       ContentHandlingStrategy: 'STRING_VALUE',
+ *       IntegrationResponseId: 'STRING_VALUE',
+ *       IntegrationResponseKey: 'STRING_VALUE', // required
+ *       ResponseParameters: { // IntegrationParameters
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *       ResponseTemplates: { // TemplateMap
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *       TemplateSelectionExpression: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetIntegrationResponsesCommandInput - {@link GetIntegrationResponsesCommandInput}
@@ -64,6 +83,8 @@ export interface GetIntegrationResponsesCommandOutput extends GetIntegrationResp
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>A limit has been exceeded. See the accompanying error message for details.</p>
  *
+ * @throws {@link ApiGatewayV2ServiceException}
+ * <p>Base exception class for all service exceptions from ApiGatewayV2 service.</p>
  *
  */
 export class GetIntegrationResponsesCommand extends $Command<

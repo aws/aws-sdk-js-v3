@@ -40,14 +40,27 @@ export interface DescribeCacheCommandOutput extends DescribeCacheOutput, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { StorageGatewayClient, DescribeCacheCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
- * // const { StorageGatewayClient, DescribeCacheCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
+ * import { StorageGatewayClient, DescribeCacheCommand } from '@aws-sdk/client-storage-gateway'; // ES Modules import
+ * // const { StorageGatewayClient, DescribeCacheCommand } = require('@aws-sdk/client-storage-gateway'); // CommonJS import
  * const client = new StorageGatewayClient(config);
  * const input = { // DescribeCacheInput
- *   GatewayARN: "STRING_VALUE", // required
+ *   GatewayARN: 'STRING_VALUE', // required
  * };
  * const command = new DescribeCacheCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeCacheOutput
+ *   GatewayARN: 'STRING_VALUE',
+ *   DiskIds: [ // DiskIds
+ *     'STRING_VALUE',
+ *   ],
+ *   CacheAllocatedInBytes: Number('long'),
+ *   CacheUsedPercentage: Number('double'),
+ *   CacheDirtyPercentage: Number('double'),
+ *   CacheHitPercentage: Number('double'),
+ *   CacheMissPercentage: Number('double'),
+ * };
+ *
  * ```
  *
  * @param DescribeCacheCommandInput - {@link DescribeCacheCommandInput}
@@ -64,6 +77,8 @@ export interface DescribeCacheCommandOutput extends DescribeCacheOutput, __Metad
  *  <p>An exception occurred because an invalid gateway request was issued to the service. For
  *          more information, see the error and message fields.</p>
  *
+ * @throws {@link StorageGatewayServiceException}
+ * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
  * @example To describe cache information
  * ```javascript

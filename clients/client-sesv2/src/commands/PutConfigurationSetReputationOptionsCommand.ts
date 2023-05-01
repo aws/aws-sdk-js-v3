@@ -45,15 +45,18 @@ export interface PutConfigurationSetReputationOptionsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SESv2Client, PutConfigurationSetReputationOptionsCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
- * // const { SESv2Client, PutConfigurationSetReputationOptionsCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
+ * import { SESv2Client, PutConfigurationSetReputationOptionsCommand } from '@aws-sdk/client-sesv2'; // ES Modules import
+ * // const { SESv2Client, PutConfigurationSetReputationOptionsCommand } = require('@aws-sdk/client-sesv2'); // CommonJS import
  * const client = new SESv2Client(config);
  * const input = { // PutConfigurationSetReputationOptionsRequest
- *   ConfigurationSetName: "STRING_VALUE", // required
+ *   ConfigurationSetName: 'STRING_VALUE', // required
  *   ReputationMetricsEnabled: true || false,
  * };
  * const command = new PutConfigurationSetReputationOptionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutConfigurationSetReputationOptionsCommandInput - {@link PutConfigurationSetReputationOptionsCommandInput}
@@ -71,6 +74,8 @@ export interface PutConfigurationSetReputationOptionsCommandOutput
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Too many requests have been made to the operation.</p>
  *
+ * @throws {@link SESv2ServiceException}
+ * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
  */
 export class PutConfigurationSetReputationOptionsCommand extends $Command<

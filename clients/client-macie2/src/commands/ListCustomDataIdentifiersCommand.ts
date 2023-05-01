@@ -36,15 +36,29 @@ export interface ListCustomDataIdentifiersCommandOutput extends ListCustomDataId
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Macie2Client, ListCustomDataIdentifiersCommand } from "@aws-sdk/client-macie2"; // ES Modules import
- * // const { Macie2Client, ListCustomDataIdentifiersCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
+ * import { Macie2Client, ListCustomDataIdentifiersCommand } from '@aws-sdk/client-macie2'; // ES Modules import
+ * // const { Macie2Client, ListCustomDataIdentifiersCommand } = require('@aws-sdk/client-macie2'); // CommonJS import
  * const client = new Macie2Client(config);
  * const input = { // ListCustomDataIdentifiersRequest
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new ListCustomDataIdentifiersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListCustomDataIdentifiersResponse
+ *   items: [ // __listOfCustomDataIdentifierSummary
+ *     { // CustomDataIdentifierSummary
+ *       arn: 'STRING_VALUE',
+ *       createdAt: new Date('TIMESTAMP'),
+ *       description: 'STRING_VALUE',
+ *       id: 'STRING_VALUE',
+ *       name: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListCustomDataIdentifiersCommandInput - {@link ListCustomDataIdentifiersCommandInput}
@@ -74,6 +88,8 @@ export interface ListCustomDataIdentifiersCommandOutput extends ListCustomDataId
  * @throws {@link ValidationException} (client fault)
  *  <p>Provides information about an error that occurred due to a syntax error in a request.</p>
  *
+ * @throws {@link Macie2ServiceException}
+ * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
  */
 export class ListCustomDataIdentifiersCommand extends $Command<

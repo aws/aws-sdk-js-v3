@@ -38,14 +38,17 @@ export interface DeleteModelPackageCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, DeleteModelPackageCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, DeleteModelPackageCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, DeleteModelPackageCommand } from '@aws-sdk/client-sagemaker'; // ES Modules import
+ * // const { SageMakerClient, DeleteModelPackageCommand } = require('@aws-sdk/client-sagemaker'); // CommonJS import
  * const client = new SageMakerClient(config);
  * const input = { // DeleteModelPackageInput
- *   ModelPackageName: "STRING_VALUE", // required
+ *   ModelPackageName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteModelPackageCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteModelPackageCommandInput - {@link DeleteModelPackageCommandInput}
@@ -58,6 +61,8 @@ export interface DeleteModelPackageCommandOutput extends __MetadataBearer {}
  *  <p>There was a conflict when you attempted to modify a SageMaker entity such as an
  *       <code>Experiment</code> or <code>Artifact</code>.</p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class DeleteModelPackageCommand extends $Command<

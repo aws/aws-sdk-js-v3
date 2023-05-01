@@ -36,15 +36,23 @@ export interface ListEnvironmentsCommandOutput extends ListEnvironmentsOutput, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MWAAClient, ListEnvironmentsCommand } from "@aws-sdk/client-mwaa"; // ES Modules import
- * // const { MWAAClient, ListEnvironmentsCommand } = require("@aws-sdk/client-mwaa"); // CommonJS import
+ * import { MWAAClient, ListEnvironmentsCommand } from '@aws-sdk/client-mwaa'; // ES Modules import
+ * // const { MWAAClient, ListEnvironmentsCommand } = require('@aws-sdk/client-mwaa'); // CommonJS import
  * const client = new MWAAClient(config);
  * const input = { // ListEnvironmentsInput
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListEnvironmentsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListEnvironmentsOutput
+ *   Environments: [ // EnvironmentList // required
+ *     'STRING_VALUE',
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListEnvironmentsCommandInput - {@link ListEnvironmentsCommandInput}
@@ -59,6 +67,8 @@ export interface ListEnvironmentsCommandOutput extends ListEnvironmentsOutput, _
  * @throws {@link ValidationException} (client fault)
  *  <p>ValidationException: The provided input is not valid.</p>
  *
+ * @throws {@link MWAAServiceException}
+ * <p>Base exception class for all service exceptions from MWAA service.</p>
  *
  */
 export class ListEnvironmentsCommand extends $Command<

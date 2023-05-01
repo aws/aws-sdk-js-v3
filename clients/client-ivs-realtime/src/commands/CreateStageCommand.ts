@@ -36,29 +36,56 @@ export interface CreateStageCommandOutput extends CreateStageResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IVSRealTimeClient, CreateStageCommand } from "@aws-sdk/client-ivs-realtime"; // ES Modules import
- * // const { IVSRealTimeClient, CreateStageCommand } = require("@aws-sdk/client-ivs-realtime"); // CommonJS import
+ * import { IVSRealTimeClient, CreateStageCommand } from '@aws-sdk/client-ivs-realtime'; // ES Modules import
+ * // const { IVSRealTimeClient, CreateStageCommand } = require('@aws-sdk/client-ivs-realtime'); // CommonJS import
  * const client = new IVSRealTimeClient(config);
  * const input = { // CreateStageRequest
- *   name: "STRING_VALUE",
+ *   name: 'STRING_VALUE',
  *   participantTokenConfigurations: [ // ParticipantTokenConfigurations
  *     { // ParticipantTokenConfiguration
- *       duration: Number("int"),
- *       userId: "STRING_VALUE",
+ *       duration: Number('int'),
+ *       userId: 'STRING_VALUE',
  *       attributes: { // ParticipantTokenAttributes
- *         "<keys>": "STRING_VALUE",
+ *         '<keys>': 'STRING_VALUE',
  *       },
  *       capabilities: [ // ParticipantTokenCapabilities
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
  *   tags: { // Tags
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateStageCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateStageResponse
+ *   stage: { // Stage
+ *     arn: 'STRING_VALUE', // required
+ *     name: 'STRING_VALUE',
+ *     activeSessionId: 'STRING_VALUE',
+ *     tags: { // Tags
+ *       '<keys>': 'STRING_VALUE',
+ *     },
+ *   },
+ *   participantTokens: [ // ParticipantTokenList
+ *     { // ParticipantToken
+ *       participantId: 'STRING_VALUE',
+ *       token: 'STRING_VALUE',
+ *       userId: 'STRING_VALUE',
+ *       attributes: { // ParticipantTokenAttributes
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *       duration: Number('int'),
+ *       capabilities: [ // ParticipantTokenCapabilities
+ *         'STRING_VALUE',
+ *       ],
+ *       expirationTime: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param CreateStageCommandInput - {@link CreateStageCommandInput}
@@ -79,6 +106,8 @@ export interface CreateStageCommandOutput extends CreateStageResponse, __Metadat
  * @throws {@link ValidationException} (client fault)
  *  <p/>
  *
+ * @throws {@link IVSRealTimeServiceException}
+ * <p>Base exception class for all service exceptions from IVSRealTime service.</p>
  *
  */
 export class CreateStageCommand extends $Command<

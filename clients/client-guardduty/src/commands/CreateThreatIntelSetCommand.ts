@@ -38,22 +38,27 @@ export interface CreateThreatIntelSetCommandOutput extends CreateThreatIntelSetR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GuardDutyClient, CreateThreatIntelSetCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
- * // const { GuardDutyClient, CreateThreatIntelSetCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
+ * import { GuardDutyClient, CreateThreatIntelSetCommand } from '@aws-sdk/client-guardduty'; // ES Modules import
+ * // const { GuardDutyClient, CreateThreatIntelSetCommand } = require('@aws-sdk/client-guardduty'); // CommonJS import
  * const client = new GuardDutyClient(config);
  * const input = { // CreateThreatIntelSetRequest
- *   DetectorId: "STRING_VALUE", // required
- *   Name: "STRING_VALUE", // required
- *   Format: "TXT" || "STIX" || "OTX_CSV" || "ALIEN_VAULT" || "PROOF_POINT" || "FIRE_EYE", // required
- *   Location: "STRING_VALUE", // required
+ *   DetectorId: 'STRING_VALUE', // required
+ *   Name: 'STRING_VALUE', // required
+ *   Format: 'TXT' || 'STIX' || 'OTX_CSV' || 'ALIEN_VAULT' || 'PROOF_POINT' || 'FIRE_EYE', // required
+ *   Location: 'STRING_VALUE', // required
  *   Activate: true || false, // required
- *   ClientToken: "STRING_VALUE",
+ *   ClientToken: 'STRING_VALUE',
  *   Tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateThreatIntelSetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateThreatIntelSetResponse
+ *   ThreatIntelSetId: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param CreateThreatIntelSetCommandInput - {@link CreateThreatIntelSetCommandInput}
@@ -68,6 +73,8 @@ export interface CreateThreatIntelSetCommandOutput extends CreateThreatIntelSetR
  * @throws {@link InternalServerErrorException} (server fault)
  *  <p>An internal server error exception object.</p>
  *
+ * @throws {@link GuardDutyServiceException}
+ * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
  */
 export class CreateThreatIntelSetCommand extends $Command<

@@ -47,28 +47,47 @@ export interface GetAssetPropertyAggregatesCommandOutput extends GetAssetPropert
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTSiteWiseClient, GetAssetPropertyAggregatesCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
- * // const { IoTSiteWiseClient, GetAssetPropertyAggregatesCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
+ * import { IoTSiteWiseClient, GetAssetPropertyAggregatesCommand } from '@aws-sdk/client-iotsitewise'; // ES Modules import
+ * // const { IoTSiteWiseClient, GetAssetPropertyAggregatesCommand } = require('@aws-sdk/client-iotsitewise'); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
  * const input = { // GetAssetPropertyAggregatesRequest
- *   assetId: "STRING_VALUE",
- *   propertyId: "STRING_VALUE",
- *   propertyAlias: "STRING_VALUE",
+ *   assetId: 'STRING_VALUE',
+ *   propertyId: 'STRING_VALUE',
+ *   propertyAlias: 'STRING_VALUE',
  *   aggregateTypes: [ // AggregateTypes // required
- *     "AVERAGE" || "COUNT" || "MAXIMUM" || "MINIMUM" || "SUM" || "STANDARD_DEVIATION",
+ *     'AVERAGE' || 'COUNT' || 'MAXIMUM' || 'MINIMUM' || 'SUM' || 'STANDARD_DEVIATION',
  *   ],
- *   resolution: "STRING_VALUE", // required
+ *   resolution: 'STRING_VALUE', // required
  *   qualities: [ // Qualities
- *     "GOOD" || "BAD" || "UNCERTAIN",
+ *     'GOOD' || 'BAD' || 'UNCERTAIN',
  *   ],
- *   startDate: new Date("TIMESTAMP"), // required
- *   endDate: new Date("TIMESTAMP"), // required
- *   timeOrdering: "ASCENDING" || "DESCENDING",
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   startDate: new Date('TIMESTAMP'), // required
+ *   endDate: new Date('TIMESTAMP'), // required
+ *   timeOrdering: 'ASCENDING' || 'DESCENDING',
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new GetAssetPropertyAggregatesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetAssetPropertyAggregatesResponse
+ *   aggregatedValues: [ // AggregatedValues // required
+ *     { // AggregatedValue
+ *       timestamp: new Date('TIMESTAMP'), // required
+ *       quality: 'GOOD' || 'BAD' || 'UNCERTAIN',
+ *       value: { // Aggregates
+ *         average: Number('double'),
+ *         count: Number('double'),
+ *         maximum: Number('double'),
+ *         minimum: Number('double'),
+ *         sum: Number('double'),
+ *         standardDeviation: Number('double'),
+ *       },
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetAssetPropertyAggregatesCommandInput - {@link GetAssetPropertyAggregatesCommandInput}
@@ -96,6 +115,8 @@ export interface GetAssetPropertyAggregatesCommandOutput extends GetAssetPropert
  *       on.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
  *
+ * @throws {@link IoTSiteWiseServiceException}
+ * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
  */
 export class GetAssetPropertyAggregatesCommand extends $Command<

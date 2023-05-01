@@ -40,16 +40,21 @@ export interface StopModelCommandOutput extends StopModelResponse, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LookoutVisionClient, StopModelCommand } from "@aws-sdk/client-lookoutvision"; // ES Modules import
- * // const { LookoutVisionClient, StopModelCommand } = require("@aws-sdk/client-lookoutvision"); // CommonJS import
+ * import { LookoutVisionClient, StopModelCommand } from '@aws-sdk/client-lookoutvision'; // ES Modules import
+ * // const { LookoutVisionClient, StopModelCommand } = require('@aws-sdk/client-lookoutvision'); // CommonJS import
  * const client = new LookoutVisionClient(config);
  * const input = { // StopModelRequest
- *   ProjectName: "STRING_VALUE", // required
- *   ModelVersion: "STRING_VALUE", // required
- *   ClientToken: "STRING_VALUE",
+ *   ProjectName: 'STRING_VALUE', // required
+ *   ModelVersion: 'STRING_VALUE', // required
+ *   ClientToken: 'STRING_VALUE',
  * };
  * const command = new StopModelCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StopModelResponse
+ *   Status: 'STARTING_HOSTING' || 'HOSTED' || 'HOSTING_FAILED' || 'STOPPING_HOSTING' || 'SYSTEM_UPDATING',
+ * };
+ *
  * ```
  *
  * @param StopModelCommandInput - {@link StopModelCommandInput}
@@ -77,6 +82,8 @@ export interface StopModelCommandOutput extends StopModelResponse, __MetadataBea
  *  <p>An input validation error occured. For example, invalid characters in a project name,
  *       or if a pagination token is invalid.</p>
  *
+ * @throws {@link LookoutVisionServiceException}
+ * <p>Base exception class for all service exceptions from LookoutVision service.</p>
  *
  */
 export class StopModelCommand extends $Command<

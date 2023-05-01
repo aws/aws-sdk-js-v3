@@ -36,14 +36,17 @@ export interface DeleteDevEndpointCommandOutput extends DeleteDevEndpointRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlueClient, DeleteDevEndpointCommand } from "@aws-sdk/client-glue"; // ES Modules import
- * // const { GlueClient, DeleteDevEndpointCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * import { GlueClient, DeleteDevEndpointCommand } from '@aws-sdk/client-glue'; // ES Modules import
+ * // const { GlueClient, DeleteDevEndpointCommand } = require('@aws-sdk/client-glue'); // CommonJS import
  * const client = new GlueClient(config);
  * const input = { // DeleteDevEndpointRequest
- *   EndpointName: "STRING_VALUE", // required
+ *   EndpointName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteDevEndpointCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteDevEndpointCommandInput - {@link DeleteDevEndpointCommandInput}
@@ -64,6 +67,8 @@ export interface DeleteDevEndpointCommandOutput extends DeleteDevEndpointRespons
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class DeleteDevEndpointCommand extends $Command<

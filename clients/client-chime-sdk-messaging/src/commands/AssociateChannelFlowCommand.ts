@@ -47,16 +47,19 @@ export interface AssociateChannelFlowCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeSDKMessagingClient, AssociateChannelFlowCommand } from "@aws-sdk/client-chime-sdk-messaging"; // ES Modules import
- * // const { ChimeSDKMessagingClient, AssociateChannelFlowCommand } = require("@aws-sdk/client-chime-sdk-messaging"); // CommonJS import
+ * import { ChimeSDKMessagingClient, AssociateChannelFlowCommand } from '@aws-sdk/client-chime-sdk-messaging'; // ES Modules import
+ * // const { ChimeSDKMessagingClient, AssociateChannelFlowCommand } = require('@aws-sdk/client-chime-sdk-messaging'); // CommonJS import
  * const client = new ChimeSDKMessagingClient(config);
  * const input = { // AssociateChannelFlowRequest
- *   ChannelArn: "STRING_VALUE", // required
- *   ChannelFlowArn: "STRING_VALUE", // required
- *   ChimeBearer: "STRING_VALUE", // required
+ *   ChannelArn: 'STRING_VALUE', // required
+ *   ChannelFlowArn: 'STRING_VALUE', // required
+ *   ChimeBearer: 'STRING_VALUE', // required
  * };
  * const command = new AssociateChannelFlowCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param AssociateChannelFlowCommandInput - {@link AssociateChannelFlowCommandInput}
@@ -90,6 +93,8 @@ export interface AssociateChannelFlowCommandOutput extends __MetadataBearer {}
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeSDKMessagingServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKMessaging service.</p>
  *
  */
 export class AssociateChannelFlowCommand extends $Command<

@@ -39,15 +39,24 @@ export interface CreateProjectCommandOutput extends CreateProjectResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LookoutVisionClient, CreateProjectCommand } from "@aws-sdk/client-lookoutvision"; // ES Modules import
- * // const { LookoutVisionClient, CreateProjectCommand } = require("@aws-sdk/client-lookoutvision"); // CommonJS import
+ * import { LookoutVisionClient, CreateProjectCommand } from '@aws-sdk/client-lookoutvision'; // ES Modules import
+ * // const { LookoutVisionClient, CreateProjectCommand } = require('@aws-sdk/client-lookoutvision'); // CommonJS import
  * const client = new LookoutVisionClient(config);
  * const input = { // CreateProjectRequest
- *   ProjectName: "STRING_VALUE", // required
- *   ClientToken: "STRING_VALUE",
+ *   ProjectName: 'STRING_VALUE', // required
+ *   ClientToken: 'STRING_VALUE',
  * };
  * const command = new CreateProjectCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateProjectResponse
+ *   ProjectMetadata: { // ProjectMetadata
+ *     ProjectArn: 'STRING_VALUE',
+ *     ProjectName: 'STRING_VALUE',
+ *     CreationTimestamp: new Date('TIMESTAMP'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateProjectCommandInput - {@link CreateProjectCommandInput}
@@ -79,6 +88,8 @@ export interface CreateProjectCommandOutput extends CreateProjectResponse, __Met
  *  <p>An input validation error occured. For example, invalid characters in a project name,
  *       or if a pagination token is invalid.</p>
  *
+ * @throws {@link LookoutVisionServiceException}
+ * <p>Base exception class for all service exceptions from LookoutVision service.</p>
  *
  */
 export class CreateProjectCommand extends $Command<

@@ -36,16 +36,30 @@ export interface ListBridgesCommandOutput extends ListBridgesResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MediaConnectClient, ListBridgesCommand } from "@aws-sdk/client-mediaconnect"; // ES Modules import
- * // const { MediaConnectClient, ListBridgesCommand } = require("@aws-sdk/client-mediaconnect"); // CommonJS import
+ * import { MediaConnectClient, ListBridgesCommand } from '@aws-sdk/client-mediaconnect'; // ES Modules import
+ * // const { MediaConnectClient, ListBridgesCommand } = require('@aws-sdk/client-mediaconnect'); // CommonJS import
  * const client = new MediaConnectClient(config);
  * const input = { // ListBridgesRequest
- *   FilterArn: "STRING_VALUE",
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   FilterArn: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListBridgesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListBridgesResponse
+ *   Bridges: [ // __listOfListedBridge
+ *     { // ListedBridge
+ *       BridgeArn: 'STRING_VALUE', // required
+ *       BridgeState: 'CREATING' || 'STANDBY' || 'STARTING' || 'DEPLOYING' || 'ACTIVE' || 'STOPPING' || 'DELETING' || 'DELETED' || 'START_FAILED' || 'START_PENDING' || 'STOP_FAILED' || 'UPDATING', // required
+ *       BridgeType: 'STRING_VALUE', // required
+ *       Name: 'STRING_VALUE', // required
+ *       PlacementArn: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListBridgesCommandInput - {@link ListBridgesCommandInput}
@@ -69,6 +83,8 @@ export interface ListBridgesCommandOutput extends ListBridgesResponse, __Metadat
  * @throws {@link TooManyRequestsException} (client fault)
  *  Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
  *
+ * @throws {@link MediaConnectServiceException}
+ * <p>Base exception class for all service exceptions from MediaConnect service.</p>
  *
  */
 export class ListBridgesCommand extends $Command<

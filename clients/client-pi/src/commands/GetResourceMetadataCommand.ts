@@ -38,15 +38,25 @@ export interface GetResourceMetadataCommandOutput extends GetResourceMetadataRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PIClient, GetResourceMetadataCommand } from "@aws-sdk/client-pi"; // ES Modules import
- * // const { PIClient, GetResourceMetadataCommand } = require("@aws-sdk/client-pi"); // CommonJS import
+ * import { PIClient, GetResourceMetadataCommand } from '@aws-sdk/client-pi'; // ES Modules import
+ * // const { PIClient, GetResourceMetadataCommand } = require('@aws-sdk/client-pi'); // CommonJS import
  * const client = new PIClient(config);
  * const input = { // GetResourceMetadataRequest
- *   ServiceType: "RDS" || "DOCDB", // required
- *   Identifier: "STRING_VALUE", // required
+ *   ServiceType: 'RDS' || 'DOCDB', // required
+ *   Identifier: 'STRING_VALUE', // required
  * };
  * const command = new GetResourceMetadataCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetResourceMetadataResponse
+ *   Identifier: 'STRING_VALUE',
+ *   Features: { // FeatureMetadataMap
+ *     '<keys>': { // FeatureMetadata
+ *       Status: 'ENABLED' || 'DISABLED' || 'UNSUPPORTED' || 'ENABLED_PENDING_REBOOT' || 'DISABLED_PENDING_REBOOT' || 'UNKNOWN',
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetResourceMetadataCommandInput - {@link GetResourceMetadataCommandInput}
@@ -64,6 +74,8 @@ export interface GetResourceMetadataCommandOutput extends GetResourceMetadataRes
  * @throws {@link NotAuthorizedException} (client fault)
  *  <p>The user is not authorized to perform this request.</p>
  *
+ * @throws {@link PIServiceException}
+ * <p>Base exception class for all service exceptions from PI service.</p>
  *
  */
 export class GetResourceMetadataCommand extends $Command<

@@ -80,18 +80,25 @@ export interface UpdateFleetCapacityCommandOutput extends UpdateFleetCapacityOut
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GameLiftClient, UpdateFleetCapacityCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
- * // const { GameLiftClient, UpdateFleetCapacityCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
+ * import { GameLiftClient, UpdateFleetCapacityCommand } from '@aws-sdk/client-gamelift'; // ES Modules import
+ * // const { GameLiftClient, UpdateFleetCapacityCommand } = require('@aws-sdk/client-gamelift'); // CommonJS import
  * const client = new GameLiftClient(config);
  * const input = { // UpdateFleetCapacityInput
- *   FleetId: "STRING_VALUE", // required
- *   DesiredInstances: Number("int"),
- *   MinSize: Number("int"),
- *   MaxSize: Number("int"),
- *   Location: "STRING_VALUE",
+ *   FleetId: 'STRING_VALUE', // required
+ *   DesiredInstances: Number('int'),
+ *   MinSize: Number('int'),
+ *   MaxSize: Number('int'),
+ *   Location: 'STRING_VALUE',
  * };
  * const command = new UpdateFleetCapacityCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateFleetCapacityOutput
+ *   FleetId: 'STRING_VALUE',
+ *   FleetArn: 'STRING_VALUE',
+ *   Location: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateFleetCapacityCommandInput - {@link UpdateFleetCapacityCommandInput}
@@ -132,6 +139,8 @@ export interface UpdateFleetCapacityCommandOutput extends UpdateFleetCapacityOut
  * @throws {@link UnsupportedRegionException} (client fault)
  *  <p>The requested operation is not supported in the Region specified.</p>
  *
+ * @throws {@link GameLiftServiceException}
+ * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
  */
 export class UpdateFleetCapacityCommand extends $Command<

@@ -45,29 +45,71 @@ export interface BatchGetAssetPropertyValueHistoryCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTSiteWiseClient, BatchGetAssetPropertyValueHistoryCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
- * // const { IoTSiteWiseClient, BatchGetAssetPropertyValueHistoryCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
+ * import { IoTSiteWiseClient, BatchGetAssetPropertyValueHistoryCommand } from '@aws-sdk/client-iotsitewise'; // ES Modules import
+ * // const { IoTSiteWiseClient, BatchGetAssetPropertyValueHistoryCommand } = require('@aws-sdk/client-iotsitewise'); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
  * const input = { // BatchGetAssetPropertyValueHistoryRequest
  *   entries: [ // BatchGetAssetPropertyValueHistoryEntries // required
  *     { // BatchGetAssetPropertyValueHistoryEntry
- *       entryId: "STRING_VALUE", // required
- *       assetId: "STRING_VALUE",
- *       propertyId: "STRING_VALUE",
- *       propertyAlias: "STRING_VALUE",
- *       startDate: new Date("TIMESTAMP"),
- *       endDate: new Date("TIMESTAMP"),
+ *       entryId: 'STRING_VALUE', // required
+ *       assetId: 'STRING_VALUE',
+ *       propertyId: 'STRING_VALUE',
+ *       propertyAlias: 'STRING_VALUE',
+ *       startDate: new Date('TIMESTAMP'),
+ *       endDate: new Date('TIMESTAMP'),
  *       qualities: [ // Qualities
- *         "GOOD" || "BAD" || "UNCERTAIN",
+ *         'GOOD' || 'BAD' || 'UNCERTAIN',
  *       ],
- *       timeOrdering: "ASCENDING" || "DESCENDING",
+ *       timeOrdering: 'ASCENDING' || 'DESCENDING',
  *     },
  *   ],
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new BatchGetAssetPropertyValueHistoryCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BatchGetAssetPropertyValueHistoryResponse
+ *   errorEntries: [ // BatchGetAssetPropertyValueHistoryErrorEntries // required
+ *     { // BatchGetAssetPropertyValueHistoryErrorEntry
+ *       errorCode: 'ResourceNotFoundException' || 'InvalidRequestException' || 'AccessDeniedException', // required
+ *       errorMessage: 'STRING_VALUE', // required
+ *       entryId: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ *   successEntries: [ // BatchGetAssetPropertyValueHistorySuccessEntries // required
+ *     { // BatchGetAssetPropertyValueHistorySuccessEntry
+ *       entryId: 'STRING_VALUE', // required
+ *       assetPropertyValueHistory: [ // AssetPropertyValueHistory // required
+ *         { // AssetPropertyValue
+ *           value: { // Variant
+ *             stringValue: 'STRING_VALUE',
+ *             integerValue: Number('int'),
+ *             doubleValue: Number('double'),
+ *             booleanValue: true || false,
+ *           },
+ *           timestamp: { // TimeInNanos
+ *             timeInSeconds: Number('long'), // required
+ *             offsetInNanos: Number('int'),
+ *           },
+ *           quality: 'GOOD' || 'BAD' || 'UNCERTAIN',
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   skippedEntries: [ // BatchGetAssetPropertyValueHistorySkippedEntries // required
+ *     { // BatchGetAssetPropertyValueHistorySkippedEntry
+ *       entryId: 'STRING_VALUE', // required
+ *       completionStatus: 'SUCCESS' || 'ERROR', // required
+ *       errorInfo: { // BatchGetAssetPropertyValueHistoryErrorInfo
+ *         errorCode: 'ResourceNotFoundException' || 'InvalidRequestException' || 'AccessDeniedException', // required
+ *         errorTimestamp: new Date('TIMESTAMP'), // required
+ *       },
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param BatchGetAssetPropertyValueHistoryCommandInput - {@link BatchGetAssetPropertyValueHistoryCommandInput}
@@ -92,6 +134,8 @@ export interface BatchGetAssetPropertyValueHistoryCommandOutput
  *       on.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
  *
+ * @throws {@link IoTSiteWiseServiceException}
+ * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
  */
 export class BatchGetAssetPropertyValueHistoryCommand extends $Command<

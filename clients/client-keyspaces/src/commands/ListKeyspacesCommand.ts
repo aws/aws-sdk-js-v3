@@ -36,15 +36,26 @@ export interface ListKeyspacesCommandOutput extends ListKeyspacesResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KeyspacesClient, ListKeyspacesCommand } from "@aws-sdk/client-keyspaces"; // ES Modules import
- * // const { KeyspacesClient, ListKeyspacesCommand } = require("@aws-sdk/client-keyspaces"); // CommonJS import
+ * import { KeyspacesClient, ListKeyspacesCommand } from '@aws-sdk/client-keyspaces'; // ES Modules import
+ * // const { KeyspacesClient, ListKeyspacesCommand } = require('@aws-sdk/client-keyspaces'); // CommonJS import
  * const client = new KeyspacesClient(config);
  * const input = { // ListKeyspacesRequest
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new ListKeyspacesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListKeyspacesResponse
+ *   nextToken: 'STRING_VALUE',
+ *   keyspaces: [ // KeyspaceSummaryList // required
+ *     { // KeyspaceSummary
+ *       keyspaceName: 'STRING_VALUE', // required
+ *       resourceArn: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListKeyspacesCommandInput - {@link ListKeyspacesCommandInput}
@@ -69,6 +80,8 @@ export interface ListKeyspacesCommandOutput extends ListKeyspacesResponse, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>The operation failed due to an invalid or malformed request.</p>
  *
+ * @throws {@link KeyspacesServiceException}
+ * <p>Base exception class for all service exceptions from Keyspaces service.</p>
  *
  */
 export class ListKeyspacesCommand extends $Command<

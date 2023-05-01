@@ -36,16 +36,60 @@ export interface ListEventConfigurationsCommandOutput extends ListEventConfigura
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTWirelessClient, ListEventConfigurationsCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
- * // const { IoTWirelessClient, ListEventConfigurationsCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
+ * import { IoTWirelessClient, ListEventConfigurationsCommand } from '@aws-sdk/client-iot-wireless'; // ES Modules import
+ * // const { IoTWirelessClient, ListEventConfigurationsCommand } = require('@aws-sdk/client-iot-wireless'); // CommonJS import
  * const client = new IoTWirelessClient(config);
  * const input = { // ListEventConfigurationsRequest
- *   ResourceType: "SidewalkAccount" || "WirelessDevice" || "WirelessGateway", // required
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   ResourceType: 'SidewalkAccount' || 'WirelessDevice' || 'WirelessGateway', // required
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListEventConfigurationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListEventConfigurationsResponse
+ *   NextToken: 'STRING_VALUE',
+ *   EventConfigurationsList: [ // EventConfigurationsList
+ *     { // EventConfigurationItem
+ *       Identifier: 'STRING_VALUE',
+ *       IdentifierType: 'PartnerAccountId' || 'DevEui' || 'GatewayEui' || 'WirelessDeviceId' || 'WirelessGatewayId',
+ *       PartnerType: 'Sidewalk',
+ *       Events: { // EventNotificationItemConfigurations
+ *         DeviceRegistrationState: { // DeviceRegistrationStateEventConfiguration
+ *           Sidewalk: { // SidewalkEventNotificationConfigurations
+ *             AmazonIdEventTopic: 'Enabled' || 'Disabled',
+ *           },
+ *           WirelessDeviceIdEventTopic: 'Enabled' || 'Disabled',
+ *         },
+ *         Proximity: { // ProximityEventConfiguration
+ *           Sidewalk: {
+ *             AmazonIdEventTopic: 'Enabled' || 'Disabled',
+ *           },
+ *           WirelessDeviceIdEventTopic: 'Enabled' || 'Disabled',
+ *         },
+ *         Join: { // JoinEventConfiguration
+ *           LoRaWAN: { // LoRaWANJoinEventNotificationConfigurations
+ *             DevEuiEventTopic: 'Enabled' || 'Disabled',
+ *           },
+ *           WirelessDeviceIdEventTopic: 'Enabled' || 'Disabled',
+ *         },
+ *         ConnectionStatus: { // ConnectionStatusEventConfiguration
+ *           LoRaWAN: { // LoRaWANConnectionStatusEventNotificationConfigurations
+ *             GatewayEuiEventTopic: 'Enabled' || 'Disabled',
+ *           },
+ *           WirelessGatewayIdEventTopic: 'Enabled' || 'Disabled',
+ *         },
+ *         MessageDeliveryStatus: { // MessageDeliveryStatusEventConfiguration
+ *           Sidewalk: {
+ *             AmazonIdEventTopic: 'Enabled' || 'Disabled',
+ *           },
+ *           WirelessDeviceIdEventTopic: 'Enabled' || 'Disabled',
+ *         },
+ *       },
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListEventConfigurationsCommandInput - {@link ListEventConfigurationsCommandInput}
@@ -66,6 +110,8 @@ export interface ListEventConfigurationsCommandOutput extends ListEventConfigura
  * @throws {@link ValidationException} (client fault)
  *  <p>The input did not meet the specified constraints.</p>
  *
+ * @throws {@link IoTWirelessServiceException}
+ * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
  */
 export class ListEventConfigurationsCommand extends $Command<

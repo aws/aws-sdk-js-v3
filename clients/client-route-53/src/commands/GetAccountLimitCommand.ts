@@ -44,14 +44,23 @@ export interface GetAccountLimitCommandOutput extends GetAccountLimitResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Route53Client, GetAccountLimitCommand } from "@aws-sdk/client-route-53"; // ES Modules import
- * // const { Route53Client, GetAccountLimitCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
+ * import { Route53Client, GetAccountLimitCommand } from '@aws-sdk/client-route-53'; // ES Modules import
+ * // const { Route53Client, GetAccountLimitCommand } = require('@aws-sdk/client-route-53'); // CommonJS import
  * const client = new Route53Client(config);
  * const input = { // GetAccountLimitRequest
- *   Type: "MAX_HEALTH_CHECKS_BY_OWNER" || "MAX_HOSTED_ZONES_BY_OWNER" || "MAX_TRAFFIC_POLICY_INSTANCES_BY_OWNER" || "MAX_REUSABLE_DELEGATION_SETS_BY_OWNER" || "MAX_TRAFFIC_POLICIES_BY_OWNER", // required
+ *   Type: 'MAX_HEALTH_CHECKS_BY_OWNER' || 'MAX_HOSTED_ZONES_BY_OWNER' || 'MAX_TRAFFIC_POLICY_INSTANCES_BY_OWNER' || 'MAX_REUSABLE_DELEGATION_SETS_BY_OWNER' || 'MAX_TRAFFIC_POLICIES_BY_OWNER', // required
  * };
  * const command = new GetAccountLimitCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetAccountLimitResponse
+ *   Limit: { // AccountLimit
+ *     Type: 'MAX_HEALTH_CHECKS_BY_OWNER' || 'MAX_HOSTED_ZONES_BY_OWNER' || 'MAX_TRAFFIC_POLICY_INSTANCES_BY_OWNER' || 'MAX_REUSABLE_DELEGATION_SETS_BY_OWNER' || 'MAX_TRAFFIC_POLICIES_BY_OWNER', // required
+ *     Value: Number('long'), // required
+ *   },
+ *   Count: Number('long'), // required
+ * };
+ *
  * ```
  *
  * @param GetAccountLimitCommandInput - {@link GetAccountLimitCommandInput}
@@ -63,6 +72,8 @@ export interface GetAccountLimitCommandOutput extends GetAccountLimitResponse, _
  * @throws {@link InvalidInput} (client fault)
  *  <p>The input is not valid.</p>
  *
+ * @throws {@link Route53ServiceException}
+ * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
  */
 export class GetAccountLimitCommand extends $Command<

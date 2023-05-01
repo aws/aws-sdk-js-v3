@@ -36,14 +36,44 @@ export interface DescribeCustomPluginCommandOutput extends DescribeCustomPluginR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KafkaConnectClient, DescribeCustomPluginCommand } from "@aws-sdk/client-kafkaconnect"; // ES Modules import
- * // const { KafkaConnectClient, DescribeCustomPluginCommand } = require("@aws-sdk/client-kafkaconnect"); // CommonJS import
+ * import { KafkaConnectClient, DescribeCustomPluginCommand } from '@aws-sdk/client-kafkaconnect'; // ES Modules import
+ * // const { KafkaConnectClient, DescribeCustomPluginCommand } = require('@aws-sdk/client-kafkaconnect'); // CommonJS import
  * const client = new KafkaConnectClient(config);
  * const input = { // DescribeCustomPluginRequest
- *   customPluginArn: "STRING_VALUE", // required
+ *   customPluginArn: 'STRING_VALUE', // required
  * };
  * const command = new DescribeCustomPluginCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeCustomPluginResponse
+ *   creationTime: new Date('TIMESTAMP'),
+ *   customPluginArn: 'STRING_VALUE',
+ *   customPluginState: 'STRING_VALUE',
+ *   description: 'STRING_VALUE',
+ *   latestRevision: { // CustomPluginRevisionSummary
+ *     contentType: 'STRING_VALUE',
+ *     creationTime: new Date('TIMESTAMP'),
+ *     description: 'STRING_VALUE',
+ *     fileDescription: { // CustomPluginFileDescription
+ *       fileMd5: 'STRING_VALUE',
+ *       fileSize: Number('long'),
+ *     },
+ *     location: { // CustomPluginLocationDescription
+ *       s3Location: { // S3LocationDescription
+ *         bucketArn: 'STRING_VALUE',
+ *         fileKey: 'STRING_VALUE',
+ *         objectVersion: 'STRING_VALUE',
+ *       },
+ *     },
+ *     revision: Number('long'),
+ *   },
+ *   name: 'STRING_VALUE',
+ *   stateDescription: { // StateDescription
+ *     code: 'STRING_VALUE',
+ *     message: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeCustomPluginCommandInput - {@link DescribeCustomPluginCommandInput}
@@ -79,6 +109,8 @@ export interface DescribeCustomPluginCommandOutput extends DescribeCustomPluginR
  *  <p>HTTP Status Code 401: Unauthorized request. The provided credentials couldn't be
  *          validated.</p>
  *
+ * @throws {@link KafkaConnectServiceException}
+ * <p>Base exception class for all service exceptions from KafkaConnect service.</p>
  *
  */
 export class DescribeCustomPluginCommand extends $Command<

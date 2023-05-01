@@ -45,15 +45,26 @@ export interface ListSMSSandboxPhoneNumbersCommandOutput extends ListSMSSandboxP
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SNSClient, ListSMSSandboxPhoneNumbersCommand } from "@aws-sdk/client-sns"; // ES Modules import
- * // const { SNSClient, ListSMSSandboxPhoneNumbersCommand } = require("@aws-sdk/client-sns"); // CommonJS import
+ * import { SNSClient, ListSMSSandboxPhoneNumbersCommand } from '@aws-sdk/client-sns'; // ES Modules import
+ * // const { SNSClient, ListSMSSandboxPhoneNumbersCommand } = require('@aws-sdk/client-sns'); // CommonJS import
  * const client = new SNSClient(config);
  * const input = { // ListSMSSandboxPhoneNumbersInput
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListSMSSandboxPhoneNumbersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListSMSSandboxPhoneNumbersResult
+ *   PhoneNumbers: [ // SMSSandboxPhoneNumberList // required
+ *     { // SMSSandboxPhoneNumber
+ *       PhoneNumber: 'STRING_VALUE',
+ *       Status: 'Pending' || 'Verified',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListSMSSandboxPhoneNumbersCommandInput - {@link ListSMSSandboxPhoneNumbersCommandInput}
@@ -79,6 +90,8 @@ export interface ListSMSSandboxPhoneNumbersCommandOutput extends ListSMSSandboxP
  * @throws {@link ThrottledException} (client fault)
  *  <p>Indicates that the rate at which requests have been submitted for this action exceeds the limit for your Amazon Web Services account.</p>
  *
+ * @throws {@link SNSServiceException}
+ * <p>Base exception class for all service exceptions from SNS service.</p>
  *
  */
 export class ListSMSSandboxPhoneNumbersCommand extends $Command<

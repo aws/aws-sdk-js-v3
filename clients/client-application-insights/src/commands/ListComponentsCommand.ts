@@ -40,16 +40,36 @@ export interface ListComponentsCommandOutput extends ListComponentsResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ApplicationInsightsClient, ListComponentsCommand } from "@aws-sdk/client-application-insights"; // ES Modules import
- * // const { ApplicationInsightsClient, ListComponentsCommand } = require("@aws-sdk/client-application-insights"); // CommonJS import
+ * import { ApplicationInsightsClient, ListComponentsCommand } from '@aws-sdk/client-application-insights'; // ES Modules import
+ * // const { ApplicationInsightsClient, ListComponentsCommand } = require('@aws-sdk/client-application-insights'); // CommonJS import
  * const client = new ApplicationInsightsClient(config);
  * const input = { // ListComponentsRequest
- *   ResourceGroupName: "STRING_VALUE", // required
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   ResourceGroupName: 'STRING_VALUE', // required
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListComponentsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListComponentsResponse
+ *   ApplicationComponentList: [ // ApplicationComponentList
+ *     { // ApplicationComponent
+ *       ComponentName: 'STRING_VALUE',
+ *       ComponentRemarks: 'STRING_VALUE',
+ *       ResourceType: 'STRING_VALUE',
+ *       OsType: 'STRING_VALUE',
+ *       Tier: 'STRING_VALUE',
+ *       Monitor: true || false,
+ *       DetectedWorkload: { // DetectedWorkload
+ *         '<keys>': { // WorkloadMetaData
+ *           '<keys>': 'STRING_VALUE',
+ *         },
+ *       },
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListComponentsCommandInput - {@link ListComponentsCommandInput}
@@ -67,6 +87,8 @@ export interface ListComponentsCommandOutput extends ListComponentsResponse, __M
  * @throws {@link ValidationException} (client fault)
  *  <p>The parameter is not valid.</p>
  *
+ * @throws {@link ApplicationInsightsServiceException}
+ * <p>Base exception class for all service exceptions from ApplicationInsights service.</p>
  *
  */
 export class ListComponentsCommand extends $Command<

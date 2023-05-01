@@ -36,16 +36,30 @@ export interface DescribeAccountAttributesCommandOutput extends AccountAttribute
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RedshiftClient, DescribeAccountAttributesCommand } from "@aws-sdk/client-redshift"; // ES Modules import
- * // const { RedshiftClient, DescribeAccountAttributesCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * import { RedshiftClient, DescribeAccountAttributesCommand } from '@aws-sdk/client-redshift'; // ES Modules import
+ * // const { RedshiftClient, DescribeAccountAttributesCommand } = require('@aws-sdk/client-redshift'); // CommonJS import
  * const client = new RedshiftClient(config);
  * const input = { // DescribeAccountAttributesMessage
  *   AttributeNames: [ // AttributeNameList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new DescribeAccountAttributesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AccountAttributeList
+ *   AccountAttributes: [ // AttributeList
+ *     { // AccountAttribute
+ *       AttributeName: 'STRING_VALUE',
+ *       AttributeValues: [ // AttributeValueList
+ *         { // AttributeValueTarget
+ *           AttributeValue: 'STRING_VALUE',
+ *         },
+ *       ],
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeAccountAttributesCommandInput - {@link DescribeAccountAttributesCommandInput}
@@ -54,6 +68,8 @@ export interface DescribeAccountAttributesCommandOutput extends AccountAttribute
  * @see {@link DescribeAccountAttributesCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class DescribeAccountAttributesCommand extends $Command<

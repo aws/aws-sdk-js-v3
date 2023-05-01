@@ -45,22 +45,25 @@ export interface PutPermissionsBoundaryToPermissionSetCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSOAdminClient, PutPermissionsBoundaryToPermissionSetCommand } from "@aws-sdk/client-sso-admin"; // ES Modules import
- * // const { SSOAdminClient, PutPermissionsBoundaryToPermissionSetCommand } = require("@aws-sdk/client-sso-admin"); // CommonJS import
+ * import { SSOAdminClient, PutPermissionsBoundaryToPermissionSetCommand } from '@aws-sdk/client-sso-admin'; // ES Modules import
+ * // const { SSOAdminClient, PutPermissionsBoundaryToPermissionSetCommand } = require('@aws-sdk/client-sso-admin'); // CommonJS import
  * const client = new SSOAdminClient(config);
  * const input = { // PutPermissionsBoundaryToPermissionSetRequest
- *   InstanceArn: "STRING_VALUE", // required
- *   PermissionSetArn: "STRING_VALUE", // required
+ *   InstanceArn: 'STRING_VALUE', // required
+ *   PermissionSetArn: 'STRING_VALUE', // required
  *   PermissionsBoundary: { // PermissionsBoundary
  *     CustomerManagedPolicyReference: { // CustomerManagedPolicyReference
- *       Name: "STRING_VALUE", // required
- *       Path: "STRING_VALUE",
+ *       Name: 'STRING_VALUE', // required
+ *       Path: 'STRING_VALUE',
  *     },
- *     ManagedPolicyArn: "STRING_VALUE",
+ *     ManagedPolicyArn: 'STRING_VALUE',
  *   },
  * };
  * const command = new PutPermissionsBoundaryToPermissionSetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutPermissionsBoundaryToPermissionSetCommandInput - {@link PutPermissionsBoundaryToPermissionSetCommandInput}
@@ -92,6 +95,8 @@ export interface PutPermissionsBoundaryToPermissionSetCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The request failed because it contains a syntax error.</p>
  *
+ * @throws {@link SSOAdminServiceException}
+ * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
  */
 export class PutPermissionsBoundaryToPermissionSetCommand extends $Command<

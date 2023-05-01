@@ -37,14 +37,19 @@ export interface GetStackPolicyCommandOutput extends GetStackPolicyOutput, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudFormationClient, GetStackPolicyCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
- * // const { CloudFormationClient, GetStackPolicyCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
+ * import { CloudFormationClient, GetStackPolicyCommand } from '@aws-sdk/client-cloudformation'; // ES Modules import
+ * // const { CloudFormationClient, GetStackPolicyCommand } = require('@aws-sdk/client-cloudformation'); // CommonJS import
  * const client = new CloudFormationClient(config);
  * const input = { // GetStackPolicyInput
- *   StackName: "STRING_VALUE", // required
+ *   StackName: 'STRING_VALUE', // required
  * };
  * const command = new GetStackPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetStackPolicyOutput
+ *   StackPolicyBody: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetStackPolicyCommandInput - {@link GetStackPolicyCommandInput}
@@ -53,6 +58,8 @@ export interface GetStackPolicyCommandOutput extends GetStackPolicyOutput, __Met
  * @see {@link GetStackPolicyCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
+ * @throws {@link CloudFormationServiceException}
+ * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
  */
 export class GetStackPolicyCommand extends $Command<

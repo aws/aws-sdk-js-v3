@@ -36,14 +36,37 @@ export interface GetCatalogItemCommandOutput extends GetCatalogItemOutput, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OutpostsClient, GetCatalogItemCommand } from "@aws-sdk/client-outposts"; // ES Modules import
- * // const { OutpostsClient, GetCatalogItemCommand } = require("@aws-sdk/client-outposts"); // CommonJS import
+ * import { OutpostsClient, GetCatalogItemCommand } from '@aws-sdk/client-outposts'; // ES Modules import
+ * // const { OutpostsClient, GetCatalogItemCommand } = require('@aws-sdk/client-outposts'); // CommonJS import
  * const client = new OutpostsClient(config);
  * const input = { // GetCatalogItemInput
- *   CatalogItemId: "STRING_VALUE", // required
+ *   CatalogItemId: 'STRING_VALUE', // required
  * };
  * const command = new GetCatalogItemCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetCatalogItemOutput
+ *   CatalogItem: { // CatalogItem
+ *     CatalogItemId: 'STRING_VALUE',
+ *     ItemStatus: 'AVAILABLE' || 'DISCONTINUED',
+ *     EC2Capacities: [ // EC2CapacityListDefinition
+ *       { // EC2Capacity
+ *         Family: 'STRING_VALUE',
+ *         MaxSize: 'STRING_VALUE',
+ *         Quantity: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     PowerKva: Number('float'),
+ *     WeightLbs: Number('int'),
+ *     SupportedUplinkGbps: [ // SupportedUplinkGbpsListDefinition
+ *       Number('int'),
+ *     ],
+ *     SupportedStorage: [ // SupportedStorageList
+ *       'EBS' || 'S3',
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetCatalogItemCommandInput - {@link GetCatalogItemCommandInput}
@@ -61,6 +84,8 @@ export interface GetCatalogItemCommandOutput extends GetCatalogItemOutput, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>A parameter is not valid.</p>
  *
+ * @throws {@link OutpostsServiceException}
+ * <p>Base exception class for all service exceptions from Outposts service.</p>
  *
  */
 export class GetCatalogItemCommand extends $Command<

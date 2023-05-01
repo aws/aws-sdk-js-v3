@@ -42,21 +42,26 @@ export interface ReloadTablesCommandOutput extends ReloadTablesResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DatabaseMigrationServiceClient, ReloadTablesCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
- * // const { DatabaseMigrationServiceClient, ReloadTablesCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
+ * import { DatabaseMigrationServiceClient, ReloadTablesCommand } from '@aws-sdk/client-database-migration-service'; // ES Modules import
+ * // const { DatabaseMigrationServiceClient, ReloadTablesCommand } = require('@aws-sdk/client-database-migration-service'); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
  * const input = { // ReloadTablesMessage
- *   ReplicationTaskArn: "STRING_VALUE", // required
+ *   ReplicationTaskArn: 'STRING_VALUE', // required
  *   TablesToReload: [ // TableListToReload // required
  *     { // TableToReload
- *       SchemaName: "STRING_VALUE", // required
- *       TableName: "STRING_VALUE", // required
+ *       SchemaName: 'STRING_VALUE', // required
+ *       TableName: 'STRING_VALUE', // required
  *     },
  *   ],
- *   ReloadOption: "data-reload" || "validate-only",
+ *   ReloadOption: 'data-reload' || 'validate-only',
  * };
  * const command = new ReloadTablesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ReloadTablesResponse
+ *   ReplicationTaskArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ReloadTablesCommandInput - {@link ReloadTablesCommandInput}
@@ -71,6 +76,8 @@ export interface ReloadTablesCommandOutput extends ReloadTablesResponse, __Metad
  * @throws {@link ResourceNotFoundFault} (client fault)
  *  <p>The resource could not be found.</p>
  *
+ * @throws {@link DatabaseMigrationServiceServiceException}
+ * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
  */
 export class ReloadTablesCommand extends $Command<

@@ -36,14 +36,25 @@ export interface GetPublicKeyConfigCommandOutput extends GetPublicKeyConfigResul
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudFrontClient, GetPublicKeyConfigCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
- * // const { CloudFrontClient, GetPublicKeyConfigCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
+ * import { CloudFrontClient, GetPublicKeyConfigCommand } from '@aws-sdk/client-cloudfront'; // ES Modules import
+ * // const { CloudFrontClient, GetPublicKeyConfigCommand } = require('@aws-sdk/client-cloudfront'); // CommonJS import
  * const client = new CloudFrontClient(config);
  * const input = { // GetPublicKeyConfigRequest
- *   Id: "STRING_VALUE", // required
+ *   Id: 'STRING_VALUE', // required
  * };
  * const command = new GetPublicKeyConfigCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetPublicKeyConfigResult
+ *   PublicKeyConfig: { // PublicKeyConfig
+ *     CallerReference: 'STRING_VALUE', // required
+ *     Name: 'STRING_VALUE', // required
+ *     EncodedKey: 'STRING_VALUE', // required
+ *     Comment: 'STRING_VALUE',
+ *   },
+ *   ETag: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetPublicKeyConfigCommandInput - {@link GetPublicKeyConfigCommandInput}
@@ -58,6 +69,8 @@ export interface GetPublicKeyConfigCommandOutput extends GetPublicKeyConfigResul
  * @throws {@link NoSuchPublicKey} (client fault)
  *  <p>The specified public key doesn't exist.</p>
  *
+ * @throws {@link CloudFrontServiceException}
+ * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
  */
 export class GetPublicKeyConfigCommand extends $Command<

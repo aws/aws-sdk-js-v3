@@ -36,15 +36,32 @@ export interface GetGroupVersionCommandOutput extends GetGroupVersionResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GreengrassClient, GetGroupVersionCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
- * // const { GreengrassClient, GetGroupVersionCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
+ * import { GreengrassClient, GetGroupVersionCommand } from '@aws-sdk/client-greengrass'; // ES Modules import
+ * // const { GreengrassClient, GetGroupVersionCommand } = require('@aws-sdk/client-greengrass'); // CommonJS import
  * const client = new GreengrassClient(config);
  * const input = { // GetGroupVersionRequest
- *   GroupId: "STRING_VALUE", // required
- *   GroupVersionId: "STRING_VALUE", // required
+ *   GroupId: 'STRING_VALUE', // required
+ *   GroupVersionId: 'STRING_VALUE', // required
  * };
  * const command = new GetGroupVersionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetGroupVersionResponse
+ *   Arn: 'STRING_VALUE',
+ *   CreationTimestamp: 'STRING_VALUE',
+ *   Definition: { // GroupVersion
+ *     ConnectorDefinitionVersionArn: 'STRING_VALUE',
+ *     CoreDefinitionVersionArn: 'STRING_VALUE',
+ *     DeviceDefinitionVersionArn: 'STRING_VALUE',
+ *     FunctionDefinitionVersionArn: 'STRING_VALUE',
+ *     LoggerDefinitionVersionArn: 'STRING_VALUE',
+ *     ResourceDefinitionVersionArn: 'STRING_VALUE',
+ *     SubscriptionDefinitionVersionArn: 'STRING_VALUE',
+ *   },
+ *   Id: 'STRING_VALUE',
+ *   Version: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetGroupVersionCommandInput - {@link GetGroupVersionCommandInput}
@@ -56,6 +73,8 @@ export interface GetGroupVersionCommandOutput extends GetGroupVersionResponse, _
  * @throws {@link BadRequestException} (client fault)
  *  General error information.
  *
+ * @throws {@link GreengrassServiceException}
+ * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
  */
 export class GetGroupVersionCommand extends $Command<

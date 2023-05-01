@@ -39,81 +39,86 @@ export interface CreateAutoMLJobCommandOutput extends CreateAutoMLJobResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, CreateAutoMLJobCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, CreateAutoMLJobCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, CreateAutoMLJobCommand } from '@aws-sdk/client-sagemaker'; // ES Modules import
+ * // const { SageMakerClient, CreateAutoMLJobCommand } = require('@aws-sdk/client-sagemaker'); // CommonJS import
  * const client = new SageMakerClient(config);
  * const input = { // CreateAutoMLJobRequest
- *   AutoMLJobName: "STRING_VALUE", // required
+ *   AutoMLJobName: 'STRING_VALUE', // required
  *   InputDataConfig: [ // AutoMLInputDataConfig // required
  *     { // AutoMLChannel
  *       DataSource: { // AutoMLDataSource
  *         S3DataSource: { // AutoMLS3DataSource
- *           S3DataType: "ManifestFile" || "S3Prefix" || "AugmentedManifestFile", // required
- *           S3Uri: "STRING_VALUE", // required
+ *           S3DataType: 'ManifestFile' || 'S3Prefix' || 'AugmentedManifestFile', // required
+ *           S3Uri: 'STRING_VALUE', // required
  *         },
  *       },
- *       CompressionType: "None" || "Gzip",
- *       TargetAttributeName: "STRING_VALUE", // required
- *       ContentType: "STRING_VALUE",
- *       ChannelType: "training" || "validation",
+ *       CompressionType: 'None' || 'Gzip',
+ *       TargetAttributeName: 'STRING_VALUE', // required
+ *       ContentType: 'STRING_VALUE',
+ *       ChannelType: 'training' || 'validation',
  *     },
  *   ],
  *   OutputDataConfig: { // AutoMLOutputDataConfig
- *     KmsKeyId: "STRING_VALUE",
- *     S3OutputPath: "STRING_VALUE", // required
+ *     KmsKeyId: 'STRING_VALUE',
+ *     S3OutputPath: 'STRING_VALUE', // required
  *   },
- *   ProblemType: "BinaryClassification" || "MulticlassClassification" || "Regression",
+ *   ProblemType: 'BinaryClassification' || 'MulticlassClassification' || 'Regression',
  *   AutoMLJobObjective: { // AutoMLJobObjective
- *     MetricName: "Accuracy" || "MSE" || "F1" || "F1macro" || "AUC" || "RMSE" || "MAE" || "R2" || "BalancedAccuracy" || "Precision" || "PrecisionMacro" || "Recall" || "RecallMacro", // required
+ *     MetricName: 'Accuracy' || 'MSE' || 'F1' || 'F1macro' || 'AUC' || 'RMSE' || 'MAE' || 'R2' || 'BalancedAccuracy' || 'Precision' || 'PrecisionMacro' || 'Recall' || 'RecallMacro', // required
  *   },
  *   AutoMLJobConfig: { // AutoMLJobConfig
  *     CompletionCriteria: { // AutoMLJobCompletionCriteria
- *       MaxCandidates: Number("int"),
- *       MaxRuntimePerTrainingJobInSeconds: Number("int"),
- *       MaxAutoMLJobRuntimeInSeconds: Number("int"),
+ *       MaxCandidates: Number('int'),
+ *       MaxRuntimePerTrainingJobInSeconds: Number('int'),
+ *       MaxAutoMLJobRuntimeInSeconds: Number('int'),
  *     },
  *     SecurityConfig: { // AutoMLSecurityConfig
- *       VolumeKmsKeyId: "STRING_VALUE",
+ *       VolumeKmsKeyId: 'STRING_VALUE',
  *       EnableInterContainerTrafficEncryption: true || false,
  *       VpcConfig: { // VpcConfig
  *         SecurityGroupIds: [ // VpcSecurityGroupIds // required
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
  *         Subnets: [ // Subnets // required
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
  *       },
  *     },
  *     DataSplitConfig: { // AutoMLDataSplitConfig
- *       ValidationFraction: Number("float"),
+ *       ValidationFraction: Number('float'),
  *     },
  *     CandidateGenerationConfig: { // AutoMLCandidateGenerationConfig
- *       FeatureSpecificationS3Uri: "STRING_VALUE",
+ *       FeatureSpecificationS3Uri: 'STRING_VALUE',
  *       AlgorithmsConfig: [ // AutoMLAlgorithmsConfig
  *         { // AutoMLAlgorithmConfig
  *           AutoMLAlgorithms: [ // AutoMLAlgorithms // required
- *             "xgboost" || "linear-learner" || "mlp" || "lightgbm" || "catboost" || "randomforest" || "extra-trees" || "nn-torch" || "fastai",
+ *             'xgboost' || 'linear-learner' || 'mlp' || 'lightgbm' || 'catboost' || 'randomforest' || 'extra-trees' || 'nn-torch' || 'fastai',
  *           ],
  *         },
  *       ],
  *     },
- *     Mode: "AUTO" || "ENSEMBLING" || "HYPERPARAMETER_TUNING",
+ *     Mode: 'AUTO' || 'ENSEMBLING' || 'HYPERPARAMETER_TUNING',
  *   },
- *   RoleArn: "STRING_VALUE", // required
+ *   RoleArn: 'STRING_VALUE', // required
  *   GenerateCandidateDefinitionsOnly: true || false,
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  *   ModelDeployConfig: { // ModelDeployConfig
  *     AutoGenerateEndpointName: true || false,
- *     EndpointName: "STRING_VALUE",
+ *     EndpointName: 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateAutoMLJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateAutoMLJobResponse
+ *   AutoMLJobArn: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param CreateAutoMLJobCommandInput - {@link CreateAutoMLJobCommandInput}
@@ -129,6 +134,8 @@ export interface CreateAutoMLJobCommandOutput extends CreateAutoMLJobResponse, _
  *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many
  *             training jobs created. </p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class CreateAutoMLJobCommand extends $Command<

@@ -48,24 +48,29 @@ export interface AddPermissionCommandOutput extends AddPermissionResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LambdaClient, AddPermissionCommand } from "@aws-sdk/client-lambda"; // ES Modules import
- * // const { LambdaClient, AddPermissionCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
+ * import { LambdaClient, AddPermissionCommand } from '@aws-sdk/client-lambda'; // ES Modules import
+ * // const { LambdaClient, AddPermissionCommand } = require('@aws-sdk/client-lambda'); // CommonJS import
  * const client = new LambdaClient(config);
  * const input = { // AddPermissionRequest
- *   FunctionName: "STRING_VALUE", // required
- *   StatementId: "STRING_VALUE", // required
- *   Action: "STRING_VALUE", // required
- *   Principal: "STRING_VALUE", // required
- *   SourceArn: "STRING_VALUE",
- *   SourceAccount: "STRING_VALUE",
- *   EventSourceToken: "STRING_VALUE",
- *   Qualifier: "STRING_VALUE",
- *   RevisionId: "STRING_VALUE",
- *   PrincipalOrgID: "STRING_VALUE",
- *   FunctionUrlAuthType: "NONE" || "AWS_IAM",
+ *   FunctionName: 'STRING_VALUE', // required
+ *   StatementId: 'STRING_VALUE', // required
+ *   Action: 'STRING_VALUE', // required
+ *   Principal: 'STRING_VALUE', // required
+ *   SourceArn: 'STRING_VALUE',
+ *   SourceAccount: 'STRING_VALUE',
+ *   EventSourceToken: 'STRING_VALUE',
+ *   Qualifier: 'STRING_VALUE',
+ *   RevisionId: 'STRING_VALUE',
+ *   PrincipalOrgID: 'STRING_VALUE',
+ *   FunctionUrlAuthType: 'NONE' || 'AWS_IAM',
  * };
  * const command = new AddPermissionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AddPermissionResponse
+ *   Statement: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param AddPermissionCommandInput - {@link AddPermissionCommandInput}
@@ -96,6 +101,8 @@ export interface AddPermissionCommandOutput extends AddPermissionResponse, __Met
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>The request throughput limit was exceeded. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests">Lambda quotas</a>.</p>
  *
+ * @throws {@link LambdaServiceException}
+ * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
  */
 export class AddPermissionCommand extends $Command<

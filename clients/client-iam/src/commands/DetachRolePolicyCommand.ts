@@ -40,15 +40,18 @@ export interface DetachRolePolicyCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IAMClient, DetachRolePolicyCommand } from "@aws-sdk/client-iam"; // ES Modules import
- * // const { IAMClient, DetachRolePolicyCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * import { IAMClient, DetachRolePolicyCommand } from '@aws-sdk/client-iam'; // ES Modules import
+ * // const { IAMClient, DetachRolePolicyCommand } = require('@aws-sdk/client-iam'); // CommonJS import
  * const client = new IAMClient(config);
  * const input = { // DetachRolePolicyRequest
- *   RoleName: "STRING_VALUE", // required
- *   PolicyArn: "STRING_VALUE", // required
+ *   RoleName: 'STRING_VALUE', // required
+ *   PolicyArn: 'STRING_VALUE', // required
  * };
  * const command = new DetachRolePolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DetachRolePolicyCommandInput - {@link DetachRolePolicyCommandInput}
@@ -79,6 +82,8 @@ export interface DetachRolePolicyCommandOutput extends __MetadataBearer {}
  *       behalf. The error message includes the name of the service that depends on this service-linked
  *       role. You must request the change through that service.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  */
 export class DetachRolePolicyCommand extends $Command<

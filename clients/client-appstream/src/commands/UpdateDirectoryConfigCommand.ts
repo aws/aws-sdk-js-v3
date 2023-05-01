@@ -41,25 +41,44 @@ export interface UpdateDirectoryConfigCommandOutput extends UpdateDirectoryConfi
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppStreamClient, UpdateDirectoryConfigCommand } from "@aws-sdk/client-appstream"; // ES Modules import
- * // const { AppStreamClient, UpdateDirectoryConfigCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
+ * import { AppStreamClient, UpdateDirectoryConfigCommand } from '@aws-sdk/client-appstream'; // ES Modules import
+ * // const { AppStreamClient, UpdateDirectoryConfigCommand } = require('@aws-sdk/client-appstream'); // CommonJS import
  * const client = new AppStreamClient(config);
  * const input = { // UpdateDirectoryConfigRequest
- *   DirectoryName: "STRING_VALUE", // required
+ *   DirectoryName: 'STRING_VALUE', // required
  *   OrganizationalUnitDistinguishedNames: [ // OrganizationalUnitDistinguishedNamesList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   ServiceAccountCredentials: { // ServiceAccountCredentials
- *     AccountName: "STRING_VALUE", // required
- *     AccountPassword: "STRING_VALUE", // required
+ *     AccountName: 'STRING_VALUE', // required
+ *     AccountPassword: 'STRING_VALUE', // required
  *   },
  *   CertificateBasedAuthProperties: { // CertificateBasedAuthProperties
- *     Status: "DISABLED" || "ENABLED" || "ENABLED_NO_DIRECTORY_LOGIN_FALLBACK",
- *     CertificateAuthorityArn: "STRING_VALUE",
+ *     Status: 'DISABLED' || 'ENABLED' || 'ENABLED_NO_DIRECTORY_LOGIN_FALLBACK',
+ *     CertificateAuthorityArn: 'STRING_VALUE',
  *   },
  * };
  * const command = new UpdateDirectoryConfigCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateDirectoryConfigResult
+ *   DirectoryConfig: { // DirectoryConfig
+ *     DirectoryName: 'STRING_VALUE', // required
+ *     OrganizationalUnitDistinguishedNames: [ // OrganizationalUnitDistinguishedNamesList
+ *       'STRING_VALUE',
+ *     ],
+ *     ServiceAccountCredentials: { // ServiceAccountCredentials
+ *       AccountName: 'STRING_VALUE', // required
+ *       AccountPassword: 'STRING_VALUE', // required
+ *     },
+ *     CreatedTime: new Date('TIMESTAMP'),
+ *     CertificateBasedAuthProperties: { // CertificateBasedAuthProperties
+ *       Status: 'DISABLED' || 'ENABLED' || 'ENABLED_NO_DIRECTORY_LOGIN_FALLBACK',
+ *       CertificateAuthorityArn: 'STRING_VALUE',
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateDirectoryConfigCommandInput - {@link UpdateDirectoryConfigCommandInput}
@@ -83,6 +102,8 @@ export interface UpdateDirectoryConfigCommandOutput extends UpdateDirectoryConfi
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link AppStreamServiceException}
+ * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
  */
 export class UpdateDirectoryConfigCommand extends $Command<

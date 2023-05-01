@@ -36,15 +36,28 @@ export interface UpdateVariantStoreCommandOutput extends UpdateVariantStoreRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OmicsClient, UpdateVariantStoreCommand } from "@aws-sdk/client-omics"; // ES Modules import
- * // const { OmicsClient, UpdateVariantStoreCommand } = require("@aws-sdk/client-omics"); // CommonJS import
+ * import { OmicsClient, UpdateVariantStoreCommand } from '@aws-sdk/client-omics'; // ES Modules import
+ * // const { OmicsClient, UpdateVariantStoreCommand } = require('@aws-sdk/client-omics'); // CommonJS import
  * const client = new OmicsClient(config);
  * const input = { // UpdateVariantStoreRequest
- *   name: "STRING_VALUE", // required
- *   description: "STRING_VALUE",
+ *   name: 'STRING_VALUE', // required
+ *   description: 'STRING_VALUE',
  * };
  * const command = new UpdateVariantStoreCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateVariantStoreResponse
+ *   id: 'STRING_VALUE', // required
+ *   reference: { // ReferenceItem Union: only one key present
+ *     referenceArn: 'STRING_VALUE',
+ *   },
+ *   status: 'STRING_VALUE', // required
+ *   name: 'STRING_VALUE', // required
+ *   description: 'STRING_VALUE', // required
+ *   creationTime: new Date('TIMESTAMP'), // required
+ *   updateTime: new Date('TIMESTAMP'), // required
+ * };
+ *
  * ```
  *
  * @param UpdateVariantStoreCommandInput - {@link UpdateVariantStoreCommandInput}
@@ -68,6 +81,8 @@ export interface UpdateVariantStoreCommandOutput extends UpdateVariantStoreRespo
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link OmicsServiceException}
+ * <p>Base exception class for all service exceptions from Omics service.</p>
  *
  */
 export class UpdateVariantStoreCommand extends $Command<

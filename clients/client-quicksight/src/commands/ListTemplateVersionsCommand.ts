@@ -36,17 +36,33 @@ export interface ListTemplateVersionsCommandOutput extends ListTemplateVersionsR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { QuickSightClient, ListTemplateVersionsCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
- * // const { QuickSightClient, ListTemplateVersionsCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * import { QuickSightClient, ListTemplateVersionsCommand } from '@aws-sdk/client-quicksight'; // ES Modules import
+ * // const { QuickSightClient, ListTemplateVersionsCommand } = require('@aws-sdk/client-quicksight'); // CommonJS import
  * const client = new QuickSightClient(config);
  * const input = { // ListTemplateVersionsRequest
- *   AwsAccountId: "STRING_VALUE", // required
- *   TemplateId: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   AwsAccountId: 'STRING_VALUE', // required
+ *   TemplateId: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListTemplateVersionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTemplateVersionsResponse
+ *   TemplateVersionSummaryList: [ // TemplateVersionSummaryList
+ *     { // TemplateVersionSummary
+ *       Arn: 'STRING_VALUE',
+ *       VersionNumber: Number('long'),
+ *       CreatedTime: new Date('TIMESTAMP'),
+ *       Status: 'CREATION_IN_PROGRESS' || 'CREATION_SUCCESSFUL' || 'CREATION_FAILED' || 'UPDATE_IN_PROGRESS' || 'UPDATE_SUCCESSFUL' || 'UPDATE_FAILED' || 'DELETED',
+ *       Description: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ *   Status: Number('int'),
+ *   RequestId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListTemplateVersionsCommandInput - {@link ListTemplateVersionsCommandInput}
@@ -76,6 +92,8 @@ export interface ListTemplateVersionsCommandOutput extends ListTemplateVersionsR
  * 			Amazon QuickSight currently has Standard Edition and Enterprise Edition. Not every operation and
  * 			capability is available in every edition.</p>
  *
+ * @throws {@link QuickSightServiceException}
+ * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
 export class ListTemplateVersionsCommand extends $Command<

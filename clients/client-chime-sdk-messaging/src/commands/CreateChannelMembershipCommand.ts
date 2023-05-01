@@ -77,18 +77,28 @@ export interface CreateChannelMembershipCommandOutput extends CreateChannelMembe
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeSDKMessagingClient, CreateChannelMembershipCommand } from "@aws-sdk/client-chime-sdk-messaging"; // ES Modules import
- * // const { ChimeSDKMessagingClient, CreateChannelMembershipCommand } = require("@aws-sdk/client-chime-sdk-messaging"); // CommonJS import
+ * import { ChimeSDKMessagingClient, CreateChannelMembershipCommand } from '@aws-sdk/client-chime-sdk-messaging'; // ES Modules import
+ * // const { ChimeSDKMessagingClient, CreateChannelMembershipCommand } = require('@aws-sdk/client-chime-sdk-messaging'); // CommonJS import
  * const client = new ChimeSDKMessagingClient(config);
  * const input = { // CreateChannelMembershipRequest
- *   ChannelArn: "STRING_VALUE", // required
- *   MemberArn: "STRING_VALUE", // required
- *   Type: "DEFAULT" || "HIDDEN", // required
- *   ChimeBearer: "STRING_VALUE", // required
- *   SubChannelId: "STRING_VALUE",
+ *   ChannelArn: 'STRING_VALUE', // required
+ *   MemberArn: 'STRING_VALUE', // required
+ *   Type: 'DEFAULT' || 'HIDDEN', // required
+ *   ChimeBearer: 'STRING_VALUE', // required
+ *   SubChannelId: 'STRING_VALUE',
  * };
  * const command = new CreateChannelMembershipCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateChannelMembershipResponse
+ *   ChannelArn: 'STRING_VALUE',
+ *   Member: { // Identity
+ *     Arn: 'STRING_VALUE',
+ *     Name: 'STRING_VALUE',
+ *   },
+ *   SubChannelId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateChannelMembershipCommandInput - {@link CreateChannelMembershipCommandInput}
@@ -125,6 +135,8 @@ export interface CreateChannelMembershipCommandOutput extends CreateChannelMembe
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeSDKMessagingServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKMessaging service.</p>
  *
  */
 export class CreateChannelMembershipCommand extends $Command<

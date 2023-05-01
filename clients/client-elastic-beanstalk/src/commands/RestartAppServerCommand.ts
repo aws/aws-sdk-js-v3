@@ -37,15 +37,18 @@ export interface RestartAppServerCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElasticBeanstalkClient, RestartAppServerCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
- * // const { ElasticBeanstalkClient, RestartAppServerCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
+ * import { ElasticBeanstalkClient, RestartAppServerCommand } from '@aws-sdk/client-elastic-beanstalk'; // ES Modules import
+ * // const { ElasticBeanstalkClient, RestartAppServerCommand } = require('@aws-sdk/client-elastic-beanstalk'); // CommonJS import
  * const client = new ElasticBeanstalkClient(config);
  * const input = { // RestartAppServerMessage
- *   EnvironmentId: "STRING_VALUE",
- *   EnvironmentName: "STRING_VALUE",
+ *   EnvironmentId: 'STRING_VALUE',
+ *   EnvironmentName: 'STRING_VALUE',
  * };
  * const command = new RestartAppServerCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param RestartAppServerCommandInput - {@link RestartAppServerCommandInput}
@@ -54,6 +57,8 @@ export interface RestartAppServerCommandOutput extends __MetadataBearer {}
  * @see {@link RestartAppServerCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
+ * @throws {@link ElasticBeanstalkServiceException}
+ * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
  * @example To restart application servers
  * ```javascript

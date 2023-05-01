@@ -36,21 +36,36 @@ export interface CreateServiceActionCommandOutput extends CreateServiceActionOut
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ServiceCatalogClient, CreateServiceActionCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
- * // const { ServiceCatalogClient, CreateServiceActionCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
+ * import { ServiceCatalogClient, CreateServiceActionCommand } from '@aws-sdk/client-service-catalog'; // ES Modules import
+ * // const { ServiceCatalogClient, CreateServiceActionCommand } = require('@aws-sdk/client-service-catalog'); // CommonJS import
  * const client = new ServiceCatalogClient(config);
  * const input = { // CreateServiceActionInput
- *   Name: "STRING_VALUE", // required
- *   DefinitionType: "SSM_AUTOMATION", // required
+ *   Name: 'STRING_VALUE', // required
+ *   DefinitionType: 'SSM_AUTOMATION', // required
  *   Definition: { // ServiceActionDefinitionMap // required
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
- *   Description: "STRING_VALUE",
- *   AcceptLanguage: "STRING_VALUE",
- *   IdempotencyToken: "STRING_VALUE", // required
+ *   Description: 'STRING_VALUE',
+ *   AcceptLanguage: 'STRING_VALUE',
+ *   IdempotencyToken: 'STRING_VALUE', // required
  * };
  * const command = new CreateServiceActionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateServiceActionOutput
+ *   ServiceActionDetail: { // ServiceActionDetail
+ *     ServiceActionSummary: { // ServiceActionSummary
+ *       Id: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *       Description: 'STRING_VALUE',
+ *       DefinitionType: 'SSM_AUTOMATION',
+ *     },
+ *     Definition: { // ServiceActionDefinitionMap
+ *       '<keys>': 'STRING_VALUE',
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateServiceActionCommandInput - {@link CreateServiceActionCommandInput}
@@ -66,6 +81,8 @@ export interface CreateServiceActionCommandOutput extends CreateServiceActionOut
  *  <p>The current limits of the service would have been exceeded by this operation. Decrease your
  *          resource use or increase your service limits and retry the operation.</p>
  *
+ * @throws {@link ServiceCatalogServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
  */
 export class CreateServiceActionCommand extends $Command<

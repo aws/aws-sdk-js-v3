@@ -36,14 +36,27 @@ export interface GetReferenceStoreCommandOutput extends GetReferenceStoreRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OmicsClient, GetReferenceStoreCommand } from "@aws-sdk/client-omics"; // ES Modules import
- * // const { OmicsClient, GetReferenceStoreCommand } = require("@aws-sdk/client-omics"); // CommonJS import
+ * import { OmicsClient, GetReferenceStoreCommand } from '@aws-sdk/client-omics'; // ES Modules import
+ * // const { OmicsClient, GetReferenceStoreCommand } = require('@aws-sdk/client-omics'); // CommonJS import
  * const client = new OmicsClient(config);
  * const input = { // GetReferenceStoreRequest
- *   id: "STRING_VALUE", // required
+ *   id: 'STRING_VALUE', // required
  * };
  * const command = new GetReferenceStoreCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetReferenceStoreResponse
+ *   id: 'STRING_VALUE', // required
+ *   arn: 'STRING_VALUE', // required
+ *   name: 'STRING_VALUE',
+ *   description: 'STRING_VALUE',
+ *   sseConfig: { // SseConfig
+ *     type: 'STRING_VALUE', // required
+ *     keyArn: 'STRING_VALUE',
+ *   },
+ *   creationTime: new Date('TIMESTAMP'), // required
+ * };
+ *
  * ```
  *
  * @param GetReferenceStoreCommandInput - {@link GetReferenceStoreCommandInput}
@@ -70,6 +83,8 @@ export interface GetReferenceStoreCommandOutput extends GetReferenceStoreRespons
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link OmicsServiceException}
+ * <p>Base exception class for all service exceptions from Omics service.</p>
  *
  */
 export class GetReferenceStoreCommand extends $Command<

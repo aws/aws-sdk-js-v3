@@ -38,29 +38,34 @@ export interface UpdateMissionProfileCommandOutput extends MissionProfileIdRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GroundStationClient, UpdateMissionProfileCommand } from "@aws-sdk/client-groundstation"; // ES Modules import
- * // const { GroundStationClient, UpdateMissionProfileCommand } = require("@aws-sdk/client-groundstation"); // CommonJS import
+ * import { GroundStationClient, UpdateMissionProfileCommand } from '@aws-sdk/client-groundstation'; // ES Modules import
+ * // const { GroundStationClient, UpdateMissionProfileCommand } = require('@aws-sdk/client-groundstation'); // CommonJS import
  * const client = new GroundStationClient(config);
  * const input = { // UpdateMissionProfileRequest
- *   missionProfileId: "STRING_VALUE", // required
- *   name: "STRING_VALUE",
- *   contactPrePassDurationSeconds: Number("int"),
- *   contactPostPassDurationSeconds: Number("int"),
- *   minimumViableContactDurationSeconds: Number("int"),
+ *   missionProfileId: 'STRING_VALUE', // required
+ *   name: 'STRING_VALUE',
+ *   contactPrePassDurationSeconds: Number('int'),
+ *   contactPostPassDurationSeconds: Number('int'),
+ *   minimumViableContactDurationSeconds: Number('int'),
  *   dataflowEdges: [ // DataflowEdgeList
  *     [ // DataflowEdge
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *   ],
- *   trackingConfigArn: "STRING_VALUE",
+ *   trackingConfigArn: 'STRING_VALUE',
  *   streamsKmsKey: { // KmsKey Union: only one key present
- *     kmsKeyArn: "STRING_VALUE",
- *     kmsAliasArn: "STRING_VALUE",
+ *     kmsKeyArn: 'STRING_VALUE',
+ *     kmsAliasArn: 'STRING_VALUE',
  *   },
- *   streamsKmsRole: "STRING_VALUE",
+ *   streamsKmsRole: 'STRING_VALUE',
  * };
  * const command = new UpdateMissionProfileCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // MissionProfileIdResponse
+ *   missionProfileId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateMissionProfileCommandInput - {@link UpdateMissionProfileCommandInput}
@@ -78,6 +83,8 @@ export interface UpdateMissionProfileCommandOutput extends MissionProfileIdRespo
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Resource was not found.</p>
  *
+ * @throws {@link GroundStationServiceException}
+ * <p>Base exception class for all service exceptions from GroundStation service.</p>
  *
  */
 export class UpdateMissionProfileCommand extends $Command<

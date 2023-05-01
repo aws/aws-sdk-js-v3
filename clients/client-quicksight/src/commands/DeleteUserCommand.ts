@@ -38,16 +38,22 @@ export interface DeleteUserCommandOutput extends DeleteUserResponse, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { QuickSightClient, DeleteUserCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
- * // const { QuickSightClient, DeleteUserCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * import { QuickSightClient, DeleteUserCommand } from '@aws-sdk/client-quicksight'; // ES Modules import
+ * // const { QuickSightClient, DeleteUserCommand } = require('@aws-sdk/client-quicksight'); // CommonJS import
  * const client = new QuickSightClient(config);
  * const input = { // DeleteUserRequest
- *   UserName: "STRING_VALUE", // required
- *   AwsAccountId: "STRING_VALUE", // required
- *   Namespace: "STRING_VALUE", // required
+ *   UserName: 'STRING_VALUE', // required
+ *   AwsAccountId: 'STRING_VALUE', // required
+ *   Namespace: 'STRING_VALUE', // required
  * };
  * const command = new DeleteUserCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteUserResponse
+ *   RequestId: 'STRING_VALUE',
+ *   Status: Number('int'),
+ * };
+ *
  * ```
  *
  * @param DeleteUserCommandInput - {@link DeleteUserCommandInput}
@@ -80,6 +86,8 @@ export interface DeleteUserCommandOutput extends DeleteUserResponse, __MetadataB
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Access is throttled.</p>
  *
+ * @throws {@link QuickSightServiceException}
+ * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
 export class DeleteUserCommand extends $Command<

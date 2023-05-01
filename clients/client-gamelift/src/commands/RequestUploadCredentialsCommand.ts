@@ -54,14 +54,29 @@ export interface RequestUploadCredentialsCommandOutput extends RequestUploadCred
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GameLiftClient, RequestUploadCredentialsCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
- * // const { GameLiftClient, RequestUploadCredentialsCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
+ * import { GameLiftClient, RequestUploadCredentialsCommand } from '@aws-sdk/client-gamelift'; // ES Modules import
+ * // const { GameLiftClient, RequestUploadCredentialsCommand } = require('@aws-sdk/client-gamelift'); // CommonJS import
  * const client = new GameLiftClient(config);
  * const input = { // RequestUploadCredentialsInput
- *   BuildId: "STRING_VALUE", // required
+ *   BuildId: 'STRING_VALUE', // required
  * };
  * const command = new RequestUploadCredentialsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // RequestUploadCredentialsOutput
+ *   UploadCredentials: { // AwsCredentials
+ *     AccessKeyId: 'STRING_VALUE',
+ *     SecretAccessKey: 'STRING_VALUE',
+ *     SessionToken: 'STRING_VALUE',
+ *   },
+ *   StorageLocation: { // S3Location
+ *     Bucket: 'STRING_VALUE',
+ *     Key: 'STRING_VALUE',
+ *     RoleArn: 'STRING_VALUE',
+ *     ObjectVersion: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param RequestUploadCredentialsCommandInput - {@link RequestUploadCredentialsCommandInput}
@@ -84,6 +99,8 @@ export interface RequestUploadCredentialsCommandOutput extends RequestUploadCred
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client failed authentication. Clients should not retry such requests.</p>
  *
+ * @throws {@link GameLiftServiceException}
+ * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
  */
 export class RequestUploadCredentialsCommand extends $Command<

@@ -36,19 +36,33 @@ export interface DescribeRepositoriesCommandOutput extends DescribeRepositoriesR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ECRPUBLICClient, DescribeRepositoriesCommand } from "@aws-sdk/client-ecr-public"; // ES Modules import
- * // const { ECRPUBLICClient, DescribeRepositoriesCommand } = require("@aws-sdk/client-ecr-public"); // CommonJS import
+ * import { ECRPUBLICClient, DescribeRepositoriesCommand } from '@aws-sdk/client-ecr-public'; // ES Modules import
+ * // const { ECRPUBLICClient, DescribeRepositoriesCommand } = require('@aws-sdk/client-ecr-public'); // CommonJS import
  * const client = new ECRPUBLICClient(config);
  * const input = { // DescribeRepositoriesRequest
- *   registryId: "STRING_VALUE",
+ *   registryId: 'STRING_VALUE',
  *   repositoryNames: [ // RepositoryNameList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new DescribeRepositoriesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeRepositoriesResponse
+ *   repositories: [ // RepositoryList
+ *     { // Repository
+ *       repositoryArn: 'STRING_VALUE',
+ *       registryId: 'STRING_VALUE',
+ *       repositoryName: 'STRING_VALUE',
+ *       repositoryUri: 'STRING_VALUE',
+ *       createdAt: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeRepositoriesCommandInput - {@link DescribeRepositoriesCommandInput}
@@ -71,6 +85,8 @@ export interface DescribeRepositoriesCommandOutput extends DescribeRepositoriesR
  * @throws {@link UnsupportedCommandException} (client fault)
  *  <p>The action isn't supported in this Region.</p>
  *
+ * @throws {@link ECRPUBLICServiceException}
+ * <p>Base exception class for all service exceptions from ECRPUBLIC service.</p>
  *
  */
 export class DescribeRepositoriesCommand extends $Command<

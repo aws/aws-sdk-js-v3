@@ -36,14 +36,17 @@ export interface DeleteAnomalySubscriptionCommandOutput extends DeleteAnomalySub
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CostExplorerClient, DeleteAnomalySubscriptionCommand } from "@aws-sdk/client-cost-explorer"; // ES Modules import
- * // const { CostExplorerClient, DeleteAnomalySubscriptionCommand } = require("@aws-sdk/client-cost-explorer"); // CommonJS import
+ * import { CostExplorerClient, DeleteAnomalySubscriptionCommand } from '@aws-sdk/client-cost-explorer'; // ES Modules import
+ * // const { CostExplorerClient, DeleteAnomalySubscriptionCommand } = require('@aws-sdk/client-cost-explorer'); // CommonJS import
  * const client = new CostExplorerClient(config);
  * const input = { // DeleteAnomalySubscriptionRequest
- *   SubscriptionArn: "STRING_VALUE", // required
+ *   SubscriptionArn: 'STRING_VALUE', // required
  * };
  * const command = new DeleteAnomalySubscriptionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteAnomalySubscriptionCommandInput - {@link DeleteAnomalySubscriptionCommandInput}
@@ -58,6 +61,8 @@ export interface DeleteAnomalySubscriptionCommandOutput extends DeleteAnomalySub
  * @throws {@link UnknownSubscriptionException} (client fault)
  *  <p>The cost anomaly subscription does not exist for the account. </p>
  *
+ * @throws {@link CostExplorerServiceException}
+ * <p>Base exception class for all service exceptions from CostExplorer service.</p>
  *
  */
 export class DeleteAnomalySubscriptionCommand extends $Command<

@@ -41,14 +41,17 @@ export interface DeleteRobotCommandOutput extends DeleteRobotResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RoboMakerClient, DeleteRobotCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
- * // const { RoboMakerClient, DeleteRobotCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
+ * import { RoboMakerClient, DeleteRobotCommand } from '@aws-sdk/client-robomaker'; // ES Modules import
+ * // const { RoboMakerClient, DeleteRobotCommand } = require('@aws-sdk/client-robomaker'); // CommonJS import
  * const client = new RoboMakerClient(config);
  * const input = { // DeleteRobotRequest
- *   robot: "STRING_VALUE", // required
+ *   robot: 'STRING_VALUE', // required
  * };
  * const command = new DeleteRobotCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteRobotCommandInput - {@link DeleteRobotCommandInput}
@@ -67,6 +70,8 @@ export interface DeleteRobotCommandOutput extends DeleteRobotResponse, __Metadat
  * @throws {@link ThrottlingException} (client fault)
  *  <p>AWS RoboMaker is temporarily unable to process the request. Try your call again.</p>
  *
+ * @throws {@link RoboMakerServiceException}
+ * <p>Base exception class for all service exceptions from RoboMaker service.</p>
  *
  */
 export class DeleteRobotCommand extends $Command<

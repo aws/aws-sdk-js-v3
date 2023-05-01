@@ -38,15 +38,21 @@ export interface GetVerifiedAccessGroupPolicyCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, GetVerifiedAccessGroupPolicyCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, GetVerifiedAccessGroupPolicyCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, GetVerifiedAccessGroupPolicyCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, GetVerifiedAccessGroupPolicyCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // GetVerifiedAccessGroupPolicyRequest
- *   VerifiedAccessGroupId: "STRING_VALUE", // required
+ *   VerifiedAccessGroupId: 'STRING_VALUE', // required
  *   DryRun: true || false,
  * };
  * const command = new GetVerifiedAccessGroupPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetVerifiedAccessGroupPolicyResult
+ *   PolicyEnabled: true || false,
+ *   PolicyDocument: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetVerifiedAccessGroupPolicyCommandInput - {@link GetVerifiedAccessGroupPolicyCommandInput}
@@ -55,6 +61,8 @@ export interface GetVerifiedAccessGroupPolicyCommandOutput
  * @see {@link GetVerifiedAccessGroupPolicyCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class GetVerifiedAccessGroupPolicyCommand extends $Command<

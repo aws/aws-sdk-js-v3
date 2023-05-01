@@ -39,16 +39,31 @@ export interface ListCampaignsCommandOutput extends ListCampaignsResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PersonalizeClient, ListCampaignsCommand } from "@aws-sdk/client-personalize"; // ES Modules import
- * // const { PersonalizeClient, ListCampaignsCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
+ * import { PersonalizeClient, ListCampaignsCommand } from '@aws-sdk/client-personalize'; // ES Modules import
+ * // const { PersonalizeClient, ListCampaignsCommand } = require('@aws-sdk/client-personalize'); // CommonJS import
  * const client = new PersonalizeClient(config);
  * const input = { // ListCampaignsRequest
- *   solutionArn: "STRING_VALUE",
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   solutionArn: 'STRING_VALUE',
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new ListCampaignsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListCampaignsResponse
+ *   campaigns: [ // Campaigns
+ *     { // CampaignSummary
+ *       name: 'STRING_VALUE',
+ *       campaignArn: 'STRING_VALUE',
+ *       status: 'STRING_VALUE',
+ *       creationDateTime: new Date('TIMESTAMP'),
+ *       lastUpdatedDateTime: new Date('TIMESTAMP'),
+ *       failureReason: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListCampaignsCommandInput - {@link ListCampaignsCommandInput}
@@ -63,6 +78,8 @@ export interface ListCampaignsCommandOutput extends ListCampaignsResponse, __Met
  * @throws {@link InvalidNextTokenException} (client fault)
  *  <p>The token is not valid.</p>
  *
+ * @throws {@link PersonalizeServiceException}
+ * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
  */
 export class ListCampaignsCommand extends $Command<

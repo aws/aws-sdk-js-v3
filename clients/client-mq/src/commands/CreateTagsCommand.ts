@@ -36,17 +36,20 @@ export interface CreateTagsCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MqClient, CreateTagsCommand } from "@aws-sdk/client-mq"; // ES Modules import
- * // const { MqClient, CreateTagsCommand } = require("@aws-sdk/client-mq"); // CommonJS import
+ * import { MqClient, CreateTagsCommand } from '@aws-sdk/client-mq'; // ES Modules import
+ * // const { MqClient, CreateTagsCommand } = require('@aws-sdk/client-mq'); // CommonJS import
  * const client = new MqClient(config);
  * const input = { // CreateTagsRequest
- *   ResourceArn: "STRING_VALUE", // required
+ *   ResourceArn: 'STRING_VALUE', // required
  *   Tags: { // __mapOf__string
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateTagsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param CreateTagsCommandInput - {@link CreateTagsCommandInput}
@@ -67,6 +70,8 @@ export interface CreateTagsCommandOutput extends __MetadataBearer {}
  * @throws {@link NotFoundException} (client fault)
  *  <p>Returns information about an error.</p>
  *
+ * @throws {@link MqServiceException}
+ * <p>Base exception class for all service exceptions from Mq service.</p>
  *
  */
 export class CreateTagsCommand extends $Command<

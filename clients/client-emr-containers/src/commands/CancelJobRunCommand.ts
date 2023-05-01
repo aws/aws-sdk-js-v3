@@ -37,15 +37,21 @@ export interface CancelJobRunCommandOutput extends CancelJobRunResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EMRContainersClient, CancelJobRunCommand } from "@aws-sdk/client-emr-containers"; // ES Modules import
- * // const { EMRContainersClient, CancelJobRunCommand } = require("@aws-sdk/client-emr-containers"); // CommonJS import
+ * import { EMRContainersClient, CancelJobRunCommand } from '@aws-sdk/client-emr-containers'; // ES Modules import
+ * // const { EMRContainersClient, CancelJobRunCommand } = require('@aws-sdk/client-emr-containers'); // CommonJS import
  * const client = new EMRContainersClient(config);
  * const input = { // CancelJobRunRequest
- *   id: "STRING_VALUE", // required
- *   virtualClusterId: "STRING_VALUE", // required
+ *   id: 'STRING_VALUE', // required
+ *   virtualClusterId: 'STRING_VALUE', // required
  * };
  * const command = new CancelJobRunCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CancelJobRunResponse
+ *   id: 'STRING_VALUE',
+ *   virtualClusterId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CancelJobRunCommandInput - {@link CancelJobRunCommandInput}
@@ -60,6 +66,8 @@ export interface CancelJobRunCommandOutput extends CancelJobRunResponse, __Metad
  * @throws {@link ValidationException} (client fault)
  *  <p>There are invalid parameters in the client request.</p>
  *
+ * @throws {@link EMRContainersServiceException}
+ * <p>Base exception class for all service exceptions from EMRContainers service.</p>
  *
  */
 export class CancelJobRunCommand extends $Command<

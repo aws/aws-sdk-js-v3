@@ -37,17 +37,20 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { XRayClient, UntagResourceCommand } from "@aws-sdk/client-xray"; // ES Modules import
- * // const { XRayClient, UntagResourceCommand } = require("@aws-sdk/client-xray"); // CommonJS import
+ * import { XRayClient, UntagResourceCommand } from '@aws-sdk/client-xray'; // ES Modules import
+ * // const { XRayClient, UntagResourceCommand } = require('@aws-sdk/client-xray'); // CommonJS import
  * const client = new XRayClient(config);
  * const input = { // UntagResourceRequest
- *   ResourceARN: "STRING_VALUE", // required
+ *   ResourceARN: 'STRING_VALUE', // required
  *   TagKeys: [ // TagKeyList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new UntagResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UntagResourceCommandInput - {@link UntagResourceCommandInput}
@@ -66,6 +69,8 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * @throws {@link ThrottledException} (client fault)
  *  <p>The request exceeds the maximum number of requests per second.</p>
  *
+ * @throws {@link XRayServiceException}
+ * <p>Base exception class for all service exceptions from XRay service.</p>
  *
  */
 export class UntagResourceCommand extends $Command<

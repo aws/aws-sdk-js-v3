@@ -36,30 +36,35 @@ export interface CreateDeploymentConfigCommandOutput extends CreateDeploymentCon
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeDeployClient, CreateDeploymentConfigCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
- * // const { CodeDeployClient, CreateDeploymentConfigCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
+ * import { CodeDeployClient, CreateDeploymentConfigCommand } from '@aws-sdk/client-codedeploy'; // ES Modules import
+ * // const { CodeDeployClient, CreateDeploymentConfigCommand } = require('@aws-sdk/client-codedeploy'); // CommonJS import
  * const client = new CodeDeployClient(config);
  * const input = { // CreateDeploymentConfigInput
- *   deploymentConfigName: "STRING_VALUE", // required
+ *   deploymentConfigName: 'STRING_VALUE', // required
  *   minimumHealthyHosts: { // MinimumHealthyHosts
- *     type: "HOST_COUNT" || "FLEET_PERCENT",
- *     value: Number("int"),
+ *     type: 'HOST_COUNT' || 'FLEET_PERCENT',
+ *     value: Number('int'),
  *   },
  *   trafficRoutingConfig: { // TrafficRoutingConfig
- *     type: "TimeBasedCanary" || "TimeBasedLinear" || "AllAtOnce",
+ *     type: 'TimeBasedCanary' || 'TimeBasedLinear' || 'AllAtOnce',
  *     timeBasedCanary: { // TimeBasedCanary
- *       canaryPercentage: Number("int"),
- *       canaryInterval: Number("int"),
+ *       canaryPercentage: Number('int'),
+ *       canaryInterval: Number('int'),
  *     },
  *     timeBasedLinear: { // TimeBasedLinear
- *       linearPercentage: Number("int"),
- *       linearInterval: Number("int"),
+ *       linearPercentage: Number('int'),
+ *       linearInterval: Number('int'),
  *     },
  *   },
- *   computePlatform: "Server" || "Lambda" || "ECS",
+ *   computePlatform: 'Server' || 'Lambda' || 'ECS',
  * };
  * const command = new CreateDeploymentConfigCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateDeploymentConfigOutput
+ *   deploymentConfigId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateDeploymentConfigCommandInput - {@link CreateDeploymentConfigCommandInput}
@@ -91,6 +96,8 @@ export interface CreateDeploymentConfigCommandOutput extends CreateDeploymentCon
  *  <p> The configuration that specifies how traffic is routed during a deployment is
  *             invalid.</p>
  *
+ * @throws {@link CodeDeployServiceException}
+ * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
  */
 export class CreateDeploymentConfigCommand extends $Command<

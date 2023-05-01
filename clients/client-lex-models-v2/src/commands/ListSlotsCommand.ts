@@ -36,32 +36,131 @@ export interface ListSlotsCommandOutput extends ListSlotsResponse, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LexModelsV2Client, ListSlotsCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
- * // const { LexModelsV2Client, ListSlotsCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
+ * import { LexModelsV2Client, ListSlotsCommand } from '@aws-sdk/client-lex-models-v2'; // ES Modules import
+ * // const { LexModelsV2Client, ListSlotsCommand } = require('@aws-sdk/client-lex-models-v2'); // CommonJS import
  * const client = new LexModelsV2Client(config);
  * const input = { // ListSlotsRequest
- *   botId: "STRING_VALUE", // required
- *   botVersion: "STRING_VALUE", // required
- *   localeId: "STRING_VALUE", // required
- *   intentId: "STRING_VALUE", // required
+ *   botId: 'STRING_VALUE', // required
+ *   botVersion: 'STRING_VALUE', // required
+ *   localeId: 'STRING_VALUE', // required
+ *   intentId: 'STRING_VALUE', // required
  *   sortBy: { // SlotSortBy
- *     attribute: "SlotName" || "LastUpdatedDateTime", // required
- *     order: "Ascending" || "Descending", // required
+ *     attribute: 'SlotName' || 'LastUpdatedDateTime', // required
+ *     order: 'Ascending' || 'Descending', // required
  *   },
  *   filters: [ // SlotFilters
  *     { // SlotFilter
- *       name: "SlotName", // required
+ *       name: 'SlotName', // required
  *       values: [ // FilterValues // required
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
- *       operator: "CO" || "EQ", // required
+ *       operator: 'CO' || 'EQ', // required
  *     },
  *   ],
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new ListSlotsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListSlotsResponse
+ *   botId: 'STRING_VALUE',
+ *   botVersion: 'STRING_VALUE',
+ *   localeId: 'STRING_VALUE',
+ *   intentId: 'STRING_VALUE',
+ *   slotSummaries: [ // SlotSummaryList
+ *     { // SlotSummary
+ *       slotId: 'STRING_VALUE',
+ *       slotName: 'STRING_VALUE',
+ *       description: 'STRING_VALUE',
+ *       slotConstraint: 'Required' || 'Optional',
+ *       slotTypeId: 'STRING_VALUE',
+ *       valueElicitationPromptSpecification: { // PromptSpecification
+ *         messageGroups: [ // MessageGroupsList // required
+ *           { // MessageGroup
+ *             message: { // Message
+ *               plainTextMessage: { // PlainTextMessage
+ *                 value: 'STRING_VALUE', // required
+ *               },
+ *               customPayload: { // CustomPayload
+ *                 value: 'STRING_VALUE', // required
+ *               },
+ *               ssmlMessage: { // SSMLMessage
+ *                 value: 'STRING_VALUE', // required
+ *               },
+ *               imageResponseCard: { // ImageResponseCard
+ *                 title: 'STRING_VALUE', // required
+ *                 subtitle: 'STRING_VALUE',
+ *                 imageUrl: 'STRING_VALUE',
+ *                 buttons: [ // ButtonsList
+ *                   { // Button
+ *                     text: 'STRING_VALUE', // required
+ *                     value: 'STRING_VALUE', // required
+ *                   },
+ *                 ],
+ *               },
+ *             },
+ *             variations: [ // MessageVariationsList
+ *               {
+ *                 plainTextMessage: {
+ *                   value: 'STRING_VALUE', // required
+ *                 },
+ *                 customPayload: {
+ *                   value: 'STRING_VALUE', // required
+ *                 },
+ *                 ssmlMessage: {
+ *                   value: 'STRING_VALUE', // required
+ *                 },
+ *                 imageResponseCard: {
+ *                   title: 'STRING_VALUE', // required
+ *                   subtitle: 'STRING_VALUE',
+ *                   imageUrl: 'STRING_VALUE',
+ *                   buttons: [
+ *                     {
+ *                       text: 'STRING_VALUE', // required
+ *                       value: 'STRING_VALUE', // required
+ *                     },
+ *                   ],
+ *                 },
+ *               },
+ *             ],
+ *           },
+ *         ],
+ *         maxRetries: Number('int'), // required
+ *         allowInterrupt: true || false,
+ *         messageSelectionStrategy: 'Random' || 'Ordered',
+ *         promptAttemptsSpecification: { // PromptAttemptsSpecificationMap
+ *           '<keys>': { // PromptAttemptSpecification
+ *             allowInterrupt: true || false,
+ *             allowedInputTypes: { // AllowedInputTypes
+ *               allowAudioInput: true || false, // required
+ *               allowDTMFInput: true || false, // required
+ *             },
+ *             audioAndDTMFInputSpecification: { // AudioAndDTMFInputSpecification
+ *               startTimeoutMs: Number('int'), // required
+ *               audioSpecification: { // AudioSpecification
+ *                 maxLengthMs: Number('int'), // required
+ *                 endTimeoutMs: Number('int'), // required
+ *               },
+ *               dtmfSpecification: { // DTMFSpecification
+ *                 maxLength: Number('int'), // required
+ *                 endTimeoutMs: Number('int'), // required
+ *                 deletionCharacter: 'STRING_VALUE', // required
+ *                 endCharacter: 'STRING_VALUE', // required
+ *               },
+ *             },
+ *             textInputSpecification: { // TextInputSpecification
+ *               startTimeoutMs: Number('int'), // required
+ *             },
+ *           },
+ *         },
+ *       },
+ *       lastUpdatedDateTime: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListSlotsCommandInput - {@link ListSlotsCommandInput}
@@ -85,6 +184,8 @@ export interface ListSlotsCommandOutput extends ListSlotsResponse, __MetadataBea
  *  <p>One of the input parameters in your request isn't valid. Check the
  *          parameters and try your request again.</p>
  *
+ * @throws {@link LexModelsV2ServiceException}
+ * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
  */
 export class ListSlotsCommand extends $Command<

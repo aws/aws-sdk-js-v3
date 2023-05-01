@@ -42,14 +42,17 @@ export interface SkipWaitTimeForInstanceTerminationCommandOutput extends __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeDeployClient, SkipWaitTimeForInstanceTerminationCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
- * // const { CodeDeployClient, SkipWaitTimeForInstanceTerminationCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
+ * import { CodeDeployClient, SkipWaitTimeForInstanceTerminationCommand } from '@aws-sdk/client-codedeploy'; // ES Modules import
+ * // const { CodeDeployClient, SkipWaitTimeForInstanceTerminationCommand } = require('@aws-sdk/client-codedeploy'); // CommonJS import
  * const client = new CodeDeployClient(config);
  * const input = { // SkipWaitTimeForInstanceTerminationInput
- *   deploymentId: "STRING_VALUE",
+ *   deploymentId: 'STRING_VALUE',
  * };
  * const command = new SkipWaitTimeForInstanceTerminationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param SkipWaitTimeForInstanceTerminationCommandInput - {@link SkipWaitTimeForInstanceTerminationCommandInput}
@@ -77,6 +80,8 @@ export interface SkipWaitTimeForInstanceTerminationCommandOutput extends __Metad
  * @throws {@link UnsupportedActionForDeploymentTypeException} (client fault)
  *  <p>A call was submitted that is not supported for the specified deployment type.</p>
  *
+ * @throws {@link CodeDeployServiceException}
+ * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
  */
 export class SkipWaitTimeForInstanceTerminationCommand extends $Command<

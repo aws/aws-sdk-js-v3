@@ -40,14 +40,33 @@ export interface GetMaintenanceWindowCommandOutput extends GetMaintenanceWindowR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMClient, GetMaintenanceWindowCommand } from "@aws-sdk/client-ssm"; // ES Modules import
- * // const { SSMClient, GetMaintenanceWindowCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * import { SSMClient, GetMaintenanceWindowCommand } from '@aws-sdk/client-ssm'; // ES Modules import
+ * // const { SSMClient, GetMaintenanceWindowCommand } = require('@aws-sdk/client-ssm'); // CommonJS import
  * const client = new SSMClient(config);
  * const input = { // GetMaintenanceWindowRequest
- *   WindowId: "STRING_VALUE", // required
+ *   WindowId: 'STRING_VALUE', // required
  * };
  * const command = new GetMaintenanceWindowCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetMaintenanceWindowResult
+ *   WindowId: 'STRING_VALUE',
+ *   Name: 'STRING_VALUE',
+ *   Description: 'STRING_VALUE',
+ *   StartDate: 'STRING_VALUE',
+ *   EndDate: 'STRING_VALUE',
+ *   Schedule: 'STRING_VALUE',
+ *   ScheduleTimezone: 'STRING_VALUE',
+ *   ScheduleOffset: Number('int'),
+ *   NextExecutionTime: 'STRING_VALUE',
+ *   Duration: Number('int'),
+ *   Cutoff: Number('int'),
+ *   AllowUnassociatedTargets: true || false,
+ *   Enabled: true || false,
+ *   CreatedDate: new Date('TIMESTAMP'),
+ *   ModifiedDate: new Date('TIMESTAMP'),
+ * };
+ *
  * ```
  *
  * @param GetMaintenanceWindowCommandInput - {@link GetMaintenanceWindowCommandInput}
@@ -65,6 +84,8 @@ export interface GetMaintenanceWindowCommandOutput extends GetMaintenanceWindowR
  * @throws {@link InternalServerError} (server fault)
  *  <p>An error occurred on the server side.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class GetMaintenanceWindowCommand extends $Command<

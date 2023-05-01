@@ -89,44 +89,83 @@ export interface StartMedicalTranscriptionJobCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { TranscribeClient, StartMedicalTranscriptionJobCommand } from "@aws-sdk/client-transcribe"; // ES Modules import
- * // const { TranscribeClient, StartMedicalTranscriptionJobCommand } = require("@aws-sdk/client-transcribe"); // CommonJS import
+ * import { TranscribeClient, StartMedicalTranscriptionJobCommand } from '@aws-sdk/client-transcribe'; // ES Modules import
+ * // const { TranscribeClient, StartMedicalTranscriptionJobCommand } = require('@aws-sdk/client-transcribe'); // CommonJS import
  * const client = new TranscribeClient(config);
  * const input = { // StartMedicalTranscriptionJobRequest
- *   MedicalTranscriptionJobName: "STRING_VALUE", // required
- *   LanguageCode: "af-ZA" || "ar-AE" || "ar-SA" || "da-DK" || "de-CH" || "de-DE" || "en-AB" || "en-AU" || "en-GB" || "en-IE" || "en-IN" || "en-US" || "en-WL" || "es-ES" || "es-US" || "fa-IR" || "fr-CA" || "fr-FR" || "he-IL" || "hi-IN" || "id-ID" || "it-IT" || "ja-JP" || "ko-KR" || "ms-MY" || "nl-NL" || "pt-BR" || "pt-PT" || "ru-RU" || "ta-IN" || "te-IN" || "tr-TR" || "zh-CN" || "zh-TW" || "th-TH" || "en-ZA" || "en-NZ" || "vi-VN" || "sv-SE", // required
- *   MediaSampleRateHertz: Number("int"),
- *   MediaFormat: "mp3" || "mp4" || "wav" || "flac" || "ogg" || "amr" || "webm",
+ *   MedicalTranscriptionJobName: 'STRING_VALUE', // required
+ *   LanguageCode: 'af-ZA' || 'ar-AE' || 'ar-SA' || 'da-DK' || 'de-CH' || 'de-DE' || 'en-AB' || 'en-AU' || 'en-GB' || 'en-IE' || 'en-IN' || 'en-US' || 'en-WL' || 'es-ES' || 'es-US' || 'fa-IR' || 'fr-CA' || 'fr-FR' || 'he-IL' || 'hi-IN' || 'id-ID' || 'it-IT' || 'ja-JP' || 'ko-KR' || 'ms-MY' || 'nl-NL' || 'pt-BR' || 'pt-PT' || 'ru-RU' || 'ta-IN' || 'te-IN' || 'tr-TR' || 'zh-CN' || 'zh-TW' || 'th-TH' || 'en-ZA' || 'en-NZ' || 'vi-VN' || 'sv-SE', // required
+ *   MediaSampleRateHertz: Number('int'),
+ *   MediaFormat: 'mp3' || 'mp4' || 'wav' || 'flac' || 'ogg' || 'amr' || 'webm',
  *   Media: { // Media
- *     MediaFileUri: "STRING_VALUE",
- *     RedactedMediaFileUri: "STRING_VALUE",
+ *     MediaFileUri: 'STRING_VALUE',
+ *     RedactedMediaFileUri: 'STRING_VALUE',
  *   },
- *   OutputBucketName: "STRING_VALUE", // required
- *   OutputKey: "STRING_VALUE",
- *   OutputEncryptionKMSKeyId: "STRING_VALUE",
+ *   OutputBucketName: 'STRING_VALUE', // required
+ *   OutputKey: 'STRING_VALUE',
+ *   OutputEncryptionKMSKeyId: 'STRING_VALUE',
  *   KMSEncryptionContext: { // KMSEncryptionContextMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  *   Settings: { // MedicalTranscriptionSetting
  *     ShowSpeakerLabels: true || false,
- *     MaxSpeakerLabels: Number("int"),
+ *     MaxSpeakerLabels: Number('int'),
  *     ChannelIdentification: true || false,
  *     ShowAlternatives: true || false,
- *     MaxAlternatives: Number("int"),
- *     VocabularyName: "STRING_VALUE",
+ *     MaxAlternatives: Number('int'),
+ *     VocabularyName: 'STRING_VALUE',
  *   },
- *   ContentIdentificationType: "PHI",
- *   Specialty: "PRIMARYCARE", // required
- *   Type: "CONVERSATION" || "DICTATION", // required
+ *   ContentIdentificationType: 'PHI',
+ *   Specialty: 'PRIMARYCARE', // required
+ *   Type: 'CONVERSATION' || 'DICTATION', // required
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new StartMedicalTranscriptionJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartMedicalTranscriptionJobResponse
+ *   MedicalTranscriptionJob: { // MedicalTranscriptionJob
+ *     MedicalTranscriptionJobName: 'STRING_VALUE',
+ *     TranscriptionJobStatus: 'QUEUED' || 'IN_PROGRESS' || 'FAILED' || 'COMPLETED',
+ *     LanguageCode: 'af-ZA' || 'ar-AE' || 'ar-SA' || 'da-DK' || 'de-CH' || 'de-DE' || 'en-AB' || 'en-AU' || 'en-GB' || 'en-IE' || 'en-IN' || 'en-US' || 'en-WL' || 'es-ES' || 'es-US' || 'fa-IR' || 'fr-CA' || 'fr-FR' || 'he-IL' || 'hi-IN' || 'id-ID' || 'it-IT' || 'ja-JP' || 'ko-KR' || 'ms-MY' || 'nl-NL' || 'pt-BR' || 'pt-PT' || 'ru-RU' || 'ta-IN' || 'te-IN' || 'tr-TR' || 'zh-CN' || 'zh-TW' || 'th-TH' || 'en-ZA' || 'en-NZ' || 'vi-VN' || 'sv-SE',
+ *     MediaSampleRateHertz: Number('int'),
+ *     MediaFormat: 'mp3' || 'mp4' || 'wav' || 'flac' || 'ogg' || 'amr' || 'webm',
+ *     Media: { // Media
+ *       MediaFileUri: 'STRING_VALUE',
+ *       RedactedMediaFileUri: 'STRING_VALUE',
+ *     },
+ *     Transcript: { // MedicalTranscript
+ *       TranscriptFileUri: 'STRING_VALUE',
+ *     },
+ *     StartTime: new Date('TIMESTAMP'),
+ *     CreationTime: new Date('TIMESTAMP'),
+ *     CompletionTime: new Date('TIMESTAMP'),
+ *     FailureReason: 'STRING_VALUE',
+ *     Settings: { // MedicalTranscriptionSetting
+ *       ShowSpeakerLabels: true || false,
+ *       MaxSpeakerLabels: Number('int'),
+ *       ChannelIdentification: true || false,
+ *       ShowAlternatives: true || false,
+ *       MaxAlternatives: Number('int'),
+ *       VocabularyName: 'STRING_VALUE',
+ *     },
+ *     ContentIdentificationType: 'PHI',
+ *     Specialty: 'PRIMARYCARE',
+ *     Type: 'CONVERSATION' || 'DICTATION',
+ *     Tags: [ // TagList
+ *       { // Tag
+ *         Key: 'STRING_VALUE', // required
+ *         Value: 'STRING_VALUE', // required
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param StartMedicalTranscriptionJobCommandInput - {@link StartMedicalTranscriptionJobCommandInput}
@@ -153,6 +192,8 @@ export interface StartMedicalTranscriptionJobCommandOutput
  *  <p>You've either sent too many requests or your input file is too long. Wait before
  *             retrying your request, or use a smaller file and try your request again.</p>
  *
+ * @throws {@link TranscribeServiceException}
+ * <p>Base exception class for all service exceptions from Transcribe service.</p>
  *
  */
 export class StartMedicalTranscriptionJobCommand extends $Command<

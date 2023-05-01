@@ -38,16 +38,30 @@ export interface ListFeaturedResultsSetsCommandOutput extends ListFeaturedResult
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KendraClient, ListFeaturedResultsSetsCommand } from "@aws-sdk/client-kendra"; // ES Modules import
- * // const { KendraClient, ListFeaturedResultsSetsCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
+ * import { KendraClient, ListFeaturedResultsSetsCommand } from '@aws-sdk/client-kendra'; // ES Modules import
+ * // const { KendraClient, ListFeaturedResultsSetsCommand } = require('@aws-sdk/client-kendra'); // CommonJS import
  * const client = new KendraClient(config);
  * const input = { // ListFeaturedResultsSetsRequest
- *   IndexId: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   IndexId: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListFeaturedResultsSetsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListFeaturedResultsSetsResponse
+ *   FeaturedResultsSetSummaryItems: [ // FeaturedResultsSetSummaryItems
+ *     { // FeaturedResultsSetSummary
+ *       FeaturedResultsSetId: 'STRING_VALUE',
+ *       FeaturedResultsSetName: 'STRING_VALUE',
+ *       Status: 'ACTIVE' || 'INACTIVE',
+ *       LastUpdatedTimestamp: Number('long'),
+ *       CreationTimestamp: Number('long'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListFeaturedResultsSetsCommandInput - {@link ListFeaturedResultsSetsCommandInput}
@@ -76,6 +90,8 @@ export interface ListFeaturedResultsSetsCommandOutput extends ListFeaturedResult
  *  <p>The input fails to satisfy the constraints set by the Amazon Kendra service.
  *             Please provide the correct input and try again.</p>
  *
+ * @throws {@link KendraServiceException}
+ * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
  */
 export class ListFeaturedResultsSetsCommand extends $Command<

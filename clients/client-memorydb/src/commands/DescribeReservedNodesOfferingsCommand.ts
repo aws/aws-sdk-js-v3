@@ -41,19 +41,39 @@ export interface DescribeReservedNodesOfferingsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MemoryDBClient, DescribeReservedNodesOfferingsCommand } from "@aws-sdk/client-memorydb"; // ES Modules import
- * // const { MemoryDBClient, DescribeReservedNodesOfferingsCommand } = require("@aws-sdk/client-memorydb"); // CommonJS import
+ * import { MemoryDBClient, DescribeReservedNodesOfferingsCommand } from '@aws-sdk/client-memorydb'; // ES Modules import
+ * // const { MemoryDBClient, DescribeReservedNodesOfferingsCommand } = require('@aws-sdk/client-memorydb'); // CommonJS import
  * const client = new MemoryDBClient(config);
  * const input = { // DescribeReservedNodesOfferingsRequest
- *   ReservedNodesOfferingId: "STRING_VALUE",
- *   NodeType: "STRING_VALUE",
- *   Duration: "STRING_VALUE",
- *   OfferingType: "STRING_VALUE",
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   ReservedNodesOfferingId: 'STRING_VALUE',
+ *   NodeType: 'STRING_VALUE',
+ *   Duration: 'STRING_VALUE',
+ *   OfferingType: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new DescribeReservedNodesOfferingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeReservedNodesOfferingsResponse
+ *   NextToken: 'STRING_VALUE',
+ *   ReservedNodesOfferings: [ // ReservedNodesOfferingList
+ *     { // ReservedNodesOffering
+ *       ReservedNodesOfferingId: 'STRING_VALUE',
+ *       NodeType: 'STRING_VALUE',
+ *       Duration: Number('int'),
+ *       FixedPrice: Number('double'),
+ *       OfferingType: 'STRING_VALUE',
+ *       RecurringCharges: [ // RecurringChargeList
+ *         { // RecurringCharge
+ *           RecurringChargeAmount: Number('double'),
+ *           RecurringChargeFrequency: 'STRING_VALUE',
+ *         },
+ *       ],
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeReservedNodesOfferingsCommandInput - {@link DescribeReservedNodesOfferingsCommandInput}
@@ -76,6 +96,8 @@ export interface DescribeReservedNodesOfferingsCommandOutput
  * @throws {@link ServiceLinkedRoleNotFoundFault} (client fault)
  *  <p></p>
  *
+ * @throws {@link MemoryDBServiceException}
+ * <p>Base exception class for all service exceptions from MemoryDB service.</p>
  *
  */
 export class DescribeReservedNodesOfferingsCommand extends $Command<

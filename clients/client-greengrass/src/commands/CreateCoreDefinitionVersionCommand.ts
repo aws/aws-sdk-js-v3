@@ -41,23 +41,31 @@ export interface CreateCoreDefinitionVersionCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GreengrassClient, CreateCoreDefinitionVersionCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
- * // const { GreengrassClient, CreateCoreDefinitionVersionCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
+ * import { GreengrassClient, CreateCoreDefinitionVersionCommand } from '@aws-sdk/client-greengrass'; // ES Modules import
+ * // const { GreengrassClient, CreateCoreDefinitionVersionCommand } = require('@aws-sdk/client-greengrass'); // CommonJS import
  * const client = new GreengrassClient(config);
  * const input = { // CreateCoreDefinitionVersionRequest
- *   AmznClientToken: "STRING_VALUE",
- *   CoreDefinitionId: "STRING_VALUE", // required
+ *   AmznClientToken: 'STRING_VALUE',
+ *   CoreDefinitionId: 'STRING_VALUE', // required
  *   Cores: [ // __listOfCore
  *     { // Core
- *       CertificateArn: "STRING_VALUE", // required
- *       Id: "STRING_VALUE", // required
+ *       CertificateArn: 'STRING_VALUE', // required
+ *       Id: 'STRING_VALUE', // required
  *       SyncShadow: true || false,
- *       ThingArn: "STRING_VALUE", // required
+ *       ThingArn: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreateCoreDefinitionVersionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateCoreDefinitionVersionResponse
+ *   Arn: 'STRING_VALUE',
+ *   CreationTimestamp: 'STRING_VALUE',
+ *   Id: 'STRING_VALUE',
+ *   Version: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateCoreDefinitionVersionCommandInput - {@link CreateCoreDefinitionVersionCommandInput}
@@ -69,6 +77,8 @@ export interface CreateCoreDefinitionVersionCommandOutput
  * @throws {@link BadRequestException} (client fault)
  *  General error information.
  *
+ * @throws {@link GreengrassServiceException}
+ * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
  */
 export class CreateCoreDefinitionVersionCommand extends $Command<

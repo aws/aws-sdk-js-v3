@@ -36,27 +36,30 @@ export interface SendEventCommandOutput extends SendEventResult, __MetadataBeare
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FraudDetectorClient, SendEventCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
- * // const { FraudDetectorClient, SendEventCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
+ * import { FraudDetectorClient, SendEventCommand } from '@aws-sdk/client-frauddetector'; // ES Modules import
+ * // const { FraudDetectorClient, SendEventCommand } = require('@aws-sdk/client-frauddetector'); // CommonJS import
  * const client = new FraudDetectorClient(config);
  * const input = { // SendEventRequest
- *   eventId: "STRING_VALUE", // required
- *   eventTypeName: "STRING_VALUE", // required
- *   eventTimestamp: "STRING_VALUE", // required
+ *   eventId: 'STRING_VALUE', // required
+ *   eventTypeName: 'STRING_VALUE', // required
+ *   eventTimestamp: 'STRING_VALUE', // required
  *   eventVariables: { // EventVariableMap // required
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
- *   assignedLabel: "STRING_VALUE",
- *   labelTimestamp: "STRING_VALUE",
+ *   assignedLabel: 'STRING_VALUE',
+ *   labelTimestamp: 'STRING_VALUE',
  *   entities: [ // listOfEntities // required
  *     { // Entity
- *       entityType: "STRING_VALUE", // required
- *       entityId: "STRING_VALUE", // required
+ *       entityType: 'STRING_VALUE', // required
+ *       entityId: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new SendEventCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param SendEventCommandInput - {@link SendEventCommandInput}
@@ -83,6 +86,8 @@ export interface SendEventCommandOutput extends SendEventResult, __MetadataBeare
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception indicating a specified value is not allowed.</p>
  *
+ * @throws {@link FraudDetectorServiceException}
+ * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
  */
 export class SendEventCommand extends $Command<

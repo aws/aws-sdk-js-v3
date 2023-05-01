@@ -36,17 +36,20 @@ export interface DeleteTagsCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MqClient, DeleteTagsCommand } from "@aws-sdk/client-mq"; // ES Modules import
- * // const { MqClient, DeleteTagsCommand } = require("@aws-sdk/client-mq"); // CommonJS import
+ * import { MqClient, DeleteTagsCommand } from '@aws-sdk/client-mq'; // ES Modules import
+ * // const { MqClient, DeleteTagsCommand } = require('@aws-sdk/client-mq'); // CommonJS import
  * const client = new MqClient(config);
  * const input = { // DeleteTagsRequest
- *   ResourceArn: "STRING_VALUE", // required
+ *   ResourceArn: 'STRING_VALUE', // required
  *   TagKeys: [ // __listOf__string // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new DeleteTagsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteTagsCommandInput - {@link DeleteTagsCommandInput}
@@ -67,6 +70,8 @@ export interface DeleteTagsCommandOutput extends __MetadataBearer {}
  * @throws {@link NotFoundException} (client fault)
  *  <p>Returns information about an error.</p>
  *
+ * @throws {@link MqServiceException}
+ * <p>Base exception class for all service exceptions from Mq service.</p>
  *
  */
 export class DeleteTagsCommand extends $Command<

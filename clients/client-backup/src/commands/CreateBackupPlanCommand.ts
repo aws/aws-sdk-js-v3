@@ -44,33 +44,33 @@ export interface CreateBackupPlanCommandOutput extends CreateBackupPlanOutput, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BackupClient, CreateBackupPlanCommand } from "@aws-sdk/client-backup"; // ES Modules import
- * // const { BackupClient, CreateBackupPlanCommand } = require("@aws-sdk/client-backup"); // CommonJS import
+ * import { BackupClient, CreateBackupPlanCommand } from '@aws-sdk/client-backup'; // ES Modules import
+ * // const { BackupClient, CreateBackupPlanCommand } = require('@aws-sdk/client-backup'); // CommonJS import
  * const client = new BackupClient(config);
  * const input = { // CreateBackupPlanInput
  *   BackupPlan: { // BackupPlanInput
- *     BackupPlanName: "STRING_VALUE", // required
+ *     BackupPlanName: 'STRING_VALUE', // required
  *     Rules: [ // BackupRulesInput // required
  *       { // BackupRuleInput
- *         RuleName: "STRING_VALUE", // required
- *         TargetBackupVaultName: "STRING_VALUE", // required
- *         ScheduleExpression: "STRING_VALUE",
- *         StartWindowMinutes: Number("long"),
- *         CompletionWindowMinutes: Number("long"),
+ *         RuleName: 'STRING_VALUE', // required
+ *         TargetBackupVaultName: 'STRING_VALUE', // required
+ *         ScheduleExpression: 'STRING_VALUE',
+ *         StartWindowMinutes: Number('long'),
+ *         CompletionWindowMinutes: Number('long'),
  *         Lifecycle: { // Lifecycle
- *           MoveToColdStorageAfterDays: Number("long"),
- *           DeleteAfterDays: Number("long"),
+ *           MoveToColdStorageAfterDays: Number('long'),
+ *           DeleteAfterDays: Number('long'),
  *         },
  *         RecoveryPointTags: { // Tags
- *           "<keys>": "STRING_VALUE",
+ *           '<keys>': 'STRING_VALUE',
  *         },
  *         CopyActions: [ // CopyActions
  *           { // CopyAction
  *             Lifecycle: {
- *               MoveToColdStorageAfterDays: Number("long"),
- *               DeleteAfterDays: Number("long"),
+ *               MoveToColdStorageAfterDays: Number('long'),
+ *               DeleteAfterDays: Number('long'),
  *             },
- *             DestinationBackupVaultArn: "STRING_VALUE", // required
+ *             DestinationBackupVaultArn: 'STRING_VALUE', // required
  *           },
  *         ],
  *         EnableContinuousBackup: true || false,
@@ -78,20 +78,36 @@ export interface CreateBackupPlanCommandOutput extends CreateBackupPlanOutput, _
  *     ],
  *     AdvancedBackupSettings: [ // AdvancedBackupSettings
  *       { // AdvancedBackupSetting
- *         ResourceType: "STRING_VALUE",
+ *         ResourceType: 'STRING_VALUE',
  *         BackupOptions: { // BackupOptions
- *           "<keys>": "STRING_VALUE",
+ *           '<keys>': 'STRING_VALUE',
  *         },
  *       },
  *     ],
  *   },
  *   BackupPlanTags: {
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
- *   CreatorRequestId: "STRING_VALUE",
+ *   CreatorRequestId: 'STRING_VALUE',
  * };
  * const command = new CreateBackupPlanCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateBackupPlanOutput
+ *   BackupPlanId: 'STRING_VALUE',
+ *   BackupPlanArn: 'STRING_VALUE',
+ *   CreationDate: new Date('TIMESTAMP'),
+ *   VersionId: 'STRING_VALUE',
+ *   AdvancedBackupSettings: [ // AdvancedBackupSettings
+ *     { // AdvancedBackupSetting
+ *       ResourceType: 'STRING_VALUE',
+ *       BackupOptions: { // BackupOptions
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param CreateBackupPlanCommandInput - {@link CreateBackupPlanCommandInput}
@@ -117,6 +133,8 @@ export interface CreateBackupPlanCommandOutput extends CreateBackupPlanOutput, _
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request failed due to a temporary failure of the server.</p>
  *
+ * @throws {@link BackupServiceException}
+ * <p>Base exception class for all service exceptions from Backup service.</p>
  *
  */
 export class CreateBackupPlanCommand extends $Command<

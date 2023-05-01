@@ -41,19 +41,36 @@ export interface AssignPrivateNatGatewayAddressCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, AssignPrivateNatGatewayAddressCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, AssignPrivateNatGatewayAddressCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, AssignPrivateNatGatewayAddressCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, AssignPrivateNatGatewayAddressCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // AssignPrivateNatGatewayAddressRequest
- *   NatGatewayId: "STRING_VALUE", // required
+ *   NatGatewayId: 'STRING_VALUE', // required
  *   PrivateIpAddresses: [ // IpList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   PrivateIpAddressCount: Number("int"),
+ *   PrivateIpAddressCount: Number('int'),
  *   DryRun: true || false,
  * };
  * const command = new AssignPrivateNatGatewayAddressCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AssignPrivateNatGatewayAddressResult
+ *   NatGatewayId: 'STRING_VALUE',
+ *   NatGatewayAddresses: [ // NatGatewayAddressList
+ *     { // NatGatewayAddress
+ *       AllocationId: 'STRING_VALUE',
+ *       NetworkInterfaceId: 'STRING_VALUE',
+ *       PrivateIp: 'STRING_VALUE',
+ *       PublicIp: 'STRING_VALUE',
+ *       AssociationId: 'STRING_VALUE',
+ *       IsPrimary: true || false,
+ *       FailureMessage: 'STRING_VALUE',
+ *       Status: 'assigning' || 'unassigning' || 'associating' || 'disassociating' || 'succeeded' || 'failed',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param AssignPrivateNatGatewayAddressCommandInput - {@link AssignPrivateNatGatewayAddressCommandInput}
@@ -62,6 +79,8 @@ export interface AssignPrivateNatGatewayAddressCommandOutput
  * @see {@link AssignPrivateNatGatewayAddressCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class AssignPrivateNatGatewayAddressCommand extends $Command<

@@ -36,14 +36,50 @@ export interface GetMetricStreamCommandOutput extends GetMetricStreamOutput, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudWatchClient, GetMetricStreamCommand } from "@aws-sdk/client-cloudwatch"; // ES Modules import
- * // const { CloudWatchClient, GetMetricStreamCommand } = require("@aws-sdk/client-cloudwatch"); // CommonJS import
+ * import { CloudWatchClient, GetMetricStreamCommand } from '@aws-sdk/client-cloudwatch'; // ES Modules import
+ * // const { CloudWatchClient, GetMetricStreamCommand } = require('@aws-sdk/client-cloudwatch'); // CommonJS import
  * const client = new CloudWatchClient(config);
  * const input = { // GetMetricStreamInput
- *   Name: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
  * };
  * const command = new GetMetricStreamCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetMetricStreamOutput
+ *   Arn: 'STRING_VALUE',
+ *   Name: 'STRING_VALUE',
+ *   IncludeFilters: [ // MetricStreamFilters
+ *     { // MetricStreamFilter
+ *       Namespace: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   ExcludeFilters: [
+ *     {
+ *       Namespace: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   FirehoseArn: 'STRING_VALUE',
+ *   RoleArn: 'STRING_VALUE',
+ *   State: 'STRING_VALUE',
+ *   CreationDate: new Date('TIMESTAMP'),
+ *   LastUpdateDate: new Date('TIMESTAMP'),
+ *   OutputFormat: 'json' || 'opentelemetry0.7',
+ *   StatisticsConfigurations: [ // MetricStreamStatisticsConfigurations
+ *     { // MetricStreamStatisticsConfiguration
+ *       IncludeMetrics: [ // MetricStreamStatisticsIncludeMetrics // required
+ *         { // MetricStreamStatisticsMetric
+ *           Namespace: 'STRING_VALUE', // required
+ *           MetricName: 'STRING_VALUE', // required
+ *         },
+ *       ],
+ *       AdditionalStatistics: [ // MetricStreamStatisticsAdditionalStatistics // required
+ *         'STRING_VALUE',
+ *       ],
+ *     },
+ *   ],
+ *   IncludeLinkedAccountsMetrics: true || false,
+ * };
+ *
  * ```
  *
  * @param GetMetricStreamCommandInput - {@link GetMetricStreamCommandInput}
@@ -67,6 +103,8 @@ export interface GetMetricStreamCommandOutput extends GetMetricStreamOutput, __M
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The named resource does not exist.</p>
  *
+ * @throws {@link CloudWatchServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatch service.</p>
  *
  */
 export class GetMetricStreamCommand extends $Command<

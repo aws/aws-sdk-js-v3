@@ -41,24 +41,32 @@ export interface CreateLoggerDefinitionVersionCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GreengrassClient, CreateLoggerDefinitionVersionCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
- * // const { GreengrassClient, CreateLoggerDefinitionVersionCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
+ * import { GreengrassClient, CreateLoggerDefinitionVersionCommand } from '@aws-sdk/client-greengrass'; // ES Modules import
+ * // const { GreengrassClient, CreateLoggerDefinitionVersionCommand } = require('@aws-sdk/client-greengrass'); // CommonJS import
  * const client = new GreengrassClient(config);
  * const input = { // CreateLoggerDefinitionVersionRequest
- *   AmznClientToken: "STRING_VALUE",
- *   LoggerDefinitionId: "STRING_VALUE", // required
+ *   AmznClientToken: 'STRING_VALUE',
+ *   LoggerDefinitionId: 'STRING_VALUE', // required
  *   Loggers: [ // __listOfLogger
  *     { // Logger
- *       Component: "GreengrassSystem" || "Lambda", // required
- *       Id: "STRING_VALUE", // required
- *       Level: "DEBUG" || "INFO" || "WARN" || "ERROR" || "FATAL", // required
- *       Space: Number("int"),
- *       Type: "FileSystem" || "AWSCloudWatch", // required
+ *       Component: 'GreengrassSystem' || 'Lambda', // required
+ *       Id: 'STRING_VALUE', // required
+ *       Level: 'DEBUG' || 'INFO' || 'WARN' || 'ERROR' || 'FATAL', // required
+ *       Space: Number('int'),
+ *       Type: 'FileSystem' || 'AWSCloudWatch', // required
  *     },
  *   ],
  * };
  * const command = new CreateLoggerDefinitionVersionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateLoggerDefinitionVersionResponse
+ *   Arn: 'STRING_VALUE',
+ *   CreationTimestamp: 'STRING_VALUE',
+ *   Id: 'STRING_VALUE',
+ *   Version: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateLoggerDefinitionVersionCommandInput - {@link CreateLoggerDefinitionVersionCommandInput}
@@ -70,6 +78,8 @@ export interface CreateLoggerDefinitionVersionCommandOutput
  * @throws {@link BadRequestException} (client fault)
  *  General error information.
  *
+ * @throws {@link GreengrassServiceException}
+ * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
  */
 export class CreateLoggerDefinitionVersionCommand extends $Command<

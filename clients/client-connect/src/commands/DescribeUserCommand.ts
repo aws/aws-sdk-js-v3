@@ -37,15 +37,46 @@ export interface DescribeUserCommandOutput extends DescribeUserResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, DescribeUserCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, DescribeUserCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, DescribeUserCommand } from '@aws-sdk/client-connect'; // ES Modules import
+ * // const { ConnectClient, DescribeUserCommand } = require('@aws-sdk/client-connect'); // CommonJS import
  * const client = new ConnectClient(config);
  * const input = { // DescribeUserRequest
- *   UserId: "STRING_VALUE", // required
- *   InstanceId: "STRING_VALUE", // required
+ *   UserId: 'STRING_VALUE', // required
+ *   InstanceId: 'STRING_VALUE', // required
  * };
  * const command = new DescribeUserCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeUserResponse
+ *   User: { // User
+ *     Id: 'STRING_VALUE',
+ *     Arn: 'STRING_VALUE',
+ *     Username: 'STRING_VALUE',
+ *     IdentityInfo: { // UserIdentityInfo
+ *       FirstName: 'STRING_VALUE',
+ *       LastName: 'STRING_VALUE',
+ *       Email: 'STRING_VALUE',
+ *       SecondaryEmail: 'STRING_VALUE',
+ *       Mobile: 'STRING_VALUE',
+ *     },
+ *     PhoneConfig: { // UserPhoneConfig
+ *       PhoneType: 'SOFT_PHONE' || 'DESK_PHONE', // required
+ *       AutoAccept: true || false,
+ *       AfterContactWorkTimeLimit: Number('int'),
+ *       DeskPhoneNumber: 'STRING_VALUE',
+ *     },
+ *     DirectoryUserId: 'STRING_VALUE',
+ *     SecurityProfileIds: [ // SecurityProfileIds
+ *       'STRING_VALUE',
+ *     ],
+ *     RoutingProfileId: 'STRING_VALUE',
+ *     HierarchyGroupId: 'STRING_VALUE',
+ *     Tags: { // TagMap
+ *       '<keys>': 'STRING_VALUE',
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeUserCommandInput - {@link DescribeUserCommandInput}
@@ -69,6 +100,8 @@ export interface DescribeUserCommandOutput extends DescribeUserResponse, __Metad
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class DescribeUserCommand extends $Command<

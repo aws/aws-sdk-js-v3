@@ -36,14 +36,20 @@ export interface GetImagePolicyCommandOutput extends GetImagePolicyResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ImagebuilderClient, GetImagePolicyCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
- * // const { ImagebuilderClient, GetImagePolicyCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
+ * import { ImagebuilderClient, GetImagePolicyCommand } from '@aws-sdk/client-imagebuilder'; // ES Modules import
+ * // const { ImagebuilderClient, GetImagePolicyCommand } = require('@aws-sdk/client-imagebuilder'); // CommonJS import
  * const client = new ImagebuilderClient(config);
  * const input = { // GetImagePolicyRequest
- *   imageArn: "STRING_VALUE", // required
+ *   imageArn: 'STRING_VALUE', // required
  * };
  * const command = new GetImagePolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetImagePolicyResponse
+ *   requestId: 'STRING_VALUE',
+ *   policy: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetImagePolicyCommandInput - {@link GetImagePolicyCommandInput}
@@ -71,6 +77,8 @@ export interface GetImagePolicyCommandOutput extends GetImagePolicyResponse, __M
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service is unable to process your request at this time.</p>
  *
+ * @throws {@link ImagebuilderServiceException}
+ * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
  */
 export class GetImagePolicyCommand extends $Command<

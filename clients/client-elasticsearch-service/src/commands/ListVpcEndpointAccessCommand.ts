@@ -41,15 +41,26 @@ export interface ListVpcEndpointAccessCommandOutput extends ListVpcEndpointAcces
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElasticsearchServiceClient, ListVpcEndpointAccessCommand } from "@aws-sdk/client-elasticsearch-service"; // ES Modules import
- * // const { ElasticsearchServiceClient, ListVpcEndpointAccessCommand } = require("@aws-sdk/client-elasticsearch-service"); // CommonJS import
+ * import { ElasticsearchServiceClient, ListVpcEndpointAccessCommand } from '@aws-sdk/client-elasticsearch-service'; // ES Modules import
+ * // const { ElasticsearchServiceClient, ListVpcEndpointAccessCommand } = require('@aws-sdk/client-elasticsearch-service'); // CommonJS import
  * const client = new ElasticsearchServiceClient(config);
  * const input = { // ListVpcEndpointAccessRequest
- *   DomainName: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
+ *   DomainName: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListVpcEndpointAccessCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListVpcEndpointAccessResponse
+ *   AuthorizedPrincipalList: [ // AuthorizedPrincipalList // required
+ *     { // AuthorizedPrincipal
+ *       PrincipalType: 'AWS_ACCOUNT' || 'AWS_SERVICE',
+ *       Principal: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param ListVpcEndpointAccessCommandInput - {@link ListVpcEndpointAccessCommandInput}
@@ -70,6 +81,8 @@ export interface ListVpcEndpointAccessCommandOutput extends ListVpcEndpointAcces
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>An exception for accessing or deleting a resource that does not exist. Gives http status code of 400.</p>
  *
+ * @throws {@link ElasticsearchServiceServiceException}
+ * <p>Base exception class for all service exceptions from ElasticsearchService service.</p>
  *
  */
 export class ListVpcEndpointAccessCommand extends $Command<

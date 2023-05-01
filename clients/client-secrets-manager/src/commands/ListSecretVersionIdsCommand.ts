@@ -46,17 +46,37 @@ export interface ListSecretVersionIdsCommandOutput extends ListSecretVersionIdsR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SecretsManagerClient, ListSecretVersionIdsCommand } from "@aws-sdk/client-secrets-manager"; // ES Modules import
- * // const { SecretsManagerClient, ListSecretVersionIdsCommand } = require("@aws-sdk/client-secrets-manager"); // CommonJS import
+ * import { SecretsManagerClient, ListSecretVersionIdsCommand } from '@aws-sdk/client-secrets-manager'; // ES Modules import
+ * // const { SecretsManagerClient, ListSecretVersionIdsCommand } = require('@aws-sdk/client-secrets-manager'); // CommonJS import
  * const client = new SecretsManagerClient(config);
  * const input = { // ListSecretVersionIdsRequest
- *   SecretId: "STRING_VALUE", // required
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   SecretId: 'STRING_VALUE', // required
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  *   IncludeDeprecated: true || false,
  * };
  * const command = new ListSecretVersionIdsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListSecretVersionIdsResponse
+ *   Versions: [ // SecretVersionsListType
+ *     { // SecretVersionsListEntry
+ *       VersionId: 'STRING_VALUE',
+ *       VersionStages: [ // SecretVersionStagesType
+ *         'STRING_VALUE',
+ *       ],
+ *       LastAccessedDate: new Date('TIMESTAMP'),
+ *       CreatedDate: new Date('TIMESTAMP'),
+ *       KmsKeyIds: [ // KmsKeyIdListType
+ *         'STRING_VALUE',
+ *       ],
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ *   ARN: 'STRING_VALUE',
+ *   Name: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListSecretVersionIdsCommandInput - {@link ListSecretVersionIdsCommandInput}
@@ -77,6 +97,8 @@ export interface ListSecretVersionIdsCommandOutput extends ListSecretVersionIdsR
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Secrets Manager can't find the resource that you asked for.</p>
  *
+ * @throws {@link SecretsManagerServiceException}
+ * <p>Base exception class for all service exceptions from SecretsManager service.</p>
  *
  * @example To list all of the secret versions associated with a secret
  * ```javascript

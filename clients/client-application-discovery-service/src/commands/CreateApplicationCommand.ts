@@ -40,15 +40,20 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ApplicationDiscoveryServiceClient, CreateApplicationCommand } from "@aws-sdk/client-application-discovery-service"; // ES Modules import
- * // const { ApplicationDiscoveryServiceClient, CreateApplicationCommand } = require("@aws-sdk/client-application-discovery-service"); // CommonJS import
+ * import { ApplicationDiscoveryServiceClient, CreateApplicationCommand } from '@aws-sdk/client-application-discovery-service'; // ES Modules import
+ * // const { ApplicationDiscoveryServiceClient, CreateApplicationCommand } = require('@aws-sdk/client-application-discovery-service'); // CommonJS import
  * const client = new ApplicationDiscoveryServiceClient(config);
  * const input = { // CreateApplicationRequest
- *   name: "STRING_VALUE", // required
- *   description: "STRING_VALUE",
+ *   name: 'STRING_VALUE', // required
+ *   description: 'STRING_VALUE',
  * };
  * const command = new CreateApplicationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateApplicationResponse
+ *   configurationId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateApplicationCommandInput - {@link CreateApplicationCommandInput}
@@ -74,6 +79,8 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  * @throws {@link ServerInternalErrorException} (server fault)
  *  <p>The server experienced an internal error. Try again.</p>
  *
+ * @throws {@link ApplicationDiscoveryServiceServiceException}
+ * <p>Base exception class for all service exceptions from ApplicationDiscoveryService service.</p>
  *
  */
 export class CreateApplicationCommand extends $Command<

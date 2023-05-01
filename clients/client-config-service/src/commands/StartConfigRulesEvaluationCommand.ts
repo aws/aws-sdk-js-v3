@@ -81,16 +81,19 @@ export interface StartConfigRulesEvaluationCommandOutput extends StartConfigRule
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConfigServiceClient, StartConfigRulesEvaluationCommand } from "@aws-sdk/client-config-service"; // ES Modules import
- * // const { ConfigServiceClient, StartConfigRulesEvaluationCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
+ * import { ConfigServiceClient, StartConfigRulesEvaluationCommand } from '@aws-sdk/client-config-service'; // ES Modules import
+ * // const { ConfigServiceClient, StartConfigRulesEvaluationCommand } = require('@aws-sdk/client-config-service'); // CommonJS import
  * const client = new ConfigServiceClient(config);
  * const input = { // StartConfigRulesEvaluationRequest
  *   ConfigRuleNames: [ // ReevaluateConfigRuleNames
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new StartConfigRulesEvaluationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param StartConfigRulesEvaluationCommandInput - {@link StartConfigRulesEvaluationCommandInput}
@@ -140,6 +143,8 @@ export interface StartConfigRulesEvaluationCommandOutput extends StartConfigRule
  *             </li>
  *          </ul>
  *
+ * @throws {@link ConfigServiceServiceException}
+ * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
  */
 export class StartConfigRulesEvaluationCommand extends $Command<

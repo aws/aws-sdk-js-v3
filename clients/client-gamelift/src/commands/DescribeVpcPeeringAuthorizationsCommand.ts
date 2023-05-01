@@ -49,12 +49,25 @@ export interface DescribeVpcPeeringAuthorizationsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GameLiftClient, DescribeVpcPeeringAuthorizationsCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
- * // const { GameLiftClient, DescribeVpcPeeringAuthorizationsCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
+ * import { GameLiftClient, DescribeVpcPeeringAuthorizationsCommand } from '@aws-sdk/client-gamelift'; // ES Modules import
+ * // const { GameLiftClient, DescribeVpcPeeringAuthorizationsCommand } = require('@aws-sdk/client-gamelift'); // CommonJS import
  * const client = new GameLiftClient(config);
  * const input = {};
  * const command = new DescribeVpcPeeringAuthorizationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeVpcPeeringAuthorizationsOutput
+ *   VpcPeeringAuthorizations: [ // VpcPeeringAuthorizationList
+ *     { // VpcPeeringAuthorization
+ *       GameLiftAwsAccountId: 'STRING_VALUE',
+ *       PeerVpcAwsAccountId: 'STRING_VALUE',
+ *       PeerVpcId: 'STRING_VALUE',
+ *       CreationTime: new Date('TIMESTAMP'),
+ *       ExpirationTime: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeVpcPeeringAuthorizationsCommandInput - {@link DescribeVpcPeeringAuthorizationsCommandInput}
@@ -74,6 +87,8 @@ export interface DescribeVpcPeeringAuthorizationsCommandOutput
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client failed authentication. Clients should not retry such requests.</p>
  *
+ * @throws {@link GameLiftServiceException}
+ * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
  */
 export class DescribeVpcPeeringAuthorizationsCommand extends $Command<

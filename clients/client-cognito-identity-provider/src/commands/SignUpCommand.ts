@@ -59,39 +59,50 @@ export interface SignUpCommandOutput extends SignUpResponse, __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CognitoIdentityProviderClient, SignUpCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
- * // const { CognitoIdentityProviderClient, SignUpCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
+ * import { CognitoIdentityProviderClient, SignUpCommand } from '@aws-sdk/client-cognito-identity-provider'; // ES Modules import
+ * // const { CognitoIdentityProviderClient, SignUpCommand } = require('@aws-sdk/client-cognito-identity-provider'); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
  * const input = { // SignUpRequest
- *   ClientId: "STRING_VALUE", // required
- *   SecretHash: "STRING_VALUE",
- *   Username: "STRING_VALUE", // required
- *   Password: "STRING_VALUE", // required
+ *   ClientId: 'STRING_VALUE', // required
+ *   SecretHash: 'STRING_VALUE',
+ *   Username: 'STRING_VALUE', // required
+ *   Password: 'STRING_VALUE', // required
  *   UserAttributes: [ // AttributeListType
  *     { // AttributeType
- *       Name: "STRING_VALUE", // required
- *       Value: "STRING_VALUE",
+ *       Name: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
  *   ValidationData: [
  *     {
- *       Name: "STRING_VALUE", // required
- *       Value: "STRING_VALUE",
+ *       Name: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
  *   AnalyticsMetadata: { // AnalyticsMetadataType
- *     AnalyticsEndpointId: "STRING_VALUE",
+ *     AnalyticsEndpointId: 'STRING_VALUE',
  *   },
  *   UserContextData: { // UserContextDataType
- *     IpAddress: "STRING_VALUE",
- *     EncodedData: "STRING_VALUE",
+ *     IpAddress: 'STRING_VALUE',
+ *     EncodedData: 'STRING_VALUE',
  *   },
  *   ClientMetadata: { // ClientMetadataType
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new SignUpCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SignUpResponse
+ *   UserConfirmed: true || false, // required
+ *   CodeDeliveryDetails: { // CodeDeliveryDetailsType
+ *     Destination: 'STRING_VALUE',
+ *     DeliveryMedium: 'SMS' || 'EMAIL',
+ *     AttributeName: 'STRING_VALUE',
+ *   },
+ *   UserSub: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param SignUpCommandInput - {@link SignUpCommandInput}
@@ -157,6 +168,8 @@ export interface SignUpCommandOutput extends SignUpResponse, __MetadataBearer {}
  *  <p>This exception is thrown when Amazon Cognito encounters a user name that already
  *             exists in the user pool.</p>
  *
+ * @throws {@link CognitoIdentityProviderServiceException}
+ * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
  */
 export class SignUpCommand extends $Command<

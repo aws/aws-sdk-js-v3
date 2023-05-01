@@ -40,16 +40,24 @@ export interface RetryWorkflowStepCommandOutput extends RetryWorkflowStepRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MigrationHubOrchestratorClient, RetryWorkflowStepCommand } from "@aws-sdk/client-migrationhuborchestrator"; // ES Modules import
- * // const { MigrationHubOrchestratorClient, RetryWorkflowStepCommand } = require("@aws-sdk/client-migrationhuborchestrator"); // CommonJS import
+ * import { MigrationHubOrchestratorClient, RetryWorkflowStepCommand } from '@aws-sdk/client-migrationhuborchestrator'; // ES Modules import
+ * // const { MigrationHubOrchestratorClient, RetryWorkflowStepCommand } = require('@aws-sdk/client-migrationhuborchestrator'); // CommonJS import
  * const client = new MigrationHubOrchestratorClient(config);
  * const input = { // RetryWorkflowStepRequest
- *   workflowId: "STRING_VALUE", // required
- *   stepGroupId: "STRING_VALUE", // required
- *   id: "STRING_VALUE", // required
+ *   workflowId: 'STRING_VALUE', // required
+ *   stepGroupId: 'STRING_VALUE', // required
+ *   id: 'STRING_VALUE', // required
  * };
  * const command = new RetryWorkflowStepCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // RetryWorkflowStepResponse
+ *   stepGroupId: 'STRING_VALUE',
+ *   workflowId: 'STRING_VALUE',
+ *   id: 'STRING_VALUE',
+ *   status: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param RetryWorkflowStepCommandInput - {@link RetryWorkflowStepCommandInput}
@@ -70,6 +78,8 @@ export interface RetryWorkflowStepCommandOutput extends RetryWorkflowStepRespons
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
  *
+ * @throws {@link MigrationHubOrchestratorServiceException}
+ * <p>Base exception class for all service exceptions from MigrationHubOrchestrator service.</p>
  *
  */
 export class RetryWorkflowStepCommand extends $Command<

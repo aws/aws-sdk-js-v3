@@ -41,14 +41,45 @@ export interface DescribeUserHierarchyStructureCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, DescribeUserHierarchyStructureCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, DescribeUserHierarchyStructureCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, DescribeUserHierarchyStructureCommand } from '@aws-sdk/client-connect'; // ES Modules import
+ * // const { ConnectClient, DescribeUserHierarchyStructureCommand } = require('@aws-sdk/client-connect'); // CommonJS import
  * const client = new ConnectClient(config);
  * const input = { // DescribeUserHierarchyStructureRequest
- *   InstanceId: "STRING_VALUE", // required
+ *   InstanceId: 'STRING_VALUE', // required
  * };
  * const command = new DescribeUserHierarchyStructureCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeUserHierarchyStructureResponse
+ *   HierarchyStructure: { // HierarchyStructure
+ *     LevelOne: { // HierarchyLevel
+ *       Id: 'STRING_VALUE',
+ *       Arn: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *     },
+ *     LevelTwo: {
+ *       Id: 'STRING_VALUE',
+ *       Arn: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *     },
+ *     LevelThree: {
+ *       Id: 'STRING_VALUE',
+ *       Arn: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *     },
+ *     LevelFour: {
+ *       Id: 'STRING_VALUE',
+ *       Arn: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *     },
+ *     LevelFive: {
+ *       Id: 'STRING_VALUE',
+ *       Arn: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeUserHierarchyStructureCommandInput - {@link DescribeUserHierarchyStructureCommandInput}
@@ -72,6 +103,8 @@ export interface DescribeUserHierarchyStructureCommandOutput
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class DescribeUserHierarchyStructureCommand extends $Command<

@@ -36,16 +36,19 @@ export interface UpdateModelCommandOutput extends UpdateModelResult, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FraudDetectorClient, UpdateModelCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
- * // const { FraudDetectorClient, UpdateModelCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
+ * import { FraudDetectorClient, UpdateModelCommand } from '@aws-sdk/client-frauddetector'; // ES Modules import
+ * // const { FraudDetectorClient, UpdateModelCommand } = require('@aws-sdk/client-frauddetector'); // CommonJS import
  * const client = new FraudDetectorClient(config);
  * const input = { // UpdateModelRequest
- *   modelId: "STRING_VALUE", // required
- *   modelType: "ONLINE_FRAUD_INSIGHTS" || "TRANSACTION_FRAUD_INSIGHTS" || "ACCOUNT_TAKEOVER_INSIGHTS", // required
- *   description: "STRING_VALUE",
+ *   modelId: 'STRING_VALUE', // required
+ *   modelType: 'ONLINE_FRAUD_INSIGHTS' || 'TRANSACTION_FRAUD_INSIGHTS' || 'ACCOUNT_TAKEOVER_INSIGHTS', // required
+ *   description: 'STRING_VALUE',
  * };
  * const command = new UpdateModelCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateModelCommandInput - {@link UpdateModelCommandInput}
@@ -72,6 +75,8 @@ export interface UpdateModelCommandOutput extends UpdateModelResult, __MetadataB
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception indicating a specified value is not allowed.</p>
  *
+ * @throws {@link FraudDetectorServiceException}
+ * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
  */
 export class UpdateModelCommand extends $Command<

@@ -37,21 +37,55 @@ export interface ListWirelessDevicesCommandOutput extends ListWirelessDevicesRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTWirelessClient, ListWirelessDevicesCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
- * // const { IoTWirelessClient, ListWirelessDevicesCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
+ * import { IoTWirelessClient, ListWirelessDevicesCommand } from '@aws-sdk/client-iot-wireless'; // ES Modules import
+ * // const { IoTWirelessClient, ListWirelessDevicesCommand } = require('@aws-sdk/client-iot-wireless'); // CommonJS import
  * const client = new IoTWirelessClient(config);
  * const input = { // ListWirelessDevicesRequest
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
- *   DestinationName: "STRING_VALUE",
- *   DeviceProfileId: "STRING_VALUE",
- *   ServiceProfileId: "STRING_VALUE",
- *   WirelessDeviceType: "Sidewalk" || "LoRaWAN",
- *   FuotaTaskId: "STRING_VALUE",
- *   MulticastGroupId: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
+ *   DestinationName: 'STRING_VALUE',
+ *   DeviceProfileId: 'STRING_VALUE',
+ *   ServiceProfileId: 'STRING_VALUE',
+ *   WirelessDeviceType: 'Sidewalk' || 'LoRaWAN',
+ *   FuotaTaskId: 'STRING_VALUE',
+ *   MulticastGroupId: 'STRING_VALUE',
  * };
  * const command = new ListWirelessDevicesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListWirelessDevicesResponse
+ *   NextToken: 'STRING_VALUE',
+ *   WirelessDeviceList: [ // WirelessDeviceStatisticsList
+ *     { // WirelessDeviceStatistics
+ *       Arn: 'STRING_VALUE',
+ *       Id: 'STRING_VALUE',
+ *       Type: 'Sidewalk' || 'LoRaWAN',
+ *       Name: 'STRING_VALUE',
+ *       DestinationName: 'STRING_VALUE',
+ *       LastUplinkReceivedAt: 'STRING_VALUE',
+ *       LoRaWAN: { // LoRaWANListDevice
+ *         DevEui: 'STRING_VALUE',
+ *       },
+ *       Sidewalk: { // SidewalkListDevice
+ *         AmazonId: 'STRING_VALUE',
+ *         SidewalkId: 'STRING_VALUE',
+ *         SidewalkManufacturingSn: 'STRING_VALUE',
+ *         DeviceCertificates: [ // DeviceCertificateList
+ *           { // CertificateList
+ *             SigningAlg: 'Ed25519' || 'P256r1', // required
+ *             Value: 'STRING_VALUE', // required
+ *           },
+ *         ],
+ *         DeviceProfileId: 'STRING_VALUE',
+ *         Status: 'PROVISIONED' || 'REGISTERED' || 'ACTIVATED' || 'UNKNOWN',
+ *       },
+ *       FuotaDeviceStatus: 'Initial' || 'Package_Not_Supported' || 'FragAlgo_unsupported' || 'Not_enough_memory' || 'FragIndex_unsupported' || 'Wrong_descriptor' || 'SessionCnt_replay' || 'MissingFrag' || 'MemoryError' || 'MICError' || 'Successful',
+ *       MulticastDeviceStatus: 'STRING_VALUE',
+ *       McGroupId: Number('int'),
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListWirelessDevicesCommandInput - {@link ListWirelessDevicesCommandInput}
@@ -72,6 +106,8 @@ export interface ListWirelessDevicesCommandOutput extends ListWirelessDevicesRes
  * @throws {@link ValidationException} (client fault)
  *  <p>The input did not meet the specified constraints.</p>
  *
+ * @throws {@link IoTWirelessServiceException}
+ * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
  */
 export class ListWirelessDevicesCommand extends $Command<

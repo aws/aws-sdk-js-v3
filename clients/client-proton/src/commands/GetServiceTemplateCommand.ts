@@ -40,14 +40,29 @@ export interface GetServiceTemplateCommandOutput extends GetServiceTemplateOutpu
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ProtonClient, GetServiceTemplateCommand } from "@aws-sdk/client-proton"; // ES Modules import
- * // const { ProtonClient, GetServiceTemplateCommand } = require("@aws-sdk/client-proton"); // CommonJS import
+ * import { ProtonClient, GetServiceTemplateCommand } from '@aws-sdk/client-proton'; // ES Modules import
+ * // const { ProtonClient, GetServiceTemplateCommand } = require('@aws-sdk/client-proton'); // CommonJS import
  * const client = new ProtonClient(config);
  * const input = { // GetServiceTemplateInput
- *   name: "STRING_VALUE", // required
+ *   name: 'STRING_VALUE', // required
  * };
  * const command = new GetServiceTemplateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetServiceTemplateOutput
+ *   serviceTemplate: { // ServiceTemplate
+ *     name: 'STRING_VALUE', // required
+ *     arn: 'STRING_VALUE', // required
+ *     createdAt: new Date('TIMESTAMP'), // required
+ *     lastModifiedAt: new Date('TIMESTAMP'), // required
+ *     displayName: 'STRING_VALUE',
+ *     description: 'STRING_VALUE',
+ *     recommendedVersion: 'STRING_VALUE',
+ *     encryptionKey: 'STRING_VALUE',
+ *     pipelineProvisioning: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetServiceTemplateCommandInput - {@link GetServiceTemplateCommandInput}
@@ -71,6 +86,8 @@ export interface GetServiceTemplateCommandOutput extends GetServiceTemplateOutpu
  * @throws {@link ValidationException} (client fault)
  *  <p>The input is invalid or an out-of-range value was supplied for the input parameter.</p>
  *
+ * @throws {@link ProtonServiceException}
+ * <p>Base exception class for all service exceptions from Proton service.</p>
  *
  */
 export class GetServiceTemplateCommand extends $Command<

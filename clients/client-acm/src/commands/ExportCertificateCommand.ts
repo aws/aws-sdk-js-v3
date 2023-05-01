@@ -47,15 +47,22 @@ export interface ExportCertificateCommandOutput extends ExportCertificateRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ACMClient, ExportCertificateCommand } from "@aws-sdk/client-acm"; // ES Modules import
- * // const { ACMClient, ExportCertificateCommand } = require("@aws-sdk/client-acm"); // CommonJS import
+ * import { ACMClient, ExportCertificateCommand } from '@aws-sdk/client-acm'; // ES Modules import
+ * // const { ACMClient, ExportCertificateCommand } = require('@aws-sdk/client-acm'); // CommonJS import
  * const client = new ACMClient(config);
  * const input = { // ExportCertificateRequest
- *   CertificateArn: "STRING_VALUE", // required
- *   Passphrase: "BLOB_VALUE", // required
+ *   CertificateArn: 'STRING_VALUE', // required
+ *   Passphrase: 'BLOB_VALUE', // required
  * };
  * const command = new ExportCertificateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ExportCertificateResponse
+ *   Certificate: 'STRING_VALUE',
+ *   CertificateChain: 'STRING_VALUE',
+ *   PrivateKey: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ExportCertificateCommandInput - {@link ExportCertificateCommandInput}
@@ -75,6 +82,8 @@ export interface ExportCertificateCommandOutput extends ExportCertificateRespons
  *  <p>The specified certificate cannot be found in the caller's account or the caller's account
  *       cannot be found.</p>
  *
+ * @throws {@link ACMServiceException}
+ * <p>Base exception class for all service exceptions from ACM service.</p>
  *
  */
 export class ExportCertificateCommand extends $Command<

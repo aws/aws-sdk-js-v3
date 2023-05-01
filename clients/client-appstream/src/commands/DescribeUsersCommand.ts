@@ -36,16 +36,33 @@ export interface DescribeUsersCommandOutput extends DescribeUsersResult, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppStreamClient, DescribeUsersCommand } from "@aws-sdk/client-appstream"; // ES Modules import
- * // const { AppStreamClient, DescribeUsersCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
+ * import { AppStreamClient, DescribeUsersCommand } from '@aws-sdk/client-appstream'; // ES Modules import
+ * // const { AppStreamClient, DescribeUsersCommand } = require('@aws-sdk/client-appstream'); // CommonJS import
  * const client = new AppStreamClient(config);
  * const input = { // DescribeUsersRequest
- *   AuthenticationType: "API" || "SAML" || "USERPOOL" || "AWS_AD", // required
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   AuthenticationType: 'API' || 'SAML' || 'USERPOOL' || 'AWS_AD', // required
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new DescribeUsersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeUsersResult
+ *   Users: [ // UserList
+ *     { // User
+ *       Arn: 'STRING_VALUE',
+ *       UserName: 'STRING_VALUE',
+ *       Enabled: true || false,
+ *       Status: 'STRING_VALUE',
+ *       FirstName: 'STRING_VALUE',
+ *       LastName: 'STRING_VALUE',
+ *       CreatedTime: new Date('TIMESTAMP'),
+ *       AuthenticationType: 'API' || 'SAML' || 'USERPOOL' || 'AWS_AD', // required
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeUsersCommandInput - {@link DescribeUsersCommandInput}
@@ -63,6 +80,8 @@ export interface DescribeUsersCommandOutput extends DescribeUsersResult, __Metad
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link AppStreamServiceException}
+ * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
  */
 export class DescribeUsersCommand extends $Command<

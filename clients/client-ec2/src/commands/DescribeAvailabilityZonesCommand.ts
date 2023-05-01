@@ -41,29 +41,52 @@ export interface DescribeAvailabilityZonesCommandOutput extends DescribeAvailabi
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, DescribeAvailabilityZonesCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, DescribeAvailabilityZonesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, DescribeAvailabilityZonesCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, DescribeAvailabilityZonesCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // DescribeAvailabilityZonesRequest
  *   Filters: [ // FilterList
  *     { // Filter
- *       Name: "STRING_VALUE",
+ *       Name: 'STRING_VALUE',
  *       Values: [ // ValueStringList
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
  *   ZoneNames: [ // ZoneNameStringList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   ZoneIds: [ // ZoneIdStringList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   AllAvailabilityZones: true || false,
  *   DryRun: true || false,
  * };
  * const command = new DescribeAvailabilityZonesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeAvailabilityZonesResult
+ *   AvailabilityZones: [ // AvailabilityZoneList
+ *     { // AvailabilityZone
+ *       State: 'available' || 'information' || 'impaired' || 'unavailable',
+ *       OptInStatus: 'opt-in-not-required' || 'opted-in' || 'not-opted-in',
+ *       Messages: [ // AvailabilityZoneMessageList
+ *         { // AvailabilityZoneMessage
+ *           Message: 'STRING_VALUE',
+ *         },
+ *       ],
+ *       RegionName: 'STRING_VALUE',
+ *       ZoneName: 'STRING_VALUE',
+ *       ZoneId: 'STRING_VALUE',
+ *       GroupName: 'STRING_VALUE',
+ *       NetworkBorderGroup: 'STRING_VALUE',
+ *       ZoneType: 'STRING_VALUE',
+ *       ParentZoneName: 'STRING_VALUE',
+ *       ParentZoneId: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeAvailabilityZonesCommandInput - {@link DescribeAvailabilityZonesCommandInput}
@@ -72,6 +95,8 @@ export interface DescribeAvailabilityZonesCommandOutput extends DescribeAvailabi
  * @see {@link DescribeAvailabilityZonesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @example To describe your Availability Zones
  * ```javascript

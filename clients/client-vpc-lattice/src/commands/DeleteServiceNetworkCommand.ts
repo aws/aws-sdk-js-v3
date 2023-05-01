@@ -40,14 +40,17 @@ export interface DeleteServiceNetworkCommandOutput extends DeleteServiceNetworkR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { VPCLatticeClient, DeleteServiceNetworkCommand } from "@aws-sdk/client-vpc-lattice"; // ES Modules import
- * // const { VPCLatticeClient, DeleteServiceNetworkCommand } = require("@aws-sdk/client-vpc-lattice"); // CommonJS import
+ * import { VPCLatticeClient, DeleteServiceNetworkCommand } from '@aws-sdk/client-vpc-lattice'; // ES Modules import
+ * // const { VPCLatticeClient, DeleteServiceNetworkCommand } = require('@aws-sdk/client-vpc-lattice'); // CommonJS import
  * const client = new VPCLatticeClient(config);
  * const input = { // DeleteServiceNetworkRequest
- *   serviceNetworkIdentifier: "STRING_VALUE", // required
+ *   serviceNetworkIdentifier: 'STRING_VALUE', // required
  * };
  * const command = new DeleteServiceNetworkCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteServiceNetworkCommandInput - {@link DeleteServiceNetworkCommandInput}
@@ -76,6 +79,8 @@ export interface DeleteServiceNetworkCommandOutput extends DeleteServiceNetworkR
  *  <p>The input does not satisfy the constraints specified by an Amazon Web Services
  *    service.</p>
  *
+ * @throws {@link VPCLatticeServiceException}
+ * <p>Base exception class for all service exceptions from VPCLattice service.</p>
  *
  */
 export class DeleteServiceNetworkCommand extends $Command<

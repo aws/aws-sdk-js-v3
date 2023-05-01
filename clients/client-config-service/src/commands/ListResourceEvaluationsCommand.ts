@@ -36,23 +36,35 @@ export interface ListResourceEvaluationsCommandOutput extends ListResourceEvalua
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConfigServiceClient, ListResourceEvaluationsCommand } from "@aws-sdk/client-config-service"; // ES Modules import
- * // const { ConfigServiceClient, ListResourceEvaluationsCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
+ * import { ConfigServiceClient, ListResourceEvaluationsCommand } from '@aws-sdk/client-config-service'; // ES Modules import
+ * // const { ConfigServiceClient, ListResourceEvaluationsCommand } = require('@aws-sdk/client-config-service'); // CommonJS import
  * const client = new ConfigServiceClient(config);
  * const input = { // ListResourceEvaluationsRequest
  *   Filters: { // ResourceEvaluationFilters
- *     EvaluationMode: "DETECTIVE" || "PROACTIVE",
+ *     EvaluationMode: 'DETECTIVE' || 'PROACTIVE',
  *     TimeWindow: { // TimeWindow
- *       StartTime: new Date("TIMESTAMP"),
- *       EndTime: new Date("TIMESTAMP"),
+ *       StartTime: new Date('TIMESTAMP'),
+ *       EndTime: new Date('TIMESTAMP'),
  *     },
- *     EvaluationContextIdentifier: "STRING_VALUE",
+ *     EvaluationContextIdentifier: 'STRING_VALUE',
  *   },
- *   Limit: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   Limit: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListResourceEvaluationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListResourceEvaluationsResponse
+ *   ResourceEvaluations: [ // ResourceEvaluations
+ *     { // ResourceEvaluation
+ *       ResourceEvaluationId: 'STRING_VALUE',
+ *       EvaluationMode: 'DETECTIVE' || 'PROACTIVE',
+ *       EvaluationStartTimestamp: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListResourceEvaluationsCommandInput - {@link ListResourceEvaluationsCommandInput}
@@ -74,6 +86,8 @@ export interface ListResourceEvaluationsCommandOutput extends ListResourceEvalua
  *  <p>The specified time range is not valid. The earlier time is not
  * 			chronologically before the later time.</p>
  *
+ * @throws {@link ConfigServiceServiceException}
+ * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
  */
 export class ListResourceEvaluationsCommand extends $Command<

@@ -36,29 +36,29 @@ export interface UpdateTableObjectsCommandOutput extends UpdateTableObjectsRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LakeFormationClient, UpdateTableObjectsCommand } from "@aws-sdk/client-lakeformation"; // ES Modules import
- * // const { LakeFormationClient, UpdateTableObjectsCommand } = require("@aws-sdk/client-lakeformation"); // CommonJS import
+ * import { LakeFormationClient, UpdateTableObjectsCommand } from '@aws-sdk/client-lakeformation'; // ES Modules import
+ * // const { LakeFormationClient, UpdateTableObjectsCommand } = require('@aws-sdk/client-lakeformation'); // CommonJS import
  * const client = new LakeFormationClient(config);
  * const input = { // UpdateTableObjectsRequest
- *   CatalogId: "STRING_VALUE",
- *   DatabaseName: "STRING_VALUE", // required
- *   TableName: "STRING_VALUE", // required
- *   TransactionId: "STRING_VALUE",
+ *   CatalogId: 'STRING_VALUE',
+ *   DatabaseName: 'STRING_VALUE', // required
+ *   TableName: 'STRING_VALUE', // required
+ *   TransactionId: 'STRING_VALUE',
  *   WriteOperations: [ // WriteOperationList // required
  *     { // WriteOperation
  *       AddObject: { // AddObjectInput
- *         Uri: "STRING_VALUE", // required
- *         ETag: "STRING_VALUE", // required
- *         Size: Number("long"), // required
+ *         Uri: 'STRING_VALUE', // required
+ *         ETag: 'STRING_VALUE', // required
+ *         Size: Number('long'), // required
  *         PartitionValues: [ // PartitionValuesList
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
  *       },
  *       DeleteObject: { // DeleteObjectInput
- *         Uri: "STRING_VALUE", // required
- *         ETag: "STRING_VALUE",
+ *         Uri: 'STRING_VALUE', // required
+ *         ETag: 'STRING_VALUE',
  *         PartitionValues: [
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
  *       },
  *     },
@@ -66,6 +66,9 @@ export interface UpdateTableObjectsCommandOutput extends UpdateTableObjectsRespo
  * };
  * const command = new UpdateTableObjectsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateTableObjectsCommandInput - {@link UpdateTableObjectsCommandInput}
@@ -101,6 +104,8 @@ export interface UpdateTableObjectsCommandOutput extends UpdateTableObjectsRespo
  * @throws {@link TransactionCommittedException} (client fault)
  *  <p>Contains details about an error where the specified transaction has already been committed and cannot be used for <code>UpdateTableObjects</code>.</p>
  *
+ * @throws {@link LakeFormationServiceException}
+ * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
  */
 export class UpdateTableObjectsCommand extends $Command<

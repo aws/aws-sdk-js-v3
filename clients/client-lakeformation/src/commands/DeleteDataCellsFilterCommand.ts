@@ -36,17 +36,20 @@ export interface DeleteDataCellsFilterCommandOutput extends DeleteDataCellsFilte
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LakeFormationClient, DeleteDataCellsFilterCommand } from "@aws-sdk/client-lakeformation"; // ES Modules import
- * // const { LakeFormationClient, DeleteDataCellsFilterCommand } = require("@aws-sdk/client-lakeformation"); // CommonJS import
+ * import { LakeFormationClient, DeleteDataCellsFilterCommand } from '@aws-sdk/client-lakeformation'; // ES Modules import
+ * // const { LakeFormationClient, DeleteDataCellsFilterCommand } = require('@aws-sdk/client-lakeformation'); // CommonJS import
  * const client = new LakeFormationClient(config);
  * const input = { // DeleteDataCellsFilterRequest
- *   TableCatalogId: "STRING_VALUE",
- *   DatabaseName: "STRING_VALUE",
- *   TableName: "STRING_VALUE",
- *   Name: "STRING_VALUE",
+ *   TableCatalogId: 'STRING_VALUE',
+ *   DatabaseName: 'STRING_VALUE',
+ *   TableName: 'STRING_VALUE',
+ *   Name: 'STRING_VALUE',
  * };
  * const command = new DeleteDataCellsFilterCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteDataCellsFilterCommandInput - {@link DeleteDataCellsFilterCommandInput}
@@ -70,6 +73,8 @@ export interface DeleteDataCellsFilterCommandOutput extends DeleteDataCellsFilte
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link LakeFormationServiceException}
+ * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
  */
 export class DeleteDataCellsFilterCommand extends $Command<

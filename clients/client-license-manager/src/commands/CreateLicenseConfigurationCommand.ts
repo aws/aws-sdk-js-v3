@@ -41,35 +41,35 @@ export interface CreateLicenseConfigurationCommandOutput extends CreateLicenseCo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LicenseManagerClient, CreateLicenseConfigurationCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
- * // const { LicenseManagerClient, CreateLicenseConfigurationCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
+ * import { LicenseManagerClient, CreateLicenseConfigurationCommand } from '@aws-sdk/client-license-manager'; // ES Modules import
+ * // const { LicenseManagerClient, CreateLicenseConfigurationCommand } = require('@aws-sdk/client-license-manager'); // CommonJS import
  * const client = new LicenseManagerClient(config);
  * const input = { // CreateLicenseConfigurationRequest
- *   Name: "STRING_VALUE", // required
- *   Description: "STRING_VALUE",
- *   LicenseCountingType: "vCPU" || "Instance" || "Core" || "Socket", // required
- *   LicenseCount: Number("long"),
+ *   Name: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE',
+ *   LicenseCountingType: 'vCPU' || 'Instance' || 'Core' || 'Socket', // required
+ *   LicenseCount: Number('long'),
  *   LicenseCountHardLimit: true || false,
  *   LicenseRules: [ // StringList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE",
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
  *   DisassociateWhenNotFound: true || false,
  *   ProductInformationList: [ // ProductInformationList
  *     { // ProductInformation
- *       ResourceType: "STRING_VALUE", // required
+ *       ResourceType: 'STRING_VALUE', // required
  *       ProductInformationFilterList: [ // ProductInformationFilterList // required
  *         { // ProductInformationFilter
- *           ProductInformationFilterName: "STRING_VALUE", // required
+ *           ProductInformationFilterName: 'STRING_VALUE', // required
  *           ProductInformationFilterValue: [
- *             "STRING_VALUE",
+ *             'STRING_VALUE',
  *           ],
- *           ProductInformationFilterComparator: "STRING_VALUE", // required
+ *           ProductInformationFilterComparator: 'STRING_VALUE', // required
  *         },
  *       ],
  *     },
@@ -77,6 +77,11 @@ export interface CreateLicenseConfigurationCommandOutput extends CreateLicenseCo
  * };
  * const command = new CreateLicenseConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateLicenseConfigurationResponse
+ *   LicenseConfigurationArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateLicenseConfigurationCommandInput - {@link CreateLicenseConfigurationCommandInput}
@@ -104,6 +109,8 @@ export interface CreateLicenseConfigurationCommandOutput extends CreateLicenseCo
  * @throws {@link ServerInternalException} (server fault)
  *  <p>The server experienced an internal error. Try again.</p>
  *
+ * @throws {@link LicenseManagerServiceException}
+ * <p>Base exception class for all service exceptions from LicenseManager service.</p>
  *
  */
 export class CreateLicenseConfigurationCommand extends $Command<

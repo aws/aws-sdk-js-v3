@@ -36,16 +36,24 @@ export interface CancelIngestionCommandOutput extends CancelIngestionResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { QuickSightClient, CancelIngestionCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
- * // const { QuickSightClient, CancelIngestionCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * import { QuickSightClient, CancelIngestionCommand } from '@aws-sdk/client-quicksight'; // ES Modules import
+ * // const { QuickSightClient, CancelIngestionCommand } = require('@aws-sdk/client-quicksight'); // CommonJS import
  * const client = new QuickSightClient(config);
  * const input = { // CancelIngestionRequest
- *   AwsAccountId: "STRING_VALUE", // required
- *   DataSetId: "STRING_VALUE", // required
- *   IngestionId: "STRING_VALUE", // required
+ *   AwsAccountId: 'STRING_VALUE', // required
+ *   DataSetId: 'STRING_VALUE', // required
+ *   IngestionId: 'STRING_VALUE', // required
  * };
  * const command = new CancelIngestionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CancelIngestionResponse
+ *   Arn: 'STRING_VALUE',
+ *   IngestionId: 'STRING_VALUE',
+ *   RequestId: 'STRING_VALUE',
+ *   Status: Number('int'),
+ * };
+ *
  * ```
  *
  * @param CancelIngestionCommandInput - {@link CancelIngestionCommandInput}
@@ -75,6 +83,8 @@ export interface CancelIngestionCommandOutput extends CancelIngestionResponse, _
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Access is throttled.</p>
  *
+ * @throws {@link QuickSightServiceException}
+ * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
 export class CancelIngestionCommand extends $Command<

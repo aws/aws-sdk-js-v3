@@ -59,19 +59,31 @@ export interface CreateFleetLocationsCommandOutput extends CreateFleetLocationsO
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GameLiftClient, CreateFleetLocationsCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
- * // const { GameLiftClient, CreateFleetLocationsCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
+ * import { GameLiftClient, CreateFleetLocationsCommand } from '@aws-sdk/client-gamelift'; // ES Modules import
+ * // const { GameLiftClient, CreateFleetLocationsCommand } = require('@aws-sdk/client-gamelift'); // CommonJS import
  * const client = new GameLiftClient(config);
  * const input = { // CreateFleetLocationsInput
- *   FleetId: "STRING_VALUE", // required
+ *   FleetId: 'STRING_VALUE', // required
  *   Locations: [ // LocationConfigurationList // required
  *     { // LocationConfiguration
- *       Location: "STRING_VALUE", // required
+ *       Location: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreateFleetLocationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateFleetLocationsOutput
+ *   FleetId: 'STRING_VALUE',
+ *   FleetArn: 'STRING_VALUE',
+ *   LocationStates: [ // LocationStateList
+ *     { // LocationState
+ *       Location: 'STRING_VALUE',
+ *       Status: 'NEW' || 'DOWNLOADING' || 'VALIDATING' || 'BUILDING' || 'ACTIVATING' || 'ACTIVE' || 'DELETING' || 'ERROR' || 'TERMINATED' || 'NOT_FOUND',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param CreateFleetLocationsCommandInput - {@link CreateFleetLocationsCommandInput}
@@ -112,6 +124,8 @@ export interface CreateFleetLocationsCommandOutput extends CreateFleetLocationsO
  * @throws {@link UnsupportedRegionException} (client fault)
  *  <p>The requested operation is not supported in the Region specified.</p>
  *
+ * @throws {@link GameLiftServiceException}
+ * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
  */
 export class CreateFleetLocationsCommand extends $Command<

@@ -41,16 +41,36 @@ export interface UpdatePortalCommandOutput extends UpdatePortalResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkSpacesWebClient, UpdatePortalCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
- * // const { WorkSpacesWebClient, UpdatePortalCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
+ * import { WorkSpacesWebClient, UpdatePortalCommand } from '@aws-sdk/client-workspaces-web'; // ES Modules import
+ * // const { WorkSpacesWebClient, UpdatePortalCommand } = require('@aws-sdk/client-workspaces-web'); // CommonJS import
  * const client = new WorkSpacesWebClient(config);
  * const input = { // UpdatePortalRequest
- *   portalArn: "STRING_VALUE", // required
- *   displayName: "STRING_VALUE",
- *   authenticationType: "STRING_VALUE",
+ *   portalArn: 'STRING_VALUE', // required
+ *   displayName: 'STRING_VALUE',
+ *   authenticationType: 'STRING_VALUE',
  * };
  * const command = new UpdatePortalCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdatePortalResponse
+ *   portal: { // Portal
+ *     portalArn: 'STRING_VALUE',
+ *     rendererType: 'STRING_VALUE',
+ *     browserType: 'STRING_VALUE',
+ *     portalStatus: 'STRING_VALUE',
+ *     portalEndpoint: 'STRING_VALUE',
+ *     displayName: 'STRING_VALUE',
+ *     creationDate: new Date('TIMESTAMP'),
+ *     browserSettingsArn: 'STRING_VALUE',
+ *     userSettingsArn: 'STRING_VALUE',
+ *     networkSettingsArn: 'STRING_VALUE',
+ *     trustStoreArn: 'STRING_VALUE',
+ *     statusReason: 'STRING_VALUE',
+ *     userAccessLoggingSettingsArn: 'STRING_VALUE',
+ *     authenticationType: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdatePortalCommandInput - {@link UpdatePortalCommandInput}
@@ -74,6 +94,8 @@ export interface UpdatePortalCommandOutput extends UpdatePortalResponse, __Metad
  * @throws {@link ValidationException} (client fault)
  *  <p>There is a validation error.</p>
  *
+ * @throws {@link WorkSpacesWebServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
  */
 export class UpdatePortalCommand extends $Command<

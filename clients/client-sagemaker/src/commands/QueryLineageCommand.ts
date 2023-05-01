@@ -38,36 +38,55 @@ export interface QueryLineageCommandOutput extends QueryLineageResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, QueryLineageCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, QueryLineageCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, QueryLineageCommand } from '@aws-sdk/client-sagemaker'; // ES Modules import
+ * // const { SageMakerClient, QueryLineageCommand } = require('@aws-sdk/client-sagemaker'); // CommonJS import
  * const client = new SageMakerClient(config);
  * const input = { // QueryLineageRequest
  *   StartArns: [ // QueryLineageStartArns
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   Direction: "Both" || "Ascendants" || "Descendants",
+ *   Direction: 'Both' || 'Ascendants' || 'Descendants',
  *   IncludeEdges: true || false,
  *   Filters: { // QueryFilters
  *     Types: [ // QueryTypes
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     LineageTypes: [ // QueryLineageTypes
- *       "TrialComponent" || "Artifact" || "Context" || "Action",
+ *       'TrialComponent' || 'Artifact' || 'Context' || 'Action',
  *     ],
- *     CreatedBefore: new Date("TIMESTAMP"),
- *     CreatedAfter: new Date("TIMESTAMP"),
- *     ModifiedBefore: new Date("TIMESTAMP"),
- *     ModifiedAfter: new Date("TIMESTAMP"),
+ *     CreatedBefore: new Date('TIMESTAMP'),
+ *     CreatedAfter: new Date('TIMESTAMP'),
+ *     ModifiedBefore: new Date('TIMESTAMP'),
+ *     ModifiedAfter: new Date('TIMESTAMP'),
  *     Properties: { // QueryProperties
- *       "<keys>": "STRING_VALUE",
+ *       '<keys>': 'STRING_VALUE',
  *     },
  *   },
- *   MaxDepth: Number("int"),
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxDepth: Number('int'),
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new QueryLineageCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // QueryLineageResponse
+ *   Vertices: [ // Vertices
+ *     { // Vertex
+ *       Arn: 'STRING_VALUE',
+ *       Type: 'STRING_VALUE',
+ *       LineageType: 'TrialComponent' || 'Artifact' || 'Context' || 'Action',
+ *     },
+ *   ],
+ *   Edges: [ // Edges
+ *     { // Edge
+ *       SourceArn: 'STRING_VALUE',
+ *       DestinationArn: 'STRING_VALUE',
+ *       AssociationType: 'ContributedTo' || 'AssociatedWith' || 'DerivedFrom' || 'Produced',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param QueryLineageCommandInput - {@link QueryLineageCommandInput}
@@ -79,6 +98,8 @@ export interface QueryLineageCommandOutput extends QueryLineageResponse, __Metad
  * @throws {@link ResourceNotFound} (client fault)
  *  <p>Resource being access is not found.</p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class QueryLineageCommand extends $Command<

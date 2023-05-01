@@ -45,16 +45,24 @@ export interface ListAssociatedApprovalRuleTemplatesForRepositoryCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeCommitClient, ListAssociatedApprovalRuleTemplatesForRepositoryCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
- * // const { CodeCommitClient, ListAssociatedApprovalRuleTemplatesForRepositoryCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
+ * import { CodeCommitClient, ListAssociatedApprovalRuleTemplatesForRepositoryCommand } from '@aws-sdk/client-codecommit'; // ES Modules import
+ * // const { CodeCommitClient, ListAssociatedApprovalRuleTemplatesForRepositoryCommand } = require('@aws-sdk/client-codecommit'); // CommonJS import
  * const client = new CodeCommitClient(config);
  * const input = { // ListAssociatedApprovalRuleTemplatesForRepositoryInput
- *   repositoryName: "STRING_VALUE", // required
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   repositoryName: 'STRING_VALUE', // required
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new ListAssociatedApprovalRuleTemplatesForRepositoryCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListAssociatedApprovalRuleTemplatesForRepositoryOutput
+ *   approvalRuleTemplateNames: [ // ApprovalRuleTemplateNameList
+ *     'STRING_VALUE',
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListAssociatedApprovalRuleTemplatesForRepositoryCommandInput - {@link ListAssociatedApprovalRuleTemplatesForRepositoryCommandInput}
@@ -99,6 +107,8 @@ export interface ListAssociatedApprovalRuleTemplatesForRepositoryCommandOutput
  * @throws {@link RepositoryNameRequiredException} (client fault)
  *  <p>A repository name is required, but was not specified.</p>
  *
+ * @throws {@link CodeCommitServiceException}
+ * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
  */
 export class ListAssociatedApprovalRuleTemplatesForRepositoryCommand extends $Command<

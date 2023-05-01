@@ -36,44 +36,118 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MemoryDBClient, CreateClusterCommand } from "@aws-sdk/client-memorydb"; // ES Modules import
- * // const { MemoryDBClient, CreateClusterCommand } = require("@aws-sdk/client-memorydb"); // CommonJS import
+ * import { MemoryDBClient, CreateClusterCommand } from '@aws-sdk/client-memorydb'; // ES Modules import
+ * // const { MemoryDBClient, CreateClusterCommand } = require('@aws-sdk/client-memorydb'); // CommonJS import
  * const client = new MemoryDBClient(config);
  * const input = { // CreateClusterRequest
- *   ClusterName: "STRING_VALUE", // required
- *   NodeType: "STRING_VALUE", // required
- *   ParameterGroupName: "STRING_VALUE",
- *   Description: "STRING_VALUE",
- *   NumShards: Number("int"),
- *   NumReplicasPerShard: Number("int"),
- *   SubnetGroupName: "STRING_VALUE",
+ *   ClusterName: 'STRING_VALUE', // required
+ *   NodeType: 'STRING_VALUE', // required
+ *   ParameterGroupName: 'STRING_VALUE',
+ *   Description: 'STRING_VALUE',
+ *   NumShards: Number('int'),
+ *   NumReplicasPerShard: Number('int'),
+ *   SubnetGroupName: 'STRING_VALUE',
  *   SecurityGroupIds: [ // SecurityGroupIdsList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   MaintenanceWindow: "STRING_VALUE",
- *   Port: Number("int"),
- *   SnsTopicArn: "STRING_VALUE",
+ *   MaintenanceWindow: 'STRING_VALUE',
+ *   Port: Number('int'),
+ *   SnsTopicArn: 'STRING_VALUE',
  *   TLSEnabled: true || false,
- *   KmsKeyId: "STRING_VALUE",
+ *   KmsKeyId: 'STRING_VALUE',
  *   SnapshotArns: [ // SnapshotArnsList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   SnapshotName: "STRING_VALUE",
- *   SnapshotRetentionLimit: Number("int"),
+ *   SnapshotName: 'STRING_VALUE',
+ *   SnapshotRetentionLimit: Number('int'),
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE",
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
- *   SnapshotWindow: "STRING_VALUE",
- *   ACLName: "STRING_VALUE", // required
- *   EngineVersion: "STRING_VALUE",
+ *   SnapshotWindow: 'STRING_VALUE',
+ *   ACLName: 'STRING_VALUE', // required
+ *   EngineVersion: 'STRING_VALUE',
  *   AutoMinorVersionUpgrade: true || false,
  *   DataTiering: true || false,
  * };
  * const command = new CreateClusterCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateClusterResponse
+ *   Cluster: { // Cluster
+ *     Name: 'STRING_VALUE',
+ *     Description: 'STRING_VALUE',
+ *     Status: 'STRING_VALUE',
+ *     PendingUpdates: { // ClusterPendingUpdates
+ *       Resharding: { // ReshardingStatus
+ *         SlotMigration: { // SlotMigration
+ *           ProgressPercentage: Number('double'),
+ *         },
+ *       },
+ *       ACLs: { // ACLsUpdateStatus
+ *         ACLToApply: 'STRING_VALUE',
+ *       },
+ *       ServiceUpdates: [ // PendingModifiedServiceUpdateList
+ *         { // PendingModifiedServiceUpdate
+ *           ServiceUpdateName: 'STRING_VALUE',
+ *           Status: 'available' || 'in-progress' || 'complete' || 'scheduled',
+ *         },
+ *       ],
+ *     },
+ *     NumberOfShards: Number('int'),
+ *     Shards: [ // ShardList
+ *       { // Shard
+ *         Name: 'STRING_VALUE',
+ *         Status: 'STRING_VALUE',
+ *         Slots: 'STRING_VALUE',
+ *         Nodes: [ // NodeList
+ *           { // Node
+ *             Name: 'STRING_VALUE',
+ *             Status: 'STRING_VALUE',
+ *             AvailabilityZone: 'STRING_VALUE',
+ *             CreateTime: new Date('TIMESTAMP'),
+ *             Endpoint: { // Endpoint
+ *               Address: 'STRING_VALUE',
+ *               Port: Number('int'),
+ *             },
+ *           },
+ *         ],
+ *         NumberOfNodes: Number('int'),
+ *       },
+ *     ],
+ *     AvailabilityMode: 'singleaz' || 'multiaz',
+ *     ClusterEndpoint: {
+ *       Address: 'STRING_VALUE',
+ *       Port: Number('int'),
+ *     },
+ *     NodeType: 'STRING_VALUE',
+ *     EngineVersion: 'STRING_VALUE',
+ *     EnginePatchVersion: 'STRING_VALUE',
+ *     ParameterGroupName: 'STRING_VALUE',
+ *     ParameterGroupStatus: 'STRING_VALUE',
+ *     SecurityGroups: [ // SecurityGroupMembershipList
+ *       { // SecurityGroupMembership
+ *         SecurityGroupId: 'STRING_VALUE',
+ *         Status: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     SubnetGroupName: 'STRING_VALUE',
+ *     TLSEnabled: true || false,
+ *     KmsKeyId: 'STRING_VALUE',
+ *     ARN: 'STRING_VALUE',
+ *     SnsTopicArn: 'STRING_VALUE',
+ *     SnsTopicStatus: 'STRING_VALUE',
+ *     SnapshotRetentionLimit: Number('int'),
+ *     MaintenanceWindow: 'STRING_VALUE',
+ *     SnapshotWindow: 'STRING_VALUE',
+ *     ACLName: 'STRING_VALUE',
+ *     AutoMinorVersionUpgrade: true || false,
+ *     DataTiering: 'true' || 'false',
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateClusterCommandInput - {@link CreateClusterCommandInput}
@@ -130,6 +204,8 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  * @throws {@link TagQuotaPerResourceExceeded} (client fault)
  *  <p></p>
  *
+ * @throws {@link MemoryDBServiceException}
+ * <p>Base exception class for all service exceptions from MemoryDB service.</p>
  *
  */
 export class CreateClusterCommand extends $Command<

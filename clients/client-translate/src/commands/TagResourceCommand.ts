@@ -39,20 +39,23 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { TranslateClient, TagResourceCommand } from "@aws-sdk/client-translate"; // ES Modules import
- * // const { TranslateClient, TagResourceCommand } = require("@aws-sdk/client-translate"); // CommonJS import
+ * import { TranslateClient, TagResourceCommand } from '@aws-sdk/client-translate'; // ES Modules import
+ * // const { TranslateClient, TagResourceCommand } = require('@aws-sdk/client-translate'); // CommonJS import
  * const client = new TranslateClient(config);
  * const input = { // TagResourceRequest
- *   ResourceArn: "STRING_VALUE", // required
+ *   ResourceArn: 'STRING_VALUE', // required
  *   Tags: [ // TagList // required
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param TagResourceCommandInput - {@link TagResourceCommandInput}
@@ -80,6 +83,8 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @throws {@link TooManyTagsException} (client fault)
  *  <p>You have added too many tags to this resource. The maximum is 50 tags.</p>
  *
+ * @throws {@link TranslateServiceException}
+ * <p>Base exception class for all service exceptions from Translate service.</p>
  *
  */
 export class TagResourceCommand extends $Command<

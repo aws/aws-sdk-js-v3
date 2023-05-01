@@ -76,18 +76,25 @@ export interface UploadArchiveCommandOutput extends ArchiveCreationOutput, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlacierClient, UploadArchiveCommand } from "@aws-sdk/client-glacier"; // ES Modules import
- * // const { GlacierClient, UploadArchiveCommand } = require("@aws-sdk/client-glacier"); // CommonJS import
+ * import { GlacierClient, UploadArchiveCommand } from '@aws-sdk/client-glacier'; // ES Modules import
+ * // const { GlacierClient, UploadArchiveCommand } = require('@aws-sdk/client-glacier'); // CommonJS import
  * const client = new GlacierClient(config);
  * const input = { // UploadArchiveInput
- *   vaultName: "STRING_VALUE", // required
- *   accountId: "STRING_VALUE", // required
- *   archiveDescription: "STRING_VALUE",
- *   checksum: "STRING_VALUE",
- *   body: "STREAMING_BLOB_VALUE",
+ *   vaultName: 'STRING_VALUE', // required
+ *   accountId: 'STRING_VALUE', // required
+ *   archiveDescription: 'STRING_VALUE',
+ *   checksum: 'STRING_VALUE',
+ *   body: 'STREAMING_BLOB_VALUE',
  * };
  * const command = new UploadArchiveCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ArchiveCreationOutput
+ *   location: 'STRING_VALUE',
+ *   checksum: 'STRING_VALUE',
+ *   archiveId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UploadArchiveCommandInput - {@link UploadArchiveCommandInput}
@@ -113,6 +120,8 @@ export interface UploadArchiveCommandOutput extends ArchiveCreationOutput, __Met
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>Returned if the service cannot complete the request.</p>
  *
+ * @throws {@link GlacierServiceException}
+ * <p>Base exception class for all service exceptions from Glacier service.</p>
  *
  * @example To upload an archive
  * ```javascript

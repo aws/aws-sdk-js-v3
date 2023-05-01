@@ -36,14 +36,17 @@ export interface DeleteRoomCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IvschatClient, DeleteRoomCommand } from "@aws-sdk/client-ivschat"; // ES Modules import
- * // const { IvschatClient, DeleteRoomCommand } = require("@aws-sdk/client-ivschat"); // CommonJS import
+ * import { IvschatClient, DeleteRoomCommand } from '@aws-sdk/client-ivschat'; // ES Modules import
+ * // const { IvschatClient, DeleteRoomCommand } = require('@aws-sdk/client-ivschat'); // CommonJS import
  * const client = new IvschatClient(config);
  * const input = { // DeleteRoomRequest
- *   identifier: "STRING_VALUE", // required
+ *   identifier: 'STRING_VALUE', // required
  * };
  * const command = new DeleteRoomCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteRoomCommandInput - {@link DeleteRoomCommandInput}
@@ -64,6 +67,8 @@ export interface DeleteRoomCommandOutput extends __MetadataBearer {}
  * @throws {@link ValidationException} (client fault)
  *  <p/>
  *
+ * @throws {@link IvschatServiceException}
+ * <p>Base exception class for all service exceptions from Ivschat service.</p>
  *
  */
 export class DeleteRoomCommand extends $Command<

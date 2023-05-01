@@ -45,20 +45,31 @@ export interface UpdateFirewallEncryptionConfigurationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { NetworkFirewallClient, UpdateFirewallEncryptionConfigurationCommand } from "@aws-sdk/client-network-firewall"; // ES Modules import
- * // const { NetworkFirewallClient, UpdateFirewallEncryptionConfigurationCommand } = require("@aws-sdk/client-network-firewall"); // CommonJS import
+ * import { NetworkFirewallClient, UpdateFirewallEncryptionConfigurationCommand } from '@aws-sdk/client-network-firewall'; // ES Modules import
+ * // const { NetworkFirewallClient, UpdateFirewallEncryptionConfigurationCommand } = require('@aws-sdk/client-network-firewall'); // CommonJS import
  * const client = new NetworkFirewallClient(config);
  * const input = { // UpdateFirewallEncryptionConfigurationRequest
- *   UpdateToken: "STRING_VALUE",
- *   FirewallArn: "STRING_VALUE",
- *   FirewallName: "STRING_VALUE",
+ *   UpdateToken: 'STRING_VALUE',
+ *   FirewallArn: 'STRING_VALUE',
+ *   FirewallName: 'STRING_VALUE',
  *   EncryptionConfiguration: { // EncryptionConfiguration
- *     KeyId: "STRING_VALUE",
- *     Type: "CUSTOMER_KMS" || "AWS_OWNED_KMS_KEY", // required
+ *     KeyId: 'STRING_VALUE',
+ *     Type: 'CUSTOMER_KMS' || 'AWS_OWNED_KMS_KEY', // required
  *   },
  * };
  * const command = new UpdateFirewallEncryptionConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateFirewallEncryptionConfigurationResponse
+ *   FirewallArn: 'STRING_VALUE',
+ *   FirewallName: 'STRING_VALUE',
+ *   UpdateToken: 'STRING_VALUE',
+ *   EncryptionConfiguration: { // EncryptionConfiguration
+ *     KeyId: 'STRING_VALUE',
+ *     Type: 'CUSTOMER_KMS' || 'AWS_OWNED_KMS_KEY', // required
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateFirewallEncryptionConfigurationCommandInput - {@link UpdateFirewallEncryptionConfigurationCommandInput}
@@ -99,6 +110,8 @@ export interface UpdateFirewallEncryptionConfigurationCommandOutput
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Unable to process the request due to throttling limitations.</p>
  *
+ * @throws {@link NetworkFirewallServiceException}
+ * <p>Base exception class for all service exceptions from NetworkFirewall service.</p>
  *
  */
 export class UpdateFirewallEncryptionConfigurationCommand extends $Command<

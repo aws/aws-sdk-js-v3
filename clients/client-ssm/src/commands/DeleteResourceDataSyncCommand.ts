@@ -38,15 +38,18 @@ export interface DeleteResourceDataSyncCommandOutput extends DeleteResourceDataS
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMClient, DeleteResourceDataSyncCommand } from "@aws-sdk/client-ssm"; // ES Modules import
- * // const { SSMClient, DeleteResourceDataSyncCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * import { SSMClient, DeleteResourceDataSyncCommand } from '@aws-sdk/client-ssm'; // ES Modules import
+ * // const { SSMClient, DeleteResourceDataSyncCommand } = require('@aws-sdk/client-ssm'); // CommonJS import
  * const client = new SSMClient(config);
  * const input = { // DeleteResourceDataSyncRequest
- *   SyncName: "STRING_VALUE", // required
- *   SyncType: "STRING_VALUE",
+ *   SyncName: 'STRING_VALUE', // required
+ *   SyncType: 'STRING_VALUE',
  * };
  * const command = new DeleteResourceDataSyncCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteResourceDataSyncCommandInput - {@link DeleteResourceDataSyncCommandInput}
@@ -64,6 +67,8 @@ export interface DeleteResourceDataSyncCommandOutput extends DeleteResourceDataS
  * @throws {@link ResourceDataSyncNotFoundException} (client fault)
  *  <p>The specified sync name wasn't found.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class DeleteResourceDataSyncCommand extends $Command<

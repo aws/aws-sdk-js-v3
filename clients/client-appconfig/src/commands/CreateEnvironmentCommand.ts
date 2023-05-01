@@ -43,25 +43,40 @@ export interface CreateEnvironmentCommandOutput extends Environment, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppConfigClient, CreateEnvironmentCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
- * // const { AppConfigClient, CreateEnvironmentCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import
+ * import { AppConfigClient, CreateEnvironmentCommand } from '@aws-sdk/client-appconfig'; // ES Modules import
+ * // const { AppConfigClient, CreateEnvironmentCommand } = require('@aws-sdk/client-appconfig'); // CommonJS import
  * const client = new AppConfigClient(config);
  * const input = { // CreateEnvironmentRequest
- *   ApplicationId: "STRING_VALUE", // required
- *   Name: "STRING_VALUE", // required
- *   Description: "STRING_VALUE",
+ *   ApplicationId: 'STRING_VALUE', // required
+ *   Name: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE',
  *   Monitors: [ // MonitorList
  *     { // Monitor
- *       AlarmArn: "STRING_VALUE", // required
- *       AlarmRoleArn: "STRING_VALUE",
+ *       AlarmArn: 'STRING_VALUE', // required
+ *       AlarmRoleArn: 'STRING_VALUE',
  *     },
  *   ],
  *   Tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateEnvironmentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // Environment
+ *   ApplicationId: 'STRING_VALUE',
+ *   Id: 'STRING_VALUE',
+ *   Name: 'STRING_VALUE',
+ *   Description: 'STRING_VALUE',
+ *   State: 'READY_FOR_DEPLOYMENT' || 'DEPLOYING' || 'ROLLING_BACK' || 'ROLLED_BACK',
+ *   Monitors: [ // MonitorList
+ *     { // Monitor
+ *       AlarmArn: 'STRING_VALUE', // required
+ *       AlarmRoleArn: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param CreateEnvironmentCommandInput - {@link CreateEnvironmentCommandInput}
@@ -79,6 +94,8 @@ export interface CreateEnvironmentCommandOutput extends Environment, __MetadataB
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The requested resource could not be found.</p>
  *
+ * @throws {@link AppConfigServiceException}
+ * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
  * @example To create an environment
  * ```javascript

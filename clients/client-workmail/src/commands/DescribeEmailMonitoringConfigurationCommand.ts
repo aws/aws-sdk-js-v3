@@ -44,14 +44,20 @@ export interface DescribeEmailMonitoringConfigurationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkMailClient, DescribeEmailMonitoringConfigurationCommand } from "@aws-sdk/client-workmail"; // ES Modules import
- * // const { WorkMailClient, DescribeEmailMonitoringConfigurationCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
+ * import { WorkMailClient, DescribeEmailMonitoringConfigurationCommand } from '@aws-sdk/client-workmail'; // ES Modules import
+ * // const { WorkMailClient, DescribeEmailMonitoringConfigurationCommand } = require('@aws-sdk/client-workmail'); // CommonJS import
  * const client = new WorkMailClient(config);
  * const input = { // DescribeEmailMonitoringConfigurationRequest
- *   OrganizationId: "STRING_VALUE", // required
+ *   OrganizationId: 'STRING_VALUE', // required
  * };
  * const command = new DescribeEmailMonitoringConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeEmailMonitoringConfigurationResponse
+ *   RoleArn: 'STRING_VALUE',
+ *   LogGroupArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeEmailMonitoringConfigurationCommandInput - {@link DescribeEmailMonitoringConfigurationCommandInput}
@@ -74,6 +80,8 @@ export interface DescribeEmailMonitoringConfigurationCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource cannot be found.</p>
  *
+ * @throws {@link WorkMailServiceException}
+ * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
  */
 export class DescribeEmailMonitoringConfigurationCommand extends $Command<

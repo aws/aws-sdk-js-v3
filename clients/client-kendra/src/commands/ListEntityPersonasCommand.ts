@@ -37,17 +37,30 @@ export interface ListEntityPersonasCommandOutput extends ListEntityPersonasRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KendraClient, ListEntityPersonasCommand } from "@aws-sdk/client-kendra"; // ES Modules import
- * // const { KendraClient, ListEntityPersonasCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
+ * import { KendraClient, ListEntityPersonasCommand } from '@aws-sdk/client-kendra'; // ES Modules import
+ * // const { KendraClient, ListEntityPersonasCommand } = require('@aws-sdk/client-kendra'); // CommonJS import
  * const client = new KendraClient(config);
  * const input = { // ListEntityPersonasRequest
- *   Id: "STRING_VALUE", // required
- *   IndexId: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   Id: 'STRING_VALUE', // required
+ *   IndexId: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListEntityPersonasCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListEntityPersonasResponse
+ *   SummaryItems: [ // PersonasSummaryList
+ *     { // PersonasSummary
+ *       EntityId: 'STRING_VALUE',
+ *       Persona: 'OWNER' || 'VIEWER',
+ *       CreatedAt: new Date('TIMESTAMP'),
+ *       UpdatedAt: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListEntityPersonasCommandInput - {@link ListEntityPersonasCommandInput}
@@ -76,6 +89,8 @@ export interface ListEntityPersonasCommandOutput extends ListEntityPersonasRespo
  *  <p>The input fails to satisfy the constraints set by the Amazon Kendra service.
  *             Please provide the correct input and try again.</p>
  *
+ * @throws {@link KendraServiceException}
+ * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
  */
 export class ListEntityPersonasCommand extends $Command<

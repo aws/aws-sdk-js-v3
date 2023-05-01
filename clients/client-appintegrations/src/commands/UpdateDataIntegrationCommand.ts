@@ -41,16 +41,19 @@ export interface UpdateDataIntegrationCommandOutput extends UpdateDataIntegratio
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppIntegrationsClient, UpdateDataIntegrationCommand } from "@aws-sdk/client-appintegrations"; // ES Modules import
- * // const { AppIntegrationsClient, UpdateDataIntegrationCommand } = require("@aws-sdk/client-appintegrations"); // CommonJS import
+ * import { AppIntegrationsClient, UpdateDataIntegrationCommand } from '@aws-sdk/client-appintegrations'; // ES Modules import
+ * // const { AppIntegrationsClient, UpdateDataIntegrationCommand } = require('@aws-sdk/client-appintegrations'); // CommonJS import
  * const client = new AppIntegrationsClient(config);
  * const input = { // UpdateDataIntegrationRequest
- *   Identifier: "STRING_VALUE", // required
- *   Name: "STRING_VALUE",
- *   Description: "STRING_VALUE",
+ *   Identifier: 'STRING_VALUE', // required
+ *   Name: 'STRING_VALUE',
+ *   Description: 'STRING_VALUE',
  * };
  * const command = new UpdateDataIntegrationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateDataIntegrationCommandInput - {@link UpdateDataIntegrationCommandInput}
@@ -74,6 +77,8 @@ export interface UpdateDataIntegrationCommandOutput extends UpdateDataIntegratio
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link AppIntegrationsServiceException}
+ * <p>Base exception class for all service exceptions from AppIntegrations service.</p>
  *
  */
 export class UpdateDataIntegrationCommand extends $Command<

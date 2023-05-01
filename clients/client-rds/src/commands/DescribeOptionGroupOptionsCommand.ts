@@ -36,25 +36,76 @@ export interface DescribeOptionGroupOptionsCommandOutput extends OptionGroupOpti
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RDSClient, DescribeOptionGroupOptionsCommand } from "@aws-sdk/client-rds"; // ES Modules import
- * // const { RDSClient, DescribeOptionGroupOptionsCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * import { RDSClient, DescribeOptionGroupOptionsCommand } from '@aws-sdk/client-rds'; // ES Modules import
+ * // const { RDSClient, DescribeOptionGroupOptionsCommand } = require('@aws-sdk/client-rds'); // CommonJS import
  * const client = new RDSClient(config);
  * const input = { // DescribeOptionGroupOptionsMessage
- *   EngineName: "STRING_VALUE", // required
- *   MajorEngineVersion: "STRING_VALUE",
+ *   EngineName: 'STRING_VALUE', // required
+ *   MajorEngineVersion: 'STRING_VALUE',
  *   Filters: [ // FilterList
  *     { // Filter
- *       Name: "STRING_VALUE", // required
+ *       Name: 'STRING_VALUE', // required
  *       Values: [ // FilterValueList // required
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
- *   MaxRecords: Number("int"),
- *   Marker: "STRING_VALUE",
+ *   MaxRecords: Number('int'),
+ *   Marker: 'STRING_VALUE',
  * };
  * const command = new DescribeOptionGroupOptionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // OptionGroupOptionsMessage
+ *   OptionGroupOptions: [ // OptionGroupOptionsList
+ *     { // OptionGroupOption
+ *       Name: 'STRING_VALUE',
+ *       Description: 'STRING_VALUE',
+ *       EngineName: 'STRING_VALUE',
+ *       MajorEngineVersion: 'STRING_VALUE',
+ *       MinimumRequiredMinorEngineVersion: 'STRING_VALUE',
+ *       PortRequired: true || false,
+ *       DefaultPort: Number('int'),
+ *       OptionsDependedOn: [ // OptionsDependedOn
+ *         'STRING_VALUE',
+ *       ],
+ *       OptionsConflictsWith: [ // OptionsConflictsWith
+ *         'STRING_VALUE',
+ *       ],
+ *       Persistent: true || false,
+ *       Permanent: true || false,
+ *       RequiresAutoMinorEngineVersionUpgrade: true || false,
+ *       VpcOnly: true || false,
+ *       SupportsOptionVersionDowngrade: true || false,
+ *       OptionGroupOptionSettings: [ // OptionGroupOptionSettingsList
+ *         { // OptionGroupOptionSetting
+ *           SettingName: 'STRING_VALUE',
+ *           SettingDescription: 'STRING_VALUE',
+ *           DefaultValue: 'STRING_VALUE',
+ *           ApplyType: 'STRING_VALUE',
+ *           AllowedValues: 'STRING_VALUE',
+ *           IsModifiable: true || false,
+ *           IsRequired: true || false,
+ *           MinimumEngineVersionPerAllowedValue: [ // MinimumEngineVersionPerAllowedValueList
+ *             { // MinimumEngineVersionPerAllowedValue
+ *               AllowedValue: 'STRING_VALUE',
+ *               MinimumEngineVersion: 'STRING_VALUE',
+ *             },
+ *           ],
+ *         },
+ *       ],
+ *       OptionGroupOptionVersions: [ // OptionGroupOptionVersionsList
+ *         { // OptionVersion
+ *           Version: 'STRING_VALUE',
+ *           IsDefault: true || false,
+ *         },
+ *       ],
+ *       CopyableCrossAccount: true || false,
+ *     },
+ *   ],
+ *   Marker: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeOptionGroupOptionsCommandInput - {@link DescribeOptionGroupOptionsCommandInput}
@@ -63,6 +114,8 @@ export interface DescribeOptionGroupOptionsCommandOutput extends OptionGroupOpti
  * @see {@link DescribeOptionGroupOptionsCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
+ * @throws {@link RDSServiceException}
+ * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  * @example To describe all available options
  * ```javascript

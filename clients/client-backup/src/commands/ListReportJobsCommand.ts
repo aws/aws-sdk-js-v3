@@ -36,19 +36,41 @@ export interface ListReportJobsCommandOutput extends ListReportJobsOutput, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BackupClient, ListReportJobsCommand } from "@aws-sdk/client-backup"; // ES Modules import
- * // const { BackupClient, ListReportJobsCommand } = require("@aws-sdk/client-backup"); // CommonJS import
+ * import { BackupClient, ListReportJobsCommand } from '@aws-sdk/client-backup'; // ES Modules import
+ * // const { BackupClient, ListReportJobsCommand } = require('@aws-sdk/client-backup'); // CommonJS import
  * const client = new BackupClient(config);
  * const input = { // ListReportJobsInput
- *   ByReportPlanName: "STRING_VALUE",
- *   ByCreationBefore: new Date("TIMESTAMP"),
- *   ByCreationAfter: new Date("TIMESTAMP"),
- *   ByStatus: "STRING_VALUE",
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   ByReportPlanName: 'STRING_VALUE',
+ *   ByCreationBefore: new Date('TIMESTAMP'),
+ *   ByCreationAfter: new Date('TIMESTAMP'),
+ *   ByStatus: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListReportJobsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListReportJobsOutput
+ *   ReportJobs: [ // ReportJobList
+ *     { // ReportJob
+ *       ReportJobId: 'STRING_VALUE',
+ *       ReportPlanArn: 'STRING_VALUE',
+ *       ReportTemplate: 'STRING_VALUE',
+ *       CreationTime: new Date('TIMESTAMP'),
+ *       CompletionTime: new Date('TIMESTAMP'),
+ *       Status: 'STRING_VALUE',
+ *       StatusMessage: 'STRING_VALUE',
+ *       ReportDestination: { // ReportDestination
+ *         S3BucketName: 'STRING_VALUE',
+ *         S3Keys: [ // stringList
+ *           'STRING_VALUE',
+ *         ],
+ *       },
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListReportJobsCommandInput - {@link ListReportJobsCommandInput}
@@ -67,6 +89,8 @@ export interface ListReportJobsCommandOutput extends ListReportJobsOutput, __Met
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request failed due to a temporary failure of the server.</p>
  *
+ * @throws {@link BackupServiceException}
+ * <p>Base exception class for all service exceptions from Backup service.</p>
  *
  */
 export class ListReportJobsCommand extends $Command<

@@ -39,20 +39,23 @@ export interface UnlinkIdentityCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CognitoIdentityClient, UnlinkIdentityCommand } from "@aws-sdk/client-cognito-identity"; // ES Modules import
- * // const { CognitoIdentityClient, UnlinkIdentityCommand } = require("@aws-sdk/client-cognito-identity"); // CommonJS import
+ * import { CognitoIdentityClient, UnlinkIdentityCommand } from '@aws-sdk/client-cognito-identity'; // ES Modules import
+ * // const { CognitoIdentityClient, UnlinkIdentityCommand } = require('@aws-sdk/client-cognito-identity'); // CommonJS import
  * const client = new CognitoIdentityClient(config);
  * const input = { // UnlinkIdentityInput
- *   IdentityId: "STRING_VALUE", // required
+ *   IdentityId: 'STRING_VALUE', // required
  *   Logins: { // LoginsMap // required
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  *   LoginsToRemove: [ // LoginsList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new UnlinkIdentityCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UnlinkIdentityCommandInput - {@link UnlinkIdentityCommandInput}
@@ -85,6 +88,8 @@ export interface UnlinkIdentityCommandOutput extends __MetadataBearer {}
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Thrown when a request is throttled.</p>
  *
+ * @throws {@link CognitoIdentityServiceException}
+ * <p>Base exception class for all service exceptions from CognitoIdentity service.</p>
  *
  */
 export class UnlinkIdentityCommand extends $Command<

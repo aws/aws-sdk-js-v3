@@ -36,16 +36,28 @@ export interface ListTablesCommandOutput extends ListTablesResponse, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KeyspacesClient, ListTablesCommand } from "@aws-sdk/client-keyspaces"; // ES Modules import
- * // const { KeyspacesClient, ListTablesCommand } = require("@aws-sdk/client-keyspaces"); // CommonJS import
+ * import { KeyspacesClient, ListTablesCommand } from '@aws-sdk/client-keyspaces'; // ES Modules import
+ * // const { KeyspacesClient, ListTablesCommand } = require('@aws-sdk/client-keyspaces'); // CommonJS import
  * const client = new KeyspacesClient(config);
  * const input = { // ListTablesRequest
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
- *   keyspaceName: "STRING_VALUE", // required
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
+ *   keyspaceName: 'STRING_VALUE', // required
  * };
  * const command = new ListTablesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTablesResponse
+ *   nextToken: 'STRING_VALUE',
+ *   tables: [ // TableSummaryList
+ *     { // TableSummary
+ *       keyspaceName: 'STRING_VALUE', // required
+ *       tableName: 'STRING_VALUE', // required
+ *       resourceArn: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListTablesCommandInput - {@link ListTablesCommandInput}
@@ -70,6 +82,8 @@ export interface ListTablesCommandOutput extends ListTablesResponse, __MetadataB
  * @throws {@link ValidationException} (client fault)
  *  <p>The operation failed due to an invalid or malformed request.</p>
  *
+ * @throws {@link KeyspacesServiceException}
+ * <p>Base exception class for all service exceptions from Keyspaces service.</p>
  *
  */
 export class ListTablesCommand extends $Command<

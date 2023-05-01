@@ -37,16 +37,39 @@ export interface DescribeRegionsCommandOutput extends DescribeRegionsResult, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DirectoryServiceClient, DescribeRegionsCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
- * // const { DirectoryServiceClient, DescribeRegionsCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
+ * import { DirectoryServiceClient, DescribeRegionsCommand } from '@aws-sdk/client-directory-service'; // ES Modules import
+ * // const { DirectoryServiceClient, DescribeRegionsCommand } = require('@aws-sdk/client-directory-service'); // CommonJS import
  * const client = new DirectoryServiceClient(config);
  * const input = { // DescribeRegionsRequest
- *   DirectoryId: "STRING_VALUE", // required
- *   RegionName: "STRING_VALUE",
- *   NextToken: "STRING_VALUE",
+ *   DirectoryId: 'STRING_VALUE', // required
+ *   RegionName: 'STRING_VALUE',
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new DescribeRegionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeRegionsResult
+ *   RegionsDescription: [ // RegionsDescription
+ *     { // RegionDescription
+ *       DirectoryId: 'STRING_VALUE',
+ *       RegionName: 'STRING_VALUE',
+ *       RegionType: 'Primary' || 'Additional',
+ *       Status: 'Requested' || 'Creating' || 'Created' || 'Active' || 'Inoperable' || 'Impaired' || 'Restoring' || 'RestoreFailed' || 'Deleting' || 'Deleted' || 'Failed',
+ *       VpcSettings: { // DirectoryVpcSettings
+ *         VpcId: 'STRING_VALUE', // required
+ *         SubnetIds: [ // SubnetIds // required
+ *           'STRING_VALUE',
+ *         ],
+ *       },
+ *       DesiredNumberOfDomainControllers: Number('int'),
+ *       LaunchTime: new Date('TIMESTAMP'),
+ *       StatusLastUpdatedDateTime: new Date('TIMESTAMP'),
+ *       LastUpdatedDateTime: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeRegionsCommandInput - {@link DescribeRegionsCommandInput}
@@ -76,6 +99,8 @@ export interface DescribeRegionsCommandOutput extends DescribeRegionsResult, __M
  * @throws {@link UnsupportedOperationException} (client fault)
  *  <p>The operation is not supported.</p>
  *
+ * @throws {@link DirectoryServiceServiceException}
+ * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
  */
 export class DescribeRegionsCommand extends $Command<

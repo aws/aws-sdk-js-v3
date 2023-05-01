@@ -36,24 +36,49 @@ export interface DescribeBatchPredictionsCommandOutput extends DescribeBatchPred
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MachineLearningClient, DescribeBatchPredictionsCommand } from "@aws-sdk/client-machine-learning"; // ES Modules import
- * // const { MachineLearningClient, DescribeBatchPredictionsCommand } = require("@aws-sdk/client-machine-learning"); // CommonJS import
+ * import { MachineLearningClient, DescribeBatchPredictionsCommand } from '@aws-sdk/client-machine-learning'; // ES Modules import
+ * // const { MachineLearningClient, DescribeBatchPredictionsCommand } = require('@aws-sdk/client-machine-learning'); // CommonJS import
  * const client = new MachineLearningClient(config);
  * const input = { // DescribeBatchPredictionsInput
- *   FilterVariable: "STRING_VALUE",
- *   EQ: "STRING_VALUE",
- *   GT: "STRING_VALUE",
- *   LT: "STRING_VALUE",
- *   GE: "STRING_VALUE",
- *   LE: "STRING_VALUE",
- *   NE: "STRING_VALUE",
- *   Prefix: "STRING_VALUE",
- *   SortOrder: "STRING_VALUE",
- *   NextToken: "STRING_VALUE",
- *   Limit: Number("int"),
+ *   FilterVariable: 'STRING_VALUE',
+ *   EQ: 'STRING_VALUE',
+ *   GT: 'STRING_VALUE',
+ *   LT: 'STRING_VALUE',
+ *   GE: 'STRING_VALUE',
+ *   LE: 'STRING_VALUE',
+ *   NE: 'STRING_VALUE',
+ *   Prefix: 'STRING_VALUE',
+ *   SortOrder: 'STRING_VALUE',
+ *   NextToken: 'STRING_VALUE',
+ *   Limit: Number('int'),
  * };
  * const command = new DescribeBatchPredictionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeBatchPredictionsOutput
+ *   Results: [ // BatchPredictions
+ *     { // BatchPrediction
+ *       BatchPredictionId: 'STRING_VALUE',
+ *       MLModelId: 'STRING_VALUE',
+ *       BatchPredictionDataSourceId: 'STRING_VALUE',
+ *       InputDataLocationS3: 'STRING_VALUE',
+ *       CreatedByIamUser: 'STRING_VALUE',
+ *       CreatedAt: new Date('TIMESTAMP'),
+ *       LastUpdatedAt: new Date('TIMESTAMP'),
+ *       Name: 'STRING_VALUE',
+ *       Status: 'STRING_VALUE',
+ *       OutputUri: 'STRING_VALUE',
+ *       Message: 'STRING_VALUE',
+ *       ComputeTime: Number('long'),
+ *       FinishedAt: new Date('TIMESTAMP'),
+ *       StartedAt: new Date('TIMESTAMP'),
+ *       TotalRecordCount: Number('long'),
+ *       InvalidRecordCount: Number('long'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeBatchPredictionsCommandInput - {@link DescribeBatchPredictionsCommandInput}
@@ -68,6 +93,8 @@ export interface DescribeBatchPredictionsCommandOutput extends DescribeBatchPred
  * @throws {@link InvalidInputException} (client fault)
  *  <p>An error on the client occurred. Typically, the cause is an invalid input value.</p>
  *
+ * @throws {@link MachineLearningServiceException}
+ * <p>Base exception class for all service exceptions from MachineLearning service.</p>
  *
  */
 export class DescribeBatchPredictionsCommand extends $Command<

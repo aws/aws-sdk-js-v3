@@ -43,17 +43,24 @@ export interface SetSecurityGroupsCommandOutput extends SetSecurityGroupsOutput,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElasticLoadBalancingV2Client, SetSecurityGroupsCommand } from "@aws-sdk/client-elastic-load-balancing-v2"; // ES Modules import
- * // const { ElasticLoadBalancingV2Client, SetSecurityGroupsCommand } = require("@aws-sdk/client-elastic-load-balancing-v2"); // CommonJS import
+ * import { ElasticLoadBalancingV2Client, SetSecurityGroupsCommand } from '@aws-sdk/client-elastic-load-balancing-v2'; // ES Modules import
+ * // const { ElasticLoadBalancingV2Client, SetSecurityGroupsCommand } = require('@aws-sdk/client-elastic-load-balancing-v2'); // CommonJS import
  * const client = new ElasticLoadBalancingV2Client(config);
  * const input = { // SetSecurityGroupsInput
- *   LoadBalancerArn: "STRING_VALUE", // required
+ *   LoadBalancerArn: 'STRING_VALUE', // required
  *   SecurityGroups: [ // SecurityGroups // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new SetSecurityGroupsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SetSecurityGroupsOutput
+ *   SecurityGroupIds: [ // SecurityGroups
+ *     'STRING_VALUE',
+ *   ],
+ * };
+ *
  * ```
  *
  * @param SetSecurityGroupsCommandInput - {@link SetSecurityGroupsCommandInput}
@@ -71,6 +78,8 @@ export interface SetSecurityGroupsCommandOutput extends SetSecurityGroupsOutput,
  * @throws {@link LoadBalancerNotFoundException} (client fault)
  *  <p>The specified load balancer does not exist.</p>
  *
+ * @throws {@link ElasticLoadBalancingV2ServiceException}
+ * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
  * @example To associate a security group with a load balancer
  * ```javascript

@@ -43,16 +43,30 @@ export interface UpdateApprovalRuleTemplateContentCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeCommitClient, UpdateApprovalRuleTemplateContentCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
- * // const { CodeCommitClient, UpdateApprovalRuleTemplateContentCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
+ * import { CodeCommitClient, UpdateApprovalRuleTemplateContentCommand } from '@aws-sdk/client-codecommit'; // ES Modules import
+ * // const { CodeCommitClient, UpdateApprovalRuleTemplateContentCommand } = require('@aws-sdk/client-codecommit'); // CommonJS import
  * const client = new CodeCommitClient(config);
  * const input = { // UpdateApprovalRuleTemplateContentInput
- *   approvalRuleTemplateName: "STRING_VALUE", // required
- *   newRuleContent: "STRING_VALUE", // required
- *   existingRuleContentSha256: "STRING_VALUE",
+ *   approvalRuleTemplateName: 'STRING_VALUE', // required
+ *   newRuleContent: 'STRING_VALUE', // required
+ *   existingRuleContentSha256: 'STRING_VALUE',
  * };
  * const command = new UpdateApprovalRuleTemplateContentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateApprovalRuleTemplateContentOutput
+ *   approvalRuleTemplate: { // ApprovalRuleTemplate
+ *     approvalRuleTemplateId: 'STRING_VALUE',
+ *     approvalRuleTemplateName: 'STRING_VALUE',
+ *     approvalRuleTemplateDescription: 'STRING_VALUE',
+ *     approvalRuleTemplateContent: 'STRING_VALUE',
+ *     ruleContentSha256: 'STRING_VALUE',
+ *     lastModifiedDate: new Date('TIMESTAMP'),
+ *     creationDate: new Date('TIMESTAMP'),
+ *     lastModifiedUser: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateApprovalRuleTemplateContentCommandInput - {@link UpdateApprovalRuleTemplateContentCommandInput}
@@ -83,6 +97,8 @@ export interface UpdateApprovalRuleTemplateContentCommandOutput
  * @throws {@link InvalidRuleContentSha256Exception} (client fault)
  *  <p>The SHA-256 hash signature for the rule content is not valid.</p>
  *
+ * @throws {@link CodeCommitServiceException}
+ * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
  */
 export class UpdateApprovalRuleTemplateContentCommand extends $Command<

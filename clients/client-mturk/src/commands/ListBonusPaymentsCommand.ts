@@ -41,17 +41,32 @@ export interface ListBonusPaymentsCommandOutput extends ListBonusPaymentsRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MTurkClient, ListBonusPaymentsCommand } from "@aws-sdk/client-mturk"; // ES Modules import
- * // const { MTurkClient, ListBonusPaymentsCommand } = require("@aws-sdk/client-mturk"); // CommonJS import
+ * import { MTurkClient, ListBonusPaymentsCommand } from '@aws-sdk/client-mturk'; // ES Modules import
+ * // const { MTurkClient, ListBonusPaymentsCommand } = require('@aws-sdk/client-mturk'); // CommonJS import
  * const client = new MTurkClient(config);
  * const input = { // ListBonusPaymentsRequest
- *   HITId: "STRING_VALUE",
- *   AssignmentId: "STRING_VALUE",
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   HITId: 'STRING_VALUE',
+ *   AssignmentId: 'STRING_VALUE',
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListBonusPaymentsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListBonusPaymentsResponse
+ *   NumResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
+ *   BonusPayments: [ // BonusPaymentList
+ *     { // BonusPayment
+ *       WorkerId: 'STRING_VALUE',
+ *       BonusAmount: 'STRING_VALUE',
+ *       AssignmentId: 'STRING_VALUE',
+ *       Reason: 'STRING_VALUE',
+ *       GrantTime: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListBonusPaymentsCommandInput - {@link ListBonusPaymentsCommandInput}
@@ -66,6 +81,8 @@ export interface ListBonusPaymentsCommandOutput extends ListBonusPaymentsRespons
  * @throws {@link ServiceFault} (server fault)
  *  <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
  *
+ * @throws {@link MTurkServiceException}
+ * <p>Base exception class for all service exceptions from MTurk service.</p>
  *
  */
 export class ListBonusPaymentsCommand extends $Command<

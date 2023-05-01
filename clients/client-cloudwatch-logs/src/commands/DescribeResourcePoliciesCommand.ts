@@ -36,15 +36,27 @@ export interface DescribeResourcePoliciesCommandOutput extends DescribeResourceP
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudWatchLogsClient, DescribeResourcePoliciesCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
- * // const { CloudWatchLogsClient, DescribeResourcePoliciesCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
+ * import { CloudWatchLogsClient, DescribeResourcePoliciesCommand } from '@aws-sdk/client-cloudwatch-logs'; // ES Modules import
+ * // const { CloudWatchLogsClient, DescribeResourcePoliciesCommand } = require('@aws-sdk/client-cloudwatch-logs'); // CommonJS import
  * const client = new CloudWatchLogsClient(config);
  * const input = { // DescribeResourcePoliciesRequest
- *   nextToken: "STRING_VALUE",
- *   limit: Number("int"),
+ *   nextToken: 'STRING_VALUE',
+ *   limit: Number('int'),
  * };
  * const command = new DescribeResourcePoliciesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeResourcePoliciesResponse
+ *   resourcePolicies: [ // ResourcePolicies
+ *     { // ResourcePolicy
+ *       policyName: 'STRING_VALUE',
+ *       policyDocument: 'STRING_VALUE',
+ *       lastUpdatedTime: Number('long'),
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeResourcePoliciesCommandInput - {@link DescribeResourcePoliciesCommandInput}
@@ -59,6 +71,8 @@ export interface DescribeResourcePoliciesCommandOutput extends DescribeResourceP
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service cannot complete the request.</p>
  *
+ * @throws {@link CloudWatchLogsServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
  */
 export class DescribeResourcePoliciesCommand extends $Command<

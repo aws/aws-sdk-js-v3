@@ -45,16 +45,27 @@ export interface ListThirdPartyFirewallFirewallPoliciesCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FMSClient, ListThirdPartyFirewallFirewallPoliciesCommand } from "@aws-sdk/client-fms"; // ES Modules import
- * // const { FMSClient, ListThirdPartyFirewallFirewallPoliciesCommand } = require("@aws-sdk/client-fms"); // CommonJS import
+ * import { FMSClient, ListThirdPartyFirewallFirewallPoliciesCommand } from '@aws-sdk/client-fms'; // ES Modules import
+ * // const { FMSClient, ListThirdPartyFirewallFirewallPoliciesCommand } = require('@aws-sdk/client-fms'); // CommonJS import
  * const client = new FMSClient(config);
  * const input = { // ListThirdPartyFirewallFirewallPoliciesRequest
- *   ThirdPartyFirewall: "PALO_ALTO_NETWORKS_CLOUD_NGFW" || "FORTIGATE_CLOUD_NATIVE_FIREWALL", // required
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"), // required
+ *   ThirdPartyFirewall: 'PALO_ALTO_NETWORKS_CLOUD_NGFW' || 'FORTIGATE_CLOUD_NATIVE_FIREWALL', // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'), // required
  * };
  * const command = new ListThirdPartyFirewallFirewallPoliciesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListThirdPartyFirewallFirewallPoliciesResponse
+ *   ThirdPartyFirewallFirewallPolicies: [ // ThirdPartyFirewallFirewallPolicies
+ *     { // ThirdPartyFirewallFirewallPolicy
+ *       FirewallPolicyId: 'STRING_VALUE',
+ *       FirewallPolicyName: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListThirdPartyFirewallFirewallPoliciesCommandInput - {@link ListThirdPartyFirewallFirewallPoliciesCommandInput}
@@ -80,6 +91,8 @@ export interface ListThirdPartyFirewallFirewallPoliciesCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link FMSServiceException}
+ * <p>Base exception class for all service exceptions from FMS service.</p>
  *
  */
 export class ListThirdPartyFirewallFirewallPoliciesCommand extends $Command<

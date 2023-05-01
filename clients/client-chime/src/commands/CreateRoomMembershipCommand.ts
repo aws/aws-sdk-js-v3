@@ -40,17 +40,34 @@ export interface CreateRoomMembershipCommandOutput extends CreateRoomMembershipR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeClient, CreateRoomMembershipCommand } from "@aws-sdk/client-chime"; // ES Modules import
- * // const { ChimeClient, CreateRoomMembershipCommand } = require("@aws-sdk/client-chime"); // CommonJS import
+ * import { ChimeClient, CreateRoomMembershipCommand } from '@aws-sdk/client-chime'; // ES Modules import
+ * // const { ChimeClient, CreateRoomMembershipCommand } = require('@aws-sdk/client-chime'); // CommonJS import
  * const client = new ChimeClient(config);
  * const input = { // CreateRoomMembershipRequest
- *   AccountId: "STRING_VALUE", // required
- *   RoomId: "STRING_VALUE", // required
- *   MemberId: "STRING_VALUE", // required
- *   Role: "Administrator" || "Member",
+ *   AccountId: 'STRING_VALUE', // required
+ *   RoomId: 'STRING_VALUE', // required
+ *   MemberId: 'STRING_VALUE', // required
+ *   Role: 'Administrator' || 'Member',
  * };
  * const command = new CreateRoomMembershipCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateRoomMembershipResponse
+ *   RoomMembership: { // RoomMembership
+ *     RoomId: 'STRING_VALUE',
+ *     Member: { // Member
+ *       MemberId: 'STRING_VALUE',
+ *       MemberType: 'User' || 'Bot' || 'Webhook',
+ *       Email: 'STRING_VALUE',
+ *       FullName: 'STRING_VALUE',
+ *       AccountId: 'STRING_VALUE',
+ *     },
+ *     Role: 'Administrator' || 'Member',
+ *     InvitedBy: 'STRING_VALUE',
+ *     UpdatedTimestamp: new Date('TIMESTAMP'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateRoomMembershipCommandInput - {@link CreateRoomMembershipCommandInput}
@@ -87,6 +104,8 @@ export interface CreateRoomMembershipCommandOutput extends CreateRoomMembershipR
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeServiceException}
+ * <p>Base exception class for all service exceptions from Chime service.</p>
  *
  */
 export class CreateRoomMembershipCommand extends $Command<

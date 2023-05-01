@@ -37,16 +37,28 @@ export interface ListContributorInsightsCommandOutput extends ListContributorIns
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DynamoDBClient, ListContributorInsightsCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
- * // const { DynamoDBClient, ListContributorInsightsCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
+ * import { DynamoDBClient, ListContributorInsightsCommand } from '@aws-sdk/client-dynamodb'; // ES Modules import
+ * // const { DynamoDBClient, ListContributorInsightsCommand } = require('@aws-sdk/client-dynamodb'); // CommonJS import
  * const client = new DynamoDBClient(config);
  * const input = { // ListContributorInsightsInput
- *   TableName: "STRING_VALUE",
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   TableName: 'STRING_VALUE',
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListContributorInsightsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListContributorInsightsOutput
+ *   ContributorInsightsSummaries: [ // ContributorInsightsSummaries
+ *     { // ContributorInsightsSummary
+ *       TableName: 'STRING_VALUE',
+ *       IndexName: 'STRING_VALUE',
+ *       ContributorInsightsStatus: 'ENABLING' || 'ENABLED' || 'DISABLING' || 'DISABLED' || 'FAILED',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListContributorInsightsCommandInput - {@link ListContributorInsightsCommandInput}
@@ -62,6 +74,8 @@ export interface ListContributorInsightsCommandOutput extends ListContributorIns
  *  <p>The operation tried to access a nonexistent table or index. The resource might not
  *             be specified correctly, or its status might not be <code>ACTIVE</code>.</p>
  *
+ * @throws {@link DynamoDBServiceException}
+ * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
  */
 export class ListContributorInsightsCommand extends $Command<

@@ -40,47 +40,50 @@ export interface CreateConfigurationSetCommandOutput extends CreateConfiguration
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SESv2Client, CreateConfigurationSetCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
- * // const { SESv2Client, CreateConfigurationSetCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
+ * import { SESv2Client, CreateConfigurationSetCommand } from '@aws-sdk/client-sesv2'; // ES Modules import
+ * // const { SESv2Client, CreateConfigurationSetCommand } = require('@aws-sdk/client-sesv2'); // CommonJS import
  * const client = new SESv2Client(config);
  * const input = { // CreateConfigurationSetRequest
- *   ConfigurationSetName: "STRING_VALUE", // required
+ *   ConfigurationSetName: 'STRING_VALUE', // required
  *   TrackingOptions: { // TrackingOptions
- *     CustomRedirectDomain: "STRING_VALUE", // required
+ *     CustomRedirectDomain: 'STRING_VALUE', // required
  *   },
  *   DeliveryOptions: { // DeliveryOptions
- *     TlsPolicy: "REQUIRE" || "OPTIONAL",
- *     SendingPoolName: "STRING_VALUE",
+ *     TlsPolicy: 'REQUIRE' || 'OPTIONAL',
+ *     SendingPoolName: 'STRING_VALUE',
  *   },
  *   ReputationOptions: { // ReputationOptions
  *     ReputationMetricsEnabled: true || false,
- *     LastFreshStart: new Date("TIMESTAMP"),
+ *     LastFreshStart: new Date('TIMESTAMP'),
  *   },
  *   SendingOptions: { // SendingOptions
  *     SendingEnabled: true || false,
  *   },
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  *   SuppressionOptions: { // SuppressionOptions
  *     SuppressedReasons: [ // SuppressionListReasons
- *       "BOUNCE" || "COMPLAINT",
+ *       'BOUNCE' || 'COMPLAINT',
  *     ],
  *   },
  *   VdmOptions: { // VdmOptions
  *     DashboardOptions: { // DashboardOptions
- *       EngagementMetrics: "ENABLED" || "DISABLED",
+ *       EngagementMetrics: 'ENABLED' || 'DISABLED',
  *     },
  *     GuardianOptions: { // GuardianOptions
- *       OptimizedSharedDelivery: "ENABLED" || "DISABLED",
+ *       OptimizedSharedDelivery: 'ENABLED' || 'DISABLED',
  *     },
  *   },
  * };
  * const command = new CreateConfigurationSetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param CreateConfigurationSetCommandInput - {@link CreateConfigurationSetCommandInput}
@@ -107,6 +110,8 @@ export interface CreateConfigurationSetCommandOutput extends CreateConfiguration
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Too many requests have been made to the operation.</p>
  *
+ * @throws {@link SESv2ServiceException}
+ * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
  */
 export class CreateConfigurationSetCommand extends $Command<

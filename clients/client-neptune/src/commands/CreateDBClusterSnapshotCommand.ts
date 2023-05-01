@@ -36,21 +36,49 @@ export interface CreateDBClusterSnapshotCommandOutput extends CreateDBClusterSna
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { NeptuneClient, CreateDBClusterSnapshotCommand } from "@aws-sdk/client-neptune"; // ES Modules import
- * // const { NeptuneClient, CreateDBClusterSnapshotCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
+ * import { NeptuneClient, CreateDBClusterSnapshotCommand } from '@aws-sdk/client-neptune'; // ES Modules import
+ * // const { NeptuneClient, CreateDBClusterSnapshotCommand } = require('@aws-sdk/client-neptune'); // CommonJS import
  * const client = new NeptuneClient(config);
  * const input = { // CreateDBClusterSnapshotMessage
- *   DBClusterSnapshotIdentifier: "STRING_VALUE", // required
- *   DBClusterIdentifier: "STRING_VALUE", // required
+ *   DBClusterSnapshotIdentifier: 'STRING_VALUE', // required
+ *   DBClusterIdentifier: 'STRING_VALUE', // required
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE",
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new CreateDBClusterSnapshotCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateDBClusterSnapshotResult
+ *   DBClusterSnapshot: { // DBClusterSnapshot
+ *     AvailabilityZones: [ // AvailabilityZones
+ *       'STRING_VALUE',
+ *     ],
+ *     DBClusterSnapshotIdentifier: 'STRING_VALUE',
+ *     DBClusterIdentifier: 'STRING_VALUE',
+ *     SnapshotCreateTime: new Date('TIMESTAMP'),
+ *     Engine: 'STRING_VALUE',
+ *     AllocatedStorage: Number('int'),
+ *     Status: 'STRING_VALUE',
+ *     Port: Number('int'),
+ *     VpcId: 'STRING_VALUE',
+ *     ClusterCreateTime: new Date('TIMESTAMP'),
+ *     MasterUsername: 'STRING_VALUE',
+ *     EngineVersion: 'STRING_VALUE',
+ *     LicenseModel: 'STRING_VALUE',
+ *     SnapshotType: 'STRING_VALUE',
+ *     PercentProgress: Number('int'),
+ *     StorageEncrypted: true || false,
+ *     KmsKeyId: 'STRING_VALUE',
+ *     DBClusterSnapshotArn: 'STRING_VALUE',
+ *     SourceDBClusterSnapshotArn: 'STRING_VALUE',
+ *     IAMDatabaseAuthenticationEnabled: true || false,
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateDBClusterSnapshotCommandInput - {@link CreateDBClusterSnapshotCommandInput}
@@ -75,6 +103,8 @@ export interface CreateDBClusterSnapshotCommandOutput extends CreateDBClusterSna
  * @throws {@link SnapshotQuotaExceededFault} (client fault)
  *  <p>Request would result in user exceeding the allowed number of DB snapshots.</p>
  *
+ * @throws {@link NeptuneServiceException}
+ * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
  */
 export class CreateDBClusterSnapshotCommand extends $Command<

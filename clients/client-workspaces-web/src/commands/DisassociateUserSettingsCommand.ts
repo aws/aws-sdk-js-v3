@@ -36,14 +36,17 @@ export interface DisassociateUserSettingsCommandOutput extends DisassociateUserS
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkSpacesWebClient, DisassociateUserSettingsCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
- * // const { WorkSpacesWebClient, DisassociateUserSettingsCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
+ * import { WorkSpacesWebClient, DisassociateUserSettingsCommand } from '@aws-sdk/client-workspaces-web'; // ES Modules import
+ * // const { WorkSpacesWebClient, DisassociateUserSettingsCommand } = require('@aws-sdk/client-workspaces-web'); // CommonJS import
  * const client = new WorkSpacesWebClient(config);
  * const input = { // DisassociateUserSettingsRequest
- *   portalArn: "STRING_VALUE", // required
+ *   portalArn: 'STRING_VALUE', // required
  * };
  * const command = new DisassociateUserSettingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DisassociateUserSettingsCommandInput - {@link DisassociateUserSettingsCommandInput}
@@ -67,6 +70,8 @@ export interface DisassociateUserSettingsCommandOutput extends DisassociateUserS
  * @throws {@link ValidationException} (client fault)
  *  <p>There is a validation error.</p>
  *
+ * @throws {@link WorkSpacesWebServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
  */
 export class DisassociateUserSettingsCommand extends $Command<

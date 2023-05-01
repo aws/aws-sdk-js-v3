@@ -36,15 +36,24 @@ export interface GetComponentCommandOutput extends GetComponentResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GreengrassV2Client, GetComponentCommand } from "@aws-sdk/client-greengrassv2"; // ES Modules import
- * // const { GreengrassV2Client, GetComponentCommand } = require("@aws-sdk/client-greengrassv2"); // CommonJS import
+ * import { GreengrassV2Client, GetComponentCommand } from '@aws-sdk/client-greengrassv2'; // ES Modules import
+ * // const { GreengrassV2Client, GetComponentCommand } = require('@aws-sdk/client-greengrassv2'); // CommonJS import
  * const client = new GreengrassV2Client(config);
  * const input = { // GetComponentRequest
- *   recipeOutputFormat: "JSON" || "YAML",
- *   arn: "STRING_VALUE", // required
+ *   recipeOutputFormat: 'JSON' || 'YAML',
+ *   arn: 'STRING_VALUE', // required
  * };
  * const command = new GetComponentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetComponentResponse
+ *   recipeOutputFormat: 'JSON' || 'YAML', // required
+ *   recipe: 'BLOB_VALUE', // required
+ *   tags: { // TagMap
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetComponentCommandInput - {@link GetComponentCommandInput}
@@ -70,6 +79,8 @@ export interface GetComponentCommandOutput extends GetComponentResponse, __Metad
  *  <p>The request isn't valid. This can occur if your request contains malformed JSON or
  *       unsupported characters.</p>
  *
+ * @throws {@link GreengrassV2ServiceException}
+ * <p>Base exception class for all service exceptions from GreengrassV2 service.</p>
  *
  */
 export class GetComponentCommand extends $Command<

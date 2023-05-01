@@ -36,15 +36,20 @@ export interface DeleteSyncJobCommandOutput extends DeleteSyncJobResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTTwinMakerClient, DeleteSyncJobCommand } from "@aws-sdk/client-iottwinmaker"; // ES Modules import
- * // const { IoTTwinMakerClient, DeleteSyncJobCommand } = require("@aws-sdk/client-iottwinmaker"); // CommonJS import
+ * import { IoTTwinMakerClient, DeleteSyncJobCommand } from '@aws-sdk/client-iottwinmaker'; // ES Modules import
+ * // const { IoTTwinMakerClient, DeleteSyncJobCommand } = require('@aws-sdk/client-iottwinmaker'); // CommonJS import
  * const client = new IoTTwinMakerClient(config);
  * const input = { // DeleteSyncJobRequest
- *   workspaceId: "STRING_VALUE", // required
- *   syncSource: "STRING_VALUE", // required
+ *   workspaceId: 'STRING_VALUE', // required
+ *   syncSource: 'STRING_VALUE', // required
  * };
  * const command = new DeleteSyncJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteSyncJobResponse
+ *   state: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param DeleteSyncJobCommandInput - {@link DeleteSyncJobCommandInput}
@@ -71,6 +76,8 @@ export interface DeleteSyncJobCommandOutput extends DeleteSyncJobResponse, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>Failed</p>
  *
+ * @throws {@link IoTTwinMakerServiceException}
+ * <p>Base exception class for all service exceptions from IoTTwinMaker service.</p>
  *
  */
 export class DeleteSyncJobCommand extends $Command<

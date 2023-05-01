@@ -44,14 +44,44 @@ export interface DescribeNotificationRuleCommandOutput extends DescribeNotificat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodestarNotificationsClient, DescribeNotificationRuleCommand } from "@aws-sdk/client-codestar-notifications"; // ES Modules import
- * // const { CodestarNotificationsClient, DescribeNotificationRuleCommand } = require("@aws-sdk/client-codestar-notifications"); // CommonJS import
+ * import { CodestarNotificationsClient, DescribeNotificationRuleCommand } from '@aws-sdk/client-codestar-notifications'; // ES Modules import
+ * // const { CodestarNotificationsClient, DescribeNotificationRuleCommand } = require('@aws-sdk/client-codestar-notifications'); // CommonJS import
  * const client = new CodestarNotificationsClient(config);
  * const input = { // DescribeNotificationRuleRequest
- *   Arn: "STRING_VALUE", // required
+ *   Arn: 'STRING_VALUE', // required
  * };
  * const command = new DescribeNotificationRuleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeNotificationRuleResult
+ *   Arn: 'STRING_VALUE', // required
+ *   Name: 'STRING_VALUE',
+ *   EventTypes: [ // EventTypeBatch
+ *     { // EventTypeSummary
+ *       EventTypeId: 'STRING_VALUE',
+ *       ServiceName: 'STRING_VALUE',
+ *       EventTypeName: 'STRING_VALUE',
+ *       ResourceType: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   Resource: 'STRING_VALUE',
+ *   Targets: [ // TargetsBatch
+ *     { // TargetSummary
+ *       TargetAddress: 'STRING_VALUE',
+ *       TargetType: 'STRING_VALUE',
+ *       TargetStatus: 'PENDING' || 'ACTIVE' || 'UNREACHABLE' || 'INACTIVE' || 'DEACTIVATED',
+ *     },
+ *   ],
+ *   DetailType: 'BASIC' || 'FULL',
+ *   CreatedBy: 'STRING_VALUE',
+ *   Status: 'ENABLED' || 'DISABLED',
+ *   CreatedTimestamp: new Date('TIMESTAMP'),
+ *   LastModifiedTimestamp: new Date('TIMESTAMP'),
+ *   Tags: { // Tags
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeNotificationRuleCommandInput - {@link DescribeNotificationRuleCommandInput}
@@ -66,6 +96,8 @@ export interface DescribeNotificationRuleCommandOutput extends DescribeNotificat
  * @throws {@link ValidationException} (client fault)
  *  <p>One or more parameter values are not valid.</p>
  *
+ * @throws {@link CodestarNotificationsServiceException}
+ * <p>Base exception class for all service exceptions from CodestarNotifications service.</p>
  *
  */
 export class DescribeNotificationRuleCommand extends $Command<

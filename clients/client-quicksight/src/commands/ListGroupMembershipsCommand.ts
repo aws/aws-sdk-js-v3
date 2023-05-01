@@ -36,18 +36,31 @@ export interface ListGroupMembershipsCommandOutput extends ListGroupMembershipsR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { QuickSightClient, ListGroupMembershipsCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
- * // const { QuickSightClient, ListGroupMembershipsCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * import { QuickSightClient, ListGroupMembershipsCommand } from '@aws-sdk/client-quicksight'; // ES Modules import
+ * // const { QuickSightClient, ListGroupMembershipsCommand } = require('@aws-sdk/client-quicksight'); // CommonJS import
  * const client = new QuickSightClient(config);
  * const input = { // ListGroupMembershipsRequest
- *   GroupName: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
- *   AwsAccountId: "STRING_VALUE", // required
- *   Namespace: "STRING_VALUE", // required
+ *   GroupName: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
+ *   AwsAccountId: 'STRING_VALUE', // required
+ *   Namespace: 'STRING_VALUE', // required
  * };
  * const command = new ListGroupMembershipsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListGroupMembershipsResponse
+ *   GroupMemberList: [ // GroupMemberList
+ *     { // GroupMember
+ *       Arn: 'STRING_VALUE',
+ *       MemberName: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ *   RequestId: 'STRING_VALUE',
+ *   Status: Number('int'),
+ * };
+ *
  * ```
  *
  * @param ListGroupMembershipsCommandInput - {@link ListGroupMembershipsCommandInput}
@@ -83,6 +96,8 @@ export interface ListGroupMembershipsCommandOutput extends ListGroupMembershipsR
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Access is throttled.</p>
  *
+ * @throws {@link QuickSightServiceException}
+ * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
 export class ListGroupMembershipsCommand extends $Command<

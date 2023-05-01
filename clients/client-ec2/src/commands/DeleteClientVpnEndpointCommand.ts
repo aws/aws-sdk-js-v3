@@ -37,15 +37,23 @@ export interface DeleteClientVpnEndpointCommandOutput extends DeleteClientVpnEnd
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, DeleteClientVpnEndpointCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, DeleteClientVpnEndpointCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, DeleteClientVpnEndpointCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, DeleteClientVpnEndpointCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // DeleteClientVpnEndpointRequest
- *   ClientVpnEndpointId: "STRING_VALUE", // required
+ *   ClientVpnEndpointId: 'STRING_VALUE', // required
  *   DryRun: true || false,
  * };
  * const command = new DeleteClientVpnEndpointCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteClientVpnEndpointResult
+ *   Status: { // ClientVpnEndpointStatus
+ *     Code: 'pending-associate' || 'available' || 'deleting' || 'deleted',
+ *     Message: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param DeleteClientVpnEndpointCommandInput - {@link DeleteClientVpnEndpointCommandInput}
@@ -54,6 +62,8 @@ export interface DeleteClientVpnEndpointCommandOutput extends DeleteClientVpnEnd
  * @see {@link DeleteClientVpnEndpointCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class DeleteClientVpnEndpointCommand extends $Command<

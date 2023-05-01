@@ -42,18 +42,72 @@ export interface GetResourcesCommandOutput extends GetResourcesResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkDocsClient, GetResourcesCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
- * // const { WorkDocsClient, GetResourcesCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import
+ * import { WorkDocsClient, GetResourcesCommand } from '@aws-sdk/client-workdocs'; // ES Modules import
+ * // const { WorkDocsClient, GetResourcesCommand } = require('@aws-sdk/client-workdocs'); // CommonJS import
  * const client = new WorkDocsClient(config);
  * const input = { // GetResourcesRequest
- *   AuthenticationToken: "STRING_VALUE",
- *   UserId: "STRING_VALUE",
- *   CollectionType: "SHARED_WITH_ME",
- *   Limit: Number("int"),
- *   Marker: "STRING_VALUE",
+ *   AuthenticationToken: 'STRING_VALUE',
+ *   UserId: 'STRING_VALUE',
+ *   CollectionType: 'SHARED_WITH_ME',
+ *   Limit: Number('int'),
+ *   Marker: 'STRING_VALUE',
  * };
  * const command = new GetResourcesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetResourcesResponse
+ *   Folders: [ // FolderMetadataList
+ *     { // FolderMetadata
+ *       Id: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *       CreatorId: 'STRING_VALUE',
+ *       ParentFolderId: 'STRING_VALUE',
+ *       CreatedTimestamp: new Date('TIMESTAMP'),
+ *       ModifiedTimestamp: new Date('TIMESTAMP'),
+ *       ResourceState: 'ACTIVE' || 'RESTORING' || 'RECYCLING' || 'RECYCLED',
+ *       Signature: 'STRING_VALUE',
+ *       Labels: [ // SharedLabels
+ *         'STRING_VALUE',
+ *       ],
+ *       Size: Number('long'),
+ *       LatestVersionSize: Number('long'),
+ *     },
+ *   ],
+ *   Documents: [ // DocumentMetadataList
+ *     { // DocumentMetadata
+ *       Id: 'STRING_VALUE',
+ *       CreatorId: 'STRING_VALUE',
+ *       ParentFolderId: 'STRING_VALUE',
+ *       CreatedTimestamp: new Date('TIMESTAMP'),
+ *       ModifiedTimestamp: new Date('TIMESTAMP'),
+ *       LatestVersionMetadata: { // DocumentVersionMetadata
+ *         Id: 'STRING_VALUE',
+ *         Name: 'STRING_VALUE',
+ *         ContentType: 'STRING_VALUE',
+ *         Size: Number('long'),
+ *         Signature: 'STRING_VALUE',
+ *         Status: 'INITIALIZED' || 'ACTIVE',
+ *         CreatedTimestamp: new Date('TIMESTAMP'),
+ *         ModifiedTimestamp: new Date('TIMESTAMP'),
+ *         ContentCreatedTimestamp: new Date('TIMESTAMP'),
+ *         ContentModifiedTimestamp: new Date('TIMESTAMP'),
+ *         CreatorId: 'STRING_VALUE',
+ *         Thumbnail: { // DocumentThumbnailUrlMap
+ *           '<keys>': 'STRING_VALUE',
+ *         },
+ *         Source: { // DocumentSourceUrlMap
+ *           '<keys>': 'STRING_VALUE',
+ *         },
+ *       },
+ *       ResourceState: 'ACTIVE' || 'RESTORING' || 'RECYCLING' || 'RECYCLED',
+ *       Labels: [
+ *         'STRING_VALUE',
+ *       ],
+ *     },
+ *   ],
+ *   Marker: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetResourcesCommandInput - {@link GetResourcesCommandInput}
@@ -79,6 +133,8 @@ export interface GetResourcesCommandOutput extends GetResourcesResponse, __Metad
  * @throws {@link UnauthorizedResourceAccessException} (client fault)
  *  <p>The caller does not have access to perform the action on the resource.</p>
  *
+ * @throws {@link WorkDocsServiceException}
+ * <p>Base exception class for all service exceptions from WorkDocs service.</p>
  *
  */
 export class GetResourcesCommand extends $Command<

@@ -47,14 +47,19 @@ export interface DescribeOrganizationConfigurationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DetectiveClient, DescribeOrganizationConfigurationCommand } from "@aws-sdk/client-detective"; // ES Modules import
- * // const { DetectiveClient, DescribeOrganizationConfigurationCommand } = require("@aws-sdk/client-detective"); // CommonJS import
+ * import { DetectiveClient, DescribeOrganizationConfigurationCommand } from '@aws-sdk/client-detective'; // ES Modules import
+ * // const { DetectiveClient, DescribeOrganizationConfigurationCommand } = require('@aws-sdk/client-detective'); // CommonJS import
  * const client = new DetectiveClient(config);
  * const input = { // DescribeOrganizationConfigurationRequest
- *   GraphArn: "STRING_VALUE", // required
+ *   GraphArn: 'STRING_VALUE', // required
  * };
  * const command = new DescribeOrganizationConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeOrganizationConfigurationResponse
+ *   AutoEnable: true || false,
+ * };
+ *
  * ```
  *
  * @param DescribeOrganizationConfigurationCommandInput - {@link DescribeOrganizationConfigurationCommandInput}
@@ -77,6 +82,8 @@ export interface DescribeOrganizationConfigurationCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The request parameters are invalid.</p>
  *
+ * @throws {@link DetectiveServiceException}
+ * <p>Base exception class for all service exceptions from Detective service.</p>
  *
  */
 export class DescribeOrganizationConfigurationCommand extends $Command<

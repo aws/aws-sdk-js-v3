@@ -42,19 +42,33 @@ export interface PutImageCommandOutput extends PutImageResponse, __MetadataBeare
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ECRPUBLICClient, PutImageCommand } from "@aws-sdk/client-ecr-public"; // ES Modules import
- * // const { ECRPUBLICClient, PutImageCommand } = require("@aws-sdk/client-ecr-public"); // CommonJS import
+ * import { ECRPUBLICClient, PutImageCommand } from '@aws-sdk/client-ecr-public'; // ES Modules import
+ * // const { ECRPUBLICClient, PutImageCommand } = require('@aws-sdk/client-ecr-public'); // CommonJS import
  * const client = new ECRPUBLICClient(config);
  * const input = { // PutImageRequest
- *   registryId: "STRING_VALUE",
- *   repositoryName: "STRING_VALUE", // required
- *   imageManifest: "STRING_VALUE", // required
- *   imageManifestMediaType: "STRING_VALUE",
- *   imageTag: "STRING_VALUE",
- *   imageDigest: "STRING_VALUE",
+ *   registryId: 'STRING_VALUE',
+ *   repositoryName: 'STRING_VALUE', // required
+ *   imageManifest: 'STRING_VALUE', // required
+ *   imageManifestMediaType: 'STRING_VALUE',
+ *   imageTag: 'STRING_VALUE',
+ *   imageDigest: 'STRING_VALUE',
  * };
  * const command = new PutImageCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutImageResponse
+ *   image: { // Image
+ *     registryId: 'STRING_VALUE',
+ *     repositoryName: 'STRING_VALUE',
+ *     imageId: { // ImageIdentifier
+ *       imageDigest: 'STRING_VALUE',
+ *       imageTag: 'STRING_VALUE',
+ *     },
+ *     imageManifest: 'STRING_VALUE',
+ *     imageManifestMediaType: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param PutImageCommandInput - {@link PutImageCommandInput}
@@ -104,6 +118,8 @@ export interface PutImageCommandOutput extends PutImageResponse, __MetadataBeare
  * @throws {@link UnsupportedCommandException} (client fault)
  *  <p>The action isn't supported in this Region.</p>
  *
+ * @throws {@link ECRPUBLICServiceException}
+ * <p>Base exception class for all service exceptions from ECRPUBLIC service.</p>
  *
  */
 export class PutImageCommand extends $Command<

@@ -40,16 +40,19 @@ export interface DeleteApplicationVersionCommandOutput extends __MetadataBearer 
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElasticBeanstalkClient, DeleteApplicationVersionCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
- * // const { ElasticBeanstalkClient, DeleteApplicationVersionCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
+ * import { ElasticBeanstalkClient, DeleteApplicationVersionCommand } from '@aws-sdk/client-elastic-beanstalk'; // ES Modules import
+ * // const { ElasticBeanstalkClient, DeleteApplicationVersionCommand } = require('@aws-sdk/client-elastic-beanstalk'); // CommonJS import
  * const client = new ElasticBeanstalkClient(config);
  * const input = { // DeleteApplicationVersionMessage
- *   ApplicationName: "STRING_VALUE", // required
- *   VersionLabel: "STRING_VALUE", // required
+ *   ApplicationName: 'STRING_VALUE', // required
+ *   VersionLabel: 'STRING_VALUE', // required
  *   DeleteSourceBundle: true || false,
  * };
  * const command = new DeleteApplicationVersionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteApplicationVersionCommandInput - {@link DeleteApplicationVersionCommandInput}
@@ -85,6 +88,8 @@ export interface DeleteApplicationVersionCommandOutput extends __MetadataBearer 
  *  <p>Unable to delete the Amazon S3 source bundle associated with the application version.
  *       The application version was deleted successfully.</p>
  *
+ * @throws {@link ElasticBeanstalkServiceException}
+ * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
  * @example To delete an application version
  * ```javascript

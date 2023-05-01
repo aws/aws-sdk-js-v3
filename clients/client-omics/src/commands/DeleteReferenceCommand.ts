@@ -36,15 +36,18 @@ export interface DeleteReferenceCommandOutput extends DeleteReferenceResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OmicsClient, DeleteReferenceCommand } from "@aws-sdk/client-omics"; // ES Modules import
- * // const { OmicsClient, DeleteReferenceCommand } = require("@aws-sdk/client-omics"); // CommonJS import
+ * import { OmicsClient, DeleteReferenceCommand } from '@aws-sdk/client-omics'; // ES Modules import
+ * // const { OmicsClient, DeleteReferenceCommand } = require('@aws-sdk/client-omics'); // CommonJS import
  * const client = new OmicsClient(config);
  * const input = { // DeleteReferenceRequest
- *   id: "STRING_VALUE", // required
- *   referenceStoreId: "STRING_VALUE", // required
+ *   id: 'STRING_VALUE', // required
+ *   referenceStoreId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteReferenceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteReferenceCommandInput - {@link DeleteReferenceCommandInput}
@@ -74,6 +77,8 @@ export interface DeleteReferenceCommandOutput extends DeleteReferenceResponse, _
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link OmicsServiceException}
+ * <p>Base exception class for all service exceptions from Omics service.</p>
  *
  */
 export class DeleteReferenceCommand extends $Command<

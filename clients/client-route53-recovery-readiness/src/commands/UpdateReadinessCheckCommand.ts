@@ -40,15 +40,25 @@ export interface UpdateReadinessCheckCommandOutput extends UpdateReadinessCheckR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Route53RecoveryReadinessClient, UpdateReadinessCheckCommand } from "@aws-sdk/client-route53-recovery-readiness"; // ES Modules import
- * // const { Route53RecoveryReadinessClient, UpdateReadinessCheckCommand } = require("@aws-sdk/client-route53-recovery-readiness"); // CommonJS import
+ * import { Route53RecoveryReadinessClient, UpdateReadinessCheckCommand } from '@aws-sdk/client-route53-recovery-readiness'; // ES Modules import
+ * // const { Route53RecoveryReadinessClient, UpdateReadinessCheckCommand } = require('@aws-sdk/client-route53-recovery-readiness'); // CommonJS import
  * const client = new Route53RecoveryReadinessClient(config);
  * const input = { // UpdateReadinessCheckRequest
- *   ReadinessCheckName: "STRING_VALUE", // required
- *   ResourceSetName: "STRING_VALUE", // required
+ *   ReadinessCheckName: 'STRING_VALUE', // required
+ *   ResourceSetName: 'STRING_VALUE', // required
  * };
  * const command = new UpdateReadinessCheckCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateReadinessCheckResponse
+ *   ReadinessCheckArn: 'STRING_VALUE',
+ *   ReadinessCheckName: 'STRING_VALUE',
+ *   ResourceSet: 'STRING_VALUE',
+ *   Tags: { // Tags
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateReadinessCheckCommandInput - {@link UpdateReadinessCheckCommandInput}
@@ -72,6 +82,8 @@ export interface UpdateReadinessCheckCommandOutput extends UpdateReadinessCheckR
  * @throws {@link ValidationException} (client fault)
  *  The input fails to satisfy the constraints specified by an AWS service.
  *
+ * @throws {@link Route53RecoveryReadinessServiceException}
+ * <p>Base exception class for all service exceptions from Route53RecoveryReadiness service.</p>
  *
  */
 export class UpdateReadinessCheckCommand extends $Command<

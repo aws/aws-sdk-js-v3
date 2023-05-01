@@ -48,29 +48,35 @@ export interface CreateQueueCommandOutput extends CreateQueueResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, CreateQueueCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, CreateQueueCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, CreateQueueCommand } from '@aws-sdk/client-connect'; // ES Modules import
+ * // const { ConnectClient, CreateQueueCommand } = require('@aws-sdk/client-connect'); // CommonJS import
  * const client = new ConnectClient(config);
  * const input = { // CreateQueueRequest
- *   InstanceId: "STRING_VALUE", // required
- *   Name: "STRING_VALUE", // required
- *   Description: "STRING_VALUE",
+ *   InstanceId: 'STRING_VALUE', // required
+ *   Name: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE',
  *   OutboundCallerConfig: { // OutboundCallerConfig
- *     OutboundCallerIdName: "STRING_VALUE",
- *     OutboundCallerIdNumberId: "STRING_VALUE",
- *     OutboundFlowId: "STRING_VALUE",
+ *     OutboundCallerIdName: 'STRING_VALUE',
+ *     OutboundCallerIdNumberId: 'STRING_VALUE',
+ *     OutboundFlowId: 'STRING_VALUE',
  *   },
- *   HoursOfOperationId: "STRING_VALUE", // required
- *   MaxContacts: Number("int"),
+ *   HoursOfOperationId: 'STRING_VALUE', // required
+ *   MaxContacts: Number('int'),
  *   QuickConnectIds: [ // QuickConnectsList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   Tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateQueueCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateQueueResponse
+ *   QueueArn: 'STRING_VALUE',
+ *   QueueId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateQueueCommandInput - {@link CreateQueueCommandInput}
@@ -100,6 +106,8 @@ export interface CreateQueueCommandOutput extends CreateQueueResponse, __Metadat
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class CreateQueueCommand extends $Command<

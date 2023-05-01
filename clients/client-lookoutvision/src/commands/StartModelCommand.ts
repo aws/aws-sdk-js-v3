@@ -46,18 +46,23 @@ export interface StartModelCommandOutput extends StartModelResponse, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LookoutVisionClient, StartModelCommand } from "@aws-sdk/client-lookoutvision"; // ES Modules import
- * // const { LookoutVisionClient, StartModelCommand } = require("@aws-sdk/client-lookoutvision"); // CommonJS import
+ * import { LookoutVisionClient, StartModelCommand } from '@aws-sdk/client-lookoutvision'; // ES Modules import
+ * // const { LookoutVisionClient, StartModelCommand } = require('@aws-sdk/client-lookoutvision'); // CommonJS import
  * const client = new LookoutVisionClient(config);
  * const input = { // StartModelRequest
- *   ProjectName: "STRING_VALUE", // required
- *   ModelVersion: "STRING_VALUE", // required
- *   MinInferenceUnits: Number("int"), // required
- *   ClientToken: "STRING_VALUE",
- *   MaxInferenceUnits: Number("int"),
+ *   ProjectName: 'STRING_VALUE', // required
+ *   ModelVersion: 'STRING_VALUE', // required
+ *   MinInferenceUnits: Number('int'), // required
+ *   ClientToken: 'STRING_VALUE',
+ *   MaxInferenceUnits: Number('int'),
  * };
  * const command = new StartModelCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartModelResponse
+ *   Status: 'STARTING_HOSTING' || 'HOSTED' || 'HOSTING_FAILED' || 'STOPPING_HOSTING' || 'SYSTEM_UPDATING',
+ * };
+ *
  * ```
  *
  * @param StartModelCommandInput - {@link StartModelCommandInput}
@@ -89,6 +94,8 @@ export interface StartModelCommandOutput extends StartModelResponse, __MetadataB
  *  <p>An input validation error occured. For example, invalid characters in a project name,
  *       or if a pagination token is invalid.</p>
  *
+ * @throws {@link LookoutVisionServiceException}
+ * <p>Base exception class for all service exceptions from LookoutVision service.</p>
  *
  */
 export class StartModelCommand extends $Command<

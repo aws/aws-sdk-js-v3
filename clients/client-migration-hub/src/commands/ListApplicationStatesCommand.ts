@@ -38,18 +38,30 @@ export interface ListApplicationStatesCommandOutput extends ListApplicationState
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MigrationHubClient, ListApplicationStatesCommand } from "@aws-sdk/client-migration-hub"; // ES Modules import
- * // const { MigrationHubClient, ListApplicationStatesCommand } = require("@aws-sdk/client-migration-hub"); // CommonJS import
+ * import { MigrationHubClient, ListApplicationStatesCommand } from '@aws-sdk/client-migration-hub'; // ES Modules import
+ * // const { MigrationHubClient, ListApplicationStatesCommand } = require('@aws-sdk/client-migration-hub'); // CommonJS import
  * const client = new MigrationHubClient(config);
  * const input = { // ListApplicationStatesRequest
  *   ApplicationIds: [ // ApplicationIds
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListApplicationStatesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListApplicationStatesResult
+ *   ApplicationStateList: [ // ApplicationStateList
+ *     { // ApplicationState
+ *       ApplicationId: 'STRING_VALUE',
+ *       ApplicationStatus: 'STRING_VALUE',
+ *       LastUpdatedTime: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListApplicationStatesCommandInput - {@link ListApplicationStatesCommandInput}
@@ -79,6 +91,8 @@ export interface ListApplicationStatesCommandOutput extends ListApplicationState
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
  *
+ * @throws {@link MigrationHubServiceException}
+ * <p>Base exception class for all service exceptions from MigrationHub service.</p>
  *
  */
 export class ListApplicationStatesCommand extends $Command<

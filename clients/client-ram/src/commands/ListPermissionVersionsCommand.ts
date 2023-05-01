@@ -36,16 +36,42 @@ export interface ListPermissionVersionsCommandOutput extends ListPermissionVersi
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RAMClient, ListPermissionVersionsCommand } from "@aws-sdk/client-ram"; // ES Modules import
- * // const { RAMClient, ListPermissionVersionsCommand } = require("@aws-sdk/client-ram"); // CommonJS import
+ * import { RAMClient, ListPermissionVersionsCommand } from '@aws-sdk/client-ram'; // ES Modules import
+ * // const { RAMClient, ListPermissionVersionsCommand } = require('@aws-sdk/client-ram'); // CommonJS import
  * const client = new RAMClient(config);
  * const input = { // ListPermissionVersionsRequest
- *   permissionArn: "STRING_VALUE", // required
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   permissionArn: 'STRING_VALUE', // required
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new ListPermissionVersionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListPermissionVersionsResponse
+ *   permissions: [ // ResourceSharePermissionList
+ *     { // ResourceSharePermissionSummary
+ *       arn: 'STRING_VALUE',
+ *       version: 'STRING_VALUE',
+ *       defaultVersion: true || false,
+ *       name: 'STRING_VALUE',
+ *       resourceType: 'STRING_VALUE',
+ *       status: 'STRING_VALUE',
+ *       creationTime: new Date('TIMESTAMP'),
+ *       lastUpdatedTime: new Date('TIMESTAMP'),
+ *       isResourceTypeDefault: true || false,
+ *       permissionType: 'CUSTOMER_MANAGED' || 'AWS_MANAGED',
+ *       featureSet: 'CREATED_FROM_POLICY' || 'PROMOTING_TO_STANDARD' || 'STANDARD',
+ *       tags: [ // TagList
+ *         { // Tag
+ *           key: 'STRING_VALUE',
+ *           value: 'STRING_VALUE',
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListPermissionVersionsCommandInput - {@link ListPermissionVersionsCommandInput}
@@ -79,6 +105,8 @@ export interface ListPermissionVersionsCommandOutput extends ListPermissionVersi
  * @throws {@link UnknownResourceException} (client fault)
  *  <p>The operation failed because a specified resource couldn't be found.</p>
  *
+ * @throws {@link RAMServiceException}
+ * <p>Base exception class for all service exceptions from RAM service.</p>
  *
  */
 export class ListPermissionVersionsCommand extends $Command<

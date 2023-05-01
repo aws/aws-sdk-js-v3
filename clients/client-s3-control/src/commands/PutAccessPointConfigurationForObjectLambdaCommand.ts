@@ -50,27 +50,27 @@ export interface PutAccessPointConfigurationForObjectLambdaCommandOutput extends
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { S3ControlClient, PutAccessPointConfigurationForObjectLambdaCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
- * // const { S3ControlClient, PutAccessPointConfigurationForObjectLambdaCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
+ * import { S3ControlClient, PutAccessPointConfigurationForObjectLambdaCommand } from '@aws-sdk/client-s3-control'; // ES Modules import
+ * // const { S3ControlClient, PutAccessPointConfigurationForObjectLambdaCommand } = require('@aws-sdk/client-s3-control'); // CommonJS import
  * const client = new S3ControlClient(config);
  * const input = { // PutAccessPointConfigurationForObjectLambdaRequest
- *   AccountId: "STRING_VALUE",
- *   Name: "STRING_VALUE", // required
+ *   AccountId: 'STRING_VALUE',
+ *   Name: 'STRING_VALUE', // required
  *   Configuration: { // ObjectLambdaConfiguration
- *     SupportingAccessPoint: "STRING_VALUE", // required
+ *     SupportingAccessPoint: 'STRING_VALUE', // required
  *     CloudWatchMetricsEnabled: true || false,
  *     AllowedFeatures: [ // ObjectLambdaAllowedFeaturesList
- *       "GetObject-Range" || "GetObject-PartNumber" || "HeadObject-Range" || "HeadObject-PartNumber",
+ *       'GetObject-Range' || 'GetObject-PartNumber' || 'HeadObject-Range' || 'HeadObject-PartNumber',
  *     ],
  *     TransformationConfigurations: [ // ObjectLambdaTransformationConfigurationsList // required
  *       { // ObjectLambdaTransformationConfiguration
  *         Actions: [ // ObjectLambdaTransformationConfigurationActionsList // required
- *           "GetObject" || "HeadObject" || "ListObjects" || "ListObjectsV2",
+ *           'GetObject' || 'HeadObject' || 'ListObjects' || 'ListObjectsV2',
  *         ],
  *         ContentTransformation: { // ObjectLambdaContentTransformation Union: only one key present
  *           AwsLambda: { // AwsLambdaTransformation
- *             FunctionArn: "STRING_VALUE", // required
- *             FunctionPayload: "STRING_VALUE",
+ *             FunctionArn: 'STRING_VALUE', // required
+ *             FunctionPayload: 'STRING_VALUE',
  *           },
  *         },
  *       },
@@ -79,6 +79,9 @@ export interface PutAccessPointConfigurationForObjectLambdaCommandOutput extends
  * };
  * const command = new PutAccessPointConfigurationForObjectLambdaCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutAccessPointConfigurationForObjectLambdaCommandInput - {@link PutAccessPointConfigurationForObjectLambdaCommandInput}
@@ -87,6 +90,8 @@ export interface PutAccessPointConfigurationForObjectLambdaCommandOutput extends
  * @see {@link PutAccessPointConfigurationForObjectLambdaCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
  *
+ * @throws {@link S3ControlServiceException}
+ * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
  */
 export class PutAccessPointConfigurationForObjectLambdaCommand extends $Command<

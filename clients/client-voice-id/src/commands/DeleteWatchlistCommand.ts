@@ -38,15 +38,18 @@ export interface DeleteWatchlistCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { VoiceIDClient, DeleteWatchlistCommand } from "@aws-sdk/client-voice-id"; // ES Modules import
- * // const { VoiceIDClient, DeleteWatchlistCommand } = require("@aws-sdk/client-voice-id"); // CommonJS import
+ * import { VoiceIDClient, DeleteWatchlistCommand } from '@aws-sdk/client-voice-id'; // ES Modules import
+ * // const { VoiceIDClient, DeleteWatchlistCommand } = require('@aws-sdk/client-voice-id'); // CommonJS import
  * const client = new VoiceIDClient(config);
  * const input = { // DeleteWatchlistRequest
- *   DomainId: "STRING_VALUE", // required
- *   WatchlistId: "STRING_VALUE", // required
+ *   DomainId: 'STRING_VALUE', // required
+ *   WatchlistId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteWatchlistCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteWatchlistCommandInput - {@link DeleteWatchlistCommandInput}
@@ -80,6 +83,8 @@ export interface DeleteWatchlistCommandOutput extends __MetadataBearer {}
  *  <p>The request failed one or more validations; check the error message for more
  *             details.</p>
  *
+ * @throws {@link VoiceIDServiceException}
+ * <p>Base exception class for all service exceptions from VoiceID service.</p>
  *
  */
 export class DeleteWatchlistCommand extends $Command<

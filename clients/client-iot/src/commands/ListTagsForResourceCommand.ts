@@ -37,15 +37,26 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTClient, ListTagsForResourceCommand } from "@aws-sdk/client-iot"; // ES Modules import
- * // const { IoTClient, ListTagsForResourceCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * import { IoTClient, ListTagsForResourceCommand } from '@aws-sdk/client-iot'; // ES Modules import
+ * // const { IoTClient, ListTagsForResourceCommand } = require('@aws-sdk/client-iot'); // CommonJS import
  * const client = new IoTClient(config);
  * const input = { // ListTagsForResourceRequest
- *   resourceArn: "STRING_VALUE", // required
- *   nextToken: "STRING_VALUE",
+ *   resourceArn: 'STRING_VALUE', // required
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTagsForResourceResponse
+ *   tags: [ // TagList
+ *     { // Tag
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListTagsForResourceCommandInput - {@link ListTagsForResourceCommandInput}
@@ -66,6 +77,8 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The rate exceeds the limit.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class ListTagsForResourceCommand extends $Command<

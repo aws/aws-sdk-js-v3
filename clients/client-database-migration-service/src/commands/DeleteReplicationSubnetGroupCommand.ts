@@ -45,14 +45,17 @@ export interface DeleteReplicationSubnetGroupCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DatabaseMigrationServiceClient, DeleteReplicationSubnetGroupCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
- * // const { DatabaseMigrationServiceClient, DeleteReplicationSubnetGroupCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
+ * import { DatabaseMigrationServiceClient, DeleteReplicationSubnetGroupCommand } from '@aws-sdk/client-database-migration-service'; // ES Modules import
+ * // const { DatabaseMigrationServiceClient, DeleteReplicationSubnetGroupCommand } = require('@aws-sdk/client-database-migration-service'); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
  * const input = { // DeleteReplicationSubnetGroupMessage
- *   ReplicationSubnetGroupIdentifier: "STRING_VALUE", // required
+ *   ReplicationSubnetGroupIdentifier: 'STRING_VALUE', // required
  * };
  * const command = new DeleteReplicationSubnetGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteReplicationSubnetGroupCommandInput - {@link DeleteReplicationSubnetGroupCommandInput}
@@ -67,6 +70,8 @@ export interface DeleteReplicationSubnetGroupCommandOutput
  * @throws {@link ResourceNotFoundFault} (client fault)
  *  <p>The resource could not be found.</p>
  *
+ * @throws {@link DatabaseMigrationServiceServiceException}
+ * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
  * @example Delete Replication Subnet Group
  * ```javascript

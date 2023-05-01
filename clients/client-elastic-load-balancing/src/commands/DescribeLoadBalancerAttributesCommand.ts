@@ -45,14 +45,42 @@ export interface DescribeLoadBalancerAttributesCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElasticLoadBalancingClient, DescribeLoadBalancerAttributesCommand } from "@aws-sdk/client-elastic-load-balancing"; // ES Modules import
- * // const { ElasticLoadBalancingClient, DescribeLoadBalancerAttributesCommand } = require("@aws-sdk/client-elastic-load-balancing"); // CommonJS import
+ * import { ElasticLoadBalancingClient, DescribeLoadBalancerAttributesCommand } from '@aws-sdk/client-elastic-load-balancing'; // ES Modules import
+ * // const { ElasticLoadBalancingClient, DescribeLoadBalancerAttributesCommand } = require('@aws-sdk/client-elastic-load-balancing'); // CommonJS import
  * const client = new ElasticLoadBalancingClient(config);
  * const input = { // DescribeLoadBalancerAttributesInput
- *   LoadBalancerName: "STRING_VALUE", // required
+ *   LoadBalancerName: 'STRING_VALUE', // required
  * };
  * const command = new DescribeLoadBalancerAttributesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeLoadBalancerAttributesOutput
+ *   LoadBalancerAttributes: { // LoadBalancerAttributes
+ *     CrossZoneLoadBalancing: { // CrossZoneLoadBalancing
+ *       Enabled: true || false, // required
+ *     },
+ *     AccessLog: { // AccessLog
+ *       Enabled: true || false, // required
+ *       S3BucketName: 'STRING_VALUE',
+ *       EmitInterval: Number('int'),
+ *       S3BucketPrefix: 'STRING_VALUE',
+ *     },
+ *     ConnectionDraining: { // ConnectionDraining
+ *       Enabled: true || false, // required
+ *       Timeout: Number('int'),
+ *     },
+ *     ConnectionSettings: { // ConnectionSettings
+ *       IdleTimeout: Number('int'), // required
+ *     },
+ *     AdditionalAttributes: [ // AdditionalAttributes
+ *       { // AdditionalAttribute
+ *         Key: 'STRING_VALUE',
+ *         Value: 'STRING_VALUE',
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeLoadBalancerAttributesCommandInput - {@link DescribeLoadBalancerAttributesCommandInput}
@@ -67,6 +95,8 @@ export interface DescribeLoadBalancerAttributesCommandOutput
  * @throws {@link LoadBalancerAttributeNotFoundException} (client fault)
  *  <p>The specified load balancer attribute does not exist.</p>
  *
+ * @throws {@link ElasticLoadBalancingServiceException}
+ * <p>Base exception class for all service exceptions from ElasticLoadBalancing service.</p>
  *
  * @example To describe the attributes of a load balancer
  * ```javascript

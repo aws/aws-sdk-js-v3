@@ -40,18 +40,40 @@ export interface DescribeTapeArchivesCommandOutput extends DescribeTapeArchivesO
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { StorageGatewayClient, DescribeTapeArchivesCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
- * // const { StorageGatewayClient, DescribeTapeArchivesCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
+ * import { StorageGatewayClient, DescribeTapeArchivesCommand } from '@aws-sdk/client-storage-gateway'; // ES Modules import
+ * // const { StorageGatewayClient, DescribeTapeArchivesCommand } = require('@aws-sdk/client-storage-gateway'); // CommonJS import
  * const client = new StorageGatewayClient(config);
  * const input = { // DescribeTapeArchivesInput
  *   TapeARNs: [ // TapeARNs
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   Marker: "STRING_VALUE",
- *   Limit: Number("int"),
+ *   Marker: 'STRING_VALUE',
+ *   Limit: Number('int'),
  * };
  * const command = new DescribeTapeArchivesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeTapeArchivesOutput
+ *   TapeArchives: [ // TapeArchives
+ *     { // TapeArchive
+ *       TapeARN: 'STRING_VALUE',
+ *       TapeBarcode: 'STRING_VALUE',
+ *       TapeCreatedDate: new Date('TIMESTAMP'),
+ *       TapeSizeInBytes: Number('long'),
+ *       CompletionTime: new Date('TIMESTAMP'),
+ *       RetrievedTo: 'STRING_VALUE',
+ *       TapeStatus: 'STRING_VALUE',
+ *       TapeUsedInBytes: Number('long'),
+ *       KMSKey: 'STRING_VALUE',
+ *       PoolId: 'STRING_VALUE',
+ *       Worm: true || false,
+ *       RetentionStartDate: new Date('TIMESTAMP'),
+ *       PoolEntryDate: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   Marker: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeTapeArchivesCommandInput - {@link DescribeTapeArchivesCommandInput}
@@ -68,6 +90,8 @@ export interface DescribeTapeArchivesCommandOutput extends DescribeTapeArchivesO
  *  <p>An exception occurred because an invalid gateway request was issued to the service. For
  *          more information, see the error and message fields.</p>
  *
+ * @throws {@link StorageGatewayServiceException}
+ * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
  * @example To describe virtual tapes in the VTS
  * ```javascript

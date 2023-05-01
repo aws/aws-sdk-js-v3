@@ -38,14 +38,17 @@ export interface DeleteLabelGroupCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LookoutEquipmentClient, DeleteLabelGroupCommand } from "@aws-sdk/client-lookoutequipment"; // ES Modules import
- * // const { LookoutEquipmentClient, DeleteLabelGroupCommand } = require("@aws-sdk/client-lookoutequipment"); // CommonJS import
+ * import { LookoutEquipmentClient, DeleteLabelGroupCommand } from '@aws-sdk/client-lookoutequipment'; // ES Modules import
+ * // const { LookoutEquipmentClient, DeleteLabelGroupCommand } = require('@aws-sdk/client-lookoutequipment'); // CommonJS import
  * const client = new LookoutEquipmentClient(config);
  * const input = { // DeleteLabelGroupRequest
- *   LabelGroupName: "STRING_VALUE", // required
+ *   LabelGroupName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteLabelGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteLabelGroupCommandInput - {@link DeleteLabelGroupCommandInput}
@@ -77,6 +80,8 @@ export interface DeleteLabelGroupCommandOutput extends __MetadataBearer {}
  *  <p> The input fails to satisfy constraints specified by Amazon Lookout for Equipment or a
  *          related AWS service that's being utilized. </p>
  *
+ * @throws {@link LookoutEquipmentServiceException}
+ * <p>Base exception class for all service exceptions from LookoutEquipment service.</p>
  *
  */
 export class DeleteLabelGroupCommand extends $Command<

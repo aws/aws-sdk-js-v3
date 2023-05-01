@@ -40,15 +40,18 @@ export interface DeletePartnerEventSourceCommandOutput extends __MetadataBearer 
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EventBridgeClient, DeletePartnerEventSourceCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
- * // const { EventBridgeClient, DeletePartnerEventSourceCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
+ * import { EventBridgeClient, DeletePartnerEventSourceCommand } from '@aws-sdk/client-eventbridge'; // ES Modules import
+ * // const { EventBridgeClient, DeletePartnerEventSourceCommand } = require('@aws-sdk/client-eventbridge'); // CommonJS import
  * const client = new EventBridgeClient(config);
  * const input = { // DeletePartnerEventSourceRequest
- *   Name: "STRING_VALUE", // required
- *   Account: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
+ *   Account: 'STRING_VALUE', // required
  * };
  * const command = new DeletePartnerEventSourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeletePartnerEventSourceCommandInput - {@link DeletePartnerEventSourceCommandInput}
@@ -66,6 +69,8 @@ export interface DeletePartnerEventSourceCommandOutput extends __MetadataBearer 
  * @throws {@link OperationDisabledException} (client fault)
  *  <p>The operation you are attempting is not available in this region.</p>
  *
+ * @throws {@link EventBridgeServiceException}
+ * <p>Base exception class for all service exceptions from EventBridge service.</p>
  *
  */
 export class DeletePartnerEventSourceCommand extends $Command<

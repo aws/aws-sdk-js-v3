@@ -53,16 +53,19 @@ export interface AbortMultipartUploadCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlacierClient, AbortMultipartUploadCommand } from "@aws-sdk/client-glacier"; // ES Modules import
- * // const { GlacierClient, AbortMultipartUploadCommand } = require("@aws-sdk/client-glacier"); // CommonJS import
+ * import { GlacierClient, AbortMultipartUploadCommand } from '@aws-sdk/client-glacier'; // ES Modules import
+ * // const { GlacierClient, AbortMultipartUploadCommand } = require('@aws-sdk/client-glacier'); // CommonJS import
  * const client = new GlacierClient(config);
  * const input = { // AbortMultipartUploadInput
- *   accountId: "STRING_VALUE", // required
- *   vaultName: "STRING_VALUE", // required
- *   uploadId: "STRING_VALUE", // required
+ *   accountId: 'STRING_VALUE', // required
+ *   vaultName: 'STRING_VALUE', // required
+ *   uploadId: 'STRING_VALUE', // required
  * };
  * const command = new AbortMultipartUploadCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param AbortMultipartUploadCommandInput - {@link AbortMultipartUploadCommandInput}
@@ -84,6 +87,8 @@ export interface AbortMultipartUploadCommandOutput extends __MetadataBearer {}
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>Returned if the service cannot complete the request.</p>
  *
+ * @throws {@link GlacierServiceException}
+ * <p>Base exception class for all service exceptions from Glacier service.</p>
  *
  * @example To abort a multipart upload identified by the upload ID
  * ```javascript

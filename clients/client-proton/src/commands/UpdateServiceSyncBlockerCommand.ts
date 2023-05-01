@@ -36,15 +36,36 @@ export interface UpdateServiceSyncBlockerCommandOutput extends UpdateServiceSync
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ProtonClient, UpdateServiceSyncBlockerCommand } from "@aws-sdk/client-proton"; // ES Modules import
- * // const { ProtonClient, UpdateServiceSyncBlockerCommand } = require("@aws-sdk/client-proton"); // CommonJS import
+ * import { ProtonClient, UpdateServiceSyncBlockerCommand } from '@aws-sdk/client-proton'; // ES Modules import
+ * // const { ProtonClient, UpdateServiceSyncBlockerCommand } = require('@aws-sdk/client-proton'); // CommonJS import
  * const client = new ProtonClient(config);
  * const input = { // UpdateServiceSyncBlockerInput
- *   id: "STRING_VALUE", // required
- *   resolvedReason: "STRING_VALUE", // required
+ *   id: 'STRING_VALUE', // required
+ *   resolvedReason: 'STRING_VALUE', // required
  * };
  * const command = new UpdateServiceSyncBlockerCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateServiceSyncBlockerOutput
+ *   serviceName: 'STRING_VALUE', // required
+ *   serviceInstanceName: 'STRING_VALUE',
+ *   serviceSyncBlocker: { // SyncBlocker
+ *     id: 'STRING_VALUE', // required
+ *     type: 'STRING_VALUE', // required
+ *     status: 'STRING_VALUE', // required
+ *     createdReason: 'STRING_VALUE', // required
+ *     createdAt: new Date('TIMESTAMP'), // required
+ *     contexts: [ // SyncBlockerContexts
+ *       { // SyncBlockerContext
+ *         key: 'STRING_VALUE', // required
+ *         value: 'STRING_VALUE', // required
+ *       },
+ *     ],
+ *     resolvedReason: 'STRING_VALUE',
+ *     resolvedAt: new Date('TIMESTAMP'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateServiceSyncBlockerCommandInput - {@link UpdateServiceSyncBlockerCommandInput}
@@ -71,6 +92,8 @@ export interface UpdateServiceSyncBlockerCommandOutput extends UpdateServiceSync
  * @throws {@link ValidationException} (client fault)
  *  <p>The input is invalid or an out-of-range value was supplied for the input parameter.</p>
  *
+ * @throws {@link ProtonServiceException}
+ * <p>Base exception class for all service exceptions from Proton service.</p>
  *
  */
 export class UpdateServiceSyncBlockerCommand extends $Command<

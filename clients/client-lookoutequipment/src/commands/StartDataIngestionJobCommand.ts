@@ -37,23 +37,29 @@ export interface StartDataIngestionJobCommandOutput extends StartDataIngestionJo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LookoutEquipmentClient, StartDataIngestionJobCommand } from "@aws-sdk/client-lookoutequipment"; // ES Modules import
- * // const { LookoutEquipmentClient, StartDataIngestionJobCommand } = require("@aws-sdk/client-lookoutequipment"); // CommonJS import
+ * import { LookoutEquipmentClient, StartDataIngestionJobCommand } from '@aws-sdk/client-lookoutequipment'; // ES Modules import
+ * // const { LookoutEquipmentClient, StartDataIngestionJobCommand } = require('@aws-sdk/client-lookoutequipment'); // CommonJS import
  * const client = new LookoutEquipmentClient(config);
  * const input = { // StartDataIngestionJobRequest
- *   DatasetName: "STRING_VALUE", // required
+ *   DatasetName: 'STRING_VALUE', // required
  *   IngestionInputConfiguration: { // IngestionInputConfiguration
  *     S3InputConfiguration: { // IngestionS3InputConfiguration
- *       Bucket: "STRING_VALUE", // required
- *       Prefix: "STRING_VALUE",
- *       KeyPattern: "STRING_VALUE",
+ *       Bucket: 'STRING_VALUE', // required
+ *       Prefix: 'STRING_VALUE',
+ *       KeyPattern: 'STRING_VALUE',
  *     },
  *   },
- *   RoleArn: "STRING_VALUE", // required
- *   ClientToken: "STRING_VALUE", // required
+ *   RoleArn: 'STRING_VALUE', // required
+ *   ClientToken: 'STRING_VALUE', // required
  * };
  * const command = new StartDataIngestionJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartDataIngestionJobResponse
+ *   JobId: 'STRING_VALUE',
+ *   Status: 'IN_PROGRESS' || 'SUCCESS' || 'FAILED',
+ * };
+ *
  * ```
  *
  * @param StartDataIngestionJobCommandInput - {@link StartDataIngestionJobCommandInput}
@@ -88,6 +94,8 @@ export interface StartDataIngestionJobCommandOutput extends StartDataIngestionJo
  *  <p> The input fails to satisfy constraints specified by Amazon Lookout for Equipment or a
  *          related AWS service that's being utilized. </p>
  *
+ * @throws {@link LookoutEquipmentServiceException}
+ * <p>Base exception class for all service exceptions from LookoutEquipment service.</p>
  *
  */
 export class StartDataIngestionJobCommand extends $Command<

@@ -36,15 +36,49 @@ export interface ListParallelDataCommandOutput extends ListParallelDataResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { TranslateClient, ListParallelDataCommand } from "@aws-sdk/client-translate"; // ES Modules import
- * // const { TranslateClient, ListParallelDataCommand } = require("@aws-sdk/client-translate"); // CommonJS import
+ * import { TranslateClient, ListParallelDataCommand } from '@aws-sdk/client-translate'; // ES Modules import
+ * // const { TranslateClient, ListParallelDataCommand } = require('@aws-sdk/client-translate'); // CommonJS import
  * const client = new TranslateClient(config);
  * const input = { // ListParallelDataRequest
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListParallelDataCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListParallelDataResponse
+ *   ParallelDataPropertiesList: [ // ParallelDataPropertiesList
+ *     { // ParallelDataProperties
+ *       Name: 'STRING_VALUE',
+ *       Arn: 'STRING_VALUE',
+ *       Description: 'STRING_VALUE',
+ *       Status: 'CREATING' || 'UPDATING' || 'ACTIVE' || 'DELETING' || 'FAILED',
+ *       SourceLanguageCode: 'STRING_VALUE',
+ *       TargetLanguageCodes: [ // LanguageCodeStringList
+ *         'STRING_VALUE',
+ *       ],
+ *       ParallelDataConfig: { // ParallelDataConfig
+ *         S3Uri: 'STRING_VALUE', // required
+ *         Format: 'TSV' || 'CSV' || 'TMX', // required
+ *       },
+ *       Message: 'STRING_VALUE',
+ *       ImportedDataSize: Number('long'),
+ *       ImportedRecordCount: Number('long'),
+ *       FailedRecordCount: Number('long'),
+ *       SkippedRecordCount: Number('long'),
+ *       EncryptionKey: { // EncryptionKey
+ *         Type: 'KMS', // required
+ *         Id: 'STRING_VALUE', // required
+ *       },
+ *       CreatedAt: new Date('TIMESTAMP'),
+ *       LastUpdatedAt: new Date('TIMESTAMP'),
+ *       LatestUpdateAttemptStatus: 'CREATING' || 'UPDATING' || 'ACTIVE' || 'DELETING' || 'FAILED',
+ *       LatestUpdateAttemptAt: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListParallelDataCommandInput - {@link ListParallelDataCommandInput}
@@ -64,6 +98,8 @@ export interface ListParallelDataCommandOutput extends ListParallelDataResponse,
  *  <p> You have made too many requests within a short period of time. Wait for a short time and
  *       then try your request again.</p>
  *
+ * @throws {@link TranslateServiceException}
+ * <p>Base exception class for all service exceptions from Translate service.</p>
  *
  */
 export class ListParallelDataCommand extends $Command<

@@ -41,51 +41,54 @@ export interface UpdateAppCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OpsWorksClient, UpdateAppCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
- * // const { OpsWorksClient, UpdateAppCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
+ * import { OpsWorksClient, UpdateAppCommand } from '@aws-sdk/client-opsworks'; // ES Modules import
+ * // const { OpsWorksClient, UpdateAppCommand } = require('@aws-sdk/client-opsworks'); // CommonJS import
  * const client = new OpsWorksClient(config);
  * const input = { // UpdateAppRequest
- *   AppId: "STRING_VALUE", // required
- *   Name: "STRING_VALUE",
- *   Description: "STRING_VALUE",
+ *   AppId: 'STRING_VALUE', // required
+ *   Name: 'STRING_VALUE',
+ *   Description: 'STRING_VALUE',
  *   DataSources: [ // DataSources
  *     { // DataSource
- *       Type: "STRING_VALUE",
- *       Arn: "STRING_VALUE",
- *       DatabaseName: "STRING_VALUE",
+ *       Type: 'STRING_VALUE',
+ *       Arn: 'STRING_VALUE',
+ *       DatabaseName: 'STRING_VALUE',
  *     },
  *   ],
- *   Type: "STRING_VALUE",
+ *   Type: 'STRING_VALUE',
  *   AppSource: { // Source
- *     Type: "STRING_VALUE",
- *     Url: "STRING_VALUE",
- *     Username: "STRING_VALUE",
- *     Password: "STRING_VALUE",
- *     SshKey: "STRING_VALUE",
- *     Revision: "STRING_VALUE",
+ *     Type: 'STRING_VALUE',
+ *     Url: 'STRING_VALUE',
+ *     Username: 'STRING_VALUE',
+ *     Password: 'STRING_VALUE',
+ *     SshKey: 'STRING_VALUE',
+ *     Revision: 'STRING_VALUE',
  *   },
  *   Domains: [ // Strings
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   EnableSsl: true || false,
  *   SslConfiguration: { // SslConfiguration
- *     Certificate: "STRING_VALUE", // required
- *     PrivateKey: "STRING_VALUE", // required
- *     Chain: "STRING_VALUE",
+ *     Certificate: 'STRING_VALUE', // required
+ *     PrivateKey: 'STRING_VALUE', // required
+ *     Chain: 'STRING_VALUE',
  *   },
  *   Attributes: { // AppAttributes
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  *   Environment: [ // EnvironmentVariables
  *     { // EnvironmentVariable
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *       Secure: true || false,
  *     },
  *   ],
  * };
  * const command = new UpdateAppCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateAppCommandInput - {@link UpdateAppCommandInput}
@@ -100,6 +103,8 @@ export interface UpdateAppCommandOutput extends __MetadataBearer {}
  * @throws {@link ValidationException} (client fault)
  *  <p>Indicates that a request was not valid.</p>
  *
+ * @throws {@link OpsWorksServiceException}
+ * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
  */
 export class UpdateAppCommand extends $Command<

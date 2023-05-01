@@ -36,14 +36,39 @@ export interface GetMissionProfileCommandOutput extends GetMissionProfileRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GroundStationClient, GetMissionProfileCommand } from "@aws-sdk/client-groundstation"; // ES Modules import
- * // const { GroundStationClient, GetMissionProfileCommand } = require("@aws-sdk/client-groundstation"); // CommonJS import
+ * import { GroundStationClient, GetMissionProfileCommand } from '@aws-sdk/client-groundstation'; // ES Modules import
+ * // const { GroundStationClient, GetMissionProfileCommand } = require('@aws-sdk/client-groundstation'); // CommonJS import
  * const client = new GroundStationClient(config);
  * const input = { // GetMissionProfileRequest
- *   missionProfileId: "STRING_VALUE", // required
+ *   missionProfileId: 'STRING_VALUE', // required
  * };
  * const command = new GetMissionProfileCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetMissionProfileResponse
+ *   missionProfileId: 'STRING_VALUE',
+ *   missionProfileArn: 'STRING_VALUE',
+ *   name: 'STRING_VALUE',
+ *   region: 'STRING_VALUE',
+ *   contactPrePassDurationSeconds: Number('int'),
+ *   contactPostPassDurationSeconds: Number('int'),
+ *   minimumViableContactDurationSeconds: Number('int'),
+ *   dataflowEdges: [ // DataflowEdgeList
+ *     [ // DataflowEdge
+ *       'STRING_VALUE',
+ *     ],
+ *   ],
+ *   trackingConfigArn: 'STRING_VALUE',
+ *   tags: { // TagsMap
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ *   streamsKmsKey: { // KmsKey Union: only one key present
+ *     kmsKeyArn: 'STRING_VALUE',
+ *     kmsAliasArn: 'STRING_VALUE',
+ *   },
+ *   streamsKmsRole: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetMissionProfileCommandInput - {@link GetMissionProfileCommandInput}
@@ -61,6 +86,8 @@ export interface GetMissionProfileCommandOutput extends GetMissionProfileRespons
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Resource was not found.</p>
  *
+ * @throws {@link GroundStationServiceException}
+ * <p>Base exception class for all service exceptions from GroundStation service.</p>
  *
  */
 export class GetMissionProfileCommand extends $Command<

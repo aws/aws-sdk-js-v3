@@ -37,22 +37,29 @@ export interface CreateTrackerCommandOutput extends CreateTrackerResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LocationClient, CreateTrackerCommand } from "@aws-sdk/client-location"; // ES Modules import
- * // const { LocationClient, CreateTrackerCommand } = require("@aws-sdk/client-location"); // CommonJS import
+ * import { LocationClient, CreateTrackerCommand } from '@aws-sdk/client-location'; // ES Modules import
+ * // const { LocationClient, CreateTrackerCommand } = require('@aws-sdk/client-location'); // CommonJS import
  * const client = new LocationClient(config);
  * const input = { // CreateTrackerRequest
- *   TrackerName: "STRING_VALUE", // required
- *   PricingPlan: "STRING_VALUE",
- *   KmsKeyId: "STRING_VALUE",
- *   PricingPlanDataSource: "STRING_VALUE",
- *   Description: "STRING_VALUE",
+ *   TrackerName: 'STRING_VALUE', // required
+ *   PricingPlan: 'STRING_VALUE',
+ *   KmsKeyId: 'STRING_VALUE',
+ *   PricingPlanDataSource: 'STRING_VALUE',
+ *   Description: 'STRING_VALUE',
  *   Tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
- *   PositionFiltering: "STRING_VALUE",
+ *   PositionFiltering: 'STRING_VALUE',
  * };
  * const command = new CreateTrackerCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateTrackerResponse
+ *   TrackerName: 'STRING_VALUE', // required
+ *   TrackerArn: 'STRING_VALUE', // required
+ *   CreateTime: new Date('TIMESTAMP'), // required
+ * };
+ *
  * ```
  *
  * @param CreateTrackerCommandInput - {@link CreateTrackerCommandInput}
@@ -77,6 +84,8 @@ export interface CreateTrackerCommandOutput extends CreateTrackerResponse, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>The input failed to meet the constraints specified by the AWS service. </p>
  *
+ * @throws {@link LocationServiceException}
+ * <p>Base exception class for all service exceptions from Location service.</p>
  *
  */
 export class CreateTrackerCommand extends $Command<

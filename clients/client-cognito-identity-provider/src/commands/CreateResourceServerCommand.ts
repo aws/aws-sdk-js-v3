@@ -41,22 +41,37 @@ export interface CreateResourceServerCommandOutput extends CreateResourceServerR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CognitoIdentityProviderClient, CreateResourceServerCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
- * // const { CognitoIdentityProviderClient, CreateResourceServerCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
+ * import { CognitoIdentityProviderClient, CreateResourceServerCommand } from '@aws-sdk/client-cognito-identity-provider'; // ES Modules import
+ * // const { CognitoIdentityProviderClient, CreateResourceServerCommand } = require('@aws-sdk/client-cognito-identity-provider'); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
  * const input = { // CreateResourceServerRequest
- *   UserPoolId: "STRING_VALUE", // required
- *   Identifier: "STRING_VALUE", // required
- *   Name: "STRING_VALUE", // required
+ *   UserPoolId: 'STRING_VALUE', // required
+ *   Identifier: 'STRING_VALUE', // required
+ *   Name: 'STRING_VALUE', // required
  *   Scopes: [ // ResourceServerScopeListType
  *     { // ResourceServerScopeType
- *       ScopeName: "STRING_VALUE", // required
- *       ScopeDescription: "STRING_VALUE", // required
+ *       ScopeName: 'STRING_VALUE', // required
+ *       ScopeDescription: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreateResourceServerCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateResourceServerResponse
+ *   ResourceServer: { // ResourceServerType
+ *     UserPoolId: 'STRING_VALUE',
+ *     Identifier: 'STRING_VALUE',
+ *     Name: 'STRING_VALUE',
+ *     Scopes: [ // ResourceServerScopeListType
+ *       { // ResourceServerScopeType
+ *         ScopeName: 'STRING_VALUE', // required
+ *         ScopeDescription: 'STRING_VALUE', // required
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateResourceServerCommandInput - {@link CreateResourceServerCommandInput}
@@ -87,6 +102,8 @@ export interface CreateResourceServerCommandOutput extends CreateResourceServerR
  *  <p>This exception is thrown when the user has made too many requests for a given
  *             operation.</p>
  *
+ * @throws {@link CognitoIdentityProviderServiceException}
+ * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
  */
 export class CreateResourceServerCommand extends $Command<

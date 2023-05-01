@@ -36,17 +36,20 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DocDBElasticClient, TagResourceCommand } from "@aws-sdk/client-docdb-elastic"; // ES Modules import
- * // const { DocDBElasticClient, TagResourceCommand } = require("@aws-sdk/client-docdb-elastic"); // CommonJS import
+ * import { DocDBElasticClient, TagResourceCommand } from '@aws-sdk/client-docdb-elastic'; // ES Modules import
+ * // const { DocDBElasticClient, TagResourceCommand } = require('@aws-sdk/client-docdb-elastic'); // CommonJS import
  * const client = new DocDBElasticClient(config);
  * const input = { // TagResourceRequest
- *   resourceArn: "STRING_VALUE", // required
+ *   resourceArn: 'STRING_VALUE', // required
  *   tags: { // TagMap // required
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param TagResourceCommandInput - {@link TagResourceCommandInput}
@@ -67,6 +70,8 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @throws {@link ValidationException} (client fault)
  *  <p>A structure defining a validation exception.</p>
  *
+ * @throws {@link DocDBElasticServiceException}
+ * <p>Base exception class for all service exceptions from DocDBElastic service.</p>
  *
  */
 export class TagResourceCommand extends $Command<

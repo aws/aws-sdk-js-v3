@@ -40,22 +40,38 @@ export interface ListInstancesCommandOutput extends ListInstancesResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LicenseManagerUserSubscriptionsClient, ListInstancesCommand } from "@aws-sdk/client-license-manager-user-subscriptions"; // ES Modules import
- * // const { LicenseManagerUserSubscriptionsClient, ListInstancesCommand } = require("@aws-sdk/client-license-manager-user-subscriptions"); // CommonJS import
+ * import { LicenseManagerUserSubscriptionsClient, ListInstancesCommand } from '@aws-sdk/client-license-manager-user-subscriptions'; // ES Modules import
+ * // const { LicenseManagerUserSubscriptionsClient, ListInstancesCommand } = require('@aws-sdk/client-license-manager-user-subscriptions'); // CommonJS import
  * const client = new LicenseManagerUserSubscriptionsClient(config);
  * const input = { // ListInstancesRequest
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  *   Filters: [ // FilterList
  *     { // Filter
- *       Attribute: "STRING_VALUE",
- *       Operation: "STRING_VALUE",
- *       Value: "STRING_VALUE",
+ *       Attribute: 'STRING_VALUE',
+ *       Operation: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new ListInstancesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListInstancesResponse
+ *   InstanceSummaries: [ // InstanceSummaryList
+ *     { // InstanceSummary
+ *       InstanceId: 'STRING_VALUE', // required
+ *       Status: 'STRING_VALUE', // required
+ *       Products: [ // StringList // required
+ *         'STRING_VALUE',
+ *       ],
+ *       LastStatusCheckDate: 'STRING_VALUE',
+ *       StatusMessage: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListInstancesCommandInput - {@link ListInstancesCommandInput}
@@ -86,6 +102,8 @@ export interface ListInstancesCommandOutput extends ListInstancesResponse, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>A parameter is not valid.</p>
  *
+ * @throws {@link LicenseManagerUserSubscriptionsServiceException}
+ * <p>Base exception class for all service exceptions from LicenseManagerUserSubscriptions service.</p>
  *
  */
 export class ListInstancesCommand extends $Command<

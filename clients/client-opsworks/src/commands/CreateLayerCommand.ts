@@ -49,51 +49,51 @@ export interface CreateLayerCommandOutput extends CreateLayerResult, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OpsWorksClient, CreateLayerCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
- * // const { OpsWorksClient, CreateLayerCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
+ * import { OpsWorksClient, CreateLayerCommand } from '@aws-sdk/client-opsworks'; // ES Modules import
+ * // const { OpsWorksClient, CreateLayerCommand } = require('@aws-sdk/client-opsworks'); // CommonJS import
  * const client = new OpsWorksClient(config);
  * const input = { // CreateLayerRequest
- *   StackId: "STRING_VALUE", // required
- *   Type: "STRING_VALUE", // required
- *   Name: "STRING_VALUE", // required
- *   Shortname: "STRING_VALUE", // required
+ *   StackId: 'STRING_VALUE', // required
+ *   Type: 'STRING_VALUE', // required
+ *   Name: 'STRING_VALUE', // required
+ *   Shortname: 'STRING_VALUE', // required
  *   Attributes: { // LayerAttributes
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  *   CloudWatchLogsConfiguration: { // CloudWatchLogsConfiguration
  *     Enabled: true || false,
  *     LogStreams: [ // CloudWatchLogsLogStreams
  *       { // CloudWatchLogsLogStream
- *         LogGroupName: "STRING_VALUE",
- *         DatetimeFormat: "STRING_VALUE",
- *         TimeZone: "STRING_VALUE",
- *         File: "STRING_VALUE",
- *         FileFingerprintLines: "STRING_VALUE",
- *         MultiLineStartPattern: "STRING_VALUE",
- *         InitialPosition: "STRING_VALUE",
- *         Encoding: "STRING_VALUE",
- *         BufferDuration: Number("int"),
- *         BatchCount: Number("int"),
- *         BatchSize: Number("int"),
+ *         LogGroupName: 'STRING_VALUE',
+ *         DatetimeFormat: 'STRING_VALUE',
+ *         TimeZone: 'STRING_VALUE',
+ *         File: 'STRING_VALUE',
+ *         FileFingerprintLines: 'STRING_VALUE',
+ *         MultiLineStartPattern: 'STRING_VALUE',
+ *         InitialPosition: 'STRING_VALUE',
+ *         Encoding: 'STRING_VALUE',
+ *         BufferDuration: Number('int'),
+ *         BatchCount: Number('int'),
+ *         BatchSize: Number('int'),
  *       },
  *     ],
  *   },
- *   CustomInstanceProfileArn: "STRING_VALUE",
- *   CustomJson: "STRING_VALUE",
+ *   CustomInstanceProfileArn: 'STRING_VALUE',
+ *   CustomJson: 'STRING_VALUE',
  *   CustomSecurityGroupIds: [ // Strings
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   Packages: [
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   VolumeConfigurations: [ // VolumeConfigurations
  *     { // VolumeConfiguration
- *       MountPoint: "STRING_VALUE", // required
- *       RaidLevel: Number("int"),
- *       NumberOfDisks: Number("int"), // required
- *       Size: Number("int"), // required
- *       VolumeType: "STRING_VALUE",
- *       Iops: Number("int"),
+ *       MountPoint: 'STRING_VALUE', // required
+ *       RaidLevel: Number('int'),
+ *       NumberOfDisks: Number('int'), // required
+ *       Size: Number('int'), // required
+ *       VolumeType: 'STRING_VALUE',
+ *       Iops: Number('int'),
  *       Encrypted: true || false,
  *     },
  *   ],
@@ -102,28 +102,33 @@ export interface CreateLayerCommandOutput extends CreateLayerResult, __MetadataB
  *   AutoAssignPublicIps: true || false,
  *   CustomRecipes: { // Recipes
  *     Setup: [
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     Configure: [
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     Deploy: [
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
- *     Undeploy: "<Strings>",
- *     Shutdown: "<Strings>",
+ *     Undeploy: '<Strings>',
+ *     Shutdown: '<Strings>',
  *   },
  *   InstallUpdatesOnBoot: true || false,
  *   UseEbsOptimizedInstances: true || false,
  *   LifecycleEventConfiguration: { // LifecycleEventConfiguration
  *     Shutdown: { // ShutdownEventConfiguration
- *       ExecutionTimeout: Number("int"),
+ *       ExecutionTimeout: Number('int'),
  *       DelayUntilElbConnectionsDrained: true || false,
  *     },
  *   },
  * };
  * const command = new CreateLayerCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateLayerResult
+ *   LayerId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateLayerCommandInput - {@link CreateLayerCommandInput}
@@ -138,6 +143,8 @@ export interface CreateLayerCommandOutput extends CreateLayerResult, __MetadataB
  * @throws {@link ValidationException} (client fault)
  *  <p>Indicates that a request was not valid.</p>
  *
+ * @throws {@link OpsWorksServiceException}
+ * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
  */
 export class CreateLayerCommand extends $Command<

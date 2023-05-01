@@ -36,17 +36,22 @@ export interface UpdateEphemerisCommandOutput extends EphemerisIdResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GroundStationClient, UpdateEphemerisCommand } from "@aws-sdk/client-groundstation"; // ES Modules import
- * // const { GroundStationClient, UpdateEphemerisCommand } = require("@aws-sdk/client-groundstation"); // CommonJS import
+ * import { GroundStationClient, UpdateEphemerisCommand } from '@aws-sdk/client-groundstation'; // ES Modules import
+ * // const { GroundStationClient, UpdateEphemerisCommand } = require('@aws-sdk/client-groundstation'); // CommonJS import
  * const client = new GroundStationClient(config);
  * const input = { // UpdateEphemerisRequest
- *   ephemerisId: "STRING_VALUE", // required
+ *   ephemerisId: 'STRING_VALUE', // required
  *   enabled: true || false, // required
- *   name: "STRING_VALUE",
- *   priority: Number("int"),
+ *   name: 'STRING_VALUE',
+ *   priority: Number('int'),
  * };
  * const command = new UpdateEphemerisCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // EphemerisIdResponse
+ *   ephemerisId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateEphemerisCommandInput - {@link UpdateEphemerisCommandInput}
@@ -64,6 +69,8 @@ export interface UpdateEphemerisCommandOutput extends EphemerisIdResponse, __Met
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Resource was not found.</p>
  *
+ * @throws {@link GroundStationServiceException}
+ * <p>Base exception class for all service exceptions from GroundStation service.</p>
  *
  */
 export class UpdateEphemerisCommand extends $Command<

@@ -36,66 +36,111 @@ export interface ListCoverageCommandOutput extends ListCoverageResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Inspector2Client, ListCoverageCommand } from "@aws-sdk/client-inspector2"; // ES Modules import
- * // const { Inspector2Client, ListCoverageCommand } = require("@aws-sdk/client-inspector2"); // CommonJS import
+ * import { Inspector2Client, ListCoverageCommand } from '@aws-sdk/client-inspector2'; // ES Modules import
+ * // const { Inspector2Client, ListCoverageCommand } = require('@aws-sdk/client-inspector2'); // CommonJS import
  * const client = new Inspector2Client(config);
  * const input = { // ListCoverageRequest
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  *   filterCriteria: { // CoverageFilterCriteria
  *     scanStatusCode: [ // CoverageStringFilterList
  *       { // CoverageStringFilter
- *         comparison: "STRING_VALUE", // required
- *         value: "STRING_VALUE", // required
+ *         comparison: 'STRING_VALUE', // required
+ *         value: 'STRING_VALUE', // required
  *       },
  *     ],
  *     scanStatusReason: [
  *       {
- *         comparison: "STRING_VALUE", // required
- *         value: "STRING_VALUE", // required
+ *         comparison: 'STRING_VALUE', // required
+ *         value: 'STRING_VALUE', // required
  *       },
  *     ],
  *     accountId: [
  *       {
- *         comparison: "STRING_VALUE", // required
- *         value: "STRING_VALUE", // required
+ *         comparison: 'STRING_VALUE', // required
+ *         value: 'STRING_VALUE', // required
  *       },
  *     ],
  *     resourceId: [
  *       {
- *         comparison: "STRING_VALUE", // required
- *         value: "STRING_VALUE", // required
+ *         comparison: 'STRING_VALUE', // required
+ *         value: 'STRING_VALUE', // required
  *       },
  *     ],
  *     resourceType: [
  *       {
- *         comparison: "STRING_VALUE", // required
- *         value: "STRING_VALUE", // required
+ *         comparison: 'STRING_VALUE', // required
+ *         value: 'STRING_VALUE', // required
  *       },
  *     ],
- *     scanType: "<CoverageStringFilterList>",
- *     ecrRepositoryName: "<CoverageStringFilterList>",
- *     ecrImageTags: "<CoverageStringFilterList>",
+ *     scanType: '<CoverageStringFilterList>',
+ *     ecrRepositoryName: '<CoverageStringFilterList>',
+ *     ecrImageTags: '<CoverageStringFilterList>',
  *     ec2InstanceTags: [ // CoverageMapFilterList
  *       { // CoverageMapFilter
- *         comparison: "STRING_VALUE", // required
- *         key: "STRING_VALUE", // required
- *         value: "STRING_VALUE",
+ *         comparison: 'STRING_VALUE', // required
+ *         key: 'STRING_VALUE', // required
+ *         value: 'STRING_VALUE',
  *       },
  *     ],
- *     lambdaFunctionName: "<CoverageStringFilterList>",
+ *     lambdaFunctionName: '<CoverageStringFilterList>',
  *     lambdaFunctionTags: [
  *       {
- *         comparison: "STRING_VALUE", // required
- *         key: "STRING_VALUE", // required
- *         value: "STRING_VALUE",
+ *         comparison: 'STRING_VALUE', // required
+ *         key: 'STRING_VALUE', // required
+ *         value: 'STRING_VALUE',
  *       },
  *     ],
- *     lambdaFunctionRuntime: "<CoverageStringFilterList>",
+ *     lambdaFunctionRuntime: '<CoverageStringFilterList>',
  *   },
  * };
  * const command = new ListCoverageCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListCoverageResponse
+ *   nextToken: 'STRING_VALUE',
+ *   coveredResources: [ // CoveredResources
+ *     { // CoveredResource
+ *       resourceType: 'STRING_VALUE', // required
+ *       resourceId: 'STRING_VALUE', // required
+ *       accountId: 'STRING_VALUE', // required
+ *       scanType: 'STRING_VALUE', // required
+ *       scanStatus: { // ScanStatus
+ *         statusCode: 'STRING_VALUE', // required
+ *         reason: 'STRING_VALUE', // required
+ *       },
+ *       resourceMetadata: { // ResourceScanMetadata
+ *         ecrRepository: { // EcrRepositoryMetadata
+ *           name: 'STRING_VALUE',
+ *           scanFrequency: 'STRING_VALUE',
+ *         },
+ *         ecrImage: { // EcrContainerImageMetadata
+ *           tags: [ // TagList
+ *             'STRING_VALUE',
+ *           ],
+ *         },
+ *         ec2: { // Ec2Metadata
+ *           tags: { // TagMap
+ *             '<keys>': 'STRING_VALUE',
+ *           },
+ *           amiId: 'STRING_VALUE',
+ *           platform: 'STRING_VALUE',
+ *         },
+ *         lambdaFunction: { // LambdaFunctionMetadata
+ *           functionTags: {
+ *             '<keys>': 'STRING_VALUE',
+ *           },
+ *           layers: [ // LambdaLayerList
+ *             'STRING_VALUE',
+ *           ],
+ *           functionName: 'STRING_VALUE',
+ *           runtime: 'STRING_VALUE',
+ *         },
+ *       },
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListCoverageCommandInput - {@link ListCoverageCommandInput}
@@ -114,6 +159,8 @@ export interface ListCoverageCommandOutput extends ListCoverageResponse, __Metad
  *  <p>The request has failed validation due to missing required fields or having invalid
  *          inputs.</p>
  *
+ * @throws {@link Inspector2ServiceException}
+ * <p>Base exception class for all service exceptions from Inspector2 service.</p>
  *
  */
 export class ListCoverageCommand extends $Command<

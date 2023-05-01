@@ -39,20 +39,23 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { TimestreamWriteClient, TagResourceCommand } from "@aws-sdk/client-timestream-write"; // ES Modules import
- * // const { TimestreamWriteClient, TagResourceCommand } = require("@aws-sdk/client-timestream-write"); // CommonJS import
+ * import { TimestreamWriteClient, TagResourceCommand } from '@aws-sdk/client-timestream-write'; // ES Modules import
+ * // const { TimestreamWriteClient, TagResourceCommand } = require('@aws-sdk/client-timestream-write'); // CommonJS import
  * const client = new TimestreamWriteClient(config);
  * const input = { // TagResourceRequest
- *   ResourceARN: "STRING_VALUE", // required
+ *   ResourceARN: 'STRING_VALUE', // required
  *   Tags: [ // TagList // required
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param TagResourceCommandInput - {@link TagResourceCommandInput}
@@ -78,6 +81,8 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @throws {@link ValidationException} (client fault)
  *  <p> An invalid or malformed request.</p>
  *
+ * @throws {@link TimestreamWriteServiceException}
+ * <p>Base exception class for all service exceptions from TimestreamWrite service.</p>
  *
  */
 export class TagResourceCommand extends $Command<

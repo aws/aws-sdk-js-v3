@@ -91,15 +91,23 @@ export interface ScheduleKeyDeletionCommandOutput extends ScheduleKeyDeletionRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KMSClient, ScheduleKeyDeletionCommand } from "@aws-sdk/client-kms"; // ES Modules import
- * // const { KMSClient, ScheduleKeyDeletionCommand } = require("@aws-sdk/client-kms"); // CommonJS import
+ * import { KMSClient, ScheduleKeyDeletionCommand } from '@aws-sdk/client-kms'; // ES Modules import
+ * // const { KMSClient, ScheduleKeyDeletionCommand } = require('@aws-sdk/client-kms'); // CommonJS import
  * const client = new KMSClient(config);
  * const input = { // ScheduleKeyDeletionRequest
- *   KeyId: "STRING_VALUE", // required
- *   PendingWindowInDays: Number("int"),
+ *   KeyId: 'STRING_VALUE', // required
+ *   PendingWindowInDays: Number('int'),
  * };
  * const command = new ScheduleKeyDeletionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ScheduleKeyDeletionResponse
+ *   KeyId: 'STRING_VALUE',
+ *   DeletionDate: new Date('TIMESTAMP'),
+ *   KeyState: 'Creating' || 'Enabled' || 'Disabled' || 'PendingDeletion' || 'PendingImport' || 'PendingReplicaDeletion' || 'Unavailable' || 'Updating',
+ *   PendingWindowInDays: Number('int'),
+ * };
+ *
  * ```
  *
  * @param ScheduleKeyDeletionCommandInput - {@link ScheduleKeyDeletionCommandInput}
@@ -142,6 +150,8 @@ export interface ScheduleKeyDeletionCommandOutput extends ScheduleKeyDeletionRes
  *  <p>The request was rejected because the specified entity or resource could not be
  *       found.</p>
  *
+ * @throws {@link KMSServiceException}
+ * <p>Base exception class for all service exceptions from KMS service.</p>
  *
  * @example To schedule a KMS key for deletion
  * ```javascript

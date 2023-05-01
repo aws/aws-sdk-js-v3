@@ -44,12 +44,17 @@ export interface GetHomeRegionCommandOutput extends GetHomeRegionResult, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MigrationHubConfigClient, GetHomeRegionCommand } from "@aws-sdk/client-migrationhub-config"; // ES Modules import
- * // const { MigrationHubConfigClient, GetHomeRegionCommand } = require("@aws-sdk/client-migrationhub-config"); // CommonJS import
+ * import { MigrationHubConfigClient, GetHomeRegionCommand } from '@aws-sdk/client-migrationhub-config'; // ES Modules import
+ * // const { MigrationHubConfigClient, GetHomeRegionCommand } = require('@aws-sdk/client-migrationhub-config'); // CommonJS import
  * const client = new MigrationHubConfigClient(config);
  * const input = {};
  * const command = new GetHomeRegionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetHomeRegionResult
+ *   HomeRegion: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetHomeRegionCommandInput - {@link GetHomeRegionCommandInput}
@@ -76,6 +81,8 @@ export interface GetHomeRegionCommandOutput extends GetHomeRegionResult, __Metad
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
  *
+ * @throws {@link MigrationHubConfigServiceException}
+ * <p>Base exception class for all service exceptions from MigrationHubConfig service.</p>
  *
  */
 export class GetHomeRegionCommand extends $Command<

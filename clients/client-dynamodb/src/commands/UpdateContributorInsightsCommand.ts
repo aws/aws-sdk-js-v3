@@ -42,16 +42,23 @@ export interface UpdateContributorInsightsCommandOutput extends UpdateContributo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DynamoDBClient, UpdateContributorInsightsCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
- * // const { DynamoDBClient, UpdateContributorInsightsCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
+ * import { DynamoDBClient, UpdateContributorInsightsCommand } from '@aws-sdk/client-dynamodb'; // ES Modules import
+ * // const { DynamoDBClient, UpdateContributorInsightsCommand } = require('@aws-sdk/client-dynamodb'); // CommonJS import
  * const client = new DynamoDBClient(config);
  * const input = { // UpdateContributorInsightsInput
- *   TableName: "STRING_VALUE", // required
- *   IndexName: "STRING_VALUE",
- *   ContributorInsightsAction: "ENABLE" || "DISABLE", // required
+ *   TableName: 'STRING_VALUE', // required
+ *   IndexName: 'STRING_VALUE',
+ *   ContributorInsightsAction: 'ENABLE' || 'DISABLE', // required
  * };
  * const command = new UpdateContributorInsightsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateContributorInsightsOutput
+ *   TableName: 'STRING_VALUE',
+ *   IndexName: 'STRING_VALUE',
+ *   ContributorInsightsStatus: 'ENABLING' || 'ENABLED' || 'DISABLING' || 'DISABLED' || 'FAILED',
+ * };
+ *
  * ```
  *
  * @param UpdateContributorInsightsCommandInput - {@link UpdateContributorInsightsCommandInput}
@@ -67,6 +74,8 @@ export interface UpdateContributorInsightsCommandOutput extends UpdateContributo
  *  <p>The operation tried to access a nonexistent table or index. The resource might not
  *             be specified correctly, or its status might not be <code>ACTIVE</code>.</p>
  *
+ * @throws {@link DynamoDBServiceException}
+ * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
  */
 export class UpdateContributorInsightsCommand extends $Command<

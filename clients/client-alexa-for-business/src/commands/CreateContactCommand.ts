@@ -40,36 +40,41 @@ export interface CreateContactCommandOutput extends CreateContactResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AlexaForBusinessClient, CreateContactCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
- * // const { AlexaForBusinessClient, CreateContactCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
+ * import { AlexaForBusinessClient, CreateContactCommand } from '@aws-sdk/client-alexa-for-business'; // ES Modules import
+ * // const { AlexaForBusinessClient, CreateContactCommand } = require('@aws-sdk/client-alexa-for-business'); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
  * const input = { // CreateContactRequest
- *   DisplayName: "STRING_VALUE",
- *   FirstName: "STRING_VALUE", // required
- *   LastName: "STRING_VALUE",
- *   PhoneNumber: "STRING_VALUE",
+ *   DisplayName: 'STRING_VALUE',
+ *   FirstName: 'STRING_VALUE', // required
+ *   LastName: 'STRING_VALUE',
+ *   PhoneNumber: 'STRING_VALUE',
  *   PhoneNumbers: [ // PhoneNumberList
  *     { // PhoneNumber
- *       Number: "STRING_VALUE", // required
- *       Type: "STRING_VALUE", // required
+ *       Number: 'STRING_VALUE', // required
+ *       Type: 'STRING_VALUE', // required
  *     },
  *   ],
  *   SipAddresses: [ // SipAddressList
  *     { // SipAddress
- *       Uri: "STRING_VALUE", // required
- *       Type: "STRING_VALUE", // required
+ *       Uri: 'STRING_VALUE', // required
+ *       Type: 'STRING_VALUE', // required
  *     },
  *   ],
- *   ClientRequestToken: "STRING_VALUE",
+ *   ClientRequestToken: 'STRING_VALUE',
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreateContactCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateContactResponse
+ *   ContactArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateContactCommandInput - {@link CreateContactCommandInput}
@@ -84,6 +89,8 @@ export interface CreateContactCommandOutput extends CreateContactResponse, __Met
  * @throws {@link LimitExceededException} (client fault)
  *  <p>You are performing an action that would put you beyond your account's limits.</p>
  *
+ * @throws {@link AlexaForBusinessServiceException}
+ * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  */
 export class CreateContactCommand extends $Command<

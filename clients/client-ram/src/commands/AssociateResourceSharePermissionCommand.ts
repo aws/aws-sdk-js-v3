@@ -44,18 +44,24 @@ export interface AssociateResourceSharePermissionCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RAMClient, AssociateResourceSharePermissionCommand } from "@aws-sdk/client-ram"; // ES Modules import
- * // const { RAMClient, AssociateResourceSharePermissionCommand } = require("@aws-sdk/client-ram"); // CommonJS import
+ * import { RAMClient, AssociateResourceSharePermissionCommand } from '@aws-sdk/client-ram'; // ES Modules import
+ * // const { RAMClient, AssociateResourceSharePermissionCommand } = require('@aws-sdk/client-ram'); // CommonJS import
  * const client = new RAMClient(config);
  * const input = { // AssociateResourceSharePermissionRequest
- *   resourceShareArn: "STRING_VALUE", // required
- *   permissionArn: "STRING_VALUE", // required
+ *   resourceShareArn: 'STRING_VALUE', // required
+ *   permissionArn: 'STRING_VALUE', // required
  *   replace: true || false,
- *   clientToken: "STRING_VALUE",
- *   permissionVersion: Number("int"),
+ *   clientToken: 'STRING_VALUE',
+ *   permissionVersion: Number('int'),
  * };
  * const command = new AssociateResourceSharePermissionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AssociateResourceSharePermissionResponse
+ *   returnValue: true || false,
+ *   clientToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param AssociateResourceSharePermissionCommandInput - {@link AssociateResourceSharePermissionCommandInput}
@@ -87,6 +93,8 @@ export interface AssociateResourceSharePermissionCommandOutput
  * @throws {@link UnknownResourceException} (client fault)
  *  <p>The operation failed because a specified resource couldn't be found.</p>
  *
+ * @throws {@link RAMServiceException}
+ * <p>Base exception class for all service exceptions from RAM service.</p>
  *
  */
 export class AssociateResourceSharePermissionCommand extends $Command<

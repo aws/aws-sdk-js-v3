@@ -41,16 +41,22 @@ export interface PurchaseReservedInstanceOfferingCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OpenSearchClient, PurchaseReservedInstanceOfferingCommand } from "@aws-sdk/client-opensearch"; // ES Modules import
- * // const { OpenSearchClient, PurchaseReservedInstanceOfferingCommand } = require("@aws-sdk/client-opensearch"); // CommonJS import
+ * import { OpenSearchClient, PurchaseReservedInstanceOfferingCommand } from '@aws-sdk/client-opensearch'; // ES Modules import
+ * // const { OpenSearchClient, PurchaseReservedInstanceOfferingCommand } = require('@aws-sdk/client-opensearch'); // CommonJS import
  * const client = new OpenSearchClient(config);
  * const input = { // PurchaseReservedInstanceOfferingRequest
- *   ReservedInstanceOfferingId: "STRING_VALUE", // required
- *   ReservationName: "STRING_VALUE", // required
- *   InstanceCount: Number("int"),
+ *   ReservedInstanceOfferingId: 'STRING_VALUE', // required
+ *   ReservationName: 'STRING_VALUE', // required
+ *   InstanceCount: Number('int'),
  * };
  * const command = new PurchaseReservedInstanceOfferingCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PurchaseReservedInstanceOfferingResponse
+ *   ReservedInstanceId: 'STRING_VALUE',
+ *   ReservationName: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param PurchaseReservedInstanceOfferingCommandInput - {@link PurchaseReservedInstanceOfferingCommandInput}
@@ -77,6 +83,8 @@ export interface PurchaseReservedInstanceOfferingCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception for accessing or deleting a resource that doesn't exist.</p>
  *
+ * @throws {@link OpenSearchServiceException}
+ * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
  */
 export class PurchaseReservedInstanceOfferingCommand extends $Command<

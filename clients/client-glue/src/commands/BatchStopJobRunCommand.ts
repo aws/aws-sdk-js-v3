@@ -36,17 +36,37 @@ export interface BatchStopJobRunCommandOutput extends BatchStopJobRunResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlueClient, BatchStopJobRunCommand } from "@aws-sdk/client-glue"; // ES Modules import
- * // const { GlueClient, BatchStopJobRunCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * import { GlueClient, BatchStopJobRunCommand } from '@aws-sdk/client-glue'; // ES Modules import
+ * // const { GlueClient, BatchStopJobRunCommand } = require('@aws-sdk/client-glue'); // CommonJS import
  * const client = new GlueClient(config);
  * const input = { // BatchStopJobRunRequest
- *   JobName: "STRING_VALUE", // required
+ *   JobName: 'STRING_VALUE', // required
  *   JobRunIds: [ // BatchStopJobRunJobRunIdList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new BatchStopJobRunCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BatchStopJobRunResponse
+ *   SuccessfulSubmissions: [ // BatchStopJobRunSuccessfulSubmissionList
+ *     { // BatchStopJobRunSuccessfulSubmission
+ *       JobName: 'STRING_VALUE',
+ *       JobRunId: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   Errors: [ // BatchStopJobRunErrorList
+ *     { // BatchStopJobRunError
+ *       JobName: 'STRING_VALUE',
+ *       JobRunId: 'STRING_VALUE',
+ *       ErrorDetail: { // ErrorDetail
+ *         ErrorCode: 'STRING_VALUE',
+ *         ErrorMessage: 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param BatchStopJobRunCommandInput - {@link BatchStopJobRunCommandInput}
@@ -64,6 +84,8 @@ export interface BatchStopJobRunCommandOutput extends BatchStopJobRunResponse, _
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class BatchStopJobRunCommand extends $Command<

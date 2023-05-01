@@ -49,14 +49,28 @@ export interface CancelElasticsearchServiceSoftwareUpdateCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElasticsearchServiceClient, CancelElasticsearchServiceSoftwareUpdateCommand } from "@aws-sdk/client-elasticsearch-service"; // ES Modules import
- * // const { ElasticsearchServiceClient, CancelElasticsearchServiceSoftwareUpdateCommand } = require("@aws-sdk/client-elasticsearch-service"); // CommonJS import
+ * import { ElasticsearchServiceClient, CancelElasticsearchServiceSoftwareUpdateCommand } from '@aws-sdk/client-elasticsearch-service'; // ES Modules import
+ * // const { ElasticsearchServiceClient, CancelElasticsearchServiceSoftwareUpdateCommand } = require('@aws-sdk/client-elasticsearch-service'); // CommonJS import
  * const client = new ElasticsearchServiceClient(config);
  * const input = { // CancelElasticsearchServiceSoftwareUpdateRequest
- *   DomainName: "STRING_VALUE", // required
+ *   DomainName: 'STRING_VALUE', // required
  * };
  * const command = new CancelElasticsearchServiceSoftwareUpdateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CancelElasticsearchServiceSoftwareUpdateResponse
+ *   ServiceSoftwareOptions: { // ServiceSoftwareOptions
+ *     CurrentVersion: 'STRING_VALUE',
+ *     NewVersion: 'STRING_VALUE',
+ *     UpdateAvailable: true || false,
+ *     Cancellable: true || false,
+ *     UpdateStatus: 'PENDING_UPDATE' || 'IN_PROGRESS' || 'COMPLETED' || 'NOT_ELIGIBLE' || 'ELIGIBLE',
+ *     Description: 'STRING_VALUE',
+ *     AutomatedUpdateDate: new Date('TIMESTAMP'),
+ *     OptionalDeployment: true || false,
+ *   },
+ * };
+ *
  * ```
  *
  * @param CancelElasticsearchServiceSoftwareUpdateCommandInput - {@link CancelElasticsearchServiceSoftwareUpdateCommandInput}
@@ -77,6 +91,8 @@ export interface CancelElasticsearchServiceSoftwareUpdateCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception for missing / invalid input fields. Gives http status code of 400.</p>
  *
+ * @throws {@link ElasticsearchServiceServiceException}
+ * <p>Base exception class for all service exceptions from ElasticsearchService service.</p>
  *
  */
 export class CancelElasticsearchServiceSoftwareUpdateCommand extends $Command<

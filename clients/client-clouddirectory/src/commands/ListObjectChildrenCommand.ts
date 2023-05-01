@@ -37,20 +37,28 @@ export interface ListObjectChildrenCommandOutput extends ListObjectChildrenRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudDirectoryClient, ListObjectChildrenCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
- * // const { CloudDirectoryClient, ListObjectChildrenCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
+ * import { CloudDirectoryClient, ListObjectChildrenCommand } from '@aws-sdk/client-clouddirectory'; // ES Modules import
+ * // const { CloudDirectoryClient, ListObjectChildrenCommand } = require('@aws-sdk/client-clouddirectory'); // CommonJS import
  * const client = new CloudDirectoryClient(config);
  * const input = { // ListObjectChildrenRequest
- *   DirectoryArn: "STRING_VALUE", // required
+ *   DirectoryArn: 'STRING_VALUE', // required
  *   ObjectReference: { // ObjectReference
- *     Selector: "STRING_VALUE",
+ *     Selector: 'STRING_VALUE',
  *   },
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
- *   ConsistencyLevel: "SERIALIZABLE" || "EVENTUAL",
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
+ *   ConsistencyLevel: 'SERIALIZABLE' || 'EVENTUAL',
  * };
  * const command = new ListObjectChildrenCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListObjectChildrenResponse
+ *   Children: { // LinkNameToObjectIdentifierMap
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListObjectChildrenCommandInput - {@link ListObjectChildrenCommandInput}
@@ -91,6 +99,8 @@ export interface ListObjectChildrenCommandOutput extends ListObjectChildrenRespo
  *  <p>Indicates that your request is malformed in some manner. See the exception
  *       message.</p>
  *
+ * @throws {@link CloudDirectoryServiceException}
+ * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
  */
 export class ListObjectChildrenCommand extends $Command<

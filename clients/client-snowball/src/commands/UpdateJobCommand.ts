@@ -38,80 +38,83 @@ export interface UpdateJobCommandOutput extends UpdateJobResult, __MetadataBeare
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SnowballClient, UpdateJobCommand } from "@aws-sdk/client-snowball"; // ES Modules import
- * // const { SnowballClient, UpdateJobCommand } = require("@aws-sdk/client-snowball"); // CommonJS import
+ * import { SnowballClient, UpdateJobCommand } from '@aws-sdk/client-snowball'; // ES Modules import
+ * // const { SnowballClient, UpdateJobCommand } = require('@aws-sdk/client-snowball'); // CommonJS import
  * const client = new SnowballClient(config);
  * const input = { // UpdateJobRequest
- *   JobId: "STRING_VALUE", // required
- *   RoleARN: "STRING_VALUE",
+ *   JobId: 'STRING_VALUE', // required
+ *   RoleARN: 'STRING_VALUE',
  *   Notification: { // Notification
- *     SnsTopicARN: "STRING_VALUE",
+ *     SnsTopicARN: 'STRING_VALUE',
  *     JobStatesToNotify: [ // JobStateList
- *       "New" || "PreparingAppliance" || "PreparingShipment" || "InTransitToCustomer" || "WithCustomer" || "InTransitToAWS" || "WithAWSSortingFacility" || "WithAWS" || "InProgress" || "Complete" || "Cancelled" || "Listing" || "Pending",
+ *       'New' || 'PreparingAppliance' || 'PreparingShipment' || 'InTransitToCustomer' || 'WithCustomer' || 'InTransitToAWS' || 'WithAWSSortingFacility' || 'WithAWS' || 'InProgress' || 'Complete' || 'Cancelled' || 'Listing' || 'Pending',
  *     ],
  *     NotifyAll: true || false,
  *   },
  *   Resources: { // JobResource
  *     S3Resources: [ // S3ResourceList
  *       { // S3Resource
- *         BucketArn: "STRING_VALUE",
+ *         BucketArn: 'STRING_VALUE',
  *         KeyRange: { // KeyRange
- *           BeginMarker: "STRING_VALUE",
- *           EndMarker: "STRING_VALUE",
+ *           BeginMarker: 'STRING_VALUE',
+ *           EndMarker: 'STRING_VALUE',
  *         },
  *         TargetOnDeviceServices: [ // TargetOnDeviceServiceList
  *           { // TargetOnDeviceService
- *             ServiceName: "NFS_ON_DEVICE_SERVICE" || "S3_ON_DEVICE_SERVICE",
- *             TransferOption: "IMPORT" || "EXPORT" || "LOCAL_USE",
+ *             ServiceName: 'NFS_ON_DEVICE_SERVICE' || 'S3_ON_DEVICE_SERVICE',
+ *             TransferOption: 'IMPORT' || 'EXPORT' || 'LOCAL_USE',
  *           },
  *         ],
  *       },
  *     ],
  *     LambdaResources: [ // LambdaResourceList
  *       { // LambdaResource
- *         LambdaArn: "STRING_VALUE",
+ *         LambdaArn: 'STRING_VALUE',
  *         EventTriggers: [ // EventTriggerDefinitionList
  *           { // EventTriggerDefinition
- *             EventResourceARN: "STRING_VALUE",
+ *             EventResourceARN: 'STRING_VALUE',
  *           },
  *         ],
  *       },
  *     ],
  *     Ec2AmiResources: [ // Ec2AmiResourceList
  *       { // Ec2AmiResource
- *         AmiId: "STRING_VALUE", // required
- *         SnowballAmiId: "STRING_VALUE",
+ *         AmiId: 'STRING_VALUE', // required
+ *         SnowballAmiId: 'STRING_VALUE',
  *       },
  *     ],
  *   },
  *   OnDeviceServiceConfiguration: { // OnDeviceServiceConfiguration
  *     NFSOnDeviceService: { // NFSOnDeviceServiceConfiguration
- *       StorageLimit: Number("int"),
- *       StorageUnit: "TB",
+ *       StorageLimit: Number('int'),
+ *       StorageUnit: 'TB',
  *     },
  *     TGWOnDeviceService: { // TGWOnDeviceServiceConfiguration
- *       StorageLimit: Number("int"),
- *       StorageUnit: "TB",
+ *       StorageLimit: Number('int'),
+ *       StorageUnit: 'TB',
  *     },
  *     EKSOnDeviceService: { // EKSOnDeviceServiceConfiguration
- *       KubernetesVersion: "STRING_VALUE",
- *       EKSAnywhereVersion: "STRING_VALUE",
+ *       KubernetesVersion: 'STRING_VALUE',
+ *       EKSAnywhereVersion: 'STRING_VALUE',
  *     },
  *     S3OnDeviceService: { // S3OnDeviceServiceConfiguration
- *       StorageLimit: Number("double"),
- *       StorageUnit: "TB",
- *       ServiceSize: Number("int"),
- *       FaultTolerance: Number("int"),
+ *       StorageLimit: Number('double'),
+ *       StorageUnit: 'TB',
+ *       ServiceSize: Number('int'),
+ *       FaultTolerance: Number('int'),
  *     },
  *   },
- *   AddressId: "STRING_VALUE",
- *   ShippingOption: "SECOND_DAY" || "NEXT_DAY" || "EXPRESS" || "STANDARD",
- *   Description: "STRING_VALUE",
- *   SnowballCapacityPreference: "T50" || "T80" || "T100" || "T42" || "T98" || "T8" || "T14" || "T32" || "NoPreference" || "T240",
- *   ForwardingAddressId: "STRING_VALUE",
+ *   AddressId: 'STRING_VALUE',
+ *   ShippingOption: 'SECOND_DAY' || 'NEXT_DAY' || 'EXPRESS' || 'STANDARD',
+ *   Description: 'STRING_VALUE',
+ *   SnowballCapacityPreference: 'T50' || 'T80' || 'T100' || 'T42' || 'T98' || 'T8' || 'T14' || 'T32' || 'NoPreference' || 'T240',
+ *   ForwardingAddressId: 'STRING_VALUE',
  * };
  * const command = new UpdateJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateJobCommandInput - {@link UpdateJobCommandInput}
@@ -144,6 +147,8 @@ export interface UpdateJobCommandOutput extends UpdateJobResult, __MetadataBeare
  *  <p>The provided Key Management Service key lacks the permissions to perform the specified
  *         <a>CreateJob</a> or <a>UpdateJob</a> action.</p>
  *
+ * @throws {@link SnowballServiceException}
+ * <p>Base exception class for all service exceptions from Snowball service.</p>
  *
  * @example To update a job
  * ```javascript

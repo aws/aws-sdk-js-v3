@@ -36,25 +36,37 @@ export interface ListProjectsCommandOutput extends ListProjectsResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeCatalystClient, ListProjectsCommand } from "@aws-sdk/client-codecatalyst"; // ES Modules import
- * // const { CodeCatalystClient, ListProjectsCommand } = require("@aws-sdk/client-codecatalyst"); // CommonJS import
+ * import { CodeCatalystClient, ListProjectsCommand } from '@aws-sdk/client-codecatalyst'; // ES Modules import
+ * // const { CodeCatalystClient, ListProjectsCommand } = require('@aws-sdk/client-codecatalyst'); // CommonJS import
  * const client = new CodeCatalystClient(config);
  * const input = { // ListProjectsRequest
- *   spaceName: "STRING_VALUE", // required
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   spaceName: 'STRING_VALUE', // required
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  *   filters: [ // ProjectListFilters
  *     { // ProjectListFilter
- *       key: "STRING_VALUE", // required
+ *       key: 'STRING_VALUE', // required
  *       values: [ // StringList // required
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
- *       comparisonOperator: "STRING_VALUE",
+ *       comparisonOperator: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new ListProjectsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListProjectsResponse
+ *   nextToken: 'STRING_VALUE',
+ *   items: [ // ProjectSummaries
+ *     { // ProjectSummary
+ *       name: 'STRING_VALUE', // required
+ *       displayName: 'STRING_VALUE',
+ *       description: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListProjectsCommandInput - {@link ListProjectsCommandInput}
@@ -83,6 +95,8 @@ export interface ListProjectsCommandOutput extends ListProjectsResponse, __Metad
  * @throws {@link ValidationException} (client fault)
  *  <p>The request was denied because an input failed to satisfy the constraints specified by the service. Check the spelling and input requirements, and then try again.</p>
  *
+ * @throws {@link CodeCatalystServiceException}
+ * <p>Base exception class for all service exceptions from CodeCatalyst service.</p>
  *
  */
 export class ListProjectsCommand extends $Command<

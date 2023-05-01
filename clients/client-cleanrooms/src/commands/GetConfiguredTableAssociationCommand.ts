@@ -41,15 +41,32 @@ export interface GetConfiguredTableAssociationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CleanRoomsClient, GetConfiguredTableAssociationCommand } from "@aws-sdk/client-cleanrooms"; // ES Modules import
- * // const { CleanRoomsClient, GetConfiguredTableAssociationCommand } = require("@aws-sdk/client-cleanrooms"); // CommonJS import
+ * import { CleanRoomsClient, GetConfiguredTableAssociationCommand } from '@aws-sdk/client-cleanrooms'; // ES Modules import
+ * // const { CleanRoomsClient, GetConfiguredTableAssociationCommand } = require('@aws-sdk/client-cleanrooms'); // CommonJS import
  * const client = new CleanRoomsClient(config);
  * const input = { // GetConfiguredTableAssociationInput
- *   configuredTableAssociationIdentifier: "STRING_VALUE", // required
- *   membershipIdentifier: "STRING_VALUE", // required
+ *   configuredTableAssociationIdentifier: 'STRING_VALUE', // required
+ *   membershipIdentifier: 'STRING_VALUE', // required
  * };
  * const command = new GetConfiguredTableAssociationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetConfiguredTableAssociationOutput
+ *   configuredTableAssociation: { // ConfiguredTableAssociation
+ *     arn: 'STRING_VALUE', // required
+ *     id: 'STRING_VALUE', // required
+ *     configuredTableId: 'STRING_VALUE', // required
+ *     configuredTableArn: 'STRING_VALUE', // required
+ *     membershipId: 'STRING_VALUE', // required
+ *     membershipArn: 'STRING_VALUE', // required
+ *     roleArn: 'STRING_VALUE', // required
+ *     name: 'STRING_VALUE', // required
+ *     description: 'STRING_VALUE',
+ *     createTime: new Date('TIMESTAMP'), // required
+ *     updateTime: new Date('TIMESTAMP'), // required
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetConfiguredTableAssociationCommandInput - {@link GetConfiguredTableAssociationCommandInput}
@@ -73,6 +90,8 @@ export interface GetConfiguredTableAssociationCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the specified constraints.</p>
  *
+ * @throws {@link CleanRoomsServiceException}
+ * <p>Base exception class for all service exceptions from CleanRooms service.</p>
  *
  */
 export class GetConfiguredTableAssociationCommand extends $Command<

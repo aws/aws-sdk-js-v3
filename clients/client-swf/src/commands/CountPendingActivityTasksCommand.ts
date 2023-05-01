@@ -63,17 +63,23 @@ export interface CountPendingActivityTasksCommandOutput extends PendingTaskCount
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SWFClient, CountPendingActivityTasksCommand } from "@aws-sdk/client-swf"; // ES Modules import
- * // const { SWFClient, CountPendingActivityTasksCommand } = require("@aws-sdk/client-swf"); // CommonJS import
+ * import { SWFClient, CountPendingActivityTasksCommand } from '@aws-sdk/client-swf'; // ES Modules import
+ * // const { SWFClient, CountPendingActivityTasksCommand } = require('@aws-sdk/client-swf'); // CommonJS import
  * const client = new SWFClient(config);
  * const input = { // CountPendingActivityTasksInput
- *   domain: "STRING_VALUE", // required
+ *   domain: 'STRING_VALUE', // required
  *   taskList: { // TaskList
- *     name: "STRING_VALUE", // required
+ *     name: 'STRING_VALUE', // required
  *   },
  * };
  * const command = new CountPendingActivityTasksCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PendingTaskCount
+ *   count: Number('int'), // required
+ *   truncated: true || false,
+ * };
+ *
  * ```
  *
  * @param CountPendingActivityTasksCommandInput - {@link CountPendingActivityTasksCommandInput}
@@ -88,6 +94,8 @@ export interface CountPendingActivityTasksCommandOutput extends PendingTaskCount
  * @throws {@link UnknownResourceFault} (client fault)
  *  <p>Returned when the named resource cannot be found with in the scope of this operation (region or domain). This could happen if the named resource was never created or is no longer available for this operation.</p>
  *
+ * @throws {@link SWFServiceException}
+ * <p>Base exception class for all service exceptions from SWF service.</p>
  *
  */
 export class CountPendingActivityTasksCommand extends $Command<

@@ -41,16 +41,29 @@ export interface ListMFADevicesCommandOutput extends ListMFADevicesResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IAMClient, ListMFADevicesCommand } from "@aws-sdk/client-iam"; // ES Modules import
- * // const { IAMClient, ListMFADevicesCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * import { IAMClient, ListMFADevicesCommand } from '@aws-sdk/client-iam'; // ES Modules import
+ * // const { IAMClient, ListMFADevicesCommand } = require('@aws-sdk/client-iam'); // CommonJS import
  * const client = new IAMClient(config);
  * const input = { // ListMFADevicesRequest
- *   UserName: "STRING_VALUE",
- *   Marker: "STRING_VALUE",
- *   MaxItems: Number("int"),
+ *   UserName: 'STRING_VALUE',
+ *   Marker: 'STRING_VALUE',
+ *   MaxItems: Number('int'),
  * };
  * const command = new ListMFADevicesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListMFADevicesResponse
+ *   MFADevices: [ // mfaDeviceListType // required
+ *     { // MFADevice
+ *       UserName: 'STRING_VALUE', // required
+ *       SerialNumber: 'STRING_VALUE', // required
+ *       EnableDate: new Date('TIMESTAMP'), // required
+ *     },
+ *   ],
+ *   IsTruncated: true || false,
+ *   Marker: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListMFADevicesCommandInput - {@link ListMFADevicesCommandInput}
@@ -67,6 +80,8 @@ export interface ListMFADevicesCommandOutput extends ListMFADevicesResponse, __M
  *  <p>The request processing has failed because of an unknown error, exception or
  *       failure.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  */
 export class ListMFADevicesCommand extends $Command<

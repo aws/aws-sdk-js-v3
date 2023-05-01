@@ -37,15 +37,18 @@ export interface DeleteIPSetCommandOutput extends DeleteIPSetResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GuardDutyClient, DeleteIPSetCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
- * // const { GuardDutyClient, DeleteIPSetCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
+ * import { GuardDutyClient, DeleteIPSetCommand } from '@aws-sdk/client-guardduty'; // ES Modules import
+ * // const { GuardDutyClient, DeleteIPSetCommand } = require('@aws-sdk/client-guardduty'); // CommonJS import
  * const client = new GuardDutyClient(config);
  * const input = { // DeleteIPSetRequest
- *   DetectorId: "STRING_VALUE", // required
- *   IpSetId: "STRING_VALUE", // required
+ *   DetectorId: 'STRING_VALUE', // required
+ *   IpSetId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteIPSetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteIPSetCommandInput - {@link DeleteIPSetCommandInput}
@@ -60,6 +63,8 @@ export interface DeleteIPSetCommandOutput extends DeleteIPSetResponse, __Metadat
  * @throws {@link InternalServerErrorException} (server fault)
  *  <p>An internal server error exception object.</p>
  *
+ * @throws {@link GuardDutyServiceException}
+ * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
  */
 export class DeleteIPSetCommand extends $Command<

@@ -36,14 +36,17 @@ export interface DeleteJobCommandOutput extends DeleteJobResponse, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MgnClient, DeleteJobCommand } from "@aws-sdk/client-mgn"; // ES Modules import
- * // const { MgnClient, DeleteJobCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
+ * import { MgnClient, DeleteJobCommand } from '@aws-sdk/client-mgn'; // ES Modules import
+ * // const { MgnClient, DeleteJobCommand } = require('@aws-sdk/client-mgn'); // CommonJS import
  * const client = new MgnClient(config);
  * const input = { // DeleteJobRequest
- *   jobID: "STRING_VALUE", // required
+ *   jobID: 'STRING_VALUE', // required
  * };
  * const command = new DeleteJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteJobCommandInput - {@link DeleteJobCommandInput}
@@ -61,6 +64,8 @@ export interface DeleteJobCommandOutput extends DeleteJobResponse, __MetadataBea
  * @throws {@link UninitializedAccountException} (client fault)
  *  <p>Uninitialized account exception.</p>
  *
+ * @throws {@link MgnServiceException}
+ * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
  */
 export class DeleteJobCommand extends $Command<DeleteJobCommandInput, DeleteJobCommandOutput, MgnClientResolvedConfig> {

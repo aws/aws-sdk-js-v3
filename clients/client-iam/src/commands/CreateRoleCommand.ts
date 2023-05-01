@@ -40,25 +40,53 @@ export interface CreateRoleCommandOutput extends CreateRoleResponse, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IAMClient, CreateRoleCommand } from "@aws-sdk/client-iam"; // ES Modules import
- * // const { IAMClient, CreateRoleCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * import { IAMClient, CreateRoleCommand } from '@aws-sdk/client-iam'; // ES Modules import
+ * // const { IAMClient, CreateRoleCommand } = require('@aws-sdk/client-iam'); // CommonJS import
  * const client = new IAMClient(config);
  * const input = { // CreateRoleRequest
- *   Path: "STRING_VALUE",
- *   RoleName: "STRING_VALUE", // required
- *   AssumeRolePolicyDocument: "STRING_VALUE", // required
- *   Description: "STRING_VALUE",
- *   MaxSessionDuration: Number("int"),
- *   PermissionsBoundary: "STRING_VALUE",
+ *   Path: 'STRING_VALUE',
+ *   RoleName: 'STRING_VALUE', // required
+ *   AssumeRolePolicyDocument: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE',
+ *   MaxSessionDuration: Number('int'),
+ *   PermissionsBoundary: 'STRING_VALUE',
  *   Tags: [ // tagListType
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreateRoleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateRoleResponse
+ *   Role: { // Role
+ *     Path: 'STRING_VALUE', // required
+ *     RoleName: 'STRING_VALUE', // required
+ *     RoleId: 'STRING_VALUE', // required
+ *     Arn: 'STRING_VALUE', // required
+ *     CreateDate: new Date('TIMESTAMP'), // required
+ *     AssumeRolePolicyDocument: 'STRING_VALUE',
+ *     Description: 'STRING_VALUE',
+ *     MaxSessionDuration: Number('int'),
+ *     PermissionsBoundary: { // AttachedPermissionsBoundary
+ *       PermissionsBoundaryType: 'PermissionsBoundaryPolicy',
+ *       PermissionsBoundaryArn: 'STRING_VALUE',
+ *     },
+ *     Tags: [ // tagListType
+ *       { // Tag
+ *         Key: 'STRING_VALUE', // required
+ *         Value: 'STRING_VALUE', // required
+ *       },
+ *     ],
+ *     RoleLastUsed: { // RoleLastUsed
+ *       LastUsedDate: new Date('TIMESTAMP'),
+ *       Region: 'STRING_VALUE',
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateRoleCommandInput - {@link CreateRoleCommandInput}
@@ -91,6 +119,8 @@ export interface CreateRoleCommandOutput extends CreateRoleResponse, __MetadataB
  *  <p>The request processing has failed because of an unknown error, exception or
  *       failure.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  * @example To create an IAM role
  * ```javascript

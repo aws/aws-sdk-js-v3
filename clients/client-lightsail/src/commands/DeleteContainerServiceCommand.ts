@@ -36,14 +36,17 @@ export interface DeleteContainerServiceCommandOutput extends DeleteContainerServ
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LightsailClient, DeleteContainerServiceCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
- * // const { LightsailClient, DeleteContainerServiceCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
+ * import { LightsailClient, DeleteContainerServiceCommand } from '@aws-sdk/client-lightsail'; // ES Modules import
+ * // const { LightsailClient, DeleteContainerServiceCommand } = require('@aws-sdk/client-lightsail'); // CommonJS import
  * const client = new LightsailClient(config);
  * const input = { // DeleteContainerServiceRequest
- *   serviceName: "STRING_VALUE", // required
+ *   serviceName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteContainerServiceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteContainerServiceCommandInput - {@link DeleteContainerServiceCommandInput}
@@ -75,6 +78,8 @@ export interface DeleteContainerServiceCommandOutput extends DeleteContainerServ
  * @throws {@link UnauthenticatedException} (client fault)
  *  <p>Lightsail throws this exception when the user has not been authenticated.</p>
  *
+ * @throws {@link LightsailServiceException}
+ * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
  */
 export class DeleteContainerServiceCommand extends $Command<

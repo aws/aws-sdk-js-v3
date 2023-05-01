@@ -43,27 +43,32 @@ export interface GetTileCommandOutput extends __WithSdkStreamMixin<GetTileOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerGeospatialClient, GetTileCommand } from "@aws-sdk/client-sagemaker-geospatial"; // ES Modules import
- * // const { SageMakerGeospatialClient, GetTileCommand } = require("@aws-sdk/client-sagemaker-geospatial"); // CommonJS import
+ * import { SageMakerGeospatialClient, GetTileCommand } from '@aws-sdk/client-sagemaker-geospatial'; // ES Modules import
+ * // const { SageMakerGeospatialClient, GetTileCommand } = require('@aws-sdk/client-sagemaker-geospatial'); // CommonJS import
  * const client = new SageMakerGeospatialClient(config);
  * const input = { // GetTileInput
- *   x: Number("int"), // required
- *   y: Number("int"), // required
- *   z: Number("int"), // required
+ *   x: Number('int'), // required
+ *   y: Number('int'), // required
+ *   z: Number('int'), // required
  *   ImageAssets: [ // StringListInput // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   Target: "STRING_VALUE", // required
- *   Arn: "STRING_VALUE", // required
+ *   Target: 'STRING_VALUE', // required
+ *   Arn: 'STRING_VALUE', // required
  *   ImageMask: true || false,
- *   OutputFormat: "STRING_VALUE",
- *   TimeRangeFilter: "STRING_VALUE",
- *   PropertyFilters: "STRING_VALUE",
- *   OutputDataType: "STRING_VALUE",
- *   ExecutionRoleArn: "STRING_VALUE",
+ *   OutputFormat: 'STRING_VALUE',
+ *   TimeRangeFilter: 'STRING_VALUE',
+ *   PropertyFilters: 'STRING_VALUE',
+ *   OutputDataType: 'STRING_VALUE',
+ *   ExecutionRoleArn: 'STRING_VALUE',
  * };
  * const command = new GetTileCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetTileOutput
+ *   BinaryFile: 'STREAMING_BLOB_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetTileCommandInput - {@link GetTileCommandInput}
@@ -87,6 +92,8 @@ export interface GetTileCommandOutput extends __WithSdkStreamMixin<GetTileOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
  *
+ * @throws {@link SageMakerGeospatialServiceException}
+ * <p>Base exception class for all service exceptions from SageMakerGeospatial service.</p>
  *
  */
 export class GetTileCommand extends $Command<

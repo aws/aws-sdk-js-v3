@@ -45,30 +45,122 @@ export interface DescribeSecurityGroupsCommandOutput extends DescribeSecurityGro
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, DescribeSecurityGroupsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, DescribeSecurityGroupsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, DescribeSecurityGroupsCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, DescribeSecurityGroupsCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // DescribeSecurityGroupsRequest
  *   Filters: [ // FilterList
  *     { // Filter
- *       Name: "STRING_VALUE",
+ *       Name: 'STRING_VALUE',
  *       Values: [ // ValueStringList
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
  *   GroupIds: [ // GroupIdStringList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   GroupNames: [ // GroupNameStringList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   DryRun: true || false,
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new DescribeSecurityGroupsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeSecurityGroupsResult
+ *   SecurityGroups: [ // SecurityGroupList
+ *     { // SecurityGroup
+ *       Description: 'STRING_VALUE',
+ *       GroupName: 'STRING_VALUE',
+ *       IpPermissions: [ // IpPermissionList
+ *         { // IpPermission
+ *           FromPort: Number('int'),
+ *           IpProtocol: 'STRING_VALUE',
+ *           IpRanges: [ // IpRangeList
+ *             { // IpRange
+ *               CidrIp: 'STRING_VALUE',
+ *               Description: 'STRING_VALUE',
+ *             },
+ *           ],
+ *           Ipv6Ranges: [ // Ipv6RangeList
+ *             { // Ipv6Range
+ *               CidrIpv6: 'STRING_VALUE',
+ *               Description: 'STRING_VALUE',
+ *             },
+ *           ],
+ *           PrefixListIds: [ // PrefixListIdList
+ *             { // PrefixListId
+ *               Description: 'STRING_VALUE',
+ *               PrefixListId: 'STRING_VALUE',
+ *             },
+ *           ],
+ *           ToPort: Number('int'),
+ *           UserIdGroupPairs: [ // UserIdGroupPairList
+ *             { // UserIdGroupPair
+ *               Description: 'STRING_VALUE',
+ *               GroupId: 'STRING_VALUE',
+ *               GroupName: 'STRING_VALUE',
+ *               PeeringStatus: 'STRING_VALUE',
+ *               UserId: 'STRING_VALUE',
+ *               VpcId: 'STRING_VALUE',
+ *               VpcPeeringConnectionId: 'STRING_VALUE',
+ *             },
+ *           ],
+ *         },
+ *       ],
+ *       OwnerId: 'STRING_VALUE',
+ *       GroupId: 'STRING_VALUE',
+ *       IpPermissionsEgress: [
+ *         {
+ *           FromPort: Number('int'),
+ *           IpProtocol: 'STRING_VALUE',
+ *           IpRanges: [
+ *             {
+ *               CidrIp: 'STRING_VALUE',
+ *               Description: 'STRING_VALUE',
+ *             },
+ *           ],
+ *           Ipv6Ranges: [
+ *             {
+ *               CidrIpv6: 'STRING_VALUE',
+ *               Description: 'STRING_VALUE',
+ *             },
+ *           ],
+ *           PrefixListIds: [
+ *             {
+ *               Description: 'STRING_VALUE',
+ *               PrefixListId: 'STRING_VALUE',
+ *             },
+ *           ],
+ *           ToPort: Number('int'),
+ *           UserIdGroupPairs: [
+ *             {
+ *               Description: 'STRING_VALUE',
+ *               GroupId: 'STRING_VALUE',
+ *               GroupName: 'STRING_VALUE',
+ *               PeeringStatus: 'STRING_VALUE',
+ *               UserId: 'STRING_VALUE',
+ *               VpcId: 'STRING_VALUE',
+ *               VpcPeeringConnectionId: 'STRING_VALUE',
+ *             },
+ *           ],
+ *         },
+ *       ],
+ *       Tags: [ // TagList
+ *         { // Tag
+ *           Key: 'STRING_VALUE',
+ *           Value: 'STRING_VALUE',
+ *         },
+ *       ],
+ *       VpcId: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeSecurityGroupsCommandInput - {@link DescribeSecurityGroupsCommandInput}
@@ -77,6 +169,8 @@ export interface DescribeSecurityGroupsCommandOutput extends DescribeSecurityGro
  * @see {@link DescribeSecurityGroupsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @example To describe a security group
  * ```javascript

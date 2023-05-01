@@ -36,14 +36,17 @@ export interface RebootBrokerCommandOutput extends RebootBrokerResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MqClient, RebootBrokerCommand } from "@aws-sdk/client-mq"; // ES Modules import
- * // const { MqClient, RebootBrokerCommand } = require("@aws-sdk/client-mq"); // CommonJS import
+ * import { MqClient, RebootBrokerCommand } from '@aws-sdk/client-mq'; // ES Modules import
+ * // const { MqClient, RebootBrokerCommand } = require('@aws-sdk/client-mq'); // CommonJS import
  * const client = new MqClient(config);
  * const input = { // RebootBrokerRequest
- *   BrokerId: "STRING_VALUE", // required
+ *   BrokerId: 'STRING_VALUE', // required
  * };
  * const command = new RebootBrokerCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param RebootBrokerCommandInput - {@link RebootBrokerCommandInput}
@@ -64,6 +67,8 @@ export interface RebootBrokerCommandOutput extends RebootBrokerResponse, __Metad
  * @throws {@link NotFoundException} (client fault)
  *  <p>Returns information about an error.</p>
  *
+ * @throws {@link MqServiceException}
+ * <p>Base exception class for all service exceptions from Mq service.</p>
  *
  */
 export class RebootBrokerCommand extends $Command<

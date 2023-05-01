@@ -46,18 +46,43 @@ export interface ListUnsupportedAppVersionResourcesCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ResiliencehubClient, ListUnsupportedAppVersionResourcesCommand } from "@aws-sdk/client-resiliencehub"; // ES Modules import
- * // const { ResiliencehubClient, ListUnsupportedAppVersionResourcesCommand } = require("@aws-sdk/client-resiliencehub"); // CommonJS import
+ * import { ResiliencehubClient, ListUnsupportedAppVersionResourcesCommand } from '@aws-sdk/client-resiliencehub'; // ES Modules import
+ * // const { ResiliencehubClient, ListUnsupportedAppVersionResourcesCommand } = require('@aws-sdk/client-resiliencehub'); // CommonJS import
  * const client = new ResiliencehubClient(config);
  * const input = { // ListUnsupportedAppVersionResourcesRequest
- *   appArn: "STRING_VALUE", // required
- *   appVersion: "STRING_VALUE", // required
- *   resolutionId: "STRING_VALUE",
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   appArn: 'STRING_VALUE', // required
+ *   appVersion: 'STRING_VALUE', // required
+ *   resolutionId: 'STRING_VALUE',
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new ListUnsupportedAppVersionResourcesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListUnsupportedAppVersionResourcesResponse
+ *   unsupportedResources: [ // UnsupportedResourceList // required
+ *     { // UnsupportedResource
+ *       logicalResourceId: { // LogicalResourceId
+ *         identifier: 'STRING_VALUE', // required
+ *         logicalStackName: 'STRING_VALUE',
+ *         resourceGroupName: 'STRING_VALUE',
+ *         terraformSourceName: 'STRING_VALUE',
+ *         eksSourceName: 'STRING_VALUE',
+ *       },
+ *       physicalResourceId: { // PhysicalResourceId
+ *         identifier: 'STRING_VALUE', // required
+ *         type: 'STRING_VALUE', // required
+ *         awsRegion: 'STRING_VALUE',
+ *         awsAccountId: 'STRING_VALUE',
+ *       },
+ *       resourceType: 'STRING_VALUE', // required
+ *       unsupportedResourceStatus: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   resolutionId: 'STRING_VALUE', // required
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListUnsupportedAppVersionResourcesCommandInput - {@link ListUnsupportedAppVersionResourcesCommandInput}
@@ -90,6 +115,8 @@ export interface ListUnsupportedAppVersionResourcesCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>This exception occurs when a request is not valid.</p>
  *
+ * @throws {@link ResiliencehubServiceException}
+ * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
  */
 export class ListUnsupportedAppVersionResourcesCommand extends $Command<

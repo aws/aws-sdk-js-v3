@@ -40,16 +40,28 @@ export interface GetSSHPublicKeyCommandOutput extends GetSSHPublicKeyResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IAMClient, GetSSHPublicKeyCommand } from "@aws-sdk/client-iam"; // ES Modules import
- * // const { IAMClient, GetSSHPublicKeyCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * import { IAMClient, GetSSHPublicKeyCommand } from '@aws-sdk/client-iam'; // ES Modules import
+ * // const { IAMClient, GetSSHPublicKeyCommand } = require('@aws-sdk/client-iam'); // CommonJS import
  * const client = new IAMClient(config);
  * const input = { // GetSSHPublicKeyRequest
- *   UserName: "STRING_VALUE", // required
- *   SSHPublicKeyId: "STRING_VALUE", // required
- *   Encoding: "SSH" || "PEM", // required
+ *   UserName: 'STRING_VALUE', // required
+ *   SSHPublicKeyId: 'STRING_VALUE', // required
+ *   Encoding: 'SSH' || 'PEM', // required
  * };
  * const command = new GetSSHPublicKeyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetSSHPublicKeyResponse
+ *   SSHPublicKey: { // SSHPublicKey
+ *     UserName: 'STRING_VALUE', // required
+ *     SSHPublicKeyId: 'STRING_VALUE', // required
+ *     Fingerprint: 'STRING_VALUE', // required
+ *     SSHPublicKeyBody: 'STRING_VALUE', // required
+ *     Status: 'Active' || 'Inactive', // required
+ *     UploadDate: new Date('TIMESTAMP'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetSSHPublicKeyCommandInput - {@link GetSSHPublicKeyCommandInput}
@@ -66,6 +78,8 @@ export interface GetSSHPublicKeyCommandOutput extends GetSSHPublicKeyResponse, _
  *  <p>The request was rejected because the public key encoding format is unsupported or
  *       unrecognized.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  */
 export class GetSSHPublicKeyCommand extends $Command<

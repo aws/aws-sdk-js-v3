@@ -37,15 +37,38 @@ export interface GetArchiveRuleCommandOutput extends GetArchiveRuleResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AccessAnalyzerClient, GetArchiveRuleCommand } from "@aws-sdk/client-accessanalyzer"; // ES Modules import
- * // const { AccessAnalyzerClient, GetArchiveRuleCommand } = require("@aws-sdk/client-accessanalyzer"); // CommonJS import
+ * import { AccessAnalyzerClient, GetArchiveRuleCommand } from '@aws-sdk/client-accessanalyzer'; // ES Modules import
+ * // const { AccessAnalyzerClient, GetArchiveRuleCommand } = require('@aws-sdk/client-accessanalyzer'); // CommonJS import
  * const client = new AccessAnalyzerClient(config);
  * const input = { // GetArchiveRuleRequest
- *   analyzerName: "STRING_VALUE", // required
- *   ruleName: "STRING_VALUE", // required
+ *   analyzerName: 'STRING_VALUE', // required
+ *   ruleName: 'STRING_VALUE', // required
  * };
  * const command = new GetArchiveRuleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetArchiveRuleResponse
+ *   archiveRule: { // ArchiveRuleSummary
+ *     ruleName: 'STRING_VALUE', // required
+ *     filter: { // FilterCriteriaMap // required
+ *       '<keys>': { // Criterion
+ *         eq: [ // ValueList
+ *           'STRING_VALUE',
+ *         ],
+ *         neq: [
+ *           'STRING_VALUE',
+ *         ],
+ *         contains: [
+ *           'STRING_VALUE',
+ *         ],
+ *         exists: true || false,
+ *       },
+ *     },
+ *     createdAt: new Date('TIMESTAMP'), // required
+ *     updatedAt: new Date('TIMESTAMP'), // required
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetArchiveRuleCommandInput - {@link GetArchiveRuleCommandInput}
@@ -69,6 +92,8 @@ export interface GetArchiveRuleCommandOutput extends GetArchiveRuleResponse, __M
  * @throws {@link ValidationException} (client fault)
  *  <p>Validation exception error.</p>
  *
+ * @throws {@link AccessAnalyzerServiceException}
+ * <p>Base exception class for all service exceptions from AccessAnalyzer service.</p>
  *
  */
 export class GetArchiveRuleCommand extends $Command<

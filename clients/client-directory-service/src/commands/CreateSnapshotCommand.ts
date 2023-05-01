@@ -39,15 +39,20 @@ export interface CreateSnapshotCommandOutput extends CreateSnapshotResult, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DirectoryServiceClient, CreateSnapshotCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
- * // const { DirectoryServiceClient, CreateSnapshotCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
+ * import { DirectoryServiceClient, CreateSnapshotCommand } from '@aws-sdk/client-directory-service'; // ES Modules import
+ * // const { DirectoryServiceClient, CreateSnapshotCommand } = require('@aws-sdk/client-directory-service'); // CommonJS import
  * const client = new DirectoryServiceClient(config);
  * const input = { // CreateSnapshotRequest
- *   DirectoryId: "STRING_VALUE", // required
- *   Name: "STRING_VALUE",
+ *   DirectoryId: 'STRING_VALUE', // required
+ *   Name: 'STRING_VALUE',
  * };
  * const command = new CreateSnapshotCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateSnapshotResult
+ *   SnapshotId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateSnapshotCommandInput - {@link CreateSnapshotCommandInput}
@@ -73,6 +78,8 @@ export interface CreateSnapshotCommandOutput extends CreateSnapshotResult, __Met
  *             use the <a>GetSnapshotLimits</a> operation to determine the snapshot limits
  *             for a directory.</p>
  *
+ * @throws {@link DirectoryServiceServiceException}
+ * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
  */
 export class CreateSnapshotCommand extends $Command<

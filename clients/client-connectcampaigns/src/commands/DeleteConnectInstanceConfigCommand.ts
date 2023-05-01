@@ -39,14 +39,17 @@ export interface DeleteConnectInstanceConfigCommandOutput extends __MetadataBear
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectCampaignsClient, DeleteConnectInstanceConfigCommand } from "@aws-sdk/client-connectcampaigns"; // ES Modules import
- * // const { ConnectCampaignsClient, DeleteConnectInstanceConfigCommand } = require("@aws-sdk/client-connectcampaigns"); // CommonJS import
+ * import { ConnectCampaignsClient, DeleteConnectInstanceConfigCommand } from '@aws-sdk/client-connectcampaigns'; // ES Modules import
+ * // const { ConnectCampaignsClient, DeleteConnectInstanceConfigCommand } = require('@aws-sdk/client-connectcampaigns'); // CommonJS import
  * const client = new ConnectCampaignsClient(config);
  * const input = { // DeleteConnectInstanceConfigRequest
- *   connectInstanceId: "STRING_VALUE", // required
+ *   connectInstanceId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteConnectInstanceConfigCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteConnectInstanceConfigCommandInput - {@link DeleteConnectInstanceConfigCommandInput}
@@ -73,6 +76,8 @@ export interface DeleteConnectInstanceConfigCommandOutput extends __MetadataBear
  * @throws {@link ValidationException} (client fault)
  *  The input fails to satisfy the constraints specified by an AWS service.
  *
+ * @throws {@link ConnectCampaignsServiceException}
+ * <p>Base exception class for all service exceptions from ConnectCampaigns service.</p>
  *
  */
 export class DeleteConnectInstanceConfigCommand extends $Command<

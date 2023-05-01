@@ -44,14 +44,19 @@ export interface InitiateDeviceClaimCommandOutput extends InitiateDeviceClaimRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoT1ClickDevicesServiceClient, InitiateDeviceClaimCommand } from "@aws-sdk/client-iot-1click-devices-service"; // ES Modules import
- * // const { IoT1ClickDevicesServiceClient, InitiateDeviceClaimCommand } = require("@aws-sdk/client-iot-1click-devices-service"); // CommonJS import
+ * import { IoT1ClickDevicesServiceClient, InitiateDeviceClaimCommand } from '@aws-sdk/client-iot-1click-devices-service'; // ES Modules import
+ * // const { IoT1ClickDevicesServiceClient, InitiateDeviceClaimCommand } = require('@aws-sdk/client-iot-1click-devices-service'); // CommonJS import
  * const client = new IoT1ClickDevicesServiceClient(config);
  * const input = { // InitiateDeviceClaimRequest
- *   DeviceId: "STRING_VALUE", // required
+ *   DeviceId: 'STRING_VALUE', // required
  * };
  * const command = new InitiateDeviceClaimCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // InitiateDeviceClaimResponse
+ *   State: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param InitiateDeviceClaimCommandInput - {@link InitiateDeviceClaimCommandInput}
@@ -68,6 +73,8 @@ export interface InitiateDeviceClaimCommandOutput extends InitiateDeviceClaimRes
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *
+ * @throws {@link IoT1ClickDevicesServiceServiceException}
+ * <p>Base exception class for all service exceptions from IoT1ClickDevicesService service.</p>
  *
  */
 export class InitiateDeviceClaimCommand extends $Command<

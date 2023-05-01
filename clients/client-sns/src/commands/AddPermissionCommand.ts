@@ -42,21 +42,24 @@ export interface AddPermissionCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SNSClient, AddPermissionCommand } from "@aws-sdk/client-sns"; // ES Modules import
- * // const { SNSClient, AddPermissionCommand } = require("@aws-sdk/client-sns"); // CommonJS import
+ * import { SNSClient, AddPermissionCommand } from '@aws-sdk/client-sns'; // ES Modules import
+ * // const { SNSClient, AddPermissionCommand } = require('@aws-sdk/client-sns'); // CommonJS import
  * const client = new SNSClient(config);
  * const input = { // AddPermissionInput
- *   TopicArn: "STRING_VALUE", // required
- *   Label: "STRING_VALUE", // required
+ *   TopicArn: 'STRING_VALUE', // required
+ *   Label: 'STRING_VALUE', // required
  *   AWSAccountId: [ // DelegatesList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   ActionName: [ // ActionsList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new AddPermissionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param AddPermissionCommandInput - {@link AddPermissionCommandInput}
@@ -78,6 +81,8 @@ export interface AddPermissionCommandOutput extends __MetadataBearer {}
  * @throws {@link NotFoundException} (client fault)
  *  <p>Indicates that the requested resource does not exist.</p>
  *
+ * @throws {@link SNSServiceException}
+ * <p>Base exception class for all service exceptions from SNS service.</p>
  *
  */
 export class AddPermissionCommand extends $Command<

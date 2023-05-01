@@ -37,26 +37,33 @@ export interface CreateThingTypeCommandOutput extends CreateThingTypeResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTClient, CreateThingTypeCommand } from "@aws-sdk/client-iot"; // ES Modules import
- * // const { IoTClient, CreateThingTypeCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * import { IoTClient, CreateThingTypeCommand } from '@aws-sdk/client-iot'; // ES Modules import
+ * // const { IoTClient, CreateThingTypeCommand } = require('@aws-sdk/client-iot'); // CommonJS import
  * const client = new IoTClient(config);
  * const input = { // CreateThingTypeRequest
- *   thingTypeName: "STRING_VALUE", // required
+ *   thingTypeName: 'STRING_VALUE', // required
  *   thingTypeProperties: { // ThingTypeProperties
- *     thingTypeDescription: "STRING_VALUE",
+ *     thingTypeDescription: 'STRING_VALUE',
  *     searchableAttributes: [ // SearchableAttributes
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *   },
  *   tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new CreateThingTypeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateThingTypeResponse
+ *   thingTypeName: 'STRING_VALUE',
+ *   thingTypeArn: 'STRING_VALUE',
+ *   thingTypeId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateThingTypeCommandInput - {@link CreateThingTypeCommandInput}
@@ -83,6 +90,8 @@ export interface CreateThingTypeCommandOutput extends CreateThingTypeResponse, _
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this operation.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class CreateThingTypeCommand extends $Command<

@@ -40,14 +40,59 @@ export interface GetVectorEnrichmentJobCommandOutput extends GetVectorEnrichment
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerGeospatialClient, GetVectorEnrichmentJobCommand } from "@aws-sdk/client-sagemaker-geospatial"; // ES Modules import
- * // const { SageMakerGeospatialClient, GetVectorEnrichmentJobCommand } = require("@aws-sdk/client-sagemaker-geospatial"); // CommonJS import
+ * import { SageMakerGeospatialClient, GetVectorEnrichmentJobCommand } from '@aws-sdk/client-sagemaker-geospatial'; // ES Modules import
+ * // const { SageMakerGeospatialClient, GetVectorEnrichmentJobCommand } = require('@aws-sdk/client-sagemaker-geospatial'); // CommonJS import
  * const client = new SageMakerGeospatialClient(config);
  * const input = { // GetVectorEnrichmentJobInput
- *   Arn: "STRING_VALUE", // required
+ *   Arn: 'STRING_VALUE', // required
  * };
  * const command = new GetVectorEnrichmentJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetVectorEnrichmentJobOutput
+ *   Arn: 'STRING_VALUE', // required
+ *   Type: 'STRING_VALUE', // required
+ *   Name: 'STRING_VALUE', // required
+ *   CreationTime: new Date('TIMESTAMP'), // required
+ *   DurationInSeconds: Number('int'), // required
+ *   Status: 'STRING_VALUE', // required
+ *   KmsKeyId: 'STRING_VALUE',
+ *   InputConfig: { // VectorEnrichmentJobInputConfig
+ *     DocumentType: 'STRING_VALUE', // required
+ *     DataSourceConfig: { // VectorEnrichmentJobDataSourceConfigInput Union: only one key present
+ *       S3Data: { // VectorEnrichmentJobS3Data
+ *         S3Uri: 'STRING_VALUE', // required
+ *         KmsKeyId: 'STRING_VALUE',
+ *       },
+ *     },
+ *   },
+ *   JobConfig: { // VectorEnrichmentJobConfig Union: only one key present
+ *     ReverseGeocodingConfig: { // ReverseGeocodingConfig
+ *       YAttributeName: 'STRING_VALUE', // required
+ *       XAttributeName: 'STRING_VALUE', // required
+ *     },
+ *     MapMatchingConfig: { // MapMatchingConfig
+ *       IdAttributeName: 'STRING_VALUE', // required
+ *       YAttributeName: 'STRING_VALUE', // required
+ *       XAttributeName: 'STRING_VALUE', // required
+ *       TimestampAttributeName: 'STRING_VALUE', // required
+ *     },
+ *   },
+ *   ExecutionRoleArn: 'STRING_VALUE', // required
+ *   ErrorDetails: { // VectorEnrichmentJobErrorDetails
+ *     ErrorType: 'STRING_VALUE',
+ *     ErrorMessage: 'STRING_VALUE',
+ *   },
+ *   ExportStatus: 'STRING_VALUE',
+ *   ExportErrorDetails: { // VectorEnrichmentJobExportErrorDetails
+ *     Type: 'STRING_VALUE',
+ *     Message: 'STRING_VALUE',
+ *   },
+ *   Tags: { // Tags
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetVectorEnrichmentJobCommandInput - {@link GetVectorEnrichmentJobCommandInput}
@@ -71,6 +116,8 @@ export interface GetVectorEnrichmentJobCommandOutput extends GetVectorEnrichment
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
  *
+ * @throws {@link SageMakerGeospatialServiceException}
+ * <p>Base exception class for all service exceptions from SageMakerGeospatial service.</p>
  *
  */
 export class GetVectorEnrichmentJobCommand extends $Command<

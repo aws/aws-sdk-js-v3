@@ -38,14 +38,60 @@ export interface GetInsightCommandOutput extends GetInsightResult, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { XRayClient, GetInsightCommand } from "@aws-sdk/client-xray"; // ES Modules import
- * // const { XRayClient, GetInsightCommand } = require("@aws-sdk/client-xray"); // CommonJS import
+ * import { XRayClient, GetInsightCommand } from '@aws-sdk/client-xray'; // ES Modules import
+ * // const { XRayClient, GetInsightCommand } = require('@aws-sdk/client-xray'); // CommonJS import
  * const client = new XRayClient(config);
  * const input = { // GetInsightRequest
- *   InsightId: "STRING_VALUE", // required
+ *   InsightId: 'STRING_VALUE', // required
  * };
  * const command = new GetInsightCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetInsightResult
+ *   Insight: { // Insight
+ *     InsightId: 'STRING_VALUE',
+ *     GroupARN: 'STRING_VALUE',
+ *     GroupName: 'STRING_VALUE',
+ *     RootCauseServiceId: { // ServiceId
+ *       Name: 'STRING_VALUE',
+ *       Names: [ // ServiceNames
+ *         'STRING_VALUE',
+ *       ],
+ *       AccountId: 'STRING_VALUE',
+ *       Type: 'STRING_VALUE',
+ *     },
+ *     Categories: [ // InsightCategoryList
+ *       'FAULT',
+ *     ],
+ *     State: 'ACTIVE' || 'CLOSED',
+ *     StartTime: new Date('TIMESTAMP'),
+ *     EndTime: new Date('TIMESTAMP'),
+ *     Summary: 'STRING_VALUE',
+ *     ClientRequestImpactStatistics: { // RequestImpactStatistics
+ *       FaultCount: Number('long'),
+ *       OkCount: Number('long'),
+ *       TotalCount: Number('long'),
+ *     },
+ *     RootCauseServiceRequestImpactStatistics: {
+ *       FaultCount: Number('long'),
+ *       OkCount: Number('long'),
+ *       TotalCount: Number('long'),
+ *     },
+ *     TopAnomalousServices: [ // AnomalousServiceList
+ *       { // AnomalousService
+ *         ServiceId: {
+ *           Name: 'STRING_VALUE',
+ *           Names: [
+ *             'STRING_VALUE',
+ *           ],
+ *           AccountId: 'STRING_VALUE',
+ *           Type: 'STRING_VALUE',
+ *         },
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetInsightCommandInput - {@link GetInsightCommandInput}
@@ -60,6 +106,8 @@ export interface GetInsightCommandOutput extends GetInsightResult, __MetadataBea
  * @throws {@link ThrottledException} (client fault)
  *  <p>The request exceeds the maximum number of requests per second.</p>
  *
+ * @throws {@link XRayServiceException}
+ * <p>Base exception class for all service exceptions from XRay service.</p>
  *
  */
 export class GetInsightCommand extends $Command<

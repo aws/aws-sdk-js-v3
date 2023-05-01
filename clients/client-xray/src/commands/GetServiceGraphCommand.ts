@@ -40,18 +40,110 @@ export interface GetServiceGraphCommandOutput extends GetServiceGraphResult, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { XRayClient, GetServiceGraphCommand } from "@aws-sdk/client-xray"; // ES Modules import
- * // const { XRayClient, GetServiceGraphCommand } = require("@aws-sdk/client-xray"); // CommonJS import
+ * import { XRayClient, GetServiceGraphCommand } from '@aws-sdk/client-xray'; // ES Modules import
+ * // const { XRayClient, GetServiceGraphCommand } = require('@aws-sdk/client-xray'); // CommonJS import
  * const client = new XRayClient(config);
  * const input = { // GetServiceGraphRequest
- *   StartTime: new Date("TIMESTAMP"), // required
- *   EndTime: new Date("TIMESTAMP"), // required
- *   GroupName: "STRING_VALUE",
- *   GroupARN: "STRING_VALUE",
- *   NextToken: "STRING_VALUE",
+ *   StartTime: new Date('TIMESTAMP'), // required
+ *   EndTime: new Date('TIMESTAMP'), // required
+ *   GroupName: 'STRING_VALUE',
+ *   GroupARN: 'STRING_VALUE',
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new GetServiceGraphCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetServiceGraphResult
+ *   StartTime: new Date('TIMESTAMP'),
+ *   EndTime: new Date('TIMESTAMP'),
+ *   Services: [ // ServiceList
+ *     { // Service
+ *       ReferenceId: Number('int'),
+ *       Name: 'STRING_VALUE',
+ *       Names: [ // ServiceNames
+ *         'STRING_VALUE',
+ *       ],
+ *       Root: true || false,
+ *       AccountId: 'STRING_VALUE',
+ *       Type: 'STRING_VALUE',
+ *       State: 'STRING_VALUE',
+ *       StartTime: new Date('TIMESTAMP'),
+ *       EndTime: new Date('TIMESTAMP'),
+ *       Edges: [ // EdgeList
+ *         { // Edge
+ *           ReferenceId: Number('int'),
+ *           StartTime: new Date('TIMESTAMP'),
+ *           EndTime: new Date('TIMESTAMP'),
+ *           SummaryStatistics: { // EdgeStatistics
+ *             OkCount: Number('long'),
+ *             ErrorStatistics: { // ErrorStatistics
+ *               ThrottleCount: Number('long'),
+ *               OtherCount: Number('long'),
+ *               TotalCount: Number('long'),
+ *             },
+ *             FaultStatistics: { // FaultStatistics
+ *               OtherCount: Number('long'),
+ *               TotalCount: Number('long'),
+ *             },
+ *             TotalCount: Number('long'),
+ *             TotalResponseTime: Number('double'),
+ *           },
+ *           ResponseTimeHistogram: [ // Histogram
+ *             { // HistogramEntry
+ *               Value: Number('double'),
+ *               Count: Number('int'),
+ *             },
+ *           ],
+ *           Aliases: [ // AliasList
+ *             { // Alias
+ *               Name: 'STRING_VALUE',
+ *               Names: [ // AliasNames
+ *                 'STRING_VALUE',
+ *               ],
+ *               Type: 'STRING_VALUE',
+ *             },
+ *           ],
+ *           EdgeType: 'STRING_VALUE',
+ *           ReceivedEventAgeHistogram: [
+ *             {
+ *               Value: Number('double'),
+ *               Count: Number('int'),
+ *             },
+ *           ],
+ *         },
+ *       ],
+ *       SummaryStatistics: { // ServiceStatistics
+ *         OkCount: Number('long'),
+ *         ErrorStatistics: {
+ *           ThrottleCount: Number('long'),
+ *           OtherCount: Number('long'),
+ *           TotalCount: Number('long'),
+ *         },
+ *         FaultStatistics: {
+ *           OtherCount: Number('long'),
+ *           TotalCount: Number('long'),
+ *         },
+ *         TotalCount: Number('long'),
+ *         TotalResponseTime: Number('double'),
+ *       },
+ *       DurationHistogram: [
+ *         {
+ *           Value: Number('double'),
+ *           Count: Number('int'),
+ *         },
+ *       ],
+ *       ResponseTimeHistogram: [
+ *         {
+ *           Value: Number('double'),
+ *           Count: Number('int'),
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   ContainsOldGroupVersions: true || false,
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetServiceGraphCommandInput - {@link GetServiceGraphCommandInput}
@@ -66,6 +158,8 @@ export interface GetServiceGraphCommandOutput extends GetServiceGraphResult, __M
  * @throws {@link ThrottledException} (client fault)
  *  <p>The request exceeds the maximum number of requests per second.</p>
  *
+ * @throws {@link XRayServiceException}
+ * <p>Base exception class for all service exceptions from XRay service.</p>
  *
  */
 export class GetServiceGraphCommand extends $Command<

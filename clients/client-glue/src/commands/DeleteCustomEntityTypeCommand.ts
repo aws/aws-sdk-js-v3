@@ -36,14 +36,19 @@ export interface DeleteCustomEntityTypeCommandOutput extends DeleteCustomEntityT
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlueClient, DeleteCustomEntityTypeCommand } from "@aws-sdk/client-glue"; // ES Modules import
- * // const { GlueClient, DeleteCustomEntityTypeCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * import { GlueClient, DeleteCustomEntityTypeCommand } from '@aws-sdk/client-glue'; // ES Modules import
+ * // const { GlueClient, DeleteCustomEntityTypeCommand } = require('@aws-sdk/client-glue'); // CommonJS import
  * const client = new GlueClient(config);
  * const input = { // DeleteCustomEntityTypeRequest
- *   Name: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
  * };
  * const command = new DeleteCustomEntityTypeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteCustomEntityTypeResponse
+ *   Name: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DeleteCustomEntityTypeCommandInput - {@link DeleteCustomEntityTypeCommandInput}
@@ -67,6 +72,8 @@ export interface DeleteCustomEntityTypeCommandOutput extends DeleteCustomEntityT
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class DeleteCustomEntityTypeCommand extends $Command<

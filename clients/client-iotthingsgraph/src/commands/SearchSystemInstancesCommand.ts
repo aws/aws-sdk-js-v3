@@ -38,23 +38,41 @@ export interface SearchSystemInstancesCommandOutput extends SearchSystemInstance
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTThingsGraphClient, SearchSystemInstancesCommand } from "@aws-sdk/client-iotthingsgraph"; // ES Modules import
- * // const { IoTThingsGraphClient, SearchSystemInstancesCommand } = require("@aws-sdk/client-iotthingsgraph"); // CommonJS import
+ * import { IoTThingsGraphClient, SearchSystemInstancesCommand } from '@aws-sdk/client-iotthingsgraph'; // ES Modules import
+ * // const { IoTThingsGraphClient, SearchSystemInstancesCommand } = require('@aws-sdk/client-iotthingsgraph'); // CommonJS import
  * const client = new IoTThingsGraphClient(config);
  * const input = { // SearchSystemInstancesRequest
  *   filters: [ // SystemInstanceFilters
  *     { // SystemInstanceFilter
- *       name: "STRING_VALUE",
+ *       name: 'STRING_VALUE',
  *       value: [ // SystemInstanceFilterValues
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new SearchSystemInstancesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SearchSystemInstancesResponse
+ *   summaries: [ // SystemInstanceSummaries
+ *     { // SystemInstanceSummary
+ *       id: 'STRING_VALUE',
+ *       arn: 'STRING_VALUE',
+ *       status: 'STRING_VALUE',
+ *       target: 'STRING_VALUE',
+ *       greengrassGroupName: 'STRING_VALUE',
+ *       createdAt: new Date('TIMESTAMP'),
+ *       updatedAt: new Date('TIMESTAMP'),
+ *       greengrassGroupId: 'STRING_VALUE',
+ *       greengrassGroupVersionId: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param SearchSystemInstancesCommandInput - {@link SearchSystemInstancesCommandInput}
@@ -72,6 +90,8 @@ export interface SearchSystemInstancesCommandOutput extends SearchSystemInstance
  * @throws {@link ThrottlingException} (client fault)
  *  <p></p>
  *
+ * @throws {@link IoTThingsGraphServiceException}
+ * <p>Base exception class for all service exceptions from IoTThingsGraph service.</p>
  *
  */
 export class SearchSystemInstancesCommand extends $Command<

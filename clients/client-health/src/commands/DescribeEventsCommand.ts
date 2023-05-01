@@ -58,68 +58,88 @@ export interface DescribeEventsCommandOutput extends DescribeEventsResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { HealthClient, DescribeEventsCommand } from "@aws-sdk/client-health"; // ES Modules import
- * // const { HealthClient, DescribeEventsCommand } = require("@aws-sdk/client-health"); // CommonJS import
+ * import { HealthClient, DescribeEventsCommand } from '@aws-sdk/client-health'; // ES Modules import
+ * // const { HealthClient, DescribeEventsCommand } = require('@aws-sdk/client-health'); // CommonJS import
  * const client = new HealthClient(config);
  * const input = { // DescribeEventsRequest
  *   filter: { // EventFilter
  *     eventArns: [ // eventArnList
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     eventTypeCodes: [ // eventTypeList2
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     services: [ // serviceList
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     regions: [ // regionList
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     availabilityZones: [ // availabilityZones
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     startTimes: [ // dateTimeRangeList
  *       { // DateTimeRange
- *         from: new Date("TIMESTAMP"),
- *         to: new Date("TIMESTAMP"),
+ *         from: new Date('TIMESTAMP'),
+ *         to: new Date('TIMESTAMP'),
  *       },
  *     ],
  *     endTimes: [
  *       {
- *         from: new Date("TIMESTAMP"),
- *         to: new Date("TIMESTAMP"),
+ *         from: new Date('TIMESTAMP'),
+ *         to: new Date('TIMESTAMP'),
  *       },
  *     ],
  *     lastUpdatedTimes: [
  *       {
- *         from: new Date("TIMESTAMP"),
- *         to: new Date("TIMESTAMP"),
+ *         from: new Date('TIMESTAMP'),
+ *         to: new Date('TIMESTAMP'),
  *       },
  *     ],
  *     entityArns: [ // entityArnList
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     entityValues: [ // entityValueList
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     eventTypeCategories: [ // eventTypeCategoryList2
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     tags: [ // tagFilter
  *       { // tagSet
- *         "<keys>": "STRING_VALUE",
+ *         '<keys>': 'STRING_VALUE',
  *       },
  *     ],
  *     eventStatusCodes: [ // eventStatusCodeList
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *   },
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
- *   locale: "STRING_VALUE",
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
+ *   locale: 'STRING_VALUE',
  * };
  * const command = new DescribeEventsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeEventsResponse
+ *   events: [ // EventList
+ *     { // Event
+ *       arn: 'STRING_VALUE',
+ *       service: 'STRING_VALUE',
+ *       eventTypeCode: 'STRING_VALUE',
+ *       eventTypeCategory: 'STRING_VALUE',
+ *       region: 'STRING_VALUE',
+ *       availabilityZone: 'STRING_VALUE',
+ *       startTime: new Date('TIMESTAMP'),
+ *       endTime: new Date('TIMESTAMP'),
+ *       lastUpdatedTime: new Date('TIMESTAMP'),
+ *       statusCode: 'STRING_VALUE',
+ *       eventScopeCode: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeEventsCommandInput - {@link DescribeEventsCommandInput}
@@ -134,6 +154,8 @@ export interface DescribeEventsCommandOutput extends DescribeEventsResponse, __M
  * @throws {@link UnsupportedLocale} (client fault)
  *  <p>The specified locale is not supported.</p>
  *
+ * @throws {@link HealthServiceException}
+ * <p>Base exception class for all service exceptions from Health service.</p>
  *
  */
 export class DescribeEventsCommand extends $Command<

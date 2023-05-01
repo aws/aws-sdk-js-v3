@@ -37,18 +37,21 @@ export interface UpdateEventConfigurationsCommandOutput extends UpdateEventConfi
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTClient, UpdateEventConfigurationsCommand } from "@aws-sdk/client-iot"; // ES Modules import
- * // const { IoTClient, UpdateEventConfigurationsCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * import { IoTClient, UpdateEventConfigurationsCommand } from '@aws-sdk/client-iot'; // ES Modules import
+ * // const { IoTClient, UpdateEventConfigurationsCommand } = require('@aws-sdk/client-iot'); // CommonJS import
  * const client = new IoTClient(config);
  * const input = { // UpdateEventConfigurationsRequest
  *   eventConfigurations: { // EventConfigurations
- *     "<keys>": { // Configuration
+ *     '<keys>': { // Configuration
  *       Enabled: true || false,
  *     },
  *   },
  * };
  * const command = new UpdateEventConfigurationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateEventConfigurationsCommandInput - {@link UpdateEventConfigurationsCommandInput}
@@ -66,6 +69,8 @@ export interface UpdateEventConfigurationsCommandOutput extends UpdateEventConfi
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The rate exceeds the limit.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class UpdateEventConfigurationsCommand extends $Command<

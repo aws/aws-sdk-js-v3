@@ -36,15 +36,41 @@ export interface DeleteDomainAssociationCommandOutput extends DeleteDomainAssoci
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AmplifyClient, DeleteDomainAssociationCommand } from "@aws-sdk/client-amplify"; // ES Modules import
- * // const { AmplifyClient, DeleteDomainAssociationCommand } = require("@aws-sdk/client-amplify"); // CommonJS import
+ * import { AmplifyClient, DeleteDomainAssociationCommand } from '@aws-sdk/client-amplify'; // ES Modules import
+ * // const { AmplifyClient, DeleteDomainAssociationCommand } = require('@aws-sdk/client-amplify'); // CommonJS import
  * const client = new AmplifyClient(config);
  * const input = { // DeleteDomainAssociationRequest
- *   appId: "STRING_VALUE", // required
- *   domainName: "STRING_VALUE", // required
+ *   appId: 'STRING_VALUE', // required
+ *   domainName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteDomainAssociationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteDomainAssociationResult
+ *   domainAssociation: { // DomainAssociation
+ *     domainAssociationArn: 'STRING_VALUE', // required
+ *     domainName: 'STRING_VALUE', // required
+ *     enableAutoSubDomain: true || false, // required
+ *     autoSubDomainCreationPatterns: [ // AutoSubDomainCreationPatterns
+ *       'STRING_VALUE',
+ *     ],
+ *     autoSubDomainIAMRole: 'STRING_VALUE',
+ *     domainStatus: 'PENDING_VERIFICATION' || 'IN_PROGRESS' || 'AVAILABLE' || 'PENDING_DEPLOYMENT' || 'FAILED' || 'CREATING' || 'REQUESTING_CERTIFICATE' || 'UPDATING', // required
+ *     statusReason: 'STRING_VALUE', // required
+ *     certificateVerificationDNSRecord: 'STRING_VALUE',
+ *     subDomains: [ // SubDomains // required
+ *       { // SubDomain
+ *         subDomainSetting: { // SubDomainSetting
+ *           prefix: 'STRING_VALUE', // required
+ *           branchName: 'STRING_VALUE', // required
+ *         },
+ *         verified: true || false, // required
+ *         dnsRecord: 'STRING_VALUE', // required
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param DeleteDomainAssociationCommandInput - {@link DeleteDomainAssociationCommandInput}
@@ -68,6 +94,8 @@ export interface DeleteDomainAssociationCommandOutput extends DeleteDomainAssoci
  * @throws {@link UnauthorizedException} (client fault)
  *  <p> An operation failed due to a lack of access. </p>
  *
+ * @throws {@link AmplifyServiceException}
+ * <p>Base exception class for all service exceptions from Amplify service.</p>
  *
  */
 export class DeleteDomainAssociationCommand extends $Command<

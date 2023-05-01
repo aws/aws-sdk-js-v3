@@ -36,15 +36,23 @@ export interface GetAssessmentReportUrlCommandOutput extends GetAssessmentReport
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AuditManagerClient, GetAssessmentReportUrlCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
- * // const { AuditManagerClient, GetAssessmentReportUrlCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import
+ * import { AuditManagerClient, GetAssessmentReportUrlCommand } from '@aws-sdk/client-auditmanager'; // ES Modules import
+ * // const { AuditManagerClient, GetAssessmentReportUrlCommand } = require('@aws-sdk/client-auditmanager'); // CommonJS import
  * const client = new AuditManagerClient(config);
  * const input = { // GetAssessmentReportUrlRequest
- *   assessmentReportId: "STRING_VALUE", // required
- *   assessmentId: "STRING_VALUE", // required
+ *   assessmentReportId: 'STRING_VALUE', // required
+ *   assessmentId: 'STRING_VALUE', // required
  * };
  * const command = new GetAssessmentReportUrlCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetAssessmentReportUrlResponse
+ *   preSignedUrl: { // URL
+ *     hyperlinkName: 'STRING_VALUE',
+ *     link: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetAssessmentReportUrlCommandInput - {@link GetAssessmentReportUrlCommandInput}
@@ -67,6 +75,8 @@ export interface GetAssessmentReportUrlCommandOutput extends GetAssessmentReport
  * @throws {@link ValidationException} (client fault)
  *  <p> The request has invalid or missing parameters. </p>
  *
+ * @throws {@link AuditManagerServiceException}
+ * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
  */
 export class GetAssessmentReportUrlCommand extends $Command<

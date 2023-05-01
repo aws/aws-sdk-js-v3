@@ -48,25 +48,74 @@ export interface ConfigureAccessPointCommandOutput extends ConfigureAccessPointR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PrivateNetworksClient, ConfigureAccessPointCommand } from "@aws-sdk/client-privatenetworks"; // ES Modules import
- * // const { PrivateNetworksClient, ConfigureAccessPointCommand } = require("@aws-sdk/client-privatenetworks"); // CommonJS import
+ * import { PrivateNetworksClient, ConfigureAccessPointCommand } from '@aws-sdk/client-privatenetworks'; // ES Modules import
+ * // const { PrivateNetworksClient, ConfigureAccessPointCommand } = require('@aws-sdk/client-privatenetworks'); // CommonJS import
  * const client = new PrivateNetworksClient(config);
  * const input = { // ConfigureAccessPointRequest
- *   accessPointArn: "STRING_VALUE", // required
+ *   accessPointArn: 'STRING_VALUE', // required
  *   position: { // Position
- *     latitude: Number("double"),
- *     longitude: Number("double"),
- *     elevation: Number("double"),
- *     elevationUnit: "STRING_VALUE",
- *     elevationReference: "STRING_VALUE",
+ *     latitude: Number('double'),
+ *     longitude: Number('double'),
+ *     elevation: Number('double'),
+ *     elevationUnit: 'STRING_VALUE',
+ *     elevationReference: 'STRING_VALUE',
  *   },
- *   cpiUsername: "STRING_VALUE",
- *   cpiUserId: "STRING_VALUE",
- *   cpiUserPassword: "STRING_VALUE",
- *   cpiSecretKey: "STRING_VALUE",
+ *   cpiUsername: 'STRING_VALUE',
+ *   cpiUserId: 'STRING_VALUE',
+ *   cpiUserPassword: 'STRING_VALUE',
+ *   cpiSecretKey: 'STRING_VALUE',
  * };
  * const command = new ConfigureAccessPointCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ConfigureAccessPointResponse
+ *   accessPoint: { // NetworkResource
+ *     networkResourceArn: 'STRING_VALUE',
+ *     description: 'STRING_VALUE',
+ *     type: 'STRING_VALUE',
+ *     status: 'STRING_VALUE',
+ *     statusReason: 'STRING_VALUE',
+ *     vendor: 'STRING_VALUE',
+ *     model: 'STRING_VALUE',
+ *     serialNumber: 'STRING_VALUE',
+ *     health: 'STRING_VALUE',
+ *     networkArn: 'STRING_VALUE',
+ *     networkSiteArn: 'STRING_VALUE',
+ *     orderArn: 'STRING_VALUE',
+ *     attributes: [ // NameValuePairs
+ *       { // NameValuePair
+ *         name: 'STRING_VALUE', // required
+ *         value: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     position: { // Position
+ *       latitude: Number('double'),
+ *       longitude: Number('double'),
+ *       elevation: Number('double'),
+ *       elevationUnit: 'STRING_VALUE',
+ *       elevationReference: 'STRING_VALUE',
+ *     },
+ *     createdAt: new Date('TIMESTAMP'),
+ *     returnInformation: { // ReturnInformation
+ *       shippingAddress: { // Address
+ *         city: 'STRING_VALUE', // required
+ *         company: 'STRING_VALUE',
+ *         country: 'STRING_VALUE', // required
+ *         name: 'STRING_VALUE', // required
+ *         phoneNumber: 'STRING_VALUE',
+ *         postalCode: 'STRING_VALUE', // required
+ *         stateOrProvince: 'STRING_VALUE', // required
+ *         street1: 'STRING_VALUE', // required
+ *         street2: 'STRING_VALUE',
+ *         street3: 'STRING_VALUE',
+ *       },
+ *       returnReason: 'STRING_VALUE',
+ *       replacementOrderArn: 'STRING_VALUE',
+ *       shippingLabel: 'STRING_VALUE',
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param ConfigureAccessPointCommandInput - {@link ConfigureAccessPointCommandInput}
@@ -84,6 +133,8 @@ export interface ConfigureAccessPointCommandOutput extends ConfigureAccessPointR
  * @throws {@link ValidationException} (client fault)
  *  <p>The request failed validation.</p>
  *
+ * @throws {@link PrivateNetworksServiceException}
+ * <p>Base exception class for all service exceptions from PrivateNetworks service.</p>
  *
  */
 export class ConfigureAccessPointCommand extends $Command<

@@ -80,26 +80,31 @@ export interface DetectStackSetDriftCommandOutput extends DetectStackSetDriftOut
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudFormationClient, DetectStackSetDriftCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
- * // const { CloudFormationClient, DetectStackSetDriftCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
+ * import { CloudFormationClient, DetectStackSetDriftCommand } from '@aws-sdk/client-cloudformation'; // ES Modules import
+ * // const { CloudFormationClient, DetectStackSetDriftCommand } = require('@aws-sdk/client-cloudformation'); // CommonJS import
  * const client = new CloudFormationClient(config);
  * const input = { // DetectStackSetDriftInput
- *   StackSetName: "STRING_VALUE", // required
+ *   StackSetName: 'STRING_VALUE', // required
  *   OperationPreferences: { // StackSetOperationPreferences
- *     RegionConcurrencyType: "SEQUENTIAL" || "PARALLEL",
+ *     RegionConcurrencyType: 'SEQUENTIAL' || 'PARALLEL',
  *     RegionOrder: [ // RegionList
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
- *     FailureToleranceCount: Number("int"),
- *     FailureTolerancePercentage: Number("int"),
- *     MaxConcurrentCount: Number("int"),
- *     MaxConcurrentPercentage: Number("int"),
+ *     FailureToleranceCount: Number('int'),
+ *     FailureTolerancePercentage: Number('int'),
+ *     MaxConcurrentCount: Number('int'),
+ *     MaxConcurrentPercentage: Number('int'),
  *   },
- *   OperationId: "STRING_VALUE",
- *   CallAs: "SELF" || "DELEGATED_ADMIN",
+ *   OperationId: 'STRING_VALUE',
+ *   CallAs: 'SELF' || 'DELEGATED_ADMIN',
  * };
  * const command = new DetectStackSetDriftCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DetectStackSetDriftOutput
+ *   OperationId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DetectStackSetDriftCommandInput - {@link DetectStackSetDriftCommandInput}
@@ -118,6 +123,8 @@ export interface DetectStackSetDriftCommandOutput extends DetectStackSetDriftOut
  * @throws {@link StackSetNotFoundException} (client fault)
  *  <p>The specified stack set doesn't exist.</p>
  *
+ * @throws {@link CloudFormationServiceException}
+ * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
  */
 export class DetectStackSetDriftCommand extends $Command<

@@ -41,15 +41,21 @@ export interface DeregisterRobotCommandOutput extends DeregisterRobotResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RoboMakerClient, DeregisterRobotCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
- * // const { RoboMakerClient, DeregisterRobotCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
+ * import { RoboMakerClient, DeregisterRobotCommand } from '@aws-sdk/client-robomaker'; // ES Modules import
+ * // const { RoboMakerClient, DeregisterRobotCommand } = require('@aws-sdk/client-robomaker'); // CommonJS import
  * const client = new RoboMakerClient(config);
  * const input = { // DeregisterRobotRequest
- *   fleet: "STRING_VALUE", // required
- *   robot: "STRING_VALUE", // required
+ *   fleet: 'STRING_VALUE', // required
+ *   robot: 'STRING_VALUE', // required
  * };
  * const command = new DeregisterRobotCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeregisterRobotResponse
+ *   fleet: 'STRING_VALUE',
+ *   robot: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DeregisterRobotCommandInput - {@link DeregisterRobotCommandInput}
@@ -71,6 +77,8 @@ export interface DeregisterRobotCommandOutput extends DeregisterRobotResponse, _
  * @throws {@link ThrottlingException} (client fault)
  *  <p>AWS RoboMaker is temporarily unable to process the request. Try your call again.</p>
  *
+ * @throws {@link RoboMakerServiceException}
+ * <p>Base exception class for all service exceptions from RoboMaker service.</p>
  *
  */
 export class DeregisterRobotCommand extends $Command<

@@ -47,27 +47,44 @@ export interface PutVoiceConnectorStreamingConfigurationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeSDKVoiceClient, PutVoiceConnectorStreamingConfigurationCommand } from "@aws-sdk/client-chime-sdk-voice"; // ES Modules import
- * // const { ChimeSDKVoiceClient, PutVoiceConnectorStreamingConfigurationCommand } = require("@aws-sdk/client-chime-sdk-voice"); // CommonJS import
+ * import { ChimeSDKVoiceClient, PutVoiceConnectorStreamingConfigurationCommand } from '@aws-sdk/client-chime-sdk-voice'; // ES Modules import
+ * // const { ChimeSDKVoiceClient, PutVoiceConnectorStreamingConfigurationCommand } = require('@aws-sdk/client-chime-sdk-voice'); // CommonJS import
  * const client = new ChimeSDKVoiceClient(config);
  * const input = { // PutVoiceConnectorStreamingConfigurationRequest
- *   VoiceConnectorId: "STRING_VALUE", // required
+ *   VoiceConnectorId: 'STRING_VALUE', // required
  *   StreamingConfiguration: { // StreamingConfiguration
- *     DataRetentionInHours: Number("int"), // required
+ *     DataRetentionInHours: Number('int'), // required
  *     Disabled: true || false, // required
  *     StreamingNotificationTargets: [ // StreamingNotificationTargetList
  *       { // StreamingNotificationTarget
- *         NotificationTarget: "EventBridge" || "SNS" || "SQS",
+ *         NotificationTarget: 'EventBridge' || 'SNS' || 'SQS',
  *       },
  *     ],
  *     MediaInsightsConfiguration: { // MediaInsightsConfiguration
  *       Disabled: true || false,
- *       ConfigurationArn: "STRING_VALUE",
+ *       ConfigurationArn: 'STRING_VALUE',
  *     },
  *   },
  * };
  * const command = new PutVoiceConnectorStreamingConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutVoiceConnectorStreamingConfigurationResponse
+ *   StreamingConfiguration: { // StreamingConfiguration
+ *     DataRetentionInHours: Number('int'), // required
+ *     Disabled: true || false, // required
+ *     StreamingNotificationTargets: [ // StreamingNotificationTargetList
+ *       { // StreamingNotificationTarget
+ *         NotificationTarget: 'EventBridge' || 'SNS' || 'SQS',
+ *       },
+ *     ],
+ *     MediaInsightsConfiguration: { // MediaInsightsConfiguration
+ *       Disabled: true || false,
+ *       ConfigurationArn: 'STRING_VALUE',
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param PutVoiceConnectorStreamingConfigurationCommandInput - {@link PutVoiceConnectorStreamingConfigurationCommandInput}
@@ -97,6 +114,8 @@ export interface PutVoiceConnectorStreamingConfigurationCommandOutput
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client isn't authorized to request a resource.</p>
  *
+ * @throws {@link ChimeSDKVoiceServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
  */
 export class PutVoiceConnectorStreamingConfigurationCommand extends $Command<

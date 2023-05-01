@@ -36,15 +36,39 @@ export interface GetWorkflowCommandOutput extends GetWorkflowResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CustomerProfilesClient, GetWorkflowCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
- * // const { CustomerProfilesClient, GetWorkflowCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
+ * import { CustomerProfilesClient, GetWorkflowCommand } from '@aws-sdk/client-customer-profiles'; // ES Modules import
+ * // const { CustomerProfilesClient, GetWorkflowCommand } = require('@aws-sdk/client-customer-profiles'); // CommonJS import
  * const client = new CustomerProfilesClient(config);
  * const input = { // GetWorkflowRequest
- *   DomainName: "STRING_VALUE", // required
- *   WorkflowId: "STRING_VALUE", // required
+ *   DomainName: 'STRING_VALUE', // required
+ *   WorkflowId: 'STRING_VALUE', // required
  * };
  * const command = new GetWorkflowCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetWorkflowResponse
+ *   WorkflowId: 'STRING_VALUE',
+ *   WorkflowType: 'APPFLOW_INTEGRATION',
+ *   Status: 'NOT_STARTED' || 'IN_PROGRESS' || 'COMPLETE' || 'FAILED' || 'SPLIT' || 'RETRY' || 'CANCELLED',
+ *   ErrorDescription: 'STRING_VALUE',
+ *   StartDate: new Date('TIMESTAMP'),
+ *   LastUpdatedAt: new Date('TIMESTAMP'),
+ *   Attributes: { // WorkflowAttributes
+ *     AppflowIntegration: { // AppflowIntegrationWorkflowAttributes
+ *       SourceConnectorType: 'Salesforce' || 'Marketo' || 'Zendesk' || 'Servicenow' || 'S3', // required
+ *       ConnectorProfileName: 'STRING_VALUE', // required
+ *       RoleArn: 'STRING_VALUE',
+ *     },
+ *   },
+ *   Metrics: { // WorkflowMetrics
+ *     AppflowIntegration: { // AppflowIntegrationWorkflowMetrics
+ *       RecordsProcessed: Number('long'), // required
+ *       StepsCompleted: Number('long'), // required
+ *       TotalSteps: Number('long'), // required
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetWorkflowCommandInput - {@link GetWorkflowCommandInput}
@@ -68,6 +92,8 @@ export interface GetWorkflowCommandOutput extends GetWorkflowResponse, __Metadat
  * @throws {@link ThrottlingException} (client fault)
  *  <p>You exceeded the maximum number of requests.</p>
  *
+ * @throws {@link CustomerProfilesServiceException}
+ * <p>Base exception class for all service exceptions from CustomerProfiles service.</p>
  *
  */
 export class GetWorkflowCommand extends $Command<

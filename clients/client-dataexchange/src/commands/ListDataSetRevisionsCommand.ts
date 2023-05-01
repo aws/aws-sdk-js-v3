@@ -36,16 +36,36 @@ export interface ListDataSetRevisionsCommandOutput extends ListDataSetRevisionsR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DataExchangeClient, ListDataSetRevisionsCommand } from "@aws-sdk/client-dataexchange"; // ES Modules import
- * // const { DataExchangeClient, ListDataSetRevisionsCommand } = require("@aws-sdk/client-dataexchange"); // CommonJS import
+ * import { DataExchangeClient, ListDataSetRevisionsCommand } from '@aws-sdk/client-dataexchange'; // ES Modules import
+ * // const { DataExchangeClient, ListDataSetRevisionsCommand } = require('@aws-sdk/client-dataexchange'); // CommonJS import
  * const client = new DataExchangeClient(config);
  * const input = { // ListDataSetRevisionsRequest
- *   DataSetId: "STRING_VALUE", // required
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   DataSetId: 'STRING_VALUE', // required
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListDataSetRevisionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListDataSetRevisionsResponse
+ *   NextToken: 'STRING_VALUE',
+ *   Revisions: [ // ListOfRevisionEntry
+ *     { // RevisionEntry
+ *       Arn: 'STRING_VALUE', // required
+ *       Comment: 'STRING_VALUE',
+ *       CreatedAt: new Date('TIMESTAMP'), // required
+ *       DataSetId: 'STRING_VALUE', // required
+ *       Finalized: true || false,
+ *       Id: 'STRING_VALUE', // required
+ *       SourceId: 'STRING_VALUE',
+ *       UpdatedAt: new Date('TIMESTAMP'), // required
+ *       RevocationComment: 'STRING_VALUE',
+ *       Revoked: true || false,
+ *       RevokedAt: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListDataSetRevisionsCommandInput - {@link ListDataSetRevisionsCommandInput}
@@ -66,6 +86,8 @@ export interface ListDataSetRevisionsCommandOutput extends ListDataSetRevisionsR
  * @throws {@link ValidationException} (client fault)
  *  <p>The request was invalid.</p>
  *
+ * @throws {@link DataExchangeServiceException}
+ * <p>Base exception class for all service exceptions from DataExchange service.</p>
  *
  */
 export class ListDataSetRevisionsCommand extends $Command<

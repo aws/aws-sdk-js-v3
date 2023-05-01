@@ -38,14 +38,21 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { HoneycodeClient, ListTagsForResourceCommand } from "@aws-sdk/client-honeycode"; // ES Modules import
- * // const { HoneycodeClient, ListTagsForResourceCommand } = require("@aws-sdk/client-honeycode"); // CommonJS import
+ * import { HoneycodeClient, ListTagsForResourceCommand } from '@aws-sdk/client-honeycode'; // ES Modules import
+ * // const { HoneycodeClient, ListTagsForResourceCommand } = require('@aws-sdk/client-honeycode'); // CommonJS import
  * const client = new HoneycodeClient(config);
  * const input = { // ListTagsForResourceRequest
- *   resourceArn: "STRING_VALUE", // required
+ *   resourceArn: 'STRING_VALUE', // required
  * };
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTagsForResourceResult
+ *   tags: { // TagsMap
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param ListTagsForResourceCommandInput - {@link ListTagsForResourceCommandInput}
@@ -80,6 +87,8 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  *             Request is invalid. The message in the response contains details on why the request is invalid.
  *         </p>
  *
+ * @throws {@link HoneycodeServiceException}
+ * <p>Base exception class for all service exceptions from Honeycode service.</p>
  *
  */
 export class ListTagsForResourceCommand extends $Command<

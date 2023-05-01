@@ -40,15 +40,18 @@ export interface CancelSchemaExtensionCommandOutput extends CancelSchemaExtensio
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DirectoryServiceClient, CancelSchemaExtensionCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
- * // const { DirectoryServiceClient, CancelSchemaExtensionCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
+ * import { DirectoryServiceClient, CancelSchemaExtensionCommand } from '@aws-sdk/client-directory-service'; // ES Modules import
+ * // const { DirectoryServiceClient, CancelSchemaExtensionCommand } = require('@aws-sdk/client-directory-service'); // CommonJS import
  * const client = new DirectoryServiceClient(config);
  * const input = { // CancelSchemaExtensionRequest
- *   DirectoryId: "STRING_VALUE", // required
- *   SchemaExtensionId: "STRING_VALUE", // required
+ *   DirectoryId: 'STRING_VALUE', // required
+ *   SchemaExtensionId: 'STRING_VALUE', // required
  * };
  * const command = new CancelSchemaExtensionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param CancelSchemaExtensionCommandInput - {@link CancelSchemaExtensionCommandInput}
@@ -66,6 +69,8 @@ export interface CancelSchemaExtensionCommandOutput extends CancelSchemaExtensio
  * @throws {@link ServiceException} (server fault)
  *  <p>An exception has occurred in Directory Service.</p>
  *
+ * @throws {@link DirectoryServiceServiceException}
+ * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
  */
 export class CancelSchemaExtensionCommand extends $Command<

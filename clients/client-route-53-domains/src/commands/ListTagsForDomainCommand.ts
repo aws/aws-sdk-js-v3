@@ -39,14 +39,24 @@ export interface ListTagsForDomainCommandOutput extends ListTagsForDomainRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Route53DomainsClient, ListTagsForDomainCommand } from "@aws-sdk/client-route-53-domains"; // ES Modules import
- * // const { Route53DomainsClient, ListTagsForDomainCommand } = require("@aws-sdk/client-route-53-domains"); // CommonJS import
+ * import { Route53DomainsClient, ListTagsForDomainCommand } from '@aws-sdk/client-route-53-domains'; // ES Modules import
+ * // const { Route53DomainsClient, ListTagsForDomainCommand } = require('@aws-sdk/client-route-53-domains'); // CommonJS import
  * const client = new Route53DomainsClient(config);
  * const input = { // ListTagsForDomainRequest
- *   DomainName: "STRING_VALUE", // required
+ *   DomainName: 'STRING_VALUE', // required
  * };
  * const command = new ListTagsForDomainCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTagsForDomainResponse
+ *   TagList: [ // TagList
+ *     { // Tag
+ *       Key: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListTagsForDomainCommandInput - {@link ListTagsForDomainCommandInput}
@@ -68,6 +78,8 @@ export interface ListTagsForDomainCommandOutput extends ListTagsForDomainRespons
  * @throws {@link UnsupportedTLD} (client fault)
  *  <p>Amazon Route 53 does not support this top-level domain (TLD).</p>
  *
+ * @throws {@link Route53DomainsServiceException}
+ * <p>Base exception class for all service exceptions from Route53Domains service.</p>
  *
  */
 export class ListTagsForDomainCommand extends $Command<

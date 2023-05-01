@@ -40,15 +40,21 @@ export interface DeleteSnapshotCommandOutput extends DeleteSnapshotResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FSxClient, DeleteSnapshotCommand } from "@aws-sdk/client-fsx"; // ES Modules import
- * // const { FSxClient, DeleteSnapshotCommand } = require("@aws-sdk/client-fsx"); // CommonJS import
+ * import { FSxClient, DeleteSnapshotCommand } from '@aws-sdk/client-fsx'; // ES Modules import
+ * // const { FSxClient, DeleteSnapshotCommand } = require('@aws-sdk/client-fsx'); // CommonJS import
  * const client = new FSxClient(config);
  * const input = { // DeleteSnapshotRequest
- *   ClientRequestToken: "STRING_VALUE",
- *   SnapshotId: "STRING_VALUE", // required
+ *   ClientRequestToken: 'STRING_VALUE',
+ *   SnapshotId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteSnapshotCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteSnapshotResponse
+ *   SnapshotId: 'STRING_VALUE',
+ *   Lifecycle: 'PENDING' || 'CREATING' || 'DELETING' || 'AVAILABLE',
+ * };
+ *
  * ```
  *
  * @param DeleteSnapshotCommandInput - {@link DeleteSnapshotCommandInput}
@@ -66,6 +72,8 @@ export interface DeleteSnapshotCommandOutput extends DeleteSnapshotResponse, __M
  * @throws {@link SnapshotNotFound} (client fault)
  *  <p>No Amazon FSx snapshots were found based on the supplied parameters.</p>
  *
+ * @throws {@link FSxServiceException}
+ * <p>Base exception class for all service exceptions from FSx service.</p>
  *
  */
 export class DeleteSnapshotCommand extends $Command<

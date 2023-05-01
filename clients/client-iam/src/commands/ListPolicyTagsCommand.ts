@@ -38,16 +38,28 @@ export interface ListPolicyTagsCommandOutput extends ListPolicyTagsResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IAMClient, ListPolicyTagsCommand } from "@aws-sdk/client-iam"; // ES Modules import
- * // const { IAMClient, ListPolicyTagsCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * import { IAMClient, ListPolicyTagsCommand } from '@aws-sdk/client-iam'; // ES Modules import
+ * // const { IAMClient, ListPolicyTagsCommand } = require('@aws-sdk/client-iam'); // CommonJS import
  * const client = new IAMClient(config);
  * const input = { // ListPolicyTagsRequest
- *   PolicyArn: "STRING_VALUE", // required
- *   Marker: "STRING_VALUE",
- *   MaxItems: Number("int"),
+ *   PolicyArn: 'STRING_VALUE', // required
+ *   Marker: 'STRING_VALUE',
+ *   MaxItems: Number('int'),
  * };
  * const command = new ListPolicyTagsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListPolicyTagsResponse
+ *   Tags: [ // tagListType // required
+ *     { // Tag
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ *   IsTruncated: true || false,
+ *   Marker: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListPolicyTagsCommandInput - {@link ListPolicyTagsCommandInput}
@@ -68,6 +80,8 @@ export interface ListPolicyTagsCommandOutput extends ListPolicyTagsResponse, __M
  *  <p>The request processing has failed because of an unknown error, exception or
  *       failure.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  */
 export class ListPolicyTagsCommand extends $Command<

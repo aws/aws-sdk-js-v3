@@ -38,25 +38,31 @@ export interface CreateEndpointCommandOutput extends CreateEndpointResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ComprehendClient, CreateEndpointCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
- * // const { ComprehendClient, CreateEndpointCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
+ * import { ComprehendClient, CreateEndpointCommand } from '@aws-sdk/client-comprehend'; // ES Modules import
+ * // const { ComprehendClient, CreateEndpointCommand } = require('@aws-sdk/client-comprehend'); // CommonJS import
  * const client = new ComprehendClient(config);
  * const input = { // CreateEndpointRequest
- *   EndpointName: "STRING_VALUE", // required
- *   ModelArn: "STRING_VALUE",
- *   DesiredInferenceUnits: Number("int"), // required
- *   ClientRequestToken: "STRING_VALUE",
+ *   EndpointName: 'STRING_VALUE', // required
+ *   ModelArn: 'STRING_VALUE',
+ *   DesiredInferenceUnits: Number('int'), // required
+ *   ClientRequestToken: 'STRING_VALUE',
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
- *   DataAccessRoleArn: "STRING_VALUE",
- *   FlywheelArn: "STRING_VALUE",
+ *   DataAccessRoleArn: 'STRING_VALUE',
+ *   FlywheelArn: 'STRING_VALUE',
  * };
  * const command = new CreateEndpointCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateEndpointResponse
+ *   EndpointArn: 'STRING_VALUE',
+ *   ModelArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateEndpointCommandInput - {@link CreateEndpointCommandInput}
@@ -94,6 +100,8 @@ export interface CreateEndpointCommandOutput extends CreateEndpointResponse, __M
  *       resource). The maximum number of tags includes both existing tags and those included in your
  *       current request. </p>
  *
+ * @throws {@link ComprehendServiceException}
+ * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
  */
 export class CreateEndpointCommand extends $Command<

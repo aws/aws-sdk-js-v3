@@ -50,15 +50,18 @@ export interface PutResourcePolicyCommandOutput extends PutResourcePolicyRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { NetworkFirewallClient, PutResourcePolicyCommand } from "@aws-sdk/client-network-firewall"; // ES Modules import
- * // const { NetworkFirewallClient, PutResourcePolicyCommand } = require("@aws-sdk/client-network-firewall"); // CommonJS import
+ * import { NetworkFirewallClient, PutResourcePolicyCommand } from '@aws-sdk/client-network-firewall'; // ES Modules import
+ * // const { NetworkFirewallClient, PutResourcePolicyCommand } = require('@aws-sdk/client-network-firewall'); // CommonJS import
  * const client = new NetworkFirewallClient(config);
  * const input = { // PutResourcePolicyRequest
- *   ResourceArn: "STRING_VALUE", // required
- *   Policy: "STRING_VALUE", // required
+ *   ResourceArn: 'STRING_VALUE', // required
+ *   Policy: 'STRING_VALUE', // required
  * };
  * const command = new PutResourcePolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutResourcePolicyCommandInput - {@link PutResourcePolicyCommandInput}
@@ -96,6 +99,8 @@ export interface PutResourcePolicyCommandOutput extends PutResourcePolicyRespons
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Unable to process the request due to throttling limitations.</p>
  *
+ * @throws {@link NetworkFirewallServiceException}
+ * <p>Base exception class for all service exceptions from NetworkFirewall service.</p>
  *
  */
 export class PutResourcePolicyCommand extends $Command<

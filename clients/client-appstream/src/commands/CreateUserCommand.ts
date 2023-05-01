@@ -36,18 +36,21 @@ export interface CreateUserCommandOutput extends CreateUserResult, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppStreamClient, CreateUserCommand } from "@aws-sdk/client-appstream"; // ES Modules import
- * // const { AppStreamClient, CreateUserCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
+ * import { AppStreamClient, CreateUserCommand } from '@aws-sdk/client-appstream'; // ES Modules import
+ * // const { AppStreamClient, CreateUserCommand } = require('@aws-sdk/client-appstream'); // CommonJS import
  * const client = new AppStreamClient(config);
  * const input = { // CreateUserRequest
- *   UserName: "STRING_VALUE", // required
- *   MessageAction: "SUPPRESS" || "RESEND",
- *   FirstName: "STRING_VALUE",
- *   LastName: "STRING_VALUE",
- *   AuthenticationType: "API" || "SAML" || "USERPOOL" || "AWS_AD", // required
+ *   UserName: 'STRING_VALUE', // required
+ *   MessageAction: 'SUPPRESS' || 'RESEND',
+ *   FirstName: 'STRING_VALUE',
+ *   LastName: 'STRING_VALUE',
+ *   AuthenticationType: 'API' || 'SAML' || 'USERPOOL' || 'AWS_AD', // required
  * };
  * const command = new CreateUserCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param CreateUserCommandInput - {@link CreateUserCommandInput}
@@ -71,6 +74,8 @@ export interface CreateUserCommandOutput extends CreateUserResult, __MetadataBea
  * @throws {@link ResourceAlreadyExistsException} (client fault)
  *  <p>The specified resource already exists.</p>
  *
+ * @throws {@link AppStreamServiceException}
+ * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
  */
 export class CreateUserCommand extends $Command<

@@ -40,14 +40,36 @@ export interface DeleteProfileCommandOutput extends ProfileDetailResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RolesAnywhereClient, DeleteProfileCommand } from "@aws-sdk/client-rolesanywhere"; // ES Modules import
- * // const { RolesAnywhereClient, DeleteProfileCommand } = require("@aws-sdk/client-rolesanywhere"); // CommonJS import
+ * import { RolesAnywhereClient, DeleteProfileCommand } from '@aws-sdk/client-rolesanywhere'; // ES Modules import
+ * // const { RolesAnywhereClient, DeleteProfileCommand } = require('@aws-sdk/client-rolesanywhere'); // CommonJS import
  * const client = new RolesAnywhereClient(config);
  * const input = { // ScalarProfileRequest
- *   profileId: "STRING_VALUE", // required
+ *   profileId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteProfileCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ProfileDetailResponse
+ *   profile: { // ProfileDetail
+ *     profileId: 'STRING_VALUE',
+ *     profileArn: 'STRING_VALUE',
+ *     name: 'STRING_VALUE',
+ *     requireInstanceProperties: true || false,
+ *     enabled: true || false,
+ *     createdBy: 'STRING_VALUE',
+ *     sessionPolicy: 'STRING_VALUE',
+ *     roleArns: [ // RoleArnList
+ *       'STRING_VALUE',
+ *     ],
+ *     managedPolicyArns: [ // ManagedPolicyList
+ *       'STRING_VALUE',
+ *     ],
+ *     createdAt: new Date('TIMESTAMP'),
+ *     updatedAt: new Date('TIMESTAMP'),
+ *     durationSeconds: Number('int'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param DeleteProfileCommandInput - {@link DeleteProfileCommandInput}
@@ -62,6 +84,8 @@ export interface DeleteProfileCommandOutput extends ProfileDetailResponse, __Met
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource could not be found.</p>
  *
+ * @throws {@link RolesAnywhereServiceException}
+ * <p>Base exception class for all service exceptions from RolesAnywhere service.</p>
  *
  */
 export class DeleteProfileCommand extends $Command<

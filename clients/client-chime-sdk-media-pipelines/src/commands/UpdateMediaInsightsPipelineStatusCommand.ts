@@ -43,15 +43,18 @@ export interface UpdateMediaInsightsPipelineStatusCommandOutput extends __Metada
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeSDKMediaPipelinesClient, UpdateMediaInsightsPipelineStatusCommand } from "@aws-sdk/client-chime-sdk-media-pipelines"; // ES Modules import
- * // const { ChimeSDKMediaPipelinesClient, UpdateMediaInsightsPipelineStatusCommand } = require("@aws-sdk/client-chime-sdk-media-pipelines"); // CommonJS import
+ * import { ChimeSDKMediaPipelinesClient, UpdateMediaInsightsPipelineStatusCommand } from '@aws-sdk/client-chime-sdk-media-pipelines'; // ES Modules import
+ * // const { ChimeSDKMediaPipelinesClient, UpdateMediaInsightsPipelineStatusCommand } = require('@aws-sdk/client-chime-sdk-media-pipelines'); // CommonJS import
  * const client = new ChimeSDKMediaPipelinesClient(config);
  * const input = { // UpdateMediaInsightsPipelineStatusRequest
- *   Identifier: "STRING_VALUE", // required
- *   UpdateStatus: "Pause" || "Resume", // required
+ *   Identifier: 'STRING_VALUE', // required
+ *   UpdateStatus: 'Pause' || 'Resume', // required
  * };
  * const command = new UpdateMediaInsightsPipelineStatusCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateMediaInsightsPipelineStatusCommandInput - {@link UpdateMediaInsightsPipelineStatusCommandInput}
@@ -85,6 +88,8 @@ export interface UpdateMediaInsightsPipelineStatusCommandOutput extends __Metada
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeSDKMediaPipelinesServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKMediaPipelines service.</p>
  *
  */
 export class UpdateMediaInsightsPipelineStatusCommand extends $Command<

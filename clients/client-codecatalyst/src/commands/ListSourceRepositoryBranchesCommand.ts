@@ -41,18 +41,31 @@ export interface ListSourceRepositoryBranchesCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeCatalystClient, ListSourceRepositoryBranchesCommand } from "@aws-sdk/client-codecatalyst"; // ES Modules import
- * // const { CodeCatalystClient, ListSourceRepositoryBranchesCommand } = require("@aws-sdk/client-codecatalyst"); // CommonJS import
+ * import { CodeCatalystClient, ListSourceRepositoryBranchesCommand } from '@aws-sdk/client-codecatalyst'; // ES Modules import
+ * // const { CodeCatalystClient, ListSourceRepositoryBranchesCommand } = require('@aws-sdk/client-codecatalyst'); // CommonJS import
  * const client = new CodeCatalystClient(config);
  * const input = { // ListSourceRepositoryBranchesRequest
- *   spaceName: "STRING_VALUE", // required
- *   projectName: "STRING_VALUE", // required
- *   sourceRepositoryName: "STRING_VALUE", // required
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   spaceName: 'STRING_VALUE', // required
+ *   projectName: 'STRING_VALUE', // required
+ *   sourceRepositoryName: 'STRING_VALUE', // required
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new ListSourceRepositoryBranchesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListSourceRepositoryBranchesResponse
+ *   nextToken: 'STRING_VALUE',
+ *   items: [ // ListSourceRepositoryBranchesItems // required
+ *     { // ListSourceRepositoryBranchesItem
+ *       ref: 'STRING_VALUE',
+ *       name: 'STRING_VALUE',
+ *       lastUpdatedTime: new Date('TIMESTAMP'),
+ *       headCommitId: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListSourceRepositoryBranchesCommandInput - {@link ListSourceRepositoryBranchesCommandInput}
@@ -81,6 +94,8 @@ export interface ListSourceRepositoryBranchesCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The request was denied because an input failed to satisfy the constraints specified by the service. Check the spelling and input requirements, and then try again.</p>
  *
+ * @throws {@link CodeCatalystServiceException}
+ * <p>Base exception class for all service exceptions from CodeCatalyst service.</p>
  *
  */
 export class ListSourceRepositoryBranchesCommand extends $Command<

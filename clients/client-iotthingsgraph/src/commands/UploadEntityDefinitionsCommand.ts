@@ -48,19 +48,24 @@ export interface UploadEntityDefinitionsCommandOutput extends UploadEntityDefini
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTThingsGraphClient, UploadEntityDefinitionsCommand } from "@aws-sdk/client-iotthingsgraph"; // ES Modules import
- * // const { IoTThingsGraphClient, UploadEntityDefinitionsCommand } = require("@aws-sdk/client-iotthingsgraph"); // CommonJS import
+ * import { IoTThingsGraphClient, UploadEntityDefinitionsCommand } from '@aws-sdk/client-iotthingsgraph'; // ES Modules import
+ * // const { IoTThingsGraphClient, UploadEntityDefinitionsCommand } = require('@aws-sdk/client-iotthingsgraph'); // CommonJS import
  * const client = new IoTThingsGraphClient(config);
  * const input = { // UploadEntityDefinitionsRequest
  *   document: { // DefinitionDocument
- *     language: "STRING_VALUE", // required
- *     text: "STRING_VALUE", // required
+ *     language: 'STRING_VALUE', // required
+ *     text: 'STRING_VALUE', // required
  *   },
  *   syncWithPublicNamespace: true || false,
  *   deprecateExistingEntities: true || false,
  * };
  * const command = new UploadEntityDefinitionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UploadEntityDefinitionsResponse
+ *   uploadId: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param UploadEntityDefinitionsCommandInput - {@link UploadEntityDefinitionsCommandInput}
@@ -78,6 +83,8 @@ export interface UploadEntityDefinitionsCommandOutput extends UploadEntityDefini
  * @throws {@link ThrottlingException} (client fault)
  *  <p></p>
  *
+ * @throws {@link IoTThingsGraphServiceException}
+ * <p>Base exception class for all service exceptions from IoTThingsGraph service.</p>
  *
  */
 export class UploadEntityDefinitionsCommand extends $Command<

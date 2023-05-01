@@ -41,14 +41,19 @@ export interface AssociateServiceRoleToAccountCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GreengrassClient, AssociateServiceRoleToAccountCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
- * // const { GreengrassClient, AssociateServiceRoleToAccountCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
+ * import { GreengrassClient, AssociateServiceRoleToAccountCommand } from '@aws-sdk/client-greengrass'; // ES Modules import
+ * // const { GreengrassClient, AssociateServiceRoleToAccountCommand } = require('@aws-sdk/client-greengrass'); // CommonJS import
  * const client = new GreengrassClient(config);
  * const input = { // AssociateServiceRoleToAccountRequest
- *   RoleArn: "STRING_VALUE", // required
+ *   RoleArn: 'STRING_VALUE', // required
  * };
  * const command = new AssociateServiceRoleToAccountCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AssociateServiceRoleToAccountResponse
+ *   AssociatedAt: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param AssociateServiceRoleToAccountCommandInput - {@link AssociateServiceRoleToAccountCommandInput}
@@ -63,6 +68,8 @@ export interface AssociateServiceRoleToAccountCommandOutput
  * @throws {@link InternalServerErrorException} (server fault)
  *  General error information.
  *
+ * @throws {@link GreengrassServiceException}
+ * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
  */
 export class AssociateServiceRoleToAccountCommand extends $Command<

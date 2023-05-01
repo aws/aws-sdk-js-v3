@@ -36,14 +36,19 @@ export interface DeletePatchBaselineCommandOutput extends DeletePatchBaselineRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMClient, DeletePatchBaselineCommand } from "@aws-sdk/client-ssm"; // ES Modules import
- * // const { SSMClient, DeletePatchBaselineCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * import { SSMClient, DeletePatchBaselineCommand } from '@aws-sdk/client-ssm'; // ES Modules import
+ * // const { SSMClient, DeletePatchBaselineCommand } = require('@aws-sdk/client-ssm'); // CommonJS import
  * const client = new SSMClient(config);
  * const input = { // DeletePatchBaselineRequest
- *   BaselineId: "STRING_VALUE", // required
+ *   BaselineId: 'STRING_VALUE', // required
  * };
  * const command = new DeletePatchBaselineCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeletePatchBaselineResult
+ *   BaselineId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DeletePatchBaselineCommandInput - {@link DeletePatchBaselineCommandInput}
@@ -59,6 +64,8 @@ export interface DeletePatchBaselineCommandOutput extends DeletePatchBaselineRes
  *  <p>Error returned if an attempt is made to delete a patch baseline that is registered for a
  *    patch group.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class DeletePatchBaselineCommand extends $Command<

@@ -45,15 +45,18 @@ export interface PutConfigurationSetSendingOptionsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SESv2Client, PutConfigurationSetSendingOptionsCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
- * // const { SESv2Client, PutConfigurationSetSendingOptionsCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
+ * import { SESv2Client, PutConfigurationSetSendingOptionsCommand } from '@aws-sdk/client-sesv2'; // ES Modules import
+ * // const { SESv2Client, PutConfigurationSetSendingOptionsCommand } = require('@aws-sdk/client-sesv2'); // CommonJS import
  * const client = new SESv2Client(config);
  * const input = { // PutConfigurationSetSendingOptionsRequest
- *   ConfigurationSetName: "STRING_VALUE", // required
+ *   ConfigurationSetName: 'STRING_VALUE', // required
  *   SendingEnabled: true || false,
  * };
  * const command = new PutConfigurationSetSendingOptionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutConfigurationSetSendingOptionsCommandInput - {@link PutConfigurationSetSendingOptionsCommandInput}
@@ -71,6 +74,8 @@ export interface PutConfigurationSetSendingOptionsCommandOutput
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Too many requests have been made to the operation.</p>
  *
+ * @throws {@link SESv2ServiceException}
+ * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
  */
 export class PutConfigurationSetSendingOptionsCommand extends $Command<

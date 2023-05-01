@@ -38,36 +38,36 @@ export interface SearchSecurityProfilesCommandOutput extends SearchSecurityProfi
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, SearchSecurityProfilesCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, SearchSecurityProfilesCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, SearchSecurityProfilesCommand } from '@aws-sdk/client-connect'; // ES Modules import
+ * // const { ConnectClient, SearchSecurityProfilesCommand } = require('@aws-sdk/client-connect'); // CommonJS import
  * const client = new ConnectClient(config);
  * const input = { // SearchSecurityProfilesRequest
- *   InstanceId: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   InstanceId: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  *   SearchCriteria: { // SecurityProfileSearchCriteria
  *     OrConditions: [ // SecurityProfileSearchConditionList
  *       {
  *         OrConditions: [
- *           "<SecurityProfileSearchCriteria>",
+ *           '<SecurityProfileSearchCriteria>',
  *         ],
  *         AndConditions: [
- *           "<SecurityProfileSearchCriteria>",
+ *           '<SecurityProfileSearchCriteria>',
  *         ],
  *         StringCondition: { // StringCondition
- *           FieldName: "STRING_VALUE",
- *           Value: "STRING_VALUE",
- *           ComparisonType: "STARTS_WITH" || "CONTAINS" || "EXACT",
+ *           FieldName: 'STRING_VALUE',
+ *           Value: 'STRING_VALUE',
+ *           ComparisonType: 'STARTS_WITH' || 'CONTAINS' || 'EXACT',
  *         },
  *       },
  *     ],
  *     AndConditions: [
- *       "<SecurityProfileSearchCriteria>",
+ *       '<SecurityProfileSearchCriteria>',
  *     ],
  *     StringCondition: {
- *       FieldName: "STRING_VALUE",
- *       Value: "STRING_VALUE",
- *       ComparisonType: "STARTS_WITH" || "CONTAINS" || "EXACT",
+ *       FieldName: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
+ *       ComparisonType: 'STARTS_WITH' || 'CONTAINS' || 'EXACT',
  *     },
  *   },
  *   SearchFilter: { // SecurityProfilesSearchFilter
@@ -75,23 +75,41 @@ export interface SearchSecurityProfilesCommandOutput extends SearchSecurityProfi
  *       OrConditions: [ // TagOrConditionList
  *         [ // TagAndConditionList
  *           { // TagCondition
- *             TagKey: "STRING_VALUE",
- *             TagValue: "STRING_VALUE",
+ *             TagKey: 'STRING_VALUE',
+ *             TagValue: 'STRING_VALUE',
  *           },
  *         ],
  *       ],
  *       AndConditions: [
  *         {
- *           TagKey: "STRING_VALUE",
- *           TagValue: "STRING_VALUE",
+ *           TagKey: 'STRING_VALUE',
+ *           TagValue: 'STRING_VALUE',
  *         },
  *       ],
- *       TagCondition: "<TagCondition>",
+ *       TagCondition: '<TagCondition>',
  *     },
  *   },
  * };
  * const command = new SearchSecurityProfilesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SearchSecurityProfilesResponse
+ *   SecurityProfiles: [ // SecurityProfilesSearchSummaryList
+ *     { // SecurityProfileSearchSummary
+ *       Id: 'STRING_VALUE',
+ *       OrganizationResourceId: 'STRING_VALUE',
+ *       Arn: 'STRING_VALUE',
+ *       SecurityProfileName: 'STRING_VALUE',
+ *       Description: 'STRING_VALUE',
+ *       Tags: { // TagMap
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ *   ApproximateTotalCount: Number('long'),
+ * };
+ *
  * ```
  *
  * @param SearchSecurityProfilesCommandInput - {@link SearchSecurityProfilesCommandInput}
@@ -115,6 +133,8 @@ export interface SearchSecurityProfilesCommandOutput extends SearchSecurityProfi
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class SearchSecurityProfilesCommand extends $Command<

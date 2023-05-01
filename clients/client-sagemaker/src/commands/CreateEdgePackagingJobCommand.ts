@@ -36,31 +36,34 @@ export interface CreateEdgePackagingJobCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, CreateEdgePackagingJobCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, CreateEdgePackagingJobCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, CreateEdgePackagingJobCommand } from '@aws-sdk/client-sagemaker'; // ES Modules import
+ * // const { SageMakerClient, CreateEdgePackagingJobCommand } = require('@aws-sdk/client-sagemaker'); // CommonJS import
  * const client = new SageMakerClient(config);
  * const input = { // CreateEdgePackagingJobRequest
- *   EdgePackagingJobName: "STRING_VALUE", // required
- *   CompilationJobName: "STRING_VALUE", // required
- *   ModelName: "STRING_VALUE", // required
- *   ModelVersion: "STRING_VALUE", // required
- *   RoleArn: "STRING_VALUE", // required
+ *   EdgePackagingJobName: 'STRING_VALUE', // required
+ *   CompilationJobName: 'STRING_VALUE', // required
+ *   ModelName: 'STRING_VALUE', // required
+ *   ModelVersion: 'STRING_VALUE', // required
+ *   RoleArn: 'STRING_VALUE', // required
  *   OutputConfig: { // EdgeOutputConfig
- *     S3OutputLocation: "STRING_VALUE", // required
- *     KmsKeyId: "STRING_VALUE",
- *     PresetDeploymentType: "GreengrassV2Component",
- *     PresetDeploymentConfig: "STRING_VALUE",
+ *     S3OutputLocation: 'STRING_VALUE', // required
+ *     KmsKeyId: 'STRING_VALUE',
+ *     PresetDeploymentType: 'GreengrassV2Component',
+ *     PresetDeploymentConfig: 'STRING_VALUE',
  *   },
- *   ResourceKey: "STRING_VALUE",
+ *   ResourceKey: 'STRING_VALUE',
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreateEdgePackagingJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param CreateEdgePackagingJobCommandInput - {@link CreateEdgePackagingJobCommandInput}
@@ -73,6 +76,8 @@ export interface CreateEdgePackagingJobCommandOutput extends __MetadataBearer {}
  *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many
  *             training jobs created. </p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class CreateEdgePackagingJobCommand extends $Command<

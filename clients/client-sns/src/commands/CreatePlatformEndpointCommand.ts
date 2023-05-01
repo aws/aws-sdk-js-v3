@@ -49,19 +49,24 @@ export interface CreatePlatformEndpointCommandOutput extends CreateEndpointRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SNSClient, CreatePlatformEndpointCommand } from "@aws-sdk/client-sns"; // ES Modules import
- * // const { SNSClient, CreatePlatformEndpointCommand } = require("@aws-sdk/client-sns"); // CommonJS import
+ * import { SNSClient, CreatePlatformEndpointCommand } from '@aws-sdk/client-sns'; // ES Modules import
+ * // const { SNSClient, CreatePlatformEndpointCommand } = require('@aws-sdk/client-sns'); // CommonJS import
  * const client = new SNSClient(config);
  * const input = { // CreatePlatformEndpointInput
- *   PlatformApplicationArn: "STRING_VALUE", // required
- *   Token: "STRING_VALUE", // required
- *   CustomUserData: "STRING_VALUE",
+ *   PlatformApplicationArn: 'STRING_VALUE', // required
+ *   Token: 'STRING_VALUE', // required
+ *   CustomUserData: 'STRING_VALUE',
  *   Attributes: { // MapStringToString
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new CreatePlatformEndpointCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateEndpointResponse
+ *   EndpointArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreatePlatformEndpointCommandInput - {@link CreatePlatformEndpointCommandInput}
@@ -83,6 +88,8 @@ export interface CreatePlatformEndpointCommandOutput extends CreateEndpointRespo
  * @throws {@link NotFoundException} (client fault)
  *  <p>Indicates that the requested resource does not exist.</p>
  *
+ * @throws {@link SNSServiceException}
+ * <p>Base exception class for all service exceptions from SNS service.</p>
  *
  */
 export class CreatePlatformEndpointCommand extends $Command<

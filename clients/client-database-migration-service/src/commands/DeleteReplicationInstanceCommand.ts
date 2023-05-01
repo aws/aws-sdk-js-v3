@@ -45,14 +45,79 @@ export interface DeleteReplicationInstanceCommandOutput extends DeleteReplicatio
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DatabaseMigrationServiceClient, DeleteReplicationInstanceCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
- * // const { DatabaseMigrationServiceClient, DeleteReplicationInstanceCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
+ * import { DatabaseMigrationServiceClient, DeleteReplicationInstanceCommand } from '@aws-sdk/client-database-migration-service'; // ES Modules import
+ * // const { DatabaseMigrationServiceClient, DeleteReplicationInstanceCommand } = require('@aws-sdk/client-database-migration-service'); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
  * const input = { // DeleteReplicationInstanceMessage
- *   ReplicationInstanceArn: "STRING_VALUE", // required
+ *   ReplicationInstanceArn: 'STRING_VALUE', // required
  * };
  * const command = new DeleteReplicationInstanceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteReplicationInstanceResponse
+ *   ReplicationInstance: { // ReplicationInstance
+ *     ReplicationInstanceIdentifier: 'STRING_VALUE',
+ *     ReplicationInstanceClass: 'STRING_VALUE',
+ *     ReplicationInstanceStatus: 'STRING_VALUE',
+ *     AllocatedStorage: Number('int'),
+ *     InstanceCreateTime: new Date('TIMESTAMP'),
+ *     VpcSecurityGroups: [ // VpcSecurityGroupMembershipList
+ *       { // VpcSecurityGroupMembership
+ *         VpcSecurityGroupId: 'STRING_VALUE',
+ *         Status: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     AvailabilityZone: 'STRING_VALUE',
+ *     ReplicationSubnetGroup: { // ReplicationSubnetGroup
+ *       ReplicationSubnetGroupIdentifier: 'STRING_VALUE',
+ *       ReplicationSubnetGroupDescription: 'STRING_VALUE',
+ *       VpcId: 'STRING_VALUE',
+ *       SubnetGroupStatus: 'STRING_VALUE',
+ *       Subnets: [ // SubnetList
+ *         { // Subnet
+ *           SubnetIdentifier: 'STRING_VALUE',
+ *           SubnetAvailabilityZone: { // AvailabilityZone
+ *             Name: 'STRING_VALUE',
+ *           },
+ *           SubnetStatus: 'STRING_VALUE',
+ *         },
+ *       ],
+ *       SupportedNetworkTypes: [ // StringList
+ *         'STRING_VALUE',
+ *       ],
+ *     },
+ *     PreferredMaintenanceWindow: 'STRING_VALUE',
+ *     PendingModifiedValues: { // ReplicationPendingModifiedValues
+ *       ReplicationInstanceClass: 'STRING_VALUE',
+ *       AllocatedStorage: Number('int'),
+ *       MultiAZ: true || false,
+ *       EngineVersion: 'STRING_VALUE',
+ *       NetworkType: 'STRING_VALUE',
+ *     },
+ *     MultiAZ: true || false,
+ *     EngineVersion: 'STRING_VALUE',
+ *     AutoMinorVersionUpgrade: true || false,
+ *     KmsKeyId: 'STRING_VALUE',
+ *     ReplicationInstanceArn: 'STRING_VALUE',
+ *     ReplicationInstancePublicIpAddress: 'STRING_VALUE',
+ *     ReplicationInstancePrivateIpAddress: 'STRING_VALUE',
+ *     ReplicationInstancePublicIpAddresses: [ // ReplicationInstancePublicIpAddressList
+ *       'STRING_VALUE',
+ *     ],
+ *     ReplicationInstancePrivateIpAddresses: [ // ReplicationInstancePrivateIpAddressList
+ *       'STRING_VALUE',
+ *     ],
+ *     ReplicationInstanceIpv6Addresses: [ // ReplicationInstanceIpv6AddressList
+ *       'STRING_VALUE',
+ *     ],
+ *     PubliclyAccessible: true || false,
+ *     SecondaryAvailabilityZone: 'STRING_VALUE',
+ *     FreeUntil: new Date('TIMESTAMP'),
+ *     DnsNameServers: 'STRING_VALUE',
+ *     NetworkType: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param DeleteReplicationInstanceCommandInput - {@link DeleteReplicationInstanceCommandInput}
@@ -67,6 +132,8 @@ export interface DeleteReplicationInstanceCommandOutput extends DeleteReplicatio
  * @throws {@link ResourceNotFoundFault} (client fault)
  *  <p>The resource could not be found.</p>
  *
+ * @throws {@link DatabaseMigrationServiceServiceException}
+ * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
  * @example Delete Replication Instance
  * ```javascript

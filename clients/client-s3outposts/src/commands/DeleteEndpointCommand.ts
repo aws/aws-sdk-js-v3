@@ -53,15 +53,18 @@ export interface DeleteEndpointCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { S3OutpostsClient, DeleteEndpointCommand } from "@aws-sdk/client-s3outposts"; // ES Modules import
- * // const { S3OutpostsClient, DeleteEndpointCommand } = require("@aws-sdk/client-s3outposts"); // CommonJS import
+ * import { S3OutpostsClient, DeleteEndpointCommand } from '@aws-sdk/client-s3outposts'; // ES Modules import
+ * // const { S3OutpostsClient, DeleteEndpointCommand } = require('@aws-sdk/client-s3outposts'); // CommonJS import
  * const client = new S3OutpostsClient(config);
  * const input = { // DeleteEndpointRequest
- *   EndpointId: "STRING_VALUE", // required
- *   OutpostId: "STRING_VALUE", // required
+ *   EndpointId: 'STRING_VALUE', // required
+ *   OutpostId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteEndpointCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteEndpointCommandInput - {@link DeleteEndpointCommandInput}
@@ -88,6 +91,8 @@ export interface DeleteEndpointCommandOutput extends __MetadataBearer {}
  * @throws {@link ValidationException} (client fault)
  *  <p>There was an exception validating this data.</p>
  *
+ * @throws {@link S3OutpostsServiceException}
+ * <p>Base exception class for all service exceptions from S3Outposts service.</p>
  *
  */
 export class DeleteEndpointCommand extends $Command<

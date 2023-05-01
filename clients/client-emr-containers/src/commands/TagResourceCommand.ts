@@ -43,17 +43,20 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EMRContainersClient, TagResourceCommand } from "@aws-sdk/client-emr-containers"; // ES Modules import
- * // const { EMRContainersClient, TagResourceCommand } = require("@aws-sdk/client-emr-containers"); // CommonJS import
+ * import { EMRContainersClient, TagResourceCommand } from '@aws-sdk/client-emr-containers'; // ES Modules import
+ * // const { EMRContainersClient, TagResourceCommand } = require('@aws-sdk/client-emr-containers'); // CommonJS import
  * const client = new EMRContainersClient(config);
  * const input = { // TagResourceRequest
- *   resourceArn: "STRING_VALUE", // required
+ *   resourceArn: 'STRING_VALUE', // required
  *   tags: { // TagMap // required
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param TagResourceCommandInput - {@link TagResourceCommandInput}
@@ -71,6 +74,8 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @throws {@link ValidationException} (client fault)
  *  <p>There are invalid parameters in the client request.</p>
  *
+ * @throws {@link EMRContainersServiceException}
+ * <p>Base exception class for all service exceptions from EMRContainers service.</p>
  *
  */
 export class TagResourceCommand extends $Command<

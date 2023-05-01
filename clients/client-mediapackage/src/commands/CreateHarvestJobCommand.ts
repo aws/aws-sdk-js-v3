@@ -36,22 +36,39 @@ export interface CreateHarvestJobCommandOutput extends CreateHarvestJobResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MediaPackageClient, CreateHarvestJobCommand } from "@aws-sdk/client-mediapackage"; // ES Modules import
- * // const { MediaPackageClient, CreateHarvestJobCommand } = require("@aws-sdk/client-mediapackage"); // CommonJS import
+ * import { MediaPackageClient, CreateHarvestJobCommand } from '@aws-sdk/client-mediapackage'; // ES Modules import
+ * // const { MediaPackageClient, CreateHarvestJobCommand } = require('@aws-sdk/client-mediapackage'); // CommonJS import
  * const client = new MediaPackageClient(config);
  * const input = { // CreateHarvestJobRequest
- *   EndTime: "STRING_VALUE", // required
- *   Id: "STRING_VALUE", // required
- *   OriginEndpointId: "STRING_VALUE", // required
+ *   EndTime: 'STRING_VALUE', // required
+ *   Id: 'STRING_VALUE', // required
+ *   OriginEndpointId: 'STRING_VALUE', // required
  *   S3Destination: { // S3Destination
- *     BucketName: "STRING_VALUE", // required
- *     ManifestKey: "STRING_VALUE", // required
- *     RoleArn: "STRING_VALUE", // required
+ *     BucketName: 'STRING_VALUE', // required
+ *     ManifestKey: 'STRING_VALUE', // required
+ *     RoleArn: 'STRING_VALUE', // required
  *   },
- *   StartTime: "STRING_VALUE", // required
+ *   StartTime: 'STRING_VALUE', // required
  * };
  * const command = new CreateHarvestJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateHarvestJobResponse
+ *   Arn: 'STRING_VALUE',
+ *   ChannelId: 'STRING_VALUE',
+ *   CreatedAt: 'STRING_VALUE',
+ *   EndTime: 'STRING_VALUE',
+ *   Id: 'STRING_VALUE',
+ *   OriginEndpointId: 'STRING_VALUE',
+ *   S3Destination: { // S3Destination
+ *     BucketName: 'STRING_VALUE', // required
+ *     ManifestKey: 'STRING_VALUE', // required
+ *     RoleArn: 'STRING_VALUE', // required
+ *   },
+ *   StartTime: 'STRING_VALUE',
+ *   Status: 'IN_PROGRESS' || 'SUCCEEDED' || 'FAILED',
+ * };
+ *
  * ```
  *
  * @param CreateHarvestJobCommandInput - {@link CreateHarvestJobCommandInput}
@@ -78,6 +95,8 @@ export interface CreateHarvestJobCommandOutput extends CreateHarvestJobResponse,
  * @throws {@link UnprocessableEntityException} (client fault)
  *  The parameters sent in the request are not valid.
  *
+ * @throws {@link MediaPackageServiceException}
+ * <p>Base exception class for all service exceptions from MediaPackage service.</p>
  *
  */
 export class CreateHarvestJobCommand extends $Command<

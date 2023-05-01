@@ -36,18 +36,18 @@ export interface PutCaseEventConfigurationCommandOutput extends PutCaseEventConf
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectCasesClient, PutCaseEventConfigurationCommand } from "@aws-sdk/client-connectcases"; // ES Modules import
- * // const { ConnectCasesClient, PutCaseEventConfigurationCommand } = require("@aws-sdk/client-connectcases"); // CommonJS import
+ * import { ConnectCasesClient, PutCaseEventConfigurationCommand } from '@aws-sdk/client-connectcases'; // ES Modules import
+ * // const { ConnectCasesClient, PutCaseEventConfigurationCommand } = require('@aws-sdk/client-connectcases'); // CommonJS import
  * const client = new ConnectCasesClient(config);
  * const input = { // PutCaseEventConfigurationRequest
- *   domainId: "STRING_VALUE", // required
+ *   domainId: 'STRING_VALUE', // required
  *   eventBridge: { // EventBridgeConfiguration
  *     enabled: true || false, // required
  *     includedData: { // EventIncludedData
  *       caseData: { // CaseEventIncludedData
  *         fields: [ // FieldIdentifierList // required
  *           { // FieldIdentifier
- *             id: "STRING_VALUE", // required
+ *             id: 'STRING_VALUE', // required
  *           },
  *         ],
  *       },
@@ -59,6 +59,9 @@ export interface PutCaseEventConfigurationCommandOutput extends PutCaseEventConf
  * };
  * const command = new PutCaseEventConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutCaseEventConfigurationCommandInput - {@link PutCaseEventConfigurationCommandInput}
@@ -84,6 +87,8 @@ export interface PutCaseEventConfigurationCommandOutput extends PutCaseEventConf
  * @throws {@link ValidationException} (client fault)
  *  <p>The request isn't valid. Check the syntax and try again.</p>
  *
+ * @throws {@link ConnectCasesServiceException}
+ * <p>Base exception class for all service exceptions from ConnectCases service.</p>
  *
  */
 export class PutCaseEventConfigurationCommand extends $Command<

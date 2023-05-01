@@ -36,13 +36,13 @@ export interface UpdateMonitoringCommandOutput extends UpdateMonitoringResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KafkaClient, UpdateMonitoringCommand } from "@aws-sdk/client-kafka"; // ES Modules import
- * // const { KafkaClient, UpdateMonitoringCommand } = require("@aws-sdk/client-kafka"); // CommonJS import
+ * import { KafkaClient, UpdateMonitoringCommand } from '@aws-sdk/client-kafka'; // ES Modules import
+ * // const { KafkaClient, UpdateMonitoringCommand } = require('@aws-sdk/client-kafka'); // CommonJS import
  * const client = new KafkaClient(config);
  * const input = { // UpdateMonitoringRequest
- *   ClusterArn: "STRING_VALUE", // required
- *   CurrentVersion: "STRING_VALUE", // required
- *   EnhancedMonitoring: "DEFAULT" || "PER_BROKER" || "PER_TOPIC_PER_BROKER" || "PER_TOPIC_PER_PARTITION",
+ *   ClusterArn: 'STRING_VALUE', // required
+ *   CurrentVersion: 'STRING_VALUE', // required
+ *   EnhancedMonitoring: 'DEFAULT' || 'PER_BROKER' || 'PER_TOPIC_PER_BROKER' || 'PER_TOPIC_PER_PARTITION',
  *   OpenMonitoring: { // OpenMonitoringInfo
  *     Prometheus: { // PrometheusInfo
  *       JmxExporter: { // JmxExporterInfo
@@ -57,22 +57,28 @@ export interface UpdateMonitoringCommandOutput extends UpdateMonitoringResponse,
  *     BrokerLogs: { // BrokerLogs
  *       CloudWatchLogs: { // CloudWatchLogs
  *         Enabled: true || false, // required
- *         LogGroup: "STRING_VALUE",
+ *         LogGroup: 'STRING_VALUE',
  *       },
  *       Firehose: { // Firehose
- *         DeliveryStream: "STRING_VALUE",
+ *         DeliveryStream: 'STRING_VALUE',
  *         Enabled: true || false, // required
  *       },
  *       S3: { // S3
- *         Bucket: "STRING_VALUE",
+ *         Bucket: 'STRING_VALUE',
  *         Enabled: true || false, // required
- *         Prefix: "STRING_VALUE",
+ *         Prefix: 'STRING_VALUE',
  *       },
  *     },
  *   },
  * };
  * const command = new UpdateMonitoringCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateMonitoringResponse
+ *   ClusterArn: 'STRING_VALUE',
+ *   ClusterOperationArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateMonitoringCommandInput - {@link UpdateMonitoringCommandInput}
@@ -96,6 +102,8 @@ export interface UpdateMonitoringCommandOutput extends UpdateMonitoringResponse,
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>Returns information about an error.</p>
  *
+ * @throws {@link KafkaServiceException}
+ * <p>Base exception class for all service exceptions from Kafka service.</p>
  *
  */
 export class UpdateMonitoringCommand extends $Command<

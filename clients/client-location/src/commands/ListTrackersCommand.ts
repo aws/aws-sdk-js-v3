@@ -36,15 +36,30 @@ export interface ListTrackersCommandOutput extends ListTrackersResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LocationClient, ListTrackersCommand } from "@aws-sdk/client-location"; // ES Modules import
- * // const { LocationClient, ListTrackersCommand } = require("@aws-sdk/client-location"); // CommonJS import
+ * import { LocationClient, ListTrackersCommand } from '@aws-sdk/client-location'; // ES Modules import
+ * // const { LocationClient, ListTrackersCommand } = require('@aws-sdk/client-location'); // CommonJS import
  * const client = new LocationClient(config);
  * const input = { // ListTrackersRequest
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListTrackersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTrackersResponse
+ *   Entries: [ // ListTrackersResponseEntryList // required
+ *     { // ListTrackersResponseEntry
+ *       TrackerName: 'STRING_VALUE', // required
+ *       Description: 'STRING_VALUE', // required
+ *       PricingPlan: 'STRING_VALUE',
+ *       PricingPlanDataSource: 'STRING_VALUE',
+ *       CreateTime: new Date('TIMESTAMP'), // required
+ *       UpdateTime: new Date('TIMESTAMP'), // required
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListTrackersCommandInput - {@link ListTrackersCommandInput}
@@ -66,6 +81,8 @@ export interface ListTrackersCommandOutput extends ListTrackersResponse, __Metad
  * @throws {@link ValidationException} (client fault)
  *  <p>The input failed to meet the constraints specified by the AWS service. </p>
  *
+ * @throws {@link LocationServiceException}
+ * <p>Base exception class for all service exceptions from Location service.</p>
  *
  */
 export class ListTrackersCommand extends $Command<

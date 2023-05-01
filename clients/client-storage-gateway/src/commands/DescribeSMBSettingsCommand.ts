@@ -37,14 +37,29 @@ export interface DescribeSMBSettingsCommandOutput extends DescribeSMBSettingsOut
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { StorageGatewayClient, DescribeSMBSettingsCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
- * // const { StorageGatewayClient, DescribeSMBSettingsCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
+ * import { StorageGatewayClient, DescribeSMBSettingsCommand } from '@aws-sdk/client-storage-gateway'; // ES Modules import
+ * // const { StorageGatewayClient, DescribeSMBSettingsCommand } = require('@aws-sdk/client-storage-gateway'); // CommonJS import
  * const client = new StorageGatewayClient(config);
  * const input = { // DescribeSMBSettingsInput
- *   GatewayARN: "STRING_VALUE", // required
+ *   GatewayARN: 'STRING_VALUE', // required
  * };
  * const command = new DescribeSMBSettingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeSMBSettingsOutput
+ *   GatewayARN: 'STRING_VALUE',
+ *   DomainName: 'STRING_VALUE',
+ *   ActiveDirectoryStatus: 'STRING_VALUE',
+ *   SMBGuestPasswordSet: true || false,
+ *   SMBSecurityStrategy: 'STRING_VALUE',
+ *   FileSharesVisible: true || false,
+ *   SMBLocalGroups: { // SMBLocalGroups
+ *     GatewayAdmins: [ // UserList
+ *       'STRING_VALUE',
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeSMBSettingsCommandInput - {@link DescribeSMBSettingsCommandInput}
@@ -61,6 +76,8 @@ export interface DescribeSMBSettingsCommandOutput extends DescribeSMBSettingsOut
  *  <p>An exception occurred because an invalid gateway request was issued to the service. For
  *          more information, see the error and message fields.</p>
  *
+ * @throws {@link StorageGatewayServiceException}
+ * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
  */
 export class DescribeSMBSettingsCommand extends $Command<

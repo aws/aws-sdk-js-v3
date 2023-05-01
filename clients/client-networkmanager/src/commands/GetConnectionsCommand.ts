@@ -36,20 +36,45 @@ export interface GetConnectionsCommandOutput extends GetConnectionsResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { NetworkManagerClient, GetConnectionsCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
- * // const { NetworkManagerClient, GetConnectionsCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
+ * import { NetworkManagerClient, GetConnectionsCommand } from '@aws-sdk/client-networkmanager'; // ES Modules import
+ * // const { NetworkManagerClient, GetConnectionsCommand } = require('@aws-sdk/client-networkmanager'); // CommonJS import
  * const client = new NetworkManagerClient(config);
  * const input = { // GetConnectionsRequest
- *   GlobalNetworkId: "STRING_VALUE", // required
+ *   GlobalNetworkId: 'STRING_VALUE', // required
  *   ConnectionIds: [ // ConnectionIdList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   DeviceId: "STRING_VALUE",
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   DeviceId: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new GetConnectionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetConnectionsResponse
+ *   Connections: [ // ConnectionList
+ *     { // Connection
+ *       ConnectionId: 'STRING_VALUE',
+ *       ConnectionArn: 'STRING_VALUE',
+ *       GlobalNetworkId: 'STRING_VALUE',
+ *       DeviceId: 'STRING_VALUE',
+ *       ConnectedDeviceId: 'STRING_VALUE',
+ *       LinkId: 'STRING_VALUE',
+ *       ConnectedLinkId: 'STRING_VALUE',
+ *       Description: 'STRING_VALUE',
+ *       CreatedAt: new Date('TIMESTAMP'),
+ *       State: 'PENDING' || 'AVAILABLE' || 'DELETING' || 'UPDATING',
+ *       Tags: [ // TagList
+ *         { // Tag
+ *           Key: 'STRING_VALUE',
+ *           Value: 'STRING_VALUE',
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetConnectionsCommandInput - {@link GetConnectionsCommandInput}
@@ -73,6 +98,8 @@ export interface GetConnectionsCommandOutput extends GetConnectionsResponse, __M
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints.</p>
  *
+ * @throws {@link NetworkManagerServiceException}
+ * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
  */
 export class GetConnectionsCommand extends $Command<

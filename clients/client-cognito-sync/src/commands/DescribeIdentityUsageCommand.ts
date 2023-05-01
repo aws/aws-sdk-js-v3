@@ -85,15 +85,26 @@ export interface DescribeIdentityUsageCommandOutput extends DescribeIdentityUsag
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CognitoSyncClient, DescribeIdentityUsageCommand } from "@aws-sdk/client-cognito-sync"; // ES Modules import
- * // const { CognitoSyncClient, DescribeIdentityUsageCommand } = require("@aws-sdk/client-cognito-sync"); // CommonJS import
+ * import { CognitoSyncClient, DescribeIdentityUsageCommand } from '@aws-sdk/client-cognito-sync'; // ES Modules import
+ * // const { CognitoSyncClient, DescribeIdentityUsageCommand } = require('@aws-sdk/client-cognito-sync'); // CommonJS import
  * const client = new CognitoSyncClient(config);
  * const input = { // DescribeIdentityUsageRequest
- *   IdentityPoolId: "STRING_VALUE", // required
- *   IdentityId: "STRING_VALUE", // required
+ *   IdentityPoolId: 'STRING_VALUE', // required
+ *   IdentityId: 'STRING_VALUE', // required
  * };
  * const command = new DescribeIdentityUsageCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeIdentityUsageResponse
+ *   IdentityUsage: { // IdentityUsage
+ *     IdentityId: 'STRING_VALUE',
+ *     IdentityPoolId: 'STRING_VALUE',
+ *     LastModifiedDate: new Date('TIMESTAMP'),
+ *     DatasetCount: Number('int'),
+ *     DataStorage: Number('long'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeIdentityUsageCommandInput - {@link DescribeIdentityUsageCommandInput}
@@ -122,6 +133,8 @@ export interface DescribeIdentityUsageCommandOutput extends DescribeIdentityUsag
  *  Thrown if the request is
  *       throttled.
  *
+ * @throws {@link CognitoSyncServiceException}
+ * <p>Base exception class for all service exceptions from CognitoSync service.</p>
  *
  */
 export class DescribeIdentityUsageCommand extends $Command<

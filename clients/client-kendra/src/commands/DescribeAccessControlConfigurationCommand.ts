@@ -47,15 +47,42 @@ export interface DescribeAccessControlConfigurationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KendraClient, DescribeAccessControlConfigurationCommand } from "@aws-sdk/client-kendra"; // ES Modules import
- * // const { KendraClient, DescribeAccessControlConfigurationCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
+ * import { KendraClient, DescribeAccessControlConfigurationCommand } from '@aws-sdk/client-kendra'; // ES Modules import
+ * // const { KendraClient, DescribeAccessControlConfigurationCommand } = require('@aws-sdk/client-kendra'); // CommonJS import
  * const client = new KendraClient(config);
  * const input = { // DescribeAccessControlConfigurationRequest
- *   IndexId: "STRING_VALUE", // required
- *   Id: "STRING_VALUE", // required
+ *   IndexId: 'STRING_VALUE', // required
+ *   Id: 'STRING_VALUE', // required
  * };
  * const command = new DescribeAccessControlConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeAccessControlConfigurationResponse
+ *   Name: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE',
+ *   ErrorMessage: 'STRING_VALUE',
+ *   AccessControlList: [ // PrincipalList
+ *     { // Principal
+ *       Name: 'STRING_VALUE', // required
+ *       Type: 'USER' || 'GROUP', // required
+ *       Access: 'ALLOW' || 'DENY', // required
+ *       DataSourceId: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   HierarchicalAccessControlList: [ // HierarchicalPrincipalList
+ *     { // HierarchicalPrincipal
+ *       PrincipalList: [ // required
+ *         {
+ *           Name: 'STRING_VALUE', // required
+ *           Type: 'USER' || 'GROUP', // required
+ *           Access: 'ALLOW' || 'DENY', // required
+ *           DataSourceId: 'STRING_VALUE',
+ *         },
+ *       ],
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeAccessControlConfigurationCommandInput - {@link DescribeAccessControlConfigurationCommandInput}
@@ -84,6 +111,8 @@ export interface DescribeAccessControlConfigurationCommandOutput
  *  <p>The input fails to satisfy the constraints set by the Amazon Kendra service.
  *             Please provide the correct input and try again.</p>
  *
+ * @throws {@link KendraServiceException}
+ * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
  */
 export class DescribeAccessControlConfigurationCommand extends $Command<

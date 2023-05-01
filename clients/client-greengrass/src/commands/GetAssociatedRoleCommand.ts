@@ -36,14 +36,20 @@ export interface GetAssociatedRoleCommandOutput extends GetAssociatedRoleRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GreengrassClient, GetAssociatedRoleCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
- * // const { GreengrassClient, GetAssociatedRoleCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
+ * import { GreengrassClient, GetAssociatedRoleCommand } from '@aws-sdk/client-greengrass'; // ES Modules import
+ * // const { GreengrassClient, GetAssociatedRoleCommand } = require('@aws-sdk/client-greengrass'); // CommonJS import
  * const client = new GreengrassClient(config);
  * const input = { // GetAssociatedRoleRequest
- *   GroupId: "STRING_VALUE", // required
+ *   GroupId: 'STRING_VALUE', // required
  * };
  * const command = new GetAssociatedRoleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetAssociatedRoleResponse
+ *   AssociatedAt: 'STRING_VALUE',
+ *   RoleArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetAssociatedRoleCommandInput - {@link GetAssociatedRoleCommandInput}
@@ -58,6 +64,8 @@ export interface GetAssociatedRoleCommandOutput extends GetAssociatedRoleRespons
  * @throws {@link InternalServerErrorException} (server fault)
  *  General error information.
  *
+ * @throws {@link GreengrassServiceException}
+ * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
  */
 export class GetAssociatedRoleCommand extends $Command<

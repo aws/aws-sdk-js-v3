@@ -45,21 +45,36 @@ export interface CreateDomainCommandOutput extends CreateDomainResult, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeartifactClient, CreateDomainCommand } from "@aws-sdk/client-codeartifact"; // ES Modules import
- * // const { CodeartifactClient, CreateDomainCommand } = require("@aws-sdk/client-codeartifact"); // CommonJS import
+ * import { CodeartifactClient, CreateDomainCommand } from '@aws-sdk/client-codeartifact'; // ES Modules import
+ * // const { CodeartifactClient, CreateDomainCommand } = require('@aws-sdk/client-codeartifact'); // CommonJS import
  * const client = new CodeartifactClient(config);
  * const input = { // CreateDomainRequest
- *   domain: "STRING_VALUE", // required
- *   encryptionKey: "STRING_VALUE",
+ *   domain: 'STRING_VALUE', // required
+ *   encryptionKey: 'STRING_VALUE',
  *   tags: [ // TagList
  *     { // Tag
- *       key: "STRING_VALUE", // required
- *       value: "STRING_VALUE", // required
+ *       key: 'STRING_VALUE', // required
+ *       value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreateDomainCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateDomainResult
+ *   domain: { // DomainDescription
+ *     name: 'STRING_VALUE',
+ *     owner: 'STRING_VALUE',
+ *     arn: 'STRING_VALUE',
+ *     status: 'Active' || 'Deleted',
+ *     createdTime: new Date('TIMESTAMP'),
+ *     encryptionKey: 'STRING_VALUE',
+ *     repositoryCount: Number('int'),
+ *     assetSizeBytes: Number('long'),
+ *     s3BucketArn: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateDomainCommandInput - {@link CreateDomainCommandInput}
@@ -101,6 +116,8 @@ export interface CreateDomainCommandOutput extends CreateDomainResult, __Metadat
  *       The operation did not succeed because a parameter in the request was sent with an invalid value.
  *     </p>
  *
+ * @throws {@link CodeartifactServiceException}
+ * <p>Base exception class for all service exceptions from Codeartifact service.</p>
  *
  */
 export class CreateDomainCommand extends $Command<

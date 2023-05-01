@@ -40,25 +40,46 @@ export interface ListBillingGroupsCommandOutput extends ListBillingGroupsOutput,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BillingconductorClient, ListBillingGroupsCommand } from "@aws-sdk/client-billingconductor"; // ES Modules import
- * // const { BillingconductorClient, ListBillingGroupsCommand } = require("@aws-sdk/client-billingconductor"); // CommonJS import
+ * import { BillingconductorClient, ListBillingGroupsCommand } from '@aws-sdk/client-billingconductor'; // ES Modules import
+ * // const { BillingconductorClient, ListBillingGroupsCommand } = require('@aws-sdk/client-billingconductor'); // CommonJS import
  * const client = new BillingconductorClient(config);
  * const input = { // ListBillingGroupsInput
- *   BillingPeriod: "STRING_VALUE",
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   BillingPeriod: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  *   Filters: { // ListBillingGroupsFilter
  *     Arns: [ // BillingGroupArnList
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
- *     PricingPlan: "STRING_VALUE",
+ *     PricingPlan: 'STRING_VALUE',
  *     Statuses: [ // BillingGroupStatusList
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *   },
  * };
  * const command = new ListBillingGroupsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListBillingGroupsOutput
+ *   BillingGroups: [ // BillingGroupList
+ *     { // BillingGroupListElement
+ *       Name: 'STRING_VALUE',
+ *       Arn: 'STRING_VALUE',
+ *       Description: 'STRING_VALUE',
+ *       PrimaryAccountId: 'STRING_VALUE',
+ *       ComputationPreference: { // ComputationPreference
+ *         PricingPlanArn: 'STRING_VALUE', // required
+ *       },
+ *       Size: Number('long'),
+ *       CreationTime: Number('long'),
+ *       LastModifiedTime: Number('long'),
+ *       Status: 'STRING_VALUE',
+ *       StatusReason: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListBillingGroupsCommandInput - {@link ListBillingGroupsCommandInput}
@@ -86,6 +107,8 @@ export interface ListBillingGroupsCommandOutput extends ListBillingGroupsOutput,
  * @throws {@link ValidationException} (client fault)
  *  <p>The input doesn't match with the constraints specified by Amazon Web Services services.</p>
  *
+ * @throws {@link BillingconductorServiceException}
+ * <p>Base exception class for all service exceptions from Billingconductor service.</p>
  *
  */
 export class ListBillingGroupsCommand extends $Command<

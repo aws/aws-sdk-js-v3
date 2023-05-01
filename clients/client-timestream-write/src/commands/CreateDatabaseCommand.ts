@@ -40,21 +40,33 @@ export interface CreateDatabaseCommandOutput extends CreateDatabaseResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { TimestreamWriteClient, CreateDatabaseCommand } from "@aws-sdk/client-timestream-write"; // ES Modules import
- * // const { TimestreamWriteClient, CreateDatabaseCommand } = require("@aws-sdk/client-timestream-write"); // CommonJS import
+ * import { TimestreamWriteClient, CreateDatabaseCommand } from '@aws-sdk/client-timestream-write'; // ES Modules import
+ * // const { TimestreamWriteClient, CreateDatabaseCommand } = require('@aws-sdk/client-timestream-write'); // CommonJS import
  * const client = new TimestreamWriteClient(config);
  * const input = { // CreateDatabaseRequest
- *   DatabaseName: "STRING_VALUE", // required
- *   KmsKeyId: "STRING_VALUE",
+ *   DatabaseName: 'STRING_VALUE', // required
+ *   KmsKeyId: 'STRING_VALUE',
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreateDatabaseCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateDatabaseResponse
+ *   Database: { // Database
+ *     Arn: 'STRING_VALUE',
+ *     DatabaseName: 'STRING_VALUE',
+ *     TableCount: Number('long'),
+ *     KmsKeyId: 'STRING_VALUE',
+ *     CreationTime: new Date('TIMESTAMP'),
+ *     LastUpdatedTime: new Date('TIMESTAMP'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateDatabaseCommandInput - {@link CreateDatabaseCommandInput}
@@ -88,6 +100,8 @@ export interface CreateDatabaseCommandOutput extends CreateDatabaseResponse, __M
  * @throws {@link ValidationException} (client fault)
  *  <p> An invalid or malformed request.</p>
  *
+ * @throws {@link TimestreamWriteServiceException}
+ * <p>Base exception class for all service exceptions from TimestreamWrite service.</p>
  *
  */
 export class CreateDatabaseCommand extends $Command<

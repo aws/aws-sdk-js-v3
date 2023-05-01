@@ -38,16 +38,41 @@ export interface DeleteVerifiedAccessInstanceCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, DeleteVerifiedAccessInstanceCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, DeleteVerifiedAccessInstanceCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, DeleteVerifiedAccessInstanceCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, DeleteVerifiedAccessInstanceCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // DeleteVerifiedAccessInstanceRequest
- *   VerifiedAccessInstanceId: "STRING_VALUE", // required
+ *   VerifiedAccessInstanceId: 'STRING_VALUE', // required
  *   DryRun: true || false,
- *   ClientToken: "STRING_VALUE",
+ *   ClientToken: 'STRING_VALUE',
  * };
  * const command = new DeleteVerifiedAccessInstanceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteVerifiedAccessInstanceResult
+ *   VerifiedAccessInstance: { // VerifiedAccessInstance
+ *     VerifiedAccessInstanceId: 'STRING_VALUE',
+ *     Description: 'STRING_VALUE',
+ *     VerifiedAccessTrustProviders: [ // VerifiedAccessTrustProviderCondensedList
+ *       { // VerifiedAccessTrustProviderCondensed
+ *         VerifiedAccessTrustProviderId: 'STRING_VALUE',
+ *         Description: 'STRING_VALUE',
+ *         TrustProviderType: 'user' || 'device',
+ *         UserTrustProviderType: 'iam-identity-center' || 'oidc',
+ *         DeviceTrustProviderType: 'jamf' || 'crowdstrike',
+ *       },
+ *     ],
+ *     CreationTime: 'STRING_VALUE',
+ *     LastUpdatedTime: 'STRING_VALUE',
+ *     Tags: [ // TagList
+ *       { // Tag
+ *         Key: 'STRING_VALUE',
+ *         Value: 'STRING_VALUE',
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param DeleteVerifiedAccessInstanceCommandInput - {@link DeleteVerifiedAccessInstanceCommandInput}
@@ -56,6 +81,8 @@ export interface DeleteVerifiedAccessInstanceCommandOutput
  * @see {@link DeleteVerifiedAccessInstanceCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class DeleteVerifiedAccessInstanceCommand extends $Command<

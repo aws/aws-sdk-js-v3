@@ -46,27 +46,68 @@ export interface DescribeInstanceEventWindowsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, DescribeInstanceEventWindowsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, DescribeInstanceEventWindowsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, DescribeInstanceEventWindowsCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, DescribeInstanceEventWindowsCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // DescribeInstanceEventWindowsRequest
  *   DryRun: true || false,
  *   InstanceEventWindowIds: [ // InstanceEventWindowIdSet
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   Filters: [ // FilterList
  *     { // Filter
- *       Name: "STRING_VALUE",
+ *       Name: 'STRING_VALUE',
  *       Values: [ // ValueStringList
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new DescribeInstanceEventWindowsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeInstanceEventWindowsResult
+ *   InstanceEventWindows: [ // InstanceEventWindowSet
+ *     { // InstanceEventWindow
+ *       InstanceEventWindowId: 'STRING_VALUE',
+ *       TimeRanges: [ // InstanceEventWindowTimeRangeList
+ *         { // InstanceEventWindowTimeRange
+ *           StartWeekDay: 'sunday' || 'monday' || 'tuesday' || 'wednesday' || 'thursday' || 'friday' || 'saturday',
+ *           StartHour: Number('int'),
+ *           EndWeekDay: 'sunday' || 'monday' || 'tuesday' || 'wednesday' || 'thursday' || 'friday' || 'saturday',
+ *           EndHour: Number('int'),
+ *         },
+ *       ],
+ *       Name: 'STRING_VALUE',
+ *       CronExpression: 'STRING_VALUE',
+ *       AssociationTarget: { // InstanceEventWindowAssociationTarget
+ *         InstanceIds: [ // InstanceIdList
+ *           'STRING_VALUE',
+ *         ],
+ *         Tags: [ // TagList
+ *           { // Tag
+ *             Key: 'STRING_VALUE',
+ *             Value: 'STRING_VALUE',
+ *           },
+ *         ],
+ *         DedicatedHostIds: [ // DedicatedHostIdList
+ *           'STRING_VALUE',
+ *         ],
+ *       },
+ *       State: 'creating' || 'deleting' || 'active' || 'deleted',
+ *       Tags: [
+ *         {
+ *           Key: 'STRING_VALUE',
+ *           Value: 'STRING_VALUE',
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeInstanceEventWindowsCommandInput - {@link DescribeInstanceEventWindowsCommandInput}
@@ -75,6 +116,8 @@ export interface DescribeInstanceEventWindowsCommandOutput
  * @see {@link DescribeInstanceEventWindowsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class DescribeInstanceEventWindowsCommand extends $Command<

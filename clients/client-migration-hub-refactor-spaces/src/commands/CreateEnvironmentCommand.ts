@@ -54,20 +54,36 @@ export interface CreateEnvironmentCommandOutput extends CreateEnvironmentRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MigrationHubRefactorSpacesClient, CreateEnvironmentCommand } from "@aws-sdk/client-migration-hub-refactor-spaces"; // ES Modules import
- * // const { MigrationHubRefactorSpacesClient, CreateEnvironmentCommand } = require("@aws-sdk/client-migration-hub-refactor-spaces"); // CommonJS import
+ * import { MigrationHubRefactorSpacesClient, CreateEnvironmentCommand } from '@aws-sdk/client-migration-hub-refactor-spaces'; // ES Modules import
+ * // const { MigrationHubRefactorSpacesClient, CreateEnvironmentCommand } = require('@aws-sdk/client-migration-hub-refactor-spaces'); // CommonJS import
  * const client = new MigrationHubRefactorSpacesClient(config);
  * const input = { // CreateEnvironmentRequest
- *   Name: "STRING_VALUE", // required
- *   Description: "STRING_VALUE",
- *   NetworkFabricType: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE',
+ *   NetworkFabricType: 'STRING_VALUE', // required
  *   Tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
- *   ClientToken: "STRING_VALUE",
+ *   ClientToken: 'STRING_VALUE',
  * };
  * const command = new CreateEnvironmentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateEnvironmentResponse
+ *   Name: 'STRING_VALUE',
+ *   Arn: 'STRING_VALUE',
+ *   Description: 'STRING_VALUE',
+ *   EnvironmentId: 'STRING_VALUE',
+ *   NetworkFabricType: 'STRING_VALUE',
+ *   OwnerAccountId: 'STRING_VALUE',
+ *   State: 'STRING_VALUE',
+ *   Tags: { // TagMap
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ *   LastUpdatedTime: new Date('TIMESTAMP'),
+ *   CreatedTime: new Date('TIMESTAMP'),
+ * };
+ *
  * ```
  *
  * @param CreateEnvironmentCommandInput - {@link CreateEnvironmentCommandInput}
@@ -98,6 +114,8 @@ export interface CreateEnvironmentCommandOutput extends CreateEnvironmentRespons
  *  <p>The input does not satisfy the constraints specified by an Amazon Web Service.
  *     </p>
  *
+ * @throws {@link MigrationHubRefactorSpacesServiceException}
+ * <p>Base exception class for all service exceptions from MigrationHubRefactorSpaces service.</p>
  *
  */
 export class CreateEnvironmentCommand extends $Command<

@@ -41,14 +41,25 @@ export interface ListReceiptRuleSetsCommandOutput extends ListReceiptRuleSetsRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SESClient, ListReceiptRuleSetsCommand } from "@aws-sdk/client-ses"; // ES Modules import
- * // const { SESClient, ListReceiptRuleSetsCommand } = require("@aws-sdk/client-ses"); // CommonJS import
+ * import { SESClient, ListReceiptRuleSetsCommand } from '@aws-sdk/client-ses'; // ES Modules import
+ * // const { SESClient, ListReceiptRuleSetsCommand } = require('@aws-sdk/client-ses'); // CommonJS import
  * const client = new SESClient(config);
  * const input = { // ListReceiptRuleSetsRequest
- *   NextToken: "STRING_VALUE",
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListReceiptRuleSetsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListReceiptRuleSetsResponse
+ *   RuleSets: [ // ReceiptRuleSetsLists
+ *     { // ReceiptRuleSetMetadata
+ *       Name: 'STRING_VALUE',
+ *       CreatedTimestamp: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListReceiptRuleSetsCommandInput - {@link ListReceiptRuleSetsCommandInput}
@@ -57,6 +68,8 @@ export interface ListReceiptRuleSetsCommandOutput extends ListReceiptRuleSetsRes
  * @see {@link ListReceiptRuleSetsCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
+ * @throws {@link SESServiceException}
+ * <p>Base exception class for all service exceptions from SES service.</p>
  *
  * @example ListReceiptRuleSets
  * ```javascript

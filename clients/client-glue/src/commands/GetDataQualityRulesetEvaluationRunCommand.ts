@@ -44,14 +44,49 @@ export interface GetDataQualityRulesetEvaluationRunCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlueClient, GetDataQualityRulesetEvaluationRunCommand } from "@aws-sdk/client-glue"; // ES Modules import
- * // const { GlueClient, GetDataQualityRulesetEvaluationRunCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * import { GlueClient, GetDataQualityRulesetEvaluationRunCommand } from '@aws-sdk/client-glue'; // ES Modules import
+ * // const { GlueClient, GetDataQualityRulesetEvaluationRunCommand } = require('@aws-sdk/client-glue'); // CommonJS import
  * const client = new GlueClient(config);
  * const input = { // GetDataQualityRulesetEvaluationRunRequest
- *   RunId: "STRING_VALUE", // required
+ *   RunId: 'STRING_VALUE', // required
  * };
  * const command = new GetDataQualityRulesetEvaluationRunCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetDataQualityRulesetEvaluationRunResponse
+ *   RunId: 'STRING_VALUE',
+ *   DataSource: { // DataSource
+ *     GlueTable: { // GlueTable
+ *       DatabaseName: 'STRING_VALUE', // required
+ *       TableName: 'STRING_VALUE', // required
+ *       CatalogId: 'STRING_VALUE',
+ *       ConnectionName: 'STRING_VALUE',
+ *       AdditionalOptions: { // GlueTableAdditionalOptions
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *     },
+ *   },
+ *   Role: 'STRING_VALUE',
+ *   NumberOfWorkers: Number('int'),
+ *   Timeout: Number('int'),
+ *   AdditionalRunOptions: { // DataQualityEvaluationRunAdditionalRunOptions
+ *     CloudWatchMetricsEnabled: true || false,
+ *     ResultsS3Prefix: 'STRING_VALUE',
+ *   },
+ *   Status: 'STARTING' || 'RUNNING' || 'STOPPING' || 'STOPPED' || 'SUCCEEDED' || 'FAILED' || 'TIMEOUT',
+ *   ErrorString: 'STRING_VALUE',
+ *   StartedOn: new Date('TIMESTAMP'),
+ *   LastModifiedOn: new Date('TIMESTAMP'),
+ *   CompletedOn: new Date('TIMESTAMP'),
+ *   ExecutionTime: Number('int'),
+ *   RulesetNames: [ // RulesetNames
+ *     'STRING_VALUE',
+ *   ],
+ *   ResultIds: [ // DataQualityResultIdList
+ *     'STRING_VALUE',
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetDataQualityRulesetEvaluationRunCommandInput - {@link GetDataQualityRulesetEvaluationRunCommandInput}
@@ -72,6 +107,8 @@ export interface GetDataQualityRulesetEvaluationRunCommandOutput
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class GetDataQualityRulesetEvaluationRunCommand extends $Command<

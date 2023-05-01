@@ -38,15 +38,29 @@ export interface ListRescoreExecutionPlansCommandOutput extends ListRescoreExecu
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KendraRankingClient, ListRescoreExecutionPlansCommand } from "@aws-sdk/client-kendra-ranking"; // ES Modules import
- * // const { KendraRankingClient, ListRescoreExecutionPlansCommand } = require("@aws-sdk/client-kendra-ranking"); // CommonJS import
+ * import { KendraRankingClient, ListRescoreExecutionPlansCommand } from '@aws-sdk/client-kendra-ranking'; // ES Modules import
+ * // const { KendraRankingClient, ListRescoreExecutionPlansCommand } = require('@aws-sdk/client-kendra-ranking'); // CommonJS import
  * const client = new KendraRankingClient(config);
  * const input = { // ListRescoreExecutionPlansRequest
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListRescoreExecutionPlansCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListRescoreExecutionPlansResponse
+ *   SummaryItems: [ // RescoreExecutionPlanSummaryList
+ *     { // RescoreExecutionPlanSummary
+ *       Name: 'STRING_VALUE',
+ *       Id: 'STRING_VALUE',
+ *       CreatedAt: new Date('TIMESTAMP'),
+ *       UpdatedAt: new Date('TIMESTAMP'),
+ *       Status: 'CREATING' || 'UPDATING' || 'ACTIVE' || 'DELETING' || 'FAILED',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListRescoreExecutionPlansCommandInput - {@link ListRescoreExecutionPlansCommandInput}
@@ -76,6 +90,8 @@ export interface ListRescoreExecutionPlansCommandOutput extends ListRescoreExecu
  *             the Amazon Kendra Intelligent Ranking service.
  *             Please provide the correct input and try again.</p>
  *
+ * @throws {@link KendraRankingServiceException}
+ * <p>Base exception class for all service exceptions from KendraRanking service.</p>
  *
  */
 export class ListRescoreExecutionPlansCommand extends $Command<

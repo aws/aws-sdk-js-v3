@@ -36,21 +36,36 @@ export interface ListReadSetImportJobsCommandOutput extends ListReadSetImportJob
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OmicsClient, ListReadSetImportJobsCommand } from "@aws-sdk/client-omics"; // ES Modules import
- * // const { OmicsClient, ListReadSetImportJobsCommand } = require("@aws-sdk/client-omics"); // CommonJS import
+ * import { OmicsClient, ListReadSetImportJobsCommand } from '@aws-sdk/client-omics'; // ES Modules import
+ * // const { OmicsClient, ListReadSetImportJobsCommand } = require('@aws-sdk/client-omics'); // CommonJS import
  * const client = new OmicsClient(config);
  * const input = { // ListReadSetImportJobsRequest
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
- *   sequenceStoreId: "STRING_VALUE", // required
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
+ *   sequenceStoreId: 'STRING_VALUE', // required
  *   filter: { // ImportReadSetFilter
- *     status: "STRING_VALUE",
- *     createdAfter: new Date("TIMESTAMP"),
- *     createdBefore: new Date("TIMESTAMP"),
+ *     status: 'STRING_VALUE',
+ *     createdAfter: new Date('TIMESTAMP'),
+ *     createdBefore: new Date('TIMESTAMP'),
  *   },
  * };
  * const command = new ListReadSetImportJobsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListReadSetImportJobsResponse
+ *   nextToken: 'STRING_VALUE',
+ *   importJobs: [ // ImportReadSetJobList
+ *     { // ImportReadSetJobItem
+ *       id: 'STRING_VALUE', // required
+ *       sequenceStoreId: 'STRING_VALUE', // required
+ *       roleArn: 'STRING_VALUE', // required
+ *       status: 'STRING_VALUE', // required
+ *       creationTime: new Date('TIMESTAMP'), // required
+ *       completionTime: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListReadSetImportJobsCommandInput - {@link ListReadSetImportJobsCommandInput}
@@ -77,6 +92,8 @@ export interface ListReadSetImportJobsCommandOutput extends ListReadSetImportJob
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link OmicsServiceException}
+ * <p>Base exception class for all service exceptions from Omics service.</p>
  *
  */
 export class ListReadSetImportJobsCommand extends $Command<

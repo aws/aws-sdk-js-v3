@@ -36,14 +36,19 @@ export interface GetCustomRulePolicyCommandOutput extends GetCustomRulePolicyRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConfigServiceClient, GetCustomRulePolicyCommand } from "@aws-sdk/client-config-service"; // ES Modules import
- * // const { ConfigServiceClient, GetCustomRulePolicyCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
+ * import { ConfigServiceClient, GetCustomRulePolicyCommand } from '@aws-sdk/client-config-service'; // ES Modules import
+ * // const { ConfigServiceClient, GetCustomRulePolicyCommand } = require('@aws-sdk/client-config-service'); // CommonJS import
  * const client = new ConfigServiceClient(config);
  * const input = { // GetCustomRulePolicyRequest
- *   ConfigRuleName: "STRING_VALUE",
+ *   ConfigRuleName: 'STRING_VALUE',
  * };
  * const command = new GetCustomRulePolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetCustomRulePolicyResponse
+ *   PolicyText: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetCustomRulePolicyCommandInput - {@link GetCustomRulePolicyCommandInput}
@@ -55,6 +60,8 @@ export interface GetCustomRulePolicyCommandOutput extends GetCustomRulePolicyRes
  * @throws {@link NoSuchConfigRuleException} (client fault)
  *  <p>The Config rule in the request is not valid. Verify that the rule is an Config Process Check rule, that the rule name is correct, and that valid Amazon Resouce Names (ARNs) are used before trying again.</p>
  *
+ * @throws {@link ConfigServiceServiceException}
+ * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
  */
 export class GetCustomRulePolicyCommand extends $Command<

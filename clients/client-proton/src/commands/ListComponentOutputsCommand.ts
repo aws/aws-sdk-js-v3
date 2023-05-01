@@ -43,15 +43,26 @@ export interface ListComponentOutputsCommandOutput extends ListComponentOutputsO
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ProtonClient, ListComponentOutputsCommand } from "@aws-sdk/client-proton"; // ES Modules import
- * // const { ProtonClient, ListComponentOutputsCommand } = require("@aws-sdk/client-proton"); // CommonJS import
+ * import { ProtonClient, ListComponentOutputsCommand } from '@aws-sdk/client-proton'; // ES Modules import
+ * // const { ProtonClient, ListComponentOutputsCommand } = require('@aws-sdk/client-proton'); // CommonJS import
  * const client = new ProtonClient(config);
  * const input = { // ListComponentOutputsInput
- *   componentName: "STRING_VALUE", // required
- *   nextToken: "STRING_VALUE",
+ *   componentName: 'STRING_VALUE', // required
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new ListComponentOutputsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListComponentOutputsOutput
+ *   nextToken: 'STRING_VALUE',
+ *   outputs: [ // OutputsList // required
+ *     { // Output
+ *       key: 'STRING_VALUE',
+ *       valueString: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListComponentOutputsCommandInput - {@link ListComponentOutputsCommandInput}
@@ -75,6 +86,8 @@ export interface ListComponentOutputsCommandOutput extends ListComponentOutputsO
  * @throws {@link ValidationException} (client fault)
  *  <p>The input is invalid or an out-of-range value was supplied for the input parameter.</p>
  *
+ * @throws {@link ProtonServiceException}
+ * <p>Base exception class for all service exceptions from Proton service.</p>
  *
  */
 export class ListComponentOutputsCommand extends $Command<

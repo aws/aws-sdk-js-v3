@@ -45,32 +45,35 @@ export interface CreateConfigurationSetEventDestinationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PinpointSMSVoiceClient, CreateConfigurationSetEventDestinationCommand } from "@aws-sdk/client-pinpoint-sms-voice"; // ES Modules import
- * // const { PinpointSMSVoiceClient, CreateConfigurationSetEventDestinationCommand } = require("@aws-sdk/client-pinpoint-sms-voice"); // CommonJS import
+ * import { PinpointSMSVoiceClient, CreateConfigurationSetEventDestinationCommand } from '@aws-sdk/client-pinpoint-sms-voice'; // ES Modules import
+ * // const { PinpointSMSVoiceClient, CreateConfigurationSetEventDestinationCommand } = require('@aws-sdk/client-pinpoint-sms-voice'); // CommonJS import
  * const client = new PinpointSMSVoiceClient(config);
  * const input = { // CreateConfigurationSetEventDestinationRequest
- *   ConfigurationSetName: "STRING_VALUE", // required
+ *   ConfigurationSetName: 'STRING_VALUE', // required
  *   EventDestination: { // EventDestinationDefinition
  *     CloudWatchLogsDestination: { // CloudWatchLogsDestination
- *       IamRoleArn: "STRING_VALUE",
- *       LogGroupArn: "STRING_VALUE",
+ *       IamRoleArn: 'STRING_VALUE',
+ *       LogGroupArn: 'STRING_VALUE',
  *     },
  *     Enabled: true || false,
  *     KinesisFirehoseDestination: { // KinesisFirehoseDestination
- *       DeliveryStreamArn: "STRING_VALUE",
- *       IamRoleArn: "STRING_VALUE",
+ *       DeliveryStreamArn: 'STRING_VALUE',
+ *       IamRoleArn: 'STRING_VALUE',
  *     },
  *     MatchingEventTypes: [ // EventTypes
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     SnsDestination: { // SnsDestination
- *       TopicArn: "STRING_VALUE",
+ *       TopicArn: 'STRING_VALUE',
  *     },
  *   },
- *   EventDestinationName: "STRING_VALUE",
+ *   EventDestinationName: 'STRING_VALUE',
  * };
  * const command = new CreateConfigurationSetEventDestinationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param CreateConfigurationSetEventDestinationCommandInput - {@link CreateConfigurationSetEventDestinationCommandInput}
@@ -97,6 +100,8 @@ export interface CreateConfigurationSetEventDestinationCommandOutput
  * @throws {@link TooManyRequestsException} (client fault)
  *  You've issued too many requests to the resource. Wait a few minutes, and then try again.
  *
+ * @throws {@link PinpointSMSVoiceServiceException}
+ * <p>Base exception class for all service exceptions from PinpointSMSVoice service.</p>
  *
  */
 export class CreateConfigurationSetEventDestinationCommand extends $Command<

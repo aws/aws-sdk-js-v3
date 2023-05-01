@@ -76,43 +76,113 @@ export interface StartMedicalStreamTranscriptionCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { TranscribeStreamingClient, StartMedicalStreamTranscriptionCommand } from "@aws-sdk/client-transcribe-streaming"; // ES Modules import
- * // const { TranscribeStreamingClient, StartMedicalStreamTranscriptionCommand } = require("@aws-sdk/client-transcribe-streaming"); // CommonJS import
+ * import { TranscribeStreamingClient, StartMedicalStreamTranscriptionCommand } from '@aws-sdk/client-transcribe-streaming'; // ES Modules import
+ * // const { TranscribeStreamingClient, StartMedicalStreamTranscriptionCommand } = require('@aws-sdk/client-transcribe-streaming'); // CommonJS import
  * const client = new TranscribeStreamingClient(config);
  * const input = { // StartMedicalStreamTranscriptionRequest
- *   LanguageCode: "en-US" || "en-GB" || "es-US" || "fr-CA" || "fr-FR" || "en-AU" || "it-IT" || "de-DE" || "pt-BR" || "ja-JP" || "ko-KR" || "zh-CN" || "hi-IN" || "th-TH", // required
- *   MediaSampleRateHertz: Number("int"), // required
- *   MediaEncoding: "pcm" || "ogg-opus" || "flac", // required
- *   VocabularyName: "STRING_VALUE",
- *   Specialty: "PRIMARYCARE" || "CARDIOLOGY" || "NEUROLOGY" || "ONCOLOGY" || "RADIOLOGY" || "UROLOGY", // required
- *   Type: "CONVERSATION" || "DICTATION", // required
+ *   LanguageCode: 'en-US' || 'en-GB' || 'es-US' || 'fr-CA' || 'fr-FR' || 'en-AU' || 'it-IT' || 'de-DE' || 'pt-BR' || 'ja-JP' || 'ko-KR' || 'zh-CN' || 'hi-IN' || 'th-TH', // required
+ *   MediaSampleRateHertz: Number('int'), // required
+ *   MediaEncoding: 'pcm' || 'ogg-opus' || 'flac', // required
+ *   VocabularyName: 'STRING_VALUE',
+ *   Specialty: 'PRIMARYCARE' || 'CARDIOLOGY' || 'NEUROLOGY' || 'ONCOLOGY' || 'RADIOLOGY' || 'UROLOGY', // required
+ *   Type: 'CONVERSATION' || 'DICTATION', // required
  *   ShowSpeakerLabel: true || false,
- *   SessionId: "STRING_VALUE",
+ *   SessionId: 'STRING_VALUE',
  *   AudioStream: { // AudioStream Union: only one key present
  *     AudioEvent: { // AudioEvent
- *       AudioChunk: "BLOB_VALUE",
+ *       AudioChunk: 'BLOB_VALUE',
  *     },
  *     ConfigurationEvent: { // ConfigurationEvent
  *       ChannelDefinitions: [ // ChannelDefinitions
  *         { // ChannelDefinition
- *           ChannelId: Number("int"), // required
- *           ParticipantRole: "AGENT" || "CUSTOMER", // required
+ *           ChannelId: Number('int'), // required
+ *           ParticipantRole: 'AGENT' || 'CUSTOMER', // required
  *         },
  *       ],
  *       PostCallAnalyticsSettings: { // PostCallAnalyticsSettings
- *         OutputLocation: "STRING_VALUE", // required
- *         DataAccessRoleArn: "STRING_VALUE", // required
- *         ContentRedactionOutput: "redacted" || "redacted_and_unredacted",
- *         OutputEncryptionKMSKeyId: "STRING_VALUE",
+ *         OutputLocation: 'STRING_VALUE', // required
+ *         DataAccessRoleArn: 'STRING_VALUE', // required
+ *         ContentRedactionOutput: 'redacted' || 'redacted_and_unredacted',
+ *         OutputEncryptionKMSKeyId: 'STRING_VALUE',
  *       },
  *     },
  *   },
  *   EnableChannelIdentification: true || false,
- *   NumberOfChannels: Number("int"),
- *   ContentIdentificationType: "PHI",
+ *   NumberOfChannels: Number('int'),
+ *   ContentIdentificationType: 'PHI',
  * };
  * const command = new StartMedicalStreamTranscriptionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartMedicalStreamTranscriptionResponse
+ *   RequestId: 'STRING_VALUE',
+ *   LanguageCode: 'en-US' || 'en-GB' || 'es-US' || 'fr-CA' || 'fr-FR' || 'en-AU' || 'it-IT' || 'de-DE' || 'pt-BR' || 'ja-JP' || 'ko-KR' || 'zh-CN' || 'hi-IN' || 'th-TH',
+ *   MediaSampleRateHertz: Number('int'),
+ *   MediaEncoding: 'pcm' || 'ogg-opus' || 'flac',
+ *   VocabularyName: 'STRING_VALUE',
+ *   Specialty: 'PRIMARYCARE' || 'CARDIOLOGY' || 'NEUROLOGY' || 'ONCOLOGY' || 'RADIOLOGY' || 'UROLOGY',
+ *   Type: 'CONVERSATION' || 'DICTATION',
+ *   ShowSpeakerLabel: true || false,
+ *   SessionId: 'STRING_VALUE',
+ *   TranscriptResultStream: { // MedicalTranscriptResultStream Union: only one key present
+ *     TranscriptEvent: { // MedicalTranscriptEvent
+ *       Transcript: { // MedicalTranscript
+ *         Results: [ // MedicalResultList
+ *           { // MedicalResult
+ *             ResultId: 'STRING_VALUE',
+ *             StartTime: Number('double'),
+ *             EndTime: Number('double'),
+ *             IsPartial: true || false,
+ *             Alternatives: [ // MedicalAlternativeList
+ *               { // MedicalAlternative
+ *                 Transcript: 'STRING_VALUE',
+ *                 Items: [ // MedicalItemList
+ *                   { // MedicalItem
+ *                     StartTime: Number('double'),
+ *                     EndTime: Number('double'),
+ *                     Type: 'pronunciation' || 'punctuation',
+ *                     Content: 'STRING_VALUE',
+ *                     Confidence: Number('double'),
+ *                     Speaker: 'STRING_VALUE',
+ *                   },
+ *                 ],
+ *                 Entities: [ // MedicalEntityList
+ *                   { // MedicalEntity
+ *                     StartTime: Number('double'),
+ *                     EndTime: Number('double'),
+ *                     Category: 'STRING_VALUE',
+ *                     Content: 'STRING_VALUE',
+ *                     Confidence: Number('double'),
+ *                   },
+ *                 ],
+ *               },
+ *             ],
+ *             ChannelId: 'STRING_VALUE',
+ *           },
+ *         ],
+ *       },
+ *     },
+ *     BadRequestException: { // BadRequestException
+ *       Message: 'STRING_VALUE',
+ *     },
+ *     LimitExceededException: { // LimitExceededException
+ *       Message: 'STRING_VALUE',
+ *     },
+ *     InternalFailureException: { // InternalFailureException
+ *       Message: 'STRING_VALUE',
+ *     },
+ *     ConflictException: { // ConflictException
+ *       Message: 'STRING_VALUE',
+ *     },
+ *     ServiceUnavailableException: { // ServiceUnavailableException
+ *       Message: 'STRING_VALUE',
+ *     },
+ *   },
+ *   EnableChannelIdentification: true || false,
+ *   NumberOfChannels: Number('int'),
+ *   ContentIdentificationType: 'PHI',
+ * };
+ *
  * ```
  *
  * @param StartMedicalStreamTranscriptionCommandInput - {@link StartMedicalStreamTranscriptionCommandInput}
@@ -141,6 +211,8 @@ export interface StartMedicalStreamTranscriptionCommandOutput
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service is currently unavailable. Try your request later.</p>
  *
+ * @throws {@link TranscribeStreamingServiceException}
+ * <p>Base exception class for all service exceptions from TranscribeStreaming service.</p>
  *
  */
 export class StartMedicalStreamTranscriptionCommand extends $Command<

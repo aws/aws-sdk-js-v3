@@ -36,31 +36,47 @@ export interface UpdateAnalysisPermissionsCommandOutput extends UpdateAnalysisPe
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { QuickSightClient, UpdateAnalysisPermissionsCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
- * // const { QuickSightClient, UpdateAnalysisPermissionsCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * import { QuickSightClient, UpdateAnalysisPermissionsCommand } from '@aws-sdk/client-quicksight'; // ES Modules import
+ * // const { QuickSightClient, UpdateAnalysisPermissionsCommand } = require('@aws-sdk/client-quicksight'); // CommonJS import
  * const client = new QuickSightClient(config);
  * const input = { // UpdateAnalysisPermissionsRequest
- *   AwsAccountId: "STRING_VALUE", // required
- *   AnalysisId: "STRING_VALUE", // required
+ *   AwsAccountId: 'STRING_VALUE', // required
+ *   AnalysisId: 'STRING_VALUE', // required
  *   GrantPermissions: [ // UpdateResourcePermissionList
  *     { // ResourcePermission
- *       Principal: "STRING_VALUE", // required
+ *       Principal: 'STRING_VALUE', // required
  *       Actions: [ // ActionList // required
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
  *   RevokePermissions: [
  *     {
- *       Principal: "STRING_VALUE", // required
+ *       Principal: 'STRING_VALUE', // required
  *       Actions: [ // required
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
  * };
  * const command = new UpdateAnalysisPermissionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateAnalysisPermissionsResponse
+ *   AnalysisArn: 'STRING_VALUE',
+ *   AnalysisId: 'STRING_VALUE',
+ *   Permissions: [ // ResourcePermissionList
+ *     { // ResourcePermission
+ *       Principal: 'STRING_VALUE', // required
+ *       Actions: [ // ActionList // required
+ *         'STRING_VALUE',
+ *       ],
+ *     },
+ *   ],
+ *   RequestId: 'STRING_VALUE',
+ *   Status: Number('int'),
+ * };
+ *
  * ```
  *
  * @param UpdateAnalysisPermissionsCommandInput - {@link UpdateAnalysisPermissionsCommandInput}
@@ -93,6 +109,8 @@ export interface UpdateAnalysisPermissionsCommandOutput extends UpdateAnalysisPe
  * 			Amazon QuickSight currently has Standard Edition and Enterprise Edition. Not every operation and
  * 			capability is available in every edition.</p>
  *
+ * @throws {@link QuickSightServiceException}
+ * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
 export class UpdateAnalysisPermissionsCommand extends $Command<

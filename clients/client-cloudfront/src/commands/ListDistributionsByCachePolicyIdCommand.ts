@@ -47,16 +47,30 @@ export interface ListDistributionsByCachePolicyIdCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudFrontClient, ListDistributionsByCachePolicyIdCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
- * // const { CloudFrontClient, ListDistributionsByCachePolicyIdCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
+ * import { CloudFrontClient, ListDistributionsByCachePolicyIdCommand } from '@aws-sdk/client-cloudfront'; // ES Modules import
+ * // const { CloudFrontClient, ListDistributionsByCachePolicyIdCommand } = require('@aws-sdk/client-cloudfront'); // CommonJS import
  * const client = new CloudFrontClient(config);
  * const input = { // ListDistributionsByCachePolicyIdRequest
- *   Marker: "STRING_VALUE",
- *   MaxItems: Number("int"),
- *   CachePolicyId: "STRING_VALUE", // required
+ *   Marker: 'STRING_VALUE',
+ *   MaxItems: Number('int'),
+ *   CachePolicyId: 'STRING_VALUE', // required
  * };
  * const command = new ListDistributionsByCachePolicyIdCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListDistributionsByCachePolicyIdResult
+ *   DistributionIdList: { // DistributionIdList
+ *     Marker: 'STRING_VALUE', // required
+ *     NextMarker: 'STRING_VALUE',
+ *     MaxItems: Number('int'), // required
+ *     IsTruncated: true || false, // required
+ *     Quantity: Number('int'), // required
+ *     Items: [ // DistributionIdListSummary
+ *       'STRING_VALUE',
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param ListDistributionsByCachePolicyIdCommandInput - {@link ListDistributionsByCachePolicyIdCommandInput}
@@ -74,6 +88,8 @@ export interface ListDistributionsByCachePolicyIdCommandOutput
  * @throws {@link NoSuchCachePolicy} (client fault)
  *  <p>The cache policy does not exist.</p>
  *
+ * @throws {@link CloudFrontServiceException}
+ * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
  */
 export class ListDistributionsByCachePolicyIdCommand extends $Command<

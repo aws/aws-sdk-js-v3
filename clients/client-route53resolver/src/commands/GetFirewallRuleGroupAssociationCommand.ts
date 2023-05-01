@@ -41,14 +41,33 @@ export interface GetFirewallRuleGroupAssociationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Route53ResolverClient, GetFirewallRuleGroupAssociationCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
- * // const { Route53ResolverClient, GetFirewallRuleGroupAssociationCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
+ * import { Route53ResolverClient, GetFirewallRuleGroupAssociationCommand } from '@aws-sdk/client-route53resolver'; // ES Modules import
+ * // const { Route53ResolverClient, GetFirewallRuleGroupAssociationCommand } = require('@aws-sdk/client-route53resolver'); // CommonJS import
  * const client = new Route53ResolverClient(config);
  * const input = { // GetFirewallRuleGroupAssociationRequest
- *   FirewallRuleGroupAssociationId: "STRING_VALUE", // required
+ *   FirewallRuleGroupAssociationId: 'STRING_VALUE', // required
  * };
  * const command = new GetFirewallRuleGroupAssociationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetFirewallRuleGroupAssociationResponse
+ *   FirewallRuleGroupAssociation: { // FirewallRuleGroupAssociation
+ *     Id: 'STRING_VALUE',
+ *     Arn: 'STRING_VALUE',
+ *     FirewallRuleGroupId: 'STRING_VALUE',
+ *     VpcId: 'STRING_VALUE',
+ *     Name: 'STRING_VALUE',
+ *     Priority: Number('int'),
+ *     MutationProtection: 'ENABLED' || 'DISABLED',
+ *     ManagedOwnerName: 'STRING_VALUE',
+ *     Status: 'COMPLETE' || 'DELETING' || 'UPDATING',
+ *     StatusMessage: 'STRING_VALUE',
+ *     CreatorRequestId: 'STRING_VALUE',
+ *     CreationTime: 'STRING_VALUE',
+ *     ModificationTime: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetFirewallRuleGroupAssociationCommandInput - {@link GetFirewallRuleGroupAssociationCommandInput}
@@ -69,6 +88,8 @@ export interface GetFirewallRuleGroupAssociationCommandOutput
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was throttled. Try again in a few minutes.</p>
  *
+ * @throws {@link Route53ResolverServiceException}
+ * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
  */
 export class GetFirewallRuleGroupAssociationCommand extends $Command<

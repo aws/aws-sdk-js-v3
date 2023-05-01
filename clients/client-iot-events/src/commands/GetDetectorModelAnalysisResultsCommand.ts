@@ -44,16 +44,33 @@ export interface GetDetectorModelAnalysisResultsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTEventsClient, GetDetectorModelAnalysisResultsCommand } from "@aws-sdk/client-iot-events"; // ES Modules import
- * // const { IoTEventsClient, GetDetectorModelAnalysisResultsCommand } = require("@aws-sdk/client-iot-events"); // CommonJS import
+ * import { IoTEventsClient, GetDetectorModelAnalysisResultsCommand } from '@aws-sdk/client-iot-events'; // ES Modules import
+ * // const { IoTEventsClient, GetDetectorModelAnalysisResultsCommand } = require('@aws-sdk/client-iot-events'); // CommonJS import
  * const client = new IoTEventsClient(config);
  * const input = { // GetDetectorModelAnalysisResultsRequest
- *   analysisId: "STRING_VALUE", // required
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   analysisId: 'STRING_VALUE', // required
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new GetDetectorModelAnalysisResultsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetDetectorModelAnalysisResultsResponse
+ *   analysisResults: [ // AnalysisResults
+ *     { // AnalysisResult
+ *       type: 'STRING_VALUE',
+ *       level: 'STRING_VALUE',
+ *       message: 'STRING_VALUE',
+ *       locations: [ // AnalysisResultLocations
+ *         { // AnalysisResultLocation
+ *           path: 'STRING_VALUE',
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetDetectorModelAnalysisResultsCommandInput - {@link GetDetectorModelAnalysisResultsCommandInput}
@@ -77,6 +94,8 @@ export interface GetDetectorModelAnalysisResultsCommandOutput
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request could not be completed due to throttling.</p>
  *
+ * @throws {@link IoTEventsServiceException}
+ * <p>Base exception class for all service exceptions from IoTEvents service.</p>
  *
  */
 export class GetDetectorModelAnalysisResultsCommand extends $Command<

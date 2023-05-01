@@ -43,17 +43,28 @@ export interface BatchDeleteFeaturedResultsSetCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KendraClient, BatchDeleteFeaturedResultsSetCommand } from "@aws-sdk/client-kendra"; // ES Modules import
- * // const { KendraClient, BatchDeleteFeaturedResultsSetCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
+ * import { KendraClient, BatchDeleteFeaturedResultsSetCommand } from '@aws-sdk/client-kendra'; // ES Modules import
+ * // const { KendraClient, BatchDeleteFeaturedResultsSetCommand } = require('@aws-sdk/client-kendra'); // CommonJS import
  * const client = new KendraClient(config);
  * const input = { // BatchDeleteFeaturedResultsSetRequest
- *   IndexId: "STRING_VALUE", // required
+ *   IndexId: 'STRING_VALUE', // required
  *   FeaturedResultsSetIds: [ // FeaturedResultsSetIdList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new BatchDeleteFeaturedResultsSetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BatchDeleteFeaturedResultsSetResponse
+ *   Errors: [ // BatchDeleteFeaturedResultsSetErrors // required
+ *     { // BatchDeleteFeaturedResultsSetError
+ *       Id: 'STRING_VALUE', // required
+ *       ErrorCode: 'InternalError' || 'InvalidRequest', // required
+ *       ErrorMessage: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param BatchDeleteFeaturedResultsSetCommandInput - {@link BatchDeleteFeaturedResultsSetCommandInput}
@@ -82,6 +93,8 @@ export interface BatchDeleteFeaturedResultsSetCommandOutput
  *  <p>The input fails to satisfy the constraints set by the Amazon Kendra service.
  *             Please provide the correct input and try again.</p>
  *
+ * @throws {@link KendraServiceException}
+ * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
  */
 export class BatchDeleteFeaturedResultsSetCommand extends $Command<

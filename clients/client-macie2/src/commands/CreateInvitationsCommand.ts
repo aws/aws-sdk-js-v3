@@ -36,18 +36,29 @@ export interface CreateInvitationsCommandOutput extends CreateInvitationsRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Macie2Client, CreateInvitationsCommand } from "@aws-sdk/client-macie2"; // ES Modules import
- * // const { Macie2Client, CreateInvitationsCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
+ * import { Macie2Client, CreateInvitationsCommand } from '@aws-sdk/client-macie2'; // ES Modules import
+ * // const { Macie2Client, CreateInvitationsCommand } = require('@aws-sdk/client-macie2'); // CommonJS import
  * const client = new Macie2Client(config);
  * const input = { // CreateInvitationsRequest
  *   accountIds: [ // __listOf__string // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   disableEmailNotification: true || false,
- *   message: "STRING_VALUE",
+ *   message: 'STRING_VALUE',
  * };
  * const command = new CreateInvitationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateInvitationsResponse
+ *   unprocessedAccounts: [ // __listOfUnprocessedAccount
+ *     { // UnprocessedAccount
+ *       accountId: 'STRING_VALUE',
+ *       errorCode: 'ClientError' || 'InternalError',
+ *       errorMessage: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param CreateInvitationsCommandInput - {@link CreateInvitationsCommandInput}
@@ -77,6 +88,8 @@ export interface CreateInvitationsCommandOutput extends CreateInvitationsRespons
  * @throws {@link ValidationException} (client fault)
  *  <p>Provides information about an error that occurred due to a syntax error in a request.</p>
  *
+ * @throws {@link Macie2ServiceException}
+ * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
  */
 export class CreateInvitationsCommand extends $Command<

@@ -36,14 +36,17 @@ export interface DeleteAppInstanceCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeSDKIdentityClient, DeleteAppInstanceCommand } from "@aws-sdk/client-chime-sdk-identity"; // ES Modules import
- * // const { ChimeSDKIdentityClient, DeleteAppInstanceCommand } = require("@aws-sdk/client-chime-sdk-identity"); // CommonJS import
+ * import { ChimeSDKIdentityClient, DeleteAppInstanceCommand } from '@aws-sdk/client-chime-sdk-identity'; // ES Modules import
+ * // const { ChimeSDKIdentityClient, DeleteAppInstanceCommand } = require('@aws-sdk/client-chime-sdk-identity'); // CommonJS import
  * const client = new ChimeSDKIdentityClient(config);
  * const input = { // DeleteAppInstanceRequest
- *   AppInstanceArn: "STRING_VALUE", // required
+ *   AppInstanceArn: 'STRING_VALUE', // required
  * };
  * const command = new DeleteAppInstanceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteAppInstanceCommandInput - {@link DeleteAppInstanceCommandInput}
@@ -73,6 +76,8 @@ export interface DeleteAppInstanceCommandOutput extends __MetadataBearer {}
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeSDKIdentityServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKIdentity service.</p>
  *
  */
 export class DeleteAppInstanceCommand extends $Command<

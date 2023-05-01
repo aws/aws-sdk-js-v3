@@ -36,16 +36,22 @@ export interface CreateMilestoneCommandOutput extends CreateMilestoneOutput, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WellArchitectedClient, CreateMilestoneCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
- * // const { WellArchitectedClient, CreateMilestoneCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
+ * import { WellArchitectedClient, CreateMilestoneCommand } from '@aws-sdk/client-wellarchitected'; // ES Modules import
+ * // const { WellArchitectedClient, CreateMilestoneCommand } = require('@aws-sdk/client-wellarchitected'); // CommonJS import
  * const client = new WellArchitectedClient(config);
  * const input = { // CreateMilestoneInput
- *   WorkloadId: "STRING_VALUE", // required
- *   MilestoneName: "STRING_VALUE", // required
- *   ClientRequestToken: "STRING_VALUE", // required
+ *   WorkloadId: 'STRING_VALUE', // required
+ *   MilestoneName: 'STRING_VALUE', // required
+ *   ClientRequestToken: 'STRING_VALUE', // required
  * };
  * const command = new CreateMilestoneCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateMilestoneOutput
+ *   WorkloadId: 'STRING_VALUE',
+ *   MilestoneNumber: Number('int'),
+ * };
+ *
  * ```
  *
  * @param CreateMilestoneCommandInput - {@link CreateMilestoneCommandInput}
@@ -75,6 +81,8 @@ export interface CreateMilestoneCommandOutput extends CreateMilestoneOutput, __M
  * @throws {@link ValidationException} (client fault)
  *  <p>The user input is not valid.</p>
  *
+ * @throws {@link WellArchitectedServiceException}
+ * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
  */
 export class CreateMilestoneCommand extends $Command<

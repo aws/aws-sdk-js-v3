@@ -63,29 +63,35 @@ export interface StartSigningJobCommandOutput extends StartSigningJobResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SignerClient, StartSigningJobCommand } from "@aws-sdk/client-signer"; // ES Modules import
- * // const { SignerClient, StartSigningJobCommand } = require("@aws-sdk/client-signer"); // CommonJS import
+ * import { SignerClient, StartSigningJobCommand } from '@aws-sdk/client-signer'; // ES Modules import
+ * // const { SignerClient, StartSigningJobCommand } = require('@aws-sdk/client-signer'); // CommonJS import
  * const client = new SignerClient(config);
  * const input = { // StartSigningJobRequest
  *   source: { // Source
  *     s3: { // S3Source
- *       bucketName: "STRING_VALUE", // required
- *       key: "STRING_VALUE", // required
- *       version: "STRING_VALUE", // required
+ *       bucketName: 'STRING_VALUE', // required
+ *       key: 'STRING_VALUE', // required
+ *       version: 'STRING_VALUE', // required
  *     },
  *   },
  *   destination: { // Destination
  *     s3: { // S3Destination
- *       bucketName: "STRING_VALUE",
- *       prefix: "STRING_VALUE",
+ *       bucketName: 'STRING_VALUE',
+ *       prefix: 'STRING_VALUE',
  *     },
  *   },
- *   profileName: "STRING_VALUE", // required
- *   clientRequestToken: "STRING_VALUE", // required
- *   profileOwner: "STRING_VALUE",
+ *   profileName: 'STRING_VALUE', // required
+ *   clientRequestToken: 'STRING_VALUE', // required
+ *   profileOwner: 'STRING_VALUE',
  * };
  * const command = new StartSigningJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartSigningJobResponse
+ *   jobId: 'STRING_VALUE',
+ *   jobOwner: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param StartSigningJobCommandInput - {@link StartSigningJobCommandInput}
@@ -114,6 +120,8 @@ export interface StartSigningJobCommandOutput extends StartSigningJobResponse, _
  * @throws {@link ValidationException} (client fault)
  *  <p>You signing certificate could not be validated.</p>
  *
+ * @throws {@link SignerServiceException}
+ * <p>Base exception class for all service exceptions from Signer service.</p>
  *
  */
 export class StartSigningJobCommand extends $Command<

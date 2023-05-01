@@ -40,15 +40,26 @@ export interface GetCloudFormationTemplateCommandOutput extends GetCloudFormatio
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ServerlessApplicationRepositoryClient, GetCloudFormationTemplateCommand } from "@aws-sdk/client-serverlessapplicationrepository"; // ES Modules import
- * // const { ServerlessApplicationRepositoryClient, GetCloudFormationTemplateCommand } = require("@aws-sdk/client-serverlessapplicationrepository"); // CommonJS import
+ * import { ServerlessApplicationRepositoryClient, GetCloudFormationTemplateCommand } from '@aws-sdk/client-serverlessapplicationrepository'; // ES Modules import
+ * // const { ServerlessApplicationRepositoryClient, GetCloudFormationTemplateCommand } = require('@aws-sdk/client-serverlessapplicationrepository'); // CommonJS import
  * const client = new ServerlessApplicationRepositoryClient(config);
  * const input = { // GetCloudFormationTemplateRequest
- *   ApplicationId: "STRING_VALUE", // required
- *   TemplateId: "STRING_VALUE", // required
+ *   ApplicationId: 'STRING_VALUE', // required
+ *   TemplateId: 'STRING_VALUE', // required
  * };
  * const command = new GetCloudFormationTemplateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetCloudFormationTemplateResponse
+ *   ApplicationId: 'STRING_VALUE',
+ *   CreationTime: 'STRING_VALUE',
+ *   ExpirationTime: 'STRING_VALUE',
+ *   SemanticVersion: 'STRING_VALUE',
+ *   Status: 'PREPARING' || 'ACTIVE' || 'EXPIRED',
+ *   TemplateId: 'STRING_VALUE',
+ *   TemplateUrl: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetCloudFormationTemplateCommandInput - {@link GetCloudFormationTemplateCommandInput}
@@ -72,6 +83,8 @@ export interface GetCloudFormationTemplateCommandOutput extends GetCloudFormatio
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>The client is sending more than the allowed number of requests per unit of time.</p>
  *
+ * @throws {@link ServerlessApplicationRepositoryServiceException}
+ * <p>Base exception class for all service exceptions from ServerlessApplicationRepository service.</p>
  *
  */
 export class GetCloudFormationTemplateCommand extends $Command<

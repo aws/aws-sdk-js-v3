@@ -37,21 +37,46 @@ export interface ListFHIRDatastoresCommandOutput extends ListFHIRDatastoresRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { HealthLakeClient, ListFHIRDatastoresCommand } from "@aws-sdk/client-healthlake"; // ES Modules import
- * // const { HealthLakeClient, ListFHIRDatastoresCommand } = require("@aws-sdk/client-healthlake"); // CommonJS import
+ * import { HealthLakeClient, ListFHIRDatastoresCommand } from '@aws-sdk/client-healthlake'; // ES Modules import
+ * // const { HealthLakeClient, ListFHIRDatastoresCommand } = require('@aws-sdk/client-healthlake'); // CommonJS import
  * const client = new HealthLakeClient(config);
  * const input = { // ListFHIRDatastoresRequest
  *   Filter: { // DatastoreFilter
- *     DatastoreName: "STRING_VALUE",
- *     DatastoreStatus: "STRING_VALUE",
- *     CreatedBefore: new Date("TIMESTAMP"),
- *     CreatedAfter: new Date("TIMESTAMP"),
+ *     DatastoreName: 'STRING_VALUE',
+ *     DatastoreStatus: 'STRING_VALUE',
+ *     CreatedBefore: new Date('TIMESTAMP'),
+ *     CreatedAfter: new Date('TIMESTAMP'),
  *   },
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListFHIRDatastoresCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListFHIRDatastoresResponse
+ *   DatastorePropertiesList: [ // DatastorePropertiesList // required
+ *     { // DatastoreProperties
+ *       DatastoreId: 'STRING_VALUE', // required
+ *       DatastoreArn: 'STRING_VALUE', // required
+ *       DatastoreName: 'STRING_VALUE',
+ *       DatastoreStatus: 'STRING_VALUE', // required
+ *       CreatedAt: new Date('TIMESTAMP'),
+ *       DatastoreTypeVersion: 'STRING_VALUE', // required
+ *       DatastoreEndpoint: 'STRING_VALUE', // required
+ *       SseConfiguration: { // SseConfiguration
+ *         KmsEncryptionConfig: { // KmsEncryptionConfig
+ *           CmkType: 'STRING_VALUE', // required
+ *           KmsKeyId: 'STRING_VALUE',
+ *         },
+ *       },
+ *       PreloadDataConfig: { // PreloadDataConfig
+ *         PreloadDataType: 'STRING_VALUE', // required
+ *       },
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListFHIRDatastoresCommandInput - {@link ListFHIRDatastoresCommandInput}
@@ -69,6 +94,8 @@ export interface ListFHIRDatastoresCommandOutput extends ListFHIRDatastoresRespo
  * @throws {@link ValidationException} (client fault)
  *  <p>The user input parameter was invalid.</p>
  *
+ * @throws {@link HealthLakeServiceException}
+ * <p>Base exception class for all service exceptions from HealthLake service.</p>
  *
  */
 export class ListFHIRDatastoresCommand extends $Command<

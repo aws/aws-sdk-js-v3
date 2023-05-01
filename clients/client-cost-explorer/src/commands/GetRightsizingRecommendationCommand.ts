@@ -45,87 +45,231 @@ export interface GetRightsizingRecommendationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CostExplorerClient, GetRightsizingRecommendationCommand } from "@aws-sdk/client-cost-explorer"; // ES Modules import
- * // const { CostExplorerClient, GetRightsizingRecommendationCommand } = require("@aws-sdk/client-cost-explorer"); // CommonJS import
+ * import { CostExplorerClient, GetRightsizingRecommendationCommand } from '@aws-sdk/client-cost-explorer'; // ES Modules import
+ * // const { CostExplorerClient, GetRightsizingRecommendationCommand } = require('@aws-sdk/client-cost-explorer'); // CommonJS import
  * const client = new CostExplorerClient(config);
  * const input = { // GetRightsizingRecommendationRequest
  *   Filter: { // Expression
  *     Or: [ // Expressions
  *       {
  *         Or: [
- *           "<Expression>",
+ *           '<Expression>',
  *         ],
  *         And: [
- *           "<Expression>",
+ *           '<Expression>',
  *         ],
- *         Not: "<Expression>",
+ *         Not: '<Expression>',
  *         Dimensions: { // DimensionValues
- *           Key: "AZ" || "INSTANCE_TYPE" || "LINKED_ACCOUNT" || "LINKED_ACCOUNT_NAME" || "OPERATION" || "PURCHASE_TYPE" || "REGION" || "SERVICE" || "SERVICE_CODE" || "USAGE_TYPE" || "USAGE_TYPE_GROUP" || "RECORD_TYPE" || "OPERATING_SYSTEM" || "TENANCY" || "SCOPE" || "PLATFORM" || "SUBSCRIPTION_ID" || "LEGAL_ENTITY_NAME" || "DEPLOYMENT_OPTION" || "DATABASE_ENGINE" || "CACHE_ENGINE" || "INSTANCE_TYPE_FAMILY" || "BILLING_ENTITY" || "RESERVATION_ID" || "RESOURCE_ID" || "RIGHTSIZING_TYPE" || "SAVINGS_PLANS_TYPE" || "SAVINGS_PLAN_ARN" || "PAYMENT_OPTION" || "AGREEMENT_END_DATE_TIME_AFTER" || "AGREEMENT_END_DATE_TIME_BEFORE" || "INVOICING_ENTITY" || "ANOMALY_TOTAL_IMPACT_ABSOLUTE" || "ANOMALY_TOTAL_IMPACT_PERCENTAGE",
+ *           Key: 'AZ' || 'INSTANCE_TYPE' || 'LINKED_ACCOUNT' || 'LINKED_ACCOUNT_NAME' || 'OPERATION' || 'PURCHASE_TYPE' || 'REGION' || 'SERVICE' || 'SERVICE_CODE' || 'USAGE_TYPE' || 'USAGE_TYPE_GROUP' || 'RECORD_TYPE' || 'OPERATING_SYSTEM' || 'TENANCY' || 'SCOPE' || 'PLATFORM' || 'SUBSCRIPTION_ID' || 'LEGAL_ENTITY_NAME' || 'DEPLOYMENT_OPTION' || 'DATABASE_ENGINE' || 'CACHE_ENGINE' || 'INSTANCE_TYPE_FAMILY' || 'BILLING_ENTITY' || 'RESERVATION_ID' || 'RESOURCE_ID' || 'RIGHTSIZING_TYPE' || 'SAVINGS_PLANS_TYPE' || 'SAVINGS_PLAN_ARN' || 'PAYMENT_OPTION' || 'AGREEMENT_END_DATE_TIME_AFTER' || 'AGREEMENT_END_DATE_TIME_BEFORE' || 'INVOICING_ENTITY' || 'ANOMALY_TOTAL_IMPACT_ABSOLUTE' || 'ANOMALY_TOTAL_IMPACT_PERCENTAGE',
  *           Values: [ // Values
- *             "STRING_VALUE",
+ *             'STRING_VALUE',
  *           ],
  *           MatchOptions: [ // MatchOptions
- *             "EQUALS" || "ABSENT" || "STARTS_WITH" || "ENDS_WITH" || "CONTAINS" || "CASE_SENSITIVE" || "CASE_INSENSITIVE" || "GREATER_THAN_OR_EQUAL",
+ *             'EQUALS' || 'ABSENT' || 'STARTS_WITH' || 'ENDS_WITH' || 'CONTAINS' || 'CASE_SENSITIVE' || 'CASE_INSENSITIVE' || 'GREATER_THAN_OR_EQUAL',
  *           ],
  *         },
  *         Tags: { // TagValues
- *           Key: "STRING_VALUE",
+ *           Key: 'STRING_VALUE',
  *           Values: [
- *             "STRING_VALUE",
+ *             'STRING_VALUE',
  *           ],
  *           MatchOptions: [
- *             "EQUALS" || "ABSENT" || "STARTS_WITH" || "ENDS_WITH" || "CONTAINS" || "CASE_SENSITIVE" || "CASE_INSENSITIVE" || "GREATER_THAN_OR_EQUAL",
+ *             'EQUALS' || 'ABSENT' || 'STARTS_WITH' || 'ENDS_WITH' || 'CONTAINS' || 'CASE_SENSITIVE' || 'CASE_INSENSITIVE' || 'GREATER_THAN_OR_EQUAL',
  *           ],
  *         },
  *         CostCategories: { // CostCategoryValues
- *           Key: "STRING_VALUE",
+ *           Key: 'STRING_VALUE',
  *           Values: [
- *             "STRING_VALUE",
+ *             'STRING_VALUE',
  *           ],
  *           MatchOptions: [
- *             "EQUALS" || "ABSENT" || "STARTS_WITH" || "ENDS_WITH" || "CONTAINS" || "CASE_SENSITIVE" || "CASE_INSENSITIVE" || "GREATER_THAN_OR_EQUAL",
+ *             'EQUALS' || 'ABSENT' || 'STARTS_WITH' || 'ENDS_WITH' || 'CONTAINS' || 'CASE_SENSITIVE' || 'CASE_INSENSITIVE' || 'GREATER_THAN_OR_EQUAL',
  *           ],
  *         },
  *       },
  *     ],
  *     And: [
- *       "<Expression>",
+ *       '<Expression>',
  *     ],
- *     Not: "<Expression>",
+ *     Not: '<Expression>',
  *     Dimensions: {
- *       Key: "AZ" || "INSTANCE_TYPE" || "LINKED_ACCOUNT" || "LINKED_ACCOUNT_NAME" || "OPERATION" || "PURCHASE_TYPE" || "REGION" || "SERVICE" || "SERVICE_CODE" || "USAGE_TYPE" || "USAGE_TYPE_GROUP" || "RECORD_TYPE" || "OPERATING_SYSTEM" || "TENANCY" || "SCOPE" || "PLATFORM" || "SUBSCRIPTION_ID" || "LEGAL_ENTITY_NAME" || "DEPLOYMENT_OPTION" || "DATABASE_ENGINE" || "CACHE_ENGINE" || "INSTANCE_TYPE_FAMILY" || "BILLING_ENTITY" || "RESERVATION_ID" || "RESOURCE_ID" || "RIGHTSIZING_TYPE" || "SAVINGS_PLANS_TYPE" || "SAVINGS_PLAN_ARN" || "PAYMENT_OPTION" || "AGREEMENT_END_DATE_TIME_AFTER" || "AGREEMENT_END_DATE_TIME_BEFORE" || "INVOICING_ENTITY" || "ANOMALY_TOTAL_IMPACT_ABSOLUTE" || "ANOMALY_TOTAL_IMPACT_PERCENTAGE",
+ *       Key: 'AZ' || 'INSTANCE_TYPE' || 'LINKED_ACCOUNT' || 'LINKED_ACCOUNT_NAME' || 'OPERATION' || 'PURCHASE_TYPE' || 'REGION' || 'SERVICE' || 'SERVICE_CODE' || 'USAGE_TYPE' || 'USAGE_TYPE_GROUP' || 'RECORD_TYPE' || 'OPERATING_SYSTEM' || 'TENANCY' || 'SCOPE' || 'PLATFORM' || 'SUBSCRIPTION_ID' || 'LEGAL_ENTITY_NAME' || 'DEPLOYMENT_OPTION' || 'DATABASE_ENGINE' || 'CACHE_ENGINE' || 'INSTANCE_TYPE_FAMILY' || 'BILLING_ENTITY' || 'RESERVATION_ID' || 'RESOURCE_ID' || 'RIGHTSIZING_TYPE' || 'SAVINGS_PLANS_TYPE' || 'SAVINGS_PLAN_ARN' || 'PAYMENT_OPTION' || 'AGREEMENT_END_DATE_TIME_AFTER' || 'AGREEMENT_END_DATE_TIME_BEFORE' || 'INVOICING_ENTITY' || 'ANOMALY_TOTAL_IMPACT_ABSOLUTE' || 'ANOMALY_TOTAL_IMPACT_PERCENTAGE',
  *       Values: [
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *       MatchOptions: [
- *         "EQUALS" || "ABSENT" || "STARTS_WITH" || "ENDS_WITH" || "CONTAINS" || "CASE_SENSITIVE" || "CASE_INSENSITIVE" || "GREATER_THAN_OR_EQUAL",
+ *         'EQUALS' || 'ABSENT' || 'STARTS_WITH' || 'ENDS_WITH' || 'CONTAINS' || 'CASE_SENSITIVE' || 'CASE_INSENSITIVE' || 'GREATER_THAN_OR_EQUAL',
  *       ],
  *     },
  *     Tags: {
- *       Key: "STRING_VALUE",
+ *       Key: 'STRING_VALUE',
  *       Values: [
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *       MatchOptions: [
- *         "EQUALS" || "ABSENT" || "STARTS_WITH" || "ENDS_WITH" || "CONTAINS" || "CASE_SENSITIVE" || "CASE_INSENSITIVE" || "GREATER_THAN_OR_EQUAL",
+ *         'EQUALS' || 'ABSENT' || 'STARTS_WITH' || 'ENDS_WITH' || 'CONTAINS' || 'CASE_SENSITIVE' || 'CASE_INSENSITIVE' || 'GREATER_THAN_OR_EQUAL',
  *       ],
  *     },
  *     CostCategories: {
- *       Key: "STRING_VALUE",
- *       Values: "<Values>",
- *       MatchOptions: "<MatchOptions>",
+ *       Key: 'STRING_VALUE',
+ *       Values: '<Values>',
+ *       MatchOptions: '<MatchOptions>',
  *     },
  *   },
  *   Configuration: { // RightsizingRecommendationConfiguration
- *     RecommendationTarget: "SAME_INSTANCE_FAMILY" || "CROSS_INSTANCE_FAMILY", // required
+ *     RecommendationTarget: 'SAME_INSTANCE_FAMILY' || 'CROSS_INSTANCE_FAMILY', // required
  *     BenefitsConsidered: true || false, // required
  *   },
- *   Service: "STRING_VALUE", // required
- *   PageSize: Number("int"),
- *   NextPageToken: "STRING_VALUE",
+ *   Service: 'STRING_VALUE', // required
+ *   PageSize: Number('int'),
+ *   NextPageToken: 'STRING_VALUE',
  * };
  * const command = new GetRightsizingRecommendationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetRightsizingRecommendationResponse
+ *   Metadata: { // RightsizingRecommendationMetadata
+ *     RecommendationId: 'STRING_VALUE',
+ *     GenerationTimestamp: 'STRING_VALUE',
+ *     LookbackPeriodInDays: 'SEVEN_DAYS' || 'THIRTY_DAYS' || 'SIXTY_DAYS',
+ *     AdditionalMetadata: 'STRING_VALUE',
+ *   },
+ *   Summary: { // RightsizingRecommendationSummary
+ *     TotalRecommendationCount: 'STRING_VALUE',
+ *     EstimatedTotalMonthlySavingsAmount: 'STRING_VALUE',
+ *     SavingsCurrencyCode: 'STRING_VALUE',
+ *     SavingsPercentage: 'STRING_VALUE',
+ *   },
+ *   RightsizingRecommendations: [ // RightsizingRecommendationList
+ *     { // RightsizingRecommendation
+ *       AccountId: 'STRING_VALUE',
+ *       CurrentInstance: { // CurrentInstance
+ *         ResourceId: 'STRING_VALUE',
+ *         InstanceName: 'STRING_VALUE',
+ *         Tags: [ // TagValuesList
+ *           { // TagValues
+ *             Key: 'STRING_VALUE',
+ *             Values: [ // Values
+ *               'STRING_VALUE',
+ *             ],
+ *             MatchOptions: [ // MatchOptions
+ *               'EQUALS' || 'ABSENT' || 'STARTS_WITH' || 'ENDS_WITH' || 'CONTAINS' || 'CASE_SENSITIVE' || 'CASE_INSENSITIVE' || 'GREATER_THAN_OR_EQUAL',
+ *             ],
+ *           },
+ *         ],
+ *         ResourceDetails: { // ResourceDetails
+ *           EC2ResourceDetails: { // EC2ResourceDetails
+ *             HourlyOnDemandRate: 'STRING_VALUE',
+ *             InstanceType: 'STRING_VALUE',
+ *             Platform: 'STRING_VALUE',
+ *             Region: 'STRING_VALUE',
+ *             Sku: 'STRING_VALUE',
+ *             Memory: 'STRING_VALUE',
+ *             NetworkPerformance: 'STRING_VALUE',
+ *             Storage: 'STRING_VALUE',
+ *             Vcpu: 'STRING_VALUE',
+ *           },
+ *         },
+ *         ResourceUtilization: { // ResourceUtilization
+ *           EC2ResourceUtilization: { // EC2ResourceUtilization
+ *             MaxCpuUtilizationPercentage: 'STRING_VALUE',
+ *             MaxMemoryUtilizationPercentage: 'STRING_VALUE',
+ *             MaxStorageUtilizationPercentage: 'STRING_VALUE',
+ *             EBSResourceUtilization: { // EBSResourceUtilization
+ *               EbsReadOpsPerSecond: 'STRING_VALUE',
+ *               EbsWriteOpsPerSecond: 'STRING_VALUE',
+ *               EbsReadBytesPerSecond: 'STRING_VALUE',
+ *               EbsWriteBytesPerSecond: 'STRING_VALUE',
+ *             },
+ *             DiskResourceUtilization: { // DiskResourceUtilization
+ *               DiskReadOpsPerSecond: 'STRING_VALUE',
+ *               DiskWriteOpsPerSecond: 'STRING_VALUE',
+ *               DiskReadBytesPerSecond: 'STRING_VALUE',
+ *               DiskWriteBytesPerSecond: 'STRING_VALUE',
+ *             },
+ *             NetworkResourceUtilization: { // NetworkResourceUtilization
+ *               NetworkInBytesPerSecond: 'STRING_VALUE',
+ *               NetworkOutBytesPerSecond: 'STRING_VALUE',
+ *               NetworkPacketsInPerSecond: 'STRING_VALUE',
+ *               NetworkPacketsOutPerSecond: 'STRING_VALUE',
+ *             },
+ *           },
+ *         },
+ *         ReservationCoveredHoursInLookbackPeriod: 'STRING_VALUE',
+ *         SavingsPlansCoveredHoursInLookbackPeriod: 'STRING_VALUE',
+ *         OnDemandHoursInLookbackPeriod: 'STRING_VALUE',
+ *         TotalRunningHoursInLookbackPeriod: 'STRING_VALUE',
+ *         MonthlyCost: 'STRING_VALUE',
+ *         CurrencyCode: 'STRING_VALUE',
+ *       },
+ *       RightsizingType: 'TERMINATE' || 'MODIFY',
+ *       ModifyRecommendationDetail: { // ModifyRecommendationDetail
+ *         TargetInstances: [ // TargetInstancesList
+ *           { // TargetInstance
+ *             EstimatedMonthlyCost: 'STRING_VALUE',
+ *             EstimatedMonthlySavings: 'STRING_VALUE',
+ *             CurrencyCode: 'STRING_VALUE',
+ *             DefaultTargetInstance: true || false,
+ *             ResourceDetails: {
+ *               EC2ResourceDetails: {
+ *                 HourlyOnDemandRate: 'STRING_VALUE',
+ *                 InstanceType: 'STRING_VALUE',
+ *                 Platform: 'STRING_VALUE',
+ *                 Region: 'STRING_VALUE',
+ *                 Sku: 'STRING_VALUE',
+ *                 Memory: 'STRING_VALUE',
+ *                 NetworkPerformance: 'STRING_VALUE',
+ *                 Storage: 'STRING_VALUE',
+ *                 Vcpu: 'STRING_VALUE',
+ *               },
+ *             },
+ *             ExpectedResourceUtilization: {
+ *               EC2ResourceUtilization: {
+ *                 MaxCpuUtilizationPercentage: 'STRING_VALUE',
+ *                 MaxMemoryUtilizationPercentage: 'STRING_VALUE',
+ *                 MaxStorageUtilizationPercentage: 'STRING_VALUE',
+ *                 EBSResourceUtilization: {
+ *                   EbsReadOpsPerSecond: 'STRING_VALUE',
+ *                   EbsWriteOpsPerSecond: 'STRING_VALUE',
+ *                   EbsReadBytesPerSecond: 'STRING_VALUE',
+ *                   EbsWriteBytesPerSecond: 'STRING_VALUE',
+ *                 },
+ *                 DiskResourceUtilization: {
+ *                   DiskReadOpsPerSecond: 'STRING_VALUE',
+ *                   DiskWriteOpsPerSecond: 'STRING_VALUE',
+ *                   DiskReadBytesPerSecond: 'STRING_VALUE',
+ *                   DiskWriteBytesPerSecond: 'STRING_VALUE',
+ *                 },
+ *                 NetworkResourceUtilization: {
+ *                   NetworkInBytesPerSecond: 'STRING_VALUE',
+ *                   NetworkOutBytesPerSecond: 'STRING_VALUE',
+ *                   NetworkPacketsInPerSecond: 'STRING_VALUE',
+ *                   NetworkPacketsOutPerSecond: 'STRING_VALUE',
+ *                 },
+ *               },
+ *             },
+ *             PlatformDifferences: [ // PlatformDifferences
+ *               'HYPERVISOR' || 'NETWORK_INTERFACE' || 'STORAGE_INTERFACE' || 'INSTANCE_STORE_AVAILABILITY' || 'VIRTUALIZATION_TYPE',
+ *             ],
+ *           },
+ *         ],
+ *       },
+ *       TerminateRecommendationDetail: { // TerminateRecommendationDetail
+ *         EstimatedMonthlySavings: 'STRING_VALUE',
+ *         CurrencyCode: 'STRING_VALUE',
+ *       },
+ *       FindingReasonCodes: [ // FindingReasonCodes
+ *         'CPU_OVER_PROVISIONED' || 'CPU_UNDER_PROVISIONED' || 'MEMORY_OVER_PROVISIONED' || 'MEMORY_UNDER_PROVISIONED' || 'EBS_THROUGHPUT_OVER_PROVISIONED' || 'EBS_THROUGHPUT_UNDER_PROVISIONED' || 'EBS_IOPS_OVER_PROVISIONED' || 'EBS_IOPS_UNDER_PROVISIONED' || 'NETWORK_BANDWIDTH_OVER_PROVISIONED' || 'NETWORK_BANDWIDTH_UNDER_PROVISIONED' || 'NETWORK_PPS_OVER_PROVISIONED' || 'NETWORK_PPS_UNDER_PROVISIONED' || 'DISK_IOPS_OVER_PROVISIONED' || 'DISK_IOPS_UNDER_PROVISIONED' || 'DISK_THROUGHPUT_OVER_PROVISIONED' || 'DISK_THROUGHPUT_UNDER_PROVISIONED',
+ *       ],
+ *     },
+ *   ],
+ *   NextPageToken: 'STRING_VALUE',
+ *   Configuration: { // RightsizingRecommendationConfiguration
+ *     RecommendationTarget: 'SAME_INSTANCE_FAMILY' || 'CROSS_INSTANCE_FAMILY', // required
+ *     BenefitsConsidered: true || false, // required
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetRightsizingRecommendationCommandInput - {@link GetRightsizingRecommendationCommandInput}
@@ -140,6 +284,8 @@ export interface GetRightsizingRecommendationCommandOutput
  * @throws {@link LimitExceededException} (client fault)
  *  <p>You made too many calls in a short period of time. Try again later.</p>
  *
+ * @throws {@link CostExplorerServiceException}
+ * <p>Base exception class for all service exceptions from CostExplorer service.</p>
  *
  */
 export class GetRightsizingRecommendationCommand extends $Command<

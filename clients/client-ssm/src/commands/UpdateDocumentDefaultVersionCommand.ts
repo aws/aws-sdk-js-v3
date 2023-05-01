@@ -46,15 +46,24 @@ export interface UpdateDocumentDefaultVersionCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMClient, UpdateDocumentDefaultVersionCommand } from "@aws-sdk/client-ssm"; // ES Modules import
- * // const { SSMClient, UpdateDocumentDefaultVersionCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * import { SSMClient, UpdateDocumentDefaultVersionCommand } from '@aws-sdk/client-ssm'; // ES Modules import
+ * // const { SSMClient, UpdateDocumentDefaultVersionCommand } = require('@aws-sdk/client-ssm'); // CommonJS import
  * const client = new SSMClient(config);
  * const input = { // UpdateDocumentDefaultVersionRequest
- *   Name: "STRING_VALUE", // required
- *   DocumentVersion: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
+ *   DocumentVersion: 'STRING_VALUE', // required
  * };
  * const command = new UpdateDocumentDefaultVersionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateDocumentDefaultVersionResult
+ *   Description: { // DocumentDefaultVersionDescription
+ *     Name: 'STRING_VALUE',
+ *     DefaultVersion: 'STRING_VALUE',
+ *     DefaultVersionName: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateDocumentDefaultVersionCommandInput - {@link UpdateDocumentDefaultVersionCommandInput}
@@ -75,6 +84,8 @@ export interface UpdateDocumentDefaultVersionCommandOutput
  * @throws {@link InvalidDocumentVersion} (client fault)
  *  <p>The document version isn't valid or doesn't exist.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class UpdateDocumentDefaultVersionCommand extends $Command<

@@ -36,15 +36,28 @@ export interface ListPipelinesCommandOutput extends ListPipelinesOutput, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodePipelineClient, ListPipelinesCommand } from "@aws-sdk/client-codepipeline"; // ES Modules import
- * // const { CodePipelineClient, ListPipelinesCommand } = require("@aws-sdk/client-codepipeline"); // CommonJS import
+ * import { CodePipelineClient, ListPipelinesCommand } from '@aws-sdk/client-codepipeline'; // ES Modules import
+ * // const { CodePipelineClient, ListPipelinesCommand } = require('@aws-sdk/client-codepipeline'); // CommonJS import
  * const client = new CodePipelineClient(config);
  * const input = { // ListPipelinesInput
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new ListPipelinesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListPipelinesOutput
+ *   pipelines: [ // PipelineList
+ *     { // PipelineSummary
+ *       name: 'STRING_VALUE',
+ *       version: Number('int'),
+ *       created: new Date('TIMESTAMP'),
+ *       updated: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListPipelinesCommandInput - {@link ListPipelinesCommandInput}
@@ -60,6 +73,8 @@ export interface ListPipelinesCommandOutput extends ListPipelinesOutput, __Metad
  * @throws {@link ValidationException} (client fault)
  *  <p>The validation was specified in an invalid format.</p>
  *
+ * @throws {@link CodePipelineServiceException}
+ * <p>Base exception class for all service exceptions from CodePipeline service.</p>
  *
  */
 export class ListPipelinesCommand extends $Command<

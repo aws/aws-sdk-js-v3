@@ -38,17 +38,20 @@ export interface DeleteDocumentCommandOutput extends DeleteDocumentResult, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMClient, DeleteDocumentCommand } from "@aws-sdk/client-ssm"; // ES Modules import
- * // const { SSMClient, DeleteDocumentCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * import { SSMClient, DeleteDocumentCommand } from '@aws-sdk/client-ssm'; // ES Modules import
+ * // const { SSMClient, DeleteDocumentCommand } = require('@aws-sdk/client-ssm'); // CommonJS import
  * const client = new SSMClient(config);
  * const input = { // DeleteDocumentRequest
- *   Name: "STRING_VALUE", // required
- *   DocumentVersion: "STRING_VALUE",
- *   VersionName: "STRING_VALUE",
+ *   Name: 'STRING_VALUE', // required
+ *   DocumentVersion: 'STRING_VALUE',
+ *   VersionName: 'STRING_VALUE',
  *   Force: true || false,
  * };
  * const command = new DeleteDocumentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteDocumentCommandInput - {@link DeleteDocumentCommandInput}
@@ -70,6 +73,8 @@ export interface DeleteDocumentCommandOutput extends DeleteDocumentResult, __Met
  *  <p>You attempted to delete a document while it is still shared. You must stop sharing the
  *    document before you can delete it.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class DeleteDocumentCommand extends $Command<

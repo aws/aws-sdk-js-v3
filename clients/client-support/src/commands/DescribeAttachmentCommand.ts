@@ -54,14 +54,22 @@ export interface DescribeAttachmentCommandOutput extends DescribeAttachmentRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SupportClient, DescribeAttachmentCommand } from "@aws-sdk/client-support"; // ES Modules import
- * // const { SupportClient, DescribeAttachmentCommand } = require("@aws-sdk/client-support"); // CommonJS import
+ * import { SupportClient, DescribeAttachmentCommand } from '@aws-sdk/client-support'; // ES Modules import
+ * // const { SupportClient, DescribeAttachmentCommand } = require('@aws-sdk/client-support'); // CommonJS import
  * const client = new SupportClient(config);
  * const input = { // DescribeAttachmentRequest
- *   attachmentId: "STRING_VALUE", // required
+ *   attachmentId: 'STRING_VALUE', // required
  * };
  * const command = new DescribeAttachmentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeAttachmentResponse
+ *   attachment: { // Attachment
+ *     fileName: 'STRING_VALUE',
+ *     data: 'BLOB_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeAttachmentCommandInput - {@link DescribeAttachmentCommandInput}
@@ -80,6 +88,8 @@ export interface DescribeAttachmentCommandOutput extends DescribeAttachmentRespo
  * @throws {@link InternalServerError} (server fault)
  *  <p>An internal server error occurred.</p>
  *
+ * @throws {@link SupportServiceException}
+ * <p>Base exception class for all service exceptions from Support service.</p>
  *
  */
 export class DescribeAttachmentCommand extends $Command<

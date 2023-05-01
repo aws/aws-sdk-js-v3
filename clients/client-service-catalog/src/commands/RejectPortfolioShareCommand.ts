@@ -36,16 +36,19 @@ export interface RejectPortfolioShareCommandOutput extends RejectPortfolioShareO
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ServiceCatalogClient, RejectPortfolioShareCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
- * // const { ServiceCatalogClient, RejectPortfolioShareCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
+ * import { ServiceCatalogClient, RejectPortfolioShareCommand } from '@aws-sdk/client-service-catalog'; // ES Modules import
+ * // const { ServiceCatalogClient, RejectPortfolioShareCommand } = require('@aws-sdk/client-service-catalog'); // CommonJS import
  * const client = new ServiceCatalogClient(config);
  * const input = { // RejectPortfolioShareInput
- *   AcceptLanguage: "STRING_VALUE",
- *   PortfolioId: "STRING_VALUE", // required
- *   PortfolioShareType: "IMPORTED" || "AWS_SERVICECATALOG" || "AWS_ORGANIZATIONS",
+ *   AcceptLanguage: 'STRING_VALUE',
+ *   PortfolioId: 'STRING_VALUE', // required
+ *   PortfolioShareType: 'IMPORTED' || 'AWS_SERVICECATALOG' || 'AWS_ORGANIZATIONS',
  * };
  * const command = new RejectPortfolioShareCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param RejectPortfolioShareCommandInput - {@link RejectPortfolioShareCommandInput}
@@ -57,6 +60,8 @@ export interface RejectPortfolioShareCommandOutput extends RejectPortfolioShareO
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link ServiceCatalogServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
  */
 export class RejectPortfolioShareCommand extends $Command<

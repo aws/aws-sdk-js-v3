@@ -44,15 +44,26 @@ export interface ListIPSetsCommandOutput extends ListIPSetsResponse, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WAFRegionalClient, ListIPSetsCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
- * // const { WAFRegionalClient, ListIPSetsCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import
+ * import { WAFRegionalClient, ListIPSetsCommand } from '@aws-sdk/client-waf-regional'; // ES Modules import
+ * // const { WAFRegionalClient, ListIPSetsCommand } = require('@aws-sdk/client-waf-regional'); // CommonJS import
  * const client = new WAFRegionalClient(config);
  * const input = { // ListIPSetsRequest
- *   NextMarker: "STRING_VALUE",
- *   Limit: Number("int"),
+ *   NextMarker: 'STRING_VALUE',
+ *   Limit: Number('int'),
  * };
  * const command = new ListIPSetsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListIPSetsResponse
+ *   NextMarker: 'STRING_VALUE',
+ *   IPSets: [ // IPSetSummaries
+ *     { // IPSetSummary
+ *       IPSetId: 'STRING_VALUE', // required
+ *       Name: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListIPSetsCommandInput - {@link ListIPSetsCommandInput}
@@ -67,6 +78,8 @@ export interface ListIPSetsCommandOutput extends ListIPSetsResponse, __MetadataB
  * @throws {@link WAFInvalidAccountException} (client fault)
  *  <p>The operation failed because you tried to create, update, or delete an object by using an invalid account identifier.</p>
  *
+ * @throws {@link WAFRegionalServiceException}
+ * <p>Base exception class for all service exceptions from WAFRegional service.</p>
  *
  * @example To list IP sets
  * ```javascript

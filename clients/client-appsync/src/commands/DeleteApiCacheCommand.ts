@@ -36,14 +36,17 @@ export interface DeleteApiCacheCommandOutput extends DeleteApiCacheResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppSyncClient, DeleteApiCacheCommand } from "@aws-sdk/client-appsync"; // ES Modules import
- * // const { AppSyncClient, DeleteApiCacheCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
+ * import { AppSyncClient, DeleteApiCacheCommand } from '@aws-sdk/client-appsync'; // ES Modules import
+ * // const { AppSyncClient, DeleteApiCacheCommand } = require('@aws-sdk/client-appsync'); // CommonJS import
  * const client = new AppSyncClient(config);
  * const input = { // DeleteApiCacheRequest
- *   apiId: "STRING_VALUE", // required
+ *   apiId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteApiCacheCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteApiCacheCommandInput - {@link DeleteApiCacheCommandInput}
@@ -69,6 +72,8 @@ export interface DeleteApiCacheCommandOutput extends DeleteApiCacheResponse, __M
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You aren't authorized to perform this operation.</p>
  *
+ * @throws {@link AppSyncServiceException}
+ * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
  */
 export class DeleteApiCacheCommand extends $Command<

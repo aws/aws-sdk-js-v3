@@ -40,24 +40,50 @@ export interface ListApplicationsCommandOutput extends ListApplicationsResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MgnClient, ListApplicationsCommand } from "@aws-sdk/client-mgn"; // ES Modules import
- * // const { MgnClient, ListApplicationsCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
+ * import { MgnClient, ListApplicationsCommand } from '@aws-sdk/client-mgn'; // ES Modules import
+ * // const { MgnClient, ListApplicationsCommand } = require('@aws-sdk/client-mgn'); // CommonJS import
  * const client = new MgnClient(config);
  * const input = { // ListApplicationsRequest
  *   filters: { // ListApplicationsRequestFilters
  *     applicationIDs: [ // ApplicationIDsFilter
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     isArchived: true || false,
  *     waveIDs: [ // WaveIDsFilter
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *   },
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new ListApplicationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListApplicationsResponse
+ *   items: [ // ApplicationsList
+ *     { // Application
+ *       applicationID: 'STRING_VALUE',
+ *       arn: 'STRING_VALUE',
+ *       name: 'STRING_VALUE',
+ *       description: 'STRING_VALUE',
+ *       isArchived: true || false,
+ *       applicationAggregatedStatus: { // ApplicationAggregatedStatus
+ *         lastUpdateDateTime: 'STRING_VALUE',
+ *         healthStatus: 'STRING_VALUE',
+ *         progressStatus: 'STRING_VALUE',
+ *         totalSourceServers: Number('long'),
+ *       },
+ *       creationDateTime: 'STRING_VALUE',
+ *       lastModifiedDateTime: 'STRING_VALUE',
+ *       tags: { // TagsMap
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *       waveID: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListApplicationsCommandInput - {@link ListApplicationsCommandInput}
@@ -69,6 +95,8 @@ export interface ListApplicationsCommandOutput extends ListApplicationsResponse,
  * @throws {@link UninitializedAccountException} (client fault)
  *  <p>Uninitialized account exception.</p>
  *
+ * @throws {@link MgnServiceException}
+ * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
  */
 export class ListApplicationsCommand extends $Command<

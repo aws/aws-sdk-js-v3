@@ -36,14 +36,17 @@ export interface RemoveApplicationInstanceCommandOutput extends RemoveApplicatio
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PanoramaClient, RemoveApplicationInstanceCommand } from "@aws-sdk/client-panorama"; // ES Modules import
- * // const { PanoramaClient, RemoveApplicationInstanceCommand } = require("@aws-sdk/client-panorama"); // CommonJS import
+ * import { PanoramaClient, RemoveApplicationInstanceCommand } from '@aws-sdk/client-panorama'; // ES Modules import
+ * // const { PanoramaClient, RemoveApplicationInstanceCommand } = require('@aws-sdk/client-panorama'); // CommonJS import
  * const client = new PanoramaClient(config);
  * const input = { // RemoveApplicationInstanceRequest
- *   ApplicationInstanceId: "STRING_VALUE", // required
+ *   ApplicationInstanceId: 'STRING_VALUE', // required
  * };
  * const command = new RemoveApplicationInstanceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param RemoveApplicationInstanceCommandInput - {@link RemoveApplicationInstanceCommandInput}
@@ -67,6 +70,8 @@ export interface RemoveApplicationInstanceCommandOutput extends RemoveApplicatio
  * @throws {@link ValidationException} (client fault)
  *  <p>The request contains an invalid parameter value.</p>
  *
+ * @throws {@link PanoramaServiceException}
+ * <p>Base exception class for all service exceptions from Panorama service.</p>
  *
  */
 export class RemoveApplicationInstanceCommand extends $Command<

@@ -80,17 +80,22 @@ export interface RegisterDeviceCommandOutput extends RegisterDeviceResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CognitoSyncClient, RegisterDeviceCommand } from "@aws-sdk/client-cognito-sync"; // ES Modules import
- * // const { CognitoSyncClient, RegisterDeviceCommand } = require("@aws-sdk/client-cognito-sync"); // CommonJS import
+ * import { CognitoSyncClient, RegisterDeviceCommand } from '@aws-sdk/client-cognito-sync'; // ES Modules import
+ * // const { CognitoSyncClient, RegisterDeviceCommand } = require('@aws-sdk/client-cognito-sync'); // CommonJS import
  * const client = new CognitoSyncClient(config);
  * const input = { // RegisterDeviceRequest
- *   IdentityPoolId: "STRING_VALUE", // required
- *   IdentityId: "STRING_VALUE", // required
- *   Platform: "STRING_VALUE", // required
- *   Token: "STRING_VALUE", // required
+ *   IdentityPoolId: 'STRING_VALUE', // required
+ *   IdentityId: 'STRING_VALUE', // required
+ *   Platform: 'STRING_VALUE', // required
+ *   Token: 'STRING_VALUE', // required
  * };
  * const command = new RegisterDeviceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // RegisterDeviceResponse
+ *   DeviceId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param RegisterDeviceCommandInput - {@link RegisterDeviceCommandInput}
@@ -121,6 +126,8 @@ export interface RegisterDeviceCommandOutput extends RegisterDeviceResponse, __M
  *  Thrown if the request is
  *       throttled.
  *
+ * @throws {@link CognitoSyncServiceException}
+ * <p>Base exception class for all service exceptions from CognitoSync service.</p>
  *
  */
 export class RegisterDeviceCommand extends $Command<

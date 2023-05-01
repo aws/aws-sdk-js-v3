@@ -42,21 +42,24 @@ export interface ModifySelfservicePermissionsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkSpacesClient, ModifySelfservicePermissionsCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
- * // const { WorkSpacesClient, ModifySelfservicePermissionsCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
+ * import { WorkSpacesClient, ModifySelfservicePermissionsCommand } from '@aws-sdk/client-workspaces'; // ES Modules import
+ * // const { WorkSpacesClient, ModifySelfservicePermissionsCommand } = require('@aws-sdk/client-workspaces'); // CommonJS import
  * const client = new WorkSpacesClient(config);
  * const input = { // ModifySelfservicePermissionsRequest
- *   ResourceId: "STRING_VALUE", // required
+ *   ResourceId: 'STRING_VALUE', // required
  *   SelfservicePermissions: { // SelfservicePermissions
- *     RestartWorkspace: "ENABLED" || "DISABLED",
- *     IncreaseVolumeSize: "ENABLED" || "DISABLED",
- *     ChangeComputeType: "ENABLED" || "DISABLED",
- *     SwitchRunningMode: "ENABLED" || "DISABLED",
- *     RebuildWorkspace: "ENABLED" || "DISABLED",
+ *     RestartWorkspace: 'ENABLED' || 'DISABLED',
+ *     IncreaseVolumeSize: 'ENABLED' || 'DISABLED',
+ *     ChangeComputeType: 'ENABLED' || 'DISABLED',
+ *     SwitchRunningMode: 'ENABLED' || 'DISABLED',
+ *     RebuildWorkspace: 'ENABLED' || 'DISABLED',
  *   },
  * };
  * const command = new ModifySelfservicePermissionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param ModifySelfservicePermissionsCommandInput - {@link ModifySelfservicePermissionsCommandInput}
@@ -74,6 +77,8 @@ export interface ModifySelfservicePermissionsCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource could not be found.</p>
  *
+ * @throws {@link WorkSpacesServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
  */
 export class ModifySelfservicePermissionsCommand extends $Command<

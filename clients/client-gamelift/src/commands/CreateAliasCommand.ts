@@ -55,26 +55,43 @@ export interface CreateAliasCommandOutput extends CreateAliasOutput, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GameLiftClient, CreateAliasCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
- * // const { GameLiftClient, CreateAliasCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
+ * import { GameLiftClient, CreateAliasCommand } from '@aws-sdk/client-gamelift'; // ES Modules import
+ * // const { GameLiftClient, CreateAliasCommand } = require('@aws-sdk/client-gamelift'); // CommonJS import
  * const client = new GameLiftClient(config);
  * const input = { // CreateAliasInput
- *   Name: "STRING_VALUE", // required
- *   Description: "STRING_VALUE",
+ *   Name: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE',
  *   RoutingStrategy: { // RoutingStrategy
- *     Type: "SIMPLE" || "TERMINAL",
- *     FleetId: "STRING_VALUE",
- *     Message: "STRING_VALUE",
+ *     Type: 'SIMPLE' || 'TERMINAL',
+ *     FleetId: 'STRING_VALUE',
+ *     Message: 'STRING_VALUE',
  *   },
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreateAliasCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateAliasOutput
+ *   Alias: { // Alias
+ *     AliasId: 'STRING_VALUE',
+ *     Name: 'STRING_VALUE',
+ *     AliasArn: 'STRING_VALUE',
+ *     Description: 'STRING_VALUE',
+ *     RoutingStrategy: { // RoutingStrategy
+ *       Type: 'SIMPLE' || 'TERMINAL',
+ *       FleetId: 'STRING_VALUE',
+ *       Message: 'STRING_VALUE',
+ *     },
+ *     CreationTime: new Date('TIMESTAMP'),
+ *     LastUpdatedTime: new Date('TIMESTAMP'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateAliasCommandInput - {@link CreateAliasCommandInput}
@@ -109,6 +126,8 @@ export interface CreateAliasCommandOutput extends CreateAliasOutput, __MetadataB
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client failed authentication. Clients should not retry such requests.</p>
  *
+ * @throws {@link GameLiftServiceException}
+ * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
  */
 export class CreateAliasCommand extends $Command<

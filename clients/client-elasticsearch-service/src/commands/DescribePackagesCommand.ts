@@ -40,23 +40,44 @@ export interface DescribePackagesCommandOutput extends DescribePackagesResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElasticsearchServiceClient, DescribePackagesCommand } from "@aws-sdk/client-elasticsearch-service"; // ES Modules import
- * // const { ElasticsearchServiceClient, DescribePackagesCommand } = require("@aws-sdk/client-elasticsearch-service"); // CommonJS import
+ * import { ElasticsearchServiceClient, DescribePackagesCommand } from '@aws-sdk/client-elasticsearch-service'; // ES Modules import
+ * // const { ElasticsearchServiceClient, DescribePackagesCommand } = require('@aws-sdk/client-elasticsearch-service'); // CommonJS import
  * const client = new ElasticsearchServiceClient(config);
  * const input = { // DescribePackagesRequest
  *   Filters: [ // DescribePackagesFilterList
  *     { // DescribePackagesFilter
- *       Name: "PackageID" || "PackageName" || "PackageStatus",
+ *       Name: 'PackageID' || 'PackageName' || 'PackageStatus',
  *       Value: [ // DescribePackagesFilterValues
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new DescribePackagesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribePackagesResponse
+ *   PackageDetailsList: [ // PackageDetailsList
+ *     { // PackageDetails
+ *       PackageID: 'STRING_VALUE',
+ *       PackageName: 'STRING_VALUE',
+ *       PackageType: 'TXT-DICTIONARY',
+ *       PackageDescription: 'STRING_VALUE',
+ *       PackageStatus: 'COPYING' || 'COPY_FAILED' || 'VALIDATING' || 'VALIDATION_FAILED' || 'AVAILABLE' || 'DELETING' || 'DELETED' || 'DELETE_FAILED',
+ *       CreatedAt: new Date('TIMESTAMP'),
+ *       LastUpdatedAt: new Date('TIMESTAMP'),
+ *       AvailablePackageVersion: 'STRING_VALUE',
+ *       ErrorDetails: { // ErrorDetails
+ *         ErrorType: 'STRING_VALUE',
+ *         ErrorMessage: 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribePackagesCommandInput - {@link DescribePackagesCommandInput}
@@ -80,6 +101,8 @@ export interface DescribePackagesCommandOutput extends DescribePackagesResponse,
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception for missing / invalid input fields. Gives http status code of 400.</p>
  *
+ * @throws {@link ElasticsearchServiceServiceException}
+ * <p>Base exception class for all service exceptions from ElasticsearchService service.</p>
  *
  */
 export class DescribePackagesCommand extends $Command<

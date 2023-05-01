@@ -36,22 +36,25 @@ export interface PutStudioMembersCommandOutput extends PutStudioMembersResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { NimbleClient, PutStudioMembersCommand } from "@aws-sdk/client-nimble"; // ES Modules import
- * // const { NimbleClient, PutStudioMembersCommand } = require("@aws-sdk/client-nimble"); // CommonJS import
+ * import { NimbleClient, PutStudioMembersCommand } from '@aws-sdk/client-nimble'; // ES Modules import
+ * // const { NimbleClient, PutStudioMembersCommand } = require('@aws-sdk/client-nimble'); // CommonJS import
  * const client = new NimbleClient(config);
  * const input = { // PutStudioMembersRequest
- *   clientToken: "STRING_VALUE",
- *   identityStoreId: "STRING_VALUE", // required
+ *   clientToken: 'STRING_VALUE',
+ *   identityStoreId: 'STRING_VALUE', // required
  *   members: [ // NewStudioMemberList // required
  *     { // NewStudioMember
- *       persona: "ADMINISTRATOR", // required
- *       principalId: "STRING_VALUE", // required
+ *       persona: 'ADMINISTRATOR', // required
+ *       principalId: 'STRING_VALUE', // required
  *     },
  *   ],
- *   studioId: "STRING_VALUE", // required
+ *   studioId: 'STRING_VALUE', // required
  * };
  * const command = new PutStudioMembersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutStudioMembersCommandInput - {@link PutStudioMembersCommandInput}
@@ -84,6 +87,8 @@ export interface PutStudioMembersCommandOutput extends PutStudioMembersResponse,
  * @throws {@link ValidationException} (client fault)
  *  <p>One of the parameters in the request is invalid.</p>
  *
+ * @throws {@link NimbleServiceException}
+ * <p>Base exception class for all service exceptions from Nimble service.</p>
  *
  */
 export class PutStudioMembersCommand extends $Command<

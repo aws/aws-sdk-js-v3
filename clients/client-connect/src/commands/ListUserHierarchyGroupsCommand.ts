@@ -39,16 +39,28 @@ export interface ListUserHierarchyGroupsCommandOutput extends ListUserHierarchyG
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, ListUserHierarchyGroupsCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, ListUserHierarchyGroupsCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, ListUserHierarchyGroupsCommand } from '@aws-sdk/client-connect'; // ES Modules import
+ * // const { ConnectClient, ListUserHierarchyGroupsCommand } = require('@aws-sdk/client-connect'); // CommonJS import
  * const client = new ConnectClient(config);
  * const input = { // ListUserHierarchyGroupsRequest
- *   InstanceId: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   InstanceId: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListUserHierarchyGroupsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListUserHierarchyGroupsResponse
+ *   UserHierarchyGroupSummaryList: [ // HierarchyGroupSummaryList
+ *     { // HierarchyGroupSummary
+ *       Id: 'STRING_VALUE',
+ *       Arn: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListUserHierarchyGroupsCommandInput - {@link ListUserHierarchyGroupsCommandInput}
@@ -72,6 +84,8 @@ export interface ListUserHierarchyGroupsCommandOutput extends ListUserHierarchyG
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class ListUserHierarchyGroupsCommand extends $Command<

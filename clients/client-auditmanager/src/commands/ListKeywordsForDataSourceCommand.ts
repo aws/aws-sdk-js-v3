@@ -37,16 +37,24 @@ export interface ListKeywordsForDataSourceCommandOutput extends ListKeywordsForD
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AuditManagerClient, ListKeywordsForDataSourceCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
- * // const { AuditManagerClient, ListKeywordsForDataSourceCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import
+ * import { AuditManagerClient, ListKeywordsForDataSourceCommand } from '@aws-sdk/client-auditmanager'; // ES Modules import
+ * // const { AuditManagerClient, ListKeywordsForDataSourceCommand } = require('@aws-sdk/client-auditmanager'); // CommonJS import
  * const client = new AuditManagerClient(config);
  * const input = { // ListKeywordsForDataSourceRequest
- *   source: "AWS_Cloudtrail" || "AWS_Config" || "AWS_Security_Hub" || "AWS_API_Call" || "MANUAL", // required
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   source: 'AWS_Cloudtrail' || 'AWS_Config' || 'AWS_Security_Hub' || 'AWS_API_Call' || 'MANUAL', // required
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new ListKeywordsForDataSourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListKeywordsForDataSourceResponse
+ *   keywords: [ // Keywords
+ *     'STRING_VALUE',
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListKeywordsForDataSourceCommandInput - {@link ListKeywordsForDataSourceCommandInput}
@@ -66,6 +74,8 @@ export interface ListKeywordsForDataSourceCommandOutput extends ListKeywordsForD
  * @throws {@link ValidationException} (client fault)
  *  <p> The request has invalid or missing parameters. </p>
  *
+ * @throws {@link AuditManagerServiceException}
+ * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
  */
 export class ListKeywordsForDataSourceCommand extends $Command<

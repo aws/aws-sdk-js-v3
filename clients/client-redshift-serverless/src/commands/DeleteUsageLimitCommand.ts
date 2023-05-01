@@ -40,14 +40,27 @@ export interface DeleteUsageLimitCommandOutput extends DeleteUsageLimitResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RedshiftServerlessClient, DeleteUsageLimitCommand } from "@aws-sdk/client-redshift-serverless"; // ES Modules import
- * // const { RedshiftServerlessClient, DeleteUsageLimitCommand } = require("@aws-sdk/client-redshift-serverless"); // CommonJS import
+ * import { RedshiftServerlessClient, DeleteUsageLimitCommand } from '@aws-sdk/client-redshift-serverless'; // ES Modules import
+ * // const { RedshiftServerlessClient, DeleteUsageLimitCommand } = require('@aws-sdk/client-redshift-serverless'); // CommonJS import
  * const client = new RedshiftServerlessClient(config);
  * const input = { // DeleteUsageLimitRequest
- *   usageLimitId: "STRING_VALUE", // required
+ *   usageLimitId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteUsageLimitCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteUsageLimitResponse
+ *   usageLimit: { // UsageLimit
+ *     usageLimitId: 'STRING_VALUE',
+ *     usageLimitArn: 'STRING_VALUE',
+ *     resourceArn: 'STRING_VALUE',
+ *     usageType: 'STRING_VALUE',
+ *     amount: Number('long'),
+ *     period: 'STRING_VALUE',
+ *     breachAction: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param DeleteUsageLimitCommandInput - {@link DeleteUsageLimitCommandInput}
@@ -68,6 +81,8 @@ export interface DeleteUsageLimitCommandOutput extends DeleteUsageLimitResponse,
  * @throws {@link ValidationException} (client fault)
  *  <p>The input failed to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link RedshiftServerlessServiceException}
+ * <p>Base exception class for all service exceptions from RedshiftServerless service.</p>
  *
  */
 export class DeleteUsageLimitCommand extends $Command<

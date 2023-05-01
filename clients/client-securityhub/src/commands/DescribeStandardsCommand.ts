@@ -37,15 +37,32 @@ export interface DescribeStandardsCommandOutput extends DescribeStandardsRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SecurityHubClient, DescribeStandardsCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
- * // const { SecurityHubClient, DescribeStandardsCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
+ * import { SecurityHubClient, DescribeStandardsCommand } from '@aws-sdk/client-securityhub'; // ES Modules import
+ * // const { SecurityHubClient, DescribeStandardsCommand } = require('@aws-sdk/client-securityhub'); // CommonJS import
  * const client = new SecurityHubClient(config);
  * const input = { // DescribeStandardsRequest
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new DescribeStandardsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeStandardsResponse
+ *   Standards: [ // Standards
+ *     { // Standard
+ *       StandardsArn: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *       Description: 'STRING_VALUE',
+ *       EnabledByDefault: true || false,
+ *       StandardsManagedBy: { // StandardsManagedBy
+ *         Company: 'STRING_VALUE',
+ *         Product: 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeStandardsCommandInput - {@link DescribeStandardsCommandInput}
@@ -64,6 +81,8 @@ export interface DescribeStandardsCommandOutput extends DescribeStandardsRespons
  *  <p>The request was rejected because you supplied an invalid or out-of-range value for an
  *          input parameter.</p>
  *
+ * @throws {@link SecurityHubServiceException}
+ * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
  * @example To get available Security Hub standards
  * ```javascript

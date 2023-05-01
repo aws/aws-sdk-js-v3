@@ -41,15 +41,28 @@ export interface DescribeSpeakerCommandOutput extends DescribeSpeakerResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { VoiceIDClient, DescribeSpeakerCommand } from "@aws-sdk/client-voice-id"; // ES Modules import
- * // const { VoiceIDClient, DescribeSpeakerCommand } = require("@aws-sdk/client-voice-id"); // CommonJS import
+ * import { VoiceIDClient, DescribeSpeakerCommand } from '@aws-sdk/client-voice-id'; // ES Modules import
+ * // const { VoiceIDClient, DescribeSpeakerCommand } = require('@aws-sdk/client-voice-id'); // CommonJS import
  * const client = new VoiceIDClient(config);
  * const input = { // DescribeSpeakerRequest
- *   DomainId: "STRING_VALUE", // required
- *   SpeakerId: "STRING_VALUE", // required
+ *   DomainId: 'STRING_VALUE', // required
+ *   SpeakerId: 'STRING_VALUE', // required
  * };
  * const command = new DescribeSpeakerCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeSpeakerResponse
+ *   Speaker: { // Speaker
+ *     DomainId: 'STRING_VALUE',
+ *     CustomerSpeakerId: 'STRING_VALUE',
+ *     GeneratedSpeakerId: 'STRING_VALUE',
+ *     Status: 'STRING_VALUE',
+ *     CreatedAt: new Date('TIMESTAMP'),
+ *     UpdatedAt: new Date('TIMESTAMP'),
+ *     LastAccessedAt: new Date('TIMESTAMP'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeSpeakerCommandInput - {@link DescribeSpeakerCommandInput}
@@ -79,6 +92,8 @@ export interface DescribeSpeakerCommandOutput extends DescribeSpeakerResponse, _
  *  <p>The request failed one or more validations; check the error message for more
  *             details.</p>
  *
+ * @throws {@link VoiceIDServiceException}
+ * <p>Base exception class for all service exceptions from VoiceID service.</p>
  *
  */
 export class DescribeSpeakerCommand extends $Command<

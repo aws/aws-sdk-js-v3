@@ -79,26 +79,37 @@ export interface CreateOpenIDConnectProviderCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IAMClient, CreateOpenIDConnectProviderCommand } from "@aws-sdk/client-iam"; // ES Modules import
- * // const { IAMClient, CreateOpenIDConnectProviderCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * import { IAMClient, CreateOpenIDConnectProviderCommand } from '@aws-sdk/client-iam'; // ES Modules import
+ * // const { IAMClient, CreateOpenIDConnectProviderCommand } = require('@aws-sdk/client-iam'); // CommonJS import
  * const client = new IAMClient(config);
  * const input = { // CreateOpenIDConnectProviderRequest
- *   Url: "STRING_VALUE", // required
+ *   Url: 'STRING_VALUE', // required
  *   ClientIDList: [ // clientIDListType
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   ThumbprintList: [ // thumbprintListType // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   Tags: [ // tagListType
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreateOpenIDConnectProviderCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateOpenIDConnectProviderResponse
+ *   OpenIDConnectProviderArn: 'STRING_VALUE',
+ *   Tags: [ // tagListType
+ *     { // Tag
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param CreateOpenIDConnectProviderCommandInput - {@link CreateOpenIDConnectProviderCommandInput}
@@ -127,6 +138,8 @@ export interface CreateOpenIDConnectProviderCommandOutput
  *  <p>The request processing has failed because of an unknown error, exception or
  *       failure.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  * @example To create an instance profile
  * ```javascript

@@ -37,17 +37,20 @@ export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SimSpaceWeaverClient, TagResourceCommand } from "@aws-sdk/client-simspaceweaver"; // ES Modules import
- * // const { SimSpaceWeaverClient, TagResourceCommand } = require("@aws-sdk/client-simspaceweaver"); // CommonJS import
+ * import { SimSpaceWeaverClient, TagResourceCommand } from '@aws-sdk/client-simspaceweaver'; // ES Modules import
+ * // const { SimSpaceWeaverClient, TagResourceCommand } = require('@aws-sdk/client-simspaceweaver'); // CommonJS import
  * const client = new SimSpaceWeaverClient(config);
  * const input = { // TagResourceInput
- *   ResourceArn: "STRING_VALUE", // required
+ *   ResourceArn: 'STRING_VALUE', // required
  *   Tags: { // TagMap // required
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param TagResourceCommandInput - {@link TagResourceCommandInput}
@@ -65,6 +68,8 @@ export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataB
  * @throws {@link ValidationException} (client fault)
  *  <p/>
  *
+ * @throws {@link SimSpaceWeaverServiceException}
+ * <p>Base exception class for all service exceptions from SimSpaceWeaver service.</p>
  *
  */
 export class TagResourceCommand extends $Command<

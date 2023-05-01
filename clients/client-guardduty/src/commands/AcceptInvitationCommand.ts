@@ -38,16 +38,19 @@ export interface AcceptInvitationCommandOutput extends AcceptInvitationResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GuardDutyClient, AcceptInvitationCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
- * // const { GuardDutyClient, AcceptInvitationCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
+ * import { GuardDutyClient, AcceptInvitationCommand } from '@aws-sdk/client-guardduty'; // ES Modules import
+ * // const { GuardDutyClient, AcceptInvitationCommand } = require('@aws-sdk/client-guardduty'); // CommonJS import
  * const client = new GuardDutyClient(config);
  * const input = { // AcceptInvitationRequest
- *   DetectorId: "STRING_VALUE", // required
- *   MasterId: "STRING_VALUE", // required
- *   InvitationId: "STRING_VALUE", // required
+ *   DetectorId: 'STRING_VALUE', // required
+ *   MasterId: 'STRING_VALUE', // required
+ *   InvitationId: 'STRING_VALUE', // required
  * };
  * const command = new AcceptInvitationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param AcceptInvitationCommandInput - {@link AcceptInvitationCommandInput}
@@ -62,6 +65,8 @@ export interface AcceptInvitationCommandOutput extends AcceptInvitationResponse,
  * @throws {@link InternalServerErrorException} (server fault)
  *  <p>An internal server error exception object.</p>
  *
+ * @throws {@link GuardDutyServiceException}
+ * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
  */
 export class AcceptInvitationCommand extends $Command<

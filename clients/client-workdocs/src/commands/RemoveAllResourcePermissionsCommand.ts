@@ -42,15 +42,18 @@ export interface RemoveAllResourcePermissionsCommandOutput extends __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkDocsClient, RemoveAllResourcePermissionsCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
- * // const { WorkDocsClient, RemoveAllResourcePermissionsCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import
+ * import { WorkDocsClient, RemoveAllResourcePermissionsCommand } from '@aws-sdk/client-workdocs'; // ES Modules import
+ * // const { WorkDocsClient, RemoveAllResourcePermissionsCommand } = require('@aws-sdk/client-workdocs'); // CommonJS import
  * const client = new WorkDocsClient(config);
  * const input = { // RemoveAllResourcePermissionsRequest
- *   AuthenticationToken: "STRING_VALUE",
- *   ResourceId: "STRING_VALUE", // required
+ *   AuthenticationToken: 'STRING_VALUE',
+ *   ResourceId: 'STRING_VALUE', // required
  * };
  * const command = new RemoveAllResourcePermissionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param RemoveAllResourcePermissionsCommandInput - {@link RemoveAllResourcePermissionsCommandInput}
@@ -73,6 +76,8 @@ export interface RemoveAllResourcePermissionsCommandOutput extends __MetadataBea
  * @throws {@link UnauthorizedResourceAccessException} (client fault)
  *  <p>The caller does not have access to perform the action on the resource.</p>
  *
+ * @throws {@link WorkDocsServiceException}
+ * <p>Base exception class for all service exceptions from WorkDocs service.</p>
  *
  */
 export class RemoveAllResourcePermissionsCommand extends $Command<

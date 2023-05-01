@@ -46,18 +46,56 @@ export interface AllocateConnectionOnInterconnectCommandOutput extends Connectio
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DirectConnectClient, AllocateConnectionOnInterconnectCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
- * // const { DirectConnectClient, AllocateConnectionOnInterconnectCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
+ * import { DirectConnectClient, AllocateConnectionOnInterconnectCommand } from '@aws-sdk/client-direct-connect'; // ES Modules import
+ * // const { DirectConnectClient, AllocateConnectionOnInterconnectCommand } = require('@aws-sdk/client-direct-connect'); // CommonJS import
  * const client = new DirectConnectClient(config);
  * const input = { // AllocateConnectionOnInterconnectRequest
- *   bandwidth: "STRING_VALUE", // required
- *   connectionName: "STRING_VALUE", // required
- *   ownerAccount: "STRING_VALUE", // required
- *   interconnectId: "STRING_VALUE", // required
- *   vlan: Number("int"), // required
+ *   bandwidth: 'STRING_VALUE', // required
+ *   connectionName: 'STRING_VALUE', // required
+ *   ownerAccount: 'STRING_VALUE', // required
+ *   interconnectId: 'STRING_VALUE', // required
+ *   vlan: Number('int'), // required
  * };
  * const command = new AllocateConnectionOnInterconnectCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // Connection
+ *   ownerAccount: 'STRING_VALUE',
+ *   connectionId: 'STRING_VALUE',
+ *   connectionName: 'STRING_VALUE',
+ *   connectionState: 'ordering' || 'requested' || 'pending' || 'available' || 'down' || 'deleting' || 'deleted' || 'rejected' || 'unknown',
+ *   region: 'STRING_VALUE',
+ *   location: 'STRING_VALUE',
+ *   bandwidth: 'STRING_VALUE',
+ *   vlan: Number('int'),
+ *   partnerName: 'STRING_VALUE',
+ *   loaIssueTime: new Date('TIMESTAMP'),
+ *   lagId: 'STRING_VALUE',
+ *   awsDevice: 'STRING_VALUE',
+ *   jumboFrameCapable: true || false,
+ *   awsDeviceV2: 'STRING_VALUE',
+ *   awsLogicalDeviceId: 'STRING_VALUE',
+ *   hasLogicalRedundancy: 'unknown' || 'yes' || 'no',
+ *   tags: [ // TagList
+ *     { // Tag
+ *       key: 'STRING_VALUE', // required
+ *       value: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   providerName: 'STRING_VALUE',
+ *   macSecCapable: true || false,
+ *   portEncryptionStatus: 'STRING_VALUE',
+ *   encryptionMode: 'STRING_VALUE',
+ *   macSecKeys: [ // MacSecKeyList
+ *     { // MacSecKey
+ *       secretARN: 'STRING_VALUE',
+ *       ckn: 'STRING_VALUE',
+ *       state: 'STRING_VALUE',
+ *       startOn: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param AllocateConnectionOnInterconnectCommandInput - {@link AllocateConnectionOnInterconnectCommandInput}
@@ -72,6 +110,8 @@ export interface AllocateConnectionOnInterconnectCommandOutput extends Connectio
  * @throws {@link DirectConnectServerException} (server fault)
  *  <p>A server-side error occurred.</p>
  *
+ * @throws {@link DirectConnectServiceException}
+ * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
  */
 export class AllocateConnectionOnInterconnectCommand extends $Command<

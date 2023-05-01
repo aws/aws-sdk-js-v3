@@ -37,14 +37,17 @@ export interface DeleteLinkCommandOutput extends DeleteLinkOutput, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OAMClient, DeleteLinkCommand } from "@aws-sdk/client-oam"; // ES Modules import
- * // const { OAMClient, DeleteLinkCommand } = require("@aws-sdk/client-oam"); // CommonJS import
+ * import { OAMClient, DeleteLinkCommand } from '@aws-sdk/client-oam'; // ES Modules import
+ * // const { OAMClient, DeleteLinkCommand } = require('@aws-sdk/client-oam'); // CommonJS import
  * const client = new OAMClient(config);
  * const input = { // DeleteLinkInput
- *   Identifier: "STRING_VALUE", // required
+ *   Identifier: 'STRING_VALUE', // required
  * };
  * const command = new DeleteLinkCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteLinkCommandInput - {@link DeleteLinkCommandInput}
@@ -65,6 +68,8 @@ export interface DeleteLinkCommandOutput extends DeleteLinkOutput, __MetadataBea
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The request references a resource that does not exist.</p>
  *
+ * @throws {@link OAMServiceException}
+ * <p>Base exception class for all service exceptions from OAM service.</p>
  *
  */
 export class DeleteLinkCommand extends $Command<

@@ -36,16 +36,19 @@ export interface UpdateContactScheduleCommandOutput extends UpdateContactSchedul
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, UpdateContactScheduleCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, UpdateContactScheduleCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, UpdateContactScheduleCommand } from '@aws-sdk/client-connect'; // ES Modules import
+ * // const { ConnectClient, UpdateContactScheduleCommand } = require('@aws-sdk/client-connect'); // CommonJS import
  * const client = new ConnectClient(config);
  * const input = { // UpdateContactScheduleRequest
- *   InstanceId: "STRING_VALUE", // required
- *   ContactId: "STRING_VALUE", // required
- *   ScheduledTime: new Date("TIMESTAMP"), // required
+ *   InstanceId: 'STRING_VALUE', // required
+ *   ContactId: 'STRING_VALUE', // required
+ *   ScheduledTime: new Date('TIMESTAMP'), // required
  * };
  * const command = new UpdateContactScheduleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateContactScheduleCommandInput - {@link UpdateContactScheduleCommandInput}
@@ -72,6 +75,8 @@ export interface UpdateContactScheduleCommandOutput extends UpdateContactSchedul
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class UpdateContactScheduleCommand extends $Command<

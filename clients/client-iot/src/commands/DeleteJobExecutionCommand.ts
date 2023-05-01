@@ -37,18 +37,21 @@ export interface DeleteJobExecutionCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTClient, DeleteJobExecutionCommand } from "@aws-sdk/client-iot"; // ES Modules import
- * // const { IoTClient, DeleteJobExecutionCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * import { IoTClient, DeleteJobExecutionCommand } from '@aws-sdk/client-iot'; // ES Modules import
+ * // const { IoTClient, DeleteJobExecutionCommand } = require('@aws-sdk/client-iot'); // CommonJS import
  * const client = new IoTClient(config);
  * const input = { // DeleteJobExecutionRequest
- *   jobId: "STRING_VALUE", // required
- *   thingName: "STRING_VALUE", // required
- *   executionNumber: Number("long"), // required
+ *   jobId: 'STRING_VALUE', // required
+ *   thingName: 'STRING_VALUE', // required
+ *   executionNumber: Number('long'), // required
  *   force: true || false,
- *   namespaceId: "STRING_VALUE",
+ *   namespaceId: 'STRING_VALUE',
  * };
  * const command = new DeleteJobExecutionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteJobExecutionCommandInput - {@link DeleteJobExecutionCommandInput}
@@ -74,6 +77,8 @@ export interface DeleteJobExecutionCommandOutput extends __MetadataBearer {}
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The rate exceeds the limit.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class DeleteJobExecutionCommand extends $Command<

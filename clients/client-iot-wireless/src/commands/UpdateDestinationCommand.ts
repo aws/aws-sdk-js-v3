@@ -36,18 +36,21 @@ export interface UpdateDestinationCommandOutput extends UpdateDestinationRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTWirelessClient, UpdateDestinationCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
- * // const { IoTWirelessClient, UpdateDestinationCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
+ * import { IoTWirelessClient, UpdateDestinationCommand } from '@aws-sdk/client-iot-wireless'; // ES Modules import
+ * // const { IoTWirelessClient, UpdateDestinationCommand } = require('@aws-sdk/client-iot-wireless'); // CommonJS import
  * const client = new IoTWirelessClient(config);
  * const input = { // UpdateDestinationRequest
- *   Name: "STRING_VALUE", // required
- *   ExpressionType: "RuleName" || "MqttTopic",
- *   Expression: "STRING_VALUE",
- *   Description: "STRING_VALUE",
- *   RoleArn: "STRING_VALUE",
+ *   Name: 'STRING_VALUE', // required
+ *   ExpressionType: 'RuleName' || 'MqttTopic',
+ *   Expression: 'STRING_VALUE',
+ *   Description: 'STRING_VALUE',
+ *   RoleArn: 'STRING_VALUE',
  * };
  * const command = new UpdateDestinationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateDestinationCommandInput - {@link UpdateDestinationCommandInput}
@@ -71,6 +74,8 @@ export interface UpdateDestinationCommandOutput extends UpdateDestinationRespons
  * @throws {@link ValidationException} (client fault)
  *  <p>The input did not meet the specified constraints.</p>
  *
+ * @throws {@link IoTWirelessServiceException}
+ * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
  */
 export class UpdateDestinationCommand extends $Command<

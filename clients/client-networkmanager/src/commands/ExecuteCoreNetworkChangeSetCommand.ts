@@ -41,15 +41,18 @@ export interface ExecuteCoreNetworkChangeSetCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { NetworkManagerClient, ExecuteCoreNetworkChangeSetCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
- * // const { NetworkManagerClient, ExecuteCoreNetworkChangeSetCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
+ * import { NetworkManagerClient, ExecuteCoreNetworkChangeSetCommand } from '@aws-sdk/client-networkmanager'; // ES Modules import
+ * // const { NetworkManagerClient, ExecuteCoreNetworkChangeSetCommand } = require('@aws-sdk/client-networkmanager'); // CommonJS import
  * const client = new NetworkManagerClient(config);
  * const input = { // ExecuteCoreNetworkChangeSetRequest
- *   CoreNetworkId: "STRING_VALUE", // required
- *   PolicyVersionId: Number("int"), // required
+ *   CoreNetworkId: 'STRING_VALUE', // required
+ *   PolicyVersionId: Number('int'), // required
  * };
  * const command = new ExecuteCoreNetworkChangeSetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param ExecuteCoreNetworkChangeSetCommandInput - {@link ExecuteCoreNetworkChangeSetCommandInput}
@@ -77,6 +80,8 @@ export interface ExecuteCoreNetworkChangeSetCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints.</p>
  *
+ * @throws {@link NetworkManagerServiceException}
+ * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
  */
 export class ExecuteCoreNetworkChangeSetCommand extends $Command<

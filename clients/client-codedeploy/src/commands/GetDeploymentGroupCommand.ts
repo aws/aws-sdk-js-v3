@@ -36,15 +36,182 @@ export interface GetDeploymentGroupCommandOutput extends GetDeploymentGroupOutpu
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeDeployClient, GetDeploymentGroupCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
- * // const { CodeDeployClient, GetDeploymentGroupCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
+ * import { CodeDeployClient, GetDeploymentGroupCommand } from '@aws-sdk/client-codedeploy'; // ES Modules import
+ * // const { CodeDeployClient, GetDeploymentGroupCommand } = require('@aws-sdk/client-codedeploy'); // CommonJS import
  * const client = new CodeDeployClient(config);
  * const input = { // GetDeploymentGroupInput
- *   applicationName: "STRING_VALUE", // required
- *   deploymentGroupName: "STRING_VALUE", // required
+ *   applicationName: 'STRING_VALUE', // required
+ *   deploymentGroupName: 'STRING_VALUE', // required
  * };
  * const command = new GetDeploymentGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetDeploymentGroupOutput
+ *   deploymentGroupInfo: { // DeploymentGroupInfo
+ *     applicationName: 'STRING_VALUE',
+ *     deploymentGroupId: 'STRING_VALUE',
+ *     deploymentGroupName: 'STRING_VALUE',
+ *     deploymentConfigName: 'STRING_VALUE',
+ *     ec2TagFilters: [ // EC2TagFilterList
+ *       { // EC2TagFilter
+ *         Key: 'STRING_VALUE',
+ *         Value: 'STRING_VALUE',
+ *         Type: 'KEY_ONLY' || 'VALUE_ONLY' || 'KEY_AND_VALUE',
+ *       },
+ *     ],
+ *     onPremisesInstanceTagFilters: [ // TagFilterList
+ *       { // TagFilter
+ *         Key: 'STRING_VALUE',
+ *         Value: 'STRING_VALUE',
+ *         Type: 'KEY_ONLY' || 'VALUE_ONLY' || 'KEY_AND_VALUE',
+ *       },
+ *     ],
+ *     autoScalingGroups: [ // AutoScalingGroupList
+ *       { // AutoScalingGroup
+ *         name: 'STRING_VALUE',
+ *         hook: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     serviceRoleArn: 'STRING_VALUE',
+ *     targetRevision: { // RevisionLocation
+ *       revisionType: 'S3' || 'GitHub' || 'String' || 'AppSpecContent',
+ *       s3Location: { // S3Location
+ *         bucket: 'STRING_VALUE',
+ *         key: 'STRING_VALUE',
+ *         bundleType: 'tar' || 'tgz' || 'zip' || 'YAML' || 'JSON',
+ *         version: 'STRING_VALUE',
+ *         eTag: 'STRING_VALUE',
+ *       },
+ *       gitHubLocation: { // GitHubLocation
+ *         repository: 'STRING_VALUE',
+ *         commitId: 'STRING_VALUE',
+ *       },
+ *       string: { // RawString
+ *         content: 'STRING_VALUE',
+ *         sha256: 'STRING_VALUE',
+ *       },
+ *       appSpecContent: { // AppSpecContent
+ *         content: 'STRING_VALUE',
+ *         sha256: 'STRING_VALUE',
+ *       },
+ *     },
+ *     triggerConfigurations: [ // TriggerConfigList
+ *       { // TriggerConfig
+ *         triggerName: 'STRING_VALUE',
+ *         triggerTargetArn: 'STRING_VALUE',
+ *         triggerEvents: [ // TriggerEventTypeList
+ *           'DeploymentStart' || 'DeploymentSuccess' || 'DeploymentFailure' || 'DeploymentStop' || 'DeploymentRollback' || 'DeploymentReady' || 'InstanceStart' || 'InstanceSuccess' || 'InstanceFailure' || 'InstanceReady',
+ *         ],
+ *       },
+ *     ],
+ *     alarmConfiguration: { // AlarmConfiguration
+ *       enabled: true || false,
+ *       ignorePollAlarmFailure: true || false,
+ *       alarms: [ // AlarmList
+ *         { // Alarm
+ *           name: 'STRING_VALUE',
+ *         },
+ *       ],
+ *     },
+ *     autoRollbackConfiguration: { // AutoRollbackConfiguration
+ *       enabled: true || false,
+ *       events: [ // AutoRollbackEventsList
+ *         'DEPLOYMENT_FAILURE' || 'DEPLOYMENT_STOP_ON_ALARM' || 'DEPLOYMENT_STOP_ON_REQUEST',
+ *       ],
+ *     },
+ *     deploymentStyle: { // DeploymentStyle
+ *       deploymentType: 'IN_PLACE' || 'BLUE_GREEN',
+ *       deploymentOption: 'WITH_TRAFFIC_CONTROL' || 'WITHOUT_TRAFFIC_CONTROL',
+ *     },
+ *     outdatedInstancesStrategy: 'UPDATE' || 'IGNORE',
+ *     blueGreenDeploymentConfiguration: { // BlueGreenDeploymentConfiguration
+ *       terminateBlueInstancesOnDeploymentSuccess: { // BlueInstanceTerminationOption
+ *         action: 'TERMINATE' || 'KEEP_ALIVE',
+ *         terminationWaitTimeInMinutes: Number('int'),
+ *       },
+ *       deploymentReadyOption: { // DeploymentReadyOption
+ *         actionOnTimeout: 'CONTINUE_DEPLOYMENT' || 'STOP_DEPLOYMENT',
+ *         waitTimeInMinutes: Number('int'),
+ *       },
+ *       greenFleetProvisioningOption: { // GreenFleetProvisioningOption
+ *         action: 'DISCOVER_EXISTING' || 'COPY_AUTO_SCALING_GROUP',
+ *       },
+ *     },
+ *     loadBalancerInfo: { // LoadBalancerInfo
+ *       elbInfoList: [ // ELBInfoList
+ *         { // ELBInfo
+ *           name: 'STRING_VALUE',
+ *         },
+ *       ],
+ *       targetGroupInfoList: [ // TargetGroupInfoList
+ *         { // TargetGroupInfo
+ *           name: 'STRING_VALUE',
+ *         },
+ *       ],
+ *       targetGroupPairInfoList: [ // TargetGroupPairInfoList
+ *         { // TargetGroupPairInfo
+ *           targetGroups: [
+ *             {
+ *               name: 'STRING_VALUE',
+ *             },
+ *           ],
+ *           prodTrafficRoute: { // TrafficRoute
+ *             listenerArns: [ // ListenerArnList
+ *               'STRING_VALUE',
+ *             ],
+ *           },
+ *           testTrafficRoute: {
+ *             listenerArns: [
+ *               'STRING_VALUE',
+ *             ],
+ *           },
+ *         },
+ *       ],
+ *     },
+ *     lastSuccessfulDeployment: { // LastDeploymentInfo
+ *       deploymentId: 'STRING_VALUE',
+ *       status: 'Created' || 'Queued' || 'InProgress' || 'Baking' || 'Succeeded' || 'Failed' || 'Stopped' || 'Ready',
+ *       endTime: new Date('TIMESTAMP'),
+ *       createTime: new Date('TIMESTAMP'),
+ *     },
+ *     lastAttemptedDeployment: {
+ *       deploymentId: 'STRING_VALUE',
+ *       status: 'Created' || 'Queued' || 'InProgress' || 'Baking' || 'Succeeded' || 'Failed' || 'Stopped' || 'Ready',
+ *       endTime: new Date('TIMESTAMP'),
+ *       createTime: new Date('TIMESTAMP'),
+ *     },
+ *     ec2TagSet: { // EC2TagSet
+ *       ec2TagSetList: [ // EC2TagSetList
+ *         [
+ *           {
+ *             Key: 'STRING_VALUE',
+ *             Value: 'STRING_VALUE',
+ *             Type: 'KEY_ONLY' || 'VALUE_ONLY' || 'KEY_AND_VALUE',
+ *           },
+ *         ],
+ *       ],
+ *     },
+ *     onPremisesTagSet: { // OnPremisesTagSet
+ *       onPremisesTagSetList: [ // OnPremisesTagSetList
+ *         [
+ *           {
+ *             Key: 'STRING_VALUE',
+ *             Value: 'STRING_VALUE',
+ *             Type: 'KEY_ONLY' || 'VALUE_ONLY' || 'KEY_AND_VALUE',
+ *           },
+ *         ],
+ *       ],
+ *     },
+ *     computePlatform: 'Server' || 'Lambda' || 'ECS',
+ *     ecsServices: [ // ECSServiceList
+ *       { // ECSService
+ *         serviceName: 'STRING_VALUE',
+ *         clusterName: 'STRING_VALUE',
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetDeploymentGroupCommandInput - {@link GetDeploymentGroupCommandInput}
@@ -75,6 +242,8 @@ export interface GetDeploymentGroupCommandOutput extends GetDeploymentGroupOutpu
  * @throws {@link InvalidDeploymentGroupNameException} (client fault)
  *  <p>The deployment group name was specified in an invalid format.</p>
  *
+ * @throws {@link CodeDeployServiceException}
+ * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
  */
 export class GetDeploymentGroupCommand extends $Command<

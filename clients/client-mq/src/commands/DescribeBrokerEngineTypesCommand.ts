@@ -36,16 +36,32 @@ export interface DescribeBrokerEngineTypesCommandOutput extends DescribeBrokerEn
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MqClient, DescribeBrokerEngineTypesCommand } from "@aws-sdk/client-mq"; // ES Modules import
- * // const { MqClient, DescribeBrokerEngineTypesCommand } = require("@aws-sdk/client-mq"); // CommonJS import
+ * import { MqClient, DescribeBrokerEngineTypesCommand } from '@aws-sdk/client-mq'; // ES Modules import
+ * // const { MqClient, DescribeBrokerEngineTypesCommand } = require('@aws-sdk/client-mq'); // CommonJS import
  * const client = new MqClient(config);
  * const input = { // DescribeBrokerEngineTypesRequest
- *   EngineType: "STRING_VALUE",
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   EngineType: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new DescribeBrokerEngineTypesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeBrokerEngineTypesResponse
+ *   BrokerEngineTypes: [ // __listOfBrokerEngineType
+ *     { // BrokerEngineType
+ *       EngineType: 'STRING_VALUE',
+ *       EngineVersions: [ // __listOfEngineVersion
+ *         { // EngineVersion
+ *           Name: 'STRING_VALUE',
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeBrokerEngineTypesCommandInput - {@link DescribeBrokerEngineTypesCommandInput}
@@ -63,6 +79,8 @@ export interface DescribeBrokerEngineTypesCommandOutput extends DescribeBrokerEn
  * @throws {@link InternalServerErrorException} (server fault)
  *  <p>Returns information about an error.</p>
  *
+ * @throws {@link MqServiceException}
+ * <p>Base exception class for all service exceptions from Mq service.</p>
  *
  */
 export class DescribeBrokerEngineTypesCommand extends $Command<

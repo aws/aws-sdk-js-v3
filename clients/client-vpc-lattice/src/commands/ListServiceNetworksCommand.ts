@@ -37,15 +37,31 @@ export interface ListServiceNetworksCommandOutput extends ListServiceNetworksRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { VPCLatticeClient, ListServiceNetworksCommand } from "@aws-sdk/client-vpc-lattice"; // ES Modules import
- * // const { VPCLatticeClient, ListServiceNetworksCommand } = require("@aws-sdk/client-vpc-lattice"); // CommonJS import
+ * import { VPCLatticeClient, ListServiceNetworksCommand } from '@aws-sdk/client-vpc-lattice'; // ES Modules import
+ * // const { VPCLatticeClient, ListServiceNetworksCommand } = require('@aws-sdk/client-vpc-lattice'); // CommonJS import
  * const client = new VPCLatticeClient(config);
  * const input = { // ListServiceNetworksRequest
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new ListServiceNetworksCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListServiceNetworksResponse
+ *   items: [ // ServiceNetworkList // required
+ *     { // ServiceNetworkSummary
+ *       id: 'STRING_VALUE',
+ *       name: 'STRING_VALUE',
+ *       arn: 'STRING_VALUE',
+ *       createdAt: new Date('TIMESTAMP'),
+ *       lastUpdatedAt: new Date('TIMESTAMP'),
+ *       numberOfAssociatedVPCs: Number('long'),
+ *       numberOfAssociatedServices: Number('long'),
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListServiceNetworksCommandInput - {@link ListServiceNetworksCommandInput}
@@ -67,6 +83,8 @@ export interface ListServiceNetworksCommandOutput extends ListServiceNetworksRes
  *  <p>The input does not satisfy the constraints specified by an Amazon Web Services
  *    service.</p>
  *
+ * @throws {@link VPCLatticeServiceException}
+ * <p>Base exception class for all service exceptions from VPCLattice service.</p>
  *
  */
 export class ListServiceNetworksCommand extends $Command<

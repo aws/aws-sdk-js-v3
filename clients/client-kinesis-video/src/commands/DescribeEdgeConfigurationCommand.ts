@@ -42,15 +42,52 @@ export interface DescribeEdgeConfigurationCommandOutput extends DescribeEdgeConf
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KinesisVideoClient, DescribeEdgeConfigurationCommand } from "@aws-sdk/client-kinesis-video"; // ES Modules import
- * // const { KinesisVideoClient, DescribeEdgeConfigurationCommand } = require("@aws-sdk/client-kinesis-video"); // CommonJS import
+ * import { KinesisVideoClient, DescribeEdgeConfigurationCommand } from '@aws-sdk/client-kinesis-video'; // ES Modules import
+ * // const { KinesisVideoClient, DescribeEdgeConfigurationCommand } = require('@aws-sdk/client-kinesis-video'); // CommonJS import
  * const client = new KinesisVideoClient(config);
  * const input = { // DescribeEdgeConfigurationInput
- *   StreamName: "STRING_VALUE",
- *   StreamARN: "STRING_VALUE",
+ *   StreamName: 'STRING_VALUE',
+ *   StreamARN: 'STRING_VALUE',
  * };
  * const command = new DescribeEdgeConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeEdgeConfigurationOutput
+ *   StreamName: 'STRING_VALUE',
+ *   StreamARN: 'STRING_VALUE',
+ *   CreationTime: new Date('TIMESTAMP'),
+ *   LastUpdatedTime: new Date('TIMESTAMP'),
+ *   SyncStatus: 'SYNCING' || 'ACKNOWLEDGED' || 'IN_SYNC' || 'SYNC_FAILED' || 'DELETING' || 'DELETE_FAILED',
+ *   FailedStatusDetails: 'STRING_VALUE',
+ *   EdgeConfig: { // EdgeConfig
+ *     HubDeviceArn: 'STRING_VALUE', // required
+ *     RecorderConfig: { // RecorderConfig
+ *       MediaSourceConfig: { // MediaSourceConfig
+ *         MediaUriSecretArn: 'STRING_VALUE', // required
+ *         MediaUriType: 'RTSP_URI' || 'FILE_URI', // required
+ *       },
+ *       ScheduleConfig: { // ScheduleConfig
+ *         ScheduleExpression: 'STRING_VALUE', // required
+ *         DurationInSeconds: Number('int'), // required
+ *       },
+ *     },
+ *     UploaderConfig: { // UploaderConfig
+ *       ScheduleConfig: {
+ *         ScheduleExpression: 'STRING_VALUE', // required
+ *         DurationInSeconds: Number('int'), // required
+ *       },
+ *     },
+ *     DeletionConfig: { // DeletionConfig
+ *       EdgeRetentionInHours: Number('int'),
+ *       LocalSizeConfig: { // LocalSizeConfig
+ *         MaxLocalMediaSizeInMB: Number('int'),
+ *         StrategyOnFullSize: 'DELETE_OLDEST_MEDIA' || 'DENY_NEW_MEDIA',
+ *       },
+ *       DeleteAfterUpload: true || false,
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeEdgeConfigurationCommandInput - {@link DescribeEdgeConfigurationCommandInput}
@@ -76,6 +113,8 @@ export interface DescribeEdgeConfigurationCommandOutput extends DescribeEdgeConf
  *  <p>The Exception rendered when the Amazon Kinesis Video Stream can't find a stream's edge configuration
  *          that you specified. </p>
  *
+ * @throws {@link KinesisVideoServiceException}
+ * <p>Base exception class for all service exceptions from KinesisVideo service.</p>
  *
  */
 export class DescribeEdgeConfigurationCommand extends $Command<

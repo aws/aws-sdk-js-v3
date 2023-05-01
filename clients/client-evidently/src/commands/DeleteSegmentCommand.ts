@@ -37,14 +37,17 @@ export interface DeleteSegmentCommandOutput extends DeleteSegmentResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EvidentlyClient, DeleteSegmentCommand } from "@aws-sdk/client-evidently"; // ES Modules import
- * // const { EvidentlyClient, DeleteSegmentCommand } = require("@aws-sdk/client-evidently"); // CommonJS import
+ * import { EvidentlyClient, DeleteSegmentCommand } from '@aws-sdk/client-evidently'; // ES Modules import
+ * // const { EvidentlyClient, DeleteSegmentCommand } = require('@aws-sdk/client-evidently'); // CommonJS import
  * const client = new EvidentlyClient(config);
  * const input = { // DeleteSegmentRequest
- *   segment: "STRING_VALUE", // required
+ *   segment: 'STRING_VALUE', // required
  * };
  * const command = new DeleteSegmentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteSegmentCommandInput - {@link DeleteSegmentCommandInput}
@@ -68,6 +71,8 @@ export interface DeleteSegmentCommandOutput extends DeleteSegmentResponse, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>The value of a parameter in the request caused an error.</p>
  *
+ * @throws {@link EvidentlyServiceException}
+ * <p>Base exception class for all service exceptions from Evidently service.</p>
  *
  */
 export class DeleteSegmentCommand extends $Command<

@@ -47,31 +47,46 @@ export interface ListEventPredictionsCommandOutput extends ListEventPredictionsR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FraudDetectorClient, ListEventPredictionsCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
- * // const { FraudDetectorClient, ListEventPredictionsCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
+ * import { FraudDetectorClient, ListEventPredictionsCommand } from '@aws-sdk/client-frauddetector'; // ES Modules import
+ * // const { FraudDetectorClient, ListEventPredictionsCommand } = require('@aws-sdk/client-frauddetector'); // CommonJS import
  * const client = new FraudDetectorClient(config);
  * const input = { // ListEventPredictionsRequest
  *   eventId: { // FilterCondition
- *     value: "STRING_VALUE",
+ *     value: 'STRING_VALUE',
  *   },
  *   eventType: {
- *     value: "STRING_VALUE",
+ *     value: 'STRING_VALUE',
  *   },
  *   detectorId: {
- *     value: "STRING_VALUE",
+ *     value: 'STRING_VALUE',
  *   },
  *   detectorVersionId: {
- *     value: "STRING_VALUE",
+ *     value: 'STRING_VALUE',
  *   },
  *   predictionTimeRange: { // PredictionTimeRange
- *     startTime: "STRING_VALUE", // required
- *     endTime: "STRING_VALUE", // required
+ *     startTime: 'STRING_VALUE', // required
+ *     endTime: 'STRING_VALUE', // required
  *   },
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new ListEventPredictionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListEventPredictionsResult
+ *   eventPredictionSummaries: [ // ListOfEventPredictionSummaries
+ *     { // EventPredictionSummary
+ *       eventId: 'STRING_VALUE',
+ *       eventTypeName: 'STRING_VALUE',
+ *       eventTimestamp: 'STRING_VALUE',
+ *       predictionTimestamp: 'STRING_VALUE',
+ *       detectorId: 'STRING_VALUE',
+ *       detectorVersionId: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListEventPredictionsCommandInput - {@link ListEventPredictionsCommandInput}
@@ -92,6 +107,8 @@ export interface ListEventPredictionsCommandOutput extends ListEventPredictionsR
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception indicating a specified value is not allowed.</p>
  *
+ * @throws {@link FraudDetectorServiceException}
+ * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
  */
 export class ListEventPredictionsCommand extends $Command<

@@ -39,17 +39,27 @@ export interface GetAttributeValuesCommandOutput extends GetAttributeValuesRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PricingClient, GetAttributeValuesCommand } from "@aws-sdk/client-pricing"; // ES Modules import
- * // const { PricingClient, GetAttributeValuesCommand } = require("@aws-sdk/client-pricing"); // CommonJS import
+ * import { PricingClient, GetAttributeValuesCommand } from '@aws-sdk/client-pricing'; // ES Modules import
+ * // const { PricingClient, GetAttributeValuesCommand } = require('@aws-sdk/client-pricing'); // CommonJS import
  * const client = new PricingClient(config);
  * const input = { // GetAttributeValuesRequest
- *   ServiceCode: "STRING_VALUE", // required
- *   AttributeName: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   ServiceCode: 'STRING_VALUE', // required
+ *   AttributeName: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new GetAttributeValuesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetAttributeValuesResponse
+ *   AttributeValues: [ // AttributeValueList
+ *     { // AttributeValue
+ *       Value: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetAttributeValuesCommandInput - {@link GetAttributeValuesCommandInput}
@@ -73,6 +83,8 @@ export interface GetAttributeValuesCommandOutput extends GetAttributeValuesRespo
  * @throws {@link NotFoundException} (client fault)
  *  <p>The requested resource can't be found.</p>
  *
+ * @throws {@link PricingServiceException}
+ * <p>Base exception class for all service exceptions from Pricing service.</p>
  *
  * @example To retrieve a list of attribute values
  * ```javascript

@@ -42,14 +42,69 @@ export interface DescribeProblemObservationsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ApplicationInsightsClient, DescribeProblemObservationsCommand } from "@aws-sdk/client-application-insights"; // ES Modules import
- * // const { ApplicationInsightsClient, DescribeProblemObservationsCommand } = require("@aws-sdk/client-application-insights"); // CommonJS import
+ * import { ApplicationInsightsClient, DescribeProblemObservationsCommand } from '@aws-sdk/client-application-insights'; // ES Modules import
+ * // const { ApplicationInsightsClient, DescribeProblemObservationsCommand } = require('@aws-sdk/client-application-insights'); // CommonJS import
  * const client = new ApplicationInsightsClient(config);
  * const input = { // DescribeProblemObservationsRequest
- *   ProblemId: "STRING_VALUE", // required
+ *   ProblemId: 'STRING_VALUE', // required
  * };
  * const command = new DescribeProblemObservationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeProblemObservationsResponse
+ *   RelatedObservations: { // RelatedObservations
+ *     ObservationList: [ // ObservationList
+ *       { // Observation
+ *         Id: 'STRING_VALUE',
+ *         StartTime: new Date('TIMESTAMP'),
+ *         EndTime: new Date('TIMESTAMP'),
+ *         SourceType: 'STRING_VALUE',
+ *         SourceARN: 'STRING_VALUE',
+ *         LogGroup: 'STRING_VALUE',
+ *         LineTime: new Date('TIMESTAMP'),
+ *         LogText: 'STRING_VALUE',
+ *         LogFilter: 'STRING_VALUE',
+ *         MetricNamespace: 'STRING_VALUE',
+ *         MetricName: 'STRING_VALUE',
+ *         Unit: 'STRING_VALUE',
+ *         Value: Number('double'),
+ *         CloudWatchEventId: 'STRING_VALUE',
+ *         CloudWatchEventSource: 'STRING_VALUE',
+ *         CloudWatchEventDetailType: 'STRING_VALUE',
+ *         HealthEventArn: 'STRING_VALUE',
+ *         HealthService: 'STRING_VALUE',
+ *         HealthEventTypeCode: 'STRING_VALUE',
+ *         HealthEventTypeCategory: 'STRING_VALUE',
+ *         HealthEventDescription: 'STRING_VALUE',
+ *         CodeDeployDeploymentId: 'STRING_VALUE',
+ *         CodeDeployDeploymentGroup: 'STRING_VALUE',
+ *         CodeDeployState: 'STRING_VALUE',
+ *         CodeDeployApplication: 'STRING_VALUE',
+ *         CodeDeployInstanceGroupId: 'STRING_VALUE',
+ *         Ec2State: 'STRING_VALUE',
+ *         RdsEventCategories: 'STRING_VALUE',
+ *         RdsEventMessage: 'STRING_VALUE',
+ *         S3EventName: 'STRING_VALUE',
+ *         StatesExecutionArn: 'STRING_VALUE',
+ *         StatesArn: 'STRING_VALUE',
+ *         StatesStatus: 'STRING_VALUE',
+ *         StatesInput: 'STRING_VALUE',
+ *         EbsEvent: 'STRING_VALUE',
+ *         EbsResult: 'STRING_VALUE',
+ *         EbsCause: 'STRING_VALUE',
+ *         EbsRequestId: 'STRING_VALUE',
+ *         XRayFaultPercent: Number('int'),
+ *         XRayThrottlePercent: Number('int'),
+ *         XRayErrorPercent: Number('int'),
+ *         XRayRequestCount: Number('int'),
+ *         XRayRequestAverageLatency: Number('long'),
+ *         XRayNodeName: 'STRING_VALUE',
+ *         XRayNodeType: 'STRING_VALUE',
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeProblemObservationsCommandInput - {@link DescribeProblemObservationsCommandInput}
@@ -67,6 +122,8 @@ export interface DescribeProblemObservationsCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The parameter is not valid.</p>
  *
+ * @throws {@link ApplicationInsightsServiceException}
+ * <p>Base exception class for all service exceptions from ApplicationInsights service.</p>
  *
  */
 export class DescribeProblemObservationsCommand extends $Command<

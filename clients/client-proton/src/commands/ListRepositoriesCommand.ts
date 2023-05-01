@@ -36,15 +36,28 @@ export interface ListRepositoriesCommandOutput extends ListRepositoriesOutput, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ProtonClient, ListRepositoriesCommand } from "@aws-sdk/client-proton"; // ES Modules import
- * // const { ProtonClient, ListRepositoriesCommand } = require("@aws-sdk/client-proton"); // CommonJS import
+ * import { ProtonClient, ListRepositoriesCommand } from '@aws-sdk/client-proton'; // ES Modules import
+ * // const { ProtonClient, ListRepositoriesCommand } = require('@aws-sdk/client-proton'); // CommonJS import
  * const client = new ProtonClient(config);
  * const input = { // ListRepositoriesInput
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new ListRepositoriesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListRepositoriesOutput
+ *   nextToken: 'STRING_VALUE',
+ *   repositories: [ // RepositorySummaryList // required
+ *     { // RepositorySummary
+ *       arn: 'STRING_VALUE', // required
+ *       provider: 'STRING_VALUE', // required
+ *       name: 'STRING_VALUE', // required
+ *       connectionArn: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListRepositoriesCommandInput - {@link ListRepositoriesCommandInput}
@@ -68,6 +81,8 @@ export interface ListRepositoriesCommandOutput extends ListRepositoriesOutput, _
  * @throws {@link ValidationException} (client fault)
  *  <p>The input is invalid or an out-of-range value was supplied for the input parameter.</p>
  *
+ * @throws {@link ProtonServiceException}
+ * <p>Base exception class for all service exceptions from Proton service.</p>
  *
  */
 export class ListRepositoriesCommand extends $Command<

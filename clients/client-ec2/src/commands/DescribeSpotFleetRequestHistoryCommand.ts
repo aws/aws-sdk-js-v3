@@ -47,19 +47,38 @@ export interface DescribeSpotFleetRequestHistoryCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, DescribeSpotFleetRequestHistoryCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, DescribeSpotFleetRequestHistoryCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, DescribeSpotFleetRequestHistoryCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, DescribeSpotFleetRequestHistoryCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // DescribeSpotFleetRequestHistoryRequest
  *   DryRun: true || false,
- *   EventType: "instanceChange" || "fleetRequestChange" || "error" || "information",
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
- *   SpotFleetRequestId: "STRING_VALUE", // required
- *   StartTime: new Date("TIMESTAMP"), // required
+ *   EventType: 'instanceChange' || 'fleetRequestChange' || 'error' || 'information',
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
+ *   SpotFleetRequestId: 'STRING_VALUE', // required
+ *   StartTime: new Date('TIMESTAMP'), // required
  * };
  * const command = new DescribeSpotFleetRequestHistoryCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeSpotFleetRequestHistoryResponse
+ *   HistoryRecords: [ // HistoryRecords
+ *     { // HistoryRecord
+ *       EventInformation: { // EventInformation
+ *         EventDescription: 'STRING_VALUE',
+ *         EventSubType: 'STRING_VALUE',
+ *         InstanceId: 'STRING_VALUE',
+ *       },
+ *       EventType: 'instanceChange' || 'fleetRequestChange' || 'error' || 'information',
+ *       Timestamp: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   LastEvaluatedTime: new Date('TIMESTAMP'),
+ *   NextToken: 'STRING_VALUE',
+ *   SpotFleetRequestId: 'STRING_VALUE',
+ *   StartTime: new Date('TIMESTAMP'),
+ * };
+ *
  * ```
  *
  * @param DescribeSpotFleetRequestHistoryCommandInput - {@link DescribeSpotFleetRequestHistoryCommandInput}
@@ -68,6 +87,8 @@ export interface DescribeSpotFleetRequestHistoryCommandOutput
  * @see {@link DescribeSpotFleetRequestHistoryCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @example To describe Spot fleet history
  * ```javascript

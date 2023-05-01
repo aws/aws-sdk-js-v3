@@ -42,18 +42,31 @@ export interface UpdateGroupCommandOutput extends UpdateGroupResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CognitoIdentityProviderClient, UpdateGroupCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
- * // const { CognitoIdentityProviderClient, UpdateGroupCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
+ * import { CognitoIdentityProviderClient, UpdateGroupCommand } from '@aws-sdk/client-cognito-identity-provider'; // ES Modules import
+ * // const { CognitoIdentityProviderClient, UpdateGroupCommand } = require('@aws-sdk/client-cognito-identity-provider'); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
  * const input = { // UpdateGroupRequest
- *   GroupName: "STRING_VALUE", // required
- *   UserPoolId: "STRING_VALUE", // required
- *   Description: "STRING_VALUE",
- *   RoleArn: "STRING_VALUE",
- *   Precedence: Number("int"),
+ *   GroupName: 'STRING_VALUE', // required
+ *   UserPoolId: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE',
+ *   RoleArn: 'STRING_VALUE',
+ *   Precedence: Number('int'),
  * };
  * const command = new UpdateGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateGroupResponse
+ *   Group: { // GroupType
+ *     GroupName: 'STRING_VALUE',
+ *     UserPoolId: 'STRING_VALUE',
+ *     Description: 'STRING_VALUE',
+ *     RoleArn: 'STRING_VALUE',
+ *     Precedence: Number('int'),
+ *     LastModifiedDate: new Date('TIMESTAMP'),
+ *     CreationDate: new Date('TIMESTAMP'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateGroupCommandInput - {@link UpdateGroupCommandInput}
@@ -80,6 +93,8 @@ export interface UpdateGroupCommandOutput extends UpdateGroupResponse, __Metadat
  *  <p>This exception is thrown when the user has made too many requests for a given
  *             operation.</p>
  *
+ * @throws {@link CognitoIdentityProviderServiceException}
+ * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
  */
 export class UpdateGroupCommand extends $Command<

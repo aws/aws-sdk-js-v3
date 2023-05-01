@@ -37,15 +37,18 @@ export interface DeleteThingGroupCommandOutput extends DeleteThingGroupResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTClient, DeleteThingGroupCommand } from "@aws-sdk/client-iot"; // ES Modules import
- * // const { IoTClient, DeleteThingGroupCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * import { IoTClient, DeleteThingGroupCommand } from '@aws-sdk/client-iot'; // ES Modules import
+ * // const { IoTClient, DeleteThingGroupCommand } = require('@aws-sdk/client-iot'); // CommonJS import
  * const client = new IoTClient(config);
  * const input = { // DeleteThingGroupRequest
- *   thingGroupName: "STRING_VALUE", // required
- *   expectedVersion: Number("long"),
+ *   thingGroupName: 'STRING_VALUE', // required
+ *   expectedVersion: Number('long'),
  * };
  * const command = new DeleteThingGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteThingGroupCommandInput - {@link DeleteThingGroupCommandInput}
@@ -68,6 +71,8 @@ export interface DeleteThingGroupCommandOutput extends DeleteThingGroupResponse,
  *             <code>expectedVersion</code> parameter does not match the latest version in the
  *          system.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class DeleteThingGroupCommand extends $Command<

@@ -43,18 +43,30 @@ export interface StartMigrationCommandOutput extends StartMigrationResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LexModelBuildingServiceClient, StartMigrationCommand } from "@aws-sdk/client-lex-model-building-service"; // ES Modules import
- * // const { LexModelBuildingServiceClient, StartMigrationCommand } = require("@aws-sdk/client-lex-model-building-service"); // CommonJS import
+ * import { LexModelBuildingServiceClient, StartMigrationCommand } from '@aws-sdk/client-lex-model-building-service'; // ES Modules import
+ * // const { LexModelBuildingServiceClient, StartMigrationCommand } = require('@aws-sdk/client-lex-model-building-service'); // CommonJS import
  * const client = new LexModelBuildingServiceClient(config);
  * const input = { // StartMigrationRequest
- *   v1BotName: "STRING_VALUE", // required
- *   v1BotVersion: "STRING_VALUE", // required
- *   v2BotName: "STRING_VALUE", // required
- *   v2BotRole: "STRING_VALUE", // required
- *   migrationStrategy: "STRING_VALUE", // required
+ *   v1BotName: 'STRING_VALUE', // required
+ *   v1BotVersion: 'STRING_VALUE', // required
+ *   v2BotName: 'STRING_VALUE', // required
+ *   v2BotRole: 'STRING_VALUE', // required
+ *   migrationStrategy: 'STRING_VALUE', // required
  * };
  * const command = new StartMigrationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartMigrationResponse
+ *   v1BotName: 'STRING_VALUE',
+ *   v1BotVersion: 'STRING_VALUE',
+ *   v1BotLocale: 'STRING_VALUE',
+ *   v2BotId: 'STRING_VALUE',
+ *   v2BotRole: 'STRING_VALUE',
+ *   migrationId: 'STRING_VALUE',
+ *   migrationStrategy: 'STRING_VALUE',
+ *   migrationTimestamp: new Date('TIMESTAMP'),
+ * };
+ *
  * ```
  *
  * @param StartMigrationCommandInput - {@link StartMigrationCommandInput}
@@ -82,6 +94,8 @@ export interface StartMigrationCommandOutput extends StartMigrationResponse, __M
  *  <p>The resource specified in the request was not found. Check the
  *       resource and try again.</p>
  *
+ * @throws {@link LexModelBuildingServiceServiceException}
+ * <p>Base exception class for all service exceptions from LexModelBuildingService service.</p>
  *
  */
 export class StartMigrationCommand extends $Command<

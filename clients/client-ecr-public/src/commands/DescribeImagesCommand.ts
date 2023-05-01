@@ -43,23 +43,42 @@ export interface DescribeImagesCommandOutput extends DescribeImagesResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ECRPUBLICClient, DescribeImagesCommand } from "@aws-sdk/client-ecr-public"; // ES Modules import
- * // const { ECRPUBLICClient, DescribeImagesCommand } = require("@aws-sdk/client-ecr-public"); // CommonJS import
+ * import { ECRPUBLICClient, DescribeImagesCommand } from '@aws-sdk/client-ecr-public'; // ES Modules import
+ * // const { ECRPUBLICClient, DescribeImagesCommand } = require('@aws-sdk/client-ecr-public'); // CommonJS import
  * const client = new ECRPUBLICClient(config);
  * const input = { // DescribeImagesRequest
- *   registryId: "STRING_VALUE",
- *   repositoryName: "STRING_VALUE", // required
+ *   registryId: 'STRING_VALUE',
+ *   repositoryName: 'STRING_VALUE', // required
  *   imageIds: [ // ImageIdentifierList
  *     { // ImageIdentifier
- *       imageDigest: "STRING_VALUE",
- *       imageTag: "STRING_VALUE",
+ *       imageDigest: 'STRING_VALUE',
+ *       imageTag: 'STRING_VALUE',
  *     },
  *   ],
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new DescribeImagesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeImagesResponse
+ *   imageDetails: [ // ImageDetailList
+ *     { // ImageDetail
+ *       registryId: 'STRING_VALUE',
+ *       repositoryName: 'STRING_VALUE',
+ *       imageDigest: 'STRING_VALUE',
+ *       imageTags: [ // ImageTagList
+ *         'STRING_VALUE',
+ *       ],
+ *       imageSizeInBytes: Number('long'),
+ *       imagePushedAt: new Date('TIMESTAMP'),
+ *       imageManifestMediaType: 'STRING_VALUE',
+ *       artifactMediaType: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeImagesCommandInput - {@link DescribeImagesCommandInput}
@@ -85,6 +104,8 @@ export interface DescribeImagesCommandOutput extends DescribeImagesResponse, __M
  * @throws {@link UnsupportedCommandException} (client fault)
  *  <p>The action isn't supported in this Region.</p>
  *
+ * @throws {@link ECRPUBLICServiceException}
+ * <p>Base exception class for all service exceptions from ECRPUBLIC service.</p>
  *
  */
 export class DescribeImagesCommand extends $Command<

@@ -44,15 +44,33 @@ export interface ListCloudFrontOriginAccessIdentitiesCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudFrontClient, ListCloudFrontOriginAccessIdentitiesCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
- * // const { CloudFrontClient, ListCloudFrontOriginAccessIdentitiesCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
+ * import { CloudFrontClient, ListCloudFrontOriginAccessIdentitiesCommand } from '@aws-sdk/client-cloudfront'; // ES Modules import
+ * // const { CloudFrontClient, ListCloudFrontOriginAccessIdentitiesCommand } = require('@aws-sdk/client-cloudfront'); // CommonJS import
  * const client = new CloudFrontClient(config);
  * const input = { // ListCloudFrontOriginAccessIdentitiesRequest
- *   Marker: "STRING_VALUE",
- *   MaxItems: Number("int"),
+ *   Marker: 'STRING_VALUE',
+ *   MaxItems: Number('int'),
  * };
  * const command = new ListCloudFrontOriginAccessIdentitiesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListCloudFrontOriginAccessIdentitiesResult
+ *   CloudFrontOriginAccessIdentityList: { // CloudFrontOriginAccessIdentityList
+ *     Marker: 'STRING_VALUE', // required
+ *     NextMarker: 'STRING_VALUE',
+ *     MaxItems: Number('int'), // required
+ *     IsTruncated: true || false, // required
+ *     Quantity: Number('int'), // required
+ *     Items: [ // CloudFrontOriginAccessIdentitySummaryList
+ *       { // CloudFrontOriginAccessIdentitySummary
+ *         Id: 'STRING_VALUE', // required
+ *         S3CanonicalUserId: 'STRING_VALUE', // required
+ *         Comment: 'STRING_VALUE', // required
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param ListCloudFrontOriginAccessIdentitiesCommandInput - {@link ListCloudFrontOriginAccessIdentitiesCommandInput}
@@ -64,6 +82,8 @@ export interface ListCloudFrontOriginAccessIdentitiesCommandOutput
  * @throws {@link InvalidArgument} (client fault)
  *  <p>An argument is invalid.</p>
  *
+ * @throws {@link CloudFrontServiceException}
+ * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
  */
 export class ListCloudFrontOriginAccessIdentitiesCommand extends $Command<

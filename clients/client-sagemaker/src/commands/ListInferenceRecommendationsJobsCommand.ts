@@ -41,23 +41,42 @@ export interface ListInferenceRecommendationsJobsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, ListInferenceRecommendationsJobsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, ListInferenceRecommendationsJobsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, ListInferenceRecommendationsJobsCommand } from '@aws-sdk/client-sagemaker'; // ES Modules import
+ * // const { SageMakerClient, ListInferenceRecommendationsJobsCommand } = require('@aws-sdk/client-sagemaker'); // CommonJS import
  * const client = new SageMakerClient(config);
  * const input = { // ListInferenceRecommendationsJobsRequest
- *   CreationTimeAfter: new Date("TIMESTAMP"),
- *   CreationTimeBefore: new Date("TIMESTAMP"),
- *   LastModifiedTimeAfter: new Date("TIMESTAMP"),
- *   LastModifiedTimeBefore: new Date("TIMESTAMP"),
- *   NameContains: "STRING_VALUE",
- *   StatusEquals: "PENDING" || "IN_PROGRESS" || "COMPLETED" || "FAILED" || "STOPPING" || "STOPPED",
- *   SortBy: "Name" || "CreationTime" || "Status",
- *   SortOrder: "Ascending" || "Descending",
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   CreationTimeAfter: new Date('TIMESTAMP'),
+ *   CreationTimeBefore: new Date('TIMESTAMP'),
+ *   LastModifiedTimeAfter: new Date('TIMESTAMP'),
+ *   LastModifiedTimeBefore: new Date('TIMESTAMP'),
+ *   NameContains: 'STRING_VALUE',
+ *   StatusEquals: 'PENDING' || 'IN_PROGRESS' || 'COMPLETED' || 'FAILED' || 'STOPPING' || 'STOPPED',
+ *   SortBy: 'Name' || 'CreationTime' || 'Status',
+ *   SortOrder: 'Ascending' || 'Descending',
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListInferenceRecommendationsJobsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListInferenceRecommendationsJobsResponse
+ *   InferenceRecommendationsJobs: [ // InferenceRecommendationsJobs // required
+ *     { // InferenceRecommendationsJob
+ *       JobName: 'STRING_VALUE', // required
+ *       JobDescription: 'STRING_VALUE', // required
+ *       JobType: 'Default' || 'Advanced', // required
+ *       JobArn: 'STRING_VALUE', // required
+ *       Status: 'PENDING' || 'IN_PROGRESS' || 'COMPLETED' || 'FAILED' || 'STOPPING' || 'STOPPED', // required
+ *       CreationTime: new Date('TIMESTAMP'), // required
+ *       CompletionTime: new Date('TIMESTAMP'),
+ *       RoleArn: 'STRING_VALUE', // required
+ *       LastModifiedTime: new Date('TIMESTAMP'), // required
+ *       FailureReason: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListInferenceRecommendationsJobsCommandInput - {@link ListInferenceRecommendationsJobsCommandInput}
@@ -66,6 +85,8 @@ export interface ListInferenceRecommendationsJobsCommandOutput
  * @see {@link ListInferenceRecommendationsJobsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class ListInferenceRecommendationsJobsCommand extends $Command<

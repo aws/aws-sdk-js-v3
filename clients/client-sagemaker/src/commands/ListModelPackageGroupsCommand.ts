@@ -36,20 +36,34 @@ export interface ListModelPackageGroupsCommandOutput extends ListModelPackageGro
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, ListModelPackageGroupsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, ListModelPackageGroupsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, ListModelPackageGroupsCommand } from '@aws-sdk/client-sagemaker'; // ES Modules import
+ * // const { SageMakerClient, ListModelPackageGroupsCommand } = require('@aws-sdk/client-sagemaker'); // CommonJS import
  * const client = new SageMakerClient(config);
  * const input = { // ListModelPackageGroupsInput
- *   CreationTimeAfter: new Date("TIMESTAMP"),
- *   CreationTimeBefore: new Date("TIMESTAMP"),
- *   MaxResults: Number("int"),
- *   NameContains: "STRING_VALUE",
- *   NextToken: "STRING_VALUE",
- *   SortBy: "Name" || "CreationTime",
- *   SortOrder: "Ascending" || "Descending",
+ *   CreationTimeAfter: new Date('TIMESTAMP'),
+ *   CreationTimeBefore: new Date('TIMESTAMP'),
+ *   MaxResults: Number('int'),
+ *   NameContains: 'STRING_VALUE',
+ *   NextToken: 'STRING_VALUE',
+ *   SortBy: 'Name' || 'CreationTime',
+ *   SortOrder: 'Ascending' || 'Descending',
  * };
  * const command = new ListModelPackageGroupsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListModelPackageGroupsOutput
+ *   ModelPackageGroupSummaryList: [ // ModelPackageGroupSummaryList // required
+ *     { // ModelPackageGroupSummary
+ *       ModelPackageGroupName: 'STRING_VALUE', // required
+ *       ModelPackageGroupArn: 'STRING_VALUE', // required
+ *       ModelPackageGroupDescription: 'STRING_VALUE',
+ *       CreationTime: new Date('TIMESTAMP'), // required
+ *       ModelPackageGroupStatus: 'Pending' || 'InProgress' || 'Completed' || 'Failed' || 'Deleting' || 'DeleteFailed', // required
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListModelPackageGroupsCommandInput - {@link ListModelPackageGroupsCommandInput}
@@ -58,6 +72,8 @@ export interface ListModelPackageGroupsCommandOutput extends ListModelPackageGro
  * @see {@link ListModelPackageGroupsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class ListModelPackageGroupsCommand extends $Command<

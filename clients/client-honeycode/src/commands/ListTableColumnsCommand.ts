@@ -38,16 +38,29 @@ export interface ListTableColumnsCommandOutput extends ListTableColumnsResult, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { HoneycodeClient, ListTableColumnsCommand } from "@aws-sdk/client-honeycode"; // ES Modules import
- * // const { HoneycodeClient, ListTableColumnsCommand } = require("@aws-sdk/client-honeycode"); // CommonJS import
+ * import { HoneycodeClient, ListTableColumnsCommand } from '@aws-sdk/client-honeycode'; // ES Modules import
+ * // const { HoneycodeClient, ListTableColumnsCommand } = require('@aws-sdk/client-honeycode'); // CommonJS import
  * const client = new HoneycodeClient(config);
  * const input = { // ListTableColumnsRequest
- *   workbookId: "STRING_VALUE", // required
- *   tableId: "STRING_VALUE", // required
- *   nextToken: "STRING_VALUE",
+ *   workbookId: 'STRING_VALUE', // required
+ *   tableId: 'STRING_VALUE', // required
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new ListTableColumnsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTableColumnsResult
+ *   tableColumns: [ // TableColumns // required
+ *     { // TableColumn
+ *       tableColumnId: 'STRING_VALUE',
+ *       tableColumnName: 'STRING_VALUE',
+ *       format: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ *   workbookCursor: Number('long'),
+ * };
+ *
  * ```
  *
  * @param ListTableColumnsCommandInput - {@link ListTableColumnsCommandInput}
@@ -82,6 +95,8 @@ export interface ListTableColumnsCommandOutput extends ListTableColumnsResult, _
  *             Request is invalid. The message in the response contains details on why the request is invalid.
  *         </p>
  *
+ * @throws {@link HoneycodeServiceException}
+ * <p>Base exception class for all service exceptions from Honeycode service.</p>
  *
  */
 export class ListTableColumnsCommand extends $Command<

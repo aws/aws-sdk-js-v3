@@ -43,15 +43,18 @@ export interface AttachPrincipalPolicyCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTClient, AttachPrincipalPolicyCommand } from "@aws-sdk/client-iot"; // ES Modules import
- * // const { IoTClient, AttachPrincipalPolicyCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * import { IoTClient, AttachPrincipalPolicyCommand } from '@aws-sdk/client-iot'; // ES Modules import
+ * // const { IoTClient, AttachPrincipalPolicyCommand } = require('@aws-sdk/client-iot'); // CommonJS import
  * const client = new IoTClient(config);
  * const input = { // AttachPrincipalPolicyRequest
- *   policyName: "STRING_VALUE", // required
- *   principal: "STRING_VALUE", // required
+ *   policyName: 'STRING_VALUE', // required
+ *   principal: 'STRING_VALUE', // required
  * };
  * const command = new AttachPrincipalPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param AttachPrincipalPolicyCommandInput - {@link AttachPrincipalPolicyCommandInput}
@@ -81,6 +84,8 @@ export interface AttachPrincipalPolicyCommandOutput extends __MetadataBearer {}
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this operation.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class AttachPrincipalPolicyCommand extends $Command<

@@ -40,84 +40,91 @@ export interface InitiateJobCommandOutput extends InitiateJobOutput, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlacierClient, InitiateJobCommand } from "@aws-sdk/client-glacier"; // ES Modules import
- * // const { GlacierClient, InitiateJobCommand } = require("@aws-sdk/client-glacier"); // CommonJS import
+ * import { GlacierClient, InitiateJobCommand } from '@aws-sdk/client-glacier'; // ES Modules import
+ * // const { GlacierClient, InitiateJobCommand } = require('@aws-sdk/client-glacier'); // CommonJS import
  * const client = new GlacierClient(config);
  * const input = { // InitiateJobInput
- *   accountId: "STRING_VALUE", // required
- *   vaultName: "STRING_VALUE", // required
+ *   accountId: 'STRING_VALUE', // required
+ *   vaultName: 'STRING_VALUE', // required
  *   jobParameters: { // JobParameters
- *     Format: "STRING_VALUE",
- *     Type: "STRING_VALUE",
- *     ArchiveId: "STRING_VALUE",
- *     Description: "STRING_VALUE",
- *     SNSTopic: "STRING_VALUE",
- *     RetrievalByteRange: "STRING_VALUE",
- *     Tier: "STRING_VALUE",
+ *     Format: 'STRING_VALUE',
+ *     Type: 'STRING_VALUE',
+ *     ArchiveId: 'STRING_VALUE',
+ *     Description: 'STRING_VALUE',
+ *     SNSTopic: 'STRING_VALUE',
+ *     RetrievalByteRange: 'STRING_VALUE',
+ *     Tier: 'STRING_VALUE',
  *     InventoryRetrievalParameters: { // InventoryRetrievalJobInput
- *       StartDate: "STRING_VALUE",
- *       EndDate: "STRING_VALUE",
- *       Limit: "STRING_VALUE",
- *       Marker: "STRING_VALUE",
+ *       StartDate: 'STRING_VALUE',
+ *       EndDate: 'STRING_VALUE',
+ *       Limit: 'STRING_VALUE',
+ *       Marker: 'STRING_VALUE',
  *     },
  *     SelectParameters: { // SelectParameters
  *       InputSerialization: { // InputSerialization
  *         csv: { // CSVInput
- *           FileHeaderInfo: "USE" || "IGNORE" || "NONE",
- *           Comments: "STRING_VALUE",
- *           QuoteEscapeCharacter: "STRING_VALUE",
- *           RecordDelimiter: "STRING_VALUE",
- *           FieldDelimiter: "STRING_VALUE",
- *           QuoteCharacter: "STRING_VALUE",
+ *           FileHeaderInfo: 'USE' || 'IGNORE' || 'NONE',
+ *           Comments: 'STRING_VALUE',
+ *           QuoteEscapeCharacter: 'STRING_VALUE',
+ *           RecordDelimiter: 'STRING_VALUE',
+ *           FieldDelimiter: 'STRING_VALUE',
+ *           QuoteCharacter: 'STRING_VALUE',
  *         },
  *       },
- *       ExpressionType: "SQL",
- *       Expression: "STRING_VALUE",
+ *       ExpressionType: 'SQL',
+ *       Expression: 'STRING_VALUE',
  *       OutputSerialization: { // OutputSerialization
  *         csv: { // CSVOutput
- *           QuoteFields: "ALWAYS" || "ASNEEDED",
- *           QuoteEscapeCharacter: "STRING_VALUE",
- *           RecordDelimiter: "STRING_VALUE",
- *           FieldDelimiter: "STRING_VALUE",
- *           QuoteCharacter: "STRING_VALUE",
+ *           QuoteFields: 'ALWAYS' || 'ASNEEDED',
+ *           QuoteEscapeCharacter: 'STRING_VALUE',
+ *           RecordDelimiter: 'STRING_VALUE',
+ *           FieldDelimiter: 'STRING_VALUE',
+ *           QuoteCharacter: 'STRING_VALUE',
  *         },
  *       },
  *     },
  *     OutputLocation: { // OutputLocation
  *       S3: { // S3Location
- *         BucketName: "STRING_VALUE",
- *         Prefix: "STRING_VALUE",
+ *         BucketName: 'STRING_VALUE',
+ *         Prefix: 'STRING_VALUE',
  *         Encryption: { // Encryption
- *           EncryptionType: "aws:kms" || "AES256",
- *           KMSKeyId: "STRING_VALUE",
- *           KMSContext: "STRING_VALUE",
+ *           EncryptionType: 'aws:kms' || 'AES256',
+ *           KMSKeyId: 'STRING_VALUE',
+ *           KMSContext: 'STRING_VALUE',
  *         },
- *         CannedACL: "private" || "public-read" || "public-read-write" || "aws-exec-read" || "authenticated-read" || "bucket-owner-read" || "bucket-owner-full-control",
+ *         CannedACL: 'private' || 'public-read' || 'public-read-write' || 'aws-exec-read' || 'authenticated-read' || 'bucket-owner-read' || 'bucket-owner-full-control',
  *         AccessControlList: [ // AccessControlPolicyList
  *           { // Grant
  *             Grantee: { // Grantee
- *               Type: "AmazonCustomerByEmail" || "CanonicalUser" || "Group", // required
- *               DisplayName: "STRING_VALUE",
- *               URI: "STRING_VALUE",
- *               ID: "STRING_VALUE",
- *               EmailAddress: "STRING_VALUE",
+ *               Type: 'AmazonCustomerByEmail' || 'CanonicalUser' || 'Group', // required
+ *               DisplayName: 'STRING_VALUE',
+ *               URI: 'STRING_VALUE',
+ *               ID: 'STRING_VALUE',
+ *               EmailAddress: 'STRING_VALUE',
  *             },
- *             Permission: "FULL_CONTROL" || "WRITE" || "WRITE_ACP" || "READ" || "READ_ACP",
+ *             Permission: 'FULL_CONTROL' || 'WRITE' || 'WRITE_ACP' || 'READ' || 'READ_ACP',
  *           },
  *         ],
  *         Tagging: { // hashmap
- *           "<keys>": "STRING_VALUE",
+ *           '<keys>': 'STRING_VALUE',
  *         },
  *         UserMetadata: {
- *           "<keys>": "STRING_VALUE",
+ *           '<keys>': 'STRING_VALUE',
  *         },
- *         StorageClass: "STANDARD" || "REDUCED_REDUNDANCY" || "STANDARD_IA",
+ *         StorageClass: 'STANDARD' || 'REDUCED_REDUNDANCY' || 'STANDARD_IA',
  *       },
  *     },
  *   },
  * };
  * const command = new InitiateJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // InitiateJobOutput
+ *   location: 'STRING_VALUE',
+ *   jobId: 'STRING_VALUE',
+ *   jobOutputPath: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param InitiateJobCommandInput - {@link InitiateJobCommandInput}
@@ -148,6 +155,8 @@ export interface InitiateJobCommandOutput extends InitiateJobOutput, __MetadataB
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>Returned if the service cannot complete the request.</p>
  *
+ * @throws {@link GlacierServiceException}
+ * <p>Base exception class for all service exceptions from Glacier service.</p>
  *
  * @example To initiate an inventory-retrieval job
  * ```javascript

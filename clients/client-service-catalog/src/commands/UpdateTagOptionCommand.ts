@@ -36,16 +36,27 @@ export interface UpdateTagOptionCommandOutput extends UpdateTagOptionOutput, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ServiceCatalogClient, UpdateTagOptionCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
- * // const { ServiceCatalogClient, UpdateTagOptionCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
+ * import { ServiceCatalogClient, UpdateTagOptionCommand } from '@aws-sdk/client-service-catalog'; // ES Modules import
+ * // const { ServiceCatalogClient, UpdateTagOptionCommand } = require('@aws-sdk/client-service-catalog'); // CommonJS import
  * const client = new ServiceCatalogClient(config);
  * const input = { // UpdateTagOptionInput
- *   Id: "STRING_VALUE", // required
- *   Value: "STRING_VALUE",
+ *   Id: 'STRING_VALUE', // required
+ *   Value: 'STRING_VALUE',
  *   Active: true || false,
  * };
  * const command = new UpdateTagOptionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateTagOptionOutput
+ *   TagOptionDetail: { // TagOptionDetail
+ *     Key: 'STRING_VALUE',
+ *     Value: 'STRING_VALUE',
+ *     Active: true || false,
+ *     Id: 'STRING_VALUE',
+ *     Owner: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateTagOptionCommandInput - {@link UpdateTagOptionCommandInput}
@@ -68,6 +79,8 @@ export interface UpdateTagOptionCommandOutput extends UpdateTagOptionOutput, __M
  *          not been performed for this account. Use the Amazon Web Services Management Console to perform the migration
  *          process before retrying the operation.</p>
  *
+ * @throws {@link ServiceCatalogServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
  */
 export class UpdateTagOptionCommand extends $Command<

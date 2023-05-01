@@ -79,22 +79,25 @@ export interface PutBucketVersioningCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { S3Client, PutBucketVersioningCommand } from "@aws-sdk/client-s3"; // ES Modules import
- * // const { S3Client, PutBucketVersioningCommand } = require("@aws-sdk/client-s3"); // CommonJS import
+ * import { S3Client, PutBucketVersioningCommand } from '@aws-sdk/client-s3'; // ES Modules import
+ * // const { S3Client, PutBucketVersioningCommand } = require('@aws-sdk/client-s3'); // CommonJS import
  * const client = new S3Client(config);
  * const input = { // PutBucketVersioningRequest
- *   Bucket: "STRING_VALUE", // required
- *   ContentMD5: "STRING_VALUE",
- *   ChecksumAlgorithm: "CRC32" || "CRC32C" || "SHA1" || "SHA256",
- *   MFA: "STRING_VALUE",
+ *   Bucket: 'STRING_VALUE', // required
+ *   ContentMD5: 'STRING_VALUE',
+ *   ChecksumAlgorithm: 'CRC32' || 'CRC32C' || 'SHA1' || 'SHA256',
+ *   MFA: 'STRING_VALUE',
  *   VersioningConfiguration: { // VersioningConfiguration
- *     MFADelete: "Enabled" || "Disabled",
- *     Status: "Enabled" || "Suspended",
+ *     MFADelete: 'Enabled' || 'Disabled',
+ *     Status: 'Enabled' || 'Suspended',
  *   },
- *   ExpectedBucketOwner: "STRING_VALUE",
+ *   ExpectedBucketOwner: 'STRING_VALUE',
  * };
  * const command = new PutBucketVersioningCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutBucketVersioningCommandInput - {@link PutBucketVersioningCommandInput}
@@ -103,6 +106,8 @@ export interface PutBucketVersioningCommandOutput extends __MetadataBearer {}
  * @see {@link PutBucketVersioningCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
+ * @throws {@link S3ServiceException}
+ * <p>Base exception class for all service exceptions from S3 service.</p>
  *
  * @example Set versioning configuration on a bucket
  * ```javascript

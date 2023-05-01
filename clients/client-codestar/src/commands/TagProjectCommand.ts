@@ -36,17 +36,24 @@ export interface TagProjectCommandOutput extends TagProjectResult, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeStarClient, TagProjectCommand } from "@aws-sdk/client-codestar"; // ES Modules import
- * // const { CodeStarClient, TagProjectCommand } = require("@aws-sdk/client-codestar"); // CommonJS import
+ * import { CodeStarClient, TagProjectCommand } from '@aws-sdk/client-codestar'; // ES Modules import
+ * // const { CodeStarClient, TagProjectCommand } = require('@aws-sdk/client-codestar'); // CommonJS import
  * const client = new CodeStarClient(config);
  * const input = { // TagProjectRequest
- *   id: "STRING_VALUE", // required
+ *   id: 'STRING_VALUE', // required
  *   tags: { // Tags // required
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new TagProjectCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // TagProjectResult
+ *   tags: { // Tags
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param TagProjectCommandInput - {@link TagProjectCommandInput}
@@ -68,6 +75,8 @@ export interface TagProjectCommandOutput extends TagProjectResult, __MetadataBea
  * @throws {@link ValidationException} (client fault)
  *  <p>The specified input is either not valid, or it could not be validated.</p>
  *
+ * @throws {@link CodeStarServiceException}
+ * <p>Base exception class for all service exceptions from CodeStar service.</p>
  *
  */
 export class TagProjectCommand extends $Command<

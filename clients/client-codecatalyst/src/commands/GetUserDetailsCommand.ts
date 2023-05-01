@@ -36,15 +36,27 @@ export interface GetUserDetailsCommandOutput extends GetUserDetailsResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeCatalystClient, GetUserDetailsCommand } from "@aws-sdk/client-codecatalyst"; // ES Modules import
- * // const { CodeCatalystClient, GetUserDetailsCommand } = require("@aws-sdk/client-codecatalyst"); // CommonJS import
+ * import { CodeCatalystClient, GetUserDetailsCommand } from '@aws-sdk/client-codecatalyst'; // ES Modules import
+ * // const { CodeCatalystClient, GetUserDetailsCommand } = require('@aws-sdk/client-codecatalyst'); // CommonJS import
  * const client = new CodeCatalystClient(config);
  * const input = { // GetUserDetailsRequest
- *   id: "STRING_VALUE",
- *   userName: "STRING_VALUE",
+ *   id: 'STRING_VALUE',
+ *   userName: 'STRING_VALUE',
  * };
  * const command = new GetUserDetailsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetUserDetailsResponse
+ *   userId: 'STRING_VALUE',
+ *   userName: 'STRING_VALUE',
+ *   displayName: 'STRING_VALUE',
+ *   primaryEmail: { // EmailAddress
+ *     email: 'STRING_VALUE',
+ *     verified: true || false,
+ *   },
+ *   version: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetUserDetailsCommandInput - {@link GetUserDetailsCommandInput}
@@ -73,6 +85,8 @@ export interface GetUserDetailsCommandOutput extends GetUserDetailsResponse, __M
  * @throws {@link ValidationException} (client fault)
  *  <p>The request was denied because an input failed to satisfy the constraints specified by the service. Check the spelling and input requirements, and then try again.</p>
  *
+ * @throws {@link CodeCatalystServiceException}
+ * <p>Base exception class for all service exceptions from CodeCatalyst service.</p>
  *
  */
 export class GetUserDetailsCommand extends $Command<

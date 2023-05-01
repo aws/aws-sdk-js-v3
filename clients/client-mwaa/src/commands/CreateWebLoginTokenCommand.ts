@@ -40,14 +40,20 @@ export interface CreateWebLoginTokenCommandOutput extends CreateWebLoginTokenRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MWAAClient, CreateWebLoginTokenCommand } from "@aws-sdk/client-mwaa"; // ES Modules import
- * // const { MWAAClient, CreateWebLoginTokenCommand } = require("@aws-sdk/client-mwaa"); // CommonJS import
+ * import { MWAAClient, CreateWebLoginTokenCommand } from '@aws-sdk/client-mwaa'; // ES Modules import
+ * // const { MWAAClient, CreateWebLoginTokenCommand } = require('@aws-sdk/client-mwaa'); // CommonJS import
  * const client = new MWAAClient(config);
  * const input = { // CreateWebLoginTokenRequest
- *   Name: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
  * };
  * const command = new CreateWebLoginTokenCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateWebLoginTokenResponse
+ *   WebToken: 'STRING_VALUE',
+ *   WebServerHostname: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateWebLoginTokenCommandInput - {@link CreateWebLoginTokenCommandInput}
@@ -68,6 +74,8 @@ export interface CreateWebLoginTokenCommandOutput extends CreateWebLoginTokenRes
  * @throws {@link ValidationException} (client fault)
  *  <p>ValidationException: The provided input is not valid.</p>
  *
+ * @throws {@link MWAAServiceException}
+ * <p>Base exception class for all service exceptions from MWAA service.</p>
  *
  */
 export class CreateWebLoginTokenCommand extends $Command<

@@ -36,15 +36,26 @@ export interface ListStorageSystemsCommandOutput extends ListStorageSystemsRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DataSyncClient, ListStorageSystemsCommand } from "@aws-sdk/client-datasync"; // ES Modules import
- * // const { DataSyncClient, ListStorageSystemsCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
+ * import { DataSyncClient, ListStorageSystemsCommand } from '@aws-sdk/client-datasync'; // ES Modules import
+ * // const { DataSyncClient, ListStorageSystemsCommand } = require('@aws-sdk/client-datasync'); // CommonJS import
  * const client = new DataSyncClient(config);
  * const input = { // ListStorageSystemsRequest
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListStorageSystemsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListStorageSystemsResponse
+ *   StorageSystems: [ // StorageSystemList
+ *     { // StorageSystemListEntry
+ *       StorageSystemArn: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListStorageSystemsCommandInput - {@link ListStorageSystemsCommandInput}
@@ -60,6 +71,8 @@ export interface ListStorageSystemsCommandOutput extends ListStorageSystemsRespo
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception is thrown when the client submits a malformed request.</p>
  *
+ * @throws {@link DataSyncServiceException}
+ * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
  */
 export class ListStorageSystemsCommand extends $Command<

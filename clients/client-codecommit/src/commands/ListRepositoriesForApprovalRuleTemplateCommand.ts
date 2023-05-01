@@ -45,16 +45,24 @@ export interface ListRepositoriesForApprovalRuleTemplateCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeCommitClient, ListRepositoriesForApprovalRuleTemplateCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
- * // const { CodeCommitClient, ListRepositoriesForApprovalRuleTemplateCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
+ * import { CodeCommitClient, ListRepositoriesForApprovalRuleTemplateCommand } from '@aws-sdk/client-codecommit'; // ES Modules import
+ * // const { CodeCommitClient, ListRepositoriesForApprovalRuleTemplateCommand } = require('@aws-sdk/client-codecommit'); // CommonJS import
  * const client = new CodeCommitClient(config);
  * const input = { // ListRepositoriesForApprovalRuleTemplateInput
- *   approvalRuleTemplateName: "STRING_VALUE", // required
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   approvalRuleTemplateName: 'STRING_VALUE', // required
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new ListRepositoriesForApprovalRuleTemplateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListRepositoriesForApprovalRuleTemplateOutput
+ *   repositoryNames: [ // RepositoryNameList
+ *     'STRING_VALUE',
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListRepositoriesForApprovalRuleTemplateCommandInput - {@link ListRepositoriesForApprovalRuleTemplateCommandInput}
@@ -97,6 +105,8 @@ export interface ListRepositoriesForApprovalRuleTemplateCommandOutput
  * @throws {@link InvalidMaxResultsException} (client fault)
  *  <p>The specified number of maximum results is not valid.</p>
  *
+ * @throws {@link CodeCommitServiceException}
+ * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
  */
 export class ListRepositoriesForApprovalRuleTemplateCommand extends $Command<

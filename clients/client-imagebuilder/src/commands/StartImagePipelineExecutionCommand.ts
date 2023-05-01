@@ -41,15 +41,22 @@ export interface StartImagePipelineExecutionCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ImagebuilderClient, StartImagePipelineExecutionCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
- * // const { ImagebuilderClient, StartImagePipelineExecutionCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
+ * import { ImagebuilderClient, StartImagePipelineExecutionCommand } from '@aws-sdk/client-imagebuilder'; // ES Modules import
+ * // const { ImagebuilderClient, StartImagePipelineExecutionCommand } = require('@aws-sdk/client-imagebuilder'); // CommonJS import
  * const client = new ImagebuilderClient(config);
  * const input = { // StartImagePipelineExecutionRequest
- *   imagePipelineArn: "STRING_VALUE", // required
- *   clientToken: "STRING_VALUE", // required
+ *   imagePipelineArn: 'STRING_VALUE', // required
+ *   clientToken: 'STRING_VALUE', // required
  * };
  * const command = new StartImagePipelineExecutionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartImagePipelineExecutionResponse
+ *   requestId: 'STRING_VALUE',
+ *   clientToken: 'STRING_VALUE',
+ *   imageBuildVersionArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param StartImagePipelineExecutionCommandInput - {@link StartImagePipelineExecutionCommandInput}
@@ -90,6 +97,8 @@ export interface StartImagePipelineExecutionCommandOutput
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service is unable to process your request at this time.</p>
  *
+ * @throws {@link ImagebuilderServiceException}
+ * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
  */
 export class StartImagePipelineExecutionCommand extends $Command<

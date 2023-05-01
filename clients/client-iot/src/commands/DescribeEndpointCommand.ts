@@ -37,14 +37,19 @@ export interface DescribeEndpointCommandOutput extends DescribeEndpointResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTClient, DescribeEndpointCommand } from "@aws-sdk/client-iot"; // ES Modules import
- * // const { IoTClient, DescribeEndpointCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * import { IoTClient, DescribeEndpointCommand } from '@aws-sdk/client-iot'; // ES Modules import
+ * // const { IoTClient, DescribeEndpointCommand } = require('@aws-sdk/client-iot'); // CommonJS import
  * const client = new IoTClient(config);
  * const input = { // DescribeEndpointRequest
- *   endpointType: "STRING_VALUE",
+ *   endpointType: 'STRING_VALUE',
  * };
  * const command = new DescribeEndpointCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeEndpointResponse
+ *   endpointAddress: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeEndpointCommandInput - {@link DescribeEndpointCommandInput}
@@ -65,6 +70,8 @@ export interface DescribeEndpointCommandOutput extends DescribeEndpointResponse,
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this operation.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class DescribeEndpointCommand extends $Command<

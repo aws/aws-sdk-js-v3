@@ -36,16 +36,27 @@ export interface DeclineInvitationsCommandOutput extends DeclineInvitationsRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Macie2Client, DeclineInvitationsCommand } from "@aws-sdk/client-macie2"; // ES Modules import
- * // const { Macie2Client, DeclineInvitationsCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
+ * import { Macie2Client, DeclineInvitationsCommand } from '@aws-sdk/client-macie2'; // ES Modules import
+ * // const { Macie2Client, DeclineInvitationsCommand } = require('@aws-sdk/client-macie2'); // CommonJS import
  * const client = new Macie2Client(config);
  * const input = { // DeclineInvitationsRequest
  *   accountIds: [ // __listOf__string // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new DeclineInvitationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeclineInvitationsResponse
+ *   unprocessedAccounts: [ // __listOfUnprocessedAccount
+ *     { // UnprocessedAccount
+ *       accountId: 'STRING_VALUE',
+ *       errorCode: 'ClientError' || 'InternalError',
+ *       errorMessage: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DeclineInvitationsCommandInput - {@link DeclineInvitationsCommandInput}
@@ -75,6 +86,8 @@ export interface DeclineInvitationsCommandOutput extends DeclineInvitationsRespo
  * @throws {@link ValidationException} (client fault)
  *  <p>Provides information about an error that occurred due to a syntax error in a request.</p>
  *
+ * @throws {@link Macie2ServiceException}
+ * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
  */
 export class DeclineInvitationsCommand extends $Command<

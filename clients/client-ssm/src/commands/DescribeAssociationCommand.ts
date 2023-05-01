@@ -42,17 +42,119 @@ export interface DescribeAssociationCommandOutput extends DescribeAssociationRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMClient, DescribeAssociationCommand } from "@aws-sdk/client-ssm"; // ES Modules import
- * // const { SSMClient, DescribeAssociationCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * import { SSMClient, DescribeAssociationCommand } from '@aws-sdk/client-ssm'; // ES Modules import
+ * // const { SSMClient, DescribeAssociationCommand } = require('@aws-sdk/client-ssm'); // CommonJS import
  * const client = new SSMClient(config);
  * const input = { // DescribeAssociationRequest
- *   Name: "STRING_VALUE",
- *   InstanceId: "STRING_VALUE",
- *   AssociationId: "STRING_VALUE",
- *   AssociationVersion: "STRING_VALUE",
+ *   Name: 'STRING_VALUE',
+ *   InstanceId: 'STRING_VALUE',
+ *   AssociationId: 'STRING_VALUE',
+ *   AssociationVersion: 'STRING_VALUE',
  * };
  * const command = new DescribeAssociationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeAssociationResult
+ *   AssociationDescription: { // AssociationDescription
+ *     Name: 'STRING_VALUE',
+ *     InstanceId: 'STRING_VALUE',
+ *     AssociationVersion: 'STRING_VALUE',
+ *     Date: new Date('TIMESTAMP'),
+ *     LastUpdateAssociationDate: new Date('TIMESTAMP'),
+ *     Status: { // AssociationStatus
+ *       Date: new Date('TIMESTAMP'), // required
+ *       Name: 'Pending' || 'Success' || 'Failed', // required
+ *       Message: 'STRING_VALUE', // required
+ *       AdditionalInfo: 'STRING_VALUE',
+ *     },
+ *     Overview: { // AssociationOverview
+ *       Status: 'STRING_VALUE',
+ *       DetailedStatus: 'STRING_VALUE',
+ *       AssociationStatusAggregatedCount: { // AssociationStatusAggregatedCount
+ *         '<keys>': Number('int'),
+ *       },
+ *     },
+ *     DocumentVersion: 'STRING_VALUE',
+ *     AutomationTargetParameterName: 'STRING_VALUE',
+ *     Parameters: { // Parameters
+ *       '<keys>': [ // ParameterValueList
+ *         'STRING_VALUE',
+ *       ],
+ *     },
+ *     AssociationId: 'STRING_VALUE',
+ *     Targets: [ // Targets
+ *       { // Target
+ *         Key: 'STRING_VALUE',
+ *         Values: [ // TargetValues
+ *           'STRING_VALUE',
+ *         ],
+ *       },
+ *     ],
+ *     ScheduleExpression: 'STRING_VALUE',
+ *     OutputLocation: { // InstanceAssociationOutputLocation
+ *       S3Location: { // S3OutputLocation
+ *         OutputS3Region: 'STRING_VALUE',
+ *         OutputS3BucketName: 'STRING_VALUE',
+ *         OutputS3KeyPrefix: 'STRING_VALUE',
+ *       },
+ *     },
+ *     LastExecutionDate: new Date('TIMESTAMP'),
+ *     LastSuccessfulExecutionDate: new Date('TIMESTAMP'),
+ *     AssociationName: 'STRING_VALUE',
+ *     MaxErrors: 'STRING_VALUE',
+ *     MaxConcurrency: 'STRING_VALUE',
+ *     ComplianceSeverity: 'CRITICAL' || 'HIGH' || 'MEDIUM' || 'LOW' || 'UNSPECIFIED',
+ *     SyncCompliance: 'AUTO' || 'MANUAL',
+ *     ApplyOnlyAtCronInterval: true || false,
+ *     CalendarNames: [ // CalendarNameOrARNList
+ *       'STRING_VALUE',
+ *     ],
+ *     TargetLocations: [ // TargetLocations
+ *       { // TargetLocation
+ *         Accounts: [ // Accounts
+ *           'STRING_VALUE',
+ *         ],
+ *         Regions: [ // Regions
+ *           'STRING_VALUE',
+ *         ],
+ *         TargetLocationMaxConcurrency: 'STRING_VALUE',
+ *         TargetLocationMaxErrors: 'STRING_VALUE',
+ *         ExecutionRoleName: 'STRING_VALUE',
+ *         TargetLocationAlarmConfiguration: { // AlarmConfiguration
+ *           IgnorePollAlarmFailure: true || false,
+ *           Alarms: [ // AlarmList // required
+ *             { // Alarm
+ *               Name: 'STRING_VALUE', // required
+ *             },
+ *           ],
+ *         },
+ *       },
+ *     ],
+ *     ScheduleOffset: Number('int'),
+ *     TargetMaps: [ // TargetMaps
+ *       { // TargetMap
+ *         '<keys>': [ // TargetMapValueList
+ *           'STRING_VALUE',
+ *         ],
+ *       },
+ *     ],
+ *     AlarmConfiguration: {
+ *       IgnorePollAlarmFailure: true || false,
+ *       Alarms: [ // required
+ *         {
+ *           Name: 'STRING_VALUE', // required
+ *         },
+ *       ],
+ *     },
+ *     TriggeredAlarms: [ // AlarmStateInformationList
+ *       { // AlarmStateInformation
+ *         Name: 'STRING_VALUE', // required
+ *         State: 'UNKNOWN' || 'ALARM', // required
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeAssociationCommandInput - {@link DescribeAssociationCommandInput}
@@ -95,6 +197,8 @@ export interface DescribeAssociationCommandOutput extends DescribeAssociationRes
  *             </li>
  *          </ul>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class DescribeAssociationCommand extends $Command<

@@ -36,15 +36,37 @@ export interface ModifyBackupAttributesCommandOutput extends ModifyBackupAttribu
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudHSMV2Client, ModifyBackupAttributesCommand } from "@aws-sdk/client-cloudhsm-v2"; // ES Modules import
- * // const { CloudHSMV2Client, ModifyBackupAttributesCommand } = require("@aws-sdk/client-cloudhsm-v2"); // CommonJS import
+ * import { CloudHSMV2Client, ModifyBackupAttributesCommand } from '@aws-sdk/client-cloudhsm-v2'; // ES Modules import
+ * // const { CloudHSMV2Client, ModifyBackupAttributesCommand } = require('@aws-sdk/client-cloudhsm-v2'); // CommonJS import
  * const client = new CloudHSMV2Client(config);
  * const input = { // ModifyBackupAttributesRequest
- *   BackupId: "STRING_VALUE", // required
+ *   BackupId: 'STRING_VALUE', // required
  *   NeverExpires: true || false, // required
  * };
  * const command = new ModifyBackupAttributesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ModifyBackupAttributesResponse
+ *   Backup: { // Backup
+ *     BackupId: 'STRING_VALUE', // required
+ *     BackupState: 'STRING_VALUE',
+ *     ClusterId: 'STRING_VALUE',
+ *     CreateTimestamp: new Date('TIMESTAMP'),
+ *     CopyTimestamp: new Date('TIMESTAMP'),
+ *     NeverExpires: true || false,
+ *     SourceRegion: 'STRING_VALUE',
+ *     SourceBackup: 'STRING_VALUE',
+ *     SourceCluster: 'STRING_VALUE',
+ *     DeleteTimestamp: new Date('TIMESTAMP'),
+ *     TagList: [ // TagList
+ *       { // Tag
+ *         Key: 'STRING_VALUE', // required
+ *         Value: 'STRING_VALUE', // required
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param ModifyBackupAttributesCommandInput - {@link ModifyBackupAttributesCommandInput}
@@ -71,6 +93,8 @@ export interface ModifyBackupAttributesCommandOutput extends ModifyBackupAttribu
  * @throws {@link CloudHsmServiceException} (client fault)
  *  <p>The request was rejected because an error occurred.</p>
  *
+ * @throws {@link CloudHSMV2ServiceException}
+ * <p>Base exception class for all service exceptions from CloudHSMV2 service.</p>
  *
  */
 export class ModifyBackupAttributesCommand extends $Command<

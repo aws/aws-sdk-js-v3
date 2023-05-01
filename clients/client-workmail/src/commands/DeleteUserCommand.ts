@@ -40,15 +40,18 @@ export interface DeleteUserCommandOutput extends DeleteUserResponse, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkMailClient, DeleteUserCommand } from "@aws-sdk/client-workmail"; // ES Modules import
- * // const { WorkMailClient, DeleteUserCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
+ * import { WorkMailClient, DeleteUserCommand } from '@aws-sdk/client-workmail'; // ES Modules import
+ * // const { WorkMailClient, DeleteUserCommand } = require('@aws-sdk/client-workmail'); // CommonJS import
  * const client = new WorkMailClient(config);
  * const input = { // DeleteUserRequest
- *   OrganizationId: "STRING_VALUE", // required
- *   UserId: "STRING_VALUE", // required
+ *   OrganizationId: 'STRING_VALUE', // required
+ *   UserId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteUserCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteUserCommandInput - {@link DeleteUserCommandInput}
@@ -81,6 +84,8 @@ export interface DeleteUserCommandOutput extends DeleteUserResponse, __MetadataB
  * @throws {@link UnsupportedOperationException} (client fault)
  *  <p>You can't perform a write operation against a read-only directory.</p>
  *
+ * @throws {@link WorkMailServiceException}
+ * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
  */
 export class DeleteUserCommand extends $Command<

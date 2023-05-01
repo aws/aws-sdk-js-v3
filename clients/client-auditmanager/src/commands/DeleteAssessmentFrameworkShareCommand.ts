@@ -41,15 +41,18 @@ export interface DeleteAssessmentFrameworkShareCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AuditManagerClient, DeleteAssessmentFrameworkShareCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
- * // const { AuditManagerClient, DeleteAssessmentFrameworkShareCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import
+ * import { AuditManagerClient, DeleteAssessmentFrameworkShareCommand } from '@aws-sdk/client-auditmanager'; // ES Modules import
+ * // const { AuditManagerClient, DeleteAssessmentFrameworkShareCommand } = require('@aws-sdk/client-auditmanager'); // CommonJS import
  * const client = new AuditManagerClient(config);
  * const input = { // DeleteAssessmentFrameworkShareRequest
- *   requestId: "STRING_VALUE", // required
- *   requestType: "SENT" || "RECEIVED", // required
+ *   requestId: 'STRING_VALUE', // required
+ *   requestType: 'SENT' || 'RECEIVED', // required
  * };
  * const command = new DeleteAssessmentFrameworkShareCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteAssessmentFrameworkShareCommandInput - {@link DeleteAssessmentFrameworkShareCommandInput}
@@ -72,6 +75,8 @@ export interface DeleteAssessmentFrameworkShareCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p> The request has invalid or missing parameters. </p>
  *
+ * @throws {@link AuditManagerServiceException}
+ * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
  */
 export class DeleteAssessmentFrameworkShareCommand extends $Command<

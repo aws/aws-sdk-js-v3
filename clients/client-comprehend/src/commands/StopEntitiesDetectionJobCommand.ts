@@ -45,14 +45,20 @@ export interface StopEntitiesDetectionJobCommandOutput extends StopEntitiesDetec
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ComprehendClient, StopEntitiesDetectionJobCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
- * // const { ComprehendClient, StopEntitiesDetectionJobCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
+ * import { ComprehendClient, StopEntitiesDetectionJobCommand } from '@aws-sdk/client-comprehend'; // ES Modules import
+ * // const { ComprehendClient, StopEntitiesDetectionJobCommand } = require('@aws-sdk/client-comprehend'); // CommonJS import
  * const client = new ComprehendClient(config);
  * const input = { // StopEntitiesDetectionJobRequest
- *   JobId: "STRING_VALUE", // required
+ *   JobId: 'STRING_VALUE', // required
  * };
  * const command = new StopEntitiesDetectionJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StopEntitiesDetectionJobResponse
+ *   JobId: 'STRING_VALUE',
+ *   JobStatus: 'SUBMITTED' || 'IN_PROGRESS' || 'COMPLETED' || 'FAILED' || 'STOP_REQUESTED' || 'STOPPED',
+ * };
+ *
  * ```
  *
  * @param StopEntitiesDetectionJobCommandInput - {@link StopEntitiesDetectionJobCommandInput}
@@ -70,6 +76,8 @@ export interface StopEntitiesDetectionJobCommandOutput extends StopEntitiesDetec
  * @throws {@link JobNotFoundException} (client fault)
  *  <p>The specified job was not found. Check the job ID and try again.</p>
  *
+ * @throws {@link ComprehendServiceException}
+ * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
  */
 export class StopEntitiesDetectionJobCommand extends $Command<

@@ -56,31 +56,50 @@ export interface PublishBatchCommandOutput extends PublishBatchResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SNSClient, PublishBatchCommand } from "@aws-sdk/client-sns"; // ES Modules import
- * // const { SNSClient, PublishBatchCommand } = require("@aws-sdk/client-sns"); // CommonJS import
+ * import { SNSClient, PublishBatchCommand } from '@aws-sdk/client-sns'; // ES Modules import
+ * // const { SNSClient, PublishBatchCommand } = require('@aws-sdk/client-sns'); // CommonJS import
  * const client = new SNSClient(config);
  * const input = { // PublishBatchInput
- *   TopicArn: "STRING_VALUE", // required
+ *   TopicArn: 'STRING_VALUE', // required
  *   PublishBatchRequestEntries: [ // PublishBatchRequestEntryList // required
  *     { // PublishBatchRequestEntry
- *       Id: "STRING_VALUE", // required
- *       Message: "STRING_VALUE", // required
- *       Subject: "STRING_VALUE",
- *       MessageStructure: "STRING_VALUE",
+ *       Id: 'STRING_VALUE', // required
+ *       Message: 'STRING_VALUE', // required
+ *       Subject: 'STRING_VALUE',
+ *       MessageStructure: 'STRING_VALUE',
  *       MessageAttributes: { // MessageAttributeMap
- *         "<keys>": { // MessageAttributeValue
- *           DataType: "STRING_VALUE", // required
- *           StringValue: "STRING_VALUE",
- *           BinaryValue: "BLOB_VALUE",
+ *         '<keys>': { // MessageAttributeValue
+ *           DataType: 'STRING_VALUE', // required
+ *           StringValue: 'STRING_VALUE',
+ *           BinaryValue: 'BLOB_VALUE',
  *         },
  *       },
- *       MessageDeduplicationId: "STRING_VALUE",
- *       MessageGroupId: "STRING_VALUE",
+ *       MessageDeduplicationId: 'STRING_VALUE',
+ *       MessageGroupId: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new PublishBatchCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PublishBatchResponse
+ *   Successful: [ // PublishBatchResultEntryList
+ *     { // PublishBatchResultEntry
+ *       Id: 'STRING_VALUE',
+ *       MessageId: 'STRING_VALUE',
+ *       SequenceNumber: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   Failed: [ // BatchResultErrorEntryList
+ *     { // BatchResultErrorEntry
+ *       Id: 'STRING_VALUE', // required
+ *       Code: 'STRING_VALUE', // required
+ *       Message: 'STRING_VALUE',
+ *       SenderFault: true || false, // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param PublishBatchCommandInput - {@link PublishBatchCommandInput}
@@ -160,6 +179,8 @@ export interface PublishBatchCommandOutput extends PublishBatchResponse, __Metad
  * @throws {@link ValidationException} (client fault)
  *  <p>Indicates that a parameter in the request is invalid.</p>
  *
+ * @throws {@link SNSServiceException}
+ * <p>Base exception class for all service exceptions from SNS service.</p>
  *
  */
 export class PublishBatchCommand extends $Command<

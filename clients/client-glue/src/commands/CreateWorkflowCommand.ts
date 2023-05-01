@@ -36,22 +36,27 @@ export interface CreateWorkflowCommandOutput extends CreateWorkflowResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlueClient, CreateWorkflowCommand } from "@aws-sdk/client-glue"; // ES Modules import
- * // const { GlueClient, CreateWorkflowCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * import { GlueClient, CreateWorkflowCommand } from '@aws-sdk/client-glue'; // ES Modules import
+ * // const { GlueClient, CreateWorkflowCommand } = require('@aws-sdk/client-glue'); // CommonJS import
  * const client = new GlueClient(config);
  * const input = { // CreateWorkflowRequest
- *   Name: "STRING_VALUE", // required
- *   Description: "STRING_VALUE",
+ *   Name: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE',
  *   DefaultRunProperties: { // WorkflowRunProperties
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  *   Tags: { // TagsMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
- *   MaxConcurrentRuns: Number("int"),
+ *   MaxConcurrentRuns: Number('int'),
  * };
  * const command = new CreateWorkflowCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateWorkflowResponse
+ *   Name: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateWorkflowCommandInput - {@link CreateWorkflowCommandInput}
@@ -78,6 +83,8 @@ export interface CreateWorkflowCommandOutput extends CreateWorkflowResponse, __M
  * @throws {@link ResourceNumberLimitExceededException} (client fault)
  *  <p>A resource numerical limit was exceeded.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class CreateWorkflowCommand extends $Command<

@@ -44,32 +44,38 @@ export interface CreateNetworkAnalyzerConfigurationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTWirelessClient, CreateNetworkAnalyzerConfigurationCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
- * // const { IoTWirelessClient, CreateNetworkAnalyzerConfigurationCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
+ * import { IoTWirelessClient, CreateNetworkAnalyzerConfigurationCommand } from '@aws-sdk/client-iot-wireless'; // ES Modules import
+ * // const { IoTWirelessClient, CreateNetworkAnalyzerConfigurationCommand } = require('@aws-sdk/client-iot-wireless'); // CommonJS import
  * const client = new IoTWirelessClient(config);
  * const input = { // CreateNetworkAnalyzerConfigurationRequest
- *   Name: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
  *   TraceContent: { // TraceContent
- *     WirelessDeviceFrameInfo: "ENABLED" || "DISABLED",
- *     LogLevel: "INFO" || "ERROR" || "DISABLED",
+ *     WirelessDeviceFrameInfo: 'ENABLED' || 'DISABLED',
+ *     LogLevel: 'INFO' || 'ERROR' || 'DISABLED',
  *   },
  *   WirelessDevices: [ // WirelessDeviceList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   WirelessGateways: [ // WirelessGatewayList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   Description: "STRING_VALUE",
+ *   Description: 'STRING_VALUE',
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
- *   ClientRequestToken: "STRING_VALUE",
+ *   ClientRequestToken: 'STRING_VALUE',
  * };
  * const command = new CreateNetworkAnalyzerConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateNetworkAnalyzerConfigurationResponse
+ *   Arn: 'STRING_VALUE',
+ *   Name: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateNetworkAnalyzerConfigurationCommandInput - {@link CreateNetworkAnalyzerConfigurationCommandInput}
@@ -96,6 +102,8 @@ export interface CreateNetworkAnalyzerConfigurationCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The input did not meet the specified constraints.</p>
  *
+ * @throws {@link IoTWirelessServiceException}
+ * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
  */
 export class CreateNetworkAnalyzerConfigurationCommand extends $Command<

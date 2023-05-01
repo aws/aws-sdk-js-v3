@@ -50,25 +50,40 @@ export interface SearchChannelsCommandOutput extends SearchChannelsResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeSDKMessagingClient, SearchChannelsCommand } from "@aws-sdk/client-chime-sdk-messaging"; // ES Modules import
- * // const { ChimeSDKMessagingClient, SearchChannelsCommand } = require("@aws-sdk/client-chime-sdk-messaging"); // CommonJS import
+ * import { ChimeSDKMessagingClient, SearchChannelsCommand } from '@aws-sdk/client-chime-sdk-messaging'; // ES Modules import
+ * // const { ChimeSDKMessagingClient, SearchChannelsCommand } = require('@aws-sdk/client-chime-sdk-messaging'); // CommonJS import
  * const client = new ChimeSDKMessagingClient(config);
  * const input = { // SearchChannelsRequest
- *   ChimeBearer: "STRING_VALUE",
+ *   ChimeBearer: 'STRING_VALUE',
  *   Fields: [ // SearchFields // required
  *     { // SearchField
- *       Key: "MEMBERS", // required
+ *       Key: 'MEMBERS', // required
  *       Values: [ // SearchFieldValues // required
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
- *       Operator: "EQUALS" || "INCLUDES", // required
+ *       Operator: 'EQUALS' || 'INCLUDES', // required
  *     },
  *   ],
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new SearchChannelsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SearchChannelsResponse
+ *   Channels: [ // ChannelSummaryList
+ *     { // ChannelSummary
+ *       Name: 'STRING_VALUE',
+ *       ChannelArn: 'STRING_VALUE',
+ *       Mode: 'UNRESTRICTED' || 'RESTRICTED',
+ *       Privacy: 'PUBLIC' || 'PRIVATE',
+ *       Metadata: 'STRING_VALUE',
+ *       LastMessageTimestamp: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param SearchChannelsCommandInput - {@link SearchChannelsCommandInput}
@@ -95,6 +110,8 @@ export interface SearchChannelsCommandOutput extends SearchChannelsResponse, __M
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeSDKMessagingServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKMessaging service.</p>
  *
  */
 export class SearchChannelsCommand extends $Command<

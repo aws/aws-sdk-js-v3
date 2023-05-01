@@ -55,24 +55,46 @@ export interface DescribeUsageLimitsCommandOutput extends UsageLimitList, __Meta
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RedshiftClient, DescribeUsageLimitsCommand } from "@aws-sdk/client-redshift"; // ES Modules import
- * // const { RedshiftClient, DescribeUsageLimitsCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * import { RedshiftClient, DescribeUsageLimitsCommand } from '@aws-sdk/client-redshift'; // ES Modules import
+ * // const { RedshiftClient, DescribeUsageLimitsCommand } = require('@aws-sdk/client-redshift'); // CommonJS import
  * const client = new RedshiftClient(config);
  * const input = { // DescribeUsageLimitsMessage
- *   UsageLimitId: "STRING_VALUE",
- *   ClusterIdentifier: "STRING_VALUE",
- *   FeatureType: "spectrum" || "concurrency-scaling" || "cross-region-datasharing",
- *   MaxRecords: Number("int"),
- *   Marker: "STRING_VALUE",
+ *   UsageLimitId: 'STRING_VALUE',
+ *   ClusterIdentifier: 'STRING_VALUE',
+ *   FeatureType: 'spectrum' || 'concurrency-scaling' || 'cross-region-datasharing',
+ *   MaxRecords: Number('int'),
+ *   Marker: 'STRING_VALUE',
  *   TagKeys: [ // TagKeyList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   TagValues: [ // TagValueList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new DescribeUsageLimitsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UsageLimitList
+ *   UsageLimits: [ // UsageLimits
+ *     { // UsageLimit
+ *       UsageLimitId: 'STRING_VALUE',
+ *       ClusterIdentifier: 'STRING_VALUE',
+ *       FeatureType: 'spectrum' || 'concurrency-scaling' || 'cross-region-datasharing',
+ *       LimitType: 'time' || 'data-scanned',
+ *       Amount: Number('long'),
+ *       Period: 'daily' || 'weekly' || 'monthly',
+ *       BreachAction: 'log' || 'emit-metric' || 'disable',
+ *       Tags: [ // TagList
+ *         { // Tag
+ *           Key: 'STRING_VALUE',
+ *           Value: 'STRING_VALUE',
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   Marker: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeUsageLimitsCommandInput - {@link DescribeUsageLimitsCommandInput}
@@ -88,6 +110,8 @@ export interface DescribeUsageLimitsCommandOutput extends UsageLimitList, __Meta
  * @throws {@link UnsupportedOperationFault} (client fault)
  *  <p>The requested operation isn't supported.</p>
  *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class DescribeUsageLimitsCommand extends $Command<

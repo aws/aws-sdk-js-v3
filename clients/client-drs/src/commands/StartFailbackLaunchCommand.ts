@@ -41,19 +41,42 @@ export interface StartFailbackLaunchCommandOutput extends StartFailbackLaunchRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DrsClient, StartFailbackLaunchCommand } from "@aws-sdk/client-drs"; // ES Modules import
- * // const { DrsClient, StartFailbackLaunchCommand } = require("@aws-sdk/client-drs"); // CommonJS import
+ * import { DrsClient, StartFailbackLaunchCommand } from '@aws-sdk/client-drs'; // ES Modules import
+ * // const { DrsClient, StartFailbackLaunchCommand } = require('@aws-sdk/client-drs'); // CommonJS import
  * const client = new DrsClient(config);
  * const input = { // StartFailbackLaunchRequest
  *   recoveryInstanceIDs: [ // StartFailbackRequestRecoveryInstanceIDs // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   tags: { // TagsMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new StartFailbackLaunchCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartFailbackLaunchResponse
+ *   job: { // Job
+ *     jobID: 'STRING_VALUE', // required
+ *     arn: 'STRING_VALUE',
+ *     type: 'STRING_VALUE',
+ *     initiatedBy: 'STRING_VALUE',
+ *     creationDateTime: 'STRING_VALUE',
+ *     endDateTime: 'STRING_VALUE',
+ *     status: 'STRING_VALUE',
+ *     participatingServers: [ // ParticipatingServers
+ *       { // ParticipatingServer
+ *         sourceServerID: 'STRING_VALUE',
+ *         recoveryInstanceID: 'STRING_VALUE',
+ *         launchStatus: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     tags: { // TagsMap
+ *       '<keys>': 'STRING_VALUE',
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param StartFailbackLaunchCommandInput - {@link StartFailbackLaunchCommandInput}
@@ -80,6 +103,8 @@ export interface StartFailbackLaunchCommandOutput extends StartFailbackLaunchRes
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by the AWS service.</p>
  *
+ * @throws {@link DrsServiceException}
+ * <p>Base exception class for all service exceptions from Drs service.</p>
  *
  */
 export class StartFailbackLaunchCommand extends $Command<

@@ -42,27 +42,51 @@ export interface DescribeAgentsCommandOutput extends DescribeAgentsResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ApplicationDiscoveryServiceClient, DescribeAgentsCommand } from "@aws-sdk/client-application-discovery-service"; // ES Modules import
- * // const { ApplicationDiscoveryServiceClient, DescribeAgentsCommand } = require("@aws-sdk/client-application-discovery-service"); // CommonJS import
+ * import { ApplicationDiscoveryServiceClient, DescribeAgentsCommand } from '@aws-sdk/client-application-discovery-service'; // ES Modules import
+ * // const { ApplicationDiscoveryServiceClient, DescribeAgentsCommand } = require('@aws-sdk/client-application-discovery-service'); // CommonJS import
  * const client = new ApplicationDiscoveryServiceClient(config);
  * const input = { // DescribeAgentsRequest
  *   agentIds: [ // AgentIds
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   filters: [ // Filters
  *     { // Filter
- *       name: "STRING_VALUE", // required
+ *       name: 'STRING_VALUE', // required
  *       values: [ // FilterValues // required
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
- *       condition: "STRING_VALUE", // required
+ *       condition: 'STRING_VALUE', // required
  *     },
  *   ],
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new DescribeAgentsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeAgentsResponse
+ *   agentsInfo: [ // AgentsInfo
+ *     { // AgentInfo
+ *       agentId: 'STRING_VALUE',
+ *       hostName: 'STRING_VALUE',
+ *       agentNetworkInfoList: [ // AgentNetworkInfoList
+ *         { // AgentNetworkInfo
+ *           ipAddress: 'STRING_VALUE',
+ *           macAddress: 'STRING_VALUE',
+ *         },
+ *       ],
+ *       connectorId: 'STRING_VALUE',
+ *       version: 'STRING_VALUE',
+ *       health: 'HEALTHY' || 'UNHEALTHY' || 'RUNNING' || 'UNKNOWN' || 'BLACKLISTED' || 'SHUTDOWN',
+ *       lastHealthPingTime: 'STRING_VALUE',
+ *       collectionStatus: 'STRING_VALUE',
+ *       agentType: 'STRING_VALUE',
+ *       registeredTime: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeAgentsCommandInput - {@link DescribeAgentsCommandInput}
@@ -88,6 +112,8 @@ export interface DescribeAgentsCommandOutput extends DescribeAgentsResponse, __M
  * @throws {@link ServerInternalErrorException} (server fault)
  *  <p>The server experienced an internal error. Try again.</p>
  *
+ * @throws {@link ApplicationDiscoveryServiceServiceException}
+ * <p>Base exception class for all service exceptions from ApplicationDiscoveryService service.</p>
  *
  */
 export class DescribeAgentsCommand extends $Command<

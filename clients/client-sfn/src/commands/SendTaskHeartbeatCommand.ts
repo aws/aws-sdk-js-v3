@@ -50,14 +50,17 @@ export interface SendTaskHeartbeatCommandOutput extends SendTaskHeartbeatOutput,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SFNClient, SendTaskHeartbeatCommand } from "@aws-sdk/client-sfn"; // ES Modules import
- * // const { SFNClient, SendTaskHeartbeatCommand } = require("@aws-sdk/client-sfn"); // CommonJS import
+ * import { SFNClient, SendTaskHeartbeatCommand } from '@aws-sdk/client-sfn'; // ES Modules import
+ * // const { SFNClient, SendTaskHeartbeatCommand } = require('@aws-sdk/client-sfn'); // CommonJS import
  * const client = new SFNClient(config);
  * const input = { // SendTaskHeartbeatInput
- *   taskToken: "STRING_VALUE", // required
+ *   taskToken: 'STRING_VALUE', // required
  * };
  * const command = new SendTaskHeartbeatCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param SendTaskHeartbeatCommandInput - {@link SendTaskHeartbeatCommandInput}
@@ -73,6 +76,8 @@ export interface SendTaskHeartbeatCommandOutput extends SendTaskHeartbeatOutput,
  *
  * @throws {@link TaskTimedOut} (client fault)
  *
+ * @throws {@link SFNServiceException}
+ * <p>Base exception class for all service exceptions from SFN service.</p>
  *
  */
 export class SendTaskHeartbeatCommand extends $Command<

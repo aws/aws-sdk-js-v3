@@ -44,55 +44,58 @@ export interface DeleteAnomalyDetectorCommandOutput extends DeleteAnomalyDetecto
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudWatchClient, DeleteAnomalyDetectorCommand } from "@aws-sdk/client-cloudwatch"; // ES Modules import
- * // const { CloudWatchClient, DeleteAnomalyDetectorCommand } = require("@aws-sdk/client-cloudwatch"); // CommonJS import
+ * import { CloudWatchClient, DeleteAnomalyDetectorCommand } from '@aws-sdk/client-cloudwatch'; // ES Modules import
+ * // const { CloudWatchClient, DeleteAnomalyDetectorCommand } = require('@aws-sdk/client-cloudwatch'); // CommonJS import
  * const client = new CloudWatchClient(config);
  * const input = { // DeleteAnomalyDetectorInput
- *   Namespace: "STRING_VALUE",
- *   MetricName: "STRING_VALUE",
+ *   Namespace: 'STRING_VALUE',
+ *   MetricName: 'STRING_VALUE',
  *   Dimensions: [ // Dimensions
  *     { // Dimension
- *       Name: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Name: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
- *   Stat: "STRING_VALUE",
+ *   Stat: 'STRING_VALUE',
  *   SingleMetricAnomalyDetector: { // SingleMetricAnomalyDetector
- *     Namespace: "STRING_VALUE",
- *     MetricName: "STRING_VALUE",
+ *     Namespace: 'STRING_VALUE',
+ *     MetricName: 'STRING_VALUE',
  *     Dimensions: [
  *       {
- *         Name: "STRING_VALUE", // required
- *         Value: "STRING_VALUE", // required
+ *         Name: 'STRING_VALUE', // required
+ *         Value: 'STRING_VALUE', // required
  *       },
  *     ],
- *     Stat: "STRING_VALUE",
+ *     Stat: 'STRING_VALUE',
  *   },
  *   MetricMathAnomalyDetector: { // MetricMathAnomalyDetector
  *     MetricDataQueries: [ // MetricDataQueries
  *       { // MetricDataQuery
- *         Id: "STRING_VALUE", // required
+ *         Id: 'STRING_VALUE', // required
  *         MetricStat: { // MetricStat
  *           Metric: { // Metric
- *             Namespace: "STRING_VALUE",
- *             MetricName: "STRING_VALUE",
- *             Dimensions: "<Dimensions>",
+ *             Namespace: 'STRING_VALUE',
+ *             MetricName: 'STRING_VALUE',
+ *             Dimensions: '<Dimensions>',
  *           },
- *           Period: Number("int"), // required
- *           Stat: "STRING_VALUE", // required
- *           Unit: "Seconds" || "Microseconds" || "Milliseconds" || "Bytes" || "Kilobytes" || "Megabytes" || "Gigabytes" || "Terabytes" || "Bits" || "Kilobits" || "Megabits" || "Gigabits" || "Terabits" || "Percent" || "Count" || "Bytes/Second" || "Kilobytes/Second" || "Megabytes/Second" || "Gigabytes/Second" || "Terabytes/Second" || "Bits/Second" || "Kilobits/Second" || "Megabits/Second" || "Gigabits/Second" || "Terabits/Second" || "Count/Second" || "None",
+ *           Period: Number('int'), // required
+ *           Stat: 'STRING_VALUE', // required
+ *           Unit: 'Seconds' || 'Microseconds' || 'Milliseconds' || 'Bytes' || 'Kilobytes' || 'Megabytes' || 'Gigabytes' || 'Terabytes' || 'Bits' || 'Kilobits' || 'Megabits' || 'Gigabits' || 'Terabits' || 'Percent' || 'Count' || 'Bytes/Second' || 'Kilobytes/Second' || 'Megabytes/Second' || 'Gigabytes/Second' || 'Terabytes/Second' || 'Bits/Second' || 'Kilobits/Second' || 'Megabits/Second' || 'Gigabits/Second' || 'Terabits/Second' || 'Count/Second' || 'None',
  *         },
- *         Expression: "STRING_VALUE",
- *         Label: "STRING_VALUE",
+ *         Expression: 'STRING_VALUE',
+ *         Label: 'STRING_VALUE',
  *         ReturnData: true || false,
- *         Period: Number("int"),
- *         AccountId: "STRING_VALUE",
+ *         Period: Number('int'),
+ *         AccountId: 'STRING_VALUE',
  *       },
  *     ],
  *   },
  * };
  * const command = new DeleteAnomalyDetectorCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteAnomalyDetectorCommandInput - {@link DeleteAnomalyDetectorCommandInput}
@@ -116,6 +119,8 @@ export interface DeleteAnomalyDetectorCommandOutput extends DeleteAnomalyDetecto
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The named resource does not exist.</p>
  *
+ * @throws {@link CloudWatchServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatch service.</p>
  *
  */
 export class DeleteAnomalyDetectorCommand extends $Command<

@@ -36,17 +36,20 @@ export interface AssociateApplicationsCommandOutput extends AssociateApplication
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MgnClient, AssociateApplicationsCommand } from "@aws-sdk/client-mgn"; // ES Modules import
- * // const { MgnClient, AssociateApplicationsCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
+ * import { MgnClient, AssociateApplicationsCommand } from '@aws-sdk/client-mgn'; // ES Modules import
+ * // const { MgnClient, AssociateApplicationsCommand } = require('@aws-sdk/client-mgn'); // CommonJS import
  * const client = new MgnClient(config);
  * const input = { // AssociateApplicationsRequest
- *   waveID: "STRING_VALUE", // required
+ *   waveID: 'STRING_VALUE', // required
  *   applicationIDs: [ // ApplicationIDs // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new AssociateApplicationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param AssociateApplicationsCommandInput - {@link AssociateApplicationsCommandInput}
@@ -67,6 +70,8 @@ export interface AssociateApplicationsCommandOutput extends AssociateApplication
  * @throws {@link UninitializedAccountException} (client fault)
  *  <p>Uninitialized account exception.</p>
  *
+ * @throws {@link MgnServiceException}
+ * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
  */
 export class AssociateApplicationsCommand extends $Command<

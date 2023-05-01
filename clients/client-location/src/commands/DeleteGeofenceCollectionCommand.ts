@@ -40,14 +40,17 @@ export interface DeleteGeofenceCollectionCommandOutput extends DeleteGeofenceCol
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LocationClient, DeleteGeofenceCollectionCommand } from "@aws-sdk/client-location"; // ES Modules import
- * // const { LocationClient, DeleteGeofenceCollectionCommand } = require("@aws-sdk/client-location"); // CommonJS import
+ * import { LocationClient, DeleteGeofenceCollectionCommand } from '@aws-sdk/client-location'; // ES Modules import
+ * // const { LocationClient, DeleteGeofenceCollectionCommand } = require('@aws-sdk/client-location'); // CommonJS import
  * const client = new LocationClient(config);
  * const input = { // DeleteGeofenceCollectionRequest
- *   CollectionName: "STRING_VALUE", // required
+ *   CollectionName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteGeofenceCollectionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteGeofenceCollectionCommandInput - {@link DeleteGeofenceCollectionCommandInput}
@@ -72,6 +75,8 @@ export interface DeleteGeofenceCollectionCommandOutput extends DeleteGeofenceCol
  * @throws {@link ValidationException} (client fault)
  *  <p>The input failed to meet the constraints specified by the AWS service. </p>
  *
+ * @throws {@link LocationServiceException}
+ * <p>Base exception class for all service exceptions from Location service.</p>
  *
  */
 export class DeleteGeofenceCollectionCommand extends $Command<

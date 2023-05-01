@@ -36,14 +36,26 @@ export interface GetClientCertificateCommandOutput extends ClientCertificate, __
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { APIGatewayClient, GetClientCertificateCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
- * // const { APIGatewayClient, GetClientCertificateCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
+ * import { APIGatewayClient, GetClientCertificateCommand } from '@aws-sdk/client-api-gateway'; // ES Modules import
+ * // const { APIGatewayClient, GetClientCertificateCommand } = require('@aws-sdk/client-api-gateway'); // CommonJS import
  * const client = new APIGatewayClient(config);
  * const input = { // GetClientCertificateRequest
- *   clientCertificateId: "STRING_VALUE", // required
+ *   clientCertificateId: 'STRING_VALUE', // required
  * };
  * const command = new GetClientCertificateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ClientCertificate
+ *   clientCertificateId: 'STRING_VALUE',
+ *   description: 'STRING_VALUE',
+ *   pemEncodedCertificate: 'STRING_VALUE',
+ *   createdDate: new Date('TIMESTAMP'),
+ *   expirationDate: new Date('TIMESTAMP'),
+ *   tags: { // MapOfStringToString
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetClientCertificateCommandInput - {@link GetClientCertificateCommandInput}
@@ -64,6 +76,8 @@ export interface GetClientCertificateCommandOutput extends ClientCertificate, __
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The request is denied because the caller has insufficient permissions.</p>
  *
+ * @throws {@link APIGatewayServiceException}
+ * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
  */
 export class GetClientCertificateCommand extends $Command<

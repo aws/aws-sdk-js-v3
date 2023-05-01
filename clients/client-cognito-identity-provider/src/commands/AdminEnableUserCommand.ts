@@ -46,15 +46,18 @@ export interface AdminEnableUserCommandOutput extends AdminEnableUserResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CognitoIdentityProviderClient, AdminEnableUserCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
- * // const { CognitoIdentityProviderClient, AdminEnableUserCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
+ * import { CognitoIdentityProviderClient, AdminEnableUserCommand } from '@aws-sdk/client-cognito-identity-provider'; // ES Modules import
+ * // const { CognitoIdentityProviderClient, AdminEnableUserCommand } = require('@aws-sdk/client-cognito-identity-provider'); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
  * const input = { // AdminEnableUserRequest
- *   UserPoolId: "STRING_VALUE", // required
- *   Username: "STRING_VALUE", // required
+ *   UserPoolId: 'STRING_VALUE', // required
+ *   Username: 'STRING_VALUE', // required
  * };
  * const command = new AdminEnableUserCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param AdminEnableUserCommandInput - {@link AdminEnableUserCommandInput}
@@ -84,6 +87,8 @@ export interface AdminEnableUserCommandOutput extends AdminEnableUserResponse, _
  * @throws {@link UserNotFoundException} (client fault)
  *  <p>This exception is thrown when a user isn't found.</p>
  *
+ * @throws {@link CognitoIdentityProviderServiceException}
+ * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
  */
 export class AdminEnableUserCommand extends $Command<

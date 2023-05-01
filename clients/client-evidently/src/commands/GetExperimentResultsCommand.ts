@@ -43,31 +43,57 @@ export interface GetExperimentResultsCommandOutput extends GetExperimentResultsR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EvidentlyClient, GetExperimentResultsCommand } from "@aws-sdk/client-evidently"; // ES Modules import
- * // const { EvidentlyClient, GetExperimentResultsCommand } = require("@aws-sdk/client-evidently"); // CommonJS import
+ * import { EvidentlyClient, GetExperimentResultsCommand } from '@aws-sdk/client-evidently'; // ES Modules import
+ * // const { EvidentlyClient, GetExperimentResultsCommand } = require('@aws-sdk/client-evidently'); // CommonJS import
  * const client = new EvidentlyClient(config);
  * const input = { // GetExperimentResultsRequest
- *   project: "STRING_VALUE", // required
- *   experiment: "STRING_VALUE", // required
- *   startTime: new Date("TIMESTAMP"),
- *   endTime: new Date("TIMESTAMP"),
+ *   project: 'STRING_VALUE', // required
+ *   experiment: 'STRING_VALUE', // required
+ *   startTime: new Date('TIMESTAMP'),
+ *   endTime: new Date('TIMESTAMP'),
  *   metricNames: [ // MetricNameList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   treatmentNames: [ // TreatmentNameList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   baseStat: "STRING_VALUE",
+ *   baseStat: 'STRING_VALUE',
  *   resultStats: [ // ExperimentResultRequestTypeList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   reportNames: [ // ExperimentReportNameList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   period: Number("long"),
+ *   period: Number('long'),
  * };
  * const command = new GetExperimentResultsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetExperimentResultsResponse
+ *   resultsData: [ // ExperimentResultsDataList
+ *     { // ExperimentResultsData
+ *       metricName: 'STRING_VALUE',
+ *       treatmentName: 'STRING_VALUE',
+ *       resultStat: 'STRING_VALUE',
+ *       values: [ // DoubleValueList
+ *         Number('double'),
+ *       ],
+ *     },
+ *   ],
+ *   reports: [ // ExperimentReportList
+ *     { // ExperimentReport
+ *       metricName: 'STRING_VALUE',
+ *       treatmentName: 'STRING_VALUE',
+ *       reportName: 'STRING_VALUE',
+ *       content: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   timestamps: [ // TimestampList
+ *     new Date('TIMESTAMP'),
+ *   ],
+ *   details: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetExperimentResultsCommandInput - {@link GetExperimentResultsCommandInput}
@@ -91,6 +117,8 @@ export interface GetExperimentResultsCommandOutput extends GetExperimentResultsR
  * @throws {@link ValidationException} (client fault)
  *  <p>The value of a parameter in the request caused an error.</p>
  *
+ * @throws {@link EvidentlyServiceException}
+ * <p>Base exception class for all service exceptions from Evidently service.</p>
  *
  */
 export class GetExperimentResultsCommand extends $Command<

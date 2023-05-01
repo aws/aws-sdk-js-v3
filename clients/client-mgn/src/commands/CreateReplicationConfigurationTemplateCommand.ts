@@ -47,32 +47,57 @@ export interface CreateReplicationConfigurationTemplateCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MgnClient, CreateReplicationConfigurationTemplateCommand } from "@aws-sdk/client-mgn"; // ES Modules import
- * // const { MgnClient, CreateReplicationConfigurationTemplateCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
+ * import { MgnClient, CreateReplicationConfigurationTemplateCommand } from '@aws-sdk/client-mgn'; // ES Modules import
+ * // const { MgnClient, CreateReplicationConfigurationTemplateCommand } = require('@aws-sdk/client-mgn'); // CommonJS import
  * const client = new MgnClient(config);
  * const input = { // CreateReplicationConfigurationTemplateRequest
- *   stagingAreaSubnetId: "STRING_VALUE", // required
+ *   stagingAreaSubnetId: 'STRING_VALUE', // required
  *   associateDefaultSecurityGroup: true || false, // required
  *   replicationServersSecurityGroupsIDs: [ // ReplicationServersSecurityGroupsIDs // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   replicationServerInstanceType: "STRING_VALUE", // required
+ *   replicationServerInstanceType: 'STRING_VALUE', // required
  *   useDedicatedReplicationServer: true || false, // required
- *   defaultLargeStagingDiskType: "STRING_VALUE", // required
- *   ebsEncryption: "STRING_VALUE", // required
- *   ebsEncryptionKeyArn: "STRING_VALUE",
- *   bandwidthThrottling: Number("long"), // required
- *   dataPlaneRouting: "STRING_VALUE", // required
+ *   defaultLargeStagingDiskType: 'STRING_VALUE', // required
+ *   ebsEncryption: 'STRING_VALUE', // required
+ *   ebsEncryptionKeyArn: 'STRING_VALUE',
+ *   bandwidthThrottling: Number('long'), // required
+ *   dataPlaneRouting: 'STRING_VALUE', // required
  *   createPublicIP: true || false, // required
  *   stagingAreaTags: { // TagsMap // required
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  *   tags: {
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateReplicationConfigurationTemplateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ReplicationConfigurationTemplate
+ *   replicationConfigurationTemplateID: 'STRING_VALUE', // required
+ *   arn: 'STRING_VALUE',
+ *   stagingAreaSubnetId: 'STRING_VALUE',
+ *   associateDefaultSecurityGroup: true || false,
+ *   replicationServersSecurityGroupsIDs: [ // ReplicationServersSecurityGroupsIDs
+ *     'STRING_VALUE',
+ *   ],
+ *   replicationServerInstanceType: 'STRING_VALUE',
+ *   useDedicatedReplicationServer: true || false,
+ *   defaultLargeStagingDiskType: 'STRING_VALUE',
+ *   ebsEncryption: 'STRING_VALUE',
+ *   ebsEncryptionKeyArn: 'STRING_VALUE',
+ *   bandwidthThrottling: Number('long'),
+ *   dataPlaneRouting: 'STRING_VALUE',
+ *   createPublicIP: true || false,
+ *   stagingAreaTags: { // TagsMap
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ *   tags: {
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateReplicationConfigurationTemplateCommandInput - {@link CreateReplicationConfigurationTemplateCommandInput}
@@ -90,6 +115,8 @@ export interface CreateReplicationConfigurationTemplateCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>Validate exception.</p>
  *
+ * @throws {@link MgnServiceException}
+ * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
  */
 export class CreateReplicationConfigurationTemplateCommand extends $Command<

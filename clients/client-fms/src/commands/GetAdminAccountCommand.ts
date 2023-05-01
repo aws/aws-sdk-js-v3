@@ -37,12 +37,18 @@ export interface GetAdminAccountCommandOutput extends GetAdminAccountResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FMSClient, GetAdminAccountCommand } from "@aws-sdk/client-fms"; // ES Modules import
- * // const { FMSClient, GetAdminAccountCommand } = require("@aws-sdk/client-fms"); // CommonJS import
+ * import { FMSClient, GetAdminAccountCommand } from '@aws-sdk/client-fms'; // ES Modules import
+ * // const { FMSClient, GetAdminAccountCommand } = require('@aws-sdk/client-fms'); // CommonJS import
  * const client = new FMSClient(config);
  * const input = {};
  * const command = new GetAdminAccountCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetAdminAccountResponse
+ *   AdminAccount: 'STRING_VALUE',
+ *   RoleStatus: 'READY' || 'CREATING' || 'PENDING_DELETION' || 'DELETING' || 'DELETED',
+ * };
+ *
  * ```
  *
  * @param GetAdminAccountCommandInput - {@link GetAdminAccountCommandInput}
@@ -65,6 +71,8 @@ export interface GetAdminAccountCommandOutput extends GetAdminAccountResponse, _
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link FMSServiceException}
+ * <p>Base exception class for all service exceptions from FMS service.</p>
  *
  */
 export class GetAdminAccountCommand extends $Command<

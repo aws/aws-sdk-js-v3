@@ -42,24 +42,54 @@ export interface CreateClusterSubnetGroupCommandOutput extends CreateClusterSubn
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RedshiftClient, CreateClusterSubnetGroupCommand } from "@aws-sdk/client-redshift"; // ES Modules import
- * // const { RedshiftClient, CreateClusterSubnetGroupCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * import { RedshiftClient, CreateClusterSubnetGroupCommand } from '@aws-sdk/client-redshift'; // ES Modules import
+ * // const { RedshiftClient, CreateClusterSubnetGroupCommand } = require('@aws-sdk/client-redshift'); // CommonJS import
  * const client = new RedshiftClient(config);
  * const input = { // CreateClusterSubnetGroupMessage
- *   ClusterSubnetGroupName: "STRING_VALUE", // required
- *   Description: "STRING_VALUE", // required
+ *   ClusterSubnetGroupName: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE', // required
  *   SubnetIds: [ // SubnetIdentifierList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE",
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new CreateClusterSubnetGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateClusterSubnetGroupResult
+ *   ClusterSubnetGroup: { // ClusterSubnetGroup
+ *     ClusterSubnetGroupName: 'STRING_VALUE',
+ *     Description: 'STRING_VALUE',
+ *     VpcId: 'STRING_VALUE',
+ *     SubnetGroupStatus: 'STRING_VALUE',
+ *     Subnets: [ // SubnetList
+ *       { // Subnet
+ *         SubnetIdentifier: 'STRING_VALUE',
+ *         SubnetAvailabilityZone: { // AvailabilityZone
+ *           Name: 'STRING_VALUE',
+ *           SupportedPlatforms: [ // SupportedPlatformsList
+ *             { // SupportedPlatform
+ *               Name: 'STRING_VALUE',
+ *             },
+ *           ],
+ *         },
+ *         SubnetStatus: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     Tags: [ // TagList
+ *       { // Tag
+ *         Key: 'STRING_VALUE',
+ *         Value: 'STRING_VALUE',
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateClusterSubnetGroupCommandInput - {@link CreateClusterSubnetGroupCommandInput}
@@ -103,6 +133,8 @@ export interface CreateClusterSubnetGroupCommandOutput extends CreateClusterSubn
  * @throws {@link UnauthorizedOperation} (client fault)
  *  <p>Your account is not authorized to perform the requested operation.</p>
  *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class CreateClusterSubnetGroupCommand extends $Command<

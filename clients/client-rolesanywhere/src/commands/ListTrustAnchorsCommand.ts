@@ -40,15 +40,37 @@ export interface ListTrustAnchorsCommandOutput extends ListTrustAnchorsResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RolesAnywhereClient, ListTrustAnchorsCommand } from "@aws-sdk/client-rolesanywhere"; // ES Modules import
- * // const { RolesAnywhereClient, ListTrustAnchorsCommand } = require("@aws-sdk/client-rolesanywhere"); // CommonJS import
+ * import { RolesAnywhereClient, ListTrustAnchorsCommand } from '@aws-sdk/client-rolesanywhere'; // ES Modules import
+ * // const { RolesAnywhereClient, ListTrustAnchorsCommand } = require('@aws-sdk/client-rolesanywhere'); // CommonJS import
  * const client = new RolesAnywhereClient(config);
  * const input = { // ListRequest
- *   nextToken: "STRING_VALUE",
- *   pageSize: Number("int"),
+ *   nextToken: 'STRING_VALUE',
+ *   pageSize: Number('int'),
  * };
  * const command = new ListTrustAnchorsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTrustAnchorsResponse
+ *   nextToken: 'STRING_VALUE',
+ *   trustAnchors: [ // TrustAnchorDetails
+ *     { // TrustAnchorDetail
+ *       trustAnchorId: 'STRING_VALUE',
+ *       trustAnchorArn: 'STRING_VALUE',
+ *       name: 'STRING_VALUE',
+ *       source: { // Source
+ *         sourceType: 'STRING_VALUE',
+ *         sourceData: { // SourceData Union: only one key present
+ *           x509CertificateData: 'STRING_VALUE',
+ *           acmPcaArn: 'STRING_VALUE',
+ *         },
+ *       },
+ *       enabled: true || false,
+ *       createdAt: new Date('TIMESTAMP'),
+ *       updatedAt: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListTrustAnchorsCommandInput - {@link ListTrustAnchorsCommandInput}
@@ -63,6 +85,8 @@ export interface ListTrustAnchorsCommandOutput extends ListTrustAnchorsResponse,
  * @throws {@link ValidationException} (client fault)
  *  <p>Validation exception error.</p>
  *
+ * @throws {@link RolesAnywhereServiceException}
+ * <p>Base exception class for all service exceptions from RolesAnywhere service.</p>
  *
  */
 export class ListTrustAnchorsCommand extends $Command<

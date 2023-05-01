@@ -36,18 +36,38 @@ export interface ModifyDBSubnetGroupCommandOutput extends ModifyDBSubnetGroupRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DocDBClient, ModifyDBSubnetGroupCommand } from "@aws-sdk/client-docdb"; // ES Modules import
- * // const { DocDBClient, ModifyDBSubnetGroupCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
+ * import { DocDBClient, ModifyDBSubnetGroupCommand } from '@aws-sdk/client-docdb'; // ES Modules import
+ * // const { DocDBClient, ModifyDBSubnetGroupCommand } = require('@aws-sdk/client-docdb'); // CommonJS import
  * const client = new DocDBClient(config);
  * const input = { // ModifyDBSubnetGroupMessage
- *   DBSubnetGroupName: "STRING_VALUE", // required
- *   DBSubnetGroupDescription: "STRING_VALUE",
+ *   DBSubnetGroupName: 'STRING_VALUE', // required
+ *   DBSubnetGroupDescription: 'STRING_VALUE',
  *   SubnetIds: [ // SubnetIdentifierList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new ModifyDBSubnetGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ModifyDBSubnetGroupResult
+ *   DBSubnetGroup: { // DBSubnetGroup
+ *     DBSubnetGroupName: 'STRING_VALUE',
+ *     DBSubnetGroupDescription: 'STRING_VALUE',
+ *     VpcId: 'STRING_VALUE',
+ *     SubnetGroupStatus: 'STRING_VALUE',
+ *     Subnets: [ // SubnetList
+ *       { // Subnet
+ *         SubnetIdentifier: 'STRING_VALUE',
+ *         SubnetAvailabilityZone: { // AvailabilityZone
+ *           Name: 'STRING_VALUE',
+ *         },
+ *         SubnetStatus: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     DBSubnetGroupArn: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param ModifyDBSubnetGroupCommandInput - {@link ModifyDBSubnetGroupCommandInput}
@@ -73,6 +93,8 @@ export interface ModifyDBSubnetGroupCommandOutput extends ModifyDBSubnetGroupRes
  * @throws {@link SubnetAlreadyInUse} (client fault)
  *  <p>The subnet is already in use in the Availability Zone.</p>
  *
+ * @throws {@link DocDBServiceException}
+ * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
  */
 export class ModifyDBSubnetGroupCommand extends $Command<

@@ -38,17 +38,20 @@ export interface UntagResourceCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeCommitClient, UntagResourceCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
- * // const { CodeCommitClient, UntagResourceCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
+ * import { CodeCommitClient, UntagResourceCommand } from '@aws-sdk/client-codecommit'; // ES Modules import
+ * // const { CodeCommitClient, UntagResourceCommand } = require('@aws-sdk/client-codecommit'); // CommonJS import
  * const client = new CodeCommitClient(config);
  * const input = { // UntagResourceInput
- *   resourceArn: "STRING_VALUE", // required
+ *   resourceArn: 'STRING_VALUE', // required
  *   tagKeys: [ // TagKeysList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new UntagResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UntagResourceCommandInput - {@link UntagResourceCommandInput}
@@ -94,6 +97,8 @@ export interface UntagResourceCommandOutput extends __MetadataBearer {}
  * @throws {@link TooManyTagsException} (client fault)
  *  <p>The maximum number of tags for an AWS CodeCommit resource has been exceeded.</p>
  *
+ * @throws {@link CodeCommitServiceException}
+ * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
  */
 export class UntagResourceCommand extends $Command<

@@ -48,27 +48,32 @@ export interface StartExportTaskCommandOutput extends StartExportTaskResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ApplicationDiscoveryServiceClient, StartExportTaskCommand } from "@aws-sdk/client-application-discovery-service"; // ES Modules import
- * // const { ApplicationDiscoveryServiceClient, StartExportTaskCommand } = require("@aws-sdk/client-application-discovery-service"); // CommonJS import
+ * import { ApplicationDiscoveryServiceClient, StartExportTaskCommand } from '@aws-sdk/client-application-discovery-service'; // ES Modules import
+ * // const { ApplicationDiscoveryServiceClient, StartExportTaskCommand } = require('@aws-sdk/client-application-discovery-service'); // CommonJS import
  * const client = new ApplicationDiscoveryServiceClient(config);
  * const input = { // StartExportTaskRequest
  *   exportDataFormat: [ // ExportDataFormats
- *     "CSV" || "GRAPHML",
+ *     'CSV' || 'GRAPHML',
  *   ],
  *   filters: [ // ExportFilters
  *     { // ExportFilter
- *       name: "STRING_VALUE", // required
+ *       name: 'STRING_VALUE', // required
  *       values: [ // FilterValues // required
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
- *       condition: "STRING_VALUE", // required
+ *       condition: 'STRING_VALUE', // required
  *     },
  *   ],
- *   startTime: new Date("TIMESTAMP"),
- *   endTime: new Date("TIMESTAMP"),
+ *   startTime: new Date('TIMESTAMP'),
+ *   endTime: new Date('TIMESTAMP'),
  * };
  * const command = new StartExportTaskCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartExportTaskResponse
+ *   exportId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param StartExportTaskCommandInput - {@link StartExportTaskCommandInput}
@@ -97,6 +102,8 @@ export interface StartExportTaskCommandOutput extends StartExportTaskResponse, _
  * @throws {@link ServerInternalErrorException} (server fault)
  *  <p>The server experienced an internal error. Try again.</p>
  *
+ * @throws {@link ApplicationDiscoveryServiceServiceException}
+ * <p>Base exception class for all service exceptions from ApplicationDiscoveryService service.</p>
  *
  */
 export class StartExportTaskCommand extends $Command<

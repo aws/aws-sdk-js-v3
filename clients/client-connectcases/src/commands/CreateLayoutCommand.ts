@@ -49,22 +49,22 @@ export interface CreateLayoutCommandOutput extends CreateLayoutResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectCasesClient, CreateLayoutCommand } from "@aws-sdk/client-connectcases"; // ES Modules import
- * // const { ConnectCasesClient, CreateLayoutCommand } = require("@aws-sdk/client-connectcases"); // CommonJS import
+ * import { ConnectCasesClient, CreateLayoutCommand } from '@aws-sdk/client-connectcases'; // ES Modules import
+ * // const { ConnectCasesClient, CreateLayoutCommand } = require('@aws-sdk/client-connectcases'); // CommonJS import
  * const client = new ConnectCasesClient(config);
  * const input = { // CreateLayoutRequest
- *   domainId: "STRING_VALUE", // required
- *   name: "STRING_VALUE", // required
+ *   domainId: 'STRING_VALUE', // required
+ *   name: 'STRING_VALUE', // required
  *   content: { // LayoutContent Union: only one key present
  *     basic: { // BasicLayout
  *       topPanel: { // LayoutSections
  *         sections: [ // SectionsList
  *           { // Section Union: only one key present
  *             fieldGroup: { // FieldGroup
- *               name: "STRING_VALUE",
+ *               name: 'STRING_VALUE',
  *               fields: [ // FieldList // required
  *                 { // FieldItem
- *                   id: "STRING_VALUE", // required
+ *                   id: 'STRING_VALUE', // required
  *                 },
  *               ],
  *             },
@@ -75,10 +75,10 @@ export interface CreateLayoutCommandOutput extends CreateLayoutResponse, __Metad
  *         sections: [
  *           {//  Union: only one key present
  *             fieldGroup: {
- *               name: "STRING_VALUE",
+ *               name: 'STRING_VALUE',
  *               fields: [ // required
  *                 {
- *                   id: "STRING_VALUE", // required
+ *                   id: 'STRING_VALUE', // required
  *                 },
  *               ],
  *             },
@@ -90,6 +90,12 @@ export interface CreateLayoutCommandOutput extends CreateLayoutResponse, __Metad
  * };
  * const command = new CreateLayoutCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateLayoutResponse
+ *   layoutId: 'STRING_VALUE', // required
+ *   layoutArn: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param CreateLayoutCommandInput - {@link CreateLayoutCommandInput}
@@ -124,6 +130,8 @@ export interface CreateLayoutCommandOutput extends CreateLayoutResponse, __Metad
  * @throws {@link ValidationException} (client fault)
  *  <p>The request isn't valid. Check the syntax and try again.</p>
  *
+ * @throws {@link ConnectCasesServiceException}
+ * <p>Base exception class for all service exceptions from ConnectCases service.</p>
  *
  */
 export class CreateLayoutCommand extends $Command<

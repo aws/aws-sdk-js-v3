@@ -36,16 +36,26 @@ export interface ListResourcesCommandOutput extends ListResourcesResult, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeStarClient, ListResourcesCommand } from "@aws-sdk/client-codestar"; // ES Modules import
- * // const { CodeStarClient, ListResourcesCommand } = require("@aws-sdk/client-codestar"); // CommonJS import
+ * import { CodeStarClient, ListResourcesCommand } from '@aws-sdk/client-codestar'; // ES Modules import
+ * // const { CodeStarClient, ListResourcesCommand } = require('@aws-sdk/client-codestar'); // CommonJS import
  * const client = new CodeStarClient(config);
  * const input = { // ListResourcesRequest
- *   projectId: "STRING_VALUE", // required
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   projectId: 'STRING_VALUE', // required
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new ListResourcesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListResourcesResult
+ *   resources: [ // ResourcesResult
+ *     { // Resource
+ *       id: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListResourcesCommandInput - {@link ListResourcesCommandInput}
@@ -63,6 +73,8 @@ export interface ListResourcesCommandOutput extends ListResourcesResult, __Metad
  * @throws {@link ValidationException} (client fault)
  *  <p>The specified input is either not valid, or it could not be validated.</p>
  *
+ * @throws {@link CodeStarServiceException}
+ * <p>Base exception class for all service exceptions from CodeStar service.</p>
  *
  */
 export class ListResourcesCommand extends $Command<

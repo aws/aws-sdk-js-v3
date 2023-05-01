@@ -44,15 +44,18 @@ export interface AssociateDeviceWithNetworkProfileCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AlexaForBusinessClient, AssociateDeviceWithNetworkProfileCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
- * // const { AlexaForBusinessClient, AssociateDeviceWithNetworkProfileCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
+ * import { AlexaForBusinessClient, AssociateDeviceWithNetworkProfileCommand } from '@aws-sdk/client-alexa-for-business'; // ES Modules import
+ * // const { AlexaForBusinessClient, AssociateDeviceWithNetworkProfileCommand } = require('@aws-sdk/client-alexa-for-business'); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
  * const input = { // AssociateDeviceWithNetworkProfileRequest
- *   DeviceArn: "STRING_VALUE", // required
- *   NetworkProfileArn: "STRING_VALUE", // required
+ *   DeviceArn: 'STRING_VALUE', // required
+ *   NetworkProfileArn: 'STRING_VALUE', // required
  * };
  * const command = new AssociateDeviceWithNetworkProfileCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param AssociateDeviceWithNetworkProfileCommandInput - {@link AssociateDeviceWithNetworkProfileCommandInput}
@@ -70,6 +73,8 @@ export interface AssociateDeviceWithNetworkProfileCommandOutput
  * @throws {@link NotFoundException} (client fault)
  *  <p>The resource is not found.</p>
  *
+ * @throws {@link AlexaForBusinessServiceException}
+ * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  */
 export class AssociateDeviceWithNetworkProfileCommand extends $Command<

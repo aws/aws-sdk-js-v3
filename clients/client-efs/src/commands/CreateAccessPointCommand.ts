@@ -49,36 +49,68 @@ export interface CreateAccessPointCommandOutput extends AccessPointDescription, 
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EFSClient, CreateAccessPointCommand } from "@aws-sdk/client-efs"; // ES Modules import
- * // const { EFSClient, CreateAccessPointCommand } = require("@aws-sdk/client-efs"); // CommonJS import
+ * import { EFSClient, CreateAccessPointCommand } from '@aws-sdk/client-efs'; // ES Modules import
+ * // const { EFSClient, CreateAccessPointCommand } = require('@aws-sdk/client-efs'); // CommonJS import
  * const client = new EFSClient(config);
  * const input = { // CreateAccessPointRequest
- *   ClientToken: "STRING_VALUE", // required
+ *   ClientToken: 'STRING_VALUE', // required
  *   Tags: [ // Tags
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
- *   FileSystemId: "STRING_VALUE", // required
+ *   FileSystemId: 'STRING_VALUE', // required
  *   PosixUser: { // PosixUser
- *     Uid: Number("long"), // required
- *     Gid: Number("long"), // required
+ *     Uid: Number('long'), // required
+ *     Gid: Number('long'), // required
  *     SecondaryGids: [ // SecondaryGids
- *       Number("long"),
+ *       Number('long'),
  *     ],
  *   },
  *   RootDirectory: { // RootDirectory
- *     Path: "STRING_VALUE",
+ *     Path: 'STRING_VALUE',
  *     CreationInfo: { // CreationInfo
- *       OwnerUid: Number("long"), // required
- *       OwnerGid: Number("long"), // required
- *       Permissions: "STRING_VALUE", // required
+ *       OwnerUid: Number('long'), // required
+ *       OwnerGid: Number('long'), // required
+ *       Permissions: 'STRING_VALUE', // required
  *     },
  *   },
  * };
  * const command = new CreateAccessPointCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AccessPointDescription
+ *   ClientToken: 'STRING_VALUE',
+ *   Name: 'STRING_VALUE',
+ *   Tags: [ // Tags
+ *     { // Tag
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ *   AccessPointId: 'STRING_VALUE',
+ *   AccessPointArn: 'STRING_VALUE',
+ *   FileSystemId: 'STRING_VALUE',
+ *   PosixUser: { // PosixUser
+ *     Uid: Number('long'), // required
+ *     Gid: Number('long'), // required
+ *     SecondaryGids: [ // SecondaryGids
+ *       Number('long'),
+ *     ],
+ *   },
+ *   RootDirectory: { // RootDirectory
+ *     Path: 'STRING_VALUE',
+ *     CreationInfo: { // CreationInfo
+ *       OwnerUid: Number('long'), // required
+ *       OwnerGid: Number('long'), // required
+ *       Permissions: 'STRING_VALUE', // required
+ *     },
+ *   },
+ *   OwnerId: 'STRING_VALUE',
+ *   LifeCycleState: 'creating' || 'available' || 'updating' || 'deleting' || 'deleted' || 'error',
+ * };
+ *
  * ```
  *
  * @param CreateAccessPointCommandInput - {@link CreateAccessPointCommandInput}
@@ -114,6 +146,8 @@ export interface CreateAccessPointCommandOutput extends AccessPointDescription, 
  *             the number of Access Points on the file system is nearing the
  *             <a href="https://docs.aws.amazon.com/efs/latest/ug/limits.html#limits-efs-resources-per-account-per-region">limit of 120</a>.</p>
  *
+ * @throws {@link EFSServiceException}
+ * <p>Base exception class for all service exceptions from EFS service.</p>
  *
  */
 export class CreateAccessPointCommand extends $Command<

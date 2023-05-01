@@ -37,15 +37,34 @@ export interface ListPipelinesCommandOutput extends ListPipelinesResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OSISClient, ListPipelinesCommand } from "@aws-sdk/client-osis"; // ES Modules import
- * // const { OSISClient, ListPipelinesCommand } = require("@aws-sdk/client-osis"); // CommonJS import
+ * import { OSISClient, ListPipelinesCommand } from '@aws-sdk/client-osis'; // ES Modules import
+ * // const { OSISClient, ListPipelinesCommand } = require('@aws-sdk/client-osis'); // CommonJS import
  * const client = new OSISClient(config);
  * const input = { // ListPipelinesRequest
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListPipelinesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListPipelinesResponse
+ *   NextToken: 'STRING_VALUE',
+ *   Pipelines: [ // PipelineSummaryList
+ *     { // PipelineSummary
+ *       Status: 'CREATING' || 'ACTIVE' || 'UPDATING' || 'DELETING' || 'CREATE_FAILED' || 'UPDATE_FAILED' || 'STARTING' || 'START_FAILED' || 'STOPPING' || 'STOPPED',
+ *       StatusReason: { // PipelineStatusReason
+ *         Description: 'STRING_VALUE',
+ *       },
+ *       PipelineName: 'STRING_VALUE',
+ *       PipelineArn: 'STRING_VALUE',
+ *       MinUnits: Number('int'),
+ *       MaxUnits: Number('int'),
+ *       CreatedAt: new Date('TIMESTAMP'),
+ *       LastUpdatedAt: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListPipelinesCommandInput - {@link ListPipelinesCommandInput}
@@ -67,6 +86,8 @@ export interface ListPipelinesCommandOutput extends ListPipelinesResponse, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception for missing or invalid input fields.</p>
  *
+ * @throws {@link OSISServiceException}
+ * <p>Base exception class for all service exceptions from OSIS service.</p>
  *
  */
 export class ListPipelinesCommand extends $Command<

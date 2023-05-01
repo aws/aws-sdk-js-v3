@@ -37,14 +37,17 @@ export interface CancelAuditTaskCommandOutput extends CancelAuditTaskResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTClient, CancelAuditTaskCommand } from "@aws-sdk/client-iot"; // ES Modules import
- * // const { IoTClient, CancelAuditTaskCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * import { IoTClient, CancelAuditTaskCommand } from '@aws-sdk/client-iot'; // ES Modules import
+ * // const { IoTClient, CancelAuditTaskCommand } = require('@aws-sdk/client-iot'); // CommonJS import
  * const client = new IoTClient(config);
  * const input = { // CancelAuditTaskRequest
- *   taskId: "STRING_VALUE", // required
+ *   taskId: 'STRING_VALUE', // required
  * };
  * const command = new CancelAuditTaskCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param CancelAuditTaskCommandInput - {@link CancelAuditTaskCommandInput}
@@ -65,6 +68,8 @@ export interface CancelAuditTaskCommandOutput extends CancelAuditTaskResponse, _
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The rate exceeds the limit.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class CancelAuditTaskCommand extends $Command<

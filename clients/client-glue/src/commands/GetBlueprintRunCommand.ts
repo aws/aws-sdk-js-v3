@@ -36,15 +36,31 @@ export interface GetBlueprintRunCommandOutput extends GetBlueprintRunResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlueClient, GetBlueprintRunCommand } from "@aws-sdk/client-glue"; // ES Modules import
- * // const { GlueClient, GetBlueprintRunCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * import { GlueClient, GetBlueprintRunCommand } from '@aws-sdk/client-glue'; // ES Modules import
+ * // const { GlueClient, GetBlueprintRunCommand } = require('@aws-sdk/client-glue'); // CommonJS import
  * const client = new GlueClient(config);
  * const input = { // GetBlueprintRunRequest
- *   BlueprintName: "STRING_VALUE", // required
- *   RunId: "STRING_VALUE", // required
+ *   BlueprintName: 'STRING_VALUE', // required
+ *   RunId: 'STRING_VALUE', // required
  * };
  * const command = new GetBlueprintRunCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetBlueprintRunResponse
+ *   BlueprintRun: { // BlueprintRun
+ *     BlueprintName: 'STRING_VALUE',
+ *     RunId: 'STRING_VALUE',
+ *     WorkflowName: 'STRING_VALUE',
+ *     State: 'RUNNING' || 'SUCCEEDED' || 'FAILED' || 'ROLLING_BACK',
+ *     StartedOn: new Date('TIMESTAMP'),
+ *     CompletedOn: new Date('TIMESTAMP'),
+ *     ErrorMessage: 'STRING_VALUE',
+ *     RollbackErrorMessage: 'STRING_VALUE',
+ *     Parameters: 'STRING_VALUE',
+ *     RoleArn: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetBlueprintRunCommandInput - {@link GetBlueprintRunCommandInput}
@@ -62,6 +78,8 @@ export interface GetBlueprintRunCommandOutput extends GetBlueprintRunResponse, _
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class GetBlueprintRunCommand extends $Command<

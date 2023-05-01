@@ -48,26 +48,31 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeClient, CreateChannelCommand } from "@aws-sdk/client-chime"; // ES Modules import
- * // const { ChimeClient, CreateChannelCommand } = require("@aws-sdk/client-chime"); // CommonJS import
+ * import { ChimeClient, CreateChannelCommand } from '@aws-sdk/client-chime'; // ES Modules import
+ * // const { ChimeClient, CreateChannelCommand } = require('@aws-sdk/client-chime'); // CommonJS import
  * const client = new ChimeClient(config);
  * const input = { // CreateChannelRequest
- *   AppInstanceArn: "STRING_VALUE", // required
- *   Name: "STRING_VALUE", // required
- *   Mode: "UNRESTRICTED" || "RESTRICTED",
- *   Privacy: "PUBLIC" || "PRIVATE",
- *   Metadata: "STRING_VALUE",
- *   ClientRequestToken: "STRING_VALUE", // required
+ *   AppInstanceArn: 'STRING_VALUE', // required
+ *   Name: 'STRING_VALUE', // required
+ *   Mode: 'UNRESTRICTED' || 'RESTRICTED',
+ *   Privacy: 'PUBLIC' || 'PRIVATE',
+ *   Metadata: 'STRING_VALUE',
+ *   ClientRequestToken: 'STRING_VALUE', // required
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
- *   ChimeBearer: "STRING_VALUE",
+ *   ChimeBearer: 'STRING_VALUE',
  * };
  * const command = new CreateChannelCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateChannelResponse
+ *   ChannelArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateChannelCommandInput - {@link CreateChannelCommandInput}
@@ -101,6 +106,8 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeServiceException}
+ * <p>Base exception class for all service exceptions from Chime service.</p>
  *
  */
 export class CreateChannelCommand extends $Command<

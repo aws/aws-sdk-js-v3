@@ -46,28 +46,33 @@ export interface CreateTrialCommandOutput extends CreateTrialResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, CreateTrialCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, CreateTrialCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, CreateTrialCommand } from '@aws-sdk/client-sagemaker'; // ES Modules import
+ * // const { SageMakerClient, CreateTrialCommand } = require('@aws-sdk/client-sagemaker'); // CommonJS import
  * const client = new SageMakerClient(config);
  * const input = { // CreateTrialRequest
- *   TrialName: "STRING_VALUE", // required
- *   DisplayName: "STRING_VALUE",
- *   ExperimentName: "STRING_VALUE", // required
+ *   TrialName: 'STRING_VALUE', // required
+ *   DisplayName: 'STRING_VALUE',
+ *   ExperimentName: 'STRING_VALUE', // required
  *   MetadataProperties: { // MetadataProperties
- *     CommitId: "STRING_VALUE",
- *     Repository: "STRING_VALUE",
- *     GeneratedBy: "STRING_VALUE",
- *     ProjectId: "STRING_VALUE",
+ *     CommitId: 'STRING_VALUE',
+ *     Repository: 'STRING_VALUE',
+ *     GeneratedBy: 'STRING_VALUE',
+ *     ProjectId: 'STRING_VALUE',
  *   },
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreateTrialCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateTrialResponse
+ *   TrialArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateTrialCommandInput - {@link CreateTrialCommandInput}
@@ -83,6 +88,8 @@ export interface CreateTrialCommandOutput extends CreateTrialResponse, __Metadat
  * @throws {@link ResourceNotFound} (client fault)
  *  <p>Resource being access is not found.</p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class CreateTrialCommand extends $Command<

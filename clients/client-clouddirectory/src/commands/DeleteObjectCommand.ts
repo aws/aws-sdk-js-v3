@@ -37,17 +37,20 @@ export interface DeleteObjectCommandOutput extends DeleteObjectResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudDirectoryClient, DeleteObjectCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
- * // const { CloudDirectoryClient, DeleteObjectCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
+ * import { CloudDirectoryClient, DeleteObjectCommand } from '@aws-sdk/client-clouddirectory'; // ES Modules import
+ * // const { CloudDirectoryClient, DeleteObjectCommand } = require('@aws-sdk/client-clouddirectory'); // CommonJS import
  * const client = new CloudDirectoryClient(config);
  * const input = { // DeleteObjectRequest
- *   DirectoryArn: "STRING_VALUE", // required
+ *   DirectoryArn: 'STRING_VALUE', // required
  *   ObjectReference: { // ObjectReference
- *     Selector: "STRING_VALUE",
+ *     Selector: 'STRING_VALUE',
  *   },
  * };
  * const command = new DeleteObjectCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteObjectCommandInput - {@link DeleteObjectCommandInput}
@@ -85,6 +88,8 @@ export interface DeleteObjectCommandOutput extends DeleteObjectResponse, __Metad
  *  <p>Indicates that your request is malformed in some manner. See the exception
  *       message.</p>
  *
+ * @throws {@link CloudDirectoryServiceException}
+ * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
  */
 export class DeleteObjectCommand extends $Command<

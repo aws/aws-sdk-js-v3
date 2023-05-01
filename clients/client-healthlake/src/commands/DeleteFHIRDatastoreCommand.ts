@@ -36,14 +36,22 @@ export interface DeleteFHIRDatastoreCommandOutput extends DeleteFHIRDatastoreRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { HealthLakeClient, DeleteFHIRDatastoreCommand } from "@aws-sdk/client-healthlake"; // ES Modules import
- * // const { HealthLakeClient, DeleteFHIRDatastoreCommand } = require("@aws-sdk/client-healthlake"); // CommonJS import
+ * import { HealthLakeClient, DeleteFHIRDatastoreCommand } from '@aws-sdk/client-healthlake'; // ES Modules import
+ * // const { HealthLakeClient, DeleteFHIRDatastoreCommand } = require('@aws-sdk/client-healthlake'); // CommonJS import
  * const client = new HealthLakeClient(config);
  * const input = { // DeleteFHIRDatastoreRequest
- *   DatastoreId: "STRING_VALUE",
+ *   DatastoreId: 'STRING_VALUE',
  * };
  * const command = new DeleteFHIRDatastoreCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteFHIRDatastoreResponse
+ *   DatastoreId: 'STRING_VALUE', // required
+ *   DatastoreArn: 'STRING_VALUE', // required
+ *   DatastoreStatus: 'STRING_VALUE', // required
+ *   DatastoreEndpoint: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param DeleteFHIRDatastoreCommandInput - {@link DeleteFHIRDatastoreCommandInput}
@@ -70,6 +78,8 @@ export interface DeleteFHIRDatastoreCommandOutput extends DeleteFHIRDatastoreRes
  * @throws {@link ValidationException} (client fault)
  *  <p>The user input parameter was invalid.</p>
  *
+ * @throws {@link HealthLakeServiceException}
+ * <p>Base exception class for all service exceptions from HealthLake service.</p>
  *
  */
 export class DeleteFHIRDatastoreCommand extends $Command<

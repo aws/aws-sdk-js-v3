@@ -36,16 +36,40 @@ export interface GetStatementCommandOutput extends GetStatementResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlueClient, GetStatementCommand } from "@aws-sdk/client-glue"; // ES Modules import
- * // const { GlueClient, GetStatementCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * import { GlueClient, GetStatementCommand } from '@aws-sdk/client-glue'; // ES Modules import
+ * // const { GlueClient, GetStatementCommand } = require('@aws-sdk/client-glue'); // CommonJS import
  * const client = new GlueClient(config);
  * const input = { // GetStatementRequest
- *   SessionId: "STRING_VALUE", // required
- *   Id: Number("int"), // required
- *   RequestOrigin: "STRING_VALUE",
+ *   SessionId: 'STRING_VALUE', // required
+ *   Id: Number('int'), // required
+ *   RequestOrigin: 'STRING_VALUE',
  * };
  * const command = new GetStatementCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetStatementResponse
+ *   Statement: { // Statement
+ *     Id: Number('int'),
+ *     Code: 'STRING_VALUE',
+ *     State: 'WAITING' || 'RUNNING' || 'AVAILABLE' || 'CANCELLING' || 'CANCELLED' || 'ERROR',
+ *     Output: { // StatementOutput
+ *       Data: { // StatementOutputData
+ *         TextPlain: 'STRING_VALUE',
+ *       },
+ *       ExecutionCount: Number('int'),
+ *       Status: 'WAITING' || 'RUNNING' || 'AVAILABLE' || 'CANCELLING' || 'CANCELLED' || 'ERROR',
+ *       ErrorName: 'STRING_VALUE',
+ *       ErrorValue: 'STRING_VALUE',
+ *       Traceback: [ // OrchestrationStringList
+ *         'STRING_VALUE',
+ *       ],
+ *     },
+ *     Progress: Number('double'),
+ *     StartedOn: Number('long'),
+ *     CompletedOn: Number('long'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetStatementCommandInput - {@link GetStatementCommandInput}
@@ -72,6 +96,8 @@ export interface GetStatementCommandOutput extends GetStatementResponse, __Metad
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class GetStatementCommand extends $Command<

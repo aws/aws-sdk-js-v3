@@ -60,20 +60,25 @@ export interface AddTagsToResourceCommandOutput extends AddTagsToResourceOutput,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { StorageGatewayClient, AddTagsToResourceCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
- * // const { StorageGatewayClient, AddTagsToResourceCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
+ * import { StorageGatewayClient, AddTagsToResourceCommand } from '@aws-sdk/client-storage-gateway'; // ES Modules import
+ * // const { StorageGatewayClient, AddTagsToResourceCommand } = require('@aws-sdk/client-storage-gateway'); // CommonJS import
  * const client = new StorageGatewayClient(config);
  * const input = { // AddTagsToResourceInput
- *   ResourceARN: "STRING_VALUE", // required
+ *   ResourceARN: 'STRING_VALUE', // required
  *   Tags: [ // Tags // required
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new AddTagsToResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AddTagsToResourceOutput
+ *   ResourceARN: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param AddTagsToResourceCommandInput - {@link AddTagsToResourceCommandInput}
@@ -90,6 +95,8 @@ export interface AddTagsToResourceCommandOutput extends AddTagsToResourceOutput,
  *  <p>An exception occurred because an invalid gateway request was issued to the service. For
  *          more information, see the error and message fields.</p>
  *
+ * @throws {@link StorageGatewayServiceException}
+ * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
  * @example To add tags to resource
  * ```javascript

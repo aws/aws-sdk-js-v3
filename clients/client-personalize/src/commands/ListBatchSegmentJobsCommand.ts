@@ -37,16 +37,32 @@ export interface ListBatchSegmentJobsCommandOutput extends ListBatchSegmentJobsR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PersonalizeClient, ListBatchSegmentJobsCommand } from "@aws-sdk/client-personalize"; // ES Modules import
- * // const { PersonalizeClient, ListBatchSegmentJobsCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
+ * import { PersonalizeClient, ListBatchSegmentJobsCommand } from '@aws-sdk/client-personalize'; // ES Modules import
+ * // const { PersonalizeClient, ListBatchSegmentJobsCommand } = require('@aws-sdk/client-personalize'); // CommonJS import
  * const client = new PersonalizeClient(config);
  * const input = { // ListBatchSegmentJobsRequest
- *   solutionVersionArn: "STRING_VALUE",
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   solutionVersionArn: 'STRING_VALUE',
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new ListBatchSegmentJobsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListBatchSegmentJobsResponse
+ *   batchSegmentJobs: [ // BatchSegmentJobs
+ *     { // BatchSegmentJobSummary
+ *       batchSegmentJobArn: 'STRING_VALUE',
+ *       jobName: 'STRING_VALUE',
+ *       status: 'STRING_VALUE',
+ *       creationDateTime: new Date('TIMESTAMP'),
+ *       lastUpdatedDateTime: new Date('TIMESTAMP'),
+ *       failureReason: 'STRING_VALUE',
+ *       solutionVersionArn: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListBatchSegmentJobsCommandInput - {@link ListBatchSegmentJobsCommandInput}
@@ -61,6 +77,8 @@ export interface ListBatchSegmentJobsCommandOutput extends ListBatchSegmentJobsR
  * @throws {@link InvalidNextTokenException} (client fault)
  *  <p>The token is not valid.</p>
  *
+ * @throws {@link PersonalizeServiceException}
+ * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
  */
 export class ListBatchSegmentJobsCommand extends $Command<

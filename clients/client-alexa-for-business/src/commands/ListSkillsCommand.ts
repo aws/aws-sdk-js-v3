@@ -36,18 +36,32 @@ export interface ListSkillsCommandOutput extends ListSkillsResponse, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AlexaForBusinessClient, ListSkillsCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
- * // const { AlexaForBusinessClient, ListSkillsCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
+ * import { AlexaForBusinessClient, ListSkillsCommand } from '@aws-sdk/client-alexa-for-business'; // ES Modules import
+ * // const { AlexaForBusinessClient, ListSkillsCommand } = require('@aws-sdk/client-alexa-for-business'); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
  * const input = { // ListSkillsRequest
- *   SkillGroupArn: "STRING_VALUE",
- *   EnablementType: "STRING_VALUE",
- *   SkillType: "STRING_VALUE",
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   SkillGroupArn: 'STRING_VALUE',
+ *   EnablementType: 'STRING_VALUE',
+ *   SkillType: 'STRING_VALUE',
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListSkillsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListSkillsResponse
+ *   SkillSummaries: [ // SkillSummaryList
+ *     { // SkillSummary
+ *       SkillId: 'STRING_VALUE',
+ *       SkillName: 'STRING_VALUE',
+ *       SupportsLinking: true || false,
+ *       EnablementType: 'STRING_VALUE',
+ *       SkillType: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListSkillsCommandInput - {@link ListSkillsCommandInput}
@@ -56,6 +70,8 @@ export interface ListSkillsCommandOutput extends ListSkillsResponse, __MetadataB
  * @see {@link ListSkillsCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
  *
+ * @throws {@link AlexaForBusinessServiceException}
+ * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  */
 export class ListSkillsCommand extends $Command<

@@ -55,22 +55,32 @@ export interface CreateDBParameterGroupCommandOutput extends CreateDBParameterGr
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RDSClient, CreateDBParameterGroupCommand } from "@aws-sdk/client-rds"; // ES Modules import
- * // const { RDSClient, CreateDBParameterGroupCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * import { RDSClient, CreateDBParameterGroupCommand } from '@aws-sdk/client-rds'; // ES Modules import
+ * // const { RDSClient, CreateDBParameterGroupCommand } = require('@aws-sdk/client-rds'); // CommonJS import
  * const client = new RDSClient(config);
  * const input = { // CreateDBParameterGroupMessage
- *   DBParameterGroupName: "STRING_VALUE", // required
- *   DBParameterGroupFamily: "STRING_VALUE", // required
- *   Description: "STRING_VALUE", // required
+ *   DBParameterGroupName: 'STRING_VALUE', // required
+ *   DBParameterGroupFamily: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE', // required
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE",
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new CreateDBParameterGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateDBParameterGroupResult
+ *   DBParameterGroup: { // DBParameterGroup
+ *     DBParameterGroupName: 'STRING_VALUE',
+ *     DBParameterGroupFamily: 'STRING_VALUE',
+ *     Description: 'STRING_VALUE',
+ *     DBParameterGroupArn: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateDBParameterGroupCommandInput - {@link CreateDBParameterGroupCommandInput}
@@ -86,6 +96,8 @@ export interface CreateDBParameterGroupCommandOutput extends CreateDBParameterGr
  *  <p>The request would result in the user exceeding the allowed number of DB parameter
  *             groups.</p>
  *
+ * @throws {@link RDSServiceException}
+ * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  * @example To create a DB parameter group
  * ```javascript

@@ -36,20 +36,42 @@ export interface ListCheckDetailsCommandOutput extends ListCheckDetailsOutput, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WellArchitectedClient, ListCheckDetailsCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
- * // const { WellArchitectedClient, ListCheckDetailsCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
+ * import { WellArchitectedClient, ListCheckDetailsCommand } from '@aws-sdk/client-wellarchitected'; // ES Modules import
+ * // const { WellArchitectedClient, ListCheckDetailsCommand } = require('@aws-sdk/client-wellarchitected'); // CommonJS import
  * const client = new WellArchitectedClient(config);
  * const input = { // ListCheckDetailsInput
- *   WorkloadId: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
- *   LensArn: "STRING_VALUE", // required
- *   PillarId: "STRING_VALUE", // required
- *   QuestionId: "STRING_VALUE", // required
- *   ChoiceId: "STRING_VALUE", // required
+ *   WorkloadId: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
+ *   LensArn: 'STRING_VALUE', // required
+ *   PillarId: 'STRING_VALUE', // required
+ *   QuestionId: 'STRING_VALUE', // required
+ *   ChoiceId: 'STRING_VALUE', // required
  * };
  * const command = new ListCheckDetailsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListCheckDetailsOutput
+ *   CheckDetails: [ // CheckDetails
+ *     { // CheckDetail
+ *       Id: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *       Description: 'STRING_VALUE',
+ *       Provider: 'TRUSTED_ADVISOR',
+ *       LensArn: 'STRING_VALUE',
+ *       PillarId: 'STRING_VALUE',
+ *       QuestionId: 'STRING_VALUE',
+ *       ChoiceId: 'STRING_VALUE',
+ *       Status: 'OKAY' || 'WARNING' || 'ERROR' || 'NOT_AVAILABLE' || 'FETCH_FAILED',
+ *       AccountId: 'STRING_VALUE',
+ *       FlaggedResources: Number('int'),
+ *       Reason: 'ASSUME_ROLE_ERROR' || 'ACCESS_DENIED' || 'UNKNOWN_ERROR' || 'PREMIUM_SUPPORT_REQUIRED',
+ *       UpdatedAt: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListCheckDetailsCommandInput - {@link ListCheckDetailsCommandInput}
@@ -73,6 +95,8 @@ export interface ListCheckDetailsCommandOutput extends ListCheckDetailsOutput, _
  * @throws {@link ValidationException} (client fault)
  *  <p>The user input is not valid.</p>
  *
+ * @throws {@link WellArchitectedServiceException}
+ * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
  */
 export class ListCheckDetailsCommand extends $Command<

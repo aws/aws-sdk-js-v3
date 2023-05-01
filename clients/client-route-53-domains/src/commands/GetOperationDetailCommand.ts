@@ -37,14 +37,26 @@ export interface GetOperationDetailCommandOutput extends GetOperationDetailRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Route53DomainsClient, GetOperationDetailCommand } from "@aws-sdk/client-route-53-domains"; // ES Modules import
- * // const { Route53DomainsClient, GetOperationDetailCommand } = require("@aws-sdk/client-route-53-domains"); // CommonJS import
+ * import { Route53DomainsClient, GetOperationDetailCommand } from '@aws-sdk/client-route-53-domains'; // ES Modules import
+ * // const { Route53DomainsClient, GetOperationDetailCommand } = require('@aws-sdk/client-route-53-domains'); // CommonJS import
  * const client = new Route53DomainsClient(config);
  * const input = { // GetOperationDetailRequest
- *   OperationId: "STRING_VALUE", // required
+ *   OperationId: 'STRING_VALUE', // required
  * };
  * const command = new GetOperationDetailCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetOperationDetailResponse
+ *   OperationId: 'STRING_VALUE',
+ *   Status: 'SUBMITTED' || 'IN_PROGRESS' || 'ERROR' || 'SUCCESSFUL' || 'FAILED',
+ *   Message: 'STRING_VALUE',
+ *   DomainName: 'STRING_VALUE',
+ *   Type: 'REGISTER_DOMAIN' || 'DELETE_DOMAIN' || 'TRANSFER_IN_DOMAIN' || 'UPDATE_DOMAIN_CONTACT' || 'UPDATE_NAMESERVER' || 'CHANGE_PRIVACY_PROTECTION' || 'DOMAIN_LOCK' || 'ENABLE_AUTORENEW' || 'DISABLE_AUTORENEW' || 'ADD_DNSSEC' || 'REMOVE_DNSSEC' || 'EXPIRE_DOMAIN' || 'TRANSFER_OUT_DOMAIN' || 'CHANGE_DOMAIN_OWNER' || 'RENEW_DOMAIN' || 'PUSH_DOMAIN' || 'INTERNAL_TRANSFER_OUT_DOMAIN' || 'INTERNAL_TRANSFER_IN_DOMAIN',
+ *   SubmittedDate: new Date('TIMESTAMP'),
+ *   LastUpdatedDate: new Date('TIMESTAMP'),
+ *   StatusFlag: 'PENDING_ACCEPTANCE' || 'PENDING_CUSTOMER_ACTION' || 'PENDING_AUTHORIZATION' || 'PENDING_PAYMENT_VERIFICATION' || 'PENDING_SUPPORT_CASE',
+ * };
+ *
  * ```
  *
  * @param GetOperationDetailCommandInput - {@link GetOperationDetailCommandInput}
@@ -59,6 +71,8 @@ export interface GetOperationDetailCommandOutput extends GetOperationDetailRespo
  * 			submitted the request. For <code>AcceptDomainTransferFromAnotherAwsAccount</code>, the
  * 			password might be invalid.</p>
  *
+ * @throws {@link Route53DomainsServiceException}
+ * <p>Base exception class for all service exceptions from Route53Domains service.</p>
  *
  */
 export class GetOperationDetailCommand extends $Command<

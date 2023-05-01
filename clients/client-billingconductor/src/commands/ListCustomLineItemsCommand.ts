@@ -43,27 +43,54 @@ export interface ListCustomLineItemsCommandOutput extends ListCustomLineItemsOut
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BillingconductorClient, ListCustomLineItemsCommand } from "@aws-sdk/client-billingconductor"; // ES Modules import
- * // const { BillingconductorClient, ListCustomLineItemsCommand } = require("@aws-sdk/client-billingconductor"); // CommonJS import
+ * import { BillingconductorClient, ListCustomLineItemsCommand } from '@aws-sdk/client-billingconductor'; // ES Modules import
+ * // const { BillingconductorClient, ListCustomLineItemsCommand } = require('@aws-sdk/client-billingconductor'); // CommonJS import
  * const client = new BillingconductorClient(config);
  * const input = { // ListCustomLineItemsInput
- *   BillingPeriod: "STRING_VALUE",
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   BillingPeriod: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  *   Filters: { // ListCustomLineItemsFilter
  *     Names: [ // CustomLineItemNameList
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     BillingGroups: [ // BillingGroupArnList
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     Arns: [ // CustomLineItemArns
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *   },
  * };
  * const command = new ListCustomLineItemsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListCustomLineItemsOutput
+ *   CustomLineItems: [ // CustomLineItemList
+ *     { // CustomLineItemListElement
+ *       Arn: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *       ChargeDetails: { // ListCustomLineItemChargeDetails
+ *         Flat: { // ListCustomLineItemFlatChargeDetails
+ *           ChargeValue: Number('double'), // required
+ *         },
+ *         Percentage: { // ListCustomLineItemPercentageChargeDetails
+ *           PercentageValue: Number('double'), // required
+ *         },
+ *         Type: 'STRING_VALUE', // required
+ *       },
+ *       CurrencyCode: 'STRING_VALUE',
+ *       Description: 'STRING_VALUE',
+ *       ProductCode: 'STRING_VALUE',
+ *       BillingGroupArn: 'STRING_VALUE',
+ *       CreationTime: Number('long'),
+ *       LastModifiedTime: Number('long'),
+ *       AssociationSize: Number('long'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListCustomLineItemsCommandInput - {@link ListCustomLineItemsCommandInput}
@@ -91,6 +118,8 @@ export interface ListCustomLineItemsCommandOutput extends ListCustomLineItemsOut
  * @throws {@link ValidationException} (client fault)
  *  <p>The input doesn't match with the constraints specified by Amazon Web Services services.</p>
  *
+ * @throws {@link BillingconductorServiceException}
+ * <p>Base exception class for all service exceptions from Billingconductor service.</p>
  *
  */
 export class ListCustomLineItemsCommand extends $Command<

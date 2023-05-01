@@ -36,16 +36,19 @@ export interface DeleteMailboxPermissionsCommandOutput extends DeleteMailboxPerm
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkMailClient, DeleteMailboxPermissionsCommand } from "@aws-sdk/client-workmail"; // ES Modules import
- * // const { WorkMailClient, DeleteMailboxPermissionsCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
+ * import { WorkMailClient, DeleteMailboxPermissionsCommand } from '@aws-sdk/client-workmail'; // ES Modules import
+ * // const { WorkMailClient, DeleteMailboxPermissionsCommand } = require('@aws-sdk/client-workmail'); // CommonJS import
  * const client = new WorkMailClient(config);
  * const input = { // DeleteMailboxPermissionsRequest
- *   OrganizationId: "STRING_VALUE", // required
- *   EntityId: "STRING_VALUE", // required
- *   GranteeId: "STRING_VALUE", // required
+ *   OrganizationId: 'STRING_VALUE', // required
+ *   EntityId: 'STRING_VALUE', // required
+ *   GranteeId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteMailboxPermissionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteMailboxPermissionsCommandInput - {@link DeleteMailboxPermissionsCommandInput}
@@ -73,6 +76,8 @@ export interface DeleteMailboxPermissionsCommandOutput extends DeleteMailboxPerm
  *  <p>The organization must have a valid state to perform certain
  *          operations on the organization or its members.</p>
  *
+ * @throws {@link WorkMailServiceException}
+ * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
  */
 export class DeleteMailboxPermissionsCommand extends $Command<

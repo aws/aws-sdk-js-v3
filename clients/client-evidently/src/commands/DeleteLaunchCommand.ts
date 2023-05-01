@@ -37,15 +37,18 @@ export interface DeleteLaunchCommandOutput extends DeleteLaunchResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EvidentlyClient, DeleteLaunchCommand } from "@aws-sdk/client-evidently"; // ES Modules import
- * // const { EvidentlyClient, DeleteLaunchCommand } = require("@aws-sdk/client-evidently"); // CommonJS import
+ * import { EvidentlyClient, DeleteLaunchCommand } from '@aws-sdk/client-evidently'; // ES Modules import
+ * // const { EvidentlyClient, DeleteLaunchCommand } = require('@aws-sdk/client-evidently'); // CommonJS import
  * const client = new EvidentlyClient(config);
  * const input = { // DeleteLaunchRequest
- *   project: "STRING_VALUE", // required
- *   launch: "STRING_VALUE", // required
+ *   project: 'STRING_VALUE', // required
+ *   launch: 'STRING_VALUE', // required
  * };
  * const command = new DeleteLaunchCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteLaunchCommandInput - {@link DeleteLaunchCommandInput}
@@ -69,6 +72,8 @@ export interface DeleteLaunchCommandOutput extends DeleteLaunchResponse, __Metad
  * @throws {@link ValidationException} (client fault)
  *  <p>The value of a parameter in the request caused an error.</p>
  *
+ * @throws {@link EvidentlyServiceException}
+ * <p>Base exception class for all service exceptions from Evidently service.</p>
  *
  */
 export class DeleteLaunchCommand extends $Command<

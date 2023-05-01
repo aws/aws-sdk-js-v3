@@ -56,34 +56,39 @@ export interface CreateDatasetImportJobCommandOutput extends CreateDatasetImport
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ForecastClient, CreateDatasetImportJobCommand } from "@aws-sdk/client-forecast"; // ES Modules import
- * // const { ForecastClient, CreateDatasetImportJobCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
+ * import { ForecastClient, CreateDatasetImportJobCommand } from '@aws-sdk/client-forecast'; // ES Modules import
+ * // const { ForecastClient, CreateDatasetImportJobCommand } = require('@aws-sdk/client-forecast'); // CommonJS import
  * const client = new ForecastClient(config);
  * const input = { // CreateDatasetImportJobRequest
- *   DatasetImportJobName: "STRING_VALUE", // required
- *   DatasetArn: "STRING_VALUE", // required
+ *   DatasetImportJobName: 'STRING_VALUE', // required
+ *   DatasetArn: 'STRING_VALUE', // required
  *   DataSource: { // DataSource
  *     S3Config: { // S3Config
- *       Path: "STRING_VALUE", // required
- *       RoleArn: "STRING_VALUE", // required
- *       KMSKeyArn: "STRING_VALUE",
+ *       Path: 'STRING_VALUE', // required
+ *       RoleArn: 'STRING_VALUE', // required
+ *       KMSKeyArn: 'STRING_VALUE',
  *     },
  *   },
- *   TimestampFormat: "STRING_VALUE",
- *   TimeZone: "STRING_VALUE",
+ *   TimestampFormat: 'STRING_VALUE',
+ *   TimeZone: 'STRING_VALUE',
  *   UseGeolocationForTimeZone: true || false,
- *   GeolocationFormat: "STRING_VALUE",
+ *   GeolocationFormat: 'STRING_VALUE',
  *   Tags: [ // Tags
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
- *   Format: "STRING_VALUE",
- *   ImportMode: "FULL" || "INCREMENTAL",
+ *   Format: 'STRING_VALUE',
+ *   ImportMode: 'FULL' || 'INCREMENTAL',
  * };
  * const command = new CreateDatasetImportJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateDatasetImportJobResponse
+ *   DatasetImportJobArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateDatasetImportJobCommandInput - {@link CreateDatasetImportJobCommandInput}
@@ -109,6 +114,8 @@ export interface CreateDatasetImportJobCommandOutput extends CreateDatasetImport
  *  <p>We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try
  *       again.</p>
  *
+ * @throws {@link ForecastServiceException}
+ * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
  */
 export class CreateDatasetImportJobCommand extends $Command<

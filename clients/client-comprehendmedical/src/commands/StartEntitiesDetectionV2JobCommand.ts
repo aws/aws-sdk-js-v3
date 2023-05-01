@@ -43,26 +43,31 @@ export interface StartEntitiesDetectionV2JobCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ComprehendMedicalClient, StartEntitiesDetectionV2JobCommand } from "@aws-sdk/client-comprehendmedical"; // ES Modules import
- * // const { ComprehendMedicalClient, StartEntitiesDetectionV2JobCommand } = require("@aws-sdk/client-comprehendmedical"); // CommonJS import
+ * import { ComprehendMedicalClient, StartEntitiesDetectionV2JobCommand } from '@aws-sdk/client-comprehendmedical'; // ES Modules import
+ * // const { ComprehendMedicalClient, StartEntitiesDetectionV2JobCommand } = require('@aws-sdk/client-comprehendmedical'); // CommonJS import
  * const client = new ComprehendMedicalClient(config);
  * const input = { // StartEntitiesDetectionV2JobRequest
  *   InputDataConfig: { // InputDataConfig
- *     S3Bucket: "STRING_VALUE", // required
- *     S3Key: "STRING_VALUE",
+ *     S3Bucket: 'STRING_VALUE', // required
+ *     S3Key: 'STRING_VALUE',
  *   },
  *   OutputDataConfig: { // OutputDataConfig
- *     S3Bucket: "STRING_VALUE", // required
- *     S3Key: "STRING_VALUE",
+ *     S3Bucket: 'STRING_VALUE', // required
+ *     S3Key: 'STRING_VALUE',
  *   },
- *   DataAccessRoleArn: "STRING_VALUE", // required
- *   JobName: "STRING_VALUE",
- *   ClientRequestToken: "STRING_VALUE",
- *   KMSKey: "STRING_VALUE",
- *   LanguageCode: "en", // required
+ *   DataAccessRoleArn: 'STRING_VALUE', // required
+ *   JobName: 'STRING_VALUE',
+ *   ClientRequestToken: 'STRING_VALUE',
+ *   KMSKey: 'STRING_VALUE',
+ *   LanguageCode: 'en', // required
  * };
  * const command = new StartEntitiesDetectionV2JobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartEntitiesDetectionV2JobResponse
+ *   JobId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param StartEntitiesDetectionV2JobCommandInput - {@link StartEntitiesDetectionV2JobCommandInput}
@@ -87,6 +92,8 @@ export interface StartEntitiesDetectionV2JobCommandOutput
  *       then try your request again. Contact customer support for more information about a service
  *       limit increase. </p>
  *
+ * @throws {@link ComprehendMedicalServiceException}
+ * <p>Base exception class for all service exceptions from ComprehendMedical service.</p>
  *
  */
 export class StartEntitiesDetectionV2JobCommand extends $Command<

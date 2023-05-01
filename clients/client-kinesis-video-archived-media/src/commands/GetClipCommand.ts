@@ -83,22 +83,28 @@ export interface GetClipCommandOutput extends __WithSdkStreamMixin<GetClipOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KinesisVideoArchivedMediaClient, GetClipCommand } from "@aws-sdk/client-kinesis-video-archived-media"; // ES Modules import
- * // const { KinesisVideoArchivedMediaClient, GetClipCommand } = require("@aws-sdk/client-kinesis-video-archived-media"); // CommonJS import
+ * import { KinesisVideoArchivedMediaClient, GetClipCommand } from '@aws-sdk/client-kinesis-video-archived-media'; // ES Modules import
+ * // const { KinesisVideoArchivedMediaClient, GetClipCommand } = require('@aws-sdk/client-kinesis-video-archived-media'); // CommonJS import
  * const client = new KinesisVideoArchivedMediaClient(config);
  * const input = { // GetClipInput
- *   StreamName: "STRING_VALUE",
- *   StreamARN: "STRING_VALUE",
+ *   StreamName: 'STRING_VALUE',
+ *   StreamARN: 'STRING_VALUE',
  *   ClipFragmentSelector: { // ClipFragmentSelector
- *     FragmentSelectorType: "STRING_VALUE", // required
+ *     FragmentSelectorType: 'STRING_VALUE', // required
  *     TimestampRange: { // ClipTimestampRange
- *       StartTimestamp: new Date("TIMESTAMP"), // required
- *       EndTimestamp: new Date("TIMESTAMP"), // required
+ *       StartTimestamp: new Date('TIMESTAMP'), // required
+ *       EndTimestamp: new Date('TIMESTAMP'), // required
  *     },
  *   },
  * };
  * const command = new GetClipCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetClipOutput
+ *   ContentType: 'STRING_VALUE',
+ *   Payload: 'STREAMING_BLOB_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetClipCommandInput - {@link GetClipCommandInput}
@@ -151,6 +157,8 @@ export interface GetClipCommandOutput extends __WithSdkStreamMixin<GetClipOutput
  *             session. The codec ID for track 1 should be <code>V_MPEG/ISO/AVC</code> and, optionally,
  *             the codec ID for track 2 should be <code>A_AAC</code>.</p>
  *
+ * @throws {@link KinesisVideoArchivedMediaServiceException}
+ * <p>Base exception class for all service exceptions from KinesisVideoArchivedMedia service.</p>
  *
  */
 export class GetClipCommand extends $Command<

@@ -39,22 +39,29 @@ export interface CreateTokenCommandOutput extends CreateTokenResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LicenseManagerClient, CreateTokenCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
- * // const { LicenseManagerClient, CreateTokenCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
+ * import { LicenseManagerClient, CreateTokenCommand } from '@aws-sdk/client-license-manager'; // ES Modules import
+ * // const { LicenseManagerClient, CreateTokenCommand } = require('@aws-sdk/client-license-manager'); // CommonJS import
  * const client = new LicenseManagerClient(config);
  * const input = { // CreateTokenRequest
- *   LicenseArn: "STRING_VALUE", // required
+ *   LicenseArn: 'STRING_VALUE', // required
  *   RoleArns: [ // ArnList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   ExpirationInDays: Number("int"),
+ *   ExpirationInDays: Number('int'),
  *   TokenProperties: [ // MaxSize3StringList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   ClientToken: "STRING_VALUE", // required
+ *   ClientToken: 'STRING_VALUE', // required
  * };
  * const command = new CreateTokenCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateTokenResponse
+ *   TokenId: 'STRING_VALUE',
+ *   TokenType: 'REFRESH_TOKEN',
+ *   Token: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateTokenCommandInput - {@link CreateTokenCommandInput}
@@ -88,6 +95,8 @@ export interface CreateTokenCommandOutput extends CreateTokenResponse, __Metadat
  * @throws {@link ValidationException} (client fault)
  *  <p>The provided input is not valid. Try your request again.</p>
  *
+ * @throws {@link LicenseManagerServiceException}
+ * <p>Base exception class for all service exceptions from LicenseManager service.</p>
  *
  */
 export class CreateTokenCommand extends $Command<

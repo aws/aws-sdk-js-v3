@@ -55,14 +55,17 @@ export interface DeleteFileSystemCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EFSClient, DeleteFileSystemCommand } from "@aws-sdk/client-efs"; // ES Modules import
- * // const { EFSClient, DeleteFileSystemCommand } = require("@aws-sdk/client-efs"); // CommonJS import
+ * import { EFSClient, DeleteFileSystemCommand } from '@aws-sdk/client-efs'; // ES Modules import
+ * // const { EFSClient, DeleteFileSystemCommand } = require('@aws-sdk/client-efs'); // CommonJS import
  * const client = new EFSClient(config);
  * const input = { // DeleteFileSystemRequest
- *   FileSystemId: "STRING_VALUE", // required
+ *   FileSystemId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteFileSystemCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteFileSystemCommandInput - {@link DeleteFileSystemCommandInput}
@@ -85,6 +88,8 @@ export interface DeleteFileSystemCommandOutput extends __MetadataBearer {}
  * @throws {@link InternalServerError} (server fault)
  *  <p>Returned if an error occurred on the server side.</p>
  *
+ * @throws {@link EFSServiceException}
+ * <p>Base exception class for all service exceptions from EFS service.</p>
  *
  * @example To delete a file system
  * ```javascript

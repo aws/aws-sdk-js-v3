@@ -56,35 +56,43 @@ export interface StartChatContactCommandOutput extends StartChatContactResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, StartChatContactCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, StartChatContactCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, StartChatContactCommand } from '@aws-sdk/client-connect'; // ES Modules import
+ * // const { ConnectClient, StartChatContactCommand } = require('@aws-sdk/client-connect'); // CommonJS import
  * const client = new ConnectClient(config);
  * const input = { // StartChatContactRequest
- *   InstanceId: "STRING_VALUE", // required
- *   ContactFlowId: "STRING_VALUE", // required
+ *   InstanceId: 'STRING_VALUE', // required
+ *   ContactFlowId: 'STRING_VALUE', // required
  *   Attributes: { // Attributes
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  *   ParticipantDetails: { // ParticipantDetails
- *     DisplayName: "STRING_VALUE", // required
+ *     DisplayName: 'STRING_VALUE', // required
  *   },
  *   InitialMessage: { // ChatMessage
- *     ContentType: "STRING_VALUE", // required
- *     Content: "STRING_VALUE", // required
+ *     ContentType: 'STRING_VALUE', // required
+ *     Content: 'STRING_VALUE', // required
  *   },
- *   ClientToken: "STRING_VALUE",
- *   ChatDurationInMinutes: Number("int"),
+ *   ClientToken: 'STRING_VALUE',
+ *   ChatDurationInMinutes: Number('int'),
  *   SupportedMessagingContentTypes: [ // SupportedMessagingContentTypes
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   PersistentChat: { // PersistentChat
- *     RehydrationType: "ENTIRE_PAST_SESSION" || "FROM_SEGMENT",
- *     SourceContactId: "STRING_VALUE",
+ *     RehydrationType: 'ENTIRE_PAST_SESSION' || 'FROM_SEGMENT',
+ *     SourceContactId: 'STRING_VALUE',
  *   },
- *   RelatedContactId: "STRING_VALUE",
+ *   RelatedContactId: 'STRING_VALUE',
  * };
  * const command = new StartChatContactCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartChatContactResponse
+ *   ContactId: 'STRING_VALUE',
+ *   ParticipantId: 'STRING_VALUE',
+ *   ParticipantToken: 'STRING_VALUE',
+ *   ContinuedFromContactId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param StartChatContactCommandInput - {@link StartChatContactCommandInput}
@@ -108,6 +116,8 @@ export interface StartChatContactCommandOutput extends StartChatContactResponse,
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class StartChatContactCommand extends $Command<

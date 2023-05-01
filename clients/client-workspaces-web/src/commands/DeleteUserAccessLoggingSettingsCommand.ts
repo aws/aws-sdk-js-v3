@@ -41,14 +41,17 @@ export interface DeleteUserAccessLoggingSettingsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkSpacesWebClient, DeleteUserAccessLoggingSettingsCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
- * // const { WorkSpacesWebClient, DeleteUserAccessLoggingSettingsCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
+ * import { WorkSpacesWebClient, DeleteUserAccessLoggingSettingsCommand } from '@aws-sdk/client-workspaces-web'; // ES Modules import
+ * // const { WorkSpacesWebClient, DeleteUserAccessLoggingSettingsCommand } = require('@aws-sdk/client-workspaces-web'); // CommonJS import
  * const client = new WorkSpacesWebClient(config);
  * const input = { // DeleteUserAccessLoggingSettingsRequest
- *   userAccessLoggingSettingsArn: "STRING_VALUE", // required
+ *   userAccessLoggingSettingsArn: 'STRING_VALUE', // required
  * };
  * const command = new DeleteUserAccessLoggingSettingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteUserAccessLoggingSettingsCommandInput - {@link DeleteUserAccessLoggingSettingsCommandInput}
@@ -72,6 +75,8 @@ export interface DeleteUserAccessLoggingSettingsCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>There is a validation error.</p>
  *
+ * @throws {@link WorkSpacesWebServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
  */
 export class DeleteUserAccessLoggingSettingsCommand extends $Command<

@@ -40,17 +40,20 @@ export interface UntagResourceCommandOutput extends UntagResourceOutput, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ResourceExplorer2Client, UntagResourceCommand } from "@aws-sdk/client-resource-explorer-2"; // ES Modules import
- * // const { ResourceExplorer2Client, UntagResourceCommand } = require("@aws-sdk/client-resource-explorer-2"); // CommonJS import
+ * import { ResourceExplorer2Client, UntagResourceCommand } from '@aws-sdk/client-resource-explorer-2'; // ES Modules import
+ * // const { ResourceExplorer2Client, UntagResourceCommand } = require('@aws-sdk/client-resource-explorer-2'); // CommonJS import
  * const client = new ResourceExplorer2Client(config);
  * const input = { // UntagResourceInput
- *   resourceArn: "STRING_VALUE", // required
+ *   resourceArn: 'STRING_VALUE', // required
  *   tagKeys: [ // StringList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new UntagResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UntagResourceCommandInput - {@link UntagResourceCommandInput}
@@ -83,6 +86,8 @@ export interface UntagResourceCommandOutput extends UntagResourceOutput, __Metad
  *  <p>You provided an invalid value for one of the operation's parameters. Check the syntax
  *             for the operation, and try again.</p>
  *
+ * @throws {@link ResourceExplorer2ServiceException}
+ * <p>Base exception class for all service exceptions from ResourceExplorer2 service.</p>
  *
  */
 export class UntagResourceCommand extends $Command<

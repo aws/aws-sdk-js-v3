@@ -36,16 +36,81 @@ export interface GetTemplateSyncStatusCommandOutput extends GetTemplateSyncStatu
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ProtonClient, GetTemplateSyncStatusCommand } from "@aws-sdk/client-proton"; // ES Modules import
- * // const { ProtonClient, GetTemplateSyncStatusCommand } = require("@aws-sdk/client-proton"); // CommonJS import
+ * import { ProtonClient, GetTemplateSyncStatusCommand } from '@aws-sdk/client-proton'; // ES Modules import
+ * // const { ProtonClient, GetTemplateSyncStatusCommand } = require('@aws-sdk/client-proton'); // CommonJS import
  * const client = new ProtonClient(config);
  * const input = { // GetTemplateSyncStatusInput
- *   templateName: "STRING_VALUE", // required
- *   templateType: "STRING_VALUE", // required
- *   templateVersion: "STRING_VALUE", // required
+ *   templateName: 'STRING_VALUE', // required
+ *   templateType: 'STRING_VALUE', // required
+ *   templateVersion: 'STRING_VALUE', // required
  * };
  * const command = new GetTemplateSyncStatusCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetTemplateSyncStatusOutput
+ *   latestSync: { // ResourceSyncAttempt
+ *     initialRevision: { // Revision
+ *       repositoryName: 'STRING_VALUE', // required
+ *       repositoryProvider: 'STRING_VALUE', // required
+ *       sha: 'STRING_VALUE', // required
+ *       directory: 'STRING_VALUE', // required
+ *       branch: 'STRING_VALUE', // required
+ *     },
+ *     targetRevision: {
+ *       repositoryName: 'STRING_VALUE', // required
+ *       repositoryProvider: 'STRING_VALUE', // required
+ *       sha: 'STRING_VALUE', // required
+ *       directory: 'STRING_VALUE', // required
+ *       branch: 'STRING_VALUE', // required
+ *     },
+ *     target: 'STRING_VALUE', // required
+ *     startedAt: new Date('TIMESTAMP'), // required
+ *     status: 'STRING_VALUE', // required
+ *     events: [ // ResourceSyncEvents // required
+ *       { // ResourceSyncEvent
+ *         type: 'STRING_VALUE', // required
+ *         externalId: 'STRING_VALUE',
+ *         time: new Date('TIMESTAMP'), // required
+ *         event: 'STRING_VALUE', // required
+ *       },
+ *     ],
+ *   },
+ *   latestSuccessfulSync: {
+ *     initialRevision: {
+ *       repositoryName: 'STRING_VALUE', // required
+ *       repositoryProvider: 'STRING_VALUE', // required
+ *       sha: 'STRING_VALUE', // required
+ *       directory: 'STRING_VALUE', // required
+ *       branch: 'STRING_VALUE', // required
+ *     },
+ *     targetRevision: {
+ *       repositoryName: 'STRING_VALUE', // required
+ *       repositoryProvider: 'STRING_VALUE', // required
+ *       sha: 'STRING_VALUE', // required
+ *       directory: 'STRING_VALUE', // required
+ *       branch: 'STRING_VALUE', // required
+ *     },
+ *     target: 'STRING_VALUE', // required
+ *     startedAt: new Date('TIMESTAMP'), // required
+ *     status: 'STRING_VALUE', // required
+ *     events: [ // required
+ *       {
+ *         type: 'STRING_VALUE', // required
+ *         externalId: 'STRING_VALUE',
+ *         time: new Date('TIMESTAMP'), // required
+ *         event: 'STRING_VALUE', // required
+ *       },
+ *     ],
+ *   },
+ *   desiredState: {
+ *     repositoryName: 'STRING_VALUE', // required
+ *     repositoryProvider: 'STRING_VALUE', // required
+ *     sha: 'STRING_VALUE', // required
+ *     directory: 'STRING_VALUE', // required
+ *     branch: 'STRING_VALUE', // required
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetTemplateSyncStatusCommandInput - {@link GetTemplateSyncStatusCommandInput}
@@ -69,6 +134,8 @@ export interface GetTemplateSyncStatusCommandOutput extends GetTemplateSyncStatu
  * @throws {@link ValidationException} (client fault)
  *  <p>The input is invalid or an out-of-range value was supplied for the input parameter.</p>
  *
+ * @throws {@link ProtonServiceException}
+ * <p>Base exception class for all service exceptions from Proton service.</p>
  *
  */
 export class GetTemplateSyncStatusCommand extends $Command<

@@ -41,12 +41,15 @@ export interface CreateSubscriptionCommandOutput extends CreateSubscriptionRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ShieldClient, CreateSubscriptionCommand } from "@aws-sdk/client-shield"; // ES Modules import
- * // const { ShieldClient, CreateSubscriptionCommand } = require("@aws-sdk/client-shield"); // CommonJS import
+ * import { ShieldClient, CreateSubscriptionCommand } from '@aws-sdk/client-shield'; // ES Modules import
+ * // const { ShieldClient, CreateSubscriptionCommand } = require('@aws-sdk/client-shield'); // CommonJS import
  * const client = new ShieldClient(config);
  * const input = {};
  * const command = new CreateSubscriptionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param CreateSubscriptionCommandInput - {@link CreateSubscriptionCommandInput}
@@ -61,6 +64,8 @@ export interface CreateSubscriptionCommandOutput extends CreateSubscriptionRespo
  * @throws {@link ResourceAlreadyExistsException} (client fault)
  *  <p>Exception indicating the specified resource already exists. If available, this exception includes details in additional properties. </p>
  *
+ * @throws {@link ShieldServiceException}
+ * <p>Base exception class for all service exceptions from Shield service.</p>
  *
  */
 export class CreateSubscriptionCommand extends $Command<

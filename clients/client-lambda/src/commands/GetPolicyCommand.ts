@@ -36,15 +36,21 @@ export interface GetPolicyCommandOutput extends GetPolicyResponse, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LambdaClient, GetPolicyCommand } from "@aws-sdk/client-lambda"; // ES Modules import
- * // const { LambdaClient, GetPolicyCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
+ * import { LambdaClient, GetPolicyCommand } from '@aws-sdk/client-lambda'; // ES Modules import
+ * // const { LambdaClient, GetPolicyCommand } = require('@aws-sdk/client-lambda'); // CommonJS import
  * const client = new LambdaClient(config);
  * const input = { // GetPolicyRequest
- *   FunctionName: "STRING_VALUE", // required
- *   Qualifier: "STRING_VALUE",
+ *   FunctionName: 'STRING_VALUE', // required
+ *   Qualifier: 'STRING_VALUE',
  * };
  * const command = new GetPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetPolicyResponse
+ *   Policy: 'STRING_VALUE',
+ *   RevisionId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetPolicyCommandInput - {@link GetPolicyCommandInput}
@@ -65,6 +71,8 @@ export interface GetPolicyCommandOutput extends GetPolicyResponse, __MetadataBea
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>The request throughput limit was exceeded. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests">Lambda quotas</a>.</p>
  *
+ * @throws {@link LambdaServiceException}
+ * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
  */
 export class GetPolicyCommand extends $Command<

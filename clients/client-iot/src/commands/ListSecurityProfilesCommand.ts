@@ -43,17 +43,28 @@ export interface ListSecurityProfilesCommandOutput extends ListSecurityProfilesR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTClient, ListSecurityProfilesCommand } from "@aws-sdk/client-iot"; // ES Modules import
- * // const { IoTClient, ListSecurityProfilesCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * import { IoTClient, ListSecurityProfilesCommand } from '@aws-sdk/client-iot'; // ES Modules import
+ * // const { IoTClient, ListSecurityProfilesCommand } = require('@aws-sdk/client-iot'); // CommonJS import
  * const client = new IoTClient(config);
  * const input = { // ListSecurityProfilesRequest
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
- *   dimensionName: "STRING_VALUE",
- *   metricName: "STRING_VALUE",
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
+ *   dimensionName: 'STRING_VALUE',
+ *   metricName: 'STRING_VALUE',
  * };
  * const command = new ListSecurityProfilesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListSecurityProfilesResponse
+ *   securityProfileIdentifiers: [ // SecurityProfileIdentifiers
+ *     { // SecurityProfileIdentifier
+ *       name: 'STRING_VALUE', // required
+ *       arn: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListSecurityProfilesCommandInput - {@link ListSecurityProfilesCommandInput}
@@ -74,6 +85,8 @@ export interface ListSecurityProfilesCommandOutput extends ListSecurityProfilesR
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The rate exceeds the limit.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class ListSecurityProfilesCommand extends $Command<

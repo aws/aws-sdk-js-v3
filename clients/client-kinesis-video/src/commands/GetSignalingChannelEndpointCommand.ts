@@ -52,20 +52,30 @@ export interface GetSignalingChannelEndpointCommandOutput extends GetSignalingCh
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KinesisVideoClient, GetSignalingChannelEndpointCommand } from "@aws-sdk/client-kinesis-video"; // ES Modules import
- * // const { KinesisVideoClient, GetSignalingChannelEndpointCommand } = require("@aws-sdk/client-kinesis-video"); // CommonJS import
+ * import { KinesisVideoClient, GetSignalingChannelEndpointCommand } from '@aws-sdk/client-kinesis-video'; // ES Modules import
+ * // const { KinesisVideoClient, GetSignalingChannelEndpointCommand } = require('@aws-sdk/client-kinesis-video'); // CommonJS import
  * const client = new KinesisVideoClient(config);
  * const input = { // GetSignalingChannelEndpointInput
- *   ChannelARN: "STRING_VALUE", // required
+ *   ChannelARN: 'STRING_VALUE', // required
  *   SingleMasterChannelEndpointConfiguration: { // SingleMasterChannelEndpointConfiguration
  *     Protocols: [ // ListOfProtocols
- *       "WSS" || "HTTPS" || "WEBRTC",
+ *       'WSS' || 'HTTPS' || 'WEBRTC',
  *     ],
- *     Role: "MASTER" || "VIEWER",
+ *     Role: 'MASTER' || 'VIEWER',
  *   },
  * };
  * const command = new GetSignalingChannelEndpointCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetSignalingChannelEndpointOutput
+ *   ResourceEndpointList: [ // ResourceEndpointList
+ *     { // ResourceEndpointListItem
+ *       Protocol: 'WSS' || 'HTTPS' || 'WEBRTC',
+ *       ResourceEndpoint: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetSignalingChannelEndpointCommandInput - {@link GetSignalingChannelEndpointCommandInput}
@@ -107,6 +117,8 @@ export interface GetSignalingChannelEndpointCommandOutput extends GetSignalingCh
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Amazon Kinesis Video Streams can't find the stream that you specified.</p>
  *
+ * @throws {@link KinesisVideoServiceException}
+ * <p>Base exception class for all service exceptions from KinesisVideo service.</p>
  *
  */
 export class GetSignalingChannelEndpointCommand extends $Command<

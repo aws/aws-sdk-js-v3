@@ -40,29 +40,116 @@ export interface SearchProfilesCommandOutput extends SearchProfilesResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CustomerProfilesClient, SearchProfilesCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
- * // const { CustomerProfilesClient, SearchProfilesCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
+ * import { CustomerProfilesClient, SearchProfilesCommand } from '@aws-sdk/client-customer-profiles'; // ES Modules import
+ * // const { CustomerProfilesClient, SearchProfilesCommand } = require('@aws-sdk/client-customer-profiles'); // CommonJS import
  * const client = new CustomerProfilesClient(config);
  * const input = { // SearchProfilesRequest
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
- *   DomainName: "STRING_VALUE", // required
- *   KeyName: "STRING_VALUE", // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
+ *   DomainName: 'STRING_VALUE', // required
+ *   KeyName: 'STRING_VALUE', // required
  *   Values: [ // requestValueList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   AdditionalSearchKeys: [ // additionalSearchKeysList
  *     { // AdditionalSearchKey
- *       KeyName: "STRING_VALUE", // required
+ *       KeyName: 'STRING_VALUE', // required
  *       Values: [ // required
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
- *   LogicalOperator: "AND" || "OR",
+ *   LogicalOperator: 'AND' || 'OR',
  * };
  * const command = new SearchProfilesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SearchProfilesResponse
+ *   Items: [ // ProfileList
+ *     { // Profile
+ *       ProfileId: 'STRING_VALUE',
+ *       AccountNumber: 'STRING_VALUE',
+ *       AdditionalInformation: 'STRING_VALUE',
+ *       PartyType: 'INDIVIDUAL' || 'BUSINESS' || 'OTHER',
+ *       BusinessName: 'STRING_VALUE',
+ *       FirstName: 'STRING_VALUE',
+ *       MiddleName: 'STRING_VALUE',
+ *       LastName: 'STRING_VALUE',
+ *       BirthDate: 'STRING_VALUE',
+ *       Gender: 'MALE' || 'FEMALE' || 'UNSPECIFIED',
+ *       PhoneNumber: 'STRING_VALUE',
+ *       MobilePhoneNumber: 'STRING_VALUE',
+ *       HomePhoneNumber: 'STRING_VALUE',
+ *       BusinessPhoneNumber: 'STRING_VALUE',
+ *       EmailAddress: 'STRING_VALUE',
+ *       PersonalEmailAddress: 'STRING_VALUE',
+ *       BusinessEmailAddress: 'STRING_VALUE',
+ *       Address: { // Address
+ *         Address1: 'STRING_VALUE',
+ *         Address2: 'STRING_VALUE',
+ *         Address3: 'STRING_VALUE',
+ *         Address4: 'STRING_VALUE',
+ *         City: 'STRING_VALUE',
+ *         County: 'STRING_VALUE',
+ *         State: 'STRING_VALUE',
+ *         Province: 'STRING_VALUE',
+ *         Country: 'STRING_VALUE',
+ *         PostalCode: 'STRING_VALUE',
+ *       },
+ *       ShippingAddress: {
+ *         Address1: 'STRING_VALUE',
+ *         Address2: 'STRING_VALUE',
+ *         Address3: 'STRING_VALUE',
+ *         Address4: 'STRING_VALUE',
+ *         City: 'STRING_VALUE',
+ *         County: 'STRING_VALUE',
+ *         State: 'STRING_VALUE',
+ *         Province: 'STRING_VALUE',
+ *         Country: 'STRING_VALUE',
+ *         PostalCode: 'STRING_VALUE',
+ *       },
+ *       MailingAddress: {
+ *         Address1: 'STRING_VALUE',
+ *         Address2: 'STRING_VALUE',
+ *         Address3: 'STRING_VALUE',
+ *         Address4: 'STRING_VALUE',
+ *         City: 'STRING_VALUE',
+ *         County: 'STRING_VALUE',
+ *         State: 'STRING_VALUE',
+ *         Province: 'STRING_VALUE',
+ *         Country: 'STRING_VALUE',
+ *         PostalCode: 'STRING_VALUE',
+ *       },
+ *       BillingAddress: {
+ *         Address1: 'STRING_VALUE',
+ *         Address2: 'STRING_VALUE',
+ *         Address3: 'STRING_VALUE',
+ *         Address4: 'STRING_VALUE',
+ *         City: 'STRING_VALUE',
+ *         County: 'STRING_VALUE',
+ *         State: 'STRING_VALUE',
+ *         Province: 'STRING_VALUE',
+ *         Country: 'STRING_VALUE',
+ *         PostalCode: 'STRING_VALUE',
+ *       },
+ *       Attributes: { // Attributes
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *       FoundByItems: [ // foundByList
+ *         { // FoundByKeyValue
+ *           KeyName: 'STRING_VALUE',
+ *           Values: [ // requestValueList
+ *             'STRING_VALUE',
+ *           ],
+ *         },
+ *       ],
+ *       PartyTypeString: 'STRING_VALUE',
+ *       GenderString: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param SearchProfilesCommandInput - {@link SearchProfilesCommandInput}
@@ -86,6 +173,8 @@ export interface SearchProfilesCommandOutput extends SearchProfilesResponse, __M
  * @throws {@link ThrottlingException} (client fault)
  *  <p>You exceeded the maximum number of requests.</p>
  *
+ * @throws {@link CustomerProfilesServiceException}
+ * <p>Base exception class for all service exceptions from CustomerProfiles service.</p>
  *
  */
 export class SearchProfilesCommand extends $Command<

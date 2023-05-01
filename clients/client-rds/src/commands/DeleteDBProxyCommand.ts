@@ -36,14 +36,48 @@ export interface DeleteDBProxyCommandOutput extends DeleteDBProxyResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RDSClient, DeleteDBProxyCommand } from "@aws-sdk/client-rds"; // ES Modules import
- * // const { RDSClient, DeleteDBProxyCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * import { RDSClient, DeleteDBProxyCommand } from '@aws-sdk/client-rds'; // ES Modules import
+ * // const { RDSClient, DeleteDBProxyCommand } = require('@aws-sdk/client-rds'); // CommonJS import
  * const client = new RDSClient(config);
  * const input = { // DeleteDBProxyRequest
- *   DBProxyName: "STRING_VALUE", // required
+ *   DBProxyName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteDBProxyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteDBProxyResponse
+ *   DBProxy: { // DBProxy
+ *     DBProxyName: 'STRING_VALUE',
+ *     DBProxyArn: 'STRING_VALUE',
+ *     Status: 'available' || 'modifying' || 'incompatible-network' || 'insufficient-resource-limits' || 'creating' || 'deleting' || 'suspended' || 'suspending' || 'reactivating',
+ *     EngineFamily: 'STRING_VALUE',
+ *     VpcId: 'STRING_VALUE',
+ *     VpcSecurityGroupIds: [ // StringList
+ *       'STRING_VALUE',
+ *     ],
+ *     VpcSubnetIds: [
+ *       'STRING_VALUE',
+ *     ],
+ *     Auth: [ // UserAuthConfigInfoList
+ *       { // UserAuthConfigInfo
+ *         Description: 'STRING_VALUE',
+ *         UserName: 'STRING_VALUE',
+ *         AuthScheme: 'SECRETS',
+ *         SecretArn: 'STRING_VALUE',
+ *         IAMAuth: 'DISABLED' || 'REQUIRED' || 'ENABLED',
+ *         ClientPasswordAuthType: 'MYSQL_NATIVE_PASSWORD' || 'POSTGRES_SCRAM_SHA_256' || 'POSTGRES_MD5' || 'SQL_SERVER_AUTHENTICATION',
+ *       },
+ *     ],
+ *     RoleArn: 'STRING_VALUE',
+ *     Endpoint: 'STRING_VALUE',
+ *     RequireTLS: true || false,
+ *     IdleClientTimeout: Number('int'),
+ *     DebugLogging: true || false,
+ *     CreatedDate: new Date('TIMESTAMP'),
+ *     UpdatedDate: new Date('TIMESTAMP'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param DeleteDBProxyCommandInput - {@link DeleteDBProxyCommandInput}
@@ -58,6 +92,8 @@ export interface DeleteDBProxyCommandOutput extends DeleteDBProxyResponse, __Met
  * @throws {@link InvalidDBProxyStateFault} (client fault)
  *  <p>The requested operation can't be performed while the proxy is in this state.</p>
  *
+ * @throws {@link RDSServiceException}
+ * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  */
 export class DeleteDBProxyCommand extends $Command<

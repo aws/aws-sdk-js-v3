@@ -37,21 +37,42 @@ export interface ListEndpointsCommandOutput extends ListEndpointsResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ComprehendClient, ListEndpointsCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
- * // const { ComprehendClient, ListEndpointsCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
+ * import { ComprehendClient, ListEndpointsCommand } from '@aws-sdk/client-comprehend'; // ES Modules import
+ * // const { ComprehendClient, ListEndpointsCommand } = require('@aws-sdk/client-comprehend'); // CommonJS import
  * const client = new ComprehendClient(config);
  * const input = { // ListEndpointsRequest
  *   Filter: { // EndpointFilter
- *     ModelArn: "STRING_VALUE",
- *     Status: "CREATING" || "DELETING" || "FAILED" || "IN_SERVICE" || "UPDATING",
- *     CreationTimeBefore: new Date("TIMESTAMP"),
- *     CreationTimeAfter: new Date("TIMESTAMP"),
+ *     ModelArn: 'STRING_VALUE',
+ *     Status: 'CREATING' || 'DELETING' || 'FAILED' || 'IN_SERVICE' || 'UPDATING',
+ *     CreationTimeBefore: new Date('TIMESTAMP'),
+ *     CreationTimeAfter: new Date('TIMESTAMP'),
  *   },
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListEndpointsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListEndpointsResponse
+ *   EndpointPropertiesList: [ // EndpointPropertiesList
+ *     { // EndpointProperties
+ *       EndpointArn: 'STRING_VALUE',
+ *       Status: 'CREATING' || 'DELETING' || 'FAILED' || 'IN_SERVICE' || 'UPDATING',
+ *       Message: 'STRING_VALUE',
+ *       ModelArn: 'STRING_VALUE',
+ *       DesiredModelArn: 'STRING_VALUE',
+ *       DesiredInferenceUnits: Number('int'),
+ *       CurrentInferenceUnits: Number('int'),
+ *       CreationTime: new Date('TIMESTAMP'),
+ *       LastModifiedTime: new Date('TIMESTAMP'),
+ *       DataAccessRoleArn: 'STRING_VALUE',
+ *       DesiredDataAccessRoleArn: 'STRING_VALUE',
+ *       FlywheelArn: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListEndpointsCommandInput - {@link ListEndpointsCommandInput}
@@ -69,6 +90,8 @@ export interface ListEndpointsCommandOutput extends ListEndpointsResponse, __Met
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>The number of requests exceeds the limit. Resubmit your request later.</p>
  *
+ * @throws {@link ComprehendServiceException}
+ * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
  */
 export class ListEndpointsCommand extends $Command<

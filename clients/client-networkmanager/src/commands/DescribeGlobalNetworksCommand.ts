@@ -39,18 +39,38 @@ export interface DescribeGlobalNetworksCommandOutput extends DescribeGlobalNetwo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { NetworkManagerClient, DescribeGlobalNetworksCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
- * // const { NetworkManagerClient, DescribeGlobalNetworksCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
+ * import { NetworkManagerClient, DescribeGlobalNetworksCommand } from '@aws-sdk/client-networkmanager'; // ES Modules import
+ * // const { NetworkManagerClient, DescribeGlobalNetworksCommand } = require('@aws-sdk/client-networkmanager'); // CommonJS import
  * const client = new NetworkManagerClient(config);
  * const input = { // DescribeGlobalNetworksRequest
  *   GlobalNetworkIds: [ // GlobalNetworkIdList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new DescribeGlobalNetworksCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeGlobalNetworksResponse
+ *   GlobalNetworks: [ // GlobalNetworkList
+ *     { // GlobalNetwork
+ *       GlobalNetworkId: 'STRING_VALUE',
+ *       GlobalNetworkArn: 'STRING_VALUE',
+ *       Description: 'STRING_VALUE',
+ *       CreatedAt: new Date('TIMESTAMP'),
+ *       State: 'PENDING' || 'AVAILABLE' || 'DELETING' || 'UPDATING',
+ *       Tags: [ // TagList
+ *         { // Tag
+ *           Key: 'STRING_VALUE',
+ *           Value: 'STRING_VALUE',
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeGlobalNetworksCommandInput - {@link DescribeGlobalNetworksCommandInput}
@@ -74,6 +94,8 @@ export interface DescribeGlobalNetworksCommandOutput extends DescribeGlobalNetwo
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints.</p>
  *
+ * @throws {@link NetworkManagerServiceException}
+ * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
  */
 export class DescribeGlobalNetworksCommand extends $Command<

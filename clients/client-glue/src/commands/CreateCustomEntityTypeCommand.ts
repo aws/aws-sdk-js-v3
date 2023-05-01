@@ -37,18 +37,23 @@ export interface CreateCustomEntityTypeCommandOutput extends CreateCustomEntityT
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlueClient, CreateCustomEntityTypeCommand } from "@aws-sdk/client-glue"; // ES Modules import
- * // const { GlueClient, CreateCustomEntityTypeCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * import { GlueClient, CreateCustomEntityTypeCommand } from '@aws-sdk/client-glue'; // ES Modules import
+ * // const { GlueClient, CreateCustomEntityTypeCommand } = require('@aws-sdk/client-glue'); // CommonJS import
  * const client = new GlueClient(config);
  * const input = { // CreateCustomEntityTypeRequest
- *   Name: "STRING_VALUE", // required
- *   RegexString: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
+ *   RegexString: 'STRING_VALUE', // required
  *   ContextWords: [ // ContextWords
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new CreateCustomEntityTypeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateCustomEntityTypeResponse
+ *   Name: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateCustomEntityTypeCommandInput - {@link CreateCustomEntityTypeCommandInput}
@@ -78,6 +83,8 @@ export interface CreateCustomEntityTypeCommandOutput extends CreateCustomEntityT
  * @throws {@link ResourceNumberLimitExceededException} (client fault)
  *  <p>A resource numerical limit was exceeded.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class CreateCustomEntityTypeCommand extends $Command<

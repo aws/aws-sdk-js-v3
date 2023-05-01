@@ -55,15 +55,18 @@ export interface DeleteCertificateAuthorityCommandOutput extends __MetadataBeare
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ACMPCAClient, DeleteCertificateAuthorityCommand } from "@aws-sdk/client-acm-pca"; // ES Modules import
- * // const { ACMPCAClient, DeleteCertificateAuthorityCommand } = require("@aws-sdk/client-acm-pca"); // CommonJS import
+ * import { ACMPCAClient, DeleteCertificateAuthorityCommand } from '@aws-sdk/client-acm-pca'; // ES Modules import
+ * // const { ACMPCAClient, DeleteCertificateAuthorityCommand } = require('@aws-sdk/client-acm-pca'); // CommonJS import
  * const client = new ACMPCAClient(config);
  * const input = { // DeleteCertificateAuthorityRequest
- *   CertificateAuthorityArn: "STRING_VALUE", // required
- *   PermanentDeletionTimeInDays: Number("int"),
+ *   CertificateAuthorityArn: 'STRING_VALUE', // required
+ *   PermanentDeletionTimeInDays: Number('int'),
  * };
  * const command = new DeleteCertificateAuthorityCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteCertificateAuthorityCommandInput - {@link DeleteCertificateAuthorityCommandInput}
@@ -86,6 +89,8 @@ export interface DeleteCertificateAuthorityCommandOutput extends __MetadataBeare
  *  <p>A resource such as a private CA, S3 bucket, certificate, audit report, or policy
  * 			cannot be found.</p>
  *
+ * @throws {@link ACMPCAServiceException}
+ * <p>Base exception class for all service exceptions from ACMPCA service.</p>
  *
  */
 export class DeleteCertificateAuthorityCommand extends $Command<

@@ -36,15 +36,18 @@ export interface CancelPipelineReprocessingCommandOutput extends CancelPipelineR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTAnalyticsClient, CancelPipelineReprocessingCommand } from "@aws-sdk/client-iotanalytics"; // ES Modules import
- * // const { IoTAnalyticsClient, CancelPipelineReprocessingCommand } = require("@aws-sdk/client-iotanalytics"); // CommonJS import
+ * import { IoTAnalyticsClient, CancelPipelineReprocessingCommand } from '@aws-sdk/client-iotanalytics'; // ES Modules import
+ * // const { IoTAnalyticsClient, CancelPipelineReprocessingCommand } = require('@aws-sdk/client-iotanalytics'); // CommonJS import
  * const client = new IoTAnalyticsClient(config);
  * const input = { // CancelPipelineReprocessingRequest
- *   pipelineName: "STRING_VALUE", // required
- *   reprocessingId: "STRING_VALUE", // required
+ *   pipelineName: 'STRING_VALUE', // required
+ *   reprocessingId: 'STRING_VALUE', // required
  * };
  * const command = new CancelPipelineReprocessingCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param CancelPipelineReprocessingCommandInput - {@link CancelPipelineReprocessingCommandInput}
@@ -68,6 +71,8 @@ export interface CancelPipelineReprocessingCommandOutput extends CancelPipelineR
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
  *
+ * @throws {@link IoTAnalyticsServiceException}
+ * <p>Base exception class for all service exceptions from IoTAnalytics service.</p>
  *
  */
 export class CancelPipelineReprocessingCommand extends $Command<

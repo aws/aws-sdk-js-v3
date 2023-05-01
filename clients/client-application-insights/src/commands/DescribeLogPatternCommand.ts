@@ -40,16 +40,27 @@ export interface DescribeLogPatternCommandOutput extends DescribeLogPatternRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ApplicationInsightsClient, DescribeLogPatternCommand } from "@aws-sdk/client-application-insights"; // ES Modules import
- * // const { ApplicationInsightsClient, DescribeLogPatternCommand } = require("@aws-sdk/client-application-insights"); // CommonJS import
+ * import { ApplicationInsightsClient, DescribeLogPatternCommand } from '@aws-sdk/client-application-insights'; // ES Modules import
+ * // const { ApplicationInsightsClient, DescribeLogPatternCommand } = require('@aws-sdk/client-application-insights'); // CommonJS import
  * const client = new ApplicationInsightsClient(config);
  * const input = { // DescribeLogPatternRequest
- *   ResourceGroupName: "STRING_VALUE", // required
- *   PatternSetName: "STRING_VALUE", // required
- *   PatternName: "STRING_VALUE", // required
+ *   ResourceGroupName: 'STRING_VALUE', // required
+ *   PatternSetName: 'STRING_VALUE', // required
+ *   PatternName: 'STRING_VALUE', // required
  * };
  * const command = new DescribeLogPatternCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeLogPatternResponse
+ *   ResourceGroupName: 'STRING_VALUE',
+ *   LogPattern: { // LogPattern
+ *     PatternSetName: 'STRING_VALUE',
+ *     PatternName: 'STRING_VALUE',
+ *     Pattern: 'STRING_VALUE',
+ *     Rank: Number('int'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeLogPatternCommandInput - {@link DescribeLogPatternCommandInput}
@@ -67,6 +78,8 @@ export interface DescribeLogPatternCommandOutput extends DescribeLogPatternRespo
  * @throws {@link ValidationException} (client fault)
  *  <p>The parameter is not valid.</p>
  *
+ * @throws {@link ApplicationInsightsServiceException}
+ * <p>Base exception class for all service exceptions from ApplicationInsights service.</p>
  *
  */
 export class DescribeLogPatternCommand extends $Command<

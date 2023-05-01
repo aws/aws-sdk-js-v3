@@ -45,12 +45,17 @@ export interface DeleteDatalakeExceptionsSubscriptionCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SecurityLakeClient, DeleteDatalakeExceptionsSubscriptionCommand } from "@aws-sdk/client-securitylake"; // ES Modules import
- * // const { SecurityLakeClient, DeleteDatalakeExceptionsSubscriptionCommand } = require("@aws-sdk/client-securitylake"); // CommonJS import
+ * import { SecurityLakeClient, DeleteDatalakeExceptionsSubscriptionCommand } from '@aws-sdk/client-securitylake'; // ES Modules import
+ * // const { SecurityLakeClient, DeleteDatalakeExceptionsSubscriptionCommand } = require('@aws-sdk/client-securitylake'); // CommonJS import
  * const client = new SecurityLakeClient(config);
  * const input = {};
  * const command = new DeleteDatalakeExceptionsSubscriptionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteDatalakeExceptionsSubscriptionResponse
+ *   status: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param DeleteDatalakeExceptionsSubscriptionCommandInput - {@link DeleteDatalakeExceptionsSubscriptionCommandInput}
@@ -77,6 +82,8 @@ export interface DeleteDatalakeExceptionsSubscriptionCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>Your signing certificate could not be validated. </p>
  *
+ * @throws {@link SecurityLakeServiceException}
+ * <p>Base exception class for all service exceptions from SecurityLake service.</p>
  *
  */
 export class DeleteDatalakeExceptionsSubscriptionCommand extends $Command<

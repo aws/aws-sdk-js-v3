@@ -36,14 +36,17 @@ export interface PutKMSEncryptionKeyCommandOutput extends PutKMSEncryptionKeyRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FraudDetectorClient, PutKMSEncryptionKeyCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
- * // const { FraudDetectorClient, PutKMSEncryptionKeyCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
+ * import { FraudDetectorClient, PutKMSEncryptionKeyCommand } from '@aws-sdk/client-frauddetector'; // ES Modules import
+ * // const { FraudDetectorClient, PutKMSEncryptionKeyCommand } = require('@aws-sdk/client-frauddetector'); // CommonJS import
  * const client = new FraudDetectorClient(config);
  * const input = { // PutKMSEncryptionKeyRequest
- *   kmsEncryptionKeyArn: "STRING_VALUE", // required
+ *   kmsEncryptionKeyArn: 'STRING_VALUE', // required
  * };
  * const command = new PutKMSEncryptionKeyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutKMSEncryptionKeyCommandInput - {@link PutKMSEncryptionKeyCommandInput}
@@ -70,6 +73,8 @@ export interface PutKMSEncryptionKeyCommandOutput extends PutKMSEncryptionKeyRes
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception indicating a specified value is not allowed.</p>
  *
+ * @throws {@link FraudDetectorServiceException}
+ * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
  */
 export class PutKMSEncryptionKeyCommand extends $Command<

@@ -38,17 +38,20 @@ export interface EnableMFADeviceCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IAMClient, EnableMFADeviceCommand } from "@aws-sdk/client-iam"; // ES Modules import
- * // const { IAMClient, EnableMFADeviceCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * import { IAMClient, EnableMFADeviceCommand } from '@aws-sdk/client-iam'; // ES Modules import
+ * // const { IAMClient, EnableMFADeviceCommand } = require('@aws-sdk/client-iam'); // CommonJS import
  * const client = new IAMClient(config);
  * const input = { // EnableMFADeviceRequest
- *   UserName: "STRING_VALUE", // required
- *   SerialNumber: "STRING_VALUE", // required
- *   AuthenticationCode1: "STRING_VALUE", // required
- *   AuthenticationCode2: "STRING_VALUE", // required
+ *   UserName: 'STRING_VALUE', // required
+ *   SerialNumber: 'STRING_VALUE', // required
+ *   AuthenticationCode1: 'STRING_VALUE', // required
+ *   AuthenticationCode2: 'STRING_VALUE', // required
  * };
  * const command = new EnableMFADeviceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param EnableMFADeviceCommandInput - {@link EnableMFADeviceCommandInput}
@@ -83,6 +86,8 @@ export interface EnableMFADeviceCommandOutput extends __MetadataBearer {}
  *  <p>The request processing has failed because of an unknown error, exception or
  *       failure.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  */
 export class EnableMFADeviceCommand extends $Command<

@@ -43,21 +43,21 @@ export interface UpdateProjectCommandOutput extends UpdateProjectResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoT1ClickProjectsClient, UpdateProjectCommand } from "@aws-sdk/client-iot-1click-projects"; // ES Modules import
- * // const { IoT1ClickProjectsClient, UpdateProjectCommand } = require("@aws-sdk/client-iot-1click-projects"); // CommonJS import
+ * import { IoT1ClickProjectsClient, UpdateProjectCommand } from '@aws-sdk/client-iot-1click-projects'; // ES Modules import
+ * // const { IoT1ClickProjectsClient, UpdateProjectCommand } = require('@aws-sdk/client-iot-1click-projects'); // CommonJS import
  * const client = new IoT1ClickProjectsClient(config);
  * const input = { // UpdateProjectRequest
- *   projectName: "STRING_VALUE", // required
- *   description: "STRING_VALUE",
+ *   projectName: 'STRING_VALUE', // required
+ *   description: 'STRING_VALUE',
  *   placementTemplate: { // PlacementTemplate
  *     defaultAttributes: { // DefaultPlacementAttributeMap
- *       "<keys>": "STRING_VALUE",
+ *       '<keys>': 'STRING_VALUE',
  *     },
  *     deviceTemplates: { // DeviceTemplateMap
- *       "<keys>": { // DeviceTemplate
- *         deviceType: "STRING_VALUE",
+ *       '<keys>': { // DeviceTemplate
+ *         deviceType: 'STRING_VALUE',
  *         callbackOverrides: { // DeviceCallbackOverrideMap
- *           "<keys>": "STRING_VALUE",
+ *           '<keys>': 'STRING_VALUE',
  *         },
  *       },
  *     },
@@ -65,6 +65,9 @@ export interface UpdateProjectCommandOutput extends UpdateProjectResponse, __Met
  * };
  * const command = new UpdateProjectCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateProjectCommandInput - {@link UpdateProjectCommandInput}
@@ -85,6 +88,8 @@ export interface UpdateProjectCommandOutput extends UpdateProjectResponse, __Met
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p></p>
  *
+ * @throws {@link IoT1ClickProjectsServiceException}
+ * <p>Base exception class for all service exceptions from IoT1ClickProjects service.</p>
  *
  */
 export class UpdateProjectCommand extends $Command<

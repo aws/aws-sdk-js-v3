@@ -36,20 +36,28 @@ export interface ListBuildBatchesForProjectCommandOutput extends ListBuildBatche
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeBuildClient, ListBuildBatchesForProjectCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
- * // const { CodeBuildClient, ListBuildBatchesForProjectCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import
+ * import { CodeBuildClient, ListBuildBatchesForProjectCommand } from '@aws-sdk/client-codebuild'; // ES Modules import
+ * // const { CodeBuildClient, ListBuildBatchesForProjectCommand } = require('@aws-sdk/client-codebuild'); // CommonJS import
  * const client = new CodeBuildClient(config);
  * const input = { // ListBuildBatchesForProjectInput
- *   projectName: "STRING_VALUE",
+ *   projectName: 'STRING_VALUE',
  *   filter: { // BuildBatchFilter
- *     status: "STRING_VALUE",
+ *     status: 'STRING_VALUE',
  *   },
- *   maxResults: Number("int"),
- *   sortOrder: "STRING_VALUE",
- *   nextToken: "STRING_VALUE",
+ *   maxResults: Number('int'),
+ *   sortOrder: 'STRING_VALUE',
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new ListBuildBatchesForProjectCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListBuildBatchesForProjectOutput
+ *   ids: [ // BuildBatchIds
+ *     'STRING_VALUE',
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListBuildBatchesForProjectCommandInput - {@link ListBuildBatchesForProjectCommandInput}
@@ -64,6 +72,8 @@ export interface ListBuildBatchesForProjectCommandOutput extends ListBuildBatche
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified Amazon Web Services resource cannot be found.</p>
  *
+ * @throws {@link CodeBuildServiceException}
+ * <p>Base exception class for all service exceptions from CodeBuild service.</p>
  *
  */
 export class ListBuildBatchesForProjectCommand extends $Command<

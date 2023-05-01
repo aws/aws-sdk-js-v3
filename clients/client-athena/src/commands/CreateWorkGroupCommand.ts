@@ -37,48 +37,51 @@ export interface CreateWorkGroupCommandOutput extends CreateWorkGroupOutput, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AthenaClient, CreateWorkGroupCommand } from "@aws-sdk/client-athena"; // ES Modules import
- * // const { AthenaClient, CreateWorkGroupCommand } = require("@aws-sdk/client-athena"); // CommonJS import
+ * import { AthenaClient, CreateWorkGroupCommand } from '@aws-sdk/client-athena'; // ES Modules import
+ * // const { AthenaClient, CreateWorkGroupCommand } = require('@aws-sdk/client-athena'); // CommonJS import
  * const client = new AthenaClient(config);
  * const input = { // CreateWorkGroupInput
- *   Name: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
  *   Configuration: { // WorkGroupConfiguration
  *     ResultConfiguration: { // ResultConfiguration
- *       OutputLocation: "STRING_VALUE",
+ *       OutputLocation: 'STRING_VALUE',
  *       EncryptionConfiguration: { // EncryptionConfiguration
- *         EncryptionOption: "SSE_S3" || "SSE_KMS" || "CSE_KMS", // required
- *         KmsKey: "STRING_VALUE",
+ *         EncryptionOption: 'SSE_S3' || 'SSE_KMS' || 'CSE_KMS', // required
+ *         KmsKey: 'STRING_VALUE',
  *       },
- *       ExpectedBucketOwner: "STRING_VALUE",
+ *       ExpectedBucketOwner: 'STRING_VALUE',
  *       AclConfiguration: { // AclConfiguration
- *         S3AclOption: "BUCKET_OWNER_FULL_CONTROL", // required
+ *         S3AclOption: 'BUCKET_OWNER_FULL_CONTROL', // required
  *       },
  *     },
  *     EnforceWorkGroupConfiguration: true || false,
  *     PublishCloudWatchMetricsEnabled: true || false,
- *     BytesScannedCutoffPerQuery: Number("long"),
+ *     BytesScannedCutoffPerQuery: Number('long'),
  *     RequesterPaysEnabled: true || false,
  *     EngineVersion: { // EngineVersion
- *       SelectedEngineVersion: "STRING_VALUE",
- *       EffectiveEngineVersion: "STRING_VALUE",
+ *       SelectedEngineVersion: 'STRING_VALUE',
+ *       EffectiveEngineVersion: 'STRING_VALUE',
  *     },
- *     AdditionalConfiguration: "STRING_VALUE",
- *     ExecutionRole: "STRING_VALUE",
+ *     AdditionalConfiguration: 'STRING_VALUE',
+ *     ExecutionRole: 'STRING_VALUE',
  *     CustomerContentEncryptionConfiguration: { // CustomerContentEncryptionConfiguration
- *       KmsKey: "STRING_VALUE", // required
+ *       KmsKey: 'STRING_VALUE', // required
  *     },
  *     EnableMinimumEncryptionConfiguration: true || false,
  *   },
- *   Description: "STRING_VALUE",
+ *   Description: 'STRING_VALUE',
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE",
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new CreateWorkGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param CreateWorkGroupCommandInput - {@link CreateWorkGroupCommandInput}
@@ -95,6 +98,8 @@ export interface CreateWorkGroupCommandOutput extends CreateWorkGroupOutput, __M
  *  <p>Indicates that something is wrong with the input to the request. For example, a
  *             required parameter may be missing or out of range.</p>
  *
+ * @throws {@link AthenaServiceException}
+ * <p>Base exception class for all service exceptions from Athena service.</p>
  *
  */
 export class CreateWorkGroupCommand extends $Command<

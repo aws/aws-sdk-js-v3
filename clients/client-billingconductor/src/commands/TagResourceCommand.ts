@@ -38,17 +38,20 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BillingconductorClient, TagResourceCommand } from "@aws-sdk/client-billingconductor"; // ES Modules import
- * // const { BillingconductorClient, TagResourceCommand } = require("@aws-sdk/client-billingconductor"); // CommonJS import
+ * import { BillingconductorClient, TagResourceCommand } from '@aws-sdk/client-billingconductor'; // ES Modules import
+ * // const { BillingconductorClient, TagResourceCommand } = require('@aws-sdk/client-billingconductor'); // CommonJS import
  * const client = new BillingconductorClient(config);
  * const input = { // TagResourceRequest
- *   ResourceArn: "STRING_VALUE", // required
+ *   ResourceArn: 'STRING_VALUE', // required
  *   Tags: { // TagMap // required
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param TagResourceCommandInput - {@link TagResourceCommandInput}
@@ -76,6 +79,8 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @throws {@link ValidationException} (client fault)
  *  <p>The input doesn't match with the constraints specified by Amazon Web Services services.</p>
  *
+ * @throws {@link BillingconductorServiceException}
+ * <p>Base exception class for all service exceptions from Billingconductor service.</p>
  *
  */
 export class TagResourceCommand extends $Command<

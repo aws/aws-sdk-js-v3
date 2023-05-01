@@ -37,21 +37,43 @@ export interface ListRestoreJobsCommandOutput extends ListRestoreJobsOutput, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BackupClient, ListRestoreJobsCommand } from "@aws-sdk/client-backup"; // ES Modules import
- * // const { BackupClient, ListRestoreJobsCommand } = require("@aws-sdk/client-backup"); // CommonJS import
+ * import { BackupClient, ListRestoreJobsCommand } from '@aws-sdk/client-backup'; // ES Modules import
+ * // const { BackupClient, ListRestoreJobsCommand } = require('@aws-sdk/client-backup'); // CommonJS import
  * const client = new BackupClient(config);
  * const input = { // ListRestoreJobsInput
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
- *   ByAccountId: "STRING_VALUE",
- *   ByCreatedBefore: new Date("TIMESTAMP"),
- *   ByCreatedAfter: new Date("TIMESTAMP"),
- *   ByStatus: "PENDING" || "RUNNING" || "COMPLETED" || "ABORTED" || "FAILED",
- *   ByCompleteBefore: new Date("TIMESTAMP"),
- *   ByCompleteAfter: new Date("TIMESTAMP"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
+ *   ByAccountId: 'STRING_VALUE',
+ *   ByCreatedBefore: new Date('TIMESTAMP'),
+ *   ByCreatedAfter: new Date('TIMESTAMP'),
+ *   ByStatus: 'PENDING' || 'RUNNING' || 'COMPLETED' || 'ABORTED' || 'FAILED',
+ *   ByCompleteBefore: new Date('TIMESTAMP'),
+ *   ByCompleteAfter: new Date('TIMESTAMP'),
  * };
  * const command = new ListRestoreJobsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListRestoreJobsOutput
+ *   RestoreJobs: [ // RestoreJobsList
+ *     { // RestoreJobsListMember
+ *       AccountId: 'STRING_VALUE',
+ *       RestoreJobId: 'STRING_VALUE',
+ *       RecoveryPointArn: 'STRING_VALUE',
+ *       CreationDate: new Date('TIMESTAMP'),
+ *       CompletionDate: new Date('TIMESTAMP'),
+ *       Status: 'PENDING' || 'RUNNING' || 'COMPLETED' || 'ABORTED' || 'FAILED',
+ *       StatusMessage: 'STRING_VALUE',
+ *       PercentDone: 'STRING_VALUE',
+ *       BackupSizeInBytes: Number('long'),
+ *       IamRoleArn: 'STRING_VALUE',
+ *       ExpectedCompletionTimeMinutes: Number('long'),
+ *       CreatedResourceArn: 'STRING_VALUE',
+ *       ResourceType: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListRestoreJobsCommandInput - {@link ListRestoreJobsCommandInput}
@@ -73,6 +95,8 @@ export interface ListRestoreJobsCommandOutput extends ListRestoreJobsOutput, __M
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request failed due to a temporary failure of the server.</p>
  *
+ * @throws {@link BackupServiceException}
+ * <p>Base exception class for all service exceptions from Backup service.</p>
  *
  */
 export class ListRestoreJobsCommand extends $Command<

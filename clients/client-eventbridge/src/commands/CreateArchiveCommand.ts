@@ -40,18 +40,26 @@ export interface CreateArchiveCommandOutput extends CreateArchiveResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EventBridgeClient, CreateArchiveCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
- * // const { EventBridgeClient, CreateArchiveCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
+ * import { EventBridgeClient, CreateArchiveCommand } from '@aws-sdk/client-eventbridge'; // ES Modules import
+ * // const { EventBridgeClient, CreateArchiveCommand } = require('@aws-sdk/client-eventbridge'); // CommonJS import
  * const client = new EventBridgeClient(config);
  * const input = { // CreateArchiveRequest
- *   ArchiveName: "STRING_VALUE", // required
- *   EventSourceArn: "STRING_VALUE", // required
- *   Description: "STRING_VALUE",
- *   EventPattern: "STRING_VALUE",
- *   RetentionDays: Number("int"),
+ *   ArchiveName: 'STRING_VALUE', // required
+ *   EventSourceArn: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE',
+ *   EventPattern: 'STRING_VALUE',
+ *   RetentionDays: Number('int'),
  * };
  * const command = new CreateArchiveCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateArchiveResponse
+ *   ArchiveArn: 'STRING_VALUE',
+ *   State: 'ENABLED' || 'DISABLED' || 'CREATING' || 'UPDATING' || 'CREATE_FAILED' || 'UPDATE_FAILED',
+ *   StateReason: 'STRING_VALUE',
+ *   CreationTime: new Date('TIMESTAMP'),
+ * };
+ *
  * ```
  *
  * @param CreateArchiveCommandInput - {@link CreateArchiveCommandInput}
@@ -79,6 +87,8 @@ export interface CreateArchiveCommandOutput extends CreateArchiveResponse, __Met
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>An entity that you specified does not exist.</p>
  *
+ * @throws {@link EventBridgeServiceException}
+ * <p>Base exception class for all service exceptions from EventBridge service.</p>
  *
  */
 export class CreateArchiveCommand extends $Command<

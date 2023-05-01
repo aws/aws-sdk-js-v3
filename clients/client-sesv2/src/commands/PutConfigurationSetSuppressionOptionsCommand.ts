@@ -45,17 +45,20 @@ export interface PutConfigurationSetSuppressionOptionsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SESv2Client, PutConfigurationSetSuppressionOptionsCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
- * // const { SESv2Client, PutConfigurationSetSuppressionOptionsCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
+ * import { SESv2Client, PutConfigurationSetSuppressionOptionsCommand } from '@aws-sdk/client-sesv2'; // ES Modules import
+ * // const { SESv2Client, PutConfigurationSetSuppressionOptionsCommand } = require('@aws-sdk/client-sesv2'); // CommonJS import
  * const client = new SESv2Client(config);
  * const input = { // PutConfigurationSetSuppressionOptionsRequest
- *   ConfigurationSetName: "STRING_VALUE", // required
+ *   ConfigurationSetName: 'STRING_VALUE', // required
  *   SuppressedReasons: [ // SuppressionListReasons
- *     "BOUNCE" || "COMPLAINT",
+ *     'BOUNCE' || 'COMPLAINT',
  *   ],
  * };
  * const command = new PutConfigurationSetSuppressionOptionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutConfigurationSetSuppressionOptionsCommandInput - {@link PutConfigurationSetSuppressionOptionsCommandInput}
@@ -73,6 +76,8 @@ export interface PutConfigurationSetSuppressionOptionsCommandOutput
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Too many requests have been made to the operation.</p>
  *
+ * @throws {@link SESv2ServiceException}
+ * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
  */
 export class PutConfigurationSetSuppressionOptionsCommand extends $Command<

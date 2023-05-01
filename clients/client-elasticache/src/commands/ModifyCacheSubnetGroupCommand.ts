@@ -36,18 +36,45 @@ export interface ModifyCacheSubnetGroupCommandOutput extends ModifyCacheSubnetGr
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElastiCacheClient, ModifyCacheSubnetGroupCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
- * // const { ElastiCacheClient, ModifyCacheSubnetGroupCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
+ * import { ElastiCacheClient, ModifyCacheSubnetGroupCommand } from '@aws-sdk/client-elasticache'; // ES Modules import
+ * // const { ElastiCacheClient, ModifyCacheSubnetGroupCommand } = require('@aws-sdk/client-elasticache'); // CommonJS import
  * const client = new ElastiCacheClient(config);
  * const input = { // ModifyCacheSubnetGroupMessage
- *   CacheSubnetGroupName: "STRING_VALUE", // required
- *   CacheSubnetGroupDescription: "STRING_VALUE",
+ *   CacheSubnetGroupName: 'STRING_VALUE', // required
+ *   CacheSubnetGroupDescription: 'STRING_VALUE',
  *   SubnetIds: [ // SubnetIdentifierList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new ModifyCacheSubnetGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ModifyCacheSubnetGroupResult
+ *   CacheSubnetGroup: { // CacheSubnetGroup
+ *     CacheSubnetGroupName: 'STRING_VALUE',
+ *     CacheSubnetGroupDescription: 'STRING_VALUE',
+ *     VpcId: 'STRING_VALUE',
+ *     Subnets: [ // SubnetList
+ *       { // Subnet
+ *         SubnetIdentifier: 'STRING_VALUE',
+ *         SubnetAvailabilityZone: { // AvailabilityZone
+ *           Name: 'STRING_VALUE',
+ *         },
+ *         SubnetOutpost: { // SubnetOutpost
+ *           SubnetOutpostArn: 'STRING_VALUE',
+ *         },
+ *         SupportedNetworkTypes: [ // NetworkTypeList
+ *           'ipv4' || 'ipv6' || 'dual_stack',
+ *         ],
+ *       },
+ *     ],
+ *     ARN: 'STRING_VALUE',
+ *     SupportedNetworkTypes: [
+ *       'ipv4' || 'ipv6' || 'dual_stack',
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param ModifyCacheSubnetGroupCommandInput - {@link ModifyCacheSubnetGroupCommandInput}
@@ -72,6 +99,8 @@ export interface ModifyCacheSubnetGroupCommandOutput extends ModifyCacheSubnetGr
  *  <p>At least one subnet ID does not match the other subnet IDs. This mismatch typically occurs when a
  *             user sets one subnet ID to a regional Availability Zone and a different one to an outpost. Or when a user sets the subnet ID to an Outpost when not subscribed on this service.</p>
  *
+ * @throws {@link ElastiCacheServiceException}
+ * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
  * @example ModifyCacheSubnetGroup
  * ```javascript

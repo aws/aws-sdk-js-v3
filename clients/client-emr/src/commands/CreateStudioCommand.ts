@@ -36,33 +36,39 @@ export interface CreateStudioCommandOutput extends CreateStudioOutput, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EMRClient, CreateStudioCommand } from "@aws-sdk/client-emr"; // ES Modules import
- * // const { EMRClient, CreateStudioCommand } = require("@aws-sdk/client-emr"); // CommonJS import
+ * import { EMRClient, CreateStudioCommand } from '@aws-sdk/client-emr'; // ES Modules import
+ * // const { EMRClient, CreateStudioCommand } = require('@aws-sdk/client-emr'); // CommonJS import
  * const client = new EMRClient(config);
  * const input = { // CreateStudioInput
- *   Name: "STRING_VALUE", // required
- *   Description: "STRING_VALUE",
- *   AuthMode: "SSO" || "IAM", // required
- *   VpcId: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE',
+ *   AuthMode: 'SSO' || 'IAM', // required
+ *   VpcId: 'STRING_VALUE', // required
  *   SubnetIds: [ // SubnetIdList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   ServiceRole: "STRING_VALUE", // required
- *   UserRole: "STRING_VALUE",
- *   WorkspaceSecurityGroupId: "STRING_VALUE", // required
- *   EngineSecurityGroupId: "STRING_VALUE", // required
- *   DefaultS3Location: "STRING_VALUE", // required
- *   IdpAuthUrl: "STRING_VALUE",
- *   IdpRelayStateParameterName: "STRING_VALUE",
+ *   ServiceRole: 'STRING_VALUE', // required
+ *   UserRole: 'STRING_VALUE',
+ *   WorkspaceSecurityGroupId: 'STRING_VALUE', // required
+ *   EngineSecurityGroupId: 'STRING_VALUE', // required
+ *   DefaultS3Location: 'STRING_VALUE', // required
+ *   IdpAuthUrl: 'STRING_VALUE',
+ *   IdpRelayStateParameterName: 'STRING_VALUE',
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE",
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new CreateStudioCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateStudioOutput
+ *   StudioId: 'STRING_VALUE',
+ *   Url: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateStudioCommandInput - {@link CreateStudioCommandInput}
@@ -78,6 +84,8 @@ export interface CreateStudioCommandOutput extends CreateStudioOutput, __Metadat
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception occurs when there is something wrong with user input.</p>
  *
+ * @throws {@link EMRServiceException}
+ * <p>Base exception class for all service exceptions from EMR service.</p>
  *
  */
 export class CreateStudioCommand extends $Command<

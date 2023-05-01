@@ -41,23 +41,38 @@ export interface DescribeConnectionsCommandOutput extends DescribeConnectionsRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DatabaseMigrationServiceClient, DescribeConnectionsCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
- * // const { DatabaseMigrationServiceClient, DescribeConnectionsCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
+ * import { DatabaseMigrationServiceClient, DescribeConnectionsCommand } from '@aws-sdk/client-database-migration-service'; // ES Modules import
+ * // const { DatabaseMigrationServiceClient, DescribeConnectionsCommand } = require('@aws-sdk/client-database-migration-service'); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
  * const input = { // DescribeConnectionsMessage
  *   Filters: [ // FilterList
  *     { // Filter
- *       Name: "STRING_VALUE", // required
+ *       Name: 'STRING_VALUE', // required
  *       Values: [ // FilterValueList // required
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
- *   MaxRecords: Number("int"),
- *   Marker: "STRING_VALUE",
+ *   MaxRecords: Number('int'),
+ *   Marker: 'STRING_VALUE',
  * };
  * const command = new DescribeConnectionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeConnectionsResponse
+ *   Marker: 'STRING_VALUE',
+ *   Connections: [ // ConnectionList
+ *     { // Connection
+ *       ReplicationInstanceArn: 'STRING_VALUE',
+ *       EndpointArn: 'STRING_VALUE',
+ *       Status: 'STRING_VALUE',
+ *       LastFailureMessage: 'STRING_VALUE',
+ *       EndpointIdentifier: 'STRING_VALUE',
+ *       ReplicationInstanceIdentifier: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeConnectionsCommandInput - {@link DescribeConnectionsCommandInput}
@@ -69,6 +84,8 @@ export interface DescribeConnectionsCommandOutput extends DescribeConnectionsRes
  * @throws {@link ResourceNotFoundFault} (client fault)
  *  <p>The resource could not be found.</p>
  *
+ * @throws {@link DatabaseMigrationServiceServiceException}
+ * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
  * @example Describe connections
  * ```javascript

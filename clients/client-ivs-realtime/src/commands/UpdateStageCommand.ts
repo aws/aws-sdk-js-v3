@@ -36,15 +36,27 @@ export interface UpdateStageCommandOutput extends UpdateStageResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IVSRealTimeClient, UpdateStageCommand } from "@aws-sdk/client-ivs-realtime"; // ES Modules import
- * // const { IVSRealTimeClient, UpdateStageCommand } = require("@aws-sdk/client-ivs-realtime"); // CommonJS import
+ * import { IVSRealTimeClient, UpdateStageCommand } from '@aws-sdk/client-ivs-realtime'; // ES Modules import
+ * // const { IVSRealTimeClient, UpdateStageCommand } = require('@aws-sdk/client-ivs-realtime'); // CommonJS import
  * const client = new IVSRealTimeClient(config);
  * const input = { // UpdateStageRequest
- *   arn: "STRING_VALUE", // required
- *   name: "STRING_VALUE",
+ *   arn: 'STRING_VALUE', // required
+ *   name: 'STRING_VALUE',
  * };
  * const command = new UpdateStageCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateStageResponse
+ *   stage: { // Stage
+ *     arn: 'STRING_VALUE', // required
+ *     name: 'STRING_VALUE',
+ *     activeSessionId: 'STRING_VALUE',
+ *     tags: { // Tags
+ *       '<keys>': 'STRING_VALUE',
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateStageCommandInput - {@link UpdateStageCommandInput}
@@ -68,6 +80,8 @@ export interface UpdateStageCommandOutput extends UpdateStageResponse, __Metadat
  * @throws {@link ValidationException} (client fault)
  *  <p/>
  *
+ * @throws {@link IVSRealTimeServiceException}
+ * <p>Base exception class for all service exceptions from IVSRealTime service.</p>
  *
  */
 export class UpdateStageCommand extends $Command<

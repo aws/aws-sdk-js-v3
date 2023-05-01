@@ -36,14 +36,19 @@ export interface DeleteScheduleCommandOutput extends DeleteScheduleResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DataBrewClient, DeleteScheduleCommand } from "@aws-sdk/client-databrew"; // ES Modules import
- * // const { DataBrewClient, DeleteScheduleCommand } = require("@aws-sdk/client-databrew"); // CommonJS import
+ * import { DataBrewClient, DeleteScheduleCommand } from '@aws-sdk/client-databrew'; // ES Modules import
+ * // const { DataBrewClient, DeleteScheduleCommand } = require('@aws-sdk/client-databrew'); // CommonJS import
  * const client = new DataBrewClient(config);
  * const input = { // DeleteScheduleRequest
- *   Name: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
  * };
  * const command = new DeleteScheduleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteScheduleResponse
+ *   Name: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param DeleteScheduleCommandInput - {@link DeleteScheduleCommandInput}
@@ -58,6 +63,8 @@ export interface DeleteScheduleCommandOutput extends DeleteScheduleResponse, __M
  * @throws {@link ValidationException} (client fault)
  *  <p>The input parameters for this request failed validation.</p>
  *
+ * @throws {@link DataBrewServiceException}
+ * <p>Base exception class for all service exceptions from DataBrew service.</p>
  *
  */
 export class DeleteScheduleCommand extends $Command<

@@ -36,15 +36,27 @@ export interface ListApplicationsCommandOutput extends Applications, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppConfigClient, ListApplicationsCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
- * // const { AppConfigClient, ListApplicationsCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import
+ * import { AppConfigClient, ListApplicationsCommand } from '@aws-sdk/client-appconfig'; // ES Modules import
+ * // const { AppConfigClient, ListApplicationsCommand } = require('@aws-sdk/client-appconfig'); // CommonJS import
  * const client = new AppConfigClient(config);
  * const input = { // ListApplicationsRequest
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListApplicationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // Applications
+ *   Items: [ // ApplicationList
+ *     { // Application
+ *       Id: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *       Description: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListApplicationsCommandInput - {@link ListApplicationsCommandInput}
@@ -59,6 +71,8 @@ export interface ListApplicationsCommandOutput extends Applications, __MetadataB
  * @throws {@link InternalServerException} (server fault)
  *  <p>There was an internal failure in the AppConfig service.</p>
  *
+ * @throws {@link AppConfigServiceException}
+ * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
  * @example To list the available applications
  * ```javascript

@@ -41,21 +41,24 @@ export interface DeregisterTargetsCommandOutput extends DeregisterTargetsOutput,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElasticLoadBalancingV2Client, DeregisterTargetsCommand } from "@aws-sdk/client-elastic-load-balancing-v2"; // ES Modules import
- * // const { ElasticLoadBalancingV2Client, DeregisterTargetsCommand } = require("@aws-sdk/client-elastic-load-balancing-v2"); // CommonJS import
+ * import { ElasticLoadBalancingV2Client, DeregisterTargetsCommand } from '@aws-sdk/client-elastic-load-balancing-v2'; // ES Modules import
+ * // const { ElasticLoadBalancingV2Client, DeregisterTargetsCommand } = require('@aws-sdk/client-elastic-load-balancing-v2'); // CommonJS import
  * const client = new ElasticLoadBalancingV2Client(config);
  * const input = { // DeregisterTargetsInput
- *   TargetGroupArn: "STRING_VALUE", // required
+ *   TargetGroupArn: 'STRING_VALUE', // required
  *   Targets: [ // TargetDescriptions // required
  *     { // TargetDescription
- *       Id: "STRING_VALUE", // required
- *       Port: Number("int"),
- *       AvailabilityZone: "STRING_VALUE",
+ *       Id: 'STRING_VALUE', // required
+ *       Port: Number('int'),
+ *       AvailabilityZone: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new DeregisterTargetsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeregisterTargetsCommandInput - {@link DeregisterTargetsCommandInput}
@@ -71,6 +74,8 @@ export interface DeregisterTargetsCommandOutput extends DeregisterTargetsOutput,
  * @throws {@link TargetGroupNotFoundException} (client fault)
  *  <p>The specified target group does not exist.</p>
  *
+ * @throws {@link ElasticLoadBalancingV2ServiceException}
+ * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
  * @example To deregister a target from a target group
  * ```javascript

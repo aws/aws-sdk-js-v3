@@ -40,14 +40,24 @@ export interface GetReadinessCheckCommandOutput extends GetReadinessCheckRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Route53RecoveryReadinessClient, GetReadinessCheckCommand } from "@aws-sdk/client-route53-recovery-readiness"; // ES Modules import
- * // const { Route53RecoveryReadinessClient, GetReadinessCheckCommand } = require("@aws-sdk/client-route53-recovery-readiness"); // CommonJS import
+ * import { Route53RecoveryReadinessClient, GetReadinessCheckCommand } from '@aws-sdk/client-route53-recovery-readiness'; // ES Modules import
+ * // const { Route53RecoveryReadinessClient, GetReadinessCheckCommand } = require('@aws-sdk/client-route53-recovery-readiness'); // CommonJS import
  * const client = new Route53RecoveryReadinessClient(config);
  * const input = { // GetReadinessCheckRequest
- *   ReadinessCheckName: "STRING_VALUE", // required
+ *   ReadinessCheckName: 'STRING_VALUE', // required
  * };
  * const command = new GetReadinessCheckCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetReadinessCheckResponse
+ *   ReadinessCheckArn: 'STRING_VALUE',
+ *   ReadinessCheckName: 'STRING_VALUE',
+ *   ResourceSet: 'STRING_VALUE',
+ *   Tags: { // Tags
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetReadinessCheckCommandInput - {@link GetReadinessCheckCommandInput}
@@ -71,6 +81,8 @@ export interface GetReadinessCheckCommandOutput extends GetReadinessCheckRespons
  * @throws {@link ValidationException} (client fault)
  *  The input fails to satisfy the constraints specified by an AWS service.
  *
+ * @throws {@link Route53RecoveryReadinessServiceException}
+ * <p>Base exception class for all service exceptions from Route53RecoveryReadiness service.</p>
  *
  */
 export class GetReadinessCheckCommand extends $Command<

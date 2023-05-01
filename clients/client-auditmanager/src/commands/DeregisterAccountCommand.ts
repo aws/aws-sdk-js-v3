@@ -45,12 +45,17 @@ export interface DeregisterAccountCommandOutput extends DeregisterAccountRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AuditManagerClient, DeregisterAccountCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
- * // const { AuditManagerClient, DeregisterAccountCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import
+ * import { AuditManagerClient, DeregisterAccountCommand } from '@aws-sdk/client-auditmanager'; // ES Modules import
+ * // const { AuditManagerClient, DeregisterAccountCommand } = require('@aws-sdk/client-auditmanager'); // CommonJS import
  * const client = new AuditManagerClient(config);
  * const input = {};
  * const command = new DeregisterAccountCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeregisterAccountResponse
+ *   status: 'ACTIVE' || 'INACTIVE' || 'PENDING_ACTIVATION',
+ * };
+ *
  * ```
  *
  * @param DeregisterAccountCommandInput - {@link DeregisterAccountCommandInput}
@@ -73,6 +78,8 @@ export interface DeregisterAccountCommandOutput extends DeregisterAccountRespons
  * @throws {@link ValidationException} (client fault)
  *  <p> The request has invalid or missing parameters. </p>
  *
+ * @throws {@link AuditManagerServiceException}
+ * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
  */
 export class DeregisterAccountCommand extends $Command<

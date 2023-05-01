@@ -37,38 +37,45 @@ export interface UpdateFrameworkCommandOutput extends UpdateFrameworkOutput, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BackupClient, UpdateFrameworkCommand } from "@aws-sdk/client-backup"; // ES Modules import
- * // const { BackupClient, UpdateFrameworkCommand } = require("@aws-sdk/client-backup"); // CommonJS import
+ * import { BackupClient, UpdateFrameworkCommand } from '@aws-sdk/client-backup'; // ES Modules import
+ * // const { BackupClient, UpdateFrameworkCommand } = require('@aws-sdk/client-backup'); // CommonJS import
  * const client = new BackupClient(config);
  * const input = { // UpdateFrameworkInput
- *   FrameworkName: "STRING_VALUE", // required
- *   FrameworkDescription: "STRING_VALUE",
+ *   FrameworkName: 'STRING_VALUE', // required
+ *   FrameworkDescription: 'STRING_VALUE',
  *   FrameworkControls: [ // FrameworkControls
  *     { // FrameworkControl
- *       ControlName: "STRING_VALUE", // required
+ *       ControlName: 'STRING_VALUE', // required
  *       ControlInputParameters: [ // ControlInputParameters
  *         { // ControlInputParameter
- *           ParameterName: "STRING_VALUE",
- *           ParameterValue: "STRING_VALUE",
+ *           ParameterName: 'STRING_VALUE',
+ *           ParameterValue: 'STRING_VALUE',
  *         },
  *       ],
  *       ControlScope: { // ControlScope
  *         ComplianceResourceIds: [ // ComplianceResourceIdList
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
  *         ComplianceResourceTypes: [ // ResourceTypeList
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
  *         Tags: { // stringMap
- *           "<keys>": "STRING_VALUE",
+ *           '<keys>': 'STRING_VALUE',
  *         },
  *       },
  *     },
  *   ],
- *   IdempotencyToken: "STRING_VALUE",
+ *   IdempotencyToken: 'STRING_VALUE',
  * };
  * const command = new UpdateFrameworkCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateFrameworkOutput
+ *   FrameworkName: 'STRING_VALUE',
+ *   FrameworkArn: 'STRING_VALUE',
+ *   CreationTime: new Date('TIMESTAMP'),
+ * };
+ *
  * ```
  *
  * @param UpdateFrameworkCommandInput - {@link UpdateFrameworkCommandInput}
@@ -101,6 +108,8 @@ export interface UpdateFrameworkCommandOutput extends UpdateFrameworkOutput, __M
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request failed due to a temporary failure of the server.</p>
  *
+ * @throws {@link BackupServiceException}
+ * <p>Base exception class for all service exceptions from Backup service.</p>
  *
  */
 export class UpdateFrameworkCommand extends $Command<

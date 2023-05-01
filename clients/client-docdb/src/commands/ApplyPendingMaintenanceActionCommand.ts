@@ -42,16 +42,33 @@ export interface ApplyPendingMaintenanceActionCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DocDBClient, ApplyPendingMaintenanceActionCommand } from "@aws-sdk/client-docdb"; // ES Modules import
- * // const { DocDBClient, ApplyPendingMaintenanceActionCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
+ * import { DocDBClient, ApplyPendingMaintenanceActionCommand } from '@aws-sdk/client-docdb'; // ES Modules import
+ * // const { DocDBClient, ApplyPendingMaintenanceActionCommand } = require('@aws-sdk/client-docdb'); // CommonJS import
  * const client = new DocDBClient(config);
  * const input = { // ApplyPendingMaintenanceActionMessage
- *   ResourceIdentifier: "STRING_VALUE", // required
- *   ApplyAction: "STRING_VALUE", // required
- *   OptInType: "STRING_VALUE", // required
+ *   ResourceIdentifier: 'STRING_VALUE', // required
+ *   ApplyAction: 'STRING_VALUE', // required
+ *   OptInType: 'STRING_VALUE', // required
  * };
  * const command = new ApplyPendingMaintenanceActionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ApplyPendingMaintenanceActionResult
+ *   ResourcePendingMaintenanceActions: { // ResourcePendingMaintenanceActions
+ *     ResourceIdentifier: 'STRING_VALUE',
+ *     PendingMaintenanceActionDetails: [ // PendingMaintenanceActionDetails
+ *       { // PendingMaintenanceAction
+ *         Action: 'STRING_VALUE',
+ *         AutoAppliedAfterDate: new Date('TIMESTAMP'),
+ *         ForcedApplyDate: new Date('TIMESTAMP'),
+ *         OptInStatus: 'STRING_VALUE',
+ *         CurrentApplyDate: new Date('TIMESTAMP'),
+ *         Description: 'STRING_VALUE',
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param ApplyPendingMaintenanceActionCommandInput - {@link ApplyPendingMaintenanceActionCommandInput}
@@ -70,6 +87,8 @@ export interface ApplyPendingMaintenanceActionCommandOutput
  * @throws {@link ResourceNotFoundFault} (client fault)
  *  <p>The specified resource ID was not found.</p>
  *
+ * @throws {@link DocDBServiceException}
+ * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
  */
 export class ApplyPendingMaintenanceActionCommand extends $Command<

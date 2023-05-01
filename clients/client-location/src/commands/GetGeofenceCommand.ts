@@ -36,15 +36,38 @@ export interface GetGeofenceCommandOutput extends GetGeofenceResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LocationClient, GetGeofenceCommand } from "@aws-sdk/client-location"; // ES Modules import
- * // const { LocationClient, GetGeofenceCommand } = require("@aws-sdk/client-location"); // CommonJS import
+ * import { LocationClient, GetGeofenceCommand } from '@aws-sdk/client-location'; // ES Modules import
+ * // const { LocationClient, GetGeofenceCommand } = require('@aws-sdk/client-location'); // CommonJS import
  * const client = new LocationClient(config);
  * const input = { // GetGeofenceRequest
- *   CollectionName: "STRING_VALUE", // required
- *   GeofenceId: "STRING_VALUE", // required
+ *   CollectionName: 'STRING_VALUE', // required
+ *   GeofenceId: 'STRING_VALUE', // required
  * };
  * const command = new GetGeofenceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetGeofenceResponse
+ *   GeofenceId: 'STRING_VALUE', // required
+ *   Geometry: { // GeofenceGeometry
+ *     Polygon: [ // LinearRings
+ *       [ // LinearRing
+ *         [ // Position
+ *           Number('double'),
+ *         ],
+ *       ],
+ *     ],
+ *     Circle: { // Circle
+ *       Center: [ // required
+ *         Number('double'),
+ *       ],
+ *       Radius: Number('double'), // required
+ *     },
+ *   },
+ *   Status: 'STRING_VALUE', // required
+ *   CreateTime: new Date('TIMESTAMP'), // required
+ *   UpdateTime: new Date('TIMESTAMP'), // required
+ * };
+ *
  * ```
  *
  * @param GetGeofenceCommandInput - {@link GetGeofenceCommandInput}
@@ -69,6 +92,8 @@ export interface GetGeofenceCommandOutput extends GetGeofenceResponse, __Metadat
  * @throws {@link ValidationException} (client fault)
  *  <p>The input failed to meet the constraints specified by the AWS service. </p>
  *
+ * @throws {@link LocationServiceException}
+ * <p>Base exception class for all service exceptions from Location service.</p>
  *
  */
 export class GetGeofenceCommand extends $Command<

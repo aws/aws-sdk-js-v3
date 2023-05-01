@@ -40,16 +40,28 @@ export interface CreateWorkerConfigurationCommandOutput extends CreateWorkerConf
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KafkaConnectClient, CreateWorkerConfigurationCommand } from "@aws-sdk/client-kafkaconnect"; // ES Modules import
- * // const { KafkaConnectClient, CreateWorkerConfigurationCommand } = require("@aws-sdk/client-kafkaconnect"); // CommonJS import
+ * import { KafkaConnectClient, CreateWorkerConfigurationCommand } from '@aws-sdk/client-kafkaconnect'; // ES Modules import
+ * // const { KafkaConnectClient, CreateWorkerConfigurationCommand } = require('@aws-sdk/client-kafkaconnect'); // CommonJS import
  * const client = new KafkaConnectClient(config);
  * const input = { // CreateWorkerConfigurationRequest
- *   description: "STRING_VALUE",
- *   name: "STRING_VALUE", // required
- *   propertiesFileContent: "STRING_VALUE", // required
+ *   description: 'STRING_VALUE',
+ *   name: 'STRING_VALUE', // required
+ *   propertiesFileContent: 'STRING_VALUE', // required
  * };
  * const command = new CreateWorkerConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateWorkerConfigurationResponse
+ *   creationTime: new Date('TIMESTAMP'),
+ *   latestRevision: { // WorkerConfigurationRevisionSummary
+ *     creationTime: new Date('TIMESTAMP'),
+ *     description: 'STRING_VALUE',
+ *     revision: Number('long'),
+ *   },
+ *   name: 'STRING_VALUE',
+ *   workerConfigurationArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateWorkerConfigurationCommandInput - {@link CreateWorkerConfigurationCommandInput}
@@ -89,6 +101,8 @@ export interface CreateWorkerConfigurationCommandOutput extends CreateWorkerConf
  *  <p>HTTP Status Code 401: Unauthorized request. The provided credentials couldn't be
  *          validated.</p>
  *
+ * @throws {@link KafkaConnectServiceException}
+ * <p>Base exception class for all service exceptions from KafkaConnect service.</p>
  *
  */
 export class CreateWorkerConfigurationCommand extends $Command<

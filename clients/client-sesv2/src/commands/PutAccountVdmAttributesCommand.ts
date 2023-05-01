@@ -37,22 +37,25 @@ export interface PutAccountVdmAttributesCommandOutput extends PutAccountVdmAttri
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SESv2Client, PutAccountVdmAttributesCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
- * // const { SESv2Client, PutAccountVdmAttributesCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
+ * import { SESv2Client, PutAccountVdmAttributesCommand } from '@aws-sdk/client-sesv2'; // ES Modules import
+ * // const { SESv2Client, PutAccountVdmAttributesCommand } = require('@aws-sdk/client-sesv2'); // CommonJS import
  * const client = new SESv2Client(config);
  * const input = { // PutAccountVdmAttributesRequest
  *   VdmAttributes: { // VdmAttributes
- *     VdmEnabled: "ENABLED" || "DISABLED", // required
+ *     VdmEnabled: 'ENABLED' || 'DISABLED', // required
  *     DashboardAttributes: { // DashboardAttributes
- *       EngagementMetrics: "ENABLED" || "DISABLED",
+ *       EngagementMetrics: 'ENABLED' || 'DISABLED',
  *     },
  *     GuardianAttributes: { // GuardianAttributes
- *       OptimizedSharedDelivery: "ENABLED" || "DISABLED",
+ *       OptimizedSharedDelivery: 'ENABLED' || 'DISABLED',
  *     },
  *   },
  * };
  * const command = new PutAccountVdmAttributesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutAccountVdmAttributesCommandInput - {@link PutAccountVdmAttributesCommandInput}
@@ -67,6 +70,8 @@ export interface PutAccountVdmAttributesCommandOutput extends PutAccountVdmAttri
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Too many requests have been made to the operation.</p>
  *
+ * @throws {@link SESv2ServiceException}
+ * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
  */
 export class PutAccountVdmAttributesCommand extends $Command<

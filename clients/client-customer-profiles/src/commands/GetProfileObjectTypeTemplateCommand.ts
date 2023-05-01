@@ -45,14 +45,42 @@ export interface GetProfileObjectTypeTemplateCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CustomerProfilesClient, GetProfileObjectTypeTemplateCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
- * // const { CustomerProfilesClient, GetProfileObjectTypeTemplateCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
+ * import { CustomerProfilesClient, GetProfileObjectTypeTemplateCommand } from '@aws-sdk/client-customer-profiles'; // ES Modules import
+ * // const { CustomerProfilesClient, GetProfileObjectTypeTemplateCommand } = require('@aws-sdk/client-customer-profiles'); // CommonJS import
  * const client = new CustomerProfilesClient(config);
  * const input = { // GetProfileObjectTypeTemplateRequest
- *   TemplateId: "STRING_VALUE", // required
+ *   TemplateId: 'STRING_VALUE', // required
  * };
  * const command = new GetProfileObjectTypeTemplateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetProfileObjectTypeTemplateResponse
+ *   TemplateId: 'STRING_VALUE',
+ *   SourceName: 'STRING_VALUE',
+ *   SourceObject: 'STRING_VALUE',
+ *   AllowProfileCreation: true || false,
+ *   SourceLastUpdatedTimestampFormat: 'STRING_VALUE',
+ *   Fields: { // FieldMap
+ *     '<keys>': { // ObjectTypeField
+ *       Source: 'STRING_VALUE',
+ *       Target: 'STRING_VALUE',
+ *       ContentType: 'STRING' || 'NUMBER' || 'PHONE_NUMBER' || 'EMAIL_ADDRESS' || 'NAME',
+ *     },
+ *   },
+ *   Keys: { // KeyMap
+ *     '<keys>': [ // ObjectTypeKeyList
+ *       { // ObjectTypeKey
+ *         StandardIdentifiers: [ // StandardIdentifierList
+ *           'PROFILE' || 'ASSET' || 'CASE' || 'UNIQUE' || 'SECONDARY' || 'LOOKUP_ONLY' || 'NEW_ONLY' || 'ORDER',
+ *         ],
+ *         FieldNames: [ // FieldNameList
+ *           'STRING_VALUE',
+ *         ],
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetProfileObjectTypeTemplateCommandInput - {@link GetProfileObjectTypeTemplateCommandInput}
@@ -76,6 +104,8 @@ export interface GetProfileObjectTypeTemplateCommandOutput
  * @throws {@link ThrottlingException} (client fault)
  *  <p>You exceeded the maximum number of requests.</p>
  *
+ * @throws {@link CustomerProfilesServiceException}
+ * <p>Base exception class for all service exceptions from CustomerProfiles service.</p>
  *
  */
 export class GetProfileObjectTypeTemplateCommand extends $Command<

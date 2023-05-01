@@ -41,17 +41,27 @@ export interface CreateFleetCommandOutput extends CreateFleetResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RoboMakerClient, CreateFleetCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
- * // const { RoboMakerClient, CreateFleetCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
+ * import { RoboMakerClient, CreateFleetCommand } from '@aws-sdk/client-robomaker'; // ES Modules import
+ * // const { RoboMakerClient, CreateFleetCommand } = require('@aws-sdk/client-robomaker'); // CommonJS import
  * const client = new RoboMakerClient(config);
  * const input = { // CreateFleetRequest
- *   name: "STRING_VALUE", // required
+ *   name: 'STRING_VALUE', // required
  *   tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateFleetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateFleetResponse
+ *   arn: 'STRING_VALUE',
+ *   name: 'STRING_VALUE',
+ *   createdAt: new Date('TIMESTAMP'),
+ *   tags: { // TagMap
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateFleetCommandInput - {@link CreateFleetCommandInput}
@@ -74,6 +84,8 @@ export interface CreateFleetCommandOutput extends CreateFleetResponse, __Metadat
  * @throws {@link ThrottlingException} (client fault)
  *  <p>AWS RoboMaker is temporarily unable to process the request. Try your call again.</p>
  *
+ * @throws {@link RoboMakerServiceException}
+ * <p>Base exception class for all service exceptions from RoboMaker service.</p>
  *
  */
 export class CreateFleetCommand extends $Command<

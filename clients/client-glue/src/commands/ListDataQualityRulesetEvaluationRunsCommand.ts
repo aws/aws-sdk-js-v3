@@ -44,30 +44,53 @@ export interface ListDataQualityRulesetEvaluationRunsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlueClient, ListDataQualityRulesetEvaluationRunsCommand } from "@aws-sdk/client-glue"; // ES Modules import
- * // const { GlueClient, ListDataQualityRulesetEvaluationRunsCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * import { GlueClient, ListDataQualityRulesetEvaluationRunsCommand } from '@aws-sdk/client-glue'; // ES Modules import
+ * // const { GlueClient, ListDataQualityRulesetEvaluationRunsCommand } = require('@aws-sdk/client-glue'); // CommonJS import
  * const client = new GlueClient(config);
  * const input = { // ListDataQualityRulesetEvaluationRunsRequest
  *   Filter: { // DataQualityRulesetEvaluationRunFilter
  *     DataSource: { // DataSource
  *       GlueTable: { // GlueTable
- *         DatabaseName: "STRING_VALUE", // required
- *         TableName: "STRING_VALUE", // required
- *         CatalogId: "STRING_VALUE",
- *         ConnectionName: "STRING_VALUE",
+ *         DatabaseName: 'STRING_VALUE', // required
+ *         TableName: 'STRING_VALUE', // required
+ *         CatalogId: 'STRING_VALUE',
+ *         ConnectionName: 'STRING_VALUE',
  *         AdditionalOptions: { // GlueTableAdditionalOptions
- *           "<keys>": "STRING_VALUE",
+ *           '<keys>': 'STRING_VALUE',
  *         },
  *       },
  *     },
- *     StartedBefore: new Date("TIMESTAMP"),
- *     StartedAfter: new Date("TIMESTAMP"),
+ *     StartedBefore: new Date('TIMESTAMP'),
+ *     StartedAfter: new Date('TIMESTAMP'),
  *   },
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListDataQualityRulesetEvaluationRunsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListDataQualityRulesetEvaluationRunsResponse
+ *   Runs: [ // DataQualityRulesetEvaluationRunList
+ *     { // DataQualityRulesetEvaluationRunDescription
+ *       RunId: 'STRING_VALUE',
+ *       Status: 'STARTING' || 'RUNNING' || 'STOPPING' || 'STOPPED' || 'SUCCEEDED' || 'FAILED' || 'TIMEOUT',
+ *       StartedOn: new Date('TIMESTAMP'),
+ *       DataSource: { // DataSource
+ *         GlueTable: { // GlueTable
+ *           DatabaseName: 'STRING_VALUE', // required
+ *           TableName: 'STRING_VALUE', // required
+ *           CatalogId: 'STRING_VALUE',
+ *           ConnectionName: 'STRING_VALUE',
+ *           AdditionalOptions: { // GlueTableAdditionalOptions
+ *             '<keys>': 'STRING_VALUE',
+ *           },
+ *         },
+ *       },
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListDataQualityRulesetEvaluationRunsCommandInput - {@link ListDataQualityRulesetEvaluationRunsCommandInput}
@@ -85,6 +108,8 @@ export interface ListDataQualityRulesetEvaluationRunsCommandOutput
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class ListDataQualityRulesetEvaluationRunsCommand extends $Command<

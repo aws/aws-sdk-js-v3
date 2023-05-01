@@ -52,50 +52,50 @@ export interface AddApplicationInputCommandOutput extends AddApplicationInputRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KinesisAnalyticsClient, AddApplicationInputCommand } from "@aws-sdk/client-kinesis-analytics"; // ES Modules import
- * // const { KinesisAnalyticsClient, AddApplicationInputCommand } = require("@aws-sdk/client-kinesis-analytics"); // CommonJS import
+ * import { KinesisAnalyticsClient, AddApplicationInputCommand } from '@aws-sdk/client-kinesis-analytics'; // ES Modules import
+ * // const { KinesisAnalyticsClient, AddApplicationInputCommand } = require('@aws-sdk/client-kinesis-analytics'); // CommonJS import
  * const client = new KinesisAnalyticsClient(config);
  * const input = { // AddApplicationInputRequest
- *   ApplicationName: "STRING_VALUE", // required
- *   CurrentApplicationVersionId: Number("long"), // required
+ *   ApplicationName: 'STRING_VALUE', // required
+ *   CurrentApplicationVersionId: Number('long'), // required
  *   Input: { // Input
- *     NamePrefix: "STRING_VALUE", // required
+ *     NamePrefix: 'STRING_VALUE', // required
  *     InputProcessingConfiguration: { // InputProcessingConfiguration
  *       InputLambdaProcessor: { // InputLambdaProcessor
- *         ResourceARN: "STRING_VALUE", // required
- *         RoleARN: "STRING_VALUE", // required
+ *         ResourceARN: 'STRING_VALUE', // required
+ *         RoleARN: 'STRING_VALUE', // required
  *       },
  *     },
  *     KinesisStreamsInput: { // KinesisStreamsInput
- *       ResourceARN: "STRING_VALUE", // required
- *       RoleARN: "STRING_VALUE", // required
+ *       ResourceARN: 'STRING_VALUE', // required
+ *       RoleARN: 'STRING_VALUE', // required
  *     },
  *     KinesisFirehoseInput: { // KinesisFirehoseInput
- *       ResourceARN: "STRING_VALUE", // required
- *       RoleARN: "STRING_VALUE", // required
+ *       ResourceARN: 'STRING_VALUE', // required
+ *       RoleARN: 'STRING_VALUE', // required
  *     },
  *     InputParallelism: { // InputParallelism
- *       Count: Number("int"),
+ *       Count: Number('int'),
  *     },
  *     InputSchema: { // SourceSchema
  *       RecordFormat: { // RecordFormat
- *         RecordFormatType: "STRING_VALUE", // required
+ *         RecordFormatType: 'STRING_VALUE', // required
  *         MappingParameters: { // MappingParameters
  *           JSONMappingParameters: { // JSONMappingParameters
- *             RecordRowPath: "STRING_VALUE", // required
+ *             RecordRowPath: 'STRING_VALUE', // required
  *           },
  *           CSVMappingParameters: { // CSVMappingParameters
- *             RecordRowDelimiter: "STRING_VALUE", // required
- *             RecordColumnDelimiter: "STRING_VALUE", // required
+ *             RecordRowDelimiter: 'STRING_VALUE', // required
+ *             RecordColumnDelimiter: 'STRING_VALUE', // required
  *           },
  *         },
  *       },
- *       RecordEncoding: "STRING_VALUE",
+ *       RecordEncoding: 'STRING_VALUE',
  *       RecordColumns: [ // RecordColumns // required
  *         { // RecordColumn
- *           Name: "STRING_VALUE", // required
- *           Mapping: "STRING_VALUE",
- *           SqlType: "STRING_VALUE", // required
+ *           Name: 'STRING_VALUE', // required
+ *           Mapping: 'STRING_VALUE',
+ *           SqlType: 'STRING_VALUE', // required
  *         },
  *       ],
  *     },
@@ -103,6 +103,9 @@ export interface AddApplicationInputCommandOutput extends AddApplicationInputRes
  * };
  * const command = new AddApplicationInputCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param AddApplicationInputCommandInput - {@link AddApplicationInputCommandInput}
@@ -129,6 +132,8 @@ export interface AddApplicationInputCommandOutput extends AddApplicationInputRes
  * @throws {@link UnsupportedOperationException} (client fault)
  *  <p>The request was rejected because a specified parameter is not supported or a specified resource is not valid for this operation. </p>
  *
+ * @throws {@link KinesisAnalyticsServiceException}
+ * <p>Base exception class for all service exceptions from KinesisAnalytics service.</p>
  *
  */
 export class AddApplicationInputCommand extends $Command<

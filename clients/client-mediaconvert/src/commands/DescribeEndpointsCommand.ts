@@ -36,16 +36,26 @@ export interface DescribeEndpointsCommandOutput extends DescribeEndpointsRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MediaConvertClient, DescribeEndpointsCommand } from "@aws-sdk/client-mediaconvert"; // ES Modules import
- * // const { MediaConvertClient, DescribeEndpointsCommand } = require("@aws-sdk/client-mediaconvert"); // CommonJS import
+ * import { MediaConvertClient, DescribeEndpointsCommand } from '@aws-sdk/client-mediaconvert'; // ES Modules import
+ * // const { MediaConvertClient, DescribeEndpointsCommand } = require('@aws-sdk/client-mediaconvert'); // CommonJS import
  * const client = new MediaConvertClient(config);
  * const input = { // DescribeEndpointsRequest
- *   MaxResults: Number("int"),
- *   Mode: "DEFAULT" || "GET_ONLY",
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   Mode: 'DEFAULT' || 'GET_ONLY',
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new DescribeEndpointsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeEndpointsResponse
+ *   Endpoints: [ // __listOfEndpoint
+ *     { // Endpoint
+ *       Url: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeEndpointsCommandInput - {@link DescribeEndpointsCommandInput}
@@ -72,6 +82,8 @@ export interface DescribeEndpointsCommandOutput extends DescribeEndpointsRespons
  * @throws {@link TooManyRequestsException} (client fault)
  *  Too many requests have been sent in too short of a time. The service limits the rate at which it will accept requests.
  *
+ * @throws {@link MediaConvertServiceException}
+ * <p>Base exception class for all service exceptions from MediaConvert service.</p>
  *
  */
 export class DescribeEndpointsCommand extends $Command<

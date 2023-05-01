@@ -36,13 +36,13 @@ export interface UpdateGroupCommandOutput extends UpdateGroupResult, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { XRayClient, UpdateGroupCommand } from "@aws-sdk/client-xray"; // ES Modules import
- * // const { XRayClient, UpdateGroupCommand } = require("@aws-sdk/client-xray"); // CommonJS import
+ * import { XRayClient, UpdateGroupCommand } from '@aws-sdk/client-xray'; // ES Modules import
+ * // const { XRayClient, UpdateGroupCommand } = require('@aws-sdk/client-xray'); // CommonJS import
  * const client = new XRayClient(config);
  * const input = { // UpdateGroupRequest
- *   GroupName: "STRING_VALUE",
- *   GroupARN: "STRING_VALUE",
- *   FilterExpression: "STRING_VALUE",
+ *   GroupName: 'STRING_VALUE',
+ *   GroupARN: 'STRING_VALUE',
+ *   FilterExpression: 'STRING_VALUE',
  *   InsightsConfiguration: { // InsightsConfiguration
  *     InsightsEnabled: true || false,
  *     NotificationsEnabled: true || false,
@@ -50,6 +50,19 @@ export interface UpdateGroupCommandOutput extends UpdateGroupResult, __MetadataB
  * };
  * const command = new UpdateGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateGroupResult
+ *   Group: { // Group
+ *     GroupName: 'STRING_VALUE',
+ *     GroupARN: 'STRING_VALUE',
+ *     FilterExpression: 'STRING_VALUE',
+ *     InsightsConfiguration: { // InsightsConfiguration
+ *       InsightsEnabled: true || false,
+ *       NotificationsEnabled: true || false,
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateGroupCommandInput - {@link UpdateGroupCommandInput}
@@ -64,6 +77,8 @@ export interface UpdateGroupCommandOutput extends UpdateGroupResult, __MetadataB
  * @throws {@link ThrottledException} (client fault)
  *  <p>The request exceeds the maximum number of requests per second.</p>
  *
+ * @throws {@link XRayServiceException}
+ * <p>Base exception class for all service exceptions from XRay service.</p>
  *
  */
 export class UpdateGroupCommand extends $Command<

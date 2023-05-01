@@ -46,14 +46,27 @@ export interface DescribeQuerySuggestionsConfigCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KendraClient, DescribeQuerySuggestionsConfigCommand } from "@aws-sdk/client-kendra"; // ES Modules import
- * // const { KendraClient, DescribeQuerySuggestionsConfigCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
+ * import { KendraClient, DescribeQuerySuggestionsConfigCommand } from '@aws-sdk/client-kendra'; // ES Modules import
+ * // const { KendraClient, DescribeQuerySuggestionsConfigCommand } = require('@aws-sdk/client-kendra'); // CommonJS import
  * const client = new KendraClient(config);
  * const input = { // DescribeQuerySuggestionsConfigRequest
- *   IndexId: "STRING_VALUE", // required
+ *   IndexId: 'STRING_VALUE', // required
  * };
  * const command = new DescribeQuerySuggestionsConfigCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeQuerySuggestionsConfigResponse
+ *   Mode: 'ENABLED' || 'LEARN_ONLY',
+ *   Status: 'ACTIVE' || 'UPDATING',
+ *   QueryLogLookBackWindowInDays: Number('int'),
+ *   IncludeQueriesWithoutUserInformation: true || false,
+ *   MinimumNumberOfQueryingUsers: Number('int'),
+ *   MinimumQueryCount: Number('int'),
+ *   LastSuggestionsBuildTime: new Date('TIMESTAMP'),
+ *   LastClearTime: new Date('TIMESTAMP'),
+ *   TotalSuggestionsCount: Number('int'),
+ * };
+ *
  * ```
  *
  * @param DescribeQuerySuggestionsConfigCommandInput - {@link DescribeQuerySuggestionsConfigCommandInput}
@@ -82,6 +95,8 @@ export interface DescribeQuerySuggestionsConfigCommandOutput
  *  <p>The input fails to satisfy the constraints set by the Amazon Kendra service.
  *             Please provide the correct input and try again.</p>
  *
+ * @throws {@link KendraServiceException}
+ * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
  */
 export class DescribeQuerySuggestionsConfigCommand extends $Command<

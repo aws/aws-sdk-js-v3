@@ -37,26 +37,52 @@ export interface CreateDomainAssociationCommandOutput extends CreateDomainAssoci
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AmplifyClient, CreateDomainAssociationCommand } from "@aws-sdk/client-amplify"; // ES Modules import
- * // const { AmplifyClient, CreateDomainAssociationCommand } = require("@aws-sdk/client-amplify"); // CommonJS import
+ * import { AmplifyClient, CreateDomainAssociationCommand } from '@aws-sdk/client-amplify'; // ES Modules import
+ * // const { AmplifyClient, CreateDomainAssociationCommand } = require('@aws-sdk/client-amplify'); // CommonJS import
  * const client = new AmplifyClient(config);
  * const input = { // CreateDomainAssociationRequest
- *   appId: "STRING_VALUE", // required
- *   domainName: "STRING_VALUE", // required
+ *   appId: 'STRING_VALUE', // required
+ *   domainName: 'STRING_VALUE', // required
  *   enableAutoSubDomain: true || false,
  *   subDomainSettings: [ // SubDomainSettings // required
  *     { // SubDomainSetting
- *       prefix: "STRING_VALUE", // required
- *       branchName: "STRING_VALUE", // required
+ *       prefix: 'STRING_VALUE', // required
+ *       branchName: 'STRING_VALUE', // required
  *     },
  *   ],
  *   autoSubDomainCreationPatterns: [ // AutoSubDomainCreationPatterns
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   autoSubDomainIAMRole: "STRING_VALUE",
+ *   autoSubDomainIAMRole: 'STRING_VALUE',
  * };
  * const command = new CreateDomainAssociationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateDomainAssociationResult
+ *   domainAssociation: { // DomainAssociation
+ *     domainAssociationArn: 'STRING_VALUE', // required
+ *     domainName: 'STRING_VALUE', // required
+ *     enableAutoSubDomain: true || false, // required
+ *     autoSubDomainCreationPatterns: [ // AutoSubDomainCreationPatterns
+ *       'STRING_VALUE',
+ *     ],
+ *     autoSubDomainIAMRole: 'STRING_VALUE',
+ *     domainStatus: 'PENDING_VERIFICATION' || 'IN_PROGRESS' || 'AVAILABLE' || 'PENDING_DEPLOYMENT' || 'FAILED' || 'CREATING' || 'REQUESTING_CERTIFICATE' || 'UPDATING', // required
+ *     statusReason: 'STRING_VALUE', // required
+ *     certificateVerificationDNSRecord: 'STRING_VALUE',
+ *     subDomains: [ // SubDomains // required
+ *       { // SubDomain
+ *         subDomainSetting: { // SubDomainSetting
+ *           prefix: 'STRING_VALUE', // required
+ *           branchName: 'STRING_VALUE', // required
+ *         },
+ *         verified: true || false, // required
+ *         dnsRecord: 'STRING_VALUE', // required
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateDomainAssociationCommandInput - {@link CreateDomainAssociationCommandInput}
@@ -83,6 +109,8 @@ export interface CreateDomainAssociationCommandOutput extends CreateDomainAssoci
  * @throws {@link UnauthorizedException} (client fault)
  *  <p> An operation failed due to a lack of access. </p>
  *
+ * @throws {@link AmplifyServiceException}
+ * <p>Base exception class for all service exceptions from Amplify service.</p>
  *
  */
 export class CreateDomainAssociationCommand extends $Command<

@@ -53,20 +53,45 @@ export interface GetAggregateComplianceDetailsByConfigRuleCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConfigServiceClient, GetAggregateComplianceDetailsByConfigRuleCommand } from "@aws-sdk/client-config-service"; // ES Modules import
- * // const { ConfigServiceClient, GetAggregateComplianceDetailsByConfigRuleCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
+ * import { ConfigServiceClient, GetAggregateComplianceDetailsByConfigRuleCommand } from '@aws-sdk/client-config-service'; // ES Modules import
+ * // const { ConfigServiceClient, GetAggregateComplianceDetailsByConfigRuleCommand } = require('@aws-sdk/client-config-service'); // CommonJS import
  * const client = new ConfigServiceClient(config);
  * const input = { // GetAggregateComplianceDetailsByConfigRuleRequest
- *   ConfigurationAggregatorName: "STRING_VALUE", // required
- *   ConfigRuleName: "STRING_VALUE", // required
- *   AccountId: "STRING_VALUE", // required
- *   AwsRegion: "STRING_VALUE", // required
- *   ComplianceType: "COMPLIANT" || "NON_COMPLIANT" || "NOT_APPLICABLE" || "INSUFFICIENT_DATA",
- *   Limit: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   ConfigurationAggregatorName: 'STRING_VALUE', // required
+ *   ConfigRuleName: 'STRING_VALUE', // required
+ *   AccountId: 'STRING_VALUE', // required
+ *   AwsRegion: 'STRING_VALUE', // required
+ *   ComplianceType: 'COMPLIANT' || 'NON_COMPLIANT' || 'NOT_APPLICABLE' || 'INSUFFICIENT_DATA',
+ *   Limit: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new GetAggregateComplianceDetailsByConfigRuleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetAggregateComplianceDetailsByConfigRuleResponse
+ *   AggregateEvaluationResults: [ // AggregateEvaluationResultList
+ *     { // AggregateEvaluationResult
+ *       EvaluationResultIdentifier: { // EvaluationResultIdentifier
+ *         EvaluationResultQualifier: { // EvaluationResultQualifier
+ *           ConfigRuleName: 'STRING_VALUE',
+ *           ResourceType: 'STRING_VALUE',
+ *           ResourceId: 'STRING_VALUE',
+ *           EvaluationMode: 'DETECTIVE' || 'PROACTIVE',
+ *         },
+ *         OrderingTimestamp: new Date('TIMESTAMP'),
+ *         ResourceEvaluationId: 'STRING_VALUE',
+ *       },
+ *       ComplianceType: 'COMPLIANT' || 'NON_COMPLIANT' || 'NOT_APPLICABLE' || 'INSUFFICIENT_DATA',
+ *       ResultRecordedTime: new Date('TIMESTAMP'),
+ *       ConfigRuleInvokedTime: new Date('TIMESTAMP'),
+ *       Annotation: 'STRING_VALUE',
+ *       AccountId: 'STRING_VALUE',
+ *       AwsRegion: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetAggregateComplianceDetailsByConfigRuleCommandInput - {@link GetAggregateComplianceDetailsByConfigRuleCommandInput}
@@ -91,6 +116,8 @@ export interface GetAggregateComplianceDetailsByConfigRuleCommandOutput
  *          <p>For PutStoredQuery, you will see this exception if there are missing required fields or if the input value fails the validation, or if you are trying to create more than 300 queries.</p>
  *          <p>For GetStoredQuery, ListStoredQuery, and DeleteStoredQuery you will see this exception if there are missing required fields or if the input value fails the validation.</p>
  *
+ * @throws {@link ConfigServiceServiceException}
+ * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
  */
 export class GetAggregateComplianceDetailsByConfigRuleCommand extends $Command<

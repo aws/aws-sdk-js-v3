@@ -39,14 +39,19 @@ export interface DeleteJobTemplateCommandOutput extends DeleteJobTemplateRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EMRContainersClient, DeleteJobTemplateCommand } from "@aws-sdk/client-emr-containers"; // ES Modules import
- * // const { EMRContainersClient, DeleteJobTemplateCommand } = require("@aws-sdk/client-emr-containers"); // CommonJS import
+ * import { EMRContainersClient, DeleteJobTemplateCommand } from '@aws-sdk/client-emr-containers'; // ES Modules import
+ * // const { EMRContainersClient, DeleteJobTemplateCommand } = require('@aws-sdk/client-emr-containers'); // CommonJS import
  * const client = new EMRContainersClient(config);
  * const input = { // DeleteJobTemplateRequest
- *   id: "STRING_VALUE", // required
+ *   id: 'STRING_VALUE', // required
  * };
  * const command = new DeleteJobTemplateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteJobTemplateResponse
+ *   id: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DeleteJobTemplateCommandInput - {@link DeleteJobTemplateCommandInput}
@@ -61,6 +66,8 @@ export interface DeleteJobTemplateCommandOutput extends DeleteJobTemplateRespons
  * @throws {@link ValidationException} (client fault)
  *  <p>There are invalid parameters in the client request.</p>
  *
+ * @throws {@link EMRContainersServiceException}
+ * <p>Base exception class for all service exceptions from EMRContainers service.</p>
  *
  */
 export class DeleteJobTemplateCommand extends $Command<

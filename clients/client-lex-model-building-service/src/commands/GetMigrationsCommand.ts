@@ -40,19 +40,37 @@ export interface GetMigrationsCommandOutput extends GetMigrationsResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LexModelBuildingServiceClient, GetMigrationsCommand } from "@aws-sdk/client-lex-model-building-service"; // ES Modules import
- * // const { LexModelBuildingServiceClient, GetMigrationsCommand } = require("@aws-sdk/client-lex-model-building-service"); // CommonJS import
+ * import { LexModelBuildingServiceClient, GetMigrationsCommand } from '@aws-sdk/client-lex-model-building-service'; // ES Modules import
+ * // const { LexModelBuildingServiceClient, GetMigrationsCommand } = require('@aws-sdk/client-lex-model-building-service'); // CommonJS import
  * const client = new LexModelBuildingServiceClient(config);
  * const input = { // GetMigrationsRequest
- *   sortByAttribute: "STRING_VALUE",
- *   sortByOrder: "STRING_VALUE",
- *   v1BotNameContains: "STRING_VALUE",
- *   migrationStatusEquals: "STRING_VALUE",
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   sortByAttribute: 'STRING_VALUE',
+ *   sortByOrder: 'STRING_VALUE',
+ *   v1BotNameContains: 'STRING_VALUE',
+ *   migrationStatusEquals: 'STRING_VALUE',
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new GetMigrationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetMigrationsResponse
+ *   migrationSummaries: [ // MigrationSummaryList
+ *     { // MigrationSummary
+ *       migrationId: 'STRING_VALUE',
+ *       v1BotName: 'STRING_VALUE',
+ *       v1BotVersion: 'STRING_VALUE',
+ *       v1BotLocale: 'STRING_VALUE',
+ *       v2BotId: 'STRING_VALUE',
+ *       v2BotRole: 'STRING_VALUE',
+ *       migrationStatus: 'STRING_VALUE',
+ *       migrationStrategy: 'STRING_VALUE',
+ *       migrationTimestamp: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetMigrationsCommandInput - {@link GetMigrationsCommandInput}
@@ -72,6 +90,8 @@ export interface GetMigrationsCommandOutput extends GetMigrationsResponse, __Met
  * @throws {@link LimitExceededException} (client fault)
  *  <p>The request exceeded a limit. Try your request again.</p>
  *
+ * @throws {@link LexModelBuildingServiceServiceException}
+ * <p>Base exception class for all service exceptions from LexModelBuildingService service.</p>
  *
  */
 export class GetMigrationsCommand extends $Command<

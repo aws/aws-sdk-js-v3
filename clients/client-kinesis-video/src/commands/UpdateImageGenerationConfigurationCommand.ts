@@ -41,30 +41,33 @@ export interface UpdateImageGenerationConfigurationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KinesisVideoClient, UpdateImageGenerationConfigurationCommand } from "@aws-sdk/client-kinesis-video"; // ES Modules import
- * // const { KinesisVideoClient, UpdateImageGenerationConfigurationCommand } = require("@aws-sdk/client-kinesis-video"); // CommonJS import
+ * import { KinesisVideoClient, UpdateImageGenerationConfigurationCommand } from '@aws-sdk/client-kinesis-video'; // ES Modules import
+ * // const { KinesisVideoClient, UpdateImageGenerationConfigurationCommand } = require('@aws-sdk/client-kinesis-video'); // CommonJS import
  * const client = new KinesisVideoClient(config);
  * const input = { // UpdateImageGenerationConfigurationInput
- *   StreamName: "STRING_VALUE",
- *   StreamARN: "STRING_VALUE",
+ *   StreamName: 'STRING_VALUE',
+ *   StreamARN: 'STRING_VALUE',
  *   ImageGenerationConfiguration: { // ImageGenerationConfiguration
- *     Status: "ENABLED" || "DISABLED", // required
- *     ImageSelectorType: "SERVER_TIMESTAMP" || "PRODUCER_TIMESTAMP", // required
+ *     Status: 'ENABLED' || 'DISABLED', // required
+ *     ImageSelectorType: 'SERVER_TIMESTAMP' || 'PRODUCER_TIMESTAMP', // required
  *     DestinationConfig: { // ImageGenerationDestinationConfig
- *       Uri: "STRING_VALUE", // required
- *       DestinationRegion: "STRING_VALUE", // required
+ *       Uri: 'STRING_VALUE', // required
+ *       DestinationRegion: 'STRING_VALUE', // required
  *     },
- *     SamplingInterval: Number("int"), // required
- *     Format: "JPEG" || "PNG", // required
+ *     SamplingInterval: Number('int'), // required
+ *     Format: 'JPEG' || 'PNG', // required
  *     FormatConfig: { // FormatConfig
- *       "<keys>": "STRING_VALUE",
+ *       '<keys>': 'STRING_VALUE',
  *     },
- *     WidthPixels: Number("int"),
- *     HeightPixels: Number("int"),
+ *     WidthPixels: Number('int'),
+ *     HeightPixels: Number('int'),
  *   },
  * };
  * const command = new UpdateImageGenerationConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateImageGenerationConfigurationCommandInput - {@link UpdateImageGenerationConfigurationCommandInput}
@@ -109,6 +112,8 @@ export interface UpdateImageGenerationConfigurationCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Amazon Kinesis Video Streams can't find the stream that you specified.</p>
  *
+ * @throws {@link KinesisVideoServiceException}
+ * <p>Base exception class for all service exceptions from KinesisVideo service.</p>
  *
  */
 export class UpdateImageGenerationConfigurationCommand extends $Command<

@@ -46,17 +46,20 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MigrationHubRefactorSpacesClient, TagResourceCommand } from "@aws-sdk/client-migration-hub-refactor-spaces"; // ES Modules import
- * // const { MigrationHubRefactorSpacesClient, TagResourceCommand } = require("@aws-sdk/client-migration-hub-refactor-spaces"); // CommonJS import
+ * import { MigrationHubRefactorSpacesClient, TagResourceCommand } from '@aws-sdk/client-migration-hub-refactor-spaces'; // ES Modules import
+ * // const { MigrationHubRefactorSpacesClient, TagResourceCommand } = require('@aws-sdk/client-migration-hub-refactor-spaces'); // CommonJS import
  * const client = new MigrationHubRefactorSpacesClient(config);
  * const input = { // TagResourceRequest
- *   ResourceArn: "STRING_VALUE", // required
+ *   ResourceArn: 'STRING_VALUE', // required
  *   Tags: { // TagMap // required
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param TagResourceCommandInput - {@link TagResourceCommandInput}
@@ -75,6 +78,8 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  *  <p>The input does not satisfy the constraints specified by an Amazon Web Service.
  *     </p>
  *
+ * @throws {@link MigrationHubRefactorSpacesServiceException}
+ * <p>Base exception class for all service exceptions from MigrationHubRefactorSpaces service.</p>
  *
  */
 export class TagResourceCommand extends $Command<

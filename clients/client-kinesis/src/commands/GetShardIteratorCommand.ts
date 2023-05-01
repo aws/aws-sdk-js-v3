@@ -73,19 +73,24 @@ export interface GetShardIteratorCommandOutput extends GetShardIteratorOutput, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KinesisClient, GetShardIteratorCommand } from "@aws-sdk/client-kinesis"; // ES Modules import
- * // const { KinesisClient, GetShardIteratorCommand } = require("@aws-sdk/client-kinesis"); // CommonJS import
+ * import { KinesisClient, GetShardIteratorCommand } from '@aws-sdk/client-kinesis'; // ES Modules import
+ * // const { KinesisClient, GetShardIteratorCommand } = require('@aws-sdk/client-kinesis'); // CommonJS import
  * const client = new KinesisClient(config);
  * const input = { // GetShardIteratorInput
- *   StreamName: "STRING_VALUE",
- *   ShardId: "STRING_VALUE", // required
- *   ShardIteratorType: "AT_SEQUENCE_NUMBER" || "AFTER_SEQUENCE_NUMBER" || "TRIM_HORIZON" || "LATEST" || "AT_TIMESTAMP", // required
- *   StartingSequenceNumber: "STRING_VALUE",
- *   Timestamp: new Date("TIMESTAMP"),
- *   StreamARN: "STRING_VALUE",
+ *   StreamName: 'STRING_VALUE',
+ *   ShardId: 'STRING_VALUE', // required
+ *   ShardIteratorType: 'AT_SEQUENCE_NUMBER' || 'AFTER_SEQUENCE_NUMBER' || 'TRIM_HORIZON' || 'LATEST' || 'AT_TIMESTAMP', // required
+ *   StartingSequenceNumber: 'STRING_VALUE',
+ *   Timestamp: new Date('TIMESTAMP'),
+ *   StreamARN: 'STRING_VALUE',
  * };
  * const command = new GetShardIteratorCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetShardIteratorOutput
+ *   ShardIterator: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetShardIteratorCommandInput - {@link GetShardIteratorCommandInput}
@@ -113,6 +118,8 @@ export interface GetShardIteratorCommandOutput extends GetShardIteratorOutput, _
  *  <p>The requested resource could not be found. The stream might not be specified
  *             correctly.</p>
  *
+ * @throws {@link KinesisServiceException}
+ * <p>Base exception class for all service exceptions from Kinesis service.</p>
  *
  */
 export class GetShardIteratorCommand extends $Command<

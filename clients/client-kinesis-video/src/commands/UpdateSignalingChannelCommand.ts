@@ -41,18 +41,21 @@ export interface UpdateSignalingChannelCommandOutput extends UpdateSignalingChan
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KinesisVideoClient, UpdateSignalingChannelCommand } from "@aws-sdk/client-kinesis-video"; // ES Modules import
- * // const { KinesisVideoClient, UpdateSignalingChannelCommand } = require("@aws-sdk/client-kinesis-video"); // CommonJS import
+ * import { KinesisVideoClient, UpdateSignalingChannelCommand } from '@aws-sdk/client-kinesis-video'; // ES Modules import
+ * // const { KinesisVideoClient, UpdateSignalingChannelCommand } = require('@aws-sdk/client-kinesis-video'); // CommonJS import
  * const client = new KinesisVideoClient(config);
  * const input = { // UpdateSignalingChannelInput
- *   ChannelARN: "STRING_VALUE", // required
- *   CurrentVersion: "STRING_VALUE", // required
+ *   ChannelARN: 'STRING_VALUE', // required
+ *   CurrentVersion: 'STRING_VALUE', // required
  *   SingleMasterConfiguration: { // SingleMasterConfiguration
- *     MessageTtlSeconds: Number("int"),
+ *     MessageTtlSeconds: Number('int'),
  *   },
  * };
  * const command = new UpdateSignalingChannelCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateSignalingChannelCommandInput - {@link UpdateSignalingChannelCommandInput}
@@ -99,6 +102,8 @@ export interface UpdateSignalingChannelCommandOutput extends UpdateSignalingChan
  *             version, use the <a href="https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_DescribeStream.html">DescribeStream</a>
  *             API.</p>
  *
+ * @throws {@link KinesisVideoServiceException}
+ * <p>Base exception class for all service exceptions from KinesisVideo service.</p>
  *
  */
 export class UpdateSignalingChannelCommand extends $Command<

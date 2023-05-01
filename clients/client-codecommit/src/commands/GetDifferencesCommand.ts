@@ -38,20 +38,40 @@ export interface GetDifferencesCommandOutput extends GetDifferencesOutput, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeCommitClient, GetDifferencesCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
- * // const { CodeCommitClient, GetDifferencesCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
+ * import { CodeCommitClient, GetDifferencesCommand } from '@aws-sdk/client-codecommit'; // ES Modules import
+ * // const { CodeCommitClient, GetDifferencesCommand } = require('@aws-sdk/client-codecommit'); // CommonJS import
  * const client = new CodeCommitClient(config);
  * const input = { // GetDifferencesInput
- *   repositoryName: "STRING_VALUE", // required
- *   beforeCommitSpecifier: "STRING_VALUE",
- *   afterCommitSpecifier: "STRING_VALUE", // required
- *   beforePath: "STRING_VALUE",
- *   afterPath: "STRING_VALUE",
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   repositoryName: 'STRING_VALUE', // required
+ *   beforeCommitSpecifier: 'STRING_VALUE',
+ *   afterCommitSpecifier: 'STRING_VALUE', // required
+ *   beforePath: 'STRING_VALUE',
+ *   afterPath: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new GetDifferencesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetDifferencesOutput
+ *   differences: [ // DifferenceList
+ *     { // Difference
+ *       beforeBlob: { // BlobMetadata
+ *         blobId: 'STRING_VALUE',
+ *         path: 'STRING_VALUE',
+ *         mode: 'STRING_VALUE',
+ *       },
+ *       afterBlob: {
+ *         blobId: 'STRING_VALUE',
+ *         path: 'STRING_VALUE',
+ *         mode: 'STRING_VALUE',
+ *       },
+ *       changeType: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetDifferencesCommandInput - {@link GetDifferencesCommandInput}
@@ -114,6 +134,8 @@ export interface GetDifferencesCommandOutput extends GetDifferencesOutput, __Met
  * @throws {@link RepositoryNameRequiredException} (client fault)
  *  <p>A repository name is required, but was not specified.</p>
  *
+ * @throws {@link CodeCommitServiceException}
+ * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
  */
 export class GetDifferencesCommand extends $Command<

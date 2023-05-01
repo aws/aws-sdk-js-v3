@@ -42,23 +42,41 @@ export interface CreateSecurityConfigCommandOutput extends CreateSecurityConfigR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OpenSearchServerlessClient, CreateSecurityConfigCommand } from "@aws-sdk/client-opensearchserverless"; // ES Modules import
- * // const { OpenSearchServerlessClient, CreateSecurityConfigCommand } = require("@aws-sdk/client-opensearchserverless"); // CommonJS import
+ * import { OpenSearchServerlessClient, CreateSecurityConfigCommand } from '@aws-sdk/client-opensearchserverless'; // ES Modules import
+ * // const { OpenSearchServerlessClient, CreateSecurityConfigCommand } = require('@aws-sdk/client-opensearchserverless'); // CommonJS import
  * const client = new OpenSearchServerlessClient(config);
  * const input = { // CreateSecurityConfigRequest
- *   type: "STRING_VALUE", // required
- *   name: "STRING_VALUE", // required
- *   description: "STRING_VALUE",
+ *   type: 'STRING_VALUE', // required
+ *   name: 'STRING_VALUE', // required
+ *   description: 'STRING_VALUE',
  *   samlOptions: { // SamlConfigOptions
- *     metadata: "STRING_VALUE", // required
- *     userAttribute: "STRING_VALUE",
- *     groupAttribute: "STRING_VALUE",
- *     sessionTimeout: Number("int"),
+ *     metadata: 'STRING_VALUE', // required
+ *     userAttribute: 'STRING_VALUE',
+ *     groupAttribute: 'STRING_VALUE',
+ *     sessionTimeout: Number('int'),
  *   },
- *   clientToken: "STRING_VALUE",
+ *   clientToken: 'STRING_VALUE',
  * };
  * const command = new CreateSecurityConfigCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateSecurityConfigResponse
+ *   securityConfigDetail: { // SecurityConfigDetail
+ *     id: 'STRING_VALUE',
+ *     type: 'STRING_VALUE',
+ *     configVersion: 'STRING_VALUE',
+ *     description: 'STRING_VALUE',
+ *     samlOptions: { // SamlConfigOptions
+ *       metadata: 'STRING_VALUE', // required
+ *       userAttribute: 'STRING_VALUE',
+ *       groupAttribute: 'STRING_VALUE',
+ *       sessionTimeout: Number('int'),
+ *     },
+ *     createdDate: Number('long'),
+ *     lastModifiedDate: Number('long'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateSecurityConfigCommandInput - {@link CreateSecurityConfigCommandInput}
@@ -82,6 +100,8 @@ export interface CreateSecurityConfigCommandOutput extends CreateSecurityConfigR
  *  <p>Thrown when the HTTP request contains invalid input or is missing required
  *             input.</p>
  *
+ * @throws {@link OpenSearchServerlessServiceException}
+ * <p>Base exception class for all service exceptions from OpenSearchServerless service.</p>
  *
  */
 export class CreateSecurityConfigCommand extends $Command<

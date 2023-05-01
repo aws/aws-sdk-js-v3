@@ -36,18 +36,38 @@ export interface UpdateAppCommandOutput extends UpdateAppResponse, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ResiliencehubClient, UpdateAppCommand } from "@aws-sdk/client-resiliencehub"; // ES Modules import
- * // const { ResiliencehubClient, UpdateAppCommand } = require("@aws-sdk/client-resiliencehub"); // CommonJS import
+ * import { ResiliencehubClient, UpdateAppCommand } from '@aws-sdk/client-resiliencehub'; // ES Modules import
+ * // const { ResiliencehubClient, UpdateAppCommand } = require('@aws-sdk/client-resiliencehub'); // CommonJS import
  * const client = new ResiliencehubClient(config);
  * const input = { // UpdateAppRequest
- *   appArn: "STRING_VALUE", // required
- *   description: "STRING_VALUE",
- *   policyArn: "STRING_VALUE",
+ *   appArn: 'STRING_VALUE', // required
+ *   description: 'STRING_VALUE',
+ *   policyArn: 'STRING_VALUE',
  *   clearResiliencyPolicyArn: true || false,
- *   assessmentSchedule: "STRING_VALUE",
+ *   assessmentSchedule: 'STRING_VALUE',
  * };
  * const command = new UpdateAppCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateAppResponse
+ *   app: { // App
+ *     appArn: 'STRING_VALUE', // required
+ *     name: 'STRING_VALUE', // required
+ *     description: 'STRING_VALUE',
+ *     policyArn: 'STRING_VALUE',
+ *     creationTime: new Date('TIMESTAMP'), // required
+ *     status: 'STRING_VALUE',
+ *     complianceStatus: 'STRING_VALUE',
+ *     lastAppComplianceEvaluationTime: new Date('TIMESTAMP'),
+ *     resiliencyScore: Number('double'),
+ *     lastResiliencyScoreEvaluationTime: new Date('TIMESTAMP'),
+ *     tags: { // TagMap
+ *       '<keys>': 'STRING_VALUE',
+ *     },
+ *     assessmentSchedule: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateAppCommandInput - {@link UpdateAppCommandInput}
@@ -80,6 +100,8 @@ export interface UpdateAppCommandOutput extends UpdateAppResponse, __MetadataBea
  * @throws {@link ValidationException} (client fault)
  *  <p>This exception occurs when a request is not valid.</p>
  *
+ * @throws {@link ResiliencehubServiceException}
+ * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
  */
 export class UpdateAppCommand extends $Command<

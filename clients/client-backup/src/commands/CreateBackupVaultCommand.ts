@@ -46,19 +46,26 @@ export interface CreateBackupVaultCommandOutput extends CreateBackupVaultOutput,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BackupClient, CreateBackupVaultCommand } from "@aws-sdk/client-backup"; // ES Modules import
- * // const { BackupClient, CreateBackupVaultCommand } = require("@aws-sdk/client-backup"); // CommonJS import
+ * import { BackupClient, CreateBackupVaultCommand } from '@aws-sdk/client-backup'; // ES Modules import
+ * // const { BackupClient, CreateBackupVaultCommand } = require('@aws-sdk/client-backup'); // CommonJS import
  * const client = new BackupClient(config);
  * const input = { // CreateBackupVaultInput
- *   BackupVaultName: "STRING_VALUE", // required
+ *   BackupVaultName: 'STRING_VALUE', // required
  *   BackupVaultTags: { // Tags
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
- *   EncryptionKeyArn: "STRING_VALUE",
- *   CreatorRequestId: "STRING_VALUE",
+ *   EncryptionKeyArn: 'STRING_VALUE',
+ *   CreatorRequestId: 'STRING_VALUE',
  * };
  * const command = new CreateBackupVaultCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateBackupVaultOutput
+ *   BackupVaultName: 'STRING_VALUE',
+ *   BackupVaultArn: 'STRING_VALUE',
+ *   CreationDate: new Date('TIMESTAMP'),
+ * };
+ *
  * ```
  *
  * @param CreateBackupVaultCommandInput - {@link CreateBackupVaultCommandInput}
@@ -84,6 +91,8 @@ export interface CreateBackupVaultCommandOutput extends CreateBackupVaultOutput,
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request failed due to a temporary failure of the server.</p>
  *
+ * @throws {@link BackupServiceException}
+ * <p>Base exception class for all service exceptions from Backup service.</p>
  *
  */
 export class CreateBackupVaultCommand extends $Command<

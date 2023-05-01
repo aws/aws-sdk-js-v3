@@ -36,14 +36,26 @@ export interface GetNotebookMetadataCommandOutput extends GetNotebookMetadataOut
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AthenaClient, GetNotebookMetadataCommand } from "@aws-sdk/client-athena"; // ES Modules import
- * // const { AthenaClient, GetNotebookMetadataCommand } = require("@aws-sdk/client-athena"); // CommonJS import
+ * import { AthenaClient, GetNotebookMetadataCommand } from '@aws-sdk/client-athena'; // ES Modules import
+ * // const { AthenaClient, GetNotebookMetadataCommand } = require('@aws-sdk/client-athena'); // CommonJS import
  * const client = new AthenaClient(config);
  * const input = { // GetNotebookMetadataInput
- *   NotebookId: "STRING_VALUE", // required
+ *   NotebookId: 'STRING_VALUE', // required
  * };
  * const command = new GetNotebookMetadataCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetNotebookMetadataOutput
+ *   NotebookMetadata: { // NotebookMetadata
+ *     NotebookId: 'STRING_VALUE',
+ *     Name: 'STRING_VALUE',
+ *     WorkGroup: 'STRING_VALUE',
+ *     CreationTime: new Date('TIMESTAMP'),
+ *     Type: 'IPYNB',
+ *     LastModifiedTime: new Date('TIMESTAMP'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetNotebookMetadataCommandInput - {@link GetNotebookMetadataCommandInput}
@@ -63,6 +75,8 @@ export interface GetNotebookMetadataCommandOutput extends GetNotebookMetadataOut
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Indicates that the request was throttled.</p>
  *
+ * @throws {@link AthenaServiceException}
+ * <p>Base exception class for all service exceptions from Athena service.</p>
  *
  */
 export class GetNotebookMetadataCommand extends $Command<

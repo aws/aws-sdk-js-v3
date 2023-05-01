@@ -37,15 +37,20 @@ export interface DeregisterInstanceCommandOutput extends DeregisterInstanceRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ServiceDiscoveryClient, DeregisterInstanceCommand } from "@aws-sdk/client-servicediscovery"; // ES Modules import
- * // const { ServiceDiscoveryClient, DeregisterInstanceCommand } = require("@aws-sdk/client-servicediscovery"); // CommonJS import
+ * import { ServiceDiscoveryClient, DeregisterInstanceCommand } from '@aws-sdk/client-servicediscovery'; // ES Modules import
+ * // const { ServiceDiscoveryClient, DeregisterInstanceCommand } = require('@aws-sdk/client-servicediscovery'); // CommonJS import
  * const client = new ServiceDiscoveryClient(config);
  * const input = { // DeregisterInstanceRequest
- *   ServiceId: "STRING_VALUE", // required
- *   InstanceId: "STRING_VALUE", // required
+ *   ServiceId: 'STRING_VALUE', // required
+ *   InstanceId: 'STRING_VALUE', // required
  * };
  * const command = new DeregisterInstanceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeregisterInstanceResponse
+ *   OperationId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DeregisterInstanceCommandInput - {@link DeregisterInstanceCommandInput}
@@ -73,6 +78,8 @@ export interface DeregisterInstanceCommandOutput extends DeregisterInstanceRespo
  * @throws {@link ServiceNotFound} (client fault)
  *  <p>No service exists with the specified ID.</p>
  *
+ * @throws {@link ServiceDiscoveryServiceException}
+ * <p>Base exception class for all service exceptions from ServiceDiscovery service.</p>
  *
  * @example Example: Deregister a service instance
  * ```javascript

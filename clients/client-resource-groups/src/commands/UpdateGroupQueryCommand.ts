@@ -48,19 +48,30 @@ export interface UpdateGroupQueryCommandOutput extends UpdateGroupQueryOutput, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ResourceGroupsClient, UpdateGroupQueryCommand } from "@aws-sdk/client-resource-groups"; // ES Modules import
- * // const { ResourceGroupsClient, UpdateGroupQueryCommand } = require("@aws-sdk/client-resource-groups"); // CommonJS import
+ * import { ResourceGroupsClient, UpdateGroupQueryCommand } from '@aws-sdk/client-resource-groups'; // ES Modules import
+ * // const { ResourceGroupsClient, UpdateGroupQueryCommand } = require('@aws-sdk/client-resource-groups'); // CommonJS import
  * const client = new ResourceGroupsClient(config);
  * const input = { // UpdateGroupQueryInput
- *   GroupName: "STRING_VALUE",
- *   Group: "STRING_VALUE",
+ *   GroupName: 'STRING_VALUE',
+ *   Group: 'STRING_VALUE',
  *   ResourceQuery: { // ResourceQuery
- *     Type: "TAG_FILTERS_1_0" || "CLOUDFORMATION_STACK_1_0", // required
- *     Query: "STRING_VALUE", // required
+ *     Type: 'TAG_FILTERS_1_0' || 'CLOUDFORMATION_STACK_1_0', // required
+ *     Query: 'STRING_VALUE', // required
  *   },
  * };
  * const command = new UpdateGroupQueryCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateGroupQueryOutput
+ *   GroupQuery: { // GroupQuery
+ *     GroupName: 'STRING_VALUE', // required
+ *     ResourceQuery: { // ResourceQuery
+ *       Type: 'TAG_FILTERS_1_0' || 'CLOUDFORMATION_STACK_1_0', // required
+ *       Query: 'STRING_VALUE', // required
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateGroupQueryCommandInput - {@link UpdateGroupQueryCommandInput}
@@ -88,6 +99,8 @@ export interface UpdateGroupQueryCommandOutput extends UpdateGroupQueryOutput, _
  *  <p>You've exceeded throttling limits by making too many requests in a period of
  *             time.</p>
  *
+ * @throws {@link ResourceGroupsServiceException}
+ * <p>Base exception class for all service exceptions from ResourceGroups service.</p>
  *
  */
 export class UpdateGroupQueryCommand extends $Command<

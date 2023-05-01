@@ -44,19 +44,22 @@ export interface PutAlternateContactCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AccountClient, PutAlternateContactCommand } from "@aws-sdk/client-account"; // ES Modules import
- * // const { AccountClient, PutAlternateContactCommand } = require("@aws-sdk/client-account"); // CommonJS import
+ * import { AccountClient, PutAlternateContactCommand } from '@aws-sdk/client-account'; // ES Modules import
+ * // const { AccountClient, PutAlternateContactCommand } = require('@aws-sdk/client-account'); // CommonJS import
  * const client = new AccountClient(config);
  * const input = { // PutAlternateContactRequest
- *   Name: "STRING_VALUE", // required
- *   Title: "STRING_VALUE", // required
- *   EmailAddress: "STRING_VALUE", // required
- *   PhoneNumber: "STRING_VALUE", // required
- *   AlternateContactType: "STRING_VALUE", // required
- *   AccountId: "STRING_VALUE",
+ *   Name: 'STRING_VALUE', // required
+ *   Title: 'STRING_VALUE', // required
+ *   EmailAddress: 'STRING_VALUE', // required
+ *   PhoneNumber: 'STRING_VALUE', // required
+ *   AlternateContactType: 'STRING_VALUE', // required
+ *   AccountId: 'STRING_VALUE',
  * };
  * const command = new PutAlternateContactCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutAlternateContactCommandInput - {@link PutAlternateContactCommandInput}
@@ -80,6 +83,8 @@ export interface PutAlternateContactCommandOutput extends __MetadataBearer {}
  * @throws {@link ValidationException} (client fault)
  *  <p>The operation failed because one of the input parameters was invalid.</p>
  *
+ * @throws {@link AccountServiceException}
+ * <p>Base exception class for all service exceptions from Account service.</p>
  *
  */
 export class PutAlternateContactCommand extends $Command<

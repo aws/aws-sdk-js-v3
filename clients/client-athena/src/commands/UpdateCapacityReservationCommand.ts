@@ -36,15 +36,18 @@ export interface UpdateCapacityReservationCommandOutput extends UpdateCapacityRe
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AthenaClient, UpdateCapacityReservationCommand } from "@aws-sdk/client-athena"; // ES Modules import
- * // const { AthenaClient, UpdateCapacityReservationCommand } = require("@aws-sdk/client-athena"); // CommonJS import
+ * import { AthenaClient, UpdateCapacityReservationCommand } from '@aws-sdk/client-athena'; // ES Modules import
+ * // const { AthenaClient, UpdateCapacityReservationCommand } = require('@aws-sdk/client-athena'); // CommonJS import
  * const client = new AthenaClient(config);
  * const input = { // UpdateCapacityReservationInput
- *   TargetDpus: Number("int"), // required
- *   Name: "STRING_VALUE", // required
+ *   TargetDpus: Number('int'), // required
+ *   Name: 'STRING_VALUE', // required
  * };
  * const command = new UpdateCapacityReservationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateCapacityReservationCommandInput - {@link UpdateCapacityReservationCommandInput}
@@ -61,6 +64,8 @@ export interface UpdateCapacityReservationCommandOutput extends UpdateCapacityRe
  *  <p>Indicates that something is wrong with the input to the request. For example, a
  *             required parameter may be missing or out of range.</p>
  *
+ * @throws {@link AthenaServiceException}
+ * <p>Base exception class for all service exceptions from Athena service.</p>
  *
  */
 export class UpdateCapacityReservationCommand extends $Command<

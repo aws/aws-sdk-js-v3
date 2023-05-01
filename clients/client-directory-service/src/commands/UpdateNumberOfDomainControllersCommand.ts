@@ -45,15 +45,18 @@ export interface UpdateNumberOfDomainControllersCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DirectoryServiceClient, UpdateNumberOfDomainControllersCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
- * // const { DirectoryServiceClient, UpdateNumberOfDomainControllersCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
+ * import { DirectoryServiceClient, UpdateNumberOfDomainControllersCommand } from '@aws-sdk/client-directory-service'; // ES Modules import
+ * // const { DirectoryServiceClient, UpdateNumberOfDomainControllersCommand } = require('@aws-sdk/client-directory-service'); // CommonJS import
  * const client = new DirectoryServiceClient(config);
  * const input = { // UpdateNumberOfDomainControllersRequest
- *   DirectoryId: "STRING_VALUE", // required
- *   DesiredNumber: Number("int"), // required
+ *   DirectoryId: 'STRING_VALUE', // required
+ *   DesiredNumber: Number('int'), // required
  * };
  * const command = new UpdateNumberOfDomainControllersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateNumberOfDomainControllersCommandInput - {@link UpdateNumberOfDomainControllersCommandInput}
@@ -84,6 +87,8 @@ export interface UpdateNumberOfDomainControllersCommandOutput
  * @throws {@link UnsupportedOperationException} (client fault)
  *  <p>The operation is not supported.</p>
  *
+ * @throws {@link DirectoryServiceServiceException}
+ * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
  */
 export class UpdateNumberOfDomainControllersCommand extends $Command<

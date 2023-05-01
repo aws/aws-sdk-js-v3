@@ -52,14 +52,19 @@ export interface DeleteServiceLinkedRoleCommandOutput extends DeleteServiceLinke
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IAMClient, DeleteServiceLinkedRoleCommand } from "@aws-sdk/client-iam"; // ES Modules import
- * // const { IAMClient, DeleteServiceLinkedRoleCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * import { IAMClient, DeleteServiceLinkedRoleCommand } from '@aws-sdk/client-iam'; // ES Modules import
+ * // const { IAMClient, DeleteServiceLinkedRoleCommand } = require('@aws-sdk/client-iam'); // CommonJS import
  * const client = new IAMClient(config);
  * const input = { // DeleteServiceLinkedRoleRequest
- *   RoleName: "STRING_VALUE", // required
+ *   RoleName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteServiceLinkedRoleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteServiceLinkedRoleResponse
+ *   DeletionTaskId: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param DeleteServiceLinkedRoleCommandInput - {@link DeleteServiceLinkedRoleCommandInput}
@@ -80,6 +85,8 @@ export interface DeleteServiceLinkedRoleCommandOutput extends DeleteServiceLinke
  *  <p>The request processing has failed because of an unknown error, exception or
  *       failure.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  */
 export class DeleteServiceLinkedRoleCommand extends $Command<

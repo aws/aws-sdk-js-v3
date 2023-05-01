@@ -43,23 +43,28 @@ export interface PutHypervisorPropertyMappingsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BackupGatewayClient, PutHypervisorPropertyMappingsCommand } from "@aws-sdk/client-backup-gateway"; // ES Modules import
- * // const { BackupGatewayClient, PutHypervisorPropertyMappingsCommand } = require("@aws-sdk/client-backup-gateway"); // CommonJS import
+ * import { BackupGatewayClient, PutHypervisorPropertyMappingsCommand } from '@aws-sdk/client-backup-gateway'; // ES Modules import
+ * // const { BackupGatewayClient, PutHypervisorPropertyMappingsCommand } = require('@aws-sdk/client-backup-gateway'); // CommonJS import
  * const client = new BackupGatewayClient(config);
  * const input = { // PutHypervisorPropertyMappingsInput
- *   HypervisorArn: "STRING_VALUE", // required
+ *   HypervisorArn: 'STRING_VALUE', // required
  *   VmwareToAwsTagMappings: [ // VmwareToAwsTagMappings // required
  *     { // VmwareToAwsTagMapping
- *       VmwareCategory: "STRING_VALUE", // required
- *       VmwareTagName: "STRING_VALUE", // required
- *       AwsTagKey: "STRING_VALUE", // required
- *       AwsTagValue: "STRING_VALUE", // required
+ *       VmwareCategory: 'STRING_VALUE', // required
+ *       VmwareTagName: 'STRING_VALUE', // required
+ *       AwsTagKey: 'STRING_VALUE', // required
+ *       AwsTagValue: 'STRING_VALUE', // required
  *     },
  *   ],
- *   IamRoleArn: "STRING_VALUE", // required
+ *   IamRoleArn: 'STRING_VALUE', // required
  * };
  * const command = new PutHypervisorPropertyMappingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutHypervisorPropertyMappingsOutput
+ *   HypervisorArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param PutHypervisorPropertyMappingsCommandInput - {@link PutHypervisorPropertyMappingsCommandInput}
@@ -87,6 +92,8 @@ export interface PutHypervisorPropertyMappingsCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The operation did not succeed because a validation error occurred.</p>
  *
+ * @throws {@link BackupGatewayServiceException}
+ * <p>Base exception class for all service exceptions from BackupGateway service.</p>
  *
  */
 export class PutHypervisorPropertyMappingsCommand extends $Command<

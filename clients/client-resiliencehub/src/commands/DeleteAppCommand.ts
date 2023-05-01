@@ -37,16 +37,21 @@ export interface DeleteAppCommandOutput extends DeleteAppResponse, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ResiliencehubClient, DeleteAppCommand } from "@aws-sdk/client-resiliencehub"; // ES Modules import
- * // const { ResiliencehubClient, DeleteAppCommand } = require("@aws-sdk/client-resiliencehub"); // CommonJS import
+ * import { ResiliencehubClient, DeleteAppCommand } from '@aws-sdk/client-resiliencehub'; // ES Modules import
+ * // const { ResiliencehubClient, DeleteAppCommand } = require('@aws-sdk/client-resiliencehub'); // CommonJS import
  * const client = new ResiliencehubClient(config);
  * const input = { // DeleteAppRequest
- *   appArn: "STRING_VALUE", // required
+ *   appArn: 'STRING_VALUE', // required
  *   forceDelete: true || false,
- *   clientToken: "STRING_VALUE",
+ *   clientToken: 'STRING_VALUE',
  * };
  * const command = new DeleteAppCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteAppResponse
+ *   appArn: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param DeleteAppCommandInput - {@link DeleteAppCommandInput}
@@ -74,6 +79,8 @@ export interface DeleteAppCommandOutput extends DeleteAppResponse, __MetadataBea
  * @throws {@link ValidationException} (client fault)
  *  <p>This exception occurs when a request is not valid.</p>
  *
+ * @throws {@link ResiliencehubServiceException}
+ * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
  */
 export class DeleteAppCommand extends $Command<

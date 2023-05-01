@@ -58,24 +58,41 @@ export interface PublishPackageVersionCommandOutput extends PublishPackageVersio
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeartifactClient, PublishPackageVersionCommand } from "@aws-sdk/client-codeartifact"; // ES Modules import
- * // const { CodeartifactClient, PublishPackageVersionCommand } = require("@aws-sdk/client-codeartifact"); // CommonJS import
+ * import { CodeartifactClient, PublishPackageVersionCommand } from '@aws-sdk/client-codeartifact'; // ES Modules import
+ * // const { CodeartifactClient, PublishPackageVersionCommand } = require('@aws-sdk/client-codeartifact'); // CommonJS import
  * const client = new CodeartifactClient(config);
  * const input = { // PublishPackageVersionRequest
- *   domain: "STRING_VALUE", // required
- *   domainOwner: "STRING_VALUE",
- *   repository: "STRING_VALUE", // required
- *   format: "npm" || "pypi" || "maven" || "nuget" || "generic", // required
- *   namespace: "STRING_VALUE",
- *   package: "STRING_VALUE", // required
- *   packageVersion: "STRING_VALUE", // required
- *   assetContent: "STREAMING_BLOB_VALUE", // required
- *   assetName: "STRING_VALUE", // required
- *   assetSHA256: "STRING_VALUE", // required
+ *   domain: 'STRING_VALUE', // required
+ *   domainOwner: 'STRING_VALUE',
+ *   repository: 'STRING_VALUE', // required
+ *   format: 'npm' || 'pypi' || 'maven' || 'nuget' || 'generic', // required
+ *   namespace: 'STRING_VALUE',
+ *   package: 'STRING_VALUE', // required
+ *   packageVersion: 'STRING_VALUE', // required
+ *   assetContent: 'STREAMING_BLOB_VALUE', // required
+ *   assetName: 'STRING_VALUE', // required
+ *   assetSHA256: 'STRING_VALUE', // required
  *   unfinished: true || false,
  * };
  * const command = new PublishPackageVersionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PublishPackageVersionResult
+ *   format: 'npm' || 'pypi' || 'maven' || 'nuget' || 'generic',
+ *   namespace: 'STRING_VALUE',
+ *   package: 'STRING_VALUE',
+ *   version: 'STRING_VALUE',
+ *   versionRevision: 'STRING_VALUE',
+ *   status: 'Published' || 'Unfinished' || 'Unlisted' || 'Archived' || 'Disposed' || 'Deleted',
+ *   asset: { // AssetSummary
+ *     name: 'STRING_VALUE', // required
+ *     size: Number('long'),
+ *     hashes: { // AssetHashes
+ *       '<keys>': 'STRING_VALUE',
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param PublishPackageVersionCommandInput - {@link PublishPackageVersionCommandInput}
@@ -117,6 +134,8 @@ export interface PublishPackageVersionCommandOutput extends PublishPackageVersio
  *       The operation did not succeed because a parameter in the request was sent with an invalid value.
  *     </p>
  *
+ * @throws {@link CodeartifactServiceException}
+ * <p>Base exception class for all service exceptions from Codeartifact service.</p>
  *
  */
 export class PublishPackageVersionCommand extends $Command<

@@ -36,14 +36,17 @@ export interface LaunchAppCommandOutput extends LaunchAppResponse, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SMSClient, LaunchAppCommand } from "@aws-sdk/client-sms"; // ES Modules import
- * // const { SMSClient, LaunchAppCommand } = require("@aws-sdk/client-sms"); // CommonJS import
+ * import { SMSClient, LaunchAppCommand } from '@aws-sdk/client-sms'; // ES Modules import
+ * // const { SMSClient, LaunchAppCommand } = require('@aws-sdk/client-sms'); // CommonJS import
  * const client = new SMSClient(config);
  * const input = { // LaunchAppRequest
- *   appId: "STRING_VALUE",
+ *   appId: 'STRING_VALUE',
  * };
  * const command = new LaunchAppCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param LaunchAppCommandInput - {@link LaunchAppCommandInput}
@@ -68,6 +71,8 @@ export interface LaunchAppCommandOutput extends LaunchAppResponse, __MetadataBea
  *  <p>You lack permissions needed to perform this operation. Check your IAM policies,
  *             and ensure that you are using the correct access keys.</p>
  *
+ * @throws {@link SMSServiceException}
+ * <p>Base exception class for all service exceptions from SMS service.</p>
  *
  */
 export class LaunchAppCommand extends $Command<LaunchAppCommandInput, LaunchAppCommandOutput, SMSClientResolvedConfig> {

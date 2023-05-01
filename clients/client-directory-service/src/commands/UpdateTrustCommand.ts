@@ -37,15 +37,21 @@ export interface UpdateTrustCommandOutput extends UpdateTrustResult, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DirectoryServiceClient, UpdateTrustCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
- * // const { DirectoryServiceClient, UpdateTrustCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
+ * import { DirectoryServiceClient, UpdateTrustCommand } from '@aws-sdk/client-directory-service'; // ES Modules import
+ * // const { DirectoryServiceClient, UpdateTrustCommand } = require('@aws-sdk/client-directory-service'); // CommonJS import
  * const client = new DirectoryServiceClient(config);
  * const input = { // UpdateTrustRequest
- *   TrustId: "STRING_VALUE", // required
- *   SelectiveAuth: "Enabled" || "Disabled",
+ *   TrustId: 'STRING_VALUE', // required
+ *   SelectiveAuth: 'Enabled' || 'Disabled',
  * };
  * const command = new UpdateTrustCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateTrustResult
+ *   RequestId: 'STRING_VALUE',
+ *   TrustId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateTrustCommandInput - {@link UpdateTrustCommandInput}
@@ -66,6 +72,8 @@ export interface UpdateTrustCommandOutput extends UpdateTrustResult, __MetadataB
  * @throws {@link ServiceException} (server fault)
  *  <p>An exception has occurred in Directory Service.</p>
  *
+ * @throws {@link DirectoryServiceServiceException}
+ * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
  */
 export class UpdateTrustCommand extends $Command<

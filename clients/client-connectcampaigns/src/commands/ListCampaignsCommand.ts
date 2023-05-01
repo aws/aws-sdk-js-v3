@@ -36,21 +36,34 @@ export interface ListCampaignsCommandOutput extends ListCampaignsResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectCampaignsClient, ListCampaignsCommand } from "@aws-sdk/client-connectcampaigns"; // ES Modules import
- * // const { ConnectCampaignsClient, ListCampaignsCommand } = require("@aws-sdk/client-connectcampaigns"); // CommonJS import
+ * import { ConnectCampaignsClient, ListCampaignsCommand } from '@aws-sdk/client-connectcampaigns'; // ES Modules import
+ * // const { ConnectCampaignsClient, ListCampaignsCommand } = require('@aws-sdk/client-connectcampaigns'); // CommonJS import
  * const client = new ConnectCampaignsClient(config);
  * const input = { // ListCampaignsRequest
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  *   filters: { // CampaignFilters
  *     instanceIdFilter: { // InstanceIdFilter
- *       value: "STRING_VALUE", // required
- *       operator: "STRING_VALUE", // required
+ *       value: 'STRING_VALUE', // required
+ *       operator: 'STRING_VALUE', // required
  *     },
  *   },
  * };
  * const command = new ListCampaignsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListCampaignsResponse
+ *   nextToken: 'STRING_VALUE',
+ *   campaignSummaryList: [ // CampaignSummaryList
+ *     { // CampaignSummary
+ *       id: 'STRING_VALUE', // required
+ *       arn: 'STRING_VALUE', // required
+ *       name: 'STRING_VALUE', // required
+ *       connectInstanceId: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListCampaignsCommandInput - {@link ListCampaignsCommandInput}
@@ -68,6 +81,8 @@ export interface ListCampaignsCommandOutput extends ListCampaignsResponse, __Met
  * @throws {@link ValidationException} (client fault)
  *  The input fails to satisfy the constraints specified by an AWS service.
  *
+ * @throws {@link ConnectCampaignsServiceException}
+ * <p>Base exception class for all service exceptions from ConnectCampaigns service.</p>
  *
  */
 export class ListCampaignsCommand extends $Command<

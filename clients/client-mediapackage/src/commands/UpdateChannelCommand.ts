@@ -36,15 +36,42 @@ export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MediaPackageClient, UpdateChannelCommand } from "@aws-sdk/client-mediapackage"; // ES Modules import
- * // const { MediaPackageClient, UpdateChannelCommand } = require("@aws-sdk/client-mediapackage"); // CommonJS import
+ * import { MediaPackageClient, UpdateChannelCommand } from '@aws-sdk/client-mediapackage'; // ES Modules import
+ * // const { MediaPackageClient, UpdateChannelCommand } = require('@aws-sdk/client-mediapackage'); // CommonJS import
  * const client = new MediaPackageClient(config);
  * const input = { // UpdateChannelRequest
- *   Description: "STRING_VALUE",
- *   Id: "STRING_VALUE", // required
+ *   Description: 'STRING_VALUE',
+ *   Id: 'STRING_VALUE', // required
  * };
  * const command = new UpdateChannelCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateChannelResponse
+ *   Arn: 'STRING_VALUE',
+ *   CreatedAt: 'STRING_VALUE',
+ *   Description: 'STRING_VALUE',
+ *   EgressAccessLogs: { // EgressAccessLogs
+ *     LogGroupName: 'STRING_VALUE',
+ *   },
+ *   HlsIngest: { // HlsIngest
+ *     IngestEndpoints: [ // __listOfIngestEndpoint
+ *       { // IngestEndpoint
+ *         Id: 'STRING_VALUE',
+ *         Password: 'STRING_VALUE',
+ *         Url: 'STRING_VALUE',
+ *         Username: 'STRING_VALUE',
+ *       },
+ *     ],
+ *   },
+ *   Id: 'STRING_VALUE',
+ *   IngressAccessLogs: { // IngressAccessLogs
+ *     LogGroupName: 'STRING_VALUE',
+ *   },
+ *   Tags: { // Tags
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateChannelCommandInput - {@link UpdateChannelCommandInput}
@@ -71,6 +98,8 @@ export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __Met
  * @throws {@link UnprocessableEntityException} (client fault)
  *  The parameters sent in the request are not valid.
  *
+ * @throws {@link MediaPackageServiceException}
+ * <p>Base exception class for all service exceptions from MediaPackage service.</p>
  *
  */
 export class UpdateChannelCommand extends $Command<

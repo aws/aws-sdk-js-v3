@@ -36,17 +36,28 @@ export interface ListCidrBlocksCommandOutput extends ListCidrBlocksResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Route53Client, ListCidrBlocksCommand } from "@aws-sdk/client-route-53"; // ES Modules import
- * // const { Route53Client, ListCidrBlocksCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
+ * import { Route53Client, ListCidrBlocksCommand } from '@aws-sdk/client-route-53'; // ES Modules import
+ * // const { Route53Client, ListCidrBlocksCommand } = require('@aws-sdk/client-route-53'); // CommonJS import
  * const client = new Route53Client(config);
  * const input = { // ListCidrBlocksRequest
- *   CollectionId: "STRING_VALUE", // required
- *   LocationName: "STRING_VALUE",
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   CollectionId: 'STRING_VALUE', // required
+ *   LocationName: 'STRING_VALUE',
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListCidrBlocksCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListCidrBlocksResponse
+ *   NextToken: 'STRING_VALUE',
+ *   CidrBlocks: [ // CidrBlockSummaries
+ *     { // CidrBlockSummary
+ *       CidrBlock: 'STRING_VALUE',
+ *       LocationName: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListCidrBlocksCommandInput - {@link ListCidrBlocksCommandInput}
@@ -64,6 +75,8 @@ export interface ListCidrBlocksCommandOutput extends ListCidrBlocksResponse, __M
  * @throws {@link NoSuchCidrLocationException} (client fault)
  *  <p>The CIDR collection location doesn't match any locations in your account.</p>
  *
+ * @throws {@link Route53ServiceException}
+ * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
  */
 export class ListCidrBlocksCommand extends $Command<

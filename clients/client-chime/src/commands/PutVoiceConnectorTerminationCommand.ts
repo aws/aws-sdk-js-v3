@@ -49,25 +49,40 @@ export interface PutVoiceConnectorTerminationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeClient, PutVoiceConnectorTerminationCommand } from "@aws-sdk/client-chime"; // ES Modules import
- * // const { ChimeClient, PutVoiceConnectorTerminationCommand } = require("@aws-sdk/client-chime"); // CommonJS import
+ * import { ChimeClient, PutVoiceConnectorTerminationCommand } from '@aws-sdk/client-chime'; // ES Modules import
+ * // const { ChimeClient, PutVoiceConnectorTerminationCommand } = require('@aws-sdk/client-chime'); // CommonJS import
  * const client = new ChimeClient(config);
  * const input = { // PutVoiceConnectorTerminationRequest
- *   VoiceConnectorId: "STRING_VALUE", // required
+ *   VoiceConnectorId: 'STRING_VALUE', // required
  *   Termination: { // Termination
- *     CpsLimit: Number("int"),
- *     DefaultPhoneNumber: "STRING_VALUE",
+ *     CpsLimit: Number('int'),
+ *     DefaultPhoneNumber: 'STRING_VALUE',
  *     CallingRegions: [ // CallingRegionList
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     CidrAllowedList: [ // StringList
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     Disabled: true || false,
  *   },
  * };
  * const command = new PutVoiceConnectorTerminationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutVoiceConnectorTerminationResponse
+ *   Termination: { // Termination
+ *     CpsLimit: Number('int'),
+ *     DefaultPhoneNumber: 'STRING_VALUE',
+ *     CallingRegions: [ // CallingRegionList
+ *       'STRING_VALUE',
+ *     ],
+ *     CidrAllowedList: [ // StringList
+ *       'STRING_VALUE',
+ *     ],
+ *     Disabled: true || false,
+ *   },
+ * };
+ *
  * ```
  *
  * @param PutVoiceConnectorTerminationCommandInput - {@link PutVoiceConnectorTerminationCommandInput}
@@ -100,6 +115,8 @@ export interface PutVoiceConnectorTerminationCommandOutput
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeServiceException}
+ * <p>Base exception class for all service exceptions from Chime service.</p>
  *
  */
 export class PutVoiceConnectorTerminationCommand extends $Command<

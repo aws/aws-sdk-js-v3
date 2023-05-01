@@ -37,14 +37,21 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SsmSapClient, ListTagsForResourceCommand } from "@aws-sdk/client-ssm-sap"; // ES Modules import
- * // const { SsmSapClient, ListTagsForResourceCommand } = require("@aws-sdk/client-ssm-sap"); // CommonJS import
+ * import { SsmSapClient, ListTagsForResourceCommand } from '@aws-sdk/client-ssm-sap'; // ES Modules import
+ * // const { SsmSapClient, ListTagsForResourceCommand } = require('@aws-sdk/client-ssm-sap'); // CommonJS import
  * const client = new SsmSapClient(config);
  * const input = { // ListTagsForResourceRequest
- *   resourceArn: "STRING_VALUE", // required
+ *   resourceArn: 'STRING_VALUE', // required
  * };
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTagsForResourceResponse
+ *   tags: { // TagMap
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param ListTagsForResourceCommandInput - {@link ListTagsForResourceCommandInput}
@@ -62,6 +69,8 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service. </p>
  *
+ * @throws {@link SsmSapServiceException}
+ * <p>Base exception class for all service exceptions from SsmSap service.</p>
  *
  */
 export class ListTagsForResourceCommand extends $Command<

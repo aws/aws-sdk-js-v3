@@ -40,14 +40,17 @@ export interface StopSimulationCommandOutput extends StopSimulationOutput, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SimSpaceWeaverClient, StopSimulationCommand } from "@aws-sdk/client-simspaceweaver"; // ES Modules import
- * // const { SimSpaceWeaverClient, StopSimulationCommand } = require("@aws-sdk/client-simspaceweaver"); // CommonJS import
+ * import { SimSpaceWeaverClient, StopSimulationCommand } from '@aws-sdk/client-simspaceweaver'; // ES Modules import
+ * // const { SimSpaceWeaverClient, StopSimulationCommand } = require('@aws-sdk/client-simspaceweaver'); // CommonJS import
  * const client = new SimSpaceWeaverClient(config);
  * const input = { // StopSimulationInput
- *   Simulation: "STRING_VALUE", // required
+ *   Simulation: 'STRING_VALUE', // required
  * };
  * const command = new StopSimulationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param StopSimulationCommandInput - {@link StopSimulationCommandInput}
@@ -71,6 +74,8 @@ export interface StopSimulationCommandOutput extends StopSimulationOutput, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p/>
  *
+ * @throws {@link SimSpaceWeaverServiceException}
+ * <p>Base exception class for all service exceptions from SimSpaceWeaver service.</p>
  *
  */
 export class StopSimulationCommand extends $Command<

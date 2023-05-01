@@ -41,15 +41,56 @@ export interface DeleteDBInstanceAutomatedBackupCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RDSClient, DeleteDBInstanceAutomatedBackupCommand } from "@aws-sdk/client-rds"; // ES Modules import
- * // const { RDSClient, DeleteDBInstanceAutomatedBackupCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * import { RDSClient, DeleteDBInstanceAutomatedBackupCommand } from '@aws-sdk/client-rds'; // ES Modules import
+ * // const { RDSClient, DeleteDBInstanceAutomatedBackupCommand } = require('@aws-sdk/client-rds'); // CommonJS import
  * const client = new RDSClient(config);
  * const input = { // DeleteDBInstanceAutomatedBackupMessage
- *   DbiResourceId: "STRING_VALUE",
- *   DBInstanceAutomatedBackupsArn: "STRING_VALUE",
+ *   DbiResourceId: 'STRING_VALUE',
+ *   DBInstanceAutomatedBackupsArn: 'STRING_VALUE',
  * };
  * const command = new DeleteDBInstanceAutomatedBackupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteDBInstanceAutomatedBackupResult
+ *   DBInstanceAutomatedBackup: { // DBInstanceAutomatedBackup
+ *     DBInstanceArn: 'STRING_VALUE',
+ *     DbiResourceId: 'STRING_VALUE',
+ *     Region: 'STRING_VALUE',
+ *     DBInstanceIdentifier: 'STRING_VALUE',
+ *     RestoreWindow: { // RestoreWindow
+ *       EarliestTime: new Date('TIMESTAMP'),
+ *       LatestTime: new Date('TIMESTAMP'),
+ *     },
+ *     AllocatedStorage: Number('int'),
+ *     Status: 'STRING_VALUE',
+ *     Port: Number('int'),
+ *     AvailabilityZone: 'STRING_VALUE',
+ *     VpcId: 'STRING_VALUE',
+ *     InstanceCreateTime: new Date('TIMESTAMP'),
+ *     MasterUsername: 'STRING_VALUE',
+ *     Engine: 'STRING_VALUE',
+ *     EngineVersion: 'STRING_VALUE',
+ *     LicenseModel: 'STRING_VALUE',
+ *     Iops: Number('int'),
+ *     OptionGroupName: 'STRING_VALUE',
+ *     TdeCredentialArn: 'STRING_VALUE',
+ *     Encrypted: true || false,
+ *     StorageType: 'STRING_VALUE',
+ *     KmsKeyId: 'STRING_VALUE',
+ *     Timezone: 'STRING_VALUE',
+ *     IAMDatabaseAuthenticationEnabled: true || false,
+ *     BackupRetentionPeriod: Number('int'),
+ *     DBInstanceAutomatedBackupsArn: 'STRING_VALUE',
+ *     DBInstanceAutomatedBackupsReplications: [ // DBInstanceAutomatedBackupsReplicationList
+ *       { // DBInstanceAutomatedBackupsReplication
+ *         DBInstanceAutomatedBackupsArn: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     BackupTarget: 'STRING_VALUE',
+ *     StorageThroughput: Number('int'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param DeleteDBInstanceAutomatedBackupCommandInput - {@link DeleteDBInstanceAutomatedBackupCommandInput}
@@ -65,6 +106,8 @@ export interface DeleteDBInstanceAutomatedBackupCommandOutput
  *  <p>The automated backup is in an invalid state.
  *             For example, this automated backup is associated with an active instance.</p>
  *
+ * @throws {@link RDSServiceException}
+ * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  * @example To delete a replicated automated backup from a Region
  * ```javascript

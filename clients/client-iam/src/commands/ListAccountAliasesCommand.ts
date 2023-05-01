@@ -38,15 +38,24 @@ export interface ListAccountAliasesCommandOutput extends ListAccountAliasesRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IAMClient, ListAccountAliasesCommand } from "@aws-sdk/client-iam"; // ES Modules import
- * // const { IAMClient, ListAccountAliasesCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * import { IAMClient, ListAccountAliasesCommand } from '@aws-sdk/client-iam'; // ES Modules import
+ * // const { IAMClient, ListAccountAliasesCommand } = require('@aws-sdk/client-iam'); // CommonJS import
  * const client = new IAMClient(config);
  * const input = { // ListAccountAliasesRequest
- *   Marker: "STRING_VALUE",
- *   MaxItems: Number("int"),
+ *   Marker: 'STRING_VALUE',
+ *   MaxItems: Number('int'),
  * };
  * const command = new ListAccountAliasesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListAccountAliasesResponse
+ *   AccountAliases: [ // accountAliasListType // required
+ *     'STRING_VALUE',
+ *   ],
+ *   IsTruncated: true || false,
+ *   Marker: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListAccountAliasesCommandInput - {@link ListAccountAliasesCommandInput}
@@ -59,6 +68,8 @@ export interface ListAccountAliasesCommandOutput extends ListAccountAliasesRespo
  *  <p>The request processing has failed because of an unknown error, exception or
  *       failure.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  * @example To list account aliases
  * ```javascript

@@ -45,20 +45,23 @@ export interface PutWarmPoolCommandOutput extends PutWarmPoolAnswer, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AutoScalingClient, PutWarmPoolCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
- * // const { AutoScalingClient, PutWarmPoolCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
+ * import { AutoScalingClient, PutWarmPoolCommand } from '@aws-sdk/client-auto-scaling'; // ES Modules import
+ * // const { AutoScalingClient, PutWarmPoolCommand } = require('@aws-sdk/client-auto-scaling'); // CommonJS import
  * const client = new AutoScalingClient(config);
  * const input = { // PutWarmPoolType
- *   AutoScalingGroupName: "STRING_VALUE", // required
- *   MaxGroupPreparedCapacity: Number("int"),
- *   MinSize: Number("int"),
- *   PoolState: "Stopped" || "Running" || "Hibernated",
+ *   AutoScalingGroupName: 'STRING_VALUE', // required
+ *   MaxGroupPreparedCapacity: Number('int'),
+ *   MinSize: Number('int'),
+ *   PoolState: 'Stopped' || 'Running' || 'Hibernated',
  *   InstanceReusePolicy: { // InstanceReusePolicy
  *     ReuseOnScaleIn: true || false,
  *   },
  * };
  * const command = new PutWarmPoolCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutWarmPoolCommandInput - {@link PutWarmPoolCommandInput}
@@ -77,6 +80,8 @@ export interface PutWarmPoolCommandOutput extends PutWarmPoolAnswer, __MetadataB
  *  <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group,
  *             instance, or load balancer).</p>
  *
+ * @throws {@link AutoScalingServiceException}
+ * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
  * @example To create a warm pool for an Auto Scaling group
  * ```javascript

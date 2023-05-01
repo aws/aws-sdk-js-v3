@@ -39,15 +39,30 @@ export interface GetMobileSdkReleaseCommandOutput extends GetMobileSdkReleaseRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WAFV2Client, GetMobileSdkReleaseCommand } from "@aws-sdk/client-wafv2"; // ES Modules import
- * // const { WAFV2Client, GetMobileSdkReleaseCommand } = require("@aws-sdk/client-wafv2"); // CommonJS import
+ * import { WAFV2Client, GetMobileSdkReleaseCommand } from '@aws-sdk/client-wafv2'; // ES Modules import
+ * // const { WAFV2Client, GetMobileSdkReleaseCommand } = require('@aws-sdk/client-wafv2'); // CommonJS import
  * const client = new WAFV2Client(config);
  * const input = { // GetMobileSdkReleaseRequest
- *   Platform: "IOS" || "ANDROID", // required
- *   ReleaseVersion: "STRING_VALUE", // required
+ *   Platform: 'IOS' || 'ANDROID', // required
+ *   ReleaseVersion: 'STRING_VALUE', // required
  * };
  * const command = new GetMobileSdkReleaseCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetMobileSdkReleaseResponse
+ *   MobileSdkRelease: { // MobileSdkRelease
+ *     ReleaseVersion: 'STRING_VALUE',
+ *     Timestamp: new Date('TIMESTAMP'),
+ *     ReleaseNotes: 'STRING_VALUE',
+ *     Tags: [ // TagList
+ *       { // Tag
+ *         Key: 'STRING_VALUE', // required
+ *         Value: 'STRING_VALUE', // required
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetMobileSdkReleaseCommandInput - {@link GetMobileSdkReleaseCommandInput}
@@ -90,6 +105,8 @@ export interface GetMobileSdkReleaseCommandOutput extends GetMobileSdkReleaseRes
  *        just need to wait a few minutes. It can take from a few seconds to a number of minutes
  *        for changes to propagate. </p>
  *
+ * @throws {@link WAFV2ServiceException}
+ * <p>Base exception class for all service exceptions from WAFV2 service.</p>
  *
  */
 export class GetMobileSdkReleaseCommand extends $Command<

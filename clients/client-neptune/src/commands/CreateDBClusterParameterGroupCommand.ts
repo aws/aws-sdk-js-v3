@@ -65,22 +65,32 @@ export interface CreateDBClusterParameterGroupCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { NeptuneClient, CreateDBClusterParameterGroupCommand } from "@aws-sdk/client-neptune"; // ES Modules import
- * // const { NeptuneClient, CreateDBClusterParameterGroupCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
+ * import { NeptuneClient, CreateDBClusterParameterGroupCommand } from '@aws-sdk/client-neptune'; // ES Modules import
+ * // const { NeptuneClient, CreateDBClusterParameterGroupCommand } = require('@aws-sdk/client-neptune'); // CommonJS import
  * const client = new NeptuneClient(config);
  * const input = { // CreateDBClusterParameterGroupMessage
- *   DBClusterParameterGroupName: "STRING_VALUE", // required
- *   DBParameterGroupFamily: "STRING_VALUE", // required
- *   Description: "STRING_VALUE", // required
+ *   DBClusterParameterGroupName: 'STRING_VALUE', // required
+ *   DBParameterGroupFamily: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE', // required
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE",
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new CreateDBClusterParameterGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateDBClusterParameterGroupResult
+ *   DBClusterParameterGroup: { // DBClusterParameterGroup
+ *     DBClusterParameterGroupName: 'STRING_VALUE',
+ *     DBParameterGroupFamily: 'STRING_VALUE',
+ *     Description: 'STRING_VALUE',
+ *     DBClusterParameterGroupArn: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateDBClusterParameterGroupCommandInput - {@link CreateDBClusterParameterGroupCommandInput}
@@ -95,6 +105,8 @@ export interface CreateDBClusterParameterGroupCommandOutput
  * @throws {@link DBParameterGroupQuotaExceededFault} (client fault)
  *  <p>Request would result in user exceeding the allowed number of DB parameter groups.</p>
  *
+ * @throws {@link NeptuneServiceException}
+ * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
  */
 export class CreateDBClusterParameterGroupCommand extends $Command<

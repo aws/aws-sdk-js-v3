@@ -87,75 +87,78 @@ export interface PutMetricAlarmCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudWatchClient, PutMetricAlarmCommand } from "@aws-sdk/client-cloudwatch"; // ES Modules import
- * // const { CloudWatchClient, PutMetricAlarmCommand } = require("@aws-sdk/client-cloudwatch"); // CommonJS import
+ * import { CloudWatchClient, PutMetricAlarmCommand } from '@aws-sdk/client-cloudwatch'; // ES Modules import
+ * // const { CloudWatchClient, PutMetricAlarmCommand } = require('@aws-sdk/client-cloudwatch'); // CommonJS import
  * const client = new CloudWatchClient(config);
  * const input = { // PutMetricAlarmInput
- *   AlarmName: "STRING_VALUE", // required
- *   AlarmDescription: "STRING_VALUE",
+ *   AlarmName: 'STRING_VALUE', // required
+ *   AlarmDescription: 'STRING_VALUE',
  *   ActionsEnabled: true || false,
  *   OKActions: [ // ResourceList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   AlarmActions: [
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   InsufficientDataActions: [
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   MetricName: "STRING_VALUE",
- *   Namespace: "STRING_VALUE",
- *   Statistic: "SampleCount" || "Average" || "Sum" || "Minimum" || "Maximum",
- *   ExtendedStatistic: "STRING_VALUE",
+ *   MetricName: 'STRING_VALUE',
+ *   Namespace: 'STRING_VALUE',
+ *   Statistic: 'SampleCount' || 'Average' || 'Sum' || 'Minimum' || 'Maximum',
+ *   ExtendedStatistic: 'STRING_VALUE',
  *   Dimensions: [ // Dimensions
  *     { // Dimension
- *       Name: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Name: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
- *   Period: Number("int"),
- *   Unit: "Seconds" || "Microseconds" || "Milliseconds" || "Bytes" || "Kilobytes" || "Megabytes" || "Gigabytes" || "Terabytes" || "Bits" || "Kilobits" || "Megabits" || "Gigabits" || "Terabits" || "Percent" || "Count" || "Bytes/Second" || "Kilobytes/Second" || "Megabytes/Second" || "Gigabytes/Second" || "Terabytes/Second" || "Bits/Second" || "Kilobits/Second" || "Megabits/Second" || "Gigabits/Second" || "Terabits/Second" || "Count/Second" || "None",
- *   EvaluationPeriods: Number("int"), // required
- *   DatapointsToAlarm: Number("int"),
- *   Threshold: Number("double"),
- *   ComparisonOperator: "GreaterThanOrEqualToThreshold" || "GreaterThanThreshold" || "LessThanThreshold" || "LessThanOrEqualToThreshold" || "LessThanLowerOrGreaterThanUpperThreshold" || "LessThanLowerThreshold" || "GreaterThanUpperThreshold", // required
- *   TreatMissingData: "STRING_VALUE",
- *   EvaluateLowSampleCountPercentile: "STRING_VALUE",
+ *   Period: Number('int'),
+ *   Unit: 'Seconds' || 'Microseconds' || 'Milliseconds' || 'Bytes' || 'Kilobytes' || 'Megabytes' || 'Gigabytes' || 'Terabytes' || 'Bits' || 'Kilobits' || 'Megabits' || 'Gigabits' || 'Terabits' || 'Percent' || 'Count' || 'Bytes/Second' || 'Kilobytes/Second' || 'Megabytes/Second' || 'Gigabytes/Second' || 'Terabytes/Second' || 'Bits/Second' || 'Kilobits/Second' || 'Megabits/Second' || 'Gigabits/Second' || 'Terabits/Second' || 'Count/Second' || 'None',
+ *   EvaluationPeriods: Number('int'), // required
+ *   DatapointsToAlarm: Number('int'),
+ *   Threshold: Number('double'),
+ *   ComparisonOperator: 'GreaterThanOrEqualToThreshold' || 'GreaterThanThreshold' || 'LessThanThreshold' || 'LessThanOrEqualToThreshold' || 'LessThanLowerOrGreaterThanUpperThreshold' || 'LessThanLowerThreshold' || 'GreaterThanUpperThreshold', // required
+ *   TreatMissingData: 'STRING_VALUE',
+ *   EvaluateLowSampleCountPercentile: 'STRING_VALUE',
  *   Metrics: [ // MetricDataQueries
  *     { // MetricDataQuery
- *       Id: "STRING_VALUE", // required
+ *       Id: 'STRING_VALUE', // required
  *       MetricStat: { // MetricStat
  *         Metric: { // Metric
- *           Namespace: "STRING_VALUE",
- *           MetricName: "STRING_VALUE",
+ *           Namespace: 'STRING_VALUE',
+ *           MetricName: 'STRING_VALUE',
  *           Dimensions: [
  *             {
- *               Name: "STRING_VALUE", // required
- *               Value: "STRING_VALUE", // required
+ *               Name: 'STRING_VALUE', // required
+ *               Value: 'STRING_VALUE', // required
  *             },
  *           ],
  *         },
- *         Period: Number("int"), // required
- *         Stat: "STRING_VALUE", // required
- *         Unit: "Seconds" || "Microseconds" || "Milliseconds" || "Bytes" || "Kilobytes" || "Megabytes" || "Gigabytes" || "Terabytes" || "Bits" || "Kilobits" || "Megabits" || "Gigabits" || "Terabits" || "Percent" || "Count" || "Bytes/Second" || "Kilobytes/Second" || "Megabytes/Second" || "Gigabytes/Second" || "Terabytes/Second" || "Bits/Second" || "Kilobits/Second" || "Megabits/Second" || "Gigabits/Second" || "Terabits/Second" || "Count/Second" || "None",
+ *         Period: Number('int'), // required
+ *         Stat: 'STRING_VALUE', // required
+ *         Unit: 'Seconds' || 'Microseconds' || 'Milliseconds' || 'Bytes' || 'Kilobytes' || 'Megabytes' || 'Gigabytes' || 'Terabytes' || 'Bits' || 'Kilobits' || 'Megabits' || 'Gigabits' || 'Terabits' || 'Percent' || 'Count' || 'Bytes/Second' || 'Kilobytes/Second' || 'Megabytes/Second' || 'Gigabytes/Second' || 'Terabytes/Second' || 'Bits/Second' || 'Kilobits/Second' || 'Megabits/Second' || 'Gigabits/Second' || 'Terabits/Second' || 'Count/Second' || 'None',
  *       },
- *       Expression: "STRING_VALUE",
- *       Label: "STRING_VALUE",
+ *       Expression: 'STRING_VALUE',
+ *       Label: 'STRING_VALUE',
  *       ReturnData: true || false,
- *       Period: Number("int"),
- *       AccountId: "STRING_VALUE",
+ *       Period: Number('int'),
+ *       AccountId: 'STRING_VALUE',
  *     },
  *   ],
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
- *   ThresholdMetricId: "STRING_VALUE",
+ *   ThresholdMetricId: 'STRING_VALUE',
  * };
  * const command = new PutMetricAlarmCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutMetricAlarmCommandInput - {@link PutMetricAlarmCommandInput}
@@ -167,6 +170,8 @@ export interface PutMetricAlarmCommandOutput extends __MetadataBearer {}
  * @throws {@link LimitExceededFault} (client fault)
  *  <p>The quota for alarms for this customer has already been reached.</p>
  *
+ * @throws {@link CloudWatchServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatch service.</p>
  *
  */
 export class PutMetricAlarmCommand extends $Command<

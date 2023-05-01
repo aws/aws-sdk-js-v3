@@ -37,33 +37,39 @@ export interface CreateDomainConfigurationCommandOutput extends CreateDomainConf
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTClient, CreateDomainConfigurationCommand } from "@aws-sdk/client-iot"; // ES Modules import
- * // const { IoTClient, CreateDomainConfigurationCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * import { IoTClient, CreateDomainConfigurationCommand } from '@aws-sdk/client-iot'; // ES Modules import
+ * // const { IoTClient, CreateDomainConfigurationCommand } = require('@aws-sdk/client-iot'); // CommonJS import
  * const client = new IoTClient(config);
  * const input = { // CreateDomainConfigurationRequest
- *   domainConfigurationName: "STRING_VALUE", // required
- *   domainName: "STRING_VALUE",
+ *   domainConfigurationName: 'STRING_VALUE', // required
+ *   domainName: 'STRING_VALUE',
  *   serverCertificateArns: [ // ServerCertificateArns
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   validationCertificateArn: "STRING_VALUE",
+ *   validationCertificateArn: 'STRING_VALUE',
  *   authorizerConfig: { // AuthorizerConfig
- *     defaultAuthorizerName: "STRING_VALUE",
+ *     defaultAuthorizerName: 'STRING_VALUE',
  *     allowAuthorizerOverride: true || false,
  *   },
- *   serviceType: "DATA" || "CREDENTIAL_PROVIDER" || "JOBS",
+ *   serviceType: 'DATA' || 'CREDENTIAL_PROVIDER' || 'JOBS',
  *   tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
  *   tlsConfig: { // TlsConfig
- *     securityPolicy: "STRING_VALUE",
+ *     securityPolicy: 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateDomainConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateDomainConfigurationResponse
+ *   domainConfigurationName: 'STRING_VALUE',
+ *   domainConfigurationArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateDomainConfigurationCommandInput - {@link CreateDomainConfigurationCommandInput}
@@ -96,6 +102,8 @@ export interface CreateDomainConfigurationCommandOutput extends CreateDomainConf
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this operation.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class CreateDomainConfigurationCommand extends $Command<

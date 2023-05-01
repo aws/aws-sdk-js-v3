@@ -45,23 +45,28 @@ export interface UpdateDomainNameserversCommandOutput extends UpdateDomainNamese
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Route53DomainsClient, UpdateDomainNameserversCommand } from "@aws-sdk/client-route-53-domains"; // ES Modules import
- * // const { Route53DomainsClient, UpdateDomainNameserversCommand } = require("@aws-sdk/client-route-53-domains"); // CommonJS import
+ * import { Route53DomainsClient, UpdateDomainNameserversCommand } from '@aws-sdk/client-route-53-domains'; // ES Modules import
+ * // const { Route53DomainsClient, UpdateDomainNameserversCommand } = require('@aws-sdk/client-route-53-domains'); // CommonJS import
  * const client = new Route53DomainsClient(config);
  * const input = { // UpdateDomainNameserversRequest
- *   DomainName: "STRING_VALUE", // required
- *   FIAuthKey: "STRING_VALUE",
+ *   DomainName: 'STRING_VALUE', // required
+ *   FIAuthKey: 'STRING_VALUE',
  *   Nameservers: [ // NameserverList // required
  *     { // Nameserver
- *       Name: "STRING_VALUE", // required
+ *       Name: 'STRING_VALUE', // required
  *       GlueIps: [ // GlueIpList
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
  * };
  * const command = new UpdateDomainNameserversCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateDomainNameserversResponse
+ *   OperationId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateDomainNameserversCommandInput - {@link UpdateDomainNameserversCommandInput}
@@ -89,6 +94,8 @@ export interface UpdateDomainNameserversCommandOutput extends UpdateDomainNamese
  * @throws {@link UnsupportedTLD} (client fault)
  *  <p>Amazon Route 53 does not support this top-level domain (TLD).</p>
  *
+ * @throws {@link Route53DomainsServiceException}
+ * <p>Base exception class for all service exceptions from Route53Domains service.</p>
  *
  */
 export class UpdateDomainNameserversCommand extends $Command<

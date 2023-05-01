@@ -36,14 +36,51 @@ export interface ListAccessControlRulesCommandOutput extends ListAccessControlRu
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkMailClient, ListAccessControlRulesCommand } from "@aws-sdk/client-workmail"; // ES Modules import
- * // const { WorkMailClient, ListAccessControlRulesCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
+ * import { WorkMailClient, ListAccessControlRulesCommand } from '@aws-sdk/client-workmail'; // ES Modules import
+ * // const { WorkMailClient, ListAccessControlRulesCommand } = require('@aws-sdk/client-workmail'); // CommonJS import
  * const client = new WorkMailClient(config);
  * const input = { // ListAccessControlRulesRequest
- *   OrganizationId: "STRING_VALUE", // required
+ *   OrganizationId: 'STRING_VALUE', // required
  * };
  * const command = new ListAccessControlRulesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListAccessControlRulesResponse
+ *   Rules: [ // AccessControlRulesList
+ *     { // AccessControlRule
+ *       Name: 'STRING_VALUE',
+ *       Effect: 'ALLOW' || 'DENY',
+ *       Description: 'STRING_VALUE',
+ *       IpRanges: [ // IpRangeList
+ *         'STRING_VALUE',
+ *       ],
+ *       NotIpRanges: [
+ *         'STRING_VALUE',
+ *       ],
+ *       Actions: [ // ActionsList
+ *         'STRING_VALUE',
+ *       ],
+ *       NotActions: [
+ *         'STRING_VALUE',
+ *       ],
+ *       UserIds: [ // UserIdList
+ *         'STRING_VALUE',
+ *       ],
+ *       NotUserIds: [
+ *         'STRING_VALUE',
+ *       ],
+ *       DateCreated: new Date('TIMESTAMP'),
+ *       DateModified: new Date('TIMESTAMP'),
+ *       ImpersonationRoleIds: [ // ImpersonationRoleIdList
+ *         'STRING_VALUE',
+ *       ],
+ *       NotImpersonationRoleIds: [
+ *         'STRING_VALUE',
+ *       ],
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListAccessControlRulesCommandInput - {@link ListAccessControlRulesCommandInput}
@@ -60,6 +97,8 @@ export interface ListAccessControlRulesCommandOutput extends ListAccessControlRu
  *  <p>The organization must have a valid state to perform certain
  *          operations on the organization or its members.</p>
  *
+ * @throws {@link WorkMailServiceException}
+ * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
  */
 export class ListAccessControlRulesCommand extends $Command<

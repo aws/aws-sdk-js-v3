@@ -38,16 +38,49 @@ export interface GetInsightEventsCommandOutput extends GetInsightEventsResult, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { XRayClient, GetInsightEventsCommand } from "@aws-sdk/client-xray"; // ES Modules import
- * // const { XRayClient, GetInsightEventsCommand } = require("@aws-sdk/client-xray"); // CommonJS import
+ * import { XRayClient, GetInsightEventsCommand } from '@aws-sdk/client-xray'; // ES Modules import
+ * // const { XRayClient, GetInsightEventsCommand } = require('@aws-sdk/client-xray'); // CommonJS import
  * const client = new XRayClient(config);
  * const input = { // GetInsightEventsRequest
- *   InsightId: "STRING_VALUE", // required
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   InsightId: 'STRING_VALUE', // required
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new GetInsightEventsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetInsightEventsResult
+ *   InsightEvents: [ // InsightEventList
+ *     { // InsightEvent
+ *       Summary: 'STRING_VALUE',
+ *       EventTime: new Date('TIMESTAMP'),
+ *       ClientRequestImpactStatistics: { // RequestImpactStatistics
+ *         FaultCount: Number('long'),
+ *         OkCount: Number('long'),
+ *         TotalCount: Number('long'),
+ *       },
+ *       RootCauseServiceRequestImpactStatistics: {
+ *         FaultCount: Number('long'),
+ *         OkCount: Number('long'),
+ *         TotalCount: Number('long'),
+ *       },
+ *       TopAnomalousServices: [ // AnomalousServiceList
+ *         { // AnomalousService
+ *           ServiceId: { // ServiceId
+ *             Name: 'STRING_VALUE',
+ *             Names: [ // ServiceNames
+ *               'STRING_VALUE',
+ *             ],
+ *             AccountId: 'STRING_VALUE',
+ *             Type: 'STRING_VALUE',
+ *           },
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetInsightEventsCommandInput - {@link GetInsightEventsCommandInput}
@@ -62,6 +95,8 @@ export interface GetInsightEventsCommandOutput extends GetInsightEventsResult, _
  * @throws {@link ThrottledException} (client fault)
  *  <p>The request exceeds the maximum number of requests per second.</p>
  *
+ * @throws {@link XRayServiceException}
+ * <p>Base exception class for all service exceptions from XRay service.</p>
  *
  */
 export class GetInsightEventsCommand extends $Command<

@@ -36,86 +36,86 @@ export interface UpdateDatasetCommandOutput extends UpdateDatasetResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DataBrewClient, UpdateDatasetCommand } from "@aws-sdk/client-databrew"; // ES Modules import
- * // const { DataBrewClient, UpdateDatasetCommand } = require("@aws-sdk/client-databrew"); // CommonJS import
+ * import { DataBrewClient, UpdateDatasetCommand } from '@aws-sdk/client-databrew'; // ES Modules import
+ * // const { DataBrewClient, UpdateDatasetCommand } = require('@aws-sdk/client-databrew'); // CommonJS import
  * const client = new DataBrewClient(config);
  * const input = { // UpdateDatasetRequest
- *   Name: "STRING_VALUE", // required
- *   Format: "CSV" || "JSON" || "PARQUET" || "EXCEL" || "ORC",
+ *   Name: 'STRING_VALUE', // required
+ *   Format: 'CSV' || 'JSON' || 'PARQUET' || 'EXCEL' || 'ORC',
  *   FormatOptions: { // FormatOptions
  *     Json: { // JsonOptions
  *       MultiLine: true || false,
  *     },
  *     Excel: { // ExcelOptions
  *       SheetNames: [ // SheetNameList
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *       SheetIndexes: [ // SheetIndexList
- *         Number("int"),
+ *         Number('int'),
  *       ],
  *       HeaderRow: true || false,
  *     },
  *     Csv: { // CsvOptions
- *       Delimiter: "STRING_VALUE",
+ *       Delimiter: 'STRING_VALUE',
  *       HeaderRow: true || false,
  *     },
  *   },
  *   Input: { // Input
  *     S3InputDefinition: { // S3Location
- *       Bucket: "STRING_VALUE", // required
- *       Key: "STRING_VALUE",
- *       BucketOwner: "STRING_VALUE",
+ *       Bucket: 'STRING_VALUE', // required
+ *       Key: 'STRING_VALUE',
+ *       BucketOwner: 'STRING_VALUE',
  *     },
  *     DataCatalogInputDefinition: { // DataCatalogInputDefinition
- *       CatalogId: "STRING_VALUE",
- *       DatabaseName: "STRING_VALUE", // required
- *       TableName: "STRING_VALUE", // required
+ *       CatalogId: 'STRING_VALUE',
+ *       DatabaseName: 'STRING_VALUE', // required
+ *       TableName: 'STRING_VALUE', // required
  *       TempDirectory: {
- *         Bucket: "STRING_VALUE", // required
- *         Key: "STRING_VALUE",
- *         BucketOwner: "STRING_VALUE",
+ *         Bucket: 'STRING_VALUE', // required
+ *         Key: 'STRING_VALUE',
+ *         BucketOwner: 'STRING_VALUE',
  *       },
  *     },
  *     DatabaseInputDefinition: { // DatabaseInputDefinition
- *       GlueConnectionName: "STRING_VALUE", // required
- *       DatabaseTableName: "STRING_VALUE",
+ *       GlueConnectionName: 'STRING_VALUE', // required
+ *       DatabaseTableName: 'STRING_VALUE',
  *       TempDirectory: {
- *         Bucket: "STRING_VALUE", // required
- *         Key: "STRING_VALUE",
- *         BucketOwner: "STRING_VALUE",
+ *         Bucket: 'STRING_VALUE', // required
+ *         Key: 'STRING_VALUE',
+ *         BucketOwner: 'STRING_VALUE',
  *       },
- *       QueryString: "STRING_VALUE",
+ *       QueryString: 'STRING_VALUE',
  *     },
  *     Metadata: { // Metadata
- *       SourceArn: "STRING_VALUE",
+ *       SourceArn: 'STRING_VALUE',
  *     },
  *   },
  *   PathOptions: { // PathOptions
  *     LastModifiedDateCondition: { // FilterExpression
- *       Expression: "STRING_VALUE", // required
+ *       Expression: 'STRING_VALUE', // required
  *       ValuesMap: { // ValuesMap // required
- *         "<keys>": "STRING_VALUE",
+ *         '<keys>': 'STRING_VALUE',
  *       },
  *     },
  *     FilesLimit: { // FilesLimit
- *       MaxFiles: Number("int"), // required
- *       OrderedBy: "LAST_MODIFIED_DATE",
- *       Order: "DESCENDING" || "ASCENDING",
+ *       MaxFiles: Number('int'), // required
+ *       OrderedBy: 'LAST_MODIFIED_DATE',
+ *       Order: 'DESCENDING' || 'ASCENDING',
  *     },
  *     Parameters: { // PathParametersMap
- *       "<keys>": { // DatasetParameter
- *         Name: "STRING_VALUE", // required
- *         Type: "Datetime" || "Number" || "String", // required
+ *       '<keys>': { // DatasetParameter
+ *         Name: 'STRING_VALUE', // required
+ *         Type: 'Datetime' || 'Number' || 'String', // required
  *         DatetimeOptions: { // DatetimeOptions
- *           Format: "STRING_VALUE", // required
- *           TimezoneOffset: "STRING_VALUE",
- *           LocaleCode: "STRING_VALUE",
+ *           Format: 'STRING_VALUE', // required
+ *           TimezoneOffset: 'STRING_VALUE',
+ *           LocaleCode: 'STRING_VALUE',
  *         },
  *         CreateColumn: true || false,
  *         Filter: {
- *           Expression: "STRING_VALUE", // required
+ *           Expression: 'STRING_VALUE', // required
  *           ValuesMap: { // required
- *             "<keys>": "STRING_VALUE",
+ *             '<keys>': 'STRING_VALUE',
  *           },
  *         },
  *       },
@@ -124,6 +124,11 @@ export interface UpdateDatasetCommandOutput extends UpdateDatasetResponse, __Met
  * };
  * const command = new UpdateDatasetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateDatasetResponse
+ *   Name: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param UpdateDatasetCommandInput - {@link UpdateDatasetCommandInput}
@@ -141,6 +146,8 @@ export interface UpdateDatasetCommandOutput extends UpdateDatasetResponse, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>The input parameters for this request failed validation.</p>
  *
+ * @throws {@link DataBrewServiceException}
+ * <p>Base exception class for all service exceptions from DataBrew service.</p>
  *
  */
 export class UpdateDatasetCommand extends $Command<

@@ -46,17 +46,25 @@ export interface TerminateSolNetworkInstanceCommandOutput extends TerminateSolNe
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { TnbClient, TerminateSolNetworkInstanceCommand } from "@aws-sdk/client-tnb"; // ES Modules import
- * // const { TnbClient, TerminateSolNetworkInstanceCommand } = require("@aws-sdk/client-tnb"); // CommonJS import
+ * import { TnbClient, TerminateSolNetworkInstanceCommand } from '@aws-sdk/client-tnb'; // ES Modules import
+ * // const { TnbClient, TerminateSolNetworkInstanceCommand } = require('@aws-sdk/client-tnb'); // CommonJS import
  * const client = new TnbClient(config);
  * const input = { // TerminateSolNetworkInstanceInput
- *   nsInstanceId: "STRING_VALUE", // required
+ *   nsInstanceId: 'STRING_VALUE', // required
  *   tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new TerminateSolNetworkInstanceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // TerminateSolNetworkInstanceOutput
+ *   nsLcmOpOccId: 'STRING_VALUE',
+ *   tags: { // TagMap
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param TerminateSolNetworkInstanceCommandInput - {@link TerminateSolNetworkInstanceCommandInput}
@@ -83,6 +91,8 @@ export interface TerminateSolNetworkInstanceCommandOutput extends TerminateSolNe
  * @throws {@link ValidationException} (client fault)
  *  <p>Unable to process the request because the client provided input failed to satisfy request constraints.</p>
  *
+ * @throws {@link TnbServiceException}
+ * <p>Base exception class for all service exceptions from Tnb service.</p>
  *
  */
 export class TerminateSolNetworkInstanceCommand extends $Command<

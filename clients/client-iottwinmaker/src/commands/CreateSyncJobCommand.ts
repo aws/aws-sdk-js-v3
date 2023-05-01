@@ -36,19 +36,26 @@ export interface CreateSyncJobCommandOutput extends CreateSyncJobResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTTwinMakerClient, CreateSyncJobCommand } from "@aws-sdk/client-iottwinmaker"; // ES Modules import
- * // const { IoTTwinMakerClient, CreateSyncJobCommand } = require("@aws-sdk/client-iottwinmaker"); // CommonJS import
+ * import { IoTTwinMakerClient, CreateSyncJobCommand } from '@aws-sdk/client-iottwinmaker'; // ES Modules import
+ * // const { IoTTwinMakerClient, CreateSyncJobCommand } = require('@aws-sdk/client-iottwinmaker'); // CommonJS import
  * const client = new IoTTwinMakerClient(config);
  * const input = { // CreateSyncJobRequest
- *   workspaceId: "STRING_VALUE", // required
- *   syncSource: "STRING_VALUE", // required
- *   syncRole: "STRING_VALUE", // required
+ *   workspaceId: 'STRING_VALUE', // required
+ *   syncSource: 'STRING_VALUE', // required
+ *   syncRole: 'STRING_VALUE', // required
  *   tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateSyncJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateSyncJobResponse
+ *   arn: 'STRING_VALUE', // required
+ *   creationDateTime: new Date('TIMESTAMP'), // required
+ *   state: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param CreateSyncJobCommandInput - {@link CreateSyncJobCommandInput}
@@ -75,6 +82,8 @@ export interface CreateSyncJobCommandOutput extends CreateSyncJobResponse, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>Failed</p>
  *
+ * @throws {@link IoTTwinMakerServiceException}
+ * <p>Base exception class for all service exceptions from IoTTwinMaker service.</p>
  *
  */
 export class CreateSyncJobCommand extends $Command<

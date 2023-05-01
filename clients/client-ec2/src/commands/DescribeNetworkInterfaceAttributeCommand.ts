@@ -41,16 +41,49 @@ export interface DescribeNetworkInterfaceAttributeCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, DescribeNetworkInterfaceAttributeCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, DescribeNetworkInterfaceAttributeCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, DescribeNetworkInterfaceAttributeCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, DescribeNetworkInterfaceAttributeCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // DescribeNetworkInterfaceAttributeRequest
- *   Attribute: "description" || "groupSet" || "sourceDestCheck" || "attachment",
+ *   Attribute: 'description' || 'groupSet' || 'sourceDestCheck' || 'attachment',
  *   DryRun: true || false,
- *   NetworkInterfaceId: "STRING_VALUE", // required
+ *   NetworkInterfaceId: 'STRING_VALUE', // required
  * };
  * const command = new DescribeNetworkInterfaceAttributeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeNetworkInterfaceAttributeResult
+ *   Attachment: { // NetworkInterfaceAttachment
+ *     AttachTime: new Date('TIMESTAMP'),
+ *     AttachmentId: 'STRING_VALUE',
+ *     DeleteOnTermination: true || false,
+ *     DeviceIndex: Number('int'),
+ *     NetworkCardIndex: Number('int'),
+ *     InstanceId: 'STRING_VALUE',
+ *     InstanceOwnerId: 'STRING_VALUE',
+ *     Status: 'attaching' || 'attached' || 'detaching' || 'detached',
+ *     EnaSrdSpecification: { // AttachmentEnaSrdSpecification
+ *       EnaSrdEnabled: true || false,
+ *       EnaSrdUdpSpecification: { // AttachmentEnaSrdUdpSpecification
+ *         EnaSrdUdpEnabled: true || false,
+ *       },
+ *     },
+ *   },
+ *   Description: { // AttributeValue
+ *     Value: 'STRING_VALUE',
+ *   },
+ *   Groups: [ // GroupIdentifierList
+ *     { // GroupIdentifier
+ *       GroupName: 'STRING_VALUE',
+ *       GroupId: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NetworkInterfaceId: 'STRING_VALUE',
+ *   SourceDestCheck: { // AttributeBooleanValue
+ *     Value: true || false,
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeNetworkInterfaceAttributeCommandInput - {@link DescribeNetworkInterfaceAttributeCommandInput}
@@ -59,6 +92,8 @@ export interface DescribeNetworkInterfaceAttributeCommandOutput
  * @see {@link DescribeNetworkInterfaceAttributeCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @example To describe the attachment attribute of a network interface
  * ```javascript

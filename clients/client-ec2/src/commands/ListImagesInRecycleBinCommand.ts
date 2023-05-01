@@ -38,19 +38,33 @@ export interface ListImagesInRecycleBinCommandOutput extends ListImagesInRecycle
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, ListImagesInRecycleBinCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, ListImagesInRecycleBinCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, ListImagesInRecycleBinCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, ListImagesInRecycleBinCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // ListImagesInRecycleBinRequest
  *   ImageIds: [ // ImageIdStringList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  *   DryRun: true || false,
  * };
  * const command = new ListImagesInRecycleBinCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListImagesInRecycleBinResult
+ *   Images: [ // ImageRecycleBinInfoList
+ *     { // ImageRecycleBinInfo
+ *       ImageId: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *       Description: 'STRING_VALUE',
+ *       RecycleBinEnterTime: new Date('TIMESTAMP'),
+ *       RecycleBinExitTime: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListImagesInRecycleBinCommandInput - {@link ListImagesInRecycleBinCommandInput}
@@ -59,6 +73,8 @@ export interface ListImagesInRecycleBinCommandOutput extends ListImagesInRecycle
  * @see {@link ListImagesInRecycleBinCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class ListImagesInRecycleBinCommand extends $Command<

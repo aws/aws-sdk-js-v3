@@ -36,15 +36,23 @@ export interface ListBranchesCommandOutput extends ListBranchesOutput, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeCommitClient, ListBranchesCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
- * // const { CodeCommitClient, ListBranchesCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
+ * import { CodeCommitClient, ListBranchesCommand } from '@aws-sdk/client-codecommit'; // ES Modules import
+ * // const { CodeCommitClient, ListBranchesCommand } = require('@aws-sdk/client-codecommit'); // CommonJS import
  * const client = new CodeCommitClient(config);
  * const input = { // ListBranchesInput
- *   repositoryName: "STRING_VALUE", // required
- *   nextToken: "STRING_VALUE",
+ *   repositoryName: 'STRING_VALUE', // required
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new ListBranchesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListBranchesOutput
+ *   branches: [ // BranchNameList
+ *     'STRING_VALUE',
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListBranchesCommandInput - {@link ListBranchesCommandInput}
@@ -86,6 +94,8 @@ export interface ListBranchesCommandOutput extends ListBranchesOutput, __Metadat
  * @throws {@link RepositoryNameRequiredException} (client fault)
  *  <p>A repository name is required, but was not specified.</p>
  *
+ * @throws {@link CodeCommitServiceException}
+ * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
  */
 export class ListBranchesCommand extends $Command<

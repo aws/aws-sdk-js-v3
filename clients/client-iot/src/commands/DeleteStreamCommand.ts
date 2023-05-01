@@ -37,14 +37,17 @@ export interface DeleteStreamCommandOutput extends DeleteStreamResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTClient, DeleteStreamCommand } from "@aws-sdk/client-iot"; // ES Modules import
- * // const { IoTClient, DeleteStreamCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * import { IoTClient, DeleteStreamCommand } from '@aws-sdk/client-iot'; // ES Modules import
+ * // const { IoTClient, DeleteStreamCommand } = require('@aws-sdk/client-iot'); // CommonJS import
  * const client = new IoTClient(config);
  * const input = { // DeleteStreamRequest
- *   streamId: "STRING_VALUE", // required
+ *   streamId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteStreamCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteStreamCommandInput - {@link DeleteStreamCommandInput}
@@ -75,6 +78,8 @@ export interface DeleteStreamCommandOutput extends DeleteStreamResponse, __Metad
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this operation.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class DeleteStreamCommand extends $Command<

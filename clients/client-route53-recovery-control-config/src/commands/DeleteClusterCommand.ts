@@ -40,14 +40,17 @@ export interface DeleteClusterCommandOutput extends DeleteClusterResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Route53RecoveryControlConfigClient, DeleteClusterCommand } from "@aws-sdk/client-route53-recovery-control-config"; // ES Modules import
- * // const { Route53RecoveryControlConfigClient, DeleteClusterCommand } = require("@aws-sdk/client-route53-recovery-control-config"); // CommonJS import
+ * import { Route53RecoveryControlConfigClient, DeleteClusterCommand } from '@aws-sdk/client-route53-recovery-control-config'; // ES Modules import
+ * // const { Route53RecoveryControlConfigClient, DeleteClusterCommand } = require('@aws-sdk/client-route53-recovery-control-config'); // CommonJS import
  * const client = new Route53RecoveryControlConfigClient(config);
  * const input = { // DeleteClusterRequest
- *   ClusterArn: "STRING_VALUE", // required
+ *   ClusterArn: 'STRING_VALUE', // required
  * };
  * const command = new DeleteClusterCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteClusterCommandInput - {@link DeleteClusterCommandInput}
@@ -74,6 +77,8 @@ export interface DeleteClusterCommandOutput extends DeleteClusterResponse, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>400 response - Multiple causes. For example, you might have a malformed query string and input parameter might be out of range, or you might have used parameters together incorrectly.</p>
  *
+ * @throws {@link Route53RecoveryControlConfigServiceException}
+ * <p>Base exception class for all service exceptions from Route53RecoveryControlConfig service.</p>
  *
  */
 export class DeleteClusterCommand extends $Command<

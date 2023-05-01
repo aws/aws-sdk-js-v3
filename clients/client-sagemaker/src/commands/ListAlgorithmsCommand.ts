@@ -36,20 +36,34 @@ export interface ListAlgorithmsCommandOutput extends ListAlgorithmsOutput, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, ListAlgorithmsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, ListAlgorithmsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, ListAlgorithmsCommand } from '@aws-sdk/client-sagemaker'; // ES Modules import
+ * // const { SageMakerClient, ListAlgorithmsCommand } = require('@aws-sdk/client-sagemaker'); // CommonJS import
  * const client = new SageMakerClient(config);
  * const input = { // ListAlgorithmsInput
- *   CreationTimeAfter: new Date("TIMESTAMP"),
- *   CreationTimeBefore: new Date("TIMESTAMP"),
- *   MaxResults: Number("int"),
- *   NameContains: "STRING_VALUE",
- *   NextToken: "STRING_VALUE",
- *   SortBy: "Name" || "CreationTime",
- *   SortOrder: "Ascending" || "Descending",
+ *   CreationTimeAfter: new Date('TIMESTAMP'),
+ *   CreationTimeBefore: new Date('TIMESTAMP'),
+ *   MaxResults: Number('int'),
+ *   NameContains: 'STRING_VALUE',
+ *   NextToken: 'STRING_VALUE',
+ *   SortBy: 'Name' || 'CreationTime',
+ *   SortOrder: 'Ascending' || 'Descending',
  * };
  * const command = new ListAlgorithmsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListAlgorithmsOutput
+ *   AlgorithmSummaryList: [ // AlgorithmSummaryList // required
+ *     { // AlgorithmSummary
+ *       AlgorithmName: 'STRING_VALUE', // required
+ *       AlgorithmArn: 'STRING_VALUE', // required
+ *       AlgorithmDescription: 'STRING_VALUE',
+ *       CreationTime: new Date('TIMESTAMP'), // required
+ *       AlgorithmStatus: 'Pending' || 'InProgress' || 'Completed' || 'Failed' || 'Deleting', // required
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListAlgorithmsCommandInput - {@link ListAlgorithmsCommandInput}
@@ -58,6 +72,8 @@ export interface ListAlgorithmsCommandOutput extends ListAlgorithmsOutput, __Met
  * @see {@link ListAlgorithmsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class ListAlgorithmsCommand extends $Command<

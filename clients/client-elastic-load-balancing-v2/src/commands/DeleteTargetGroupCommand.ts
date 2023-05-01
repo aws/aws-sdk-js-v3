@@ -44,14 +44,17 @@ export interface DeleteTargetGroupCommandOutput extends DeleteTargetGroupOutput,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElasticLoadBalancingV2Client, DeleteTargetGroupCommand } from "@aws-sdk/client-elastic-load-balancing-v2"; // ES Modules import
- * // const { ElasticLoadBalancingV2Client, DeleteTargetGroupCommand } = require("@aws-sdk/client-elastic-load-balancing-v2"); // CommonJS import
+ * import { ElasticLoadBalancingV2Client, DeleteTargetGroupCommand } from '@aws-sdk/client-elastic-load-balancing-v2'; // ES Modules import
+ * // const { ElasticLoadBalancingV2Client, DeleteTargetGroupCommand } = require('@aws-sdk/client-elastic-load-balancing-v2'); // CommonJS import
  * const client = new ElasticLoadBalancingV2Client(config);
  * const input = { // DeleteTargetGroupInput
- *   TargetGroupArn: "STRING_VALUE", // required
+ *   TargetGroupArn: 'STRING_VALUE', // required
  * };
  * const command = new DeleteTargetGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteTargetGroupCommandInput - {@link DeleteTargetGroupCommandInput}
@@ -63,6 +66,8 @@ export interface DeleteTargetGroupCommandOutput extends DeleteTargetGroupOutput,
  * @throws {@link ResourceInUseException} (client fault)
  *  <p>A specified resource is in use.</p>
  *
+ * @throws {@link ElasticLoadBalancingV2ServiceException}
+ * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
  * @example To delete a target group
  * ```javascript

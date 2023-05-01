@@ -36,16 +36,24 @@ export interface DeleteRefreshScheduleCommandOutput extends DeleteRefreshSchedul
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { QuickSightClient, DeleteRefreshScheduleCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
- * // const { QuickSightClient, DeleteRefreshScheduleCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * import { QuickSightClient, DeleteRefreshScheduleCommand } from '@aws-sdk/client-quicksight'; // ES Modules import
+ * // const { QuickSightClient, DeleteRefreshScheduleCommand } = require('@aws-sdk/client-quicksight'); // CommonJS import
  * const client = new QuickSightClient(config);
  * const input = { // DeleteRefreshScheduleRequest
- *   DataSetId: "STRING_VALUE", // required
- *   AwsAccountId: "STRING_VALUE", // required
- *   ScheduleId: "STRING_VALUE", // required
+ *   DataSetId: 'STRING_VALUE', // required
+ *   AwsAccountId: 'STRING_VALUE', // required
+ *   ScheduleId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteRefreshScheduleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteRefreshScheduleResponse
+ *   Status: Number('int'),
+ *   RequestId: 'STRING_VALUE',
+ *   ScheduleId: 'STRING_VALUE',
+ *   Arn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DeleteRefreshScheduleCommandInput - {@link DeleteRefreshScheduleCommandInput}
@@ -75,6 +83,8 @@ export interface DeleteRefreshScheduleCommandOutput extends DeleteRefreshSchedul
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Access is throttled.</p>
  *
+ * @throws {@link QuickSightServiceException}
+ * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
 export class DeleteRefreshScheduleCommand extends $Command<

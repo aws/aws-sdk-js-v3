@@ -40,12 +40,22 @@ export interface DescribeRegionSettingsCommandOutput extends DescribeRegionSetti
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BackupClient, DescribeRegionSettingsCommand } from "@aws-sdk/client-backup"; // ES Modules import
- * // const { BackupClient, DescribeRegionSettingsCommand } = require("@aws-sdk/client-backup"); // CommonJS import
+ * import { BackupClient, DescribeRegionSettingsCommand } from '@aws-sdk/client-backup'; // ES Modules import
+ * // const { BackupClient, DescribeRegionSettingsCommand } = require('@aws-sdk/client-backup'); // CommonJS import
  * const client = new BackupClient(config);
  * const input = {};
  * const command = new DescribeRegionSettingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeRegionSettingsOutput
+ *   ResourceTypeOptInPreference: { // ResourceTypeOptInPreference
+ *     '<keys>': true || false,
+ *   },
+ *   ResourceTypeManagementPreference: { // ResourceTypeManagementPreference
+ *     '<keys>': true || false,
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeRegionSettingsCommandInput - {@link DescribeRegionSettingsCommandInput}
@@ -57,6 +67,8 @@ export interface DescribeRegionSettingsCommandOutput extends DescribeRegionSetti
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request failed due to a temporary failure of the server.</p>
  *
+ * @throws {@link BackupServiceException}
+ * <p>Base exception class for all service exceptions from Backup service.</p>
  *
  */
 export class DescribeRegionSettingsCommand extends $Command<

@@ -36,25 +36,68 @@ export interface SearchProductsAsAdminCommandOutput extends SearchProductsAsAdmi
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ServiceCatalogClient, SearchProductsAsAdminCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
- * // const { ServiceCatalogClient, SearchProductsAsAdminCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
+ * import { ServiceCatalogClient, SearchProductsAsAdminCommand } from '@aws-sdk/client-service-catalog'; // ES Modules import
+ * // const { ServiceCatalogClient, SearchProductsAsAdminCommand } = require('@aws-sdk/client-service-catalog'); // CommonJS import
  * const client = new ServiceCatalogClient(config);
  * const input = { // SearchProductsAsAdminInput
- *   AcceptLanguage: "STRING_VALUE",
- *   PortfolioId: "STRING_VALUE",
+ *   AcceptLanguage: 'STRING_VALUE',
+ *   PortfolioId: 'STRING_VALUE',
  *   Filters: { // ProductViewFilters
- *     "<keys>": [ // ProductViewFilterValues
- *       "STRING_VALUE",
+ *     '<keys>': [ // ProductViewFilterValues
+ *       'STRING_VALUE',
  *     ],
  *   },
- *   SortBy: "Title" || "VersionCount" || "CreationDate",
- *   SortOrder: "ASCENDING" || "DESCENDING",
- *   PageToken: "STRING_VALUE",
- *   PageSize: Number("int"),
- *   ProductSource: "ACCOUNT",
+ *   SortBy: 'Title' || 'VersionCount' || 'CreationDate',
+ *   SortOrder: 'ASCENDING' || 'DESCENDING',
+ *   PageToken: 'STRING_VALUE',
+ *   PageSize: Number('int'),
+ *   ProductSource: 'ACCOUNT',
  * };
  * const command = new SearchProductsAsAdminCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SearchProductsAsAdminOutput
+ *   ProductViewDetails: [ // ProductViewDetails
+ *     { // ProductViewDetail
+ *       ProductViewSummary: { // ProductViewSummary
+ *         Id: 'STRING_VALUE',
+ *         ProductId: 'STRING_VALUE',
+ *         Name: 'STRING_VALUE',
+ *         Owner: 'STRING_VALUE',
+ *         ShortDescription: 'STRING_VALUE',
+ *         Type: 'CLOUD_FORMATION_TEMPLATE' || 'MARKETPLACE' || 'TERRAFORM_OPEN_SOURCE',
+ *         Distributor: 'STRING_VALUE',
+ *         HasDefaultPath: true || false,
+ *         SupportEmail: 'STRING_VALUE',
+ *         SupportDescription: 'STRING_VALUE',
+ *         SupportUrl: 'STRING_VALUE',
+ *       },
+ *       Status: 'AVAILABLE' || 'CREATING' || 'FAILED',
+ *       ProductARN: 'STRING_VALUE',
+ *       CreatedTime: new Date('TIMESTAMP'),
+ *       SourceConnection: { // SourceConnectionDetail
+ *         Type: 'CODESTAR',
+ *         ConnectionParameters: { // SourceConnectionParameters
+ *           CodeStar: { // CodeStarParameters
+ *             ConnectionArn: 'STRING_VALUE', // required
+ *             Repository: 'STRING_VALUE', // required
+ *             Branch: 'STRING_VALUE', // required
+ *             ArtifactPath: 'STRING_VALUE', // required
+ *           },
+ *         },
+ *         LastSync: { // LastSync
+ *           LastSyncTime: new Date('TIMESTAMP'),
+ *           LastSyncStatus: 'SUCCEEDED' || 'FAILED',
+ *           LastSyncStatusMessage: 'STRING_VALUE',
+ *           LastSuccessfulSyncTime: new Date('TIMESTAMP'),
+ *           LastSuccessfulSyncProvisioningArtifactId: 'STRING_VALUE',
+ *         },
+ *       },
+ *     },
+ *   ],
+ *   NextPageToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param SearchProductsAsAdminCommandInput - {@link SearchProductsAsAdminCommandInput}
@@ -69,6 +112,8 @@ export interface SearchProductsAsAdminCommandOutput extends SearchProductsAsAdmi
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link ServiceCatalogServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
  */
 export class SearchProductsAsAdminCommand extends $Command<

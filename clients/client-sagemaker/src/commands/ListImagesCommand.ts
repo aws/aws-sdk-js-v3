@@ -37,22 +37,39 @@ export interface ListImagesCommandOutput extends ListImagesResponse, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, ListImagesCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, ListImagesCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, ListImagesCommand } from '@aws-sdk/client-sagemaker'; // ES Modules import
+ * // const { SageMakerClient, ListImagesCommand } = require('@aws-sdk/client-sagemaker'); // CommonJS import
  * const client = new SageMakerClient(config);
  * const input = { // ListImagesRequest
- *   CreationTimeAfter: new Date("TIMESTAMP"),
- *   CreationTimeBefore: new Date("TIMESTAMP"),
- *   LastModifiedTimeAfter: new Date("TIMESTAMP"),
- *   LastModifiedTimeBefore: new Date("TIMESTAMP"),
- *   MaxResults: Number("int"),
- *   NameContains: "STRING_VALUE",
- *   NextToken: "STRING_VALUE",
- *   SortBy: "CREATION_TIME" || "LAST_MODIFIED_TIME" || "IMAGE_NAME",
- *   SortOrder: "ASCENDING" || "DESCENDING",
+ *   CreationTimeAfter: new Date('TIMESTAMP'),
+ *   CreationTimeBefore: new Date('TIMESTAMP'),
+ *   LastModifiedTimeAfter: new Date('TIMESTAMP'),
+ *   LastModifiedTimeBefore: new Date('TIMESTAMP'),
+ *   MaxResults: Number('int'),
+ *   NameContains: 'STRING_VALUE',
+ *   NextToken: 'STRING_VALUE',
+ *   SortBy: 'CREATION_TIME' || 'LAST_MODIFIED_TIME' || 'IMAGE_NAME',
+ *   SortOrder: 'ASCENDING' || 'DESCENDING',
  * };
  * const command = new ListImagesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListImagesResponse
+ *   Images: [ // Images
+ *     { // Image
+ *       CreationTime: new Date('TIMESTAMP'), // required
+ *       Description: 'STRING_VALUE',
+ *       DisplayName: 'STRING_VALUE',
+ *       FailureReason: 'STRING_VALUE',
+ *       ImageArn: 'STRING_VALUE', // required
+ *       ImageName: 'STRING_VALUE', // required
+ *       ImageStatus: 'CREATING' || 'CREATED' || 'CREATE_FAILED' || 'UPDATING' || 'UPDATE_FAILED' || 'DELETING' || 'DELETE_FAILED', // required
+ *       LastModifiedTime: new Date('TIMESTAMP'), // required
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListImagesCommandInput - {@link ListImagesCommandInput}
@@ -61,6 +78,8 @@ export interface ListImagesCommandOutput extends ListImagesResponse, __MetadataB
  * @see {@link ListImagesCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class ListImagesCommand extends $Command<

@@ -44,15 +44,26 @@ export interface ListSizeConstraintSetsCommandOutput extends ListSizeConstraintS
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WAFClient, ListSizeConstraintSetsCommand } from "@aws-sdk/client-waf"; // ES Modules import
- * // const { WAFClient, ListSizeConstraintSetsCommand } = require("@aws-sdk/client-waf"); // CommonJS import
+ * import { WAFClient, ListSizeConstraintSetsCommand } from '@aws-sdk/client-waf'; // ES Modules import
+ * // const { WAFClient, ListSizeConstraintSetsCommand } = require('@aws-sdk/client-waf'); // CommonJS import
  * const client = new WAFClient(config);
  * const input = { // ListSizeConstraintSetsRequest
- *   NextMarker: "STRING_VALUE",
- *   Limit: Number("int"),
+ *   NextMarker: 'STRING_VALUE',
+ *   Limit: Number('int'),
  * };
  * const command = new ListSizeConstraintSetsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListSizeConstraintSetsResponse
+ *   NextMarker: 'STRING_VALUE',
+ *   SizeConstraintSets: [ // SizeConstraintSetSummaries
+ *     { // SizeConstraintSetSummary
+ *       SizeConstraintSetId: 'STRING_VALUE', // required
+ *       Name: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListSizeConstraintSetsCommandInput - {@link ListSizeConstraintSetsCommandInput}
@@ -67,6 +78,8 @@ export interface ListSizeConstraintSetsCommandOutput extends ListSizeConstraintS
  * @throws {@link WAFInvalidAccountException} (client fault)
  *  <p>The operation failed because you tried to create, update, or delete an object by using an invalid account identifier.</p>
  *
+ * @throws {@link WAFServiceException}
+ * <p>Base exception class for all service exceptions from WAF service.</p>
  *
  * @example To list a size constraint sets
  * ```javascript

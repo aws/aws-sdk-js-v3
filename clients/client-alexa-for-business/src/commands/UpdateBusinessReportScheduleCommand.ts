@@ -42,21 +42,24 @@ export interface UpdateBusinessReportScheduleCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AlexaForBusinessClient, UpdateBusinessReportScheduleCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
- * // const { AlexaForBusinessClient, UpdateBusinessReportScheduleCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
+ * import { AlexaForBusinessClient, UpdateBusinessReportScheduleCommand } from '@aws-sdk/client-alexa-for-business'; // ES Modules import
+ * // const { AlexaForBusinessClient, UpdateBusinessReportScheduleCommand } = require('@aws-sdk/client-alexa-for-business'); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
  * const input = { // UpdateBusinessReportScheduleRequest
- *   ScheduleArn: "STRING_VALUE", // required
- *   S3BucketName: "STRING_VALUE",
- *   S3KeyPrefix: "STRING_VALUE",
- *   Format: "STRING_VALUE",
- *   ScheduleName: "STRING_VALUE",
+ *   ScheduleArn: 'STRING_VALUE', // required
+ *   S3BucketName: 'STRING_VALUE',
+ *   S3KeyPrefix: 'STRING_VALUE',
+ *   Format: 'STRING_VALUE',
+ *   ScheduleName: 'STRING_VALUE',
  *   Recurrence: { // BusinessReportRecurrence
- *     StartDate: "STRING_VALUE",
+ *     StartDate: 'STRING_VALUE',
  *   },
  * };
  * const command = new UpdateBusinessReportScheduleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateBusinessReportScheduleCommandInput - {@link UpdateBusinessReportScheduleCommandInput}
@@ -71,6 +74,8 @@ export interface UpdateBusinessReportScheduleCommandOutput
  * @throws {@link NotFoundException} (client fault)
  *  <p>The resource is not found.</p>
  *
+ * @throws {@link AlexaForBusinessServiceException}
+ * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  */
 export class UpdateBusinessReportScheduleCommand extends $Command<

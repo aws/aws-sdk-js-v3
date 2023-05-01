@@ -51,14 +51,20 @@ export interface ResolveCaseCommandOutput extends ResolveCaseResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SupportClient, ResolveCaseCommand } from "@aws-sdk/client-support"; // ES Modules import
- * // const { SupportClient, ResolveCaseCommand } = require("@aws-sdk/client-support"); // CommonJS import
+ * import { SupportClient, ResolveCaseCommand } from '@aws-sdk/client-support'; // ES Modules import
+ * // const { SupportClient, ResolveCaseCommand } = require('@aws-sdk/client-support'); // CommonJS import
  * const client = new SupportClient(config);
  * const input = { // ResolveCaseRequest
- *   caseId: "STRING_VALUE",
+ *   caseId: 'STRING_VALUE',
  * };
  * const command = new ResolveCaseCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ResolveCaseResponse
+ *   initialCaseStatus: 'STRING_VALUE',
+ *   finalCaseStatus: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ResolveCaseCommandInput - {@link ResolveCaseCommandInput}
@@ -73,6 +79,8 @@ export interface ResolveCaseCommandOutput extends ResolveCaseResponse, __Metadat
  * @throws {@link InternalServerError} (server fault)
  *  <p>An internal server error occurred.</p>
  *
+ * @throws {@link SupportServiceException}
+ * <p>Base exception class for all service exceptions from Support service.</p>
  *
  */
 export class ResolveCaseCommand extends $Command<

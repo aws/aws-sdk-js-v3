@@ -41,23 +41,38 @@ export interface CreateCollectionCommandOutput extends CreateCollectionResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OpenSearchServerlessClient, CreateCollectionCommand } from "@aws-sdk/client-opensearchserverless"; // ES Modules import
- * // const { OpenSearchServerlessClient, CreateCollectionCommand } = require("@aws-sdk/client-opensearchserverless"); // CommonJS import
+ * import { OpenSearchServerlessClient, CreateCollectionCommand } from '@aws-sdk/client-opensearchserverless'; // ES Modules import
+ * // const { OpenSearchServerlessClient, CreateCollectionCommand } = require('@aws-sdk/client-opensearchserverless'); // CommonJS import
  * const client = new OpenSearchServerlessClient(config);
  * const input = { // CreateCollectionRequest
- *   name: "STRING_VALUE", // required
- *   type: "STRING_VALUE",
- *   description: "STRING_VALUE",
+ *   name: 'STRING_VALUE', // required
+ *   type: 'STRING_VALUE',
+ *   description: 'STRING_VALUE',
  *   tags: [ // Tags
  *     { // Tag
- *       key: "STRING_VALUE", // required
- *       value: "STRING_VALUE", // required
+ *       key: 'STRING_VALUE', // required
+ *       value: 'STRING_VALUE', // required
  *     },
  *   ],
- *   clientToken: "STRING_VALUE",
+ *   clientToken: 'STRING_VALUE',
  * };
  * const command = new CreateCollectionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateCollectionResponse
+ *   createCollectionDetail: { // CreateCollectionDetail
+ *     id: 'STRING_VALUE',
+ *     name: 'STRING_VALUE',
+ *     status: 'STRING_VALUE',
+ *     type: 'STRING_VALUE',
+ *     description: 'STRING_VALUE',
+ *     arn: 'STRING_VALUE',
+ *     kmsKeyArn: 'STRING_VALUE',
+ *     createdDate: Number('long'),
+ *     lastModifiedDate: Number('long'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateCollectionCommandInput - {@link CreateCollectionCommandInput}
@@ -84,6 +99,8 @@ export interface CreateCollectionCommandOutput extends CreateCollectionResponse,
  *  <p>Thrown when the HTTP request contains invalid input or is missing required
  *             input.</p>
  *
+ * @throws {@link OpenSearchServerlessServiceException}
+ * <p>Base exception class for all service exceptions from OpenSearchServerless service.</p>
  *
  */
 export class CreateCollectionCommand extends $Command<

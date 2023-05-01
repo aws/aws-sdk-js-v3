@@ -40,16 +40,38 @@ export interface DescribeProductsCommandOutput extends DescribeProductsResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SecurityHubClient, DescribeProductsCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
- * // const { SecurityHubClient, DescribeProductsCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
+ * import { SecurityHubClient, DescribeProductsCommand } from '@aws-sdk/client-securityhub'; // ES Modules import
+ * // const { SecurityHubClient, DescribeProductsCommand } = require('@aws-sdk/client-securityhub'); // CommonJS import
  * const client = new SecurityHubClient(config);
  * const input = { // DescribeProductsRequest
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
- *   ProductArn: "STRING_VALUE",
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
+ *   ProductArn: 'STRING_VALUE',
  * };
  * const command = new DescribeProductsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeProductsResponse
+ *   Products: [ // ProductsList // required
+ *     { // Product
+ *       ProductArn: 'STRING_VALUE', // required
+ *       ProductName: 'STRING_VALUE',
+ *       CompanyName: 'STRING_VALUE',
+ *       Description: 'STRING_VALUE',
+ *       Categories: [ // CategoryList
+ *         'STRING_VALUE',
+ *       ],
+ *       IntegrationTypes: [ // IntegrationTypeList
+ *         'SEND_FINDINGS_TO_SECURITY_HUB' || 'RECEIVE_FINDINGS_FROM_SECURITY_HUB' || 'UPDATE_FINDINGS_IN_SECURITY_HUB',
+ *       ],
+ *       MarketplaceUrl: 'STRING_VALUE',
+ *       ActivationUrl: 'STRING_VALUE',
+ *       ProductSubscriptionResourcePolicy: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeProductsCommandInput - {@link DescribeProductsCommandInput}
@@ -72,6 +94,8 @@ export interface DescribeProductsCommandOutput extends DescribeProductsResponse,
  *  <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services
  *          account or throttling limits. The error code describes the limit exceeded.</p>
  *
+ * @throws {@link SecurityHubServiceException}
+ * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
  * @example To get information about Security Hub integrations
  * ```javascript

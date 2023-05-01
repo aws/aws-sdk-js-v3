@@ -36,138 +36,143 @@ export interface CreateFindingsReportCommandOutput extends CreateFindingsReportR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Inspector2Client, CreateFindingsReportCommand } from "@aws-sdk/client-inspector2"; // ES Modules import
- * // const { Inspector2Client, CreateFindingsReportCommand } = require("@aws-sdk/client-inspector2"); // CommonJS import
+ * import { Inspector2Client, CreateFindingsReportCommand } from '@aws-sdk/client-inspector2'; // ES Modules import
+ * // const { Inspector2Client, CreateFindingsReportCommand } = require('@aws-sdk/client-inspector2'); // CommonJS import
  * const client = new Inspector2Client(config);
  * const input = { // CreateFindingsReportRequest
  *   filterCriteria: { // FilterCriteria
  *     findingArn: [ // StringFilterList
  *       { // StringFilter
- *         comparison: "STRING_VALUE", // required
- *         value: "STRING_VALUE", // required
+ *         comparison: 'STRING_VALUE', // required
+ *         value: 'STRING_VALUE', // required
  *       },
  *     ],
  *     awsAccountId: [
  *       {
- *         comparison: "STRING_VALUE", // required
- *         value: "STRING_VALUE", // required
+ *         comparison: 'STRING_VALUE', // required
+ *         value: 'STRING_VALUE', // required
  *       },
  *     ],
  *     findingType: [
  *       {
- *         comparison: "STRING_VALUE", // required
- *         value: "STRING_VALUE", // required
+ *         comparison: 'STRING_VALUE', // required
+ *         value: 'STRING_VALUE', // required
  *       },
  *     ],
  *     severity: [
  *       {
- *         comparison: "STRING_VALUE", // required
- *         value: "STRING_VALUE", // required
+ *         comparison: 'STRING_VALUE', // required
+ *         value: 'STRING_VALUE', // required
  *       },
  *     ],
  *     firstObservedAt: [ // DateFilterList
  *       { // DateFilter
- *         startInclusive: new Date("TIMESTAMP"),
- *         endInclusive: new Date("TIMESTAMP"),
+ *         startInclusive: new Date('TIMESTAMP'),
+ *         endInclusive: new Date('TIMESTAMP'),
  *       },
  *     ],
  *     lastObservedAt: [
  *       {
- *         startInclusive: new Date("TIMESTAMP"),
- *         endInclusive: new Date("TIMESTAMP"),
+ *         startInclusive: new Date('TIMESTAMP'),
+ *         endInclusive: new Date('TIMESTAMP'),
  *       },
  *     ],
  *     updatedAt: [
  *       {
- *         startInclusive: new Date("TIMESTAMP"),
- *         endInclusive: new Date("TIMESTAMP"),
+ *         startInclusive: new Date('TIMESTAMP'),
+ *         endInclusive: new Date('TIMESTAMP'),
  *       },
  *     ],
  *     findingStatus: [
  *       {
- *         comparison: "STRING_VALUE", // required
- *         value: "STRING_VALUE", // required
+ *         comparison: 'STRING_VALUE', // required
+ *         value: 'STRING_VALUE', // required
  *       },
  *     ],
- *     title: "<StringFilterList>",
+ *     title: '<StringFilterList>',
  *     inspectorScore: [ // NumberFilterList
  *       { // NumberFilter
- *         upperInclusive: Number("double"),
- *         lowerInclusive: Number("double"),
+ *         upperInclusive: Number('double'),
+ *         lowerInclusive: Number('double'),
  *       },
  *     ],
- *     resourceType: "<StringFilterList>",
- *     resourceId: "<StringFilterList>",
+ *     resourceType: '<StringFilterList>',
+ *     resourceId: '<StringFilterList>',
  *     resourceTags: [ // MapFilterList
  *       { // MapFilter
- *         comparison: "STRING_VALUE", // required
- *         key: "STRING_VALUE", // required
- *         value: "STRING_VALUE",
+ *         comparison: 'STRING_VALUE', // required
+ *         key: 'STRING_VALUE', // required
+ *         value: 'STRING_VALUE',
  *       },
  *     ],
- *     ec2InstanceImageId: "<StringFilterList>",
- *     ec2InstanceVpcId: "<StringFilterList>",
- *     ec2InstanceSubnetId: "<StringFilterList>",
+ *     ec2InstanceImageId: '<StringFilterList>',
+ *     ec2InstanceVpcId: '<StringFilterList>',
+ *     ec2InstanceSubnetId: '<StringFilterList>',
  *     ecrImagePushedAt: [
  *       {
- *         startInclusive: new Date("TIMESTAMP"),
- *         endInclusive: new Date("TIMESTAMP"),
+ *         startInclusive: new Date('TIMESTAMP'),
+ *         endInclusive: new Date('TIMESTAMP'),
  *       },
  *     ],
- *     ecrImageArchitecture: "<StringFilterList>",
- *     ecrImageRegistry: "<StringFilterList>",
- *     ecrImageRepositoryName: "<StringFilterList>",
- *     ecrImageTags: "<StringFilterList>",
- *     ecrImageHash: "<StringFilterList>",
+ *     ecrImageArchitecture: '<StringFilterList>',
+ *     ecrImageRegistry: '<StringFilterList>',
+ *     ecrImageRepositoryName: '<StringFilterList>',
+ *     ecrImageTags: '<StringFilterList>',
+ *     ecrImageHash: '<StringFilterList>',
  *     portRange: [ // PortRangeFilterList
  *       { // PortRangeFilter
- *         beginInclusive: Number("int"),
- *         endInclusive: Number("int"),
+ *         beginInclusive: Number('int'),
+ *         endInclusive: Number('int'),
  *       },
  *     ],
- *     networkProtocol: "<StringFilterList>",
- *     componentId: "<StringFilterList>",
- *     componentType: "<StringFilterList>",
- *     vulnerabilityId: "<StringFilterList>",
- *     vulnerabilitySource: "<StringFilterList>",
- *     vendorSeverity: "<StringFilterList>",
+ *     networkProtocol: '<StringFilterList>',
+ *     componentId: '<StringFilterList>',
+ *     componentType: '<StringFilterList>',
+ *     vulnerabilityId: '<StringFilterList>',
+ *     vulnerabilitySource: '<StringFilterList>',
+ *     vendorSeverity: '<StringFilterList>',
  *     vulnerablePackages: [ // PackageFilterList
  *       { // PackageFilter
- *         name: "<StringFilter>",
- *         version: "<StringFilter>",
+ *         name: '<StringFilter>',
+ *         version: '<StringFilter>',
  *         epoch: {
- *           upperInclusive: Number("double"),
- *           lowerInclusive: Number("double"),
+ *           upperInclusive: Number('double'),
+ *           lowerInclusive: Number('double'),
  *         },
- *         release: "<StringFilter>",
- *         architecture: "<StringFilter>",
- *         sourceLayerHash: "<StringFilter>",
- *         sourceLambdaLayerArn: "<StringFilter>",
+ *         release: '<StringFilter>',
+ *         architecture: '<StringFilter>',
+ *         sourceLayerHash: '<StringFilter>',
+ *         sourceLambdaLayerArn: '<StringFilter>',
  *       },
  *     ],
- *     relatedVulnerabilities: "<StringFilterList>",
- *     fixAvailable: "<StringFilterList>",
- *     lambdaFunctionName: "<StringFilterList>",
- *     lambdaFunctionLayers: "<StringFilterList>",
- *     lambdaFunctionRuntime: "<StringFilterList>",
+ *     relatedVulnerabilities: '<StringFilterList>',
+ *     fixAvailable: '<StringFilterList>',
+ *     lambdaFunctionName: '<StringFilterList>',
+ *     lambdaFunctionLayers: '<StringFilterList>',
+ *     lambdaFunctionRuntime: '<StringFilterList>',
  *     lambdaFunctionLastModifiedAt: [
  *       {
- *         startInclusive: new Date("TIMESTAMP"),
- *         endInclusive: new Date("TIMESTAMP"),
+ *         startInclusive: new Date('TIMESTAMP'),
+ *         endInclusive: new Date('TIMESTAMP'),
  *       },
  *     ],
- *     lambdaFunctionExecutionRoleArn: "<StringFilterList>",
- *     exploitAvailable: "<StringFilterList>",
+ *     lambdaFunctionExecutionRoleArn: '<StringFilterList>',
+ *     exploitAvailable: '<StringFilterList>',
  *   },
- *   reportFormat: "STRING_VALUE", // required
+ *   reportFormat: 'STRING_VALUE', // required
  *   s3Destination: { // Destination
- *     bucketName: "STRING_VALUE", // required
- *     keyPrefix: "STRING_VALUE",
- *     kmsKeyArn: "STRING_VALUE", // required
+ *     bucketName: 'STRING_VALUE', // required
+ *     keyPrefix: 'STRING_VALUE',
+ *     kmsKeyArn: 'STRING_VALUE', // required
  *   },
  * };
  * const command = new CreateFindingsReportCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateFindingsReportResponse
+ *   reportId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateFindingsReportCommandInput - {@link CreateFindingsReportCommandInput}
@@ -192,6 +197,8 @@ export interface CreateFindingsReportCommandOutput extends CreateFindingsReportR
  *  <p>The request has failed validation due to missing required fields or having invalid
  *          inputs.</p>
  *
+ * @throws {@link Inspector2ServiceException}
+ * <p>Base exception class for all service exceptions from Inspector2 service.</p>
  *
  */
 export class CreateFindingsReportCommand extends $Command<

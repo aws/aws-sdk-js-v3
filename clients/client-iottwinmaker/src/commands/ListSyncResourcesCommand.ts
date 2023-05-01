@@ -36,25 +36,45 @@ export interface ListSyncResourcesCommandOutput extends ListSyncResourcesRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTTwinMakerClient, ListSyncResourcesCommand } from "@aws-sdk/client-iottwinmaker"; // ES Modules import
- * // const { IoTTwinMakerClient, ListSyncResourcesCommand } = require("@aws-sdk/client-iottwinmaker"); // CommonJS import
+ * import { IoTTwinMakerClient, ListSyncResourcesCommand } from '@aws-sdk/client-iottwinmaker'; // ES Modules import
+ * // const { IoTTwinMakerClient, ListSyncResourcesCommand } = require('@aws-sdk/client-iottwinmaker'); // CommonJS import
  * const client = new IoTTwinMakerClient(config);
  * const input = { // ListSyncResourcesRequest
- *   workspaceId: "STRING_VALUE", // required
- *   syncSource: "STRING_VALUE", // required
+ *   workspaceId: 'STRING_VALUE', // required
+ *   syncSource: 'STRING_VALUE', // required
  *   filters: [ // SyncResourceFilters
  *     { // SyncResourceFilter Union: only one key present
- *       state: "STRING_VALUE",
- *       resourceType: "STRING_VALUE",
- *       resourceId: "STRING_VALUE",
- *       externalId: "STRING_VALUE",
+ *       state: 'STRING_VALUE',
+ *       resourceType: 'STRING_VALUE',
+ *       resourceId: 'STRING_VALUE',
+ *       externalId: 'STRING_VALUE',
  *     },
  *   ],
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new ListSyncResourcesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListSyncResourcesResponse
+ *   syncResources: [ // SyncResourceSummaries
+ *     { // SyncResourceSummary
+ *       resourceType: 'STRING_VALUE',
+ *       externalId: 'STRING_VALUE',
+ *       resourceId: 'STRING_VALUE',
+ *       status: { // SyncResourceStatus
+ *         state: 'STRING_VALUE',
+ *         error: { // ErrorDetails
+ *           code: 'STRING_VALUE',
+ *           message: 'STRING_VALUE',
+ *         },
+ *       },
+ *       updateDateTime: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListSyncResourcesCommandInput - {@link ListSyncResourcesCommandInput}
@@ -78,6 +98,8 @@ export interface ListSyncResourcesCommandOutput extends ListSyncResourcesRespons
  * @throws {@link ValidationException} (client fault)
  *  <p>Failed</p>
  *
+ * @throws {@link IoTTwinMakerServiceException}
+ * <p>Base exception class for all service exceptions from IoTTwinMaker service.</p>
  *
  */
 export class ListSyncResourcesCommand extends $Command<

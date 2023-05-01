@@ -43,16 +43,46 @@ export interface DescribeInstanceStorageConfigCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, DescribeInstanceStorageConfigCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, DescribeInstanceStorageConfigCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, DescribeInstanceStorageConfigCommand } from '@aws-sdk/client-connect'; // ES Modules import
+ * // const { ConnectClient, DescribeInstanceStorageConfigCommand } = require('@aws-sdk/client-connect'); // CommonJS import
  * const client = new ConnectClient(config);
  * const input = { // DescribeInstanceStorageConfigRequest
- *   InstanceId: "STRING_VALUE", // required
- *   AssociationId: "STRING_VALUE", // required
- *   ResourceType: "CHAT_TRANSCRIPTS" || "CALL_RECORDINGS" || "SCHEDULED_REPORTS" || "MEDIA_STREAMS" || "CONTACT_TRACE_RECORDS" || "AGENT_EVENTS" || "REAL_TIME_CONTACT_ANALYSIS_SEGMENTS" || "ATTACHMENTS" || "CONTACT_EVALUATIONS", // required
+ *   InstanceId: 'STRING_VALUE', // required
+ *   AssociationId: 'STRING_VALUE', // required
+ *   ResourceType: 'CHAT_TRANSCRIPTS' || 'CALL_RECORDINGS' || 'SCHEDULED_REPORTS' || 'MEDIA_STREAMS' || 'CONTACT_TRACE_RECORDS' || 'AGENT_EVENTS' || 'REAL_TIME_CONTACT_ANALYSIS_SEGMENTS' || 'ATTACHMENTS' || 'CONTACT_EVALUATIONS', // required
  * };
  * const command = new DescribeInstanceStorageConfigCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeInstanceStorageConfigResponse
+ *   StorageConfig: { // InstanceStorageConfig
+ *     AssociationId: 'STRING_VALUE',
+ *     StorageType: 'S3' || 'KINESIS_VIDEO_STREAM' || 'KINESIS_STREAM' || 'KINESIS_FIREHOSE', // required
+ *     S3Config: { // S3Config
+ *       BucketName: 'STRING_VALUE', // required
+ *       BucketPrefix: 'STRING_VALUE', // required
+ *       EncryptionConfig: { // EncryptionConfig
+ *         EncryptionType: 'KMS', // required
+ *         KeyId: 'STRING_VALUE', // required
+ *       },
+ *     },
+ *     KinesisVideoStreamConfig: { // KinesisVideoStreamConfig
+ *       Prefix: 'STRING_VALUE', // required
+ *       RetentionPeriodHours: Number('int'), // required
+ *       EncryptionConfig: {
+ *         EncryptionType: 'KMS', // required
+ *         KeyId: 'STRING_VALUE', // required
+ *       },
+ *     },
+ *     KinesisStreamConfig: { // KinesisStreamConfig
+ *       StreamArn: 'STRING_VALUE', // required
+ *     },
+ *     KinesisFirehoseConfig: { // KinesisFirehoseConfig
+ *       FirehoseArn: 'STRING_VALUE', // required
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeInstanceStorageConfigCommandInput - {@link DescribeInstanceStorageConfigCommandInput}
@@ -76,6 +106,8 @@ export interface DescribeInstanceStorageConfigCommandOutput
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class DescribeInstanceStorageConfigCommand extends $Command<

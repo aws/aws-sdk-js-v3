@@ -39,15 +39,27 @@ export interface GetTrafficPolicyCommandOutput extends GetTrafficPolicyResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Route53Client, GetTrafficPolicyCommand } from "@aws-sdk/client-route-53"; // ES Modules import
- * // const { Route53Client, GetTrafficPolicyCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
+ * import { Route53Client, GetTrafficPolicyCommand } from '@aws-sdk/client-route-53'; // ES Modules import
+ * // const { Route53Client, GetTrafficPolicyCommand } = require('@aws-sdk/client-route-53'); // CommonJS import
  * const client = new Route53Client(config);
  * const input = { // GetTrafficPolicyRequest
- *   Id: "STRING_VALUE", // required
- *   Version: Number("int"), // required
+ *   Id: 'STRING_VALUE', // required
+ *   Version: Number('int'), // required
  * };
  * const command = new GetTrafficPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetTrafficPolicyResponse
+ *   TrafficPolicy: { // TrafficPolicy
+ *     Id: 'STRING_VALUE', // required
+ *     Version: Number('int'), // required
+ *     Name: 'STRING_VALUE', // required
+ *     Type: 'SOA' || 'A' || 'TXT' || 'NS' || 'CNAME' || 'MX' || 'NAPTR' || 'PTR' || 'SRV' || 'SPF' || 'AAAA' || 'CAA' || 'DS', // required
+ *     Document: 'STRING_VALUE', // required
+ *     Comment: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetTrafficPolicyCommandInput - {@link GetTrafficPolicyCommandInput}
@@ -62,6 +74,8 @@ export interface GetTrafficPolicyCommandOutput extends GetTrafficPolicyResponse,
  * @throws {@link NoSuchTrafficPolicy} (client fault)
  *  <p>No traffic policy exists with the specified ID.</p>
  *
+ * @throws {@link Route53ServiceException}
+ * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
  */
 export class GetTrafficPolicyCommand extends $Command<

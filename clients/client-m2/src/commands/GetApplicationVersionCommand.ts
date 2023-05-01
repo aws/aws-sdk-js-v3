@@ -36,15 +36,26 @@ export interface GetApplicationVersionCommandOutput extends GetApplicationVersio
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { M2Client, GetApplicationVersionCommand } from "@aws-sdk/client-m2"; // ES Modules import
- * // const { M2Client, GetApplicationVersionCommand } = require("@aws-sdk/client-m2"); // CommonJS import
+ * import { M2Client, GetApplicationVersionCommand } from '@aws-sdk/client-m2'; // ES Modules import
+ * // const { M2Client, GetApplicationVersionCommand } = require('@aws-sdk/client-m2'); // CommonJS import
  * const client = new M2Client(config);
  * const input = { // GetApplicationVersionRequest
- *   applicationId: "STRING_VALUE", // required
- *   applicationVersion: Number("int"), // required
+ *   applicationId: 'STRING_VALUE', // required
+ *   applicationVersion: Number('int'), // required
  * };
  * const command = new GetApplicationVersionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetApplicationVersionResponse
+ *   name: 'STRING_VALUE', // required
+ *   applicationVersion: Number('int'), // required
+ *   description: 'STRING_VALUE',
+ *   definitionContent: 'STRING_VALUE', // required
+ *   status: 'STRING_VALUE', // required
+ *   creationTime: new Date('TIMESTAMP'), // required
+ *   statusReason: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetApplicationVersionCommandInput - {@link GetApplicationVersionCommandInput}
@@ -68,6 +79,8 @@ export interface GetApplicationVersionCommandOutput extends GetApplicationVersio
  * @throws {@link ValidationException} (client fault)
  *  <p>One or more parameters provided in the request is not valid.</p>
  *
+ * @throws {@link M2ServiceException}
+ * <p>Base exception class for all service exceptions from M2 service.</p>
  *
  */
 export class GetApplicationVersionCommand extends $Command<

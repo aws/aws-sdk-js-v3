@@ -36,16 +36,26 @@ export interface CreateDeploymentCommandOutput extends CreateDeploymentResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ApiGatewayV2Client, CreateDeploymentCommand } from "@aws-sdk/client-apigatewayv2"; // ES Modules import
- * // const { ApiGatewayV2Client, CreateDeploymentCommand } = require("@aws-sdk/client-apigatewayv2"); // CommonJS import
+ * import { ApiGatewayV2Client, CreateDeploymentCommand } from '@aws-sdk/client-apigatewayv2'; // ES Modules import
+ * // const { ApiGatewayV2Client, CreateDeploymentCommand } = require('@aws-sdk/client-apigatewayv2'); // CommonJS import
  * const client = new ApiGatewayV2Client(config);
  * const input = { // CreateDeploymentRequest
- *   ApiId: "STRING_VALUE", // required
- *   Description: "STRING_VALUE",
- *   StageName: "STRING_VALUE",
+ *   ApiId: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE',
+ *   StageName: 'STRING_VALUE',
  * };
  * const command = new CreateDeploymentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateDeploymentResponse
+ *   AutoDeployed: true || false,
+ *   CreatedDate: new Date('TIMESTAMP'),
+ *   DeploymentId: 'STRING_VALUE',
+ *   DeploymentStatus: 'STRING_VALUE',
+ *   DeploymentStatusMessage: 'STRING_VALUE',
+ *   Description: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateDeploymentCommandInput - {@link CreateDeploymentCommandInput}
@@ -66,6 +76,8 @@ export interface CreateDeploymentCommandOutput extends CreateDeploymentResponse,
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>A limit has been exceeded. See the accompanying error message for details.</p>
  *
+ * @throws {@link ApiGatewayV2ServiceException}
+ * <p>Base exception class for all service exceptions from ApiGatewayV2 service.</p>
  *
  */
 export class CreateDeploymentCommand extends $Command<

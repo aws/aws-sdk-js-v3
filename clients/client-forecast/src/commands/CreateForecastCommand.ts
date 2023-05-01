@@ -60,44 +60,49 @@ export interface CreateForecastCommandOutput extends CreateForecastResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ForecastClient, CreateForecastCommand } from "@aws-sdk/client-forecast"; // ES Modules import
- * // const { ForecastClient, CreateForecastCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
+ * import { ForecastClient, CreateForecastCommand } from '@aws-sdk/client-forecast'; // ES Modules import
+ * // const { ForecastClient, CreateForecastCommand } = require('@aws-sdk/client-forecast'); // CommonJS import
  * const client = new ForecastClient(config);
  * const input = { // CreateForecastRequest
- *   ForecastName: "STRING_VALUE", // required
- *   PredictorArn: "STRING_VALUE", // required
+ *   ForecastName: 'STRING_VALUE', // required
+ *   PredictorArn: 'STRING_VALUE', // required
  *   ForecastTypes: [ // ForecastTypes
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   Tags: [ // Tags
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  *   TimeSeriesSelector: { // TimeSeriesSelector
  *     TimeSeriesIdentifiers: { // TimeSeriesIdentifiers
  *       DataSource: { // DataSource
  *         S3Config: { // S3Config
- *           Path: "STRING_VALUE", // required
- *           RoleArn: "STRING_VALUE", // required
- *           KMSKeyArn: "STRING_VALUE",
+ *           Path: 'STRING_VALUE', // required
+ *           RoleArn: 'STRING_VALUE', // required
+ *           KMSKeyArn: 'STRING_VALUE',
  *         },
  *       },
  *       Schema: { // Schema
  *         Attributes: [ // SchemaAttributes
  *           { // SchemaAttribute
- *             AttributeName: "STRING_VALUE",
- *             AttributeType: "string" || "integer" || "float" || "timestamp" || "geolocation",
+ *             AttributeName: 'STRING_VALUE',
+ *             AttributeType: 'string' || 'integer' || 'float' || 'timestamp' || 'geolocation',
  *           },
  *         ],
  *       },
- *       Format: "STRING_VALUE",
+ *       Format: 'STRING_VALUE',
  *     },
  *   },
  * };
  * const command = new CreateForecastCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateForecastResponse
+ *   ForecastArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateForecastCommandInput - {@link CreateForecastCommandInput}
@@ -123,6 +128,8 @@ export interface CreateForecastCommandOutput extends CreateForecastResponse, __M
  *  <p>We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try
  *       again.</p>
  *
+ * @throws {@link ForecastServiceException}
+ * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
  */
 export class CreateForecastCommand extends $Command<

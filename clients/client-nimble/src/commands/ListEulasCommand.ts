@@ -36,17 +36,31 @@ export interface ListEulasCommandOutput extends ListEulasResponse, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { NimbleClient, ListEulasCommand } from "@aws-sdk/client-nimble"; // ES Modules import
- * // const { NimbleClient, ListEulasCommand } = require("@aws-sdk/client-nimble"); // CommonJS import
+ * import { NimbleClient, ListEulasCommand } from '@aws-sdk/client-nimble'; // ES Modules import
+ * // const { NimbleClient, ListEulasCommand } = require('@aws-sdk/client-nimble'); // CommonJS import
  * const client = new NimbleClient(config);
  * const input = { // ListEulasRequest
  *   eulaIds: [ // StringList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   nextToken: "STRING_VALUE",
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new ListEulasCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListEulasResponse
+ *   eulas: [ // EulaList
+ *     { // Eula
+ *       content: 'STRING_VALUE',
+ *       createdAt: new Date('TIMESTAMP'),
+ *       eulaId: 'STRING_VALUE',
+ *       name: 'STRING_VALUE',
+ *       updatedAt: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListEulasCommandInput - {@link ListEulasCommandInput}
@@ -79,6 +93,8 @@ export interface ListEulasCommandOutput extends ListEulasResponse, __MetadataBea
  * @throws {@link ValidationException} (client fault)
  *  <p>One of the parameters in the request is invalid.</p>
  *
+ * @throws {@link NimbleServiceException}
+ * <p>Base exception class for all service exceptions from Nimble service.</p>
  *
  */
 export class ListEulasCommand extends $Command<

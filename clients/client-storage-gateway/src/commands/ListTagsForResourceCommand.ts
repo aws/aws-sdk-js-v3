@@ -37,16 +37,28 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOut
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { StorageGatewayClient, ListTagsForResourceCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
- * // const { StorageGatewayClient, ListTagsForResourceCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
+ * import { StorageGatewayClient, ListTagsForResourceCommand } from '@aws-sdk/client-storage-gateway'; // ES Modules import
+ * // const { StorageGatewayClient, ListTagsForResourceCommand } = require('@aws-sdk/client-storage-gateway'); // CommonJS import
  * const client = new StorageGatewayClient(config);
  * const input = { // ListTagsForResourceInput
- *   ResourceARN: "STRING_VALUE", // required
- *   Marker: "STRING_VALUE",
- *   Limit: Number("int"),
+ *   ResourceARN: 'STRING_VALUE', // required
+ *   Marker: 'STRING_VALUE',
+ *   Limit: Number('int'),
  * };
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTagsForResourceOutput
+ *   ResourceARN: 'STRING_VALUE',
+ *   Marker: 'STRING_VALUE',
+ *   Tags: [ // Tags
+ *     { // Tag
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListTagsForResourceCommandInput - {@link ListTagsForResourceCommandInput}
@@ -63,6 +75,8 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOut
  *  <p>An exception occurred because an invalid gateway request was issued to the service. For
  *          more information, see the error and message fields.</p>
  *
+ * @throws {@link StorageGatewayServiceException}
+ * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
  * @example To list tags that have been added to a resource
  * ```javascript

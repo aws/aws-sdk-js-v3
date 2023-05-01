@@ -45,15 +45,28 @@ export interface ListRetainedMessagesCommandOutput extends ListRetainedMessagesR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTDataPlaneClient, ListRetainedMessagesCommand } from "@aws-sdk/client-iot-data-plane"; // ES Modules import
- * // const { IoTDataPlaneClient, ListRetainedMessagesCommand } = require("@aws-sdk/client-iot-data-plane"); // CommonJS import
+ * import { IoTDataPlaneClient, ListRetainedMessagesCommand } from '@aws-sdk/client-iot-data-plane'; // ES Modules import
+ * // const { IoTDataPlaneClient, ListRetainedMessagesCommand } = require('@aws-sdk/client-iot-data-plane'); // CommonJS import
  * const client = new IoTDataPlaneClient(config);
  * const input = { // ListRetainedMessagesRequest
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new ListRetainedMessagesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListRetainedMessagesResponse
+ *   retainedTopics: [ // RetainedMessageList
+ *     { // RetainedMessageSummary
+ *       topic: 'STRING_VALUE',
+ *       payloadSize: Number('long'),
+ *       qos: Number('int'),
+ *       lastModifiedTime: Number('long'),
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListRetainedMessagesCommandInput - {@link ListRetainedMessagesCommandInput}
@@ -80,6 +93,8 @@ export interface ListRetainedMessagesCommandOutput extends ListRetainedMessagesR
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this operation.</p>
  *
+ * @throws {@link IoTDataPlaneServiceException}
+ * <p>Base exception class for all service exceptions from IoTDataPlane service.</p>
  *
  */
 export class ListRetainedMessagesCommand extends $Command<

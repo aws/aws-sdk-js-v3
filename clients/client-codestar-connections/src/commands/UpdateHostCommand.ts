@@ -40,25 +40,28 @@ export interface UpdateHostCommandOutput extends UpdateHostOutput, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeStarConnectionsClient, UpdateHostCommand } from "@aws-sdk/client-codestar-connections"; // ES Modules import
- * // const { CodeStarConnectionsClient, UpdateHostCommand } = require("@aws-sdk/client-codestar-connections"); // CommonJS import
+ * import { CodeStarConnectionsClient, UpdateHostCommand } from '@aws-sdk/client-codestar-connections'; // ES Modules import
+ * // const { CodeStarConnectionsClient, UpdateHostCommand } = require('@aws-sdk/client-codestar-connections'); // CommonJS import
  * const client = new CodeStarConnectionsClient(config);
  * const input = { // UpdateHostInput
- *   HostArn: "STRING_VALUE", // required
- *   ProviderEndpoint: "STRING_VALUE",
+ *   HostArn: 'STRING_VALUE', // required
+ *   ProviderEndpoint: 'STRING_VALUE',
  *   VpcConfiguration: { // VpcConfiguration
- *     VpcId: "STRING_VALUE", // required
+ *     VpcId: 'STRING_VALUE', // required
  *     SubnetIds: [ // SubnetIds // required
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     SecurityGroupIds: [ // SecurityGroupIds // required
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
- *     TlsCertificate: "STRING_VALUE",
+ *     TlsCertificate: 'STRING_VALUE',
  *   },
  * };
  * const command = new UpdateHostCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateHostCommandInput - {@link UpdateHostCommandInput}
@@ -79,6 +82,8 @@ export interface UpdateHostCommandOutput extends UpdateHostOutput, __MetadataBea
  * @throws {@link UnsupportedOperationException} (client fault)
  *  <p>The operation is not supported. Check the connection status and try again.</p>
  *
+ * @throws {@link CodeStarConnectionsServiceException}
+ * <p>Base exception class for all service exceptions from CodeStarConnections service.</p>
  *
  */
 export class UpdateHostCommand extends $Command<

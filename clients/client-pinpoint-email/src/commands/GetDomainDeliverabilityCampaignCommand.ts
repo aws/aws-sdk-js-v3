@@ -44,14 +44,38 @@ export interface GetDomainDeliverabilityCampaignCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PinpointEmailClient, GetDomainDeliverabilityCampaignCommand } from "@aws-sdk/client-pinpoint-email"; // ES Modules import
- * // const { PinpointEmailClient, GetDomainDeliverabilityCampaignCommand } = require("@aws-sdk/client-pinpoint-email"); // CommonJS import
+ * import { PinpointEmailClient, GetDomainDeliverabilityCampaignCommand } from '@aws-sdk/client-pinpoint-email'; // ES Modules import
+ * // const { PinpointEmailClient, GetDomainDeliverabilityCampaignCommand } = require('@aws-sdk/client-pinpoint-email'); // CommonJS import
  * const client = new PinpointEmailClient(config);
  * const input = { // GetDomainDeliverabilityCampaignRequest
- *   CampaignId: "STRING_VALUE", // required
+ *   CampaignId: 'STRING_VALUE', // required
  * };
  * const command = new GetDomainDeliverabilityCampaignCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetDomainDeliverabilityCampaignResponse
+ *   DomainDeliverabilityCampaign: { // DomainDeliverabilityCampaign
+ *     CampaignId: 'STRING_VALUE',
+ *     ImageUrl: 'STRING_VALUE',
+ *     Subject: 'STRING_VALUE',
+ *     FromAddress: 'STRING_VALUE',
+ *     SendingIps: [ // IpList
+ *       'STRING_VALUE',
+ *     ],
+ *     FirstSeenDateTime: new Date('TIMESTAMP'),
+ *     LastSeenDateTime: new Date('TIMESTAMP'),
+ *     InboxCount: Number('long'),
+ *     SpamCount: Number('long'),
+ *     ReadRate: Number('double'),
+ *     DeleteRate: Number('double'),
+ *     ReadDeleteRate: Number('double'),
+ *     ProjectedVolume: Number('long'),
+ *     Esps: [ // Esps
+ *       'STRING_VALUE',
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetDomainDeliverabilityCampaignCommandInput - {@link GetDomainDeliverabilityCampaignCommandInput}
@@ -69,6 +93,8 @@ export interface GetDomainDeliverabilityCampaignCommandOutput
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Too many requests have been made to the operation.</p>
  *
+ * @throws {@link PinpointEmailServiceException}
+ * <p>Base exception class for all service exceptions from PinpointEmail service.</p>
  *
  */
 export class GetDomainDeliverabilityCampaignCommand extends $Command<

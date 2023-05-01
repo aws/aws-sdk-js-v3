@@ -37,17 +37,20 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { TimestreamQueryClient, UntagResourceCommand } from "@aws-sdk/client-timestream-query"; // ES Modules import
- * // const { TimestreamQueryClient, UntagResourceCommand } = require("@aws-sdk/client-timestream-query"); // CommonJS import
+ * import { TimestreamQueryClient, UntagResourceCommand } from '@aws-sdk/client-timestream-query'; // ES Modules import
+ * // const { TimestreamQueryClient, UntagResourceCommand } = require('@aws-sdk/client-timestream-query'); // CommonJS import
  * const client = new TimestreamQueryClient(config);
  * const input = { // UntagResourceRequest
- *   ResourceARN: "STRING_VALUE", // required
+ *   ResourceARN: 'STRING_VALUE', // required
  *   TagKeys: [ // TagKeyList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new UntagResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UntagResourceCommandInput - {@link UntagResourceCommandInput}
@@ -68,6 +71,8 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p> Invalid or malformed request. </p>
  *
+ * @throws {@link TimestreamQueryServiceException}
+ * <p>Base exception class for all service exceptions from TimestreamQuery service.</p>
  *
  */
 export class UntagResourceCommand extends $Command<

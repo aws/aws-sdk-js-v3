@@ -38,15 +38,20 @@ export interface PutModelPackageGroupPolicyCommandOutput extends PutModelPackage
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, PutModelPackageGroupPolicyCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, PutModelPackageGroupPolicyCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, PutModelPackageGroupPolicyCommand } from '@aws-sdk/client-sagemaker'; // ES Modules import
+ * // const { SageMakerClient, PutModelPackageGroupPolicyCommand } = require('@aws-sdk/client-sagemaker'); // CommonJS import
  * const client = new SageMakerClient(config);
  * const input = { // PutModelPackageGroupPolicyInput
- *   ModelPackageGroupName: "STRING_VALUE", // required
- *   ResourcePolicy: "STRING_VALUE", // required
+ *   ModelPackageGroupName: 'STRING_VALUE', // required
+ *   ResourcePolicy: 'STRING_VALUE', // required
  * };
  * const command = new PutModelPackageGroupPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutModelPackageGroupPolicyOutput
+ *   ModelPackageGroupArn: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param PutModelPackageGroupPolicyCommandInput - {@link PutModelPackageGroupPolicyCommandInput}
@@ -55,6 +60,8 @@ export interface PutModelPackageGroupPolicyCommandOutput extends PutModelPackage
  * @see {@link PutModelPackageGroupPolicyCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class PutModelPackageGroupPolicyCommand extends $Command<

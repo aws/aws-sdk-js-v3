@@ -45,17 +45,56 @@ export interface RevokeClusterSecurityGroupIngressCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RedshiftClient, RevokeClusterSecurityGroupIngressCommand } from "@aws-sdk/client-redshift"; // ES Modules import
- * // const { RedshiftClient, RevokeClusterSecurityGroupIngressCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * import { RedshiftClient, RevokeClusterSecurityGroupIngressCommand } from '@aws-sdk/client-redshift'; // ES Modules import
+ * // const { RedshiftClient, RevokeClusterSecurityGroupIngressCommand } = require('@aws-sdk/client-redshift'); // CommonJS import
  * const client = new RedshiftClient(config);
  * const input = { // RevokeClusterSecurityGroupIngressMessage
- *   ClusterSecurityGroupName: "STRING_VALUE", // required
- *   CIDRIP: "STRING_VALUE",
- *   EC2SecurityGroupName: "STRING_VALUE",
- *   EC2SecurityGroupOwnerId: "STRING_VALUE",
+ *   ClusterSecurityGroupName: 'STRING_VALUE', // required
+ *   CIDRIP: 'STRING_VALUE',
+ *   EC2SecurityGroupName: 'STRING_VALUE',
+ *   EC2SecurityGroupOwnerId: 'STRING_VALUE',
  * };
  * const command = new RevokeClusterSecurityGroupIngressCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // RevokeClusterSecurityGroupIngressResult
+ *   ClusterSecurityGroup: { // ClusterSecurityGroup
+ *     ClusterSecurityGroupName: 'STRING_VALUE',
+ *     Description: 'STRING_VALUE',
+ *     EC2SecurityGroups: [ // EC2SecurityGroupList
+ *       { // EC2SecurityGroup
+ *         Status: 'STRING_VALUE',
+ *         EC2SecurityGroupName: 'STRING_VALUE',
+ *         EC2SecurityGroupOwnerId: 'STRING_VALUE',
+ *         Tags: [ // TagList
+ *           { // Tag
+ *             Key: 'STRING_VALUE',
+ *             Value: 'STRING_VALUE',
+ *           },
+ *         ],
+ *       },
+ *     ],
+ *     IPRanges: [ // IPRangeList
+ *       { // IPRange
+ *         Status: 'STRING_VALUE',
+ *         CIDRIP: 'STRING_VALUE',
+ *         Tags: [
+ *           {
+ *             Key: 'STRING_VALUE',
+ *             Value: 'STRING_VALUE',
+ *           },
+ *         ],
+ *       },
+ *     ],
+ *     Tags: [
+ *       {
+ *         Key: 'STRING_VALUE',
+ *         Value: 'STRING_VALUE',
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param RevokeClusterSecurityGroupIngressCommandInput - {@link RevokeClusterSecurityGroupIngressCommandInput}
@@ -75,6 +114,8 @@ export interface RevokeClusterSecurityGroupIngressCommandOutput
  * @throws {@link InvalidClusterSecurityGroupStateFault} (client fault)
  *  <p>The state of the cluster security group is not <code>available</code>. </p>
  *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class RevokeClusterSecurityGroupIngressCommand extends $Command<

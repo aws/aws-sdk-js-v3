@@ -41,18 +41,29 @@ export interface DescribeGroupsCommandOutput extends DescribeGroupsResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkDocsClient, DescribeGroupsCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
- * // const { WorkDocsClient, DescribeGroupsCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import
+ * import { WorkDocsClient, DescribeGroupsCommand } from '@aws-sdk/client-workdocs'; // ES Modules import
+ * // const { WorkDocsClient, DescribeGroupsCommand } = require('@aws-sdk/client-workdocs'); // CommonJS import
  * const client = new WorkDocsClient(config);
  * const input = { // DescribeGroupsRequest
- *   AuthenticationToken: "STRING_VALUE",
- *   SearchQuery: "STRING_VALUE", // required
- *   OrganizationId: "STRING_VALUE",
- *   Marker: "STRING_VALUE",
- *   Limit: Number("int"),
+ *   AuthenticationToken: 'STRING_VALUE',
+ *   SearchQuery: 'STRING_VALUE', // required
+ *   OrganizationId: 'STRING_VALUE',
+ *   Marker: 'STRING_VALUE',
+ *   Limit: Number('int'),
  * };
  * const command = new DescribeGroupsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeGroupsResponse
+ *   Groups: [ // GroupMetadataList
+ *     { // GroupMetadata
+ *       Id: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   Marker: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeGroupsCommandInput - {@link DescribeGroupsCommandInput}
@@ -75,6 +86,8 @@ export interface DescribeGroupsCommandOutput extends DescribeGroupsResponse, __M
  * @throws {@link UnauthorizedResourceAccessException} (client fault)
  *  <p>The caller does not have access to perform the action on the resource.</p>
  *
+ * @throws {@link WorkDocsServiceException}
+ * <p>Base exception class for all service exceptions from WorkDocs service.</p>
  *
  */
 export class DescribeGroupsCommand extends $Command<

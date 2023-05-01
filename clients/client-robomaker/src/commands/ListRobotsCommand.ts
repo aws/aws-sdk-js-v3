@@ -41,23 +41,41 @@ export interface ListRobotsCommandOutput extends ListRobotsResponse, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RoboMakerClient, ListRobotsCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
- * // const { RoboMakerClient, ListRobotsCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
+ * import { RoboMakerClient, ListRobotsCommand } from '@aws-sdk/client-robomaker'; // ES Modules import
+ * // const { RoboMakerClient, ListRobotsCommand } = require('@aws-sdk/client-robomaker'); // CommonJS import
  * const client = new RoboMakerClient(config);
  * const input = { // ListRobotsRequest
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  *   filters: [ // Filters
  *     { // Filter
- *       name: "STRING_VALUE",
+ *       name: 'STRING_VALUE',
  *       values: [ // FilterValues
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
  * };
  * const command = new ListRobotsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListRobotsResponse
+ *   robots: [ // Robots
+ *     { // Robot
+ *       arn: 'STRING_VALUE',
+ *       name: 'STRING_VALUE',
+ *       fleetArn: 'STRING_VALUE',
+ *       status: 'STRING_VALUE',
+ *       greenGrassGroupId: 'STRING_VALUE',
+ *       createdAt: new Date('TIMESTAMP'),
+ *       architecture: 'STRING_VALUE',
+ *       lastDeploymentJob: 'STRING_VALUE',
+ *       lastDeploymentTime: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListRobotsCommandInput - {@link ListRobotsCommandInput}
@@ -79,6 +97,8 @@ export interface ListRobotsCommandOutput extends ListRobotsResponse, __MetadataB
  * @throws {@link ThrottlingException} (client fault)
  *  <p>AWS RoboMaker is temporarily unable to process the request. Try your call again.</p>
  *
+ * @throws {@link RoboMakerServiceException}
+ * <p>Base exception class for all service exceptions from RoboMaker service.</p>
  *
  */
 export class ListRobotsCommand extends $Command<

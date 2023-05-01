@@ -39,22 +39,30 @@ export interface ListDatasetEntriesCommandOutput extends ListDatasetEntriesRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LookoutVisionClient, ListDatasetEntriesCommand } from "@aws-sdk/client-lookoutvision"; // ES Modules import
- * // const { LookoutVisionClient, ListDatasetEntriesCommand } = require("@aws-sdk/client-lookoutvision"); // CommonJS import
+ * import { LookoutVisionClient, ListDatasetEntriesCommand } from '@aws-sdk/client-lookoutvision'; // ES Modules import
+ * // const { LookoutVisionClient, ListDatasetEntriesCommand } = require('@aws-sdk/client-lookoutvision'); // CommonJS import
  * const client = new LookoutVisionClient(config);
  * const input = { // ListDatasetEntriesRequest
- *   ProjectName: "STRING_VALUE", // required
- *   DatasetType: "STRING_VALUE", // required
+ *   ProjectName: 'STRING_VALUE', // required
+ *   DatasetType: 'STRING_VALUE', // required
  *   Labeled: true || false,
- *   AnomalyClass: "STRING_VALUE",
- *   BeforeCreationDate: new Date("TIMESTAMP"),
- *   AfterCreationDate: new Date("TIMESTAMP"),
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
- *   SourceRefContains: "STRING_VALUE",
+ *   AnomalyClass: 'STRING_VALUE',
+ *   BeforeCreationDate: new Date('TIMESTAMP'),
+ *   AfterCreationDate: new Date('TIMESTAMP'),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
+ *   SourceRefContains: 'STRING_VALUE',
  * };
  * const command = new ListDatasetEntriesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListDatasetEntriesResponse
+ *   DatasetEntries: [ // DatasetEntryList
+ *     'STRING_VALUE',
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListDatasetEntriesCommandInput - {@link ListDatasetEntriesCommandInput}
@@ -82,6 +90,8 @@ export interface ListDatasetEntriesCommandOutput extends ListDatasetEntriesRespo
  *  <p>An input validation error occured. For example, invalid characters in a project name,
  *       or if a pagination token is invalid.</p>
  *
+ * @throws {@link LookoutVisionServiceException}
+ * <p>Base exception class for all service exceptions from LookoutVision service.</p>
  *
  */
 export class ListDatasetEntriesCommand extends $Command<

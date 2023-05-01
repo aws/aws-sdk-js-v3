@@ -36,25 +36,95 @@ export interface BatchDescribeMergeConflictsCommandOutput extends BatchDescribeM
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeCommitClient, BatchDescribeMergeConflictsCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
- * // const { CodeCommitClient, BatchDescribeMergeConflictsCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
+ * import { CodeCommitClient, BatchDescribeMergeConflictsCommand } from '@aws-sdk/client-codecommit'; // ES Modules import
+ * // const { CodeCommitClient, BatchDescribeMergeConflictsCommand } = require('@aws-sdk/client-codecommit'); // CommonJS import
  * const client = new CodeCommitClient(config);
  * const input = { // BatchDescribeMergeConflictsInput
- *   repositoryName: "STRING_VALUE", // required
- *   destinationCommitSpecifier: "STRING_VALUE", // required
- *   sourceCommitSpecifier: "STRING_VALUE", // required
- *   mergeOption: "STRING_VALUE", // required
- *   maxMergeHunks: Number("int"),
- *   maxConflictFiles: Number("int"),
+ *   repositoryName: 'STRING_VALUE', // required
+ *   destinationCommitSpecifier: 'STRING_VALUE', // required
+ *   sourceCommitSpecifier: 'STRING_VALUE', // required
+ *   mergeOption: 'STRING_VALUE', // required
+ *   maxMergeHunks: Number('int'),
+ *   maxConflictFiles: Number('int'),
  *   filePaths: [ // FilePaths
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   conflictDetailLevel: "STRING_VALUE",
- *   conflictResolutionStrategy: "STRING_VALUE",
- *   nextToken: "STRING_VALUE",
+ *   conflictDetailLevel: 'STRING_VALUE',
+ *   conflictResolutionStrategy: 'STRING_VALUE',
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new BatchDescribeMergeConflictsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BatchDescribeMergeConflictsOutput
+ *   conflicts: [ // Conflicts // required
+ *     { // Conflict
+ *       conflictMetadata: { // ConflictMetadata
+ *         filePath: 'STRING_VALUE',
+ *         fileSizes: { // FileSizes
+ *           source: Number('long'),
+ *           destination: Number('long'),
+ *           base: Number('long'),
+ *         },
+ *         fileModes: { // FileModes
+ *           source: 'STRING_VALUE',
+ *           destination: 'STRING_VALUE',
+ *           base: 'STRING_VALUE',
+ *         },
+ *         objectTypes: { // ObjectTypes
+ *           source: 'STRING_VALUE',
+ *           destination: 'STRING_VALUE',
+ *           base: 'STRING_VALUE',
+ *         },
+ *         numberOfConflicts: Number('int'),
+ *         isBinaryFile: { // IsBinaryFile
+ *           source: true || false,
+ *           destination: true || false,
+ *           base: true || false,
+ *         },
+ *         contentConflict: true || false,
+ *         fileModeConflict: true || false,
+ *         objectTypeConflict: true || false,
+ *         mergeOperations: { // MergeOperations
+ *           source: 'STRING_VALUE',
+ *           destination: 'STRING_VALUE',
+ *         },
+ *       },
+ *       mergeHunks: [ // MergeHunks
+ *         { // MergeHunk
+ *           isConflict: true || false,
+ *           source: { // MergeHunkDetail
+ *             startLine: Number('int'),
+ *             endLine: Number('int'),
+ *             hunkContent: 'STRING_VALUE',
+ *           },
+ *           destination: {
+ *             startLine: Number('int'),
+ *             endLine: Number('int'),
+ *             hunkContent: 'STRING_VALUE',
+ *           },
+ *           base: {
+ *             startLine: Number('int'),
+ *             endLine: Number('int'),
+ *             hunkContent: 'STRING_VALUE',
+ *           },
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ *   errors: [ // BatchDescribeMergeConflictsErrors
+ *     { // BatchDescribeMergeConflictsError
+ *       filePath: 'STRING_VALUE', // required
+ *       exceptionName: 'STRING_VALUE', // required
+ *       message: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ *   destinationCommitId: 'STRING_VALUE', // required
+ *   sourceCommitId: 'STRING_VALUE', // required
+ *   baseCommitId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param BatchDescribeMergeConflictsCommandInput - {@link BatchDescribeMergeConflictsCommandInput}
@@ -133,6 +203,8 @@ export interface BatchDescribeMergeConflictsCommandOutput extends BatchDescribeM
  *  <p>The divergence between the tips of the provided commit specifiers is too great to determine whether there might be
  *             any merge conflicts. Locally compare the specifiers using <code>git diff</code> or a diff tool.</p>
  *
+ * @throws {@link CodeCommitServiceException}
+ * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
  */
 export class BatchDescribeMergeConflictsCommand extends $Command<

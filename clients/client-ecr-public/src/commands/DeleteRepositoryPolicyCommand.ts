@@ -36,15 +36,22 @@ export interface DeleteRepositoryPolicyCommandOutput extends DeleteRepositoryPol
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ECRPUBLICClient, DeleteRepositoryPolicyCommand } from "@aws-sdk/client-ecr-public"; // ES Modules import
- * // const { ECRPUBLICClient, DeleteRepositoryPolicyCommand } = require("@aws-sdk/client-ecr-public"); // CommonJS import
+ * import { ECRPUBLICClient, DeleteRepositoryPolicyCommand } from '@aws-sdk/client-ecr-public'; // ES Modules import
+ * // const { ECRPUBLICClient, DeleteRepositoryPolicyCommand } = require('@aws-sdk/client-ecr-public'); // CommonJS import
  * const client = new ECRPUBLICClient(config);
  * const input = { // DeleteRepositoryPolicyRequest
- *   registryId: "STRING_VALUE",
- *   repositoryName: "STRING_VALUE", // required
+ *   registryId: 'STRING_VALUE',
+ *   repositoryName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteRepositoryPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteRepositoryPolicyResponse
+ *   registryId: 'STRING_VALUE',
+ *   repositoryName: 'STRING_VALUE',
+ *   policyText: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DeleteRepositoryPolicyCommandInput - {@link DeleteRepositoryPolicyCommandInput}
@@ -71,6 +78,8 @@ export interface DeleteRepositoryPolicyCommandOutput extends DeleteRepositoryPol
  * @throws {@link UnsupportedCommandException} (client fault)
  *  <p>The action isn't supported in this Region.</p>
  *
+ * @throws {@link ECRPUBLICServiceException}
+ * <p>Base exception class for all service exceptions from ECRPUBLIC service.</p>
  *
  */
 export class DeleteRepositoryPolicyCommand extends $Command<

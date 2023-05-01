@@ -45,20 +45,20 @@ export interface DescribeVerifiedAccessTrustProvidersCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, DescribeVerifiedAccessTrustProvidersCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, DescribeVerifiedAccessTrustProvidersCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, DescribeVerifiedAccessTrustProvidersCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, DescribeVerifiedAccessTrustProvidersCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // DescribeVerifiedAccessTrustProvidersRequest
  *   VerifiedAccessTrustProviderIds: [ // VerifiedAccessTrustProviderIdList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  *   Filters: [ // FilterList
  *     { // Filter
- *       Name: "STRING_VALUE",
+ *       Name: 'STRING_VALUE',
  *       Values: [ // ValueStringList
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
@@ -66,6 +66,41 @@ export interface DescribeVerifiedAccessTrustProvidersCommandOutput
  * };
  * const command = new DescribeVerifiedAccessTrustProvidersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeVerifiedAccessTrustProvidersResult
+ *   VerifiedAccessTrustProviders: [ // VerifiedAccessTrustProviderList
+ *     { // VerifiedAccessTrustProvider
+ *       VerifiedAccessTrustProviderId: 'STRING_VALUE',
+ *       Description: 'STRING_VALUE',
+ *       TrustProviderType: 'user' || 'device',
+ *       UserTrustProviderType: 'iam-identity-center' || 'oidc',
+ *       DeviceTrustProviderType: 'jamf' || 'crowdstrike',
+ *       OidcOptions: { // OidcOptions
+ *         Issuer: 'STRING_VALUE',
+ *         AuthorizationEndpoint: 'STRING_VALUE',
+ *         TokenEndpoint: 'STRING_VALUE',
+ *         UserInfoEndpoint: 'STRING_VALUE',
+ *         ClientId: 'STRING_VALUE',
+ *         ClientSecret: 'STRING_VALUE',
+ *         Scope: 'STRING_VALUE',
+ *       },
+ *       DeviceOptions: { // DeviceOptions
+ *         TenantId: 'STRING_VALUE',
+ *       },
+ *       PolicyReferenceName: 'STRING_VALUE',
+ *       CreationTime: 'STRING_VALUE',
+ *       LastUpdatedTime: 'STRING_VALUE',
+ *       Tags: [ // TagList
+ *         { // Tag
+ *           Key: 'STRING_VALUE',
+ *           Value: 'STRING_VALUE',
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeVerifiedAccessTrustProvidersCommandInput - {@link DescribeVerifiedAccessTrustProvidersCommandInput}
@@ -74,6 +109,8 @@ export interface DescribeVerifiedAccessTrustProvidersCommandOutput
  * @see {@link DescribeVerifiedAccessTrustProvidersCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class DescribeVerifiedAccessTrustProvidersCommand extends $Command<

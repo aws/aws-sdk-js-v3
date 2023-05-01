@@ -42,14 +42,27 @@ export interface GetBuiltinIntentCommandOutput extends GetBuiltinIntentResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LexModelBuildingServiceClient, GetBuiltinIntentCommand } from "@aws-sdk/client-lex-model-building-service"; // ES Modules import
- * // const { LexModelBuildingServiceClient, GetBuiltinIntentCommand } = require("@aws-sdk/client-lex-model-building-service"); // CommonJS import
+ * import { LexModelBuildingServiceClient, GetBuiltinIntentCommand } from '@aws-sdk/client-lex-model-building-service'; // ES Modules import
+ * // const { LexModelBuildingServiceClient, GetBuiltinIntentCommand } = require('@aws-sdk/client-lex-model-building-service'); // CommonJS import
  * const client = new LexModelBuildingServiceClient(config);
  * const input = { // GetBuiltinIntentRequest
- *   signature: "STRING_VALUE", // required
+ *   signature: 'STRING_VALUE', // required
  * };
  * const command = new GetBuiltinIntentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetBuiltinIntentResponse
+ *   signature: 'STRING_VALUE',
+ *   supportedLocales: [ // LocaleList
+ *     'STRING_VALUE',
+ *   ],
+ *   slots: [ // BuiltinIntentSlotList
+ *     { // BuiltinIntentSlot
+ *       name: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetBuiltinIntentCommandInput - {@link GetBuiltinIntentCommandInput}
@@ -73,6 +86,8 @@ export interface GetBuiltinIntentCommandOutput extends GetBuiltinIntentResponse,
  *  <p>The resource specified in the request was not found. Check the
  *       resource and try again.</p>
  *
+ * @throws {@link LexModelBuildingServiceServiceException}
+ * <p>Base exception class for all service exceptions from LexModelBuildingService service.</p>
  *
  */
 export class GetBuiltinIntentCommand extends $Command<

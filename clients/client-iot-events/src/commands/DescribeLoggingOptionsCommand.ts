@@ -36,12 +36,27 @@ export interface DescribeLoggingOptionsCommandOutput extends DescribeLoggingOpti
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTEventsClient, DescribeLoggingOptionsCommand } from "@aws-sdk/client-iot-events"; // ES Modules import
- * // const { IoTEventsClient, DescribeLoggingOptionsCommand } = require("@aws-sdk/client-iot-events"); // CommonJS import
+ * import { IoTEventsClient, DescribeLoggingOptionsCommand } from '@aws-sdk/client-iot-events'; // ES Modules import
+ * // const { IoTEventsClient, DescribeLoggingOptionsCommand } = require('@aws-sdk/client-iot-events'); // CommonJS import
  * const client = new IoTEventsClient(config);
  * const input = {};
  * const command = new DescribeLoggingOptionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeLoggingOptionsResponse
+ *   loggingOptions: { // LoggingOptions
+ *     roleArn: 'STRING_VALUE', // required
+ *     level: 'STRING_VALUE', // required
+ *     enabled: true || false, // required
+ *     detectorDebugOptions: [ // DetectorDebugOptions
+ *       { // DetectorDebugOption
+ *         detectorModelName: 'STRING_VALUE', // required
+ *         keyValue: 'STRING_VALUE',
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeLoggingOptionsCommandInput - {@link DescribeLoggingOptionsCommandInput}
@@ -68,6 +83,8 @@ export interface DescribeLoggingOptionsCommandOutput extends DescribeLoggingOpti
  * @throws {@link UnsupportedOperationException} (server fault)
  *  <p>The requested operation is not supported.</p>
  *
+ * @throws {@link IoTEventsServiceException}
+ * <p>Base exception class for all service exceptions from IoTEvents service.</p>
  *
  */
 export class DescribeLoggingOptionsCommand extends $Command<

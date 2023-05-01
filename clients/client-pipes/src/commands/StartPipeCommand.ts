@@ -36,14 +36,24 @@ export interface StartPipeCommandOutput extends StartPipeResponse, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PipesClient, StartPipeCommand } from "@aws-sdk/client-pipes"; // ES Modules import
- * // const { PipesClient, StartPipeCommand } = require("@aws-sdk/client-pipes"); // CommonJS import
+ * import { PipesClient, StartPipeCommand } from '@aws-sdk/client-pipes'; // ES Modules import
+ * // const { PipesClient, StartPipeCommand } = require('@aws-sdk/client-pipes'); // CommonJS import
  * const client = new PipesClient(config);
  * const input = { // StartPipeRequest
- *   Name: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
  * };
  * const command = new StartPipeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartPipeResponse
+ *   Arn: 'STRING_VALUE',
+ *   Name: 'STRING_VALUE',
+ *   DesiredState: 'STRING_VALUE',
+ *   CurrentState: 'STRING_VALUE',
+ *   CreationTime: new Date('TIMESTAMP'),
+ *   LastModifiedTime: new Date('TIMESTAMP'),
+ * };
+ *
  * ```
  *
  * @param StartPipeCommandInput - {@link StartPipeCommandInput}
@@ -67,6 +77,8 @@ export interface StartPipeCommandOutput extends StartPipeResponse, __MetadataBea
  * @throws {@link ValidationException} (client fault)
  *  <p>Indicates that an error has occurred while performing a validate operation.</p>
  *
+ * @throws {@link PipesServiceException}
+ * <p>Base exception class for all service exceptions from Pipes service.</p>
  *
  */
 export class StartPipeCommand extends $Command<

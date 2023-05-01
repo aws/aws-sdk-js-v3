@@ -50,27 +50,58 @@ export interface ListJobsCommandOutput extends ListJobsResponse, __MetadataBeare
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BatchClient, ListJobsCommand } from "@aws-sdk/client-batch"; // ES Modules import
- * // const { BatchClient, ListJobsCommand } = require("@aws-sdk/client-batch"); // CommonJS import
+ * import { BatchClient, ListJobsCommand } from '@aws-sdk/client-batch'; // ES Modules import
+ * // const { BatchClient, ListJobsCommand } = require('@aws-sdk/client-batch'); // CommonJS import
  * const client = new BatchClient(config);
  * const input = { // ListJobsRequest
- *   jobQueue: "STRING_VALUE",
- *   arrayJobId: "STRING_VALUE",
- *   multiNodeJobId: "STRING_VALUE",
- *   jobStatus: "SUBMITTED" || "PENDING" || "RUNNABLE" || "STARTING" || "RUNNING" || "SUCCEEDED" || "FAILED",
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   jobQueue: 'STRING_VALUE',
+ *   arrayJobId: 'STRING_VALUE',
+ *   multiNodeJobId: 'STRING_VALUE',
+ *   jobStatus: 'SUBMITTED' || 'PENDING' || 'RUNNABLE' || 'STARTING' || 'RUNNING' || 'SUCCEEDED' || 'FAILED',
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  *   filters: [ // ListJobsFilterList
  *     { // KeyValuesPair
- *       name: "STRING_VALUE",
+ *       name: 'STRING_VALUE',
  *       values: [ // StringList
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
  * };
  * const command = new ListJobsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListJobsResponse
+ *   jobSummaryList: [ // JobSummaryList // required
+ *     { // JobSummary
+ *       jobArn: 'STRING_VALUE',
+ *       jobId: 'STRING_VALUE', // required
+ *       jobName: 'STRING_VALUE', // required
+ *       createdAt: Number('long'),
+ *       status: 'SUBMITTED' || 'PENDING' || 'RUNNABLE' || 'STARTING' || 'RUNNING' || 'SUCCEEDED' || 'FAILED',
+ *       statusReason: 'STRING_VALUE',
+ *       startedAt: Number('long'),
+ *       stoppedAt: Number('long'),
+ *       container: { // ContainerSummary
+ *         exitCode: Number('int'),
+ *         reason: 'STRING_VALUE',
+ *       },
+ *       arrayProperties: { // ArrayPropertiesSummary
+ *         size: Number('int'),
+ *         index: Number('int'),
+ *       },
+ *       nodeProperties: { // NodePropertiesSummary
+ *         isMainNode: true || false,
+ *         numNodes: Number('int'),
+ *         nodeIndex: Number('int'),
+ *       },
+ *       jobDefinition: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListJobsCommandInput - {@link ListJobsCommandInput}
@@ -87,6 +118,8 @@ export interface ListJobsCommandOutput extends ListJobsResponse, __MetadataBeare
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server issue.</p>
  *
+ * @throws {@link BatchServiceException}
+ * <p>Base exception class for all service exceptions from Batch service.</p>
  *
  * @example To list running jobs
  * ```javascript

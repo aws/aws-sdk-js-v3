@@ -42,32 +42,56 @@ export interface CreateAppBlockCommandOutput extends CreateAppBlockResult, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppStreamClient, CreateAppBlockCommand } from "@aws-sdk/client-appstream"; // ES Modules import
- * // const { AppStreamClient, CreateAppBlockCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
+ * import { AppStreamClient, CreateAppBlockCommand } from '@aws-sdk/client-appstream'; // ES Modules import
+ * // const { AppStreamClient, CreateAppBlockCommand } = require('@aws-sdk/client-appstream'); // CommonJS import
  * const client = new AppStreamClient(config);
  * const input = { // CreateAppBlockRequest
- *   Name: "STRING_VALUE", // required
- *   Description: "STRING_VALUE",
- *   DisplayName: "STRING_VALUE",
+ *   Name: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE',
+ *   DisplayName: 'STRING_VALUE',
  *   SourceS3Location: { // S3Location
- *     S3Bucket: "STRING_VALUE", // required
- *     S3Key: "STRING_VALUE", // required
+ *     S3Bucket: 'STRING_VALUE', // required
+ *     S3Key: 'STRING_VALUE', // required
  *   },
  *   SetupScriptDetails: { // ScriptDetails
  *     ScriptS3Location: {
- *       S3Bucket: "STRING_VALUE", // required
- *       S3Key: "STRING_VALUE", // required
+ *       S3Bucket: 'STRING_VALUE', // required
+ *       S3Key: 'STRING_VALUE', // required
  *     },
- *     ExecutablePath: "STRING_VALUE", // required
- *     ExecutableParameters: "STRING_VALUE",
- *     TimeoutInSeconds: Number("int"), // required
+ *     ExecutablePath: 'STRING_VALUE', // required
+ *     ExecutableParameters: 'STRING_VALUE',
+ *     TimeoutInSeconds: Number('int'), // required
  *   },
  *   Tags: { // Tags
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateAppBlockCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateAppBlockResult
+ *   AppBlock: { // AppBlock
+ *     Name: 'STRING_VALUE', // required
+ *     Arn: 'STRING_VALUE', // required
+ *     Description: 'STRING_VALUE',
+ *     DisplayName: 'STRING_VALUE',
+ *     SourceS3Location: { // S3Location
+ *       S3Bucket: 'STRING_VALUE', // required
+ *       S3Key: 'STRING_VALUE', // required
+ *     },
+ *     SetupScriptDetails: { // ScriptDetails
+ *       ScriptS3Location: {
+ *         S3Bucket: 'STRING_VALUE', // required
+ *         S3Key: 'STRING_VALUE', // required
+ *       },
+ *       ExecutablePath: 'STRING_VALUE', // required
+ *       ExecutableParameters: 'STRING_VALUE',
+ *       TimeoutInSeconds: Number('int'), // required
+ *     },
+ *     CreatedTime: new Date('TIMESTAMP'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateAppBlockCommandInput - {@link CreateAppBlockCommandInput}
@@ -88,6 +112,8 @@ export interface CreateAppBlockCommandOutput extends CreateAppBlockResult, __Met
  * @throws {@link ResourceAlreadyExistsException} (client fault)
  *  <p>The specified resource already exists.</p>
  *
+ * @throws {@link AppStreamServiceException}
+ * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
  */
 export class CreateAppBlockCommand extends $Command<

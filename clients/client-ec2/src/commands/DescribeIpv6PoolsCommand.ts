@@ -36,27 +36,49 @@ export interface DescribeIpv6PoolsCommandOutput extends DescribeIpv6PoolsResult,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, DescribeIpv6PoolsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, DescribeIpv6PoolsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, DescribeIpv6PoolsCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, DescribeIpv6PoolsCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // DescribeIpv6PoolsRequest
  *   PoolIds: [ // Ipv6PoolIdList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  *   DryRun: true || false,
  *   Filters: [ // FilterList
  *     { // Filter
- *       Name: "STRING_VALUE",
+ *       Name: 'STRING_VALUE',
  *       Values: [ // ValueStringList
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
  * };
  * const command = new DescribeIpv6PoolsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeIpv6PoolsResult
+ *   Ipv6Pools: [ // Ipv6PoolSet
+ *     { // Ipv6Pool
+ *       PoolId: 'STRING_VALUE',
+ *       Description: 'STRING_VALUE',
+ *       PoolCidrBlocks: [ // PoolCidrBlocksSet
+ *         { // PoolCidrBlock
+ *           Cidr: 'STRING_VALUE',
+ *         },
+ *       ],
+ *       Tags: [ // TagList
+ *         { // Tag
+ *           Key: 'STRING_VALUE',
+ *           Value: 'STRING_VALUE',
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeIpv6PoolsCommandInput - {@link DescribeIpv6PoolsCommandInput}
@@ -65,6 +87,8 @@ export interface DescribeIpv6PoolsCommandOutput extends DescribeIpv6PoolsResult,
  * @see {@link DescribeIpv6PoolsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class DescribeIpv6PoolsCommand extends $Command<

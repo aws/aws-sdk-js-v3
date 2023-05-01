@@ -41,16 +41,29 @@ export interface ListFunctionDefinitionVersionsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GreengrassClient, ListFunctionDefinitionVersionsCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
- * // const { GreengrassClient, ListFunctionDefinitionVersionsCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
+ * import { GreengrassClient, ListFunctionDefinitionVersionsCommand } from '@aws-sdk/client-greengrass'; // ES Modules import
+ * // const { GreengrassClient, ListFunctionDefinitionVersionsCommand } = require('@aws-sdk/client-greengrass'); // CommonJS import
  * const client = new GreengrassClient(config);
  * const input = { // ListFunctionDefinitionVersionsRequest
- *   FunctionDefinitionId: "STRING_VALUE", // required
- *   MaxResults: "STRING_VALUE",
- *   NextToken: "STRING_VALUE",
+ *   FunctionDefinitionId: 'STRING_VALUE', // required
+ *   MaxResults: 'STRING_VALUE',
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListFunctionDefinitionVersionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListFunctionDefinitionVersionsResponse
+ *   NextToken: 'STRING_VALUE',
+ *   Versions: [ // __listOfVersionInformation
+ *     { // VersionInformation
+ *       Arn: 'STRING_VALUE',
+ *       CreationTimestamp: 'STRING_VALUE',
+ *       Id: 'STRING_VALUE',
+ *       Version: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListFunctionDefinitionVersionsCommandInput - {@link ListFunctionDefinitionVersionsCommandInput}
@@ -62,6 +75,8 @@ export interface ListFunctionDefinitionVersionsCommandOutput
  * @throws {@link BadRequestException} (client fault)
  *  General error information.
  *
+ * @throws {@link GreengrassServiceException}
+ * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
  */
 export class ListFunctionDefinitionVersionsCommand extends $Command<

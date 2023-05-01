@@ -37,25 +37,42 @@ export interface CreateUsageLimitCommandOutput extends UsageLimit, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RedshiftClient, CreateUsageLimitCommand } from "@aws-sdk/client-redshift"; // ES Modules import
- * // const { RedshiftClient, CreateUsageLimitCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * import { RedshiftClient, CreateUsageLimitCommand } from '@aws-sdk/client-redshift'; // ES Modules import
+ * // const { RedshiftClient, CreateUsageLimitCommand } = require('@aws-sdk/client-redshift'); // CommonJS import
  * const client = new RedshiftClient(config);
  * const input = { // CreateUsageLimitMessage
- *   ClusterIdentifier: "STRING_VALUE", // required
- *   FeatureType: "spectrum" || "concurrency-scaling" || "cross-region-datasharing", // required
- *   LimitType: "time" || "data-scanned", // required
- *   Amount: Number("long"), // required
- *   Period: "daily" || "weekly" || "monthly",
- *   BreachAction: "log" || "emit-metric" || "disable",
+ *   ClusterIdentifier: 'STRING_VALUE', // required
+ *   FeatureType: 'spectrum' || 'concurrency-scaling' || 'cross-region-datasharing', // required
+ *   LimitType: 'time' || 'data-scanned', // required
+ *   Amount: Number('long'), // required
+ *   Period: 'daily' || 'weekly' || 'monthly',
+ *   BreachAction: 'log' || 'emit-metric' || 'disable',
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE",
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new CreateUsageLimitCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UsageLimit
+ *   UsageLimitId: 'STRING_VALUE',
+ *   ClusterIdentifier: 'STRING_VALUE',
+ *   FeatureType: 'spectrum' || 'concurrency-scaling' || 'cross-region-datasharing',
+ *   LimitType: 'time' || 'data-scanned',
+ *   Amount: Number('long'),
+ *   Period: 'daily' || 'weekly' || 'monthly',
+ *   BreachAction: 'log' || 'emit-metric' || 'disable',
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param CreateUsageLimitCommandInput - {@link CreateUsageLimitCommandInput}
@@ -86,6 +103,8 @@ export interface CreateUsageLimitCommandOutput extends UsageLimit, __MetadataBea
  * @throws {@link UsageLimitAlreadyExistsFault} (client fault)
  *  <p>The usage limit already exists. </p>
  *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class CreateUsageLimitCommand extends $Command<

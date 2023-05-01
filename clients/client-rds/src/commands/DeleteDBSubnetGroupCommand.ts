@@ -39,14 +39,17 @@ export interface DeleteDBSubnetGroupCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RDSClient, DeleteDBSubnetGroupCommand } from "@aws-sdk/client-rds"; // ES Modules import
- * // const { RDSClient, DeleteDBSubnetGroupCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * import { RDSClient, DeleteDBSubnetGroupCommand } from '@aws-sdk/client-rds'; // ES Modules import
+ * // const { RDSClient, DeleteDBSubnetGroupCommand } = require('@aws-sdk/client-rds'); // CommonJS import
  * const client = new RDSClient(config);
  * const input = { // DeleteDBSubnetGroupMessage
- *   DBSubnetGroupName: "STRING_VALUE", // required
+ *   DBSubnetGroupName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteDBSubnetGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteDBSubnetGroupCommandInput - {@link DeleteDBSubnetGroupCommandInput}
@@ -65,6 +68,8 @@ export interface DeleteDBSubnetGroupCommandOutput extends __MetadataBearer {}
  * @throws {@link InvalidDBSubnetStateFault} (client fault)
  *  <p>The DB subnet isn't in the <i>available</i> state.</p>
  *
+ * @throws {@link RDSServiceException}
+ * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  * @example To delete a DB subnet group
  * ```javascript

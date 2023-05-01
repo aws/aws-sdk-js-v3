@@ -38,14 +38,44 @@ export interface DeleteOutboundConnectionCommandOutput extends DeleteOutboundCon
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OpenSearchClient, DeleteOutboundConnectionCommand } from "@aws-sdk/client-opensearch"; // ES Modules import
- * // const { OpenSearchClient, DeleteOutboundConnectionCommand } = require("@aws-sdk/client-opensearch"); // CommonJS import
+ * import { OpenSearchClient, DeleteOutboundConnectionCommand } from '@aws-sdk/client-opensearch'; // ES Modules import
+ * // const { OpenSearchClient, DeleteOutboundConnectionCommand } = require('@aws-sdk/client-opensearch'); // CommonJS import
  * const client = new OpenSearchClient(config);
  * const input = { // DeleteOutboundConnectionRequest
- *   ConnectionId: "STRING_VALUE", // required
+ *   ConnectionId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteOutboundConnectionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteOutboundConnectionResponse
+ *   Connection: { // OutboundConnection
+ *     LocalDomainInfo: { // DomainInformationContainer
+ *       AWSDomainInformation: { // AWSDomainInformation
+ *         OwnerId: 'STRING_VALUE',
+ *         DomainName: 'STRING_VALUE', // required
+ *         Region: 'STRING_VALUE',
+ *       },
+ *     },
+ *     RemoteDomainInfo: {
+ *       AWSDomainInformation: {
+ *         OwnerId: 'STRING_VALUE',
+ *         DomainName: 'STRING_VALUE', // required
+ *         Region: 'STRING_VALUE',
+ *       },
+ *     },
+ *     ConnectionId: 'STRING_VALUE',
+ *     ConnectionAlias: 'STRING_VALUE',
+ *     ConnectionStatus: { // OutboundConnectionStatus
+ *       StatusCode: 'VALIDATING' || 'VALIDATION_FAILED' || 'PENDING_ACCEPTANCE' || 'APPROVED' || 'PROVISIONING' || 'ACTIVE' || 'REJECTING' || 'REJECTED' || 'DELETING' || 'DELETED',
+ *       Message: 'STRING_VALUE',
+ *     },
+ *     ConnectionMode: 'DIRECT' || 'VPC_ENDPOINT',
+ *     ConnectionProperties: { // ConnectionProperties
+ *       Endpoint: 'STRING_VALUE',
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param DeleteOutboundConnectionCommandInput - {@link DeleteOutboundConnectionCommandInput}
@@ -60,6 +90,8 @@ export interface DeleteOutboundConnectionCommandOutput extends DeleteOutboundCon
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>An exception for accessing or deleting a resource that does not exist..</p>
  *
+ * @throws {@link OpenSearchServiceException}
+ * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
  */
 export class DeleteOutboundConnectionCommand extends $Command<

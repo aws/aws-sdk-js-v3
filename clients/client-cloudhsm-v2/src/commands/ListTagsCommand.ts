@@ -41,16 +41,27 @@ export interface ListTagsCommandOutput extends ListTagsResponse, __MetadataBeare
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudHSMV2Client, ListTagsCommand } from "@aws-sdk/client-cloudhsm-v2"; // ES Modules import
- * // const { CloudHSMV2Client, ListTagsCommand } = require("@aws-sdk/client-cloudhsm-v2"); // CommonJS import
+ * import { CloudHSMV2Client, ListTagsCommand } from '@aws-sdk/client-cloudhsm-v2'; // ES Modules import
+ * // const { CloudHSMV2Client, ListTagsCommand } = require('@aws-sdk/client-cloudhsm-v2'); // CommonJS import
  * const client = new CloudHSMV2Client(config);
  * const input = { // ListTagsRequest
- *   ResourceId: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   ResourceId: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListTagsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTagsResponse
+ *   TagList: [ // TagList // required
+ *     { // Tag
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListTagsCommandInput - {@link ListTagsCommandInput}
@@ -80,6 +91,8 @@ export interface ListTagsCommandOutput extends ListTagsResponse, __MetadataBeare
  * @throws {@link CloudHsmTagException} (client fault)
  *  <p>The request was rejected because of a tagging failure. Verify the tag conditions in all applicable policies, and then retry the request.</p>
  *
+ * @throws {@link CloudHSMV2ServiceException}
+ * <p>Base exception class for all service exceptions from CloudHSMV2 service.</p>
  *
  */
 export class ListTagsCommand extends $Command<

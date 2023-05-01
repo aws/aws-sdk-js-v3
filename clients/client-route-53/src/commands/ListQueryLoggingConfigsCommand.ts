@@ -42,16 +42,28 @@ export interface ListQueryLoggingConfigsCommandOutput extends ListQueryLoggingCo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Route53Client, ListQueryLoggingConfigsCommand } from "@aws-sdk/client-route-53"; // ES Modules import
- * // const { Route53Client, ListQueryLoggingConfigsCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
+ * import { Route53Client, ListQueryLoggingConfigsCommand } from '@aws-sdk/client-route-53'; // ES Modules import
+ * // const { Route53Client, ListQueryLoggingConfigsCommand } = require('@aws-sdk/client-route-53'); // CommonJS import
  * const client = new Route53Client(config);
  * const input = { // ListQueryLoggingConfigsRequest
- *   HostedZoneId: "STRING_VALUE",
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   HostedZoneId: 'STRING_VALUE',
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListQueryLoggingConfigsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListQueryLoggingConfigsResponse
+ *   QueryLoggingConfigs: [ // QueryLoggingConfigs // required
+ *     { // QueryLoggingConfig
+ *       Id: 'STRING_VALUE', // required
+ *       HostedZoneId: 'STRING_VALUE', // required
+ *       CloudWatchLogsLogGroupArn: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListQueryLoggingConfigsCommandInput - {@link ListQueryLoggingConfigsCommandInput}
@@ -70,6 +82,8 @@ export interface ListQueryLoggingConfigsCommandOutput extends ListQueryLoggingCo
  * @throws {@link NoSuchHostedZone} (client fault)
  *  <p>No hosted zone exists with the ID that you specified.</p>
  *
+ * @throws {@link Route53ServiceException}
+ * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
  */
 export class ListQueryLoggingConfigsCommand extends $Command<

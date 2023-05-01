@@ -43,20 +43,50 @@ export interface ListFlywheelIterationHistoryCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ComprehendClient, ListFlywheelIterationHistoryCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
- * // const { ComprehendClient, ListFlywheelIterationHistoryCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
+ * import { ComprehendClient, ListFlywheelIterationHistoryCommand } from '@aws-sdk/client-comprehend'; // ES Modules import
+ * // const { ComprehendClient, ListFlywheelIterationHistoryCommand } = require('@aws-sdk/client-comprehend'); // CommonJS import
  * const client = new ComprehendClient(config);
  * const input = { // ListFlywheelIterationHistoryRequest
- *   FlywheelArn: "STRING_VALUE", // required
+ *   FlywheelArn: 'STRING_VALUE', // required
  *   Filter: { // FlywheelIterationFilter
- *     CreationTimeAfter: new Date("TIMESTAMP"),
- *     CreationTimeBefore: new Date("TIMESTAMP"),
+ *     CreationTimeAfter: new Date('TIMESTAMP'),
+ *     CreationTimeBefore: new Date('TIMESTAMP'),
  *   },
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListFlywheelIterationHistoryCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListFlywheelIterationHistoryResponse
+ *   FlywheelIterationPropertiesList: [ // FlywheelIterationPropertiesList
+ *     { // FlywheelIterationProperties
+ *       FlywheelArn: 'STRING_VALUE',
+ *       FlywheelIterationId: 'STRING_VALUE',
+ *       CreationTime: new Date('TIMESTAMP'),
+ *       EndTime: new Date('TIMESTAMP'),
+ *       Status: 'TRAINING' || 'EVALUATING' || 'COMPLETED' || 'FAILED' || 'STOP_REQUESTED' || 'STOPPED',
+ *       Message: 'STRING_VALUE',
+ *       EvaluatedModelArn: 'STRING_VALUE',
+ *       EvaluatedModelMetrics: { // FlywheelModelEvaluationMetrics
+ *         AverageF1Score: Number('double'),
+ *         AveragePrecision: Number('double'),
+ *         AverageRecall: Number('double'),
+ *         AverageAccuracy: Number('double'),
+ *       },
+ *       TrainedModelArn: 'STRING_VALUE',
+ *       TrainedModelMetrics: {
+ *         AverageF1Score: Number('double'),
+ *         AveragePrecision: Number('double'),
+ *         AverageRecall: Number('double'),
+ *         AverageAccuracy: Number('double'),
+ *       },
+ *       EvaluationManifestS3Prefix: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListFlywheelIterationHistoryCommandInput - {@link ListFlywheelIterationHistoryCommandInput}
@@ -81,6 +111,8 @@ export interface ListFlywheelIterationHistoryCommandOutput
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>The number of requests exceeds the limit. Resubmit your request later.</p>
  *
+ * @throws {@link ComprehendServiceException}
+ * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
  */
 export class ListFlywheelIterationHistoryCommand extends $Command<

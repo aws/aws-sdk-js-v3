@@ -49,24 +49,29 @@ export interface CreateDatasetGroupCommandOutput extends CreateDatasetGroupRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ForecastClient, CreateDatasetGroupCommand } from "@aws-sdk/client-forecast"; // ES Modules import
- * // const { ForecastClient, CreateDatasetGroupCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
+ * import { ForecastClient, CreateDatasetGroupCommand } from '@aws-sdk/client-forecast'; // ES Modules import
+ * // const { ForecastClient, CreateDatasetGroupCommand } = require('@aws-sdk/client-forecast'); // CommonJS import
  * const client = new ForecastClient(config);
  * const input = { // CreateDatasetGroupRequest
- *   DatasetGroupName: "STRING_VALUE", // required
- *   Domain: "RETAIL" || "CUSTOM" || "INVENTORY_PLANNING" || "EC2_CAPACITY" || "WORK_FORCE" || "WEB_TRAFFIC" || "METRICS", // required
+ *   DatasetGroupName: 'STRING_VALUE', // required
+ *   Domain: 'RETAIL' || 'CUSTOM' || 'INVENTORY_PLANNING' || 'EC2_CAPACITY' || 'WORK_FORCE' || 'WEB_TRAFFIC' || 'METRICS', // required
  *   DatasetArns: [ // ArnList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   Tags: [ // Tags
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreateDatasetGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateDatasetGroupResponse
+ *   DatasetGroupArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateDatasetGroupCommandInput - {@link CreateDatasetGroupCommandInput}
@@ -92,6 +97,8 @@ export interface CreateDatasetGroupCommandOutput extends CreateDatasetGroupRespo
  *  <p>We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try
  *       again.</p>
  *
+ * @throws {@link ForecastServiceException}
+ * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
  */
 export class CreateDatasetGroupCommand extends $Command<

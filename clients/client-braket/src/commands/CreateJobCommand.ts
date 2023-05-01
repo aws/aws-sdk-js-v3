@@ -36,62 +36,67 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BraketClient, CreateJobCommand } from "@aws-sdk/client-braket"; // ES Modules import
- * // const { BraketClient, CreateJobCommand } = require("@aws-sdk/client-braket"); // CommonJS import
+ * import { BraketClient, CreateJobCommand } from '@aws-sdk/client-braket'; // ES Modules import
+ * // const { BraketClient, CreateJobCommand } = require('@aws-sdk/client-braket'); // CommonJS import
  * const client = new BraketClient(config);
  * const input = { // CreateJobRequest
- *   clientToken: "STRING_VALUE", // required
+ *   clientToken: 'STRING_VALUE', // required
  *   algorithmSpecification: { // AlgorithmSpecification
  *     scriptModeConfig: { // ScriptModeConfig
- *       entryPoint: "STRING_VALUE", // required
- *       s3Uri: "STRING_VALUE", // required
- *       compressionType: "STRING_VALUE",
+ *       entryPoint: 'STRING_VALUE', // required
+ *       s3Uri: 'STRING_VALUE', // required
+ *       compressionType: 'STRING_VALUE',
  *     },
  *     containerImage: { // ContainerImage
- *       uri: "STRING_VALUE", // required
+ *       uri: 'STRING_VALUE', // required
  *     },
  *   },
  *   inputDataConfig: [ // InputConfigList
  *     { // InputFileConfig
- *       channelName: "STRING_VALUE", // required
- *       contentType: "STRING_VALUE",
+ *       channelName: 'STRING_VALUE', // required
+ *       contentType: 'STRING_VALUE',
  *       dataSource: { // DataSource
  *         s3DataSource: { // S3DataSource
- *           s3Uri: "STRING_VALUE", // required
+ *           s3Uri: 'STRING_VALUE', // required
  *         },
  *       },
  *     },
  *   ],
  *   outputDataConfig: { // JobOutputDataConfig
- *     kmsKeyId: "STRING_VALUE",
- *     s3Path: "STRING_VALUE", // required
+ *     kmsKeyId: 'STRING_VALUE',
+ *     s3Path: 'STRING_VALUE', // required
  *   },
  *   checkpointConfig: { // JobCheckpointConfig
- *     localPath: "STRING_VALUE",
- *     s3Uri: "STRING_VALUE", // required
+ *     localPath: 'STRING_VALUE',
+ *     s3Uri: 'STRING_VALUE', // required
  *   },
- *   jobName: "STRING_VALUE", // required
- *   roleArn: "STRING_VALUE", // required
+ *   jobName: 'STRING_VALUE', // required
+ *   roleArn: 'STRING_VALUE', // required
  *   stoppingCondition: { // JobStoppingCondition
- *     maxRuntimeInSeconds: Number("int"),
+ *     maxRuntimeInSeconds: Number('int'),
  *   },
  *   instanceConfig: { // InstanceConfig
- *     instanceType: "STRING_VALUE", // required
- *     volumeSizeInGb: Number("int"), // required
- *     instanceCount: Number("int"),
+ *     instanceType: 'STRING_VALUE', // required
+ *     volumeSizeInGb: Number('int'), // required
+ *     instanceCount: Number('int'),
  *   },
  *   hyperParameters: { // HyperParameters
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  *   deviceConfig: { // DeviceConfig
- *     device: "STRING_VALUE", // required
+ *     device: 'STRING_VALUE', // required
  *   },
  *   tags: { // TagsMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateJobResponse
+ *   jobArn: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param CreateJobCommandInput - {@link CreateJobCommandInput}
@@ -122,6 +127,8 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link BraketServiceException}
+ * <p>Base exception class for all service exceptions from Braket service.</p>
  *
  */
 export class CreateJobCommand extends $Command<

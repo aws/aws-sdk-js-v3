@@ -37,20 +37,25 @@ export interface UpdateImageCommandOutput extends UpdateImageResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, UpdateImageCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, UpdateImageCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, UpdateImageCommand } from '@aws-sdk/client-sagemaker'; // ES Modules import
+ * // const { SageMakerClient, UpdateImageCommand } = require('@aws-sdk/client-sagemaker'); // CommonJS import
  * const client = new SageMakerClient(config);
  * const input = { // UpdateImageRequest
  *   DeleteProperties: [ // ImageDeletePropertyList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   Description: "STRING_VALUE",
- *   DisplayName: "STRING_VALUE",
- *   ImageName: "STRING_VALUE", // required
- *   RoleArn: "STRING_VALUE",
+ *   Description: 'STRING_VALUE',
+ *   DisplayName: 'STRING_VALUE',
+ *   ImageName: 'STRING_VALUE', // required
+ *   RoleArn: 'STRING_VALUE',
  * };
  * const command = new UpdateImageCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateImageResponse
+ *   ImageArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateImageCommandInput - {@link UpdateImageCommandInput}
@@ -65,6 +70,8 @@ export interface UpdateImageCommandOutput extends UpdateImageResponse, __Metadat
  * @throws {@link ResourceNotFound} (client fault)
  *  <p>Resource being access is not found.</p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class UpdateImageCommand extends $Command<

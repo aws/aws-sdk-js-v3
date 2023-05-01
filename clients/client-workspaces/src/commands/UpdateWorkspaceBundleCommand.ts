@@ -43,15 +43,18 @@ export interface UpdateWorkspaceBundleCommandOutput extends UpdateWorkspaceBundl
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkSpacesClient, UpdateWorkspaceBundleCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
- * // const { WorkSpacesClient, UpdateWorkspaceBundleCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
+ * import { WorkSpacesClient, UpdateWorkspaceBundleCommand } from '@aws-sdk/client-workspaces'; // ES Modules import
+ * // const { WorkSpacesClient, UpdateWorkspaceBundleCommand } = require('@aws-sdk/client-workspaces'); // CommonJS import
  * const client = new WorkSpacesClient(config);
  * const input = { // UpdateWorkspaceBundleRequest
- *   BundleId: "STRING_VALUE",
- *   ImageId: "STRING_VALUE",
+ *   BundleId: 'STRING_VALUE',
+ *   ImageId: 'STRING_VALUE',
  * };
  * const command = new UpdateWorkspaceBundleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateWorkspaceBundleCommandInput - {@link UpdateWorkspaceBundleCommandInput}
@@ -75,6 +78,8 @@ export interface UpdateWorkspaceBundleCommandOutput extends UpdateWorkspaceBundl
  * @throws {@link ResourceUnavailableException} (client fault)
  *  <p>The specified resource is not available.</p>
  *
+ * @throws {@link WorkSpacesServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
  */
 export class UpdateWorkspaceBundleCommand extends $Command<

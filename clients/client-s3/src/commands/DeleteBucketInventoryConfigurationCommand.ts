@@ -64,16 +64,19 @@ export interface DeleteBucketInventoryConfigurationCommandOutput extends __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { S3Client, DeleteBucketInventoryConfigurationCommand } from "@aws-sdk/client-s3"; // ES Modules import
- * // const { S3Client, DeleteBucketInventoryConfigurationCommand } = require("@aws-sdk/client-s3"); // CommonJS import
+ * import { S3Client, DeleteBucketInventoryConfigurationCommand } from '@aws-sdk/client-s3'; // ES Modules import
+ * // const { S3Client, DeleteBucketInventoryConfigurationCommand } = require('@aws-sdk/client-s3'); // CommonJS import
  * const client = new S3Client(config);
  * const input = { // DeleteBucketInventoryConfigurationRequest
- *   Bucket: "STRING_VALUE", // required
- *   Id: "STRING_VALUE", // required
- *   ExpectedBucketOwner: "STRING_VALUE",
+ *   Bucket: 'STRING_VALUE', // required
+ *   Id: 'STRING_VALUE', // required
+ *   ExpectedBucketOwner: 'STRING_VALUE',
  * };
  * const command = new DeleteBucketInventoryConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteBucketInventoryConfigurationCommandInput - {@link DeleteBucketInventoryConfigurationCommandInput}
@@ -82,6 +85,8 @@ export interface DeleteBucketInventoryConfigurationCommandOutput extends __Metad
  * @see {@link DeleteBucketInventoryConfigurationCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
+ * @throws {@link S3ServiceException}
+ * <p>Base exception class for all service exceptions from S3 service.</p>
  *
  */
 export class DeleteBucketInventoryConfigurationCommand extends $Command<

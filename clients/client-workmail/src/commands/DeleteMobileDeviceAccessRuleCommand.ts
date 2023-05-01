@@ -44,15 +44,18 @@ export interface DeleteMobileDeviceAccessRuleCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkMailClient, DeleteMobileDeviceAccessRuleCommand } from "@aws-sdk/client-workmail"; // ES Modules import
- * // const { WorkMailClient, DeleteMobileDeviceAccessRuleCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
+ * import { WorkMailClient, DeleteMobileDeviceAccessRuleCommand } from '@aws-sdk/client-workmail'; // ES Modules import
+ * // const { WorkMailClient, DeleteMobileDeviceAccessRuleCommand } = require('@aws-sdk/client-workmail'); // CommonJS import
  * const client = new WorkMailClient(config);
  * const input = { // DeleteMobileDeviceAccessRuleRequest
- *   OrganizationId: "STRING_VALUE", // required
- *   MobileDeviceAccessRuleId: "STRING_VALUE", // required
+ *   OrganizationId: 'STRING_VALUE', // required
+ *   MobileDeviceAccessRuleId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteMobileDeviceAccessRuleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteMobileDeviceAccessRuleCommandInput - {@link DeleteMobileDeviceAccessRuleCommandInput}
@@ -72,6 +75,8 @@ export interface DeleteMobileDeviceAccessRuleCommandOutput
  *  <p>The organization must have a valid state to perform certain
  *          operations on the organization or its members.</p>
  *
+ * @throws {@link WorkMailServiceException}
+ * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
  */
 export class DeleteMobileDeviceAccessRuleCommand extends $Command<

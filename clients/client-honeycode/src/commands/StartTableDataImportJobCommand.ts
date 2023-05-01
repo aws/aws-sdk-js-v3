@@ -44,37 +44,43 @@ export interface StartTableDataImportJobCommandOutput extends StartTableDataImpo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { HoneycodeClient, StartTableDataImportJobCommand } from "@aws-sdk/client-honeycode"; // ES Modules import
- * // const { HoneycodeClient, StartTableDataImportJobCommand } = require("@aws-sdk/client-honeycode"); // CommonJS import
+ * import { HoneycodeClient, StartTableDataImportJobCommand } from '@aws-sdk/client-honeycode'; // ES Modules import
+ * // const { HoneycodeClient, StartTableDataImportJobCommand } = require('@aws-sdk/client-honeycode'); // CommonJS import
  * const client = new HoneycodeClient(config);
  * const input = { // StartTableDataImportJobRequest
- *   workbookId: "STRING_VALUE", // required
+ *   workbookId: 'STRING_VALUE', // required
  *   dataSource: { // ImportDataSource
  *     dataSourceConfig: { // ImportDataSourceConfig
- *       dataSourceUrl: "STRING_VALUE",
+ *       dataSourceUrl: 'STRING_VALUE',
  *     },
  *   },
- *   dataFormat: "STRING_VALUE", // required
- *   destinationTableId: "STRING_VALUE", // required
+ *   dataFormat: 'STRING_VALUE', // required
+ *   destinationTableId: 'STRING_VALUE', // required
  *   importOptions: { // ImportOptions
  *     destinationOptions: { // DestinationOptions
  *       columnMap: { // ImportColumnMap
- *         "<keys>": { // SourceDataColumnProperties
- *           columnIndex: Number("int"),
+ *         '<keys>': { // SourceDataColumnProperties
+ *           columnIndex: Number('int'),
  *         },
  *       },
  *     },
  *     delimitedTextOptions: { // DelimitedTextImportOptions
- *       delimiter: "STRING_VALUE", // required
+ *       delimiter: 'STRING_VALUE', // required
  *       hasHeaderRow: true || false,
  *       ignoreEmptyRows: true || false,
- *       dataCharacterEncoding: "STRING_VALUE",
+ *       dataCharacterEncoding: 'STRING_VALUE',
  *     },
  *   },
- *   clientRequestToken: "STRING_VALUE", // required
+ *   clientRequestToken: 'STRING_VALUE', // required
  * };
  * const command = new StartTableDataImportJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartTableDataImportJobResult
+ *   jobId: 'STRING_VALUE', // required
+ *   jobStatus: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param StartTableDataImportJobCommandInput - {@link StartTableDataImportJobCommandInput}
@@ -114,6 +120,8 @@ export interface StartTableDataImportJobCommandOutput extends StartTableDataImpo
  *             Request is invalid. The message in the response contains details on why the request is invalid.
  *         </p>
  *
+ * @throws {@link HoneycodeServiceException}
+ * <p>Base exception class for all service exceptions from Honeycode service.</p>
  *
  */
 export class StartTableDataImportJobCommand extends $Command<

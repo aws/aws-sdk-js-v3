@@ -36,15 +36,18 @@ export interface DeleteProgramCommandOutput extends DeleteProgramResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MediaTailorClient, DeleteProgramCommand } from "@aws-sdk/client-mediatailor"; // ES Modules import
- * // const { MediaTailorClient, DeleteProgramCommand } = require("@aws-sdk/client-mediatailor"); // CommonJS import
+ * import { MediaTailorClient, DeleteProgramCommand } from '@aws-sdk/client-mediatailor'; // ES Modules import
+ * // const { MediaTailorClient, DeleteProgramCommand } = require('@aws-sdk/client-mediatailor'); // CommonJS import
  * const client = new MediaTailorClient(config);
  * const input = { // DeleteProgramRequest
- *   ChannelName: "STRING_VALUE", // required
- *   ProgramName: "STRING_VALUE", // required
+ *   ChannelName: 'STRING_VALUE', // required
+ *   ProgramName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteProgramCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteProgramCommandInput - {@link DeleteProgramCommandInput}
@@ -53,6 +56,8 @@ export interface DeleteProgramCommandOutput extends DeleteProgramResponse, __Met
  * @see {@link DeleteProgramCommandOutput} for command's `response` shape.
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.
  *
+ * @throws {@link MediaTailorServiceException}
+ * <p>Base exception class for all service exceptions from MediaTailor service.</p>
  *
  */
 export class DeleteProgramCommand extends $Command<

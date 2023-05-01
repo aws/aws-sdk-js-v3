@@ -41,14 +41,19 @@ export interface DeleteMLTransformCommandOutput extends DeleteMLTransformRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlueClient, DeleteMLTransformCommand } from "@aws-sdk/client-glue"; // ES Modules import
- * // const { GlueClient, DeleteMLTransformCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * import { GlueClient, DeleteMLTransformCommand } from '@aws-sdk/client-glue'; // ES Modules import
+ * // const { GlueClient, DeleteMLTransformCommand } = require('@aws-sdk/client-glue'); // CommonJS import
  * const client = new GlueClient(config);
  * const input = { // DeleteMLTransformRequest
- *   TransformId: "STRING_VALUE", // required
+ *   TransformId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteMLTransformCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteMLTransformResponse
+ *   TransformId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DeleteMLTransformCommandInput - {@link DeleteMLTransformCommandInput}
@@ -69,6 +74,8 @@ export interface DeleteMLTransformCommandOutput extends DeleteMLTransformRespons
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class DeleteMLTransformCommand extends $Command<

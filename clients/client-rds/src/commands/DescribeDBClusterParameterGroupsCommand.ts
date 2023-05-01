@@ -49,24 +49,37 @@ export interface DescribeDBClusterParameterGroupsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RDSClient, DescribeDBClusterParameterGroupsCommand } from "@aws-sdk/client-rds"; // ES Modules import
- * // const { RDSClient, DescribeDBClusterParameterGroupsCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * import { RDSClient, DescribeDBClusterParameterGroupsCommand } from '@aws-sdk/client-rds'; // ES Modules import
+ * // const { RDSClient, DescribeDBClusterParameterGroupsCommand } = require('@aws-sdk/client-rds'); // CommonJS import
  * const client = new RDSClient(config);
  * const input = { // DescribeDBClusterParameterGroupsMessage
- *   DBClusterParameterGroupName: "STRING_VALUE",
+ *   DBClusterParameterGroupName: 'STRING_VALUE',
  *   Filters: [ // FilterList
  *     { // Filter
- *       Name: "STRING_VALUE", // required
+ *       Name: 'STRING_VALUE', // required
  *       Values: [ // FilterValueList // required
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
- *   MaxRecords: Number("int"),
- *   Marker: "STRING_VALUE",
+ *   MaxRecords: Number('int'),
+ *   Marker: 'STRING_VALUE',
  * };
  * const command = new DescribeDBClusterParameterGroupsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DBClusterParameterGroupsMessage
+ *   Marker: 'STRING_VALUE',
+ *   DBClusterParameterGroups: [ // DBClusterParameterGroupList
+ *     { // DBClusterParameterGroup
+ *       DBClusterParameterGroupName: 'STRING_VALUE',
+ *       DBParameterGroupFamily: 'STRING_VALUE',
+ *       Description: 'STRING_VALUE',
+ *       DBClusterParameterGroupArn: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeDBClusterParameterGroupsCommandInput - {@link DescribeDBClusterParameterGroupsCommandInput}
@@ -80,6 +93,8 @@ export interface DescribeDBClusterParameterGroupsCommandOutput
  *             <code>DBParameterGroupName</code> doesn't refer to an
  *         existing DB parameter group.</p>
  *
+ * @throws {@link RDSServiceException}
+ * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  * @example To describe DB cluster parameter groups
  * ```javascript

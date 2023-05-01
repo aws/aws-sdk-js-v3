@@ -36,15 +36,27 @@ export interface DescribeTagsCommandOutput extends DescribeTagsOutput, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MachineLearningClient, DescribeTagsCommand } from "@aws-sdk/client-machine-learning"; // ES Modules import
- * // const { MachineLearningClient, DescribeTagsCommand } = require("@aws-sdk/client-machine-learning"); // CommonJS import
+ * import { MachineLearningClient, DescribeTagsCommand } from '@aws-sdk/client-machine-learning'; // ES Modules import
+ * // const { MachineLearningClient, DescribeTagsCommand } = require('@aws-sdk/client-machine-learning'); // CommonJS import
  * const client = new MachineLearningClient(config);
  * const input = { // DescribeTagsInput
- *   ResourceId: "STRING_VALUE", // required
- *   ResourceType: "STRING_VALUE", // required
+ *   ResourceId: 'STRING_VALUE', // required
+ *   ResourceType: 'STRING_VALUE', // required
  * };
  * const command = new DescribeTagsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeTagsOutput
+ *   ResourceId: 'STRING_VALUE',
+ *   ResourceType: 'STRING_VALUE',
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeTagsCommandInput - {@link DescribeTagsCommandInput}
@@ -62,6 +74,8 @@ export interface DescribeTagsCommandOutput extends DescribeTagsOutput, __Metadat
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>A specified resource cannot be located.</p>
  *
+ * @throws {@link MachineLearningServiceException}
+ * <p>Base exception class for all service exceptions from MachineLearning service.</p>
  *
  */
 export class DescribeTagsCommand extends $Command<

@@ -37,16 +37,19 @@ export interface PutConferencePreferenceCommandOutput extends PutConferencePrefe
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AlexaForBusinessClient, PutConferencePreferenceCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
- * // const { AlexaForBusinessClient, PutConferencePreferenceCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
+ * import { AlexaForBusinessClient, PutConferencePreferenceCommand } from '@aws-sdk/client-alexa-for-business'; // ES Modules import
+ * // const { AlexaForBusinessClient, PutConferencePreferenceCommand } = require('@aws-sdk/client-alexa-for-business'); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
  * const input = { // PutConferencePreferenceRequest
  *   ConferencePreference: { // ConferencePreference
- *     DefaultConferenceProviderArn: "STRING_VALUE",
+ *     DefaultConferenceProviderArn: 'STRING_VALUE',
  *   },
  * };
  * const command = new PutConferencePreferenceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutConferencePreferenceCommandInput - {@link PutConferencePreferenceCommandInput}
@@ -58,6 +61,8 @@ export interface PutConferencePreferenceCommandOutput extends PutConferencePrefe
  * @throws {@link NotFoundException} (client fault)
  *  <p>The resource is not found.</p>
  *
+ * @throws {@link AlexaForBusinessServiceException}
+ * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  */
 export class PutConferencePreferenceCommand extends $Command<

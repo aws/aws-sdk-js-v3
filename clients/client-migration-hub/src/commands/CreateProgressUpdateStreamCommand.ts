@@ -40,15 +40,18 @@ export interface CreateProgressUpdateStreamCommandOutput extends CreateProgressU
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MigrationHubClient, CreateProgressUpdateStreamCommand } from "@aws-sdk/client-migration-hub"; // ES Modules import
- * // const { MigrationHubClient, CreateProgressUpdateStreamCommand } = require("@aws-sdk/client-migration-hub"); // CommonJS import
+ * import { MigrationHubClient, CreateProgressUpdateStreamCommand } from '@aws-sdk/client-migration-hub'; // ES Modules import
+ * // const { MigrationHubClient, CreateProgressUpdateStreamCommand } = require('@aws-sdk/client-migration-hub'); // CommonJS import
  * const client = new MigrationHubClient(config);
  * const input = { // CreateProgressUpdateStreamRequest
- *   ProgressUpdateStreamName: "STRING_VALUE", // required
+ *   ProgressUpdateStreamName: 'STRING_VALUE', // required
  *   DryRun: true || false,
  * };
  * const command = new CreateProgressUpdateStreamCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param CreateProgressUpdateStreamCommandInput - {@link CreateProgressUpdateStreamCommandInput}
@@ -86,6 +89,8 @@ export interface CreateProgressUpdateStreamCommandOutput extends CreateProgressU
  *  <p>Exception raised to indicate a request was not authorized when the <code>DryRun</code>
  *          flag is set to "true".</p>
  *
+ * @throws {@link MigrationHubServiceException}
+ * <p>Base exception class for all service exceptions from MigrationHub service.</p>
  *
  */
 export class CreateProgressUpdateStreamCommand extends $Command<

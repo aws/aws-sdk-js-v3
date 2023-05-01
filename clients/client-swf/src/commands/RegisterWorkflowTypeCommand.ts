@@ -83,25 +83,28 @@ export interface RegisterWorkflowTypeCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SWFClient, RegisterWorkflowTypeCommand } from "@aws-sdk/client-swf"; // ES Modules import
- * // const { SWFClient, RegisterWorkflowTypeCommand } = require("@aws-sdk/client-swf"); // CommonJS import
+ * import { SWFClient, RegisterWorkflowTypeCommand } from '@aws-sdk/client-swf'; // ES Modules import
+ * // const { SWFClient, RegisterWorkflowTypeCommand } = require('@aws-sdk/client-swf'); // CommonJS import
  * const client = new SWFClient(config);
  * const input = { // RegisterWorkflowTypeInput
- *   domain: "STRING_VALUE", // required
- *   name: "STRING_VALUE", // required
- *   version: "STRING_VALUE", // required
- *   description: "STRING_VALUE",
- *   defaultTaskStartToCloseTimeout: "STRING_VALUE",
- *   defaultExecutionStartToCloseTimeout: "STRING_VALUE",
+ *   domain: 'STRING_VALUE', // required
+ *   name: 'STRING_VALUE', // required
+ *   version: 'STRING_VALUE', // required
+ *   description: 'STRING_VALUE',
+ *   defaultTaskStartToCloseTimeout: 'STRING_VALUE',
+ *   defaultExecutionStartToCloseTimeout: 'STRING_VALUE',
  *   defaultTaskList: { // TaskList
- *     name: "STRING_VALUE", // required
+ *     name: 'STRING_VALUE', // required
  *   },
- *   defaultTaskPriority: "STRING_VALUE",
- *   defaultChildPolicy: "TERMINATE" || "REQUEST_CANCEL" || "ABANDON",
- *   defaultLambdaRole: "STRING_VALUE",
+ *   defaultTaskPriority: 'STRING_VALUE',
+ *   defaultChildPolicy: 'TERMINATE' || 'REQUEST_CANCEL' || 'ABANDON',
+ *   defaultLambdaRole: 'STRING_VALUE',
  * };
  * const command = new RegisterWorkflowTypeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param RegisterWorkflowTypeCommandInput - {@link RegisterWorkflowTypeCommandInput}
@@ -122,6 +125,8 @@ export interface RegisterWorkflowTypeCommandOutput extends __MetadataBearer {}
  * @throws {@link UnknownResourceFault} (client fault)
  *  <p>Returned when the named resource cannot be found with in the scope of this operation (region or domain). This could happen if the named resource was never created or is no longer available for this operation.</p>
  *
+ * @throws {@link SWFServiceException}
+ * <p>Base exception class for all service exceptions from SWF service.</p>
  *
  */
 export class RegisterWorkflowTypeCommand extends $Command<

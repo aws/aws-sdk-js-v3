@@ -37,16 +37,26 @@ export interface DisassociateLinkCommandOutput extends DisassociateLinkResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { NetworkManagerClient, DisassociateLinkCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
- * // const { NetworkManagerClient, DisassociateLinkCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
+ * import { NetworkManagerClient, DisassociateLinkCommand } from '@aws-sdk/client-networkmanager'; // ES Modules import
+ * // const { NetworkManagerClient, DisassociateLinkCommand } = require('@aws-sdk/client-networkmanager'); // CommonJS import
  * const client = new NetworkManagerClient(config);
  * const input = { // DisassociateLinkRequest
- *   GlobalNetworkId: "STRING_VALUE", // required
- *   DeviceId: "STRING_VALUE", // required
- *   LinkId: "STRING_VALUE", // required
+ *   GlobalNetworkId: 'STRING_VALUE', // required
+ *   DeviceId: 'STRING_VALUE', // required
+ *   LinkId: 'STRING_VALUE', // required
  * };
  * const command = new DisassociateLinkCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DisassociateLinkResponse
+ *   LinkAssociation: { // LinkAssociation
+ *     GlobalNetworkId: 'STRING_VALUE',
+ *     DeviceId: 'STRING_VALUE',
+ *     LinkId: 'STRING_VALUE',
+ *     LinkAssociationState: 'PENDING' || 'AVAILABLE' || 'DELETING' || 'DELETED',
+ *   },
+ * };
+ *
  * ```
  *
  * @param DisassociateLinkCommandInput - {@link DisassociateLinkCommandInput}
@@ -74,6 +84,8 @@ export interface DisassociateLinkCommandOutput extends DisassociateLinkResponse,
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints.</p>
  *
+ * @throws {@link NetworkManagerServiceException}
+ * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
  */
 export class DisassociateLinkCommand extends $Command<

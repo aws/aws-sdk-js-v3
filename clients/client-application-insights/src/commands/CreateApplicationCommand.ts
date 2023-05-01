@@ -40,26 +40,40 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ApplicationInsightsClient, CreateApplicationCommand } from "@aws-sdk/client-application-insights"; // ES Modules import
- * // const { ApplicationInsightsClient, CreateApplicationCommand } = require("@aws-sdk/client-application-insights"); // CommonJS import
+ * import { ApplicationInsightsClient, CreateApplicationCommand } from '@aws-sdk/client-application-insights'; // ES Modules import
+ * // const { ApplicationInsightsClient, CreateApplicationCommand } = require('@aws-sdk/client-application-insights'); // CommonJS import
  * const client = new ApplicationInsightsClient(config);
  * const input = { // CreateApplicationRequest
- *   ResourceGroupName: "STRING_VALUE",
+ *   ResourceGroupName: 'STRING_VALUE',
  *   OpsCenterEnabled: true || false,
  *   CWEMonitorEnabled: true || false,
- *   OpsItemSNSTopicArn: "STRING_VALUE",
+ *   OpsItemSNSTopicArn: 'STRING_VALUE',
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  *   AutoConfigEnabled: true || false,
  *   AutoCreate: true || false,
- *   GroupingType: "STRING_VALUE",
+ *   GroupingType: 'STRING_VALUE',
  * };
  * const command = new CreateApplicationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateApplicationResponse
+ *   ApplicationInfo: { // ApplicationInfo
+ *     ResourceGroupName: 'STRING_VALUE',
+ *     LifeCycle: 'STRING_VALUE',
+ *     OpsItemSNSTopicArn: 'STRING_VALUE',
+ *     OpsCenterEnabled: true || false,
+ *     CWEMonitorEnabled: true || false,
+ *     Remarks: 'STRING_VALUE',
+ *     AutoConfigEnabled: true || false,
+ *     DiscoveryType: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateApplicationCommandInput - {@link CreateApplicationCommandInput}
@@ -86,6 +100,8 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  * @throws {@link ValidationException} (client fault)
  *  <p>The parameter is not valid.</p>
  *
+ * @throws {@link ApplicationInsightsServiceException}
+ * <p>Base exception class for all service exceptions from ApplicationInsights service.</p>
  *
  */
 export class CreateApplicationCommand extends $Command<

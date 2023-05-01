@@ -91,25 +91,31 @@ export interface CreateBucketCommandOutput extends CreateBucketResult, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { S3ControlClient, CreateBucketCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
- * // const { S3ControlClient, CreateBucketCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
+ * import { S3ControlClient, CreateBucketCommand } from '@aws-sdk/client-s3-control'; // ES Modules import
+ * // const { S3ControlClient, CreateBucketCommand } = require('@aws-sdk/client-s3-control'); // CommonJS import
  * const client = new S3ControlClient(config);
  * const input = { // CreateBucketRequest
- *   ACL: "private" || "public-read" || "public-read-write" || "authenticated-read",
- *   Bucket: "STRING_VALUE", // required
+ *   ACL: 'private' || 'public-read' || 'public-read-write' || 'authenticated-read',
+ *   Bucket: 'STRING_VALUE', // required
  *   CreateBucketConfiguration: { // CreateBucketConfiguration
- *     LocationConstraint: "EU" || "eu-west-1" || "us-west-1" || "us-west-2" || "ap-south-1" || "ap-southeast-1" || "ap-southeast-2" || "ap-northeast-1" || "sa-east-1" || "cn-north-1" || "eu-central-1",
+ *     LocationConstraint: 'EU' || 'eu-west-1' || 'us-west-1' || 'us-west-2' || 'ap-south-1' || 'ap-southeast-1' || 'ap-southeast-2' || 'ap-northeast-1' || 'sa-east-1' || 'cn-north-1' || 'eu-central-1',
  *   },
- *   GrantFullControl: "STRING_VALUE",
- *   GrantRead: "STRING_VALUE",
- *   GrantReadACP: "STRING_VALUE",
- *   GrantWrite: "STRING_VALUE",
- *   GrantWriteACP: "STRING_VALUE",
+ *   GrantFullControl: 'STRING_VALUE',
+ *   GrantRead: 'STRING_VALUE',
+ *   GrantReadACP: 'STRING_VALUE',
+ *   GrantWrite: 'STRING_VALUE',
+ *   GrantWriteACP: 'STRING_VALUE',
  *   ObjectLockEnabledForBucket: true || false,
- *   OutpostId: "STRING_VALUE",
+ *   OutpostId: 'STRING_VALUE',
  * };
  * const command = new CreateBucketCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateBucketResult
+ *   Location: 'STRING_VALUE',
+ *   BucketArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateBucketCommandInput - {@link CreateBucketCommandInput}
@@ -126,6 +132,8 @@ export interface CreateBucketCommandOutput extends CreateBucketResult, __Metadat
  * @throws {@link BucketAlreadyOwnedByYou} (client fault)
  *  <p>The Outposts bucket you tried to create already exists, and you own it. </p>
  *
+ * @throws {@link S3ControlServiceException}
+ * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
  */
 export class CreateBucketCommand extends $Command<

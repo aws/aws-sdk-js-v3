@@ -60,18 +60,26 @@ export interface UpdateTimeToLiveCommandOutput extends UpdateTimeToLiveOutput, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DynamoDBClient, UpdateTimeToLiveCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
- * // const { DynamoDBClient, UpdateTimeToLiveCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
+ * import { DynamoDBClient, UpdateTimeToLiveCommand } from '@aws-sdk/client-dynamodb'; // ES Modules import
+ * // const { DynamoDBClient, UpdateTimeToLiveCommand } = require('@aws-sdk/client-dynamodb'); // CommonJS import
  * const client = new DynamoDBClient(config);
  * const input = { // UpdateTimeToLiveInput
- *   TableName: "STRING_VALUE", // required
+ *   TableName: 'STRING_VALUE', // required
  *   TimeToLiveSpecification: { // TimeToLiveSpecification
  *     Enabled: true || false, // required
- *     AttributeName: "STRING_VALUE", // required
+ *     AttributeName: 'STRING_VALUE', // required
  *   },
  * };
  * const command = new UpdateTimeToLiveCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateTimeToLiveOutput
+ *   TimeToLiveSpecification: { // TimeToLiveSpecification
+ *     Enabled: true || false, // required
+ *     AttributeName: 'STRING_VALUE', // required
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateTimeToLiveCommandInput - {@link UpdateTimeToLiveCommandInput}
@@ -107,6 +115,8 @@ export interface UpdateTimeToLiveCommandOutput extends UpdateTimeToLiveOutput, _
  *  <p>The operation tried to access a nonexistent table or index. The resource might not
  *             be specified correctly, or its status might not be <code>ACTIVE</code>.</p>
  *
+ * @throws {@link DynamoDBServiceException}
+ * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
  */
 export class UpdateTimeToLiveCommand extends $Command<

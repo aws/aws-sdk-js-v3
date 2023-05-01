@@ -36,12 +36,17 @@ export interface GetHealthCheckCountCommandOutput extends GetHealthCheckCountRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Route53Client, GetHealthCheckCountCommand } from "@aws-sdk/client-route-53"; // ES Modules import
- * // const { Route53Client, GetHealthCheckCountCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
+ * import { Route53Client, GetHealthCheckCountCommand } from '@aws-sdk/client-route-53'; // ES Modules import
+ * // const { Route53Client, GetHealthCheckCountCommand } = require('@aws-sdk/client-route-53'); // CommonJS import
  * const client = new Route53Client(config);
  * const input = {};
  * const command = new GetHealthCheckCountCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetHealthCheckCountResponse
+ *   HealthCheckCount: Number('long'), // required
+ * };
+ *
  * ```
  *
  * @param GetHealthCheckCountCommandInput - {@link GetHealthCheckCountCommandInput}
@@ -50,6 +55,8 @@ export interface GetHealthCheckCountCommandOutput extends GetHealthCheckCountRes
  * @see {@link GetHealthCheckCountCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
  *
+ * @throws {@link Route53ServiceException}
+ * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
  */
 export class GetHealthCheckCountCommand extends $Command<

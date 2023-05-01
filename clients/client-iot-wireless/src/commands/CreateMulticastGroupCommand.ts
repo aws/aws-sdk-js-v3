@@ -36,26 +36,32 @@ export interface CreateMulticastGroupCommandOutput extends CreateMulticastGroupR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTWirelessClient, CreateMulticastGroupCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
- * // const { IoTWirelessClient, CreateMulticastGroupCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
+ * import { IoTWirelessClient, CreateMulticastGroupCommand } from '@aws-sdk/client-iot-wireless'; // ES Modules import
+ * // const { IoTWirelessClient, CreateMulticastGroupCommand } = require('@aws-sdk/client-iot-wireless'); // CommonJS import
  * const client = new IoTWirelessClient(config);
  * const input = { // CreateMulticastGroupRequest
- *   Name: "STRING_VALUE",
- *   Description: "STRING_VALUE",
- *   ClientRequestToken: "STRING_VALUE",
+ *   Name: 'STRING_VALUE',
+ *   Description: 'STRING_VALUE',
+ *   ClientRequestToken: 'STRING_VALUE',
  *   LoRaWAN: { // LoRaWANMulticast
- *     RfRegion: "EU868" || "US915" || "AU915" || "AS923-1" || "AS923-2" || "AS923-3" || "AS923-4" || "EU433" || "CN470" || "CN779" || "RU864" || "KR920" || "IN865",
- *     DlClass: "ClassB" || "ClassC",
+ *     RfRegion: 'EU868' || 'US915' || 'AU915' || 'AS923-1' || 'AS923-2' || 'AS923-3' || 'AS923-4' || 'EU433' || 'CN470' || 'CN779' || 'RU864' || 'KR920' || 'IN865',
+ *     DlClass: 'ClassB' || 'ClassC',
  *   },
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreateMulticastGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateMulticastGroupResponse
+ *   Arn: 'STRING_VALUE',
+ *   Id: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateMulticastGroupCommandInput - {@link CreateMulticastGroupCommandInput}
@@ -82,6 +88,8 @@ export interface CreateMulticastGroupCommandOutput extends CreateMulticastGroupR
  * @throws {@link ValidationException} (client fault)
  *  <p>The input did not meet the specified constraints.</p>
  *
+ * @throws {@link IoTWirelessServiceException}
+ * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
  */
 export class CreateMulticastGroupCommand extends $Command<

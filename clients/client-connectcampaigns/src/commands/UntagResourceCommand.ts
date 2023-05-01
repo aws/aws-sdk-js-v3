@@ -36,17 +36,20 @@ export interface UntagResourceCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectCampaignsClient, UntagResourceCommand } from "@aws-sdk/client-connectcampaigns"; // ES Modules import
- * // const { ConnectCampaignsClient, UntagResourceCommand } = require("@aws-sdk/client-connectcampaigns"); // CommonJS import
+ * import { ConnectCampaignsClient, UntagResourceCommand } from '@aws-sdk/client-connectcampaigns'; // ES Modules import
+ * // const { ConnectCampaignsClient, UntagResourceCommand } = require('@aws-sdk/client-connectcampaigns'); // CommonJS import
  * const client = new ConnectCampaignsClient(config);
  * const input = { // UntagResourceRequest
- *   arn: "STRING_VALUE", // required
+ *   arn: 'STRING_VALUE', // required
  *   tagKeys: [ // TagKeyList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new UntagResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UntagResourceCommandInput - {@link UntagResourceCommandInput}
@@ -70,6 +73,8 @@ export interface UntagResourceCommandOutput extends __MetadataBearer {}
  * @throws {@link ValidationException} (client fault)
  *  The input fails to satisfy the constraints specified by an AWS service.
  *
+ * @throws {@link ConnectCampaignsServiceException}
+ * <p>Base exception class for all service exceptions from ConnectCampaigns service.</p>
  *
  */
 export class UntagResourceCommand extends $Command<

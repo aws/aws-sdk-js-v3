@@ -36,17 +36,30 @@ export interface PutRuleGroupsNamespaceCommandOutput extends PutRuleGroupsNamesp
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AmpClient, PutRuleGroupsNamespaceCommand } from "@aws-sdk/client-amp"; // ES Modules import
- * // const { AmpClient, PutRuleGroupsNamespaceCommand } = require("@aws-sdk/client-amp"); // CommonJS import
+ * import { AmpClient, PutRuleGroupsNamespaceCommand } from '@aws-sdk/client-amp'; // ES Modules import
+ * // const { AmpClient, PutRuleGroupsNamespaceCommand } = require('@aws-sdk/client-amp'); // CommonJS import
  * const client = new AmpClient(config);
  * const input = { // PutRuleGroupsNamespaceRequest
- *   workspaceId: "STRING_VALUE", // required
- *   name: "STRING_VALUE", // required
- *   data: "BLOB_VALUE", // required
- *   clientToken: "STRING_VALUE",
+ *   workspaceId: 'STRING_VALUE', // required
+ *   name: 'STRING_VALUE', // required
+ *   data: 'BLOB_VALUE', // required
+ *   clientToken: 'STRING_VALUE',
  * };
  * const command = new PutRuleGroupsNamespaceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutRuleGroupsNamespaceResponse
+ *   name: 'STRING_VALUE', // required
+ *   arn: 'STRING_VALUE', // required
+ *   status: { // RuleGroupsNamespaceStatus
+ *     statusCode: 'STRING_VALUE', // required
+ *     statusReason: 'STRING_VALUE',
+ *   },
+ *   tags: { // TagMap
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param PutRuleGroupsNamespaceCommandInput - {@link PutRuleGroupsNamespaceCommandInput}
@@ -76,6 +89,8 @@ export interface PutRuleGroupsNamespaceCommandOutput extends PutRuleGroupsNamesp
  * @throws {@link ValidationException} (client fault)
  *  The input fails to satisfy the constraints specified by an AWS service.
  *
+ * @throws {@link AmpServiceException}
+ * <p>Base exception class for all service exceptions from Amp service.</p>
  *
  */
 export class PutRuleGroupsNamespaceCommand extends $Command<

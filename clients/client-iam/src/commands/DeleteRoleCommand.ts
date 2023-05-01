@@ -59,14 +59,17 @@ export interface DeleteRoleCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IAMClient, DeleteRoleCommand } from "@aws-sdk/client-iam"; // ES Modules import
- * // const { IAMClient, DeleteRoleCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * import { IAMClient, DeleteRoleCommand } from '@aws-sdk/client-iam'; // ES Modules import
+ * // const { IAMClient, DeleteRoleCommand } = require('@aws-sdk/client-iam'); // CommonJS import
  * const client = new IAMClient(config);
  * const input = { // DeleteRoleRequest
- *   RoleName: "STRING_VALUE", // required
+ *   RoleName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteRoleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteRoleCommandInput - {@link DeleteRoleCommandInput}
@@ -101,6 +104,8 @@ export interface DeleteRoleCommandOutput extends __MetadataBearer {}
  *       behalf. The error message includes the name of the service that depends on this service-linked
  *       role. You must request the change through that service.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  * @example To delete an IAM role
  * ```javascript

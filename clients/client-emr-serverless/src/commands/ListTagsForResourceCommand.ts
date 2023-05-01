@@ -36,14 +36,21 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EMRServerlessClient, ListTagsForResourceCommand } from "@aws-sdk/client-emr-serverless"; // ES Modules import
- * // const { EMRServerlessClient, ListTagsForResourceCommand } = require("@aws-sdk/client-emr-serverless"); // CommonJS import
+ * import { EMRServerlessClient, ListTagsForResourceCommand } from '@aws-sdk/client-emr-serverless'; // ES Modules import
+ * // const { EMRServerlessClient, ListTagsForResourceCommand } = require('@aws-sdk/client-emr-serverless'); // CommonJS import
  * const client = new EMRServerlessClient(config);
  * const input = { // ListTagsForResourceRequest
- *   resourceArn: "STRING_VALUE", // required
+ *   resourceArn: 'STRING_VALUE', // required
  * };
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTagsForResourceResponse
+ *   tags: { // TagMap
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param ListTagsForResourceCommandInput - {@link ListTagsForResourceCommandInput}
@@ -62,6 +69,8 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
  *          service.</p>
  *
+ * @throws {@link EMRServerlessServiceException}
+ * <p>Base exception class for all service exceptions from EMRServerless service.</p>
  *
  */
 export class ListTagsForResourceCommand extends $Command<

@@ -46,17 +46,25 @@ export interface AssumeDecoratedRoleWithSAMLCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LakeFormationClient, AssumeDecoratedRoleWithSAMLCommand } from "@aws-sdk/client-lakeformation"; // ES Modules import
- * // const { LakeFormationClient, AssumeDecoratedRoleWithSAMLCommand } = require("@aws-sdk/client-lakeformation"); // CommonJS import
+ * import { LakeFormationClient, AssumeDecoratedRoleWithSAMLCommand } from '@aws-sdk/client-lakeformation'; // ES Modules import
+ * // const { LakeFormationClient, AssumeDecoratedRoleWithSAMLCommand } = require('@aws-sdk/client-lakeformation'); // CommonJS import
  * const client = new LakeFormationClient(config);
  * const input = { // AssumeDecoratedRoleWithSAMLRequest
- *   SAMLAssertion: "STRING_VALUE", // required
- *   RoleArn: "STRING_VALUE", // required
- *   PrincipalArn: "STRING_VALUE", // required
- *   DurationSeconds: Number("int"),
+ *   SAMLAssertion: 'STRING_VALUE', // required
+ *   RoleArn: 'STRING_VALUE', // required
+ *   PrincipalArn: 'STRING_VALUE', // required
+ *   DurationSeconds: Number('int'),
  * };
  * const command = new AssumeDecoratedRoleWithSAMLCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AssumeDecoratedRoleWithSAMLResponse
+ *   AccessKeyId: 'STRING_VALUE',
+ *   SecretAccessKey: 'STRING_VALUE',
+ *   SessionToken: 'STRING_VALUE',
+ *   Expiration: new Date('TIMESTAMP'),
+ * };
+ *
  * ```
  *
  * @param AssumeDecoratedRoleWithSAMLCommandInput - {@link AssumeDecoratedRoleWithSAMLCommandInput}
@@ -80,6 +88,8 @@ export interface AssumeDecoratedRoleWithSAMLCommandOutput
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link LakeFormationServiceException}
+ * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
  */
 export class AssumeDecoratedRoleWithSAMLCommand extends $Command<

@@ -41,15 +41,18 @@ export interface UpdateDeviceStateCommandOutput extends UpdateDeviceStateRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoT1ClickDevicesServiceClient, UpdateDeviceStateCommand } from "@aws-sdk/client-iot-1click-devices-service"; // ES Modules import
- * // const { IoT1ClickDevicesServiceClient, UpdateDeviceStateCommand } = require("@aws-sdk/client-iot-1click-devices-service"); // CommonJS import
+ * import { IoT1ClickDevicesServiceClient, UpdateDeviceStateCommand } from '@aws-sdk/client-iot-1click-devices-service'; // ES Modules import
+ * // const { IoT1ClickDevicesServiceClient, UpdateDeviceStateCommand } = require('@aws-sdk/client-iot-1click-devices-service'); // CommonJS import
  * const client = new IoT1ClickDevicesServiceClient(config);
  * const input = { // UpdateDeviceStateRequest
- *   DeviceId: "STRING_VALUE", // required
+ *   DeviceId: 'STRING_VALUE', // required
  *   Enabled: true || false,
  * };
  * const command = new UpdateDeviceStateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateDeviceStateCommandInput - {@link UpdateDeviceStateCommandInput}
@@ -64,6 +67,8 @@ export interface UpdateDeviceStateCommandOutput extends UpdateDeviceStateRespons
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *
+ * @throws {@link IoT1ClickDevicesServiceServiceException}
+ * <p>Base exception class for all service exceptions from IoT1ClickDevicesService service.</p>
  *
  */
 export class UpdateDeviceStateCommand extends $Command<

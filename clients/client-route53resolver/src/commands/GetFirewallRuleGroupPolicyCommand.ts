@@ -37,14 +37,19 @@ export interface GetFirewallRuleGroupPolicyCommandOutput extends GetFirewallRule
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Route53ResolverClient, GetFirewallRuleGroupPolicyCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
- * // const { Route53ResolverClient, GetFirewallRuleGroupPolicyCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
+ * import { Route53ResolverClient, GetFirewallRuleGroupPolicyCommand } from '@aws-sdk/client-route53resolver'; // ES Modules import
+ * // const { Route53ResolverClient, GetFirewallRuleGroupPolicyCommand } = require('@aws-sdk/client-route53resolver'); // CommonJS import
  * const client = new Route53ResolverClient(config);
  * const input = { // GetFirewallRuleGroupPolicyRequest
- *   Arn: "STRING_VALUE", // required
+ *   Arn: 'STRING_VALUE', // required
  * };
  * const command = new GetFirewallRuleGroupPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetFirewallRuleGroupPolicyResponse
+ *   FirewallRuleGroupPolicy: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetFirewallRuleGroupPolicyCommandInput - {@link GetFirewallRuleGroupPolicyCommandInput}
@@ -69,6 +74,8 @@ export interface GetFirewallRuleGroupPolicyCommandOutput extends GetFirewallRule
  *  <p>You have provided an invalid command. Supported values are <code>ADD</code>,
  * 			<code>REMOVE</code>, or <code>REPLACE</code> a domain.</p>
  *
+ * @throws {@link Route53ResolverServiceException}
+ * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
  */
 export class GetFirewallRuleGroupPolicyCommand extends $Command<

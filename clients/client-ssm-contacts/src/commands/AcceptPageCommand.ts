@@ -36,19 +36,22 @@ export interface AcceptPageCommandOutput extends AcceptPageResult, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMContactsClient, AcceptPageCommand } from "@aws-sdk/client-ssm-contacts"; // ES Modules import
- * // const { SSMContactsClient, AcceptPageCommand } = require("@aws-sdk/client-ssm-contacts"); // CommonJS import
+ * import { SSMContactsClient, AcceptPageCommand } from '@aws-sdk/client-ssm-contacts'; // ES Modules import
+ * // const { SSMContactsClient, AcceptPageCommand } = require('@aws-sdk/client-ssm-contacts'); // CommonJS import
  * const client = new SSMContactsClient(config);
  * const input = { // AcceptPageRequest
- *   PageId: "STRING_VALUE", // required
- *   ContactChannelId: "STRING_VALUE",
- *   AcceptType: "DELIVERED" || "READ", // required
- *   Note: "STRING_VALUE",
- *   AcceptCode: "STRING_VALUE", // required
- *   AcceptCodeValidation: "IGNORE" || "ENFORCE",
+ *   PageId: 'STRING_VALUE', // required
+ *   ContactChannelId: 'STRING_VALUE',
+ *   AcceptType: 'DELIVERED' || 'READ', // required
+ *   Note: 'STRING_VALUE',
+ *   AcceptCode: 'STRING_VALUE', // required
+ *   AcceptCodeValidation: 'IGNORE' || 'ENFORCE',
  * };
  * const command = new AcceptPageCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param AcceptPageCommandInput - {@link AcceptPageCommandInput}
@@ -73,6 +76,8 @@ export interface AcceptPageCommandOutput extends AcceptPageResult, __MetadataBea
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
  *          service.</p>
  *
+ * @throws {@link SSMContactsServiceException}
+ * <p>Base exception class for all service exceptions from SSMContacts service.</p>
  *
  */
 export class AcceptPageCommand extends $Command<

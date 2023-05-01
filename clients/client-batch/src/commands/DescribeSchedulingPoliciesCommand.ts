@@ -36,16 +36,39 @@ export interface DescribeSchedulingPoliciesCommandOutput extends DescribeSchedul
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BatchClient, DescribeSchedulingPoliciesCommand } from "@aws-sdk/client-batch"; // ES Modules import
- * // const { BatchClient, DescribeSchedulingPoliciesCommand } = require("@aws-sdk/client-batch"); // CommonJS import
+ * import { BatchClient, DescribeSchedulingPoliciesCommand } from '@aws-sdk/client-batch'; // ES Modules import
+ * // const { BatchClient, DescribeSchedulingPoliciesCommand } = require('@aws-sdk/client-batch'); // CommonJS import
  * const client = new BatchClient(config);
  * const input = { // DescribeSchedulingPoliciesRequest
  *   arns: [ // StringList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new DescribeSchedulingPoliciesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeSchedulingPoliciesResponse
+ *   schedulingPolicies: [ // SchedulingPolicyDetailList
+ *     { // SchedulingPolicyDetail
+ *       name: 'STRING_VALUE', // required
+ *       arn: 'STRING_VALUE', // required
+ *       fairsharePolicy: { // FairsharePolicy
+ *         shareDecaySeconds: Number('int'),
+ *         computeReservation: Number('int'),
+ *         shareDistribution: [ // ShareAttributesList
+ *           { // ShareAttributes
+ *             shareIdentifier: 'STRING_VALUE', // required
+ *             weightFactor: Number('float'),
+ *           },
+ *         ],
+ *       },
+ *       tags: { // TagrisTagsMap
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeSchedulingPoliciesCommandInput - {@link DescribeSchedulingPoliciesCommandInput}
@@ -62,6 +85,8 @@ export interface DescribeSchedulingPoliciesCommandOutput extends DescribeSchedul
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server issue.</p>
  *
+ * @throws {@link BatchServiceException}
+ * <p>Base exception class for all service exceptions from Batch service.</p>
  *
  */
 export class DescribeSchedulingPoliciesCommand extends $Command<

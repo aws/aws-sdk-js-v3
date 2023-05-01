@@ -147,45 +147,128 @@ export interface DetectLabelsCommandOutput extends DetectLabelsResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RekognitionClient, DetectLabelsCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
- * // const { RekognitionClient, DetectLabelsCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
+ * import { RekognitionClient, DetectLabelsCommand } from '@aws-sdk/client-rekognition'; // ES Modules import
+ * // const { RekognitionClient, DetectLabelsCommand } = require('@aws-sdk/client-rekognition'); // CommonJS import
  * const client = new RekognitionClient(config);
  * const input = { // DetectLabelsRequest
  *   Image: { // Image
- *     Bytes: "BLOB_VALUE",
+ *     Bytes: 'BLOB_VALUE',
  *     S3Object: { // S3Object
- *       Bucket: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *       Version: "STRING_VALUE",
+ *       Bucket: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *       Version: 'STRING_VALUE',
  *     },
  *   },
- *   MaxLabels: Number("int"),
- *   MinConfidence: Number("float"),
+ *   MaxLabels: Number('int'),
+ *   MinConfidence: Number('float'),
  *   Features: [ // DetectLabelsFeatureList
- *     "GENERAL_LABELS" || "IMAGE_PROPERTIES",
+ *     'GENERAL_LABELS' || 'IMAGE_PROPERTIES',
  *   ],
  *   Settings: { // DetectLabelsSettings
  *     GeneralLabels: { // GeneralLabelsSettings
  *       LabelInclusionFilters: [ // GeneralLabelsFilterList
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *       LabelExclusionFilters: [
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *       LabelCategoryInclusionFilters: [
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *       LabelCategoryExclusionFilters: [
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *     ImageProperties: { // DetectLabelsImagePropertiesSettings
- *       MaxDominantColors: Number("int"),
+ *       MaxDominantColors: Number('int'),
  *     },
  *   },
  * };
  * const command = new DetectLabelsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DetectLabelsResponse
+ *   Labels: [ // Labels
+ *     { // Label
+ *       Name: 'STRING_VALUE',
+ *       Confidence: Number('float'),
+ *       Instances: [ // Instances
+ *         { // Instance
+ *           BoundingBox: { // BoundingBox
+ *             Width: Number('float'),
+ *             Height: Number('float'),
+ *             Left: Number('float'),
+ *             Top: Number('float'),
+ *           },
+ *           Confidence: Number('float'),
+ *           DominantColors: [ // DominantColors
+ *             { // DominantColor
+ *               Red: Number('int'),
+ *               Blue: Number('int'),
+ *               Green: Number('int'),
+ *               HexCode: 'STRING_VALUE',
+ *               CSSColor: 'STRING_VALUE',
+ *               SimplifiedColor: 'STRING_VALUE',
+ *               PixelPercent: Number('float'),
+ *             },
+ *           ],
+ *         },
+ *       ],
+ *       Parents: [ // Parents
+ *         { // Parent
+ *           Name: 'STRING_VALUE',
+ *         },
+ *       ],
+ *       Aliases: [ // LabelAliases
+ *         { // LabelAlias
+ *           Name: 'STRING_VALUE',
+ *         },
+ *       ],
+ *       Categories: [ // LabelCategories
+ *         { // LabelCategory
+ *           Name: 'STRING_VALUE',
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   OrientationCorrection: 'ROTATE_0' || 'ROTATE_90' || 'ROTATE_180' || 'ROTATE_270',
+ *   LabelModelVersion: 'STRING_VALUE',
+ *   ImageProperties: { // DetectLabelsImageProperties
+ *     Quality: { // DetectLabelsImageQuality
+ *       Brightness: Number('float'),
+ *       Sharpness: Number('float'),
+ *       Contrast: Number('float'),
+ *     },
+ *     DominantColors: [
+ *       {
+ *         Red: Number('int'),
+ *         Blue: Number('int'),
+ *         Green: Number('int'),
+ *         HexCode: 'STRING_VALUE',
+ *         CSSColor: 'STRING_VALUE',
+ *         SimplifiedColor: 'STRING_VALUE',
+ *         PixelPercent: Number('float'),
+ *       },
+ *     ],
+ *     Foreground: { // DetectLabelsImageForeground
+ *       Quality: {
+ *         Brightness: Number('float'),
+ *         Sharpness: Number('float'),
+ *         Contrast: Number('float'),
+ *       },
+ *       DominantColors: '<DominantColors>',
+ *     },
+ *     Background: { // DetectLabelsImageBackground
+ *       Quality: {
+ *         Brightness: Number('float'),
+ *         Sharpness: Number('float'),
+ *         Contrast: Number('float'),
+ *       },
+ *       DominantColors: '<DominantColors>',
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param DetectLabelsCommandInput - {@link DetectLabelsCommandInput}
@@ -223,6 +306,8 @@ export interface DetectLabelsCommandOutput extends DetectLabelsResponse, __Metad
  * @throws {@link ThrottlingException} (server fault)
  *  <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
  *
+ * @throws {@link RekognitionServiceException}
+ * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
  * @example To detect labels
  * ```javascript

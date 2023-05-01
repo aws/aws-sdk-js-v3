@@ -36,21 +36,24 @@ export interface UpdateUserPhoneConfigCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, UpdateUserPhoneConfigCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, UpdateUserPhoneConfigCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, UpdateUserPhoneConfigCommand } from '@aws-sdk/client-connect'; // ES Modules import
+ * // const { ConnectClient, UpdateUserPhoneConfigCommand } = require('@aws-sdk/client-connect'); // CommonJS import
  * const client = new ConnectClient(config);
  * const input = { // UpdateUserPhoneConfigRequest
  *   PhoneConfig: { // UserPhoneConfig
- *     PhoneType: "SOFT_PHONE" || "DESK_PHONE", // required
+ *     PhoneType: 'SOFT_PHONE' || 'DESK_PHONE', // required
  *     AutoAccept: true || false,
- *     AfterContactWorkTimeLimit: Number("int"),
- *     DeskPhoneNumber: "STRING_VALUE",
+ *     AfterContactWorkTimeLimit: Number('int'),
+ *     DeskPhoneNumber: 'STRING_VALUE',
  *   },
- *   UserId: "STRING_VALUE", // required
- *   InstanceId: "STRING_VALUE", // required
+ *   UserId: 'STRING_VALUE', // required
+ *   InstanceId: 'STRING_VALUE', // required
  * };
  * const command = new UpdateUserPhoneConfigCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateUserPhoneConfigCommandInput - {@link UpdateUserPhoneConfigCommandInput}
@@ -74,6 +77,8 @@ export interface UpdateUserPhoneConfigCommandOutput extends __MetadataBearer {}
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class UpdateUserPhoneConfigCommand extends $Command<

@@ -79,17 +79,20 @@ export interface SubscribeToDatasetCommandOutput extends SubscribeToDatasetRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CognitoSyncClient, SubscribeToDatasetCommand } from "@aws-sdk/client-cognito-sync"; // ES Modules import
- * // const { CognitoSyncClient, SubscribeToDatasetCommand } = require("@aws-sdk/client-cognito-sync"); // CommonJS import
+ * import { CognitoSyncClient, SubscribeToDatasetCommand } from '@aws-sdk/client-cognito-sync'; // ES Modules import
+ * // const { CognitoSyncClient, SubscribeToDatasetCommand } = require('@aws-sdk/client-cognito-sync'); // CommonJS import
  * const client = new CognitoSyncClient(config);
  * const input = { // SubscribeToDatasetRequest
- *   IdentityPoolId: "STRING_VALUE", // required
- *   IdentityId: "STRING_VALUE", // required
- *   DatasetName: "STRING_VALUE", // required
- *   DeviceId: "STRING_VALUE", // required
+ *   IdentityPoolId: 'STRING_VALUE', // required
+ *   IdentityId: 'STRING_VALUE', // required
+ *   DatasetName: 'STRING_VALUE', // required
+ *   DeviceId: 'STRING_VALUE', // required
  * };
  * const command = new SubscribeToDatasetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param SubscribeToDatasetCommandInput - {@link SubscribeToDatasetCommandInput}
@@ -120,6 +123,8 @@ export interface SubscribeToDatasetCommandOutput extends SubscribeToDatasetRespo
  *  Thrown if the request is
  *       throttled.
  *
+ * @throws {@link CognitoSyncServiceException}
+ * <p>Base exception class for all service exceptions from CognitoSync service.</p>
  *
  */
 export class SubscribeToDatasetCommand extends $Command<

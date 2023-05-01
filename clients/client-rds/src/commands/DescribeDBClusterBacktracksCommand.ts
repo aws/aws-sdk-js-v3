@@ -42,25 +42,40 @@ export interface DescribeDBClusterBacktracksCommandOutput extends DBClusterBackt
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RDSClient, DescribeDBClusterBacktracksCommand } from "@aws-sdk/client-rds"; // ES Modules import
- * // const { RDSClient, DescribeDBClusterBacktracksCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * import { RDSClient, DescribeDBClusterBacktracksCommand } from '@aws-sdk/client-rds'; // ES Modules import
+ * // const { RDSClient, DescribeDBClusterBacktracksCommand } = require('@aws-sdk/client-rds'); // CommonJS import
  * const client = new RDSClient(config);
  * const input = { // DescribeDBClusterBacktracksMessage
- *   DBClusterIdentifier: "STRING_VALUE", // required
- *   BacktrackIdentifier: "STRING_VALUE",
+ *   DBClusterIdentifier: 'STRING_VALUE', // required
+ *   BacktrackIdentifier: 'STRING_VALUE',
  *   Filters: [ // FilterList
  *     { // Filter
- *       Name: "STRING_VALUE", // required
+ *       Name: 'STRING_VALUE', // required
  *       Values: [ // FilterValueList // required
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
- *   MaxRecords: Number("int"),
- *   Marker: "STRING_VALUE",
+ *   MaxRecords: Number('int'),
+ *   Marker: 'STRING_VALUE',
  * };
  * const command = new DescribeDBClusterBacktracksCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DBClusterBacktrackMessage
+ *   Marker: 'STRING_VALUE',
+ *   DBClusterBacktracks: [ // DBClusterBacktrackList
+ *     { // DBClusterBacktrack
+ *       DBClusterIdentifier: 'STRING_VALUE',
+ *       BacktrackIdentifier: 'STRING_VALUE',
+ *       BacktrackTo: new Date('TIMESTAMP'),
+ *       BacktrackedFrom: new Date('TIMESTAMP'),
+ *       BacktrackRequestCreationTime: new Date('TIMESTAMP'),
+ *       Status: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeDBClusterBacktracksCommandInput - {@link DescribeDBClusterBacktracksCommandInput}
@@ -77,6 +92,8 @@ export interface DescribeDBClusterBacktracksCommandOutput extends DBClusterBackt
  *  <p>
  *             <code>DBClusterIdentifier</code> doesn't refer to an existing DB cluster.</p>
  *
+ * @throws {@link RDSServiceException}
+ * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  * @example To describe backtracks for a DB cluster
  * ```javascript

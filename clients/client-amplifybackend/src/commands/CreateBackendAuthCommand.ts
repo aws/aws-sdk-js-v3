@@ -36,99 +36,109 @@ export interface CreateBackendAuthCommandOutput extends CreateBackendAuthRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AmplifyBackendClient, CreateBackendAuthCommand } from "@aws-sdk/client-amplifybackend"; // ES Modules import
- * // const { AmplifyBackendClient, CreateBackendAuthCommand } = require("@aws-sdk/client-amplifybackend"); // CommonJS import
+ * import { AmplifyBackendClient, CreateBackendAuthCommand } from '@aws-sdk/client-amplifybackend'; // ES Modules import
+ * // const { AmplifyBackendClient, CreateBackendAuthCommand } = require('@aws-sdk/client-amplifybackend'); // CommonJS import
  * const client = new AmplifyBackendClient(config);
  * const input = { // CreateBackendAuthRequest
- *   AppId: "STRING_VALUE", // required
- *   BackendEnvironmentName: "STRING_VALUE", // required
+ *   AppId: 'STRING_VALUE', // required
+ *   BackendEnvironmentName: 'STRING_VALUE', // required
  *   ResourceConfig: { // CreateBackendAuthResourceConfig
- *     AuthResources: "USER_POOL_ONLY" || "IDENTITY_POOL_AND_USER_POOL", // required
+ *     AuthResources: 'USER_POOL_ONLY' || 'IDENTITY_POOL_AND_USER_POOL', // required
  *     IdentityPoolConfigs: { // CreateBackendAuthIdentityPoolConfig
- *       IdentityPoolName: "STRING_VALUE", // required
+ *       IdentityPoolName: 'STRING_VALUE', // required
  *       UnauthenticatedLogin: true || false, // required
  *     },
- *     Service: "COGNITO", // required
+ *     Service: 'COGNITO', // required
  *     UserPoolConfigs: { // CreateBackendAuthUserPoolConfig
  *       ForgotPassword: { // CreateBackendAuthForgotPasswordConfig
- *         DeliveryMethod: "EMAIL" || "SMS", // required
+ *         DeliveryMethod: 'EMAIL' || 'SMS', // required
  *         EmailSettings: { // EmailSettings
- *           EmailMessage: "STRING_VALUE",
- *           EmailSubject: "STRING_VALUE",
+ *           EmailMessage: 'STRING_VALUE',
+ *           EmailSubject: 'STRING_VALUE',
  *         },
  *         SmsSettings: { // SmsSettings
- *           SmsMessage: "STRING_VALUE",
+ *           SmsMessage: 'STRING_VALUE',
  *         },
  *       },
  *       Mfa: { // CreateBackendAuthMFAConfig
- *         MFAMode: "ON" || "OFF" || "OPTIONAL", // required
+ *         MFAMode: 'ON' || 'OFF' || 'OPTIONAL', // required
  *         Settings: { // Settings
  *           MfaTypes: [ // ListOfMfaTypesElement
- *             "SMS" || "TOTP",
+ *             'SMS' || 'TOTP',
  *           ],
- *           SmsMessage: "STRING_VALUE",
+ *           SmsMessage: 'STRING_VALUE',
  *         },
  *       },
  *       OAuth: { // CreateBackendAuthOAuthConfig
- *         DomainPrefix: "STRING_VALUE",
- *         OAuthGrantType: "CODE" || "IMPLICIT", // required
+ *         DomainPrefix: 'STRING_VALUE',
+ *         OAuthGrantType: 'CODE' || 'IMPLICIT', // required
  *         OAuthScopes: [ // ListOfOAuthScopesElement // required
- *           "PHONE" || "EMAIL" || "OPENID" || "PROFILE" || "AWS_COGNITO_SIGNIN_USER_ADMIN",
+ *           'PHONE' || 'EMAIL' || 'OPENID' || 'PROFILE' || 'AWS_COGNITO_SIGNIN_USER_ADMIN',
  *         ],
  *         RedirectSignInURIs: [ // ListOf__string // required
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
  *         RedirectSignOutURIs: [ // required
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
  *         SocialProviderSettings: { // SocialProviderSettings
  *           Facebook: { // BackendAuthSocialProviderConfig
- *             ClientId: "STRING_VALUE",
- *             ClientSecret: "STRING_VALUE",
+ *             ClientId: 'STRING_VALUE',
+ *             ClientSecret: 'STRING_VALUE',
  *           },
  *           Google: {
- *             ClientId: "STRING_VALUE",
- *             ClientSecret: "STRING_VALUE",
+ *             ClientId: 'STRING_VALUE',
+ *             ClientSecret: 'STRING_VALUE',
  *           },
  *           LoginWithAmazon: {
- *             ClientId: "STRING_VALUE",
- *             ClientSecret: "STRING_VALUE",
+ *             ClientId: 'STRING_VALUE',
+ *             ClientSecret: 'STRING_VALUE',
  *           },
  *           SignInWithApple: { // BackendAuthAppleProviderConfig
- *             ClientId: "STRING_VALUE",
- *             KeyId: "STRING_VALUE",
- *             PrivateKey: "STRING_VALUE",
- *             TeamId: "STRING_VALUE",
+ *             ClientId: 'STRING_VALUE',
+ *             KeyId: 'STRING_VALUE',
+ *             PrivateKey: 'STRING_VALUE',
+ *             TeamId: 'STRING_VALUE',
  *           },
  *         },
  *       },
  *       PasswordPolicy: { // CreateBackendAuthPasswordPolicyConfig
  *         AdditionalConstraints: [ // ListOfAdditionalConstraintsElement
- *           "REQUIRE_DIGIT" || "REQUIRE_LOWERCASE" || "REQUIRE_SYMBOL" || "REQUIRE_UPPERCASE",
+ *           'REQUIRE_DIGIT' || 'REQUIRE_LOWERCASE' || 'REQUIRE_SYMBOL' || 'REQUIRE_UPPERCASE',
  *         ],
- *         MinimumLength: Number("double"), // required
+ *         MinimumLength: Number('double'), // required
  *       },
  *       RequiredSignUpAttributes: [ // ListOfRequiredSignUpAttributesElement // required
- *         "ADDRESS" || "BIRTHDATE" || "EMAIL" || "FAMILY_NAME" || "GENDER" || "GIVEN_NAME" || "LOCALE" || "MIDDLE_NAME" || "NAME" || "NICKNAME" || "PHONE_NUMBER" || "PICTURE" || "PREFERRED_USERNAME" || "PROFILE" || "UPDATED_AT" || "WEBSITE" || "ZONE_INFO",
+ *         'ADDRESS' || 'BIRTHDATE' || 'EMAIL' || 'FAMILY_NAME' || 'GENDER' || 'GIVEN_NAME' || 'LOCALE' || 'MIDDLE_NAME' || 'NAME' || 'NICKNAME' || 'PHONE_NUMBER' || 'PICTURE' || 'PREFERRED_USERNAME' || 'PROFILE' || 'UPDATED_AT' || 'WEBSITE' || 'ZONE_INFO',
  *       ],
- *       SignInMethod: "EMAIL" || "EMAIL_AND_PHONE_NUMBER" || "PHONE_NUMBER" || "USERNAME", // required
- *       UserPoolName: "STRING_VALUE", // required
+ *       SignInMethod: 'EMAIL' || 'EMAIL_AND_PHONE_NUMBER' || 'PHONE_NUMBER' || 'USERNAME', // required
+ *       UserPoolName: 'STRING_VALUE', // required
  *       VerificationMessage: { // CreateBackendAuthVerificationMessageConfig
- *         DeliveryMethod: "EMAIL" || "SMS", // required
+ *         DeliveryMethod: 'EMAIL' || 'SMS', // required
  *         EmailSettings: {
- *           EmailMessage: "STRING_VALUE",
- *           EmailSubject: "STRING_VALUE",
+ *           EmailMessage: 'STRING_VALUE',
+ *           EmailSubject: 'STRING_VALUE',
  *         },
  *         SmsSettings: {
- *           SmsMessage: "STRING_VALUE",
+ *           SmsMessage: 'STRING_VALUE',
  *         },
  *       },
  *     },
  *   },
- *   ResourceName: "STRING_VALUE", // required
+ *   ResourceName: 'STRING_VALUE', // required
  * };
  * const command = new CreateBackendAuthCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateBackendAuthResponse
+ *   AppId: 'STRING_VALUE',
+ *   BackendEnvironmentName: 'STRING_VALUE',
+ *   Error: 'STRING_VALUE',
+ *   JobId: 'STRING_VALUE',
+ *   Operation: 'STRING_VALUE',
+ *   Status: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateBackendAuthCommandInput - {@link CreateBackendAuthCommandInput}
@@ -149,6 +159,8 @@ export interface CreateBackendAuthCommandOutput extends CreateBackendAuthRespons
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>An error that is returned when a limit of a specific type has been exceeded.</p>
  *
+ * @throws {@link AmplifyBackendServiceException}
+ * <p>Base exception class for all service exceptions from AmplifyBackend service.</p>
  *
  */
 export class CreateBackendAuthCommand extends $Command<

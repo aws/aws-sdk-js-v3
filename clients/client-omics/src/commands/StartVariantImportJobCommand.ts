@@ -36,21 +36,26 @@ export interface StartVariantImportJobCommandOutput extends StartVariantImportRe
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OmicsClient, StartVariantImportJobCommand } from "@aws-sdk/client-omics"; // ES Modules import
- * // const { OmicsClient, StartVariantImportJobCommand } = require("@aws-sdk/client-omics"); // CommonJS import
+ * import { OmicsClient, StartVariantImportJobCommand } from '@aws-sdk/client-omics'; // ES Modules import
+ * // const { OmicsClient, StartVariantImportJobCommand } = require('@aws-sdk/client-omics'); // CommonJS import
  * const client = new OmicsClient(config);
  * const input = { // StartVariantImportRequest
- *   destinationName: "STRING_VALUE", // required
- *   roleArn: "STRING_VALUE", // required
+ *   destinationName: 'STRING_VALUE', // required
+ *   roleArn: 'STRING_VALUE', // required
  *   items: [ // VariantImportItemSources // required
  *     { // VariantImportItemSource
- *       source: "STRING_VALUE", // required
+ *       source: 'STRING_VALUE', // required
  *     },
  *   ],
  *   runLeftNormalization: true || false,
  * };
  * const command = new StartVariantImportJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartVariantImportResponse
+ *   jobId: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param StartVariantImportJobCommandInput - {@link StartVariantImportJobCommandInput}
@@ -77,6 +82,8 @@ export interface StartVariantImportJobCommandOutput extends StartVariantImportRe
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link OmicsServiceException}
+ * <p>Base exception class for all service exceptions from Omics service.</p>
  *
  */
 export class StartVariantImportJobCommand extends $Command<

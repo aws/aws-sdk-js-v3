@@ -36,15 +36,28 @@ export interface DisassociateMacSecKeyCommandOutput extends DisassociateMacSecKe
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DirectConnectClient, DisassociateMacSecKeyCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
- * // const { DirectConnectClient, DisassociateMacSecKeyCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
+ * import { DirectConnectClient, DisassociateMacSecKeyCommand } from '@aws-sdk/client-direct-connect'; // ES Modules import
+ * // const { DirectConnectClient, DisassociateMacSecKeyCommand } = require('@aws-sdk/client-direct-connect'); // CommonJS import
  * const client = new DirectConnectClient(config);
  * const input = { // DisassociateMacSecKeyRequest
- *   connectionId: "STRING_VALUE", // required
- *   secretARN: "STRING_VALUE", // required
+ *   connectionId: 'STRING_VALUE', // required
+ *   secretARN: 'STRING_VALUE', // required
  * };
  * const command = new DisassociateMacSecKeyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DisassociateMacSecKeyResponse
+ *   connectionId: 'STRING_VALUE',
+ *   macSecKeys: [ // MacSecKeyList
+ *     { // MacSecKey
+ *       secretARN: 'STRING_VALUE',
+ *       ckn: 'STRING_VALUE',
+ *       state: 'STRING_VALUE',
+ *       startOn: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DisassociateMacSecKeyCommandInput - {@link DisassociateMacSecKeyCommandInput}
@@ -59,6 +72,8 @@ export interface DisassociateMacSecKeyCommandOutput extends DisassociateMacSecKe
  * @throws {@link DirectConnectServerException} (server fault)
  *  <p>A server-side error occurred.</p>
  *
+ * @throws {@link DirectConnectServiceException}
+ * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
  */
 export class DisassociateMacSecKeyCommand extends $Command<

@@ -38,15 +38,20 @@ export interface PutResourcePolicyCommandOutput extends PutResourcePolicyOutput,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMIncidentsClient, PutResourcePolicyCommand } from "@aws-sdk/client-ssm-incidents"; // ES Modules import
- * // const { SSMIncidentsClient, PutResourcePolicyCommand } = require("@aws-sdk/client-ssm-incidents"); // CommonJS import
+ * import { SSMIncidentsClient, PutResourcePolicyCommand } from '@aws-sdk/client-ssm-incidents'; // ES Modules import
+ * // const { SSMIncidentsClient, PutResourcePolicyCommand } = require('@aws-sdk/client-ssm-incidents'); // CommonJS import
  * const client = new SSMIncidentsClient(config);
  * const input = { // PutResourcePolicyInput
- *   resourceArn: "STRING_VALUE", // required
- *   policy: "STRING_VALUE", // required
+ *   resourceArn: 'STRING_VALUE', // required
+ *   policy: 'STRING_VALUE', // required
  * };
  * const command = new PutResourcePolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutResourcePolicyOutput
+ *   policyId: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param PutResourcePolicyCommandInput - {@link PutResourcePolicyCommandInput}
@@ -72,6 +77,8 @@ export interface PutResourcePolicyCommandOutput extends PutResourcePolicyOutput,
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
  *       service.</p>
  *
+ * @throws {@link SSMIncidentsServiceException}
+ * <p>Base exception class for all service exceptions from SSMIncidents service.</p>
  *
  */
 export class PutResourcePolicyCommand extends $Command<

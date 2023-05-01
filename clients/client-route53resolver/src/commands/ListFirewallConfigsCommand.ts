@@ -37,15 +37,28 @@ export interface ListFirewallConfigsCommandOutput extends ListFirewallConfigsRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Route53ResolverClient, ListFirewallConfigsCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
- * // const { Route53ResolverClient, ListFirewallConfigsCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
+ * import { Route53ResolverClient, ListFirewallConfigsCommand } from '@aws-sdk/client-route53resolver'; // ES Modules import
+ * // const { Route53ResolverClient, ListFirewallConfigsCommand } = require('@aws-sdk/client-route53resolver'); // CommonJS import
  * const client = new Route53ResolverClient(config);
  * const input = { // ListFirewallConfigsRequest
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListFirewallConfigsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListFirewallConfigsResponse
+ *   NextToken: 'STRING_VALUE',
+ *   FirewallConfigs: [ // FirewallConfigList
+ *     { // FirewallConfig
+ *       Id: 'STRING_VALUE',
+ *       ResourceId: 'STRING_VALUE',
+ *       OwnerId: 'STRING_VALUE',
+ *       FirewallFailOpen: 'ENABLED' || 'DISABLED' || 'USE_LOCAL_RESOURCE_SETTING',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListFirewallConfigsCommandInput - {@link ListFirewallConfigsCommandInput}
@@ -67,6 +80,8 @@ export interface ListFirewallConfigsCommandOutput extends ListFirewallConfigsRes
  *  <p>You have provided an invalid command. Supported values are <code>ADD</code>,
  * 			<code>REMOVE</code>, or <code>REPLACE</code> a domain.</p>
  *
+ * @throws {@link Route53ResolverServiceException}
+ * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
  */
 export class ListFirewallConfigsCommand extends $Command<

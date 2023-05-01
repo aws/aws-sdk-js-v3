@@ -51,16 +51,30 @@ export interface ListDistributionsByOriginRequestPolicyIdCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudFrontClient, ListDistributionsByOriginRequestPolicyIdCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
- * // const { CloudFrontClient, ListDistributionsByOriginRequestPolicyIdCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
+ * import { CloudFrontClient, ListDistributionsByOriginRequestPolicyIdCommand } from '@aws-sdk/client-cloudfront'; // ES Modules import
+ * // const { CloudFrontClient, ListDistributionsByOriginRequestPolicyIdCommand } = require('@aws-sdk/client-cloudfront'); // CommonJS import
  * const client = new CloudFrontClient(config);
  * const input = { // ListDistributionsByOriginRequestPolicyIdRequest
- *   Marker: "STRING_VALUE",
- *   MaxItems: Number("int"),
- *   OriginRequestPolicyId: "STRING_VALUE", // required
+ *   Marker: 'STRING_VALUE',
+ *   MaxItems: Number('int'),
+ *   OriginRequestPolicyId: 'STRING_VALUE', // required
  * };
  * const command = new ListDistributionsByOriginRequestPolicyIdCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListDistributionsByOriginRequestPolicyIdResult
+ *   DistributionIdList: { // DistributionIdList
+ *     Marker: 'STRING_VALUE', // required
+ *     NextMarker: 'STRING_VALUE',
+ *     MaxItems: Number('int'), // required
+ *     IsTruncated: true || false, // required
+ *     Quantity: Number('int'), // required
+ *     Items: [ // DistributionIdListSummary
+ *       'STRING_VALUE',
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param ListDistributionsByOriginRequestPolicyIdCommandInput - {@link ListDistributionsByOriginRequestPolicyIdCommandInput}
@@ -78,6 +92,8 @@ export interface ListDistributionsByOriginRequestPolicyIdCommandOutput
  * @throws {@link NoSuchOriginRequestPolicy} (client fault)
  *  <p>The origin request policy does not exist.</p>
  *
+ * @throws {@link CloudFrontServiceException}
+ * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
  */
 export class ListDistributionsByOriginRequestPolicyIdCommand extends $Command<

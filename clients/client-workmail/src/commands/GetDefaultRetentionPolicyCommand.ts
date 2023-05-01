@@ -36,14 +36,28 @@ export interface GetDefaultRetentionPolicyCommandOutput extends GetDefaultRetent
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkMailClient, GetDefaultRetentionPolicyCommand } from "@aws-sdk/client-workmail"; // ES Modules import
- * // const { WorkMailClient, GetDefaultRetentionPolicyCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
+ * import { WorkMailClient, GetDefaultRetentionPolicyCommand } from '@aws-sdk/client-workmail'; // ES Modules import
+ * // const { WorkMailClient, GetDefaultRetentionPolicyCommand } = require('@aws-sdk/client-workmail'); // CommonJS import
  * const client = new WorkMailClient(config);
  * const input = { // GetDefaultRetentionPolicyRequest
- *   OrganizationId: "STRING_VALUE", // required
+ *   OrganizationId: 'STRING_VALUE', // required
  * };
  * const command = new GetDefaultRetentionPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetDefaultRetentionPolicyResponse
+ *   Id: 'STRING_VALUE',
+ *   Name: 'STRING_VALUE',
+ *   Description: 'STRING_VALUE',
+ *   FolderConfigurations: [ // FolderConfigurations
+ *     { // FolderConfiguration
+ *       Name: 'INBOX' || 'DELETED_ITEMS' || 'SENT_ITEMS' || 'DRAFTS' || 'JUNK_EMAIL', // required
+ *       Action: 'NONE' || 'DELETE' || 'PERMANENTLY_DELETE', // required
+ *       Period: Number('int'),
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetDefaultRetentionPolicyCommandInput - {@link GetDefaultRetentionPolicyCommandInput}
@@ -67,6 +81,8 @@ export interface GetDefaultRetentionPolicyCommandOutput extends GetDefaultRetent
  *  <p>The organization must have a valid state to perform certain
  *          operations on the organization or its members.</p>
  *
+ * @throws {@link WorkMailServiceException}
+ * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
  */
 export class GetDefaultRetentionPolicyCommand extends $Command<

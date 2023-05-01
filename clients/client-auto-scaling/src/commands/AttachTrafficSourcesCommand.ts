@@ -59,20 +59,23 @@ export interface AttachTrafficSourcesCommandOutput extends AttachTrafficSourcesR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AutoScalingClient, AttachTrafficSourcesCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
- * // const { AutoScalingClient, AttachTrafficSourcesCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
+ * import { AutoScalingClient, AttachTrafficSourcesCommand } from '@aws-sdk/client-auto-scaling'; // ES Modules import
+ * // const { AutoScalingClient, AttachTrafficSourcesCommand } = require('@aws-sdk/client-auto-scaling'); // CommonJS import
  * const client = new AutoScalingClient(config);
  * const input = { // AttachTrafficSourcesType
- *   AutoScalingGroupName: "STRING_VALUE", // required
+ *   AutoScalingGroupName: 'STRING_VALUE', // required
  *   TrafficSources: [ // TrafficSources // required
  *     { // TrafficSourceIdentifier
- *       Identifier: "STRING_VALUE", // required
- *       Type: "STRING_VALUE",
+ *       Identifier: 'STRING_VALUE', // required
+ *       Type: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new AttachTrafficSourcesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param AttachTrafficSourcesCommandInput - {@link AttachTrafficSourcesCommandInput}
@@ -88,6 +91,8 @@ export interface AttachTrafficSourcesCommandOutput extends AttachTrafficSourcesR
  * @throws {@link ServiceLinkedRoleFailure} (server fault)
  *  <p>The service-linked role is not yet ready for use.</p>
  *
+ * @throws {@link AutoScalingServiceException}
+ * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
  * @example To attach a target group to an Auto Scaling group
  * ```javascript

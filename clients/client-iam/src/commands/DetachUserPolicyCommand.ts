@@ -40,15 +40,18 @@ export interface DetachUserPolicyCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IAMClient, DetachUserPolicyCommand } from "@aws-sdk/client-iam"; // ES Modules import
- * // const { IAMClient, DetachUserPolicyCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * import { IAMClient, DetachUserPolicyCommand } from '@aws-sdk/client-iam'; // ES Modules import
+ * // const { IAMClient, DetachUserPolicyCommand } = require('@aws-sdk/client-iam'); // CommonJS import
  * const client = new IAMClient(config);
  * const input = { // DetachUserPolicyRequest
- *   UserName: "STRING_VALUE", // required
- *   PolicyArn: "STRING_VALUE", // required
+ *   UserName: 'STRING_VALUE', // required
+ *   PolicyArn: 'STRING_VALUE', // required
  * };
  * const command = new DetachUserPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DetachUserPolicyCommandInput - {@link DetachUserPolicyCommandInput}
@@ -73,6 +76,8 @@ export interface DetachUserPolicyCommandOutput extends __MetadataBearer {}
  *  <p>The request processing has failed because of an unknown error, exception or
  *       failure.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  */
 export class DetachUserPolicyCommand extends $Command<

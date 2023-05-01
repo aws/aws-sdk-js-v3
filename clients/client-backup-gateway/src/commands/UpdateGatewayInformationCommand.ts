@@ -37,15 +37,20 @@ export interface UpdateGatewayInformationCommandOutput extends UpdateGatewayInfo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BackupGatewayClient, UpdateGatewayInformationCommand } from "@aws-sdk/client-backup-gateway"; // ES Modules import
- * // const { BackupGatewayClient, UpdateGatewayInformationCommand } = require("@aws-sdk/client-backup-gateway"); // CommonJS import
+ * import { BackupGatewayClient, UpdateGatewayInformationCommand } from '@aws-sdk/client-backup-gateway'; // ES Modules import
+ * // const { BackupGatewayClient, UpdateGatewayInformationCommand } = require('@aws-sdk/client-backup-gateway'); // CommonJS import
  * const client = new BackupGatewayClient(config);
  * const input = { // UpdateGatewayInformationInput
- *   GatewayArn: "STRING_VALUE", // required
- *   GatewayDisplayName: "STRING_VALUE",
+ *   GatewayArn: 'STRING_VALUE', // required
+ *   GatewayDisplayName: 'STRING_VALUE',
  * };
  * const command = new UpdateGatewayInformationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateGatewayInformationOutput
+ *   GatewayArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateGatewayInformationCommandInput - {@link UpdateGatewayInformationCommandInput}
@@ -70,6 +75,8 @@ export interface UpdateGatewayInformationCommandOutput extends UpdateGatewayInfo
  * @throws {@link ValidationException} (client fault)
  *  <p>The operation did not succeed because a validation error occurred.</p>
  *
+ * @throws {@link BackupGatewayServiceException}
+ * <p>Base exception class for all service exceptions from BackupGateway service.</p>
  *
  */
 export class UpdateGatewayInformationCommand extends $Command<

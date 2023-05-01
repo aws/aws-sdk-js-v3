@@ -39,13 +39,13 @@ export interface UpdateDetectorCommandOutput extends UpdateDetectorResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GuardDutyClient, UpdateDetectorCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
- * // const { GuardDutyClient, UpdateDetectorCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
+ * import { GuardDutyClient, UpdateDetectorCommand } from '@aws-sdk/client-guardduty'; // ES Modules import
+ * // const { GuardDutyClient, UpdateDetectorCommand } = require('@aws-sdk/client-guardduty'); // CommonJS import
  * const client = new GuardDutyClient(config);
  * const input = { // UpdateDetectorRequest
- *   DetectorId: "STRING_VALUE", // required
+ *   DetectorId: 'STRING_VALUE', // required
  *   Enable: true || false,
- *   FindingPublishingFrequency: "FIFTEEN_MINUTES" || "ONE_HOUR" || "SIX_HOURS",
+ *   FindingPublishingFrequency: 'FIFTEEN_MINUTES' || 'ONE_HOUR' || 'SIX_HOURS',
  *   DataSources: { // DataSourceConfigurations
  *     S3Logs: { // S3LogsConfiguration
  *       Enable: true || false, // required
@@ -63,12 +63,12 @@ export interface UpdateDetectorCommandOutput extends UpdateDetectorResponse, __M
  *   },
  *   Features: [ // DetectorFeatureConfigurations
  *     { // DetectorFeatureConfiguration
- *       Name: "S3_DATA_EVENTS" || "EKS_AUDIT_LOGS" || "EBS_MALWARE_PROTECTION" || "RDS_LOGIN_EVENTS" || "EKS_RUNTIME_MONITORING" || "LAMBDA_NETWORK_LOGS",
- *       Status: "ENABLED" || "DISABLED",
+ *       Name: 'S3_DATA_EVENTS' || 'EKS_AUDIT_LOGS' || 'EBS_MALWARE_PROTECTION' || 'RDS_LOGIN_EVENTS' || 'EKS_RUNTIME_MONITORING' || 'LAMBDA_NETWORK_LOGS',
+ *       Status: 'ENABLED' || 'DISABLED',
  *       AdditionalConfiguration: [ // DetectorAdditionalConfigurations
  *         { // DetectorAdditionalConfiguration
- *           Name: "EKS_ADDON_MANAGEMENT",
- *           Status: "ENABLED" || "DISABLED",
+ *           Name: 'EKS_ADDON_MANAGEMENT',
+ *           Status: 'ENABLED' || 'DISABLED',
  *         },
  *       ],
  *     },
@@ -76,6 +76,9 @@ export interface UpdateDetectorCommandOutput extends UpdateDetectorResponse, __M
  * };
  * const command = new UpdateDetectorCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateDetectorCommandInput - {@link UpdateDetectorCommandInput}
@@ -90,6 +93,8 @@ export interface UpdateDetectorCommandOutput extends UpdateDetectorResponse, __M
  * @throws {@link InternalServerErrorException} (server fault)
  *  <p>An internal server error exception object.</p>
  *
+ * @throws {@link GuardDutyServiceException}
+ * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
  */
 export class UpdateDetectorCommand extends $Command<

@@ -41,16 +41,19 @@ export interface SetDesiredCapacityCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AutoScalingClient, SetDesiredCapacityCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
- * // const { AutoScalingClient, SetDesiredCapacityCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
+ * import { AutoScalingClient, SetDesiredCapacityCommand } from '@aws-sdk/client-auto-scaling'; // ES Modules import
+ * // const { AutoScalingClient, SetDesiredCapacityCommand } = require('@aws-sdk/client-auto-scaling'); // CommonJS import
  * const client = new AutoScalingClient(config);
  * const input = { // SetDesiredCapacityType
- *   AutoScalingGroupName: "STRING_VALUE", // required
- *   DesiredCapacity: Number("int"), // required
+ *   AutoScalingGroupName: 'STRING_VALUE', // required
+ *   DesiredCapacity: Number('int'), // required
  *   HonorCooldown: true || false,
  * };
  * const command = new SetDesiredCapacityCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param SetDesiredCapacityCommandInput - {@link SetDesiredCapacityCommandInput}
@@ -67,6 +70,8 @@ export interface SetDesiredCapacityCommandOutput extends __MetadataBearer {}
  *  <p>The operation can't be performed because there are scaling activities in
  *             progress.</p>
  *
+ * @throws {@link AutoScalingServiceException}
+ * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
  * @example To set the desired capacity for an Auto Scaling group
  * ```javascript

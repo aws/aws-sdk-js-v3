@@ -46,23 +46,46 @@ export interface CreatePolicyCommandOutput extends CreatePolicyResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IAMClient, CreatePolicyCommand } from "@aws-sdk/client-iam"; // ES Modules import
- * // const { IAMClient, CreatePolicyCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * import { IAMClient, CreatePolicyCommand } from '@aws-sdk/client-iam'; // ES Modules import
+ * // const { IAMClient, CreatePolicyCommand } = require('@aws-sdk/client-iam'); // CommonJS import
  * const client = new IAMClient(config);
  * const input = { // CreatePolicyRequest
- *   PolicyName: "STRING_VALUE", // required
- *   Path: "STRING_VALUE",
- *   PolicyDocument: "STRING_VALUE", // required
- *   Description: "STRING_VALUE",
+ *   PolicyName: 'STRING_VALUE', // required
+ *   Path: 'STRING_VALUE',
+ *   PolicyDocument: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE',
  *   Tags: [ // tagListType
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreatePolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreatePolicyResponse
+ *   Policy: { // Policy
+ *     PolicyName: 'STRING_VALUE',
+ *     PolicyId: 'STRING_VALUE',
+ *     Arn: 'STRING_VALUE',
+ *     Path: 'STRING_VALUE',
+ *     DefaultVersionId: 'STRING_VALUE',
+ *     AttachmentCount: Number('int'),
+ *     PermissionsBoundaryUsageCount: Number('int'),
+ *     IsAttachable: true || false,
+ *     Description: 'STRING_VALUE',
+ *     CreateDate: new Date('TIMESTAMP'),
+ *     UpdateDate: new Date('TIMESTAMP'),
+ *     Tags: [ // tagListType
+ *       { // Tag
+ *         Key: 'STRING_VALUE', // required
+ *         Value: 'STRING_VALUE', // required
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreatePolicyCommandInput - {@link CreatePolicyCommandInput}
@@ -95,6 +118,8 @@ export interface CreatePolicyCommandOutput extends CreatePolicyResponse, __Metad
  *  <p>The request processing has failed because of an unknown error, exception or
  *       failure.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  */
 export class CreatePolicyCommand extends $Command<

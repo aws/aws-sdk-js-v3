@@ -47,16 +47,35 @@ export interface DescribeBudgetNotificationsForAccountCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BudgetsClient, DescribeBudgetNotificationsForAccountCommand } from "@aws-sdk/client-budgets"; // ES Modules import
- * // const { BudgetsClient, DescribeBudgetNotificationsForAccountCommand } = require("@aws-sdk/client-budgets"); // CommonJS import
+ * import { BudgetsClient, DescribeBudgetNotificationsForAccountCommand } from '@aws-sdk/client-budgets'; // ES Modules import
+ * // const { BudgetsClient, DescribeBudgetNotificationsForAccountCommand } = require('@aws-sdk/client-budgets'); // CommonJS import
  * const client = new BudgetsClient(config);
  * const input = { // DescribeBudgetNotificationsForAccountRequest
- *   AccountId: "STRING_VALUE", // required
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   AccountId: 'STRING_VALUE', // required
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new DescribeBudgetNotificationsForAccountCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeBudgetNotificationsForAccountResponse
+ *   BudgetNotificationsForAccount: [ // BudgetNotificationsForAccountList
+ *     { // BudgetNotificationsForAccount
+ *       Notifications: [ // Notifications
+ *         { // Notification
+ *           NotificationType: 'STRING_VALUE', // required
+ *           ComparisonOperator: 'STRING_VALUE', // required
+ *           Threshold: Number('double'), // required
+ *           ThresholdType: 'STRING_VALUE',
+ *           NotificationState: 'STRING_VALUE',
+ *         },
+ *       ],
+ *       BudgetName: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeBudgetNotificationsForAccountCommandInput - {@link DescribeBudgetNotificationsForAccountCommandInput}
@@ -88,6 +107,8 @@ export interface DescribeBudgetNotificationsForAccountCommandOutput
  *       The number of API requests has exceeded the maximum allowed API request throttling limit for the account.
  *     </p>
  *
+ * @throws {@link BudgetsServiceException}
+ * <p>Base exception class for all service exceptions from Budgets service.</p>
  *
  */
 export class DescribeBudgetNotificationsForAccountCommand extends $Command<

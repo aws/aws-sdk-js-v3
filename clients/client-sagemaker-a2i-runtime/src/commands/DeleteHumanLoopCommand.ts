@@ -42,14 +42,17 @@ export interface DeleteHumanLoopCommandOutput extends DeleteHumanLoopResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerA2IRuntimeClient, DeleteHumanLoopCommand } from "@aws-sdk/client-sagemaker-a2i-runtime"; // ES Modules import
- * // const { SageMakerA2IRuntimeClient, DeleteHumanLoopCommand } = require("@aws-sdk/client-sagemaker-a2i-runtime"); // CommonJS import
+ * import { SageMakerA2IRuntimeClient, DeleteHumanLoopCommand } from '@aws-sdk/client-sagemaker-a2i-runtime'; // ES Modules import
+ * // const { SageMakerA2IRuntimeClient, DeleteHumanLoopCommand } = require('@aws-sdk/client-sagemaker-a2i-runtime'); // CommonJS import
  * const client = new SageMakerA2IRuntimeClient(config);
  * const input = { // DeleteHumanLoopRequest
- *   HumanLoopName: "STRING_VALUE", // required
+ *   HumanLoopName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteHumanLoopCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteHumanLoopCommandInput - {@link DeleteHumanLoopCommandInput}
@@ -75,6 +78,8 @@ export interface DeleteHumanLoopCommandOutput extends DeleteHumanLoopResponse, _
  *  <p>The
  *       request isn't valid. Check the syntax and try again.</p>
  *
+ * @throws {@link SageMakerA2IRuntimeServiceException}
+ * <p>Base exception class for all service exceptions from SageMakerA2IRuntime service.</p>
  *
  */
 export class DeleteHumanLoopCommand extends $Command<

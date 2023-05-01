@@ -36,17 +36,20 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SchemasClient, TagResourceCommand } from "@aws-sdk/client-schemas"; // ES Modules import
- * // const { SchemasClient, TagResourceCommand } = require("@aws-sdk/client-schemas"); // CommonJS import
+ * import { SchemasClient, TagResourceCommand } from '@aws-sdk/client-schemas'; // ES Modules import
+ * // const { SchemasClient, TagResourceCommand } = require('@aws-sdk/client-schemas'); // CommonJS import
  * const client = new SchemasClient(config);
  * const input = { // TagResourceRequest
- *   ResourceArn: "STRING_VALUE", // required
+ *   ResourceArn: 'STRING_VALUE', // required
  *   Tags: { // Tags // required
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param TagResourceCommandInput - {@link TagResourceCommandInput}
@@ -63,6 +66,8 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
  *
  * @throws {@link NotFoundException} (client fault)
  *
+ * @throws {@link SchemasServiceException}
+ * <p>Base exception class for all service exceptions from Schemas service.</p>
  *
  */
 export class TagResourceCommand extends $Command<

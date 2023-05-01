@@ -42,19 +42,34 @@ export interface DescribeSnapshotsCommandOutput extends DescribeSnapshotsResult,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DirectoryServiceClient, DescribeSnapshotsCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
- * // const { DirectoryServiceClient, DescribeSnapshotsCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
+ * import { DirectoryServiceClient, DescribeSnapshotsCommand } from '@aws-sdk/client-directory-service'; // ES Modules import
+ * // const { DirectoryServiceClient, DescribeSnapshotsCommand } = require('@aws-sdk/client-directory-service'); // CommonJS import
  * const client = new DirectoryServiceClient(config);
  * const input = { // DescribeSnapshotsRequest
- *   DirectoryId: "STRING_VALUE",
+ *   DirectoryId: 'STRING_VALUE',
  *   SnapshotIds: [ // SnapshotIds
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   NextToken: "STRING_VALUE",
- *   Limit: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   Limit: Number('int'),
  * };
  * const command = new DescribeSnapshotsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeSnapshotsResult
+ *   Snapshots: [ // Snapshots
+ *     { // Snapshot
+ *       DirectoryId: 'STRING_VALUE',
+ *       SnapshotId: 'STRING_VALUE',
+ *       Type: 'Auto' || 'Manual',
+ *       Name: 'STRING_VALUE',
+ *       Status: 'Creating' || 'Completed' || 'Failed',
+ *       StartTime: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeSnapshotsCommandInput - {@link DescribeSnapshotsCommandInput}
@@ -78,6 +93,8 @@ export interface DescribeSnapshotsCommandOutput extends DescribeSnapshotsResult,
  * @throws {@link ServiceException} (server fault)
  *  <p>An exception has occurred in Directory Service.</p>
  *
+ * @throws {@link DirectoryServiceServiceException}
+ * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
  */
 export class DescribeSnapshotsCommand extends $Command<

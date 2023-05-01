@@ -37,16 +37,30 @@ export interface ListWebACLsCommandOutput extends ListWebACLsResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WAFV2Client, ListWebACLsCommand } from "@aws-sdk/client-wafv2"; // ES Modules import
- * // const { WAFV2Client, ListWebACLsCommand } = require("@aws-sdk/client-wafv2"); // CommonJS import
+ * import { WAFV2Client, ListWebACLsCommand } from '@aws-sdk/client-wafv2'; // ES Modules import
+ * // const { WAFV2Client, ListWebACLsCommand } = require('@aws-sdk/client-wafv2'); // CommonJS import
  * const client = new WAFV2Client(config);
  * const input = { // ListWebACLsRequest
- *   Scope: "CLOUDFRONT" || "REGIONAL", // required
- *   NextMarker: "STRING_VALUE",
- *   Limit: Number("int"),
+ *   Scope: 'CLOUDFRONT' || 'REGIONAL', // required
+ *   NextMarker: 'STRING_VALUE',
+ *   Limit: Number('int'),
  * };
  * const command = new ListWebACLsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListWebACLsResponse
+ *   NextMarker: 'STRING_VALUE',
+ *   WebACLs: [ // WebACLSummaries
+ *     { // WebACLSummary
+ *       Name: 'STRING_VALUE',
+ *       Id: 'STRING_VALUE',
+ *       Description: 'STRING_VALUE',
+ *       LockToken: 'STRING_VALUE',
+ *       ARN: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListWebACLsCommandInput - {@link ListWebACLsCommandInput}
@@ -83,6 +97,8 @@ export interface ListWebACLsCommandOutput extends ListWebACLsResponse, __Metadat
  *             </li>
  *          </ul>
  *
+ * @throws {@link WAFV2ServiceException}
+ * <p>Base exception class for all service exceptions from WAFV2 service.</p>
  *
  */
 export class ListWebACLsCommand extends $Command<

@@ -57,15 +57,35 @@ export interface GetBucketAclCommandOutput extends GetBucketAclOutput, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { S3Client, GetBucketAclCommand } from "@aws-sdk/client-s3"; // ES Modules import
- * // const { S3Client, GetBucketAclCommand } = require("@aws-sdk/client-s3"); // CommonJS import
+ * import { S3Client, GetBucketAclCommand } from '@aws-sdk/client-s3'; // ES Modules import
+ * // const { S3Client, GetBucketAclCommand } = require('@aws-sdk/client-s3'); // CommonJS import
  * const client = new S3Client(config);
  * const input = { // GetBucketAclRequest
- *   Bucket: "STRING_VALUE", // required
- *   ExpectedBucketOwner: "STRING_VALUE",
+ *   Bucket: 'STRING_VALUE', // required
+ *   ExpectedBucketOwner: 'STRING_VALUE',
  * };
  * const command = new GetBucketAclCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetBucketAclOutput
+ *   Owner: { // Owner
+ *     DisplayName: 'STRING_VALUE',
+ *     ID: 'STRING_VALUE',
+ *   },
+ *   Grants: [ // Grants
+ *     { // Grant
+ *       Grantee: { // Grantee
+ *         DisplayName: 'STRING_VALUE',
+ *         EmailAddress: 'STRING_VALUE',
+ *         ID: 'STRING_VALUE',
+ *         URI: 'STRING_VALUE',
+ *         Type: 'CanonicalUser' || 'AmazonCustomerByEmail' || 'Group', // required
+ *       },
+ *       Permission: 'FULL_CONTROL' || 'WRITE' || 'WRITE_ACP' || 'READ' || 'READ_ACP',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetBucketAclCommandInput - {@link GetBucketAclCommandInput}
@@ -74,6 +94,8 @@ export interface GetBucketAclCommandOutput extends GetBucketAclOutput, __Metadat
  * @see {@link GetBucketAclCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
+ * @throws {@link S3ServiceException}
+ * <p>Base exception class for all service exceptions from S3 service.</p>
  *
  */
 export class GetBucketAclCommand extends $Command<

@@ -56,150 +56,349 @@ export interface QueryCommandOutput extends QueryResult, __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KendraClient, QueryCommand } from "@aws-sdk/client-kendra"; // ES Modules import
- * // const { KendraClient, QueryCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
+ * import { KendraClient, QueryCommand } from '@aws-sdk/client-kendra'; // ES Modules import
+ * // const { KendraClient, QueryCommand } = require('@aws-sdk/client-kendra'); // CommonJS import
  * const client = new KendraClient(config);
  * const input = { // QueryRequest
- *   IndexId: "STRING_VALUE", // required
- *   QueryText: "STRING_VALUE",
+ *   IndexId: 'STRING_VALUE', // required
+ *   QueryText: 'STRING_VALUE',
  *   AttributeFilter: { // AttributeFilter
  *     AndAllFilters: [ // AttributeFilterList
  *       {
  *         AndAllFilters: [
- *           "<AttributeFilter>",
+ *           '<AttributeFilter>',
  *         ],
  *         OrAllFilters: [
- *           "<AttributeFilter>",
+ *           '<AttributeFilter>',
  *         ],
- *         NotFilter: "<AttributeFilter>",
+ *         NotFilter: '<AttributeFilter>',
  *         EqualsTo: { // DocumentAttribute
- *           Key: "STRING_VALUE", // required
+ *           Key: 'STRING_VALUE', // required
  *           Value: { // DocumentAttributeValue
- *             StringValue: "STRING_VALUE",
+ *             StringValue: 'STRING_VALUE',
  *             StringListValue: [ // DocumentAttributeStringListValue
- *               "STRING_VALUE",
+ *               'STRING_VALUE',
  *             ],
- *             LongValue: Number("long"),
- *             DateValue: new Date("TIMESTAMP"),
+ *             LongValue: Number('long'),
+ *             DateValue: new Date('TIMESTAMP'),
  *           },
  *         },
  *         ContainsAll: {
- *           Key: "STRING_VALUE", // required
+ *           Key: 'STRING_VALUE', // required
  *           Value: {
- *             StringValue: "STRING_VALUE",
+ *             StringValue: 'STRING_VALUE',
  *             StringListValue: [
- *               "STRING_VALUE",
+ *               'STRING_VALUE',
  *             ],
- *             LongValue: Number("long"),
- *             DateValue: new Date("TIMESTAMP"),
+ *             LongValue: Number('long'),
+ *             DateValue: new Date('TIMESTAMP'),
  *           },
  *         },
  *         ContainsAny: {
- *           Key: "STRING_VALUE", // required
+ *           Key: 'STRING_VALUE', // required
  *           Value: {
- *             StringValue: "STRING_VALUE",
+ *             StringValue: 'STRING_VALUE',
  *             StringListValue: [
- *               "STRING_VALUE",
+ *               'STRING_VALUE',
  *             ],
- *             LongValue: Number("long"),
- *             DateValue: new Date("TIMESTAMP"),
+ *             LongValue: Number('long'),
+ *             DateValue: new Date('TIMESTAMP'),
  *           },
  *         },
  *         GreaterThan: {
- *           Key: "STRING_VALUE", // required
+ *           Key: 'STRING_VALUE', // required
  *           Value: {
- *             StringValue: "STRING_VALUE",
+ *             StringValue: 'STRING_VALUE',
  *             StringListValue: [
- *               "STRING_VALUE",
+ *               'STRING_VALUE',
  *             ],
- *             LongValue: Number("long"),
- *             DateValue: new Date("TIMESTAMP"),
+ *             LongValue: Number('long'),
+ *             DateValue: new Date('TIMESTAMP'),
  *           },
  *         },
  *         GreaterThanOrEquals: {
- *           Key: "STRING_VALUE", // required
+ *           Key: 'STRING_VALUE', // required
  *           Value: {
- *             StringValue: "STRING_VALUE",
+ *             StringValue: 'STRING_VALUE',
  *             StringListValue: [
- *               "STRING_VALUE",
+ *               'STRING_VALUE',
  *             ],
- *             LongValue: Number("long"),
- *             DateValue: new Date("TIMESTAMP"),
+ *             LongValue: Number('long'),
+ *             DateValue: new Date('TIMESTAMP'),
  *           },
  *         },
- *         LessThan: "<DocumentAttribute>",
- *         LessThanOrEquals: "<DocumentAttribute>",
+ *         LessThan: '<DocumentAttribute>',
+ *         LessThanOrEquals: '<DocumentAttribute>',
  *       },
  *     ],
  *     OrAllFilters: [
- *       "<AttributeFilter>",
+ *       '<AttributeFilter>',
  *     ],
- *     NotFilter: "<AttributeFilter>",
- *     EqualsTo: "<DocumentAttribute>",
- *     ContainsAll: "<DocumentAttribute>",
- *     ContainsAny: "<DocumentAttribute>",
- *     GreaterThan: "<DocumentAttribute>",
- *     GreaterThanOrEquals: "<DocumentAttribute>",
- *     LessThan: "<DocumentAttribute>",
- *     LessThanOrEquals: "<DocumentAttribute>",
+ *     NotFilter: '<AttributeFilter>',
+ *     EqualsTo: '<DocumentAttribute>',
+ *     ContainsAll: '<DocumentAttribute>',
+ *     ContainsAny: '<DocumentAttribute>',
+ *     GreaterThan: '<DocumentAttribute>',
+ *     GreaterThanOrEquals: '<DocumentAttribute>',
+ *     LessThan: '<DocumentAttribute>',
+ *     LessThanOrEquals: '<DocumentAttribute>',
  *   },
  *   Facets: [ // FacetList
  *     { // Facet
- *       DocumentAttributeKey: "STRING_VALUE",
+ *       DocumentAttributeKey: 'STRING_VALUE',
  *       Facets: [
  *         {
- *           DocumentAttributeKey: "STRING_VALUE",
- *           Facets: "<FacetList>",
- *           MaxResults: Number("int"),
+ *           DocumentAttributeKey: 'STRING_VALUE',
+ *           Facets: '<FacetList>',
+ *           MaxResults: Number('int'),
  *         },
  *       ],
- *       MaxResults: Number("int"),
+ *       MaxResults: Number('int'),
  *     },
  *   ],
  *   RequestedDocumentAttributes: [ // DocumentAttributeKeyList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   QueryResultTypeFilter: "DOCUMENT" || "QUESTION_ANSWER" || "ANSWER",
+ *   QueryResultTypeFilter: 'DOCUMENT' || 'QUESTION_ANSWER' || 'ANSWER',
  *   DocumentRelevanceOverrideConfigurations: [ // DocumentRelevanceOverrideConfigurationList
  *     { // DocumentRelevanceConfiguration
- *       Name: "STRING_VALUE", // required
+ *       Name: 'STRING_VALUE', // required
  *       Relevance: { // Relevance
  *         Freshness: true || false,
- *         Importance: Number("int"),
- *         Duration: "STRING_VALUE",
- *         RankOrder: "ASCENDING" || "DESCENDING",
+ *         Importance: Number('int'),
+ *         Duration: 'STRING_VALUE',
+ *         RankOrder: 'ASCENDING' || 'DESCENDING',
  *         ValueImportanceMap: { // ValueImportanceMap
- *           "<keys>": Number("int"),
+ *           '<keys>': Number('int'),
  *         },
  *       },
  *     },
  *   ],
- *   PageNumber: Number("int"),
- *   PageSize: Number("int"),
+ *   PageNumber: Number('int'),
+ *   PageSize: Number('int'),
  *   SortingConfiguration: { // SortingConfiguration
- *     DocumentAttributeKey: "STRING_VALUE", // required
- *     SortOrder: "DESC" || "ASC", // required
+ *     DocumentAttributeKey: 'STRING_VALUE', // required
+ *     SortOrder: 'DESC' || 'ASC', // required
  *   },
  *   UserContext: { // UserContext
- *     Token: "STRING_VALUE",
- *     UserId: "STRING_VALUE",
+ *     Token: 'STRING_VALUE',
+ *     UserId: 'STRING_VALUE',
  *     Groups: [ // Groups
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     DataSourceGroups: [ // DataSourceGroups
  *       { // DataSourceGroup
- *         GroupId: "STRING_VALUE", // required
- *         DataSourceId: "STRING_VALUE", // required
+ *         GroupId: 'STRING_VALUE', // required
+ *         DataSourceId: 'STRING_VALUE', // required
  *       },
  *     ],
  *   },
- *   VisitorId: "STRING_VALUE",
+ *   VisitorId: 'STRING_VALUE',
  *   SpellCorrectionConfiguration: { // SpellCorrectionConfiguration
  *     IncludeQuerySpellCheckSuggestions: true || false, // required
  *   },
  * };
  * const command = new QueryCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // QueryResult
+ *   QueryId: 'STRING_VALUE',
+ *   ResultItems: [ // QueryResultItemList
+ *     { // QueryResultItem
+ *       Id: 'STRING_VALUE',
+ *       Type: 'DOCUMENT' || 'QUESTION_ANSWER' || 'ANSWER',
+ *       Format: 'TABLE' || 'TEXT',
+ *       AdditionalAttributes: [ // AdditionalResultAttributeList
+ *         { // AdditionalResultAttribute
+ *           Key: 'STRING_VALUE', // required
+ *           ValueType: 'TEXT_WITH_HIGHLIGHTS_VALUE', // required
+ *           Value: { // AdditionalResultAttributeValue
+ *             TextWithHighlightsValue: { // TextWithHighlights
+ *               Text: 'STRING_VALUE',
+ *               Highlights: [ // HighlightList
+ *                 { // Highlight
+ *                   BeginOffset: Number('int'), // required
+ *                   EndOffset: Number('int'), // required
+ *                   TopAnswer: true || false,
+ *                   Type: 'STANDARD' || 'THESAURUS_SYNONYM',
+ *                 },
+ *               ],
+ *             },
+ *           },
+ *         },
+ *       ],
+ *       DocumentId: 'STRING_VALUE',
+ *       DocumentTitle: {
+ *         Text: 'STRING_VALUE',
+ *         Highlights: [
+ *           {
+ *             BeginOffset: Number('int'), // required
+ *             EndOffset: Number('int'), // required
+ *             TopAnswer: true || false,
+ *             Type: 'STANDARD' || 'THESAURUS_SYNONYM',
+ *           },
+ *         ],
+ *       },
+ *       DocumentExcerpt: {
+ *         Text: 'STRING_VALUE',
+ *         Highlights: [
+ *           {
+ *             BeginOffset: Number('int'), // required
+ *             EndOffset: Number('int'), // required
+ *             TopAnswer: true || false,
+ *             Type: 'STANDARD' || 'THESAURUS_SYNONYM',
+ *           },
+ *         ],
+ *       },
+ *       DocumentURI: 'STRING_VALUE',
+ *       DocumentAttributes: [ // DocumentAttributeList
+ *         { // DocumentAttribute
+ *           Key: 'STRING_VALUE', // required
+ *           Value: { // DocumentAttributeValue
+ *             StringValue: 'STRING_VALUE',
+ *             StringListValue: [ // DocumentAttributeStringListValue
+ *               'STRING_VALUE',
+ *             ],
+ *             LongValue: Number('long'),
+ *             DateValue: new Date('TIMESTAMP'),
+ *           },
+ *         },
+ *       ],
+ *       ScoreAttributes: { // ScoreAttributes
+ *         ScoreConfidence: 'VERY_HIGH' || 'HIGH' || 'MEDIUM' || 'LOW' || 'NOT_AVAILABLE',
+ *       },
+ *       FeedbackToken: 'STRING_VALUE',
+ *       TableExcerpt: { // TableExcerpt
+ *         Rows: [ // TableRowList
+ *           { // TableRow
+ *             Cells: [ // TableCellList
+ *               { // TableCell
+ *                 Value: 'STRING_VALUE',
+ *                 TopAnswer: true || false,
+ *                 Highlighted: true || false,
+ *                 Header: true || false,
+ *               },
+ *             ],
+ *           },
+ *         ],
+ *         TotalNumberOfRows: Number('int'),
+ *       },
+ *     },
+ *   ],
+ *   FacetResults: [ // FacetResultList
+ *     { // FacetResult
+ *       DocumentAttributeKey: 'STRING_VALUE',
+ *       DocumentAttributeValueType: 'STRING_VALUE' || 'STRING_LIST_VALUE' || 'LONG_VALUE' || 'DATE_VALUE',
+ *       DocumentAttributeValueCountPairs: [ // DocumentAttributeValueCountPairList
+ *         { // DocumentAttributeValueCountPair
+ *           DocumentAttributeValue: {
+ *             StringValue: 'STRING_VALUE',
+ *             StringListValue: [
+ *               'STRING_VALUE',
+ *             ],
+ *             LongValue: Number('long'),
+ *             DateValue: new Date('TIMESTAMP'),
+ *           },
+ *           Count: Number('int'),
+ *           FacetResults: [
+ *             {
+ *               DocumentAttributeKey: 'STRING_VALUE',
+ *               DocumentAttributeValueType: 'STRING_VALUE' || 'STRING_LIST_VALUE' || 'LONG_VALUE' || 'DATE_VALUE',
+ *               DocumentAttributeValueCountPairs: [
+ *                 {
+ *                   DocumentAttributeValue: {
+ *                     StringValue: 'STRING_VALUE',
+ *                     StringListValue: [
+ *                       'STRING_VALUE',
+ *                     ],
+ *                     LongValue: Number('long'),
+ *                     DateValue: new Date('TIMESTAMP'),
+ *                   },
+ *                   Count: Number('int'),
+ *                   FacetResults: '<FacetResultList>',
+ *                 },
+ *               ],
+ *             },
+ *           ],
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   TotalNumberOfResults: Number('int'),
+ *   Warnings: [ // WarningList
+ *     { // Warning
+ *       Message: 'STRING_VALUE',
+ *       Code: 'QUERY_LANGUAGE_INVALID_SYNTAX',
+ *     },
+ *   ],
+ *   SpellCorrectedQueries: [ // SpellCorrectedQueryList
+ *     { // SpellCorrectedQuery
+ *       SuggestedQueryText: 'STRING_VALUE',
+ *       Corrections: [ // CorrectionList
+ *         { // Correction
+ *           BeginOffset: Number('int'),
+ *           EndOffset: Number('int'),
+ *           Term: 'STRING_VALUE',
+ *           CorrectedTerm: 'STRING_VALUE',
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   FeaturedResultsItems: [ // FeaturedResultsItemList
+ *     { // FeaturedResultsItem
+ *       Id: 'STRING_VALUE',
+ *       Type: 'DOCUMENT' || 'QUESTION_ANSWER' || 'ANSWER',
+ *       AdditionalAttributes: [
+ *         {
+ *           Key: 'STRING_VALUE', // required
+ *           ValueType: 'TEXT_WITH_HIGHLIGHTS_VALUE', // required
+ *           Value: {
+ *             TextWithHighlightsValue: {
+ *               Text: 'STRING_VALUE',
+ *               Highlights: [
+ *                 {
+ *                   BeginOffset: Number('int'), // required
+ *                   EndOffset: Number('int'), // required
+ *                   TopAnswer: true || false,
+ *                   Type: 'STANDARD' || 'THESAURUS_SYNONYM',
+ *                 },
+ *               ],
+ *             },
+ *           },
+ *         },
+ *       ],
+ *       DocumentId: 'STRING_VALUE',
+ *       DocumentTitle: {
+ *         Text: 'STRING_VALUE',
+ *         Highlights: [
+ *           {
+ *             BeginOffset: Number('int'), // required
+ *             EndOffset: Number('int'), // required
+ *             TopAnswer: true || false,
+ *             Type: 'STANDARD' || 'THESAURUS_SYNONYM',
+ *           },
+ *         ],
+ *       },
+ *       DocumentExcerpt: '<TextWithHighlights>',
+ *       DocumentURI: 'STRING_VALUE',
+ *       DocumentAttributes: [
+ *         {
+ *           Key: 'STRING_VALUE', // required
+ *           Value: {
+ *             StringValue: 'STRING_VALUE',
+ *             StringListValue: [
+ *               'STRING_VALUE',
+ *             ],
+ *             LongValue: Number('long'),
+ *             DateValue: new Date('TIMESTAMP'),
+ *           },
+ *         },
+ *       ],
+ *       FeedbackToken: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param QueryCommandInput - {@link QueryCommandInput}
@@ -238,6 +437,8 @@ export interface QueryCommandOutput extends QueryResult, __MetadataBearer {}
  *  <p>The input fails to satisfy the constraints set by the Amazon Kendra service.
  *             Please provide the correct input and try again.</p>
  *
+ * @throws {@link KendraServiceException}
+ * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
  */
 export class QueryCommand extends $Command<QueryCommandInput, QueryCommandOutput, KendraClientResolvedConfig> {

@@ -36,19 +36,24 @@ export interface UpdatePipelineExecutionCommandOutput extends UpdatePipelineExec
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, UpdatePipelineExecutionCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, UpdatePipelineExecutionCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, UpdatePipelineExecutionCommand } from '@aws-sdk/client-sagemaker'; // ES Modules import
+ * // const { SageMakerClient, UpdatePipelineExecutionCommand } = require('@aws-sdk/client-sagemaker'); // CommonJS import
  * const client = new SageMakerClient(config);
  * const input = { // UpdatePipelineExecutionRequest
- *   PipelineExecutionArn: "STRING_VALUE", // required
- *   PipelineExecutionDescription: "STRING_VALUE",
- *   PipelineExecutionDisplayName: "STRING_VALUE",
+ *   PipelineExecutionArn: 'STRING_VALUE', // required
+ *   PipelineExecutionDescription: 'STRING_VALUE',
+ *   PipelineExecutionDisplayName: 'STRING_VALUE',
  *   ParallelismConfiguration: { // ParallelismConfiguration
- *     MaxParallelExecutionSteps: Number("int"), // required
+ *     MaxParallelExecutionSteps: Number('int'), // required
  *   },
  * };
  * const command = new UpdatePipelineExecutionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdatePipelineExecutionResponse
+ *   PipelineExecutionArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdatePipelineExecutionCommandInput - {@link UpdatePipelineExecutionCommandInput}
@@ -60,6 +65,8 @@ export interface UpdatePipelineExecutionCommandOutput extends UpdatePipelineExec
  * @throws {@link ResourceNotFound} (client fault)
  *  <p>Resource being access is not found.</p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class UpdatePipelineExecutionCommand extends $Command<

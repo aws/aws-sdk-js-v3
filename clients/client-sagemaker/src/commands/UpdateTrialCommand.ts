@@ -36,15 +36,20 @@ export interface UpdateTrialCommandOutput extends UpdateTrialResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, UpdateTrialCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, UpdateTrialCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, UpdateTrialCommand } from '@aws-sdk/client-sagemaker'; // ES Modules import
+ * // const { SageMakerClient, UpdateTrialCommand } = require('@aws-sdk/client-sagemaker'); // CommonJS import
  * const client = new SageMakerClient(config);
  * const input = { // UpdateTrialRequest
- *   TrialName: "STRING_VALUE", // required
- *   DisplayName: "STRING_VALUE",
+ *   TrialName: 'STRING_VALUE', // required
+ *   DisplayName: 'STRING_VALUE',
  * };
  * const command = new UpdateTrialCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateTrialResponse
+ *   TrialArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateTrialCommandInput - {@link UpdateTrialCommandInput}
@@ -60,6 +65,8 @@ export interface UpdateTrialCommandOutput extends UpdateTrialResponse, __Metadat
  * @throws {@link ResourceNotFound} (client fault)
  *  <p>Resource being access is not found.</p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class UpdateTrialCommand extends $Command<

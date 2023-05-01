@@ -39,20 +39,38 @@ export interface DescribeEventsCommandOutput extends EventsMessage, __MetadataBe
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RedshiftClient, DescribeEventsCommand } from "@aws-sdk/client-redshift"; // ES Modules import
- * // const { RedshiftClient, DescribeEventsCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * import { RedshiftClient, DescribeEventsCommand } from '@aws-sdk/client-redshift'; // ES Modules import
+ * // const { RedshiftClient, DescribeEventsCommand } = require('@aws-sdk/client-redshift'); // CommonJS import
  * const client = new RedshiftClient(config);
  * const input = { // DescribeEventsMessage
- *   SourceIdentifier: "STRING_VALUE",
- *   SourceType: "cluster" || "cluster-parameter-group" || "cluster-security-group" || "cluster-snapshot" || "scheduled-action",
- *   StartTime: new Date("TIMESTAMP"),
- *   EndTime: new Date("TIMESTAMP"),
- *   Duration: Number("int"),
- *   MaxRecords: Number("int"),
- *   Marker: "STRING_VALUE",
+ *   SourceIdentifier: 'STRING_VALUE',
+ *   SourceType: 'cluster' || 'cluster-parameter-group' || 'cluster-security-group' || 'cluster-snapshot' || 'scheduled-action',
+ *   StartTime: new Date('TIMESTAMP'),
+ *   EndTime: new Date('TIMESTAMP'),
+ *   Duration: Number('int'),
+ *   MaxRecords: Number('int'),
+ *   Marker: 'STRING_VALUE',
  * };
  * const command = new DescribeEventsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // EventsMessage
+ *   Marker: 'STRING_VALUE',
+ *   Events: [ // EventList
+ *     { // Event
+ *       SourceIdentifier: 'STRING_VALUE',
+ *       SourceType: 'cluster' || 'cluster-parameter-group' || 'cluster-security-group' || 'cluster-snapshot' || 'scheduled-action',
+ *       Message: 'STRING_VALUE',
+ *       EventCategories: [ // EventCategoriesList
+ *         'STRING_VALUE',
+ *       ],
+ *       Severity: 'STRING_VALUE',
+ *       Date: new Date('TIMESTAMP'),
+ *       EventId: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeEventsCommandInput - {@link DescribeEventsCommandInput}
@@ -61,6 +79,8 @@ export interface DescribeEventsCommandOutput extends EventsMessage, __MetadataBe
  * @see {@link DescribeEventsCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class DescribeEventsCommand extends $Command<

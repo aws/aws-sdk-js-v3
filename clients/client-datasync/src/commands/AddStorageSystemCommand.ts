@@ -41,34 +41,39 @@ export interface AddStorageSystemCommandOutput extends AddStorageSystemResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DataSyncClient, AddStorageSystemCommand } from "@aws-sdk/client-datasync"; // ES Modules import
- * // const { DataSyncClient, AddStorageSystemCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
+ * import { DataSyncClient, AddStorageSystemCommand } from '@aws-sdk/client-datasync'; // ES Modules import
+ * // const { DataSyncClient, AddStorageSystemCommand } = require('@aws-sdk/client-datasync'); // CommonJS import
  * const client = new DataSyncClient(config);
  * const input = { // AddStorageSystemRequest
  *   ServerConfiguration: { // DiscoveryServerConfiguration
- *     ServerHostname: "STRING_VALUE", // required
- *     ServerPort: Number("int"),
+ *     ServerHostname: 'STRING_VALUE', // required
+ *     ServerPort: Number('int'),
  *   },
- *   SystemType: "NetAppONTAP", // required
+ *   SystemType: 'NetAppONTAP', // required
  *   AgentArns: [ // DiscoveryAgentArnList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   CloudWatchLogGroupArn: "STRING_VALUE",
+ *   CloudWatchLogGroupArn: 'STRING_VALUE',
  *   Tags: [ // InputTagList
  *     { // TagListEntry
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
- *   Name: "STRING_VALUE",
- *   ClientToken: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE',
+ *   ClientToken: 'STRING_VALUE', // required
  *   Credentials: { // Credentials
- *     Username: "STRING_VALUE", // required
- *     Password: "STRING_VALUE", // required
+ *     Username: 'STRING_VALUE', // required
+ *     Password: 'STRING_VALUE', // required
  *   },
  * };
  * const command = new AddStorageSystemCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AddStorageSystemResponse
+ *   StorageSystemArn: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param AddStorageSystemCommandInput - {@link AddStorageSystemCommandInput}
@@ -84,6 +89,8 @@ export interface AddStorageSystemCommandOutput extends AddStorageSystemResponse,
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception is thrown when the client submits a malformed request.</p>
  *
+ * @throws {@link DataSyncServiceException}
+ * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
  */
 export class AddStorageSystemCommand extends $Command<

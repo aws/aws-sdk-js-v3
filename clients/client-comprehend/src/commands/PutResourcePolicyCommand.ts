@@ -38,16 +38,21 @@ export interface PutResourcePolicyCommandOutput extends PutResourcePolicyRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ComprehendClient, PutResourcePolicyCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
- * // const { ComprehendClient, PutResourcePolicyCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
+ * import { ComprehendClient, PutResourcePolicyCommand } from '@aws-sdk/client-comprehend'; // ES Modules import
+ * // const { ComprehendClient, PutResourcePolicyCommand } = require('@aws-sdk/client-comprehend'); // CommonJS import
  * const client = new ComprehendClient(config);
  * const input = { // PutResourcePolicyRequest
- *   ResourceArn: "STRING_VALUE", // required
- *   ResourcePolicy: "STRING_VALUE", // required
- *   PolicyRevisionId: "STRING_VALUE",
+ *   ResourceArn: 'STRING_VALUE', // required
+ *   ResourcePolicy: 'STRING_VALUE', // required
+ *   PolicyRevisionId: 'STRING_VALUE',
  * };
  * const command = new PutResourcePolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutResourcePolicyResponse
+ *   PolicyRevisionId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param PutResourcePolicyCommandInput - {@link PutResourcePolicyCommandInput}
@@ -65,6 +70,8 @@ export interface PutResourcePolicyCommandOutput extends PutResourcePolicyRespons
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource ARN was not found. Check the ARN and try your request again.</p>
  *
+ * @throws {@link ComprehendServiceException}
+ * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
  */
 export class PutResourcePolicyCommand extends $Command<

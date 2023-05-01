@@ -58,26 +58,45 @@ export interface GetInterpolatedAssetPropertyValuesCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTSiteWiseClient, GetInterpolatedAssetPropertyValuesCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
- * // const { IoTSiteWiseClient, GetInterpolatedAssetPropertyValuesCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
+ * import { IoTSiteWiseClient, GetInterpolatedAssetPropertyValuesCommand } from '@aws-sdk/client-iotsitewise'; // ES Modules import
+ * // const { IoTSiteWiseClient, GetInterpolatedAssetPropertyValuesCommand } = require('@aws-sdk/client-iotsitewise'); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
  * const input = { // GetInterpolatedAssetPropertyValuesRequest
- *   assetId: "STRING_VALUE",
- *   propertyId: "STRING_VALUE",
- *   propertyAlias: "STRING_VALUE",
- *   startTimeInSeconds: Number("long"), // required
- *   startTimeOffsetInNanos: Number("int"),
- *   endTimeInSeconds: Number("long"), // required
- *   endTimeOffsetInNanos: Number("int"),
- *   quality: "GOOD" || "BAD" || "UNCERTAIN", // required
- *   intervalInSeconds: Number("long"), // required
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
- *   type: "STRING_VALUE", // required
- *   intervalWindowInSeconds: Number("long"),
+ *   assetId: 'STRING_VALUE',
+ *   propertyId: 'STRING_VALUE',
+ *   propertyAlias: 'STRING_VALUE',
+ *   startTimeInSeconds: Number('long'), // required
+ *   startTimeOffsetInNanos: Number('int'),
+ *   endTimeInSeconds: Number('long'), // required
+ *   endTimeOffsetInNanos: Number('int'),
+ *   quality: 'GOOD' || 'BAD' || 'UNCERTAIN', // required
+ *   intervalInSeconds: Number('long'), // required
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
+ *   type: 'STRING_VALUE', // required
+ *   intervalWindowInSeconds: Number('long'),
  * };
  * const command = new GetInterpolatedAssetPropertyValuesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetInterpolatedAssetPropertyValuesResponse
+ *   interpolatedAssetPropertyValues: [ // InterpolatedAssetPropertyValues // required
+ *     { // InterpolatedAssetPropertyValue
+ *       timestamp: { // TimeInNanos
+ *         timeInSeconds: Number('long'), // required
+ *         offsetInNanos: Number('int'),
+ *       },
+ *       value: { // Variant
+ *         stringValue: 'STRING_VALUE',
+ *         integerValue: Number('int'),
+ *         doubleValue: Number('double'),
+ *         booleanValue: true || false,
+ *       },
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetInterpolatedAssetPropertyValuesCommandInput - {@link GetInterpolatedAssetPropertyValuesCommandInput}
@@ -105,6 +124,8 @@ export interface GetInterpolatedAssetPropertyValuesCommandOutput
  *       on.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
  *
+ * @throws {@link IoTSiteWiseServiceException}
+ * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
  */
 export class GetInterpolatedAssetPropertyValuesCommand extends $Command<

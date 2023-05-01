@@ -60,27 +60,32 @@ export interface PutOrganizationConformancePackCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConfigServiceClient, PutOrganizationConformancePackCommand } from "@aws-sdk/client-config-service"; // ES Modules import
- * // const { ConfigServiceClient, PutOrganizationConformancePackCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
+ * import { ConfigServiceClient, PutOrganizationConformancePackCommand } from '@aws-sdk/client-config-service'; // ES Modules import
+ * // const { ConfigServiceClient, PutOrganizationConformancePackCommand } = require('@aws-sdk/client-config-service'); // CommonJS import
  * const client = new ConfigServiceClient(config);
  * const input = { // PutOrganizationConformancePackRequest
- *   OrganizationConformancePackName: "STRING_VALUE", // required
- *   TemplateS3Uri: "STRING_VALUE",
- *   TemplateBody: "STRING_VALUE",
- *   DeliveryS3Bucket: "STRING_VALUE",
- *   DeliveryS3KeyPrefix: "STRING_VALUE",
+ *   OrganizationConformancePackName: 'STRING_VALUE', // required
+ *   TemplateS3Uri: 'STRING_VALUE',
+ *   TemplateBody: 'STRING_VALUE',
+ *   DeliveryS3Bucket: 'STRING_VALUE',
+ *   DeliveryS3KeyPrefix: 'STRING_VALUE',
  *   ConformancePackInputParameters: [ // ConformancePackInputParameters
  *     { // ConformancePackInputParameter
- *       ParameterName: "STRING_VALUE", // required
- *       ParameterValue: "STRING_VALUE", // required
+ *       ParameterName: 'STRING_VALUE', // required
+ *       ParameterValue: 'STRING_VALUE', // required
  *     },
  *   ],
  *   ExcludedAccounts: [ // ExcludedAccounts
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new PutOrganizationConformancePackCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutOrganizationConformancePackResponse
+ *   OrganizationConformancePackArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param PutOrganizationConformancePackCommandInput - {@link PutOrganizationConformancePackCommandInput}
@@ -180,6 +185,8 @@ export interface PutOrganizationConformancePackCommandOutput
  *          <p>For PutStoredQuery, you will see this exception if there are missing required fields or if the input value fails the validation, or if you are trying to create more than 300 queries.</p>
  *          <p>For GetStoredQuery, ListStoredQuery, and DeleteStoredQuery you will see this exception if there are missing required fields or if the input value fails the validation.</p>
  *
+ * @throws {@link ConfigServiceServiceException}
+ * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
  */
 export class PutOrganizationConformancePackCommand extends $Command<

@@ -107,23 +107,28 @@ export interface ImportCertificateCommandOutput extends ImportCertificateRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ACMClient, ImportCertificateCommand } from "@aws-sdk/client-acm"; // ES Modules import
- * // const { ACMClient, ImportCertificateCommand } = require("@aws-sdk/client-acm"); // CommonJS import
+ * import { ACMClient, ImportCertificateCommand } from '@aws-sdk/client-acm'; // ES Modules import
+ * // const { ACMClient, ImportCertificateCommand } = require('@aws-sdk/client-acm'); // CommonJS import
  * const client = new ACMClient(config);
  * const input = { // ImportCertificateRequest
- *   CertificateArn: "STRING_VALUE",
- *   Certificate: "BLOB_VALUE", // required
- *   PrivateKey: "BLOB_VALUE", // required
- *   CertificateChain: "BLOB_VALUE",
+ *   CertificateArn: 'STRING_VALUE',
+ *   Certificate: 'BLOB_VALUE', // required
+ *   PrivateKey: 'BLOB_VALUE', // required
+ *   CertificateChain: 'BLOB_VALUE',
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new ImportCertificateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ImportCertificateResponse
+ *   CertificateArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ImportCertificateCommandInput - {@link ImportCertificateCommandInput}
@@ -155,6 +160,8 @@ export interface ImportCertificateCommandOutput extends ImportCertificateRespons
  * @throws {@link TooManyTagsException} (client fault)
  *  <p>The request contains too many tags. Try the request again with fewer tags.</p>
  *
+ * @throws {@link ACMServiceException}
+ * <p>Base exception class for all service exceptions from ACM service.</p>
  *
  */
 export class ImportCertificateCommand extends $Command<

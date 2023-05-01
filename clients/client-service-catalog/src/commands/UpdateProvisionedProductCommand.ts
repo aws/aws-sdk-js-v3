@@ -40,49 +40,79 @@ export interface UpdateProvisionedProductCommandOutput extends UpdateProvisioned
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ServiceCatalogClient, UpdateProvisionedProductCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
- * // const { ServiceCatalogClient, UpdateProvisionedProductCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
+ * import { ServiceCatalogClient, UpdateProvisionedProductCommand } from '@aws-sdk/client-service-catalog'; // ES Modules import
+ * // const { ServiceCatalogClient, UpdateProvisionedProductCommand } = require('@aws-sdk/client-service-catalog'); // CommonJS import
  * const client = new ServiceCatalogClient(config);
  * const input = { // UpdateProvisionedProductInput
- *   AcceptLanguage: "STRING_VALUE",
- *   ProvisionedProductName: "STRING_VALUE",
- *   ProvisionedProductId: "STRING_VALUE",
- *   ProductId: "STRING_VALUE",
- *   ProductName: "STRING_VALUE",
- *   ProvisioningArtifactId: "STRING_VALUE",
- *   ProvisioningArtifactName: "STRING_VALUE",
- *   PathId: "STRING_VALUE",
- *   PathName: "STRING_VALUE",
+ *   AcceptLanguage: 'STRING_VALUE',
+ *   ProvisionedProductName: 'STRING_VALUE',
+ *   ProvisionedProductId: 'STRING_VALUE',
+ *   ProductId: 'STRING_VALUE',
+ *   ProductName: 'STRING_VALUE',
+ *   ProvisioningArtifactId: 'STRING_VALUE',
+ *   ProvisioningArtifactName: 'STRING_VALUE',
+ *   PathId: 'STRING_VALUE',
+ *   PathName: 'STRING_VALUE',
  *   ProvisioningParameters: [ // UpdateProvisioningParameters
  *     { // UpdateProvisioningParameter
- *       Key: "STRING_VALUE",
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
  *       UsePreviousValue: true || false,
  *     },
  *   ],
  *   ProvisioningPreferences: { // UpdateProvisioningPreferences
  *     StackSetAccounts: [ // StackSetAccounts
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     StackSetRegions: [ // StackSetRegions
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
- *     StackSetFailureToleranceCount: Number("int"),
- *     StackSetFailureTolerancePercentage: Number("int"),
- *     StackSetMaxConcurrencyCount: Number("int"),
- *     StackSetMaxConcurrencyPercentage: Number("int"),
- *     StackSetOperationType: "CREATE" || "UPDATE" || "DELETE",
+ *     StackSetFailureToleranceCount: Number('int'),
+ *     StackSetFailureTolerancePercentage: Number('int'),
+ *     StackSetMaxConcurrencyCount: Number('int'),
+ *     StackSetMaxConcurrencyPercentage: Number('int'),
+ *     StackSetOperationType: 'CREATE' || 'UPDATE' || 'DELETE',
  *   },
  *   Tags: [ // Tags
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
- *   UpdateToken: "STRING_VALUE", // required
+ *   UpdateToken: 'STRING_VALUE', // required
  * };
  * const command = new UpdateProvisionedProductCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateProvisionedProductOutput
+ *   RecordDetail: { // RecordDetail
+ *     RecordId: 'STRING_VALUE',
+ *     ProvisionedProductName: 'STRING_VALUE',
+ *     Status: 'CREATED' || 'IN_PROGRESS' || 'IN_PROGRESS_IN_ERROR' || 'SUCCEEDED' || 'FAILED',
+ *     CreatedTime: new Date('TIMESTAMP'),
+ *     UpdatedTime: new Date('TIMESTAMP'),
+ *     ProvisionedProductType: 'STRING_VALUE',
+ *     RecordType: 'STRING_VALUE',
+ *     ProvisionedProductId: 'STRING_VALUE',
+ *     ProductId: 'STRING_VALUE',
+ *     ProvisioningArtifactId: 'STRING_VALUE',
+ *     PathId: 'STRING_VALUE',
+ *     RecordErrors: [ // RecordErrors
+ *       { // RecordError
+ *         Code: 'STRING_VALUE',
+ *         Description: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     RecordTags: [ // RecordTags
+ *       { // RecordTag
+ *         Key: 'STRING_VALUE',
+ *         Value: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     LaunchRoleArn: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateProvisionedProductCommandInput - {@link UpdateProvisionedProductCommandInput}
@@ -97,6 +127,8 @@ export interface UpdateProvisionedProductCommandOutput extends UpdateProvisioned
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link ServiceCatalogServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
  */
 export class UpdateProvisionedProductCommand extends $Command<

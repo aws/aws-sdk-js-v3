@@ -52,15 +52,18 @@ export interface DeleteBucketCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { S3Client, DeleteBucketCommand } from "@aws-sdk/client-s3"; // ES Modules import
- * // const { S3Client, DeleteBucketCommand } = require("@aws-sdk/client-s3"); // CommonJS import
+ * import { S3Client, DeleteBucketCommand } from '@aws-sdk/client-s3'; // ES Modules import
+ * // const { S3Client, DeleteBucketCommand } = require('@aws-sdk/client-s3'); // CommonJS import
  * const client = new S3Client(config);
  * const input = { // DeleteBucketRequest
- *   Bucket: "STRING_VALUE", // required
- *   ExpectedBucketOwner: "STRING_VALUE",
+ *   Bucket: 'STRING_VALUE', // required
+ *   ExpectedBucketOwner: 'STRING_VALUE',
  * };
  * const command = new DeleteBucketCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteBucketCommandInput - {@link DeleteBucketCommandInput}
@@ -69,6 +72,8 @@ export interface DeleteBucketCommandOutput extends __MetadataBearer {}
  * @see {@link DeleteBucketCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
+ * @throws {@link S3ServiceException}
+ * <p>Base exception class for all service exceptions from S3 service.</p>
  *
  * @example To delete a bucket
  * ```javascript

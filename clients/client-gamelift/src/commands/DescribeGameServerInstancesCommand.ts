@@ -58,19 +58,32 @@ export interface DescribeGameServerInstancesCommandOutput extends DescribeGameSe
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GameLiftClient, DescribeGameServerInstancesCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
- * // const { GameLiftClient, DescribeGameServerInstancesCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
+ * import { GameLiftClient, DescribeGameServerInstancesCommand } from '@aws-sdk/client-gamelift'; // ES Modules import
+ * // const { GameLiftClient, DescribeGameServerInstancesCommand } = require('@aws-sdk/client-gamelift'); // CommonJS import
  * const client = new GameLiftClient(config);
  * const input = { // DescribeGameServerInstancesInput
- *   GameServerGroupName: "STRING_VALUE", // required
+ *   GameServerGroupName: 'STRING_VALUE', // required
  *   InstanceIds: [ // GameServerInstanceIds
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   Limit: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   Limit: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new DescribeGameServerInstancesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeGameServerInstancesOutput
+ *   GameServerInstances: [ // GameServerInstances
+ *     { // GameServerInstance
+ *       GameServerGroupName: 'STRING_VALUE',
+ *       GameServerGroupArn: 'STRING_VALUE',
+ *       InstanceId: 'STRING_VALUE',
+ *       InstanceStatus: 'ACTIVE' || 'DRAINING' || 'SPOT_TERMINATING',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeGameServerInstancesCommandInput - {@link DescribeGameServerInstancesCommandInput}
@@ -93,6 +106,8 @@ export interface DescribeGameServerInstancesCommandOutput extends DescribeGameSe
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client failed authentication. Clients should not retry such requests.</p>
  *
+ * @throws {@link GameLiftServiceException}
+ * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
  */
 export class DescribeGameServerInstancesCommand extends $Command<

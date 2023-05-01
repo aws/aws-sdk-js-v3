@@ -43,21 +43,34 @@ export interface CreateCustomRoutingListenerCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlobalAcceleratorClient, CreateCustomRoutingListenerCommand } from "@aws-sdk/client-global-accelerator"; // ES Modules import
- * // const { GlobalAcceleratorClient, CreateCustomRoutingListenerCommand } = require("@aws-sdk/client-global-accelerator"); // CommonJS import
+ * import { GlobalAcceleratorClient, CreateCustomRoutingListenerCommand } from '@aws-sdk/client-global-accelerator'; // ES Modules import
+ * // const { GlobalAcceleratorClient, CreateCustomRoutingListenerCommand } = require('@aws-sdk/client-global-accelerator'); // CommonJS import
  * const client = new GlobalAcceleratorClient(config);
  * const input = { // CreateCustomRoutingListenerRequest
- *   AcceleratorArn: "STRING_VALUE", // required
+ *   AcceleratorArn: 'STRING_VALUE', // required
  *   PortRanges: [ // PortRanges // required
  *     { // PortRange
- *       FromPort: Number("int"),
- *       ToPort: Number("int"),
+ *       FromPort: Number('int'),
+ *       ToPort: Number('int'),
  *     },
  *   ],
- *   IdempotencyToken: "STRING_VALUE", // required
+ *   IdempotencyToken: 'STRING_VALUE', // required
  * };
  * const command = new CreateCustomRoutingListenerCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateCustomRoutingListenerResponse
+ *   Listener: { // CustomRoutingListener
+ *     ListenerArn: 'STRING_VALUE',
+ *     PortRanges: [ // PortRanges
+ *       { // PortRange
+ *         FromPort: Number('int'),
+ *         ToPort: Number('int'),
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateCustomRoutingListenerCommandInput - {@link CreateCustomRoutingListenerCommandInput}
@@ -81,6 +94,8 @@ export interface CreateCustomRoutingListenerCommandOutput
  * @throws {@link LimitExceededException} (client fault)
  *  <p>Processing your request would cause you to exceed an Global Accelerator limit.</p>
  *
+ * @throws {@link GlobalAcceleratorServiceException}
+ * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
  */
 export class CreateCustomRoutingListenerCommand extends $Command<

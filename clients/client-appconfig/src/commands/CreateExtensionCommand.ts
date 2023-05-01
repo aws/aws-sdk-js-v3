@@ -44,35 +44,60 @@ export interface CreateExtensionCommandOutput extends Extension, __MetadataBeare
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppConfigClient, CreateExtensionCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
- * // const { AppConfigClient, CreateExtensionCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import
+ * import { AppConfigClient, CreateExtensionCommand } from '@aws-sdk/client-appconfig'; // ES Modules import
+ * // const { AppConfigClient, CreateExtensionCommand } = require('@aws-sdk/client-appconfig'); // CommonJS import
  * const client = new AppConfigClient(config);
  * const input = { // CreateExtensionRequest
- *   Name: "STRING_VALUE", // required
- *   Description: "STRING_VALUE",
+ *   Name: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE',
  *   Actions: { // ActionsMap // required
- *     "<keys>": [ // ActionList
+ *     '<keys>': [ // ActionList
  *       { // Action
- *         Name: "STRING_VALUE",
- *         Description: "STRING_VALUE",
- *         Uri: "STRING_VALUE",
- *         RoleArn: "STRING_VALUE",
+ *         Name: 'STRING_VALUE',
+ *         Description: 'STRING_VALUE',
+ *         Uri: 'STRING_VALUE',
+ *         RoleArn: 'STRING_VALUE',
  *       },
  *     ],
  *   },
  *   Parameters: { // ParameterMap
- *     "<keys>": { // Parameter
- *       Description: "STRING_VALUE",
+ *     '<keys>': { // Parameter
+ *       Description: 'STRING_VALUE',
  *       Required: true || false,
  *     },
  *   },
  *   Tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
- *   LatestVersionNumber: Number("int"),
+ *   LatestVersionNumber: Number('int'),
  * };
  * const command = new CreateExtensionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // Extension
+ *   Id: 'STRING_VALUE',
+ *   Name: 'STRING_VALUE',
+ *   VersionNumber: Number('int'),
+ *   Arn: 'STRING_VALUE',
+ *   Description: 'STRING_VALUE',
+ *   Actions: { // ActionsMap
+ *     '<keys>': [ // ActionList
+ *       { // Action
+ *         Name: 'STRING_VALUE',
+ *         Description: 'STRING_VALUE',
+ *         Uri: 'STRING_VALUE',
+ *         RoleArn: 'STRING_VALUE',
+ *       },
+ *     ],
+ *   },
+ *   Parameters: { // ParameterMap
+ *     '<keys>': { // Parameter
+ *       Description: 'STRING_VALUE',
+ *       Required: true || false,
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateExtensionCommandInput - {@link CreateExtensionCommandInput}
@@ -94,6 +119,8 @@ export interface CreateExtensionCommandOutput extends Extension, __MetadataBeare
  * @throws {@link ServiceQuotaExceededException} (client fault)
  *  <p>The number of hosted configuration versions exceeds the limit for the AppConfig hosted configuration store. Delete one or more versions and try again.</p>
  *
+ * @throws {@link AppConfigServiceException}
+ * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
  */
 export class CreateExtensionCommand extends $Command<

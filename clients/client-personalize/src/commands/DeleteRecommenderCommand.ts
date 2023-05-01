@@ -37,14 +37,17 @@ export interface DeleteRecommenderCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PersonalizeClient, DeleteRecommenderCommand } from "@aws-sdk/client-personalize"; // ES Modules import
- * // const { PersonalizeClient, DeleteRecommenderCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
+ * import { PersonalizeClient, DeleteRecommenderCommand } from '@aws-sdk/client-personalize'; // ES Modules import
+ * // const { PersonalizeClient, DeleteRecommenderCommand } = require('@aws-sdk/client-personalize'); // CommonJS import
  * const client = new PersonalizeClient(config);
  * const input = { // DeleteRecommenderRequest
- *   recommenderArn: "STRING_VALUE", // required
+ *   recommenderArn: 'STRING_VALUE', // required
  * };
  * const command = new DeleteRecommenderCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteRecommenderCommandInput - {@link DeleteRecommenderCommandInput}
@@ -62,6 +65,8 @@ export interface DeleteRecommenderCommandOutput extends __MetadataBearer {}
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Could not find the specified resource.</p>
  *
+ * @throws {@link PersonalizeServiceException}
+ * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
  */
 export class DeleteRecommenderCommand extends $Command<

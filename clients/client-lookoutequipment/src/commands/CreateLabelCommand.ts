@@ -38,21 +38,26 @@ export interface CreateLabelCommandOutput extends CreateLabelResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LookoutEquipmentClient, CreateLabelCommand } from "@aws-sdk/client-lookoutequipment"; // ES Modules import
- * // const { LookoutEquipmentClient, CreateLabelCommand } = require("@aws-sdk/client-lookoutequipment"); // CommonJS import
+ * import { LookoutEquipmentClient, CreateLabelCommand } from '@aws-sdk/client-lookoutequipment'; // ES Modules import
+ * // const { LookoutEquipmentClient, CreateLabelCommand } = require('@aws-sdk/client-lookoutequipment'); // CommonJS import
  * const client = new LookoutEquipmentClient(config);
  * const input = { // CreateLabelRequest
- *   LabelGroupName: "STRING_VALUE", // required
- *   StartTime: new Date("TIMESTAMP"), // required
- *   EndTime: new Date("TIMESTAMP"), // required
- *   Rating: "ANOMALY" || "NO_ANOMALY" || "NEUTRAL", // required
- *   FaultCode: "STRING_VALUE",
- *   Notes: "STRING_VALUE",
- *   Equipment: "STRING_VALUE",
- *   ClientToken: "STRING_VALUE", // required
+ *   LabelGroupName: 'STRING_VALUE', // required
+ *   StartTime: new Date('TIMESTAMP'), // required
+ *   EndTime: new Date('TIMESTAMP'), // required
+ *   Rating: 'ANOMALY' || 'NO_ANOMALY' || 'NEUTRAL', // required
+ *   FaultCode: 'STRING_VALUE',
+ *   Notes: 'STRING_VALUE',
+ *   Equipment: 'STRING_VALUE',
+ *   ClientToken: 'STRING_VALUE', // required
  * };
  * const command = new CreateLabelCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateLabelResponse
+ *   LabelId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateLabelCommandInput - {@link CreateLabelCommandInput}
@@ -87,6 +92,8 @@ export interface CreateLabelCommandOutput extends CreateLabelResponse, __Metadat
  *  <p> The input fails to satisfy constraints specified by Amazon Lookout for Equipment or a
  *          related AWS service that's being utilized. </p>
  *
+ * @throws {@link LookoutEquipmentServiceException}
+ * <p>Base exception class for all service exceptions from LookoutEquipment service.</p>
  *
  */
 export class CreateLabelCommand extends $Command<

@@ -36,15 +36,20 @@ export interface DeleteResiliencyPolicyCommandOutput extends DeleteResiliencyPol
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ResiliencehubClient, DeleteResiliencyPolicyCommand } from "@aws-sdk/client-resiliencehub"; // ES Modules import
- * // const { ResiliencehubClient, DeleteResiliencyPolicyCommand } = require("@aws-sdk/client-resiliencehub"); // CommonJS import
+ * import { ResiliencehubClient, DeleteResiliencyPolicyCommand } from '@aws-sdk/client-resiliencehub'; // ES Modules import
+ * // const { ResiliencehubClient, DeleteResiliencyPolicyCommand } = require('@aws-sdk/client-resiliencehub'); // CommonJS import
  * const client = new ResiliencehubClient(config);
  * const input = { // DeleteResiliencyPolicyRequest
- *   policyArn: "STRING_VALUE", // required
- *   clientToken: "STRING_VALUE",
+ *   policyArn: 'STRING_VALUE', // required
+ *   clientToken: 'STRING_VALUE',
  * };
  * const command = new DeleteResiliencyPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteResiliencyPolicyResponse
+ *   policyArn: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param DeleteResiliencyPolicyCommandInput - {@link DeleteResiliencyPolicyCommandInput}
@@ -77,6 +82,8 @@ export interface DeleteResiliencyPolicyCommandOutput extends DeleteResiliencyPol
  * @throws {@link ValidationException} (client fault)
  *  <p>This exception occurs when a request is not valid.</p>
  *
+ * @throws {@link ResiliencehubServiceException}
+ * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
  */
 export class DeleteResiliencyPolicyCommand extends $Command<

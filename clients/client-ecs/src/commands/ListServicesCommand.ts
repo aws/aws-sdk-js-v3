@@ -37,18 +37,26 @@ export interface ListServicesCommandOutput extends ListServicesResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ECSClient, ListServicesCommand } from "@aws-sdk/client-ecs"; // ES Modules import
- * // const { ECSClient, ListServicesCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
+ * import { ECSClient, ListServicesCommand } from '@aws-sdk/client-ecs'; // ES Modules import
+ * // const { ECSClient, ListServicesCommand } = require('@aws-sdk/client-ecs'); // CommonJS import
  * const client = new ECSClient(config);
  * const input = { // ListServicesRequest
- *   cluster: "STRING_VALUE",
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
- *   launchType: "EC2" || "FARGATE" || "EXTERNAL",
- *   schedulingStrategy: "REPLICA" || "DAEMON",
+ *   cluster: 'STRING_VALUE',
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
+ *   launchType: 'EC2' || 'FARGATE' || 'EXTERNAL',
+ *   schedulingStrategy: 'REPLICA' || 'DAEMON',
  * };
  * const command = new ListServicesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListServicesResponse
+ *   serviceArns: [ // StringList
+ *     'STRING_VALUE',
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListServicesCommandInput - {@link ListServicesCommandInput}
@@ -72,6 +80,8 @@ export interface ListServicesCommandOutput extends ListServicesResponse, __Metad
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server issue.</p>
  *
+ * @throws {@link ECSServiceException}
+ * <p>Base exception class for all service exceptions from ECS service.</p>
  *
  * @example To list the services in a cluster
  * ```javascript

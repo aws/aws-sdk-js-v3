@@ -36,15 +36,32 @@ export interface GetIntegrationCommandOutput extends GetIntegrationResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CustomerProfilesClient, GetIntegrationCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
- * // const { CustomerProfilesClient, GetIntegrationCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
+ * import { CustomerProfilesClient, GetIntegrationCommand } from '@aws-sdk/client-customer-profiles'; // ES Modules import
+ * // const { CustomerProfilesClient, GetIntegrationCommand } = require('@aws-sdk/client-customer-profiles'); // CommonJS import
  * const client = new CustomerProfilesClient(config);
  * const input = { // GetIntegrationRequest
- *   DomainName: "STRING_VALUE", // required
- *   Uri: "STRING_VALUE", // required
+ *   DomainName: 'STRING_VALUE', // required
+ *   Uri: 'STRING_VALUE', // required
  * };
  * const command = new GetIntegrationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetIntegrationResponse
+ *   DomainName: 'STRING_VALUE', // required
+ *   Uri: 'STRING_VALUE', // required
+ *   ObjectTypeName: 'STRING_VALUE',
+ *   CreatedAt: new Date('TIMESTAMP'), // required
+ *   LastUpdatedAt: new Date('TIMESTAMP'), // required
+ *   Tags: { // TagMap
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ *   ObjectTypeNames: { // ObjectTypeNames
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ *   WorkflowId: 'STRING_VALUE',
+ *   IsUnstructured: true || false,
+ * };
+ *
  * ```
  *
  * @param GetIntegrationCommandInput - {@link GetIntegrationCommandInput}
@@ -68,6 +85,8 @@ export interface GetIntegrationCommandOutput extends GetIntegrationResponse, __M
  * @throws {@link ThrottlingException} (client fault)
  *  <p>You exceeded the maximum number of requests.</p>
  *
+ * @throws {@link CustomerProfilesServiceException}
+ * <p>Base exception class for all service exceptions from CustomerProfiles service.</p>
  *
  */
 export class GetIntegrationCommand extends $Command<

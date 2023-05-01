@@ -36,15 +36,33 @@ export interface GetInvalidationCommandOutput extends GetInvalidationResult, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudFrontClient, GetInvalidationCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
- * // const { CloudFrontClient, GetInvalidationCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
+ * import { CloudFrontClient, GetInvalidationCommand } from '@aws-sdk/client-cloudfront'; // ES Modules import
+ * // const { CloudFrontClient, GetInvalidationCommand } = require('@aws-sdk/client-cloudfront'); // CommonJS import
  * const client = new CloudFrontClient(config);
  * const input = { // GetInvalidationRequest
- *   DistributionId: "STRING_VALUE", // required
- *   Id: "STRING_VALUE", // required
+ *   DistributionId: 'STRING_VALUE', // required
+ *   Id: 'STRING_VALUE', // required
  * };
  * const command = new GetInvalidationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetInvalidationResult
+ *   Invalidation: { // Invalidation
+ *     Id: 'STRING_VALUE', // required
+ *     Status: 'STRING_VALUE', // required
+ *     CreateTime: new Date('TIMESTAMP'), // required
+ *     InvalidationBatch: { // InvalidationBatch
+ *       Paths: { // Paths
+ *         Quantity: Number('int'), // required
+ *         Items: [ // PathList
+ *           'STRING_VALUE',
+ *         ],
+ *       },
+ *       CallerReference: 'STRING_VALUE', // required
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetInvalidationCommandInput - {@link GetInvalidationCommandInput}
@@ -62,6 +80,8 @@ export interface GetInvalidationCommandOutput extends GetInvalidationResult, __M
  * @throws {@link NoSuchInvalidation} (client fault)
  *  <p>The specified invalidation does not exist.</p>
  *
+ * @throws {@link CloudFrontServiceException}
+ * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
  */
 export class GetInvalidationCommand extends $Command<

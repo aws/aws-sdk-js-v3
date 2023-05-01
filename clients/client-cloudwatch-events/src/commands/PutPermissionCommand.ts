@@ -55,23 +55,26 @@ export interface PutPermissionCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudWatchEventsClient, PutPermissionCommand } from "@aws-sdk/client-cloudwatch-events"; // ES Modules import
- * // const { CloudWatchEventsClient, PutPermissionCommand } = require("@aws-sdk/client-cloudwatch-events"); // CommonJS import
+ * import { CloudWatchEventsClient, PutPermissionCommand } from '@aws-sdk/client-cloudwatch-events'; // ES Modules import
+ * // const { CloudWatchEventsClient, PutPermissionCommand } = require('@aws-sdk/client-cloudwatch-events'); // CommonJS import
  * const client = new CloudWatchEventsClient(config);
  * const input = { // PutPermissionRequest
- *   EventBusName: "STRING_VALUE",
- *   Action: "STRING_VALUE",
- *   Principal: "STRING_VALUE",
- *   StatementId: "STRING_VALUE",
+ *   EventBusName: 'STRING_VALUE',
+ *   Action: 'STRING_VALUE',
+ *   Principal: 'STRING_VALUE',
+ *   StatementId: 'STRING_VALUE',
  *   Condition: { // Condition
- *     Type: "STRING_VALUE", // required
- *     Key: "STRING_VALUE", // required
- *     Value: "STRING_VALUE", // required
+ *     Type: 'STRING_VALUE', // required
+ *     Key: 'STRING_VALUE', // required
+ *     Value: 'STRING_VALUE', // required
  *   },
- *   Policy: "STRING_VALUE",
+ *   Policy: 'STRING_VALUE',
  * };
  * const command = new PutPermissionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutPermissionCommandInput - {@link PutPermissionCommandInput}
@@ -95,6 +98,8 @@ export interface PutPermissionCommandOutput extends __MetadataBearer {}
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>An entity that you specified does not exist.</p>
  *
+ * @throws {@link CloudWatchEventsServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatchEvents service.</p>
  *
  */
 export class PutPermissionCommand extends $Command<

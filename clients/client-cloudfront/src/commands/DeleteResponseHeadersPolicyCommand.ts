@@ -42,15 +42,18 @@ export interface DeleteResponseHeadersPolicyCommandOutput extends __MetadataBear
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudFrontClient, DeleteResponseHeadersPolicyCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
- * // const { CloudFrontClient, DeleteResponseHeadersPolicyCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
+ * import { CloudFrontClient, DeleteResponseHeadersPolicyCommand } from '@aws-sdk/client-cloudfront'; // ES Modules import
+ * // const { CloudFrontClient, DeleteResponseHeadersPolicyCommand } = require('@aws-sdk/client-cloudfront'); // CommonJS import
  * const client = new CloudFrontClient(config);
  * const input = { // DeleteResponseHeadersPolicyRequest
- *   Id: "STRING_VALUE", // required
- *   IfMatch: "STRING_VALUE",
+ *   Id: 'STRING_VALUE', // required
+ *   IfMatch: 'STRING_VALUE',
  * };
  * const command = new DeleteResponseHeadersPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteResponseHeadersPolicyCommandInput - {@link DeleteResponseHeadersPolicyCommandInput}
@@ -79,6 +82,8 @@ export interface DeleteResponseHeadersPolicyCommandOutput extends __MetadataBear
  *  <p>Cannot delete the response headers policy because it is attached to one or more cache
  * 			behaviors in a CloudFront distribution.</p>
  *
+ * @throws {@link CloudFrontServiceException}
+ * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
  */
 export class DeleteResponseHeadersPolicyCommand extends $Command<

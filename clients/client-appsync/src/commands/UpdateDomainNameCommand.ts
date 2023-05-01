@@ -36,15 +36,26 @@ export interface UpdateDomainNameCommandOutput extends UpdateDomainNameResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppSyncClient, UpdateDomainNameCommand } from "@aws-sdk/client-appsync"; // ES Modules import
- * // const { AppSyncClient, UpdateDomainNameCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
+ * import { AppSyncClient, UpdateDomainNameCommand } from '@aws-sdk/client-appsync'; // ES Modules import
+ * // const { AppSyncClient, UpdateDomainNameCommand } = require('@aws-sdk/client-appsync'); // CommonJS import
  * const client = new AppSyncClient(config);
  * const input = { // UpdateDomainNameRequest
- *   domainName: "STRING_VALUE", // required
- *   description: "STRING_VALUE",
+ *   domainName: 'STRING_VALUE', // required
+ *   description: 'STRING_VALUE',
  * };
  * const command = new UpdateDomainNameCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateDomainNameResponse
+ *   domainNameConfig: { // DomainNameConfig
+ *     domainName: 'STRING_VALUE',
+ *     description: 'STRING_VALUE',
+ *     certificateArn: 'STRING_VALUE',
+ *     appsyncDomainName: 'STRING_VALUE',
+ *     hostedZoneId: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateDomainNameCommandInput - {@link UpdateDomainNameCommandInput}
@@ -70,6 +81,8 @@ export interface UpdateDomainNameCommandOutput extends UpdateDomainNameResponse,
  * @throws {@link NotFoundException} (client fault)
  *  <p>The resource specified in the request was not found. Check the resource, and then try again.</p>
  *
+ * @throws {@link AppSyncServiceException}
+ * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
  */
 export class UpdateDomainNameCommand extends $Command<

@@ -37,16 +37,30 @@ export interface ListRegexPatternSetsCommandOutput extends ListRegexPatternSetsR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WAFV2Client, ListRegexPatternSetsCommand } from "@aws-sdk/client-wafv2"; // ES Modules import
- * // const { WAFV2Client, ListRegexPatternSetsCommand } = require("@aws-sdk/client-wafv2"); // CommonJS import
+ * import { WAFV2Client, ListRegexPatternSetsCommand } from '@aws-sdk/client-wafv2'; // ES Modules import
+ * // const { WAFV2Client, ListRegexPatternSetsCommand } = require('@aws-sdk/client-wafv2'); // CommonJS import
  * const client = new WAFV2Client(config);
  * const input = { // ListRegexPatternSetsRequest
- *   Scope: "CLOUDFRONT" || "REGIONAL", // required
- *   NextMarker: "STRING_VALUE",
- *   Limit: Number("int"),
+ *   Scope: 'CLOUDFRONT' || 'REGIONAL', // required
+ *   NextMarker: 'STRING_VALUE',
+ *   Limit: Number('int'),
  * };
  * const command = new ListRegexPatternSetsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListRegexPatternSetsResponse
+ *   NextMarker: 'STRING_VALUE',
+ *   RegexPatternSets: [ // RegexPatternSetSummaries
+ *     { // RegexPatternSetSummary
+ *       Name: 'STRING_VALUE',
+ *       Id: 'STRING_VALUE',
+ *       Description: 'STRING_VALUE',
+ *       LockToken: 'STRING_VALUE',
+ *       ARN: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListRegexPatternSetsCommandInput - {@link ListRegexPatternSetsCommandInput}
@@ -83,6 +97,8 @@ export interface ListRegexPatternSetsCommandOutput extends ListRegexPatternSetsR
  *             </li>
  *          </ul>
  *
+ * @throws {@link WAFV2ServiceException}
+ * <p>Base exception class for all service exceptions from WAFV2 service.</p>
  *
  */
 export class ListRegexPatternSetsCommand extends $Command<

@@ -40,26 +40,29 @@ export interface UpdateTemplateCommandOutput extends UpdateTemplateResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectCasesClient, UpdateTemplateCommand } from "@aws-sdk/client-connectcases"; // ES Modules import
- * // const { ConnectCasesClient, UpdateTemplateCommand } = require("@aws-sdk/client-connectcases"); // CommonJS import
+ * import { ConnectCasesClient, UpdateTemplateCommand } from '@aws-sdk/client-connectcases'; // ES Modules import
+ * // const { ConnectCasesClient, UpdateTemplateCommand } = require('@aws-sdk/client-connectcases'); // CommonJS import
  * const client = new ConnectCasesClient(config);
  * const input = { // UpdateTemplateRequest
- *   domainId: "STRING_VALUE", // required
- *   templateId: "STRING_VALUE", // required
- *   name: "STRING_VALUE",
- *   description: "STRING_VALUE",
+ *   domainId: 'STRING_VALUE', // required
+ *   templateId: 'STRING_VALUE', // required
+ *   name: 'STRING_VALUE',
+ *   description: 'STRING_VALUE',
  *   layoutConfiguration: { // LayoutConfiguration
- *     defaultLayout: "STRING_VALUE",
+ *     defaultLayout: 'STRING_VALUE',
  *   },
  *   requiredFields: [ // RequiredFieldList
  *     { // RequiredField
- *       fieldId: "STRING_VALUE", // required
+ *       fieldId: 'STRING_VALUE', // required
  *     },
  *   ],
- *   status: "STRING_VALUE",
+ *   status: 'STRING_VALUE',
  * };
  * const command = new UpdateTemplateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateTemplateCommandInput - {@link UpdateTemplateCommandInput}
@@ -90,6 +93,8 @@ export interface UpdateTemplateCommandOutput extends UpdateTemplateResponse, __M
  * @throws {@link ValidationException} (client fault)
  *  <p>The request isn't valid. Check the syntax and try again.</p>
  *
+ * @throws {@link ConnectCasesServiceException}
+ * <p>Base exception class for all service exceptions from ConnectCases service.</p>
  *
  */
 export class UpdateTemplateCommand extends $Command<

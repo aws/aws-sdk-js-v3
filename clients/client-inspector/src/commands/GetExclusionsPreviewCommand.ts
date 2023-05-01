@@ -38,18 +38,43 @@ export interface GetExclusionsPreviewCommandOutput extends GetExclusionsPreviewR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { InspectorClient, GetExclusionsPreviewCommand } from "@aws-sdk/client-inspector"; // ES Modules import
- * // const { InspectorClient, GetExclusionsPreviewCommand } = require("@aws-sdk/client-inspector"); // CommonJS import
+ * import { InspectorClient, GetExclusionsPreviewCommand } from '@aws-sdk/client-inspector'; // ES Modules import
+ * // const { InspectorClient, GetExclusionsPreviewCommand } = require('@aws-sdk/client-inspector'); // CommonJS import
  * const client = new InspectorClient(config);
  * const input = { // GetExclusionsPreviewRequest
- *   assessmentTemplateArn: "STRING_VALUE", // required
- *   previewToken: "STRING_VALUE", // required
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
- *   locale: "STRING_VALUE",
+ *   assessmentTemplateArn: 'STRING_VALUE', // required
+ *   previewToken: 'STRING_VALUE', // required
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
+ *   locale: 'STRING_VALUE',
  * };
  * const command = new GetExclusionsPreviewCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetExclusionsPreviewResponse
+ *   previewStatus: 'STRING_VALUE', // required
+ *   exclusionPreviews: [ // ExclusionPreviewList
+ *     { // ExclusionPreview
+ *       title: 'STRING_VALUE', // required
+ *       description: 'STRING_VALUE', // required
+ *       recommendation: 'STRING_VALUE', // required
+ *       scopes: [ // ScopeList // required
+ *         { // Scope
+ *           key: 'STRING_VALUE',
+ *           value: 'STRING_VALUE',
+ *         },
+ *       ],
+ *       attributes: [ // AttributeList
+ *         { // Attribute
+ *           key: 'STRING_VALUE', // required
+ *           value: 'STRING_VALUE',
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetExclusionsPreviewCommandInput - {@link GetExclusionsPreviewCommandInput}
@@ -72,6 +97,8 @@ export interface GetExclusionsPreviewCommandOutput extends GetExclusionsPreviewR
  *  <p>The request was rejected because it referenced an entity that does not exist. The
  *          error code describes the entity.</p>
  *
+ * @throws {@link InspectorServiceException}
+ * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
  */
 export class GetExclusionsPreviewCommand extends $Command<

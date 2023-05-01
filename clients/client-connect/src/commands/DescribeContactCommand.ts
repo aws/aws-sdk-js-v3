@@ -43,15 +43,45 @@ export interface DescribeContactCommandOutput extends DescribeContactResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, DescribeContactCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, DescribeContactCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, DescribeContactCommand } from '@aws-sdk/client-connect'; // ES Modules import
+ * // const { ConnectClient, DescribeContactCommand } = require('@aws-sdk/client-connect'); // CommonJS import
  * const client = new ConnectClient(config);
  * const input = { // DescribeContactRequest
- *   InstanceId: "STRING_VALUE", // required
- *   ContactId: "STRING_VALUE", // required
+ *   InstanceId: 'STRING_VALUE', // required
+ *   ContactId: 'STRING_VALUE', // required
  * };
  * const command = new DescribeContactCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeContactResponse
+ *   Contact: { // Contact
+ *     Arn: 'STRING_VALUE',
+ *     Id: 'STRING_VALUE',
+ *     InitialContactId: 'STRING_VALUE',
+ *     PreviousContactId: 'STRING_VALUE',
+ *     InitiationMethod: 'INBOUND' || 'OUTBOUND' || 'TRANSFER' || 'QUEUE_TRANSFER' || 'CALLBACK' || 'API' || 'DISCONNECT' || 'MONITOR',
+ *     Name: 'STRING_VALUE',
+ *     Description: 'STRING_VALUE',
+ *     Channel: 'VOICE' || 'CHAT' || 'TASK',
+ *     QueueInfo: { // QueueInfo
+ *       Id: 'STRING_VALUE',
+ *       EnqueueTimestamp: new Date('TIMESTAMP'),
+ *     },
+ *     AgentInfo: { // AgentInfo
+ *       Id: 'STRING_VALUE',
+ *       ConnectedToAgentTimestamp: new Date('TIMESTAMP'),
+ *     },
+ *     InitiationTimestamp: new Date('TIMESTAMP'),
+ *     DisconnectTimestamp: new Date('TIMESTAMP'),
+ *     LastUpdateTimestamp: new Date('TIMESTAMP'),
+ *     ScheduledTimestamp: new Date('TIMESTAMP'),
+ *     RelatedContactId: 'STRING_VALUE',
+ *     WisdomInfo: { // WisdomInfo
+ *       SessionArn: 'STRING_VALUE',
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeContactCommandInput - {@link DescribeContactCommandInput}
@@ -75,6 +105,8 @@ export interface DescribeContactCommandOutput extends DescribeContactResponse, _
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class DescribeContactCommand extends $Command<

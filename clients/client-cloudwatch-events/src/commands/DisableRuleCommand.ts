@@ -40,15 +40,18 @@ export interface DisableRuleCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudWatchEventsClient, DisableRuleCommand } from "@aws-sdk/client-cloudwatch-events"; // ES Modules import
- * // const { CloudWatchEventsClient, DisableRuleCommand } = require("@aws-sdk/client-cloudwatch-events"); // CommonJS import
+ * import { CloudWatchEventsClient, DisableRuleCommand } from '@aws-sdk/client-cloudwatch-events'; // ES Modules import
+ * // const { CloudWatchEventsClient, DisableRuleCommand } = require('@aws-sdk/client-cloudwatch-events'); // CommonJS import
  * const client = new CloudWatchEventsClient(config);
  * const input = { // DisableRuleRequest
- *   Name: "STRING_VALUE", // required
- *   EventBusName: "STRING_VALUE",
+ *   Name: 'STRING_VALUE', // required
+ *   EventBusName: 'STRING_VALUE',
  * };
  * const command = new DisableRuleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DisableRuleCommandInput - {@link DisableRuleCommandInput}
@@ -74,6 +77,8 @@ export interface DisableRuleCommandOutput extends __MetadataBearer {}
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>An entity that you specified does not exist.</p>
  *
+ * @throws {@link CloudWatchEventsServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatchEvents service.</p>
  *
  */
 export class DisableRuleCommand extends $Command<

@@ -38,15 +38,21 @@ export interface PutImagePolicyCommandOutput extends PutImagePolicyResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ImagebuilderClient, PutImagePolicyCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
- * // const { ImagebuilderClient, PutImagePolicyCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
+ * import { ImagebuilderClient, PutImagePolicyCommand } from '@aws-sdk/client-imagebuilder'; // ES Modules import
+ * // const { ImagebuilderClient, PutImagePolicyCommand } = require('@aws-sdk/client-imagebuilder'); // CommonJS import
  * const client = new ImagebuilderClient(config);
  * const input = { // PutImagePolicyRequest
- *   imageArn: "STRING_VALUE", // required
- *   policy: "STRING_VALUE", // required
+ *   imageArn: 'STRING_VALUE', // required
+ *   policy: 'STRING_VALUE', // required
  * };
  * const command = new PutImagePolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutImagePolicyResponse
+ *   requestId: 'STRING_VALUE',
+ *   imageArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param PutImagePolicyCommandInput - {@link PutImagePolicyCommandInput}
@@ -82,6 +88,8 @@ export interface PutImagePolicyCommandOutput extends PutImagePolicyResponse, __M
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service is unable to process your request at this time.</p>
  *
+ * @throws {@link ImagebuilderServiceException}
+ * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
  */
 export class PutImagePolicyCommand extends $Command<

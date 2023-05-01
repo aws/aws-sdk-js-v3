@@ -49,17 +49,26 @@ export interface UpdateCustomRoutingAcceleratorAttributesCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlobalAcceleratorClient, UpdateCustomRoutingAcceleratorAttributesCommand } from "@aws-sdk/client-global-accelerator"; // ES Modules import
- * // const { GlobalAcceleratorClient, UpdateCustomRoutingAcceleratorAttributesCommand } = require("@aws-sdk/client-global-accelerator"); // CommonJS import
+ * import { GlobalAcceleratorClient, UpdateCustomRoutingAcceleratorAttributesCommand } from '@aws-sdk/client-global-accelerator'; // ES Modules import
+ * // const { GlobalAcceleratorClient, UpdateCustomRoutingAcceleratorAttributesCommand } = require('@aws-sdk/client-global-accelerator'); // CommonJS import
  * const client = new GlobalAcceleratorClient(config);
  * const input = { // UpdateCustomRoutingAcceleratorAttributesRequest
- *   AcceleratorArn: "STRING_VALUE", // required
+ *   AcceleratorArn: 'STRING_VALUE', // required
  *   FlowLogsEnabled: true || false,
- *   FlowLogsS3Bucket: "STRING_VALUE",
- *   FlowLogsS3Prefix: "STRING_VALUE",
+ *   FlowLogsS3Bucket: 'STRING_VALUE',
+ *   FlowLogsS3Prefix: 'STRING_VALUE',
  * };
  * const command = new UpdateCustomRoutingAcceleratorAttributesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateCustomRoutingAcceleratorAttributesResponse
+ *   AcceleratorAttributes: { // CustomRoutingAcceleratorAttributes
+ *     FlowLogsEnabled: true || false,
+ *     FlowLogsS3Bucket: 'STRING_VALUE',
+ *     FlowLogsS3Prefix: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateCustomRoutingAcceleratorAttributesCommandInput - {@link UpdateCustomRoutingAcceleratorAttributesCommandInput}
@@ -80,6 +89,8 @@ export interface UpdateCustomRoutingAcceleratorAttributesCommandOutput
  * @throws {@link InvalidArgumentException} (client fault)
  *  <p>An argument that you specified is invalid.</p>
  *
+ * @throws {@link GlobalAcceleratorServiceException}
+ * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
  */
 export class UpdateCustomRoutingAcceleratorAttributesCommand extends $Command<

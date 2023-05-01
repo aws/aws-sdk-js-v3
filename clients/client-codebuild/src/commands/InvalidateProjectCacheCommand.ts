@@ -36,14 +36,17 @@ export interface InvalidateProjectCacheCommandOutput extends InvalidateProjectCa
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeBuildClient, InvalidateProjectCacheCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
- * // const { CodeBuildClient, InvalidateProjectCacheCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import
+ * import { CodeBuildClient, InvalidateProjectCacheCommand } from '@aws-sdk/client-codebuild'; // ES Modules import
+ * // const { CodeBuildClient, InvalidateProjectCacheCommand } = require('@aws-sdk/client-codebuild'); // CommonJS import
  * const client = new CodeBuildClient(config);
  * const input = { // InvalidateProjectCacheInput
- *   projectName: "STRING_VALUE", // required
+ *   projectName: 'STRING_VALUE', // required
  * };
  * const command = new InvalidateProjectCacheCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param InvalidateProjectCacheCommandInput - {@link InvalidateProjectCacheCommandInput}
@@ -58,6 +61,8 @@ export interface InvalidateProjectCacheCommandOutput extends InvalidateProjectCa
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified Amazon Web Services resource cannot be found.</p>
  *
+ * @throws {@link CodeBuildServiceException}
+ * <p>Base exception class for all service exceptions from CodeBuild service.</p>
  *
  */
 export class InvalidateProjectCacheCommand extends $Command<

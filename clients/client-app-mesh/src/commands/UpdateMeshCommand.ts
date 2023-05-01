@@ -36,23 +36,50 @@ export interface UpdateMeshCommandOutput extends UpdateMeshOutput, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppMeshClient, UpdateMeshCommand } from "@aws-sdk/client-app-mesh"; // ES Modules import
- * // const { AppMeshClient, UpdateMeshCommand } = require("@aws-sdk/client-app-mesh"); // CommonJS import
+ * import { AppMeshClient, UpdateMeshCommand } from '@aws-sdk/client-app-mesh'; // ES Modules import
+ * // const { AppMeshClient, UpdateMeshCommand } = require('@aws-sdk/client-app-mesh'); // CommonJS import
  * const client = new AppMeshClient(config);
  * const input = { // UpdateMeshInput
- *   meshName: "STRING_VALUE", // required
+ *   meshName: 'STRING_VALUE', // required
  *   spec: { // MeshSpec
  *     egressFilter: { // EgressFilter
- *       type: "STRING_VALUE", // required
+ *       type: 'STRING_VALUE', // required
  *     },
  *     serviceDiscovery: { // MeshServiceDiscovery
- *       ipPreference: "STRING_VALUE",
+ *       ipPreference: 'STRING_VALUE',
  *     },
  *   },
- *   clientToken: "STRING_VALUE",
+ *   clientToken: 'STRING_VALUE',
  * };
  * const command = new UpdateMeshCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateMeshOutput
+ *   mesh: { // MeshData
+ *     meshName: 'STRING_VALUE', // required
+ *     spec: { // MeshSpec
+ *       egressFilter: { // EgressFilter
+ *         type: 'STRING_VALUE', // required
+ *       },
+ *       serviceDiscovery: { // MeshServiceDiscovery
+ *         ipPreference: 'STRING_VALUE',
+ *       },
+ *     },
+ *     metadata: { // ResourceMetadata
+ *       arn: 'STRING_VALUE', // required
+ *       version: Number('long'), // required
+ *       uid: 'STRING_VALUE', // required
+ *       createdAt: new Date('TIMESTAMP'), // required
+ *       lastUpdatedAt: new Date('TIMESTAMP'), // required
+ *       meshOwner: 'STRING_VALUE', // required
+ *       resourceOwner: 'STRING_VALUE', // required
+ *     },
+ *     status: { // MeshStatus
+ *       status: 'STRING_VALUE',
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateMeshCommandInput - {@link UpdateMeshCommandInput}
@@ -86,6 +113,8 @@ export interface UpdateMeshCommandOutput extends UpdateMeshOutput, __MetadataBea
  *          your account. For best results, use an increasing or variable sleep interval between
  *          requests.</p>
  *
+ * @throws {@link AppMeshServiceException}
+ * <p>Base exception class for all service exceptions from AppMesh service.</p>
  *
  */
 export class UpdateMeshCommand extends $Command<

@@ -37,15 +37,44 @@ export interface ListScheduledQueriesCommandOutput extends ListScheduledQueriesR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { TimestreamQueryClient, ListScheduledQueriesCommand } from "@aws-sdk/client-timestream-query"; // ES Modules import
- * // const { TimestreamQueryClient, ListScheduledQueriesCommand } = require("@aws-sdk/client-timestream-query"); // CommonJS import
+ * import { TimestreamQueryClient, ListScheduledQueriesCommand } from '@aws-sdk/client-timestream-query'; // ES Modules import
+ * // const { TimestreamQueryClient, ListScheduledQueriesCommand } = require('@aws-sdk/client-timestream-query'); // CommonJS import
  * const client = new TimestreamQueryClient(config);
  * const input = { // ListScheduledQueriesRequest
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListScheduledQueriesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListScheduledQueriesResponse
+ *   ScheduledQueries: [ // ScheduledQueryList // required
+ *     { // ScheduledQuery
+ *       Arn: 'STRING_VALUE', // required
+ *       Name: 'STRING_VALUE', // required
+ *       CreationTime: new Date('TIMESTAMP'),
+ *       State: 'STRING_VALUE', // required
+ *       PreviousInvocationTime: new Date('TIMESTAMP'),
+ *       NextInvocationTime: new Date('TIMESTAMP'),
+ *       ErrorReportConfiguration: { // ErrorReportConfiguration
+ *         S3Configuration: { // S3Configuration
+ *           BucketName: 'STRING_VALUE', // required
+ *           ObjectKeyPrefix: 'STRING_VALUE',
+ *           EncryptionOption: 'STRING_VALUE',
+ *         },
+ *       },
+ *       TargetDestination: { // TargetDestination
+ *         TimestreamDestination: { // TimestreamDestination
+ *           DatabaseName: 'STRING_VALUE',
+ *           TableName: 'STRING_VALUE',
+ *         },
+ *       },
+ *       LastRunStatus: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListScheduledQueriesCommandInput - {@link ListScheduledQueriesCommandInput}
@@ -71,6 +100,8 @@ export interface ListScheduledQueriesCommandOutput extends ListScheduledQueriesR
  * @throws {@link ValidationException} (client fault)
  *  <p> Invalid or malformed request. </p>
  *
+ * @throws {@link TimestreamQueryServiceException}
+ * <p>Base exception class for all service exceptions from TimestreamQuery service.</p>
  *
  */
 export class ListScheduledQueriesCommand extends $Command<

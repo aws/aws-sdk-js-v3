@@ -40,15 +40,26 @@ export interface ListEnvironmentOutputsCommandOutput extends ListEnvironmentOutp
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ProtonClient, ListEnvironmentOutputsCommand } from "@aws-sdk/client-proton"; // ES Modules import
- * // const { ProtonClient, ListEnvironmentOutputsCommand } = require("@aws-sdk/client-proton"); // CommonJS import
+ * import { ProtonClient, ListEnvironmentOutputsCommand } from '@aws-sdk/client-proton'; // ES Modules import
+ * // const { ProtonClient, ListEnvironmentOutputsCommand } = require('@aws-sdk/client-proton'); // CommonJS import
  * const client = new ProtonClient(config);
  * const input = { // ListEnvironmentOutputsInput
- *   environmentName: "STRING_VALUE", // required
- *   nextToken: "STRING_VALUE",
+ *   environmentName: 'STRING_VALUE', // required
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new ListEnvironmentOutputsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListEnvironmentOutputsOutput
+ *   nextToken: 'STRING_VALUE',
+ *   outputs: [ // OutputsList // required
+ *     { // Output
+ *       key: 'STRING_VALUE',
+ *       valueString: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListEnvironmentOutputsCommandInput - {@link ListEnvironmentOutputsCommandInput}
@@ -72,6 +83,8 @@ export interface ListEnvironmentOutputsCommandOutput extends ListEnvironmentOutp
  * @throws {@link ValidationException} (client fault)
  *  <p>The input is invalid or an out-of-range value was supplied for the input parameter.</p>
  *
+ * @throws {@link ProtonServiceException}
+ * <p>Base exception class for all service exceptions from Proton service.</p>
  *
  */
 export class ListEnvironmentOutputsCommand extends $Command<

@@ -84,15 +84,18 @@ export interface DeleteStreamingDistributionCommandOutput extends __MetadataBear
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudFrontClient, DeleteStreamingDistributionCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
- * // const { CloudFrontClient, DeleteStreamingDistributionCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
+ * import { CloudFrontClient, DeleteStreamingDistributionCommand } from '@aws-sdk/client-cloudfront'; // ES Modules import
+ * // const { CloudFrontClient, DeleteStreamingDistributionCommand } = require('@aws-sdk/client-cloudfront'); // CommonJS import
  * const client = new CloudFrontClient(config);
  * const input = { // DeleteStreamingDistributionRequest
- *   Id: "STRING_VALUE", // required
- *   IfMatch: "STRING_VALUE",
+ *   Id: 'STRING_VALUE', // required
+ *   IfMatch: 'STRING_VALUE',
  * };
  * const command = new DeleteStreamingDistributionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteStreamingDistributionCommandInput - {@link DeleteStreamingDistributionCommandInput}
@@ -118,6 +121,8 @@ export interface DeleteStreamingDistributionCommandOutput extends __MetadataBear
  *  <p>The specified CloudFront distribution is not disabled. You must disable the distribution
  * 			before you can delete it.</p>
  *
+ * @throws {@link CloudFrontServiceException}
+ * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
  */
 export class DeleteStreamingDistributionCommand extends $Command<

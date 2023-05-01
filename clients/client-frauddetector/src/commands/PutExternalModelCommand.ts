@@ -36,39 +36,42 @@ export interface PutExternalModelCommandOutput extends PutExternalModelResult, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FraudDetectorClient, PutExternalModelCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
- * // const { FraudDetectorClient, PutExternalModelCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
+ * import { FraudDetectorClient, PutExternalModelCommand } from '@aws-sdk/client-frauddetector'; // ES Modules import
+ * // const { FraudDetectorClient, PutExternalModelCommand } = require('@aws-sdk/client-frauddetector'); // CommonJS import
  * const client = new FraudDetectorClient(config);
  * const input = { // PutExternalModelRequest
- *   modelEndpoint: "STRING_VALUE", // required
- *   modelSource: "SAGEMAKER", // required
- *   invokeModelEndpointRoleArn: "STRING_VALUE", // required
+ *   modelEndpoint: 'STRING_VALUE', // required
+ *   modelSource: 'SAGEMAKER', // required
+ *   invokeModelEndpointRoleArn: 'STRING_VALUE', // required
  *   inputConfiguration: { // ModelInputConfiguration
- *     eventTypeName: "STRING_VALUE",
- *     format: "TEXT_CSV" || "APPLICATION_JSON",
+ *     eventTypeName: 'STRING_VALUE',
+ *     format: 'TEXT_CSV' || 'APPLICATION_JSON',
  *     useEventVariables: true || false, // required
- *     jsonInputTemplate: "STRING_VALUE",
- *     csvInputTemplate: "STRING_VALUE",
+ *     jsonInputTemplate: 'STRING_VALUE',
+ *     csvInputTemplate: 'STRING_VALUE',
  *   },
  *   outputConfiguration: { // ModelOutputConfiguration
- *     format: "TEXT_CSV" || "APPLICATION_JSONLINES", // required
+ *     format: 'TEXT_CSV' || 'APPLICATION_JSONLINES', // required
  *     jsonKeyToVariableMap: { // JsonKeyToVariableMap
- *       "<keys>": "STRING_VALUE",
+ *       '<keys>': 'STRING_VALUE',
  *     },
  *     csvIndexToVariableMap: { // CsvIndexToVariableMap
- *       "<keys>": "STRING_VALUE",
+ *       '<keys>': 'STRING_VALUE',
  *     },
  *   },
- *   modelEndpointStatus: "ASSOCIATED" || "DISSOCIATED", // required
+ *   modelEndpointStatus: 'ASSOCIATED' || 'DISSOCIATED', // required
  *   tags: [ // tagList
  *     { // Tag
- *       key: "STRING_VALUE", // required
- *       value: "STRING_VALUE", // required
+ *       key: 'STRING_VALUE', // required
+ *       value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new PutExternalModelCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutExternalModelCommandInput - {@link PutExternalModelCommandInput}
@@ -92,6 +95,8 @@ export interface PutExternalModelCommandOutput extends PutExternalModelResult, _
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception indicating a specified value is not allowed.</p>
  *
+ * @throws {@link FraudDetectorServiceException}
+ * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
  */
 export class PutExternalModelCommand extends $Command<

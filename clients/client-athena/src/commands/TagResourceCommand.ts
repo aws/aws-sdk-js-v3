@@ -44,20 +44,23 @@ export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AthenaClient, TagResourceCommand } from "@aws-sdk/client-athena"; // ES Modules import
- * // const { AthenaClient, TagResourceCommand } = require("@aws-sdk/client-athena"); // CommonJS import
+ * import { AthenaClient, TagResourceCommand } from '@aws-sdk/client-athena'; // ES Modules import
+ * // const { AthenaClient, TagResourceCommand } = require('@aws-sdk/client-athena'); // CommonJS import
  * const client = new AthenaClient(config);
  * const input = { // TagResourceInput
- *   ResourceARN: "STRING_VALUE", // required
+ *   ResourceARN: 'STRING_VALUE', // required
  *   Tags: [ // TagList // required
  *     { // Tag
- *       Key: "STRING_VALUE",
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param TagResourceCommandInput - {@link TagResourceCommandInput}
@@ -77,6 +80,8 @@ export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataB
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>A resource, such as a workgroup, was not found.</p>
  *
+ * @throws {@link AthenaServiceException}
+ * <p>Base exception class for all service exceptions from Athena service.</p>
  *
  */
 export class TagResourceCommand extends $Command<

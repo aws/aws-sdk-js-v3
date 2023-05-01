@@ -36,14 +36,25 @@ export interface CancelZonalShiftCommandOutput extends ZonalShift, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ARCZonalShiftClient, CancelZonalShiftCommand } from "@aws-sdk/client-arc-zonal-shift"; // ES Modules import
- * // const { ARCZonalShiftClient, CancelZonalShiftCommand } = require("@aws-sdk/client-arc-zonal-shift"); // CommonJS import
+ * import { ARCZonalShiftClient, CancelZonalShiftCommand } from '@aws-sdk/client-arc-zonal-shift'; // ES Modules import
+ * // const { ARCZonalShiftClient, CancelZonalShiftCommand } = require('@aws-sdk/client-arc-zonal-shift'); // CommonJS import
  * const client = new ARCZonalShiftClient(config);
  * const input = { // CancelZonalShiftRequest
- *   zonalShiftId: "STRING_VALUE", // required
+ *   zonalShiftId: 'STRING_VALUE', // required
  * };
  * const command = new CancelZonalShiftCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ZonalShift
+ *   zonalShiftId: 'STRING_VALUE', // required
+ *   resourceIdentifier: 'STRING_VALUE', // required
+ *   awayFrom: 'STRING_VALUE', // required
+ *   expiryTime: new Date('TIMESTAMP'), // required
+ *   startTime: new Date('TIMESTAMP'), // required
+ *   status: 'ACTIVE' || 'EXPIRED' || 'CANCELED', // required
+ *   comment: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param CancelZonalShiftCommandInput - {@link CancelZonalShiftCommandInput}
@@ -70,6 +81,8 @@ export interface CancelZonalShiftCommandOutput extends ZonalShift, __MetadataBea
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link ARCZonalShiftServiceException}
+ * <p>Base exception class for all service exceptions from ARCZonalShift service.</p>
  *
  */
 export class CancelZonalShiftCommand extends $Command<

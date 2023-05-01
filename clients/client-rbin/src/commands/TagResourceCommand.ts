@@ -36,20 +36,23 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RbinClient, TagResourceCommand } from "@aws-sdk/client-rbin"; // ES Modules import
- * // const { RbinClient, TagResourceCommand } = require("@aws-sdk/client-rbin"); // CommonJS import
+ * import { RbinClient, TagResourceCommand } from '@aws-sdk/client-rbin'; // ES Modules import
+ * // const { RbinClient, TagResourceCommand } = require('@aws-sdk/client-rbin'); // CommonJS import
  * const client = new RbinClient(config);
  * const input = { // TagResourceRequest
- *   ResourceArn: "STRING_VALUE", // required
+ *   ResourceArn: 'STRING_VALUE', // required
  *   Tags: [ // TagList // required
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param TagResourceCommandInput - {@link TagResourceCommandInput}
@@ -70,6 +73,8 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @throws {@link ValidationException} (client fault)
  *  <p>One or more of the parameters in the request is not valid.</p>
  *
+ * @throws {@link RbinServiceException}
+ * <p>Base exception class for all service exceptions from Rbin service.</p>
  *
  */
 export class TagResourceCommand extends $Command<

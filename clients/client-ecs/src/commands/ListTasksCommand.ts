@@ -40,22 +40,30 @@ export interface ListTasksCommandOutput extends ListTasksResponse, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ECSClient, ListTasksCommand } from "@aws-sdk/client-ecs"; // ES Modules import
- * // const { ECSClient, ListTasksCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
+ * import { ECSClient, ListTasksCommand } from '@aws-sdk/client-ecs'; // ES Modules import
+ * // const { ECSClient, ListTasksCommand } = require('@aws-sdk/client-ecs'); // CommonJS import
  * const client = new ECSClient(config);
  * const input = { // ListTasksRequest
- *   cluster: "STRING_VALUE",
- *   containerInstance: "STRING_VALUE",
- *   family: "STRING_VALUE",
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
- *   startedBy: "STRING_VALUE",
- *   serviceName: "STRING_VALUE",
- *   desiredStatus: "RUNNING" || "PENDING" || "STOPPED",
- *   launchType: "EC2" || "FARGATE" || "EXTERNAL",
+ *   cluster: 'STRING_VALUE',
+ *   containerInstance: 'STRING_VALUE',
+ *   family: 'STRING_VALUE',
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
+ *   startedBy: 'STRING_VALUE',
+ *   serviceName: 'STRING_VALUE',
+ *   desiredStatus: 'RUNNING' || 'PENDING' || 'STOPPED',
+ *   launchType: 'EC2' || 'FARGATE' || 'EXTERNAL',
  * };
  * const command = new ListTasksCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTasksResponse
+ *   taskArns: [ // StringList
+ *     'STRING_VALUE',
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListTasksCommandInput - {@link ListTasksCommandInput}
@@ -83,6 +91,8 @@ export interface ListTasksCommandOutput extends ListTasksResponse, __MetadataBea
  *  <p>The specified service wasn't found. You can view your available services with <a>ListServices</a>. Amazon ECS services are cluster specific and Region
  * 			specific.</p>
  *
+ * @throws {@link ECSServiceException}
+ * <p>Base exception class for all service exceptions from ECS service.</p>
  *
  * @example To list the tasks in a cluster
  * ```javascript

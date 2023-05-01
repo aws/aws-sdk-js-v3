@@ -49,60 +49,101 @@ export interface RevokeSecurityGroupEgressCommandOutput extends RevokeSecurityGr
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, RevokeSecurityGroupEgressCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, RevokeSecurityGroupEgressCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, RevokeSecurityGroupEgressCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, RevokeSecurityGroupEgressCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // RevokeSecurityGroupEgressRequest
  *   DryRun: true || false,
- *   GroupId: "STRING_VALUE", // required
+ *   GroupId: 'STRING_VALUE', // required
  *   IpPermissions: [ // IpPermissionList
  *     { // IpPermission
- *       FromPort: Number("int"),
- *       IpProtocol: "STRING_VALUE",
+ *       FromPort: Number('int'),
+ *       IpProtocol: 'STRING_VALUE',
  *       IpRanges: [ // IpRangeList
  *         { // IpRange
- *           CidrIp: "STRING_VALUE",
- *           Description: "STRING_VALUE",
+ *           CidrIp: 'STRING_VALUE',
+ *           Description: 'STRING_VALUE',
  *         },
  *       ],
  *       Ipv6Ranges: [ // Ipv6RangeList
  *         { // Ipv6Range
- *           CidrIpv6: "STRING_VALUE",
- *           Description: "STRING_VALUE",
+ *           CidrIpv6: 'STRING_VALUE',
+ *           Description: 'STRING_VALUE',
  *         },
  *       ],
  *       PrefixListIds: [ // PrefixListIdList
  *         { // PrefixListId
- *           Description: "STRING_VALUE",
- *           PrefixListId: "STRING_VALUE",
+ *           Description: 'STRING_VALUE',
+ *           PrefixListId: 'STRING_VALUE',
  *         },
  *       ],
- *       ToPort: Number("int"),
+ *       ToPort: Number('int'),
  *       UserIdGroupPairs: [ // UserIdGroupPairList
  *         { // UserIdGroupPair
- *           Description: "STRING_VALUE",
- *           GroupId: "STRING_VALUE",
- *           GroupName: "STRING_VALUE",
- *           PeeringStatus: "STRING_VALUE",
- *           UserId: "STRING_VALUE",
- *           VpcId: "STRING_VALUE",
- *           VpcPeeringConnectionId: "STRING_VALUE",
+ *           Description: 'STRING_VALUE',
+ *           GroupId: 'STRING_VALUE',
+ *           GroupName: 'STRING_VALUE',
+ *           PeeringStatus: 'STRING_VALUE',
+ *           UserId: 'STRING_VALUE',
+ *           VpcId: 'STRING_VALUE',
+ *           VpcPeeringConnectionId: 'STRING_VALUE',
  *         },
  *       ],
  *     },
  *   ],
  *   SecurityGroupRuleIds: [ // SecurityGroupRuleIdList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   CidrIp: "STRING_VALUE",
- *   FromPort: Number("int"),
- *   IpProtocol: "STRING_VALUE",
- *   ToPort: Number("int"),
- *   SourceSecurityGroupName: "STRING_VALUE",
- *   SourceSecurityGroupOwnerId: "STRING_VALUE",
+ *   CidrIp: 'STRING_VALUE',
+ *   FromPort: Number('int'),
+ *   IpProtocol: 'STRING_VALUE',
+ *   ToPort: Number('int'),
+ *   SourceSecurityGroupName: 'STRING_VALUE',
+ *   SourceSecurityGroupOwnerId: 'STRING_VALUE',
  * };
  * const command = new RevokeSecurityGroupEgressCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // RevokeSecurityGroupEgressResult
+ *   Return: true || false,
+ *   UnknownIpPermissions: [ // IpPermissionList
+ *     { // IpPermission
+ *       FromPort: Number('int'),
+ *       IpProtocol: 'STRING_VALUE',
+ *       IpRanges: [ // IpRangeList
+ *         { // IpRange
+ *           CidrIp: 'STRING_VALUE',
+ *           Description: 'STRING_VALUE',
+ *         },
+ *       ],
+ *       Ipv6Ranges: [ // Ipv6RangeList
+ *         { // Ipv6Range
+ *           CidrIpv6: 'STRING_VALUE',
+ *           Description: 'STRING_VALUE',
+ *         },
+ *       ],
+ *       PrefixListIds: [ // PrefixListIdList
+ *         { // PrefixListId
+ *           Description: 'STRING_VALUE',
+ *           PrefixListId: 'STRING_VALUE',
+ *         },
+ *       ],
+ *       ToPort: Number('int'),
+ *       UserIdGroupPairs: [ // UserIdGroupPairList
+ *         { // UserIdGroupPair
+ *           Description: 'STRING_VALUE',
+ *           GroupId: 'STRING_VALUE',
+ *           GroupName: 'STRING_VALUE',
+ *           PeeringStatus: 'STRING_VALUE',
+ *           UserId: 'STRING_VALUE',
+ *           VpcId: 'STRING_VALUE',
+ *           VpcPeeringConnectionId: 'STRING_VALUE',
+ *         },
+ *       ],
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param RevokeSecurityGroupEgressCommandInput - {@link RevokeSecurityGroupEgressCommandInput}
@@ -111,6 +152,8 @@ export interface RevokeSecurityGroupEgressCommandOutput extends RevokeSecurityGr
  * @see {@link RevokeSecurityGroupEgressCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class RevokeSecurityGroupEgressCommand extends $Command<

@@ -38,14 +38,35 @@ export interface DeleteDBProxyEndpointCommandOutput extends DeleteDBProxyEndpoin
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RDSClient, DeleteDBProxyEndpointCommand } from "@aws-sdk/client-rds"; // ES Modules import
- * // const { RDSClient, DeleteDBProxyEndpointCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * import { RDSClient, DeleteDBProxyEndpointCommand } from '@aws-sdk/client-rds'; // ES Modules import
+ * // const { RDSClient, DeleteDBProxyEndpointCommand } = require('@aws-sdk/client-rds'); // CommonJS import
  * const client = new RDSClient(config);
  * const input = { // DeleteDBProxyEndpointRequest
- *   DBProxyEndpointName: "STRING_VALUE", // required
+ *   DBProxyEndpointName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteDBProxyEndpointCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteDBProxyEndpointResponse
+ *   DBProxyEndpoint: { // DBProxyEndpoint
+ *     DBProxyEndpointName: 'STRING_VALUE',
+ *     DBProxyEndpointArn: 'STRING_VALUE',
+ *     DBProxyName: 'STRING_VALUE',
+ *     Status: 'available' || 'modifying' || 'incompatible-network' || 'insufficient-resource-limits' || 'creating' || 'deleting',
+ *     VpcId: 'STRING_VALUE',
+ *     VpcSecurityGroupIds: [ // StringList
+ *       'STRING_VALUE',
+ *     ],
+ *     VpcSubnetIds: [
+ *       'STRING_VALUE',
+ *     ],
+ *     Endpoint: 'STRING_VALUE',
+ *     CreatedDate: new Date('TIMESTAMP'),
+ *     TargetRole: 'READ_WRITE' || 'READ_ONLY',
+ *     IsDefault: true || false,
+ *   },
+ * };
+ *
  * ```
  *
  * @param DeleteDBProxyEndpointCommandInput - {@link DeleteDBProxyEndpointCommandInput}
@@ -60,6 +81,8 @@ export interface DeleteDBProxyEndpointCommandOutput extends DeleteDBProxyEndpoin
  * @throws {@link InvalidDBProxyEndpointStateFault} (client fault)
  *  <p>You can't perform this operation while the DB proxy endpoint is in a particular state.</p>
  *
+ * @throws {@link RDSServiceException}
+ * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  */
 export class DeleteDBProxyEndpointCommand extends $Command<

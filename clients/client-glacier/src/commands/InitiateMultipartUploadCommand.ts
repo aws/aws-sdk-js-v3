@@ -69,17 +69,23 @@ export interface InitiateMultipartUploadCommandOutput extends InitiateMultipartU
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlacierClient, InitiateMultipartUploadCommand } from "@aws-sdk/client-glacier"; // ES Modules import
- * // const { GlacierClient, InitiateMultipartUploadCommand } = require("@aws-sdk/client-glacier"); // CommonJS import
+ * import { GlacierClient, InitiateMultipartUploadCommand } from '@aws-sdk/client-glacier'; // ES Modules import
+ * // const { GlacierClient, InitiateMultipartUploadCommand } = require('@aws-sdk/client-glacier'); // CommonJS import
  * const client = new GlacierClient(config);
  * const input = { // InitiateMultipartUploadInput
- *   accountId: "STRING_VALUE", // required
- *   vaultName: "STRING_VALUE", // required
- *   archiveDescription: "STRING_VALUE",
- *   partSize: "STRING_VALUE",
+ *   accountId: 'STRING_VALUE', // required
+ *   vaultName: 'STRING_VALUE', // required
+ *   archiveDescription: 'STRING_VALUE',
+ *   partSize: 'STRING_VALUE',
  * };
  * const command = new InitiateMultipartUploadCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // InitiateMultipartUploadOutput
+ *   location: 'STRING_VALUE',
+ *   uploadId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param InitiateMultipartUploadCommandInput - {@link InitiateMultipartUploadCommandInput}
@@ -101,6 +107,8 @@ export interface InitiateMultipartUploadCommandOutput extends InitiateMultipartU
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>Returned if the service cannot complete the request.</p>
  *
+ * @throws {@link GlacierServiceException}
+ * <p>Base exception class for all service exceptions from Glacier service.</p>
  *
  * @example To initiate a multipart upload
  * ```javascript

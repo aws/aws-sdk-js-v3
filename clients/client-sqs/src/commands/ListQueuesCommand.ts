@@ -49,16 +49,24 @@ export interface ListQueuesCommandOutput extends ListQueuesResult, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SQSClient, ListQueuesCommand } from "@aws-sdk/client-sqs"; // ES Modules import
- * // const { SQSClient, ListQueuesCommand } = require("@aws-sdk/client-sqs"); // CommonJS import
+ * import { SQSClient, ListQueuesCommand } from '@aws-sdk/client-sqs'; // ES Modules import
+ * // const { SQSClient, ListQueuesCommand } = require('@aws-sdk/client-sqs'); // CommonJS import
  * const client = new SQSClient(config);
  * const input = { // ListQueuesRequest
- *   QueueNamePrefix: "STRING_VALUE",
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   QueueNamePrefix: 'STRING_VALUE',
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListQueuesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListQueuesResult
+ *   NextToken: 'STRING_VALUE',
+ *   QueueUrls: [ // QueueUrlList
+ *     'STRING_VALUE',
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListQueuesCommandInput - {@link ListQueuesCommandInput}
@@ -67,6 +75,8 @@ export interface ListQueuesCommandOutput extends ListQueuesResult, __MetadataBea
  * @see {@link ListQueuesCommandOutput} for command's `response` shape.
  * @see {@link SQSClientResolvedConfig | config} for SQSClient's `config` shape.
  *
+ * @throws {@link SQSServiceException}
+ * <p>Base exception class for all service exceptions from SQS service.</p>
  *
  */
 export class ListQueuesCommand extends $Command<

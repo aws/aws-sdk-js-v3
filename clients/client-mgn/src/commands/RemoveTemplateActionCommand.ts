@@ -36,15 +36,18 @@ export interface RemoveTemplateActionCommandOutput extends RemoveTemplateActionR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MgnClient, RemoveTemplateActionCommand } from "@aws-sdk/client-mgn"; // ES Modules import
- * // const { MgnClient, RemoveTemplateActionCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
+ * import { MgnClient, RemoveTemplateActionCommand } from '@aws-sdk/client-mgn'; // ES Modules import
+ * // const { MgnClient, RemoveTemplateActionCommand } = require('@aws-sdk/client-mgn'); // CommonJS import
  * const client = new MgnClient(config);
  * const input = { // RemoveTemplateActionRequest
- *   launchConfigurationTemplateID: "STRING_VALUE", // required
- *   actionID: "STRING_VALUE", // required
+ *   launchConfigurationTemplateID: 'STRING_VALUE', // required
+ *   actionID: 'STRING_VALUE', // required
  * };
  * const command = new RemoveTemplateActionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param RemoveTemplateActionCommandInput - {@link RemoveTemplateActionCommandInput}
@@ -62,6 +65,8 @@ export interface RemoveTemplateActionCommandOutput extends RemoveTemplateActionR
  * @throws {@link ValidationException} (client fault)
  *  <p>Validate exception.</p>
  *
+ * @throws {@link MgnServiceException}
+ * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
  */
 export class RemoveTemplateActionCommand extends $Command<

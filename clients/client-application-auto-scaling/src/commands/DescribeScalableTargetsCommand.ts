@@ -42,20 +42,42 @@ export interface DescribeScalableTargetsCommandOutput extends DescribeScalableTa
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ApplicationAutoScalingClient, DescribeScalableTargetsCommand } from "@aws-sdk/client-application-auto-scaling"; // ES Modules import
- * // const { ApplicationAutoScalingClient, DescribeScalableTargetsCommand } = require("@aws-sdk/client-application-auto-scaling"); // CommonJS import
+ * import { ApplicationAutoScalingClient, DescribeScalableTargetsCommand } from '@aws-sdk/client-application-auto-scaling'; // ES Modules import
+ * // const { ApplicationAutoScalingClient, DescribeScalableTargetsCommand } = require('@aws-sdk/client-application-auto-scaling'); // CommonJS import
  * const client = new ApplicationAutoScalingClient(config);
  * const input = { // DescribeScalableTargetsRequest
- *   ServiceNamespace: "ecs" || "elasticmapreduce" || "ec2" || "appstream" || "dynamodb" || "rds" || "sagemaker" || "custom-resource" || "comprehend" || "lambda" || "cassandra" || "kafka" || "elasticache" || "neptune", // required
+ *   ServiceNamespace: 'ecs' || 'elasticmapreduce' || 'ec2' || 'appstream' || 'dynamodb' || 'rds' || 'sagemaker' || 'custom-resource' || 'comprehend' || 'lambda' || 'cassandra' || 'kafka' || 'elasticache' || 'neptune', // required
  *   ResourceIds: [ // ResourceIdsMaxLen1600
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   ScalableDimension: "ecs:service:DesiredCount" || "ec2:spot-fleet-request:TargetCapacity" || "elasticmapreduce:instancegroup:InstanceCount" || "appstream:fleet:DesiredCapacity" || "dynamodb:table:ReadCapacityUnits" || "dynamodb:table:WriteCapacityUnits" || "dynamodb:index:ReadCapacityUnits" || "dynamodb:index:WriteCapacityUnits" || "rds:cluster:ReadReplicaCount" || "sagemaker:variant:DesiredInstanceCount" || "custom-resource:ResourceType:Property" || "comprehend:document-classifier-endpoint:DesiredInferenceUnits" || "comprehend:entity-recognizer-endpoint:DesiredInferenceUnits" || "lambda:function:ProvisionedConcurrency" || "cassandra:table:ReadCapacityUnits" || "cassandra:table:WriteCapacityUnits" || "kafka:broker-storage:VolumeSize" || "elasticache:replication-group:NodeGroups" || "elasticache:replication-group:Replicas" || "neptune:cluster:ReadReplicaCount",
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   ScalableDimension: 'ecs:service:DesiredCount' || 'ec2:spot-fleet-request:TargetCapacity' || 'elasticmapreduce:instancegroup:InstanceCount' || 'appstream:fleet:DesiredCapacity' || 'dynamodb:table:ReadCapacityUnits' || 'dynamodb:table:WriteCapacityUnits' || 'dynamodb:index:ReadCapacityUnits' || 'dynamodb:index:WriteCapacityUnits' || 'rds:cluster:ReadReplicaCount' || 'sagemaker:variant:DesiredInstanceCount' || 'custom-resource:ResourceType:Property' || 'comprehend:document-classifier-endpoint:DesiredInferenceUnits' || 'comprehend:entity-recognizer-endpoint:DesiredInferenceUnits' || 'lambda:function:ProvisionedConcurrency' || 'cassandra:table:ReadCapacityUnits' || 'cassandra:table:WriteCapacityUnits' || 'kafka:broker-storage:VolumeSize' || 'elasticache:replication-group:NodeGroups' || 'elasticache:replication-group:Replicas' || 'neptune:cluster:ReadReplicaCount',
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new DescribeScalableTargetsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeScalableTargetsResponse
+ *   ScalableTargets: [ // ScalableTargets
+ *     { // ScalableTarget
+ *       ServiceNamespace: 'ecs' || 'elasticmapreduce' || 'ec2' || 'appstream' || 'dynamodb' || 'rds' || 'sagemaker' || 'custom-resource' || 'comprehend' || 'lambda' || 'cassandra' || 'kafka' || 'elasticache' || 'neptune', // required
+ *       ResourceId: 'STRING_VALUE', // required
+ *       ScalableDimension: 'ecs:service:DesiredCount' || 'ec2:spot-fleet-request:TargetCapacity' || 'elasticmapreduce:instancegroup:InstanceCount' || 'appstream:fleet:DesiredCapacity' || 'dynamodb:table:ReadCapacityUnits' || 'dynamodb:table:WriteCapacityUnits' || 'dynamodb:index:ReadCapacityUnits' || 'dynamodb:index:WriteCapacityUnits' || 'rds:cluster:ReadReplicaCount' || 'sagemaker:variant:DesiredInstanceCount' || 'custom-resource:ResourceType:Property' || 'comprehend:document-classifier-endpoint:DesiredInferenceUnits' || 'comprehend:entity-recognizer-endpoint:DesiredInferenceUnits' || 'lambda:function:ProvisionedConcurrency' || 'cassandra:table:ReadCapacityUnits' || 'cassandra:table:WriteCapacityUnits' || 'kafka:broker-storage:VolumeSize' || 'elasticache:replication-group:NodeGroups' || 'elasticache:replication-group:Replicas' || 'neptune:cluster:ReadReplicaCount', // required
+ *       MinCapacity: Number('int'), // required
+ *       MaxCapacity: Number('int'), // required
+ *       RoleARN: 'STRING_VALUE', // required
+ *       CreationTime: new Date('TIMESTAMP'), // required
+ *       SuspendedState: { // SuspendedState
+ *         DynamicScalingInSuspended: true || false,
+ *         DynamicScalingOutSuspended: true || false,
+ *         ScheduledScalingSuspended: true || false,
+ *       },
+ *       ScalableTargetARN: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeScalableTargetsCommandInput - {@link DescribeScalableTargetsCommandInput}
@@ -78,6 +100,8 @@ export interface DescribeScalableTargetsCommandOutput extends DescribeScalableTa
  *  <p>An exception was thrown for a validation issue. Review the available parameters for the
  *          API request.</p>
  *
+ * @throws {@link ApplicationAutoScalingServiceException}
+ * <p>Base exception class for all service exceptions from ApplicationAutoScaling service.</p>
  *
  * @example To describe scalable targets
  * ```javascript

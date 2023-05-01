@@ -40,21 +40,26 @@ export interface UpdateReportDefinitionCommandOutput extends UpdateReportDefinit
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ApplicationCostProfilerClient, UpdateReportDefinitionCommand } from "@aws-sdk/client-applicationcostprofiler"; // ES Modules import
- * // const { ApplicationCostProfilerClient, UpdateReportDefinitionCommand } = require("@aws-sdk/client-applicationcostprofiler"); // CommonJS import
+ * import { ApplicationCostProfilerClient, UpdateReportDefinitionCommand } from '@aws-sdk/client-applicationcostprofiler'; // ES Modules import
+ * // const { ApplicationCostProfilerClient, UpdateReportDefinitionCommand } = require('@aws-sdk/client-applicationcostprofiler'); // CommonJS import
  * const client = new ApplicationCostProfilerClient(config);
  * const input = { // UpdateReportDefinitionRequest
- *   reportId: "STRING_VALUE", // required
- *   reportDescription: "STRING_VALUE", // required
- *   reportFrequency: "STRING_VALUE", // required
- *   format: "STRING_VALUE", // required
+ *   reportId: 'STRING_VALUE', // required
+ *   reportDescription: 'STRING_VALUE', // required
+ *   reportFrequency: 'STRING_VALUE', // required
+ *   format: 'STRING_VALUE', // required
  *   destinationS3Location: { // S3Location
- *     bucket: "STRING_VALUE", // required
- *     prefix: "STRING_VALUE", // required
+ *     bucket: 'STRING_VALUE', // required
+ *     prefix: 'STRING_VALUE', // required
  *   },
  * };
  * const command = new UpdateReportDefinitionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateReportDefinitionResult
+ *   reportId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateReportDefinitionCommandInput - {@link UpdateReportDefinitionCommandInput}
@@ -75,6 +80,8 @@ export interface UpdateReportDefinitionCommandOutput extends UpdateReportDefinit
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints for the API.</p>
  *
+ * @throws {@link ApplicationCostProfilerServiceException}
+ * <p>Base exception class for all service exceptions from ApplicationCostProfiler service.</p>
  *
  */
 export class UpdateReportDefinitionCommand extends $Command<

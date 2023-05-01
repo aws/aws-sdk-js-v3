@@ -37,14 +37,25 @@ export interface GetTelemetryMetadataCommandOutput extends GetTelemetryMetadataR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { InspectorClient, GetTelemetryMetadataCommand } from "@aws-sdk/client-inspector"; // ES Modules import
- * // const { InspectorClient, GetTelemetryMetadataCommand } = require("@aws-sdk/client-inspector"); // CommonJS import
+ * import { InspectorClient, GetTelemetryMetadataCommand } from '@aws-sdk/client-inspector'; // ES Modules import
+ * // const { InspectorClient, GetTelemetryMetadataCommand } = require('@aws-sdk/client-inspector'); // CommonJS import
  * const client = new InspectorClient(config);
  * const input = { // GetTelemetryMetadataRequest
- *   assessmentRunArn: "STRING_VALUE", // required
+ *   assessmentRunArn: 'STRING_VALUE', // required
  * };
  * const command = new GetTelemetryMetadataCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetTelemetryMetadataResponse
+ *   telemetryMetadata: [ // TelemetryMetadataList // required
+ *     { // TelemetryMetadata
+ *       messageType: 'STRING_VALUE', // required
+ *       count: Number('long'), // required
+ *       dataSize: Number('long'),
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetTelemetryMetadataCommandInput - {@link GetTelemetryMetadataCommandInput}
@@ -67,6 +78,8 @@ export interface GetTelemetryMetadataCommandOutput extends GetTelemetryMetadataR
  *  <p>The request was rejected because it referenced an entity that does not exist. The
  *          error code describes the entity.</p>
  *
+ * @throws {@link InspectorServiceException}
+ * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
  * @example Get telemetry metadata
  * ```javascript

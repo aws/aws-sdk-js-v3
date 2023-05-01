@@ -38,17 +38,33 @@ export interface ListTagsForResourcesCommandOutput extends ListTagsForResourcesR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Route53Client, ListTagsForResourcesCommand } from "@aws-sdk/client-route-53"; // ES Modules import
- * // const { Route53Client, ListTagsForResourcesCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
+ * import { Route53Client, ListTagsForResourcesCommand } from '@aws-sdk/client-route-53'; // ES Modules import
+ * // const { Route53Client, ListTagsForResourcesCommand } = require('@aws-sdk/client-route-53'); // CommonJS import
  * const client = new Route53Client(config);
  * const input = { // ListTagsForResourcesRequest
- *   ResourceType: "healthcheck" || "hostedzone", // required
+ *   ResourceType: 'healthcheck' || 'hostedzone', // required
  *   ResourceIds: [ // TagResourceIdList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new ListTagsForResourcesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTagsForResourcesResponse
+ *   ResourceTagSets: [ // ResourceTagSetList // required
+ *     { // ResourceTagSet
+ *       ResourceType: 'healthcheck' || 'hostedzone',
+ *       ResourceId: 'STRING_VALUE',
+ *       Tags: [ // TagList
+ *         { // Tag
+ *           Key: 'STRING_VALUE',
+ *           Value: 'STRING_VALUE',
+ *         },
+ *       ],
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListTagsForResourcesCommandInput - {@link ListTagsForResourcesCommandInput}
@@ -76,6 +92,8 @@ export interface ListTagsForResourcesCommandOutput extends ListTagsForResourcesR
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The limit on the number of requests per second was exceeded.</p>
  *
+ * @throws {@link Route53ServiceException}
+ * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
  */
 export class ListTagsForResourcesCommand extends $Command<

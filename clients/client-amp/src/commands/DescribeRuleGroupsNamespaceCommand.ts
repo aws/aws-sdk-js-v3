@@ -41,15 +41,33 @@ export interface DescribeRuleGroupsNamespaceCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AmpClient, DescribeRuleGroupsNamespaceCommand } from "@aws-sdk/client-amp"; // ES Modules import
- * // const { AmpClient, DescribeRuleGroupsNamespaceCommand } = require("@aws-sdk/client-amp"); // CommonJS import
+ * import { AmpClient, DescribeRuleGroupsNamespaceCommand } from '@aws-sdk/client-amp'; // ES Modules import
+ * // const { AmpClient, DescribeRuleGroupsNamespaceCommand } = require('@aws-sdk/client-amp'); // CommonJS import
  * const client = new AmpClient(config);
  * const input = { // DescribeRuleGroupsNamespaceRequest
- *   workspaceId: "STRING_VALUE", // required
- *   name: "STRING_VALUE", // required
+ *   workspaceId: 'STRING_VALUE', // required
+ *   name: 'STRING_VALUE', // required
  * };
  * const command = new DescribeRuleGroupsNamespaceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeRuleGroupsNamespaceResponse
+ *   ruleGroupsNamespace: { // RuleGroupsNamespaceDescription
+ *     arn: 'STRING_VALUE', // required
+ *     name: 'STRING_VALUE', // required
+ *     status: { // RuleGroupsNamespaceStatus
+ *       statusCode: 'STRING_VALUE', // required
+ *       statusReason: 'STRING_VALUE',
+ *     },
+ *     data: 'BLOB_VALUE', // required
+ *     createdAt: new Date('TIMESTAMP'), // required
+ *     modifiedAt: new Date('TIMESTAMP'), // required
+ *     tags: { // TagMap
+ *       '<keys>': 'STRING_VALUE',
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeRuleGroupsNamespaceCommandInput - {@link DescribeRuleGroupsNamespaceCommandInput}
@@ -73,6 +91,8 @@ export interface DescribeRuleGroupsNamespaceCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  The input fails to satisfy the constraints specified by an AWS service.
  *
+ * @throws {@link AmpServiceException}
+ * <p>Base exception class for all service exceptions from Amp service.</p>
  *
  */
 export class DescribeRuleGroupsNamespaceCommand extends $Command<

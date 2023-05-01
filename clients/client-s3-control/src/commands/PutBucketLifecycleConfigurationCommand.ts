@@ -65,61 +65,61 @@ export interface PutBucketLifecycleConfigurationCommandOutput extends __Metadata
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { S3ControlClient, PutBucketLifecycleConfigurationCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
- * // const { S3ControlClient, PutBucketLifecycleConfigurationCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
+ * import { S3ControlClient, PutBucketLifecycleConfigurationCommand } from '@aws-sdk/client-s3-control'; // ES Modules import
+ * // const { S3ControlClient, PutBucketLifecycleConfigurationCommand } = require('@aws-sdk/client-s3-control'); // CommonJS import
  * const client = new S3ControlClient(config);
  * const input = { // PutBucketLifecycleConfigurationRequest
- *   AccountId: "STRING_VALUE",
- *   Bucket: "STRING_VALUE", // required
+ *   AccountId: 'STRING_VALUE',
+ *   Bucket: 'STRING_VALUE', // required
  *   LifecycleConfiguration: { // LifecycleConfiguration
  *     Rules: [ // LifecycleRules
  *       { // LifecycleRule
  *         Expiration: { // LifecycleExpiration
- *           Date: new Date("TIMESTAMP"),
- *           Days: Number("int"),
+ *           Date: new Date('TIMESTAMP'),
+ *           Days: Number('int'),
  *           ExpiredObjectDeleteMarker: true || false,
  *         },
- *         ID: "STRING_VALUE",
+ *         ID: 'STRING_VALUE',
  *         Filter: { // LifecycleRuleFilter
- *           Prefix: "STRING_VALUE",
+ *           Prefix: 'STRING_VALUE',
  *           Tag: { // S3Tag
- *             Key: "STRING_VALUE", // required
- *             Value: "STRING_VALUE", // required
+ *             Key: 'STRING_VALUE', // required
+ *             Value: 'STRING_VALUE', // required
  *           },
  *           And: { // LifecycleRuleAndOperator
- *             Prefix: "STRING_VALUE",
+ *             Prefix: 'STRING_VALUE',
  *             Tags: [ // S3TagSet
  *               {
- *                 Key: "STRING_VALUE", // required
- *                 Value: "STRING_VALUE", // required
+ *                 Key: 'STRING_VALUE', // required
+ *                 Value: 'STRING_VALUE', // required
  *               },
  *             ],
- *             ObjectSizeGreaterThan: Number("long"),
- *             ObjectSizeLessThan: Number("long"),
+ *             ObjectSizeGreaterThan: Number('long'),
+ *             ObjectSizeLessThan: Number('long'),
  *           },
- *           ObjectSizeGreaterThan: Number("long"),
- *           ObjectSizeLessThan: Number("long"),
+ *           ObjectSizeGreaterThan: Number('long'),
+ *           ObjectSizeLessThan: Number('long'),
  *         },
- *         Status: "Enabled" || "Disabled", // required
+ *         Status: 'Enabled' || 'Disabled', // required
  *         Transitions: [ // TransitionList
  *           { // Transition
- *             Date: new Date("TIMESTAMP"),
- *             Days: Number("int"),
- *             StorageClass: "GLACIER" || "STANDARD_IA" || "ONEZONE_IA" || "INTELLIGENT_TIERING" || "DEEP_ARCHIVE",
+ *             Date: new Date('TIMESTAMP'),
+ *             Days: Number('int'),
+ *             StorageClass: 'GLACIER' || 'STANDARD_IA' || 'ONEZONE_IA' || 'INTELLIGENT_TIERING' || 'DEEP_ARCHIVE',
  *           },
  *         ],
  *         NoncurrentVersionTransitions: [ // NoncurrentVersionTransitionList
  *           { // NoncurrentVersionTransition
- *             NoncurrentDays: Number("int"),
- *             StorageClass: "GLACIER" || "STANDARD_IA" || "ONEZONE_IA" || "INTELLIGENT_TIERING" || "DEEP_ARCHIVE",
+ *             NoncurrentDays: Number('int'),
+ *             StorageClass: 'GLACIER' || 'STANDARD_IA' || 'ONEZONE_IA' || 'INTELLIGENT_TIERING' || 'DEEP_ARCHIVE',
  *           },
  *         ],
  *         NoncurrentVersionExpiration: { // NoncurrentVersionExpiration
- *           NoncurrentDays: Number("int"),
- *           NewerNoncurrentVersions: Number("int"),
+ *           NoncurrentDays: Number('int'),
+ *           NewerNoncurrentVersions: Number('int'),
  *         },
  *         AbortIncompleteMultipartUpload: { // AbortIncompleteMultipartUpload
- *           DaysAfterInitiation: Number("int"),
+ *           DaysAfterInitiation: Number('int'),
  *         },
  *       },
  *     ],
@@ -127,6 +127,9 @@ export interface PutBucketLifecycleConfigurationCommandOutput extends __Metadata
  * };
  * const command = new PutBucketLifecycleConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutBucketLifecycleConfigurationCommandInput - {@link PutBucketLifecycleConfigurationCommandInput}
@@ -135,6 +138,8 @@ export interface PutBucketLifecycleConfigurationCommandOutput extends __Metadata
  * @see {@link PutBucketLifecycleConfigurationCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
  *
+ * @throws {@link S3ControlServiceException}
+ * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
  */
 export class PutBucketLifecycleConfigurationCommand extends $Command<

@@ -40,15 +40,23 @@ export interface PutResourcePolicyCommandOutput extends PutResourcePolicyRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RedshiftServerlessClient, PutResourcePolicyCommand } from "@aws-sdk/client-redshift-serverless"; // ES Modules import
- * // const { RedshiftServerlessClient, PutResourcePolicyCommand } = require("@aws-sdk/client-redshift-serverless"); // CommonJS import
+ * import { RedshiftServerlessClient, PutResourcePolicyCommand } from '@aws-sdk/client-redshift-serverless'; // ES Modules import
+ * // const { RedshiftServerlessClient, PutResourcePolicyCommand } = require('@aws-sdk/client-redshift-serverless'); // CommonJS import
  * const client = new RedshiftServerlessClient(config);
  * const input = { // PutResourcePolicyRequest
- *   resourceArn: "STRING_VALUE", // required
- *   policy: "STRING_VALUE", // required
+ *   resourceArn: 'STRING_VALUE', // required
+ *   policy: 'STRING_VALUE', // required
  * };
  * const command = new PutResourcePolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutResourcePolicyResponse
+ *   resourcePolicy: { // ResourcePolicy
+ *     resourceArn: 'STRING_VALUE',
+ *     policy: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param PutResourcePolicyCommandInput - {@link PutResourcePolicyCommandInput}
@@ -72,6 +80,8 @@ export interface PutResourcePolicyCommandOutput extends PutResourcePolicyRespons
  * @throws {@link ValidationException} (client fault)
  *  <p>The input failed to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link RedshiftServerlessServiceException}
+ * <p>Base exception class for all service exceptions from RedshiftServerless service.</p>
  *
  */
 export class PutResourcePolicyCommand extends $Command<

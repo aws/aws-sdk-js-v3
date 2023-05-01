@@ -72,27 +72,77 @@ export interface DetectProtectiveEquipmentCommandOutput extends DetectProtective
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RekognitionClient, DetectProtectiveEquipmentCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
- * // const { RekognitionClient, DetectProtectiveEquipmentCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
+ * import { RekognitionClient, DetectProtectiveEquipmentCommand } from '@aws-sdk/client-rekognition'; // ES Modules import
+ * // const { RekognitionClient, DetectProtectiveEquipmentCommand } = require('@aws-sdk/client-rekognition'); // CommonJS import
  * const client = new RekognitionClient(config);
  * const input = { // DetectProtectiveEquipmentRequest
  *   Image: { // Image
- *     Bytes: "BLOB_VALUE",
+ *     Bytes: 'BLOB_VALUE',
  *     S3Object: { // S3Object
- *       Bucket: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *       Version: "STRING_VALUE",
+ *       Bucket: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *       Version: 'STRING_VALUE',
  *     },
  *   },
  *   SummarizationAttributes: { // ProtectiveEquipmentSummarizationAttributes
- *     MinConfidence: Number("float"), // required
+ *     MinConfidence: Number('float'), // required
  *     RequiredEquipmentTypes: [ // ProtectiveEquipmentTypes // required
- *       "FACE_COVER" || "HAND_COVER" || "HEAD_COVER",
+ *       'FACE_COVER' || 'HAND_COVER' || 'HEAD_COVER',
  *     ],
  *   },
  * };
  * const command = new DetectProtectiveEquipmentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DetectProtectiveEquipmentResponse
+ *   ProtectiveEquipmentModelVersion: 'STRING_VALUE',
+ *   Persons: [ // ProtectiveEquipmentPersons
+ *     { // ProtectiveEquipmentPerson
+ *       BodyParts: [ // BodyParts
+ *         { // ProtectiveEquipmentBodyPart
+ *           Name: 'FACE' || 'HEAD' || 'LEFT_HAND' || 'RIGHT_HAND',
+ *           Confidence: Number('float'),
+ *           EquipmentDetections: [ // EquipmentDetections
+ *             { // EquipmentDetection
+ *               BoundingBox: { // BoundingBox
+ *                 Width: Number('float'),
+ *                 Height: Number('float'),
+ *                 Left: Number('float'),
+ *                 Top: Number('float'),
+ *               },
+ *               Confidence: Number('float'),
+ *               Type: 'FACE_COVER' || 'HAND_COVER' || 'HEAD_COVER',
+ *               CoversBodyPart: { // CoversBodyPart
+ *                 Confidence: Number('float'),
+ *                 Value: true || false,
+ *               },
+ *             },
+ *           ],
+ *         },
+ *       ],
+ *       BoundingBox: {
+ *         Width: Number('float'),
+ *         Height: Number('float'),
+ *         Left: Number('float'),
+ *         Top: Number('float'),
+ *       },
+ *       Confidence: Number('float'),
+ *       Id: Number('int'),
+ *     },
+ *   ],
+ *   Summary: { // ProtectiveEquipmentSummary
+ *     PersonsWithRequiredEquipment: [ // ProtectiveEquipmentPersonIds
+ *       Number('int'),
+ *     ],
+ *     PersonsWithoutRequiredEquipment: [
+ *       Number('int'),
+ *     ],
+ *     PersonsIndeterminate: [
+ *       Number('int'),
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param DetectProtectiveEquipmentCommandInput - {@link DetectProtectiveEquipmentCommandInput}
@@ -130,6 +180,8 @@ export interface DetectProtectiveEquipmentCommandOutput extends DetectProtective
  * @throws {@link ThrottlingException} (server fault)
  *  <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
  *
+ * @throws {@link RekognitionServiceException}
+ * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
  */
 export class DetectProtectiveEquipmentCommand extends $Command<

@@ -38,22 +38,40 @@ export interface CreateCodeSigningConfigCommandOutput extends CreateCodeSigningC
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LambdaClient, CreateCodeSigningConfigCommand } from "@aws-sdk/client-lambda"; // ES Modules import
- * // const { LambdaClient, CreateCodeSigningConfigCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
+ * import { LambdaClient, CreateCodeSigningConfigCommand } from '@aws-sdk/client-lambda'; // ES Modules import
+ * // const { LambdaClient, CreateCodeSigningConfigCommand } = require('@aws-sdk/client-lambda'); // CommonJS import
  * const client = new LambdaClient(config);
  * const input = { // CreateCodeSigningConfigRequest
- *   Description: "STRING_VALUE",
+ *   Description: 'STRING_VALUE',
  *   AllowedPublishers: { // AllowedPublishers
  *     SigningProfileVersionArns: [ // SigningProfileVersionArns // required
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *   },
  *   CodeSigningPolicies: { // CodeSigningPolicies
- *     UntrustedArtifactOnDeployment: "Warn" || "Enforce",
+ *     UntrustedArtifactOnDeployment: 'Warn' || 'Enforce',
  *   },
  * };
  * const command = new CreateCodeSigningConfigCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateCodeSigningConfigResponse
+ *   CodeSigningConfig: { // CodeSigningConfig
+ *     CodeSigningConfigId: 'STRING_VALUE', // required
+ *     CodeSigningConfigArn: 'STRING_VALUE', // required
+ *     Description: 'STRING_VALUE',
+ *     AllowedPublishers: { // AllowedPublishers
+ *       SigningProfileVersionArns: [ // SigningProfileVersionArns // required
+ *         'STRING_VALUE',
+ *       ],
+ *     },
+ *     CodeSigningPolicies: { // CodeSigningPolicies
+ *       UntrustedArtifactOnDeployment: 'Warn' || 'Enforce',
+ *     },
+ *     LastModified: 'STRING_VALUE', // required
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateCodeSigningConfigCommandInput - {@link CreateCodeSigningConfigCommandInput}
@@ -68,6 +86,8 @@ export interface CreateCodeSigningConfigCommandOutput extends CreateCodeSigningC
  * @throws {@link ServiceException} (server fault)
  *  <p>The Lambda service encountered an internal error.</p>
  *
+ * @throws {@link LambdaServiceException}
+ * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
  */
 export class CreateCodeSigningConfigCommand extends $Command<

@@ -36,19 +36,27 @@ export interface UpdateApiDestinationCommandOutput extends UpdateApiDestinationR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EventBridgeClient, UpdateApiDestinationCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
- * // const { EventBridgeClient, UpdateApiDestinationCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
+ * import { EventBridgeClient, UpdateApiDestinationCommand } from '@aws-sdk/client-eventbridge'; // ES Modules import
+ * // const { EventBridgeClient, UpdateApiDestinationCommand } = require('@aws-sdk/client-eventbridge'); // CommonJS import
  * const client = new EventBridgeClient(config);
  * const input = { // UpdateApiDestinationRequest
- *   Name: "STRING_VALUE", // required
- *   Description: "STRING_VALUE",
- *   ConnectionArn: "STRING_VALUE",
- *   InvocationEndpoint: "STRING_VALUE",
- *   HttpMethod: "POST" || "GET" || "HEAD" || "OPTIONS" || "PUT" || "PATCH" || "DELETE",
- *   InvocationRateLimitPerSecond: Number("int"),
+ *   Name: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE',
+ *   ConnectionArn: 'STRING_VALUE',
+ *   InvocationEndpoint: 'STRING_VALUE',
+ *   HttpMethod: 'POST' || 'GET' || 'HEAD' || 'OPTIONS' || 'PUT' || 'PATCH' || 'DELETE',
+ *   InvocationRateLimitPerSecond: Number('int'),
  * };
  * const command = new UpdateApiDestinationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateApiDestinationResponse
+ *   ApiDestinationArn: 'STRING_VALUE',
+ *   ApiDestinationState: 'ACTIVE' || 'INACTIVE',
+ *   CreationTime: new Date('TIMESTAMP'),
+ *   LastModifiedTime: new Date('TIMESTAMP'),
+ * };
+ *
  * ```
  *
  * @param UpdateApiDestinationCommandInput - {@link UpdateApiDestinationCommandInput}
@@ -70,6 +78,8 @@ export interface UpdateApiDestinationCommandOutput extends UpdateApiDestinationR
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>An entity that you specified does not exist.</p>
  *
+ * @throws {@link EventBridgeServiceException}
+ * <p>Base exception class for all service exceptions from EventBridge service.</p>
  *
  */
 export class UpdateApiDestinationCommand extends $Command<

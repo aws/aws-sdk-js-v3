@@ -40,17 +40,20 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Cloud9Client, UntagResourceCommand } from "@aws-sdk/client-cloud9"; // ES Modules import
- * // const { Cloud9Client, UntagResourceCommand } = require("@aws-sdk/client-cloud9"); // CommonJS import
+ * import { Cloud9Client, UntagResourceCommand } from '@aws-sdk/client-cloud9'; // ES Modules import
+ * // const { Cloud9Client, UntagResourceCommand } = require('@aws-sdk/client-cloud9'); // CommonJS import
  * const client = new Cloud9Client(config);
  * const input = { // UntagResourceRequest
- *   ResourceARN: "STRING_VALUE", // required
+ *   ResourceARN: 'STRING_VALUE', // required
  *   TagKeys: [ // TagKeyList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new UntagResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UntagResourceCommandInput - {@link UntagResourceCommandInput}
@@ -71,6 +74,8 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * @throws {@link NotFoundException} (client fault)
  *  <p>The target resource cannot be found.</p>
  *
+ * @throws {@link Cloud9ServiceException}
+ * <p>Base exception class for all service exceptions from Cloud9 service.</p>
  *
  */
 export class UntagResourceCommand extends $Command<

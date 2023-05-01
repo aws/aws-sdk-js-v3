@@ -36,16 +36,37 @@ export interface ListWorkloadsCommandOutput extends ListWorkloadsOutput, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WellArchitectedClient, ListWorkloadsCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
- * // const { WellArchitectedClient, ListWorkloadsCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
+ * import { WellArchitectedClient, ListWorkloadsCommand } from '@aws-sdk/client-wellarchitected'; // ES Modules import
+ * // const { WellArchitectedClient, ListWorkloadsCommand } = require('@aws-sdk/client-wellarchitected'); // CommonJS import
  * const client = new WellArchitectedClient(config);
  * const input = { // ListWorkloadsInput
- *   WorkloadNamePrefix: "STRING_VALUE",
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   WorkloadNamePrefix: 'STRING_VALUE',
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListWorkloadsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListWorkloadsOutput
+ *   WorkloadSummaries: [ // WorkloadSummaries
+ *     { // WorkloadSummary
+ *       WorkloadId: 'STRING_VALUE',
+ *       WorkloadArn: 'STRING_VALUE',
+ *       WorkloadName: 'STRING_VALUE',
+ *       Owner: 'STRING_VALUE',
+ *       UpdatedAt: new Date('TIMESTAMP'),
+ *       Lenses: [ // WorkloadLenses
+ *         'STRING_VALUE',
+ *       ],
+ *       RiskCounts: { // RiskCounts
+ *         '<keys>': Number('int'),
+ *       },
+ *       ImprovementStatus: 'NOT_APPLICABLE' || 'NOT_STARTED' || 'IN_PROGRESS' || 'COMPLETE' || 'RISK_ACKNOWLEDGED',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListWorkloadsCommandInput - {@link ListWorkloadsCommandInput}
@@ -66,6 +87,8 @@ export interface ListWorkloadsCommandOutput extends ListWorkloadsOutput, __Metad
  * @throws {@link ValidationException} (client fault)
  *  <p>The user input is not valid.</p>
  *
+ * @throws {@link WellArchitectedServiceException}
+ * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
  */
 export class ListWorkloadsCommand extends $Command<

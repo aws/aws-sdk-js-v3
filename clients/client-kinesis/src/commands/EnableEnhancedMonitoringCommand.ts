@@ -40,18 +40,30 @@ export interface EnableEnhancedMonitoringCommandOutput extends EnhancedMonitorin
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KinesisClient, EnableEnhancedMonitoringCommand } from "@aws-sdk/client-kinesis"; // ES Modules import
- * // const { KinesisClient, EnableEnhancedMonitoringCommand } = require("@aws-sdk/client-kinesis"); // CommonJS import
+ * import { KinesisClient, EnableEnhancedMonitoringCommand } from '@aws-sdk/client-kinesis'; // ES Modules import
+ * // const { KinesisClient, EnableEnhancedMonitoringCommand } = require('@aws-sdk/client-kinesis'); // CommonJS import
  * const client = new KinesisClient(config);
  * const input = { // EnableEnhancedMonitoringInput
- *   StreamName: "STRING_VALUE",
+ *   StreamName: 'STRING_VALUE',
  *   ShardLevelMetrics: [ // MetricsNameList // required
- *     "IncomingBytes" || "IncomingRecords" || "OutgoingBytes" || "OutgoingRecords" || "WriteProvisionedThroughputExceeded" || "ReadProvisionedThroughputExceeded" || "IteratorAgeMilliseconds" || "ALL",
+ *     'IncomingBytes' || 'IncomingRecords' || 'OutgoingBytes' || 'OutgoingRecords' || 'WriteProvisionedThroughputExceeded' || 'ReadProvisionedThroughputExceeded' || 'IteratorAgeMilliseconds' || 'ALL',
  *   ],
- *   StreamARN: "STRING_VALUE",
+ *   StreamARN: 'STRING_VALUE',
  * };
  * const command = new EnableEnhancedMonitoringCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // EnhancedMonitoringOutput
+ *   StreamName: 'STRING_VALUE',
+ *   CurrentShardLevelMetrics: [ // MetricsNameList
+ *     'IncomingBytes' || 'IncomingRecords' || 'OutgoingBytes' || 'OutgoingRecords' || 'WriteProvisionedThroughputExceeded' || 'ReadProvisionedThroughputExceeded' || 'IteratorAgeMilliseconds' || 'ALL',
+ *   ],
+ *   DesiredShardLevelMetrics: [
+ *     'IncomingBytes' || 'IncomingRecords' || 'OutgoingBytes' || 'OutgoingRecords' || 'WriteProvisionedThroughputExceeded' || 'ReadProvisionedThroughputExceeded' || 'IteratorAgeMilliseconds' || 'ALL',
+ *   ],
+ *   StreamARN: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param EnableEnhancedMonitoringCommandInput - {@link EnableEnhancedMonitoringCommandInput}
@@ -80,6 +92,8 @@ export interface EnableEnhancedMonitoringCommandOutput extends EnhancedMonitorin
  *  <p>The requested resource could not be found. The stream might not be specified
  *             correctly.</p>
  *
+ * @throws {@link KinesisServiceException}
+ * <p>Base exception class for all service exceptions from Kinesis service.</p>
  *
  */
 export class EnableEnhancedMonitoringCommand extends $Command<

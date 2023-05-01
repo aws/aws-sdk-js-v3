@@ -36,14 +36,17 @@ export interface DeleteIncidentRecordCommandOutput extends DeleteIncidentRecordO
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMIncidentsClient, DeleteIncidentRecordCommand } from "@aws-sdk/client-ssm-incidents"; // ES Modules import
- * // const { SSMIncidentsClient, DeleteIncidentRecordCommand } = require("@aws-sdk/client-ssm-incidents"); // CommonJS import
+ * import { SSMIncidentsClient, DeleteIncidentRecordCommand } from '@aws-sdk/client-ssm-incidents'; // ES Modules import
+ * // const { SSMIncidentsClient, DeleteIncidentRecordCommand } = require('@aws-sdk/client-ssm-incidents'); // CommonJS import
  * const client = new SSMIncidentsClient(config);
  * const input = { // DeleteIncidentRecordInput
- *   arn: "STRING_VALUE", // required
+ *   arn: 'STRING_VALUE', // required
  * };
  * const command = new DeleteIncidentRecordCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteIncidentRecordCommandInput - {@link DeleteIncidentRecordCommandInput}
@@ -66,6 +69,8 @@ export interface DeleteIncidentRecordCommandOutput extends DeleteIncidentRecordO
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
  *       service.</p>
  *
+ * @throws {@link SSMIncidentsServiceException}
+ * <p>Base exception class for all service exceptions from SSMIncidents service.</p>
  *
  */
 export class DeleteIncidentRecordCommand extends $Command<

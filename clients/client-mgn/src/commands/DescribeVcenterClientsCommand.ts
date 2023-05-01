@@ -40,15 +40,36 @@ export interface DescribeVcenterClientsCommandOutput extends DescribeVcenterClie
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MgnClient, DescribeVcenterClientsCommand } from "@aws-sdk/client-mgn"; // ES Modules import
- * // const { MgnClient, DescribeVcenterClientsCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
+ * import { MgnClient, DescribeVcenterClientsCommand } from '@aws-sdk/client-mgn'; // ES Modules import
+ * // const { MgnClient, DescribeVcenterClientsCommand } = require('@aws-sdk/client-mgn'); // CommonJS import
  * const client = new MgnClient(config);
  * const input = { // DescribeVcenterClientsRequest
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new DescribeVcenterClientsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeVcenterClientsResponse
+ *   items: [ // VcenterClientList
+ *     { // VcenterClient
+ *       vcenterClientID: 'STRING_VALUE',
+ *       arn: 'STRING_VALUE',
+ *       hostname: 'STRING_VALUE',
+ *       vcenterUUID: 'STRING_VALUE',
+ *       datacenterName: 'STRING_VALUE',
+ *       lastSeenDatetime: 'STRING_VALUE',
+ *       sourceServerTags: { // TagsMap
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *       tags: {
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeVcenterClientsCommandInput - {@link DescribeVcenterClientsCommandInput}
@@ -66,6 +87,8 @@ export interface DescribeVcenterClientsCommandOutput extends DescribeVcenterClie
  * @throws {@link ValidationException} (client fault)
  *  <p>Validate exception.</p>
  *
+ * @throws {@link MgnServiceException}
+ * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
  */
 export class DescribeVcenterClientsCommand extends $Command<

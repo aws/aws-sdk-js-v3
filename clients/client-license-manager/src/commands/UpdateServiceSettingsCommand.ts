@@ -36,12 +36,12 @@ export interface UpdateServiceSettingsCommandOutput extends UpdateServiceSetting
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LicenseManagerClient, UpdateServiceSettingsCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
- * // const { LicenseManagerClient, UpdateServiceSettingsCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
+ * import { LicenseManagerClient, UpdateServiceSettingsCommand } from '@aws-sdk/client-license-manager'; // ES Modules import
+ * // const { LicenseManagerClient, UpdateServiceSettingsCommand } = require('@aws-sdk/client-license-manager'); // CommonJS import
  * const client = new LicenseManagerClient(config);
  * const input = { // UpdateServiceSettingsRequest
- *   S3BucketArn: "STRING_VALUE",
- *   SnsTopicArn: "STRING_VALUE",
+ *   S3BucketArn: 'STRING_VALUE',
+ *   SnsTopicArn: 'STRING_VALUE',
  *   OrganizationConfiguration: { // OrganizationConfiguration
  *     EnableIntegration: true || false, // required
  *   },
@@ -49,6 +49,9 @@ export interface UpdateServiceSettingsCommandOutput extends UpdateServiceSetting
  * };
  * const command = new UpdateServiceSettingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateServiceSettingsCommandInput - {@link UpdateServiceSettingsCommandInput}
@@ -73,6 +76,8 @@ export interface UpdateServiceSettingsCommandOutput extends UpdateServiceSetting
  * @throws {@link ServerInternalException} (server fault)
  *  <p>The server experienced an internal error. Try again.</p>
  *
+ * @throws {@link LicenseManagerServiceException}
+ * <p>Base exception class for all service exceptions from LicenseManager service.</p>
  *
  */
 export class UpdateServiceSettingsCommand extends $Command<

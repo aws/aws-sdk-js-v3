@@ -40,15 +40,27 @@ export interface DescribeFraudsterCommandOutput extends DescribeFraudsterRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { VoiceIDClient, DescribeFraudsterCommand } from "@aws-sdk/client-voice-id"; // ES Modules import
- * // const { VoiceIDClient, DescribeFraudsterCommand } = require("@aws-sdk/client-voice-id"); // CommonJS import
+ * import { VoiceIDClient, DescribeFraudsterCommand } from '@aws-sdk/client-voice-id'; // ES Modules import
+ * // const { VoiceIDClient, DescribeFraudsterCommand } = require('@aws-sdk/client-voice-id'); // CommonJS import
  * const client = new VoiceIDClient(config);
  * const input = { // DescribeFraudsterRequest
- *   DomainId: "STRING_VALUE", // required
- *   FraudsterId: "STRING_VALUE", // required
+ *   DomainId: 'STRING_VALUE', // required
+ *   FraudsterId: 'STRING_VALUE', // required
  * };
  * const command = new DescribeFraudsterCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeFraudsterResponse
+ *   Fraudster: { // Fraudster
+ *     DomainId: 'STRING_VALUE',
+ *     GeneratedFraudsterId: 'STRING_VALUE',
+ *     CreatedAt: new Date('TIMESTAMP'),
+ *     WatchlistIds: [ // ResponseWatchlistIds
+ *       'STRING_VALUE',
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeFraudsterCommandInput - {@link DescribeFraudsterCommandInput}
@@ -78,6 +90,8 @@ export interface DescribeFraudsterCommandOutput extends DescribeFraudsterRespons
  *  <p>The request failed one or more validations; check the error message for more
  *             details.</p>
  *
+ * @throws {@link VoiceIDServiceException}
+ * <p>Base exception class for all service exceptions from VoiceID service.</p>
  *
  */
 export class DescribeFraudsterCommand extends $Command<

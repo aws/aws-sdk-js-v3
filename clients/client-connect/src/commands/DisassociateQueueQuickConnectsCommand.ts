@@ -40,18 +40,21 @@ export interface DisassociateQueueQuickConnectsCommandOutput extends __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, DisassociateQueueQuickConnectsCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, DisassociateQueueQuickConnectsCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, DisassociateQueueQuickConnectsCommand } from '@aws-sdk/client-connect'; // ES Modules import
+ * // const { ConnectClient, DisassociateQueueQuickConnectsCommand } = require('@aws-sdk/client-connect'); // CommonJS import
  * const client = new ConnectClient(config);
  * const input = { // DisassociateQueueQuickConnectsRequest
- *   InstanceId: "STRING_VALUE", // required
- *   QueueId: "STRING_VALUE", // required
+ *   InstanceId: 'STRING_VALUE', // required
+ *   QueueId: 'STRING_VALUE', // required
  *   QuickConnectIds: [ // QuickConnectsList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new DisassociateQueueQuickConnectsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DisassociateQueueQuickConnectsCommandInput - {@link DisassociateQueueQuickConnectsCommandInput}
@@ -75,6 +78,8 @@ export interface DisassociateQueueQuickConnectsCommandOutput extends __MetadataB
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class DisassociateQueueQuickConnectsCommand extends $Command<

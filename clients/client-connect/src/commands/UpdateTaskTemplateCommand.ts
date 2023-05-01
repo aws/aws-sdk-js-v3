@@ -38,34 +38,34 @@ export interface UpdateTaskTemplateCommandOutput extends UpdateTaskTemplateRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, UpdateTaskTemplateCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, UpdateTaskTemplateCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, UpdateTaskTemplateCommand } from '@aws-sdk/client-connect'; // ES Modules import
+ * // const { ConnectClient, UpdateTaskTemplateCommand } = require('@aws-sdk/client-connect'); // CommonJS import
  * const client = new ConnectClient(config);
  * const input = { // UpdateTaskTemplateRequest
- *   TaskTemplateId: "STRING_VALUE", // required
- *   InstanceId: "STRING_VALUE", // required
- *   Name: "STRING_VALUE",
- *   Description: "STRING_VALUE",
- *   ContactFlowId: "STRING_VALUE",
+ *   TaskTemplateId: 'STRING_VALUE', // required
+ *   InstanceId: 'STRING_VALUE', // required
+ *   Name: 'STRING_VALUE',
+ *   Description: 'STRING_VALUE',
+ *   ContactFlowId: 'STRING_VALUE',
  *   Constraints: { // TaskTemplateConstraints
  *     RequiredFields: [ // RequiredTaskTemplateFields
  *       { // RequiredFieldInfo
  *         Id: { // TaskTemplateFieldIdentifier
- *           Name: "STRING_VALUE",
+ *           Name: 'STRING_VALUE',
  *         },
  *       },
  *     ],
  *     ReadOnlyFields: [ // ReadOnlyTaskTemplateFields
  *       { // ReadOnlyFieldInfo
  *         Id: {
- *           Name: "STRING_VALUE",
+ *           Name: 'STRING_VALUE',
  *         },
  *       },
  *     ],
  *     InvisibleFields: [ // InvisibleTaskTemplateFields
  *       { // InvisibleFieldInfo
  *         Id: {
- *           Name: "STRING_VALUE",
+ *           Name: 'STRING_VALUE',
  *         },
  *       },
  *     ],
@@ -74,28 +74,86 @@ export interface UpdateTaskTemplateCommandOutput extends UpdateTaskTemplateRespo
  *     DefaultFieldValues: [ // TaskTemplateDefaultFieldValueList
  *       { // TaskTemplateDefaultFieldValue
  *         Id: {
- *           Name: "STRING_VALUE",
+ *           Name: 'STRING_VALUE',
  *         },
- *         DefaultValue: "STRING_VALUE",
+ *         DefaultValue: 'STRING_VALUE',
  *       },
  *     ],
  *   },
- *   Status: "ACTIVE" || "INACTIVE",
+ *   Status: 'ACTIVE' || 'INACTIVE',
  *   Fields: [ // TaskTemplateFields
  *     { // TaskTemplateField
  *       Id: {
- *         Name: "STRING_VALUE",
+ *         Name: 'STRING_VALUE',
  *       },
- *       Description: "STRING_VALUE",
- *       Type: "NAME" || "DESCRIPTION" || "SCHEDULED_TIME" || "QUICK_CONNECT" || "URL" || "NUMBER" || "TEXT" || "TEXT_AREA" || "DATE_TIME" || "BOOLEAN" || "SINGLE_SELECT" || "EMAIL",
+ *       Description: 'STRING_VALUE',
+ *       Type: 'NAME' || 'DESCRIPTION' || 'SCHEDULED_TIME' || 'QUICK_CONNECT' || 'URL' || 'NUMBER' || 'TEXT' || 'TEXT_AREA' || 'DATE_TIME' || 'BOOLEAN' || 'SINGLE_SELECT' || 'EMAIL',
  *       SingleSelectOptions: [ // SingleSelectOptions
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
  * };
  * const command = new UpdateTaskTemplateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateTaskTemplateResponse
+ *   InstanceId: 'STRING_VALUE',
+ *   Id: 'STRING_VALUE',
+ *   Arn: 'STRING_VALUE',
+ *   Name: 'STRING_VALUE',
+ *   Description: 'STRING_VALUE',
+ *   ContactFlowId: 'STRING_VALUE',
+ *   Constraints: { // TaskTemplateConstraints
+ *     RequiredFields: [ // RequiredTaskTemplateFields
+ *       { // RequiredFieldInfo
+ *         Id: { // TaskTemplateFieldIdentifier
+ *           Name: 'STRING_VALUE',
+ *         },
+ *       },
+ *     ],
+ *     ReadOnlyFields: [ // ReadOnlyTaskTemplateFields
+ *       { // ReadOnlyFieldInfo
+ *         Id: {
+ *           Name: 'STRING_VALUE',
+ *         },
+ *       },
+ *     ],
+ *     InvisibleFields: [ // InvisibleTaskTemplateFields
+ *       { // InvisibleFieldInfo
+ *         Id: {
+ *           Name: 'STRING_VALUE',
+ *         },
+ *       },
+ *     ],
+ *   },
+ *   Defaults: { // TaskTemplateDefaults
+ *     DefaultFieldValues: [ // TaskTemplateDefaultFieldValueList
+ *       { // TaskTemplateDefaultFieldValue
+ *         Id: {
+ *           Name: 'STRING_VALUE',
+ *         },
+ *         DefaultValue: 'STRING_VALUE',
+ *       },
+ *     ],
+ *   },
+ *   Fields: [ // TaskTemplateFields
+ *     { // TaskTemplateField
+ *       Id: {
+ *         Name: 'STRING_VALUE',
+ *       },
+ *       Description: 'STRING_VALUE',
+ *       Type: 'NAME' || 'DESCRIPTION' || 'SCHEDULED_TIME' || 'QUICK_CONNECT' || 'URL' || 'NUMBER' || 'TEXT' || 'TEXT_AREA' || 'DATE_TIME' || 'BOOLEAN' || 'SINGLE_SELECT' || 'EMAIL',
+ *       SingleSelectOptions: [ // SingleSelectOptions
+ *         'STRING_VALUE',
+ *       ],
+ *     },
+ *   ],
+ *   Status: 'ACTIVE' || 'INACTIVE',
+ *   LastModifiedTime: new Date('TIMESTAMP'),
+ *   CreatedTime: new Date('TIMESTAMP'),
+ * };
+ *
  * ```
  *
  * @param UpdateTaskTemplateCommandInput - {@link UpdateTaskTemplateCommandInput}
@@ -122,6 +180,8 @@ export interface UpdateTaskTemplateCommandOutput extends UpdateTaskTemplateRespo
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class UpdateTaskTemplateCommand extends $Command<

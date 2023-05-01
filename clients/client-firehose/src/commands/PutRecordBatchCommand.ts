@@ -86,19 +86,32 @@ export interface PutRecordBatchCommandOutput extends PutRecordBatchOutput, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FirehoseClient, PutRecordBatchCommand } from "@aws-sdk/client-firehose"; // ES Modules import
- * // const { FirehoseClient, PutRecordBatchCommand } = require("@aws-sdk/client-firehose"); // CommonJS import
+ * import { FirehoseClient, PutRecordBatchCommand } from '@aws-sdk/client-firehose'; // ES Modules import
+ * // const { FirehoseClient, PutRecordBatchCommand } = require('@aws-sdk/client-firehose'); // CommonJS import
  * const client = new FirehoseClient(config);
  * const input = { // PutRecordBatchInput
- *   DeliveryStreamName: "STRING_VALUE", // required
+ *   DeliveryStreamName: 'STRING_VALUE', // required
  *   Records: [ // PutRecordBatchRequestEntryList // required
  *     { // Record
- *       Data: "BLOB_VALUE", // required
+ *       Data: 'BLOB_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new PutRecordBatchCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutRecordBatchOutput
+ *   FailedPutCount: Number('int'), // required
+ *   Encrypted: true || false,
+ *   RequestResponses: [ // PutRecordBatchResponseEntryList // required
+ *     { // PutRecordBatchResponseEntry
+ *       RecordId: 'STRING_VALUE',
+ *       ErrorCode: 'STRING_VALUE',
+ *       ErrorMessage: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param PutRecordBatchCommandInput - {@link PutRecordBatchCommandInput}
@@ -126,6 +139,8 @@ export interface PutRecordBatchCommandOutput extends PutRecordBatchOutput, __Met
  *          information about limits and how to request an increase, see <a href="https://docs.aws.amazon.com/firehose/latest/dev/limits.html">Amazon Kinesis Data Firehose
  *          Limits</a>.</p>
  *
+ * @throws {@link FirehoseServiceException}
+ * <p>Base exception class for all service exceptions from Firehose service.</p>
  *
  */
 export class PutRecordBatchCommand extends $Command<

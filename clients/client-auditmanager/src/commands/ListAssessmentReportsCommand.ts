@@ -36,15 +36,32 @@ export interface ListAssessmentReportsCommandOutput extends ListAssessmentReport
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AuditManagerClient, ListAssessmentReportsCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
- * // const { AuditManagerClient, ListAssessmentReportsCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import
+ * import { AuditManagerClient, ListAssessmentReportsCommand } from '@aws-sdk/client-auditmanager'; // ES Modules import
+ * // const { AuditManagerClient, ListAssessmentReportsCommand } = require('@aws-sdk/client-auditmanager'); // CommonJS import
  * const client = new AuditManagerClient(config);
  * const input = { // ListAssessmentReportsRequest
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new ListAssessmentReportsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListAssessmentReportsResponse
+ *   assessmentReports: [ // AssessmentReportsMetadata
+ *     { // AssessmentReportMetadata
+ *       id: 'STRING_VALUE',
+ *       name: 'STRING_VALUE',
+ *       description: 'STRING_VALUE',
+ *       assessmentId: 'STRING_VALUE',
+ *       assessmentName: 'STRING_VALUE',
+ *       author: 'STRING_VALUE',
+ *       status: 'COMPLETE' || 'IN_PROGRESS' || 'FAILED',
+ *       creationTime: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListAssessmentReportsCommandInput - {@link ListAssessmentReportsCommandInput}
@@ -64,6 +81,8 @@ export interface ListAssessmentReportsCommandOutput extends ListAssessmentReport
  * @throws {@link ValidationException} (client fault)
  *  <p> The request has invalid or missing parameters. </p>
  *
+ * @throws {@link AuditManagerServiceException}
+ * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
  */
 export class ListAssessmentReportsCommand extends $Command<

@@ -37,15 +37,54 @@ export interface ListReportPlansCommandOutput extends ListReportPlansOutput, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BackupClient, ListReportPlansCommand } from "@aws-sdk/client-backup"; // ES Modules import
- * // const { BackupClient, ListReportPlansCommand } = require("@aws-sdk/client-backup"); // CommonJS import
+ * import { BackupClient, ListReportPlansCommand } from '@aws-sdk/client-backup'; // ES Modules import
+ * // const { BackupClient, ListReportPlansCommand } = require('@aws-sdk/client-backup'); // CommonJS import
  * const client = new BackupClient(config);
  * const input = { // ListReportPlansInput
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListReportPlansCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListReportPlansOutput
+ *   ReportPlans: [ // ReportPlanList
+ *     { // ReportPlan
+ *       ReportPlanArn: 'STRING_VALUE',
+ *       ReportPlanName: 'STRING_VALUE',
+ *       ReportPlanDescription: 'STRING_VALUE',
+ *       ReportSetting: { // ReportSetting
+ *         ReportTemplate: 'STRING_VALUE', // required
+ *         FrameworkArns: [ // stringList
+ *           'STRING_VALUE',
+ *         ],
+ *         NumberOfFrameworks: Number('int'),
+ *         Accounts: [
+ *           'STRING_VALUE',
+ *         ],
+ *         OrganizationUnits: [
+ *           'STRING_VALUE',
+ *         ],
+ *         Regions: [
+ *           'STRING_VALUE',
+ *         ],
+ *       },
+ *       ReportDeliveryChannel: { // ReportDeliveryChannel
+ *         S3BucketName: 'STRING_VALUE', // required
+ *         S3KeyPrefix: 'STRING_VALUE',
+ *         Formats: [ // FormatList
+ *           'STRING_VALUE',
+ *         ],
+ *       },
+ *       DeploymentStatus: 'STRING_VALUE',
+ *       CreationTime: new Date('TIMESTAMP'),
+ *       LastAttemptedExecutionTime: new Date('TIMESTAMP'),
+ *       LastSuccessfulExecutionTime: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListReportPlansCommandInput - {@link ListReportPlansCommandInput}
@@ -61,6 +100,8 @@ export interface ListReportPlansCommandOutput extends ListReportPlansOutput, __M
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request failed due to a temporary failure of the server.</p>
  *
+ * @throws {@link BackupServiceException}
+ * <p>Base exception class for all service exceptions from Backup service.</p>
  *
  */
 export class ListReportPlansCommand extends $Command<

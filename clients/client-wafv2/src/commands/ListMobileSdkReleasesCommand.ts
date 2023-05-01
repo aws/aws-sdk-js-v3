@@ -39,16 +39,27 @@ export interface ListMobileSdkReleasesCommandOutput extends ListMobileSdkRelease
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WAFV2Client, ListMobileSdkReleasesCommand } from "@aws-sdk/client-wafv2"; // ES Modules import
- * // const { WAFV2Client, ListMobileSdkReleasesCommand } = require("@aws-sdk/client-wafv2"); // CommonJS import
+ * import { WAFV2Client, ListMobileSdkReleasesCommand } from '@aws-sdk/client-wafv2'; // ES Modules import
+ * // const { WAFV2Client, ListMobileSdkReleasesCommand } = require('@aws-sdk/client-wafv2'); // CommonJS import
  * const client = new WAFV2Client(config);
  * const input = { // ListMobileSdkReleasesRequest
- *   Platform: "IOS" || "ANDROID", // required
- *   NextMarker: "STRING_VALUE",
- *   Limit: Number("int"),
+ *   Platform: 'IOS' || 'ANDROID', // required
+ *   NextMarker: 'STRING_VALUE',
+ *   Limit: Number('int'),
  * };
  * const command = new ListMobileSdkReleasesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListMobileSdkReleasesResponse
+ *   ReleaseSummaries: [ // ReleaseSummaries
+ *     { // ReleaseSummary
+ *       ReleaseVersion: 'STRING_VALUE',
+ *       Timestamp: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   NextMarker: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListMobileSdkReleasesCommandInput - {@link ListMobileSdkReleasesCommandInput}
@@ -85,6 +96,8 @@ export interface ListMobileSdkReleasesCommandOutput extends ListMobileSdkRelease
  *             </li>
  *          </ul>
  *
+ * @throws {@link WAFV2ServiceException}
+ * <p>Base exception class for all service exceptions from WAFV2 service.</p>
  *
  */
 export class ListMobileSdkReleasesCommand extends $Command<

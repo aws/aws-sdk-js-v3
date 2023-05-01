@@ -36,17 +36,31 @@ export interface ListChunksCommandOutput extends ListChunksOutput, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BackupStorageClient, ListChunksCommand } from "@aws-sdk/client-backupstorage"; // ES Modules import
- * // const { BackupStorageClient, ListChunksCommand } = require("@aws-sdk/client-backupstorage"); // CommonJS import
+ * import { BackupStorageClient, ListChunksCommand } from '@aws-sdk/client-backupstorage'; // ES Modules import
+ * // const { BackupStorageClient, ListChunksCommand } = require('@aws-sdk/client-backupstorage'); // CommonJS import
  * const client = new BackupStorageClient(config);
  * const input = { // ListChunksInput
- *   StorageJobId: "STRING_VALUE", // required
- *   ObjectToken: "STRING_VALUE", // required
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   StorageJobId: 'STRING_VALUE', // required
+ *   ObjectToken: 'STRING_VALUE', // required
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListChunksCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListChunksOutput
+ *   ChunkList: [ // ChunkList // required
+ *     { // Chunk
+ *       Index: Number('long'), // required
+ *       Length: Number('long'), // required
+ *       Checksum: 'STRING_VALUE', // required
+ *       ChecksumAlgorithm: 'STRING_VALUE', // required
+ *       ChunkToken: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListChunksCommandInput - {@link ListChunksCommandInput}
@@ -73,6 +87,8 @@ export interface ListChunksCommandOutput extends ListChunksOutput, __MetadataBea
  * @throws {@link ServiceUnavailableException} (server fault)
  *  Retryable exception, indicates internal server error.
  *
+ * @throws {@link BackupStorageServiceException}
+ * <p>Base exception class for all service exceptions from BackupStorage service.</p>
  *
  */
 export class ListChunksCommand extends $Command<

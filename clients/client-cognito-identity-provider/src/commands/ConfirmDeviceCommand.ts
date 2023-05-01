@@ -46,20 +46,25 @@ export interface ConfirmDeviceCommandOutput extends ConfirmDeviceResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CognitoIdentityProviderClient, ConfirmDeviceCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
- * // const { CognitoIdentityProviderClient, ConfirmDeviceCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
+ * import { CognitoIdentityProviderClient, ConfirmDeviceCommand } from '@aws-sdk/client-cognito-identity-provider'; // ES Modules import
+ * // const { CognitoIdentityProviderClient, ConfirmDeviceCommand } = require('@aws-sdk/client-cognito-identity-provider'); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
  * const input = { // ConfirmDeviceRequest
- *   AccessToken: "STRING_VALUE", // required
- *   DeviceKey: "STRING_VALUE", // required
+ *   AccessToken: 'STRING_VALUE', // required
+ *   DeviceKey: 'STRING_VALUE', // required
  *   DeviceSecretVerifierConfig: { // DeviceSecretVerifierConfigType
- *     PasswordVerifier: "STRING_VALUE",
- *     Salt: "STRING_VALUE",
+ *     PasswordVerifier: 'STRING_VALUE',
+ *     Salt: 'STRING_VALUE',
  *   },
- *   DeviceName: "STRING_VALUE",
+ *   DeviceName: 'STRING_VALUE',
  * };
  * const command = new ConfirmDeviceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ConfirmDeviceResponse
+ *   UserConfirmationNecessary: true || false,
+ * };
+ *
  * ```
  *
  * @param ConfirmDeviceCommandInput - {@link ConfirmDeviceCommandInput}
@@ -111,6 +116,8 @@ export interface ConfirmDeviceCommandOutput extends ConfirmDeviceResponse, __Met
  * @throws {@link UserNotFoundException} (client fault)
  *  <p>This exception is thrown when a user isn't found.</p>
  *
+ * @throws {@link CognitoIdentityProviderServiceException}
+ * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
  */
 export class ConfirmDeviceCommand extends $Command<

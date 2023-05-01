@@ -36,14 +36,24 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ServiceQuotasClient, ListTagsForResourceCommand } from "@aws-sdk/client-service-quotas"; // ES Modules import
- * // const { ServiceQuotasClient, ListTagsForResourceCommand } = require("@aws-sdk/client-service-quotas"); // CommonJS import
+ * import { ServiceQuotasClient, ListTagsForResourceCommand } from '@aws-sdk/client-service-quotas'; // ES Modules import
+ * // const { ServiceQuotasClient, ListTagsForResourceCommand } = require('@aws-sdk/client-service-quotas'); // CommonJS import
  * const client = new ServiceQuotasClient(config);
  * const input = { // ListTagsForResourceRequest
- *   ResourceARN: "STRING_VALUE", // required
+ *   ResourceARN: 'STRING_VALUE', // required
  * };
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTagsForResourceResponse
+ *   Tags: [ // OutputTags
+ *     { // Tag
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListTagsForResourceCommandInput - {@link ListTagsForResourceCommandInput}
@@ -68,6 +78,8 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  *  <p>Due to throttling, the request was denied. Slow down the rate of request calls, or request
  *       an increase for this quota.</p>
  *
+ * @throws {@link ServiceQuotasServiceException}
+ * <p>Base exception class for all service exceptions from ServiceQuotas service.</p>
  *
  */
 export class ListTagsForResourceCommand extends $Command<

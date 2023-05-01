@@ -43,28 +43,44 @@ export interface CopyPackageVersionsCommandOutput extends CopyPackageVersionsRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeartifactClient, CopyPackageVersionsCommand } from "@aws-sdk/client-codeartifact"; // ES Modules import
- * // const { CodeartifactClient, CopyPackageVersionsCommand } = require("@aws-sdk/client-codeartifact"); // CommonJS import
+ * import { CodeartifactClient, CopyPackageVersionsCommand } from '@aws-sdk/client-codeartifact'; // ES Modules import
+ * // const { CodeartifactClient, CopyPackageVersionsCommand } = require('@aws-sdk/client-codeartifact'); // CommonJS import
  * const client = new CodeartifactClient(config);
  * const input = { // CopyPackageVersionsRequest
- *   domain: "STRING_VALUE", // required
- *   domainOwner: "STRING_VALUE",
- *   sourceRepository: "STRING_VALUE", // required
- *   destinationRepository: "STRING_VALUE", // required
- *   format: "npm" || "pypi" || "maven" || "nuget" || "generic", // required
- *   namespace: "STRING_VALUE",
- *   package: "STRING_VALUE", // required
+ *   domain: 'STRING_VALUE', // required
+ *   domainOwner: 'STRING_VALUE',
+ *   sourceRepository: 'STRING_VALUE', // required
+ *   destinationRepository: 'STRING_VALUE', // required
+ *   format: 'npm' || 'pypi' || 'maven' || 'nuget' || 'generic', // required
+ *   namespace: 'STRING_VALUE',
+ *   package: 'STRING_VALUE', // required
  *   versions: [ // PackageVersionList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   versionRevisions: { // PackageVersionRevisionMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  *   allowOverwrite: true || false,
  *   includeFromUpstream: true || false,
  * };
  * const command = new CopyPackageVersionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CopyPackageVersionsResult
+ *   successfulVersions: { // SuccessfulPackageVersionInfoMap
+ *     '<keys>': { // SuccessfulPackageVersionInfo
+ *       revision: 'STRING_VALUE',
+ *       status: 'Published' || 'Unfinished' || 'Unlisted' || 'Archived' || 'Disposed' || 'Deleted',
+ *     },
+ *   },
+ *   failedVersions: { // PackageVersionErrorMap
+ *     '<keys>': { // PackageVersionError
+ *       errorCode: 'ALREADY_EXISTS' || 'MISMATCHED_REVISION' || 'MISMATCHED_STATUS' || 'NOT_ALLOWED' || 'NOT_FOUND' || 'SKIPPED',
+ *       errorMessage: 'STRING_VALUE',
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param CopyPackageVersionsCommandInput - {@link CopyPackageVersionsCommandInput}
@@ -106,6 +122,8 @@ export interface CopyPackageVersionsCommandOutput extends CopyPackageVersionsRes
  *       The operation did not succeed because a parameter in the request was sent with an invalid value.
  *     </p>
  *
+ * @throws {@link CodeartifactServiceException}
+ * <p>Base exception class for all service exceptions from Codeartifact service.</p>
  *
  */
 export class CopyPackageVersionsCommand extends $Command<

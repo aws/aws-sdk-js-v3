@@ -55,21 +55,26 @@ export interface CreateHsmCommandOutput extends CreateHsmResponse, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudHSMClient, CreateHsmCommand } from "@aws-sdk/client-cloudhsm"; // ES Modules import
- * // const { CloudHSMClient, CreateHsmCommand } = require("@aws-sdk/client-cloudhsm"); // CommonJS import
+ * import { CloudHSMClient, CreateHsmCommand } from '@aws-sdk/client-cloudhsm'; // ES Modules import
+ * // const { CloudHSMClient, CreateHsmCommand } = require('@aws-sdk/client-cloudhsm'); // CommonJS import
  * const client = new CloudHSMClient(config);
  * const input = { // CreateHsmRequest
- *   SubnetId: "STRING_VALUE", // required
- *   SshKey: "STRING_VALUE", // required
- *   EniIp: "STRING_VALUE",
- *   IamRoleArn: "STRING_VALUE", // required
- *   ExternalId: "STRING_VALUE",
- *   SubscriptionType: "STRING_VALUE", // required
- *   ClientToken: "STRING_VALUE",
- *   SyslogIp: "STRING_VALUE",
+ *   SubnetId: 'STRING_VALUE', // required
+ *   SshKey: 'STRING_VALUE', // required
+ *   EniIp: 'STRING_VALUE',
+ *   IamRoleArn: 'STRING_VALUE', // required
+ *   ExternalId: 'STRING_VALUE',
+ *   SubscriptionType: 'STRING_VALUE', // required
+ *   ClientToken: 'STRING_VALUE',
+ *   SyslogIp: 'STRING_VALUE',
  * };
  * const command = new CreateHsmCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateHsmResponse
+ *   HsmArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateHsmCommandInput - {@link CreateHsmCommandInput}
@@ -87,6 +92,8 @@ export interface CreateHsmCommandOutput extends CreateHsmResponse, __MetadataBea
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>Indicates that one or more of the request parameters are not valid.</p>
  *
+ * @throws {@link CloudHSMServiceException}
+ * <p>Base exception class for all service exceptions from CloudHSM service.</p>
  *
  */
 export class CreateHsmCommand extends $Command<

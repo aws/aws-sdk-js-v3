@@ -38,18 +38,26 @@ export interface ListContainerInstancesCommandOutput extends ListContainerInstan
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ECSClient, ListContainerInstancesCommand } from "@aws-sdk/client-ecs"; // ES Modules import
- * // const { ECSClient, ListContainerInstancesCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
+ * import { ECSClient, ListContainerInstancesCommand } from '@aws-sdk/client-ecs'; // ES Modules import
+ * // const { ECSClient, ListContainerInstancesCommand } = require('@aws-sdk/client-ecs'); // CommonJS import
  * const client = new ECSClient(config);
  * const input = { // ListContainerInstancesRequest
- *   cluster: "STRING_VALUE",
- *   filter: "STRING_VALUE",
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
- *   status: "ACTIVE" || "DRAINING" || "REGISTERING" || "DEREGISTERING" || "REGISTRATION_FAILED",
+ *   cluster: 'STRING_VALUE',
+ *   filter: 'STRING_VALUE',
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
+ *   status: 'ACTIVE' || 'DRAINING' || 'REGISTERING' || 'DEREGISTERING' || 'REGISTRATION_FAILED',
  * };
  * const command = new ListContainerInstancesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListContainerInstancesResponse
+ *   containerInstanceArns: [ // StringList
+ *     'STRING_VALUE',
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListContainerInstancesCommandInput - {@link ListContainerInstancesCommandInput}
@@ -73,6 +81,8 @@ export interface ListContainerInstancesCommandOutput extends ListContainerInstan
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server issue.</p>
  *
+ * @throws {@link ECSServiceException}
+ * <p>Base exception class for all service exceptions from ECS service.</p>
  *
  * @example To list your available container instances in a cluster
  * ```javascript

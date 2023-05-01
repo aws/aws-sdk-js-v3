@@ -38,20 +38,23 @@ export interface UpdateListCommandOutput extends UpdateListResult, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FraudDetectorClient, UpdateListCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
- * // const { FraudDetectorClient, UpdateListCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
+ * import { FraudDetectorClient, UpdateListCommand } from '@aws-sdk/client-frauddetector'; // ES Modules import
+ * // const { FraudDetectorClient, UpdateListCommand } = require('@aws-sdk/client-frauddetector'); // CommonJS import
  * const client = new FraudDetectorClient(config);
  * const input = { // UpdateListRequest
- *   name: "STRING_VALUE", // required
+ *   name: 'STRING_VALUE', // required
  *   elements: [ // ElementsList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   description: "STRING_VALUE",
- *   updateMode: "REPLACE" || "APPEND" || "REMOVE",
- *   variableType: "STRING_VALUE",
+ *   description: 'STRING_VALUE',
+ *   updateMode: 'REPLACE' || 'APPEND' || 'REMOVE',
+ *   variableType: 'STRING_VALUE',
  * };
  * const command = new UpdateListCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateListCommandInput - {@link UpdateListCommandInput}
@@ -78,6 +81,8 @@ export interface UpdateListCommandOutput extends UpdateListResult, __MetadataBea
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception indicating a specified value is not allowed.</p>
  *
+ * @throws {@link FraudDetectorServiceException}
+ * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
  */
 export class UpdateListCommand extends $Command<

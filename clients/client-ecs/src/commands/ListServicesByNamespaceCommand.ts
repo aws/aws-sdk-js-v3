@@ -40,16 +40,24 @@ export interface ListServicesByNamespaceCommandOutput extends ListServicesByName
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ECSClient, ListServicesByNamespaceCommand } from "@aws-sdk/client-ecs"; // ES Modules import
- * // const { ECSClient, ListServicesByNamespaceCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
+ * import { ECSClient, ListServicesByNamespaceCommand } from '@aws-sdk/client-ecs'; // ES Modules import
+ * // const { ECSClient, ListServicesByNamespaceCommand } = require('@aws-sdk/client-ecs'); // CommonJS import
  * const client = new ECSClient(config);
  * const input = { // ListServicesByNamespaceRequest
- *   namespace: "STRING_VALUE", // required
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   namespace: 'STRING_VALUE', // required
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new ListServicesByNamespaceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListServicesByNamespaceResponse
+ *   serviceArns: [ // StringList
+ *     'STRING_VALUE',
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListServicesByNamespaceCommandInput - {@link ListServicesByNamespaceCommandInput}
@@ -73,6 +81,8 @@ export interface ListServicesByNamespaceCommandOutput extends ListServicesByName
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server issue.</p>
  *
+ * @throws {@link ECSServiceException}
+ * <p>Base exception class for all service exceptions from ECS service.</p>
  *
  */
 export class ListServicesByNamespaceCommand extends $Command<

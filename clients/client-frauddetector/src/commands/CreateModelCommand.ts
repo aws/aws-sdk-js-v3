@@ -36,23 +36,26 @@ export interface CreateModelCommandOutput extends CreateModelResult, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FraudDetectorClient, CreateModelCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
- * // const { FraudDetectorClient, CreateModelCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
+ * import { FraudDetectorClient, CreateModelCommand } from '@aws-sdk/client-frauddetector'; // ES Modules import
+ * // const { FraudDetectorClient, CreateModelCommand } = require('@aws-sdk/client-frauddetector'); // CommonJS import
  * const client = new FraudDetectorClient(config);
  * const input = { // CreateModelRequest
- *   modelId: "STRING_VALUE", // required
- *   modelType: "ONLINE_FRAUD_INSIGHTS" || "TRANSACTION_FRAUD_INSIGHTS" || "ACCOUNT_TAKEOVER_INSIGHTS", // required
- *   description: "STRING_VALUE",
- *   eventTypeName: "STRING_VALUE", // required
+ *   modelId: 'STRING_VALUE', // required
+ *   modelType: 'ONLINE_FRAUD_INSIGHTS' || 'TRANSACTION_FRAUD_INSIGHTS' || 'ACCOUNT_TAKEOVER_INSIGHTS', // required
+ *   description: 'STRING_VALUE',
+ *   eventTypeName: 'STRING_VALUE', // required
  *   tags: [ // tagList
  *     { // Tag
- *       key: "STRING_VALUE", // required
- *       value: "STRING_VALUE", // required
+ *       key: 'STRING_VALUE', // required
+ *       value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreateModelCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param CreateModelCommandInput - {@link CreateModelCommandInput}
@@ -73,6 +76,8 @@ export interface CreateModelCommandOutput extends CreateModelResult, __MetadataB
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception indicating a specified value is not allowed.</p>
  *
+ * @throws {@link FraudDetectorServiceException}
+ * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
  */
 export class CreateModelCommand extends $Command<

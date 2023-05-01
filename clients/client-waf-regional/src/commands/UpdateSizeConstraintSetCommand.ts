@@ -86,29 +86,34 @@ export interface UpdateSizeConstraintSetCommandOutput extends UpdateSizeConstrai
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WAFRegionalClient, UpdateSizeConstraintSetCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
- * // const { WAFRegionalClient, UpdateSizeConstraintSetCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import
+ * import { WAFRegionalClient, UpdateSizeConstraintSetCommand } from '@aws-sdk/client-waf-regional'; // ES Modules import
+ * // const { WAFRegionalClient, UpdateSizeConstraintSetCommand } = require('@aws-sdk/client-waf-regional'); // CommonJS import
  * const client = new WAFRegionalClient(config);
  * const input = { // UpdateSizeConstraintSetRequest
- *   SizeConstraintSetId: "STRING_VALUE", // required
- *   ChangeToken: "STRING_VALUE", // required
+ *   SizeConstraintSetId: 'STRING_VALUE', // required
+ *   ChangeToken: 'STRING_VALUE', // required
  *   Updates: [ // SizeConstraintSetUpdates // required
  *     { // SizeConstraintSetUpdate
- *       Action: "STRING_VALUE", // required
+ *       Action: 'STRING_VALUE', // required
  *       SizeConstraint: { // SizeConstraint
  *         FieldToMatch: { // FieldToMatch
- *           Type: "STRING_VALUE", // required
- *           Data: "STRING_VALUE",
+ *           Type: 'STRING_VALUE', // required
+ *           Data: 'STRING_VALUE',
  *         },
- *         TextTransformation: "STRING_VALUE", // required
- *         ComparisonOperator: "STRING_VALUE", // required
- *         Size: Number("long"), // required
+ *         TextTransformation: 'STRING_VALUE', // required
+ *         ComparisonOperator: 'STRING_VALUE', // required
+ *         Size: Number('long'), // required
  *       },
  *     },
  *   ],
  * };
  * const command = new UpdateSizeConstraintSetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateSizeConstraintSetResponse
+ *   ChangeToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateSizeConstraintSetCommandInput - {@link UpdateSizeConstraintSetCommandInput}
@@ -226,6 +231,8 @@ export interface UpdateSizeConstraintSetCommandOutput extends UpdateSizeConstrai
  * @throws {@link WAFStaleDataException} (client fault)
  *  <p>The operation failed because you tried to create, update, or delete an object by using a change token that has already been used.</p>
  *
+ * @throws {@link WAFRegionalServiceException}
+ * <p>Base exception class for all service exceptions from WAFRegional service.</p>
  *
  * @example To update a size constraint set
  * ```javascript

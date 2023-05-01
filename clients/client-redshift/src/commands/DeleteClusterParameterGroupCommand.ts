@@ -40,14 +40,17 @@ export interface DeleteClusterParameterGroupCommandOutput extends __MetadataBear
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RedshiftClient, DeleteClusterParameterGroupCommand } from "@aws-sdk/client-redshift"; // ES Modules import
- * // const { RedshiftClient, DeleteClusterParameterGroupCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * import { RedshiftClient, DeleteClusterParameterGroupCommand } from '@aws-sdk/client-redshift'; // ES Modules import
+ * // const { RedshiftClient, DeleteClusterParameterGroupCommand } = require('@aws-sdk/client-redshift'); // CommonJS import
  * const client = new RedshiftClient(config);
  * const input = { // DeleteClusterParameterGroupMessage
- *   ParameterGroupName: "STRING_VALUE", // required
+ *   ParameterGroupName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteClusterParameterGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteClusterParameterGroupCommandInput - {@link DeleteClusterParameterGroupCommandInput}
@@ -64,6 +67,8 @@ export interface DeleteClusterParameterGroupCommandOutput extends __MetadataBear
  *             progress that involves the parameter group. Wait a few moments and try the operation
  *             again.</p>
  *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class DeleteClusterParameterGroupCommand extends $Command<

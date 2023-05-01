@@ -46,16 +46,19 @@ export interface SetIdentityNotificationTopicCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SESClient, SetIdentityNotificationTopicCommand } from "@aws-sdk/client-ses"; // ES Modules import
- * // const { SESClient, SetIdentityNotificationTopicCommand } = require("@aws-sdk/client-ses"); // CommonJS import
+ * import { SESClient, SetIdentityNotificationTopicCommand } from '@aws-sdk/client-ses'; // ES Modules import
+ * // const { SESClient, SetIdentityNotificationTopicCommand } = require('@aws-sdk/client-ses'); // CommonJS import
  * const client = new SESClient(config);
  * const input = { // SetIdentityNotificationTopicRequest
- *   Identity: "STRING_VALUE", // required
- *   NotificationType: "STRING_VALUE", // required
- *   SnsTopic: "STRING_VALUE",
+ *   Identity: 'STRING_VALUE', // required
+ *   NotificationType: 'STRING_VALUE', // required
+ *   SnsTopic: 'STRING_VALUE',
  * };
  * const command = new SetIdentityNotificationTopicCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param SetIdentityNotificationTopicCommandInput - {@link SetIdentityNotificationTopicCommandInput}
@@ -64,6 +67,8 @@ export interface SetIdentityNotificationTopicCommandOutput
  * @see {@link SetIdentityNotificationTopicCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
+ * @throws {@link SESServiceException}
+ * <p>Base exception class for all service exceptions from SES service.</p>
  *
  * @example SetIdentityNotificationTopic
  * ```javascript

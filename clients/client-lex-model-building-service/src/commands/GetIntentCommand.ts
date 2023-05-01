@@ -43,15 +43,122 @@ export interface GetIntentCommandOutput extends GetIntentResponse, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LexModelBuildingServiceClient, GetIntentCommand } from "@aws-sdk/client-lex-model-building-service"; // ES Modules import
- * // const { LexModelBuildingServiceClient, GetIntentCommand } = require("@aws-sdk/client-lex-model-building-service"); // CommonJS import
+ * import { LexModelBuildingServiceClient, GetIntentCommand } from '@aws-sdk/client-lex-model-building-service'; // ES Modules import
+ * // const { LexModelBuildingServiceClient, GetIntentCommand } = require('@aws-sdk/client-lex-model-building-service'); // CommonJS import
  * const client = new LexModelBuildingServiceClient(config);
  * const input = { // GetIntentRequest
- *   name: "STRING_VALUE", // required
- *   version: "STRING_VALUE", // required
+ *   name: 'STRING_VALUE', // required
+ *   version: 'STRING_VALUE', // required
  * };
  * const command = new GetIntentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetIntentResponse
+ *   name: 'STRING_VALUE',
+ *   description: 'STRING_VALUE',
+ *   slots: [ // SlotList
+ *     { // Slot
+ *       name: 'STRING_VALUE', // required
+ *       description: 'STRING_VALUE',
+ *       slotConstraint: 'STRING_VALUE', // required
+ *       slotType: 'STRING_VALUE',
+ *       slotTypeVersion: 'STRING_VALUE',
+ *       valueElicitationPrompt: { // Prompt
+ *         messages: [ // MessageList // required
+ *           { // Message
+ *             contentType: 'STRING_VALUE', // required
+ *             content: 'STRING_VALUE', // required
+ *             groupNumber: Number('int'),
+ *           },
+ *         ],
+ *         maxAttempts: Number('int'), // required
+ *         responseCard: 'STRING_VALUE',
+ *       },
+ *       priority: Number('int'),
+ *       sampleUtterances: [ // SlotUtteranceList
+ *         'STRING_VALUE',
+ *       ],
+ *       responseCard: 'STRING_VALUE',
+ *       obfuscationSetting: 'STRING_VALUE',
+ *       defaultValueSpec: { // SlotDefaultValueSpec
+ *         defaultValueList: [ // SlotDefaultValueList // required
+ *           { // SlotDefaultValue
+ *             defaultValue: 'STRING_VALUE', // required
+ *           },
+ *         ],
+ *       },
+ *     },
+ *   ],
+ *   sampleUtterances: [ // IntentUtteranceList
+ *     'STRING_VALUE',
+ *   ],
+ *   confirmationPrompt: {
+ *     messages: [ // required
+ *       {
+ *         contentType: 'STRING_VALUE', // required
+ *         content: 'STRING_VALUE', // required
+ *         groupNumber: Number('int'),
+ *       },
+ *     ],
+ *     maxAttempts: Number('int'), // required
+ *     responseCard: 'STRING_VALUE',
+ *   },
+ *   rejectionStatement: { // Statement
+ *     messages: [ // required
+ *       {
+ *         contentType: 'STRING_VALUE', // required
+ *         content: 'STRING_VALUE', // required
+ *         groupNumber: Number('int'),
+ *       },
+ *     ],
+ *     responseCard: 'STRING_VALUE',
+ *   },
+ *   followUpPrompt: { // FollowUpPrompt
+ *     prompt: '<Prompt>', // required
+ *     rejectionStatement: {
+ *       messages: '<MessageList>', // required
+ *       responseCard: 'STRING_VALUE',
+ *     },
+ *   },
+ *   conclusionStatement: {
+ *     messages: '<MessageList>', // required
+ *     responseCard: 'STRING_VALUE',
+ *   },
+ *   dialogCodeHook: { // CodeHook
+ *     uri: 'STRING_VALUE', // required
+ *     messageVersion: 'STRING_VALUE', // required
+ *   },
+ *   fulfillmentActivity: { // FulfillmentActivity
+ *     type: 'STRING_VALUE', // required
+ *     codeHook: {
+ *       uri: 'STRING_VALUE', // required
+ *       messageVersion: 'STRING_VALUE', // required
+ *     },
+ *   },
+ *   parentIntentSignature: 'STRING_VALUE',
+ *   lastUpdatedDate: new Date('TIMESTAMP'),
+ *   createdDate: new Date('TIMESTAMP'),
+ *   version: 'STRING_VALUE',
+ *   checksum: 'STRING_VALUE',
+ *   kendraConfiguration: { // KendraConfiguration
+ *     kendraIndex: 'STRING_VALUE', // required
+ *     queryFilterString: 'STRING_VALUE',
+ *     role: 'STRING_VALUE', // required
+ *   },
+ *   inputContexts: [ // InputContextList
+ *     { // InputContext
+ *       name: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ *   outputContexts: [ // OutputContextList
+ *     { // OutputContext
+ *       name: 'STRING_VALUE', // required
+ *       timeToLiveInSeconds: Number('int'), // required
+ *       turnsToLive: Number('int'), // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetIntentCommandInput - {@link GetIntentCommandInput}
@@ -75,6 +182,8 @@ export interface GetIntentCommandOutput extends GetIntentResponse, __MetadataBea
  *  <p>The resource specified in the request was not found. Check the
  *       resource and try again.</p>
  *
+ * @throws {@link LexModelBuildingServiceServiceException}
+ * <p>Base exception class for all service exceptions from LexModelBuildingService service.</p>
  *
  * @example To get a information about an intent
  * ```javascript

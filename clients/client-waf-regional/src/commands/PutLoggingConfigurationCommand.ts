@@ -61,25 +61,41 @@ export interface PutLoggingConfigurationCommandOutput extends PutLoggingConfigur
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WAFRegionalClient, PutLoggingConfigurationCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
- * // const { WAFRegionalClient, PutLoggingConfigurationCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import
+ * import { WAFRegionalClient, PutLoggingConfigurationCommand } from '@aws-sdk/client-waf-regional'; // ES Modules import
+ * // const { WAFRegionalClient, PutLoggingConfigurationCommand } = require('@aws-sdk/client-waf-regional'); // CommonJS import
  * const client = new WAFRegionalClient(config);
  * const input = { // PutLoggingConfigurationRequest
  *   LoggingConfiguration: { // LoggingConfiguration
- *     ResourceArn: "STRING_VALUE", // required
+ *     ResourceArn: 'STRING_VALUE', // required
  *     LogDestinationConfigs: [ // LogDestinationConfigs // required
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     RedactedFields: [ // RedactedFields
  *       { // FieldToMatch
- *         Type: "STRING_VALUE", // required
- *         Data: "STRING_VALUE",
+ *         Type: 'STRING_VALUE', // required
+ *         Data: 'STRING_VALUE',
  *       },
  *     ],
  *   },
  * };
  * const command = new PutLoggingConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutLoggingConfigurationResponse
+ *   LoggingConfiguration: { // LoggingConfiguration
+ *     ResourceArn: 'STRING_VALUE', // required
+ *     LogDestinationConfigs: [ // LogDestinationConfigs // required
+ *       'STRING_VALUE',
+ *     ],
+ *     RedactedFields: [ // RedactedFields
+ *       { // FieldToMatch
+ *         Type: 'STRING_VALUE', // required
+ *         Data: 'STRING_VALUE',
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param PutLoggingConfigurationCommandInput - {@link PutLoggingConfigurationCommandInput}
@@ -100,6 +116,8 @@ export interface PutLoggingConfigurationCommandOutput extends PutLoggingConfigur
  * @throws {@link WAFStaleDataException} (client fault)
  *  <p>The operation failed because you tried to create, update, or delete an object by using a change token that has already been used.</p>
  *
+ * @throws {@link WAFRegionalServiceException}
+ * <p>Base exception class for all service exceptions from WAFRegional service.</p>
  *
  */
 export class PutLoggingConfigurationCommand extends $Command<

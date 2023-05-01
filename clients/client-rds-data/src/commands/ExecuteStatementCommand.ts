@@ -42,37 +42,37 @@ export interface ExecuteStatementCommandOutput extends ExecuteStatementResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RDSDataClient, ExecuteStatementCommand } from "@aws-sdk/client-rds-data"; // ES Modules import
- * // const { RDSDataClient, ExecuteStatementCommand } = require("@aws-sdk/client-rds-data"); // CommonJS import
+ * import { RDSDataClient, ExecuteStatementCommand } from '@aws-sdk/client-rds-data'; // ES Modules import
+ * // const { RDSDataClient, ExecuteStatementCommand } = require('@aws-sdk/client-rds-data'); // CommonJS import
  * const client = new RDSDataClient(config);
  * const input = { // ExecuteStatementRequest
- *   resourceArn: "STRING_VALUE", // required
- *   secretArn: "STRING_VALUE", // required
- *   sql: "STRING_VALUE", // required
- *   database: "STRING_VALUE",
- *   schema: "STRING_VALUE",
+ *   resourceArn: 'STRING_VALUE', // required
+ *   secretArn: 'STRING_VALUE', // required
+ *   sql: 'STRING_VALUE', // required
+ *   database: 'STRING_VALUE',
+ *   schema: 'STRING_VALUE',
  *   parameters: [ // SqlParametersList
  *     { // SqlParameter
- *       name: "STRING_VALUE",
+ *       name: 'STRING_VALUE',
  *       value: { // Field Union: only one key present
  *         isNull: true || false,
  *         booleanValue: true || false,
- *         longValue: Number("long"),
- *         doubleValue: Number("double"),
- *         stringValue: "STRING_VALUE",
- *         blobValue: "BLOB_VALUE",
+ *         longValue: Number('long'),
+ *         doubleValue: Number('double'),
+ *         stringValue: 'STRING_VALUE',
+ *         blobValue: 'BLOB_VALUE',
  *         arrayValue: { // ArrayValue Union: only one key present
  *           booleanValues: [ // BooleanArray
  *             true || false,
  *           ],
  *           longValues: [ // LongArray
- *             Number("long"),
+ *             Number('long'),
  *           ],
  *           doubleValues: [ // DoubleArray
- *             Number("double"),
+ *             Number('double'),
  *           ],
  *           stringValues: [ // StringArray
- *             "STRING_VALUE",
+ *             'STRING_VALUE',
  *           ],
  *           arrayValues: [ // ArrayOfArray
  *             {//  Union: only one key present
@@ -80,35 +80,115 @@ export interface ExecuteStatementCommandOutput extends ExecuteStatementResponse,
  *                 true || false,
  *               ],
  *               longValues: [
- *                 Number("long"),
+ *                 Number('long'),
  *               ],
  *               doubleValues: [
- *                 Number("double"),
+ *                 Number('double'),
  *               ],
  *               stringValues: [
- *                 "STRING_VALUE",
+ *                 'STRING_VALUE',
  *               ],
  *               arrayValues: [
- *                 "<ArrayValue>",
+ *                 '<ArrayValue>',
  *               ],
  *             },
  *           ],
  *         },
  *       },
- *       typeHint: "STRING_VALUE",
+ *       typeHint: 'STRING_VALUE',
  *     },
  *   ],
- *   transactionId: "STRING_VALUE",
+ *   transactionId: 'STRING_VALUE',
  *   includeResultMetadata: true || false,
  *   continueAfterTimeout: true || false,
  *   resultSetOptions: { // ResultSetOptions
- *     decimalReturnType: "STRING_VALUE",
- *     longReturnType: "STRING_VALUE",
+ *     decimalReturnType: 'STRING_VALUE',
+ *     longReturnType: 'STRING_VALUE',
  *   },
- *   formatRecordsAs: "STRING_VALUE",
+ *   formatRecordsAs: 'STRING_VALUE',
  * };
  * const command = new ExecuteStatementCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ExecuteStatementResponse
+ *   records: [ // SqlRecords
+ *     [ // FieldList
+ *       { // Field Union: only one key present
+ *         isNull: true || false,
+ *         booleanValue: true || false,
+ *         longValue: Number('long'),
+ *         doubleValue: Number('double'),
+ *         stringValue: 'STRING_VALUE',
+ *         blobValue: 'BLOB_VALUE',
+ *         arrayValue: { // ArrayValue Union: only one key present
+ *           booleanValues: [ // BooleanArray
+ *             true || false,
+ *           ],
+ *           longValues: [ // LongArray
+ *             Number('long'),
+ *           ],
+ *           doubleValues: [ // DoubleArray
+ *             Number('double'),
+ *           ],
+ *           stringValues: [ // StringArray
+ *             'STRING_VALUE',
+ *           ],
+ *           arrayValues: [ // ArrayOfArray
+ *             {//  Union: only one key present
+ *               booleanValues: [
+ *                 true || false,
+ *               ],
+ *               longValues: [
+ *                 Number('long'),
+ *               ],
+ *               doubleValues: [
+ *                 Number('double'),
+ *               ],
+ *               stringValues: [
+ *                 'STRING_VALUE',
+ *               ],
+ *               arrayValues: [
+ *                 '<ArrayValue>',
+ *               ],
+ *             },
+ *           ],
+ *         },
+ *       },
+ *     ],
+ *   ],
+ *   columnMetadata: [ // Metadata
+ *     { // ColumnMetadata
+ *       name: 'STRING_VALUE',
+ *       type: Number('int'),
+ *       typeName: 'STRING_VALUE',
+ *       label: 'STRING_VALUE',
+ *       schemaName: 'STRING_VALUE',
+ *       tableName: 'STRING_VALUE',
+ *       isAutoIncrement: true || false,
+ *       isSigned: true || false,
+ *       isCurrency: true || false,
+ *       isCaseSensitive: true || false,
+ *       nullable: Number('int'),
+ *       precision: Number('int'),
+ *       scale: Number('int'),
+ *       arrayBaseColumnType: Number('int'),
+ *     },
+ *   ],
+ *   numberOfRecordsUpdated: Number('long'),
+ *   generatedFields: [
+ *     {//  Union: only one key present
+ *       isNull: true || false,
+ *       booleanValue: true || false,
+ *       longValue: Number('long'),
+ *       doubleValue: Number('double'),
+ *       stringValue: 'STRING_VALUE',
+ *       blobValue: 'BLOB_VALUE',
+ *       arrayValue: '<ArrayValue>',
+ *     },
+ *   ],
+ *   formattedRecords: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ExecuteStatementCommandInput - {@link ExecuteStatementCommandInput}
@@ -136,6 +216,8 @@ export interface ExecuteStatementCommandOutput extends ExecuteStatementResponse,
  * @throws {@link StatementTimeoutException} (client fault)
  *  <p>The execution of the SQL statement timed out.</p>
  *
+ * @throws {@link RDSDataServiceException}
+ * <p>Base exception class for all service exceptions from RDSData service.</p>
  *
  */
 export class ExecuteStatementCommand extends $Command<

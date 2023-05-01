@@ -40,14 +40,26 @@ export interface DescribeControlPanelCommandOutput extends DescribeControlPanelR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Route53RecoveryControlConfigClient, DescribeControlPanelCommand } from "@aws-sdk/client-route53-recovery-control-config"; // ES Modules import
- * // const { Route53RecoveryControlConfigClient, DescribeControlPanelCommand } = require("@aws-sdk/client-route53-recovery-control-config"); // CommonJS import
+ * import { Route53RecoveryControlConfigClient, DescribeControlPanelCommand } from '@aws-sdk/client-route53-recovery-control-config'; // ES Modules import
+ * // const { Route53RecoveryControlConfigClient, DescribeControlPanelCommand } = require('@aws-sdk/client-route53-recovery-control-config'); // CommonJS import
  * const client = new Route53RecoveryControlConfigClient(config);
  * const input = { // DescribeControlPanelRequest
- *   ControlPanelArn: "STRING_VALUE", // required
+ *   ControlPanelArn: 'STRING_VALUE', // required
  * };
  * const command = new DescribeControlPanelCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeControlPanelResponse
+ *   ControlPanel: { // ControlPanel
+ *     ClusterArn: 'STRING_VALUE',
+ *     ControlPanelArn: 'STRING_VALUE',
+ *     DefaultControlPanel: true || false,
+ *     Name: 'STRING_VALUE',
+ *     RoutingControlCount: Number('int'),
+ *     Status: 'PENDING' || 'DEPLOYED' || 'PENDING_DELETION',
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeControlPanelCommandInput - {@link DescribeControlPanelCommandInput}
@@ -74,6 +86,8 @@ export interface DescribeControlPanelCommandOutput extends DescribeControlPanelR
  * @throws {@link ValidationException} (client fault)
  *  <p>400 response - Multiple causes. For example, you might have a malformed query string and input parameter might be out of range, or you might have used parameters together incorrectly.</p>
  *
+ * @throws {@link Route53RecoveryControlConfigServiceException}
+ * <p>Base exception class for all service exceptions from Route53RecoveryControlConfig service.</p>
  *
  */
 export class DescribeControlPanelCommand extends $Command<

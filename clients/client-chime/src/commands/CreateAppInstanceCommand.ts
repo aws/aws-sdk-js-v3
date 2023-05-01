@@ -41,22 +41,27 @@ export interface CreateAppInstanceCommandOutput extends CreateAppInstanceRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeClient, CreateAppInstanceCommand } from "@aws-sdk/client-chime"; // ES Modules import
- * // const { ChimeClient, CreateAppInstanceCommand } = require("@aws-sdk/client-chime"); // CommonJS import
+ * import { ChimeClient, CreateAppInstanceCommand } from '@aws-sdk/client-chime'; // ES Modules import
+ * // const { ChimeClient, CreateAppInstanceCommand } = require('@aws-sdk/client-chime'); // CommonJS import
  * const client = new ChimeClient(config);
  * const input = { // CreateAppInstanceRequest
- *   Name: "STRING_VALUE", // required
- *   Metadata: "STRING_VALUE",
- *   ClientRequestToken: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
+ *   Metadata: 'STRING_VALUE',
+ *   ClientRequestToken: 'STRING_VALUE', // required
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreateAppInstanceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateAppInstanceResponse
+ *   AppInstanceArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateAppInstanceCommandInput - {@link CreateAppInstanceCommandInput}
@@ -90,6 +95,8 @@ export interface CreateAppInstanceCommandOutput extends CreateAppInstanceRespons
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeServiceException}
+ * <p>Base exception class for all service exceptions from Chime service.</p>
  *
  */
 export class CreateAppInstanceCommand extends $Command<

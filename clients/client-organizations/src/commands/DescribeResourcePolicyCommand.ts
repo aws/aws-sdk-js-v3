@@ -38,12 +38,23 @@ export interface DescribeResourcePolicyCommandOutput extends DescribeResourcePol
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OrganizationsClient, DescribeResourcePolicyCommand } from "@aws-sdk/client-organizations"; // ES Modules import
- * // const { OrganizationsClient, DescribeResourcePolicyCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
+ * import { OrganizationsClient, DescribeResourcePolicyCommand } from '@aws-sdk/client-organizations'; // ES Modules import
+ * // const { OrganizationsClient, DescribeResourcePolicyCommand } = require('@aws-sdk/client-organizations'); // CommonJS import
  * const client = new OrganizationsClient(config);
  * const input = {};
  * const command = new DescribeResourcePolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeResourcePolicyResponse
+ *   ResourcePolicy: { // ResourcePolicy
+ *     ResourcePolicySummary: { // ResourcePolicySummary
+ *       Id: 'STRING_VALUE',
+ *       Arn: 'STRING_VALUE',
+ *     },
+ *     Content: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeResourcePolicyCommandInput - {@link DescribeResourcePolicyCommandInput}
@@ -277,6 +288,8 @@ export interface DescribeResourcePolicyCommandOutput extends DescribeResourcePol
  * @throws {@link UnsupportedAPIEndpointException} (client fault)
  *  <p>This action isn't available in the current Amazon Web Services Region.</p>
  *
+ * @throws {@link OrganizationsServiceException}
+ * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
  */
 export class DescribeResourcePolicyCommand extends $Command<

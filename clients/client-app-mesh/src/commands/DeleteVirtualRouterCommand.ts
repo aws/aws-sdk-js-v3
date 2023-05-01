@@ -38,16 +38,46 @@ export interface DeleteVirtualRouterCommandOutput extends DeleteVirtualRouterOut
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppMeshClient, DeleteVirtualRouterCommand } from "@aws-sdk/client-app-mesh"; // ES Modules import
- * // const { AppMeshClient, DeleteVirtualRouterCommand } = require("@aws-sdk/client-app-mesh"); // CommonJS import
+ * import { AppMeshClient, DeleteVirtualRouterCommand } from '@aws-sdk/client-app-mesh'; // ES Modules import
+ * // const { AppMeshClient, DeleteVirtualRouterCommand } = require('@aws-sdk/client-app-mesh'); // CommonJS import
  * const client = new AppMeshClient(config);
  * const input = { // DeleteVirtualRouterInput
- *   virtualRouterName: "STRING_VALUE", // required
- *   meshName: "STRING_VALUE", // required
- *   meshOwner: "STRING_VALUE",
+ *   virtualRouterName: 'STRING_VALUE', // required
+ *   meshName: 'STRING_VALUE', // required
+ *   meshOwner: 'STRING_VALUE',
  * };
  * const command = new DeleteVirtualRouterCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteVirtualRouterOutput
+ *   virtualRouter: { // VirtualRouterData
+ *     meshName: 'STRING_VALUE', // required
+ *     virtualRouterName: 'STRING_VALUE', // required
+ *     spec: { // VirtualRouterSpec
+ *       listeners: [ // VirtualRouterListeners
+ *         { // VirtualRouterListener
+ *           portMapping: { // PortMapping
+ *             port: Number('int'), // required
+ *             protocol: 'STRING_VALUE', // required
+ *           },
+ *         },
+ *       ],
+ *     },
+ *     metadata: { // ResourceMetadata
+ *       arn: 'STRING_VALUE', // required
+ *       version: Number('long'), // required
+ *       uid: 'STRING_VALUE', // required
+ *       createdAt: new Date('TIMESTAMP'), // required
+ *       lastUpdatedAt: new Date('TIMESTAMP'), // required
+ *       meshOwner: 'STRING_VALUE', // required
+ *       resourceOwner: 'STRING_VALUE', // required
+ *     },
+ *     status: { // VirtualRouterStatus
+ *       status: 'STRING_VALUE', // required
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param DeleteVirtualRouterCommandInput - {@link DeleteVirtualRouterCommandInput}
@@ -81,6 +111,8 @@ export interface DeleteVirtualRouterCommandOutput extends DeleteVirtualRouterOut
  *          your account. For best results, use an increasing or variable sleep interval between
  *          requests.</p>
  *
+ * @throws {@link AppMeshServiceException}
+ * <p>Base exception class for all service exceptions from AppMesh service.</p>
  *
  */
 export class DeleteVirtualRouterCommand extends $Command<

@@ -39,17 +39,20 @@ export interface UntagDeliveryStreamCommandOutput extends UntagDeliveryStreamOut
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FirehoseClient, UntagDeliveryStreamCommand } from "@aws-sdk/client-firehose"; // ES Modules import
- * // const { FirehoseClient, UntagDeliveryStreamCommand } = require("@aws-sdk/client-firehose"); // CommonJS import
+ * import { FirehoseClient, UntagDeliveryStreamCommand } from '@aws-sdk/client-firehose'; // ES Modules import
+ * // const { FirehoseClient, UntagDeliveryStreamCommand } = require('@aws-sdk/client-firehose'); // CommonJS import
  * const client = new FirehoseClient(config);
  * const input = { // UntagDeliveryStreamInput
- *   DeliveryStreamName: "STRING_VALUE", // required
+ *   DeliveryStreamName: 'STRING_VALUE', // required
  *   TagKeys: [ // TagKeyList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new UntagDeliveryStreamCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UntagDeliveryStreamCommandInput - {@link UntagDeliveryStreamCommandInput}
@@ -70,6 +73,8 @@ export interface UntagDeliveryStreamCommandOutput extends UntagDeliveryStreamOut
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource could not be found.</p>
  *
+ * @throws {@link FirehoseServiceException}
+ * <p>Base exception class for all service exceptions from Firehose service.</p>
  *
  */
 export class UntagDeliveryStreamCommand extends $Command<

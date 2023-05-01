@@ -37,20 +37,23 @@ export interface SendAutomationSignalCommandOutput extends SendAutomationSignalR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMClient, SendAutomationSignalCommand } from "@aws-sdk/client-ssm"; // ES Modules import
- * // const { SSMClient, SendAutomationSignalCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * import { SSMClient, SendAutomationSignalCommand } from '@aws-sdk/client-ssm'; // ES Modules import
+ * // const { SSMClient, SendAutomationSignalCommand } = require('@aws-sdk/client-ssm'); // CommonJS import
  * const client = new SSMClient(config);
  * const input = { // SendAutomationSignalRequest
- *   AutomationExecutionId: "STRING_VALUE", // required
- *   SignalType: "Approve" || "Reject" || "StartStep" || "StopStep" || "Resume", // required
+ *   AutomationExecutionId: 'STRING_VALUE', // required
+ *   SignalType: 'Approve' || 'Reject' || 'StartStep' || 'StopStep' || 'Resume', // required
  *   Payload: { // AutomationParameterMap
- *     "<keys>": [ // AutomationParameterValueList
- *       "STRING_VALUE",
+ *     '<keys>': [ // AutomationParameterValueList
+ *       'STRING_VALUE',
  *     ],
  *   },
  * };
  * const command = new SendAutomationSignalCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param SendAutomationSignalCommandInput - {@link SendAutomationSignalCommandInput}
@@ -73,6 +76,8 @@ export interface SendAutomationSignalCommandOutput extends SendAutomationSignalR
  * @throws {@link InvalidAutomationSignalException} (client fault)
  *  <p>The signal isn't valid for the current Automation execution.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class SendAutomationSignalCommand extends $Command<

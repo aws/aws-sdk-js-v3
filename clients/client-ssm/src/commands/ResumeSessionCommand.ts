@@ -41,14 +41,21 @@ export interface ResumeSessionCommandOutput extends ResumeSessionResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMClient, ResumeSessionCommand } from "@aws-sdk/client-ssm"; // ES Modules import
- * // const { SSMClient, ResumeSessionCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * import { SSMClient, ResumeSessionCommand } from '@aws-sdk/client-ssm'; // ES Modules import
+ * // const { SSMClient, ResumeSessionCommand } = require('@aws-sdk/client-ssm'); // CommonJS import
  * const client = new SSMClient(config);
  * const input = { // ResumeSessionRequest
- *   SessionId: "STRING_VALUE", // required
+ *   SessionId: 'STRING_VALUE', // required
  * };
  * const command = new ResumeSessionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ResumeSessionResponse
+ *   SessionId: 'STRING_VALUE',
+ *   TokenValue: 'STRING_VALUE',
+ *   StreamUrl: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ResumeSessionCommandInput - {@link ResumeSessionCommandInput}
@@ -66,6 +73,8 @@ export interface ResumeSessionCommandOutput extends ResumeSessionResponse, __Met
  * @throws {@link InternalServerError} (server fault)
  *  <p>An error occurred on the server side.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class ResumeSessionCommand extends $Command<

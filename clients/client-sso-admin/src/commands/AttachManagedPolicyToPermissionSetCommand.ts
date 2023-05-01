@@ -52,16 +52,19 @@ export interface AttachManagedPolicyToPermissionSetCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSOAdminClient, AttachManagedPolicyToPermissionSetCommand } from "@aws-sdk/client-sso-admin"; // ES Modules import
- * // const { SSOAdminClient, AttachManagedPolicyToPermissionSetCommand } = require("@aws-sdk/client-sso-admin"); // CommonJS import
+ * import { SSOAdminClient, AttachManagedPolicyToPermissionSetCommand } from '@aws-sdk/client-sso-admin'; // ES Modules import
+ * // const { SSOAdminClient, AttachManagedPolicyToPermissionSetCommand } = require('@aws-sdk/client-sso-admin'); // CommonJS import
  * const client = new SSOAdminClient(config);
  * const input = { // AttachManagedPolicyToPermissionSetRequest
- *   InstanceArn: "STRING_VALUE", // required
- *   PermissionSetArn: "STRING_VALUE", // required
- *   ManagedPolicyArn: "STRING_VALUE", // required
+ *   InstanceArn: 'STRING_VALUE', // required
+ *   PermissionSetArn: 'STRING_VALUE', // required
+ *   ManagedPolicyArn: 'STRING_VALUE', // required
  * };
  * const command = new AttachManagedPolicyToPermissionSetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param AttachManagedPolicyToPermissionSetCommandInput - {@link AttachManagedPolicyToPermissionSetCommandInput}
@@ -97,6 +100,8 @@ export interface AttachManagedPolicyToPermissionSetCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The request failed because it contains a syntax error.</p>
  *
+ * @throws {@link SSOAdminServiceException}
+ * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
  */
 export class AttachManagedPolicyToPermissionSetCommand extends $Command<

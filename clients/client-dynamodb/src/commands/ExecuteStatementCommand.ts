@@ -48,63 +48,143 @@ export interface ExecuteStatementCommandOutput extends ExecuteStatementOutput, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DynamoDBClient, ExecuteStatementCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
- * // const { DynamoDBClient, ExecuteStatementCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
+ * import { DynamoDBClient, ExecuteStatementCommand } from '@aws-sdk/client-dynamodb'; // ES Modules import
+ * // const { DynamoDBClient, ExecuteStatementCommand } = require('@aws-sdk/client-dynamodb'); // CommonJS import
  * const client = new DynamoDBClient(config);
  * const input = { // ExecuteStatementInput
- *   Statement: "STRING_VALUE", // required
+ *   Statement: 'STRING_VALUE', // required
  *   Parameters: [ // PreparedStatementParameters
  *     { // AttributeValue Union: only one key present
- *       S: "STRING_VALUE",
- *       N: "STRING_VALUE",
- *       B: "BLOB_VALUE",
+ *       S: 'STRING_VALUE',
+ *       N: 'STRING_VALUE',
+ *       B: 'BLOB_VALUE',
  *       SS: [ // StringSetAttributeValue
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *       NS: [ // NumberSetAttributeValue
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *       BS: [ // BinarySetAttributeValue
- *         "BLOB_VALUE",
+ *         'BLOB_VALUE',
  *       ],
  *       M: { // MapAttributeValue
- *         "<keys>": {//  Union: only one key present
- *           S: "STRING_VALUE",
- *           N: "STRING_VALUE",
- *           B: "BLOB_VALUE",
+ *         '<keys>': {//  Union: only one key present
+ *           S: 'STRING_VALUE',
+ *           N: 'STRING_VALUE',
+ *           B: 'BLOB_VALUE',
  *           SS: [
- *             "STRING_VALUE",
+ *             'STRING_VALUE',
  *           ],
  *           NS: [
- *             "STRING_VALUE",
+ *             'STRING_VALUE',
  *           ],
  *           BS: [
- *             "BLOB_VALUE",
+ *             'BLOB_VALUE',
  *           ],
  *           M: {
- *             "<keys>": "<AttributeValue>",
+ *             '<keys>': '<AttributeValue>',
  *           },
  *           L: [ // ListAttributeValue
- *             "<AttributeValue>",
+ *             '<AttributeValue>',
  *           ],
  *           NULL: true || false,
  *           BOOL: true || false,
  *         },
  *       },
  *       L: [
- *         "<AttributeValue>",
+ *         '<AttributeValue>',
  *       ],
  *       NULL: true || false,
  *       BOOL: true || false,
  *     },
  *   ],
  *   ConsistentRead: true || false,
- *   NextToken: "STRING_VALUE",
- *   ReturnConsumedCapacity: "INDEXES" || "TOTAL" || "NONE",
- *   Limit: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   ReturnConsumedCapacity: 'INDEXES' || 'TOTAL' || 'NONE',
+ *   Limit: Number('int'),
  * };
  * const command = new ExecuteStatementCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ExecuteStatementOutput
+ *   Items: [ // ItemList
+ *     { // AttributeMap
+ *       '<keys>': { // AttributeValue Union: only one key present
+ *         S: 'STRING_VALUE',
+ *         N: 'STRING_VALUE',
+ *         B: 'BLOB_VALUE',
+ *         SS: [ // StringSetAttributeValue
+ *           'STRING_VALUE',
+ *         ],
+ *         NS: [ // NumberSetAttributeValue
+ *           'STRING_VALUE',
+ *         ],
+ *         BS: [ // BinarySetAttributeValue
+ *           'BLOB_VALUE',
+ *         ],
+ *         M: { // MapAttributeValue
+ *           '<keys>': {//  Union: only one key present
+ *             S: 'STRING_VALUE',
+ *             N: 'STRING_VALUE',
+ *             B: 'BLOB_VALUE',
+ *             SS: [
+ *               'STRING_VALUE',
+ *             ],
+ *             NS: [
+ *               'STRING_VALUE',
+ *             ],
+ *             BS: [
+ *               'BLOB_VALUE',
+ *             ],
+ *             M: {
+ *               '<keys>': '<AttributeValue>',
+ *             },
+ *             L: [ // ListAttributeValue
+ *               '<AttributeValue>',
+ *             ],
+ *             NULL: true || false,
+ *             BOOL: true || false,
+ *           },
+ *         },
+ *         L: [
+ *           '<AttributeValue>',
+ *         ],
+ *         NULL: true || false,
+ *         BOOL: true || false,
+ *       },
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ *   ConsumedCapacity: { // ConsumedCapacity
+ *     TableName: 'STRING_VALUE',
+ *     CapacityUnits: Number('double'),
+ *     ReadCapacityUnits: Number('double'),
+ *     WriteCapacityUnits: Number('double'),
+ *     Table: { // Capacity
+ *       ReadCapacityUnits: Number('double'),
+ *       WriteCapacityUnits: Number('double'),
+ *       CapacityUnits: Number('double'),
+ *     },
+ *     LocalSecondaryIndexes: { // SecondaryIndexesCapacityMap
+ *       '<keys>': {
+ *         ReadCapacityUnits: Number('double'),
+ *         WriteCapacityUnits: Number('double'),
+ *         CapacityUnits: Number('double'),
+ *       },
+ *     },
+ *     GlobalSecondaryIndexes: {
+ *       '<keys>': {
+ *         ReadCapacityUnits: Number('double'),
+ *         WriteCapacityUnits: Number('double'),
+ *         CapacityUnits: Number('double'),
+ *       },
+ *     },
+ *   },
+ *   LastEvaluatedKey: { // Key
+ *     '<keys>': '<AttributeValue>',
+ *   },
+ * };
+ *
  * ```
  *
  * @param ExecuteStatementCommandInput - {@link ExecuteStatementCommandInput}
@@ -146,6 +226,8 @@ export interface ExecuteStatementCommandOutput extends ExecuteStatementOutput, _
  *  <p>Operation was rejected because there is an ongoing transaction for the
  *             item.</p>
  *
+ * @throws {@link DynamoDBServiceException}
+ * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
  */
 export class ExecuteStatementCommand extends $Command<

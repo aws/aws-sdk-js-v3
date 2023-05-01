@@ -41,20 +41,35 @@ export interface ListServerNeighborsCommandOutput extends ListServerNeighborsRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ApplicationDiscoveryServiceClient, ListServerNeighborsCommand } from "@aws-sdk/client-application-discovery-service"; // ES Modules import
- * // const { ApplicationDiscoveryServiceClient, ListServerNeighborsCommand } = require("@aws-sdk/client-application-discovery-service"); // CommonJS import
+ * import { ApplicationDiscoveryServiceClient, ListServerNeighborsCommand } from '@aws-sdk/client-application-discovery-service'; // ES Modules import
+ * // const { ApplicationDiscoveryServiceClient, ListServerNeighborsCommand } = require('@aws-sdk/client-application-discovery-service'); // CommonJS import
  * const client = new ApplicationDiscoveryServiceClient(config);
  * const input = { // ListServerNeighborsRequest
- *   configurationId: "STRING_VALUE", // required
+ *   configurationId: 'STRING_VALUE', // required
  *   portInformationNeeded: true || false,
  *   neighborConfigurationIds: [ // ConfigurationIdList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new ListServerNeighborsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListServerNeighborsResponse
+ *   neighbors: [ // NeighborDetailsList // required
+ *     { // NeighborConnectionDetail
+ *       sourceServerId: 'STRING_VALUE', // required
+ *       destinationServerId: 'STRING_VALUE', // required
+ *       destinationPort: Number('int'),
+ *       transportProtocol: 'STRING_VALUE',
+ *       connectionsCount: Number('long'), // required
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ *   knownDependencyCount: Number('long'),
+ * };
+ *
  * ```
  *
  * @param ListServerNeighborsCommandInput - {@link ListServerNeighborsCommandInput}
@@ -80,6 +95,8 @@ export interface ListServerNeighborsCommandOutput extends ListServerNeighborsRes
  * @throws {@link ServerInternalErrorException} (server fault)
  *  <p>The server experienced an internal error. Try again.</p>
  *
+ * @throws {@link ApplicationDiscoveryServiceServiceException}
+ * <p>Base exception class for all service exceptions from ApplicationDiscoveryService service.</p>
  *
  */
 export class ListServerNeighborsCommand extends $Command<

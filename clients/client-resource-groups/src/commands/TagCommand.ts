@@ -54,17 +54,25 @@ export interface TagCommandOutput extends TagOutput, __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ResourceGroupsClient, TagCommand } from "@aws-sdk/client-resource-groups"; // ES Modules import
- * // const { ResourceGroupsClient, TagCommand } = require("@aws-sdk/client-resource-groups"); // CommonJS import
+ * import { ResourceGroupsClient, TagCommand } from '@aws-sdk/client-resource-groups'; // ES Modules import
+ * // const { ResourceGroupsClient, TagCommand } = require('@aws-sdk/client-resource-groups'); // CommonJS import
  * const client = new ResourceGroupsClient(config);
  * const input = { // TagInput
- *   Arn: "STRING_VALUE", // required
+ *   Arn: 'STRING_VALUE', // required
  *   Tags: { // Tags // required
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new TagCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // TagOutput
+ *   Arn: 'STRING_VALUE',
+ *   Tags: { // Tags
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param TagCommandInput - {@link TagCommandInput}
@@ -92,6 +100,8 @@ export interface TagCommandOutput extends TagOutput, __MetadataBearer {}
  *  <p>You've exceeded throttling limits by making too many requests in a period of
  *             time.</p>
  *
+ * @throws {@link ResourceGroupsServiceException}
+ * <p>Base exception class for all service exceptions from ResourceGroups service.</p>
  *
  */
 export class TagCommand extends $Command<TagCommandInput, TagCommandOutput, ResourceGroupsClientResolvedConfig> {

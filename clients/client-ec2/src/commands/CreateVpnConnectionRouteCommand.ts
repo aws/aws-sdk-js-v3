@@ -40,15 +40,18 @@ export interface CreateVpnConnectionRouteCommandOutput extends __MetadataBearer 
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, CreateVpnConnectionRouteCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, CreateVpnConnectionRouteCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, CreateVpnConnectionRouteCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, CreateVpnConnectionRouteCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // CreateVpnConnectionRouteRequest
- *   DestinationCidrBlock: "STRING_VALUE", // required
- *   VpnConnectionId: "STRING_VALUE", // required
+ *   DestinationCidrBlock: 'STRING_VALUE', // required
+ *   VpnConnectionId: 'STRING_VALUE', // required
  * };
  * const command = new CreateVpnConnectionRouteCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param CreateVpnConnectionRouteCommandInput - {@link CreateVpnConnectionRouteCommandInput}
@@ -57,6 +60,8 @@ export interface CreateVpnConnectionRouteCommandOutput extends __MetadataBearer 
  * @see {@link CreateVpnConnectionRouteCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class CreateVpnConnectionRouteCommand extends $Command<

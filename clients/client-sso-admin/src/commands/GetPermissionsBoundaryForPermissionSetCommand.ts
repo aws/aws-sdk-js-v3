@@ -45,15 +45,26 @@ export interface GetPermissionsBoundaryForPermissionSetCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSOAdminClient, GetPermissionsBoundaryForPermissionSetCommand } from "@aws-sdk/client-sso-admin"; // ES Modules import
- * // const { SSOAdminClient, GetPermissionsBoundaryForPermissionSetCommand } = require("@aws-sdk/client-sso-admin"); // CommonJS import
+ * import { SSOAdminClient, GetPermissionsBoundaryForPermissionSetCommand } from '@aws-sdk/client-sso-admin'; // ES Modules import
+ * // const { SSOAdminClient, GetPermissionsBoundaryForPermissionSetCommand } = require('@aws-sdk/client-sso-admin'); // CommonJS import
  * const client = new SSOAdminClient(config);
  * const input = { // GetPermissionsBoundaryForPermissionSetRequest
- *   InstanceArn: "STRING_VALUE", // required
- *   PermissionSetArn: "STRING_VALUE", // required
+ *   InstanceArn: 'STRING_VALUE', // required
+ *   PermissionSetArn: 'STRING_VALUE', // required
  * };
  * const command = new GetPermissionsBoundaryForPermissionSetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetPermissionsBoundaryForPermissionSetResponse
+ *   PermissionsBoundary: { // PermissionsBoundary
+ *     CustomerManagedPolicyReference: { // CustomerManagedPolicyReference
+ *       Name: 'STRING_VALUE', // required
+ *       Path: 'STRING_VALUE',
+ *     },
+ *     ManagedPolicyArn: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetPermissionsBoundaryForPermissionSetCommandInput - {@link GetPermissionsBoundaryForPermissionSetCommandInput}
@@ -79,6 +90,8 @@ export interface GetPermissionsBoundaryForPermissionSetCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The request failed because it contains a syntax error.</p>
  *
+ * @throws {@link SSOAdminServiceException}
+ * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
  */
 export class GetPermissionsBoundaryForPermissionSetCommand extends $Command<

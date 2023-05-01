@@ -49,25 +49,37 @@ export interface GetPersonalizedRankingCommandOutput extends GetPersonalizedRank
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PersonalizeRuntimeClient, GetPersonalizedRankingCommand } from "@aws-sdk/client-personalize-runtime"; // ES Modules import
- * // const { PersonalizeRuntimeClient, GetPersonalizedRankingCommand } = require("@aws-sdk/client-personalize-runtime"); // CommonJS import
+ * import { PersonalizeRuntimeClient, GetPersonalizedRankingCommand } from '@aws-sdk/client-personalize-runtime'; // ES Modules import
+ * // const { PersonalizeRuntimeClient, GetPersonalizedRankingCommand } = require('@aws-sdk/client-personalize-runtime'); // CommonJS import
  * const client = new PersonalizeRuntimeClient(config);
  * const input = { // GetPersonalizedRankingRequest
- *   campaignArn: "STRING_VALUE", // required
+ *   campaignArn: 'STRING_VALUE', // required
  *   inputList: [ // InputList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   userId: "STRING_VALUE", // required
+ *   userId: 'STRING_VALUE', // required
  *   context: { // Context
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
- *   filterArn: "STRING_VALUE",
+ *   filterArn: 'STRING_VALUE',
  *   filterValues: { // FilterValues
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new GetPersonalizedRankingCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetPersonalizedRankingResponse
+ *   personalizedRanking: [ // ItemList
+ *     { // PredictedItem
+ *       itemId: 'STRING_VALUE',
+ *       score: Number('double'),
+ *       promotionName: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   recommendationId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetPersonalizedRankingCommandInput - {@link GetPersonalizedRankingCommandInput}
@@ -82,6 +94,8 @@ export interface GetPersonalizedRankingCommandOutput extends GetPersonalizedRank
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource does not exist.</p>
  *
+ * @throws {@link PersonalizeRuntimeServiceException}
+ * <p>Base exception class for all service exceptions from PersonalizeRuntime service.</p>
  *
  */
 export class GetPersonalizedRankingCommand extends $Command<

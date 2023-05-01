@@ -40,14 +40,26 @@ export interface DeleteApplicationCommandOutput extends DeleteApplicationRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ServiceCatalogAppRegistryClient, DeleteApplicationCommand } from "@aws-sdk/client-service-catalog-appregistry"; // ES Modules import
- * // const { ServiceCatalogAppRegistryClient, DeleteApplicationCommand } = require("@aws-sdk/client-service-catalog-appregistry"); // CommonJS import
+ * import { ServiceCatalogAppRegistryClient, DeleteApplicationCommand } from '@aws-sdk/client-service-catalog-appregistry'; // ES Modules import
+ * // const { ServiceCatalogAppRegistryClient, DeleteApplicationCommand } = require('@aws-sdk/client-service-catalog-appregistry'); // CommonJS import
  * const client = new ServiceCatalogAppRegistryClient(config);
  * const input = { // DeleteApplicationRequest
- *   application: "STRING_VALUE", // required
+ *   application: 'STRING_VALUE', // required
  * };
  * const command = new DeleteApplicationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteApplicationResponse
+ *   application: { // ApplicationSummary
+ *     id: 'STRING_VALUE',
+ *     arn: 'STRING_VALUE',
+ *     name: 'STRING_VALUE',
+ *     description: 'STRING_VALUE',
+ *     creationTime: new Date('TIMESTAMP'),
+ *     lastUpdateTime: new Date('TIMESTAMP'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param DeleteApplicationCommandInput - {@link DeleteApplicationCommandInput}
@@ -65,6 +77,8 @@ export interface DeleteApplicationCommandOutput extends DeleteApplicationRespons
  * @throws {@link ValidationException} (client fault)
  *  <p>The request has invalid or missing parameters.</p>
  *
+ * @throws {@link ServiceCatalogAppRegistryServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalogAppRegistry service.</p>
  *
  */
 export class DeleteApplicationCommand extends $Command<

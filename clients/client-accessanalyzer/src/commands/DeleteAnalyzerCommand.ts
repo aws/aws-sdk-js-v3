@@ -38,15 +38,18 @@ export interface DeleteAnalyzerCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AccessAnalyzerClient, DeleteAnalyzerCommand } from "@aws-sdk/client-accessanalyzer"; // ES Modules import
- * // const { AccessAnalyzerClient, DeleteAnalyzerCommand } = require("@aws-sdk/client-accessanalyzer"); // CommonJS import
+ * import { AccessAnalyzerClient, DeleteAnalyzerCommand } from '@aws-sdk/client-accessanalyzer'; // ES Modules import
+ * // const { AccessAnalyzerClient, DeleteAnalyzerCommand } = require('@aws-sdk/client-accessanalyzer'); // CommonJS import
  * const client = new AccessAnalyzerClient(config);
  * const input = { // DeleteAnalyzerRequest
- *   analyzerName: "STRING_VALUE", // required
- *   clientToken: "STRING_VALUE",
+ *   analyzerName: 'STRING_VALUE', // required
+ *   clientToken: 'STRING_VALUE',
  * };
  * const command = new DeleteAnalyzerCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteAnalyzerCommandInput - {@link DeleteAnalyzerCommandInput}
@@ -70,6 +73,8 @@ export interface DeleteAnalyzerCommandOutput extends __MetadataBearer {}
  * @throws {@link ValidationException} (client fault)
  *  <p>Validation exception error.</p>
  *
+ * @throws {@link AccessAnalyzerServiceException}
+ * <p>Base exception class for all service exceptions from AccessAnalyzer service.</p>
  *
  */
 export class DeleteAnalyzerCommand extends $Command<

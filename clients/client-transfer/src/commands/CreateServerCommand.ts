@@ -39,72 +39,77 @@ export interface CreateServerCommandOutput extends CreateServerResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { TransferClient, CreateServerCommand } from "@aws-sdk/client-transfer"; // ES Modules import
- * // const { TransferClient, CreateServerCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
+ * import { TransferClient, CreateServerCommand } from '@aws-sdk/client-transfer'; // ES Modules import
+ * // const { TransferClient, CreateServerCommand } = require('@aws-sdk/client-transfer'); // CommonJS import
  * const client = new TransferClient(config);
  * const input = { // CreateServerRequest
- *   Certificate: "STRING_VALUE",
- *   Domain: "S3" || "EFS",
+ *   Certificate: 'STRING_VALUE',
+ *   Domain: 'S3' || 'EFS',
  *   EndpointDetails: { // EndpointDetails
  *     AddressAllocationIds: [ // AddressAllocationIds
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     SubnetIds: [ // SubnetIds
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
- *     VpcEndpointId: "STRING_VALUE",
- *     VpcId: "STRING_VALUE",
+ *     VpcEndpointId: 'STRING_VALUE',
+ *     VpcId: 'STRING_VALUE',
  *     SecurityGroupIds: [ // SecurityGroupIds
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *   },
- *   EndpointType: "PUBLIC" || "VPC" || "VPC_ENDPOINT",
- *   HostKey: "STRING_VALUE",
+ *   EndpointType: 'PUBLIC' || 'VPC' || 'VPC_ENDPOINT',
+ *   HostKey: 'STRING_VALUE',
  *   IdentityProviderDetails: { // IdentityProviderDetails
- *     Url: "STRING_VALUE",
- *     InvocationRole: "STRING_VALUE",
- *     DirectoryId: "STRING_VALUE",
- *     Function: "STRING_VALUE",
+ *     Url: 'STRING_VALUE',
+ *     InvocationRole: 'STRING_VALUE',
+ *     DirectoryId: 'STRING_VALUE',
+ *     Function: 'STRING_VALUE',
  *   },
- *   IdentityProviderType: "SERVICE_MANAGED" || "API_GATEWAY" || "AWS_DIRECTORY_SERVICE" || "AWS_LAMBDA",
- *   LoggingRole: "STRING_VALUE",
- *   PostAuthenticationLoginBanner: "STRING_VALUE",
- *   PreAuthenticationLoginBanner: "STRING_VALUE",
+ *   IdentityProviderType: 'SERVICE_MANAGED' || 'API_GATEWAY' || 'AWS_DIRECTORY_SERVICE' || 'AWS_LAMBDA',
+ *   LoggingRole: 'STRING_VALUE',
+ *   PostAuthenticationLoginBanner: 'STRING_VALUE',
+ *   PreAuthenticationLoginBanner: 'STRING_VALUE',
  *   Protocols: [ // Protocols
- *     "SFTP" || "FTP" || "FTPS" || "AS2",
+ *     'SFTP' || 'FTP' || 'FTPS' || 'AS2',
  *   ],
  *   ProtocolDetails: { // ProtocolDetails
- *     PassiveIp: "STRING_VALUE",
- *     TlsSessionResumptionMode: "DISABLED" || "ENABLED" || "ENFORCED",
- *     SetStatOption: "DEFAULT" || "ENABLE_NO_OP",
+ *     PassiveIp: 'STRING_VALUE',
+ *     TlsSessionResumptionMode: 'DISABLED' || 'ENABLED' || 'ENFORCED',
+ *     SetStatOption: 'DEFAULT' || 'ENABLE_NO_OP',
  *     As2Transports: [ // As2Transports
- *       "HTTP",
+ *       'HTTP',
  *     ],
  *   },
- *   SecurityPolicyName: "STRING_VALUE",
+ *   SecurityPolicyName: 'STRING_VALUE',
  *   Tags: [ // Tags
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  *   WorkflowDetails: { // WorkflowDetails
  *     OnUpload: [ // OnUploadWorkflowDetails
  *       { // WorkflowDetail
- *         WorkflowId: "STRING_VALUE", // required
- *         ExecutionRole: "STRING_VALUE", // required
+ *         WorkflowId: 'STRING_VALUE', // required
+ *         ExecutionRole: 'STRING_VALUE', // required
  *       },
  *     ],
  *     OnPartialUpload: [ // OnPartialUploadWorkflowDetails
  *       {
- *         WorkflowId: "STRING_VALUE", // required
- *         ExecutionRole: "STRING_VALUE", // required
+ *         WorkflowId: 'STRING_VALUE', // required
+ *         ExecutionRole: 'STRING_VALUE', // required
  *       },
  *     ],
  *   },
  * };
  * const command = new CreateServerCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateServerResponse
+ *   ServerId: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param CreateServerCommandInput - {@link CreateServerCommandInput}
@@ -135,6 +140,8 @@ export interface CreateServerCommandOutput extends CreateServerResponse, __Metad
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
  *
+ * @throws {@link TransferServiceException}
+ * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
  */
 export class CreateServerCommand extends $Command<

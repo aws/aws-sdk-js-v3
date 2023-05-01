@@ -37,32 +37,38 @@ export interface UpdateAccessCommandOutput extends UpdateAccessResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { TransferClient, UpdateAccessCommand } from "@aws-sdk/client-transfer"; // ES Modules import
- * // const { TransferClient, UpdateAccessCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
+ * import { TransferClient, UpdateAccessCommand } from '@aws-sdk/client-transfer'; // ES Modules import
+ * // const { TransferClient, UpdateAccessCommand } = require('@aws-sdk/client-transfer'); // CommonJS import
  * const client = new TransferClient(config);
  * const input = { // UpdateAccessRequest
- *   HomeDirectory: "STRING_VALUE",
- *   HomeDirectoryType: "PATH" || "LOGICAL",
+ *   HomeDirectory: 'STRING_VALUE',
+ *   HomeDirectoryType: 'PATH' || 'LOGICAL',
  *   HomeDirectoryMappings: [ // HomeDirectoryMappings
  *     { // HomeDirectoryMapEntry
- *       Entry: "STRING_VALUE", // required
- *       Target: "STRING_VALUE", // required
+ *       Entry: 'STRING_VALUE', // required
+ *       Target: 'STRING_VALUE', // required
  *     },
  *   ],
- *   Policy: "STRING_VALUE",
+ *   Policy: 'STRING_VALUE',
  *   PosixProfile: { // PosixProfile
- *     Uid: Number("long"), // required
- *     Gid: Number("long"), // required
+ *     Uid: Number('long'), // required
+ *     Gid: Number('long'), // required
  *     SecondaryGids: [ // SecondaryGids
- *       Number("long"),
+ *       Number('long'),
  *     ],
  *   },
- *   Role: "STRING_VALUE",
- *   ServerId: "STRING_VALUE", // required
- *   ExternalId: "STRING_VALUE", // required
+ *   Role: 'STRING_VALUE',
+ *   ServerId: 'STRING_VALUE', // required
+ *   ExternalId: 'STRING_VALUE', // required
  * };
  * const command = new UpdateAccessCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateAccessResponse
+ *   ServerId: 'STRING_VALUE', // required
+ *   ExternalId: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param UpdateAccessCommandInput - {@link UpdateAccessCommandInput}
@@ -90,6 +96,8 @@ export interface UpdateAccessCommandOutput extends UpdateAccessResponse, __Metad
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
  *
+ * @throws {@link TransferServiceException}
+ * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
  */
 export class UpdateAccessCommand extends $Command<

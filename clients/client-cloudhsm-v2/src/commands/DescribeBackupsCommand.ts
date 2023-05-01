@@ -41,21 +41,46 @@ export interface DescribeBackupsCommandOutput extends DescribeBackupsResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudHSMV2Client, DescribeBackupsCommand } from "@aws-sdk/client-cloudhsm-v2"; // ES Modules import
- * // const { CloudHSMV2Client, DescribeBackupsCommand } = require("@aws-sdk/client-cloudhsm-v2"); // CommonJS import
+ * import { CloudHSMV2Client, DescribeBackupsCommand } from '@aws-sdk/client-cloudhsm-v2'; // ES Modules import
+ * // const { CloudHSMV2Client, DescribeBackupsCommand } = require('@aws-sdk/client-cloudhsm-v2'); // CommonJS import
  * const client = new CloudHSMV2Client(config);
  * const input = { // DescribeBackupsRequest
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  *   Filters: { // Filters
- *     "<keys>": [ // Strings
- *       "STRING_VALUE",
+ *     '<keys>': [ // Strings
+ *       'STRING_VALUE',
  *     ],
  *   },
  *   SortAscending: true || false,
  * };
  * const command = new DescribeBackupsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeBackupsResponse
+ *   Backups: [ // Backups
+ *     { // Backup
+ *       BackupId: 'STRING_VALUE', // required
+ *       BackupState: 'STRING_VALUE',
+ *       ClusterId: 'STRING_VALUE',
+ *       CreateTimestamp: new Date('TIMESTAMP'),
+ *       CopyTimestamp: new Date('TIMESTAMP'),
+ *       NeverExpires: true || false,
+ *       SourceRegion: 'STRING_VALUE',
+ *       SourceBackup: 'STRING_VALUE',
+ *       SourceCluster: 'STRING_VALUE',
+ *       DeleteTimestamp: new Date('TIMESTAMP'),
+ *       TagList: [ // TagList
+ *         { // Tag
+ *           Key: 'STRING_VALUE', // required
+ *           Value: 'STRING_VALUE', // required
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeBackupsCommandInput - {@link DescribeBackupsCommandInput}
@@ -85,6 +110,8 @@ export interface DescribeBackupsCommandOutput extends DescribeBackupsResponse, _
  * @throws {@link CloudHsmTagException} (client fault)
  *  <p>The request was rejected because of a tagging failure. Verify the tag conditions in all applicable policies, and then retry the request.</p>
  *
+ * @throws {@link CloudHSMV2ServiceException}
+ * <p>Base exception class for all service exceptions from CloudHSMV2 service.</p>
  *
  */
 export class DescribeBackupsCommand extends $Command<

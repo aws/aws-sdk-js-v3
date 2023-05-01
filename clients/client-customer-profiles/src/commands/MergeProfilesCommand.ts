@@ -78,43 +78,48 @@ export interface MergeProfilesCommandOutput extends MergeProfilesResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CustomerProfilesClient, MergeProfilesCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
- * // const { CustomerProfilesClient, MergeProfilesCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
+ * import { CustomerProfilesClient, MergeProfilesCommand } from '@aws-sdk/client-customer-profiles'; // ES Modules import
+ * // const { CustomerProfilesClient, MergeProfilesCommand } = require('@aws-sdk/client-customer-profiles'); // CommonJS import
  * const client = new CustomerProfilesClient(config);
  * const input = { // MergeProfilesRequest
- *   DomainName: "STRING_VALUE", // required
- *   MainProfileId: "STRING_VALUE", // required
+ *   DomainName: 'STRING_VALUE', // required
+ *   MainProfileId: 'STRING_VALUE', // required
  *   ProfileIdsToBeMerged: [ // ProfileIdToBeMergedList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   FieldSourceProfileIds: { // FieldSourceProfileIds
- *     AccountNumber: "STRING_VALUE",
- *     AdditionalInformation: "STRING_VALUE",
- *     PartyType: "STRING_VALUE",
- *     BusinessName: "STRING_VALUE",
- *     FirstName: "STRING_VALUE",
- *     MiddleName: "STRING_VALUE",
- *     LastName: "STRING_VALUE",
- *     BirthDate: "STRING_VALUE",
- *     Gender: "STRING_VALUE",
- *     PhoneNumber: "STRING_VALUE",
- *     MobilePhoneNumber: "STRING_VALUE",
- *     HomePhoneNumber: "STRING_VALUE",
- *     BusinessPhoneNumber: "STRING_VALUE",
- *     EmailAddress: "STRING_VALUE",
- *     PersonalEmailAddress: "STRING_VALUE",
- *     BusinessEmailAddress: "STRING_VALUE",
- *     Address: "STRING_VALUE",
- *     ShippingAddress: "STRING_VALUE",
- *     MailingAddress: "STRING_VALUE",
- *     BillingAddress: "STRING_VALUE",
+ *     AccountNumber: 'STRING_VALUE',
+ *     AdditionalInformation: 'STRING_VALUE',
+ *     PartyType: 'STRING_VALUE',
+ *     BusinessName: 'STRING_VALUE',
+ *     FirstName: 'STRING_VALUE',
+ *     MiddleName: 'STRING_VALUE',
+ *     LastName: 'STRING_VALUE',
+ *     BirthDate: 'STRING_VALUE',
+ *     Gender: 'STRING_VALUE',
+ *     PhoneNumber: 'STRING_VALUE',
+ *     MobilePhoneNumber: 'STRING_VALUE',
+ *     HomePhoneNumber: 'STRING_VALUE',
+ *     BusinessPhoneNumber: 'STRING_VALUE',
+ *     EmailAddress: 'STRING_VALUE',
+ *     PersonalEmailAddress: 'STRING_VALUE',
+ *     BusinessEmailAddress: 'STRING_VALUE',
+ *     Address: 'STRING_VALUE',
+ *     ShippingAddress: 'STRING_VALUE',
+ *     MailingAddress: 'STRING_VALUE',
+ *     BillingAddress: 'STRING_VALUE',
  *     Attributes: { // AttributeSourceIdMap
- *       "<keys>": "STRING_VALUE",
+ *       '<keys>': 'STRING_VALUE',
  *     },
  *   },
  * };
  * const command = new MergeProfilesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // MergeProfilesResponse
+ *   Message: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param MergeProfilesCommandInput - {@link MergeProfilesCommandInput}
@@ -135,6 +140,8 @@ export interface MergeProfilesCommandOutput extends MergeProfilesResponse, __Met
  * @throws {@link ThrottlingException} (client fault)
  *  <p>You exceeded the maximum number of requests.</p>
  *
+ * @throws {@link CustomerProfilesServiceException}
+ * <p>Base exception class for all service exceptions from CustomerProfiles service.</p>
  *
  */
 export class MergeProfilesCommand extends $Command<

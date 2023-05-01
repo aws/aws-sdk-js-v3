@@ -38,14 +38,21 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkLinkClient, ListTagsForResourceCommand } from "@aws-sdk/client-worklink"; // ES Modules import
- * // const { WorkLinkClient, ListTagsForResourceCommand } = require("@aws-sdk/client-worklink"); // CommonJS import
+ * import { WorkLinkClient, ListTagsForResourceCommand } from '@aws-sdk/client-worklink'; // ES Modules import
+ * // const { WorkLinkClient, ListTagsForResourceCommand } = require('@aws-sdk/client-worklink'); // CommonJS import
  * const client = new WorkLinkClient(config);
  * const input = { // ListTagsForResourceRequest
- *   ResourceArn: "STRING_VALUE", // required
+ *   ResourceArn: 'STRING_VALUE', // required
  * };
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTagsForResourceResponse
+ *   Tags: { // TagMap
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param ListTagsForResourceCommandInput - {@link ListTagsForResourceCommandInput}
@@ -57,6 +64,8 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>The request is not valid.</p>
  *
+ * @throws {@link WorkLinkServiceException}
+ * <p>Base exception class for all service exceptions from WorkLink service.</p>
  *
  */
 export class ListTagsForResourceCommand extends $Command<

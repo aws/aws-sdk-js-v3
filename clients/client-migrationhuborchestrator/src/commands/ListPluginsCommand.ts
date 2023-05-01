@@ -40,15 +40,30 @@ export interface ListPluginsCommandOutput extends ListPluginsResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MigrationHubOrchestratorClient, ListPluginsCommand } from "@aws-sdk/client-migrationhuborchestrator"; // ES Modules import
- * // const { MigrationHubOrchestratorClient, ListPluginsCommand } = require("@aws-sdk/client-migrationhuborchestrator"); // CommonJS import
+ * import { MigrationHubOrchestratorClient, ListPluginsCommand } from '@aws-sdk/client-migrationhuborchestrator'; // ES Modules import
+ * // const { MigrationHubOrchestratorClient, ListPluginsCommand } = require('@aws-sdk/client-migrationhuborchestrator'); // CommonJS import
  * const client = new MigrationHubOrchestratorClient(config);
  * const input = { // ListPluginsRequest
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new ListPluginsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListPluginsResponse
+ *   nextToken: 'STRING_VALUE',
+ *   plugins: [ // PluginSummaries
+ *     { // PluginSummary
+ *       pluginId: 'STRING_VALUE',
+ *       hostname: 'STRING_VALUE',
+ *       status: 'STRING_VALUE',
+ *       ipAddress: 'STRING_VALUE',
+ *       version: 'STRING_VALUE',
+ *       registeredTime: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListPluginsCommandInput - {@link ListPluginsCommandInput}
@@ -66,6 +81,8 @@ export interface ListPluginsCommandOutput extends ListPluginsResponse, __Metadat
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link MigrationHubOrchestratorServiceException}
+ * <p>Base exception class for all service exceptions from MigrationHubOrchestrator service.</p>
  *
  */
 export class ListPluginsCommand extends $Command<

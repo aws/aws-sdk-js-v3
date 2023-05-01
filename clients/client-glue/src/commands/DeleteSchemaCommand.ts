@@ -36,18 +36,25 @@ export interface DeleteSchemaCommandOutput extends DeleteSchemaResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlueClient, DeleteSchemaCommand } from "@aws-sdk/client-glue"; // ES Modules import
- * // const { GlueClient, DeleteSchemaCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * import { GlueClient, DeleteSchemaCommand } from '@aws-sdk/client-glue'; // ES Modules import
+ * // const { GlueClient, DeleteSchemaCommand } = require('@aws-sdk/client-glue'); // CommonJS import
  * const client = new GlueClient(config);
  * const input = { // DeleteSchemaInput
  *   SchemaId: { // SchemaId
- *     SchemaArn: "STRING_VALUE",
- *     SchemaName: "STRING_VALUE",
- *     RegistryName: "STRING_VALUE",
+ *     SchemaArn: 'STRING_VALUE',
+ *     SchemaName: 'STRING_VALUE',
+ *     RegistryName: 'STRING_VALUE',
  *   },
  * };
  * const command = new DeleteSchemaCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteSchemaResponse
+ *   SchemaArn: 'STRING_VALUE',
+ *   SchemaName: 'STRING_VALUE',
+ *   Status: 'AVAILABLE' || 'PENDING' || 'DELETING',
+ * };
+ *
  * ```
  *
  * @param DeleteSchemaCommandInput - {@link DeleteSchemaCommandInput}
@@ -68,6 +75,8 @@ export interface DeleteSchemaCommandOutput extends DeleteSchemaResponse, __Metad
  * @throws {@link InvalidInputException} (client fault)
  *  <p>The input provided was not valid.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class DeleteSchemaCommand extends $Command<

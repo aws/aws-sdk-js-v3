@@ -36,15 +36,20 @@ export interface DeleteNetworkInsightsPathCommandOutput extends DeleteNetworkIns
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, DeleteNetworkInsightsPathCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, DeleteNetworkInsightsPathCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, DeleteNetworkInsightsPathCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, DeleteNetworkInsightsPathCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // DeleteNetworkInsightsPathRequest
  *   DryRun: true || false,
- *   NetworkInsightsPathId: "STRING_VALUE", // required
+ *   NetworkInsightsPathId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteNetworkInsightsPathCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteNetworkInsightsPathResult
+ *   NetworkInsightsPathId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DeleteNetworkInsightsPathCommandInput - {@link DeleteNetworkInsightsPathCommandInput}
@@ -53,6 +58,8 @@ export interface DeleteNetworkInsightsPathCommandOutput extends DeleteNetworkIns
  * @see {@link DeleteNetworkInsightsPathCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class DeleteNetworkInsightsPathCommand extends $Command<

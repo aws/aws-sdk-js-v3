@@ -40,14 +40,17 @@ export interface DeleteUserProfileCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OpsWorksClient, DeleteUserProfileCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
- * // const { OpsWorksClient, DeleteUserProfileCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
+ * import { OpsWorksClient, DeleteUserProfileCommand } from '@aws-sdk/client-opsworks'; // ES Modules import
+ * // const { OpsWorksClient, DeleteUserProfileCommand } = require('@aws-sdk/client-opsworks'); // CommonJS import
  * const client = new OpsWorksClient(config);
  * const input = { // DeleteUserProfileRequest
- *   IamUserArn: "STRING_VALUE", // required
+ *   IamUserArn: 'STRING_VALUE', // required
  * };
  * const command = new DeleteUserProfileCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteUserProfileCommandInput - {@link DeleteUserProfileCommandInput}
@@ -62,6 +65,8 @@ export interface DeleteUserProfileCommandOutput extends __MetadataBearer {}
  * @throws {@link ValidationException} (client fault)
  *  <p>Indicates that a request was not valid.</p>
  *
+ * @throws {@link OpsWorksServiceException}
+ * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
  */
 export class DeleteUserProfileCommand extends $Command<

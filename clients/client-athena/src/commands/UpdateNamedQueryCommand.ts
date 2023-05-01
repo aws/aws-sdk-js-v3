@@ -37,17 +37,20 @@ export interface UpdateNamedQueryCommandOutput extends UpdateNamedQueryOutput, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AthenaClient, UpdateNamedQueryCommand } from "@aws-sdk/client-athena"; // ES Modules import
- * // const { AthenaClient, UpdateNamedQueryCommand } = require("@aws-sdk/client-athena"); // CommonJS import
+ * import { AthenaClient, UpdateNamedQueryCommand } from '@aws-sdk/client-athena'; // ES Modules import
+ * // const { AthenaClient, UpdateNamedQueryCommand } = require('@aws-sdk/client-athena'); // CommonJS import
  * const client = new AthenaClient(config);
  * const input = { // UpdateNamedQueryInput
- *   NamedQueryId: "STRING_VALUE", // required
- *   Name: "STRING_VALUE", // required
- *   Description: "STRING_VALUE",
- *   QueryString: "STRING_VALUE", // required
+ *   NamedQueryId: 'STRING_VALUE', // required
+ *   Name: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE',
+ *   QueryString: 'STRING_VALUE', // required
  * };
  * const command = new UpdateNamedQueryCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateNamedQueryCommandInput - {@link UpdateNamedQueryCommandInput}
@@ -64,6 +67,8 @@ export interface UpdateNamedQueryCommandOutput extends UpdateNamedQueryOutput, _
  *  <p>Indicates that something is wrong with the input to the request. For example, a
  *             required parameter may be missing or out of range.</p>
  *
+ * @throws {@link AthenaServiceException}
+ * <p>Base exception class for all service exceptions from Athena service.</p>
  *
  */
 export class UpdateNamedQueryCommand extends $Command<

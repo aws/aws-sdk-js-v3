@@ -42,17 +42,20 @@ export interface RemoveThingFromThingGroupCommandOutput extends RemoveThingFromT
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTClient, RemoveThingFromThingGroupCommand } from "@aws-sdk/client-iot"; // ES Modules import
- * // const { IoTClient, RemoveThingFromThingGroupCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * import { IoTClient, RemoveThingFromThingGroupCommand } from '@aws-sdk/client-iot'; // ES Modules import
+ * // const { IoTClient, RemoveThingFromThingGroupCommand } = require('@aws-sdk/client-iot'); // CommonJS import
  * const client = new IoTClient(config);
  * const input = { // RemoveThingFromThingGroupRequest
- *   thingGroupName: "STRING_VALUE",
- *   thingGroupArn: "STRING_VALUE",
- *   thingName: "STRING_VALUE",
- *   thingArn: "STRING_VALUE",
+ *   thingGroupName: 'STRING_VALUE',
+ *   thingGroupArn: 'STRING_VALUE',
+ *   thingName: 'STRING_VALUE',
+ *   thingArn: 'STRING_VALUE',
  * };
  * const command = new RemoveThingFromThingGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param RemoveThingFromThingGroupCommandInput - {@link RemoveThingFromThingGroupCommandInput}
@@ -73,6 +76,8 @@ export interface RemoveThingFromThingGroupCommandOutput extends RemoveThingFromT
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The rate exceeds the limit.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class RemoveThingFromThingGroupCommand extends $Command<

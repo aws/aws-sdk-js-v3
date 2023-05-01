@@ -38,15 +38,26 @@ export interface ListProjectsCommandOutput extends ListProjectsResult, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MobileClient, ListProjectsCommand } from "@aws-sdk/client-mobile"; // ES Modules import
- * // const { MobileClient, ListProjectsCommand } = require("@aws-sdk/client-mobile"); // CommonJS import
+ * import { MobileClient, ListProjectsCommand } from '@aws-sdk/client-mobile'; // ES Modules import
+ * // const { MobileClient, ListProjectsCommand } = require('@aws-sdk/client-mobile'); // CommonJS import
  * const client = new MobileClient(config);
  * const input = { // ListProjectsRequest
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new ListProjectsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListProjectsResult
+ *   projects: [ // ProjectSummaries
+ *     { // ProjectSummary
+ *       name: 'STRING_VALUE',
+ *       projectId: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListProjectsCommandInput - {@link ListProjectsCommandInput}
@@ -84,6 +95,8 @@ export interface ListProjectsCommandOutput extends ListProjectsResult, __Metadat
  *             Credentials of the caller are insufficient to authorize the request.
  *         </p>
  *
+ * @throws {@link MobileServiceException}
+ * <p>Base exception class for all service exceptions from Mobile service.</p>
  *
  */
 export class ListProjectsCommand extends $Command<

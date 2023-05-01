@@ -41,17 +41,20 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EKSClient, TagResourceCommand } from "@aws-sdk/client-eks"; // ES Modules import
- * // const { EKSClient, TagResourceCommand } = require("@aws-sdk/client-eks"); // CommonJS import
+ * import { EKSClient, TagResourceCommand } from '@aws-sdk/client-eks'; // ES Modules import
+ * // const { EKSClient, TagResourceCommand } = require('@aws-sdk/client-eks'); // CommonJS import
  * const client = new EKSClient(config);
  * const input = { // TagResourceRequest
- *   resourceArn: "STRING_VALUE", // required
+ *   resourceArn: 'STRING_VALUE', // required
  *   tags: { // TagMap // required
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param TagResourceCommandInput - {@link TagResourceCommandInput}
@@ -68,6 +71,8 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  *  <p>A service resource associated with the request could not be found. Clients should not
  *             retry such requests.</p>
  *
+ * @throws {@link EKSServiceException}
+ * <p>Base exception class for all service exceptions from EKS service.</p>
  *
  */
 export class TagResourceCommand extends $Command<

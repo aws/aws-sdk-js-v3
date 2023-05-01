@@ -36,14 +36,31 @@ export interface GetNetworkSettingsCommandOutput extends GetNetworkSettingsRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkSpacesWebClient, GetNetworkSettingsCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
- * // const { WorkSpacesWebClient, GetNetworkSettingsCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
+ * import { WorkSpacesWebClient, GetNetworkSettingsCommand } from '@aws-sdk/client-workspaces-web'; // ES Modules import
+ * // const { WorkSpacesWebClient, GetNetworkSettingsCommand } = require('@aws-sdk/client-workspaces-web'); // CommonJS import
  * const client = new WorkSpacesWebClient(config);
  * const input = { // GetNetworkSettingsRequest
- *   networkSettingsArn: "STRING_VALUE", // required
+ *   networkSettingsArn: 'STRING_VALUE', // required
  * };
  * const command = new GetNetworkSettingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetNetworkSettingsResponse
+ *   networkSettings: { // NetworkSettings
+ *     networkSettingsArn: 'STRING_VALUE', // required
+ *     associatedPortalArns: [ // ArnList
+ *       'STRING_VALUE',
+ *     ],
+ *     vpcId: 'STRING_VALUE',
+ *     subnetIds: [ // SubnetIdList
+ *       'STRING_VALUE',
+ *     ],
+ *     securityGroupIds: [ // SecurityGroupIdList
+ *       'STRING_VALUE',
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetNetworkSettingsCommandInput - {@link GetNetworkSettingsCommandInput}
@@ -67,6 +84,8 @@ export interface GetNetworkSettingsCommandOutput extends GetNetworkSettingsRespo
  * @throws {@link ValidationException} (client fault)
  *  <p>There is a validation error.</p>
  *
+ * @throws {@link WorkSpacesWebServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
  */
 export class GetNetworkSettingsCommand extends $Command<

@@ -41,15 +41,18 @@ export interface DeleteConfigurationTemplateCommandOutput extends __MetadataBear
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElasticBeanstalkClient, DeleteConfigurationTemplateCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
- * // const { ElasticBeanstalkClient, DeleteConfigurationTemplateCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
+ * import { ElasticBeanstalkClient, DeleteConfigurationTemplateCommand } from '@aws-sdk/client-elastic-beanstalk'; // ES Modules import
+ * // const { ElasticBeanstalkClient, DeleteConfigurationTemplateCommand } = require('@aws-sdk/client-elastic-beanstalk'); // CommonJS import
  * const client = new ElasticBeanstalkClient(config);
  * const input = { // DeleteConfigurationTemplateMessage
- *   ApplicationName: "STRING_VALUE", // required
- *   TemplateName: "STRING_VALUE", // required
+ *   ApplicationName: 'STRING_VALUE', // required
+ *   TemplateName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteConfigurationTemplateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteConfigurationTemplateCommandInput - {@link DeleteConfigurationTemplateCommandInput}
@@ -62,6 +65,8 @@ export interface DeleteConfigurationTemplateCommandOutput extends __MetadataBear
  *  <p>Unable to perform the specified operation because another operation that effects an
  *       element in this activity is already in progress.</p>
  *
+ * @throws {@link ElasticBeanstalkServiceException}
+ * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
  * @example To delete a configuration template
  * ```javascript

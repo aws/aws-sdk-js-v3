@@ -70,63 +70,68 @@ export interface PutOrganizationConfigRuleCommandOutput extends PutOrganizationC
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConfigServiceClient, PutOrganizationConfigRuleCommand } from "@aws-sdk/client-config-service"; // ES Modules import
- * // const { ConfigServiceClient, PutOrganizationConfigRuleCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
+ * import { ConfigServiceClient, PutOrganizationConfigRuleCommand } from '@aws-sdk/client-config-service'; // ES Modules import
+ * // const { ConfigServiceClient, PutOrganizationConfigRuleCommand } = require('@aws-sdk/client-config-service'); // CommonJS import
  * const client = new ConfigServiceClient(config);
  * const input = { // PutOrganizationConfigRuleRequest
- *   OrganizationConfigRuleName: "STRING_VALUE", // required
+ *   OrganizationConfigRuleName: 'STRING_VALUE', // required
  *   OrganizationManagedRuleMetadata: { // OrganizationManagedRuleMetadata
- *     Description: "STRING_VALUE",
- *     RuleIdentifier: "STRING_VALUE", // required
- *     InputParameters: "STRING_VALUE",
- *     MaximumExecutionFrequency: "One_Hour" || "Three_Hours" || "Six_Hours" || "Twelve_Hours" || "TwentyFour_Hours",
+ *     Description: 'STRING_VALUE',
+ *     RuleIdentifier: 'STRING_VALUE', // required
+ *     InputParameters: 'STRING_VALUE',
+ *     MaximumExecutionFrequency: 'One_Hour' || 'Three_Hours' || 'Six_Hours' || 'Twelve_Hours' || 'TwentyFour_Hours',
  *     ResourceTypesScope: [ // ResourceTypesScope
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
- *     ResourceIdScope: "STRING_VALUE",
- *     TagKeyScope: "STRING_VALUE",
- *     TagValueScope: "STRING_VALUE",
+ *     ResourceIdScope: 'STRING_VALUE',
+ *     TagKeyScope: 'STRING_VALUE',
+ *     TagValueScope: 'STRING_VALUE',
  *   },
  *   OrganizationCustomRuleMetadata: { // OrganizationCustomRuleMetadata
- *     Description: "STRING_VALUE",
- *     LambdaFunctionArn: "STRING_VALUE", // required
+ *     Description: 'STRING_VALUE',
+ *     LambdaFunctionArn: 'STRING_VALUE', // required
  *     OrganizationConfigRuleTriggerTypes: [ // OrganizationConfigRuleTriggerTypes // required
- *       "ConfigurationItemChangeNotification" || "OversizedConfigurationItemChangeNotification" || "ScheduledNotification",
+ *       'ConfigurationItemChangeNotification' || 'OversizedConfigurationItemChangeNotification' || 'ScheduledNotification',
  *     ],
- *     InputParameters: "STRING_VALUE",
- *     MaximumExecutionFrequency: "One_Hour" || "Three_Hours" || "Six_Hours" || "Twelve_Hours" || "TwentyFour_Hours",
+ *     InputParameters: 'STRING_VALUE',
+ *     MaximumExecutionFrequency: 'One_Hour' || 'Three_Hours' || 'Six_Hours' || 'Twelve_Hours' || 'TwentyFour_Hours',
  *     ResourceTypesScope: [
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
- *     ResourceIdScope: "STRING_VALUE",
- *     TagKeyScope: "STRING_VALUE",
- *     TagValueScope: "STRING_VALUE",
+ *     ResourceIdScope: 'STRING_VALUE',
+ *     TagKeyScope: 'STRING_VALUE',
+ *     TagValueScope: 'STRING_VALUE',
  *   },
  *   ExcludedAccounts: [ // ExcludedAccounts
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   OrganizationCustomPolicyRuleMetadata: { // OrganizationCustomPolicyRuleMetadata
- *     Description: "STRING_VALUE",
+ *     Description: 'STRING_VALUE',
  *     OrganizationConfigRuleTriggerTypes: [ // OrganizationConfigRuleTriggerTypeNoSNs
- *       "ConfigurationItemChangeNotification" || "OversizedConfigurationItemChangeNotification",
+ *       'ConfigurationItemChangeNotification' || 'OversizedConfigurationItemChangeNotification',
  *     ],
- *     InputParameters: "STRING_VALUE",
- *     MaximumExecutionFrequency: "One_Hour" || "Three_Hours" || "Six_Hours" || "Twelve_Hours" || "TwentyFour_Hours",
+ *     InputParameters: 'STRING_VALUE',
+ *     MaximumExecutionFrequency: 'One_Hour' || 'Three_Hours' || 'Six_Hours' || 'Twelve_Hours' || 'TwentyFour_Hours',
  *     ResourceTypesScope: [
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
- *     ResourceIdScope: "STRING_VALUE",
- *     TagKeyScope: "STRING_VALUE",
- *     TagValueScope: "STRING_VALUE",
- *     PolicyRuntime: "STRING_VALUE", // required
- *     PolicyText: "STRING_VALUE", // required
+ *     ResourceIdScope: 'STRING_VALUE',
+ *     TagKeyScope: 'STRING_VALUE',
+ *     TagValueScope: 'STRING_VALUE',
+ *     PolicyRuntime: 'STRING_VALUE', // required
+ *     PolicyText: 'STRING_VALUE', // required
  *     DebugLogDeliveryAccounts: [ // DebugLogDeliveryAccounts
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *   },
  * };
  * const command = new PutOrganizationConfigRuleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutOrganizationConfigRuleResponse
+ *   OrganizationConfigRuleArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param PutOrganizationConfigRuleCommandInput - {@link PutOrganizationConfigRuleCommandInput}
@@ -227,6 +232,8 @@ export interface PutOrganizationConfigRuleCommandOutput extends PutOrganizationC
  *          <p>For PutStoredQuery, you will see this exception if there are missing required fields or if the input value fails the validation, or if you are trying to create more than 300 queries.</p>
  *          <p>For GetStoredQuery, ListStoredQuery, and DeleteStoredQuery you will see this exception if there are missing required fields or if the input value fails the validation.</p>
  *
+ * @throws {@link ConfigServiceServiceException}
+ * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
  */
 export class PutOrganizationConfigRuleCommand extends $Command<

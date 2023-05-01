@@ -63,21 +63,27 @@ export interface CreateSnapshotCommandOutput extends CreateSnapshotOutput, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { StorageGatewayClient, CreateSnapshotCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
- * // const { StorageGatewayClient, CreateSnapshotCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
+ * import { StorageGatewayClient, CreateSnapshotCommand } from '@aws-sdk/client-storage-gateway'; // ES Modules import
+ * // const { StorageGatewayClient, CreateSnapshotCommand } = require('@aws-sdk/client-storage-gateway'); // CommonJS import
  * const client = new StorageGatewayClient(config);
  * const input = { // CreateSnapshotInput
- *   VolumeARN: "STRING_VALUE", // required
- *   SnapshotDescription: "STRING_VALUE", // required
+ *   VolumeARN: 'STRING_VALUE', // required
+ *   SnapshotDescription: 'STRING_VALUE', // required
  *   Tags: [ // Tags
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreateSnapshotCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateSnapshotOutput
+ *   VolumeARN: 'STRING_VALUE',
+ *   SnapshotId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateSnapshotCommandInput - {@link CreateSnapshotCommandInput}
@@ -98,6 +104,8 @@ export interface CreateSnapshotCommandOutput extends CreateSnapshotOutput, __Met
  *  <p>An internal server error has occurred because the service is unavailable. For more
  *          information, see the error and message fields.</p>
  *
+ * @throws {@link StorageGatewayServiceException}
+ * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
  * @example To create a snapshot of a gateway volume
  * ```javascript

@@ -37,17 +37,33 @@ export interface ListBotsCommandOutput extends ListBotsResponse, __MetadataBeare
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, ListBotsCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, ListBotsCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, ListBotsCommand } from '@aws-sdk/client-connect'; // ES Modules import
+ * // const { ConnectClient, ListBotsCommand } = require('@aws-sdk/client-connect'); // CommonJS import
  * const client = new ConnectClient(config);
  * const input = { // ListBotsRequest
- *   InstanceId: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
- *   LexVersion: "V1" || "V2", // required
+ *   InstanceId: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
+ *   LexVersion: 'V1' || 'V2', // required
  * };
  * const command = new ListBotsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListBotsResponse
+ *   LexBots: [ // LexBotConfigList
+ *     { // LexBotConfig
+ *       LexBot: { // LexBot
+ *         Name: 'STRING_VALUE', // required
+ *         LexRegion: 'STRING_VALUE', // required
+ *       },
+ *       LexV2Bot: { // LexV2Bot
+ *         AliasArn: 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListBotsCommandInput - {@link ListBotsCommandInput}
@@ -68,6 +84,8 @@ export interface ListBotsCommandOutput extends ListBotsResponse, __MetadataBeare
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class ListBotsCommand extends $Command<

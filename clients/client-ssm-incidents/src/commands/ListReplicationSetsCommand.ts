@@ -36,15 +36,23 @@ export interface ListReplicationSetsCommandOutput extends ListReplicationSetsOut
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMIncidentsClient, ListReplicationSetsCommand } from "@aws-sdk/client-ssm-incidents"; // ES Modules import
- * // const { SSMIncidentsClient, ListReplicationSetsCommand } = require("@aws-sdk/client-ssm-incidents"); // CommonJS import
+ * import { SSMIncidentsClient, ListReplicationSetsCommand } from '@aws-sdk/client-ssm-incidents'; // ES Modules import
+ * // const { SSMIncidentsClient, ListReplicationSetsCommand } = require('@aws-sdk/client-ssm-incidents'); // CommonJS import
  * const client = new SSMIncidentsClient(config);
  * const input = { // ListReplicationSetsInput
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new ListReplicationSetsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListReplicationSetsOutput
+ *   replicationSetArns: [ // ReplicationSetArnList // required
+ *     'STRING_VALUE',
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListReplicationSetsCommandInput - {@link ListReplicationSetsCommandInput}
@@ -67,6 +75,8 @@ export interface ListReplicationSetsCommandOutput extends ListReplicationSetsOut
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
  *       service.</p>
  *
+ * @throws {@link SSMIncidentsServiceException}
+ * <p>Base exception class for all service exceptions from SSMIncidents service.</p>
  *
  */
 export class ListReplicationSetsCommand extends $Command<

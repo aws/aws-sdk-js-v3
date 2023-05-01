@@ -36,16 +36,24 @@ export interface ListPermissionSetsCommandOutput extends ListPermissionSetsRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSOAdminClient, ListPermissionSetsCommand } from "@aws-sdk/client-sso-admin"; // ES Modules import
- * // const { SSOAdminClient, ListPermissionSetsCommand } = require("@aws-sdk/client-sso-admin"); // CommonJS import
+ * import { SSOAdminClient, ListPermissionSetsCommand } from '@aws-sdk/client-sso-admin'; // ES Modules import
+ * // const { SSOAdminClient, ListPermissionSetsCommand } = require('@aws-sdk/client-sso-admin'); // CommonJS import
  * const client = new SSOAdminClient(config);
  * const input = { // ListPermissionSetsRequest
- *   InstanceArn: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   InstanceArn: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListPermissionSetsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListPermissionSetsResponse
+ *   PermissionSets: [ // PermissionSetList
+ *     'STRING_VALUE',
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListPermissionSetsCommandInput - {@link ListPermissionSetsCommandInput}
@@ -71,6 +79,8 @@ export interface ListPermissionSetsCommandOutput extends ListPermissionSetsRespo
  * @throws {@link ValidationException} (client fault)
  *  <p>The request failed because it contains a syntax error.</p>
  *
+ * @throws {@link SSOAdminServiceException}
+ * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
  */
 export class ListPermissionSetsCommand extends $Command<

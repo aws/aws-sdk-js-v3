@@ -39,16 +39,24 @@ export interface ListThingPrincipalsCommandOutput extends ListThingPrincipalsRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTClient, ListThingPrincipalsCommand } from "@aws-sdk/client-iot"; // ES Modules import
- * // const { IoTClient, ListThingPrincipalsCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * import { IoTClient, ListThingPrincipalsCommand } from '@aws-sdk/client-iot'; // ES Modules import
+ * // const { IoTClient, ListThingPrincipalsCommand } = require('@aws-sdk/client-iot'); // CommonJS import
  * const client = new IoTClient(config);
  * const input = { // ListThingPrincipalsRequest
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
- *   thingName: "STRING_VALUE", // required
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
+ *   thingName: 'STRING_VALUE', // required
  * };
  * const command = new ListThingPrincipalsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListThingPrincipalsResponse
+ *   principals: [ // Principals
+ *     'STRING_VALUE',
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListThingPrincipalsCommandInput - {@link ListThingPrincipalsCommandInput}
@@ -75,6 +83,8 @@ export interface ListThingPrincipalsCommandOutput extends ListThingPrincipalsRes
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this operation.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class ListThingPrincipalsCommand extends $Command<

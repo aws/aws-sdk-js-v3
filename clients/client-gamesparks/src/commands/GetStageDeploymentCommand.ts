@@ -36,16 +36,32 @@ export interface GetStageDeploymentCommandOutput extends GetStageDeploymentResul
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GameSparksClient, GetStageDeploymentCommand } from "@aws-sdk/client-gamesparks"; // ES Modules import
- * // const { GameSparksClient, GetStageDeploymentCommand } = require("@aws-sdk/client-gamesparks"); // CommonJS import
+ * import { GameSparksClient, GetStageDeploymentCommand } from '@aws-sdk/client-gamesparks'; // ES Modules import
+ * // const { GameSparksClient, GetStageDeploymentCommand } = require('@aws-sdk/client-gamesparks'); // CommonJS import
  * const client = new GameSparksClient(config);
  * const input = { // GetStageDeploymentRequest
- *   GameName: "STRING_VALUE", // required
- *   StageName: "STRING_VALUE", // required
- *   DeploymentId: "STRING_VALUE",
+ *   GameName: 'STRING_VALUE', // required
+ *   StageName: 'STRING_VALUE', // required
+ *   DeploymentId: 'STRING_VALUE',
  * };
  * const command = new GetStageDeploymentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetStageDeploymentResult
+ *   StageDeployment: { // StageDeploymentDetails
+ *     DeploymentId: 'STRING_VALUE',
+ *     SnapshotId: 'STRING_VALUE',
+ *     DeploymentAction: 'STRING_VALUE',
+ *     DeploymentState: 'STRING_VALUE',
+ *     Created: new Date('TIMESTAMP'),
+ *     LastUpdated: new Date('TIMESTAMP'),
+ *     DeploymentResult: { // DeploymentResult
+ *       ResultCode: 'STRING_VALUE',
+ *       Message: 'STRING_VALUE',
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetStageDeploymentCommandInput - {@link GetStageDeploymentCommandInput}
@@ -69,6 +85,8 @@ export interface GetStageDeploymentCommandOutput extends GetStageDeploymentResul
  * @throws {@link ValidationException} (client fault)
  *  <p>One of the parameters in the request is invalid.</p>
  *
+ * @throws {@link GameSparksServiceException}
+ * <p>Base exception class for all service exceptions from GameSparks service.</p>
  *
  */
 export class GetStageDeploymentCommand extends $Command<

@@ -52,21 +52,38 @@ export interface ChangeMessageVisibilityBatchCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SQSClient, ChangeMessageVisibilityBatchCommand } from "@aws-sdk/client-sqs"; // ES Modules import
- * // const { SQSClient, ChangeMessageVisibilityBatchCommand } = require("@aws-sdk/client-sqs"); // CommonJS import
+ * import { SQSClient, ChangeMessageVisibilityBatchCommand } from '@aws-sdk/client-sqs'; // ES Modules import
+ * // const { SQSClient, ChangeMessageVisibilityBatchCommand } = require('@aws-sdk/client-sqs'); // CommonJS import
  * const client = new SQSClient(config);
  * const input = { // ChangeMessageVisibilityBatchRequest
- *   QueueUrl: "STRING_VALUE", // required
+ *   QueueUrl: 'STRING_VALUE', // required
  *   Entries: [ // ChangeMessageVisibilityBatchRequestEntryList // required
  *     { // ChangeMessageVisibilityBatchRequestEntry
- *       Id: "STRING_VALUE", // required
- *       ReceiptHandle: "STRING_VALUE", // required
- *       VisibilityTimeout: Number("int"),
+ *       Id: 'STRING_VALUE', // required
+ *       ReceiptHandle: 'STRING_VALUE', // required
+ *       VisibilityTimeout: Number('int'),
  *     },
  *   ],
  * };
  * const command = new ChangeMessageVisibilityBatchCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ChangeMessageVisibilityBatchResult
+ *   Successful: [ // ChangeMessageVisibilityBatchResultEntryList // required
+ *     { // ChangeMessageVisibilityBatchResultEntry
+ *       Id: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ *   Failed: [ // BatchResultErrorEntryList // required
+ *     { // BatchResultErrorEntry
+ *       Id: 'STRING_VALUE', // required
+ *       SenderFault: true || false, // required
+ *       Code: 'STRING_VALUE', // required
+ *       Message: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ChangeMessageVisibilityBatchCommandInput - {@link ChangeMessageVisibilityBatchCommandInput}
@@ -87,6 +104,8 @@ export interface ChangeMessageVisibilityBatchCommandOutput
  * @throws {@link TooManyEntriesInBatchRequest} (client fault)
  *  <p>The batch request contains more entries than permissible.</p>
  *
+ * @throws {@link SQSServiceException}
+ * <p>Base exception class for all service exceptions from SQS service.</p>
  *
  */
 export class ChangeMessageVisibilityBatchCommand extends $Command<

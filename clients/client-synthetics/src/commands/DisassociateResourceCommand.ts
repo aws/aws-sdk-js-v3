@@ -36,15 +36,18 @@ export interface DisassociateResourceCommandOutput extends DisassociateResourceR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SyntheticsClient, DisassociateResourceCommand } from "@aws-sdk/client-synthetics"; // ES Modules import
- * // const { SyntheticsClient, DisassociateResourceCommand } = require("@aws-sdk/client-synthetics"); // CommonJS import
+ * import { SyntheticsClient, DisassociateResourceCommand } from '@aws-sdk/client-synthetics'; // ES Modules import
+ * // const { SyntheticsClient, DisassociateResourceCommand } = require('@aws-sdk/client-synthetics'); // CommonJS import
  * const client = new SyntheticsClient(config);
  * const input = { // DisassociateResourceRequest
- *   GroupIdentifier: "STRING_VALUE", // required
- *   ResourceArn: "STRING_VALUE", // required
+ *   GroupIdentifier: 'STRING_VALUE', // required
+ *   ResourceArn: 'STRING_VALUE', // required
  * };
  * const command = new DisassociateResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DisassociateResourceCommandInput - {@link DisassociateResourceCommandInput}
@@ -65,6 +68,8 @@ export interface DisassociateResourceCommandOutput extends DisassociateResourceR
  * @throws {@link ValidationException} (client fault)
  *  <p>A parameter could not be validated.</p>
  *
+ * @throws {@link SyntheticsServiceException}
+ * <p>Base exception class for all service exceptions from Synthetics service.</p>
  *
  */
 export class DisassociateResourceCommand extends $Command<

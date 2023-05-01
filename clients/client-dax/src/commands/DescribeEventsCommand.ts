@@ -40,20 +40,33 @@ export interface DescribeEventsCommandOutput extends DescribeEventsResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DAXClient, DescribeEventsCommand } from "@aws-sdk/client-dax"; // ES Modules import
- * // const { DAXClient, DescribeEventsCommand } = require("@aws-sdk/client-dax"); // CommonJS import
+ * import { DAXClient, DescribeEventsCommand } from '@aws-sdk/client-dax'; // ES Modules import
+ * // const { DAXClient, DescribeEventsCommand } = require('@aws-sdk/client-dax'); // CommonJS import
  * const client = new DAXClient(config);
  * const input = { // DescribeEventsRequest
- *   SourceName: "STRING_VALUE",
- *   SourceType: "STRING_VALUE",
- *   StartTime: new Date("TIMESTAMP"),
- *   EndTime: new Date("TIMESTAMP"),
- *   Duration: Number("int"),
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   SourceName: 'STRING_VALUE',
+ *   SourceType: 'STRING_VALUE',
+ *   StartTime: new Date('TIMESTAMP'),
+ *   EndTime: new Date('TIMESTAMP'),
+ *   Duration: Number('int'),
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new DescribeEventsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeEventsResponse
+ *   NextToken: 'STRING_VALUE',
+ *   Events: [ // EventList
+ *     { // Event
+ *       SourceName: 'STRING_VALUE',
+ *       SourceType: 'STRING_VALUE',
+ *       Message: 'STRING_VALUE',
+ *       Date: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeEventsCommandInput - {@link DescribeEventsCommandInput}
@@ -71,6 +84,8 @@ export interface DescribeEventsCommandOutput extends DescribeEventsResponse, __M
  * @throws {@link ServiceLinkedRoleNotFoundFault} (client fault)
  *  <p>The specified service linked role (SLR) was not found.</p>
  *
+ * @throws {@link DAXServiceException}
+ * <p>Base exception class for all service exceptions from DAX service.</p>
  *
  */
 export class DescribeEventsCommand extends $Command<

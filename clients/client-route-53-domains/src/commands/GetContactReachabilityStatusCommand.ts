@@ -45,14 +45,20 @@ export interface GetContactReachabilityStatusCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Route53DomainsClient, GetContactReachabilityStatusCommand } from "@aws-sdk/client-route-53-domains"; // ES Modules import
- * // const { Route53DomainsClient, GetContactReachabilityStatusCommand } = require("@aws-sdk/client-route-53-domains"); // CommonJS import
+ * import { Route53DomainsClient, GetContactReachabilityStatusCommand } from '@aws-sdk/client-route-53-domains'; // ES Modules import
+ * // const { Route53DomainsClient, GetContactReachabilityStatusCommand } = require('@aws-sdk/client-route-53-domains'); // CommonJS import
  * const client = new Route53DomainsClient(config);
  * const input = { // GetContactReachabilityStatusRequest
- *   domainName: "STRING_VALUE",
+ *   domainName: 'STRING_VALUE',
  * };
  * const command = new GetContactReachabilityStatusCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetContactReachabilityStatusResponse
+ *   domainName: 'STRING_VALUE',
+ *   status: 'PENDING' || 'DONE' || 'EXPIRED',
+ * };
+ *
  * ```
  *
  * @param GetContactReachabilityStatusCommandInput - {@link GetContactReachabilityStatusCommandInput}
@@ -74,6 +80,8 @@ export interface GetContactReachabilityStatusCommandOutput
  * @throws {@link UnsupportedTLD} (client fault)
  *  <p>Amazon Route 53 does not support this top-level domain (TLD).</p>
  *
+ * @throws {@link Route53DomainsServiceException}
+ * <p>Base exception class for all service exceptions from Route53Domains service.</p>
  *
  */
 export class GetContactReachabilityStatusCommand extends $Command<

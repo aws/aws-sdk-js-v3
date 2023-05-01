@@ -63,38 +63,69 @@ export interface CreateTargetGroupCommandOutput extends CreateTargetGroupOutput,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElasticLoadBalancingV2Client, CreateTargetGroupCommand } from "@aws-sdk/client-elastic-load-balancing-v2"; // ES Modules import
- * // const { ElasticLoadBalancingV2Client, CreateTargetGroupCommand } = require("@aws-sdk/client-elastic-load-balancing-v2"); // CommonJS import
+ * import { ElasticLoadBalancingV2Client, CreateTargetGroupCommand } from '@aws-sdk/client-elastic-load-balancing-v2'; // ES Modules import
+ * // const { ElasticLoadBalancingV2Client, CreateTargetGroupCommand } = require('@aws-sdk/client-elastic-load-balancing-v2'); // CommonJS import
  * const client = new ElasticLoadBalancingV2Client(config);
  * const input = { // CreateTargetGroupInput
- *   Name: "STRING_VALUE", // required
- *   Protocol: "HTTP" || "HTTPS" || "TCP" || "TLS" || "UDP" || "TCP_UDP" || "GENEVE",
- *   ProtocolVersion: "STRING_VALUE",
- *   Port: Number("int"),
- *   VpcId: "STRING_VALUE",
- *   HealthCheckProtocol: "HTTP" || "HTTPS" || "TCP" || "TLS" || "UDP" || "TCP_UDP" || "GENEVE",
- *   HealthCheckPort: "STRING_VALUE",
+ *   Name: 'STRING_VALUE', // required
+ *   Protocol: 'HTTP' || 'HTTPS' || 'TCP' || 'TLS' || 'UDP' || 'TCP_UDP' || 'GENEVE',
+ *   ProtocolVersion: 'STRING_VALUE',
+ *   Port: Number('int'),
+ *   VpcId: 'STRING_VALUE',
+ *   HealthCheckProtocol: 'HTTP' || 'HTTPS' || 'TCP' || 'TLS' || 'UDP' || 'TCP_UDP' || 'GENEVE',
+ *   HealthCheckPort: 'STRING_VALUE',
  *   HealthCheckEnabled: true || false,
- *   HealthCheckPath: "STRING_VALUE",
- *   HealthCheckIntervalSeconds: Number("int"),
- *   HealthCheckTimeoutSeconds: Number("int"),
- *   HealthyThresholdCount: Number("int"),
- *   UnhealthyThresholdCount: Number("int"),
+ *   HealthCheckPath: 'STRING_VALUE',
+ *   HealthCheckIntervalSeconds: Number('int'),
+ *   HealthCheckTimeoutSeconds: Number('int'),
+ *   HealthyThresholdCount: Number('int'),
+ *   UnhealthyThresholdCount: Number('int'),
  *   Matcher: { // Matcher
- *     HttpCode: "STRING_VALUE",
- *     GrpcCode: "STRING_VALUE",
+ *     HttpCode: 'STRING_VALUE',
+ *     GrpcCode: 'STRING_VALUE',
  *   },
- *   TargetType: "instance" || "ip" || "lambda" || "alb",
+ *   TargetType: 'instance' || 'ip' || 'lambda' || 'alb',
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
- *   IpAddressType: "ipv4" || "ipv6",
+ *   IpAddressType: 'ipv4' || 'ipv6',
  * };
  * const command = new CreateTargetGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateTargetGroupOutput
+ *   TargetGroups: [ // TargetGroups
+ *     { // TargetGroup
+ *       TargetGroupArn: 'STRING_VALUE',
+ *       TargetGroupName: 'STRING_VALUE',
+ *       Protocol: 'HTTP' || 'HTTPS' || 'TCP' || 'TLS' || 'UDP' || 'TCP_UDP' || 'GENEVE',
+ *       Port: Number('int'),
+ *       VpcId: 'STRING_VALUE',
+ *       HealthCheckProtocol: 'HTTP' || 'HTTPS' || 'TCP' || 'TLS' || 'UDP' || 'TCP_UDP' || 'GENEVE',
+ *       HealthCheckPort: 'STRING_VALUE',
+ *       HealthCheckEnabled: true || false,
+ *       HealthCheckIntervalSeconds: Number('int'),
+ *       HealthCheckTimeoutSeconds: Number('int'),
+ *       HealthyThresholdCount: Number('int'),
+ *       UnhealthyThresholdCount: Number('int'),
+ *       HealthCheckPath: 'STRING_VALUE',
+ *       Matcher: { // Matcher
+ *         HttpCode: 'STRING_VALUE',
+ *         GrpcCode: 'STRING_VALUE',
+ *       },
+ *       LoadBalancerArns: [ // LoadBalancerArns
+ *         'STRING_VALUE',
+ *       ],
+ *       TargetType: 'instance' || 'ip' || 'lambda' || 'alb',
+ *       ProtocolVersion: 'STRING_VALUE',
+ *       IpAddressType: 'ipv4' || 'ipv6',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param CreateTargetGroupCommandInput - {@link CreateTargetGroupCommandInput}
@@ -116,6 +147,8 @@ export interface CreateTargetGroupCommandOutput extends CreateTargetGroupOutput,
  *  <p>You've reached the limit on the number of target groups for your Amazon Web Services
  *       account.</p>
  *
+ * @throws {@link ElasticLoadBalancingV2ServiceException}
+ * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
  * @example To create a target group
  * ```javascript

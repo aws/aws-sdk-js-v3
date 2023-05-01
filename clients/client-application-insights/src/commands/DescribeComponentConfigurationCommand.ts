@@ -45,15 +45,22 @@ export interface DescribeComponentConfigurationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ApplicationInsightsClient, DescribeComponentConfigurationCommand } from "@aws-sdk/client-application-insights"; // ES Modules import
- * // const { ApplicationInsightsClient, DescribeComponentConfigurationCommand } = require("@aws-sdk/client-application-insights"); // CommonJS import
+ * import { ApplicationInsightsClient, DescribeComponentConfigurationCommand } from '@aws-sdk/client-application-insights'; // ES Modules import
+ * // const { ApplicationInsightsClient, DescribeComponentConfigurationCommand } = require('@aws-sdk/client-application-insights'); // CommonJS import
  * const client = new ApplicationInsightsClient(config);
  * const input = { // DescribeComponentConfigurationRequest
- *   ResourceGroupName: "STRING_VALUE", // required
- *   ComponentName: "STRING_VALUE", // required
+ *   ResourceGroupName: 'STRING_VALUE', // required
+ *   ComponentName: 'STRING_VALUE', // required
  * };
  * const command = new DescribeComponentConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeComponentConfigurationResponse
+ *   Monitor: true || false,
+ *   Tier: 'STRING_VALUE',
+ *   ComponentConfiguration: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeComponentConfigurationCommandInput - {@link DescribeComponentConfigurationCommandInput}
@@ -71,6 +78,8 @@ export interface DescribeComponentConfigurationCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The parameter is not valid.</p>
  *
+ * @throws {@link ApplicationInsightsServiceException}
+ * <p>Base exception class for all service exceptions from ApplicationInsights service.</p>
  *
  */
 export class DescribeComponentConfigurationCommand extends $Command<

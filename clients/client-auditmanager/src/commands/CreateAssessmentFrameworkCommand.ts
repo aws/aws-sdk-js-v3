@@ -36,29 +36,91 @@ export interface CreateAssessmentFrameworkCommandOutput extends CreateAssessment
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AuditManagerClient, CreateAssessmentFrameworkCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
- * // const { AuditManagerClient, CreateAssessmentFrameworkCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import
+ * import { AuditManagerClient, CreateAssessmentFrameworkCommand } from '@aws-sdk/client-auditmanager'; // ES Modules import
+ * // const { AuditManagerClient, CreateAssessmentFrameworkCommand } = require('@aws-sdk/client-auditmanager'); // CommonJS import
  * const client = new AuditManagerClient(config);
  * const input = { // CreateAssessmentFrameworkRequest
- *   name: "STRING_VALUE", // required
- *   description: "STRING_VALUE",
- *   complianceType: "STRING_VALUE",
+ *   name: 'STRING_VALUE', // required
+ *   description: 'STRING_VALUE',
+ *   complianceType: 'STRING_VALUE',
  *   controlSets: [ // CreateAssessmentFrameworkControlSets // required
  *     { // CreateAssessmentFrameworkControlSet
- *       name: "STRING_VALUE", // required
+ *       name: 'STRING_VALUE', // required
  *       controls: [ // CreateAssessmentFrameworkControls
  *         { // CreateAssessmentFrameworkControl
- *           id: "STRING_VALUE", // required
+ *           id: 'STRING_VALUE', // required
  *         },
  *       ],
  *     },
  *   ],
  *   tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateAssessmentFrameworkCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateAssessmentFrameworkResponse
+ *   framework: { // Framework
+ *     arn: 'STRING_VALUE',
+ *     id: 'STRING_VALUE',
+ *     name: 'STRING_VALUE',
+ *     type: 'Standard' || 'Custom',
+ *     complianceType: 'STRING_VALUE',
+ *     description: 'STRING_VALUE',
+ *     logo: 'STRING_VALUE',
+ *     controlSources: 'STRING_VALUE',
+ *     controlSets: [ // ControlSets
+ *       { // ControlSet
+ *         id: 'STRING_VALUE',
+ *         name: 'STRING_VALUE',
+ *         controls: [ // Controls
+ *           { // Control
+ *             arn: 'STRING_VALUE',
+ *             id: 'STRING_VALUE',
+ *             type: 'Standard' || 'Custom',
+ *             name: 'STRING_VALUE',
+ *             description: 'STRING_VALUE',
+ *             testingInformation: 'STRING_VALUE',
+ *             actionPlanTitle: 'STRING_VALUE',
+ *             actionPlanInstructions: 'STRING_VALUE',
+ *             controlSources: 'STRING_VALUE',
+ *             controlMappingSources: [ // ControlMappingSources
+ *               { // ControlMappingSource
+ *                 sourceId: 'STRING_VALUE',
+ *                 sourceName: 'STRING_VALUE',
+ *                 sourceDescription: 'STRING_VALUE',
+ *                 sourceSetUpOption: 'System_Controls_Mapping' || 'Procedural_Controls_Mapping',
+ *                 sourceType: 'AWS_Cloudtrail' || 'AWS_Config' || 'AWS_Security_Hub' || 'AWS_API_Call' || 'MANUAL',
+ *                 sourceKeyword: { // SourceKeyword
+ *                   keywordInputType: 'SELECT_FROM_LIST',
+ *                   keywordValue: 'STRING_VALUE',
+ *                 },
+ *                 sourceFrequency: 'DAILY' || 'WEEKLY' || 'MONTHLY',
+ *                 troubleshootingText: 'STRING_VALUE',
+ *               },
+ *             ],
+ *             createdAt: new Date('TIMESTAMP'),
+ *             lastUpdatedAt: new Date('TIMESTAMP'),
+ *             createdBy: 'STRING_VALUE',
+ *             lastUpdatedBy: 'STRING_VALUE',
+ *             tags: { // TagMap
+ *               '<keys>': 'STRING_VALUE',
+ *             },
+ *           },
+ *         ],
+ *       },
+ *     ],
+ *     createdAt: new Date('TIMESTAMP'),
+ *     lastUpdatedAt: new Date('TIMESTAMP'),
+ *     createdBy: 'STRING_VALUE',
+ *     lastUpdatedBy: 'STRING_VALUE',
+ *     tags: {
+ *       '<keys>': 'STRING_VALUE',
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateAssessmentFrameworkCommandInput - {@link CreateAssessmentFrameworkCommandInput}
@@ -87,6 +149,8 @@ export interface CreateAssessmentFrameworkCommandOutput extends CreateAssessment
  * @throws {@link ValidationException} (client fault)
  *  <p> The request has invalid or missing parameters. </p>
  *
+ * @throws {@link AuditManagerServiceException}
+ * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
  */
 export class CreateAssessmentFrameworkCommand extends $Command<

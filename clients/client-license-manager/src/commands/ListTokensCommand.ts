@@ -36,26 +36,46 @@ export interface ListTokensCommandOutput extends ListTokensResponse, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LicenseManagerClient, ListTokensCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
- * // const { LicenseManagerClient, ListTokensCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
+ * import { LicenseManagerClient, ListTokensCommand } from '@aws-sdk/client-license-manager'; // ES Modules import
+ * // const { LicenseManagerClient, ListTokensCommand } = require('@aws-sdk/client-license-manager'); // CommonJS import
  * const client = new LicenseManagerClient(config);
  * const input = { // ListTokensRequest
  *   TokenIds: [ // StringList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   Filters: [ // FilterList
  *     { // Filter
- *       Name: "STRING_VALUE",
+ *       Name: 'STRING_VALUE',
  *       Values: [ // FilterValues
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListTokensCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTokensResponse
+ *   Tokens: [ // TokenList
+ *     { // TokenData
+ *       TokenId: 'STRING_VALUE',
+ *       TokenType: 'STRING_VALUE',
+ *       LicenseArn: 'STRING_VALUE',
+ *       ExpirationTime: 'STRING_VALUE',
+ *       TokenProperties: [ // MaxSize3StringList
+ *         'STRING_VALUE',
+ *       ],
+ *       RoleArns: [ // ArnList
+ *         'STRING_VALUE',
+ *       ],
+ *       Status: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListTokensCommandInput - {@link ListTokensCommandInput}
@@ -80,6 +100,8 @@ export interface ListTokensCommandOutput extends ListTokensResponse, __MetadataB
  * @throws {@link ValidationException} (client fault)
  *  <p>The provided input is not valid. Try your request again.</p>
  *
+ * @throws {@link LicenseManagerServiceException}
+ * <p>Base exception class for all service exceptions from LicenseManager service.</p>
  *
  */
 export class ListTokensCommand extends $Command<

@@ -41,14 +41,53 @@ export interface DescribeDeviceCommandOutput extends DescribeDeviceOutput, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SnowDeviceManagementClient, DescribeDeviceCommand } from "@aws-sdk/client-snow-device-management"; // ES Modules import
- * // const { SnowDeviceManagementClient, DescribeDeviceCommand } = require("@aws-sdk/client-snow-device-management"); // CommonJS import
+ * import { SnowDeviceManagementClient, DescribeDeviceCommand } from '@aws-sdk/client-snow-device-management'; // ES Modules import
+ * // const { SnowDeviceManagementClient, DescribeDeviceCommand } = require('@aws-sdk/client-snow-device-management'); // CommonJS import
  * const client = new SnowDeviceManagementClient(config);
  * const input = { // DescribeDeviceInput
- *   managedDeviceId: "STRING_VALUE", // required
+ *   managedDeviceId: 'STRING_VALUE', // required
  * };
  * const command = new DescribeDeviceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeDeviceOutput
+ *   lastReachedOutAt: new Date('TIMESTAMP'),
+ *   lastUpdatedAt: new Date('TIMESTAMP'),
+ *   tags: { // TagMap
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ *   managedDeviceId: 'STRING_VALUE',
+ *   managedDeviceArn: 'STRING_VALUE',
+ *   deviceType: 'STRING_VALUE',
+ *   associatedWithJob: 'STRING_VALUE',
+ *   deviceState: 'STRING_VALUE',
+ *   physicalNetworkInterfaces: [ // PhysicalNetworkInterfaceList
+ *     { // PhysicalNetworkInterface
+ *       physicalNetworkInterfaceId: 'STRING_VALUE',
+ *       physicalConnectorType: 'STRING_VALUE',
+ *       ipAddressAssignment: 'STRING_VALUE',
+ *       ipAddress: 'STRING_VALUE',
+ *       netmask: 'STRING_VALUE',
+ *       defaultGateway: 'STRING_VALUE',
+ *       macAddress: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   deviceCapacities: [ // CapacityList
+ *     { // Capacity
+ *       name: 'STRING_VALUE',
+ *       unit: 'STRING_VALUE',
+ *       total: Number('long'),
+ *       used: Number('long'),
+ *       available: Number('long'),
+ *     },
+ *   ],
+ *   software: { // SoftwareInformation
+ *     installedVersion: 'STRING_VALUE',
+ *     installingVersion: 'STRING_VALUE',
+ *     installState: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeDeviceCommandInput - {@link DescribeDeviceCommandInput}
@@ -72,6 +111,8 @@ export interface DescribeDeviceCommandOutput extends DescribeDeviceOutput, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
  *
+ * @throws {@link SnowDeviceManagementServiceException}
+ * <p>Base exception class for all service exceptions from SnowDeviceManagement service.</p>
  *
  */
 export class DescribeDeviceCommand extends $Command<

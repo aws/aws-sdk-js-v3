@@ -36,16 +36,19 @@ export interface AddRoleToDBClusterCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RDSClient, AddRoleToDBClusterCommand } from "@aws-sdk/client-rds"; // ES Modules import
- * // const { RDSClient, AddRoleToDBClusterCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * import { RDSClient, AddRoleToDBClusterCommand } from '@aws-sdk/client-rds'; // ES Modules import
+ * // const { RDSClient, AddRoleToDBClusterCommand } = require('@aws-sdk/client-rds'); // CommonJS import
  * const client = new RDSClient(config);
  * const input = { // AddRoleToDBClusterMessage
- *   DBClusterIdentifier: "STRING_VALUE", // required
- *   RoleArn: "STRING_VALUE", // required
- *   FeatureName: "STRING_VALUE",
+ *   DBClusterIdentifier: 'STRING_VALUE', // required
+ *   RoleArn: 'STRING_VALUE', // required
+ *   FeatureName: 'STRING_VALUE',
  * };
  * const command = new AddRoleToDBClusterCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param AddRoleToDBClusterCommandInput - {@link AddRoleToDBClusterCommandInput}
@@ -67,6 +70,8 @@ export interface AddRoleToDBClusterCommandOutput extends __MetadataBearer {}
  * @throws {@link InvalidDBClusterStateFault} (client fault)
  *  <p>The requested operation can't be performed while the cluster is in this state.</p>
  *
+ * @throws {@link RDSServiceException}
+ * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  * @example To associate an AWS Identity and Access Management (IAM) role with a DB cluster
  * ```javascript

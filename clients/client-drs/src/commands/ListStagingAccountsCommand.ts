@@ -36,15 +36,25 @@ export interface ListStagingAccountsCommandOutput extends ListStagingAccountsRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DrsClient, ListStagingAccountsCommand } from "@aws-sdk/client-drs"; // ES Modules import
- * // const { DrsClient, ListStagingAccountsCommand } = require("@aws-sdk/client-drs"); // CommonJS import
+ * import { DrsClient, ListStagingAccountsCommand } from '@aws-sdk/client-drs'; // ES Modules import
+ * // const { DrsClient, ListStagingAccountsCommand } = require('@aws-sdk/client-drs'); // CommonJS import
  * const client = new DrsClient(config);
  * const input = { // ListStagingAccountsRequest
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new ListStagingAccountsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListStagingAccountsResponse
+ *   accounts: [ // Accounts
+ *     { // Account
+ *       accountID: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListStagingAccountsCommandInput - {@link ListStagingAccountsCommandInput}
@@ -68,6 +78,8 @@ export interface ListStagingAccountsCommandOutput extends ListStagingAccountsRes
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by the AWS service.</p>
  *
+ * @throws {@link DrsServiceException}
+ * <p>Base exception class for all service exceptions from Drs service.</p>
  *
  */
 export class ListStagingAccountsCommand extends $Command<

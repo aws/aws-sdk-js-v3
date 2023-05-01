@@ -40,16 +40,30 @@ export interface UpdateCrlCommandOutput extends CrlDetailResponse, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RolesAnywhereClient, UpdateCrlCommand } from "@aws-sdk/client-rolesanywhere"; // ES Modules import
- * // const { RolesAnywhereClient, UpdateCrlCommand } = require("@aws-sdk/client-rolesanywhere"); // CommonJS import
+ * import { RolesAnywhereClient, UpdateCrlCommand } from '@aws-sdk/client-rolesanywhere'; // ES Modules import
+ * // const { RolesAnywhereClient, UpdateCrlCommand } = require('@aws-sdk/client-rolesanywhere'); // CommonJS import
  * const client = new RolesAnywhereClient(config);
  * const input = { // UpdateCrlRequest
- *   crlId: "STRING_VALUE", // required
- *   name: "STRING_VALUE",
- *   crlData: "BLOB_VALUE",
+ *   crlId: 'STRING_VALUE', // required
+ *   name: 'STRING_VALUE',
+ *   crlData: 'BLOB_VALUE',
  * };
  * const command = new UpdateCrlCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CrlDetailResponse
+ *   crl: { // CrlDetail
+ *     crlId: 'STRING_VALUE',
+ *     crlArn: 'STRING_VALUE',
+ *     name: 'STRING_VALUE',
+ *     enabled: true || false,
+ *     crlData: 'BLOB_VALUE',
+ *     trustAnchorArn: 'STRING_VALUE',
+ *     createdAt: new Date('TIMESTAMP'),
+ *     updatedAt: new Date('TIMESTAMP'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateCrlCommandInput - {@link UpdateCrlCommandInput}
@@ -67,6 +81,8 @@ export interface UpdateCrlCommandOutput extends CrlDetailResponse, __MetadataBea
  * @throws {@link ValidationException} (client fault)
  *  <p>Validation exception error.</p>
  *
+ * @throws {@link RolesAnywhereServiceException}
+ * <p>Base exception class for all service exceptions from RolesAnywhere service.</p>
  *
  */
 export class UpdateCrlCommand extends $Command<

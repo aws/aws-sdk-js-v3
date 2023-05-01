@@ -36,14 +36,17 @@ export interface DeletePipelineCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodePipelineClient, DeletePipelineCommand } from "@aws-sdk/client-codepipeline"; // ES Modules import
- * // const { CodePipelineClient, DeletePipelineCommand } = require("@aws-sdk/client-codepipeline"); // CommonJS import
+ * import { CodePipelineClient, DeletePipelineCommand } from '@aws-sdk/client-codepipeline'; // ES Modules import
+ * // const { CodePipelineClient, DeletePipelineCommand } = require('@aws-sdk/client-codepipeline'); // CommonJS import
  * const client = new CodePipelineClient(config);
  * const input = { // DeletePipelineInput
- *   name: "STRING_VALUE", // required
+ *   name: 'STRING_VALUE', // required
  * };
  * const command = new DeletePipelineCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeletePipelineCommandInput - {@link DeletePipelineCommandInput}
@@ -58,6 +61,8 @@ export interface DeletePipelineCommandOutput extends __MetadataBearer {}
  * @throws {@link ValidationException} (client fault)
  *  <p>The validation was specified in an invalid format.</p>
  *
+ * @throws {@link CodePipelineServiceException}
+ * <p>Base exception class for all service exceptions from CodePipeline service.</p>
  *
  */
 export class DeletePipelineCommand extends $Command<

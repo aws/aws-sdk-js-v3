@@ -51,16 +51,28 @@ export interface ListOrganizationalUnitsForParentCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OrganizationsClient, ListOrganizationalUnitsForParentCommand } from "@aws-sdk/client-organizations"; // ES Modules import
- * // const { OrganizationsClient, ListOrganizationalUnitsForParentCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
+ * import { OrganizationsClient, ListOrganizationalUnitsForParentCommand } from '@aws-sdk/client-organizations'; // ES Modules import
+ * // const { OrganizationsClient, ListOrganizationalUnitsForParentCommand } = require('@aws-sdk/client-organizations'); // CommonJS import
  * const client = new OrganizationsClient(config);
  * const input = { // ListOrganizationalUnitsForParentRequest
- *   ParentId: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   ParentId: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListOrganizationalUnitsForParentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListOrganizationalUnitsForParentResponse
+ *   OrganizationalUnits: [ // OrganizationalUnits
+ *     { // OrganizationalUnit
+ *       Id: 'STRING_VALUE',
+ *       Arn: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListOrganizationalUnitsForParentCommandInput - {@link ListOrganizationalUnitsForParentCommandInput}
@@ -198,6 +210,8 @@ export interface ListOrganizationalUnitsForParentCommandOutput
  *                 <i>Organizations User Guide.</i>
  *          </p>
  *
+ * @throws {@link OrganizationsServiceException}
+ * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
  * @example To retrieve a list of all of the child OUs in a parent root or OU
  * ```javascript

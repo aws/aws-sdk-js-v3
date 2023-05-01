@@ -36,22 +36,32 @@ export interface CopyDBParameterGroupCommandOutput extends CopyDBParameterGroupR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { NeptuneClient, CopyDBParameterGroupCommand } from "@aws-sdk/client-neptune"; // ES Modules import
- * // const { NeptuneClient, CopyDBParameterGroupCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
+ * import { NeptuneClient, CopyDBParameterGroupCommand } from '@aws-sdk/client-neptune'; // ES Modules import
+ * // const { NeptuneClient, CopyDBParameterGroupCommand } = require('@aws-sdk/client-neptune'); // CommonJS import
  * const client = new NeptuneClient(config);
  * const input = { // CopyDBParameterGroupMessage
- *   SourceDBParameterGroupIdentifier: "STRING_VALUE", // required
- *   TargetDBParameterGroupIdentifier: "STRING_VALUE", // required
- *   TargetDBParameterGroupDescription: "STRING_VALUE", // required
+ *   SourceDBParameterGroupIdentifier: 'STRING_VALUE', // required
+ *   TargetDBParameterGroupIdentifier: 'STRING_VALUE', // required
+ *   TargetDBParameterGroupDescription: 'STRING_VALUE', // required
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE",
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new CopyDBParameterGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CopyDBParameterGroupResult
+ *   DBParameterGroup: { // DBParameterGroup
+ *     DBParameterGroupName: 'STRING_VALUE',
+ *     DBParameterGroupFamily: 'STRING_VALUE',
+ *     Description: 'STRING_VALUE',
+ *     DBParameterGroupArn: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param CopyDBParameterGroupCommandInput - {@link CopyDBParameterGroupCommandInput}
@@ -71,6 +81,8 @@ export interface CopyDBParameterGroupCommandOutput extends CopyDBParameterGroupR
  * @throws {@link DBParameterGroupQuotaExceededFault} (client fault)
  *  <p>Request would result in user exceeding the allowed number of DB parameter groups.</p>
  *
+ * @throws {@link NeptuneServiceException}
+ * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
  */
 export class CopyDBParameterGroupCommand extends $Command<

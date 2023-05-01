@@ -36,16 +36,24 @@ export interface DeleteTemplateCommandOutput extends DeleteTemplateResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { QuickSightClient, DeleteTemplateCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
- * // const { QuickSightClient, DeleteTemplateCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * import { QuickSightClient, DeleteTemplateCommand } from '@aws-sdk/client-quicksight'; // ES Modules import
+ * // const { QuickSightClient, DeleteTemplateCommand } = require('@aws-sdk/client-quicksight'); // CommonJS import
  * const client = new QuickSightClient(config);
  * const input = { // DeleteTemplateRequest
- *   AwsAccountId: "STRING_VALUE", // required
- *   TemplateId: "STRING_VALUE", // required
- *   VersionNumber: Number("long"),
+ *   AwsAccountId: 'STRING_VALUE', // required
+ *   TemplateId: 'STRING_VALUE', // required
+ *   VersionNumber: Number('long'),
  * };
  * const command = new DeleteTemplateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteTemplateResponse
+ *   RequestId: 'STRING_VALUE',
+ *   Arn: 'STRING_VALUE',
+ *   TemplateId: 'STRING_VALUE',
+ *   Status: Number('int'),
+ * };
+ *
  * ```
  *
  * @param DeleteTemplateCommandInput - {@link DeleteTemplateCommandInput}
@@ -78,6 +86,8 @@ export interface DeleteTemplateCommandOutput extends DeleteTemplateResponse, __M
  * 			Amazon QuickSight currently has Standard Edition and Enterprise Edition. Not every operation and
  * 			capability is available in every edition.</p>
  *
+ * @throws {@link QuickSightServiceException}
+ * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
 export class DeleteTemplateCommand extends $Command<

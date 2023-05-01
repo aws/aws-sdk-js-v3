@@ -42,22 +42,34 @@ export interface DescribeEventCategoriesCommandOutput extends EventCategoriesMes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RDSClient, DescribeEventCategoriesCommand } from "@aws-sdk/client-rds"; // ES Modules import
- * // const { RDSClient, DescribeEventCategoriesCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * import { RDSClient, DescribeEventCategoriesCommand } from '@aws-sdk/client-rds'; // ES Modules import
+ * // const { RDSClient, DescribeEventCategoriesCommand } = require('@aws-sdk/client-rds'); // CommonJS import
  * const client = new RDSClient(config);
  * const input = { // DescribeEventCategoriesMessage
- *   SourceType: "STRING_VALUE",
+ *   SourceType: 'STRING_VALUE',
  *   Filters: [ // FilterList
  *     { // Filter
- *       Name: "STRING_VALUE", // required
+ *       Name: 'STRING_VALUE', // required
  *       Values: [ // FilterValueList // required
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
  * };
  * const command = new DescribeEventCategoriesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // EventCategoriesMessage
+ *   EventCategoriesMapList: [ // EventCategoriesMapList
+ *     { // EventCategoriesMap
+ *       SourceType: 'STRING_VALUE',
+ *       EventCategories: [ // EventCategoriesList
+ *         'STRING_VALUE',
+ *       ],
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeEventCategoriesCommandInput - {@link DescribeEventCategoriesCommandInput}
@@ -66,6 +78,8 @@ export interface DescribeEventCategoriesCommandOutput extends EventCategoriesMes
  * @see {@link DescribeEventCategoriesCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
+ * @throws {@link RDSServiceException}
+ * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  * @example To describe event categories
  * ```javascript

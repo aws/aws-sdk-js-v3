@@ -36,21 +36,34 @@ export interface UpdateAccountCommandOutput extends Account, __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { APIGatewayClient, UpdateAccountCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
- * // const { APIGatewayClient, UpdateAccountCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
+ * import { APIGatewayClient, UpdateAccountCommand } from '@aws-sdk/client-api-gateway'; // ES Modules import
+ * // const { APIGatewayClient, UpdateAccountCommand } = require('@aws-sdk/client-api-gateway'); // CommonJS import
  * const client = new APIGatewayClient(config);
  * const input = { // UpdateAccountRequest
  *   patchOperations: [ // ListOfPatchOperation
  *     { // PatchOperation
- *       op: "add" || "remove" || "replace" || "move" || "copy" || "test",
- *       path: "STRING_VALUE",
- *       value: "STRING_VALUE",
- *       from: "STRING_VALUE",
+ *       op: 'add' || 'remove' || 'replace' || 'move' || 'copy' || 'test',
+ *       path: 'STRING_VALUE',
+ *       value: 'STRING_VALUE',
+ *       from: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new UpdateAccountCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // Account
+ *   cloudwatchRoleArn: 'STRING_VALUE',
+ *   throttleSettings: { // ThrottleSettings
+ *     burstLimit: Number('int'),
+ *     rateLimit: Number('double'),
+ *   },
+ *   features: [ // ListOfString
+ *     'STRING_VALUE',
+ *   ],
+ *   apiKeyVersion: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateAccountCommandInput - {@link UpdateAccountCommandInput}
@@ -77,6 +90,8 @@ export interface UpdateAccountCommandOutput extends Account, __MetadataBearer {}
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The request is denied because the caller has insufficient permissions.</p>
  *
+ * @throws {@link APIGatewayServiceException}
+ * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
  */
 export class UpdateAccountCommand extends $Command<

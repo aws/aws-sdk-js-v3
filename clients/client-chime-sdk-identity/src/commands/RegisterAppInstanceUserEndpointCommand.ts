@@ -46,23 +46,29 @@ export interface RegisterAppInstanceUserEndpointCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeSDKIdentityClient, RegisterAppInstanceUserEndpointCommand } from "@aws-sdk/client-chime-sdk-identity"; // ES Modules import
- * // const { ChimeSDKIdentityClient, RegisterAppInstanceUserEndpointCommand } = require("@aws-sdk/client-chime-sdk-identity"); // CommonJS import
+ * import { ChimeSDKIdentityClient, RegisterAppInstanceUserEndpointCommand } from '@aws-sdk/client-chime-sdk-identity'; // ES Modules import
+ * // const { ChimeSDKIdentityClient, RegisterAppInstanceUserEndpointCommand } = require('@aws-sdk/client-chime-sdk-identity'); // CommonJS import
  * const client = new ChimeSDKIdentityClient(config);
  * const input = { // RegisterAppInstanceUserEndpointRequest
- *   AppInstanceUserArn: "STRING_VALUE", // required
- *   Name: "STRING_VALUE",
- *   Type: "APNS" || "APNS_SANDBOX" || "GCM", // required
- *   ResourceArn: "STRING_VALUE", // required
+ *   AppInstanceUserArn: 'STRING_VALUE', // required
+ *   Name: 'STRING_VALUE',
+ *   Type: 'APNS' || 'APNS_SANDBOX' || 'GCM', // required
+ *   ResourceArn: 'STRING_VALUE', // required
  *   EndpointAttributes: { // EndpointAttributes
- *     DeviceToken: "STRING_VALUE", // required
- *     VoipDeviceToken: "STRING_VALUE",
+ *     DeviceToken: 'STRING_VALUE', // required
+ *     VoipDeviceToken: 'STRING_VALUE',
  *   },
- *   ClientRequestToken: "STRING_VALUE", // required
- *   AllowMessages: "ALL" || "NONE",
+ *   ClientRequestToken: 'STRING_VALUE', // required
+ *   AllowMessages: 'ALL' || 'NONE',
  * };
  * const command = new RegisterAppInstanceUserEndpointCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // RegisterAppInstanceUserEndpointResponse
+ *   AppInstanceUserArn: 'STRING_VALUE',
+ *   EndpointId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param RegisterAppInstanceUserEndpointCommandInput - {@link RegisterAppInstanceUserEndpointCommandInput}
@@ -96,6 +102,8 @@ export interface RegisterAppInstanceUserEndpointCommandOutput
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeSDKIdentityServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKIdentity service.</p>
  *
  */
 export class RegisterAppInstanceUserEndpointCommand extends $Command<

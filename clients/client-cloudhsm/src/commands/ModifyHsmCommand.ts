@@ -52,19 +52,24 @@ export interface ModifyHsmCommandOutput extends ModifyHsmResponse, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudHSMClient, ModifyHsmCommand } from "@aws-sdk/client-cloudhsm"; // ES Modules import
- * // const { CloudHSMClient, ModifyHsmCommand } = require("@aws-sdk/client-cloudhsm"); // CommonJS import
+ * import { CloudHSMClient, ModifyHsmCommand } from '@aws-sdk/client-cloudhsm'; // ES Modules import
+ * // const { CloudHSMClient, ModifyHsmCommand } = require('@aws-sdk/client-cloudhsm'); // CommonJS import
  * const client = new CloudHSMClient(config);
  * const input = { // ModifyHsmRequest
- *   HsmArn: "STRING_VALUE", // required
- *   SubnetId: "STRING_VALUE",
- *   EniIp: "STRING_VALUE",
- *   IamRoleArn: "STRING_VALUE",
- *   ExternalId: "STRING_VALUE",
- *   SyslogIp: "STRING_VALUE",
+ *   HsmArn: 'STRING_VALUE', // required
+ *   SubnetId: 'STRING_VALUE',
+ *   EniIp: 'STRING_VALUE',
+ *   IamRoleArn: 'STRING_VALUE',
+ *   ExternalId: 'STRING_VALUE',
+ *   SyslogIp: 'STRING_VALUE',
  * };
  * const command = new ModifyHsmCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ModifyHsmResponse
+ *   HsmArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ModifyHsmCommandInput - {@link ModifyHsmCommandInput}
@@ -82,6 +87,8 @@ export interface ModifyHsmCommandOutput extends ModifyHsmResponse, __MetadataBea
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>Indicates that one or more of the request parameters are not valid.</p>
  *
+ * @throws {@link CloudHSMServiceException}
+ * <p>Base exception class for all service exceptions from CloudHSM service.</p>
  *
  */
 export class ModifyHsmCommand extends $Command<

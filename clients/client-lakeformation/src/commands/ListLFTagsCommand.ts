@@ -36,17 +36,31 @@ export interface ListLFTagsCommandOutput extends ListLFTagsResponse, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LakeFormationClient, ListLFTagsCommand } from "@aws-sdk/client-lakeformation"; // ES Modules import
- * // const { LakeFormationClient, ListLFTagsCommand } = require("@aws-sdk/client-lakeformation"); // CommonJS import
+ * import { LakeFormationClient, ListLFTagsCommand } from '@aws-sdk/client-lakeformation'; // ES Modules import
+ * // const { LakeFormationClient, ListLFTagsCommand } = require('@aws-sdk/client-lakeformation'); // CommonJS import
  * const client = new LakeFormationClient(config);
  * const input = { // ListLFTagsRequest
- *   CatalogId: "STRING_VALUE",
- *   ResourceShareType: "FOREIGN" || "ALL",
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   CatalogId: 'STRING_VALUE',
+ *   ResourceShareType: 'FOREIGN' || 'ALL',
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListLFTagsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListLFTagsResponse
+ *   LFTags: [ // LFTagsList
+ *     { // LFTagPair
+ *       CatalogId: 'STRING_VALUE',
+ *       TagKey: 'STRING_VALUE', // required
+ *       TagValues: [ // TagValueList // required
+ *         'STRING_VALUE',
+ *       ],
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListLFTagsCommandInput - {@link ListLFTagsCommandInput}
@@ -70,6 +84,8 @@ export interface ListLFTagsCommandOutput extends ListLFTagsResponse, __MetadataB
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link LakeFormationServiceException}
+ * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
  */
 export class ListLFTagsCommand extends $Command<

@@ -40,15 +40,30 @@ export interface DescribeDomainCommandOutput extends DescribeDomainResult, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeartifactClient, DescribeDomainCommand } from "@aws-sdk/client-codeartifact"; // ES Modules import
- * // const { CodeartifactClient, DescribeDomainCommand } = require("@aws-sdk/client-codeartifact"); // CommonJS import
+ * import { CodeartifactClient, DescribeDomainCommand } from '@aws-sdk/client-codeartifact'; // ES Modules import
+ * // const { CodeartifactClient, DescribeDomainCommand } = require('@aws-sdk/client-codeartifact'); // CommonJS import
  * const client = new CodeartifactClient(config);
  * const input = { // DescribeDomainRequest
- *   domain: "STRING_VALUE", // required
- *   domainOwner: "STRING_VALUE",
+ *   domain: 'STRING_VALUE', // required
+ *   domainOwner: 'STRING_VALUE',
  * };
  * const command = new DescribeDomainCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeDomainResult
+ *   domain: { // DomainDescription
+ *     name: 'STRING_VALUE',
+ *     owner: 'STRING_VALUE',
+ *     arn: 'STRING_VALUE',
+ *     status: 'Active' || 'Deleted',
+ *     createdTime: new Date('TIMESTAMP'),
+ *     encryptionKey: 'STRING_VALUE',
+ *     repositoryCount: Number('int'),
+ *     assetSizeBytes: Number('long'),
+ *     s3BucketArn: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeDomainCommandInput - {@link DescribeDomainCommandInput}
@@ -80,6 +95,8 @@ export interface DescribeDomainCommandOutput extends DescribeDomainResult, __Met
  *       The operation did not succeed because a parameter in the request was sent with an invalid value.
  *     </p>
  *
+ * @throws {@link CodeartifactServiceException}
+ * <p>Base exception class for all service exceptions from Codeartifact service.</p>
  *
  */
 export class DescribeDomainCommand extends $Command<

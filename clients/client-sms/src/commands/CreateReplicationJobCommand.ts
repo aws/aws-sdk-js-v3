@@ -38,23 +38,28 @@ export interface CreateReplicationJobCommandOutput extends CreateReplicationJobR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SMSClient, CreateReplicationJobCommand } from "@aws-sdk/client-sms"; // ES Modules import
- * // const { SMSClient, CreateReplicationJobCommand } = require("@aws-sdk/client-sms"); // CommonJS import
+ * import { SMSClient, CreateReplicationJobCommand } from '@aws-sdk/client-sms'; // ES Modules import
+ * // const { SMSClient, CreateReplicationJobCommand } = require('@aws-sdk/client-sms'); // CommonJS import
  * const client = new SMSClient(config);
  * const input = { // CreateReplicationJobRequest
- *   serverId: "STRING_VALUE", // required
- *   seedReplicationTime: new Date("TIMESTAMP"), // required
- *   frequency: Number("int"),
+ *   serverId: 'STRING_VALUE', // required
+ *   seedReplicationTime: new Date('TIMESTAMP'), // required
+ *   frequency: Number('int'),
  *   runOnce: true || false,
- *   licenseType: "AWS" || "BYOL",
- *   roleName: "STRING_VALUE",
- *   description: "STRING_VALUE",
- *   numberOfRecentAmisToKeep: Number("int"),
+ *   licenseType: 'AWS' || 'BYOL',
+ *   roleName: 'STRING_VALUE',
+ *   description: 'STRING_VALUE',
+ *   numberOfRecentAmisToKeep: Number('int'),
  *   encrypted: true || false,
- *   kmsKeyId: "STRING_VALUE",
+ *   kmsKeyId: 'STRING_VALUE',
  * };
  * const command = new CreateReplicationJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateReplicationJobResponse
+ *   replicationJobId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateReplicationJobCommandInput - {@link CreateReplicationJobCommandInput}
@@ -91,6 +96,8 @@ export interface CreateReplicationJobCommandOutput extends CreateReplicationJobR
  *  <p>You lack permissions needed to perform this operation. Check your IAM policies,
  *             and ensure that you are using the correct access keys.</p>
  *
+ * @throws {@link SMSServiceException}
+ * <p>Base exception class for all service exceptions from SMS service.</p>
  *
  */
 export class CreateReplicationJobCommand extends $Command<

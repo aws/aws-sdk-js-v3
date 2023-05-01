@@ -40,28 +40,49 @@ export interface ListProductSubscriptionsCommandOutput extends ListProductSubscr
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LicenseManagerUserSubscriptionsClient, ListProductSubscriptionsCommand } from "@aws-sdk/client-license-manager-user-subscriptions"; // ES Modules import
- * // const { LicenseManagerUserSubscriptionsClient, ListProductSubscriptionsCommand } = require("@aws-sdk/client-license-manager-user-subscriptions"); // CommonJS import
+ * import { LicenseManagerUserSubscriptionsClient, ListProductSubscriptionsCommand } from '@aws-sdk/client-license-manager-user-subscriptions'; // ES Modules import
+ * // const { LicenseManagerUserSubscriptionsClient, ListProductSubscriptionsCommand } = require('@aws-sdk/client-license-manager-user-subscriptions'); // CommonJS import
  * const client = new LicenseManagerUserSubscriptionsClient(config);
  * const input = { // ListProductSubscriptionsRequest
- *   Product: "STRING_VALUE", // required
+ *   Product: 'STRING_VALUE', // required
  *   IdentityProvider: { // IdentityProvider Union: only one key present
  *     ActiveDirectoryIdentityProvider: { // ActiveDirectoryIdentityProvider
- *       DirectoryId: "STRING_VALUE",
+ *       DirectoryId: 'STRING_VALUE',
  *     },
  *   },
- *   MaxResults: Number("int"),
+ *   MaxResults: Number('int'),
  *   Filters: [ // FilterList
  *     { // Filter
- *       Attribute: "STRING_VALUE",
- *       Operation: "STRING_VALUE",
- *       Value: "STRING_VALUE",
+ *       Attribute: 'STRING_VALUE',
+ *       Operation: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
- *   NextToken: "STRING_VALUE",
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListProductSubscriptionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListProductSubscriptionsResponse
+ *   ProductUserSummaries: [ // ProductUserSummaryList
+ *     { // ProductUserSummary
+ *       Username: 'STRING_VALUE', // required
+ *       Product: 'STRING_VALUE', // required
+ *       IdentityProvider: { // IdentityProvider Union: only one key present
+ *         ActiveDirectoryIdentityProvider: { // ActiveDirectoryIdentityProvider
+ *           DirectoryId: 'STRING_VALUE',
+ *         },
+ *       },
+ *       Status: 'STRING_VALUE', // required
+ *       StatusMessage: 'STRING_VALUE',
+ *       Domain: 'STRING_VALUE',
+ *       SubscriptionStartDate: 'STRING_VALUE',
+ *       SubscriptionEndDate: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListProductSubscriptionsCommandInput - {@link ListProductSubscriptionsCommandInput}
@@ -92,6 +113,8 @@ export interface ListProductSubscriptionsCommandOutput extends ListProductSubscr
  * @throws {@link ValidationException} (client fault)
  *  <p>A parameter is not valid.</p>
  *
+ * @throws {@link LicenseManagerUserSubscriptionsServiceException}
+ * <p>Base exception class for all service exceptions from LicenseManagerUserSubscriptions service.</p>
  *
  */
 export class ListProductSubscriptionsCommand extends $Command<

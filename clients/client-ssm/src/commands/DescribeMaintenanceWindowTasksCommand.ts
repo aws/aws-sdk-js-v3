@@ -51,24 +51,72 @@ export interface DescribeMaintenanceWindowTasksCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMClient, DescribeMaintenanceWindowTasksCommand } from "@aws-sdk/client-ssm"; // ES Modules import
- * // const { SSMClient, DescribeMaintenanceWindowTasksCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * import { SSMClient, DescribeMaintenanceWindowTasksCommand } from '@aws-sdk/client-ssm'; // ES Modules import
+ * // const { SSMClient, DescribeMaintenanceWindowTasksCommand } = require('@aws-sdk/client-ssm'); // CommonJS import
  * const client = new SSMClient(config);
  * const input = { // DescribeMaintenanceWindowTasksRequest
- *   WindowId: "STRING_VALUE", // required
+ *   WindowId: 'STRING_VALUE', // required
  *   Filters: [ // MaintenanceWindowFilterList
  *     { // MaintenanceWindowFilter
- *       Key: "STRING_VALUE",
+ *       Key: 'STRING_VALUE',
  *       Values: [ // MaintenanceWindowFilterValues
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new DescribeMaintenanceWindowTasksCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeMaintenanceWindowTasksResult
+ *   Tasks: [ // MaintenanceWindowTaskList
+ *     { // MaintenanceWindowTask
+ *       WindowId: 'STRING_VALUE',
+ *       WindowTaskId: 'STRING_VALUE',
+ *       TaskArn: 'STRING_VALUE',
+ *       Type: 'RUN_COMMAND' || 'AUTOMATION' || 'STEP_FUNCTIONS' || 'LAMBDA',
+ *       Targets: [ // Targets
+ *         { // Target
+ *           Key: 'STRING_VALUE',
+ *           Values: [ // TargetValues
+ *             'STRING_VALUE',
+ *           ],
+ *         },
+ *       ],
+ *       TaskParameters: { // MaintenanceWindowTaskParameters
+ *         '<keys>': { // MaintenanceWindowTaskParameterValueExpression
+ *           Values: [ // MaintenanceWindowTaskParameterValueList
+ *             'STRING_VALUE',
+ *           ],
+ *         },
+ *       },
+ *       Priority: Number('int'),
+ *       LoggingInfo: { // LoggingInfo
+ *         S3BucketName: 'STRING_VALUE', // required
+ *         S3KeyPrefix: 'STRING_VALUE',
+ *         S3Region: 'STRING_VALUE', // required
+ *       },
+ *       ServiceRoleArn: 'STRING_VALUE',
+ *       MaxConcurrency: 'STRING_VALUE',
+ *       MaxErrors: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *       Description: 'STRING_VALUE',
+ *       CutoffBehavior: 'CONTINUE_TASK' || 'CANCEL_TASK',
+ *       AlarmConfiguration: { // AlarmConfiguration
+ *         IgnorePollAlarmFailure: true || false,
+ *         Alarms: [ // AlarmList // required
+ *           { // Alarm
+ *             Name: 'STRING_VALUE', // required
+ *           },
+ *         ],
+ *       },
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeMaintenanceWindowTasksCommandInput - {@link DescribeMaintenanceWindowTasksCommandInput}
@@ -86,6 +134,8 @@ export interface DescribeMaintenanceWindowTasksCommandOutput
  * @throws {@link InternalServerError} (server fault)
  *  <p>An error occurred on the server side.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class DescribeMaintenanceWindowTasksCommand extends $Command<

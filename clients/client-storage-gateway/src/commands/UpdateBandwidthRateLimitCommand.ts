@@ -47,16 +47,21 @@ export interface UpdateBandwidthRateLimitCommandOutput extends UpdateBandwidthRa
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { StorageGatewayClient, UpdateBandwidthRateLimitCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
- * // const { StorageGatewayClient, UpdateBandwidthRateLimitCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
+ * import { StorageGatewayClient, UpdateBandwidthRateLimitCommand } from '@aws-sdk/client-storage-gateway'; // ES Modules import
+ * // const { StorageGatewayClient, UpdateBandwidthRateLimitCommand } = require('@aws-sdk/client-storage-gateway'); // CommonJS import
  * const client = new StorageGatewayClient(config);
  * const input = { // UpdateBandwidthRateLimitInput
- *   GatewayARN: "STRING_VALUE", // required
- *   AverageUploadRateLimitInBitsPerSec: Number("long"),
- *   AverageDownloadRateLimitInBitsPerSec: Number("long"),
+ *   GatewayARN: 'STRING_VALUE', // required
+ *   AverageUploadRateLimitInBitsPerSec: Number('long'),
+ *   AverageDownloadRateLimitInBitsPerSec: Number('long'),
  * };
  * const command = new UpdateBandwidthRateLimitCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateBandwidthRateLimitOutput
+ *   GatewayARN: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateBandwidthRateLimitCommandInput - {@link UpdateBandwidthRateLimitCommandInput}
@@ -73,6 +78,8 @@ export interface UpdateBandwidthRateLimitCommandOutput extends UpdateBandwidthRa
  *  <p>An exception occurred because an invalid gateway request was issued to the service. For
  *          more information, see the error and message fields.</p>
  *
+ * @throws {@link StorageGatewayServiceException}
+ * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
  * @example To update the bandwidth rate limits of a gateway
  * ```javascript

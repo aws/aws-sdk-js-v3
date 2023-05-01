@@ -40,19 +40,48 @@ export interface UpdateProxySessionCommandOutput extends UpdateProxySessionRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeClient, UpdateProxySessionCommand } from "@aws-sdk/client-chime"; // ES Modules import
- * // const { ChimeClient, UpdateProxySessionCommand } = require("@aws-sdk/client-chime"); // CommonJS import
+ * import { ChimeClient, UpdateProxySessionCommand } from '@aws-sdk/client-chime'; // ES Modules import
+ * // const { ChimeClient, UpdateProxySessionCommand } = require('@aws-sdk/client-chime'); // CommonJS import
  * const client = new ChimeClient(config);
  * const input = { // UpdateProxySessionRequest
- *   VoiceConnectorId: "STRING_VALUE", // required
- *   ProxySessionId: "STRING_VALUE", // required
+ *   VoiceConnectorId: 'STRING_VALUE', // required
+ *   ProxySessionId: 'STRING_VALUE', // required
  *   Capabilities: [ // CapabilityList // required
- *     "Voice" || "SMS",
+ *     'Voice' || 'SMS',
  *   ],
- *   ExpiryMinutes: Number("int"),
+ *   ExpiryMinutes: Number('int'),
  * };
  * const command = new UpdateProxySessionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateProxySessionResponse
+ *   ProxySession: { // ProxySession
+ *     VoiceConnectorId: 'STRING_VALUE',
+ *     ProxySessionId: 'STRING_VALUE',
+ *     Name: 'STRING_VALUE',
+ *     Status: 'Open' || 'InProgress' || 'Closed',
+ *     ExpiryMinutes: Number('int'),
+ *     Capabilities: [ // CapabilityList
+ *       'Voice' || 'SMS',
+ *     ],
+ *     CreatedTimestamp: new Date('TIMESTAMP'),
+ *     UpdatedTimestamp: new Date('TIMESTAMP'),
+ *     EndedTimestamp: new Date('TIMESTAMP'),
+ *     Participants: [ // Participants
+ *       { // Participant
+ *         PhoneNumber: 'STRING_VALUE',
+ *         ProxyPhoneNumber: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     NumberSelectionBehavior: 'PreferSticky' || 'AvoidSticky',
+ *     GeoMatchLevel: 'Country' || 'AreaCode',
+ *     GeoMatchParams: { // GeoMatchParams
+ *       Country: 'STRING_VALUE', // required
+ *       AreaCode: 'STRING_VALUE', // required
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateProxySessionCommandInput - {@link UpdateProxySessionCommandInput}
@@ -82,6 +111,8 @@ export interface UpdateProxySessionCommandOutput extends UpdateProxySessionRespo
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeServiceException}
+ * <p>Base exception class for all service exceptions from Chime service.</p>
  *
  */
 export class UpdateProxySessionCommand extends $Command<

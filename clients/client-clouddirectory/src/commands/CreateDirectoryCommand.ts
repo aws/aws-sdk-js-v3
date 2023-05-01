@@ -39,15 +39,23 @@ export interface CreateDirectoryCommandOutput extends CreateDirectoryResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudDirectoryClient, CreateDirectoryCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
- * // const { CloudDirectoryClient, CreateDirectoryCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
+ * import { CloudDirectoryClient, CreateDirectoryCommand } from '@aws-sdk/client-clouddirectory'; // ES Modules import
+ * // const { CloudDirectoryClient, CreateDirectoryCommand } = require('@aws-sdk/client-clouddirectory'); // CommonJS import
  * const client = new CloudDirectoryClient(config);
  * const input = { // CreateDirectoryRequest
- *   Name: "STRING_VALUE", // required
- *   SchemaArn: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
+ *   SchemaArn: 'STRING_VALUE', // required
  * };
  * const command = new CreateDirectoryCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateDirectoryResponse
+ *   DirectoryArn: 'STRING_VALUE', // required
+ *   Name: 'STRING_VALUE', // required
+ *   ObjectIdentifier: 'STRING_VALUE', // required
+ *   AppliedSchemaArn: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param CreateDirectoryCommandInput - {@link CreateDirectoryCommandInput}
@@ -82,6 +90,8 @@ export interface CreateDirectoryCommandOutput extends CreateDirectoryResponse, _
  *  <p>Indicates that your request is malformed in some manner. See the exception
  *       message.</p>
  *
+ * @throws {@link CloudDirectoryServiceException}
+ * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
  */
 export class CreateDirectoryCommand extends $Command<

@@ -41,16 +41,28 @@ export interface ListMetricAttributionMetricsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PersonalizeClient, ListMetricAttributionMetricsCommand } from "@aws-sdk/client-personalize"; // ES Modules import
- * // const { PersonalizeClient, ListMetricAttributionMetricsCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
+ * import { PersonalizeClient, ListMetricAttributionMetricsCommand } from '@aws-sdk/client-personalize'; // ES Modules import
+ * // const { PersonalizeClient, ListMetricAttributionMetricsCommand } = require('@aws-sdk/client-personalize'); // CommonJS import
  * const client = new PersonalizeClient(config);
  * const input = { // ListMetricAttributionMetricsRequest
- *   metricAttributionArn: "STRING_VALUE",
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   metricAttributionArn: 'STRING_VALUE',
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new ListMetricAttributionMetricsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListMetricAttributionMetricsResponse
+ *   metrics: [ // MetricAttributes
+ *     { // MetricAttribute
+ *       eventType: 'STRING_VALUE', // required
+ *       metricName: 'STRING_VALUE', // required
+ *       expression: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListMetricAttributionMetricsCommandInput - {@link ListMetricAttributionMetricsCommandInput}
@@ -65,6 +77,8 @@ export interface ListMetricAttributionMetricsCommandOutput
  * @throws {@link InvalidNextTokenException} (client fault)
  *  <p>The token is not valid.</p>
  *
+ * @throws {@link PersonalizeServiceException}
+ * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
  */
 export class ListMetricAttributionMetricsCommand extends $Command<

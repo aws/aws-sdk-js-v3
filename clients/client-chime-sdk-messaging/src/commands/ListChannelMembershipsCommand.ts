@@ -52,19 +52,33 @@ export interface ListChannelMembershipsCommandOutput extends ListChannelMembersh
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeSDKMessagingClient, ListChannelMembershipsCommand } from "@aws-sdk/client-chime-sdk-messaging"; // ES Modules import
- * // const { ChimeSDKMessagingClient, ListChannelMembershipsCommand } = require("@aws-sdk/client-chime-sdk-messaging"); // CommonJS import
+ * import { ChimeSDKMessagingClient, ListChannelMembershipsCommand } from '@aws-sdk/client-chime-sdk-messaging'; // ES Modules import
+ * // const { ChimeSDKMessagingClient, ListChannelMembershipsCommand } = require('@aws-sdk/client-chime-sdk-messaging'); // CommonJS import
  * const client = new ChimeSDKMessagingClient(config);
  * const input = { // ListChannelMembershipsRequest
- *   ChannelArn: "STRING_VALUE", // required
- *   Type: "DEFAULT" || "HIDDEN",
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
- *   ChimeBearer: "STRING_VALUE", // required
- *   SubChannelId: "STRING_VALUE",
+ *   ChannelArn: 'STRING_VALUE', // required
+ *   Type: 'DEFAULT' || 'HIDDEN',
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
+ *   ChimeBearer: 'STRING_VALUE', // required
+ *   SubChannelId: 'STRING_VALUE',
  * };
  * const command = new ListChannelMembershipsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListChannelMembershipsResponse
+ *   ChannelArn: 'STRING_VALUE',
+ *   ChannelMemberships: [ // ChannelMembershipSummaryList
+ *     { // ChannelMembershipSummary
+ *       Member: { // Identity
+ *         Arn: 'STRING_VALUE',
+ *         Name: 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListChannelMembershipsCommandInput - {@link ListChannelMembershipsCommandInput}
@@ -91,6 +105,8 @@ export interface ListChannelMembershipsCommandOutput extends ListChannelMembersh
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeSDKMessagingServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKMessaging service.</p>
  *
  */
 export class ListChannelMembershipsCommand extends $Command<

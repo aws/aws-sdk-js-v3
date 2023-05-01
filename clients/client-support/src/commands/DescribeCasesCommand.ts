@@ -66,24 +66,63 @@ export interface DescribeCasesCommandOutput extends DescribeCasesResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SupportClient, DescribeCasesCommand } from "@aws-sdk/client-support"; // ES Modules import
- * // const { SupportClient, DescribeCasesCommand } = require("@aws-sdk/client-support"); // CommonJS import
+ * import { SupportClient, DescribeCasesCommand } from '@aws-sdk/client-support'; // ES Modules import
+ * // const { SupportClient, DescribeCasesCommand } = require('@aws-sdk/client-support'); // CommonJS import
  * const client = new SupportClient(config);
  * const input = { // DescribeCasesRequest
  *   caseIdList: [ // CaseIdList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   displayId: "STRING_VALUE",
- *   afterTime: "STRING_VALUE",
- *   beforeTime: "STRING_VALUE",
+ *   displayId: 'STRING_VALUE',
+ *   afterTime: 'STRING_VALUE',
+ *   beforeTime: 'STRING_VALUE',
  *   includeResolvedCases: true || false,
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
- *   language: "STRING_VALUE",
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
+ *   language: 'STRING_VALUE',
  *   includeCommunications: true || false,
  * };
  * const command = new DescribeCasesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeCasesResponse
+ *   cases: [ // CaseList
+ *     { // CaseDetails
+ *       caseId: 'STRING_VALUE',
+ *       displayId: 'STRING_VALUE',
+ *       subject: 'STRING_VALUE',
+ *       status: 'STRING_VALUE',
+ *       serviceCode: 'STRING_VALUE',
+ *       categoryCode: 'STRING_VALUE',
+ *       severityCode: 'STRING_VALUE',
+ *       submittedBy: 'STRING_VALUE',
+ *       timeCreated: 'STRING_VALUE',
+ *       recentCommunications: { // RecentCaseCommunications
+ *         communications: [ // CommunicationList
+ *           { // Communication
+ *             caseId: 'STRING_VALUE',
+ *             body: 'STRING_VALUE',
+ *             submittedBy: 'STRING_VALUE',
+ *             timeCreated: 'STRING_VALUE',
+ *             attachmentSet: [ // AttachmentSet
+ *               { // AttachmentDetails
+ *                 attachmentId: 'STRING_VALUE',
+ *                 fileName: 'STRING_VALUE',
+ *               },
+ *             ],
+ *           },
+ *         ],
+ *         nextToken: 'STRING_VALUE',
+ *       },
+ *       ccEmailAddresses: [ // CcEmailAddressList
+ *         'STRING_VALUE',
+ *       ],
+ *       language: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeCasesCommandInput - {@link DescribeCasesCommandInput}
@@ -98,6 +137,8 @@ export interface DescribeCasesCommandOutput extends DescribeCasesResponse, __Met
  * @throws {@link InternalServerError} (server fault)
  *  <p>An internal server error occurred.</p>
  *
+ * @throws {@link SupportServiceException}
+ * <p>Base exception class for all service exceptions from Support service.</p>
  *
  */
 export class DescribeCasesCommand extends $Command<

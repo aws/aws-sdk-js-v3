@@ -37,72 +37,72 @@ export interface CreateConnectionCommandOutput extends CreateConnectionResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EventBridgeClient, CreateConnectionCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
- * // const { EventBridgeClient, CreateConnectionCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
+ * import { EventBridgeClient, CreateConnectionCommand } from '@aws-sdk/client-eventbridge'; // ES Modules import
+ * // const { EventBridgeClient, CreateConnectionCommand } = require('@aws-sdk/client-eventbridge'); // CommonJS import
  * const client = new EventBridgeClient(config);
  * const input = { // CreateConnectionRequest
- *   Name: "STRING_VALUE", // required
- *   Description: "STRING_VALUE",
- *   AuthorizationType: "BASIC" || "OAUTH_CLIENT_CREDENTIALS" || "API_KEY", // required
+ *   Name: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE',
+ *   AuthorizationType: 'BASIC' || 'OAUTH_CLIENT_CREDENTIALS' || 'API_KEY', // required
  *   AuthParameters: { // CreateConnectionAuthRequestParameters
  *     BasicAuthParameters: { // CreateConnectionBasicAuthRequestParameters
- *       Username: "STRING_VALUE", // required
- *       Password: "STRING_VALUE", // required
+ *       Username: 'STRING_VALUE', // required
+ *       Password: 'STRING_VALUE', // required
  *     },
  *     OAuthParameters: { // CreateConnectionOAuthRequestParameters
  *       ClientParameters: { // CreateConnectionOAuthClientRequestParameters
- *         ClientID: "STRING_VALUE", // required
- *         ClientSecret: "STRING_VALUE", // required
+ *         ClientID: 'STRING_VALUE', // required
+ *         ClientSecret: 'STRING_VALUE', // required
  *       },
- *       AuthorizationEndpoint: "STRING_VALUE", // required
- *       HttpMethod: "GET" || "POST" || "PUT", // required
+ *       AuthorizationEndpoint: 'STRING_VALUE', // required
+ *       HttpMethod: 'GET' || 'POST' || 'PUT', // required
  *       OAuthHttpParameters: { // ConnectionHttpParameters
  *         HeaderParameters: [ // ConnectionHeaderParametersList
  *           { // ConnectionHeaderParameter
- *             Key: "STRING_VALUE",
- *             Value: "STRING_VALUE",
+ *             Key: 'STRING_VALUE',
+ *             Value: 'STRING_VALUE',
  *             IsValueSecret: true || false,
  *           },
  *         ],
  *         QueryStringParameters: [ // ConnectionQueryStringParametersList
  *           { // ConnectionQueryStringParameter
- *             Key: "STRING_VALUE",
- *             Value: "STRING_VALUE",
+ *             Key: 'STRING_VALUE',
+ *             Value: 'STRING_VALUE',
  *             IsValueSecret: true || false,
  *           },
  *         ],
  *         BodyParameters: [ // ConnectionBodyParametersList
  *           { // ConnectionBodyParameter
- *             Key: "STRING_VALUE",
- *             Value: "STRING_VALUE",
+ *             Key: 'STRING_VALUE',
+ *             Value: 'STRING_VALUE',
  *             IsValueSecret: true || false,
  *           },
  *         ],
  *       },
  *     },
  *     ApiKeyAuthParameters: { // CreateConnectionApiKeyAuthRequestParameters
- *       ApiKeyName: "STRING_VALUE", // required
- *       ApiKeyValue: "STRING_VALUE", // required
+ *       ApiKeyName: 'STRING_VALUE', // required
+ *       ApiKeyValue: 'STRING_VALUE', // required
  *     },
  *     InvocationHttpParameters: {
  *       HeaderParameters: [
  *         {
- *           Key: "STRING_VALUE",
- *           Value: "STRING_VALUE",
+ *           Key: 'STRING_VALUE',
+ *           Value: 'STRING_VALUE',
  *           IsValueSecret: true || false,
  *         },
  *       ],
  *       QueryStringParameters: [
  *         {
- *           Key: "STRING_VALUE",
- *           Value: "STRING_VALUE",
+ *           Key: 'STRING_VALUE',
+ *           Value: 'STRING_VALUE',
  *           IsValueSecret: true || false,
  *         },
  *       ],
  *       BodyParameters: [
  *         {
- *           Key: "STRING_VALUE",
- *           Value: "STRING_VALUE",
+ *           Key: 'STRING_VALUE',
+ *           Value: 'STRING_VALUE',
  *           IsValueSecret: true || false,
  *         },
  *       ],
@@ -111,6 +111,14 @@ export interface CreateConnectionCommandOutput extends CreateConnectionResponse,
  * };
  * const command = new CreateConnectionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateConnectionResponse
+ *   ConnectionArn: 'STRING_VALUE',
+ *   ConnectionState: 'CREATING' || 'UPDATING' || 'DELETING' || 'AUTHORIZED' || 'DEAUTHORIZED' || 'AUTHORIZING' || 'DEAUTHORIZING',
+ *   CreationTime: new Date('TIMESTAMP'),
+ *   LastModifiedTime: new Date('TIMESTAMP'),
+ * };
+ *
  * ```
  *
  * @param CreateConnectionCommandInput - {@link CreateConnectionCommandInput}
@@ -129,6 +137,8 @@ export interface CreateConnectionCommandOutput extends CreateConnectionResponse,
  * @throws {@link ResourceAlreadyExistsException} (client fault)
  *  <p>The resource you are trying to create already exists.</p>
  *
+ * @throws {@link EventBridgeServiceException}
+ * <p>Base exception class for all service exceptions from EventBridge service.</p>
  *
  */
 export class CreateConnectionCommand extends $Command<

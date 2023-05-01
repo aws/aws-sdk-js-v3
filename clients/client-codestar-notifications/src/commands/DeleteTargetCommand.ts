@@ -40,15 +40,18 @@ export interface DeleteTargetCommandOutput extends DeleteTargetResult, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodestarNotificationsClient, DeleteTargetCommand } from "@aws-sdk/client-codestar-notifications"; // ES Modules import
- * // const { CodestarNotificationsClient, DeleteTargetCommand } = require("@aws-sdk/client-codestar-notifications"); // CommonJS import
+ * import { CodestarNotificationsClient, DeleteTargetCommand } from '@aws-sdk/client-codestar-notifications'; // ES Modules import
+ * // const { CodestarNotificationsClient, DeleteTargetCommand } = require('@aws-sdk/client-codestar-notifications'); // CommonJS import
  * const client = new CodestarNotificationsClient(config);
  * const input = { // DeleteTargetRequest
- *   TargetAddress: "STRING_VALUE", // required
+ *   TargetAddress: 'STRING_VALUE', // required
  *   ForceUnsubscribeAll: true || false,
  * };
  * const command = new DeleteTargetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteTargetCommandInput - {@link DeleteTargetCommandInput}
@@ -60,6 +63,8 @@ export interface DeleteTargetCommandOutput extends DeleteTargetResult, __Metadat
  * @throws {@link ValidationException} (client fault)
  *  <p>One or more parameter values are not valid.</p>
  *
+ * @throws {@link CodestarNotificationsServiceException}
+ * <p>Base exception class for all service exceptions from CodestarNotifications service.</p>
  *
  */
 export class DeleteTargetCommand extends $Command<

@@ -36,20 +36,28 @@ export interface ListPolicyAttachmentsCommandOutput extends ListPolicyAttachment
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudDirectoryClient, ListPolicyAttachmentsCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
- * // const { CloudDirectoryClient, ListPolicyAttachmentsCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
+ * import { CloudDirectoryClient, ListPolicyAttachmentsCommand } from '@aws-sdk/client-clouddirectory'; // ES Modules import
+ * // const { CloudDirectoryClient, ListPolicyAttachmentsCommand } = require('@aws-sdk/client-clouddirectory'); // CommonJS import
  * const client = new CloudDirectoryClient(config);
  * const input = { // ListPolicyAttachmentsRequest
- *   DirectoryArn: "STRING_VALUE", // required
+ *   DirectoryArn: 'STRING_VALUE', // required
  *   PolicyReference: { // ObjectReference
- *     Selector: "STRING_VALUE",
+ *     Selector: 'STRING_VALUE',
  *   },
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
- *   ConsistencyLevel: "SERIALIZABLE" || "EVENTUAL",
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
+ *   ConsistencyLevel: 'SERIALIZABLE' || 'EVENTUAL',
  * };
  * const command = new ListPolicyAttachmentsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListPolicyAttachmentsResponse
+ *   ObjectIdentifiers: [ // ObjectIdentifierList
+ *     'STRING_VALUE',
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListPolicyAttachmentsCommandInput - {@link ListPolicyAttachmentsCommandInput}
@@ -89,6 +97,8 @@ export interface ListPolicyAttachmentsCommandOutput extends ListPolicyAttachment
  *  <p>Indicates that your request is malformed in some manner. See the exception
  *       message.</p>
  *
+ * @throws {@link CloudDirectoryServiceException}
+ * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
  */
 export class ListPolicyAttachmentsCommand extends $Command<

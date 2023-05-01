@@ -37,29 +37,37 @@ export interface StartSuiteRunCommandOutput extends StartSuiteRunResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IotDeviceAdvisorClient, StartSuiteRunCommand } from "@aws-sdk/client-iotdeviceadvisor"; // ES Modules import
- * // const { IotDeviceAdvisorClient, StartSuiteRunCommand } = require("@aws-sdk/client-iotdeviceadvisor"); // CommonJS import
+ * import { IotDeviceAdvisorClient, StartSuiteRunCommand } from '@aws-sdk/client-iotdeviceadvisor'; // ES Modules import
+ * // const { IotDeviceAdvisorClient, StartSuiteRunCommand } = require('@aws-sdk/client-iotdeviceadvisor'); // CommonJS import
  * const client = new IotDeviceAdvisorClient(config);
  * const input = { // StartSuiteRunRequest
- *   suiteDefinitionId: "STRING_VALUE", // required
- *   suiteDefinitionVersion: "STRING_VALUE",
+ *   suiteDefinitionId: 'STRING_VALUE', // required
+ *   suiteDefinitionVersion: 'STRING_VALUE',
  *   suiteRunConfiguration: { // SuiteRunConfiguration
  *     primaryDevice: { // DeviceUnderTest
- *       thingArn: "STRING_VALUE",
- *       certificateArn: "STRING_VALUE",
- *       deviceRoleArn: "STRING_VALUE",
+ *       thingArn: 'STRING_VALUE',
+ *       certificateArn: 'STRING_VALUE',
+ *       deviceRoleArn: 'STRING_VALUE',
  *     },
  *     selectedTestList: [ // SelectedTestList
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     parallelRun: true || false,
  *   },
  *   tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new StartSuiteRunCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartSuiteRunResponse
+ *   suiteRunId: 'STRING_VALUE',
+ *   suiteRunArn: 'STRING_VALUE',
+ *   createdAt: new Date('TIMESTAMP'),
+ *   endpoint: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param StartSuiteRunCommandInput - {@link StartSuiteRunCommandInput}
@@ -77,6 +85,8 @@ export interface StartSuiteRunCommandOutput extends StartSuiteRunResponse, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>Sends a validation exception.</p>
  *
+ * @throws {@link IotDeviceAdvisorServiceException}
+ * <p>Base exception class for all service exceptions from IotDeviceAdvisor service.</p>
  *
  */
 export class StartSuiteRunCommand extends $Command<

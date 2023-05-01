@@ -44,31 +44,36 @@ export interface StartDetectMitigationActionsTaskCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTClient, StartDetectMitigationActionsTaskCommand } from "@aws-sdk/client-iot"; // ES Modules import
- * // const { IoTClient, StartDetectMitigationActionsTaskCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * import { IoTClient, StartDetectMitigationActionsTaskCommand } from '@aws-sdk/client-iot'; // ES Modules import
+ * // const { IoTClient, StartDetectMitigationActionsTaskCommand } = require('@aws-sdk/client-iot'); // CommonJS import
  * const client = new IoTClient(config);
  * const input = { // StartDetectMitigationActionsTaskRequest
- *   taskId: "STRING_VALUE", // required
+ *   taskId: 'STRING_VALUE', // required
  *   target: { // DetectMitigationActionsTaskTarget
  *     violationIds: [ // TargetViolationIdsForDetectMitigationActions
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
- *     securityProfileName: "STRING_VALUE",
- *     behaviorName: "STRING_VALUE",
+ *     securityProfileName: 'STRING_VALUE',
+ *     behaviorName: 'STRING_VALUE',
  *   },
  *   actions: [ // DetectMitigationActionsToExecuteList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   violationEventOccurrenceRange: { // ViolationEventOccurrenceRange
- *     startTime: new Date("TIMESTAMP"), // required
- *     endTime: new Date("TIMESTAMP"), // required
+ *     startTime: new Date('TIMESTAMP'), // required
+ *     endTime: new Date('TIMESTAMP'), // required
  *   },
  *   includeOnlyActiveViolations: true || false,
  *   includeSuppressedAlerts: true || false,
- *   clientRequestToken: "STRING_VALUE", // required
+ *   clientRequestToken: 'STRING_VALUE', // required
  * };
  * const command = new StartDetectMitigationActionsTaskCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartDetectMitigationActionsTaskResponse
+ *   taskId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param StartDetectMitigationActionsTaskCommandInput - {@link StartDetectMitigationActionsTaskCommandInput}
@@ -94,6 +99,8 @@ export interface StartDetectMitigationActionsTaskCommandOutput
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The rate exceeds the limit.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class StartDetectMitigationActionsTaskCommand extends $Command<

@@ -40,17 +40,32 @@ export interface UpdateAttributeGroupCommandOutput extends UpdateAttributeGroupR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ServiceCatalogAppRegistryClient, UpdateAttributeGroupCommand } from "@aws-sdk/client-service-catalog-appregistry"; // ES Modules import
- * // const { ServiceCatalogAppRegistryClient, UpdateAttributeGroupCommand } = require("@aws-sdk/client-service-catalog-appregistry"); // CommonJS import
+ * import { ServiceCatalogAppRegistryClient, UpdateAttributeGroupCommand } from '@aws-sdk/client-service-catalog-appregistry'; // ES Modules import
+ * // const { ServiceCatalogAppRegistryClient, UpdateAttributeGroupCommand } = require('@aws-sdk/client-service-catalog-appregistry'); // CommonJS import
  * const client = new ServiceCatalogAppRegistryClient(config);
  * const input = { // UpdateAttributeGroupRequest
- *   attributeGroup: "STRING_VALUE", // required
- *   name: "STRING_VALUE",
- *   description: "STRING_VALUE",
- *   attributes: "STRING_VALUE",
+ *   attributeGroup: 'STRING_VALUE', // required
+ *   name: 'STRING_VALUE',
+ *   description: 'STRING_VALUE',
+ *   attributes: 'STRING_VALUE',
  * };
  * const command = new UpdateAttributeGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateAttributeGroupResponse
+ *   attributeGroup: { // AttributeGroup
+ *     id: 'STRING_VALUE',
+ *     arn: 'STRING_VALUE',
+ *     name: 'STRING_VALUE',
+ *     description: 'STRING_VALUE',
+ *     creationTime: new Date('TIMESTAMP'),
+ *     lastUpdateTime: new Date('TIMESTAMP'),
+ *     tags: { // Tags
+ *       '<keys>': 'STRING_VALUE',
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateAttributeGroupCommandInput - {@link UpdateAttributeGroupCommandInput}
@@ -72,6 +87,8 @@ export interface UpdateAttributeGroupCommandOutput extends UpdateAttributeGroupR
  * @throws {@link ValidationException} (client fault)
  *  <p>The request has invalid or missing parameters.</p>
  *
+ * @throws {@link ServiceCatalogAppRegistryServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalogAppRegistry service.</p>
  *
  */
 export class UpdateAttributeGroupCommand extends $Command<

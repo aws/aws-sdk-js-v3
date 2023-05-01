@@ -43,14 +43,17 @@ export interface DeleteCustomVerificationEmailTemplateCommandOutput extends __Me
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SESClient, DeleteCustomVerificationEmailTemplateCommand } from "@aws-sdk/client-ses"; // ES Modules import
- * // const { SESClient, DeleteCustomVerificationEmailTemplateCommand } = require("@aws-sdk/client-ses"); // CommonJS import
+ * import { SESClient, DeleteCustomVerificationEmailTemplateCommand } from '@aws-sdk/client-ses'; // ES Modules import
+ * // const { SESClient, DeleteCustomVerificationEmailTemplateCommand } = require('@aws-sdk/client-ses'); // CommonJS import
  * const client = new SESClient(config);
  * const input = { // DeleteCustomVerificationEmailTemplateRequest
- *   TemplateName: "STRING_VALUE", // required
+ *   TemplateName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteCustomVerificationEmailTemplateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteCustomVerificationEmailTemplateCommandInput - {@link DeleteCustomVerificationEmailTemplateCommandInput}
@@ -59,6 +62,8 @@ export interface DeleteCustomVerificationEmailTemplateCommandOutput extends __Me
  * @see {@link DeleteCustomVerificationEmailTemplateCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
+ * @throws {@link SESServiceException}
+ * <p>Base exception class for all service exceptions from SES service.</p>
  *
  */
 export class DeleteCustomVerificationEmailTemplateCommand extends $Command<

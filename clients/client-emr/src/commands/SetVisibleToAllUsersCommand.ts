@@ -49,17 +49,20 @@ export interface SetVisibleToAllUsersCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EMRClient, SetVisibleToAllUsersCommand } from "@aws-sdk/client-emr"; // ES Modules import
- * // const { EMRClient, SetVisibleToAllUsersCommand } = require("@aws-sdk/client-emr"); // CommonJS import
+ * import { EMRClient, SetVisibleToAllUsersCommand } from '@aws-sdk/client-emr'; // ES Modules import
+ * // const { EMRClient, SetVisibleToAllUsersCommand } = require('@aws-sdk/client-emr'); // CommonJS import
  * const client = new EMRClient(config);
  * const input = { // SetVisibleToAllUsersInput
  *   JobFlowIds: [ // XmlStringList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   VisibleToAllUsers: true || false, // required
  * };
  * const command = new SetVisibleToAllUsersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param SetVisibleToAllUsersCommandInput - {@link SetVisibleToAllUsersCommandInput}
@@ -72,6 +75,8 @@ export interface SetVisibleToAllUsersCommandOutput extends __MetadataBearer {}
  *  <p>Indicates that an error occurred while processing the request and that the request was
  *          not completed.</p>
  *
+ * @throws {@link EMRServiceException}
+ * <p>Base exception class for all service exceptions from EMR service.</p>
  *
  */
 export class SetVisibleToAllUsersCommand extends $Command<

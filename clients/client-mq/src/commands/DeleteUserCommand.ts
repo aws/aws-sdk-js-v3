@@ -36,15 +36,18 @@ export interface DeleteUserCommandOutput extends DeleteUserResponse, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MqClient, DeleteUserCommand } from "@aws-sdk/client-mq"; // ES Modules import
- * // const { MqClient, DeleteUserCommand } = require("@aws-sdk/client-mq"); // CommonJS import
+ * import { MqClient, DeleteUserCommand } from '@aws-sdk/client-mq'; // ES Modules import
+ * // const { MqClient, DeleteUserCommand } = require('@aws-sdk/client-mq'); // CommonJS import
  * const client = new MqClient(config);
  * const input = { // DeleteUserRequest
- *   BrokerId: "STRING_VALUE", // required
- *   Username: "STRING_VALUE", // required
+ *   BrokerId: 'STRING_VALUE', // required
+ *   Username: 'STRING_VALUE', // required
  * };
  * const command = new DeleteUserCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteUserCommandInput - {@link DeleteUserCommandInput}
@@ -65,6 +68,8 @@ export interface DeleteUserCommandOutput extends DeleteUserResponse, __MetadataB
  * @throws {@link NotFoundException} (client fault)
  *  <p>Returns information about an error.</p>
  *
+ * @throws {@link MqServiceException}
+ * <p>Base exception class for all service exceptions from Mq service.</p>
  *
  */
 export class DeleteUserCommand extends $Command<

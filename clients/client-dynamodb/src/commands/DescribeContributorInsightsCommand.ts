@@ -37,15 +37,30 @@ export interface DescribeContributorInsightsCommandOutput extends DescribeContri
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DynamoDBClient, DescribeContributorInsightsCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
- * // const { DynamoDBClient, DescribeContributorInsightsCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
+ * import { DynamoDBClient, DescribeContributorInsightsCommand } from '@aws-sdk/client-dynamodb'; // ES Modules import
+ * // const { DynamoDBClient, DescribeContributorInsightsCommand } = require('@aws-sdk/client-dynamodb'); // CommonJS import
  * const client = new DynamoDBClient(config);
  * const input = { // DescribeContributorInsightsInput
- *   TableName: "STRING_VALUE", // required
- *   IndexName: "STRING_VALUE",
+ *   TableName: 'STRING_VALUE', // required
+ *   IndexName: 'STRING_VALUE',
  * };
  * const command = new DescribeContributorInsightsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeContributorInsightsOutput
+ *   TableName: 'STRING_VALUE',
+ *   IndexName: 'STRING_VALUE',
+ *   ContributorInsightsRuleList: [ // ContributorInsightsRuleList
+ *     'STRING_VALUE',
+ *   ],
+ *   ContributorInsightsStatus: 'ENABLING' || 'ENABLED' || 'DISABLING' || 'DISABLED' || 'FAILED',
+ *   LastUpdateDateTime: new Date('TIMESTAMP'),
+ *   FailureException: { // FailureException
+ *     ExceptionName: 'STRING_VALUE',
+ *     ExceptionDescription: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeContributorInsightsCommandInput - {@link DescribeContributorInsightsCommandInput}
@@ -61,6 +76,8 @@ export interface DescribeContributorInsightsCommandOutput extends DescribeContri
  *  <p>The operation tried to access a nonexistent table or index. The resource might not
  *             be specified correctly, or its status might not be <code>ACTIVE</code>.</p>
  *
+ * @throws {@link DynamoDBServiceException}
+ * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
  */
 export class DescribeContributorInsightsCommand extends $Command<

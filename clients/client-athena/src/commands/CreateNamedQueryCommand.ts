@@ -40,19 +40,24 @@ export interface CreateNamedQueryCommandOutput extends CreateNamedQueryOutput, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AthenaClient, CreateNamedQueryCommand } from "@aws-sdk/client-athena"; // ES Modules import
- * // const { AthenaClient, CreateNamedQueryCommand } = require("@aws-sdk/client-athena"); // CommonJS import
+ * import { AthenaClient, CreateNamedQueryCommand } from '@aws-sdk/client-athena'; // ES Modules import
+ * // const { AthenaClient, CreateNamedQueryCommand } = require('@aws-sdk/client-athena'); // CommonJS import
  * const client = new AthenaClient(config);
  * const input = { // CreateNamedQueryInput
- *   Name: "STRING_VALUE", // required
- *   Description: "STRING_VALUE",
- *   Database: "STRING_VALUE", // required
- *   QueryString: "STRING_VALUE", // required
- *   ClientRequestToken: "STRING_VALUE",
- *   WorkGroup: "STRING_VALUE",
+ *   Name: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE',
+ *   Database: 'STRING_VALUE', // required
+ *   QueryString: 'STRING_VALUE', // required
+ *   ClientRequestToken: 'STRING_VALUE',
+ *   WorkGroup: 'STRING_VALUE',
  * };
  * const command = new CreateNamedQueryCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateNamedQueryOutput
+ *   NamedQueryId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateNamedQueryCommandInput - {@link CreateNamedQueryCommandInput}
@@ -69,6 +74,8 @@ export interface CreateNamedQueryCommandOutput extends CreateNamedQueryOutput, _
  *  <p>Indicates that something is wrong with the input to the request. For example, a
  *             required parameter may be missing or out of range.</p>
  *
+ * @throws {@link AthenaServiceException}
+ * <p>Base exception class for all service exceptions from Athena service.</p>
  *
  */
 export class CreateNamedQueryCommand extends $Command<

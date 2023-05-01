@@ -38,17 +38,20 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { QLDBClient, TagResourceCommand } from "@aws-sdk/client-qldb"; // ES Modules import
- * // const { QLDBClient, TagResourceCommand } = require("@aws-sdk/client-qldb"); // CommonJS import
+ * import { QLDBClient, TagResourceCommand } from '@aws-sdk/client-qldb'; // ES Modules import
+ * // const { QLDBClient, TagResourceCommand } = require('@aws-sdk/client-qldb'); // CommonJS import
  * const client = new QLDBClient(config);
  * const input = { // TagResourceRequest
- *   ResourceArn: "STRING_VALUE", // required
+ *   ResourceArn: 'STRING_VALUE', // required
  *   Tags: { // Tags // required
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param TagResourceCommandInput - {@link TagResourceCommandInput}
@@ -63,6 +66,8 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource doesn't exist.</p>
  *
+ * @throws {@link QLDBServiceException}
+ * <p>Base exception class for all service exceptions from QLDB service.</p>
  *
  */
 export class TagResourceCommand extends $Command<

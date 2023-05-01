@@ -40,31 +40,36 @@ export interface CreateNetworkProfileCommandOutput extends CreateNetworkProfileR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AlexaForBusinessClient, CreateNetworkProfileCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
- * // const { AlexaForBusinessClient, CreateNetworkProfileCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
+ * import { AlexaForBusinessClient, CreateNetworkProfileCommand } from '@aws-sdk/client-alexa-for-business'; // ES Modules import
+ * // const { AlexaForBusinessClient, CreateNetworkProfileCommand } = require('@aws-sdk/client-alexa-for-business'); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
  * const input = { // CreateNetworkProfileRequest
- *   NetworkProfileName: "STRING_VALUE", // required
- *   Description: "STRING_VALUE",
- *   Ssid: "STRING_VALUE", // required
- *   SecurityType: "STRING_VALUE", // required
- *   EapMethod: "STRING_VALUE",
- *   CurrentPassword: "STRING_VALUE",
- *   NextPassword: "STRING_VALUE",
- *   CertificateAuthorityArn: "STRING_VALUE",
+ *   NetworkProfileName: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE',
+ *   Ssid: 'STRING_VALUE', // required
+ *   SecurityType: 'STRING_VALUE', // required
+ *   EapMethod: 'STRING_VALUE',
+ *   CurrentPassword: 'STRING_VALUE',
+ *   NextPassword: 'STRING_VALUE',
+ *   CertificateAuthorityArn: 'STRING_VALUE',
  *   TrustAnchors: [ // TrustAnchorList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   ClientRequestToken: "STRING_VALUE", // required
+ *   ClientRequestToken: 'STRING_VALUE', // required
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreateNetworkProfileCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateNetworkProfileResponse
+ *   NetworkProfileArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateNetworkProfileCommandInput - {@link CreateNetworkProfileCommandInput}
@@ -88,6 +93,8 @@ export interface CreateNetworkProfileCommandOutput extends CreateNetworkProfileR
  * @throws {@link LimitExceededException} (client fault)
  *  <p>You are performing an action that would put you beyond your account's limits.</p>
  *
+ * @throws {@link AlexaForBusinessServiceException}
+ * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  */
 export class CreateNetworkProfileCommand extends $Command<

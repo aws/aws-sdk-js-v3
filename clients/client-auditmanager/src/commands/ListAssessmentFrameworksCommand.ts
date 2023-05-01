@@ -37,16 +37,36 @@ export interface ListAssessmentFrameworksCommandOutput extends ListAssessmentFra
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AuditManagerClient, ListAssessmentFrameworksCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
- * // const { AuditManagerClient, ListAssessmentFrameworksCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import
+ * import { AuditManagerClient, ListAssessmentFrameworksCommand } from '@aws-sdk/client-auditmanager'; // ES Modules import
+ * // const { AuditManagerClient, ListAssessmentFrameworksCommand } = require('@aws-sdk/client-auditmanager'); // CommonJS import
  * const client = new AuditManagerClient(config);
  * const input = { // ListAssessmentFrameworksRequest
- *   frameworkType: "Standard" || "Custom", // required
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   frameworkType: 'Standard' || 'Custom', // required
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new ListAssessmentFrameworksCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListAssessmentFrameworksResponse
+ *   frameworkMetadataList: [ // FrameworkMetadataList
+ *     { // AssessmentFrameworkMetadata
+ *       arn: 'STRING_VALUE',
+ *       id: 'STRING_VALUE',
+ *       type: 'Standard' || 'Custom',
+ *       name: 'STRING_VALUE',
+ *       description: 'STRING_VALUE',
+ *       logo: 'STRING_VALUE',
+ *       complianceType: 'STRING_VALUE',
+ *       controlsCount: Number('int'),
+ *       controlSetsCount: Number('int'),
+ *       createdAt: new Date('TIMESTAMP'),
+ *       lastUpdatedAt: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListAssessmentFrameworksCommandInput - {@link ListAssessmentFrameworksCommandInput}
@@ -66,6 +86,8 @@ export interface ListAssessmentFrameworksCommandOutput extends ListAssessmentFra
  * @throws {@link ValidationException} (client fault)
  *  <p> The request has invalid or missing parameters. </p>
  *
+ * @throws {@link AuditManagerServiceException}
+ * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
  */
 export class ListAssessmentFrameworksCommand extends $Command<

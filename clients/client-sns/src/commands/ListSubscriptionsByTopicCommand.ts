@@ -40,15 +40,29 @@ export interface ListSubscriptionsByTopicCommandOutput extends ListSubscriptions
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SNSClient, ListSubscriptionsByTopicCommand } from "@aws-sdk/client-sns"; // ES Modules import
- * // const { SNSClient, ListSubscriptionsByTopicCommand } = require("@aws-sdk/client-sns"); // CommonJS import
+ * import { SNSClient, ListSubscriptionsByTopicCommand } from '@aws-sdk/client-sns'; // ES Modules import
+ * // const { SNSClient, ListSubscriptionsByTopicCommand } = require('@aws-sdk/client-sns'); // CommonJS import
  * const client = new SNSClient(config);
  * const input = { // ListSubscriptionsByTopicInput
- *   TopicArn: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
+ *   TopicArn: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListSubscriptionsByTopicCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListSubscriptionsByTopicResponse
+ *   Subscriptions: [ // SubscriptionsList
+ *     { // Subscription
+ *       SubscriptionArn: 'STRING_VALUE',
+ *       Owner: 'STRING_VALUE',
+ *       Protocol: 'STRING_VALUE',
+ *       Endpoint: 'STRING_VALUE',
+ *       TopicArn: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListSubscriptionsByTopicCommandInput - {@link ListSubscriptionsByTopicCommandInput}
@@ -70,6 +84,8 @@ export interface ListSubscriptionsByTopicCommandOutput extends ListSubscriptions
  * @throws {@link NotFoundException} (client fault)
  *  <p>Indicates that the requested resource does not exist.</p>
  *
+ * @throws {@link SNSServiceException}
+ * <p>Base exception class for all service exceptions from SNS service.</p>
  *
  */
 export class ListSubscriptionsByTopicCommand extends $Command<

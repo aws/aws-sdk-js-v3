@@ -36,14 +36,17 @@ export interface DeleteGroupCommandOutput extends DeleteGroupResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GreengrassClient, DeleteGroupCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
- * // const { GreengrassClient, DeleteGroupCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
+ * import { GreengrassClient, DeleteGroupCommand } from '@aws-sdk/client-greengrass'; // ES Modules import
+ * // const { GreengrassClient, DeleteGroupCommand } = require('@aws-sdk/client-greengrass'); // CommonJS import
  * const client = new GreengrassClient(config);
  * const input = { // DeleteGroupRequest
- *   GroupId: "STRING_VALUE", // required
+ *   GroupId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteGroupCommandInput - {@link DeleteGroupCommandInput}
@@ -55,6 +58,8 @@ export interface DeleteGroupCommandOutput extends DeleteGroupResponse, __Metadat
  * @throws {@link BadRequestException} (client fault)
  *  General error information.
  *
+ * @throws {@link GreengrassServiceException}
+ * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
  */
 export class DeleteGroupCommand extends $Command<

@@ -36,18 +36,29 @@ export interface ListLocationsCommandOutput extends ListLocationsOutput, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GameLiftClient, ListLocationsCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
- * // const { GameLiftClient, ListLocationsCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
+ * import { GameLiftClient, ListLocationsCommand } from '@aws-sdk/client-gamelift'; // ES Modules import
+ * // const { GameLiftClient, ListLocationsCommand } = require('@aws-sdk/client-gamelift'); // CommonJS import
  * const client = new GameLiftClient(config);
  * const input = { // ListLocationsInput
  *   Filters: [ // LocationFilterList
- *     "AWS" || "CUSTOM",
+ *     'AWS' || 'CUSTOM',
  *   ],
- *   Limit: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   Limit: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListLocationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListLocationsOutput
+ *   Locations: [ // LocationModelList
+ *     { // LocationModel
+ *       LocationName: 'STRING_VALUE',
+ *       LocationArn: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListLocationsCommandInput - {@link ListLocationsCommandInput}
@@ -67,6 +78,8 @@ export interface ListLocationsCommandOutput extends ListLocationsOutput, __Metad
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client failed authentication. Clients should not retry such requests.</p>
  *
+ * @throws {@link GameLiftServiceException}
+ * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
  */
 export class ListLocationsCommand extends $Command<

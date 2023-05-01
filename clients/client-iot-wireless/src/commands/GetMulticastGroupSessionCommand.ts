@@ -36,14 +36,25 @@ export interface GetMulticastGroupSessionCommandOutput extends GetMulticastGroup
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTWirelessClient, GetMulticastGroupSessionCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
- * // const { IoTWirelessClient, GetMulticastGroupSessionCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
+ * import { IoTWirelessClient, GetMulticastGroupSessionCommand } from '@aws-sdk/client-iot-wireless'; // ES Modules import
+ * // const { IoTWirelessClient, GetMulticastGroupSessionCommand } = require('@aws-sdk/client-iot-wireless'); // CommonJS import
  * const client = new IoTWirelessClient(config);
  * const input = { // GetMulticastGroupSessionRequest
- *   Id: "STRING_VALUE", // required
+ *   Id: 'STRING_VALUE', // required
  * };
  * const command = new GetMulticastGroupSessionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetMulticastGroupSessionResponse
+ *   LoRaWAN: { // LoRaWANMulticastSession
+ *     DlDr: Number('int'),
+ *     DlFreq: Number('int'),
+ *     SessionStartTime: new Date('TIMESTAMP'),
+ *     SessionTimeout: Number('int'),
+ *     PingSlotPeriod: Number('int'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetMulticastGroupSessionCommandInput - {@link GetMulticastGroupSessionCommandInput}
@@ -67,6 +78,8 @@ export interface GetMulticastGroupSessionCommandOutput extends GetMulticastGroup
  * @throws {@link ValidationException} (client fault)
  *  <p>The input did not meet the specified constraints.</p>
  *
+ * @throws {@link IoTWirelessServiceException}
+ * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
  */
 export class GetMulticastGroupSessionCommand extends $Command<

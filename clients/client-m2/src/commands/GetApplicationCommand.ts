@@ -36,14 +36,59 @@ export interface GetApplicationCommandOutput extends GetApplicationResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { M2Client, GetApplicationCommand } from "@aws-sdk/client-m2"; // ES Modules import
- * // const { M2Client, GetApplicationCommand } = require("@aws-sdk/client-m2"); // CommonJS import
+ * import { M2Client, GetApplicationCommand } from '@aws-sdk/client-m2'; // ES Modules import
+ * // const { M2Client, GetApplicationCommand } = require('@aws-sdk/client-m2'); // CommonJS import
  * const client = new M2Client(config);
  * const input = { // GetApplicationRequest
- *   applicationId: "STRING_VALUE", // required
+ *   applicationId: 'STRING_VALUE', // required
  * };
  * const command = new GetApplicationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetApplicationResponse
+ *   name: 'STRING_VALUE', // required
+ *   description: 'STRING_VALUE',
+ *   applicationId: 'STRING_VALUE', // required
+ *   applicationArn: 'STRING_VALUE', // required
+ *   status: 'STRING_VALUE', // required
+ *   latestVersion: { // ApplicationVersionSummary
+ *     applicationVersion: Number('int'), // required
+ *     status: 'STRING_VALUE', // required
+ *     statusReason: 'STRING_VALUE',
+ *     creationTime: new Date('TIMESTAMP'), // required
+ *   },
+ *   deployedVersion: { // DeployedVersionSummary
+ *     applicationVersion: Number('int'), // required
+ *     status: 'STRING_VALUE', // required
+ *     statusReason: 'STRING_VALUE',
+ *   },
+ *   engineType: 'STRING_VALUE', // required
+ *   logGroups: [ // LogGroupSummaries
+ *     { // LogGroupSummary
+ *       logType: 'STRING_VALUE', // required
+ *       logGroupName: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ *   creationTime: new Date('TIMESTAMP'), // required
+ *   lastStartTime: new Date('TIMESTAMP'),
+ *   tags: { // TagMap
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ *   environmentId: 'STRING_VALUE',
+ *   targetGroupArns: [ // ArnList
+ *     'STRING_VALUE',
+ *   ],
+ *   listenerArns: [
+ *     'STRING_VALUE',
+ *   ],
+ *   listenerPorts: [ // PortList
+ *     Number('int'),
+ *   ],
+ *   loadBalancerDnsName: 'STRING_VALUE',
+ *   statusReason: 'STRING_VALUE',
+ *   kmsKeyId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetApplicationCommandInput - {@link GetApplicationCommandInput}
@@ -67,6 +112,8 @@ export interface GetApplicationCommandOutput extends GetApplicationResponse, __M
  * @throws {@link ValidationException} (client fault)
  *  <p>One or more parameters provided in the request is not valid.</p>
  *
+ * @throws {@link M2ServiceException}
+ * <p>Base exception class for all service exceptions from M2 service.</p>
  *
  */
 export class GetApplicationCommand extends $Command<

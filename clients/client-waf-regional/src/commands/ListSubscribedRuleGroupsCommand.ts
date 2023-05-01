@@ -44,15 +44,27 @@ export interface ListSubscribedRuleGroupsCommandOutput extends ListSubscribedRul
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WAFRegionalClient, ListSubscribedRuleGroupsCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
- * // const { WAFRegionalClient, ListSubscribedRuleGroupsCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import
+ * import { WAFRegionalClient, ListSubscribedRuleGroupsCommand } from '@aws-sdk/client-waf-regional'; // ES Modules import
+ * // const { WAFRegionalClient, ListSubscribedRuleGroupsCommand } = require('@aws-sdk/client-waf-regional'); // CommonJS import
  * const client = new WAFRegionalClient(config);
  * const input = { // ListSubscribedRuleGroupsRequest
- *   NextMarker: "STRING_VALUE",
- *   Limit: Number("int"),
+ *   NextMarker: 'STRING_VALUE',
+ *   Limit: Number('int'),
  * };
  * const command = new ListSubscribedRuleGroupsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListSubscribedRuleGroupsResponse
+ *   NextMarker: 'STRING_VALUE',
+ *   RuleGroups: [ // SubscribedRuleGroupSummaries
+ *     { // SubscribedRuleGroupSummary
+ *       RuleGroupId: 'STRING_VALUE', // required
+ *       Name: 'STRING_VALUE', // required
+ *       MetricName: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListSubscribedRuleGroupsCommandInput - {@link ListSubscribedRuleGroupsCommandInput}
@@ -67,6 +79,8 @@ export interface ListSubscribedRuleGroupsCommandOutput extends ListSubscribedRul
  * @throws {@link WAFNonexistentItemException} (client fault)
  *  <p>The operation failed because the referenced object doesn't exist.</p>
  *
+ * @throws {@link WAFRegionalServiceException}
+ * <p>Base exception class for all service exceptions from WAFRegional service.</p>
  *
  */
 export class ListSubscribedRuleGroupsCommand extends $Command<

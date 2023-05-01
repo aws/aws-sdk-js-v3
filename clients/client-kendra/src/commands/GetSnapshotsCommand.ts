@@ -37,18 +37,35 @@ export interface GetSnapshotsCommandOutput extends GetSnapshotsResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KendraClient, GetSnapshotsCommand } from "@aws-sdk/client-kendra"; // ES Modules import
- * // const { KendraClient, GetSnapshotsCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
+ * import { KendraClient, GetSnapshotsCommand } from '@aws-sdk/client-kendra'; // ES Modules import
+ * // const { KendraClient, GetSnapshotsCommand } = require('@aws-sdk/client-kendra'); // CommonJS import
  * const client = new KendraClient(config);
  * const input = { // GetSnapshotsRequest
- *   IndexId: "STRING_VALUE", // required
- *   Interval: "THIS_MONTH" || "THIS_WEEK" || "ONE_WEEK_AGO" || "TWO_WEEKS_AGO" || "ONE_MONTH_AGO" || "TWO_MONTHS_AGO", // required
- *   MetricType: "QUERIES_BY_COUNT" || "QUERIES_BY_ZERO_CLICK_RATE" || "QUERIES_BY_ZERO_RESULT_RATE" || "DOCS_BY_CLICK_COUNT" || "AGG_QUERY_DOC_METRICS" || "TREND_QUERY_DOC_METRICS", // required
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   IndexId: 'STRING_VALUE', // required
+ *   Interval: 'THIS_MONTH' || 'THIS_WEEK' || 'ONE_WEEK_AGO' || 'TWO_WEEKS_AGO' || 'ONE_MONTH_AGO' || 'TWO_MONTHS_AGO', // required
+ *   MetricType: 'QUERIES_BY_COUNT' || 'QUERIES_BY_ZERO_CLICK_RATE' || 'QUERIES_BY_ZERO_RESULT_RATE' || 'DOCS_BY_CLICK_COUNT' || 'AGG_QUERY_DOC_METRICS' || 'TREND_QUERY_DOC_METRICS', // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new GetSnapshotsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetSnapshotsResponse
+ *   SnapShotTimeFilter: { // TimeRange
+ *     StartTime: new Date('TIMESTAMP'),
+ *     EndTime: new Date('TIMESTAMP'),
+ *   },
+ *   SnapshotsDataHeader: [ // SnapshotsDataHeaderFields
+ *     'STRING_VALUE',
+ *   ],
+ *   SnapshotsData: [ // SnapshotsDataRecords
+ *     [ // SnapshotsDataRecord
+ *       'STRING_VALUE',
+ *     ],
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetSnapshotsCommandInput - {@link GetSnapshotsCommandInput}
@@ -73,6 +90,8 @@ export interface GetSnapshotsCommandOutput extends GetSnapshotsResponse, __Metad
  *  <p>The resource you want to use doesn’t exist. Please check you have provided the correct
  *             resource and try again.</p>
  *
+ * @throws {@link KendraServiceException}
+ * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
  */
 export class GetSnapshotsCommand extends $Command<

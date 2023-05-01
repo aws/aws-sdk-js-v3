@@ -38,22 +38,42 @@ export interface CreateAssistantAssociationCommandOutput extends CreateAssistant
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WisdomClient, CreateAssistantAssociationCommand } from "@aws-sdk/client-wisdom"; // ES Modules import
- * // const { WisdomClient, CreateAssistantAssociationCommand } = require("@aws-sdk/client-wisdom"); // CommonJS import
+ * import { WisdomClient, CreateAssistantAssociationCommand } from '@aws-sdk/client-wisdom'; // ES Modules import
+ * // const { WisdomClient, CreateAssistantAssociationCommand } = require('@aws-sdk/client-wisdom'); // CommonJS import
  * const client = new WisdomClient(config);
  * const input = { // CreateAssistantAssociationRequest
- *   assistantId: "STRING_VALUE", // required
- *   associationType: "STRING_VALUE", // required
+ *   assistantId: 'STRING_VALUE', // required
+ *   associationType: 'STRING_VALUE', // required
  *   association: { // AssistantAssociationInputData Union: only one key present
- *     knowledgeBaseId: "STRING_VALUE",
+ *     knowledgeBaseId: 'STRING_VALUE',
  *   },
- *   clientToken: "STRING_VALUE",
+ *   clientToken: 'STRING_VALUE',
  *   tags: { // Tags
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateAssistantAssociationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateAssistantAssociationResponse
+ *   assistantAssociation: { // AssistantAssociationData
+ *     assistantAssociationId: 'STRING_VALUE', // required
+ *     assistantAssociationArn: 'STRING_VALUE', // required
+ *     assistantId: 'STRING_VALUE', // required
+ *     assistantArn: 'STRING_VALUE', // required
+ *     associationType: 'STRING_VALUE', // required
+ *     associationData: { // AssistantAssociationOutputData Union: only one key present
+ *       knowledgeBaseAssociation: { // KnowledgeBaseAssociationData
+ *         knowledgeBaseId: 'STRING_VALUE',
+ *         knowledgeBaseArn: 'STRING_VALUE',
+ *       },
+ *     },
+ *     tags: { // Tags
+ *       '<keys>': 'STRING_VALUE',
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateAssistantAssociationCommandInput - {@link CreateAssistantAssociationCommandInput}
@@ -81,6 +101,8 @@ export interface CreateAssistantAssociationCommandOutput extends CreateAssistant
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by a service.</p>
  *
+ * @throws {@link WisdomServiceException}
+ * <p>Base exception class for all service exceptions from Wisdom service.</p>
  *
  */
 export class CreateAssistantAssociationCommand extends $Command<

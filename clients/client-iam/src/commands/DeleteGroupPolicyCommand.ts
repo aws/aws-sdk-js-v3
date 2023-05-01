@@ -41,15 +41,18 @@ export interface DeleteGroupPolicyCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IAMClient, DeleteGroupPolicyCommand } from "@aws-sdk/client-iam"; // ES Modules import
- * // const { IAMClient, DeleteGroupPolicyCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * import { IAMClient, DeleteGroupPolicyCommand } from '@aws-sdk/client-iam'; // ES Modules import
+ * // const { IAMClient, DeleteGroupPolicyCommand } = require('@aws-sdk/client-iam'); // CommonJS import
  * const client = new IAMClient(config);
  * const input = { // DeleteGroupPolicyRequest
- *   GroupName: "STRING_VALUE", // required
- *   PolicyName: "STRING_VALUE", // required
+ *   GroupName: 'STRING_VALUE', // required
+ *   PolicyName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteGroupPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteGroupPolicyCommandInput - {@link DeleteGroupPolicyCommandInput}
@@ -70,6 +73,8 @@ export interface DeleteGroupPolicyCommandOutput extends __MetadataBearer {}
  *  <p>The request processing has failed because of an unknown error, exception or
  *       failure.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  * @example To delete a policy from an IAM group
  * ```javascript

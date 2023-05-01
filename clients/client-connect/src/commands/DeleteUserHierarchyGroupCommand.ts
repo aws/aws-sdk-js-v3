@@ -37,15 +37,18 @@ export interface DeleteUserHierarchyGroupCommandOutput extends __MetadataBearer 
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, DeleteUserHierarchyGroupCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, DeleteUserHierarchyGroupCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, DeleteUserHierarchyGroupCommand } from '@aws-sdk/client-connect'; // ES Modules import
+ * // const { ConnectClient, DeleteUserHierarchyGroupCommand } = require('@aws-sdk/client-connect'); // CommonJS import
  * const client = new ConnectClient(config);
  * const input = { // DeleteUserHierarchyGroupRequest
- *   HierarchyGroupId: "STRING_VALUE", // required
- *   InstanceId: "STRING_VALUE", // required
+ *   HierarchyGroupId: 'STRING_VALUE', // required
+ *   InstanceId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteUserHierarchyGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteUserHierarchyGroupCommandInput - {@link DeleteUserHierarchyGroupCommandInput}
@@ -72,6 +75,8 @@ export interface DeleteUserHierarchyGroupCommandOutput extends __MetadataBearer 
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class DeleteUserHierarchyGroupCommand extends $Command<

@@ -73,89 +73,94 @@ export interface CreateLabelingJobCommandOutput extends CreateLabelingJobRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, CreateLabelingJobCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, CreateLabelingJobCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, CreateLabelingJobCommand } from '@aws-sdk/client-sagemaker'; // ES Modules import
+ * // const { SageMakerClient, CreateLabelingJobCommand } = require('@aws-sdk/client-sagemaker'); // CommonJS import
  * const client = new SageMakerClient(config);
  * const input = { // CreateLabelingJobRequest
- *   LabelingJobName: "STRING_VALUE", // required
- *   LabelAttributeName: "STRING_VALUE", // required
+ *   LabelingJobName: 'STRING_VALUE', // required
+ *   LabelAttributeName: 'STRING_VALUE', // required
  *   InputConfig: { // LabelingJobInputConfig
  *     DataSource: { // LabelingJobDataSource
  *       S3DataSource: { // LabelingJobS3DataSource
- *         ManifestS3Uri: "STRING_VALUE", // required
+ *         ManifestS3Uri: 'STRING_VALUE', // required
  *       },
  *       SnsDataSource: { // LabelingJobSnsDataSource
- *         SnsTopicArn: "STRING_VALUE", // required
+ *         SnsTopicArn: 'STRING_VALUE', // required
  *       },
  *     },
  *     DataAttributes: { // LabelingJobDataAttributes
  *       ContentClassifiers: [ // ContentClassifiers
- *         "FreeOfPersonallyIdentifiableInformation" || "FreeOfAdultContent",
+ *         'FreeOfPersonallyIdentifiableInformation' || 'FreeOfAdultContent',
  *       ],
  *     },
  *   },
  *   OutputConfig: { // LabelingJobOutputConfig
- *     S3OutputPath: "STRING_VALUE", // required
- *     KmsKeyId: "STRING_VALUE",
- *     SnsTopicArn: "STRING_VALUE",
+ *     S3OutputPath: 'STRING_VALUE', // required
+ *     KmsKeyId: 'STRING_VALUE',
+ *     SnsTopicArn: 'STRING_VALUE',
  *   },
- *   RoleArn: "STRING_VALUE", // required
- *   LabelCategoryConfigS3Uri: "STRING_VALUE",
+ *   RoleArn: 'STRING_VALUE', // required
+ *   LabelCategoryConfigS3Uri: 'STRING_VALUE',
  *   StoppingConditions: { // LabelingJobStoppingConditions
- *     MaxHumanLabeledObjectCount: Number("int"),
- *     MaxPercentageOfInputDatasetLabeled: Number("int"),
+ *     MaxHumanLabeledObjectCount: Number('int'),
+ *     MaxPercentageOfInputDatasetLabeled: Number('int'),
  *   },
  *   LabelingJobAlgorithmsConfig: { // LabelingJobAlgorithmsConfig
- *     LabelingJobAlgorithmSpecificationArn: "STRING_VALUE", // required
- *     InitialActiveLearningModelArn: "STRING_VALUE",
+ *     LabelingJobAlgorithmSpecificationArn: 'STRING_VALUE', // required
+ *     InitialActiveLearningModelArn: 'STRING_VALUE',
  *     LabelingJobResourceConfig: { // LabelingJobResourceConfig
- *       VolumeKmsKeyId: "STRING_VALUE",
+ *       VolumeKmsKeyId: 'STRING_VALUE',
  *       VpcConfig: { // VpcConfig
  *         SecurityGroupIds: [ // VpcSecurityGroupIds // required
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
  *         Subnets: [ // Subnets // required
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
  *       },
  *     },
  *   },
  *   HumanTaskConfig: { // HumanTaskConfig
- *     WorkteamArn: "STRING_VALUE", // required
+ *     WorkteamArn: 'STRING_VALUE', // required
  *     UiConfig: { // UiConfig
- *       UiTemplateS3Uri: "STRING_VALUE",
- *       HumanTaskUiArn: "STRING_VALUE",
+ *       UiTemplateS3Uri: 'STRING_VALUE',
+ *       HumanTaskUiArn: 'STRING_VALUE',
  *     },
- *     PreHumanTaskLambdaArn: "STRING_VALUE", // required
+ *     PreHumanTaskLambdaArn: 'STRING_VALUE', // required
  *     TaskKeywords: [ // TaskKeywords
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
- *     TaskTitle: "STRING_VALUE", // required
- *     TaskDescription: "STRING_VALUE", // required
- *     NumberOfHumanWorkersPerDataObject: Number("int"), // required
- *     TaskTimeLimitInSeconds: Number("int"), // required
- *     TaskAvailabilityLifetimeInSeconds: Number("int"),
- *     MaxConcurrentTaskCount: Number("int"),
+ *     TaskTitle: 'STRING_VALUE', // required
+ *     TaskDescription: 'STRING_VALUE', // required
+ *     NumberOfHumanWorkersPerDataObject: Number('int'), // required
+ *     TaskTimeLimitInSeconds: Number('int'), // required
+ *     TaskAvailabilityLifetimeInSeconds: Number('int'),
+ *     MaxConcurrentTaskCount: Number('int'),
  *     AnnotationConsolidationConfig: { // AnnotationConsolidationConfig
- *       AnnotationConsolidationLambdaArn: "STRING_VALUE", // required
+ *       AnnotationConsolidationLambdaArn: 'STRING_VALUE', // required
  *     },
  *     PublicWorkforceTaskPrice: { // PublicWorkforceTaskPrice
  *       AmountInUsd: { // USD
- *         Dollars: Number("int"),
- *         Cents: Number("int"),
- *         TenthFractionsOfACent: Number("int"),
+ *         Dollars: Number('int'),
+ *         Cents: Number('int'),
+ *         TenthFractionsOfACent: Number('int'),
  *       },
  *     },
  *   },
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreateLabelingJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateLabelingJobResponse
+ *   LabelingJobArn: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param CreateLabelingJobCommandInput - {@link CreateLabelingJobCommandInput}
@@ -171,6 +176,8 @@ export interface CreateLabelingJobCommandOutput extends CreateLabelingJobRespons
  *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many
  *             training jobs created. </p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class CreateLabelingJobCommand extends $Command<

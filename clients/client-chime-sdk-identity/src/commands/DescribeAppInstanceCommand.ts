@@ -40,14 +40,25 @@ export interface DescribeAppInstanceCommandOutput extends DescribeAppInstanceRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeSDKIdentityClient, DescribeAppInstanceCommand } from "@aws-sdk/client-chime-sdk-identity"; // ES Modules import
- * // const { ChimeSDKIdentityClient, DescribeAppInstanceCommand } = require("@aws-sdk/client-chime-sdk-identity"); // CommonJS import
+ * import { ChimeSDKIdentityClient, DescribeAppInstanceCommand } from '@aws-sdk/client-chime-sdk-identity'; // ES Modules import
+ * // const { ChimeSDKIdentityClient, DescribeAppInstanceCommand } = require('@aws-sdk/client-chime-sdk-identity'); // CommonJS import
  * const client = new ChimeSDKIdentityClient(config);
  * const input = { // DescribeAppInstanceRequest
- *   AppInstanceArn: "STRING_VALUE", // required
+ *   AppInstanceArn: 'STRING_VALUE', // required
  * };
  * const command = new DescribeAppInstanceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeAppInstanceResponse
+ *   AppInstance: { // AppInstance
+ *     AppInstanceArn: 'STRING_VALUE',
+ *     Name: 'STRING_VALUE',
+ *     CreatedTimestamp: new Date('TIMESTAMP'),
+ *     LastUpdatedTimestamp: new Date('TIMESTAMP'),
+ *     Metadata: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeAppInstanceCommandInput - {@link DescribeAppInstanceCommandInput}
@@ -74,6 +85,8 @@ export interface DescribeAppInstanceCommandOutput extends DescribeAppInstanceRes
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeSDKIdentityServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKIdentity service.</p>
  *
  */
 export class DescribeAppInstanceCommand extends $Command<

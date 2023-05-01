@@ -44,15 +44,18 @@ export interface AssociateWirelessDeviceWithFuotaTaskCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTWirelessClient, AssociateWirelessDeviceWithFuotaTaskCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
- * // const { IoTWirelessClient, AssociateWirelessDeviceWithFuotaTaskCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
+ * import { IoTWirelessClient, AssociateWirelessDeviceWithFuotaTaskCommand } from '@aws-sdk/client-iot-wireless'; // ES Modules import
+ * // const { IoTWirelessClient, AssociateWirelessDeviceWithFuotaTaskCommand } = require('@aws-sdk/client-iot-wireless'); // CommonJS import
  * const client = new IoTWirelessClient(config);
  * const input = { // AssociateWirelessDeviceWithFuotaTaskRequest
- *   Id: "STRING_VALUE", // required
- *   WirelessDeviceId: "STRING_VALUE", // required
+ *   Id: 'STRING_VALUE', // required
+ *   WirelessDeviceId: 'STRING_VALUE', // required
  * };
  * const command = new AssociateWirelessDeviceWithFuotaTaskCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param AssociateWirelessDeviceWithFuotaTaskCommandInput - {@link AssociateWirelessDeviceWithFuotaTaskCommandInput}
@@ -79,6 +82,8 @@ export interface AssociateWirelessDeviceWithFuotaTaskCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The input did not meet the specified constraints.</p>
  *
+ * @throws {@link IoTWirelessServiceException}
+ * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
  */
 export class AssociateWirelessDeviceWithFuotaTaskCommand extends $Command<

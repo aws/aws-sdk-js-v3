@@ -39,15 +39,20 @@ export interface GetThingShadowCommandOutput extends GetThingShadowResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTDataPlaneClient, GetThingShadowCommand } from "@aws-sdk/client-iot-data-plane"; // ES Modules import
- * // const { IoTDataPlaneClient, GetThingShadowCommand } = require("@aws-sdk/client-iot-data-plane"); // CommonJS import
+ * import { IoTDataPlaneClient, GetThingShadowCommand } from '@aws-sdk/client-iot-data-plane'; // ES Modules import
+ * // const { IoTDataPlaneClient, GetThingShadowCommand } = require('@aws-sdk/client-iot-data-plane'); // CommonJS import
  * const client = new IoTDataPlaneClient(config);
  * const input = { // GetThingShadowRequest
- *   thingName: "STRING_VALUE", // required
- *   shadowName: "STRING_VALUE",
+ *   thingName: 'STRING_VALUE', // required
+ *   shadowName: 'STRING_VALUE',
  * };
  * const command = new GetThingShadowCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetThingShadowResponse
+ *   payload: 'BLOB_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetThingShadowCommandInput - {@link GetThingShadowCommandInput}
@@ -80,6 +85,8 @@ export interface GetThingShadowCommandOutput extends GetThingShadowResponse, __M
  * @throws {@link UnsupportedDocumentEncodingException} (client fault)
  *  <p>The document encoding is not supported.</p>
  *
+ * @throws {@link IoTDataPlaneServiceException}
+ * <p>Base exception class for all service exceptions from IoTDataPlane service.</p>
  *
  */
 export class GetThingShadowCommand extends $Command<

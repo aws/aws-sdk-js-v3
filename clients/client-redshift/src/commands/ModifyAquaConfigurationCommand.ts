@@ -36,15 +36,23 @@ export interface ModifyAquaConfigurationCommandOutput extends ModifyAquaOutputMe
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RedshiftClient, ModifyAquaConfigurationCommand } from "@aws-sdk/client-redshift"; // ES Modules import
- * // const { RedshiftClient, ModifyAquaConfigurationCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * import { RedshiftClient, ModifyAquaConfigurationCommand } from '@aws-sdk/client-redshift'; // ES Modules import
+ * // const { RedshiftClient, ModifyAquaConfigurationCommand } = require('@aws-sdk/client-redshift'); // CommonJS import
  * const client = new RedshiftClient(config);
  * const input = { // ModifyAquaInputMessage
- *   ClusterIdentifier: "STRING_VALUE", // required
- *   AquaConfigurationStatus: "enabled" || "disabled" || "auto",
+ *   ClusterIdentifier: 'STRING_VALUE', // required
+ *   AquaConfigurationStatus: 'enabled' || 'disabled' || 'auto',
  * };
  * const command = new ModifyAquaConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ModifyAquaOutputMessage
+ *   AquaConfiguration: { // AquaConfiguration
+ *     AquaStatus: 'enabled' || 'disabled' || 'applying',
+ *     AquaConfigurationStatus: 'enabled' || 'disabled' || 'auto',
+ *   },
+ * };
+ *
  * ```
  *
  * @param ModifyAquaConfigurationCommandInput - {@link ModifyAquaConfigurationCommandInput}
@@ -63,6 +71,8 @@ export interface ModifyAquaConfigurationCommandOutput extends ModifyAquaOutputMe
  * @throws {@link UnsupportedOperationFault} (client fault)
  *  <p>The requested operation isn't supported.</p>
  *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class ModifyAquaConfigurationCommand extends $Command<

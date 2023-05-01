@@ -36,16 +36,42 @@ export interface ListArchiveRulesCommandOutput extends ListArchiveRulesResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AccessAnalyzerClient, ListArchiveRulesCommand } from "@aws-sdk/client-accessanalyzer"; // ES Modules import
- * // const { AccessAnalyzerClient, ListArchiveRulesCommand } = require("@aws-sdk/client-accessanalyzer"); // CommonJS import
+ * import { AccessAnalyzerClient, ListArchiveRulesCommand } from '@aws-sdk/client-accessanalyzer'; // ES Modules import
+ * // const { AccessAnalyzerClient, ListArchiveRulesCommand } = require('@aws-sdk/client-accessanalyzer'); // CommonJS import
  * const client = new AccessAnalyzerClient(config);
  * const input = { // ListArchiveRulesRequest
- *   analyzerName: "STRING_VALUE", // required
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   analyzerName: 'STRING_VALUE', // required
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new ListArchiveRulesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListArchiveRulesResponse
+ *   archiveRules: [ // ArchiveRulesList // required
+ *     { // ArchiveRuleSummary
+ *       ruleName: 'STRING_VALUE', // required
+ *       filter: { // FilterCriteriaMap // required
+ *         '<keys>': { // Criterion
+ *           eq: [ // ValueList
+ *             'STRING_VALUE',
+ *           ],
+ *           neq: [
+ *             'STRING_VALUE',
+ *           ],
+ *           contains: [
+ *             'STRING_VALUE',
+ *           ],
+ *           exists: true || false,
+ *         },
+ *       },
+ *       createdAt: new Date('TIMESTAMP'), // required
+ *       updatedAt: new Date('TIMESTAMP'), // required
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListArchiveRulesCommandInput - {@link ListArchiveRulesCommandInput}
@@ -66,6 +92,8 @@ export interface ListArchiveRulesCommandOutput extends ListArchiveRulesResponse,
  * @throws {@link ValidationException} (client fault)
  *  <p>Validation exception error.</p>
  *
+ * @throws {@link AccessAnalyzerServiceException}
+ * <p>Base exception class for all service exceptions from AccessAnalyzer service.</p>
  *
  */
 export class ListArchiveRulesCommand extends $Command<

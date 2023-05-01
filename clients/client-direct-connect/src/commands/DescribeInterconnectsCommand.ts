@@ -36,14 +36,42 @@ export interface DescribeInterconnectsCommandOutput extends Interconnects, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DirectConnectClient, DescribeInterconnectsCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
- * // const { DirectConnectClient, DescribeInterconnectsCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
+ * import { DirectConnectClient, DescribeInterconnectsCommand } from '@aws-sdk/client-direct-connect'; // ES Modules import
+ * // const { DirectConnectClient, DescribeInterconnectsCommand } = require('@aws-sdk/client-direct-connect'); // CommonJS import
  * const client = new DirectConnectClient(config);
  * const input = { // DescribeInterconnectsRequest
- *   interconnectId: "STRING_VALUE",
+ *   interconnectId: 'STRING_VALUE',
  * };
  * const command = new DescribeInterconnectsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // Interconnects
+ *   interconnects: [ // InterconnectList
+ *     { // Interconnect
+ *       interconnectId: 'STRING_VALUE',
+ *       interconnectName: 'STRING_VALUE',
+ *       interconnectState: 'requested' || 'pending' || 'available' || 'down' || 'deleting' || 'deleted' || 'unknown',
+ *       region: 'STRING_VALUE',
+ *       location: 'STRING_VALUE',
+ *       bandwidth: 'STRING_VALUE',
+ *       loaIssueTime: new Date('TIMESTAMP'),
+ *       lagId: 'STRING_VALUE',
+ *       awsDevice: 'STRING_VALUE',
+ *       jumboFrameCapable: true || false,
+ *       awsDeviceV2: 'STRING_VALUE',
+ *       awsLogicalDeviceId: 'STRING_VALUE',
+ *       hasLogicalRedundancy: 'unknown' || 'yes' || 'no',
+ *       tags: [ // TagList
+ *         { // Tag
+ *           key: 'STRING_VALUE', // required
+ *           value: 'STRING_VALUE',
+ *         },
+ *       ],
+ *       providerName: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeInterconnectsCommandInput - {@link DescribeInterconnectsCommandInput}
@@ -58,6 +86,8 @@ export interface DescribeInterconnectsCommandOutput extends Interconnects, __Met
  * @throws {@link DirectConnectServerException} (server fault)
  *  <p>A server-side error occurred.</p>
  *
+ * @throws {@link DirectConnectServiceException}
+ * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
  */
 export class DescribeInterconnectsCommand extends $Command<

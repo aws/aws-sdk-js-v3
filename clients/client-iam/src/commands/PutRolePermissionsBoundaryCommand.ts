@@ -47,15 +47,18 @@ export interface PutRolePermissionsBoundaryCommandOutput extends __MetadataBeare
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IAMClient, PutRolePermissionsBoundaryCommand } from "@aws-sdk/client-iam"; // ES Modules import
- * // const { IAMClient, PutRolePermissionsBoundaryCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * import { IAMClient, PutRolePermissionsBoundaryCommand } from '@aws-sdk/client-iam'; // ES Modules import
+ * // const { IAMClient, PutRolePermissionsBoundaryCommand } = require('@aws-sdk/client-iam'); // CommonJS import
  * const client = new IAMClient(config);
  * const input = { // PutRolePermissionsBoundaryRequest
- *   RoleName: "STRING_VALUE", // required
- *   PermissionsBoundary: "STRING_VALUE", // required
+ *   RoleName: 'STRING_VALUE', // required
+ *   PermissionsBoundary: 'STRING_VALUE', // required
  * };
  * const command = new PutRolePermissionsBoundaryCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutRolePermissionsBoundaryCommandInput - {@link PutRolePermissionsBoundaryCommandInput}
@@ -86,6 +89,8 @@ export interface PutRolePermissionsBoundaryCommandOutput extends __MetadataBeare
  *       behalf. The error message includes the name of the service that depends on this service-linked
  *       role. You must request the change through that service.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  */
 export class PutRolePermissionsBoundaryCommand extends $Command<

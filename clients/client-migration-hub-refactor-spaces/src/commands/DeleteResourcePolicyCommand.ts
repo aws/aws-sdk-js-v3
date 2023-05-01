@@ -40,14 +40,17 @@ export interface DeleteResourcePolicyCommandOutput extends DeleteResourcePolicyR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MigrationHubRefactorSpacesClient, DeleteResourcePolicyCommand } from "@aws-sdk/client-migration-hub-refactor-spaces"; // ES Modules import
- * // const { MigrationHubRefactorSpacesClient, DeleteResourcePolicyCommand } = require("@aws-sdk/client-migration-hub-refactor-spaces"); // CommonJS import
+ * import { MigrationHubRefactorSpacesClient, DeleteResourcePolicyCommand } from '@aws-sdk/client-migration-hub-refactor-spaces'; // ES Modules import
+ * // const { MigrationHubRefactorSpacesClient, DeleteResourcePolicyCommand } = require('@aws-sdk/client-migration-hub-refactor-spaces'); // CommonJS import
  * const client = new MigrationHubRefactorSpacesClient(config);
  * const input = { // DeleteResourcePolicyRequest
- *   Identifier: "STRING_VALUE", // required
+ *   Identifier: 'STRING_VALUE', // required
  * };
  * const command = new DeleteResourcePolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteResourcePolicyCommandInput - {@link DeleteResourcePolicyCommandInput}
@@ -72,6 +75,8 @@ export interface DeleteResourcePolicyCommandOutput extends DeleteResourcePolicyR
  *  <p>The input does not satisfy the constraints specified by an Amazon Web Service.
  *     </p>
  *
+ * @throws {@link MigrationHubRefactorSpacesServiceException}
+ * <p>Base exception class for all service exceptions from MigrationHubRefactorSpaces service.</p>
  *
  */
 export class DeleteResourcePolicyCommand extends $Command<

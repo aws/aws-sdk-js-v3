@@ -36,23 +36,40 @@ export interface DescribePatchGroupsCommandOutput extends DescribePatchGroupsRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMClient, DescribePatchGroupsCommand } from "@aws-sdk/client-ssm"; // ES Modules import
- * // const { SSMClient, DescribePatchGroupsCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * import { SSMClient, DescribePatchGroupsCommand } from '@aws-sdk/client-ssm'; // ES Modules import
+ * // const { SSMClient, DescribePatchGroupsCommand } = require('@aws-sdk/client-ssm'); // CommonJS import
  * const client = new SSMClient(config);
  * const input = { // DescribePatchGroupsRequest
- *   MaxResults: Number("int"),
+ *   MaxResults: Number('int'),
  *   Filters: [ // PatchOrchestratorFilterList
  *     { // PatchOrchestratorFilter
- *       Key: "STRING_VALUE",
+ *       Key: 'STRING_VALUE',
  *       Values: [ // PatchOrchestratorFilterValues
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
- *   NextToken: "STRING_VALUE",
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new DescribePatchGroupsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribePatchGroupsResult
+ *   Mappings: [ // PatchGroupPatchBaselineMappingList
+ *     { // PatchGroupPatchBaselineMapping
+ *       PatchGroup: 'STRING_VALUE',
+ *       BaselineIdentity: { // PatchBaselineIdentity
+ *         BaselineId: 'STRING_VALUE',
+ *         BaselineName: 'STRING_VALUE',
+ *         OperatingSystem: 'WINDOWS' || 'AMAZON_LINUX' || 'AMAZON_LINUX_2' || 'AMAZON_LINUX_2022' || 'UBUNTU' || 'REDHAT_ENTERPRISE_LINUX' || 'SUSE' || 'CENTOS' || 'ORACLE_LINUX' || 'DEBIAN' || 'MACOS' || 'RASPBIAN' || 'ROCKY_LINUX' || 'ALMA_LINUX' || 'AMAZON_LINUX_2023',
+ *         BaselineDescription: 'STRING_VALUE',
+ *         DefaultBaseline: true || false,
+ *       },
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribePatchGroupsCommandInput - {@link DescribePatchGroupsCommandInput}
@@ -64,6 +81,8 @@ export interface DescribePatchGroupsCommandOutput extends DescribePatchGroupsRes
  * @throws {@link InternalServerError} (server fault)
  *  <p>An error occurred on the server side.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class DescribePatchGroupsCommand extends $Command<

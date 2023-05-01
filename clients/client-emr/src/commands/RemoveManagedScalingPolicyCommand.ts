@@ -36,14 +36,17 @@ export interface RemoveManagedScalingPolicyCommandOutput extends RemoveManagedSc
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EMRClient, RemoveManagedScalingPolicyCommand } from "@aws-sdk/client-emr"; // ES Modules import
- * // const { EMRClient, RemoveManagedScalingPolicyCommand } = require("@aws-sdk/client-emr"); // CommonJS import
+ * import { EMRClient, RemoveManagedScalingPolicyCommand } from '@aws-sdk/client-emr'; // ES Modules import
+ * // const { EMRClient, RemoveManagedScalingPolicyCommand } = require('@aws-sdk/client-emr'); // CommonJS import
  * const client = new EMRClient(config);
  * const input = { // RemoveManagedScalingPolicyInput
- *   ClusterId: "STRING_VALUE", // required
+ *   ClusterId: 'STRING_VALUE', // required
  * };
  * const command = new RemoveManagedScalingPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param RemoveManagedScalingPolicyCommandInput - {@link RemoveManagedScalingPolicyCommandInput}
@@ -52,6 +55,8 @@ export interface RemoveManagedScalingPolicyCommandOutput extends RemoveManagedSc
  * @see {@link RemoveManagedScalingPolicyCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
  *
+ * @throws {@link EMRServiceException}
+ * <p>Base exception class for all service exceptions from EMR service.</p>
  *
  */
 export class RemoveManagedScalingPolicyCommand extends $Command<

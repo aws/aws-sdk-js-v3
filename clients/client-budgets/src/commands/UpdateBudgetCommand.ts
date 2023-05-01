@@ -39,26 +39,26 @@ export interface UpdateBudgetCommandOutput extends UpdateBudgetResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BudgetsClient, UpdateBudgetCommand } from "@aws-sdk/client-budgets"; // ES Modules import
- * // const { BudgetsClient, UpdateBudgetCommand } = require("@aws-sdk/client-budgets"); // CommonJS import
+ * import { BudgetsClient, UpdateBudgetCommand } from '@aws-sdk/client-budgets'; // ES Modules import
+ * // const { BudgetsClient, UpdateBudgetCommand } = require('@aws-sdk/client-budgets'); // CommonJS import
  * const client = new BudgetsClient(config);
  * const input = { // UpdateBudgetRequest
- *   AccountId: "STRING_VALUE", // required
+ *   AccountId: 'STRING_VALUE', // required
  *   NewBudget: { // Budget
- *     BudgetName: "STRING_VALUE", // required
+ *     BudgetName: 'STRING_VALUE', // required
  *     BudgetLimit: { // Spend
- *       Amount: "STRING_VALUE", // required
- *       Unit: "STRING_VALUE", // required
+ *       Amount: 'STRING_VALUE', // required
+ *       Unit: 'STRING_VALUE', // required
  *     },
  *     PlannedBudgetLimits: { // PlannedBudgetLimits
- *       "<keys>": {
- *         Amount: "STRING_VALUE", // required
- *         Unit: "STRING_VALUE", // required
+ *       '<keys>': {
+ *         Amount: 'STRING_VALUE', // required
+ *         Unit: 'STRING_VALUE', // required
  *       },
  *     },
  *     CostFilters: { // CostFilters
- *       "<keys>": [ // DimensionValues
- *         "STRING_VALUE",
+ *       '<keys>': [ // DimensionValues
+ *         'STRING_VALUE',
  *       ],
  *     },
  *     CostTypes: { // CostTypes
@@ -74,35 +74,38 @@ export interface UpdateBudgetCommandOutput extends UpdateBudgetResponse, __Metad
  *       IncludeDiscount: true || false,
  *       UseAmortized: true || false,
  *     },
- *     TimeUnit: "STRING_VALUE", // required
+ *     TimeUnit: 'STRING_VALUE', // required
  *     TimePeriod: { // TimePeriod
- *       Start: new Date("TIMESTAMP"),
- *       End: new Date("TIMESTAMP"),
+ *       Start: new Date('TIMESTAMP'),
+ *       End: new Date('TIMESTAMP'),
  *     },
  *     CalculatedSpend: { // CalculatedSpend
  *       ActualSpend: {
- *         Amount: "STRING_VALUE", // required
- *         Unit: "STRING_VALUE", // required
+ *         Amount: 'STRING_VALUE', // required
+ *         Unit: 'STRING_VALUE', // required
  *       },
  *       ForecastedSpend: {
- *         Amount: "STRING_VALUE", // required
- *         Unit: "STRING_VALUE", // required
+ *         Amount: 'STRING_VALUE', // required
+ *         Unit: 'STRING_VALUE', // required
  *       },
  *     },
- *     BudgetType: "STRING_VALUE", // required
- *     LastUpdatedTime: new Date("TIMESTAMP"),
+ *     BudgetType: 'STRING_VALUE', // required
+ *     LastUpdatedTime: new Date('TIMESTAMP'),
  *     AutoAdjustData: { // AutoAdjustData
- *       AutoAdjustType: "STRING_VALUE", // required
+ *       AutoAdjustType: 'STRING_VALUE', // required
  *       HistoricalOptions: { // HistoricalOptions
- *         BudgetAdjustmentPeriod: Number("int"), // required
- *         LookBackAvailablePeriods: Number("int"),
+ *         BudgetAdjustmentPeriod: Number('int'), // required
+ *         LookBackAvailablePeriods: Number('int'),
  *       },
- *       LastAutoAdjustTime: new Date("TIMESTAMP"),
+ *       LastAutoAdjustTime: new Date('TIMESTAMP'),
  *     },
  *   },
  * };
  * const command = new UpdateBudgetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateBudgetCommandInput - {@link UpdateBudgetCommandInput}
@@ -128,6 +131,8 @@ export interface UpdateBudgetCommandOutput extends UpdateBudgetResponse, __Metad
  *       The number of API requests has exceeded the maximum allowed API request throttling limit for the account.
  *     </p>
  *
+ * @throws {@link BudgetsServiceException}
+ * <p>Base exception class for all service exceptions from Budgets service.</p>
  *
  */
 export class UpdateBudgetCommand extends $Command<

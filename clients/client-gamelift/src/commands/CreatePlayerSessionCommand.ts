@@ -53,16 +53,34 @@ export interface CreatePlayerSessionCommandOutput extends CreatePlayerSessionOut
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GameLiftClient, CreatePlayerSessionCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
- * // const { GameLiftClient, CreatePlayerSessionCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
+ * import { GameLiftClient, CreatePlayerSessionCommand } from '@aws-sdk/client-gamelift'; // ES Modules import
+ * // const { GameLiftClient, CreatePlayerSessionCommand } = require('@aws-sdk/client-gamelift'); // CommonJS import
  * const client = new GameLiftClient(config);
  * const input = { // CreatePlayerSessionInput
- *   GameSessionId: "STRING_VALUE", // required
- *   PlayerId: "STRING_VALUE", // required
- *   PlayerData: "STRING_VALUE",
+ *   GameSessionId: 'STRING_VALUE', // required
+ *   PlayerId: 'STRING_VALUE', // required
+ *   PlayerData: 'STRING_VALUE',
  * };
  * const command = new CreatePlayerSessionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreatePlayerSessionOutput
+ *   PlayerSession: { // PlayerSession
+ *     PlayerSessionId: 'STRING_VALUE',
+ *     PlayerId: 'STRING_VALUE',
+ *     GameSessionId: 'STRING_VALUE',
+ *     FleetId: 'STRING_VALUE',
+ *     FleetArn: 'STRING_VALUE',
+ *     CreationTime: new Date('TIMESTAMP'),
+ *     TerminationTime: new Date('TIMESTAMP'),
+ *     Status: 'RESERVED' || 'ACTIVE' || 'COMPLETED' || 'TIMEDOUT',
+ *     IpAddress: 'STRING_VALUE',
+ *     DnsName: 'STRING_VALUE',
+ *     Port: Number('int'),
+ *     PlayerData: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreatePlayerSessionCommandInput - {@link CreatePlayerSessionCommandInput}
@@ -100,6 +118,8 @@ export interface CreatePlayerSessionCommandOutput extends CreatePlayerSessionOut
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client failed authentication. Clients should not retry such requests.</p>
  *
+ * @throws {@link GameLiftServiceException}
+ * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
  */
 export class CreatePlayerSessionCommand extends $Command<

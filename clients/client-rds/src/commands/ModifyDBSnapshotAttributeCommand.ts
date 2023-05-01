@@ -52,21 +52,36 @@ export interface ModifyDBSnapshotAttributeCommandOutput extends ModifyDBSnapshot
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RDSClient, ModifyDBSnapshotAttributeCommand } from "@aws-sdk/client-rds"; // ES Modules import
- * // const { RDSClient, ModifyDBSnapshotAttributeCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * import { RDSClient, ModifyDBSnapshotAttributeCommand } from '@aws-sdk/client-rds'; // ES Modules import
+ * // const { RDSClient, ModifyDBSnapshotAttributeCommand } = require('@aws-sdk/client-rds'); // CommonJS import
  * const client = new RDSClient(config);
  * const input = { // ModifyDBSnapshotAttributeMessage
- *   DBSnapshotIdentifier: "STRING_VALUE", // required
- *   AttributeName: "STRING_VALUE", // required
+ *   DBSnapshotIdentifier: 'STRING_VALUE', // required
+ *   AttributeName: 'STRING_VALUE', // required
  *   ValuesToAdd: [ // AttributeValueList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   ValuesToRemove: [
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new ModifyDBSnapshotAttributeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ModifyDBSnapshotAttributeResult
+ *   DBSnapshotAttributesResult: { // DBSnapshotAttributesResult
+ *     DBSnapshotIdentifier: 'STRING_VALUE',
+ *     DBSnapshotAttributes: [ // DBSnapshotAttributeList
+ *       { // DBSnapshotAttribute
+ *         AttributeName: 'STRING_VALUE',
+ *         AttributeValues: [ // AttributeValueList
+ *           'STRING_VALUE',
+ *         ],
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param ModifyDBSnapshotAttributeCommandInput - {@link ModifyDBSnapshotAttributeCommandInput}
@@ -85,6 +100,8 @@ export interface ModifyDBSnapshotAttributeCommandOutput extends ModifyDBSnapshot
  * @throws {@link SharedSnapshotQuotaExceededFault} (client fault)
  *  <p>You have exceeded the maximum number of accounts that you can share a manual DB snapshot with.</p>
  *
+ * @throws {@link RDSServiceException}
+ * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  * @example To allow two AWS accounts to restore a DB snapshot
  * ```javascript

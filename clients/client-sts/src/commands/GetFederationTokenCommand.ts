@@ -123,27 +123,42 @@ export interface GetFederationTokenCommandOutput extends GetFederationTokenRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { STSClient, GetFederationTokenCommand } from "@aws-sdk/client-sts"; // ES Modules import
- * // const { STSClient, GetFederationTokenCommand } = require("@aws-sdk/client-sts"); // CommonJS import
+ * import { STSClient, GetFederationTokenCommand } from '@aws-sdk/client-sts'; // ES Modules import
+ * // const { STSClient, GetFederationTokenCommand } = require('@aws-sdk/client-sts'); // CommonJS import
  * const client = new STSClient(config);
  * const input = { // GetFederationTokenRequest
- *   Name: "STRING_VALUE", // required
- *   Policy: "STRING_VALUE",
+ *   Name: 'STRING_VALUE', // required
+ *   Policy: 'STRING_VALUE',
  *   PolicyArns: [ // policyDescriptorListType
  *     { // PolicyDescriptorType
- *       arn: "STRING_VALUE",
+ *       arn: 'STRING_VALUE',
  *     },
  *   ],
- *   DurationSeconds: Number("int"),
+ *   DurationSeconds: Number('int'),
  *   Tags: [ // tagListType
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new GetFederationTokenCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetFederationTokenResponse
+ *   Credentials: { // Credentials
+ *     AccessKeyId: 'STRING_VALUE', // required
+ *     SecretAccessKey: 'STRING_VALUE', // required
+ *     SessionToken: 'STRING_VALUE', // required
+ *     Expiration: new Date('TIMESTAMP'), // required
+ *   },
+ *   FederatedUser: { // FederatedUser
+ *     FederatedUserId: 'STRING_VALUE', // required
+ *     Arn: 'STRING_VALUE', // required
+ *   },
+ *   PackedPolicySize: Number('int'),
+ * };
+ *
  * ```
  *
  * @param GetFederationTokenCommandInput - {@link GetFederationTokenCommandInput}
@@ -174,6 +189,8 @@ export interface GetFederationTokenCommandOutput extends GetFederationTokenRespo
  *                 Deactivating Amazon Web Services STS in an Amazon Web Services Region</a> in the <i>IAM User
  *                     Guide</i>.</p>
  *
+ * @throws {@link STSServiceException}
+ * <p>Base exception class for all service exceptions from STS service.</p>
  *
  * @example To get temporary credentials for a role by using GetFederationToken
  * ```javascript

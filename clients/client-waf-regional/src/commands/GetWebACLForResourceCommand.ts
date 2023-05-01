@@ -44,14 +44,22 @@ export interface GetWebACLForResourceCommandOutput extends GetWebACLForResourceR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WAFRegionalClient, GetWebACLForResourceCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
- * // const { WAFRegionalClient, GetWebACLForResourceCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import
+ * import { WAFRegionalClient, GetWebACLForResourceCommand } from '@aws-sdk/client-waf-regional'; // ES Modules import
+ * // const { WAFRegionalClient, GetWebACLForResourceCommand } = require('@aws-sdk/client-waf-regional'); // CommonJS import
  * const client = new WAFRegionalClient(config);
  * const input = { // GetWebACLForResourceRequest
- *   ResourceArn: "STRING_VALUE", // required
+ *   ResourceArn: 'STRING_VALUE', // required
  * };
  * const command = new GetWebACLForResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetWebACLForResourceResponse
+ *   WebACLSummary: { // WebACLSummary
+ *     WebACLId: 'STRING_VALUE', // required
+ *     Name: 'STRING_VALUE', // required
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetWebACLForResourceCommandInput - {@link GetWebACLForResourceCommandInput}
@@ -113,6 +121,8 @@ export interface GetWebACLForResourceCommandOutput extends GetWebACLForResourceR
  *  <p>The operation failed because the entity
  *       referenced is temporarily unavailable. Retry your request.</p>
  *
+ * @throws {@link WAFRegionalServiceException}
+ * <p>Base exception class for all service exceptions from WAFRegional service.</p>
  *
  */
 export class GetWebACLForResourceCommand extends $Command<

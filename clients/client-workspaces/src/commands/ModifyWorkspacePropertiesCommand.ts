@@ -44,24 +44,27 @@ export interface ModifyWorkspacePropertiesCommandOutput extends ModifyWorkspaceP
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkSpacesClient, ModifyWorkspacePropertiesCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
- * // const { WorkSpacesClient, ModifyWorkspacePropertiesCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
+ * import { WorkSpacesClient, ModifyWorkspacePropertiesCommand } from '@aws-sdk/client-workspaces'; // ES Modules import
+ * // const { WorkSpacesClient, ModifyWorkspacePropertiesCommand } = require('@aws-sdk/client-workspaces'); // CommonJS import
  * const client = new WorkSpacesClient(config);
  * const input = { // ModifyWorkspacePropertiesRequest
- *   WorkspaceId: "STRING_VALUE", // required
+ *   WorkspaceId: 'STRING_VALUE', // required
  *   WorkspaceProperties: { // WorkspaceProperties
- *     RunningMode: "AUTO_STOP" || "ALWAYS_ON" || "MANUAL",
- *     RunningModeAutoStopTimeoutInMinutes: Number("int"),
- *     RootVolumeSizeGib: Number("int"),
- *     UserVolumeSizeGib: Number("int"),
- *     ComputeTypeName: "VALUE" || "STANDARD" || "PERFORMANCE" || "POWER" || "GRAPHICS" || "POWERPRO" || "GRAPHICSPRO" || "GRAPHICS_G4DN" || "GRAPHICSPRO_G4DN",
+ *     RunningMode: 'AUTO_STOP' || 'ALWAYS_ON' || 'MANUAL',
+ *     RunningModeAutoStopTimeoutInMinutes: Number('int'),
+ *     RootVolumeSizeGib: Number('int'),
+ *     UserVolumeSizeGib: Number('int'),
+ *     ComputeTypeName: 'VALUE' || 'STANDARD' || 'PERFORMANCE' || 'POWER' || 'GRAPHICS' || 'POWERPRO' || 'GRAPHICSPRO' || 'GRAPHICS_G4DN' || 'GRAPHICSPRO_G4DN',
  *     Protocols: [ // ProtocolList
- *       "PCOIP" || "WSP",
+ *       'PCOIP' || 'WSP',
  *     ],
  *   },
  * };
  * const command = new ModifyWorkspacePropertiesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param ModifyWorkspacePropertiesCommandInput - {@link ModifyWorkspacePropertiesCommandInput}
@@ -93,6 +96,8 @@ export interface ModifyWorkspacePropertiesCommandOutput extends ModifyWorkspaceP
  *          <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/required-service-components.html">Required
  *             Configuration and Service Components for WorkSpaces </a>.</p>
  *
+ * @throws {@link WorkSpacesServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
  */
 export class ModifyWorkspacePropertiesCommand extends $Command<

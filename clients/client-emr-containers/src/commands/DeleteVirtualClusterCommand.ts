@@ -39,14 +39,19 @@ export interface DeleteVirtualClusterCommandOutput extends DeleteVirtualClusterR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EMRContainersClient, DeleteVirtualClusterCommand } from "@aws-sdk/client-emr-containers"; // ES Modules import
- * // const { EMRContainersClient, DeleteVirtualClusterCommand } = require("@aws-sdk/client-emr-containers"); // CommonJS import
+ * import { EMRContainersClient, DeleteVirtualClusterCommand } from '@aws-sdk/client-emr-containers'; // ES Modules import
+ * // const { EMRContainersClient, DeleteVirtualClusterCommand } = require('@aws-sdk/client-emr-containers'); // CommonJS import
  * const client = new EMRContainersClient(config);
  * const input = { // DeleteVirtualClusterRequest
- *   id: "STRING_VALUE", // required
+ *   id: 'STRING_VALUE', // required
  * };
  * const command = new DeleteVirtualClusterCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteVirtualClusterResponse
+ *   id: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DeleteVirtualClusterCommandInput - {@link DeleteVirtualClusterCommandInput}
@@ -61,6 +66,8 @@ export interface DeleteVirtualClusterCommandOutput extends DeleteVirtualClusterR
  * @throws {@link ValidationException} (client fault)
  *  <p>There are invalid parameters in the client request.</p>
  *
+ * @throws {@link EMRContainersServiceException}
+ * <p>Base exception class for all service exceptions from EMRContainers service.</p>
  *
  */
 export class DeleteVirtualClusterCommand extends $Command<

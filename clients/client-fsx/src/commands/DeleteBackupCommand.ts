@@ -43,15 +43,21 @@ export interface DeleteBackupCommandOutput extends DeleteBackupResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FSxClient, DeleteBackupCommand } from "@aws-sdk/client-fsx"; // ES Modules import
- * // const { FSxClient, DeleteBackupCommand } = require("@aws-sdk/client-fsx"); // CommonJS import
+ * import { FSxClient, DeleteBackupCommand } from '@aws-sdk/client-fsx'; // ES Modules import
+ * // const { FSxClient, DeleteBackupCommand } = require('@aws-sdk/client-fsx'); // CommonJS import
  * const client = new FSxClient(config);
  * const input = { // DeleteBackupRequest
- *   BackupId: "STRING_VALUE", // required
- *   ClientRequestToken: "STRING_VALUE",
+ *   BackupId: 'STRING_VALUE', // required
+ *   ClientRequestToken: 'STRING_VALUE',
  * };
  * const command = new DeleteBackupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteBackupResponse
+ *   BackupId: 'STRING_VALUE',
+ *   Lifecycle: 'AVAILABLE' || 'CREATING' || 'TRANSFERRING' || 'DELETED' || 'FAILED' || 'PENDING' || 'COPYING',
+ * };
+ *
  * ```
  *
  * @param DeleteBackupCommandInput - {@link DeleteBackupCommandInput}
@@ -85,6 +91,8 @@ export interface DeleteBackupCommandOutput extends DeleteBackupResponse, __Metad
  * @throws {@link InternalServerError} (server fault)
  *  <p>A generic error indicating a server-side failure.</p>
  *
+ * @throws {@link FSxServiceException}
+ * <p>Base exception class for all service exceptions from FSx service.</p>
  *
  * @example To delete a backup
  * ```javascript

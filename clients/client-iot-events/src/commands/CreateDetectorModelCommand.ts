@@ -36,111 +36,111 @@ export interface CreateDetectorModelCommandOutput extends CreateDetectorModelRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTEventsClient, CreateDetectorModelCommand } from "@aws-sdk/client-iot-events"; // ES Modules import
- * // const { IoTEventsClient, CreateDetectorModelCommand } = require("@aws-sdk/client-iot-events"); // CommonJS import
+ * import { IoTEventsClient, CreateDetectorModelCommand } from '@aws-sdk/client-iot-events'; // ES Modules import
+ * // const { IoTEventsClient, CreateDetectorModelCommand } = require('@aws-sdk/client-iot-events'); // CommonJS import
  * const client = new IoTEventsClient(config);
  * const input = { // CreateDetectorModelRequest
- *   detectorModelName: "STRING_VALUE", // required
+ *   detectorModelName: 'STRING_VALUE', // required
  *   detectorModelDefinition: { // DetectorModelDefinition
  *     states: [ // States // required
  *       { // State
- *         stateName: "STRING_VALUE", // required
+ *         stateName: 'STRING_VALUE', // required
  *         onInput: { // OnInputLifecycle
  *           events: [ // Events
  *             { // Event
- *               eventName: "STRING_VALUE", // required
- *               condition: "STRING_VALUE",
+ *               eventName: 'STRING_VALUE', // required
+ *               condition: 'STRING_VALUE',
  *               actions: [ // Actions
  *                 { // Action
  *                   setVariable: { // SetVariableAction
- *                     variableName: "STRING_VALUE", // required
- *                     value: "STRING_VALUE", // required
+ *                     variableName: 'STRING_VALUE', // required
+ *                     value: 'STRING_VALUE', // required
  *                   },
  *                   sns: { // SNSTopicPublishAction
- *                     targetArn: "STRING_VALUE", // required
+ *                     targetArn: 'STRING_VALUE', // required
  *                     payload: { // Payload
- *                       contentExpression: "STRING_VALUE", // required
- *                       type: "STRING_VALUE", // required
+ *                       contentExpression: 'STRING_VALUE', // required
+ *                       type: 'STRING_VALUE', // required
  *                     },
  *                   },
  *                   iotTopicPublish: { // IotTopicPublishAction
- *                     mqttTopic: "STRING_VALUE", // required
+ *                     mqttTopic: 'STRING_VALUE', // required
  *                     payload: {
- *                       contentExpression: "STRING_VALUE", // required
- *                       type: "STRING_VALUE", // required
+ *                       contentExpression: 'STRING_VALUE', // required
+ *                       type: 'STRING_VALUE', // required
  *                     },
  *                   },
  *                   setTimer: { // SetTimerAction
- *                     timerName: "STRING_VALUE", // required
- *                     seconds: Number("int"),
- *                     durationExpression: "STRING_VALUE",
+ *                     timerName: 'STRING_VALUE', // required
+ *                     seconds: Number('int'),
+ *                     durationExpression: 'STRING_VALUE',
  *                   },
  *                   clearTimer: { // ClearTimerAction
- *                     timerName: "STRING_VALUE", // required
+ *                     timerName: 'STRING_VALUE', // required
  *                   },
  *                   resetTimer: { // ResetTimerAction
- *                     timerName: "STRING_VALUE", // required
+ *                     timerName: 'STRING_VALUE', // required
  *                   },
  *                   lambda: { // LambdaAction
- *                     functionArn: "STRING_VALUE", // required
+ *                     functionArn: 'STRING_VALUE', // required
  *                     payload: {
- *                       contentExpression: "STRING_VALUE", // required
- *                       type: "STRING_VALUE", // required
+ *                       contentExpression: 'STRING_VALUE', // required
+ *                       type: 'STRING_VALUE', // required
  *                     },
  *                   },
  *                   iotEvents: { // IotEventsAction
- *                     inputName: "STRING_VALUE", // required
+ *                     inputName: 'STRING_VALUE', // required
  *                     payload: {
- *                       contentExpression: "STRING_VALUE", // required
- *                       type: "STRING_VALUE", // required
+ *                       contentExpression: 'STRING_VALUE', // required
+ *                       type: 'STRING_VALUE', // required
  *                     },
  *                   },
  *                   sqs: { // SqsAction
- *                     queueUrl: "STRING_VALUE", // required
+ *                     queueUrl: 'STRING_VALUE', // required
  *                     useBase64: true || false,
  *                     payload: {
- *                       contentExpression: "STRING_VALUE", // required
- *                       type: "STRING_VALUE", // required
+ *                       contentExpression: 'STRING_VALUE', // required
+ *                       type: 'STRING_VALUE', // required
  *                     },
  *                   },
  *                   firehose: { // FirehoseAction
- *                     deliveryStreamName: "STRING_VALUE", // required
- *                     separator: "STRING_VALUE",
- *                     payload: "<Payload>",
+ *                     deliveryStreamName: 'STRING_VALUE', // required
+ *                     separator: 'STRING_VALUE',
+ *                     payload: '<Payload>',
  *                   },
  *                   dynamoDB: { // DynamoDBAction
- *                     hashKeyType: "STRING_VALUE",
- *                     hashKeyField: "STRING_VALUE", // required
- *                     hashKeyValue: "STRING_VALUE", // required
- *                     rangeKeyType: "STRING_VALUE",
- *                     rangeKeyField: "STRING_VALUE",
- *                     rangeKeyValue: "STRING_VALUE",
- *                     operation: "STRING_VALUE",
- *                     payloadField: "STRING_VALUE",
- *                     tableName: "STRING_VALUE", // required
- *                     payload: "<Payload>",
+ *                     hashKeyType: 'STRING_VALUE',
+ *                     hashKeyField: 'STRING_VALUE', // required
+ *                     hashKeyValue: 'STRING_VALUE', // required
+ *                     rangeKeyType: 'STRING_VALUE',
+ *                     rangeKeyField: 'STRING_VALUE',
+ *                     rangeKeyValue: 'STRING_VALUE',
+ *                     operation: 'STRING_VALUE',
+ *                     payloadField: 'STRING_VALUE',
+ *                     tableName: 'STRING_VALUE', // required
+ *                     payload: '<Payload>',
  *                   },
  *                   dynamoDBv2: { // DynamoDBv2Action
- *                     tableName: "STRING_VALUE", // required
- *                     payload: "<Payload>",
+ *                     tableName: 'STRING_VALUE', // required
+ *                     payload: '<Payload>',
  *                   },
  *                   iotSiteWise: { // IotSiteWiseAction
- *                     entryId: "STRING_VALUE",
- *                     assetId: "STRING_VALUE",
- *                     propertyId: "STRING_VALUE",
- *                     propertyAlias: "STRING_VALUE",
+ *                     entryId: 'STRING_VALUE',
+ *                     assetId: 'STRING_VALUE',
+ *                     propertyId: 'STRING_VALUE',
+ *                     propertyAlias: 'STRING_VALUE',
  *                     propertyValue: { // AssetPropertyValue
  *                       value: { // AssetPropertyVariant
- *                         stringValue: "STRING_VALUE",
- *                         integerValue: "STRING_VALUE",
- *                         doubleValue: "STRING_VALUE",
- *                         booleanValue: "STRING_VALUE",
+ *                         stringValue: 'STRING_VALUE',
+ *                         integerValue: 'STRING_VALUE',
+ *                         doubleValue: 'STRING_VALUE',
+ *                         booleanValue: 'STRING_VALUE',
  *                       },
  *                       timestamp: { // AssetPropertyTimestamp
- *                         timeInSeconds: "STRING_VALUE", // required
- *                         offsetInNanos: "STRING_VALUE",
+ *                         timeInSeconds: 'STRING_VALUE', // required
+ *                         offsetInNanos: 'STRING_VALUE',
  *                       },
- *                       quality: "STRING_VALUE",
+ *                       quality: 'STRING_VALUE',
  *                     },
  *                   },
  *                 },
@@ -149,173 +149,173 @@ export interface CreateDetectorModelCommandOutput extends CreateDetectorModelRes
  *           ],
  *           transitionEvents: [ // TransitionEvents
  *             { // TransitionEvent
- *               eventName: "STRING_VALUE", // required
- *               condition: "STRING_VALUE", // required
+ *               eventName: 'STRING_VALUE', // required
+ *               condition: 'STRING_VALUE', // required
  *               actions: [
  *                 {
  *                   setVariable: {
- *                     variableName: "STRING_VALUE", // required
- *                     value: "STRING_VALUE", // required
+ *                     variableName: 'STRING_VALUE', // required
+ *                     value: 'STRING_VALUE', // required
  *                   },
  *                   sns: {
- *                     targetArn: "STRING_VALUE", // required
- *                     payload: "<Payload>",
+ *                     targetArn: 'STRING_VALUE', // required
+ *                     payload: '<Payload>',
  *                   },
  *                   iotTopicPublish: {
- *                     mqttTopic: "STRING_VALUE", // required
- *                     payload: "<Payload>",
+ *                     mqttTopic: 'STRING_VALUE', // required
+ *                     payload: '<Payload>',
  *                   },
  *                   setTimer: {
- *                     timerName: "STRING_VALUE", // required
- *                     seconds: Number("int"),
- *                     durationExpression: "STRING_VALUE",
+ *                     timerName: 'STRING_VALUE', // required
+ *                     seconds: Number('int'),
+ *                     durationExpression: 'STRING_VALUE',
  *                   },
  *                   clearTimer: {
- *                     timerName: "STRING_VALUE", // required
+ *                     timerName: 'STRING_VALUE', // required
  *                   },
  *                   resetTimer: {
- *                     timerName: "STRING_VALUE", // required
+ *                     timerName: 'STRING_VALUE', // required
  *                   },
  *                   lambda: {
- *                     functionArn: "STRING_VALUE", // required
- *                     payload: "<Payload>",
+ *                     functionArn: 'STRING_VALUE', // required
+ *                     payload: '<Payload>',
  *                   },
  *                   iotEvents: {
- *                     inputName: "STRING_VALUE", // required
- *                     payload: "<Payload>",
+ *                     inputName: 'STRING_VALUE', // required
+ *                     payload: '<Payload>',
  *                   },
  *                   sqs: {
- *                     queueUrl: "STRING_VALUE", // required
+ *                     queueUrl: 'STRING_VALUE', // required
  *                     useBase64: true || false,
- *                     payload: "<Payload>",
+ *                     payload: '<Payload>',
  *                   },
  *                   firehose: {
- *                     deliveryStreamName: "STRING_VALUE", // required
- *                     separator: "STRING_VALUE",
- *                     payload: "<Payload>",
+ *                     deliveryStreamName: 'STRING_VALUE', // required
+ *                     separator: 'STRING_VALUE',
+ *                     payload: '<Payload>',
  *                   },
  *                   dynamoDB: {
- *                     hashKeyType: "STRING_VALUE",
- *                     hashKeyField: "STRING_VALUE", // required
- *                     hashKeyValue: "STRING_VALUE", // required
- *                     rangeKeyType: "STRING_VALUE",
- *                     rangeKeyField: "STRING_VALUE",
- *                     rangeKeyValue: "STRING_VALUE",
- *                     operation: "STRING_VALUE",
- *                     payloadField: "STRING_VALUE",
- *                     tableName: "STRING_VALUE", // required
- *                     payload: "<Payload>",
+ *                     hashKeyType: 'STRING_VALUE',
+ *                     hashKeyField: 'STRING_VALUE', // required
+ *                     hashKeyValue: 'STRING_VALUE', // required
+ *                     rangeKeyType: 'STRING_VALUE',
+ *                     rangeKeyField: 'STRING_VALUE',
+ *                     rangeKeyValue: 'STRING_VALUE',
+ *                     operation: 'STRING_VALUE',
+ *                     payloadField: 'STRING_VALUE',
+ *                     tableName: 'STRING_VALUE', // required
+ *                     payload: '<Payload>',
  *                   },
  *                   dynamoDBv2: {
- *                     tableName: "STRING_VALUE", // required
- *                     payload: "<Payload>",
+ *                     tableName: 'STRING_VALUE', // required
+ *                     payload: '<Payload>',
  *                   },
  *                   iotSiteWise: {
- *                     entryId: "STRING_VALUE",
- *                     assetId: "STRING_VALUE",
- *                     propertyId: "STRING_VALUE",
- *                     propertyAlias: "STRING_VALUE",
+ *                     entryId: 'STRING_VALUE',
+ *                     assetId: 'STRING_VALUE',
+ *                     propertyId: 'STRING_VALUE',
+ *                     propertyAlias: 'STRING_VALUE',
  *                     propertyValue: {
  *                       value: {
- *                         stringValue: "STRING_VALUE",
- *                         integerValue: "STRING_VALUE",
- *                         doubleValue: "STRING_VALUE",
- *                         booleanValue: "STRING_VALUE",
+ *                         stringValue: 'STRING_VALUE',
+ *                         integerValue: 'STRING_VALUE',
+ *                         doubleValue: 'STRING_VALUE',
+ *                         booleanValue: 'STRING_VALUE',
  *                       },
  *                       timestamp: {
- *                         timeInSeconds: "STRING_VALUE", // required
- *                         offsetInNanos: "STRING_VALUE",
+ *                         timeInSeconds: 'STRING_VALUE', // required
+ *                         offsetInNanos: 'STRING_VALUE',
  *                       },
- *                       quality: "STRING_VALUE",
+ *                       quality: 'STRING_VALUE',
  *                     },
  *                   },
  *                 },
  *               ],
- *               nextState: "STRING_VALUE", // required
+ *               nextState: 'STRING_VALUE', // required
  *             },
  *           ],
  *         },
  *         onEnter: { // OnEnterLifecycle
  *           events: [
  *             {
- *               eventName: "STRING_VALUE", // required
- *               condition: "STRING_VALUE",
+ *               eventName: 'STRING_VALUE', // required
+ *               condition: 'STRING_VALUE',
  *               actions: [
  *                 {
  *                   setVariable: {
- *                     variableName: "STRING_VALUE", // required
- *                     value: "STRING_VALUE", // required
+ *                     variableName: 'STRING_VALUE', // required
+ *                     value: 'STRING_VALUE', // required
  *                   },
  *                   sns: {
- *                     targetArn: "STRING_VALUE", // required
- *                     payload: "<Payload>",
+ *                     targetArn: 'STRING_VALUE', // required
+ *                     payload: '<Payload>',
  *                   },
  *                   iotTopicPublish: {
- *                     mqttTopic: "STRING_VALUE", // required
- *                     payload: "<Payload>",
+ *                     mqttTopic: 'STRING_VALUE', // required
+ *                     payload: '<Payload>',
  *                   },
  *                   setTimer: {
- *                     timerName: "STRING_VALUE", // required
- *                     seconds: Number("int"),
- *                     durationExpression: "STRING_VALUE",
+ *                     timerName: 'STRING_VALUE', // required
+ *                     seconds: Number('int'),
+ *                     durationExpression: 'STRING_VALUE',
  *                   },
  *                   clearTimer: {
- *                     timerName: "STRING_VALUE", // required
+ *                     timerName: 'STRING_VALUE', // required
  *                   },
  *                   resetTimer: {
- *                     timerName: "STRING_VALUE", // required
+ *                     timerName: 'STRING_VALUE', // required
  *                   },
  *                   lambda: {
- *                     functionArn: "STRING_VALUE", // required
- *                     payload: "<Payload>",
+ *                     functionArn: 'STRING_VALUE', // required
+ *                     payload: '<Payload>',
  *                   },
  *                   iotEvents: {
- *                     inputName: "STRING_VALUE", // required
- *                     payload: "<Payload>",
+ *                     inputName: 'STRING_VALUE', // required
+ *                     payload: '<Payload>',
  *                   },
  *                   sqs: {
- *                     queueUrl: "STRING_VALUE", // required
+ *                     queueUrl: 'STRING_VALUE', // required
  *                     useBase64: true || false,
- *                     payload: "<Payload>",
+ *                     payload: '<Payload>',
  *                   },
  *                   firehose: {
- *                     deliveryStreamName: "STRING_VALUE", // required
- *                     separator: "STRING_VALUE",
- *                     payload: "<Payload>",
+ *                     deliveryStreamName: 'STRING_VALUE', // required
+ *                     separator: 'STRING_VALUE',
+ *                     payload: '<Payload>',
  *                   },
  *                   dynamoDB: {
- *                     hashKeyType: "STRING_VALUE",
- *                     hashKeyField: "STRING_VALUE", // required
- *                     hashKeyValue: "STRING_VALUE", // required
- *                     rangeKeyType: "STRING_VALUE",
- *                     rangeKeyField: "STRING_VALUE",
- *                     rangeKeyValue: "STRING_VALUE",
- *                     operation: "STRING_VALUE",
- *                     payloadField: "STRING_VALUE",
- *                     tableName: "STRING_VALUE", // required
- *                     payload: "<Payload>",
+ *                     hashKeyType: 'STRING_VALUE',
+ *                     hashKeyField: 'STRING_VALUE', // required
+ *                     hashKeyValue: 'STRING_VALUE', // required
+ *                     rangeKeyType: 'STRING_VALUE',
+ *                     rangeKeyField: 'STRING_VALUE',
+ *                     rangeKeyValue: 'STRING_VALUE',
+ *                     operation: 'STRING_VALUE',
+ *                     payloadField: 'STRING_VALUE',
+ *                     tableName: 'STRING_VALUE', // required
+ *                     payload: '<Payload>',
  *                   },
  *                   dynamoDBv2: {
- *                     tableName: "STRING_VALUE", // required
- *                     payload: "<Payload>",
+ *                     tableName: 'STRING_VALUE', // required
+ *                     payload: '<Payload>',
  *                   },
  *                   iotSiteWise: {
- *                     entryId: "STRING_VALUE",
- *                     assetId: "STRING_VALUE",
- *                     propertyId: "STRING_VALUE",
- *                     propertyAlias: "STRING_VALUE",
+ *                     entryId: 'STRING_VALUE',
+ *                     assetId: 'STRING_VALUE',
+ *                     propertyId: 'STRING_VALUE',
+ *                     propertyAlias: 'STRING_VALUE',
  *                     propertyValue: {
  *                       value: {
- *                         stringValue: "STRING_VALUE",
- *                         integerValue: "STRING_VALUE",
- *                         doubleValue: "STRING_VALUE",
- *                         booleanValue: "STRING_VALUE",
+ *                         stringValue: 'STRING_VALUE',
+ *                         integerValue: 'STRING_VALUE',
+ *                         doubleValue: 'STRING_VALUE',
+ *                         booleanValue: 'STRING_VALUE',
  *                       },
  *                       timestamp: {
- *                         timeInSeconds: "STRING_VALUE", // required
- *                         offsetInNanos: "STRING_VALUE",
+ *                         timeInSeconds: 'STRING_VALUE', // required
+ *                         offsetInNanos: 'STRING_VALUE',
  *                       },
- *                       quality: "STRING_VALUE",
+ *                       quality: 'STRING_VALUE',
  *                     },
  *                   },
  *                 },
@@ -326,84 +326,84 @@ export interface CreateDetectorModelCommandOutput extends CreateDetectorModelRes
  *         onExit: { // OnExitLifecycle
  *           events: [
  *             {
- *               eventName: "STRING_VALUE", // required
- *               condition: "STRING_VALUE",
+ *               eventName: 'STRING_VALUE', // required
+ *               condition: 'STRING_VALUE',
  *               actions: [
  *                 {
  *                   setVariable: {
- *                     variableName: "STRING_VALUE", // required
- *                     value: "STRING_VALUE", // required
+ *                     variableName: 'STRING_VALUE', // required
+ *                     value: 'STRING_VALUE', // required
  *                   },
  *                   sns: {
- *                     targetArn: "STRING_VALUE", // required
- *                     payload: "<Payload>",
+ *                     targetArn: 'STRING_VALUE', // required
+ *                     payload: '<Payload>',
  *                   },
  *                   iotTopicPublish: {
- *                     mqttTopic: "STRING_VALUE", // required
- *                     payload: "<Payload>",
+ *                     mqttTopic: 'STRING_VALUE', // required
+ *                     payload: '<Payload>',
  *                   },
  *                   setTimer: {
- *                     timerName: "STRING_VALUE", // required
- *                     seconds: Number("int"),
- *                     durationExpression: "STRING_VALUE",
+ *                     timerName: 'STRING_VALUE', // required
+ *                     seconds: Number('int'),
+ *                     durationExpression: 'STRING_VALUE',
  *                   },
  *                   clearTimer: {
- *                     timerName: "STRING_VALUE", // required
+ *                     timerName: 'STRING_VALUE', // required
  *                   },
  *                   resetTimer: {
- *                     timerName: "STRING_VALUE", // required
+ *                     timerName: 'STRING_VALUE', // required
  *                   },
  *                   lambda: {
- *                     functionArn: "STRING_VALUE", // required
- *                     payload: "<Payload>",
+ *                     functionArn: 'STRING_VALUE', // required
+ *                     payload: '<Payload>',
  *                   },
  *                   iotEvents: {
- *                     inputName: "STRING_VALUE", // required
- *                     payload: "<Payload>",
+ *                     inputName: 'STRING_VALUE', // required
+ *                     payload: '<Payload>',
  *                   },
  *                   sqs: {
- *                     queueUrl: "STRING_VALUE", // required
+ *                     queueUrl: 'STRING_VALUE', // required
  *                     useBase64: true || false,
- *                     payload: "<Payload>",
+ *                     payload: '<Payload>',
  *                   },
  *                   firehose: {
- *                     deliveryStreamName: "STRING_VALUE", // required
- *                     separator: "STRING_VALUE",
- *                     payload: "<Payload>",
+ *                     deliveryStreamName: 'STRING_VALUE', // required
+ *                     separator: 'STRING_VALUE',
+ *                     payload: '<Payload>',
  *                   },
  *                   dynamoDB: {
- *                     hashKeyType: "STRING_VALUE",
- *                     hashKeyField: "STRING_VALUE", // required
- *                     hashKeyValue: "STRING_VALUE", // required
- *                     rangeKeyType: "STRING_VALUE",
- *                     rangeKeyField: "STRING_VALUE",
- *                     rangeKeyValue: "STRING_VALUE",
- *                     operation: "STRING_VALUE",
- *                     payloadField: "STRING_VALUE",
- *                     tableName: "STRING_VALUE", // required
- *                     payload: "<Payload>",
+ *                     hashKeyType: 'STRING_VALUE',
+ *                     hashKeyField: 'STRING_VALUE', // required
+ *                     hashKeyValue: 'STRING_VALUE', // required
+ *                     rangeKeyType: 'STRING_VALUE',
+ *                     rangeKeyField: 'STRING_VALUE',
+ *                     rangeKeyValue: 'STRING_VALUE',
+ *                     operation: 'STRING_VALUE',
+ *                     payloadField: 'STRING_VALUE',
+ *                     tableName: 'STRING_VALUE', // required
+ *                     payload: '<Payload>',
  *                   },
  *                   dynamoDBv2: {
- *                     tableName: "STRING_VALUE", // required
- *                     payload: "<Payload>",
+ *                     tableName: 'STRING_VALUE', // required
+ *                     payload: '<Payload>',
  *                   },
  *                   iotSiteWise: {
- *                     entryId: "STRING_VALUE",
- *                     assetId: "STRING_VALUE",
- *                     propertyId: "STRING_VALUE",
- *                     propertyAlias: "STRING_VALUE",
+ *                     entryId: 'STRING_VALUE',
+ *                     assetId: 'STRING_VALUE',
+ *                     propertyId: 'STRING_VALUE',
+ *                     propertyAlias: 'STRING_VALUE',
  *                     propertyValue: {
  *                       value: {
- *                         stringValue: "STRING_VALUE",
- *                         integerValue: "STRING_VALUE",
- *                         doubleValue: "STRING_VALUE",
- *                         booleanValue: "STRING_VALUE",
+ *                         stringValue: 'STRING_VALUE',
+ *                         integerValue: 'STRING_VALUE',
+ *                         doubleValue: 'STRING_VALUE',
+ *                         booleanValue: 'STRING_VALUE',
  *                       },
  *                       timestamp: {
- *                         timeInSeconds: "STRING_VALUE", // required
- *                         offsetInNanos: "STRING_VALUE",
+ *                         timeInSeconds: 'STRING_VALUE', // required
+ *                         offsetInNanos: 'STRING_VALUE',
  *                       },
- *                       quality: "STRING_VALUE",
+ *                       quality: 'STRING_VALUE',
  *                     },
  *                   },
  *                 },
@@ -413,21 +413,37 @@ export interface CreateDetectorModelCommandOutput extends CreateDetectorModelRes
  *         },
  *       },
  *     ],
- *     initialStateName: "STRING_VALUE", // required
+ *     initialStateName: 'STRING_VALUE', // required
  *   },
- *   detectorModelDescription: "STRING_VALUE",
- *   key: "STRING_VALUE",
- *   roleArn: "STRING_VALUE", // required
+ *   detectorModelDescription: 'STRING_VALUE',
+ *   key: 'STRING_VALUE',
+ *   roleArn: 'STRING_VALUE', // required
  *   tags: [ // Tags
  *     { // Tag
- *       key: "STRING_VALUE", // required
- *       value: "STRING_VALUE", // required
+ *       key: 'STRING_VALUE', // required
+ *       value: 'STRING_VALUE', // required
  *     },
  *   ],
- *   evaluationMethod: "STRING_VALUE",
+ *   evaluationMethod: 'STRING_VALUE',
  * };
  * const command = new CreateDetectorModelCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateDetectorModelResponse
+ *   detectorModelConfiguration: { // DetectorModelConfiguration
+ *     detectorModelName: 'STRING_VALUE',
+ *     detectorModelVersion: 'STRING_VALUE',
+ *     detectorModelDescription: 'STRING_VALUE',
+ *     detectorModelArn: 'STRING_VALUE',
+ *     roleArn: 'STRING_VALUE',
+ *     creationTime: new Date('TIMESTAMP'),
+ *     lastUpdateTime: new Date('TIMESTAMP'),
+ *     status: 'STRING_VALUE',
+ *     key: 'STRING_VALUE',
+ *     evaluationMethod: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateDetectorModelCommandInput - {@link CreateDetectorModelCommandInput}
@@ -457,6 +473,8 @@ export interface CreateDetectorModelCommandOutput extends CreateDetectorModelRes
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request could not be completed due to throttling.</p>
  *
+ * @throws {@link IoTEventsServiceException}
+ * <p>Base exception class for all service exceptions from IoTEvents service.</p>
  *
  */
 export class CreateDetectorModelCommand extends $Command<

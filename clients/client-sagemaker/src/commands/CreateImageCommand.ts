@@ -38,23 +38,28 @@ export interface CreateImageCommandOutput extends CreateImageResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, CreateImageCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, CreateImageCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, CreateImageCommand } from '@aws-sdk/client-sagemaker'; // ES Modules import
+ * // const { SageMakerClient, CreateImageCommand } = require('@aws-sdk/client-sagemaker'); // CommonJS import
  * const client = new SageMakerClient(config);
  * const input = { // CreateImageRequest
- *   Description: "STRING_VALUE",
- *   DisplayName: "STRING_VALUE",
- *   ImageName: "STRING_VALUE", // required
- *   RoleArn: "STRING_VALUE", // required
+ *   Description: 'STRING_VALUE',
+ *   DisplayName: 'STRING_VALUE',
+ *   ImageName: 'STRING_VALUE', // required
+ *   RoleArn: 'STRING_VALUE', // required
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreateImageCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateImageResponse
+ *   ImageArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateImageCommandInput - {@link CreateImageCommandInput}
@@ -70,6 +75,8 @@ export interface CreateImageCommandOutput extends CreateImageResponse, __Metadat
  *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many
  *             training jobs created. </p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class CreateImageCommand extends $Command<

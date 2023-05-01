@@ -49,16 +49,54 @@ export interface ListVirtualMFADevicesCommandOutput extends ListVirtualMFADevice
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IAMClient, ListVirtualMFADevicesCommand } from "@aws-sdk/client-iam"; // ES Modules import
- * // const { IAMClient, ListVirtualMFADevicesCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * import { IAMClient, ListVirtualMFADevicesCommand } from '@aws-sdk/client-iam'; // ES Modules import
+ * // const { IAMClient, ListVirtualMFADevicesCommand } = require('@aws-sdk/client-iam'); // CommonJS import
  * const client = new IAMClient(config);
  * const input = { // ListVirtualMFADevicesRequest
- *   AssignmentStatus: "Assigned" || "Unassigned" || "Any",
- *   Marker: "STRING_VALUE",
- *   MaxItems: Number("int"),
+ *   AssignmentStatus: 'Assigned' || 'Unassigned' || 'Any',
+ *   Marker: 'STRING_VALUE',
+ *   MaxItems: Number('int'),
  * };
  * const command = new ListVirtualMFADevicesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListVirtualMFADevicesResponse
+ *   VirtualMFADevices: [ // virtualMFADeviceListType // required
+ *     { // VirtualMFADevice
+ *       SerialNumber: 'STRING_VALUE', // required
+ *       Base32StringSeed: 'BLOB_VALUE',
+ *       QRCodePNG: 'BLOB_VALUE',
+ *       User: { // User
+ *         Path: 'STRING_VALUE', // required
+ *         UserName: 'STRING_VALUE', // required
+ *         UserId: 'STRING_VALUE', // required
+ *         Arn: 'STRING_VALUE', // required
+ *         CreateDate: new Date('TIMESTAMP'), // required
+ *         PasswordLastUsed: new Date('TIMESTAMP'),
+ *         PermissionsBoundary: { // AttachedPermissionsBoundary
+ *           PermissionsBoundaryType: 'PermissionsBoundaryPolicy',
+ *           PermissionsBoundaryArn: 'STRING_VALUE',
+ *         },
+ *         Tags: [ // tagListType
+ *           { // Tag
+ *             Key: 'STRING_VALUE', // required
+ *             Value: 'STRING_VALUE', // required
+ *           },
+ *         ],
+ *       },
+ *       EnableDate: new Date('TIMESTAMP'),
+ *       Tags: [
+ *         {
+ *           Key: 'STRING_VALUE', // required
+ *           Value: 'STRING_VALUE', // required
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   IsTruncated: true || false,
+ *   Marker: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListVirtualMFADevicesCommandInput - {@link ListVirtualMFADevicesCommandInput}
@@ -67,6 +105,8 @@ export interface ListVirtualMFADevicesCommandOutput extends ListVirtualMFADevice
  * @see {@link ListVirtualMFADevicesCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  * @example To list virtual MFA devices
  * ```javascript

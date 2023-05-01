@@ -42,17 +42,31 @@ export interface DescribeServicesCommandOutput extends DescribeServicesResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PricingClient, DescribeServicesCommand } from "@aws-sdk/client-pricing"; // ES Modules import
- * // const { PricingClient, DescribeServicesCommand } = require("@aws-sdk/client-pricing"); // CommonJS import
+ * import { PricingClient, DescribeServicesCommand } from '@aws-sdk/client-pricing'; // ES Modules import
+ * // const { PricingClient, DescribeServicesCommand } = require('@aws-sdk/client-pricing'); // CommonJS import
  * const client = new PricingClient(config);
  * const input = { // DescribeServicesRequest
- *   ServiceCode: "STRING_VALUE",
- *   FormatVersion: "STRING_VALUE",
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   ServiceCode: 'STRING_VALUE',
+ *   FormatVersion: 'STRING_VALUE',
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new DescribeServicesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeServicesResponse
+ *   Services: [ // ServiceList
+ *     { // Service
+ *       ServiceCode: 'STRING_VALUE', // required
+ *       AttributeNames: [ // AttributeNameList
+ *         'STRING_VALUE',
+ *       ],
+ *     },
+ *   ],
+ *   FormatVersion: 'STRING_VALUE',
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeServicesCommandInput - {@link DescribeServicesCommandInput}
@@ -76,6 +90,8 @@ export interface DescribeServicesCommandOutput extends DescribeServicesResponse,
  * @throws {@link NotFoundException} (client fault)
  *  <p>The requested resource can't be found.</p>
  *
+ * @throws {@link PricingServiceException}
+ * <p>Base exception class for all service exceptions from Pricing service.</p>
  *
  * @example To retrieve a list of services and service codes
  * ```javascript

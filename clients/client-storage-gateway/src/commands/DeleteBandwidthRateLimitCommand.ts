@@ -40,15 +40,20 @@ export interface DeleteBandwidthRateLimitCommandOutput extends DeleteBandwidthRa
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { StorageGatewayClient, DeleteBandwidthRateLimitCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
- * // const { StorageGatewayClient, DeleteBandwidthRateLimitCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
+ * import { StorageGatewayClient, DeleteBandwidthRateLimitCommand } from '@aws-sdk/client-storage-gateway'; // ES Modules import
+ * // const { StorageGatewayClient, DeleteBandwidthRateLimitCommand } = require('@aws-sdk/client-storage-gateway'); // CommonJS import
  * const client = new StorageGatewayClient(config);
  * const input = { // DeleteBandwidthRateLimitInput
- *   GatewayARN: "STRING_VALUE", // required
- *   BandwidthType: "STRING_VALUE", // required
+ *   GatewayARN: 'STRING_VALUE', // required
+ *   BandwidthType: 'STRING_VALUE', // required
  * };
  * const command = new DeleteBandwidthRateLimitCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteBandwidthRateLimitOutput
+ *   GatewayARN: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DeleteBandwidthRateLimitCommandInput - {@link DeleteBandwidthRateLimitCommandInput}
@@ -65,6 +70,8 @@ export interface DeleteBandwidthRateLimitCommandOutput extends DeleteBandwidthRa
  *  <p>An exception occurred because an invalid gateway request was issued to the service. For
  *          more information, see the error and message fields.</p>
  *
+ * @throws {@link StorageGatewayServiceException}
+ * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
  * @example To delete bandwidth rate limits of gateway
  * ```javascript

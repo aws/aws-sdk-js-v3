@@ -36,15 +36,23 @@ export interface GetProjectCommandOutput extends GetProjectResponse, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeCatalystClient, GetProjectCommand } from "@aws-sdk/client-codecatalyst"; // ES Modules import
- * // const { CodeCatalystClient, GetProjectCommand } = require("@aws-sdk/client-codecatalyst"); // CommonJS import
+ * import { CodeCatalystClient, GetProjectCommand } from '@aws-sdk/client-codecatalyst'; // ES Modules import
+ * // const { CodeCatalystClient, GetProjectCommand } = require('@aws-sdk/client-codecatalyst'); // CommonJS import
  * const client = new CodeCatalystClient(config);
  * const input = { // GetProjectRequest
- *   spaceName: "STRING_VALUE", // required
- *   name: "STRING_VALUE", // required
+ *   spaceName: 'STRING_VALUE', // required
+ *   name: 'STRING_VALUE', // required
  * };
  * const command = new GetProjectCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetProjectResponse
+ *   spaceName: 'STRING_VALUE',
+ *   name: 'STRING_VALUE', // required
+ *   displayName: 'STRING_VALUE',
+ *   description: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetProjectCommandInput - {@link GetProjectCommandInput}
@@ -73,6 +81,8 @@ export interface GetProjectCommandOutput extends GetProjectResponse, __MetadataB
  * @throws {@link ValidationException} (client fault)
  *  <p>The request was denied because an input failed to satisfy the constraints specified by the service. Check the spelling and input requirements, and then try again.</p>
  *
+ * @throws {@link CodeCatalystServiceException}
+ * <p>Base exception class for all service exceptions from CodeCatalyst service.</p>
  *
  */
 export class GetProjectCommand extends $Command<

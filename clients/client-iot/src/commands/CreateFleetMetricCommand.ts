@@ -37,33 +37,39 @@ export interface CreateFleetMetricCommandOutput extends CreateFleetMetricRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTClient, CreateFleetMetricCommand } from "@aws-sdk/client-iot"; // ES Modules import
- * // const { IoTClient, CreateFleetMetricCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * import { IoTClient, CreateFleetMetricCommand } from '@aws-sdk/client-iot'; // ES Modules import
+ * // const { IoTClient, CreateFleetMetricCommand } = require('@aws-sdk/client-iot'); // CommonJS import
  * const client = new IoTClient(config);
  * const input = { // CreateFleetMetricRequest
- *   metricName: "STRING_VALUE", // required
- *   queryString: "STRING_VALUE", // required
+ *   metricName: 'STRING_VALUE', // required
+ *   queryString: 'STRING_VALUE', // required
  *   aggregationType: { // AggregationType
- *     name: "Statistics" || "Percentiles" || "Cardinality", // required
+ *     name: 'Statistics' || 'Percentiles' || 'Cardinality', // required
  *     values: [ // AggregationTypeValues
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *   },
- *   period: Number("int"), // required
- *   aggregationField: "STRING_VALUE", // required
- *   description: "STRING_VALUE",
- *   queryVersion: "STRING_VALUE",
- *   indexName: "STRING_VALUE",
- *   unit: "Seconds" || "Microseconds" || "Milliseconds" || "Bytes" || "Kilobytes" || "Megabytes" || "Gigabytes" || "Terabytes" || "Bits" || "Kilobits" || "Megabits" || "Gigabits" || "Terabits" || "Percent" || "Count" || "Bytes/Second" || "Kilobytes/Second" || "Megabytes/Second" || "Gigabytes/Second" || "Terabytes/Second" || "Bits/Second" || "Kilobits/Second" || "Megabits/Second" || "Gigabits/Second" || "Terabits/Second" || "Count/Second" || "None",
+ *   period: Number('int'), // required
+ *   aggregationField: 'STRING_VALUE', // required
+ *   description: 'STRING_VALUE',
+ *   queryVersion: 'STRING_VALUE',
+ *   indexName: 'STRING_VALUE',
+ *   unit: 'Seconds' || 'Microseconds' || 'Milliseconds' || 'Bytes' || 'Kilobytes' || 'Megabytes' || 'Gigabytes' || 'Terabytes' || 'Bits' || 'Kilobits' || 'Megabits' || 'Gigabits' || 'Terabits' || 'Percent' || 'Count' || 'Bytes/Second' || 'Kilobytes/Second' || 'Megabytes/Second' || 'Gigabytes/Second' || 'Terabytes/Second' || 'Bits/Second' || 'Kilobits/Second' || 'Megabits/Second' || 'Gigabits/Second' || 'Terabits/Second' || 'Count/Second' || 'None',
  *   tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new CreateFleetMetricCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateFleetMetricResponse
+ *   metricName: 'STRING_VALUE',
+ *   metricArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateFleetMetricCommandInput - {@link CreateFleetMetricCommandInput}
@@ -105,6 +111,8 @@ export interface CreateFleetMetricCommandOutput extends CreateFleetMetricRespons
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this operation.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class CreateFleetMetricCommand extends $Command<

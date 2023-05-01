@@ -38,19 +38,24 @@ export interface StartContactStreamingCommandOutput extends StartContactStreamin
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, StartContactStreamingCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, StartContactStreamingCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, StartContactStreamingCommand } from '@aws-sdk/client-connect'; // ES Modules import
+ * // const { ConnectClient, StartContactStreamingCommand } = require('@aws-sdk/client-connect'); // CommonJS import
  * const client = new ConnectClient(config);
  * const input = { // StartContactStreamingRequest
- *   InstanceId: "STRING_VALUE", // required
- *   ContactId: "STRING_VALUE", // required
+ *   InstanceId: 'STRING_VALUE', // required
+ *   ContactId: 'STRING_VALUE', // required
  *   ChatStreamingConfiguration: { // ChatStreamingConfiguration
- *     StreamingEndpointArn: "STRING_VALUE", // required
+ *     StreamingEndpointArn: 'STRING_VALUE', // required
  *   },
- *   ClientToken: "STRING_VALUE", // required
+ *   ClientToken: 'STRING_VALUE', // required
  * };
  * const command = new StartContactStreamingCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartContactStreamingResponse
+ *   StreamingId: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param StartContactStreamingCommandInput - {@link StartContactStreamingCommandInput}
@@ -74,6 +79,8 @@ export interface StartContactStreamingCommandOutput extends StartContactStreamin
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class StartContactStreamingCommand extends $Command<

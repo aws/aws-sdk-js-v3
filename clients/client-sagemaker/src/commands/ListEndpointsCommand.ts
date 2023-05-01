@@ -36,23 +36,37 @@ export interface ListEndpointsCommandOutput extends ListEndpointsOutput, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, ListEndpointsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, ListEndpointsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, ListEndpointsCommand } from '@aws-sdk/client-sagemaker'; // ES Modules import
+ * // const { SageMakerClient, ListEndpointsCommand } = require('@aws-sdk/client-sagemaker'); // CommonJS import
  * const client = new SageMakerClient(config);
  * const input = { // ListEndpointsInput
- *   SortBy: "Name" || "CreationTime" || "Status",
- *   SortOrder: "Ascending" || "Descending",
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
- *   NameContains: "STRING_VALUE",
- *   CreationTimeBefore: new Date("TIMESTAMP"),
- *   CreationTimeAfter: new Date("TIMESTAMP"),
- *   LastModifiedTimeBefore: new Date("TIMESTAMP"),
- *   LastModifiedTimeAfter: new Date("TIMESTAMP"),
- *   StatusEquals: "OutOfService" || "Creating" || "Updating" || "SystemUpdating" || "RollingBack" || "InService" || "Deleting" || "Failed",
+ *   SortBy: 'Name' || 'CreationTime' || 'Status',
+ *   SortOrder: 'Ascending' || 'Descending',
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
+ *   NameContains: 'STRING_VALUE',
+ *   CreationTimeBefore: new Date('TIMESTAMP'),
+ *   CreationTimeAfter: new Date('TIMESTAMP'),
+ *   LastModifiedTimeBefore: new Date('TIMESTAMP'),
+ *   LastModifiedTimeAfter: new Date('TIMESTAMP'),
+ *   StatusEquals: 'OutOfService' || 'Creating' || 'Updating' || 'SystemUpdating' || 'RollingBack' || 'InService' || 'Deleting' || 'Failed',
  * };
  * const command = new ListEndpointsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListEndpointsOutput
+ *   Endpoints: [ // EndpointSummaryList // required
+ *     { // EndpointSummary
+ *       EndpointName: 'STRING_VALUE', // required
+ *       EndpointArn: 'STRING_VALUE', // required
+ *       CreationTime: new Date('TIMESTAMP'), // required
+ *       LastModifiedTime: new Date('TIMESTAMP'), // required
+ *       EndpointStatus: 'OutOfService' || 'Creating' || 'Updating' || 'SystemUpdating' || 'RollingBack' || 'InService' || 'Deleting' || 'Failed', // required
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListEndpointsCommandInput - {@link ListEndpointsCommandInput}
@@ -61,6 +75,8 @@ export interface ListEndpointsCommandOutput extends ListEndpointsOutput, __Metad
  * @see {@link ListEndpointsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class ListEndpointsCommand extends $Command<

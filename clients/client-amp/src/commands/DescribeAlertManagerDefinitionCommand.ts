@@ -41,14 +41,27 @@ export interface DescribeAlertManagerDefinitionCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AmpClient, DescribeAlertManagerDefinitionCommand } from "@aws-sdk/client-amp"; // ES Modules import
- * // const { AmpClient, DescribeAlertManagerDefinitionCommand } = require("@aws-sdk/client-amp"); // CommonJS import
+ * import { AmpClient, DescribeAlertManagerDefinitionCommand } from '@aws-sdk/client-amp'; // ES Modules import
+ * // const { AmpClient, DescribeAlertManagerDefinitionCommand } = require('@aws-sdk/client-amp'); // CommonJS import
  * const client = new AmpClient(config);
  * const input = { // DescribeAlertManagerDefinitionRequest
- *   workspaceId: "STRING_VALUE", // required
+ *   workspaceId: 'STRING_VALUE', // required
  * };
  * const command = new DescribeAlertManagerDefinitionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeAlertManagerDefinitionResponse
+ *   alertManagerDefinition: { // AlertManagerDefinitionDescription
+ *     status: { // AlertManagerDefinitionStatus
+ *       statusCode: 'STRING_VALUE', // required
+ *       statusReason: 'STRING_VALUE',
+ *     },
+ *     data: 'BLOB_VALUE', // required
+ *     createdAt: new Date('TIMESTAMP'), // required
+ *     modifiedAt: new Date('TIMESTAMP'), // required
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeAlertManagerDefinitionCommandInput - {@link DescribeAlertManagerDefinitionCommandInput}
@@ -72,6 +85,8 @@ export interface DescribeAlertManagerDefinitionCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  The input fails to satisfy the constraints specified by an AWS service.
  *
+ * @throws {@link AmpServiceException}
+ * <p>Base exception class for all service exceptions from Amp service.</p>
  *
  */
 export class DescribeAlertManagerDefinitionCommand extends $Command<

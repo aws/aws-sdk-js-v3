@@ -36,16 +36,37 @@ export interface ListNetworkProfilesCommandOutput extends ListNetworkProfilesRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DeviceFarmClient, ListNetworkProfilesCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
- * // const { DeviceFarmClient, ListNetworkProfilesCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
+ * import { DeviceFarmClient, ListNetworkProfilesCommand } from '@aws-sdk/client-device-farm'; // ES Modules import
+ * // const { DeviceFarmClient, ListNetworkProfilesCommand } = require('@aws-sdk/client-device-farm'); // CommonJS import
  * const client = new DeviceFarmClient(config);
  * const input = { // ListNetworkProfilesRequest
- *   arn: "STRING_VALUE", // required
- *   type: "CURATED" || "PRIVATE",
- *   nextToken: "STRING_VALUE",
+ *   arn: 'STRING_VALUE', // required
+ *   type: 'CURATED' || 'PRIVATE',
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new ListNetworkProfilesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListNetworkProfilesResult
+ *   networkProfiles: [ // NetworkProfiles
+ *     { // NetworkProfile
+ *       arn: 'STRING_VALUE',
+ *       name: 'STRING_VALUE',
+ *       description: 'STRING_VALUE',
+ *       type: 'CURATED' || 'PRIVATE',
+ *       uplinkBandwidthBits: Number('long'),
+ *       downlinkBandwidthBits: Number('long'),
+ *       uplinkDelayMs: Number('long'),
+ *       downlinkDelayMs: Number('long'),
+ *       uplinkJitterMs: Number('long'),
+ *       downlinkJitterMs: Number('long'),
+ *       uplinkLossPercent: Number('int'),
+ *       downlinkLossPercent: Number('int'),
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListNetworkProfilesCommandInput - {@link ListNetworkProfilesCommandInput}
@@ -66,6 +87,8 @@ export interface ListNetworkProfilesCommandOutput extends ListNetworkProfilesRes
  * @throws {@link ServiceAccountException} (client fault)
  *  <p>There was a problem with the service account.</p>
  *
+ * @throws {@link DeviceFarmServiceException}
+ * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
  */
 export class ListNetworkProfilesCommand extends $Command<

@@ -37,32 +37,56 @@ export interface CreateRepositoryCommandOutput extends CreateRepositoryResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ECRPUBLICClient, CreateRepositoryCommand } from "@aws-sdk/client-ecr-public"; // ES Modules import
- * // const { ECRPUBLICClient, CreateRepositoryCommand } = require("@aws-sdk/client-ecr-public"); // CommonJS import
+ * import { ECRPUBLICClient, CreateRepositoryCommand } from '@aws-sdk/client-ecr-public'; // ES Modules import
+ * // const { ECRPUBLICClient, CreateRepositoryCommand } = require('@aws-sdk/client-ecr-public'); // CommonJS import
  * const client = new ECRPUBLICClient(config);
  * const input = { // CreateRepositoryRequest
- *   repositoryName: "STRING_VALUE", // required
+ *   repositoryName: 'STRING_VALUE', // required
  *   catalogData: { // RepositoryCatalogDataInput
- *     description: "STRING_VALUE",
+ *     description: 'STRING_VALUE',
  *     architectures: [ // ArchitectureList
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     operatingSystems: [ // OperatingSystemList
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
- *     logoImageBlob: "BLOB_VALUE",
- *     aboutText: "STRING_VALUE",
- *     usageText: "STRING_VALUE",
+ *     logoImageBlob: 'BLOB_VALUE',
+ *     aboutText: 'STRING_VALUE',
+ *     usageText: 'STRING_VALUE',
  *   },
  *   tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE",
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new CreateRepositoryCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateRepositoryResponse
+ *   repository: { // Repository
+ *     repositoryArn: 'STRING_VALUE',
+ *     registryId: 'STRING_VALUE',
+ *     repositoryName: 'STRING_VALUE',
+ *     repositoryUri: 'STRING_VALUE',
+ *     createdAt: new Date('TIMESTAMP'),
+ *   },
+ *   catalogData: { // RepositoryCatalogData
+ *     description: 'STRING_VALUE',
+ *     architectures: [ // ArchitectureList
+ *       'STRING_VALUE',
+ *     ],
+ *     operatingSystems: [ // OperatingSystemList
+ *       'STRING_VALUE',
+ *     ],
+ *     logoUrl: 'STRING_VALUE',
+ *     aboutText: 'STRING_VALUE',
+ *     usageText: 'STRING_VALUE',
+ *     marketplaceCertified: true || false,
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateRepositoryCommandInput - {@link CreateRepositoryCommandInput}
@@ -96,6 +120,8 @@ export interface CreateRepositoryCommandOutput extends CreateRepositoryResponse,
  * @throws {@link UnsupportedCommandException} (client fault)
  *  <p>The action isn't supported in this Region.</p>
  *
+ * @throws {@link ECRPUBLICServiceException}
+ * <p>Base exception class for all service exceptions from ECRPUBLIC service.</p>
  *
  */
 export class CreateRepositoryCommand extends $Command<

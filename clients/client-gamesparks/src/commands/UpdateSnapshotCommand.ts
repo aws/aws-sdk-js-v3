@@ -36,16 +36,33 @@ export interface UpdateSnapshotCommandOutput extends UpdateSnapshotResult, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GameSparksClient, UpdateSnapshotCommand } from "@aws-sdk/client-gamesparks"; // ES Modules import
- * // const { GameSparksClient, UpdateSnapshotCommand } = require("@aws-sdk/client-gamesparks"); // CommonJS import
+ * import { GameSparksClient, UpdateSnapshotCommand } from '@aws-sdk/client-gamesparks'; // ES Modules import
+ * // const { GameSparksClient, UpdateSnapshotCommand } = require('@aws-sdk/client-gamesparks'); // CommonJS import
  * const client = new GameSparksClient(config);
  * const input = { // UpdateSnapshotRequest
- *   GameName: "STRING_VALUE", // required
- *   SnapshotId: "STRING_VALUE", // required
- *   Description: "STRING_VALUE",
+ *   GameName: 'STRING_VALUE', // required
+ *   SnapshotId: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE',
  * };
  * const command = new UpdateSnapshotCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateSnapshotResult
+ *   Snapshot: { // SnapshotDetails
+ *     Id: 'STRING_VALUE',
+ *     Description: 'STRING_VALUE',
+ *     Sections: { // Sections
+ *       '<keys>': { // Section
+ *         Name: 'STRING_VALUE',
+ *         Size: Number('int'),
+ *         Attributes: 'DOCUMENT_VALUE',
+ *       },
+ *     },
+ *     Created: new Date('TIMESTAMP'),
+ *     LastUpdated: new Date('TIMESTAMP'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateSnapshotCommandInput - {@link UpdateSnapshotCommandInput}
@@ -69,6 +86,8 @@ export interface UpdateSnapshotCommandOutput extends UpdateSnapshotResult, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>One of the parameters in the request is invalid.</p>
  *
+ * @throws {@link GameSparksServiceException}
+ * <p>Base exception class for all service exceptions from GameSparks service.</p>
  *
  */
 export class UpdateSnapshotCommand extends $Command<

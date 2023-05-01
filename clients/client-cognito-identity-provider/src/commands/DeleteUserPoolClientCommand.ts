@@ -41,15 +41,18 @@ export interface DeleteUserPoolClientCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CognitoIdentityProviderClient, DeleteUserPoolClientCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
- * // const { CognitoIdentityProviderClient, DeleteUserPoolClientCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
+ * import { CognitoIdentityProviderClient, DeleteUserPoolClientCommand } from '@aws-sdk/client-cognito-identity-provider'; // ES Modules import
+ * // const { CognitoIdentityProviderClient, DeleteUserPoolClientCommand } = require('@aws-sdk/client-cognito-identity-provider'); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
  * const input = { // DeleteUserPoolClientRequest
- *   UserPoolId: "STRING_VALUE", // required
- *   ClientId: "STRING_VALUE", // required
+ *   UserPoolId: 'STRING_VALUE', // required
+ *   ClientId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteUserPoolClientCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteUserPoolClientCommandInput - {@link DeleteUserPoolClientCommandInput}
@@ -80,6 +83,8 @@ export interface DeleteUserPoolClientCommandOutput extends __MetadataBearer {}
  *  <p>This exception is thrown when the user has made too many requests for a given
  *             operation.</p>
  *
+ * @throws {@link CognitoIdentityProviderServiceException}
+ * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
  */
 export class DeleteUserPoolClientCommand extends $Command<

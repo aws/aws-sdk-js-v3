@@ -41,14 +41,28 @@ export interface GetHealthCheckStatusCommandOutput extends GetHealthCheckStatusR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Route53Client, GetHealthCheckStatusCommand } from "@aws-sdk/client-route-53"; // ES Modules import
- * // const { Route53Client, GetHealthCheckStatusCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
+ * import { Route53Client, GetHealthCheckStatusCommand } from '@aws-sdk/client-route-53'; // ES Modules import
+ * // const { Route53Client, GetHealthCheckStatusCommand } = require('@aws-sdk/client-route-53'); // CommonJS import
  * const client = new Route53Client(config);
  * const input = { // GetHealthCheckStatusRequest
- *   HealthCheckId: "STRING_VALUE", // required
+ *   HealthCheckId: 'STRING_VALUE', // required
  * };
  * const command = new GetHealthCheckStatusCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetHealthCheckStatusResponse
+ *   HealthCheckObservations: [ // HealthCheckObservations // required
+ *     { // HealthCheckObservation
+ *       Region: 'us-east-1' || 'us-west-1' || 'us-west-2' || 'eu-west-1' || 'ap-southeast-1' || 'ap-southeast-2' || 'ap-northeast-1' || 'sa-east-1',
+ *       IPAddress: 'STRING_VALUE',
+ *       StatusReport: { // StatusReport
+ *         Status: 'STRING_VALUE',
+ *         CheckedTime: new Date('TIMESTAMP'),
+ *       },
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetHealthCheckStatusCommandInput - {@link GetHealthCheckStatusCommandInput}
@@ -63,6 +77,8 @@ export interface GetHealthCheckStatusCommandOutput extends GetHealthCheckStatusR
  * @throws {@link NoSuchHealthCheck} (client fault)
  *  <p>No health check exists with the specified ID.</p>
  *
+ * @throws {@link Route53ServiceException}
+ * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
  */
 export class GetHealthCheckStatusCommand extends $Command<

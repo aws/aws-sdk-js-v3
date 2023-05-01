@@ -37,17 +37,34 @@ export interface UpdateAssetCommandOutput extends UpdateAssetResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTSiteWiseClient, UpdateAssetCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
- * // const { IoTSiteWiseClient, UpdateAssetCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
+ * import { IoTSiteWiseClient, UpdateAssetCommand } from '@aws-sdk/client-iotsitewise'; // ES Modules import
+ * // const { IoTSiteWiseClient, UpdateAssetCommand } = require('@aws-sdk/client-iotsitewise'); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
  * const input = { // UpdateAssetRequest
- *   assetId: "STRING_VALUE", // required
- *   assetName: "STRING_VALUE", // required
- *   clientToken: "STRING_VALUE",
- *   assetDescription: "STRING_VALUE",
+ *   assetId: 'STRING_VALUE', // required
+ *   assetName: 'STRING_VALUE', // required
+ *   clientToken: 'STRING_VALUE',
+ *   assetDescription: 'STRING_VALUE',
  * };
  * const command = new UpdateAssetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateAssetResponse
+ *   assetStatus: { // AssetStatus
+ *     state: 'CREATING' || 'ACTIVE' || 'UPDATING' || 'DELETING' || 'FAILED', // required
+ *     error: { // ErrorDetails
+ *       code: 'VALIDATION_ERROR' || 'INTERNAL_FAILURE', // required
+ *       message: 'STRING_VALUE', // required
+ *       details: [ // DetailedErrors
+ *         { // DetailedError
+ *           code: 'INCOMPATIBLE_COMPUTE_LOCATION' || 'INCOMPATIBLE_FORWARDING_CONFIGURATION', // required
+ *           message: 'STRING_VALUE', // required
+ *         },
+ *       ],
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateAssetCommandInput - {@link UpdateAssetCommandInput}
@@ -79,6 +96,8 @@ export interface UpdateAssetCommandOutput extends UpdateAssetResponse, __Metadat
  *       on.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
  *
+ * @throws {@link IoTSiteWiseServiceException}
+ * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
  */
 export class UpdateAssetCommand extends $Command<

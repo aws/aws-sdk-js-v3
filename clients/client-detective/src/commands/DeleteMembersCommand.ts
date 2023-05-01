@@ -48,17 +48,30 @@ export interface DeleteMembersCommandOutput extends DeleteMembersResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DetectiveClient, DeleteMembersCommand } from "@aws-sdk/client-detective"; // ES Modules import
- * // const { DetectiveClient, DeleteMembersCommand } = require("@aws-sdk/client-detective"); // CommonJS import
+ * import { DetectiveClient, DeleteMembersCommand } from '@aws-sdk/client-detective'; // ES Modules import
+ * // const { DetectiveClient, DeleteMembersCommand } = require('@aws-sdk/client-detective'); // CommonJS import
  * const client = new DetectiveClient(config);
  * const input = { // DeleteMembersRequest
- *   GraphArn: "STRING_VALUE", // required
+ *   GraphArn: 'STRING_VALUE', // required
  *   AccountIds: [ // AccountIdList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new DeleteMembersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteMembersResponse
+ *   AccountIds: [ // AccountIdList
+ *     'STRING_VALUE',
+ *   ],
+ *   UnprocessedAccounts: [ // UnprocessedAccountList
+ *     { // UnprocessedAccount
+ *       AccountId: 'STRING_VALUE',
+ *       Reason: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DeleteMembersCommandInput - {@link DeleteMembersCommandInput}
@@ -83,6 +96,8 @@ export interface DeleteMembersCommandOutput extends DeleteMembersResponse, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>The request parameters are invalid.</p>
  *
+ * @throws {@link DetectiveServiceException}
+ * <p>Base exception class for all service exceptions from Detective service.</p>
  *
  */
 export class DeleteMembersCommand extends $Command<

@@ -36,14 +36,25 @@ export interface GetGatewayCommandOutput extends GetGatewayResponse, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AlexaForBusinessClient, GetGatewayCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
- * // const { AlexaForBusinessClient, GetGatewayCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
+ * import { AlexaForBusinessClient, GetGatewayCommand } from '@aws-sdk/client-alexa-for-business'; // ES Modules import
+ * // const { AlexaForBusinessClient, GetGatewayCommand } = require('@aws-sdk/client-alexa-for-business'); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
  * const input = { // GetGatewayRequest
- *   GatewayArn: "STRING_VALUE", // required
+ *   GatewayArn: 'STRING_VALUE', // required
  * };
  * const command = new GetGatewayCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetGatewayResponse
+ *   Gateway: { // Gateway
+ *     Arn: 'STRING_VALUE',
+ *     Name: 'STRING_VALUE',
+ *     Description: 'STRING_VALUE',
+ *     GatewayGroupArn: 'STRING_VALUE',
+ *     SoftwareVersion: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetGatewayCommandInput - {@link GetGatewayCommandInput}
@@ -55,6 +66,8 @@ export interface GetGatewayCommandOutput extends GetGatewayResponse, __MetadataB
  * @throws {@link NotFoundException} (client fault)
  *  <p>The resource is not found.</p>
  *
+ * @throws {@link AlexaForBusinessServiceException}
+ * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  */
 export class GetGatewayCommand extends $Command<

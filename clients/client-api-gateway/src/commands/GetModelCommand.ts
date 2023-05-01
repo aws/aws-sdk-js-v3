@@ -36,16 +36,25 @@ export interface GetModelCommandOutput extends Model, __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { APIGatewayClient, GetModelCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
- * // const { APIGatewayClient, GetModelCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
+ * import { APIGatewayClient, GetModelCommand } from '@aws-sdk/client-api-gateway'; // ES Modules import
+ * // const { APIGatewayClient, GetModelCommand } = require('@aws-sdk/client-api-gateway'); // CommonJS import
  * const client = new APIGatewayClient(config);
  * const input = { // GetModelRequest
- *   restApiId: "STRING_VALUE", // required
- *   modelName: "STRING_VALUE", // required
+ *   restApiId: 'STRING_VALUE', // required
+ *   modelName: 'STRING_VALUE', // required
  *   flatten: true || false,
  * };
  * const command = new GetModelCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // Model
+ *   id: 'STRING_VALUE',
+ *   name: 'STRING_VALUE',
+ *   description: 'STRING_VALUE',
+ *   schema: 'STRING_VALUE',
+ *   contentType: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetModelCommandInput - {@link GetModelCommandInput}
@@ -66,6 +75,8 @@ export interface GetModelCommandOutput extends Model, __MetadataBearer {}
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The request is denied because the caller has insufficient permissions.</p>
  *
+ * @throws {@link APIGatewayServiceException}
+ * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
  */
 export class GetModelCommand extends $Command<

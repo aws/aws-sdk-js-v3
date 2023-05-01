@@ -44,15 +44,18 @@ export interface DeleteAlternateContactCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AccountClient, DeleteAlternateContactCommand } from "@aws-sdk/client-account"; // ES Modules import
- * // const { AccountClient, DeleteAlternateContactCommand } = require("@aws-sdk/client-account"); // CommonJS import
+ * import { AccountClient, DeleteAlternateContactCommand } from '@aws-sdk/client-account'; // ES Modules import
+ * // const { AccountClient, DeleteAlternateContactCommand } = require('@aws-sdk/client-account'); // CommonJS import
  * const client = new AccountClient(config);
  * const input = { // DeleteAlternateContactRequest
- *   AlternateContactType: "STRING_VALUE", // required
- *   AccountId: "STRING_VALUE",
+ *   AlternateContactType: 'STRING_VALUE', // required
+ *   AccountId: 'STRING_VALUE',
  * };
  * const command = new DeleteAlternateContactCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteAlternateContactCommandInput - {@link DeleteAlternateContactCommandInput}
@@ -79,6 +82,8 @@ export interface DeleteAlternateContactCommandOutput extends __MetadataBearer {}
  * @throws {@link ValidationException} (client fault)
  *  <p>The operation failed because one of the input parameters was invalid.</p>
  *
+ * @throws {@link AccountServiceException}
+ * <p>Base exception class for all service exceptions from Account service.</p>
  *
  */
 export class DeleteAlternateContactCommand extends $Command<

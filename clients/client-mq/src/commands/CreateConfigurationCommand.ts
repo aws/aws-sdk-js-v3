@@ -36,20 +36,34 @@ export interface CreateConfigurationCommandOutput extends CreateConfigurationRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MqClient, CreateConfigurationCommand } from "@aws-sdk/client-mq"; // ES Modules import
- * // const { MqClient, CreateConfigurationCommand } = require("@aws-sdk/client-mq"); // CommonJS import
+ * import { MqClient, CreateConfigurationCommand } from '@aws-sdk/client-mq'; // ES Modules import
+ * // const { MqClient, CreateConfigurationCommand } = require('@aws-sdk/client-mq'); // CommonJS import
  * const client = new MqClient(config);
  * const input = { // CreateConfigurationRequest
- *   AuthenticationStrategy: "STRING_VALUE",
- *   EngineType: "STRING_VALUE", // required
- *   EngineVersion: "STRING_VALUE", // required
- *   Name: "STRING_VALUE", // required
+ *   AuthenticationStrategy: 'STRING_VALUE',
+ *   EngineType: 'STRING_VALUE', // required
+ *   EngineVersion: 'STRING_VALUE', // required
+ *   Name: 'STRING_VALUE', // required
  *   Tags: { // __mapOf__string
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateConfigurationResponse
+ *   Arn: 'STRING_VALUE',
+ *   AuthenticationStrategy: 'STRING_VALUE',
+ *   Created: new Date('TIMESTAMP'),
+ *   Id: 'STRING_VALUE',
+ *   LatestRevision: { // ConfigurationRevision
+ *     Created: new Date('TIMESTAMP'), // required
+ *     Description: 'STRING_VALUE',
+ *     Revision: Number('int'), // required
+ *   },
+ *   Name: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateConfigurationCommandInput - {@link CreateConfigurationCommandInput}
@@ -70,6 +84,8 @@ export interface CreateConfigurationCommandOutput extends CreateConfigurationRes
  * @throws {@link InternalServerErrorException} (server fault)
  *  <p>Returns information about an error.</p>
  *
+ * @throws {@link MqServiceException}
+ * <p>Base exception class for all service exceptions from Mq service.</p>
  *
  */
 export class CreateConfigurationCommand extends $Command<

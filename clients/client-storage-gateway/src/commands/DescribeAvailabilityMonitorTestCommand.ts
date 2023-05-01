@@ -43,14 +43,21 @@ export interface DescribeAvailabilityMonitorTestCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { StorageGatewayClient, DescribeAvailabilityMonitorTestCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
- * // const { StorageGatewayClient, DescribeAvailabilityMonitorTestCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
+ * import { StorageGatewayClient, DescribeAvailabilityMonitorTestCommand } from '@aws-sdk/client-storage-gateway'; // ES Modules import
+ * // const { StorageGatewayClient, DescribeAvailabilityMonitorTestCommand } = require('@aws-sdk/client-storage-gateway'); // CommonJS import
  * const client = new StorageGatewayClient(config);
  * const input = { // DescribeAvailabilityMonitorTestInput
- *   GatewayARN: "STRING_VALUE", // required
+ *   GatewayARN: 'STRING_VALUE', // required
  * };
  * const command = new DescribeAvailabilityMonitorTestCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeAvailabilityMonitorTestOutput
+ *   GatewayARN: 'STRING_VALUE',
+ *   Status: 'STRING_VALUE',
+ *   StartTime: new Date('TIMESTAMP'),
+ * };
+ *
  * ```
  *
  * @param DescribeAvailabilityMonitorTestCommandInput - {@link DescribeAvailabilityMonitorTestCommandInput}
@@ -67,6 +74,8 @@ export interface DescribeAvailabilityMonitorTestCommandOutput
  *  <p>An exception occurred because an invalid gateway request was issued to the service. For
  *          more information, see the error and message fields.</p>
  *
+ * @throws {@link StorageGatewayServiceException}
+ * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
  */
 export class DescribeAvailabilityMonitorTestCommand extends $Command<

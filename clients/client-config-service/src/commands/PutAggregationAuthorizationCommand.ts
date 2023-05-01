@@ -44,21 +44,31 @@ export interface PutAggregationAuthorizationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConfigServiceClient, PutAggregationAuthorizationCommand } from "@aws-sdk/client-config-service"; // ES Modules import
- * // const { ConfigServiceClient, PutAggregationAuthorizationCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
+ * import { ConfigServiceClient, PutAggregationAuthorizationCommand } from '@aws-sdk/client-config-service'; // ES Modules import
+ * // const { ConfigServiceClient, PutAggregationAuthorizationCommand } = require('@aws-sdk/client-config-service'); // CommonJS import
  * const client = new ConfigServiceClient(config);
  * const input = { // PutAggregationAuthorizationRequest
- *   AuthorizedAccountId: "STRING_VALUE", // required
- *   AuthorizedAwsRegion: "STRING_VALUE", // required
+ *   AuthorizedAccountId: 'STRING_VALUE', // required
+ *   AuthorizedAwsRegion: 'STRING_VALUE', // required
  *   Tags: [ // TagsList
  *     { // Tag
- *       Key: "STRING_VALUE",
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new PutAggregationAuthorizationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutAggregationAuthorizationResponse
+ *   AggregationAuthorization: { // AggregationAuthorization
+ *     AggregationAuthorizationArn: 'STRING_VALUE',
+ *     AuthorizedAccountId: 'STRING_VALUE',
+ *     AuthorizedAwsRegion: 'STRING_VALUE',
+ *     CreationTime: new Date('TIMESTAMP'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param PutAggregationAuthorizationCommandInput - {@link PutAggregationAuthorizationCommandInput}
@@ -71,6 +81,8 @@ export interface PutAggregationAuthorizationCommandOutput
  *  <p>One or more of the specified parameters are not valid. Verify
  * 			that your parameters are valid and try again.</p>
  *
+ * @throws {@link ConfigServiceServiceException}
+ * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
  */
 export class PutAggregationAuthorizationCommand extends $Command<

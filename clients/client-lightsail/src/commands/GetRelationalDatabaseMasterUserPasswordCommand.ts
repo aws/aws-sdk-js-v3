@@ -50,15 +50,21 @@ export interface GetRelationalDatabaseMasterUserPasswordCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LightsailClient, GetRelationalDatabaseMasterUserPasswordCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
- * // const { LightsailClient, GetRelationalDatabaseMasterUserPasswordCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
+ * import { LightsailClient, GetRelationalDatabaseMasterUserPasswordCommand } from '@aws-sdk/client-lightsail'; // ES Modules import
+ * // const { LightsailClient, GetRelationalDatabaseMasterUserPasswordCommand } = require('@aws-sdk/client-lightsail'); // CommonJS import
  * const client = new LightsailClient(config);
  * const input = { // GetRelationalDatabaseMasterUserPasswordRequest
- *   relationalDatabaseName: "STRING_VALUE", // required
- *   passwordVersion: "CURRENT" || "PREVIOUS" || "PENDING",
+ *   relationalDatabaseName: 'STRING_VALUE', // required
+ *   passwordVersion: 'CURRENT' || 'PREVIOUS' || 'PENDING',
  * };
  * const command = new GetRelationalDatabaseMasterUserPasswordCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetRelationalDatabaseMasterUserPasswordResult
+ *   masterUserPassword: 'STRING_VALUE',
+ *   createdAt: new Date('TIMESTAMP'),
+ * };
+ *
  * ```
  *
  * @param GetRelationalDatabaseMasterUserPasswordCommandInput - {@link GetRelationalDatabaseMasterUserPasswordCommandInput}
@@ -97,6 +103,8 @@ export interface GetRelationalDatabaseMasterUserPasswordCommandOutput
  * @throws {@link UnauthenticatedException} (client fault)
  *  <p>Lightsail throws this exception when the user has not been authenticated.</p>
  *
+ * @throws {@link LightsailServiceException}
+ * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
  */
 export class GetRelationalDatabaseMasterUserPasswordCommand extends $Command<

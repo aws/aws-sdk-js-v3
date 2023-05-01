@@ -36,16 +36,26 @@ export interface GetExtensionVersionCommandOutput extends GetExtensionVersionRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GameSparksClient, GetExtensionVersionCommand } from "@aws-sdk/client-gamesparks"; // ES Modules import
- * // const { GameSparksClient, GetExtensionVersionCommand } = require("@aws-sdk/client-gamesparks"); // CommonJS import
+ * import { GameSparksClient, GetExtensionVersionCommand } from '@aws-sdk/client-gamesparks'; // ES Modules import
+ * // const { GameSparksClient, GetExtensionVersionCommand } = require('@aws-sdk/client-gamesparks'); // CommonJS import
  * const client = new GameSparksClient(config);
  * const input = { // GetExtensionVersionRequest
- *   Namespace: "STRING_VALUE", // required
- *   Name: "STRING_VALUE", // required
- *   ExtensionVersion: "STRING_VALUE", // required
+ *   Namespace: 'STRING_VALUE', // required
+ *   Name: 'STRING_VALUE', // required
+ *   ExtensionVersion: 'STRING_VALUE', // required
  * };
  * const command = new GetExtensionVersionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetExtensionVersionResult
+ *   ExtensionVersion: { // ExtensionVersionDetails
+ *     Namespace: 'STRING_VALUE',
+ *     Name: 'STRING_VALUE',
+ *     Schema: 'STRING_VALUE',
+ *     Version: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetExtensionVersionCommandInput - {@link GetExtensionVersionCommandInput}
@@ -69,6 +79,8 @@ export interface GetExtensionVersionCommandOutput extends GetExtensionVersionRes
  * @throws {@link ValidationException} (client fault)
  *  <p>One of the parameters in the request is invalid.</p>
  *
+ * @throws {@link GameSparksServiceException}
+ * <p>Base exception class for all service exceptions from GameSparks service.</p>
  *
  */
 export class GetExtensionVersionCommand extends $Command<

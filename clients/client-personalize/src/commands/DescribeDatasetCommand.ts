@@ -37,14 +37,28 @@ export interface DescribeDatasetCommandOutput extends DescribeDatasetResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PersonalizeClient, DescribeDatasetCommand } from "@aws-sdk/client-personalize"; // ES Modules import
- * // const { PersonalizeClient, DescribeDatasetCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
+ * import { PersonalizeClient, DescribeDatasetCommand } from '@aws-sdk/client-personalize'; // ES Modules import
+ * // const { PersonalizeClient, DescribeDatasetCommand } = require('@aws-sdk/client-personalize'); // CommonJS import
  * const client = new PersonalizeClient(config);
  * const input = { // DescribeDatasetRequest
- *   datasetArn: "STRING_VALUE", // required
+ *   datasetArn: 'STRING_VALUE', // required
  * };
  * const command = new DescribeDatasetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeDatasetResponse
+ *   dataset: { // Dataset
+ *     name: 'STRING_VALUE',
+ *     datasetArn: 'STRING_VALUE',
+ *     datasetGroupArn: 'STRING_VALUE',
+ *     datasetType: 'STRING_VALUE',
+ *     schemaArn: 'STRING_VALUE',
+ *     status: 'STRING_VALUE',
+ *     creationDateTime: new Date('TIMESTAMP'),
+ *     lastUpdatedDateTime: new Date('TIMESTAMP'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeDatasetCommandInput - {@link DescribeDatasetCommandInput}
@@ -59,6 +73,8 @@ export interface DescribeDatasetCommandOutput extends DescribeDatasetResponse, _
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Could not find the specified resource.</p>
  *
+ * @throws {@link PersonalizeServiceException}
+ * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
  */
 export class DescribeDatasetCommand extends $Command<

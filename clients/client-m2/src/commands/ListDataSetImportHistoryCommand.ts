@@ -36,16 +36,34 @@ export interface ListDataSetImportHistoryCommandOutput extends ListDataSetImport
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { M2Client, ListDataSetImportHistoryCommand } from "@aws-sdk/client-m2"; // ES Modules import
- * // const { M2Client, ListDataSetImportHistoryCommand } = require("@aws-sdk/client-m2"); // CommonJS import
+ * import { M2Client, ListDataSetImportHistoryCommand } from '@aws-sdk/client-m2'; // ES Modules import
+ * // const { M2Client, ListDataSetImportHistoryCommand } = require('@aws-sdk/client-m2'); // CommonJS import
  * const client = new M2Client(config);
  * const input = { // ListDataSetImportHistoryRequest
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
- *   applicationId: "STRING_VALUE", // required
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
+ *   applicationId: 'STRING_VALUE', // required
  * };
  * const command = new ListDataSetImportHistoryCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListDataSetImportHistoryResponse
+ *   dataSetImportTasks: [ // DataSetImportTaskList // required
+ *     { // DataSetImportTask
+ *       taskId: 'STRING_VALUE', // required
+ *       status: 'STRING_VALUE', // required
+ *       summary: { // DataSetImportSummary
+ *         total: Number('int'), // required
+ *         succeeded: Number('int'), // required
+ *         failed: Number('int'), // required
+ *         pending: Number('int'), // required
+ *         inProgress: Number('int'), // required
+ *       },
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListDataSetImportHistoryCommandInput - {@link ListDataSetImportHistoryCommandInput}
@@ -69,6 +87,8 @@ export interface ListDataSetImportHistoryCommandOutput extends ListDataSetImport
  * @throws {@link ValidationException} (client fault)
  *  <p>One or more parameters provided in the request is not valid.</p>
  *
+ * @throws {@link M2ServiceException}
+ * <p>Base exception class for all service exceptions from M2 service.</p>
  *
  */
 export class ListDataSetImportHistoryCommand extends $Command<

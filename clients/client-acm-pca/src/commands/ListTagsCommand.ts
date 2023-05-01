@@ -39,16 +39,27 @@ export interface ListTagsCommandOutput extends ListTagsResponse, __MetadataBeare
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ACMPCAClient, ListTagsCommand } from "@aws-sdk/client-acm-pca"; // ES Modules import
- * // const { ACMPCAClient, ListTagsCommand } = require("@aws-sdk/client-acm-pca"); // CommonJS import
+ * import { ACMPCAClient, ListTagsCommand } from '@aws-sdk/client-acm-pca'; // ES Modules import
+ * // const { ACMPCAClient, ListTagsCommand } = require('@aws-sdk/client-acm-pca'); // CommonJS import
  * const client = new ACMPCAClient(config);
  * const input = { // ListTagsRequest
- *   CertificateAuthorityArn: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   CertificateAuthorityArn: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListTagsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTagsResponse
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListTagsCommandInput - {@link ListTagsCommandInput}
@@ -68,6 +79,8 @@ export interface ListTagsCommandOutput extends ListTagsResponse, __MetadataBeare
  *  <p>A resource such as a private CA, S3 bucket, certificate, audit report, or policy
  * 			cannot be found.</p>
  *
+ * @throws {@link ACMPCAServiceException}
+ * <p>Base exception class for all service exceptions from ACMPCA service.</p>
  *
  */
 export class ListTagsCommand extends $Command<ListTagsCommandInput, ListTagsCommandOutput, ACMPCAClientResolvedConfig> {

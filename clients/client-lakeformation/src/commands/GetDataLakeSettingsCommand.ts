@@ -36,14 +36,60 @@ export interface GetDataLakeSettingsCommandOutput extends GetDataLakeSettingsRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LakeFormationClient, GetDataLakeSettingsCommand } from "@aws-sdk/client-lakeformation"; // ES Modules import
- * // const { LakeFormationClient, GetDataLakeSettingsCommand } = require("@aws-sdk/client-lakeformation"); // CommonJS import
+ * import { LakeFormationClient, GetDataLakeSettingsCommand } from '@aws-sdk/client-lakeformation'; // ES Modules import
+ * // const { LakeFormationClient, GetDataLakeSettingsCommand } = require('@aws-sdk/client-lakeformation'); // CommonJS import
  * const client = new LakeFormationClient(config);
  * const input = { // GetDataLakeSettingsRequest
- *   CatalogId: "STRING_VALUE",
+ *   CatalogId: 'STRING_VALUE',
  * };
  * const command = new GetDataLakeSettingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetDataLakeSettingsResponse
+ *   DataLakeSettings: { // DataLakeSettings
+ *     DataLakeAdmins: [ // DataLakePrincipalList
+ *       { // DataLakePrincipal
+ *         DataLakePrincipalIdentifier: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     CreateDatabaseDefaultPermissions: [ // PrincipalPermissionsList
+ *       { // PrincipalPermissions
+ *         Principal: {
+ *           DataLakePrincipalIdentifier: 'STRING_VALUE',
+ *         },
+ *         Permissions: [ // PermissionList
+ *           'ALL' || 'SELECT' || 'ALTER' || 'DROP' || 'DELETE' || 'INSERT' || 'DESCRIBE' || 'CREATE_DATABASE' || 'CREATE_TABLE' || 'DATA_LOCATION_ACCESS' || 'CREATE_TAG' || 'ASSOCIATE',
+ *         ],
+ *       },
+ *     ],
+ *     CreateTableDefaultPermissions: [
+ *       {
+ *         Principal: {
+ *           DataLakePrincipalIdentifier: 'STRING_VALUE',
+ *         },
+ *         Permissions: [
+ *           'ALL' || 'SELECT' || 'ALTER' || 'DROP' || 'DELETE' || 'INSERT' || 'DESCRIBE' || 'CREATE_DATABASE' || 'CREATE_TABLE' || 'DATA_LOCATION_ACCESS' || 'CREATE_TAG' || 'ASSOCIATE',
+ *         ],
+ *       },
+ *     ],
+ *     Parameters: { // ParametersMap
+ *       '<keys>': 'STRING_VALUE',
+ *     },
+ *     TrustedResourceOwners: [ // TrustedResourceOwners
+ *       'STRING_VALUE',
+ *     ],
+ *     AllowExternalDataFiltering: true || false,
+ *     ExternalDataFilteringAllowList: [
+ *       {
+ *         DataLakePrincipalIdentifier: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     AuthorizedSessionTagValueList: [ // AuthorizedSessionTagValueList
+ *       'STRING_VALUE',
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetDataLakeSettingsCommandInput - {@link GetDataLakeSettingsCommandInput}
@@ -61,6 +107,8 @@ export interface GetDataLakeSettingsCommandOutput extends GetDataLakeSettingsRes
  * @throws {@link InvalidInputException} (client fault)
  *  <p>The input provided was not valid.</p>
  *
+ * @throws {@link LakeFormationServiceException}
+ * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
  */
 export class GetDataLakeSettingsCommand extends $Command<

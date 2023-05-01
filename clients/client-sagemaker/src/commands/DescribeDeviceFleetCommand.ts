@@ -36,14 +36,31 @@ export interface DescribeDeviceFleetCommandOutput extends DescribeDeviceFleetRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, DescribeDeviceFleetCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, DescribeDeviceFleetCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, DescribeDeviceFleetCommand } from '@aws-sdk/client-sagemaker'; // ES Modules import
+ * // const { SageMakerClient, DescribeDeviceFleetCommand } = require('@aws-sdk/client-sagemaker'); // CommonJS import
  * const client = new SageMakerClient(config);
  * const input = { // DescribeDeviceFleetRequest
- *   DeviceFleetName: "STRING_VALUE", // required
+ *   DeviceFleetName: 'STRING_VALUE', // required
  * };
  * const command = new DescribeDeviceFleetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeDeviceFleetResponse
+ *   DeviceFleetName: 'STRING_VALUE', // required
+ *   DeviceFleetArn: 'STRING_VALUE', // required
+ *   OutputConfig: { // EdgeOutputConfig
+ *     S3OutputLocation: 'STRING_VALUE', // required
+ *     KmsKeyId: 'STRING_VALUE',
+ *     PresetDeploymentType: 'GreengrassV2Component',
+ *     PresetDeploymentConfig: 'STRING_VALUE',
+ *   },
+ *   Description: 'STRING_VALUE',
+ *   CreationTime: new Date('TIMESTAMP'), // required
+ *   LastModifiedTime: new Date('TIMESTAMP'), // required
+ *   RoleArn: 'STRING_VALUE',
+ *   IotRoleAlias: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeDeviceFleetCommandInput - {@link DescribeDeviceFleetCommandInput}
@@ -55,6 +72,8 @@ export interface DescribeDeviceFleetCommandOutput extends DescribeDeviceFleetRes
  * @throws {@link ResourceNotFound} (client fault)
  *  <p>Resource being access is not found.</p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class DescribeDeviceFleetCommand extends $Command<

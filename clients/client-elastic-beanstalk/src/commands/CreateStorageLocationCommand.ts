@@ -40,12 +40,17 @@ export interface CreateStorageLocationCommandOutput extends CreateStorageLocatio
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElasticBeanstalkClient, CreateStorageLocationCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
- * // const { ElasticBeanstalkClient, CreateStorageLocationCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
+ * import { ElasticBeanstalkClient, CreateStorageLocationCommand } from '@aws-sdk/client-elastic-beanstalk'; // ES Modules import
+ * // const { ElasticBeanstalkClient, CreateStorageLocationCommand } = require('@aws-sdk/client-elastic-beanstalk'); // CommonJS import
  * const client = new ElasticBeanstalkClient(config);
  * const input = {};
  * const command = new CreateStorageLocationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateStorageLocationResultMessage
+ *   S3Bucket: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateStorageLocationCommandInput - {@link CreateStorageLocationCommandInput}
@@ -64,6 +69,8 @@ export interface CreateStorageLocationCommandOutput extends CreateStorageLocatio
  * @throws {@link TooManyBucketsException} (client fault)
  *  <p>The specified account has reached its limit of Amazon S3 buckets.</p>
  *
+ * @throws {@link ElasticBeanstalkServiceException}
+ * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
  * @example To create a new environment for an application
  * ```javascript

@@ -36,35 +36,40 @@ export interface CreateConferenceProviderCommandOutput extends CreateConferenceP
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AlexaForBusinessClient, CreateConferenceProviderCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
- * // const { AlexaForBusinessClient, CreateConferenceProviderCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
+ * import { AlexaForBusinessClient, CreateConferenceProviderCommand } from '@aws-sdk/client-alexa-for-business'; // ES Modules import
+ * // const { AlexaForBusinessClient, CreateConferenceProviderCommand } = require('@aws-sdk/client-alexa-for-business'); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
  * const input = { // CreateConferenceProviderRequest
- *   ConferenceProviderName: "STRING_VALUE", // required
- *   ConferenceProviderType: "STRING_VALUE", // required
+ *   ConferenceProviderName: 'STRING_VALUE', // required
+ *   ConferenceProviderType: 'STRING_VALUE', // required
  *   IPDialIn: { // IPDialIn
- *     Endpoint: "STRING_VALUE", // required
- *     CommsProtocol: "STRING_VALUE", // required
+ *     Endpoint: 'STRING_VALUE', // required
+ *     CommsProtocol: 'STRING_VALUE', // required
  *   },
  *   PSTNDialIn: { // PSTNDialIn
- *     CountryCode: "STRING_VALUE", // required
- *     PhoneNumber: "STRING_VALUE", // required
- *     OneClickIdDelay: "STRING_VALUE", // required
- *     OneClickPinDelay: "STRING_VALUE", // required
+ *     CountryCode: 'STRING_VALUE', // required
+ *     PhoneNumber: 'STRING_VALUE', // required
+ *     OneClickIdDelay: 'STRING_VALUE', // required
+ *     OneClickPinDelay: 'STRING_VALUE', // required
  *   },
  *   MeetingSetting: { // MeetingSetting
- *     RequirePin: "STRING_VALUE", // required
+ *     RequirePin: 'STRING_VALUE', // required
  *   },
- *   ClientRequestToken: "STRING_VALUE",
+ *   ClientRequestToken: 'STRING_VALUE',
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreateConferenceProviderCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateConferenceProviderResponse
+ *   ConferenceProviderArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateConferenceProviderCommandInput - {@link CreateConferenceProviderCommandInput}
@@ -76,6 +81,8 @@ export interface CreateConferenceProviderCommandOutput extends CreateConferenceP
  * @throws {@link AlreadyExistsException} (client fault)
  *  <p>The resource being created already exists.</p>
  *
+ * @throws {@link AlexaForBusinessServiceException}
+ * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  */
 export class CreateConferenceProviderCommand extends $Command<

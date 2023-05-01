@@ -36,17 +36,33 @@ export interface ListRulesCommandOutput extends ListRulesResponse, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { VPCLatticeClient, ListRulesCommand } from "@aws-sdk/client-vpc-lattice"; // ES Modules import
- * // const { VPCLatticeClient, ListRulesCommand } = require("@aws-sdk/client-vpc-lattice"); // CommonJS import
+ * import { VPCLatticeClient, ListRulesCommand } from '@aws-sdk/client-vpc-lattice'; // ES Modules import
+ * // const { VPCLatticeClient, ListRulesCommand } = require('@aws-sdk/client-vpc-lattice'); // CommonJS import
  * const client = new VPCLatticeClient(config);
  * const input = { // ListRulesRequest
- *   serviceIdentifier: "STRING_VALUE", // required
- *   listenerIdentifier: "STRING_VALUE", // required
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   serviceIdentifier: 'STRING_VALUE', // required
+ *   listenerIdentifier: 'STRING_VALUE', // required
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new ListRulesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListRulesResponse
+ *   items: [ // RuleSummaryList // required
+ *     { // RuleSummary
+ *       arn: 'STRING_VALUE',
+ *       id: 'STRING_VALUE',
+ *       name: 'STRING_VALUE',
+ *       isDefault: true || false,
+ *       priority: Number('int'),
+ *       createdAt: new Date('TIMESTAMP'),
+ *       lastUpdatedAt: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListRulesCommandInput - {@link ListRulesCommandInput}
@@ -71,6 +87,8 @@ export interface ListRulesCommandOutput extends ListRulesResponse, __MetadataBea
  *  <p>The input does not satisfy the constraints specified by an Amazon Web Services
  *    service.</p>
  *
+ * @throws {@link VPCLatticeServiceException}
+ * <p>Base exception class for all service exceptions from VPCLattice service.</p>
  *
  */
 export class ListRulesCommand extends $Command<

@@ -41,18 +41,33 @@ export interface ListMobileDeviceAccessOverridesCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkMailClient, ListMobileDeviceAccessOverridesCommand } from "@aws-sdk/client-workmail"; // ES Modules import
- * // const { WorkMailClient, ListMobileDeviceAccessOverridesCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
+ * import { WorkMailClient, ListMobileDeviceAccessOverridesCommand } from '@aws-sdk/client-workmail'; // ES Modules import
+ * // const { WorkMailClient, ListMobileDeviceAccessOverridesCommand } = require('@aws-sdk/client-workmail'); // CommonJS import
  * const client = new WorkMailClient(config);
  * const input = { // ListMobileDeviceAccessOverridesRequest
- *   OrganizationId: "STRING_VALUE", // required
- *   UserId: "STRING_VALUE",
- *   DeviceId: "STRING_VALUE",
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   OrganizationId: 'STRING_VALUE', // required
+ *   UserId: 'STRING_VALUE',
+ *   DeviceId: 'STRING_VALUE',
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListMobileDeviceAccessOverridesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListMobileDeviceAccessOverridesResponse
+ *   Overrides: [ // MobileDeviceAccessOverridesList
+ *     { // MobileDeviceAccessOverride
+ *       UserId: 'STRING_VALUE',
+ *       DeviceId: 'STRING_VALUE',
+ *       Effect: 'ALLOW' || 'DENY',
+ *       Description: 'STRING_VALUE',
+ *       DateCreated: new Date('TIMESTAMP'),
+ *       DateModified: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListMobileDeviceAccessOverridesCommandInput - {@link ListMobileDeviceAccessOverridesCommandInput}
@@ -76,6 +91,8 @@ export interface ListMobileDeviceAccessOverridesCommandOutput
  *  <p>The organization must have a valid state to perform certain
  *          operations on the organization or its members.</p>
  *
+ * @throws {@link WorkMailServiceException}
+ * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
  */
 export class ListMobileDeviceAccessOverridesCommand extends $Command<

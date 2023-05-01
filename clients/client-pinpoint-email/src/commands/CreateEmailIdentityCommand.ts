@@ -49,20 +49,33 @@ export interface CreateEmailIdentityCommandOutput extends CreateEmailIdentityRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PinpointEmailClient, CreateEmailIdentityCommand } from "@aws-sdk/client-pinpoint-email"; // ES Modules import
- * // const { PinpointEmailClient, CreateEmailIdentityCommand } = require("@aws-sdk/client-pinpoint-email"); // CommonJS import
+ * import { PinpointEmailClient, CreateEmailIdentityCommand } from '@aws-sdk/client-pinpoint-email'; // ES Modules import
+ * // const { PinpointEmailClient, CreateEmailIdentityCommand } = require('@aws-sdk/client-pinpoint-email'); // CommonJS import
  * const client = new PinpointEmailClient(config);
  * const input = { // CreateEmailIdentityRequest
- *   EmailIdentity: "STRING_VALUE", // required
+ *   EmailIdentity: 'STRING_VALUE', // required
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreateEmailIdentityCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateEmailIdentityResponse
+ *   IdentityType: 'STRING_VALUE',
+ *   VerifiedForSendingStatus: true || false,
+ *   DkimAttributes: { // DkimAttributes
+ *     SigningEnabled: true || false,
+ *     Status: 'STRING_VALUE',
+ *     Tokens: [ // DnsTokenList
+ *       'STRING_VALUE',
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateEmailIdentityCommandInput - {@link CreateEmailIdentityCommandInput}
@@ -83,6 +96,8 @@ export interface CreateEmailIdentityCommandOutput extends CreateEmailIdentityRes
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Too many requests have been made to the operation.</p>
  *
+ * @throws {@link PinpointEmailServiceException}
+ * <p>Base exception class for all service exceptions from PinpointEmail service.</p>
  *
  */
 export class CreateEmailIdentityCommand extends $Command<

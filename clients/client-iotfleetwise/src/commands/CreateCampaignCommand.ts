@@ -41,51 +41,57 @@ export interface CreateCampaignCommandOutput extends CreateCampaignResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTFleetWiseClient, CreateCampaignCommand } from "@aws-sdk/client-iotfleetwise"; // ES Modules import
- * // const { IoTFleetWiseClient, CreateCampaignCommand } = require("@aws-sdk/client-iotfleetwise"); // CommonJS import
+ * import { IoTFleetWiseClient, CreateCampaignCommand } from '@aws-sdk/client-iotfleetwise'; // ES Modules import
+ * // const { IoTFleetWiseClient, CreateCampaignCommand } = require('@aws-sdk/client-iotfleetwise'); // CommonJS import
  * const client = new IoTFleetWiseClient(config);
  * const input = { // CreateCampaignRequest
- *   name: "STRING_VALUE", // required
- *   description: "STRING_VALUE",
- *   signalCatalogArn: "STRING_VALUE", // required
- *   targetArn: "STRING_VALUE", // required
- *   startTime: new Date("TIMESTAMP"),
- *   expiryTime: new Date("TIMESTAMP"),
- *   postTriggerCollectionDuration: Number("long"),
- *   diagnosticsMode: "STRING_VALUE",
- *   spoolingMode: "STRING_VALUE",
- *   compression: "STRING_VALUE",
- *   priority: Number("int"),
+ *   name: 'STRING_VALUE', // required
+ *   description: 'STRING_VALUE',
+ *   signalCatalogArn: 'STRING_VALUE', // required
+ *   targetArn: 'STRING_VALUE', // required
+ *   startTime: new Date('TIMESTAMP'),
+ *   expiryTime: new Date('TIMESTAMP'),
+ *   postTriggerCollectionDuration: Number('long'),
+ *   diagnosticsMode: 'STRING_VALUE',
+ *   spoolingMode: 'STRING_VALUE',
+ *   compression: 'STRING_VALUE',
+ *   priority: Number('int'),
  *   signalsToCollect: [ // SignalInformationList
  *     { // SignalInformation
- *       name: "STRING_VALUE", // required
- *       maxSampleCount: Number("long"),
- *       minimumSamplingIntervalMs: Number("long"),
+ *       name: 'STRING_VALUE', // required
+ *       maxSampleCount: Number('long'),
+ *       minimumSamplingIntervalMs: Number('long'),
  *     },
  *   ],
  *   collectionScheme: { // CollectionScheme Union: only one key present
  *     timeBasedCollectionScheme: { // TimeBasedCollectionScheme
- *       periodMs: Number("long"), // required
+ *       periodMs: Number('long'), // required
  *     },
  *     conditionBasedCollectionScheme: { // ConditionBasedCollectionScheme
- *       expression: "STRING_VALUE", // required
- *       minimumTriggerIntervalMs: Number("long"),
- *       triggerMode: "STRING_VALUE",
- *       conditionLanguageVersion: Number("int"),
+ *       expression: 'STRING_VALUE', // required
+ *       minimumTriggerIntervalMs: Number('long'),
+ *       triggerMode: 'STRING_VALUE',
+ *       conditionLanguageVersion: Number('int'),
  *     },
  *   },
  *   dataExtraDimensions: [ // DataExtraDimensionNodePathList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreateCampaignCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateCampaignResponse
+ *   name: 'STRING_VALUE',
+ *   arn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateCampaignCommandInput - {@link CreateCampaignCommandInput}
@@ -116,6 +122,8 @@ export interface CreateCampaignCommandOutput extends CreateCampaignResponse, __M
  * @throws {@link InternalServerException} (server fault)
  *  <p>The request couldn't be completed because the server temporarily failed.</p>
  *
+ * @throws {@link IoTFleetWiseServiceException}
+ * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
  */
 export class CreateCampaignCommand extends $Command<

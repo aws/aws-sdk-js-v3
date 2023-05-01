@@ -36,17 +36,20 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Macie2Client, UntagResourceCommand } from "@aws-sdk/client-macie2"; // ES Modules import
- * // const { Macie2Client, UntagResourceCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
+ * import { Macie2Client, UntagResourceCommand } from '@aws-sdk/client-macie2'; // ES Modules import
+ * // const { Macie2Client, UntagResourceCommand } = require('@aws-sdk/client-macie2'); // CommonJS import
  * const client = new Macie2Client(config);
  * const input = { // UntagResourceRequest
- *   resourceArn: "STRING_VALUE", // required
+ *   resourceArn: 'STRING_VALUE', // required
  *   tagKeys: [ // __listOf__string // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new UntagResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UntagResourceCommandInput - {@link UntagResourceCommandInput}
@@ -55,6 +58,8 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * @see {@link UntagResourceCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.
  *
+ * @throws {@link Macie2ServiceException}
+ * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
  */
 export class UntagResourceCommand extends $Command<

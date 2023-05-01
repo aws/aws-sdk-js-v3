@@ -36,20 +36,20 @@ export interface CreateStandbyWorkspacesCommandOutput extends CreateStandbyWorks
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkSpacesClient, CreateStandbyWorkspacesCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
- * // const { WorkSpacesClient, CreateStandbyWorkspacesCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
+ * import { WorkSpacesClient, CreateStandbyWorkspacesCommand } from '@aws-sdk/client-workspaces'; // ES Modules import
+ * // const { WorkSpacesClient, CreateStandbyWorkspacesCommand } = require('@aws-sdk/client-workspaces'); // CommonJS import
  * const client = new WorkSpacesClient(config);
  * const input = { // CreateStandbyWorkspacesRequest
- *   PrimaryRegion: "STRING_VALUE", // required
+ *   PrimaryRegion: 'STRING_VALUE', // required
  *   StandbyWorkspaces: [ // StandbyWorkspacesList // required
  *     { // StandbyWorkspace
- *       PrimaryWorkspaceId: "STRING_VALUE", // required
- *       VolumeEncryptionKey: "STRING_VALUE",
- *       DirectoryId: "STRING_VALUE", // required
+ *       PrimaryWorkspaceId: 'STRING_VALUE', // required
+ *       VolumeEncryptionKey: 'STRING_VALUE',
+ *       DirectoryId: 'STRING_VALUE', // required
  *       Tags: [ // TagList
  *         { // Tag
- *           Key: "STRING_VALUE", // required
- *           Value: "STRING_VALUE",
+ *           Key: 'STRING_VALUE', // required
+ *           Value: 'STRING_VALUE',
  *         },
  *       ],
  *     },
@@ -57,6 +57,35 @@ export interface CreateStandbyWorkspacesCommandOutput extends CreateStandbyWorks
  * };
  * const command = new CreateStandbyWorkspacesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateStandbyWorkspacesResult
+ *   FailedStandbyRequests: [ // FailedCreateStandbyWorkspacesRequestList
+ *     { // FailedCreateStandbyWorkspacesRequest
+ *       StandbyWorkspaceRequest: { // StandbyWorkspace
+ *         PrimaryWorkspaceId: 'STRING_VALUE', // required
+ *         VolumeEncryptionKey: 'STRING_VALUE',
+ *         DirectoryId: 'STRING_VALUE', // required
+ *         Tags: [ // TagList
+ *           { // Tag
+ *             Key: 'STRING_VALUE', // required
+ *             Value: 'STRING_VALUE',
+ *           },
+ *         ],
+ *       },
+ *       ErrorCode: 'STRING_VALUE',
+ *       ErrorMessage: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   PendingStandbyRequests: [ // PendingCreateStandbyWorkspacesRequestList
+ *     { // PendingCreateStandbyWorkspacesRequest
+ *       UserName: 'STRING_VALUE',
+ *       DirectoryId: 'STRING_VALUE',
+ *       State: 'PENDING' || 'AVAILABLE' || 'IMPAIRED' || 'UNHEALTHY' || 'REBOOTING' || 'STARTING' || 'REBUILDING' || 'RESTORING' || 'MAINTENANCE' || 'ADMIN_MAINTENANCE' || 'TERMINATING' || 'TERMINATED' || 'SUSPENDED' || 'UPDATING' || 'STOPPING' || 'STOPPED' || 'ERROR',
+ *       WorkspaceId: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param CreateStandbyWorkspacesCommandInput - {@link CreateStandbyWorkspacesCommandInput}
@@ -80,6 +109,8 @@ export interface CreateStandbyWorkspacesCommandOutput extends CreateStandbyWorks
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource could not be found.</p>
  *
+ * @throws {@link WorkSpacesServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
  */
 export class CreateStandbyWorkspacesCommand extends $Command<

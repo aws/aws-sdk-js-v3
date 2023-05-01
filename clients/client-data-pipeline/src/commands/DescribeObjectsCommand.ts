@@ -94,19 +94,38 @@ export interface DescribeObjectsCommandOutput extends DescribeObjectsOutput, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DataPipelineClient, DescribeObjectsCommand } from "@aws-sdk/client-data-pipeline"; // ES Modules import
- * // const { DataPipelineClient, DescribeObjectsCommand } = require("@aws-sdk/client-data-pipeline"); // CommonJS import
+ * import { DataPipelineClient, DescribeObjectsCommand } from '@aws-sdk/client-data-pipeline'; // ES Modules import
+ * // const { DataPipelineClient, DescribeObjectsCommand } = require('@aws-sdk/client-data-pipeline'); // CommonJS import
  * const client = new DataPipelineClient(config);
  * const input = { // DescribeObjectsInput
- *   pipelineId: "STRING_VALUE", // required
+ *   pipelineId: 'STRING_VALUE', // required
  *   objectIds: [ // idList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   evaluateExpressions: true || false,
- *   marker: "STRING_VALUE",
+ *   marker: 'STRING_VALUE',
  * };
  * const command = new DescribeObjectsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeObjectsOutput
+ *   pipelineObjects: [ // PipelineObjectList // required
+ *     { // PipelineObject
+ *       id: 'STRING_VALUE', // required
+ *       name: 'STRING_VALUE', // required
+ *       fields: [ // fieldList // required
+ *         { // Field
+ *           key: 'STRING_VALUE', // required
+ *           stringValue: 'STRING_VALUE',
+ *           refValue: 'STRING_VALUE',
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   marker: 'STRING_VALUE',
+ *   hasMoreResults: true || false,
+ * };
+ *
  * ```
  *
  * @param DescribeObjectsCommandInput - {@link DescribeObjectsCommandInput}
@@ -127,6 +146,8 @@ export interface DescribeObjectsCommandOutput extends DescribeObjectsOutput, __M
  * @throws {@link PipelineNotFoundException} (client fault)
  *  <p>The specified pipeline was not found. Verify that you used the correct user and account identifiers.</p>
  *
+ * @throws {@link DataPipelineServiceException}
+ * <p>Base exception class for all service exceptions from DataPipeline service.</p>
  *
  */
 export class DescribeObjectsCommand extends $Command<

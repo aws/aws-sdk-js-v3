@@ -40,29 +40,50 @@ export interface ModifyManagedPrefixListCommandOutput extends ModifyManagedPrefi
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, ModifyManagedPrefixListCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, ModifyManagedPrefixListCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, ModifyManagedPrefixListCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, ModifyManagedPrefixListCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // ModifyManagedPrefixListRequest
  *   DryRun: true || false,
- *   PrefixListId: "STRING_VALUE", // required
- *   CurrentVersion: Number("long"),
- *   PrefixListName: "STRING_VALUE",
+ *   PrefixListId: 'STRING_VALUE', // required
+ *   CurrentVersion: Number('long'),
+ *   PrefixListName: 'STRING_VALUE',
  *   AddEntries: [ // AddPrefixListEntries
  *     { // AddPrefixListEntry
- *       Cidr: "STRING_VALUE", // required
- *       Description: "STRING_VALUE",
+ *       Cidr: 'STRING_VALUE', // required
+ *       Description: 'STRING_VALUE',
  *     },
  *   ],
  *   RemoveEntries: [ // RemovePrefixListEntries
  *     { // RemovePrefixListEntry
- *       Cidr: "STRING_VALUE", // required
+ *       Cidr: 'STRING_VALUE', // required
  *     },
  *   ],
- *   MaxEntries: Number("int"),
+ *   MaxEntries: Number('int'),
  * };
  * const command = new ModifyManagedPrefixListCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ModifyManagedPrefixListResult
+ *   PrefixList: { // ManagedPrefixList
+ *     PrefixListId: 'STRING_VALUE',
+ *     AddressFamily: 'STRING_VALUE',
+ *     State: 'create-in-progress' || 'create-complete' || 'create-failed' || 'modify-in-progress' || 'modify-complete' || 'modify-failed' || 'restore-in-progress' || 'restore-complete' || 'restore-failed' || 'delete-in-progress' || 'delete-complete' || 'delete-failed',
+ *     StateMessage: 'STRING_VALUE',
+ *     PrefixListArn: 'STRING_VALUE',
+ *     PrefixListName: 'STRING_VALUE',
+ *     MaxEntries: Number('int'),
+ *     Version: Number('long'),
+ *     Tags: [ // TagList
+ *       { // Tag
+ *         Key: 'STRING_VALUE',
+ *         Value: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     OwnerId: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param ModifyManagedPrefixListCommandInput - {@link ModifyManagedPrefixListCommandInput}
@@ -71,6 +92,8 @@ export interface ModifyManagedPrefixListCommandOutput extends ModifyManagedPrefi
  * @see {@link ModifyManagedPrefixListCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class ModifyManagedPrefixListCommand extends $Command<

@@ -44,14 +44,25 @@ export interface ValidateAssessmentReportIntegrityCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AuditManagerClient, ValidateAssessmentReportIntegrityCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
- * // const { AuditManagerClient, ValidateAssessmentReportIntegrityCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import
+ * import { AuditManagerClient, ValidateAssessmentReportIntegrityCommand } from '@aws-sdk/client-auditmanager'; // ES Modules import
+ * // const { AuditManagerClient, ValidateAssessmentReportIntegrityCommand } = require('@aws-sdk/client-auditmanager'); // CommonJS import
  * const client = new AuditManagerClient(config);
  * const input = { // ValidateAssessmentReportIntegrityRequest
- *   s3RelativePath: "STRING_VALUE", // required
+ *   s3RelativePath: 'STRING_VALUE', // required
  * };
  * const command = new ValidateAssessmentReportIntegrityCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ValidateAssessmentReportIntegrityResponse
+ *   signatureValid: true || false,
+ *   signatureAlgorithm: 'STRING_VALUE',
+ *   signatureDateTime: 'STRING_VALUE',
+ *   signatureKeyId: 'STRING_VALUE',
+ *   validationErrors: [ // ValidationErrors
+ *     'STRING_VALUE',
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ValidateAssessmentReportIntegrityCommandInput - {@link ValidateAssessmentReportIntegrityCommandInput}
@@ -74,6 +85,8 @@ export interface ValidateAssessmentReportIntegrityCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p> The request has invalid or missing parameters. </p>
  *
+ * @throws {@link AuditManagerServiceException}
+ * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
  */
 export class ValidateAssessmentReportIntegrityCommand extends $Command<

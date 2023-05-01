@@ -91,18 +91,21 @@ export interface CreateSnapshotCommandOutput extends CreateSnapshotOutput, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SimSpaceWeaverClient, CreateSnapshotCommand } from "@aws-sdk/client-simspaceweaver"; // ES Modules import
- * // const { SimSpaceWeaverClient, CreateSnapshotCommand } = require("@aws-sdk/client-simspaceweaver"); // CommonJS import
+ * import { SimSpaceWeaverClient, CreateSnapshotCommand } from '@aws-sdk/client-simspaceweaver'; // ES Modules import
+ * // const { SimSpaceWeaverClient, CreateSnapshotCommand } = require('@aws-sdk/client-simspaceweaver'); // CommonJS import
  * const client = new SimSpaceWeaverClient(config);
  * const input = { // CreateSnapshotInput
- *   Simulation: "STRING_VALUE", // required
+ *   Simulation: 'STRING_VALUE', // required
  *   Destination: { // S3Destination
- *     BucketName: "STRING_VALUE",
- *     ObjectKeyPrefix: "STRING_VALUE",
+ *     BucketName: 'STRING_VALUE',
+ *     ObjectKeyPrefix: 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateSnapshotCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param CreateSnapshotCommandInput - {@link CreateSnapshotCommandInput}
@@ -126,6 +129,8 @@ export interface CreateSnapshotCommandOutput extends CreateSnapshotOutput, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p/>
  *
+ * @throws {@link SimSpaceWeaverServiceException}
+ * <p>Base exception class for all service exceptions from SimSpaceWeaver service.</p>
  *
  */
 export class CreateSnapshotCommand extends $Command<

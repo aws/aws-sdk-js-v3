@@ -38,15 +38,29 @@ export interface DescribeAvailabilityOptionsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudSearchClient, DescribeAvailabilityOptionsCommand } from "@aws-sdk/client-cloudsearch"; // ES Modules import
- * // const { CloudSearchClient, DescribeAvailabilityOptionsCommand } = require("@aws-sdk/client-cloudsearch"); // CommonJS import
+ * import { CloudSearchClient, DescribeAvailabilityOptionsCommand } from '@aws-sdk/client-cloudsearch'; // ES Modules import
+ * // const { CloudSearchClient, DescribeAvailabilityOptionsCommand } = require('@aws-sdk/client-cloudsearch'); // CommonJS import
  * const client = new CloudSearchClient(config);
  * const input = { // DescribeAvailabilityOptionsRequest
- *   DomainName: "STRING_VALUE", // required
+ *   DomainName: 'STRING_VALUE', // required
  *   Deployed: true || false,
  * };
  * const command = new DescribeAvailabilityOptionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeAvailabilityOptionsResponse
+ *   AvailabilityOptions: { // AvailabilityOptionsStatus
+ *     Options: true || false, // required
+ *     Status: { // OptionStatus
+ *       CreationDate: new Date('TIMESTAMP'), // required
+ *       UpdateDate: new Date('TIMESTAMP'), // required
+ *       UpdateVersion: Number('int'),
+ *       State: 'STRING_VALUE', // required
+ *       PendingDeletion: true || false,
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeAvailabilityOptionsCommandInput - {@link DescribeAvailabilityOptionsCommandInput}
@@ -74,6 +88,8 @@ export interface DescribeAvailabilityOptionsCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The request was rejected because it attempted to reference a resource that does not exist.</p>
  *
+ * @throws {@link CloudSearchServiceException}
+ * <p>Base exception class for all service exceptions from CloudSearch service.</p>
  *
  */
 export class DescribeAvailabilityOptionsCommand extends $Command<

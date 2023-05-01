@@ -36,17 +36,20 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IvsClient, UntagResourceCommand } from "@aws-sdk/client-ivs"; // ES Modules import
- * // const { IvsClient, UntagResourceCommand } = require("@aws-sdk/client-ivs"); // CommonJS import
+ * import { IvsClient, UntagResourceCommand } from '@aws-sdk/client-ivs'; // ES Modules import
+ * // const { IvsClient, UntagResourceCommand } = require('@aws-sdk/client-ivs'); // CommonJS import
  * const client = new IvsClient(config);
  * const input = { // UntagResourceRequest
- *   resourceArn: "STRING_VALUE", // required
+ *   resourceArn: 'STRING_VALUE', // required
  *   tagKeys: [ // TagKeyList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new UntagResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UntagResourceCommandInput - {@link UntagResourceCommandInput}
@@ -64,6 +67,8 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p/>
  *
+ * @throws {@link IvsServiceException}
+ * <p>Base exception class for all service exceptions from Ivs service.</p>
  *
  */
 export class UntagResourceCommand extends $Command<

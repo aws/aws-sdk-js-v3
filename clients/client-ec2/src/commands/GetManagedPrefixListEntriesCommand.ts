@@ -36,18 +36,29 @@ export interface GetManagedPrefixListEntriesCommandOutput extends GetManagedPref
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, GetManagedPrefixListEntriesCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, GetManagedPrefixListEntriesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, GetManagedPrefixListEntriesCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, GetManagedPrefixListEntriesCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // GetManagedPrefixListEntriesRequest
  *   DryRun: true || false,
- *   PrefixListId: "STRING_VALUE", // required
- *   TargetVersion: Number("long"),
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   PrefixListId: 'STRING_VALUE', // required
+ *   TargetVersion: Number('long'),
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new GetManagedPrefixListEntriesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetManagedPrefixListEntriesResult
+ *   Entries: [ // PrefixListEntrySet
+ *     { // PrefixListEntry
+ *       Cidr: 'STRING_VALUE',
+ *       Description: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetManagedPrefixListEntriesCommandInput - {@link GetManagedPrefixListEntriesCommandInput}
@@ -56,6 +67,8 @@ export interface GetManagedPrefixListEntriesCommandOutput extends GetManagedPref
  * @see {@link GetManagedPrefixListEntriesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class GetManagedPrefixListEntriesCommand extends $Command<

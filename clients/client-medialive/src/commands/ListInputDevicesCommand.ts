@@ -36,15 +36,67 @@ export interface ListInputDevicesCommandOutput extends ListInputDevicesResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MediaLiveClient, ListInputDevicesCommand } from "@aws-sdk/client-medialive"; // ES Modules import
- * // const { MediaLiveClient, ListInputDevicesCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
+ * import { MediaLiveClient, ListInputDevicesCommand } from '@aws-sdk/client-medialive'; // ES Modules import
+ * // const { MediaLiveClient, ListInputDevicesCommand } = require('@aws-sdk/client-medialive'); // CommonJS import
  * const client = new MediaLiveClient(config);
  * const input = { // ListInputDevicesRequest
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListInputDevicesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListInputDevicesResponse
+ *   InputDevices: [ // __listOfInputDeviceSummary
+ *     { // InputDeviceSummary
+ *       Arn: 'STRING_VALUE',
+ *       ConnectionState: 'DISCONNECTED' || 'CONNECTED',
+ *       DeviceSettingsSyncState: 'SYNCED' || 'SYNCING',
+ *       DeviceUpdateStatus: 'UP_TO_DATE' || 'NOT_UP_TO_DATE' || 'UPDATING',
+ *       HdDeviceSettings: { // InputDeviceHdSettings
+ *         ActiveInput: 'HDMI' || 'SDI',
+ *         ConfiguredInput: 'AUTO' || 'HDMI' || 'SDI',
+ *         DeviceState: 'IDLE' || 'STREAMING',
+ *         Framerate: Number('double'),
+ *         Height: Number('int'),
+ *         MaxBitrate: Number('int'),
+ *         ScanType: 'INTERLACED' || 'PROGRESSIVE',
+ *         Width: Number('int'),
+ *         LatencyMs: Number('int'),
+ *       },
+ *       Id: 'STRING_VALUE',
+ *       MacAddress: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *       NetworkSettings: { // InputDeviceNetworkSettings
+ *         DnsAddresses: [ // __listOf__string
+ *           'STRING_VALUE',
+ *         ],
+ *         Gateway: 'STRING_VALUE',
+ *         IpAddress: 'STRING_VALUE',
+ *         IpScheme: 'STATIC' || 'DHCP',
+ *         SubnetMask: 'STRING_VALUE',
+ *       },
+ *       SerialNumber: 'STRING_VALUE',
+ *       Type: 'HD' || 'UHD',
+ *       UhdDeviceSettings: { // InputDeviceUhdSettings
+ *         ActiveInput: 'HDMI' || 'SDI',
+ *         ConfiguredInput: 'AUTO' || 'HDMI' || 'SDI',
+ *         DeviceState: 'IDLE' || 'STREAMING',
+ *         Framerate: Number('double'),
+ *         Height: Number('int'),
+ *         MaxBitrate: Number('int'),
+ *         ScanType: 'INTERLACED' || 'PROGRESSIVE',
+ *         Width: Number('int'),
+ *         LatencyMs: Number('int'),
+ *       },
+ *       Tags: { // Tags
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListInputDevicesCommandInput - {@link ListInputDevicesCommandInput}
@@ -71,6 +123,8 @@ export interface ListInputDevicesCommandOutput extends ListInputDevicesResponse,
  * @throws {@link TooManyRequestsException} (client fault)
  *  Placeholder documentation for TooManyRequestsException
  *
+ * @throws {@link MediaLiveServiceException}
+ * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
  */
 export class ListInputDevicesCommand extends $Command<

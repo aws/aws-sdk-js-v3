@@ -36,22 +36,27 @@ export interface CreateAnomalyDetectorCommandOutput extends CreateAnomalyDetecto
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LookoutMetricsClient, CreateAnomalyDetectorCommand } from "@aws-sdk/client-lookoutmetrics"; // ES Modules import
- * // const { LookoutMetricsClient, CreateAnomalyDetectorCommand } = require("@aws-sdk/client-lookoutmetrics"); // CommonJS import
+ * import { LookoutMetricsClient, CreateAnomalyDetectorCommand } from '@aws-sdk/client-lookoutmetrics'; // ES Modules import
+ * // const { LookoutMetricsClient, CreateAnomalyDetectorCommand } = require('@aws-sdk/client-lookoutmetrics'); // CommonJS import
  * const client = new LookoutMetricsClient(config);
  * const input = { // CreateAnomalyDetectorRequest
- *   AnomalyDetectorName: "STRING_VALUE", // required
- *   AnomalyDetectorDescription: "STRING_VALUE",
+ *   AnomalyDetectorName: 'STRING_VALUE', // required
+ *   AnomalyDetectorDescription: 'STRING_VALUE',
  *   AnomalyDetectorConfig: { // AnomalyDetectorConfig
- *     AnomalyDetectorFrequency: "STRING_VALUE",
+ *     AnomalyDetectorFrequency: 'STRING_VALUE',
  *   },
- *   KmsKeyArn: "STRING_VALUE",
+ *   KmsKeyArn: 'STRING_VALUE',
  *   Tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateAnomalyDetectorCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateAnomalyDetectorResponse
+ *   AnomalyDetectorArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateAnomalyDetectorCommandInput - {@link CreateAnomalyDetectorCommandInput}
@@ -79,6 +84,8 @@ export interface CreateAnomalyDetectorCommandOutput extends CreateAnomalyDetecto
  *  <p>The input fails to satisfy the constraints specified by the AWS service. Check your input values and try
  *       again.</p>
  *
+ * @throws {@link LookoutMetricsServiceException}
+ * <p>Base exception class for all service exceptions from LookoutMetrics service.</p>
  *
  */
 export class CreateAnomalyDetectorCommand extends $Command<

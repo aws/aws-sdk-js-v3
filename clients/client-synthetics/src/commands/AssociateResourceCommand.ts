@@ -39,15 +39,18 @@ export interface AssociateResourceCommandOutput extends AssociateResourceRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SyntheticsClient, AssociateResourceCommand } from "@aws-sdk/client-synthetics"; // ES Modules import
- * // const { SyntheticsClient, AssociateResourceCommand } = require("@aws-sdk/client-synthetics"); // CommonJS import
+ * import { SyntheticsClient, AssociateResourceCommand } from '@aws-sdk/client-synthetics'; // ES Modules import
+ * // const { SyntheticsClient, AssociateResourceCommand } = require('@aws-sdk/client-synthetics'); // CommonJS import
  * const client = new SyntheticsClient(config);
  * const input = { // AssociateResourceRequest
- *   GroupIdentifier: "STRING_VALUE", // required
- *   ResourceArn: "STRING_VALUE", // required
+ *   GroupIdentifier: 'STRING_VALUE', // required
+ *   ResourceArn: 'STRING_VALUE', // required
  * };
  * const command = new AssociateResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param AssociateResourceCommandInput - {@link AssociateResourceCommandInput}
@@ -71,6 +74,8 @@ export interface AssociateResourceCommandOutput extends AssociateResourceRespons
  * @throws {@link ValidationException} (client fault)
  *  <p>A parameter could not be validated.</p>
  *
+ * @throws {@link SyntheticsServiceException}
+ * <p>Base exception class for all service exceptions from Synthetics service.</p>
  *
  */
 export class AssociateResourceCommand extends $Command<

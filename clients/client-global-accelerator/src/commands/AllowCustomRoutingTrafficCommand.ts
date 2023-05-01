@@ -45,22 +45,25 @@ export interface AllowCustomRoutingTrafficCommandOutput extends __MetadataBearer
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlobalAcceleratorClient, AllowCustomRoutingTrafficCommand } from "@aws-sdk/client-global-accelerator"; // ES Modules import
- * // const { GlobalAcceleratorClient, AllowCustomRoutingTrafficCommand } = require("@aws-sdk/client-global-accelerator"); // CommonJS import
+ * import { GlobalAcceleratorClient, AllowCustomRoutingTrafficCommand } from '@aws-sdk/client-global-accelerator'; // ES Modules import
+ * // const { GlobalAcceleratorClient, AllowCustomRoutingTrafficCommand } = require('@aws-sdk/client-global-accelerator'); // CommonJS import
  * const client = new GlobalAcceleratorClient(config);
  * const input = { // AllowCustomRoutingTrafficRequest
- *   EndpointGroupArn: "STRING_VALUE", // required
- *   EndpointId: "STRING_VALUE", // required
+ *   EndpointGroupArn: 'STRING_VALUE', // required
+ *   EndpointId: 'STRING_VALUE', // required
  *   DestinationAddresses: [ // DestinationAddresses
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   DestinationPorts: [ // DestinationPorts
- *     Number("int"),
+ *     Number('int'),
  *   ],
  *   AllowAllTrafficToEndpoint: true || false,
  * };
  * const command = new AllowCustomRoutingTrafficCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param AllowCustomRoutingTrafficCommandInput - {@link AllowCustomRoutingTrafficCommandInput}
@@ -78,6 +81,8 @@ export interface AllowCustomRoutingTrafficCommandOutput extends __MetadataBearer
  * @throws {@link InvalidArgumentException} (client fault)
  *  <p>An argument that you specified is invalid.</p>
  *
+ * @throws {@link GlobalAcceleratorServiceException}
+ * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
  */
 export class AllowCustomRoutingTrafficCommand extends $Command<

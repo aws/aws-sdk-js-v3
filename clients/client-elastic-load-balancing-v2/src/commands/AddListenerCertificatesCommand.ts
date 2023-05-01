@@ -46,20 +46,30 @@ export interface AddListenerCertificatesCommandOutput extends AddListenerCertifi
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElasticLoadBalancingV2Client, AddListenerCertificatesCommand } from "@aws-sdk/client-elastic-load-balancing-v2"; // ES Modules import
- * // const { ElasticLoadBalancingV2Client, AddListenerCertificatesCommand } = require("@aws-sdk/client-elastic-load-balancing-v2"); // CommonJS import
+ * import { ElasticLoadBalancingV2Client, AddListenerCertificatesCommand } from '@aws-sdk/client-elastic-load-balancing-v2'; // ES Modules import
+ * // const { ElasticLoadBalancingV2Client, AddListenerCertificatesCommand } = require('@aws-sdk/client-elastic-load-balancing-v2'); // CommonJS import
  * const client = new ElasticLoadBalancingV2Client(config);
  * const input = { // AddListenerCertificatesInput
- *   ListenerArn: "STRING_VALUE", // required
+ *   ListenerArn: 'STRING_VALUE', // required
  *   Certificates: [ // CertificateList // required
  *     { // Certificate
- *       CertificateArn: "STRING_VALUE",
+ *       CertificateArn: 'STRING_VALUE',
  *       IsDefault: true || false,
  *     },
  *   ],
  * };
  * const command = new AddListenerCertificatesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AddListenerCertificatesOutput
+ *   Certificates: [ // CertificateList
+ *     { // Certificate
+ *       CertificateArn: 'STRING_VALUE',
+ *       IsDefault: true || false,
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param AddListenerCertificatesCommandInput - {@link AddListenerCertificatesCommandInput}
@@ -77,6 +87,8 @@ export interface AddListenerCertificatesCommandOutput extends AddListenerCertifi
  * @throws {@link TooManyCertificatesException} (client fault)
  *  <p>You've reached the limit on the number of certificates per load balancer.</p>
  *
+ * @throws {@link ElasticLoadBalancingV2ServiceException}
+ * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
  */
 export class AddListenerCertificatesCommand extends $Command<

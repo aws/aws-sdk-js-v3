@@ -36,15 +36,20 @@ export interface ExportSnapshotCommandOutput extends ExportSnapshotResult, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GameSparksClient, ExportSnapshotCommand } from "@aws-sdk/client-gamesparks"; // ES Modules import
- * // const { GameSparksClient, ExportSnapshotCommand } = require("@aws-sdk/client-gamesparks"); // CommonJS import
+ * import { GameSparksClient, ExportSnapshotCommand } from '@aws-sdk/client-gamesparks'; // ES Modules import
+ * // const { GameSparksClient, ExportSnapshotCommand } = require('@aws-sdk/client-gamesparks'); // CommonJS import
  * const client = new GameSparksClient(config);
  * const input = { // ExportSnapshotRequest
- *   GameName: "STRING_VALUE", // required
- *   SnapshotId: "STRING_VALUE", // required
+ *   GameName: 'STRING_VALUE', // required
+ *   SnapshotId: 'STRING_VALUE', // required
  * };
  * const command = new ExportSnapshotCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ExportSnapshotResult
+ *   S3Url: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ExportSnapshotCommandInput - {@link ExportSnapshotCommandInput}
@@ -68,6 +73,8 @@ export interface ExportSnapshotCommandOutput extends ExportSnapshotResult, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>One of the parameters in the request is invalid.</p>
  *
+ * @throws {@link GameSparksServiceException}
+ * <p>Base exception class for all service exceptions from GameSparks service.</p>
  *
  */
 export class ExportSnapshotCommand extends $Command<

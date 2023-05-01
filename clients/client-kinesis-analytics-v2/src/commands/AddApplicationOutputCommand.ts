@@ -52,30 +52,57 @@ export interface AddApplicationOutputCommandOutput extends AddApplicationOutputR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KinesisAnalyticsV2Client, AddApplicationOutputCommand } from "@aws-sdk/client-kinesis-analytics-v2"; // ES Modules import
- * // const { KinesisAnalyticsV2Client, AddApplicationOutputCommand } = require("@aws-sdk/client-kinesis-analytics-v2"); // CommonJS import
+ * import { KinesisAnalyticsV2Client, AddApplicationOutputCommand } from '@aws-sdk/client-kinesis-analytics-v2'; // ES Modules import
+ * // const { KinesisAnalyticsV2Client, AddApplicationOutputCommand } = require('@aws-sdk/client-kinesis-analytics-v2'); // CommonJS import
  * const client = new KinesisAnalyticsV2Client(config);
  * const input = { // AddApplicationOutputRequest
- *   ApplicationName: "STRING_VALUE", // required
- *   CurrentApplicationVersionId: Number("long"), // required
+ *   ApplicationName: 'STRING_VALUE', // required
+ *   CurrentApplicationVersionId: Number('long'), // required
  *   Output: { // Output
- *     Name: "STRING_VALUE", // required
+ *     Name: 'STRING_VALUE', // required
  *     KinesisStreamsOutput: { // KinesisStreamsOutput
- *       ResourceARN: "STRING_VALUE", // required
+ *       ResourceARN: 'STRING_VALUE', // required
  *     },
  *     KinesisFirehoseOutput: { // KinesisFirehoseOutput
- *       ResourceARN: "STRING_VALUE", // required
+ *       ResourceARN: 'STRING_VALUE', // required
  *     },
  *     LambdaOutput: { // LambdaOutput
- *       ResourceARN: "STRING_VALUE", // required
+ *       ResourceARN: 'STRING_VALUE', // required
  *     },
  *     DestinationSchema: { // DestinationSchema
- *       RecordFormatType: "JSON" || "CSV", // required
+ *       RecordFormatType: 'JSON' || 'CSV', // required
  *     },
  *   },
  * };
  * const command = new AddApplicationOutputCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AddApplicationOutputResponse
+ *   ApplicationARN: 'STRING_VALUE',
+ *   ApplicationVersionId: Number('long'),
+ *   OutputDescriptions: [ // OutputDescriptions
+ *     { // OutputDescription
+ *       OutputId: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *       KinesisStreamsOutputDescription: { // KinesisStreamsOutputDescription
+ *         ResourceARN: 'STRING_VALUE', // required
+ *         RoleARN: 'STRING_VALUE',
+ *       },
+ *       KinesisFirehoseOutputDescription: { // KinesisFirehoseOutputDescription
+ *         ResourceARN: 'STRING_VALUE', // required
+ *         RoleARN: 'STRING_VALUE',
+ *       },
+ *       LambdaOutputDescription: { // LambdaOutputDescription
+ *         ResourceARN: 'STRING_VALUE', // required
+ *         RoleARN: 'STRING_VALUE',
+ *       },
+ *       DestinationSchema: { // DestinationSchema
+ *         RecordFormatType: 'JSON' || 'CSV', // required
+ *       },
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param AddApplicationOutputCommandInput - {@link AddApplicationOutputCommandInput}
@@ -101,6 +128,8 @@ export interface AddApplicationOutputCommandOutput extends AddApplicationOutputR
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Specified application can't be found.</p>
  *
+ * @throws {@link KinesisAnalyticsV2ServiceException}
+ * <p>Base exception class for all service exceptions from KinesisAnalyticsV2 service.</p>
  *
  */
 export class AddApplicationOutputCommand extends $Command<

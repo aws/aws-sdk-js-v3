@@ -39,18 +39,18 @@ export interface UpdateCaseCommandOutput extends UpdateCaseResponse, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectCasesClient, UpdateCaseCommand } from "@aws-sdk/client-connectcases"; // ES Modules import
- * // const { ConnectCasesClient, UpdateCaseCommand } = require("@aws-sdk/client-connectcases"); // CommonJS import
+ * import { ConnectCasesClient, UpdateCaseCommand } from '@aws-sdk/client-connectcases'; // ES Modules import
+ * // const { ConnectCasesClient, UpdateCaseCommand } = require('@aws-sdk/client-connectcases'); // CommonJS import
  * const client = new ConnectCasesClient(config);
  * const input = { // UpdateCaseRequest
- *   domainId: "STRING_VALUE", // required
- *   caseId: "STRING_VALUE", // required
+ *   domainId: 'STRING_VALUE', // required
+ *   caseId: 'STRING_VALUE', // required
  *   fields: [ // FieldValueList // required
  *     { // FieldValue
- *       id: "STRING_VALUE", // required
+ *       id: 'STRING_VALUE', // required
  *       value: { // FieldValueUnion Union: only one key present
- *         stringValue: "STRING_VALUE",
- *         doubleValue: Number("double"),
+ *         stringValue: 'STRING_VALUE',
+ *         doubleValue: Number('double'),
  *         booleanValue: true || false,
  *       },
  *     },
@@ -58,6 +58,9 @@ export interface UpdateCaseCommandOutput extends UpdateCaseResponse, __MetadataB
  * };
  * const command = new UpdateCaseCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateCaseCommandInput - {@link UpdateCaseCommandInput}
@@ -83,6 +86,8 @@ export interface UpdateCaseCommandOutput extends UpdateCaseResponse, __MetadataB
  * @throws {@link ValidationException} (client fault)
  *  <p>The request isn't valid. Check the syntax and try again.</p>
  *
+ * @throws {@link ConnectCasesServiceException}
+ * <p>Base exception class for all service exceptions from ConnectCases service.</p>
  *
  */
 export class UpdateCaseCommand extends $Command<

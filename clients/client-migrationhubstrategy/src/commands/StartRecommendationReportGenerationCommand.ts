@@ -48,20 +48,25 @@ export interface StartRecommendationReportGenerationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MigrationHubStrategyClient, StartRecommendationReportGenerationCommand } from "@aws-sdk/client-migrationhubstrategy"; // ES Modules import
- * // const { MigrationHubStrategyClient, StartRecommendationReportGenerationCommand } = require("@aws-sdk/client-migrationhubstrategy"); // CommonJS import
+ * import { MigrationHubStrategyClient, StartRecommendationReportGenerationCommand } from '@aws-sdk/client-migrationhubstrategy'; // ES Modules import
+ * // const { MigrationHubStrategyClient, StartRecommendationReportGenerationCommand } = require('@aws-sdk/client-migrationhubstrategy'); // CommonJS import
  * const client = new MigrationHubStrategyClient(config);
  * const input = { // StartRecommendationReportGenerationRequest
- *   outputFormat: "STRING_VALUE",
+ *   outputFormat: 'STRING_VALUE',
  *   groupIdFilter: [ // GroupIds
  *     { // Group
- *       name: "STRING_VALUE",
- *       value: "STRING_VALUE",
+ *       name: 'STRING_VALUE',
+ *       value: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new StartRecommendationReportGenerationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartRecommendationReportGenerationResponse
+ *   id: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param StartRecommendationReportGenerationCommandInput - {@link StartRecommendationReportGenerationCommandInput}
@@ -87,6 +92,8 @@ export interface StartRecommendationReportGenerationCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p> The request body isn't valid. </p>
  *
+ * @throws {@link MigrationHubStrategyServiceException}
+ * <p>Base exception class for all service exceptions from MigrationHubStrategy service.</p>
  *
  */
 export class StartRecommendationReportGenerationCommand extends $Command<

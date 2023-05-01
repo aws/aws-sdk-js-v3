@@ -37,23 +37,44 @@ export interface DescribePackagesCommandOutput extends DescribePackagesResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OpenSearchClient, DescribePackagesCommand } from "@aws-sdk/client-opensearch"; // ES Modules import
- * // const { OpenSearchClient, DescribePackagesCommand } = require("@aws-sdk/client-opensearch"); // CommonJS import
+ * import { OpenSearchClient, DescribePackagesCommand } from '@aws-sdk/client-opensearch'; // ES Modules import
+ * // const { OpenSearchClient, DescribePackagesCommand } = require('@aws-sdk/client-opensearch'); // CommonJS import
  * const client = new OpenSearchClient(config);
  * const input = { // DescribePackagesRequest
  *   Filters: [ // DescribePackagesFilterList
  *     { // DescribePackagesFilter
- *       Name: "PackageID" || "PackageName" || "PackageStatus",
+ *       Name: 'PackageID' || 'PackageName' || 'PackageStatus',
  *       Value: [ // DescribePackagesFilterValues
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new DescribePackagesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribePackagesResponse
+ *   PackageDetailsList: [ // PackageDetailsList
+ *     { // PackageDetails
+ *       PackageID: 'STRING_VALUE',
+ *       PackageName: 'STRING_VALUE',
+ *       PackageType: 'TXT-DICTIONARY',
+ *       PackageDescription: 'STRING_VALUE',
+ *       PackageStatus: 'COPYING' || 'COPY_FAILED' || 'VALIDATING' || 'VALIDATION_FAILED' || 'AVAILABLE' || 'DELETING' || 'DELETED' || 'DELETE_FAILED',
+ *       CreatedAt: new Date('TIMESTAMP'),
+ *       LastUpdatedAt: new Date('TIMESTAMP'),
+ *       AvailablePackageVersion: 'STRING_VALUE',
+ *       ErrorDetails: { // ErrorDetails
+ *         ErrorType: 'STRING_VALUE',
+ *         ErrorMessage: 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribePackagesCommandInput - {@link DescribePackagesCommandInput}
@@ -77,6 +98,8 @@ export interface DescribePackagesCommandOutput extends DescribePackagesResponse,
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception for accessing or deleting a resource that doesn't exist.</p>
  *
+ * @throws {@link OpenSearchServiceException}
+ * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
  */
 export class DescribePackagesCommand extends $Command<

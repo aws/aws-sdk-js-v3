@@ -41,16 +41,36 @@ export interface DescribeEndpointSettingsCommandOutput extends DescribeEndpointS
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DatabaseMigrationServiceClient, DescribeEndpointSettingsCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
- * // const { DatabaseMigrationServiceClient, DescribeEndpointSettingsCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
+ * import { DatabaseMigrationServiceClient, DescribeEndpointSettingsCommand } from '@aws-sdk/client-database-migration-service'; // ES Modules import
+ * // const { DatabaseMigrationServiceClient, DescribeEndpointSettingsCommand } = require('@aws-sdk/client-database-migration-service'); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
  * const input = { // DescribeEndpointSettingsMessage
- *   EngineName: "STRING_VALUE", // required
- *   MaxRecords: Number("int"),
- *   Marker: "STRING_VALUE",
+ *   EngineName: 'STRING_VALUE', // required
+ *   MaxRecords: Number('int'),
+ *   Marker: 'STRING_VALUE',
  * };
  * const command = new DescribeEndpointSettingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeEndpointSettingsResponse
+ *   Marker: 'STRING_VALUE',
+ *   EndpointSettings: [ // EndpointSettingsList
+ *     { // EndpointSetting
+ *       Name: 'STRING_VALUE',
+ *       Type: 'string' || 'boolean' || 'integer' || 'enum',
+ *       EnumValues: [ // EndpointSettingEnumValues
+ *         'STRING_VALUE',
+ *       ],
+ *       Sensitive: true || false,
+ *       Units: 'STRING_VALUE',
+ *       Applicability: 'STRING_VALUE',
+ *       IntValueMin: Number('int'),
+ *       IntValueMax: Number('int'),
+ *       DefaultValue: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeEndpointSettingsCommandInput - {@link DescribeEndpointSettingsCommandInput}
@@ -59,6 +79,8 @@ export interface DescribeEndpointSettingsCommandOutput extends DescribeEndpointS
  * @see {@link DescribeEndpointSettingsCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
+ * @throws {@link DatabaseMigrationServiceServiceException}
+ * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
  */
 export class DescribeEndpointSettingsCommand extends $Command<

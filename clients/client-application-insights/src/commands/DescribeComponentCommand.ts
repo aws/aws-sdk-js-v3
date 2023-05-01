@@ -41,15 +41,35 @@ export interface DescribeComponentCommandOutput extends DescribeComponentRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ApplicationInsightsClient, DescribeComponentCommand } from "@aws-sdk/client-application-insights"; // ES Modules import
- * // const { ApplicationInsightsClient, DescribeComponentCommand } = require("@aws-sdk/client-application-insights"); // CommonJS import
+ * import { ApplicationInsightsClient, DescribeComponentCommand } from '@aws-sdk/client-application-insights'; // ES Modules import
+ * // const { ApplicationInsightsClient, DescribeComponentCommand } = require('@aws-sdk/client-application-insights'); // CommonJS import
  * const client = new ApplicationInsightsClient(config);
  * const input = { // DescribeComponentRequest
- *   ResourceGroupName: "STRING_VALUE", // required
- *   ComponentName: "STRING_VALUE", // required
+ *   ResourceGroupName: 'STRING_VALUE', // required
+ *   ComponentName: 'STRING_VALUE', // required
  * };
  * const command = new DescribeComponentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeComponentResponse
+ *   ApplicationComponent: { // ApplicationComponent
+ *     ComponentName: 'STRING_VALUE',
+ *     ComponentRemarks: 'STRING_VALUE',
+ *     ResourceType: 'STRING_VALUE',
+ *     OsType: 'STRING_VALUE',
+ *     Tier: 'STRING_VALUE',
+ *     Monitor: true || false,
+ *     DetectedWorkload: { // DetectedWorkload
+ *       '<keys>': { // WorkloadMetaData
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *     },
+ *   },
+ *   ResourceList: [ // ResourceList
+ *     'STRING_VALUE',
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeComponentCommandInput - {@link DescribeComponentCommandInput}
@@ -67,6 +87,8 @@ export interface DescribeComponentCommandOutput extends DescribeComponentRespons
  * @throws {@link ValidationException} (client fault)
  *  <p>The parameter is not valid.</p>
  *
+ * @throws {@link ApplicationInsightsServiceException}
+ * <p>Base exception class for all service exceptions from ApplicationInsights service.</p>
  *
  */
 export class DescribeComponentCommand extends $Command<

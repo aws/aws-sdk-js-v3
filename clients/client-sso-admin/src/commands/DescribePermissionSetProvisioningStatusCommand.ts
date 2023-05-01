@@ -45,15 +45,27 @@ export interface DescribePermissionSetProvisioningStatusCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSOAdminClient, DescribePermissionSetProvisioningStatusCommand } from "@aws-sdk/client-sso-admin"; // ES Modules import
- * // const { SSOAdminClient, DescribePermissionSetProvisioningStatusCommand } = require("@aws-sdk/client-sso-admin"); // CommonJS import
+ * import { SSOAdminClient, DescribePermissionSetProvisioningStatusCommand } from '@aws-sdk/client-sso-admin'; // ES Modules import
+ * // const { SSOAdminClient, DescribePermissionSetProvisioningStatusCommand } = require('@aws-sdk/client-sso-admin'); // CommonJS import
  * const client = new SSOAdminClient(config);
  * const input = { // DescribePermissionSetProvisioningStatusRequest
- *   InstanceArn: "STRING_VALUE", // required
- *   ProvisionPermissionSetRequestId: "STRING_VALUE", // required
+ *   InstanceArn: 'STRING_VALUE', // required
+ *   ProvisionPermissionSetRequestId: 'STRING_VALUE', // required
  * };
  * const command = new DescribePermissionSetProvisioningStatusCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribePermissionSetProvisioningStatusResponse
+ *   PermissionSetProvisioningStatus: { // PermissionSetProvisioningStatus
+ *     Status: 'IN_PROGRESS' || 'FAILED' || 'SUCCEEDED',
+ *     RequestId: 'STRING_VALUE',
+ *     AccountId: 'STRING_VALUE',
+ *     PermissionSetArn: 'STRING_VALUE',
+ *     FailureReason: 'STRING_VALUE',
+ *     CreatedDate: new Date('TIMESTAMP'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribePermissionSetProvisioningStatusCommandInput - {@link DescribePermissionSetProvisioningStatusCommandInput}
@@ -79,6 +91,8 @@ export interface DescribePermissionSetProvisioningStatusCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The request failed because it contains a syntax error.</p>
  *
+ * @throws {@link SSOAdminServiceException}
+ * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
  */
 export class DescribePermissionSetProvisioningStatusCommand extends $Command<

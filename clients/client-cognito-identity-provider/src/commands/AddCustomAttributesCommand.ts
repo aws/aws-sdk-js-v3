@@ -41,31 +41,34 @@ export interface AddCustomAttributesCommandOutput extends AddCustomAttributesRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CognitoIdentityProviderClient, AddCustomAttributesCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
- * // const { CognitoIdentityProviderClient, AddCustomAttributesCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
+ * import { CognitoIdentityProviderClient, AddCustomAttributesCommand } from '@aws-sdk/client-cognito-identity-provider'; // ES Modules import
+ * // const { CognitoIdentityProviderClient, AddCustomAttributesCommand } = require('@aws-sdk/client-cognito-identity-provider'); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
  * const input = { // AddCustomAttributesRequest
- *   UserPoolId: "STRING_VALUE", // required
+ *   UserPoolId: 'STRING_VALUE', // required
  *   CustomAttributes: [ // CustomAttributesListType // required
  *     { // SchemaAttributeType
- *       Name: "STRING_VALUE",
- *       AttributeDataType: "String" || "Number" || "DateTime" || "Boolean",
+ *       Name: 'STRING_VALUE',
+ *       AttributeDataType: 'String' || 'Number' || 'DateTime' || 'Boolean',
  *       DeveloperOnlyAttribute: true || false,
  *       Mutable: true || false,
  *       Required: true || false,
  *       NumberAttributeConstraints: { // NumberAttributeConstraintsType
- *         MinValue: "STRING_VALUE",
- *         MaxValue: "STRING_VALUE",
+ *         MinValue: 'STRING_VALUE',
+ *         MaxValue: 'STRING_VALUE',
  *       },
  *       StringAttributeConstraints: { // StringAttributeConstraintsType
- *         MinLength: "STRING_VALUE",
- *         MaxLength: "STRING_VALUE",
+ *         MinLength: 'STRING_VALUE',
+ *         MaxLength: 'STRING_VALUE',
  *       },
  *     },
  *   ],
  * };
  * const command = new AddCustomAttributesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param AddCustomAttributesCommandInput - {@link AddCustomAttributesCommandInput}
@@ -96,6 +99,8 @@ export interface AddCustomAttributesCommandOutput extends AddCustomAttributesRes
  *  <p>This exception is thrown when you're trying to modify a user pool while a user import
  *             job is in progress for that pool.</p>
  *
+ * @throws {@link CognitoIdentityProviderServiceException}
+ * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
  */
 export class AddCustomAttributesCommand extends $Command<

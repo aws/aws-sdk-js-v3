@@ -41,15 +41,28 @@ export interface ListSignalCatalogsCommandOutput extends ListSignalCatalogsRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTFleetWiseClient, ListSignalCatalogsCommand } from "@aws-sdk/client-iotfleetwise"; // ES Modules import
- * // const { IoTFleetWiseClient, ListSignalCatalogsCommand } = require("@aws-sdk/client-iotfleetwise"); // CommonJS import
+ * import { IoTFleetWiseClient, ListSignalCatalogsCommand } from '@aws-sdk/client-iotfleetwise'; // ES Modules import
+ * // const { IoTFleetWiseClient, ListSignalCatalogsCommand } = require('@aws-sdk/client-iotfleetwise'); // CommonJS import
  * const client = new IoTFleetWiseClient(config);
  * const input = { // ListSignalCatalogsRequest
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new ListSignalCatalogsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListSignalCatalogsResponse
+ *   summaries: [ // signalCatalogSummaries
+ *     { // SignalCatalogSummary
+ *       name: 'STRING_VALUE',
+ *       arn: 'STRING_VALUE',
+ *       creationTime: new Date('TIMESTAMP'),
+ *       lastModificationTime: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListSignalCatalogsCommandInput - {@link ListSignalCatalogsCommandInput}
@@ -70,6 +83,8 @@ export interface ListSignalCatalogsCommandOutput extends ListSignalCatalogsRespo
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
  *
+ * @throws {@link IoTFleetWiseServiceException}
+ * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
  */
 export class ListSignalCatalogsCommand extends $Command<

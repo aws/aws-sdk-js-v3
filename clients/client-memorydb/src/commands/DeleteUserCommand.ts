@@ -36,14 +36,32 @@ export interface DeleteUserCommandOutput extends DeleteUserResponse, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MemoryDBClient, DeleteUserCommand } from "@aws-sdk/client-memorydb"; // ES Modules import
- * // const { MemoryDBClient, DeleteUserCommand } = require("@aws-sdk/client-memorydb"); // CommonJS import
+ * import { MemoryDBClient, DeleteUserCommand } from '@aws-sdk/client-memorydb'; // ES Modules import
+ * // const { MemoryDBClient, DeleteUserCommand } = require('@aws-sdk/client-memorydb'); // CommonJS import
  * const client = new MemoryDBClient(config);
  * const input = { // DeleteUserRequest
- *   UserName: "STRING_VALUE", // required
+ *   UserName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteUserCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteUserResponse
+ *   User: { // User
+ *     Name: 'STRING_VALUE',
+ *     Status: 'STRING_VALUE',
+ *     AccessString: 'STRING_VALUE',
+ *     ACLNames: [ // ACLNameList
+ *       'STRING_VALUE',
+ *     ],
+ *     MinimumEngineVersion: 'STRING_VALUE',
+ *     Authentication: { // Authentication
+ *       Type: 'password' || 'no-password',
+ *       PasswordCount: Number('int'),
+ *     },
+ *     ARN: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param DeleteUserCommandInput - {@link DeleteUserCommandInput}
@@ -61,6 +79,8 @@ export interface DeleteUserCommandOutput extends DeleteUserResponse, __MetadataB
  * @throws {@link UserNotFoundFault} (client fault)
  *  <p></p>
  *
+ * @throws {@link MemoryDBServiceException}
+ * <p>Base exception class for all service exceptions from MemoryDB service.</p>
  *
  */
 export class DeleteUserCommand extends $Command<

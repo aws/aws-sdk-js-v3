@@ -38,25 +38,50 @@ export interface DescribeVpnGatewaysCommandOutput extends DescribeVpnGatewaysRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, DescribeVpnGatewaysCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, DescribeVpnGatewaysCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, DescribeVpnGatewaysCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, DescribeVpnGatewaysCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // DescribeVpnGatewaysRequest
  *   Filters: [ // FilterList
  *     { // Filter
- *       Name: "STRING_VALUE",
+ *       Name: 'STRING_VALUE',
  *       Values: [ // ValueStringList
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
  *   VpnGatewayIds: [ // VpnGatewayIdStringList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   DryRun: true || false,
  * };
  * const command = new DescribeVpnGatewaysCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeVpnGatewaysResult
+ *   VpnGateways: [ // VpnGatewayList
+ *     { // VpnGateway
+ *       AvailabilityZone: 'STRING_VALUE',
+ *       State: 'pending' || 'available' || 'deleting' || 'deleted',
+ *       Type: 'ipsec.1',
+ *       VpcAttachments: [ // VpcAttachmentList
+ *         { // VpcAttachment
+ *           State: 'attaching' || 'attached' || 'detaching' || 'detached',
+ *           VpcId: 'STRING_VALUE',
+ *         },
+ *       ],
+ *       VpnGatewayId: 'STRING_VALUE',
+ *       AmazonSideAsn: Number('long'),
+ *       Tags: [ // TagList
+ *         { // Tag
+ *           Key: 'STRING_VALUE',
+ *           Value: 'STRING_VALUE',
+ *         },
+ *       ],
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeVpnGatewaysCommandInput - {@link DescribeVpnGatewaysCommandInput}
@@ -65,6 +90,8 @@ export interface DescribeVpnGatewaysCommandOutput extends DescribeVpnGatewaysRes
  * @see {@link DescribeVpnGatewaysCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class DescribeVpnGatewaysCommand extends $Command<

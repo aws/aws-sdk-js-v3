@@ -38,18 +38,31 @@ export interface DescribeAgentVersionsCommandOutput extends DescribeAgentVersion
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OpsWorksClient, DescribeAgentVersionsCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
- * // const { OpsWorksClient, DescribeAgentVersionsCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
+ * import { OpsWorksClient, DescribeAgentVersionsCommand } from '@aws-sdk/client-opsworks'; // ES Modules import
+ * // const { OpsWorksClient, DescribeAgentVersionsCommand } = require('@aws-sdk/client-opsworks'); // CommonJS import
  * const client = new OpsWorksClient(config);
  * const input = { // DescribeAgentVersionsRequest
- *   StackId: "STRING_VALUE",
+ *   StackId: 'STRING_VALUE',
  *   ConfigurationManager: { // StackConfigurationManager
- *     Name: "STRING_VALUE",
- *     Version: "STRING_VALUE",
+ *     Name: 'STRING_VALUE',
+ *     Version: 'STRING_VALUE',
  *   },
  * };
  * const command = new DescribeAgentVersionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeAgentVersionsResult
+ *   AgentVersions: [ // AgentVersions
+ *     { // AgentVersion
+ *       Version: 'STRING_VALUE',
+ *       ConfigurationManager: { // StackConfigurationManager
+ *         Name: 'STRING_VALUE',
+ *         Version: 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeAgentVersionsCommandInput - {@link DescribeAgentVersionsCommandInput}
@@ -64,6 +77,8 @@ export interface DescribeAgentVersionsCommandOutput extends DescribeAgentVersion
  * @throws {@link ValidationException} (client fault)
  *  <p>Indicates that a request was not valid.</p>
  *
+ * @throws {@link OpsWorksServiceException}
+ * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
  */
 export class DescribeAgentVersionsCommand extends $Command<

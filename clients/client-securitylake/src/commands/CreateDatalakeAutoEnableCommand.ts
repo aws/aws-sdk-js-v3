@@ -38,21 +38,24 @@ export interface CreateDatalakeAutoEnableCommandOutput extends CreateDatalakeAut
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SecurityLakeClient, CreateDatalakeAutoEnableCommand } from "@aws-sdk/client-securitylake"; // ES Modules import
- * // const { SecurityLakeClient, CreateDatalakeAutoEnableCommand } = require("@aws-sdk/client-securitylake"); // CommonJS import
+ * import { SecurityLakeClient, CreateDatalakeAutoEnableCommand } from '@aws-sdk/client-securitylake'; // ES Modules import
+ * // const { SecurityLakeClient, CreateDatalakeAutoEnableCommand } = require('@aws-sdk/client-securitylake'); // CommonJS import
  * const client = new SecurityLakeClient(config);
  * const input = { // CreateDatalakeAutoEnableRequest
  *   configurationForNewAccounts: [ // AutoEnableNewRegionConfigurationList // required
  *     { // AutoEnableNewRegionConfiguration
- *       region: "STRING_VALUE", // required
+ *       region: 'STRING_VALUE', // required
  *       sources: [ // AwsSourceTypeList // required
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
  * };
  * const command = new CreateDatalakeAutoEnableCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param CreateDatalakeAutoEnableCommandInput - {@link CreateDatalakeAutoEnableCommandInput}
@@ -79,6 +82,8 @@ export interface CreateDatalakeAutoEnableCommandOutput extends CreateDatalakeAut
  * @throws {@link ValidationException} (client fault)
  *  <p>Your signing certificate could not be validated. </p>
  *
+ * @throws {@link SecurityLakeServiceException}
+ * <p>Base exception class for all service exceptions from SecurityLake service.</p>
  *
  */
 export class CreateDatalakeAutoEnableCommand extends $Command<

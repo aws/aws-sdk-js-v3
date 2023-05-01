@@ -60,29 +60,29 @@ export interface BatchPutAssetPropertyValueCommandOutput extends BatchPutAssetPr
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTSiteWiseClient, BatchPutAssetPropertyValueCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
- * // const { IoTSiteWiseClient, BatchPutAssetPropertyValueCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
+ * import { IoTSiteWiseClient, BatchPutAssetPropertyValueCommand } from '@aws-sdk/client-iotsitewise'; // ES Modules import
+ * // const { IoTSiteWiseClient, BatchPutAssetPropertyValueCommand } = require('@aws-sdk/client-iotsitewise'); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
  * const input = { // BatchPutAssetPropertyValueRequest
  *   entries: [ // PutAssetPropertyValueEntries // required
  *     { // PutAssetPropertyValueEntry
- *       entryId: "STRING_VALUE", // required
- *       assetId: "STRING_VALUE",
- *       propertyId: "STRING_VALUE",
- *       propertyAlias: "STRING_VALUE",
+ *       entryId: 'STRING_VALUE', // required
+ *       assetId: 'STRING_VALUE',
+ *       propertyId: 'STRING_VALUE',
+ *       propertyAlias: 'STRING_VALUE',
  *       propertyValues: [ // AssetPropertyValues // required
  *         { // AssetPropertyValue
  *           value: { // Variant
- *             stringValue: "STRING_VALUE",
- *             integerValue: Number("int"),
- *             doubleValue: Number("double"),
+ *             stringValue: 'STRING_VALUE',
+ *             integerValue: Number('int'),
+ *             doubleValue: Number('double'),
  *             booleanValue: true || false,
  *           },
  *           timestamp: { // TimeInNanos
- *             timeInSeconds: Number("long"), // required
- *             offsetInNanos: Number("int"),
+ *             timeInSeconds: Number('long'), // required
+ *             offsetInNanos: Number('int'),
  *           },
- *           quality: "GOOD" || "BAD" || "UNCERTAIN",
+ *           quality: 'GOOD' || 'BAD' || 'UNCERTAIN',
  *         },
  *       ],
  *     },
@@ -90,6 +90,27 @@ export interface BatchPutAssetPropertyValueCommandOutput extends BatchPutAssetPr
  * };
  * const command = new BatchPutAssetPropertyValueCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BatchPutAssetPropertyValueResponse
+ *   errorEntries: [ // BatchPutAssetPropertyErrorEntries // required
+ *     { // BatchPutAssetPropertyErrorEntry
+ *       entryId: 'STRING_VALUE', // required
+ *       errors: [ // BatchPutAssetPropertyErrors // required
+ *         { // BatchPutAssetPropertyError
+ *           errorCode: 'ResourceNotFoundException' || 'InvalidRequestException' || 'InternalFailureException' || 'ServiceUnavailableException' || 'ThrottlingException' || 'LimitExceededException' || 'ConflictingOperationException' || 'TimestampOutOfRangeException' || 'AccessDeniedException', // required
+ *           errorMessage: 'STRING_VALUE', // required
+ *           timestamps: [ // Timestamps // required
+ *             { // TimeInNanos
+ *               timeInSeconds: Number('long'), // required
+ *               offsetInNanos: Number('int'),
+ *             },
+ *           ],
+ *         },
+ *       ],
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param BatchPutAssetPropertyValueCommandInput - {@link BatchPutAssetPropertyValueCommandInput}
@@ -127,6 +148,8 @@ export interface BatchPutAssetPropertyValueCommandOutput extends BatchPutAssetPr
  *       on.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
  *
+ * @throws {@link IoTSiteWiseServiceException}
+ * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
  */
 export class BatchPutAssetPropertyValueCommand extends $Command<

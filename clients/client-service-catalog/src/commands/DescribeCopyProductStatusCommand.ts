@@ -36,15 +36,22 @@ export interface DescribeCopyProductStatusCommandOutput extends DescribeCopyProd
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ServiceCatalogClient, DescribeCopyProductStatusCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
- * // const { ServiceCatalogClient, DescribeCopyProductStatusCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
+ * import { ServiceCatalogClient, DescribeCopyProductStatusCommand } from '@aws-sdk/client-service-catalog'; // ES Modules import
+ * // const { ServiceCatalogClient, DescribeCopyProductStatusCommand } = require('@aws-sdk/client-service-catalog'); // CommonJS import
  * const client = new ServiceCatalogClient(config);
  * const input = { // DescribeCopyProductStatusInput
- *   AcceptLanguage: "STRING_VALUE",
- *   CopyProductToken: "STRING_VALUE", // required
+ *   AcceptLanguage: 'STRING_VALUE',
+ *   CopyProductToken: 'STRING_VALUE', // required
  * };
  * const command = new DescribeCopyProductStatusCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeCopyProductStatusOutput
+ *   CopyProductStatus: 'SUCCEEDED' || 'IN_PROGRESS' || 'FAILED',
+ *   TargetProductId: 'STRING_VALUE',
+ *   StatusDetail: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeCopyProductStatusCommandInput - {@link DescribeCopyProductStatusCommandInput}
@@ -56,6 +63,8 @@ export interface DescribeCopyProductStatusCommandOutput extends DescribeCopyProd
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link ServiceCatalogServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
  */
 export class DescribeCopyProductStatusCommand extends $Command<

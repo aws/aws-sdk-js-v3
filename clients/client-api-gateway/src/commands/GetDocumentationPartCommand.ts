@@ -36,15 +36,28 @@ export interface GetDocumentationPartCommandOutput extends DocumentationPart, __
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { APIGatewayClient, GetDocumentationPartCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
- * // const { APIGatewayClient, GetDocumentationPartCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
+ * import { APIGatewayClient, GetDocumentationPartCommand } from '@aws-sdk/client-api-gateway'; // ES Modules import
+ * // const { APIGatewayClient, GetDocumentationPartCommand } = require('@aws-sdk/client-api-gateway'); // CommonJS import
  * const client = new APIGatewayClient(config);
  * const input = { // GetDocumentationPartRequest
- *   restApiId: "STRING_VALUE", // required
- *   documentationPartId: "STRING_VALUE", // required
+ *   restApiId: 'STRING_VALUE', // required
+ *   documentationPartId: 'STRING_VALUE', // required
  * };
  * const command = new GetDocumentationPartCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DocumentationPart
+ *   id: 'STRING_VALUE',
+ *   location: { // DocumentationPartLocation
+ *     type: 'API' || 'AUTHORIZER' || 'MODEL' || 'RESOURCE' || 'METHOD' || 'PATH_PARAMETER' || 'QUERY_PARAMETER' || 'REQUEST_HEADER' || 'REQUEST_BODY' || 'RESPONSE' || 'RESPONSE_HEADER' || 'RESPONSE_BODY', // required
+ *     path: 'STRING_VALUE',
+ *     method: 'STRING_VALUE',
+ *     statusCode: 'STRING_VALUE',
+ *     name: 'STRING_VALUE',
+ *   },
+ *   properties: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetDocumentationPartCommandInput - {@link GetDocumentationPartCommandInput}
@@ -65,6 +78,8 @@ export interface GetDocumentationPartCommandOutput extends DocumentationPart, __
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The request is denied because the caller has insufficient permissions.</p>
  *
+ * @throws {@link APIGatewayServiceException}
+ * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
  */
 export class GetDocumentationPartCommand extends $Command<

@@ -36,16 +36,28 @@ export interface ListTeamMembersCommandOutput extends ListTeamMembersResult, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeStarClient, ListTeamMembersCommand } from "@aws-sdk/client-codestar"; // ES Modules import
- * // const { CodeStarClient, ListTeamMembersCommand } = require("@aws-sdk/client-codestar"); // CommonJS import
+ * import { CodeStarClient, ListTeamMembersCommand } from '@aws-sdk/client-codestar'; // ES Modules import
+ * // const { CodeStarClient, ListTeamMembersCommand } = require('@aws-sdk/client-codestar'); // CommonJS import
  * const client = new CodeStarClient(config);
  * const input = { // ListTeamMembersRequest
- *   projectId: "STRING_VALUE", // required
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   projectId: 'STRING_VALUE', // required
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new ListTeamMembersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTeamMembersResult
+ *   teamMembers: [ // TeamMemberResult // required
+ *     { // TeamMember
+ *       userArn: 'STRING_VALUE', // required
+ *       projectRole: 'STRING_VALUE', // required
+ *       remoteAccessAllowed: true || false,
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListTeamMembersCommandInput - {@link ListTeamMembersCommandInput}
@@ -63,6 +75,8 @@ export interface ListTeamMembersCommandOutput extends ListTeamMembersResult, __M
  * @throws {@link ValidationException} (client fault)
  *  <p>The specified input is either not valid, or it could not be validated.</p>
  *
+ * @throws {@link CodeStarServiceException}
+ * <p>Base exception class for all service exceptions from CodeStar service.</p>
  *
  */
 export class ListTeamMembersCommand extends $Command<

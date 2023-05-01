@@ -52,16 +52,30 @@ export interface DescribeChannelModeratedByAppInstanceUserCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeClient, DescribeChannelModeratedByAppInstanceUserCommand } from "@aws-sdk/client-chime"; // ES Modules import
- * // const { ChimeClient, DescribeChannelModeratedByAppInstanceUserCommand } = require("@aws-sdk/client-chime"); // CommonJS import
+ * import { ChimeClient, DescribeChannelModeratedByAppInstanceUserCommand } from '@aws-sdk/client-chime'; // ES Modules import
+ * // const { ChimeClient, DescribeChannelModeratedByAppInstanceUserCommand } = require('@aws-sdk/client-chime'); // CommonJS import
  * const client = new ChimeClient(config);
  * const input = { // DescribeChannelModeratedByAppInstanceUserRequest
- *   ChannelArn: "STRING_VALUE", // required
- *   AppInstanceUserArn: "STRING_VALUE", // required
- *   ChimeBearer: "STRING_VALUE",
+ *   ChannelArn: 'STRING_VALUE', // required
+ *   AppInstanceUserArn: 'STRING_VALUE', // required
+ *   ChimeBearer: 'STRING_VALUE',
  * };
  * const command = new DescribeChannelModeratedByAppInstanceUserCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeChannelModeratedByAppInstanceUserResponse
+ *   Channel: { // ChannelModeratedByAppInstanceUserSummary
+ *     ChannelSummary: { // ChannelSummary
+ *       Name: 'STRING_VALUE',
+ *       ChannelArn: 'STRING_VALUE',
+ *       Mode: 'UNRESTRICTED' || 'RESTRICTED',
+ *       Privacy: 'PUBLIC' || 'PRIVATE',
+ *       Metadata: 'STRING_VALUE',
+ *       LastMessageTimestamp: new Date('TIMESTAMP'),
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeChannelModeratedByAppInstanceUserCommandInput - {@link DescribeChannelModeratedByAppInstanceUserCommandInput}
@@ -88,6 +102,8 @@ export interface DescribeChannelModeratedByAppInstanceUserCommandOutput
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeServiceException}
+ * <p>Base exception class for all service exceptions from Chime service.</p>
  *
  */
 export class DescribeChannelModeratedByAppInstanceUserCommand extends $Command<

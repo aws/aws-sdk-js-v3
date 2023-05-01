@@ -36,14 +36,35 @@ export interface DescribeAppImageConfigCommandOutput extends DescribeAppImageCon
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, DescribeAppImageConfigCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, DescribeAppImageConfigCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, DescribeAppImageConfigCommand } from '@aws-sdk/client-sagemaker'; // ES Modules import
+ * // const { SageMakerClient, DescribeAppImageConfigCommand } = require('@aws-sdk/client-sagemaker'); // CommonJS import
  * const client = new SageMakerClient(config);
  * const input = { // DescribeAppImageConfigRequest
- *   AppImageConfigName: "STRING_VALUE", // required
+ *   AppImageConfigName: 'STRING_VALUE', // required
  * };
  * const command = new DescribeAppImageConfigCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeAppImageConfigResponse
+ *   AppImageConfigArn: 'STRING_VALUE',
+ *   AppImageConfigName: 'STRING_VALUE',
+ *   CreationTime: new Date('TIMESTAMP'),
+ *   LastModifiedTime: new Date('TIMESTAMP'),
+ *   KernelGatewayImageConfig: { // KernelGatewayImageConfig
+ *     KernelSpecs: [ // KernelSpecs // required
+ *       { // KernelSpec
+ *         Name: 'STRING_VALUE', // required
+ *         DisplayName: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     FileSystemConfig: { // FileSystemConfig
+ *       MountPath: 'STRING_VALUE',
+ *       DefaultUid: Number('int'),
+ *       DefaultGid: Number('int'),
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeAppImageConfigCommandInput - {@link DescribeAppImageConfigCommandInput}
@@ -55,6 +76,8 @@ export interface DescribeAppImageConfigCommandOutput extends DescribeAppImageCon
  * @throws {@link ResourceNotFound} (client fault)
  *  <p>Resource being access is not found.</p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class DescribeAppImageConfigCommand extends $Command<

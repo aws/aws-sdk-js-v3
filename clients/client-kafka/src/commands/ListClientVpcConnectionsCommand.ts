@@ -36,16 +36,30 @@ export interface ListClientVpcConnectionsCommandOutput extends ListClientVpcConn
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KafkaClient, ListClientVpcConnectionsCommand } from "@aws-sdk/client-kafka"; // ES Modules import
- * // const { KafkaClient, ListClientVpcConnectionsCommand } = require("@aws-sdk/client-kafka"); // CommonJS import
+ * import { KafkaClient, ListClientVpcConnectionsCommand } from '@aws-sdk/client-kafka'; // ES Modules import
+ * // const { KafkaClient, ListClientVpcConnectionsCommand } = require('@aws-sdk/client-kafka'); // CommonJS import
  * const client = new KafkaClient(config);
  * const input = { // ListClientVpcConnectionsRequest
- *   ClusterArn: "STRING_VALUE", // required
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   ClusterArn: 'STRING_VALUE', // required
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListClientVpcConnectionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListClientVpcConnectionsResponse
+ *   ClientVpcConnections: [ // __listOfClientVpcConnection
+ *     { // ClientVpcConnection
+ *       Authentication: 'STRING_VALUE',
+ *       CreationTime: new Date('TIMESTAMP'),
+ *       State: 'CREATING' || 'AVAILABLE' || 'INACTIVE' || 'DEACTIVATING' || 'DELETING' || 'FAILED' || 'REJECTED' || 'REJECTING',
+ *       VpcConnectionArn: 'STRING_VALUE', // required
+ *       Owner: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListClientVpcConnectionsCommandInput - {@link ListClientVpcConnectionsCommandInput}
@@ -69,6 +83,8 @@ export interface ListClientVpcConnectionsCommandOutput extends ListClientVpcConn
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>Returns information about an error.</p>
  *
+ * @throws {@link KafkaServiceException}
+ * <p>Base exception class for all service exceptions from Kafka service.</p>
  *
  */
 export class ListClientVpcConnectionsCommand extends $Command<

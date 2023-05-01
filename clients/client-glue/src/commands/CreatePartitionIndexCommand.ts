@@ -36,22 +36,25 @@ export interface CreatePartitionIndexCommandOutput extends CreatePartitionIndexR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlueClient, CreatePartitionIndexCommand } from "@aws-sdk/client-glue"; // ES Modules import
- * // const { GlueClient, CreatePartitionIndexCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * import { GlueClient, CreatePartitionIndexCommand } from '@aws-sdk/client-glue'; // ES Modules import
+ * // const { GlueClient, CreatePartitionIndexCommand } = require('@aws-sdk/client-glue'); // CommonJS import
  * const client = new GlueClient(config);
  * const input = { // CreatePartitionIndexRequest
- *   CatalogId: "STRING_VALUE",
- *   DatabaseName: "STRING_VALUE", // required
- *   TableName: "STRING_VALUE", // required
+ *   CatalogId: 'STRING_VALUE',
+ *   DatabaseName: 'STRING_VALUE', // required
+ *   TableName: 'STRING_VALUE', // required
  *   PartitionIndex: { // PartitionIndex
  *     Keys: [ // KeyList // required
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
- *     IndexName: "STRING_VALUE", // required
+ *     IndexName: 'STRING_VALUE', // required
  *   },
  * };
  * const command = new CreatePartitionIndexCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param CreatePartitionIndexCommandInput - {@link CreatePartitionIndexCommandInput}
@@ -81,6 +84,8 @@ export interface CreatePartitionIndexCommandOutput extends CreatePartitionIndexR
  * @throws {@link ResourceNumberLimitExceededException} (client fault)
  *  <p>A resource numerical limit was exceeded.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class CreatePartitionIndexCommand extends $Command<

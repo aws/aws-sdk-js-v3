@@ -37,15 +37,18 @@ export interface DeleteResourcePolicyCommandOutput extends DeleteResourcePolicyO
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMIncidentsClient, DeleteResourcePolicyCommand } from "@aws-sdk/client-ssm-incidents"; // ES Modules import
- * // const { SSMIncidentsClient, DeleteResourcePolicyCommand } = require("@aws-sdk/client-ssm-incidents"); // CommonJS import
+ * import { SSMIncidentsClient, DeleteResourcePolicyCommand } from '@aws-sdk/client-ssm-incidents'; // ES Modules import
+ * // const { SSMIncidentsClient, DeleteResourcePolicyCommand } = require('@aws-sdk/client-ssm-incidents'); // CommonJS import
  * const client = new SSMIncidentsClient(config);
  * const input = { // DeleteResourcePolicyInput
- *   resourceArn: "STRING_VALUE", // required
- *   policyId: "STRING_VALUE", // required
+ *   resourceArn: 'STRING_VALUE', // required
+ *   policyId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteResourcePolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteResourcePolicyCommandInput - {@link DeleteResourcePolicyCommandInput}
@@ -71,6 +74,8 @@ export interface DeleteResourcePolicyCommandOutput extends DeleteResourcePolicyO
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
  *       service.</p>
  *
+ * @throws {@link SSMIncidentsServiceException}
+ * <p>Base exception class for all service exceptions from SSMIncidents service.</p>
  *
  */
 export class DeleteResourcePolicyCommand extends $Command<

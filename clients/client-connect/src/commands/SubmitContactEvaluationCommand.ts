@@ -41,29 +41,35 @@ export interface SubmitContactEvaluationCommandOutput extends SubmitContactEvalu
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, SubmitContactEvaluationCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, SubmitContactEvaluationCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, SubmitContactEvaluationCommand } from '@aws-sdk/client-connect'; // ES Modules import
+ * // const { ConnectClient, SubmitContactEvaluationCommand } = require('@aws-sdk/client-connect'); // CommonJS import
  * const client = new ConnectClient(config);
  * const input = { // SubmitContactEvaluationRequest
- *   InstanceId: "STRING_VALUE", // required
- *   EvaluationId: "STRING_VALUE", // required
+ *   InstanceId: 'STRING_VALUE', // required
+ *   EvaluationId: 'STRING_VALUE', // required
  *   Answers: { // EvaluationAnswersInputMap
- *     "<keys>": { // EvaluationAnswerInput
+ *     '<keys>': { // EvaluationAnswerInput
  *       Value: { // EvaluationAnswerData Union: only one key present
- *         StringValue: "STRING_VALUE",
- *         NumericValue: Number("double"),
+ *         StringValue: 'STRING_VALUE',
+ *         NumericValue: Number('double'),
  *         NotApplicable: true || false,
  *       },
  *     },
  *   },
  *   Notes: { // EvaluationNotesMap
- *     "<keys>": { // EvaluationNote
- *       Value: "STRING_VALUE",
+ *     '<keys>': { // EvaluationNote
+ *       Value: 'STRING_VALUE',
  *     },
  *   },
  * };
  * const command = new SubmitContactEvaluationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SubmitContactEvaluationResponse
+ *   EvaluationId: 'STRING_VALUE', // required
+ *   EvaluationArn: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param SubmitContactEvaluationCommandInput - {@link SubmitContactEvaluationCommandInput}
@@ -87,6 +93,8 @@ export interface SubmitContactEvaluationCommandOutput extends SubmitContactEvalu
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class SubmitContactEvaluationCommand extends $Command<

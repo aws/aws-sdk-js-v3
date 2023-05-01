@@ -43,14 +43,17 @@ export interface DeregisterVolumeCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OpsWorksClient, DeregisterVolumeCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
- * // const { OpsWorksClient, DeregisterVolumeCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
+ * import { OpsWorksClient, DeregisterVolumeCommand } from '@aws-sdk/client-opsworks'; // ES Modules import
+ * // const { OpsWorksClient, DeregisterVolumeCommand } = require('@aws-sdk/client-opsworks'); // CommonJS import
  * const client = new OpsWorksClient(config);
  * const input = { // DeregisterVolumeRequest
- *   VolumeId: "STRING_VALUE", // required
+ *   VolumeId: 'STRING_VALUE', // required
  * };
  * const command = new DeregisterVolumeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeregisterVolumeCommandInput - {@link DeregisterVolumeCommandInput}
@@ -65,6 +68,8 @@ export interface DeregisterVolumeCommandOutput extends __MetadataBearer {}
  * @throws {@link ValidationException} (client fault)
  *  <p>Indicates that a request was not valid.</p>
  *
+ * @throws {@link OpsWorksServiceException}
+ * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
  */
 export class DeregisterVolumeCommand extends $Command<

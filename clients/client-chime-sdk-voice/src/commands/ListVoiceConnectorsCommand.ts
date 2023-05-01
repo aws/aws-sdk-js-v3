@@ -37,15 +37,32 @@ export interface ListVoiceConnectorsCommandOutput extends ListVoiceConnectorsRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeSDKVoiceClient, ListVoiceConnectorsCommand } from "@aws-sdk/client-chime-sdk-voice"; // ES Modules import
- * // const { ChimeSDKVoiceClient, ListVoiceConnectorsCommand } = require("@aws-sdk/client-chime-sdk-voice"); // CommonJS import
+ * import { ChimeSDKVoiceClient, ListVoiceConnectorsCommand } from '@aws-sdk/client-chime-sdk-voice'; // ES Modules import
+ * // const { ChimeSDKVoiceClient, ListVoiceConnectorsCommand } = require('@aws-sdk/client-chime-sdk-voice'); // CommonJS import
  * const client = new ChimeSDKVoiceClient(config);
  * const input = { // ListVoiceConnectorsRequest
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListVoiceConnectorsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListVoiceConnectorsResponse
+ *   VoiceConnectors: [ // VoiceConnectorList
+ *     { // VoiceConnector
+ *       VoiceConnectorId: 'STRING_VALUE',
+ *       AwsRegion: 'us-east-1' || 'us-west-2' || 'ca-central-1' || 'eu-central-1' || 'eu-west-1' || 'eu-west-2' || 'ap-northeast-2' || 'ap-northeast-1' || 'ap-southeast-1' || 'ap-southeast-2',
+ *       Name: 'STRING_VALUE',
+ *       OutboundHostName: 'STRING_VALUE',
+ *       RequireEncryption: true || false,
+ *       CreatedTimestamp: new Date('TIMESTAMP'),
+ *       UpdatedTimestamp: new Date('TIMESTAMP'),
+ *       VoiceConnectorArn: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListVoiceConnectorsCommandInput - {@link ListVoiceConnectorsCommandInput}
@@ -72,6 +89,8 @@ export interface ListVoiceConnectorsCommandOutput extends ListVoiceConnectorsRes
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client isn't authorized to request a resource.</p>
  *
+ * @throws {@link ChimeSDKVoiceServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
  */
 export class ListVoiceConnectorsCommand extends $Command<

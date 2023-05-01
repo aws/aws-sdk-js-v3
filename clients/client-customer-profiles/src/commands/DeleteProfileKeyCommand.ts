@@ -36,19 +36,24 @@ export interface DeleteProfileKeyCommandOutput extends DeleteProfileKeyResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CustomerProfilesClient, DeleteProfileKeyCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
- * // const { CustomerProfilesClient, DeleteProfileKeyCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
+ * import { CustomerProfilesClient, DeleteProfileKeyCommand } from '@aws-sdk/client-customer-profiles'; // ES Modules import
+ * // const { CustomerProfilesClient, DeleteProfileKeyCommand } = require('@aws-sdk/client-customer-profiles'); // CommonJS import
  * const client = new CustomerProfilesClient(config);
  * const input = { // DeleteProfileKeyRequest
- *   ProfileId: "STRING_VALUE", // required
- *   KeyName: "STRING_VALUE", // required
+ *   ProfileId: 'STRING_VALUE', // required
+ *   KeyName: 'STRING_VALUE', // required
  *   Values: [ // requestValueList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   DomainName: "STRING_VALUE", // required
+ *   DomainName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteProfileKeyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteProfileKeyResponse
+ *   Message: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DeleteProfileKeyCommandInput - {@link DeleteProfileKeyCommandInput}
@@ -72,6 +77,8 @@ export interface DeleteProfileKeyCommandOutput extends DeleteProfileKeyResponse,
  * @throws {@link ThrottlingException} (client fault)
  *  <p>You exceeded the maximum number of requests.</p>
  *
+ * @throws {@link CustomerProfilesServiceException}
+ * <p>Base exception class for all service exceptions from CustomerProfiles service.</p>
  *
  */
 export class DeleteProfileKeyCommand extends $Command<

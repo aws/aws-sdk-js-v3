@@ -37,12 +37,21 @@ export interface ListPipelineBlueprintsCommandOutput extends ListPipelineBluepri
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OSISClient, ListPipelineBlueprintsCommand } from "@aws-sdk/client-osis"; // ES Modules import
- * // const { OSISClient, ListPipelineBlueprintsCommand } = require("@aws-sdk/client-osis"); // CommonJS import
+ * import { OSISClient, ListPipelineBlueprintsCommand } from '@aws-sdk/client-osis'; // ES Modules import
+ * // const { OSISClient, ListPipelineBlueprintsCommand } = require('@aws-sdk/client-osis'); // CommonJS import
  * const client = new OSISClient(config);
  * const input = {};
  * const command = new ListPipelineBlueprintsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListPipelineBlueprintsResponse
+ *   Blueprints: [ // PipelineBlueprintsSummaryList
+ *     { // PipelineBlueprintSummary
+ *       BlueprintName: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListPipelineBlueprintsCommandInput - {@link ListPipelineBlueprintsCommandInput}
@@ -64,6 +73,8 @@ export interface ListPipelineBlueprintsCommandOutput extends ListPipelineBluepri
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception for missing or invalid input fields.</p>
  *
+ * @throws {@link OSISServiceException}
+ * <p>Base exception class for all service exceptions from OSIS service.</p>
  *
  */
 export class ListPipelineBlueprintsCommand extends $Command<

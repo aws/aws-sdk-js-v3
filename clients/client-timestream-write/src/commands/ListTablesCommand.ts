@@ -39,16 +39,46 @@ export interface ListTablesCommandOutput extends ListTablesResponse, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { TimestreamWriteClient, ListTablesCommand } from "@aws-sdk/client-timestream-write"; // ES Modules import
- * // const { TimestreamWriteClient, ListTablesCommand } = require("@aws-sdk/client-timestream-write"); // CommonJS import
+ * import { TimestreamWriteClient, ListTablesCommand } from '@aws-sdk/client-timestream-write'; // ES Modules import
+ * // const { TimestreamWriteClient, ListTablesCommand } = require('@aws-sdk/client-timestream-write'); // CommonJS import
  * const client = new TimestreamWriteClient(config);
  * const input = { // ListTablesRequest
- *   DatabaseName: "STRING_VALUE",
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   DatabaseName: 'STRING_VALUE',
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListTablesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTablesResponse
+ *   Tables: [ // TableList
+ *     { // Table
+ *       Arn: 'STRING_VALUE',
+ *       TableName: 'STRING_VALUE',
+ *       DatabaseName: 'STRING_VALUE',
+ *       TableStatus: 'ACTIVE' || 'DELETING' || 'RESTORING',
+ *       RetentionProperties: { // RetentionProperties
+ *         MemoryStoreRetentionPeriodInHours: Number('long'), // required
+ *         MagneticStoreRetentionPeriodInDays: Number('long'), // required
+ *       },
+ *       CreationTime: new Date('TIMESTAMP'),
+ *       LastUpdatedTime: new Date('TIMESTAMP'),
+ *       MagneticStoreWriteProperties: { // MagneticStoreWriteProperties
+ *         EnableMagneticStoreWrites: true || false, // required
+ *         MagneticStoreRejectedDataLocation: { // MagneticStoreRejectedDataLocation
+ *           S3Configuration: { // S3Configuration
+ *             BucketName: 'STRING_VALUE',
+ *             ObjectKeyPrefix: 'STRING_VALUE',
+ *             EncryptionOption: 'SSE_S3' || 'SSE_KMS',
+ *             KmsKeyId: 'STRING_VALUE',
+ *           },
+ *         },
+ *       },
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListTablesCommandInput - {@link ListTablesCommandInput}
@@ -79,6 +109,8 @@ export interface ListTablesCommandOutput extends ListTablesResponse, __MetadataB
  * @throws {@link ValidationException} (client fault)
  *  <p> An invalid or malformed request.</p>
  *
+ * @throws {@link TimestreamWriteServiceException}
+ * <p>Base exception class for all service exceptions from TimestreamWrite service.</p>
  *
  */
 export class ListTablesCommand extends $Command<

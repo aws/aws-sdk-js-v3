@@ -45,20 +45,23 @@ export interface TagDeliveryStreamCommandOutput extends TagDeliveryStreamOutput,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FirehoseClient, TagDeliveryStreamCommand } from "@aws-sdk/client-firehose"; // ES Modules import
- * // const { FirehoseClient, TagDeliveryStreamCommand } = require("@aws-sdk/client-firehose"); // CommonJS import
+ * import { FirehoseClient, TagDeliveryStreamCommand } from '@aws-sdk/client-firehose'; // ES Modules import
+ * // const { FirehoseClient, TagDeliveryStreamCommand } = require('@aws-sdk/client-firehose'); // CommonJS import
  * const client = new FirehoseClient(config);
  * const input = { // TagDeliveryStreamInput
- *   DeliveryStreamName: "STRING_VALUE", // required
+ *   DeliveryStreamName: 'STRING_VALUE', // required
  *   Tags: [ // TagDeliveryStreamInputTagList // required
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new TagDeliveryStreamCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param TagDeliveryStreamCommandInput - {@link TagDeliveryStreamCommandInput}
@@ -79,6 +82,8 @@ export interface TagDeliveryStreamCommandOutput extends TagDeliveryStreamOutput,
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource could not be found.</p>
  *
+ * @throws {@link FirehoseServiceException}
+ * <p>Base exception class for all service exceptions from Firehose service.</p>
  *
  */
 export class TagDeliveryStreamCommand extends $Command<

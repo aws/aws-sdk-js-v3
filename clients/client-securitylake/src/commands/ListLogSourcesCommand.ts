@@ -36,33 +36,47 @@ export interface ListLogSourcesCommandOutput extends ListLogSourcesResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SecurityLakeClient, ListLogSourcesCommand } from "@aws-sdk/client-securitylake"; // ES Modules import
- * // const { SecurityLakeClient, ListLogSourcesCommand } = require("@aws-sdk/client-securitylake"); // CommonJS import
+ * import { SecurityLakeClient, ListLogSourcesCommand } from '@aws-sdk/client-securitylake'; // ES Modules import
+ * // const { SecurityLakeClient, ListLogSourcesCommand } = require('@aws-sdk/client-securitylake'); // CommonJS import
  * const client = new SecurityLakeClient(config);
  * const input = { // ListLogSourcesRequest
  *   inputOrder: [ // DimensionSet
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   listAllDimensions: { // AllDimensionsMap
- *     "<keys>": { // TwoDimensionsMap
- *       "<keys>": [ // ValueSet
- *         "STRING_VALUE",
+ *     '<keys>': { // TwoDimensionsMap
+ *       '<keys>': [ // ValueSet
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   },
  *   listTwoDimensions: {
- *     "<keys>": [
- *       "STRING_VALUE",
+ *     '<keys>': [
+ *       'STRING_VALUE',
  *     ],
  *   },
  *   listSingleDimension: [ // InputSet
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new ListLogSourcesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListLogSourcesResponse
+ *   regionSourceTypesAccountsList: [ // RegionSourceTypesAccountsList // required
+ *     { // AllDimensionsMap
+ *       '<keys>': { // TwoDimensionsMap
+ *         '<keys>': [ // ValueSet
+ *           'STRING_VALUE',
+ *         ],
+ *       },
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListLogSourcesCommandInput - {@link ListLogSourcesCommandInput}
@@ -92,6 +106,8 @@ export interface ListLogSourcesCommandOutput extends ListLogSourcesResponse, __M
  * @throws {@link ValidationException} (client fault)
  *  <p>Your signing certificate could not be validated. </p>
  *
+ * @throws {@link SecurityLakeServiceException}
+ * <p>Base exception class for all service exceptions from SecurityLake service.</p>
  *
  */
 export class ListLogSourcesCommand extends $Command<

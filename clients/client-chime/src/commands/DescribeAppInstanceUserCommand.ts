@@ -40,14 +40,25 @@ export interface DescribeAppInstanceUserCommandOutput extends DescribeAppInstanc
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeClient, DescribeAppInstanceUserCommand } from "@aws-sdk/client-chime"; // ES Modules import
- * // const { ChimeClient, DescribeAppInstanceUserCommand } = require("@aws-sdk/client-chime"); // CommonJS import
+ * import { ChimeClient, DescribeAppInstanceUserCommand } from '@aws-sdk/client-chime'; // ES Modules import
+ * // const { ChimeClient, DescribeAppInstanceUserCommand } = require('@aws-sdk/client-chime'); // CommonJS import
  * const client = new ChimeClient(config);
  * const input = { // DescribeAppInstanceUserRequest
- *   AppInstanceUserArn: "STRING_VALUE", // required
+ *   AppInstanceUserArn: 'STRING_VALUE', // required
  * };
  * const command = new DescribeAppInstanceUserCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeAppInstanceUserResponse
+ *   AppInstanceUser: { // AppInstanceUser
+ *     AppInstanceUserArn: 'STRING_VALUE',
+ *     Name: 'STRING_VALUE',
+ *     CreatedTimestamp: new Date('TIMESTAMP'),
+ *     Metadata: 'STRING_VALUE',
+ *     LastUpdatedTimestamp: new Date('TIMESTAMP'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeAppInstanceUserCommandInput - {@link DescribeAppInstanceUserCommandInput}
@@ -74,6 +85,8 @@ export interface DescribeAppInstanceUserCommandOutput extends DescribeAppInstanc
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeServiceException}
+ * <p>Base exception class for all service exceptions from Chime service.</p>
  *
  */
 export class DescribeAppInstanceUserCommand extends $Command<

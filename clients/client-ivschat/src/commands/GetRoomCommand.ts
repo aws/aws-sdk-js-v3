@@ -36,14 +36,35 @@ export interface GetRoomCommandOutput extends GetRoomResponse, __MetadataBearer 
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IvschatClient, GetRoomCommand } from "@aws-sdk/client-ivschat"; // ES Modules import
- * // const { IvschatClient, GetRoomCommand } = require("@aws-sdk/client-ivschat"); // CommonJS import
+ * import { IvschatClient, GetRoomCommand } from '@aws-sdk/client-ivschat'; // ES Modules import
+ * // const { IvschatClient, GetRoomCommand } = require('@aws-sdk/client-ivschat'); // CommonJS import
  * const client = new IvschatClient(config);
  * const input = { // GetRoomRequest
- *   identifier: "STRING_VALUE", // required
+ *   identifier: 'STRING_VALUE', // required
  * };
  * const command = new GetRoomCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetRoomResponse
+ *   arn: 'STRING_VALUE',
+ *   id: 'STRING_VALUE',
+ *   name: 'STRING_VALUE',
+ *   createTime: new Date('TIMESTAMP'),
+ *   updateTime: new Date('TIMESTAMP'),
+ *   maximumMessageRatePerSecond: Number('int'),
+ *   maximumMessageLength: Number('int'),
+ *   messageReviewHandler: { // MessageReviewHandler
+ *     uri: 'STRING_VALUE',
+ *     fallbackResult: 'STRING_VALUE',
+ *   },
+ *   tags: { // Tags
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ *   loggingConfigurationIdentifiers: [ // LoggingConfigurationIdentifierList
+ *     'STRING_VALUE',
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetRoomCommandInput - {@link GetRoomCommandInput}
@@ -61,6 +82,8 @@ export interface GetRoomCommandOutput extends GetRoomResponse, __MetadataBearer 
  * @throws {@link ValidationException} (client fault)
  *  <p/>
  *
+ * @throws {@link IvschatServiceException}
+ * <p>Base exception class for all service exceptions from Ivschat service.</p>
  *
  */
 export class GetRoomCommand extends $Command<GetRoomCommandInput, GetRoomCommandOutput, IvschatClientResolvedConfig> {

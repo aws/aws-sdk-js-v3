@@ -72,18 +72,35 @@ export interface UpdateGameServerCommandOutput extends UpdateGameServerOutput, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GameLiftClient, UpdateGameServerCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
- * // const { GameLiftClient, UpdateGameServerCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
+ * import { GameLiftClient, UpdateGameServerCommand } from '@aws-sdk/client-gamelift'; // ES Modules import
+ * // const { GameLiftClient, UpdateGameServerCommand } = require('@aws-sdk/client-gamelift'); // CommonJS import
  * const client = new GameLiftClient(config);
  * const input = { // UpdateGameServerInput
- *   GameServerGroupName: "STRING_VALUE", // required
- *   GameServerId: "STRING_VALUE", // required
- *   GameServerData: "STRING_VALUE",
- *   UtilizationStatus: "AVAILABLE" || "UTILIZED",
- *   HealthCheck: "HEALTHY",
+ *   GameServerGroupName: 'STRING_VALUE', // required
+ *   GameServerId: 'STRING_VALUE', // required
+ *   GameServerData: 'STRING_VALUE',
+ *   UtilizationStatus: 'AVAILABLE' || 'UTILIZED',
+ *   HealthCheck: 'HEALTHY',
  * };
  * const command = new UpdateGameServerCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateGameServerOutput
+ *   GameServer: { // GameServer
+ *     GameServerGroupName: 'STRING_VALUE',
+ *     GameServerGroupArn: 'STRING_VALUE',
+ *     GameServerId: 'STRING_VALUE',
+ *     InstanceId: 'STRING_VALUE',
+ *     ConnectionInfo: 'STRING_VALUE',
+ *     GameServerData: 'STRING_VALUE',
+ *     ClaimStatus: 'CLAIMED',
+ *     UtilizationStatus: 'AVAILABLE' || 'UTILIZED',
+ *     RegistrationTime: new Date('TIMESTAMP'),
+ *     LastClaimTime: new Date('TIMESTAMP'),
+ *     LastHealthCheckTime: new Date('TIMESTAMP'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateGameServerCommandInput - {@link UpdateGameServerCommandInput}
@@ -106,6 +123,8 @@ export interface UpdateGameServerCommandOutput extends UpdateGameServerOutput, _
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client failed authentication. Clients should not retry such requests.</p>
  *
+ * @throws {@link GameLiftServiceException}
+ * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
  */
 export class UpdateGameServerCommand extends $Command<

@@ -45,15 +45,18 @@ export interface CreateDatalakeExceptionsSubscriptionCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SecurityLakeClient, CreateDatalakeExceptionsSubscriptionCommand } from "@aws-sdk/client-securitylake"; // ES Modules import
- * // const { SecurityLakeClient, CreateDatalakeExceptionsSubscriptionCommand } = require("@aws-sdk/client-securitylake"); // CommonJS import
+ * import { SecurityLakeClient, CreateDatalakeExceptionsSubscriptionCommand } from '@aws-sdk/client-securitylake'; // ES Modules import
+ * // const { SecurityLakeClient, CreateDatalakeExceptionsSubscriptionCommand } = require('@aws-sdk/client-securitylake'); // CommonJS import
  * const client = new SecurityLakeClient(config);
  * const input = { // CreateDatalakeExceptionsSubscriptionRequest
- *   subscriptionProtocol: "STRING_VALUE", // required
- *   notificationEndpoint: "STRING_VALUE", // required
+ *   subscriptionProtocol: 'STRING_VALUE', // required
+ *   notificationEndpoint: 'STRING_VALUE', // required
  * };
  * const command = new CreateDatalakeExceptionsSubscriptionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param CreateDatalakeExceptionsSubscriptionCommandInput - {@link CreateDatalakeExceptionsSubscriptionCommandInput}
@@ -80,6 +83,8 @@ export interface CreateDatalakeExceptionsSubscriptionCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>Your signing certificate could not be validated. </p>
  *
+ * @throws {@link SecurityLakeServiceException}
+ * <p>Base exception class for all service exceptions from SecurityLake service.</p>
  *
  */
 export class CreateDatalakeExceptionsSubscriptionCommand extends $Command<

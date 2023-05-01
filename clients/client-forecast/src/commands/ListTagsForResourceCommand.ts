@@ -40,14 +40,24 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ForecastClient, ListTagsForResourceCommand } from "@aws-sdk/client-forecast"; // ES Modules import
- * // const { ForecastClient, ListTagsForResourceCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
+ * import { ForecastClient, ListTagsForResourceCommand } from '@aws-sdk/client-forecast'; // ES Modules import
+ * // const { ForecastClient, ListTagsForResourceCommand } = require('@aws-sdk/client-forecast'); // CommonJS import
  * const client = new ForecastClient(config);
  * const input = { // ListTagsForResourceRequest
- *   ResourceArn: "STRING_VALUE", // required
+ *   ResourceArn: 'STRING_VALUE', // required
  * };
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTagsForResourceResponse
+ *   Tags: [ // Tags
+ *     { // Tag
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListTagsForResourceCommandInput - {@link ListTagsForResourceCommandInput}
@@ -64,6 +74,8 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  *  <p>We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try
  *       again.</p>
  *
+ * @throws {@link ForecastServiceException}
+ * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
  */
 export class ListTagsForResourceCommand extends $Command<

@@ -39,14 +39,17 @@ export interface DeleteEvaluationResultsCommandOutput extends DeleteEvaluationRe
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConfigServiceClient, DeleteEvaluationResultsCommand } from "@aws-sdk/client-config-service"; // ES Modules import
- * // const { ConfigServiceClient, DeleteEvaluationResultsCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
+ * import { ConfigServiceClient, DeleteEvaluationResultsCommand } from '@aws-sdk/client-config-service'; // ES Modules import
+ * // const { ConfigServiceClient, DeleteEvaluationResultsCommand } = require('@aws-sdk/client-config-service'); // CommonJS import
  * const client = new ConfigServiceClient(config);
  * const input = { // DeleteEvaluationResultsRequest
- *   ConfigRuleName: "STRING_VALUE", // required
+ *   ConfigRuleName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteEvaluationResultsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteEvaluationResultsCommandInput - {@link DeleteEvaluationResultsCommandInput}
@@ -84,6 +87,8 @@ export interface DeleteEvaluationResultsCommandOutput extends DeleteEvaluationRe
  *             </li>
  *          </ul>
  *
+ * @throws {@link ConfigServiceServiceException}
+ * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
  */
 export class DeleteEvaluationResultsCommand extends $Command<

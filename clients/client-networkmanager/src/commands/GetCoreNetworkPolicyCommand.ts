@@ -36,16 +36,36 @@ export interface GetCoreNetworkPolicyCommandOutput extends GetCoreNetworkPolicyR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { NetworkManagerClient, GetCoreNetworkPolicyCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
- * // const { NetworkManagerClient, GetCoreNetworkPolicyCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
+ * import { NetworkManagerClient, GetCoreNetworkPolicyCommand } from '@aws-sdk/client-networkmanager'; // ES Modules import
+ * // const { NetworkManagerClient, GetCoreNetworkPolicyCommand } = require('@aws-sdk/client-networkmanager'); // CommonJS import
  * const client = new NetworkManagerClient(config);
  * const input = { // GetCoreNetworkPolicyRequest
- *   CoreNetworkId: "STRING_VALUE", // required
- *   PolicyVersionId: Number("int"),
- *   Alias: "LIVE" || "LATEST",
+ *   CoreNetworkId: 'STRING_VALUE', // required
+ *   PolicyVersionId: Number('int'),
+ *   Alias: 'LIVE' || 'LATEST',
  * };
  * const command = new GetCoreNetworkPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetCoreNetworkPolicyResponse
+ *   CoreNetworkPolicy: { // CoreNetworkPolicy
+ *     CoreNetworkId: 'STRING_VALUE',
+ *     PolicyVersionId: Number('int'),
+ *     Alias: 'LIVE' || 'LATEST',
+ *     Description: 'STRING_VALUE',
+ *     CreatedAt: new Date('TIMESTAMP'),
+ *     ChangeSetState: 'PENDING_GENERATION' || 'FAILED_GENERATION' || 'READY_TO_EXECUTE' || 'EXECUTING' || 'EXECUTION_SUCCEEDED' || 'OUT_OF_DATE',
+ *     PolicyErrors: [ // CoreNetworkPolicyErrorList
+ *       { // CoreNetworkPolicyError
+ *         ErrorCode: 'STRING_VALUE', // required
+ *         Message: 'STRING_VALUE', // required
+ *         Path: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     PolicyDocument: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetCoreNetworkPolicyCommandInput - {@link GetCoreNetworkPolicyCommandInput}
@@ -69,6 +89,8 @@ export interface GetCoreNetworkPolicyCommandOutput extends GetCoreNetworkPolicyR
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints.</p>
  *
+ * @throws {@link NetworkManagerServiceException}
+ * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
  */
 export class GetCoreNetworkPolicyCommand extends $Command<

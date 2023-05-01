@@ -39,14 +39,19 @@ export interface DeleteDataSourceCommandOutput extends DeleteDataSourceOutput, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MachineLearningClient, DeleteDataSourceCommand } from "@aws-sdk/client-machine-learning"; // ES Modules import
- * // const { MachineLearningClient, DeleteDataSourceCommand } = require("@aws-sdk/client-machine-learning"); // CommonJS import
+ * import { MachineLearningClient, DeleteDataSourceCommand } from '@aws-sdk/client-machine-learning'; // ES Modules import
+ * // const { MachineLearningClient, DeleteDataSourceCommand } = require('@aws-sdk/client-machine-learning'); // CommonJS import
  * const client = new MachineLearningClient(config);
  * const input = { // DeleteDataSourceInput
- *   DataSourceId: "STRING_VALUE", // required
+ *   DataSourceId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteDataSourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteDataSourceOutput
+ *   DataSourceId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DeleteDataSourceCommandInput - {@link DeleteDataSourceCommandInput}
@@ -64,6 +69,8 @@ export interface DeleteDataSourceCommandOutput extends DeleteDataSourceOutput, _
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>A specified resource cannot be located.</p>
  *
+ * @throws {@link MachineLearningServiceException}
+ * <p>Base exception class for all service exceptions from MachineLearning service.</p>
  *
  */
 export class DeleteDataSourceCommand extends $Command<

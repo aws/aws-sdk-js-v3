@@ -40,17 +40,29 @@ export interface CreateGroupCommandOutput extends CreateGroupResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { QuickSightClient, CreateGroupCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
- * // const { QuickSightClient, CreateGroupCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * import { QuickSightClient, CreateGroupCommand } from '@aws-sdk/client-quicksight'; // ES Modules import
+ * // const { QuickSightClient, CreateGroupCommand } = require('@aws-sdk/client-quicksight'); // CommonJS import
  * const client = new QuickSightClient(config);
  * const input = { // CreateGroupRequest
- *   GroupName: "STRING_VALUE", // required
- *   Description: "STRING_VALUE",
- *   AwsAccountId: "STRING_VALUE", // required
- *   Namespace: "STRING_VALUE", // required
+ *   GroupName: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE',
+ *   AwsAccountId: 'STRING_VALUE', // required
+ *   Namespace: 'STRING_VALUE', // required
  * };
  * const command = new CreateGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateGroupResponse
+ *   Group: { // Group
+ *     Arn: 'STRING_VALUE',
+ *     GroupName: 'STRING_VALUE',
+ *     Description: 'STRING_VALUE',
+ *     PrincipalId: 'STRING_VALUE',
+ *   },
+ *   RequestId: 'STRING_VALUE',
+ *   Status: Number('int'),
+ * };
+ *
  * ```
  *
  * @param CreateGroupCommandInput - {@link CreateGroupCommandInput}
@@ -89,6 +101,8 @@ export interface CreateGroupCommandOutput extends CreateGroupResponse, __Metadat
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Access is throttled.</p>
  *
+ * @throws {@link QuickSightServiceException}
+ * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
 export class CreateGroupCommand extends $Command<

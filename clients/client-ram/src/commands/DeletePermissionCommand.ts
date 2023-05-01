@@ -38,15 +38,22 @@ export interface DeletePermissionCommandOutput extends DeletePermissionResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RAMClient, DeletePermissionCommand } from "@aws-sdk/client-ram"; // ES Modules import
- * // const { RAMClient, DeletePermissionCommand } = require("@aws-sdk/client-ram"); // CommonJS import
+ * import { RAMClient, DeletePermissionCommand } from '@aws-sdk/client-ram'; // ES Modules import
+ * // const { RAMClient, DeletePermissionCommand } = require('@aws-sdk/client-ram'); // CommonJS import
  * const client = new RAMClient(config);
  * const input = { // DeletePermissionRequest
- *   permissionArn: "STRING_VALUE", // required
- *   clientToken: "STRING_VALUE",
+ *   permissionArn: 'STRING_VALUE', // required
+ *   clientToken: 'STRING_VALUE',
  * };
  * const command = new DeletePermissionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeletePermissionResponse
+ *   returnValue: true || false,
+ *   clientToken: 'STRING_VALUE',
+ *   permissionStatus: 'ATTACHABLE' || 'UNATTACHABLE' || 'DELETING' || 'DELETED',
+ * };
+ *
  * ```
  *
  * @param DeletePermissionCommandInput - {@link DeletePermissionCommandInput}
@@ -80,6 +87,8 @@ export interface DeletePermissionCommandOutput extends DeletePermissionResponse,
  * @throws {@link UnknownResourceException} (client fault)
  *  <p>The operation failed because a specified resource couldn't be found.</p>
  *
+ * @throws {@link RAMServiceException}
+ * <p>Base exception class for all service exceptions from RAM service.</p>
  *
  */
 export class DeletePermissionCommand extends $Command<

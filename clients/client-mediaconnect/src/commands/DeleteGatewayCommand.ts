@@ -36,14 +36,19 @@ export interface DeleteGatewayCommandOutput extends DeleteGatewayResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MediaConnectClient, DeleteGatewayCommand } from "@aws-sdk/client-mediaconnect"; // ES Modules import
- * // const { MediaConnectClient, DeleteGatewayCommand } = require("@aws-sdk/client-mediaconnect"); // CommonJS import
+ * import { MediaConnectClient, DeleteGatewayCommand } from '@aws-sdk/client-mediaconnect'; // ES Modules import
+ * // const { MediaConnectClient, DeleteGatewayCommand } = require('@aws-sdk/client-mediaconnect'); // CommonJS import
  * const client = new MediaConnectClient(config);
  * const input = { // DeleteGatewayRequest
- *   GatewayArn: "STRING_VALUE", // required
+ *   GatewayArn: 'STRING_VALUE', // required
  * };
  * const command = new DeleteGatewayCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteGatewayResponse
+ *   GatewayArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DeleteGatewayCommandInput - {@link DeleteGatewayCommandInput}
@@ -73,6 +78,8 @@ export interface DeleteGatewayCommandOutput extends DeleteGatewayResponse, __Met
  * @throws {@link TooManyRequestsException} (client fault)
  *  Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
  *
+ * @throws {@link MediaConnectServiceException}
+ * <p>Base exception class for all service exceptions from MediaConnect service.</p>
  *
  */
 export class DeleteGatewayCommand extends $Command<

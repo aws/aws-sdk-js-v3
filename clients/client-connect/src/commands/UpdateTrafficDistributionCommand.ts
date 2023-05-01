@@ -39,22 +39,25 @@ export interface UpdateTrafficDistributionCommandOutput extends UpdateTrafficDis
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, UpdateTrafficDistributionCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, UpdateTrafficDistributionCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, UpdateTrafficDistributionCommand } from '@aws-sdk/client-connect'; // ES Modules import
+ * // const { ConnectClient, UpdateTrafficDistributionCommand } = require('@aws-sdk/client-connect'); // CommonJS import
  * const client = new ConnectClient(config);
  * const input = { // UpdateTrafficDistributionRequest
- *   Id: "STRING_VALUE", // required
+ *   Id: 'STRING_VALUE', // required
  *   TelephonyConfig: { // TelephonyConfig
  *     Distributions: [ // DistributionList // required
  *       { // Distribution
- *         Region: "STRING_VALUE", // required
- *         Percentage: Number("int"), // required
+ *         Region: 'STRING_VALUE', // required
+ *         Percentage: Number('int'), // required
  *       },
  *     ],
  *   },
  * };
  * const command = new UpdateTrafficDistributionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateTrafficDistributionCommandInput - {@link UpdateTrafficDistributionCommandInput}
@@ -81,6 +84,8 @@ export interface UpdateTrafficDistributionCommandOutput extends UpdateTrafficDis
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class UpdateTrafficDistributionCommand extends $Command<

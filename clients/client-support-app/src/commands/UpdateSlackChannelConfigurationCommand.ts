@@ -41,21 +41,33 @@ export interface UpdateSlackChannelConfigurationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SupportAppClient, UpdateSlackChannelConfigurationCommand } from "@aws-sdk/client-support-app"; // ES Modules import
- * // const { SupportAppClient, UpdateSlackChannelConfigurationCommand } = require("@aws-sdk/client-support-app"); // CommonJS import
+ * import { SupportAppClient, UpdateSlackChannelConfigurationCommand } from '@aws-sdk/client-support-app'; // ES Modules import
+ * // const { SupportAppClient, UpdateSlackChannelConfigurationCommand } = require('@aws-sdk/client-support-app'); // CommonJS import
  * const client = new SupportAppClient(config);
  * const input = { // UpdateSlackChannelConfigurationRequest
- *   teamId: "STRING_VALUE", // required
- *   channelId: "STRING_VALUE", // required
- *   channelName: "STRING_VALUE",
+ *   teamId: 'STRING_VALUE', // required
+ *   channelId: 'STRING_VALUE', // required
+ *   channelName: 'STRING_VALUE',
  *   notifyOnCreateOrReopenCase: true || false,
  *   notifyOnAddCorrespondenceToCase: true || false,
  *   notifyOnResolveCase: true || false,
- *   notifyOnCaseSeverity: "STRING_VALUE",
- *   channelRoleArn: "STRING_VALUE",
+ *   notifyOnCaseSeverity: 'STRING_VALUE',
+ *   channelRoleArn: 'STRING_VALUE',
  * };
  * const command = new UpdateSlackChannelConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateSlackChannelConfigurationResult
+ *   teamId: 'STRING_VALUE',
+ *   channelId: 'STRING_VALUE',
+ *   channelName: 'STRING_VALUE',
+ *   notifyOnCreateOrReopenCase: true || false,
+ *   notifyOnAddCorrespondenceToCase: true || false,
+ *   notifyOnResolveCase: true || false,
+ *   notifyOnCaseSeverity: 'STRING_VALUE',
+ *   channelRoleArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateSlackChannelConfigurationCommandInput - {@link UpdateSlackChannelConfigurationCommandInput}
@@ -106,6 +118,8 @@ export interface UpdateSlackChannelConfigurationCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>Your request input doesn't meet the constraints that the Amazon Web Services Support App specifies.</p>
  *
+ * @throws {@link SupportAppServiceException}
+ * <p>Base exception class for all service exceptions from SupportApp service.</p>
  *
  */
 export class UpdateSlackChannelConfigurationCommand extends $Command<

@@ -59,19 +59,25 @@ export interface TransferContactCommandOutput extends TransferContactResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, TransferContactCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, TransferContactCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, TransferContactCommand } from '@aws-sdk/client-connect'; // ES Modules import
+ * // const { ConnectClient, TransferContactCommand } = require('@aws-sdk/client-connect'); // CommonJS import
  * const client = new ConnectClient(config);
  * const input = { // TransferContactRequest
- *   InstanceId: "STRING_VALUE", // required
- *   ContactId: "STRING_VALUE", // required
- *   QueueId: "STRING_VALUE",
- *   UserId: "STRING_VALUE",
- *   ContactFlowId: "STRING_VALUE", // required
- *   ClientToken: "STRING_VALUE",
+ *   InstanceId: 'STRING_VALUE', // required
+ *   ContactId: 'STRING_VALUE', // required
+ *   QueueId: 'STRING_VALUE',
+ *   UserId: 'STRING_VALUE',
+ *   ContactFlowId: 'STRING_VALUE', // required
+ *   ClientToken: 'STRING_VALUE',
  * };
  * const command = new TransferContactCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // TransferContactResponse
+ *   ContactId: 'STRING_VALUE',
+ *   ContactArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param TransferContactCommandInput - {@link TransferContactCommandInput}
@@ -101,6 +107,8 @@ export interface TransferContactCommandOutput extends TransferContactResponse, _
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class TransferContactCommand extends $Command<

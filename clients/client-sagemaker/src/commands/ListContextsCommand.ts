@@ -36,21 +36,40 @@ export interface ListContextsCommandOutput extends ListContextsResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, ListContextsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, ListContextsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, ListContextsCommand } from '@aws-sdk/client-sagemaker'; // ES Modules import
+ * // const { SageMakerClient, ListContextsCommand } = require('@aws-sdk/client-sagemaker'); // CommonJS import
  * const client = new SageMakerClient(config);
  * const input = { // ListContextsRequest
- *   SourceUri: "STRING_VALUE",
- *   ContextType: "STRING_VALUE",
- *   CreatedAfter: new Date("TIMESTAMP"),
- *   CreatedBefore: new Date("TIMESTAMP"),
- *   SortBy: "Name" || "CreationTime",
- *   SortOrder: "Ascending" || "Descending",
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   SourceUri: 'STRING_VALUE',
+ *   ContextType: 'STRING_VALUE',
+ *   CreatedAfter: new Date('TIMESTAMP'),
+ *   CreatedBefore: new Date('TIMESTAMP'),
+ *   SortBy: 'Name' || 'CreationTime',
+ *   SortOrder: 'Ascending' || 'Descending',
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListContextsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListContextsResponse
+ *   ContextSummaries: [ // ContextSummaries
+ *     { // ContextSummary
+ *       ContextArn: 'STRING_VALUE',
+ *       ContextName: 'STRING_VALUE',
+ *       Source: { // ContextSource
+ *         SourceUri: 'STRING_VALUE', // required
+ *         SourceType: 'STRING_VALUE',
+ *         SourceId: 'STRING_VALUE',
+ *       },
+ *       ContextType: 'STRING_VALUE',
+ *       CreationTime: new Date('TIMESTAMP'),
+ *       LastModifiedTime: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListContextsCommandInput - {@link ListContextsCommandInput}
@@ -62,6 +81,8 @@ export interface ListContextsCommandOutput extends ListContextsResponse, __Metad
  * @throws {@link ResourceNotFound} (client fault)
  *  <p>Resource being access is not found.</p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class ListContextsCommand extends $Command<

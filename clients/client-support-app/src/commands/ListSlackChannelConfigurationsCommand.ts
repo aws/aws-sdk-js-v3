@@ -41,14 +41,31 @@ export interface ListSlackChannelConfigurationsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SupportAppClient, ListSlackChannelConfigurationsCommand } from "@aws-sdk/client-support-app"; // ES Modules import
- * // const { SupportAppClient, ListSlackChannelConfigurationsCommand } = require("@aws-sdk/client-support-app"); // CommonJS import
+ * import { SupportAppClient, ListSlackChannelConfigurationsCommand } from '@aws-sdk/client-support-app'; // ES Modules import
+ * // const { SupportAppClient, ListSlackChannelConfigurationsCommand } = require('@aws-sdk/client-support-app'); // CommonJS import
  * const client = new SupportAppClient(config);
  * const input = { // ListSlackChannelConfigurationsRequest
- *   nextToken: "STRING_VALUE",
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new ListSlackChannelConfigurationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListSlackChannelConfigurationsResult
+ *   nextToken: 'STRING_VALUE',
+ *   slackChannelConfigurations: [ // slackChannelConfigurationList // required
+ *     { // SlackChannelConfiguration
+ *       teamId: 'STRING_VALUE', // required
+ *       channelId: 'STRING_VALUE', // required
+ *       channelName: 'STRING_VALUE',
+ *       notifyOnCreateOrReopenCase: true || false,
+ *       notifyOnAddCorrespondenceToCase: true || false,
+ *       notifyOnResolveCase: true || false,
+ *       notifyOnCaseSeverity: 'STRING_VALUE',
+ *       channelRoleArn: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListSlackChannelConfigurationsCommandInput - {@link ListSlackChannelConfigurationsCommandInput}
@@ -63,6 +80,8 @@ export interface ListSlackChannelConfigurationsCommandOutput
  * @throws {@link InternalServerException} (server fault)
  *  <p>We can’t process your request right now because of a server issue. Try again later.</p>
  *
+ * @throws {@link SupportAppServiceException}
+ * <p>Base exception class for all service exceptions from SupportApp service.</p>
  *
  */
 export class ListSlackChannelConfigurationsCommand extends $Command<

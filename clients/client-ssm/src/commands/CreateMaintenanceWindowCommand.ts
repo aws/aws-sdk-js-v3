@@ -48,30 +48,35 @@ export interface CreateMaintenanceWindowCommandOutput extends CreateMaintenanceW
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMClient, CreateMaintenanceWindowCommand } from "@aws-sdk/client-ssm"; // ES Modules import
- * // const { SSMClient, CreateMaintenanceWindowCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * import { SSMClient, CreateMaintenanceWindowCommand } from '@aws-sdk/client-ssm'; // ES Modules import
+ * // const { SSMClient, CreateMaintenanceWindowCommand } = require('@aws-sdk/client-ssm'); // CommonJS import
  * const client = new SSMClient(config);
  * const input = { // CreateMaintenanceWindowRequest
- *   Name: "STRING_VALUE", // required
- *   Description: "STRING_VALUE",
- *   StartDate: "STRING_VALUE",
- *   EndDate: "STRING_VALUE",
- *   Schedule: "STRING_VALUE", // required
- *   ScheduleTimezone: "STRING_VALUE",
- *   ScheduleOffset: Number("int"),
- *   Duration: Number("int"), // required
- *   Cutoff: Number("int"), // required
+ *   Name: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE',
+ *   StartDate: 'STRING_VALUE',
+ *   EndDate: 'STRING_VALUE',
+ *   Schedule: 'STRING_VALUE', // required
+ *   ScheduleTimezone: 'STRING_VALUE',
+ *   ScheduleOffset: Number('int'),
+ *   Duration: Number('int'), // required
+ *   Cutoff: Number('int'), // required
  *   AllowUnassociatedTargets: true || false, // required
- *   ClientToken: "STRING_VALUE",
+ *   ClientToken: 'STRING_VALUE',
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreateMaintenanceWindowCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateMaintenanceWindowResult
+ *   WindowId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateMaintenanceWindowCommandInput - {@link CreateMaintenanceWindowCommandInput}
@@ -93,6 +98,8 @@ export interface CreateMaintenanceWindowCommandOutput extends CreateMaintenanceW
  *          <p>For information about resource quotas in Systems Manager, see <a href="https://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm">Systems Manager service quotas</a> in the
  *     <i>Amazon Web Services General Reference</i>.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class CreateMaintenanceWindowCommand extends $Command<

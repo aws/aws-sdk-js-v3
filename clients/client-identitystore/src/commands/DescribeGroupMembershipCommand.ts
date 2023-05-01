@@ -36,15 +36,25 @@ export interface DescribeGroupMembershipCommandOutput extends DescribeGroupMembe
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IdentitystoreClient, DescribeGroupMembershipCommand } from "@aws-sdk/client-identitystore"; // ES Modules import
- * // const { IdentitystoreClient, DescribeGroupMembershipCommand } = require("@aws-sdk/client-identitystore"); // CommonJS import
+ * import { IdentitystoreClient, DescribeGroupMembershipCommand } from '@aws-sdk/client-identitystore'; // ES Modules import
+ * // const { IdentitystoreClient, DescribeGroupMembershipCommand } = require('@aws-sdk/client-identitystore'); // CommonJS import
  * const client = new IdentitystoreClient(config);
  * const input = { // DescribeGroupMembershipRequest
- *   IdentityStoreId: "STRING_VALUE", // required
- *   MembershipId: "STRING_VALUE", // required
+ *   IdentityStoreId: 'STRING_VALUE', // required
+ *   MembershipId: 'STRING_VALUE', // required
  * };
  * const command = new DescribeGroupMembershipCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeGroupMembershipResponse
+ *   IdentityStoreId: 'STRING_VALUE', // required
+ *   MembershipId: 'STRING_VALUE', // required
+ *   GroupId: 'STRING_VALUE', // required
+ *   MemberId: { // MemberId Union: only one key present
+ *     UserId: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeGroupMembershipCommandInput - {@link DescribeGroupMembershipCommandInput}
@@ -68,6 +78,8 @@ export interface DescribeGroupMembershipCommandOutput extends DescribeGroupMembe
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Indicates that the principal has crossed the throttling limits of the API operations.</p>
  *
+ * @throws {@link IdentitystoreServiceException}
+ * <p>Base exception class for all service exceptions from Identitystore service.</p>
  *
  */
 export class DescribeGroupMembershipCommand extends $Command<

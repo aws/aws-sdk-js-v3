@@ -36,14 +36,27 @@ export interface ListSpacesCommandOutput extends ListSpacesResponse, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeCatalystClient, ListSpacesCommand } from "@aws-sdk/client-codecatalyst"; // ES Modules import
- * // const { CodeCatalystClient, ListSpacesCommand } = require("@aws-sdk/client-codecatalyst"); // CommonJS import
+ * import { CodeCatalystClient, ListSpacesCommand } from '@aws-sdk/client-codecatalyst'; // ES Modules import
+ * // const { CodeCatalystClient, ListSpacesCommand } = require('@aws-sdk/client-codecatalyst'); // CommonJS import
  * const client = new CodeCatalystClient(config);
  * const input = { // ListSpacesRequest
- *   nextToken: "STRING_VALUE",
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new ListSpacesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListSpacesResponse
+ *   nextToken: 'STRING_VALUE',
+ *   items: [ // SpaceSummaries
+ *     { // SpaceSummary
+ *       name: 'STRING_VALUE', // required
+ *       regionName: 'STRING_VALUE', // required
+ *       displayName: 'STRING_VALUE',
+ *       description: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListSpacesCommandInput - {@link ListSpacesCommandInput}
@@ -72,6 +85,8 @@ export interface ListSpacesCommandOutput extends ListSpacesResponse, __MetadataB
  * @throws {@link ValidationException} (client fault)
  *  <p>The request was denied because an input failed to satisfy the constraints specified by the service. Check the spelling and input requirements, and then try again.</p>
  *
+ * @throws {@link CodeCatalystServiceException}
+ * <p>Base exception class for all service exceptions from CodeCatalyst service.</p>
  *
  */
 export class ListSpacesCommand extends $Command<

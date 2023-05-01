@@ -39,19 +39,27 @@ export interface ListTriggersCommandOutput extends ListTriggersResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlueClient, ListTriggersCommand } from "@aws-sdk/client-glue"; // ES Modules import
- * // const { GlueClient, ListTriggersCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * import { GlueClient, ListTriggersCommand } from '@aws-sdk/client-glue'; // ES Modules import
+ * // const { GlueClient, ListTriggersCommand } = require('@aws-sdk/client-glue'); // CommonJS import
  * const client = new GlueClient(config);
  * const input = { // ListTriggersRequest
- *   NextToken: "STRING_VALUE",
- *   DependentJobName: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   DependentJobName: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  *   Tags: { // TagsMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new ListTriggersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTriggersResponse
+ *   TriggerNames: [ // TriggerNameList
+ *     'STRING_VALUE',
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListTriggersCommandInput - {@link ListTriggersCommandInput}
@@ -72,6 +80,8 @@ export interface ListTriggersCommandOutput extends ListTriggersResponse, __Metad
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class ListTriggersCommand extends $Command<

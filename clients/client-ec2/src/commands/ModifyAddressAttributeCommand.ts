@@ -36,16 +36,30 @@ export interface ModifyAddressAttributeCommandOutput extends ModifyAddressAttrib
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, ModifyAddressAttributeCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, ModifyAddressAttributeCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, ModifyAddressAttributeCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, ModifyAddressAttributeCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // ModifyAddressAttributeRequest
- *   AllocationId: "STRING_VALUE", // required
- *   DomainName: "STRING_VALUE",
+ *   AllocationId: 'STRING_VALUE', // required
+ *   DomainName: 'STRING_VALUE',
  *   DryRun: true || false,
  * };
  * const command = new ModifyAddressAttributeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ModifyAddressAttributeResult
+ *   Address: { // AddressAttribute
+ *     PublicIp: 'STRING_VALUE',
+ *     AllocationId: 'STRING_VALUE',
+ *     PtrRecord: 'STRING_VALUE',
+ *     PtrRecordUpdate: { // PtrUpdateStatus
+ *       Value: 'STRING_VALUE',
+ *       Status: 'STRING_VALUE',
+ *       Reason: 'STRING_VALUE',
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param ModifyAddressAttributeCommandInput - {@link ModifyAddressAttributeCommandInput}
@@ -54,6 +68,8 @@ export interface ModifyAddressAttributeCommandOutput extends ModifyAddressAttrib
  * @see {@link ModifyAddressAttributeCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class ModifyAddressAttributeCommand extends $Command<

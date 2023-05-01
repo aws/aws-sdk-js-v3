@@ -38,57 +38,173 @@ export interface ModifyCacheClusterCommandOutput extends ModifyCacheClusterResul
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElastiCacheClient, ModifyCacheClusterCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
- * // const { ElastiCacheClient, ModifyCacheClusterCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
+ * import { ElastiCacheClient, ModifyCacheClusterCommand } from '@aws-sdk/client-elasticache'; // ES Modules import
+ * // const { ElastiCacheClient, ModifyCacheClusterCommand } = require('@aws-sdk/client-elasticache'); // CommonJS import
  * const client = new ElastiCacheClient(config);
  * const input = { // ModifyCacheClusterMessage
- *   CacheClusterId: "STRING_VALUE", // required
- *   NumCacheNodes: Number("int"),
+ *   CacheClusterId: 'STRING_VALUE', // required
+ *   NumCacheNodes: Number('int'),
  *   CacheNodeIdsToRemove: [ // CacheNodeIdsList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   AZMode: "single-az" || "cross-az",
+ *   AZMode: 'single-az' || 'cross-az',
  *   NewAvailabilityZones: [ // PreferredAvailabilityZoneList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   CacheSecurityGroupNames: [ // CacheSecurityGroupNameList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   SecurityGroupIds: [ // SecurityGroupIdsList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   PreferredMaintenanceWindow: "STRING_VALUE",
- *   NotificationTopicArn: "STRING_VALUE",
- *   CacheParameterGroupName: "STRING_VALUE",
- *   NotificationTopicStatus: "STRING_VALUE",
+ *   PreferredMaintenanceWindow: 'STRING_VALUE',
+ *   NotificationTopicArn: 'STRING_VALUE',
+ *   CacheParameterGroupName: 'STRING_VALUE',
+ *   NotificationTopicStatus: 'STRING_VALUE',
  *   ApplyImmediately: true || false,
- *   EngineVersion: "STRING_VALUE",
+ *   EngineVersion: 'STRING_VALUE',
  *   AutoMinorVersionUpgrade: true || false,
- *   SnapshotRetentionLimit: Number("int"),
- *   SnapshotWindow: "STRING_VALUE",
- *   CacheNodeType: "STRING_VALUE",
- *   AuthToken: "STRING_VALUE",
- *   AuthTokenUpdateStrategy: "SET" || "ROTATE" || "DELETE",
+ *   SnapshotRetentionLimit: Number('int'),
+ *   SnapshotWindow: 'STRING_VALUE',
+ *   CacheNodeType: 'STRING_VALUE',
+ *   AuthToken: 'STRING_VALUE',
+ *   AuthTokenUpdateStrategy: 'SET' || 'ROTATE' || 'DELETE',
  *   LogDeliveryConfigurations: [ // LogDeliveryConfigurationRequestList
  *     { // LogDeliveryConfigurationRequest
- *       LogType: "slow-log" || "engine-log",
- *       DestinationType: "cloudwatch-logs" || "kinesis-firehose",
+ *       LogType: 'slow-log' || 'engine-log',
+ *       DestinationType: 'cloudwatch-logs' || 'kinesis-firehose',
  *       DestinationDetails: { // DestinationDetails
  *         CloudWatchLogsDetails: { // CloudWatchLogsDestinationDetails
- *           LogGroup: "STRING_VALUE",
+ *           LogGroup: 'STRING_VALUE',
  *         },
  *         KinesisFirehoseDetails: { // KinesisFirehoseDestinationDetails
- *           DeliveryStream: "STRING_VALUE",
+ *           DeliveryStream: 'STRING_VALUE',
  *         },
  *       },
- *       LogFormat: "text" || "json",
+ *       LogFormat: 'text' || 'json',
  *       Enabled: true || false,
  *     },
  *   ],
- *   IpDiscovery: "ipv4" || "ipv6",
+ *   IpDiscovery: 'ipv4' || 'ipv6',
  * };
  * const command = new ModifyCacheClusterCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ModifyCacheClusterResult
+ *   CacheCluster: { // CacheCluster
+ *     CacheClusterId: 'STRING_VALUE',
+ *     ConfigurationEndpoint: { // Endpoint
+ *       Address: 'STRING_VALUE',
+ *       Port: Number('int'),
+ *     },
+ *     ClientDownloadLandingPage: 'STRING_VALUE',
+ *     CacheNodeType: 'STRING_VALUE',
+ *     Engine: 'STRING_VALUE',
+ *     EngineVersion: 'STRING_VALUE',
+ *     CacheClusterStatus: 'STRING_VALUE',
+ *     NumCacheNodes: Number('int'),
+ *     PreferredAvailabilityZone: 'STRING_VALUE',
+ *     PreferredOutpostArn: 'STRING_VALUE',
+ *     CacheClusterCreateTime: new Date('TIMESTAMP'),
+ *     PreferredMaintenanceWindow: 'STRING_VALUE',
+ *     PendingModifiedValues: { // PendingModifiedValues
+ *       NumCacheNodes: Number('int'),
+ *       CacheNodeIdsToRemove: [ // CacheNodeIdsList
+ *         'STRING_VALUE',
+ *       ],
+ *       EngineVersion: 'STRING_VALUE',
+ *       CacheNodeType: 'STRING_VALUE',
+ *       AuthTokenStatus: 'SETTING' || 'ROTATING',
+ *       LogDeliveryConfigurations: [ // PendingLogDeliveryConfigurationList
+ *         { // PendingLogDeliveryConfiguration
+ *           LogType: 'slow-log' || 'engine-log',
+ *           DestinationType: 'cloudwatch-logs' || 'kinesis-firehose',
+ *           DestinationDetails: { // DestinationDetails
+ *             CloudWatchLogsDetails: { // CloudWatchLogsDestinationDetails
+ *               LogGroup: 'STRING_VALUE',
+ *             },
+ *             KinesisFirehoseDetails: { // KinesisFirehoseDestinationDetails
+ *               DeliveryStream: 'STRING_VALUE',
+ *             },
+ *           },
+ *           LogFormat: 'text' || 'json',
+ *         },
+ *       ],
+ *       TransitEncryptionEnabled: true || false,
+ *       TransitEncryptionMode: 'preferred' || 'required',
+ *     },
+ *     NotificationConfiguration: { // NotificationConfiguration
+ *       TopicArn: 'STRING_VALUE',
+ *       TopicStatus: 'STRING_VALUE',
+ *     },
+ *     CacheSecurityGroups: [ // CacheSecurityGroupMembershipList
+ *       { // CacheSecurityGroupMembership
+ *         CacheSecurityGroupName: 'STRING_VALUE',
+ *         Status: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     CacheParameterGroup: { // CacheParameterGroupStatus
+ *       CacheParameterGroupName: 'STRING_VALUE',
+ *       ParameterApplyStatus: 'STRING_VALUE',
+ *       CacheNodeIdsToReboot: [
+ *         'STRING_VALUE',
+ *       ],
+ *     },
+ *     CacheSubnetGroupName: 'STRING_VALUE',
+ *     CacheNodes: [ // CacheNodeList
+ *       { // CacheNode
+ *         CacheNodeId: 'STRING_VALUE',
+ *         CacheNodeStatus: 'STRING_VALUE',
+ *         CacheNodeCreateTime: new Date('TIMESTAMP'),
+ *         Endpoint: {
+ *           Address: 'STRING_VALUE',
+ *           Port: Number('int'),
+ *         },
+ *         ParameterGroupStatus: 'STRING_VALUE',
+ *         SourceCacheNodeId: 'STRING_VALUE',
+ *         CustomerAvailabilityZone: 'STRING_VALUE',
+ *         CustomerOutpostArn: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     AutoMinorVersionUpgrade: true || false,
+ *     SecurityGroups: [ // SecurityGroupMembershipList
+ *       { // SecurityGroupMembership
+ *         SecurityGroupId: 'STRING_VALUE',
+ *         Status: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     ReplicationGroupId: 'STRING_VALUE',
+ *     SnapshotRetentionLimit: Number('int'),
+ *     SnapshotWindow: 'STRING_VALUE',
+ *     AuthTokenEnabled: true || false,
+ *     AuthTokenLastModifiedDate: new Date('TIMESTAMP'),
+ *     TransitEncryptionEnabled: true || false,
+ *     AtRestEncryptionEnabled: true || false,
+ *     ARN: 'STRING_VALUE',
+ *     ReplicationGroupLogDeliveryEnabled: true || false,
+ *     LogDeliveryConfigurations: [ // LogDeliveryConfigurationList
+ *       { // LogDeliveryConfiguration
+ *         LogType: 'slow-log' || 'engine-log',
+ *         DestinationType: 'cloudwatch-logs' || 'kinesis-firehose',
+ *         DestinationDetails: {
+ *           CloudWatchLogsDetails: {
+ *             LogGroup: 'STRING_VALUE',
+ *           },
+ *           KinesisFirehoseDetails: {
+ *             DeliveryStream: 'STRING_VALUE',
+ *           },
+ *         },
+ *         LogFormat: 'text' || 'json',
+ *         Status: 'active' || 'enabling' || 'modifying' || 'disabling' || 'error',
+ *         Message: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     NetworkType: 'ipv4' || 'ipv6' || 'dual_stack',
+ *     IpDiscovery: 'ipv4' || 'ipv6',
+ *     TransitEncryptionMode: 'preferred' || 'required',
+ *   },
+ * };
+ *
  * ```
  *
  * @param ModifyCacheClusterCommandInput - {@link ModifyCacheClusterCommandInput}
@@ -131,6 +247,8 @@ export interface ModifyCacheClusterCommandOutput extends ModifyCacheClusterResul
  * @throws {@link NodeQuotaForCustomerExceededFault} (client fault)
  *  <p>The request cannot be processed because it would exceed the allowed number of cache nodes per customer.</p>
  *
+ * @throws {@link ElastiCacheServiceException}
+ * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
  * @example ModifyCacheCluster
  * ```javascript

@@ -44,18 +44,26 @@ export interface CreateSourceRepositoryBranchCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeCatalystClient, CreateSourceRepositoryBranchCommand } from "@aws-sdk/client-codecatalyst"; // ES Modules import
- * // const { CodeCatalystClient, CreateSourceRepositoryBranchCommand } = require("@aws-sdk/client-codecatalyst"); // CommonJS import
+ * import { CodeCatalystClient, CreateSourceRepositoryBranchCommand } from '@aws-sdk/client-codecatalyst'; // ES Modules import
+ * // const { CodeCatalystClient, CreateSourceRepositoryBranchCommand } = require('@aws-sdk/client-codecatalyst'); // CommonJS import
  * const client = new CodeCatalystClient(config);
  * const input = { // CreateSourceRepositoryBranchRequest
- *   spaceName: "STRING_VALUE", // required
- *   projectName: "STRING_VALUE", // required
- *   sourceRepositoryName: "STRING_VALUE", // required
- *   name: "STRING_VALUE", // required
- *   headCommitId: "STRING_VALUE",
+ *   spaceName: 'STRING_VALUE', // required
+ *   projectName: 'STRING_VALUE', // required
+ *   sourceRepositoryName: 'STRING_VALUE', // required
+ *   name: 'STRING_VALUE', // required
+ *   headCommitId: 'STRING_VALUE',
  * };
  * const command = new CreateSourceRepositoryBranchCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateSourceRepositoryBranchResponse
+ *   ref: 'STRING_VALUE',
+ *   name: 'STRING_VALUE',
+ *   lastUpdatedTime: new Date('TIMESTAMP'),
+ *   headCommitId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateSourceRepositoryBranchCommandInput - {@link CreateSourceRepositoryBranchCommandInput}
@@ -84,6 +92,8 @@ export interface CreateSourceRepositoryBranchCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The request was denied because an input failed to satisfy the constraints specified by the service. Check the spelling and input requirements, and then try again.</p>
  *
+ * @throws {@link CodeCatalystServiceException}
+ * <p>Base exception class for all service exceptions from CodeCatalyst service.</p>
  *
  */
 export class CreateSourceRepositoryBranchCommand extends $Command<

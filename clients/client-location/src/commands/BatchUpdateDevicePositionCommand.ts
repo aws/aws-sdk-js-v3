@@ -58,29 +58,43 @@ export interface BatchUpdateDevicePositionCommandOutput extends BatchUpdateDevic
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LocationClient, BatchUpdateDevicePositionCommand } from "@aws-sdk/client-location"; // ES Modules import
- * // const { LocationClient, BatchUpdateDevicePositionCommand } = require("@aws-sdk/client-location"); // CommonJS import
+ * import { LocationClient, BatchUpdateDevicePositionCommand } from '@aws-sdk/client-location'; // ES Modules import
+ * // const { LocationClient, BatchUpdateDevicePositionCommand } = require('@aws-sdk/client-location'); // CommonJS import
  * const client = new LocationClient(config);
  * const input = { // BatchUpdateDevicePositionRequest
- *   TrackerName: "STRING_VALUE", // required
+ *   TrackerName: 'STRING_VALUE', // required
  *   Updates: [ // DevicePositionUpdateList // required
  *     { // DevicePositionUpdate
- *       DeviceId: "STRING_VALUE", // required
- *       SampleTime: new Date("TIMESTAMP"), // required
+ *       DeviceId: 'STRING_VALUE', // required
+ *       SampleTime: new Date('TIMESTAMP'), // required
  *       Position: [ // Position // required
- *         Number("double"),
+ *         Number('double'),
  *       ],
  *       Accuracy: { // PositionalAccuracy
- *         Horizontal: Number("double"), // required
+ *         Horizontal: Number('double'), // required
  *       },
  *       PositionProperties: { // PropertyMap
- *         "<keys>": "STRING_VALUE",
+ *         '<keys>': 'STRING_VALUE',
  *       },
  *     },
  *   ],
  * };
  * const command = new BatchUpdateDevicePositionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BatchUpdateDevicePositionResponse
+ *   Errors: [ // BatchUpdateDevicePositionErrorList // required
+ *     { // BatchUpdateDevicePositionError
+ *       DeviceId: 'STRING_VALUE', // required
+ *       SampleTime: new Date('TIMESTAMP'), // required
+ *       Error: { // BatchItemError
+ *         Code: 'STRING_VALUE',
+ *         Message: 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param BatchUpdateDevicePositionCommandInput - {@link BatchUpdateDevicePositionCommandInput}
@@ -105,6 +119,8 @@ export interface BatchUpdateDevicePositionCommandOutput extends BatchUpdateDevic
  * @throws {@link ValidationException} (client fault)
  *  <p>The input failed to meet the constraints specified by the AWS service. </p>
  *
+ * @throws {@link LocationServiceException}
+ * <p>Base exception class for all service exceptions from Location service.</p>
  *
  */
 export class BatchUpdateDevicePositionCommand extends $Command<

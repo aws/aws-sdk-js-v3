@@ -45,37 +45,102 @@ export interface CreateReplicationInstanceCommandOutput extends CreateReplicatio
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DatabaseMigrationServiceClient, CreateReplicationInstanceCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
- * // const { DatabaseMigrationServiceClient, CreateReplicationInstanceCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
+ * import { DatabaseMigrationServiceClient, CreateReplicationInstanceCommand } from '@aws-sdk/client-database-migration-service'; // ES Modules import
+ * // const { DatabaseMigrationServiceClient, CreateReplicationInstanceCommand } = require('@aws-sdk/client-database-migration-service'); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
  * const input = { // CreateReplicationInstanceMessage
- *   ReplicationInstanceIdentifier: "STRING_VALUE", // required
- *   AllocatedStorage: Number("int"),
- *   ReplicationInstanceClass: "STRING_VALUE", // required
+ *   ReplicationInstanceIdentifier: 'STRING_VALUE', // required
+ *   AllocatedStorage: Number('int'),
+ *   ReplicationInstanceClass: 'STRING_VALUE', // required
  *   VpcSecurityGroupIds: [ // VpcSecurityGroupIdList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   AvailabilityZone: "STRING_VALUE",
- *   ReplicationSubnetGroupIdentifier: "STRING_VALUE",
- *   PreferredMaintenanceWindow: "STRING_VALUE",
+ *   AvailabilityZone: 'STRING_VALUE',
+ *   ReplicationSubnetGroupIdentifier: 'STRING_VALUE',
+ *   PreferredMaintenanceWindow: 'STRING_VALUE',
  *   MultiAZ: true || false,
- *   EngineVersion: "STRING_VALUE",
+ *   EngineVersion: 'STRING_VALUE',
  *   AutoMinorVersionUpgrade: true || false,
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE",
- *       Value: "STRING_VALUE",
- *       ResourceArn: "STRING_VALUE",
+ *       Key: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
+ *       ResourceArn: 'STRING_VALUE',
  *     },
  *   ],
- *   KmsKeyId: "STRING_VALUE",
+ *   KmsKeyId: 'STRING_VALUE',
  *   PubliclyAccessible: true || false,
- *   DnsNameServers: "STRING_VALUE",
- *   ResourceIdentifier: "STRING_VALUE",
- *   NetworkType: "STRING_VALUE",
+ *   DnsNameServers: 'STRING_VALUE',
+ *   ResourceIdentifier: 'STRING_VALUE',
+ *   NetworkType: 'STRING_VALUE',
  * };
  * const command = new CreateReplicationInstanceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateReplicationInstanceResponse
+ *   ReplicationInstance: { // ReplicationInstance
+ *     ReplicationInstanceIdentifier: 'STRING_VALUE',
+ *     ReplicationInstanceClass: 'STRING_VALUE',
+ *     ReplicationInstanceStatus: 'STRING_VALUE',
+ *     AllocatedStorage: Number('int'),
+ *     InstanceCreateTime: new Date('TIMESTAMP'),
+ *     VpcSecurityGroups: [ // VpcSecurityGroupMembershipList
+ *       { // VpcSecurityGroupMembership
+ *         VpcSecurityGroupId: 'STRING_VALUE',
+ *         Status: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     AvailabilityZone: 'STRING_VALUE',
+ *     ReplicationSubnetGroup: { // ReplicationSubnetGroup
+ *       ReplicationSubnetGroupIdentifier: 'STRING_VALUE',
+ *       ReplicationSubnetGroupDescription: 'STRING_VALUE',
+ *       VpcId: 'STRING_VALUE',
+ *       SubnetGroupStatus: 'STRING_VALUE',
+ *       Subnets: [ // SubnetList
+ *         { // Subnet
+ *           SubnetIdentifier: 'STRING_VALUE',
+ *           SubnetAvailabilityZone: { // AvailabilityZone
+ *             Name: 'STRING_VALUE',
+ *           },
+ *           SubnetStatus: 'STRING_VALUE',
+ *         },
+ *       ],
+ *       SupportedNetworkTypes: [ // StringList
+ *         'STRING_VALUE',
+ *       ],
+ *     },
+ *     PreferredMaintenanceWindow: 'STRING_VALUE',
+ *     PendingModifiedValues: { // ReplicationPendingModifiedValues
+ *       ReplicationInstanceClass: 'STRING_VALUE',
+ *       AllocatedStorage: Number('int'),
+ *       MultiAZ: true || false,
+ *       EngineVersion: 'STRING_VALUE',
+ *       NetworkType: 'STRING_VALUE',
+ *     },
+ *     MultiAZ: true || false,
+ *     EngineVersion: 'STRING_VALUE',
+ *     AutoMinorVersionUpgrade: true || false,
+ *     KmsKeyId: 'STRING_VALUE',
+ *     ReplicationInstanceArn: 'STRING_VALUE',
+ *     ReplicationInstancePublicIpAddress: 'STRING_VALUE',
+ *     ReplicationInstancePrivateIpAddress: 'STRING_VALUE',
+ *     ReplicationInstancePublicIpAddresses: [ // ReplicationInstancePublicIpAddressList
+ *       'STRING_VALUE',
+ *     ],
+ *     ReplicationInstancePrivateIpAddresses: [ // ReplicationInstancePrivateIpAddressList
+ *       'STRING_VALUE',
+ *     ],
+ *     ReplicationInstanceIpv6Addresses: [ // ReplicationInstanceIpv6AddressList
+ *       'STRING_VALUE',
+ *     ],
+ *     PubliclyAccessible: true || false,
+ *     SecondaryAvailabilityZone: 'STRING_VALUE',
+ *     FreeUntil: new Date('TIMESTAMP'),
+ *     DnsNameServers: 'STRING_VALUE',
+ *     NetworkType: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateReplicationInstanceCommandInput - {@link CreateReplicationInstanceCommandInput}
@@ -115,6 +180,8 @@ export interface CreateReplicationInstanceCommandOutput extends CreateReplicatio
  * @throws {@link StorageQuotaExceededFault} (client fault)
  *  <p>The storage quota has been exceeded.</p>
  *
+ * @throws {@link DatabaseMigrationServiceServiceException}
+ * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
  * @example Create replication instance
  * ```javascript

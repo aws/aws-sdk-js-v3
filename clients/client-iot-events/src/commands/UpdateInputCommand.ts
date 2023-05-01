@@ -36,22 +36,34 @@ export interface UpdateInputCommandOutput extends UpdateInputResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTEventsClient, UpdateInputCommand } from "@aws-sdk/client-iot-events"; // ES Modules import
- * // const { IoTEventsClient, UpdateInputCommand } = require("@aws-sdk/client-iot-events"); // CommonJS import
+ * import { IoTEventsClient, UpdateInputCommand } from '@aws-sdk/client-iot-events'; // ES Modules import
+ * // const { IoTEventsClient, UpdateInputCommand } = require('@aws-sdk/client-iot-events'); // CommonJS import
  * const client = new IoTEventsClient(config);
  * const input = { // UpdateInputRequest
- *   inputName: "STRING_VALUE", // required
- *   inputDescription: "STRING_VALUE",
+ *   inputName: 'STRING_VALUE', // required
+ *   inputDescription: 'STRING_VALUE',
  *   inputDefinition: { // InputDefinition
  *     attributes: [ // Attributes // required
  *       { // Attribute
- *         jsonPath: "STRING_VALUE", // required
+ *         jsonPath: 'STRING_VALUE', // required
  *       },
  *     ],
  *   },
  * };
  * const command = new UpdateInputCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateInputResponse
+ *   inputConfiguration: { // InputConfiguration
+ *     inputName: 'STRING_VALUE', // required
+ *     inputDescription: 'STRING_VALUE',
+ *     inputArn: 'STRING_VALUE', // required
+ *     creationTime: new Date('TIMESTAMP'), // required
+ *     lastUpdateTime: new Date('TIMESTAMP'), // required
+ *     status: 'STRING_VALUE', // required
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateInputCommandInput - {@link UpdateInputCommandInput}
@@ -78,6 +90,8 @@ export interface UpdateInputCommandOutput extends UpdateInputResponse, __Metadat
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request could not be completed due to throttling.</p>
  *
+ * @throws {@link IoTEventsServiceException}
+ * <p>Base exception class for all service exceptions from IoTEvents service.</p>
  *
  */
 export class UpdateInputCommand extends $Command<

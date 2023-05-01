@@ -53,22 +53,64 @@ export interface DescribeClusterSecurityGroupsCommandOutput extends ClusterSecur
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RedshiftClient, DescribeClusterSecurityGroupsCommand } from "@aws-sdk/client-redshift"; // ES Modules import
- * // const { RedshiftClient, DescribeClusterSecurityGroupsCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * import { RedshiftClient, DescribeClusterSecurityGroupsCommand } from '@aws-sdk/client-redshift'; // ES Modules import
+ * // const { RedshiftClient, DescribeClusterSecurityGroupsCommand } = require('@aws-sdk/client-redshift'); // CommonJS import
  * const client = new RedshiftClient(config);
  * const input = { // DescribeClusterSecurityGroupsMessage
- *   ClusterSecurityGroupName: "STRING_VALUE",
- *   MaxRecords: Number("int"),
- *   Marker: "STRING_VALUE",
+ *   ClusterSecurityGroupName: 'STRING_VALUE',
+ *   MaxRecords: Number('int'),
+ *   Marker: 'STRING_VALUE',
  *   TagKeys: [ // TagKeyList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   TagValues: [ // TagValueList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new DescribeClusterSecurityGroupsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ClusterSecurityGroupMessage
+ *   Marker: 'STRING_VALUE',
+ *   ClusterSecurityGroups: [ // ClusterSecurityGroups
+ *     { // ClusterSecurityGroup
+ *       ClusterSecurityGroupName: 'STRING_VALUE',
+ *       Description: 'STRING_VALUE',
+ *       EC2SecurityGroups: [ // EC2SecurityGroupList
+ *         { // EC2SecurityGroup
+ *           Status: 'STRING_VALUE',
+ *           EC2SecurityGroupName: 'STRING_VALUE',
+ *           EC2SecurityGroupOwnerId: 'STRING_VALUE',
+ *           Tags: [ // TagList
+ *             { // Tag
+ *               Key: 'STRING_VALUE',
+ *               Value: 'STRING_VALUE',
+ *             },
+ *           ],
+ *         },
+ *       ],
+ *       IPRanges: [ // IPRangeList
+ *         { // IPRange
+ *           Status: 'STRING_VALUE',
+ *           CIDRIP: 'STRING_VALUE',
+ *           Tags: [
+ *             {
+ *               Key: 'STRING_VALUE',
+ *               Value: 'STRING_VALUE',
+ *             },
+ *           ],
+ *         },
+ *       ],
+ *       Tags: [
+ *         {
+ *           Key: 'STRING_VALUE',
+ *           Value: 'STRING_VALUE',
+ *         },
+ *       ],
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeClusterSecurityGroupsCommandInput - {@link DescribeClusterSecurityGroupsCommandInput}
@@ -84,6 +126,8 @@ export interface DescribeClusterSecurityGroupsCommandOutput extends ClusterSecur
  * @throws {@link InvalidTagFault} (client fault)
  *  <p>The tag is invalid.</p>
  *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class DescribeClusterSecurityGroupsCommand extends $Command<

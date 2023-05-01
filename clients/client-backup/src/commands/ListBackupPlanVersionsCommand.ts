@@ -37,16 +37,41 @@ export interface ListBackupPlanVersionsCommandOutput extends ListBackupPlanVersi
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BackupClient, ListBackupPlanVersionsCommand } from "@aws-sdk/client-backup"; // ES Modules import
- * // const { BackupClient, ListBackupPlanVersionsCommand } = require("@aws-sdk/client-backup"); // CommonJS import
+ * import { BackupClient, ListBackupPlanVersionsCommand } from '@aws-sdk/client-backup'; // ES Modules import
+ * // const { BackupClient, ListBackupPlanVersionsCommand } = require('@aws-sdk/client-backup'); // CommonJS import
  * const client = new BackupClient(config);
  * const input = { // ListBackupPlanVersionsInput
- *   BackupPlanId: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   BackupPlanId: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListBackupPlanVersionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListBackupPlanVersionsOutput
+ *   NextToken: 'STRING_VALUE',
+ *   BackupPlanVersionsList: [ // BackupPlanVersionsList
+ *     { // BackupPlansListMember
+ *       BackupPlanArn: 'STRING_VALUE',
+ *       BackupPlanId: 'STRING_VALUE',
+ *       CreationDate: new Date('TIMESTAMP'),
+ *       DeletionDate: new Date('TIMESTAMP'),
+ *       VersionId: 'STRING_VALUE',
+ *       BackupPlanName: 'STRING_VALUE',
+ *       CreatorRequestId: 'STRING_VALUE',
+ *       LastExecutionDate: new Date('TIMESTAMP'),
+ *       AdvancedBackupSettings: [ // AdvancedBackupSettings
+ *         { // AdvancedBackupSetting
+ *           ResourceType: 'STRING_VALUE',
+ *           BackupOptions: { // BackupOptions
+ *             '<keys>': 'STRING_VALUE',
+ *           },
+ *         },
+ *       ],
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListBackupPlanVersionsCommandInput - {@link ListBackupPlanVersionsCommandInput}
@@ -68,6 +93,8 @@ export interface ListBackupPlanVersionsCommandOutput extends ListBackupPlanVersi
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request failed due to a temporary failure of the server.</p>
  *
+ * @throws {@link BackupServiceException}
+ * <p>Base exception class for all service exceptions from Backup service.</p>
  *
  */
 export class ListBackupPlanVersionsCommand extends $Command<

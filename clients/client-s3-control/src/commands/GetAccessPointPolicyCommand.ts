@@ -50,15 +50,20 @@ export interface GetAccessPointPolicyCommandOutput extends GetAccessPointPolicyR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { S3ControlClient, GetAccessPointPolicyCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
- * // const { S3ControlClient, GetAccessPointPolicyCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
+ * import { S3ControlClient, GetAccessPointPolicyCommand } from '@aws-sdk/client-s3-control'; // ES Modules import
+ * // const { S3ControlClient, GetAccessPointPolicyCommand } = require('@aws-sdk/client-s3-control'); // CommonJS import
  * const client = new S3ControlClient(config);
  * const input = { // GetAccessPointPolicyRequest
- *   AccountId: "STRING_VALUE",
- *   Name: "STRING_VALUE", // required
+ *   AccountId: 'STRING_VALUE',
+ *   Name: 'STRING_VALUE', // required
  * };
  * const command = new GetAccessPointPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetAccessPointPolicyResult
+ *   Policy: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetAccessPointPolicyCommandInput - {@link GetAccessPointPolicyCommandInput}
@@ -67,6 +72,8 @@ export interface GetAccessPointPolicyCommandOutput extends GetAccessPointPolicyR
  * @see {@link GetAccessPointPolicyCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
  *
+ * @throws {@link S3ControlServiceException}
+ * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
  */
 export class GetAccessPointPolicyCommand extends $Command<

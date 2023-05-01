@@ -41,32 +41,37 @@ export interface CreateImpersonationRoleCommandOutput extends CreateImpersonatio
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkMailClient, CreateImpersonationRoleCommand } from "@aws-sdk/client-workmail"; // ES Modules import
- * // const { WorkMailClient, CreateImpersonationRoleCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
+ * import { WorkMailClient, CreateImpersonationRoleCommand } from '@aws-sdk/client-workmail'; // ES Modules import
+ * // const { WorkMailClient, CreateImpersonationRoleCommand } = require('@aws-sdk/client-workmail'); // CommonJS import
  * const client = new WorkMailClient(config);
  * const input = { // CreateImpersonationRoleRequest
- *   ClientToken: "STRING_VALUE",
- *   OrganizationId: "STRING_VALUE", // required
- *   Name: "STRING_VALUE", // required
- *   Type: "FULL_ACCESS" || "READ_ONLY", // required
- *   Description: "STRING_VALUE",
+ *   ClientToken: 'STRING_VALUE',
+ *   OrganizationId: 'STRING_VALUE', // required
+ *   Name: 'STRING_VALUE', // required
+ *   Type: 'FULL_ACCESS' || 'READ_ONLY', // required
+ *   Description: 'STRING_VALUE',
  *   Rules: [ // ImpersonationRuleList // required
  *     { // ImpersonationRule
- *       ImpersonationRuleId: "STRING_VALUE", // required
- *       Name: "STRING_VALUE",
- *       Description: "STRING_VALUE",
- *       Effect: "ALLOW" || "DENY", // required
+ *       ImpersonationRuleId: 'STRING_VALUE', // required
+ *       Name: 'STRING_VALUE',
+ *       Description: 'STRING_VALUE',
+ *       Effect: 'ALLOW' || 'DENY', // required
  *       TargetUsers: [ // TargetUsers
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *       NotTargetUsers: [
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
  * };
  * const command = new CreateImpersonationRoleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateImpersonationRoleResponse
+ *   ImpersonationRoleId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateImpersonationRoleCommandInput - {@link CreateImpersonationRoleCommandInput}
@@ -97,6 +102,8 @@ export interface CreateImpersonationRoleCommandOutput extends CreateImpersonatio
  *  <p>The organization must have a valid state to perform certain
  *          operations on the organization or its members.</p>
  *
+ * @throws {@link WorkMailServiceException}
+ * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
  */
 export class CreateImpersonationRoleCommand extends $Command<

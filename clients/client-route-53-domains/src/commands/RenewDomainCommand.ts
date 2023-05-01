@@ -42,16 +42,21 @@ export interface RenewDomainCommandOutput extends RenewDomainResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Route53DomainsClient, RenewDomainCommand } from "@aws-sdk/client-route-53-domains"; // ES Modules import
- * // const { Route53DomainsClient, RenewDomainCommand } = require("@aws-sdk/client-route-53-domains"); // CommonJS import
+ * import { Route53DomainsClient, RenewDomainCommand } from '@aws-sdk/client-route-53-domains'; // ES Modules import
+ * // const { Route53DomainsClient, RenewDomainCommand } = require('@aws-sdk/client-route-53-domains'); // CommonJS import
  * const client = new Route53DomainsClient(config);
  * const input = { // RenewDomainRequest
- *   DomainName: "STRING_VALUE", // required
- *   DurationInYears: Number("int"),
- *   CurrentExpiryYear: Number("int"), // required
+ *   DomainName: 'STRING_VALUE', // required
+ *   DurationInYears: Number('int'),
+ *   CurrentExpiryYear: Number('int'), // required
  * };
  * const command = new RenewDomainCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // RenewDomainResponse
+ *   OperationId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param RenewDomainCommandInput - {@link RenewDomainCommandInput}
@@ -79,6 +84,8 @@ export interface RenewDomainCommandOutput extends RenewDomainResponse, __Metadat
  * @throws {@link UnsupportedTLD} (client fault)
  *  <p>Amazon Route 53 does not support this top-level domain (TLD).</p>
  *
+ * @throws {@link Route53DomainsServiceException}
+ * <p>Base exception class for all service exceptions from Route53Domains service.</p>
  *
  */
 export class RenewDomainCommand extends $Command<

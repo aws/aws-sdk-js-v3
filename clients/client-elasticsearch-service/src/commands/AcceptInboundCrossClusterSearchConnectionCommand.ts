@@ -49,14 +49,35 @@ export interface AcceptInboundCrossClusterSearchConnectionCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElasticsearchServiceClient, AcceptInboundCrossClusterSearchConnectionCommand } from "@aws-sdk/client-elasticsearch-service"; // ES Modules import
- * // const { ElasticsearchServiceClient, AcceptInboundCrossClusterSearchConnectionCommand } = require("@aws-sdk/client-elasticsearch-service"); // CommonJS import
+ * import { ElasticsearchServiceClient, AcceptInboundCrossClusterSearchConnectionCommand } from '@aws-sdk/client-elasticsearch-service'; // ES Modules import
+ * // const { ElasticsearchServiceClient, AcceptInboundCrossClusterSearchConnectionCommand } = require('@aws-sdk/client-elasticsearch-service'); // CommonJS import
  * const client = new ElasticsearchServiceClient(config);
  * const input = { // AcceptInboundCrossClusterSearchConnectionRequest
- *   CrossClusterSearchConnectionId: "STRING_VALUE", // required
+ *   CrossClusterSearchConnectionId: 'STRING_VALUE', // required
  * };
  * const command = new AcceptInboundCrossClusterSearchConnectionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AcceptInboundCrossClusterSearchConnectionResponse
+ *   CrossClusterSearchConnection: { // InboundCrossClusterSearchConnection
+ *     SourceDomainInfo: { // DomainInformation
+ *       OwnerId: 'STRING_VALUE',
+ *       DomainName: 'STRING_VALUE', // required
+ *       Region: 'STRING_VALUE',
+ *     },
+ *     DestinationDomainInfo: {
+ *       OwnerId: 'STRING_VALUE',
+ *       DomainName: 'STRING_VALUE', // required
+ *       Region: 'STRING_VALUE',
+ *     },
+ *     CrossClusterSearchConnectionId: 'STRING_VALUE',
+ *     ConnectionStatus: { // InboundCrossClusterSearchConnectionStatus
+ *       StatusCode: 'PENDING_ACCEPTANCE' || 'APPROVED' || 'REJECTING' || 'REJECTED' || 'DELETING' || 'DELETED',
+ *       Message: 'STRING_VALUE',
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param AcceptInboundCrossClusterSearchConnectionCommandInput - {@link AcceptInboundCrossClusterSearchConnectionCommandInput}
@@ -74,6 +95,8 @@ export interface AcceptInboundCrossClusterSearchConnectionCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>An exception for accessing or deleting a resource that does not exist. Gives http status code of 400.</p>
  *
+ * @throws {@link ElasticsearchServiceServiceException}
+ * <p>Base exception class for all service exceptions from ElasticsearchService service.</p>
  *
  */
 export class AcceptInboundCrossClusterSearchConnectionCommand extends $Command<

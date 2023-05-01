@@ -37,14 +37,40 @@ export interface CreateDomainCommandOutput extends CreateDomainResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudSearchClient, CreateDomainCommand } from "@aws-sdk/client-cloudsearch"; // ES Modules import
- * // const { CloudSearchClient, CreateDomainCommand } = require("@aws-sdk/client-cloudsearch"); // CommonJS import
+ * import { CloudSearchClient, CreateDomainCommand } from '@aws-sdk/client-cloudsearch'; // ES Modules import
+ * // const { CloudSearchClient, CreateDomainCommand } = require('@aws-sdk/client-cloudsearch'); // CommonJS import
  * const client = new CloudSearchClient(config);
  * const input = { // CreateDomainRequest
- *   DomainName: "STRING_VALUE", // required
+ *   DomainName: 'STRING_VALUE', // required
  * };
  * const command = new CreateDomainCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateDomainResponse
+ *   DomainStatus: { // DomainStatus
+ *     DomainId: 'STRING_VALUE', // required
+ *     DomainName: 'STRING_VALUE', // required
+ *     ARN: 'STRING_VALUE',
+ *     Created: true || false,
+ *     Deleted: true || false,
+ *     DocService: { // ServiceEndpoint
+ *       Endpoint: 'STRING_VALUE',
+ *     },
+ *     SearchService: {
+ *       Endpoint: 'STRING_VALUE',
+ *     },
+ *     RequiresIndexDocuments: true || false, // required
+ *     Processing: true || false,
+ *     SearchInstanceType: 'STRING_VALUE',
+ *     SearchPartitionCount: Number('int'),
+ *     SearchInstanceCount: Number('int'),
+ *     Limits: { // Limits
+ *       MaximumReplicationCount: Number('int'), // required
+ *       MaximumPartitionCount: Number('int'), // required
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateDomainCommandInput - {@link CreateDomainCommandInput}
@@ -69,6 +95,8 @@ export interface CreateDomainCommandOutput extends CreateDomainResponse, __Metad
  * @throws {@link ValidationException} (client fault)
  *  <p>The request was rejected because it has invalid parameters.</p>
  *
+ * @throws {@link CloudSearchServiceException}
+ * <p>Base exception class for all service exceptions from CloudSearch service.</p>
  *
  */
 export class CreateDomainCommand extends $Command<

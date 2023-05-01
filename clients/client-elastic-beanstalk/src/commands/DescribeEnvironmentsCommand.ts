@@ -36,25 +36,75 @@ export interface DescribeEnvironmentsCommandOutput extends EnvironmentDescriptio
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElasticBeanstalkClient, DescribeEnvironmentsCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
- * // const { ElasticBeanstalkClient, DescribeEnvironmentsCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
+ * import { ElasticBeanstalkClient, DescribeEnvironmentsCommand } from '@aws-sdk/client-elastic-beanstalk'; // ES Modules import
+ * // const { ElasticBeanstalkClient, DescribeEnvironmentsCommand } = require('@aws-sdk/client-elastic-beanstalk'); // CommonJS import
  * const client = new ElasticBeanstalkClient(config);
  * const input = { // DescribeEnvironmentsMessage
- *   ApplicationName: "STRING_VALUE",
- *   VersionLabel: "STRING_VALUE",
+ *   ApplicationName: 'STRING_VALUE',
+ *   VersionLabel: 'STRING_VALUE',
  *   EnvironmentIds: [ // EnvironmentIdList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   EnvironmentNames: [ // EnvironmentNamesList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   IncludeDeleted: true || false,
- *   IncludedDeletedBackTo: new Date("TIMESTAMP"),
- *   MaxRecords: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   IncludedDeletedBackTo: new Date('TIMESTAMP'),
+ *   MaxRecords: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new DescribeEnvironmentsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // EnvironmentDescriptionsMessage
+ *   Environments: [ // EnvironmentDescriptionsList
+ *     { // EnvironmentDescription
+ *       EnvironmentName: 'STRING_VALUE',
+ *       EnvironmentId: 'STRING_VALUE',
+ *       ApplicationName: 'STRING_VALUE',
+ *       VersionLabel: 'STRING_VALUE',
+ *       SolutionStackName: 'STRING_VALUE',
+ *       PlatformArn: 'STRING_VALUE',
+ *       TemplateName: 'STRING_VALUE',
+ *       Description: 'STRING_VALUE',
+ *       EndpointURL: 'STRING_VALUE',
+ *       CNAME: 'STRING_VALUE',
+ *       DateCreated: new Date('TIMESTAMP'),
+ *       DateUpdated: new Date('TIMESTAMP'),
+ *       Status: 'Aborting' || 'Launching' || 'Updating' || 'LinkingFrom' || 'LinkingTo' || 'Ready' || 'Terminating' || 'Terminated',
+ *       AbortableOperationInProgress: true || false,
+ *       Health: 'Green' || 'Yellow' || 'Red' || 'Grey',
+ *       HealthStatus: 'NoData' || 'Unknown' || 'Pending' || 'Ok' || 'Info' || 'Warning' || 'Degraded' || 'Severe' || 'Suspended',
+ *       Resources: { // EnvironmentResourcesDescription
+ *         LoadBalancer: { // LoadBalancerDescription
+ *           LoadBalancerName: 'STRING_VALUE',
+ *           Domain: 'STRING_VALUE',
+ *           Listeners: [ // LoadBalancerListenersDescription
+ *             { // Listener
+ *               Protocol: 'STRING_VALUE',
+ *               Port: Number('int'),
+ *             },
+ *           ],
+ *         },
+ *       },
+ *       Tier: { // EnvironmentTier
+ *         Name: 'STRING_VALUE',
+ *         Type: 'STRING_VALUE',
+ *         Version: 'STRING_VALUE',
+ *       },
+ *       EnvironmentLinks: [ // EnvironmentLinks
+ *         { // EnvironmentLink
+ *           LinkName: 'STRING_VALUE',
+ *           EnvironmentName: 'STRING_VALUE',
+ *         },
+ *       ],
+ *       EnvironmentArn: 'STRING_VALUE',
+ *       OperationsRole: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeEnvironmentsCommandInput - {@link DescribeEnvironmentsCommandInput}
@@ -63,6 +113,8 @@ export interface DescribeEnvironmentsCommandOutput extends EnvironmentDescriptio
  * @see {@link DescribeEnvironmentsCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
+ * @throws {@link ElasticBeanstalkServiceException}
+ * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
  * @example To view information about an environment
  * ```javascript

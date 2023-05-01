@@ -46,15 +46,28 @@ export interface DescribeSpendLimitsCommandOutput extends DescribeSpendLimitsRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PinpointSMSVoiceV2Client, DescribeSpendLimitsCommand } from "@aws-sdk/client-pinpoint-sms-voice-v2"; // ES Modules import
- * // const { PinpointSMSVoiceV2Client, DescribeSpendLimitsCommand } = require("@aws-sdk/client-pinpoint-sms-voice-v2"); // CommonJS import
+ * import { PinpointSMSVoiceV2Client, DescribeSpendLimitsCommand } from '@aws-sdk/client-pinpoint-sms-voice-v2'; // ES Modules import
+ * // const { PinpointSMSVoiceV2Client, DescribeSpendLimitsCommand } = require('@aws-sdk/client-pinpoint-sms-voice-v2'); // CommonJS import
  * const client = new PinpointSMSVoiceV2Client(config);
  * const input = { // DescribeSpendLimitsRequest
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new DescribeSpendLimitsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeSpendLimitsResult
+ *   SpendLimits: [ // SpendLimitList
+ *     { // SpendLimit
+ *       Name: 'STRING_VALUE', // required
+ *       EnforcedLimit: Number('long'), // required
+ *       MaxLimit: Number('long'), // required
+ *       Overridden: true || false, // required
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeSpendLimitsCommandInput - {@link DescribeSpendLimitsCommandInput}
@@ -78,6 +91,8 @@ export interface DescribeSpendLimitsCommandOutput extends DescribeSpendLimitsRes
  * @throws {@link ValidationException} (client fault)
  *  <p>A validation exception for a field.</p>
  *
+ * @throws {@link PinpointSMSVoiceV2ServiceException}
+ * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
  *
  */
 export class DescribeSpendLimitsCommand extends $Command<

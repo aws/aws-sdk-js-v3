@@ -42,14 +42,17 @@ export interface DeregisterElasticIpCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OpsWorksClient, DeregisterElasticIpCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
- * // const { OpsWorksClient, DeregisterElasticIpCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
+ * import { OpsWorksClient, DeregisterElasticIpCommand } from '@aws-sdk/client-opsworks'; // ES Modules import
+ * // const { OpsWorksClient, DeregisterElasticIpCommand } = require('@aws-sdk/client-opsworks'); // CommonJS import
  * const client = new OpsWorksClient(config);
  * const input = { // DeregisterElasticIpRequest
- *   ElasticIp: "STRING_VALUE", // required
+ *   ElasticIp: 'STRING_VALUE', // required
  * };
  * const command = new DeregisterElasticIpCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeregisterElasticIpCommandInput - {@link DeregisterElasticIpCommandInput}
@@ -64,6 +67,8 @@ export interface DeregisterElasticIpCommandOutput extends __MetadataBearer {}
  * @throws {@link ValidationException} (client fault)
  *  <p>Indicates that a request was not valid.</p>
  *
+ * @throws {@link OpsWorksServiceException}
+ * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
  */
 export class DeregisterElasticIpCommand extends $Command<

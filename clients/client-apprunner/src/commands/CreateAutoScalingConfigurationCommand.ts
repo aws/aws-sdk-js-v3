@@ -49,23 +49,39 @@ export interface CreateAutoScalingConfigurationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppRunnerClient, CreateAutoScalingConfigurationCommand } from "@aws-sdk/client-apprunner"; // ES Modules import
- * // const { AppRunnerClient, CreateAutoScalingConfigurationCommand } = require("@aws-sdk/client-apprunner"); // CommonJS import
+ * import { AppRunnerClient, CreateAutoScalingConfigurationCommand } from '@aws-sdk/client-apprunner'; // ES Modules import
+ * // const { AppRunnerClient, CreateAutoScalingConfigurationCommand } = require('@aws-sdk/client-apprunner'); // CommonJS import
  * const client = new AppRunnerClient(config);
  * const input = { // CreateAutoScalingConfigurationRequest
- *   AutoScalingConfigurationName: "STRING_VALUE", // required
- *   MaxConcurrency: Number("int"),
- *   MinSize: Number("int"),
- *   MaxSize: Number("int"),
+ *   AutoScalingConfigurationName: 'STRING_VALUE', // required
+ *   MaxConcurrency: Number('int'),
+ *   MinSize: Number('int'),
+ *   MaxSize: Number('int'),
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE",
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new CreateAutoScalingConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateAutoScalingConfigurationResponse
+ *   AutoScalingConfiguration: { // AutoScalingConfiguration
+ *     AutoScalingConfigurationArn: 'STRING_VALUE',
+ *     AutoScalingConfigurationName: 'STRING_VALUE',
+ *     AutoScalingConfigurationRevision: Number('int'),
+ *     Latest: true || false,
+ *     Status: 'ACTIVE' || 'INACTIVE',
+ *     MaxConcurrency: Number('int'),
+ *     MinSize: Number('int'),
+ *     MaxSize: Number('int'),
+ *     CreatedAt: new Date('TIMESTAMP'),
+ *     DeletedAt: new Date('TIMESTAMP'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateAutoScalingConfigurationCommandInput - {@link CreateAutoScalingConfigurationCommandInput}
@@ -85,6 +101,8 @@ export interface CreateAutoScalingConfigurationCommandOutput
  *          <p>For App Runner per-resource quotas, see <a href="https://docs.aws.amazon.com/general/latest/gr/apprunner.html">App Runner endpoints and quotas</a> in the
  *         <i>Amazon Web Services General Reference</i>.</p>
  *
+ * @throws {@link AppRunnerServiceException}
+ * <p>Base exception class for all service exceptions from AppRunner service.</p>
  *
  */
 export class CreateAutoScalingConfigurationCommand extends $Command<

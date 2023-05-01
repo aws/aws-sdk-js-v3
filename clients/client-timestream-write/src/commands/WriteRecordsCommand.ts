@@ -75,31 +75,31 @@ export interface WriteRecordsCommandOutput extends WriteRecordsResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { TimestreamWriteClient, WriteRecordsCommand } from "@aws-sdk/client-timestream-write"; // ES Modules import
- * // const { TimestreamWriteClient, WriteRecordsCommand } = require("@aws-sdk/client-timestream-write"); // CommonJS import
+ * import { TimestreamWriteClient, WriteRecordsCommand } from '@aws-sdk/client-timestream-write'; // ES Modules import
+ * // const { TimestreamWriteClient, WriteRecordsCommand } = require('@aws-sdk/client-timestream-write'); // CommonJS import
  * const client = new TimestreamWriteClient(config);
  * const input = { // WriteRecordsRequest
- *   DatabaseName: "STRING_VALUE", // required
- *   TableName: "STRING_VALUE", // required
+ *   DatabaseName: 'STRING_VALUE', // required
+ *   TableName: 'STRING_VALUE', // required
  *   CommonAttributes: { // Record
  *     Dimensions: [ // Dimensions
  *       { // Dimension
- *         Name: "STRING_VALUE", // required
- *         Value: "STRING_VALUE", // required
- *         DimensionValueType: "VARCHAR",
+ *         Name: 'STRING_VALUE', // required
+ *         Value: 'STRING_VALUE', // required
+ *         DimensionValueType: 'VARCHAR',
  *       },
  *     ],
- *     MeasureName: "STRING_VALUE",
- *     MeasureValue: "STRING_VALUE",
- *     MeasureValueType: "DOUBLE" || "BIGINT" || "VARCHAR" || "BOOLEAN" || "TIMESTAMP" || "MULTI",
- *     Time: "STRING_VALUE",
- *     TimeUnit: "MILLISECONDS" || "SECONDS" || "MICROSECONDS" || "NANOSECONDS",
- *     Version: Number("long"),
+ *     MeasureName: 'STRING_VALUE',
+ *     MeasureValue: 'STRING_VALUE',
+ *     MeasureValueType: 'DOUBLE' || 'BIGINT' || 'VARCHAR' || 'BOOLEAN' || 'TIMESTAMP' || 'MULTI',
+ *     Time: 'STRING_VALUE',
+ *     TimeUnit: 'MILLISECONDS' || 'SECONDS' || 'MICROSECONDS' || 'NANOSECONDS',
+ *     Version: Number('long'),
  *     MeasureValues: [ // MeasureValues
  *       { // MeasureValue
- *         Name: "STRING_VALUE", // required
- *         Value: "STRING_VALUE", // required
- *         Type: "DOUBLE" || "BIGINT" || "VARCHAR" || "BOOLEAN" || "TIMESTAMP" || "MULTI", // required
+ *         Name: 'STRING_VALUE', // required
+ *         Value: 'STRING_VALUE', // required
+ *         Type: 'DOUBLE' || 'BIGINT' || 'VARCHAR' || 'BOOLEAN' || 'TIMESTAMP' || 'MULTI', // required
  *       },
  *     ],
  *   },
@@ -107,22 +107,22 @@ export interface WriteRecordsCommandOutput extends WriteRecordsResponse, __Metad
  *     {
  *       Dimensions: [
  *         {
- *           Name: "STRING_VALUE", // required
- *           Value: "STRING_VALUE", // required
- *           DimensionValueType: "VARCHAR",
+ *           Name: 'STRING_VALUE', // required
+ *           Value: 'STRING_VALUE', // required
+ *           DimensionValueType: 'VARCHAR',
  *         },
  *       ],
- *       MeasureName: "STRING_VALUE",
- *       MeasureValue: "STRING_VALUE",
- *       MeasureValueType: "DOUBLE" || "BIGINT" || "VARCHAR" || "BOOLEAN" || "TIMESTAMP" || "MULTI",
- *       Time: "STRING_VALUE",
- *       TimeUnit: "MILLISECONDS" || "SECONDS" || "MICROSECONDS" || "NANOSECONDS",
- *       Version: Number("long"),
+ *       MeasureName: 'STRING_VALUE',
+ *       MeasureValue: 'STRING_VALUE',
+ *       MeasureValueType: 'DOUBLE' || 'BIGINT' || 'VARCHAR' || 'BOOLEAN' || 'TIMESTAMP' || 'MULTI',
+ *       Time: 'STRING_VALUE',
+ *       TimeUnit: 'MILLISECONDS' || 'SECONDS' || 'MICROSECONDS' || 'NANOSECONDS',
+ *       Version: Number('long'),
  *       MeasureValues: [
  *         {
- *           Name: "STRING_VALUE", // required
- *           Value: "STRING_VALUE", // required
- *           Type: "DOUBLE" || "BIGINT" || "VARCHAR" || "BOOLEAN" || "TIMESTAMP" || "MULTI", // required
+ *           Name: 'STRING_VALUE', // required
+ *           Value: 'STRING_VALUE', // required
+ *           Type: 'DOUBLE' || 'BIGINT' || 'VARCHAR' || 'BOOLEAN' || 'TIMESTAMP' || 'MULTI', // required
  *         },
  *       ],
  *     },
@@ -130,6 +130,15 @@ export interface WriteRecordsCommandOutput extends WriteRecordsResponse, __Metad
  * };
  * const command = new WriteRecordsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // WriteRecordsResponse
+ *   RecordsIngested: { // RecordsIngested
+ *     Total: Number('int'),
+ *     MemoryStore: Number('int'),
+ *     MagneticStore: Number('int'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param WriteRecordsCommandInput - {@link WriteRecordsCommandInput}
@@ -192,6 +201,8 @@ export interface WriteRecordsCommandOutput extends WriteRecordsResponse, __Metad
  * @throws {@link ValidationException} (client fault)
  *  <p> An invalid or malformed request.</p>
  *
+ * @throws {@link TimestreamWriteServiceException}
+ * <p>Base exception class for all service exceptions from TimestreamWrite service.</p>
  *
  */
 export class WriteRecordsCommand extends $Command<

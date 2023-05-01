@@ -40,29 +40,34 @@ export interface CreateNodeFromTemplateJobCommandOutput extends CreateNodeFromTe
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PanoramaClient, CreateNodeFromTemplateJobCommand } from "@aws-sdk/client-panorama"; // ES Modules import
- * // const { PanoramaClient, CreateNodeFromTemplateJobCommand } = require("@aws-sdk/client-panorama"); // CommonJS import
+ * import { PanoramaClient, CreateNodeFromTemplateJobCommand } from '@aws-sdk/client-panorama'; // ES Modules import
+ * // const { PanoramaClient, CreateNodeFromTemplateJobCommand } = require('@aws-sdk/client-panorama'); // CommonJS import
  * const client = new PanoramaClient(config);
  * const input = { // CreateNodeFromTemplateJobRequest
- *   TemplateType: "STRING_VALUE", // required
- *   OutputPackageName: "STRING_VALUE", // required
- *   OutputPackageVersion: "STRING_VALUE", // required
- *   NodeName: "STRING_VALUE", // required
- *   NodeDescription: "STRING_VALUE",
+ *   TemplateType: 'STRING_VALUE', // required
+ *   OutputPackageName: 'STRING_VALUE', // required
+ *   OutputPackageVersion: 'STRING_VALUE', // required
+ *   NodeName: 'STRING_VALUE', // required
+ *   NodeDescription: 'STRING_VALUE',
  *   TemplateParameters: { // TemplateParametersMap // required
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  *   JobTags: [ // JobTagsList
  *     { // JobResourceTags
- *       ResourceType: "STRING_VALUE", // required
+ *       ResourceType: 'STRING_VALUE', // required
  *       Tags: { // TagMap // required
- *         "<keys>": "STRING_VALUE",
+ *         '<keys>': 'STRING_VALUE',
  *       },
  *     },
  *   ],
  * };
  * const command = new CreateNodeFromTemplateJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateNodeFromTemplateJobResponse
+ *   JobId: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param CreateNodeFromTemplateJobCommandInput - {@link CreateNodeFromTemplateJobCommandInput}
@@ -83,6 +88,8 @@ export interface CreateNodeFromTemplateJobCommandOutput extends CreateNodeFromTe
  * @throws {@link ValidationException} (client fault)
  *  <p>The request contains an invalid parameter value.</p>
  *
+ * @throws {@link PanoramaServiceException}
+ * <p>Base exception class for all service exceptions from Panorama service.</p>
  *
  */
 export class CreateNodeFromTemplateJobCommand extends $Command<

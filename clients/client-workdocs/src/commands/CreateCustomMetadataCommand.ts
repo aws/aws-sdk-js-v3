@@ -41,19 +41,22 @@ export interface CreateCustomMetadataCommandOutput extends CreateCustomMetadataR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkDocsClient, CreateCustomMetadataCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
- * // const { WorkDocsClient, CreateCustomMetadataCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import
+ * import { WorkDocsClient, CreateCustomMetadataCommand } from '@aws-sdk/client-workdocs'; // ES Modules import
+ * // const { WorkDocsClient, CreateCustomMetadataCommand } = require('@aws-sdk/client-workdocs'); // CommonJS import
  * const client = new WorkDocsClient(config);
  * const input = { // CreateCustomMetadataRequest
- *   AuthenticationToken: "STRING_VALUE",
- *   ResourceId: "STRING_VALUE", // required
- *   VersionId: "STRING_VALUE",
+ *   AuthenticationToken: 'STRING_VALUE',
+ *   ResourceId: 'STRING_VALUE', // required
+ *   VersionId: 'STRING_VALUE',
  *   CustomMetadata: { // CustomMetadataMap // required
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateCustomMetadataCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param CreateCustomMetadataCommandInput - {@link CreateCustomMetadataCommandInput}
@@ -86,6 +89,8 @@ export interface CreateCustomMetadataCommandOutput extends CreateCustomMetadataR
  * @throws {@link UnauthorizedResourceAccessException} (client fault)
  *  <p>The caller does not have access to perform the action on the resource.</p>
  *
+ * @throws {@link WorkDocsServiceException}
+ * <p>Base exception class for all service exceptions from WorkDocs service.</p>
  *
  */
 export class CreateCustomMetadataCommand extends $Command<

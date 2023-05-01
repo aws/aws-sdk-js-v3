@@ -44,15 +44,52 @@ export interface GetApplicationCommandOutput extends GetApplicationResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MigrationHubRefactorSpacesClient, GetApplicationCommand } from "@aws-sdk/client-migration-hub-refactor-spaces"; // ES Modules import
- * // const { MigrationHubRefactorSpacesClient, GetApplicationCommand } = require("@aws-sdk/client-migration-hub-refactor-spaces"); // CommonJS import
+ * import { MigrationHubRefactorSpacesClient, GetApplicationCommand } from '@aws-sdk/client-migration-hub-refactor-spaces'; // ES Modules import
+ * // const { MigrationHubRefactorSpacesClient, GetApplicationCommand } = require('@aws-sdk/client-migration-hub-refactor-spaces'); // CommonJS import
  * const client = new MigrationHubRefactorSpacesClient(config);
  * const input = { // GetApplicationRequest
- *   EnvironmentIdentifier: "STRING_VALUE", // required
- *   ApplicationIdentifier: "STRING_VALUE", // required
+ *   EnvironmentIdentifier: 'STRING_VALUE', // required
+ *   ApplicationIdentifier: 'STRING_VALUE', // required
  * };
  * const command = new GetApplicationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetApplicationResponse
+ *   Name: 'STRING_VALUE',
+ *   Arn: 'STRING_VALUE',
+ *   OwnerAccountId: 'STRING_VALUE',
+ *   CreatedByAccountId: 'STRING_VALUE',
+ *   ApplicationId: 'STRING_VALUE',
+ *   EnvironmentId: 'STRING_VALUE',
+ *   VpcId: 'STRING_VALUE',
+ *   ProxyType: 'STRING_VALUE',
+ *   ApiGatewayProxy: { // ApiGatewayProxyConfig
+ *     ProxyUrl: 'STRING_VALUE',
+ *     ApiGatewayId: 'STRING_VALUE',
+ *     VpcLinkId: 'STRING_VALUE',
+ *     NlbArn: 'STRING_VALUE',
+ *     NlbName: 'STRING_VALUE',
+ *     EndpointType: 'STRING_VALUE',
+ *     StageName: 'STRING_VALUE',
+ *   },
+ *   State: 'STRING_VALUE',
+ *   Tags: { // TagMap
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ *   Error: { // ErrorResponse
+ *     Code: 'STRING_VALUE',
+ *     Message: 'STRING_VALUE',
+ *     AccountId: 'STRING_VALUE',
+ *     ResourceIdentifier: 'STRING_VALUE',
+ *     ResourceType: 'STRING_VALUE',
+ *     AdditionalDetails: { // AdditionalDetails
+ *       '<keys>': 'STRING_VALUE',
+ *     },
+ *   },
+ *   LastUpdatedTime: new Date('TIMESTAMP'),
+ *   CreatedTime: new Date('TIMESTAMP'),
+ * };
+ *
  * ```
  *
  * @param GetApplicationCommandInput - {@link GetApplicationCommandInput}
@@ -77,6 +114,8 @@ export interface GetApplicationCommandOutput extends GetApplicationResponse, __M
  *  <p>The input does not satisfy the constraints specified by an Amazon Web Service.
  *     </p>
  *
+ * @throws {@link MigrationHubRefactorSpacesServiceException}
+ * <p>Base exception class for all service exceptions from MigrationHubRefactorSpaces service.</p>
  *
  */
 export class GetApplicationCommand extends $Command<

@@ -41,15 +41,34 @@ export interface ListReportDefinitionsCommandOutput extends ListReportDefinition
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ApplicationCostProfilerClient, ListReportDefinitionsCommand } from "@aws-sdk/client-applicationcostprofiler"; // ES Modules import
- * // const { ApplicationCostProfilerClient, ListReportDefinitionsCommand } = require("@aws-sdk/client-applicationcostprofiler"); // CommonJS import
+ * import { ApplicationCostProfilerClient, ListReportDefinitionsCommand } from '@aws-sdk/client-applicationcostprofiler'; // ES Modules import
+ * // const { ApplicationCostProfilerClient, ListReportDefinitionsCommand } = require('@aws-sdk/client-applicationcostprofiler'); // CommonJS import
  * const client = new ApplicationCostProfilerClient(config);
  * const input = { // ListReportDefinitionsRequest
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new ListReportDefinitionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListReportDefinitionsResult
+ *   reportDefinitions: [ // ReportDefinitionList
+ *     { // ReportDefinition
+ *       reportId: 'STRING_VALUE',
+ *       reportDescription: 'STRING_VALUE',
+ *       reportFrequency: 'STRING_VALUE',
+ *       format: 'STRING_VALUE',
+ *       destinationS3Location: { // S3Location
+ *         bucket: 'STRING_VALUE', // required
+ *         prefix: 'STRING_VALUE', // required
+ *       },
+ *       createdAt: new Date('TIMESTAMP'),
+ *       lastUpdatedAt: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListReportDefinitionsCommandInput - {@link ListReportDefinitionsCommandInput}
@@ -70,6 +89,8 @@ export interface ListReportDefinitionsCommandOutput extends ListReportDefinition
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints for the API.</p>
  *
+ * @throws {@link ApplicationCostProfilerServiceException}
+ * <p>Base exception class for all service exceptions from ApplicationCostProfiler service.</p>
  *
  */
 export class ListReportDefinitionsCommand extends $Command<

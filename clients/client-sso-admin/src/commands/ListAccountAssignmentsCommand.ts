@@ -36,18 +36,31 @@ export interface ListAccountAssignmentsCommandOutput extends ListAccountAssignme
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSOAdminClient, ListAccountAssignmentsCommand } from "@aws-sdk/client-sso-admin"; // ES Modules import
- * // const { SSOAdminClient, ListAccountAssignmentsCommand } = require("@aws-sdk/client-sso-admin"); // CommonJS import
+ * import { SSOAdminClient, ListAccountAssignmentsCommand } from '@aws-sdk/client-sso-admin'; // ES Modules import
+ * // const { SSOAdminClient, ListAccountAssignmentsCommand } = require('@aws-sdk/client-sso-admin'); // CommonJS import
  * const client = new SSOAdminClient(config);
  * const input = { // ListAccountAssignmentsRequest
- *   InstanceArn: "STRING_VALUE", // required
- *   AccountId: "STRING_VALUE", // required
- *   PermissionSetArn: "STRING_VALUE", // required
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   InstanceArn: 'STRING_VALUE', // required
+ *   AccountId: 'STRING_VALUE', // required
+ *   PermissionSetArn: 'STRING_VALUE', // required
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListAccountAssignmentsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListAccountAssignmentsResponse
+ *   AccountAssignments: [ // AccountAssignmentList
+ *     { // AccountAssignment
+ *       AccountId: 'STRING_VALUE',
+ *       PermissionSetArn: 'STRING_VALUE',
+ *       PrincipalType: 'USER' || 'GROUP',
+ *       PrincipalId: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListAccountAssignmentsCommandInput - {@link ListAccountAssignmentsCommandInput}
@@ -73,6 +86,8 @@ export interface ListAccountAssignmentsCommandOutput extends ListAccountAssignme
  * @throws {@link ValidationException} (client fault)
  *  <p>The request failed because it contains a syntax error.</p>
  *
+ * @throws {@link SSOAdminServiceException}
+ * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
  */
 export class ListAccountAssignmentsCommand extends $Command<

@@ -37,17 +37,27 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DAXClient, UntagResourceCommand } from "@aws-sdk/client-dax"; // ES Modules import
- * // const { DAXClient, UntagResourceCommand } = require("@aws-sdk/client-dax"); // CommonJS import
+ * import { DAXClient, UntagResourceCommand } from '@aws-sdk/client-dax'; // ES Modules import
+ * // const { DAXClient, UntagResourceCommand } = require('@aws-sdk/client-dax'); // CommonJS import
  * const client = new DAXClient(config);
  * const input = { // UntagResourceRequest
- *   ResourceName: "STRING_VALUE", // required
+ *   ResourceName: 'STRING_VALUE', // required
  *   TagKeys: [ // KeyList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new UntagResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UntagResourceResponse
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param UntagResourceCommandInput - {@link UntagResourceCommandInput}
@@ -78,6 +88,8 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * @throws {@link TagNotFoundFault} (client fault)
  *  <p>The tag does not exist.</p>
  *
+ * @throws {@link DAXServiceException}
+ * <p>Base exception class for all service exceptions from DAX service.</p>
  *
  */
 export class UntagResourceCommand extends $Command<

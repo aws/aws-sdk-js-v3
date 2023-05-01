@@ -36,14 +36,98 @@ export interface GetLoggingConfigurationCommandOutput extends GetLoggingConfigur
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WAFV2Client, GetLoggingConfigurationCommand } from "@aws-sdk/client-wafv2"; // ES Modules import
- * // const { WAFV2Client, GetLoggingConfigurationCommand } = require("@aws-sdk/client-wafv2"); // CommonJS import
+ * import { WAFV2Client, GetLoggingConfigurationCommand } from '@aws-sdk/client-wafv2'; // ES Modules import
+ * // const { WAFV2Client, GetLoggingConfigurationCommand } = require('@aws-sdk/client-wafv2'); // CommonJS import
  * const client = new WAFV2Client(config);
  * const input = { // GetLoggingConfigurationRequest
- *   ResourceArn: "STRING_VALUE", // required
+ *   ResourceArn: 'STRING_VALUE', // required
  * };
  * const command = new GetLoggingConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetLoggingConfigurationResponse
+ *   LoggingConfiguration: { // LoggingConfiguration
+ *     ResourceArn: 'STRING_VALUE', // required
+ *     LogDestinationConfigs: [ // LogDestinationConfigs // required
+ *       'STRING_VALUE',
+ *     ],
+ *     RedactedFields: [ // RedactedFields
+ *       { // FieldToMatch
+ *         SingleHeader: { // SingleHeader
+ *           Name: 'STRING_VALUE', // required
+ *         },
+ *         SingleQueryArgument: { // SingleQueryArgument
+ *           Name: 'STRING_VALUE', // required
+ *         },
+ *         AllQueryArguments: {},
+ *         UriPath: {},
+ *         QueryString: {},
+ *         Body: { // Body
+ *           OversizeHandling: 'CONTINUE' || 'MATCH' || 'NO_MATCH',
+ *         },
+ *         Method: {},
+ *         JsonBody: { // JsonBody
+ *           MatchPattern: { // JsonMatchPattern
+ *             All: {},
+ *             IncludedPaths: [ // JsonPointerPaths
+ *               'STRING_VALUE',
+ *             ],
+ *           },
+ *           MatchScope: 'ALL' || 'KEY' || 'VALUE', // required
+ *           InvalidFallbackBehavior: 'MATCH' || 'NO_MATCH' || 'EVALUATE_AS_STRING',
+ *           OversizeHandling: 'CONTINUE' || 'MATCH' || 'NO_MATCH',
+ *         },
+ *         Headers: { // Headers
+ *           MatchPattern: { // HeaderMatchPattern
+ *             All: {},
+ *             IncludedHeaders: [ // HeaderNames
+ *               'STRING_VALUE',
+ *             ],
+ *             ExcludedHeaders: [
+ *               'STRING_VALUE',
+ *             ],
+ *           },
+ *           MatchScope: 'ALL' || 'KEY' || 'VALUE', // required
+ *           OversizeHandling: 'CONTINUE' || 'MATCH' || 'NO_MATCH', // required
+ *         },
+ *         Cookies: { // Cookies
+ *           MatchPattern: { // CookieMatchPattern
+ *             All: {},
+ *             IncludedCookies: [ // CookieNames
+ *               'STRING_VALUE',
+ *             ],
+ *             ExcludedCookies: [
+ *               'STRING_VALUE',
+ *             ],
+ *           },
+ *           MatchScope: 'ALL' || 'KEY' || 'VALUE', // required
+ *           OversizeHandling: 'CONTINUE' || 'MATCH' || 'NO_MATCH', // required
+ *         },
+ *       },
+ *     ],
+ *     ManagedByFirewallManager: true || false,
+ *     LoggingFilter: { // LoggingFilter
+ *       Filters: [ // Filters // required
+ *         { // Filter
+ *           Behavior: 'KEEP' || 'DROP', // required
+ *           Requirement: 'MEETS_ALL' || 'MEETS_ANY', // required
+ *           Conditions: [ // Conditions // required
+ *             { // Condition
+ *               ActionCondition: { // ActionCondition
+ *                 Action: 'ALLOW' || 'BLOCK' || 'COUNT' || 'CAPTCHA' || 'CHALLENGE' || 'EXCLUDED_AS_COUNT', // required
+ *               },
+ *               LabelNameCondition: { // LabelNameCondition
+ *                 LabelName: 'STRING_VALUE', // required
+ *               },
+ *             },
+ *           ],
+ *         },
+ *       ],
+ *       DefaultBehavior: 'KEEP' || 'DROP', // required
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetLoggingConfigurationCommandInput - {@link GetLoggingConfigurationCommandInput}
@@ -86,6 +170,8 @@ export interface GetLoggingConfigurationCommandOutput extends GetLoggingConfigur
  *        just need to wait a few minutes. It can take from a few seconds to a number of minutes
  *        for changes to propagate. </p>
  *
+ * @throws {@link WAFV2ServiceException}
+ * <p>Base exception class for all service exceptions from WAFV2 service.</p>
  *
  */
 export class GetLoggingConfigurationCommand extends $Command<

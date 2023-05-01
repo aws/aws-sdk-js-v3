@@ -39,30 +39,36 @@ export interface CreateParallelDataCommandOutput extends CreateParallelDataRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { TranslateClient, CreateParallelDataCommand } from "@aws-sdk/client-translate"; // ES Modules import
- * // const { TranslateClient, CreateParallelDataCommand } = require("@aws-sdk/client-translate"); // CommonJS import
+ * import { TranslateClient, CreateParallelDataCommand } from '@aws-sdk/client-translate'; // ES Modules import
+ * // const { TranslateClient, CreateParallelDataCommand } = require('@aws-sdk/client-translate'); // CommonJS import
  * const client = new TranslateClient(config);
  * const input = { // CreateParallelDataRequest
- *   Name: "STRING_VALUE", // required
- *   Description: "STRING_VALUE",
+ *   Name: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE',
  *   ParallelDataConfig: { // ParallelDataConfig
- *     S3Uri: "STRING_VALUE", // required
- *     Format: "TSV" || "CSV" || "TMX", // required
+ *     S3Uri: 'STRING_VALUE', // required
+ *     Format: 'TSV' || 'CSV' || 'TMX', // required
  *   },
  *   EncryptionKey: { // EncryptionKey
- *     Type: "KMS", // required
- *     Id: "STRING_VALUE", // required
+ *     Type: 'KMS', // required
+ *     Id: 'STRING_VALUE', // required
  *   },
- *   ClientToken: "STRING_VALUE", // required
+ *   ClientToken: 'STRING_VALUE', // required
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreateParallelDataCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateParallelDataResponse
+ *   Name: 'STRING_VALUE',
+ *   Status: 'CREATING' || 'UPDATING' || 'ACTIVE' || 'DELETING' || 'FAILED',
+ * };
+ *
  * ```
  *
  * @param CreateParallelDataCommandInput - {@link CreateParallelDataCommandInput}
@@ -100,6 +106,8 @@ export interface CreateParallelDataCommandOutput extends CreateParallelDataRespo
  * @throws {@link TooManyTagsException} (client fault)
  *  <p>You have added too many tags to this resource. The maximum is 50 tags.</p>
  *
+ * @throws {@link TranslateServiceException}
+ * <p>Base exception class for all service exceptions from Translate service.</p>
  *
  */
 export class CreateParallelDataCommand extends $Command<

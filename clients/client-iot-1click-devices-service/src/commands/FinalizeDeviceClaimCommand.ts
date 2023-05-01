@@ -44,17 +44,22 @@ export interface FinalizeDeviceClaimCommandOutput extends FinalizeDeviceClaimRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoT1ClickDevicesServiceClient, FinalizeDeviceClaimCommand } from "@aws-sdk/client-iot-1click-devices-service"; // ES Modules import
- * // const { IoT1ClickDevicesServiceClient, FinalizeDeviceClaimCommand } = require("@aws-sdk/client-iot-1click-devices-service"); // CommonJS import
+ * import { IoT1ClickDevicesServiceClient, FinalizeDeviceClaimCommand } from '@aws-sdk/client-iot-1click-devices-service'; // ES Modules import
+ * // const { IoT1ClickDevicesServiceClient, FinalizeDeviceClaimCommand } = require('@aws-sdk/client-iot-1click-devices-service'); // CommonJS import
  * const client = new IoT1ClickDevicesServiceClient(config);
  * const input = { // FinalizeDeviceClaimRequest
- *   DeviceId: "STRING_VALUE", // required
+ *   DeviceId: 'STRING_VALUE', // required
  *   Tags: { // __mapOf__string
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new FinalizeDeviceClaimCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // FinalizeDeviceClaimResponse
+ *   State: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param FinalizeDeviceClaimCommandInput - {@link FinalizeDeviceClaimCommandInput}
@@ -73,6 +78,8 @@ export interface FinalizeDeviceClaimCommandOutput extends FinalizeDeviceClaimRes
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *
+ * @throws {@link IoT1ClickDevicesServiceServiceException}
+ * <p>Base exception class for all service exceptions from IoT1ClickDevicesService service.</p>
  *
  */
 export class FinalizeDeviceClaimCommand extends $Command<

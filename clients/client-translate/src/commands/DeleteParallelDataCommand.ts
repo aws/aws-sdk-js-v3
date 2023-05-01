@@ -36,14 +36,20 @@ export interface DeleteParallelDataCommandOutput extends DeleteParallelDataRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { TranslateClient, DeleteParallelDataCommand } from "@aws-sdk/client-translate"; // ES Modules import
- * // const { TranslateClient, DeleteParallelDataCommand } = require("@aws-sdk/client-translate"); // CommonJS import
+ * import { TranslateClient, DeleteParallelDataCommand } from '@aws-sdk/client-translate'; // ES Modules import
+ * // const { TranslateClient, DeleteParallelDataCommand } = require('@aws-sdk/client-translate'); // CommonJS import
  * const client = new TranslateClient(config);
  * const input = { // DeleteParallelDataRequest
- *   Name: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
  * };
  * const command = new DeleteParallelDataCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteParallelDataResponse
+ *   Name: 'STRING_VALUE',
+ *   Status: 'CREATING' || 'UPDATING' || 'ACTIVE' || 'DELETING' || 'FAILED',
+ * };
+ *
  * ```
  *
  * @param DeleteParallelDataCommandInput - {@link DeleteParallelDataCommandInput}
@@ -68,6 +74,8 @@ export interface DeleteParallelDataCommandOutput extends DeleteParallelDataRespo
  *  <p> You have made too many requests within a short period of time. Wait for a short time and
  *       then try your request again.</p>
  *
+ * @throws {@link TranslateServiceException}
+ * <p>Base exception class for all service exceptions from Translate service.</p>
  *
  */
 export class DeleteParallelDataCommand extends $Command<

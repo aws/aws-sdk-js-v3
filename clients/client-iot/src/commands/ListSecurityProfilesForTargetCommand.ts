@@ -43,17 +43,33 @@ export interface ListSecurityProfilesForTargetCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTClient, ListSecurityProfilesForTargetCommand } from "@aws-sdk/client-iot"; // ES Modules import
- * // const { IoTClient, ListSecurityProfilesForTargetCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * import { IoTClient, ListSecurityProfilesForTargetCommand } from '@aws-sdk/client-iot'; // ES Modules import
+ * // const { IoTClient, ListSecurityProfilesForTargetCommand } = require('@aws-sdk/client-iot'); // CommonJS import
  * const client = new IoTClient(config);
  * const input = { // ListSecurityProfilesForTargetRequest
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  *   recursive: true || false,
- *   securityProfileTargetArn: "STRING_VALUE", // required
+ *   securityProfileTargetArn: 'STRING_VALUE', // required
  * };
  * const command = new ListSecurityProfilesForTargetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListSecurityProfilesForTargetResponse
+ *   securityProfileTargetMappings: [ // SecurityProfileTargetMappings
+ *     { // SecurityProfileTargetMapping
+ *       securityProfileIdentifier: { // SecurityProfileIdentifier
+ *         name: 'STRING_VALUE', // required
+ *         arn: 'STRING_VALUE', // required
+ *       },
+ *       target: { // SecurityProfileTarget
+ *         arn: 'STRING_VALUE', // required
+ *       },
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListSecurityProfilesForTargetCommandInput - {@link ListSecurityProfilesForTargetCommandInput}
@@ -74,6 +90,8 @@ export interface ListSecurityProfilesForTargetCommandOutput
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The rate exceeds the limit.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class ListSecurityProfilesForTargetCommand extends $Command<

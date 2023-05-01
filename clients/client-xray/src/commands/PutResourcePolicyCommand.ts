@@ -41,17 +41,27 @@ export interface PutResourcePolicyCommandOutput extends PutResourcePolicyResult,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { XRayClient, PutResourcePolicyCommand } from "@aws-sdk/client-xray"; // ES Modules import
- * // const { XRayClient, PutResourcePolicyCommand } = require("@aws-sdk/client-xray"); // CommonJS import
+ * import { XRayClient, PutResourcePolicyCommand } from '@aws-sdk/client-xray'; // ES Modules import
+ * // const { XRayClient, PutResourcePolicyCommand } = require('@aws-sdk/client-xray'); // CommonJS import
  * const client = new XRayClient(config);
  * const input = { // PutResourcePolicyRequest
- *   PolicyName: "STRING_VALUE", // required
- *   PolicyDocument: "STRING_VALUE", // required
- *   PolicyRevisionId: "STRING_VALUE",
+ *   PolicyName: 'STRING_VALUE', // required
+ *   PolicyDocument: 'STRING_VALUE', // required
+ *   PolicyRevisionId: 'STRING_VALUE',
  *   BypassPolicyLockoutCheck: true || false,
  * };
  * const command = new PutResourcePolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutResourcePolicyResult
+ *   ResourcePolicy: { // ResourcePolicy
+ *     PolicyName: 'STRING_VALUE',
+ *     PolicyDocument: 'STRING_VALUE',
+ *     PolicyRevisionId: 'STRING_VALUE',
+ *     LastUpdatedTime: new Date('TIMESTAMP'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param PutResourcePolicyCommandInput - {@link PutResourcePolicyCommandInput}
@@ -79,6 +89,8 @@ export interface PutResourcePolicyCommandOutput extends PutResourcePolicyResult,
  * @throws {@link ThrottledException} (client fault)
  *  <p>The request exceeds the maximum number of requests per second.</p>
  *
+ * @throws {@link XRayServiceException}
+ * <p>Base exception class for all service exceptions from XRay service.</p>
  *
  */
 export class PutResourcePolicyCommand extends $Command<

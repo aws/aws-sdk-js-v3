@@ -41,18 +41,25 @@ export interface GetMapTileCommandOutput extends GetMapTileResponse, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LocationClient, GetMapTileCommand } from "@aws-sdk/client-location"; // ES Modules import
- * // const { LocationClient, GetMapTileCommand } = require("@aws-sdk/client-location"); // CommonJS import
+ * import { LocationClient, GetMapTileCommand } from '@aws-sdk/client-location'; // ES Modules import
+ * // const { LocationClient, GetMapTileCommand } = require('@aws-sdk/client-location'); // CommonJS import
  * const client = new LocationClient(config);
  * const input = { // GetMapTileRequest
- *   MapName: "STRING_VALUE", // required
- *   Z: "STRING_VALUE", // required
- *   X: "STRING_VALUE", // required
- *   Y: "STRING_VALUE", // required
- *   Key: "STRING_VALUE",
+ *   MapName: 'STRING_VALUE', // required
+ *   Z: 'STRING_VALUE', // required
+ *   X: 'STRING_VALUE', // required
+ *   Y: 'STRING_VALUE', // required
+ *   Key: 'STRING_VALUE',
  * };
  * const command = new GetMapTileCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetMapTileResponse
+ *   Blob: 'BLOB_VALUE',
+ *   ContentType: 'STRING_VALUE',
+ *   CacheControl: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetMapTileCommandInput - {@link GetMapTileCommandInput}
@@ -77,6 +84,8 @@ export interface GetMapTileCommandOutput extends GetMapTileResponse, __MetadataB
  * @throws {@link ValidationException} (client fault)
  *  <p>The input failed to meet the constraints specified by the AWS service. </p>
  *
+ * @throws {@link LocationServiceException}
+ * <p>Base exception class for all service exceptions from Location service.</p>
  *
  */
 export class GetMapTileCommand extends $Command<

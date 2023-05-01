@@ -45,19 +45,31 @@ export interface ListPermissionSetProvisioningStatusCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSOAdminClient, ListPermissionSetProvisioningStatusCommand } from "@aws-sdk/client-sso-admin"; // ES Modules import
- * // const { SSOAdminClient, ListPermissionSetProvisioningStatusCommand } = require("@aws-sdk/client-sso-admin"); // CommonJS import
+ * import { SSOAdminClient, ListPermissionSetProvisioningStatusCommand } from '@aws-sdk/client-sso-admin'; // ES Modules import
+ * // const { SSOAdminClient, ListPermissionSetProvisioningStatusCommand } = require('@aws-sdk/client-sso-admin'); // CommonJS import
  * const client = new SSOAdminClient(config);
  * const input = { // ListPermissionSetProvisioningStatusRequest
- *   InstanceArn: "STRING_VALUE", // required
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   InstanceArn: 'STRING_VALUE', // required
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  *   Filter: { // OperationStatusFilter
- *     Status: "IN_PROGRESS" || "FAILED" || "SUCCEEDED",
+ *     Status: 'IN_PROGRESS' || 'FAILED' || 'SUCCEEDED',
  *   },
  * };
  * const command = new ListPermissionSetProvisioningStatusCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListPermissionSetProvisioningStatusResponse
+ *   PermissionSetsProvisioningStatus: [ // PermissionSetProvisioningStatusList
+ *     { // PermissionSetProvisioningStatusMetadata
+ *       Status: 'IN_PROGRESS' || 'FAILED' || 'SUCCEEDED',
+ *       RequestId: 'STRING_VALUE',
+ *       CreatedDate: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListPermissionSetProvisioningStatusCommandInput - {@link ListPermissionSetProvisioningStatusCommandInput}
@@ -83,6 +95,8 @@ export interface ListPermissionSetProvisioningStatusCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The request failed because it contains a syntax error.</p>
  *
+ * @throws {@link SSOAdminServiceException}
+ * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
  */
 export class ListPermissionSetProvisioningStatusCommand extends $Command<

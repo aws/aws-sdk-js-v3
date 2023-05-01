@@ -40,16 +40,37 @@ export interface ListPackagesForDomainCommandOutput extends ListPackagesForDomai
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElasticsearchServiceClient, ListPackagesForDomainCommand } from "@aws-sdk/client-elasticsearch-service"; // ES Modules import
- * // const { ElasticsearchServiceClient, ListPackagesForDomainCommand } = require("@aws-sdk/client-elasticsearch-service"); // CommonJS import
+ * import { ElasticsearchServiceClient, ListPackagesForDomainCommand } from '@aws-sdk/client-elasticsearch-service'; // ES Modules import
+ * // const { ElasticsearchServiceClient, ListPackagesForDomainCommand } = require('@aws-sdk/client-elasticsearch-service'); // CommonJS import
  * const client = new ElasticsearchServiceClient(config);
  * const input = { // ListPackagesForDomainRequest
- *   DomainName: "STRING_VALUE", // required
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   DomainName: 'STRING_VALUE', // required
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListPackagesForDomainCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListPackagesForDomainResponse
+ *   DomainPackageDetailsList: [ // DomainPackageDetailsList
+ *     { // DomainPackageDetails
+ *       PackageID: 'STRING_VALUE',
+ *       PackageName: 'STRING_VALUE',
+ *       PackageType: 'TXT-DICTIONARY',
+ *       LastUpdated: new Date('TIMESTAMP'),
+ *       DomainName: 'STRING_VALUE',
+ *       DomainPackageStatus: 'ASSOCIATING' || 'ASSOCIATION_FAILED' || 'ACTIVE' || 'DISSOCIATING' || 'DISSOCIATION_FAILED',
+ *       PackageVersion: 'STRING_VALUE',
+ *       ReferencePath: 'STRING_VALUE',
+ *       ErrorDetails: { // ErrorDetails
+ *         ErrorType: 'STRING_VALUE',
+ *         ErrorMessage: 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListPackagesForDomainCommandInput - {@link ListPackagesForDomainCommandInput}
@@ -73,6 +94,8 @@ export interface ListPackagesForDomainCommandOutput extends ListPackagesForDomai
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception for missing / invalid input fields. Gives http status code of 400.</p>
  *
+ * @throws {@link ElasticsearchServiceServiceException}
+ * <p>Base exception class for all service exceptions from ElasticsearchService service.</p>
  *
  */
 export class ListPackagesForDomainCommand extends $Command<

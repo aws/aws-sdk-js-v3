@@ -36,25 +36,42 @@ export interface CreateWorldExportJobCommandOutput extends CreateWorldExportJobR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RoboMakerClient, CreateWorldExportJobCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
- * // const { RoboMakerClient, CreateWorldExportJobCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
+ * import { RoboMakerClient, CreateWorldExportJobCommand } from '@aws-sdk/client-robomaker'; // ES Modules import
+ * // const { RoboMakerClient, CreateWorldExportJobCommand } = require('@aws-sdk/client-robomaker'); // CommonJS import
  * const client = new RoboMakerClient(config);
  * const input = { // CreateWorldExportJobRequest
- *   clientRequestToken: "STRING_VALUE",
+ *   clientRequestToken: 'STRING_VALUE',
  *   worlds: [ // Arns // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   outputLocation: { // OutputLocation
- *     s3Bucket: "STRING_VALUE",
- *     s3Prefix: "STRING_VALUE",
+ *     s3Bucket: 'STRING_VALUE',
+ *     s3Prefix: 'STRING_VALUE',
  *   },
- *   iamRole: "STRING_VALUE", // required
+ *   iamRole: 'STRING_VALUE', // required
  *   tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateWorldExportJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateWorldExportJobResponse
+ *   arn: 'STRING_VALUE',
+ *   status: 'STRING_VALUE',
+ *   createdAt: new Date('TIMESTAMP'),
+ *   failureCode: 'STRING_VALUE',
+ *   clientRequestToken: 'STRING_VALUE',
+ *   outputLocation: { // OutputLocation
+ *     s3Bucket: 'STRING_VALUE',
+ *     s3Prefix: 'STRING_VALUE',
+ *   },
+ *   iamRole: 'STRING_VALUE',
+ *   tags: { // TagMap
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateWorldExportJobCommandInput - {@link CreateWorldExportJobCommandInput}
@@ -83,6 +100,8 @@ export interface CreateWorldExportJobCommandOutput extends CreateWorldExportJobR
  * @throws {@link ThrottlingException} (client fault)
  *  <p>AWS RoboMaker is temporarily unable to process the request. Try your call again.</p>
  *
+ * @throws {@link RoboMakerServiceException}
+ * <p>Base exception class for all service exceptions from RoboMaker service.</p>
  *
  */
 export class CreateWorldExportJobCommand extends $Command<

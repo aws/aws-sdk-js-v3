@@ -36,16 +36,28 @@ export interface ListPromptsCommandOutput extends ListPromptsResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, ListPromptsCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, ListPromptsCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, ListPromptsCommand } from '@aws-sdk/client-connect'; // ES Modules import
+ * // const { ConnectClient, ListPromptsCommand } = require('@aws-sdk/client-connect'); // CommonJS import
  * const client = new ConnectClient(config);
  * const input = { // ListPromptsRequest
- *   InstanceId: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   InstanceId: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListPromptsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListPromptsResponse
+ *   PromptSummaryList: [ // PromptSummaryList
+ *     { // PromptSummary
+ *       Id: 'STRING_VALUE',
+ *       Arn: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListPromptsCommandInput - {@link ListPromptsCommandInput}
@@ -69,6 +81,8 @@ export interface ListPromptsCommandOutput extends ListPromptsResponse, __Metadat
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class ListPromptsCommand extends $Command<

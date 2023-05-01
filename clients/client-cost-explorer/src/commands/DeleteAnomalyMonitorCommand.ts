@@ -36,14 +36,17 @@ export interface DeleteAnomalyMonitorCommandOutput extends DeleteAnomalyMonitorR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CostExplorerClient, DeleteAnomalyMonitorCommand } from "@aws-sdk/client-cost-explorer"; // ES Modules import
- * // const { CostExplorerClient, DeleteAnomalyMonitorCommand } = require("@aws-sdk/client-cost-explorer"); // CommonJS import
+ * import { CostExplorerClient, DeleteAnomalyMonitorCommand } from '@aws-sdk/client-cost-explorer'; // ES Modules import
+ * // const { CostExplorerClient, DeleteAnomalyMonitorCommand } = require('@aws-sdk/client-cost-explorer'); // CommonJS import
  * const client = new CostExplorerClient(config);
  * const input = { // DeleteAnomalyMonitorRequest
- *   MonitorArn: "STRING_VALUE", // required
+ *   MonitorArn: 'STRING_VALUE', // required
  * };
  * const command = new DeleteAnomalyMonitorCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteAnomalyMonitorCommandInput - {@link DeleteAnomalyMonitorCommandInput}
@@ -58,6 +61,8 @@ export interface DeleteAnomalyMonitorCommandOutput extends DeleteAnomalyMonitorR
  * @throws {@link UnknownMonitorException} (client fault)
  *  <p>The cost anomaly monitor does not exist for the account. </p>
  *
+ * @throws {@link CostExplorerServiceException}
+ * <p>Base exception class for all service exceptions from CostExplorer service.</p>
  *
  */
 export class DeleteAnomalyMonitorCommand extends $Command<

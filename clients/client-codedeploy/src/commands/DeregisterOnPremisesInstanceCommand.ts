@@ -39,14 +39,17 @@ export interface DeregisterOnPremisesInstanceCommandOutput extends __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeDeployClient, DeregisterOnPremisesInstanceCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
- * // const { CodeDeployClient, DeregisterOnPremisesInstanceCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
+ * import { CodeDeployClient, DeregisterOnPremisesInstanceCommand } from '@aws-sdk/client-codedeploy'; // ES Modules import
+ * // const { CodeDeployClient, DeregisterOnPremisesInstanceCommand } = require('@aws-sdk/client-codedeploy'); // CommonJS import
  * const client = new CodeDeployClient(config);
  * const input = { // DeregisterOnPremisesInstanceInput
- *   instanceName: "STRING_VALUE", // required
+ *   instanceName: 'STRING_VALUE', // required
  * };
  * const command = new DeregisterOnPremisesInstanceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeregisterOnPremisesInstanceCommandInput - {@link DeregisterOnPremisesInstanceCommandInput}
@@ -61,6 +64,8 @@ export interface DeregisterOnPremisesInstanceCommandOutput extends __MetadataBea
  * @throws {@link InvalidInstanceNameException} (client fault)
  *  <p>The on-premises instance name was specified in an invalid format.</p>
  *
+ * @throws {@link CodeDeployServiceException}
+ * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
  */
 export class DeregisterOnPremisesInstanceCommand extends $Command<

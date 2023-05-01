@@ -50,37 +50,37 @@ export interface CreateMediaConcatenationPipelineCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeSDKMediaPipelinesClient, CreateMediaConcatenationPipelineCommand } from "@aws-sdk/client-chime-sdk-media-pipelines"; // ES Modules import
- * // const { ChimeSDKMediaPipelinesClient, CreateMediaConcatenationPipelineCommand } = require("@aws-sdk/client-chime-sdk-media-pipelines"); // CommonJS import
+ * import { ChimeSDKMediaPipelinesClient, CreateMediaConcatenationPipelineCommand } from '@aws-sdk/client-chime-sdk-media-pipelines'; // ES Modules import
+ * // const { ChimeSDKMediaPipelinesClient, CreateMediaConcatenationPipelineCommand } = require('@aws-sdk/client-chime-sdk-media-pipelines'); // CommonJS import
  * const client = new ChimeSDKMediaPipelinesClient(config);
  * const input = { // CreateMediaConcatenationPipelineRequest
  *   Sources: [ // ConcatenationSourceList // required
  *     { // ConcatenationSource
- *       Type: "MediaCapturePipeline", // required
+ *       Type: 'MediaCapturePipeline', // required
  *       MediaCapturePipelineSourceConfiguration: { // MediaCapturePipelineSourceConfiguration
- *         MediaPipelineArn: "STRING_VALUE", // required
+ *         MediaPipelineArn: 'STRING_VALUE', // required
  *         ChimeSdkMeetingConfiguration: { // ChimeSdkMeetingConcatenationConfiguration
  *           ArtifactsConfiguration: { // ArtifactsConcatenationConfiguration
  *             Audio: { // AudioConcatenationConfiguration
- *               State: "Enabled", // required
+ *               State: 'Enabled', // required
  *             },
  *             Video: { // VideoConcatenationConfiguration
- *               State: "Enabled" || "Disabled", // required
+ *               State: 'Enabled' || 'Disabled', // required
  *             },
  *             Content: { // ContentConcatenationConfiguration
- *               State: "Enabled" || "Disabled", // required
+ *               State: 'Enabled' || 'Disabled', // required
  *             },
  *             DataChannel: { // DataChannelConcatenationConfiguration
- *               State: "Enabled" || "Disabled", // required
+ *               State: 'Enabled' || 'Disabled', // required
  *             },
  *             TranscriptionMessages: { // TranscriptionMessagesConcatenationConfiguration
- *               State: "Enabled" || "Disabled", // required
+ *               State: 'Enabled' || 'Disabled', // required
  *             },
  *             MeetingEvents: { // MeetingEventsConcatenationConfiguration
- *               State: "Enabled" || "Disabled", // required
+ *               State: 'Enabled' || 'Disabled', // required
  *             },
  *             CompositedVideo: { // CompositedVideoConcatenationConfiguration
- *               State: "Enabled" || "Disabled", // required
+ *               State: 'Enabled' || 'Disabled', // required
  *             },
  *           },
  *         },
@@ -89,22 +89,74 @@ export interface CreateMediaConcatenationPipelineCommandOutput
  *   ],
  *   Sinks: [ // ConcatenationSinkList // required
  *     { // ConcatenationSink
- *       Type: "S3Bucket", // required
+ *       Type: 'S3Bucket', // required
  *       S3BucketSinkConfiguration: { // S3BucketSinkConfiguration
- *         Destination: "STRING_VALUE", // required
+ *         Destination: 'STRING_VALUE', // required
  *       },
  *     },
  *   ],
- *   ClientRequestToken: "STRING_VALUE",
+ *   ClientRequestToken: 'STRING_VALUE',
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreateMediaConcatenationPipelineCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateMediaConcatenationPipelineResponse
+ *   MediaConcatenationPipeline: { // MediaConcatenationPipeline
+ *     MediaPipelineId: 'STRING_VALUE',
+ *     MediaPipelineArn: 'STRING_VALUE',
+ *     Sources: [ // ConcatenationSourceList
+ *       { // ConcatenationSource
+ *         Type: 'MediaCapturePipeline', // required
+ *         MediaCapturePipelineSourceConfiguration: { // MediaCapturePipelineSourceConfiguration
+ *           MediaPipelineArn: 'STRING_VALUE', // required
+ *           ChimeSdkMeetingConfiguration: { // ChimeSdkMeetingConcatenationConfiguration
+ *             ArtifactsConfiguration: { // ArtifactsConcatenationConfiguration
+ *               Audio: { // AudioConcatenationConfiguration
+ *                 State: 'Enabled', // required
+ *               },
+ *               Video: { // VideoConcatenationConfiguration
+ *                 State: 'Enabled' || 'Disabled', // required
+ *               },
+ *               Content: { // ContentConcatenationConfiguration
+ *                 State: 'Enabled' || 'Disabled', // required
+ *               },
+ *               DataChannel: { // DataChannelConcatenationConfiguration
+ *                 State: 'Enabled' || 'Disabled', // required
+ *               },
+ *               TranscriptionMessages: { // TranscriptionMessagesConcatenationConfiguration
+ *                 State: 'Enabled' || 'Disabled', // required
+ *               },
+ *               MeetingEvents: { // MeetingEventsConcatenationConfiguration
+ *                 State: 'Enabled' || 'Disabled', // required
+ *               },
+ *               CompositedVideo: { // CompositedVideoConcatenationConfiguration
+ *                 State: 'Enabled' || 'Disabled', // required
+ *               },
+ *             },
+ *           },
+ *         },
+ *       },
+ *     ],
+ *     Sinks: [ // ConcatenationSinkList
+ *       { // ConcatenationSink
+ *         Type: 'S3Bucket', // required
+ *         S3BucketSinkConfiguration: { // S3BucketSinkConfiguration
+ *           Destination: 'STRING_VALUE', // required
+ *         },
+ *       },
+ *     ],
+ *     Status: 'Initializing' || 'InProgress' || 'Failed' || 'Stopping' || 'Stopped' || 'Paused',
+ *     CreatedTimestamp: new Date('TIMESTAMP'),
+ *     UpdatedTimestamp: new Date('TIMESTAMP'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateMediaConcatenationPipelineCommandInput - {@link CreateMediaConcatenationPipelineCommandInput}
@@ -134,6 +186,8 @@ export interface CreateMediaConcatenationPipelineCommandOutput
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeSDKMediaPipelinesServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKMediaPipelines service.</p>
  *
  */
 export class CreateMediaConcatenationPipelineCommand extends $Command<

@@ -49,22 +49,30 @@ export interface ListDatasetEntriesCommandOutput extends ListDatasetEntriesRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RekognitionClient, ListDatasetEntriesCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
- * // const { RekognitionClient, ListDatasetEntriesCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
+ * import { RekognitionClient, ListDatasetEntriesCommand } from '@aws-sdk/client-rekognition'; // ES Modules import
+ * // const { RekognitionClient, ListDatasetEntriesCommand } = require('@aws-sdk/client-rekognition'); // CommonJS import
  * const client = new RekognitionClient(config);
  * const input = { // ListDatasetEntriesRequest
- *   DatasetArn: "STRING_VALUE", // required
+ *   DatasetArn: 'STRING_VALUE', // required
  *   ContainsLabels: [ // DatasetLabels
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   Labeled: true || false,
- *   SourceRefContains: "STRING_VALUE",
+ *   SourceRefContains: 'STRING_VALUE',
  *   HasErrors: true || false,
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListDatasetEntriesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListDatasetEntriesResponse
+ *   DatasetEntries: [ // DatasetEntries
+ *     'STRING_VALUE',
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListDatasetEntriesCommandInput - {@link ListDatasetEntriesCommandInput}
@@ -104,6 +112,8 @@ export interface ListDatasetEntriesCommandOutput extends ListDatasetEntriesRespo
  * @throws {@link ThrottlingException} (server fault)
  *  <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
  *
+ * @throws {@link RekognitionServiceException}
+ * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
  */
 export class ListDatasetEntriesCommand extends $Command<

@@ -38,18 +38,21 @@ export interface CreateConditionalForwarderCommandOutput extends CreateCondition
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DirectoryServiceClient, CreateConditionalForwarderCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
- * // const { DirectoryServiceClient, CreateConditionalForwarderCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
+ * import { DirectoryServiceClient, CreateConditionalForwarderCommand } from '@aws-sdk/client-directory-service'; // ES Modules import
+ * // const { DirectoryServiceClient, CreateConditionalForwarderCommand } = require('@aws-sdk/client-directory-service'); // CommonJS import
  * const client = new DirectoryServiceClient(config);
  * const input = { // CreateConditionalForwarderRequest
- *   DirectoryId: "STRING_VALUE", // required
- *   RemoteDomainName: "STRING_VALUE", // required
+ *   DirectoryId: 'STRING_VALUE', // required
+ *   RemoteDomainName: 'STRING_VALUE', // required
  *   DnsIpAddrs: [ // DnsIpAddrs // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new CreateConditionalForwarderCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param CreateConditionalForwarderCommandInput - {@link CreateConditionalForwarderCommandInput}
@@ -79,6 +82,8 @@ export interface CreateConditionalForwarderCommandOutput extends CreateCondition
  * @throws {@link UnsupportedOperationException} (client fault)
  *  <p>The operation is not supported.</p>
  *
+ * @throws {@link DirectoryServiceServiceException}
+ * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
  */
 export class CreateConditionalForwarderCommand extends $Command<

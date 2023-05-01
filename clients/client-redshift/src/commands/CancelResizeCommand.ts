@@ -36,14 +36,40 @@ export interface CancelResizeCommandOutput extends ResizeProgressMessage, __Meta
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RedshiftClient, CancelResizeCommand } from "@aws-sdk/client-redshift"; // ES Modules import
- * // const { RedshiftClient, CancelResizeCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * import { RedshiftClient, CancelResizeCommand } from '@aws-sdk/client-redshift'; // ES Modules import
+ * // const { RedshiftClient, CancelResizeCommand } = require('@aws-sdk/client-redshift'); // CommonJS import
  * const client = new RedshiftClient(config);
  * const input = { // CancelResizeMessage
- *   ClusterIdentifier: "STRING_VALUE", // required
+ *   ClusterIdentifier: 'STRING_VALUE', // required
  * };
  * const command = new CancelResizeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ResizeProgressMessage
+ *   TargetNodeType: 'STRING_VALUE',
+ *   TargetNumberOfNodes: Number('int'),
+ *   TargetClusterType: 'STRING_VALUE',
+ *   Status: 'STRING_VALUE',
+ *   ImportTablesCompleted: [ // ImportTablesCompleted
+ *     'STRING_VALUE',
+ *   ],
+ *   ImportTablesInProgress: [ // ImportTablesInProgress
+ *     'STRING_VALUE',
+ *   ],
+ *   ImportTablesNotStarted: [ // ImportTablesNotStarted
+ *     'STRING_VALUE',
+ *   ],
+ *   AvgResizeRateInMegaBytesPerSecond: Number('double'),
+ *   TotalResizeDataInMegaBytes: Number('long'),
+ *   ProgressInMegaBytes: Number('long'),
+ *   ElapsedTimeInSeconds: Number('long'),
+ *   EstimatedTimeToCompletionInSeconds: Number('long'),
+ *   ResizeType: 'STRING_VALUE',
+ *   Message: 'STRING_VALUE',
+ *   TargetEncryptionType: 'STRING_VALUE',
+ *   DataTransferProgressPercent: Number('double'),
+ * };
+ *
  * ```
  *
  * @param CancelResizeCommandInput - {@link CancelResizeCommandInput}
@@ -65,6 +91,8 @@ export interface CancelResizeCommandOutput extends ResizeProgressMessage, __Meta
  * @throws {@link UnsupportedOperationFault} (client fault)
  *  <p>The requested operation isn't supported.</p>
  *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class CancelResizeCommand extends $Command<

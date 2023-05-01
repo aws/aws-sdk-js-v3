@@ -38,15 +38,18 @@ export interface DeleteSignalingChannelCommandOutput extends DeleteSignalingChan
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KinesisVideoClient, DeleteSignalingChannelCommand } from "@aws-sdk/client-kinesis-video"; // ES Modules import
- * // const { KinesisVideoClient, DeleteSignalingChannelCommand } = require("@aws-sdk/client-kinesis-video"); // CommonJS import
+ * import { KinesisVideoClient, DeleteSignalingChannelCommand } from '@aws-sdk/client-kinesis-video'; // ES Modules import
+ * // const { KinesisVideoClient, DeleteSignalingChannelCommand } = require('@aws-sdk/client-kinesis-video'); // CommonJS import
  * const client = new KinesisVideoClient(config);
  * const input = { // DeleteSignalingChannelInput
- *   ChannelARN: "STRING_VALUE", // required
- *   CurrentVersion: "STRING_VALUE",
+ *   ChannelARN: 'STRING_VALUE', // required
+ *   CurrentVersion: 'STRING_VALUE',
  * };
  * const command = new DeleteSignalingChannelCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteSignalingChannelCommandInput - {@link DeleteSignalingChannelCommandInput}
@@ -93,6 +96,8 @@ export interface DeleteSignalingChannelCommandOutput extends DeleteSignalingChan
  *             version, use the <a href="https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_DescribeStream.html">DescribeStream</a>
  *             API.</p>
  *
+ * @throws {@link KinesisVideoServiceException}
+ * <p>Base exception class for all service exceptions from KinesisVideo service.</p>
  *
  */
 export class DeleteSignalingChannelCommand extends $Command<

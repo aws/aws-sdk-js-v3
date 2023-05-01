@@ -40,37 +40,42 @@ export interface CreateActionCommandOutput extends CreateActionResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, CreateActionCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, CreateActionCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, CreateActionCommand } from '@aws-sdk/client-sagemaker'; // ES Modules import
+ * // const { SageMakerClient, CreateActionCommand } = require('@aws-sdk/client-sagemaker'); // CommonJS import
  * const client = new SageMakerClient(config);
  * const input = { // CreateActionRequest
- *   ActionName: "STRING_VALUE", // required
+ *   ActionName: 'STRING_VALUE', // required
  *   Source: { // ActionSource
- *     SourceUri: "STRING_VALUE", // required
- *     SourceType: "STRING_VALUE",
- *     SourceId: "STRING_VALUE",
+ *     SourceUri: 'STRING_VALUE', // required
+ *     SourceType: 'STRING_VALUE',
+ *     SourceId: 'STRING_VALUE',
  *   },
- *   ActionType: "STRING_VALUE", // required
- *   Description: "STRING_VALUE",
- *   Status: "Unknown" || "InProgress" || "Completed" || "Failed" || "Stopping" || "Stopped",
+ *   ActionType: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE',
+ *   Status: 'Unknown' || 'InProgress' || 'Completed' || 'Failed' || 'Stopping' || 'Stopped',
  *   Properties: { // LineageEntityParameters
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  *   MetadataProperties: { // MetadataProperties
- *     CommitId: "STRING_VALUE",
- *     Repository: "STRING_VALUE",
- *     GeneratedBy: "STRING_VALUE",
- *     ProjectId: "STRING_VALUE",
+ *     CommitId: 'STRING_VALUE',
+ *     Repository: 'STRING_VALUE',
+ *     GeneratedBy: 'STRING_VALUE',
+ *     ProjectId: 'STRING_VALUE',
  *   },
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreateActionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateActionResponse
+ *   ActionArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateActionCommandInput - {@link CreateActionCommandInput}
@@ -83,6 +88,8 @@ export interface CreateActionCommandOutput extends CreateActionResponse, __Metad
  *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many
  *             training jobs created. </p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class CreateActionCommand extends $Command<

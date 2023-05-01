@@ -37,14 +37,26 @@ export interface GetCompatibleVersionsCommandOutput extends GetCompatibleVersion
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OpenSearchClient, GetCompatibleVersionsCommand } from "@aws-sdk/client-opensearch"; // ES Modules import
- * // const { OpenSearchClient, GetCompatibleVersionsCommand } = require("@aws-sdk/client-opensearch"); // CommonJS import
+ * import { OpenSearchClient, GetCompatibleVersionsCommand } from '@aws-sdk/client-opensearch'; // ES Modules import
+ * // const { OpenSearchClient, GetCompatibleVersionsCommand } = require('@aws-sdk/client-opensearch'); // CommonJS import
  * const client = new OpenSearchClient(config);
  * const input = { // GetCompatibleVersionsRequest
- *   DomainName: "STRING_VALUE",
+ *   DomainName: 'STRING_VALUE',
  * };
  * const command = new GetCompatibleVersionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetCompatibleVersionsResponse
+ *   CompatibleVersions: [ // CompatibleVersionsList
+ *     { // CompatibleVersionsMap
+ *       SourceVersion: 'STRING_VALUE',
+ *       TargetVersions: [ // VersionList
+ *         'STRING_VALUE',
+ *       ],
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetCompatibleVersionsCommandInput - {@link GetCompatibleVersionsCommandInput}
@@ -68,6 +80,8 @@ export interface GetCompatibleVersionsCommandOutput extends GetCompatibleVersion
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception for accessing or deleting a resource that doesn't exist.</p>
  *
+ * @throws {@link OpenSearchServiceException}
+ * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
  */
 export class GetCompatibleVersionsCommand extends $Command<

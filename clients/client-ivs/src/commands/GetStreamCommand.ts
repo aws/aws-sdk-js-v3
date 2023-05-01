@@ -36,14 +36,27 @@ export interface GetStreamCommandOutput extends GetStreamResponse, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IvsClient, GetStreamCommand } from "@aws-sdk/client-ivs"; // ES Modules import
- * // const { IvsClient, GetStreamCommand } = require("@aws-sdk/client-ivs"); // CommonJS import
+ * import { IvsClient, GetStreamCommand } from '@aws-sdk/client-ivs'; // ES Modules import
+ * // const { IvsClient, GetStreamCommand } = require('@aws-sdk/client-ivs'); // CommonJS import
  * const client = new IvsClient(config);
  * const input = { // GetStreamRequest
- *   channelArn: "STRING_VALUE", // required
+ *   channelArn: 'STRING_VALUE', // required
  * };
  * const command = new GetStreamCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetStreamResponse
+ *   stream: { // Stream
+ *     channelArn: 'STRING_VALUE',
+ *     streamId: 'STRING_VALUE',
+ *     playbackUrl: 'STRING_VALUE',
+ *     startTime: new Date('TIMESTAMP'),
+ *     state: 'STRING_VALUE',
+ *     health: 'STRING_VALUE',
+ *     viewerCount: Number('long'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetStreamCommandInput - {@link GetStreamCommandInput}
@@ -64,6 +77,8 @@ export interface GetStreamCommandOutput extends GetStreamResponse, __MetadataBea
  * @throws {@link ValidationException} (client fault)
  *  <p/>
  *
+ * @throws {@link IvsServiceException}
+ * <p>Base exception class for all service exceptions from Ivs service.</p>
  *
  */
 export class GetStreamCommand extends $Command<GetStreamCommandInput, GetStreamCommandOutput, IvsClientResolvedConfig> {

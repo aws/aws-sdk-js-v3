@@ -36,21 +36,24 @@ export interface DeregisterDBProxyTargetsCommandOutput extends DeregisterDBProxy
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RDSClient, DeregisterDBProxyTargetsCommand } from "@aws-sdk/client-rds"; // ES Modules import
- * // const { RDSClient, DeregisterDBProxyTargetsCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * import { RDSClient, DeregisterDBProxyTargetsCommand } from '@aws-sdk/client-rds'; // ES Modules import
+ * // const { RDSClient, DeregisterDBProxyTargetsCommand } = require('@aws-sdk/client-rds'); // CommonJS import
  * const client = new RDSClient(config);
  * const input = { // DeregisterDBProxyTargetsRequest
- *   DBProxyName: "STRING_VALUE", // required
- *   TargetGroupName: "STRING_VALUE",
+ *   DBProxyName: 'STRING_VALUE', // required
+ *   TargetGroupName: 'STRING_VALUE',
  *   DBInstanceIdentifiers: [ // StringList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   DBClusterIdentifiers: [
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new DeregisterDBProxyTargetsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeregisterDBProxyTargetsCommandInput - {@link DeregisterDBProxyTargetsCommandInput}
@@ -71,6 +74,8 @@ export interface DeregisterDBProxyTargetsCommandOutput extends DeregisterDBProxy
  * @throws {@link InvalidDBProxyStateFault} (client fault)
  *  <p>The requested operation can't be performed while the proxy is in this state.</p>
  *
+ * @throws {@link RDSServiceException}
+ * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  */
 export class DeregisterDBProxyTargetsCommand extends $Command<

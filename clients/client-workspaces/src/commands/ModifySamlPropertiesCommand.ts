@@ -38,22 +38,25 @@ export interface ModifySamlPropertiesCommandOutput extends ModifySamlPropertiesR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkSpacesClient, ModifySamlPropertiesCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
- * // const { WorkSpacesClient, ModifySamlPropertiesCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
+ * import { WorkSpacesClient, ModifySamlPropertiesCommand } from '@aws-sdk/client-workspaces'; // ES Modules import
+ * // const { WorkSpacesClient, ModifySamlPropertiesCommand } = require('@aws-sdk/client-workspaces'); // CommonJS import
  * const client = new WorkSpacesClient(config);
  * const input = { // ModifySamlPropertiesRequest
- *   ResourceId: "STRING_VALUE", // required
+ *   ResourceId: 'STRING_VALUE', // required
  *   SamlProperties: { // SamlProperties
- *     Status: "DISABLED" || "ENABLED" || "ENABLED_WITH_DIRECTORY_LOGIN_FALLBACK",
- *     UserAccessUrl: "STRING_VALUE",
- *     RelayStateParameterName: "STRING_VALUE",
+ *     Status: 'DISABLED' || 'ENABLED' || 'ENABLED_WITH_DIRECTORY_LOGIN_FALLBACK',
+ *     UserAccessUrl: 'STRING_VALUE',
+ *     RelayStateParameterName: 'STRING_VALUE',
  *   },
  *   PropertiesToDelete: [ // DeletableSamlPropertiesList
- *     "SAML_PROPERTIES_USER_ACCESS_URL" || "SAML_PROPERTIES_RELAY_STATE_PARAMETER_NAME",
+ *     'SAML_PROPERTIES_USER_ACCESS_URL' || 'SAML_PROPERTIES_RELAY_STATE_PARAMETER_NAME',
  *   ],
  * };
  * const command = new ModifySamlPropertiesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param ModifySamlPropertiesCommandInput - {@link ModifySamlPropertiesCommandInput}
@@ -74,6 +77,8 @@ export interface ModifySamlPropertiesCommandOutput extends ModifySamlPropertiesR
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource could not be found.</p>
  *
+ * @throws {@link WorkSpacesServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
  */
 export class ModifySamlPropertiesCommand extends $Command<

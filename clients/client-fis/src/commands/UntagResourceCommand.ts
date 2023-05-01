@@ -36,17 +36,20 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FisClient, UntagResourceCommand } from "@aws-sdk/client-fis"; // ES Modules import
- * // const { FisClient, UntagResourceCommand } = require("@aws-sdk/client-fis"); // CommonJS import
+ * import { FisClient, UntagResourceCommand } from '@aws-sdk/client-fis'; // ES Modules import
+ * // const { FisClient, UntagResourceCommand } = require('@aws-sdk/client-fis'); // CommonJS import
  * const client = new FisClient(config);
  * const input = { // UntagResourceRequest
- *   resourceArn: "STRING_VALUE", // required
+ *   resourceArn: 'STRING_VALUE', // required
  *   tagKeys: [ // TagKeyList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new UntagResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UntagResourceCommandInput - {@link UntagResourceCommandInput}
@@ -55,6 +58,8 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * @see {@link UntagResourceCommandOutput} for command's `response` shape.
  * @see {@link FisClientResolvedConfig | config} for FisClient's `config` shape.
  *
+ * @throws {@link FisServiceException}
+ * <p>Base exception class for all service exceptions from Fis service.</p>
  *
  */
 export class UntagResourceCommand extends $Command<

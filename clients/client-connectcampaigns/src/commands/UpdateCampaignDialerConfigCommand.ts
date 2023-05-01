@@ -36,22 +36,25 @@ export interface UpdateCampaignDialerConfigCommandOutput extends __MetadataBeare
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectCampaignsClient, UpdateCampaignDialerConfigCommand } from "@aws-sdk/client-connectcampaigns"; // ES Modules import
- * // const { ConnectCampaignsClient, UpdateCampaignDialerConfigCommand } = require("@aws-sdk/client-connectcampaigns"); // CommonJS import
+ * import { ConnectCampaignsClient, UpdateCampaignDialerConfigCommand } from '@aws-sdk/client-connectcampaigns'; // ES Modules import
+ * // const { ConnectCampaignsClient, UpdateCampaignDialerConfigCommand } = require('@aws-sdk/client-connectcampaigns'); // CommonJS import
  * const client = new ConnectCampaignsClient(config);
  * const input = { // UpdateCampaignDialerConfigRequest
- *   id: "STRING_VALUE", // required
+ *   id: 'STRING_VALUE', // required
  *   dialerConfig: { // DialerConfig Union: only one key present
  *     progressiveDialerConfig: { // ProgressiveDialerConfig
- *       bandwidthAllocation: Number("double"), // required
+ *       bandwidthAllocation: Number('double'), // required
  *     },
  *     predictiveDialerConfig: { // PredictiveDialerConfig
- *       bandwidthAllocation: Number("double"), // required
+ *       bandwidthAllocation: Number('double'), // required
  *     },
  *   },
  * };
  * const command = new UpdateCampaignDialerConfigCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateCampaignDialerConfigCommandInput - {@link UpdateCampaignDialerConfigCommandInput}
@@ -75,6 +78,8 @@ export interface UpdateCampaignDialerConfigCommandOutput extends __MetadataBeare
  * @throws {@link ValidationException} (client fault)
  *  The input fails to satisfy the constraints specified by an AWS service.
  *
+ * @throws {@link ConnectCampaignsServiceException}
+ * <p>Base exception class for all service exceptions from ConnectCampaigns service.</p>
  *
  */
 export class UpdateCampaignDialerConfigCommand extends $Command<

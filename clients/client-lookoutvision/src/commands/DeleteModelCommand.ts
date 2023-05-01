@@ -43,16 +43,21 @@ export interface DeleteModelCommandOutput extends DeleteModelResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LookoutVisionClient, DeleteModelCommand } from "@aws-sdk/client-lookoutvision"; // ES Modules import
- * // const { LookoutVisionClient, DeleteModelCommand } = require("@aws-sdk/client-lookoutvision"); // CommonJS import
+ * import { LookoutVisionClient, DeleteModelCommand } from '@aws-sdk/client-lookoutvision'; // ES Modules import
+ * // const { LookoutVisionClient, DeleteModelCommand } = require('@aws-sdk/client-lookoutvision'); // CommonJS import
  * const client = new LookoutVisionClient(config);
  * const input = { // DeleteModelRequest
- *   ProjectName: "STRING_VALUE", // required
- *   ModelVersion: "STRING_VALUE", // required
- *   ClientToken: "STRING_VALUE",
+ *   ProjectName: 'STRING_VALUE', // required
+ *   ModelVersion: 'STRING_VALUE', // required
+ *   ClientToken: 'STRING_VALUE',
  * };
  * const command = new DeleteModelCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteModelResponse
+ *   ModelArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DeleteModelCommandInput - {@link DeleteModelCommandInput}
@@ -80,6 +85,8 @@ export interface DeleteModelCommandOutput extends DeleteModelResponse, __Metadat
  *  <p>An input validation error occured. For example, invalid characters in a project name,
  *       or if a pagination token is invalid.</p>
  *
+ * @throws {@link LookoutVisionServiceException}
+ * <p>Base exception class for all service exceptions from LookoutVision service.</p>
  *
  */
 export class DeleteModelCommand extends $Command<

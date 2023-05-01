@@ -38,18 +38,35 @@ export interface UpdateDomainEndpointOptionsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudSearchClient, UpdateDomainEndpointOptionsCommand } from "@aws-sdk/client-cloudsearch"; // ES Modules import
- * // const { CloudSearchClient, UpdateDomainEndpointOptionsCommand } = require("@aws-sdk/client-cloudsearch"); // CommonJS import
+ * import { CloudSearchClient, UpdateDomainEndpointOptionsCommand } from '@aws-sdk/client-cloudsearch'; // ES Modules import
+ * // const { CloudSearchClient, UpdateDomainEndpointOptionsCommand } = require('@aws-sdk/client-cloudsearch'); // CommonJS import
  * const client = new CloudSearchClient(config);
  * const input = { // UpdateDomainEndpointOptionsRequest
- *   DomainName: "STRING_VALUE", // required
+ *   DomainName: 'STRING_VALUE', // required
  *   DomainEndpointOptions: { // DomainEndpointOptions
  *     EnforceHTTPS: true || false,
- *     TLSSecurityPolicy: "STRING_VALUE",
+ *     TLSSecurityPolicy: 'STRING_VALUE',
  *   },
  * };
  * const command = new UpdateDomainEndpointOptionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateDomainEndpointOptionsResponse
+ *   DomainEndpointOptions: { // DomainEndpointOptionsStatus
+ *     Options: { // DomainEndpointOptions
+ *       EnforceHTTPS: true || false,
+ *       TLSSecurityPolicy: 'STRING_VALUE',
+ *     },
+ *     Status: { // OptionStatus
+ *       CreationDate: new Date('TIMESTAMP'), // required
+ *       UpdateDate: new Date('TIMESTAMP'), // required
+ *       UpdateVersion: Number('int'),
+ *       State: 'STRING_VALUE', // required
+ *       PendingDeletion: true || false,
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateDomainEndpointOptionsCommandInput - {@link UpdateDomainEndpointOptionsCommandInput}
@@ -80,6 +97,8 @@ export interface UpdateDomainEndpointOptionsCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The request was rejected because it has invalid parameters.</p>
  *
+ * @throws {@link CloudSearchServiceException}
+ * <p>Base exception class for all service exceptions from CloudSearch service.</p>
  *
  */
 export class UpdateDomainEndpointOptionsCommand extends $Command<

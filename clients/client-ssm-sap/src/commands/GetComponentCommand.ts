@@ -37,15 +37,38 @@ export interface GetComponentCommandOutput extends GetComponentOutput, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SsmSapClient, GetComponentCommand } from "@aws-sdk/client-ssm-sap"; // ES Modules import
- * // const { SsmSapClient, GetComponentCommand } = require("@aws-sdk/client-ssm-sap"); // CommonJS import
+ * import { SsmSapClient, GetComponentCommand } from '@aws-sdk/client-ssm-sap'; // ES Modules import
+ * // const { SsmSapClient, GetComponentCommand } = require('@aws-sdk/client-ssm-sap'); // CommonJS import
  * const client = new SsmSapClient(config);
  * const input = { // GetComponentInput
- *   ApplicationId: "STRING_VALUE", // required
- *   ComponentId: "STRING_VALUE", // required
+ *   ApplicationId: 'STRING_VALUE', // required
+ *   ComponentId: 'STRING_VALUE', // required
  * };
  * const command = new GetComponentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetComponentOutput
+ *   Component: { // Component
+ *     ComponentId: 'STRING_VALUE',
+ *     ApplicationId: 'STRING_VALUE',
+ *     ComponentType: 'STRING_VALUE',
+ *     Status: 'STRING_VALUE',
+ *     Databases: [ // DatabaseIdList
+ *       'STRING_VALUE',
+ *     ],
+ *     Hosts: [ // HostList
+ *       { // Host
+ *         HostName: 'STRING_VALUE',
+ *         HostRole: 'STRING_VALUE',
+ *         HostIp: 'STRING_VALUE',
+ *         InstanceId: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     PrimaryHost: 'STRING_VALUE',
+ *     LastUpdated: new Date('TIMESTAMP'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetComponentCommandInput - {@link GetComponentCommandInput}
@@ -60,6 +83,8 @@ export interface GetComponentCommandOutput extends GetComponentOutput, __Metadat
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service. </p>
  *
+ * @throws {@link SsmSapServiceException}
+ * <p>Base exception class for all service exceptions from SsmSap service.</p>
  *
  */
 export class GetComponentCommand extends $Command<

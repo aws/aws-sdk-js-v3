@@ -47,19 +47,60 @@ export interface SearchPlaceIndexForPositionCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LocationClient, SearchPlaceIndexForPositionCommand } from "@aws-sdk/client-location"; // ES Modules import
- * // const { LocationClient, SearchPlaceIndexForPositionCommand } = require("@aws-sdk/client-location"); // CommonJS import
+ * import { LocationClient, SearchPlaceIndexForPositionCommand } from '@aws-sdk/client-location'; // ES Modules import
+ * // const { LocationClient, SearchPlaceIndexForPositionCommand } = require('@aws-sdk/client-location'); // CommonJS import
  * const client = new LocationClient(config);
  * const input = { // SearchPlaceIndexForPositionRequest
- *   IndexName: "STRING_VALUE", // required
+ *   IndexName: 'STRING_VALUE', // required
  *   Position: [ // Position // required
- *     Number("double"),
+ *     Number('double'),
  *   ],
- *   MaxResults: Number("int"),
- *   Language: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   Language: 'STRING_VALUE',
  * };
  * const command = new SearchPlaceIndexForPositionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SearchPlaceIndexForPositionResponse
+ *   Summary: { // SearchPlaceIndexForPositionSummary
+ *     Position: [ // Position // required
+ *       Number('double'),
+ *     ],
+ *     MaxResults: Number('int'),
+ *     DataSource: 'STRING_VALUE', // required
+ *     Language: 'STRING_VALUE',
+ *   },
+ *   Results: [ // SearchForPositionResultList // required
+ *     { // SearchForPositionResult
+ *       Place: { // Place
+ *         Label: 'STRING_VALUE',
+ *         Geometry: { // PlaceGeometry
+ *           Point: [
+ *             Number('double'),
+ *           ],
+ *         },
+ *         AddressNumber: 'STRING_VALUE',
+ *         Street: 'STRING_VALUE',
+ *         Neighborhood: 'STRING_VALUE',
+ *         Municipality: 'STRING_VALUE',
+ *         SubRegion: 'STRING_VALUE',
+ *         Region: 'STRING_VALUE',
+ *         Country: 'STRING_VALUE',
+ *         PostalCode: 'STRING_VALUE',
+ *         Interpolated: true || false,
+ *         TimeZone: { // TimeZone
+ *           Name: 'STRING_VALUE', // required
+ *           Offset: Number('int'),
+ *         },
+ *         UnitType: 'STRING_VALUE',
+ *         UnitNumber: 'STRING_VALUE',
+ *       },
+ *       Distance: Number('double'), // required
+ *       PlaceId: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param SearchPlaceIndexForPositionCommandInput - {@link SearchPlaceIndexForPositionCommandInput}
@@ -84,6 +125,8 @@ export interface SearchPlaceIndexForPositionCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The input failed to meet the constraints specified by the AWS service. </p>
  *
+ * @throws {@link LocationServiceException}
+ * <p>Base exception class for all service exceptions from Location service.</p>
  *
  */
 export class SearchPlaceIndexForPositionCommand extends $Command<

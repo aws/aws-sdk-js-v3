@@ -52,15 +52,18 @@ export interface DeleteTrafficPolicyCommandOutput extends DeleteTrafficPolicyRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Route53Client, DeleteTrafficPolicyCommand } from "@aws-sdk/client-route-53"; // ES Modules import
- * // const { Route53Client, DeleteTrafficPolicyCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
+ * import { Route53Client, DeleteTrafficPolicyCommand } from '@aws-sdk/client-route-53'; // ES Modules import
+ * // const { Route53Client, DeleteTrafficPolicyCommand } = require('@aws-sdk/client-route-53'); // CommonJS import
  * const client = new Route53Client(config);
  * const input = { // DeleteTrafficPolicyRequest
- *   Id: "STRING_VALUE", // required
- *   Version: Number("int"), // required
+ *   Id: 'STRING_VALUE', // required
+ *   Version: Number('int'), // required
  * };
  * const command = new DeleteTrafficPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteTrafficPolicyCommandInput - {@link DeleteTrafficPolicyCommandInput}
@@ -83,6 +86,8 @@ export interface DeleteTrafficPolicyCommandOutput extends DeleteTrafficPolicyRes
  *  <p>One or more traffic policy instances were created by using the specified traffic
  * 			policy.</p>
  *
+ * @throws {@link Route53ServiceException}
+ * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
  */
 export class DeleteTrafficPolicyCommand extends $Command<

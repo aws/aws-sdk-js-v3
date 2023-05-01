@@ -36,24 +36,36 @@ export interface UpdateJobExecutionCommandOutput extends UpdateJobExecutionRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTJobsDataPlaneClient, UpdateJobExecutionCommand } from "@aws-sdk/client-iot-jobs-data-plane"; // ES Modules import
- * // const { IoTJobsDataPlaneClient, UpdateJobExecutionCommand } = require("@aws-sdk/client-iot-jobs-data-plane"); // CommonJS import
+ * import { IoTJobsDataPlaneClient, UpdateJobExecutionCommand } from '@aws-sdk/client-iot-jobs-data-plane'; // ES Modules import
+ * // const { IoTJobsDataPlaneClient, UpdateJobExecutionCommand } = require('@aws-sdk/client-iot-jobs-data-plane'); // CommonJS import
  * const client = new IoTJobsDataPlaneClient(config);
  * const input = { // UpdateJobExecutionRequest
- *   jobId: "STRING_VALUE", // required
- *   thingName: "STRING_VALUE", // required
- *   status: "STRING_VALUE", // required
+ *   jobId: 'STRING_VALUE', // required
+ *   thingName: 'STRING_VALUE', // required
+ *   status: 'STRING_VALUE', // required
  *   statusDetails: { // DetailsMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
- *   stepTimeoutInMinutes: Number("long"),
- *   expectedVersion: Number("long"),
+ *   stepTimeoutInMinutes: Number('long'),
+ *   expectedVersion: Number('long'),
  *   includeJobExecutionState: true || false,
  *   includeJobDocument: true || false,
- *   executionNumber: Number("long"),
+ *   executionNumber: Number('long'),
  * };
  * const command = new UpdateJobExecutionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateJobExecutionResponse
+ *   executionState: { // JobExecutionState
+ *     status: 'STRING_VALUE',
+ *     statusDetails: { // DetailsMap
+ *       '<keys>': 'STRING_VALUE',
+ *     },
+ *     versionNumber: Number('long'),
+ *   },
+ *   jobDocument: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateJobExecutionCommandInput - {@link UpdateJobExecutionCommandInput}
@@ -82,6 +94,8 @@ export interface UpdateJobExecutionCommandOutput extends UpdateJobExecutionRespo
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The rate exceeds the limit.</p>
  *
+ * @throws {@link IoTJobsDataPlaneServiceException}
+ * <p>Base exception class for all service exceptions from IoTJobsDataPlane service.</p>
  *
  */
 export class UpdateJobExecutionCommand extends $Command<

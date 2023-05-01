@@ -38,32 +38,37 @@ export interface CreateConnectorCommandOutput extends CreateConnectorResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { TransferClient, CreateConnectorCommand } from "@aws-sdk/client-transfer"; // ES Modules import
- * // const { TransferClient, CreateConnectorCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
+ * import { TransferClient, CreateConnectorCommand } from '@aws-sdk/client-transfer'; // ES Modules import
+ * // const { TransferClient, CreateConnectorCommand } = require('@aws-sdk/client-transfer'); // CommonJS import
  * const client = new TransferClient(config);
  * const input = { // CreateConnectorRequest
- *   Url: "STRING_VALUE", // required
+ *   Url: 'STRING_VALUE', // required
  *   As2Config: { // As2ConnectorConfig
- *     LocalProfileId: "STRING_VALUE",
- *     PartnerProfileId: "STRING_VALUE",
- *     MessageSubject: "STRING_VALUE",
- *     Compression: "ZLIB" || "DISABLED",
- *     EncryptionAlgorithm: "AES128_CBC" || "AES192_CBC" || "AES256_CBC" || "NONE",
- *     SigningAlgorithm: "SHA256" || "SHA384" || "SHA512" || "SHA1" || "NONE",
- *     MdnSigningAlgorithm: "SHA256" || "SHA384" || "SHA512" || "SHA1" || "NONE" || "DEFAULT",
- *     MdnResponse: "SYNC" || "NONE",
+ *     LocalProfileId: 'STRING_VALUE',
+ *     PartnerProfileId: 'STRING_VALUE',
+ *     MessageSubject: 'STRING_VALUE',
+ *     Compression: 'ZLIB' || 'DISABLED',
+ *     EncryptionAlgorithm: 'AES128_CBC' || 'AES192_CBC' || 'AES256_CBC' || 'NONE',
+ *     SigningAlgorithm: 'SHA256' || 'SHA384' || 'SHA512' || 'SHA1' || 'NONE',
+ *     MdnSigningAlgorithm: 'SHA256' || 'SHA384' || 'SHA512' || 'SHA1' || 'NONE' || 'DEFAULT',
+ *     MdnResponse: 'SYNC' || 'NONE',
  *   },
- *   AccessRole: "STRING_VALUE", // required
- *   LoggingRole: "STRING_VALUE",
+ *   AccessRole: 'STRING_VALUE', // required
+ *   LoggingRole: 'STRING_VALUE',
  *   Tags: [ // Tags
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreateConnectorCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateConnectorResponse
+ *   ConnectorId: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param CreateConnectorCommandInput - {@link CreateConnectorCommandInput}
@@ -91,6 +96,8 @@ export interface CreateConnectorCommandOutput extends CreateConnectorResponse, _
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
  *
+ * @throws {@link TransferServiceException}
+ * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
  */
 export class CreateConnectorCommand extends $Command<

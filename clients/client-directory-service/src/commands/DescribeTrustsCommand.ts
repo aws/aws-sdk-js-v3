@@ -38,19 +38,39 @@ export interface DescribeTrustsCommandOutput extends DescribeTrustsResult, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DirectoryServiceClient, DescribeTrustsCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
- * // const { DirectoryServiceClient, DescribeTrustsCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
+ * import { DirectoryServiceClient, DescribeTrustsCommand } from '@aws-sdk/client-directory-service'; // ES Modules import
+ * // const { DirectoryServiceClient, DescribeTrustsCommand } = require('@aws-sdk/client-directory-service'); // CommonJS import
  * const client = new DirectoryServiceClient(config);
  * const input = { // DescribeTrustsRequest
- *   DirectoryId: "STRING_VALUE",
+ *   DirectoryId: 'STRING_VALUE',
  *   TrustIds: [ // TrustIds
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   NextToken: "STRING_VALUE",
- *   Limit: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   Limit: Number('int'),
  * };
  * const command = new DescribeTrustsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeTrustsResult
+ *   Trusts: [ // Trusts
+ *     { // Trust
+ *       DirectoryId: 'STRING_VALUE',
+ *       TrustId: 'STRING_VALUE',
+ *       RemoteDomainName: 'STRING_VALUE',
+ *       TrustType: 'Forest' || 'External',
+ *       TrustDirection: 'One-Way: Outgoing' || 'One-Way: Incoming' || 'Two-Way',
+ *       TrustState: 'Creating' || 'Created' || 'Verifying' || 'VerifyFailed' || 'Verified' || 'Updating' || 'UpdateFailed' || 'Updated' || 'Deleting' || 'Deleted' || 'Failed',
+ *       CreatedDateTime: new Date('TIMESTAMP'),
+ *       LastUpdatedDateTime: new Date('TIMESTAMP'),
+ *       StateLastUpdatedDateTime: new Date('TIMESTAMP'),
+ *       TrustStateReason: 'STRING_VALUE',
+ *       SelectiveAuth: 'Enabled' || 'Disabled',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeTrustsCommandInput - {@link DescribeTrustsCommandInput}
@@ -77,6 +97,8 @@ export interface DescribeTrustsCommandOutput extends DescribeTrustsResult, __Met
  * @throws {@link UnsupportedOperationException} (client fault)
  *  <p>The operation is not supported.</p>
  *
+ * @throws {@link DirectoryServiceServiceException}
+ * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
  */
 export class DescribeTrustsCommand extends $Command<

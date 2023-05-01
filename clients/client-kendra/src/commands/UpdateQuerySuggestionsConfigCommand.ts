@@ -50,19 +50,22 @@ export interface UpdateQuerySuggestionsConfigCommandOutput extends __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KendraClient, UpdateQuerySuggestionsConfigCommand } from "@aws-sdk/client-kendra"; // ES Modules import
- * // const { KendraClient, UpdateQuerySuggestionsConfigCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
+ * import { KendraClient, UpdateQuerySuggestionsConfigCommand } from '@aws-sdk/client-kendra'; // ES Modules import
+ * // const { KendraClient, UpdateQuerySuggestionsConfigCommand } = require('@aws-sdk/client-kendra'); // CommonJS import
  * const client = new KendraClient(config);
  * const input = { // UpdateQuerySuggestionsConfigRequest
- *   IndexId: "STRING_VALUE", // required
- *   Mode: "ENABLED" || "LEARN_ONLY",
- *   QueryLogLookBackWindowInDays: Number("int"),
+ *   IndexId: 'STRING_VALUE', // required
+ *   Mode: 'ENABLED' || 'LEARN_ONLY',
+ *   QueryLogLookBackWindowInDays: Number('int'),
  *   IncludeQueriesWithoutUserInformation: true || false,
- *   MinimumNumberOfQueryingUsers: Number("int"),
- *   MinimumQueryCount: Number("int"),
+ *   MinimumNumberOfQueryingUsers: Number('int'),
+ *   MinimumQueryCount: Number('int'),
  * };
  * const command = new UpdateQuerySuggestionsConfigCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateQuerySuggestionsConfigCommandInput - {@link UpdateQuerySuggestionsConfigCommandInput}
@@ -95,6 +98,8 @@ export interface UpdateQuerySuggestionsConfigCommandOutput extends __MetadataBea
  *  <p>The input fails to satisfy the constraints set by the Amazon Kendra service.
  *             Please provide the correct input and try again.</p>
  *
+ * @throws {@link KendraServiceException}
+ * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
  */
 export class UpdateQuerySuggestionsConfigCommand extends $Command<

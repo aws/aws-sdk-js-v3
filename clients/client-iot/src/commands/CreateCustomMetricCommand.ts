@@ -40,23 +40,29 @@ export interface CreateCustomMetricCommandOutput extends CreateCustomMetricRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTClient, CreateCustomMetricCommand } from "@aws-sdk/client-iot"; // ES Modules import
- * // const { IoTClient, CreateCustomMetricCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * import { IoTClient, CreateCustomMetricCommand } from '@aws-sdk/client-iot'; // ES Modules import
+ * // const { IoTClient, CreateCustomMetricCommand } = require('@aws-sdk/client-iot'); // CommonJS import
  * const client = new IoTClient(config);
  * const input = { // CreateCustomMetricRequest
- *   metricName: "STRING_VALUE", // required
- *   displayName: "STRING_VALUE",
- *   metricType: "string-list" || "ip-address-list" || "number-list" || "number", // required
+ *   metricName: 'STRING_VALUE', // required
+ *   displayName: 'STRING_VALUE',
+ *   metricType: 'string-list' || 'ip-address-list' || 'number-list' || 'number', // required
  *   tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
- *   clientRequestToken: "STRING_VALUE", // required
+ *   clientRequestToken: 'STRING_VALUE', // required
  * };
  * const command = new CreateCustomMetricCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateCustomMetricResponse
+ *   metricName: 'STRING_VALUE',
+ *   metricArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateCustomMetricCommandInput - {@link CreateCustomMetricCommandInput}
@@ -80,6 +86,8 @@ export interface CreateCustomMetricCommandOutput extends CreateCustomMetricRespo
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The rate exceeds the limit.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class CreateCustomMetricCommand extends $Command<

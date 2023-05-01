@@ -36,16 +36,27 @@ export interface CreateTypeCommandOutput extends CreateTypeResponse, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppSyncClient, CreateTypeCommand } from "@aws-sdk/client-appsync"; // ES Modules import
- * // const { AppSyncClient, CreateTypeCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
+ * import { AppSyncClient, CreateTypeCommand } from '@aws-sdk/client-appsync'; // ES Modules import
+ * // const { AppSyncClient, CreateTypeCommand } = require('@aws-sdk/client-appsync'); // CommonJS import
  * const client = new AppSyncClient(config);
  * const input = { // CreateTypeRequest
- *   apiId: "STRING_VALUE", // required
- *   definition: "STRING_VALUE", // required
- *   format: "SDL" || "JSON", // required
+ *   apiId: 'STRING_VALUE', // required
+ *   definition: 'STRING_VALUE', // required
+ *   format: 'SDL' || 'JSON', // required
  * };
  * const command = new CreateTypeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateTypeResponse
+ *   type: { // Type
+ *     name: 'STRING_VALUE',
+ *     description: 'STRING_VALUE',
+ *     arn: 'STRING_VALUE',
+ *     definition: 'STRING_VALUE',
+ *     format: 'SDL' || 'JSON',
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateTypeCommandInput - {@link CreateTypeCommandInput}
@@ -71,6 +82,8 @@ export interface CreateTypeCommandOutput extends CreateTypeResponse, __MetadataB
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You aren't authorized to perform this operation.</p>
  *
+ * @throws {@link AppSyncServiceException}
+ * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
  */
 export class CreateTypeCommand extends $Command<

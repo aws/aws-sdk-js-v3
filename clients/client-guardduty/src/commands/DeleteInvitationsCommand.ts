@@ -37,16 +37,26 @@ export interface DeleteInvitationsCommandOutput extends DeleteInvitationsRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GuardDutyClient, DeleteInvitationsCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
- * // const { GuardDutyClient, DeleteInvitationsCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
+ * import { GuardDutyClient, DeleteInvitationsCommand } from '@aws-sdk/client-guardduty'; // ES Modules import
+ * // const { GuardDutyClient, DeleteInvitationsCommand } = require('@aws-sdk/client-guardduty'); // CommonJS import
  * const client = new GuardDutyClient(config);
  * const input = { // DeleteInvitationsRequest
  *   AccountIds: [ // AccountIds // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new DeleteInvitationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteInvitationsResponse
+ *   UnprocessedAccounts: [ // UnprocessedAccounts // required
+ *     { // UnprocessedAccount
+ *       AccountId: 'STRING_VALUE', // required
+ *       Result: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DeleteInvitationsCommandInput - {@link DeleteInvitationsCommandInput}
@@ -61,6 +71,8 @@ export interface DeleteInvitationsCommandOutput extends DeleteInvitationsRespons
  * @throws {@link InternalServerErrorException} (server fault)
  *  <p>An internal server error exception object.</p>
  *
+ * @throws {@link GuardDutyServiceException}
+ * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
  */
 export class DeleteInvitationsCommand extends $Command<

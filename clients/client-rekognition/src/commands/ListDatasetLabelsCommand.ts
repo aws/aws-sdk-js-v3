@@ -41,16 +41,30 @@ export interface ListDatasetLabelsCommandOutput extends ListDatasetLabelsRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RekognitionClient, ListDatasetLabelsCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
- * // const { RekognitionClient, ListDatasetLabelsCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
+ * import { RekognitionClient, ListDatasetLabelsCommand } from '@aws-sdk/client-rekognition'; // ES Modules import
+ * // const { RekognitionClient, ListDatasetLabelsCommand } = require('@aws-sdk/client-rekognition'); // CommonJS import
  * const client = new RekognitionClient(config);
  * const input = { // ListDatasetLabelsRequest
- *   DatasetArn: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   DatasetArn: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListDatasetLabelsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListDatasetLabelsResponse
+ *   DatasetLabelDescriptions: [ // DatasetLabelDescriptions
+ *     { // DatasetLabelDescription
+ *       LabelName: 'STRING_VALUE',
+ *       LabelStats: { // DatasetLabelStats
+ *         EntryCount: Number('int'),
+ *         BoundingBoxCount: Number('int'),
+ *       },
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListDatasetLabelsCommandInput - {@link ListDatasetLabelsCommandInput}
@@ -90,6 +104,8 @@ export interface ListDatasetLabelsCommandOutput extends ListDatasetLabelsRespons
  * @throws {@link ThrottlingException} (server fault)
  *  <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
  *
+ * @throws {@link RekognitionServiceException}
+ * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
  */
 export class ListDatasetLabelsCommand extends $Command<

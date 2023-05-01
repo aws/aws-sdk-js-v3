@@ -36,15 +36,36 @@ export interface ListFlowsCommandOutput extends ListFlowsResponse, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MediaConnectClient, ListFlowsCommand } from "@aws-sdk/client-mediaconnect"; // ES Modules import
- * // const { MediaConnectClient, ListFlowsCommand } = require("@aws-sdk/client-mediaconnect"); // CommonJS import
+ * import { MediaConnectClient, ListFlowsCommand } from '@aws-sdk/client-mediaconnect'; // ES Modules import
+ * // const { MediaConnectClient, ListFlowsCommand } = require('@aws-sdk/client-mediaconnect'); // CommonJS import
  * const client = new MediaConnectClient(config);
  * const input = { // ListFlowsRequest
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListFlowsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListFlowsResponse
+ *   Flows: [ // __listOfListedFlow
+ *     { // ListedFlow
+ *       AvailabilityZone: 'STRING_VALUE', // required
+ *       Description: 'STRING_VALUE', // required
+ *       FlowArn: 'STRING_VALUE', // required
+ *       Name: 'STRING_VALUE', // required
+ *       SourceType: 'OWNED' || 'ENTITLED', // required
+ *       Status: 'STANDBY' || 'ACTIVE' || 'UPDATING' || 'DELETING' || 'STARTING' || 'STOPPING' || 'ERROR', // required
+ *       Maintenance: { // Maintenance
+ *         MaintenanceDay: 'Monday' || 'Tuesday' || 'Wednesday' || 'Thursday' || 'Friday' || 'Saturday' || 'Sunday',
+ *         MaintenanceDeadline: 'STRING_VALUE',
+ *         MaintenanceScheduledDate: 'STRING_VALUE',
+ *         MaintenanceStartHour: 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListFlowsCommandInput - {@link ListFlowsCommandInput}
@@ -65,6 +86,8 @@ export interface ListFlowsCommandOutput extends ListFlowsResponse, __MetadataBea
  * @throws {@link TooManyRequestsException} (client fault)
  *  Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
  *
+ * @throws {@link MediaConnectServiceException}
+ * <p>Base exception class for all service exceptions from MediaConnect service.</p>
  *
  */
 export class ListFlowsCommand extends $Command<

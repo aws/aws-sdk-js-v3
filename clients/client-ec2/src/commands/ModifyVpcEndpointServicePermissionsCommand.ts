@@ -49,21 +49,34 @@ export interface ModifyVpcEndpointServicePermissionsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, ModifyVpcEndpointServicePermissionsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, ModifyVpcEndpointServicePermissionsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, ModifyVpcEndpointServicePermissionsCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, ModifyVpcEndpointServicePermissionsCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // ModifyVpcEndpointServicePermissionsRequest
  *   DryRun: true || false,
- *   ServiceId: "STRING_VALUE", // required
+ *   ServiceId: 'STRING_VALUE', // required
  *   AddAllowedPrincipals: [ // ValueStringList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   RemoveAllowedPrincipals: [
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new ModifyVpcEndpointServicePermissionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ModifyVpcEndpointServicePermissionsResult
+ *   AddedPrincipals: [ // AddedPrincipalSet
+ *     { // AddedPrincipal
+ *       PrincipalType: 'All' || 'Service' || 'OrganizationUnit' || 'Account' || 'User' || 'Role',
+ *       Principal: 'STRING_VALUE',
+ *       ServicePermissionId: 'STRING_VALUE',
+ *       ServiceId: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   ReturnValue: true || false,
+ * };
+ *
  * ```
  *
  * @param ModifyVpcEndpointServicePermissionsCommandInput - {@link ModifyVpcEndpointServicePermissionsCommandInput}
@@ -72,6 +85,8 @@ export interface ModifyVpcEndpointServicePermissionsCommandOutput
  * @see {@link ModifyVpcEndpointServicePermissionsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class ModifyVpcEndpointServicePermissionsCommand extends $Command<

@@ -39,16 +39,19 @@ export interface SetReceiptRulePositionCommandOutput extends SetReceiptRulePosit
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SESClient, SetReceiptRulePositionCommand } from "@aws-sdk/client-ses"; // ES Modules import
- * // const { SESClient, SetReceiptRulePositionCommand } = require("@aws-sdk/client-ses"); // CommonJS import
+ * import { SESClient, SetReceiptRulePositionCommand } from '@aws-sdk/client-ses'; // ES Modules import
+ * // const { SESClient, SetReceiptRulePositionCommand } = require('@aws-sdk/client-ses'); // CommonJS import
  * const client = new SESClient(config);
  * const input = { // SetReceiptRulePositionRequest
- *   RuleSetName: "STRING_VALUE", // required
- *   RuleName: "STRING_VALUE", // required
- *   After: "STRING_VALUE",
+ *   RuleSetName: 'STRING_VALUE', // required
+ *   RuleName: 'STRING_VALUE', // required
+ *   After: 'STRING_VALUE',
  * };
  * const command = new SetReceiptRulePositionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param SetReceiptRulePositionCommandInput - {@link SetReceiptRulePositionCommandInput}
@@ -63,6 +66,8 @@ export interface SetReceiptRulePositionCommandOutput extends SetReceiptRulePosit
  * @throws {@link RuleSetDoesNotExistException} (client fault)
  *  <p>Indicates that the provided receipt rule set does not exist.</p>
  *
+ * @throws {@link SESServiceException}
+ * <p>Base exception class for all service exceptions from SES service.</p>
  *
  * @example SetReceiptRulePosition
  * ```javascript

@@ -45,21 +45,24 @@ export interface ModifyCertificateBasedAuthPropertiesCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkSpacesClient, ModifyCertificateBasedAuthPropertiesCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
- * // const { WorkSpacesClient, ModifyCertificateBasedAuthPropertiesCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
+ * import { WorkSpacesClient, ModifyCertificateBasedAuthPropertiesCommand } from '@aws-sdk/client-workspaces'; // ES Modules import
+ * // const { WorkSpacesClient, ModifyCertificateBasedAuthPropertiesCommand } = require('@aws-sdk/client-workspaces'); // CommonJS import
  * const client = new WorkSpacesClient(config);
  * const input = { // ModifyCertificateBasedAuthPropertiesRequest
- *   ResourceId: "STRING_VALUE", // required
+ *   ResourceId: 'STRING_VALUE', // required
  *   CertificateBasedAuthProperties: { // CertificateBasedAuthProperties
- *     Status: "DISABLED" || "ENABLED",
- *     CertificateAuthorityArn: "STRING_VALUE",
+ *     Status: 'DISABLED' || 'ENABLED',
+ *     CertificateAuthorityArn: 'STRING_VALUE',
  *   },
  *   PropertiesToDelete: [ // DeletableCertificateBasedAuthPropertiesList
- *     "CERTIFICATE_BASED_AUTH_PROPERTIES_CERTIFICATE_AUTHORITY_ARN",
+ *     'CERTIFICATE_BASED_AUTH_PROPERTIES_CERTIFICATE_AUTHORITY_ARN',
  *   ],
  * };
  * const command = new ModifyCertificateBasedAuthPropertiesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param ModifyCertificateBasedAuthPropertiesCommandInput - {@link ModifyCertificateBasedAuthPropertiesCommandInput}
@@ -80,6 +83,8 @@ export interface ModifyCertificateBasedAuthPropertiesCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource could not be found.</p>
  *
+ * @throws {@link WorkSpacesServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
  */
 export class ModifyCertificateBasedAuthPropertiesCommand extends $Command<

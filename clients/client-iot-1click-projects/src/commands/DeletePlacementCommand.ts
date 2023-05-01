@@ -44,15 +44,18 @@ export interface DeletePlacementCommandOutput extends DeletePlacementResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoT1ClickProjectsClient, DeletePlacementCommand } from "@aws-sdk/client-iot-1click-projects"; // ES Modules import
- * // const { IoT1ClickProjectsClient, DeletePlacementCommand } = require("@aws-sdk/client-iot-1click-projects"); // CommonJS import
+ * import { IoT1ClickProjectsClient, DeletePlacementCommand } from '@aws-sdk/client-iot-1click-projects'; // ES Modules import
+ * // const { IoT1ClickProjectsClient, DeletePlacementCommand } = require('@aws-sdk/client-iot-1click-projects'); // CommonJS import
  * const client = new IoT1ClickProjectsClient(config);
  * const input = { // DeletePlacementRequest
- *   placementName: "STRING_VALUE", // required
- *   projectName: "STRING_VALUE", // required
+ *   placementName: 'STRING_VALUE', // required
+ *   projectName: 'STRING_VALUE', // required
  * };
  * const command = new DeletePlacementCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeletePlacementCommandInput - {@link DeletePlacementCommandInput}
@@ -73,6 +76,8 @@ export interface DeletePlacementCommandOutput extends DeletePlacementResponse, _
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p></p>
  *
+ * @throws {@link IoT1ClickProjectsServiceException}
+ * <p>Base exception class for all service exceptions from IoT1ClickProjects service.</p>
  *
  */
 export class DeletePlacementCommand extends $Command<

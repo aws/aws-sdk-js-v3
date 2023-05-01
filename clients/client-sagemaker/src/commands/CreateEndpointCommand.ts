@@ -113,46 +113,51 @@ export interface CreateEndpointCommandOutput extends CreateEndpointOutput, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, CreateEndpointCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, CreateEndpointCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, CreateEndpointCommand } from '@aws-sdk/client-sagemaker'; // ES Modules import
+ * // const { SageMakerClient, CreateEndpointCommand } = require('@aws-sdk/client-sagemaker'); // CommonJS import
  * const client = new SageMakerClient(config);
  * const input = { // CreateEndpointInput
- *   EndpointName: "STRING_VALUE", // required
- *   EndpointConfigName: "STRING_VALUE", // required
+ *   EndpointName: 'STRING_VALUE', // required
+ *   EndpointConfigName: 'STRING_VALUE', // required
  *   DeploymentConfig: { // DeploymentConfig
  *     BlueGreenUpdatePolicy: { // BlueGreenUpdatePolicy
  *       TrafficRoutingConfiguration: { // TrafficRoutingConfig
- *         Type: "ALL_AT_ONCE" || "CANARY" || "LINEAR", // required
- *         WaitIntervalInSeconds: Number("int"), // required
+ *         Type: 'ALL_AT_ONCE' || 'CANARY' || 'LINEAR', // required
+ *         WaitIntervalInSeconds: Number('int'), // required
  *         CanarySize: { // CapacitySize
- *           Type: "INSTANCE_COUNT" || "CAPACITY_PERCENT", // required
- *           Value: Number("int"), // required
+ *           Type: 'INSTANCE_COUNT' || 'CAPACITY_PERCENT', // required
+ *           Value: Number('int'), // required
  *         },
  *         LinearStepSize: {
- *           Type: "INSTANCE_COUNT" || "CAPACITY_PERCENT", // required
- *           Value: Number("int"), // required
+ *           Type: 'INSTANCE_COUNT' || 'CAPACITY_PERCENT', // required
+ *           Value: Number('int'), // required
  *         },
  *       },
- *       TerminationWaitInSeconds: Number("int"),
- *       MaximumExecutionTimeoutInSeconds: Number("int"),
+ *       TerminationWaitInSeconds: Number('int'),
+ *       MaximumExecutionTimeoutInSeconds: Number('int'),
  *     },
  *     AutoRollbackConfiguration: { // AutoRollbackConfig
  *       Alarms: [ // AlarmList
  *         { // Alarm
- *           AlarmName: "STRING_VALUE",
+ *           AlarmName: 'STRING_VALUE',
  *         },
  *       ],
  *     },
  *   },
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreateEndpointCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateEndpointOutput
+ *   EndpointArn: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param CreateEndpointCommandInput - {@link CreateEndpointCommandInput}
@@ -165,6 +170,8 @@ export interface CreateEndpointCommandOutput extends CreateEndpointOutput, __Met
  *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many
  *             training jobs created. </p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class CreateEndpointCommand extends $Command<

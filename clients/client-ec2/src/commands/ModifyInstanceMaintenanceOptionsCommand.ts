@@ -44,16 +44,22 @@ export interface ModifyInstanceMaintenanceOptionsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, ModifyInstanceMaintenanceOptionsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, ModifyInstanceMaintenanceOptionsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, ModifyInstanceMaintenanceOptionsCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, ModifyInstanceMaintenanceOptionsCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // ModifyInstanceMaintenanceOptionsRequest
- *   InstanceId: "STRING_VALUE", // required
- *   AutoRecovery: "disabled" || "default",
+ *   InstanceId: 'STRING_VALUE', // required
+ *   AutoRecovery: 'disabled' || 'default',
  *   DryRun: true || false,
  * };
  * const command = new ModifyInstanceMaintenanceOptionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ModifyInstanceMaintenanceOptionsResult
+ *   InstanceId: 'STRING_VALUE',
+ *   AutoRecovery: 'disabled' || 'default',
+ * };
+ *
  * ```
  *
  * @param ModifyInstanceMaintenanceOptionsCommandInput - {@link ModifyInstanceMaintenanceOptionsCommandInput}
@@ -62,6 +68,8 @@ export interface ModifyInstanceMaintenanceOptionsCommandOutput
  * @see {@link ModifyInstanceMaintenanceOptionsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class ModifyInstanceMaintenanceOptionsCommand extends $Command<

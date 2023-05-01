@@ -43,33 +43,74 @@ export interface BatchGetAssetPropertyAggregatesCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTSiteWiseClient, BatchGetAssetPropertyAggregatesCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
- * // const { IoTSiteWiseClient, BatchGetAssetPropertyAggregatesCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
+ * import { IoTSiteWiseClient, BatchGetAssetPropertyAggregatesCommand } from '@aws-sdk/client-iotsitewise'; // ES Modules import
+ * // const { IoTSiteWiseClient, BatchGetAssetPropertyAggregatesCommand } = require('@aws-sdk/client-iotsitewise'); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
  * const input = { // BatchGetAssetPropertyAggregatesRequest
  *   entries: [ // BatchGetAssetPropertyAggregatesEntries // required
  *     { // BatchGetAssetPropertyAggregatesEntry
- *       entryId: "STRING_VALUE", // required
- *       assetId: "STRING_VALUE",
- *       propertyId: "STRING_VALUE",
- *       propertyAlias: "STRING_VALUE",
+ *       entryId: 'STRING_VALUE', // required
+ *       assetId: 'STRING_VALUE',
+ *       propertyId: 'STRING_VALUE',
+ *       propertyAlias: 'STRING_VALUE',
  *       aggregateTypes: [ // AggregateTypes // required
- *         "AVERAGE" || "COUNT" || "MAXIMUM" || "MINIMUM" || "SUM" || "STANDARD_DEVIATION",
+ *         'AVERAGE' || 'COUNT' || 'MAXIMUM' || 'MINIMUM' || 'SUM' || 'STANDARD_DEVIATION',
  *       ],
- *       resolution: "STRING_VALUE", // required
- *       startDate: new Date("TIMESTAMP"), // required
- *       endDate: new Date("TIMESTAMP"), // required
+ *       resolution: 'STRING_VALUE', // required
+ *       startDate: new Date('TIMESTAMP'), // required
+ *       endDate: new Date('TIMESTAMP'), // required
  *       qualities: [ // Qualities
- *         "GOOD" || "BAD" || "UNCERTAIN",
+ *         'GOOD' || 'BAD' || 'UNCERTAIN',
  *       ],
- *       timeOrdering: "ASCENDING" || "DESCENDING",
+ *       timeOrdering: 'ASCENDING' || 'DESCENDING',
  *     },
  *   ],
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new BatchGetAssetPropertyAggregatesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BatchGetAssetPropertyAggregatesResponse
+ *   errorEntries: [ // BatchGetAssetPropertyAggregatesErrorEntries // required
+ *     { // BatchGetAssetPropertyAggregatesErrorEntry
+ *       errorCode: 'ResourceNotFoundException' || 'InvalidRequestException' || 'AccessDeniedException', // required
+ *       errorMessage: 'STRING_VALUE', // required
+ *       entryId: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ *   successEntries: [ // BatchGetAssetPropertyAggregatesSuccessEntries // required
+ *     { // BatchGetAssetPropertyAggregatesSuccessEntry
+ *       entryId: 'STRING_VALUE', // required
+ *       aggregatedValues: [ // AggregatedValues // required
+ *         { // AggregatedValue
+ *           timestamp: new Date('TIMESTAMP'), // required
+ *           quality: 'GOOD' || 'BAD' || 'UNCERTAIN',
+ *           value: { // Aggregates
+ *             average: Number('double'),
+ *             count: Number('double'),
+ *             maximum: Number('double'),
+ *             minimum: Number('double'),
+ *             sum: Number('double'),
+ *             standardDeviation: Number('double'),
+ *           },
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   skippedEntries: [ // BatchGetAssetPropertyAggregatesSkippedEntries // required
+ *     { // BatchGetAssetPropertyAggregatesSkippedEntry
+ *       entryId: 'STRING_VALUE', // required
+ *       completionStatus: 'SUCCESS' || 'ERROR', // required
+ *       errorInfo: { // BatchGetAssetPropertyAggregatesErrorInfo
+ *         errorCode: 'ResourceNotFoundException' || 'InvalidRequestException' || 'AccessDeniedException', // required
+ *         errorTimestamp: new Date('TIMESTAMP'), // required
+ *       },
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param BatchGetAssetPropertyAggregatesCommandInput - {@link BatchGetAssetPropertyAggregatesCommandInput}
@@ -94,6 +135,8 @@ export interface BatchGetAssetPropertyAggregatesCommandOutput
  *       on.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
  *
+ * @throws {@link IoTSiteWiseServiceException}
+ * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
  */
 export class BatchGetAssetPropertyAggregatesCommand extends $Command<

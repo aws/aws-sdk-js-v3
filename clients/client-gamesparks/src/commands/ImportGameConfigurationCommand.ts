@@ -41,17 +41,32 @@ export interface ImportGameConfigurationCommandOutput extends ImportGameConfigur
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GameSparksClient, ImportGameConfigurationCommand } from "@aws-sdk/client-gamesparks"; // ES Modules import
- * // const { GameSparksClient, ImportGameConfigurationCommand } = require("@aws-sdk/client-gamesparks"); // CommonJS import
+ * import { GameSparksClient, ImportGameConfigurationCommand } from '@aws-sdk/client-gamesparks'; // ES Modules import
+ * // const { GameSparksClient, ImportGameConfigurationCommand } = require('@aws-sdk/client-gamesparks'); // CommonJS import
  * const client = new GameSparksClient(config);
  * const input = { // ImportGameConfigurationRequest
- *   GameName: "STRING_VALUE", // required
+ *   GameName: 'STRING_VALUE', // required
  *   ImportSource: { // ImportGameConfigurationSource
- *     File: "BLOB_VALUE", // required
+ *     File: 'BLOB_VALUE', // required
  *   },
  * };
  * const command = new ImportGameConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ImportGameConfigurationResult
+ *   GameConfiguration: { // GameConfigurationDetails
+ *     Sections: { // Sections
+ *       '<keys>': { // Section
+ *         Name: 'STRING_VALUE',
+ *         Size: Number('int'),
+ *         Attributes: 'DOCUMENT_VALUE',
+ *       },
+ *     },
+ *     Created: new Date('TIMESTAMP'),
+ *     LastUpdated: new Date('TIMESTAMP'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param ImportGameConfigurationCommandInput - {@link ImportGameConfigurationCommandInput}
@@ -78,6 +93,8 @@ export interface ImportGameConfigurationCommandOutput extends ImportGameConfigur
  * @throws {@link ValidationException} (client fault)
  *  <p>One of the parameters in the request is invalid.</p>
  *
+ * @throws {@link GameSparksServiceException}
+ * <p>Base exception class for all service exceptions from GameSparks service.</p>
  *
  */
 export class ImportGameConfigurationCommand extends $Command<

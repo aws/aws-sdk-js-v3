@@ -41,16 +41,33 @@ export interface CreatePullRequestApprovalRuleCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeCommitClient, CreatePullRequestApprovalRuleCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
- * // const { CodeCommitClient, CreatePullRequestApprovalRuleCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
+ * import { CodeCommitClient, CreatePullRequestApprovalRuleCommand } from '@aws-sdk/client-codecommit'; // ES Modules import
+ * // const { CodeCommitClient, CreatePullRequestApprovalRuleCommand } = require('@aws-sdk/client-codecommit'); // CommonJS import
  * const client = new CodeCommitClient(config);
  * const input = { // CreatePullRequestApprovalRuleInput
- *   pullRequestId: "STRING_VALUE", // required
- *   approvalRuleName: "STRING_VALUE", // required
- *   approvalRuleContent: "STRING_VALUE", // required
+ *   pullRequestId: 'STRING_VALUE', // required
+ *   approvalRuleName: 'STRING_VALUE', // required
+ *   approvalRuleContent: 'STRING_VALUE', // required
  * };
  * const command = new CreatePullRequestApprovalRuleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreatePullRequestApprovalRuleOutput
+ *   approvalRule: { // ApprovalRule
+ *     approvalRuleId: 'STRING_VALUE',
+ *     approvalRuleName: 'STRING_VALUE',
+ *     approvalRuleContent: 'STRING_VALUE',
+ *     ruleContentSha256: 'STRING_VALUE',
+ *     lastModifiedDate: new Date('TIMESTAMP'),
+ *     creationDate: new Date('TIMESTAMP'),
+ *     lastModifiedUser: 'STRING_VALUE',
+ *     originApprovalRuleTemplate: { // OriginApprovalRuleTemplate
+ *       approvalRuleTemplateId: 'STRING_VALUE',
+ *       approvalRuleTemplateName: 'STRING_VALUE',
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreatePullRequestApprovalRuleCommandInput - {@link CreatePullRequestApprovalRuleCommandInput}
@@ -105,6 +122,8 @@ export interface CreatePullRequestApprovalRuleCommandOutput
  * @throws {@link PullRequestIdRequiredException} (client fault)
  *  <p>A pull request ID is required, but none was provided.</p>
  *
+ * @throws {@link CodeCommitServiceException}
+ * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
  */
 export class CreatePullRequestApprovalRuleCommand extends $Command<

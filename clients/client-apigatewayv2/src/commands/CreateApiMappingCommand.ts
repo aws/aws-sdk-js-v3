@@ -36,17 +36,25 @@ export interface CreateApiMappingCommandOutput extends CreateApiMappingResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ApiGatewayV2Client, CreateApiMappingCommand } from "@aws-sdk/client-apigatewayv2"; // ES Modules import
- * // const { ApiGatewayV2Client, CreateApiMappingCommand } = require("@aws-sdk/client-apigatewayv2"); // CommonJS import
+ * import { ApiGatewayV2Client, CreateApiMappingCommand } from '@aws-sdk/client-apigatewayv2'; // ES Modules import
+ * // const { ApiGatewayV2Client, CreateApiMappingCommand } = require('@aws-sdk/client-apigatewayv2'); // CommonJS import
  * const client = new ApiGatewayV2Client(config);
  * const input = { // CreateApiMappingRequest
- *   ApiId: "STRING_VALUE", // required
- *   ApiMappingKey: "STRING_VALUE",
- *   DomainName: "STRING_VALUE", // required
- *   Stage: "STRING_VALUE", // required
+ *   ApiId: 'STRING_VALUE', // required
+ *   ApiMappingKey: 'STRING_VALUE',
+ *   DomainName: 'STRING_VALUE', // required
+ *   Stage: 'STRING_VALUE', // required
  * };
  * const command = new CreateApiMappingCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateApiMappingResponse
+ *   ApiId: 'STRING_VALUE',
+ *   ApiMappingId: 'STRING_VALUE',
+ *   ApiMappingKey: 'STRING_VALUE',
+ *   Stage: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateApiMappingCommandInput - {@link CreateApiMappingCommandInput}
@@ -67,6 +75,8 @@ export interface CreateApiMappingCommandOutput extends CreateApiMappingResponse,
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>A limit has been exceeded. See the accompanying error message for details.</p>
  *
+ * @throws {@link ApiGatewayV2ServiceException}
+ * <p>Base exception class for all service exceptions from ApiGatewayV2 service.</p>
  *
  */
 export class CreateApiMappingCommand extends $Command<

@@ -36,17 +36,31 @@ export interface ListResourcesForTagOptionCommandOutput extends ListResourcesFor
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ServiceCatalogClient, ListResourcesForTagOptionCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
- * // const { ServiceCatalogClient, ListResourcesForTagOptionCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
+ * import { ServiceCatalogClient, ListResourcesForTagOptionCommand } from '@aws-sdk/client-service-catalog'; // ES Modules import
+ * // const { ServiceCatalogClient, ListResourcesForTagOptionCommand } = require('@aws-sdk/client-service-catalog'); // CommonJS import
  * const client = new ServiceCatalogClient(config);
  * const input = { // ListResourcesForTagOptionInput
- *   TagOptionId: "STRING_VALUE", // required
- *   ResourceType: "STRING_VALUE",
- *   PageSize: Number("int"),
- *   PageToken: "STRING_VALUE",
+ *   TagOptionId: 'STRING_VALUE', // required
+ *   ResourceType: 'STRING_VALUE',
+ *   PageSize: Number('int'),
+ *   PageToken: 'STRING_VALUE',
  * };
  * const command = new ListResourcesForTagOptionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListResourcesForTagOptionOutput
+ *   ResourceDetails: [ // ResourceDetails
+ *     { // ResourceDetail
+ *       Id: 'STRING_VALUE',
+ *       ARN: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *       Description: 'STRING_VALUE',
+ *       CreatedTime: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   PageToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListResourcesForTagOptionCommandInput - {@link ListResourcesForTagOptionCommandInput}
@@ -66,6 +80,8 @@ export interface ListResourcesForTagOptionCommandOutput extends ListResourcesFor
  *          not been performed for this account. Use the Amazon Web Services Management Console to perform the migration
  *          process before retrying the operation.</p>
  *
+ * @throws {@link ServiceCatalogServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
  */
 export class ListResourcesForTagOptionCommand extends $Command<

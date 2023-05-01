@@ -36,16 +36,32 @@ export interface ListAccessPreviewsCommandOutput extends ListAccessPreviewsRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AccessAnalyzerClient, ListAccessPreviewsCommand } from "@aws-sdk/client-accessanalyzer"; // ES Modules import
- * // const { AccessAnalyzerClient, ListAccessPreviewsCommand } = require("@aws-sdk/client-accessanalyzer"); // CommonJS import
+ * import { AccessAnalyzerClient, ListAccessPreviewsCommand } from '@aws-sdk/client-accessanalyzer'; // ES Modules import
+ * // const { AccessAnalyzerClient, ListAccessPreviewsCommand } = require('@aws-sdk/client-accessanalyzer'); // CommonJS import
  * const client = new AccessAnalyzerClient(config);
  * const input = { // ListAccessPreviewsRequest
- *   analyzerArn: "STRING_VALUE", // required
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   analyzerArn: 'STRING_VALUE', // required
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new ListAccessPreviewsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListAccessPreviewsResponse
+ *   accessPreviews: [ // AccessPreviewsList // required
+ *     { // AccessPreviewSummary
+ *       id: 'STRING_VALUE', // required
+ *       analyzerArn: 'STRING_VALUE', // required
+ *       createdAt: new Date('TIMESTAMP'), // required
+ *       status: 'STRING_VALUE', // required
+ *       statusReason: { // AccessPreviewStatusReason
+ *         code: 'STRING_VALUE', // required
+ *       },
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListAccessPreviewsCommandInput - {@link ListAccessPreviewsCommandInput}
@@ -69,6 +85,8 @@ export interface ListAccessPreviewsCommandOutput extends ListAccessPreviewsRespo
  * @throws {@link ValidationException} (client fault)
  *  <p>Validation exception error.</p>
  *
+ * @throws {@link AccessAnalyzerServiceException}
+ * <p>Base exception class for all service exceptions from AccessAnalyzer service.</p>
  *
  */
 export class ListAccessPreviewsCommand extends $Command<

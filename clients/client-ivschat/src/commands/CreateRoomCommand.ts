@@ -36,26 +36,47 @@ export interface CreateRoomCommandOutput extends CreateRoomResponse, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IvschatClient, CreateRoomCommand } from "@aws-sdk/client-ivschat"; // ES Modules import
- * // const { IvschatClient, CreateRoomCommand } = require("@aws-sdk/client-ivschat"); // CommonJS import
+ * import { IvschatClient, CreateRoomCommand } from '@aws-sdk/client-ivschat'; // ES Modules import
+ * // const { IvschatClient, CreateRoomCommand } = require('@aws-sdk/client-ivschat'); // CommonJS import
  * const client = new IvschatClient(config);
  * const input = { // CreateRoomRequest
- *   name: "STRING_VALUE",
- *   maximumMessageRatePerSecond: Number("int"),
- *   maximumMessageLength: Number("int"),
+ *   name: 'STRING_VALUE',
+ *   maximumMessageRatePerSecond: Number('int'),
+ *   maximumMessageLength: Number('int'),
  *   messageReviewHandler: { // MessageReviewHandler
- *     uri: "STRING_VALUE",
- *     fallbackResult: "STRING_VALUE",
+ *     uri: 'STRING_VALUE',
+ *     fallbackResult: 'STRING_VALUE',
  *   },
  *   tags: { // Tags
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  *   loggingConfigurationIdentifiers: [ // LoggingConfigurationIdentifierList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new CreateRoomCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateRoomResponse
+ *   arn: 'STRING_VALUE',
+ *   id: 'STRING_VALUE',
+ *   name: 'STRING_VALUE',
+ *   createTime: new Date('TIMESTAMP'),
+ *   updateTime: new Date('TIMESTAMP'),
+ *   maximumMessageRatePerSecond: Number('int'),
+ *   maximumMessageLength: Number('int'),
+ *   messageReviewHandler: { // MessageReviewHandler
+ *     uri: 'STRING_VALUE',
+ *     fallbackResult: 'STRING_VALUE',
+ *   },
+ *   tags: { // Tags
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ *   loggingConfigurationIdentifiers: [ // LoggingConfigurationIdentifierList
+ *     'STRING_VALUE',
+ *   ],
+ * };
+ *
  * ```
  *
  * @param CreateRoomCommandInput - {@link CreateRoomCommandInput}
@@ -82,6 +103,8 @@ export interface CreateRoomCommandOutput extends CreateRoomResponse, __MetadataB
  * @throws {@link ValidationException} (client fault)
  *  <p/>
  *
+ * @throws {@link IvschatServiceException}
+ * <p>Base exception class for all service exceptions from Ivschat service.</p>
  *
  */
 export class CreateRoomCommand extends $Command<

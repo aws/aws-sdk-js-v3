@@ -36,19 +36,91 @@ export interface GetResourcesCommandOutput extends Resources, __MetadataBearer {
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { APIGatewayClient, GetResourcesCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
- * // const { APIGatewayClient, GetResourcesCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
+ * import { APIGatewayClient, GetResourcesCommand } from '@aws-sdk/client-api-gateway'; // ES Modules import
+ * // const { APIGatewayClient, GetResourcesCommand } = require('@aws-sdk/client-api-gateway'); // CommonJS import
  * const client = new APIGatewayClient(config);
  * const input = { // GetResourcesRequest
- *   restApiId: "STRING_VALUE", // required
- *   position: "STRING_VALUE",
- *   limit: Number("int"),
+ *   restApiId: 'STRING_VALUE', // required
+ *   position: 'STRING_VALUE',
+ *   limit: Number('int'),
  *   embed: [ // ListOfString
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new GetResourcesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // Resources
+ *   items: [ // ListOfResource
+ *     { // Resource
+ *       id: 'STRING_VALUE',
+ *       parentId: 'STRING_VALUE',
+ *       pathPart: 'STRING_VALUE',
+ *       path: 'STRING_VALUE',
+ *       resourceMethods: { // MapOfMethod
+ *         '<keys>': { // Method
+ *           httpMethod: 'STRING_VALUE',
+ *           authorizationType: 'STRING_VALUE',
+ *           authorizerId: 'STRING_VALUE',
+ *           apiKeyRequired: true || false,
+ *           requestValidatorId: 'STRING_VALUE',
+ *           operationName: 'STRING_VALUE',
+ *           requestParameters: { // MapOfStringToBoolean
+ *             '<keys>': true || false,
+ *           },
+ *           requestModels: { // MapOfStringToString
+ *             '<keys>': 'STRING_VALUE',
+ *           },
+ *           methodResponses: { // MapOfMethodResponse
+ *             '<keys>': { // MethodResponse
+ *               statusCode: 'STRING_VALUE',
+ *               responseParameters: {
+ *                 '<keys>': true || false,
+ *               },
+ *               responseModels: {
+ *                 '<keys>': 'STRING_VALUE',
+ *               },
+ *             },
+ *           },
+ *           methodIntegration: { // Integration
+ *             type: 'HTTP' || 'AWS' || 'MOCK' || 'HTTP_PROXY' || 'AWS_PROXY',
+ *             httpMethod: 'STRING_VALUE',
+ *             uri: 'STRING_VALUE',
+ *             connectionType: 'INTERNET' || 'VPC_LINK',
+ *             connectionId: 'STRING_VALUE',
+ *             credentials: 'STRING_VALUE',
+ *             requestParameters: '<MapOfStringToString>',
+ *             requestTemplates: '<MapOfStringToString>',
+ *             passthroughBehavior: 'STRING_VALUE',
+ *             contentHandling: 'CONVERT_TO_BINARY' || 'CONVERT_TO_TEXT',
+ *             timeoutInMillis: Number('int'),
+ *             cacheNamespace: 'STRING_VALUE',
+ *             cacheKeyParameters: [ // ListOfString
+ *               'STRING_VALUE',
+ *             ],
+ *             integrationResponses: { // MapOfIntegrationResponse
+ *               '<keys>': { // IntegrationResponse
+ *                 statusCode: 'STRING_VALUE',
+ *                 selectionPattern: 'STRING_VALUE',
+ *                 responseParameters: '<MapOfStringToString>',
+ *                 responseTemplates: '<MapOfStringToString>',
+ *                 contentHandling: 'CONVERT_TO_BINARY' || 'CONVERT_TO_TEXT',
+ *               },
+ *             },
+ *             tlsConfig: { // TlsConfig
+ *               insecureSkipVerification: true || false,
+ *             },
+ *           },
+ *           authorizationScopes: [
+ *             'STRING_VALUE',
+ *           ],
+ *         },
+ *       },
+ *     },
+ *   ],
+ *   position: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetResourcesCommandInput - {@link GetResourcesCommandInput}
@@ -69,6 +141,8 @@ export interface GetResourcesCommandOutput extends Resources, __MetadataBearer {
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The request is denied because the caller has insufficient permissions.</p>
  *
+ * @throws {@link APIGatewayServiceException}
+ * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
  */
 export class GetResourcesCommand extends $Command<

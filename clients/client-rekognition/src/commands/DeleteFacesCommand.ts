@@ -39,17 +39,24 @@ export interface DeleteFacesCommandOutput extends DeleteFacesResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RekognitionClient, DeleteFacesCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
- * // const { RekognitionClient, DeleteFacesCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
+ * import { RekognitionClient, DeleteFacesCommand } from '@aws-sdk/client-rekognition'; // ES Modules import
+ * // const { RekognitionClient, DeleteFacesCommand } = require('@aws-sdk/client-rekognition'); // CommonJS import
  * const client = new RekognitionClient(config);
  * const input = { // DeleteFacesRequest
- *   CollectionId: "STRING_VALUE", // required
+ *   CollectionId: 'STRING_VALUE', // required
  *   FaceIds: [ // FaceIdList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new DeleteFacesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteFacesResponse
+ *   DeletedFaces: [ // FaceIdList
+ *     'STRING_VALUE',
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DeleteFacesCommandInput - {@link DeleteFacesCommandInput}
@@ -78,6 +85,8 @@ export interface DeleteFacesCommandOutput extends DeleteFacesResponse, __Metadat
  * @throws {@link ThrottlingException} (server fault)
  *  <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
  *
+ * @throws {@link RekognitionServiceException}
+ * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
  * @example To delete a face
  * ```javascript

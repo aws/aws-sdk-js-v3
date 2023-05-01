@@ -55,45 +55,86 @@ export interface PutRemediationConfigurationsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConfigServiceClient, PutRemediationConfigurationsCommand } from "@aws-sdk/client-config-service"; // ES Modules import
- * // const { ConfigServiceClient, PutRemediationConfigurationsCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
+ * import { ConfigServiceClient, PutRemediationConfigurationsCommand } from '@aws-sdk/client-config-service'; // ES Modules import
+ * // const { ConfigServiceClient, PutRemediationConfigurationsCommand } = require('@aws-sdk/client-config-service'); // CommonJS import
  * const client = new ConfigServiceClient(config);
  * const input = { // PutRemediationConfigurationsRequest
  *   RemediationConfigurations: [ // RemediationConfigurations // required
  *     { // RemediationConfiguration
- *       ConfigRuleName: "STRING_VALUE", // required
- *       TargetType: "SSM_DOCUMENT", // required
- *       TargetId: "STRING_VALUE", // required
- *       TargetVersion: "STRING_VALUE",
+ *       ConfigRuleName: 'STRING_VALUE', // required
+ *       TargetType: 'SSM_DOCUMENT', // required
+ *       TargetId: 'STRING_VALUE', // required
+ *       TargetVersion: 'STRING_VALUE',
  *       Parameters: { // RemediationParameters
- *         "<keys>": { // RemediationParameterValue
+ *         '<keys>': { // RemediationParameterValue
  *           ResourceValue: { // ResourceValue
- *             Value: "RESOURCE_ID", // required
+ *             Value: 'RESOURCE_ID', // required
  *           },
  *           StaticValue: { // StaticValue
  *             Values: [ // StaticParameterValues // required
- *               "STRING_VALUE",
+ *               'STRING_VALUE',
  *             ],
  *           },
  *         },
  *       },
- *       ResourceType: "STRING_VALUE",
+ *       ResourceType: 'STRING_VALUE',
  *       Automatic: true || false,
  *       ExecutionControls: { // ExecutionControls
  *         SsmControls: { // SsmControls
- *           ConcurrentExecutionRatePercentage: Number("int"),
- *           ErrorPercentage: Number("int"),
+ *           ConcurrentExecutionRatePercentage: Number('int'),
+ *           ErrorPercentage: Number('int'),
  *         },
  *       },
- *       MaximumAutomaticAttempts: Number("int"),
- *       RetryAttemptSeconds: Number("long"),
- *       Arn: "STRING_VALUE",
- *       CreatedByService: "STRING_VALUE",
+ *       MaximumAutomaticAttempts: Number('int'),
+ *       RetryAttemptSeconds: Number('long'),
+ *       Arn: 'STRING_VALUE',
+ *       CreatedByService: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new PutRemediationConfigurationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutRemediationConfigurationsResponse
+ *   FailedBatches: [ // FailedRemediationBatches
+ *     { // FailedRemediationBatch
+ *       FailureMessage: 'STRING_VALUE',
+ *       FailedItems: [ // RemediationConfigurations
+ *         { // RemediationConfiguration
+ *           ConfigRuleName: 'STRING_VALUE', // required
+ *           TargetType: 'SSM_DOCUMENT', // required
+ *           TargetId: 'STRING_VALUE', // required
+ *           TargetVersion: 'STRING_VALUE',
+ *           Parameters: { // RemediationParameters
+ *             '<keys>': { // RemediationParameterValue
+ *               ResourceValue: { // ResourceValue
+ *                 Value: 'RESOURCE_ID', // required
+ *               },
+ *               StaticValue: { // StaticValue
+ *                 Values: [ // StaticParameterValues // required
+ *                   'STRING_VALUE',
+ *                 ],
+ *               },
+ *             },
+ *           },
+ *           ResourceType: 'STRING_VALUE',
+ *           Automatic: true || false,
+ *           ExecutionControls: { // ExecutionControls
+ *             SsmControls: { // SsmControls
+ *               ConcurrentExecutionRatePercentage: Number('int'),
+ *               ErrorPercentage: Number('int'),
+ *             },
+ *           },
+ *           MaximumAutomaticAttempts: Number('int'),
+ *           RetryAttemptSeconds: Number('long'),
+ *           Arn: 'STRING_VALUE',
+ *           CreatedByService: 'STRING_VALUE',
+ *         },
+ *       ],
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param PutRemediationConfigurationsCommandInput - {@link PutRemediationConfigurationsCommandInput}
@@ -131,6 +172,8 @@ export interface PutRemediationConfigurationsCommandOutput
  *  <p>One or more of the specified parameters are not valid. Verify
  * 			that your parameters are valid and try again.</p>
  *
+ * @throws {@link ConfigServiceServiceException}
+ * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
  */
 export class PutRemediationConfigurationsCommand extends $Command<

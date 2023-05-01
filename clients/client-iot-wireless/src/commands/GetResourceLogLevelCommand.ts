@@ -37,15 +37,20 @@ export interface GetResourceLogLevelCommandOutput extends GetResourceLogLevelRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTWirelessClient, GetResourceLogLevelCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
- * // const { IoTWirelessClient, GetResourceLogLevelCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
+ * import { IoTWirelessClient, GetResourceLogLevelCommand } from '@aws-sdk/client-iot-wireless'; // ES Modules import
+ * // const { IoTWirelessClient, GetResourceLogLevelCommand } = require('@aws-sdk/client-iot-wireless'); // CommonJS import
  * const client = new IoTWirelessClient(config);
  * const input = { // GetResourceLogLevelRequest
- *   ResourceIdentifier: "STRING_VALUE", // required
- *   ResourceType: "STRING_VALUE", // required
+ *   ResourceIdentifier: 'STRING_VALUE', // required
+ *   ResourceType: 'STRING_VALUE', // required
  * };
  * const command = new GetResourceLogLevelCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetResourceLogLevelResponse
+ *   LogLevel: 'INFO' || 'ERROR' || 'DISABLED',
+ * };
+ *
  * ```
  *
  * @param GetResourceLogLevelCommandInput - {@link GetResourceLogLevelCommandInput}
@@ -69,6 +74,8 @@ export interface GetResourceLogLevelCommandOutput extends GetResourceLogLevelRes
  * @throws {@link ValidationException} (client fault)
  *  <p>The input did not meet the specified constraints.</p>
  *
+ * @throws {@link IoTWirelessServiceException}
+ * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
  */
 export class GetResourceLogLevelCommand extends $Command<

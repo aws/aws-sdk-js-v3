@@ -36,21 +36,37 @@ export interface CreateFirewallDomainListCommandOutput extends CreateFirewallDom
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Route53ResolverClient, CreateFirewallDomainListCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
- * // const { Route53ResolverClient, CreateFirewallDomainListCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
+ * import { Route53ResolverClient, CreateFirewallDomainListCommand } from '@aws-sdk/client-route53resolver'; // ES Modules import
+ * // const { Route53ResolverClient, CreateFirewallDomainListCommand } = require('@aws-sdk/client-route53resolver'); // CommonJS import
  * const client = new Route53ResolverClient(config);
  * const input = { // CreateFirewallDomainListRequest
- *   CreatorRequestId: "STRING_VALUE", // required
- *   Name: "STRING_VALUE", // required
+ *   CreatorRequestId: 'STRING_VALUE', // required
+ *   Name: 'STRING_VALUE', // required
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreateFirewallDomainListCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateFirewallDomainListResponse
+ *   FirewallDomainList: { // FirewallDomainList
+ *     Id: 'STRING_VALUE',
+ *     Arn: 'STRING_VALUE',
+ *     Name: 'STRING_VALUE',
+ *     DomainCount: Number('int'),
+ *     Status: 'COMPLETE' || 'COMPLETE_IMPORT_FAILED' || 'IMPORTING' || 'DELETING' || 'UPDATING',
+ *     StatusMessage: 'STRING_VALUE',
+ *     ManagedOwnerName: 'STRING_VALUE',
+ *     CreatorRequestId: 'STRING_VALUE',
+ *     CreationTime: 'STRING_VALUE',
+ *     ModificationTime: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateFirewallDomainListCommandInput - {@link CreateFirewallDomainListCommandInput}
@@ -75,6 +91,8 @@ export interface CreateFirewallDomainListCommandOutput extends CreateFirewallDom
  *  <p>You have provided an invalid command. Supported values are <code>ADD</code>,
  * 			<code>REMOVE</code>, or <code>REPLACE</code> a domain.</p>
  *
+ * @throws {@link Route53ResolverServiceException}
+ * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
  */
 export class CreateFirewallDomainListCommand extends $Command<

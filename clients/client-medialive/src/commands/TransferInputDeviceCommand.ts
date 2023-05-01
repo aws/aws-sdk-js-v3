@@ -36,17 +36,20 @@ export interface TransferInputDeviceCommandOutput extends TransferInputDeviceRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MediaLiveClient, TransferInputDeviceCommand } from "@aws-sdk/client-medialive"; // ES Modules import
- * // const { MediaLiveClient, TransferInputDeviceCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
+ * import { MediaLiveClient, TransferInputDeviceCommand } from '@aws-sdk/client-medialive'; // ES Modules import
+ * // const { MediaLiveClient, TransferInputDeviceCommand } = require('@aws-sdk/client-medialive'); // CommonJS import
  * const client = new MediaLiveClient(config);
  * const input = { // TransferInputDeviceRequest
- *   InputDeviceId: "STRING_VALUE", // required
- *   TargetCustomerId: "STRING_VALUE",
- *   TargetRegion: "STRING_VALUE",
- *   TransferMessage: "STRING_VALUE",
+ *   InputDeviceId: 'STRING_VALUE', // required
+ *   TargetCustomerId: 'STRING_VALUE',
+ *   TargetRegion: 'STRING_VALUE',
+ *   TransferMessage: 'STRING_VALUE',
  * };
  * const command = new TransferInputDeviceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param TransferInputDeviceCommandInput - {@link TransferInputDeviceCommandInput}
@@ -82,6 +85,8 @@ export interface TransferInputDeviceCommandOutput extends TransferInputDeviceRes
  * @throws {@link UnprocessableEntityException} (client fault)
  *  Placeholder documentation for UnprocessableEntityException
  *
+ * @throws {@link MediaLiveServiceException}
+ * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
  */
 export class TransferInputDeviceCommand extends $Command<

@@ -48,39 +48,69 @@ export interface DescribeScheduledInstanceAvailabilityCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, DescribeScheduledInstanceAvailabilityCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, DescribeScheduledInstanceAvailabilityCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, DescribeScheduledInstanceAvailabilityCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, DescribeScheduledInstanceAvailabilityCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // DescribeScheduledInstanceAvailabilityRequest
  *   DryRun: true || false,
  *   Filters: [ // FilterList
  *     { // Filter
- *       Name: "STRING_VALUE",
+ *       Name: 'STRING_VALUE',
  *       Values: [ // ValueStringList
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
  *   FirstSlotStartTimeRange: { // SlotDateTimeRangeRequest
- *     EarliestTime: new Date("TIMESTAMP"), // required
- *     LatestTime: new Date("TIMESTAMP"), // required
+ *     EarliestTime: new Date('TIMESTAMP'), // required
+ *     LatestTime: new Date('TIMESTAMP'), // required
  *   },
- *   MaxResults: Number("int"),
- *   MaxSlotDurationInHours: Number("int"),
- *   MinSlotDurationInHours: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   MaxSlotDurationInHours: Number('int'),
+ *   MinSlotDurationInHours: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  *   Recurrence: { // ScheduledInstanceRecurrenceRequest
- *     Frequency: "STRING_VALUE",
- *     Interval: Number("int"),
+ *     Frequency: 'STRING_VALUE',
+ *     Interval: Number('int'),
  *     OccurrenceDays: [ // OccurrenceDayRequestSet
- *       Number("int"),
+ *       Number('int'),
  *     ],
  *     OccurrenceRelativeToEnd: true || false,
- *     OccurrenceUnit: "STRING_VALUE",
+ *     OccurrenceUnit: 'STRING_VALUE',
  *   },
  * };
  * const command = new DescribeScheduledInstanceAvailabilityCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeScheduledInstanceAvailabilityResult
+ *   NextToken: 'STRING_VALUE',
+ *   ScheduledInstanceAvailabilitySet: [ // ScheduledInstanceAvailabilitySet
+ *     { // ScheduledInstanceAvailability
+ *       AvailabilityZone: 'STRING_VALUE',
+ *       AvailableInstanceCount: Number('int'),
+ *       FirstSlotStartTime: new Date('TIMESTAMP'),
+ *       HourlyPrice: 'STRING_VALUE',
+ *       InstanceType: 'STRING_VALUE',
+ *       MaxTermDurationInDays: Number('int'),
+ *       MinTermDurationInDays: Number('int'),
+ *       NetworkPlatform: 'STRING_VALUE',
+ *       Platform: 'STRING_VALUE',
+ *       PurchaseToken: 'STRING_VALUE',
+ *       Recurrence: { // ScheduledInstanceRecurrence
+ *         Frequency: 'STRING_VALUE',
+ *         Interval: Number('int'),
+ *         OccurrenceDaySet: [ // OccurrenceDaySet
+ *           Number('int'),
+ *         ],
+ *         OccurrenceRelativeToEnd: true || false,
+ *         OccurrenceUnit: 'STRING_VALUE',
+ *       },
+ *       SlotDurationInHours: Number('int'),
+ *       TotalScheduledInstanceHours: Number('int'),
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeScheduledInstanceAvailabilityCommandInput - {@link DescribeScheduledInstanceAvailabilityCommandInput}
@@ -89,6 +119,8 @@ export interface DescribeScheduledInstanceAvailabilityCommandOutput
  * @see {@link DescribeScheduledInstanceAvailabilityCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @example To describe an available schedule
  * ```javascript

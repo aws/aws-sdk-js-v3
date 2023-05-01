@@ -38,65 +38,65 @@ export interface GetPropertyValueCommandOutput extends GetPropertyValueResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTTwinMakerClient, GetPropertyValueCommand } from "@aws-sdk/client-iottwinmaker"; // ES Modules import
- * // const { IoTTwinMakerClient, GetPropertyValueCommand } = require("@aws-sdk/client-iottwinmaker"); // CommonJS import
+ * import { IoTTwinMakerClient, GetPropertyValueCommand } from '@aws-sdk/client-iottwinmaker'; // ES Modules import
+ * // const { IoTTwinMakerClient, GetPropertyValueCommand } = require('@aws-sdk/client-iottwinmaker'); // CommonJS import
  * const client = new IoTTwinMakerClient(config);
  * const input = { // GetPropertyValueRequest
- *   componentName: "STRING_VALUE",
- *   componentTypeId: "STRING_VALUE",
- *   entityId: "STRING_VALUE",
+ *   componentName: 'STRING_VALUE',
+ *   componentTypeId: 'STRING_VALUE',
+ *   entityId: 'STRING_VALUE',
  *   selectedProperties: [ // SelectedPropertyList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   workspaceId: "STRING_VALUE", // required
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
- *   propertyGroupName: "STRING_VALUE",
+ *   workspaceId: 'STRING_VALUE', // required
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
+ *   propertyGroupName: 'STRING_VALUE',
  *   tabularConditions: { // TabularConditions
  *     orderBy: [ // OrderByList
  *       { // OrderBy
- *         order: "STRING_VALUE",
- *         propertyName: "STRING_VALUE", // required
+ *         order: 'STRING_VALUE',
+ *         propertyName: 'STRING_VALUE', // required
  *       },
  *     ],
  *     propertyFilters: [ // PropertyFilters
  *       { // PropertyFilter
- *         propertyName: "STRING_VALUE",
- *         operator: "STRING_VALUE",
+ *         propertyName: 'STRING_VALUE',
+ *         operator: 'STRING_VALUE',
  *         value: { // DataValue
  *           booleanValue: true || false,
- *           doubleValue: Number("double"),
- *           integerValue: Number("int"),
- *           longValue: Number("long"),
- *           stringValue: "STRING_VALUE",
+ *           doubleValue: Number('double'),
+ *           integerValue: Number('int'),
+ *           longValue: Number('long'),
+ *           stringValue: 'STRING_VALUE',
  *           listValue: [ // DataValueList
  *             {
  *               booleanValue: true || false,
- *               doubleValue: Number("double"),
- *               integerValue: Number("int"),
- *               longValue: Number("long"),
- *               stringValue: "STRING_VALUE",
+ *               doubleValue: Number('double'),
+ *               integerValue: Number('int'),
+ *               longValue: Number('long'),
+ *               stringValue: 'STRING_VALUE',
  *               listValue: [
- *                 "<DataValue>",
+ *                 '<DataValue>',
  *               ],
  *               mapValue: { // DataValueMap
- *                 "<keys>": "<DataValue>",
+ *                 '<keys>': '<DataValue>',
  *               },
  *               relationshipValue: { // RelationshipValue
- *                 targetEntityId: "STRING_VALUE",
- *                 targetComponentName: "STRING_VALUE",
+ *                 targetEntityId: 'STRING_VALUE',
+ *                 targetComponentName: 'STRING_VALUE',
  *               },
- *               expression: "STRING_VALUE",
+ *               expression: 'STRING_VALUE',
  *             },
  *           ],
  *           mapValue: {
- *             "<keys>": "<DataValue>",
+ *             '<keys>': '<DataValue>',
  *           },
  *           relationshipValue: {
- *             targetEntityId: "STRING_VALUE",
- *             targetComponentName: "STRING_VALUE",
+ *             targetEntityId: 'STRING_VALUE',
+ *             targetComponentName: 'STRING_VALUE',
  *           },
- *           expression: "STRING_VALUE",
+ *           expression: 'STRING_VALUE',
  *         },
  *       },
  *     ],
@@ -104,6 +104,65 @@ export interface GetPropertyValueCommandOutput extends GetPropertyValueResponse,
  * };
  * const command = new GetPropertyValueCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetPropertyValueResponse
+ *   propertyValues: { // PropertyLatestValueMap
+ *     '<keys>': { // PropertyLatestValue
+ *       propertyReference: { // EntityPropertyReference
+ *         componentName: 'STRING_VALUE',
+ *         externalIdProperty: { // ExternalIdProperty
+ *           '<keys>': 'STRING_VALUE',
+ *         },
+ *         entityId: 'STRING_VALUE',
+ *         propertyName: 'STRING_VALUE', // required
+ *       },
+ *       propertyValue: { // DataValue
+ *         booleanValue: true || false,
+ *         doubleValue: Number('double'),
+ *         integerValue: Number('int'),
+ *         longValue: Number('long'),
+ *         stringValue: 'STRING_VALUE',
+ *         listValue: [ // DataValueList
+ *           {
+ *             booleanValue: true || false,
+ *             doubleValue: Number('double'),
+ *             integerValue: Number('int'),
+ *             longValue: Number('long'),
+ *             stringValue: 'STRING_VALUE',
+ *             listValue: [
+ *               '<DataValue>',
+ *             ],
+ *             mapValue: { // DataValueMap
+ *               '<keys>': '<DataValue>',
+ *             },
+ *             relationshipValue: { // RelationshipValue
+ *               targetEntityId: 'STRING_VALUE',
+ *               targetComponentName: 'STRING_VALUE',
+ *             },
+ *             expression: 'STRING_VALUE',
+ *           },
+ *         ],
+ *         mapValue: {
+ *           '<keys>': '<DataValue>',
+ *         },
+ *         relationshipValue: {
+ *           targetEntityId: 'STRING_VALUE',
+ *           targetComponentName: 'STRING_VALUE',
+ *         },
+ *         expression: 'STRING_VALUE',
+ *       },
+ *     },
+ *   },
+ *   nextToken: 'STRING_VALUE',
+ *   tabularPropertyValues: [ // TabularPropertyValues
+ *     [ // TabularPropertyValue
+ *       { // PropertyTableValue
+ *         '<keys>': '<DataValue>',
+ *       },
+ *     ],
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetPropertyValueCommandInput - {@link GetPropertyValueCommandInput}
@@ -133,6 +192,8 @@ export interface GetPropertyValueCommandOutput extends GetPropertyValueResponse,
  * @throws {@link ValidationException} (client fault)
  *  <p>Failed</p>
  *
+ * @throws {@link IoTTwinMakerServiceException}
+ * <p>Base exception class for all service exceptions from IoTTwinMaker service.</p>
  *
  */
 export class GetPropertyValueCommand extends $Command<

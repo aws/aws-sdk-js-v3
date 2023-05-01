@@ -38,16 +38,19 @@ export interface DisconnectUserCommandOutput extends DisconnectUserResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IvschatClient, DisconnectUserCommand } from "@aws-sdk/client-ivschat"; // ES Modules import
- * // const { IvschatClient, DisconnectUserCommand } = require("@aws-sdk/client-ivschat"); // CommonJS import
+ * import { IvschatClient, DisconnectUserCommand } from '@aws-sdk/client-ivschat'; // ES Modules import
+ * // const { IvschatClient, DisconnectUserCommand } = require('@aws-sdk/client-ivschat'); // CommonJS import
  * const client = new IvschatClient(config);
  * const input = { // DisconnectUserRequest
- *   roomIdentifier: "STRING_VALUE", // required
- *   userId: "STRING_VALUE", // required
- *   reason: "STRING_VALUE",
+ *   roomIdentifier: 'STRING_VALUE', // required
+ *   userId: 'STRING_VALUE', // required
+ *   reason: 'STRING_VALUE',
  * };
  * const command = new DisconnectUserCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DisconnectUserCommandInput - {@link DisconnectUserCommandInput}
@@ -71,6 +74,8 @@ export interface DisconnectUserCommandOutput extends DisconnectUserResponse, __M
  * @throws {@link ValidationException} (client fault)
  *  <p/>
  *
+ * @throws {@link IvschatServiceException}
+ * <p>Base exception class for all service exceptions from Ivschat service.</p>
  *
  */
 export class DisconnectUserCommand extends $Command<

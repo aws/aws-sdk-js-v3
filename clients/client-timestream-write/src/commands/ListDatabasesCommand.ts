@@ -39,15 +39,30 @@ export interface ListDatabasesCommandOutput extends ListDatabasesResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { TimestreamWriteClient, ListDatabasesCommand } from "@aws-sdk/client-timestream-write"; // ES Modules import
- * // const { TimestreamWriteClient, ListDatabasesCommand } = require("@aws-sdk/client-timestream-write"); // CommonJS import
+ * import { TimestreamWriteClient, ListDatabasesCommand } from '@aws-sdk/client-timestream-write'; // ES Modules import
+ * // const { TimestreamWriteClient, ListDatabasesCommand } = require('@aws-sdk/client-timestream-write'); // CommonJS import
  * const client = new TimestreamWriteClient(config);
  * const input = { // ListDatabasesRequest
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListDatabasesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListDatabasesResponse
+ *   Databases: [ // DatabaseList
+ *     { // Database
+ *       Arn: 'STRING_VALUE',
+ *       DatabaseName: 'STRING_VALUE',
+ *       TableCount: Number('long'),
+ *       KmsKeyId: 'STRING_VALUE',
+ *       CreationTime: new Date('TIMESTAMP'),
+ *       LastUpdatedTime: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListDatabasesCommandInput - {@link ListDatabasesCommandInput}
@@ -74,6 +89,8 @@ export interface ListDatabasesCommandOutput extends ListDatabasesResponse, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p> An invalid or malformed request.</p>
  *
+ * @throws {@link TimestreamWriteServiceException}
+ * <p>Base exception class for all service exceptions from TimestreamWrite service.</p>
  *
  */
 export class ListDatabasesCommand extends $Command<

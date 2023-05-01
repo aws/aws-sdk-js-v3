@@ -36,18 +36,33 @@ export interface ListConstraintsForPortfolioCommandOutput extends ListConstraint
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ServiceCatalogClient, ListConstraintsForPortfolioCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
- * // const { ServiceCatalogClient, ListConstraintsForPortfolioCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
+ * import { ServiceCatalogClient, ListConstraintsForPortfolioCommand } from '@aws-sdk/client-service-catalog'; // ES Modules import
+ * // const { ServiceCatalogClient, ListConstraintsForPortfolioCommand } = require('@aws-sdk/client-service-catalog'); // CommonJS import
  * const client = new ServiceCatalogClient(config);
  * const input = { // ListConstraintsForPortfolioInput
- *   AcceptLanguage: "STRING_VALUE",
- *   PortfolioId: "STRING_VALUE", // required
- *   ProductId: "STRING_VALUE",
- *   PageSize: Number("int"),
- *   PageToken: "STRING_VALUE",
+ *   AcceptLanguage: 'STRING_VALUE',
+ *   PortfolioId: 'STRING_VALUE', // required
+ *   ProductId: 'STRING_VALUE',
+ *   PageSize: Number('int'),
+ *   PageToken: 'STRING_VALUE',
  * };
  * const command = new ListConstraintsForPortfolioCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListConstraintsForPortfolioOutput
+ *   ConstraintDetails: [ // ConstraintDetails
+ *     { // ConstraintDetail
+ *       ConstraintId: 'STRING_VALUE',
+ *       Type: 'STRING_VALUE',
+ *       Description: 'STRING_VALUE',
+ *       Owner: 'STRING_VALUE',
+ *       ProductId: 'STRING_VALUE',
+ *       PortfolioId: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextPageToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListConstraintsForPortfolioCommandInput - {@link ListConstraintsForPortfolioCommandInput}
@@ -62,6 +77,8 @@ export interface ListConstraintsForPortfolioCommandOutput extends ListConstraint
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link ServiceCatalogServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
  */
 export class ListConstraintsForPortfolioCommand extends $Command<

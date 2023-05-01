@@ -36,15 +36,18 @@ export interface DeleteGroupCommandOutput extends DeleteGroupResult, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { XRayClient, DeleteGroupCommand } from "@aws-sdk/client-xray"; // ES Modules import
- * // const { XRayClient, DeleteGroupCommand } = require("@aws-sdk/client-xray"); // CommonJS import
+ * import { XRayClient, DeleteGroupCommand } from '@aws-sdk/client-xray'; // ES Modules import
+ * // const { XRayClient, DeleteGroupCommand } = require('@aws-sdk/client-xray'); // CommonJS import
  * const client = new XRayClient(config);
  * const input = { // DeleteGroupRequest
- *   GroupName: "STRING_VALUE",
- *   GroupARN: "STRING_VALUE",
+ *   GroupName: 'STRING_VALUE',
+ *   GroupARN: 'STRING_VALUE',
  * };
  * const command = new DeleteGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteGroupCommandInput - {@link DeleteGroupCommandInput}
@@ -59,6 +62,8 @@ export interface DeleteGroupCommandOutput extends DeleteGroupResult, __MetadataB
  * @throws {@link ThrottledException} (client fault)
  *  <p>The request exceeds the maximum number of requests per second.</p>
  *
+ * @throws {@link XRayServiceException}
+ * <p>Base exception class for all service exceptions from XRay service.</p>
  *
  */
 export class DeleteGroupCommand extends $Command<

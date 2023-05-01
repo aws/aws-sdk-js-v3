@@ -44,22 +44,37 @@ export interface CreateClusterParameterGroupCommandOutput extends CreateClusterP
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RedshiftClient, CreateClusterParameterGroupCommand } from "@aws-sdk/client-redshift"; // ES Modules import
- * // const { RedshiftClient, CreateClusterParameterGroupCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * import { RedshiftClient, CreateClusterParameterGroupCommand } from '@aws-sdk/client-redshift'; // ES Modules import
+ * // const { RedshiftClient, CreateClusterParameterGroupCommand } = require('@aws-sdk/client-redshift'); // CommonJS import
  * const client = new RedshiftClient(config);
  * const input = { // CreateClusterParameterGroupMessage
- *   ParameterGroupName: "STRING_VALUE", // required
- *   ParameterGroupFamily: "STRING_VALUE", // required
- *   Description: "STRING_VALUE", // required
+ *   ParameterGroupName: 'STRING_VALUE', // required
+ *   ParameterGroupFamily: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE', // required
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE",
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new CreateClusterParameterGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateClusterParameterGroupResult
+ *   ClusterParameterGroup: { // ClusterParameterGroup
+ *     ParameterGroupName: 'STRING_VALUE',
+ *     ParameterGroupFamily: 'STRING_VALUE',
+ *     Description: 'STRING_VALUE',
+ *     Tags: [ // TagList
+ *       { // Tag
+ *         Key: 'STRING_VALUE',
+ *         Value: 'STRING_VALUE',
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateClusterParameterGroupCommandInput - {@link CreateClusterParameterGroupCommandInput}
@@ -84,6 +99,8 @@ export interface CreateClusterParameterGroupCommandOutput extends CreateClusterP
  * @throws {@link TagLimitExceededFault} (client fault)
  *  <p>You have exceeded the number of tags allowed.</p>
  *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class CreateClusterParameterGroupCommand extends $Command<

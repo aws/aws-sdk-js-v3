@@ -36,16 +36,19 @@ export interface DeleteAssetCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DataExchangeClient, DeleteAssetCommand } from "@aws-sdk/client-dataexchange"; // ES Modules import
- * // const { DataExchangeClient, DeleteAssetCommand } = require("@aws-sdk/client-dataexchange"); // CommonJS import
+ * import { DataExchangeClient, DeleteAssetCommand } from '@aws-sdk/client-dataexchange'; // ES Modules import
+ * // const { DataExchangeClient, DeleteAssetCommand } = require('@aws-sdk/client-dataexchange'); // CommonJS import
  * const client = new DataExchangeClient(config);
  * const input = { // DeleteAssetRequest
- *   AssetId: "STRING_VALUE", // required
- *   DataSetId: "STRING_VALUE", // required
- *   RevisionId: "STRING_VALUE", // required
+ *   AssetId: 'STRING_VALUE', // required
+ *   DataSetId: 'STRING_VALUE', // required
+ *   RevisionId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteAssetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteAssetCommandInput - {@link DeleteAssetCommandInput}
@@ -72,6 +75,8 @@ export interface DeleteAssetCommandOutput extends __MetadataBearer {}
  * @throws {@link ValidationException} (client fault)
  *  <p>The request was invalid.</p>
  *
+ * @throws {@link DataExchangeServiceException}
+ * <p>Base exception class for all service exceptions from DataExchange service.</p>
  *
  */
 export class DeleteAssetCommand extends $Command<

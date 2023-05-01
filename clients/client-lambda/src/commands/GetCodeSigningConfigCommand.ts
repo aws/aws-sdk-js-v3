@@ -36,14 +36,32 @@ export interface GetCodeSigningConfigCommandOutput extends GetCodeSigningConfigR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LambdaClient, GetCodeSigningConfigCommand } from "@aws-sdk/client-lambda"; // ES Modules import
- * // const { LambdaClient, GetCodeSigningConfigCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
+ * import { LambdaClient, GetCodeSigningConfigCommand } from '@aws-sdk/client-lambda'; // ES Modules import
+ * // const { LambdaClient, GetCodeSigningConfigCommand } = require('@aws-sdk/client-lambda'); // CommonJS import
  * const client = new LambdaClient(config);
  * const input = { // GetCodeSigningConfigRequest
- *   CodeSigningConfigArn: "STRING_VALUE", // required
+ *   CodeSigningConfigArn: 'STRING_VALUE', // required
  * };
  * const command = new GetCodeSigningConfigCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetCodeSigningConfigResponse
+ *   CodeSigningConfig: { // CodeSigningConfig
+ *     CodeSigningConfigId: 'STRING_VALUE', // required
+ *     CodeSigningConfigArn: 'STRING_VALUE', // required
+ *     Description: 'STRING_VALUE',
+ *     AllowedPublishers: { // AllowedPublishers
+ *       SigningProfileVersionArns: [ // SigningProfileVersionArns // required
+ *         'STRING_VALUE',
+ *       ],
+ *     },
+ *     CodeSigningPolicies: { // CodeSigningPolicies
+ *       UntrustedArtifactOnDeployment: 'Warn' || 'Enforce',
+ *     },
+ *     LastModified: 'STRING_VALUE', // required
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetCodeSigningConfigCommandInput - {@link GetCodeSigningConfigCommandInput}
@@ -61,6 +79,8 @@ export interface GetCodeSigningConfigCommandOutput extends GetCodeSigningConfigR
  * @throws {@link ServiceException} (server fault)
  *  <p>The Lambda service encountered an internal error.</p>
  *
+ * @throws {@link LambdaServiceException}
+ * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
  */
 export class GetCodeSigningConfigCommand extends $Command<

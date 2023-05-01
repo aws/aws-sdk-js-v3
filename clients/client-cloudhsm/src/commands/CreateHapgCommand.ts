@@ -47,14 +47,19 @@ export interface CreateHapgCommandOutput extends CreateHapgResponse, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudHSMClient, CreateHapgCommand } from "@aws-sdk/client-cloudhsm"; // ES Modules import
- * // const { CloudHSMClient, CreateHapgCommand } = require("@aws-sdk/client-cloudhsm"); // CommonJS import
+ * import { CloudHSMClient, CreateHapgCommand } from '@aws-sdk/client-cloudhsm'; // ES Modules import
+ * // const { CloudHSMClient, CreateHapgCommand } = require('@aws-sdk/client-cloudhsm'); // CommonJS import
  * const client = new CloudHSMClient(config);
  * const input = { // CreateHapgRequest
- *   Label: "STRING_VALUE", // required
+ *   Label: 'STRING_VALUE', // required
  * };
  * const command = new CreateHapgCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateHapgResponse
+ *   HapgArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateHapgCommandInput - {@link CreateHapgCommandInput}
@@ -72,6 +77,8 @@ export interface CreateHapgCommandOutput extends CreateHapgResponse, __MetadataB
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>Indicates that one or more of the request parameters are not valid.</p>
  *
+ * @throws {@link CloudHSMServiceException}
+ * <p>Base exception class for all service exceptions from CloudHSM service.</p>
  *
  */
 export class CreateHapgCommand extends $Command<

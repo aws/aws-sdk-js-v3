@@ -46,16 +46,22 @@ export interface DisassociateResourceSharePermissionCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RAMClient, DisassociateResourceSharePermissionCommand } from "@aws-sdk/client-ram"; // ES Modules import
- * // const { RAMClient, DisassociateResourceSharePermissionCommand } = require("@aws-sdk/client-ram"); // CommonJS import
+ * import { RAMClient, DisassociateResourceSharePermissionCommand } from '@aws-sdk/client-ram'; // ES Modules import
+ * // const { RAMClient, DisassociateResourceSharePermissionCommand } = require('@aws-sdk/client-ram'); // CommonJS import
  * const client = new RAMClient(config);
  * const input = { // DisassociateResourceSharePermissionRequest
- *   resourceShareArn: "STRING_VALUE", // required
- *   permissionArn: "STRING_VALUE", // required
- *   clientToken: "STRING_VALUE",
+ *   resourceShareArn: 'STRING_VALUE', // required
+ *   permissionArn: 'STRING_VALUE', // required
+ *   clientToken: 'STRING_VALUE',
  * };
  * const command = new DisassociateResourceSharePermissionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DisassociateResourceSharePermissionResponse
+ *   returnValue: true || false,
+ *   clientToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DisassociateResourceSharePermissionCommandInput - {@link DisassociateResourceSharePermissionCommandInput}
@@ -91,6 +97,8 @@ export interface DisassociateResourceSharePermissionCommandOutput
  * @throws {@link UnknownResourceException} (client fault)
  *  <p>The operation failed because a specified resource couldn't be found.</p>
  *
+ * @throws {@link RAMServiceException}
+ * <p>Base exception class for all service exceptions from RAM service.</p>
  *
  */
 export class DisassociateResourceSharePermissionCommand extends $Command<

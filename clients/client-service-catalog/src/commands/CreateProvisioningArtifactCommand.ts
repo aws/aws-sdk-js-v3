@@ -40,25 +40,43 @@ export interface CreateProvisioningArtifactCommandOutput extends CreateProvision
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ServiceCatalogClient, CreateProvisioningArtifactCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
- * // const { ServiceCatalogClient, CreateProvisioningArtifactCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
+ * import { ServiceCatalogClient, CreateProvisioningArtifactCommand } from '@aws-sdk/client-service-catalog'; // ES Modules import
+ * // const { ServiceCatalogClient, CreateProvisioningArtifactCommand } = require('@aws-sdk/client-service-catalog'); // CommonJS import
  * const client = new ServiceCatalogClient(config);
  * const input = { // CreateProvisioningArtifactInput
- *   AcceptLanguage: "STRING_VALUE",
- *   ProductId: "STRING_VALUE", // required
+ *   AcceptLanguage: 'STRING_VALUE',
+ *   ProductId: 'STRING_VALUE', // required
  *   Parameters: { // ProvisioningArtifactProperties
- *     Name: "STRING_VALUE",
- *     Description: "STRING_VALUE",
+ *     Name: 'STRING_VALUE',
+ *     Description: 'STRING_VALUE',
  *     Info: { // ProvisioningArtifactInfo
- *       "<keys>": "STRING_VALUE",
+ *       '<keys>': 'STRING_VALUE',
  *     },
- *     Type: "CLOUD_FORMATION_TEMPLATE" || "MARKETPLACE_AMI" || "MARKETPLACE_CAR" || "TERRAFORM_OPEN_SOURCE",
+ *     Type: 'CLOUD_FORMATION_TEMPLATE' || 'MARKETPLACE_AMI' || 'MARKETPLACE_CAR' || 'TERRAFORM_OPEN_SOURCE',
  *     DisableTemplateValidation: true || false,
  *   },
- *   IdempotencyToken: "STRING_VALUE", // required
+ *   IdempotencyToken: 'STRING_VALUE', // required
  * };
  * const command = new CreateProvisioningArtifactCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateProvisioningArtifactOutput
+ *   ProvisioningArtifactDetail: { // ProvisioningArtifactDetail
+ *     Id: 'STRING_VALUE',
+ *     Name: 'STRING_VALUE',
+ *     Description: 'STRING_VALUE',
+ *     Type: 'CLOUD_FORMATION_TEMPLATE' || 'MARKETPLACE_AMI' || 'MARKETPLACE_CAR' || 'TERRAFORM_OPEN_SOURCE',
+ *     CreatedTime: new Date('TIMESTAMP'),
+ *     Active: true || false,
+ *     Guidance: 'DEFAULT' || 'DEPRECATED',
+ *     SourceRevision: 'STRING_VALUE',
+ *   },
+ *   Info: { // ProvisioningArtifactInfo
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ *   Status: 'AVAILABLE' || 'CREATING' || 'FAILED',
+ * };
+ *
  * ```
  *
  * @param CreateProvisioningArtifactCommandInput - {@link CreateProvisioningArtifactCommandInput}
@@ -77,6 +95,8 @@ export interface CreateProvisioningArtifactCommandOutput extends CreateProvision
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link ServiceCatalogServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
  */
 export class CreateProvisioningArtifactCommand extends $Command<

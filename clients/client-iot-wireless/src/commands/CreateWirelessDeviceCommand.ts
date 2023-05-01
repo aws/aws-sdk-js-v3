@@ -36,78 +36,84 @@ export interface CreateWirelessDeviceCommandOutput extends CreateWirelessDeviceR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTWirelessClient, CreateWirelessDeviceCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
- * // const { IoTWirelessClient, CreateWirelessDeviceCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
+ * import { IoTWirelessClient, CreateWirelessDeviceCommand } from '@aws-sdk/client-iot-wireless'; // ES Modules import
+ * // const { IoTWirelessClient, CreateWirelessDeviceCommand } = require('@aws-sdk/client-iot-wireless'); // CommonJS import
  * const client = new IoTWirelessClient(config);
  * const input = { // CreateWirelessDeviceRequest
- *   Type: "Sidewalk" || "LoRaWAN", // required
- *   Name: "STRING_VALUE",
- *   Description: "STRING_VALUE",
- *   DestinationName: "STRING_VALUE", // required
- *   ClientRequestToken: "STRING_VALUE",
+ *   Type: 'Sidewalk' || 'LoRaWAN', // required
+ *   Name: 'STRING_VALUE',
+ *   Description: 'STRING_VALUE',
+ *   DestinationName: 'STRING_VALUE', // required
+ *   ClientRequestToken: 'STRING_VALUE',
  *   LoRaWAN: { // LoRaWANDevice
- *     DevEui: "STRING_VALUE",
- *     DeviceProfileId: "STRING_VALUE",
- *     ServiceProfileId: "STRING_VALUE",
+ *     DevEui: 'STRING_VALUE',
+ *     DeviceProfileId: 'STRING_VALUE',
+ *     ServiceProfileId: 'STRING_VALUE',
  *     OtaaV1_1: { // OtaaV1_1
- *       AppKey: "STRING_VALUE",
- *       NwkKey: "STRING_VALUE",
- *       JoinEui: "STRING_VALUE",
+ *       AppKey: 'STRING_VALUE',
+ *       NwkKey: 'STRING_VALUE',
+ *       JoinEui: 'STRING_VALUE',
  *     },
  *     OtaaV1_0_x: { // OtaaV1_0_x
- *       AppKey: "STRING_VALUE",
- *       AppEui: "STRING_VALUE",
- *       GenAppKey: "STRING_VALUE",
+ *       AppKey: 'STRING_VALUE',
+ *       AppEui: 'STRING_VALUE',
+ *       GenAppKey: 'STRING_VALUE',
  *     },
  *     AbpV1_1: { // AbpV1_1
- *       DevAddr: "STRING_VALUE",
+ *       DevAddr: 'STRING_VALUE',
  *       SessionKeys: { // SessionKeysAbpV1_1
- *         FNwkSIntKey: "STRING_VALUE",
- *         SNwkSIntKey: "STRING_VALUE",
- *         NwkSEncKey: "STRING_VALUE",
- *         AppSKey: "STRING_VALUE",
+ *         FNwkSIntKey: 'STRING_VALUE',
+ *         SNwkSIntKey: 'STRING_VALUE',
+ *         NwkSEncKey: 'STRING_VALUE',
+ *         AppSKey: 'STRING_VALUE',
  *       },
- *       FCntStart: Number("int"),
+ *       FCntStart: Number('int'),
  *     },
  *     AbpV1_0_x: { // AbpV1_0_x
- *       DevAddr: "STRING_VALUE",
+ *       DevAddr: 'STRING_VALUE',
  *       SessionKeys: { // SessionKeysAbpV1_0_x
- *         NwkSKey: "STRING_VALUE",
- *         AppSKey: "STRING_VALUE",
+ *         NwkSKey: 'STRING_VALUE',
+ *         AppSKey: 'STRING_VALUE',
  *       },
- *       FCntStart: Number("int"),
+ *       FCntStart: Number('int'),
  *     },
  *     FPorts: { // FPorts
- *       Fuota: Number("int"),
- *       Multicast: Number("int"),
- *       ClockSync: Number("int"),
+ *       Fuota: Number('int'),
+ *       Multicast: Number('int'),
+ *       ClockSync: Number('int'),
  *       Positioning: { // Positioning
- *         ClockSync: Number("int"),
- *         Stream: Number("int"),
- *         Gnss: Number("int"),
+ *         ClockSync: Number('int'),
+ *         Stream: Number('int'),
+ *         Gnss: Number('int'),
  *       },
  *       Applications: [ // Applications
  *         { // ApplicationConfig
- *           FPort: Number("int"),
- *           Type: "SemtechGeolocation",
- *           DestinationName: "STRING_VALUE",
+ *           FPort: Number('int'),
+ *           Type: 'SemtechGeolocation',
+ *           DestinationName: 'STRING_VALUE',
  *         },
  *       ],
  *     },
  *   },
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
- *   Positioning: "Enabled" || "Disabled",
+ *   Positioning: 'Enabled' || 'Disabled',
  *   Sidewalk: { // SidewalkCreateWirelessDevice
- *     DeviceProfileId: "STRING_VALUE",
+ *     DeviceProfileId: 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateWirelessDeviceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateWirelessDeviceResponse
+ *   Arn: 'STRING_VALUE',
+ *   Id: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateWirelessDeviceCommandInput - {@link CreateWirelessDeviceCommandInput}
@@ -134,6 +140,8 @@ export interface CreateWirelessDeviceCommandOutput extends CreateWirelessDeviceR
  * @throws {@link ValidationException} (client fault)
  *  <p>The input did not meet the specified constraints.</p>
  *
+ * @throws {@link IoTWirelessServiceException}
+ * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
  */
 export class CreateWirelessDeviceCommand extends $Command<

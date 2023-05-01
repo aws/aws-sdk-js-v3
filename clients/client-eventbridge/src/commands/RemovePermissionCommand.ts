@@ -39,16 +39,19 @@ export interface RemovePermissionCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EventBridgeClient, RemovePermissionCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
- * // const { EventBridgeClient, RemovePermissionCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
+ * import { EventBridgeClient, RemovePermissionCommand } from '@aws-sdk/client-eventbridge'; // ES Modules import
+ * // const { EventBridgeClient, RemovePermissionCommand } = require('@aws-sdk/client-eventbridge'); // CommonJS import
  * const client = new EventBridgeClient(config);
  * const input = { // RemovePermissionRequest
- *   StatementId: "STRING_VALUE",
+ *   StatementId: 'STRING_VALUE',
  *   RemoveAllPermissions: true || false,
- *   EventBusName: "STRING_VALUE",
+ *   EventBusName: 'STRING_VALUE',
  * };
  * const command = new RemovePermissionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param RemovePermissionCommandInput - {@link RemovePermissionCommandInput}
@@ -69,6 +72,8 @@ export interface RemovePermissionCommandOutput extends __MetadataBearer {}
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>An entity that you specified does not exist.</p>
  *
+ * @throws {@link EventBridgeServiceException}
+ * <p>Base exception class for all service exceptions from EventBridge service.</p>
  *
  */
 export class RemovePermissionCommand extends $Command<

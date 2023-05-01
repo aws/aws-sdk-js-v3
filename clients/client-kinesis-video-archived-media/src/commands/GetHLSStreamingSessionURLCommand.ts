@@ -219,28 +219,33 @@ export interface GetHLSStreamingSessionURLCommandOutput extends GetHLSStreamingS
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KinesisVideoArchivedMediaClient, GetHLSStreamingSessionURLCommand } from "@aws-sdk/client-kinesis-video-archived-media"; // ES Modules import
- * // const { KinesisVideoArchivedMediaClient, GetHLSStreamingSessionURLCommand } = require("@aws-sdk/client-kinesis-video-archived-media"); // CommonJS import
+ * import { KinesisVideoArchivedMediaClient, GetHLSStreamingSessionURLCommand } from '@aws-sdk/client-kinesis-video-archived-media'; // ES Modules import
+ * // const { KinesisVideoArchivedMediaClient, GetHLSStreamingSessionURLCommand } = require('@aws-sdk/client-kinesis-video-archived-media'); // CommonJS import
  * const client = new KinesisVideoArchivedMediaClient(config);
  * const input = { // GetHLSStreamingSessionURLInput
- *   StreamName: "STRING_VALUE",
- *   StreamARN: "STRING_VALUE",
- *   PlaybackMode: "STRING_VALUE",
+ *   StreamName: 'STRING_VALUE',
+ *   StreamARN: 'STRING_VALUE',
+ *   PlaybackMode: 'STRING_VALUE',
  *   HLSFragmentSelector: { // HLSFragmentSelector
- *     FragmentSelectorType: "STRING_VALUE",
+ *     FragmentSelectorType: 'STRING_VALUE',
  *     TimestampRange: { // HLSTimestampRange
- *       StartTimestamp: new Date("TIMESTAMP"),
- *       EndTimestamp: new Date("TIMESTAMP"),
+ *       StartTimestamp: new Date('TIMESTAMP'),
+ *       EndTimestamp: new Date('TIMESTAMP'),
  *     },
  *   },
- *   ContainerFormat: "STRING_VALUE",
- *   DiscontinuityMode: "STRING_VALUE",
- *   DisplayFragmentTimestamp: "STRING_VALUE",
- *   Expires: Number("int"),
- *   MaxMediaPlaylistFragmentResults: Number("long"),
+ *   ContainerFormat: 'STRING_VALUE',
+ *   DiscontinuityMode: 'STRING_VALUE',
+ *   DisplayFragmentTimestamp: 'STRING_VALUE',
+ *   Expires: Number('int'),
+ *   MaxMediaPlaylistFragmentResults: Number('long'),
  * };
  * const command = new GetHLSStreamingSessionURLCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetHLSStreamingSessionURLOutput
+ *   HLSStreamingSessionURL: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetHLSStreamingSessionURLCommandInput - {@link GetHLSStreamingSessionURLCommandInput}
@@ -289,6 +294,8 @@ export interface GetHLSStreamingSessionURLCommandOutput extends GetHLSStreamingS
  *             session. The codec ID for track 1 should be <code>V_MPEG/ISO/AVC</code> and, optionally,
  *             the codec ID for track 2 should be <code>A_AAC</code>.</p>
  *
+ * @throws {@link KinesisVideoArchivedMediaServiceException}
+ * <p>Base exception class for all service exceptions from KinesisVideoArchivedMedia service.</p>
  *
  */
 export class GetHLSStreamingSessionURLCommand extends $Command<

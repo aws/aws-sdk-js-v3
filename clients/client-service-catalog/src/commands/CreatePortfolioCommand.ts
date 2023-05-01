@@ -37,24 +37,42 @@ export interface CreatePortfolioCommandOutput extends CreatePortfolioOutput, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ServiceCatalogClient, CreatePortfolioCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
- * // const { ServiceCatalogClient, CreatePortfolioCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
+ * import { ServiceCatalogClient, CreatePortfolioCommand } from '@aws-sdk/client-service-catalog'; // ES Modules import
+ * // const { ServiceCatalogClient, CreatePortfolioCommand } = require('@aws-sdk/client-service-catalog'); // CommonJS import
  * const client = new ServiceCatalogClient(config);
  * const input = { // CreatePortfolioInput
- *   AcceptLanguage: "STRING_VALUE",
- *   DisplayName: "STRING_VALUE", // required
- *   Description: "STRING_VALUE",
- *   ProviderName: "STRING_VALUE", // required
+ *   AcceptLanguage: 'STRING_VALUE',
+ *   DisplayName: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE',
+ *   ProviderName: 'STRING_VALUE', // required
  *   Tags: [ // AddTags
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
- *   IdempotencyToken: "STRING_VALUE", // required
+ *   IdempotencyToken: 'STRING_VALUE', // required
  * };
  * const command = new CreatePortfolioCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreatePortfolioOutput
+ *   PortfolioDetail: { // PortfolioDetail
+ *     Id: 'STRING_VALUE',
+ *     ARN: 'STRING_VALUE',
+ *     DisplayName: 'STRING_VALUE',
+ *     Description: 'STRING_VALUE',
+ *     CreatedTime: new Date('TIMESTAMP'),
+ *     ProviderName: 'STRING_VALUE',
+ *   },
+ *   Tags: [ // Tags
+ *     { // Tag
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param CreatePortfolioCommandInput - {@link CreatePortfolioCommandInput}
@@ -75,6 +93,8 @@ export interface CreatePortfolioCommandOutput extends CreatePortfolioOutput, __M
  *          not been performed for this account. Use the Amazon Web Services Management Console to perform the migration
  *          process before retrying the operation.</p>
  *
+ * @throws {@link ServiceCatalogServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
  */
 export class CreatePortfolioCommand extends $Command<

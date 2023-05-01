@@ -41,15 +41,18 @@ export interface AssociateTagOptionWithResourceCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ServiceCatalogClient, AssociateTagOptionWithResourceCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
- * // const { ServiceCatalogClient, AssociateTagOptionWithResourceCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
+ * import { ServiceCatalogClient, AssociateTagOptionWithResourceCommand } from '@aws-sdk/client-service-catalog'; // ES Modules import
+ * // const { ServiceCatalogClient, AssociateTagOptionWithResourceCommand } = require('@aws-sdk/client-service-catalog'); // CommonJS import
  * const client = new ServiceCatalogClient(config);
  * const input = { // AssociateTagOptionWithResourceInput
- *   ResourceId: "STRING_VALUE", // required
- *   TagOptionId: "STRING_VALUE", // required
+ *   ResourceId: 'STRING_VALUE', // required
+ *   TagOptionId: 'STRING_VALUE', // required
  * };
  * const command = new AssociateTagOptionWithResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param AssociateTagOptionWithResourceCommandInput - {@link AssociateTagOptionWithResourceCommandInput}
@@ -80,6 +83,8 @@ export interface AssociateTagOptionWithResourceCommandOutput
  *          not been performed for this account. Use the Amazon Web Services Management Console to perform the migration
  *          process before retrying the operation.</p>
  *
+ * @throws {@link ServiceCatalogServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
  */
 export class AssociateTagOptionWithResourceCommand extends $Command<

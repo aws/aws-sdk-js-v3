@@ -43,14 +43,17 @@ export interface DeleteDataIntegrationCommandOutput extends DeleteDataIntegratio
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppIntegrationsClient, DeleteDataIntegrationCommand } from "@aws-sdk/client-appintegrations"; // ES Modules import
- * // const { AppIntegrationsClient, DeleteDataIntegrationCommand } = require("@aws-sdk/client-appintegrations"); // CommonJS import
+ * import { AppIntegrationsClient, DeleteDataIntegrationCommand } from '@aws-sdk/client-appintegrations'; // ES Modules import
+ * // const { AppIntegrationsClient, DeleteDataIntegrationCommand } = require('@aws-sdk/client-appintegrations'); // CommonJS import
  * const client = new AppIntegrationsClient(config);
  * const input = { // DeleteDataIntegrationRequest
- *   DataIntegrationIdentifier: "STRING_VALUE", // required
+ *   DataIntegrationIdentifier: 'STRING_VALUE', // required
  * };
  * const command = new DeleteDataIntegrationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteDataIntegrationCommandInput - {@link DeleteDataIntegrationCommandInput}
@@ -74,6 +77,8 @@ export interface DeleteDataIntegrationCommandOutput extends DeleteDataIntegratio
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link AppIntegrationsServiceException}
+ * <p>Base exception class for all service exceptions from AppIntegrations service.</p>
  *
  */
 export class DeleteDataIntegrationCommand extends $Command<

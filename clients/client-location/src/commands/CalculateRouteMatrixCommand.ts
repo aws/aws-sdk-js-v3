@@ -82,25 +82,25 @@ export interface CalculateRouteMatrixCommandOutput extends CalculateRouteMatrixR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LocationClient, CalculateRouteMatrixCommand } from "@aws-sdk/client-location"; // ES Modules import
- * // const { LocationClient, CalculateRouteMatrixCommand } = require("@aws-sdk/client-location"); // CommonJS import
+ * import { LocationClient, CalculateRouteMatrixCommand } from '@aws-sdk/client-location'; // ES Modules import
+ * // const { LocationClient, CalculateRouteMatrixCommand } = require('@aws-sdk/client-location'); // CommonJS import
  * const client = new LocationClient(config);
  * const input = { // CalculateRouteMatrixRequest
- *   CalculatorName: "STRING_VALUE", // required
+ *   CalculatorName: 'STRING_VALUE', // required
  *   DeparturePositions: [ // PositionList // required
  *     [ // Position
- *       Number("double"),
+ *       Number('double'),
  *     ],
  *   ],
  *   DestinationPositions: [ // required
  *     [
- *       Number("double"),
+ *       Number('double'),
  *     ],
  *   ],
- *   TravelMode: "STRING_VALUE",
- *   DepartureTime: new Date("TIMESTAMP"),
+ *   TravelMode: 'STRING_VALUE',
+ *   DepartureTime: new Date('TIMESTAMP'),
  *   DepartNow: true || false,
- *   DistanceUnit: "STRING_VALUE",
+ *   DistanceUnit: 'STRING_VALUE',
  *   CarModeOptions: { // CalculateRouteCarModeOptions
  *     AvoidFerries: true || false,
  *     AvoidTolls: true || false,
@@ -109,19 +109,51 @@ export interface CalculateRouteMatrixCommandOutput extends CalculateRouteMatrixR
  *     AvoidFerries: true || false,
  *     AvoidTolls: true || false,
  *     Dimensions: { // TruckDimensions
- *       Length: Number("double"),
- *       Height: Number("double"),
- *       Width: Number("double"),
- *       Unit: "STRING_VALUE",
+ *       Length: Number('double'),
+ *       Height: Number('double'),
+ *       Width: Number('double'),
+ *       Unit: 'STRING_VALUE',
  *     },
  *     Weight: { // TruckWeight
- *       Total: Number("double"),
- *       Unit: "STRING_VALUE",
+ *       Total: Number('double'),
+ *       Unit: 'STRING_VALUE',
  *     },
  *   },
  * };
  * const command = new CalculateRouteMatrixCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CalculateRouteMatrixResponse
+ *   RouteMatrix: [ // RouteMatrix // required
+ *     [ // RouteMatrixRow
+ *       { // RouteMatrixEntry
+ *         Distance: Number('double'),
+ *         DurationSeconds: Number('double'),
+ *         Error: { // RouteMatrixEntryError
+ *           Code: 'STRING_VALUE', // required
+ *           Message: 'STRING_VALUE',
+ *         },
+ *       },
+ *     ],
+ *   ],
+ *   SnappedDeparturePositions: [ // PositionList
+ *     [ // Position
+ *       Number('double'),
+ *     ],
+ *   ],
+ *   SnappedDestinationPositions: [
+ *     [
+ *       Number('double'),
+ *     ],
+ *   ],
+ *   Summary: { // CalculateRouteMatrixSummary
+ *     DataSource: 'STRING_VALUE', // required
+ *     RouteCount: Number('int'), // required
+ *     ErrorCount: Number('int'), // required
+ *     DistanceUnit: 'STRING_VALUE', // required
+ *   },
+ * };
+ *
  * ```
  *
  * @param CalculateRouteMatrixCommandInput - {@link CalculateRouteMatrixCommandInput}
@@ -146,6 +178,8 @@ export interface CalculateRouteMatrixCommandOutput extends CalculateRouteMatrixR
  * @throws {@link ValidationException} (client fault)
  *  <p>The input failed to meet the constraints specified by the AWS service. </p>
  *
+ * @throws {@link LocationServiceException}
+ * <p>Base exception class for all service exceptions from Location service.</p>
  *
  */
 export class CalculateRouteMatrixCommand extends $Command<

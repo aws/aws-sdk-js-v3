@@ -36,28 +36,53 @@ export interface CreateConfiguredTableCommandOutput extends CreateConfiguredTabl
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CleanRoomsClient, CreateConfiguredTableCommand } from "@aws-sdk/client-cleanrooms"; // ES Modules import
- * // const { CleanRoomsClient, CreateConfiguredTableCommand } = require("@aws-sdk/client-cleanrooms"); // CommonJS import
+ * import { CleanRoomsClient, CreateConfiguredTableCommand } from '@aws-sdk/client-cleanrooms'; // ES Modules import
+ * // const { CleanRoomsClient, CreateConfiguredTableCommand } = require('@aws-sdk/client-cleanrooms'); // CommonJS import
  * const client = new CleanRoomsClient(config);
  * const input = { // CreateConfiguredTableInput
- *   name: "STRING_VALUE", // required
- *   description: "STRING_VALUE",
+ *   name: 'STRING_VALUE', // required
+ *   description: 'STRING_VALUE',
  *   tableReference: { // TableReference Union: only one key present
  *     glue: { // GlueTableReference
- *       tableName: "STRING_VALUE", // required
- *       databaseName: "STRING_VALUE", // required
+ *       tableName: 'STRING_VALUE', // required
+ *       databaseName: 'STRING_VALUE', // required
  *     },
  *   },
  *   allowedColumns: [ // AllowedColumnList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   analysisMethod: "STRING_VALUE", // required
+ *   analysisMethod: 'STRING_VALUE', // required
  *   tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateConfiguredTableCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateConfiguredTableOutput
+ *   configuredTable: { // ConfiguredTable
+ *     id: 'STRING_VALUE', // required
+ *     arn: 'STRING_VALUE', // required
+ *     name: 'STRING_VALUE', // required
+ *     description: 'STRING_VALUE',
+ *     tableReference: { // TableReference Union: only one key present
+ *       glue: { // GlueTableReference
+ *         tableName: 'STRING_VALUE', // required
+ *         databaseName: 'STRING_VALUE', // required
+ *       },
+ *     },
+ *     createTime: new Date('TIMESTAMP'), // required
+ *     updateTime: new Date('TIMESTAMP'), // required
+ *     analysisRuleTypes: [ // ConfiguredTableAnalysisRuleTypeList // required
+ *       'AGGREGATION' || 'LIST',
+ *     ],
+ *     analysisMethod: 'STRING_VALUE', // required
+ *     allowedColumns: [ // AllowedColumnList // required
+ *       'STRING_VALUE',
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateConfiguredTableCommandInput - {@link CreateConfiguredTableCommandInput}
@@ -87,6 +112,8 @@ export interface CreateConfiguredTableCommandOutput extends CreateConfiguredTabl
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the specified constraints.</p>
  *
+ * @throws {@link CleanRoomsServiceException}
+ * <p>Base exception class for all service exceptions from CleanRooms service.</p>
  *
  */
 export class CreateConfiguredTableCommand extends $Command<

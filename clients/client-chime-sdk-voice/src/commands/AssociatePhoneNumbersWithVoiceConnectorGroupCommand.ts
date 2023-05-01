@@ -47,18 +47,29 @@ export interface AssociatePhoneNumbersWithVoiceConnectorGroupCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeSDKVoiceClient, AssociatePhoneNumbersWithVoiceConnectorGroupCommand } from "@aws-sdk/client-chime-sdk-voice"; // ES Modules import
- * // const { ChimeSDKVoiceClient, AssociatePhoneNumbersWithVoiceConnectorGroupCommand } = require("@aws-sdk/client-chime-sdk-voice"); // CommonJS import
+ * import { ChimeSDKVoiceClient, AssociatePhoneNumbersWithVoiceConnectorGroupCommand } from '@aws-sdk/client-chime-sdk-voice'; // ES Modules import
+ * // const { ChimeSDKVoiceClient, AssociatePhoneNumbersWithVoiceConnectorGroupCommand } = require('@aws-sdk/client-chime-sdk-voice'); // CommonJS import
  * const client = new ChimeSDKVoiceClient(config);
  * const input = { // AssociatePhoneNumbersWithVoiceConnectorGroupRequest
- *   VoiceConnectorGroupId: "STRING_VALUE", // required
+ *   VoiceConnectorGroupId: 'STRING_VALUE', // required
  *   E164PhoneNumbers: [ // E164PhoneNumberList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   ForceAssociate: true || false,
  * };
  * const command = new AssociatePhoneNumbersWithVoiceConnectorGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AssociatePhoneNumbersWithVoiceConnectorGroupResponse
+ *   PhoneNumberErrors: [ // PhoneNumberErrorList
+ *     { // PhoneNumberError
+ *       PhoneNumberId: 'STRING_VALUE',
+ *       ErrorCode: 'BadRequest' || 'Conflict' || 'Forbidden' || 'NotFound' || 'PreconditionFailed' || 'ResourceLimitExceeded' || 'ServiceFailure' || 'AccessDenied' || 'ServiceUnavailable' || 'Throttled' || 'Throttling' || 'Unauthorized' || 'Unprocessable' || 'VoiceConnectorGroupAssociationsExist' || 'PhoneNumberAssociationsExist' || 'Gone',
+ *       ErrorMessage: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param AssociatePhoneNumbersWithVoiceConnectorGroupCommandInput - {@link AssociatePhoneNumbersWithVoiceConnectorGroupCommandInput}
@@ -91,6 +102,8 @@ export interface AssociatePhoneNumbersWithVoiceConnectorGroupCommandOutput
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client isn't authorized to request a resource.</p>
  *
+ * @throws {@link ChimeSDKVoiceServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
  */
 export class AssociatePhoneNumbersWithVoiceConnectorGroupCommand extends $Command<

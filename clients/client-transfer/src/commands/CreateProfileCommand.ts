@@ -36,24 +36,29 @@ export interface CreateProfileCommandOutput extends CreateProfileResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { TransferClient, CreateProfileCommand } from "@aws-sdk/client-transfer"; // ES Modules import
- * // const { TransferClient, CreateProfileCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
+ * import { TransferClient, CreateProfileCommand } from '@aws-sdk/client-transfer'; // ES Modules import
+ * // const { TransferClient, CreateProfileCommand } = require('@aws-sdk/client-transfer'); // CommonJS import
  * const client = new TransferClient(config);
  * const input = { // CreateProfileRequest
- *   As2Id: "STRING_VALUE", // required
- *   ProfileType: "LOCAL" || "PARTNER", // required
+ *   As2Id: 'STRING_VALUE', // required
+ *   ProfileType: 'LOCAL' || 'PARTNER', // required
  *   CertificateIds: [ // CertificateIds
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   Tags: [ // Tags
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreateProfileCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateProfileResponse
+ *   ProfileId: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param CreateProfileCommandInput - {@link CreateProfileCommandInput}
@@ -78,6 +83,8 @@ export interface CreateProfileCommandOutput extends CreateProfileResponse, __Met
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
  *
+ * @throws {@link TransferServiceException}
+ * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
  */
 export class CreateProfileCommand extends $Command<

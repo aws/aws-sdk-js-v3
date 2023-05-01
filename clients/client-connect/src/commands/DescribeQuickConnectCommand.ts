@@ -36,15 +36,42 @@ export interface DescribeQuickConnectCommandOutput extends DescribeQuickConnectR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, DescribeQuickConnectCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, DescribeQuickConnectCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, DescribeQuickConnectCommand } from '@aws-sdk/client-connect'; // ES Modules import
+ * // const { ConnectClient, DescribeQuickConnectCommand } = require('@aws-sdk/client-connect'); // CommonJS import
  * const client = new ConnectClient(config);
  * const input = { // DescribeQuickConnectRequest
- *   InstanceId: "STRING_VALUE", // required
- *   QuickConnectId: "STRING_VALUE", // required
+ *   InstanceId: 'STRING_VALUE', // required
+ *   QuickConnectId: 'STRING_VALUE', // required
  * };
  * const command = new DescribeQuickConnectCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeQuickConnectResponse
+ *   QuickConnect: { // QuickConnect
+ *     QuickConnectARN: 'STRING_VALUE',
+ *     QuickConnectId: 'STRING_VALUE',
+ *     Name: 'STRING_VALUE',
+ *     Description: 'STRING_VALUE',
+ *     QuickConnectConfig: { // QuickConnectConfig
+ *       QuickConnectType: 'USER' || 'QUEUE' || 'PHONE_NUMBER', // required
+ *       UserConfig: { // UserQuickConnectConfig
+ *         UserId: 'STRING_VALUE', // required
+ *         ContactFlowId: 'STRING_VALUE', // required
+ *       },
+ *       QueueConfig: { // QueueQuickConnectConfig
+ *         QueueId: 'STRING_VALUE', // required
+ *         ContactFlowId: 'STRING_VALUE', // required
+ *       },
+ *       PhoneConfig: { // PhoneNumberQuickConnectConfig
+ *         PhoneNumber: 'STRING_VALUE', // required
+ *       },
+ *     },
+ *     Tags: { // TagMap
+ *       '<keys>': 'STRING_VALUE',
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeQuickConnectCommandInput - {@link DescribeQuickConnectCommandInput}
@@ -68,6 +95,8 @@ export interface DescribeQuickConnectCommandOutput extends DescribeQuickConnectR
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class DescribeQuickConnectCommand extends $Command<

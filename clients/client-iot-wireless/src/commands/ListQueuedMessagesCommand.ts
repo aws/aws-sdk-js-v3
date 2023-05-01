@@ -36,17 +36,42 @@ export interface ListQueuedMessagesCommandOutput extends ListQueuedMessagesRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTWirelessClient, ListQueuedMessagesCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
- * // const { IoTWirelessClient, ListQueuedMessagesCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
+ * import { IoTWirelessClient, ListQueuedMessagesCommand } from '@aws-sdk/client-iot-wireless'; // ES Modules import
+ * // const { IoTWirelessClient, ListQueuedMessagesCommand } = require('@aws-sdk/client-iot-wireless'); // CommonJS import
  * const client = new IoTWirelessClient(config);
  * const input = { // ListQueuedMessagesRequest
- *   Id: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
- *   WirelessDeviceType: "Sidewalk" || "LoRaWAN",
+ *   Id: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
+ *   WirelessDeviceType: 'Sidewalk' || 'LoRaWAN',
  * };
  * const command = new ListQueuedMessagesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListQueuedMessagesResponse
+ *   NextToken: 'STRING_VALUE',
+ *   DownlinkQueueMessagesList: [ // DownlinkQueueMessagesList
+ *     { // DownlinkQueueMessage
+ *       MessageId: 'STRING_VALUE',
+ *       TransmitMode: Number('int'),
+ *       ReceivedAt: 'STRING_VALUE',
+ *       LoRaWAN: { // LoRaWANSendDataToDevice
+ *         FPort: Number('int'),
+ *         ParticipatingGateways: { // ParticipatingGateways
+ *           DownlinkMode: 'SEQUENTIAL' || 'CONCURRENT' || 'USING_UPLINK_GATEWAY', // required
+ *           GatewayList: [ // GatewayList // required
+ *             { // GatewayListItem
+ *               GatewayId: 'STRING_VALUE', // required
+ *               DownlinkFrequency: Number('int'), // required
+ *             },
+ *           ],
+ *           TransmissionInterval: Number('int'), // required
+ *         },
+ *       },
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListQueuedMessagesCommandInput - {@link ListQueuedMessagesCommandInput}
@@ -70,6 +95,8 @@ export interface ListQueuedMessagesCommandOutput extends ListQueuedMessagesRespo
  * @throws {@link ValidationException} (client fault)
  *  <p>The input did not meet the specified constraints.</p>
  *
+ * @throws {@link IoTWirelessServiceException}
+ * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
  */
 export class ListQueuedMessagesCommand extends $Command<

@@ -36,14 +36,24 @@ export interface DescribeResourceCommandOutput extends DescribeResourceResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LakeFormationClient, DescribeResourceCommand } from "@aws-sdk/client-lakeformation"; // ES Modules import
- * // const { LakeFormationClient, DescribeResourceCommand } = require("@aws-sdk/client-lakeformation"); // CommonJS import
+ * import { LakeFormationClient, DescribeResourceCommand } from '@aws-sdk/client-lakeformation'; // ES Modules import
+ * // const { LakeFormationClient, DescribeResourceCommand } = require('@aws-sdk/client-lakeformation'); // CommonJS import
  * const client = new LakeFormationClient(config);
  * const input = { // DescribeResourceRequest
- *   ResourceArn: "STRING_VALUE", // required
+ *   ResourceArn: 'STRING_VALUE', // required
  * };
  * const command = new DescribeResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeResourceResponse
+ *   ResourceInfo: { // ResourceInfo
+ *     ResourceArn: 'STRING_VALUE',
+ *     RoleArn: 'STRING_VALUE',
+ *     LastModified: new Date('TIMESTAMP'),
+ *     WithFederation: true || false,
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeResourceCommandInput - {@link DescribeResourceCommandInput}
@@ -64,6 +74,8 @@ export interface DescribeResourceCommandOutput extends DescribeResourceResponse,
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link LakeFormationServiceException}
+ * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
  */
 export class DescribeResourceCommand extends $Command<

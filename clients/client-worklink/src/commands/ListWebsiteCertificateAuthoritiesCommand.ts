@@ -47,16 +47,28 @@ export interface ListWebsiteCertificateAuthoritiesCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkLinkClient, ListWebsiteCertificateAuthoritiesCommand } from "@aws-sdk/client-worklink"; // ES Modules import
- * // const { WorkLinkClient, ListWebsiteCertificateAuthoritiesCommand } = require("@aws-sdk/client-worklink"); // CommonJS import
+ * import { WorkLinkClient, ListWebsiteCertificateAuthoritiesCommand } from '@aws-sdk/client-worklink'; // ES Modules import
+ * // const { WorkLinkClient, ListWebsiteCertificateAuthoritiesCommand } = require('@aws-sdk/client-worklink'); // CommonJS import
  * const client = new WorkLinkClient(config);
  * const input = { // ListWebsiteCertificateAuthoritiesRequest
- *   FleetArn: "STRING_VALUE", // required
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   FleetArn: 'STRING_VALUE', // required
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListWebsiteCertificateAuthoritiesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListWebsiteCertificateAuthoritiesResponse
+ *   WebsiteCertificateAuthorities: [ // WebsiteCaSummaryList
+ *     { // WebsiteCaSummary
+ *       WebsiteCaId: 'STRING_VALUE',
+ *       CreatedTime: new Date('TIMESTAMP'),
+ *       DisplayName: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListWebsiteCertificateAuthoritiesCommandInput - {@link ListWebsiteCertificateAuthoritiesCommandInput}
@@ -77,6 +89,8 @@ export interface ListWebsiteCertificateAuthoritiesCommandOutput
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this action.</p>
  *
+ * @throws {@link WorkLinkServiceException}
+ * <p>Base exception class for all service exceptions from WorkLink service.</p>
  *
  */
 export class ListWebsiteCertificateAuthoritiesCommand extends $Command<

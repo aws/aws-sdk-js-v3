@@ -45,15 +45,18 @@ export interface CreateSMSSandboxPhoneNumberCommandOutput extends CreateSMSSandb
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SNSClient, CreateSMSSandboxPhoneNumberCommand } from "@aws-sdk/client-sns"; // ES Modules import
- * // const { SNSClient, CreateSMSSandboxPhoneNumberCommand } = require("@aws-sdk/client-sns"); // CommonJS import
+ * import { SNSClient, CreateSMSSandboxPhoneNumberCommand } from '@aws-sdk/client-sns'; // ES Modules import
+ * // const { SNSClient, CreateSMSSandboxPhoneNumberCommand } = require('@aws-sdk/client-sns'); // CommonJS import
  * const client = new SNSClient(config);
  * const input = { // CreateSMSSandboxPhoneNumberInput
- *   PhoneNumber: "STRING_VALUE", // required
- *   LanguageCode: "en-US" || "en-GB" || "es-419" || "es-ES" || "de-DE" || "fr-CA" || "fr-FR" || "it-IT" || "ja-JP" || "pt-BR" || "kr-KR" || "zh-CN" || "zh-TW",
+ *   PhoneNumber: 'STRING_VALUE', // required
+ *   LanguageCode: 'en-US' || 'en-GB' || 'es-419' || 'es-ES' || 'de-DE' || 'fr-CA' || 'fr-FR' || 'it-IT' || 'ja-JP' || 'pt-BR' || 'kr-KR' || 'zh-CN' || 'zh-TW',
  * };
  * const command = new CreateSMSSandboxPhoneNumberCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param CreateSMSSandboxPhoneNumberCommandInput - {@link CreateSMSSandboxPhoneNumberCommandInput}
@@ -83,6 +86,8 @@ export interface CreateSMSSandboxPhoneNumberCommandOutput extends CreateSMSSandb
  *  <p>Indicates that a request parameter does not comply with the associated
  *             constraints.</p>
  *
+ * @throws {@link SNSServiceException}
+ * <p>Base exception class for all service exceptions from SNS service.</p>
  *
  */
 export class CreateSMSSandboxPhoneNumberCommand extends $Command<

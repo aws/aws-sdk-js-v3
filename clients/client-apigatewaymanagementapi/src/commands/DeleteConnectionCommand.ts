@@ -40,14 +40,17 @@ export interface DeleteConnectionCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ApiGatewayManagementApiClient, DeleteConnectionCommand } from "@aws-sdk/client-apigatewaymanagementapi"; // ES Modules import
- * // const { ApiGatewayManagementApiClient, DeleteConnectionCommand } = require("@aws-sdk/client-apigatewaymanagementapi"); // CommonJS import
+ * import { ApiGatewayManagementApiClient, DeleteConnectionCommand } from '@aws-sdk/client-apigatewaymanagementapi'; // ES Modules import
+ * // const { ApiGatewayManagementApiClient, DeleteConnectionCommand } = require('@aws-sdk/client-apigatewaymanagementapi'); // CommonJS import
  * const client = new ApiGatewayManagementApiClient(config);
  * const input = { // DeleteConnectionRequest
- *   ConnectionId: "STRING_VALUE", // required
+ *   ConnectionId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteConnectionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteConnectionCommandInput - {@link DeleteConnectionCommandInput}
@@ -65,6 +68,8 @@ export interface DeleteConnectionCommandOutput extends __MetadataBearer {}
  * @throws {@link LimitExceededException} (client fault)
  *  <p>The client is sending more than the allowed number of requests per unit of time or the WebSocket client side buffer is full.</p>
  *
+ * @throws {@link ApiGatewayManagementApiServiceException}
+ * <p>Base exception class for all service exceptions from ApiGatewayManagementApi service.</p>
  *
  */
 export class DeleteConnectionCommand extends $Command<

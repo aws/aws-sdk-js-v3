@@ -36,15 +36,31 @@ export interface ListDomainsCommandOutput extends ListDomainsResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, ListDomainsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, ListDomainsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, ListDomainsCommand } from '@aws-sdk/client-sagemaker'; // ES Modules import
+ * // const { SageMakerClient, ListDomainsCommand } = require('@aws-sdk/client-sagemaker'); // CommonJS import
  * const client = new SageMakerClient(config);
  * const input = { // ListDomainsRequest
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListDomainsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListDomainsResponse
+ *   Domains: [ // DomainList
+ *     { // DomainDetails
+ *       DomainArn: 'STRING_VALUE',
+ *       DomainId: 'STRING_VALUE',
+ *       DomainName: 'STRING_VALUE',
+ *       Status: 'Deleting' || 'Failed' || 'InService' || 'Pending' || 'Updating' || 'Update_Failed' || 'Delete_Failed',
+ *       CreationTime: new Date('TIMESTAMP'),
+ *       LastModifiedTime: new Date('TIMESTAMP'),
+ *       Url: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListDomainsCommandInput - {@link ListDomainsCommandInput}
@@ -53,6 +69,8 @@ export interface ListDomainsCommandOutput extends ListDomainsResponse, __Metadat
  * @see {@link ListDomainsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class ListDomainsCommand extends $Command<

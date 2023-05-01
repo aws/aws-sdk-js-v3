@@ -53,15 +53,18 @@ export interface PutEmailIdentityFeedbackAttributesCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SESv2Client, PutEmailIdentityFeedbackAttributesCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
- * // const { SESv2Client, PutEmailIdentityFeedbackAttributesCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
+ * import { SESv2Client, PutEmailIdentityFeedbackAttributesCommand } from '@aws-sdk/client-sesv2'; // ES Modules import
+ * // const { SESv2Client, PutEmailIdentityFeedbackAttributesCommand } = require('@aws-sdk/client-sesv2'); // CommonJS import
  * const client = new SESv2Client(config);
  * const input = { // PutEmailIdentityFeedbackAttributesRequest
- *   EmailIdentity: "STRING_VALUE", // required
+ *   EmailIdentity: 'STRING_VALUE', // required
  *   EmailForwardingEnabled: true || false,
  * };
  * const command = new PutEmailIdentityFeedbackAttributesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutEmailIdentityFeedbackAttributesCommandInput - {@link PutEmailIdentityFeedbackAttributesCommandInput}
@@ -79,6 +82,8 @@ export interface PutEmailIdentityFeedbackAttributesCommandOutput
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Too many requests have been made to the operation.</p>
  *
+ * @throws {@link SESv2ServiceException}
+ * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
  */
 export class PutEmailIdentityFeedbackAttributesCommand extends $Command<

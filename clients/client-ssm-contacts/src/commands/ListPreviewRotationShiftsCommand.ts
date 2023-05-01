@@ -39,67 +39,87 @@ export interface ListPreviewRotationShiftsCommandOutput extends ListPreviewRotat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMContactsClient, ListPreviewRotationShiftsCommand } from "@aws-sdk/client-ssm-contacts"; // ES Modules import
- * // const { SSMContactsClient, ListPreviewRotationShiftsCommand } = require("@aws-sdk/client-ssm-contacts"); // CommonJS import
+ * import { SSMContactsClient, ListPreviewRotationShiftsCommand } from '@aws-sdk/client-ssm-contacts'; // ES Modules import
+ * // const { SSMContactsClient, ListPreviewRotationShiftsCommand } = require('@aws-sdk/client-ssm-contacts'); // CommonJS import
  * const client = new SSMContactsClient(config);
  * const input = { // ListPreviewRotationShiftsRequest
- *   RotationStartTime: new Date("TIMESTAMP"),
- *   StartTime: new Date("TIMESTAMP"),
- *   EndTime: new Date("TIMESTAMP"), // required
+ *   RotationStartTime: new Date('TIMESTAMP'),
+ *   StartTime: new Date('TIMESTAMP'),
+ *   EndTime: new Date('TIMESTAMP'), // required
  *   Members: [ // RotationPreviewMemberList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   TimeZoneId: "STRING_VALUE", // required
+ *   TimeZoneId: 'STRING_VALUE', // required
  *   Recurrence: { // RecurrenceSettings
  *     MonthlySettings: [ // MonthlySettings
  *       { // MonthlySetting
- *         DayOfMonth: Number("int"), // required
+ *         DayOfMonth: Number('int'), // required
  *         HandOffTime: { // HandOffTime
- *           HourOfDay: Number("int"), // required
- *           MinuteOfHour: Number("int"), // required
+ *           HourOfDay: Number('int'), // required
+ *           MinuteOfHour: Number('int'), // required
  *         },
  *       },
  *     ],
  *     WeeklySettings: [ // WeeklySettings
  *       { // WeeklySetting
- *         DayOfWeek: "MON" || "TUE" || "WED" || "THU" || "FRI" || "SAT" || "SUN", // required
+ *         DayOfWeek: 'MON' || 'TUE' || 'WED' || 'THU' || 'FRI' || 'SAT' || 'SUN', // required
  *         HandOffTime: {
- *           HourOfDay: Number("int"), // required
- *           MinuteOfHour: Number("int"), // required
+ *           HourOfDay: Number('int'), // required
+ *           MinuteOfHour: Number('int'), // required
  *         },
  *       },
  *     ],
  *     DailySettings: [ // DailySettings
  *       {
- *         HourOfDay: Number("int"), // required
- *         MinuteOfHour: Number("int"), // required
+ *         HourOfDay: Number('int'), // required
+ *         MinuteOfHour: Number('int'), // required
  *       },
  *     ],
- *     NumberOfOnCalls: Number("int"), // required
+ *     NumberOfOnCalls: Number('int'), // required
  *     ShiftCoverages: { // ShiftCoveragesMap
- *       "<keys>": [ // CoverageTimes
+ *       '<keys>': [ // CoverageTimes
  *         { // CoverageTime
- *           Start: "<HandOffTime>",
- *           End: "<HandOffTime>",
+ *           Start: '<HandOffTime>',
+ *           End: '<HandOffTime>',
  *         },
  *       ],
  *     },
- *     RecurrenceMultiplier: Number("int"), // required
+ *     RecurrenceMultiplier: Number('int'), // required
  *   },
  *   Overrides: [ // OverrideList
  *     { // PreviewOverride
  *       NewMembers: [ // RotationOverridePreviewMemberList
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
- *       StartTime: new Date("TIMESTAMP"),
- *       EndTime: new Date("TIMESTAMP"),
+ *       StartTime: new Date('TIMESTAMP'),
+ *       EndTime: new Date('TIMESTAMP'),
  *     },
  *   ],
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListPreviewRotationShiftsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListPreviewRotationShiftsResult
+ *   RotationShifts: [ // RotationShifts
+ *     { // RotationShift
+ *       ContactIds: [ // SsmContactsArnList
+ *         'STRING_VALUE',
+ *       ],
+ *       StartTime: new Date('TIMESTAMP'), // required
+ *       EndTime: new Date('TIMESTAMP'), // required
+ *       Type: 'REGULAR' || 'OVERRIDDEN',
+ *       ShiftDetails: { // ShiftDetails
+ *         OverriddenContactIds: [ // required
+ *           'STRING_VALUE',
+ *         ],
+ *       },
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListPreviewRotationShiftsCommandInput - {@link ListPreviewRotationShiftsCommandInput}
@@ -121,6 +141,8 @@ export interface ListPreviewRotationShiftsCommandOutput extends ListPreviewRotat
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
  *          service.</p>
  *
+ * @throws {@link SSMContactsServiceException}
+ * <p>Base exception class for all service exceptions from SSMContacts service.</p>
  *
  */
 export class ListPreviewRotationShiftsCommand extends $Command<

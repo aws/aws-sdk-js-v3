@@ -45,23 +45,26 @@ export interface PutRecommendationPreferencesCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ComputeOptimizerClient, PutRecommendationPreferencesCommand } from "@aws-sdk/client-compute-optimizer"; // ES Modules import
- * // const { ComputeOptimizerClient, PutRecommendationPreferencesCommand } = require("@aws-sdk/client-compute-optimizer"); // CommonJS import
+ * import { ComputeOptimizerClient, PutRecommendationPreferencesCommand } from '@aws-sdk/client-compute-optimizer'; // ES Modules import
+ * // const { ComputeOptimizerClient, PutRecommendationPreferencesCommand } = require('@aws-sdk/client-compute-optimizer'); // CommonJS import
  * const client = new ComputeOptimizerClient(config);
  * const input = { // PutRecommendationPreferencesRequest
- *   resourceType: "Ec2Instance" || "AutoScalingGroup" || "EbsVolume" || "LambdaFunction" || "NotApplicable" || "EcsService", // required
+ *   resourceType: 'Ec2Instance' || 'AutoScalingGroup' || 'EbsVolume' || 'LambdaFunction' || 'NotApplicable' || 'EcsService', // required
  *   scope: { // Scope
- *     name: "Organization" || "AccountId" || "ResourceArn",
- *     value: "STRING_VALUE",
+ *     name: 'Organization' || 'AccountId' || 'ResourceArn',
+ *     value: 'STRING_VALUE',
  *   },
- *   enhancedInfrastructureMetrics: "Active" || "Inactive",
- *   inferredWorkloadTypes: "Active" || "Inactive",
+ *   enhancedInfrastructureMetrics: 'Active' || 'Inactive',
+ *   inferredWorkloadTypes: 'Active' || 'Inactive',
  *   externalMetricsPreference: { // ExternalMetricsPreference
- *     source: "Datadog" || "Dynatrace" || "NewRelic" || "Instana",
+ *     source: 'Datadog' || 'Dynatrace' || 'NewRelic' || 'Instana',
  *   },
  * };
  * const command = new PutRecommendationPreferencesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutRecommendationPreferencesCommandInput - {@link PutRecommendationPreferencesCommandInput}
@@ -95,6 +98,8 @@ export interface PutRecommendationPreferencesCommandOutput
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
  *
+ * @throws {@link ComputeOptimizerServiceException}
+ * <p>Base exception class for all service exceptions from ComputeOptimizer service.</p>
  *
  */
 export class PutRecommendationPreferencesCommand extends $Command<

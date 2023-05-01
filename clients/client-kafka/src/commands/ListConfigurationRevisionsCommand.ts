@@ -36,16 +36,28 @@ export interface ListConfigurationRevisionsCommandOutput extends ListConfigurati
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KafkaClient, ListConfigurationRevisionsCommand } from "@aws-sdk/client-kafka"; // ES Modules import
- * // const { KafkaClient, ListConfigurationRevisionsCommand } = require("@aws-sdk/client-kafka"); // CommonJS import
+ * import { KafkaClient, ListConfigurationRevisionsCommand } from '@aws-sdk/client-kafka'; // ES Modules import
+ * // const { KafkaClient, ListConfigurationRevisionsCommand } = require('@aws-sdk/client-kafka'); // CommonJS import
  * const client = new KafkaClient(config);
  * const input = { // ListConfigurationRevisionsRequest
- *   Arn: "STRING_VALUE", // required
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   Arn: 'STRING_VALUE', // required
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListConfigurationRevisionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListConfigurationRevisionsResponse
+ *   NextToken: 'STRING_VALUE',
+ *   Revisions: [ // __listOfConfigurationRevision
+ *     { // ConfigurationRevision
+ *       CreationTime: new Date('TIMESTAMP'), // required
+ *       Description: 'STRING_VALUE',
+ *       Revision: Number('long'), // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListConfigurationRevisionsCommandInput - {@link ListConfigurationRevisionsCommandInput}
@@ -72,6 +84,8 @@ export interface ListConfigurationRevisionsCommandOutput extends ListConfigurati
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>Returns information about an error.</p>
  *
+ * @throws {@link KafkaServiceException}
+ * <p>Base exception class for all service exceptions from Kafka service.</p>
  *
  */
 export class ListConfigurationRevisionsCommand extends $Command<

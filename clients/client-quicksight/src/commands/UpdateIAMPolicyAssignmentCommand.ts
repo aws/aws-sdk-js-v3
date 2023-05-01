@@ -39,23 +39,38 @@ export interface UpdateIAMPolicyAssignmentCommandOutput extends UpdateIAMPolicyA
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { QuickSightClient, UpdateIAMPolicyAssignmentCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
- * // const { QuickSightClient, UpdateIAMPolicyAssignmentCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * import { QuickSightClient, UpdateIAMPolicyAssignmentCommand } from '@aws-sdk/client-quicksight'; // ES Modules import
+ * // const { QuickSightClient, UpdateIAMPolicyAssignmentCommand } = require('@aws-sdk/client-quicksight'); // CommonJS import
  * const client = new QuickSightClient(config);
  * const input = { // UpdateIAMPolicyAssignmentRequest
- *   AwsAccountId: "STRING_VALUE", // required
- *   AssignmentName: "STRING_VALUE", // required
- *   Namespace: "STRING_VALUE", // required
- *   AssignmentStatus: "ENABLED" || "DRAFT" || "DISABLED",
- *   PolicyArn: "STRING_VALUE",
+ *   AwsAccountId: 'STRING_VALUE', // required
+ *   AssignmentName: 'STRING_VALUE', // required
+ *   Namespace: 'STRING_VALUE', // required
+ *   AssignmentStatus: 'ENABLED' || 'DRAFT' || 'DISABLED',
+ *   PolicyArn: 'STRING_VALUE',
  *   Identities: { // IdentityMap
- *     "<keys>": [ // IdentityNameList
- *       "STRING_VALUE",
+ *     '<keys>': [ // IdentityNameList
+ *       'STRING_VALUE',
  *     ],
  *   },
  * };
  * const command = new UpdateIAMPolicyAssignmentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateIAMPolicyAssignmentResponse
+ *   AssignmentName: 'STRING_VALUE',
+ *   AssignmentId: 'STRING_VALUE',
+ *   PolicyArn: 'STRING_VALUE',
+ *   Identities: { // IdentityMap
+ *     '<keys>': [ // IdentityNameList
+ *       'STRING_VALUE',
+ *     ],
+ *   },
+ *   AssignmentStatus: 'ENABLED' || 'DRAFT' || 'DISABLED',
+ *   RequestId: 'STRING_VALUE',
+ *   Status: Number('int'),
+ * };
+ *
  * ```
  *
  * @param UpdateIAMPolicyAssignmentCommandInput - {@link UpdateIAMPolicyAssignmentCommandInput}
@@ -89,6 +104,8 @@ export interface UpdateIAMPolicyAssignmentCommandOutput extends UpdateIAMPolicyA
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Access is throttled.</p>
  *
+ * @throws {@link QuickSightServiceException}
+ * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
 export class UpdateIAMPolicyAssignmentCommand extends $Command<

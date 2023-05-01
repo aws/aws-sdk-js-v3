@@ -42,14 +42,36 @@ export interface DescribeResiliencyPolicyCommandOutput extends DescribeResilienc
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ResiliencehubClient, DescribeResiliencyPolicyCommand } from "@aws-sdk/client-resiliencehub"; // ES Modules import
- * // const { ResiliencehubClient, DescribeResiliencyPolicyCommand } = require("@aws-sdk/client-resiliencehub"); // CommonJS import
+ * import { ResiliencehubClient, DescribeResiliencyPolicyCommand } from '@aws-sdk/client-resiliencehub'; // ES Modules import
+ * // const { ResiliencehubClient, DescribeResiliencyPolicyCommand } = require('@aws-sdk/client-resiliencehub'); // CommonJS import
  * const client = new ResiliencehubClient(config);
  * const input = { // DescribeResiliencyPolicyRequest
- *   policyArn: "STRING_VALUE", // required
+ *   policyArn: 'STRING_VALUE', // required
  * };
  * const command = new DescribeResiliencyPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeResiliencyPolicyResponse
+ *   policy: { // ResiliencyPolicy
+ *     policyArn: 'STRING_VALUE',
+ *     policyName: 'STRING_VALUE',
+ *     policyDescription: 'STRING_VALUE',
+ *     dataLocationConstraint: 'STRING_VALUE',
+ *     tier: 'STRING_VALUE',
+ *     estimatedCostTier: 'STRING_VALUE',
+ *     policy: { // DisruptionPolicy
+ *       '<keys>': { // FailurePolicy
+ *         rtoInSecs: Number('int'), // required
+ *         rpoInSecs: Number('int'), // required
+ *       },
+ *     },
+ *     creationTime: new Date('TIMESTAMP'),
+ *     tags: { // TagMap
+ *       '<keys>': 'STRING_VALUE',
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeResiliencyPolicyCommandInput - {@link DescribeResiliencyPolicyCommandInput}
@@ -76,6 +98,8 @@ export interface DescribeResiliencyPolicyCommandOutput extends DescribeResilienc
  * @throws {@link ValidationException} (client fault)
  *  <p>This exception occurs when a request is not valid.</p>
  *
+ * @throws {@link ResiliencehubServiceException}
+ * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
  */
 export class DescribeResiliencyPolicyCommand extends $Command<

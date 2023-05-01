@@ -53,17 +53,42 @@ export interface StartSyncExecutionCommandOutput extends StartSyncExecutionOutpu
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SFNClient, StartSyncExecutionCommand } from "@aws-sdk/client-sfn"; // ES Modules import
- * // const { SFNClient, StartSyncExecutionCommand } = require("@aws-sdk/client-sfn"); // CommonJS import
+ * import { SFNClient, StartSyncExecutionCommand } from '@aws-sdk/client-sfn'; // ES Modules import
+ * // const { SFNClient, StartSyncExecutionCommand } = require('@aws-sdk/client-sfn'); // CommonJS import
  * const client = new SFNClient(config);
  * const input = { // StartSyncExecutionInput
- *   stateMachineArn: "STRING_VALUE", // required
- *   name: "STRING_VALUE",
- *   input: "STRING_VALUE",
- *   traceHeader: "STRING_VALUE",
+ *   stateMachineArn: 'STRING_VALUE', // required
+ *   name: 'STRING_VALUE',
+ *   input: 'STRING_VALUE',
+ *   traceHeader: 'STRING_VALUE',
  * };
  * const command = new StartSyncExecutionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartSyncExecutionOutput
+ *   executionArn: 'STRING_VALUE', // required
+ *   stateMachineArn: 'STRING_VALUE',
+ *   name: 'STRING_VALUE',
+ *   startDate: new Date('TIMESTAMP'), // required
+ *   stopDate: new Date('TIMESTAMP'), // required
+ *   status: 'SUCCEEDED' || 'FAILED' || 'TIMED_OUT', // required
+ *   error: 'STRING_VALUE',
+ *   cause: 'STRING_VALUE',
+ *   input: 'STRING_VALUE',
+ *   inputDetails: { // CloudWatchEventsExecutionDataDetails
+ *     included: true || false,
+ *   },
+ *   output: 'STRING_VALUE',
+ *   outputDetails: {
+ *     included: true || false,
+ *   },
+ *   traceHeader: 'STRING_VALUE',
+ *   billingDetails: { // BillingDetails
+ *     billedMemoryUsedInMB: Number('long'),
+ *     billedDurationInMilliseconds: Number('long'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param StartSyncExecutionCommandInput - {@link StartSyncExecutionCommandInput}
@@ -90,6 +115,8 @@ export interface StartSyncExecutionCommandOutput extends StartSyncExecutionOutpu
  * @throws {@link StateMachineTypeNotSupported} (client fault)
  *  <p></p>
  *
+ * @throws {@link SFNServiceException}
+ * <p>Base exception class for all service exceptions from SFN service.</p>
  *
  */
 export class StartSyncExecutionCommand extends $Command<

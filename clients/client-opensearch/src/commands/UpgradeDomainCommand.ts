@@ -37,19 +37,34 @@ export interface UpgradeDomainCommandOutput extends UpgradeDomainResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OpenSearchClient, UpgradeDomainCommand } from "@aws-sdk/client-opensearch"; // ES Modules import
- * // const { OpenSearchClient, UpgradeDomainCommand } = require("@aws-sdk/client-opensearch"); // CommonJS import
+ * import { OpenSearchClient, UpgradeDomainCommand } from '@aws-sdk/client-opensearch'; // ES Modules import
+ * // const { OpenSearchClient, UpgradeDomainCommand } = require('@aws-sdk/client-opensearch'); // CommonJS import
  * const client = new OpenSearchClient(config);
  * const input = { // UpgradeDomainRequest
- *   DomainName: "STRING_VALUE", // required
- *   TargetVersion: "STRING_VALUE", // required
+ *   DomainName: 'STRING_VALUE', // required
+ *   TargetVersion: 'STRING_VALUE', // required
  *   PerformCheckOnly: true || false,
  *   AdvancedOptions: { // AdvancedOptions
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new UpgradeDomainCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpgradeDomainResponse
+ *   UpgradeId: 'STRING_VALUE',
+ *   DomainName: 'STRING_VALUE',
+ *   TargetVersion: 'STRING_VALUE',
+ *   PerformCheckOnly: true || false,
+ *   AdvancedOptions: { // AdvancedOptions
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ *   ChangeProgressDetails: { // ChangeProgressDetails
+ *     ChangeId: 'STRING_VALUE',
+ *     Message: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpgradeDomainCommandInput - {@link UpgradeDomainCommandInput}
@@ -76,6 +91,8 @@ export interface UpgradeDomainCommandOutput extends UpgradeDomainResponse, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception for accessing or deleting a resource that doesn't exist.</p>
  *
+ * @throws {@link OpenSearchServiceException}
+ * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
  */
 export class UpgradeDomainCommand extends $Command<

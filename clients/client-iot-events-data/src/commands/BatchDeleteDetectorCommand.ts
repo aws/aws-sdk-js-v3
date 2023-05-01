@@ -36,20 +36,31 @@ export interface BatchDeleteDetectorCommandOutput extends BatchDeleteDetectorRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTEventsDataClient, BatchDeleteDetectorCommand } from "@aws-sdk/client-iot-events-data"; // ES Modules import
- * // const { IoTEventsDataClient, BatchDeleteDetectorCommand } = require("@aws-sdk/client-iot-events-data"); // CommonJS import
+ * import { IoTEventsDataClient, BatchDeleteDetectorCommand } from '@aws-sdk/client-iot-events-data'; // ES Modules import
+ * // const { IoTEventsDataClient, BatchDeleteDetectorCommand } = require('@aws-sdk/client-iot-events-data'); // CommonJS import
  * const client = new IoTEventsDataClient(config);
  * const input = { // BatchDeleteDetectorRequest
  *   detectors: [ // DeleteDetectorRequests // required
  *     { // DeleteDetectorRequest
- *       messageId: "STRING_VALUE", // required
- *       detectorModelName: "STRING_VALUE", // required
- *       keyValue: "STRING_VALUE",
+ *       messageId: 'STRING_VALUE', // required
+ *       detectorModelName: 'STRING_VALUE', // required
+ *       keyValue: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new BatchDeleteDetectorCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BatchDeleteDetectorResponse
+ *   batchDeleteDetectorErrorEntries: [ // BatchDeleteDetectorErrorEntries
+ *     { // BatchDeleteDetectorErrorEntry
+ *       messageId: 'STRING_VALUE',
+ *       errorCode: 'STRING_VALUE',
+ *       errorMessage: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param BatchDeleteDetectorCommandInput - {@link BatchDeleteDetectorCommandInput}
@@ -70,6 +81,8 @@ export interface BatchDeleteDetectorCommandOutput extends BatchDeleteDetectorRes
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request could not be completed due to throttling.</p>
  *
+ * @throws {@link IoTEventsDataServiceException}
+ * <p>Base exception class for all service exceptions from IoTEventsData service.</p>
  *
  */
 export class BatchDeleteDetectorCommand extends $Command<

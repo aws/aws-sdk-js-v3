@@ -37,14 +37,24 @@ export interface DeleteParameterGroupCommandOutput extends DeleteParameterGroupR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MemoryDBClient, DeleteParameterGroupCommand } from "@aws-sdk/client-memorydb"; // ES Modules import
- * // const { MemoryDBClient, DeleteParameterGroupCommand } = require("@aws-sdk/client-memorydb"); // CommonJS import
+ * import { MemoryDBClient, DeleteParameterGroupCommand } from '@aws-sdk/client-memorydb'; // ES Modules import
+ * // const { MemoryDBClient, DeleteParameterGroupCommand } = require('@aws-sdk/client-memorydb'); // CommonJS import
  * const client = new MemoryDBClient(config);
  * const input = { // DeleteParameterGroupRequest
- *   ParameterGroupName: "STRING_VALUE", // required
+ *   ParameterGroupName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteParameterGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteParameterGroupResponse
+ *   ParameterGroup: { // ParameterGroup
+ *     Name: 'STRING_VALUE',
+ *     Family: 'STRING_VALUE',
+ *     Description: 'STRING_VALUE',
+ *     ARN: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param DeleteParameterGroupCommandInput - {@link DeleteParameterGroupCommandInput}
@@ -68,6 +78,8 @@ export interface DeleteParameterGroupCommandOutput extends DeleteParameterGroupR
  * @throws {@link ServiceLinkedRoleNotFoundFault} (client fault)
  *  <p></p>
  *
+ * @throws {@link MemoryDBServiceException}
+ * <p>Base exception class for all service exceptions from MemoryDB service.</p>
  *
  */
 export class DeleteParameterGroupCommand extends $Command<

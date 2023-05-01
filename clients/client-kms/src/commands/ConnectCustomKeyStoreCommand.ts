@@ -122,14 +122,17 @@ export interface ConnectCustomKeyStoreCommandOutput extends ConnectCustomKeyStor
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KMSClient, ConnectCustomKeyStoreCommand } from "@aws-sdk/client-kms"; // ES Modules import
- * // const { KMSClient, ConnectCustomKeyStoreCommand } = require("@aws-sdk/client-kms"); // CommonJS import
+ * import { KMSClient, ConnectCustomKeyStoreCommand } from '@aws-sdk/client-kms'; // ES Modules import
+ * // const { KMSClient, ConnectCustomKeyStoreCommand } = require('@aws-sdk/client-kms'); // CommonJS import
  * const client = new KMSClient(config);
  * const input = { // ConnectCustomKeyStoreRequest
- *   CustomKeyStoreId: "STRING_VALUE", // required
+ *   CustomKeyStoreId: 'STRING_VALUE', // required
  * };
  * const command = new ConnectCustomKeyStoreCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param ConnectCustomKeyStoreCommandInput - {@link ConnectCustomKeyStoreCommandInput}
@@ -222,6 +225,8 @@ export interface ConnectCustomKeyStoreCommandOutput extends ConnectCustomKeyStor
  *  <p>The request was rejected because an internal exception occurred. The request can be
  *       retried.</p>
  *
+ * @throws {@link KMSServiceException}
+ * <p>Base exception class for all service exceptions from KMS service.</p>
  *
  * @example To connect a custom key store
  * ```javascript

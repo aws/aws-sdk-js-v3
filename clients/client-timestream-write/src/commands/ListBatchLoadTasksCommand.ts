@@ -39,16 +39,32 @@ export interface ListBatchLoadTasksCommandOutput extends ListBatchLoadTasksRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { TimestreamWriteClient, ListBatchLoadTasksCommand } from "@aws-sdk/client-timestream-write"; // ES Modules import
- * // const { TimestreamWriteClient, ListBatchLoadTasksCommand } = require("@aws-sdk/client-timestream-write"); // CommonJS import
+ * import { TimestreamWriteClient, ListBatchLoadTasksCommand } from '@aws-sdk/client-timestream-write'; // ES Modules import
+ * // const { TimestreamWriteClient, ListBatchLoadTasksCommand } = require('@aws-sdk/client-timestream-write'); // CommonJS import
  * const client = new TimestreamWriteClient(config);
  * const input = { // ListBatchLoadTasksRequest
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
- *   TaskStatus: "CREATED" || "IN_PROGRESS" || "FAILED" || "SUCCEEDED" || "PROGRESS_STOPPED" || "PENDING_RESUME",
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
+ *   TaskStatus: 'CREATED' || 'IN_PROGRESS' || 'FAILED' || 'SUCCEEDED' || 'PROGRESS_STOPPED' || 'PENDING_RESUME',
  * };
  * const command = new ListBatchLoadTasksCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListBatchLoadTasksResponse
+ *   NextToken: 'STRING_VALUE',
+ *   BatchLoadTasks: [ // BatchLoadTaskList
+ *     { // BatchLoadTask
+ *       TaskId: 'STRING_VALUE',
+ *       TaskStatus: 'CREATED' || 'IN_PROGRESS' || 'FAILED' || 'SUCCEEDED' || 'PROGRESS_STOPPED' || 'PENDING_RESUME',
+ *       DatabaseName: 'STRING_VALUE',
+ *       TableName: 'STRING_VALUE',
+ *       CreationTime: new Date('TIMESTAMP'),
+ *       LastUpdatedTime: new Date('TIMESTAMP'),
+ *       ResumableUntil: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListBatchLoadTasksCommandInput - {@link ListBatchLoadTasksCommandInput}
@@ -75,6 +91,8 @@ export interface ListBatchLoadTasksCommandOutput extends ListBatchLoadTasksRespo
  * @throws {@link ValidationException} (client fault)
  *  <p> An invalid or malformed request.</p>
  *
+ * @throws {@link TimestreamWriteServiceException}
+ * <p>Base exception class for all service exceptions from TimestreamWrite service.</p>
  *
  */
 export class ListBatchLoadTasksCommand extends $Command<

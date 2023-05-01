@@ -47,15 +47,18 @@ export interface RegisterDelegatedAdministratorCommandOutput extends __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OrganizationsClient, RegisterDelegatedAdministratorCommand } from "@aws-sdk/client-organizations"; // ES Modules import
- * // const { OrganizationsClient, RegisterDelegatedAdministratorCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
+ * import { OrganizationsClient, RegisterDelegatedAdministratorCommand } from '@aws-sdk/client-organizations'; // ES Modules import
+ * // const { OrganizationsClient, RegisterDelegatedAdministratorCommand } = require('@aws-sdk/client-organizations'); // CommonJS import
  * const client = new OrganizationsClient(config);
  * const input = { // RegisterDelegatedAdministratorRequest
- *   AccountId: "STRING_VALUE", // required
- *   ServicePrincipal: "STRING_VALUE", // required
+ *   AccountId: 'STRING_VALUE', // required
+ *   ServicePrincipal: 'STRING_VALUE', // required
  * };
  * const command = new RegisterDelegatedAdministratorCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param RegisterDelegatedAdministratorCommandInput - {@link RegisterDelegatedAdministratorCommandInput}
@@ -403,6 +406,8 @@ export interface RegisterDelegatedAdministratorCommandOutput extends __MetadataB
  * @throws {@link UnsupportedAPIEndpointException} (client fault)
  *  <p>This action isn't available in the current Amazon Web Services Region.</p>
  *
+ * @throws {@link OrganizationsServiceException}
+ * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
  */
 export class RegisterDelegatedAdministratorCommand extends $Command<

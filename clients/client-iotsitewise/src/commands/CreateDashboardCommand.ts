@@ -36,21 +36,27 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTSiteWiseClient, CreateDashboardCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
- * // const { IoTSiteWiseClient, CreateDashboardCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
+ * import { IoTSiteWiseClient, CreateDashboardCommand } from '@aws-sdk/client-iotsitewise'; // ES Modules import
+ * // const { IoTSiteWiseClient, CreateDashboardCommand } = require('@aws-sdk/client-iotsitewise'); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
  * const input = { // CreateDashboardRequest
- *   projectId: "STRING_VALUE", // required
- *   dashboardName: "STRING_VALUE", // required
- *   dashboardDescription: "STRING_VALUE",
- *   dashboardDefinition: "STRING_VALUE", // required
- *   clientToken: "STRING_VALUE",
+ *   projectId: 'STRING_VALUE', // required
+ *   dashboardName: 'STRING_VALUE', // required
+ *   dashboardDescription: 'STRING_VALUE',
+ *   dashboardDefinition: 'STRING_VALUE', // required
+ *   clientToken: 'STRING_VALUE',
  *   tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateDashboardCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateDashboardResponse
+ *   dashboardId: 'STRING_VALUE', // required
+ *   dashboardArn: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param CreateDashboardCommandInput - {@link CreateDashboardCommandInput}
@@ -81,6 +87,8 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *       on.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
  *
+ * @throws {@link IoTSiteWiseServiceException}
+ * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
  */
 export class CreateDashboardCommand extends $Command<

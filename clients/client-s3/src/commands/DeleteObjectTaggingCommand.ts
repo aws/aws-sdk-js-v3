@@ -57,17 +57,22 @@ export interface DeleteObjectTaggingCommandOutput extends DeleteObjectTaggingOut
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { S3Client, DeleteObjectTaggingCommand } from "@aws-sdk/client-s3"; // ES Modules import
- * // const { S3Client, DeleteObjectTaggingCommand } = require("@aws-sdk/client-s3"); // CommonJS import
+ * import { S3Client, DeleteObjectTaggingCommand } from '@aws-sdk/client-s3'; // ES Modules import
+ * // const { S3Client, DeleteObjectTaggingCommand } = require('@aws-sdk/client-s3'); // CommonJS import
  * const client = new S3Client(config);
  * const input = { // DeleteObjectTaggingRequest
- *   Bucket: "STRING_VALUE", // required
- *   Key: "STRING_VALUE", // required
- *   VersionId: "STRING_VALUE",
- *   ExpectedBucketOwner: "STRING_VALUE",
+ *   Bucket: 'STRING_VALUE', // required
+ *   Key: 'STRING_VALUE', // required
+ *   VersionId: 'STRING_VALUE',
+ *   ExpectedBucketOwner: 'STRING_VALUE',
  * };
  * const command = new DeleteObjectTaggingCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteObjectTaggingOutput
+ *   VersionId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DeleteObjectTaggingCommandInput - {@link DeleteObjectTaggingCommandInput}
@@ -76,6 +81,25 @@ export interface DeleteObjectTaggingCommandOutput extends DeleteObjectTaggingOut
  * @see {@link DeleteObjectTaggingCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
+ * @throws {@link S3ServiceException}
+ * <p>Base exception class for all service exceptions from S3 service.</p>
+ *
+ * @example To remove tag set from an object
+ * ```javascript
+ * // The following example removes tag set associated with the specified object. If the bucket is versioning enabled, the operation removes tag set from the latest object version.
+ * const input = {
+ *   "Bucket": "examplebucket",
+ *   "Key": "HappyFace.jpg"
+ * };
+ * const command = new DeleteObjectTaggingCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "VersionId": "null"
+ * }
+ * *\/
+ * // example id: to-remove-tag-set-from-an-object-1483145342862
+ * ```
  *
  * @example To remove tag set from an object version
  * ```javascript
@@ -93,23 +117,6 @@ export interface DeleteObjectTaggingCommandOutput extends DeleteObjectTaggingOut
  * }
  * *\/
  * // example id: to-remove-tag-set-from-an-object-version-1483145285913
- * ```
- *
- * @example To remove tag set from an object
- * ```javascript
- * // The following example removes tag set associated with the specified object. If the bucket is versioning enabled, the operation removes tag set from the latest object version.
- * const input = {
- *   "Bucket": "examplebucket",
- *   "Key": "HappyFace.jpg"
- * };
- * const command = new DeleteObjectTaggingCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "VersionId": "null"
- * }
- * *\/
- * // example id: to-remove-tag-set-from-an-object-1483145342862
  * ```
  *
  */

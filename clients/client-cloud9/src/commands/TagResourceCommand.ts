@@ -40,20 +40,23 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Cloud9Client, TagResourceCommand } from "@aws-sdk/client-cloud9"; // ES Modules import
- * // const { Cloud9Client, TagResourceCommand } = require("@aws-sdk/client-cloud9"); // CommonJS import
+ * import { Cloud9Client, TagResourceCommand } from '@aws-sdk/client-cloud9'; // ES Modules import
+ * // const { Cloud9Client, TagResourceCommand } = require('@aws-sdk/client-cloud9'); // CommonJS import
  * const client = new Cloud9Client(config);
  * const input = { // TagResourceRequest
- *   ResourceARN: "STRING_VALUE", // required
+ *   ResourceARN: 'STRING_VALUE', // required
  *   Tags: [ // TagList // required
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param TagResourceCommandInput - {@link TagResourceCommandInput}
@@ -74,6 +77,8 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @throws {@link NotFoundException} (client fault)
  *  <p>The target resource cannot be found.</p>
  *
+ * @throws {@link Cloud9ServiceException}
+ * <p>Base exception class for all service exceptions from Cloud9 service.</p>
  *
  */
 export class TagResourceCommand extends $Command<

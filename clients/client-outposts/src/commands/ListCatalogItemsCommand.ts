@@ -39,24 +39,50 @@ export interface ListCatalogItemsCommandOutput extends ListCatalogItemsOutput, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OutpostsClient, ListCatalogItemsCommand } from "@aws-sdk/client-outposts"; // ES Modules import
- * // const { OutpostsClient, ListCatalogItemsCommand } = require("@aws-sdk/client-outposts"); // CommonJS import
+ * import { OutpostsClient, ListCatalogItemsCommand } from '@aws-sdk/client-outposts'; // ES Modules import
+ * // const { OutpostsClient, ListCatalogItemsCommand } = require('@aws-sdk/client-outposts'); // CommonJS import
  * const client = new OutpostsClient(config);
  * const input = { // ListCatalogItemsInput
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  *   ItemClassFilter: [ // CatalogItemClassList
- *     "RACK" || "SERVER",
+ *     'RACK' || 'SERVER',
  *   ],
  *   SupportedStorageFilter: [ // SupportedStorageList
- *     "EBS" || "S3",
+ *     'EBS' || 'S3',
  *   ],
  *   EC2FamilyFilter: [ // EC2FamilyList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new ListCatalogItemsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListCatalogItemsOutput
+ *   CatalogItems: [ // CatalogItemListDefinition
+ *     { // CatalogItem
+ *       CatalogItemId: 'STRING_VALUE',
+ *       ItemStatus: 'AVAILABLE' || 'DISCONTINUED',
+ *       EC2Capacities: [ // EC2CapacityListDefinition
+ *         { // EC2Capacity
+ *           Family: 'STRING_VALUE',
+ *           MaxSize: 'STRING_VALUE',
+ *           Quantity: 'STRING_VALUE',
+ *         },
+ *       ],
+ *       PowerKva: Number('float'),
+ *       WeightLbs: Number('int'),
+ *       SupportedUplinkGbps: [ // SupportedUplinkGbpsListDefinition
+ *         Number('int'),
+ *       ],
+ *       SupportedStorage: [ // SupportedStorageList
+ *         'EBS' || 'S3',
+ *       ],
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListCatalogItemsCommandInput - {@link ListCatalogItemsCommandInput}
@@ -74,6 +100,8 @@ export interface ListCatalogItemsCommandOutput extends ListCatalogItemsOutput, _
  * @throws {@link ValidationException} (client fault)
  *  <p>A parameter is not valid.</p>
  *
+ * @throws {@link OutpostsServiceException}
+ * <p>Base exception class for all service exceptions from Outposts service.</p>
  *
  */
 export class ListCatalogItemsCommand extends $Command<

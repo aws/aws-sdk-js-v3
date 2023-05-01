@@ -36,15 +36,34 @@ export interface ListActionsCommandOutput extends ListActionsResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FisClient, ListActionsCommand } from "@aws-sdk/client-fis"; // ES Modules import
- * // const { FisClient, ListActionsCommand } = require("@aws-sdk/client-fis"); // CommonJS import
+ * import { FisClient, ListActionsCommand } from '@aws-sdk/client-fis'; // ES Modules import
+ * // const { FisClient, ListActionsCommand } = require('@aws-sdk/client-fis'); // CommonJS import
  * const client = new FisClient(config);
  * const input = { // ListActionsRequest
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new ListActionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListActionsResponse
+ *   actions: [ // ActionSummaryList
+ *     { // ActionSummary
+ *       id: 'STRING_VALUE',
+ *       description: 'STRING_VALUE',
+ *       targets: { // ActionTargetMap
+ *         '<keys>': { // ActionTarget
+ *           resourceType: 'STRING_VALUE',
+ *         },
+ *       },
+ *       tags: { // TagMap
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListActionsCommandInput - {@link ListActionsCommandInput}
@@ -56,6 +75,8 @@ export interface ListActionsCommandOutput extends ListActionsResponse, __Metadat
  * @throws {@link ValidationException} (client fault)
  *  <p>The specified input is not valid, or fails to satisfy the constraints for the request.</p>
  *
+ * @throws {@link FisServiceException}
+ * <p>Base exception class for all service exceptions from Fis service.</p>
  *
  */
 export class ListActionsCommand extends $Command<

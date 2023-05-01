@@ -49,15 +49,18 @@ export interface DisassociateWebsiteAuthorizationProviderCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkLinkClient, DisassociateWebsiteAuthorizationProviderCommand } from "@aws-sdk/client-worklink"; // ES Modules import
- * // const { WorkLinkClient, DisassociateWebsiteAuthorizationProviderCommand } = require("@aws-sdk/client-worklink"); // CommonJS import
+ * import { WorkLinkClient, DisassociateWebsiteAuthorizationProviderCommand } from '@aws-sdk/client-worklink'; // ES Modules import
+ * // const { WorkLinkClient, DisassociateWebsiteAuthorizationProviderCommand } = require('@aws-sdk/client-worklink'); // CommonJS import
  * const client = new WorkLinkClient(config);
  * const input = { // DisassociateWebsiteAuthorizationProviderRequest
- *   FleetArn: "STRING_VALUE", // required
- *   AuthorizationProviderId: "STRING_VALUE", // required
+ *   FleetArn: 'STRING_VALUE', // required
+ *   AuthorizationProviderId: 'STRING_VALUE', // required
  * };
  * const command = new DisassociateWebsiteAuthorizationProviderCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DisassociateWebsiteAuthorizationProviderCommandInput - {@link DisassociateWebsiteAuthorizationProviderCommandInput}
@@ -84,6 +87,8 @@ export interface DisassociateWebsiteAuthorizationProviderCommandOutput
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this action.</p>
  *
+ * @throws {@link WorkLinkServiceException}
+ * <p>Base exception class for all service exceptions from WorkLink service.</p>
  *
  */
 export class DisassociateWebsiteAuthorizationProviderCommand extends $Command<

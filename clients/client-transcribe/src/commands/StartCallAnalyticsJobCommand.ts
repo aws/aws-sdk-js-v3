@@ -86,50 +86,104 @@ export interface StartCallAnalyticsJobCommandOutput extends StartCallAnalyticsJo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { TranscribeClient, StartCallAnalyticsJobCommand } from "@aws-sdk/client-transcribe"; // ES Modules import
- * // const { TranscribeClient, StartCallAnalyticsJobCommand } = require("@aws-sdk/client-transcribe"); // CommonJS import
+ * import { TranscribeClient, StartCallAnalyticsJobCommand } from '@aws-sdk/client-transcribe'; // ES Modules import
+ * // const { TranscribeClient, StartCallAnalyticsJobCommand } = require('@aws-sdk/client-transcribe'); // CommonJS import
  * const client = new TranscribeClient(config);
  * const input = { // StartCallAnalyticsJobRequest
- *   CallAnalyticsJobName: "STRING_VALUE", // required
+ *   CallAnalyticsJobName: 'STRING_VALUE', // required
  *   Media: { // Media
- *     MediaFileUri: "STRING_VALUE",
- *     RedactedMediaFileUri: "STRING_VALUE",
+ *     MediaFileUri: 'STRING_VALUE',
+ *     RedactedMediaFileUri: 'STRING_VALUE',
  *   },
- *   OutputLocation: "STRING_VALUE",
- *   OutputEncryptionKMSKeyId: "STRING_VALUE",
- *   DataAccessRoleArn: "STRING_VALUE",
+ *   OutputLocation: 'STRING_VALUE',
+ *   OutputEncryptionKMSKeyId: 'STRING_VALUE',
+ *   DataAccessRoleArn: 'STRING_VALUE',
  *   Settings: { // CallAnalyticsJobSettings
- *     VocabularyName: "STRING_VALUE",
- *     VocabularyFilterName: "STRING_VALUE",
- *     VocabularyFilterMethod: "remove" || "mask" || "tag",
- *     LanguageModelName: "STRING_VALUE",
+ *     VocabularyName: 'STRING_VALUE',
+ *     VocabularyFilterName: 'STRING_VALUE',
+ *     VocabularyFilterMethod: 'remove' || 'mask' || 'tag',
+ *     LanguageModelName: 'STRING_VALUE',
  *     ContentRedaction: { // ContentRedaction
- *       RedactionType: "PII", // required
- *       RedactionOutput: "redacted" || "redacted_and_unredacted", // required
+ *       RedactionType: 'PII', // required
+ *       RedactionOutput: 'redacted' || 'redacted_and_unredacted', // required
  *       PiiEntityTypes: [ // PiiEntityTypes
- *         "BANK_ACCOUNT_NUMBER" || "BANK_ROUTING" || "CREDIT_DEBIT_NUMBER" || "CREDIT_DEBIT_CVV" || "CREDIT_DEBIT_EXPIRY" || "PIN" || "EMAIL" || "ADDRESS" || "NAME" || "PHONE" || "SSN" || "ALL",
+ *         'BANK_ACCOUNT_NUMBER' || 'BANK_ROUTING' || 'CREDIT_DEBIT_NUMBER' || 'CREDIT_DEBIT_CVV' || 'CREDIT_DEBIT_EXPIRY' || 'PIN' || 'EMAIL' || 'ADDRESS' || 'NAME' || 'PHONE' || 'SSN' || 'ALL',
  *       ],
  *     },
  *     LanguageOptions: [ // LanguageOptions
- *       "af-ZA" || "ar-AE" || "ar-SA" || "da-DK" || "de-CH" || "de-DE" || "en-AB" || "en-AU" || "en-GB" || "en-IE" || "en-IN" || "en-US" || "en-WL" || "es-ES" || "es-US" || "fa-IR" || "fr-CA" || "fr-FR" || "he-IL" || "hi-IN" || "id-ID" || "it-IT" || "ja-JP" || "ko-KR" || "ms-MY" || "nl-NL" || "pt-BR" || "pt-PT" || "ru-RU" || "ta-IN" || "te-IN" || "tr-TR" || "zh-CN" || "zh-TW" || "th-TH" || "en-ZA" || "en-NZ" || "vi-VN" || "sv-SE",
+ *       'af-ZA' || 'ar-AE' || 'ar-SA' || 'da-DK' || 'de-CH' || 'de-DE' || 'en-AB' || 'en-AU' || 'en-GB' || 'en-IE' || 'en-IN' || 'en-US' || 'en-WL' || 'es-ES' || 'es-US' || 'fa-IR' || 'fr-CA' || 'fr-FR' || 'he-IL' || 'hi-IN' || 'id-ID' || 'it-IT' || 'ja-JP' || 'ko-KR' || 'ms-MY' || 'nl-NL' || 'pt-BR' || 'pt-PT' || 'ru-RU' || 'ta-IN' || 'te-IN' || 'tr-TR' || 'zh-CN' || 'zh-TW' || 'th-TH' || 'en-ZA' || 'en-NZ' || 'vi-VN' || 'sv-SE',
  *     ],
  *     LanguageIdSettings: { // LanguageIdSettingsMap
- *       "<keys>": { // LanguageIdSettings
- *         VocabularyName: "STRING_VALUE",
- *         VocabularyFilterName: "STRING_VALUE",
- *         LanguageModelName: "STRING_VALUE",
+ *       '<keys>': { // LanguageIdSettings
+ *         VocabularyName: 'STRING_VALUE',
+ *         VocabularyFilterName: 'STRING_VALUE',
+ *         LanguageModelName: 'STRING_VALUE',
  *       },
  *     },
  *   },
  *   ChannelDefinitions: [ // ChannelDefinitions
  *     { // ChannelDefinition
- *       ChannelId: Number("int"),
- *       ParticipantRole: "AGENT" || "CUSTOMER",
+ *       ChannelId: Number('int'),
+ *       ParticipantRole: 'AGENT' || 'CUSTOMER',
  *     },
  *   ],
  * };
  * const command = new StartCallAnalyticsJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartCallAnalyticsJobResponse
+ *   CallAnalyticsJob: { // CallAnalyticsJob
+ *     CallAnalyticsJobName: 'STRING_VALUE',
+ *     CallAnalyticsJobStatus: 'QUEUED' || 'IN_PROGRESS' || 'FAILED' || 'COMPLETED',
+ *     LanguageCode: 'af-ZA' || 'ar-AE' || 'ar-SA' || 'da-DK' || 'de-CH' || 'de-DE' || 'en-AB' || 'en-AU' || 'en-GB' || 'en-IE' || 'en-IN' || 'en-US' || 'en-WL' || 'es-ES' || 'es-US' || 'fa-IR' || 'fr-CA' || 'fr-FR' || 'he-IL' || 'hi-IN' || 'id-ID' || 'it-IT' || 'ja-JP' || 'ko-KR' || 'ms-MY' || 'nl-NL' || 'pt-BR' || 'pt-PT' || 'ru-RU' || 'ta-IN' || 'te-IN' || 'tr-TR' || 'zh-CN' || 'zh-TW' || 'th-TH' || 'en-ZA' || 'en-NZ' || 'vi-VN' || 'sv-SE',
+ *     MediaSampleRateHertz: Number('int'),
+ *     MediaFormat: 'mp3' || 'mp4' || 'wav' || 'flac' || 'ogg' || 'amr' || 'webm',
+ *     Media: { // Media
+ *       MediaFileUri: 'STRING_VALUE',
+ *       RedactedMediaFileUri: 'STRING_VALUE',
+ *     },
+ *     Transcript: { // Transcript
+ *       TranscriptFileUri: 'STRING_VALUE',
+ *       RedactedTranscriptFileUri: 'STRING_VALUE',
+ *     },
+ *     StartTime: new Date('TIMESTAMP'),
+ *     CreationTime: new Date('TIMESTAMP'),
+ *     CompletionTime: new Date('TIMESTAMP'),
+ *     FailureReason: 'STRING_VALUE',
+ *     DataAccessRoleArn: 'STRING_VALUE',
+ *     IdentifiedLanguageScore: Number('float'),
+ *     Settings: { // CallAnalyticsJobSettings
+ *       VocabularyName: 'STRING_VALUE',
+ *       VocabularyFilterName: 'STRING_VALUE',
+ *       VocabularyFilterMethod: 'remove' || 'mask' || 'tag',
+ *       LanguageModelName: 'STRING_VALUE',
+ *       ContentRedaction: { // ContentRedaction
+ *         RedactionType: 'PII', // required
+ *         RedactionOutput: 'redacted' || 'redacted_and_unredacted', // required
+ *         PiiEntityTypes: [ // PiiEntityTypes
+ *           'BANK_ACCOUNT_NUMBER' || 'BANK_ROUTING' || 'CREDIT_DEBIT_NUMBER' || 'CREDIT_DEBIT_CVV' || 'CREDIT_DEBIT_EXPIRY' || 'PIN' || 'EMAIL' || 'ADDRESS' || 'NAME' || 'PHONE' || 'SSN' || 'ALL',
+ *         ],
+ *       },
+ *       LanguageOptions: [ // LanguageOptions
+ *         'af-ZA' || 'ar-AE' || 'ar-SA' || 'da-DK' || 'de-CH' || 'de-DE' || 'en-AB' || 'en-AU' || 'en-GB' || 'en-IE' || 'en-IN' || 'en-US' || 'en-WL' || 'es-ES' || 'es-US' || 'fa-IR' || 'fr-CA' || 'fr-FR' || 'he-IL' || 'hi-IN' || 'id-ID' || 'it-IT' || 'ja-JP' || 'ko-KR' || 'ms-MY' || 'nl-NL' || 'pt-BR' || 'pt-PT' || 'ru-RU' || 'ta-IN' || 'te-IN' || 'tr-TR' || 'zh-CN' || 'zh-TW' || 'th-TH' || 'en-ZA' || 'en-NZ' || 'vi-VN' || 'sv-SE',
+ *       ],
+ *       LanguageIdSettings: { // LanguageIdSettingsMap
+ *         '<keys>': { // LanguageIdSettings
+ *           VocabularyName: 'STRING_VALUE',
+ *           VocabularyFilterName: 'STRING_VALUE',
+ *           LanguageModelName: 'STRING_VALUE',
+ *         },
+ *       },
+ *     },
+ *     ChannelDefinitions: [ // ChannelDefinitions
+ *       { // ChannelDefinition
+ *         ChannelId: Number('int'),
+ *         ParticipantRole: 'AGENT' || 'CUSTOMER',
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param StartCallAnalyticsJobCommandInput - {@link StartCallAnalyticsJobCommandInput}
@@ -156,6 +210,8 @@ export interface StartCallAnalyticsJobCommandOutput extends StartCallAnalyticsJo
  *  <p>You've either sent too many requests or your input file is too long. Wait before
  *             retrying your request, or use a smaller file and try your request again.</p>
  *
+ * @throws {@link TranscribeServiceException}
+ * <p>Base exception class for all service exceptions from Transcribe service.</p>
  *
  */
 export class StartCallAnalyticsJobCommand extends $Command<

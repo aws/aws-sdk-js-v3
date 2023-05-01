@@ -36,16 +36,41 @@ export interface UpdateConfiguredTableCommandOutput extends UpdateConfiguredTabl
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CleanRoomsClient, UpdateConfiguredTableCommand } from "@aws-sdk/client-cleanrooms"; // ES Modules import
- * // const { CleanRoomsClient, UpdateConfiguredTableCommand } = require("@aws-sdk/client-cleanrooms"); // CommonJS import
+ * import { CleanRoomsClient, UpdateConfiguredTableCommand } from '@aws-sdk/client-cleanrooms'; // ES Modules import
+ * // const { CleanRoomsClient, UpdateConfiguredTableCommand } = require('@aws-sdk/client-cleanrooms'); // CommonJS import
  * const client = new CleanRoomsClient(config);
  * const input = { // UpdateConfiguredTableInput
- *   configuredTableIdentifier: "STRING_VALUE", // required
- *   name: "STRING_VALUE",
- *   description: "STRING_VALUE",
+ *   configuredTableIdentifier: 'STRING_VALUE', // required
+ *   name: 'STRING_VALUE',
+ *   description: 'STRING_VALUE',
  * };
  * const command = new UpdateConfiguredTableCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateConfiguredTableOutput
+ *   configuredTable: { // ConfiguredTable
+ *     id: 'STRING_VALUE', // required
+ *     arn: 'STRING_VALUE', // required
+ *     name: 'STRING_VALUE', // required
+ *     description: 'STRING_VALUE',
+ *     tableReference: { // TableReference Union: only one key present
+ *       glue: { // GlueTableReference
+ *         tableName: 'STRING_VALUE', // required
+ *         databaseName: 'STRING_VALUE', // required
+ *       },
+ *     },
+ *     createTime: new Date('TIMESTAMP'), // required
+ *     updateTime: new Date('TIMESTAMP'), // required
+ *     analysisRuleTypes: [ // ConfiguredTableAnalysisRuleTypeList // required
+ *       'AGGREGATION' || 'LIST',
+ *     ],
+ *     analysisMethod: 'STRING_VALUE', // required
+ *     allowedColumns: [ // AllowedColumnList // required
+ *       'STRING_VALUE',
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateConfiguredTableCommandInput - {@link UpdateConfiguredTableCommandInput}
@@ -72,6 +97,8 @@ export interface UpdateConfiguredTableCommandOutput extends UpdateConfiguredTabl
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the specified constraints.</p>
  *
+ * @throws {@link CleanRoomsServiceException}
+ * <p>Base exception class for all service exceptions from CleanRooms service.</p>
  *
  */
 export class UpdateConfiguredTableCommand extends $Command<

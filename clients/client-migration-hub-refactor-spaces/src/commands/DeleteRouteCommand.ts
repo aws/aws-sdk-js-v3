@@ -40,16 +40,26 @@ export interface DeleteRouteCommandOutput extends DeleteRouteResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MigrationHubRefactorSpacesClient, DeleteRouteCommand } from "@aws-sdk/client-migration-hub-refactor-spaces"; // ES Modules import
- * // const { MigrationHubRefactorSpacesClient, DeleteRouteCommand } = require("@aws-sdk/client-migration-hub-refactor-spaces"); // CommonJS import
+ * import { MigrationHubRefactorSpacesClient, DeleteRouteCommand } from '@aws-sdk/client-migration-hub-refactor-spaces'; // ES Modules import
+ * // const { MigrationHubRefactorSpacesClient, DeleteRouteCommand } = require('@aws-sdk/client-migration-hub-refactor-spaces'); // CommonJS import
  * const client = new MigrationHubRefactorSpacesClient(config);
  * const input = { // DeleteRouteRequest
- *   EnvironmentIdentifier: "STRING_VALUE", // required
- *   ApplicationIdentifier: "STRING_VALUE", // required
- *   RouteIdentifier: "STRING_VALUE", // required
+ *   EnvironmentIdentifier: 'STRING_VALUE', // required
+ *   ApplicationIdentifier: 'STRING_VALUE', // required
+ *   RouteIdentifier: 'STRING_VALUE', // required
  * };
  * const command = new DeleteRouteCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteRouteResponse
+ *   RouteId: 'STRING_VALUE',
+ *   Arn: 'STRING_VALUE',
+ *   ServiceId: 'STRING_VALUE',
+ *   ApplicationId: 'STRING_VALUE',
+ *   State: 'STRING_VALUE',
+ *   LastUpdatedTime: new Date('TIMESTAMP'),
+ * };
+ *
  * ```
  *
  * @param DeleteRouteCommandInput - {@link DeleteRouteCommandInput}
@@ -77,6 +87,8 @@ export interface DeleteRouteCommandOutput extends DeleteRouteResponse, __Metadat
  *  <p>The input does not satisfy the constraints specified by an Amazon Web Service.
  *     </p>
  *
+ * @throws {@link MigrationHubRefactorSpacesServiceException}
+ * <p>Base exception class for all service exceptions from MigrationHubRefactorSpaces service.</p>
  *
  */
 export class DeleteRouteCommand extends $Command<

@@ -42,22 +42,25 @@ export interface PutConfigurationSetVdmOptionsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SESv2Client, PutConfigurationSetVdmOptionsCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
- * // const { SESv2Client, PutConfigurationSetVdmOptionsCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
+ * import { SESv2Client, PutConfigurationSetVdmOptionsCommand } from '@aws-sdk/client-sesv2'; // ES Modules import
+ * // const { SESv2Client, PutConfigurationSetVdmOptionsCommand } = require('@aws-sdk/client-sesv2'); // CommonJS import
  * const client = new SESv2Client(config);
  * const input = { // PutConfigurationSetVdmOptionsRequest
- *   ConfigurationSetName: "STRING_VALUE", // required
+ *   ConfigurationSetName: 'STRING_VALUE', // required
  *   VdmOptions: { // VdmOptions
  *     DashboardOptions: { // DashboardOptions
- *       EngagementMetrics: "ENABLED" || "DISABLED",
+ *       EngagementMetrics: 'ENABLED' || 'DISABLED',
  *     },
  *     GuardianOptions: { // GuardianOptions
- *       OptimizedSharedDelivery: "ENABLED" || "DISABLED",
+ *       OptimizedSharedDelivery: 'ENABLED' || 'DISABLED',
  *     },
  *   },
  * };
  * const command = new PutConfigurationSetVdmOptionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutConfigurationSetVdmOptionsCommandInput - {@link PutConfigurationSetVdmOptionsCommandInput}
@@ -75,6 +78,8 @@ export interface PutConfigurationSetVdmOptionsCommandOutput
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Too many requests have been made to the operation.</p>
  *
+ * @throws {@link SESv2ServiceException}
+ * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
  */
 export class PutConfigurationSetVdmOptionsCommand extends $Command<

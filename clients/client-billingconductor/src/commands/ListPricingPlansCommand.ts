@@ -41,21 +41,37 @@ export interface ListPricingPlansCommandOutput extends ListPricingPlansOutput, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BillingconductorClient, ListPricingPlansCommand } from "@aws-sdk/client-billingconductor"; // ES Modules import
- * // const { BillingconductorClient, ListPricingPlansCommand } = require("@aws-sdk/client-billingconductor"); // CommonJS import
+ * import { BillingconductorClient, ListPricingPlansCommand } from '@aws-sdk/client-billingconductor'; // ES Modules import
+ * // const { BillingconductorClient, ListPricingPlansCommand } = require('@aws-sdk/client-billingconductor'); // CommonJS import
  * const client = new BillingconductorClient(config);
  * const input = { // ListPricingPlansInput
- *   BillingPeriod: "STRING_VALUE",
+ *   BillingPeriod: 'STRING_VALUE',
  *   Filters: { // ListPricingPlansFilter
  *     Arns: [ // PricingPlanArns
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *   },
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListPricingPlansCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListPricingPlansOutput
+ *   BillingPeriod: 'STRING_VALUE',
+ *   PricingPlans: [ // PricingPlanList
+ *     { // PricingPlanListElement
+ *       Name: 'STRING_VALUE',
+ *       Arn: 'STRING_VALUE',
+ *       Description: 'STRING_VALUE',
+ *       Size: Number('long'),
+ *       CreationTime: Number('long'),
+ *       LastModifiedTime: Number('long'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListPricingPlansCommandInput - {@link ListPricingPlansCommandInput}
@@ -79,6 +95,8 @@ export interface ListPricingPlansCommandOutput extends ListPricingPlansOutput, _
  * @throws {@link ValidationException} (client fault)
  *  <p>The input doesn't match with the constraints specified by Amazon Web Services services.</p>
  *
+ * @throws {@link BillingconductorServiceException}
+ * <p>Base exception class for all service exceptions from Billingconductor service.</p>
  *
  */
 export class ListPricingPlansCommand extends $Command<

@@ -41,16 +41,36 @@ export interface ListModelsCommandOutput extends ListModelsResponse, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LookoutVisionClient, ListModelsCommand } from "@aws-sdk/client-lookoutvision"; // ES Modules import
- * // const { LookoutVisionClient, ListModelsCommand } = require("@aws-sdk/client-lookoutvision"); // CommonJS import
+ * import { LookoutVisionClient, ListModelsCommand } from '@aws-sdk/client-lookoutvision'; // ES Modules import
+ * // const { LookoutVisionClient, ListModelsCommand } = require('@aws-sdk/client-lookoutvision'); // CommonJS import
  * const client = new LookoutVisionClient(config);
  * const input = { // ListModelsRequest
- *   ProjectName: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   ProjectName: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListModelsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListModelsResponse
+ *   Models: [ // ModelMetadataList
+ *     { // ModelMetadata
+ *       CreationTimestamp: new Date('TIMESTAMP'),
+ *       ModelVersion: 'STRING_VALUE',
+ *       ModelArn: 'STRING_VALUE',
+ *       Description: 'STRING_VALUE',
+ *       Status: 'TRAINING' || 'TRAINED' || 'TRAINING_FAILED' || 'STARTING_HOSTING' || 'HOSTED' || 'HOSTING_FAILED' || 'STOPPING_HOSTING' || 'SYSTEM_UPDATING' || 'DELETING',
+ *       StatusMessage: 'STRING_VALUE',
+ *       Performance: { // ModelPerformance
+ *         F1Score: Number('float'),
+ *         Recall: Number('float'),
+ *         Precision: Number('float'),
+ *       },
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListModelsCommandInput - {@link ListModelsCommandInput}
@@ -78,6 +98,8 @@ export interface ListModelsCommandOutput extends ListModelsResponse, __MetadataB
  *  <p>An input validation error occured. For example, invalid characters in a project name,
  *       or if a pagination token is invalid.</p>
  *
+ * @throws {@link LookoutVisionServiceException}
+ * <p>Base exception class for all service exceptions from LookoutVision service.</p>
  *
  */
 export class ListModelsCommand extends $Command<

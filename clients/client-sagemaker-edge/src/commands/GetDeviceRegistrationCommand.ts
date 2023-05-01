@@ -36,15 +36,21 @@ export interface GetDeviceRegistrationCommandOutput extends GetDeviceRegistratio
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SagemakerEdgeClient, GetDeviceRegistrationCommand } from "@aws-sdk/client-sagemaker-edge"; // ES Modules import
- * // const { SagemakerEdgeClient, GetDeviceRegistrationCommand } = require("@aws-sdk/client-sagemaker-edge"); // CommonJS import
+ * import { SagemakerEdgeClient, GetDeviceRegistrationCommand } from '@aws-sdk/client-sagemaker-edge'; // ES Modules import
+ * // const { SagemakerEdgeClient, GetDeviceRegistrationCommand } = require('@aws-sdk/client-sagemaker-edge'); // CommonJS import
  * const client = new SagemakerEdgeClient(config);
  * const input = { // GetDeviceRegistrationRequest
- *   DeviceName: "STRING_VALUE", // required
- *   DeviceFleetName: "STRING_VALUE", // required
+ *   DeviceName: 'STRING_VALUE', // required
+ *   DeviceFleetName: 'STRING_VALUE', // required
  * };
  * const command = new GetDeviceRegistrationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetDeviceRegistrationResult
+ *   DeviceRegistration: 'STRING_VALUE',
+ *   CacheTTL: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetDeviceRegistrationCommandInput - {@link GetDeviceRegistrationCommandInput}
@@ -57,6 +63,8 @@ export interface GetDeviceRegistrationCommandOutput extends GetDeviceRegistratio
  *  <p>An internal failure occurred. Try your request again. If the problem
  *       persists, contact Amazon Web Services customer support.</p>
  *
+ * @throws {@link SagemakerEdgeServiceException}
+ * <p>Base exception class for all service exceptions from SagemakerEdge service.</p>
  *
  */
 export class GetDeviceRegistrationCommand extends $Command<

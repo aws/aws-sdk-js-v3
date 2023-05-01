@@ -36,17 +36,30 @@ export interface ListSchemaVersionsCommandOutput extends ListSchemaVersionsRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SchemasClient, ListSchemaVersionsCommand } from "@aws-sdk/client-schemas"; // ES Modules import
- * // const { SchemasClient, ListSchemaVersionsCommand } = require("@aws-sdk/client-schemas"); // CommonJS import
+ * import { SchemasClient, ListSchemaVersionsCommand } from '@aws-sdk/client-schemas'; // ES Modules import
+ * // const { SchemasClient, ListSchemaVersionsCommand } = require('@aws-sdk/client-schemas'); // CommonJS import
  * const client = new SchemasClient(config);
  * const input = { // ListSchemaVersionsRequest
- *   Limit: Number("int"),
- *   NextToken: "STRING_VALUE",
- *   RegistryName: "STRING_VALUE", // required
- *   SchemaName: "STRING_VALUE", // required
+ *   Limit: Number('int'),
+ *   NextToken: 'STRING_VALUE',
+ *   RegistryName: 'STRING_VALUE', // required
+ *   SchemaName: 'STRING_VALUE', // required
  * };
  * const command = new ListSchemaVersionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListSchemaVersionsResponse
+ *   NextToken: 'STRING_VALUE',
+ *   SchemaVersions: [ // __listOfSchemaVersionSummary
+ *     { // SchemaVersionSummary
+ *       SchemaArn: 'STRING_VALUE',
+ *       SchemaName: 'STRING_VALUE',
+ *       SchemaVersion: 'STRING_VALUE',
+ *       Type: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListSchemaVersionsCommandInput - {@link ListSchemaVersionsCommandInput}
@@ -67,6 +80,8 @@ export interface ListSchemaVersionsCommandOutput extends ListSchemaVersionsRespo
  *
  * @throws {@link UnauthorizedException} (client fault)
  *
+ * @throws {@link SchemasServiceException}
+ * <p>Base exception class for all service exceptions from Schemas service.</p>
  *
  */
 export class ListSchemaVersionsCommand extends $Command<

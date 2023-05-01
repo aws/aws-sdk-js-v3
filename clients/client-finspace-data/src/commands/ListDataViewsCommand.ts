@@ -36,16 +36,50 @@ export interface ListDataViewsCommandOutput extends ListDataViewsResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FinspaceDataClient, ListDataViewsCommand } from "@aws-sdk/client-finspace-data"; // ES Modules import
- * // const { FinspaceDataClient, ListDataViewsCommand } = require("@aws-sdk/client-finspace-data"); // CommonJS import
+ * import { FinspaceDataClient, ListDataViewsCommand } from '@aws-sdk/client-finspace-data'; // ES Modules import
+ * // const { FinspaceDataClient, ListDataViewsCommand } = require('@aws-sdk/client-finspace-data'); // CommonJS import
  * const client = new FinspaceDataClient(config);
  * const input = { // ListDataViewsRequest
- *   datasetId: "STRING_VALUE", // required
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   datasetId: 'STRING_VALUE', // required
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new ListDataViewsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListDataViewsResponse
+ *   nextToken: 'STRING_VALUE',
+ *   dataViews: [ // DataViewList
+ *     { // DataViewSummary
+ *       dataViewId: 'STRING_VALUE',
+ *       dataViewArn: 'STRING_VALUE',
+ *       datasetId: 'STRING_VALUE',
+ *       asOfTimestamp: Number('long'),
+ *       partitionColumns: [ // PartitionColumnList
+ *         'STRING_VALUE',
+ *       ],
+ *       sortColumns: [ // SortColumnList
+ *         'STRING_VALUE',
+ *       ],
+ *       status: 'STRING_VALUE',
+ *       errorInfo: { // DataViewErrorInfo
+ *         errorMessage: 'STRING_VALUE',
+ *         errorCategory: 'STRING_VALUE',
+ *       },
+ *       destinationTypeProperties: { // DataViewDestinationTypeParams
+ *         destinationType: 'STRING_VALUE', // required
+ *         s3DestinationExportFileFormat: 'STRING_VALUE',
+ *         s3DestinationExportFileFormatOptions: { // S3DestinationFormatOptions
+ *           '<keys>': 'STRING_VALUE',
+ *         },
+ *       },
+ *       autoUpdate: true || false,
+ *       createTime: Number('long'),
+ *       lastModifiedTime: Number('long'),
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListDataViewsCommandInput - {@link ListDataViewsCommandInput}
@@ -70,6 +104,8 @@ export interface ListDataViewsCommandOutput extends ListDataViewsResponse, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link FinspaceDataServiceException}
+ * <p>Base exception class for all service exceptions from FinspaceData service.</p>
  *
  */
 export class ListDataViewsCommand extends $Command<

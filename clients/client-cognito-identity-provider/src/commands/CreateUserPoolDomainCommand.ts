@@ -41,18 +41,23 @@ export interface CreateUserPoolDomainCommandOutput extends CreateUserPoolDomainR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CognitoIdentityProviderClient, CreateUserPoolDomainCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
- * // const { CognitoIdentityProviderClient, CreateUserPoolDomainCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
+ * import { CognitoIdentityProviderClient, CreateUserPoolDomainCommand } from '@aws-sdk/client-cognito-identity-provider'; // ES Modules import
+ * // const { CognitoIdentityProviderClient, CreateUserPoolDomainCommand } = require('@aws-sdk/client-cognito-identity-provider'); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
  * const input = { // CreateUserPoolDomainRequest
- *   Domain: "STRING_VALUE", // required
- *   UserPoolId: "STRING_VALUE", // required
+ *   Domain: 'STRING_VALUE', // required
+ *   UserPoolId: 'STRING_VALUE', // required
  *   CustomDomainConfig: { // CustomDomainConfigType
- *     CertificateArn: "STRING_VALUE", // required
+ *     CertificateArn: 'STRING_VALUE', // required
  *   },
  * };
  * const command = new CreateUserPoolDomainCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateUserPoolDomainResponse
+ *   CloudFrontDomain: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateUserPoolDomainCommandInput - {@link CreateUserPoolDomainCommandInput}
@@ -79,6 +84,8 @@ export interface CreateUserPoolDomainCommandOutput extends CreateUserPoolDomainR
  *  <p>This exception is thrown when the Amazon Cognito service can't find the requested
  *             resource.</p>
  *
+ * @throws {@link CognitoIdentityProviderServiceException}
+ * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
  */
 export class CreateUserPoolDomainCommand extends $Command<

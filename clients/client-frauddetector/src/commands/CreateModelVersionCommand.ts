@@ -37,45 +37,53 @@ export interface CreateModelVersionCommandOutput extends CreateModelVersionResul
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FraudDetectorClient, CreateModelVersionCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
- * // const { FraudDetectorClient, CreateModelVersionCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
+ * import { FraudDetectorClient, CreateModelVersionCommand } from '@aws-sdk/client-frauddetector'; // ES Modules import
+ * // const { FraudDetectorClient, CreateModelVersionCommand } = require('@aws-sdk/client-frauddetector'); // CommonJS import
  * const client = new FraudDetectorClient(config);
  * const input = { // CreateModelVersionRequest
- *   modelId: "STRING_VALUE", // required
- *   modelType: "ONLINE_FRAUD_INSIGHTS" || "TRANSACTION_FRAUD_INSIGHTS" || "ACCOUNT_TAKEOVER_INSIGHTS", // required
- *   trainingDataSource: "EXTERNAL_EVENTS" || "INGESTED_EVENTS", // required
+ *   modelId: 'STRING_VALUE', // required
+ *   modelType: 'ONLINE_FRAUD_INSIGHTS' || 'TRANSACTION_FRAUD_INSIGHTS' || 'ACCOUNT_TAKEOVER_INSIGHTS', // required
+ *   trainingDataSource: 'EXTERNAL_EVENTS' || 'INGESTED_EVENTS', // required
  *   trainingDataSchema: { // TrainingDataSchema
  *     modelVariables: [ // ListOfStrings // required
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     labelSchema: { // LabelSchema
  *       labelMapper: { // labelMapper
- *         "<keys>": [
- *           "STRING_VALUE",
+ *         '<keys>': [
+ *           'STRING_VALUE',
  *         ],
  *       },
- *       unlabeledEventsTreatment: "IGNORE" || "FRAUD" || "LEGIT" || "AUTO",
+ *       unlabeledEventsTreatment: 'IGNORE' || 'FRAUD' || 'LEGIT' || 'AUTO',
  *     },
  *   },
  *   externalEventsDetail: { // ExternalEventsDetail
- *     dataLocation: "STRING_VALUE", // required
- *     dataAccessRoleArn: "STRING_VALUE", // required
+ *     dataLocation: 'STRING_VALUE', // required
+ *     dataAccessRoleArn: 'STRING_VALUE', // required
  *   },
  *   ingestedEventsDetail: { // IngestedEventsDetail
  *     ingestedEventsTimeWindow: { // IngestedEventsTimeWindow
- *       startTime: "STRING_VALUE", // required
- *       endTime: "STRING_VALUE", // required
+ *       startTime: 'STRING_VALUE', // required
+ *       endTime: 'STRING_VALUE', // required
  *     },
  *   },
  *   tags: [ // tagList
  *     { // Tag
- *       key: "STRING_VALUE", // required
- *       value: "STRING_VALUE", // required
+ *       key: 'STRING_VALUE', // required
+ *       value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreateModelVersionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateModelVersionResult
+ *   modelId: 'STRING_VALUE',
+ *   modelType: 'ONLINE_FRAUD_INSIGHTS' || 'TRANSACTION_FRAUD_INSIGHTS' || 'ACCOUNT_TAKEOVER_INSIGHTS',
+ *   modelVersionNumber: 'STRING_VALUE',
+ *   status: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateModelVersionCommandInput - {@link CreateModelVersionCommandInput}
@@ -99,6 +107,8 @@ export interface CreateModelVersionCommandOutput extends CreateModelVersionResul
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception indicating a specified value is not allowed.</p>
  *
+ * @throws {@link FraudDetectorServiceException}
+ * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
  */
 export class CreateModelVersionCommand extends $Command<

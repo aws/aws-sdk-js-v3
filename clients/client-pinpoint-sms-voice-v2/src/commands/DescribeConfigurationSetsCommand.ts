@@ -46,26 +46,60 @@ export interface DescribeConfigurationSetsCommandOutput extends DescribeConfigur
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PinpointSMSVoiceV2Client, DescribeConfigurationSetsCommand } from "@aws-sdk/client-pinpoint-sms-voice-v2"; // ES Modules import
- * // const { PinpointSMSVoiceV2Client, DescribeConfigurationSetsCommand } = require("@aws-sdk/client-pinpoint-sms-voice-v2"); // CommonJS import
+ * import { PinpointSMSVoiceV2Client, DescribeConfigurationSetsCommand } from '@aws-sdk/client-pinpoint-sms-voice-v2'; // ES Modules import
+ * // const { PinpointSMSVoiceV2Client, DescribeConfigurationSetsCommand } = require('@aws-sdk/client-pinpoint-sms-voice-v2'); // CommonJS import
  * const client = new PinpointSMSVoiceV2Client(config);
  * const input = { // DescribeConfigurationSetsRequest
  *   ConfigurationSetNames: [ // ConfigurationSetNameList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   Filters: [ // ConfigurationSetFilterList
  *     { // ConfigurationSetFilter
- *       Name: "STRING_VALUE", // required
+ *       Name: 'STRING_VALUE', // required
  *       Values: [ // FilterValueList // required
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new DescribeConfigurationSetsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeConfigurationSetsResult
+ *   ConfigurationSets: [ // ConfigurationSetInformationList
+ *     { // ConfigurationSetInformation
+ *       ConfigurationSetArn: 'STRING_VALUE', // required
+ *       ConfigurationSetName: 'STRING_VALUE', // required
+ *       EventDestinations: [ // EventDestinationList // required
+ *         { // EventDestination
+ *           EventDestinationName: 'STRING_VALUE', // required
+ *           Enabled: true || false, // required
+ *           MatchingEventTypes: [ // EventTypeList // required
+ *             'STRING_VALUE',
+ *           ],
+ *           CloudWatchLogsDestination: { // CloudWatchLogsDestination
+ *             IamRoleArn: 'STRING_VALUE', // required
+ *             LogGroupArn: 'STRING_VALUE', // required
+ *           },
+ *           KinesisFirehoseDestination: { // KinesisFirehoseDestination
+ *             IamRoleArn: 'STRING_VALUE', // required
+ *             DeliveryStreamArn: 'STRING_VALUE', // required
+ *           },
+ *           SnsDestination: { // SnsDestination
+ *             TopicArn: 'STRING_VALUE', // required
+ *           },
+ *         },
+ *       ],
+ *       DefaultMessageType: 'STRING_VALUE',
+ *       DefaultSenderId: 'STRING_VALUE',
+ *       CreatedTimestamp: new Date('TIMESTAMP'), // required
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeConfigurationSetsCommandInput - {@link DescribeConfigurationSetsCommandInput}
@@ -92,6 +126,8 @@ export interface DescribeConfigurationSetsCommandOutput extends DescribeConfigur
  * @throws {@link ValidationException} (client fault)
  *  <p>A validation exception for a field.</p>
  *
+ * @throws {@link PinpointSMSVoiceV2ServiceException}
+ * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
  *
  */
 export class DescribeConfigurationSetsCommand extends $Command<

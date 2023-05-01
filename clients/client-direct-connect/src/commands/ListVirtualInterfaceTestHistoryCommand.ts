@@ -41,21 +41,40 @@ export interface ListVirtualInterfaceTestHistoryCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DirectConnectClient, ListVirtualInterfaceTestHistoryCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
- * // const { DirectConnectClient, ListVirtualInterfaceTestHistoryCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
+ * import { DirectConnectClient, ListVirtualInterfaceTestHistoryCommand } from '@aws-sdk/client-direct-connect'; // ES Modules import
+ * // const { DirectConnectClient, ListVirtualInterfaceTestHistoryCommand } = require('@aws-sdk/client-direct-connect'); // CommonJS import
  * const client = new DirectConnectClient(config);
  * const input = { // ListVirtualInterfaceTestHistoryRequest
- *   testId: "STRING_VALUE",
- *   virtualInterfaceId: "STRING_VALUE",
+ *   testId: 'STRING_VALUE',
+ *   virtualInterfaceId: 'STRING_VALUE',
  *   bgpPeers: [ // BGPPeerIdList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   status: "STRING_VALUE",
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   status: 'STRING_VALUE',
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new ListVirtualInterfaceTestHistoryCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListVirtualInterfaceTestHistoryResponse
+ *   virtualInterfaceTestHistory: [ // VirtualInterfaceTestHistoryList
+ *     { // VirtualInterfaceTestHistory
+ *       testId: 'STRING_VALUE',
+ *       virtualInterfaceId: 'STRING_VALUE',
+ *       bgpPeers: [ // BGPPeerIdList
+ *         'STRING_VALUE',
+ *       ],
+ *       status: 'STRING_VALUE',
+ *       ownerAccount: 'STRING_VALUE',
+ *       testDurationInMinutes: Number('int'),
+ *       startTime: new Date('TIMESTAMP'),
+ *       endTime: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListVirtualInterfaceTestHistoryCommandInput - {@link ListVirtualInterfaceTestHistoryCommandInput}
@@ -70,6 +89,8 @@ export interface ListVirtualInterfaceTestHistoryCommandOutput
  * @throws {@link DirectConnectServerException} (server fault)
  *  <p>A server-side error occurred.</p>
  *
+ * @throws {@link DirectConnectServiceException}
+ * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
  */
 export class ListVirtualInterfaceTestHistoryCommand extends $Command<

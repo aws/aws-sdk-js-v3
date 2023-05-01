@@ -45,15 +45,18 @@ export interface VerifySMSSandboxPhoneNumberCommandOutput extends VerifySMSSandb
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SNSClient, VerifySMSSandboxPhoneNumberCommand } from "@aws-sdk/client-sns"; // ES Modules import
- * // const { SNSClient, VerifySMSSandboxPhoneNumberCommand } = require("@aws-sdk/client-sns"); // CommonJS import
+ * import { SNSClient, VerifySMSSandboxPhoneNumberCommand } from '@aws-sdk/client-sns'; // ES Modules import
+ * // const { SNSClient, VerifySMSSandboxPhoneNumberCommand } = require('@aws-sdk/client-sns'); // CommonJS import
  * const client = new SNSClient(config);
  * const input = { // VerifySMSSandboxPhoneNumberInput
- *   PhoneNumber: "STRING_VALUE", // required
- *   OneTimePassword: "STRING_VALUE", // required
+ *   PhoneNumber: 'STRING_VALUE', // required
+ *   OneTimePassword: 'STRING_VALUE', // required
  * };
  * const command = new VerifySMSSandboxPhoneNumberCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param VerifySMSSandboxPhoneNumberCommandInput - {@link VerifySMSSandboxPhoneNumberCommandInput}
@@ -82,6 +85,8 @@ export interface VerifySMSSandboxPhoneNumberCommandOutput extends VerifySMSSandb
  * @throws {@link VerificationException} (client fault)
  *  <p>Indicates that the one-time password (OTP) used for verification is invalid.</p>
  *
+ * @throws {@link SNSServiceException}
+ * <p>Base exception class for all service exceptions from SNS service.</p>
  *
  */
 export class VerifySMSSandboxPhoneNumberCommand extends $Command<

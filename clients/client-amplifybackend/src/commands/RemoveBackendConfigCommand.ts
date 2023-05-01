@@ -36,14 +36,19 @@ export interface RemoveBackendConfigCommandOutput extends RemoveBackendConfigRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AmplifyBackendClient, RemoveBackendConfigCommand } from "@aws-sdk/client-amplifybackend"; // ES Modules import
- * // const { AmplifyBackendClient, RemoveBackendConfigCommand } = require("@aws-sdk/client-amplifybackend"); // CommonJS import
+ * import { AmplifyBackendClient, RemoveBackendConfigCommand } from '@aws-sdk/client-amplifybackend'; // ES Modules import
+ * // const { AmplifyBackendClient, RemoveBackendConfigCommand } = require('@aws-sdk/client-amplifybackend'); // CommonJS import
  * const client = new AmplifyBackendClient(config);
  * const input = { // RemoveBackendConfigRequest
- *   AppId: "STRING_VALUE", // required
+ *   AppId: 'STRING_VALUE', // required
  * };
  * const command = new RemoveBackendConfigCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // RemoveBackendConfigResponse
+ *   Error: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param RemoveBackendConfigCommandInput - {@link RemoveBackendConfigCommandInput}
@@ -64,6 +69,8 @@ export interface RemoveBackendConfigCommandOutput extends RemoveBackendConfigRes
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>An error that is returned when a limit of a specific type has been exceeded.</p>
  *
+ * @throws {@link AmplifyBackendServiceException}
+ * <p>Base exception class for all service exceptions from AmplifyBackend service.</p>
  *
  */
 export class RemoveBackendConfigCommand extends $Command<

@@ -49,23 +49,28 @@ export interface UpdateAutomaticTapeCreationPolicyCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { StorageGatewayClient, UpdateAutomaticTapeCreationPolicyCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
- * // const { StorageGatewayClient, UpdateAutomaticTapeCreationPolicyCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
+ * import { StorageGatewayClient, UpdateAutomaticTapeCreationPolicyCommand } from '@aws-sdk/client-storage-gateway'; // ES Modules import
+ * // const { StorageGatewayClient, UpdateAutomaticTapeCreationPolicyCommand } = require('@aws-sdk/client-storage-gateway'); // CommonJS import
  * const client = new StorageGatewayClient(config);
  * const input = { // UpdateAutomaticTapeCreationPolicyInput
  *   AutomaticTapeCreationRules: [ // AutomaticTapeCreationRules // required
  *     { // AutomaticTapeCreationRule
- *       TapeBarcodePrefix: "STRING_VALUE", // required
- *       PoolId: "STRING_VALUE", // required
- *       TapeSizeInBytes: Number("long"), // required
- *       MinimumNumTapes: Number("int"), // required
+ *       TapeBarcodePrefix: 'STRING_VALUE', // required
+ *       PoolId: 'STRING_VALUE', // required
+ *       TapeSizeInBytes: Number('long'), // required
+ *       MinimumNumTapes: Number('int'), // required
  *       Worm: true || false,
  *     },
  *   ],
- *   GatewayARN: "STRING_VALUE", // required
+ *   GatewayARN: 'STRING_VALUE', // required
  * };
  * const command = new UpdateAutomaticTapeCreationPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateAutomaticTapeCreationPolicyOutput
+ *   GatewayARN: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateAutomaticTapeCreationPolicyCommandInput - {@link UpdateAutomaticTapeCreationPolicyCommandInput}
@@ -82,6 +87,8 @@ export interface UpdateAutomaticTapeCreationPolicyCommandOutput
  *  <p>An exception occurred because an invalid gateway request was issued to the service. For
  *          more information, see the error and message fields.</p>
  *
+ * @throws {@link StorageGatewayServiceException}
+ * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
  */
 export class UpdateAutomaticTapeCreationPolicyCommand extends $Command<

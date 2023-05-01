@@ -36,31 +36,39 @@ export interface CreateFHIRDatastoreCommandOutput extends CreateFHIRDatastoreRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { HealthLakeClient, CreateFHIRDatastoreCommand } from "@aws-sdk/client-healthlake"; // ES Modules import
- * // const { HealthLakeClient, CreateFHIRDatastoreCommand } = require("@aws-sdk/client-healthlake"); // CommonJS import
+ * import { HealthLakeClient, CreateFHIRDatastoreCommand } from '@aws-sdk/client-healthlake'; // ES Modules import
+ * // const { HealthLakeClient, CreateFHIRDatastoreCommand } = require('@aws-sdk/client-healthlake'); // CommonJS import
  * const client = new HealthLakeClient(config);
  * const input = { // CreateFHIRDatastoreRequest
- *   DatastoreName: "STRING_VALUE",
- *   DatastoreTypeVersion: "STRING_VALUE", // required
+ *   DatastoreName: 'STRING_VALUE',
+ *   DatastoreTypeVersion: 'STRING_VALUE', // required
  *   SseConfiguration: { // SseConfiguration
  *     KmsEncryptionConfig: { // KmsEncryptionConfig
- *       CmkType: "STRING_VALUE", // required
- *       KmsKeyId: "STRING_VALUE",
+ *       CmkType: 'STRING_VALUE', // required
+ *       KmsKeyId: 'STRING_VALUE',
  *     },
  *   },
  *   PreloadDataConfig: { // PreloadDataConfig
- *     PreloadDataType: "STRING_VALUE", // required
+ *     PreloadDataType: 'STRING_VALUE', // required
  *   },
- *   ClientToken: "STRING_VALUE",
+ *   ClientToken: 'STRING_VALUE',
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreateFHIRDatastoreCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateFHIRDatastoreResponse
+ *   DatastoreId: 'STRING_VALUE', // required
+ *   DatastoreArn: 'STRING_VALUE', // required
+ *   DatastoreStatus: 'STRING_VALUE', // required
+ *   DatastoreEndpoint: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param CreateFHIRDatastoreCommandInput - {@link CreateFHIRDatastoreCommandInput}
@@ -81,6 +89,8 @@ export interface CreateFHIRDatastoreCommandOutput extends CreateFHIRDatastoreRes
  * @throws {@link ValidationException} (client fault)
  *  <p>The user input parameter was invalid.</p>
  *
+ * @throws {@link HealthLakeServiceException}
+ * <p>Base exception class for all service exceptions from HealthLake service.</p>
  *
  */
 export class CreateFHIRDatastoreCommand extends $Command<

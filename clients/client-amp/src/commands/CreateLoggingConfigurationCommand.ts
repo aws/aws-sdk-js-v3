@@ -36,16 +36,24 @@ export interface CreateLoggingConfigurationCommandOutput extends CreateLoggingCo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AmpClient, CreateLoggingConfigurationCommand } from "@aws-sdk/client-amp"; // ES Modules import
- * // const { AmpClient, CreateLoggingConfigurationCommand } = require("@aws-sdk/client-amp"); // CommonJS import
+ * import { AmpClient, CreateLoggingConfigurationCommand } from '@aws-sdk/client-amp'; // ES Modules import
+ * // const { AmpClient, CreateLoggingConfigurationCommand } = require('@aws-sdk/client-amp'); // CommonJS import
  * const client = new AmpClient(config);
  * const input = { // CreateLoggingConfigurationRequest
- *   workspaceId: "STRING_VALUE", // required
- *   logGroupArn: "STRING_VALUE", // required
- *   clientToken: "STRING_VALUE",
+ *   workspaceId: 'STRING_VALUE', // required
+ *   logGroupArn: 'STRING_VALUE', // required
+ *   clientToken: 'STRING_VALUE',
  * };
  * const command = new CreateLoggingConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateLoggingConfigurationResponse
+ *   status: { // LoggingConfigurationStatus
+ *     statusCode: 'STRING_VALUE', // required
+ *     statusReason: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateLoggingConfigurationCommandInput - {@link CreateLoggingConfigurationCommandInput}
@@ -66,6 +74,8 @@ export interface CreateLoggingConfigurationCommandOutput extends CreateLoggingCo
  * @throws {@link ValidationException} (client fault)
  *  The input fails to satisfy the constraints specified by an AWS service.
  *
+ * @throws {@link AmpServiceException}
+ * <p>Base exception class for all service exceptions from Amp service.</p>
  *
  */
 export class CreateLoggingConfigurationCommand extends $Command<

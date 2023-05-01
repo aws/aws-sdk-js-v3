@@ -36,32 +36,40 @@ export interface UpdateModelVersionCommandOutput extends UpdateModelVersionResul
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FraudDetectorClient, UpdateModelVersionCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
- * // const { FraudDetectorClient, UpdateModelVersionCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
+ * import { FraudDetectorClient, UpdateModelVersionCommand } from '@aws-sdk/client-frauddetector'; // ES Modules import
+ * // const { FraudDetectorClient, UpdateModelVersionCommand } = require('@aws-sdk/client-frauddetector'); // CommonJS import
  * const client = new FraudDetectorClient(config);
  * const input = { // UpdateModelVersionRequest
- *   modelId: "STRING_VALUE", // required
- *   modelType: "ONLINE_FRAUD_INSIGHTS" || "TRANSACTION_FRAUD_INSIGHTS" || "ACCOUNT_TAKEOVER_INSIGHTS", // required
- *   majorVersionNumber: "STRING_VALUE", // required
+ *   modelId: 'STRING_VALUE', // required
+ *   modelType: 'ONLINE_FRAUD_INSIGHTS' || 'TRANSACTION_FRAUD_INSIGHTS' || 'ACCOUNT_TAKEOVER_INSIGHTS', // required
+ *   majorVersionNumber: 'STRING_VALUE', // required
  *   externalEventsDetail: { // ExternalEventsDetail
- *     dataLocation: "STRING_VALUE", // required
- *     dataAccessRoleArn: "STRING_VALUE", // required
+ *     dataLocation: 'STRING_VALUE', // required
+ *     dataAccessRoleArn: 'STRING_VALUE', // required
  *   },
  *   ingestedEventsDetail: { // IngestedEventsDetail
  *     ingestedEventsTimeWindow: { // IngestedEventsTimeWindow
- *       startTime: "STRING_VALUE", // required
- *       endTime: "STRING_VALUE", // required
+ *       startTime: 'STRING_VALUE', // required
+ *       endTime: 'STRING_VALUE', // required
  *     },
  *   },
  *   tags: [ // tagList
  *     { // Tag
- *       key: "STRING_VALUE", // required
- *       value: "STRING_VALUE", // required
+ *       key: 'STRING_VALUE', // required
+ *       value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new UpdateModelVersionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateModelVersionResult
+ *   modelId: 'STRING_VALUE',
+ *   modelType: 'ONLINE_FRAUD_INSIGHTS' || 'TRANSACTION_FRAUD_INSIGHTS' || 'ACCOUNT_TAKEOVER_INSIGHTS',
+ *   modelVersionNumber: 'STRING_VALUE',
+ *   status: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateModelVersionCommandInput - {@link UpdateModelVersionCommandInput}
@@ -88,6 +96,8 @@ export interface UpdateModelVersionCommandOutput extends UpdateModelVersionResul
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception indicating a specified value is not allowed.</p>
  *
+ * @throws {@link FraudDetectorServiceException}
+ * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
  */
 export class UpdateModelVersionCommand extends $Command<

@@ -36,15 +36,22 @@ export interface DescribeAppVersionTemplateCommandOutput extends DescribeAppVers
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ResiliencehubClient, DescribeAppVersionTemplateCommand } from "@aws-sdk/client-resiliencehub"; // ES Modules import
- * // const { ResiliencehubClient, DescribeAppVersionTemplateCommand } = require("@aws-sdk/client-resiliencehub"); // CommonJS import
+ * import { ResiliencehubClient, DescribeAppVersionTemplateCommand } from '@aws-sdk/client-resiliencehub'; // ES Modules import
+ * // const { ResiliencehubClient, DescribeAppVersionTemplateCommand } = require('@aws-sdk/client-resiliencehub'); // CommonJS import
  * const client = new ResiliencehubClient(config);
  * const input = { // DescribeAppVersionTemplateRequest
- *   appArn: "STRING_VALUE", // required
- *   appVersion: "STRING_VALUE", // required
+ *   appArn: 'STRING_VALUE', // required
+ *   appVersion: 'STRING_VALUE', // required
  * };
  * const command = new DescribeAppVersionTemplateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeAppVersionTemplateResponse
+ *   appArn: 'STRING_VALUE', // required
+ *   appVersion: 'STRING_VALUE', // required
+ *   appTemplateBody: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param DescribeAppVersionTemplateCommandInput - {@link DescribeAppVersionTemplateCommandInput}
@@ -71,6 +78,8 @@ export interface DescribeAppVersionTemplateCommandOutput extends DescribeAppVers
  * @throws {@link ValidationException} (client fault)
  *  <p>This exception occurs when a request is not valid.</p>
  *
+ * @throws {@link ResiliencehubServiceException}
+ * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
  */
 export class DescribeAppVersionTemplateCommand extends $Command<

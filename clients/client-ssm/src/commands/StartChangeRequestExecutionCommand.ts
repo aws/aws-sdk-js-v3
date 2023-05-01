@@ -38,64 +38,64 @@ export interface StartChangeRequestExecutionCommandOutput extends StartChangeReq
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMClient, StartChangeRequestExecutionCommand } from "@aws-sdk/client-ssm"; // ES Modules import
- * // const { SSMClient, StartChangeRequestExecutionCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * import { SSMClient, StartChangeRequestExecutionCommand } from '@aws-sdk/client-ssm'; // ES Modules import
+ * // const { SSMClient, StartChangeRequestExecutionCommand } = require('@aws-sdk/client-ssm'); // CommonJS import
  * const client = new SSMClient(config);
  * const input = { // StartChangeRequestExecutionRequest
- *   ScheduledTime: new Date("TIMESTAMP"),
- *   DocumentName: "STRING_VALUE", // required
- *   DocumentVersion: "STRING_VALUE",
+ *   ScheduledTime: new Date('TIMESTAMP'),
+ *   DocumentName: 'STRING_VALUE', // required
+ *   DocumentVersion: 'STRING_VALUE',
  *   Parameters: { // AutomationParameterMap
- *     "<keys>": [ // AutomationParameterValueList
- *       "STRING_VALUE",
+ *     '<keys>': [ // AutomationParameterValueList
+ *       'STRING_VALUE',
  *     ],
  *   },
- *   ChangeRequestName: "STRING_VALUE",
- *   ClientToken: "STRING_VALUE",
+ *   ChangeRequestName: 'STRING_VALUE',
+ *   ClientToken: 'STRING_VALUE',
  *   AutoApprove: true || false,
  *   Runbooks: [ // Runbooks // required
  *     { // Runbook
- *       DocumentName: "STRING_VALUE", // required
- *       DocumentVersion: "STRING_VALUE",
+ *       DocumentName: 'STRING_VALUE', // required
+ *       DocumentVersion: 'STRING_VALUE',
  *       Parameters: {
- *         "<keys>": [
- *           "STRING_VALUE",
+ *         '<keys>': [
+ *           'STRING_VALUE',
  *         ],
  *       },
- *       TargetParameterName: "STRING_VALUE",
+ *       TargetParameterName: 'STRING_VALUE',
  *       Targets: [ // Targets
  *         { // Target
- *           Key: "STRING_VALUE",
+ *           Key: 'STRING_VALUE',
  *           Values: [ // TargetValues
- *             "STRING_VALUE",
+ *             'STRING_VALUE',
  *           ],
  *         },
  *       ],
  *       TargetMaps: [ // TargetMaps
  *         { // TargetMap
- *           "<keys>": [ // TargetMapValueList
- *             "STRING_VALUE",
+ *           '<keys>': [ // TargetMapValueList
+ *             'STRING_VALUE',
  *           ],
  *         },
  *       ],
- *       MaxConcurrency: "STRING_VALUE",
- *       MaxErrors: "STRING_VALUE",
+ *       MaxConcurrency: 'STRING_VALUE',
+ *       MaxErrors: 'STRING_VALUE',
  *       TargetLocations: [ // TargetLocations
  *         { // TargetLocation
  *           Accounts: [ // Accounts
- *             "STRING_VALUE",
+ *             'STRING_VALUE',
  *           ],
  *           Regions: [ // Regions
- *             "STRING_VALUE",
+ *             'STRING_VALUE',
  *           ],
- *           TargetLocationMaxConcurrency: "STRING_VALUE",
- *           TargetLocationMaxErrors: "STRING_VALUE",
- *           ExecutionRoleName: "STRING_VALUE",
+ *           TargetLocationMaxConcurrency: 'STRING_VALUE',
+ *           TargetLocationMaxErrors: 'STRING_VALUE',
+ *           ExecutionRoleName: 'STRING_VALUE',
  *           TargetLocationAlarmConfiguration: { // AlarmConfiguration
  *             IgnorePollAlarmFailure: true || false,
  *             Alarms: [ // AlarmList // required
  *               { // Alarm
- *                 Name: "STRING_VALUE", // required
+ *                 Name: 'STRING_VALUE', // required
  *               },
  *             ],
  *           },
@@ -105,15 +105,20 @@ export interface StartChangeRequestExecutionCommandOutput extends StartChangeReq
  *   ],
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
- *   ScheduledEndTime: new Date("TIMESTAMP"),
- *   ChangeDetails: "STRING_VALUE",
+ *   ScheduledEndTime: new Date('TIMESTAMP'),
+ *   ChangeDetails: 'STRING_VALUE',
  * };
  * const command = new StartChangeRequestExecutionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartChangeRequestExecutionResult
+ *   AutomationExecutionId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param StartChangeRequestExecutionCommandInput - {@link StartChangeRequestExecutionCommandInput}
@@ -148,6 +153,8 @@ export interface StartChangeRequestExecutionCommandOutput extends StartChangeReq
  *    example, they may not match the set of parameters permitted for the specified Automation
  *    document.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class StartChangeRequestExecutionCommand extends $Command<

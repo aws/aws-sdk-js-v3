@@ -42,16 +42,26 @@ export interface ListRecoveryPointsByLegalHoldCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BackupClient, ListRecoveryPointsByLegalHoldCommand } from "@aws-sdk/client-backup"; // ES Modules import
- * // const { BackupClient, ListRecoveryPointsByLegalHoldCommand } = require("@aws-sdk/client-backup"); // CommonJS import
+ * import { BackupClient, ListRecoveryPointsByLegalHoldCommand } from '@aws-sdk/client-backup'; // ES Modules import
+ * // const { BackupClient, ListRecoveryPointsByLegalHoldCommand } = require('@aws-sdk/client-backup'); // CommonJS import
  * const client = new BackupClient(config);
  * const input = { // ListRecoveryPointsByLegalHoldInput
- *   LegalHoldId: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   LegalHoldId: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListRecoveryPointsByLegalHoldCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListRecoveryPointsByLegalHoldOutput
+ *   RecoveryPoints: [ // RecoveryPointsList
+ *     { // RecoveryPointMember
+ *       RecoveryPointArn: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListRecoveryPointsByLegalHoldCommandInput - {@link ListRecoveryPointsByLegalHoldCommandInput}
@@ -70,6 +80,8 @@ export interface ListRecoveryPointsByLegalHoldCommandOutput
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request failed due to a temporary failure of the server.</p>
  *
+ * @throws {@link BackupServiceException}
+ * <p>Base exception class for all service exceptions from Backup service.</p>
  *
  */
 export class ListRecoveryPointsByLegalHoldCommand extends $Command<

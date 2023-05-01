@@ -41,16 +41,39 @@ export interface BatchGetMembershipDatasourcesCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DetectiveClient, BatchGetMembershipDatasourcesCommand } from "@aws-sdk/client-detective"; // ES Modules import
- * // const { DetectiveClient, BatchGetMembershipDatasourcesCommand } = require("@aws-sdk/client-detective"); // CommonJS import
+ * import { DetectiveClient, BatchGetMembershipDatasourcesCommand } from '@aws-sdk/client-detective'; // ES Modules import
+ * // const { DetectiveClient, BatchGetMembershipDatasourcesCommand } = require('@aws-sdk/client-detective'); // CommonJS import
  * const client = new DetectiveClient(config);
  * const input = { // BatchGetMembershipDatasourcesRequest
  *   GraphArns: [ // GraphArnList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new BatchGetMembershipDatasourcesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BatchGetMembershipDatasourcesResponse
+ *   MembershipDatasources: [ // MembershipDatasourcesList
+ *     { // MembershipDatasources
+ *       AccountId: 'STRING_VALUE',
+ *       GraphArn: 'STRING_VALUE',
+ *       DatasourcePackageIngestHistory: { // DatasourcePackageIngestHistory
+ *         '<keys>': { // LastIngestStateChangeDates
+ *           '<keys>': { // TimestampForCollection
+ *             Timestamp: new Date('TIMESTAMP'),
+ *           },
+ *         },
+ *       },
+ *     },
+ *   ],
+ *   UnprocessedGraphs: [ // UnprocessedGraphList
+ *     { // UnprocessedGraph
+ *       GraphArn: 'STRING_VALUE',
+ *       Reason: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param BatchGetMembershipDatasourcesCommandInput - {@link BatchGetMembershipDatasourcesCommandInput}
@@ -72,6 +95,8 @@ export interface BatchGetMembershipDatasourcesCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The request parameters are invalid.</p>
  *
+ * @throws {@link DetectiveServiceException}
+ * <p>Base exception class for all service exceptions from Detective service.</p>
  *
  */
 export class BatchGetMembershipDatasourcesCommand extends $Command<

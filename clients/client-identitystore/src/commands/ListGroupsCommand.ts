@@ -42,22 +42,41 @@ export interface ListGroupsCommandOutput extends ListGroupsResponse, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IdentitystoreClient, ListGroupsCommand } from "@aws-sdk/client-identitystore"; // ES Modules import
- * // const { IdentitystoreClient, ListGroupsCommand } = require("@aws-sdk/client-identitystore"); // CommonJS import
+ * import { IdentitystoreClient, ListGroupsCommand } from '@aws-sdk/client-identitystore'; // ES Modules import
+ * // const { IdentitystoreClient, ListGroupsCommand } = require('@aws-sdk/client-identitystore'); // CommonJS import
  * const client = new IdentitystoreClient(config);
  * const input = { // ListGroupsRequest
- *   IdentityStoreId: "STRING_VALUE", // required
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   IdentityStoreId: 'STRING_VALUE', // required
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  *   Filters: [ // Filters
  *     { // Filter
- *       AttributePath: "STRING_VALUE", // required
- *       AttributeValue: "STRING_VALUE", // required
+ *       AttributePath: 'STRING_VALUE', // required
+ *       AttributeValue: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new ListGroupsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListGroupsResponse
+ *   Groups: [ // Groups // required
+ *     { // Group
+ *       GroupId: 'STRING_VALUE', // required
+ *       DisplayName: 'STRING_VALUE',
+ *       ExternalIds: [ // ExternalIds
+ *         { // ExternalId
+ *           Issuer: 'STRING_VALUE', // required
+ *           Id: 'STRING_VALUE', // required
+ *         },
+ *       ],
+ *       Description: 'STRING_VALUE',
+ *       IdentityStoreId: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListGroupsCommandInput - {@link ListGroupsCommandInput}
@@ -81,6 +100,8 @@ export interface ListGroupsCommandOutput extends ListGroupsResponse, __MetadataB
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Indicates that the principal has crossed the throttling limits of the API operations.</p>
  *
+ * @throws {@link IdentitystoreServiceException}
+ * <p>Base exception class for all service exceptions from Identitystore service.</p>
  *
  */
 export class ListGroupsCommand extends $Command<

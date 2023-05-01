@@ -75,14 +75,14 @@ export interface CreateMultiRegionAccessPointCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { S3ControlClient, CreateMultiRegionAccessPointCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
- * // const { S3ControlClient, CreateMultiRegionAccessPointCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
+ * import { S3ControlClient, CreateMultiRegionAccessPointCommand } from '@aws-sdk/client-s3-control'; // ES Modules import
+ * // const { S3ControlClient, CreateMultiRegionAccessPointCommand } = require('@aws-sdk/client-s3-control'); // CommonJS import
  * const client = new S3ControlClient(config);
  * const input = { // CreateMultiRegionAccessPointRequest
- *   AccountId: "STRING_VALUE",
- *   ClientToken: "STRING_VALUE", // required
+ *   AccountId: 'STRING_VALUE',
+ *   ClientToken: 'STRING_VALUE', // required
  *   Details: { // CreateMultiRegionAccessPointInput
- *     Name: "STRING_VALUE", // required
+ *     Name: 'STRING_VALUE', // required
  *     PublicAccessBlock: { // PublicAccessBlockConfiguration
  *       BlockPublicAcls: true || false,
  *       IgnorePublicAcls: true || false,
@@ -91,14 +91,19 @@ export interface CreateMultiRegionAccessPointCommandOutput
  *     },
  *     Regions: [ // RegionCreationList // required
  *       { // Region
- *         Bucket: "STRING_VALUE", // required
- *         BucketAccountId: "STRING_VALUE",
+ *         Bucket: 'STRING_VALUE', // required
+ *         BucketAccountId: 'STRING_VALUE',
  *       },
  *     ],
  *   },
  * };
  * const command = new CreateMultiRegionAccessPointCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateMultiRegionAccessPointResult
+ *   RequestTokenARN: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateMultiRegionAccessPointCommandInput - {@link CreateMultiRegionAccessPointCommandInput}
@@ -107,6 +112,8 @@ export interface CreateMultiRegionAccessPointCommandOutput
  * @see {@link CreateMultiRegionAccessPointCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
  *
+ * @throws {@link S3ControlServiceException}
+ * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
  */
 export class CreateMultiRegionAccessPointCommand extends $Command<

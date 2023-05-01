@@ -44,16 +44,22 @@ export interface RemovePermissionCommandOutput extends RemovePermissionResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeGuruProfilerClient, RemovePermissionCommand } from "@aws-sdk/client-codeguruprofiler"; // ES Modules import
- * // const { CodeGuruProfilerClient, RemovePermissionCommand } = require("@aws-sdk/client-codeguruprofiler"); // CommonJS import
+ * import { CodeGuruProfilerClient, RemovePermissionCommand } from '@aws-sdk/client-codeguruprofiler'; // ES Modules import
+ * // const { CodeGuruProfilerClient, RemovePermissionCommand } = require('@aws-sdk/client-codeguruprofiler'); // CommonJS import
  * const client = new CodeGuruProfilerClient(config);
  * const input = { // RemovePermissionRequest
- *   profilingGroupName: "STRING_VALUE", // required
- *   actionGroup: "STRING_VALUE", // required
- *   revisionId: "STRING_VALUE", // required
+ *   profilingGroupName: 'STRING_VALUE', // required
+ *   actionGroup: 'STRING_VALUE', // required
+ *   revisionId: 'STRING_VALUE', // required
  * };
  * const command = new RemovePermissionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // RemovePermissionResponse
+ *   policy: 'STRING_VALUE', // required
+ *   revisionId: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param RemovePermissionCommandInput - {@link RemovePermissionCommandInput}
@@ -80,6 +86,8 @@ export interface RemovePermissionCommandOutput extends RemovePermissionResponse,
  * @throws {@link ValidationException} (client fault)
  *  <p>The parameter is not valid.</p>
  *
+ * @throws {@link CodeGuruProfilerServiceException}
+ * <p>Base exception class for all service exceptions from CodeGuruProfiler service.</p>
  *
  */
 export class RemovePermissionCommand extends $Command<

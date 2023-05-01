@@ -52,14 +52,24 @@ export interface GetPublicAccessBlockCommandOutput extends GetPublicAccessBlockO
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { S3ControlClient, GetPublicAccessBlockCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
- * // const { S3ControlClient, GetPublicAccessBlockCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
+ * import { S3ControlClient, GetPublicAccessBlockCommand } from '@aws-sdk/client-s3-control'; // ES Modules import
+ * // const { S3ControlClient, GetPublicAccessBlockCommand } = require('@aws-sdk/client-s3-control'); // CommonJS import
  * const client = new S3ControlClient(config);
  * const input = { // GetPublicAccessBlockRequest
- *   AccountId: "STRING_VALUE",
+ *   AccountId: 'STRING_VALUE',
  * };
  * const command = new GetPublicAccessBlockCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetPublicAccessBlockOutput
+ *   PublicAccessBlockConfiguration: { // PublicAccessBlockConfiguration
+ *     BlockPublicAcls: true || false,
+ *     IgnorePublicAcls: true || false,
+ *     BlockPublicPolicy: true || false,
+ *     RestrictPublicBuckets: true || false,
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetPublicAccessBlockCommandInput - {@link GetPublicAccessBlockCommandInput}
@@ -73,6 +83,8 @@ export interface GetPublicAccessBlockCommandOutput extends GetPublicAccessBlockO
  *          against an account that doesn't have a <code>PublicAccessBlockConfiguration</code>
  *          set.</p>
  *
+ * @throws {@link S3ControlServiceException}
+ * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
  */
 export class GetPublicAccessBlockCommand extends $Command<

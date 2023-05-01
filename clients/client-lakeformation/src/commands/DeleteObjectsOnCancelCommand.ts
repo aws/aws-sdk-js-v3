@@ -43,23 +43,26 @@ export interface DeleteObjectsOnCancelCommandOutput extends DeleteObjectsOnCance
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LakeFormationClient, DeleteObjectsOnCancelCommand } from "@aws-sdk/client-lakeformation"; // ES Modules import
- * // const { LakeFormationClient, DeleteObjectsOnCancelCommand } = require("@aws-sdk/client-lakeformation"); // CommonJS import
+ * import { LakeFormationClient, DeleteObjectsOnCancelCommand } from '@aws-sdk/client-lakeformation'; // ES Modules import
+ * // const { LakeFormationClient, DeleteObjectsOnCancelCommand } = require('@aws-sdk/client-lakeformation'); // CommonJS import
  * const client = new LakeFormationClient(config);
  * const input = { // DeleteObjectsOnCancelRequest
- *   CatalogId: "STRING_VALUE",
- *   DatabaseName: "STRING_VALUE", // required
- *   TableName: "STRING_VALUE", // required
- *   TransactionId: "STRING_VALUE", // required
+ *   CatalogId: 'STRING_VALUE',
+ *   DatabaseName: 'STRING_VALUE', // required
+ *   TableName: 'STRING_VALUE', // required
+ *   TransactionId: 'STRING_VALUE', // required
  *   Objects: [ // VirtualObjectList // required
  *     { // VirtualObject
- *       Uri: "STRING_VALUE", // required
- *       ETag: "STRING_VALUE",
+ *       Uri: 'STRING_VALUE', // required
+ *       ETag: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new DeleteObjectsOnCancelCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteObjectsOnCancelCommandInput - {@link DeleteObjectsOnCancelCommandInput}
@@ -92,6 +95,8 @@ export interface DeleteObjectsOnCancelCommandOutput extends DeleteObjectsOnCance
  * @throws {@link TransactionCommittedException} (client fault)
  *  <p>Contains details about an error where the specified transaction has already been committed and cannot be used for <code>UpdateTableObjects</code>.</p>
  *
+ * @throws {@link LakeFormationServiceException}
+ * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
  */
 export class DeleteObjectsOnCancelCommand extends $Command<

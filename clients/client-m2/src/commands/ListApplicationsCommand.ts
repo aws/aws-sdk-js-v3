@@ -38,19 +38,40 @@ export interface ListApplicationsCommandOutput extends ListApplicationsResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { M2Client, ListApplicationsCommand } from "@aws-sdk/client-m2"; // ES Modules import
- * // const { M2Client, ListApplicationsCommand } = require("@aws-sdk/client-m2"); // CommonJS import
+ * import { M2Client, ListApplicationsCommand } from '@aws-sdk/client-m2'; // ES Modules import
+ * // const { M2Client, ListApplicationsCommand } = require('@aws-sdk/client-m2'); // CommonJS import
  * const client = new M2Client(config);
  * const input = { // ListApplicationsRequest
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  *   names: [ // EntityNameList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   environmentId: "STRING_VALUE",
+ *   environmentId: 'STRING_VALUE',
  * };
  * const command = new ListApplicationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListApplicationsResponse
+ *   applications: [ // ApplicationSummaryList // required
+ *     { // ApplicationSummary
+ *       name: 'STRING_VALUE', // required
+ *       description: 'STRING_VALUE',
+ *       applicationId: 'STRING_VALUE', // required
+ *       applicationArn: 'STRING_VALUE', // required
+ *       applicationVersion: Number('int'), // required
+ *       status: 'STRING_VALUE', // required
+ *       engineType: 'STRING_VALUE', // required
+ *       creationTime: new Date('TIMESTAMP'), // required
+ *       environmentId: 'STRING_VALUE',
+ *       lastStartTime: new Date('TIMESTAMP'),
+ *       versionStatus: 'STRING_VALUE',
+ *       deploymentStatus: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListApplicationsCommandInput - {@link ListApplicationsCommandInput}
@@ -71,6 +92,8 @@ export interface ListApplicationsCommandOutput extends ListApplicationsResponse,
  * @throws {@link ValidationException} (client fault)
  *  <p>One or more parameters provided in the request is not valid.</p>
  *
+ * @throws {@link M2ServiceException}
+ * <p>Base exception class for all service exceptions from M2 service.</p>
  *
  */
 export class ListApplicationsCommand extends $Command<

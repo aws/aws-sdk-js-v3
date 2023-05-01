@@ -43,17 +43,20 @@ export interface SetPlatformApplicationAttributesCommandOutput extends __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SNSClient, SetPlatformApplicationAttributesCommand } from "@aws-sdk/client-sns"; // ES Modules import
- * // const { SNSClient, SetPlatformApplicationAttributesCommand } = require("@aws-sdk/client-sns"); // CommonJS import
+ * import { SNSClient, SetPlatformApplicationAttributesCommand } from '@aws-sdk/client-sns'; // ES Modules import
+ * // const { SNSClient, SetPlatformApplicationAttributesCommand } = require('@aws-sdk/client-sns'); // CommonJS import
  * const client = new SNSClient(config);
  * const input = { // SetPlatformApplicationAttributesInput
- *   PlatformApplicationArn: "STRING_VALUE", // required
+ *   PlatformApplicationArn: 'STRING_VALUE', // required
  *   Attributes: { // MapStringToString // required
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new SetPlatformApplicationAttributesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param SetPlatformApplicationAttributesCommandInput - {@link SetPlatformApplicationAttributesCommandInput}
@@ -75,6 +78,8 @@ export interface SetPlatformApplicationAttributesCommandOutput extends __Metadat
  * @throws {@link NotFoundException} (client fault)
  *  <p>Indicates that the requested resource does not exist.</p>
  *
+ * @throws {@link SNSServiceException}
+ * <p>Base exception class for all service exceptions from SNS service.</p>
  *
  */
 export class SetPlatformApplicationAttributesCommand extends $Command<

@@ -39,18 +39,21 @@ export interface PutBackupVaultNotificationsCommandOutput extends __MetadataBear
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BackupClient, PutBackupVaultNotificationsCommand } from "@aws-sdk/client-backup"; // ES Modules import
- * // const { BackupClient, PutBackupVaultNotificationsCommand } = require("@aws-sdk/client-backup"); // CommonJS import
+ * import { BackupClient, PutBackupVaultNotificationsCommand } from '@aws-sdk/client-backup'; // ES Modules import
+ * // const { BackupClient, PutBackupVaultNotificationsCommand } = require('@aws-sdk/client-backup'); // CommonJS import
  * const client = new BackupClient(config);
  * const input = { // PutBackupVaultNotificationsInput
- *   BackupVaultName: "STRING_VALUE", // required
- *   SNSTopicArn: "STRING_VALUE", // required
+ *   BackupVaultName: 'STRING_VALUE', // required
+ *   SNSTopicArn: 'STRING_VALUE', // required
  *   BackupVaultEvents: [ // BackupVaultEvents // required
- *     "BACKUP_JOB_STARTED" || "BACKUP_JOB_COMPLETED" || "BACKUP_JOB_SUCCESSFUL" || "BACKUP_JOB_FAILED" || "BACKUP_JOB_EXPIRED" || "RESTORE_JOB_STARTED" || "RESTORE_JOB_COMPLETED" || "RESTORE_JOB_SUCCESSFUL" || "RESTORE_JOB_FAILED" || "COPY_JOB_STARTED" || "COPY_JOB_SUCCESSFUL" || "COPY_JOB_FAILED" || "RECOVERY_POINT_MODIFIED" || "BACKUP_PLAN_CREATED" || "BACKUP_PLAN_MODIFIED" || "S3_BACKUP_OBJECT_FAILED" || "S3_RESTORE_OBJECT_FAILED",
+ *     'BACKUP_JOB_STARTED' || 'BACKUP_JOB_COMPLETED' || 'BACKUP_JOB_SUCCESSFUL' || 'BACKUP_JOB_FAILED' || 'BACKUP_JOB_EXPIRED' || 'RESTORE_JOB_STARTED' || 'RESTORE_JOB_COMPLETED' || 'RESTORE_JOB_SUCCESSFUL' || 'RESTORE_JOB_FAILED' || 'COPY_JOB_STARTED' || 'COPY_JOB_SUCCESSFUL' || 'COPY_JOB_FAILED' || 'RECOVERY_POINT_MODIFIED' || 'BACKUP_PLAN_CREATED' || 'BACKUP_PLAN_MODIFIED' || 'S3_BACKUP_OBJECT_FAILED' || 'S3_RESTORE_OBJECT_FAILED',
  *   ],
  * };
  * const command = new PutBackupVaultNotificationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutBackupVaultNotificationsCommandInput - {@link PutBackupVaultNotificationsCommandInput}
@@ -72,6 +75,8 @@ export interface PutBackupVaultNotificationsCommandOutput extends __MetadataBear
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request failed due to a temporary failure of the server.</p>
  *
+ * @throws {@link BackupServiceException}
+ * <p>Base exception class for all service exceptions from Backup service.</p>
  *
  */
 export class PutBackupVaultNotificationsCommand extends $Command<

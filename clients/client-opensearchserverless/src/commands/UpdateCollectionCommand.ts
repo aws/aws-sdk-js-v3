@@ -40,16 +40,30 @@ export interface UpdateCollectionCommandOutput extends UpdateCollectionResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OpenSearchServerlessClient, UpdateCollectionCommand } from "@aws-sdk/client-opensearchserverless"; // ES Modules import
- * // const { OpenSearchServerlessClient, UpdateCollectionCommand } = require("@aws-sdk/client-opensearchserverless"); // CommonJS import
+ * import { OpenSearchServerlessClient, UpdateCollectionCommand } from '@aws-sdk/client-opensearchserverless'; // ES Modules import
+ * // const { OpenSearchServerlessClient, UpdateCollectionCommand } = require('@aws-sdk/client-opensearchserverless'); // CommonJS import
  * const client = new OpenSearchServerlessClient(config);
  * const input = { // UpdateCollectionRequest
- *   id: "STRING_VALUE", // required
- *   description: "STRING_VALUE",
- *   clientToken: "STRING_VALUE",
+ *   id: 'STRING_VALUE', // required
+ *   description: 'STRING_VALUE',
+ *   clientToken: 'STRING_VALUE',
  * };
  * const command = new UpdateCollectionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateCollectionResponse
+ *   updateCollectionDetail: { // UpdateCollectionDetail
+ *     id: 'STRING_VALUE',
+ *     name: 'STRING_VALUE',
+ *     status: 'STRING_VALUE',
+ *     type: 'STRING_VALUE',
+ *     description: 'STRING_VALUE',
+ *     arn: 'STRING_VALUE',
+ *     createdDate: Number('long'),
+ *     lastModifiedDate: Number('long'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateCollectionCommandInput - {@link UpdateCollectionCommandInput}
@@ -70,6 +84,8 @@ export interface UpdateCollectionCommandOutput extends UpdateCollectionResponse,
  *  <p>Thrown when the HTTP request contains invalid input or is missing required
  *             input.</p>
  *
+ * @throws {@link OpenSearchServerlessServiceException}
+ * <p>Base exception class for all service exceptions from OpenSearchServerless service.</p>
  *
  */
 export class UpdateCollectionCommand extends $Command<

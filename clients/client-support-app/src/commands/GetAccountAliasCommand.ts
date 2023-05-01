@@ -37,12 +37,17 @@ export interface GetAccountAliasCommandOutput extends GetAccountAliasResult, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SupportAppClient, GetAccountAliasCommand } from "@aws-sdk/client-support-app"; // ES Modules import
- * // const { SupportAppClient, GetAccountAliasCommand } = require("@aws-sdk/client-support-app"); // CommonJS import
+ * import { SupportAppClient, GetAccountAliasCommand } from '@aws-sdk/client-support-app'; // ES Modules import
+ * // const { SupportAppClient, GetAccountAliasCommand } = require('@aws-sdk/client-support-app'); // CommonJS import
  * const client = new SupportAppClient(config);
  * const input = {};
  * const command = new GetAccountAliasCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetAccountAliasResult
+ *   accountAlias: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetAccountAliasCommandInput - {@link GetAccountAliasCommandInput}
@@ -54,6 +59,8 @@ export interface GetAccountAliasCommandOutput extends GetAccountAliasResult, __M
  * @throws {@link InternalServerException} (server fault)
  *  <p>We can’t process your request right now because of a server issue. Try again later.</p>
  *
+ * @throws {@link SupportAppServiceException}
+ * <p>Base exception class for all service exceptions from SupportApp service.</p>
  *
  */
 export class GetAccountAliasCommand extends $Command<

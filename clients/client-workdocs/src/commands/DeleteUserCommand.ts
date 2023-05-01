@@ -39,15 +39,18 @@ export interface DeleteUserCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkDocsClient, DeleteUserCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
- * // const { WorkDocsClient, DeleteUserCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import
+ * import { WorkDocsClient, DeleteUserCommand } from '@aws-sdk/client-workdocs'; // ES Modules import
+ * // const { WorkDocsClient, DeleteUserCommand } = require('@aws-sdk/client-workdocs'); // CommonJS import
  * const client = new WorkDocsClient(config);
  * const input = { // DeleteUserRequest
- *   AuthenticationToken: "STRING_VALUE",
- *   UserId: "STRING_VALUE", // required
+ *   AuthenticationToken: 'STRING_VALUE',
+ *   UserId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteUserCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteUserCommandInput - {@link DeleteUserCommandInput}
@@ -73,6 +76,8 @@ export interface DeleteUserCommandOutput extends __MetadataBearer {}
  * @throws {@link UnauthorizedResourceAccessException} (client fault)
  *  <p>The caller does not have access to perform the action on the resource.</p>
  *
+ * @throws {@link WorkDocsServiceException}
+ * <p>Base exception class for all service exceptions from WorkDocs service.</p>
  *
  */
 export class DeleteUserCommand extends $Command<

@@ -62,16 +62,19 @@ export interface DeleteArchiveCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlacierClient, DeleteArchiveCommand } from "@aws-sdk/client-glacier"; // ES Modules import
- * // const { GlacierClient, DeleteArchiveCommand } = require("@aws-sdk/client-glacier"); // CommonJS import
+ * import { GlacierClient, DeleteArchiveCommand } from '@aws-sdk/client-glacier'; // ES Modules import
+ * // const { GlacierClient, DeleteArchiveCommand } = require('@aws-sdk/client-glacier'); // CommonJS import
  * const client = new GlacierClient(config);
  * const input = { // DeleteArchiveInput
- *   accountId: "STRING_VALUE", // required
- *   vaultName: "STRING_VALUE", // required
- *   archiveId: "STRING_VALUE", // required
+ *   accountId: 'STRING_VALUE', // required
+ *   vaultName: 'STRING_VALUE', // required
+ *   archiveId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteArchiveCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteArchiveCommandInput - {@link DeleteArchiveCommandInput}
@@ -93,6 +96,8 @@ export interface DeleteArchiveCommandOutput extends __MetadataBearer {}
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>Returned if the service cannot complete the request.</p>
  *
+ * @throws {@link GlacierServiceException}
+ * <p>Base exception class for all service exceptions from Glacier service.</p>
  *
  * @example To delete an archive
  * ```javascript

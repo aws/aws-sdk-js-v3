@@ -42,18 +42,87 @@ export interface ExecuteSqlCommandOutput extends ExecuteSqlResponse, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RDSDataClient, ExecuteSqlCommand } from "@aws-sdk/client-rds-data"; // ES Modules import
- * // const { RDSDataClient, ExecuteSqlCommand } = require("@aws-sdk/client-rds-data"); // CommonJS import
+ * import { RDSDataClient, ExecuteSqlCommand } from '@aws-sdk/client-rds-data'; // ES Modules import
+ * // const { RDSDataClient, ExecuteSqlCommand } = require('@aws-sdk/client-rds-data'); // CommonJS import
  * const client = new RDSDataClient(config);
  * const input = { // ExecuteSqlRequest
- *   dbClusterOrInstanceArn: "STRING_VALUE", // required
- *   awsSecretStoreArn: "STRING_VALUE", // required
- *   sqlStatements: "STRING_VALUE", // required
- *   database: "STRING_VALUE",
- *   schema: "STRING_VALUE",
+ *   dbClusterOrInstanceArn: 'STRING_VALUE', // required
+ *   awsSecretStoreArn: 'STRING_VALUE', // required
+ *   sqlStatements: 'STRING_VALUE', // required
+ *   database: 'STRING_VALUE',
+ *   schema: 'STRING_VALUE',
  * };
  * const command = new ExecuteSqlCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ExecuteSqlResponse
+ *   sqlStatementResults: [ // SqlStatementResults
+ *     { // SqlStatementResult
+ *       resultFrame: { // ResultFrame
+ *         resultSetMetadata: { // ResultSetMetadata
+ *           columnCount: Number('long'),
+ *           columnMetadata: [ // Metadata
+ *             { // ColumnMetadata
+ *               name: 'STRING_VALUE',
+ *               type: Number('int'),
+ *               typeName: 'STRING_VALUE',
+ *               label: 'STRING_VALUE',
+ *               schemaName: 'STRING_VALUE',
+ *               tableName: 'STRING_VALUE',
+ *               isAutoIncrement: true || false,
+ *               isSigned: true || false,
+ *               isCurrency: true || false,
+ *               isCaseSensitive: true || false,
+ *               nullable: Number('int'),
+ *               precision: Number('int'),
+ *               scale: Number('int'),
+ *               arrayBaseColumnType: Number('int'),
+ *             },
+ *           ],
+ *         },
+ *         records: [ // Records
+ *           { // Record
+ *             values: [ // Row
+ *               { // Value Union: only one key present
+ *                 isNull: true || false,
+ *                 bitValue: true || false,
+ *                 bigIntValue: Number('long'),
+ *                 intValue: Number('int'),
+ *                 doubleValue: Number('double'),
+ *                 realValue: Number('float'),
+ *                 stringValue: 'STRING_VALUE',
+ *                 blobValue: 'BLOB_VALUE',
+ *                 arrayValues: [ // ArrayValueList
+ *                   {//  Union: only one key present
+ *                     isNull: true || false,
+ *                     bitValue: true || false,
+ *                     bigIntValue: Number('long'),
+ *                     intValue: Number('int'),
+ *                     doubleValue: Number('double'),
+ *                     realValue: Number('float'),
+ *                     stringValue: 'STRING_VALUE',
+ *                     blobValue: 'BLOB_VALUE',
+ *                     arrayValues: [
+ *                       '<Value>',
+ *                     ],
+ *                     structValue: { // StructValue
+ *                       attributes: '<ArrayValueList>',
+ *                     },
+ *                   },
+ *                 ],
+ *                 structValue: {
+ *                   attributes: '<ArrayValueList>',
+ *                 },
+ *               },
+ *             ],
+ *           },
+ *         ],
+ *       },
+ *       numberOfRecordsUpdated: Number('long'),
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ExecuteSqlCommandInput - {@link ExecuteSqlCommandInput}
@@ -78,6 +147,8 @@ export interface ExecuteSqlCommandOutput extends ExecuteSqlResponse, __MetadataB
  *  <p>The service specified by the <code>resourceArn</code> parameter is not
  *             available.</p>
  *
+ * @throws {@link RDSDataServiceException}
+ * <p>Base exception class for all service exceptions from RDSData service.</p>
  *
  */
 export class ExecuteSqlCommand extends $Command<

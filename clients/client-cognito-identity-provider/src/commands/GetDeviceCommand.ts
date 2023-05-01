@@ -46,15 +46,31 @@ export interface GetDeviceCommandOutput extends GetDeviceResponse, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CognitoIdentityProviderClient, GetDeviceCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
- * // const { CognitoIdentityProviderClient, GetDeviceCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
+ * import { CognitoIdentityProviderClient, GetDeviceCommand } from '@aws-sdk/client-cognito-identity-provider'; // ES Modules import
+ * // const { CognitoIdentityProviderClient, GetDeviceCommand } = require('@aws-sdk/client-cognito-identity-provider'); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
  * const input = { // GetDeviceRequest
- *   DeviceKey: "STRING_VALUE", // required
- *   AccessToken: "STRING_VALUE",
+ *   DeviceKey: 'STRING_VALUE', // required
+ *   AccessToken: 'STRING_VALUE',
  * };
  * const command = new GetDeviceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetDeviceResponse
+ *   Device: { // DeviceType
+ *     DeviceKey: 'STRING_VALUE',
+ *     DeviceAttributes: [ // AttributeListType
+ *       { // AttributeType
+ *         Name: 'STRING_VALUE', // required
+ *         Value: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     DeviceCreateDate: new Date('TIMESTAMP'),
+ *     DeviceLastModifiedDate: new Date('TIMESTAMP'),
+ *     DeviceLastAuthenticatedDate: new Date('TIMESTAMP'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetDeviceCommandInput - {@link GetDeviceCommandInput}
@@ -96,6 +112,8 @@ export interface GetDeviceCommandOutput extends GetDeviceResponse, __MetadataBea
  * @throws {@link UserNotFoundException} (client fault)
  *  <p>This exception is thrown when a user isn't found.</p>
  *
+ * @throws {@link CognitoIdentityProviderServiceException}
+ * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
  */
 export class GetDeviceCommand extends $Command<

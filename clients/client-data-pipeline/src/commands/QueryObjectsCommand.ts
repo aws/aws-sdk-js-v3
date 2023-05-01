@@ -74,30 +74,39 @@ export interface QueryObjectsCommandOutput extends QueryObjectsOutput, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DataPipelineClient, QueryObjectsCommand } from "@aws-sdk/client-data-pipeline"; // ES Modules import
- * // const { DataPipelineClient, QueryObjectsCommand } = require("@aws-sdk/client-data-pipeline"); // CommonJS import
+ * import { DataPipelineClient, QueryObjectsCommand } from '@aws-sdk/client-data-pipeline'; // ES Modules import
+ * // const { DataPipelineClient, QueryObjectsCommand } = require('@aws-sdk/client-data-pipeline'); // CommonJS import
  * const client = new DataPipelineClient(config);
  * const input = { // QueryObjectsInput
- *   pipelineId: "STRING_VALUE", // required
+ *   pipelineId: 'STRING_VALUE', // required
  *   query: { // Query
  *     selectors: [ // SelectorList
  *       { // Selector
- *         fieldName: "STRING_VALUE",
+ *         fieldName: 'STRING_VALUE',
  *         operator: { // Operator
- *           type: "STRING_VALUE",
+ *           type: 'STRING_VALUE',
  *           values: [ // stringList
- *             "STRING_VALUE",
+ *             'STRING_VALUE',
  *           ],
  *         },
  *       },
  *     ],
  *   },
- *   sphere: "STRING_VALUE", // required
- *   marker: "STRING_VALUE",
- *   limit: Number("int"),
+ *   sphere: 'STRING_VALUE', // required
+ *   marker: 'STRING_VALUE',
+ *   limit: Number('int'),
  * };
  * const command = new QueryObjectsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // QueryObjectsOutput
+ *   ids: [ // idList
+ *     'STRING_VALUE',
+ *   ],
+ *   marker: 'STRING_VALUE',
+ *   hasMoreResults: true || false,
+ * };
+ *
  * ```
  *
  * @param QueryObjectsCommandInput - {@link QueryObjectsCommandInput}
@@ -118,6 +127,8 @@ export interface QueryObjectsCommandOutput extends QueryObjectsOutput, __Metadat
  * @throws {@link PipelineNotFoundException} (client fault)
  *  <p>The specified pipeline was not found. Verify that you used the correct user and account identifiers.</p>
  *
+ * @throws {@link DataPipelineServiceException}
+ * <p>Base exception class for all service exceptions from DataPipeline service.</p>
  *
  */
 export class QueryObjectsCommand extends $Command<

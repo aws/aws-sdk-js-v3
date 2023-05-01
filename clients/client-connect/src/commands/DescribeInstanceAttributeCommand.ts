@@ -37,15 +37,23 @@ export interface DescribeInstanceAttributeCommandOutput extends DescribeInstance
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, DescribeInstanceAttributeCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, DescribeInstanceAttributeCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, DescribeInstanceAttributeCommand } from '@aws-sdk/client-connect'; // ES Modules import
+ * // const { ConnectClient, DescribeInstanceAttributeCommand } = require('@aws-sdk/client-connect'); // CommonJS import
  * const client = new ConnectClient(config);
  * const input = { // DescribeInstanceAttributeRequest
- *   InstanceId: "STRING_VALUE", // required
- *   AttributeType: "INBOUND_CALLS" || "OUTBOUND_CALLS" || "CONTACTFLOW_LOGS" || "CONTACT_LENS" || "AUTO_RESOLVE_BEST_VOICES" || "USE_CUSTOM_TTS_VOICES" || "EARLY_MEDIA" || "MULTI_PARTY_CONFERENCE" || "HIGH_VOLUME_OUTBOUND" || "ENHANCED_CONTACT_MONITORING", // required
+ *   InstanceId: 'STRING_VALUE', // required
+ *   AttributeType: 'INBOUND_CALLS' || 'OUTBOUND_CALLS' || 'CONTACTFLOW_LOGS' || 'CONTACT_LENS' || 'AUTO_RESOLVE_BEST_VOICES' || 'USE_CUSTOM_TTS_VOICES' || 'EARLY_MEDIA' || 'MULTI_PARTY_CONFERENCE' || 'HIGH_VOLUME_OUTBOUND' || 'ENHANCED_CONTACT_MONITORING', // required
  * };
  * const command = new DescribeInstanceAttributeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeInstanceAttributeResponse
+ *   Attribute: { // Attribute
+ *     AttributeType: 'INBOUND_CALLS' || 'OUTBOUND_CALLS' || 'CONTACTFLOW_LOGS' || 'CONTACT_LENS' || 'AUTO_RESOLVE_BEST_VOICES' || 'USE_CUSTOM_TTS_VOICES' || 'EARLY_MEDIA' || 'MULTI_PARTY_CONFERENCE' || 'HIGH_VOLUME_OUTBOUND' || 'ENHANCED_CONTACT_MONITORING',
+ *     Value: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeInstanceAttributeCommandInput - {@link DescribeInstanceAttributeCommandInput}
@@ -69,6 +77,8 @@ export interface DescribeInstanceAttributeCommandOutput extends DescribeInstance
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class DescribeInstanceAttributeCommand extends $Command<

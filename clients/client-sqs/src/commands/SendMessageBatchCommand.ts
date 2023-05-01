@@ -55,49 +55,71 @@ export interface SendMessageBatchCommandOutput extends SendMessageBatchResult, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SQSClient, SendMessageBatchCommand } from "@aws-sdk/client-sqs"; // ES Modules import
- * // const { SQSClient, SendMessageBatchCommand } = require("@aws-sdk/client-sqs"); // CommonJS import
+ * import { SQSClient, SendMessageBatchCommand } from '@aws-sdk/client-sqs'; // ES Modules import
+ * // const { SQSClient, SendMessageBatchCommand } = require('@aws-sdk/client-sqs'); // CommonJS import
  * const client = new SQSClient(config);
  * const input = { // SendMessageBatchRequest
- *   QueueUrl: "STRING_VALUE", // required
+ *   QueueUrl: 'STRING_VALUE', // required
  *   Entries: [ // SendMessageBatchRequestEntryList // required
  *     { // SendMessageBatchRequestEntry
- *       Id: "STRING_VALUE", // required
- *       MessageBody: "STRING_VALUE", // required
- *       DelaySeconds: Number("int"),
+ *       Id: 'STRING_VALUE', // required
+ *       MessageBody: 'STRING_VALUE', // required
+ *       DelaySeconds: Number('int'),
  *       MessageAttributes: { // MessageBodyAttributeMap
- *         "<keys>": { // MessageAttributeValue
- *           StringValue: "STRING_VALUE",
- *           BinaryValue: "BLOB_VALUE",
+ *         '<keys>': { // MessageAttributeValue
+ *           StringValue: 'STRING_VALUE',
+ *           BinaryValue: 'BLOB_VALUE',
  *           StringListValues: [ // StringList
- *             "STRING_VALUE",
+ *             'STRING_VALUE',
  *           ],
  *           BinaryListValues: [ // BinaryList
- *             "BLOB_VALUE",
+ *             'BLOB_VALUE',
  *           ],
- *           DataType: "STRING_VALUE", // required
+ *           DataType: 'STRING_VALUE', // required
  *         },
  *       },
  *       MessageSystemAttributes: { // MessageBodySystemAttributeMap
- *         "<keys>": { // MessageSystemAttributeValue
- *           StringValue: "STRING_VALUE",
- *           BinaryValue: "BLOB_VALUE",
+ *         '<keys>': { // MessageSystemAttributeValue
+ *           StringValue: 'STRING_VALUE',
+ *           BinaryValue: 'BLOB_VALUE',
  *           StringListValues: [
- *             "STRING_VALUE",
+ *             'STRING_VALUE',
  *           ],
  *           BinaryListValues: [
- *             "BLOB_VALUE",
+ *             'BLOB_VALUE',
  *           ],
- *           DataType: "STRING_VALUE", // required
+ *           DataType: 'STRING_VALUE', // required
  *         },
  *       },
- *       MessageDeduplicationId: "STRING_VALUE",
- *       MessageGroupId: "STRING_VALUE",
+ *       MessageDeduplicationId: 'STRING_VALUE',
+ *       MessageGroupId: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new SendMessageBatchCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SendMessageBatchResult
+ *   Successful: [ // SendMessageBatchResultEntryList // required
+ *     { // SendMessageBatchResultEntry
+ *       Id: 'STRING_VALUE', // required
+ *       MessageId: 'STRING_VALUE', // required
+ *       MD5OfMessageBody: 'STRING_VALUE', // required
+ *       MD5OfMessageAttributes: 'STRING_VALUE',
+ *       MD5OfMessageSystemAttributes: 'STRING_VALUE',
+ *       SequenceNumber: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   Failed: [ // BatchResultErrorEntryList // required
+ *     { // BatchResultErrorEntry
+ *       Id: 'STRING_VALUE', // required
+ *       SenderFault: true || false, // required
+ *       Code: 'STRING_VALUE', // required
+ *       Message: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param SendMessageBatchCommandInput - {@link SendMessageBatchCommandInput}
@@ -124,6 +146,8 @@ export interface SendMessageBatchCommandOutput extends SendMessageBatchResult, _
  * @throws {@link UnsupportedOperation} (client fault)
  *  <p>Error code 400. Unsupported operation.</p>
  *
+ * @throws {@link SQSServiceException}
+ * <p>Base exception class for all service exceptions from SQS service.</p>
  *
  */
 export class SendMessageBatchCommand extends $Command<

@@ -38,14 +38,17 @@ export interface DisassociateDeviceFromRoomCommandOutput extends DisassociateDev
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AlexaForBusinessClient, DisassociateDeviceFromRoomCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
- * // const { AlexaForBusinessClient, DisassociateDeviceFromRoomCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
+ * import { AlexaForBusinessClient, DisassociateDeviceFromRoomCommand } from '@aws-sdk/client-alexa-for-business'; // ES Modules import
+ * // const { AlexaForBusinessClient, DisassociateDeviceFromRoomCommand } = require('@aws-sdk/client-alexa-for-business'); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
  * const input = { // DisassociateDeviceFromRoomRequest
- *   DeviceArn: "STRING_VALUE",
+ *   DeviceArn: 'STRING_VALUE',
  * };
  * const command = new DisassociateDeviceFromRoomCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DisassociateDeviceFromRoomCommandInput - {@link DisassociateDeviceFromRoomCommandInput}
@@ -60,6 +63,8 @@ export interface DisassociateDeviceFromRoomCommandOutput extends DisassociateDev
  * @throws {@link DeviceNotRegisteredException} (client fault)
  *  <p>The request failed because this device is no longer registered and therefore no longer managed by this account.</p>
  *
+ * @throws {@link AlexaForBusinessServiceException}
+ * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  */
 export class DisassociateDeviceFromRoomCommand extends $Command<

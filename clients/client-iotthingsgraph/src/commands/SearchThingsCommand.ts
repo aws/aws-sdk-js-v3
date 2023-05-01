@@ -41,17 +41,28 @@ export interface SearchThingsCommandOutput extends SearchThingsResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTThingsGraphClient, SearchThingsCommand } from "@aws-sdk/client-iotthingsgraph"; // ES Modules import
- * // const { IoTThingsGraphClient, SearchThingsCommand } = require("@aws-sdk/client-iotthingsgraph"); // CommonJS import
+ * import { IoTThingsGraphClient, SearchThingsCommand } from '@aws-sdk/client-iotthingsgraph'; // ES Modules import
+ * // const { IoTThingsGraphClient, SearchThingsCommand } = require('@aws-sdk/client-iotthingsgraph'); // CommonJS import
  * const client = new IoTThingsGraphClient(config);
  * const input = { // SearchThingsRequest
- *   entityId: "STRING_VALUE", // required
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
- *   namespaceVersion: Number("long"),
+ *   entityId: 'STRING_VALUE', // required
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
+ *   namespaceVersion: Number('long'),
  * };
  * const command = new SearchThingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SearchThingsResponse
+ *   things: [ // Things
+ *     { // Thing
+ *       thingArn: 'STRING_VALUE',
+ *       thingName: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param SearchThingsCommandInput - {@link SearchThingsCommandInput}
@@ -72,6 +83,8 @@ export interface SearchThingsCommandOutput extends SearchThingsResponse, __Metad
  * @throws {@link ThrottlingException} (client fault)
  *  <p></p>
  *
+ * @throws {@link IoTThingsGraphServiceException}
+ * <p>Base exception class for all service exceptions from IoTThingsGraph service.</p>
  *
  */
 export class SearchThingsCommand extends $Command<

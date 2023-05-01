@@ -36,16 +36,21 @@ export interface CreateResourceCommandOutput extends CreateResourceResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkMailClient, CreateResourceCommand } from "@aws-sdk/client-workmail"; // ES Modules import
- * // const { WorkMailClient, CreateResourceCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
+ * import { WorkMailClient, CreateResourceCommand } from '@aws-sdk/client-workmail'; // ES Modules import
+ * // const { WorkMailClient, CreateResourceCommand } = require('@aws-sdk/client-workmail'); // CommonJS import
  * const client = new WorkMailClient(config);
  * const input = { // CreateResourceRequest
- *   OrganizationId: "STRING_VALUE", // required
- *   Name: "STRING_VALUE", // required
- *   Type: "ROOM" || "EQUIPMENT", // required
+ *   OrganizationId: 'STRING_VALUE', // required
+ *   Name: 'STRING_VALUE', // required
+ *   Type: 'ROOM' || 'EQUIPMENT', // required
  * };
  * const command = new CreateResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateResourceResponse
+ *   ResourceId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateResourceCommandInput - {@link CreateResourceCommandInput}
@@ -77,6 +82,8 @@ export interface CreateResourceCommandOutput extends CreateResourceResponse, __M
  * @throws {@link ReservedNameException} (client fault)
  *  <p>This user, group, or resource name is not allowed in WorkMail.</p>
  *
+ * @throws {@link WorkMailServiceException}
+ * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
  */
 export class CreateResourceCommand extends $Command<

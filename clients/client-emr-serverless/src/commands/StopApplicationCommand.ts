@@ -37,14 +37,17 @@ export interface StopApplicationCommandOutput extends StopApplicationResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EMRServerlessClient, StopApplicationCommand } from "@aws-sdk/client-emr-serverless"; // ES Modules import
- * // const { EMRServerlessClient, StopApplicationCommand } = require("@aws-sdk/client-emr-serverless"); // CommonJS import
+ * import { EMRServerlessClient, StopApplicationCommand } from '@aws-sdk/client-emr-serverless'; // ES Modules import
+ * // const { EMRServerlessClient, StopApplicationCommand } = require('@aws-sdk/client-emr-serverless'); // CommonJS import
  * const client = new EMRServerlessClient(config);
  * const input = { // StopApplicationRequest
- *   applicationId: "STRING_VALUE", // required
+ *   applicationId: 'STRING_VALUE', // required
  * };
  * const command = new StopApplicationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param StopApplicationCommandInput - {@link StopApplicationCommandInput}
@@ -63,6 +66,8 @@ export interface StopApplicationCommandOutput extends StopApplicationResponse, _
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
  *          service.</p>
  *
+ * @throws {@link EMRServerlessServiceException}
+ * <p>Base exception class for all service exceptions from EMRServerless service.</p>
  *
  */
 export class StopApplicationCommand extends $Command<

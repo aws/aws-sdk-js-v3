@@ -36,27 +36,54 @@ export interface SendOTPMessageCommandOutput extends SendOTPMessageResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PinpointClient, SendOTPMessageCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
- * // const { PinpointClient, SendOTPMessageCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
+ * import { PinpointClient, SendOTPMessageCommand } from '@aws-sdk/client-pinpoint'; // ES Modules import
+ * // const { PinpointClient, SendOTPMessageCommand } = require('@aws-sdk/client-pinpoint'); // CommonJS import
  * const client = new PinpointClient(config);
  * const input = { // SendOTPMessageRequest
- *   ApplicationId: "STRING_VALUE", // required
+ *   ApplicationId: 'STRING_VALUE', // required
  *   SendOTPMessageRequestParameters: { // SendOTPMessageRequestParameters
- *     AllowedAttempts: Number("int"),
- *     BrandName: "STRING_VALUE", // required
- *     Channel: "STRING_VALUE", // required
- *     CodeLength: Number("int"),
- *     DestinationIdentity: "STRING_VALUE", // required
- *     EntityId: "STRING_VALUE",
- *     Language: "STRING_VALUE",
- *     OriginationIdentity: "STRING_VALUE", // required
- *     ReferenceId: "STRING_VALUE", // required
- *     TemplateId: "STRING_VALUE",
- *     ValidityPeriod: Number("int"),
+ *     AllowedAttempts: Number('int'),
+ *     BrandName: 'STRING_VALUE', // required
+ *     Channel: 'STRING_VALUE', // required
+ *     CodeLength: Number('int'),
+ *     DestinationIdentity: 'STRING_VALUE', // required
+ *     EntityId: 'STRING_VALUE',
+ *     Language: 'STRING_VALUE',
+ *     OriginationIdentity: 'STRING_VALUE', // required
+ *     ReferenceId: 'STRING_VALUE', // required
+ *     TemplateId: 'STRING_VALUE',
+ *     ValidityPeriod: Number('int'),
  *   },
  * };
  * const command = new SendOTPMessageCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SendOTPMessageResponse
+ *   MessageResponse: { // MessageResponse
+ *     ApplicationId: 'STRING_VALUE', // required
+ *     EndpointResult: { // MapOfEndpointMessageResult
+ *       '<keys>': { // EndpointMessageResult
+ *         Address: 'STRING_VALUE',
+ *         DeliveryStatus: 'SUCCESSFUL' || 'THROTTLED' || 'TEMPORARY_FAILURE' || 'PERMANENT_FAILURE' || 'UNKNOWN_FAILURE' || 'OPT_OUT' || 'DUPLICATE', // required
+ *         MessageId: 'STRING_VALUE',
+ *         StatusCode: Number('int'), // required
+ *         StatusMessage: 'STRING_VALUE',
+ *         UpdatedToken: 'STRING_VALUE',
+ *       },
+ *     },
+ *     RequestId: 'STRING_VALUE',
+ *     Result: { // MapOfMessageResult
+ *       '<keys>': { // MessageResult
+ *         DeliveryStatus: 'SUCCESSFUL' || 'THROTTLED' || 'TEMPORARY_FAILURE' || 'PERMANENT_FAILURE' || 'UNKNOWN_FAILURE' || 'OPT_OUT' || 'DUPLICATE', // required
+ *         MessageId: 'STRING_VALUE',
+ *         StatusCode: Number('int'), // required
+ *         StatusMessage: 'STRING_VALUE',
+ *         UpdatedToken: 'STRING_VALUE',
+ *       },
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param SendOTPMessageCommandInput - {@link SendOTPMessageCommandInput}
@@ -86,6 +113,8 @@ export interface SendOTPMessageCommandOutput extends SendOTPMessageResponse, __M
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Provides information about an API request or response.</p>
  *
+ * @throws {@link PinpointServiceException}
+ * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
  */
 export class SendOTPMessageCommand extends $Command<

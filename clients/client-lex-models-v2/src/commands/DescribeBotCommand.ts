@@ -36,14 +36,42 @@ export interface DescribeBotCommandOutput extends DescribeBotResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LexModelsV2Client, DescribeBotCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
- * // const { LexModelsV2Client, DescribeBotCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
+ * import { LexModelsV2Client, DescribeBotCommand } from '@aws-sdk/client-lex-models-v2'; // ES Modules import
+ * // const { LexModelsV2Client, DescribeBotCommand } = require('@aws-sdk/client-lex-models-v2'); // CommonJS import
  * const client = new LexModelsV2Client(config);
  * const input = { // DescribeBotRequest
- *   botId: "STRING_VALUE", // required
+ *   botId: 'STRING_VALUE', // required
  * };
  * const command = new DescribeBotCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeBotResponse
+ *   botId: 'STRING_VALUE',
+ *   botName: 'STRING_VALUE',
+ *   description: 'STRING_VALUE',
+ *   roleArn: 'STRING_VALUE',
+ *   dataPrivacy: { // DataPrivacy
+ *     childDirected: true || false, // required
+ *   },
+ *   idleSessionTTLInSeconds: Number('int'),
+ *   botStatus: 'Creating' || 'Available' || 'Inactive' || 'Deleting' || 'Failed' || 'Versioning' || 'Importing' || 'Updating',
+ *   creationDateTime: new Date('TIMESTAMP'),
+ *   lastUpdatedDateTime: new Date('TIMESTAMP'),
+ *   botType: 'Bot' || 'BotNetwork',
+ *   botMembers: [ // BotMembers
+ *     { // BotMember
+ *       botMemberId: 'STRING_VALUE', // required
+ *       botMemberName: 'STRING_VALUE', // required
+ *       botMemberAliasId: 'STRING_VALUE', // required
+ *       botMemberAliasName: 'STRING_VALUE', // required
+ *       botMemberVersion: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ *   failureReasons: [ // FailureReasons
+ *     'STRING_VALUE',
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeBotCommandInput - {@link DescribeBotCommandInput}
@@ -71,6 +99,8 @@ export interface DescribeBotCommandOutput extends DescribeBotResponse, __Metadat
  *  <p>One of the input parameters in your request isn't valid. Check the
  *          parameters and try your request again.</p>
  *
+ * @throws {@link LexModelsV2ServiceException}
+ * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
  */
 export class DescribeBotCommand extends $Command<

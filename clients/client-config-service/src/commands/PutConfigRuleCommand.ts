@@ -78,58 +78,61 @@ export interface PutConfigRuleCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConfigServiceClient, PutConfigRuleCommand } from "@aws-sdk/client-config-service"; // ES Modules import
- * // const { ConfigServiceClient, PutConfigRuleCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
+ * import { ConfigServiceClient, PutConfigRuleCommand } from '@aws-sdk/client-config-service'; // ES Modules import
+ * // const { ConfigServiceClient, PutConfigRuleCommand } = require('@aws-sdk/client-config-service'); // CommonJS import
  * const client = new ConfigServiceClient(config);
  * const input = { // PutConfigRuleRequest
  *   ConfigRule: { // ConfigRule
- *     ConfigRuleName: "STRING_VALUE",
- *     ConfigRuleArn: "STRING_VALUE",
- *     ConfigRuleId: "STRING_VALUE",
- *     Description: "STRING_VALUE",
+ *     ConfigRuleName: 'STRING_VALUE',
+ *     ConfigRuleArn: 'STRING_VALUE',
+ *     ConfigRuleId: 'STRING_VALUE',
+ *     Description: 'STRING_VALUE',
  *     Scope: { // Scope
  *       ComplianceResourceTypes: [ // ComplianceResourceTypes
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
- *       TagKey: "STRING_VALUE",
- *       TagValue: "STRING_VALUE",
- *       ComplianceResourceId: "STRING_VALUE",
+ *       TagKey: 'STRING_VALUE',
+ *       TagValue: 'STRING_VALUE',
+ *       ComplianceResourceId: 'STRING_VALUE',
  *     },
  *     Source: { // Source
- *       Owner: "CUSTOM_LAMBDA" || "AWS" || "CUSTOM_POLICY", // required
- *       SourceIdentifier: "STRING_VALUE",
+ *       Owner: 'CUSTOM_LAMBDA' || 'AWS' || 'CUSTOM_POLICY', // required
+ *       SourceIdentifier: 'STRING_VALUE',
  *       SourceDetails: [ // SourceDetails
  *         { // SourceDetail
- *           EventSource: "aws.config",
- *           MessageType: "ConfigurationItemChangeNotification" || "ConfigurationSnapshotDeliveryCompleted" || "ScheduledNotification" || "OversizedConfigurationItemChangeNotification",
- *           MaximumExecutionFrequency: "One_Hour" || "Three_Hours" || "Six_Hours" || "Twelve_Hours" || "TwentyFour_Hours",
+ *           EventSource: 'aws.config',
+ *           MessageType: 'ConfigurationItemChangeNotification' || 'ConfigurationSnapshotDeliveryCompleted' || 'ScheduledNotification' || 'OversizedConfigurationItemChangeNotification',
+ *           MaximumExecutionFrequency: 'One_Hour' || 'Three_Hours' || 'Six_Hours' || 'Twelve_Hours' || 'TwentyFour_Hours',
  *         },
  *       ],
  *       CustomPolicyDetails: { // CustomPolicyDetails
- *         PolicyRuntime: "STRING_VALUE", // required
- *         PolicyText: "STRING_VALUE", // required
+ *         PolicyRuntime: 'STRING_VALUE', // required
+ *         PolicyText: 'STRING_VALUE', // required
  *         EnableDebugLogDelivery: true || false,
  *       },
  *     },
- *     InputParameters: "STRING_VALUE",
- *     MaximumExecutionFrequency: "One_Hour" || "Three_Hours" || "Six_Hours" || "Twelve_Hours" || "TwentyFour_Hours",
- *     ConfigRuleState: "ACTIVE" || "DELETING" || "DELETING_RESULTS" || "EVALUATING",
- *     CreatedBy: "STRING_VALUE",
+ *     InputParameters: 'STRING_VALUE',
+ *     MaximumExecutionFrequency: 'One_Hour' || 'Three_Hours' || 'Six_Hours' || 'Twelve_Hours' || 'TwentyFour_Hours',
+ *     ConfigRuleState: 'ACTIVE' || 'DELETING' || 'DELETING_RESULTS' || 'EVALUATING',
+ *     CreatedBy: 'STRING_VALUE',
  *     EvaluationModes: [ // EvaluationModes
  *       { // EvaluationModeConfiguration
- *         Mode: "DETECTIVE" || "PROACTIVE",
+ *         Mode: 'DETECTIVE' || 'PROACTIVE',
  *       },
  *     ],
  *   },
  *   Tags: [ // TagsList
  *     { // Tag
- *       Key: "STRING_VALUE",
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new PutConfigRuleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutConfigRuleCommandInput - {@link PutConfigRuleCommandInput}
@@ -203,6 +206,8 @@ export interface PutConfigRuleCommandOutput extends __MetadataBearer {}
  *             </li>
  *          </ul>
  *
+ * @throws {@link ConfigServiceServiceException}
+ * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
  */
 export class PutConfigRuleCommand extends $Command<

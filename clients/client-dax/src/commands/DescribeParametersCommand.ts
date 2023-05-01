@@ -36,17 +36,41 @@ export interface DescribeParametersCommandOutput extends DescribeParametersRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DAXClient, DescribeParametersCommand } from "@aws-sdk/client-dax"; // ES Modules import
- * // const { DAXClient, DescribeParametersCommand } = require("@aws-sdk/client-dax"); // CommonJS import
+ * import { DAXClient, DescribeParametersCommand } from '@aws-sdk/client-dax'; // ES Modules import
+ * // const { DAXClient, DescribeParametersCommand } = require('@aws-sdk/client-dax'); // CommonJS import
  * const client = new DAXClient(config);
  * const input = { // DescribeParametersRequest
- *   ParameterGroupName: "STRING_VALUE", // required
- *   Source: "STRING_VALUE",
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   ParameterGroupName: 'STRING_VALUE', // required
+ *   Source: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new DescribeParametersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeParametersResponse
+ *   NextToken: 'STRING_VALUE',
+ *   Parameters: [ // ParameterList
+ *     { // Parameter
+ *       ParameterName: 'STRING_VALUE',
+ *       ParameterType: 'STRING_VALUE',
+ *       ParameterValue: 'STRING_VALUE',
+ *       NodeTypeSpecificValues: [ // NodeTypeSpecificValueList
+ *         { // NodeTypeSpecificValue
+ *           NodeType: 'STRING_VALUE',
+ *           Value: 'STRING_VALUE',
+ *         },
+ *       ],
+ *       Description: 'STRING_VALUE',
+ *       Source: 'STRING_VALUE',
+ *       DataType: 'STRING_VALUE',
+ *       AllowedValues: 'STRING_VALUE',
+ *       IsModifiable: 'STRING_VALUE',
+ *       ChangeType: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeParametersCommandInput - {@link DescribeParametersCommandInput}
@@ -67,6 +91,8 @@ export interface DescribeParametersCommandOutput extends DescribeParametersRespo
  * @throws {@link ServiceLinkedRoleNotFoundFault} (client fault)
  *  <p>The specified service linked role (SLR) was not found.</p>
  *
+ * @throws {@link DAXServiceException}
+ * <p>Base exception class for all service exceptions from DAX service.</p>
  *
  */
 export class DescribeParametersCommand extends $Command<

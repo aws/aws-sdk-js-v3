@@ -37,16 +37,27 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOut
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ProtonClient, ListTagsForResourceCommand } from "@aws-sdk/client-proton"; // ES Modules import
- * // const { ProtonClient, ListTagsForResourceCommand } = require("@aws-sdk/client-proton"); // CommonJS import
+ * import { ProtonClient, ListTagsForResourceCommand } from '@aws-sdk/client-proton'; // ES Modules import
+ * // const { ProtonClient, ListTagsForResourceCommand } = require('@aws-sdk/client-proton'); // CommonJS import
  * const client = new ProtonClient(config);
  * const input = { // ListTagsForResourceInput
- *   resourceArn: "STRING_VALUE", // required
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   resourceArn: 'STRING_VALUE', // required
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTagsForResourceOutput
+ *   tags: [ // TagList // required
+ *     { // Tag
+ *       key: 'STRING_VALUE', // required
+ *       value: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListTagsForResourceCommandInput - {@link ListTagsForResourceCommandInput}
@@ -70,6 +81,8 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOut
  * @throws {@link ValidationException} (client fault)
  *  <p>The input is invalid or an out-of-range value was supplied for the input parameter.</p>
  *
+ * @throws {@link ProtonServiceException}
+ * <p>Base exception class for all service exceptions from Proton service.</p>
  *
  */
 export class ListTagsForResourceCommand extends $Command<

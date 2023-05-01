@@ -36,14 +36,17 @@ export interface DeleteVpcLinkCommandOutput extends DeleteVpcLinkResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ApiGatewayV2Client, DeleteVpcLinkCommand } from "@aws-sdk/client-apigatewayv2"; // ES Modules import
- * // const { ApiGatewayV2Client, DeleteVpcLinkCommand } = require("@aws-sdk/client-apigatewayv2"); // CommonJS import
+ * import { ApiGatewayV2Client, DeleteVpcLinkCommand } from '@aws-sdk/client-apigatewayv2'; // ES Modules import
+ * // const { ApiGatewayV2Client, DeleteVpcLinkCommand } = require('@aws-sdk/client-apigatewayv2'); // CommonJS import
  * const client = new ApiGatewayV2Client(config);
  * const input = { // DeleteVpcLinkRequest
- *   VpcLinkId: "STRING_VALUE", // required
+ *   VpcLinkId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteVpcLinkCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteVpcLinkCommandInput - {@link DeleteVpcLinkCommandInput}
@@ -58,6 +61,8 @@ export interface DeleteVpcLinkCommandOutput extends DeleteVpcLinkResponse, __Met
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>A limit has been exceeded. See the accompanying error message for details.</p>
  *
+ * @throws {@link ApiGatewayV2ServiceException}
+ * <p>Base exception class for all service exceptions from ApiGatewayV2 service.</p>
  *
  */
 export class DeleteVpcLinkCommand extends $Command<

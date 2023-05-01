@@ -36,23 +36,51 @@ export interface SearchProductsCommandOutput extends SearchProductsOutput, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ServiceCatalogClient, SearchProductsCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
- * // const { ServiceCatalogClient, SearchProductsCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
+ * import { ServiceCatalogClient, SearchProductsCommand } from '@aws-sdk/client-service-catalog'; // ES Modules import
+ * // const { ServiceCatalogClient, SearchProductsCommand } = require('@aws-sdk/client-service-catalog'); // CommonJS import
  * const client = new ServiceCatalogClient(config);
  * const input = { // SearchProductsInput
- *   AcceptLanguage: "STRING_VALUE",
+ *   AcceptLanguage: 'STRING_VALUE',
  *   Filters: { // ProductViewFilters
- *     "<keys>": [ // ProductViewFilterValues
- *       "STRING_VALUE",
+ *     '<keys>': [ // ProductViewFilterValues
+ *       'STRING_VALUE',
  *     ],
  *   },
- *   PageSize: Number("int"),
- *   SortBy: "Title" || "VersionCount" || "CreationDate",
- *   SortOrder: "ASCENDING" || "DESCENDING",
- *   PageToken: "STRING_VALUE",
+ *   PageSize: Number('int'),
+ *   SortBy: 'Title' || 'VersionCount' || 'CreationDate',
+ *   SortOrder: 'ASCENDING' || 'DESCENDING',
+ *   PageToken: 'STRING_VALUE',
  * };
  * const command = new SearchProductsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SearchProductsOutput
+ *   ProductViewSummaries: [ // ProductViewSummaries
+ *     { // ProductViewSummary
+ *       Id: 'STRING_VALUE',
+ *       ProductId: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *       Owner: 'STRING_VALUE',
+ *       ShortDescription: 'STRING_VALUE',
+ *       Type: 'CLOUD_FORMATION_TEMPLATE' || 'MARKETPLACE' || 'TERRAFORM_OPEN_SOURCE',
+ *       Distributor: 'STRING_VALUE',
+ *       HasDefaultPath: true || false,
+ *       SupportEmail: 'STRING_VALUE',
+ *       SupportDescription: 'STRING_VALUE',
+ *       SupportUrl: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   ProductViewAggregations: { // ProductViewAggregations
+ *     '<keys>': [ // ProductViewAggregationValues
+ *       { // ProductViewAggregationValue
+ *         Value: 'STRING_VALUE',
+ *         ApproximateCount: Number('int'),
+ *       },
+ *     ],
+ *   },
+ *   NextPageToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param SearchProductsCommandInput - {@link SearchProductsCommandInput}
@@ -64,6 +92,8 @@ export interface SearchProductsCommandOutput extends SearchProductsOutput, __Met
  * @throws {@link InvalidParametersException} (client fault)
  *  <p>One or more parameters provided to the operation are not valid.</p>
  *
+ * @throws {@link ServiceCatalogServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
  */
 export class SearchProductsCommand extends $Command<

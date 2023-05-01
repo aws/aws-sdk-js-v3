@@ -36,23 +36,61 @@ export interface CopySnapshotCommandOutput extends CopySnapshotResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MemoryDBClient, CopySnapshotCommand } from "@aws-sdk/client-memorydb"; // ES Modules import
- * // const { MemoryDBClient, CopySnapshotCommand } = require("@aws-sdk/client-memorydb"); // CommonJS import
+ * import { MemoryDBClient, CopySnapshotCommand } from '@aws-sdk/client-memorydb'; // ES Modules import
+ * // const { MemoryDBClient, CopySnapshotCommand } = require('@aws-sdk/client-memorydb'); // CommonJS import
  * const client = new MemoryDBClient(config);
  * const input = { // CopySnapshotRequest
- *   SourceSnapshotName: "STRING_VALUE", // required
- *   TargetSnapshotName: "STRING_VALUE", // required
- *   TargetBucket: "STRING_VALUE",
- *   KmsKeyId: "STRING_VALUE",
+ *   SourceSnapshotName: 'STRING_VALUE', // required
+ *   TargetSnapshotName: 'STRING_VALUE', // required
+ *   TargetBucket: 'STRING_VALUE',
+ *   KmsKeyId: 'STRING_VALUE',
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE",
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new CopySnapshotCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CopySnapshotResponse
+ *   Snapshot: { // Snapshot
+ *     Name: 'STRING_VALUE',
+ *     Status: 'STRING_VALUE',
+ *     Source: 'STRING_VALUE',
+ *     KmsKeyId: 'STRING_VALUE',
+ *     ARN: 'STRING_VALUE',
+ *     ClusterConfiguration: { // ClusterConfiguration
+ *       Name: 'STRING_VALUE',
+ *       Description: 'STRING_VALUE',
+ *       NodeType: 'STRING_VALUE',
+ *       EngineVersion: 'STRING_VALUE',
+ *       MaintenanceWindow: 'STRING_VALUE',
+ *       TopicArn: 'STRING_VALUE',
+ *       Port: Number('int'),
+ *       ParameterGroupName: 'STRING_VALUE',
+ *       SubnetGroupName: 'STRING_VALUE',
+ *       VpcId: 'STRING_VALUE',
+ *       SnapshotRetentionLimit: Number('int'),
+ *       SnapshotWindow: 'STRING_VALUE',
+ *       NumShards: Number('int'),
+ *       Shards: [ // ShardDetails
+ *         { // ShardDetail
+ *           Name: 'STRING_VALUE',
+ *           Configuration: { // ShardConfiguration
+ *             Slots: 'STRING_VALUE',
+ *             ReplicaCount: Number('int'),
+ *           },
+ *           Size: 'STRING_VALUE',
+ *           SnapshotCreationTime: new Date('TIMESTAMP'),
+ *         },
+ *       ],
+ *     },
+ *     DataTiering: 'true' || 'false',
+ *   },
+ * };
+ *
  * ```
  *
  * @param CopySnapshotCommandInput - {@link CopySnapshotCommandInput}
@@ -85,6 +123,8 @@ export interface CopySnapshotCommandOutput extends CopySnapshotResponse, __Metad
  * @throws {@link TagQuotaPerResourceExceeded} (client fault)
  *  <p></p>
  *
+ * @throws {@link MemoryDBServiceException}
+ * <p>Base exception class for all service exceptions from MemoryDB service.</p>
  *
  */
 export class CopySnapshotCommand extends $Command<

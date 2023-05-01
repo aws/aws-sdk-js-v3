@@ -44,15 +44,37 @@ export interface DescribeJournalS3ExportCommandOutput extends DescribeJournalS3E
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { QLDBClient, DescribeJournalS3ExportCommand } from "@aws-sdk/client-qldb"; // ES Modules import
- * // const { QLDBClient, DescribeJournalS3ExportCommand } = require("@aws-sdk/client-qldb"); // CommonJS import
+ * import { QLDBClient, DescribeJournalS3ExportCommand } from '@aws-sdk/client-qldb'; // ES Modules import
+ * // const { QLDBClient, DescribeJournalS3ExportCommand } = require('@aws-sdk/client-qldb'); // CommonJS import
  * const client = new QLDBClient(config);
  * const input = { // DescribeJournalS3ExportRequest
- *   Name: "STRING_VALUE", // required
- *   ExportId: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
+ *   ExportId: 'STRING_VALUE', // required
  * };
  * const command = new DescribeJournalS3ExportCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeJournalS3ExportResponse
+ *   ExportDescription: { // JournalS3ExportDescription
+ *     LedgerName: 'STRING_VALUE', // required
+ *     ExportId: 'STRING_VALUE', // required
+ *     ExportCreationTime: new Date('TIMESTAMP'), // required
+ *     Status: 'IN_PROGRESS' || 'COMPLETED' || 'CANCELLED', // required
+ *     InclusiveStartTime: new Date('TIMESTAMP'), // required
+ *     ExclusiveEndTime: new Date('TIMESTAMP'), // required
+ *     S3ExportConfiguration: { // S3ExportConfiguration
+ *       Bucket: 'STRING_VALUE', // required
+ *       Prefix: 'STRING_VALUE', // required
+ *       EncryptionConfiguration: { // S3EncryptionConfiguration
+ *         ObjectEncryptionType: 'SSE_KMS' || 'SSE_S3' || 'NO_ENCRYPTION', // required
+ *         KmsKeyArn: 'STRING_VALUE',
+ *       },
+ *     },
+ *     RoleArn: 'STRING_VALUE', // required
+ *     OutputFormat: 'ION_BINARY' || 'ION_TEXT' || 'JSON',
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeJournalS3ExportCommandInput - {@link DescribeJournalS3ExportCommandInput}
@@ -64,6 +86,8 @@ export interface DescribeJournalS3ExportCommandOutput extends DescribeJournalS3E
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource doesn't exist.</p>
  *
+ * @throws {@link QLDBServiceException}
+ * <p>Base exception class for all service exceptions from QLDB service.</p>
  *
  */
 export class DescribeJournalS3ExportCommand extends $Command<

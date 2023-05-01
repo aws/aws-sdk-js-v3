@@ -36,22 +36,37 @@ export interface ListResourceInventoryCommandOutput extends ListResourceInventor
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LicenseManagerClient, ListResourceInventoryCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
- * // const { LicenseManagerClient, ListResourceInventoryCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
+ * import { LicenseManagerClient, ListResourceInventoryCommand } from '@aws-sdk/client-license-manager'; // ES Modules import
+ * // const { LicenseManagerClient, ListResourceInventoryCommand } = require('@aws-sdk/client-license-manager'); // CommonJS import
  * const client = new LicenseManagerClient(config);
  * const input = { // ListResourceInventoryRequest
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  *   Filters: [ // InventoryFilterList
  *     { // InventoryFilter
- *       Name: "STRING_VALUE", // required
- *       Condition: "EQUALS" || "NOT_EQUALS" || "BEGINS_WITH" || "CONTAINS", // required
- *       Value: "STRING_VALUE",
+ *       Name: 'STRING_VALUE', // required
+ *       Condition: 'EQUALS' || 'NOT_EQUALS' || 'BEGINS_WITH' || 'CONTAINS', // required
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new ListResourceInventoryCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListResourceInventoryResponse
+ *   ResourceInventoryList: [ // ResourceInventoryList
+ *     { // ResourceInventory
+ *       ResourceId: 'STRING_VALUE',
+ *       ResourceType: 'EC2_INSTANCE' || 'EC2_HOST' || 'EC2_AMI' || 'RDS' || 'SYSTEMS_MANAGER_MANAGED_INSTANCE',
+ *       ResourceArn: 'STRING_VALUE',
+ *       Platform: 'STRING_VALUE',
+ *       PlatformVersion: 'STRING_VALUE',
+ *       ResourceOwningAccountId: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListResourceInventoryCommandInput - {@link ListResourceInventoryCommandInput}
@@ -82,6 +97,8 @@ export interface ListResourceInventoryCommandOutput extends ListResourceInventor
  * @throws {@link ServerInternalException} (server fault)
  *  <p>The server experienced an internal error. Try again.</p>
  *
+ * @throws {@link LicenseManagerServiceException}
+ * <p>Base exception class for all service exceptions from LicenseManager service.</p>
  *
  */
 export class ListResourceInventoryCommand extends $Command<

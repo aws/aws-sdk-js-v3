@@ -37,15 +37,28 @@ export interface ListJobTemplatesCommandOutput extends ListJobTemplatesResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTClient, ListJobTemplatesCommand } from "@aws-sdk/client-iot"; // ES Modules import
- * // const { IoTClient, ListJobTemplatesCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * import { IoTClient, ListJobTemplatesCommand } from '@aws-sdk/client-iot'; // ES Modules import
+ * // const { IoTClient, ListJobTemplatesCommand } = require('@aws-sdk/client-iot'); // CommonJS import
  * const client = new IoTClient(config);
  * const input = { // ListJobTemplatesRequest
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new ListJobTemplatesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListJobTemplatesResponse
+ *   jobTemplates: [ // JobTemplateSummaryList
+ *     { // JobTemplateSummary
+ *       jobTemplateArn: 'STRING_VALUE',
+ *       jobTemplateId: 'STRING_VALUE',
+ *       description: 'STRING_VALUE',
+ *       createdAt: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListJobTemplatesCommandInput - {@link ListJobTemplatesCommandInput}
@@ -63,6 +76,8 @@ export interface ListJobTemplatesCommandOutput extends ListJobTemplatesResponse,
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The rate exceeds the limit.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class ListJobTemplatesCommand extends $Command<

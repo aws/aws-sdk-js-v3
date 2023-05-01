@@ -62,17 +62,24 @@ export interface UpdateJobStatusCommandOutput extends UpdateJobStatusResult, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { S3ControlClient, UpdateJobStatusCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
- * // const { S3ControlClient, UpdateJobStatusCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
+ * import { S3ControlClient, UpdateJobStatusCommand } from '@aws-sdk/client-s3-control'; // ES Modules import
+ * // const { S3ControlClient, UpdateJobStatusCommand } = require('@aws-sdk/client-s3-control'); // CommonJS import
  * const client = new S3ControlClient(config);
  * const input = { // UpdateJobStatusRequest
- *   AccountId: "STRING_VALUE",
- *   JobId: "STRING_VALUE", // required
- *   RequestedJobStatus: "Cancelled" || "Ready", // required
- *   StatusUpdateReason: "STRING_VALUE",
+ *   AccountId: 'STRING_VALUE',
+ *   JobId: 'STRING_VALUE', // required
+ *   RequestedJobStatus: 'Cancelled' || 'Ready', // required
+ *   StatusUpdateReason: 'STRING_VALUE',
  * };
  * const command = new UpdateJobStatusCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateJobStatusResult
+ *   JobId: 'STRING_VALUE',
+ *   Status: 'Active' || 'Cancelled' || 'Cancelling' || 'Complete' || 'Completing' || 'Failed' || 'Failing' || 'New' || 'Paused' || 'Pausing' || 'Preparing' || 'Ready' || 'Suspended',
+ *   StatusUpdateReason: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateJobStatusCommandInput - {@link UpdateJobStatusCommandInput}
@@ -96,6 +103,8 @@ export interface UpdateJobStatusCommandOutput extends UpdateJobStatusResult, __M
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p></p>
  *
+ * @throws {@link S3ControlServiceException}
+ * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
  */
 export class UpdateJobStatusCommand extends $Command<

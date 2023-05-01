@@ -36,18 +36,35 @@ export interface UpdateGcmChannelCommandOutput extends UpdateGcmChannelResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PinpointClient, UpdateGcmChannelCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
- * // const { PinpointClient, UpdateGcmChannelCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
+ * import { PinpointClient, UpdateGcmChannelCommand } from '@aws-sdk/client-pinpoint'; // ES Modules import
+ * // const { PinpointClient, UpdateGcmChannelCommand } = require('@aws-sdk/client-pinpoint'); // CommonJS import
  * const client = new PinpointClient(config);
  * const input = { // UpdateGcmChannelRequest
- *   ApplicationId: "STRING_VALUE", // required
+ *   ApplicationId: 'STRING_VALUE', // required
  *   GCMChannelRequest: { // GCMChannelRequest
- *     ApiKey: "STRING_VALUE", // required
+ *     ApiKey: 'STRING_VALUE', // required
  *     Enabled: true || false,
  *   },
  * };
  * const command = new UpdateGcmChannelCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateGcmChannelResponse
+ *   GCMChannelResponse: { // GCMChannelResponse
+ *     ApplicationId: 'STRING_VALUE',
+ *     CreationDate: 'STRING_VALUE',
+ *     Credential: 'STRING_VALUE', // required
+ *     Enabled: true || false,
+ *     HasCredential: true || false,
+ *     Id: 'STRING_VALUE',
+ *     IsArchived: true || false,
+ *     LastModifiedBy: 'STRING_VALUE',
+ *     LastModifiedDate: 'STRING_VALUE',
+ *     Platform: 'STRING_VALUE', // required
+ *     Version: Number('int'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateGcmChannelCommandInput - {@link UpdateGcmChannelCommandInput}
@@ -77,6 +94,8 @@ export interface UpdateGcmChannelCommandOutput extends UpdateGcmChannelResponse,
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Provides information about an API request or response.</p>
  *
+ * @throws {@link PinpointServiceException}
+ * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
  */
 export class UpdateGcmChannelCommand extends $Command<

@@ -77,17 +77,20 @@ export interface UntagResourceCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KMSClient, UntagResourceCommand } from "@aws-sdk/client-kms"; // ES Modules import
- * // const { KMSClient, UntagResourceCommand } = require("@aws-sdk/client-kms"); // CommonJS import
+ * import { KMSClient, UntagResourceCommand } from '@aws-sdk/client-kms'; // ES Modules import
+ * // const { KMSClient, UntagResourceCommand } = require('@aws-sdk/client-kms'); // CommonJS import
  * const client = new KMSClient(config);
  * const input = { // UntagResourceRequest
- *   KeyId: "STRING_VALUE", // required
+ *   KeyId: 'STRING_VALUE', // required
  *   TagKeys: [ // TagKeyList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new UntagResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UntagResourceCommandInput - {@link UntagResourceCommandInput}
@@ -129,6 +132,8 @@ export interface UntagResourceCommandOutput extends __MetadataBearer {}
  * @throws {@link TagException} (client fault)
  *  <p>The request was rejected because one or more tags are not valid.</p>
  *
+ * @throws {@link KMSServiceException}
+ * <p>Base exception class for all service exceptions from KMS service.</p>
  *
  * @example To remove tags from a KMS key
  * ```javascript

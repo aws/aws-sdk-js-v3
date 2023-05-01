@@ -37,14 +37,30 @@ export interface DescribeLocationEfsCommandOutput extends DescribeLocationEfsRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DataSyncClient, DescribeLocationEfsCommand } from "@aws-sdk/client-datasync"; // ES Modules import
- * // const { DataSyncClient, DescribeLocationEfsCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
+ * import { DataSyncClient, DescribeLocationEfsCommand } from '@aws-sdk/client-datasync'; // ES Modules import
+ * // const { DataSyncClient, DescribeLocationEfsCommand } = require('@aws-sdk/client-datasync'); // CommonJS import
  * const client = new DataSyncClient(config);
  * const input = { // DescribeLocationEfsRequest
- *   LocationArn: "STRING_VALUE", // required
+ *   LocationArn: 'STRING_VALUE', // required
  * };
  * const command = new DescribeLocationEfsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeLocationEfsResponse
+ *   LocationArn: 'STRING_VALUE',
+ *   LocationUri: 'STRING_VALUE',
+ *   Ec2Config: { // Ec2Config
+ *     SubnetArn: 'STRING_VALUE', // required
+ *     SecurityGroupArns: [ // Ec2SecurityGroupArnList // required
+ *       'STRING_VALUE',
+ *     ],
+ *   },
+ *   CreationTime: new Date('TIMESTAMP'),
+ *   AccessPointArn: 'STRING_VALUE',
+ *   FileSystemAccessRoleArn: 'STRING_VALUE',
+ *   InTransitEncryption: 'NONE' || 'TLS1_2',
+ * };
+ *
  * ```
  *
  * @param DescribeLocationEfsCommandInput - {@link DescribeLocationEfsCommandInput}
@@ -60,6 +76,8 @@ export interface DescribeLocationEfsCommandOutput extends DescribeLocationEfsRes
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception is thrown when the client submits a malformed request.</p>
  *
+ * @throws {@link DataSyncServiceException}
+ * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
  */
 export class DescribeLocationEfsCommand extends $Command<

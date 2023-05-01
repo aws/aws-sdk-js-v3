@@ -37,14 +37,35 @@ export interface GetBatchPredictionCommandOutput extends GetBatchPredictionOutpu
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MachineLearningClient, GetBatchPredictionCommand } from "@aws-sdk/client-machine-learning"; // ES Modules import
- * // const { MachineLearningClient, GetBatchPredictionCommand } = require("@aws-sdk/client-machine-learning"); // CommonJS import
+ * import { MachineLearningClient, GetBatchPredictionCommand } from '@aws-sdk/client-machine-learning'; // ES Modules import
+ * // const { MachineLearningClient, GetBatchPredictionCommand } = require('@aws-sdk/client-machine-learning'); // CommonJS import
  * const client = new MachineLearningClient(config);
  * const input = { // GetBatchPredictionInput
- *   BatchPredictionId: "STRING_VALUE", // required
+ *   BatchPredictionId: 'STRING_VALUE', // required
  * };
  * const command = new GetBatchPredictionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetBatchPredictionOutput
+ *   BatchPredictionId: 'STRING_VALUE',
+ *   MLModelId: 'STRING_VALUE',
+ *   BatchPredictionDataSourceId: 'STRING_VALUE',
+ *   InputDataLocationS3: 'STRING_VALUE',
+ *   CreatedByIamUser: 'STRING_VALUE',
+ *   CreatedAt: new Date('TIMESTAMP'),
+ *   LastUpdatedAt: new Date('TIMESTAMP'),
+ *   Name: 'STRING_VALUE',
+ *   Status: 'STRING_VALUE',
+ *   OutputUri: 'STRING_VALUE',
+ *   LogUri: 'STRING_VALUE',
+ *   Message: 'STRING_VALUE',
+ *   ComputeTime: Number('long'),
+ *   FinishedAt: new Date('TIMESTAMP'),
+ *   StartedAt: new Date('TIMESTAMP'),
+ *   TotalRecordCount: Number('long'),
+ *   InvalidRecordCount: Number('long'),
+ * };
+ *
  * ```
  *
  * @param GetBatchPredictionCommandInput - {@link GetBatchPredictionCommandInput}
@@ -62,6 +83,8 @@ export interface GetBatchPredictionCommandOutput extends GetBatchPredictionOutpu
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>A specified resource cannot be located.</p>
  *
+ * @throws {@link MachineLearningServiceException}
+ * <p>Base exception class for all service exceptions from MachineLearning service.</p>
  *
  */
 export class GetBatchPredictionCommand extends $Command<

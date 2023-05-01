@@ -43,15 +43,18 @@ export interface UpdateCertificateCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTClient, UpdateCertificateCommand } from "@aws-sdk/client-iot"; // ES Modules import
- * // const { IoTClient, UpdateCertificateCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * import { IoTClient, UpdateCertificateCommand } from '@aws-sdk/client-iot'; // ES Modules import
+ * // const { IoTClient, UpdateCertificateCommand } = require('@aws-sdk/client-iot'); // CommonJS import
  * const client = new IoTClient(config);
  * const input = { // UpdateCertificateRequest
- *   certificateId: "STRING_VALUE", // required
- *   newStatus: "ACTIVE" || "INACTIVE" || "REVOKED" || "PENDING_TRANSFER" || "REGISTER_INACTIVE" || "PENDING_ACTIVATION", // required
+ *   certificateId: 'STRING_VALUE', // required
+ *   newStatus: 'ACTIVE' || 'INACTIVE' || 'REVOKED' || 'PENDING_TRANSFER' || 'REGISTER_INACTIVE' || 'PENDING_ACTIVATION', // required
  * };
  * const command = new UpdateCertificateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateCertificateCommandInput - {@link UpdateCertificateCommandInput}
@@ -81,6 +84,8 @@ export interface UpdateCertificateCommandOutput extends __MetadataBearer {}
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this operation.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class UpdateCertificateCommand extends $Command<

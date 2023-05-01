@@ -36,19 +36,33 @@ export interface ListSpacesCommandOutput extends ListSpacesResponse, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, ListSpacesCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, ListSpacesCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, ListSpacesCommand } from '@aws-sdk/client-sagemaker'; // ES Modules import
+ * // const { SageMakerClient, ListSpacesCommand } = require('@aws-sdk/client-sagemaker'); // CommonJS import
  * const client = new SageMakerClient(config);
  * const input = { // ListSpacesRequest
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
- *   SortOrder: "Ascending" || "Descending",
- *   SortBy: "CreationTime" || "LastModifiedTime",
- *   DomainIdEquals: "STRING_VALUE",
- *   SpaceNameContains: "STRING_VALUE",
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
+ *   SortOrder: 'Ascending' || 'Descending',
+ *   SortBy: 'CreationTime' || 'LastModifiedTime',
+ *   DomainIdEquals: 'STRING_VALUE',
+ *   SpaceNameContains: 'STRING_VALUE',
  * };
  * const command = new ListSpacesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListSpacesResponse
+ *   Spaces: [ // SpaceList
+ *     { // SpaceDetails
+ *       DomainId: 'STRING_VALUE',
+ *       SpaceName: 'STRING_VALUE',
+ *       Status: 'Deleting' || 'Failed' || 'InService' || 'Pending' || 'Updating' || 'Update_Failed' || 'Delete_Failed',
+ *       CreationTime: new Date('TIMESTAMP'),
+ *       LastModifiedTime: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListSpacesCommandInput - {@link ListSpacesCommandInput}
@@ -57,6 +71,8 @@ export interface ListSpacesCommandOutput extends ListSpacesResponse, __MetadataB
  * @see {@link ListSpacesCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class ListSpacesCommand extends $Command<

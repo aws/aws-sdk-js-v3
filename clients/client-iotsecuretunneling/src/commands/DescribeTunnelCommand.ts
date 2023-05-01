@@ -41,14 +41,49 @@ export interface DescribeTunnelCommandOutput extends DescribeTunnelResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTSecureTunnelingClient, DescribeTunnelCommand } from "@aws-sdk/client-iotsecuretunneling"; // ES Modules import
- * // const { IoTSecureTunnelingClient, DescribeTunnelCommand } = require("@aws-sdk/client-iotsecuretunneling"); // CommonJS import
+ * import { IoTSecureTunnelingClient, DescribeTunnelCommand } from '@aws-sdk/client-iotsecuretunneling'; // ES Modules import
+ * // const { IoTSecureTunnelingClient, DescribeTunnelCommand } = require('@aws-sdk/client-iotsecuretunneling'); // CommonJS import
  * const client = new IoTSecureTunnelingClient(config);
  * const input = { // DescribeTunnelRequest
- *   tunnelId: "STRING_VALUE", // required
+ *   tunnelId: 'STRING_VALUE', // required
  * };
  * const command = new DescribeTunnelCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeTunnelResponse
+ *   tunnel: { // Tunnel
+ *     tunnelId: 'STRING_VALUE',
+ *     tunnelArn: 'STRING_VALUE',
+ *     status: 'STRING_VALUE',
+ *     sourceConnectionState: { // ConnectionState
+ *       status: 'STRING_VALUE',
+ *       lastUpdatedAt: new Date('TIMESTAMP'),
+ *     },
+ *     destinationConnectionState: {
+ *       status: 'STRING_VALUE',
+ *       lastUpdatedAt: new Date('TIMESTAMP'),
+ *     },
+ *     description: 'STRING_VALUE',
+ *     destinationConfig: { // DestinationConfig
+ *       thingName: 'STRING_VALUE',
+ *       services: [ // ServiceList // required
+ *         'STRING_VALUE',
+ *       ],
+ *     },
+ *     timeoutConfig: { // TimeoutConfig
+ *       maxLifetimeTimeoutMinutes: Number('int'),
+ *     },
+ *     tags: [ // TagList
+ *       { // Tag
+ *         key: 'STRING_VALUE', // required
+ *         value: 'STRING_VALUE', // required
+ *       },
+ *     ],
+ *     createdAt: new Date('TIMESTAMP'),
+ *     lastUpdatedAt: new Date('TIMESTAMP'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeTunnelCommandInput - {@link DescribeTunnelCommandInput}
@@ -60,6 +95,8 @@ export interface DescribeTunnelCommandOutput extends DescribeTunnelResponse, __M
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Thrown when an operation is attempted on a resource that does not exist.</p>
  *
+ * @throws {@link IoTSecureTunnelingServiceException}
+ * <p>Base exception class for all service exceptions from IoTSecureTunneling service.</p>
  *
  */
 export class DescribeTunnelCommand extends $Command<

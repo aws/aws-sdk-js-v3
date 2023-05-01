@@ -53,28 +53,33 @@ export interface StartOutboundVoiceContactCommandOutput extends StartOutboundVoi
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, StartOutboundVoiceContactCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, StartOutboundVoiceContactCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, StartOutboundVoiceContactCommand } from '@aws-sdk/client-connect'; // ES Modules import
+ * // const { ConnectClient, StartOutboundVoiceContactCommand } = require('@aws-sdk/client-connect'); // CommonJS import
  * const client = new ConnectClient(config);
  * const input = { // StartOutboundVoiceContactRequest
- *   DestinationPhoneNumber: "STRING_VALUE", // required
- *   ContactFlowId: "STRING_VALUE", // required
- *   InstanceId: "STRING_VALUE", // required
- *   ClientToken: "STRING_VALUE",
- *   SourcePhoneNumber: "STRING_VALUE",
- *   QueueId: "STRING_VALUE",
+ *   DestinationPhoneNumber: 'STRING_VALUE', // required
+ *   ContactFlowId: 'STRING_VALUE', // required
+ *   InstanceId: 'STRING_VALUE', // required
+ *   ClientToken: 'STRING_VALUE',
+ *   SourcePhoneNumber: 'STRING_VALUE',
+ *   QueueId: 'STRING_VALUE',
  *   Attributes: { // Attributes
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  *   AnswerMachineDetectionConfig: { // AnswerMachineDetectionConfig
  *     EnableAnswerMachineDetection: true || false,
  *     AwaitAnswerMachinePrompt: true || false,
  *   },
- *   CampaignId: "STRING_VALUE",
- *   TrafficType: "GENERAL" || "CAMPAIGN",
+ *   CampaignId: 'STRING_VALUE',
+ *   TrafficType: 'GENERAL' || 'CAMPAIGN',
  * };
  * const command = new StartOutboundVoiceContactCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartOutboundVoiceContactResponse
+ *   ContactId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param StartOutboundVoiceContactCommandInput - {@link StartOutboundVoiceContactCommandInput}
@@ -104,6 +109,8 @@ export interface StartOutboundVoiceContactCommandOutput extends StartOutboundVoi
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class StartOutboundVoiceContactCommand extends $Command<

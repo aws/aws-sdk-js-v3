@@ -41,15 +41,18 @@ export interface DetachElasticLoadBalancerCommandOutput extends __MetadataBearer
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OpsWorksClient, DetachElasticLoadBalancerCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
- * // const { OpsWorksClient, DetachElasticLoadBalancerCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
+ * import { OpsWorksClient, DetachElasticLoadBalancerCommand } from '@aws-sdk/client-opsworks'; // ES Modules import
+ * // const { OpsWorksClient, DetachElasticLoadBalancerCommand } = require('@aws-sdk/client-opsworks'); // CommonJS import
  * const client = new OpsWorksClient(config);
  * const input = { // DetachElasticLoadBalancerRequest
- *   ElasticLoadBalancerName: "STRING_VALUE", // required
- *   LayerId: "STRING_VALUE", // required
+ *   ElasticLoadBalancerName: 'STRING_VALUE', // required
+ *   LayerId: 'STRING_VALUE', // required
  * };
  * const command = new DetachElasticLoadBalancerCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DetachElasticLoadBalancerCommandInput - {@link DetachElasticLoadBalancerCommandInput}
@@ -61,6 +64,8 @@ export interface DetachElasticLoadBalancerCommandOutput extends __MetadataBearer
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Indicates that a resource was not found.</p>
  *
+ * @throws {@link OpsWorksServiceException}
+ * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
  */
 export class DetachElasticLoadBalancerCommand extends $Command<

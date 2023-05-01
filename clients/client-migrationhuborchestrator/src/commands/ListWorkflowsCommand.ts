@@ -40,19 +40,38 @@ export interface ListWorkflowsCommandOutput extends ListMigrationWorkflowsRespon
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MigrationHubOrchestratorClient, ListWorkflowsCommand } from "@aws-sdk/client-migrationhuborchestrator"; // ES Modules import
- * // const { MigrationHubOrchestratorClient, ListWorkflowsCommand } = require("@aws-sdk/client-migrationhuborchestrator"); // CommonJS import
+ * import { MigrationHubOrchestratorClient, ListWorkflowsCommand } from '@aws-sdk/client-migrationhuborchestrator'; // ES Modules import
+ * // const { MigrationHubOrchestratorClient, ListWorkflowsCommand } = require('@aws-sdk/client-migrationhuborchestrator'); // CommonJS import
  * const client = new MigrationHubOrchestratorClient(config);
  * const input = { // ListMigrationWorkflowsRequest
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
- *   templateId: "STRING_VALUE",
- *   adsApplicationConfigurationName: "STRING_VALUE",
- *   status: "STRING_VALUE",
- *   name: "STRING_VALUE",
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
+ *   templateId: 'STRING_VALUE',
+ *   adsApplicationConfigurationName: 'STRING_VALUE',
+ *   status: 'STRING_VALUE',
+ *   name: 'STRING_VALUE',
  * };
  * const command = new ListWorkflowsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListMigrationWorkflowsResponse
+ *   nextToken: 'STRING_VALUE',
+ *   migrationWorkflowSummary: [ // MigrationWorkflowSummaryList // required
+ *     { // MigrationWorkflowSummary
+ *       id: 'STRING_VALUE',
+ *       name: 'STRING_VALUE',
+ *       templateId: 'STRING_VALUE',
+ *       adsApplicationConfigurationName: 'STRING_VALUE',
+ *       status: 'STRING_VALUE',
+ *       creationTime: new Date('TIMESTAMP'),
+ *       endTime: new Date('TIMESTAMP'),
+ *       statusMessage: 'STRING_VALUE',
+ *       completedSteps: Number('int'),
+ *       totalSteps: Number('int'),
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListWorkflowsCommandInput - {@link ListWorkflowsCommandInput}
@@ -76,6 +95,8 @@ export interface ListWorkflowsCommandOutput extends ListMigrationWorkflowsRespon
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link MigrationHubOrchestratorServiceException}
+ * <p>Base exception class for all service exceptions from MigrationHubOrchestrator service.</p>
  *
  */
 export class ListWorkflowsCommand extends $Command<

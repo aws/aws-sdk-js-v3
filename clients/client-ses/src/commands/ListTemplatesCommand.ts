@@ -38,15 +38,26 @@ export interface ListTemplatesCommandOutput extends ListTemplatesResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SESClient, ListTemplatesCommand } from "@aws-sdk/client-ses"; // ES Modules import
- * // const { SESClient, ListTemplatesCommand } = require("@aws-sdk/client-ses"); // CommonJS import
+ * import { SESClient, ListTemplatesCommand } from '@aws-sdk/client-ses'; // ES Modules import
+ * // const { SESClient, ListTemplatesCommand } = require('@aws-sdk/client-ses'); // CommonJS import
  * const client = new SESClient(config);
  * const input = { // ListTemplatesRequest
- *   NextToken: "STRING_VALUE",
- *   MaxItems: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxItems: Number('int'),
  * };
  * const command = new ListTemplatesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTemplatesResponse
+ *   TemplatesMetadata: [ // TemplateMetadataList
+ *     { // TemplateMetadata
+ *       Name: 'STRING_VALUE',
+ *       CreatedTimestamp: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListTemplatesCommandInput - {@link ListTemplatesCommandInput}
@@ -55,6 +66,8 @@ export interface ListTemplatesCommandOutput extends ListTemplatesResponse, __Met
  * @see {@link ListTemplatesCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
+ * @throws {@link SESServiceException}
+ * <p>Base exception class for all service exceptions from SES service.</p>
  *
  */
 export class ListTemplatesCommand extends $Command<

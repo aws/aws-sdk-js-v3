@@ -39,26 +39,37 @@ export interface CreateIPSetCommandOutput extends CreateIPSetResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WAFV2Client, CreateIPSetCommand } from "@aws-sdk/client-wafv2"; // ES Modules import
- * // const { WAFV2Client, CreateIPSetCommand } = require("@aws-sdk/client-wafv2"); // CommonJS import
+ * import { WAFV2Client, CreateIPSetCommand } from '@aws-sdk/client-wafv2'; // ES Modules import
+ * // const { WAFV2Client, CreateIPSetCommand } = require('@aws-sdk/client-wafv2'); // CommonJS import
  * const client = new WAFV2Client(config);
  * const input = { // CreateIPSetRequest
- *   Name: "STRING_VALUE", // required
- *   Scope: "CLOUDFRONT" || "REGIONAL", // required
- *   Description: "STRING_VALUE",
- *   IPAddressVersion: "IPV4" || "IPV6", // required
+ *   Name: 'STRING_VALUE', // required
+ *   Scope: 'CLOUDFRONT' || 'REGIONAL', // required
+ *   Description: 'STRING_VALUE',
+ *   IPAddressVersion: 'IPV4' || 'IPV6', // required
  *   Addresses: [ // IPAddresses // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreateIPSetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateIPSetResponse
+ *   Summary: { // IPSetSummary
+ *     Name: 'STRING_VALUE',
+ *     Id: 'STRING_VALUE',
+ *     Description: 'STRING_VALUE',
+ *     LockToken: 'STRING_VALUE',
+ *     ARN: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateIPSetCommandInput - {@link CreateIPSetCommandInput}
@@ -117,6 +128,8 @@ export interface CreateIPSetCommandOutput extends CreateIPSetResponse, __Metadat
  *  <p>WAF couldn’t perform your tagging operation because of an internal error. Retry
  *          your request.</p>
  *
+ * @throws {@link WAFV2ServiceException}
+ * <p>Base exception class for all service exceptions from WAFV2 service.</p>
  *
  */
 export class CreateIPSetCommand extends $Command<

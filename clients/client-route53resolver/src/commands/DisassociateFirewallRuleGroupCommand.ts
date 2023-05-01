@@ -41,14 +41,33 @@ export interface DisassociateFirewallRuleGroupCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Route53ResolverClient, DisassociateFirewallRuleGroupCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
- * // const { Route53ResolverClient, DisassociateFirewallRuleGroupCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
+ * import { Route53ResolverClient, DisassociateFirewallRuleGroupCommand } from '@aws-sdk/client-route53resolver'; // ES Modules import
+ * // const { Route53ResolverClient, DisassociateFirewallRuleGroupCommand } = require('@aws-sdk/client-route53resolver'); // CommonJS import
  * const client = new Route53ResolverClient(config);
  * const input = { // DisassociateFirewallRuleGroupRequest
- *   FirewallRuleGroupAssociationId: "STRING_VALUE", // required
+ *   FirewallRuleGroupAssociationId: 'STRING_VALUE', // required
  * };
  * const command = new DisassociateFirewallRuleGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DisassociateFirewallRuleGroupResponse
+ *   FirewallRuleGroupAssociation: { // FirewallRuleGroupAssociation
+ *     Id: 'STRING_VALUE',
+ *     Arn: 'STRING_VALUE',
+ *     FirewallRuleGroupId: 'STRING_VALUE',
+ *     VpcId: 'STRING_VALUE',
+ *     Name: 'STRING_VALUE',
+ *     Priority: Number('int'),
+ *     MutationProtection: 'ENABLED' || 'DISABLED',
+ *     ManagedOwnerName: 'STRING_VALUE',
+ *     Status: 'COMPLETE' || 'DELETING' || 'UPDATING',
+ *     StatusMessage: 'STRING_VALUE',
+ *     CreatorRequestId: 'STRING_VALUE',
+ *     CreationTime: 'STRING_VALUE',
+ *     ModificationTime: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param DisassociateFirewallRuleGroupCommandInput - {@link DisassociateFirewallRuleGroupCommandInput}
@@ -78,6 +97,8 @@ export interface DisassociateFirewallRuleGroupCommandOutput
  *  <p>You have provided an invalid command. Supported values are <code>ADD</code>,
  * 			<code>REMOVE</code>, or <code>REPLACE</code> a domain.</p>
  *
+ * @throws {@link Route53ResolverServiceException}
+ * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
  */
 export class DisassociateFirewallRuleGroupCommand extends $Command<

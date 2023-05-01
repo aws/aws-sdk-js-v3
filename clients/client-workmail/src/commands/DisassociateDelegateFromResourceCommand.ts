@@ -41,16 +41,19 @@ export interface DisassociateDelegateFromResourceCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkMailClient, DisassociateDelegateFromResourceCommand } from "@aws-sdk/client-workmail"; // ES Modules import
- * // const { WorkMailClient, DisassociateDelegateFromResourceCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
+ * import { WorkMailClient, DisassociateDelegateFromResourceCommand } from '@aws-sdk/client-workmail'; // ES Modules import
+ * // const { WorkMailClient, DisassociateDelegateFromResourceCommand } = require('@aws-sdk/client-workmail'); // CommonJS import
  * const client = new WorkMailClient(config);
  * const input = { // DisassociateDelegateFromResourceRequest
- *   OrganizationId: "STRING_VALUE", // required
- *   ResourceId: "STRING_VALUE", // required
- *   EntityId: "STRING_VALUE", // required
+ *   OrganizationId: 'STRING_VALUE', // required
+ *   ResourceId: 'STRING_VALUE', // required
+ *   EntityId: 'STRING_VALUE', // required
  * };
  * const command = new DisassociateDelegateFromResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DisassociateDelegateFromResourceCommandInput - {@link DisassociateDelegateFromResourceCommandInput}
@@ -78,6 +81,8 @@ export interface DisassociateDelegateFromResourceCommandOutput
  *  <p>The organization must have a valid state to perform certain
  *          operations on the organization or its members.</p>
  *
+ * @throws {@link WorkMailServiceException}
+ * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
  */
 export class DisassociateDelegateFromResourceCommand extends $Command<

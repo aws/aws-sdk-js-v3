@@ -36,22 +36,27 @@ export interface UpdateOpsMetadataCommandOutput extends UpdateOpsMetadataResult,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMClient, UpdateOpsMetadataCommand } from "@aws-sdk/client-ssm"; // ES Modules import
- * // const { SSMClient, UpdateOpsMetadataCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * import { SSMClient, UpdateOpsMetadataCommand } from '@aws-sdk/client-ssm'; // ES Modules import
+ * // const { SSMClient, UpdateOpsMetadataCommand } = require('@aws-sdk/client-ssm'); // CommonJS import
  * const client = new SSMClient(config);
  * const input = { // UpdateOpsMetadataRequest
- *   OpsMetadataArn: "STRING_VALUE", // required
+ *   OpsMetadataArn: 'STRING_VALUE', // required
  *   MetadataToUpdate: { // MetadataMap
- *     "<keys>": { // MetadataValue
- *       Value: "STRING_VALUE",
+ *     '<keys>': { // MetadataValue
+ *       Value: 'STRING_VALUE',
  *     },
  *   },
  *   KeysToDelete: [ // MetadataKeysToDeleteList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new UpdateOpsMetadataCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateOpsMetadataResult
+ *   OpsMetadataArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateOpsMetadataCommandInput - {@link UpdateOpsMetadataCommandInput}
@@ -77,6 +82,8 @@ export interface UpdateOpsMetadataCommandOutput extends UpdateOpsMetadataResult,
  *  <p>The system is processing too many concurrent updates. Wait a few moments and try
  *    again.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class UpdateOpsMetadataCommand extends $Command<

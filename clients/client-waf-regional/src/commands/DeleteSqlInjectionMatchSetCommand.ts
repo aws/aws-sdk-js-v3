@@ -60,15 +60,20 @@ export interface DeleteSqlInjectionMatchSetCommandOutput extends DeleteSqlInject
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WAFRegionalClient, DeleteSqlInjectionMatchSetCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
- * // const { WAFRegionalClient, DeleteSqlInjectionMatchSetCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import
+ * import { WAFRegionalClient, DeleteSqlInjectionMatchSetCommand } from '@aws-sdk/client-waf-regional'; // ES Modules import
+ * // const { WAFRegionalClient, DeleteSqlInjectionMatchSetCommand } = require('@aws-sdk/client-waf-regional'); // CommonJS import
  * const client = new WAFRegionalClient(config);
  * const input = { // DeleteSqlInjectionMatchSetRequest
- *   SqlInjectionMatchSetId: "STRING_VALUE", // required
- *   ChangeToken: "STRING_VALUE", // required
+ *   SqlInjectionMatchSetId: 'STRING_VALUE', // required
+ *   ChangeToken: 'STRING_VALUE', // required
  * };
  * const command = new DeleteSqlInjectionMatchSetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteSqlInjectionMatchSetResponse
+ *   ChangeToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DeleteSqlInjectionMatchSetCommandInput - {@link DeleteSqlInjectionMatchSetCommandInput}
@@ -118,6 +123,8 @@ export interface DeleteSqlInjectionMatchSetCommandOutput extends DeleteSqlInject
  * @throws {@link WAFStaleDataException} (client fault)
  *  <p>The operation failed because you tried to create, update, or delete an object by using a change token that has already been used.</p>
  *
+ * @throws {@link WAFRegionalServiceException}
+ * <p>Base exception class for all service exceptions from WAFRegional service.</p>
  *
  * @example To delete a SQL injection match set
  * ```javascript

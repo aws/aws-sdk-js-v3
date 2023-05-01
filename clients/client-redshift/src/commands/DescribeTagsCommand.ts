@@ -60,23 +60,38 @@ export interface DescribeTagsCommandOutput extends TaggedResourceListMessage, __
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RedshiftClient, DescribeTagsCommand } from "@aws-sdk/client-redshift"; // ES Modules import
- * // const { RedshiftClient, DescribeTagsCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * import { RedshiftClient, DescribeTagsCommand } from '@aws-sdk/client-redshift'; // ES Modules import
+ * // const { RedshiftClient, DescribeTagsCommand } = require('@aws-sdk/client-redshift'); // CommonJS import
  * const client = new RedshiftClient(config);
  * const input = { // DescribeTagsMessage
- *   ResourceName: "STRING_VALUE",
- *   ResourceType: "STRING_VALUE",
- *   MaxRecords: Number("int"),
- *   Marker: "STRING_VALUE",
+ *   ResourceName: 'STRING_VALUE',
+ *   ResourceType: 'STRING_VALUE',
+ *   MaxRecords: Number('int'),
+ *   Marker: 'STRING_VALUE',
  *   TagKeys: [ // TagKeyList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   TagValues: [ // TagValueList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new DescribeTagsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // TaggedResourceListMessage
+ *   TaggedResources: [ // TaggedResourceList
+ *     { // TaggedResource
+ *       Tag: { // Tag
+ *         Key: 'STRING_VALUE',
+ *         Value: 'STRING_VALUE',
+ *       },
+ *       ResourceName: 'STRING_VALUE',
+ *       ResourceType: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   Marker: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeTagsCommandInput - {@link DescribeTagsCommandInput}
@@ -91,6 +106,8 @@ export interface DescribeTagsCommandOutput extends TaggedResourceListMessage, __
  * @throws {@link ResourceNotFoundFault} (client fault)
  *  <p>The resource could not be found.</p>
  *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class DescribeTagsCommand extends $Command<

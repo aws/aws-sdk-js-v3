@@ -41,16 +41,34 @@ export interface DescribeIAMPolicyAssignmentCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { QuickSightClient, DescribeIAMPolicyAssignmentCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
- * // const { QuickSightClient, DescribeIAMPolicyAssignmentCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * import { QuickSightClient, DescribeIAMPolicyAssignmentCommand } from '@aws-sdk/client-quicksight'; // ES Modules import
+ * // const { QuickSightClient, DescribeIAMPolicyAssignmentCommand } = require('@aws-sdk/client-quicksight'); // CommonJS import
  * const client = new QuickSightClient(config);
  * const input = { // DescribeIAMPolicyAssignmentRequest
- *   AwsAccountId: "STRING_VALUE", // required
- *   AssignmentName: "STRING_VALUE", // required
- *   Namespace: "STRING_VALUE", // required
+ *   AwsAccountId: 'STRING_VALUE', // required
+ *   AssignmentName: 'STRING_VALUE', // required
+ *   Namespace: 'STRING_VALUE', // required
  * };
  * const command = new DescribeIAMPolicyAssignmentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeIAMPolicyAssignmentResponse
+ *   IAMPolicyAssignment: { // IAMPolicyAssignment
+ *     AwsAccountId: 'STRING_VALUE',
+ *     AssignmentId: 'STRING_VALUE',
+ *     AssignmentName: 'STRING_VALUE',
+ *     PolicyArn: 'STRING_VALUE',
+ *     Identities: { // IdentityMap
+ *       '<keys>': [ // IdentityNameList
+ *         'STRING_VALUE',
+ *       ],
+ *     },
+ *     AssignmentStatus: 'ENABLED' || 'DRAFT' || 'DISABLED',
+ *   },
+ *   RequestId: 'STRING_VALUE',
+ *   Status: Number('int'),
+ * };
+ *
  * ```
  *
  * @param DescribeIAMPolicyAssignmentCommandInput - {@link DescribeIAMPolicyAssignmentCommandInput}
@@ -80,6 +98,8 @@ export interface DescribeIAMPolicyAssignmentCommandOutput
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Access is throttled.</p>
  *
+ * @throws {@link QuickSightServiceException}
+ * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
 export class DescribeIAMPolicyAssignmentCommand extends $Command<

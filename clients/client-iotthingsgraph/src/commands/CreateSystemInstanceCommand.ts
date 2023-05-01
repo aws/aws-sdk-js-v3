@@ -46,31 +46,46 @@ export interface CreateSystemInstanceCommandOutput extends CreateSystemInstanceR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTThingsGraphClient, CreateSystemInstanceCommand } from "@aws-sdk/client-iotthingsgraph"; // ES Modules import
- * // const { IoTThingsGraphClient, CreateSystemInstanceCommand } = require("@aws-sdk/client-iotthingsgraph"); // CommonJS import
+ * import { IoTThingsGraphClient, CreateSystemInstanceCommand } from '@aws-sdk/client-iotthingsgraph'; // ES Modules import
+ * // const { IoTThingsGraphClient, CreateSystemInstanceCommand } = require('@aws-sdk/client-iotthingsgraph'); // CommonJS import
  * const client = new IoTThingsGraphClient(config);
  * const input = { // CreateSystemInstanceRequest
  *   tags: [ // TagList
  *     { // Tag
- *       key: "STRING_VALUE", // required
- *       value: "STRING_VALUE", // required
+ *       key: 'STRING_VALUE', // required
+ *       value: 'STRING_VALUE', // required
  *     },
  *   ],
  *   definition: { // DefinitionDocument
- *     language: "STRING_VALUE", // required
- *     text: "STRING_VALUE", // required
+ *     language: 'STRING_VALUE', // required
+ *     text: 'STRING_VALUE', // required
  *   },
- *   target: "STRING_VALUE", // required
- *   greengrassGroupName: "STRING_VALUE",
- *   s3BucketName: "STRING_VALUE",
+ *   target: 'STRING_VALUE', // required
+ *   greengrassGroupName: 'STRING_VALUE',
+ *   s3BucketName: 'STRING_VALUE',
  *   metricsConfiguration: { // MetricsConfiguration
  *     cloudMetricEnabled: true || false,
- *     metricRuleRoleArn: "STRING_VALUE",
+ *     metricRuleRoleArn: 'STRING_VALUE',
  *   },
- *   flowActionsRoleArn: "STRING_VALUE",
+ *   flowActionsRoleArn: 'STRING_VALUE',
  * };
  * const command = new CreateSystemInstanceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateSystemInstanceResponse
+ *   summary: { // SystemInstanceSummary
+ *     id: 'STRING_VALUE',
+ *     arn: 'STRING_VALUE',
+ *     status: 'STRING_VALUE',
+ *     target: 'STRING_VALUE',
+ *     greengrassGroupName: 'STRING_VALUE',
+ *     createdAt: new Date('TIMESTAMP'),
+ *     updatedAt: new Date('TIMESTAMP'),
+ *     greengrassGroupId: 'STRING_VALUE',
+ *     greengrassGroupVersionId: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateSystemInstanceCommandInput - {@link CreateSystemInstanceCommandInput}
@@ -94,6 +109,8 @@ export interface CreateSystemInstanceCommandOutput extends CreateSystemInstanceR
  * @throws {@link ThrottlingException} (client fault)
  *  <p></p>
  *
+ * @throws {@link IoTThingsGraphServiceException}
+ * <p>Base exception class for all service exceptions from IoTThingsGraph service.</p>
  *
  */
 export class CreateSystemInstanceCommand extends $Command<

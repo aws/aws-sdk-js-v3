@@ -40,15 +40,23 @@ export interface ListElasticsearchVersionsCommandOutput extends ListElasticsearc
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElasticsearchServiceClient, ListElasticsearchVersionsCommand } from "@aws-sdk/client-elasticsearch-service"; // ES Modules import
- * // const { ElasticsearchServiceClient, ListElasticsearchVersionsCommand } = require("@aws-sdk/client-elasticsearch-service"); // CommonJS import
+ * import { ElasticsearchServiceClient, ListElasticsearchVersionsCommand } from '@aws-sdk/client-elasticsearch-service'; // ES Modules import
+ * // const { ElasticsearchServiceClient, ListElasticsearchVersionsCommand } = require('@aws-sdk/client-elasticsearch-service'); // CommonJS import
  * const client = new ElasticsearchServiceClient(config);
  * const input = { // ListElasticsearchVersionsRequest
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListElasticsearchVersionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListElasticsearchVersionsResponse
+ *   ElasticsearchVersions: [ // ElasticsearchVersionList
+ *     'STRING_VALUE',
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListElasticsearchVersionsCommandInput - {@link ListElasticsearchVersionsCommandInput}
@@ -69,6 +77,8 @@ export interface ListElasticsearchVersionsCommandOutput extends ListElasticsearc
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception for missing / invalid input fields. Gives http status code of 400.</p>
  *
+ * @throws {@link ElasticsearchServiceServiceException}
+ * <p>Base exception class for all service exceptions from ElasticsearchService service.</p>
  *
  */
 export class ListElasticsearchVersionsCommand extends $Command<

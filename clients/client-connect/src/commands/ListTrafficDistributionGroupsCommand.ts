@@ -41,16 +41,30 @@ export interface ListTrafficDistributionGroupsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, ListTrafficDistributionGroupsCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, ListTrafficDistributionGroupsCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, ListTrafficDistributionGroupsCommand } from '@aws-sdk/client-connect'; // ES Modules import
+ * // const { ConnectClient, ListTrafficDistributionGroupsCommand } = require('@aws-sdk/client-connect'); // CommonJS import
  * const client = new ConnectClient(config);
  * const input = { // ListTrafficDistributionGroupsRequest
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
- *   InstanceId: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
+ *   InstanceId: 'STRING_VALUE',
  * };
  * const command = new ListTrafficDistributionGroupsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTrafficDistributionGroupsResponse
+ *   NextToken: 'STRING_VALUE',
+ *   TrafficDistributionGroupSummaryList: [ // TrafficDistributionGroupSummaryList
+ *     { // TrafficDistributionGroupSummary
+ *       Id: 'STRING_VALUE',
+ *       Arn: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *       InstanceArn: 'STRING_VALUE',
+ *       Status: 'CREATION_IN_PROGRESS' || 'ACTIVE' || 'CREATION_FAILED' || 'PENDING_DELETION' || 'DELETION_FAILED' || 'UPDATE_IN_PROGRESS',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListTrafficDistributionGroupsCommandInput - {@link ListTrafficDistributionGroupsCommandInput}
@@ -71,6 +85,8 @@ export interface ListTrafficDistributionGroupsCommandOutput
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class ListTrafficDistributionGroupsCommand extends $Command<

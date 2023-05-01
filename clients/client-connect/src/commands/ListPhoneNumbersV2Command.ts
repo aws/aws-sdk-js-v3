@@ -41,23 +41,38 @@ export interface ListPhoneNumbersV2CommandOutput extends ListPhoneNumbersV2Respo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, ListPhoneNumbersV2Command } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, ListPhoneNumbersV2Command } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, ListPhoneNumbersV2Command } from '@aws-sdk/client-connect'; // ES Modules import
+ * // const { ConnectClient, ListPhoneNumbersV2Command } = require('@aws-sdk/client-connect'); // CommonJS import
  * const client = new ConnectClient(config);
  * const input = { // ListPhoneNumbersV2Request
- *   TargetArn: "STRING_VALUE",
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   TargetArn: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  *   PhoneNumberCountryCodes: [ // PhoneNumberCountryCodes
- *     "AF" || "AL" || "DZ" || "AS" || "AD" || "AO" || "AI" || "AQ" || "AG" || "AR" || "AM" || "AW" || "AU" || "AT" || "AZ" || "BS" || "BH" || "BD" || "BB" || "BY" || "BE" || "BZ" || "BJ" || "BM" || "BT" || "BO" || "BA" || "BW" || "BR" || "IO" || "VG" || "BN" || "BG" || "BF" || "BI" || "KH" || "CM" || "CA" || "CV" || "KY" || "CF" || "TD" || "CL" || "CN" || "CX" || "CC" || "CO" || "KM" || "CK" || "CR" || "HR" || "CU" || "CW" || "CY" || "CZ" || "CD" || "DK" || "DJ" || "DM" || "DO" || "TL" || "EC" || "EG" || "SV" || "GQ" || "ER" || "EE" || "ET" || "FK" || "FO" || "FJ" || "FI" || "FR" || "PF" || "GA" || "GM" || "GE" || "DE" || "GH" || "GI" || "GR" || "GL" || "GD" || "GU" || "GT" || "GG" || "GN" || "GW" || "GY" || "HT" || "HN" || "HK" || "HU" || "IS" || "IN" || "ID" || "IR" || "IQ" || "IE" || "IM" || "IL" || "IT" || "CI" || "JM" || "JP" || "JE" || "JO" || "KZ" || "KE" || "KI" || "KW" || "KG" || "LA" || "LV" || "LB" || "LS" || "LR" || "LY" || "LI" || "LT" || "LU" || "MO" || "MK" || "MG" || "MW" || "MY" || "MV" || "ML" || "MT" || "MH" || "MR" || "MU" || "YT" || "MX" || "FM" || "MD" || "MC" || "MN" || "ME" || "MS" || "MA" || "MZ" || "MM" || "NA" || "NR" || "NP" || "NL" || "AN" || "NC" || "NZ" || "NI" || "NE" || "NG" || "NU" || "KP" || "MP" || "NO" || "OM" || "PK" || "PW" || "PA" || "PG" || "PY" || "PE" || "PH" || "PN" || "PL" || "PT" || "PR" || "QA" || "CG" || "RE" || "RO" || "RU" || "RW" || "BL" || "SH" || "KN" || "LC" || "MF" || "PM" || "VC" || "WS" || "SM" || "ST" || "SA" || "SN" || "RS" || "SC" || "SL" || "SG" || "SX" || "SK" || "SI" || "SB" || "SO" || "ZA" || "KR" || "ES" || "LK" || "SD" || "SR" || "SJ" || "SZ" || "SE" || "CH" || "SY" || "TW" || "TJ" || "TZ" || "TH" || "TG" || "TK" || "TO" || "TT" || "TN" || "TR" || "TM" || "TC" || "TV" || "VI" || "UG" || "UA" || "AE" || "GB" || "US" || "UY" || "UZ" || "VU" || "VA" || "VE" || "VN" || "WF" || "EH" || "YE" || "ZM" || "ZW",
+ *     'AF' || 'AL' || 'DZ' || 'AS' || 'AD' || 'AO' || 'AI' || 'AQ' || 'AG' || 'AR' || 'AM' || 'AW' || 'AU' || 'AT' || 'AZ' || 'BS' || 'BH' || 'BD' || 'BB' || 'BY' || 'BE' || 'BZ' || 'BJ' || 'BM' || 'BT' || 'BO' || 'BA' || 'BW' || 'BR' || 'IO' || 'VG' || 'BN' || 'BG' || 'BF' || 'BI' || 'KH' || 'CM' || 'CA' || 'CV' || 'KY' || 'CF' || 'TD' || 'CL' || 'CN' || 'CX' || 'CC' || 'CO' || 'KM' || 'CK' || 'CR' || 'HR' || 'CU' || 'CW' || 'CY' || 'CZ' || 'CD' || 'DK' || 'DJ' || 'DM' || 'DO' || 'TL' || 'EC' || 'EG' || 'SV' || 'GQ' || 'ER' || 'EE' || 'ET' || 'FK' || 'FO' || 'FJ' || 'FI' || 'FR' || 'PF' || 'GA' || 'GM' || 'GE' || 'DE' || 'GH' || 'GI' || 'GR' || 'GL' || 'GD' || 'GU' || 'GT' || 'GG' || 'GN' || 'GW' || 'GY' || 'HT' || 'HN' || 'HK' || 'HU' || 'IS' || 'IN' || 'ID' || 'IR' || 'IQ' || 'IE' || 'IM' || 'IL' || 'IT' || 'CI' || 'JM' || 'JP' || 'JE' || 'JO' || 'KZ' || 'KE' || 'KI' || 'KW' || 'KG' || 'LA' || 'LV' || 'LB' || 'LS' || 'LR' || 'LY' || 'LI' || 'LT' || 'LU' || 'MO' || 'MK' || 'MG' || 'MW' || 'MY' || 'MV' || 'ML' || 'MT' || 'MH' || 'MR' || 'MU' || 'YT' || 'MX' || 'FM' || 'MD' || 'MC' || 'MN' || 'ME' || 'MS' || 'MA' || 'MZ' || 'MM' || 'NA' || 'NR' || 'NP' || 'NL' || 'AN' || 'NC' || 'NZ' || 'NI' || 'NE' || 'NG' || 'NU' || 'KP' || 'MP' || 'NO' || 'OM' || 'PK' || 'PW' || 'PA' || 'PG' || 'PY' || 'PE' || 'PH' || 'PN' || 'PL' || 'PT' || 'PR' || 'QA' || 'CG' || 'RE' || 'RO' || 'RU' || 'RW' || 'BL' || 'SH' || 'KN' || 'LC' || 'MF' || 'PM' || 'VC' || 'WS' || 'SM' || 'ST' || 'SA' || 'SN' || 'RS' || 'SC' || 'SL' || 'SG' || 'SX' || 'SK' || 'SI' || 'SB' || 'SO' || 'ZA' || 'KR' || 'ES' || 'LK' || 'SD' || 'SR' || 'SJ' || 'SZ' || 'SE' || 'CH' || 'SY' || 'TW' || 'TJ' || 'TZ' || 'TH' || 'TG' || 'TK' || 'TO' || 'TT' || 'TN' || 'TR' || 'TM' || 'TC' || 'TV' || 'VI' || 'UG' || 'UA' || 'AE' || 'GB' || 'US' || 'UY' || 'UZ' || 'VU' || 'VA' || 'VE' || 'VN' || 'WF' || 'EH' || 'YE' || 'ZM' || 'ZW',
  *   ],
  *   PhoneNumberTypes: [ // PhoneNumberTypes
- *     "TOLL_FREE" || "DID",
+ *     'TOLL_FREE' || 'DID',
  *   ],
- *   PhoneNumberPrefix: "STRING_VALUE",
+ *   PhoneNumberPrefix: 'STRING_VALUE',
  * };
  * const command = new ListPhoneNumbersV2Command(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListPhoneNumbersV2Response
+ *   NextToken: 'STRING_VALUE',
+ *   ListPhoneNumbersSummaryList: [ // ListPhoneNumbersSummaryList
+ *     { // ListPhoneNumbersSummary
+ *       PhoneNumberId: 'STRING_VALUE',
+ *       PhoneNumberArn: 'STRING_VALUE',
+ *       PhoneNumber: 'STRING_VALUE',
+ *       PhoneNumberCountryCode: 'AF' || 'AL' || 'DZ' || 'AS' || 'AD' || 'AO' || 'AI' || 'AQ' || 'AG' || 'AR' || 'AM' || 'AW' || 'AU' || 'AT' || 'AZ' || 'BS' || 'BH' || 'BD' || 'BB' || 'BY' || 'BE' || 'BZ' || 'BJ' || 'BM' || 'BT' || 'BO' || 'BA' || 'BW' || 'BR' || 'IO' || 'VG' || 'BN' || 'BG' || 'BF' || 'BI' || 'KH' || 'CM' || 'CA' || 'CV' || 'KY' || 'CF' || 'TD' || 'CL' || 'CN' || 'CX' || 'CC' || 'CO' || 'KM' || 'CK' || 'CR' || 'HR' || 'CU' || 'CW' || 'CY' || 'CZ' || 'CD' || 'DK' || 'DJ' || 'DM' || 'DO' || 'TL' || 'EC' || 'EG' || 'SV' || 'GQ' || 'ER' || 'EE' || 'ET' || 'FK' || 'FO' || 'FJ' || 'FI' || 'FR' || 'PF' || 'GA' || 'GM' || 'GE' || 'DE' || 'GH' || 'GI' || 'GR' || 'GL' || 'GD' || 'GU' || 'GT' || 'GG' || 'GN' || 'GW' || 'GY' || 'HT' || 'HN' || 'HK' || 'HU' || 'IS' || 'IN' || 'ID' || 'IR' || 'IQ' || 'IE' || 'IM' || 'IL' || 'IT' || 'CI' || 'JM' || 'JP' || 'JE' || 'JO' || 'KZ' || 'KE' || 'KI' || 'KW' || 'KG' || 'LA' || 'LV' || 'LB' || 'LS' || 'LR' || 'LY' || 'LI' || 'LT' || 'LU' || 'MO' || 'MK' || 'MG' || 'MW' || 'MY' || 'MV' || 'ML' || 'MT' || 'MH' || 'MR' || 'MU' || 'YT' || 'MX' || 'FM' || 'MD' || 'MC' || 'MN' || 'ME' || 'MS' || 'MA' || 'MZ' || 'MM' || 'NA' || 'NR' || 'NP' || 'NL' || 'AN' || 'NC' || 'NZ' || 'NI' || 'NE' || 'NG' || 'NU' || 'KP' || 'MP' || 'NO' || 'OM' || 'PK' || 'PW' || 'PA' || 'PG' || 'PY' || 'PE' || 'PH' || 'PN' || 'PL' || 'PT' || 'PR' || 'QA' || 'CG' || 'RE' || 'RO' || 'RU' || 'RW' || 'BL' || 'SH' || 'KN' || 'LC' || 'MF' || 'PM' || 'VC' || 'WS' || 'SM' || 'ST' || 'SA' || 'SN' || 'RS' || 'SC' || 'SL' || 'SG' || 'SX' || 'SK' || 'SI' || 'SB' || 'SO' || 'ZA' || 'KR' || 'ES' || 'LK' || 'SD' || 'SR' || 'SJ' || 'SZ' || 'SE' || 'CH' || 'SY' || 'TW' || 'TJ' || 'TZ' || 'TH' || 'TG' || 'TK' || 'TO' || 'TT' || 'TN' || 'TR' || 'TM' || 'TC' || 'TV' || 'VI' || 'UG' || 'UA' || 'AE' || 'GB' || 'US' || 'UY' || 'UZ' || 'VU' || 'VA' || 'VE' || 'VN' || 'WF' || 'EH' || 'YE' || 'ZM' || 'ZW',
+ *       PhoneNumberType: 'TOLL_FREE' || 'DID',
+ *       TargetArn: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListPhoneNumbersV2CommandInput - {@link ListPhoneNumbersV2CommandInput}
@@ -81,6 +96,8 @@ export interface ListPhoneNumbersV2CommandOutput extends ListPhoneNumbersV2Respo
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class ListPhoneNumbersV2Command extends $Command<

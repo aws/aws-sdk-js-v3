@@ -37,12 +37,21 @@ export interface GetInvitationConfigurationCommandOutput extends GetInvitationCo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AlexaForBusinessClient, GetInvitationConfigurationCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
- * // const { AlexaForBusinessClient, GetInvitationConfigurationCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
+ * import { AlexaForBusinessClient, GetInvitationConfigurationCommand } from '@aws-sdk/client-alexa-for-business'; // ES Modules import
+ * // const { AlexaForBusinessClient, GetInvitationConfigurationCommand } = require('@aws-sdk/client-alexa-for-business'); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
  * const input = {};
  * const command = new GetInvitationConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetInvitationConfigurationResponse
+ *   OrganizationName: 'STRING_VALUE',
+ *   ContactEmail: 'STRING_VALUE',
+ *   PrivateSkillIds: [ // ShortSkillIdList
+ *     'STRING_VALUE',
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetInvitationConfigurationCommandInput - {@link GetInvitationConfigurationCommandInput}
@@ -54,6 +63,8 @@ export interface GetInvitationConfigurationCommandOutput extends GetInvitationCo
  * @throws {@link NotFoundException} (client fault)
  *  <p>The resource is not found.</p>
  *
+ * @throws {@link AlexaForBusinessServiceException}
+ * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  */
 export class GetInvitationConfigurationCommand extends $Command<

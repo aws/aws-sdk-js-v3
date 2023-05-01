@@ -36,17 +36,23 @@ export interface DeletePartnerCommandOutput extends PartnerIntegrationOutputMess
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RedshiftClient, DeletePartnerCommand } from "@aws-sdk/client-redshift"; // ES Modules import
- * // const { RedshiftClient, DeletePartnerCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * import { RedshiftClient, DeletePartnerCommand } from '@aws-sdk/client-redshift'; // ES Modules import
+ * // const { RedshiftClient, DeletePartnerCommand } = require('@aws-sdk/client-redshift'); // CommonJS import
  * const client = new RedshiftClient(config);
  * const input = { // PartnerIntegrationInputMessage
- *   AccountId: "STRING_VALUE", // required
- *   ClusterIdentifier: "STRING_VALUE", // required
- *   DatabaseName: "STRING_VALUE", // required
- *   PartnerName: "STRING_VALUE", // required
+ *   AccountId: 'STRING_VALUE', // required
+ *   ClusterIdentifier: 'STRING_VALUE', // required
+ *   DatabaseName: 'STRING_VALUE', // required
+ *   PartnerName: 'STRING_VALUE', // required
  * };
  * const command = new DeletePartnerCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PartnerIntegrationOutputMessage
+ *   DatabaseName: 'STRING_VALUE',
+ *   PartnerName: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DeletePartnerCommandInput - {@link DeletePartnerCommandInput}
@@ -65,6 +71,8 @@ export interface DeletePartnerCommandOutput extends PartnerIntegrationOutputMess
  * @throws {@link UnauthorizedPartnerIntegrationFault} (client fault)
  *  <p>The partner integration is not authorized.</p>
  *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class DeletePartnerCommand extends $Command<

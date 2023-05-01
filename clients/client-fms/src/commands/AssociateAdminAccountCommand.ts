@@ -37,14 +37,17 @@ export interface AssociateAdminAccountCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FMSClient, AssociateAdminAccountCommand } from "@aws-sdk/client-fms"; // ES Modules import
- * // const { FMSClient, AssociateAdminAccountCommand } = require("@aws-sdk/client-fms"); // CommonJS import
+ * import { FMSClient, AssociateAdminAccountCommand } from '@aws-sdk/client-fms'; // ES Modules import
+ * // const { FMSClient, AssociateAdminAccountCommand } = require('@aws-sdk/client-fms'); // CommonJS import
  * const client = new FMSClient(config);
  * const input = { // AssociateAdminAccountRequest
- *   AdminAccount: "STRING_VALUE", // required
+ *   AdminAccount: 'STRING_VALUE', // required
  * };
  * const command = new AssociateAdminAccountCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param AssociateAdminAccountCommandInput - {@link AssociateAdminAccountCommandInput}
@@ -76,6 +79,8 @@ export interface AssociateAdminAccountCommandOutput extends __MetadataBearer {}
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link FMSServiceException}
+ * <p>Base exception class for all service exceptions from FMS service.</p>
  *
  */
 export class AssociateAdminAccountCommand extends $Command<

@@ -44,49 +44,54 @@ export interface StartTaskExecutionCommandOutput extends StartTaskExecutionRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DataSyncClient, StartTaskExecutionCommand } from "@aws-sdk/client-datasync"; // ES Modules import
- * // const { DataSyncClient, StartTaskExecutionCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
+ * import { DataSyncClient, StartTaskExecutionCommand } from '@aws-sdk/client-datasync'; // ES Modules import
+ * // const { DataSyncClient, StartTaskExecutionCommand } = require('@aws-sdk/client-datasync'); // CommonJS import
  * const client = new DataSyncClient(config);
  * const input = { // StartTaskExecutionRequest
- *   TaskArn: "STRING_VALUE", // required
+ *   TaskArn: 'STRING_VALUE', // required
  *   OverrideOptions: { // Options
- *     VerifyMode: "POINT_IN_TIME_CONSISTENT" || "ONLY_FILES_TRANSFERRED" || "NONE",
- *     OverwriteMode: "ALWAYS" || "NEVER",
- *     Atime: "NONE" || "BEST_EFFORT",
- *     Mtime: "NONE" || "PRESERVE",
- *     Uid: "NONE" || "INT_VALUE" || "NAME" || "BOTH",
- *     Gid: "NONE" || "INT_VALUE" || "NAME" || "BOTH",
- *     PreserveDeletedFiles: "PRESERVE" || "REMOVE",
- *     PreserveDevices: "NONE" || "PRESERVE",
- *     PosixPermissions: "NONE" || "PRESERVE",
- *     BytesPerSecond: Number("long"),
- *     TaskQueueing: "ENABLED" || "DISABLED",
- *     LogLevel: "OFF" || "BASIC" || "TRANSFER",
- *     TransferMode: "CHANGED" || "ALL",
- *     SecurityDescriptorCopyFlags: "NONE" || "OWNER_DACL" || "OWNER_DACL_SACL",
- *     ObjectTags: "PRESERVE" || "NONE",
+ *     VerifyMode: 'POINT_IN_TIME_CONSISTENT' || 'ONLY_FILES_TRANSFERRED' || 'NONE',
+ *     OverwriteMode: 'ALWAYS' || 'NEVER',
+ *     Atime: 'NONE' || 'BEST_EFFORT',
+ *     Mtime: 'NONE' || 'PRESERVE',
+ *     Uid: 'NONE' || 'INT_VALUE' || 'NAME' || 'BOTH',
+ *     Gid: 'NONE' || 'INT_VALUE' || 'NAME' || 'BOTH',
+ *     PreserveDeletedFiles: 'PRESERVE' || 'REMOVE',
+ *     PreserveDevices: 'NONE' || 'PRESERVE',
+ *     PosixPermissions: 'NONE' || 'PRESERVE',
+ *     BytesPerSecond: Number('long'),
+ *     TaskQueueing: 'ENABLED' || 'DISABLED',
+ *     LogLevel: 'OFF' || 'BASIC' || 'TRANSFER',
+ *     TransferMode: 'CHANGED' || 'ALL',
+ *     SecurityDescriptorCopyFlags: 'NONE' || 'OWNER_DACL' || 'OWNER_DACL_SACL',
+ *     ObjectTags: 'PRESERVE' || 'NONE',
  *   },
  *   Includes: [ // FilterList
  *     { // FilterRule
- *       FilterType: "SIMPLE_PATTERN",
- *       Value: "STRING_VALUE",
+ *       FilterType: 'SIMPLE_PATTERN',
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
  *   Excludes: [
  *     {
- *       FilterType: "SIMPLE_PATTERN",
- *       Value: "STRING_VALUE",
+ *       FilterType: 'SIMPLE_PATTERN',
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
  *   Tags: [ // InputTagList
  *     { // TagListEntry
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new StartTaskExecutionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartTaskExecutionResponse
+ *   TaskExecutionArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param StartTaskExecutionCommandInput - {@link StartTaskExecutionCommandInput}
@@ -102,6 +107,8 @@ export interface StartTaskExecutionCommandOutput extends StartTaskExecutionRespo
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception is thrown when the client submits a malformed request.</p>
  *
+ * @throws {@link DataSyncServiceException}
+ * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
  */
 export class StartTaskExecutionCommand extends $Command<

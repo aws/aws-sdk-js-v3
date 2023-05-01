@@ -44,26 +44,48 @@ export interface DescribeRecommendationExportJobsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ComputeOptimizerClient, DescribeRecommendationExportJobsCommand } from "@aws-sdk/client-compute-optimizer"; // ES Modules import
- * // const { ComputeOptimizerClient, DescribeRecommendationExportJobsCommand } = require("@aws-sdk/client-compute-optimizer"); // CommonJS import
+ * import { ComputeOptimizerClient, DescribeRecommendationExportJobsCommand } from '@aws-sdk/client-compute-optimizer'; // ES Modules import
+ * // const { ComputeOptimizerClient, DescribeRecommendationExportJobsCommand } = require('@aws-sdk/client-compute-optimizer'); // CommonJS import
  * const client = new ComputeOptimizerClient(config);
  * const input = { // DescribeRecommendationExportJobsRequest
  *   jobIds: [ // JobIds
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   filters: [ // JobFilters
  *     { // JobFilter
- *       name: "ResourceType" || "JobStatus",
+ *       name: 'ResourceType' || 'JobStatus',
  *       values: [ // FilterValues
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new DescribeRecommendationExportJobsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeRecommendationExportJobsResponse
+ *   recommendationExportJobs: [ // RecommendationExportJobs
+ *     { // RecommendationExportJob
+ *       jobId: 'STRING_VALUE',
+ *       destination: { // ExportDestination
+ *         s3: { // S3Destination
+ *           bucket: 'STRING_VALUE',
+ *           key: 'STRING_VALUE',
+ *           metadataKey: 'STRING_VALUE',
+ *         },
+ *       },
+ *       resourceType: 'Ec2Instance' || 'AutoScalingGroup' || 'EbsVolume' || 'LambdaFunction' || 'NotApplicable' || 'EcsService',
+ *       status: 'Queued' || 'InProgress' || 'Complete' || 'Failed',
+ *       creationTimestamp: new Date('TIMESTAMP'),
+ *       lastUpdatedTimestamp: new Date('TIMESTAMP'),
+ *       failureReason: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeRecommendationExportJobsCommandInput - {@link DescribeRecommendationExportJobsCommandInput}
@@ -97,6 +119,8 @@ export interface DescribeRecommendationExportJobsCommandOutput
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
  *
+ * @throws {@link ComputeOptimizerServiceException}
+ * <p>Base exception class for all service exceptions from ComputeOptimizer service.</p>
  *
  */
 export class DescribeRecommendationExportJobsCommand extends $Command<

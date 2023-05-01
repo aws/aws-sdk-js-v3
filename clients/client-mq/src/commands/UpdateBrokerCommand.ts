@@ -36,32 +36,32 @@ export interface UpdateBrokerCommandOutput extends UpdateBrokerResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MqClient, UpdateBrokerCommand } from "@aws-sdk/client-mq"; // ES Modules import
- * // const { MqClient, UpdateBrokerCommand } = require("@aws-sdk/client-mq"); // CommonJS import
+ * import { MqClient, UpdateBrokerCommand } from '@aws-sdk/client-mq'; // ES Modules import
+ * // const { MqClient, UpdateBrokerCommand } = require('@aws-sdk/client-mq'); // CommonJS import
  * const client = new MqClient(config);
  * const input = { // UpdateBrokerRequest
- *   AuthenticationStrategy: "STRING_VALUE",
+ *   AuthenticationStrategy: 'STRING_VALUE',
  *   AutoMinorVersionUpgrade: true || false,
- *   BrokerId: "STRING_VALUE", // required
+ *   BrokerId: 'STRING_VALUE', // required
  *   Configuration: { // ConfigurationId
- *     Id: "STRING_VALUE", // required
- *     Revision: Number("int"),
+ *     Id: 'STRING_VALUE', // required
+ *     Revision: Number('int'),
  *   },
- *   EngineVersion: "STRING_VALUE",
- *   HostInstanceType: "STRING_VALUE",
+ *   EngineVersion: 'STRING_VALUE',
+ *   HostInstanceType: 'STRING_VALUE',
  *   LdapServerMetadata: { // LdapServerMetadataInput
  *     Hosts: [ // __listOf__string // required
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
- *     RoleBase: "STRING_VALUE", // required
- *     RoleName: "STRING_VALUE",
- *     RoleSearchMatching: "STRING_VALUE", // required
+ *     RoleBase: 'STRING_VALUE', // required
+ *     RoleName: 'STRING_VALUE',
+ *     RoleSearchMatching: 'STRING_VALUE', // required
  *     RoleSearchSubtree: true || false,
- *     ServiceAccountPassword: "STRING_VALUE", // required
- *     ServiceAccountUsername: "STRING_VALUE", // required
- *     UserBase: "STRING_VALUE", // required
- *     UserRoleName: "STRING_VALUE",
- *     UserSearchMatching: "STRING_VALUE", // required
+ *     ServiceAccountPassword: 'STRING_VALUE', // required
+ *     ServiceAccountUsername: 'STRING_VALUE', // required
+ *     UserBase: 'STRING_VALUE', // required
+ *     UserRoleName: 'STRING_VALUE',
+ *     UserSearchMatching: 'STRING_VALUE', // required
  *     UserSearchSubtree: true || false,
  *   },
  *   Logs: { // Logs
@@ -69,16 +69,55 @@ export interface UpdateBrokerCommandOutput extends UpdateBrokerResponse, __Metad
  *     General: true || false,
  *   },
  *   MaintenanceWindowStartTime: { // WeeklyStartTime
- *     DayOfWeek: "STRING_VALUE", // required
- *     TimeOfDay: "STRING_VALUE", // required
- *     TimeZone: "STRING_VALUE",
+ *     DayOfWeek: 'STRING_VALUE', // required
+ *     TimeOfDay: 'STRING_VALUE', // required
+ *     TimeZone: 'STRING_VALUE',
  *   },
  *   SecurityGroups: [
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new UpdateBrokerCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateBrokerResponse
+ *   AuthenticationStrategy: 'STRING_VALUE',
+ *   AutoMinorVersionUpgrade: true || false,
+ *   BrokerId: 'STRING_VALUE',
+ *   Configuration: { // ConfigurationId
+ *     Id: 'STRING_VALUE', // required
+ *     Revision: Number('int'),
+ *   },
+ *   EngineVersion: 'STRING_VALUE',
+ *   HostInstanceType: 'STRING_VALUE',
+ *   LdapServerMetadata: { // LdapServerMetadataOutput
+ *     Hosts: [ // __listOf__string // required
+ *       'STRING_VALUE',
+ *     ],
+ *     RoleBase: 'STRING_VALUE', // required
+ *     RoleName: 'STRING_VALUE',
+ *     RoleSearchMatching: 'STRING_VALUE', // required
+ *     RoleSearchSubtree: true || false,
+ *     ServiceAccountUsername: 'STRING_VALUE', // required
+ *     UserBase: 'STRING_VALUE', // required
+ *     UserRoleName: 'STRING_VALUE',
+ *     UserSearchMatching: 'STRING_VALUE', // required
+ *     UserSearchSubtree: true || false,
+ *   },
+ *   Logs: { // Logs
+ *     Audit: true || false,
+ *     General: true || false,
+ *   },
+ *   MaintenanceWindowStartTime: { // WeeklyStartTime
+ *     DayOfWeek: 'STRING_VALUE', // required
+ *     TimeOfDay: 'STRING_VALUE', // required
+ *     TimeZone: 'STRING_VALUE',
+ *   },
+ *   SecurityGroups: [
+ *     'STRING_VALUE',
+ *   ],
+ * };
+ *
  * ```
  *
  * @param UpdateBrokerCommandInput - {@link UpdateBrokerCommandInput}
@@ -102,6 +141,8 @@ export interface UpdateBrokerCommandOutput extends UpdateBrokerResponse, __Metad
  * @throws {@link NotFoundException} (client fault)
  *  <p>Returns information about an error.</p>
  *
+ * @throws {@link MqServiceException}
+ * <p>Base exception class for all service exceptions from Mq service.</p>
  *
  */
 export class UpdateBrokerCommand extends $Command<

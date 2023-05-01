@@ -44,28 +44,31 @@ export interface ConfirmSignUpCommandOutput extends ConfirmSignUpResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CognitoIdentityProviderClient, ConfirmSignUpCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
- * // const { CognitoIdentityProviderClient, ConfirmSignUpCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
+ * import { CognitoIdentityProviderClient, ConfirmSignUpCommand } from '@aws-sdk/client-cognito-identity-provider'; // ES Modules import
+ * // const { CognitoIdentityProviderClient, ConfirmSignUpCommand } = require('@aws-sdk/client-cognito-identity-provider'); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
  * const input = { // ConfirmSignUpRequest
- *   ClientId: "STRING_VALUE", // required
- *   SecretHash: "STRING_VALUE",
- *   Username: "STRING_VALUE", // required
- *   ConfirmationCode: "STRING_VALUE", // required
+ *   ClientId: 'STRING_VALUE', // required
+ *   SecretHash: 'STRING_VALUE',
+ *   Username: 'STRING_VALUE', // required
+ *   ConfirmationCode: 'STRING_VALUE', // required
  *   ForceAliasCreation: true || false,
  *   AnalyticsMetadata: { // AnalyticsMetadataType
- *     AnalyticsEndpointId: "STRING_VALUE",
+ *     AnalyticsEndpointId: 'STRING_VALUE',
  *   },
  *   UserContextData: { // UserContextDataType
- *     IpAddress: "STRING_VALUE",
- *     EncodedData: "STRING_VALUE",
+ *     IpAddress: 'STRING_VALUE',
+ *     EncodedData: 'STRING_VALUE',
  *   },
  *   ClientMetadata: { // ClientMetadataType
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new ConfirmSignUpCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param ConfirmSignUpCommandInput - {@link ConfirmSignUpCommandInput}
@@ -131,6 +134,8 @@ export interface ConfirmSignUpCommandOutput extends ConfirmSignUpResponse, __Met
  * @throws {@link UserNotFoundException} (client fault)
  *  <p>This exception is thrown when a user isn't found.</p>
  *
+ * @throws {@link CognitoIdentityProviderServiceException}
+ * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
  */
 export class ConfirmSignUpCommand extends $Command<

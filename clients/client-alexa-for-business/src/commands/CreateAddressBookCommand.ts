@@ -36,22 +36,27 @@ export interface CreateAddressBookCommandOutput extends CreateAddressBookRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AlexaForBusinessClient, CreateAddressBookCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
- * // const { AlexaForBusinessClient, CreateAddressBookCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
+ * import { AlexaForBusinessClient, CreateAddressBookCommand } from '@aws-sdk/client-alexa-for-business'; // ES Modules import
+ * // const { AlexaForBusinessClient, CreateAddressBookCommand } = require('@aws-sdk/client-alexa-for-business'); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
  * const input = { // CreateAddressBookRequest
- *   Name: "STRING_VALUE", // required
- *   Description: "STRING_VALUE",
- *   ClientRequestToken: "STRING_VALUE",
+ *   Name: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE',
+ *   ClientRequestToken: 'STRING_VALUE',
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreateAddressBookCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateAddressBookResponse
+ *   AddressBookArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateAddressBookCommandInput - {@link CreateAddressBookCommandInput}
@@ -66,6 +71,8 @@ export interface CreateAddressBookCommandOutput extends CreateAddressBookRespons
  * @throws {@link LimitExceededException} (client fault)
  *  <p>You are performing an action that would put you beyond your account's limits.</p>
  *
+ * @throws {@link AlexaForBusinessServiceException}
+ * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  */
 export class CreateAddressBookCommand extends $Command<

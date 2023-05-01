@@ -41,17 +41,41 @@ export interface BatchDetectKeyPhrasesCommandOutput extends BatchDetectKeyPhrase
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ComprehendClient, BatchDetectKeyPhrasesCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
- * // const { ComprehendClient, BatchDetectKeyPhrasesCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
+ * import { ComprehendClient, BatchDetectKeyPhrasesCommand } from '@aws-sdk/client-comprehend'; // ES Modules import
+ * // const { ComprehendClient, BatchDetectKeyPhrasesCommand } = require('@aws-sdk/client-comprehend'); // CommonJS import
  * const client = new ComprehendClient(config);
  * const input = { // BatchDetectKeyPhrasesRequest
  *   TextList: [ // CustomerInputStringList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   LanguageCode: "en" || "es" || "fr" || "de" || "it" || "pt" || "ar" || "hi" || "ja" || "ko" || "zh" || "zh-TW", // required
+ *   LanguageCode: 'en' || 'es' || 'fr' || 'de' || 'it' || 'pt' || 'ar' || 'hi' || 'ja' || 'ko' || 'zh' || 'zh-TW', // required
  * };
  * const command = new BatchDetectKeyPhrasesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BatchDetectKeyPhrasesResponse
+ *   ResultList: [ // ListOfDetectKeyPhrasesResult // required
+ *     { // BatchDetectKeyPhrasesItemResult
+ *       Index: Number('int'),
+ *       KeyPhrases: [ // ListOfKeyPhrases
+ *         { // KeyPhrase
+ *           Score: Number('float'),
+ *           Text: 'STRING_VALUE',
+ *           BeginOffset: Number('int'),
+ *           EndOffset: Number('int'),
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   ErrorList: [ // BatchItemErrorList // required
+ *     { // BatchItemError
+ *       Index: Number('int'),
+ *       ErrorCode: 'STRING_VALUE',
+ *       ErrorMessage: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param BatchDetectKeyPhrasesCommandInput - {@link BatchDetectKeyPhrasesCommandInput}
@@ -80,6 +104,8 @@ export interface BatchDetectKeyPhrasesCommandOutput extends BatchDetectKeyPhrase
  *       <a href="https://docs.aws.amazon.com/comprehend/latest/dg/supported-languages.html">Supported languages</a> in the Comprehend Developer Guide.
  *     </p>
  *
+ * @throws {@link ComprehendServiceException}
+ * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
  */
 export class BatchDetectKeyPhrasesCommand extends $Command<

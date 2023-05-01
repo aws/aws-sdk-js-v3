@@ -38,16 +38,28 @@ export interface ListDomainConfigurationsCommandOutput extends ListDomainConfigu
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTClient, ListDomainConfigurationsCommand } from "@aws-sdk/client-iot"; // ES Modules import
- * // const { IoTClient, ListDomainConfigurationsCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * import { IoTClient, ListDomainConfigurationsCommand } from '@aws-sdk/client-iot'; // ES Modules import
+ * // const { IoTClient, ListDomainConfigurationsCommand } = require('@aws-sdk/client-iot'); // CommonJS import
  * const client = new IoTClient(config);
  * const input = { // ListDomainConfigurationsRequest
- *   marker: "STRING_VALUE",
- *   pageSize: Number("int"),
- *   serviceType: "DATA" || "CREDENTIAL_PROVIDER" || "JOBS",
+ *   marker: 'STRING_VALUE',
+ *   pageSize: Number('int'),
+ *   serviceType: 'DATA' || 'CREDENTIAL_PROVIDER' || 'JOBS',
  * };
  * const command = new ListDomainConfigurationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListDomainConfigurationsResponse
+ *   domainConfigurations: [ // DomainConfigurations
+ *     { // DomainConfigurationSummary
+ *       domainConfigurationName: 'STRING_VALUE',
+ *       domainConfigurationArn: 'STRING_VALUE',
+ *       serviceType: 'DATA' || 'CREDENTIAL_PROVIDER' || 'JOBS',
+ *     },
+ *   ],
+ *   nextMarker: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListDomainConfigurationsCommandInput - {@link ListDomainConfigurationsCommandInput}
@@ -71,6 +83,8 @@ export interface ListDomainConfigurationsCommandOutput extends ListDomainConfigu
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this operation.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class ListDomainConfigurationsCommand extends $Command<

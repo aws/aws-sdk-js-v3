@@ -40,26 +40,29 @@ export interface RegisterWorkspaceDirectoryCommandOutput extends RegisterWorkspa
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkSpacesClient, RegisterWorkspaceDirectoryCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
- * // const { WorkSpacesClient, RegisterWorkspaceDirectoryCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
+ * import { WorkSpacesClient, RegisterWorkspaceDirectoryCommand } from '@aws-sdk/client-workspaces'; // ES Modules import
+ * // const { WorkSpacesClient, RegisterWorkspaceDirectoryCommand } = require('@aws-sdk/client-workspaces'); // CommonJS import
  * const client = new WorkSpacesClient(config);
  * const input = { // RegisterWorkspaceDirectoryRequest
- *   DirectoryId: "STRING_VALUE", // required
+ *   DirectoryId: 'STRING_VALUE', // required
  *   SubnetIds: [ // SubnetIds
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   EnableWorkDocs: true || false, // required
  *   EnableSelfService: true || false,
- *   Tenancy: "DEDICATED" || "SHARED",
+ *   Tenancy: 'DEDICATED' || 'SHARED',
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new RegisterWorkspaceDirectoryCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param RegisterWorkspaceDirectoryCommandInput - {@link RegisterWorkspaceDirectoryCommandInput}
@@ -96,6 +99,8 @@ export interface RegisterWorkspaceDirectoryCommandOutput extends RegisterWorkspa
  *  <p>The workspaces_DefaultRole role could not be found. If this is the first time you are registering a directory, you
  *          will need to create the workspaces_DefaultRole role before you can register a directory. For more information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-access-control.html#create-default-role">Creating the workspaces_DefaultRole Role</a>.</p>
  *
+ * @throws {@link WorkSpacesServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
  */
 export class RegisterWorkspaceDirectoryCommand extends $Command<

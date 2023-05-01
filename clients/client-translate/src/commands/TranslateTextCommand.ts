@@ -37,23 +37,45 @@ export interface TranslateTextCommandOutput extends TranslateTextResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { TranslateClient, TranslateTextCommand } from "@aws-sdk/client-translate"; // ES Modules import
- * // const { TranslateClient, TranslateTextCommand } = require("@aws-sdk/client-translate"); // CommonJS import
+ * import { TranslateClient, TranslateTextCommand } from '@aws-sdk/client-translate'; // ES Modules import
+ * // const { TranslateClient, TranslateTextCommand } = require('@aws-sdk/client-translate'); // CommonJS import
  * const client = new TranslateClient(config);
  * const input = { // TranslateTextRequest
- *   Text: "STRING_VALUE", // required
+ *   Text: 'STRING_VALUE', // required
  *   TerminologyNames: [ // ResourceNameList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   SourceLanguageCode: "STRING_VALUE", // required
- *   TargetLanguageCode: "STRING_VALUE", // required
+ *   SourceLanguageCode: 'STRING_VALUE', // required
+ *   TargetLanguageCode: 'STRING_VALUE', // required
  *   Settings: { // TranslationSettings
- *     Formality: "FORMAL" || "INFORMAL",
- *     Profanity: "MASK",
+ *     Formality: 'FORMAL' || 'INFORMAL',
+ *     Profanity: 'MASK',
  *   },
  * };
  * const command = new TranslateTextCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // TranslateTextResponse
+ *   TranslatedText: 'STRING_VALUE', // required
+ *   SourceLanguageCode: 'STRING_VALUE', // required
+ *   TargetLanguageCode: 'STRING_VALUE', // required
+ *   AppliedTerminologies: [ // AppliedTerminologyList
+ *     { // AppliedTerminology
+ *       Name: 'STRING_VALUE',
+ *       Terms: [ // TermList
+ *         { // Term
+ *           SourceText: 'STRING_VALUE',
+ *           TargetText: 'STRING_VALUE',
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   AppliedSettings: { // TranslationSettings
+ *     Formality: 'FORMAL' || 'INFORMAL',
+ *     Profanity: 'MASK',
+ *   },
+ * };
+ *
  * ```
  *
  * @param TranslateTextCommandInput - {@link TranslateTextCommandInput}
@@ -96,6 +118,8 @@ export interface TranslateTextCommandOutput extends TranslateTextResponse, __Met
  *  <p>Amazon Translate does not support translation from the language of the source text into the requested
  *       target language. For more information, see <a href="https://docs.aws.amazon.com/translate/latest/dg/how-to-error-msg.html">Error messages</a>. </p>
  *
+ * @throws {@link TranslateServiceException}
+ * <p>Base exception class for all service exceptions from Translate service.</p>
  *
  */
 export class TranslateTextCommand extends $Command<

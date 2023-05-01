@@ -44,15 +44,121 @@ export interface GetNetworkInsightsAccessScopeContentCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, GetNetworkInsightsAccessScopeContentCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, GetNetworkInsightsAccessScopeContentCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, GetNetworkInsightsAccessScopeContentCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, GetNetworkInsightsAccessScopeContentCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // GetNetworkInsightsAccessScopeContentRequest
- *   NetworkInsightsAccessScopeId: "STRING_VALUE", // required
+ *   NetworkInsightsAccessScopeId: 'STRING_VALUE', // required
  *   DryRun: true || false,
  * };
  * const command = new GetNetworkInsightsAccessScopeContentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetNetworkInsightsAccessScopeContentResult
+ *   NetworkInsightsAccessScopeContent: { // NetworkInsightsAccessScopeContent
+ *     NetworkInsightsAccessScopeId: 'STRING_VALUE',
+ *     MatchPaths: [ // AccessScopePathList
+ *       { // AccessScopePath
+ *         Source: { // PathStatement
+ *           PacketHeaderStatement: { // PacketHeaderStatement
+ *             SourceAddresses: [ // ValueStringList
+ *               'STRING_VALUE',
+ *             ],
+ *             DestinationAddresses: [
+ *               'STRING_VALUE',
+ *             ],
+ *             SourcePorts: [
+ *               'STRING_VALUE',
+ *             ],
+ *             DestinationPorts: [
+ *               'STRING_VALUE',
+ *             ],
+ *             SourcePrefixLists: [
+ *               'STRING_VALUE',
+ *             ],
+ *             DestinationPrefixLists: '<ValueStringList>',
+ *             Protocols: [ // ProtocolList
+ *               'tcp' || 'udp',
+ *             ],
+ *           },
+ *           ResourceStatement: { // ResourceStatement
+ *             Resources: '<ValueStringList>',
+ *             ResourceTypes: '<ValueStringList>',
+ *           },
+ *         },
+ *         Destination: {
+ *           PacketHeaderStatement: {
+ *             SourceAddresses: '<ValueStringList>',
+ *             DestinationAddresses: '<ValueStringList>',
+ *             SourcePorts: '<ValueStringList>',
+ *             DestinationPorts: '<ValueStringList>',
+ *             SourcePrefixLists: '<ValueStringList>',
+ *             DestinationPrefixLists: '<ValueStringList>',
+ *             Protocols: [
+ *               'tcp' || 'udp',
+ *             ],
+ *           },
+ *           ResourceStatement: {
+ *             Resources: '<ValueStringList>',
+ *             ResourceTypes: '<ValueStringList>',
+ *           },
+ *         },
+ *         ThroughResources: [ // ThroughResourcesStatementList
+ *           { // ThroughResourcesStatement
+ *             ResourceStatement: {
+ *               Resources: '<ValueStringList>',
+ *               ResourceTypes: '<ValueStringList>',
+ *             },
+ *           },
+ *         ],
+ *       },
+ *     ],
+ *     ExcludePaths: [
+ *       {
+ *         Source: {
+ *           PacketHeaderStatement: {
+ *             SourceAddresses: '<ValueStringList>',
+ *             DestinationAddresses: '<ValueStringList>',
+ *             SourcePorts: '<ValueStringList>',
+ *             DestinationPorts: '<ValueStringList>',
+ *             SourcePrefixLists: '<ValueStringList>',
+ *             DestinationPrefixLists: '<ValueStringList>',
+ *             Protocols: [
+ *               'tcp' || 'udp',
+ *             ],
+ *           },
+ *           ResourceStatement: {
+ *             Resources: '<ValueStringList>',
+ *             ResourceTypes: '<ValueStringList>',
+ *           },
+ *         },
+ *         Destination: {
+ *           PacketHeaderStatement: {
+ *             SourceAddresses: '<ValueStringList>',
+ *             DestinationAddresses: '<ValueStringList>',
+ *             SourcePorts: '<ValueStringList>',
+ *             DestinationPorts: '<ValueStringList>',
+ *             SourcePrefixLists: '<ValueStringList>',
+ *             DestinationPrefixLists: '<ValueStringList>',
+ *             Protocols: [
+ *               'tcp' || 'udp',
+ *             ],
+ *           },
+ *           ResourceStatement: {
+ *             Resources: '<ValueStringList>',
+ *             ResourceTypes: '<ValueStringList>',
+ *           },
+ *         },
+ *         ThroughResources: [
+ *           {
+ *             ResourceStatement: '<ResourceStatement>',
+ *           },
+ *         ],
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetNetworkInsightsAccessScopeContentCommandInput - {@link GetNetworkInsightsAccessScopeContentCommandInput}
@@ -61,6 +167,8 @@ export interface GetNetworkInsightsAccessScopeContentCommandOutput
  * @see {@link GetNetworkInsightsAccessScopeContentCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class GetNetworkInsightsAccessScopeContentCommand extends $Command<

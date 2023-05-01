@@ -41,26 +41,50 @@ export interface GetIpamDiscoveredResourceCidrsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, GetIpamDiscoveredResourceCidrsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, GetIpamDiscoveredResourceCidrsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, GetIpamDiscoveredResourceCidrsCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, GetIpamDiscoveredResourceCidrsCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // GetIpamDiscoveredResourceCidrsRequest
  *   DryRun: true || false,
- *   IpamResourceDiscoveryId: "STRING_VALUE", // required
- *   ResourceRegion: "STRING_VALUE", // required
+ *   IpamResourceDiscoveryId: 'STRING_VALUE', // required
+ *   ResourceRegion: 'STRING_VALUE', // required
  *   Filters: [ // FilterList
  *     { // Filter
- *       Name: "STRING_VALUE",
+ *       Name: 'STRING_VALUE',
  *       Values: [ // ValueStringList
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new GetIpamDiscoveredResourceCidrsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetIpamDiscoveredResourceCidrsResult
+ *   IpamDiscoveredResourceCidrs: [ // IpamDiscoveredResourceCidrSet
+ *     { // IpamDiscoveredResourceCidr
+ *       IpamResourceDiscoveryId: 'STRING_VALUE',
+ *       ResourceRegion: 'STRING_VALUE',
+ *       ResourceId: 'STRING_VALUE',
+ *       ResourceOwnerId: 'STRING_VALUE',
+ *       ResourceCidr: 'STRING_VALUE',
+ *       ResourceType: 'vpc' || 'subnet' || 'eip' || 'public-ipv4-pool' || 'ipv6-pool',
+ *       ResourceTags: [ // IpamResourceTagList
+ *         { // IpamResourceTag
+ *           Key: 'STRING_VALUE',
+ *           Value: 'STRING_VALUE',
+ *         },
+ *       ],
+ *       IpUsage: Number('double'),
+ *       VpcId: 'STRING_VALUE',
+ *       SampleTime: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetIpamDiscoveredResourceCidrsCommandInput - {@link GetIpamDiscoveredResourceCidrsCommandInput}
@@ -69,6 +93,8 @@ export interface GetIpamDiscoveredResourceCidrsCommandOutput
  * @see {@link GetIpamDiscoveredResourceCidrsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class GetIpamDiscoveredResourceCidrsCommand extends $Command<

@@ -36,14 +36,17 @@ export interface DeleteChannelCommandOutput extends DeleteChannelResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudTrailClient, DeleteChannelCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
- * // const { CloudTrailClient, DeleteChannelCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
+ * import { CloudTrailClient, DeleteChannelCommand } from '@aws-sdk/client-cloudtrail'; // ES Modules import
+ * // const { CloudTrailClient, DeleteChannelCommand } = require('@aws-sdk/client-cloudtrail'); // CommonJS import
  * const client = new CloudTrailClient(config);
  * const input = { // DeleteChannelRequest
- *   Channel: "STRING_VALUE", // required
+ *   Channel: 'STRING_VALUE', // required
  * };
  * const command = new DeleteChannelCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteChannelCommandInput - {@link DeleteChannelCommandInput}
@@ -65,6 +68,8 @@ export interface DeleteChannelCommandOutput extends DeleteChannelResponse, __Met
  * @throws {@link UnsupportedOperationException} (client fault)
  *  <p>This exception is thrown when the requested operation is not supported.</p>
  *
+ * @throws {@link CloudTrailServiceException}
+ * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
  */
 export class DeleteChannelCommand extends $Command<

@@ -47,17 +47,26 @@ export interface DisassociateOriginationIdentityCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PinpointSMSVoiceV2Client, DisassociateOriginationIdentityCommand } from "@aws-sdk/client-pinpoint-sms-voice-v2"; // ES Modules import
- * // const { PinpointSMSVoiceV2Client, DisassociateOriginationIdentityCommand } = require("@aws-sdk/client-pinpoint-sms-voice-v2"); // CommonJS import
+ * import { PinpointSMSVoiceV2Client, DisassociateOriginationIdentityCommand } from '@aws-sdk/client-pinpoint-sms-voice-v2'; // ES Modules import
+ * // const { PinpointSMSVoiceV2Client, DisassociateOriginationIdentityCommand } = require('@aws-sdk/client-pinpoint-sms-voice-v2'); // CommonJS import
  * const client = new PinpointSMSVoiceV2Client(config);
  * const input = { // DisassociateOriginationIdentityRequest
- *   PoolId: "STRING_VALUE", // required
- *   OriginationIdentity: "STRING_VALUE", // required
- *   IsoCountryCode: "STRING_VALUE", // required
- *   ClientToken: "STRING_VALUE",
+ *   PoolId: 'STRING_VALUE', // required
+ *   OriginationIdentity: 'STRING_VALUE', // required
+ *   IsoCountryCode: 'STRING_VALUE', // required
+ *   ClientToken: 'STRING_VALUE',
  * };
  * const command = new DisassociateOriginationIdentityCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DisassociateOriginationIdentityResult
+ *   PoolArn: 'STRING_VALUE',
+ *   PoolId: 'STRING_VALUE',
+ *   OriginationIdentityArn: 'STRING_VALUE',
+ *   OriginationIdentity: 'STRING_VALUE',
+ *   IsoCountryCode: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DisassociateOriginationIdentityCommandInput - {@link DisassociateOriginationIdentityCommandInput}
@@ -90,6 +99,8 @@ export interface DisassociateOriginationIdentityCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>A validation exception for a field.</p>
  *
+ * @throws {@link PinpointSMSVoiceV2ServiceException}
+ * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
  *
  */
 export class DisassociateOriginationIdentityCommand extends $Command<

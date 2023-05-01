@@ -46,23 +46,23 @@ export interface ModifyInstanceAttributeCommandOutput extends __MetadataBearer {
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, ModifyInstanceAttributeCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, ModifyInstanceAttributeCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, ModifyInstanceAttributeCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, ModifyInstanceAttributeCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // ModifyInstanceAttributeRequest
  *   SourceDestCheck: { // AttributeBooleanValue
  *     Value: true || false,
  *   },
- *   Attribute: "instanceType" || "kernel" || "ramdisk" || "userData" || "disableApiTermination" || "instanceInitiatedShutdownBehavior" || "rootDeviceName" || "blockDeviceMapping" || "productCodes" || "sourceDestCheck" || "groupSet" || "ebsOptimized" || "sriovNetSupport" || "enaSupport" || "enclaveOptions" || "disableApiStop",
+ *   Attribute: 'instanceType' || 'kernel' || 'ramdisk' || 'userData' || 'disableApiTermination' || 'instanceInitiatedShutdownBehavior' || 'rootDeviceName' || 'blockDeviceMapping' || 'productCodes' || 'sourceDestCheck' || 'groupSet' || 'ebsOptimized' || 'sriovNetSupport' || 'enaSupport' || 'enclaveOptions' || 'disableApiStop',
  *   BlockDeviceMappings: [ // InstanceBlockDeviceMappingSpecificationList
  *     { // InstanceBlockDeviceMappingSpecification
- *       DeviceName: "STRING_VALUE",
+ *       DeviceName: 'STRING_VALUE',
  *       Ebs: { // EbsInstanceBlockDeviceSpecification
  *         DeleteOnTermination: true || false,
- *         VolumeId: "STRING_VALUE",
+ *         VolumeId: 'STRING_VALUE',
  *       },
- *       NoDevice: "STRING_VALUE",
- *       VirtualName: "STRING_VALUE",
+ *       NoDevice: 'STRING_VALUE',
+ *       VirtualName: 'STRING_VALUE',
  *     },
  *   ],
  *   DisableApiTermination: {
@@ -76,34 +76,37 @@ export interface ModifyInstanceAttributeCommandOutput extends __MetadataBearer {
  *     Value: true || false,
  *   },
  *   Groups: [ // GroupIdStringList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   InstanceId: "STRING_VALUE", // required
+ *   InstanceId: 'STRING_VALUE', // required
  *   InstanceInitiatedShutdownBehavior: { // AttributeValue
- *     Value: "STRING_VALUE",
+ *     Value: 'STRING_VALUE',
  *   },
  *   InstanceType: {
- *     Value: "STRING_VALUE",
+ *     Value: 'STRING_VALUE',
  *   },
  *   Kernel: {
- *     Value: "STRING_VALUE",
+ *     Value: 'STRING_VALUE',
  *   },
  *   Ramdisk: {
- *     Value: "STRING_VALUE",
+ *     Value: 'STRING_VALUE',
  *   },
  *   SriovNetSupport: {
- *     Value: "STRING_VALUE",
+ *     Value: 'STRING_VALUE',
  *   },
  *   UserData: { // BlobAttributeValue
- *     Value: "BLOB_VALUE",
+ *     Value: 'BLOB_VALUE',
  *   },
- *   Value: "STRING_VALUE",
+ *   Value: 'STRING_VALUE',
  *   DisableApiStop: {
  *     Value: true || false,
  *   },
  * };
  * const command = new ModifyInstanceAttributeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param ModifyInstanceAttributeCommandInput - {@link ModifyInstanceAttributeCommandInput}
@@ -112,6 +115,8 @@ export interface ModifyInstanceAttributeCommandOutput extends __MetadataBearer {
  * @see {@link ModifyInstanceAttributeCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @example To modify the instance type
  * ```javascript

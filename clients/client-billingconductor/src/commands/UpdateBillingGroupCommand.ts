@@ -42,20 +42,33 @@ export interface UpdateBillingGroupCommandOutput extends UpdateBillingGroupOutpu
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BillingconductorClient, UpdateBillingGroupCommand } from "@aws-sdk/client-billingconductor"; // ES Modules import
- * // const { BillingconductorClient, UpdateBillingGroupCommand } = require("@aws-sdk/client-billingconductor"); // CommonJS import
+ * import { BillingconductorClient, UpdateBillingGroupCommand } from '@aws-sdk/client-billingconductor'; // ES Modules import
+ * // const { BillingconductorClient, UpdateBillingGroupCommand } = require('@aws-sdk/client-billingconductor'); // CommonJS import
  * const client = new BillingconductorClient(config);
  * const input = { // UpdateBillingGroupInput
- *   Arn: "STRING_VALUE", // required
- *   Name: "STRING_VALUE",
- *   Status: "STRING_VALUE",
+ *   Arn: 'STRING_VALUE', // required
+ *   Name: 'STRING_VALUE',
+ *   Status: 'STRING_VALUE',
  *   ComputationPreference: { // ComputationPreference
- *     PricingPlanArn: "STRING_VALUE", // required
+ *     PricingPlanArn: 'STRING_VALUE', // required
  *   },
- *   Description: "STRING_VALUE",
+ *   Description: 'STRING_VALUE',
  * };
  * const command = new UpdateBillingGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateBillingGroupOutput
+ *   Arn: 'STRING_VALUE',
+ *   Name: 'STRING_VALUE',
+ *   Description: 'STRING_VALUE',
+ *   PrimaryAccountId: 'STRING_VALUE',
+ *   PricingPlanArn: 'STRING_VALUE',
+ *   Size: Number('long'),
+ *   LastModifiedTime: Number('long'),
+ *   Status: 'STRING_VALUE',
+ *   StatusReason: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateBillingGroupCommandInput - {@link UpdateBillingGroupCommandInput}
@@ -87,6 +100,8 @@ export interface UpdateBillingGroupCommandOutput extends UpdateBillingGroupOutpu
  * @throws {@link ValidationException} (client fault)
  *  <p>The input doesn't match with the constraints specified by Amazon Web Services services.</p>
  *
+ * @throws {@link BillingconductorServiceException}
+ * <p>Base exception class for all service exceptions from Billingconductor service.</p>
  *
  */
 export class UpdateBillingGroupCommand extends $Command<

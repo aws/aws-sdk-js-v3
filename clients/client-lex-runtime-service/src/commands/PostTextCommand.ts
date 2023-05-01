@@ -120,35 +120,100 @@ export interface PostTextCommandOutput extends PostTextResponse, __MetadataBeare
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LexRuntimeServiceClient, PostTextCommand } from "@aws-sdk/client-lex-runtime-service"; // ES Modules import
- * // const { LexRuntimeServiceClient, PostTextCommand } = require("@aws-sdk/client-lex-runtime-service"); // CommonJS import
+ * import { LexRuntimeServiceClient, PostTextCommand } from '@aws-sdk/client-lex-runtime-service'; // ES Modules import
+ * // const { LexRuntimeServiceClient, PostTextCommand } = require('@aws-sdk/client-lex-runtime-service'); // CommonJS import
  * const client = new LexRuntimeServiceClient(config);
  * const input = { // PostTextRequest
- *   botName: "STRING_VALUE", // required
- *   botAlias: "STRING_VALUE", // required
- *   userId: "STRING_VALUE", // required
+ *   botName: 'STRING_VALUE', // required
+ *   botAlias: 'STRING_VALUE', // required
+ *   userId: 'STRING_VALUE', // required
  *   sessionAttributes: { // StringMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  *   requestAttributes: {
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
- *   inputText: "STRING_VALUE", // required
+ *   inputText: 'STRING_VALUE', // required
  *   activeContexts: [ // ActiveContextsList
  *     { // ActiveContext
- *       name: "STRING_VALUE", // required
+ *       name: 'STRING_VALUE', // required
  *       timeToLive: { // ActiveContextTimeToLive
- *         timeToLiveInSeconds: Number("int"),
- *         turnsToLive: Number("int"),
+ *         timeToLiveInSeconds: Number('int'),
+ *         turnsToLive: Number('int'),
  *       },
  *       parameters: { // ActiveContextParametersMap // required
- *         "<keys>": "STRING_VALUE",
+ *         '<keys>': 'STRING_VALUE',
  *       },
  *     },
  *   ],
  * };
  * const command = new PostTextCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PostTextResponse
+ *   intentName: 'STRING_VALUE',
+ *   nluIntentConfidence: { // IntentConfidence
+ *     score: Number('double'),
+ *   },
+ *   alternativeIntents: [ // IntentList
+ *     { // PredictedIntent
+ *       intentName: 'STRING_VALUE',
+ *       nluIntentConfidence: {
+ *         score: Number('double'),
+ *       },
+ *       slots: { // StringMap
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ *   slots: {
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ *   sessionAttributes: {
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ *   message: 'STRING_VALUE',
+ *   sentimentResponse: { // SentimentResponse
+ *     sentimentLabel: 'STRING_VALUE',
+ *     sentimentScore: 'STRING_VALUE',
+ *   },
+ *   messageFormat: 'STRING_VALUE',
+ *   dialogState: 'STRING_VALUE',
+ *   slotToElicit: 'STRING_VALUE',
+ *   responseCard: { // ResponseCard
+ *     version: 'STRING_VALUE',
+ *     contentType: 'STRING_VALUE',
+ *     genericAttachments: [ // genericAttachmentList
+ *       { // GenericAttachment
+ *         title: 'STRING_VALUE',
+ *         subTitle: 'STRING_VALUE',
+ *         attachmentLinkUrl: 'STRING_VALUE',
+ *         imageUrl: 'STRING_VALUE',
+ *         buttons: [ // listOfButtons
+ *           { // Button
+ *             text: 'STRING_VALUE', // required
+ *             value: 'STRING_VALUE', // required
+ *           },
+ *         ],
+ *       },
+ *     ],
+ *   },
+ *   sessionId: 'STRING_VALUE',
+ *   botVersion: 'STRING_VALUE',
+ *   activeContexts: [ // ActiveContextsList
+ *     { // ActiveContext
+ *       name: 'STRING_VALUE', // required
+ *       timeToLive: { // ActiveContextTimeToLive
+ *         timeToLiveInSeconds: Number('int'),
+ *         turnsToLive: Number('int'),
+ *       },
+ *       parameters: { // ActiveContextParametersMap // required
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param PostTextCommandInput - {@link PostTextCommandInput}
@@ -202,6 +267,8 @@ export interface PostTextCommandOutput extends PostTextResponse, __MetadataBeare
  *  <p>The resource (such as the Amazon Lex bot or an alias) that is referred
  *       to is not found.</p>
  *
+ * @throws {@link LexRuntimeServiceServiceException}
+ * <p>Base exception class for all service exceptions from LexRuntimeService service.</p>
  *
  */
 export class PostTextCommand extends $Command<

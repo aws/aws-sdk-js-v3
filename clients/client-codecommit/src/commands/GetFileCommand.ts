@@ -36,16 +36,26 @@ export interface GetFileCommandOutput extends GetFileOutput, __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeCommitClient, GetFileCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
- * // const { CodeCommitClient, GetFileCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
+ * import { CodeCommitClient, GetFileCommand } from '@aws-sdk/client-codecommit'; // ES Modules import
+ * // const { CodeCommitClient, GetFileCommand } = require('@aws-sdk/client-codecommit'); // CommonJS import
  * const client = new CodeCommitClient(config);
  * const input = { // GetFileInput
- *   repositoryName: "STRING_VALUE", // required
- *   commitSpecifier: "STRING_VALUE",
- *   filePath: "STRING_VALUE", // required
+ *   repositoryName: 'STRING_VALUE', // required
+ *   commitSpecifier: 'STRING_VALUE',
+ *   filePath: 'STRING_VALUE', // required
  * };
  * const command = new GetFileCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetFileOutput
+ *   commitId: 'STRING_VALUE', // required
+ *   blobId: 'STRING_VALUE', // required
+ *   filePath: 'STRING_VALUE', // required
+ *   fileMode: 'STRING_VALUE', // required
+ *   fileSize: Number('long'), // required
+ *   fileContent: 'BLOB_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param GetFileCommandInput - {@link GetFileCommandInput}
@@ -104,6 +114,8 @@ export interface GetFileCommandOutput extends GetFileOutput, __MetadataBearer {}
  * @throws {@link RepositoryNameRequiredException} (client fault)
  *  <p>A repository name is required, but was not specified.</p>
  *
+ * @throws {@link CodeCommitServiceException}
+ * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
  */
 export class GetFileCommand extends $Command<

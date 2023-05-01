@@ -60,16 +60,22 @@ export interface CreateCertificateAuthorityAuditReportCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ACMPCAClient, CreateCertificateAuthorityAuditReportCommand } from "@aws-sdk/client-acm-pca"; // ES Modules import
- * // const { ACMPCAClient, CreateCertificateAuthorityAuditReportCommand } = require("@aws-sdk/client-acm-pca"); // CommonJS import
+ * import { ACMPCAClient, CreateCertificateAuthorityAuditReportCommand } from '@aws-sdk/client-acm-pca'; // ES Modules import
+ * // const { ACMPCAClient, CreateCertificateAuthorityAuditReportCommand } = require('@aws-sdk/client-acm-pca'); // CommonJS import
  * const client = new ACMPCAClient(config);
  * const input = { // CreateCertificateAuthorityAuditReportRequest
- *   CertificateAuthorityArn: "STRING_VALUE", // required
- *   S3BucketName: "STRING_VALUE", // required
- *   AuditReportResponseFormat: "JSON" || "CSV", // required
+ *   CertificateAuthorityArn: 'STRING_VALUE', // required
+ *   S3BucketName: 'STRING_VALUE', // required
+ *   AuditReportResponseFormat: 'JSON' || 'CSV', // required
  * };
  * const command = new CreateCertificateAuthorityAuditReportCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateCertificateAuthorityAuditReportResponse
+ *   AuditReportId: 'STRING_VALUE',
+ *   S3Key: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateCertificateAuthorityAuditReportCommandInput - {@link CreateCertificateAuthorityAuditReportCommandInput}
@@ -98,6 +104,8 @@ export interface CreateCertificateAuthorityAuditReportCommandOutput
  *  <p>A resource such as a private CA, S3 bucket, certificate, audit report, or policy
  * 			cannot be found.</p>
  *
+ * @throws {@link ACMPCAServiceException}
+ * <p>Base exception class for all service exceptions from ACMPCA service.</p>
  *
  */
 export class CreateCertificateAuthorityAuditReportCommand extends $Command<

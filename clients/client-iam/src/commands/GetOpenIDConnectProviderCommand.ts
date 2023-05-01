@@ -37,14 +37,32 @@ export interface GetOpenIDConnectProviderCommandOutput extends GetOpenIDConnectP
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IAMClient, GetOpenIDConnectProviderCommand } from "@aws-sdk/client-iam"; // ES Modules import
- * // const { IAMClient, GetOpenIDConnectProviderCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * import { IAMClient, GetOpenIDConnectProviderCommand } from '@aws-sdk/client-iam'; // ES Modules import
+ * // const { IAMClient, GetOpenIDConnectProviderCommand } = require('@aws-sdk/client-iam'); // CommonJS import
  * const client = new IAMClient(config);
  * const input = { // GetOpenIDConnectProviderRequest
- *   OpenIDConnectProviderArn: "STRING_VALUE", // required
+ *   OpenIDConnectProviderArn: 'STRING_VALUE', // required
  * };
  * const command = new GetOpenIDConnectProviderCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetOpenIDConnectProviderResponse
+ *   Url: 'STRING_VALUE',
+ *   ClientIDList: [ // clientIDListType
+ *     'STRING_VALUE',
+ *   ],
+ *   ThumbprintList: [ // thumbprintListType
+ *     'STRING_VALUE',
+ *   ],
+ *   CreateDate: new Date('TIMESTAMP'),
+ *   Tags: [ // tagListType
+ *     { // Tag
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetOpenIDConnectProviderCommandInput - {@link GetOpenIDConnectProviderCommandInput}
@@ -65,6 +83,8 @@ export interface GetOpenIDConnectProviderCommandOutput extends GetOpenIDConnectP
  *  <p>The request processing has failed because of an unknown error, exception or
  *       failure.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  */
 export class GetOpenIDConnectProviderCommand extends $Command<

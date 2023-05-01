@@ -37,15 +37,20 @@ export interface AcknowledgeJobCommandOutput extends AcknowledgeJobOutput, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodePipelineClient, AcknowledgeJobCommand } from "@aws-sdk/client-codepipeline"; // ES Modules import
- * // const { CodePipelineClient, AcknowledgeJobCommand } = require("@aws-sdk/client-codepipeline"); // CommonJS import
+ * import { CodePipelineClient, AcknowledgeJobCommand } from '@aws-sdk/client-codepipeline'; // ES Modules import
+ * // const { CodePipelineClient, AcknowledgeJobCommand } = require('@aws-sdk/client-codepipeline'); // CommonJS import
  * const client = new CodePipelineClient(config);
  * const input = { // AcknowledgeJobInput
- *   jobId: "STRING_VALUE", // required
- *   nonce: "STRING_VALUE", // required
+ *   jobId: 'STRING_VALUE', // required
+ *   nonce: 'STRING_VALUE', // required
  * };
  * const command = new AcknowledgeJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AcknowledgeJobOutput
+ *   status: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param AcknowledgeJobCommandInput - {@link AcknowledgeJobCommandInput}
@@ -63,6 +68,8 @@ export interface AcknowledgeJobCommandOutput extends AcknowledgeJobOutput, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>The validation was specified in an invalid format.</p>
  *
+ * @throws {@link CodePipelineServiceException}
+ * <p>Base exception class for all service exceptions from CodePipeline service.</p>
  *
  */
 export class AcknowledgeJobCommand extends $Command<

@@ -36,16 +36,19 @@ export interface UpdateLongTermPricingCommandOutput extends UpdateLongTermPricin
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SnowballClient, UpdateLongTermPricingCommand } from "@aws-sdk/client-snowball"; // ES Modules import
- * // const { SnowballClient, UpdateLongTermPricingCommand } = require("@aws-sdk/client-snowball"); // CommonJS import
+ * import { SnowballClient, UpdateLongTermPricingCommand } from '@aws-sdk/client-snowball'; // ES Modules import
+ * // const { SnowballClient, UpdateLongTermPricingCommand } = require('@aws-sdk/client-snowball'); // CommonJS import
  * const client = new SnowballClient(config);
  * const input = { // UpdateLongTermPricingRequest
- *   LongTermPricingId: "STRING_VALUE", // required
- *   ReplacementJob: "STRING_VALUE",
+ *   LongTermPricingId: 'STRING_VALUE', // required
+ *   ReplacementJob: 'STRING_VALUE',
  *   IsLongTermPricingAutoRenew: true || false,
  * };
  * const command = new UpdateLongTermPricingCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateLongTermPricingCommandInput - {@link UpdateLongTermPricingCommandInput}
@@ -58,6 +61,8 @@ export interface UpdateLongTermPricingCommandOutput extends UpdateLongTermPricin
  *  <p>The specified resource can't be found. Check the information you provided in your last
  *       request, and try again.</p>
  *
+ * @throws {@link SnowballServiceException}
+ * <p>Base exception class for all service exceptions from Snowball service.</p>
  *
  */
 export class UpdateLongTermPricingCommand extends $Command<

@@ -36,28 +36,31 @@ export interface UpdateConferenceProviderCommandOutput extends UpdateConferenceP
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AlexaForBusinessClient, UpdateConferenceProviderCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
- * // const { AlexaForBusinessClient, UpdateConferenceProviderCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
+ * import { AlexaForBusinessClient, UpdateConferenceProviderCommand } from '@aws-sdk/client-alexa-for-business'; // ES Modules import
+ * // const { AlexaForBusinessClient, UpdateConferenceProviderCommand } = require('@aws-sdk/client-alexa-for-business'); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
  * const input = { // UpdateConferenceProviderRequest
- *   ConferenceProviderArn: "STRING_VALUE", // required
- *   ConferenceProviderType: "STRING_VALUE", // required
+ *   ConferenceProviderArn: 'STRING_VALUE', // required
+ *   ConferenceProviderType: 'STRING_VALUE', // required
  *   IPDialIn: { // IPDialIn
- *     Endpoint: "STRING_VALUE", // required
- *     CommsProtocol: "STRING_VALUE", // required
+ *     Endpoint: 'STRING_VALUE', // required
+ *     CommsProtocol: 'STRING_VALUE', // required
  *   },
  *   PSTNDialIn: { // PSTNDialIn
- *     CountryCode: "STRING_VALUE", // required
- *     PhoneNumber: "STRING_VALUE", // required
- *     OneClickIdDelay: "STRING_VALUE", // required
- *     OneClickPinDelay: "STRING_VALUE", // required
+ *     CountryCode: 'STRING_VALUE', // required
+ *     PhoneNumber: 'STRING_VALUE', // required
+ *     OneClickIdDelay: 'STRING_VALUE', // required
+ *     OneClickPinDelay: 'STRING_VALUE', // required
  *   },
  *   MeetingSetting: { // MeetingSetting
- *     RequirePin: "STRING_VALUE", // required
+ *     RequirePin: 'STRING_VALUE', // required
  *   },
  * };
  * const command = new UpdateConferenceProviderCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateConferenceProviderCommandInput - {@link UpdateConferenceProviderCommandInput}
@@ -69,6 +72,8 @@ export interface UpdateConferenceProviderCommandOutput extends UpdateConferenceP
  * @throws {@link NotFoundException} (client fault)
  *  <p>The resource is not found.</p>
  *
+ * @throws {@link AlexaForBusinessServiceException}
+ * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  */
 export class UpdateConferenceProviderCommand extends $Command<

@@ -46,23 +46,26 @@ export interface UpdateAvailabilityConfigurationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkMailClient, UpdateAvailabilityConfigurationCommand } from "@aws-sdk/client-workmail"; // ES Modules import
- * // const { WorkMailClient, UpdateAvailabilityConfigurationCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
+ * import { WorkMailClient, UpdateAvailabilityConfigurationCommand } from '@aws-sdk/client-workmail'; // ES Modules import
+ * // const { WorkMailClient, UpdateAvailabilityConfigurationCommand } = require('@aws-sdk/client-workmail'); // CommonJS import
  * const client = new WorkMailClient(config);
  * const input = { // UpdateAvailabilityConfigurationRequest
- *   OrganizationId: "STRING_VALUE", // required
- *   DomainName: "STRING_VALUE", // required
+ *   OrganizationId: 'STRING_VALUE', // required
+ *   DomainName: 'STRING_VALUE', // required
  *   EwsProvider: { // EwsAvailabilityProvider
- *     EwsEndpoint: "STRING_VALUE", // required
- *     EwsUsername: "STRING_VALUE", // required
- *     EwsPassword: "STRING_VALUE", // required
+ *     EwsEndpoint: 'STRING_VALUE', // required
+ *     EwsUsername: 'STRING_VALUE', // required
+ *     EwsPassword: 'STRING_VALUE', // required
  *   },
  *   LambdaProvider: { // LambdaAvailabilityProvider
- *     LambdaArn: "STRING_VALUE", // required
+ *     LambdaArn: 'STRING_VALUE', // required
  *   },
  * };
  * const command = new UpdateAvailabilityConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateAvailabilityConfigurationCommandInput - {@link UpdateAvailabilityConfigurationCommandInput}
@@ -85,6 +88,8 @@ export interface UpdateAvailabilityConfigurationCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource cannot be found.</p>
  *
+ * @throws {@link WorkMailServiceException}
+ * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
  */
 export class UpdateAvailabilityConfigurationCommand extends $Command<

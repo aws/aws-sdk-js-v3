@@ -36,15 +36,29 @@ export interface GetDeploymentStatusCommandOutput extends GetDeploymentStatusRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GreengrassClient, GetDeploymentStatusCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
- * // const { GreengrassClient, GetDeploymentStatusCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
+ * import { GreengrassClient, GetDeploymentStatusCommand } from '@aws-sdk/client-greengrass'; // ES Modules import
+ * // const { GreengrassClient, GetDeploymentStatusCommand } = require('@aws-sdk/client-greengrass'); // CommonJS import
  * const client = new GreengrassClient(config);
  * const input = { // GetDeploymentStatusRequest
- *   DeploymentId: "STRING_VALUE", // required
- *   GroupId: "STRING_VALUE", // required
+ *   DeploymentId: 'STRING_VALUE', // required
+ *   GroupId: 'STRING_VALUE', // required
  * };
  * const command = new GetDeploymentStatusCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetDeploymentStatusResponse
+ *   DeploymentStatus: 'STRING_VALUE',
+ *   DeploymentType: 'NewDeployment' || 'Redeployment' || 'ResetDeployment' || 'ForceResetDeployment',
+ *   ErrorDetails: [ // ErrorDetails
+ *     { // ErrorDetail
+ *       DetailedErrorCode: 'STRING_VALUE',
+ *       DetailedErrorMessage: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   ErrorMessage: 'STRING_VALUE',
+ *   UpdatedAt: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetDeploymentStatusCommandInput - {@link GetDeploymentStatusCommandInput}
@@ -56,6 +70,8 @@ export interface GetDeploymentStatusCommandOutput extends GetDeploymentStatusRes
  * @throws {@link BadRequestException} (client fault)
  *  General error information.
  *
+ * @throws {@link GreengrassServiceException}
+ * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
  */
 export class GetDeploymentStatusCommand extends $Command<

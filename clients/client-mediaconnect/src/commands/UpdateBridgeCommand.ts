@@ -36,29 +36,99 @@ export interface UpdateBridgeCommandOutput extends UpdateBridgeResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MediaConnectClient, UpdateBridgeCommand } from "@aws-sdk/client-mediaconnect"; // ES Modules import
- * // const { MediaConnectClient, UpdateBridgeCommand } = require("@aws-sdk/client-mediaconnect"); // CommonJS import
+ * import { MediaConnectClient, UpdateBridgeCommand } from '@aws-sdk/client-mediaconnect'; // ES Modules import
+ * // const { MediaConnectClient, UpdateBridgeCommand } = require('@aws-sdk/client-mediaconnect'); // CommonJS import
  * const client = new MediaConnectClient(config);
  * const input = { // UpdateBridgeRequest
- *   BridgeArn: "STRING_VALUE", // required
+ *   BridgeArn: 'STRING_VALUE', // required
  *   EgressGatewayBridge: { // UpdateEgressGatewayBridgeRequest
- *     MaxBitrate: Number("int"),
+ *     MaxBitrate: Number('int'),
  *   },
  *   IngressGatewayBridge: { // UpdateIngressGatewayBridgeRequest
- *     MaxBitrate: Number("int"),
- *     MaxOutputs: Number("int"),
+ *     MaxBitrate: Number('int'),
+ *     MaxOutputs: Number('int'),
  *   },
  *   SourceFailoverConfig: { // UpdateFailoverConfig
- *     FailoverMode: "MERGE" || "FAILOVER",
- *     RecoveryWindow: Number("int"),
+ *     FailoverMode: 'MERGE' || 'FAILOVER',
+ *     RecoveryWindow: Number('int'),
  *     SourcePriority: { // SourcePriority
- *       PrimarySource: "STRING_VALUE",
+ *       PrimarySource: 'STRING_VALUE',
  *     },
- *     State: "ENABLED" || "DISABLED",
+ *     State: 'ENABLED' || 'DISABLED',
  *   },
  * };
  * const command = new UpdateBridgeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateBridgeResponse
+ *   Bridge: { // Bridge
+ *     BridgeArn: 'STRING_VALUE', // required
+ *     BridgeMessages: [ // __listOfMessageDetail
+ *       { // MessageDetail
+ *         Code: 'STRING_VALUE', // required
+ *         Message: 'STRING_VALUE', // required
+ *         ResourceName: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     BridgeState: 'CREATING' || 'STANDBY' || 'STARTING' || 'DEPLOYING' || 'ACTIVE' || 'STOPPING' || 'DELETING' || 'DELETED' || 'START_FAILED' || 'START_PENDING' || 'STOP_FAILED' || 'UPDATING', // required
+ *     EgressGatewayBridge: { // EgressGatewayBridge
+ *       InstanceId: 'STRING_VALUE',
+ *       MaxBitrate: Number('int'), // required
+ *     },
+ *     IngressGatewayBridge: { // IngressGatewayBridge
+ *       InstanceId: 'STRING_VALUE',
+ *       MaxBitrate: Number('int'), // required
+ *       MaxOutputs: Number('int'), // required
+ *     },
+ *     Name: 'STRING_VALUE', // required
+ *     Outputs: [ // __listOfBridgeOutput
+ *       { // BridgeOutput
+ *         FlowOutput: { // BridgeFlowOutput
+ *           FlowArn: 'STRING_VALUE', // required
+ *           FlowSourceArn: 'STRING_VALUE', // required
+ *           Name: 'STRING_VALUE', // required
+ *         },
+ *         NetworkOutput: { // BridgeNetworkOutput
+ *           IpAddress: 'STRING_VALUE', // required
+ *           Name: 'STRING_VALUE', // required
+ *           NetworkName: 'STRING_VALUE', // required
+ *           Port: Number('int'), // required
+ *           Protocol: 'zixi-push' || 'rtp-fec' || 'rtp' || 'zixi-pull' || 'rist' || 'st2110-jpegxs' || 'cdi' || 'srt-listener' || 'srt-caller' || 'fujitsu-qos' || 'udp', // required
+ *           Ttl: Number('int'), // required
+ *         },
+ *       },
+ *     ],
+ *     PlacementArn: 'STRING_VALUE', // required
+ *     SourceFailoverConfig: { // FailoverConfig
+ *       FailoverMode: 'MERGE' || 'FAILOVER',
+ *       RecoveryWindow: Number('int'),
+ *       SourcePriority: { // SourcePriority
+ *         PrimarySource: 'STRING_VALUE',
+ *       },
+ *       State: 'ENABLED' || 'DISABLED',
+ *     },
+ *     Sources: [ // __listOfBridgeSource
+ *       { // BridgeSource
+ *         FlowSource: { // BridgeFlowSource
+ *           FlowArn: 'STRING_VALUE', // required
+ *           FlowVpcInterfaceAttachment: { // VpcInterfaceAttachment
+ *             VpcInterfaceName: 'STRING_VALUE',
+ *           },
+ *           Name: 'STRING_VALUE', // required
+ *           OutputArn: 'STRING_VALUE',
+ *         },
+ *         NetworkSource: { // BridgeNetworkSource
+ *           MulticastIp: 'STRING_VALUE', // required
+ *           Name: 'STRING_VALUE', // required
+ *           NetworkName: 'STRING_VALUE', // required
+ *           Port: Number('int'), // required
+ *           Protocol: 'zixi-push' || 'rtp-fec' || 'rtp' || 'zixi-pull' || 'rist' || 'st2110-jpegxs' || 'cdi' || 'srt-listener' || 'srt-caller' || 'fujitsu-qos' || 'udp', // required
+ *         },
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateBridgeCommandInput - {@link UpdateBridgeCommandInput}
@@ -88,6 +158,8 @@ export interface UpdateBridgeCommandOutput extends UpdateBridgeResponse, __Metad
  * @throws {@link TooManyRequestsException} (client fault)
  *  Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
  *
+ * @throws {@link MediaConnectServiceException}
+ * <p>Base exception class for all service exceptions from MediaConnect service.</p>
  *
  */
 export class UpdateBridgeCommand extends $Command<

@@ -38,19 +38,30 @@ export interface ListRegionsCommandOutput extends ListRegionsResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AccountClient, ListRegionsCommand } from "@aws-sdk/client-account"; // ES Modules import
- * // const { AccountClient, ListRegionsCommand } = require("@aws-sdk/client-account"); // CommonJS import
+ * import { AccountClient, ListRegionsCommand } from '@aws-sdk/client-account'; // ES Modules import
+ * // const { AccountClient, ListRegionsCommand } = require('@aws-sdk/client-account'); // CommonJS import
  * const client = new AccountClient(config);
  * const input = { // ListRegionsRequest
- *   AccountId: "STRING_VALUE",
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   AccountId: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  *   RegionOptStatusContains: [ // RegionOptStatusList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new ListRegionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListRegionsResponse
+ *   NextToken: 'STRING_VALUE',
+ *   Regions: [ // RegionOptList
+ *     { // Region
+ *       RegionName: 'STRING_VALUE',
+ *       RegionOptStatus: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListRegionsCommandInput - {@link ListRegionsCommandInput}
@@ -74,6 +85,8 @@ export interface ListRegionsCommandOutput extends ListRegionsResponse, __Metadat
  * @throws {@link ValidationException} (client fault)
  *  <p>The operation failed because one of the input parameters was invalid.</p>
  *
+ * @throws {@link AccountServiceException}
+ * <p>Base exception class for all service exceptions from Account service.</p>
  *
  */
 export class ListRegionsCommand extends $Command<

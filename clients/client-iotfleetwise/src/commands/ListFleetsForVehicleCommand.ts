@@ -39,16 +39,24 @@ export interface ListFleetsForVehicleCommandOutput extends ListFleetsForVehicleR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTFleetWiseClient, ListFleetsForVehicleCommand } from "@aws-sdk/client-iotfleetwise"; // ES Modules import
- * // const { IoTFleetWiseClient, ListFleetsForVehicleCommand } = require("@aws-sdk/client-iotfleetwise"); // CommonJS import
+ * import { IoTFleetWiseClient, ListFleetsForVehicleCommand } from '@aws-sdk/client-iotfleetwise'; // ES Modules import
+ * // const { IoTFleetWiseClient, ListFleetsForVehicleCommand } = require('@aws-sdk/client-iotfleetwise'); // CommonJS import
  * const client = new IoTFleetWiseClient(config);
  * const input = { // ListFleetsForVehicleRequest
- *   vehicleName: "STRING_VALUE", // required
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   vehicleName: 'STRING_VALUE', // required
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new ListFleetsForVehicleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListFleetsForVehicleResponse
+ *   fleets: [ // fleets
+ *     'STRING_VALUE',
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListFleetsForVehicleCommandInput - {@link ListFleetsForVehicleCommandInput}
@@ -72,6 +80,8 @@ export interface ListFleetsForVehicleCommandOutput extends ListFleetsForVehicleR
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
  *
+ * @throws {@link IoTFleetWiseServiceException}
+ * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
  */
 export class ListFleetsForVehicleCommand extends $Command<

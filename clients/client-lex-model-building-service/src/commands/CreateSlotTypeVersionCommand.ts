@@ -55,15 +55,42 @@ export interface CreateSlotTypeVersionCommandOutput extends CreateSlotTypeVersio
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LexModelBuildingServiceClient, CreateSlotTypeVersionCommand } from "@aws-sdk/client-lex-model-building-service"; // ES Modules import
- * // const { LexModelBuildingServiceClient, CreateSlotTypeVersionCommand } = require("@aws-sdk/client-lex-model-building-service"); // CommonJS import
+ * import { LexModelBuildingServiceClient, CreateSlotTypeVersionCommand } from '@aws-sdk/client-lex-model-building-service'; // ES Modules import
+ * // const { LexModelBuildingServiceClient, CreateSlotTypeVersionCommand } = require('@aws-sdk/client-lex-model-building-service'); // CommonJS import
  * const client = new LexModelBuildingServiceClient(config);
  * const input = { // CreateSlotTypeVersionRequest
- *   name: "STRING_VALUE", // required
- *   checksum: "STRING_VALUE",
+ *   name: 'STRING_VALUE', // required
+ *   checksum: 'STRING_VALUE',
  * };
  * const command = new CreateSlotTypeVersionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateSlotTypeVersionResponse
+ *   name: 'STRING_VALUE',
+ *   description: 'STRING_VALUE',
+ *   enumerationValues: [ // EnumerationValues
+ *     { // EnumerationValue
+ *       value: 'STRING_VALUE', // required
+ *       synonyms: [ // SynonymList
+ *         'STRING_VALUE',
+ *       ],
+ *     },
+ *   ],
+ *   lastUpdatedDate: new Date('TIMESTAMP'),
+ *   createdDate: new Date('TIMESTAMP'),
+ *   version: 'STRING_VALUE',
+ *   checksum: 'STRING_VALUE',
+ *   valueSelectionStrategy: 'STRING_VALUE',
+ *   parentSlotTypeSignature: 'STRING_VALUE',
+ *   slotTypeConfigurations: [ // SlotTypeConfigurations
+ *     { // SlotTypeConfiguration
+ *       regexConfiguration: { // SlotTypeRegexConfiguration
+ *         pattern: 'STRING_VALUE', // required
+ *       },
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param CreateSlotTypeVersionCommandInput - {@link CreateSlotTypeVersionCommandInput}
@@ -96,6 +123,8 @@ export interface CreateSlotTypeVersionCommandOutput extends CreateSlotTypeVersio
  *       not match the checksum in the request. Check the resource's checksum and
  *       try again.</p>
  *
+ * @throws {@link LexModelBuildingServiceServiceException}
+ * <p>Base exception class for all service exceptions from LexModelBuildingService service.</p>
  *
  */
 export class CreateSlotTypeVersionCommand extends $Command<

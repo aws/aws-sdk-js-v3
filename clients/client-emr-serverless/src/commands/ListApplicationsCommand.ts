@@ -36,18 +36,37 @@ export interface ListApplicationsCommandOutput extends ListApplicationsResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EMRServerlessClient, ListApplicationsCommand } from "@aws-sdk/client-emr-serverless"; // ES Modules import
- * // const { EMRServerlessClient, ListApplicationsCommand } = require("@aws-sdk/client-emr-serverless"); // CommonJS import
+ * import { EMRServerlessClient, ListApplicationsCommand } from '@aws-sdk/client-emr-serverless'; // ES Modules import
+ * // const { EMRServerlessClient, ListApplicationsCommand } = require('@aws-sdk/client-emr-serverless'); // CommonJS import
  * const client = new EMRServerlessClient(config);
  * const input = { // ListApplicationsRequest
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  *   states: [ // ApplicationStateSet
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new ListApplicationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListApplicationsResponse
+ *   applications: [ // ApplicationList // required
+ *     { // ApplicationSummary
+ *       id: 'STRING_VALUE', // required
+ *       name: 'STRING_VALUE',
+ *       arn: 'STRING_VALUE', // required
+ *       releaseLabel: 'STRING_VALUE', // required
+ *       type: 'STRING_VALUE', // required
+ *       state: 'STRING_VALUE', // required
+ *       stateDetails: 'STRING_VALUE',
+ *       createdAt: new Date('TIMESTAMP'), // required
+ *       updatedAt: new Date('TIMESTAMP'), // required
+ *       architecture: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListApplicationsCommandInput - {@link ListApplicationsCommandInput}
@@ -63,6 +82,8 @@ export interface ListApplicationsCommandOutput extends ListApplicationsResponse,
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
  *          service.</p>
  *
+ * @throws {@link EMRServerlessServiceException}
+ * <p>Base exception class for all service exceptions from EMRServerless service.</p>
  *
  */
 export class ListApplicationsCommand extends $Command<

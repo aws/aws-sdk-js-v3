@@ -38,16 +38,40 @@ export interface ListComplianceStatusCommandOutput extends ListComplianceStatusR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FMSClient, ListComplianceStatusCommand } from "@aws-sdk/client-fms"; // ES Modules import
- * // const { FMSClient, ListComplianceStatusCommand } = require("@aws-sdk/client-fms"); // CommonJS import
+ * import { FMSClient, ListComplianceStatusCommand } from '@aws-sdk/client-fms'; // ES Modules import
+ * // const { FMSClient, ListComplianceStatusCommand } = require('@aws-sdk/client-fms'); // CommonJS import
  * const client = new FMSClient(config);
  * const input = { // ListComplianceStatusRequest
- *   PolicyId: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   PolicyId: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListComplianceStatusCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListComplianceStatusResponse
+ *   PolicyComplianceStatusList: [ // PolicyComplianceStatusList
+ *     { // PolicyComplianceStatus
+ *       PolicyOwner: 'STRING_VALUE',
+ *       PolicyId: 'STRING_VALUE',
+ *       PolicyName: 'STRING_VALUE',
+ *       MemberAccount: 'STRING_VALUE',
+ *       EvaluationResults: [ // EvaluationResults
+ *         { // EvaluationResult
+ *           ComplianceStatus: 'COMPLIANT' || 'NON_COMPLIANT',
+ *           ViolatorCount: Number('long'),
+ *           EvaluationLimitExceeded: true || false,
+ *         },
+ *       ],
+ *       LastUpdated: new Date('TIMESTAMP'),
+ *       IssueInfoMap: { // IssueInfoMap
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListComplianceStatusCommandInput - {@link ListComplianceStatusCommandInput}
@@ -63,6 +87,8 @@ export interface ListComplianceStatusCommandOutput extends ListComplianceStatusR
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link FMSServiceException}
+ * <p>Base exception class for all service exceptions from FMS service.</p>
  *
  */
 export class ListComplianceStatusCommand extends $Command<

@@ -45,97 +45,102 @@ export interface RegisterTaskWithMaintenanceWindowCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMClient, RegisterTaskWithMaintenanceWindowCommand } from "@aws-sdk/client-ssm"; // ES Modules import
- * // const { SSMClient, RegisterTaskWithMaintenanceWindowCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * import { SSMClient, RegisterTaskWithMaintenanceWindowCommand } from '@aws-sdk/client-ssm'; // ES Modules import
+ * // const { SSMClient, RegisterTaskWithMaintenanceWindowCommand } = require('@aws-sdk/client-ssm'); // CommonJS import
  * const client = new SSMClient(config);
  * const input = { // RegisterTaskWithMaintenanceWindowRequest
- *   WindowId: "STRING_VALUE", // required
+ *   WindowId: 'STRING_VALUE', // required
  *   Targets: [ // Targets
  *     { // Target
- *       Key: "STRING_VALUE",
+ *       Key: 'STRING_VALUE',
  *       Values: [ // TargetValues
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
- *   TaskArn: "STRING_VALUE", // required
- *   ServiceRoleArn: "STRING_VALUE",
- *   TaskType: "RUN_COMMAND" || "AUTOMATION" || "STEP_FUNCTIONS" || "LAMBDA", // required
+ *   TaskArn: 'STRING_VALUE', // required
+ *   ServiceRoleArn: 'STRING_VALUE',
+ *   TaskType: 'RUN_COMMAND' || 'AUTOMATION' || 'STEP_FUNCTIONS' || 'LAMBDA', // required
  *   TaskParameters: { // MaintenanceWindowTaskParameters
- *     "<keys>": { // MaintenanceWindowTaskParameterValueExpression
+ *     '<keys>': { // MaintenanceWindowTaskParameterValueExpression
  *       Values: [ // MaintenanceWindowTaskParameterValueList
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   },
  *   TaskInvocationParameters: { // MaintenanceWindowTaskInvocationParameters
  *     RunCommand: { // MaintenanceWindowRunCommandParameters
- *       Comment: "STRING_VALUE",
+ *       Comment: 'STRING_VALUE',
  *       CloudWatchOutputConfig: { // CloudWatchOutputConfig
- *         CloudWatchLogGroupName: "STRING_VALUE",
+ *         CloudWatchLogGroupName: 'STRING_VALUE',
  *         CloudWatchOutputEnabled: true || false,
  *       },
- *       DocumentHash: "STRING_VALUE",
- *       DocumentHashType: "Sha256" || "Sha1",
- *       DocumentVersion: "STRING_VALUE",
+ *       DocumentHash: 'STRING_VALUE',
+ *       DocumentHashType: 'Sha256' || 'Sha1',
+ *       DocumentVersion: 'STRING_VALUE',
  *       NotificationConfig: { // NotificationConfig
- *         NotificationArn: "STRING_VALUE",
+ *         NotificationArn: 'STRING_VALUE',
  *         NotificationEvents: [ // NotificationEventList
- *           "All" || "InProgress" || "Success" || "TimedOut" || "Cancelled" || "Failed",
+ *           'All' || 'InProgress' || 'Success' || 'TimedOut' || 'Cancelled' || 'Failed',
  *         ],
- *         NotificationType: "Command" || "Invocation",
+ *         NotificationType: 'Command' || 'Invocation',
  *       },
- *       OutputS3BucketName: "STRING_VALUE",
- *       OutputS3KeyPrefix: "STRING_VALUE",
+ *       OutputS3BucketName: 'STRING_VALUE',
+ *       OutputS3KeyPrefix: 'STRING_VALUE',
  *       Parameters: { // Parameters
- *         "<keys>": [ // ParameterValueList
- *           "STRING_VALUE",
+ *         '<keys>': [ // ParameterValueList
+ *           'STRING_VALUE',
  *         ],
  *       },
- *       ServiceRoleArn: "STRING_VALUE",
- *       TimeoutSeconds: Number("int"),
+ *       ServiceRoleArn: 'STRING_VALUE',
+ *       TimeoutSeconds: Number('int'),
  *     },
  *     Automation: { // MaintenanceWindowAutomationParameters
- *       DocumentVersion: "STRING_VALUE",
+ *       DocumentVersion: 'STRING_VALUE',
  *       Parameters: { // AutomationParameterMap
- *         "<keys>": [ // AutomationParameterValueList
- *           "STRING_VALUE",
+ *         '<keys>': [ // AutomationParameterValueList
+ *           'STRING_VALUE',
  *         ],
  *       },
  *     },
  *     StepFunctions: { // MaintenanceWindowStepFunctionsParameters
- *       Input: "STRING_VALUE",
- *       Name: "STRING_VALUE",
+ *       Input: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
  *     },
  *     Lambda: { // MaintenanceWindowLambdaParameters
- *       ClientContext: "STRING_VALUE",
- *       Qualifier: "STRING_VALUE",
- *       Payload: "BLOB_VALUE",
+ *       ClientContext: 'STRING_VALUE',
+ *       Qualifier: 'STRING_VALUE',
+ *       Payload: 'BLOB_VALUE',
  *     },
  *   },
- *   Priority: Number("int"),
- *   MaxConcurrency: "STRING_VALUE",
- *   MaxErrors: "STRING_VALUE",
+ *   Priority: Number('int'),
+ *   MaxConcurrency: 'STRING_VALUE',
+ *   MaxErrors: 'STRING_VALUE',
  *   LoggingInfo: { // LoggingInfo
- *     S3BucketName: "STRING_VALUE", // required
- *     S3KeyPrefix: "STRING_VALUE",
- *     S3Region: "STRING_VALUE", // required
+ *     S3BucketName: 'STRING_VALUE', // required
+ *     S3KeyPrefix: 'STRING_VALUE',
+ *     S3Region: 'STRING_VALUE', // required
  *   },
- *   Name: "STRING_VALUE",
- *   Description: "STRING_VALUE",
- *   ClientToken: "STRING_VALUE",
- *   CutoffBehavior: "CONTINUE_TASK" || "CANCEL_TASK",
+ *   Name: 'STRING_VALUE',
+ *   Description: 'STRING_VALUE',
+ *   ClientToken: 'STRING_VALUE',
+ *   CutoffBehavior: 'CONTINUE_TASK' || 'CANCEL_TASK',
  *   AlarmConfiguration: { // AlarmConfiguration
  *     IgnorePollAlarmFailure: true || false,
  *     Alarms: [ // AlarmList // required
  *       { // Alarm
- *         Name: "STRING_VALUE", // required
+ *         Name: 'STRING_VALUE', // required
  *       },
  *     ],
  *   },
  * };
  * const command = new RegisterTaskWithMaintenanceWindowCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // RegisterTaskWithMaintenanceWindowResult
+ *   WindowTaskId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param RegisterTaskWithMaintenanceWindowCommandInput - {@link RegisterTaskWithMaintenanceWindowCommandInput}
@@ -167,6 +172,8 @@ export interface RegisterTaskWithMaintenanceWindowCommandOutput
  *          <p>For information about resource quotas in Systems Manager, see <a href="https://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm">Systems Manager service quotas</a> in the
  *     <i>Amazon Web Services General Reference</i>.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class RegisterTaskWithMaintenanceWindowCommand extends $Command<

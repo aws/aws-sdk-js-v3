@@ -41,29 +41,56 @@ export interface SearchContactsCommandOutput extends SearchContactsResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AlexaForBusinessClient, SearchContactsCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
- * // const { AlexaForBusinessClient, SearchContactsCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
+ * import { AlexaForBusinessClient, SearchContactsCommand } from '@aws-sdk/client-alexa-for-business'; // ES Modules import
+ * // const { AlexaForBusinessClient, SearchContactsCommand } = require('@aws-sdk/client-alexa-for-business'); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
  * const input = { // SearchContactsRequest
  *   Filters: [ // FilterList
  *     { // Filter
- *       Key: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
  *       Values: [ // FilterValueList // required
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
  *   SortCriteria: [ // SortList
  *     { // Sort
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new SearchContactsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SearchContactsResponse
+ *   Contacts: [ // ContactDataList
+ *     { // ContactData
+ *       ContactArn: 'STRING_VALUE',
+ *       DisplayName: 'STRING_VALUE',
+ *       FirstName: 'STRING_VALUE',
+ *       LastName: 'STRING_VALUE',
+ *       PhoneNumber: 'STRING_VALUE',
+ *       PhoneNumbers: [ // PhoneNumberList
+ *         { // PhoneNumber
+ *           Number: 'STRING_VALUE', // required
+ *           Type: 'STRING_VALUE', // required
+ *         },
+ *       ],
+ *       SipAddresses: [ // SipAddressList
+ *         { // SipAddress
+ *           Uri: 'STRING_VALUE', // required
+ *           Type: 'STRING_VALUE', // required
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ *   TotalCount: Number('int'),
+ * };
+ *
  * ```
  *
  * @param SearchContactsCommandInput - {@link SearchContactsCommandInput}
@@ -72,6 +99,8 @@ export interface SearchContactsCommandOutput extends SearchContactsResponse, __M
  * @see {@link SearchContactsCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
  *
+ * @throws {@link AlexaForBusinessServiceException}
+ * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  */
 export class SearchContactsCommand extends $Command<

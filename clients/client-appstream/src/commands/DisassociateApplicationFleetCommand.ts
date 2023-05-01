@@ -41,15 +41,18 @@ export interface DisassociateApplicationFleetCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppStreamClient, DisassociateApplicationFleetCommand } from "@aws-sdk/client-appstream"; // ES Modules import
- * // const { AppStreamClient, DisassociateApplicationFleetCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
+ * import { AppStreamClient, DisassociateApplicationFleetCommand } from '@aws-sdk/client-appstream'; // ES Modules import
+ * // const { AppStreamClient, DisassociateApplicationFleetCommand } = require('@aws-sdk/client-appstream'); // CommonJS import
  * const client = new AppStreamClient(config);
  * const input = { // DisassociateApplicationFleetRequest
- *   FleetName: "STRING_VALUE", // required
- *   ApplicationArn: "STRING_VALUE", // required
+ *   FleetName: 'STRING_VALUE', // required
+ *   ApplicationArn: 'STRING_VALUE', // required
  * };
  * const command = new DisassociateApplicationFleetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DisassociateApplicationFleetCommandInput - {@link DisassociateApplicationFleetCommandInput}
@@ -67,6 +70,8 @@ export interface DisassociateApplicationFleetCommandOutput
  * @throws {@link OperationNotPermittedException} (client fault)
  *  <p>The attempted operation is not permitted.</p>
  *
+ * @throws {@link AppStreamServiceException}
+ * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
  */
 export class DisassociateApplicationFleetCommand extends $Command<

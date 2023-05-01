@@ -36,15 +36,23 @@ export interface GetTokenCommandOutput extends GetTokenResponse, __MetadataBeare
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AmplifyBackendClient, GetTokenCommand } from "@aws-sdk/client-amplifybackend"; // ES Modules import
- * // const { AmplifyBackendClient, GetTokenCommand } = require("@aws-sdk/client-amplifybackend"); // CommonJS import
+ * import { AmplifyBackendClient, GetTokenCommand } from '@aws-sdk/client-amplifybackend'; // ES Modules import
+ * // const { AmplifyBackendClient, GetTokenCommand } = require('@aws-sdk/client-amplifybackend'); // CommonJS import
  * const client = new AmplifyBackendClient(config);
  * const input = { // GetTokenRequest
- *   AppId: "STRING_VALUE", // required
- *   SessionId: "STRING_VALUE", // required
+ *   AppId: 'STRING_VALUE', // required
+ *   SessionId: 'STRING_VALUE', // required
  * };
  * const command = new GetTokenCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetTokenResponse
+ *   AppId: 'STRING_VALUE',
+ *   ChallengeCode: 'STRING_VALUE',
+ *   SessionId: 'STRING_VALUE',
+ *   Ttl: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetTokenCommandInput - {@link GetTokenCommandInput}
@@ -65,6 +73,8 @@ export interface GetTokenCommandOutput extends GetTokenResponse, __MetadataBeare
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>An error that is returned when a limit of a specific type has been exceeded.</p>
  *
+ * @throws {@link AmplifyBackendServiceException}
+ * <p>Base exception class for all service exceptions from AmplifyBackend service.</p>
  *
  */
 export class GetTokenCommand extends $Command<

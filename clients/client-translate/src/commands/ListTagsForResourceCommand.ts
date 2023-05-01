@@ -38,14 +38,24 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { TranslateClient, ListTagsForResourceCommand } from "@aws-sdk/client-translate"; // ES Modules import
- * // const { TranslateClient, ListTagsForResourceCommand } = require("@aws-sdk/client-translate"); // CommonJS import
+ * import { TranslateClient, ListTagsForResourceCommand } from '@aws-sdk/client-translate'; // ES Modules import
+ * // const { TranslateClient, ListTagsForResourceCommand } = require('@aws-sdk/client-translate'); // CommonJS import
  * const client = new TranslateClient(config);
  * const input = { // ListTagsForResourceRequest
- *   ResourceArn: "STRING_VALUE", // required
+ *   ResourceArn: 'STRING_VALUE', // required
  * };
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTagsForResourceResponse
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListTagsForResourceCommandInput - {@link ListTagsForResourceCommandInput}
@@ -66,6 +76,8 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  *       for and see if a different resource will accomplish your needs before retrying the revised
  *       request.</p>
  *
+ * @throws {@link TranslateServiceException}
+ * <p>Base exception class for all service exceptions from Translate service.</p>
  *
  */
 export class ListTagsForResourceCommand extends $Command<

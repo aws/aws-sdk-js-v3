@@ -37,24 +37,47 @@ export interface CreateUserGroupCommandOutput extends UserGroup, __MetadataBeare
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElastiCacheClient, CreateUserGroupCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
- * // const { ElastiCacheClient, CreateUserGroupCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
+ * import { ElastiCacheClient, CreateUserGroupCommand } from '@aws-sdk/client-elasticache'; // ES Modules import
+ * // const { ElastiCacheClient, CreateUserGroupCommand } = require('@aws-sdk/client-elasticache'); // CommonJS import
  * const client = new ElastiCacheClient(config);
  * const input = { // CreateUserGroupMessage
- *   UserGroupId: "STRING_VALUE", // required
- *   Engine: "STRING_VALUE", // required
+ *   UserGroupId: 'STRING_VALUE', // required
+ *   Engine: 'STRING_VALUE', // required
  *   UserIds: [ // UserIdListInput
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE",
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new CreateUserGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UserGroup
+ *   UserGroupId: 'STRING_VALUE',
+ *   Status: 'STRING_VALUE',
+ *   Engine: 'STRING_VALUE',
+ *   UserIds: [ // UserIdList
+ *     'STRING_VALUE',
+ *   ],
+ *   MinimumEngineVersion: 'STRING_VALUE',
+ *   PendingChanges: { // UserGroupPendingChanges
+ *     UserIdsToRemove: [
+ *       'STRING_VALUE',
+ *     ],
+ *     UserIdsToAdd: [
+ *       'STRING_VALUE',
+ *     ],
+ *   },
+ *   ReplicationGroups: [ // UGReplicationGroupIdList
+ *     'STRING_VALUE',
+ *   ],
+ *   ARN: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateUserGroupCommandInput - {@link CreateUserGroupCommandInput}
@@ -87,6 +110,8 @@ export interface CreateUserGroupCommandOutput extends UserGroup, __MetadataBeare
  * @throws {@link UserNotFoundFault} (client fault)
  *  <p>The user does not exist or could not be found.</p>
  *
+ * @throws {@link ElastiCacheServiceException}
+ * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
  */
 export class CreateUserGroupCommand extends $Command<

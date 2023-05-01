@@ -36,23 +36,68 @@ export interface ListImagePipelinesCommandOutput extends ListImagePipelinesRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ImagebuilderClient, ListImagePipelinesCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
- * // const { ImagebuilderClient, ListImagePipelinesCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
+ * import { ImagebuilderClient, ListImagePipelinesCommand } from '@aws-sdk/client-imagebuilder'; // ES Modules import
+ * // const { ImagebuilderClient, ListImagePipelinesCommand } = require('@aws-sdk/client-imagebuilder'); // CommonJS import
  * const client = new ImagebuilderClient(config);
  * const input = { // ListImagePipelinesRequest
  *   filters: [ // FilterList
  *     { // Filter
- *       name: "STRING_VALUE",
+ *       name: 'STRING_VALUE',
  *       values: [ // FilterValues
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new ListImagePipelinesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListImagePipelinesResponse
+ *   requestId: 'STRING_VALUE',
+ *   imagePipelineList: [ // ImagePipelineList
+ *     { // ImagePipeline
+ *       arn: 'STRING_VALUE',
+ *       name: 'STRING_VALUE',
+ *       description: 'STRING_VALUE',
+ *       platform: 'Windows' || 'Linux',
+ *       enhancedImageMetadataEnabled: true || false,
+ *       imageRecipeArn: 'STRING_VALUE',
+ *       containerRecipeArn: 'STRING_VALUE',
+ *       infrastructureConfigurationArn: 'STRING_VALUE',
+ *       distributionConfigurationArn: 'STRING_VALUE',
+ *       imageTestsConfiguration: { // ImageTestsConfiguration
+ *         imageTestsEnabled: true || false,
+ *         timeoutMinutes: Number('int'),
+ *       },
+ *       schedule: { // Schedule
+ *         scheduleExpression: 'STRING_VALUE',
+ *         timezone: 'STRING_VALUE',
+ *         pipelineExecutionStartCondition: 'EXPRESSION_MATCH_ONLY' || 'EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE',
+ *       },
+ *       status: 'DISABLED' || 'ENABLED',
+ *       dateCreated: 'STRING_VALUE',
+ *       dateUpdated: 'STRING_VALUE',
+ *       dateLastRun: 'STRING_VALUE',
+ *       dateNextRun: 'STRING_VALUE',
+ *       tags: { // TagMap
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *       imageScanningConfiguration: { // ImageScanningConfiguration
+ *         imageScanningEnabled: true || false,
+ *         ecrConfiguration: { // EcrConfiguration
+ *           repositoryName: 'STRING_VALUE',
+ *           containerTags: [ // StringList
+ *             'STRING_VALUE',
+ *           ],
+ *         },
+ *       },
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListImagePipelinesCommandInput - {@link ListImagePipelinesCommandInput}
@@ -85,6 +130,8 @@ export interface ListImagePipelinesCommandOutput extends ListImagePipelinesRespo
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service is unable to process your request at this time.</p>
  *
+ * @throws {@link ImagebuilderServiceException}
+ * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
  */
 export class ListImagePipelinesCommand extends $Command<

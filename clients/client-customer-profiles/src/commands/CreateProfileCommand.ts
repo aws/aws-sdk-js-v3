@@ -38,83 +38,88 @@ export interface CreateProfileCommandOutput extends CreateProfileResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CustomerProfilesClient, CreateProfileCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
- * // const { CustomerProfilesClient, CreateProfileCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
+ * import { CustomerProfilesClient, CreateProfileCommand } from '@aws-sdk/client-customer-profiles'; // ES Modules import
+ * // const { CustomerProfilesClient, CreateProfileCommand } = require('@aws-sdk/client-customer-profiles'); // CommonJS import
  * const client = new CustomerProfilesClient(config);
  * const input = { // CreateProfileRequest
- *   DomainName: "STRING_VALUE", // required
- *   AccountNumber: "STRING_VALUE",
- *   AdditionalInformation: "STRING_VALUE",
- *   PartyType: "INDIVIDUAL" || "BUSINESS" || "OTHER",
- *   BusinessName: "STRING_VALUE",
- *   FirstName: "STRING_VALUE",
- *   MiddleName: "STRING_VALUE",
- *   LastName: "STRING_VALUE",
- *   BirthDate: "STRING_VALUE",
- *   Gender: "MALE" || "FEMALE" || "UNSPECIFIED",
- *   PhoneNumber: "STRING_VALUE",
- *   MobilePhoneNumber: "STRING_VALUE",
- *   HomePhoneNumber: "STRING_VALUE",
- *   BusinessPhoneNumber: "STRING_VALUE",
- *   EmailAddress: "STRING_VALUE",
- *   PersonalEmailAddress: "STRING_VALUE",
- *   BusinessEmailAddress: "STRING_VALUE",
+ *   DomainName: 'STRING_VALUE', // required
+ *   AccountNumber: 'STRING_VALUE',
+ *   AdditionalInformation: 'STRING_VALUE',
+ *   PartyType: 'INDIVIDUAL' || 'BUSINESS' || 'OTHER',
+ *   BusinessName: 'STRING_VALUE',
+ *   FirstName: 'STRING_VALUE',
+ *   MiddleName: 'STRING_VALUE',
+ *   LastName: 'STRING_VALUE',
+ *   BirthDate: 'STRING_VALUE',
+ *   Gender: 'MALE' || 'FEMALE' || 'UNSPECIFIED',
+ *   PhoneNumber: 'STRING_VALUE',
+ *   MobilePhoneNumber: 'STRING_VALUE',
+ *   HomePhoneNumber: 'STRING_VALUE',
+ *   BusinessPhoneNumber: 'STRING_VALUE',
+ *   EmailAddress: 'STRING_VALUE',
+ *   PersonalEmailAddress: 'STRING_VALUE',
+ *   BusinessEmailAddress: 'STRING_VALUE',
  *   Address: { // Address
- *     Address1: "STRING_VALUE",
- *     Address2: "STRING_VALUE",
- *     Address3: "STRING_VALUE",
- *     Address4: "STRING_VALUE",
- *     City: "STRING_VALUE",
- *     County: "STRING_VALUE",
- *     State: "STRING_VALUE",
- *     Province: "STRING_VALUE",
- *     Country: "STRING_VALUE",
- *     PostalCode: "STRING_VALUE",
+ *     Address1: 'STRING_VALUE',
+ *     Address2: 'STRING_VALUE',
+ *     Address3: 'STRING_VALUE',
+ *     Address4: 'STRING_VALUE',
+ *     City: 'STRING_VALUE',
+ *     County: 'STRING_VALUE',
+ *     State: 'STRING_VALUE',
+ *     Province: 'STRING_VALUE',
+ *     Country: 'STRING_VALUE',
+ *     PostalCode: 'STRING_VALUE',
  *   },
  *   ShippingAddress: {
- *     Address1: "STRING_VALUE",
- *     Address2: "STRING_VALUE",
- *     Address3: "STRING_VALUE",
- *     Address4: "STRING_VALUE",
- *     City: "STRING_VALUE",
- *     County: "STRING_VALUE",
- *     State: "STRING_VALUE",
- *     Province: "STRING_VALUE",
- *     Country: "STRING_VALUE",
- *     PostalCode: "STRING_VALUE",
+ *     Address1: 'STRING_VALUE',
+ *     Address2: 'STRING_VALUE',
+ *     Address3: 'STRING_VALUE',
+ *     Address4: 'STRING_VALUE',
+ *     City: 'STRING_VALUE',
+ *     County: 'STRING_VALUE',
+ *     State: 'STRING_VALUE',
+ *     Province: 'STRING_VALUE',
+ *     Country: 'STRING_VALUE',
+ *     PostalCode: 'STRING_VALUE',
  *   },
  *   MailingAddress: {
- *     Address1: "STRING_VALUE",
- *     Address2: "STRING_VALUE",
- *     Address3: "STRING_VALUE",
- *     Address4: "STRING_VALUE",
- *     City: "STRING_VALUE",
- *     County: "STRING_VALUE",
- *     State: "STRING_VALUE",
- *     Province: "STRING_VALUE",
- *     Country: "STRING_VALUE",
- *     PostalCode: "STRING_VALUE",
+ *     Address1: 'STRING_VALUE',
+ *     Address2: 'STRING_VALUE',
+ *     Address3: 'STRING_VALUE',
+ *     Address4: 'STRING_VALUE',
+ *     City: 'STRING_VALUE',
+ *     County: 'STRING_VALUE',
+ *     State: 'STRING_VALUE',
+ *     Province: 'STRING_VALUE',
+ *     Country: 'STRING_VALUE',
+ *     PostalCode: 'STRING_VALUE',
  *   },
  *   BillingAddress: {
- *     Address1: "STRING_VALUE",
- *     Address2: "STRING_VALUE",
- *     Address3: "STRING_VALUE",
- *     Address4: "STRING_VALUE",
- *     City: "STRING_VALUE",
- *     County: "STRING_VALUE",
- *     State: "STRING_VALUE",
- *     Province: "STRING_VALUE",
- *     Country: "STRING_VALUE",
- *     PostalCode: "STRING_VALUE",
+ *     Address1: 'STRING_VALUE',
+ *     Address2: 'STRING_VALUE',
+ *     Address3: 'STRING_VALUE',
+ *     Address4: 'STRING_VALUE',
+ *     City: 'STRING_VALUE',
+ *     County: 'STRING_VALUE',
+ *     State: 'STRING_VALUE',
+ *     Province: 'STRING_VALUE',
+ *     Country: 'STRING_VALUE',
+ *     PostalCode: 'STRING_VALUE',
  *   },
  *   Attributes: { // Attributes
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
- *   PartyTypeString: "STRING_VALUE",
- *   GenderString: "STRING_VALUE",
+ *   PartyTypeString: 'STRING_VALUE',
+ *   GenderString: 'STRING_VALUE',
  * };
  * const command = new CreateProfileCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateProfileResponse
+ *   ProfileId: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param CreateProfileCommandInput - {@link CreateProfileCommandInput}
@@ -138,6 +143,8 @@ export interface CreateProfileCommandOutput extends CreateProfileResponse, __Met
  * @throws {@link ThrottlingException} (client fault)
  *  <p>You exceeded the maximum number of requests.</p>
  *
+ * @throws {@link CustomerProfilesServiceException}
+ * <p>Base exception class for all service exceptions from CustomerProfiles service.</p>
  *
  */
 export class CreateProfileCommand extends $Command<

@@ -36,14 +36,17 @@ export interface DeleteFrameworkCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BackupClient, DeleteFrameworkCommand } from "@aws-sdk/client-backup"; // ES Modules import
- * // const { BackupClient, DeleteFrameworkCommand } = require("@aws-sdk/client-backup"); // CommonJS import
+ * import { BackupClient, DeleteFrameworkCommand } from '@aws-sdk/client-backup'; // ES Modules import
+ * // const { BackupClient, DeleteFrameworkCommand } = require('@aws-sdk/client-backup'); // CommonJS import
  * const client = new BackupClient(config);
  * const input = { // DeleteFrameworkInput
- *   FrameworkName: "STRING_VALUE", // required
+ *   FrameworkName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteFrameworkCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteFrameworkCommandInput - {@link DeleteFrameworkCommandInput}
@@ -69,6 +72,8 @@ export interface DeleteFrameworkCommandOutput extends __MetadataBearer {}
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request failed due to a temporary failure of the server.</p>
  *
+ * @throws {@link BackupServiceException}
+ * <p>Base exception class for all service exceptions from Backup service.</p>
  *
  */
 export class DeleteFrameworkCommand extends $Command<

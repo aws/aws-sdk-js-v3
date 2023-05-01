@@ -45,30 +45,35 @@ export interface CreateDirectoryCommandOutput extends CreateDirectoryResult, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DirectoryServiceClient, CreateDirectoryCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
- * // const { DirectoryServiceClient, CreateDirectoryCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
+ * import { DirectoryServiceClient, CreateDirectoryCommand } from '@aws-sdk/client-directory-service'; // ES Modules import
+ * // const { DirectoryServiceClient, CreateDirectoryCommand } = require('@aws-sdk/client-directory-service'); // CommonJS import
  * const client = new DirectoryServiceClient(config);
  * const input = { // CreateDirectoryRequest
- *   Name: "STRING_VALUE", // required
- *   ShortName: "STRING_VALUE",
- *   Password: "STRING_VALUE", // required
- *   Description: "STRING_VALUE",
- *   Size: "Small" || "Large", // required
+ *   Name: 'STRING_VALUE', // required
+ *   ShortName: 'STRING_VALUE',
+ *   Password: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE',
+ *   Size: 'Small' || 'Large', // required
  *   VpcSettings: { // DirectoryVpcSettings
- *     VpcId: "STRING_VALUE", // required
+ *     VpcId: 'STRING_VALUE', // required
  *     SubnetIds: [ // SubnetIds // required
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *   },
  *   Tags: [ // Tags
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreateDirectoryCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateDirectoryResult
+ *   DirectoryId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateDirectoryCommandInput - {@link CreateDirectoryCommandInput}
@@ -91,6 +96,8 @@ export interface CreateDirectoryCommandOutput extends CreateDirectoryResult, __M
  * @throws {@link ServiceException} (server fault)
  *  <p>An exception has occurred in Directory Service.</p>
  *
+ * @throws {@link DirectoryServiceServiceException}
+ * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
  */
 export class CreateDirectoryCommand extends $Command<

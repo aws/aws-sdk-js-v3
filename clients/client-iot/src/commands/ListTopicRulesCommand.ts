@@ -37,17 +37,31 @@ export interface ListTopicRulesCommandOutput extends ListTopicRulesResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTClient, ListTopicRulesCommand } from "@aws-sdk/client-iot"; // ES Modules import
- * // const { IoTClient, ListTopicRulesCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * import { IoTClient, ListTopicRulesCommand } from '@aws-sdk/client-iot'; // ES Modules import
+ * // const { IoTClient, ListTopicRulesCommand } = require('@aws-sdk/client-iot'); // CommonJS import
  * const client = new IoTClient(config);
  * const input = { // ListTopicRulesRequest
- *   topic: "STRING_VALUE",
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   topic: 'STRING_VALUE',
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  *   ruleDisabled: true || false,
  * };
  * const command = new ListTopicRulesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTopicRulesResponse
+ *   rules: [ // TopicRuleList
+ *     { // TopicRuleListItem
+ *       ruleArn: 'STRING_VALUE',
+ *       ruleName: 'STRING_VALUE',
+ *       topicPattern: 'STRING_VALUE',
+ *       createdAt: new Date('TIMESTAMP'),
+ *       ruleDisabled: true || false,
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListTopicRulesCommandInput - {@link ListTopicRulesCommandInput}
@@ -65,6 +79,8 @@ export interface ListTopicRulesCommandOutput extends ListTopicRulesResponse, __M
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service is temporarily unavailable.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class ListTopicRulesCommand extends $Command<

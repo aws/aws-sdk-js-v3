@@ -41,14 +41,35 @@ export interface GetSolNetworkInstanceCommandOutput extends GetSolNetworkInstanc
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { TnbClient, GetSolNetworkInstanceCommand } from "@aws-sdk/client-tnb"; // ES Modules import
- * // const { TnbClient, GetSolNetworkInstanceCommand } = require("@aws-sdk/client-tnb"); // CommonJS import
+ * import { TnbClient, GetSolNetworkInstanceCommand } from '@aws-sdk/client-tnb'; // ES Modules import
+ * // const { TnbClient, GetSolNetworkInstanceCommand } = require('@aws-sdk/client-tnb'); // CommonJS import
  * const client = new TnbClient(config);
  * const input = { // GetSolNetworkInstanceInput
- *   nsInstanceId: "STRING_VALUE", // required
+ *   nsInstanceId: 'STRING_VALUE', // required
  * };
  * const command = new GetSolNetworkInstanceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetSolNetworkInstanceOutput
+ *   id: 'STRING_VALUE', // required
+ *   arn: 'STRING_VALUE', // required
+ *   nsInstanceName: 'STRING_VALUE', // required
+ *   nsInstanceDescription: 'STRING_VALUE', // required
+ *   nsdId: 'STRING_VALUE', // required
+ *   nsdInfoId: 'STRING_VALUE', // required
+ *   nsState: 'INSTANTIATED' || 'NOT_INSTANTIATED' || 'IMPAIRED' || 'STOPPED' || 'DELETED' || 'INSTANTIATE_IN_PROGRESS' || 'UPDATE_IN_PROGRESS' || 'TERMINATE_IN_PROGRESS',
+ *   lcmOpInfo: { // LcmOperationInfo
+ *     nsLcmOpOccId: 'STRING_VALUE', // required
+ *   },
+ *   metadata: { // GetSolNetworkInstanceMetadata
+ *     createdAt: new Date('TIMESTAMP'), // required
+ *     lastModified: new Date('TIMESTAMP'), // required
+ *   },
+ *   tags: { // TagMap
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetSolNetworkInstanceCommandInput - {@link GetSolNetworkInstanceCommandInput}
@@ -72,6 +93,8 @@ export interface GetSolNetworkInstanceCommandOutput extends GetSolNetworkInstanc
  * @throws {@link ValidationException} (client fault)
  *  <p>Unable to process the request because the client provided input failed to satisfy request constraints.</p>
  *
+ * @throws {@link TnbServiceException}
+ * <p>Base exception class for all service exceptions from Tnb service.</p>
  *
  */
 export class GetSolNetworkInstanceCommand extends $Command<

@@ -44,17 +44,20 @@ export interface PutAutoTerminationPolicyCommandOutput extends PutAutoTerminatio
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EMRClient, PutAutoTerminationPolicyCommand } from "@aws-sdk/client-emr"; // ES Modules import
- * // const { EMRClient, PutAutoTerminationPolicyCommand } = require("@aws-sdk/client-emr"); // CommonJS import
+ * import { EMRClient, PutAutoTerminationPolicyCommand } from '@aws-sdk/client-emr'; // ES Modules import
+ * // const { EMRClient, PutAutoTerminationPolicyCommand } = require('@aws-sdk/client-emr'); // CommonJS import
  * const client = new EMRClient(config);
  * const input = { // PutAutoTerminationPolicyInput
- *   ClusterId: "STRING_VALUE", // required
+ *   ClusterId: 'STRING_VALUE', // required
  *   AutoTerminationPolicy: { // AutoTerminationPolicy
- *     IdleTimeout: Number("long"),
+ *     IdleTimeout: Number('long'),
  *   },
  * };
  * const command = new PutAutoTerminationPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutAutoTerminationPolicyCommandInput - {@link PutAutoTerminationPolicyCommandInput}
@@ -63,6 +66,8 @@ export interface PutAutoTerminationPolicyCommandOutput extends PutAutoTerminatio
  * @see {@link PutAutoTerminationPolicyCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
  *
+ * @throws {@link EMRServiceException}
+ * <p>Base exception class for all service exceptions from EMR service.</p>
  *
  */
 export class PutAutoTerminationPolicyCommand extends $Command<

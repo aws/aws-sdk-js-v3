@@ -37,16 +37,22 @@ export interface GetAssessmentReportCommandOutput extends GetAssessmentReportRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { InspectorClient, GetAssessmentReportCommand } from "@aws-sdk/client-inspector"; // ES Modules import
- * // const { InspectorClient, GetAssessmentReportCommand } = require("@aws-sdk/client-inspector"); // CommonJS import
+ * import { InspectorClient, GetAssessmentReportCommand } from '@aws-sdk/client-inspector'; // ES Modules import
+ * // const { InspectorClient, GetAssessmentReportCommand } = require('@aws-sdk/client-inspector'); // CommonJS import
  * const client = new InspectorClient(config);
  * const input = { // GetAssessmentReportRequest
- *   assessmentRunArn: "STRING_VALUE", // required
- *   reportFileFormat: "STRING_VALUE", // required
- *   reportType: "STRING_VALUE", // required
+ *   assessmentRunArn: 'STRING_VALUE', // required
+ *   reportFileFormat: 'STRING_VALUE', // required
+ *   reportType: 'STRING_VALUE', // required
  * };
  * const command = new GetAssessmentReportCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetAssessmentReportResponse
+ *   status: 'STRING_VALUE', // required
+ *   url: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetAssessmentReportCommandInput - {@link GetAssessmentReportCommandInput}
@@ -83,6 +89,8 @@ export interface GetAssessmentReportCommandOutput extends GetAssessmentReportRes
  *          took place or will take place after generating reports in Amazon Inspector became
  *          available.</p>
  *
+ * @throws {@link InspectorServiceException}
+ * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
  */
 export class GetAssessmentReportCommand extends $Command<

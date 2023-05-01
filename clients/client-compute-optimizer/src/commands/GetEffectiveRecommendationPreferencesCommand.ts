@@ -50,14 +50,22 @@ export interface GetEffectiveRecommendationPreferencesCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ComputeOptimizerClient, GetEffectiveRecommendationPreferencesCommand } from "@aws-sdk/client-compute-optimizer"; // ES Modules import
- * // const { ComputeOptimizerClient, GetEffectiveRecommendationPreferencesCommand } = require("@aws-sdk/client-compute-optimizer"); // CommonJS import
+ * import { ComputeOptimizerClient, GetEffectiveRecommendationPreferencesCommand } from '@aws-sdk/client-compute-optimizer'; // ES Modules import
+ * // const { ComputeOptimizerClient, GetEffectiveRecommendationPreferencesCommand } = require('@aws-sdk/client-compute-optimizer'); // CommonJS import
  * const client = new ComputeOptimizerClient(config);
  * const input = { // GetEffectiveRecommendationPreferencesRequest
- *   resourceArn: "STRING_VALUE", // required
+ *   resourceArn: 'STRING_VALUE', // required
  * };
  * const command = new GetEffectiveRecommendationPreferencesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetEffectiveRecommendationPreferencesResponse
+ *   enhancedInfrastructureMetrics: 'Active' || 'Inactive',
+ *   externalMetricsPreference: { // ExternalMetricsPreference
+ *     source: 'Datadog' || 'Dynatrace' || 'NewRelic' || 'Instana',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetEffectiveRecommendationPreferencesCommandInput - {@link GetEffectiveRecommendationPreferencesCommandInput}
@@ -91,6 +99,8 @@ export interface GetEffectiveRecommendationPreferencesCommandOutput
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
  *
+ * @throws {@link ComputeOptimizerServiceException}
+ * <p>Base exception class for all service exceptions from ComputeOptimizer service.</p>
  *
  */
 export class GetEffectiveRecommendationPreferencesCommand extends $Command<

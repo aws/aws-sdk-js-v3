@@ -41,18 +41,43 @@ export interface ListKeysCommandOutput extends ListKeysResponse, __MetadataBeare
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LocationClient, ListKeysCommand } from "@aws-sdk/client-location"; // ES Modules import
- * // const { LocationClient, ListKeysCommand } = require("@aws-sdk/client-location"); // CommonJS import
+ * import { LocationClient, ListKeysCommand } from '@aws-sdk/client-location'; // ES Modules import
+ * // const { LocationClient, ListKeysCommand } = require('@aws-sdk/client-location'); // CommonJS import
  * const client = new LocationClient(config);
  * const input = { // ListKeysRequest
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  *   Filter: { // ApiKeyFilter
- *     KeyStatus: "STRING_VALUE",
+ *     KeyStatus: 'STRING_VALUE',
  *   },
  * };
  * const command = new ListKeysCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListKeysResponse
+ *   Entries: [ // ListKeysResponseEntryList // required
+ *     { // ListKeysResponseEntry
+ *       KeyName: 'STRING_VALUE', // required
+ *       ExpireTime: new Date('TIMESTAMP'), // required
+ *       Description: 'STRING_VALUE',
+ *       Restrictions: { // ApiKeyRestrictions
+ *         AllowActions: [ // ApiKeyActionList // required
+ *           'STRING_VALUE',
+ *         ],
+ *         AllowResources: [ // GeoArnList // required
+ *           'STRING_VALUE',
+ *         ],
+ *         AllowReferers: [ // RefererPatternList
+ *           'STRING_VALUE',
+ *         ],
+ *       },
+ *       CreateTime: new Date('TIMESTAMP'), // required
+ *       UpdateTime: new Date('TIMESTAMP'), // required
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListKeysCommandInput - {@link ListKeysCommandInput}
@@ -74,6 +99,8 @@ export interface ListKeysCommandOutput extends ListKeysResponse, __MetadataBeare
  * @throws {@link ValidationException} (client fault)
  *  <p>The input failed to meet the constraints specified by the AWS service. </p>
  *
+ * @throws {@link LocationServiceException}
+ * <p>Base exception class for all service exceptions from Location service.</p>
  *
  */
 export class ListKeysCommand extends $Command<

@@ -40,22 +40,25 @@ export interface UpdateNetworkProfileCommandOutput extends UpdateNetworkProfileR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AlexaForBusinessClient, UpdateNetworkProfileCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
- * // const { AlexaForBusinessClient, UpdateNetworkProfileCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
+ * import { AlexaForBusinessClient, UpdateNetworkProfileCommand } from '@aws-sdk/client-alexa-for-business'; // ES Modules import
+ * // const { AlexaForBusinessClient, UpdateNetworkProfileCommand } = require('@aws-sdk/client-alexa-for-business'); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
  * const input = { // UpdateNetworkProfileRequest
- *   NetworkProfileArn: "STRING_VALUE", // required
- *   NetworkProfileName: "STRING_VALUE",
- *   Description: "STRING_VALUE",
- *   CurrentPassword: "STRING_VALUE",
- *   NextPassword: "STRING_VALUE",
- *   CertificateAuthorityArn: "STRING_VALUE",
+ *   NetworkProfileArn: 'STRING_VALUE', // required
+ *   NetworkProfileName: 'STRING_VALUE',
+ *   Description: 'STRING_VALUE',
+ *   CurrentPassword: 'STRING_VALUE',
+ *   NextPassword: 'STRING_VALUE',
+ *   CertificateAuthorityArn: 'STRING_VALUE',
  *   TrustAnchors: [ // TrustAnchorList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new UpdateNetworkProfileCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateNetworkProfileCommandInput - {@link UpdateNetworkProfileCommandInput}
@@ -79,6 +82,8 @@ export interface UpdateNetworkProfileCommandOutput extends UpdateNetworkProfileR
  * @throws {@link NotFoundException} (client fault)
  *  <p>The resource is not found.</p>
  *
+ * @throws {@link AlexaForBusinessServiceException}
+ * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  */
 export class UpdateNetworkProfileCommand extends $Command<

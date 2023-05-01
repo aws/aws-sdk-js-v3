@@ -36,15 +36,21 @@ export interface CancelQuantumTaskCommandOutput extends CancelQuantumTaskRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BraketClient, CancelQuantumTaskCommand } from "@aws-sdk/client-braket"; // ES Modules import
- * // const { BraketClient, CancelQuantumTaskCommand } = require("@aws-sdk/client-braket"); // CommonJS import
+ * import { BraketClient, CancelQuantumTaskCommand } from '@aws-sdk/client-braket'; // ES Modules import
+ * // const { BraketClient, CancelQuantumTaskCommand } = require('@aws-sdk/client-braket'); // CommonJS import
  * const client = new BraketClient(config);
  * const input = { // CancelQuantumTaskRequest
- *   quantumTaskArn: "STRING_VALUE", // required
- *   clientToken: "STRING_VALUE", // required
+ *   quantumTaskArn: 'STRING_VALUE', // required
+ *   clientToken: 'STRING_VALUE', // required
  * };
  * const command = new CancelQuantumTaskCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CancelQuantumTaskResponse
+ *   quantumTaskArn: 'STRING_VALUE', // required
+ *   cancellationStatus: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param CancelQuantumTaskCommandInput - {@link CancelQuantumTaskCommandInput}
@@ -72,6 +78,8 @@ export interface CancelQuantumTaskCommandOutput extends CancelQuantumTaskRespons
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link BraketServiceException}
+ * <p>Base exception class for all service exceptions from Braket service.</p>
  *
  */
 export class CancelQuantumTaskCommand extends $Command<

@@ -48,14 +48,31 @@ export interface GetVoiceConnectorStreamingConfigurationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeSDKVoiceClient, GetVoiceConnectorStreamingConfigurationCommand } from "@aws-sdk/client-chime-sdk-voice"; // ES Modules import
- * // const { ChimeSDKVoiceClient, GetVoiceConnectorStreamingConfigurationCommand } = require("@aws-sdk/client-chime-sdk-voice"); // CommonJS import
+ * import { ChimeSDKVoiceClient, GetVoiceConnectorStreamingConfigurationCommand } from '@aws-sdk/client-chime-sdk-voice'; // ES Modules import
+ * // const { ChimeSDKVoiceClient, GetVoiceConnectorStreamingConfigurationCommand } = require('@aws-sdk/client-chime-sdk-voice'); // CommonJS import
  * const client = new ChimeSDKVoiceClient(config);
  * const input = { // GetVoiceConnectorStreamingConfigurationRequest
- *   VoiceConnectorId: "STRING_VALUE", // required
+ *   VoiceConnectorId: 'STRING_VALUE', // required
  * };
  * const command = new GetVoiceConnectorStreamingConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetVoiceConnectorStreamingConfigurationResponse
+ *   StreamingConfiguration: { // StreamingConfiguration
+ *     DataRetentionInHours: Number('int'), // required
+ *     Disabled: true || false, // required
+ *     StreamingNotificationTargets: [ // StreamingNotificationTargetList
+ *       { // StreamingNotificationTarget
+ *         NotificationTarget: 'EventBridge' || 'SNS' || 'SQS',
+ *       },
+ *     ],
+ *     MediaInsightsConfiguration: { // MediaInsightsConfiguration
+ *       Disabled: true || false,
+ *       ConfigurationArn: 'STRING_VALUE',
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetVoiceConnectorStreamingConfigurationCommandInput - {@link GetVoiceConnectorStreamingConfigurationCommandInput}
@@ -85,6 +102,8 @@ export interface GetVoiceConnectorStreamingConfigurationCommandOutput
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client isn't authorized to request a resource.</p>
  *
+ * @throws {@link ChimeSDKVoiceServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
  */
 export class GetVoiceConnectorStreamingConfigurationCommand extends $Command<

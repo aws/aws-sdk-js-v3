@@ -36,32 +36,35 @@ export interface UpdateDataCellsFilterCommandOutput extends UpdateDataCellsFilte
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LakeFormationClient, UpdateDataCellsFilterCommand } from "@aws-sdk/client-lakeformation"; // ES Modules import
- * // const { LakeFormationClient, UpdateDataCellsFilterCommand } = require("@aws-sdk/client-lakeformation"); // CommonJS import
+ * import { LakeFormationClient, UpdateDataCellsFilterCommand } from '@aws-sdk/client-lakeformation'; // ES Modules import
+ * // const { LakeFormationClient, UpdateDataCellsFilterCommand } = require('@aws-sdk/client-lakeformation'); // CommonJS import
  * const client = new LakeFormationClient(config);
  * const input = { // UpdateDataCellsFilterRequest
  *   TableData: { // DataCellsFilter
- *     TableCatalogId: "STRING_VALUE", // required
- *     DatabaseName: "STRING_VALUE", // required
- *     TableName: "STRING_VALUE", // required
- *     Name: "STRING_VALUE", // required
+ *     TableCatalogId: 'STRING_VALUE', // required
+ *     DatabaseName: 'STRING_VALUE', // required
+ *     TableName: 'STRING_VALUE', // required
+ *     Name: 'STRING_VALUE', // required
  *     RowFilter: { // RowFilter
- *       FilterExpression: "STRING_VALUE",
+ *       FilterExpression: 'STRING_VALUE',
  *       AllRowsWildcard: {},
  *     },
  *     ColumnNames: [ // ColumnNames
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     ColumnWildcard: { // ColumnWildcard
  *       ExcludedColumnNames: [
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
- *     VersionId: "STRING_VALUE",
+ *     VersionId: 'STRING_VALUE',
  *   },
  * };
  * const command = new UpdateDataCellsFilterCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateDataCellsFilterCommandInput - {@link UpdateDataCellsFilterCommandInput}
@@ -88,6 +91,8 @@ export interface UpdateDataCellsFilterCommandOutput extends UpdateDataCellsFilte
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link LakeFormationServiceException}
+ * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
  */
 export class UpdateDataCellsFilterCommand extends $Command<

@@ -48,17 +48,58 @@ export interface ListRealtimeContactAnalysisSegmentsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectContactLensClient, ListRealtimeContactAnalysisSegmentsCommand } from "@aws-sdk/client-connect-contact-lens"; // ES Modules import
- * // const { ConnectContactLensClient, ListRealtimeContactAnalysisSegmentsCommand } = require("@aws-sdk/client-connect-contact-lens"); // CommonJS import
+ * import { ConnectContactLensClient, ListRealtimeContactAnalysisSegmentsCommand } from '@aws-sdk/client-connect-contact-lens'; // ES Modules import
+ * // const { ConnectContactLensClient, ListRealtimeContactAnalysisSegmentsCommand } = require('@aws-sdk/client-connect-contact-lens'); // CommonJS import
  * const client = new ConnectContactLensClient(config);
  * const input = { // ListRealtimeContactAnalysisSegmentsRequest
- *   InstanceId: "STRING_VALUE", // required
- *   ContactId: "STRING_VALUE", // required
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   InstanceId: 'STRING_VALUE', // required
+ *   ContactId: 'STRING_VALUE', // required
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListRealtimeContactAnalysisSegmentsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListRealtimeContactAnalysisSegmentsResponse
+ *   Segments: [ // RealtimeContactAnalysisSegments // required
+ *     { // RealtimeContactAnalysisSegment
+ *       Transcript: { // Transcript
+ *         Id: 'STRING_VALUE', // required
+ *         ParticipantId: 'STRING_VALUE', // required
+ *         ParticipantRole: 'STRING_VALUE', // required
+ *         Content: 'STRING_VALUE', // required
+ *         BeginOffsetMillis: Number('int'), // required
+ *         EndOffsetMillis: Number('int'), // required
+ *         Sentiment: 'STRING_VALUE', // required
+ *         IssuesDetected: [ // IssuesDetected
+ *           { // IssueDetected
+ *             CharacterOffsets: { // CharacterOffsets
+ *               BeginOffsetChar: Number('int'), // required
+ *               EndOffsetChar: Number('int'), // required
+ *             },
+ *           },
+ *         ],
+ *       },
+ *       Categories: { // Categories
+ *         MatchedCategories: [ // MatchedCategories // required
+ *           'STRING_VALUE',
+ *         ],
+ *         MatchedDetails: { // MatchedDetails // required
+ *           '<keys>': { // CategoryDetails
+ *             PointsOfInterest: [ // PointsOfInterest // required
+ *               { // PointOfInterest
+ *                 BeginOffsetMillis: Number('int'), // required
+ *                 EndOffsetMillis: Number('int'), // required
+ *               },
+ *             ],
+ *           },
+ *         },
+ *       },
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListRealtimeContactAnalysisSegmentsCommandInput - {@link ListRealtimeContactAnalysisSegmentsCommandInput}
@@ -82,6 +123,8 @@ export interface ListRealtimeContactAnalysisSegmentsCommandOutput
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectContactLensServiceException}
+ * <p>Base exception class for all service exceptions from ConnectContactLens service.</p>
  *
  */
 export class ListRealtimeContactAnalysisSegmentsCommand extends $Command<

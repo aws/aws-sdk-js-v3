@@ -37,14 +37,17 @@ export interface DeletePredictorCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ForecastClient, DeletePredictorCommand } from "@aws-sdk/client-forecast"; // ES Modules import
- * // const { ForecastClient, DeletePredictorCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
+ * import { ForecastClient, DeletePredictorCommand } from '@aws-sdk/client-forecast'; // ES Modules import
+ * // const { ForecastClient, DeletePredictorCommand } = require('@aws-sdk/client-forecast'); // CommonJS import
  * const client = new ForecastClient(config);
  * const input = { // DeletePredictorRequest
- *   PredictorArn: "STRING_VALUE", // required
+ *   PredictorArn: 'STRING_VALUE', // required
  * };
  * const command = new DeletePredictorCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeletePredictorCommandInput - {@link DeletePredictorCommandInput}
@@ -64,6 +67,8 @@ export interface DeletePredictorCommandOutput extends __MetadataBearer {}
  *  <p>We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try
  *       again.</p>
  *
+ * @throws {@link ForecastServiceException}
+ * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
  */
 export class DeletePredictorCommand extends $Command<

@@ -43,22 +43,52 @@ export interface CreateSnapshotCommandOutput extends CreateSnapshotResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RedshiftServerlessClient, CreateSnapshotCommand } from "@aws-sdk/client-redshift-serverless"; // ES Modules import
- * // const { RedshiftServerlessClient, CreateSnapshotCommand } = require("@aws-sdk/client-redshift-serverless"); // CommonJS import
+ * import { RedshiftServerlessClient, CreateSnapshotCommand } from '@aws-sdk/client-redshift-serverless'; // ES Modules import
+ * // const { RedshiftServerlessClient, CreateSnapshotCommand } = require('@aws-sdk/client-redshift-serverless'); // CommonJS import
  * const client = new RedshiftServerlessClient(config);
  * const input = { // CreateSnapshotRequest
- *   namespaceName: "STRING_VALUE", // required
- *   snapshotName: "STRING_VALUE", // required
- *   retentionPeriod: Number("int"),
+ *   namespaceName: 'STRING_VALUE', // required
+ *   snapshotName: 'STRING_VALUE', // required
+ *   retentionPeriod: Number('int'),
  *   tags: [ // TagList
  *     { // Tag
- *       key: "STRING_VALUE", // required
- *       value: "STRING_VALUE", // required
+ *       key: 'STRING_VALUE', // required
+ *       value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreateSnapshotCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateSnapshotResponse
+ *   snapshot: { // Snapshot
+ *     namespaceName: 'STRING_VALUE',
+ *     namespaceArn: 'STRING_VALUE',
+ *     snapshotName: 'STRING_VALUE',
+ *     snapshotCreateTime: new Date('TIMESTAMP'),
+ *     adminUsername: 'STRING_VALUE',
+ *     status: 'STRING_VALUE',
+ *     kmsKeyId: 'STRING_VALUE',
+ *     ownerAccount: 'STRING_VALUE',
+ *     totalBackupSizeInMegaBytes: Number('double'),
+ *     actualIncrementalBackupSizeInMegaBytes: Number('double'),
+ *     backupProgressInMegaBytes: Number('double'),
+ *     currentBackupRateInMegaBytesPerSecond: Number('double'),
+ *     estimatedSecondsToCompletion: Number('long'),
+ *     elapsedTimeInSeconds: Number('long'),
+ *     snapshotRetentionPeriod: Number('int'),
+ *     snapshotRemainingDays: Number('int'),
+ *     snapshotRetentionStartTime: new Date('TIMESTAMP'),
+ *     snapshotArn: 'STRING_VALUE',
+ *     accountsWithRestoreAccess: [ // AccountIdList
+ *       'STRING_VALUE',
+ *     ],
+ *     accountsWithProvisionedRestoreAccess: [
+ *       'STRING_VALUE',
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateSnapshotCommandInput - {@link CreateSnapshotCommandInput}
@@ -85,6 +115,8 @@ export interface CreateSnapshotCommandOutput extends CreateSnapshotResponse, __M
  * @throws {@link ValidationException} (client fault)
  *  <p>The input failed to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link RedshiftServerlessServiceException}
+ * <p>Base exception class for all service exceptions from RedshiftServerless service.</p>
  *
  */
 export class CreateSnapshotCommand extends $Command<

@@ -46,28 +46,31 @@ export interface UpdateCertificateAuthorityCommandOutput extends __MetadataBeare
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ACMPCAClient, UpdateCertificateAuthorityCommand } from "@aws-sdk/client-acm-pca"; // ES Modules import
- * // const { ACMPCAClient, UpdateCertificateAuthorityCommand } = require("@aws-sdk/client-acm-pca"); // CommonJS import
+ * import { ACMPCAClient, UpdateCertificateAuthorityCommand } from '@aws-sdk/client-acm-pca'; // ES Modules import
+ * // const { ACMPCAClient, UpdateCertificateAuthorityCommand } = require('@aws-sdk/client-acm-pca'); // CommonJS import
  * const client = new ACMPCAClient(config);
  * const input = { // UpdateCertificateAuthorityRequest
- *   CertificateAuthorityArn: "STRING_VALUE", // required
+ *   CertificateAuthorityArn: 'STRING_VALUE', // required
  *   RevocationConfiguration: { // RevocationConfiguration
  *     CrlConfiguration: { // CrlConfiguration
  *       Enabled: true || false, // required
- *       ExpirationInDays: Number("int"),
- *       CustomCname: "STRING_VALUE",
- *       S3BucketName: "STRING_VALUE",
- *       S3ObjectAcl: "PUBLIC_READ" || "BUCKET_OWNER_FULL_CONTROL",
+ *       ExpirationInDays: Number('int'),
+ *       CustomCname: 'STRING_VALUE',
+ *       S3BucketName: 'STRING_VALUE',
+ *       S3ObjectAcl: 'PUBLIC_READ' || 'BUCKET_OWNER_FULL_CONTROL',
  *     },
  *     OcspConfiguration: { // OcspConfiguration
  *       Enabled: true || false, // required
- *       OcspCustomCname: "STRING_VALUE",
+ *       OcspCustomCname: 'STRING_VALUE',
  *     },
  *   },
- *   Status: "CREATING" || "PENDING_CERTIFICATE" || "ACTIVE" || "DELETED" || "DISABLED" || "EXPIRED" || "FAILED",
+ *   Status: 'CREATING' || 'PENDING_CERTIFICATE' || 'ACTIVE' || 'DELETED' || 'DISABLED' || 'EXPIRED' || 'FAILED',
  * };
  * const command = new UpdateCertificateAuthorityCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateCertificateAuthorityCommandInput - {@link UpdateCertificateAuthorityCommandInput}
@@ -97,6 +100,8 @@ export interface UpdateCertificateAuthorityCommandOutput extends __MetadataBeare
  *  <p>A resource such as a private CA, S3 bucket, certificate, audit report, or policy
  * 			cannot be found.</p>
  *
+ * @throws {@link ACMPCAServiceException}
+ * <p>Base exception class for all service exceptions from ACMPCA service.</p>
  *
  */
 export class UpdateCertificateAuthorityCommand extends $Command<

@@ -44,17 +44,29 @@ export interface DescribeAnomalyDetectionExecutionsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LookoutMetricsClient, DescribeAnomalyDetectionExecutionsCommand } from "@aws-sdk/client-lookoutmetrics"; // ES Modules import
- * // const { LookoutMetricsClient, DescribeAnomalyDetectionExecutionsCommand } = require("@aws-sdk/client-lookoutmetrics"); // CommonJS import
+ * import { LookoutMetricsClient, DescribeAnomalyDetectionExecutionsCommand } from '@aws-sdk/client-lookoutmetrics'; // ES Modules import
+ * // const { LookoutMetricsClient, DescribeAnomalyDetectionExecutionsCommand } = require('@aws-sdk/client-lookoutmetrics'); // CommonJS import
  * const client = new LookoutMetricsClient(config);
  * const input = { // DescribeAnomalyDetectionExecutionsRequest
- *   AnomalyDetectorArn: "STRING_VALUE", // required
- *   Timestamp: "STRING_VALUE",
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   AnomalyDetectorArn: 'STRING_VALUE', // required
+ *   Timestamp: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new DescribeAnomalyDetectionExecutionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeAnomalyDetectionExecutionsResponse
+ *   ExecutionList: [ // ExecutionList
+ *     { // ExecutionStatus
+ *       Timestamp: 'STRING_VALUE',
+ *       Status: 'STRING_VALUE',
+ *       FailureReason: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeAnomalyDetectionExecutionsCommandInput - {@link DescribeAnomalyDetectionExecutionsCommandInput}
@@ -79,6 +91,8 @@ export interface DescribeAnomalyDetectionExecutionsCommandOutput
  *  <p>The input fails to satisfy the constraints specified by the AWS service. Check your input values and try
  *       again.</p>
  *
+ * @throws {@link LookoutMetricsServiceException}
+ * <p>Base exception class for all service exceptions from LookoutMetrics service.</p>
  *
  */
 export class DescribeAnomalyDetectionExecutionsCommand extends $Command<

@@ -43,14 +43,21 @@ export interface ResendContactReachabilityEmailCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Route53DomainsClient, ResendContactReachabilityEmailCommand } from "@aws-sdk/client-route-53-domains"; // ES Modules import
- * // const { Route53DomainsClient, ResendContactReachabilityEmailCommand } = require("@aws-sdk/client-route-53-domains"); // CommonJS import
+ * import { Route53DomainsClient, ResendContactReachabilityEmailCommand } from '@aws-sdk/client-route-53-domains'; // ES Modules import
+ * // const { Route53DomainsClient, ResendContactReachabilityEmailCommand } = require('@aws-sdk/client-route-53-domains'); // CommonJS import
  * const client = new Route53DomainsClient(config);
  * const input = { // ResendContactReachabilityEmailRequest
- *   domainName: "STRING_VALUE",
+ *   domainName: 'STRING_VALUE',
  * };
  * const command = new ResendContactReachabilityEmailCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ResendContactReachabilityEmailResponse
+ *   domainName: 'STRING_VALUE',
+ *   emailAddress: 'STRING_VALUE',
+ *   isAlreadyVerified: true || false,
+ * };
+ *
  * ```
  *
  * @param ResendContactReachabilityEmailCommandInput - {@link ResendContactReachabilityEmailCommandInput}
@@ -72,6 +79,8 @@ export interface ResendContactReachabilityEmailCommandOutput
  * @throws {@link UnsupportedTLD} (client fault)
  *  <p>Amazon Route 53 does not support this top-level domain (TLD).</p>
  *
+ * @throws {@link Route53DomainsServiceException}
+ * <p>Base exception class for all service exceptions from Route53Domains service.</p>
  *
  */
 export class ResendContactReachabilityEmailCommand extends $Command<

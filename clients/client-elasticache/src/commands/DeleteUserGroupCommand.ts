@@ -36,14 +36,37 @@ export interface DeleteUserGroupCommandOutput extends UserGroup, __MetadataBeare
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElastiCacheClient, DeleteUserGroupCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
- * // const { ElastiCacheClient, DeleteUserGroupCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
+ * import { ElastiCacheClient, DeleteUserGroupCommand } from '@aws-sdk/client-elasticache'; // ES Modules import
+ * // const { ElastiCacheClient, DeleteUserGroupCommand } = require('@aws-sdk/client-elasticache'); // CommonJS import
  * const client = new ElastiCacheClient(config);
  * const input = { // DeleteUserGroupMessage
- *   UserGroupId: "STRING_VALUE", // required
+ *   UserGroupId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteUserGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UserGroup
+ *   UserGroupId: 'STRING_VALUE',
+ *   Status: 'STRING_VALUE',
+ *   Engine: 'STRING_VALUE',
+ *   UserIds: [ // UserIdList
+ *     'STRING_VALUE',
+ *   ],
+ *   MinimumEngineVersion: 'STRING_VALUE',
+ *   PendingChanges: { // UserGroupPendingChanges
+ *     UserIdsToRemove: [
+ *       'STRING_VALUE',
+ *     ],
+ *     UserIdsToAdd: [
+ *       'STRING_VALUE',
+ *     ],
+ *   },
+ *   ReplicationGroups: [ // UGReplicationGroupIdList
+ *     'STRING_VALUE',
+ *   ],
+ *   ARN: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DeleteUserGroupCommandInput - {@link DeleteUserGroupCommandInput}
@@ -64,6 +87,8 @@ export interface DeleteUserGroupCommandOutput extends UserGroup, __MetadataBeare
  * @throws {@link UserGroupNotFoundFault} (client fault)
  *  <p>The user group was not found or does not exist</p>
  *
+ * @throws {@link ElastiCacheServiceException}
+ * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
  */
 export class DeleteUserGroupCommand extends $Command<

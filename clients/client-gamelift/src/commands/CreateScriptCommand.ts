@@ -74,28 +74,46 @@ export interface CreateScriptCommandOutput extends CreateScriptOutput, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GameLiftClient, CreateScriptCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
- * // const { GameLiftClient, CreateScriptCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
+ * import { GameLiftClient, CreateScriptCommand } from '@aws-sdk/client-gamelift'; // ES Modules import
+ * // const { GameLiftClient, CreateScriptCommand } = require('@aws-sdk/client-gamelift'); // CommonJS import
  * const client = new GameLiftClient(config);
  * const input = { // CreateScriptInput
- *   Name: "STRING_VALUE",
- *   Version: "STRING_VALUE",
+ *   Name: 'STRING_VALUE',
+ *   Version: 'STRING_VALUE',
  *   StorageLocation: { // S3Location
- *     Bucket: "STRING_VALUE",
- *     Key: "STRING_VALUE",
- *     RoleArn: "STRING_VALUE",
- *     ObjectVersion: "STRING_VALUE",
+ *     Bucket: 'STRING_VALUE',
+ *     Key: 'STRING_VALUE',
+ *     RoleArn: 'STRING_VALUE',
+ *     ObjectVersion: 'STRING_VALUE',
  *   },
- *   ZipFile: "BLOB_VALUE",
+ *   ZipFile: 'BLOB_VALUE',
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreateScriptCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateScriptOutput
+ *   Script: { // Script
+ *     ScriptId: 'STRING_VALUE',
+ *     ScriptArn: 'STRING_VALUE',
+ *     Name: 'STRING_VALUE',
+ *     Version: 'STRING_VALUE',
+ *     SizeOnDisk: Number('long'),
+ *     CreationTime: new Date('TIMESTAMP'),
+ *     StorageLocation: { // S3Location
+ *       Bucket: 'STRING_VALUE',
+ *       Key: 'STRING_VALUE',
+ *       RoleArn: 'STRING_VALUE',
+ *       ObjectVersion: 'STRING_VALUE',
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateScriptCommandInput - {@link CreateScriptCommandInput}
@@ -126,6 +144,8 @@ export interface CreateScriptCommandOutput extends CreateScriptOutput, __Metadat
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client failed authentication. Clients should not retry such requests.</p>
  *
+ * @throws {@link GameLiftServiceException}
+ * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
  */
 export class CreateScriptCommand extends $Command<

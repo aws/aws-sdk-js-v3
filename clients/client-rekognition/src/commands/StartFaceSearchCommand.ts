@@ -46,28 +46,33 @@ export interface StartFaceSearchCommandOutput extends StartFaceSearchResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RekognitionClient, StartFaceSearchCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
- * // const { RekognitionClient, StartFaceSearchCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
+ * import { RekognitionClient, StartFaceSearchCommand } from '@aws-sdk/client-rekognition'; // ES Modules import
+ * // const { RekognitionClient, StartFaceSearchCommand } = require('@aws-sdk/client-rekognition'); // CommonJS import
  * const client = new RekognitionClient(config);
  * const input = { // StartFaceSearchRequest
  *   Video: { // Video
  *     S3Object: { // S3Object
- *       Bucket: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *       Version: "STRING_VALUE",
+ *       Bucket: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *       Version: 'STRING_VALUE',
  *     },
  *   },
- *   ClientRequestToken: "STRING_VALUE",
- *   FaceMatchThreshold: Number("float"),
- *   CollectionId: "STRING_VALUE", // required
+ *   ClientRequestToken: 'STRING_VALUE',
+ *   FaceMatchThreshold: Number('float'),
+ *   CollectionId: 'STRING_VALUE', // required
  *   NotificationChannel: { // NotificationChannel
- *     SNSTopicArn: "STRING_VALUE", // required
- *     RoleArn: "STRING_VALUE", // required
+ *     SNSTopicArn: 'STRING_VALUE', // required
+ *     RoleArn: 'STRING_VALUE', // required
  *   },
- *   JobTag: "STRING_VALUE",
+ *   JobTag: 'STRING_VALUE',
  * };
  * const command = new StartFaceSearchCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartFaceSearchResponse
+ *   JobId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param StartFaceSearchCommandInput - {@link StartFaceSearchCommandInput}
@@ -112,6 +117,8 @@ export interface StartFaceSearchCommandOutput extends StartFaceSearchResponse, _
  *  <p>The file size or duration of the supplied media is too large. The maximum file size is 10GB.
  *         The maximum duration is 6 hours. </p>
  *
+ * @throws {@link RekognitionServiceException}
+ * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
  */
 export class StartFaceSearchCommand extends $Command<

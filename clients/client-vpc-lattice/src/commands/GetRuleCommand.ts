@@ -38,16 +38,63 @@ export interface GetRuleCommandOutput extends GetRuleResponse, __MetadataBearer 
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { VPCLatticeClient, GetRuleCommand } from "@aws-sdk/client-vpc-lattice"; // ES Modules import
- * // const { VPCLatticeClient, GetRuleCommand } = require("@aws-sdk/client-vpc-lattice"); // CommonJS import
+ * import { VPCLatticeClient, GetRuleCommand } from '@aws-sdk/client-vpc-lattice'; // ES Modules import
+ * // const { VPCLatticeClient, GetRuleCommand } = require('@aws-sdk/client-vpc-lattice'); // CommonJS import
  * const client = new VPCLatticeClient(config);
  * const input = { // GetRuleRequest
- *   serviceIdentifier: "STRING_VALUE", // required
- *   listenerIdentifier: "STRING_VALUE", // required
- *   ruleIdentifier: "STRING_VALUE", // required
+ *   serviceIdentifier: 'STRING_VALUE', // required
+ *   listenerIdentifier: 'STRING_VALUE', // required
+ *   ruleIdentifier: 'STRING_VALUE', // required
  * };
  * const command = new GetRuleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetRuleResponse
+ *   arn: 'STRING_VALUE',
+ *   id: 'STRING_VALUE',
+ *   name: 'STRING_VALUE',
+ *   isDefault: true || false,
+ *   match: { // RuleMatch Union: only one key present
+ *     httpMatch: { // HttpMatch
+ *       method: 'STRING_VALUE',
+ *       pathMatch: { // PathMatch
+ *         match: { // PathMatchType Union: only one key present
+ *           exact: 'STRING_VALUE',
+ *           prefix: 'STRING_VALUE',
+ *         },
+ *         caseSensitive: true || false,
+ *       },
+ *       headerMatches: [ // HeaderMatchList
+ *         { // HeaderMatch
+ *           name: 'STRING_VALUE', // required
+ *           match: { // HeaderMatchType Union: only one key present
+ *             exact: 'STRING_VALUE',
+ *             prefix: 'STRING_VALUE',
+ *             contains: 'STRING_VALUE',
+ *           },
+ *           caseSensitive: true || false,
+ *         },
+ *       ],
+ *     },
+ *   },
+ *   priority: Number('int'),
+ *   action: { // RuleAction Union: only one key present
+ *     forward: { // ForwardAction
+ *       targetGroups: [ // WeightedTargetGroupList // required
+ *         { // WeightedTargetGroup
+ *           targetGroupIdentifier: 'STRING_VALUE', // required
+ *           weight: Number('int'),
+ *         },
+ *       ],
+ *     },
+ *     fixedResponse: { // FixedResponseAction
+ *       statusCode: Number('int'), // required
+ *     },
+ *   },
+ *   createdAt: new Date('TIMESTAMP'),
+ *   lastUpdatedAt: new Date('TIMESTAMP'),
+ * };
+ *
  * ```
  *
  * @param GetRuleCommandInput - {@link GetRuleCommandInput}
@@ -72,6 +119,8 @@ export interface GetRuleCommandOutput extends GetRuleResponse, __MetadataBearer 
  *  <p>The input does not satisfy the constraints specified by an Amazon Web Services
  *    service.</p>
  *
+ * @throws {@link VPCLatticeServiceException}
+ * <p>Base exception class for all service exceptions from VPCLattice service.</p>
  *
  */
 export class GetRuleCommand extends $Command<

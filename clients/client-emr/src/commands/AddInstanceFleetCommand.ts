@@ -40,84 +40,91 @@ export interface AddInstanceFleetCommandOutput extends AddInstanceFleetOutput, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EMRClient, AddInstanceFleetCommand } from "@aws-sdk/client-emr"; // ES Modules import
- * // const { EMRClient, AddInstanceFleetCommand } = require("@aws-sdk/client-emr"); // CommonJS import
+ * import { EMRClient, AddInstanceFleetCommand } from '@aws-sdk/client-emr'; // ES Modules import
+ * // const { EMRClient, AddInstanceFleetCommand } = require('@aws-sdk/client-emr'); // CommonJS import
  * const client = new EMRClient(config);
  * const input = { // AddInstanceFleetInput
- *   ClusterId: "STRING_VALUE", // required
+ *   ClusterId: 'STRING_VALUE', // required
  *   InstanceFleet: { // InstanceFleetConfig
- *     Name: "STRING_VALUE",
- *     InstanceFleetType: "MASTER" || "CORE" || "TASK", // required
- *     TargetOnDemandCapacity: Number("int"),
- *     TargetSpotCapacity: Number("int"),
+ *     Name: 'STRING_VALUE',
+ *     InstanceFleetType: 'MASTER' || 'CORE' || 'TASK', // required
+ *     TargetOnDemandCapacity: Number('int'),
+ *     TargetSpotCapacity: Number('int'),
  *     InstanceTypeConfigs: [ // InstanceTypeConfigList
  *       { // InstanceTypeConfig
- *         InstanceType: "STRING_VALUE", // required
- *         WeightedCapacity: Number("int"),
- *         BidPrice: "STRING_VALUE",
- *         BidPriceAsPercentageOfOnDemandPrice: Number("double"),
+ *         InstanceType: 'STRING_VALUE', // required
+ *         WeightedCapacity: Number('int'),
+ *         BidPrice: 'STRING_VALUE',
+ *         BidPriceAsPercentageOfOnDemandPrice: Number('double'),
  *         EbsConfiguration: { // EbsConfiguration
  *           EbsBlockDeviceConfigs: [ // EbsBlockDeviceConfigList
  *             { // EbsBlockDeviceConfig
  *               VolumeSpecification: { // VolumeSpecification
- *                 VolumeType: "STRING_VALUE", // required
- *                 Iops: Number("int"),
- *                 SizeInGB: Number("int"), // required
- *                 Throughput: Number("int"),
+ *                 VolumeType: 'STRING_VALUE', // required
+ *                 Iops: Number('int'),
+ *                 SizeInGB: Number('int'), // required
+ *                 Throughput: Number('int'),
  *               },
- *               VolumesPerInstance: Number("int"),
+ *               VolumesPerInstance: Number('int'),
  *             },
  *           ],
  *           EbsOptimized: true || false,
  *         },
  *         Configurations: [ // ConfigurationList
  *           { // Configuration
- *             Classification: "STRING_VALUE",
+ *             Classification: 'STRING_VALUE',
  *             Configurations: [
  *               {
- *                 Classification: "STRING_VALUE",
- *                 Configurations: "<ConfigurationList>",
+ *                 Classification: 'STRING_VALUE',
+ *                 Configurations: '<ConfigurationList>',
  *                 Properties: { // StringMap
- *                   "<keys>": "STRING_VALUE",
+ *                   '<keys>': 'STRING_VALUE',
  *                 },
  *               },
  *             ],
  *             Properties: {
- *               "<keys>": "STRING_VALUE",
+ *               '<keys>': 'STRING_VALUE',
  *             },
  *           },
  *         ],
- *         CustomAmiId: "STRING_VALUE",
+ *         CustomAmiId: 'STRING_VALUE',
  *       },
  *     ],
  *     LaunchSpecifications: { // InstanceFleetProvisioningSpecifications
  *       SpotSpecification: { // SpotProvisioningSpecification
- *         TimeoutDurationMinutes: Number("int"), // required
- *         TimeoutAction: "SWITCH_TO_ON_DEMAND" || "TERMINATE_CLUSTER", // required
- *         BlockDurationMinutes: Number("int"),
- *         AllocationStrategy: "capacity-optimized",
+ *         TimeoutDurationMinutes: Number('int'), // required
+ *         TimeoutAction: 'SWITCH_TO_ON_DEMAND' || 'TERMINATE_CLUSTER', // required
+ *         BlockDurationMinutes: Number('int'),
+ *         AllocationStrategy: 'capacity-optimized',
  *       },
  *       OnDemandSpecification: { // OnDemandProvisioningSpecification
- *         AllocationStrategy: "lowest-price", // required
+ *         AllocationStrategy: 'lowest-price', // required
  *         CapacityReservationOptions: { // OnDemandCapacityReservationOptions
- *           UsageStrategy: "use-capacity-reservations-first",
- *           CapacityReservationPreference: "open" || "none",
- *           CapacityReservationResourceGroupArn: "STRING_VALUE",
+ *           UsageStrategy: 'use-capacity-reservations-first',
+ *           CapacityReservationPreference: 'open' || 'none',
+ *           CapacityReservationResourceGroupArn: 'STRING_VALUE',
  *         },
  *       },
  *     },
  *     ResizeSpecifications: { // InstanceFleetResizingSpecifications
  *       SpotResizeSpecification: { // SpotResizingSpecification
- *         TimeoutDurationMinutes: Number("int"), // required
+ *         TimeoutDurationMinutes: Number('int'), // required
  *       },
  *       OnDemandResizeSpecification: { // OnDemandResizingSpecification
- *         TimeoutDurationMinutes: Number("int"), // required
+ *         TimeoutDurationMinutes: Number('int'), // required
  *       },
  *     },
  *   },
  * };
  * const command = new AddInstanceFleetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AddInstanceFleetOutput
+ *   ClusterId: 'STRING_VALUE',
+ *   InstanceFleetId: 'STRING_VALUE',
+ *   ClusterArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param AddInstanceFleetCommandInput - {@link AddInstanceFleetCommandInput}
@@ -133,6 +140,8 @@ export interface AddInstanceFleetCommandOutput extends AddInstanceFleetOutput, _
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception occurs when there is something wrong with user input.</p>
  *
+ * @throws {@link EMRServiceException}
+ * <p>Base exception class for all service exceptions from EMR service.</p>
  *
  */
 export class AddInstanceFleetCommand extends $Command<

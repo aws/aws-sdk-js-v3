@@ -41,29 +41,34 @@ export interface CreateEnvironmentEC2CommandOutput extends CreateEnvironmentEC2R
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Cloud9Client, CreateEnvironmentEC2Command } from "@aws-sdk/client-cloud9"; // ES Modules import
- * // const { Cloud9Client, CreateEnvironmentEC2Command } = require("@aws-sdk/client-cloud9"); // CommonJS import
+ * import { Cloud9Client, CreateEnvironmentEC2Command } from '@aws-sdk/client-cloud9'; // ES Modules import
+ * // const { Cloud9Client, CreateEnvironmentEC2Command } = require('@aws-sdk/client-cloud9'); // CommonJS import
  * const client = new Cloud9Client(config);
  * const input = { // CreateEnvironmentEC2Request
- *   name: "STRING_VALUE", // required
- *   description: "STRING_VALUE",
- *   clientRequestToken: "STRING_VALUE",
- *   instanceType: "STRING_VALUE", // required
- *   subnetId: "STRING_VALUE",
- *   imageId: "STRING_VALUE",
- *   automaticStopTimeMinutes: Number("int"),
- *   ownerArn: "STRING_VALUE",
+ *   name: 'STRING_VALUE', // required
+ *   description: 'STRING_VALUE',
+ *   clientRequestToken: 'STRING_VALUE',
+ *   instanceType: 'STRING_VALUE', // required
+ *   subnetId: 'STRING_VALUE',
+ *   imageId: 'STRING_VALUE',
+ *   automaticStopTimeMinutes: Number('int'),
+ *   ownerArn: 'STRING_VALUE',
  *   tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
- *   connectionType: "CONNECT_SSH" || "CONNECT_SSM",
+ *   connectionType: 'CONNECT_SSH' || 'CONNECT_SSM',
  *   dryRun: true || false,
  * };
  * const command = new CreateEnvironmentEC2Command(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateEnvironmentEC2Result
+ *   environmentId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateEnvironmentEC2CommandInput - {@link CreateEnvironmentEC2CommandInput}
@@ -93,6 +98,8 @@ export interface CreateEnvironmentEC2CommandOutput extends CreateEnvironmentEC2R
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Too many service requests were made over the given time period.</p>
  *
+ * @throws {@link Cloud9ServiceException}
+ * <p>Base exception class for all service exceptions from Cloud9 service.</p>
  *
  * @example CreateEnvironmentEC2
  * ```javascript

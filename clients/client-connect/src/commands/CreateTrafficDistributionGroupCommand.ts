@@ -43,20 +43,26 @@ export interface CreateTrafficDistributionGroupCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, CreateTrafficDistributionGroupCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, CreateTrafficDistributionGroupCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, CreateTrafficDistributionGroupCommand } from '@aws-sdk/client-connect'; // ES Modules import
+ * // const { ConnectClient, CreateTrafficDistributionGroupCommand } = require('@aws-sdk/client-connect'); // CommonJS import
  * const client = new ConnectClient(config);
  * const input = { // CreateTrafficDistributionGroupRequest
- *   Name: "STRING_VALUE", // required
- *   Description: "STRING_VALUE",
- *   InstanceId: "STRING_VALUE", // required
- *   ClientToken: "STRING_VALUE",
+ *   Name: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE',
+ *   InstanceId: 'STRING_VALUE', // required
+ *   ClientToken: 'STRING_VALUE',
  *   Tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateTrafficDistributionGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateTrafficDistributionGroupResponse
+ *   Id: 'STRING_VALUE',
+ *   Arn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateTrafficDistributionGroupCommandInput - {@link CreateTrafficDistributionGroupCommandInput}
@@ -89,6 +95,8 @@ export interface CreateTrafficDistributionGroupCommandOutput
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class CreateTrafficDistributionGroupCommand extends $Command<

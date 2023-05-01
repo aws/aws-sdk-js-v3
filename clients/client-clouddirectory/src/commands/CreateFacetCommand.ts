@@ -37,46 +37,49 @@ export interface CreateFacetCommandOutput extends CreateFacetResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudDirectoryClient, CreateFacetCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
- * // const { CloudDirectoryClient, CreateFacetCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
+ * import { CloudDirectoryClient, CreateFacetCommand } from '@aws-sdk/client-clouddirectory'; // ES Modules import
+ * // const { CloudDirectoryClient, CreateFacetCommand } = require('@aws-sdk/client-clouddirectory'); // CommonJS import
  * const client = new CloudDirectoryClient(config);
  * const input = { // CreateFacetRequest
- *   SchemaArn: "STRING_VALUE", // required
- *   Name: "STRING_VALUE", // required
+ *   SchemaArn: 'STRING_VALUE', // required
+ *   Name: 'STRING_VALUE', // required
  *   Attributes: [ // FacetAttributeList
  *     { // FacetAttribute
- *       Name: "STRING_VALUE", // required
+ *       Name: 'STRING_VALUE', // required
  *       AttributeDefinition: { // FacetAttributeDefinition
- *         Type: "STRING" || "BINARY" || "BOOLEAN" || "NUMBER" || "DATETIME" || "VARIANT", // required
+ *         Type: 'STRING' || 'BINARY' || 'BOOLEAN' || 'NUMBER' || 'DATETIME' || 'VARIANT', // required
  *         DefaultValue: { // TypedAttributeValue Union: only one key present
- *           StringValue: "STRING_VALUE",
- *           BinaryValue: "BLOB_VALUE",
+ *           StringValue: 'STRING_VALUE',
+ *           BinaryValue: 'BLOB_VALUE',
  *           BooleanValue: true || false,
- *           NumberValue: "STRING_VALUE",
- *           DatetimeValue: new Date("TIMESTAMP"),
+ *           NumberValue: 'STRING_VALUE',
+ *           DatetimeValue: new Date('TIMESTAMP'),
  *         },
  *         IsImmutable: true || false,
  *         Rules: { // RuleMap
- *           "<keys>": { // Rule
- *             Type: "BINARY_LENGTH" || "NUMBER_COMPARISON" || "STRING_FROM_SET" || "STRING_LENGTH",
+ *           '<keys>': { // Rule
+ *             Type: 'BINARY_LENGTH' || 'NUMBER_COMPARISON' || 'STRING_FROM_SET' || 'STRING_LENGTH',
  *             Parameters: { // RuleParameterMap
- *               "<keys>": "STRING_VALUE",
+ *               '<keys>': 'STRING_VALUE',
  *             },
  *           },
  *         },
  *       },
  *       AttributeReference: { // FacetAttributeReference
- *         TargetFacetName: "STRING_VALUE", // required
- *         TargetAttributeName: "STRING_VALUE", // required
+ *         TargetFacetName: 'STRING_VALUE', // required
+ *         TargetAttributeName: 'STRING_VALUE', // required
  *       },
- *       RequiredBehavior: "REQUIRED_ALWAYS" || "NOT_REQUIRED",
+ *       RequiredBehavior: 'REQUIRED_ALWAYS' || 'NOT_REQUIRED',
  *     },
  *   ],
- *   ObjectType: "NODE" || "LEAF_NODE" || "POLICY" || "INDEX",
- *   FacetStyle: "STATIC" || "DYNAMIC",
+ *   ObjectType: 'NODE' || 'LEAF_NODE' || 'POLICY' || 'INDEX',
+ *   FacetStyle: 'STATIC' || 'DYNAMIC',
  * };
  * const command = new CreateFacetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param CreateFacetCommandInput - {@link CreateFacetCommandInput}
@@ -117,6 +120,8 @@ export interface CreateFacetCommandOutput extends CreateFacetResponse, __Metadat
  *  <p>Indicates that your request is malformed in some manner. See the exception
  *       message.</p>
  *
+ * @throws {@link CloudDirectoryServiceException}
+ * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
  */
 export class CreateFacetCommand extends $Command<

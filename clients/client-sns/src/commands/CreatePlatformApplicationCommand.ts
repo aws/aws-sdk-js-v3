@@ -80,18 +80,23 @@ export interface CreatePlatformApplicationCommandOutput extends CreatePlatformAp
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SNSClient, CreatePlatformApplicationCommand } from "@aws-sdk/client-sns"; // ES Modules import
- * // const { SNSClient, CreatePlatformApplicationCommand } = require("@aws-sdk/client-sns"); // CommonJS import
+ * import { SNSClient, CreatePlatformApplicationCommand } from '@aws-sdk/client-sns'; // ES Modules import
+ * // const { SNSClient, CreatePlatformApplicationCommand } = require('@aws-sdk/client-sns'); // CommonJS import
  * const client = new SNSClient(config);
  * const input = { // CreatePlatformApplicationInput
- *   Name: "STRING_VALUE", // required
- *   Platform: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
+ *   Platform: 'STRING_VALUE', // required
  *   Attributes: { // MapStringToString // required
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new CreatePlatformApplicationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreatePlatformApplicationResponse
+ *   PlatformApplicationArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreatePlatformApplicationCommandInput - {@link CreatePlatformApplicationCommandInput}
@@ -110,6 +115,8 @@ export interface CreatePlatformApplicationCommandOutput extends CreatePlatformAp
  *  <p>Indicates that a request parameter does not comply with the associated
  *             constraints.</p>
  *
+ * @throws {@link SNSServiceException}
+ * <p>Base exception class for all service exceptions from SNS service.</p>
  *
  */
 export class CreatePlatformApplicationCommand extends $Command<

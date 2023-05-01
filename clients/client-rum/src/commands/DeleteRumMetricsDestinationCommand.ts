@@ -42,16 +42,19 @@ export interface DeleteRumMetricsDestinationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RUMClient, DeleteRumMetricsDestinationCommand } from "@aws-sdk/client-rum"; // ES Modules import
- * // const { RUMClient, DeleteRumMetricsDestinationCommand } = require("@aws-sdk/client-rum"); // CommonJS import
+ * import { RUMClient, DeleteRumMetricsDestinationCommand } from '@aws-sdk/client-rum'; // ES Modules import
+ * // const { RUMClient, DeleteRumMetricsDestinationCommand } = require('@aws-sdk/client-rum'); // CommonJS import
  * const client = new RUMClient(config);
  * const input = { // DeleteRumMetricsDestinationRequest
- *   AppMonitorName: "STRING_VALUE", // required
- *   Destination: "STRING_VALUE", // required
- *   DestinationArn: "STRING_VALUE",
+ *   AppMonitorName: 'STRING_VALUE', // required
+ *   Destination: 'STRING_VALUE', // required
+ *   DestinationArn: 'STRING_VALUE',
  * };
  * const command = new DeleteRumMetricsDestinationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteRumMetricsDestinationCommandInput - {@link DeleteRumMetricsDestinationCommandInput}
@@ -78,6 +81,8 @@ export interface DeleteRumMetricsDestinationCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>One of the arguments for the request is not valid.</p>
  *
+ * @throws {@link RUMServiceException}
+ * <p>Base exception class for all service exceptions from RUM service.</p>
  *
  */
 export class DeleteRumMetricsDestinationCommand extends $Command<

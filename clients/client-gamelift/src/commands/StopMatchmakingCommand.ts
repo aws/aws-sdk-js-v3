@@ -54,14 +54,17 @@ export interface StopMatchmakingCommandOutput extends StopMatchmakingOutput, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GameLiftClient, StopMatchmakingCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
- * // const { GameLiftClient, StopMatchmakingCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
+ * import { GameLiftClient, StopMatchmakingCommand } from '@aws-sdk/client-gamelift'; // ES Modules import
+ * // const { GameLiftClient, StopMatchmakingCommand } = require('@aws-sdk/client-gamelift'); // CommonJS import
  * const client = new GameLiftClient(config);
  * const input = { // StopMatchmakingInput
- *   TicketId: "STRING_VALUE", // required
+ *   TicketId: 'STRING_VALUE', // required
  * };
  * const command = new StopMatchmakingCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param StopMatchmakingCommandInput - {@link StopMatchmakingCommandInput}
@@ -84,6 +87,8 @@ export interface StopMatchmakingCommandOutput extends StopMatchmakingOutput, __M
  * @throws {@link UnsupportedRegionException} (client fault)
  *  <p>The requested operation is not supported in the Region specified.</p>
  *
+ * @throws {@link GameLiftServiceException}
+ * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
  */
 export class StopMatchmakingCommand extends $Command<

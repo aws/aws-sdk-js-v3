@@ -41,14 +41,20 @@ export interface ClaimDevicesByClaimCodeCommandOutput extends ClaimDevicesByClai
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoT1ClickDevicesServiceClient, ClaimDevicesByClaimCodeCommand } from "@aws-sdk/client-iot-1click-devices-service"; // ES Modules import
- * // const { IoT1ClickDevicesServiceClient, ClaimDevicesByClaimCodeCommand } = require("@aws-sdk/client-iot-1click-devices-service"); // CommonJS import
+ * import { IoT1ClickDevicesServiceClient, ClaimDevicesByClaimCodeCommand } from '@aws-sdk/client-iot-1click-devices-service'; // ES Modules import
+ * // const { IoT1ClickDevicesServiceClient, ClaimDevicesByClaimCodeCommand } = require('@aws-sdk/client-iot-1click-devices-service'); // CommonJS import
  * const client = new IoT1ClickDevicesServiceClient(config);
  * const input = { // ClaimDevicesByClaimCodeRequest
- *   ClaimCode: "STRING_VALUE", // required
+ *   ClaimCode: 'STRING_VALUE', // required
  * };
  * const command = new ClaimDevicesByClaimCodeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ClaimDevicesByClaimCodeResponse
+ *   ClaimCode: 'STRING_VALUE',
+ *   Total: Number('int'),
+ * };
+ *
  * ```
  *
  * @param ClaimDevicesByClaimCodeCommandInput - {@link ClaimDevicesByClaimCodeCommandInput}
@@ -63,6 +69,8 @@ export interface ClaimDevicesByClaimCodeCommandOutput extends ClaimDevicesByClai
  *
  * @throws {@link InvalidRequestException} (client fault)
  *
+ * @throws {@link IoT1ClickDevicesServiceServiceException}
+ * <p>Base exception class for all service exceptions from IoT1ClickDevicesService service.</p>
  *
  */
 export class ClaimDevicesByClaimCodeCommand extends $Command<

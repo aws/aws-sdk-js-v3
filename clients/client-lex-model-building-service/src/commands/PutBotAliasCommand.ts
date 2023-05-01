@@ -45,35 +45,64 @@ export interface PutBotAliasCommandOutput extends PutBotAliasResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LexModelBuildingServiceClient, PutBotAliasCommand } from "@aws-sdk/client-lex-model-building-service"; // ES Modules import
- * // const { LexModelBuildingServiceClient, PutBotAliasCommand } = require("@aws-sdk/client-lex-model-building-service"); // CommonJS import
+ * import { LexModelBuildingServiceClient, PutBotAliasCommand } from '@aws-sdk/client-lex-model-building-service'; // ES Modules import
+ * // const { LexModelBuildingServiceClient, PutBotAliasCommand } = require('@aws-sdk/client-lex-model-building-service'); // CommonJS import
  * const client = new LexModelBuildingServiceClient(config);
  * const input = { // PutBotAliasRequest
- *   name: "STRING_VALUE", // required
- *   description: "STRING_VALUE",
- *   botVersion: "STRING_VALUE", // required
- *   botName: "STRING_VALUE", // required
- *   checksum: "STRING_VALUE",
+ *   name: 'STRING_VALUE', // required
+ *   description: 'STRING_VALUE',
+ *   botVersion: 'STRING_VALUE', // required
+ *   botName: 'STRING_VALUE', // required
+ *   checksum: 'STRING_VALUE',
  *   conversationLogs: { // ConversationLogsRequest
  *     logSettings: [ // LogSettingsRequestList // required
  *       { // LogSettingsRequest
- *         logType: "STRING_VALUE", // required
- *         destination: "STRING_VALUE", // required
- *         kmsKeyArn: "STRING_VALUE",
- *         resourceArn: "STRING_VALUE", // required
+ *         logType: 'STRING_VALUE', // required
+ *         destination: 'STRING_VALUE', // required
+ *         kmsKeyArn: 'STRING_VALUE',
+ *         resourceArn: 'STRING_VALUE', // required
  *       },
  *     ],
- *     iamRoleArn: "STRING_VALUE", // required
+ *     iamRoleArn: 'STRING_VALUE', // required
  *   },
  *   tags: [ // TagList
  *     { // Tag
- *       key: "STRING_VALUE", // required
- *       value: "STRING_VALUE", // required
+ *       key: 'STRING_VALUE', // required
+ *       value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new PutBotAliasCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutBotAliasResponse
+ *   name: 'STRING_VALUE',
+ *   description: 'STRING_VALUE',
+ *   botVersion: 'STRING_VALUE',
+ *   botName: 'STRING_VALUE',
+ *   lastUpdatedDate: new Date('TIMESTAMP'),
+ *   createdDate: new Date('TIMESTAMP'),
+ *   checksum: 'STRING_VALUE',
+ *   conversationLogs: { // ConversationLogsResponse
+ *     logSettings: [ // LogSettingsResponseList
+ *       { // LogSettingsResponse
+ *         logType: 'STRING_VALUE',
+ *         destination: 'STRING_VALUE',
+ *         kmsKeyArn: 'STRING_VALUE',
+ *         resourceArn: 'STRING_VALUE',
+ *         resourcePrefix: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     iamRoleArn: 'STRING_VALUE',
+ *   },
+ *   tags: [ // TagList
+ *     { // Tag
+ *       key: 'STRING_VALUE', // required
+ *       value: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param PutBotAliasCommandInput - {@link PutBotAliasCommandInput}
@@ -102,6 +131,8 @@ export interface PutBotAliasCommandOutput extends PutBotAliasResponse, __Metadat
  *       not match the checksum in the request. Check the resource's checksum and
  *       try again.</p>
  *
+ * @throws {@link LexModelBuildingServiceServiceException}
+ * <p>Base exception class for all service exceptions from LexModelBuildingService service.</p>
  *
  */
 export class PutBotAliasCommand extends $Command<

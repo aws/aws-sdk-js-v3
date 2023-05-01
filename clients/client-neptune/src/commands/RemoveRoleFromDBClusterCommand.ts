@@ -36,16 +36,19 @@ export interface RemoveRoleFromDBClusterCommandOutput extends __MetadataBearer {
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { NeptuneClient, RemoveRoleFromDBClusterCommand } from "@aws-sdk/client-neptune"; // ES Modules import
- * // const { NeptuneClient, RemoveRoleFromDBClusterCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
+ * import { NeptuneClient, RemoveRoleFromDBClusterCommand } from '@aws-sdk/client-neptune'; // ES Modules import
+ * // const { NeptuneClient, RemoveRoleFromDBClusterCommand } = require('@aws-sdk/client-neptune'); // CommonJS import
  * const client = new NeptuneClient(config);
  * const input = { // RemoveRoleFromDBClusterMessage
- *   DBClusterIdentifier: "STRING_VALUE", // required
- *   RoleArn: "STRING_VALUE", // required
- *   FeatureName: "STRING_VALUE",
+ *   DBClusterIdentifier: 'STRING_VALUE', // required
+ *   RoleArn: 'STRING_VALUE', // required
+ *   FeatureName: 'STRING_VALUE',
  * };
  * const command = new RemoveRoleFromDBClusterCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param RemoveRoleFromDBClusterCommandInput - {@link RemoveRoleFromDBClusterCommandInput}
@@ -64,6 +67,8 @@ export interface RemoveRoleFromDBClusterCommandOutput extends __MetadataBearer {
  * @throws {@link InvalidDBClusterStateFault} (client fault)
  *  <p>The DB cluster is not in a valid state.</p>
  *
+ * @throws {@link NeptuneServiceException}
+ * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
  */
 export class RemoveRoleFromDBClusterCommand extends $Command<

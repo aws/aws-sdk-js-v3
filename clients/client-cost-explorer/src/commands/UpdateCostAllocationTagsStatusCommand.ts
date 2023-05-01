@@ -44,19 +44,30 @@ export interface UpdateCostAllocationTagsStatusCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CostExplorerClient, UpdateCostAllocationTagsStatusCommand } from "@aws-sdk/client-cost-explorer"; // ES Modules import
- * // const { CostExplorerClient, UpdateCostAllocationTagsStatusCommand } = require("@aws-sdk/client-cost-explorer"); // CommonJS import
+ * import { CostExplorerClient, UpdateCostAllocationTagsStatusCommand } from '@aws-sdk/client-cost-explorer'; // ES Modules import
+ * // const { CostExplorerClient, UpdateCostAllocationTagsStatusCommand } = require('@aws-sdk/client-cost-explorer'); // CommonJS import
  * const client = new CostExplorerClient(config);
  * const input = { // UpdateCostAllocationTagsStatusRequest
  *   CostAllocationTagsStatus: [ // CostAllocationTagStatusList // required
  *     { // CostAllocationTagStatusEntry
- *       TagKey: "STRING_VALUE", // required
- *       Status: "Active" || "Inactive", // required
+ *       TagKey: 'STRING_VALUE', // required
+ *       Status: 'Active' || 'Inactive', // required
  *     },
  *   ],
  * };
  * const command = new UpdateCostAllocationTagsStatusCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateCostAllocationTagsStatusResponse
+ *   Errors: [ // UpdateCostAllocationTagsStatusErrors
+ *     { // UpdateCostAllocationTagsStatusError
+ *       TagKey: 'STRING_VALUE',
+ *       Code: 'STRING_VALUE',
+ *       Message: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param UpdateCostAllocationTagsStatusCommandInput - {@link UpdateCostAllocationTagsStatusCommandInput}
@@ -68,6 +79,8 @@ export interface UpdateCostAllocationTagsStatusCommandOutput
  * @throws {@link LimitExceededException} (client fault)
  *  <p>You made too many calls in a short period of time. Try again later.</p>
  *
+ * @throws {@link CostExplorerServiceException}
+ * <p>Base exception class for all service exceptions from CostExplorer service.</p>
  *
  */
 export class UpdateCostAllocationTagsStatusCommand extends $Command<

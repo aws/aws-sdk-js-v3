@@ -38,22 +38,27 @@ export interface StartDiscoveryJobCommandOutput extends StartDiscoveryJobRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DataSyncClient, StartDiscoveryJobCommand } from "@aws-sdk/client-datasync"; // ES Modules import
- * // const { DataSyncClient, StartDiscoveryJobCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
+ * import { DataSyncClient, StartDiscoveryJobCommand } from '@aws-sdk/client-datasync'; // ES Modules import
+ * // const { DataSyncClient, StartDiscoveryJobCommand } = require('@aws-sdk/client-datasync'); // CommonJS import
  * const client = new DataSyncClient(config);
  * const input = { // StartDiscoveryJobRequest
- *   StorageSystemArn: "STRING_VALUE", // required
- *   CollectionDurationMinutes: Number("int"), // required
- *   ClientToken: "STRING_VALUE", // required
+ *   StorageSystemArn: 'STRING_VALUE', // required
+ *   CollectionDurationMinutes: Number('int'), // required
+ *   ClientToken: 'STRING_VALUE', // required
  *   Tags: [ // InputTagList
  *     { // TagListEntry
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new StartDiscoveryJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartDiscoveryJobResponse
+ *   DiscoveryJobArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param StartDiscoveryJobCommandInput - {@link StartDiscoveryJobCommandInput}
@@ -69,6 +74,8 @@ export interface StartDiscoveryJobCommandOutput extends StartDiscoveryJobRespons
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception is thrown when the client submits a malformed request.</p>
  *
+ * @throws {@link DataSyncServiceException}
+ * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
  */
 export class StartDiscoveryJobCommand extends $Command<

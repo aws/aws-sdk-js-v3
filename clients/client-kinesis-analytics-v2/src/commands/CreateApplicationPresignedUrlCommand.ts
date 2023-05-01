@@ -57,16 +57,21 @@ export interface CreateApplicationPresignedUrlCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KinesisAnalyticsV2Client, CreateApplicationPresignedUrlCommand } from "@aws-sdk/client-kinesis-analytics-v2"; // ES Modules import
- * // const { KinesisAnalyticsV2Client, CreateApplicationPresignedUrlCommand } = require("@aws-sdk/client-kinesis-analytics-v2"); // CommonJS import
+ * import { KinesisAnalyticsV2Client, CreateApplicationPresignedUrlCommand } from '@aws-sdk/client-kinesis-analytics-v2'; // ES Modules import
+ * // const { KinesisAnalyticsV2Client, CreateApplicationPresignedUrlCommand } = require('@aws-sdk/client-kinesis-analytics-v2'); // CommonJS import
  * const client = new KinesisAnalyticsV2Client(config);
  * const input = { // CreateApplicationPresignedUrlRequest
- *   ApplicationName: "STRING_VALUE", // required
- *   UrlType: "FLINK_DASHBOARD_URL" || "ZEPPELIN_UI_URL", // required
- *   SessionExpirationDurationInSeconds: Number("long"),
+ *   ApplicationName: 'STRING_VALUE', // required
+ *   UrlType: 'FLINK_DASHBOARD_URL' || 'ZEPPELIN_UI_URL', // required
+ *   SessionExpirationDurationInSeconds: Number('long'),
  * };
  * const command = new CreateApplicationPresignedUrlCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateApplicationPresignedUrlResponse
+ *   AuthorizedUrl: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateApplicationPresignedUrlCommandInput - {@link CreateApplicationPresignedUrlCommandInput}
@@ -84,6 +89,8 @@ export interface CreateApplicationPresignedUrlCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Specified application can't be found.</p>
  *
+ * @throws {@link KinesisAnalyticsV2ServiceException}
+ * <p>Base exception class for all service exceptions from KinesisAnalyticsV2 service.</p>
  *
  */
 export class CreateApplicationPresignedUrlCommand extends $Command<

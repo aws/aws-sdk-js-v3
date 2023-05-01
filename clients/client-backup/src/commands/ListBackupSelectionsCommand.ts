@@ -37,16 +37,31 @@ export interface ListBackupSelectionsCommandOutput extends ListBackupSelectionsO
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BackupClient, ListBackupSelectionsCommand } from "@aws-sdk/client-backup"; // ES Modules import
- * // const { BackupClient, ListBackupSelectionsCommand } = require("@aws-sdk/client-backup"); // CommonJS import
+ * import { BackupClient, ListBackupSelectionsCommand } from '@aws-sdk/client-backup'; // ES Modules import
+ * // const { BackupClient, ListBackupSelectionsCommand } = require('@aws-sdk/client-backup'); // CommonJS import
  * const client = new BackupClient(config);
  * const input = { // ListBackupSelectionsInput
- *   BackupPlanId: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   BackupPlanId: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListBackupSelectionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListBackupSelectionsOutput
+ *   NextToken: 'STRING_VALUE',
+ *   BackupSelectionsList: [ // BackupSelectionsList
+ *     { // BackupSelectionsListMember
+ *       SelectionId: 'STRING_VALUE',
+ *       SelectionName: 'STRING_VALUE',
+ *       BackupPlanId: 'STRING_VALUE',
+ *       CreationDate: new Date('TIMESTAMP'),
+ *       CreatorRequestId: 'STRING_VALUE',
+ *       IamRoleArn: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListBackupSelectionsCommandInput - {@link ListBackupSelectionsCommandInput}
@@ -68,6 +83,8 @@ export interface ListBackupSelectionsCommandOutput extends ListBackupSelectionsO
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request failed due to a temporary failure of the server.</p>
  *
+ * @throws {@link BackupServiceException}
+ * <p>Base exception class for all service exceptions from Backup service.</p>
  *
  */
 export class ListBackupSelectionsCommand extends $Command<

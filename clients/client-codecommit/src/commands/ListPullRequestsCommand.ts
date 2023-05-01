@@ -37,18 +37,26 @@ export interface ListPullRequestsCommandOutput extends ListPullRequestsOutput, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeCommitClient, ListPullRequestsCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
- * // const { CodeCommitClient, ListPullRequestsCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
+ * import { CodeCommitClient, ListPullRequestsCommand } from '@aws-sdk/client-codecommit'; // ES Modules import
+ * // const { CodeCommitClient, ListPullRequestsCommand } = require('@aws-sdk/client-codecommit'); // CommonJS import
  * const client = new CodeCommitClient(config);
  * const input = { // ListPullRequestsInput
- *   repositoryName: "STRING_VALUE", // required
- *   authorArn: "STRING_VALUE",
- *   pullRequestStatus: "STRING_VALUE",
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   repositoryName: 'STRING_VALUE', // required
+ *   authorArn: 'STRING_VALUE',
+ *   pullRequestStatus: 'STRING_VALUE',
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new ListPullRequestsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListPullRequestsOutput
+ *   pullRequestIds: [ // PullRequestIdList // required
+ *     'STRING_VALUE',
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListPullRequestsCommandInput - {@link ListPullRequestsCommandInput}
@@ -102,6 +110,8 @@ export interface ListPullRequestsCommandOutput extends ListPullRequestsOutput, _
  * @throws {@link RepositoryNameRequiredException} (client fault)
  *  <p>A repository name is required, but was not specified.</p>
  *
+ * @throws {@link CodeCommitServiceException}
+ * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
  */
 export class ListPullRequestsCommand extends $Command<

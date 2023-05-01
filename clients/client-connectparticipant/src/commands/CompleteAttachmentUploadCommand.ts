@@ -48,18 +48,21 @@ export interface CompleteAttachmentUploadCommandOutput extends CompleteAttachmen
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectParticipantClient, CompleteAttachmentUploadCommand } from "@aws-sdk/client-connectparticipant"; // ES Modules import
- * // const { ConnectParticipantClient, CompleteAttachmentUploadCommand } = require("@aws-sdk/client-connectparticipant"); // CommonJS import
+ * import { ConnectParticipantClient, CompleteAttachmentUploadCommand } from '@aws-sdk/client-connectparticipant'; // ES Modules import
+ * // const { ConnectParticipantClient, CompleteAttachmentUploadCommand } = require('@aws-sdk/client-connectparticipant'); // CommonJS import
  * const client = new ConnectParticipantClient(config);
  * const input = { // CompleteAttachmentUploadRequest
  *   AttachmentIds: [ // AttachmentIdList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   ClientToken: "STRING_VALUE", // required
- *   ConnectionToken: "STRING_VALUE", // required
+ *   ClientToken: 'STRING_VALUE', // required
+ *   ConnectionToken: 'STRING_VALUE', // required
  * };
  * const command = new CompleteAttachmentUploadCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param CompleteAttachmentUploadCommandInput - {@link CompleteAttachmentUploadCommandInput}
@@ -86,6 +89,8 @@ export interface CompleteAttachmentUploadCommandOutput extends CompleteAttachmen
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by Amazon Connect.</p>
  *
+ * @throws {@link ConnectParticipantServiceException}
+ * <p>Base exception class for all service exceptions from ConnectParticipant service.</p>
  *
  */
 export class CompleteAttachmentUploadCommand extends $Command<

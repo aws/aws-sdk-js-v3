@@ -36,20 +36,23 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OpsWorksCMClient, TagResourceCommand } from "@aws-sdk/client-opsworkscm"; // ES Modules import
- * // const { OpsWorksCMClient, TagResourceCommand } = require("@aws-sdk/client-opsworkscm"); // CommonJS import
+ * import { OpsWorksCMClient, TagResourceCommand } from '@aws-sdk/client-opsworkscm'; // ES Modules import
+ * // const { OpsWorksCMClient, TagResourceCommand } = require('@aws-sdk/client-opsworkscm'); // CommonJS import
  * const client = new OpsWorksCMClient(config);
  * const input = { // TagResourceRequest
- *   ResourceArn: "STRING_VALUE", // required
+ *   ResourceArn: 'STRING_VALUE', // required
  *   Tags: [ // TagList // required
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param TagResourceCommandInput - {@link TagResourceCommandInput}
@@ -70,6 +73,8 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  *  <p>One or more of the provided request parameters are not valid.
  *     </p>
  *
+ * @throws {@link OpsWorksCMServiceException}
+ * <p>Base exception class for all service exceptions from OpsWorksCM service.</p>
  *
  */
 export class TagResourceCommand extends $Command<

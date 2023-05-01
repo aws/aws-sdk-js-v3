@@ -54,18 +54,34 @@ export interface GetRateBasedStatementManagedKeysCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WAFV2Client, GetRateBasedStatementManagedKeysCommand } from "@aws-sdk/client-wafv2"; // ES Modules import
- * // const { WAFV2Client, GetRateBasedStatementManagedKeysCommand } = require("@aws-sdk/client-wafv2"); // CommonJS import
+ * import { WAFV2Client, GetRateBasedStatementManagedKeysCommand } from '@aws-sdk/client-wafv2'; // ES Modules import
+ * // const { WAFV2Client, GetRateBasedStatementManagedKeysCommand } = require('@aws-sdk/client-wafv2'); // CommonJS import
  * const client = new WAFV2Client(config);
  * const input = { // GetRateBasedStatementManagedKeysRequest
- *   Scope: "CLOUDFRONT" || "REGIONAL", // required
- *   WebACLName: "STRING_VALUE", // required
- *   WebACLId: "STRING_VALUE", // required
- *   RuleGroupRuleName: "STRING_VALUE",
- *   RuleName: "STRING_VALUE", // required
+ *   Scope: 'CLOUDFRONT' || 'REGIONAL', // required
+ *   WebACLName: 'STRING_VALUE', // required
+ *   WebACLId: 'STRING_VALUE', // required
+ *   RuleGroupRuleName: 'STRING_VALUE',
+ *   RuleName: 'STRING_VALUE', // required
  * };
  * const command = new GetRateBasedStatementManagedKeysCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetRateBasedStatementManagedKeysResponse
+ *   ManagedKeysIPV4: { // RateBasedStatementManagedKeysIPSet
+ *     IPAddressVersion: 'IPV4' || 'IPV6',
+ *     Addresses: [ // IPAddresses
+ *       'STRING_VALUE',
+ *     ],
+ *   },
+ *   ManagedKeysIPV6: {
+ *     IPAddressVersion: 'IPV4' || 'IPV6',
+ *     Addresses: [
+ *       'STRING_VALUE',
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetRateBasedStatementManagedKeysCommandInput - {@link GetRateBasedStatementManagedKeysCommandInput}
@@ -108,6 +124,8 @@ export interface GetRateBasedStatementManagedKeysCommandOutput
  *        just need to wait a few minutes. It can take from a few seconds to a number of minutes
  *        for changes to propagate. </p>
  *
+ * @throws {@link WAFV2ServiceException}
+ * <p>Base exception class for all service exceptions from WAFV2 service.</p>
  *
  */
 export class GetRateBasedStatementManagedKeysCommand extends $Command<

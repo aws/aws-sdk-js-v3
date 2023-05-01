@@ -45,19 +45,30 @@ export interface DeregisterTransitGatewayMulticastGroupMembersCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, DeregisterTransitGatewayMulticastGroupMembersCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, DeregisterTransitGatewayMulticastGroupMembersCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, DeregisterTransitGatewayMulticastGroupMembersCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, DeregisterTransitGatewayMulticastGroupMembersCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // DeregisterTransitGatewayMulticastGroupMembersRequest
- *   TransitGatewayMulticastDomainId: "STRING_VALUE",
- *   GroupIpAddress: "STRING_VALUE",
+ *   TransitGatewayMulticastDomainId: 'STRING_VALUE',
+ *   GroupIpAddress: 'STRING_VALUE',
  *   NetworkInterfaceIds: [ // TransitGatewayNetworkInterfaceIdList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   DryRun: true || false,
  * };
  * const command = new DeregisterTransitGatewayMulticastGroupMembersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeregisterTransitGatewayMulticastGroupMembersResult
+ *   DeregisteredMulticastGroupMembers: { // TransitGatewayMulticastDeregisteredGroupMembers
+ *     TransitGatewayMulticastDomainId: 'STRING_VALUE',
+ *     DeregisteredNetworkInterfaceIds: [ // ValueStringList
+ *       'STRING_VALUE',
+ *     ],
+ *     GroupIpAddress: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param DeregisterTransitGatewayMulticastGroupMembersCommandInput - {@link DeregisterTransitGatewayMulticastGroupMembersCommandInput}
@@ -66,6 +77,8 @@ export interface DeregisterTransitGatewayMulticastGroupMembersCommandOutput
  * @see {@link DeregisterTransitGatewayMulticastGroupMembersCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class DeregisterTransitGatewayMulticastGroupMembersCommand extends $Command<

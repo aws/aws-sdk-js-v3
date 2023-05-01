@@ -36,16 +36,26 @@ export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { VPCLatticeClient, UpdateServiceCommand } from "@aws-sdk/client-vpc-lattice"; // ES Modules import
- * // const { VPCLatticeClient, UpdateServiceCommand } = require("@aws-sdk/client-vpc-lattice"); // CommonJS import
+ * import { VPCLatticeClient, UpdateServiceCommand } from '@aws-sdk/client-vpc-lattice'; // ES Modules import
+ * // const { VPCLatticeClient, UpdateServiceCommand } = require('@aws-sdk/client-vpc-lattice'); // CommonJS import
  * const client = new VPCLatticeClient(config);
  * const input = { // UpdateServiceRequest
- *   serviceIdentifier: "STRING_VALUE", // required
- *   certificateArn: "STRING_VALUE",
- *   authType: "STRING_VALUE",
+ *   serviceIdentifier: 'STRING_VALUE', // required
+ *   certificateArn: 'STRING_VALUE',
+ *   authType: 'STRING_VALUE',
  * };
  * const command = new UpdateServiceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateServiceResponse
+ *   id: 'STRING_VALUE',
+ *   arn: 'STRING_VALUE',
+ *   name: 'STRING_VALUE',
+ *   customDomainName: 'STRING_VALUE',
+ *   certificateArn: 'STRING_VALUE',
+ *   authType: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateServiceCommandInput - {@link UpdateServiceCommandInput}
@@ -74,6 +84,8 @@ export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __Met
  *  <p>The input does not satisfy the constraints specified by an Amazon Web Services
  *    service.</p>
  *
+ * @throws {@link VPCLatticeServiceException}
+ * <p>Base exception class for all service exceptions from VPCLattice service.</p>
  *
  */
 export class UpdateServiceCommand extends $Command<

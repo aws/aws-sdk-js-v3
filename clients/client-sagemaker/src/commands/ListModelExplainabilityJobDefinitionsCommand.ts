@@ -45,21 +45,34 @@ export interface ListModelExplainabilityJobDefinitionsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, ListModelExplainabilityJobDefinitionsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, ListModelExplainabilityJobDefinitionsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, ListModelExplainabilityJobDefinitionsCommand } from '@aws-sdk/client-sagemaker'; // ES Modules import
+ * // const { SageMakerClient, ListModelExplainabilityJobDefinitionsCommand } = require('@aws-sdk/client-sagemaker'); // CommonJS import
  * const client = new SageMakerClient(config);
  * const input = { // ListModelExplainabilityJobDefinitionsRequest
- *   EndpointName: "STRING_VALUE",
- *   SortBy: "Name" || "CreationTime",
- *   SortOrder: "Ascending" || "Descending",
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
- *   NameContains: "STRING_VALUE",
- *   CreationTimeBefore: new Date("TIMESTAMP"),
- *   CreationTimeAfter: new Date("TIMESTAMP"),
+ *   EndpointName: 'STRING_VALUE',
+ *   SortBy: 'Name' || 'CreationTime',
+ *   SortOrder: 'Ascending' || 'Descending',
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
+ *   NameContains: 'STRING_VALUE',
+ *   CreationTimeBefore: new Date('TIMESTAMP'),
+ *   CreationTimeAfter: new Date('TIMESTAMP'),
  * };
  * const command = new ListModelExplainabilityJobDefinitionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListModelExplainabilityJobDefinitionsResponse
+ *   JobDefinitionSummaries: [ // MonitoringJobDefinitionSummaryList // required
+ *     { // MonitoringJobDefinitionSummary
+ *       MonitoringJobDefinitionName: 'STRING_VALUE', // required
+ *       MonitoringJobDefinitionArn: 'STRING_VALUE', // required
+ *       CreationTime: new Date('TIMESTAMP'), // required
+ *       EndpointName: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListModelExplainabilityJobDefinitionsCommandInput - {@link ListModelExplainabilityJobDefinitionsCommandInput}
@@ -68,6 +81,8 @@ export interface ListModelExplainabilityJobDefinitionsCommandOutput
  * @see {@link ListModelExplainabilityJobDefinitionsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class ListModelExplainabilityJobDefinitionsCommand extends $Command<

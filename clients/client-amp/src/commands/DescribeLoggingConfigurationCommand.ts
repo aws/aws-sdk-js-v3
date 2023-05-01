@@ -41,14 +41,28 @@ export interface DescribeLoggingConfigurationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AmpClient, DescribeLoggingConfigurationCommand } from "@aws-sdk/client-amp"; // ES Modules import
- * // const { AmpClient, DescribeLoggingConfigurationCommand } = require("@aws-sdk/client-amp"); // CommonJS import
+ * import { AmpClient, DescribeLoggingConfigurationCommand } from '@aws-sdk/client-amp'; // ES Modules import
+ * // const { AmpClient, DescribeLoggingConfigurationCommand } = require('@aws-sdk/client-amp'); // CommonJS import
  * const client = new AmpClient(config);
  * const input = { // DescribeLoggingConfigurationRequest
- *   workspaceId: "STRING_VALUE", // required
+ *   workspaceId: 'STRING_VALUE', // required
  * };
  * const command = new DescribeLoggingConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeLoggingConfigurationResponse
+ *   loggingConfiguration: { // LoggingConfigurationMetadata
+ *     status: { // LoggingConfigurationStatus
+ *       statusCode: 'STRING_VALUE', // required
+ *       statusReason: 'STRING_VALUE',
+ *     },
+ *     workspace: 'STRING_VALUE', // required
+ *     logGroupArn: 'STRING_VALUE', // required
+ *     createdAt: new Date('TIMESTAMP'), // required
+ *     modifiedAt: new Date('TIMESTAMP'), // required
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeLoggingConfigurationCommandInput - {@link DescribeLoggingConfigurationCommandInput}
@@ -69,6 +83,8 @@ export interface DescribeLoggingConfigurationCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  The input fails to satisfy the constraints specified by an AWS service.
  *
+ * @throws {@link AmpServiceException}
+ * <p>Base exception class for all service exceptions from Amp service.</p>
  *
  */
 export class DescribeLoggingConfigurationCommand extends $Command<

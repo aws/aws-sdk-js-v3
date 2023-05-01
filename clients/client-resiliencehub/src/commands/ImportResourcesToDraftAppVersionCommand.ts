@@ -42,31 +42,54 @@ export interface ImportResourcesToDraftAppVersionCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ResiliencehubClient, ImportResourcesToDraftAppVersionCommand } from "@aws-sdk/client-resiliencehub"; // ES Modules import
- * // const { ResiliencehubClient, ImportResourcesToDraftAppVersionCommand } = require("@aws-sdk/client-resiliencehub"); // CommonJS import
+ * import { ResiliencehubClient, ImportResourcesToDraftAppVersionCommand } from '@aws-sdk/client-resiliencehub'; // ES Modules import
+ * // const { ResiliencehubClient, ImportResourcesToDraftAppVersionCommand } = require('@aws-sdk/client-resiliencehub'); // CommonJS import
  * const client = new ResiliencehubClient(config);
  * const input = { // ImportResourcesToDraftAppVersionRequest
- *   appArn: "STRING_VALUE", // required
+ *   appArn: 'STRING_VALUE', // required
  *   sourceArns: [ // ArnList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   terraformSources: [ // TerraformSourceList
  *     { // TerraformSource
- *       s3StateFileUrl: "STRING_VALUE", // required
+ *       s3StateFileUrl: 'STRING_VALUE', // required
  *     },
  *   ],
- *   importStrategy: "STRING_VALUE",
+ *   importStrategy: 'STRING_VALUE',
  *   eksSources: [ // EksSourceList
  *     { // EksSource
- *       eksClusterArn: "STRING_VALUE", // required
+ *       eksClusterArn: 'STRING_VALUE', // required
  *       namespaces: [ // EksNamespaceList // required
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
  * };
  * const command = new ImportResourcesToDraftAppVersionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ImportResourcesToDraftAppVersionResponse
+ *   appArn: 'STRING_VALUE', // required
+ *   appVersion: 'STRING_VALUE', // required
+ *   sourceArns: [ // ArnList
+ *     'STRING_VALUE',
+ *   ],
+ *   status: 'STRING_VALUE', // required
+ *   terraformSources: [ // TerraformSourceList
+ *     { // TerraformSource
+ *       s3StateFileUrl: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ *   eksSources: [ // EksSourceList
+ *     { // EksSource
+ *       eksClusterArn: 'STRING_VALUE', // required
+ *       namespaces: [ // EksNamespaceList // required
+ *         'STRING_VALUE',
+ *       ],
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ImportResourcesToDraftAppVersionCommandInput - {@link ImportResourcesToDraftAppVersionCommandInput}
@@ -99,6 +122,8 @@ export interface ImportResourcesToDraftAppVersionCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>This exception occurs when a request is not valid.</p>
  *
+ * @throws {@link ResiliencehubServiceException}
+ * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
  */
 export class ImportResourcesToDraftAppVersionCommand extends $Command<

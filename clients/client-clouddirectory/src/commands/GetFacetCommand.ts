@@ -37,15 +37,24 @@ export interface GetFacetCommandOutput extends GetFacetResponse, __MetadataBeare
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudDirectoryClient, GetFacetCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
- * // const { CloudDirectoryClient, GetFacetCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
+ * import { CloudDirectoryClient, GetFacetCommand } from '@aws-sdk/client-clouddirectory'; // ES Modules import
+ * // const { CloudDirectoryClient, GetFacetCommand } = require('@aws-sdk/client-clouddirectory'); // CommonJS import
  * const client = new CloudDirectoryClient(config);
  * const input = { // GetFacetRequest
- *   SchemaArn: "STRING_VALUE", // required
- *   Name: "STRING_VALUE", // required
+ *   SchemaArn: 'STRING_VALUE', // required
+ *   Name: 'STRING_VALUE', // required
  * };
  * const command = new GetFacetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetFacetResponse
+ *   Facet: { // Facet
+ *     Name: 'STRING_VALUE',
+ *     ObjectType: 'NODE' || 'LEAF_NODE' || 'POLICY' || 'INDEX',
+ *     FacetStyle: 'STATIC' || 'DYNAMIC',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetFacetCommandInput - {@link GetFacetCommandInput}
@@ -79,6 +88,8 @@ export interface GetFacetCommandOutput extends GetFacetResponse, __MetadataBeare
  *  <p>Indicates that your request is malformed in some manner. See the exception
  *       message.</p>
  *
+ * @throws {@link CloudDirectoryServiceException}
+ * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
  */
 export class GetFacetCommand extends $Command<

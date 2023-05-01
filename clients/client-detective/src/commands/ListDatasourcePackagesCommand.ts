@@ -36,16 +36,31 @@ export interface ListDatasourcePackagesCommandOutput extends ListDatasourcePacka
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DetectiveClient, ListDatasourcePackagesCommand } from "@aws-sdk/client-detective"; // ES Modules import
- * // const { DetectiveClient, ListDatasourcePackagesCommand } = require("@aws-sdk/client-detective"); // CommonJS import
+ * import { DetectiveClient, ListDatasourcePackagesCommand } from '@aws-sdk/client-detective'; // ES Modules import
+ * // const { DetectiveClient, ListDatasourcePackagesCommand } = require('@aws-sdk/client-detective'); // CommonJS import
  * const client = new DetectiveClient(config);
  * const input = { // ListDatasourcePackagesRequest
- *   GraphArn: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   GraphArn: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListDatasourcePackagesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListDatasourcePackagesResponse
+ *   DatasourcePackages: { // DatasourcePackageIngestDetails
+ *     '<keys>': { // DatasourcePackageIngestDetail
+ *       DatasourcePackageIngestState: 'STARTED' || 'STOPPED' || 'DISABLED',
+ *       LastIngestStateChange: { // LastIngestStateChangeDates
+ *         '<keys>': { // TimestampForCollection
+ *           Timestamp: new Date('TIMESTAMP'),
+ *         },
+ *       },
+ *     },
+ *   },
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListDatasourcePackagesCommandInput - {@link ListDatasourcePackagesCommandInput}
@@ -67,6 +82,8 @@ export interface ListDatasourcePackagesCommandOutput extends ListDatasourcePacka
  * @throws {@link ValidationException} (client fault)
  *  <p>The request parameters are invalid.</p>
  *
+ * @throws {@link DetectiveServiceException}
+ * <p>Base exception class for all service exceptions from Detective service.</p>
  *
  */
 export class ListDatasourcePackagesCommand extends $Command<

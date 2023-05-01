@@ -44,14 +44,17 @@ export interface DeleteKnowledgeBaseCommandOutput extends DeleteKnowledgeBaseRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WisdomClient, DeleteKnowledgeBaseCommand } from "@aws-sdk/client-wisdom"; // ES Modules import
- * // const { WisdomClient, DeleteKnowledgeBaseCommand } = require("@aws-sdk/client-wisdom"); // CommonJS import
+ * import { WisdomClient, DeleteKnowledgeBaseCommand } from '@aws-sdk/client-wisdom'; // ES Modules import
+ * // const { WisdomClient, DeleteKnowledgeBaseCommand } = require('@aws-sdk/client-wisdom'); // CommonJS import
  * const client = new WisdomClient(config);
  * const input = { // DeleteKnowledgeBaseRequest
- *   knowledgeBaseId: "STRING_VALUE", // required
+ *   knowledgeBaseId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteKnowledgeBaseCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteKnowledgeBaseCommandInput - {@link DeleteKnowledgeBaseCommandInput}
@@ -75,6 +78,8 @@ export interface DeleteKnowledgeBaseCommandOutput extends DeleteKnowledgeBaseRes
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by a service.</p>
  *
+ * @throws {@link WisdomServiceException}
+ * <p>Base exception class for all service exceptions from Wisdom service.</p>
  *
  */
 export class DeleteKnowledgeBaseCommand extends $Command<

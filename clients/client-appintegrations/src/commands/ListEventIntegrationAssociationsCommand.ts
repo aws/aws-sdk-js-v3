@@ -41,16 +41,33 @@ export interface ListEventIntegrationAssociationsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppIntegrationsClient, ListEventIntegrationAssociationsCommand } from "@aws-sdk/client-appintegrations"; // ES Modules import
- * // const { AppIntegrationsClient, ListEventIntegrationAssociationsCommand } = require("@aws-sdk/client-appintegrations"); // CommonJS import
+ * import { AppIntegrationsClient, ListEventIntegrationAssociationsCommand } from '@aws-sdk/client-appintegrations'; // ES Modules import
+ * // const { AppIntegrationsClient, ListEventIntegrationAssociationsCommand } = require('@aws-sdk/client-appintegrations'); // CommonJS import
  * const client = new AppIntegrationsClient(config);
  * const input = { // ListEventIntegrationAssociationsRequest
- *   EventIntegrationName: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   EventIntegrationName: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListEventIntegrationAssociationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListEventIntegrationAssociationsResponse
+ *   EventIntegrationAssociations: [ // EventIntegrationAssociationsList
+ *     { // EventIntegrationAssociation
+ *       EventIntegrationAssociationArn: 'STRING_VALUE',
+ *       EventIntegrationAssociationId: 'STRING_VALUE',
+ *       EventIntegrationName: 'STRING_VALUE',
+ *       ClientId: 'STRING_VALUE',
+ *       EventBridgeRuleName: 'STRING_VALUE',
+ *       ClientAssociationMetadata: { // ClientAssociationMetadata
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListEventIntegrationAssociationsCommandInput - {@link ListEventIntegrationAssociationsCommandInput}
@@ -74,6 +91,8 @@ export interface ListEventIntegrationAssociationsCommandOutput
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link AppIntegrationsServiceException}
+ * <p>Base exception class for all service exceptions from AppIntegrations service.</p>
  *
  */
 export class ListEventIntegrationAssociationsCommand extends $Command<

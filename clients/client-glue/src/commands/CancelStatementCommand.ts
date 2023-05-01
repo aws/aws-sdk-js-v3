@@ -36,16 +36,19 @@ export interface CancelStatementCommandOutput extends CancelStatementResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlueClient, CancelStatementCommand } from "@aws-sdk/client-glue"; // ES Modules import
- * // const { GlueClient, CancelStatementCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * import { GlueClient, CancelStatementCommand } from '@aws-sdk/client-glue'; // ES Modules import
+ * // const { GlueClient, CancelStatementCommand } = require('@aws-sdk/client-glue'); // CommonJS import
  * const client = new GlueClient(config);
  * const input = { // CancelStatementRequest
- *   SessionId: "STRING_VALUE", // required
- *   Id: Number("int"), // required
- *   RequestOrigin: "STRING_VALUE",
+ *   SessionId: 'STRING_VALUE', // required
+ *   Id: Number('int'), // required
+ *   RequestOrigin: 'STRING_VALUE',
  * };
  * const command = new CancelStatementCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param CancelStatementCommandInput - {@link CancelStatementCommandInput}
@@ -72,6 +75,8 @@ export interface CancelStatementCommandOutput extends CancelStatementResponse, _
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class CancelStatementCommand extends $Command<

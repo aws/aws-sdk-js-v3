@@ -44,15 +44,99 @@ export interface GetStorageLensConfigurationCommandOutput extends GetStorageLens
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { S3ControlClient, GetStorageLensConfigurationCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
- * // const { S3ControlClient, GetStorageLensConfigurationCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
+ * import { S3ControlClient, GetStorageLensConfigurationCommand } from '@aws-sdk/client-s3-control'; // ES Modules import
+ * // const { S3ControlClient, GetStorageLensConfigurationCommand } = require('@aws-sdk/client-s3-control'); // CommonJS import
  * const client = new S3ControlClient(config);
  * const input = { // GetStorageLensConfigurationRequest
- *   ConfigId: "STRING_VALUE", // required
- *   AccountId: "STRING_VALUE",
+ *   ConfigId: 'STRING_VALUE', // required
+ *   AccountId: 'STRING_VALUE',
  * };
  * const command = new GetStorageLensConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetStorageLensConfigurationResult
+ *   StorageLensConfiguration: { // StorageLensConfiguration
+ *     Id: 'STRING_VALUE', // required
+ *     AccountLevel: { // AccountLevel
+ *       ActivityMetrics: { // ActivityMetrics
+ *         IsEnabled: true || false,
+ *       },
+ *       BucketLevel: { // BucketLevel
+ *         ActivityMetrics: {
+ *           IsEnabled: true || false,
+ *         },
+ *         PrefixLevel: { // PrefixLevel
+ *           StorageMetrics: { // PrefixLevelStorageMetrics
+ *             IsEnabled: true || false,
+ *             SelectionCriteria: { // SelectionCriteria
+ *               Delimiter: 'STRING_VALUE',
+ *               MaxDepth: Number('int'),
+ *               MinStorageBytesPercentage: Number('double'),
+ *             },
+ *           },
+ *         },
+ *         AdvancedCostOptimizationMetrics: { // AdvancedCostOptimizationMetrics
+ *           IsEnabled: true || false,
+ *         },
+ *         AdvancedDataProtectionMetrics: { // AdvancedDataProtectionMetrics
+ *           IsEnabled: true || false,
+ *         },
+ *         DetailedStatusCodesMetrics: { // DetailedStatusCodesMetrics
+ *           IsEnabled: true || false,
+ *         },
+ *       },
+ *       AdvancedCostOptimizationMetrics: {
+ *         IsEnabled: true || false,
+ *       },
+ *       AdvancedDataProtectionMetrics: {
+ *         IsEnabled: true || false,
+ *       },
+ *       DetailedStatusCodesMetrics: {
+ *         IsEnabled: true || false,
+ *       },
+ *     },
+ *     Include: { // Include
+ *       Buckets: [ // Buckets
+ *         'STRING_VALUE',
+ *       ],
+ *       Regions: [ // Regions
+ *         'STRING_VALUE',
+ *       ],
+ *     },
+ *     Exclude: { // Exclude
+ *       Buckets: [
+ *         'STRING_VALUE',
+ *       ],
+ *       Regions: [
+ *         'STRING_VALUE',
+ *       ],
+ *     },
+ *     DataExport: { // StorageLensDataExport
+ *       S3BucketDestination: { // S3BucketDestination
+ *         Format: 'CSV' || 'Parquet', // required
+ *         OutputSchemaVersion: 'V_1', // required
+ *         AccountId: 'STRING_VALUE',
+ *         Arn: 'STRING_VALUE', // required
+ *         Prefix: 'STRING_VALUE',
+ *         Encryption: { // StorageLensDataExportEncryption
+ *           SSES3: {},
+ *           SSEKMS: { // SSEKMS
+ *             KeyId: 'STRING_VALUE', // required
+ *           },
+ *         },
+ *       },
+ *       CloudWatchMetrics: { // CloudWatchMetrics
+ *         IsEnabled: true || false, // required
+ *       },
+ *     },
+ *     IsEnabled: true || false, // required
+ *     AwsOrg: { // StorageLensAwsOrg
+ *       Arn: 'STRING_VALUE', // required
+ *     },
+ *     StorageLensArn: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetStorageLensConfigurationCommandInput - {@link GetStorageLensConfigurationCommandInput}
@@ -61,6 +145,8 @@ export interface GetStorageLensConfigurationCommandOutput extends GetStorageLens
  * @see {@link GetStorageLensConfigurationCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
  *
+ * @throws {@link S3ControlServiceException}
+ * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
  */
 export class GetStorageLensConfigurationCommand extends $Command<

@@ -38,14 +38,25 @@ export interface ListOfferingPromotionsCommandOutput extends ListOfferingPromoti
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DeviceFarmClient, ListOfferingPromotionsCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
- * // const { DeviceFarmClient, ListOfferingPromotionsCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
+ * import { DeviceFarmClient, ListOfferingPromotionsCommand } from '@aws-sdk/client-device-farm'; // ES Modules import
+ * // const { DeviceFarmClient, ListOfferingPromotionsCommand } = require('@aws-sdk/client-device-farm'); // CommonJS import
  * const client = new DeviceFarmClient(config);
  * const input = { // ListOfferingPromotionsRequest
- *   nextToken: "STRING_VALUE",
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new ListOfferingPromotionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListOfferingPromotionsResult
+ *   offeringPromotions: [ // OfferingPromotions
+ *     { // OfferingPromotion
+ *       id: 'STRING_VALUE',
+ *       description: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListOfferingPromotionsCommandInput - {@link ListOfferingPromotionsCommandInput}
@@ -70,6 +81,8 @@ export interface ListOfferingPromotionsCommandOutput extends ListOfferingPromoti
  * @throws {@link ServiceAccountException} (client fault)
  *  <p>There was a problem with the service account.</p>
  *
+ * @throws {@link DeviceFarmServiceException}
+ * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
  */
 export class ListOfferingPromotionsCommand extends $Command<

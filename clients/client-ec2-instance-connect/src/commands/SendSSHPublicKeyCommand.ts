@@ -43,17 +43,23 @@ export interface SendSSHPublicKeyCommandOutput extends SendSSHPublicKeyResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2InstanceConnectClient, SendSSHPublicKeyCommand } from "@aws-sdk/client-ec2-instance-connect"; // ES Modules import
- * // const { EC2InstanceConnectClient, SendSSHPublicKeyCommand } = require("@aws-sdk/client-ec2-instance-connect"); // CommonJS import
+ * import { EC2InstanceConnectClient, SendSSHPublicKeyCommand } from '@aws-sdk/client-ec2-instance-connect'; // ES Modules import
+ * // const { EC2InstanceConnectClient, SendSSHPublicKeyCommand } = require('@aws-sdk/client-ec2-instance-connect'); // CommonJS import
  * const client = new EC2InstanceConnectClient(config);
  * const input = { // SendSSHPublicKeyRequest
- *   InstanceId: "STRING_VALUE", // required
- *   InstanceOSUser: "STRING_VALUE", // required
- *   SSHPublicKey: "STRING_VALUE", // required
- *   AvailabilityZone: "STRING_VALUE",
+ *   InstanceId: 'STRING_VALUE', // required
+ *   InstanceOSUser: 'STRING_VALUE', // required
+ *   SSHPublicKey: 'STRING_VALUE', // required
+ *   AvailabilityZone: 'STRING_VALUE',
  * };
  * const command = new SendSSHPublicKeyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SendSSHPublicKeyResponse
+ *   RequestId: 'STRING_VALUE',
+ *   Success: true || false,
+ * };
+ *
  * ```
  *
  * @param SendSSHPublicKeyCommandInput - {@link SendSSHPublicKeyCommandInput}
@@ -86,6 +92,8 @@ export interface SendSSHPublicKeyCommandOutput extends SendSSHPublicKeyResponse,
  *  <p>The requests were made too frequently and have been throttled. Wait a while and try again.
  *             To increase the limit on your request frequency, contact AWS Support.</p>
  *
+ * @throws {@link EC2InstanceConnectServiceException}
+ * <p>Base exception class for all service exceptions from EC2InstanceConnect service.</p>
  *
  * @example To push an SSH key to an EC2 instance
  * ```javascript

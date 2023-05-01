@@ -41,28 +41,39 @@ export interface CreateSubscriptionDefinitionCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GreengrassClient, CreateSubscriptionDefinitionCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
- * // const { GreengrassClient, CreateSubscriptionDefinitionCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
+ * import { GreengrassClient, CreateSubscriptionDefinitionCommand } from '@aws-sdk/client-greengrass'; // ES Modules import
+ * // const { GreengrassClient, CreateSubscriptionDefinitionCommand } = require('@aws-sdk/client-greengrass'); // CommonJS import
  * const client = new GreengrassClient(config);
  * const input = { // CreateSubscriptionDefinitionRequest
- *   AmznClientToken: "STRING_VALUE",
+ *   AmznClientToken: 'STRING_VALUE',
  *   InitialVersion: { // SubscriptionDefinitionVersion
  *     Subscriptions: [ // __listOfSubscription
  *       { // Subscription
- *         Id: "STRING_VALUE", // required
- *         Source: "STRING_VALUE", // required
- *         Subject: "STRING_VALUE", // required
- *         Target: "STRING_VALUE", // required
+ *         Id: 'STRING_VALUE', // required
+ *         Source: 'STRING_VALUE', // required
+ *         Subject: 'STRING_VALUE', // required
+ *         Target: 'STRING_VALUE', // required
  *       },
  *     ],
  *   },
- *   Name: "STRING_VALUE",
+ *   Name: 'STRING_VALUE',
  *   tags: { // Tags
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateSubscriptionDefinitionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateSubscriptionDefinitionResponse
+ *   Arn: 'STRING_VALUE',
+ *   CreationTimestamp: 'STRING_VALUE',
+ *   Id: 'STRING_VALUE',
+ *   LastUpdatedTimestamp: 'STRING_VALUE',
+ *   LatestVersion: 'STRING_VALUE',
+ *   LatestVersionArn: 'STRING_VALUE',
+ *   Name: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateSubscriptionDefinitionCommandInput - {@link CreateSubscriptionDefinitionCommandInput}
@@ -74,6 +85,8 @@ export interface CreateSubscriptionDefinitionCommandOutput
  * @throws {@link BadRequestException} (client fault)
  *  General error information.
  *
+ * @throws {@link GreengrassServiceException}
+ * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
  */
 export class CreateSubscriptionDefinitionCommand extends $Command<

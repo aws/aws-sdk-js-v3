@@ -57,24 +57,29 @@ export interface CreateNotebookInstanceLifecycleConfigCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, CreateNotebookInstanceLifecycleConfigCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, CreateNotebookInstanceLifecycleConfigCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, CreateNotebookInstanceLifecycleConfigCommand } from '@aws-sdk/client-sagemaker'; // ES Modules import
+ * // const { SageMakerClient, CreateNotebookInstanceLifecycleConfigCommand } = require('@aws-sdk/client-sagemaker'); // CommonJS import
  * const client = new SageMakerClient(config);
  * const input = { // CreateNotebookInstanceLifecycleConfigInput
- *   NotebookInstanceLifecycleConfigName: "STRING_VALUE", // required
+ *   NotebookInstanceLifecycleConfigName: 'STRING_VALUE', // required
  *   OnCreate: [ // NotebookInstanceLifecycleConfigList
  *     { // NotebookInstanceLifecycleHook
- *       Content: "STRING_VALUE",
+ *       Content: 'STRING_VALUE',
  *     },
  *   ],
  *   OnStart: [
  *     {
- *       Content: "STRING_VALUE",
+ *       Content: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new CreateNotebookInstanceLifecycleConfigCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateNotebookInstanceLifecycleConfigOutput
+ *   NotebookInstanceLifecycleConfigArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateNotebookInstanceLifecycleConfigCommandInput - {@link CreateNotebookInstanceLifecycleConfigCommandInput}
@@ -87,6 +92,8 @@ export interface CreateNotebookInstanceLifecycleConfigCommandOutput
  *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many
  *             training jobs created. </p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class CreateNotebookInstanceLifecycleConfigCommand extends $Command<

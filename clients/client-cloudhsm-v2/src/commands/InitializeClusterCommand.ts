@@ -39,16 +39,22 @@ export interface InitializeClusterCommandOutput extends InitializeClusterRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudHSMV2Client, InitializeClusterCommand } from "@aws-sdk/client-cloudhsm-v2"; // ES Modules import
- * // const { CloudHSMV2Client, InitializeClusterCommand } = require("@aws-sdk/client-cloudhsm-v2"); // CommonJS import
+ * import { CloudHSMV2Client, InitializeClusterCommand } from '@aws-sdk/client-cloudhsm-v2'; // ES Modules import
+ * // const { CloudHSMV2Client, InitializeClusterCommand } = require('@aws-sdk/client-cloudhsm-v2'); // CommonJS import
  * const client = new CloudHSMV2Client(config);
  * const input = { // InitializeClusterRequest
- *   ClusterId: "STRING_VALUE", // required
- *   SignedCert: "STRING_VALUE", // required
- *   TrustAnchor: "STRING_VALUE", // required
+ *   ClusterId: 'STRING_VALUE', // required
+ *   SignedCert: 'STRING_VALUE', // required
+ *   TrustAnchor: 'STRING_VALUE', // required
  * };
  * const command = new InitializeClusterCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // InitializeClusterResponse
+ *   State: 'STRING_VALUE',
+ *   StateMessage: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param InitializeClusterCommandInput - {@link InitializeClusterCommandInput}
@@ -75,6 +81,8 @@ export interface InitializeClusterCommandOutput extends InitializeClusterRespons
  * @throws {@link CloudHsmServiceException} (client fault)
  *  <p>The request was rejected because an error occurred.</p>
  *
+ * @throws {@link CloudHSMV2ServiceException}
+ * <p>Base exception class for all service exceptions from CloudHSMV2 service.</p>
  *
  */
 export class InitializeClusterCommand extends $Command<

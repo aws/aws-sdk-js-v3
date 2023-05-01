@@ -36,15 +36,18 @@ export interface AssociateBudgetWithResourceCommandOutput extends AssociateBudge
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ServiceCatalogClient, AssociateBudgetWithResourceCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
- * // const { ServiceCatalogClient, AssociateBudgetWithResourceCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
+ * import { ServiceCatalogClient, AssociateBudgetWithResourceCommand } from '@aws-sdk/client-service-catalog'; // ES Modules import
+ * // const { ServiceCatalogClient, AssociateBudgetWithResourceCommand } = require('@aws-sdk/client-service-catalog'); // CommonJS import
  * const client = new ServiceCatalogClient(config);
  * const input = { // AssociateBudgetWithResourceInput
- *   BudgetName: "STRING_VALUE", // required
- *   ResourceId: "STRING_VALUE", // required
+ *   BudgetName: 'STRING_VALUE', // required
+ *   ResourceId: 'STRING_VALUE', // required
  * };
  * const command = new AssociateBudgetWithResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param AssociateBudgetWithResourceCommandInput - {@link AssociateBudgetWithResourceCommandInput}
@@ -66,6 +69,8 @@ export interface AssociateBudgetWithResourceCommandOutput extends AssociateBudge
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link ServiceCatalogServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
  */
 export class AssociateBudgetWithResourceCommand extends $Command<

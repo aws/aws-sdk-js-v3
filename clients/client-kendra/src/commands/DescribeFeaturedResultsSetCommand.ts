@@ -38,15 +38,40 @@ export interface DescribeFeaturedResultsSetCommandOutput extends DescribeFeature
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KendraClient, DescribeFeaturedResultsSetCommand } from "@aws-sdk/client-kendra"; // ES Modules import
- * // const { KendraClient, DescribeFeaturedResultsSetCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
+ * import { KendraClient, DescribeFeaturedResultsSetCommand } from '@aws-sdk/client-kendra'; // ES Modules import
+ * // const { KendraClient, DescribeFeaturedResultsSetCommand } = require('@aws-sdk/client-kendra'); // CommonJS import
  * const client = new KendraClient(config);
  * const input = { // DescribeFeaturedResultsSetRequest
- *   IndexId: "STRING_VALUE", // required
- *   FeaturedResultsSetId: "STRING_VALUE", // required
+ *   IndexId: 'STRING_VALUE', // required
+ *   FeaturedResultsSetId: 'STRING_VALUE', // required
  * };
  * const command = new DescribeFeaturedResultsSetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeFeaturedResultsSetResponse
+ *   FeaturedResultsSetId: 'STRING_VALUE',
+ *   FeaturedResultsSetName: 'STRING_VALUE',
+ *   Description: 'STRING_VALUE',
+ *   Status: 'ACTIVE' || 'INACTIVE',
+ *   QueryTexts: [ // QueryTextList
+ *     'STRING_VALUE',
+ *   ],
+ *   FeaturedDocumentsWithMetadata: [ // FeaturedDocumentWithMetadataList
+ *     { // FeaturedDocumentWithMetadata
+ *       Id: 'STRING_VALUE',
+ *       Title: 'STRING_VALUE',
+ *       URI: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   FeaturedDocumentsMissing: [ // FeaturedDocumentMissingList
+ *     { // FeaturedDocumentMissing
+ *       Id: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   LastUpdatedTimestamp: Number('long'),
+ *   CreationTimestamp: Number('long'),
+ * };
+ *
  * ```
  *
  * @param DescribeFeaturedResultsSetCommandInput - {@link DescribeFeaturedResultsSetCommandInput}
@@ -75,6 +100,8 @@ export interface DescribeFeaturedResultsSetCommandOutput extends DescribeFeature
  *  <p>The input fails to satisfy the constraints set by the Amazon Kendra service.
  *             Please provide the correct input and try again.</p>
  *
+ * @throws {@link KendraServiceException}
+ * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
  */
 export class DescribeFeaturedResultsSetCommand extends $Command<

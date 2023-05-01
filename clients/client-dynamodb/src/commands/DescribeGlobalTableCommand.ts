@@ -48,14 +48,49 @@ export interface DescribeGlobalTableCommandOutput extends DescribeGlobalTableOut
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DynamoDBClient, DescribeGlobalTableCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
- * // const { DynamoDBClient, DescribeGlobalTableCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
+ * import { DynamoDBClient, DescribeGlobalTableCommand } from '@aws-sdk/client-dynamodb'; // ES Modules import
+ * // const { DynamoDBClient, DescribeGlobalTableCommand } = require('@aws-sdk/client-dynamodb'); // CommonJS import
  * const client = new DynamoDBClient(config);
  * const input = { // DescribeGlobalTableInput
- *   GlobalTableName: "STRING_VALUE", // required
+ *   GlobalTableName: 'STRING_VALUE', // required
  * };
  * const command = new DescribeGlobalTableCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeGlobalTableOutput
+ *   GlobalTableDescription: { // GlobalTableDescription
+ *     ReplicationGroup: [ // ReplicaDescriptionList
+ *       { // ReplicaDescription
+ *         RegionName: 'STRING_VALUE',
+ *         ReplicaStatus: 'CREATING' || 'CREATION_FAILED' || 'UPDATING' || 'DELETING' || 'ACTIVE' || 'REGION_DISABLED' || 'INACCESSIBLE_ENCRYPTION_CREDENTIALS',
+ *         ReplicaStatusDescription: 'STRING_VALUE',
+ *         ReplicaStatusPercentProgress: 'STRING_VALUE',
+ *         KMSMasterKeyId: 'STRING_VALUE',
+ *         ProvisionedThroughputOverride: { // ProvisionedThroughputOverride
+ *           ReadCapacityUnits: Number('long'),
+ *         },
+ *         GlobalSecondaryIndexes: [ // ReplicaGlobalSecondaryIndexDescriptionList
+ *           { // ReplicaGlobalSecondaryIndexDescription
+ *             IndexName: 'STRING_VALUE',
+ *             ProvisionedThroughputOverride: {
+ *               ReadCapacityUnits: Number('long'),
+ *             },
+ *           },
+ *         ],
+ *         ReplicaInaccessibleDateTime: new Date('TIMESTAMP'),
+ *         ReplicaTableClassSummary: { // TableClassSummary
+ *           TableClass: 'STANDARD' || 'STANDARD_INFREQUENT_ACCESS',
+ *           LastUpdateDateTime: new Date('TIMESTAMP'),
+ *         },
+ *       },
+ *     ],
+ *     GlobalTableArn: 'STRING_VALUE',
+ *     CreationDateTime: new Date('TIMESTAMP'),
+ *     GlobalTableStatus: 'CREATING' || 'ACTIVE' || 'DELETING' || 'UPDATING',
+ *     GlobalTableName: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeGlobalTableCommandInput - {@link DescribeGlobalTableCommandInput}
@@ -72,6 +107,8 @@ export interface DescribeGlobalTableCommandOutput extends DescribeGlobalTableOut
  *
  * @throws {@link InvalidEndpointException} (client fault)
  *
+ * @throws {@link DynamoDBServiceException}
+ * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
  */
 export class DescribeGlobalTableCommand extends $Command<

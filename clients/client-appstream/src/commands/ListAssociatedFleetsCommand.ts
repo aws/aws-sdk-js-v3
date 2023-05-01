@@ -36,15 +36,23 @@ export interface ListAssociatedFleetsCommandOutput extends ListAssociatedFleetsR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppStreamClient, ListAssociatedFleetsCommand } from "@aws-sdk/client-appstream"; // ES Modules import
- * // const { AppStreamClient, ListAssociatedFleetsCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
+ * import { AppStreamClient, ListAssociatedFleetsCommand } from '@aws-sdk/client-appstream'; // ES Modules import
+ * // const { AppStreamClient, ListAssociatedFleetsCommand } = require('@aws-sdk/client-appstream'); // CommonJS import
  * const client = new AppStreamClient(config);
  * const input = { // ListAssociatedFleetsRequest
- *   StackName: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
+ *   StackName: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListAssociatedFleetsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListAssociatedFleetsResult
+ *   Names: [ // StringList
+ *     'STRING_VALUE',
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListAssociatedFleetsCommandInput - {@link ListAssociatedFleetsCommandInput}
@@ -53,6 +61,8 @@ export interface ListAssociatedFleetsCommandOutput extends ListAssociatedFleetsR
  * @see {@link ListAssociatedFleetsCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
  *
+ * @throws {@link AppStreamServiceException}
+ * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
  */
 export class ListAssociatedFleetsCommand extends $Command<

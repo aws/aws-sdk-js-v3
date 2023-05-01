@@ -47,17 +47,25 @@ export interface UntagCommandOutput extends UntagOutput, __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ResourceGroupsClient, UntagCommand } from "@aws-sdk/client-resource-groups"; // ES Modules import
- * // const { ResourceGroupsClient, UntagCommand } = require("@aws-sdk/client-resource-groups"); // CommonJS import
+ * import { ResourceGroupsClient, UntagCommand } from '@aws-sdk/client-resource-groups'; // ES Modules import
+ * // const { ResourceGroupsClient, UntagCommand } = require('@aws-sdk/client-resource-groups'); // CommonJS import
  * const client = new ResourceGroupsClient(config);
  * const input = { // UntagInput
- *   Arn: "STRING_VALUE", // required
+ *   Arn: 'STRING_VALUE', // required
  *   Keys: [ // TagKeyList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new UntagCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UntagOutput
+ *   Arn: 'STRING_VALUE',
+ *   Keys: [ // TagKeyList
+ *     'STRING_VALUE',
+ *   ],
+ * };
+ *
  * ```
  *
  * @param UntagCommandInput - {@link UntagCommandInput}
@@ -85,6 +93,8 @@ export interface UntagCommandOutput extends UntagOutput, __MetadataBearer {}
  *  <p>You've exceeded throttling limits by making too many requests in a period of
  *             time.</p>
  *
+ * @throws {@link ResourceGroupsServiceException}
+ * <p>Base exception class for all service exceptions from ResourceGroups service.</p>
  *
  */
 export class UntagCommand extends $Command<UntagCommandInput, UntagCommandOutput, ResourceGroupsClientResolvedConfig> {

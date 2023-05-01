@@ -171,30 +171,45 @@ export interface UploadPartCommandOutput extends UploadPartOutput, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { S3Client, UploadPartCommand } from "@aws-sdk/client-s3"; // ES Modules import
- * // const { S3Client, UploadPartCommand } = require("@aws-sdk/client-s3"); // CommonJS import
+ * import { S3Client, UploadPartCommand } from '@aws-sdk/client-s3'; // ES Modules import
+ * // const { S3Client, UploadPartCommand } = require('@aws-sdk/client-s3'); // CommonJS import
  * const client = new S3Client(config);
  * const input = { // UploadPartRequest
- *   Body: "STREAMING_BLOB_VALUE",
- *   Bucket: "STRING_VALUE", // required
- *   ContentLength: Number("long"),
- *   ContentMD5: "STRING_VALUE",
- *   ChecksumAlgorithm: "CRC32" || "CRC32C" || "SHA1" || "SHA256",
- *   ChecksumCRC32: "STRING_VALUE",
- *   ChecksumCRC32C: "STRING_VALUE",
- *   ChecksumSHA1: "STRING_VALUE",
- *   ChecksumSHA256: "STRING_VALUE",
- *   Key: "STRING_VALUE", // required
- *   PartNumber: Number("int"), // required
- *   UploadId: "STRING_VALUE", // required
- *   SSECustomerAlgorithm: "STRING_VALUE",
- *   SSECustomerKey: "STRING_VALUE",
- *   SSECustomerKeyMD5: "STRING_VALUE",
- *   RequestPayer: "requester",
- *   ExpectedBucketOwner: "STRING_VALUE",
+ *   Body: 'STREAMING_BLOB_VALUE',
+ *   Bucket: 'STRING_VALUE', // required
+ *   ContentLength: Number('long'),
+ *   ContentMD5: 'STRING_VALUE',
+ *   ChecksumAlgorithm: 'CRC32' || 'CRC32C' || 'SHA1' || 'SHA256',
+ *   ChecksumCRC32: 'STRING_VALUE',
+ *   ChecksumCRC32C: 'STRING_VALUE',
+ *   ChecksumSHA1: 'STRING_VALUE',
+ *   ChecksumSHA256: 'STRING_VALUE',
+ *   Key: 'STRING_VALUE', // required
+ *   PartNumber: Number('int'), // required
+ *   UploadId: 'STRING_VALUE', // required
+ *   SSECustomerAlgorithm: 'STRING_VALUE',
+ *   SSECustomerKey: 'STRING_VALUE',
+ *   SSECustomerKeyMD5: 'STRING_VALUE',
+ *   RequestPayer: 'requester',
+ *   ExpectedBucketOwner: 'STRING_VALUE',
  * };
  * const command = new UploadPartCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UploadPartOutput
+ *   ServerSideEncryption: 'AES256' || 'aws:kms',
+ *   ETag: 'STRING_VALUE',
+ *   ChecksumCRC32: 'STRING_VALUE',
+ *   ChecksumCRC32C: 'STRING_VALUE',
+ *   ChecksumSHA1: 'STRING_VALUE',
+ *   ChecksumSHA256: 'STRING_VALUE',
+ *   SSECustomerAlgorithm: 'STRING_VALUE',
+ *   SSECustomerKeyMD5: 'STRING_VALUE',
+ *   SSEKMSKeyId: 'STRING_VALUE',
+ *   BucketKeyEnabled: true || false,
+ *   RequestCharged: 'requester',
+ * };
+ *
  * ```
  *
  * @param UploadPartCommandInput - {@link UploadPartCommandInput}
@@ -203,6 +218,8 @@ export interface UploadPartCommandOutput extends UploadPartOutput, __MetadataBea
  * @see {@link UploadPartCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
+ * @throws {@link S3ServiceException}
+ * <p>Base exception class for all service exceptions from S3 service.</p>
  *
  * @example To upload a part
  * ```javascript

@@ -39,18 +39,33 @@ export interface UpdateScheduledActionCommandOutput extends UpdateScheduledActio
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OpenSearchClient, UpdateScheduledActionCommand } from "@aws-sdk/client-opensearch"; // ES Modules import
- * // const { OpenSearchClient, UpdateScheduledActionCommand } = require("@aws-sdk/client-opensearch"); // CommonJS import
+ * import { OpenSearchClient, UpdateScheduledActionCommand } from '@aws-sdk/client-opensearch'; // ES Modules import
+ * // const { OpenSearchClient, UpdateScheduledActionCommand } = require('@aws-sdk/client-opensearch'); // CommonJS import
  * const client = new OpenSearchClient(config);
  * const input = { // UpdateScheduledActionRequest
- *   DomainName: "STRING_VALUE", // required
- *   ActionID: "STRING_VALUE", // required
- *   ActionType: "SERVICE_SOFTWARE_UPDATE" || "JVM_HEAP_SIZE_TUNING" || "JVM_YOUNG_GEN_TUNING", // required
- *   ScheduleAt: "NOW" || "TIMESTAMP" || "OFF_PEAK_WINDOW", // required
- *   DesiredStartTime: Number("long"),
+ *   DomainName: 'STRING_VALUE', // required
+ *   ActionID: 'STRING_VALUE', // required
+ *   ActionType: 'SERVICE_SOFTWARE_UPDATE' || 'JVM_HEAP_SIZE_TUNING' || 'JVM_YOUNG_GEN_TUNING', // required
+ *   ScheduleAt: 'NOW' || 'TIMESTAMP' || 'OFF_PEAK_WINDOW', // required
+ *   DesiredStartTime: Number('long'),
  * };
  * const command = new UpdateScheduledActionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateScheduledActionResponse
+ *   ScheduledAction: { // ScheduledAction
+ *     Id: 'STRING_VALUE', // required
+ *     Type: 'SERVICE_SOFTWARE_UPDATE' || 'JVM_HEAP_SIZE_TUNING' || 'JVM_YOUNG_GEN_TUNING', // required
+ *     Severity: 'HIGH' || 'MEDIUM' || 'LOW', // required
+ *     ScheduledTime: Number('long'), // required
+ *     Description: 'STRING_VALUE',
+ *     ScheduledBy: 'CUSTOMER' || 'SYSTEM',
+ *     Status: 'PENDING_UPDATE' || 'IN_PROGRESS' || 'FAILED' || 'COMPLETED' || 'NOT_ELIGIBLE' || 'ELIGIBLE',
+ *     Mandatory: true || false,
+ *     Cancellable: true || false,
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateScheduledActionCommandInput - {@link UpdateScheduledActionCommandInput}
@@ -80,6 +95,8 @@ export interface UpdateScheduledActionCommandOutput extends UpdateScheduledActio
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception for accessing or deleting a resource that doesn't exist.</p>
  *
+ * @throws {@link OpenSearchServiceException}
+ * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
  */
 export class UpdateScheduledActionCommand extends $Command<

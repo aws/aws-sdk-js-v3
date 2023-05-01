@@ -40,31 +40,37 @@ export interface UpdateMonitorCommandOutput extends UpdateMonitorOutput, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { InternetMonitorClient, UpdateMonitorCommand } from "@aws-sdk/client-internetmonitor"; // ES Modules import
- * // const { InternetMonitorClient, UpdateMonitorCommand } = require("@aws-sdk/client-internetmonitor"); // CommonJS import
+ * import { InternetMonitorClient, UpdateMonitorCommand } from '@aws-sdk/client-internetmonitor'; // ES Modules import
+ * // const { InternetMonitorClient, UpdateMonitorCommand } = require('@aws-sdk/client-internetmonitor'); // CommonJS import
  * const client = new InternetMonitorClient(config);
  * const input = { // UpdateMonitorInput
- *   MonitorName: "STRING_VALUE", // required
+ *   MonitorName: 'STRING_VALUE', // required
  *   ResourcesToAdd: [ // SetOfARNs
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   ResourcesToRemove: [
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   Status: "STRING_VALUE",
- *   ClientToken: "STRING_VALUE",
- *   MaxCityNetworksToMonitor: Number("int"),
+ *   Status: 'STRING_VALUE',
+ *   ClientToken: 'STRING_VALUE',
+ *   MaxCityNetworksToMonitor: Number('int'),
  *   InternetMeasurementsLogDelivery: { // InternetMeasurementsLogDelivery
  *     S3Config: { // S3Config
- *       BucketName: "STRING_VALUE",
- *       BucketPrefix: "STRING_VALUE",
- *       LogDeliveryStatus: "STRING_VALUE",
+ *       BucketName: 'STRING_VALUE',
+ *       BucketPrefix: 'STRING_VALUE',
+ *       LogDeliveryStatus: 'STRING_VALUE',
  *     },
  *   },
- *   TrafficPercentageToMonitor: Number("int"),
+ *   TrafficPercentageToMonitor: Number('int'),
  * };
  * const command = new UpdateMonitorCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateMonitorOutput
+ *   MonitorArn: 'STRING_VALUE', // required
+ *   Status: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param UpdateMonitorCommandInput - {@link UpdateMonitorCommandInput}
@@ -91,6 +97,8 @@ export interface UpdateMonitorCommandOutput extends UpdateMonitorOutput, __Metad
  * @throws {@link ValidationException} (client fault)
  *  <p>Invalid request.</p>
  *
+ * @throws {@link InternetMonitorServiceException}
+ * <p>Base exception class for all service exceptions from InternetMonitor service.</p>
  *
  */
 export class UpdateMonitorCommand extends $Command<

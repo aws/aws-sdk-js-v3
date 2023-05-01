@@ -44,15 +44,26 @@ export interface ListRuleGroupsCommandOutput extends ListRuleGroupsResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WAFClient, ListRuleGroupsCommand } from "@aws-sdk/client-waf"; // ES Modules import
- * // const { WAFClient, ListRuleGroupsCommand } = require("@aws-sdk/client-waf"); // CommonJS import
+ * import { WAFClient, ListRuleGroupsCommand } from '@aws-sdk/client-waf'; // ES Modules import
+ * // const { WAFClient, ListRuleGroupsCommand } = require('@aws-sdk/client-waf'); // CommonJS import
  * const client = new WAFClient(config);
  * const input = { // ListRuleGroupsRequest
- *   NextMarker: "STRING_VALUE",
- *   Limit: Number("int"),
+ *   NextMarker: 'STRING_VALUE',
+ *   Limit: Number('int'),
  * };
  * const command = new ListRuleGroupsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListRuleGroupsResponse
+ *   NextMarker: 'STRING_VALUE',
+ *   RuleGroups: [ // RuleGroupSummaries
+ *     { // RuleGroupSummary
+ *       RuleGroupId: 'STRING_VALUE', // required
+ *       Name: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListRuleGroupsCommandInput - {@link ListRuleGroupsCommandInput}
@@ -64,6 +75,8 @@ export interface ListRuleGroupsCommandOutput extends ListRuleGroupsResponse, __M
  * @throws {@link WAFInternalErrorException} (server fault)
  *  <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
  *
+ * @throws {@link WAFServiceException}
+ * <p>Base exception class for all service exceptions from WAF service.</p>
  *
  */
 export class ListRuleGroupsCommand extends $Command<

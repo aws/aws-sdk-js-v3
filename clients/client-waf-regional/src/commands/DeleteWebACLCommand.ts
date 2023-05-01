@@ -57,15 +57,20 @@ export interface DeleteWebACLCommandOutput extends DeleteWebACLResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WAFRegionalClient, DeleteWebACLCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
- * // const { WAFRegionalClient, DeleteWebACLCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import
+ * import { WAFRegionalClient, DeleteWebACLCommand } from '@aws-sdk/client-waf-regional'; // ES Modules import
+ * // const { WAFRegionalClient, DeleteWebACLCommand } = require('@aws-sdk/client-waf-regional'); // CommonJS import
  * const client = new WAFRegionalClient(config);
  * const input = { // DeleteWebACLRequest
- *   WebACLId: "STRING_VALUE", // required
- *   ChangeToken: "STRING_VALUE", // required
+ *   WebACLId: 'STRING_VALUE', // required
+ *   ChangeToken: 'STRING_VALUE', // required
  * };
  * const command = new DeleteWebACLCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteWebACLResponse
+ *   ChangeToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DeleteWebACLCommandInput - {@link DeleteWebACLCommandInput}
@@ -121,6 +126,8 @@ export interface DeleteWebACLCommandOutput extends DeleteWebACLResponse, __Metad
  * @throws {@link WAFTagOperationInternalErrorException} (server fault)
  *  <p></p>
  *
+ * @throws {@link WAFRegionalServiceException}
+ * <p>Base exception class for all service exceptions from WAFRegional service.</p>
  *
  * @example To delete a web ACL
  * ```javascript

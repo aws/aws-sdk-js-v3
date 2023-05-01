@@ -37,33 +37,58 @@ export interface CreateFunctionUrlConfigCommandOutput extends CreateFunctionUrlC
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LambdaClient, CreateFunctionUrlConfigCommand } from "@aws-sdk/client-lambda"; // ES Modules import
- * // const { LambdaClient, CreateFunctionUrlConfigCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
+ * import { LambdaClient, CreateFunctionUrlConfigCommand } from '@aws-sdk/client-lambda'; // ES Modules import
+ * // const { LambdaClient, CreateFunctionUrlConfigCommand } = require('@aws-sdk/client-lambda'); // CommonJS import
  * const client = new LambdaClient(config);
  * const input = { // CreateFunctionUrlConfigRequest
- *   FunctionName: "STRING_VALUE", // required
- *   Qualifier: "STRING_VALUE",
- *   AuthType: "NONE" || "AWS_IAM", // required
+ *   FunctionName: 'STRING_VALUE', // required
+ *   Qualifier: 'STRING_VALUE',
+ *   AuthType: 'NONE' || 'AWS_IAM', // required
  *   Cors: { // Cors
  *     AllowCredentials: true || false,
  *     AllowHeaders: [ // HeadersList
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     AllowMethods: [ // AllowMethodsList
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     AllowOrigins: [ // AllowOriginsList
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     ExposeHeaders: [
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
- *     MaxAge: Number("int"),
+ *     MaxAge: Number('int'),
  *   },
- *   InvokeMode: "BUFFERED" || "RESPONSE_STREAM",
+ *   InvokeMode: 'BUFFERED' || 'RESPONSE_STREAM',
  * };
  * const command = new CreateFunctionUrlConfigCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateFunctionUrlConfigResponse
+ *   FunctionUrl: 'STRING_VALUE', // required
+ *   FunctionArn: 'STRING_VALUE', // required
+ *   AuthType: 'NONE' || 'AWS_IAM', // required
+ *   Cors: { // Cors
+ *     AllowCredentials: true || false,
+ *     AllowHeaders: [ // HeadersList
+ *       'STRING_VALUE',
+ *     ],
+ *     AllowMethods: [ // AllowMethodsList
+ *       'STRING_VALUE',
+ *     ],
+ *     AllowOrigins: [ // AllowOriginsList
+ *       'STRING_VALUE',
+ *     ],
+ *     ExposeHeaders: [
+ *       'STRING_VALUE',
+ *     ],
+ *     MaxAge: Number('int'),
+ *   },
+ *   CreationTime: 'STRING_VALUE', // required
+ *   InvokeMode: 'BUFFERED' || 'RESPONSE_STREAM',
+ * };
+ *
  * ```
  *
  * @param CreateFunctionUrlConfigCommandInput - {@link CreateFunctionUrlConfigCommandInput}
@@ -87,6 +112,8 @@ export interface CreateFunctionUrlConfigCommandOutput extends CreateFunctionUrlC
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>The request throughput limit was exceeded. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests">Lambda quotas</a>.</p>
  *
+ * @throws {@link LambdaServiceException}
+ * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
  */
 export class CreateFunctionUrlConfigCommand extends $Command<

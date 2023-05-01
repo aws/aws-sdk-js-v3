@@ -40,19 +40,31 @@ export interface DescribeInstanceHealthCommandOutput extends DescribeEndPointSta
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElasticLoadBalancingClient, DescribeInstanceHealthCommand } from "@aws-sdk/client-elastic-load-balancing"; // ES Modules import
- * // const { ElasticLoadBalancingClient, DescribeInstanceHealthCommand } = require("@aws-sdk/client-elastic-load-balancing"); // CommonJS import
+ * import { ElasticLoadBalancingClient, DescribeInstanceHealthCommand } from '@aws-sdk/client-elastic-load-balancing'; // ES Modules import
+ * // const { ElasticLoadBalancingClient, DescribeInstanceHealthCommand } = require('@aws-sdk/client-elastic-load-balancing'); // CommonJS import
  * const client = new ElasticLoadBalancingClient(config);
  * const input = { // DescribeEndPointStateInput
- *   LoadBalancerName: "STRING_VALUE", // required
+ *   LoadBalancerName: 'STRING_VALUE', // required
  *   Instances: [ // Instances
  *     { // Instance
- *       InstanceId: "STRING_VALUE",
+ *       InstanceId: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new DescribeInstanceHealthCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeEndPointStateOutput
+ *   InstanceStates: [ // InstanceStates
+ *     { // InstanceState
+ *       InstanceId: 'STRING_VALUE',
+ *       State: 'STRING_VALUE',
+ *       ReasonCode: 'STRING_VALUE',
+ *       Description: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeInstanceHealthCommandInput - {@link DescribeInstanceHealthCommandInput}
@@ -67,6 +79,8 @@ export interface DescribeInstanceHealthCommandOutput extends DescribeEndPointSta
  * @throws {@link InvalidEndPointException} (client fault)
  *  <p>The specified endpoint is not valid.</p>
  *
+ * @throws {@link ElasticLoadBalancingServiceException}
+ * <p>Base exception class for all service exceptions from ElasticLoadBalancing service.</p>
  *
  * @example To describe the health of the instances for a load balancer
  * ```javascript

@@ -36,16 +36,22 @@ export interface UpdateBrokerCountCommandOutput extends UpdateBrokerCountRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KafkaClient, UpdateBrokerCountCommand } from "@aws-sdk/client-kafka"; // ES Modules import
- * // const { KafkaClient, UpdateBrokerCountCommand } = require("@aws-sdk/client-kafka"); // CommonJS import
+ * import { KafkaClient, UpdateBrokerCountCommand } from '@aws-sdk/client-kafka'; // ES Modules import
+ * // const { KafkaClient, UpdateBrokerCountCommand } = require('@aws-sdk/client-kafka'); // CommonJS import
  * const client = new KafkaClient(config);
  * const input = { // UpdateBrokerCountRequest
- *   ClusterArn: "STRING_VALUE", // required
- *   CurrentVersion: "STRING_VALUE", // required
- *   TargetNumberOfBrokerNodes: Number("int"), // required
+ *   ClusterArn: 'STRING_VALUE', // required
+ *   CurrentVersion: 'STRING_VALUE', // required
+ *   TargetNumberOfBrokerNodes: Number('int'), // required
  * };
  * const command = new UpdateBrokerCountCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateBrokerCountResponse
+ *   ClusterArn: 'STRING_VALUE',
+ *   ClusterOperationArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateBrokerCountCommandInput - {@link UpdateBrokerCountCommandInput}
@@ -69,6 +75,8 @@ export interface UpdateBrokerCountCommandOutput extends UpdateBrokerCountRespons
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>Returns information about an error.</p>
  *
+ * @throws {@link KafkaServiceException}
+ * <p>Base exception class for all service exceptions from Kafka service.</p>
  *
  */
 export class UpdateBrokerCountCommand extends $Command<

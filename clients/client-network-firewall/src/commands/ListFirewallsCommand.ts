@@ -39,18 +39,29 @@ export interface ListFirewallsCommandOutput extends ListFirewallsResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { NetworkFirewallClient, ListFirewallsCommand } from "@aws-sdk/client-network-firewall"; // ES Modules import
- * // const { NetworkFirewallClient, ListFirewallsCommand } = require("@aws-sdk/client-network-firewall"); // CommonJS import
+ * import { NetworkFirewallClient, ListFirewallsCommand } from '@aws-sdk/client-network-firewall'; // ES Modules import
+ * // const { NetworkFirewallClient, ListFirewallsCommand } = require('@aws-sdk/client-network-firewall'); // CommonJS import
  * const client = new NetworkFirewallClient(config);
  * const input = { // ListFirewallsRequest
- *   NextToken: "STRING_VALUE",
+ *   NextToken: 'STRING_VALUE',
  *   VpcIds: [ // VpcIds
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   MaxResults: Number("int"),
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListFirewallsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListFirewallsResponse
+ *   NextToken: 'STRING_VALUE',
+ *   Firewalls: [ // Firewalls
+ *     { // FirewallMetadata
+ *       FirewallName: 'STRING_VALUE',
+ *       FirewallArn: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListFirewallsCommandInput - {@link ListFirewallsCommandInput}
@@ -82,6 +93,8 @@ export interface ListFirewallsCommandOutput extends ListFirewallsResponse, __Met
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Unable to process the request due to throttling limitations.</p>
  *
+ * @throws {@link NetworkFirewallServiceException}
+ * <p>Base exception class for all service exceptions from NetworkFirewall service.</p>
  *
  */
 export class ListFirewallsCommand extends $Command<

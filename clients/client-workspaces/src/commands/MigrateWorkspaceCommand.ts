@@ -46,15 +46,21 @@ export interface MigrateWorkspaceCommandOutput extends MigrateWorkspaceResult, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkSpacesClient, MigrateWorkspaceCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
- * // const { WorkSpacesClient, MigrateWorkspaceCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
+ * import { WorkSpacesClient, MigrateWorkspaceCommand } from '@aws-sdk/client-workspaces'; // ES Modules import
+ * // const { WorkSpacesClient, MigrateWorkspaceCommand } = require('@aws-sdk/client-workspaces'); // CommonJS import
  * const client = new WorkSpacesClient(config);
  * const input = { // MigrateWorkspaceRequest
- *   SourceWorkspaceId: "STRING_VALUE", // required
- *   BundleId: "STRING_VALUE", // required
+ *   SourceWorkspaceId: 'STRING_VALUE', // required
+ *   BundleId: 'STRING_VALUE', // required
  * };
  * const command = new MigrateWorkspaceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // MigrateWorkspaceResult
+ *   SourceWorkspaceId: 'STRING_VALUE',
+ *   TargetWorkspaceId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param MigrateWorkspaceCommandInput - {@link MigrateWorkspaceCommandInput}
@@ -81,6 +87,8 @@ export interface MigrateWorkspaceCommandOutput extends MigrateWorkspaceResult, _
  * @throws {@link ResourceUnavailableException} (client fault)
  *  <p>The specified resource is not available.</p>
  *
+ * @throws {@link WorkSpacesServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
  */
 export class MigrateWorkspaceCommand extends $Command<

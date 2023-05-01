@@ -45,25 +45,39 @@ export interface GetTransitGatewayPolicyTableAssociationsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, GetTransitGatewayPolicyTableAssociationsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, GetTransitGatewayPolicyTableAssociationsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, GetTransitGatewayPolicyTableAssociationsCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, GetTransitGatewayPolicyTableAssociationsCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // GetTransitGatewayPolicyTableAssociationsRequest
- *   TransitGatewayPolicyTableId: "STRING_VALUE", // required
+ *   TransitGatewayPolicyTableId: 'STRING_VALUE', // required
  *   Filters: [ // FilterList
  *     { // Filter
- *       Name: "STRING_VALUE",
+ *       Name: 'STRING_VALUE',
  *       Values: [ // ValueStringList
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  *   DryRun: true || false,
  * };
  * const command = new GetTransitGatewayPolicyTableAssociationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetTransitGatewayPolicyTableAssociationsResult
+ *   Associations: [ // TransitGatewayPolicyTableAssociationList
+ *     { // TransitGatewayPolicyTableAssociation
+ *       TransitGatewayPolicyTableId: 'STRING_VALUE',
+ *       TransitGatewayAttachmentId: 'STRING_VALUE',
+ *       ResourceId: 'STRING_VALUE',
+ *       ResourceType: 'vpc' || 'vpn' || 'direct-connect-gateway' || 'connect' || 'peering' || 'tgw-peering',
+ *       State: 'associating' || 'associated' || 'disassociating' || 'disassociated',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetTransitGatewayPolicyTableAssociationsCommandInput - {@link GetTransitGatewayPolicyTableAssociationsCommandInput}
@@ -72,6 +86,8 @@ export interface GetTransitGatewayPolicyTableAssociationsCommandOutput
  * @see {@link GetTransitGatewayPolicyTableAssociationsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class GetTransitGatewayPolicyTableAssociationsCommand extends $Command<

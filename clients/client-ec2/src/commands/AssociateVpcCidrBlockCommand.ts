@@ -44,23 +44,46 @@ export interface AssociateVpcCidrBlockCommandOutput extends AssociateVpcCidrBloc
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, AssociateVpcCidrBlockCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, AssociateVpcCidrBlockCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, AssociateVpcCidrBlockCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, AssociateVpcCidrBlockCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // AssociateVpcCidrBlockRequest
  *   AmazonProvidedIpv6CidrBlock: true || false,
- *   CidrBlock: "STRING_VALUE",
- *   VpcId: "STRING_VALUE", // required
- *   Ipv6CidrBlockNetworkBorderGroup: "STRING_VALUE",
- *   Ipv6Pool: "STRING_VALUE",
- *   Ipv6CidrBlock: "STRING_VALUE",
- *   Ipv4IpamPoolId: "STRING_VALUE",
- *   Ipv4NetmaskLength: Number("int"),
- *   Ipv6IpamPoolId: "STRING_VALUE",
- *   Ipv6NetmaskLength: Number("int"),
+ *   CidrBlock: 'STRING_VALUE',
+ *   VpcId: 'STRING_VALUE', // required
+ *   Ipv6CidrBlockNetworkBorderGroup: 'STRING_VALUE',
+ *   Ipv6Pool: 'STRING_VALUE',
+ *   Ipv6CidrBlock: 'STRING_VALUE',
+ *   Ipv4IpamPoolId: 'STRING_VALUE',
+ *   Ipv4NetmaskLength: Number('int'),
+ *   Ipv6IpamPoolId: 'STRING_VALUE',
+ *   Ipv6NetmaskLength: Number('int'),
  * };
  * const command = new AssociateVpcCidrBlockCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AssociateVpcCidrBlockResult
+ *   Ipv6CidrBlockAssociation: { // VpcIpv6CidrBlockAssociation
+ *     AssociationId: 'STRING_VALUE',
+ *     Ipv6CidrBlock: 'STRING_VALUE',
+ *     Ipv6CidrBlockState: { // VpcCidrBlockState
+ *       State: 'associating' || 'associated' || 'disassociating' || 'disassociated' || 'failing' || 'failed',
+ *       StatusMessage: 'STRING_VALUE',
+ *     },
+ *     NetworkBorderGroup: 'STRING_VALUE',
+ *     Ipv6Pool: 'STRING_VALUE',
+ *   },
+ *   CidrBlockAssociation: { // VpcCidrBlockAssociation
+ *     AssociationId: 'STRING_VALUE',
+ *     CidrBlock: 'STRING_VALUE',
+ *     CidrBlockState: {
+ *       State: 'associating' || 'associated' || 'disassociating' || 'disassociated' || 'failing' || 'failed',
+ *       StatusMessage: 'STRING_VALUE',
+ *     },
+ *   },
+ *   VpcId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param AssociateVpcCidrBlockCommandInput - {@link AssociateVpcCidrBlockCommandInput}
@@ -69,6 +92,8 @@ export interface AssociateVpcCidrBlockCommandOutput extends AssociateVpcCidrBloc
  * @see {@link AssociateVpcCidrBlockCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class AssociateVpcCidrBlockCommand extends $Command<

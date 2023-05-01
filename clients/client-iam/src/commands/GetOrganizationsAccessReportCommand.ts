@@ -56,17 +56,42 @@ export interface GetOrganizationsAccessReportCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IAMClient, GetOrganizationsAccessReportCommand } from "@aws-sdk/client-iam"; // ES Modules import
- * // const { IAMClient, GetOrganizationsAccessReportCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * import { IAMClient, GetOrganizationsAccessReportCommand } from '@aws-sdk/client-iam'; // ES Modules import
+ * // const { IAMClient, GetOrganizationsAccessReportCommand } = require('@aws-sdk/client-iam'); // CommonJS import
  * const client = new IAMClient(config);
  * const input = { // GetOrganizationsAccessReportRequest
- *   JobId: "STRING_VALUE", // required
- *   MaxItems: Number("int"),
- *   Marker: "STRING_VALUE",
- *   SortKey: "SERVICE_NAMESPACE_ASCENDING" || "SERVICE_NAMESPACE_DESCENDING" || "LAST_AUTHENTICATED_TIME_ASCENDING" || "LAST_AUTHENTICATED_TIME_DESCENDING",
+ *   JobId: 'STRING_VALUE', // required
+ *   MaxItems: Number('int'),
+ *   Marker: 'STRING_VALUE',
+ *   SortKey: 'SERVICE_NAMESPACE_ASCENDING' || 'SERVICE_NAMESPACE_DESCENDING' || 'LAST_AUTHENTICATED_TIME_ASCENDING' || 'LAST_AUTHENTICATED_TIME_DESCENDING',
  * };
  * const command = new GetOrganizationsAccessReportCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetOrganizationsAccessReportResponse
+ *   JobStatus: 'IN_PROGRESS' || 'COMPLETED' || 'FAILED', // required
+ *   JobCreationDate: new Date('TIMESTAMP'), // required
+ *   JobCompletionDate: new Date('TIMESTAMP'),
+ *   NumberOfServicesAccessible: Number('int'),
+ *   NumberOfServicesNotAccessed: Number('int'),
+ *   AccessDetails: [ // AccessDetails
+ *     { // AccessDetail
+ *       ServiceName: 'STRING_VALUE', // required
+ *       ServiceNamespace: 'STRING_VALUE', // required
+ *       Region: 'STRING_VALUE',
+ *       EntityPath: 'STRING_VALUE',
+ *       LastAuthenticatedTime: new Date('TIMESTAMP'),
+ *       TotalAuthenticatedEntities: Number('int'),
+ *     },
+ *   ],
+ *   IsTruncated: true || false,
+ *   Marker: 'STRING_VALUE',
+ *   ErrorDetails: { // ErrorDetails
+ *     Message: 'STRING_VALUE', // required
+ *     Code: 'STRING_VALUE', // required
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetOrganizationsAccessReportCommandInput - {@link GetOrganizationsAccessReportCommandInput}
@@ -79,6 +104,8 @@ export interface GetOrganizationsAccessReportCommandOutput
  *  <p>The request was rejected because it referenced a resource entity that does not exist. The
  *       error message describes the resource.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  * @example To get details from a previously generated organizational unit report
  * ```javascript

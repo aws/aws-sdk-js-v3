@@ -36,28 +36,44 @@ export interface ListBotsCommandOutput extends ListBotsResponse, __MetadataBeare
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LexModelsV2Client, ListBotsCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
- * // const { LexModelsV2Client, ListBotsCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
+ * import { LexModelsV2Client, ListBotsCommand } from '@aws-sdk/client-lex-models-v2'; // ES Modules import
+ * // const { LexModelsV2Client, ListBotsCommand } = require('@aws-sdk/client-lex-models-v2'); // CommonJS import
  * const client = new LexModelsV2Client(config);
  * const input = { // ListBotsRequest
  *   sortBy: { // BotSortBy
- *     attribute: "BotName", // required
- *     order: "Ascending" || "Descending", // required
+ *     attribute: 'BotName', // required
+ *     order: 'Ascending' || 'Descending', // required
  *   },
  *   filters: [ // BotFilters
  *     { // BotFilter
- *       name: "BotName" || "BotType", // required
+ *       name: 'BotName' || 'BotType', // required
  *       values: [ // FilterValues // required
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
- *       operator: "CO" || "EQ" || "NE", // required
+ *       operator: 'CO' || 'EQ' || 'NE', // required
  *     },
  *   ],
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new ListBotsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListBotsResponse
+ *   botSummaries: [ // BotSummaryList
+ *     { // BotSummary
+ *       botId: 'STRING_VALUE',
+ *       botName: 'STRING_VALUE',
+ *       description: 'STRING_VALUE',
+ *       botStatus: 'Creating' || 'Available' || 'Inactive' || 'Deleting' || 'Failed' || 'Versioning' || 'Importing' || 'Updating',
+ *       latestBotVersion: 'STRING_VALUE',
+ *       lastUpdatedDateTime: new Date('TIMESTAMP'),
+ *       botType: 'Bot' || 'BotNetwork',
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListBotsCommandInput - {@link ListBotsCommandInput}
@@ -81,6 +97,8 @@ export interface ListBotsCommandOutput extends ListBotsResponse, __MetadataBeare
  *  <p>One of the input parameters in your request isn't valid. Check the
  *          parameters and try your request again.</p>
  *
+ * @throws {@link LexModelsV2ServiceException}
+ * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
  */
 export class ListBotsCommand extends $Command<

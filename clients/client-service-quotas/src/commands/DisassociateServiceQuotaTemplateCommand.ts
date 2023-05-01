@@ -43,12 +43,15 @@ export interface DisassociateServiceQuotaTemplateCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ServiceQuotasClient, DisassociateServiceQuotaTemplateCommand } from "@aws-sdk/client-service-quotas"; // ES Modules import
- * // const { ServiceQuotasClient, DisassociateServiceQuotaTemplateCommand } = require("@aws-sdk/client-service-quotas"); // CommonJS import
+ * import { ServiceQuotasClient, DisassociateServiceQuotaTemplateCommand } from '@aws-sdk/client-service-quotas'; // ES Modules import
+ * // const { ServiceQuotasClient, DisassociateServiceQuotaTemplateCommand } = require('@aws-sdk/client-service-quotas'); // CommonJS import
  * const client = new ServiceQuotasClient(config);
  * const input = {};
  * const command = new DisassociateServiceQuotaTemplateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DisassociateServiceQuotaTemplateCommandInput - {@link DisassociateServiceQuotaTemplateCommandInput}
@@ -83,6 +86,8 @@ export interface DisassociateServiceQuotaTemplateCommandOutput
  *  <p>Due to throttling, the request was denied. Slow down the rate of request calls, or request
  *       an increase for this quota.</p>
  *
+ * @throws {@link ServiceQuotasServiceException}
+ * <p>Base exception class for all service exceptions from ServiceQuotas service.</p>
  *
  */
 export class DisassociateServiceQuotaTemplateCommand extends $Command<

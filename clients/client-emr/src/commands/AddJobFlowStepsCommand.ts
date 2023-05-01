@@ -54,34 +54,41 @@ export interface AddJobFlowStepsCommandOutput extends AddJobFlowStepsOutput, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EMRClient, AddJobFlowStepsCommand } from "@aws-sdk/client-emr"; // ES Modules import
- * // const { EMRClient, AddJobFlowStepsCommand } = require("@aws-sdk/client-emr"); // CommonJS import
+ * import { EMRClient, AddJobFlowStepsCommand } from '@aws-sdk/client-emr'; // ES Modules import
+ * // const { EMRClient, AddJobFlowStepsCommand } = require('@aws-sdk/client-emr'); // CommonJS import
  * const client = new EMRClient(config);
  * const input = { // AddJobFlowStepsInput
- *   JobFlowId: "STRING_VALUE", // required
+ *   JobFlowId: 'STRING_VALUE', // required
  *   Steps: [ // StepConfigList // required
  *     { // StepConfig
- *       Name: "STRING_VALUE", // required
- *       ActionOnFailure: "TERMINATE_JOB_FLOW" || "TERMINATE_CLUSTER" || "CANCEL_AND_WAIT" || "CONTINUE",
+ *       Name: 'STRING_VALUE', // required
+ *       ActionOnFailure: 'TERMINATE_JOB_FLOW' || 'TERMINATE_CLUSTER' || 'CANCEL_AND_WAIT' || 'CONTINUE',
  *       HadoopJarStep: { // HadoopJarStepConfig
  *         Properties: [ // KeyValueList
  *           { // KeyValue
- *             Key: "STRING_VALUE",
- *             Value: "STRING_VALUE",
+ *             Key: 'STRING_VALUE',
+ *             Value: 'STRING_VALUE',
  *           },
  *         ],
- *         Jar: "STRING_VALUE", // required
- *         MainClass: "STRING_VALUE",
+ *         Jar: 'STRING_VALUE', // required
+ *         MainClass: 'STRING_VALUE',
  *         Args: [ // XmlStringList
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
  *       },
  *     },
  *   ],
- *   ExecutionRoleArn: "STRING_VALUE",
+ *   ExecutionRoleArn: 'STRING_VALUE',
  * };
  * const command = new AddJobFlowStepsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AddJobFlowStepsOutput
+ *   StepIds: [ // StepIdsList
+ *     'STRING_VALUE',
+ *   ],
+ * };
+ *
  * ```
  *
  * @param AddJobFlowStepsCommandInput - {@link AddJobFlowStepsCommandInput}
@@ -94,6 +101,8 @@ export interface AddJobFlowStepsCommandOutput extends AddJobFlowStepsOutput, __M
  *  <p>Indicates that an error occurred while processing the request and that the request was
  *          not completed.</p>
  *
+ * @throws {@link EMRServiceException}
+ * <p>Base exception class for all service exceptions from EMR service.</p>
  *
  */
 export class AddJobFlowStepsCommand extends $Command<

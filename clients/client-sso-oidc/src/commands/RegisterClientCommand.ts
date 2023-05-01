@@ -37,18 +37,28 @@ export interface RegisterClientCommandOutput extends RegisterClientResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSOOIDCClient, RegisterClientCommand } from "@aws-sdk/client-sso-oidc"; // ES Modules import
- * // const { SSOOIDCClient, RegisterClientCommand } = require("@aws-sdk/client-sso-oidc"); // CommonJS import
+ * import { SSOOIDCClient, RegisterClientCommand } from '@aws-sdk/client-sso-oidc'; // ES Modules import
+ * // const { SSOOIDCClient, RegisterClientCommand } = require('@aws-sdk/client-sso-oidc'); // CommonJS import
  * const client = new SSOOIDCClient(config);
  * const input = { // RegisterClientRequest
- *   clientName: "STRING_VALUE", // required
- *   clientType: "STRING_VALUE", // required
+ *   clientName: 'STRING_VALUE', // required
+ *   clientType: 'STRING_VALUE', // required
  *   scopes: [ // Scopes
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new RegisterClientCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // RegisterClientResponse
+ *   clientId: 'STRING_VALUE',
+ *   clientSecret: 'STRING_VALUE',
+ *   clientIdIssuedAt: Number('long'),
+ *   clientSecretExpiresAt: Number('long'),
+ *   authorizationEndpoint: 'STRING_VALUE',
+ *   tokenEndpoint: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param RegisterClientCommandInput - {@link RegisterClientCommandInput}
@@ -72,6 +82,8 @@ export interface RegisterClientCommandOutput extends RegisterClientResponse, __M
  * @throws {@link InvalidScopeException} (client fault)
  *  <p>Indicates that the scope provided in the request is invalid.</p>
  *
+ * @throws {@link SSOOIDCServiceException}
+ * <p>Base exception class for all service exceptions from SSOOIDC service.</p>
  *
  */
 export class RegisterClientCommand extends $Command<

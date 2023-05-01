@@ -36,34 +36,43 @@ export interface CreateCampaignCommandOutput extends CreateCampaignResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectCampaignsClient, CreateCampaignCommand } from "@aws-sdk/client-connectcampaigns"; // ES Modules import
- * // const { ConnectCampaignsClient, CreateCampaignCommand } = require("@aws-sdk/client-connectcampaigns"); // CommonJS import
+ * import { ConnectCampaignsClient, CreateCampaignCommand } from '@aws-sdk/client-connectcampaigns'; // ES Modules import
+ * // const { ConnectCampaignsClient, CreateCampaignCommand } = require('@aws-sdk/client-connectcampaigns'); // CommonJS import
  * const client = new ConnectCampaignsClient(config);
  * const input = { // CreateCampaignRequest
- *   name: "STRING_VALUE", // required
- *   connectInstanceId: "STRING_VALUE", // required
+ *   name: 'STRING_VALUE', // required
+ *   connectInstanceId: 'STRING_VALUE', // required
  *   dialerConfig: { // DialerConfig Union: only one key present
  *     progressiveDialerConfig: { // ProgressiveDialerConfig
- *       bandwidthAllocation: Number("double"), // required
+ *       bandwidthAllocation: Number('double'), // required
  *     },
  *     predictiveDialerConfig: { // PredictiveDialerConfig
- *       bandwidthAllocation: Number("double"), // required
+ *       bandwidthAllocation: Number('double'), // required
  *     },
  *   },
  *   outboundCallConfig: { // OutboundCallConfig
- *     connectContactFlowId: "STRING_VALUE", // required
- *     connectSourcePhoneNumber: "STRING_VALUE",
- *     connectQueueId: "STRING_VALUE", // required
+ *     connectContactFlowId: 'STRING_VALUE', // required
+ *     connectSourcePhoneNumber: 'STRING_VALUE',
+ *     connectQueueId: 'STRING_VALUE', // required
  *     answerMachineDetectionConfig: { // AnswerMachineDetectionConfig
  *       enableAnswerMachineDetection: true || false, // required
  *     },
  *   },
  *   tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateCampaignCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateCampaignResponse
+ *   id: 'STRING_VALUE',
+ *   arn: 'STRING_VALUE',
+ *   tags: { // TagMap
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateCampaignCommandInput - {@link CreateCampaignCommandInput}
@@ -93,6 +102,8 @@ export interface CreateCampaignCommandOutput extends CreateCampaignResponse, __M
  * @throws {@link ValidationException} (client fault)
  *  The input fails to satisfy the constraints specified by an AWS service.
  *
+ * @throws {@link ConnectCampaignsServiceException}
+ * <p>Base exception class for all service exceptions from ConnectCampaigns service.</p>
  *
  */
 export class CreateCampaignCommand extends $Command<

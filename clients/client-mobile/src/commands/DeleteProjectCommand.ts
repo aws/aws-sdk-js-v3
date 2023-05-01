@@ -38,14 +38,40 @@ export interface DeleteProjectCommandOutput extends DeleteProjectResult, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MobileClient, DeleteProjectCommand } from "@aws-sdk/client-mobile"; // ES Modules import
- * // const { MobileClient, DeleteProjectCommand } = require("@aws-sdk/client-mobile"); // CommonJS import
+ * import { MobileClient, DeleteProjectCommand } from '@aws-sdk/client-mobile'; // ES Modules import
+ * // const { MobileClient, DeleteProjectCommand } = require('@aws-sdk/client-mobile'); // CommonJS import
  * const client = new MobileClient(config);
  * const input = { // DeleteProjectRequest
- *   projectId: "STRING_VALUE", // required
+ *   projectId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteProjectCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteProjectResult
+ *   deletedResources: [ // Resources
+ *     { // Resource
+ *       type: 'STRING_VALUE',
+ *       name: 'STRING_VALUE',
+ *       arn: 'STRING_VALUE',
+ *       feature: 'STRING_VALUE',
+ *       attributes: { // Attributes
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ *   orphanedResources: [
+ *     {
+ *       type: 'STRING_VALUE',
+ *       name: 'STRING_VALUE',
+ *       arn: 'STRING_VALUE',
+ *       feature: 'STRING_VALUE',
+ *       attributes: {
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DeleteProjectCommandInput - {@link DeleteProjectCommandInput}
@@ -82,6 +108,8 @@ export interface DeleteProjectCommandOutput extends DeleteProjectResult, __Metad
  *             Credentials of the caller are insufficient to authorize the request.
  *         </p>
  *
+ * @throws {@link MobileServiceException}
+ * <p>Base exception class for all service exceptions from Mobile service.</p>
  *
  */
 export class DeleteProjectCommand extends $Command<

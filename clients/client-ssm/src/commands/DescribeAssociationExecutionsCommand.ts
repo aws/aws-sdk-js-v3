@@ -41,23 +41,54 @@ export interface DescribeAssociationExecutionsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMClient, DescribeAssociationExecutionsCommand } from "@aws-sdk/client-ssm"; // ES Modules import
- * // const { SSMClient, DescribeAssociationExecutionsCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * import { SSMClient, DescribeAssociationExecutionsCommand } from '@aws-sdk/client-ssm'; // ES Modules import
+ * // const { SSMClient, DescribeAssociationExecutionsCommand } = require('@aws-sdk/client-ssm'); // CommonJS import
  * const client = new SSMClient(config);
  * const input = { // DescribeAssociationExecutionsRequest
- *   AssociationId: "STRING_VALUE", // required
+ *   AssociationId: 'STRING_VALUE', // required
  *   Filters: [ // AssociationExecutionFilterList
  *     { // AssociationExecutionFilter
- *       Key: "ExecutionId" || "Status" || "CreatedTime", // required
- *       Value: "STRING_VALUE", // required
- *       Type: "EQUAL" || "LESS_THAN" || "GREATER_THAN", // required
+ *       Key: 'ExecutionId' || 'Status' || 'CreatedTime', // required
+ *       Value: 'STRING_VALUE', // required
+ *       Type: 'EQUAL' || 'LESS_THAN' || 'GREATER_THAN', // required
  *     },
  *   ],
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new DescribeAssociationExecutionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeAssociationExecutionsResult
+ *   AssociationExecutions: [ // AssociationExecutionsList
+ *     { // AssociationExecution
+ *       AssociationId: 'STRING_VALUE',
+ *       AssociationVersion: 'STRING_VALUE',
+ *       ExecutionId: 'STRING_VALUE',
+ *       Status: 'STRING_VALUE',
+ *       DetailedStatus: 'STRING_VALUE',
+ *       CreatedTime: new Date('TIMESTAMP'),
+ *       LastExecutionDate: new Date('TIMESTAMP'),
+ *       ResourceCountByStatus: 'STRING_VALUE',
+ *       AlarmConfiguration: { // AlarmConfiguration
+ *         IgnorePollAlarmFailure: true || false,
+ *         Alarms: [ // AlarmList // required
+ *           { // Alarm
+ *             Name: 'STRING_VALUE', // required
+ *           },
+ *         ],
+ *       },
+ *       TriggeredAlarms: [ // AlarmStateInformationList
+ *         { // AlarmStateInformation
+ *           Name: 'STRING_VALUE', // required
+ *           State: 'UNKNOWN' || 'ALARM', // required
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeAssociationExecutionsCommandInput - {@link DescribeAssociationExecutionsCommandInput}
@@ -75,6 +106,8 @@ export interface DescribeAssociationExecutionsCommandOutput
  * @throws {@link InvalidNextToken} (client fault)
  *  <p>The specified token isn't valid.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class DescribeAssociationExecutionsCommand extends $Command<

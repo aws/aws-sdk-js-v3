@@ -38,18 +38,29 @@ export interface StartWorkspacesCommandOutput extends StartWorkspacesResult, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkSpacesClient, StartWorkspacesCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
- * // const { WorkSpacesClient, StartWorkspacesCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
+ * import { WorkSpacesClient, StartWorkspacesCommand } from '@aws-sdk/client-workspaces'; // ES Modules import
+ * // const { WorkSpacesClient, StartWorkspacesCommand } = require('@aws-sdk/client-workspaces'); // CommonJS import
  * const client = new WorkSpacesClient(config);
  * const input = { // StartWorkspacesRequest
  *   StartWorkspaceRequests: [ // StartWorkspaceRequests // required
  *     { // StartRequest
- *       WorkspaceId: "STRING_VALUE",
+ *       WorkspaceId: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new StartWorkspacesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartWorkspacesResult
+ *   FailedRequests: [ // FailedStartWorkspaceRequests
+ *     { // FailedWorkspaceChangeRequest
+ *       WorkspaceId: 'STRING_VALUE',
+ *       ErrorCode: 'STRING_VALUE',
+ *       ErrorMessage: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param StartWorkspacesCommandInput - {@link StartWorkspacesCommandInput}
@@ -58,6 +69,8 @@ export interface StartWorkspacesCommandOutput extends StartWorkspacesResult, __M
  * @see {@link StartWorkspacesCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
  *
+ * @throws {@link WorkSpacesServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
  */
 export class StartWorkspacesCommand extends $Command<

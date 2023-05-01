@@ -36,16 +36,34 @@ export interface ListDashboardsCommandOutput extends ListDashboardsResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { QuickSightClient, ListDashboardsCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
- * // const { QuickSightClient, ListDashboardsCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * import { QuickSightClient, ListDashboardsCommand } from '@aws-sdk/client-quicksight'; // ES Modules import
+ * // const { QuickSightClient, ListDashboardsCommand } = require('@aws-sdk/client-quicksight'); // CommonJS import
  * const client = new QuickSightClient(config);
  * const input = { // ListDashboardsRequest
- *   AwsAccountId: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   AwsAccountId: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListDashboardsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListDashboardsResponse
+ *   DashboardSummaryList: [ // DashboardSummaryList
+ *     { // DashboardSummary
+ *       Arn: 'STRING_VALUE',
+ *       DashboardId: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *       CreatedTime: new Date('TIMESTAMP'),
+ *       LastUpdatedTime: new Date('TIMESTAMP'),
+ *       PublishedVersionNumber: Number('long'),
+ *       LastPublishedTime: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ *   Status: Number('int'),
+ *   RequestId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListDashboardsCommandInput - {@link ListDashboardsCommandInput}
@@ -69,6 +87,8 @@ export interface ListDashboardsCommandOutput extends ListDashboardsResponse, __M
  * 			Amazon QuickSight currently has Standard Edition and Enterprise Edition. Not every operation and
  * 			capability is available in every edition.</p>
  *
+ * @throws {@link QuickSightServiceException}
+ * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
 export class ListDashboardsCommand extends $Command<

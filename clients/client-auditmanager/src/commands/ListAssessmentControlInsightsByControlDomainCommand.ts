@@ -52,17 +52,35 @@ export interface ListAssessmentControlInsightsByControlDomainCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AuditManagerClient, ListAssessmentControlInsightsByControlDomainCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
- * // const { AuditManagerClient, ListAssessmentControlInsightsByControlDomainCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import
+ * import { AuditManagerClient, ListAssessmentControlInsightsByControlDomainCommand } from '@aws-sdk/client-auditmanager'; // ES Modules import
+ * // const { AuditManagerClient, ListAssessmentControlInsightsByControlDomainCommand } = require('@aws-sdk/client-auditmanager'); // CommonJS import
  * const client = new AuditManagerClient(config);
  * const input = { // ListAssessmentControlInsightsByControlDomainRequest
- *   controlDomainId: "STRING_VALUE", // required
- *   assessmentId: "STRING_VALUE", // required
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   controlDomainId: 'STRING_VALUE', // required
+ *   assessmentId: 'STRING_VALUE', // required
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new ListAssessmentControlInsightsByControlDomainCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListAssessmentControlInsightsByControlDomainResponse
+ *   controlInsightsByAssessment: [ // ControlInsightsMetadataByAssessment
+ *     { // ControlInsightsMetadataByAssessmentItem
+ *       name: 'STRING_VALUE',
+ *       id: 'STRING_VALUE',
+ *       evidenceInsights: { // EvidenceInsights
+ *         noncompliantEvidenceCount: Number('int'),
+ *         compliantEvidenceCount: Number('int'),
+ *         inconclusiveEvidenceCount: Number('int'),
+ *       },
+ *       controlSetName: 'STRING_VALUE',
+ *       lastUpdated: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListAssessmentControlInsightsByControlDomainCommandInput - {@link ListAssessmentControlInsightsByControlDomainCommandInput}
@@ -85,6 +103,8 @@ export interface ListAssessmentControlInsightsByControlDomainCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p> The request has invalid or missing parameters. </p>
  *
+ * @throws {@link AuditManagerServiceException}
+ * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
  */
 export class ListAssessmentControlInsightsByControlDomainCommand extends $Command<

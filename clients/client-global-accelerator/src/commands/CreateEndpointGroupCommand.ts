@@ -41,35 +41,64 @@ export interface CreateEndpointGroupCommandOutput extends CreateEndpointGroupRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlobalAcceleratorClient, CreateEndpointGroupCommand } from "@aws-sdk/client-global-accelerator"; // ES Modules import
- * // const { GlobalAcceleratorClient, CreateEndpointGroupCommand } = require("@aws-sdk/client-global-accelerator"); // CommonJS import
+ * import { GlobalAcceleratorClient, CreateEndpointGroupCommand } from '@aws-sdk/client-global-accelerator'; // ES Modules import
+ * // const { GlobalAcceleratorClient, CreateEndpointGroupCommand } = require('@aws-sdk/client-global-accelerator'); // CommonJS import
  * const client = new GlobalAcceleratorClient(config);
  * const input = { // CreateEndpointGroupRequest
- *   ListenerArn: "STRING_VALUE", // required
- *   EndpointGroupRegion: "STRING_VALUE", // required
+ *   ListenerArn: 'STRING_VALUE', // required
+ *   EndpointGroupRegion: 'STRING_VALUE', // required
  *   EndpointConfigurations: [ // EndpointConfigurations
  *     { // EndpointConfiguration
- *       EndpointId: "STRING_VALUE",
- *       Weight: Number("int"),
+ *       EndpointId: 'STRING_VALUE',
+ *       Weight: Number('int'),
  *       ClientIPPreservationEnabled: true || false,
  *     },
  *   ],
- *   TrafficDialPercentage: Number("float"),
- *   HealthCheckPort: Number("int"),
- *   HealthCheckProtocol: "TCP" || "HTTP" || "HTTPS",
- *   HealthCheckPath: "STRING_VALUE",
- *   HealthCheckIntervalSeconds: Number("int"),
- *   ThresholdCount: Number("int"),
- *   IdempotencyToken: "STRING_VALUE", // required
+ *   TrafficDialPercentage: Number('float'),
+ *   HealthCheckPort: Number('int'),
+ *   HealthCheckProtocol: 'TCP' || 'HTTP' || 'HTTPS',
+ *   HealthCheckPath: 'STRING_VALUE',
+ *   HealthCheckIntervalSeconds: Number('int'),
+ *   ThresholdCount: Number('int'),
+ *   IdempotencyToken: 'STRING_VALUE', // required
  *   PortOverrides: [ // PortOverrides
  *     { // PortOverride
- *       ListenerPort: Number("int"),
- *       EndpointPort: Number("int"),
+ *       ListenerPort: Number('int'),
+ *       EndpointPort: Number('int'),
  *     },
  *   ],
  * };
  * const command = new CreateEndpointGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateEndpointGroupResponse
+ *   EndpointGroup: { // EndpointGroup
+ *     EndpointGroupArn: 'STRING_VALUE',
+ *     EndpointGroupRegion: 'STRING_VALUE',
+ *     EndpointDescriptions: [ // EndpointDescriptions
+ *       { // EndpointDescription
+ *         EndpointId: 'STRING_VALUE',
+ *         Weight: Number('int'),
+ *         HealthState: 'INITIAL' || 'HEALTHY' || 'UNHEALTHY',
+ *         HealthReason: 'STRING_VALUE',
+ *         ClientIPPreservationEnabled: true || false,
+ *       },
+ *     ],
+ *     TrafficDialPercentage: Number('float'),
+ *     HealthCheckPort: Number('int'),
+ *     HealthCheckProtocol: 'TCP' || 'HTTP' || 'HTTPS',
+ *     HealthCheckPath: 'STRING_VALUE',
+ *     HealthCheckIntervalSeconds: Number('int'),
+ *     ThresholdCount: Number('int'),
+ *     PortOverrides: [ // PortOverrides
+ *       { // PortOverride
+ *         ListenerPort: Number('int'),
+ *         EndpointPort: Number('int'),
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateEndpointGroupCommandInput - {@link CreateEndpointGroupCommandInput}
@@ -99,6 +128,8 @@ export interface CreateEndpointGroupCommandOutput extends CreateEndpointGroupRes
  * @throws {@link ListenerNotFoundException} (client fault)
  *  <p>The listener that you specified doesn't exist.</p>
  *
+ * @throws {@link GlobalAcceleratorServiceException}
+ * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
  */
 export class CreateEndpointGroupCommand extends $Command<

@@ -39,22 +39,27 @@ export interface CreateIPSetCommandOutput extends CreateIPSetResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GuardDutyClient, CreateIPSetCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
- * // const { GuardDutyClient, CreateIPSetCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
+ * import { GuardDutyClient, CreateIPSetCommand } from '@aws-sdk/client-guardduty'; // ES Modules import
+ * // const { GuardDutyClient, CreateIPSetCommand } = require('@aws-sdk/client-guardduty'); // CommonJS import
  * const client = new GuardDutyClient(config);
  * const input = { // CreateIPSetRequest
- *   DetectorId: "STRING_VALUE", // required
- *   Name: "STRING_VALUE", // required
- *   Format: "TXT" || "STIX" || "OTX_CSV" || "ALIEN_VAULT" || "PROOF_POINT" || "FIRE_EYE", // required
- *   Location: "STRING_VALUE", // required
+ *   DetectorId: 'STRING_VALUE', // required
+ *   Name: 'STRING_VALUE', // required
+ *   Format: 'TXT' || 'STIX' || 'OTX_CSV' || 'ALIEN_VAULT' || 'PROOF_POINT' || 'FIRE_EYE', // required
+ *   Location: 'STRING_VALUE', // required
  *   Activate: true || false, // required
- *   ClientToken: "STRING_VALUE",
+ *   ClientToken: 'STRING_VALUE',
  *   Tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateIPSetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateIPSetResponse
+ *   IpSetId: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param CreateIPSetCommandInput - {@link CreateIPSetCommandInput}
@@ -69,6 +74,8 @@ export interface CreateIPSetCommandOutput extends CreateIPSetResponse, __Metadat
  * @throws {@link InternalServerErrorException} (server fault)
  *  <p>An internal server error exception object.</p>
  *
+ * @throws {@link GuardDutyServiceException}
+ * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
  */
 export class CreateIPSetCommand extends $Command<

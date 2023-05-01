@@ -41,15 +41,20 @@ export interface UpdateChannelReadMarkerCommandOutput extends UpdateChannelReadM
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeClient, UpdateChannelReadMarkerCommand } from "@aws-sdk/client-chime"; // ES Modules import
- * // const { ChimeClient, UpdateChannelReadMarkerCommand } = require("@aws-sdk/client-chime"); // CommonJS import
+ * import { ChimeClient, UpdateChannelReadMarkerCommand } from '@aws-sdk/client-chime'; // ES Modules import
+ * // const { ChimeClient, UpdateChannelReadMarkerCommand } = require('@aws-sdk/client-chime'); // CommonJS import
  * const client = new ChimeClient(config);
  * const input = { // UpdateChannelReadMarkerRequest
- *   ChannelArn: "STRING_VALUE", // required
- *   ChimeBearer: "STRING_VALUE",
+ *   ChannelArn: 'STRING_VALUE', // required
+ *   ChimeBearer: 'STRING_VALUE',
  * };
  * const command = new UpdateChannelReadMarkerCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateChannelReadMarkerResponse
+ *   ChannelArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateChannelReadMarkerCommandInput - {@link UpdateChannelReadMarkerCommandInput}
@@ -80,6 +85,8 @@ export interface UpdateChannelReadMarkerCommandOutput extends UpdateChannelReadM
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeServiceException}
+ * <p>Base exception class for all service exceptions from Chime service.</p>
  *
  */
 export class UpdateChannelReadMarkerCommand extends $Command<

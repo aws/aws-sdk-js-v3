@@ -38,14 +38,17 @@ export interface DeleteLocationCommandOutput extends DeleteLocationOutput, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GameLiftClient, DeleteLocationCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
- * // const { GameLiftClient, DeleteLocationCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
+ * import { GameLiftClient, DeleteLocationCommand } from '@aws-sdk/client-gamelift'; // ES Modules import
+ * // const { GameLiftClient, DeleteLocationCommand } = require('@aws-sdk/client-gamelift'); // CommonJS import
  * const client = new GameLiftClient(config);
  * const input = { // DeleteLocationInput
- *   LocationName: "STRING_VALUE", // required
+ *   LocationName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteLocationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteLocationCommandInput - {@link DeleteLocationCommandInput}
@@ -68,6 +71,8 @@ export interface DeleteLocationCommandOutput extends DeleteLocationOutput, __Met
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client failed authentication. Clients should not retry such requests.</p>
  *
+ * @throws {@link GameLiftServiceException}
+ * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
  */
 export class DeleteLocationCommand extends $Command<

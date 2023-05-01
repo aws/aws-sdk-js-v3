@@ -38,67 +38,72 @@ export interface CreateEntityRecognizerCommandOutput extends CreateEntityRecogni
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ComprehendClient, CreateEntityRecognizerCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
- * // const { ComprehendClient, CreateEntityRecognizerCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
+ * import { ComprehendClient, CreateEntityRecognizerCommand } from '@aws-sdk/client-comprehend'; // ES Modules import
+ * // const { ComprehendClient, CreateEntityRecognizerCommand } = require('@aws-sdk/client-comprehend'); // CommonJS import
  * const client = new ComprehendClient(config);
  * const input = { // CreateEntityRecognizerRequest
- *   RecognizerName: "STRING_VALUE", // required
- *   VersionName: "STRING_VALUE",
- *   DataAccessRoleArn: "STRING_VALUE", // required
+ *   RecognizerName: 'STRING_VALUE', // required
+ *   VersionName: 'STRING_VALUE',
+ *   DataAccessRoleArn: 'STRING_VALUE', // required
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
  *   InputDataConfig: { // EntityRecognizerInputDataConfig
- *     DataFormat: "COMPREHEND_CSV" || "AUGMENTED_MANIFEST",
+ *     DataFormat: 'COMPREHEND_CSV' || 'AUGMENTED_MANIFEST',
  *     EntityTypes: [ // EntityTypesList // required
  *       { // EntityTypesListItem
- *         Type: "STRING_VALUE", // required
+ *         Type: 'STRING_VALUE', // required
  *       },
  *     ],
  *     Documents: { // EntityRecognizerDocuments
- *       S3Uri: "STRING_VALUE", // required
- *       TestS3Uri: "STRING_VALUE",
- *       InputFormat: "ONE_DOC_PER_FILE" || "ONE_DOC_PER_LINE",
+ *       S3Uri: 'STRING_VALUE', // required
+ *       TestS3Uri: 'STRING_VALUE',
+ *       InputFormat: 'ONE_DOC_PER_FILE' || 'ONE_DOC_PER_LINE',
  *     },
  *     Annotations: { // EntityRecognizerAnnotations
- *       S3Uri: "STRING_VALUE", // required
- *       TestS3Uri: "STRING_VALUE",
+ *       S3Uri: 'STRING_VALUE', // required
+ *       TestS3Uri: 'STRING_VALUE',
  *     },
  *     EntityList: { // EntityRecognizerEntityList
- *       S3Uri: "STRING_VALUE", // required
+ *       S3Uri: 'STRING_VALUE', // required
  *     },
  *     AugmentedManifests: [ // EntityRecognizerAugmentedManifestsList
  *       { // AugmentedManifestsListItem
- *         S3Uri: "STRING_VALUE", // required
- *         Split: "TRAIN" || "TEST",
+ *         S3Uri: 'STRING_VALUE', // required
+ *         Split: 'TRAIN' || 'TEST',
  *         AttributeNames: [ // AttributeNamesList // required
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
- *         AnnotationDataS3Uri: "STRING_VALUE",
- *         SourceDocumentsS3Uri: "STRING_VALUE",
- *         DocumentType: "PLAIN_TEXT_DOCUMENT" || "SEMI_STRUCTURED_DOCUMENT",
+ *         AnnotationDataS3Uri: 'STRING_VALUE',
+ *         SourceDocumentsS3Uri: 'STRING_VALUE',
+ *         DocumentType: 'PLAIN_TEXT_DOCUMENT' || 'SEMI_STRUCTURED_DOCUMENT',
  *       },
  *     ],
  *   },
- *   ClientRequestToken: "STRING_VALUE",
- *   LanguageCode: "en" || "es" || "fr" || "de" || "it" || "pt" || "ar" || "hi" || "ja" || "ko" || "zh" || "zh-TW", // required
- *   VolumeKmsKeyId: "STRING_VALUE",
+ *   ClientRequestToken: 'STRING_VALUE',
+ *   LanguageCode: 'en' || 'es' || 'fr' || 'de' || 'it' || 'pt' || 'ar' || 'hi' || 'ja' || 'ko' || 'zh' || 'zh-TW', // required
+ *   VolumeKmsKeyId: 'STRING_VALUE',
  *   VpcConfig: { // VpcConfig
  *     SecurityGroupIds: [ // SecurityGroupIds // required
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     Subnets: [ // Subnets // required
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *   },
- *   ModelKmsKeyId: "STRING_VALUE",
- *   ModelPolicy: "STRING_VALUE",
+ *   ModelKmsKeyId: 'STRING_VALUE',
+ *   ModelPolicy: 'STRING_VALUE',
  * };
  * const command = new CreateEntityRecognizerCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateEntityRecognizerResponse
+ *   EntityRecognizerArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateEntityRecognizerCommandInput - {@link CreateEntityRecognizerCommandInput}
@@ -140,6 +145,8 @@ export interface CreateEntityRecognizerCommandOutput extends CreateEntityRecogni
  *       <a href="https://docs.aws.amazon.com/comprehend/latest/dg/supported-languages.html">Supported languages</a> in the Comprehend Developer Guide.
  *     </p>
  *
+ * @throws {@link ComprehendServiceException}
+ * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
  */
 export class CreateEntityRecognizerCommand extends $Command<

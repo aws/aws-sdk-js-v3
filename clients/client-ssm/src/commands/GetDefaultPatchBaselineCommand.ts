@@ -39,14 +39,20 @@ export interface GetDefaultPatchBaselineCommandOutput extends GetDefaultPatchBas
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMClient, GetDefaultPatchBaselineCommand } from "@aws-sdk/client-ssm"; // ES Modules import
- * // const { SSMClient, GetDefaultPatchBaselineCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * import { SSMClient, GetDefaultPatchBaselineCommand } from '@aws-sdk/client-ssm'; // ES Modules import
+ * // const { SSMClient, GetDefaultPatchBaselineCommand } = require('@aws-sdk/client-ssm'); // CommonJS import
  * const client = new SSMClient(config);
  * const input = { // GetDefaultPatchBaselineRequest
- *   OperatingSystem: "WINDOWS" || "AMAZON_LINUX" || "AMAZON_LINUX_2" || "AMAZON_LINUX_2022" || "UBUNTU" || "REDHAT_ENTERPRISE_LINUX" || "SUSE" || "CENTOS" || "ORACLE_LINUX" || "DEBIAN" || "MACOS" || "RASPBIAN" || "ROCKY_LINUX" || "ALMA_LINUX" || "AMAZON_LINUX_2023",
+ *   OperatingSystem: 'WINDOWS' || 'AMAZON_LINUX' || 'AMAZON_LINUX_2' || 'AMAZON_LINUX_2022' || 'UBUNTU' || 'REDHAT_ENTERPRISE_LINUX' || 'SUSE' || 'CENTOS' || 'ORACLE_LINUX' || 'DEBIAN' || 'MACOS' || 'RASPBIAN' || 'ROCKY_LINUX' || 'ALMA_LINUX' || 'AMAZON_LINUX_2023',
  * };
  * const command = new GetDefaultPatchBaselineCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetDefaultPatchBaselineResult
+ *   BaselineId: 'STRING_VALUE',
+ *   OperatingSystem: 'WINDOWS' || 'AMAZON_LINUX' || 'AMAZON_LINUX_2' || 'AMAZON_LINUX_2022' || 'UBUNTU' || 'REDHAT_ENTERPRISE_LINUX' || 'SUSE' || 'CENTOS' || 'ORACLE_LINUX' || 'DEBIAN' || 'MACOS' || 'RASPBIAN' || 'ROCKY_LINUX' || 'ALMA_LINUX' || 'AMAZON_LINUX_2023',
+ * };
+ *
  * ```
  *
  * @param GetDefaultPatchBaselineCommandInput - {@link GetDefaultPatchBaselineCommandInput}
@@ -58,6 +64,8 @@ export interface GetDefaultPatchBaselineCommandOutput extends GetDefaultPatchBas
  * @throws {@link InternalServerError} (server fault)
  *  <p>An error occurred on the server side.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class GetDefaultPatchBaselineCommand extends $Command<

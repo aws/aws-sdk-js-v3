@@ -37,14 +37,40 @@ export interface GetMonitorCommandOutput extends GetMonitorOutput, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { InternetMonitorClient, GetMonitorCommand } from "@aws-sdk/client-internetmonitor"; // ES Modules import
- * // const { InternetMonitorClient, GetMonitorCommand } = require("@aws-sdk/client-internetmonitor"); // CommonJS import
+ * import { InternetMonitorClient, GetMonitorCommand } from '@aws-sdk/client-internetmonitor'; // ES Modules import
+ * // const { InternetMonitorClient, GetMonitorCommand } = require('@aws-sdk/client-internetmonitor'); // CommonJS import
  * const client = new InternetMonitorClient(config);
  * const input = { // GetMonitorInput
- *   MonitorName: "STRING_VALUE", // required
+ *   MonitorName: 'STRING_VALUE', // required
  * };
  * const command = new GetMonitorCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetMonitorOutput
+ *   MonitorName: 'STRING_VALUE', // required
+ *   MonitorArn: 'STRING_VALUE', // required
+ *   Resources: [ // SetOfARNs // required
+ *     'STRING_VALUE',
+ *   ],
+ *   Status: 'STRING_VALUE', // required
+ *   CreatedAt: new Date('TIMESTAMP'), // required
+ *   ModifiedAt: new Date('TIMESTAMP'), // required
+ *   ProcessingStatus: 'STRING_VALUE',
+ *   ProcessingStatusInfo: 'STRING_VALUE',
+ *   Tags: { // TagMap
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ *   MaxCityNetworksToMonitor: Number('int'),
+ *   InternetMeasurementsLogDelivery: { // InternetMeasurementsLogDelivery
+ *     S3Config: { // S3Config
+ *       BucketName: 'STRING_VALUE',
+ *       BucketPrefix: 'STRING_VALUE',
+ *       LogDeliveryStatus: 'STRING_VALUE',
+ *     },
+ *   },
+ *   TrafficPercentageToMonitor: Number('int'),
+ * };
+ *
  * ```
  *
  * @param GetMonitorCommandInput - {@link GetMonitorCommandInput}
@@ -65,6 +91,8 @@ export interface GetMonitorCommandOutput extends GetMonitorOutput, __MetadataBea
  * @throws {@link ValidationException} (client fault)
  *  <p>Invalid request.</p>
  *
+ * @throws {@link InternetMonitorServiceException}
+ * <p>Base exception class for all service exceptions from InternetMonitor service.</p>
  *
  */
 export class GetMonitorCommand extends $Command<

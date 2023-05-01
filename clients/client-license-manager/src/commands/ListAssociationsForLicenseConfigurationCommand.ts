@@ -48,16 +48,30 @@ export interface ListAssociationsForLicenseConfigurationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LicenseManagerClient, ListAssociationsForLicenseConfigurationCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
- * // const { LicenseManagerClient, ListAssociationsForLicenseConfigurationCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
+ * import { LicenseManagerClient, ListAssociationsForLicenseConfigurationCommand } from '@aws-sdk/client-license-manager'; // ES Modules import
+ * // const { LicenseManagerClient, ListAssociationsForLicenseConfigurationCommand } = require('@aws-sdk/client-license-manager'); // CommonJS import
  * const client = new LicenseManagerClient(config);
  * const input = { // ListAssociationsForLicenseConfigurationRequest
- *   LicenseConfigurationArn: "STRING_VALUE", // required
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   LicenseConfigurationArn: 'STRING_VALUE', // required
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListAssociationsForLicenseConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListAssociationsForLicenseConfigurationResponse
+ *   LicenseConfigurationAssociations: [ // LicenseConfigurationAssociations
+ *     { // LicenseConfigurationAssociation
+ *       ResourceArn: 'STRING_VALUE',
+ *       ResourceType: 'EC2_INSTANCE' || 'EC2_HOST' || 'EC2_AMI' || 'RDS' || 'SYSTEMS_MANAGER_MANAGED_INSTANCE',
+ *       ResourceOwnerId: 'STRING_VALUE',
+ *       AssociationTime: new Date('TIMESTAMP'),
+ *       AmiAssociationScope: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListAssociationsForLicenseConfigurationCommandInput - {@link ListAssociationsForLicenseConfigurationCommandInput}
@@ -85,6 +99,8 @@ export interface ListAssociationsForLicenseConfigurationCommandOutput
  * @throws {@link ServerInternalException} (server fault)
  *  <p>The server experienced an internal error. Try again.</p>
  *
+ * @throws {@link LicenseManagerServiceException}
+ * <p>Base exception class for all service exceptions from LicenseManager service.</p>
  *
  */
 export class ListAssociationsForLicenseConfigurationCommand extends $Command<

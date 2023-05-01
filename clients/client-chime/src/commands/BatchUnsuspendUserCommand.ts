@@ -47,17 +47,28 @@ export interface BatchUnsuspendUserCommandOutput extends BatchUnsuspendUserRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeClient, BatchUnsuspendUserCommand } from "@aws-sdk/client-chime"; // ES Modules import
- * // const { ChimeClient, BatchUnsuspendUserCommand } = require("@aws-sdk/client-chime"); // CommonJS import
+ * import { ChimeClient, BatchUnsuspendUserCommand } from '@aws-sdk/client-chime'; // ES Modules import
+ * // const { ChimeClient, BatchUnsuspendUserCommand } = require('@aws-sdk/client-chime'); // CommonJS import
  * const client = new ChimeClient(config);
  * const input = { // BatchUnsuspendUserRequest
- *   AccountId: "STRING_VALUE", // required
+ *   AccountId: 'STRING_VALUE', // required
  *   UserIdList: [ // UserIdList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new BatchUnsuspendUserCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BatchUnsuspendUserResponse
+ *   UserErrors: [ // UserErrorList
+ *     { // UserError
+ *       UserId: 'STRING_VALUE',
+ *       ErrorCode: 'BadRequest' || 'Conflict' || 'Forbidden' || 'NotFound' || 'PreconditionFailed' || 'ResourceLimitExceeded' || 'ServiceFailure' || 'AccessDenied' || 'ServiceUnavailable' || 'Throttled' || 'Throttling' || 'Unauthorized' || 'Unprocessable' || 'VoiceConnectorGroupAssociationsExist' || 'PhoneNumberAssociationsExist',
+ *       ErrorMessage: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param BatchUnsuspendUserCommandInput - {@link BatchUnsuspendUserCommandInput}
@@ -87,6 +98,8 @@ export interface BatchUnsuspendUserCommandOutput extends BatchUnsuspendUserRespo
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeServiceException}
+ * <p>Base exception class for all service exceptions from Chime service.</p>
  *
  */
 export class BatchUnsuspendUserCommand extends $Command<

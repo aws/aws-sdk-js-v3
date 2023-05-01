@@ -36,26 +36,50 @@ export interface UpdateLoggingConfigurationCommandOutput extends UpdateLoggingCo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IvschatClient, UpdateLoggingConfigurationCommand } from "@aws-sdk/client-ivschat"; // ES Modules import
- * // const { IvschatClient, UpdateLoggingConfigurationCommand } = require("@aws-sdk/client-ivschat"); // CommonJS import
+ * import { IvschatClient, UpdateLoggingConfigurationCommand } from '@aws-sdk/client-ivschat'; // ES Modules import
+ * // const { IvschatClient, UpdateLoggingConfigurationCommand } = require('@aws-sdk/client-ivschat'); // CommonJS import
  * const client = new IvschatClient(config);
  * const input = { // UpdateLoggingConfigurationRequest
- *   identifier: "STRING_VALUE", // required
- *   name: "STRING_VALUE",
+ *   identifier: 'STRING_VALUE', // required
+ *   name: 'STRING_VALUE',
  *   destinationConfiguration: { // DestinationConfiguration Union: only one key present
  *     s3: { // S3DestinationConfiguration
- *       bucketName: "STRING_VALUE", // required
+ *       bucketName: 'STRING_VALUE', // required
  *     },
  *     cloudWatchLogs: { // CloudWatchLogsDestinationConfiguration
- *       logGroupName: "STRING_VALUE", // required
+ *       logGroupName: 'STRING_VALUE', // required
  *     },
  *     firehose: { // FirehoseDestinationConfiguration
- *       deliveryStreamName: "STRING_VALUE", // required
+ *       deliveryStreamName: 'STRING_VALUE', // required
  *     },
  *   },
  * };
  * const command = new UpdateLoggingConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateLoggingConfigurationResponse
+ *   arn: 'STRING_VALUE',
+ *   id: 'STRING_VALUE',
+ *   createTime: new Date('TIMESTAMP'),
+ *   updateTime: new Date('TIMESTAMP'),
+ *   name: 'STRING_VALUE',
+ *   destinationConfiguration: { // DestinationConfiguration Union: only one key present
+ *     s3: { // S3DestinationConfiguration
+ *       bucketName: 'STRING_VALUE', // required
+ *     },
+ *     cloudWatchLogs: { // CloudWatchLogsDestinationConfiguration
+ *       logGroupName: 'STRING_VALUE', // required
+ *     },
+ *     firehose: { // FirehoseDestinationConfiguration
+ *       deliveryStreamName: 'STRING_VALUE', // required
+ *     },
+ *   },
+ *   state: 'STRING_VALUE',
+ *   tags: { // Tags
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateLoggingConfigurationCommandInput - {@link UpdateLoggingConfigurationCommandInput}
@@ -79,6 +103,8 @@ export interface UpdateLoggingConfigurationCommandOutput extends UpdateLoggingCo
  * @throws {@link ValidationException} (client fault)
  *  <p/>
  *
+ * @throws {@link IvschatServiceException}
+ * <p>Base exception class for all service exceptions from Ivschat service.</p>
  *
  */
 export class UpdateLoggingConfigurationCommand extends $Command<

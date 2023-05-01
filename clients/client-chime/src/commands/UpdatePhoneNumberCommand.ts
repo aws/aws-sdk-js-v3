@@ -43,16 +43,48 @@ export interface UpdatePhoneNumberCommandOutput extends UpdatePhoneNumberRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeClient, UpdatePhoneNumberCommand } from "@aws-sdk/client-chime"; // ES Modules import
- * // const { ChimeClient, UpdatePhoneNumberCommand } = require("@aws-sdk/client-chime"); // CommonJS import
+ * import { ChimeClient, UpdatePhoneNumberCommand } from '@aws-sdk/client-chime'; // ES Modules import
+ * // const { ChimeClient, UpdatePhoneNumberCommand } = require('@aws-sdk/client-chime'); // CommonJS import
  * const client = new ChimeClient(config);
  * const input = { // UpdatePhoneNumberRequest
- *   PhoneNumberId: "STRING_VALUE", // required
- *   ProductType: "BusinessCalling" || "VoiceConnector" || "SipMediaApplicationDialIn",
- *   CallingName: "STRING_VALUE",
+ *   PhoneNumberId: 'STRING_VALUE', // required
+ *   ProductType: 'BusinessCalling' || 'VoiceConnector' || 'SipMediaApplicationDialIn',
+ *   CallingName: 'STRING_VALUE',
  * };
  * const command = new UpdatePhoneNumberCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdatePhoneNumberResponse
+ *   PhoneNumber: { // PhoneNumber
+ *     PhoneNumberId: 'STRING_VALUE',
+ *     E164PhoneNumber: 'STRING_VALUE',
+ *     Country: 'STRING_VALUE',
+ *     Type: 'Local' || 'TollFree',
+ *     ProductType: 'BusinessCalling' || 'VoiceConnector' || 'SipMediaApplicationDialIn',
+ *     Status: 'AcquireInProgress' || 'AcquireFailed' || 'Unassigned' || 'Assigned' || 'ReleaseInProgress' || 'DeleteInProgress' || 'ReleaseFailed' || 'DeleteFailed',
+ *     Capabilities: { // PhoneNumberCapabilities
+ *       InboundCall: true || false,
+ *       OutboundCall: true || false,
+ *       InboundSMS: true || false,
+ *       OutboundSMS: true || false,
+ *       InboundMMS: true || false,
+ *       OutboundMMS: true || false,
+ *     },
+ *     Associations: [ // PhoneNumberAssociationList
+ *       { // PhoneNumberAssociation
+ *         Value: 'STRING_VALUE',
+ *         Name: 'AccountId' || 'UserId' || 'VoiceConnectorId' || 'VoiceConnectorGroupId' || 'SipRuleId',
+ *         AssociatedTimestamp: new Date('TIMESTAMP'),
+ *       },
+ *     ],
+ *     CallingName: 'STRING_VALUE',
+ *     CallingNameStatus: 'Unassigned' || 'UpdateInProgress' || 'UpdateSucceeded' || 'UpdateFailed',
+ *     CreatedTimestamp: new Date('TIMESTAMP'),
+ *     UpdatedTimestamp: new Date('TIMESTAMP'),
+ *     DeletionTimestamp: new Date('TIMESTAMP'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdatePhoneNumberCommandInput - {@link UpdatePhoneNumberCommandInput}
@@ -86,6 +118,8 @@ export interface UpdatePhoneNumberCommandOutput extends UpdatePhoneNumberRespons
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeServiceException}
+ * <p>Base exception class for all service exceptions from Chime service.</p>
  *
  */
 export class UpdatePhoneNumberCommand extends $Command<

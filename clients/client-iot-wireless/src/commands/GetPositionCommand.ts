@@ -43,15 +43,30 @@ export interface GetPositionCommandOutput extends GetPositionResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTWirelessClient, GetPositionCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
- * // const { IoTWirelessClient, GetPositionCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
+ * import { IoTWirelessClient, GetPositionCommand } from '@aws-sdk/client-iot-wireless'; // ES Modules import
+ * // const { IoTWirelessClient, GetPositionCommand } = require('@aws-sdk/client-iot-wireless'); // CommonJS import
  * const client = new IoTWirelessClient(config);
  * const input = { // GetPositionRequest
- *   ResourceIdentifier: "STRING_VALUE", // required
- *   ResourceType: "WirelessDevice" || "WirelessGateway", // required
+ *   ResourceIdentifier: 'STRING_VALUE', // required
+ *   ResourceType: 'WirelessDevice' || 'WirelessGateway', // required
  * };
  * const command = new GetPositionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetPositionResponse
+ *   Position: [ // PositionCoordinate
+ *     Number('float'),
+ *   ],
+ *   Accuracy: { // Accuracy
+ *     HorizontalAccuracy: Number('float'),
+ *     VerticalAccuracy: Number('float'),
+ *   },
+ *   SolverType: 'GNSS',
+ *   SolverProvider: 'Semtech',
+ *   SolverVersion: 'STRING_VALUE',
+ *   Timestamp: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetPositionCommandInput - {@link GetPositionCommandInput}
@@ -75,6 +90,8 @@ export interface GetPositionCommandOutput extends GetPositionResponse, __Metadat
  * @throws {@link ValidationException} (client fault)
  *  <p>The input did not meet the specified constraints.</p>
  *
+ * @throws {@link IoTWirelessServiceException}
+ * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
  */
 export class GetPositionCommand extends $Command<

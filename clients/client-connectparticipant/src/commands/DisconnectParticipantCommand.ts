@@ -47,15 +47,18 @@ export interface DisconnectParticipantCommandOutput extends DisconnectParticipan
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectParticipantClient, DisconnectParticipantCommand } from "@aws-sdk/client-connectparticipant"; // ES Modules import
- * // const { ConnectParticipantClient, DisconnectParticipantCommand } = require("@aws-sdk/client-connectparticipant"); // CommonJS import
+ * import { ConnectParticipantClient, DisconnectParticipantCommand } from '@aws-sdk/client-connectparticipant'; // ES Modules import
+ * // const { ConnectParticipantClient, DisconnectParticipantCommand } = require('@aws-sdk/client-connectparticipant'); // CommonJS import
  * const client = new ConnectParticipantClient(config);
  * const input = { // DisconnectParticipantRequest
- *   ClientToken: "STRING_VALUE",
- *   ConnectionToken: "STRING_VALUE", // required
+ *   ClientToken: 'STRING_VALUE',
+ *   ConnectionToken: 'STRING_VALUE', // required
  * };
  * const command = new DisconnectParticipantCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DisconnectParticipantCommandInput - {@link DisconnectParticipantCommandInput}
@@ -76,6 +79,8 @@ export interface DisconnectParticipantCommandOutput extends DisconnectParticipan
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by Amazon Connect.</p>
  *
+ * @throws {@link ConnectParticipantServiceException}
+ * <p>Base exception class for all service exceptions from ConnectParticipant service.</p>
  *
  */
 export class DisconnectParticipantCommand extends $Command<

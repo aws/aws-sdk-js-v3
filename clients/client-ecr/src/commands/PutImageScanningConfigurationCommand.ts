@@ -46,18 +46,27 @@ export interface PutImageScanningConfigurationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ECRClient, PutImageScanningConfigurationCommand } from "@aws-sdk/client-ecr"; // ES Modules import
- * // const { ECRClient, PutImageScanningConfigurationCommand } = require("@aws-sdk/client-ecr"); // CommonJS import
+ * import { ECRClient, PutImageScanningConfigurationCommand } from '@aws-sdk/client-ecr'; // ES Modules import
+ * // const { ECRClient, PutImageScanningConfigurationCommand } = require('@aws-sdk/client-ecr'); // CommonJS import
  * const client = new ECRClient(config);
  * const input = { // PutImageScanningConfigurationRequest
- *   registryId: "STRING_VALUE",
- *   repositoryName: "STRING_VALUE", // required
+ *   registryId: 'STRING_VALUE',
+ *   repositoryName: 'STRING_VALUE', // required
  *   imageScanningConfiguration: { // ImageScanningConfiguration
  *     scanOnPush: true || false,
  *   },
  * };
  * const command = new PutImageScanningConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutImageScanningConfigurationResponse
+ *   registryId: 'STRING_VALUE',
+ *   repositoryName: 'STRING_VALUE',
+ *   imageScanningConfiguration: { // ImageScanningConfiguration
+ *     scanOnPush: true || false,
+ *   },
+ * };
+ *
  * ```
  *
  * @param PutImageScanningConfigurationCommandInput - {@link PutImageScanningConfigurationCommandInput}
@@ -80,6 +89,8 @@ export interface PutImageScanningConfigurationCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>There was an exception validating this request.</p>
  *
+ * @throws {@link ECRServiceException}
+ * <p>Base exception class for all service exceptions from ECR service.</p>
  *
  */
 export class PutImageScanningConfigurationCommand extends $Command<

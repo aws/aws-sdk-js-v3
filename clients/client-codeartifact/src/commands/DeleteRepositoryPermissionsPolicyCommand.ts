@@ -50,17 +50,26 @@ export interface DeleteRepositoryPermissionsPolicyCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeartifactClient, DeleteRepositoryPermissionsPolicyCommand } from "@aws-sdk/client-codeartifact"; // ES Modules import
- * // const { CodeartifactClient, DeleteRepositoryPermissionsPolicyCommand } = require("@aws-sdk/client-codeartifact"); // CommonJS import
+ * import { CodeartifactClient, DeleteRepositoryPermissionsPolicyCommand } from '@aws-sdk/client-codeartifact'; // ES Modules import
+ * // const { CodeartifactClient, DeleteRepositoryPermissionsPolicyCommand } = require('@aws-sdk/client-codeartifact'); // CommonJS import
  * const client = new CodeartifactClient(config);
  * const input = { // DeleteRepositoryPermissionsPolicyRequest
- *   domain: "STRING_VALUE", // required
- *   domainOwner: "STRING_VALUE",
- *   repository: "STRING_VALUE", // required
- *   policyRevision: "STRING_VALUE",
+ *   domain: 'STRING_VALUE', // required
+ *   domainOwner: 'STRING_VALUE',
+ *   repository: 'STRING_VALUE', // required
+ *   policyRevision: 'STRING_VALUE',
  * };
  * const command = new DeleteRepositoryPermissionsPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteRepositoryPermissionsPolicyResult
+ *   policy: { // ResourcePolicy
+ *     resourceArn: 'STRING_VALUE',
+ *     revision: 'STRING_VALUE',
+ *     document: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param DeleteRepositoryPermissionsPolicyCommandInput - {@link DeleteRepositoryPermissionsPolicyCommandInput}
@@ -97,6 +106,8 @@ export interface DeleteRepositoryPermissionsPolicyCommandOutput
  *       The operation did not succeed because a parameter in the request was sent with an invalid value.
  *     </p>
  *
+ * @throws {@link CodeartifactServiceException}
+ * <p>Base exception class for all service exceptions from Codeartifact service.</p>
  *
  */
 export class DeleteRepositoryPermissionsPolicyCommand extends $Command<

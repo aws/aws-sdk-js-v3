@@ -47,35 +47,38 @@ export interface PutPrincipalMappingCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KendraClient, PutPrincipalMappingCommand } from "@aws-sdk/client-kendra"; // ES Modules import
- * // const { KendraClient, PutPrincipalMappingCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
+ * import { KendraClient, PutPrincipalMappingCommand } from '@aws-sdk/client-kendra'; // ES Modules import
+ * // const { KendraClient, PutPrincipalMappingCommand } = require('@aws-sdk/client-kendra'); // CommonJS import
  * const client = new KendraClient(config);
  * const input = { // PutPrincipalMappingRequest
- *   IndexId: "STRING_VALUE", // required
- *   DataSourceId: "STRING_VALUE",
- *   GroupId: "STRING_VALUE", // required
+ *   IndexId: 'STRING_VALUE', // required
+ *   DataSourceId: 'STRING_VALUE',
+ *   GroupId: 'STRING_VALUE', // required
  *   GroupMembers: { // GroupMembers
  *     MemberGroups: [ // MemberGroups
  *       { // MemberGroup
- *         GroupId: "STRING_VALUE", // required
- *         DataSourceId: "STRING_VALUE",
+ *         GroupId: 'STRING_VALUE', // required
+ *         DataSourceId: 'STRING_VALUE',
  *       },
  *     ],
  *     MemberUsers: [ // MemberUsers
  *       { // MemberUser
- *         UserId: "STRING_VALUE", // required
+ *         UserId: 'STRING_VALUE', // required
  *       },
  *     ],
  *     S3PathforGroupMembers: { // S3Path
- *       Bucket: "STRING_VALUE", // required
- *       Key: "STRING_VALUE", // required
+ *       Bucket: 'STRING_VALUE', // required
+ *       Key: 'STRING_VALUE', // required
  *     },
  *   },
- *   OrderingId: Number("long"),
- *   RoleArn: "STRING_VALUE",
+ *   OrderingId: Number('long'),
+ *   RoleArn: 'STRING_VALUE',
  * };
  * const command = new PutPrincipalMappingCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutPrincipalMappingCommandInput - {@link PutPrincipalMappingCommandInput}
@@ -114,6 +117,8 @@ export interface PutPrincipalMappingCommandOutput extends __MetadataBearer {}
  *  <p>The input fails to satisfy the constraints set by the Amazon Kendra service.
  *             Please provide the correct input and try again.</p>
  *
+ * @throws {@link KendraServiceException}
+ * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
  */
 export class PutPrincipalMappingCommand extends $Command<

@@ -36,15 +36,18 @@ export interface AssociateFleetCommandOutput extends AssociateFleetResult, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppStreamClient, AssociateFleetCommand } from "@aws-sdk/client-appstream"; // ES Modules import
- * // const { AppStreamClient, AssociateFleetCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
+ * import { AppStreamClient, AssociateFleetCommand } from '@aws-sdk/client-appstream'; // ES Modules import
+ * // const { AppStreamClient, AssociateFleetCommand } = require('@aws-sdk/client-appstream'); // CommonJS import
  * const client = new AppStreamClient(config);
  * const input = { // AssociateFleetRequest
- *   FleetName: "STRING_VALUE", // required
- *   StackName: "STRING_VALUE", // required
+ *   FleetName: 'STRING_VALUE', // required
+ *   StackName: 'STRING_VALUE', // required
  * };
  * const command = new AssociateFleetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param AssociateFleetCommandInput - {@link AssociateFleetCommandInput}
@@ -71,6 +74,8 @@ export interface AssociateFleetCommandOutput extends AssociateFleetResult, __Met
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link AppStreamServiceException}
+ * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
  */
 export class AssociateFleetCommand extends $Command<

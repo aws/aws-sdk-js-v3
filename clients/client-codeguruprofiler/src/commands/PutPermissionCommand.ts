@@ -61,19 +61,25 @@ export interface PutPermissionCommandOutput extends PutPermissionResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeGuruProfilerClient, PutPermissionCommand } from "@aws-sdk/client-codeguruprofiler"; // ES Modules import
- * // const { CodeGuruProfilerClient, PutPermissionCommand } = require("@aws-sdk/client-codeguruprofiler"); // CommonJS import
+ * import { CodeGuruProfilerClient, PutPermissionCommand } from '@aws-sdk/client-codeguruprofiler'; // ES Modules import
+ * // const { CodeGuruProfilerClient, PutPermissionCommand } = require('@aws-sdk/client-codeguruprofiler'); // CommonJS import
  * const client = new CodeGuruProfilerClient(config);
  * const input = { // PutPermissionRequest
- *   profilingGroupName: "STRING_VALUE", // required
- *   actionGroup: "STRING_VALUE", // required
+ *   profilingGroupName: 'STRING_VALUE', // required
+ *   actionGroup: 'STRING_VALUE', // required
  *   principals: [ // Principals // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   revisionId: "STRING_VALUE",
+ *   revisionId: 'STRING_VALUE',
  * };
  * const command = new PutPermissionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutPermissionResponse
+ *   policy: 'STRING_VALUE', // required
+ *   revisionId: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param PutPermissionCommandInput - {@link PutPermissionCommandInput}
@@ -100,6 +106,8 @@ export interface PutPermissionCommandOutput extends PutPermissionResponse, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>The parameter is not valid.</p>
  *
+ * @throws {@link CodeGuruProfilerServiceException}
+ * <p>Base exception class for all service exceptions from CodeGuruProfiler service.</p>
  *
  */
 export class PutPermissionCommand extends $Command<

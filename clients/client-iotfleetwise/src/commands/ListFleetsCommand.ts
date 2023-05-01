@@ -39,15 +39,30 @@ export interface ListFleetsCommandOutput extends ListFleetsResponse, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTFleetWiseClient, ListFleetsCommand } from "@aws-sdk/client-iotfleetwise"; // ES Modules import
- * // const { IoTFleetWiseClient, ListFleetsCommand } = require("@aws-sdk/client-iotfleetwise"); // CommonJS import
+ * import { IoTFleetWiseClient, ListFleetsCommand } from '@aws-sdk/client-iotfleetwise'; // ES Modules import
+ * // const { IoTFleetWiseClient, ListFleetsCommand } = require('@aws-sdk/client-iotfleetwise'); // CommonJS import
  * const client = new IoTFleetWiseClient(config);
  * const input = { // ListFleetsRequest
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new ListFleetsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListFleetsResponse
+ *   fleetSummaries: [ // fleetSummaries
+ *     { // FleetSummary
+ *       id: 'STRING_VALUE', // required
+ *       arn: 'STRING_VALUE', // required
+ *       description: 'STRING_VALUE',
+ *       signalCatalogArn: 'STRING_VALUE', // required
+ *       creationTime: new Date('TIMESTAMP'), // required
+ *       lastModificationTime: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListFleetsCommandInput - {@link ListFleetsCommandInput}
@@ -71,6 +86,8 @@ export interface ListFleetsCommandOutput extends ListFleetsResponse, __MetadataB
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
  *
+ * @throws {@link IoTFleetWiseServiceException}
+ * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
  */
 export class ListFleetsCommand extends $Command<

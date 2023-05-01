@@ -36,20 +36,32 @@ export interface ListFieldOptionsCommandOutput extends ListFieldOptionsResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectCasesClient, ListFieldOptionsCommand } from "@aws-sdk/client-connectcases"; // ES Modules import
- * // const { ConnectCasesClient, ListFieldOptionsCommand } = require("@aws-sdk/client-connectcases"); // CommonJS import
+ * import { ConnectCasesClient, ListFieldOptionsCommand } from '@aws-sdk/client-connectcases'; // ES Modules import
+ * // const { ConnectCasesClient, ListFieldOptionsCommand } = require('@aws-sdk/client-connectcases'); // CommonJS import
  * const client = new ConnectCasesClient(config);
  * const input = { // ListFieldOptionsRequest
- *   domainId: "STRING_VALUE", // required
- *   fieldId: "STRING_VALUE", // required
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   domainId: 'STRING_VALUE', // required
+ *   fieldId: 'STRING_VALUE', // required
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  *   values: [ // ValuesList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new ListFieldOptionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListFieldOptionsResponse
+ *   options: [ // FieldOptionsList // required
+ *     { // FieldOption
+ *       name: 'STRING_VALUE', // required
+ *       value: 'STRING_VALUE', // required
+ *       active: true || false, // required
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListFieldOptionsCommandInput - {@link ListFieldOptionsCommandInput}
@@ -75,6 +87,8 @@ export interface ListFieldOptionsCommandOutput extends ListFieldOptionsResponse,
  * @throws {@link ValidationException} (client fault)
  *  <p>The request isn't valid. Check the syntax and try again.</p>
  *
+ * @throws {@link ConnectCasesServiceException}
+ * <p>Base exception class for all service exceptions from ConnectCases service.</p>
  *
  */
 export class ListFieldOptionsCommand extends $Command<

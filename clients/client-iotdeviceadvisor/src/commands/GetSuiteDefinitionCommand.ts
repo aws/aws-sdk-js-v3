@@ -37,15 +37,43 @@ export interface GetSuiteDefinitionCommandOutput extends GetSuiteDefinitionRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IotDeviceAdvisorClient, GetSuiteDefinitionCommand } from "@aws-sdk/client-iotdeviceadvisor"; // ES Modules import
- * // const { IotDeviceAdvisorClient, GetSuiteDefinitionCommand } = require("@aws-sdk/client-iotdeviceadvisor"); // CommonJS import
+ * import { IotDeviceAdvisorClient, GetSuiteDefinitionCommand } from '@aws-sdk/client-iotdeviceadvisor'; // ES Modules import
+ * // const { IotDeviceAdvisorClient, GetSuiteDefinitionCommand } = require('@aws-sdk/client-iotdeviceadvisor'); // CommonJS import
  * const client = new IotDeviceAdvisorClient(config);
  * const input = { // GetSuiteDefinitionRequest
- *   suiteDefinitionId: "STRING_VALUE", // required
- *   suiteDefinitionVersion: "STRING_VALUE",
+ *   suiteDefinitionId: 'STRING_VALUE', // required
+ *   suiteDefinitionVersion: 'STRING_VALUE',
  * };
  * const command = new GetSuiteDefinitionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetSuiteDefinitionResponse
+ *   suiteDefinitionId: 'STRING_VALUE',
+ *   suiteDefinitionArn: 'STRING_VALUE',
+ *   suiteDefinitionVersion: 'STRING_VALUE',
+ *   latestVersion: 'STRING_VALUE',
+ *   suiteDefinitionConfiguration: { // SuiteDefinitionConfiguration
+ *     suiteDefinitionName: 'STRING_VALUE', // required
+ *     devices: [ // DeviceUnderTestList
+ *       { // DeviceUnderTest
+ *         thingArn: 'STRING_VALUE',
+ *         certificateArn: 'STRING_VALUE',
+ *         deviceRoleArn: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     intendedForQualification: true || false,
+ *     isLongDurationTest: true || false,
+ *     rootGroup: 'STRING_VALUE', // required
+ *     devicePermissionRoleArn: 'STRING_VALUE', // required
+ *     protocol: 'MqttV3_1_1' || 'MqttV5' || 'MqttV3_1_1_OverWebSocket' || 'MqttV5_OverWebSocket',
+ *   },
+ *   createdAt: new Date('TIMESTAMP'),
+ *   lastModifiedAt: new Date('TIMESTAMP'),
+ *   tags: { // TagMap
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetSuiteDefinitionCommandInput - {@link GetSuiteDefinitionCommandInput}
@@ -63,6 +91,8 @@ export interface GetSuiteDefinitionCommandOutput extends GetSuiteDefinitionRespo
  * @throws {@link ValidationException} (client fault)
  *  <p>Sends a validation exception.</p>
  *
+ * @throws {@link IotDeviceAdvisorServiceException}
+ * <p>Base exception class for all service exceptions from IotDeviceAdvisor service.</p>
  *
  */
 export class GetSuiteDefinitionCommand extends $Command<

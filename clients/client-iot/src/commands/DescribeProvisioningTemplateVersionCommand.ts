@@ -45,15 +45,23 @@ export interface DescribeProvisioningTemplateVersionCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTClient, DescribeProvisioningTemplateVersionCommand } from "@aws-sdk/client-iot"; // ES Modules import
- * // const { IoTClient, DescribeProvisioningTemplateVersionCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * import { IoTClient, DescribeProvisioningTemplateVersionCommand } from '@aws-sdk/client-iot'; // ES Modules import
+ * // const { IoTClient, DescribeProvisioningTemplateVersionCommand } = require('@aws-sdk/client-iot'); // CommonJS import
  * const client = new IoTClient(config);
  * const input = { // DescribeProvisioningTemplateVersionRequest
- *   templateName: "STRING_VALUE", // required
- *   versionId: Number("int"), // required
+ *   templateName: 'STRING_VALUE', // required
+ *   versionId: Number('int'), // required
  * };
  * const command = new DescribeProvisioningTemplateVersionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeProvisioningTemplateVersionResponse
+ *   versionId: Number('int'),
+ *   creationDate: new Date('TIMESTAMP'),
+ *   templateBody: 'STRING_VALUE',
+ *   isDefaultVersion: true || false,
+ * };
+ *
  * ```
  *
  * @param DescribeProvisioningTemplateVersionCommandInput - {@link DescribeProvisioningTemplateVersionCommandInput}
@@ -77,6 +85,8 @@ export interface DescribeProvisioningTemplateVersionCommandOutput
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this operation.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class DescribeProvisioningTemplateVersionCommand extends $Command<

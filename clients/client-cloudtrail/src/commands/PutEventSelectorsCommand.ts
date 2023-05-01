@@ -78,50 +78,50 @@ export interface PutEventSelectorsCommandOutput extends PutEventSelectorsRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudTrailClient, PutEventSelectorsCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
- * // const { CloudTrailClient, PutEventSelectorsCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
+ * import { CloudTrailClient, PutEventSelectorsCommand } from '@aws-sdk/client-cloudtrail'; // ES Modules import
+ * // const { CloudTrailClient, PutEventSelectorsCommand } = require('@aws-sdk/client-cloudtrail'); // CommonJS import
  * const client = new CloudTrailClient(config);
  * const input = { // PutEventSelectorsRequest
- *   TrailName: "STRING_VALUE", // required
+ *   TrailName: 'STRING_VALUE', // required
  *   EventSelectors: [ // EventSelectors
  *     { // EventSelector
- *       ReadWriteType: "ReadOnly" || "WriteOnly" || "All",
+ *       ReadWriteType: 'ReadOnly' || 'WriteOnly' || 'All',
  *       IncludeManagementEvents: true || false,
  *       DataResources: [ // DataResources
  *         { // DataResource
- *           Type: "STRING_VALUE",
+ *           Type: 'STRING_VALUE',
  *           Values: [ // DataResourceValues
- *             "STRING_VALUE",
+ *             'STRING_VALUE',
  *           ],
  *         },
  *       ],
  *       ExcludeManagementEventSources: [ // ExcludeManagementEventSources
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
  *   AdvancedEventSelectors: [ // AdvancedEventSelectors
  *     { // AdvancedEventSelector
- *       Name: "STRING_VALUE",
+ *       Name: 'STRING_VALUE',
  *       FieldSelectors: [ // AdvancedFieldSelectors // required
  *         { // AdvancedFieldSelector
- *           Field: "STRING_VALUE", // required
+ *           Field: 'STRING_VALUE', // required
  *           Equals: [ // Operator
- *             "STRING_VALUE",
+ *             'STRING_VALUE',
  *           ],
  *           StartsWith: [
- *             "STRING_VALUE",
+ *             'STRING_VALUE',
  *           ],
  *           EndsWith: [
- *             "STRING_VALUE",
+ *             'STRING_VALUE',
  *           ],
  *           NotEquals: [
- *             "STRING_VALUE",
+ *             'STRING_VALUE',
  *           ],
  *           NotStartsWith: [
- *             "STRING_VALUE",
+ *             'STRING_VALUE',
  *           ],
- *           NotEndsWith: "<Operator>",
+ *           NotEndsWith: '<Operator>',
  *         },
  *       ],
  *     },
@@ -129,6 +129,54 @@ export interface PutEventSelectorsCommandOutput extends PutEventSelectorsRespons
  * };
  * const command = new PutEventSelectorsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutEventSelectorsResponse
+ *   TrailARN: 'STRING_VALUE',
+ *   EventSelectors: [ // EventSelectors
+ *     { // EventSelector
+ *       ReadWriteType: 'ReadOnly' || 'WriteOnly' || 'All',
+ *       IncludeManagementEvents: true || false,
+ *       DataResources: [ // DataResources
+ *         { // DataResource
+ *           Type: 'STRING_VALUE',
+ *           Values: [ // DataResourceValues
+ *             'STRING_VALUE',
+ *           ],
+ *         },
+ *       ],
+ *       ExcludeManagementEventSources: [ // ExcludeManagementEventSources
+ *         'STRING_VALUE',
+ *       ],
+ *     },
+ *   ],
+ *   AdvancedEventSelectors: [ // AdvancedEventSelectors
+ *     { // AdvancedEventSelector
+ *       Name: 'STRING_VALUE',
+ *       FieldSelectors: [ // AdvancedFieldSelectors // required
+ *         { // AdvancedFieldSelector
+ *           Field: 'STRING_VALUE', // required
+ *           Equals: [ // Operator
+ *             'STRING_VALUE',
+ *           ],
+ *           StartsWith: [
+ *             'STRING_VALUE',
+ *           ],
+ *           EndsWith: [
+ *             'STRING_VALUE',
+ *           ],
+ *           NotEquals: [
+ *             'STRING_VALUE',
+ *           ],
+ *           NotStartsWith: [
+ *             'STRING_VALUE',
+ *           ],
+ *           NotEndsWith: '<Operator>',
+ *         },
+ *       ],
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param PutEventSelectorsCommandInput - {@link PutEventSelectorsCommandInput}
@@ -231,6 +279,8 @@ export interface PutEventSelectorsCommandOutput extends PutEventSelectorsRespons
  * @throws {@link UnsupportedOperationException} (client fault)
  *  <p>This exception is thrown when the requested operation is not supported.</p>
  *
+ * @throws {@link CloudTrailServiceException}
+ * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
  */
 export class PutEventSelectorsCommand extends $Command<

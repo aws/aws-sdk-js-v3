@@ -36,15 +36,21 @@ export interface GetRegionOptStatusCommandOutput extends GetRegionOptStatusRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AccountClient, GetRegionOptStatusCommand } from "@aws-sdk/client-account"; // ES Modules import
- * // const { AccountClient, GetRegionOptStatusCommand } = require("@aws-sdk/client-account"); // CommonJS import
+ * import { AccountClient, GetRegionOptStatusCommand } from '@aws-sdk/client-account'; // ES Modules import
+ * // const { AccountClient, GetRegionOptStatusCommand } = require('@aws-sdk/client-account'); // CommonJS import
  * const client = new AccountClient(config);
  * const input = { // GetRegionOptStatusRequest
- *   AccountId: "STRING_VALUE",
- *   RegionName: "STRING_VALUE", // required
+ *   AccountId: 'STRING_VALUE',
+ *   RegionName: 'STRING_VALUE', // required
  * };
  * const command = new GetRegionOptStatusCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetRegionOptStatusResponse
+ *   RegionName: 'STRING_VALUE',
+ *   RegionOptStatus: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetRegionOptStatusCommandInput - {@link GetRegionOptStatusCommandInput}
@@ -68,6 +74,8 @@ export interface GetRegionOptStatusCommandOutput extends GetRegionOptStatusRespo
  * @throws {@link ValidationException} (client fault)
  *  <p>The operation failed because one of the input parameters was invalid.</p>
  *
+ * @throws {@link AccountServiceException}
+ * <p>Base exception class for all service exceptions from Account service.</p>
  *
  */
 export class GetRegionOptStatusCommand extends $Command<

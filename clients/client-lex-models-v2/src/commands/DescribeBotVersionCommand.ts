@@ -36,15 +36,49 @@ export interface DescribeBotVersionCommandOutput extends DescribeBotVersionRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LexModelsV2Client, DescribeBotVersionCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
- * // const { LexModelsV2Client, DescribeBotVersionCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
+ * import { LexModelsV2Client, DescribeBotVersionCommand } from '@aws-sdk/client-lex-models-v2'; // ES Modules import
+ * // const { LexModelsV2Client, DescribeBotVersionCommand } = require('@aws-sdk/client-lex-models-v2'); // CommonJS import
  * const client = new LexModelsV2Client(config);
  * const input = { // DescribeBotVersionRequest
- *   botId: "STRING_VALUE", // required
- *   botVersion: "STRING_VALUE", // required
+ *   botId: 'STRING_VALUE', // required
+ *   botVersion: 'STRING_VALUE', // required
  * };
  * const command = new DescribeBotVersionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeBotVersionResponse
+ *   botId: 'STRING_VALUE',
+ *   botName: 'STRING_VALUE',
+ *   botVersion: 'STRING_VALUE',
+ *   description: 'STRING_VALUE',
+ *   roleArn: 'STRING_VALUE',
+ *   dataPrivacy: { // DataPrivacy
+ *     childDirected: true || false, // required
+ *   },
+ *   idleSessionTTLInSeconds: Number('int'),
+ *   botStatus: 'Creating' || 'Available' || 'Inactive' || 'Deleting' || 'Failed' || 'Versioning' || 'Importing' || 'Updating',
+ *   failureReasons: [ // FailureReasons
+ *     'STRING_VALUE',
+ *   ],
+ *   creationDateTime: new Date('TIMESTAMP'),
+ *   parentBotNetworks: [ // ParentBotNetworks
+ *     { // ParentBotNetwork
+ *       botId: 'STRING_VALUE', // required
+ *       botVersion: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ *   botType: 'Bot' || 'BotNetwork',
+ *   botMembers: [ // BotMembers
+ *     { // BotMember
+ *       botMemberId: 'STRING_VALUE', // required
+ *       botMemberName: 'STRING_VALUE', // required
+ *       botMemberAliasId: 'STRING_VALUE', // required
+ *       botMemberAliasName: 'STRING_VALUE', // required
+ *       botMemberVersion: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeBotVersionCommandInput - {@link DescribeBotVersionCommandInput}
@@ -72,6 +106,8 @@ export interface DescribeBotVersionCommandOutput extends DescribeBotVersionRespo
  *  <p>One of the input parameters in your request isn't valid. Check the
  *          parameters and try your request again.</p>
  *
+ * @throws {@link LexModelsV2ServiceException}
+ * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
  */
 export class DescribeBotVersionCommand extends $Command<

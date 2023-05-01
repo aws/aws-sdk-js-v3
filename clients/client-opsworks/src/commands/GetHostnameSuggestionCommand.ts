@@ -41,14 +41,20 @@ export interface GetHostnameSuggestionCommandOutput extends GetHostnameSuggestio
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OpsWorksClient, GetHostnameSuggestionCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
- * // const { OpsWorksClient, GetHostnameSuggestionCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
+ * import { OpsWorksClient, GetHostnameSuggestionCommand } from '@aws-sdk/client-opsworks'; // ES Modules import
+ * // const { OpsWorksClient, GetHostnameSuggestionCommand } = require('@aws-sdk/client-opsworks'); // CommonJS import
  * const client = new OpsWorksClient(config);
  * const input = { // GetHostnameSuggestionRequest
- *   LayerId: "STRING_VALUE", // required
+ *   LayerId: 'STRING_VALUE', // required
  * };
  * const command = new GetHostnameSuggestionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetHostnameSuggestionResult
+ *   LayerId: 'STRING_VALUE',
+ *   Hostname: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetHostnameSuggestionCommandInput - {@link GetHostnameSuggestionCommandInput}
@@ -63,6 +69,8 @@ export interface GetHostnameSuggestionCommandOutput extends GetHostnameSuggestio
  * @throws {@link ValidationException} (client fault)
  *  <p>Indicates that a request was not valid.</p>
  *
+ * @throws {@link OpsWorksServiceException}
+ * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
  */
 export class GetHostnameSuggestionCommand extends $Command<

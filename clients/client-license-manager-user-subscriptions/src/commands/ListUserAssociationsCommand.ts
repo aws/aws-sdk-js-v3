@@ -40,28 +40,49 @@ export interface ListUserAssociationsCommandOutput extends ListUserAssociationsR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LicenseManagerUserSubscriptionsClient, ListUserAssociationsCommand } from "@aws-sdk/client-license-manager-user-subscriptions"; // ES Modules import
- * // const { LicenseManagerUserSubscriptionsClient, ListUserAssociationsCommand } = require("@aws-sdk/client-license-manager-user-subscriptions"); // CommonJS import
+ * import { LicenseManagerUserSubscriptionsClient, ListUserAssociationsCommand } from '@aws-sdk/client-license-manager-user-subscriptions'; // ES Modules import
+ * // const { LicenseManagerUserSubscriptionsClient, ListUserAssociationsCommand } = require('@aws-sdk/client-license-manager-user-subscriptions'); // CommonJS import
  * const client = new LicenseManagerUserSubscriptionsClient(config);
  * const input = { // ListUserAssociationsRequest
- *   InstanceId: "STRING_VALUE", // required
+ *   InstanceId: 'STRING_VALUE', // required
  *   IdentityProvider: { // IdentityProvider Union: only one key present
  *     ActiveDirectoryIdentityProvider: { // ActiveDirectoryIdentityProvider
- *       DirectoryId: "STRING_VALUE",
+ *       DirectoryId: 'STRING_VALUE',
  *     },
  *   },
- *   MaxResults: Number("int"),
+ *   MaxResults: Number('int'),
  *   Filters: [ // FilterList
  *     { // Filter
- *       Attribute: "STRING_VALUE",
- *       Operation: "STRING_VALUE",
- *       Value: "STRING_VALUE",
+ *       Attribute: 'STRING_VALUE',
+ *       Operation: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
- *   NextToken: "STRING_VALUE",
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListUserAssociationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListUserAssociationsResponse
+ *   InstanceUserSummaries: [ // InstanceUserSummaryList
+ *     { // InstanceUserSummary
+ *       Username: 'STRING_VALUE', // required
+ *       InstanceId: 'STRING_VALUE', // required
+ *       IdentityProvider: { // IdentityProvider Union: only one key present
+ *         ActiveDirectoryIdentityProvider: { // ActiveDirectoryIdentityProvider
+ *           DirectoryId: 'STRING_VALUE',
+ *         },
+ *       },
+ *       Status: 'STRING_VALUE', // required
+ *       StatusMessage: 'STRING_VALUE',
+ *       Domain: 'STRING_VALUE',
+ *       AssociationDate: 'STRING_VALUE',
+ *       DisassociationDate: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListUserAssociationsCommandInput - {@link ListUserAssociationsCommandInput}
@@ -92,6 +113,8 @@ export interface ListUserAssociationsCommandOutput extends ListUserAssociationsR
  * @throws {@link ValidationException} (client fault)
  *  <p>A parameter is not valid.</p>
  *
+ * @throws {@link LicenseManagerUserSubscriptionsServiceException}
+ * <p>Base exception class for all service exceptions from LicenseManagerUserSubscriptions service.</p>
  *
  */
 export class ListUserAssociationsCommand extends $Command<

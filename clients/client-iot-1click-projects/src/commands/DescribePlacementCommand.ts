@@ -40,15 +40,28 @@ export interface DescribePlacementCommandOutput extends DescribePlacementRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoT1ClickProjectsClient, DescribePlacementCommand } from "@aws-sdk/client-iot-1click-projects"; // ES Modules import
- * // const { IoT1ClickProjectsClient, DescribePlacementCommand } = require("@aws-sdk/client-iot-1click-projects"); // CommonJS import
+ * import { IoT1ClickProjectsClient, DescribePlacementCommand } from '@aws-sdk/client-iot-1click-projects'; // ES Modules import
+ * // const { IoT1ClickProjectsClient, DescribePlacementCommand } = require('@aws-sdk/client-iot-1click-projects'); // CommonJS import
  * const client = new IoT1ClickProjectsClient(config);
  * const input = { // DescribePlacementRequest
- *   placementName: "STRING_VALUE", // required
- *   projectName: "STRING_VALUE", // required
+ *   placementName: 'STRING_VALUE', // required
+ *   projectName: 'STRING_VALUE', // required
  * };
  * const command = new DescribePlacementCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribePlacementResponse
+ *   placement: { // PlacementDescription
+ *     projectName: 'STRING_VALUE', // required
+ *     placementName: 'STRING_VALUE', // required
+ *     attributes: { // PlacementAttributeMap // required
+ *       '<keys>': 'STRING_VALUE',
+ *     },
+ *     createdDate: new Date('TIMESTAMP'), // required
+ *     updatedDate: new Date('TIMESTAMP'), // required
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribePlacementCommandInput - {@link DescribePlacementCommandInput}
@@ -66,6 +79,8 @@ export interface DescribePlacementCommandOutput extends DescribePlacementRespons
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p></p>
  *
+ * @throws {@link IoT1ClickProjectsServiceException}
+ * <p>Base exception class for all service exceptions from IoT1ClickProjects service.</p>
  *
  */
 export class DescribePlacementCommand extends $Command<

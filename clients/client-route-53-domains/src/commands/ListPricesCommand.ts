@@ -54,16 +54,46 @@ export interface ListPricesCommandOutput extends ListPricesResponse, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Route53DomainsClient, ListPricesCommand } from "@aws-sdk/client-route-53-domains"; // ES Modules import
- * // const { Route53DomainsClient, ListPricesCommand } = require("@aws-sdk/client-route-53-domains"); // CommonJS import
+ * import { Route53DomainsClient, ListPricesCommand } from '@aws-sdk/client-route-53-domains'; // ES Modules import
+ * // const { Route53DomainsClient, ListPricesCommand } = require('@aws-sdk/client-route-53-domains'); // CommonJS import
  * const client = new Route53DomainsClient(config);
  * const input = { // ListPricesRequest
- *   Tld: "STRING_VALUE",
- *   Marker: "STRING_VALUE",
- *   MaxItems: Number("int"),
+ *   Tld: 'STRING_VALUE',
+ *   Marker: 'STRING_VALUE',
+ *   MaxItems: Number('int'),
  * };
  * const command = new ListPricesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListPricesResponse
+ *   Prices: [ // DomainPriceList
+ *     { // DomainPrice
+ *       Name: 'STRING_VALUE',
+ *       RegistrationPrice: { // PriceWithCurrency
+ *         Price: Number('double'), // required
+ *         Currency: 'STRING_VALUE', // required
+ *       },
+ *       TransferPrice: {
+ *         Price: Number('double'), // required
+ *         Currency: 'STRING_VALUE', // required
+ *       },
+ *       RenewalPrice: {
+ *         Price: Number('double'), // required
+ *         Currency: 'STRING_VALUE', // required
+ *       },
+ *       ChangeOwnershipPrice: {
+ *         Price: Number('double'), // required
+ *         Currency: 'STRING_VALUE', // required
+ *       },
+ *       RestorationPrice: {
+ *         Price: Number('double'), // required
+ *         Currency: 'STRING_VALUE', // required
+ *       },
+ *     },
+ *   ],
+ *   NextPageMarker: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListPricesCommandInput - {@link ListPricesCommandInput}
@@ -81,6 +111,8 @@ export interface ListPricesCommandOutput extends ListPricesResponse, __MetadataB
  * @throws {@link UnsupportedTLD} (client fault)
  *  <p>Amazon Route 53 does not support this top-level domain (TLD).</p>
  *
+ * @throws {@link Route53DomainsServiceException}
+ * <p>Base exception class for all service exceptions from Route53Domains service.</p>
  *
  */
 export class ListPricesCommand extends $Command<

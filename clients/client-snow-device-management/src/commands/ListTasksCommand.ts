@@ -40,16 +40,31 @@ export interface ListTasksCommandOutput extends ListTasksOutput, __MetadataBeare
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SnowDeviceManagementClient, ListTasksCommand } from "@aws-sdk/client-snow-device-management"; // ES Modules import
- * // const { SnowDeviceManagementClient, ListTasksCommand } = require("@aws-sdk/client-snow-device-management"); // CommonJS import
+ * import { SnowDeviceManagementClient, ListTasksCommand } from '@aws-sdk/client-snow-device-management'; // ES Modules import
+ * // const { SnowDeviceManagementClient, ListTasksCommand } = require('@aws-sdk/client-snow-device-management'); // CommonJS import
  * const client = new SnowDeviceManagementClient(config);
  * const input = { // ListTasksInput
- *   state: "STRING_VALUE",
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   state: 'STRING_VALUE',
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new ListTasksCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTasksOutput
+ *   tasks: [ // TaskSummaryList
+ *     { // TaskSummary
+ *       taskId: 'STRING_VALUE', // required
+ *       taskArn: 'STRING_VALUE',
+ *       state: 'STRING_VALUE',
+ *       tags: { // TagMap
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListTasksCommandInput - {@link ListTasksCommandInput}
@@ -70,6 +85,8 @@ export interface ListTasksCommandOutput extends ListTasksOutput, __MetadataBeare
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
  *
+ * @throws {@link SnowDeviceManagementServiceException}
+ * <p>Base exception class for all service exceptions from SnowDeviceManagement service.</p>
  *
  */
 export class ListTasksCommand extends $Command<

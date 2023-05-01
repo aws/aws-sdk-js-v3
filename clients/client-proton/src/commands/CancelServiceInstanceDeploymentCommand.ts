@@ -63,15 +63,35 @@ export interface CancelServiceInstanceDeploymentCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ProtonClient, CancelServiceInstanceDeploymentCommand } from "@aws-sdk/client-proton"; // ES Modules import
- * // const { ProtonClient, CancelServiceInstanceDeploymentCommand } = require("@aws-sdk/client-proton"); // CommonJS import
+ * import { ProtonClient, CancelServiceInstanceDeploymentCommand } from '@aws-sdk/client-proton'; // ES Modules import
+ * // const { ProtonClient, CancelServiceInstanceDeploymentCommand } = require('@aws-sdk/client-proton'); // CommonJS import
  * const client = new ProtonClient(config);
  * const input = { // CancelServiceInstanceDeploymentInput
- *   serviceInstanceName: "STRING_VALUE", // required
- *   serviceName: "STRING_VALUE", // required
+ *   serviceInstanceName: 'STRING_VALUE', // required
+ *   serviceName: 'STRING_VALUE', // required
  * };
  * const command = new CancelServiceInstanceDeploymentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CancelServiceInstanceDeploymentOutput
+ *   serviceInstance: { // ServiceInstance
+ *     name: 'STRING_VALUE', // required
+ *     arn: 'STRING_VALUE', // required
+ *     createdAt: new Date('TIMESTAMP'), // required
+ *     lastDeploymentAttemptedAt: new Date('TIMESTAMP'), // required
+ *     lastDeploymentSucceededAt: new Date('TIMESTAMP'), // required
+ *     serviceName: 'STRING_VALUE', // required
+ *     environmentName: 'STRING_VALUE', // required
+ *     templateName: 'STRING_VALUE', // required
+ *     templateMajorVersion: 'STRING_VALUE', // required
+ *     templateMinorVersion: 'STRING_VALUE', // required
+ *     deploymentStatus: 'STRING_VALUE', // required
+ *     deploymentStatusMessage: 'STRING_VALUE',
+ *     spec: 'STRING_VALUE',
+ *     lastClientRequestToken: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param CancelServiceInstanceDeploymentCommandInput - {@link CancelServiceInstanceDeploymentCommandInput}
@@ -98,6 +118,8 @@ export interface CancelServiceInstanceDeploymentCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The input is invalid or an out-of-range value was supplied for the input parameter.</p>
  *
+ * @throws {@link ProtonServiceException}
+ * <p>Base exception class for all service exceptions from Proton service.</p>
  *
  */
 export class CancelServiceInstanceDeploymentCommand extends $Command<

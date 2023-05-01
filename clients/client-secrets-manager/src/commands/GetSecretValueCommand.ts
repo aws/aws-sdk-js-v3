@@ -56,16 +56,29 @@ export interface GetSecretValueCommandOutput extends GetSecretValueResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SecretsManagerClient, GetSecretValueCommand } from "@aws-sdk/client-secrets-manager"; // ES Modules import
- * // const { SecretsManagerClient, GetSecretValueCommand } = require("@aws-sdk/client-secrets-manager"); // CommonJS import
+ * import { SecretsManagerClient, GetSecretValueCommand } from '@aws-sdk/client-secrets-manager'; // ES Modules import
+ * // const { SecretsManagerClient, GetSecretValueCommand } = require('@aws-sdk/client-secrets-manager'); // CommonJS import
  * const client = new SecretsManagerClient(config);
  * const input = { // GetSecretValueRequest
- *   SecretId: "STRING_VALUE", // required
- *   VersionId: "STRING_VALUE",
- *   VersionStage: "STRING_VALUE",
+ *   SecretId: 'STRING_VALUE', // required
+ *   VersionId: 'STRING_VALUE',
+ *   VersionStage: 'STRING_VALUE',
  * };
  * const command = new GetSecretValueCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetSecretValueResponse
+ *   ARN: 'STRING_VALUE',
+ *   Name: 'STRING_VALUE',
+ *   VersionId: 'STRING_VALUE',
+ *   SecretBinary: 'BLOB_VALUE',
+ *   SecretString: 'STRING_VALUE',
+ *   VersionStages: [ // SecretVersionStagesType
+ *     'STRING_VALUE',
+ *   ],
+ *   CreatedDate: new Date('TIMESTAMP'),
+ * };
+ *
  * ```
  *
  * @param GetSecretValueCommandInput - {@link GetSecretValueCommandInput}
@@ -104,6 +117,8 @@ export interface GetSecretValueCommandOutput extends GetSecretValueResponse, __M
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Secrets Manager can't find the resource that you asked for.</p>
  *
+ * @throws {@link SecretsManagerServiceException}
+ * <p>Base exception class for all service exceptions from SecretsManager service.</p>
  *
  * @example To retrieve the encrypted secret value of a secret
  * ```javascript

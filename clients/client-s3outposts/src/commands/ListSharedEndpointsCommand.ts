@@ -49,16 +49,44 @@ export interface ListSharedEndpointsCommandOutput extends ListSharedEndpointsRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { S3OutpostsClient, ListSharedEndpointsCommand } from "@aws-sdk/client-s3outposts"; // ES Modules import
- * // const { S3OutpostsClient, ListSharedEndpointsCommand } = require("@aws-sdk/client-s3outposts"); // CommonJS import
+ * import { S3OutpostsClient, ListSharedEndpointsCommand } from '@aws-sdk/client-s3outposts'; // ES Modules import
+ * // const { S3OutpostsClient, ListSharedEndpointsCommand } = require('@aws-sdk/client-s3outposts'); // CommonJS import
  * const client = new S3OutpostsClient(config);
  * const input = { // ListSharedEndpointsRequest
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
- *   OutpostId: "STRING_VALUE", // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
+ *   OutpostId: 'STRING_VALUE', // required
  * };
  * const command = new ListSharedEndpointsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListSharedEndpointsResult
+ *   Endpoints: [ // Endpoints
+ *     { // Endpoint
+ *       EndpointArn: 'STRING_VALUE',
+ *       OutpostsId: 'STRING_VALUE',
+ *       CidrBlock: 'STRING_VALUE',
+ *       Status: 'Pending' || 'Available' || 'Deleting' || 'Create_Failed' || 'Delete_Failed',
+ *       CreationTime: new Date('TIMESTAMP'),
+ *       NetworkInterfaces: [ // NetworkInterfaces
+ *         { // NetworkInterface
+ *           NetworkInterfaceId: 'STRING_VALUE',
+ *         },
+ *       ],
+ *       VpcId: 'STRING_VALUE',
+ *       SubnetId: 'STRING_VALUE',
+ *       SecurityGroupId: 'STRING_VALUE',
+ *       AccessType: 'Private' || 'CustomerOwnedIp',
+ *       CustomerOwnedIpv4Pool: 'STRING_VALUE',
+ *       FailedReason: { // FailedReason
+ *         ErrorCode: 'STRING_VALUE',
+ *         Message: 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListSharedEndpointsCommandInput - {@link ListSharedEndpointsCommandInput}
@@ -82,6 +110,8 @@ export interface ListSharedEndpointsCommandOutput extends ListSharedEndpointsRes
  * @throws {@link ValidationException} (client fault)
  *  <p>There was an exception validating this data.</p>
  *
+ * @throws {@link S3OutpostsServiceException}
+ * <p>Base exception class for all service exceptions from S3Outposts service.</p>
  *
  */
 export class ListSharedEndpointsCommand extends $Command<

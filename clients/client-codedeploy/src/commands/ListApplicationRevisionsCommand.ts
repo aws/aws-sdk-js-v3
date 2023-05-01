@@ -36,20 +36,49 @@ export interface ListApplicationRevisionsCommandOutput extends ListApplicationRe
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeDeployClient, ListApplicationRevisionsCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
- * // const { CodeDeployClient, ListApplicationRevisionsCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
+ * import { CodeDeployClient, ListApplicationRevisionsCommand } from '@aws-sdk/client-codedeploy'; // ES Modules import
+ * // const { CodeDeployClient, ListApplicationRevisionsCommand } = require('@aws-sdk/client-codedeploy'); // CommonJS import
  * const client = new CodeDeployClient(config);
  * const input = { // ListApplicationRevisionsInput
- *   applicationName: "STRING_VALUE", // required
- *   sortBy: "registerTime" || "firstUsedTime" || "lastUsedTime",
- *   sortOrder: "ascending" || "descending",
- *   s3Bucket: "STRING_VALUE",
- *   s3KeyPrefix: "STRING_VALUE",
- *   deployed: "include" || "exclude" || "ignore",
- *   nextToken: "STRING_VALUE",
+ *   applicationName: 'STRING_VALUE', // required
+ *   sortBy: 'registerTime' || 'firstUsedTime' || 'lastUsedTime',
+ *   sortOrder: 'ascending' || 'descending',
+ *   s3Bucket: 'STRING_VALUE',
+ *   s3KeyPrefix: 'STRING_VALUE',
+ *   deployed: 'include' || 'exclude' || 'ignore',
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new ListApplicationRevisionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListApplicationRevisionsOutput
+ *   revisions: [ // RevisionLocationList
+ *     { // RevisionLocation
+ *       revisionType: 'S3' || 'GitHub' || 'String' || 'AppSpecContent',
+ *       s3Location: { // S3Location
+ *         bucket: 'STRING_VALUE',
+ *         key: 'STRING_VALUE',
+ *         bundleType: 'tar' || 'tgz' || 'zip' || 'YAML' || 'JSON',
+ *         version: 'STRING_VALUE',
+ *         eTag: 'STRING_VALUE',
+ *       },
+ *       gitHubLocation: { // GitHubLocation
+ *         repository: 'STRING_VALUE',
+ *         commitId: 'STRING_VALUE',
+ *       },
+ *       string: { // RawString
+ *         content: 'STRING_VALUE',
+ *         sha256: 'STRING_VALUE',
+ *       },
+ *       appSpecContent: { // AppSpecContent
+ *         content: 'STRING_VALUE',
+ *         sha256: 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListApplicationRevisionsCommandInput - {@link ListApplicationRevisionsCommandInput}
@@ -89,6 +118,8 @@ export interface ListApplicationRevisionsCommandOutput extends ListApplicationRe
  * @throws {@link InvalidSortOrderException} (client fault)
  *  <p>The sort order was specified in an invalid format.</p>
  *
+ * @throws {@link CodeDeployServiceException}
+ * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
  */
 export class ListApplicationRevisionsCommand extends $Command<

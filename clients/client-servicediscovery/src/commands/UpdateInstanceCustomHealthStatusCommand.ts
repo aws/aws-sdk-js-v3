@@ -45,16 +45,19 @@ export interface UpdateInstanceCustomHealthStatusCommandOutput extends __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ServiceDiscoveryClient, UpdateInstanceCustomHealthStatusCommand } from "@aws-sdk/client-servicediscovery"; // ES Modules import
- * // const { ServiceDiscoveryClient, UpdateInstanceCustomHealthStatusCommand } = require("@aws-sdk/client-servicediscovery"); // CommonJS import
+ * import { ServiceDiscoveryClient, UpdateInstanceCustomHealthStatusCommand } from '@aws-sdk/client-servicediscovery'; // ES Modules import
+ * // const { ServiceDiscoveryClient, UpdateInstanceCustomHealthStatusCommand } = require('@aws-sdk/client-servicediscovery'); // CommonJS import
  * const client = new ServiceDiscoveryClient(config);
  * const input = { // UpdateInstanceCustomHealthStatusRequest
- *   ServiceId: "STRING_VALUE", // required
- *   InstanceId: "STRING_VALUE", // required
- *   Status: "HEALTHY" || "UNHEALTHY", // required
+ *   ServiceId: 'STRING_VALUE', // required
+ *   InstanceId: 'STRING_VALUE', // required
+ *   Status: 'HEALTHY' || 'UNHEALTHY', // required
  * };
  * const command = new UpdateInstanceCustomHealthStatusCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateInstanceCustomHealthStatusCommandInput - {@link UpdateInstanceCustomHealthStatusCommandInput}
@@ -79,6 +82,8 @@ export interface UpdateInstanceCustomHealthStatusCommandOutput extends __Metadat
  * @throws {@link ServiceNotFound} (client fault)
  *  <p>No service exists with the specified ID.</p>
  *
+ * @throws {@link ServiceDiscoveryServiceException}
+ * <p>Base exception class for all service exceptions from ServiceDiscovery service.</p>
  *
  * @example UpdateInstanceCustomHealthStatus Example
  * ```javascript

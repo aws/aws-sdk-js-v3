@@ -51,16 +51,32 @@ export interface DeleteAppVersionAppComponentCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ResiliencehubClient, DeleteAppVersionAppComponentCommand } from "@aws-sdk/client-resiliencehub"; // ES Modules import
- * // const { ResiliencehubClient, DeleteAppVersionAppComponentCommand } = require("@aws-sdk/client-resiliencehub"); // CommonJS import
+ * import { ResiliencehubClient, DeleteAppVersionAppComponentCommand } from '@aws-sdk/client-resiliencehub'; // ES Modules import
+ * // const { ResiliencehubClient, DeleteAppVersionAppComponentCommand } = require('@aws-sdk/client-resiliencehub'); // CommonJS import
  * const client = new ResiliencehubClient(config);
  * const input = { // DeleteAppVersionAppComponentRequest
- *   appArn: "STRING_VALUE", // required
- *   id: "STRING_VALUE", // required
- *   clientToken: "STRING_VALUE",
+ *   appArn: 'STRING_VALUE', // required
+ *   id: 'STRING_VALUE', // required
+ *   clientToken: 'STRING_VALUE',
  * };
  * const command = new DeleteAppVersionAppComponentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteAppVersionAppComponentResponse
+ *   appArn: 'STRING_VALUE', // required
+ *   appVersion: 'STRING_VALUE', // required
+ *   appComponent: { // AppComponent
+ *     name: 'STRING_VALUE', // required
+ *     type: 'STRING_VALUE', // required
+ *     id: 'STRING_VALUE',
+ *     additionalInfo: { // AdditionalInfoMap
+ *       '<keys>': [ // AdditionalInfoValueList
+ *         'STRING_VALUE',
+ *       ],
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param DeleteAppVersionAppComponentCommandInput - {@link DeleteAppVersionAppComponentCommandInput}
@@ -93,6 +109,8 @@ export interface DeleteAppVersionAppComponentCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>This exception occurs when a request is not valid.</p>
  *
+ * @throws {@link ResiliencehubServiceException}
+ * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
  */
 export class DeleteAppVersionAppComponentCommand extends $Command<

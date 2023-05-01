@@ -36,14 +36,20 @@ export interface CheckDNSAvailabilityCommandOutput extends CheckDNSAvailabilityR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElasticBeanstalkClient, CheckDNSAvailabilityCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
- * // const { ElasticBeanstalkClient, CheckDNSAvailabilityCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
+ * import { ElasticBeanstalkClient, CheckDNSAvailabilityCommand } from '@aws-sdk/client-elastic-beanstalk'; // ES Modules import
+ * // const { ElasticBeanstalkClient, CheckDNSAvailabilityCommand } = require('@aws-sdk/client-elastic-beanstalk'); // CommonJS import
  * const client = new ElasticBeanstalkClient(config);
  * const input = { // CheckDNSAvailabilityMessage
- *   CNAMEPrefix: "STRING_VALUE", // required
+ *   CNAMEPrefix: 'STRING_VALUE', // required
  * };
  * const command = new CheckDNSAvailabilityCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CheckDNSAvailabilityResultMessage
+ *   Available: true || false,
+ *   FullyQualifiedCNAME: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CheckDNSAvailabilityCommandInput - {@link CheckDNSAvailabilityCommandInput}
@@ -52,6 +58,8 @@ export interface CheckDNSAvailabilityCommandOutput extends CheckDNSAvailabilityR
  * @see {@link CheckDNSAvailabilityCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
+ * @throws {@link ElasticBeanstalkServiceException}
+ * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
  * @example To check the availability of a CNAME
  * ```javascript

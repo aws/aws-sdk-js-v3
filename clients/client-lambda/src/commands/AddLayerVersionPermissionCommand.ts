@@ -41,20 +41,26 @@ export interface AddLayerVersionPermissionCommandOutput extends AddLayerVersionP
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LambdaClient, AddLayerVersionPermissionCommand } from "@aws-sdk/client-lambda"; // ES Modules import
- * // const { LambdaClient, AddLayerVersionPermissionCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
+ * import { LambdaClient, AddLayerVersionPermissionCommand } from '@aws-sdk/client-lambda'; // ES Modules import
+ * // const { LambdaClient, AddLayerVersionPermissionCommand } = require('@aws-sdk/client-lambda'); // CommonJS import
  * const client = new LambdaClient(config);
  * const input = { // AddLayerVersionPermissionRequest
- *   LayerName: "STRING_VALUE", // required
- *   VersionNumber: Number("long"), // required
- *   StatementId: "STRING_VALUE", // required
- *   Action: "STRING_VALUE", // required
- *   Principal: "STRING_VALUE", // required
- *   OrganizationId: "STRING_VALUE",
- *   RevisionId: "STRING_VALUE",
+ *   LayerName: 'STRING_VALUE', // required
+ *   VersionNumber: Number('long'), // required
+ *   StatementId: 'STRING_VALUE', // required
+ *   Action: 'STRING_VALUE', // required
+ *   Principal: 'STRING_VALUE', // required
+ *   OrganizationId: 'STRING_VALUE',
+ *   RevisionId: 'STRING_VALUE',
  * };
  * const command = new AddLayerVersionPermissionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AddLayerVersionPermissionResponse
+ *   Statement: 'STRING_VALUE',
+ *   RevisionId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param AddLayerVersionPermissionCommandInput - {@link AddLayerVersionPermissionCommandInput}
@@ -85,6 +91,8 @@ export interface AddLayerVersionPermissionCommandOutput extends AddLayerVersionP
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>The request throughput limit was exceeded. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests">Lambda quotas</a>.</p>
  *
+ * @throws {@link LambdaServiceException}
+ * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
  */
 export class AddLayerVersionPermissionCommand extends $Command<

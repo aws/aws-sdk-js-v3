@@ -39,16 +39,29 @@ export interface GetFlowTemplateRevisionsCommandOutput extends GetFlowTemplateRe
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTThingsGraphClient, GetFlowTemplateRevisionsCommand } from "@aws-sdk/client-iotthingsgraph"; // ES Modules import
- * // const { IoTThingsGraphClient, GetFlowTemplateRevisionsCommand } = require("@aws-sdk/client-iotthingsgraph"); // CommonJS import
+ * import { IoTThingsGraphClient, GetFlowTemplateRevisionsCommand } from '@aws-sdk/client-iotthingsgraph'; // ES Modules import
+ * // const { IoTThingsGraphClient, GetFlowTemplateRevisionsCommand } = require('@aws-sdk/client-iotthingsgraph'); // CommonJS import
  * const client = new IoTThingsGraphClient(config);
  * const input = { // GetFlowTemplateRevisionsRequest
- *   id: "STRING_VALUE", // required
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   id: 'STRING_VALUE', // required
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new GetFlowTemplateRevisionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetFlowTemplateRevisionsResponse
+ *   summaries: [ // FlowTemplateSummaries
+ *     { // FlowTemplateSummary
+ *       id: 'STRING_VALUE',
+ *       arn: 'STRING_VALUE',
+ *       revisionNumber: Number('long'),
+ *       createdAt: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetFlowTemplateRevisionsCommandInput - {@link GetFlowTemplateRevisionsCommandInput}
@@ -69,6 +82,8 @@ export interface GetFlowTemplateRevisionsCommandOutput extends GetFlowTemplateRe
  * @throws {@link ThrottlingException} (client fault)
  *  <p></p>
  *
+ * @throws {@link IoTThingsGraphServiceException}
+ * <p>Base exception class for all service exceptions from IoTThingsGraph service.</p>
  *
  */
 export class GetFlowTemplateRevisionsCommand extends $Command<

@@ -36,17 +36,28 @@ export interface GetAssociatedIpv6PoolCidrsCommandOutput extends GetAssociatedIp
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, GetAssociatedIpv6PoolCidrsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, GetAssociatedIpv6PoolCidrsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, GetAssociatedIpv6PoolCidrsCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, GetAssociatedIpv6PoolCidrsCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // GetAssociatedIpv6PoolCidrsRequest
- *   PoolId: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   PoolId: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  *   DryRun: true || false,
  * };
  * const command = new GetAssociatedIpv6PoolCidrsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetAssociatedIpv6PoolCidrsResult
+ *   Ipv6CidrAssociations: [ // Ipv6CidrAssociationSet
+ *     { // Ipv6CidrAssociation
+ *       Ipv6Cidr: 'STRING_VALUE',
+ *       AssociatedResource: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetAssociatedIpv6PoolCidrsCommandInput - {@link GetAssociatedIpv6PoolCidrsCommandInput}
@@ -55,6 +66,8 @@ export interface GetAssociatedIpv6PoolCidrsCommandOutput extends GetAssociatedIp
  * @see {@link GetAssociatedIpv6PoolCidrsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class GetAssociatedIpv6PoolCidrsCommand extends $Command<

@@ -36,41 +36,48 @@ export interface StartEventsDetectionJobCommandOutput extends StartEventsDetecti
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ComprehendClient, StartEventsDetectionJobCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
- * // const { ComprehendClient, StartEventsDetectionJobCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
+ * import { ComprehendClient, StartEventsDetectionJobCommand } from '@aws-sdk/client-comprehend'; // ES Modules import
+ * // const { ComprehendClient, StartEventsDetectionJobCommand } = require('@aws-sdk/client-comprehend'); // CommonJS import
  * const client = new ComprehendClient(config);
  * const input = { // StartEventsDetectionJobRequest
  *   InputDataConfig: { // InputDataConfig
- *     S3Uri: "STRING_VALUE", // required
- *     InputFormat: "ONE_DOC_PER_FILE" || "ONE_DOC_PER_LINE",
+ *     S3Uri: 'STRING_VALUE', // required
+ *     InputFormat: 'ONE_DOC_PER_FILE' || 'ONE_DOC_PER_LINE',
  *     DocumentReaderConfig: { // DocumentReaderConfig
- *       DocumentReadAction: "TEXTRACT_DETECT_DOCUMENT_TEXT" || "TEXTRACT_ANALYZE_DOCUMENT", // required
- *       DocumentReadMode: "SERVICE_DEFAULT" || "FORCE_DOCUMENT_READ_ACTION",
+ *       DocumentReadAction: 'TEXTRACT_DETECT_DOCUMENT_TEXT' || 'TEXTRACT_ANALYZE_DOCUMENT', // required
+ *       DocumentReadMode: 'SERVICE_DEFAULT' || 'FORCE_DOCUMENT_READ_ACTION',
  *       FeatureTypes: [ // ListOfDocumentReadFeatureTypes
- *         "TABLES" || "FORMS",
+ *         'TABLES' || 'FORMS',
  *       ],
  *     },
  *   },
  *   OutputDataConfig: { // OutputDataConfig
- *     S3Uri: "STRING_VALUE", // required
- *     KmsKeyId: "STRING_VALUE",
+ *     S3Uri: 'STRING_VALUE', // required
+ *     KmsKeyId: 'STRING_VALUE',
  *   },
- *   DataAccessRoleArn: "STRING_VALUE", // required
- *   JobName: "STRING_VALUE",
- *   LanguageCode: "en" || "es" || "fr" || "de" || "it" || "pt" || "ar" || "hi" || "ja" || "ko" || "zh" || "zh-TW", // required
- *   ClientRequestToken: "STRING_VALUE",
+ *   DataAccessRoleArn: 'STRING_VALUE', // required
+ *   JobName: 'STRING_VALUE',
+ *   LanguageCode: 'en' || 'es' || 'fr' || 'de' || 'it' || 'pt' || 'ar' || 'hi' || 'ja' || 'ko' || 'zh' || 'zh-TW', // required
+ *   ClientRequestToken: 'STRING_VALUE',
  *   TargetEventTypes: [ // TargetEventTypes // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new StartEventsDetectionJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartEventsDetectionJobResponse
+ *   JobId: 'STRING_VALUE',
+ *   JobArn: 'STRING_VALUE',
+ *   JobStatus: 'SUBMITTED' || 'IN_PROGRESS' || 'COMPLETED' || 'FAILED' || 'STOP_REQUESTED' || 'STOPPED',
+ * };
+ *
  * ```
  *
  * @param StartEventsDetectionJobCommandInput - {@link StartEventsDetectionJobCommandInput}
@@ -101,6 +108,8 @@ export interface StartEventsDetectionJobCommandOutput extends StartEventsDetecti
  *       resource). The maximum number of tags includes both existing tags and those included in your
  *       current request. </p>
  *
+ * @throws {@link ComprehendServiceException}
+ * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
  */
 export class StartEventsDetectionJobCommand extends $Command<

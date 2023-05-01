@@ -37,54 +37,75 @@ export interface UpdateDistributionCommandOutput extends UpdateDistributionResul
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LightsailClient, UpdateDistributionCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
- * // const { LightsailClient, UpdateDistributionCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
+ * import { LightsailClient, UpdateDistributionCommand } from '@aws-sdk/client-lightsail'; // ES Modules import
+ * // const { LightsailClient, UpdateDistributionCommand } = require('@aws-sdk/client-lightsail'); // CommonJS import
  * const client = new LightsailClient(config);
  * const input = { // UpdateDistributionRequest
- *   distributionName: "STRING_VALUE", // required
+ *   distributionName: 'STRING_VALUE', // required
  *   origin: { // InputOrigin
- *     name: "STRING_VALUE",
- *     regionName: "us-east-1" || "us-east-2" || "us-west-1" || "us-west-2" || "eu-west-1" || "eu-west-2" || "eu-west-3" || "eu-central-1" || "ca-central-1" || "ap-south-1" || "ap-southeast-1" || "ap-southeast-2" || "ap-northeast-1" || "ap-northeast-2" || "eu-north-1",
- *     protocolPolicy: "http-only" || "https-only",
+ *     name: 'STRING_VALUE',
+ *     regionName: 'us-east-1' || 'us-east-2' || 'us-west-1' || 'us-west-2' || 'eu-west-1' || 'eu-west-2' || 'eu-west-3' || 'eu-central-1' || 'ca-central-1' || 'ap-south-1' || 'ap-southeast-1' || 'ap-southeast-2' || 'ap-northeast-1' || 'ap-northeast-2' || 'eu-north-1',
+ *     protocolPolicy: 'http-only' || 'https-only',
  *   },
  *   defaultCacheBehavior: { // CacheBehavior
- *     behavior: "dont-cache" || "cache",
+ *     behavior: 'dont-cache' || 'cache',
  *   },
  *   cacheBehaviorSettings: { // CacheSettings
- *     defaultTTL: Number("long"),
- *     minimumTTL: Number("long"),
- *     maximumTTL: Number("long"),
- *     allowedHTTPMethods: "STRING_VALUE",
- *     cachedHTTPMethods: "STRING_VALUE",
+ *     defaultTTL: Number('long'),
+ *     minimumTTL: Number('long'),
+ *     maximumTTL: Number('long'),
+ *     allowedHTTPMethods: 'STRING_VALUE',
+ *     cachedHTTPMethods: 'STRING_VALUE',
  *     forwardedCookies: { // CookieObject
- *       option: "none" || "allow-list" || "all",
+ *       option: 'none' || 'allow-list' || 'all',
  *       cookiesAllowList: [ // StringList
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *     forwardedHeaders: { // HeaderObject
- *       option: "none" || "allow-list" || "all",
+ *       option: 'none' || 'allow-list' || 'all',
  *       headersAllowList: [ // HeaderForwardList
- *         "Accept" || "Accept-Charset" || "Accept-Datetime" || "Accept-Encoding" || "Accept-Language" || "Authorization" || "CloudFront-Forwarded-Proto" || "CloudFront-Is-Desktop-Viewer" || "CloudFront-Is-Mobile-Viewer" || "CloudFront-Is-SmartTV-Viewer" || "CloudFront-Is-Tablet-Viewer" || "CloudFront-Viewer-Country" || "Host" || "Origin" || "Referer",
+ *         'Accept' || 'Accept-Charset' || 'Accept-Datetime' || 'Accept-Encoding' || 'Accept-Language' || 'Authorization' || 'CloudFront-Forwarded-Proto' || 'CloudFront-Is-Desktop-Viewer' || 'CloudFront-Is-Mobile-Viewer' || 'CloudFront-Is-SmartTV-Viewer' || 'CloudFront-Is-Tablet-Viewer' || 'CloudFront-Viewer-Country' || 'Host' || 'Origin' || 'Referer',
  *       ],
  *     },
  *     forwardedQueryStrings: { // QueryStringObject
  *       option: true || false,
  *       queryStringsAllowList: [
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   },
  *   cacheBehaviors: [ // CacheBehaviorList
  *     { // CacheBehaviorPerPath
- *       path: "STRING_VALUE",
- *       behavior: "dont-cache" || "cache",
+ *       path: 'STRING_VALUE',
+ *       behavior: 'dont-cache' || 'cache',
  *     },
  *   ],
  *   isEnabled: true || false,
  * };
  * const command = new UpdateDistributionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateDistributionResult
+ *   operation: { // Operation
+ *     id: 'STRING_VALUE',
+ *     resourceName: 'STRING_VALUE',
+ *     resourceType: 'ContainerService' || 'Instance' || 'StaticIp' || 'KeyPair' || 'InstanceSnapshot' || 'Domain' || 'PeeredVpc' || 'LoadBalancer' || 'LoadBalancerTlsCertificate' || 'Disk' || 'DiskSnapshot' || 'RelationalDatabase' || 'RelationalDatabaseSnapshot' || 'ExportSnapshotRecord' || 'CloudFormationStackRecord' || 'Alarm' || 'ContactMethod' || 'Distribution' || 'Certificate' || 'Bucket',
+ *     createdAt: new Date('TIMESTAMP'),
+ *     location: { // ResourceLocation
+ *       availabilityZone: 'STRING_VALUE',
+ *       regionName: 'us-east-1' || 'us-east-2' || 'us-west-1' || 'us-west-2' || 'eu-west-1' || 'eu-west-2' || 'eu-west-3' || 'eu-central-1' || 'ca-central-1' || 'ap-south-1' || 'ap-southeast-1' || 'ap-southeast-2' || 'ap-northeast-1' || 'ap-northeast-2' || 'eu-north-1',
+ *     },
+ *     isTerminal: true || false,
+ *     operationDetails: 'STRING_VALUE',
+ *     operationType: 'DeleteKnownHostKeys' || 'DeleteInstance' || 'CreateInstance' || 'StopInstance' || 'StartInstance' || 'RebootInstance' || 'OpenInstancePublicPorts' || 'PutInstancePublicPorts' || 'CloseInstancePublicPorts' || 'AllocateStaticIp' || 'ReleaseStaticIp' || 'AttachStaticIp' || 'DetachStaticIp' || 'UpdateDomainEntry' || 'DeleteDomainEntry' || 'CreateDomain' || 'DeleteDomain' || 'CreateInstanceSnapshot' || 'DeleteInstanceSnapshot' || 'CreateInstancesFromSnapshot' || 'CreateLoadBalancer' || 'DeleteLoadBalancer' || 'AttachInstancesToLoadBalancer' || 'DetachInstancesFromLoadBalancer' || 'UpdateLoadBalancerAttribute' || 'CreateLoadBalancerTlsCertificate' || 'DeleteLoadBalancerTlsCertificate' || 'AttachLoadBalancerTlsCertificate' || 'CreateDisk' || 'DeleteDisk' || 'AttachDisk' || 'DetachDisk' || 'CreateDiskSnapshot' || 'DeleteDiskSnapshot' || 'CreateDiskFromSnapshot' || 'CreateRelationalDatabase' || 'UpdateRelationalDatabase' || 'DeleteRelationalDatabase' || 'CreateRelationalDatabaseFromSnapshot' || 'CreateRelationalDatabaseSnapshot' || 'DeleteRelationalDatabaseSnapshot' || 'UpdateRelationalDatabaseParameters' || 'StartRelationalDatabase' || 'RebootRelationalDatabase' || 'StopRelationalDatabase' || 'EnableAddOn' || 'DisableAddOn' || 'PutAlarm' || 'GetAlarms' || 'DeleteAlarm' || 'TestAlarm' || 'CreateContactMethod' || 'GetContactMethods' || 'SendContactMethodVerification' || 'DeleteContactMethod' || 'CreateDistribution' || 'UpdateDistribution' || 'DeleteDistribution' || 'ResetDistributionCache' || 'AttachCertificateToDistribution' || 'DetachCertificateFromDistribution' || 'UpdateDistributionBundle' || 'SetIpAddressType' || 'CreateCertificate' || 'DeleteCertificate' || 'CreateContainerService' || 'UpdateContainerService' || 'DeleteContainerService' || 'CreateContainerServiceDeployment' || 'CreateContainerServiceRegistryLogin' || 'RegisterContainerImage' || 'DeleteContainerImage' || 'CreateBucket' || 'DeleteBucket' || 'CreateBucketAccessKey' || 'DeleteBucketAccessKey' || 'UpdateBucketBundle' || 'UpdateBucket' || 'SetResourceAccessForBucket' || 'UpdateInstanceMetadataOptions' || 'StartGUISession' || 'StopGUISession',
+ *     status: 'NotStarted' || 'Started' || 'Failed' || 'Completed' || 'Succeeded',
+ *     statusChangedAt: new Date('TIMESTAMP'),
+ *     errorCode: 'STRING_VALUE',
+ *     errorDetails: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateDistributionCommandInput - {@link UpdateDistributionCommandInput}
@@ -119,6 +140,8 @@ export interface UpdateDistributionCommandOutput extends UpdateDistributionResul
  * @throws {@link UnauthenticatedException} (client fault)
  *  <p>Lightsail throws this exception when the user has not been authenticated.</p>
  *
+ * @throws {@link LightsailServiceException}
+ * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
  */
 export class UpdateDistributionCommand extends $Command<

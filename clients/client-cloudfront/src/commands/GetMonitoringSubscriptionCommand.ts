@@ -37,14 +37,23 @@ export interface GetMonitoringSubscriptionCommandOutput extends GetMonitoringSub
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudFrontClient, GetMonitoringSubscriptionCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
- * // const { CloudFrontClient, GetMonitoringSubscriptionCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
+ * import { CloudFrontClient, GetMonitoringSubscriptionCommand } from '@aws-sdk/client-cloudfront'; // ES Modules import
+ * // const { CloudFrontClient, GetMonitoringSubscriptionCommand } = require('@aws-sdk/client-cloudfront'); // CommonJS import
  * const client = new CloudFrontClient(config);
  * const input = { // GetMonitoringSubscriptionRequest
- *   DistributionId: "STRING_VALUE", // required
+ *   DistributionId: 'STRING_VALUE', // required
  * };
  * const command = new GetMonitoringSubscriptionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetMonitoringSubscriptionResult
+ *   MonitoringSubscription: { // MonitoringSubscription
+ *     RealtimeMetricsSubscriptionConfig: { // RealtimeMetricsSubscriptionConfig
+ *       RealtimeMetricsSubscriptionStatus: 'Enabled' || 'Disabled', // required
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetMonitoringSubscriptionCommandInput - {@link GetMonitoringSubscriptionCommandInput}
@@ -65,6 +74,8 @@ export interface GetMonitoringSubscriptionCommandOutput extends GetMonitoringSub
  * @throws {@link UnsupportedOperation} (client fault)
  *  <p>This operation is not supported in this region.</p>
  *
+ * @throws {@link CloudFrontServiceException}
+ * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
  */
 export class GetMonitoringSubscriptionCommand extends $Command<

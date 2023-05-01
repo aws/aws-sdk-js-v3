@@ -47,22 +47,37 @@ export interface DescribeConformancePackComplianceCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConfigServiceClient, DescribeConformancePackComplianceCommand } from "@aws-sdk/client-config-service"; // ES Modules import
- * // const { ConfigServiceClient, DescribeConformancePackComplianceCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
+ * import { ConfigServiceClient, DescribeConformancePackComplianceCommand } from '@aws-sdk/client-config-service'; // ES Modules import
+ * // const { ConfigServiceClient, DescribeConformancePackComplianceCommand } = require('@aws-sdk/client-config-service'); // CommonJS import
  * const client = new ConfigServiceClient(config);
  * const input = { // DescribeConformancePackComplianceRequest
- *   ConformancePackName: "STRING_VALUE", // required
+ *   ConformancePackName: 'STRING_VALUE', // required
  *   Filters: { // ConformancePackComplianceFilters
  *     ConfigRuleNames: [ // ConformancePackConfigRuleNames
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
- *     ComplianceType: "COMPLIANT" || "NON_COMPLIANT" || "INSUFFICIENT_DATA",
+ *     ComplianceType: 'COMPLIANT' || 'NON_COMPLIANT' || 'INSUFFICIENT_DATA',
  *   },
- *   Limit: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   Limit: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new DescribeConformancePackComplianceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeConformancePackComplianceResponse
+ *   ConformancePackName: 'STRING_VALUE', // required
+ *   ConformancePackRuleComplianceList: [ // ConformancePackRuleComplianceList // required
+ *     { // ConformancePackRuleCompliance
+ *       ConfigRuleName: 'STRING_VALUE',
+ *       ComplianceType: 'COMPLIANT' || 'NON_COMPLIANT' || 'INSUFFICIENT_DATA',
+ *       Controls: [ // ControlsList
+ *         'STRING_VALUE',
+ *       ],
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeConformancePackComplianceCommandInput - {@link DescribeConformancePackComplianceCommandInput}
@@ -89,6 +104,8 @@ export interface DescribeConformancePackComplianceCommandOutput
  * @throws {@link NoSuchConformancePackException} (client fault)
  *  <p>You specified one or more conformance packs that do not exist.</p>
  *
+ * @throws {@link ConfigServiceServiceException}
+ * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
  */
 export class DescribeConformancePackComplianceCommand extends $Command<

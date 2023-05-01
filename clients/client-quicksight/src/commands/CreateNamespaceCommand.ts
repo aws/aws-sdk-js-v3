@@ -43,22 +43,33 @@ export interface CreateNamespaceCommandOutput extends CreateNamespaceResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { QuickSightClient, CreateNamespaceCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
- * // const { QuickSightClient, CreateNamespaceCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * import { QuickSightClient, CreateNamespaceCommand } from '@aws-sdk/client-quicksight'; // ES Modules import
+ * // const { QuickSightClient, CreateNamespaceCommand } = require('@aws-sdk/client-quicksight'); // CommonJS import
  * const client = new QuickSightClient(config);
  * const input = { // CreateNamespaceRequest
- *   AwsAccountId: "STRING_VALUE", // required
- *   Namespace: "STRING_VALUE", // required
- *   IdentityStore: "QUICKSIGHT", // required
+ *   AwsAccountId: 'STRING_VALUE', // required
+ *   Namespace: 'STRING_VALUE', // required
+ *   IdentityStore: 'QUICKSIGHT', // required
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreateNamespaceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateNamespaceResponse
+ *   Arn: 'STRING_VALUE',
+ *   Name: 'STRING_VALUE',
+ *   CapacityRegion: 'STRING_VALUE',
+ *   CreationStatus: 'CREATED' || 'CREATING' || 'DELETING' || 'RETRYABLE_FAILURE' || 'NON_RETRYABLE_FAILURE',
+ *   IdentityStore: 'QUICKSIGHT',
+ *   RequestId: 'STRING_VALUE',
+ *   Status: Number('int'),
+ * };
+ *
  * ```
  *
  * @param CreateNamespaceCommandInput - {@link CreateNamespaceCommandInput}
@@ -100,6 +111,8 @@ export interface CreateNamespaceCommandOutput extends CreateNamespaceResponse, _
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Access is throttled.</p>
  *
+ * @throws {@link QuickSightServiceException}
+ * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
 export class CreateNamespaceCommand extends $Command<

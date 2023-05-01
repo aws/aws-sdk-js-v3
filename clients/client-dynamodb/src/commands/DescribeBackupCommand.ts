@@ -38,14 +38,102 @@ export interface DescribeBackupCommandOutput extends DescribeBackupOutput, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DynamoDBClient, DescribeBackupCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
- * // const { DynamoDBClient, DescribeBackupCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
+ * import { DynamoDBClient, DescribeBackupCommand } from '@aws-sdk/client-dynamodb'; // ES Modules import
+ * // const { DynamoDBClient, DescribeBackupCommand } = require('@aws-sdk/client-dynamodb'); // CommonJS import
  * const client = new DynamoDBClient(config);
  * const input = { // DescribeBackupInput
- *   BackupArn: "STRING_VALUE", // required
+ *   BackupArn: 'STRING_VALUE', // required
  * };
  * const command = new DescribeBackupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeBackupOutput
+ *   BackupDescription: { // BackupDescription
+ *     BackupDetails: { // BackupDetails
+ *       BackupArn: 'STRING_VALUE', // required
+ *       BackupName: 'STRING_VALUE', // required
+ *       BackupSizeBytes: Number('long'),
+ *       BackupStatus: 'CREATING' || 'DELETED' || 'AVAILABLE', // required
+ *       BackupType: 'USER' || 'SYSTEM' || 'AWS_BACKUP', // required
+ *       BackupCreationDateTime: new Date('TIMESTAMP'), // required
+ *       BackupExpiryDateTime: new Date('TIMESTAMP'),
+ *     },
+ *     SourceTableDetails: { // SourceTableDetails
+ *       TableName: 'STRING_VALUE', // required
+ *       TableId: 'STRING_VALUE', // required
+ *       TableArn: 'STRING_VALUE',
+ *       TableSizeBytes: Number('long'),
+ *       KeySchema: [ // KeySchema // required
+ *         { // KeySchemaElement
+ *           AttributeName: 'STRING_VALUE', // required
+ *           KeyType: 'HASH' || 'RANGE', // required
+ *         },
+ *       ],
+ *       TableCreationDateTime: new Date('TIMESTAMP'), // required
+ *       ProvisionedThroughput: { // ProvisionedThroughput
+ *         ReadCapacityUnits: Number('long'), // required
+ *         WriteCapacityUnits: Number('long'), // required
+ *       },
+ *       ItemCount: Number('long'),
+ *       BillingMode: 'PROVISIONED' || 'PAY_PER_REQUEST',
+ *     },
+ *     SourceTableFeatureDetails: { // SourceTableFeatureDetails
+ *       LocalSecondaryIndexes: [ // LocalSecondaryIndexes
+ *         { // LocalSecondaryIndexInfo
+ *           IndexName: 'STRING_VALUE',
+ *           KeySchema: [
+ *             {
+ *               AttributeName: 'STRING_VALUE', // required
+ *               KeyType: 'HASH' || 'RANGE', // required
+ *             },
+ *           ],
+ *           Projection: { // Projection
+ *             ProjectionType: 'ALL' || 'KEYS_ONLY' || 'INCLUDE',
+ *             NonKeyAttributes: [ // NonKeyAttributeNameList
+ *               'STRING_VALUE',
+ *             ],
+ *           },
+ *         },
+ *       ],
+ *       GlobalSecondaryIndexes: [ // GlobalSecondaryIndexes
+ *         { // GlobalSecondaryIndexInfo
+ *           IndexName: 'STRING_VALUE',
+ *           KeySchema: [
+ *             {
+ *               AttributeName: 'STRING_VALUE', // required
+ *               KeyType: 'HASH' || 'RANGE', // required
+ *             },
+ *           ],
+ *           Projection: {
+ *             ProjectionType: 'ALL' || 'KEYS_ONLY' || 'INCLUDE',
+ *             NonKeyAttributes: [
+ *               'STRING_VALUE',
+ *             ],
+ *           },
+ *           ProvisionedThroughput: {
+ *             ReadCapacityUnits: Number('long'), // required
+ *             WriteCapacityUnits: Number('long'), // required
+ *           },
+ *         },
+ *       ],
+ *       StreamDescription: { // StreamSpecification
+ *         StreamEnabled: true || false, // required
+ *         StreamViewType: 'NEW_IMAGE' || 'OLD_IMAGE' || 'NEW_AND_OLD_IMAGES' || 'KEYS_ONLY',
+ *       },
+ *       TimeToLiveDescription: { // TimeToLiveDescription
+ *         TimeToLiveStatus: 'ENABLING' || 'DISABLING' || 'ENABLED' || 'DISABLED',
+ *         AttributeName: 'STRING_VALUE',
+ *       },
+ *       SSEDescription: { // SSEDescription
+ *         Status: 'ENABLING' || 'ENABLED' || 'DISABLING' || 'DISABLED' || 'UPDATING',
+ *         SSEType: 'AES256' || 'KMS',
+ *         KMSMasterKeyArn: 'STRING_VALUE',
+ *         InaccessibleEncryptionDateTime: new Date('TIMESTAMP'),
+ *       },
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeBackupCommandInput - {@link DescribeBackupCommandInput}
@@ -62,6 +150,8 @@ export interface DescribeBackupCommandOutput extends DescribeBackupOutput, __Met
  *
  * @throws {@link InvalidEndpointException} (client fault)
  *
+ * @throws {@link DynamoDBServiceException}
+ * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
  */
 export class DescribeBackupCommand extends $Command<

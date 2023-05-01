@@ -36,15 +36,66 @@ export interface DeleteMultiplexProgramCommandOutput extends DeleteMultiplexProg
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MediaLiveClient, DeleteMultiplexProgramCommand } from "@aws-sdk/client-medialive"; // ES Modules import
- * // const { MediaLiveClient, DeleteMultiplexProgramCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
+ * import { MediaLiveClient, DeleteMultiplexProgramCommand } from '@aws-sdk/client-medialive'; // ES Modules import
+ * // const { MediaLiveClient, DeleteMultiplexProgramCommand } = require('@aws-sdk/client-medialive'); // CommonJS import
  * const client = new MediaLiveClient(config);
  * const input = { // DeleteMultiplexProgramRequest
- *   MultiplexId: "STRING_VALUE", // required
- *   ProgramName: "STRING_VALUE", // required
+ *   MultiplexId: 'STRING_VALUE', // required
+ *   ProgramName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteMultiplexProgramCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteMultiplexProgramResponse
+ *   ChannelId: 'STRING_VALUE',
+ *   MultiplexProgramSettings: { // MultiplexProgramSettings
+ *     PreferredChannelPipeline: 'CURRENTLY_ACTIVE' || 'PIPELINE_0' || 'PIPELINE_1',
+ *     ProgramNumber: Number('int'), // required
+ *     ServiceDescriptor: { // MultiplexProgramServiceDescriptor
+ *       ProviderName: 'STRING_VALUE', // required
+ *       ServiceName: 'STRING_VALUE', // required
+ *     },
+ *     VideoSettings: { // MultiplexVideoSettings
+ *       ConstantBitrate: Number('int'),
+ *       StatmuxSettings: { // MultiplexStatmuxVideoSettings
+ *         MaximumBitrate: Number('int'),
+ *         MinimumBitrate: Number('int'),
+ *         Priority: Number('int'),
+ *       },
+ *     },
+ *   },
+ *   PacketIdentifiersMap: { // MultiplexProgramPacketIdentifiersMap
+ *     AudioPids: [ // __listOf__integer
+ *       Number('int'),
+ *     ],
+ *     DvbSubPids: [
+ *       Number('int'),
+ *     ],
+ *     DvbTeletextPid: Number('int'),
+ *     EtvPlatformPid: Number('int'),
+ *     EtvSignalPid: Number('int'),
+ *     KlvDataPids: [
+ *       Number('int'),
+ *     ],
+ *     PcrPid: Number('int'),
+ *     PmtPid: Number('int'),
+ *     PrivateMetadataPid: Number('int'),
+ *     Scte27Pids: [
+ *       Number('int'),
+ *     ],
+ *     Scte35Pid: Number('int'),
+ *     TimedMetadataPid: Number('int'),
+ *     VideoPid: Number('int'),
+ *   },
+ *   PipelineDetails: [ // __listOfMultiplexProgramPipelineDetail
+ *     { // MultiplexProgramPipelineDetail
+ *       ActiveChannelPipeline: 'STRING_VALUE',
+ *       PipelineId: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   ProgramName: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DeleteMultiplexProgramCommandInput - {@link DeleteMultiplexProgramCommandInput}
@@ -77,6 +128,8 @@ export interface DeleteMultiplexProgramCommandOutput extends DeleteMultiplexProg
  * @throws {@link TooManyRequestsException} (client fault)
  *  Placeholder documentation for TooManyRequestsException
  *
+ * @throws {@link MediaLiveServiceException}
+ * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
  */
 export class DeleteMultiplexProgramCommand extends $Command<

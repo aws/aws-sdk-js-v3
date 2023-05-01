@@ -36,19 +36,31 @@ export interface ListAccountSettingsCommandOutput extends ListAccountSettingsRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ECSClient, ListAccountSettingsCommand } from "@aws-sdk/client-ecs"; // ES Modules import
- * // const { ECSClient, ListAccountSettingsCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
+ * import { ECSClient, ListAccountSettingsCommand } from '@aws-sdk/client-ecs'; // ES Modules import
+ * // const { ECSClient, ListAccountSettingsCommand } = require('@aws-sdk/client-ecs'); // CommonJS import
  * const client = new ECSClient(config);
  * const input = { // ListAccountSettingsRequest
- *   name: "serviceLongArnFormat" || "taskLongArnFormat" || "containerInstanceLongArnFormat" || "awsvpcTrunking" || "containerInsights" || "fargateFIPSMode" || "tagResourceAuthorization",
- *   value: "STRING_VALUE",
- *   principalArn: "STRING_VALUE",
+ *   name: 'serviceLongArnFormat' || 'taskLongArnFormat' || 'containerInstanceLongArnFormat' || 'awsvpcTrunking' || 'containerInsights' || 'fargateFIPSMode' || 'tagResourceAuthorization',
+ *   value: 'STRING_VALUE',
+ *   principalArn: 'STRING_VALUE',
  *   effectiveSettings: true || false,
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new ListAccountSettingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListAccountSettingsResponse
+ *   settings: [ // Settings
+ *     { // Setting
+ *       name: 'serviceLongArnFormat' || 'taskLongArnFormat' || 'containerInstanceLongArnFormat' || 'awsvpcTrunking' || 'containerInsights' || 'fargateFIPSMode' || 'tagResourceAuthorization',
+ *       value: 'STRING_VALUE',
+ *       principalArn: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListAccountSettingsCommandInput - {@link ListAccountSettingsCommandInput}
@@ -69,6 +81,8 @@ export interface ListAccountSettingsCommandOutput extends ListAccountSettingsRes
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server issue.</p>
  *
+ * @throws {@link ECSServiceException}
+ * <p>Base exception class for all service exceptions from ECS service.</p>
  *
  * @example To view your effective account settings
  * ```javascript

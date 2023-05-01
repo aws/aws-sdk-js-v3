@@ -41,16 +41,29 @@ export interface ListApiKeysCommandOutput extends ListApiKeysResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppSyncClient, ListApiKeysCommand } from "@aws-sdk/client-appsync"; // ES Modules import
- * // const { AppSyncClient, ListApiKeysCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
+ * import { AppSyncClient, ListApiKeysCommand } from '@aws-sdk/client-appsync'; // ES Modules import
+ * // const { AppSyncClient, ListApiKeysCommand } = require('@aws-sdk/client-appsync'); // CommonJS import
  * const client = new AppSyncClient(config);
  * const input = { // ListApiKeysRequest
- *   apiId: "STRING_VALUE", // required
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   apiId: 'STRING_VALUE', // required
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new ListApiKeysCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListApiKeysResponse
+ *   apiKeys: [ // ApiKeys
+ *     { // ApiKey
+ *       id: 'STRING_VALUE',
+ *       description: 'STRING_VALUE',
+ *       expires: Number('long'),
+ *       deletes: Number('long'),
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListApiKeysCommandInput - {@link ListApiKeysCommandInput}
@@ -72,6 +85,8 @@ export interface ListApiKeysCommandOutput extends ListApiKeysResponse, __Metadat
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You aren't authorized to perform this operation.</p>
  *
+ * @throws {@link AppSyncServiceException}
+ * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
  */
 export class ListApiKeysCommand extends $Command<

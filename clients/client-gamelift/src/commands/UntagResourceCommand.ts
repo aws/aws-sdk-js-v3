@@ -58,17 +58,20 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GameLiftClient, UntagResourceCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
- * // const { GameLiftClient, UntagResourceCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
+ * import { GameLiftClient, UntagResourceCommand } from '@aws-sdk/client-gamelift'; // ES Modules import
+ * // const { GameLiftClient, UntagResourceCommand } = require('@aws-sdk/client-gamelift'); // CommonJS import
  * const client = new GameLiftClient(config);
  * const input = { // UntagResourceRequest
- *   ResourceARN: "STRING_VALUE", // required
+ *   ResourceARN: 'STRING_VALUE', // required
  *   TagKeys: [ // TagKeyList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new UntagResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UntagResourceCommandInput - {@link UntagResourceCommandInput}
@@ -93,6 +96,8 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  *             or the maximum tag limit may have been exceeded. Resolve the issue before
  *             retrying.</p>
  *
+ * @throws {@link GameLiftServiceException}
+ * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
  */
 export class UntagResourceCommand extends $Command<

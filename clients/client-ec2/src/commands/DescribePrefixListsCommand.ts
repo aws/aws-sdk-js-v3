@@ -38,27 +38,41 @@ export interface DescribePrefixListsCommandOutput extends DescribePrefixListsRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, DescribePrefixListsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, DescribePrefixListsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, DescribePrefixListsCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, DescribePrefixListsCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // DescribePrefixListsRequest
  *   DryRun: true || false,
  *   Filters: [ // FilterList
  *     { // Filter
- *       Name: "STRING_VALUE",
+ *       Name: 'STRING_VALUE',
  *       Values: [ // ValueStringList
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  *   PrefixListIds: [ // PrefixListResourceIdStringList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new DescribePrefixListsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribePrefixListsResult
+ *   NextToken: 'STRING_VALUE',
+ *   PrefixLists: [ // PrefixListSet
+ *     { // PrefixList
+ *       Cidrs: [ // ValueStringList
+ *         'STRING_VALUE',
+ *       ],
+ *       PrefixListId: 'STRING_VALUE',
+ *       PrefixListName: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribePrefixListsCommandInput - {@link DescribePrefixListsCommandInput}
@@ -67,6 +81,8 @@ export interface DescribePrefixListsCommandOutput extends DescribePrefixListsRes
  * @see {@link DescribePrefixListsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class DescribePrefixListsCommand extends $Command<

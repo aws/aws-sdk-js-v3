@@ -39,14 +39,17 @@ export interface DeleteRetentionConfigurationCommandOutput extends __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConfigServiceClient, DeleteRetentionConfigurationCommand } from "@aws-sdk/client-config-service"; // ES Modules import
- * // const { ConfigServiceClient, DeleteRetentionConfigurationCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
+ * import { ConfigServiceClient, DeleteRetentionConfigurationCommand } from '@aws-sdk/client-config-service'; // ES Modules import
+ * // const { ConfigServiceClient, DeleteRetentionConfigurationCommand } = require('@aws-sdk/client-config-service'); // CommonJS import
  * const client = new ConfigServiceClient(config);
  * const input = { // DeleteRetentionConfigurationRequest
- *   RetentionConfigurationName: "STRING_VALUE", // required
+ *   RetentionConfigurationName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteRetentionConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteRetentionConfigurationCommandInput - {@link DeleteRetentionConfigurationCommandInput}
@@ -62,6 +65,8 @@ export interface DeleteRetentionConfigurationCommandOutput extends __MetadataBea
  * @throws {@link NoSuchRetentionConfigurationException} (client fault)
  *  <p>You have specified a retention configuration that does not exist.</p>
  *
+ * @throws {@link ConfigServiceServiceException}
+ * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
  */
 export class DeleteRetentionConfigurationCommand extends $Command<

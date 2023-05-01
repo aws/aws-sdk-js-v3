@@ -41,73 +41,78 @@ export interface UpdateStackSetCommandOutput extends UpdateStackSetOutput, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudFormationClient, UpdateStackSetCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
- * // const { CloudFormationClient, UpdateStackSetCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
+ * import { CloudFormationClient, UpdateStackSetCommand } from '@aws-sdk/client-cloudformation'; // ES Modules import
+ * // const { CloudFormationClient, UpdateStackSetCommand } = require('@aws-sdk/client-cloudformation'); // CommonJS import
  * const client = new CloudFormationClient(config);
  * const input = { // UpdateStackSetInput
- *   StackSetName: "STRING_VALUE", // required
- *   Description: "STRING_VALUE",
- *   TemplateBody: "STRING_VALUE",
- *   TemplateURL: "STRING_VALUE",
+ *   StackSetName: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE',
+ *   TemplateBody: 'STRING_VALUE',
+ *   TemplateURL: 'STRING_VALUE',
  *   UsePreviousTemplate: true || false,
  *   Parameters: [ // Parameters
  *     { // Parameter
- *       ParameterKey: "STRING_VALUE",
- *       ParameterValue: "STRING_VALUE",
+ *       ParameterKey: 'STRING_VALUE',
+ *       ParameterValue: 'STRING_VALUE',
  *       UsePreviousValue: true || false,
- *       ResolvedValue: "STRING_VALUE",
+ *       ResolvedValue: 'STRING_VALUE',
  *     },
  *   ],
  *   Capabilities: [ // Capabilities
- *     "CAPABILITY_IAM" || "CAPABILITY_NAMED_IAM" || "CAPABILITY_AUTO_EXPAND",
+ *     'CAPABILITY_IAM' || 'CAPABILITY_NAMED_IAM' || 'CAPABILITY_AUTO_EXPAND',
  *   ],
  *   Tags: [ // Tags
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  *   OperationPreferences: { // StackSetOperationPreferences
- *     RegionConcurrencyType: "SEQUENTIAL" || "PARALLEL",
+ *     RegionConcurrencyType: 'SEQUENTIAL' || 'PARALLEL',
  *     RegionOrder: [ // RegionList
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
- *     FailureToleranceCount: Number("int"),
- *     FailureTolerancePercentage: Number("int"),
- *     MaxConcurrentCount: Number("int"),
- *     MaxConcurrentPercentage: Number("int"),
+ *     FailureToleranceCount: Number('int'),
+ *     FailureTolerancePercentage: Number('int'),
+ *     MaxConcurrentCount: Number('int'),
+ *     MaxConcurrentPercentage: Number('int'),
  *   },
- *   AdministrationRoleARN: "STRING_VALUE",
- *   ExecutionRoleName: "STRING_VALUE",
+ *   AdministrationRoleARN: 'STRING_VALUE',
+ *   ExecutionRoleName: 'STRING_VALUE',
  *   DeploymentTargets: { // DeploymentTargets
  *     Accounts: [ // AccountList
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
- *     AccountsUrl: "STRING_VALUE",
+ *     AccountsUrl: 'STRING_VALUE',
  *     OrganizationalUnitIds: [ // OrganizationalUnitIdList
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
- *     AccountFilterType: "NONE" || "INTERSECTION" || "DIFFERENCE" || "UNION",
+ *     AccountFilterType: 'NONE' || 'INTERSECTION' || 'DIFFERENCE' || 'UNION',
  *   },
- *   PermissionModel: "SERVICE_MANAGED" || "SELF_MANAGED",
+ *   PermissionModel: 'SERVICE_MANAGED' || 'SELF_MANAGED',
  *   AutoDeployment: { // AutoDeployment
  *     Enabled: true || false,
  *     RetainStacksOnAccountRemoval: true || false,
  *   },
- *   OperationId: "STRING_VALUE",
+ *   OperationId: 'STRING_VALUE',
  *   Accounts: [
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   Regions: [
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   CallAs: "SELF" || "DELEGATED_ADMIN",
+ *   CallAs: 'SELF' || 'DELEGATED_ADMIN',
  *   ManagedExecution: { // ManagedExecution
  *     Active: true || false,
  *   },
  * };
  * const command = new UpdateStackSetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateStackSetOutput
+ *   OperationId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateStackSetCommandInput - {@link UpdateStackSetCommandInput}
@@ -136,6 +141,8 @@ export interface UpdateStackSetCommandOutput extends UpdateStackSetOutput, __Met
  *  <p>Another operation has been performed on this stack set since the specified operation was
  *          performed.</p>
  *
+ * @throws {@link CloudFormationServiceException}
+ * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
  */
 export class UpdateStackSetCommand extends $Command<

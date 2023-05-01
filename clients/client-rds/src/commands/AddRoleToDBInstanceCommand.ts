@@ -40,16 +40,19 @@ export interface AddRoleToDBInstanceCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RDSClient, AddRoleToDBInstanceCommand } from "@aws-sdk/client-rds"; // ES Modules import
- * // const { RDSClient, AddRoleToDBInstanceCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * import { RDSClient, AddRoleToDBInstanceCommand } from '@aws-sdk/client-rds'; // ES Modules import
+ * // const { RDSClient, AddRoleToDBInstanceCommand } = require('@aws-sdk/client-rds'); // CommonJS import
  * const client = new RDSClient(config);
  * const input = { // AddRoleToDBInstanceMessage
- *   DBInstanceIdentifier: "STRING_VALUE", // required
- *   RoleArn: "STRING_VALUE", // required
- *   FeatureName: "STRING_VALUE", // required
+ *   DBInstanceIdentifier: 'STRING_VALUE', // required
+ *   RoleArn: 'STRING_VALUE', // required
+ *   FeatureName: 'STRING_VALUE', // required
  * };
  * const command = new AddRoleToDBInstanceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param AddRoleToDBInstanceCommandInput - {@link AddRoleToDBInstanceCommandInput}
@@ -71,6 +74,8 @@ export interface AddRoleToDBInstanceCommandOutput extends __MetadataBearer {}
  * @throws {@link InvalidDBInstanceStateFault} (client fault)
  *  <p>The DB instance isn't in a valid state.</p>
  *
+ * @throws {@link RDSServiceException}
+ * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  * @example To associate an AWS Identity and Access Management (IAM) role with a DB instance
  * ```javascript

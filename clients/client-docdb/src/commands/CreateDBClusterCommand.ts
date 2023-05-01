@@ -36,44 +36,105 @@ export interface CreateDBClusterCommandOutput extends CreateDBClusterResult, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DocDBClient, CreateDBClusterCommand } from "@aws-sdk/client-docdb"; // ES Modules import
- * // const { DocDBClient, CreateDBClusterCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
+ * import { DocDBClient, CreateDBClusterCommand } from '@aws-sdk/client-docdb'; // ES Modules import
+ * // const { DocDBClient, CreateDBClusterCommand } = require('@aws-sdk/client-docdb'); // CommonJS import
  * const client = new DocDBClient(config);
  * const input = { // CreateDBClusterMessage
  *   AvailabilityZones: [ // AvailabilityZones
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   BackupRetentionPeriod: Number("int"),
- *   DBClusterIdentifier: "STRING_VALUE", // required
- *   DBClusterParameterGroupName: "STRING_VALUE",
+ *   BackupRetentionPeriod: Number('int'),
+ *   DBClusterIdentifier: 'STRING_VALUE', // required
+ *   DBClusterParameterGroupName: 'STRING_VALUE',
  *   VpcSecurityGroupIds: [ // VpcSecurityGroupIdList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   DBSubnetGroupName: "STRING_VALUE",
- *   Engine: "STRING_VALUE", // required
- *   EngineVersion: "STRING_VALUE",
- *   Port: Number("int"),
- *   MasterUsername: "STRING_VALUE",
- *   MasterUserPassword: "STRING_VALUE",
- *   PreferredBackupWindow: "STRING_VALUE",
- *   PreferredMaintenanceWindow: "STRING_VALUE",
+ *   DBSubnetGroupName: 'STRING_VALUE',
+ *   Engine: 'STRING_VALUE', // required
+ *   EngineVersion: 'STRING_VALUE',
+ *   Port: Number('int'),
+ *   MasterUsername: 'STRING_VALUE',
+ *   MasterUserPassword: 'STRING_VALUE',
+ *   PreferredBackupWindow: 'STRING_VALUE',
+ *   PreferredMaintenanceWindow: 'STRING_VALUE',
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE",
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
  *   StorageEncrypted: true || false,
- *   KmsKeyId: "STRING_VALUE",
- *   PreSignedUrl: "STRING_VALUE",
+ *   KmsKeyId: 'STRING_VALUE',
+ *   PreSignedUrl: 'STRING_VALUE',
  *   EnableCloudwatchLogsExports: [ // LogTypeList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   DeletionProtection: true || false,
- *   GlobalClusterIdentifier: "STRING_VALUE",
+ *   GlobalClusterIdentifier: 'STRING_VALUE',
  * };
  * const command = new CreateDBClusterCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateDBClusterResult
+ *   DBCluster: { // DBCluster
+ *     AvailabilityZones: [ // AvailabilityZones
+ *       'STRING_VALUE',
+ *     ],
+ *     BackupRetentionPeriod: Number('int'),
+ *     DBClusterIdentifier: 'STRING_VALUE',
+ *     DBClusterParameterGroup: 'STRING_VALUE',
+ *     DBSubnetGroup: 'STRING_VALUE',
+ *     Status: 'STRING_VALUE',
+ *     PercentProgress: 'STRING_VALUE',
+ *     EarliestRestorableTime: new Date('TIMESTAMP'),
+ *     Endpoint: 'STRING_VALUE',
+ *     ReaderEndpoint: 'STRING_VALUE',
+ *     MultiAZ: true || false,
+ *     Engine: 'STRING_VALUE',
+ *     EngineVersion: 'STRING_VALUE',
+ *     LatestRestorableTime: new Date('TIMESTAMP'),
+ *     Port: Number('int'),
+ *     MasterUsername: 'STRING_VALUE',
+ *     PreferredBackupWindow: 'STRING_VALUE',
+ *     PreferredMaintenanceWindow: 'STRING_VALUE',
+ *     ReplicationSourceIdentifier: 'STRING_VALUE',
+ *     ReadReplicaIdentifiers: [ // ReadReplicaIdentifierList
+ *       'STRING_VALUE',
+ *     ],
+ *     DBClusterMembers: [ // DBClusterMemberList
+ *       { // DBClusterMember
+ *         DBInstanceIdentifier: 'STRING_VALUE',
+ *         IsClusterWriter: true || false,
+ *         DBClusterParameterGroupStatus: 'STRING_VALUE',
+ *         PromotionTier: Number('int'),
+ *       },
+ *     ],
+ *     VpcSecurityGroups: [ // VpcSecurityGroupMembershipList
+ *       { // VpcSecurityGroupMembership
+ *         VpcSecurityGroupId: 'STRING_VALUE',
+ *         Status: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     HostedZoneId: 'STRING_VALUE',
+ *     StorageEncrypted: true || false,
+ *     KmsKeyId: 'STRING_VALUE',
+ *     DbClusterResourceId: 'STRING_VALUE',
+ *     DBClusterArn: 'STRING_VALUE',
+ *     AssociatedRoles: [ // DBClusterRoles
+ *       { // DBClusterRole
+ *         RoleArn: 'STRING_VALUE',
+ *         Status: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     CloneGroupId: 'STRING_VALUE',
+ *     ClusterCreateTime: new Date('TIMESTAMP'),
+ *     EnabledCloudwatchLogsExports: [ // LogTypeList
+ *       'STRING_VALUE',
+ *     ],
+ *     DeletionProtection: true || false,
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateDBClusterCommandInput - {@link CreateDBClusterCommandInput}
@@ -141,6 +202,8 @@ export interface CreateDBClusterCommandOutput extends CreateDBClusterResult, __M
  *  <p>The request would cause you to exceed the allowed amount of storage available across
  *             all instances.</p>
  *
+ * @throws {@link DocDBServiceException}
+ * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
  */
 export class CreateDBClusterCommand extends $Command<

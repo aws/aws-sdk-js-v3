@@ -47,22 +47,38 @@ export interface CreateResolverQueryLogConfigCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Route53ResolverClient, CreateResolverQueryLogConfigCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
- * // const { Route53ResolverClient, CreateResolverQueryLogConfigCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
+ * import { Route53ResolverClient, CreateResolverQueryLogConfigCommand } from '@aws-sdk/client-route53resolver'; // ES Modules import
+ * // const { Route53ResolverClient, CreateResolverQueryLogConfigCommand } = require('@aws-sdk/client-route53resolver'); // CommonJS import
  * const client = new Route53ResolverClient(config);
  * const input = { // CreateResolverQueryLogConfigRequest
- *   Name: "STRING_VALUE", // required
- *   DestinationArn: "STRING_VALUE", // required
- *   CreatorRequestId: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
+ *   DestinationArn: 'STRING_VALUE', // required
+ *   CreatorRequestId: 'STRING_VALUE', // required
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreateResolverQueryLogConfigCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateResolverQueryLogConfigResponse
+ *   ResolverQueryLogConfig: { // ResolverQueryLogConfig
+ *     Id: 'STRING_VALUE',
+ *     OwnerId: 'STRING_VALUE',
+ *     Status: 'CREATING' || 'CREATED' || 'DELETING' || 'FAILED',
+ *     ShareStatus: 'NOT_SHARED' || 'SHARED_WITH_ME' || 'SHARED_BY_ME',
+ *     AssociationCount: Number('int'),
+ *     Arn: 'STRING_VALUE',
+ *     Name: 'STRING_VALUE',
+ *     DestinationArn: 'STRING_VALUE',
+ *     CreatorRequestId: 'STRING_VALUE',
+ *     CreationTime: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateResolverQueryLogConfigCommandInput - {@link CreateResolverQueryLogConfigCommandInput}
@@ -95,6 +111,8 @@ export interface CreateResolverQueryLogConfigCommandOutput
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was throttled. Try again in a few minutes.</p>
  *
+ * @throws {@link Route53ResolverServiceException}
+ * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
  */
 export class CreateResolverQueryLogConfigCommand extends $Command<

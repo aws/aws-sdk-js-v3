@@ -36,14 +36,17 @@ export interface DeleteTaskCommandOutput extends DeleteTaskResponse, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DataSyncClient, DeleteTaskCommand } from "@aws-sdk/client-datasync"; // ES Modules import
- * // const { DataSyncClient, DeleteTaskCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
+ * import { DataSyncClient, DeleteTaskCommand } from '@aws-sdk/client-datasync'; // ES Modules import
+ * // const { DataSyncClient, DeleteTaskCommand } = require('@aws-sdk/client-datasync'); // CommonJS import
  * const client = new DataSyncClient(config);
  * const input = { // DeleteTaskRequest
- *   TaskArn: "STRING_VALUE", // required
+ *   TaskArn: 'STRING_VALUE', // required
  * };
  * const command = new DeleteTaskCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteTaskCommandInput - {@link DeleteTaskCommandInput}
@@ -59,6 +62,8 @@ export interface DeleteTaskCommandOutput extends DeleteTaskResponse, __MetadataB
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception is thrown when the client submits a malformed request.</p>
  *
+ * @throws {@link DataSyncServiceException}
+ * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
  */
 export class DeleteTaskCommand extends $Command<

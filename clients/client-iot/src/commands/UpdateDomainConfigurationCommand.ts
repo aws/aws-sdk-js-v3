@@ -38,23 +38,29 @@ export interface UpdateDomainConfigurationCommandOutput extends UpdateDomainConf
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTClient, UpdateDomainConfigurationCommand } from "@aws-sdk/client-iot"; // ES Modules import
- * // const { IoTClient, UpdateDomainConfigurationCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * import { IoTClient, UpdateDomainConfigurationCommand } from '@aws-sdk/client-iot'; // ES Modules import
+ * // const { IoTClient, UpdateDomainConfigurationCommand } = require('@aws-sdk/client-iot'); // CommonJS import
  * const client = new IoTClient(config);
  * const input = { // UpdateDomainConfigurationRequest
- *   domainConfigurationName: "STRING_VALUE", // required
+ *   domainConfigurationName: 'STRING_VALUE', // required
  *   authorizerConfig: { // AuthorizerConfig
- *     defaultAuthorizerName: "STRING_VALUE",
+ *     defaultAuthorizerName: 'STRING_VALUE',
  *     allowAuthorizerOverride: true || false,
  *   },
- *   domainConfigurationStatus: "ENABLED" || "DISABLED",
+ *   domainConfigurationStatus: 'ENABLED' || 'DISABLED',
  *   removeAuthorizerConfig: true || false,
  *   tlsConfig: { // TlsConfig
- *     securityPolicy: "STRING_VALUE",
+ *     securityPolicy: 'STRING_VALUE',
  *   },
  * };
  * const command = new UpdateDomainConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateDomainConfigurationResponse
+ *   domainConfigurationName: 'STRING_VALUE',
+ *   domainConfigurationArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateDomainConfigurationCommandInput - {@link UpdateDomainConfigurationCommandInput}
@@ -84,6 +90,8 @@ export interface UpdateDomainConfigurationCommandOutput extends UpdateDomainConf
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this operation.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class UpdateDomainConfigurationCommand extends $Command<

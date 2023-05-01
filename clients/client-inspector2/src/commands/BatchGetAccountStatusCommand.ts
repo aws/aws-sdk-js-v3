@@ -36,16 +36,60 @@ export interface BatchGetAccountStatusCommandOutput extends BatchGetAccountStatu
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Inspector2Client, BatchGetAccountStatusCommand } from "@aws-sdk/client-inspector2"; // ES Modules import
- * // const { Inspector2Client, BatchGetAccountStatusCommand } = require("@aws-sdk/client-inspector2"); // CommonJS import
+ * import { Inspector2Client, BatchGetAccountStatusCommand } from '@aws-sdk/client-inspector2'; // ES Modules import
+ * // const { Inspector2Client, BatchGetAccountStatusCommand } = require('@aws-sdk/client-inspector2'); // CommonJS import
  * const client = new Inspector2Client(config);
  * const input = { // BatchGetAccountStatusRequest
  *   accountIds: [ // AccountIdSet
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new BatchGetAccountStatusCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BatchGetAccountStatusResponse
+ *   accounts: [ // AccountStateList // required
+ *     { // AccountState
+ *       accountId: 'STRING_VALUE', // required
+ *       state: { // State
+ *         status: 'STRING_VALUE', // required
+ *         errorCode: 'STRING_VALUE', // required
+ *         errorMessage: 'STRING_VALUE', // required
+ *       },
+ *       resourceState: { // ResourceState
+ *         ec2: {
+ *           status: 'STRING_VALUE', // required
+ *           errorCode: 'STRING_VALUE', // required
+ *           errorMessage: 'STRING_VALUE', // required
+ *         },
+ *         ecr: {
+ *           status: 'STRING_VALUE', // required
+ *           errorCode: 'STRING_VALUE', // required
+ *           errorMessage: 'STRING_VALUE', // required
+ *         },
+ *         lambda: {
+ *           status: 'STRING_VALUE', // required
+ *           errorCode: 'STRING_VALUE', // required
+ *           errorMessage: 'STRING_VALUE', // required
+ *         },
+ *       },
+ *     },
+ *   ],
+ *   failedAccounts: [ // FailedAccountList
+ *     { // FailedAccount
+ *       accountId: 'STRING_VALUE', // required
+ *       status: 'STRING_VALUE',
+ *       resourceStatus: { // ResourceStatus
+ *         ec2: 'STRING_VALUE', // required
+ *         ecr: 'STRING_VALUE', // required
+ *         lambda: 'STRING_VALUE',
+ *       },
+ *       errorCode: 'STRING_VALUE', // required
+ *       errorMessage: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param BatchGetAccountStatusCommandInput - {@link BatchGetAccountStatusCommandInput}
@@ -70,6 +114,8 @@ export interface BatchGetAccountStatusCommandOutput extends BatchGetAccountStatu
  *  <p>The request has failed validation due to missing required fields or having invalid
  *          inputs.</p>
  *
+ * @throws {@link Inspector2ServiceException}
+ * <p>Base exception class for all service exceptions from Inspector2 service.</p>
  *
  */
 export class BatchGetAccountStatusCommand extends $Command<

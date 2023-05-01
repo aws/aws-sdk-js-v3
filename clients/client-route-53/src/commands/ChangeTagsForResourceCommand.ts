@@ -38,24 +38,27 @@ export interface ChangeTagsForResourceCommandOutput extends ChangeTagsForResourc
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Route53Client, ChangeTagsForResourceCommand } from "@aws-sdk/client-route-53"; // ES Modules import
- * // const { Route53Client, ChangeTagsForResourceCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
+ * import { Route53Client, ChangeTagsForResourceCommand } from '@aws-sdk/client-route-53'; // ES Modules import
+ * // const { Route53Client, ChangeTagsForResourceCommand } = require('@aws-sdk/client-route-53'); // CommonJS import
  * const client = new Route53Client(config);
  * const input = { // ChangeTagsForResourceRequest
- *   ResourceType: "healthcheck" || "hostedzone", // required
- *   ResourceId: "STRING_VALUE", // required
+ *   ResourceType: 'healthcheck' || 'hostedzone', // required
+ *   ResourceId: 'STRING_VALUE', // required
  *   AddTags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE",
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
  *   RemoveTagKeys: [ // TagKeyList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new ChangeTagsForResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param ChangeTagsForResourceCommandInput - {@link ChangeTagsForResourceCommandInput}
@@ -83,6 +86,8 @@ export interface ChangeTagsForResourceCommandOutput extends ChangeTagsForResourc
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The limit on the number of requests per second was exceeded.</p>
  *
+ * @throws {@link Route53ServiceException}
+ * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
  * @example To add or remove tags from a hosted zone or health check
  * ```javascript

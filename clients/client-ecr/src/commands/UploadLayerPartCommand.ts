@@ -43,19 +43,27 @@ export interface UploadLayerPartCommandOutput extends UploadLayerPartResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ECRClient, UploadLayerPartCommand } from "@aws-sdk/client-ecr"; // ES Modules import
- * // const { ECRClient, UploadLayerPartCommand } = require("@aws-sdk/client-ecr"); // CommonJS import
+ * import { ECRClient, UploadLayerPartCommand } from '@aws-sdk/client-ecr'; // ES Modules import
+ * // const { ECRClient, UploadLayerPartCommand } = require('@aws-sdk/client-ecr'); // CommonJS import
  * const client = new ECRClient(config);
  * const input = { // UploadLayerPartRequest
- *   registryId: "STRING_VALUE",
- *   repositoryName: "STRING_VALUE", // required
- *   uploadId: "STRING_VALUE", // required
- *   partFirstByte: Number("long"), // required
- *   partLastByte: Number("long"), // required
- *   layerPartBlob: "BLOB_VALUE", // required
+ *   registryId: 'STRING_VALUE',
+ *   repositoryName: 'STRING_VALUE', // required
+ *   uploadId: 'STRING_VALUE', // required
+ *   partFirstByte: Number('long'), // required
+ *   partLastByte: Number('long'), // required
+ *   layerPartBlob: 'BLOB_VALUE', // required
  * };
  * const command = new UploadLayerPartCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UploadLayerPartResponse
+ *   registryId: 'STRING_VALUE',
+ *   repositoryName: 'STRING_VALUE',
+ *   uploadId: 'STRING_VALUE',
+ *   lastByteReceived: Number('long'),
+ * };
+ *
  * ```
  *
  * @param UploadLayerPartCommandInput - {@link UploadLayerPartCommandInput}
@@ -91,6 +99,8 @@ export interface UploadLayerPartCommandOutput extends UploadLayerPartResponse, _
  *  <p>The upload could not be found, or the specified upload ID is not valid for this
  *             repository.</p>
  *
+ * @throws {@link ECRServiceException}
+ * <p>Base exception class for all service exceptions from ECR service.</p>
  *
  */
 export class UploadLayerPartCommand extends $Command<

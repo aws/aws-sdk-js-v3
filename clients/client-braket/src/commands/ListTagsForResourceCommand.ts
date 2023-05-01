@@ -36,14 +36,21 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BraketClient, ListTagsForResourceCommand } from "@aws-sdk/client-braket"; // ES Modules import
- * // const { BraketClient, ListTagsForResourceCommand } = require("@aws-sdk/client-braket"); // CommonJS import
+ * import { BraketClient, ListTagsForResourceCommand } from '@aws-sdk/client-braket'; // ES Modules import
+ * // const { BraketClient, ListTagsForResourceCommand } = require('@aws-sdk/client-braket'); // CommonJS import
  * const client = new BraketClient(config);
  * const input = { // ListTagsForResourceRequest
- *   resourceArn: "STRING_VALUE", // required
+ *   resourceArn: 'STRING_VALUE', // required
  * };
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTagsForResourceResponse
+ *   tags: { // TagsMap
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param ListTagsForResourceCommandInput - {@link ListTagsForResourceCommandInput}
@@ -62,6 +69,8 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link BraketServiceException}
+ * <p>Base exception class for all service exceptions from Braket service.</p>
  *
  */
 export class ListTagsForResourceCommand extends $Command<

@@ -40,14 +40,17 @@ export interface DeleteRoutingControlCommandOutput extends DeleteRoutingControlR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Route53RecoveryControlConfigClient, DeleteRoutingControlCommand } from "@aws-sdk/client-route53-recovery-control-config"; // ES Modules import
- * // const { Route53RecoveryControlConfigClient, DeleteRoutingControlCommand } = require("@aws-sdk/client-route53-recovery-control-config"); // CommonJS import
+ * import { Route53RecoveryControlConfigClient, DeleteRoutingControlCommand } from '@aws-sdk/client-route53-recovery-control-config'; // ES Modules import
+ * // const { Route53RecoveryControlConfigClient, DeleteRoutingControlCommand } = require('@aws-sdk/client-route53-recovery-control-config'); // CommonJS import
  * const client = new Route53RecoveryControlConfigClient(config);
  * const input = { // DeleteRoutingControlRequest
- *   RoutingControlArn: "STRING_VALUE", // required
+ *   RoutingControlArn: 'STRING_VALUE', // required
  * };
  * const command = new DeleteRoutingControlCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteRoutingControlCommandInput - {@link DeleteRoutingControlCommandInput}
@@ -74,6 +77,8 @@ export interface DeleteRoutingControlCommandOutput extends DeleteRoutingControlR
  * @throws {@link ValidationException} (client fault)
  *  <p>400 response - Multiple causes. For example, you might have a malformed query string and input parameter might be out of range, or you might have used parameters together incorrectly.</p>
  *
+ * @throws {@link Route53RecoveryControlConfigServiceException}
+ * <p>Base exception class for all service exceptions from Route53RecoveryControlConfig service.</p>
  *
  */
 export class DeleteRoutingControlCommand extends $Command<

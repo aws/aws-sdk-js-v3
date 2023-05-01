@@ -38,20 +38,25 @@ export interface ModifyCacheParameterGroupCommandOutput extends CacheParameterGr
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElastiCacheClient, ModifyCacheParameterGroupCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
- * // const { ElastiCacheClient, ModifyCacheParameterGroupCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
+ * import { ElastiCacheClient, ModifyCacheParameterGroupCommand } from '@aws-sdk/client-elasticache'; // ES Modules import
+ * // const { ElastiCacheClient, ModifyCacheParameterGroupCommand } = require('@aws-sdk/client-elasticache'); // CommonJS import
  * const client = new ElastiCacheClient(config);
  * const input = { // ModifyCacheParameterGroupMessage
- *   CacheParameterGroupName: "STRING_VALUE", // required
+ *   CacheParameterGroupName: 'STRING_VALUE', // required
  *   ParameterNameValues: [ // ParameterNameValueList // required
  *     { // ParameterNameValue
- *       ParameterName: "STRING_VALUE",
- *       ParameterValue: "STRING_VALUE",
+ *       ParameterName: 'STRING_VALUE',
+ *       ParameterValue: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new ModifyCacheParameterGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CacheParameterGroupNameMessage
+ *   CacheParameterGroupName: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ModifyCacheParameterGroupCommandInput - {@link ModifyCacheParameterGroupCommandInput}
@@ -75,6 +80,8 @@ export interface ModifyCacheParameterGroupCommandOutput extends CacheParameterGr
  * @throws {@link InvalidParameterValueException} (client fault)
  *  <p>The value for a parameter is invalid.</p>
  *
+ * @throws {@link ElastiCacheServiceException}
+ * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
  * @example ModifyCacheParameterGroup
  * ```javascript

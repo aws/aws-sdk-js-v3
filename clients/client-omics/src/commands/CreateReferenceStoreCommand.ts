@@ -36,23 +36,36 @@ export interface CreateReferenceStoreCommandOutput extends CreateReferenceStoreR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OmicsClient, CreateReferenceStoreCommand } from "@aws-sdk/client-omics"; // ES Modules import
- * // const { OmicsClient, CreateReferenceStoreCommand } = require("@aws-sdk/client-omics"); // CommonJS import
+ * import { OmicsClient, CreateReferenceStoreCommand } from '@aws-sdk/client-omics'; // ES Modules import
+ * // const { OmicsClient, CreateReferenceStoreCommand } = require('@aws-sdk/client-omics'); // CommonJS import
  * const client = new OmicsClient(config);
  * const input = { // CreateReferenceStoreRequest
- *   name: "STRING_VALUE", // required
- *   description: "STRING_VALUE",
+ *   name: 'STRING_VALUE', // required
+ *   description: 'STRING_VALUE',
  *   sseConfig: { // SseConfig
- *     type: "STRING_VALUE", // required
- *     keyArn: "STRING_VALUE",
+ *     type: 'STRING_VALUE', // required
+ *     keyArn: 'STRING_VALUE',
  *   },
  *   tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
- *   clientToken: "STRING_VALUE",
+ *   clientToken: 'STRING_VALUE',
  * };
  * const command = new CreateReferenceStoreCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateReferenceStoreResponse
+ *   id: 'STRING_VALUE', // required
+ *   arn: 'STRING_VALUE', // required
+ *   name: 'STRING_VALUE',
+ *   description: 'STRING_VALUE',
+ *   sseConfig: { // SseConfig
+ *     type: 'STRING_VALUE', // required
+ *     keyArn: 'STRING_VALUE',
+ *   },
+ *   creationTime: new Date('TIMESTAMP'), // required
+ * };
+ *
  * ```
  *
  * @param CreateReferenceStoreCommandInput - {@link CreateReferenceStoreCommandInput}
@@ -79,6 +92,8 @@ export interface CreateReferenceStoreCommandOutput extends CreateReferenceStoreR
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link OmicsServiceException}
+ * <p>Base exception class for all service exceptions from Omics service.</p>
  *
  */
 export class CreateReferenceStoreCommand extends $Command<

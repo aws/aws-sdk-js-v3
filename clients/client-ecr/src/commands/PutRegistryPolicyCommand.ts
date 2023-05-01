@@ -38,14 +38,20 @@ export interface PutRegistryPolicyCommandOutput extends PutRegistryPolicyRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ECRClient, PutRegistryPolicyCommand } from "@aws-sdk/client-ecr"; // ES Modules import
- * // const { ECRClient, PutRegistryPolicyCommand } = require("@aws-sdk/client-ecr"); // CommonJS import
+ * import { ECRClient, PutRegistryPolicyCommand } from '@aws-sdk/client-ecr'; // ES Modules import
+ * // const { ECRClient, PutRegistryPolicyCommand } = require('@aws-sdk/client-ecr'); // CommonJS import
  * const client = new ECRClient(config);
  * const input = { // PutRegistryPolicyRequest
- *   policyText: "STRING_VALUE", // required
+ *   policyText: 'STRING_VALUE', // required
  * };
  * const command = new PutRegistryPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutRegistryPolicyResponse
+ *   registryId: 'STRING_VALUE',
+ *   policyText: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param PutRegistryPolicyCommandInput - {@link PutRegistryPolicyCommandInput}
@@ -64,6 +70,8 @@ export interface PutRegistryPolicyCommandOutput extends PutRegistryPolicyRespons
  * @throws {@link ValidationException} (client fault)
  *  <p>There was an exception validating this request.</p>
  *
+ * @throws {@link ECRServiceException}
+ * <p>Base exception class for all service exceptions from ECR service.</p>
  *
  */
 export class PutRegistryPolicyCommand extends $Command<

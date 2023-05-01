@@ -39,15 +39,20 @@ export interface StartQueryCommandOutput extends StartQueryResponse, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudTrailClient, StartQueryCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
- * // const { CloudTrailClient, StartQueryCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
+ * import { CloudTrailClient, StartQueryCommand } from '@aws-sdk/client-cloudtrail'; // ES Modules import
+ * // const { CloudTrailClient, StartQueryCommand } = require('@aws-sdk/client-cloudtrail'); // CommonJS import
  * const client = new CloudTrailClient(config);
  * const input = { // StartQueryRequest
- *   QueryStatement: "STRING_VALUE", // required
- *   DeliveryS3Uri: "STRING_VALUE",
+ *   QueryStatement: 'STRING_VALUE', // required
+ *   DeliveryS3Uri: 'STRING_VALUE',
  * };
  * const command = new StartQueryCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartQueryResponse
+ *   QueryId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param StartQueryCommandInput - {@link StartQueryCommandInput}
@@ -104,6 +109,8 @@ export interface StartQueryCommandOutput extends StartQueryResponse, __MetadataB
  * @throws {@link UnsupportedOperationException} (client fault)
  *  <p>This exception is thrown when the requested operation is not supported.</p>
  *
+ * @throws {@link CloudTrailServiceException}
+ * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
  */
 export class StartQueryCommand extends $Command<

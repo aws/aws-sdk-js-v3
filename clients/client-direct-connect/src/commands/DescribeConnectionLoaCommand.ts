@@ -43,16 +43,24 @@ export interface DescribeConnectionLoaCommandOutput extends DescribeConnectionLo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DirectConnectClient, DescribeConnectionLoaCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
- * // const { DirectConnectClient, DescribeConnectionLoaCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
+ * import { DirectConnectClient, DescribeConnectionLoaCommand } from '@aws-sdk/client-direct-connect'; // ES Modules import
+ * // const { DirectConnectClient, DescribeConnectionLoaCommand } = require('@aws-sdk/client-direct-connect'); // CommonJS import
  * const client = new DirectConnectClient(config);
  * const input = { // DescribeConnectionLoaRequest
- *   connectionId: "STRING_VALUE", // required
- *   providerName: "STRING_VALUE",
- *   loaContentType: "application/pdf",
+ *   connectionId: 'STRING_VALUE', // required
+ *   providerName: 'STRING_VALUE',
+ *   loaContentType: 'application/pdf',
  * };
  * const command = new DescribeConnectionLoaCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeConnectionLoaResponse
+ *   loa: { // Loa
+ *     loaContent: 'BLOB_VALUE',
+ *     loaContentType: 'application/pdf',
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeConnectionLoaCommandInput - {@link DescribeConnectionLoaCommandInput}
@@ -67,6 +75,8 @@ export interface DescribeConnectionLoaCommandOutput extends DescribeConnectionLo
  * @throws {@link DirectConnectServerException} (server fault)
  *  <p>A server-side error occurred.</p>
  *
+ * @throws {@link DirectConnectServiceException}
+ * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
  */
 export class DescribeConnectionLoaCommand extends $Command<

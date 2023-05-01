@@ -45,29 +45,32 @@ export interface UpdateLicenseManagerReportGeneratorCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LicenseManagerClient, UpdateLicenseManagerReportGeneratorCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
- * // const { LicenseManagerClient, UpdateLicenseManagerReportGeneratorCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
+ * import { LicenseManagerClient, UpdateLicenseManagerReportGeneratorCommand } from '@aws-sdk/client-license-manager'; // ES Modules import
+ * // const { LicenseManagerClient, UpdateLicenseManagerReportGeneratorCommand } = require('@aws-sdk/client-license-manager'); // CommonJS import
  * const client = new LicenseManagerClient(config);
  * const input = { // UpdateLicenseManagerReportGeneratorRequest
- *   LicenseManagerReportGeneratorArn: "STRING_VALUE", // required
- *   ReportGeneratorName: "STRING_VALUE", // required
+ *   LicenseManagerReportGeneratorArn: 'STRING_VALUE', // required
+ *   ReportGeneratorName: 'STRING_VALUE', // required
  *   Type: [ // ReportTypeList // required
- *     "LicenseConfigurationSummaryReport" || "LicenseConfigurationUsageReport",
+ *     'LicenseConfigurationSummaryReport' || 'LicenseConfigurationUsageReport',
  *   ],
  *   ReportContext: { // ReportContext
  *     licenseConfigurationArns: [ // ArnList // required
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *   },
  *   ReportFrequency: { // ReportFrequency
- *     value: Number("int"),
- *     period: "DAY" || "WEEK" || "MONTH",
+ *     value: Number('int'),
+ *     period: 'DAY' || 'WEEK' || 'MONTH',
  *   },
- *   ClientToken: "STRING_VALUE", // required
- *   Description: "STRING_VALUE",
+ *   ClientToken: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE',
  * };
  * const command = new UpdateLicenseManagerReportGeneratorCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateLicenseManagerReportGeneratorCommandInput - {@link UpdateLicenseManagerReportGeneratorCommandInput}
@@ -101,6 +104,8 @@ export interface UpdateLicenseManagerReportGeneratorCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The provided input is not valid. Try your request again.</p>
  *
+ * @throws {@link LicenseManagerServiceException}
+ * <p>Base exception class for all service exceptions from LicenseManager service.</p>
  *
  */
 export class UpdateLicenseManagerReportGeneratorCommand extends $Command<

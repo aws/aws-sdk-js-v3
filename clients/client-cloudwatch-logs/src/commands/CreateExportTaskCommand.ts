@@ -55,20 +55,25 @@ export interface CreateExportTaskCommandOutput extends CreateExportTaskResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudWatchLogsClient, CreateExportTaskCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
- * // const { CloudWatchLogsClient, CreateExportTaskCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
+ * import { CloudWatchLogsClient, CreateExportTaskCommand } from '@aws-sdk/client-cloudwatch-logs'; // ES Modules import
+ * // const { CloudWatchLogsClient, CreateExportTaskCommand } = require('@aws-sdk/client-cloudwatch-logs'); // CommonJS import
  * const client = new CloudWatchLogsClient(config);
  * const input = { // CreateExportTaskRequest
- *   taskName: "STRING_VALUE",
- *   logGroupName: "STRING_VALUE", // required
- *   logStreamNamePrefix: "STRING_VALUE",
- *   from: Number("long"), // required
- *   to: Number("long"), // required
- *   destination: "STRING_VALUE", // required
- *   destinationPrefix: "STRING_VALUE",
+ *   taskName: 'STRING_VALUE',
+ *   logGroupName: 'STRING_VALUE', // required
+ *   logStreamNamePrefix: 'STRING_VALUE',
+ *   from: Number('long'), // required
+ *   to: Number('long'), // required
+ *   destination: 'STRING_VALUE', // required
+ *   destinationPrefix: 'STRING_VALUE',
  * };
  * const command = new CreateExportTaskCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateExportTaskResponse
+ *   taskId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateExportTaskCommandInput - {@link CreateExportTaskCommandInput}
@@ -95,6 +100,8 @@ export interface CreateExportTaskCommandOutput extends CreateExportTaskResponse,
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service cannot complete the request.</p>
  *
+ * @throws {@link CloudWatchLogsServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
  */
 export class CreateExportTaskCommand extends $Command<

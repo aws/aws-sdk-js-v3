@@ -36,32 +36,35 @@ export interface UpdateImpersonationRoleCommandOutput extends UpdateImpersonatio
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkMailClient, UpdateImpersonationRoleCommand } from "@aws-sdk/client-workmail"; // ES Modules import
- * // const { WorkMailClient, UpdateImpersonationRoleCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
+ * import { WorkMailClient, UpdateImpersonationRoleCommand } from '@aws-sdk/client-workmail'; // ES Modules import
+ * // const { WorkMailClient, UpdateImpersonationRoleCommand } = require('@aws-sdk/client-workmail'); // CommonJS import
  * const client = new WorkMailClient(config);
  * const input = { // UpdateImpersonationRoleRequest
- *   OrganizationId: "STRING_VALUE", // required
- *   ImpersonationRoleId: "STRING_VALUE", // required
- *   Name: "STRING_VALUE", // required
- *   Type: "FULL_ACCESS" || "READ_ONLY", // required
- *   Description: "STRING_VALUE",
+ *   OrganizationId: 'STRING_VALUE', // required
+ *   ImpersonationRoleId: 'STRING_VALUE', // required
+ *   Name: 'STRING_VALUE', // required
+ *   Type: 'FULL_ACCESS' || 'READ_ONLY', // required
+ *   Description: 'STRING_VALUE',
  *   Rules: [ // ImpersonationRuleList // required
  *     { // ImpersonationRule
- *       ImpersonationRuleId: "STRING_VALUE", // required
- *       Name: "STRING_VALUE",
- *       Description: "STRING_VALUE",
- *       Effect: "ALLOW" || "DENY", // required
+ *       ImpersonationRuleId: 'STRING_VALUE', // required
+ *       Name: 'STRING_VALUE',
+ *       Description: 'STRING_VALUE',
+ *       Effect: 'ALLOW' || 'DENY', // required
  *       TargetUsers: [ // TargetUsers
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *       NotTargetUsers: [
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
  * };
  * const command = new UpdateImpersonationRoleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateImpersonationRoleCommandInput - {@link UpdateImpersonationRoleCommandInput}
@@ -95,6 +98,8 @@ export interface UpdateImpersonationRoleCommandOutput extends UpdateImpersonatio
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource cannot be found.</p>
  *
+ * @throws {@link WorkMailServiceException}
+ * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
  */
 export class UpdateImpersonationRoleCommand extends $Command<

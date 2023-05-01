@@ -36,15 +36,23 @@ export interface ListAdminsManagingAccountCommandOutput extends ListAdminsManagi
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FMSClient, ListAdminsManagingAccountCommand } from "@aws-sdk/client-fms"; // ES Modules import
- * // const { FMSClient, ListAdminsManagingAccountCommand } = require("@aws-sdk/client-fms"); // CommonJS import
+ * import { FMSClient, ListAdminsManagingAccountCommand } from '@aws-sdk/client-fms'; // ES Modules import
+ * // const { FMSClient, ListAdminsManagingAccountCommand } = require('@aws-sdk/client-fms'); // CommonJS import
  * const client = new FMSClient(config);
  * const input = { // ListAdminsManagingAccountRequest
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListAdminsManagingAccountCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListAdminsManagingAccountResponse
+ *   AdminAccounts: [ // AccountIdList
+ *     'STRING_VALUE',
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListAdminsManagingAccountCommandInput - {@link ListAdminsManagingAccountCommandInput}
@@ -63,6 +71,8 @@ export interface ListAdminsManagingAccountCommandOutput extends ListAdminsManagi
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link FMSServiceException}
+ * <p>Base exception class for all service exceptions from FMS service.</p>
  *
  */
 export class ListAdminsManagingAccountCommand extends $Command<

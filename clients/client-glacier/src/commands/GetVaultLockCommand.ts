@@ -63,15 +63,23 @@ export interface GetVaultLockCommandOutput extends GetVaultLockOutput, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlacierClient, GetVaultLockCommand } from "@aws-sdk/client-glacier"; // ES Modules import
- * // const { GlacierClient, GetVaultLockCommand } = require("@aws-sdk/client-glacier"); // CommonJS import
+ * import { GlacierClient, GetVaultLockCommand } from '@aws-sdk/client-glacier'; // ES Modules import
+ * // const { GlacierClient, GetVaultLockCommand } = require('@aws-sdk/client-glacier'); // CommonJS import
  * const client = new GlacierClient(config);
  * const input = { // GetVaultLockInput
- *   accountId: "STRING_VALUE", // required
- *   vaultName: "STRING_VALUE", // required
+ *   accountId: 'STRING_VALUE', // required
+ *   vaultName: 'STRING_VALUE', // required
  * };
  * const command = new GetVaultLockCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetVaultLockOutput
+ *   Policy: 'STRING_VALUE',
+ *   State: 'STRING_VALUE',
+ *   ExpirationDate: 'STRING_VALUE',
+ *   CreationDate: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetVaultLockCommandInput - {@link GetVaultLockCommandInput}
@@ -93,6 +101,8 @@ export interface GetVaultLockCommandOutput extends GetVaultLockOutput, __Metadat
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>Returned if the service cannot complete the request.</p>
  *
+ * @throws {@link GlacierServiceException}
+ * <p>Base exception class for all service exceptions from Glacier service.</p>
  *
  * @example To retrieve vault lock-policy related attributes that are set on a vault
  * ```javascript

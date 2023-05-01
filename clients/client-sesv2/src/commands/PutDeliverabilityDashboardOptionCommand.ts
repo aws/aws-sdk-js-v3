@@ -46,19 +46,19 @@ export interface PutDeliverabilityDashboardOptionCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SESv2Client, PutDeliverabilityDashboardOptionCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
- * // const { SESv2Client, PutDeliverabilityDashboardOptionCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
+ * import { SESv2Client, PutDeliverabilityDashboardOptionCommand } from '@aws-sdk/client-sesv2'; // ES Modules import
+ * // const { SESv2Client, PutDeliverabilityDashboardOptionCommand } = require('@aws-sdk/client-sesv2'); // CommonJS import
  * const client = new SESv2Client(config);
  * const input = { // PutDeliverabilityDashboardOptionRequest
  *   DashboardEnabled: true || false, // required
  *   SubscribedDomains: [ // DomainDeliverabilityTrackingOptions
  *     { // DomainDeliverabilityTrackingOption
- *       Domain: "STRING_VALUE",
- *       SubscriptionStartDate: new Date("TIMESTAMP"),
+ *       Domain: 'STRING_VALUE',
+ *       SubscriptionStartDate: new Date('TIMESTAMP'),
  *       InboxPlacementTrackingOption: { // InboxPlacementTrackingOption
  *         Global: true || false,
  *         TrackedIsps: [ // IspNameList
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
  *       },
  *     },
@@ -66,6 +66,9 @@ export interface PutDeliverabilityDashboardOptionCommandOutput
  * };
  * const command = new PutDeliverabilityDashboardOptionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutDeliverabilityDashboardOptionCommandInput - {@link PutDeliverabilityDashboardOptionCommandInput}
@@ -89,6 +92,8 @@ export interface PutDeliverabilityDashboardOptionCommandOutput
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Too many requests have been made to the operation.</p>
  *
+ * @throws {@link SESv2ServiceException}
+ * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
  */
 export class PutDeliverabilityDashboardOptionCommand extends $Command<

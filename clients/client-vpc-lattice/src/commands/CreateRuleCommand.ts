@@ -39,57 +39,101 @@ export interface CreateRuleCommandOutput extends CreateRuleResponse, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { VPCLatticeClient, CreateRuleCommand } from "@aws-sdk/client-vpc-lattice"; // ES Modules import
- * // const { VPCLatticeClient, CreateRuleCommand } = require("@aws-sdk/client-vpc-lattice"); // CommonJS import
+ * import { VPCLatticeClient, CreateRuleCommand } from '@aws-sdk/client-vpc-lattice'; // ES Modules import
+ * // const { VPCLatticeClient, CreateRuleCommand } = require('@aws-sdk/client-vpc-lattice'); // CommonJS import
  * const client = new VPCLatticeClient(config);
  * const input = { // CreateRuleRequest
- *   serviceIdentifier: "STRING_VALUE", // required
- *   listenerIdentifier: "STRING_VALUE", // required
- *   name: "STRING_VALUE", // required
+ *   serviceIdentifier: 'STRING_VALUE', // required
+ *   listenerIdentifier: 'STRING_VALUE', // required
+ *   name: 'STRING_VALUE', // required
  *   match: { // RuleMatch Union: only one key present
  *     httpMatch: { // HttpMatch
- *       method: "STRING_VALUE",
+ *       method: 'STRING_VALUE',
  *       pathMatch: { // PathMatch
  *         match: { // PathMatchType Union: only one key present
- *           exact: "STRING_VALUE",
- *           prefix: "STRING_VALUE",
+ *           exact: 'STRING_VALUE',
+ *           prefix: 'STRING_VALUE',
  *         },
  *         caseSensitive: true || false,
  *       },
  *       headerMatches: [ // HeaderMatchList
  *         { // HeaderMatch
- *           name: "STRING_VALUE", // required
+ *           name: 'STRING_VALUE', // required
  *           match: { // HeaderMatchType Union: only one key present
- *             exact: "STRING_VALUE",
- *             prefix: "STRING_VALUE",
- *             contains: "STRING_VALUE",
+ *             exact: 'STRING_VALUE',
+ *             prefix: 'STRING_VALUE',
+ *             contains: 'STRING_VALUE',
  *           },
  *           caseSensitive: true || false,
  *         },
  *       ],
  *     },
  *   },
- *   priority: Number("int"), // required
+ *   priority: Number('int'), // required
  *   action: { // RuleAction Union: only one key present
  *     forward: { // ForwardAction
  *       targetGroups: [ // WeightedTargetGroupList // required
  *         { // WeightedTargetGroup
- *           targetGroupIdentifier: "STRING_VALUE", // required
- *           weight: Number("int"),
+ *           targetGroupIdentifier: 'STRING_VALUE', // required
+ *           weight: Number('int'),
  *         },
  *       ],
  *     },
  *     fixedResponse: { // FixedResponseAction
- *       statusCode: Number("int"), // required
+ *       statusCode: Number('int'), // required
  *     },
  *   },
- *   clientToken: "STRING_VALUE",
+ *   clientToken: 'STRING_VALUE',
  *   tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateRuleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateRuleResponse
+ *   arn: 'STRING_VALUE',
+ *   id: 'STRING_VALUE',
+ *   name: 'STRING_VALUE',
+ *   match: { // RuleMatch Union: only one key present
+ *     httpMatch: { // HttpMatch
+ *       method: 'STRING_VALUE',
+ *       pathMatch: { // PathMatch
+ *         match: { // PathMatchType Union: only one key present
+ *           exact: 'STRING_VALUE',
+ *           prefix: 'STRING_VALUE',
+ *         },
+ *         caseSensitive: true || false,
+ *       },
+ *       headerMatches: [ // HeaderMatchList
+ *         { // HeaderMatch
+ *           name: 'STRING_VALUE', // required
+ *           match: { // HeaderMatchType Union: only one key present
+ *             exact: 'STRING_VALUE',
+ *             prefix: 'STRING_VALUE',
+ *             contains: 'STRING_VALUE',
+ *           },
+ *           caseSensitive: true || false,
+ *         },
+ *       ],
+ *     },
+ *   },
+ *   priority: Number('int'),
+ *   action: { // RuleAction Union: only one key present
+ *     forward: { // ForwardAction
+ *       targetGroups: [ // WeightedTargetGroupList // required
+ *         { // WeightedTargetGroup
+ *           targetGroupIdentifier: 'STRING_VALUE', // required
+ *           weight: Number('int'),
+ *         },
+ *       ],
+ *     },
+ *     fixedResponse: { // FixedResponseAction
+ *       statusCode: Number('int'), // required
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateRuleCommandInput - {@link CreateRuleCommandInput}
@@ -121,6 +165,8 @@ export interface CreateRuleCommandOutput extends CreateRuleResponse, __MetadataB
  *  <p>The input does not satisfy the constraints specified by an Amazon Web Services
  *    service.</p>
  *
+ * @throws {@link VPCLatticeServiceException}
+ * <p>Base exception class for all service exceptions from VPCLattice service.</p>
  *
  */
 export class CreateRuleCommand extends $Command<

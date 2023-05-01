@@ -42,16 +42,62 @@ export interface MergePullRequestByFastForwardCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeCommitClient, MergePullRequestByFastForwardCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
- * // const { CodeCommitClient, MergePullRequestByFastForwardCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
+ * import { CodeCommitClient, MergePullRequestByFastForwardCommand } from '@aws-sdk/client-codecommit'; // ES Modules import
+ * // const { CodeCommitClient, MergePullRequestByFastForwardCommand } = require('@aws-sdk/client-codecommit'); // CommonJS import
  * const client = new CodeCommitClient(config);
  * const input = { // MergePullRequestByFastForwardInput
- *   pullRequestId: "STRING_VALUE", // required
- *   repositoryName: "STRING_VALUE", // required
- *   sourceCommitId: "STRING_VALUE",
+ *   pullRequestId: 'STRING_VALUE', // required
+ *   repositoryName: 'STRING_VALUE', // required
+ *   sourceCommitId: 'STRING_VALUE',
  * };
  * const command = new MergePullRequestByFastForwardCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // MergePullRequestByFastForwardOutput
+ *   pullRequest: { // PullRequest
+ *     pullRequestId: 'STRING_VALUE',
+ *     title: 'STRING_VALUE',
+ *     description: 'STRING_VALUE',
+ *     lastActivityDate: new Date('TIMESTAMP'),
+ *     creationDate: new Date('TIMESTAMP'),
+ *     pullRequestStatus: 'STRING_VALUE',
+ *     authorArn: 'STRING_VALUE',
+ *     pullRequestTargets: [ // PullRequestTargetList
+ *       { // PullRequestTarget
+ *         repositoryName: 'STRING_VALUE',
+ *         sourceReference: 'STRING_VALUE',
+ *         destinationReference: 'STRING_VALUE',
+ *         destinationCommit: 'STRING_VALUE',
+ *         sourceCommit: 'STRING_VALUE',
+ *         mergeBase: 'STRING_VALUE',
+ *         mergeMetadata: { // MergeMetadata
+ *           isMerged: true || false,
+ *           mergedBy: 'STRING_VALUE',
+ *           mergeCommitId: 'STRING_VALUE',
+ *           mergeOption: 'STRING_VALUE',
+ *         },
+ *       },
+ *     ],
+ *     clientRequestToken: 'STRING_VALUE',
+ *     revisionId: 'STRING_VALUE',
+ *     approvalRules: [ // ApprovalRulesList
+ *       { // ApprovalRule
+ *         approvalRuleId: 'STRING_VALUE',
+ *         approvalRuleName: 'STRING_VALUE',
+ *         approvalRuleContent: 'STRING_VALUE',
+ *         ruleContentSha256: 'STRING_VALUE',
+ *         lastModifiedDate: new Date('TIMESTAMP'),
+ *         creationDate: new Date('TIMESTAMP'),
+ *         lastModifiedUser: 'STRING_VALUE',
+ *         originApprovalRuleTemplate: { // OriginApprovalRuleTemplate
+ *           approvalRuleTemplateId: 'STRING_VALUE',
+ *           approvalRuleTemplateName: 'STRING_VALUE',
+ *         },
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param MergePullRequestByFastForwardCommandInput - {@link MergePullRequestByFastForwardCommandInput}
@@ -124,6 +170,8 @@ export interface MergePullRequestByFastForwardCommandOutput
  *  <p>The tip of the source branch in the destination repository does not match the tip of the source branch specified in your request.
  *             The pull request might have been updated. Make sure that you have the latest changes.</p>
  *
+ * @throws {@link CodeCommitServiceException}
+ * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
  */
 export class MergePullRequestByFastForwardCommand extends $Command<

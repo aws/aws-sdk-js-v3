@@ -36,20 +36,53 @@ export interface ListImportsCommandOutput extends ListImportsResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MgnClient, ListImportsCommand } from "@aws-sdk/client-mgn"; // ES Modules import
- * // const { MgnClient, ListImportsCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
+ * import { MgnClient, ListImportsCommand } from '@aws-sdk/client-mgn'; // ES Modules import
+ * // const { MgnClient, ListImportsCommand } = require('@aws-sdk/client-mgn'); // CommonJS import
  * const client = new MgnClient(config);
  * const input = { // ListImportsRequest
  *   filters: { // ListImportsRequestFilters
  *     importIDs: [ // ImportIDsFilter
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *   },
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new ListImportsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListImportsResponse
+ *   items: [ // ImportList
+ *     { // ImportTask
+ *       importID: 'STRING_VALUE',
+ *       s3BucketSource: { // S3BucketSource
+ *         s3Bucket: 'STRING_VALUE', // required
+ *         s3Key: 'STRING_VALUE', // required
+ *         s3BucketOwner: 'STRING_VALUE',
+ *       },
+ *       creationDateTime: 'STRING_VALUE',
+ *       endDateTime: 'STRING_VALUE',
+ *       status: 'STRING_VALUE',
+ *       progressPercentage: Number('float'),
+ *       summary: { // ImportTaskSummary
+ *         waves: { // ImportTaskSummaryWaves
+ *           createdCount: Number('long'),
+ *           modifiedCount: Number('long'),
+ *         },
+ *         applications: { // ImportTaskSummaryApplications
+ *           createdCount: Number('long'),
+ *           modifiedCount: Number('long'),
+ *         },
+ *         servers: { // ImportTaskSummaryServers
+ *           createdCount: Number('long'),
+ *           modifiedCount: Number('long'),
+ *         },
+ *       },
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListImportsCommandInput - {@link ListImportsCommandInput}
@@ -64,6 +97,8 @@ export interface ListImportsCommandOutput extends ListImportsResponse, __Metadat
  * @throws {@link ValidationException} (client fault)
  *  <p>Validate exception.</p>
  *
+ * @throws {@link MgnServiceException}
+ * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
  */
 export class ListImportsCommand extends $Command<

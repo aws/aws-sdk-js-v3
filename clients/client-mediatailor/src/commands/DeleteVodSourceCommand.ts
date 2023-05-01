@@ -36,15 +36,18 @@ export interface DeleteVodSourceCommandOutput extends DeleteVodSourceResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MediaTailorClient, DeleteVodSourceCommand } from "@aws-sdk/client-mediatailor"; // ES Modules import
- * // const { MediaTailorClient, DeleteVodSourceCommand } = require("@aws-sdk/client-mediatailor"); // CommonJS import
+ * import { MediaTailorClient, DeleteVodSourceCommand } from '@aws-sdk/client-mediatailor'; // ES Modules import
+ * // const { MediaTailorClient, DeleteVodSourceCommand } = require('@aws-sdk/client-mediatailor'); // CommonJS import
  * const client = new MediaTailorClient(config);
  * const input = { // DeleteVodSourceRequest
- *   SourceLocationName: "STRING_VALUE", // required
- *   VodSourceName: "STRING_VALUE", // required
+ *   SourceLocationName: 'STRING_VALUE', // required
+ *   VodSourceName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteVodSourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteVodSourceCommandInput - {@link DeleteVodSourceCommandInput}
@@ -53,6 +56,8 @@ export interface DeleteVodSourceCommandOutput extends DeleteVodSourceResponse, _
  * @see {@link DeleteVodSourceCommandOutput} for command's `response` shape.
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.
  *
+ * @throws {@link MediaTailorServiceException}
+ * <p>Base exception class for all service exceptions from MediaTailor service.</p>
  *
  */
 export class DeleteVodSourceCommand extends $Command<

@@ -39,49 +39,74 @@ export interface UpdateNodegroupConfigCommandOutput extends UpdateNodegroupConfi
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EKSClient, UpdateNodegroupConfigCommand } from "@aws-sdk/client-eks"; // ES Modules import
- * // const { EKSClient, UpdateNodegroupConfigCommand } = require("@aws-sdk/client-eks"); // CommonJS import
+ * import { EKSClient, UpdateNodegroupConfigCommand } from '@aws-sdk/client-eks'; // ES Modules import
+ * // const { EKSClient, UpdateNodegroupConfigCommand } = require('@aws-sdk/client-eks'); // CommonJS import
  * const client = new EKSClient(config);
  * const input = { // UpdateNodegroupConfigRequest
- *   clusterName: "STRING_VALUE", // required
- *   nodegroupName: "STRING_VALUE", // required
+ *   clusterName: 'STRING_VALUE', // required
+ *   nodegroupName: 'STRING_VALUE', // required
  *   labels: { // UpdateLabelsPayload
  *     addOrUpdateLabels: { // labelsMap
- *       "<keys>": "STRING_VALUE",
+ *       '<keys>': 'STRING_VALUE',
  *     },
  *     removeLabels: [ // labelsKeyList
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *   },
  *   taints: { // UpdateTaintsPayload
  *     addOrUpdateTaints: [ // taintsList
  *       { // Taint
- *         key: "STRING_VALUE",
- *         value: "STRING_VALUE",
- *         effect: "NO_SCHEDULE" || "NO_EXECUTE" || "PREFER_NO_SCHEDULE",
+ *         key: 'STRING_VALUE',
+ *         value: 'STRING_VALUE',
+ *         effect: 'NO_SCHEDULE' || 'NO_EXECUTE' || 'PREFER_NO_SCHEDULE',
  *       },
  *     ],
  *     removeTaints: [
  *       {
- *         key: "STRING_VALUE",
- *         value: "STRING_VALUE",
- *         effect: "NO_SCHEDULE" || "NO_EXECUTE" || "PREFER_NO_SCHEDULE",
+ *         key: 'STRING_VALUE',
+ *         value: 'STRING_VALUE',
+ *         effect: 'NO_SCHEDULE' || 'NO_EXECUTE' || 'PREFER_NO_SCHEDULE',
  *       },
  *     ],
  *   },
  *   scalingConfig: { // NodegroupScalingConfig
- *     minSize: Number("int"),
- *     maxSize: Number("int"),
- *     desiredSize: Number("int"),
+ *     minSize: Number('int'),
+ *     maxSize: Number('int'),
+ *     desiredSize: Number('int'),
  *   },
  *   updateConfig: { // NodegroupUpdateConfig
- *     maxUnavailable: Number("int"),
- *     maxUnavailablePercentage: Number("int"),
+ *     maxUnavailable: Number('int'),
+ *     maxUnavailablePercentage: Number('int'),
  *   },
- *   clientRequestToken: "STRING_VALUE",
+ *   clientRequestToken: 'STRING_VALUE',
  * };
  * const command = new UpdateNodegroupConfigCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateNodegroupConfigResponse
+ *   update: { // Update
+ *     id: 'STRING_VALUE',
+ *     status: 'InProgress' || 'Failed' || 'Cancelled' || 'Successful',
+ *     type: 'VersionUpdate' || 'EndpointAccessUpdate' || 'LoggingUpdate' || 'ConfigUpdate' || 'AssociateIdentityProviderConfig' || 'DisassociateIdentityProviderConfig' || 'AssociateEncryptionConfig' || 'AddonUpdate',
+ *     params: [ // UpdateParams
+ *       { // UpdateParam
+ *         type: 'Version' || 'PlatformVersion' || 'EndpointPrivateAccess' || 'EndpointPublicAccess' || 'ClusterLogging' || 'DesiredSize' || 'LabelsToAdd' || 'LabelsToRemove' || 'TaintsToAdd' || 'TaintsToRemove' || 'MaxSize' || 'MinSize' || 'ReleaseVersion' || 'PublicAccessCidrs' || 'LaunchTemplateName' || 'LaunchTemplateVersion' || 'IdentityProviderConfig' || 'EncryptionConfig' || 'AddonVersion' || 'ServiceAccountRoleArn' || 'ResolveConflicts' || 'MaxUnavailable' || 'MaxUnavailablePercentage',
+ *         value: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     createdAt: new Date('TIMESTAMP'),
+ *     errors: [ // ErrorDetails
+ *       { // ErrorDetail
+ *         errorCode: 'SubnetNotFound' || 'SecurityGroupNotFound' || 'EniLimitReached' || 'IpNotAvailable' || 'AccessDenied' || 'OperationNotPermitted' || 'VpcIdNotFound' || 'Unknown' || 'NodeCreationFailure' || 'PodEvictionFailure' || 'InsufficientFreeAddresses' || 'ClusterUnreachable' || 'InsufficientNumberOfReplicas' || 'ConfigurationConflict' || 'AdmissionRequestDenied' || 'UnsupportedAddonModification' || 'K8sResourceNotFound',
+ *         errorMessage: 'STRING_VALUE',
+ *         resourceIds: [ // StringList
+ *           'STRING_VALUE',
+ *         ],
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateNodegroupConfigCommandInput - {@link UpdateNodegroupConfigCommandInput}
@@ -115,6 +140,8 @@ export interface UpdateNodegroupConfigCommandOutput extends UpdateNodegroupConfi
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server-side issue.</p>
  *
+ * @throws {@link EKSServiceException}
+ * <p>Base exception class for all service exceptions from EKS service.</p>
  *
  */
 export class UpdateNodegroupConfigCommand extends $Command<

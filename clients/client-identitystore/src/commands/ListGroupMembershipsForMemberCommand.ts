@@ -41,19 +41,34 @@ export interface ListGroupMembershipsForMemberCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IdentitystoreClient, ListGroupMembershipsForMemberCommand } from "@aws-sdk/client-identitystore"; // ES Modules import
- * // const { IdentitystoreClient, ListGroupMembershipsForMemberCommand } = require("@aws-sdk/client-identitystore"); // CommonJS import
+ * import { IdentitystoreClient, ListGroupMembershipsForMemberCommand } from '@aws-sdk/client-identitystore'; // ES Modules import
+ * // const { IdentitystoreClient, ListGroupMembershipsForMemberCommand } = require('@aws-sdk/client-identitystore'); // CommonJS import
  * const client = new IdentitystoreClient(config);
  * const input = { // ListGroupMembershipsForMemberRequest
- *   IdentityStoreId: "STRING_VALUE", // required
+ *   IdentityStoreId: 'STRING_VALUE', // required
  *   MemberId: { // MemberId Union: only one key present
- *     UserId: "STRING_VALUE",
+ *     UserId: 'STRING_VALUE',
  *   },
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListGroupMembershipsForMemberCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListGroupMembershipsForMemberResponse
+ *   GroupMemberships: [ // GroupMemberships // required
+ *     { // GroupMembership
+ *       IdentityStoreId: 'STRING_VALUE', // required
+ *       MembershipId: 'STRING_VALUE',
+ *       GroupId: 'STRING_VALUE',
+ *       MemberId: { // MemberId Union: only one key present
+ *         UserId: 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListGroupMembershipsForMemberCommandInput - {@link ListGroupMembershipsForMemberCommandInput}
@@ -77,6 +92,8 @@ export interface ListGroupMembershipsForMemberCommandOutput
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Indicates that the principal has crossed the throttling limits of the API operations.</p>
  *
+ * @throws {@link IdentitystoreServiceException}
+ * <p>Base exception class for all service exceptions from Identitystore service.</p>
  *
  */
 export class ListGroupMembershipsForMemberCommand extends $Command<

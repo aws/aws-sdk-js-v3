@@ -40,14 +40,63 @@ export interface DeleteDBSnapshotCommandOutput extends DeleteDBSnapshotResult, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RDSClient, DeleteDBSnapshotCommand } from "@aws-sdk/client-rds"; // ES Modules import
- * // const { RDSClient, DeleteDBSnapshotCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * import { RDSClient, DeleteDBSnapshotCommand } from '@aws-sdk/client-rds'; // ES Modules import
+ * // const { RDSClient, DeleteDBSnapshotCommand } = require('@aws-sdk/client-rds'); // CommonJS import
  * const client = new RDSClient(config);
  * const input = { // DeleteDBSnapshotMessage
- *   DBSnapshotIdentifier: "STRING_VALUE", // required
+ *   DBSnapshotIdentifier: 'STRING_VALUE', // required
  * };
  * const command = new DeleteDBSnapshotCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteDBSnapshotResult
+ *   DBSnapshot: { // DBSnapshot
+ *     DBSnapshotIdentifier: 'STRING_VALUE',
+ *     DBInstanceIdentifier: 'STRING_VALUE',
+ *     SnapshotCreateTime: new Date('TIMESTAMP'),
+ *     Engine: 'STRING_VALUE',
+ *     AllocatedStorage: Number('int'),
+ *     Status: 'STRING_VALUE',
+ *     Port: Number('int'),
+ *     AvailabilityZone: 'STRING_VALUE',
+ *     VpcId: 'STRING_VALUE',
+ *     InstanceCreateTime: new Date('TIMESTAMP'),
+ *     MasterUsername: 'STRING_VALUE',
+ *     EngineVersion: 'STRING_VALUE',
+ *     LicenseModel: 'STRING_VALUE',
+ *     SnapshotType: 'STRING_VALUE',
+ *     Iops: Number('int'),
+ *     OptionGroupName: 'STRING_VALUE',
+ *     PercentProgress: Number('int'),
+ *     SourceRegion: 'STRING_VALUE',
+ *     SourceDBSnapshotIdentifier: 'STRING_VALUE',
+ *     StorageType: 'STRING_VALUE',
+ *     TdeCredentialArn: 'STRING_VALUE',
+ *     Encrypted: true || false,
+ *     KmsKeyId: 'STRING_VALUE',
+ *     DBSnapshotArn: 'STRING_VALUE',
+ *     Timezone: 'STRING_VALUE',
+ *     IAMDatabaseAuthenticationEnabled: true || false,
+ *     ProcessorFeatures: [ // ProcessorFeatureList
+ *       { // ProcessorFeature
+ *         Name: 'STRING_VALUE',
+ *         Value: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     DbiResourceId: 'STRING_VALUE',
+ *     TagList: [ // TagList
+ *       { // Tag
+ *         Key: 'STRING_VALUE',
+ *         Value: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     OriginalSnapshotCreateTime: new Date('TIMESTAMP'),
+ *     SnapshotDatabaseTime: new Date('TIMESTAMP'),
+ *     SnapshotTarget: 'STRING_VALUE',
+ *     StorageThroughput: Number('int'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param DeleteDBSnapshotCommandInput - {@link DeleteDBSnapshotCommandInput}
@@ -63,6 +112,8 @@ export interface DeleteDBSnapshotCommandOutput extends DeleteDBSnapshotResult, _
  * @throws {@link InvalidDBSnapshotStateFault} (client fault)
  *  <p>The state of the DB snapshot doesn't allow deletion.</p>
  *
+ * @throws {@link RDSServiceException}
+ * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  * @example To delete a DB snapshot
  * ```javascript

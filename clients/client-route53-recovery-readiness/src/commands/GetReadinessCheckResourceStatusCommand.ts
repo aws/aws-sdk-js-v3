@@ -45,17 +45,35 @@ export interface GetReadinessCheckResourceStatusCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Route53RecoveryReadinessClient, GetReadinessCheckResourceStatusCommand } from "@aws-sdk/client-route53-recovery-readiness"; // ES Modules import
- * // const { Route53RecoveryReadinessClient, GetReadinessCheckResourceStatusCommand } = require("@aws-sdk/client-route53-recovery-readiness"); // CommonJS import
+ * import { Route53RecoveryReadinessClient, GetReadinessCheckResourceStatusCommand } from '@aws-sdk/client-route53-recovery-readiness'; // ES Modules import
+ * // const { Route53RecoveryReadinessClient, GetReadinessCheckResourceStatusCommand } = require('@aws-sdk/client-route53-recovery-readiness'); // CommonJS import
  * const client = new Route53RecoveryReadinessClient(config);
  * const input = { // GetReadinessCheckResourceStatusRequest
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
- *   ReadinessCheckName: "STRING_VALUE", // required
- *   ResourceIdentifier: "STRING_VALUE", // required
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
+ *   ReadinessCheckName: 'STRING_VALUE', // required
+ *   ResourceIdentifier: 'STRING_VALUE', // required
  * };
  * const command = new GetReadinessCheckResourceStatusCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetReadinessCheckResourceStatusResponse
+ *   NextToken: 'STRING_VALUE',
+ *   Readiness: 'STRING_VALUE',
+ *   Rules: [ // __listOfRuleResult
+ *     { // RuleResult
+ *       LastCheckedTimestamp: new Date('TIMESTAMP'), // required
+ *       Messages: [ // __listOfMessage // required
+ *         { // Message
+ *           MessageText: 'STRING_VALUE',
+ *         },
+ *       ],
+ *       Readiness: 'STRING_VALUE', // required
+ *       RuleId: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetReadinessCheckResourceStatusCommandInput - {@link GetReadinessCheckResourceStatusCommandInput}
@@ -79,6 +97,8 @@ export interface GetReadinessCheckResourceStatusCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  The input fails to satisfy the constraints specified by an AWS service.
  *
+ * @throws {@link Route53RecoveryReadinessServiceException}
+ * <p>Base exception class for all service exceptions from Route53RecoveryReadiness service.</p>
  *
  */
 export class GetReadinessCheckResourceStatusCommand extends $Command<

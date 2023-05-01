@@ -36,27 +36,70 @@ export interface DescribeNatGatewaysCommandOutput extends DescribeNatGatewaysRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, DescribeNatGatewaysCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, DescribeNatGatewaysCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, DescribeNatGatewaysCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, DescribeNatGatewaysCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // DescribeNatGatewaysRequest
  *   DryRun: true || false,
  *   Filter: [ // FilterList
  *     { // Filter
- *       Name: "STRING_VALUE",
+ *       Name: 'STRING_VALUE',
  *       Values: [ // ValueStringList
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
- *   MaxResults: Number("int"),
+ *   MaxResults: Number('int'),
  *   NatGatewayIds: [ // NatGatewayIdStringList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   NextToken: "STRING_VALUE",
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new DescribeNatGatewaysCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeNatGatewaysResult
+ *   NatGateways: [ // NatGatewayList
+ *     { // NatGateway
+ *       CreateTime: new Date('TIMESTAMP'),
+ *       DeleteTime: new Date('TIMESTAMP'),
+ *       FailureCode: 'STRING_VALUE',
+ *       FailureMessage: 'STRING_VALUE',
+ *       NatGatewayAddresses: [ // NatGatewayAddressList
+ *         { // NatGatewayAddress
+ *           AllocationId: 'STRING_VALUE',
+ *           NetworkInterfaceId: 'STRING_VALUE',
+ *           PrivateIp: 'STRING_VALUE',
+ *           PublicIp: 'STRING_VALUE',
+ *           AssociationId: 'STRING_VALUE',
+ *           IsPrimary: true || false,
+ *           FailureMessage: 'STRING_VALUE',
+ *           Status: 'assigning' || 'unassigning' || 'associating' || 'disassociating' || 'succeeded' || 'failed',
+ *         },
+ *       ],
+ *       NatGatewayId: 'STRING_VALUE',
+ *       ProvisionedBandwidth: { // ProvisionedBandwidth
+ *         ProvisionTime: new Date('TIMESTAMP'),
+ *         Provisioned: 'STRING_VALUE',
+ *         RequestTime: new Date('TIMESTAMP'),
+ *         Requested: 'STRING_VALUE',
+ *         Status: 'STRING_VALUE',
+ *       },
+ *       State: 'pending' || 'failed' || 'available' || 'deleting' || 'deleted',
+ *       SubnetId: 'STRING_VALUE',
+ *       VpcId: 'STRING_VALUE',
+ *       Tags: [ // TagList
+ *         { // Tag
+ *           Key: 'STRING_VALUE',
+ *           Value: 'STRING_VALUE',
+ *         },
+ *       ],
+ *       ConnectivityType: 'private' || 'public',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeNatGatewaysCommandInput - {@link DescribeNatGatewaysCommandInput}
@@ -65,6 +108,8 @@ export interface DescribeNatGatewaysCommandOutput extends DescribeNatGatewaysRes
  * @see {@link DescribeNatGatewaysCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @example To describe a NAT gateway
  * ```javascript

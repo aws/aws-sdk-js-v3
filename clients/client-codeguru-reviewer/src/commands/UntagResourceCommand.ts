@@ -36,17 +36,20 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeGuruReviewerClient, UntagResourceCommand } from "@aws-sdk/client-codeguru-reviewer"; // ES Modules import
- * // const { CodeGuruReviewerClient, UntagResourceCommand } = require("@aws-sdk/client-codeguru-reviewer"); // CommonJS import
+ * import { CodeGuruReviewerClient, UntagResourceCommand } from '@aws-sdk/client-codeguru-reviewer'; // ES Modules import
+ * // const { CodeGuruReviewerClient, UntagResourceCommand } = require('@aws-sdk/client-codeguru-reviewer'); // CommonJS import
  * const client = new CodeGuruReviewerClient(config);
  * const input = { // UntagResourceRequest
- *   resourceArn: "STRING_VALUE", // required
+ *   resourceArn: 'STRING_VALUE', // required
  *   TagKeys: [ // TagKeyList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new UntagResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UntagResourceCommandInput - {@link UntagResourceCommandInput}
@@ -64,6 +67,8 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the specified constraints.</p>
  *
+ * @throws {@link CodeGuruReviewerServiceException}
+ * <p>Base exception class for all service exceptions from CodeGuruReviewer service.</p>
  *
  */
 export class UntagResourceCommand extends $Command<

@@ -38,17 +38,28 @@ export interface DescribeFileSystemAliasesCommandOutput extends DescribeFileSyst
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FSxClient, DescribeFileSystemAliasesCommand } from "@aws-sdk/client-fsx"; // ES Modules import
- * // const { FSxClient, DescribeFileSystemAliasesCommand } = require("@aws-sdk/client-fsx"); // CommonJS import
+ * import { FSxClient, DescribeFileSystemAliasesCommand } from '@aws-sdk/client-fsx'; // ES Modules import
+ * // const { FSxClient, DescribeFileSystemAliasesCommand } = require('@aws-sdk/client-fsx'); // CommonJS import
  * const client = new FSxClient(config);
  * const input = { // DescribeFileSystemAliasesRequest
- *   ClientRequestToken: "STRING_VALUE",
- *   FileSystemId: "STRING_VALUE", // required
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   ClientRequestToken: 'STRING_VALUE',
+ *   FileSystemId: 'STRING_VALUE', // required
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new DescribeFileSystemAliasesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeFileSystemAliasesResponse
+ *   Aliases: [ // Aliases
+ *     { // Alias
+ *       Name: 'STRING_VALUE',
+ *       Lifecycle: 'AVAILABLE' || 'CREATING' || 'DELETING' || 'CREATE_FAILED' || 'DELETE_FAILED',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeFileSystemAliasesCommandInput - {@link DescribeFileSystemAliasesCommandInput}
@@ -66,6 +77,8 @@ export interface DescribeFileSystemAliasesCommandOutput extends DescribeFileSyst
  * @throws {@link InternalServerError} (server fault)
  *  <p>A generic error indicating a server-side failure.</p>
  *
+ * @throws {@link FSxServiceException}
+ * <p>Base exception class for all service exceptions from FSx service.</p>
  *
  */
 export class DescribeFileSystemAliasesCommand extends $Command<

@@ -42,19 +42,31 @@ export interface ListQueriesCommandOutput extends ListQueriesResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudTrailClient, ListQueriesCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
- * // const { CloudTrailClient, ListQueriesCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
+ * import { CloudTrailClient, ListQueriesCommand } from '@aws-sdk/client-cloudtrail'; // ES Modules import
+ * // const { CloudTrailClient, ListQueriesCommand } = require('@aws-sdk/client-cloudtrail'); // CommonJS import
  * const client = new CloudTrailClient(config);
  * const input = { // ListQueriesRequest
- *   EventDataStore: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
- *   StartTime: new Date("TIMESTAMP"),
- *   EndTime: new Date("TIMESTAMP"),
- *   QueryStatus: "QUEUED" || "RUNNING" || "FINISHED" || "FAILED" || "CANCELLED" || "TIMED_OUT",
+ *   EventDataStore: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
+ *   StartTime: new Date('TIMESTAMP'),
+ *   EndTime: new Date('TIMESTAMP'),
+ *   QueryStatus: 'QUEUED' || 'RUNNING' || 'FINISHED' || 'FAILED' || 'CANCELLED' || 'TIMED_OUT',
  * };
  * const command = new ListQueriesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListQueriesResponse
+ *   Queries: [ // Queries
+ *     { // Query
+ *       QueryId: 'STRING_VALUE',
+ *       QueryStatus: 'QUEUED' || 'RUNNING' || 'FINISHED' || 'FAILED' || 'CANCELLED' || 'TIMED_OUT',
+ *       CreationTime: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListQueriesCommandInput - {@link ListQueriesCommandInput}
@@ -101,6 +113,8 @@ export interface ListQueriesCommandOutput extends ListQueriesResponse, __Metadat
  * @throws {@link UnsupportedOperationException} (client fault)
  *  <p>This exception is thrown when the requested operation is not supported.</p>
  *
+ * @throws {@link CloudTrailServiceException}
+ * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
  */
 export class ListQueriesCommand extends $Command<

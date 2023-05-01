@@ -38,16 +38,33 @@ export interface ModifyUsageLimitCommandOutput extends UsageLimit, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RedshiftClient, ModifyUsageLimitCommand } from "@aws-sdk/client-redshift"; // ES Modules import
- * // const { RedshiftClient, ModifyUsageLimitCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * import { RedshiftClient, ModifyUsageLimitCommand } from '@aws-sdk/client-redshift'; // ES Modules import
+ * // const { RedshiftClient, ModifyUsageLimitCommand } = require('@aws-sdk/client-redshift'); // CommonJS import
  * const client = new RedshiftClient(config);
  * const input = { // ModifyUsageLimitMessage
- *   UsageLimitId: "STRING_VALUE", // required
- *   Amount: Number("long"),
- *   BreachAction: "log" || "emit-metric" || "disable",
+ *   UsageLimitId: 'STRING_VALUE', // required
+ *   Amount: Number('long'),
+ *   BreachAction: 'log' || 'emit-metric' || 'disable',
  * };
  * const command = new ModifyUsageLimitCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UsageLimit
+ *   UsageLimitId: 'STRING_VALUE',
+ *   ClusterIdentifier: 'STRING_VALUE',
+ *   FeatureType: 'spectrum' || 'concurrency-scaling' || 'cross-region-datasharing',
+ *   LimitType: 'time' || 'data-scanned',
+ *   Amount: Number('long'),
+ *   Period: 'daily' || 'weekly' || 'monthly',
+ *   BreachAction: 'log' || 'emit-metric' || 'disable',
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ModifyUsageLimitCommandInput - {@link ModifyUsageLimitCommandInput}
@@ -65,6 +82,8 @@ export interface ModifyUsageLimitCommandOutput extends UsageLimit, __MetadataBea
  * @throws {@link UsageLimitNotFoundFault} (client fault)
  *  <p>The usage limit identifier can't be found.</p>
  *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class ModifyUsageLimitCommand extends $Command<

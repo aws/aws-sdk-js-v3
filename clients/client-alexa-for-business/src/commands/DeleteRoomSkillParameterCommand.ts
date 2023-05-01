@@ -36,16 +36,19 @@ export interface DeleteRoomSkillParameterCommandOutput extends DeleteRoomSkillPa
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AlexaForBusinessClient, DeleteRoomSkillParameterCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
- * // const { AlexaForBusinessClient, DeleteRoomSkillParameterCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
+ * import { AlexaForBusinessClient, DeleteRoomSkillParameterCommand } from '@aws-sdk/client-alexa-for-business'; // ES Modules import
+ * // const { AlexaForBusinessClient, DeleteRoomSkillParameterCommand } = require('@aws-sdk/client-alexa-for-business'); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
  * const input = { // DeleteRoomSkillParameterRequest
- *   RoomArn: "STRING_VALUE",
- *   SkillId: "STRING_VALUE", // required
- *   ParameterKey: "STRING_VALUE", // required
+ *   RoomArn: 'STRING_VALUE',
+ *   SkillId: 'STRING_VALUE', // required
+ *   ParameterKey: 'STRING_VALUE', // required
  * };
  * const command = new DeleteRoomSkillParameterCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteRoomSkillParameterCommandInput - {@link DeleteRoomSkillParameterCommandInput}
@@ -57,6 +60,8 @@ export interface DeleteRoomSkillParameterCommandOutput extends DeleteRoomSkillPa
  * @throws {@link ConcurrentModificationException} (client fault)
  *  <p>There is a concurrent modification of resources.</p>
  *
+ * @throws {@link AlexaForBusinessServiceException}
+ * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  */
 export class DeleteRoomSkillParameterCommand extends $Command<

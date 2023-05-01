@@ -42,14 +42,20 @@ export interface DeleteCostCategoryDefinitionCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CostExplorerClient, DeleteCostCategoryDefinitionCommand } from "@aws-sdk/client-cost-explorer"; // ES Modules import
- * // const { CostExplorerClient, DeleteCostCategoryDefinitionCommand } = require("@aws-sdk/client-cost-explorer"); // CommonJS import
+ * import { CostExplorerClient, DeleteCostCategoryDefinitionCommand } from '@aws-sdk/client-cost-explorer'; // ES Modules import
+ * // const { CostExplorerClient, DeleteCostCategoryDefinitionCommand } = require('@aws-sdk/client-cost-explorer'); // CommonJS import
  * const client = new CostExplorerClient(config);
  * const input = { // DeleteCostCategoryDefinitionRequest
- *   CostCategoryArn: "STRING_VALUE", // required
+ *   CostCategoryArn: 'STRING_VALUE', // required
  * };
  * const command = new DeleteCostCategoryDefinitionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteCostCategoryDefinitionResponse
+ *   CostCategoryArn: 'STRING_VALUE',
+ *   EffectiveEnd: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DeleteCostCategoryDefinitionCommandInput - {@link DeleteCostCategoryDefinitionCommandInput}
@@ -64,6 +70,8 @@ export interface DeleteCostCategoryDefinitionCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p> The specified ARN in the request doesn't exist. </p>
  *
+ * @throws {@link CostExplorerServiceException}
+ * <p>Base exception class for all service exceptions from CostExplorer service.</p>
  *
  */
 export class DeleteCostCategoryDefinitionCommand extends $Command<

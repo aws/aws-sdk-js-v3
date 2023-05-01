@@ -36,16 +36,30 @@ export interface GetModelsCommandOutput extends GetModelsResponse, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ApiGatewayV2Client, GetModelsCommand } from "@aws-sdk/client-apigatewayv2"; // ES Modules import
- * // const { ApiGatewayV2Client, GetModelsCommand } = require("@aws-sdk/client-apigatewayv2"); // CommonJS import
+ * import { ApiGatewayV2Client, GetModelsCommand } from '@aws-sdk/client-apigatewayv2'; // ES Modules import
+ * // const { ApiGatewayV2Client, GetModelsCommand } = require('@aws-sdk/client-apigatewayv2'); // CommonJS import
  * const client = new ApiGatewayV2Client(config);
  * const input = { // GetModelsRequest
- *   ApiId: "STRING_VALUE", // required
- *   MaxResults: "STRING_VALUE",
- *   NextToken: "STRING_VALUE",
+ *   ApiId: 'STRING_VALUE', // required
+ *   MaxResults: 'STRING_VALUE',
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new GetModelsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetModelsResponse
+ *   Items: [ // __listOfModel
+ *     { // Model
+ *       ContentType: 'STRING_VALUE',
+ *       Description: 'STRING_VALUE',
+ *       ModelId: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE', // required
+ *       Schema: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetModelsCommandInput - {@link GetModelsCommandInput}
@@ -63,6 +77,8 @@ export interface GetModelsCommandOutput extends GetModelsResponse, __MetadataBea
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>A limit has been exceeded. See the accompanying error message for details.</p>
  *
+ * @throws {@link ApiGatewayV2ServiceException}
+ * <p>Base exception class for all service exceptions from ApiGatewayV2 service.</p>
  *
  */
 export class GetModelsCommand extends $Command<

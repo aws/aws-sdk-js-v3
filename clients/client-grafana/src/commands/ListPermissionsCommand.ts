@@ -41,19 +41,33 @@ export interface ListPermissionsCommandOutput extends ListPermissionsResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GrafanaClient, ListPermissionsCommand } from "@aws-sdk/client-grafana"; // ES Modules import
- * // const { GrafanaClient, ListPermissionsCommand } = require("@aws-sdk/client-grafana"); // CommonJS import
+ * import { GrafanaClient, ListPermissionsCommand } from '@aws-sdk/client-grafana'; // ES Modules import
+ * // const { GrafanaClient, ListPermissionsCommand } = require('@aws-sdk/client-grafana'); // CommonJS import
  * const client = new GrafanaClient(config);
  * const input = { // ListPermissionsRequest
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
- *   userType: "STRING_VALUE",
- *   userId: "STRING_VALUE",
- *   groupId: "STRING_VALUE",
- *   workspaceId: "STRING_VALUE", // required
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
+ *   userType: 'STRING_VALUE',
+ *   userId: 'STRING_VALUE',
+ *   groupId: 'STRING_VALUE',
+ *   workspaceId: 'STRING_VALUE', // required
  * };
  * const command = new ListPermissionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListPermissionsResponse
+ *   nextToken: 'STRING_VALUE',
+ *   permissions: [ // PermissionEntryList // required
+ *     { // PermissionEntry
+ *       user: { // User
+ *         id: 'STRING_VALUE', // required
+ *         type: 'STRING_VALUE', // required
+ *       },
+ *       role: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListPermissionsCommandInput - {@link ListPermissionsCommandInput}
@@ -77,6 +91,8 @@ export interface ListPermissionsCommandOutput extends ListPermissionsResponse, _
  * @throws {@link ValidationException} (client fault)
  *  <p>The value of a parameter in the request caused an error.</p>
  *
+ * @throws {@link GrafanaServiceException}
+ * <p>Base exception class for all service exceptions from Grafana service.</p>
  *
  */
 export class ListPermissionsCommand extends $Command<

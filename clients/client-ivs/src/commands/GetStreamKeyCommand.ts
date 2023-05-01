@@ -36,14 +36,26 @@ export interface GetStreamKeyCommandOutput extends GetStreamKeyResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IvsClient, GetStreamKeyCommand } from "@aws-sdk/client-ivs"; // ES Modules import
- * // const { IvsClient, GetStreamKeyCommand } = require("@aws-sdk/client-ivs"); // CommonJS import
+ * import { IvsClient, GetStreamKeyCommand } from '@aws-sdk/client-ivs'; // ES Modules import
+ * // const { IvsClient, GetStreamKeyCommand } = require('@aws-sdk/client-ivs'); // CommonJS import
  * const client = new IvsClient(config);
  * const input = { // GetStreamKeyRequest
- *   arn: "STRING_VALUE", // required
+ *   arn: 'STRING_VALUE', // required
  * };
  * const command = new GetStreamKeyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetStreamKeyResponse
+ *   streamKey: { // StreamKey
+ *     arn: 'STRING_VALUE',
+ *     value: 'STRING_VALUE',
+ *     channelArn: 'STRING_VALUE',
+ *     tags: { // Tags
+ *       '<keys>': 'STRING_VALUE',
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetStreamKeyCommandInput - {@link GetStreamKeyCommandInput}
@@ -61,6 +73,8 @@ export interface GetStreamKeyCommandOutput extends GetStreamKeyResponse, __Metad
  * @throws {@link ValidationException} (client fault)
  *  <p/>
  *
+ * @throws {@link IvsServiceException}
+ * <p>Base exception class for all service exceptions from Ivs service.</p>
  *
  */
 export class GetStreamKeyCommand extends $Command<

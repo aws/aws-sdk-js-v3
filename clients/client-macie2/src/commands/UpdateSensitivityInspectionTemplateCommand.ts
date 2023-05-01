@@ -44,31 +44,34 @@ export interface UpdateSensitivityInspectionTemplateCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Macie2Client, UpdateSensitivityInspectionTemplateCommand } from "@aws-sdk/client-macie2"; // ES Modules import
- * // const { Macie2Client, UpdateSensitivityInspectionTemplateCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
+ * import { Macie2Client, UpdateSensitivityInspectionTemplateCommand } from '@aws-sdk/client-macie2'; // ES Modules import
+ * // const { Macie2Client, UpdateSensitivityInspectionTemplateCommand } = require('@aws-sdk/client-macie2'); // CommonJS import
  * const client = new Macie2Client(config);
  * const input = { // UpdateSensitivityInspectionTemplateRequest
- *   description: "STRING_VALUE",
+ *   description: 'STRING_VALUE',
  *   excludes: { // SensitivityInspectionTemplateExcludes
  *     managedDataIdentifierIds: [ // __listOf__string
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *   },
- *   id: "STRING_VALUE", // required
+ *   id: 'STRING_VALUE', // required
  *   includes: { // SensitivityInspectionTemplateIncludes
  *     allowListIds: [
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     customDataIdentifierIds: [
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     managedDataIdentifierIds: [
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *   },
  * };
  * const command = new UpdateSensitivityInspectionTemplateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateSensitivityInspectionTemplateCommandInput - {@link UpdateSensitivityInspectionTemplateCommandInput}
@@ -92,6 +95,8 @@ export interface UpdateSensitivityInspectionTemplateCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>Provides information about an error that occurred due to a syntax error in a request.</p>
  *
+ * @throws {@link Macie2ServiceException}
+ * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
  */
 export class UpdateSensitivityInspectionTemplateCommand extends $Command<

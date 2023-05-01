@@ -41,16 +41,19 @@ export interface SuspendContactRecordingCommandOutput extends SuspendContactReco
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, SuspendContactRecordingCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, SuspendContactRecordingCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, SuspendContactRecordingCommand } from '@aws-sdk/client-connect'; // ES Modules import
+ * // const { ConnectClient, SuspendContactRecordingCommand } = require('@aws-sdk/client-connect'); // CommonJS import
  * const client = new ConnectClient(config);
  * const input = { // SuspendContactRecordingRequest
- *   InstanceId: "STRING_VALUE", // required
- *   ContactId: "STRING_VALUE", // required
- *   InitialContactId: "STRING_VALUE", // required
+ *   InstanceId: 'STRING_VALUE', // required
+ *   ContactId: 'STRING_VALUE', // required
+ *   InitialContactId: 'STRING_VALUE', // required
  * };
  * const command = new SuspendContactRecordingCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param SuspendContactRecordingCommandInput - {@link SuspendContactRecordingCommandInput}
@@ -68,6 +71,8 @@ export interface SuspendContactRecordingCommandOutput extends SuspendContactReco
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class SuspendContactRecordingCommand extends $Command<

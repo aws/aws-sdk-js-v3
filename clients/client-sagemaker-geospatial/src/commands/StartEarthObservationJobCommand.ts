@@ -45,27 +45,27 @@ export interface StartEarthObservationJobCommandOutput extends StartEarthObserva
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerGeospatialClient, StartEarthObservationJobCommand } from "@aws-sdk/client-sagemaker-geospatial"; // ES Modules import
- * // const { SageMakerGeospatialClient, StartEarthObservationJobCommand } = require("@aws-sdk/client-sagemaker-geospatial"); // CommonJS import
+ * import { SageMakerGeospatialClient, StartEarthObservationJobCommand } from '@aws-sdk/client-sagemaker-geospatial'; // ES Modules import
+ * // const { SageMakerGeospatialClient, StartEarthObservationJobCommand } = require('@aws-sdk/client-sagemaker-geospatial'); // CommonJS import
  * const client = new SageMakerGeospatialClient(config);
  * const input = { // StartEarthObservationJobInput
- *   Name: "STRING_VALUE", // required
- *   ClientToken: "STRING_VALUE",
- *   KmsKeyId: "STRING_VALUE",
+ *   Name: 'STRING_VALUE', // required
+ *   ClientToken: 'STRING_VALUE',
+ *   KmsKeyId: 'STRING_VALUE',
  *   InputConfig: { // InputConfigInput
- *     PreviousEarthObservationJobArn: "STRING_VALUE",
+ *     PreviousEarthObservationJobArn: 'STRING_VALUE',
  *     DataSourceConfig: { // EojDataSourceConfigInput Union: only one key present
  *       S3Data: { // S3DataInput
- *         S3Uri: "STRING_VALUE", // required
- *         MetadataProvider: "STRING_VALUE", // required
- *         KmsKeyId: "STRING_VALUE",
+ *         S3Uri: 'STRING_VALUE', // required
+ *         MetadataProvider: 'STRING_VALUE', // required
+ *         KmsKeyId: 'STRING_VALUE',
  *       },
  *     },
  *     RasterDataCollectionQuery: { // RasterDataCollectionQueryInput
- *       RasterDataCollectionArn: "STRING_VALUE", // required
+ *       RasterDataCollectionArn: 'STRING_VALUE', // required
  *       TimeRangeFilter: { // TimeRangeFilterInput
- *         StartTime: new Date("TIMESTAMP"), // required
- *         EndTime: new Date("TIMESTAMP"), // required
+ *         StartTime: new Date('TIMESTAMP'), // required
+ *         EndTime: new Date('TIMESTAMP'), // required
  *       },
  *       AreaOfInterest: { // AreaOfInterest Union: only one key present
  *         AreaOfInterestGeometry: { // AreaOfInterestGeometry Union: only one key present
@@ -73,7 +73,7 @@ export interface StartEarthObservationJobCommandOutput extends StartEarthObserva
  *             Coordinates: [ // LinearRings // required
  *               [ // LinearRing
  *                 [ // Position
- *                   Number("double"),
+ *                   Number('double'),
  *                 ],
  *               ],
  *             ],
@@ -83,7 +83,7 @@ export interface StartEarthObservationJobCommandOutput extends StartEarthObserva
  *               [
  *                 [
  *                   [
- *                     Number("double"),
+ *                     Number('double'),
  *                   ],
  *                 ],
  *               ],
@@ -96,47 +96,47 @@ export interface StartEarthObservationJobCommandOutput extends StartEarthObserva
  *           { // PropertyFilter
  *             Property: { // Property Union: only one key present
  *               EoCloudCover: { // EoCloudCoverInput
- *                 LowerBound: Number("float"), // required
- *                 UpperBound: Number("float"), // required
+ *                 LowerBound: Number('float'), // required
+ *                 UpperBound: Number('float'), // required
  *               },
  *               ViewOffNadir: { // ViewOffNadirInput
- *                 LowerBound: Number("float"), // required
- *                 UpperBound: Number("float"), // required
+ *                 LowerBound: Number('float'), // required
+ *                 UpperBound: Number('float'), // required
  *               },
  *               ViewSunAzimuth: { // ViewSunAzimuthInput
- *                 LowerBound: Number("float"), // required
- *                 UpperBound: Number("float"), // required
+ *                 LowerBound: Number('float'), // required
+ *                 UpperBound: Number('float'), // required
  *               },
  *               ViewSunElevation: { // ViewSunElevationInput
- *                 LowerBound: Number("float"), // required
- *                 UpperBound: Number("float"), // required
+ *                 LowerBound: Number('float'), // required
+ *                 UpperBound: Number('float'), // required
  *               },
  *               Platform: { // PlatformInput
- *                 Value: "STRING_VALUE", // required
- *                 ComparisonOperator: "STRING_VALUE",
+ *                 Value: 'STRING_VALUE', // required
+ *                 ComparisonOperator: 'STRING_VALUE',
  *               },
  *               LandsatCloudCoverLand: { // LandsatCloudCoverLandInput
- *                 LowerBound: Number("float"), // required
- *                 UpperBound: Number("float"), // required
+ *                 LowerBound: Number('float'), // required
+ *                 UpperBound: Number('float'), // required
  *               },
  *             },
  *           },
  *         ],
- *         LogicalOperator: "STRING_VALUE",
+ *         LogicalOperator: 'STRING_VALUE',
  *       },
  *     },
  *   },
  *   JobConfig: { // JobConfigInput Union: only one key present
  *     BandMathConfig: { // BandMathConfigInput
  *       PredefinedIndices: [ // StringListInput
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *       CustomIndices: { // CustomIndicesInput
  *         Operations: [ // OperationsListInput
  *           { // Operation
- *             Name: "STRING_VALUE", // required
- *             Equation: "STRING_VALUE", // required
- *             OutputType: "STRING_VALUE",
+ *             Name: 'STRING_VALUE', // required
+ *             Equation: 'STRING_VALUE', // required
+ *             OutputType: 'STRING_VALUE',
  *           },
  *         ],
  *       },
@@ -144,65 +144,224 @@ export interface StartEarthObservationJobCommandOutput extends StartEarthObserva
  *     ResamplingConfig: { // ResamplingConfigInput
  *       OutputResolution: { // OutputResolutionResamplingInput
  *         UserDefined: { // UserDefined
- *           Value: Number("float"), // required
- *           Unit: "STRING_VALUE", // required
+ *           Value: Number('float'), // required
+ *           Unit: 'STRING_VALUE', // required
  *         },
  *       },
- *       AlgorithmName: "STRING_VALUE",
+ *       AlgorithmName: 'STRING_VALUE',
  *       TargetBands: [
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *     TemporalStatisticsConfig: { // TemporalStatisticsConfigInput
- *       GroupBy: "STRING_VALUE",
+ *       GroupBy: 'STRING_VALUE',
  *       Statistics: [ // TemporalStatisticsListInput // required
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *       TargetBands: [
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *     CloudRemovalConfig: { // CloudRemovalConfigInput
- *       AlgorithmName: "STRING_VALUE",
- *       InterpolationValue: "STRING_VALUE",
+ *       AlgorithmName: 'STRING_VALUE',
+ *       InterpolationValue: 'STRING_VALUE',
  *       TargetBands: [
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *     ZonalStatisticsConfig: { // ZonalStatisticsConfigInput
- *       ZoneS3Path: "STRING_VALUE", // required
+ *       ZoneS3Path: 'STRING_VALUE', // required
  *       Statistics: [ // ZonalStatisticsListInput // required
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *       TargetBands: [
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
- *       ZoneS3PathKmsKeyId: "STRING_VALUE",
+ *       ZoneS3PathKmsKeyId: 'STRING_VALUE',
  *     },
  *     GeoMosaicConfig: { // GeoMosaicConfigInput
- *       AlgorithmName: "STRING_VALUE",
- *       TargetBands: "<StringListInput>",
+ *       AlgorithmName: 'STRING_VALUE',
+ *       TargetBands: '<StringListInput>',
  *     },
  *     StackConfig: { // StackConfigInput
  *       OutputResolution: { // OutputResolutionStackInput
- *         Predefined: "STRING_VALUE",
+ *         Predefined: 'STRING_VALUE',
  *         UserDefined: {
- *           Value: Number("float"), // required
- *           Unit: "STRING_VALUE", // required
+ *           Value: Number('float'), // required
+ *           Unit: 'STRING_VALUE', // required
  *         },
  *       },
- *       TargetBands: "<StringListInput>",
+ *       TargetBands: '<StringListInput>',
  *     },
  *     CloudMaskingConfig: {},
  *     LandCoverSegmentationConfig: {},
  *   },
- *   ExecutionRoleArn: "STRING_VALUE",
+ *   ExecutionRoleArn: 'STRING_VALUE',
  *   Tags: { // Tags
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new StartEarthObservationJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartEarthObservationJobOutput
+ *   Name: 'STRING_VALUE', // required
+ *   Arn: 'STRING_VALUE', // required
+ *   CreationTime: new Date('TIMESTAMP'), // required
+ *   DurationInSeconds: Number('int'), // required
+ *   Status: 'STRING_VALUE', // required
+ *   KmsKeyId: 'STRING_VALUE',
+ *   InputConfig: { // InputConfigOutput
+ *     PreviousEarthObservationJobArn: 'STRING_VALUE',
+ *     DataSourceConfig: { // EojDataSourceConfigInput Union: only one key present
+ *       S3Data: { // S3DataInput
+ *         S3Uri: 'STRING_VALUE', // required
+ *         MetadataProvider: 'STRING_VALUE', // required
+ *         KmsKeyId: 'STRING_VALUE',
+ *       },
+ *     },
+ *     RasterDataCollectionQuery: { // RasterDataCollectionQueryOutput
+ *       RasterDataCollectionArn: 'STRING_VALUE', // required
+ *       RasterDataCollectionName: 'STRING_VALUE', // required
+ *       TimeRangeFilter: { // TimeRangeFilterOutput
+ *         StartTime: new Date('TIMESTAMP'), // required
+ *         EndTime: new Date('TIMESTAMP'), // required
+ *       },
+ *       AreaOfInterest: { // AreaOfInterest Union: only one key present
+ *         AreaOfInterestGeometry: { // AreaOfInterestGeometry Union: only one key present
+ *           PolygonGeometry: { // PolygonGeometryInput
+ *             Coordinates: [ // LinearRings // required
+ *               [ // LinearRing
+ *                 [ // Position
+ *                   Number('double'),
+ *                 ],
+ *               ],
+ *             ],
+ *           },
+ *           MultiPolygonGeometry: { // MultiPolygonGeometryInput
+ *             Coordinates: [ // LinearRingsList // required
+ *               [
+ *                 [
+ *                   [
+ *                     Number('double'),
+ *                   ],
+ *                 ],
+ *               ],
+ *             ],
+ *           },
+ *         },
+ *       },
+ *       PropertyFilters: { // PropertyFilters
+ *         Properties: [ // PropertyFiltersList
+ *           { // PropertyFilter
+ *             Property: { // Property Union: only one key present
+ *               EoCloudCover: { // EoCloudCoverInput
+ *                 LowerBound: Number('float'), // required
+ *                 UpperBound: Number('float'), // required
+ *               },
+ *               ViewOffNadir: { // ViewOffNadirInput
+ *                 LowerBound: Number('float'), // required
+ *                 UpperBound: Number('float'), // required
+ *               },
+ *               ViewSunAzimuth: { // ViewSunAzimuthInput
+ *                 LowerBound: Number('float'), // required
+ *                 UpperBound: Number('float'), // required
+ *               },
+ *               ViewSunElevation: { // ViewSunElevationInput
+ *                 LowerBound: Number('float'), // required
+ *                 UpperBound: Number('float'), // required
+ *               },
+ *               Platform: { // PlatformInput
+ *                 Value: 'STRING_VALUE', // required
+ *                 ComparisonOperator: 'STRING_VALUE',
+ *               },
+ *               LandsatCloudCoverLand: { // LandsatCloudCoverLandInput
+ *                 LowerBound: Number('float'), // required
+ *                 UpperBound: Number('float'), // required
+ *               },
+ *             },
+ *           },
+ *         ],
+ *         LogicalOperator: 'STRING_VALUE',
+ *       },
+ *     },
+ *   },
+ *   JobConfig: { // JobConfigInput Union: only one key present
+ *     BandMathConfig: { // BandMathConfigInput
+ *       PredefinedIndices: [ // StringListInput
+ *         'STRING_VALUE',
+ *       ],
+ *       CustomIndices: { // CustomIndicesInput
+ *         Operations: [ // OperationsListInput
+ *           { // Operation
+ *             Name: 'STRING_VALUE', // required
+ *             Equation: 'STRING_VALUE', // required
+ *             OutputType: 'STRING_VALUE',
+ *           },
+ *         ],
+ *       },
+ *     },
+ *     ResamplingConfig: { // ResamplingConfigInput
+ *       OutputResolution: { // OutputResolutionResamplingInput
+ *         UserDefined: { // UserDefined
+ *           Value: Number('float'), // required
+ *           Unit: 'STRING_VALUE', // required
+ *         },
+ *       },
+ *       AlgorithmName: 'STRING_VALUE',
+ *       TargetBands: [
+ *         'STRING_VALUE',
+ *       ],
+ *     },
+ *     TemporalStatisticsConfig: { // TemporalStatisticsConfigInput
+ *       GroupBy: 'STRING_VALUE',
+ *       Statistics: [ // TemporalStatisticsListInput // required
+ *         'STRING_VALUE',
+ *       ],
+ *       TargetBands: [
+ *         'STRING_VALUE',
+ *       ],
+ *     },
+ *     CloudRemovalConfig: { // CloudRemovalConfigInput
+ *       AlgorithmName: 'STRING_VALUE',
+ *       InterpolationValue: 'STRING_VALUE',
+ *       TargetBands: [
+ *         'STRING_VALUE',
+ *       ],
+ *     },
+ *     ZonalStatisticsConfig: { // ZonalStatisticsConfigInput
+ *       ZoneS3Path: 'STRING_VALUE', // required
+ *       Statistics: [ // ZonalStatisticsListInput // required
+ *         'STRING_VALUE',
+ *       ],
+ *       TargetBands: [
+ *         'STRING_VALUE',
+ *       ],
+ *       ZoneS3PathKmsKeyId: 'STRING_VALUE',
+ *     },
+ *     GeoMosaicConfig: { // GeoMosaicConfigInput
+ *       AlgorithmName: 'STRING_VALUE',
+ *       TargetBands: '<StringListInput>',
+ *     },
+ *     StackConfig: { // StackConfigInput
+ *       OutputResolution: { // OutputResolutionStackInput
+ *         Predefined: 'STRING_VALUE',
+ *         UserDefined: {
+ *           Value: Number('float'), // required
+ *           Unit: 'STRING_VALUE', // required
+ *         },
+ *       },
+ *       TargetBands: '<StringListInput>',
+ *     },
+ *     CloudMaskingConfig: {},
+ *     LandCoverSegmentationConfig: {},
+ *   },
+ *   ExecutionRoleArn: 'STRING_VALUE',
+ *   Tags: { // Tags
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param StartEarthObservationJobCommandInput - {@link StartEarthObservationJobCommandInput}
@@ -232,6 +391,8 @@ export interface StartEarthObservationJobCommandOutput extends StartEarthObserva
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
  *
+ * @throws {@link SageMakerGeospatialServiceException}
+ * <p>Base exception class for all service exceptions from SageMakerGeospatial service.</p>
  *
  */
 export class StartEarthObservationJobCommand extends $Command<

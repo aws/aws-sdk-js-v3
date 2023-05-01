@@ -36,14 +36,20 @@ export interface GetClusterPolicyCommandOutput extends GetClusterPolicyResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KafkaClient, GetClusterPolicyCommand } from "@aws-sdk/client-kafka"; // ES Modules import
- * // const { KafkaClient, GetClusterPolicyCommand } = require("@aws-sdk/client-kafka"); // CommonJS import
+ * import { KafkaClient, GetClusterPolicyCommand } from '@aws-sdk/client-kafka'; // ES Modules import
+ * // const { KafkaClient, GetClusterPolicyCommand } = require('@aws-sdk/client-kafka'); // CommonJS import
  * const client = new KafkaClient(config);
  * const input = { // GetClusterPolicyRequest
- *   ClusterArn: "STRING_VALUE", // required
+ *   ClusterArn: 'STRING_VALUE', // required
  * };
  * const command = new GetClusterPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetClusterPolicyResponse
+ *   CurrentVersion: 'STRING_VALUE',
+ *   Policy: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetClusterPolicyCommandInput - {@link GetClusterPolicyCommandInput}
@@ -64,6 +70,8 @@ export interface GetClusterPolicyCommandOutput extends GetClusterPolicyResponse,
  * @throws {@link NotFoundException} (client fault)
  *  <p>Returns information about an error.</p>
  *
+ * @throws {@link KafkaServiceException}
+ * <p>Base exception class for all service exceptions from Kafka service.</p>
  *
  */
 export class GetClusterPolicyCommand extends $Command<

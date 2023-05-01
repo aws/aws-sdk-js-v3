@@ -41,47 +41,53 @@ export interface CreateOpsItemCommandOutput extends CreateOpsItemResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMClient, CreateOpsItemCommand } from "@aws-sdk/client-ssm"; // ES Modules import
- * // const { SSMClient, CreateOpsItemCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * import { SSMClient, CreateOpsItemCommand } from '@aws-sdk/client-ssm'; // ES Modules import
+ * // const { SSMClient, CreateOpsItemCommand } = require('@aws-sdk/client-ssm'); // CommonJS import
  * const client = new SSMClient(config);
  * const input = { // CreateOpsItemRequest
- *   Description: "STRING_VALUE", // required
- *   OpsItemType: "STRING_VALUE",
+ *   Description: 'STRING_VALUE', // required
+ *   OpsItemType: 'STRING_VALUE',
  *   OperationalData: { // OpsItemOperationalData
- *     "<keys>": { // OpsItemDataValue
- *       Value: "STRING_VALUE",
- *       Type: "SearchableString" || "String",
+ *     '<keys>': { // OpsItemDataValue
+ *       Value: 'STRING_VALUE',
+ *       Type: 'SearchableString' || 'String',
  *     },
  *   },
  *   Notifications: [ // OpsItemNotifications
  *     { // OpsItemNotification
- *       Arn: "STRING_VALUE",
+ *       Arn: 'STRING_VALUE',
  *     },
  *   ],
- *   Priority: Number("int"),
+ *   Priority: Number('int'),
  *   RelatedOpsItems: [ // RelatedOpsItems
  *     { // RelatedOpsItem
- *       OpsItemId: "STRING_VALUE", // required
+ *       OpsItemId: 'STRING_VALUE', // required
  *     },
  *   ],
- *   Source: "STRING_VALUE", // required
- *   Title: "STRING_VALUE", // required
+ *   Source: 'STRING_VALUE', // required
+ *   Title: 'STRING_VALUE', // required
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
- *   Category: "STRING_VALUE",
- *   Severity: "STRING_VALUE",
- *   ActualStartTime: new Date("TIMESTAMP"),
- *   ActualEndTime: new Date("TIMESTAMP"),
- *   PlannedStartTime: new Date("TIMESTAMP"),
- *   PlannedEndTime: new Date("TIMESTAMP"),
- *   AccountId: "STRING_VALUE",
+ *   Category: 'STRING_VALUE',
+ *   Severity: 'STRING_VALUE',
+ *   ActualStartTime: new Date('TIMESTAMP'),
+ *   ActualEndTime: new Date('TIMESTAMP'),
+ *   PlannedStartTime: new Date('TIMESTAMP'),
+ *   PlannedEndTime: new Date('TIMESTAMP'),
+ *   AccountId: 'STRING_VALUE',
  * };
  * const command = new CreateOpsItemCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateOpsItemResponse
+ *   OpsItemId: 'STRING_VALUE',
+ *   OpsItemArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateOpsItemCommandInput - {@link CreateOpsItemCommandInput}
@@ -109,6 +115,8 @@ export interface CreateOpsItemCommandOutput extends CreateOpsItemResponse, __Met
  *  <p>The request caused OpsItems to exceed one or more quotas. For information about OpsItem
  *    quotas, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-learn-more.html#OpsCenter-learn-more-limits">What are the resource limits for OpsCenter?</a>.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class CreateOpsItemCommand extends $Command<

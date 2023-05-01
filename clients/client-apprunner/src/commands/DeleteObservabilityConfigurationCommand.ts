@@ -42,14 +42,30 @@ export interface DeleteObservabilityConfigurationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppRunnerClient, DeleteObservabilityConfigurationCommand } from "@aws-sdk/client-apprunner"; // ES Modules import
- * // const { AppRunnerClient, DeleteObservabilityConfigurationCommand } = require("@aws-sdk/client-apprunner"); // CommonJS import
+ * import { AppRunnerClient, DeleteObservabilityConfigurationCommand } from '@aws-sdk/client-apprunner'; // ES Modules import
+ * // const { AppRunnerClient, DeleteObservabilityConfigurationCommand } = require('@aws-sdk/client-apprunner'); // CommonJS import
  * const client = new AppRunnerClient(config);
  * const input = { // DeleteObservabilityConfigurationRequest
- *   ObservabilityConfigurationArn: "STRING_VALUE", // required
+ *   ObservabilityConfigurationArn: 'STRING_VALUE', // required
  * };
  * const command = new DeleteObservabilityConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteObservabilityConfigurationResponse
+ *   ObservabilityConfiguration: { // ObservabilityConfiguration
+ *     ObservabilityConfigurationArn: 'STRING_VALUE',
+ *     ObservabilityConfigurationName: 'STRING_VALUE',
+ *     TraceConfiguration: { // TraceConfiguration
+ *       Vendor: 'AWSXRAY', // required
+ *     },
+ *     ObservabilityConfigurationRevision: Number('int'),
+ *     Latest: true || false,
+ *     Status: 'ACTIVE' || 'INACTIVE',
+ *     CreatedAt: new Date('TIMESTAMP'),
+ *     DeletedAt: new Date('TIMESTAMP'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param DeleteObservabilityConfigurationCommandInput - {@link DeleteObservabilityConfigurationCommandInput}
@@ -67,6 +83,8 @@ export interface DeleteObservabilityConfigurationCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>A resource doesn't exist for the specified Amazon Resource Name (ARN) in your Amazon Web Services account.</p>
  *
+ * @throws {@link AppRunnerServiceException}
+ * <p>Base exception class for all service exceptions from AppRunner service.</p>
  *
  */
 export class DeleteObservabilityConfigurationCommand extends $Command<

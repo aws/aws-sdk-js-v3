@@ -56,24 +56,40 @@ export interface AddApplicationVpcConfigurationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KinesisAnalyticsV2Client, AddApplicationVpcConfigurationCommand } from "@aws-sdk/client-kinesis-analytics-v2"; // ES Modules import
- * // const { KinesisAnalyticsV2Client, AddApplicationVpcConfigurationCommand } = require("@aws-sdk/client-kinesis-analytics-v2"); // CommonJS import
+ * import { KinesisAnalyticsV2Client, AddApplicationVpcConfigurationCommand } from '@aws-sdk/client-kinesis-analytics-v2'; // ES Modules import
+ * // const { KinesisAnalyticsV2Client, AddApplicationVpcConfigurationCommand } = require('@aws-sdk/client-kinesis-analytics-v2'); // CommonJS import
  * const client = new KinesisAnalyticsV2Client(config);
  * const input = { // AddApplicationVpcConfigurationRequest
- *   ApplicationName: "STRING_VALUE", // required
- *   CurrentApplicationVersionId: Number("long"),
+ *   ApplicationName: 'STRING_VALUE', // required
+ *   CurrentApplicationVersionId: Number('long'),
  *   VpcConfiguration: { // VpcConfiguration
  *     SubnetIds: [ // SubnetIds // required
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     SecurityGroupIds: [ // SecurityGroupIds // required
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *   },
- *   ConditionalToken: "STRING_VALUE",
+ *   ConditionalToken: 'STRING_VALUE',
  * };
  * const command = new AddApplicationVpcConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AddApplicationVpcConfigurationResponse
+ *   ApplicationARN: 'STRING_VALUE',
+ *   ApplicationVersionId: Number('long'),
+ *   VpcConfigurationDescription: { // VpcConfigurationDescription
+ *     VpcConfigurationId: 'STRING_VALUE', // required
+ *     VpcId: 'STRING_VALUE', // required
+ *     SubnetIds: [ // SubnetIds // required
+ *       'STRING_VALUE',
+ *     ],
+ *     SecurityGroupIds: [ // SecurityGroupIds // required
+ *       'STRING_VALUE',
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param AddApplicationVpcConfigurationCommandInput - {@link AddApplicationVpcConfigurationCommandInput}
@@ -99,6 +115,8 @@ export interface AddApplicationVpcConfigurationCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Specified application can't be found.</p>
  *
+ * @throws {@link KinesisAnalyticsV2ServiceException}
+ * <p>Base exception class for all service exceptions from KinesisAnalyticsV2 service.</p>
  *
  */
 export class AddApplicationVpcConfigurationCommand extends $Command<

@@ -40,21 +40,55 @@ export interface UpdateProjectDataDeliveryCommandOutput extends UpdateProjectDat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EvidentlyClient, UpdateProjectDataDeliveryCommand } from "@aws-sdk/client-evidently"; // ES Modules import
- * // const { EvidentlyClient, UpdateProjectDataDeliveryCommand } = require("@aws-sdk/client-evidently"); // CommonJS import
+ * import { EvidentlyClient, UpdateProjectDataDeliveryCommand } from '@aws-sdk/client-evidently'; // ES Modules import
+ * // const { EvidentlyClient, UpdateProjectDataDeliveryCommand } = require('@aws-sdk/client-evidently'); // CommonJS import
  * const client = new EvidentlyClient(config);
  * const input = { // UpdateProjectDataDeliveryRequest
- *   project: "STRING_VALUE", // required
+ *   project: 'STRING_VALUE', // required
  *   s3Destination: { // S3DestinationConfig
- *     bucket: "STRING_VALUE",
- *     prefix: "STRING_VALUE",
+ *     bucket: 'STRING_VALUE',
+ *     prefix: 'STRING_VALUE',
  *   },
  *   cloudWatchLogs: { // CloudWatchLogsDestinationConfig
- *     logGroup: "STRING_VALUE",
+ *     logGroup: 'STRING_VALUE',
  *   },
  * };
  * const command = new UpdateProjectDataDeliveryCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateProjectDataDeliveryResponse
+ *   project: { // Project
+ *     arn: 'STRING_VALUE', // required
+ *     name: 'STRING_VALUE', // required
+ *     status: 'STRING_VALUE', // required
+ *     description: 'STRING_VALUE',
+ *     createdTime: new Date('TIMESTAMP'), // required
+ *     lastUpdatedTime: new Date('TIMESTAMP'), // required
+ *     featureCount: Number('long'),
+ *     launchCount: Number('long'),
+ *     activeLaunchCount: Number('long'),
+ *     experimentCount: Number('long'),
+ *     activeExperimentCount: Number('long'),
+ *     dataDelivery: { // ProjectDataDelivery
+ *       s3Destination: { // S3Destination
+ *         bucket: 'STRING_VALUE',
+ *         prefix: 'STRING_VALUE',
+ *       },
+ *       cloudWatchLogs: { // CloudWatchLogsDestination
+ *         logGroup: 'STRING_VALUE',
+ *       },
+ *     },
+ *     appConfigResource: { // ProjectAppConfigResource
+ *       applicationId: 'STRING_VALUE', // required
+ *       environmentId: 'STRING_VALUE', // required
+ *       configurationProfileId: 'STRING_VALUE', // required
+ *     },
+ *     tags: { // TagMap
+ *       '<keys>': 'STRING_VALUE',
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateProjectDataDeliveryCommandInput - {@link UpdateProjectDataDeliveryCommandInput}
@@ -78,6 +112,8 @@ export interface UpdateProjectDataDeliveryCommandOutput extends UpdateProjectDat
  * @throws {@link ValidationException} (client fault)
  *  <p>The value of a parameter in the request caused an error.</p>
  *
+ * @throws {@link EvidentlyServiceException}
+ * <p>Base exception class for all service exceptions from Evidently service.</p>
  *
  */
 export class UpdateProjectDataDeliveryCommand extends $Command<

@@ -41,16 +41,19 @@ export interface DisassociateInstanceStorageConfigCommandOutput extends __Metada
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, DisassociateInstanceStorageConfigCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, DisassociateInstanceStorageConfigCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, DisassociateInstanceStorageConfigCommand } from '@aws-sdk/client-connect'; // ES Modules import
+ * // const { ConnectClient, DisassociateInstanceStorageConfigCommand } = require('@aws-sdk/client-connect'); // CommonJS import
  * const client = new ConnectClient(config);
  * const input = { // DisassociateInstanceStorageConfigRequest
- *   InstanceId: "STRING_VALUE", // required
- *   AssociationId: "STRING_VALUE", // required
- *   ResourceType: "CHAT_TRANSCRIPTS" || "CALL_RECORDINGS" || "SCHEDULED_REPORTS" || "MEDIA_STREAMS" || "CONTACT_TRACE_RECORDS" || "AGENT_EVENTS" || "REAL_TIME_CONTACT_ANALYSIS_SEGMENTS" || "ATTACHMENTS" || "CONTACT_EVALUATIONS", // required
+ *   InstanceId: 'STRING_VALUE', // required
+ *   AssociationId: 'STRING_VALUE', // required
+ *   ResourceType: 'CHAT_TRANSCRIPTS' || 'CALL_RECORDINGS' || 'SCHEDULED_REPORTS' || 'MEDIA_STREAMS' || 'CONTACT_TRACE_RECORDS' || 'AGENT_EVENTS' || 'REAL_TIME_CONTACT_ANALYSIS_SEGMENTS' || 'ATTACHMENTS' || 'CONTACT_EVALUATIONS', // required
  * };
  * const command = new DisassociateInstanceStorageConfigCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DisassociateInstanceStorageConfigCommandInput - {@link DisassociateInstanceStorageConfigCommandInput}
@@ -74,6 +77,8 @@ export interface DisassociateInstanceStorageConfigCommandOutput extends __Metada
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class DisassociateInstanceStorageConfigCommand extends $Command<

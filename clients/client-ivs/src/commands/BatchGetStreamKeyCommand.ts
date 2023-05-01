@@ -40,16 +40,37 @@ export interface BatchGetStreamKeyCommandOutput extends BatchGetStreamKeyRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IvsClient, BatchGetStreamKeyCommand } from "@aws-sdk/client-ivs"; // ES Modules import
- * // const { IvsClient, BatchGetStreamKeyCommand } = require("@aws-sdk/client-ivs"); // CommonJS import
+ * import { IvsClient, BatchGetStreamKeyCommand } from '@aws-sdk/client-ivs'; // ES Modules import
+ * // const { IvsClient, BatchGetStreamKeyCommand } = require('@aws-sdk/client-ivs'); // CommonJS import
  * const client = new IvsClient(config);
  * const input = { // BatchGetStreamKeyRequest
  *   arns: [ // StreamKeyArnList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new BatchGetStreamKeyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BatchGetStreamKeyResponse
+ *   streamKeys: [ // StreamKeys
+ *     { // StreamKey
+ *       arn: 'STRING_VALUE',
+ *       value: 'STRING_VALUE',
+ *       channelArn: 'STRING_VALUE',
+ *       tags: { // Tags
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ *   errors: [ // BatchErrors
+ *     { // BatchError
+ *       arn: 'STRING_VALUE',
+ *       code: 'STRING_VALUE',
+ *       message: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param BatchGetStreamKeyCommandInput - {@link BatchGetStreamKeyCommandInput}
@@ -58,6 +79,8 @@ export interface BatchGetStreamKeyCommandOutput extends BatchGetStreamKeyRespons
  * @see {@link BatchGetStreamKeyCommandOutput} for command's `response` shape.
  * @see {@link IvsClientResolvedConfig | config} for IvsClient's `config` shape.
  *
+ * @throws {@link IvsServiceException}
+ * <p>Base exception class for all service exceptions from Ivs service.</p>
  *
  */
 export class BatchGetStreamKeyCommand extends $Command<

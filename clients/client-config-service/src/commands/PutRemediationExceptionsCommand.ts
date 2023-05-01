@@ -53,22 +53,40 @@ export interface PutRemediationExceptionsCommandOutput extends PutRemediationExc
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConfigServiceClient, PutRemediationExceptionsCommand } from "@aws-sdk/client-config-service"; // ES Modules import
- * // const { ConfigServiceClient, PutRemediationExceptionsCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
+ * import { ConfigServiceClient, PutRemediationExceptionsCommand } from '@aws-sdk/client-config-service'; // ES Modules import
+ * // const { ConfigServiceClient, PutRemediationExceptionsCommand } = require('@aws-sdk/client-config-service'); // CommonJS import
  * const client = new ConfigServiceClient(config);
  * const input = { // PutRemediationExceptionsRequest
- *   ConfigRuleName: "STRING_VALUE", // required
+ *   ConfigRuleName: 'STRING_VALUE', // required
  *   ResourceKeys: [ // RemediationExceptionResourceKeys // required
  *     { // RemediationExceptionResourceKey
- *       ResourceType: "STRING_VALUE",
- *       ResourceId: "STRING_VALUE",
+ *       ResourceType: 'STRING_VALUE',
+ *       ResourceId: 'STRING_VALUE',
  *     },
  *   ],
- *   Message: "STRING_VALUE",
- *   ExpirationTime: new Date("TIMESTAMP"),
+ *   Message: 'STRING_VALUE',
+ *   ExpirationTime: new Date('TIMESTAMP'),
  * };
  * const command = new PutRemediationExceptionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutRemediationExceptionsResponse
+ *   FailedBatches: [ // FailedRemediationExceptionBatches
+ *     { // FailedRemediationExceptionBatch
+ *       FailureMessage: 'STRING_VALUE',
+ *       FailedItems: [ // RemediationExceptions
+ *         { // RemediationException
+ *           ConfigRuleName: 'STRING_VALUE', // required
+ *           ResourceType: 'STRING_VALUE', // required
+ *           ResourceId: 'STRING_VALUE', // required
+ *           Message: 'STRING_VALUE',
+ *           ExpirationTime: new Date('TIMESTAMP'),
+ *         },
+ *       ],
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param PutRemediationExceptionsCommandInput - {@link PutRemediationExceptionsCommandInput}
@@ -106,6 +124,8 @@ export interface PutRemediationExceptionsCommandOutput extends PutRemediationExc
  *  <p>One or more of the specified parameters are not valid. Verify
  * 			that your parameters are valid and try again.</p>
  *
+ * @throws {@link ConfigServiceServiceException}
+ * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
  */
 export class PutRemediationExceptionsCommand extends $Command<

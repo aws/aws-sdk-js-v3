@@ -54,17 +54,40 @@ export interface ListStackSetsCommandOutput extends ListStackSetsOutput, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudFormationClient, ListStackSetsCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
- * // const { CloudFormationClient, ListStackSetsCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
+ * import { CloudFormationClient, ListStackSetsCommand } from '@aws-sdk/client-cloudformation'; // ES Modules import
+ * // const { CloudFormationClient, ListStackSetsCommand } = require('@aws-sdk/client-cloudformation'); // CommonJS import
  * const client = new CloudFormationClient(config);
  * const input = { // ListStackSetsInput
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
- *   Status: "ACTIVE" || "DELETED",
- *   CallAs: "SELF" || "DELEGATED_ADMIN",
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
+ *   Status: 'ACTIVE' || 'DELETED',
+ *   CallAs: 'SELF' || 'DELEGATED_ADMIN',
  * };
  * const command = new ListStackSetsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListStackSetsOutput
+ *   Summaries: [ // StackSetSummaries
+ *     { // StackSetSummary
+ *       StackSetName: 'STRING_VALUE',
+ *       StackSetId: 'STRING_VALUE',
+ *       Description: 'STRING_VALUE',
+ *       Status: 'ACTIVE' || 'DELETED',
+ *       AutoDeployment: { // AutoDeployment
+ *         Enabled: true || false,
+ *         RetainStacksOnAccountRemoval: true || false,
+ *       },
+ *       PermissionModel: 'SERVICE_MANAGED' || 'SELF_MANAGED',
+ *       DriftStatus: 'DRIFTED' || 'IN_SYNC' || 'UNKNOWN' || 'NOT_CHECKED',
+ *       LastDriftCheckTimestamp: new Date('TIMESTAMP'),
+ *       ManagedExecution: { // ManagedExecution
+ *         Active: true || false,
+ *       },
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListStackSetsCommandInput - {@link ListStackSetsCommandInput}
@@ -73,6 +96,8 @@ export interface ListStackSetsCommandOutput extends ListStackSetsOutput, __Metad
  * @see {@link ListStackSetsCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
+ * @throws {@link CloudFormationServiceException}
+ * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
  */
 export class ListStackSetsCommand extends $Command<

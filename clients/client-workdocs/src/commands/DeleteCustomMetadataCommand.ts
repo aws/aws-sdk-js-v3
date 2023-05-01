@@ -40,20 +40,23 @@ export interface DeleteCustomMetadataCommandOutput extends DeleteCustomMetadataR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkDocsClient, DeleteCustomMetadataCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
- * // const { WorkDocsClient, DeleteCustomMetadataCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import
+ * import { WorkDocsClient, DeleteCustomMetadataCommand } from '@aws-sdk/client-workdocs'; // ES Modules import
+ * // const { WorkDocsClient, DeleteCustomMetadataCommand } = require('@aws-sdk/client-workdocs'); // CommonJS import
  * const client = new WorkDocsClient(config);
  * const input = { // DeleteCustomMetadataRequest
- *   AuthenticationToken: "STRING_VALUE",
- *   ResourceId: "STRING_VALUE", // required
- *   VersionId: "STRING_VALUE",
+ *   AuthenticationToken: 'STRING_VALUE',
+ *   ResourceId: 'STRING_VALUE', // required
+ *   VersionId: 'STRING_VALUE',
  *   Keys: [ // CustomMetadataKeyList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   DeleteAll: true || false,
  * };
  * const command = new DeleteCustomMetadataCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteCustomMetadataCommandInput - {@link DeleteCustomMetadataCommandInput}
@@ -82,6 +85,8 @@ export interface DeleteCustomMetadataCommandOutput extends DeleteCustomMetadataR
  * @throws {@link UnauthorizedResourceAccessException} (client fault)
  *  <p>The caller does not have access to perform the action on the resource.</p>
  *
+ * @throws {@link WorkDocsServiceException}
+ * <p>Base exception class for all service exceptions from WorkDocs service.</p>
  *
  */
 export class DeleteCustomMetadataCommand extends $Command<

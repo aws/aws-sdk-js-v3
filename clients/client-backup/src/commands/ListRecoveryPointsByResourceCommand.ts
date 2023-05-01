@@ -46,16 +46,35 @@ export interface ListRecoveryPointsByResourceCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BackupClient, ListRecoveryPointsByResourceCommand } from "@aws-sdk/client-backup"; // ES Modules import
- * // const { BackupClient, ListRecoveryPointsByResourceCommand } = require("@aws-sdk/client-backup"); // CommonJS import
+ * import { BackupClient, ListRecoveryPointsByResourceCommand } from '@aws-sdk/client-backup'; // ES Modules import
+ * // const { BackupClient, ListRecoveryPointsByResourceCommand } = require('@aws-sdk/client-backup'); // CommonJS import
  * const client = new BackupClient(config);
  * const input = { // ListRecoveryPointsByResourceInput
- *   ResourceArn: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   ResourceArn: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListRecoveryPointsByResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListRecoveryPointsByResourceOutput
+ *   NextToken: 'STRING_VALUE',
+ *   RecoveryPoints: [ // RecoveryPointByResourceList
+ *     { // RecoveryPointByResource
+ *       RecoveryPointArn: 'STRING_VALUE',
+ *       CreationDate: new Date('TIMESTAMP'),
+ *       Status: 'COMPLETED' || 'PARTIAL' || 'DELETING' || 'EXPIRED',
+ *       StatusMessage: 'STRING_VALUE',
+ *       EncryptionKeyArn: 'STRING_VALUE',
+ *       BackupSizeBytes: Number('long'),
+ *       BackupVaultName: 'STRING_VALUE',
+ *       IsParent: true || false,
+ *       ParentRecoveryPointArn: 'STRING_VALUE',
+ *       ResourceName: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListRecoveryPointsByResourceCommandInput - {@link ListRecoveryPointsByResourceCommandInput}
@@ -77,6 +96,8 @@ export interface ListRecoveryPointsByResourceCommandOutput
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request failed due to a temporary failure of the server.</p>
  *
+ * @throws {@link BackupServiceException}
+ * <p>Base exception class for all service exceptions from Backup service.</p>
  *
  */
 export class ListRecoveryPointsByResourceCommand extends $Command<

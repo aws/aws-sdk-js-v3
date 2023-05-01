@@ -37,20 +37,28 @@ export interface UpdateParallelDataCommandOutput extends UpdateParallelDataRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { TranslateClient, UpdateParallelDataCommand } from "@aws-sdk/client-translate"; // ES Modules import
- * // const { TranslateClient, UpdateParallelDataCommand } = require("@aws-sdk/client-translate"); // CommonJS import
+ * import { TranslateClient, UpdateParallelDataCommand } from '@aws-sdk/client-translate'; // ES Modules import
+ * // const { TranslateClient, UpdateParallelDataCommand } = require('@aws-sdk/client-translate'); // CommonJS import
  * const client = new TranslateClient(config);
  * const input = { // UpdateParallelDataRequest
- *   Name: "STRING_VALUE", // required
- *   Description: "STRING_VALUE",
+ *   Name: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE',
  *   ParallelDataConfig: { // ParallelDataConfig
- *     S3Uri: "STRING_VALUE", // required
- *     Format: "TSV" || "CSV" || "TMX", // required
+ *     S3Uri: 'STRING_VALUE', // required
+ *     Format: 'TSV' || 'CSV' || 'TMX', // required
  *   },
- *   ClientToken: "STRING_VALUE", // required
+ *   ClientToken: 'STRING_VALUE', // required
  * };
  * const command = new UpdateParallelDataCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateParallelDataResponse
+ *   Name: 'STRING_VALUE',
+ *   Status: 'CREATING' || 'UPDATING' || 'ACTIVE' || 'DELETING' || 'FAILED',
+ *   LatestUpdateAttemptStatus: 'CREATING' || 'UPDATING' || 'ACTIVE' || 'DELETING' || 'FAILED',
+ *   LatestUpdateAttemptAt: new Date('TIMESTAMP'),
+ * };
+ *
  * ```
  *
  * @param UpdateParallelDataCommandInput - {@link UpdateParallelDataCommandInput}
@@ -90,6 +98,8 @@ export interface UpdateParallelDataCommandOutput extends UpdateParallelDataRespo
  *  <p> You have made too many requests within a short period of time. Wait for a short time and
  *       then try your request again.</p>
  *
+ * @throws {@link TranslateServiceException}
+ * <p>Base exception class for all service exceptions from Translate service.</p>
  *
  */
 export class UpdateParallelDataCommand extends $Command<

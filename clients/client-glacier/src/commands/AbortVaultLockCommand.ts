@@ -49,15 +49,18 @@ export interface AbortVaultLockCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlacierClient, AbortVaultLockCommand } from "@aws-sdk/client-glacier"; // ES Modules import
- * // const { GlacierClient, AbortVaultLockCommand } = require("@aws-sdk/client-glacier"); // CommonJS import
+ * import { GlacierClient, AbortVaultLockCommand } from '@aws-sdk/client-glacier'; // ES Modules import
+ * // const { GlacierClient, AbortVaultLockCommand } = require('@aws-sdk/client-glacier'); // CommonJS import
  * const client = new GlacierClient(config);
  * const input = { // AbortVaultLockInput
- *   accountId: "STRING_VALUE", // required
- *   vaultName: "STRING_VALUE", // required
+ *   accountId: 'STRING_VALUE', // required
+ *   vaultName: 'STRING_VALUE', // required
  * };
  * const command = new AbortVaultLockCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param AbortVaultLockCommandInput - {@link AbortVaultLockCommandInput}
@@ -79,6 +82,8 @@ export interface AbortVaultLockCommandOutput extends __MetadataBearer {}
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>Returned if the service cannot complete the request.</p>
  *
+ * @throws {@link GlacierServiceException}
+ * <p>Base exception class for all service exceptions from Glacier service.</p>
  *
  * @example To abort a vault lock
  * ```javascript

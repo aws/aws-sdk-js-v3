@@ -41,40 +41,40 @@ export interface PutAppReplicationConfigurationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SMSClient, PutAppReplicationConfigurationCommand } from "@aws-sdk/client-sms"; // ES Modules import
- * // const { SMSClient, PutAppReplicationConfigurationCommand } = require("@aws-sdk/client-sms"); // CommonJS import
+ * import { SMSClient, PutAppReplicationConfigurationCommand } from '@aws-sdk/client-sms'; // ES Modules import
+ * // const { SMSClient, PutAppReplicationConfigurationCommand } = require('@aws-sdk/client-sms'); // CommonJS import
  * const client = new SMSClient(config);
  * const input = { // PutAppReplicationConfigurationRequest
- *   appId: "STRING_VALUE",
+ *   appId: 'STRING_VALUE',
  *   serverGroupReplicationConfigurations: [ // ServerGroupReplicationConfigurations
  *     { // ServerGroupReplicationConfiguration
- *       serverGroupId: "STRING_VALUE",
+ *       serverGroupId: 'STRING_VALUE',
  *       serverReplicationConfigurations: [ // ServerReplicationConfigurations
  *         { // ServerReplicationConfiguration
  *           server: { // Server
- *             serverId: "STRING_VALUE",
- *             serverType: "VIRTUAL_MACHINE",
+ *             serverId: 'STRING_VALUE',
+ *             serverType: 'VIRTUAL_MACHINE',
  *             vmServer: { // VmServer
  *               vmServerAddress: { // VmServerAddress
- *                 vmManagerId: "STRING_VALUE",
- *                 vmId: "STRING_VALUE",
+ *                 vmManagerId: 'STRING_VALUE',
+ *                 vmId: 'STRING_VALUE',
  *               },
- *               vmName: "STRING_VALUE",
- *               vmManagerName: "STRING_VALUE",
- *               vmManagerType: "VSPHERE" || "SCVMM" || "HYPERV-MANAGER",
- *               vmPath: "STRING_VALUE",
+ *               vmName: 'STRING_VALUE',
+ *               vmManagerName: 'STRING_VALUE',
+ *               vmManagerType: 'VSPHERE' || 'SCVMM' || 'HYPERV-MANAGER',
+ *               vmPath: 'STRING_VALUE',
  *             },
- *             replicationJobId: "STRING_VALUE",
+ *             replicationJobId: 'STRING_VALUE',
  *             replicationJobTerminated: true || false,
  *           },
  *           serverReplicationParameters: { // ServerReplicationParameters
- *             seedTime: new Date("TIMESTAMP"),
- *             frequency: Number("int"),
+ *             seedTime: new Date('TIMESTAMP'),
+ *             frequency: Number('int'),
  *             runOnce: true || false,
- *             licenseType: "AWS" || "BYOL",
- *             numberOfRecentAmisToKeep: Number("int"),
+ *             licenseType: 'AWS' || 'BYOL',
+ *             numberOfRecentAmisToKeep: Number('int'),
  *             encrypted: true || false,
- *             kmsKeyId: "STRING_VALUE",
+ *             kmsKeyId: 'STRING_VALUE',
  *           },
  *         },
  *       ],
@@ -83,6 +83,9 @@ export interface PutAppReplicationConfigurationCommandOutput
  * };
  * const command = new PutAppReplicationConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutAppReplicationConfigurationCommandInput - {@link PutAppReplicationConfigurationCommandInput}
@@ -107,6 +110,8 @@ export interface PutAppReplicationConfigurationCommandOutput
  *  <p>You lack permissions needed to perform this operation. Check your IAM policies,
  *             and ensure that you are using the correct access keys.</p>
  *
+ * @throws {@link SMSServiceException}
+ * <p>Base exception class for all service exceptions from SMS service.</p>
  *
  */
 export class PutAppReplicationConfigurationCommand extends $Command<

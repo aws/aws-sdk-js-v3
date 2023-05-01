@@ -46,14 +46,22 @@ export interface PutRetentionConfigurationCommandOutput extends PutRetentionConf
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConfigServiceClient, PutRetentionConfigurationCommand } from "@aws-sdk/client-config-service"; // ES Modules import
- * // const { ConfigServiceClient, PutRetentionConfigurationCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
+ * import { ConfigServiceClient, PutRetentionConfigurationCommand } from '@aws-sdk/client-config-service'; // ES Modules import
+ * // const { ConfigServiceClient, PutRetentionConfigurationCommand } = require('@aws-sdk/client-config-service'); // CommonJS import
  * const client = new ConfigServiceClient(config);
  * const input = { // PutRetentionConfigurationRequest
- *   RetentionPeriodInDays: Number("int"), // required
+ *   RetentionPeriodInDays: Number('int'), // required
  * };
  * const command = new PutRetentionConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutRetentionConfigurationResponse
+ *   RetentionConfiguration: { // RetentionConfiguration
+ *     Name: 'STRING_VALUE', // required
+ *     RetentionPeriodInDays: Number('int'), // required
+ *   },
+ * };
+ *
  * ```
  *
  * @param PutRetentionConfigurationCommandInput - {@link PutRetentionConfigurationCommandInput}
@@ -69,6 +77,8 @@ export interface PutRetentionConfigurationCommandOutput extends PutRetentionConf
  * @throws {@link MaxNumberOfRetentionConfigurationsExceededException} (client fault)
  *  <p>Failed to add the retention configuration because a retention configuration with that name already exists.</p>
  *
+ * @throws {@link ConfigServiceServiceException}
+ * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
  */
 export class PutRetentionConfigurationCommand extends $Command<

@@ -36,15 +36,30 @@ export interface DescribeServiceActionCommandOutput extends DescribeServiceActio
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ServiceCatalogClient, DescribeServiceActionCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
- * // const { ServiceCatalogClient, DescribeServiceActionCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
+ * import { ServiceCatalogClient, DescribeServiceActionCommand } from '@aws-sdk/client-service-catalog'; // ES Modules import
+ * // const { ServiceCatalogClient, DescribeServiceActionCommand } = require('@aws-sdk/client-service-catalog'); // CommonJS import
  * const client = new ServiceCatalogClient(config);
  * const input = { // DescribeServiceActionInput
- *   Id: "STRING_VALUE", // required
- *   AcceptLanguage: "STRING_VALUE",
+ *   Id: 'STRING_VALUE', // required
+ *   AcceptLanguage: 'STRING_VALUE',
  * };
  * const command = new DescribeServiceActionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeServiceActionOutput
+ *   ServiceActionDetail: { // ServiceActionDetail
+ *     ServiceActionSummary: { // ServiceActionSummary
+ *       Id: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *       Description: 'STRING_VALUE',
+ *       DefinitionType: 'SSM_AUTOMATION',
+ *     },
+ *     Definition: { // ServiceActionDefinitionMap
+ *       '<keys>': 'STRING_VALUE',
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeServiceActionCommandInput - {@link DescribeServiceActionCommandInput}
@@ -56,6 +71,8 @@ export interface DescribeServiceActionCommandOutput extends DescribeServiceActio
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link ServiceCatalogServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
  */
 export class DescribeServiceActionCommand extends $Command<

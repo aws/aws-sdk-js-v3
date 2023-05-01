@@ -99,12 +99,15 @@ export interface LeaveOrganizationCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OrganizationsClient, LeaveOrganizationCommand } from "@aws-sdk/client-organizations"; // ES Modules import
- * // const { OrganizationsClient, LeaveOrganizationCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
+ * import { OrganizationsClient, LeaveOrganizationCommand } from '@aws-sdk/client-organizations'; // ES Modules import
+ * // const { OrganizationsClient, LeaveOrganizationCommand } = require('@aws-sdk/client-organizations'); // CommonJS import
  * const client = new OrganizationsClient(config);
  * const input = {};
  * const command = new LeaveOrganizationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param LeaveOrganizationCommandInput - {@link LeaveOrganizationCommandInput}
@@ -450,6 +453,8 @@ export interface LeaveOrganizationCommandOutput extends __MetadataBearer {}
  *                 <i>Organizations User Guide.</i>
  *          </p>
  *
+ * @throws {@link OrganizationsServiceException}
+ * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
  * @example To leave an organization as a member account
  * ```javascript

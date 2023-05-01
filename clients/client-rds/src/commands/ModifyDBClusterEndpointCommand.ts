@@ -40,21 +40,39 @@ export interface ModifyDBClusterEndpointCommandOutput extends DBClusterEndpoint,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RDSClient, ModifyDBClusterEndpointCommand } from "@aws-sdk/client-rds"; // ES Modules import
- * // const { RDSClient, ModifyDBClusterEndpointCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * import { RDSClient, ModifyDBClusterEndpointCommand } from '@aws-sdk/client-rds'; // ES Modules import
+ * // const { RDSClient, ModifyDBClusterEndpointCommand } = require('@aws-sdk/client-rds'); // CommonJS import
  * const client = new RDSClient(config);
  * const input = { // ModifyDBClusterEndpointMessage
- *   DBClusterEndpointIdentifier: "STRING_VALUE", // required
- *   EndpointType: "STRING_VALUE",
+ *   DBClusterEndpointIdentifier: 'STRING_VALUE', // required
+ *   EndpointType: 'STRING_VALUE',
  *   StaticMembers: [ // StringList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   ExcludedMembers: [
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new ModifyDBClusterEndpointCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DBClusterEndpoint
+ *   DBClusterEndpointIdentifier: 'STRING_VALUE',
+ *   DBClusterIdentifier: 'STRING_VALUE',
+ *   DBClusterEndpointResourceIdentifier: 'STRING_VALUE',
+ *   Endpoint: 'STRING_VALUE',
+ *   Status: 'STRING_VALUE',
+ *   EndpointType: 'STRING_VALUE',
+ *   CustomEndpointType: 'STRING_VALUE',
+ *   StaticMembers: [ // StringList
+ *     'STRING_VALUE',
+ *   ],
+ *   ExcludedMembers: [
+ *     'STRING_VALUE',
+ *   ],
+ *   DBClusterEndpointArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ModifyDBClusterEndpointCommandInput - {@link ModifyDBClusterEndpointCommandInput}
@@ -79,6 +97,8 @@ export interface ModifyDBClusterEndpointCommandOutput extends DBClusterEndpoint,
  * @throws {@link InvalidDBInstanceStateFault} (client fault)
  *  <p>The DB instance isn't in a valid state.</p>
  *
+ * @throws {@link RDSServiceException}
+ * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  * @example To modify a custom DB cluster endpoint
  * ```javascript

@@ -36,14 +36,19 @@ export interface DisassociateMemberCommandOutput extends DisassociateMemberRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Inspector2Client, DisassociateMemberCommand } from "@aws-sdk/client-inspector2"; // ES Modules import
- * // const { Inspector2Client, DisassociateMemberCommand } = require("@aws-sdk/client-inspector2"); // CommonJS import
+ * import { Inspector2Client, DisassociateMemberCommand } from '@aws-sdk/client-inspector2'; // ES Modules import
+ * // const { Inspector2Client, DisassociateMemberCommand } = require('@aws-sdk/client-inspector2'); // CommonJS import
  * const client = new Inspector2Client(config);
  * const input = { // DisassociateMemberRequest
- *   accountId: "STRING_VALUE", // required
+ *   accountId: 'STRING_VALUE', // required
  * };
  * const command = new DisassociateMemberCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DisassociateMemberResponse
+ *   accountId: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param DisassociateMemberCommandInput - {@link DisassociateMemberCommandInput}
@@ -65,6 +70,8 @@ export interface DisassociateMemberCommandOutput extends DisassociateMemberRespo
  *  <p>The request has failed validation due to missing required fields or having invalid
  *          inputs.</p>
  *
+ * @throws {@link Inspector2ServiceException}
+ * <p>Base exception class for all service exceptions from Inspector2 service.</p>
  *
  */
 export class DisassociateMemberCommand extends $Command<

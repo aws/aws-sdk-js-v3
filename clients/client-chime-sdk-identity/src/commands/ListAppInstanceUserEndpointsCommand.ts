@@ -46,16 +46,34 @@ export interface ListAppInstanceUserEndpointsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeSDKIdentityClient, ListAppInstanceUserEndpointsCommand } from "@aws-sdk/client-chime-sdk-identity"; // ES Modules import
- * // const { ChimeSDKIdentityClient, ListAppInstanceUserEndpointsCommand } = require("@aws-sdk/client-chime-sdk-identity"); // CommonJS import
+ * import { ChimeSDKIdentityClient, ListAppInstanceUserEndpointsCommand } from '@aws-sdk/client-chime-sdk-identity'; // ES Modules import
+ * // const { ChimeSDKIdentityClient, ListAppInstanceUserEndpointsCommand } = require('@aws-sdk/client-chime-sdk-identity'); // CommonJS import
  * const client = new ChimeSDKIdentityClient(config);
  * const input = { // ListAppInstanceUserEndpointsRequest
- *   AppInstanceUserArn: "STRING_VALUE", // required
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   AppInstanceUserArn: 'STRING_VALUE', // required
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListAppInstanceUserEndpointsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListAppInstanceUserEndpointsResponse
+ *   AppInstanceUserEndpoints: [ // AppInstanceUserEndpointSummaryList
+ *     { // AppInstanceUserEndpointSummary
+ *       AppInstanceUserArn: 'STRING_VALUE',
+ *       EndpointId: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *       Type: 'APNS' || 'APNS_SANDBOX' || 'GCM',
+ *       AllowMessages: 'ALL' || 'NONE',
+ *       EndpointState: { // EndpointState
+ *         Status: 'ACTIVE' || 'INACTIVE', // required
+ *         StatusReason: 'INVALID_DEVICE_TOKEN' || 'INVALID_PINPOINT_ARN',
+ *       },
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListAppInstanceUserEndpointsCommandInput - {@link ListAppInstanceUserEndpointsCommandInput}
@@ -82,6 +100,8 @@ export interface ListAppInstanceUserEndpointsCommandOutput
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeSDKIdentityServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKIdentity service.</p>
  *
  */
 export class ListAppInstanceUserEndpointsCommand extends $Command<

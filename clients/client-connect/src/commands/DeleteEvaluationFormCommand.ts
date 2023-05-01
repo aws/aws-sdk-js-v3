@@ -45,16 +45,19 @@ export interface DeleteEvaluationFormCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, DeleteEvaluationFormCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, DeleteEvaluationFormCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, DeleteEvaluationFormCommand } from '@aws-sdk/client-connect'; // ES Modules import
+ * // const { ConnectClient, DeleteEvaluationFormCommand } = require('@aws-sdk/client-connect'); // CommonJS import
  * const client = new ConnectClient(config);
  * const input = { // DeleteEvaluationFormRequest
- *   InstanceId: "STRING_VALUE", // required
- *   EvaluationFormId: "STRING_VALUE", // required
- *   EvaluationFormVersion: Number("int"),
+ *   InstanceId: 'STRING_VALUE', // required
+ *   EvaluationFormId: 'STRING_VALUE', // required
+ *   EvaluationFormVersion: Number('int'),
  * };
  * const command = new DeleteEvaluationFormCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteEvaluationFormCommandInput - {@link DeleteEvaluationFormCommandInput}
@@ -78,6 +81,8 @@ export interface DeleteEvaluationFormCommandOutput extends __MetadataBearer {}
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class DeleteEvaluationFormCommand extends $Command<

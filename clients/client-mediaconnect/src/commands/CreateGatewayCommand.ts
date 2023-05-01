@@ -36,23 +36,48 @@ export interface CreateGatewayCommandOutput extends CreateGatewayResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MediaConnectClient, CreateGatewayCommand } from "@aws-sdk/client-mediaconnect"; // ES Modules import
- * // const { MediaConnectClient, CreateGatewayCommand } = require("@aws-sdk/client-mediaconnect"); // CommonJS import
+ * import { MediaConnectClient, CreateGatewayCommand } from '@aws-sdk/client-mediaconnect'; // ES Modules import
+ * // const { MediaConnectClient, CreateGatewayCommand } = require('@aws-sdk/client-mediaconnect'); // CommonJS import
  * const client = new MediaConnectClient(config);
  * const input = { // CreateGatewayRequest
  *   EgressCidrBlocks: [ // __listOf__string // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   Name: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
  *   Networks: [ // __listOfGatewayNetwork // required
  *     { // GatewayNetwork
- *       CidrBlock: "STRING_VALUE", // required
- *       Name: "STRING_VALUE", // required
+ *       CidrBlock: 'STRING_VALUE', // required
+ *       Name: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreateGatewayCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateGatewayResponse
+ *   Gateway: { // Gateway
+ *     EgressCidrBlocks: [ // __listOf__string // required
+ *       'STRING_VALUE',
+ *     ],
+ *     GatewayArn: 'STRING_VALUE', // required
+ *     GatewayMessages: [ // __listOfMessageDetail
+ *       { // MessageDetail
+ *         Code: 'STRING_VALUE', // required
+ *         Message: 'STRING_VALUE', // required
+ *         ResourceName: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     GatewayState: 'CREATING' || 'ACTIVE' || 'UPDATING' || 'ERROR' || 'DELETING' || 'DELETED',
+ *     Name: 'STRING_VALUE', // required
+ *     Networks: [ // __listOfGatewayNetwork // required
+ *       { // GatewayNetwork
+ *         CidrBlock: 'STRING_VALUE', // required
+ *         Name: 'STRING_VALUE', // required
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateGatewayCommandInput - {@link CreateGatewayCommandInput}
@@ -82,6 +107,8 @@ export interface CreateGatewayCommandOutput extends CreateGatewayResponse, __Met
  * @throws {@link TooManyRequestsException} (client fault)
  *  Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
  *
+ * @throws {@link MediaConnectServiceException}
+ * <p>Base exception class for all service exceptions from MediaConnect service.</p>
  *
  */
 export class CreateGatewayCommand extends $Command<

@@ -40,16 +40,19 @@ export interface CreateConfigurationSetCommandOutput extends CreateConfiguration
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SESClient, CreateConfigurationSetCommand } from "@aws-sdk/client-ses"; // ES Modules import
- * // const { SESClient, CreateConfigurationSetCommand } = require("@aws-sdk/client-ses"); // CommonJS import
+ * import { SESClient, CreateConfigurationSetCommand } from '@aws-sdk/client-ses'; // ES Modules import
+ * // const { SESClient, CreateConfigurationSetCommand } = require('@aws-sdk/client-ses'); // CommonJS import
  * const client = new SESClient(config);
  * const input = { // CreateConfigurationSetRequest
  *   ConfigurationSet: { // ConfigurationSet
- *     Name: "STRING_VALUE", // required
+ *     Name: 'STRING_VALUE', // required
  *   },
  * };
  * const command = new CreateConfigurationSetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param CreateConfigurationSetCommandInput - {@link CreateConfigurationSetCommandInput}
@@ -71,6 +74,8 @@ export interface CreateConfigurationSetCommandOutput extends CreateConfiguration
  *             of Amazon SES limits, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/limits.html">Amazon SES Developer
  *             Guide</a>.</p>
  *
+ * @throws {@link SESServiceException}
+ * <p>Base exception class for all service exceptions from SES service.</p>
  *
  */
 export class CreateConfigurationSetCommand extends $Command<

@@ -38,16 +38,29 @@ export interface CreateTrafficPolicyCommandOutput extends CreateTrafficPolicyRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Route53Client, CreateTrafficPolicyCommand } from "@aws-sdk/client-route-53"; // ES Modules import
- * // const { Route53Client, CreateTrafficPolicyCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
+ * import { Route53Client, CreateTrafficPolicyCommand } from '@aws-sdk/client-route-53'; // ES Modules import
+ * // const { Route53Client, CreateTrafficPolicyCommand } = require('@aws-sdk/client-route-53'); // CommonJS import
  * const client = new Route53Client(config);
  * const input = { // CreateTrafficPolicyRequest
- *   Name: "STRING_VALUE", // required
- *   Document: "STRING_VALUE", // required
- *   Comment: "STRING_VALUE",
+ *   Name: 'STRING_VALUE', // required
+ *   Document: 'STRING_VALUE', // required
+ *   Comment: 'STRING_VALUE',
  * };
  * const command = new CreateTrafficPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateTrafficPolicyResponse
+ *   TrafficPolicy: { // TrafficPolicy
+ *     Id: 'STRING_VALUE', // required
+ *     Version: Number('int'), // required
+ *     Name: 'STRING_VALUE', // required
+ *     Type: 'SOA' || 'A' || 'TXT' || 'NS' || 'CNAME' || 'MX' || 'NAPTR' || 'PTR' || 'SRV' || 'SPF' || 'AAAA' || 'CAA' || 'DS', // required
+ *     Document: 'STRING_VALUE', // required
+ *     Comment: 'STRING_VALUE',
+ *   },
+ *   Location: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param CreateTrafficPolicyCommandInput - {@link CreateTrafficPolicyCommandInput}
@@ -75,6 +88,8 @@ export interface CreateTrafficPolicyCommandOutput extends CreateTrafficPolicyRes
  * @throws {@link TrafficPolicyAlreadyExists} (client fault)
  *  <p>A traffic policy that has the same value for <code>Name</code> already exists.</p>
  *
+ * @throws {@link Route53ServiceException}
+ * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
  */
 export class CreateTrafficPolicyCommand extends $Command<

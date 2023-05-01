@@ -42,14 +42,17 @@ export interface StopMeetingTranscriptionCommandOutput extends __MetadataBearer 
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeSDKMeetingsClient, StopMeetingTranscriptionCommand } from "@aws-sdk/client-chime-sdk-meetings"; // ES Modules import
- * // const { ChimeSDKMeetingsClient, StopMeetingTranscriptionCommand } = require("@aws-sdk/client-chime-sdk-meetings"); // CommonJS import
+ * import { ChimeSDKMeetingsClient, StopMeetingTranscriptionCommand } from '@aws-sdk/client-chime-sdk-meetings'; // ES Modules import
+ * // const { ChimeSDKMeetingsClient, StopMeetingTranscriptionCommand } = require('@aws-sdk/client-chime-sdk-meetings'); // CommonJS import
  * const client = new ChimeSDKMeetingsClient(config);
  * const input = { // StopMeetingTranscriptionRequest
- *   MeetingId: "STRING_VALUE", // required
+ *   MeetingId: 'STRING_VALUE', // required
  * };
  * const command = new StopMeetingTranscriptionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param StopMeetingTranscriptionCommandInput - {@link StopMeetingTranscriptionCommandInput}
@@ -82,6 +85,8 @@ export interface StopMeetingTranscriptionCommandOutput extends __MetadataBearer 
  * @throws {@link UnprocessableEntityException} (client fault)
  *  <p>The request was well-formed but was unable to be followed due to semantic errors.</p>
  *
+ * @throws {@link ChimeSDKMeetingsServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKMeetings service.</p>
  *
  */
 export class StopMeetingTranscriptionCommand extends $Command<

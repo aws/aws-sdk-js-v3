@@ -37,22 +37,29 @@ export interface StartCopyJobCommandOutput extends StartCopyJobOutput, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BackupClient, StartCopyJobCommand } from "@aws-sdk/client-backup"; // ES Modules import
- * // const { BackupClient, StartCopyJobCommand } = require("@aws-sdk/client-backup"); // CommonJS import
+ * import { BackupClient, StartCopyJobCommand } from '@aws-sdk/client-backup'; // ES Modules import
+ * // const { BackupClient, StartCopyJobCommand } = require('@aws-sdk/client-backup'); // CommonJS import
  * const client = new BackupClient(config);
  * const input = { // StartCopyJobInput
- *   RecoveryPointArn: "STRING_VALUE", // required
- *   SourceBackupVaultName: "STRING_VALUE", // required
- *   DestinationBackupVaultArn: "STRING_VALUE", // required
- *   IamRoleArn: "STRING_VALUE", // required
- *   IdempotencyToken: "STRING_VALUE",
+ *   RecoveryPointArn: 'STRING_VALUE', // required
+ *   SourceBackupVaultName: 'STRING_VALUE', // required
+ *   DestinationBackupVaultArn: 'STRING_VALUE', // required
+ *   IamRoleArn: 'STRING_VALUE', // required
+ *   IdempotencyToken: 'STRING_VALUE',
  *   Lifecycle: { // Lifecycle
- *     MoveToColdStorageAfterDays: Number("long"),
- *     DeleteAfterDays: Number("long"),
+ *     MoveToColdStorageAfterDays: Number('long'),
+ *     DeleteAfterDays: Number('long'),
  *   },
  * };
  * const command = new StartCopyJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartCopyJobOutput
+ *   CopyJobId: 'STRING_VALUE',
+ *   CreationDate: new Date('TIMESTAMP'),
+ *   IsParent: true || false,
+ * };
+ *
  * ```
  *
  * @param StartCopyJobCommandInput - {@link StartCopyJobCommandInput}
@@ -82,6 +89,8 @@ export interface StartCopyJobCommandOutput extends StartCopyJobOutput, __Metadat
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request failed due to a temporary failure of the server.</p>
  *
+ * @throws {@link BackupServiceException}
+ * <p>Base exception class for all service exceptions from Backup service.</p>
  *
  */
 export class StartCopyJobCommand extends $Command<

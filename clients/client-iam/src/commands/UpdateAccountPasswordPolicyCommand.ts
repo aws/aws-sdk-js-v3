@@ -46,22 +46,25 @@ export interface UpdateAccountPasswordPolicyCommandOutput extends __MetadataBear
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IAMClient, UpdateAccountPasswordPolicyCommand } from "@aws-sdk/client-iam"; // ES Modules import
- * // const { IAMClient, UpdateAccountPasswordPolicyCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * import { IAMClient, UpdateAccountPasswordPolicyCommand } from '@aws-sdk/client-iam'; // ES Modules import
+ * // const { IAMClient, UpdateAccountPasswordPolicyCommand } = require('@aws-sdk/client-iam'); // CommonJS import
  * const client = new IAMClient(config);
  * const input = { // UpdateAccountPasswordPolicyRequest
- *   MinimumPasswordLength: Number("int"),
+ *   MinimumPasswordLength: Number('int'),
  *   RequireSymbols: true || false,
  *   RequireNumbers: true || false,
  *   RequireUppercaseCharacters: true || false,
  *   RequireLowercaseCharacters: true || false,
  *   AllowUsersToChangePassword: true || false,
- *   MaxPasswordAge: Number("int"),
- *   PasswordReusePrevention: Number("int"),
+ *   MaxPasswordAge: Number('int'),
+ *   PasswordReusePrevention: Number('int'),
  *   HardExpiry: true || false,
  * };
  * const command = new UpdateAccountPasswordPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateAccountPasswordPolicyCommandInput - {@link UpdateAccountPasswordPolicyCommandInput}
@@ -86,6 +89,8 @@ export interface UpdateAccountPasswordPolicyCommandOutput extends __MetadataBear
  *  <p>The request processing has failed because of an unknown error, exception or
  *       failure.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  * @example To set or change the current account password policy
  * ```javascript

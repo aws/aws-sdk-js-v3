@@ -40,16 +40,19 @@ export interface DeleteApplicationSnapshotCommandOutput extends DeleteApplicatio
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KinesisAnalyticsV2Client, DeleteApplicationSnapshotCommand } from "@aws-sdk/client-kinesis-analytics-v2"; // ES Modules import
- * // const { KinesisAnalyticsV2Client, DeleteApplicationSnapshotCommand } = require("@aws-sdk/client-kinesis-analytics-v2"); // CommonJS import
+ * import { KinesisAnalyticsV2Client, DeleteApplicationSnapshotCommand } from '@aws-sdk/client-kinesis-analytics-v2'; // ES Modules import
+ * // const { KinesisAnalyticsV2Client, DeleteApplicationSnapshotCommand } = require('@aws-sdk/client-kinesis-analytics-v2'); // CommonJS import
  * const client = new KinesisAnalyticsV2Client(config);
  * const input = { // DeleteApplicationSnapshotRequest
- *   ApplicationName: "STRING_VALUE", // required
- *   SnapshotName: "STRING_VALUE", // required
- *   SnapshotCreationTimestamp: new Date("TIMESTAMP"), // required
+ *   ApplicationName: 'STRING_VALUE', // required
+ *   SnapshotName: 'STRING_VALUE', // required
+ *   SnapshotCreationTimestamp: new Date('TIMESTAMP'), // required
  * };
  * const command = new DeleteApplicationSnapshotCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteApplicationSnapshotCommandInput - {@link DeleteApplicationSnapshotCommandInput}
@@ -79,6 +82,8 @@ export interface DeleteApplicationSnapshotCommandOutput extends DeleteApplicatio
  *  <p>The request was rejected because a specified parameter is not supported or a specified resource is not valid for this
  *       operation. </p>
  *
+ * @throws {@link KinesisAnalyticsV2ServiceException}
+ * <p>Base exception class for all service exceptions from KinesisAnalyticsV2 service.</p>
  *
  */
 export class DeleteApplicationSnapshotCommand extends $Command<

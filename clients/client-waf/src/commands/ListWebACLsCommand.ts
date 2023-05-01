@@ -44,15 +44,26 @@ export interface ListWebACLsCommandOutput extends ListWebACLsResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WAFClient, ListWebACLsCommand } from "@aws-sdk/client-waf"; // ES Modules import
- * // const { WAFClient, ListWebACLsCommand } = require("@aws-sdk/client-waf"); // CommonJS import
+ * import { WAFClient, ListWebACLsCommand } from '@aws-sdk/client-waf'; // ES Modules import
+ * // const { WAFClient, ListWebACLsCommand } = require('@aws-sdk/client-waf'); // CommonJS import
  * const client = new WAFClient(config);
  * const input = { // ListWebACLsRequest
- *   NextMarker: "STRING_VALUE",
- *   Limit: Number("int"),
+ *   NextMarker: 'STRING_VALUE',
+ *   Limit: Number('int'),
  * };
  * const command = new ListWebACLsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListWebACLsResponse
+ *   NextMarker: 'STRING_VALUE',
+ *   WebACLs: [ // WebACLSummaries
+ *     { // WebACLSummary
+ *       WebACLId: 'STRING_VALUE', // required
+ *       Name: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListWebACLsCommandInput - {@link ListWebACLsCommandInput}
@@ -67,6 +78,8 @@ export interface ListWebACLsCommandOutput extends ListWebACLsResponse, __Metadat
  * @throws {@link WAFInvalidAccountException} (client fault)
  *  <p>The operation failed because you tried to create, update, or delete an object by using an invalid account identifier.</p>
  *
+ * @throws {@link WAFServiceException}
+ * <p>Base exception class for all service exceptions from WAF service.</p>
  *
  * @example To list Web ACLs
  * ```javascript

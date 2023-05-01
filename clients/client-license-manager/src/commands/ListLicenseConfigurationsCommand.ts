@@ -36,26 +36,78 @@ export interface ListLicenseConfigurationsCommandOutput extends ListLicenseConfi
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LicenseManagerClient, ListLicenseConfigurationsCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
- * // const { LicenseManagerClient, ListLicenseConfigurationsCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
+ * import { LicenseManagerClient, ListLicenseConfigurationsCommand } from '@aws-sdk/client-license-manager'; // ES Modules import
+ * // const { LicenseManagerClient, ListLicenseConfigurationsCommand } = require('@aws-sdk/client-license-manager'); // CommonJS import
  * const client = new LicenseManagerClient(config);
  * const input = { // ListLicenseConfigurationsRequest
  *   LicenseConfigurationArns: [ // StringList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  *   Filters: [ // Filters
  *     { // Filter
- *       Name: "STRING_VALUE",
+ *       Name: 'STRING_VALUE',
  *       Values: [ // FilterValues
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
  * };
  * const command = new ListLicenseConfigurationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListLicenseConfigurationsResponse
+ *   LicenseConfigurations: [ // LicenseConfigurations
+ *     { // LicenseConfiguration
+ *       LicenseConfigurationId: 'STRING_VALUE',
+ *       LicenseConfigurationArn: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *       Description: 'STRING_VALUE',
+ *       LicenseCountingType: 'vCPU' || 'Instance' || 'Core' || 'Socket',
+ *       LicenseRules: [ // StringList
+ *         'STRING_VALUE',
+ *       ],
+ *       LicenseCount: Number('long'),
+ *       LicenseCountHardLimit: true || false,
+ *       DisassociateWhenNotFound: true || false,
+ *       ConsumedLicenses: Number('long'),
+ *       Status: 'STRING_VALUE',
+ *       OwnerAccountId: 'STRING_VALUE',
+ *       ConsumedLicenseSummaryList: [ // ConsumedLicenseSummaryList
+ *         { // ConsumedLicenseSummary
+ *           ResourceType: 'EC2_INSTANCE' || 'EC2_HOST' || 'EC2_AMI' || 'RDS' || 'SYSTEMS_MANAGER_MANAGED_INSTANCE',
+ *           ConsumedLicenses: Number('long'),
+ *         },
+ *       ],
+ *       ManagedResourceSummaryList: [ // ManagedResourceSummaryList
+ *         { // ManagedResourceSummary
+ *           ResourceType: 'EC2_INSTANCE' || 'EC2_HOST' || 'EC2_AMI' || 'RDS' || 'SYSTEMS_MANAGER_MANAGED_INSTANCE',
+ *           AssociationCount: Number('long'),
+ *         },
+ *       ],
+ *       ProductInformationList: [ // ProductInformationList
+ *         { // ProductInformation
+ *           ResourceType: 'STRING_VALUE', // required
+ *           ProductInformationFilterList: [ // ProductInformationFilterList // required
+ *             { // ProductInformationFilter
+ *               ProductInformationFilterName: 'STRING_VALUE', // required
+ *               ProductInformationFilterValue: [
+ *                 'STRING_VALUE',
+ *               ],
+ *               ProductInformationFilterComparator: 'STRING_VALUE', // required
+ *             },
+ *           ],
+ *         },
+ *       ],
+ *       AutomatedDiscoveryInformation: { // AutomatedDiscoveryInformation
+ *         LastRunTime: new Date('TIMESTAMP'),
+ *       },
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListLicenseConfigurationsCommandInput - {@link ListLicenseConfigurationsCommandInput}
@@ -83,6 +135,8 @@ export interface ListLicenseConfigurationsCommandOutput extends ListLicenseConfi
  * @throws {@link ServerInternalException} (server fault)
  *  <p>The server experienced an internal error. Try again.</p>
  *
+ * @throws {@link LicenseManagerServiceException}
+ * <p>Base exception class for all service exceptions from LicenseManager service.</p>
  *
  */
 export class ListLicenseConfigurationsCommand extends $Command<

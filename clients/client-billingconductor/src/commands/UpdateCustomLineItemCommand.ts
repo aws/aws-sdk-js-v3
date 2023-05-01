@@ -43,28 +43,47 @@ export interface UpdateCustomLineItemCommandOutput extends UpdateCustomLineItemO
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BillingconductorClient, UpdateCustomLineItemCommand } from "@aws-sdk/client-billingconductor"; // ES Modules import
- * // const { BillingconductorClient, UpdateCustomLineItemCommand } = require("@aws-sdk/client-billingconductor"); // CommonJS import
+ * import { BillingconductorClient, UpdateCustomLineItemCommand } from '@aws-sdk/client-billingconductor'; // ES Modules import
+ * // const { BillingconductorClient, UpdateCustomLineItemCommand } = require('@aws-sdk/client-billingconductor'); // CommonJS import
  * const client = new BillingconductorClient(config);
  * const input = { // UpdateCustomLineItemInput
- *   Arn: "STRING_VALUE", // required
- *   Name: "STRING_VALUE",
- *   Description: "STRING_VALUE",
+ *   Arn: 'STRING_VALUE', // required
+ *   Name: 'STRING_VALUE',
+ *   Description: 'STRING_VALUE',
  *   ChargeDetails: { // UpdateCustomLineItemChargeDetails
  *     Flat: { // UpdateCustomLineItemFlatChargeDetails
- *       ChargeValue: Number("double"), // required
+ *       ChargeValue: Number('double'), // required
  *     },
  *     Percentage: { // UpdateCustomLineItemPercentageChargeDetails
- *       PercentageValue: Number("double"), // required
+ *       PercentageValue: Number('double'), // required
  *     },
  *   },
  *   BillingPeriodRange: { // CustomLineItemBillingPeriodRange
- *     InclusiveStartBillingPeriod: "STRING_VALUE", // required
- *     ExclusiveEndBillingPeriod: "STRING_VALUE",
+ *     InclusiveStartBillingPeriod: 'STRING_VALUE', // required
+ *     ExclusiveEndBillingPeriod: 'STRING_VALUE',
  *   },
  * };
  * const command = new UpdateCustomLineItemCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateCustomLineItemOutput
+ *   Arn: 'STRING_VALUE',
+ *   BillingGroupArn: 'STRING_VALUE',
+ *   Name: 'STRING_VALUE',
+ *   Description: 'STRING_VALUE',
+ *   ChargeDetails: { // ListCustomLineItemChargeDetails
+ *     Flat: { // ListCustomLineItemFlatChargeDetails
+ *       ChargeValue: Number('double'), // required
+ *     },
+ *     Percentage: { // ListCustomLineItemPercentageChargeDetails
+ *       PercentageValue: Number('double'), // required
+ *     },
+ *     Type: 'STRING_VALUE', // required
+ *   },
+ *   LastModifiedTime: Number('long'),
+ *   AssociationSize: Number('long'),
+ * };
+ *
  * ```
  *
  * @param UpdateCustomLineItemCommandInput - {@link UpdateCustomLineItemCommandInput}
@@ -92,6 +111,8 @@ export interface UpdateCustomLineItemCommandOutput extends UpdateCustomLineItemO
  * @throws {@link ValidationException} (client fault)
  *  <p>The input doesn't match with the constraints specified by Amazon Web Services services.</p>
  *
+ * @throws {@link BillingconductorServiceException}
+ * <p>Base exception class for all service exceptions from Billingconductor service.</p>
  *
  */
 export class UpdateCustomLineItemCommand extends $Command<

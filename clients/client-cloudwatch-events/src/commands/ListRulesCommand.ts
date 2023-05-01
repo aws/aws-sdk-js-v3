@@ -40,17 +40,35 @@ export interface ListRulesCommandOutput extends ListRulesResponse, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudWatchEventsClient, ListRulesCommand } from "@aws-sdk/client-cloudwatch-events"; // ES Modules import
- * // const { CloudWatchEventsClient, ListRulesCommand } = require("@aws-sdk/client-cloudwatch-events"); // CommonJS import
+ * import { CloudWatchEventsClient, ListRulesCommand } from '@aws-sdk/client-cloudwatch-events'; // ES Modules import
+ * // const { CloudWatchEventsClient, ListRulesCommand } = require('@aws-sdk/client-cloudwatch-events'); // CommonJS import
  * const client = new CloudWatchEventsClient(config);
  * const input = { // ListRulesRequest
- *   NamePrefix: "STRING_VALUE",
- *   EventBusName: "STRING_VALUE",
- *   NextToken: "STRING_VALUE",
- *   Limit: Number("int"),
+ *   NamePrefix: 'STRING_VALUE',
+ *   EventBusName: 'STRING_VALUE',
+ *   NextToken: 'STRING_VALUE',
+ *   Limit: Number('int'),
  * };
  * const command = new ListRulesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListRulesResponse
+ *   Rules: [ // RuleResponseList
+ *     { // Rule
+ *       Name: 'STRING_VALUE',
+ *       Arn: 'STRING_VALUE',
+ *       EventPattern: 'STRING_VALUE',
+ *       State: 'STRING_VALUE',
+ *       Description: 'STRING_VALUE',
+ *       ScheduleExpression: 'STRING_VALUE',
+ *       RoleArn: 'STRING_VALUE',
+ *       ManagedBy: 'STRING_VALUE',
+ *       EventBusName: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListRulesCommandInput - {@link ListRulesCommandInput}
@@ -65,6 +83,8 @@ export interface ListRulesCommandOutput extends ListRulesResponse, __MetadataBea
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>An entity that you specified does not exist.</p>
  *
+ * @throws {@link CloudWatchEventsServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatchEvents service.</p>
  *
  */
 export class ListRulesCommand extends $Command<

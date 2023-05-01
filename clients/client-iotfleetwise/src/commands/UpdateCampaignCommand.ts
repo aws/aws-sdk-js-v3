@@ -36,19 +36,26 @@ export interface UpdateCampaignCommandOutput extends UpdateCampaignResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTFleetWiseClient, UpdateCampaignCommand } from "@aws-sdk/client-iotfleetwise"; // ES Modules import
- * // const { IoTFleetWiseClient, UpdateCampaignCommand } = require("@aws-sdk/client-iotfleetwise"); // CommonJS import
+ * import { IoTFleetWiseClient, UpdateCampaignCommand } from '@aws-sdk/client-iotfleetwise'; // ES Modules import
+ * // const { IoTFleetWiseClient, UpdateCampaignCommand } = require('@aws-sdk/client-iotfleetwise'); // CommonJS import
  * const client = new IoTFleetWiseClient(config);
  * const input = { // UpdateCampaignRequest
- *   name: "STRING_VALUE", // required
- *   description: "STRING_VALUE",
+ *   name: 'STRING_VALUE', // required
+ *   description: 'STRING_VALUE',
  *   dataExtraDimensions: [ // DataExtraDimensionNodePathList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   action: "STRING_VALUE", // required
+ *   action: 'STRING_VALUE', // required
  * };
  * const command = new UpdateCampaignCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateCampaignResponse
+ *   arn: 'STRING_VALUE',
+ *   name: 'STRING_VALUE',
+ *   status: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateCampaignCommandInput - {@link UpdateCampaignCommandInput}
@@ -76,6 +83,8 @@ export interface UpdateCampaignCommandOutput extends UpdateCampaignResponse, __M
  * @throws {@link InternalServerException} (server fault)
  *  <p>The request couldn't be completed because the server temporarily failed.</p>
  *
+ * @throws {@link IoTFleetWiseServiceException}
+ * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
  */
 export class UpdateCampaignCommand extends $Command<

@@ -36,17 +36,20 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SavingsplansClient, UntagResourceCommand } from "@aws-sdk/client-savingsplans"; // ES Modules import
- * // const { SavingsplansClient, UntagResourceCommand } = require("@aws-sdk/client-savingsplans"); // CommonJS import
+ * import { SavingsplansClient, UntagResourceCommand } from '@aws-sdk/client-savingsplans'; // ES Modules import
+ * // const { SavingsplansClient, UntagResourceCommand } = require('@aws-sdk/client-savingsplans'); // CommonJS import
  * const client = new SavingsplansClient(config);
  * const input = { // UntagResourceRequest
- *   resourceArn: "STRING_VALUE", // required
+ *   resourceArn: 'STRING_VALUE', // required
  *   tagKeys: [ // TagKeyList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new UntagResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UntagResourceCommandInput - {@link UntagResourceCommandInput}
@@ -64,6 +67,8 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>One of the input parameters is not valid.</p>
  *
+ * @throws {@link SavingsplansServiceException}
+ * <p>Base exception class for all service exceptions from Savingsplans service.</p>
  *
  */
 export class UntagResourceCommand extends $Command<

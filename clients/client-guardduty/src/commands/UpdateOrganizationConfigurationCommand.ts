@@ -45,11 +45,11 @@ export interface UpdateOrganizationConfigurationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GuardDutyClient, UpdateOrganizationConfigurationCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
- * // const { GuardDutyClient, UpdateOrganizationConfigurationCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
+ * import { GuardDutyClient, UpdateOrganizationConfigurationCommand } from '@aws-sdk/client-guardduty'; // ES Modules import
+ * // const { GuardDutyClient, UpdateOrganizationConfigurationCommand } = require('@aws-sdk/client-guardduty'); // CommonJS import
  * const client = new GuardDutyClient(config);
  * const input = { // UpdateOrganizationConfigurationRequest
- *   DetectorId: "STRING_VALUE", // required
+ *   DetectorId: 'STRING_VALUE', // required
  *   AutoEnable: true || false,
  *   DataSources: { // OrganizationDataSourceConfigurations
  *     S3Logs: { // OrganizationS3LogsConfiguration
@@ -70,20 +70,23 @@ export interface UpdateOrganizationConfigurationCommandOutput
  *   },
  *   Features: [ // OrganizationFeaturesConfigurations
  *     { // OrganizationFeatureConfiguration
- *       Name: "S3_DATA_EVENTS" || "EKS_AUDIT_LOGS" || "EBS_MALWARE_PROTECTION" || "RDS_LOGIN_EVENTS" || "EKS_RUNTIME_MONITORING" || "LAMBDA_NETWORK_LOGS",
- *       AutoEnable: "NEW" || "NONE",
+ *       Name: 'S3_DATA_EVENTS' || 'EKS_AUDIT_LOGS' || 'EBS_MALWARE_PROTECTION' || 'RDS_LOGIN_EVENTS' || 'EKS_RUNTIME_MONITORING' || 'LAMBDA_NETWORK_LOGS',
+ *       AutoEnable: 'NEW' || 'NONE',
  *       AdditionalConfiguration: [ // OrganizationAdditionalConfigurations
  *         { // OrganizationAdditionalConfiguration
- *           Name: "EKS_ADDON_MANAGEMENT",
- *           AutoEnable: "NEW" || "NONE",
+ *           Name: 'EKS_ADDON_MANAGEMENT',
+ *           AutoEnable: 'NEW' || 'NONE',
  *         },
  *       ],
  *     },
  *   ],
- *   AutoEnableOrganizationMembers: "NEW" || "ALL" || "NONE",
+ *   AutoEnableOrganizationMembers: 'NEW' || 'ALL' || 'NONE',
  * };
  * const command = new UpdateOrganizationConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateOrganizationConfigurationCommandInput - {@link UpdateOrganizationConfigurationCommandInput}
@@ -98,6 +101,8 @@ export interface UpdateOrganizationConfigurationCommandOutput
  * @throws {@link InternalServerErrorException} (server fault)
  *  <p>An internal server error exception object.</p>
  *
+ * @throws {@link GuardDutyServiceException}
+ * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
  */
 export class UpdateOrganizationConfigurationCommand extends $Command<

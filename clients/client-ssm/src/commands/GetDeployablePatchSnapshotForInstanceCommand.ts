@@ -54,20 +54,20 @@ export interface GetDeployablePatchSnapshotForInstanceCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMClient, GetDeployablePatchSnapshotForInstanceCommand } from "@aws-sdk/client-ssm"; // ES Modules import
- * // const { SSMClient, GetDeployablePatchSnapshotForInstanceCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * import { SSMClient, GetDeployablePatchSnapshotForInstanceCommand } from '@aws-sdk/client-ssm'; // ES Modules import
+ * // const { SSMClient, GetDeployablePatchSnapshotForInstanceCommand } = require('@aws-sdk/client-ssm'); // CommonJS import
  * const client = new SSMClient(config);
  * const input = { // GetDeployablePatchSnapshotForInstanceRequest
- *   InstanceId: "STRING_VALUE", // required
- *   SnapshotId: "STRING_VALUE", // required
+ *   InstanceId: 'STRING_VALUE', // required
+ *   SnapshotId: 'STRING_VALUE', // required
  *   BaselineOverride: { // BaselineOverride
- *     OperatingSystem: "WINDOWS" || "AMAZON_LINUX" || "AMAZON_LINUX_2" || "AMAZON_LINUX_2022" || "UBUNTU" || "REDHAT_ENTERPRISE_LINUX" || "SUSE" || "CENTOS" || "ORACLE_LINUX" || "DEBIAN" || "MACOS" || "RASPBIAN" || "ROCKY_LINUX" || "ALMA_LINUX" || "AMAZON_LINUX_2023",
+ *     OperatingSystem: 'WINDOWS' || 'AMAZON_LINUX' || 'AMAZON_LINUX_2' || 'AMAZON_LINUX_2022' || 'UBUNTU' || 'REDHAT_ENTERPRISE_LINUX' || 'SUSE' || 'CENTOS' || 'ORACLE_LINUX' || 'DEBIAN' || 'MACOS' || 'RASPBIAN' || 'ROCKY_LINUX' || 'ALMA_LINUX' || 'AMAZON_LINUX_2023',
  *     GlobalFilters: { // PatchFilterGroup
  *       PatchFilters: [ // PatchFilterList // required
  *         { // PatchFilter
- *           Key: "ARCH" || "ADVISORY_ID" || "BUGZILLA_ID" || "PATCH_SET" || "PRODUCT" || "PRODUCT_FAMILY" || "CLASSIFICATION" || "CVE_ID" || "EPOCH" || "MSRC_SEVERITY" || "NAME" || "PATCH_ID" || "SECTION" || "PRIORITY" || "REPOSITORY" || "RELEASE" || "SEVERITY" || "SECURITY" || "VERSION", // required
+ *           Key: 'ARCH' || 'ADVISORY_ID' || 'BUGZILLA_ID' || 'PATCH_SET' || 'PRODUCT' || 'PRODUCT_FAMILY' || 'CLASSIFICATION' || 'CVE_ID' || 'EPOCH' || 'MSRC_SEVERITY' || 'NAME' || 'PATCH_ID' || 'SECTION' || 'PRIORITY' || 'REPOSITORY' || 'RELEASE' || 'SEVERITY' || 'SECURITY' || 'VERSION', // required
  *           Values: [ // PatchFilterValueList // required
- *             "STRING_VALUE",
+ *             'STRING_VALUE',
  *           ],
  *         },
  *       ],
@@ -78,42 +78,50 @@ export interface GetDeployablePatchSnapshotForInstanceCommandOutput
  *           PatchFilterGroup: {
  *             PatchFilters: [ // required
  *               {
- *                 Key: "ARCH" || "ADVISORY_ID" || "BUGZILLA_ID" || "PATCH_SET" || "PRODUCT" || "PRODUCT_FAMILY" || "CLASSIFICATION" || "CVE_ID" || "EPOCH" || "MSRC_SEVERITY" || "NAME" || "PATCH_ID" || "SECTION" || "PRIORITY" || "REPOSITORY" || "RELEASE" || "SEVERITY" || "SECURITY" || "VERSION", // required
+ *                 Key: 'ARCH' || 'ADVISORY_ID' || 'BUGZILLA_ID' || 'PATCH_SET' || 'PRODUCT' || 'PRODUCT_FAMILY' || 'CLASSIFICATION' || 'CVE_ID' || 'EPOCH' || 'MSRC_SEVERITY' || 'NAME' || 'PATCH_ID' || 'SECTION' || 'PRIORITY' || 'REPOSITORY' || 'RELEASE' || 'SEVERITY' || 'SECURITY' || 'VERSION', // required
  *                 Values: [ // required
- *                   "STRING_VALUE",
+ *                   'STRING_VALUE',
  *                 ],
  *               },
  *             ],
  *           },
- *           ComplianceLevel: "CRITICAL" || "HIGH" || "MEDIUM" || "LOW" || "INFORMATIONAL" || "UNSPECIFIED",
- *           ApproveAfterDays: Number("int"),
- *           ApproveUntilDate: "STRING_VALUE",
+ *           ComplianceLevel: 'CRITICAL' || 'HIGH' || 'MEDIUM' || 'LOW' || 'INFORMATIONAL' || 'UNSPECIFIED',
+ *           ApproveAfterDays: Number('int'),
+ *           ApproveUntilDate: 'STRING_VALUE',
  *           EnableNonSecurity: true || false,
  *         },
  *       ],
  *     },
  *     ApprovedPatches: [ // PatchIdList
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
- *     ApprovedPatchesComplianceLevel: "CRITICAL" || "HIGH" || "MEDIUM" || "LOW" || "INFORMATIONAL" || "UNSPECIFIED",
+ *     ApprovedPatchesComplianceLevel: 'CRITICAL' || 'HIGH' || 'MEDIUM' || 'LOW' || 'INFORMATIONAL' || 'UNSPECIFIED',
  *     RejectedPatches: [
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
- *     RejectedPatchesAction: "ALLOW_AS_DEPENDENCY" || "BLOCK",
+ *     RejectedPatchesAction: 'ALLOW_AS_DEPENDENCY' || 'BLOCK',
  *     ApprovedPatchesEnableNonSecurity: true || false,
  *     Sources: [ // PatchSourceList
  *       { // PatchSource
- *         Name: "STRING_VALUE", // required
+ *         Name: 'STRING_VALUE', // required
  *         Products: [ // PatchSourceProductList // required
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
- *         Configuration: "STRING_VALUE", // required
+ *         Configuration: 'STRING_VALUE', // required
  *       },
  *     ],
  *   },
  * };
  * const command = new GetDeployablePatchSnapshotForInstanceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetDeployablePatchSnapshotForInstanceResult
+ *   InstanceId: 'STRING_VALUE',
+ *   SnapshotId: 'STRING_VALUE',
+ *   SnapshotDownloadUrl: 'STRING_VALUE',
+ *   Product: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetDeployablePatchSnapshotForInstanceCommandInput - {@link GetDeployablePatchSnapshotForInstanceCommandInput}
@@ -135,6 +143,8 @@ export interface GetDeployablePatchSnapshotForInstanceCommandOutput
  *  <p>The operating systems you specified isn't supported, or the operation isn't supported for
  *    the operating system.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class GetDeployablePatchSnapshotForInstanceCommand extends $Command<

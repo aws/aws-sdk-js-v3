@@ -41,56 +41,61 @@ export interface UpdateStackCommandOutput extends UpdateStackOutput, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudFormationClient, UpdateStackCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
- * // const { CloudFormationClient, UpdateStackCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
+ * import { CloudFormationClient, UpdateStackCommand } from '@aws-sdk/client-cloudformation'; // ES Modules import
+ * // const { CloudFormationClient, UpdateStackCommand } = require('@aws-sdk/client-cloudformation'); // CommonJS import
  * const client = new CloudFormationClient(config);
  * const input = { // UpdateStackInput
- *   StackName: "STRING_VALUE", // required
- *   TemplateBody: "STRING_VALUE",
- *   TemplateURL: "STRING_VALUE",
+ *   StackName: 'STRING_VALUE', // required
+ *   TemplateBody: 'STRING_VALUE',
+ *   TemplateURL: 'STRING_VALUE',
  *   UsePreviousTemplate: true || false,
- *   StackPolicyDuringUpdateBody: "STRING_VALUE",
- *   StackPolicyDuringUpdateURL: "STRING_VALUE",
+ *   StackPolicyDuringUpdateBody: 'STRING_VALUE',
+ *   StackPolicyDuringUpdateURL: 'STRING_VALUE',
  *   Parameters: [ // Parameters
  *     { // Parameter
- *       ParameterKey: "STRING_VALUE",
- *       ParameterValue: "STRING_VALUE",
+ *       ParameterKey: 'STRING_VALUE',
+ *       ParameterValue: 'STRING_VALUE',
  *       UsePreviousValue: true || false,
- *       ResolvedValue: "STRING_VALUE",
+ *       ResolvedValue: 'STRING_VALUE',
  *     },
  *   ],
  *   Capabilities: [ // Capabilities
- *     "CAPABILITY_IAM" || "CAPABILITY_NAMED_IAM" || "CAPABILITY_AUTO_EXPAND",
+ *     'CAPABILITY_IAM' || 'CAPABILITY_NAMED_IAM' || 'CAPABILITY_AUTO_EXPAND',
  *   ],
  *   ResourceTypes: [ // ResourceTypes
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   RoleARN: "STRING_VALUE",
+ *   RoleARN: 'STRING_VALUE',
  *   RollbackConfiguration: { // RollbackConfiguration
  *     RollbackTriggers: [ // RollbackTriggers
  *       { // RollbackTrigger
- *         Arn: "STRING_VALUE", // required
- *         Type: "STRING_VALUE", // required
+ *         Arn: 'STRING_VALUE', // required
+ *         Type: 'STRING_VALUE', // required
  *       },
  *     ],
- *     MonitoringTimeInMinutes: Number("int"),
+ *     MonitoringTimeInMinutes: Number('int'),
  *   },
- *   StackPolicyBody: "STRING_VALUE",
- *   StackPolicyURL: "STRING_VALUE",
+ *   StackPolicyBody: 'STRING_VALUE',
+ *   StackPolicyURL: 'STRING_VALUE',
  *   NotificationARNs: [ // NotificationARNs
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   Tags: [ // Tags
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  *   DisableRollback: true || false,
- *   ClientRequestToken: "STRING_VALUE",
+ *   ClientRequestToken: 'STRING_VALUE',
  * };
  * const command = new UpdateStackCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateStackOutput
+ *   StackId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateStackCommandInput - {@link UpdateStackCommandInput}
@@ -106,6 +111,8 @@ export interface UpdateStackCommandOutput extends UpdateStackOutput, __MetadataB
  * @throws {@link TokenAlreadyExistsException} (client fault)
  *  <p>A client request token already exists.</p>
  *
+ * @throws {@link CloudFormationServiceException}
+ * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
  */
 export class UpdateStackCommand extends $Command<

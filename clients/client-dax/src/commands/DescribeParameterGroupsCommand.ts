@@ -37,18 +37,29 @@ export interface DescribeParameterGroupsCommandOutput extends DescribeParameterG
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DAXClient, DescribeParameterGroupsCommand } from "@aws-sdk/client-dax"; // ES Modules import
- * // const { DAXClient, DescribeParameterGroupsCommand } = require("@aws-sdk/client-dax"); // CommonJS import
+ * import { DAXClient, DescribeParameterGroupsCommand } from '@aws-sdk/client-dax'; // ES Modules import
+ * // const { DAXClient, DescribeParameterGroupsCommand } = require('@aws-sdk/client-dax'); // CommonJS import
  * const client = new DAXClient(config);
  * const input = { // DescribeParameterGroupsRequest
  *   ParameterGroupNames: [ // ParameterGroupNameList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new DescribeParameterGroupsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeParameterGroupsResponse
+ *   NextToken: 'STRING_VALUE',
+ *   ParameterGroups: [ // ParameterGroupList
+ *     { // ParameterGroup
+ *       ParameterGroupName: 'STRING_VALUE',
+ *       Description: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeParameterGroupsCommandInput - {@link DescribeParameterGroupsCommandInput}
@@ -69,6 +80,8 @@ export interface DescribeParameterGroupsCommandOutput extends DescribeParameterG
  * @throws {@link ServiceLinkedRoleNotFoundFault} (client fault)
  *  <p>The specified service linked role (SLR) was not found.</p>
  *
+ * @throws {@link DAXServiceException}
+ * <p>Base exception class for all service exceptions from DAX service.</p>
  *
  */
 export class DescribeParameterGroupsCommand extends $Command<

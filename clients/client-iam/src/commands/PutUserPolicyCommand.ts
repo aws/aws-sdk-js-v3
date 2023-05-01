@@ -50,16 +50,19 @@ export interface PutUserPolicyCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IAMClient, PutUserPolicyCommand } from "@aws-sdk/client-iam"; // ES Modules import
- * // const { IAMClient, PutUserPolicyCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * import { IAMClient, PutUserPolicyCommand } from '@aws-sdk/client-iam'; // ES Modules import
+ * // const { IAMClient, PutUserPolicyCommand } = require('@aws-sdk/client-iam'); // CommonJS import
  * const client = new IAMClient(config);
  * const input = { // PutUserPolicyRequest
- *   UserName: "STRING_VALUE", // required
- *   PolicyName: "STRING_VALUE", // required
- *   PolicyDocument: "STRING_VALUE", // required
+ *   UserName: 'STRING_VALUE', // required
+ *   PolicyName: 'STRING_VALUE', // required
+ *   PolicyDocument: 'STRING_VALUE', // required
  * };
  * const command = new PutUserPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutUserPolicyCommandInput - {@link PutUserPolicyCommandInput}
@@ -84,6 +87,8 @@ export interface PutUserPolicyCommandOutput extends __MetadataBearer {}
  *  <p>The request processing has failed because of an unknown error, exception or
  *       failure.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  * @example To attach a policy to an IAM user
  * ```javascript

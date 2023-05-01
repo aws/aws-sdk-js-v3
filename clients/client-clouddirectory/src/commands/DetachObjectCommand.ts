@@ -37,18 +37,23 @@ export interface DetachObjectCommandOutput extends DetachObjectResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudDirectoryClient, DetachObjectCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
- * // const { CloudDirectoryClient, DetachObjectCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
+ * import { CloudDirectoryClient, DetachObjectCommand } from '@aws-sdk/client-clouddirectory'; // ES Modules import
+ * // const { CloudDirectoryClient, DetachObjectCommand } = require('@aws-sdk/client-clouddirectory'); // CommonJS import
  * const client = new CloudDirectoryClient(config);
  * const input = { // DetachObjectRequest
- *   DirectoryArn: "STRING_VALUE", // required
+ *   DirectoryArn: 'STRING_VALUE', // required
  *   ParentReference: { // ObjectReference
- *     Selector: "STRING_VALUE",
+ *     Selector: 'STRING_VALUE',
  *   },
- *   LinkName: "STRING_VALUE", // required
+ *   LinkName: 'STRING_VALUE', // required
  * };
  * const command = new DetachObjectCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DetachObjectResponse
+ *   DetachedObjectIdentifier: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DetachObjectCommandInput - {@link DetachObjectCommandInput}
@@ -86,6 +91,8 @@ export interface DetachObjectCommandOutput extends DetachObjectResponse, __Metad
  *  <p>Indicates that your request is malformed in some manner. See the exception
  *       message.</p>
  *
+ * @throws {@link CloudDirectoryServiceException}
+ * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
  */
 export class DetachObjectCommand extends $Command<

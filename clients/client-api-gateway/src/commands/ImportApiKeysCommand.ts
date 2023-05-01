@@ -36,16 +36,26 @@ export interface ImportApiKeysCommandOutput extends ApiKeyIds, __MetadataBearer 
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { APIGatewayClient, ImportApiKeysCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
- * // const { APIGatewayClient, ImportApiKeysCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
+ * import { APIGatewayClient, ImportApiKeysCommand } from '@aws-sdk/client-api-gateway'; // ES Modules import
+ * // const { APIGatewayClient, ImportApiKeysCommand } = require('@aws-sdk/client-api-gateway'); // CommonJS import
  * const client = new APIGatewayClient(config);
  * const input = { // ImportApiKeysRequest
- *   body: "BLOB_VALUE", // required
- *   format: "csv", // required
+ *   body: 'BLOB_VALUE', // required
+ *   format: 'csv', // required
  *   failOnWarnings: true || false,
  * };
  * const command = new ImportApiKeysCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ApiKeyIds
+ *   ids: [ // ListOfString
+ *     'STRING_VALUE',
+ *   ],
+ *   warnings: [
+ *     'STRING_VALUE',
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ImportApiKeysCommandInput - {@link ImportApiKeysCommandInput}
@@ -72,6 +82,8 @@ export interface ImportApiKeysCommandOutput extends ApiKeyIds, __MetadataBearer 
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The request is denied because the caller has insufficient permissions.</p>
  *
+ * @throws {@link APIGatewayServiceException}
+ * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
  */
 export class ImportApiKeysCommand extends $Command<

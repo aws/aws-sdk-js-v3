@@ -36,17 +36,39 @@ export interface UpdateResourceShareCommandOutput extends UpdateResourceShareRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RAMClient, UpdateResourceShareCommand } from "@aws-sdk/client-ram"; // ES Modules import
- * // const { RAMClient, UpdateResourceShareCommand } = require("@aws-sdk/client-ram"); // CommonJS import
+ * import { RAMClient, UpdateResourceShareCommand } from '@aws-sdk/client-ram'; // ES Modules import
+ * // const { RAMClient, UpdateResourceShareCommand } = require('@aws-sdk/client-ram'); // CommonJS import
  * const client = new RAMClient(config);
  * const input = { // UpdateResourceShareRequest
- *   resourceShareArn: "STRING_VALUE", // required
- *   name: "STRING_VALUE",
+ *   resourceShareArn: 'STRING_VALUE', // required
+ *   name: 'STRING_VALUE',
  *   allowExternalPrincipals: true || false,
- *   clientToken: "STRING_VALUE",
+ *   clientToken: 'STRING_VALUE',
  * };
  * const command = new UpdateResourceShareCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateResourceShareResponse
+ *   resourceShare: { // ResourceShare
+ *     resourceShareArn: 'STRING_VALUE',
+ *     name: 'STRING_VALUE',
+ *     owningAccountId: 'STRING_VALUE',
+ *     allowExternalPrincipals: true || false,
+ *     status: 'PENDING' || 'ACTIVE' || 'FAILED' || 'DELETING' || 'DELETED',
+ *     statusMessage: 'STRING_VALUE',
+ *     tags: [ // TagList
+ *       { // Tag
+ *         key: 'STRING_VALUE',
+ *         value: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     creationTime: new Date('TIMESTAMP'),
+ *     lastUpdatedTime: new Date('TIMESTAMP'),
+ *     featureSet: 'CREATED_FROM_POLICY' || 'PROMOTING_TO_STANDARD' || 'STANDARD',
+ *   },
+ *   clientToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateResourceShareCommandInput - {@link UpdateResourceShareCommandInput}
@@ -86,6 +108,8 @@ export interface UpdateResourceShareCommandOutput extends UpdateResourceShareRes
  * @throws {@link UnknownResourceException} (client fault)
  *  <p>The operation failed because a specified resource couldn't be found.</p>
  *
+ * @throws {@link RAMServiceException}
+ * <p>Base exception class for all service exceptions from RAM service.</p>
  *
  */
 export class UpdateResourceShareCommand extends $Command<

@@ -36,14 +36,26 @@ export interface DescribeDashboardCommandOutput extends DescribeDashboardRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTSiteWiseClient, DescribeDashboardCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
- * // const { IoTSiteWiseClient, DescribeDashboardCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
+ * import { IoTSiteWiseClient, DescribeDashboardCommand } from '@aws-sdk/client-iotsitewise'; // ES Modules import
+ * // const { IoTSiteWiseClient, DescribeDashboardCommand } = require('@aws-sdk/client-iotsitewise'); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
  * const input = { // DescribeDashboardRequest
- *   dashboardId: "STRING_VALUE", // required
+ *   dashboardId: 'STRING_VALUE', // required
  * };
  * const command = new DescribeDashboardCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeDashboardResponse
+ *   dashboardId: 'STRING_VALUE', // required
+ *   dashboardArn: 'STRING_VALUE', // required
+ *   dashboardName: 'STRING_VALUE', // required
+ *   projectId: 'STRING_VALUE', // required
+ *   dashboardDescription: 'STRING_VALUE',
+ *   dashboardDefinition: 'STRING_VALUE', // required
+ *   dashboardCreationDate: new Date('TIMESTAMP'), // required
+ *   dashboardLastUpdateDate: new Date('TIMESTAMP'), // required
+ * };
+ *
  * ```
  *
  * @param DescribeDashboardCommandInput - {@link DescribeDashboardCommandInput}
@@ -68,6 +80,8 @@ export interface DescribeDashboardCommandOutput extends DescribeDashboardRespons
  *       on.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
  *
+ * @throws {@link IoTSiteWiseServiceException}
+ * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
  */
 export class DescribeDashboardCommand extends $Command<

@@ -99,18 +99,28 @@ export interface DescribePatchPropertiesCommandOutput extends DescribePatchPrope
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMClient, DescribePatchPropertiesCommand } from "@aws-sdk/client-ssm"; // ES Modules import
- * // const { SSMClient, DescribePatchPropertiesCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * import { SSMClient, DescribePatchPropertiesCommand } from '@aws-sdk/client-ssm'; // ES Modules import
+ * // const { SSMClient, DescribePatchPropertiesCommand } = require('@aws-sdk/client-ssm'); // CommonJS import
  * const client = new SSMClient(config);
  * const input = { // DescribePatchPropertiesRequest
- *   OperatingSystem: "WINDOWS" || "AMAZON_LINUX" || "AMAZON_LINUX_2" || "AMAZON_LINUX_2022" || "UBUNTU" || "REDHAT_ENTERPRISE_LINUX" || "SUSE" || "CENTOS" || "ORACLE_LINUX" || "DEBIAN" || "MACOS" || "RASPBIAN" || "ROCKY_LINUX" || "ALMA_LINUX" || "AMAZON_LINUX_2023", // required
- *   Property: "PRODUCT" || "PRODUCT_FAMILY" || "CLASSIFICATION" || "MSRC_SEVERITY" || "PRIORITY" || "SEVERITY", // required
- *   PatchSet: "OS" || "APPLICATION",
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   OperatingSystem: 'WINDOWS' || 'AMAZON_LINUX' || 'AMAZON_LINUX_2' || 'AMAZON_LINUX_2022' || 'UBUNTU' || 'REDHAT_ENTERPRISE_LINUX' || 'SUSE' || 'CENTOS' || 'ORACLE_LINUX' || 'DEBIAN' || 'MACOS' || 'RASPBIAN' || 'ROCKY_LINUX' || 'ALMA_LINUX' || 'AMAZON_LINUX_2023', // required
+ *   Property: 'PRODUCT' || 'PRODUCT_FAMILY' || 'CLASSIFICATION' || 'MSRC_SEVERITY' || 'PRIORITY' || 'SEVERITY', // required
+ *   PatchSet: 'OS' || 'APPLICATION',
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new DescribePatchPropertiesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribePatchPropertiesResult
+ *   Properties: [ // PatchPropertiesList
+ *     { // PatchPropertyEntry
+ *       '<keys>': 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribePatchPropertiesCommandInput - {@link DescribePatchPropertiesCommandInput}
@@ -122,6 +132,8 @@ export interface DescribePatchPropertiesCommandOutput extends DescribePatchPrope
  * @throws {@link InternalServerError} (server fault)
  *  <p>An error occurred on the server side.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class DescribePatchPropertiesCommand extends $Command<

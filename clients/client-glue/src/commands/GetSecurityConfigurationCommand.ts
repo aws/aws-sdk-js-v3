@@ -36,14 +36,38 @@ export interface GetSecurityConfigurationCommandOutput extends GetSecurityConfig
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlueClient, GetSecurityConfigurationCommand } from "@aws-sdk/client-glue"; // ES Modules import
- * // const { GlueClient, GetSecurityConfigurationCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * import { GlueClient, GetSecurityConfigurationCommand } from '@aws-sdk/client-glue'; // ES Modules import
+ * // const { GlueClient, GetSecurityConfigurationCommand } = require('@aws-sdk/client-glue'); // CommonJS import
  * const client = new GlueClient(config);
  * const input = { // GetSecurityConfigurationRequest
- *   Name: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
  * };
  * const command = new GetSecurityConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetSecurityConfigurationResponse
+ *   SecurityConfiguration: { // SecurityConfiguration
+ *     Name: 'STRING_VALUE',
+ *     CreatedTimeStamp: new Date('TIMESTAMP'),
+ *     EncryptionConfiguration: { // EncryptionConfiguration
+ *       S3Encryption: [ // S3EncryptionList
+ *         { // S3Encryption
+ *           S3EncryptionMode: 'DISABLED' || 'SSE-KMS' || 'SSE-S3',
+ *           KmsKeyArn: 'STRING_VALUE',
+ *         },
+ *       ],
+ *       CloudWatchEncryption: { // CloudWatchEncryption
+ *         CloudWatchEncryptionMode: 'DISABLED' || 'SSE-KMS',
+ *         KmsKeyArn: 'STRING_VALUE',
+ *       },
+ *       JobBookmarksEncryption: { // JobBookmarksEncryption
+ *         JobBookmarksEncryptionMode: 'DISABLED' || 'CSE-KMS',
+ *         KmsKeyArn: 'STRING_VALUE',
+ *       },
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetSecurityConfigurationCommandInput - {@link GetSecurityConfigurationCommandInput}
@@ -64,6 +88,8 @@ export interface GetSecurityConfigurationCommandOutput extends GetSecurityConfig
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class GetSecurityConfigurationCommand extends $Command<

@@ -36,14 +36,17 @@ export interface DeleteHsmClientCertificateCommandOutput extends __MetadataBeare
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RedshiftClient, DeleteHsmClientCertificateCommand } from "@aws-sdk/client-redshift"; // ES Modules import
- * // const { RedshiftClient, DeleteHsmClientCertificateCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * import { RedshiftClient, DeleteHsmClientCertificateCommand } from '@aws-sdk/client-redshift'; // ES Modules import
+ * // const { RedshiftClient, DeleteHsmClientCertificateCommand } = require('@aws-sdk/client-redshift'); // CommonJS import
  * const client = new RedshiftClient(config);
  * const input = { // DeleteHsmClientCertificateMessage
- *   HsmClientCertificateIdentifier: "STRING_VALUE", // required
+ *   HsmClientCertificateIdentifier: 'STRING_VALUE', // required
  * };
  * const command = new DeleteHsmClientCertificateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteHsmClientCertificateCommandInput - {@link DeleteHsmClientCertificateCommandInput}
@@ -60,6 +63,8 @@ export interface DeleteHsmClientCertificateCommandOutput extends __MetadataBeare
  *  <p>The specified HSM client certificate is not in the <code>available</code> state, or
  *             it is still in use by one or more Amazon Redshift clusters.</p>
  *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class DeleteHsmClientCertificateCommand extends $Command<

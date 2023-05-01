@@ -40,14 +40,17 @@ export interface StopEarthObservationJobCommandOutput extends StopEarthObservati
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerGeospatialClient, StopEarthObservationJobCommand } from "@aws-sdk/client-sagemaker-geospatial"; // ES Modules import
- * // const { SageMakerGeospatialClient, StopEarthObservationJobCommand } = require("@aws-sdk/client-sagemaker-geospatial"); // CommonJS import
+ * import { SageMakerGeospatialClient, StopEarthObservationJobCommand } from '@aws-sdk/client-sagemaker-geospatial'; // ES Modules import
+ * // const { SageMakerGeospatialClient, StopEarthObservationJobCommand } = require('@aws-sdk/client-sagemaker-geospatial'); // CommonJS import
  * const client = new SageMakerGeospatialClient(config);
  * const input = { // StopEarthObservationJobInput
- *   Arn: "STRING_VALUE", // required
+ *   Arn: 'STRING_VALUE', // required
  * };
  * const command = new StopEarthObservationJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param StopEarthObservationJobCommandInput - {@link StopEarthObservationJobCommandInput}
@@ -74,6 +77,8 @@ export interface StopEarthObservationJobCommandOutput extends StopEarthObservati
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
  *
+ * @throws {@link SageMakerGeospatialServiceException}
+ * <p>Base exception class for all service exceptions from SageMakerGeospatial service.</p>
  *
  */
 export class StopEarthObservationJobCommand extends $Command<

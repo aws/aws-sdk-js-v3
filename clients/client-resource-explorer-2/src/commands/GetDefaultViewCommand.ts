@@ -41,12 +41,17 @@ export interface GetDefaultViewCommandOutput extends GetDefaultViewOutput, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ResourceExplorer2Client, GetDefaultViewCommand } from "@aws-sdk/client-resource-explorer-2"; // ES Modules import
- * // const { ResourceExplorer2Client, GetDefaultViewCommand } = require("@aws-sdk/client-resource-explorer-2"); // CommonJS import
+ * import { ResourceExplorer2Client, GetDefaultViewCommand } from '@aws-sdk/client-resource-explorer-2'; // ES Modules import
+ * // const { ResourceExplorer2Client, GetDefaultViewCommand } = require('@aws-sdk/client-resource-explorer-2'); // CommonJS import
  * const client = new ResourceExplorer2Client(config);
  * const input = {};
  * const command = new GetDefaultViewCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetDefaultViewOutput
+ *   ViewArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetDefaultViewCommandInput - {@link GetDefaultViewCommandInput}
@@ -76,6 +81,8 @@ export interface GetDefaultViewCommandOutput extends GetDefaultViewOutput, __Met
  *  <p>You provided an invalid value for one of the operation's parameters. Check the syntax
  *             for the operation, and try again.</p>
  *
+ * @throws {@link ResourceExplorer2ServiceException}
+ * <p>Base exception class for all service exceptions from ResourceExplorer2 service.</p>
  *
  */
 export class GetDefaultViewCommand extends $Command<

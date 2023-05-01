@@ -38,45 +38,45 @@ export interface ModifyInstanceGroupsCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EMRClient, ModifyInstanceGroupsCommand } from "@aws-sdk/client-emr"; // ES Modules import
- * // const { EMRClient, ModifyInstanceGroupsCommand } = require("@aws-sdk/client-emr"); // CommonJS import
+ * import { EMRClient, ModifyInstanceGroupsCommand } from '@aws-sdk/client-emr'; // ES Modules import
+ * // const { EMRClient, ModifyInstanceGroupsCommand } = require('@aws-sdk/client-emr'); // CommonJS import
  * const client = new EMRClient(config);
  * const input = { // ModifyInstanceGroupsInput
- *   ClusterId: "STRING_VALUE",
+ *   ClusterId: 'STRING_VALUE',
  *   InstanceGroups: [ // InstanceGroupModifyConfigList
  *     { // InstanceGroupModifyConfig
- *       InstanceGroupId: "STRING_VALUE", // required
- *       InstanceCount: Number("int"),
+ *       InstanceGroupId: 'STRING_VALUE', // required
+ *       InstanceCount: Number('int'),
  *       EC2InstanceIdsToTerminate: [ // EC2InstanceIdsToTerminateList
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *       ShrinkPolicy: { // ShrinkPolicy
- *         DecommissionTimeout: Number("int"),
+ *         DecommissionTimeout: Number('int'),
  *         InstanceResizePolicy: { // InstanceResizePolicy
  *           InstancesToTerminate: [ // EC2InstanceIdsList
- *             "STRING_VALUE",
+ *             'STRING_VALUE',
  *           ],
  *           InstancesToProtect: [
- *             "STRING_VALUE",
+ *             'STRING_VALUE',
  *           ],
- *           InstanceTerminationTimeout: Number("int"),
+ *           InstanceTerminationTimeout: Number('int'),
  *         },
  *       },
- *       ReconfigurationType: "OVERWRITE" || "MERGE",
+ *       ReconfigurationType: 'OVERWRITE' || 'MERGE',
  *       Configurations: [ // ConfigurationList
  *         { // Configuration
- *           Classification: "STRING_VALUE",
+ *           Classification: 'STRING_VALUE',
  *           Configurations: [
  *             {
- *               Classification: "STRING_VALUE",
- *               Configurations: "<ConfigurationList>",
+ *               Classification: 'STRING_VALUE',
+ *               Configurations: '<ConfigurationList>',
  *               Properties: { // StringMap
- *                 "<keys>": "STRING_VALUE",
+ *                 '<keys>': 'STRING_VALUE',
  *               },
  *             },
  *           ],
  *           Properties: {
- *             "<keys>": "STRING_VALUE",
+ *             '<keys>': 'STRING_VALUE',
  *           },
  *         },
  *       ],
@@ -85,6 +85,9 @@ export interface ModifyInstanceGroupsCommandOutput extends __MetadataBearer {}
  * };
  * const command = new ModifyInstanceGroupsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param ModifyInstanceGroupsCommandInput - {@link ModifyInstanceGroupsCommandInput}
@@ -97,6 +100,8 @@ export interface ModifyInstanceGroupsCommandOutput extends __MetadataBearer {}
  *  <p>Indicates that an error occurred while processing the request and that the request was
  *          not completed.</p>
  *
+ * @throws {@link EMRServiceException}
+ * <p>Base exception class for all service exceptions from EMR service.</p>
  *
  */
 export class ModifyInstanceGroupsCommand extends $Command<

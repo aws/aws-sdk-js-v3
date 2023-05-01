@@ -41,22 +41,25 @@ export interface ModifyWorkspaceCreationPropertiesCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkSpacesClient, ModifyWorkspaceCreationPropertiesCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
- * // const { WorkSpacesClient, ModifyWorkspaceCreationPropertiesCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
+ * import { WorkSpacesClient, ModifyWorkspaceCreationPropertiesCommand } from '@aws-sdk/client-workspaces'; // ES Modules import
+ * // const { WorkSpacesClient, ModifyWorkspaceCreationPropertiesCommand } = require('@aws-sdk/client-workspaces'); // CommonJS import
  * const client = new WorkSpacesClient(config);
  * const input = { // ModifyWorkspaceCreationPropertiesRequest
- *   ResourceId: "STRING_VALUE", // required
+ *   ResourceId: 'STRING_VALUE', // required
  *   WorkspaceCreationProperties: { // WorkspaceCreationProperties
  *     EnableWorkDocs: true || false,
  *     EnableInternetAccess: true || false,
- *     DefaultOu: "STRING_VALUE",
- *     CustomSecurityGroupId: "STRING_VALUE",
+ *     DefaultOu: 'STRING_VALUE',
+ *     CustomSecurityGroupId: 'STRING_VALUE',
  *     UserEnabledAsLocalAdministrator: true || false,
  *     EnableMaintenanceMode: true || false,
  *   },
  * };
  * const command = new ModifyWorkspaceCreationPropertiesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param ModifyWorkspaceCreationPropertiesCommandInput - {@link ModifyWorkspaceCreationPropertiesCommandInput}
@@ -77,6 +80,8 @@ export interface ModifyWorkspaceCreationPropertiesCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource could not be found.</p>
  *
+ * @throws {@link WorkSpacesServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
  */
 export class ModifyWorkspaceCreationPropertiesCommand extends $Command<

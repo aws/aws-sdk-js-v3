@@ -42,18 +42,43 @@ export interface DescribeScalingPoliciesCommandOutput extends DescribeScalingPol
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GameLiftClient, DescribeScalingPoliciesCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
- * // const { GameLiftClient, DescribeScalingPoliciesCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
+ * import { GameLiftClient, DescribeScalingPoliciesCommand } from '@aws-sdk/client-gamelift'; // ES Modules import
+ * // const { GameLiftClient, DescribeScalingPoliciesCommand } = require('@aws-sdk/client-gamelift'); // CommonJS import
  * const client = new GameLiftClient(config);
  * const input = { // DescribeScalingPoliciesInput
- *   FleetId: "STRING_VALUE", // required
- *   StatusFilter: "ACTIVE" || "UPDATE_REQUESTED" || "UPDATING" || "DELETE_REQUESTED" || "DELETING" || "DELETED" || "ERROR",
- *   Limit: Number("int"),
- *   NextToken: "STRING_VALUE",
- *   Location: "STRING_VALUE",
+ *   FleetId: 'STRING_VALUE', // required
+ *   StatusFilter: 'ACTIVE' || 'UPDATE_REQUESTED' || 'UPDATING' || 'DELETE_REQUESTED' || 'DELETING' || 'DELETED' || 'ERROR',
+ *   Limit: Number('int'),
+ *   NextToken: 'STRING_VALUE',
+ *   Location: 'STRING_VALUE',
  * };
  * const command = new DescribeScalingPoliciesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeScalingPoliciesOutput
+ *   ScalingPolicies: [ // ScalingPolicyList
+ *     { // ScalingPolicy
+ *       FleetId: 'STRING_VALUE',
+ *       FleetArn: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *       Status: 'ACTIVE' || 'UPDATE_REQUESTED' || 'UPDATING' || 'DELETE_REQUESTED' || 'DELETING' || 'DELETED' || 'ERROR',
+ *       ScalingAdjustment: Number('int'),
+ *       ScalingAdjustmentType: 'ChangeInCapacity' || 'ExactCapacity' || 'PercentChangeInCapacity',
+ *       ComparisonOperator: 'GreaterThanOrEqualToThreshold' || 'GreaterThanThreshold' || 'LessThanThreshold' || 'LessThanOrEqualToThreshold',
+ *       Threshold: Number('double'),
+ *       EvaluationPeriods: Number('int'),
+ *       MetricName: 'ActivatingGameSessions' || 'ActiveGameSessions' || 'ActiveInstances' || 'AvailableGameSessions' || 'AvailablePlayerSessions' || 'CurrentPlayerSessions' || 'IdleInstances' || 'PercentAvailableGameSessions' || 'PercentIdleInstances' || 'QueueDepth' || 'WaitTime' || 'ConcurrentActivatableGameSessions',
+ *       PolicyType: 'RuleBased' || 'TargetBased',
+ *       TargetConfiguration: { // TargetConfiguration
+ *         TargetValue: Number('double'), // required
+ *       },
+ *       UpdateStatus: 'PENDING_UPDATE',
+ *       Location: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeScalingPoliciesCommandInput - {@link DescribeScalingPoliciesCommandInput}
@@ -79,6 +104,8 @@ export interface DescribeScalingPoliciesCommandOutput extends DescribeScalingPol
  * @throws {@link UnsupportedRegionException} (client fault)
  *  <p>The requested operation is not supported in the Region specified.</p>
  *
+ * @throws {@link GameLiftServiceException}
+ * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
  */
 export class DescribeScalingPoliciesCommand extends $Command<

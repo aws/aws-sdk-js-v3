@@ -50,14 +50,17 @@ export interface DeleteHealthCheckCommandOutput extends DeleteHealthCheckRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Route53Client, DeleteHealthCheckCommand } from "@aws-sdk/client-route-53"; // ES Modules import
- * // const { Route53Client, DeleteHealthCheckCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
+ * import { Route53Client, DeleteHealthCheckCommand } from '@aws-sdk/client-route-53'; // ES Modules import
+ * // const { Route53Client, DeleteHealthCheckCommand } = require('@aws-sdk/client-route-53'); // CommonJS import
  * const client = new Route53Client(config);
  * const input = { // DeleteHealthCheckRequest
- *   HealthCheckId: "STRING_VALUE", // required
+ *   HealthCheckId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteHealthCheckCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteHealthCheckCommandInput - {@link DeleteHealthCheckCommandInput}
@@ -75,6 +78,8 @@ export interface DeleteHealthCheckCommandOutput extends DeleteHealthCheckRespons
  * @throws {@link NoSuchHealthCheck} (client fault)
  *  <p>No health check exists with the specified ID.</p>
  *
+ * @throws {@link Route53ServiceException}
+ * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
  */
 export class DeleteHealthCheckCommand extends $Command<

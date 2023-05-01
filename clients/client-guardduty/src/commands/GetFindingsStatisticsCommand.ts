@@ -36,43 +36,52 @@ export interface GetFindingsStatisticsCommandOutput extends GetFindingsStatistic
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GuardDutyClient, GetFindingsStatisticsCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
- * // const { GuardDutyClient, GetFindingsStatisticsCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
+ * import { GuardDutyClient, GetFindingsStatisticsCommand } from '@aws-sdk/client-guardduty'; // ES Modules import
+ * // const { GuardDutyClient, GetFindingsStatisticsCommand } = require('@aws-sdk/client-guardduty'); // CommonJS import
  * const client = new GuardDutyClient(config);
  * const input = { // GetFindingsStatisticsRequest
- *   DetectorId: "STRING_VALUE", // required
+ *   DetectorId: 'STRING_VALUE', // required
  *   FindingStatisticTypes: [ // FindingStatisticTypes // required
- *     "COUNT_BY_SEVERITY",
+ *     'COUNT_BY_SEVERITY',
  *   ],
  *   FindingCriteria: { // FindingCriteria
  *     Criterion: { // Criterion
- *       "<keys>": { // Condition
+ *       '<keys>': { // Condition
  *         Eq: [ // Eq
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
  *         Neq: [ // Neq
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
- *         Gt: Number("int"),
- *         Gte: Number("int"),
- *         Lt: Number("int"),
- *         Lte: Number("int"),
+ *         Gt: Number('int'),
+ *         Gte: Number('int'),
+ *         Lt: Number('int'),
+ *         Lte: Number('int'),
  *         Equals: [ // Equals
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
  *         NotEquals: [ // NotEquals
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
- *         GreaterThan: Number("long"),
- *         GreaterThanOrEqual: Number("long"),
- *         LessThan: Number("long"),
- *         LessThanOrEqual: Number("long"),
+ *         GreaterThan: Number('long'),
+ *         GreaterThanOrEqual: Number('long'),
+ *         LessThan: Number('long'),
+ *         LessThanOrEqual: Number('long'),
  *       },
  *     },
  *   },
  * };
  * const command = new GetFindingsStatisticsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetFindingsStatisticsResponse
+ *   FindingStatistics: { // FindingStatistics
+ *     CountBySeverity: { // CountBySeverity
+ *       '<keys>': Number('int'),
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetFindingsStatisticsCommandInput - {@link GetFindingsStatisticsCommandInput}
@@ -87,6 +96,8 @@ export interface GetFindingsStatisticsCommandOutput extends GetFindingsStatistic
  * @throws {@link InternalServerErrorException} (server fault)
  *  <p>An internal server error exception object.</p>
  *
+ * @throws {@link GuardDutyServiceException}
+ * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
  */
 export class GetFindingsStatisticsCommand extends $Command<

@@ -36,16 +36,19 @@ export interface UpdateProjectCommandOutput extends UpdateProjectResult, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeStarClient, UpdateProjectCommand } from "@aws-sdk/client-codestar"; // ES Modules import
- * // const { CodeStarClient, UpdateProjectCommand } = require("@aws-sdk/client-codestar"); // CommonJS import
+ * import { CodeStarClient, UpdateProjectCommand } from '@aws-sdk/client-codestar'; // ES Modules import
+ * // const { CodeStarClient, UpdateProjectCommand } = require('@aws-sdk/client-codestar'); // CommonJS import
  * const client = new CodeStarClient(config);
  * const input = { // UpdateProjectRequest
- *   id: "STRING_VALUE", // required
- *   name: "STRING_VALUE",
- *   description: "STRING_VALUE",
+ *   id: 'STRING_VALUE', // required
+ *   name: 'STRING_VALUE',
+ *   description: 'STRING_VALUE',
  * };
  * const command = new UpdateProjectCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateProjectCommandInput - {@link UpdateProjectCommandInput}
@@ -60,6 +63,8 @@ export interface UpdateProjectCommandOutput extends UpdateProjectResult, __Metad
  * @throws {@link ValidationException} (client fault)
  *  <p>The specified input is either not valid, or it could not be validated.</p>
  *
+ * @throws {@link CodeStarServiceException}
+ * <p>Base exception class for all service exceptions from CodeStar service.</p>
  *
  */
 export class UpdateProjectCommand extends $Command<

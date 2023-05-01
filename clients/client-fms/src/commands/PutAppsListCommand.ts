@@ -36,42 +36,70 @@ export interface PutAppsListCommandOutput extends PutAppsListResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FMSClient, PutAppsListCommand } from "@aws-sdk/client-fms"; // ES Modules import
- * // const { FMSClient, PutAppsListCommand } = require("@aws-sdk/client-fms"); // CommonJS import
+ * import { FMSClient, PutAppsListCommand } from '@aws-sdk/client-fms'; // ES Modules import
+ * // const { FMSClient, PutAppsListCommand } = require('@aws-sdk/client-fms'); // CommonJS import
  * const client = new FMSClient(config);
  * const input = { // PutAppsListRequest
  *   AppsList: { // AppsListData
- *     ListId: "STRING_VALUE",
- *     ListName: "STRING_VALUE", // required
- *     ListUpdateToken: "STRING_VALUE",
- *     CreateTime: new Date("TIMESTAMP"),
- *     LastUpdateTime: new Date("TIMESTAMP"),
+ *     ListId: 'STRING_VALUE',
+ *     ListName: 'STRING_VALUE', // required
+ *     ListUpdateToken: 'STRING_VALUE',
+ *     CreateTime: new Date('TIMESTAMP'),
+ *     LastUpdateTime: new Date('TIMESTAMP'),
  *     AppsList: [ // AppsList // required
  *       { // App
- *         AppName: "STRING_VALUE", // required
- *         Protocol: "STRING_VALUE", // required
- *         Port: Number("long"), // required
+ *         AppName: 'STRING_VALUE', // required
+ *         Protocol: 'STRING_VALUE', // required
+ *         Port: Number('long'), // required
  *       },
  *     ],
  *     PreviousAppsList: { // PreviousAppsList
- *       "<keys>": [
+ *       '<keys>': [
  *         {
- *           AppName: "STRING_VALUE", // required
- *           Protocol: "STRING_VALUE", // required
- *           Port: Number("long"), // required
+ *           AppName: 'STRING_VALUE', // required
+ *           Protocol: 'STRING_VALUE', // required
+ *           Port: Number('long'), // required
  *         },
  *       ],
  *     },
  *   },
  *   TagList: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new PutAppsListCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutAppsListResponse
+ *   AppsList: { // AppsListData
+ *     ListId: 'STRING_VALUE',
+ *     ListName: 'STRING_VALUE', // required
+ *     ListUpdateToken: 'STRING_VALUE',
+ *     CreateTime: new Date('TIMESTAMP'),
+ *     LastUpdateTime: new Date('TIMESTAMP'),
+ *     AppsList: [ // AppsList // required
+ *       { // App
+ *         AppName: 'STRING_VALUE', // required
+ *         Protocol: 'STRING_VALUE', // required
+ *         Port: Number('long'), // required
+ *       },
+ *     ],
+ *     PreviousAppsList: { // PreviousAppsList
+ *       '<keys>': [
+ *         {
+ *           AppName: 'STRING_VALUE', // required
+ *           Protocol: 'STRING_VALUE', // required
+ *           Port: Number('long'), // required
+ *         },
+ *       ],
+ *     },
+ *   },
+ *   AppsListArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param PutAppsListCommandInput - {@link PutAppsListCommandInput}
@@ -103,6 +131,8 @@ export interface PutAppsListCommandOutput extends PutAppsListResponse, __Metadat
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link FMSServiceException}
+ * <p>Base exception class for all service exceptions from FMS service.</p>
  *
  */
 export class PutAppsListCommand extends $Command<

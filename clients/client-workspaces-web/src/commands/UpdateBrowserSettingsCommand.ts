@@ -41,16 +41,27 @@ export interface UpdateBrowserSettingsCommandOutput extends UpdateBrowserSetting
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkSpacesWebClient, UpdateBrowserSettingsCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
- * // const { WorkSpacesWebClient, UpdateBrowserSettingsCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
+ * import { WorkSpacesWebClient, UpdateBrowserSettingsCommand } from '@aws-sdk/client-workspaces-web'; // ES Modules import
+ * // const { WorkSpacesWebClient, UpdateBrowserSettingsCommand } = require('@aws-sdk/client-workspaces-web'); // CommonJS import
  * const client = new WorkSpacesWebClient(config);
  * const input = { // UpdateBrowserSettingsRequest
- *   browserSettingsArn: "STRING_VALUE", // required
- *   browserPolicy: "STRING_VALUE",
- *   clientToken: "STRING_VALUE",
+ *   browserSettingsArn: 'STRING_VALUE', // required
+ *   browserPolicy: 'STRING_VALUE',
+ *   clientToken: 'STRING_VALUE',
  * };
  * const command = new UpdateBrowserSettingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateBrowserSettingsResponse
+ *   browserSettings: { // BrowserSettings
+ *     browserSettingsArn: 'STRING_VALUE', // required
+ *     associatedPortalArns: [ // ArnList
+ *       'STRING_VALUE',
+ *     ],
+ *     browserPolicy: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateBrowserSettingsCommandInput - {@link UpdateBrowserSettingsCommandInput}
@@ -74,6 +85,8 @@ export interface UpdateBrowserSettingsCommandOutput extends UpdateBrowserSetting
  * @throws {@link ValidationException} (client fault)
  *  <p>There is a validation error.</p>
  *
+ * @throws {@link WorkSpacesWebServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
  */
 export class UpdateBrowserSettingsCommand extends $Command<

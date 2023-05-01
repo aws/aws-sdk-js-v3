@@ -40,14 +40,30 @@ export interface DescribeProjectCommandOutput extends DescribeProjectResult, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeStarClient, DescribeProjectCommand } from "@aws-sdk/client-codestar"; // ES Modules import
- * // const { CodeStarClient, DescribeProjectCommand } = require("@aws-sdk/client-codestar"); // CommonJS import
+ * import { CodeStarClient, DescribeProjectCommand } from '@aws-sdk/client-codestar'; // ES Modules import
+ * // const { CodeStarClient, DescribeProjectCommand } = require('@aws-sdk/client-codestar'); // CommonJS import
  * const client = new CodeStarClient(config);
  * const input = { // DescribeProjectRequest
- *   id: "STRING_VALUE", // required
+ *   id: 'STRING_VALUE', // required
  * };
  * const command = new DescribeProjectCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeProjectResult
+ *   name: 'STRING_VALUE',
+ *   id: 'STRING_VALUE',
+ *   arn: 'STRING_VALUE',
+ *   description: 'STRING_VALUE',
+ *   clientRequestToken: 'STRING_VALUE',
+ *   createdTimeStamp: new Date('TIMESTAMP'),
+ *   stackId: 'STRING_VALUE',
+ *   projectTemplateId: 'STRING_VALUE',
+ *   status: { // ProjectStatus
+ *     state: 'STRING_VALUE', // required
+ *     reason: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeProjectCommandInput - {@link DescribeProjectCommandInput}
@@ -72,6 +88,8 @@ export interface DescribeProjectCommandOutput extends DescribeProjectResult, __M
  * @throws {@link ValidationException} (client fault)
  *  <p>The specified input is either not valid, or it could not be validated.</p>
  *
+ * @throws {@link CodeStarServiceException}
+ * <p>Base exception class for all service exceptions from CodeStar service.</p>
  *
  */
 export class DescribeProjectCommand extends $Command<

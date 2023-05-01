@@ -41,15 +41,37 @@ export interface ResetPersonalPINCommandOutput extends ResetPersonalPINResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeClient, ResetPersonalPINCommand } from "@aws-sdk/client-chime"; // ES Modules import
- * // const { ChimeClient, ResetPersonalPINCommand } = require("@aws-sdk/client-chime"); // CommonJS import
+ * import { ChimeClient, ResetPersonalPINCommand } from '@aws-sdk/client-chime'; // ES Modules import
+ * // const { ChimeClient, ResetPersonalPINCommand } = require('@aws-sdk/client-chime'); // CommonJS import
  * const client = new ChimeClient(config);
  * const input = { // ResetPersonalPINRequest
- *   AccountId: "STRING_VALUE", // required
- *   UserId: "STRING_VALUE", // required
+ *   AccountId: 'STRING_VALUE', // required
+ *   UserId: 'STRING_VALUE', // required
  * };
  * const command = new ResetPersonalPINCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ResetPersonalPINResponse
+ *   User: { // User
+ *     UserId: 'STRING_VALUE', // required
+ *     AccountId: 'STRING_VALUE',
+ *     PrimaryEmail: 'STRING_VALUE',
+ *     PrimaryProvisionedNumber: 'STRING_VALUE',
+ *     DisplayName: 'STRING_VALUE',
+ *     LicenseType: 'Basic' || 'Plus' || 'Pro' || 'ProTrial',
+ *     UserType: 'PrivateUser' || 'SharedDevice',
+ *     UserRegistrationStatus: 'Unregistered' || 'Registered' || 'Suspended',
+ *     UserInvitationStatus: 'Pending' || 'Accepted' || 'Failed',
+ *     RegisteredOn: new Date('TIMESTAMP'),
+ *     InvitedOn: new Date('TIMESTAMP'),
+ *     AlexaForBusinessMetadata: { // AlexaForBusinessMetadata
+ *       IsAlexaForBusinessEnabled: true || false,
+ *       AlexaForBusinessRoomArn: 'STRING_VALUE',
+ *     },
+ *     PersonalPIN: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param ResetPersonalPINCommandInput - {@link ResetPersonalPINCommandInput}
@@ -79,6 +101,8 @@ export interface ResetPersonalPINCommandOutput extends ResetPersonalPINResponse,
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeServiceException}
+ * <p>Base exception class for all service exceptions from Chime service.</p>
  *
  */
 export class ResetPersonalPINCommand extends $Command<

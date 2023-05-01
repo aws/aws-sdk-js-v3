@@ -36,14 +36,17 @@ export interface StopStreamProcessorCommandOutput extends StopStreamProcessorRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RekognitionClient, StopStreamProcessorCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
- * // const { RekognitionClient, StopStreamProcessorCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
+ * import { RekognitionClient, StopStreamProcessorCommand } from '@aws-sdk/client-rekognition'; // ES Modules import
+ * // const { RekognitionClient, StopStreamProcessorCommand } = require('@aws-sdk/client-rekognition'); // CommonJS import
  * const client = new RekognitionClient(config);
  * const input = { // StopStreamProcessorRequest
- *   Name: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
  * };
  * const command = new StopStreamProcessorCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param StopStreamProcessorCommandInput - {@link StopStreamProcessorCommandInput}
@@ -75,6 +78,8 @@ export interface StopStreamProcessorCommandOutput extends StopStreamProcessorRes
  * @throws {@link ThrottlingException} (server fault)
  *  <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
  *
+ * @throws {@link RekognitionServiceException}
+ * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
  */
 export class StopStreamProcessorCommand extends $Command<

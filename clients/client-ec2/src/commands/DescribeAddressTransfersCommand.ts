@@ -36,19 +36,34 @@ export interface DescribeAddressTransfersCommandOutput extends DescribeAddressTr
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, DescribeAddressTransfersCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, DescribeAddressTransfersCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, DescribeAddressTransfersCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, DescribeAddressTransfersCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // DescribeAddressTransfersRequest
  *   AllocationIds: [ // AllocationIdList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  *   DryRun: true || false,
  * };
  * const command = new DescribeAddressTransfersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeAddressTransfersResult
+ *   AddressTransfers: [ // AddressTransferList
+ *     { // AddressTransfer
+ *       PublicIp: 'STRING_VALUE',
+ *       AllocationId: 'STRING_VALUE',
+ *       TransferAccountId: 'STRING_VALUE',
+ *       TransferOfferExpirationTimestamp: new Date('TIMESTAMP'),
+ *       TransferOfferAcceptedTimestamp: new Date('TIMESTAMP'),
+ *       AddressTransferStatus: 'pending' || 'disabled' || 'accepted',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeAddressTransfersCommandInput - {@link DescribeAddressTransfersCommandInput}
@@ -57,6 +72,8 @@ export interface DescribeAddressTransfersCommandOutput extends DescribeAddressTr
  * @see {@link DescribeAddressTransfersCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class DescribeAddressTransfersCommand extends $Command<

@@ -36,24 +36,39 @@ export interface DescribeCertificatesCommandOutput extends CertificateMessage, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DocDBClient, DescribeCertificatesCommand } from "@aws-sdk/client-docdb"; // ES Modules import
- * // const { DocDBClient, DescribeCertificatesCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
+ * import { DocDBClient, DescribeCertificatesCommand } from '@aws-sdk/client-docdb'; // ES Modules import
+ * // const { DocDBClient, DescribeCertificatesCommand } = require('@aws-sdk/client-docdb'); // CommonJS import
  * const client = new DocDBClient(config);
  * const input = { // DescribeCertificatesMessage
- *   CertificateIdentifier: "STRING_VALUE",
+ *   CertificateIdentifier: 'STRING_VALUE',
  *   Filters: [ // FilterList
  *     { // Filter
- *       Name: "STRING_VALUE", // required
+ *       Name: 'STRING_VALUE', // required
  *       Values: [ // FilterValueList // required
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
- *   MaxRecords: Number("int"),
- *   Marker: "STRING_VALUE",
+ *   MaxRecords: Number('int'),
+ *   Marker: 'STRING_VALUE',
  * };
  * const command = new DescribeCertificatesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CertificateMessage
+ *   Certificates: [ // CertificateList
+ *     { // Certificate
+ *       CertificateIdentifier: 'STRING_VALUE',
+ *       CertificateType: 'STRING_VALUE',
+ *       Thumbprint: 'STRING_VALUE',
+ *       ValidFrom: new Date('TIMESTAMP'),
+ *       ValidTill: new Date('TIMESTAMP'),
+ *       CertificateArn: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   Marker: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeCertificatesCommandInput - {@link DescribeCertificatesCommandInput}
@@ -66,6 +81,8 @@ export interface DescribeCertificatesCommandOutput extends CertificateMessage, _
  *  <p>
  *             <code>CertificateIdentifier</code> doesn't refer to an existing certificate. </p>
  *
+ * @throws {@link DocDBServiceException}
+ * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
  */
 export class DescribeCertificatesCommand extends $Command<

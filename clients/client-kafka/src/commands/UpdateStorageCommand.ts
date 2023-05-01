@@ -36,21 +36,27 @@ export interface UpdateStorageCommandOutput extends UpdateStorageResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KafkaClient, UpdateStorageCommand } from "@aws-sdk/client-kafka"; // ES Modules import
- * // const { KafkaClient, UpdateStorageCommand } = require("@aws-sdk/client-kafka"); // CommonJS import
+ * import { KafkaClient, UpdateStorageCommand } from '@aws-sdk/client-kafka'; // ES Modules import
+ * // const { KafkaClient, UpdateStorageCommand } = require('@aws-sdk/client-kafka'); // CommonJS import
  * const client = new KafkaClient(config);
  * const input = { // UpdateStorageRequest
- *   ClusterArn: "STRING_VALUE", // required
- *   CurrentVersion: "STRING_VALUE", // required
+ *   ClusterArn: 'STRING_VALUE', // required
+ *   CurrentVersion: 'STRING_VALUE', // required
  *   ProvisionedThroughput: { // ProvisionedThroughput
  *     Enabled: true || false,
- *     VolumeThroughput: Number("int"),
+ *     VolumeThroughput: Number('int'),
  *   },
- *   StorageMode: "LOCAL" || "TIERED",
- *   VolumeSizeGB: Number("int"),
+ *   StorageMode: 'LOCAL' || 'TIERED',
+ *   VolumeSizeGB: Number('int'),
  * };
  * const command = new UpdateStorageCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateStorageResponse
+ *   ClusterArn: 'STRING_VALUE',
+ *   ClusterOperationArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateStorageCommandInput - {@link UpdateStorageCommandInput}
@@ -80,6 +86,8 @@ export interface UpdateStorageCommandOutput extends UpdateStorageResponse, __Met
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>Returns information about an error.</p>
  *
+ * @throws {@link KafkaServiceException}
+ * <p>Base exception class for all service exceptions from Kafka service.</p>
  *
  */
 export class UpdateStorageCommand extends $Command<

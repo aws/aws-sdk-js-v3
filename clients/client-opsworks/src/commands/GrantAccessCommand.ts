@@ -39,15 +39,25 @@ export interface GrantAccessCommandOutput extends GrantAccessResult, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OpsWorksClient, GrantAccessCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
- * // const { OpsWorksClient, GrantAccessCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
+ * import { OpsWorksClient, GrantAccessCommand } from '@aws-sdk/client-opsworks'; // ES Modules import
+ * // const { OpsWorksClient, GrantAccessCommand } = require('@aws-sdk/client-opsworks'); // CommonJS import
  * const client = new OpsWorksClient(config);
  * const input = { // GrantAccessRequest
- *   InstanceId: "STRING_VALUE", // required
- *   ValidForInMinutes: Number("int"),
+ *   InstanceId: 'STRING_VALUE', // required
+ *   ValidForInMinutes: Number('int'),
  * };
  * const command = new GrantAccessCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GrantAccessResult
+ *   TemporaryCredential: { // TemporaryCredential
+ *     Username: 'STRING_VALUE',
+ *     Password: 'STRING_VALUE',
+ *     ValidForInMinutes: Number('int'),
+ *     InstanceId: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GrantAccessCommandInput - {@link GrantAccessCommandInput}
@@ -62,6 +72,8 @@ export interface GrantAccessCommandOutput extends GrantAccessResult, __MetadataB
  * @throws {@link ValidationException} (client fault)
  *  <p>Indicates that a request was not valid.</p>
  *
+ * @throws {@link OpsWorksServiceException}
+ * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
  */
 export class GrantAccessCommand extends $Command<

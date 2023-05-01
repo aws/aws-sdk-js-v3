@@ -45,19 +45,31 @@ export interface RemoveTargetsCommandOutput extends RemoveTargetsResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EventBridgeClient, RemoveTargetsCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
- * // const { EventBridgeClient, RemoveTargetsCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
+ * import { EventBridgeClient, RemoveTargetsCommand } from '@aws-sdk/client-eventbridge'; // ES Modules import
+ * // const { EventBridgeClient, RemoveTargetsCommand } = require('@aws-sdk/client-eventbridge'); // CommonJS import
  * const client = new EventBridgeClient(config);
  * const input = { // RemoveTargetsRequest
- *   Rule: "STRING_VALUE", // required
- *   EventBusName: "STRING_VALUE",
+ *   Rule: 'STRING_VALUE', // required
+ *   EventBusName: 'STRING_VALUE',
  *   Ids: [ // TargetIdList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   Force: true || false,
  * };
  * const command = new RemoveTargetsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // RemoveTargetsResponse
+ *   FailedEntryCount: Number('int'),
+ *   FailedEntries: [ // RemoveTargetsResultEntryList
+ *     { // RemoveTargetsResultEntry
+ *       TargetId: 'STRING_VALUE',
+ *       ErrorCode: 'STRING_VALUE',
+ *       ErrorMessage: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param RemoveTargetsCommandInput - {@link RemoveTargetsCommandInput}
@@ -83,6 +95,8 @@ export interface RemoveTargetsCommandOutput extends RemoveTargetsResponse, __Met
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>An entity that you specified does not exist.</p>
  *
+ * @throws {@link EventBridgeServiceException}
+ * <p>Base exception class for all service exceptions from EventBridge service.</p>
  *
  */
 export class RemoveTargetsCommand extends $Command<

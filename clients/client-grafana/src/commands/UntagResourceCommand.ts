@@ -37,17 +37,20 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GrafanaClient, UntagResourceCommand } from "@aws-sdk/client-grafana"; // ES Modules import
- * // const { GrafanaClient, UntagResourceCommand } = require("@aws-sdk/client-grafana"); // CommonJS import
+ * import { GrafanaClient, UntagResourceCommand } from '@aws-sdk/client-grafana'; // ES Modules import
+ * // const { GrafanaClient, UntagResourceCommand } = require('@aws-sdk/client-grafana'); // CommonJS import
  * const client = new GrafanaClient(config);
  * const input = { // UntagResourceRequest
- *   resourceArn: "STRING_VALUE", // required
+ *   resourceArn: 'STRING_VALUE', // required
  *   tagKeys: [ // TagKeys // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new UntagResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UntagResourceCommandInput - {@link UntagResourceCommandInput}
@@ -71,6 +74,8 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>The value of a parameter in the request caused an error.</p>
  *
+ * @throws {@link GrafanaServiceException}
+ * <p>Base exception class for all service exceptions from Grafana service.</p>
  *
  */
 export class UntagResourceCommand extends $Command<

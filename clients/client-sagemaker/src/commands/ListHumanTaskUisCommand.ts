@@ -36,18 +36,30 @@ export interface ListHumanTaskUisCommandOutput extends ListHumanTaskUisResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, ListHumanTaskUisCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, ListHumanTaskUisCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, ListHumanTaskUisCommand } from '@aws-sdk/client-sagemaker'; // ES Modules import
+ * // const { SageMakerClient, ListHumanTaskUisCommand } = require('@aws-sdk/client-sagemaker'); // CommonJS import
  * const client = new SageMakerClient(config);
  * const input = { // ListHumanTaskUisRequest
- *   CreationTimeAfter: new Date("TIMESTAMP"),
- *   CreationTimeBefore: new Date("TIMESTAMP"),
- *   SortOrder: "Ascending" || "Descending",
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   CreationTimeAfter: new Date('TIMESTAMP'),
+ *   CreationTimeBefore: new Date('TIMESTAMP'),
+ *   SortOrder: 'Ascending' || 'Descending',
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListHumanTaskUisCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListHumanTaskUisResponse
+ *   HumanTaskUiSummaries: [ // HumanTaskUiSummaries // required
+ *     { // HumanTaskUiSummary
+ *       HumanTaskUiName: 'STRING_VALUE', // required
+ *       HumanTaskUiArn: 'STRING_VALUE', // required
+ *       CreationTime: new Date('TIMESTAMP'), // required
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListHumanTaskUisCommandInput - {@link ListHumanTaskUisCommandInput}
@@ -56,6 +68,8 @@ export interface ListHumanTaskUisCommandOutput extends ListHumanTaskUisResponse,
  * @see {@link ListHumanTaskUisCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class ListHumanTaskUisCommand extends $Command<

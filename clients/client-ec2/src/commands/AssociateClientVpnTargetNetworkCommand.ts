@@ -42,17 +42,26 @@ export interface AssociateClientVpnTargetNetworkCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, AssociateClientVpnTargetNetworkCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, AssociateClientVpnTargetNetworkCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, AssociateClientVpnTargetNetworkCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, AssociateClientVpnTargetNetworkCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // AssociateClientVpnTargetNetworkRequest
- *   ClientVpnEndpointId: "STRING_VALUE", // required
- *   SubnetId: "STRING_VALUE", // required
- *   ClientToken: "STRING_VALUE",
+ *   ClientVpnEndpointId: 'STRING_VALUE', // required
+ *   SubnetId: 'STRING_VALUE', // required
+ *   ClientToken: 'STRING_VALUE',
  *   DryRun: true || false,
  * };
  * const command = new AssociateClientVpnTargetNetworkCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AssociateClientVpnTargetNetworkResult
+ *   AssociationId: 'STRING_VALUE',
+ *   Status: { // AssociationStatus
+ *     Code: 'associating' || 'associated' || 'association-failed' || 'disassociating' || 'disassociated',
+ *     Message: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param AssociateClientVpnTargetNetworkCommandInput - {@link AssociateClientVpnTargetNetworkCommandInput}
@@ -61,6 +70,8 @@ export interface AssociateClientVpnTargetNetworkCommandOutput
  * @see {@link AssociateClientVpnTargetNetworkCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class AssociateClientVpnTargetNetworkCommand extends $Command<

@@ -36,29 +36,53 @@ export interface UpdateRobotApplicationCommandOutput extends UpdateRobotApplicat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RoboMakerClient, UpdateRobotApplicationCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
- * // const { RoboMakerClient, UpdateRobotApplicationCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
+ * import { RoboMakerClient, UpdateRobotApplicationCommand } from '@aws-sdk/client-robomaker'; // ES Modules import
+ * // const { RoboMakerClient, UpdateRobotApplicationCommand } = require('@aws-sdk/client-robomaker'); // CommonJS import
  * const client = new RoboMakerClient(config);
  * const input = { // UpdateRobotApplicationRequest
- *   application: "STRING_VALUE", // required
+ *   application: 'STRING_VALUE', // required
  *   sources: [ // SourceConfigs
  *     { // SourceConfig
- *       s3Bucket: "STRING_VALUE",
- *       s3Key: "STRING_VALUE",
- *       architecture: "STRING_VALUE",
+ *       s3Bucket: 'STRING_VALUE',
+ *       s3Key: 'STRING_VALUE',
+ *       architecture: 'STRING_VALUE',
  *     },
  *   ],
  *   robotSoftwareSuite: { // RobotSoftwareSuite
- *     name: "STRING_VALUE",
- *     version: "STRING_VALUE",
+ *     name: 'STRING_VALUE',
+ *     version: 'STRING_VALUE',
  *   },
- *   currentRevisionId: "STRING_VALUE",
+ *   currentRevisionId: 'STRING_VALUE',
  *   environment: { // Environment
- *     uri: "STRING_VALUE",
+ *     uri: 'STRING_VALUE',
  *   },
  * };
  * const command = new UpdateRobotApplicationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateRobotApplicationResponse
+ *   arn: 'STRING_VALUE',
+ *   name: 'STRING_VALUE',
+ *   version: 'STRING_VALUE',
+ *   sources: [ // Sources
+ *     { // Source
+ *       s3Bucket: 'STRING_VALUE',
+ *       s3Key: 'STRING_VALUE',
+ *       etag: 'STRING_VALUE',
+ *       architecture: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   robotSoftwareSuite: { // RobotSoftwareSuite
+ *     name: 'STRING_VALUE',
+ *     version: 'STRING_VALUE',
+ *   },
+ *   lastUpdatedAt: new Date('TIMESTAMP'),
+ *   revisionId: 'STRING_VALUE',
+ *   environment: { // Environment
+ *     uri: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateRobotApplicationCommandInput - {@link UpdateRobotApplicationCommandInput}
@@ -84,6 +108,8 @@ export interface UpdateRobotApplicationCommandOutput extends UpdateRobotApplicat
  * @throws {@link ThrottlingException} (client fault)
  *  <p>AWS RoboMaker is temporarily unable to process the request. Try your call again.</p>
  *
+ * @throws {@link RoboMakerServiceException}
+ * <p>Base exception class for all service exceptions from RoboMaker service.</p>
  *
  */
 export class UpdateRobotApplicationCommand extends $Command<

@@ -36,16 +36,40 @@ export interface UpdateCollaborationCommandOutput extends UpdateCollaborationOut
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CleanRoomsClient, UpdateCollaborationCommand } from "@aws-sdk/client-cleanrooms"; // ES Modules import
- * // const { CleanRoomsClient, UpdateCollaborationCommand } = require("@aws-sdk/client-cleanrooms"); // CommonJS import
+ * import { CleanRoomsClient, UpdateCollaborationCommand } from '@aws-sdk/client-cleanrooms'; // ES Modules import
+ * // const { CleanRoomsClient, UpdateCollaborationCommand } = require('@aws-sdk/client-cleanrooms'); // CommonJS import
  * const client = new CleanRoomsClient(config);
  * const input = { // UpdateCollaborationInput
- *   collaborationIdentifier: "STRING_VALUE", // required
- *   name: "STRING_VALUE",
- *   description: "STRING_VALUE",
+ *   collaborationIdentifier: 'STRING_VALUE', // required
+ *   name: 'STRING_VALUE',
+ *   description: 'STRING_VALUE',
  * };
  * const command = new UpdateCollaborationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateCollaborationOutput
+ *   collaboration: { // Collaboration
+ *     id: 'STRING_VALUE', // required
+ *     arn: 'STRING_VALUE', // required
+ *     name: 'STRING_VALUE', // required
+ *     description: 'STRING_VALUE',
+ *     creatorAccountId: 'STRING_VALUE', // required
+ *     creatorDisplayName: 'STRING_VALUE', // required
+ *     createTime: new Date('TIMESTAMP'), // required
+ *     updateTime: new Date('TIMESTAMP'), // required
+ *     memberStatus: 'STRING_VALUE', // required
+ *     membershipId: 'STRING_VALUE',
+ *     membershipArn: 'STRING_VALUE',
+ *     dataEncryptionMetadata: { // DataEncryptionMetadata
+ *       allowCleartext: true || false, // required
+ *       allowDuplicates: true || false, // required
+ *       allowJoinsOnColumnsWithDifferentNames: true || false, // required
+ *       preserveNulls: true || false, // required
+ *     },
+ *     queryLogStatus: 'STRING_VALUE', // required
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateCollaborationCommandInput - {@link UpdateCollaborationCommandInput}
@@ -66,6 +90,8 @@ export interface UpdateCollaborationCommandOutput extends UpdateCollaborationOut
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the specified constraints.</p>
  *
+ * @throws {@link CleanRoomsServiceException}
+ * <p>Base exception class for all service exceptions from CleanRooms service.</p>
  *
  */
 export class UpdateCollaborationCommand extends $Command<

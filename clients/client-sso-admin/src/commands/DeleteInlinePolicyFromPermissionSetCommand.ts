@@ -44,15 +44,18 @@ export interface DeleteInlinePolicyFromPermissionSetCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSOAdminClient, DeleteInlinePolicyFromPermissionSetCommand } from "@aws-sdk/client-sso-admin"; // ES Modules import
- * // const { SSOAdminClient, DeleteInlinePolicyFromPermissionSetCommand } = require("@aws-sdk/client-sso-admin"); // CommonJS import
+ * import { SSOAdminClient, DeleteInlinePolicyFromPermissionSetCommand } from '@aws-sdk/client-sso-admin'; // ES Modules import
+ * // const { SSOAdminClient, DeleteInlinePolicyFromPermissionSetCommand } = require('@aws-sdk/client-sso-admin'); // CommonJS import
  * const client = new SSOAdminClient(config);
  * const input = { // DeleteInlinePolicyFromPermissionSetRequest
- *   InstanceArn: "STRING_VALUE", // required
- *   PermissionSetArn: "STRING_VALUE", // required
+ *   InstanceArn: 'STRING_VALUE', // required
+ *   PermissionSetArn: 'STRING_VALUE', // required
  * };
  * const command = new DeleteInlinePolicyFromPermissionSetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteInlinePolicyFromPermissionSetCommandInput - {@link DeleteInlinePolicyFromPermissionSetCommandInput}
@@ -84,6 +87,8 @@ export interface DeleteInlinePolicyFromPermissionSetCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The request failed because it contains a syntax error.</p>
  *
+ * @throws {@link SSOAdminServiceException}
+ * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
  */
 export class DeleteInlinePolicyFromPermissionSetCommand extends $Command<

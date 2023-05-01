@@ -114,19 +114,41 @@ export interface PollForTaskCommandOutput extends PollForTaskOutput, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DataPipelineClient, PollForTaskCommand } from "@aws-sdk/client-data-pipeline"; // ES Modules import
- * // const { DataPipelineClient, PollForTaskCommand } = require("@aws-sdk/client-data-pipeline"); // CommonJS import
+ * import { DataPipelineClient, PollForTaskCommand } from '@aws-sdk/client-data-pipeline'; // ES Modules import
+ * // const { DataPipelineClient, PollForTaskCommand } = require('@aws-sdk/client-data-pipeline'); // CommonJS import
  * const client = new DataPipelineClient(config);
  * const input = { // PollForTaskInput
- *   workerGroup: "STRING_VALUE", // required
- *   hostname: "STRING_VALUE",
+ *   workerGroup: 'STRING_VALUE', // required
+ *   hostname: 'STRING_VALUE',
  *   instanceIdentity: { // InstanceIdentity
- *     document: "STRING_VALUE",
- *     signature: "STRING_VALUE",
+ *     document: 'STRING_VALUE',
+ *     signature: 'STRING_VALUE',
  *   },
  * };
  * const command = new PollForTaskCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PollForTaskOutput
+ *   taskObject: { // TaskObject
+ *     taskId: 'STRING_VALUE',
+ *     pipelineId: 'STRING_VALUE',
+ *     attemptId: 'STRING_VALUE',
+ *     objects: { // PipelineObjectMap
+ *       '<keys>': { // PipelineObject
+ *         id: 'STRING_VALUE', // required
+ *         name: 'STRING_VALUE', // required
+ *         fields: [ // fieldList // required
+ *           { // Field
+ *             key: 'STRING_VALUE', // required
+ *             stringValue: 'STRING_VALUE',
+ *             refValue: 'STRING_VALUE',
+ *           },
+ *         ],
+ *       },
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param PollForTaskCommandInput - {@link PollForTaskCommandInput}
@@ -144,6 +166,8 @@ export interface PollForTaskCommandOutput extends PollForTaskOutput, __MetadataB
  * @throws {@link TaskNotFoundException} (client fault)
  *  <p>The specified task was not found. </p>
  *
+ * @throws {@link DataPipelineServiceException}
+ * <p>Base exception class for all service exceptions from DataPipeline service.</p>
  *
  */
 export class PollForTaskCommand extends $Command<

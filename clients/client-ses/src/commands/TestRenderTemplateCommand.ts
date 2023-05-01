@@ -38,15 +38,20 @@ export interface TestRenderTemplateCommandOutput extends TestRenderTemplateRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SESClient, TestRenderTemplateCommand } from "@aws-sdk/client-ses"; // ES Modules import
- * // const { SESClient, TestRenderTemplateCommand } = require("@aws-sdk/client-ses"); // CommonJS import
+ * import { SESClient, TestRenderTemplateCommand } from '@aws-sdk/client-ses'; // ES Modules import
+ * // const { SESClient, TestRenderTemplateCommand } = require('@aws-sdk/client-ses'); // CommonJS import
  * const client = new SESClient(config);
  * const input = { // TestRenderTemplateRequest
- *   TemplateName: "STRING_VALUE", // required
- *   TemplateData: "STRING_VALUE", // required
+ *   TemplateName: 'STRING_VALUE', // required
+ *   TemplateData: 'STRING_VALUE', // required
  * };
  * const command = new TestRenderTemplateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // TestRenderTemplateResponse
+ *   RenderedTemplate: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param TestRenderTemplateCommandInput - {@link TestRenderTemplateCommandInput}
@@ -68,6 +73,8 @@ export interface TestRenderTemplateCommandOutput extends TestRenderTemplateRespo
  *  <p>Indicates that the Template object you specified does not exist in your Amazon SES
  *             account.</p>
  *
+ * @throws {@link SESServiceException}
+ * <p>Base exception class for all service exceptions from SES service.</p>
  *
  */
 export class TestRenderTemplateCommand extends $Command<

@@ -51,15 +51,25 @@ export interface GetVaultNotificationsCommandOutput extends GetVaultNotification
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlacierClient, GetVaultNotificationsCommand } from "@aws-sdk/client-glacier"; // ES Modules import
- * // const { GlacierClient, GetVaultNotificationsCommand } = require("@aws-sdk/client-glacier"); // CommonJS import
+ * import { GlacierClient, GetVaultNotificationsCommand } from '@aws-sdk/client-glacier'; // ES Modules import
+ * // const { GlacierClient, GetVaultNotificationsCommand } = require('@aws-sdk/client-glacier'); // CommonJS import
  * const client = new GlacierClient(config);
  * const input = { // GetVaultNotificationsInput
- *   accountId: "STRING_VALUE", // required
- *   vaultName: "STRING_VALUE", // required
+ *   accountId: 'STRING_VALUE', // required
+ *   vaultName: 'STRING_VALUE', // required
  * };
  * const command = new GetVaultNotificationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetVaultNotificationsOutput
+ *   vaultNotificationConfig: { // VaultNotificationConfig
+ *     SNSTopic: 'STRING_VALUE',
+ *     Events: [ // NotificationEventList
+ *       'STRING_VALUE',
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetVaultNotificationsCommandInput - {@link GetVaultNotificationsCommandInput}
@@ -81,6 +91,8 @@ export interface GetVaultNotificationsCommandOutput extends GetVaultNotification
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>Returned if the service cannot complete the request.</p>
  *
+ * @throws {@link GlacierServiceException}
+ * <p>Base exception class for all service exceptions from Glacier service.</p>
  *
  * @example To get the notification-configuration for the specified vault
  * ```javascript

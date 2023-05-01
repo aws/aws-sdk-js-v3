@@ -49,19 +49,22 @@ export interface CreateCustomVerificationEmailTemplateCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SESv2Client, CreateCustomVerificationEmailTemplateCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
- * // const { SESv2Client, CreateCustomVerificationEmailTemplateCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
+ * import { SESv2Client, CreateCustomVerificationEmailTemplateCommand } from '@aws-sdk/client-sesv2'; // ES Modules import
+ * // const { SESv2Client, CreateCustomVerificationEmailTemplateCommand } = require('@aws-sdk/client-sesv2'); // CommonJS import
  * const client = new SESv2Client(config);
  * const input = { // CreateCustomVerificationEmailTemplateRequest
- *   TemplateName: "STRING_VALUE", // required
- *   FromEmailAddress: "STRING_VALUE", // required
- *   TemplateSubject: "STRING_VALUE", // required
- *   TemplateContent: "STRING_VALUE", // required
- *   SuccessRedirectionURL: "STRING_VALUE", // required
- *   FailureRedirectionURL: "STRING_VALUE", // required
+ *   TemplateName: 'STRING_VALUE', // required
+ *   FromEmailAddress: 'STRING_VALUE', // required
+ *   TemplateSubject: 'STRING_VALUE', // required
+ *   TemplateContent: 'STRING_VALUE', // required
+ *   SuccessRedirectionURL: 'STRING_VALUE', // required
+ *   FailureRedirectionURL: 'STRING_VALUE', // required
  * };
  * const command = new CreateCustomVerificationEmailTemplateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param CreateCustomVerificationEmailTemplateCommandInput - {@link CreateCustomVerificationEmailTemplateCommandInput}
@@ -85,6 +88,8 @@ export interface CreateCustomVerificationEmailTemplateCommandOutput
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Too many requests have been made to the operation.</p>
  *
+ * @throws {@link SESv2ServiceException}
+ * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
  */
 export class CreateCustomVerificationEmailTemplateCommand extends $Command<

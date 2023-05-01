@@ -36,14 +36,24 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MediaConvertClient, ListTagsForResourceCommand } from "@aws-sdk/client-mediaconvert"; // ES Modules import
- * // const { MediaConvertClient, ListTagsForResourceCommand } = require("@aws-sdk/client-mediaconvert"); // CommonJS import
+ * import { MediaConvertClient, ListTagsForResourceCommand } from '@aws-sdk/client-mediaconvert'; // ES Modules import
+ * // const { MediaConvertClient, ListTagsForResourceCommand } = require('@aws-sdk/client-mediaconvert'); // CommonJS import
  * const client = new MediaConvertClient(config);
  * const input = { // ListTagsForResourceRequest
- *   Arn: "STRING_VALUE", // required
+ *   Arn: 'STRING_VALUE', // required
  * };
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTagsForResourceResponse
+ *   ResourceTags: { // ResourceTags
+ *     Arn: 'STRING_VALUE',
+ *     Tags: { // __mapOf__string
+ *       '<keys>': 'STRING_VALUE',
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param ListTagsForResourceCommandInput - {@link ListTagsForResourceCommandInput}
@@ -70,6 +80,8 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @throws {@link TooManyRequestsException} (client fault)
  *  Too many requests have been sent in too short of a time. The service limits the rate at which it will accept requests.
  *
+ * @throws {@link MediaConvertServiceException}
+ * <p>Base exception class for all service exceptions from MediaConvert service.</p>
  *
  */
 export class ListTagsForResourceCommand extends $Command<

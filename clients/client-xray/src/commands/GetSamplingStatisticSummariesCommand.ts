@@ -41,14 +41,28 @@ export interface GetSamplingStatisticSummariesCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { XRayClient, GetSamplingStatisticSummariesCommand } from "@aws-sdk/client-xray"; // ES Modules import
- * // const { XRayClient, GetSamplingStatisticSummariesCommand } = require("@aws-sdk/client-xray"); // CommonJS import
+ * import { XRayClient, GetSamplingStatisticSummariesCommand } from '@aws-sdk/client-xray'; // ES Modules import
+ * // const { XRayClient, GetSamplingStatisticSummariesCommand } = require('@aws-sdk/client-xray'); // CommonJS import
  * const client = new XRayClient(config);
  * const input = { // GetSamplingStatisticSummariesRequest
- *   NextToken: "STRING_VALUE",
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new GetSamplingStatisticSummariesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetSamplingStatisticSummariesResult
+ *   SamplingStatisticSummaries: [ // SamplingStatisticSummaryList
+ *     { // SamplingStatisticSummary
+ *       RuleName: 'STRING_VALUE',
+ *       Timestamp: new Date('TIMESTAMP'),
+ *       RequestCount: Number('int'),
+ *       BorrowCount: Number('int'),
+ *       SampledCount: Number('int'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetSamplingStatisticSummariesCommandInput - {@link GetSamplingStatisticSummariesCommandInput}
@@ -63,6 +77,8 @@ export interface GetSamplingStatisticSummariesCommandOutput
  * @throws {@link ThrottledException} (client fault)
  *  <p>The request exceeds the maximum number of requests per second.</p>
  *
+ * @throws {@link XRayServiceException}
+ * <p>Base exception class for all service exceptions from XRay service.</p>
  *
  */
 export class GetSamplingStatisticSummariesCommand extends $Command<

@@ -37,12 +37,15 @@ export interface DeleteNotificationChannelCommandOutput extends __MetadataBearer
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FMSClient, DeleteNotificationChannelCommand } from "@aws-sdk/client-fms"; // ES Modules import
- * // const { FMSClient, DeleteNotificationChannelCommand } = require("@aws-sdk/client-fms"); // CommonJS import
+ * import { FMSClient, DeleteNotificationChannelCommand } from '@aws-sdk/client-fms'; // ES Modules import
+ * // const { FMSClient, DeleteNotificationChannelCommand } = require('@aws-sdk/client-fms'); // CommonJS import
  * const client = new FMSClient(config);
  * const input = {};
  * const command = new DeleteNotificationChannelCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteNotificationChannelCommandInput - {@link DeleteNotificationChannelCommandInput}
@@ -65,6 +68,8 @@ export interface DeleteNotificationChannelCommandOutput extends __MetadataBearer
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link FMSServiceException}
+ * <p>Base exception class for all service exceptions from FMS service.</p>
  *
  */
 export class DeleteNotificationChannelCommand extends $Command<

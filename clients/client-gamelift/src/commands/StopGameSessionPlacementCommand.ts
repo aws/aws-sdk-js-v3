@@ -38,14 +38,54 @@ export interface StopGameSessionPlacementCommandOutput extends StopGameSessionPl
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GameLiftClient, StopGameSessionPlacementCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
- * // const { GameLiftClient, StopGameSessionPlacementCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
+ * import { GameLiftClient, StopGameSessionPlacementCommand } from '@aws-sdk/client-gamelift'; // ES Modules import
+ * // const { GameLiftClient, StopGameSessionPlacementCommand } = require('@aws-sdk/client-gamelift'); // CommonJS import
  * const client = new GameLiftClient(config);
  * const input = { // StopGameSessionPlacementInput
- *   PlacementId: "STRING_VALUE", // required
+ *   PlacementId: 'STRING_VALUE', // required
  * };
  * const command = new StopGameSessionPlacementCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StopGameSessionPlacementOutput
+ *   GameSessionPlacement: { // GameSessionPlacement
+ *     PlacementId: 'STRING_VALUE',
+ *     GameSessionQueueName: 'STRING_VALUE',
+ *     Status: 'PENDING' || 'FULFILLED' || 'CANCELLED' || 'TIMED_OUT' || 'FAILED',
+ *     GameProperties: [ // GamePropertyList
+ *       { // GameProperty
+ *         Key: 'STRING_VALUE', // required
+ *         Value: 'STRING_VALUE', // required
+ *       },
+ *     ],
+ *     MaximumPlayerSessionCount: Number('int'),
+ *     GameSessionName: 'STRING_VALUE',
+ *     GameSessionId: 'STRING_VALUE',
+ *     GameSessionArn: 'STRING_VALUE',
+ *     GameSessionRegion: 'STRING_VALUE',
+ *     PlayerLatencies: [ // PlayerLatencyList
+ *       { // PlayerLatency
+ *         PlayerId: 'STRING_VALUE',
+ *         RegionIdentifier: 'STRING_VALUE',
+ *         LatencyInMilliseconds: Number('float'),
+ *       },
+ *     ],
+ *     StartTime: new Date('TIMESTAMP'),
+ *     EndTime: new Date('TIMESTAMP'),
+ *     IpAddress: 'STRING_VALUE',
+ *     DnsName: 'STRING_VALUE',
+ *     Port: Number('int'),
+ *     PlacedPlayerSessions: [ // PlacedPlayerSessionList
+ *       { // PlacedPlayerSession
+ *         PlayerId: 'STRING_VALUE',
+ *         PlayerSessionId: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     GameSessionData: 'STRING_VALUE',
+ *     MatchmakerData: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param StopGameSessionPlacementCommandInput - {@link StopGameSessionPlacementCommandInput}
@@ -68,6 +108,8 @@ export interface StopGameSessionPlacementCommandOutput extends StopGameSessionPl
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client failed authentication. Clients should not retry such requests.</p>
  *
+ * @throws {@link GameLiftServiceException}
+ * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
  */
 export class StopGameSessionPlacementCommand extends $Command<

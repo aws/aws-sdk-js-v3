@@ -41,15 +41,23 @@ export interface DescribeConfigurationRevisionCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MqClient, DescribeConfigurationRevisionCommand } from "@aws-sdk/client-mq"; // ES Modules import
- * // const { MqClient, DescribeConfigurationRevisionCommand } = require("@aws-sdk/client-mq"); // CommonJS import
+ * import { MqClient, DescribeConfigurationRevisionCommand } from '@aws-sdk/client-mq'; // ES Modules import
+ * // const { MqClient, DescribeConfigurationRevisionCommand } = require('@aws-sdk/client-mq'); // CommonJS import
  * const client = new MqClient(config);
  * const input = { // DescribeConfigurationRevisionRequest
- *   ConfigurationId: "STRING_VALUE", // required
- *   ConfigurationRevision: "STRING_VALUE", // required
+ *   ConfigurationId: 'STRING_VALUE', // required
+ *   ConfigurationRevision: 'STRING_VALUE', // required
  * };
  * const command = new DescribeConfigurationRevisionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeConfigurationRevisionResponse
+ *   ConfigurationId: 'STRING_VALUE',
+ *   Created: new Date('TIMESTAMP'),
+ *   Data: 'STRING_VALUE',
+ *   Description: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeConfigurationRevisionCommandInput - {@link DescribeConfigurationRevisionCommandInput}
@@ -70,6 +78,8 @@ export interface DescribeConfigurationRevisionCommandOutput
  * @throws {@link NotFoundException} (client fault)
  *  <p>Returns information about an error.</p>
  *
+ * @throws {@link MqServiceException}
+ * <p>Base exception class for all service exceptions from Mq service.</p>
  *
  */
 export class DescribeConfigurationRevisionCommand extends $Command<

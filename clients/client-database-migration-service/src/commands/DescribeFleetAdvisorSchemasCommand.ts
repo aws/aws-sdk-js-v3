@@ -42,23 +42,56 @@ export interface DescribeFleetAdvisorSchemasCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DatabaseMigrationServiceClient, DescribeFleetAdvisorSchemasCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
- * // const { DatabaseMigrationServiceClient, DescribeFleetAdvisorSchemasCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
+ * import { DatabaseMigrationServiceClient, DescribeFleetAdvisorSchemasCommand } from '@aws-sdk/client-database-migration-service'; // ES Modules import
+ * // const { DatabaseMigrationServiceClient, DescribeFleetAdvisorSchemasCommand } = require('@aws-sdk/client-database-migration-service'); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
  * const input = { // DescribeFleetAdvisorSchemasRequest
  *   Filters: [ // FilterList
  *     { // Filter
- *       Name: "STRING_VALUE", // required
+ *       Name: 'STRING_VALUE', // required
  *       Values: [ // FilterValueList // required
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
- *   MaxRecords: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxRecords: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new DescribeFleetAdvisorSchemasCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeFleetAdvisorSchemasResponse
+ *   FleetAdvisorSchemas: [ // FleetAdvisorSchemaList
+ *     { // SchemaResponse
+ *       CodeLineCount: Number('long'),
+ *       CodeSize: Number('long'),
+ *       Complexity: 'STRING_VALUE',
+ *       Server: { // ServerShortInfoResponse
+ *         ServerId: 'STRING_VALUE',
+ *         IpAddress: 'STRING_VALUE',
+ *         ServerName: 'STRING_VALUE',
+ *       },
+ *       DatabaseInstance: { // DatabaseShortInfoResponse
+ *         DatabaseId: 'STRING_VALUE',
+ *         DatabaseName: 'STRING_VALUE',
+ *         DatabaseIpAddress: 'STRING_VALUE',
+ *         DatabaseEngine: 'STRING_VALUE',
+ *       },
+ *       SchemaId: 'STRING_VALUE',
+ *       SchemaName: 'STRING_VALUE',
+ *       OriginalSchema: { // SchemaShortInfoResponse
+ *         SchemaId: 'STRING_VALUE',
+ *         SchemaName: 'STRING_VALUE',
+ *         DatabaseId: 'STRING_VALUE',
+ *         DatabaseName: 'STRING_VALUE',
+ *         DatabaseIpAddress: 'STRING_VALUE',
+ *       },
+ *       Similarity: Number('double'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeFleetAdvisorSchemasCommandInput - {@link DescribeFleetAdvisorSchemasCommandInput}
@@ -70,6 +103,8 @@ export interface DescribeFleetAdvisorSchemasCommandOutput
  * @throws {@link InvalidResourceStateFault} (client fault)
  *  <p>The resource is in a state that prevents it from being used for database migration.</p>
  *
+ * @throws {@link DatabaseMigrationServiceServiceException}
+ * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
  */
 export class DescribeFleetAdvisorSchemasCommand extends $Command<

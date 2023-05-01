@@ -43,26 +43,40 @@ export interface AddResourcePermissionsCommandOutput extends AddResourcePermissi
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkDocsClient, AddResourcePermissionsCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
- * // const { WorkDocsClient, AddResourcePermissionsCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import
+ * import { WorkDocsClient, AddResourcePermissionsCommand } from '@aws-sdk/client-workdocs'; // ES Modules import
+ * // const { WorkDocsClient, AddResourcePermissionsCommand } = require('@aws-sdk/client-workdocs'); // CommonJS import
  * const client = new WorkDocsClient(config);
  * const input = { // AddResourcePermissionsRequest
- *   AuthenticationToken: "STRING_VALUE",
- *   ResourceId: "STRING_VALUE", // required
+ *   AuthenticationToken: 'STRING_VALUE',
+ *   ResourceId: 'STRING_VALUE', // required
  *   Principals: [ // SharePrincipalList // required
  *     { // SharePrincipal
- *       Id: "STRING_VALUE", // required
- *       Type: "USER" || "GROUP" || "INVITE" || "ANONYMOUS" || "ORGANIZATION", // required
- *       Role: "VIEWER" || "CONTRIBUTOR" || "OWNER" || "COOWNER", // required
+ *       Id: 'STRING_VALUE', // required
+ *       Type: 'USER' || 'GROUP' || 'INVITE' || 'ANONYMOUS' || 'ORGANIZATION', // required
+ *       Role: 'VIEWER' || 'CONTRIBUTOR' || 'OWNER' || 'COOWNER', // required
  *     },
  *   ],
  *   NotificationOptions: { // NotificationOptions
  *     SendEmail: true || false,
- *     EmailMessage: "STRING_VALUE",
+ *     EmailMessage: 'STRING_VALUE',
  *   },
  * };
  * const command = new AddResourcePermissionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AddResourcePermissionsResponse
+ *   ShareResults: [ // ShareResultsList
+ *     { // ShareResult
+ *       PrincipalId: 'STRING_VALUE',
+ *       InviteePrincipalId: 'STRING_VALUE',
+ *       Role: 'VIEWER' || 'CONTRIBUTOR' || 'OWNER' || 'COOWNER',
+ *       Status: 'SUCCESS' || 'FAILURE',
+ *       ShareId: 'STRING_VALUE',
+ *       StatusMessage: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param AddResourcePermissionsCommandInput - {@link AddResourcePermissionsCommandInput}
@@ -88,6 +102,8 @@ export interface AddResourcePermissionsCommandOutput extends AddResourcePermissi
  * @throws {@link UnauthorizedResourceAccessException} (client fault)
  *  <p>The caller does not have access to perform the action on the resource.</p>
  *
+ * @throws {@link WorkDocsServiceException}
+ * <p>Base exception class for all service exceptions from WorkDocs service.</p>
  *
  */
 export class AddResourcePermissionsCommand extends $Command<

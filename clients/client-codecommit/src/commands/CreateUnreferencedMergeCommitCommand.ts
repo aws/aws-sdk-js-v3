@@ -48,44 +48,50 @@ export interface CreateUnreferencedMergeCommitCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeCommitClient, CreateUnreferencedMergeCommitCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
- * // const { CodeCommitClient, CreateUnreferencedMergeCommitCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
+ * import { CodeCommitClient, CreateUnreferencedMergeCommitCommand } from '@aws-sdk/client-codecommit'; // ES Modules import
+ * // const { CodeCommitClient, CreateUnreferencedMergeCommitCommand } = require('@aws-sdk/client-codecommit'); // CommonJS import
  * const client = new CodeCommitClient(config);
  * const input = { // CreateUnreferencedMergeCommitInput
- *   repositoryName: "STRING_VALUE", // required
- *   sourceCommitSpecifier: "STRING_VALUE", // required
- *   destinationCommitSpecifier: "STRING_VALUE", // required
- *   mergeOption: "STRING_VALUE", // required
- *   conflictDetailLevel: "STRING_VALUE",
- *   conflictResolutionStrategy: "STRING_VALUE",
- *   authorName: "STRING_VALUE",
- *   email: "STRING_VALUE",
- *   commitMessage: "STRING_VALUE",
+ *   repositoryName: 'STRING_VALUE', // required
+ *   sourceCommitSpecifier: 'STRING_VALUE', // required
+ *   destinationCommitSpecifier: 'STRING_VALUE', // required
+ *   mergeOption: 'STRING_VALUE', // required
+ *   conflictDetailLevel: 'STRING_VALUE',
+ *   conflictResolutionStrategy: 'STRING_VALUE',
+ *   authorName: 'STRING_VALUE',
+ *   email: 'STRING_VALUE',
+ *   commitMessage: 'STRING_VALUE',
  *   keepEmptyFolders: true || false,
  *   conflictResolution: { // ConflictResolution
  *     replaceContents: [ // ReplaceContentEntries
  *       { // ReplaceContentEntry
- *         filePath: "STRING_VALUE", // required
- *         replacementType: "STRING_VALUE", // required
- *         content: "BLOB_VALUE",
- *         fileMode: "STRING_VALUE",
+ *         filePath: 'STRING_VALUE', // required
+ *         replacementType: 'STRING_VALUE', // required
+ *         content: 'BLOB_VALUE',
+ *         fileMode: 'STRING_VALUE',
  *       },
  *     ],
  *     deleteFiles: [ // DeleteFileEntries
  *       { // DeleteFileEntry
- *         filePath: "STRING_VALUE", // required
+ *         filePath: 'STRING_VALUE', // required
  *       },
  *     ],
  *     setFileModes: [ // SetFileModeEntries
  *       { // SetFileModeEntry
- *         filePath: "STRING_VALUE", // required
- *         fileMode: "STRING_VALUE", // required
+ *         filePath: 'STRING_VALUE', // required
+ *         fileMode: 'STRING_VALUE', // required
  *       },
  *     ],
  *   },
  * };
  * const command = new CreateUnreferencedMergeCommitCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateUnreferencedMergeCommitOutput
+ *   commitId: 'STRING_VALUE',
+ *   treeId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateUnreferencedMergeCommitCommandInput - {@link CreateUnreferencedMergeCommitCommandInput}
@@ -215,6 +221,8 @@ export interface CreateUnreferencedMergeCommitCommandOutput
  *  <p>The divergence between the tips of the provided commit specifiers is too great to determine whether there might be
  *             any merge conflicts. Locally compare the specifiers using <code>git diff</code> or a diff tool.</p>
  *
+ * @throws {@link CodeCommitServiceException}
+ * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
  */
 export class CreateUnreferencedMergeCommitCommand extends $Command<

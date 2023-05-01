@@ -37,25 +37,28 @@ export interface UpdateSecurityProfileCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, UpdateSecurityProfileCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, UpdateSecurityProfileCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, UpdateSecurityProfileCommand } from '@aws-sdk/client-connect'; // ES Modules import
+ * // const { ConnectClient, UpdateSecurityProfileCommand } = require('@aws-sdk/client-connect'); // CommonJS import
  * const client = new ConnectClient(config);
  * const input = { // UpdateSecurityProfileRequest
- *   Description: "STRING_VALUE",
+ *   Description: 'STRING_VALUE',
  *   Permissions: [ // PermissionsList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   SecurityProfileId: "STRING_VALUE", // required
- *   InstanceId: "STRING_VALUE", // required
+ *   SecurityProfileId: 'STRING_VALUE', // required
+ *   InstanceId: 'STRING_VALUE', // required
  *   AllowedAccessControlTags: { // AllowedAccessControlTags
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  *   TagRestrictedResources: [ // TagRestrictedResourceList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new UpdateSecurityProfileCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateSecurityProfileCommandInput - {@link UpdateSecurityProfileCommandInput}
@@ -79,6 +82,8 @@ export interface UpdateSecurityProfileCommandOutput extends __MetadataBearer {}
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class UpdateSecurityProfileCommand extends $Command<

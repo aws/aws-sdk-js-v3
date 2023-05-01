@@ -36,17 +36,31 @@ export interface ListTemplateAliasesCommandOutput extends ListTemplateAliasesRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { QuickSightClient, ListTemplateAliasesCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
- * // const { QuickSightClient, ListTemplateAliasesCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * import { QuickSightClient, ListTemplateAliasesCommand } from '@aws-sdk/client-quicksight'; // ES Modules import
+ * // const { QuickSightClient, ListTemplateAliasesCommand } = require('@aws-sdk/client-quicksight'); // CommonJS import
  * const client = new QuickSightClient(config);
  * const input = { // ListTemplateAliasesRequest
- *   AwsAccountId: "STRING_VALUE", // required
- *   TemplateId: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   AwsAccountId: 'STRING_VALUE', // required
+ *   TemplateId: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListTemplateAliasesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTemplateAliasesResponse
+ *   TemplateAliasList: [ // TemplateAliasList
+ *     { // TemplateAlias
+ *       AliasName: 'STRING_VALUE',
+ *       Arn: 'STRING_VALUE',
+ *       TemplateVersionNumber: Number('long'),
+ *     },
+ *   ],
+ *   Status: Number('int'),
+ *   RequestId: 'STRING_VALUE',
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListTemplateAliasesCommandInput - {@link ListTemplateAliasesCommandInput}
@@ -73,6 +87,8 @@ export interface ListTemplateAliasesCommandOutput extends ListTemplateAliasesRes
  * 			Amazon QuickSight currently has Standard Edition and Enterprise Edition. Not every operation and
  * 			capability is available in every edition.</p>
  *
+ * @throws {@link QuickSightServiceException}
+ * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
 export class ListTemplateAliasesCommand extends $Command<

@@ -52,17 +52,20 @@ export interface SetQueueAttributesCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SQSClient, SetQueueAttributesCommand } from "@aws-sdk/client-sqs"; // ES Modules import
- * // const { SQSClient, SetQueueAttributesCommand } = require("@aws-sdk/client-sqs"); // CommonJS import
+ * import { SQSClient, SetQueueAttributesCommand } from '@aws-sdk/client-sqs'; // ES Modules import
+ * // const { SQSClient, SetQueueAttributesCommand } = require('@aws-sdk/client-sqs'); // CommonJS import
  * const client = new SQSClient(config);
  * const input = { // SetQueueAttributesRequest
- *   QueueUrl: "STRING_VALUE", // required
+ *   QueueUrl: 'STRING_VALUE', // required
  *   Attributes: { // QueueAttributeMap // required
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new SetQueueAttributesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param SetQueueAttributesCommandInput - {@link SetQueueAttributesCommandInput}
@@ -74,6 +77,8 @@ export interface SetQueueAttributesCommandOutput extends __MetadataBearer {}
  * @throws {@link InvalidAttributeName} (client fault)
  *  <p>The specified attribute doesn't exist.</p>
  *
+ * @throws {@link SQSServiceException}
+ * <p>Base exception class for all service exceptions from SQS service.</p>
  *
  */
 export class SetQueueAttributesCommand extends $Command<

@@ -37,15 +37,18 @@ export interface DeleteBackupSelectionCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BackupClient, DeleteBackupSelectionCommand } from "@aws-sdk/client-backup"; // ES Modules import
- * // const { BackupClient, DeleteBackupSelectionCommand } = require("@aws-sdk/client-backup"); // CommonJS import
+ * import { BackupClient, DeleteBackupSelectionCommand } from '@aws-sdk/client-backup'; // ES Modules import
+ * // const { BackupClient, DeleteBackupSelectionCommand } = require('@aws-sdk/client-backup'); // CommonJS import
  * const client = new BackupClient(config);
  * const input = { // DeleteBackupSelectionInput
- *   BackupPlanId: "STRING_VALUE", // required
- *   SelectionId: "STRING_VALUE", // required
+ *   BackupPlanId: 'STRING_VALUE', // required
+ *   SelectionId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteBackupSelectionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteBackupSelectionCommandInput - {@link DeleteBackupSelectionCommandInput}
@@ -67,6 +70,8 @@ export interface DeleteBackupSelectionCommandOutput extends __MetadataBearer {}
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request failed due to a temporary failure of the server.</p>
  *
+ * @throws {@link BackupServiceException}
+ * <p>Base exception class for all service exceptions from Backup service.</p>
  *
  */
 export class DeleteBackupSelectionCommand extends $Command<

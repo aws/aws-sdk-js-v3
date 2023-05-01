@@ -49,15 +49,23 @@ export interface ListViewsCommandOutput extends ListViewsOutput, __MetadataBeare
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ResourceExplorer2Client, ListViewsCommand } from "@aws-sdk/client-resource-explorer-2"; // ES Modules import
- * // const { ResourceExplorer2Client, ListViewsCommand } = require("@aws-sdk/client-resource-explorer-2"); // CommonJS import
+ * import { ResourceExplorer2Client, ListViewsCommand } from '@aws-sdk/client-resource-explorer-2'; // ES Modules import
+ * // const { ResourceExplorer2Client, ListViewsCommand } = require('@aws-sdk/client-resource-explorer-2'); // CommonJS import
  * const client = new ResourceExplorer2Client(config);
  * const input = { // ListViewsInput
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListViewsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListViewsOutput
+ *   Views: [ // ViewArnList
+ *     'STRING_VALUE',
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListViewsCommandInput - {@link ListViewsCommandInput}
@@ -83,6 +91,8 @@ export interface ListViewsCommandOutput extends ListViewsOutput, __MetadataBeare
  *  <p>You provided an invalid value for one of the operation's parameters. Check the syntax
  *             for the operation, and try again.</p>
  *
+ * @throws {@link ResourceExplorer2ServiceException}
+ * <p>Base exception class for all service exceptions from ResourceExplorer2 service.</p>
  *
  */
 export class ListViewsCommand extends $Command<

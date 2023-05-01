@@ -36,29 +36,56 @@ export interface DescribeDBEngineVersionsCommandOutput extends DBEngineVersionMe
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DocDBClient, DescribeDBEngineVersionsCommand } from "@aws-sdk/client-docdb"; // ES Modules import
- * // const { DocDBClient, DescribeDBEngineVersionsCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
+ * import { DocDBClient, DescribeDBEngineVersionsCommand } from '@aws-sdk/client-docdb'; // ES Modules import
+ * // const { DocDBClient, DescribeDBEngineVersionsCommand } = require('@aws-sdk/client-docdb'); // CommonJS import
  * const client = new DocDBClient(config);
  * const input = { // DescribeDBEngineVersionsMessage
- *   Engine: "STRING_VALUE",
- *   EngineVersion: "STRING_VALUE",
- *   DBParameterGroupFamily: "STRING_VALUE",
+ *   Engine: 'STRING_VALUE',
+ *   EngineVersion: 'STRING_VALUE',
+ *   DBParameterGroupFamily: 'STRING_VALUE',
  *   Filters: [ // FilterList
  *     { // Filter
- *       Name: "STRING_VALUE", // required
+ *       Name: 'STRING_VALUE', // required
  *       Values: [ // FilterValueList // required
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
- *   MaxRecords: Number("int"),
- *   Marker: "STRING_VALUE",
+ *   MaxRecords: Number('int'),
+ *   Marker: 'STRING_VALUE',
  *   DefaultOnly: true || false,
  *   ListSupportedCharacterSets: true || false,
  *   ListSupportedTimezones: true || false,
  * };
  * const command = new DescribeDBEngineVersionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DBEngineVersionMessage
+ *   Marker: 'STRING_VALUE',
+ *   DBEngineVersions: [ // DBEngineVersionList
+ *     { // DBEngineVersion
+ *       Engine: 'STRING_VALUE',
+ *       EngineVersion: 'STRING_VALUE',
+ *       DBParameterGroupFamily: 'STRING_VALUE',
+ *       DBEngineDescription: 'STRING_VALUE',
+ *       DBEngineVersionDescription: 'STRING_VALUE',
+ *       ValidUpgradeTarget: [ // ValidUpgradeTargetList
+ *         { // UpgradeTarget
+ *           Engine: 'STRING_VALUE',
+ *           EngineVersion: 'STRING_VALUE',
+ *           Description: 'STRING_VALUE',
+ *           AutoUpgrade: true || false,
+ *           IsMajorVersionUpgrade: true || false,
+ *         },
+ *       ],
+ *       ExportableLogTypes: [ // LogTypeList
+ *         'STRING_VALUE',
+ *       ],
+ *       SupportsLogExportsToCloudwatchLogs: true || false,
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeDBEngineVersionsCommandInput - {@link DescribeDBEngineVersionsCommandInput}
@@ -67,6 +94,8 @@ export interface DescribeDBEngineVersionsCommandOutput extends DBEngineVersionMe
  * @see {@link DescribeDBEngineVersionsCommandOutput} for command's `response` shape.
  * @see {@link DocDBClientResolvedConfig | config} for DocDBClient's `config` shape.
  *
+ * @throws {@link DocDBServiceException}
+ * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
  */
 export class DescribeDBEngineVersionsCommand extends $Command<

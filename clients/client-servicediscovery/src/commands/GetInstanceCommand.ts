@@ -36,15 +36,26 @@ export interface GetInstanceCommandOutput extends GetInstanceResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ServiceDiscoveryClient, GetInstanceCommand } from "@aws-sdk/client-servicediscovery"; // ES Modules import
- * // const { ServiceDiscoveryClient, GetInstanceCommand } = require("@aws-sdk/client-servicediscovery"); // CommonJS import
+ * import { ServiceDiscoveryClient, GetInstanceCommand } from '@aws-sdk/client-servicediscovery'; // ES Modules import
+ * // const { ServiceDiscoveryClient, GetInstanceCommand } = require('@aws-sdk/client-servicediscovery'); // CommonJS import
  * const client = new ServiceDiscoveryClient(config);
  * const input = { // GetInstanceRequest
- *   ServiceId: "STRING_VALUE", // required
- *   InstanceId: "STRING_VALUE", // required
+ *   ServiceId: 'STRING_VALUE', // required
+ *   InstanceId: 'STRING_VALUE', // required
  * };
  * const command = new GetInstanceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetInstanceResponse
+ *   Instance: { // Instance
+ *     Id: 'STRING_VALUE', // required
+ *     CreatorRequestId: 'STRING_VALUE',
+ *     Attributes: { // Attributes
+ *       '<keys>': 'STRING_VALUE',
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetInstanceCommandInput - {@link GetInstanceCommandInput}
@@ -65,6 +76,8 @@ export interface GetInstanceCommandOutput extends GetInstanceResponse, __Metadat
  * @throws {@link ServiceNotFound} (client fault)
  *  <p>No service exists with the specified ID.</p>
  *
+ * @throws {@link ServiceDiscoveryServiceException}
+ * <p>Base exception class for all service exceptions from ServiceDiscovery service.</p>
  *
  * @example GetInstance example
  * ```javascript

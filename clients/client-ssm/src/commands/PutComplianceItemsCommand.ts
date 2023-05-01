@@ -91,34 +91,37 @@ export interface PutComplianceItemsCommandOutput extends PutComplianceItemsResul
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMClient, PutComplianceItemsCommand } from "@aws-sdk/client-ssm"; // ES Modules import
- * // const { SSMClient, PutComplianceItemsCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * import { SSMClient, PutComplianceItemsCommand } from '@aws-sdk/client-ssm'; // ES Modules import
+ * // const { SSMClient, PutComplianceItemsCommand } = require('@aws-sdk/client-ssm'); // CommonJS import
  * const client = new SSMClient(config);
  * const input = { // PutComplianceItemsRequest
- *   ResourceId: "STRING_VALUE", // required
- *   ResourceType: "STRING_VALUE", // required
- *   ComplianceType: "STRING_VALUE", // required
+ *   ResourceId: 'STRING_VALUE', // required
+ *   ResourceType: 'STRING_VALUE', // required
+ *   ComplianceType: 'STRING_VALUE', // required
  *   ExecutionSummary: { // ComplianceExecutionSummary
- *     ExecutionTime: new Date("TIMESTAMP"), // required
- *     ExecutionId: "STRING_VALUE",
- *     ExecutionType: "STRING_VALUE",
+ *     ExecutionTime: new Date('TIMESTAMP'), // required
+ *     ExecutionId: 'STRING_VALUE',
+ *     ExecutionType: 'STRING_VALUE',
  *   },
  *   Items: [ // ComplianceItemEntryList // required
  *     { // ComplianceItemEntry
- *       Id: "STRING_VALUE",
- *       Title: "STRING_VALUE",
- *       Severity: "CRITICAL" || "HIGH" || "MEDIUM" || "LOW" || "INFORMATIONAL" || "UNSPECIFIED", // required
- *       Status: "COMPLIANT" || "NON_COMPLIANT", // required
+ *       Id: 'STRING_VALUE',
+ *       Title: 'STRING_VALUE',
+ *       Severity: 'CRITICAL' || 'HIGH' || 'MEDIUM' || 'LOW' || 'INFORMATIONAL' || 'UNSPECIFIED', // required
+ *       Status: 'COMPLIANT' || 'NON_COMPLIANT', // required
  *       Details: { // ComplianceItemDetails
- *         "<keys>": "STRING_VALUE",
+ *         '<keys>': 'STRING_VALUE',
  *       },
  *     },
  *   ],
- *   ItemContentHash: "STRING_VALUE",
- *   UploadType: "COMPLETE" || "PARTIAL",
+ *   ItemContentHash: 'STRING_VALUE',
+ *   UploadType: 'COMPLETE' || 'PARTIAL',
  * };
  * const command = new PutComplianceItemsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutComplianceItemsCommandInput - {@link PutComplianceItemsCommandInput}
@@ -150,6 +153,8 @@ export interface PutComplianceItemsCommandOutput extends PutComplianceItemsResul
  * @throws {@link TotalSizeLimitExceededException} (client fault)
  *  <p>The size of inventory data has exceeded the total size limit for the resource.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class PutComplianceItemsCommand extends $Command<

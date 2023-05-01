@@ -36,16 +36,23 @@ export interface BatchDeleteWorldsCommandOutput extends BatchDeleteWorldsRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RoboMakerClient, BatchDeleteWorldsCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
- * // const { RoboMakerClient, BatchDeleteWorldsCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
+ * import { RoboMakerClient, BatchDeleteWorldsCommand } from '@aws-sdk/client-robomaker'; // ES Modules import
+ * // const { RoboMakerClient, BatchDeleteWorldsCommand } = require('@aws-sdk/client-robomaker'); // CommonJS import
  * const client = new RoboMakerClient(config);
  * const input = { // BatchDeleteWorldsRequest
  *   worlds: [ // Arns // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new BatchDeleteWorldsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BatchDeleteWorldsResponse
+ *   unprocessedWorlds: [ // Arns
+ *     'STRING_VALUE',
+ *   ],
+ * };
+ *
  * ```
  *
  * @param BatchDeleteWorldsCommandInput - {@link BatchDeleteWorldsCommandInput}
@@ -64,6 +71,8 @@ export interface BatchDeleteWorldsCommandOutput extends BatchDeleteWorldsRespons
  * @throws {@link ThrottlingException} (client fault)
  *  <p>AWS RoboMaker is temporarily unable to process the request. Try your call again.</p>
  *
+ * @throws {@link RoboMakerServiceException}
+ * <p>Base exception class for all service exceptions from RoboMaker service.</p>
  *
  */
 export class BatchDeleteWorldsCommand extends $Command<

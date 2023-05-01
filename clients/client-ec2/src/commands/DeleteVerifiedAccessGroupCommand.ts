@@ -36,16 +36,36 @@ export interface DeleteVerifiedAccessGroupCommandOutput extends DeleteVerifiedAc
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, DeleteVerifiedAccessGroupCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, DeleteVerifiedAccessGroupCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, DeleteVerifiedAccessGroupCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, DeleteVerifiedAccessGroupCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // DeleteVerifiedAccessGroupRequest
- *   VerifiedAccessGroupId: "STRING_VALUE", // required
- *   ClientToken: "STRING_VALUE",
+ *   VerifiedAccessGroupId: 'STRING_VALUE', // required
+ *   ClientToken: 'STRING_VALUE',
  *   DryRun: true || false,
  * };
  * const command = new DeleteVerifiedAccessGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteVerifiedAccessGroupResult
+ *   VerifiedAccessGroup: { // VerifiedAccessGroup
+ *     VerifiedAccessGroupId: 'STRING_VALUE',
+ *     VerifiedAccessInstanceId: 'STRING_VALUE',
+ *     Description: 'STRING_VALUE',
+ *     Owner: 'STRING_VALUE',
+ *     VerifiedAccessGroupArn: 'STRING_VALUE',
+ *     CreationTime: 'STRING_VALUE',
+ *     LastUpdatedTime: 'STRING_VALUE',
+ *     DeletionTime: 'STRING_VALUE',
+ *     Tags: [ // TagList
+ *       { // Tag
+ *         Key: 'STRING_VALUE',
+ *         Value: 'STRING_VALUE',
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param DeleteVerifiedAccessGroupCommandInput - {@link DeleteVerifiedAccessGroupCommandInput}
@@ -54,6 +74,8 @@ export interface DeleteVerifiedAccessGroupCommandOutput extends DeleteVerifiedAc
  * @see {@link DeleteVerifiedAccessGroupCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class DeleteVerifiedAccessGroupCommand extends $Command<

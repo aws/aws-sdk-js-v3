@@ -43,16 +43,24 @@ export interface CreatePolicyVersionCommandOutput extends CreatePolicyVersionRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTClient, CreatePolicyVersionCommand } from "@aws-sdk/client-iot"; // ES Modules import
- * // const { IoTClient, CreatePolicyVersionCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * import { IoTClient, CreatePolicyVersionCommand } from '@aws-sdk/client-iot'; // ES Modules import
+ * // const { IoTClient, CreatePolicyVersionCommand } = require('@aws-sdk/client-iot'); // CommonJS import
  * const client = new IoTClient(config);
  * const input = { // CreatePolicyVersionRequest
- *   policyName: "STRING_VALUE", // required
- *   policyDocument: "STRING_VALUE", // required
+ *   policyName: 'STRING_VALUE', // required
+ *   policyDocument: 'STRING_VALUE', // required
  *   setAsDefault: true || false,
  * };
  * const command = new CreatePolicyVersionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreatePolicyVersionResponse
+ *   policyArn: 'STRING_VALUE',
+ *   policyDocument: 'STRING_VALUE',
+ *   policyVersionId: 'STRING_VALUE',
+ *   isDefaultVersion: true || false,
+ * };
+ *
  * ```
  *
  * @param CreatePolicyVersionCommandInput - {@link CreatePolicyVersionCommandInput}
@@ -85,6 +93,8 @@ export interface CreatePolicyVersionCommandOutput extends CreatePolicyVersionRes
  * @throws {@link VersionsLimitExceededException} (client fault)
  *  <p>The number of policy versions exceeds the limit.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class CreatePolicyVersionCommand extends $Command<

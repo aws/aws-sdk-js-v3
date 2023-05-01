@@ -39,21 +39,32 @@ export interface CreateConnectionCommandOutput extends CreateConnectionResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppRunnerClient, CreateConnectionCommand } from "@aws-sdk/client-apprunner"; // ES Modules import
- * // const { AppRunnerClient, CreateConnectionCommand } = require("@aws-sdk/client-apprunner"); // CommonJS import
+ * import { AppRunnerClient, CreateConnectionCommand } from '@aws-sdk/client-apprunner'; // ES Modules import
+ * // const { AppRunnerClient, CreateConnectionCommand } = require('@aws-sdk/client-apprunner'); // CommonJS import
  * const client = new AppRunnerClient(config);
  * const input = { // CreateConnectionRequest
- *   ConnectionName: "STRING_VALUE", // required
- *   ProviderType: "GITHUB", // required
+ *   ConnectionName: 'STRING_VALUE', // required
+ *   ProviderType: 'GITHUB', // required
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE",
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new CreateConnectionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateConnectionResponse
+ *   Connection: { // Connection
+ *     ConnectionName: 'STRING_VALUE',
+ *     ConnectionArn: 'STRING_VALUE',
+ *     ProviderType: 'GITHUB',
+ *     Status: 'PENDING_HANDSHAKE' || 'AVAILABLE' || 'ERROR' || 'DELETED',
+ *     CreatedAt: new Date('TIMESTAMP'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateConnectionCommandInput - {@link CreateConnectionCommandInput}
@@ -73,6 +84,8 @@ export interface CreateConnectionCommandOutput extends CreateConnectionResponse,
  *          <p>For App Runner per-resource quotas, see <a href="https://docs.aws.amazon.com/general/latest/gr/apprunner.html">App Runner endpoints and quotas</a> in the
  *         <i>Amazon Web Services General Reference</i>.</p>
  *
+ * @throws {@link AppRunnerServiceException}
+ * <p>Base exception class for all service exceptions from AppRunner service.</p>
  *
  */
 export class CreateConnectionCommand extends $Command<

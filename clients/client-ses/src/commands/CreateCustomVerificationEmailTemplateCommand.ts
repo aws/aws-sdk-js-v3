@@ -43,19 +43,22 @@ export interface CreateCustomVerificationEmailTemplateCommandOutput extends __Me
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SESClient, CreateCustomVerificationEmailTemplateCommand } from "@aws-sdk/client-ses"; // ES Modules import
- * // const { SESClient, CreateCustomVerificationEmailTemplateCommand } = require("@aws-sdk/client-ses"); // CommonJS import
+ * import { SESClient, CreateCustomVerificationEmailTemplateCommand } from '@aws-sdk/client-ses'; // ES Modules import
+ * // const { SESClient, CreateCustomVerificationEmailTemplateCommand } = require('@aws-sdk/client-ses'); // CommonJS import
  * const client = new SESClient(config);
  * const input = { // CreateCustomVerificationEmailTemplateRequest
- *   TemplateName: "STRING_VALUE", // required
- *   FromEmailAddress: "STRING_VALUE", // required
- *   TemplateSubject: "STRING_VALUE", // required
- *   TemplateContent: "STRING_VALUE", // required
- *   SuccessRedirectionURL: "STRING_VALUE", // required
- *   FailureRedirectionURL: "STRING_VALUE", // required
+ *   TemplateName: 'STRING_VALUE', // required
+ *   FromEmailAddress: 'STRING_VALUE', // required
+ *   TemplateSubject: 'STRING_VALUE', // required
+ *   TemplateContent: 'STRING_VALUE', // required
+ *   SuccessRedirectionURL: 'STRING_VALUE', // required
+ *   FailureRedirectionURL: 'STRING_VALUE', // required
  * };
  * const command = new CreateCustomVerificationEmailTemplateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param CreateCustomVerificationEmailTemplateCommandInput - {@link CreateCustomVerificationEmailTemplateCommandInput}
@@ -80,6 +83,8 @@ export interface CreateCustomVerificationEmailTemplateCommandOutput extends __Me
  *             of Amazon SES limits, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/limits.html">Amazon SES Developer
  *             Guide</a>.</p>
  *
+ * @throws {@link SESServiceException}
+ * <p>Base exception class for all service exceptions from SES service.</p>
  *
  */
 export class CreateCustomVerificationEmailTemplateCommand extends $Command<

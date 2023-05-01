@@ -45,16 +45,33 @@ export interface ListVolumesCommandOutput extends ListVolumesOutput, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { StorageGatewayClient, ListVolumesCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
- * // const { StorageGatewayClient, ListVolumesCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
+ * import { StorageGatewayClient, ListVolumesCommand } from '@aws-sdk/client-storage-gateway'; // ES Modules import
+ * // const { StorageGatewayClient, ListVolumesCommand } = require('@aws-sdk/client-storage-gateway'); // CommonJS import
  * const client = new StorageGatewayClient(config);
  * const input = { // ListVolumesInput
- *   GatewayARN: "STRING_VALUE",
- *   Marker: "STRING_VALUE",
- *   Limit: Number("int"),
+ *   GatewayARN: 'STRING_VALUE',
+ *   Marker: 'STRING_VALUE',
+ *   Limit: Number('int'),
  * };
  * const command = new ListVolumesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListVolumesOutput
+ *   GatewayARN: 'STRING_VALUE',
+ *   Marker: 'STRING_VALUE',
+ *   VolumeInfos: [ // VolumeInfos
+ *     { // VolumeInfo
+ *       VolumeARN: 'STRING_VALUE',
+ *       VolumeId: 'STRING_VALUE',
+ *       GatewayARN: 'STRING_VALUE',
+ *       GatewayId: 'STRING_VALUE',
+ *       VolumeType: 'STRING_VALUE',
+ *       VolumeSizeInBytes: Number('long'),
+ *       VolumeAttachmentStatus: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListVolumesCommandInput - {@link ListVolumesCommandInput}
@@ -71,6 +88,8 @@ export interface ListVolumesCommandOutput extends ListVolumesOutput, __MetadataB
  *  <p>An exception occurred because an invalid gateway request was issued to the service. For
  *          more information, see the error and message fields.</p>
  *
+ * @throws {@link StorageGatewayServiceException}
+ * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
  * @example To list the iSCSI stored volumes of a gateway
  * ```javascript

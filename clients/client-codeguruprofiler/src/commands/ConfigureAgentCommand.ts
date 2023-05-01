@@ -40,18 +40,29 @@ export interface ConfigureAgentCommandOutput extends ConfigureAgentResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeGuruProfilerClient, ConfigureAgentCommand } from "@aws-sdk/client-codeguruprofiler"; // ES Modules import
- * // const { CodeGuruProfilerClient, ConfigureAgentCommand } = require("@aws-sdk/client-codeguruprofiler"); // CommonJS import
+ * import { CodeGuruProfilerClient, ConfigureAgentCommand } from '@aws-sdk/client-codeguruprofiler'; // ES Modules import
+ * // const { CodeGuruProfilerClient, ConfigureAgentCommand } = require('@aws-sdk/client-codeguruprofiler'); // CommonJS import
  * const client = new CodeGuruProfilerClient(config);
  * const input = { // ConfigureAgentRequest
- *   profilingGroupName: "STRING_VALUE", // required
- *   fleetInstanceId: "STRING_VALUE",
+ *   profilingGroupName: 'STRING_VALUE', // required
+ *   fleetInstanceId: 'STRING_VALUE',
  *   metadata: { // Metadata
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new ConfigureAgentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ConfigureAgentResponse
+ *   configuration: { // AgentConfiguration
+ *     shouldProfile: true || false, // required
+ *     periodInSeconds: Number('int'), // required
+ *     agentParameters: { // AgentParameters
+ *       '<keys>': 'STRING_VALUE',
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param ConfigureAgentCommandInput - {@link ConfigureAgentCommandInput}
@@ -72,6 +83,8 @@ export interface ConfigureAgentCommandOutput extends ConfigureAgentResponse, __M
  * @throws {@link ValidationException} (client fault)
  *  <p>The parameter is not valid.</p>
  *
+ * @throws {@link CodeGuruProfilerServiceException}
+ * <p>Base exception class for all service exceptions from CodeGuruProfiler service.</p>
  *
  */
 export class ConfigureAgentCommand extends $Command<

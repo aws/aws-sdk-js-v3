@@ -57,22 +57,27 @@ export interface CreateUpdatedWorkspaceImageCommandOutput extends CreateUpdatedW
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkSpacesClient, CreateUpdatedWorkspaceImageCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
- * // const { WorkSpacesClient, CreateUpdatedWorkspaceImageCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
+ * import { WorkSpacesClient, CreateUpdatedWorkspaceImageCommand } from '@aws-sdk/client-workspaces'; // ES Modules import
+ * // const { WorkSpacesClient, CreateUpdatedWorkspaceImageCommand } = require('@aws-sdk/client-workspaces'); // CommonJS import
  * const client = new WorkSpacesClient(config);
  * const input = { // CreateUpdatedWorkspaceImageRequest
- *   Name: "STRING_VALUE", // required
- *   Description: "STRING_VALUE", // required
- *   SourceImageId: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE', // required
+ *   SourceImageId: 'STRING_VALUE', // required
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new CreateUpdatedWorkspaceImageCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateUpdatedWorkspaceImageResult
+ *   ImageId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateUpdatedWorkspaceImageCommandInput - {@link CreateUpdatedWorkspaceImageCommandInput}
@@ -102,6 +107,8 @@ export interface CreateUpdatedWorkspaceImageCommandOutput extends CreateUpdatedW
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource could not be found.</p>
  *
+ * @throws {@link WorkSpacesServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
  */
 export class CreateUpdatedWorkspaceImageCommand extends $Command<

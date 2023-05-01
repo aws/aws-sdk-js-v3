@@ -36,15 +36,30 @@ export interface ListGamesCommandOutput extends ListGamesResult, __MetadataBeare
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GameSparksClient, ListGamesCommand } from "@aws-sdk/client-gamesparks"; // ES Modules import
- * // const { GameSparksClient, ListGamesCommand } = require("@aws-sdk/client-gamesparks"); // CommonJS import
+ * import { GameSparksClient, ListGamesCommand } from '@aws-sdk/client-gamesparks'; // ES Modules import
+ * // const { GameSparksClient, ListGamesCommand } = require('@aws-sdk/client-gamesparks'); // CommonJS import
  * const client = new GameSparksClient(config);
  * const input = { // ListGamesRequest
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListGamesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListGamesResult
+ *   Games: [ // GameSummaryList
+ *     { // GameSummary
+ *       Name: 'STRING_VALUE',
+ *       Description: 'STRING_VALUE',
+ *       State: 'STRING_VALUE',
+ *       Tags: { // TagMap
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListGamesCommandInput - {@link ListGamesCommandInput}
@@ -65,6 +80,8 @@ export interface ListGamesCommandOutput extends ListGamesResult, __MetadataBeare
  * @throws {@link ValidationException} (client fault)
  *  <p>One of the parameters in the request is invalid.</p>
  *
+ * @throws {@link GameSparksServiceException}
+ * <p>Base exception class for all service exceptions from GameSparks service.</p>
  *
  */
 export class ListGamesCommand extends $Command<

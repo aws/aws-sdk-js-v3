@@ -57,23 +57,41 @@ export interface UpdateScriptCommandOutput extends UpdateScriptOutput, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GameLiftClient, UpdateScriptCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
- * // const { GameLiftClient, UpdateScriptCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
+ * import { GameLiftClient, UpdateScriptCommand } from '@aws-sdk/client-gamelift'; // ES Modules import
+ * // const { GameLiftClient, UpdateScriptCommand } = require('@aws-sdk/client-gamelift'); // CommonJS import
  * const client = new GameLiftClient(config);
  * const input = { // UpdateScriptInput
- *   ScriptId: "STRING_VALUE", // required
- *   Name: "STRING_VALUE",
- *   Version: "STRING_VALUE",
+ *   ScriptId: 'STRING_VALUE', // required
+ *   Name: 'STRING_VALUE',
+ *   Version: 'STRING_VALUE',
  *   StorageLocation: { // S3Location
- *     Bucket: "STRING_VALUE",
- *     Key: "STRING_VALUE",
- *     RoleArn: "STRING_VALUE",
- *     ObjectVersion: "STRING_VALUE",
+ *     Bucket: 'STRING_VALUE',
+ *     Key: 'STRING_VALUE',
+ *     RoleArn: 'STRING_VALUE',
+ *     ObjectVersion: 'STRING_VALUE',
  *   },
- *   ZipFile: "BLOB_VALUE",
+ *   ZipFile: 'BLOB_VALUE',
  * };
  * const command = new UpdateScriptCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateScriptOutput
+ *   Script: { // Script
+ *     ScriptId: 'STRING_VALUE',
+ *     ScriptArn: 'STRING_VALUE',
+ *     Name: 'STRING_VALUE',
+ *     Version: 'STRING_VALUE',
+ *     SizeOnDisk: Number('long'),
+ *     CreationTime: new Date('TIMESTAMP'),
+ *     StorageLocation: { // S3Location
+ *       Bucket: 'STRING_VALUE',
+ *       Key: 'STRING_VALUE',
+ *       RoleArn: 'STRING_VALUE',
+ *       ObjectVersion: 'STRING_VALUE',
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateScriptCommandInput - {@link UpdateScriptCommandInput}
@@ -96,6 +114,8 @@ export interface UpdateScriptCommandOutput extends UpdateScriptOutput, __Metadat
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client failed authentication. Clients should not retry such requests.</p>
  *
+ * @throws {@link GameLiftServiceException}
+ * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
  */
 export class UpdateScriptCommand extends $Command<

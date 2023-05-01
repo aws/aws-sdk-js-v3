@@ -59,29 +59,34 @@ export interface CreatePredictorBacktestExportJobCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ForecastClient, CreatePredictorBacktestExportJobCommand } from "@aws-sdk/client-forecast"; // ES Modules import
- * // const { ForecastClient, CreatePredictorBacktestExportJobCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
+ * import { ForecastClient, CreatePredictorBacktestExportJobCommand } from '@aws-sdk/client-forecast'; // ES Modules import
+ * // const { ForecastClient, CreatePredictorBacktestExportJobCommand } = require('@aws-sdk/client-forecast'); // CommonJS import
  * const client = new ForecastClient(config);
  * const input = { // CreatePredictorBacktestExportJobRequest
- *   PredictorBacktestExportJobName: "STRING_VALUE", // required
- *   PredictorArn: "STRING_VALUE", // required
+ *   PredictorBacktestExportJobName: 'STRING_VALUE', // required
+ *   PredictorArn: 'STRING_VALUE', // required
  *   Destination: { // DataDestination
  *     S3Config: { // S3Config
- *       Path: "STRING_VALUE", // required
- *       RoleArn: "STRING_VALUE", // required
- *       KMSKeyArn: "STRING_VALUE",
+ *       Path: 'STRING_VALUE', // required
+ *       RoleArn: 'STRING_VALUE', // required
+ *       KMSKeyArn: 'STRING_VALUE',
  *     },
  *   },
  *   Tags: [ // Tags
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
- *   Format: "STRING_VALUE",
+ *   Format: 'STRING_VALUE',
  * };
  * const command = new CreatePredictorBacktestExportJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreatePredictorBacktestExportJobResponse
+ *   PredictorBacktestExportJobArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreatePredictorBacktestExportJobCommandInput - {@link CreatePredictorBacktestExportJobCommandInput}
@@ -107,6 +112,8 @@ export interface CreatePredictorBacktestExportJobCommandOutput
  *  <p>We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try
  *       again.</p>
  *
+ * @throws {@link ForecastServiceException}
+ * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
  */
 export class CreatePredictorBacktestExportJobCommand extends $Command<

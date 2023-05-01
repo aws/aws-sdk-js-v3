@@ -52,52 +52,57 @@ export interface CreateSMBFileShareCommandOutput extends CreateSMBFileShareOutpu
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { StorageGatewayClient, CreateSMBFileShareCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
- * // const { StorageGatewayClient, CreateSMBFileShareCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
+ * import { StorageGatewayClient, CreateSMBFileShareCommand } from '@aws-sdk/client-storage-gateway'; // ES Modules import
+ * // const { StorageGatewayClient, CreateSMBFileShareCommand } = require('@aws-sdk/client-storage-gateway'); // CommonJS import
  * const client = new StorageGatewayClient(config);
  * const input = { // CreateSMBFileShareInput
- *   ClientToken: "STRING_VALUE", // required
- *   GatewayARN: "STRING_VALUE", // required
+ *   ClientToken: 'STRING_VALUE', // required
+ *   GatewayARN: 'STRING_VALUE', // required
  *   KMSEncrypted: true || false,
- *   KMSKey: "STRING_VALUE",
- *   Role: "STRING_VALUE", // required
- *   LocationARN: "STRING_VALUE", // required
- *   DefaultStorageClass: "STRING_VALUE",
- *   ObjectACL: "STRING_VALUE",
+ *   KMSKey: 'STRING_VALUE',
+ *   Role: 'STRING_VALUE', // required
+ *   LocationARN: 'STRING_VALUE', // required
+ *   DefaultStorageClass: 'STRING_VALUE',
+ *   ObjectACL: 'STRING_VALUE',
  *   ReadOnly: true || false,
  *   GuessMIMETypeEnabled: true || false,
  *   RequesterPays: true || false,
  *   SMBACLEnabled: true || false,
  *   AccessBasedEnumeration: true || false,
  *   AdminUserList: [ // UserList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   ValidUserList: [
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   InvalidUserList: [
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   AuditDestinationARN: "STRING_VALUE",
- *   Authentication: "STRING_VALUE",
- *   CaseSensitivity: "STRING_VALUE",
+ *   AuditDestinationARN: 'STRING_VALUE',
+ *   Authentication: 'STRING_VALUE',
+ *   CaseSensitivity: 'STRING_VALUE',
  *   Tags: [ // Tags
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
- *   FileShareName: "STRING_VALUE",
+ *   FileShareName: 'STRING_VALUE',
  *   CacheAttributes: { // CacheAttributes
- *     CacheStaleTimeoutInSeconds: Number("int"),
+ *     CacheStaleTimeoutInSeconds: Number('int'),
  *   },
- *   NotificationPolicy: "STRING_VALUE",
- *   VPCEndpointDNSName: "STRING_VALUE",
- *   BucketRegion: "STRING_VALUE",
+ *   NotificationPolicy: 'STRING_VALUE',
+ *   VPCEndpointDNSName: 'STRING_VALUE',
+ *   BucketRegion: 'STRING_VALUE',
  *   OplocksEnabled: true || false,
  * };
  * const command = new CreateSMBFileShareCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateSMBFileShareOutput
+ *   FileShareARN: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateSMBFileShareCommandInput - {@link CreateSMBFileShareCommandInput}
@@ -114,6 +119,8 @@ export interface CreateSMBFileShareCommandOutput extends CreateSMBFileShareOutpu
  *  <p>An exception occurred because an invalid gateway request was issued to the service. For
  *          more information, see the error and message fields.</p>
  *
+ * @throws {@link StorageGatewayServiceException}
+ * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
  */
 export class CreateSMBFileShareCommand extends $Command<

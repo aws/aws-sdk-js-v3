@@ -36,15 +36,23 @@ export interface ListBuildsCommandOutput extends ListBuildsOutput, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeBuildClient, ListBuildsCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
- * // const { CodeBuildClient, ListBuildsCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import
+ * import { CodeBuildClient, ListBuildsCommand } from '@aws-sdk/client-codebuild'; // ES Modules import
+ * // const { CodeBuildClient, ListBuildsCommand } = require('@aws-sdk/client-codebuild'); // CommonJS import
  * const client = new CodeBuildClient(config);
  * const input = { // ListBuildsInput
- *   sortOrder: "STRING_VALUE",
- *   nextToken: "STRING_VALUE",
+ *   sortOrder: 'STRING_VALUE',
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new ListBuildsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListBuildsOutput
+ *   ids: [ // BuildIds
+ *     'STRING_VALUE',
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListBuildsCommandInput - {@link ListBuildsCommandInput}
@@ -56,6 +64,8 @@ export interface ListBuildsCommandOutput extends ListBuildsOutput, __MetadataBea
  * @throws {@link InvalidInputException} (client fault)
  *  <p>The input value that was provided is not valid.</p>
  *
+ * @throws {@link CodeBuildServiceException}
+ * <p>Base exception class for all service exceptions from CodeBuild service.</p>
  *
  */
 export class ListBuildsCommand extends $Command<

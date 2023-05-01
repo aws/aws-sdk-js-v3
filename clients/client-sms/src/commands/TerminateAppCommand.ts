@@ -36,14 +36,17 @@ export interface TerminateAppCommandOutput extends TerminateAppResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SMSClient, TerminateAppCommand } from "@aws-sdk/client-sms"; // ES Modules import
- * // const { SMSClient, TerminateAppCommand } = require("@aws-sdk/client-sms"); // CommonJS import
+ * import { SMSClient, TerminateAppCommand } from '@aws-sdk/client-sms'; // ES Modules import
+ * // const { SMSClient, TerminateAppCommand } = require('@aws-sdk/client-sms'); // CommonJS import
  * const client = new SMSClient(config);
  * const input = { // TerminateAppRequest
- *   appId: "STRING_VALUE",
+ *   appId: 'STRING_VALUE',
  * };
  * const command = new TerminateAppCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param TerminateAppCommandInput - {@link TerminateAppCommandInput}
@@ -68,6 +71,8 @@ export interface TerminateAppCommandOutput extends TerminateAppResponse, __Metad
  *  <p>You lack permissions needed to perform this operation. Check your IAM policies,
  *             and ensure that you are using the correct access keys.</p>
  *
+ * @throws {@link SMSServiceException}
+ * <p>Base exception class for all service exceptions from SMS service.</p>
  *
  */
 export class TerminateAppCommand extends $Command<

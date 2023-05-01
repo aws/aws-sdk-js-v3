@@ -38,20 +38,26 @@ export interface MonitorContactCommandOutput extends MonitorContactResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, MonitorContactCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, MonitorContactCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, MonitorContactCommand } from '@aws-sdk/client-connect'; // ES Modules import
+ * // const { ConnectClient, MonitorContactCommand } = require('@aws-sdk/client-connect'); // CommonJS import
  * const client = new ConnectClient(config);
  * const input = { // MonitorContactRequest
- *   InstanceId: "STRING_VALUE", // required
- *   ContactId: "STRING_VALUE", // required
- *   UserId: "STRING_VALUE", // required
+ *   InstanceId: 'STRING_VALUE', // required
+ *   ContactId: 'STRING_VALUE', // required
+ *   UserId: 'STRING_VALUE', // required
  *   AllowedMonitorCapabilities: [ // AllowedMonitorCapabilities
- *     "SILENT_MONITOR" || "BARGE",
+ *     'SILENT_MONITOR' || 'BARGE',
  *   ],
- *   ClientToken: "STRING_VALUE",
+ *   ClientToken: 'STRING_VALUE',
  * };
  * const command = new MonitorContactCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // MonitorContactResponse
+ *   ContactId: 'STRING_VALUE',
+ *   ContactArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param MonitorContactCommandInput - {@link MonitorContactCommandInput}
@@ -81,6 +87,8 @@ export interface MonitorContactCommandOutput extends MonitorContactResponse, __M
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class MonitorContactCommand extends $Command<

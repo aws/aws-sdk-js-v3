@@ -55,16 +55,41 @@ export interface DescribeConfigurationSettingsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElasticBeanstalkClient, DescribeConfigurationSettingsCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
- * // const { ElasticBeanstalkClient, DescribeConfigurationSettingsCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
+ * import { ElasticBeanstalkClient, DescribeConfigurationSettingsCommand } from '@aws-sdk/client-elastic-beanstalk'; // ES Modules import
+ * // const { ElasticBeanstalkClient, DescribeConfigurationSettingsCommand } = require('@aws-sdk/client-elastic-beanstalk'); // CommonJS import
  * const client = new ElasticBeanstalkClient(config);
  * const input = { // DescribeConfigurationSettingsMessage
- *   ApplicationName: "STRING_VALUE", // required
- *   TemplateName: "STRING_VALUE",
- *   EnvironmentName: "STRING_VALUE",
+ *   ApplicationName: 'STRING_VALUE', // required
+ *   TemplateName: 'STRING_VALUE',
+ *   EnvironmentName: 'STRING_VALUE',
  * };
  * const command = new DescribeConfigurationSettingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ConfigurationSettingsDescriptions
+ *   ConfigurationSettings: [ // ConfigurationSettingsDescriptionList
+ *     { // ConfigurationSettingsDescription
+ *       SolutionStackName: 'STRING_VALUE',
+ *       PlatformArn: 'STRING_VALUE',
+ *       ApplicationName: 'STRING_VALUE',
+ *       TemplateName: 'STRING_VALUE',
+ *       Description: 'STRING_VALUE',
+ *       EnvironmentName: 'STRING_VALUE',
+ *       DeploymentStatus: 'deployed' || 'pending' || 'failed',
+ *       DateCreated: new Date('TIMESTAMP'),
+ *       DateUpdated: new Date('TIMESTAMP'),
+ *       OptionSettings: [ // ConfigurationOptionSettingsList
+ *         { // ConfigurationOptionSetting
+ *           ResourceName: 'STRING_VALUE',
+ *           Namespace: 'STRING_VALUE',
+ *           OptionName: 'STRING_VALUE',
+ *           Value: 'STRING_VALUE',
+ *         },
+ *       ],
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeConfigurationSettingsCommandInput - {@link DescribeConfigurationSettingsCommandInput}
@@ -76,6 +101,8 @@ export interface DescribeConfigurationSettingsCommandOutput
  * @throws {@link TooManyBucketsException} (client fault)
  *  <p>The specified account has reached its limit of Amazon S3 buckets.</p>
  *
+ * @throws {@link ElasticBeanstalkServiceException}
+ * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
  * @example To view configurations settings for an environment
  * ```javascript

@@ -47,22 +47,27 @@ export interface GenerateDataSetCommandOutput extends GenerateDataSetResult, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MarketplaceCommerceAnalyticsClient, GenerateDataSetCommand } from "@aws-sdk/client-marketplace-commerce-analytics"; // ES Modules import
- * // const { MarketplaceCommerceAnalyticsClient, GenerateDataSetCommand } = require("@aws-sdk/client-marketplace-commerce-analytics"); // CommonJS import
+ * import { MarketplaceCommerceAnalyticsClient, GenerateDataSetCommand } from '@aws-sdk/client-marketplace-commerce-analytics'; // ES Modules import
+ * // const { MarketplaceCommerceAnalyticsClient, GenerateDataSetCommand } = require('@aws-sdk/client-marketplace-commerce-analytics'); // CommonJS import
  * const client = new MarketplaceCommerceAnalyticsClient(config);
  * const input = { // GenerateDataSetRequest
- *   dataSetType: "STRING_VALUE", // required
- *   dataSetPublicationDate: new Date("TIMESTAMP"), // required
- *   roleNameArn: "STRING_VALUE", // required
- *   destinationS3BucketName: "STRING_VALUE", // required
- *   destinationS3Prefix: "STRING_VALUE",
- *   snsTopicArn: "STRING_VALUE", // required
+ *   dataSetType: 'STRING_VALUE', // required
+ *   dataSetPublicationDate: new Date('TIMESTAMP'), // required
+ *   roleNameArn: 'STRING_VALUE', // required
+ *   destinationS3BucketName: 'STRING_VALUE', // required
+ *   destinationS3Prefix: 'STRING_VALUE',
+ *   snsTopicArn: 'STRING_VALUE', // required
  *   customerDefinedValues: { // CustomerDefinedValues
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new GenerateDataSetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GenerateDataSetResult
+ *   dataSetRequestId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GenerateDataSetCommandInput - {@link GenerateDataSetCommandInput}
@@ -74,6 +79,8 @@ export interface GenerateDataSetCommandOutput extends GenerateDataSetResult, __M
  * @throws {@link MarketplaceCommerceAnalyticsException} (server fault)
  *  This exception is thrown when an internal service error occurs.
  *
+ * @throws {@link MarketplaceCommerceAnalyticsServiceException}
+ * <p>Base exception class for all service exceptions from MarketplaceCommerceAnalytics service.</p>
  *
  */
 export class GenerateDataSetCommand extends $Command<

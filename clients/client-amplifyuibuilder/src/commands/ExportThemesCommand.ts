@@ -36,16 +36,52 @@ export interface ExportThemesCommandOutput extends ExportThemesResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AmplifyUIBuilderClient, ExportThemesCommand } from "@aws-sdk/client-amplifyuibuilder"; // ES Modules import
- * // const { AmplifyUIBuilderClient, ExportThemesCommand } = require("@aws-sdk/client-amplifyuibuilder"); // CommonJS import
+ * import { AmplifyUIBuilderClient, ExportThemesCommand } from '@aws-sdk/client-amplifyuibuilder'; // ES Modules import
+ * // const { AmplifyUIBuilderClient, ExportThemesCommand } = require('@aws-sdk/client-amplifyuibuilder'); // CommonJS import
  * const client = new AmplifyUIBuilderClient(config);
  * const input = { // ExportThemesRequest
- *   appId: "STRING_VALUE", // required
- *   environmentName: "STRING_VALUE", // required
- *   nextToken: "STRING_VALUE",
+ *   appId: 'STRING_VALUE', // required
+ *   environmentName: 'STRING_VALUE', // required
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new ExportThemesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ExportThemesResponse
+ *   entities: [ // ThemeList // required
+ *     { // Theme
+ *       appId: 'STRING_VALUE', // required
+ *       environmentName: 'STRING_VALUE', // required
+ *       id: 'STRING_VALUE', // required
+ *       name: 'STRING_VALUE', // required
+ *       createdAt: new Date('TIMESTAMP'), // required
+ *       modifiedAt: new Date('TIMESTAMP'),
+ *       values: [ // ThemeValuesList // required
+ *         { // ThemeValues
+ *           key: 'STRING_VALUE',
+ *           value: { // ThemeValue
+ *             value: 'STRING_VALUE',
+ *             children: [
+ *               {
+ *                 key: 'STRING_VALUE',
+ *                 value: {
+ *                   value: 'STRING_VALUE',
+ *                   children: '<ThemeValuesList>',
+ *                 },
+ *               },
+ *             ],
+ *           },
+ *         },
+ *       ],
+ *       overrides: '<ThemeValuesList>',
+ *       tags: { // Tags
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ExportThemesCommandInput - {@link ExportThemesCommandInput}
@@ -60,6 +96,8 @@ export interface ExportThemesCommandOutput extends ExportThemesResponse, __Metad
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>An invalid or out-of-range value was supplied for the input parameter.</p>
  *
+ * @throws {@link AmplifyUIBuilderServiceException}
+ * <p>Base exception class for all service exceptions from AmplifyUIBuilder service.</p>
  *
  */
 export class ExportThemesCommand extends $Command<

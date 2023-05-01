@@ -36,14 +36,17 @@ export interface DeleteWaveCommandOutput extends DeleteWaveResponse, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MgnClient, DeleteWaveCommand } from "@aws-sdk/client-mgn"; // ES Modules import
- * // const { MgnClient, DeleteWaveCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
+ * import { MgnClient, DeleteWaveCommand } from '@aws-sdk/client-mgn'; // ES Modules import
+ * // const { MgnClient, DeleteWaveCommand } = require('@aws-sdk/client-mgn'); // CommonJS import
  * const client = new MgnClient(config);
  * const input = { // DeleteWaveRequest
- *   waveID: "STRING_VALUE", // required
+ *   waveID: 'STRING_VALUE', // required
  * };
  * const command = new DeleteWaveCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteWaveCommandInput - {@link DeleteWaveCommandInput}
@@ -61,6 +64,8 @@ export interface DeleteWaveCommandOutput extends DeleteWaveResponse, __MetadataB
  * @throws {@link UninitializedAccountException} (client fault)
  *  <p>Uninitialized account exception.</p>
  *
+ * @throws {@link MgnServiceException}
+ * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
  */
 export class DeleteWaveCommand extends $Command<

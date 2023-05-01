@@ -43,15 +43,20 @@ export interface RegisterVolumeCommandOutput extends RegisterVolumeResult, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OpsWorksClient, RegisterVolumeCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
- * // const { OpsWorksClient, RegisterVolumeCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
+ * import { OpsWorksClient, RegisterVolumeCommand } from '@aws-sdk/client-opsworks'; // ES Modules import
+ * // const { OpsWorksClient, RegisterVolumeCommand } = require('@aws-sdk/client-opsworks'); // CommonJS import
  * const client = new OpsWorksClient(config);
  * const input = { // RegisterVolumeRequest
- *   Ec2VolumeId: "STRING_VALUE",
- *   StackId: "STRING_VALUE", // required
+ *   Ec2VolumeId: 'STRING_VALUE',
+ *   StackId: 'STRING_VALUE', // required
  * };
  * const command = new RegisterVolumeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // RegisterVolumeResult
+ *   VolumeId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param RegisterVolumeCommandInput - {@link RegisterVolumeCommandInput}
@@ -66,6 +71,8 @@ export interface RegisterVolumeCommandOutput extends RegisterVolumeResult, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>Indicates that a request was not valid.</p>
  *
+ * @throws {@link OpsWorksServiceException}
+ * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
  */
 export class RegisterVolumeCommand extends $Command<

@@ -44,15 +44,18 @@ export interface UpdateConfigurationSetSendingEnabledCommandOutput extends __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SESClient, UpdateConfigurationSetSendingEnabledCommand } from "@aws-sdk/client-ses"; // ES Modules import
- * // const { SESClient, UpdateConfigurationSetSendingEnabledCommand } = require("@aws-sdk/client-ses"); // CommonJS import
+ * import { SESClient, UpdateConfigurationSetSendingEnabledCommand } from '@aws-sdk/client-ses'; // ES Modules import
+ * // const { SESClient, UpdateConfigurationSetSendingEnabledCommand } = require('@aws-sdk/client-ses'); // CommonJS import
  * const client = new SESClient(config);
  * const input = { // UpdateConfigurationSetSendingEnabledRequest
- *   ConfigurationSetName: "STRING_VALUE", // required
+ *   ConfigurationSetName: 'STRING_VALUE', // required
  *   Enabled: true || false, // required
  * };
  * const command = new UpdateConfigurationSetSendingEnabledCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateConfigurationSetSendingEnabledCommandInput - {@link UpdateConfigurationSetSendingEnabledCommandInput}
@@ -64,6 +67,8 @@ export interface UpdateConfigurationSetSendingEnabledCommandOutput extends __Met
  * @throws {@link ConfigurationSetDoesNotExistException} (client fault)
  *  <p>Indicates that the configuration set does not exist.</p>
  *
+ * @throws {@link SESServiceException}
+ * <p>Base exception class for all service exceptions from SES service.</p>
  *
  * @example UpdateConfigurationSetReputationMetricsEnabled
  * ```javascript

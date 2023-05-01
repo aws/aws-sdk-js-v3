@@ -72,15 +72,18 @@ export interface DeleteBucketPolicyCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { S3ControlClient, DeleteBucketPolicyCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
- * // const { S3ControlClient, DeleteBucketPolicyCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
+ * import { S3ControlClient, DeleteBucketPolicyCommand } from '@aws-sdk/client-s3-control'; // ES Modules import
+ * // const { S3ControlClient, DeleteBucketPolicyCommand } = require('@aws-sdk/client-s3-control'); // CommonJS import
  * const client = new S3ControlClient(config);
  * const input = { // DeleteBucketPolicyRequest
- *   AccountId: "STRING_VALUE",
- *   Bucket: "STRING_VALUE", // required
+ *   AccountId: 'STRING_VALUE',
+ *   Bucket: 'STRING_VALUE', // required
  * };
  * const command = new DeleteBucketPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteBucketPolicyCommandInput - {@link DeleteBucketPolicyCommandInput}
@@ -89,6 +92,8 @@ export interface DeleteBucketPolicyCommandOutput extends __MetadataBearer {}
  * @see {@link DeleteBucketPolicyCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
  *
+ * @throws {@link S3ControlServiceException}
+ * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
  */
 export class DeleteBucketPolicyCommand extends $Command<

@@ -48,17 +48,31 @@ export interface CreateGroupCommandOutput extends CreateGroupResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SyntheticsClient, CreateGroupCommand } from "@aws-sdk/client-synthetics"; // ES Modules import
- * // const { SyntheticsClient, CreateGroupCommand } = require("@aws-sdk/client-synthetics"); // CommonJS import
+ * import { SyntheticsClient, CreateGroupCommand } from '@aws-sdk/client-synthetics'; // ES Modules import
+ * // const { SyntheticsClient, CreateGroupCommand } = require('@aws-sdk/client-synthetics'); // CommonJS import
  * const client = new SyntheticsClient(config);
  * const input = { // CreateGroupRequest
- *   Name: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
  *   Tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateGroupResponse
+ *   Group: { // Group
+ *     Id: 'STRING_VALUE',
+ *     Name: 'STRING_VALUE',
+ *     Arn: 'STRING_VALUE',
+ *     Tags: { // TagMap
+ *       '<keys>': 'STRING_VALUE',
+ *     },
+ *     CreatedTime: new Date('TIMESTAMP'),
+ *     LastModifiedTime: new Date('TIMESTAMP'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateGroupCommandInput - {@link CreateGroupCommandInput}
@@ -79,6 +93,8 @@ export interface CreateGroupCommandOutput extends CreateGroupResponse, __Metadat
  * @throws {@link ValidationException} (client fault)
  *  <p>A parameter could not be validated.</p>
  *
+ * @throws {@link SyntheticsServiceException}
+ * <p>Base exception class for all service exceptions from Synthetics service.</p>
  *
  */
 export class CreateGroupCommand extends $Command<

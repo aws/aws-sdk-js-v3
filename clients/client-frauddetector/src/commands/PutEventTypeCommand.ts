@@ -36,31 +36,34 @@ export interface PutEventTypeCommandOutput extends PutEventTypeResult, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FraudDetectorClient, PutEventTypeCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
- * // const { FraudDetectorClient, PutEventTypeCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
+ * import { FraudDetectorClient, PutEventTypeCommand } from '@aws-sdk/client-frauddetector'; // ES Modules import
+ * // const { FraudDetectorClient, PutEventTypeCommand } = require('@aws-sdk/client-frauddetector'); // CommonJS import
  * const client = new FraudDetectorClient(config);
  * const input = { // PutEventTypeRequest
- *   name: "STRING_VALUE", // required
- *   description: "STRING_VALUE",
+ *   name: 'STRING_VALUE', // required
+ *   description: 'STRING_VALUE',
  *   eventVariables: [ // NonEmptyListOfStrings // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   labels: [ // ListOfStrings
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   entityTypes: [ // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   eventIngestion: "ENABLED" || "DISABLED",
+ *   eventIngestion: 'ENABLED' || 'DISABLED',
  *   tags: [ // tagList
  *     { // Tag
- *       key: "STRING_VALUE", // required
- *       value: "STRING_VALUE", // required
+ *       key: 'STRING_VALUE', // required
+ *       value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new PutEventTypeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutEventTypeCommandInput - {@link PutEventTypeCommandInput}
@@ -84,6 +87,8 @@ export interface PutEventTypeCommandOutput extends PutEventTypeResult, __Metadat
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception indicating a specified value is not allowed.</p>
  *
+ * @throws {@link FraudDetectorServiceException}
+ * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
  */
 export class PutEventTypeCommand extends $Command<

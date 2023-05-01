@@ -36,16 +36,32 @@ export interface ListFiltersCommandOutput extends ListFiltersResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PersonalizeClient, ListFiltersCommand } from "@aws-sdk/client-personalize"; // ES Modules import
- * // const { PersonalizeClient, ListFiltersCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
+ * import { PersonalizeClient, ListFiltersCommand } from '@aws-sdk/client-personalize'; // ES Modules import
+ * // const { PersonalizeClient, ListFiltersCommand } = require('@aws-sdk/client-personalize'); // CommonJS import
  * const client = new PersonalizeClient(config);
  * const input = { // ListFiltersRequest
- *   datasetGroupArn: "STRING_VALUE",
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   datasetGroupArn: 'STRING_VALUE',
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new ListFiltersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListFiltersResponse
+ *   Filters: [ // Filters
+ *     { // FilterSummary
+ *       name: 'STRING_VALUE',
+ *       filterArn: 'STRING_VALUE',
+ *       creationDateTime: new Date('TIMESTAMP'),
+ *       lastUpdatedDateTime: new Date('TIMESTAMP'),
+ *       datasetGroupArn: 'STRING_VALUE',
+ *       failureReason: 'STRING_VALUE',
+ *       status: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListFiltersCommandInput - {@link ListFiltersCommandInput}
@@ -60,6 +76,8 @@ export interface ListFiltersCommandOutput extends ListFiltersResponse, __Metadat
  * @throws {@link InvalidNextTokenException} (client fault)
  *  <p>The token is not valid.</p>
  *
+ * @throws {@link PersonalizeServiceException}
+ * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
  */
 export class ListFiltersCommand extends $Command<

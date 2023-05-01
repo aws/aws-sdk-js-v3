@@ -36,16 +36,19 @@ export interface ValidateConfigurationCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppConfigClient, ValidateConfigurationCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
- * // const { AppConfigClient, ValidateConfigurationCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import
+ * import { AppConfigClient, ValidateConfigurationCommand } from '@aws-sdk/client-appconfig'; // ES Modules import
+ * // const { AppConfigClient, ValidateConfigurationCommand } = require('@aws-sdk/client-appconfig'); // CommonJS import
  * const client = new AppConfigClient(config);
  * const input = { // ValidateConfigurationRequest
- *   ApplicationId: "STRING_VALUE", // required
- *   ConfigurationProfileId: "STRING_VALUE", // required
- *   ConfigurationVersion: "STRING_VALUE", // required
+ *   ApplicationId: 'STRING_VALUE', // required
+ *   ConfigurationProfileId: 'STRING_VALUE', // required
+ *   ConfigurationVersion: 'STRING_VALUE', // required
  * };
  * const command = new ValidateConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param ValidateConfigurationCommandInput - {@link ValidateConfigurationCommandInput}
@@ -63,6 +66,8 @@ export interface ValidateConfigurationCommandOutput extends __MetadataBearer {}
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The requested resource could not be found.</p>
  *
+ * @throws {@link AppConfigServiceException}
+ * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
  * @example To validate a configuration
  * ```javascript

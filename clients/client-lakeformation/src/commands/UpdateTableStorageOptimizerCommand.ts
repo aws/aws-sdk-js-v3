@@ -41,21 +41,26 @@ export interface UpdateTableStorageOptimizerCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LakeFormationClient, UpdateTableStorageOptimizerCommand } from "@aws-sdk/client-lakeformation"; // ES Modules import
- * // const { LakeFormationClient, UpdateTableStorageOptimizerCommand } = require("@aws-sdk/client-lakeformation"); // CommonJS import
+ * import { LakeFormationClient, UpdateTableStorageOptimizerCommand } from '@aws-sdk/client-lakeformation'; // ES Modules import
+ * // const { LakeFormationClient, UpdateTableStorageOptimizerCommand } = require('@aws-sdk/client-lakeformation'); // CommonJS import
  * const client = new LakeFormationClient(config);
  * const input = { // UpdateTableStorageOptimizerRequest
- *   CatalogId: "STRING_VALUE",
- *   DatabaseName: "STRING_VALUE", // required
- *   TableName: "STRING_VALUE", // required
+ *   CatalogId: 'STRING_VALUE',
+ *   DatabaseName: 'STRING_VALUE', // required
+ *   TableName: 'STRING_VALUE', // required
  *   StorageOptimizerConfig: { // StorageOptimizerConfigMap // required
- *     "<keys>": { // StorageOptimizerConfig
- *       "<keys>": "STRING_VALUE",
+ *     '<keys>': { // StorageOptimizerConfig
+ *       '<keys>': 'STRING_VALUE',
  *     },
  *   },
  * };
  * const command = new UpdateTableStorageOptimizerCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateTableStorageOptimizerResponse
+ *   Result: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateTableStorageOptimizerCommandInput - {@link UpdateTableStorageOptimizerCommandInput}
@@ -76,6 +81,8 @@ export interface UpdateTableStorageOptimizerCommandOutput
  * @throws {@link InvalidInputException} (client fault)
  *  <p>The input provided was not valid.</p>
  *
+ * @throws {@link LakeFormationServiceException}
+ * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
  */
 export class UpdateTableStorageOptimizerCommand extends $Command<

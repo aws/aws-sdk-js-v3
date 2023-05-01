@@ -46,22 +46,35 @@ export interface GetLogEventsCommandOutput extends GetLogEventsResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudWatchLogsClient, GetLogEventsCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
- * // const { CloudWatchLogsClient, GetLogEventsCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
+ * import { CloudWatchLogsClient, GetLogEventsCommand } from '@aws-sdk/client-cloudwatch-logs'; // ES Modules import
+ * // const { CloudWatchLogsClient, GetLogEventsCommand } = require('@aws-sdk/client-cloudwatch-logs'); // CommonJS import
  * const client = new CloudWatchLogsClient(config);
  * const input = { // GetLogEventsRequest
- *   logGroupName: "STRING_VALUE",
- *   logGroupIdentifier: "STRING_VALUE",
- *   logStreamName: "STRING_VALUE", // required
- *   startTime: Number("long"),
- *   endTime: Number("long"),
- *   nextToken: "STRING_VALUE",
- *   limit: Number("int"),
+ *   logGroupName: 'STRING_VALUE',
+ *   logGroupIdentifier: 'STRING_VALUE',
+ *   logStreamName: 'STRING_VALUE', // required
+ *   startTime: Number('long'),
+ *   endTime: Number('long'),
+ *   nextToken: 'STRING_VALUE',
+ *   limit: Number('int'),
  *   startFromHead: true || false,
  *   unmask: true || false,
  * };
  * const command = new GetLogEventsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetLogEventsResponse
+ *   events: [ // OutputLogEvents
+ *     { // OutputLogEvent
+ *       timestamp: Number('long'),
+ *       message: 'STRING_VALUE',
+ *       ingestionTime: Number('long'),
+ *     },
+ *   ],
+ *   nextForwardToken: 'STRING_VALUE',
+ *   nextBackwardToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetLogEventsCommandInput - {@link GetLogEventsCommandInput}
@@ -79,6 +92,8 @@ export interface GetLogEventsCommandOutput extends GetLogEventsResponse, __Metad
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service cannot complete the request.</p>
  *
+ * @throws {@link CloudWatchLogsServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
  */
 export class GetLogEventsCommand extends $Command<

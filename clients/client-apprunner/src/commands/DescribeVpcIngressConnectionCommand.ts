@@ -41,14 +41,32 @@ export interface DescribeVpcIngressConnectionCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppRunnerClient, DescribeVpcIngressConnectionCommand } from "@aws-sdk/client-apprunner"; // ES Modules import
- * // const { AppRunnerClient, DescribeVpcIngressConnectionCommand } = require("@aws-sdk/client-apprunner"); // CommonJS import
+ * import { AppRunnerClient, DescribeVpcIngressConnectionCommand } from '@aws-sdk/client-apprunner'; // ES Modules import
+ * // const { AppRunnerClient, DescribeVpcIngressConnectionCommand } = require('@aws-sdk/client-apprunner'); // CommonJS import
  * const client = new AppRunnerClient(config);
  * const input = { // DescribeVpcIngressConnectionRequest
- *   VpcIngressConnectionArn: "STRING_VALUE", // required
+ *   VpcIngressConnectionArn: 'STRING_VALUE', // required
  * };
  * const command = new DescribeVpcIngressConnectionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeVpcIngressConnectionResponse
+ *   VpcIngressConnection: { // VpcIngressConnection
+ *     VpcIngressConnectionArn: 'STRING_VALUE',
+ *     VpcIngressConnectionName: 'STRING_VALUE',
+ *     ServiceArn: 'STRING_VALUE',
+ *     Status: 'AVAILABLE' || 'PENDING_CREATION' || 'PENDING_UPDATE' || 'PENDING_DELETION' || 'FAILED_CREATION' || 'FAILED_UPDATE' || 'FAILED_DELETION' || 'DELETED',
+ *     AccountId: 'STRING_VALUE',
+ *     DomainName: 'STRING_VALUE',
+ *     IngressVpcConfiguration: { // IngressVpcConfiguration
+ *       VpcId: 'STRING_VALUE',
+ *       VpcEndpointId: 'STRING_VALUE',
+ *     },
+ *     CreatedAt: new Date('TIMESTAMP'),
+ *     DeletedAt: new Date('TIMESTAMP'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeVpcIngressConnectionCommandInput - {@link DescribeVpcIngressConnectionCommandInput}
@@ -66,6 +84,8 @@ export interface DescribeVpcIngressConnectionCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>A resource doesn't exist for the specified Amazon Resource Name (ARN) in your Amazon Web Services account.</p>
  *
+ * @throws {@link AppRunnerServiceException}
+ * <p>Base exception class for all service exceptions from AppRunner service.</p>
  *
  */
 export class DescribeVpcIngressConnectionCommand extends $Command<

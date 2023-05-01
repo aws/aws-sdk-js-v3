@@ -88,65 +88,70 @@ export interface CreateAutoPredictorCommandOutput extends CreateAutoPredictorRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ForecastClient, CreateAutoPredictorCommand } from "@aws-sdk/client-forecast"; // ES Modules import
- * // const { ForecastClient, CreateAutoPredictorCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
+ * import { ForecastClient, CreateAutoPredictorCommand } from '@aws-sdk/client-forecast'; // ES Modules import
+ * // const { ForecastClient, CreateAutoPredictorCommand } = require('@aws-sdk/client-forecast'); // CommonJS import
  * const client = new ForecastClient(config);
  * const input = { // CreateAutoPredictorRequest
- *   PredictorName: "STRING_VALUE", // required
- *   ForecastHorizon: Number("int"),
+ *   PredictorName: 'STRING_VALUE', // required
+ *   ForecastHorizon: Number('int'),
  *   ForecastTypes: [ // ForecastTypes
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   ForecastDimensions: [ // ForecastDimensions
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   ForecastFrequency: "STRING_VALUE",
+ *   ForecastFrequency: 'STRING_VALUE',
  *   DataConfig: { // DataConfig
- *     DatasetGroupArn: "STRING_VALUE", // required
+ *     DatasetGroupArn: 'STRING_VALUE', // required
  *     AttributeConfigs: [ // AttributeConfigs
  *       { // AttributeConfig
- *         AttributeName: "STRING_VALUE", // required
+ *         AttributeName: 'STRING_VALUE', // required
  *         Transformations: { // Transformations // required
- *           "<keys>": "STRING_VALUE",
+ *           '<keys>': 'STRING_VALUE',
  *         },
  *       },
  *     ],
  *     AdditionalDatasets: [ // AdditionalDatasets
  *       { // AdditionalDataset
- *         Name: "STRING_VALUE", // required
+ *         Name: 'STRING_VALUE', // required
  *         Configuration: { // Configuration
- *           "<keys>": [ // Values
- *             "STRING_VALUE",
+ *           '<keys>': [ // Values
+ *             'STRING_VALUE',
  *           ],
  *         },
  *       },
  *     ],
  *   },
  *   EncryptionConfig: { // EncryptionConfig
- *     RoleArn: "STRING_VALUE", // required
- *     KMSKeyArn: "STRING_VALUE", // required
+ *     RoleArn: 'STRING_VALUE', // required
+ *     KMSKeyArn: 'STRING_VALUE', // required
  *   },
- *   ReferencePredictorArn: "STRING_VALUE",
- *   OptimizationMetric: "WAPE" || "RMSE" || "AverageWeightedQuantileLoss" || "MASE" || "MAPE",
+ *   ReferencePredictorArn: 'STRING_VALUE',
+ *   OptimizationMetric: 'WAPE' || 'RMSE' || 'AverageWeightedQuantileLoss' || 'MASE' || 'MAPE',
  *   ExplainPredictor: true || false,
  *   Tags: [ // Tags
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  *   MonitorConfig: { // MonitorConfig
- *     MonitorName: "STRING_VALUE", // required
+ *     MonitorName: 'STRING_VALUE', // required
  *   },
  *   TimeAlignmentBoundary: { // TimeAlignmentBoundary
- *     Month: "JANUARY" || "FEBRUARY" || "MARCH" || "APRIL" || "MAY" || "JUNE" || "JULY" || "AUGUST" || "SEPTEMBER" || "OCTOBER" || "NOVEMBER" || "DECEMBER",
- *     DayOfMonth: Number("int"),
- *     DayOfWeek: "MONDAY" || "TUESDAY" || "WEDNESDAY" || "THURSDAY" || "FRIDAY" || "SATURDAY" || "SUNDAY",
- *     Hour: Number("int"),
+ *     Month: 'JANUARY' || 'FEBRUARY' || 'MARCH' || 'APRIL' || 'MAY' || 'JUNE' || 'JULY' || 'AUGUST' || 'SEPTEMBER' || 'OCTOBER' || 'NOVEMBER' || 'DECEMBER',
+ *     DayOfMonth: Number('int'),
+ *     DayOfWeek: 'MONDAY' || 'TUESDAY' || 'WEDNESDAY' || 'THURSDAY' || 'FRIDAY' || 'SATURDAY' || 'SUNDAY',
+ *     Hour: Number('int'),
  *   },
  * };
  * const command = new CreateAutoPredictorCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateAutoPredictorResponse
+ *   PredictorArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateAutoPredictorCommandInput - {@link CreateAutoPredictorCommandInput}
@@ -172,6 +177,8 @@ export interface CreateAutoPredictorCommandOutput extends CreateAutoPredictorRes
  *  <p>We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try
  *       again.</p>
  *
+ * @throws {@link ForecastServiceException}
+ * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
  */
 export class CreateAutoPredictorCommand extends $Command<

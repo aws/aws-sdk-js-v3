@@ -41,16 +41,37 @@ export interface ListFacesCommandOutput extends ListFacesResponse, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RekognitionClient, ListFacesCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
- * // const { RekognitionClient, ListFacesCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
+ * import { RekognitionClient, ListFacesCommand } from '@aws-sdk/client-rekognition'; // ES Modules import
+ * // const { RekognitionClient, ListFacesCommand } = require('@aws-sdk/client-rekognition'); // CommonJS import
  * const client = new RekognitionClient(config);
  * const input = { // ListFacesRequest
- *   CollectionId: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   CollectionId: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListFacesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListFacesResponse
+ *   Faces: [ // FaceList
+ *     { // Face
+ *       FaceId: 'STRING_VALUE',
+ *       BoundingBox: { // BoundingBox
+ *         Width: Number('float'),
+ *         Height: Number('float'),
+ *         Left: Number('float'),
+ *         Top: Number('float'),
+ *       },
+ *       ImageId: 'STRING_VALUE',
+ *       ExternalImageId: 'STRING_VALUE',
+ *       Confidence: Number('float'),
+ *       IndexFacesModelVersion: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ *   FaceModelVersion: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListFacesCommandInput - {@link ListFacesCommandInput}
@@ -82,6 +103,8 @@ export interface ListFacesCommandOutput extends ListFacesResponse, __MetadataBea
  * @throws {@link ThrottlingException} (server fault)
  *  <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
  *
+ * @throws {@link RekognitionServiceException}
+ * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
  * @example To list the faces in a collection
  * ```javascript

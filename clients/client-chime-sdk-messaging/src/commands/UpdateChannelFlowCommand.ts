@@ -44,28 +44,33 @@ export interface UpdateChannelFlowCommandOutput extends UpdateChannelFlowRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeSDKMessagingClient, UpdateChannelFlowCommand } from "@aws-sdk/client-chime-sdk-messaging"; // ES Modules import
- * // const { ChimeSDKMessagingClient, UpdateChannelFlowCommand } = require("@aws-sdk/client-chime-sdk-messaging"); // CommonJS import
+ * import { ChimeSDKMessagingClient, UpdateChannelFlowCommand } from '@aws-sdk/client-chime-sdk-messaging'; // ES Modules import
+ * // const { ChimeSDKMessagingClient, UpdateChannelFlowCommand } = require('@aws-sdk/client-chime-sdk-messaging'); // CommonJS import
  * const client = new ChimeSDKMessagingClient(config);
  * const input = { // UpdateChannelFlowRequest
- *   ChannelFlowArn: "STRING_VALUE", // required
+ *   ChannelFlowArn: 'STRING_VALUE', // required
  *   Processors: [ // ProcessorList // required
  *     { // Processor
- *       Name: "STRING_VALUE", // required
+ *       Name: 'STRING_VALUE', // required
  *       Configuration: { // ProcessorConfiguration
  *         Lambda: { // LambdaConfiguration
- *           ResourceArn: "STRING_VALUE", // required
- *           InvocationType: "ASYNC", // required
+ *           ResourceArn: 'STRING_VALUE', // required
+ *           InvocationType: 'ASYNC', // required
  *         },
  *       },
- *       ExecutionOrder: Number("int"), // required
- *       FallbackAction: "CONTINUE" || "ABORT", // required
+ *       ExecutionOrder: Number('int'), // required
+ *       FallbackAction: 'CONTINUE' || 'ABORT', // required
  *     },
  *   ],
- *   Name: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
  * };
  * const command = new UpdateChannelFlowCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateChannelFlowResponse
+ *   ChannelFlowArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateChannelFlowCommandInput - {@link UpdateChannelFlowCommandInput}
@@ -96,6 +101,8 @@ export interface UpdateChannelFlowCommandOutput extends UpdateChannelFlowRespons
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeSDKMessagingServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKMessaging service.</p>
  *
  */
 export class UpdateChannelFlowCommand extends $Command<

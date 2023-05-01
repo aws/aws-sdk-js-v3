@@ -57,37 +57,89 @@ export interface CreateDataRepositoryAssociationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FSxClient, CreateDataRepositoryAssociationCommand } from "@aws-sdk/client-fsx"; // ES Modules import
- * // const { FSxClient, CreateDataRepositoryAssociationCommand } = require("@aws-sdk/client-fsx"); // CommonJS import
+ * import { FSxClient, CreateDataRepositoryAssociationCommand } from '@aws-sdk/client-fsx'; // ES Modules import
+ * // const { FSxClient, CreateDataRepositoryAssociationCommand } = require('@aws-sdk/client-fsx'); // CommonJS import
  * const client = new FSxClient(config);
  * const input = { // CreateDataRepositoryAssociationRequest
- *   FileSystemId: "STRING_VALUE", // required
- *   FileSystemPath: "STRING_VALUE",
- *   DataRepositoryPath: "STRING_VALUE", // required
+ *   FileSystemId: 'STRING_VALUE', // required
+ *   FileSystemPath: 'STRING_VALUE',
+ *   DataRepositoryPath: 'STRING_VALUE', // required
  *   BatchImportMetaDataOnCreate: true || false,
- *   ImportedFileChunkSize: Number("int"),
+ *   ImportedFileChunkSize: Number('int'),
  *   S3: { // S3DataRepositoryConfiguration
  *     AutoImportPolicy: { // AutoImportPolicy
  *       Events: [ // EventTypes
- *         "NEW" || "CHANGED" || "DELETED",
+ *         'NEW' || 'CHANGED' || 'DELETED',
  *       ],
  *     },
  *     AutoExportPolicy: { // AutoExportPolicy
  *       Events: [
- *         "NEW" || "CHANGED" || "DELETED",
+ *         'NEW' || 'CHANGED' || 'DELETED',
  *       ],
  *     },
  *   },
- *   ClientRequestToken: "STRING_VALUE",
+ *   ClientRequestToken: 'STRING_VALUE',
  *   Tags: [ // Tags
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreateDataRepositoryAssociationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateDataRepositoryAssociationResponse
+ *   Association: { // DataRepositoryAssociation
+ *     AssociationId: 'STRING_VALUE',
+ *     ResourceARN: 'STRING_VALUE',
+ *     FileSystemId: 'STRING_VALUE',
+ *     Lifecycle: 'CREATING' || 'AVAILABLE' || 'MISCONFIGURED' || 'UPDATING' || 'DELETING' || 'FAILED',
+ *     FailureDetails: { // DataRepositoryFailureDetails
+ *       Message: 'STRING_VALUE',
+ *     },
+ *     FileSystemPath: 'STRING_VALUE',
+ *     DataRepositoryPath: 'STRING_VALUE',
+ *     BatchImportMetaDataOnCreate: true || false,
+ *     ImportedFileChunkSize: Number('int'),
+ *     S3: { // S3DataRepositoryConfiguration
+ *       AutoImportPolicy: { // AutoImportPolicy
+ *         Events: [ // EventTypes
+ *           'NEW' || 'CHANGED' || 'DELETED',
+ *         ],
+ *       },
+ *       AutoExportPolicy: { // AutoExportPolicy
+ *         Events: [
+ *           'NEW' || 'CHANGED' || 'DELETED',
+ *         ],
+ *       },
+ *     },
+ *     Tags: [ // Tags
+ *       { // Tag
+ *         Key: 'STRING_VALUE', // required
+ *         Value: 'STRING_VALUE', // required
+ *       },
+ *     ],
+ *     CreationTime: new Date('TIMESTAMP'),
+ *     FileCacheId: 'STRING_VALUE',
+ *     FileCachePath: 'STRING_VALUE',
+ *     DataRepositorySubdirectories: [ // SubDirectoriesPaths
+ *       'STRING_VALUE',
+ *     ],
+ *     NFS: { // NFSDataRepositoryConfiguration
+ *       Version: 'NFS3', // required
+ *       DnsIps: [ // RepositoryDnsIps
+ *         'STRING_VALUE',
+ *       ],
+ *       AutoExportPolicy: {
+ *         Events: [
+ *           'NEW' || 'CHANGED' || 'DELETED',
+ *         ],
+ *       },
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateDataRepositoryAssociationCommandInput - {@link CreateDataRepositoryAssociationCommandInput}
@@ -117,6 +169,8 @@ export interface CreateDataRepositoryAssociationCommandOutput
  * @throws {@link UnsupportedOperation} (client fault)
  *  <p>The requested operation is not supported for this resource or API.</p>
  *
+ * @throws {@link FSxServiceException}
+ * <p>Base exception class for all service exceptions from FSx service.</p>
  *
  */
 export class CreateDataRepositoryAssociationCommand extends $Command<

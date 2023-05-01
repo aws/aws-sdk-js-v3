@@ -36,23 +36,34 @@ export interface PutMethodResponseCommandOutput extends MethodResponse, __Metada
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { APIGatewayClient, PutMethodResponseCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
- * // const { APIGatewayClient, PutMethodResponseCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
+ * import { APIGatewayClient, PutMethodResponseCommand } from '@aws-sdk/client-api-gateway'; // ES Modules import
+ * // const { APIGatewayClient, PutMethodResponseCommand } = require('@aws-sdk/client-api-gateway'); // CommonJS import
  * const client = new APIGatewayClient(config);
  * const input = { // PutMethodResponseRequest
- *   restApiId: "STRING_VALUE", // required
- *   resourceId: "STRING_VALUE", // required
- *   httpMethod: "STRING_VALUE", // required
- *   statusCode: "STRING_VALUE", // required
+ *   restApiId: 'STRING_VALUE', // required
+ *   resourceId: 'STRING_VALUE', // required
+ *   httpMethod: 'STRING_VALUE', // required
+ *   statusCode: 'STRING_VALUE', // required
  *   responseParameters: { // MapOfStringToBoolean
- *     "<keys>": true || false,
+ *     '<keys>': true || false,
  *   },
  *   responseModels: { // MapOfStringToString
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new PutMethodResponseCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // MethodResponse
+ *   statusCode: 'STRING_VALUE',
+ *   responseParameters: { // MapOfStringToBoolean
+ *     '<keys>': true || false,
+ *   },
+ *   responseModels: { // MapOfStringToString
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param PutMethodResponseCommandInput - {@link PutMethodResponseCommandInput}
@@ -79,6 +90,8 @@ export interface PutMethodResponseCommandOutput extends MethodResponse, __Metada
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The request is denied because the caller has insufficient permissions.</p>
  *
+ * @throws {@link APIGatewayServiceException}
+ * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
  */
 export class PutMethodResponseCommand extends $Command<

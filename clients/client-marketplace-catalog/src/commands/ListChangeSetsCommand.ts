@@ -45,28 +45,47 @@ export interface ListChangeSetsCommandOutput extends ListChangeSetsResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MarketplaceCatalogClient, ListChangeSetsCommand } from "@aws-sdk/client-marketplace-catalog"; // ES Modules import
- * // const { MarketplaceCatalogClient, ListChangeSetsCommand } = require("@aws-sdk/client-marketplace-catalog"); // CommonJS import
+ * import { MarketplaceCatalogClient, ListChangeSetsCommand } from '@aws-sdk/client-marketplace-catalog'; // ES Modules import
+ * // const { MarketplaceCatalogClient, ListChangeSetsCommand } = require('@aws-sdk/client-marketplace-catalog'); // CommonJS import
  * const client = new MarketplaceCatalogClient(config);
  * const input = { // ListChangeSetsRequest
- *   Catalog: "STRING_VALUE", // required
+ *   Catalog: 'STRING_VALUE', // required
  *   FilterList: [ // FilterList
  *     { // Filter
- *       Name: "STRING_VALUE",
+ *       Name: 'STRING_VALUE',
  *       ValueList: [ // ValueList
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
  *   Sort: { // Sort
- *     SortBy: "STRING_VALUE",
- *     SortOrder: "ASCENDING" || "DESCENDING",
+ *     SortBy: 'STRING_VALUE',
+ *     SortOrder: 'ASCENDING' || 'DESCENDING',
  *   },
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListChangeSetsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListChangeSetsResponse
+ *   ChangeSetSummaryList: [ // ChangeSetSummaryList
+ *     { // ChangeSetSummaryListItem
+ *       ChangeSetId: 'STRING_VALUE',
+ *       ChangeSetArn: 'STRING_VALUE',
+ *       ChangeSetName: 'STRING_VALUE',
+ *       StartTime: 'STRING_VALUE',
+ *       EndTime: 'STRING_VALUE',
+ *       Status: 'PREPARING' || 'APPLYING' || 'SUCCEEDED' || 'CANCELLED' || 'FAILED',
+ *       EntityIdList: [ // ResourceIdList
+ *         'STRING_VALUE',
+ *       ],
+ *       FailureCode: 'CLIENT_ERROR' || 'SERVER_FAULT',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListChangeSetsCommandInput - {@link ListChangeSetsCommandInput}
@@ -91,6 +110,8 @@ export interface ListChangeSetsCommandOutput extends ListChangeSetsResponse, __M
  *  <p>An error occurred during validation.</p>
  *          <p>HTTP status code: 422</p>
  *
+ * @throws {@link MarketplaceCatalogServiceException}
+ * <p>Base exception class for all service exceptions from MarketplaceCatalog service.</p>
  *
  */
 export class ListChangeSetsCommand extends $Command<

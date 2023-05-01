@@ -42,16 +42,47 @@ export interface ListProfilingGroupsCommandOutput extends ListProfilingGroupsRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeGuruProfilerClient, ListProfilingGroupsCommand } from "@aws-sdk/client-codeguruprofiler"; // ES Modules import
- * // const { CodeGuruProfilerClient, ListProfilingGroupsCommand } = require("@aws-sdk/client-codeguruprofiler"); // CommonJS import
+ * import { CodeGuruProfilerClient, ListProfilingGroupsCommand } from '@aws-sdk/client-codeguruprofiler'; // ES Modules import
+ * // const { CodeGuruProfilerClient, ListProfilingGroupsCommand } = require('@aws-sdk/client-codeguruprofiler'); // CommonJS import
  * const client = new CodeGuruProfilerClient(config);
  * const input = { // ListProfilingGroupsRequest
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  *   includeDescription: true || false,
  * };
  * const command = new ListProfilingGroupsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListProfilingGroupsResponse
+ *   profilingGroupNames: [ // ProfilingGroupNames // required
+ *     'STRING_VALUE',
+ *   ],
+ *   profilingGroups: [ // ProfilingGroupDescriptions
+ *     { // ProfilingGroupDescription
+ *       name: 'STRING_VALUE',
+ *       agentOrchestrationConfig: { // AgentOrchestrationConfig
+ *         profilingEnabled: true || false, // required
+ *       },
+ *       arn: 'STRING_VALUE',
+ *       createdAt: new Date('TIMESTAMP'),
+ *       updatedAt: new Date('TIMESTAMP'),
+ *       profilingStatus: { // ProfilingStatus
+ *         latestAgentProfileReportedAt: new Date('TIMESTAMP'),
+ *         latestAggregatedProfile: { // AggregatedProfileTime
+ *           start: new Date('TIMESTAMP'),
+ *           period: 'STRING_VALUE',
+ *         },
+ *         latestAgentOrchestratedAt: new Date('TIMESTAMP'),
+ *       },
+ *       computePlatform: 'STRING_VALUE',
+ *       tags: { // TagsMap
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListProfilingGroupsCommandInput - {@link ListProfilingGroupsCommandInput}
@@ -66,6 +97,8 @@ export interface ListProfilingGroupsCommandOutput extends ListProfilingGroupsRes
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
  *
+ * @throws {@link CodeGuruProfilerServiceException}
+ * <p>Base exception class for all service exceptions from CodeGuruProfiler service.</p>
  *
  */
 export class ListProfilingGroupsCommand extends $Command<

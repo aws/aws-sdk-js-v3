@@ -37,17 +37,30 @@ export interface ListQueueQuickConnectsCommandOutput extends ListQueueQuickConne
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, ListQueueQuickConnectsCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, ListQueueQuickConnectsCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, ListQueueQuickConnectsCommand } from '@aws-sdk/client-connect'; // ES Modules import
+ * // const { ConnectClient, ListQueueQuickConnectsCommand } = require('@aws-sdk/client-connect'); // CommonJS import
  * const client = new ConnectClient(config);
  * const input = { // ListQueueQuickConnectsRequest
- *   InstanceId: "STRING_VALUE", // required
- *   QueueId: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   InstanceId: 'STRING_VALUE', // required
+ *   QueueId: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListQueueQuickConnectsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListQueueQuickConnectsResponse
+ *   NextToken: 'STRING_VALUE',
+ *   QuickConnectSummaryList: [ // QuickConnectSummaryList
+ *     { // QuickConnectSummary
+ *       Id: 'STRING_VALUE',
+ *       Arn: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *       QuickConnectType: 'USER' || 'QUEUE' || 'PHONE_NUMBER',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListQueueQuickConnectsCommandInput - {@link ListQueueQuickConnectsCommandInput}
@@ -71,6 +84,8 @@ export interface ListQueueQuickConnectsCommandOutput extends ListQueueQuickConne
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class ListQueueQuickConnectsCommand extends $Command<

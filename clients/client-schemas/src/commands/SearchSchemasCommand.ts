@@ -36,17 +36,36 @@ export interface SearchSchemasCommandOutput extends SearchSchemasResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SchemasClient, SearchSchemasCommand } from "@aws-sdk/client-schemas"; // ES Modules import
- * // const { SchemasClient, SearchSchemasCommand } = require("@aws-sdk/client-schemas"); // CommonJS import
+ * import { SchemasClient, SearchSchemasCommand } from '@aws-sdk/client-schemas'; // ES Modules import
+ * // const { SchemasClient, SearchSchemasCommand } = require('@aws-sdk/client-schemas'); // CommonJS import
  * const client = new SchemasClient(config);
  * const input = { // SearchSchemasRequest
- *   Keywords: "STRING_VALUE", // required
- *   Limit: Number("int"),
- *   NextToken: "STRING_VALUE",
- *   RegistryName: "STRING_VALUE", // required
+ *   Keywords: 'STRING_VALUE', // required
+ *   Limit: Number('int'),
+ *   NextToken: 'STRING_VALUE',
+ *   RegistryName: 'STRING_VALUE', // required
  * };
  * const command = new SearchSchemasCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SearchSchemasResponse
+ *   NextToken: 'STRING_VALUE',
+ *   Schemas: [ // __listOfSearchSchemaSummary
+ *     { // SearchSchemaSummary
+ *       RegistryName: 'STRING_VALUE',
+ *       SchemaArn: 'STRING_VALUE',
+ *       SchemaName: 'STRING_VALUE',
+ *       SchemaVersions: [ // __listOfSearchSchemaVersionSummary
+ *         { // SearchSchemaVersionSummary
+ *           CreatedDate: new Date('TIMESTAMP'),
+ *           SchemaVersion: 'STRING_VALUE',
+ *           Type: 'STRING_VALUE',
+ *         },
+ *       ],
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param SearchSchemasCommandInput - {@link SearchSchemasCommandInput}
@@ -65,6 +84,8 @@ export interface SearchSchemasCommandOutput extends SearchSchemasResponse, __Met
  *
  * @throws {@link UnauthorizedException} (client fault)
  *
+ * @throws {@link SchemasServiceException}
+ * <p>Base exception class for all service exceptions from Schemas service.</p>
  *
  */
 export class SearchSchemasCommand extends $Command<

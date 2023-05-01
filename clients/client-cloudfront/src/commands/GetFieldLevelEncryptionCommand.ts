@@ -36,14 +36,52 @@ export interface GetFieldLevelEncryptionCommandOutput extends GetFieldLevelEncry
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudFrontClient, GetFieldLevelEncryptionCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
- * // const { CloudFrontClient, GetFieldLevelEncryptionCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
+ * import { CloudFrontClient, GetFieldLevelEncryptionCommand } from '@aws-sdk/client-cloudfront'; // ES Modules import
+ * // const { CloudFrontClient, GetFieldLevelEncryptionCommand } = require('@aws-sdk/client-cloudfront'); // CommonJS import
  * const client = new CloudFrontClient(config);
  * const input = { // GetFieldLevelEncryptionRequest
- *   Id: "STRING_VALUE", // required
+ *   Id: 'STRING_VALUE', // required
  * };
  * const command = new GetFieldLevelEncryptionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetFieldLevelEncryptionResult
+ *   FieldLevelEncryption: { // FieldLevelEncryption
+ *     Id: 'STRING_VALUE', // required
+ *     LastModifiedTime: new Date('TIMESTAMP'), // required
+ *     FieldLevelEncryptionConfig: { // FieldLevelEncryptionConfig
+ *       CallerReference: 'STRING_VALUE', // required
+ *       Comment: 'STRING_VALUE',
+ *       QueryArgProfileConfig: { // QueryArgProfileConfig
+ *         ForwardWhenQueryArgProfileIsUnknown: true || false, // required
+ *         QueryArgProfiles: { // QueryArgProfiles
+ *           Quantity: Number('int'), // required
+ *           Items: [ // QueryArgProfileList
+ *             { // QueryArgProfile
+ *               QueryArg: 'STRING_VALUE', // required
+ *               ProfileId: 'STRING_VALUE', // required
+ *             },
+ *           ],
+ *         },
+ *       },
+ *       ContentTypeProfileConfig: { // ContentTypeProfileConfig
+ *         ForwardWhenContentTypeIsUnknown: true || false, // required
+ *         ContentTypeProfiles: { // ContentTypeProfiles
+ *           Quantity: Number('int'), // required
+ *           Items: [ // ContentTypeProfileList
+ *             { // ContentTypeProfile
+ *               Format: 'URLEncoded', // required
+ *               ProfileId: 'STRING_VALUE',
+ *               ContentType: 'STRING_VALUE', // required
+ *             },
+ *           ],
+ *         },
+ *       },
+ *     },
+ *   },
+ *   ETag: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetFieldLevelEncryptionCommandInput - {@link GetFieldLevelEncryptionCommandInput}
@@ -58,6 +96,8 @@ export interface GetFieldLevelEncryptionCommandOutput extends GetFieldLevelEncry
  * @throws {@link NoSuchFieldLevelEncryptionConfig} (client fault)
  *  <p>The specified configuration for field-level encryption doesn't exist.</p>
  *
+ * @throws {@link CloudFrontServiceException}
+ * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
  */
 export class GetFieldLevelEncryptionCommand extends $Command<

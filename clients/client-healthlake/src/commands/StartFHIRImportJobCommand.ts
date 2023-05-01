@@ -36,26 +36,33 @@ export interface StartFHIRImportJobCommandOutput extends StartFHIRImportJobRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { HealthLakeClient, StartFHIRImportJobCommand } from "@aws-sdk/client-healthlake"; // ES Modules import
- * // const { HealthLakeClient, StartFHIRImportJobCommand } = require("@aws-sdk/client-healthlake"); // CommonJS import
+ * import { HealthLakeClient, StartFHIRImportJobCommand } from '@aws-sdk/client-healthlake'; // ES Modules import
+ * // const { HealthLakeClient, StartFHIRImportJobCommand } = require('@aws-sdk/client-healthlake'); // CommonJS import
  * const client = new HealthLakeClient(config);
  * const input = { // StartFHIRImportJobRequest
- *   JobName: "STRING_VALUE",
+ *   JobName: 'STRING_VALUE',
  *   InputDataConfig: { // InputDataConfig Union: only one key present
- *     S3Uri: "STRING_VALUE",
+ *     S3Uri: 'STRING_VALUE',
  *   },
  *   JobOutputDataConfig: { // OutputDataConfig Union: only one key present
  *     S3Configuration: { // S3Configuration
- *       S3Uri: "STRING_VALUE", // required
- *       KmsKeyId: "STRING_VALUE", // required
+ *       S3Uri: 'STRING_VALUE', // required
+ *       KmsKeyId: 'STRING_VALUE', // required
  *     },
  *   },
- *   DatastoreId: "STRING_VALUE", // required
- *   DataAccessRoleArn: "STRING_VALUE", // required
- *   ClientToken: "STRING_VALUE", // required
+ *   DatastoreId: 'STRING_VALUE', // required
+ *   DataAccessRoleArn: 'STRING_VALUE', // required
+ *   ClientToken: 'STRING_VALUE', // required
  * };
  * const command = new StartFHIRImportJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartFHIRImportJobResponse
+ *   JobId: 'STRING_VALUE', // required
+ *   JobStatus: 'STRING_VALUE', // required
+ *   DatastoreId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param StartFHIRImportJobCommandInput - {@link StartFHIRImportJobCommandInput}
@@ -79,6 +86,8 @@ export interface StartFHIRImportJobCommandOutput extends StartFHIRImportJobRespo
  * @throws {@link ValidationException} (client fault)
  *  <p>The user input parameter was invalid.</p>
  *
+ * @throws {@link HealthLakeServiceException}
+ * <p>Base exception class for all service exceptions from HealthLake service.</p>
  *
  */
 export class StartFHIRImportJobCommand extends $Command<

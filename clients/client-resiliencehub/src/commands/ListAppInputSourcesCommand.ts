@@ -38,17 +38,37 @@ export interface ListAppInputSourcesCommandOutput extends ListAppInputSourcesRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ResiliencehubClient, ListAppInputSourcesCommand } from "@aws-sdk/client-resiliencehub"; // ES Modules import
- * // const { ResiliencehubClient, ListAppInputSourcesCommand } = require("@aws-sdk/client-resiliencehub"); // CommonJS import
+ * import { ResiliencehubClient, ListAppInputSourcesCommand } from '@aws-sdk/client-resiliencehub'; // ES Modules import
+ * // const { ResiliencehubClient, ListAppInputSourcesCommand } = require('@aws-sdk/client-resiliencehub'); // CommonJS import
  * const client = new ResiliencehubClient(config);
  * const input = { // ListAppInputSourcesRequest
- *   appArn: "STRING_VALUE", // required
- *   appVersion: "STRING_VALUE", // required
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   appArn: 'STRING_VALUE', // required
+ *   appVersion: 'STRING_VALUE', // required
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new ListAppInputSourcesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListAppInputSourcesResponse
+ *   appInputSources: [ // AppInputSourceList // required
+ *     { // AppInputSource
+ *       sourceName: 'STRING_VALUE',
+ *       importType: 'STRING_VALUE', // required
+ *       sourceArn: 'STRING_VALUE',
+ *       terraformSource: { // TerraformSource
+ *         s3StateFileUrl: 'STRING_VALUE', // required
+ *       },
+ *       resourceCount: Number('int'),
+ *       eksSourceClusterNamespace: { // EksSourceClusterNamespace
+ *         eksClusterArn: 'STRING_VALUE', // required
+ *         namespace: 'STRING_VALUE', // required
+ *       },
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListAppInputSourcesCommandInput - {@link ListAppInputSourcesCommandInput}
@@ -75,6 +95,8 @@ export interface ListAppInputSourcesCommandOutput extends ListAppInputSourcesRes
  * @throws {@link ValidationException} (client fault)
  *  <p>This exception occurs when a request is not valid.</p>
  *
+ * @throws {@link ResiliencehubServiceException}
+ * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
  */
 export class ListAppInputSourcesCommand extends $Command<

@@ -36,22 +36,30 @@ export interface CreateGroupVersionCommandOutput extends CreateGroupVersionRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GreengrassClient, CreateGroupVersionCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
- * // const { GreengrassClient, CreateGroupVersionCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
+ * import { GreengrassClient, CreateGroupVersionCommand } from '@aws-sdk/client-greengrass'; // ES Modules import
+ * // const { GreengrassClient, CreateGroupVersionCommand } = require('@aws-sdk/client-greengrass'); // CommonJS import
  * const client = new GreengrassClient(config);
  * const input = { // CreateGroupVersionRequest
- *   AmznClientToken: "STRING_VALUE",
- *   ConnectorDefinitionVersionArn: "STRING_VALUE",
- *   CoreDefinitionVersionArn: "STRING_VALUE",
- *   DeviceDefinitionVersionArn: "STRING_VALUE",
- *   FunctionDefinitionVersionArn: "STRING_VALUE",
- *   GroupId: "STRING_VALUE", // required
- *   LoggerDefinitionVersionArn: "STRING_VALUE",
- *   ResourceDefinitionVersionArn: "STRING_VALUE",
- *   SubscriptionDefinitionVersionArn: "STRING_VALUE",
+ *   AmznClientToken: 'STRING_VALUE',
+ *   ConnectorDefinitionVersionArn: 'STRING_VALUE',
+ *   CoreDefinitionVersionArn: 'STRING_VALUE',
+ *   DeviceDefinitionVersionArn: 'STRING_VALUE',
+ *   FunctionDefinitionVersionArn: 'STRING_VALUE',
+ *   GroupId: 'STRING_VALUE', // required
+ *   LoggerDefinitionVersionArn: 'STRING_VALUE',
+ *   ResourceDefinitionVersionArn: 'STRING_VALUE',
+ *   SubscriptionDefinitionVersionArn: 'STRING_VALUE',
  * };
  * const command = new CreateGroupVersionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateGroupVersionResponse
+ *   Arn: 'STRING_VALUE',
+ *   CreationTimestamp: 'STRING_VALUE',
+ *   Id: 'STRING_VALUE',
+ *   Version: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateGroupVersionCommandInput - {@link CreateGroupVersionCommandInput}
@@ -63,6 +71,8 @@ export interface CreateGroupVersionCommandOutput extends CreateGroupVersionRespo
  * @throws {@link BadRequestException} (client fault)
  *  General error information.
  *
+ * @throws {@link GreengrassServiceException}
+ * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
  */
 export class CreateGroupVersionCommand extends $Command<

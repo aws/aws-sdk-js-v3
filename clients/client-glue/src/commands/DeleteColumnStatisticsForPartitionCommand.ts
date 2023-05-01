@@ -45,20 +45,23 @@ export interface DeleteColumnStatisticsForPartitionCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlueClient, DeleteColumnStatisticsForPartitionCommand } from "@aws-sdk/client-glue"; // ES Modules import
- * // const { GlueClient, DeleteColumnStatisticsForPartitionCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * import { GlueClient, DeleteColumnStatisticsForPartitionCommand } from '@aws-sdk/client-glue'; // ES Modules import
+ * // const { GlueClient, DeleteColumnStatisticsForPartitionCommand } = require('@aws-sdk/client-glue'); // CommonJS import
  * const client = new GlueClient(config);
  * const input = { // DeleteColumnStatisticsForPartitionRequest
- *   CatalogId: "STRING_VALUE",
- *   DatabaseName: "STRING_VALUE", // required
- *   TableName: "STRING_VALUE", // required
+ *   CatalogId: 'STRING_VALUE',
+ *   DatabaseName: 'STRING_VALUE', // required
+ *   TableName: 'STRING_VALUE', // required
  *   PartitionValues: [ // ValueStringList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   ColumnName: "STRING_VALUE", // required
+ *   ColumnName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteColumnStatisticsForPartitionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteColumnStatisticsForPartitionCommandInput - {@link DeleteColumnStatisticsForPartitionCommandInput}
@@ -82,6 +85,8 @@ export interface DeleteColumnStatisticsForPartitionCommandOutput
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class DeleteColumnStatisticsForPartitionCommand extends $Command<

@@ -42,14 +42,17 @@ export interface DeleteComponentCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GreengrassV2Client, DeleteComponentCommand } from "@aws-sdk/client-greengrassv2"; // ES Modules import
- * // const { GreengrassV2Client, DeleteComponentCommand } = require("@aws-sdk/client-greengrassv2"); // CommonJS import
+ * import { GreengrassV2Client, DeleteComponentCommand } from '@aws-sdk/client-greengrassv2'; // ES Modules import
+ * // const { GreengrassV2Client, DeleteComponentCommand } = require('@aws-sdk/client-greengrassv2'); // CommonJS import
  * const client = new GreengrassV2Client(config);
  * const input = { // DeleteComponentRequest
- *   arn: "STRING_VALUE", // required
+ *   arn: 'STRING_VALUE', // required
  * };
  * const command = new DeleteComponentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteComponentCommandInput - {@link DeleteComponentCommandInput}
@@ -79,6 +82,8 @@ export interface DeleteComponentCommandOutput extends __MetadataBearer {}
  *  <p>The request isn't valid. This can occur if your request contains malformed JSON or
  *       unsupported characters.</p>
  *
+ * @throws {@link GreengrassV2ServiceException}
+ * <p>Base exception class for all service exceptions from GreengrassV2 service.</p>
  *
  */
 export class DeleteComponentCommand extends $Command<

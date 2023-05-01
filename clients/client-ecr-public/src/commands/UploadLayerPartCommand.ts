@@ -42,19 +42,27 @@ export interface UploadLayerPartCommandOutput extends UploadLayerPartResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ECRPUBLICClient, UploadLayerPartCommand } from "@aws-sdk/client-ecr-public"; // ES Modules import
- * // const { ECRPUBLICClient, UploadLayerPartCommand } = require("@aws-sdk/client-ecr-public"); // CommonJS import
+ * import { ECRPUBLICClient, UploadLayerPartCommand } from '@aws-sdk/client-ecr-public'; // ES Modules import
+ * // const { ECRPUBLICClient, UploadLayerPartCommand } = require('@aws-sdk/client-ecr-public'); // CommonJS import
  * const client = new ECRPUBLICClient(config);
  * const input = { // UploadLayerPartRequest
- *   registryId: "STRING_VALUE",
- *   repositoryName: "STRING_VALUE", // required
- *   uploadId: "STRING_VALUE", // required
- *   partFirstByte: Number("long"), // required
- *   partLastByte: Number("long"), // required
- *   layerPartBlob: "BLOB_VALUE", // required
+ *   registryId: 'STRING_VALUE',
+ *   repositoryName: 'STRING_VALUE', // required
+ *   uploadId: 'STRING_VALUE', // required
+ *   partFirstByte: Number('long'), // required
+ *   partLastByte: Number('long'), // required
+ *   layerPartBlob: 'BLOB_VALUE', // required
  * };
  * const command = new UploadLayerPartCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UploadLayerPartResponse
+ *   registryId: 'STRING_VALUE',
+ *   repositoryName: 'STRING_VALUE',
+ *   uploadId: 'STRING_VALUE',
+ *   lastByteReceived: Number('long'),
+ * };
+ *
  * ```
  *
  * @param UploadLayerPartCommandInput - {@link UploadLayerPartCommandInput}
@@ -93,6 +101,8 @@ export interface UploadLayerPartCommandOutput extends UploadLayerPartResponse, _
  *  <p>The upload can't be found, or the specified upload ID isn't valid for this
  *          repository.</p>
  *
+ * @throws {@link ECRPUBLICServiceException}
+ * <p>Base exception class for all service exceptions from ECRPUBLIC service.</p>
  *
  */
 export class UploadLayerPartCommand extends $Command<

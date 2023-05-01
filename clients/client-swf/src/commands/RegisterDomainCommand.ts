@@ -59,22 +59,25 @@ export interface RegisterDomainCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SWFClient, RegisterDomainCommand } from "@aws-sdk/client-swf"; // ES Modules import
- * // const { SWFClient, RegisterDomainCommand } = require("@aws-sdk/client-swf"); // CommonJS import
+ * import { SWFClient, RegisterDomainCommand } from '@aws-sdk/client-swf'; // ES Modules import
+ * // const { SWFClient, RegisterDomainCommand } = require('@aws-sdk/client-swf'); // CommonJS import
  * const client = new SWFClient(config);
  * const input = { // RegisterDomainInput
- *   name: "STRING_VALUE", // required
- *   description: "STRING_VALUE",
- *   workflowExecutionRetentionPeriodInDays: "STRING_VALUE", // required
+ *   name: 'STRING_VALUE', // required
+ *   description: 'STRING_VALUE',
+ *   workflowExecutionRetentionPeriodInDays: 'STRING_VALUE', // required
  *   tags: [ // ResourceTagList
  *     { // ResourceTag
- *       key: "STRING_VALUE", // required
- *       value: "STRING_VALUE",
+ *       key: 'STRING_VALUE', // required
+ *       value: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new RegisterDomainCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param RegisterDomainCommandInput - {@link RegisterDomainCommandInput}
@@ -95,6 +98,8 @@ export interface RegisterDomainCommandOutput extends __MetadataBearer {}
  * @throws {@link TooManyTagsFault} (client fault)
  *  <p>You've exceeded the number of tags allowed for a domain.</p>
  *
+ * @throws {@link SWFServiceException}
+ * <p>Base exception class for all service exceptions from SWF service.</p>
  *
  */
 export class RegisterDomainCommand extends $Command<

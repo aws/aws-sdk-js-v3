@@ -36,15 +36,18 @@ export interface UpdateCampaignNameCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectCampaignsClient, UpdateCampaignNameCommand } from "@aws-sdk/client-connectcampaigns"; // ES Modules import
- * // const { ConnectCampaignsClient, UpdateCampaignNameCommand } = require("@aws-sdk/client-connectcampaigns"); // CommonJS import
+ * import { ConnectCampaignsClient, UpdateCampaignNameCommand } from '@aws-sdk/client-connectcampaigns'; // ES Modules import
+ * // const { ConnectCampaignsClient, UpdateCampaignNameCommand } = require('@aws-sdk/client-connectcampaigns'); // CommonJS import
  * const client = new ConnectCampaignsClient(config);
  * const input = { // UpdateCampaignNameRequest
- *   id: "STRING_VALUE", // required
- *   name: "STRING_VALUE", // required
+ *   id: 'STRING_VALUE', // required
+ *   name: 'STRING_VALUE', // required
  * };
  * const command = new UpdateCampaignNameCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateCampaignNameCommandInput - {@link UpdateCampaignNameCommandInput}
@@ -68,6 +71,8 @@ export interface UpdateCampaignNameCommandOutput extends __MetadataBearer {}
  * @throws {@link ValidationException} (client fault)
  *  The input fails to satisfy the constraints specified by an AWS service.
  *
+ * @throws {@link ConnectCampaignsServiceException}
+ * <p>Base exception class for all service exceptions from ConnectCampaigns service.</p>
  *
  */
 export class UpdateCampaignNameCommand extends $Command<

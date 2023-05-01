@@ -54,14 +54,17 @@ export interface DeregisterWorkspaceDirectoryCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkSpacesClient, DeregisterWorkspaceDirectoryCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
- * // const { WorkSpacesClient, DeregisterWorkspaceDirectoryCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
+ * import { WorkSpacesClient, DeregisterWorkspaceDirectoryCommand } from '@aws-sdk/client-workspaces'; // ES Modules import
+ * // const { WorkSpacesClient, DeregisterWorkspaceDirectoryCommand } = require('@aws-sdk/client-workspaces'); // CommonJS import
  * const client = new WorkSpacesClient(config);
  * const input = { // DeregisterWorkspaceDirectoryRequest
- *   DirectoryId: "STRING_VALUE", // required
+ *   DirectoryId: 'STRING_VALUE', // required
  * };
  * const command = new DeregisterWorkspaceDirectoryCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeregisterWorkspaceDirectoryCommandInput - {@link DeregisterWorkspaceDirectoryCommandInput}
@@ -85,6 +88,8 @@ export interface DeregisterWorkspaceDirectoryCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource could not be found.</p>
  *
+ * @throws {@link WorkSpacesServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
  */
 export class DeregisterWorkspaceDirectoryCommand extends $Command<

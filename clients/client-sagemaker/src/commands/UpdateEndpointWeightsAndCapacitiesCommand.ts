@@ -45,21 +45,26 @@ export interface UpdateEndpointWeightsAndCapacitiesCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, UpdateEndpointWeightsAndCapacitiesCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, UpdateEndpointWeightsAndCapacitiesCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, UpdateEndpointWeightsAndCapacitiesCommand } from '@aws-sdk/client-sagemaker'; // ES Modules import
+ * // const { SageMakerClient, UpdateEndpointWeightsAndCapacitiesCommand } = require('@aws-sdk/client-sagemaker'); // CommonJS import
  * const client = new SageMakerClient(config);
  * const input = { // UpdateEndpointWeightsAndCapacitiesInput
- *   EndpointName: "STRING_VALUE", // required
+ *   EndpointName: 'STRING_VALUE', // required
  *   DesiredWeightsAndCapacities: [ // DesiredWeightAndCapacityList // required
  *     { // DesiredWeightAndCapacity
- *       VariantName: "STRING_VALUE", // required
- *       DesiredWeight: Number("float"),
- *       DesiredInstanceCount: Number("int"),
+ *       VariantName: 'STRING_VALUE', // required
+ *       DesiredWeight: Number('float'),
+ *       DesiredInstanceCount: Number('int'),
  *     },
  *   ],
  * };
  * const command = new UpdateEndpointWeightsAndCapacitiesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateEndpointWeightsAndCapacitiesOutput
+ *   EndpointArn: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param UpdateEndpointWeightsAndCapacitiesCommandInput - {@link UpdateEndpointWeightsAndCapacitiesCommandInput}
@@ -72,6 +77,8 @@ export interface UpdateEndpointWeightsAndCapacitiesCommandOutput
  *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many
  *             training jobs created. </p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class UpdateEndpointWeightsAndCapacitiesCommand extends $Command<

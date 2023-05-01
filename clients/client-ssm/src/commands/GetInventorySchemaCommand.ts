@@ -37,18 +37,36 @@ export interface GetInventorySchemaCommandOutput extends GetInventorySchemaResul
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMClient, GetInventorySchemaCommand } from "@aws-sdk/client-ssm"; // ES Modules import
- * // const { SSMClient, GetInventorySchemaCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * import { SSMClient, GetInventorySchemaCommand } from '@aws-sdk/client-ssm'; // ES Modules import
+ * // const { SSMClient, GetInventorySchemaCommand } = require('@aws-sdk/client-ssm'); // CommonJS import
  * const client = new SSMClient(config);
  * const input = { // GetInventorySchemaRequest
- *   TypeName: "STRING_VALUE",
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   TypeName: 'STRING_VALUE',
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  *   Aggregator: true || false,
  *   SubType: true || false,
  * };
  * const command = new GetInventorySchemaCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetInventorySchemaResult
+ *   Schemas: [ // InventoryItemSchemaResultList
+ *     { // InventoryItemSchema
+ *       TypeName: 'STRING_VALUE', // required
+ *       Version: 'STRING_VALUE',
+ *       Attributes: [ // InventoryItemAttributeList // required
+ *         { // InventoryItemAttribute
+ *           Name: 'STRING_VALUE', // required
+ *           DataType: 'string' || 'number', // required
+ *         },
+ *       ],
+ *       DisplayName: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetInventorySchemaCommandInput - {@link GetInventorySchemaCommandInput}
@@ -66,6 +84,8 @@ export interface GetInventorySchemaCommandOutput extends GetInventorySchemaResul
  * @throws {@link InvalidTypeNameException} (client fault)
  *  <p>The parameter type name isn't valid.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class GetInventorySchemaCommand extends $Command<

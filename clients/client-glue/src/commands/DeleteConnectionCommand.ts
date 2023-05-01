@@ -36,15 +36,18 @@ export interface DeleteConnectionCommandOutput extends DeleteConnectionResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlueClient, DeleteConnectionCommand } from "@aws-sdk/client-glue"; // ES Modules import
- * // const { GlueClient, DeleteConnectionCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * import { GlueClient, DeleteConnectionCommand } from '@aws-sdk/client-glue'; // ES Modules import
+ * // const { GlueClient, DeleteConnectionCommand } = require('@aws-sdk/client-glue'); // CommonJS import
  * const client = new GlueClient(config);
  * const input = { // DeleteConnectionRequest
- *   CatalogId: "STRING_VALUE",
- *   ConnectionName: "STRING_VALUE", // required
+ *   CatalogId: 'STRING_VALUE',
+ *   ConnectionName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteConnectionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteConnectionCommandInput - {@link DeleteConnectionCommandInput}
@@ -59,6 +62,8 @@ export interface DeleteConnectionCommandOutput extends DeleteConnectionResponse,
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class DeleteConnectionCommand extends $Command<

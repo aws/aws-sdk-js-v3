@@ -37,18 +37,36 @@ export interface ListReplaysCommandOutput extends ListReplaysResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EventBridgeClient, ListReplaysCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
- * // const { EventBridgeClient, ListReplaysCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
+ * import { EventBridgeClient, ListReplaysCommand } from '@aws-sdk/client-eventbridge'; // ES Modules import
+ * // const { EventBridgeClient, ListReplaysCommand } = require('@aws-sdk/client-eventbridge'); // CommonJS import
  * const client = new EventBridgeClient(config);
  * const input = { // ListReplaysRequest
- *   NamePrefix: "STRING_VALUE",
- *   State: "STARTING" || "RUNNING" || "CANCELLING" || "COMPLETED" || "CANCELLED" || "FAILED",
- *   EventSourceArn: "STRING_VALUE",
- *   NextToken: "STRING_VALUE",
- *   Limit: Number("int"),
+ *   NamePrefix: 'STRING_VALUE',
+ *   State: 'STARTING' || 'RUNNING' || 'CANCELLING' || 'COMPLETED' || 'CANCELLED' || 'FAILED',
+ *   EventSourceArn: 'STRING_VALUE',
+ *   NextToken: 'STRING_VALUE',
+ *   Limit: Number('int'),
  * };
  * const command = new ListReplaysCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListReplaysResponse
+ *   Replays: [ // ReplayList
+ *     { // Replay
+ *       ReplayName: 'STRING_VALUE',
+ *       EventSourceArn: 'STRING_VALUE',
+ *       State: 'STARTING' || 'RUNNING' || 'CANCELLING' || 'COMPLETED' || 'CANCELLED' || 'FAILED',
+ *       StateReason: 'STRING_VALUE',
+ *       EventStartTime: new Date('TIMESTAMP'),
+ *       EventEndTime: new Date('TIMESTAMP'),
+ *       EventLastReplayedTime: new Date('TIMESTAMP'),
+ *       ReplayStartTime: new Date('TIMESTAMP'),
+ *       ReplayEndTime: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListReplaysCommandInput - {@link ListReplaysCommandInput}
@@ -60,6 +78,8 @@ export interface ListReplaysCommandOutput extends ListReplaysResponse, __Metadat
  * @throws {@link InternalException} (server fault)
  *  <p>This exception occurs due to unexpected causes.</p>
  *
+ * @throws {@link EventBridgeServiceException}
+ * <p>Base exception class for all service exceptions from EventBridge service.</p>
  *
  */
 export class ListReplaysCommand extends $Command<

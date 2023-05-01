@@ -38,16 +38,29 @@ export interface GetPackageVersionHistoryCommandOutput extends GetPackageVersion
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OpenSearchClient, GetPackageVersionHistoryCommand } from "@aws-sdk/client-opensearch"; // ES Modules import
- * // const { OpenSearchClient, GetPackageVersionHistoryCommand } = require("@aws-sdk/client-opensearch"); // CommonJS import
+ * import { OpenSearchClient, GetPackageVersionHistoryCommand } from '@aws-sdk/client-opensearch'; // ES Modules import
+ * // const { OpenSearchClient, GetPackageVersionHistoryCommand } = require('@aws-sdk/client-opensearch'); // CommonJS import
  * const client = new OpenSearchClient(config);
  * const input = { // GetPackageVersionHistoryRequest
- *   PackageID: "STRING_VALUE", // required
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   PackageID: 'STRING_VALUE', // required
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new GetPackageVersionHistoryCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetPackageVersionHistoryResponse
+ *   PackageID: 'STRING_VALUE',
+ *   PackageVersionHistoryList: [ // PackageVersionHistoryList
+ *     { // PackageVersionHistory
+ *       PackageVersion: 'STRING_VALUE',
+ *       CommitMessage: 'STRING_VALUE',
+ *       CreatedAt: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetPackageVersionHistoryCommandInput - {@link GetPackageVersionHistoryCommandInput}
@@ -71,6 +84,8 @@ export interface GetPackageVersionHistoryCommandOutput extends GetPackageVersion
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception for accessing or deleting a resource that doesn't exist.</p>
  *
+ * @throws {@link OpenSearchServiceException}
+ * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
  */
 export class GetPackageVersionHistoryCommand extends $Command<

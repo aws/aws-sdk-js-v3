@@ -38,25 +38,31 @@ export interface CreateDimensionCommandOutput extends CreateDimensionResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTClient, CreateDimensionCommand } from "@aws-sdk/client-iot"; // ES Modules import
- * // const { IoTClient, CreateDimensionCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * import { IoTClient, CreateDimensionCommand } from '@aws-sdk/client-iot'; // ES Modules import
+ * // const { IoTClient, CreateDimensionCommand } = require('@aws-sdk/client-iot'); // CommonJS import
  * const client = new IoTClient(config);
  * const input = { // CreateDimensionRequest
- *   name: "STRING_VALUE", // required
- *   type: "TOPIC_FILTER", // required
+ *   name: 'STRING_VALUE', // required
+ *   type: 'TOPIC_FILTER', // required
  *   stringValues: [ // DimensionStringValues // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
- *   clientRequestToken: "STRING_VALUE", // required
+ *   clientRequestToken: 'STRING_VALUE', // required
  * };
  * const command = new CreateDimensionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateDimensionResponse
+ *   name: 'STRING_VALUE',
+ *   arn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateDimensionCommandInput - {@link CreateDimensionCommandInput}
@@ -80,6 +86,8 @@ export interface CreateDimensionCommandOutput extends CreateDimensionResponse, _
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The rate exceeds the limit.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class CreateDimensionCommand extends $Command<

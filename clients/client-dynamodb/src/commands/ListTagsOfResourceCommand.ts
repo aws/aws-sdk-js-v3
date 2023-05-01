@@ -39,15 +39,26 @@ export interface ListTagsOfResourceCommandOutput extends ListTagsOfResourceOutpu
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DynamoDBClient, ListTagsOfResourceCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
- * // const { DynamoDBClient, ListTagsOfResourceCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
+ * import { DynamoDBClient, ListTagsOfResourceCommand } from '@aws-sdk/client-dynamodb'; // ES Modules import
+ * // const { DynamoDBClient, ListTagsOfResourceCommand } = require('@aws-sdk/client-dynamodb'); // CommonJS import
  * const client = new DynamoDBClient(config);
  * const input = { // ListTagsOfResourceInput
- *   ResourceArn: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
+ *   ResourceArn: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListTagsOfResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTagsOfResourceOutput
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListTagsOfResourceCommandInput - {@link ListTagsOfResourceCommandInput}
@@ -65,6 +76,8 @@ export interface ListTagsOfResourceCommandOutput extends ListTagsOfResourceOutpu
  *  <p>The operation tried to access a nonexistent table or index. The resource might not
  *             be specified correctly, or its status might not be <code>ACTIVE</code>.</p>
  *
+ * @throws {@link DynamoDBServiceException}
+ * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
  */
 export class ListTagsOfResourceCommand extends $Command<

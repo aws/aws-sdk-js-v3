@@ -41,12 +41,35 @@ export interface ListCuratedEnvironmentImagesCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeBuildClient, ListCuratedEnvironmentImagesCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
- * // const { CodeBuildClient, ListCuratedEnvironmentImagesCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import
+ * import { CodeBuildClient, ListCuratedEnvironmentImagesCommand } from '@aws-sdk/client-codebuild'; // ES Modules import
+ * // const { CodeBuildClient, ListCuratedEnvironmentImagesCommand } = require('@aws-sdk/client-codebuild'); // CommonJS import
  * const client = new CodeBuildClient(config);
  * const input = {};
  * const command = new ListCuratedEnvironmentImagesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListCuratedEnvironmentImagesOutput
+ *   platforms: [ // EnvironmentPlatforms
+ *     { // EnvironmentPlatform
+ *       platform: 'STRING_VALUE',
+ *       languages: [ // EnvironmentLanguages
+ *         { // EnvironmentLanguage
+ *           language: 'STRING_VALUE',
+ *           images: [ // EnvironmentImages
+ *             { // EnvironmentImage
+ *               name: 'STRING_VALUE',
+ *               description: 'STRING_VALUE',
+ *               versions: [ // ImageVersions
+ *                 'STRING_VALUE',
+ *               ],
+ *             },
+ *           ],
+ *         },
+ *       ],
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListCuratedEnvironmentImagesCommandInput - {@link ListCuratedEnvironmentImagesCommandInput}
@@ -55,6 +78,8 @@ export interface ListCuratedEnvironmentImagesCommandOutput
  * @see {@link ListCuratedEnvironmentImagesCommandOutput} for command's `response` shape.
  * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.
  *
+ * @throws {@link CodeBuildServiceException}
+ * <p>Base exception class for all service exceptions from CodeBuild service.</p>
  *
  */
 export class ListCuratedEnvironmentImagesCommand extends $Command<

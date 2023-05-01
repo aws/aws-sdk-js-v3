@@ -36,26 +36,86 @@ export interface ListReceivedLicensesCommandOutput extends ListReceivedLicensesR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LicenseManagerClient, ListReceivedLicensesCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
- * // const { LicenseManagerClient, ListReceivedLicensesCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
+ * import { LicenseManagerClient, ListReceivedLicensesCommand } from '@aws-sdk/client-license-manager'; // ES Modules import
+ * // const { LicenseManagerClient, ListReceivedLicensesCommand } = require('@aws-sdk/client-license-manager'); // CommonJS import
  * const client = new LicenseManagerClient(config);
  * const input = { // ListReceivedLicensesRequest
  *   LicenseArns: [ // ArnList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   Filters: [ // FilterList
  *     { // Filter
- *       Name: "STRING_VALUE",
+ *       Name: 'STRING_VALUE',
  *       Values: [ // FilterValues
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListReceivedLicensesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListReceivedLicensesResponse
+ *   Licenses: [ // GrantedLicenseList
+ *     { // GrantedLicense
+ *       LicenseArn: 'STRING_VALUE',
+ *       LicenseName: 'STRING_VALUE',
+ *       ProductName: 'STRING_VALUE',
+ *       ProductSKU: 'STRING_VALUE',
+ *       Issuer: { // IssuerDetails
+ *         Name: 'STRING_VALUE',
+ *         SignKey: 'STRING_VALUE',
+ *         KeyFingerprint: 'STRING_VALUE',
+ *       },
+ *       HomeRegion: 'STRING_VALUE',
+ *       Status: 'AVAILABLE' || 'PENDING_AVAILABLE' || 'DEACTIVATED' || 'SUSPENDED' || 'EXPIRED' || 'PENDING_DELETE' || 'DELETED',
+ *       Validity: { // DatetimeRange
+ *         Begin: 'STRING_VALUE', // required
+ *         End: 'STRING_VALUE',
+ *       },
+ *       Beneficiary: 'STRING_VALUE',
+ *       Entitlements: [ // EntitlementList
+ *         { // Entitlement
+ *           Name: 'STRING_VALUE', // required
+ *           Value: 'STRING_VALUE',
+ *           MaxCount: Number('long'),
+ *           Overage: true || false,
+ *           Unit: 'Count' || 'None' || 'Seconds' || 'Microseconds' || 'Milliseconds' || 'Bytes' || 'Kilobytes' || 'Megabytes' || 'Gigabytes' || 'Terabytes' || 'Bits' || 'Kilobits' || 'Megabits' || 'Gigabits' || 'Terabits' || 'Percent' || 'Bytes/Second' || 'Kilobytes/Second' || 'Megabytes/Second' || 'Gigabytes/Second' || 'Terabytes/Second' || 'Bits/Second' || 'Kilobits/Second' || 'Megabits/Second' || 'Gigabits/Second' || 'Terabits/Second' || 'Count/Second', // required
+ *           AllowCheckIn: true || false,
+ *         },
+ *       ],
+ *       ConsumptionConfiguration: { // ConsumptionConfiguration
+ *         RenewType: 'None' || 'Weekly' || 'Monthly',
+ *         ProvisionalConfiguration: { // ProvisionalConfiguration
+ *           MaxTimeToLiveInMinutes: Number('int'), // required
+ *         },
+ *         BorrowConfiguration: { // BorrowConfiguration
+ *           AllowEarlyCheckIn: true || false, // required
+ *           MaxTimeToLiveInMinutes: Number('int'), // required
+ *         },
+ *       },
+ *       LicenseMetadata: [ // MetadataList
+ *         { // Metadata
+ *           Name: 'STRING_VALUE',
+ *           Value: 'STRING_VALUE',
+ *         },
+ *       ],
+ *       CreateTime: 'STRING_VALUE',
+ *       Version: 'STRING_VALUE',
+ *       ReceivedMetadata: { // ReceivedMetadata
+ *         ReceivedStatus: 'PENDING_WORKFLOW' || 'PENDING_ACCEPT' || 'REJECTED' || 'ACTIVE' || 'FAILED_WORKFLOW' || 'DELETED' || 'DISABLED' || 'WORKFLOW_COMPLETED',
+ *         ReceivedStatusReason: 'STRING_VALUE',
+ *         AllowedOperations: [ // AllowedOperationList
+ *           'CreateGrant' || 'CheckoutLicense' || 'CheckoutBorrowLicense' || 'CheckInLicense' || 'ExtendConsumptionLicense' || 'ListPurchasedLicenses' || 'CreateToken',
+ *         ],
+ *       },
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListReceivedLicensesCommandInput - {@link ListReceivedLicensesCommandInput}
@@ -86,6 +146,8 @@ export interface ListReceivedLicensesCommandOutput extends ListReceivedLicensesR
  * @throws {@link ValidationException} (client fault)
  *  <p>The provided input is not valid. Try your request again.</p>
  *
+ * @throws {@link LicenseManagerServiceException}
+ * <p>Base exception class for all service exceptions from LicenseManager service.</p>
  *
  */
 export class ListReceivedLicensesCommand extends $Command<

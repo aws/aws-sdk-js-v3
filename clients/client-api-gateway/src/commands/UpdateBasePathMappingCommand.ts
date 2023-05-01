@@ -36,23 +36,30 @@ export interface UpdateBasePathMappingCommandOutput extends BasePathMapping, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { APIGatewayClient, UpdateBasePathMappingCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
- * // const { APIGatewayClient, UpdateBasePathMappingCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
+ * import { APIGatewayClient, UpdateBasePathMappingCommand } from '@aws-sdk/client-api-gateway'; // ES Modules import
+ * // const { APIGatewayClient, UpdateBasePathMappingCommand } = require('@aws-sdk/client-api-gateway'); // CommonJS import
  * const client = new APIGatewayClient(config);
  * const input = { // UpdateBasePathMappingRequest
- *   domainName: "STRING_VALUE", // required
- *   basePath: "STRING_VALUE", // required
+ *   domainName: 'STRING_VALUE', // required
+ *   basePath: 'STRING_VALUE', // required
  *   patchOperations: [ // ListOfPatchOperation
  *     { // PatchOperation
- *       op: "add" || "remove" || "replace" || "move" || "copy" || "test",
- *       path: "STRING_VALUE",
- *       value: "STRING_VALUE",
- *       from: "STRING_VALUE",
+ *       op: 'add' || 'remove' || 'replace' || 'move' || 'copy' || 'test',
+ *       path: 'STRING_VALUE',
+ *       value: 'STRING_VALUE',
+ *       from: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new UpdateBasePathMappingCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BasePathMapping
+ *   basePath: 'STRING_VALUE',
+ *   restApiId: 'STRING_VALUE',
+ *   stage: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateBasePathMappingCommandInput - {@link UpdateBasePathMappingCommandInput}
@@ -79,6 +86,8 @@ export interface UpdateBasePathMappingCommandOutput extends BasePathMapping, __M
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The request is denied because the caller has insufficient permissions.</p>
  *
+ * @throws {@link APIGatewayServiceException}
+ * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
  */
 export class UpdateBasePathMappingCommand extends $Command<

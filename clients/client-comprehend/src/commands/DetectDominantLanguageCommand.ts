@@ -42,14 +42,24 @@ export interface DetectDominantLanguageCommandOutput extends DetectDominantLangu
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ComprehendClient, DetectDominantLanguageCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
- * // const { ComprehendClient, DetectDominantLanguageCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
+ * import { ComprehendClient, DetectDominantLanguageCommand } from '@aws-sdk/client-comprehend'; // ES Modules import
+ * // const { ComprehendClient, DetectDominantLanguageCommand } = require('@aws-sdk/client-comprehend'); // CommonJS import
  * const client = new ComprehendClient(config);
  * const input = { // DetectDominantLanguageRequest
- *   Text: "STRING_VALUE", // required
+ *   Text: 'STRING_VALUE', // required
  * };
  * const command = new DetectDominantLanguageCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DetectDominantLanguageResponse
+ *   Languages: [ // ListOfDominantLanguages
+ *     { // DominantLanguage
+ *       LanguageCode: 'STRING_VALUE',
+ *       Score: Number('float'),
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DetectDominantLanguageCommandInput - {@link DetectDominantLanguageCommandInput}
@@ -67,6 +77,8 @@ export interface DetectDominantLanguageCommandOutput extends DetectDominantLangu
  * @throws {@link TextSizeLimitExceededException} (client fault)
  *  <p>The size of the input text exceeds the limit. Use a smaller document.</p>
  *
+ * @throws {@link ComprehendServiceException}
+ * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
  */
 export class DetectDominantLanguageCommand extends $Command<

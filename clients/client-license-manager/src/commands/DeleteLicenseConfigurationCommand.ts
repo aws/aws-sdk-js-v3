@@ -37,14 +37,17 @@ export interface DeleteLicenseConfigurationCommandOutput extends DeleteLicenseCo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LicenseManagerClient, DeleteLicenseConfigurationCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
- * // const { LicenseManagerClient, DeleteLicenseConfigurationCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
+ * import { LicenseManagerClient, DeleteLicenseConfigurationCommand } from '@aws-sdk/client-license-manager'; // ES Modules import
+ * // const { LicenseManagerClient, DeleteLicenseConfigurationCommand } = require('@aws-sdk/client-license-manager'); // CommonJS import
  * const client = new LicenseManagerClient(config);
  * const input = { // DeleteLicenseConfigurationRequest
- *   LicenseConfigurationArn: "STRING_VALUE", // required
+ *   LicenseConfigurationArn: 'STRING_VALUE', // required
  * };
  * const command = new DeleteLicenseConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteLicenseConfigurationCommandInput - {@link DeleteLicenseConfigurationCommandInput}
@@ -69,6 +72,8 @@ export interface DeleteLicenseConfigurationCommandOutput extends DeleteLicenseCo
  * @throws {@link ServerInternalException} (server fault)
  *  <p>The server experienced an internal error. Try again.</p>
  *
+ * @throws {@link LicenseManagerServiceException}
+ * <p>Base exception class for all service exceptions from LicenseManager service.</p>
  *
  */
 export class DeleteLicenseConfigurationCommand extends $Command<

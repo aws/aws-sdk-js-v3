@@ -36,16 +36,38 @@ export interface ListAnalyzersCommandOutput extends ListAnalyzersResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AccessAnalyzerClient, ListAnalyzersCommand } from "@aws-sdk/client-accessanalyzer"; // ES Modules import
- * // const { AccessAnalyzerClient, ListAnalyzersCommand } = require("@aws-sdk/client-accessanalyzer"); // CommonJS import
+ * import { AccessAnalyzerClient, ListAnalyzersCommand } from '@aws-sdk/client-accessanalyzer'; // ES Modules import
+ * // const { AccessAnalyzerClient, ListAnalyzersCommand } = require('@aws-sdk/client-accessanalyzer'); // CommonJS import
  * const client = new AccessAnalyzerClient(config);
  * const input = { // ListAnalyzersRequest
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
- *   type: "STRING_VALUE",
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
+ *   type: 'STRING_VALUE',
  * };
  * const command = new ListAnalyzersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListAnalyzersResponse
+ *   analyzers: [ // AnalyzersList // required
+ *     { // AnalyzerSummary
+ *       arn: 'STRING_VALUE', // required
+ *       name: 'STRING_VALUE', // required
+ *       type: 'STRING_VALUE', // required
+ *       createdAt: new Date('TIMESTAMP'), // required
+ *       lastResourceAnalyzed: 'STRING_VALUE',
+ *       lastResourceAnalyzedAt: new Date('TIMESTAMP'),
+ *       tags: { // TagsMap
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *       status: 'STRING_VALUE', // required
+ *       statusReason: { // StatusReason
+ *         code: 'STRING_VALUE', // required
+ *       },
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListAnalyzersCommandInput - {@link ListAnalyzersCommandInput}
@@ -66,6 +88,8 @@ export interface ListAnalyzersCommandOutput extends ListAnalyzersResponse, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>Validation exception error.</p>
  *
+ * @throws {@link AccessAnalyzerServiceException}
+ * <p>Base exception class for all service exceptions from AccessAnalyzer service.</p>
  *
  */
 export class ListAnalyzersCommand extends $Command<

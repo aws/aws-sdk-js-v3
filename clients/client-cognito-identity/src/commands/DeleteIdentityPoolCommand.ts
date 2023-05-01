@@ -39,14 +39,17 @@ export interface DeleteIdentityPoolCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CognitoIdentityClient, DeleteIdentityPoolCommand } from "@aws-sdk/client-cognito-identity"; // ES Modules import
- * // const { CognitoIdentityClient, DeleteIdentityPoolCommand } = require("@aws-sdk/client-cognito-identity"); // CommonJS import
+ * import { CognitoIdentityClient, DeleteIdentityPoolCommand } from '@aws-sdk/client-cognito-identity'; // ES Modules import
+ * // const { CognitoIdentityClient, DeleteIdentityPoolCommand } = require('@aws-sdk/client-cognito-identity'); // CommonJS import
  * const client = new CognitoIdentityClient(config);
  * const input = { // DeleteIdentityPoolInput
- *   IdentityPoolId: "STRING_VALUE", // required
+ *   IdentityPoolId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteIdentityPoolCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteIdentityPoolCommandInput - {@link DeleteIdentityPoolCommandInput}
@@ -71,6 +74,8 @@ export interface DeleteIdentityPoolCommandOutput extends __MetadataBearer {}
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Thrown when a request is throttled.</p>
  *
+ * @throws {@link CognitoIdentityServiceException}
+ * <p>Base exception class for all service exceptions from CognitoIdentity service.</p>
  *
  */
 export class DeleteIdentityPoolCommand extends $Command<

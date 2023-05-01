@@ -62,19 +62,22 @@ export interface CreatePermissionCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ACMPCAClient, CreatePermissionCommand } from "@aws-sdk/client-acm-pca"; // ES Modules import
- * // const { ACMPCAClient, CreatePermissionCommand } = require("@aws-sdk/client-acm-pca"); // CommonJS import
+ * import { ACMPCAClient, CreatePermissionCommand } from '@aws-sdk/client-acm-pca'; // ES Modules import
+ * // const { ACMPCAClient, CreatePermissionCommand } = require('@aws-sdk/client-acm-pca'); // CommonJS import
  * const client = new ACMPCAClient(config);
  * const input = { // CreatePermissionRequest
- *   CertificateAuthorityArn: "STRING_VALUE", // required
- *   Principal: "STRING_VALUE", // required
- *   SourceAccount: "STRING_VALUE",
+ *   CertificateAuthorityArn: 'STRING_VALUE', // required
+ *   Principal: 'STRING_VALUE', // required
+ *   SourceAccount: 'STRING_VALUE',
  *   Actions: [ // ActionList // required
- *     "IssueCertificate" || "GetCertificate" || "ListPermissions",
+ *     'IssueCertificate' || 'GetCertificate' || 'ListPermissions',
  *   ],
  * };
  * const command = new CreatePermissionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param CreatePermissionCommandInput - {@link CreatePermissionCommandInput}
@@ -104,6 +107,8 @@ export interface CreatePermissionCommandOutput extends __MetadataBearer {}
  *  <p>A resource such as a private CA, S3 bucket, certificate, audit report, or policy
  * 			cannot be found.</p>
  *
+ * @throws {@link ACMPCAServiceException}
+ * <p>Base exception class for all service exceptions from ACMPCA service.</p>
  *
  */
 export class CreatePermissionCommand extends $Command<

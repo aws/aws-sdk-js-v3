@@ -45,14 +45,31 @@ export interface GetBucketAccessKeysCommandOutput extends GetBucketAccessKeysRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LightsailClient, GetBucketAccessKeysCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
- * // const { LightsailClient, GetBucketAccessKeysCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
+ * import { LightsailClient, GetBucketAccessKeysCommand } from '@aws-sdk/client-lightsail'; // ES Modules import
+ * // const { LightsailClient, GetBucketAccessKeysCommand } = require('@aws-sdk/client-lightsail'); // CommonJS import
  * const client = new LightsailClient(config);
  * const input = { // GetBucketAccessKeysRequest
- *   bucketName: "STRING_VALUE", // required
+ *   bucketName: 'STRING_VALUE', // required
  * };
  * const command = new GetBucketAccessKeysCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetBucketAccessKeysResult
+ *   accessKeys: [ // AccessKeyList
+ *     { // AccessKey
+ *       accessKeyId: 'STRING_VALUE',
+ *       secretAccessKey: 'STRING_VALUE',
+ *       status: 'Active' || 'Inactive',
+ *       createdAt: new Date('TIMESTAMP'),
+ *       lastUsed: { // AccessKeyLastUsed
+ *         lastUsedDate: new Date('TIMESTAMP'),
+ *         region: 'STRING_VALUE',
+ *         serviceName: 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetBucketAccessKeysCommandInput - {@link GetBucketAccessKeysCommandInput}
@@ -84,6 +101,8 @@ export interface GetBucketAccessKeysCommandOutput extends GetBucketAccessKeysRes
  * @throws {@link UnauthenticatedException} (client fault)
  *  <p>Lightsail throws this exception when the user has not been authenticated.</p>
  *
+ * @throws {@link LightsailServiceException}
+ * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
  */
 export class GetBucketAccessKeysCommand extends $Command<

@@ -38,19 +38,37 @@ export interface ListSignalingChannelsCommandOutput extends ListSignalingChannel
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KinesisVideoClient, ListSignalingChannelsCommand } from "@aws-sdk/client-kinesis-video"; // ES Modules import
- * // const { KinesisVideoClient, ListSignalingChannelsCommand } = require("@aws-sdk/client-kinesis-video"); // CommonJS import
+ * import { KinesisVideoClient, ListSignalingChannelsCommand } from '@aws-sdk/client-kinesis-video'; // ES Modules import
+ * // const { KinesisVideoClient, ListSignalingChannelsCommand } = require('@aws-sdk/client-kinesis-video'); // CommonJS import
  * const client = new KinesisVideoClient(config);
  * const input = { // ListSignalingChannelsInput
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  *   ChannelNameCondition: { // ChannelNameCondition
- *     ComparisonOperator: "BEGINS_WITH",
- *     ComparisonValue: "STRING_VALUE",
+ *     ComparisonOperator: 'BEGINS_WITH',
+ *     ComparisonValue: 'STRING_VALUE',
  *   },
  * };
  * const command = new ListSignalingChannelsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListSignalingChannelsOutput
+ *   ChannelInfoList: [ // ChannelInfoList
+ *     { // ChannelInfo
+ *       ChannelName: 'STRING_VALUE',
+ *       ChannelARN: 'STRING_VALUE',
+ *       ChannelType: 'SINGLE_MASTER' || 'FULL_MESH',
+ *       ChannelStatus: 'CREATING' || 'ACTIVE' || 'UPDATING' || 'DELETING',
+ *       CreationTime: new Date('TIMESTAMP'),
+ *       SingleMasterConfiguration: { // SingleMasterConfiguration
+ *         MessageTtlSeconds: Number('int'),
+ *       },
+ *       Version: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListSignalingChannelsCommandInput - {@link ListSignalingChannelsCommandInput}
@@ -69,6 +87,8 @@ export interface ListSignalingChannelsCommandOutput extends ListSignalingChannel
  * @throws {@link InvalidArgumentException} (client fault)
  *  <p>The value for this input parameter is invalid.</p>
  *
+ * @throws {@link KinesisVideoServiceException}
+ * <p>Base exception class for all service exceptions from KinesisVideo service.</p>
  *
  */
 export class ListSignalingChannelsCommand extends $Command<

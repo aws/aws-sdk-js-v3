@@ -38,15 +38,18 @@ export interface AssociateDeviceWithRoomCommandOutput extends AssociateDeviceWit
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AlexaForBusinessClient, AssociateDeviceWithRoomCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
- * // const { AlexaForBusinessClient, AssociateDeviceWithRoomCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
+ * import { AlexaForBusinessClient, AssociateDeviceWithRoomCommand } from '@aws-sdk/client-alexa-for-business'; // ES Modules import
+ * // const { AlexaForBusinessClient, AssociateDeviceWithRoomCommand } = require('@aws-sdk/client-alexa-for-business'); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
  * const input = { // AssociateDeviceWithRoomRequest
- *   DeviceArn: "STRING_VALUE",
- *   RoomArn: "STRING_VALUE",
+ *   DeviceArn: 'STRING_VALUE',
+ *   RoomArn: 'STRING_VALUE',
  * };
  * const command = new AssociateDeviceWithRoomCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param AssociateDeviceWithRoomCommandInput - {@link AssociateDeviceWithRoomCommandInput}
@@ -64,6 +67,8 @@ export interface AssociateDeviceWithRoomCommandOutput extends AssociateDeviceWit
  * @throws {@link LimitExceededException} (client fault)
  *  <p>You are performing an action that would put you beyond your account's limits.</p>
  *
+ * @throws {@link AlexaForBusinessServiceException}
+ * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  */
 export class AssociateDeviceWithRoomCommand extends $Command<

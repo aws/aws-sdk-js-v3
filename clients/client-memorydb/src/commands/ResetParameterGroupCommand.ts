@@ -36,18 +36,28 @@ export interface ResetParameterGroupCommandOutput extends ResetParameterGroupRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MemoryDBClient, ResetParameterGroupCommand } from "@aws-sdk/client-memorydb"; // ES Modules import
- * // const { MemoryDBClient, ResetParameterGroupCommand } = require("@aws-sdk/client-memorydb"); // CommonJS import
+ * import { MemoryDBClient, ResetParameterGroupCommand } from '@aws-sdk/client-memorydb'; // ES Modules import
+ * // const { MemoryDBClient, ResetParameterGroupCommand } = require('@aws-sdk/client-memorydb'); // CommonJS import
  * const client = new MemoryDBClient(config);
  * const input = { // ResetParameterGroupRequest
- *   ParameterGroupName: "STRING_VALUE", // required
+ *   ParameterGroupName: 'STRING_VALUE', // required
  *   AllParameters: true || false,
  *   ParameterNames: [ // ParameterNameList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new ResetParameterGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ResetParameterGroupResponse
+ *   ParameterGroup: { // ParameterGroup
+ *     Name: 'STRING_VALUE',
+ *     Family: 'STRING_VALUE',
+ *     Description: 'STRING_VALUE',
+ *     ARN: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param ResetParameterGroupCommandInput - {@link ResetParameterGroupCommandInput}
@@ -71,6 +81,8 @@ export interface ResetParameterGroupCommandOutput extends ResetParameterGroupRes
  * @throws {@link ServiceLinkedRoleNotFoundFault} (client fault)
  *  <p></p>
  *
+ * @throws {@link MemoryDBServiceException}
+ * <p>Base exception class for all service exceptions from MemoryDB service.</p>
  *
  */
 export class ResetParameterGroupCommand extends $Command<

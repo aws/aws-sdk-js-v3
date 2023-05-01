@@ -37,20 +37,32 @@ export interface ListSuppressedDestinationsCommandOutput extends ListSuppressedD
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SESv2Client, ListSuppressedDestinationsCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
- * // const { SESv2Client, ListSuppressedDestinationsCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
+ * import { SESv2Client, ListSuppressedDestinationsCommand } from '@aws-sdk/client-sesv2'; // ES Modules import
+ * // const { SESv2Client, ListSuppressedDestinationsCommand } = require('@aws-sdk/client-sesv2'); // CommonJS import
  * const client = new SESv2Client(config);
  * const input = { // ListSuppressedDestinationsRequest
  *   Reasons: [ // SuppressionListReasons
- *     "BOUNCE" || "COMPLAINT",
+ *     'BOUNCE' || 'COMPLAINT',
  *   ],
- *   StartDate: new Date("TIMESTAMP"),
- *   EndDate: new Date("TIMESTAMP"),
- *   NextToken: "STRING_VALUE",
- *   PageSize: Number("int"),
+ *   StartDate: new Date('TIMESTAMP'),
+ *   EndDate: new Date('TIMESTAMP'),
+ *   NextToken: 'STRING_VALUE',
+ *   PageSize: Number('int'),
  * };
  * const command = new ListSuppressedDestinationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListSuppressedDestinationsResponse
+ *   SuppressedDestinationSummaries: [ // SuppressedDestinationSummaries
+ *     { // SuppressedDestinationSummary
+ *       EmailAddress: 'STRING_VALUE', // required
+ *       Reason: 'BOUNCE' || 'COMPLAINT', // required
+ *       LastUpdateTime: new Date('TIMESTAMP'), // required
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListSuppressedDestinationsCommandInput - {@link ListSuppressedDestinationsCommandInput}
@@ -68,6 +80,8 @@ export interface ListSuppressedDestinationsCommandOutput extends ListSuppressedD
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Too many requests have been made to the operation.</p>
  *
+ * @throws {@link SESv2ServiceException}
+ * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
  */
 export class ListSuppressedDestinationsCommand extends $Command<

@@ -36,16 +36,39 @@ export interface ListSchedulesCommandOutput extends ListSchedulesResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DataBrewClient, ListSchedulesCommand } from "@aws-sdk/client-databrew"; // ES Modules import
- * // const { DataBrewClient, ListSchedulesCommand } = require("@aws-sdk/client-databrew"); // CommonJS import
+ * import { DataBrewClient, ListSchedulesCommand } from '@aws-sdk/client-databrew'; // ES Modules import
+ * // const { DataBrewClient, ListSchedulesCommand } = require('@aws-sdk/client-databrew'); // CommonJS import
  * const client = new DataBrewClient(config);
  * const input = { // ListSchedulesRequest
- *   JobName: "STRING_VALUE",
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   JobName: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListSchedulesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListSchedulesResponse
+ *   Schedules: [ // ScheduleList // required
+ *     { // Schedule
+ *       AccountId: 'STRING_VALUE',
+ *       CreatedBy: 'STRING_VALUE',
+ *       CreateDate: new Date('TIMESTAMP'),
+ *       JobNames: [ // JobNameList
+ *         'STRING_VALUE',
+ *       ],
+ *       LastModifiedBy: 'STRING_VALUE',
+ *       LastModifiedDate: new Date('TIMESTAMP'),
+ *       ResourceArn: 'STRING_VALUE',
+ *       CronExpression: 'STRING_VALUE',
+ *       Tags: { // TagMap
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *       Name: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListSchedulesCommandInput - {@link ListSchedulesCommandInput}
@@ -57,6 +80,8 @@ export interface ListSchedulesCommandOutput extends ListSchedulesResponse, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>The input parameters for this request failed validation.</p>
  *
+ * @throws {@link DataBrewServiceException}
+ * <p>Base exception class for all service exceptions from DataBrew service.</p>
  *
  */
 export class ListSchedulesCommand extends $Command<

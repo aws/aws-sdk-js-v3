@@ -44,15 +44,21 @@ export interface DeregisterTaskFromMaintenanceWindowCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMClient, DeregisterTaskFromMaintenanceWindowCommand } from "@aws-sdk/client-ssm"; // ES Modules import
- * // const { SSMClient, DeregisterTaskFromMaintenanceWindowCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * import { SSMClient, DeregisterTaskFromMaintenanceWindowCommand } from '@aws-sdk/client-ssm'; // ES Modules import
+ * // const { SSMClient, DeregisterTaskFromMaintenanceWindowCommand } = require('@aws-sdk/client-ssm'); // CommonJS import
  * const client = new SSMClient(config);
  * const input = { // DeregisterTaskFromMaintenanceWindowRequest
- *   WindowId: "STRING_VALUE", // required
- *   WindowTaskId: "STRING_VALUE", // required
+ *   WindowId: 'STRING_VALUE', // required
+ *   WindowTaskId: 'STRING_VALUE', // required
  * };
  * const command = new DeregisterTaskFromMaintenanceWindowCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeregisterTaskFromMaintenanceWindowResult
+ *   WindowId: 'STRING_VALUE',
+ *   WindowTaskId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DeregisterTaskFromMaintenanceWindowCommandInput - {@link DeregisterTaskFromMaintenanceWindowCommandInput}
@@ -70,6 +76,8 @@ export interface DeregisterTaskFromMaintenanceWindowCommandOutput
  * @throws {@link InternalServerError} (server fault)
  *  <p>An error occurred on the server side.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class DeregisterTaskFromMaintenanceWindowCommand extends $Command<

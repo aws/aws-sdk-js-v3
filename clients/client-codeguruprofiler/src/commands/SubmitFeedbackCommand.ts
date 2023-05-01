@@ -37,17 +37,20 @@ export interface SubmitFeedbackCommandOutput extends SubmitFeedbackResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeGuruProfilerClient, SubmitFeedbackCommand } from "@aws-sdk/client-codeguruprofiler"; // ES Modules import
- * // const { CodeGuruProfilerClient, SubmitFeedbackCommand } = require("@aws-sdk/client-codeguruprofiler"); // CommonJS import
+ * import { CodeGuruProfilerClient, SubmitFeedbackCommand } from '@aws-sdk/client-codeguruprofiler'; // ES Modules import
+ * // const { CodeGuruProfilerClient, SubmitFeedbackCommand } = require('@aws-sdk/client-codeguruprofiler'); // CommonJS import
  * const client = new CodeGuruProfilerClient(config);
  * const input = { // SubmitFeedbackRequest
- *   profilingGroupName: "STRING_VALUE", // required
- *   anomalyInstanceId: "STRING_VALUE", // required
- *   type: "STRING_VALUE", // required
- *   comment: "STRING_VALUE",
+ *   profilingGroupName: 'STRING_VALUE', // required
+ *   anomalyInstanceId: 'STRING_VALUE', // required
+ *   type: 'STRING_VALUE', // required
+ *   comment: 'STRING_VALUE',
  * };
  * const command = new SubmitFeedbackCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param SubmitFeedbackCommandInput - {@link SubmitFeedbackCommandInput}
@@ -68,6 +71,8 @@ export interface SubmitFeedbackCommandOutput extends SubmitFeedbackResponse, __M
  * @throws {@link ValidationException} (client fault)
  *  <p>The parameter is not valid.</p>
  *
+ * @throws {@link CodeGuruProfilerServiceException}
+ * <p>Base exception class for all service exceptions from CodeGuruProfiler service.</p>
  *
  */
 export class SubmitFeedbackCommand extends $Command<

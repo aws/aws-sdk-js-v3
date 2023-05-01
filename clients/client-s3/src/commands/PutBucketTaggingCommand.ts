@@ -111,25 +111,28 @@ export interface PutBucketTaggingCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { S3Client, PutBucketTaggingCommand } from "@aws-sdk/client-s3"; // ES Modules import
- * // const { S3Client, PutBucketTaggingCommand } = require("@aws-sdk/client-s3"); // CommonJS import
+ * import { S3Client, PutBucketTaggingCommand } from '@aws-sdk/client-s3'; // ES Modules import
+ * // const { S3Client, PutBucketTaggingCommand } = require('@aws-sdk/client-s3'); // CommonJS import
  * const client = new S3Client(config);
  * const input = { // PutBucketTaggingRequest
- *   Bucket: "STRING_VALUE", // required
- *   ContentMD5: "STRING_VALUE",
- *   ChecksumAlgorithm: "CRC32" || "CRC32C" || "SHA1" || "SHA256",
+ *   Bucket: 'STRING_VALUE', // required
+ *   ContentMD5: 'STRING_VALUE',
+ *   ChecksumAlgorithm: 'CRC32' || 'CRC32C' || 'SHA1' || 'SHA256',
  *   Tagging: { // Tagging
  *     TagSet: [ // TagSet // required
  *       { // Tag
- *         Key: "STRING_VALUE", // required
- *         Value: "STRING_VALUE", // required
+ *         Key: 'STRING_VALUE', // required
+ *         Value: 'STRING_VALUE', // required
  *       },
  *     ],
  *   },
- *   ExpectedBucketOwner: "STRING_VALUE",
+ *   ExpectedBucketOwner: 'STRING_VALUE',
  * };
  * const command = new PutBucketTaggingCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutBucketTaggingCommandInput - {@link PutBucketTaggingCommandInput}
@@ -138,6 +141,8 @@ export interface PutBucketTaggingCommandOutput extends __MetadataBearer {}
  * @see {@link PutBucketTaggingCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
+ * @throws {@link S3ServiceException}
+ * <p>Base exception class for all service exceptions from S3 service.</p>
  *
  * @example Set tags on a bucket
  * ```javascript

@@ -61,15 +61,25 @@ export interface GetJobTaggingCommandOutput extends GetJobTaggingResult, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { S3ControlClient, GetJobTaggingCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
- * // const { S3ControlClient, GetJobTaggingCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
+ * import { S3ControlClient, GetJobTaggingCommand } from '@aws-sdk/client-s3-control'; // ES Modules import
+ * // const { S3ControlClient, GetJobTaggingCommand } = require('@aws-sdk/client-s3-control'); // CommonJS import
  * const client = new S3ControlClient(config);
  * const input = { // GetJobTaggingRequest
- *   AccountId: "STRING_VALUE",
- *   JobId: "STRING_VALUE", // required
+ *   AccountId: 'STRING_VALUE',
+ *   JobId: 'STRING_VALUE', // required
  * };
  * const command = new GetJobTaggingCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetJobTaggingResult
+ *   Tags: [ // S3TagSet
+ *     { // S3Tag
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetJobTaggingCommandInput - {@link GetJobTaggingCommandInput}
@@ -87,6 +97,8 @@ export interface GetJobTaggingCommandOutput extends GetJobTaggingResult, __Metad
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p></p>
  *
+ * @throws {@link S3ControlServiceException}
+ * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
  */
 export class GetJobTaggingCommand extends $Command<

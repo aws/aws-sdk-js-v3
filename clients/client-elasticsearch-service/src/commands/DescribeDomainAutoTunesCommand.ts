@@ -40,16 +40,34 @@ export interface DescribeDomainAutoTunesCommandOutput extends DescribeDomainAuto
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElasticsearchServiceClient, DescribeDomainAutoTunesCommand } from "@aws-sdk/client-elasticsearch-service"; // ES Modules import
- * // const { ElasticsearchServiceClient, DescribeDomainAutoTunesCommand } = require("@aws-sdk/client-elasticsearch-service"); // CommonJS import
+ * import { ElasticsearchServiceClient, DescribeDomainAutoTunesCommand } from '@aws-sdk/client-elasticsearch-service'; // ES Modules import
+ * // const { ElasticsearchServiceClient, DescribeDomainAutoTunesCommand } = require('@aws-sdk/client-elasticsearch-service'); // CommonJS import
  * const client = new ElasticsearchServiceClient(config);
  * const input = { // DescribeDomainAutoTunesRequest
- *   DomainName: "STRING_VALUE", // required
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   DomainName: 'STRING_VALUE', // required
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new DescribeDomainAutoTunesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeDomainAutoTunesResponse
+ *   AutoTunes: [ // AutoTuneList
+ *     { // AutoTune
+ *       AutoTuneType: 'SCHEDULED_ACTION',
+ *       AutoTuneDetails: { // AutoTuneDetails
+ *         ScheduledAutoTuneDetails: { // ScheduledAutoTuneDetails
+ *           Date: new Date('TIMESTAMP'),
+ *           ActionType: 'JVM_HEAP_SIZE_TUNING' || 'JVM_YOUNG_GEN_TUNING',
+ *           Action: 'STRING_VALUE',
+ *           Severity: 'LOW' || 'MEDIUM' || 'HIGH',
+ *         },
+ *       },
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeDomainAutoTunesCommandInput - {@link DescribeDomainAutoTunesCommandInput}
@@ -70,6 +88,8 @@ export interface DescribeDomainAutoTunesCommandOutput extends DescribeDomainAuto
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception for missing / invalid input fields. Gives http status code of 400.</p>
  *
+ * @throws {@link ElasticsearchServiceServiceException}
+ * <p>Base exception class for all service exceptions from ElasticsearchService service.</p>
  *
  */
 export class DescribeDomainAutoTunesCommand extends $Command<

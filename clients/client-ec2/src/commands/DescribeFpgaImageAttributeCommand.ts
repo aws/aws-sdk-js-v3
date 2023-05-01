@@ -36,16 +36,37 @@ export interface DescribeFpgaImageAttributeCommandOutput extends DescribeFpgaIma
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, DescribeFpgaImageAttributeCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, DescribeFpgaImageAttributeCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, DescribeFpgaImageAttributeCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, DescribeFpgaImageAttributeCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // DescribeFpgaImageAttributeRequest
  *   DryRun: true || false,
- *   FpgaImageId: "STRING_VALUE", // required
- *   Attribute: "description" || "name" || "loadPermission" || "productCodes", // required
+ *   FpgaImageId: 'STRING_VALUE', // required
+ *   Attribute: 'description' || 'name' || 'loadPermission' || 'productCodes', // required
  * };
  * const command = new DescribeFpgaImageAttributeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeFpgaImageAttributeResult
+ *   FpgaImageAttribute: { // FpgaImageAttribute
+ *     FpgaImageId: 'STRING_VALUE',
+ *     Name: 'STRING_VALUE',
+ *     Description: 'STRING_VALUE',
+ *     LoadPermissions: [ // LoadPermissionList
+ *       { // LoadPermission
+ *         UserId: 'STRING_VALUE',
+ *         Group: 'all',
+ *       },
+ *     ],
+ *     ProductCodes: [ // ProductCodeList
+ *       { // ProductCode
+ *         ProductCodeId: 'STRING_VALUE',
+ *         ProductCodeType: 'devpay' || 'marketplace',
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeFpgaImageAttributeCommandInput - {@link DescribeFpgaImageAttributeCommandInput}
@@ -54,6 +75,8 @@ export interface DescribeFpgaImageAttributeCommandOutput extends DescribeFpgaIma
  * @see {@link DescribeFpgaImageAttributeCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class DescribeFpgaImageAttributeCommand extends $Command<

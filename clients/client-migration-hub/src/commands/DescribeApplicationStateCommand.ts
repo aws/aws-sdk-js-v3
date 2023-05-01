@@ -36,14 +36,20 @@ export interface DescribeApplicationStateCommandOutput extends DescribeApplicati
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MigrationHubClient, DescribeApplicationStateCommand } from "@aws-sdk/client-migration-hub"; // ES Modules import
- * // const { MigrationHubClient, DescribeApplicationStateCommand } = require("@aws-sdk/client-migration-hub"); // CommonJS import
+ * import { MigrationHubClient, DescribeApplicationStateCommand } from '@aws-sdk/client-migration-hub'; // ES Modules import
+ * // const { MigrationHubClient, DescribeApplicationStateCommand } = require('@aws-sdk/client-migration-hub'); // CommonJS import
  * const client = new MigrationHubClient(config);
  * const input = { // DescribeApplicationStateRequest
- *   ApplicationId: "STRING_VALUE", // required
+ *   ApplicationId: 'STRING_VALUE', // required
  * };
  * const command = new DescribeApplicationStateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeApplicationStateResult
+ *   ApplicationStatus: 'STRING_VALUE',
+ *   LastUpdatedTime: new Date('TIMESTAMP'),
+ * };
+ *
  * ```
  *
  * @param DescribeApplicationStateCommandInput - {@link DescribeApplicationStateCommandInput}
@@ -83,6 +89,8 @@ export interface DescribeApplicationStateCommandOutput extends DescribeApplicati
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
  *
+ * @throws {@link MigrationHubServiceException}
+ * <p>Base exception class for all service exceptions from MigrationHub service.</p>
  *
  */
 export class DescribeApplicationStateCommand extends $Command<

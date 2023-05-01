@@ -39,12 +39,19 @@ export interface GetAccountSummaryCommandOutput extends GetAccountSummaryRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IAMClient, GetAccountSummaryCommand } from "@aws-sdk/client-iam"; // ES Modules import
- * // const { IAMClient, GetAccountSummaryCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * import { IAMClient, GetAccountSummaryCommand } from '@aws-sdk/client-iam'; // ES Modules import
+ * // const { IAMClient, GetAccountSummaryCommand } = require('@aws-sdk/client-iam'); // CommonJS import
  * const client = new IAMClient(config);
  * const input = {};
  * const command = new GetAccountSummaryCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetAccountSummaryResponse
+ *   SummaryMap: { // summaryMapType
+ *     '<keys>': Number('int'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetAccountSummaryCommandInput - {@link GetAccountSummaryCommandInput}
@@ -57,6 +64,8 @@ export interface GetAccountSummaryCommandOutput extends GetAccountSummaryRespons
  *  <p>The request processing has failed because of an unknown error, exception or
  *       failure.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  * @example To get information about IAM entity quotas and usage in the current account
  * ```javascript

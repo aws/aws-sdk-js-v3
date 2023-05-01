@@ -39,16 +39,27 @@ export interface ListNotebookSessionsCommandOutput extends ListNotebookSessionsR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AthenaClient, ListNotebookSessionsCommand } from "@aws-sdk/client-athena"; // ES Modules import
- * // const { AthenaClient, ListNotebookSessionsCommand } = require("@aws-sdk/client-athena"); // CommonJS import
+ * import { AthenaClient, ListNotebookSessionsCommand } from '@aws-sdk/client-athena'; // ES Modules import
+ * // const { AthenaClient, ListNotebookSessionsCommand } = require('@aws-sdk/client-athena'); // CommonJS import
  * const client = new AthenaClient(config);
  * const input = { // ListNotebookSessionsRequest
- *   NotebookId: "STRING_VALUE", // required
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   NotebookId: 'STRING_VALUE', // required
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListNotebookSessionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListNotebookSessionsResponse
+ *   NotebookSessionsList: [ // NotebookSessionsList // required
+ *     { // NotebookSessionSummary
+ *       SessionId: 'STRING_VALUE',
+ *       CreationTime: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListNotebookSessionsCommandInput - {@link ListNotebookSessionsCommandInput}
@@ -68,6 +79,8 @@ export interface ListNotebookSessionsCommandOutput extends ListNotebookSessionsR
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>A resource, such as a workgroup, was not found.</p>
  *
+ * @throws {@link AthenaServiceException}
+ * <p>Base exception class for all service exceptions from Athena service.</p>
  *
  */
 export class ListNotebookSessionsCommand extends $Command<

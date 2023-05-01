@@ -48,69 +48,69 @@ export interface SubmitJobCommandOutput extends SubmitJobResponse, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BatchClient, SubmitJobCommand } from "@aws-sdk/client-batch"; // ES Modules import
- * // const { BatchClient, SubmitJobCommand } = require("@aws-sdk/client-batch"); // CommonJS import
+ * import { BatchClient, SubmitJobCommand } from '@aws-sdk/client-batch'; // ES Modules import
+ * // const { BatchClient, SubmitJobCommand } = require('@aws-sdk/client-batch'); // CommonJS import
  * const client = new BatchClient(config);
  * const input = { // SubmitJobRequest
- *   jobName: "STRING_VALUE", // required
- *   jobQueue: "STRING_VALUE", // required
- *   shareIdentifier: "STRING_VALUE",
- *   schedulingPriorityOverride: Number("int"),
+ *   jobName: 'STRING_VALUE', // required
+ *   jobQueue: 'STRING_VALUE', // required
+ *   shareIdentifier: 'STRING_VALUE',
+ *   schedulingPriorityOverride: Number('int'),
  *   arrayProperties: { // ArrayProperties
- *     size: Number("int"),
+ *     size: Number('int'),
  *   },
  *   dependsOn: [ // JobDependencyList
  *     { // JobDependency
- *       jobId: "STRING_VALUE",
- *       type: "N_TO_N" || "SEQUENTIAL",
+ *       jobId: 'STRING_VALUE',
+ *       type: 'N_TO_N' || 'SEQUENTIAL',
  *     },
  *   ],
- *   jobDefinition: "STRING_VALUE", // required
+ *   jobDefinition: 'STRING_VALUE', // required
  *   parameters: { // ParametersMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  *   containerOverrides: { // ContainerOverrides
- *     vcpus: Number("int"),
- *     memory: Number("int"),
+ *     vcpus: Number('int'),
+ *     memory: Number('int'),
  *     command: [ // StringList
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
- *     instanceType: "STRING_VALUE",
+ *     instanceType: 'STRING_VALUE',
  *     environment: [ // EnvironmentVariables
  *       { // KeyValuePair
- *         name: "STRING_VALUE",
- *         value: "STRING_VALUE",
+ *         name: 'STRING_VALUE',
+ *         value: 'STRING_VALUE',
  *       },
  *     ],
  *     resourceRequirements: [ // ResourceRequirements
  *       { // ResourceRequirement
- *         value: "STRING_VALUE", // required
- *         type: "GPU" || "VCPU" || "MEMORY", // required
+ *         value: 'STRING_VALUE', // required
+ *         type: 'GPU' || 'VCPU' || 'MEMORY', // required
  *       },
  *     ],
  *   },
  *   nodeOverrides: { // NodeOverrides
- *     numNodes: Number("int"),
+ *     numNodes: Number('int'),
  *     nodePropertyOverrides: [ // NodePropertyOverrides
  *       { // NodePropertyOverride
- *         targetNodes: "STRING_VALUE", // required
+ *         targetNodes: 'STRING_VALUE', // required
  *         containerOverrides: {
- *           vcpus: Number("int"),
- *           memory: Number("int"),
+ *           vcpus: Number('int'),
+ *           memory: Number('int'),
  *           command: [
- *             "STRING_VALUE",
+ *             'STRING_VALUE',
  *           ],
- *           instanceType: "STRING_VALUE",
+ *           instanceType: 'STRING_VALUE',
  *           environment: [
  *             {
- *               name: "STRING_VALUE",
- *               value: "STRING_VALUE",
+ *               name: 'STRING_VALUE',
+ *               value: 'STRING_VALUE',
  *             },
  *           ],
  *           resourceRequirements: [
  *             {
- *               value: "STRING_VALUE", // required
- *               type: "GPU" || "VCPU" || "MEMORY", // required
+ *               value: 'STRING_VALUE', // required
+ *               type: 'GPU' || 'VCPU' || 'MEMORY', // required
  *             },
  *           ],
  *         },
@@ -118,53 +118,53 @@ export interface SubmitJobCommandOutput extends SubmitJobResponse, __MetadataBea
  *     ],
  *   },
  *   retryStrategy: { // RetryStrategy
- *     attempts: Number("int"),
+ *     attempts: Number('int'),
  *     evaluateOnExit: [ // EvaluateOnExitList
  *       { // EvaluateOnExit
- *         onStatusReason: "STRING_VALUE",
- *         onReason: "STRING_VALUE",
- *         onExitCode: "STRING_VALUE",
- *         action: "RETRY" || "EXIT", // required
+ *         onStatusReason: 'STRING_VALUE',
+ *         onReason: 'STRING_VALUE',
+ *         onExitCode: 'STRING_VALUE',
+ *         action: 'RETRY' || 'EXIT', // required
  *       },
  *     ],
  *   },
  *   propagateTags: true || false,
  *   timeout: { // JobTimeout
- *     attemptDurationSeconds: Number("int"),
+ *     attemptDurationSeconds: Number('int'),
  *   },
  *   tags: { // TagrisTagsMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  *   eksPropertiesOverride: { // EksPropertiesOverride
  *     podProperties: { // EksPodPropertiesOverride
  *       containers: [ // EksContainerOverrideList
  *         { // EksContainerOverride
- *           image: "STRING_VALUE",
+ *           image: 'STRING_VALUE',
  *           command: [
- *             "STRING_VALUE",
+ *             'STRING_VALUE',
  *           ],
  *           args: [
- *             "STRING_VALUE",
+ *             'STRING_VALUE',
  *           ],
  *           env: [ // EksContainerEnvironmentVariables
  *             { // EksContainerEnvironmentVariable
- *               name: "STRING_VALUE", // required
- *               value: "STRING_VALUE",
+ *               name: 'STRING_VALUE', // required
+ *               value: 'STRING_VALUE',
  *             },
  *           ],
  *           resources: { // EksContainerResourceRequirements
  *             limits: { // EksLimits
- *               "<keys>": "STRING_VALUE",
+ *               '<keys>': 'STRING_VALUE',
  *             },
  *             requests: { // EksRequests
- *               "<keys>": "STRING_VALUE",
+ *               '<keys>': 'STRING_VALUE',
  *             },
  *           },
  *         },
  *       ],
  *       metadata: { // EksMetadata
  *         labels: { // EksLabelsMap
- *           "<keys>": "STRING_VALUE",
+ *           '<keys>': 'STRING_VALUE',
  *         },
  *       },
  *     },
@@ -172,6 +172,13 @@ export interface SubmitJobCommandOutput extends SubmitJobResponse, __MetadataBea
  * };
  * const command = new SubmitJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SubmitJobResponse
+ *   jobArn: 'STRING_VALUE',
+ *   jobName: 'STRING_VALUE', // required
+ *   jobId: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param SubmitJobCommandInput - {@link SubmitJobCommandInput}
@@ -188,6 +195,8 @@ export interface SubmitJobCommandOutput extends SubmitJobResponse, __MetadataBea
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server issue.</p>
  *
+ * @throws {@link BatchServiceException}
+ * <p>Base exception class for all service exceptions from Batch service.</p>
  *
  * @example To submit a job to a queue
  * ```javascript

@@ -42,16 +42,27 @@ export interface AssociateTransitGatewayRouteTableCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, AssociateTransitGatewayRouteTableCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, AssociateTransitGatewayRouteTableCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, AssociateTransitGatewayRouteTableCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, AssociateTransitGatewayRouteTableCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // AssociateTransitGatewayRouteTableRequest
- *   TransitGatewayRouteTableId: "STRING_VALUE", // required
- *   TransitGatewayAttachmentId: "STRING_VALUE", // required
+ *   TransitGatewayRouteTableId: 'STRING_VALUE', // required
+ *   TransitGatewayAttachmentId: 'STRING_VALUE', // required
  *   DryRun: true || false,
  * };
  * const command = new AssociateTransitGatewayRouteTableCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AssociateTransitGatewayRouteTableResult
+ *   Association: { // TransitGatewayAssociation
+ *     TransitGatewayRouteTableId: 'STRING_VALUE',
+ *     TransitGatewayAttachmentId: 'STRING_VALUE',
+ *     ResourceId: 'STRING_VALUE',
+ *     ResourceType: 'vpc' || 'vpn' || 'direct-connect-gateway' || 'connect' || 'peering' || 'tgw-peering',
+ *     State: 'associating' || 'associated' || 'disassociating' || 'disassociated',
+ *   },
+ * };
+ *
  * ```
  *
  * @param AssociateTransitGatewayRouteTableCommandInput - {@link AssociateTransitGatewayRouteTableCommandInput}
@@ -60,6 +71,8 @@ export interface AssociateTransitGatewayRouteTableCommandOutput
  * @see {@link AssociateTransitGatewayRouteTableCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class AssociateTransitGatewayRouteTableCommand extends $Command<

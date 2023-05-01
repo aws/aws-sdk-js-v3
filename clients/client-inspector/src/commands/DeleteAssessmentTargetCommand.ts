@@ -37,14 +37,17 @@ export interface DeleteAssessmentTargetCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { InspectorClient, DeleteAssessmentTargetCommand } from "@aws-sdk/client-inspector"; // ES Modules import
- * // const { InspectorClient, DeleteAssessmentTargetCommand } = require("@aws-sdk/client-inspector"); // CommonJS import
+ * import { InspectorClient, DeleteAssessmentTargetCommand } from '@aws-sdk/client-inspector'; // ES Modules import
+ * // const { InspectorClient, DeleteAssessmentTargetCommand } = require('@aws-sdk/client-inspector'); // CommonJS import
  * const client = new InspectorClient(config);
  * const input = { // DeleteAssessmentTargetRequest
- *   assessmentTargetArn: "STRING_VALUE", // required
+ *   assessmentTargetArn: 'STRING_VALUE', // required
  * };
  * const command = new DeleteAssessmentTargetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteAssessmentTargetCommandInput - {@link DeleteAssessmentTargetCommandInput}
@@ -74,6 +77,8 @@ export interface DeleteAssessmentTargetCommandOutput extends __MetadataBearer {}
  * @throws {@link ServiceTemporarilyUnavailableException} (server fault)
  *  <p>The serice is temporary unavailable.</p>
  *
+ * @throws {@link InspectorServiceException}
+ * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
  * @example Delete assessment target
  * ```javascript

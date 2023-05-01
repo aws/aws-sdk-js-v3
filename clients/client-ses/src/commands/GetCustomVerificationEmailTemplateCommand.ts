@@ -48,14 +48,24 @@ export interface GetCustomVerificationEmailTemplateCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SESClient, GetCustomVerificationEmailTemplateCommand } from "@aws-sdk/client-ses"; // ES Modules import
- * // const { SESClient, GetCustomVerificationEmailTemplateCommand } = require("@aws-sdk/client-ses"); // CommonJS import
+ * import { SESClient, GetCustomVerificationEmailTemplateCommand } from '@aws-sdk/client-ses'; // ES Modules import
+ * // const { SESClient, GetCustomVerificationEmailTemplateCommand } = require('@aws-sdk/client-ses'); // CommonJS import
  * const client = new SESClient(config);
  * const input = { // GetCustomVerificationEmailTemplateRequest
- *   TemplateName: "STRING_VALUE", // required
+ *   TemplateName: 'STRING_VALUE', // required
  * };
  * const command = new GetCustomVerificationEmailTemplateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetCustomVerificationEmailTemplateResponse
+ *   TemplateName: 'STRING_VALUE',
+ *   FromEmailAddress: 'STRING_VALUE',
+ *   TemplateSubject: 'STRING_VALUE',
+ *   TemplateContent: 'STRING_VALUE',
+ *   SuccessRedirectionURL: 'STRING_VALUE',
+ *   FailureRedirectionURL: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetCustomVerificationEmailTemplateCommandInput - {@link GetCustomVerificationEmailTemplateCommandInput}
@@ -68,6 +78,8 @@ export interface GetCustomVerificationEmailTemplateCommandOutput
  *  <p>Indicates that a custom verification email template with the name you specified does
  *             not exist.</p>
  *
+ * @throws {@link SESServiceException}
+ * <p>Base exception class for all service exceptions from SES service.</p>
  *
  */
 export class GetCustomVerificationEmailTemplateCommand extends $Command<

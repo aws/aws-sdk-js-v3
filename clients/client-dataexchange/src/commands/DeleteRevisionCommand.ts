@@ -36,15 +36,18 @@ export interface DeleteRevisionCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DataExchangeClient, DeleteRevisionCommand } from "@aws-sdk/client-dataexchange"; // ES Modules import
- * // const { DataExchangeClient, DeleteRevisionCommand } = require("@aws-sdk/client-dataexchange"); // CommonJS import
+ * import { DataExchangeClient, DeleteRevisionCommand } from '@aws-sdk/client-dataexchange'; // ES Modules import
+ * // const { DataExchangeClient, DeleteRevisionCommand } = require('@aws-sdk/client-dataexchange'); // CommonJS import
  * const client = new DataExchangeClient(config);
  * const input = { // DeleteRevisionRequest
- *   DataSetId: "STRING_VALUE", // required
- *   RevisionId: "STRING_VALUE", // required
+ *   DataSetId: 'STRING_VALUE', // required
+ *   RevisionId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteRevisionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteRevisionCommandInput - {@link DeleteRevisionCommandInput}
@@ -71,6 +74,8 @@ export interface DeleteRevisionCommandOutput extends __MetadataBearer {}
  * @throws {@link ValidationException} (client fault)
  *  <p>The request was invalid.</p>
  *
+ * @throws {@link DataExchangeServiceException}
+ * <p>Base exception class for all service exceptions from DataExchange service.</p>
  *
  */
 export class DeleteRevisionCommand extends $Command<

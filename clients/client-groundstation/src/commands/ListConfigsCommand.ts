@@ -36,15 +36,28 @@ export interface ListConfigsCommandOutput extends ListConfigsResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GroundStationClient, ListConfigsCommand } from "@aws-sdk/client-groundstation"; // ES Modules import
- * // const { GroundStationClient, ListConfigsCommand } = require("@aws-sdk/client-groundstation"); // CommonJS import
+ * import { GroundStationClient, ListConfigsCommand } from '@aws-sdk/client-groundstation'; // ES Modules import
+ * // const { GroundStationClient, ListConfigsCommand } = require('@aws-sdk/client-groundstation'); // CommonJS import
  * const client = new GroundStationClient(config);
  * const input = { // ListConfigsRequest
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new ListConfigsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListConfigsResponse
+ *   nextToken: 'STRING_VALUE',
+ *   configList: [ // ConfigList
+ *     { // ConfigListItem
+ *       configId: 'STRING_VALUE',
+ *       configType: 'STRING_VALUE',
+ *       configArn: 'STRING_VALUE',
+ *       name: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListConfigsCommandInput - {@link ListConfigsCommandInput}
@@ -62,6 +75,8 @@ export interface ListConfigsCommandOutput extends ListConfigsResponse, __Metadat
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Resource was not found.</p>
  *
+ * @throws {@link GroundStationServiceException}
+ * <p>Base exception class for all service exceptions from GroundStation service.</p>
  *
  */
 export class ListConfigsCommand extends $Command<

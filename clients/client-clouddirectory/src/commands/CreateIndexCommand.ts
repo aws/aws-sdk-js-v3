@@ -36,26 +36,31 @@ export interface CreateIndexCommandOutput extends CreateIndexResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudDirectoryClient, CreateIndexCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
- * // const { CloudDirectoryClient, CreateIndexCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
+ * import { CloudDirectoryClient, CreateIndexCommand } from '@aws-sdk/client-clouddirectory'; // ES Modules import
+ * // const { CloudDirectoryClient, CreateIndexCommand } = require('@aws-sdk/client-clouddirectory'); // CommonJS import
  * const client = new CloudDirectoryClient(config);
  * const input = { // CreateIndexRequest
- *   DirectoryArn: "STRING_VALUE", // required
+ *   DirectoryArn: 'STRING_VALUE', // required
  *   OrderedIndexedAttributeList: [ // AttributeKeyList // required
  *     { // AttributeKey
- *       SchemaArn: "STRING_VALUE", // required
- *       FacetName: "STRING_VALUE", // required
- *       Name: "STRING_VALUE", // required
+ *       SchemaArn: 'STRING_VALUE', // required
+ *       FacetName: 'STRING_VALUE', // required
+ *       Name: 'STRING_VALUE', // required
  *     },
  *   ],
  *   IsUnique: true || false, // required
  *   ParentReference: { // ObjectReference
- *     Selector: "STRING_VALUE",
+ *     Selector: 'STRING_VALUE',
  *   },
- *   LinkName: "STRING_VALUE",
+ *   LinkName: 'STRING_VALUE',
  * };
  * const command = new CreateIndexCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateIndexResponse
+ *   ObjectIdentifier: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateIndexCommandInput - {@link CreateIndexCommandInput}
@@ -100,6 +105,8 @@ export interface CreateIndexCommandOutput extends CreateIndexResponse, __Metadat
  *  <p>Indicates that your request is malformed in some manner. See the exception
  *       message.</p>
  *
+ * @throws {@link CloudDirectoryServiceException}
+ * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
  */
 export class CreateIndexCommand extends $Command<

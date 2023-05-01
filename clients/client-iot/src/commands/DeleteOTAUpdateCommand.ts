@@ -37,16 +37,19 @@ export interface DeleteOTAUpdateCommandOutput extends DeleteOTAUpdateResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTClient, DeleteOTAUpdateCommand } from "@aws-sdk/client-iot"; // ES Modules import
- * // const { IoTClient, DeleteOTAUpdateCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * import { IoTClient, DeleteOTAUpdateCommand } from '@aws-sdk/client-iot'; // ES Modules import
+ * // const { IoTClient, DeleteOTAUpdateCommand } = require('@aws-sdk/client-iot'); // CommonJS import
  * const client = new IoTClient(config);
  * const input = { // DeleteOTAUpdateRequest
- *   otaUpdateId: "STRING_VALUE", // required
+ *   otaUpdateId: 'STRING_VALUE', // required
  *   deleteStream: true || false,
  *   forceDeleteAWSJob: true || false,
  * };
  * const command = new DeleteOTAUpdateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteOTAUpdateCommandInput - {@link DeleteOTAUpdateCommandInput}
@@ -78,6 +81,8 @@ export interface DeleteOTAUpdateCommandOutput extends DeleteOTAUpdateResponse, _
  *             <code>expectedVersion</code> parameter does not match the latest version in the
  *          system.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class DeleteOTAUpdateCommand extends $Command<

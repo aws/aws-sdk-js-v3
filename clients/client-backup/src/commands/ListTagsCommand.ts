@@ -41,16 +41,24 @@ export interface ListTagsCommandOutput extends ListTagsOutput, __MetadataBearer 
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BackupClient, ListTagsCommand } from "@aws-sdk/client-backup"; // ES Modules import
- * // const { BackupClient, ListTagsCommand } = require("@aws-sdk/client-backup"); // CommonJS import
+ * import { BackupClient, ListTagsCommand } from '@aws-sdk/client-backup'; // ES Modules import
+ * // const { BackupClient, ListTagsCommand } = require('@aws-sdk/client-backup'); // CommonJS import
  * const client = new BackupClient(config);
  * const input = { // ListTagsInput
- *   ResourceArn: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   ResourceArn: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListTagsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTagsOutput
+ *   NextToken: 'STRING_VALUE',
+ *   Tags: { // Tags
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param ListTagsCommandInput - {@link ListTagsCommandInput}
@@ -72,6 +80,8 @@ export interface ListTagsCommandOutput extends ListTagsOutput, __MetadataBearer 
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request failed due to a temporary failure of the server.</p>
  *
+ * @throws {@link BackupServiceException}
+ * <p>Base exception class for all service exceptions from Backup service.</p>
  *
  */
 export class ListTagsCommand extends $Command<ListTagsCommandInput, ListTagsCommandOutput, BackupClientResolvedConfig> {

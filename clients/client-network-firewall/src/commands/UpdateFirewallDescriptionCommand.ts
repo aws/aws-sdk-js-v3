@@ -37,17 +37,25 @@ export interface UpdateFirewallDescriptionCommandOutput extends UpdateFirewallDe
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { NetworkFirewallClient, UpdateFirewallDescriptionCommand } from "@aws-sdk/client-network-firewall"; // ES Modules import
- * // const { NetworkFirewallClient, UpdateFirewallDescriptionCommand } = require("@aws-sdk/client-network-firewall"); // CommonJS import
+ * import { NetworkFirewallClient, UpdateFirewallDescriptionCommand } from '@aws-sdk/client-network-firewall'; // ES Modules import
+ * // const { NetworkFirewallClient, UpdateFirewallDescriptionCommand } = require('@aws-sdk/client-network-firewall'); // CommonJS import
  * const client = new NetworkFirewallClient(config);
  * const input = { // UpdateFirewallDescriptionRequest
- *   UpdateToken: "STRING_VALUE",
- *   FirewallArn: "STRING_VALUE",
- *   FirewallName: "STRING_VALUE",
- *   Description: "STRING_VALUE",
+ *   UpdateToken: 'STRING_VALUE',
+ *   FirewallArn: 'STRING_VALUE',
+ *   FirewallName: 'STRING_VALUE',
+ *   Description: 'STRING_VALUE',
  * };
  * const command = new UpdateFirewallDescriptionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateFirewallDescriptionResponse
+ *   FirewallArn: 'STRING_VALUE',
+ *   FirewallName: 'STRING_VALUE',
+ *   Description: 'STRING_VALUE',
+ *   UpdateToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateFirewallDescriptionCommandInput - {@link UpdateFirewallDescriptionCommandInput}
@@ -85,6 +93,8 @@ export interface UpdateFirewallDescriptionCommandOutput extends UpdateFirewallDe
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Unable to process the request due to throttling limitations.</p>
  *
+ * @throws {@link NetworkFirewallServiceException}
+ * <p>Base exception class for all service exceptions from NetworkFirewall service.</p>
  *
  */
 export class UpdateFirewallDescriptionCommand extends $Command<

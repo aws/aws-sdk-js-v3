@@ -41,41 +41,69 @@ export interface DescribeDimensionKeysCommandOutput extends DescribeDimensionKey
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PIClient, DescribeDimensionKeysCommand } from "@aws-sdk/client-pi"; // ES Modules import
- * // const { PIClient, DescribeDimensionKeysCommand } = require("@aws-sdk/client-pi"); // CommonJS import
+ * import { PIClient, DescribeDimensionKeysCommand } from '@aws-sdk/client-pi'; // ES Modules import
+ * // const { PIClient, DescribeDimensionKeysCommand } = require('@aws-sdk/client-pi'); // CommonJS import
  * const client = new PIClient(config);
  * const input = { // DescribeDimensionKeysRequest
- *   ServiceType: "RDS" || "DOCDB", // required
- *   Identifier: "STRING_VALUE", // required
- *   StartTime: new Date("TIMESTAMP"), // required
- *   EndTime: new Date("TIMESTAMP"), // required
- *   Metric: "STRING_VALUE", // required
- *   PeriodInSeconds: Number("int"),
+ *   ServiceType: 'RDS' || 'DOCDB', // required
+ *   Identifier: 'STRING_VALUE', // required
+ *   StartTime: new Date('TIMESTAMP'), // required
+ *   EndTime: new Date('TIMESTAMP'), // required
+ *   Metric: 'STRING_VALUE', // required
+ *   PeriodInSeconds: Number('int'),
  *   GroupBy: { // DimensionGroup
- *     Group: "STRING_VALUE", // required
+ *     Group: 'STRING_VALUE', // required
  *     Dimensions: [ // RequestStringList
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
- *     Limit: Number("int"),
+ *     Limit: Number('int'),
  *   },
  *   AdditionalMetrics: [ // AdditionalMetricsList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   PartitionBy: {
- *     Group: "STRING_VALUE", // required
+ *     Group: 'STRING_VALUE', // required
  *     Dimensions: [
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
- *     Limit: Number("int"),
+ *     Limit: Number('int'),
  *   },
  *   Filter: { // MetricQueryFilterMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new DescribeDimensionKeysCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeDimensionKeysResponse
+ *   AlignedStartTime: new Date('TIMESTAMP'),
+ *   AlignedEndTime: new Date('TIMESTAMP'),
+ *   PartitionKeys: [ // ResponsePartitionKeyList
+ *     { // ResponsePartitionKey
+ *       Dimensions: { // DimensionMap // required
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ *   Keys: [ // DimensionKeyDescriptionList
+ *     { // DimensionKeyDescription
+ *       Dimensions: {
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *       Total: Number('double'),
+ *       AdditionalMetrics: { // AdditionalMetricsMap
+ *         '<keys>': Number('double'),
+ *       },
+ *       Partitions: [ // MetricValuesList
+ *         Number('double'),
+ *       ],
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeDimensionKeysCommandInput - {@link DescribeDimensionKeysCommandInput}
@@ -93,6 +121,8 @@ export interface DescribeDimensionKeysCommandOutput extends DescribeDimensionKey
  * @throws {@link NotAuthorizedException} (client fault)
  *  <p>The user is not authorized to perform this request.</p>
  *
+ * @throws {@link PIServiceException}
+ * <p>Base exception class for all service exceptions from PI service.</p>
  *
  */
 export class DescribeDimensionKeysCommand extends $Command<

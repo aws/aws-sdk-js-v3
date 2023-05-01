@@ -42,17 +42,30 @@ export interface UpdateWatchlistCommandOutput extends UpdateWatchlistResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { VoiceIDClient, UpdateWatchlistCommand } from "@aws-sdk/client-voice-id"; // ES Modules import
- * // const { VoiceIDClient, UpdateWatchlistCommand } = require("@aws-sdk/client-voice-id"); // CommonJS import
+ * import { VoiceIDClient, UpdateWatchlistCommand } from '@aws-sdk/client-voice-id'; // ES Modules import
+ * // const { VoiceIDClient, UpdateWatchlistCommand } = require('@aws-sdk/client-voice-id'); // CommonJS import
  * const client = new VoiceIDClient(config);
  * const input = { // UpdateWatchlistRequest
- *   DomainId: "STRING_VALUE", // required
- *   WatchlistId: "STRING_VALUE", // required
- *   Name: "STRING_VALUE",
- *   Description: "STRING_VALUE",
+ *   DomainId: 'STRING_VALUE', // required
+ *   WatchlistId: 'STRING_VALUE', // required
+ *   Name: 'STRING_VALUE',
+ *   Description: 'STRING_VALUE',
  * };
  * const command = new UpdateWatchlistCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateWatchlistResponse
+ *   Watchlist: { // Watchlist
+ *     DomainId: 'STRING_VALUE',
+ *     WatchlistId: 'STRING_VALUE',
+ *     Name: 'STRING_VALUE',
+ *     Description: 'STRING_VALUE',
+ *     DefaultWatchlist: true || false,
+ *     CreatedAt: new Date('TIMESTAMP'),
+ *     UpdatedAt: new Date('TIMESTAMP'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateWatchlistCommandInput - {@link UpdateWatchlistCommandInput}
@@ -86,6 +99,8 @@ export interface UpdateWatchlistCommandOutput extends UpdateWatchlistResponse, _
  *  <p>The request failed one or more validations; check the error message for more
  *             details.</p>
  *
+ * @throws {@link VoiceIDServiceException}
+ * <p>Base exception class for all service exceptions from VoiceID service.</p>
  *
  */
 export class UpdateWatchlistCommand extends $Command<

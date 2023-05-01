@@ -36,22 +36,78 @@ export interface DescribeJobsCommandOutput extends DescribeJobsResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MgnClient, DescribeJobsCommand } from "@aws-sdk/client-mgn"; // ES Modules import
- * // const { MgnClient, DescribeJobsCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
+ * import { MgnClient, DescribeJobsCommand } from '@aws-sdk/client-mgn'; // ES Modules import
+ * // const { MgnClient, DescribeJobsCommand } = require('@aws-sdk/client-mgn'); // CommonJS import
  * const client = new MgnClient(config);
  * const input = { // DescribeJobsRequest
  *   filters: { // DescribeJobsRequestFilters
  *     jobIDs: [ // DescribeJobsRequestFiltersJobIDs
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
- *     fromDate: "STRING_VALUE",
- *     toDate: "STRING_VALUE",
+ *     fromDate: 'STRING_VALUE',
+ *     toDate: 'STRING_VALUE',
  *   },
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new DescribeJobsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeJobsResponse
+ *   items: [ // JobsList
+ *     { // Job
+ *       jobID: 'STRING_VALUE', // required
+ *       arn: 'STRING_VALUE',
+ *       type: 'STRING_VALUE',
+ *       initiatedBy: 'STRING_VALUE',
+ *       creationDateTime: 'STRING_VALUE',
+ *       endDateTime: 'STRING_VALUE',
+ *       status: 'STRING_VALUE',
+ *       participatingServers: [ // ParticipatingServers
+ *         { // ParticipatingServer
+ *           sourceServerID: 'STRING_VALUE', // required
+ *           launchStatus: 'STRING_VALUE',
+ *           launchedEc2InstanceID: 'STRING_VALUE',
+ *           postLaunchActionsStatus: { // PostLaunchActionsStatus
+ *             ssmAgentDiscoveryDatetime: 'STRING_VALUE',
+ *             postLaunchActionsLaunchStatusList: [ // PostLaunchActionsLaunchStatusList
+ *               { // JobPostLaunchActionsLaunchStatus
+ *                 ssmDocument: { // SsmDocument
+ *                   actionName: 'STRING_VALUE', // required
+ *                   ssmDocumentName: 'STRING_VALUE', // required
+ *                   timeoutSeconds: Number('int'),
+ *                   mustSucceedForCutover: true || false,
+ *                   parameters: { // SsmDocumentParameters
+ *                     '<keys>': [ // SsmParameterStoreParameters
+ *                       { // SsmParameterStoreParameter
+ *                         parameterType: 'STRING_VALUE', // required
+ *                         parameterName: 'STRING_VALUE', // required
+ *                       },
+ *                     ],
+ *                   },
+ *                   externalParameters: { // SsmDocumentExternalParameters
+ *                     '<keys>': { // SsmExternalParameter Union: only one key present
+ *                       dynamicPath: 'STRING_VALUE',
+ *                     },
+ *                   },
+ *                 },
+ *                 ssmDocumentType: 'STRING_VALUE',
+ *                 executionID: 'STRING_VALUE',
+ *                 executionStatus: 'STRING_VALUE',
+ *                 failureReason: 'STRING_VALUE',
+ *               },
+ *             ],
+ *           },
+ *         },
+ *       ],
+ *       tags: { // TagsMap
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeJobsCommandInput - {@link DescribeJobsCommandInput}
@@ -66,6 +122,8 @@ export interface DescribeJobsCommandOutput extends DescribeJobsResponse, __Metad
  * @throws {@link ValidationException} (client fault)
  *  <p>Validate exception.</p>
  *
+ * @throws {@link MgnServiceException}
+ * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
  */
 export class DescribeJobsCommand extends $Command<

@@ -40,14 +40,17 @@ export interface DeleteConnectionCommandOutput extends DeleteConnectionOutput, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeStarConnectionsClient, DeleteConnectionCommand } from "@aws-sdk/client-codestar-connections"; // ES Modules import
- * // const { CodeStarConnectionsClient, DeleteConnectionCommand } = require("@aws-sdk/client-codestar-connections"); // CommonJS import
+ * import { CodeStarConnectionsClient, DeleteConnectionCommand } from '@aws-sdk/client-codestar-connections'; // ES Modules import
+ * // const { CodeStarConnectionsClient, DeleteConnectionCommand } = require('@aws-sdk/client-codestar-connections'); // CommonJS import
  * const client = new CodeStarConnectionsClient(config);
  * const input = { // DeleteConnectionInput
- *   ConnectionArn: "STRING_VALUE", // required
+ *   ConnectionArn: 'STRING_VALUE', // required
  * };
  * const command = new DeleteConnectionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteConnectionCommandInput - {@link DeleteConnectionCommandInput}
@@ -59,6 +62,8 @@ export interface DeleteConnectionCommandOutput extends DeleteConnectionOutput, _
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Resource not found. Verify the connection resource ARN and try again.</p>
  *
+ * @throws {@link CodeStarConnectionsServiceException}
+ * <p>Base exception class for all service exceptions from CodeStarConnections service.</p>
  *
  */
 export class DeleteConnectionCommand extends $Command<

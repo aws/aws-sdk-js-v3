@@ -36,19 +36,34 @@ export interface ListNotebookMetadataCommandOutput extends ListNotebookMetadataO
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AthenaClient, ListNotebookMetadataCommand } from "@aws-sdk/client-athena"; // ES Modules import
- * // const { AthenaClient, ListNotebookMetadataCommand } = require("@aws-sdk/client-athena"); // CommonJS import
+ * import { AthenaClient, ListNotebookMetadataCommand } from '@aws-sdk/client-athena'; // ES Modules import
+ * // const { AthenaClient, ListNotebookMetadataCommand } = require('@aws-sdk/client-athena'); // CommonJS import
  * const client = new AthenaClient(config);
  * const input = { // ListNotebookMetadataInput
  *   Filters: { // FilterDefinition
- *     Name: "STRING_VALUE",
+ *     Name: 'STRING_VALUE',
  *   },
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
- *   WorkGroup: "STRING_VALUE", // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
+ *   WorkGroup: 'STRING_VALUE', // required
  * };
  * const command = new ListNotebookMetadataCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListNotebookMetadataOutput
+ *   NextToken: 'STRING_VALUE',
+ *   NotebookMetadataList: [ // NotebookMetadataArray
+ *     { // NotebookMetadata
+ *       NotebookId: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *       WorkGroup: 'STRING_VALUE',
+ *       CreationTime: new Date('TIMESTAMP'),
+ *       Type: 'IPYNB',
+ *       LastModifiedTime: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListNotebookMetadataCommandInput - {@link ListNotebookMetadataCommandInput}
@@ -68,6 +83,8 @@ export interface ListNotebookMetadataCommandOutput extends ListNotebookMetadataO
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Indicates that the request was throttled.</p>
  *
+ * @throws {@link AthenaServiceException}
+ * <p>Base exception class for all service exceptions from Athena service.</p>
  *
  */
 export class ListNotebookMetadataCommand extends $Command<

@@ -46,48 +46,82 @@ export interface GetMetricDataV2CommandOutput extends GetMetricDataV2Response, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, GetMetricDataV2Command } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, GetMetricDataV2Command } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, GetMetricDataV2Command } from '@aws-sdk/client-connect'; // ES Modules import
+ * // const { ConnectClient, GetMetricDataV2Command } = require('@aws-sdk/client-connect'); // CommonJS import
  * const client = new ConnectClient(config);
  * const input = { // GetMetricDataV2Request
- *   ResourceArn: "STRING_VALUE", // required
- *   StartTime: new Date("TIMESTAMP"), // required
- *   EndTime: new Date("TIMESTAMP"), // required
+ *   ResourceArn: 'STRING_VALUE', // required
+ *   StartTime: new Date('TIMESTAMP'), // required
+ *   EndTime: new Date('TIMESTAMP'), // required
  *   Filters: [ // FiltersV2List // required
  *     { // FilterV2
- *       FilterKey: "STRING_VALUE",
+ *       FilterKey: 'STRING_VALUE',
  *       FilterValues: [ // FilterValueList
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
  *   Groupings: [ // GroupingsV2
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   Metrics: [ // MetricsV2 // required
  *     { // MetricV2
- *       Name: "STRING_VALUE",
+ *       Name: 'STRING_VALUE',
  *       Threshold: [ // ThresholdCollections
  *         { // ThresholdV2
- *           Comparison: "STRING_VALUE",
- *           ThresholdValue: Number("double"),
+ *           Comparison: 'STRING_VALUE',
+ *           ThresholdValue: Number('double'),
  *         },
  *       ],
  *       MetricFilters: [ // MetricFiltersV2List
  *         { // MetricFilterV2
- *           MetricFilterKey: "STRING_VALUE",
+ *           MetricFilterKey: 'STRING_VALUE',
  *           MetricFilterValues: [ // MetricFilterValueList
- *             "STRING_VALUE",
+ *             'STRING_VALUE',
  *           ],
  *         },
  *       ],
  *     },
  *   ],
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new GetMetricDataV2Command(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetMetricDataV2Response
+ *   NextToken: 'STRING_VALUE',
+ *   MetricResults: [ // MetricResultsV2
+ *     { // MetricResultV2
+ *       Dimensions: { // DimensionsV2Map
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *       Collections: [ // MetricDataCollectionsV2
+ *         { // MetricDataV2
+ *           Metric: { // MetricV2
+ *             Name: 'STRING_VALUE',
+ *             Threshold: [ // ThresholdCollections
+ *               { // ThresholdV2
+ *                 Comparison: 'STRING_VALUE',
+ *                 ThresholdValue: Number('double'),
+ *               },
+ *             ],
+ *             MetricFilters: [ // MetricFiltersV2List
+ *               { // MetricFilterV2
+ *                 MetricFilterKey: 'STRING_VALUE',
+ *                 MetricFilterValues: [ // MetricFilterValueList
+ *                   'STRING_VALUE',
+ *                 ],
+ *               },
+ *             ],
+ *           },
+ *           Value: Number('double'),
+ *         },
+ *       ],
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetMetricDataV2CommandInput - {@link GetMetricDataV2CommandInput}
@@ -111,6 +145,8 @@ export interface GetMetricDataV2CommandOutput extends GetMetricDataV2Response, _
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class GetMetricDataV2Command extends $Command<

@@ -37,29 +37,45 @@ export interface SearchRoomsCommandOutput extends SearchRoomsResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AlexaForBusinessClient, SearchRoomsCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
- * // const { AlexaForBusinessClient, SearchRoomsCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
+ * import { AlexaForBusinessClient, SearchRoomsCommand } from '@aws-sdk/client-alexa-for-business'; // ES Modules import
+ * // const { AlexaForBusinessClient, SearchRoomsCommand } = require('@aws-sdk/client-alexa-for-business'); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
  * const input = { // SearchRoomsRequest
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  *   Filters: [ // FilterList
  *     { // Filter
- *       Key: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
  *       Values: [ // FilterValueList // required
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
  *   SortCriteria: [ // SortList
  *     { // Sort
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new SearchRoomsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SearchRoomsResponse
+ *   Rooms: [ // RoomDataList
+ *     { // RoomData
+ *       RoomArn: 'STRING_VALUE',
+ *       RoomName: 'STRING_VALUE',
+ *       Description: 'STRING_VALUE',
+ *       ProviderCalendarId: 'STRING_VALUE',
+ *       ProfileArn: 'STRING_VALUE',
+ *       ProfileName: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ *   TotalCount: Number('int'),
+ * };
+ *
  * ```
  *
  * @param SearchRoomsCommandInput - {@link SearchRoomsCommandInput}
@@ -68,6 +84,8 @@ export interface SearchRoomsCommandOutput extends SearchRoomsResponse, __Metadat
  * @see {@link SearchRoomsCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
  *
+ * @throws {@link AlexaForBusinessServiceException}
+ * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  */
 export class SearchRoomsCommand extends $Command<

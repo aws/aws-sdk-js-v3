@@ -46,15 +46,20 @@ export interface RegisterEcsClusterCommandOutput extends RegisterEcsClusterResul
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OpsWorksClient, RegisterEcsClusterCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
- * // const { OpsWorksClient, RegisterEcsClusterCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
+ * import { OpsWorksClient, RegisterEcsClusterCommand } from '@aws-sdk/client-opsworks'; // ES Modules import
+ * // const { OpsWorksClient, RegisterEcsClusterCommand } = require('@aws-sdk/client-opsworks'); // CommonJS import
  * const client = new OpsWorksClient(config);
  * const input = { // RegisterEcsClusterRequest
- *   EcsClusterArn: "STRING_VALUE", // required
- *   StackId: "STRING_VALUE", // required
+ *   EcsClusterArn: 'STRING_VALUE', // required
+ *   StackId: 'STRING_VALUE', // required
  * };
  * const command = new RegisterEcsClusterCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // RegisterEcsClusterResult
+ *   EcsClusterArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param RegisterEcsClusterCommandInput - {@link RegisterEcsClusterCommandInput}
@@ -69,6 +74,8 @@ export interface RegisterEcsClusterCommandOutput extends RegisterEcsClusterResul
  * @throws {@link ValidationException} (client fault)
  *  <p>Indicates that a request was not valid.</p>
  *
+ * @throws {@link OpsWorksServiceException}
+ * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
  */
 export class RegisterEcsClusterCommand extends $Command<

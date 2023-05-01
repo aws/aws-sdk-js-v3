@@ -36,17 +36,28 @@ export interface ListDiscoveredResourcesCommandOutput extends ListDiscoveredReso
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MigrationHubClient, ListDiscoveredResourcesCommand } from "@aws-sdk/client-migration-hub"; // ES Modules import
- * // const { MigrationHubClient, ListDiscoveredResourcesCommand } = require("@aws-sdk/client-migration-hub"); // CommonJS import
+ * import { MigrationHubClient, ListDiscoveredResourcesCommand } from '@aws-sdk/client-migration-hub'; // ES Modules import
+ * // const { MigrationHubClient, ListDiscoveredResourcesCommand } = require('@aws-sdk/client-migration-hub'); // CommonJS import
  * const client = new MigrationHubClient(config);
  * const input = { // ListDiscoveredResourcesRequest
- *   ProgressUpdateStream: "STRING_VALUE", // required
- *   MigrationTaskName: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   ProgressUpdateStream: 'STRING_VALUE', // required
+ *   MigrationTaskName: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListDiscoveredResourcesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListDiscoveredResourcesResult
+ *   NextToken: 'STRING_VALUE',
+ *   DiscoveredResourceList: [ // DiscoveredResourceList
+ *     { // DiscoveredResource
+ *       ConfigurationId: 'STRING_VALUE', // required
+ *       Description: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListDiscoveredResourcesCommandInput - {@link ListDiscoveredResourcesCommandInput}
@@ -81,6 +92,8 @@ export interface ListDiscoveredResourcesCommandOutput extends ListDiscoveredReso
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
  *
+ * @throws {@link MigrationHubServiceException}
+ * <p>Base exception class for all service exceptions from MigrationHub service.</p>
  *
  */
 export class ListDiscoveredResourcesCommand extends $Command<

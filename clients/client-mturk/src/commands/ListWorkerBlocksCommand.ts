@@ -36,15 +36,27 @@ export interface ListWorkerBlocksCommandOutput extends ListWorkerBlocksResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MTurkClient, ListWorkerBlocksCommand } from "@aws-sdk/client-mturk"; // ES Modules import
- * // const { MTurkClient, ListWorkerBlocksCommand } = require("@aws-sdk/client-mturk"); // CommonJS import
+ * import { MTurkClient, ListWorkerBlocksCommand } from '@aws-sdk/client-mturk'; // ES Modules import
+ * // const { MTurkClient, ListWorkerBlocksCommand } = require('@aws-sdk/client-mturk'); // CommonJS import
  * const client = new MTurkClient(config);
  * const input = { // ListWorkerBlocksRequest
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListWorkerBlocksCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListWorkerBlocksResponse
+ *   NextToken: 'STRING_VALUE',
+ *   NumResults: Number('int'),
+ *   WorkerBlocks: [ // WorkerBlockList
+ *     { // WorkerBlock
+ *       WorkerId: 'STRING_VALUE',
+ *       Reason: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListWorkerBlocksCommandInput - {@link ListWorkerBlocksCommandInput}
@@ -59,6 +71,8 @@ export interface ListWorkerBlocksCommandOutput extends ListWorkerBlocksResponse,
  * @throws {@link ServiceFault} (server fault)
  *  <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
  *
+ * @throws {@link MTurkServiceException}
+ * <p>Base exception class for all service exceptions from MTurk service.</p>
  *
  */
 export class ListWorkerBlocksCommand extends $Command<

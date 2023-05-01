@@ -36,19 +36,38 @@ export interface BatchStopCommandOutput extends BatchStopResponse, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MediaLiveClient, BatchStopCommand } from "@aws-sdk/client-medialive"; // ES Modules import
- * // const { MediaLiveClient, BatchStopCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
+ * import { MediaLiveClient, BatchStopCommand } from '@aws-sdk/client-medialive'; // ES Modules import
+ * // const { MediaLiveClient, BatchStopCommand } = require('@aws-sdk/client-medialive'); // CommonJS import
  * const client = new MediaLiveClient(config);
  * const input = { // BatchStopRequest
  *   ChannelIds: [ // __listOf__string
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   MultiplexIds: [
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new BatchStopCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BatchStopResponse
+ *   Failed: [ // __listOfBatchFailedResultModel
+ *     { // BatchFailedResultModel
+ *       Arn: 'STRING_VALUE',
+ *       Code: 'STRING_VALUE',
+ *       Id: 'STRING_VALUE',
+ *       Message: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   Successful: [ // __listOfBatchSuccessfulResultModel
+ *     { // BatchSuccessfulResultModel
+ *       Arn: 'STRING_VALUE',
+ *       Id: 'STRING_VALUE',
+ *       State: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param BatchStopCommandInput - {@link BatchStopCommandInput}
@@ -81,6 +100,8 @@ export interface BatchStopCommandOutput extends BatchStopResponse, __MetadataBea
  * @throws {@link TooManyRequestsException} (client fault)
  *  Placeholder documentation for TooManyRequestsException
  *
+ * @throws {@link MediaLiveServiceException}
+ * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
  */
 export class BatchStopCommand extends $Command<

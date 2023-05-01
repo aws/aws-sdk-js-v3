@@ -36,48 +36,53 @@ export interface UpdateTrialComponentCommandOutput extends UpdateTrialComponentR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, UpdateTrialComponentCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, UpdateTrialComponentCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, UpdateTrialComponentCommand } from '@aws-sdk/client-sagemaker'; // ES Modules import
+ * // const { SageMakerClient, UpdateTrialComponentCommand } = require('@aws-sdk/client-sagemaker'); // CommonJS import
  * const client = new SageMakerClient(config);
  * const input = { // UpdateTrialComponentRequest
- *   TrialComponentName: "STRING_VALUE", // required
- *   DisplayName: "STRING_VALUE",
+ *   TrialComponentName: 'STRING_VALUE', // required
+ *   DisplayName: 'STRING_VALUE',
  *   Status: { // TrialComponentStatus
- *     PrimaryStatus: "InProgress" || "Completed" || "Failed" || "Stopping" || "Stopped",
- *     Message: "STRING_VALUE",
+ *     PrimaryStatus: 'InProgress' || 'Completed' || 'Failed' || 'Stopping' || 'Stopped',
+ *     Message: 'STRING_VALUE',
  *   },
- *   StartTime: new Date("TIMESTAMP"),
- *   EndTime: new Date("TIMESTAMP"),
+ *   StartTime: new Date('TIMESTAMP'),
+ *   EndTime: new Date('TIMESTAMP'),
  *   Parameters: { // TrialComponentParameters
- *     "<keys>": { // TrialComponentParameterValue Union: only one key present
- *       StringValue: "STRING_VALUE",
- *       NumberValue: Number("double"),
+ *     '<keys>': { // TrialComponentParameterValue Union: only one key present
+ *       StringValue: 'STRING_VALUE',
+ *       NumberValue: Number('double'),
  *     },
  *   },
  *   ParametersToRemove: [ // ListTrialComponentKey256
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   InputArtifacts: { // TrialComponentArtifacts
- *     "<keys>": { // TrialComponentArtifact
- *       MediaType: "STRING_VALUE",
- *       Value: "STRING_VALUE", // required
+ *     '<keys>': { // TrialComponentArtifact
+ *       MediaType: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   },
  *   InputArtifactsToRemove: [
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   OutputArtifacts: {
- *     "<keys>": {
- *       MediaType: "STRING_VALUE",
- *       Value: "STRING_VALUE", // required
+ *     '<keys>': {
+ *       MediaType: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   },
  *   OutputArtifactsToRemove: [
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new UpdateTrialComponentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateTrialComponentResponse
+ *   TrialComponentArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateTrialComponentCommandInput - {@link UpdateTrialComponentCommandInput}
@@ -93,6 +98,8 @@ export interface UpdateTrialComponentCommandOutput extends UpdateTrialComponentR
  * @throws {@link ResourceNotFound} (client fault)
  *  <p>Resource being access is not found.</p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class UpdateTrialComponentCommand extends $Command<

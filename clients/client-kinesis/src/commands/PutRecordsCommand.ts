@@ -95,22 +95,36 @@ export interface PutRecordsCommandOutput extends PutRecordsOutput, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KinesisClient, PutRecordsCommand } from "@aws-sdk/client-kinesis"; // ES Modules import
- * // const { KinesisClient, PutRecordsCommand } = require("@aws-sdk/client-kinesis"); // CommonJS import
+ * import { KinesisClient, PutRecordsCommand } from '@aws-sdk/client-kinesis'; // ES Modules import
+ * // const { KinesisClient, PutRecordsCommand } = require('@aws-sdk/client-kinesis'); // CommonJS import
  * const client = new KinesisClient(config);
  * const input = { // PutRecordsInput
  *   Records: [ // PutRecordsRequestEntryList // required
  *     { // PutRecordsRequestEntry
- *       Data: "BLOB_VALUE", // required
- *       ExplicitHashKey: "STRING_VALUE",
- *       PartitionKey: "STRING_VALUE", // required
+ *       Data: 'BLOB_VALUE', // required
+ *       ExplicitHashKey: 'STRING_VALUE',
+ *       PartitionKey: 'STRING_VALUE', // required
  *     },
  *   ],
- *   StreamName: "STRING_VALUE",
- *   StreamARN: "STRING_VALUE",
+ *   StreamName: 'STRING_VALUE',
+ *   StreamARN: 'STRING_VALUE',
  * };
  * const command = new PutRecordsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutRecordsOutput
+ *   FailedRecordCount: Number('int'),
+ *   Records: [ // PutRecordsResultEntryList // required
+ *     { // PutRecordsResultEntry
+ *       SequenceNumber: 'STRING_VALUE',
+ *       ShardId: 'STRING_VALUE',
+ *       ErrorCode: 'STRING_VALUE',
+ *       ErrorMessage: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   EncryptionType: 'NONE' || 'KMS',
+ * };
+ *
  * ```
  *
  * @param PutRecordsCommandInput - {@link PutRecordsCommandInput}
@@ -165,6 +179,8 @@ export interface PutRecordsCommandOutput extends PutRecordsOutput, __MetadataBea
  *  <p>The requested resource could not be found. The stream might not be specified
  *             correctly.</p>
  *
+ * @throws {@link KinesisServiceException}
+ * <p>Base exception class for all service exceptions from Kinesis service.</p>
  *
  */
 export class PutRecordsCommand extends $Command<

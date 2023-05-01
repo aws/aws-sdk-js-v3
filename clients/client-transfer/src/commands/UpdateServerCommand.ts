@@ -39,65 +39,70 @@ export interface UpdateServerCommandOutput extends UpdateServerResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { TransferClient, UpdateServerCommand } from "@aws-sdk/client-transfer"; // ES Modules import
- * // const { TransferClient, UpdateServerCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
+ * import { TransferClient, UpdateServerCommand } from '@aws-sdk/client-transfer'; // ES Modules import
+ * // const { TransferClient, UpdateServerCommand } = require('@aws-sdk/client-transfer'); // CommonJS import
  * const client = new TransferClient(config);
  * const input = { // UpdateServerRequest
- *   Certificate: "STRING_VALUE",
+ *   Certificate: 'STRING_VALUE',
  *   ProtocolDetails: { // ProtocolDetails
- *     PassiveIp: "STRING_VALUE",
- *     TlsSessionResumptionMode: "DISABLED" || "ENABLED" || "ENFORCED",
- *     SetStatOption: "DEFAULT" || "ENABLE_NO_OP",
+ *     PassiveIp: 'STRING_VALUE',
+ *     TlsSessionResumptionMode: 'DISABLED' || 'ENABLED' || 'ENFORCED',
+ *     SetStatOption: 'DEFAULT' || 'ENABLE_NO_OP',
  *     As2Transports: [ // As2Transports
- *       "HTTP",
+ *       'HTTP',
  *     ],
  *   },
  *   EndpointDetails: { // EndpointDetails
  *     AddressAllocationIds: [ // AddressAllocationIds
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     SubnetIds: [ // SubnetIds
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
- *     VpcEndpointId: "STRING_VALUE",
- *     VpcId: "STRING_VALUE",
+ *     VpcEndpointId: 'STRING_VALUE',
+ *     VpcId: 'STRING_VALUE',
  *     SecurityGroupIds: [ // SecurityGroupIds
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *   },
- *   EndpointType: "PUBLIC" || "VPC" || "VPC_ENDPOINT",
- *   HostKey: "STRING_VALUE",
+ *   EndpointType: 'PUBLIC' || 'VPC' || 'VPC_ENDPOINT',
+ *   HostKey: 'STRING_VALUE',
  *   IdentityProviderDetails: { // IdentityProviderDetails
- *     Url: "STRING_VALUE",
- *     InvocationRole: "STRING_VALUE",
- *     DirectoryId: "STRING_VALUE",
- *     Function: "STRING_VALUE",
+ *     Url: 'STRING_VALUE',
+ *     InvocationRole: 'STRING_VALUE',
+ *     DirectoryId: 'STRING_VALUE',
+ *     Function: 'STRING_VALUE',
  *   },
- *   LoggingRole: "STRING_VALUE",
- *   PostAuthenticationLoginBanner: "STRING_VALUE",
- *   PreAuthenticationLoginBanner: "STRING_VALUE",
+ *   LoggingRole: 'STRING_VALUE',
+ *   PostAuthenticationLoginBanner: 'STRING_VALUE',
+ *   PreAuthenticationLoginBanner: 'STRING_VALUE',
  *   Protocols: [ // Protocols
- *     "SFTP" || "FTP" || "FTPS" || "AS2",
+ *     'SFTP' || 'FTP' || 'FTPS' || 'AS2',
  *   ],
- *   SecurityPolicyName: "STRING_VALUE",
- *   ServerId: "STRING_VALUE", // required
+ *   SecurityPolicyName: 'STRING_VALUE',
+ *   ServerId: 'STRING_VALUE', // required
  *   WorkflowDetails: { // WorkflowDetails
  *     OnUpload: [ // OnUploadWorkflowDetails
  *       { // WorkflowDetail
- *         WorkflowId: "STRING_VALUE", // required
- *         ExecutionRole: "STRING_VALUE", // required
+ *         WorkflowId: 'STRING_VALUE', // required
+ *         ExecutionRole: 'STRING_VALUE', // required
  *       },
  *     ],
  *     OnPartialUpload: [ // OnPartialUploadWorkflowDetails
  *       {
- *         WorkflowId: "STRING_VALUE", // required
- *         ExecutionRole: "STRING_VALUE", // required
+ *         WorkflowId: 'STRING_VALUE', // required
+ *         ExecutionRole: 'STRING_VALUE', // required
  *       },
  *     ],
  *   },
  * };
  * const command = new UpdateServerCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateServerResponse
+ *   ServerId: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param UpdateServerCommandInput - {@link UpdateServerCommandInput}
@@ -133,6 +138,8 @@ export interface UpdateServerCommandOutput extends UpdateServerResponse, __Metad
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
  *
+ * @throws {@link TransferServiceException}
+ * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
  */
 export class UpdateServerCommand extends $Command<

@@ -40,17 +40,31 @@ export interface ListSnapshotBlocksCommandOutput extends ListSnapshotBlocksRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EBSClient, ListSnapshotBlocksCommand } from "@aws-sdk/client-ebs"; // ES Modules import
- * // const { EBSClient, ListSnapshotBlocksCommand } = require("@aws-sdk/client-ebs"); // CommonJS import
+ * import { EBSClient, ListSnapshotBlocksCommand } from '@aws-sdk/client-ebs'; // ES Modules import
+ * // const { EBSClient, ListSnapshotBlocksCommand } = require('@aws-sdk/client-ebs'); // CommonJS import
  * const client = new EBSClient(config);
  * const input = { // ListSnapshotBlocksRequest
- *   SnapshotId: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
- *   StartingBlockIndex: Number("int"),
+ *   SnapshotId: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
+ *   StartingBlockIndex: Number('int'),
  * };
  * const command = new ListSnapshotBlocksCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListSnapshotBlocksResponse
+ *   Blocks: [ // Blocks
+ *     { // Block
+ *       BlockIndex: Number('int'),
+ *       BlockToken: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   ExpiryTime: new Date('TIMESTAMP'),
+ *   VolumeSize: Number('long'),
+ *   BlockSize: Number('int'),
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListSnapshotBlocksCommandInput - {@link ListSnapshotBlocksCommandInput}
@@ -78,6 +92,8 @@ export interface ListSnapshotBlocksCommandOutput extends ListSnapshotBlocksRespo
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints of the EBS direct APIs.</p>
  *
+ * @throws {@link EBSServiceException}
+ * <p>Base exception class for all service exceptions from EBS service.</p>
  *
  */
 export class ListSnapshotBlocksCommand extends $Command<

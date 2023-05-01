@@ -41,20 +41,23 @@ export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeStarConnectionsClient, TagResourceCommand } from "@aws-sdk/client-codestar-connections"; // ES Modules import
- * // const { CodeStarConnectionsClient, TagResourceCommand } = require("@aws-sdk/client-codestar-connections"); // CommonJS import
+ * import { CodeStarConnectionsClient, TagResourceCommand } from '@aws-sdk/client-codestar-connections'; // ES Modules import
+ * // const { CodeStarConnectionsClient, TagResourceCommand } = require('@aws-sdk/client-codestar-connections'); // CommonJS import
  * const client = new CodeStarConnectionsClient(config);
  * const input = { // TagResourceInput
- *   ResourceArn: "STRING_VALUE", // required
+ *   ResourceArn: 'STRING_VALUE', // required
  *   Tags: [ // TagList // required
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param TagResourceCommandInput - {@link TagResourceCommandInput}
@@ -69,6 +72,8 @@ export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataB
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Resource not found. Verify the connection resource ARN and try again.</p>
  *
+ * @throws {@link CodeStarConnectionsServiceException}
+ * <p>Base exception class for all service exceptions from CodeStarConnections service.</p>
  *
  */
 export class TagResourceCommand extends $Command<

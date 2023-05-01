@@ -36,15 +36,38 @@ export interface GetCommitCommandOutput extends GetCommitOutput, __MetadataBeare
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeCommitClient, GetCommitCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
- * // const { CodeCommitClient, GetCommitCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
+ * import { CodeCommitClient, GetCommitCommand } from '@aws-sdk/client-codecommit'; // ES Modules import
+ * // const { CodeCommitClient, GetCommitCommand } = require('@aws-sdk/client-codecommit'); // CommonJS import
  * const client = new CodeCommitClient(config);
  * const input = { // GetCommitInput
- *   repositoryName: "STRING_VALUE", // required
- *   commitId: "STRING_VALUE", // required
+ *   repositoryName: 'STRING_VALUE', // required
+ *   commitId: 'STRING_VALUE', // required
  * };
  * const command = new GetCommitCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetCommitOutput
+ *   commit: { // Commit
+ *     commitId: 'STRING_VALUE',
+ *     treeId: 'STRING_VALUE',
+ *     parents: [ // ParentList
+ *       'STRING_VALUE',
+ *     ],
+ *     message: 'STRING_VALUE',
+ *     author: { // UserInfo
+ *       name: 'STRING_VALUE',
+ *       email: 'STRING_VALUE',
+ *       date: 'STRING_VALUE',
+ *     },
+ *     committer: {
+ *       name: 'STRING_VALUE',
+ *       email: 'STRING_VALUE',
+ *       date: 'STRING_VALUE',
+ *     },
+ *     additionalData: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetCommitCommandInput - {@link GetCommitCommandInput}
@@ -92,6 +115,8 @@ export interface GetCommitCommandOutput extends GetCommitOutput, __MetadataBeare
  * @throws {@link RepositoryNameRequiredException} (client fault)
  *  <p>A repository name is required, but was not specified.</p>
  *
+ * @throws {@link CodeCommitServiceException}
+ * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
  */
 export class GetCommitCommand extends $Command<

@@ -42,19 +42,22 @@ export interface UpdatePublishingDestinationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GuardDutyClient, UpdatePublishingDestinationCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
- * // const { GuardDutyClient, UpdatePublishingDestinationCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
+ * import { GuardDutyClient, UpdatePublishingDestinationCommand } from '@aws-sdk/client-guardduty'; // ES Modules import
+ * // const { GuardDutyClient, UpdatePublishingDestinationCommand } = require('@aws-sdk/client-guardduty'); // CommonJS import
  * const client = new GuardDutyClient(config);
  * const input = { // UpdatePublishingDestinationRequest
- *   DetectorId: "STRING_VALUE", // required
- *   DestinationId: "STRING_VALUE", // required
+ *   DetectorId: 'STRING_VALUE', // required
+ *   DestinationId: 'STRING_VALUE', // required
  *   DestinationProperties: { // DestinationProperties
- *     DestinationArn: "STRING_VALUE",
- *     KmsKeyArn: "STRING_VALUE",
+ *     DestinationArn: 'STRING_VALUE',
+ *     KmsKeyArn: 'STRING_VALUE',
  *   },
  * };
  * const command = new UpdatePublishingDestinationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdatePublishingDestinationCommandInput - {@link UpdatePublishingDestinationCommandInput}
@@ -69,6 +72,8 @@ export interface UpdatePublishingDestinationCommandOutput
  * @throws {@link InternalServerErrorException} (server fault)
  *  <p>An internal server error exception object.</p>
  *
+ * @throws {@link GuardDutyServiceException}
+ * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
  */
 export class UpdatePublishingDestinationCommand extends $Command<

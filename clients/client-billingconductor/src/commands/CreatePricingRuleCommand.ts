@@ -42,31 +42,36 @@ export interface CreatePricingRuleCommandOutput extends CreatePricingRuleOutput,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BillingconductorClient, CreatePricingRuleCommand } from "@aws-sdk/client-billingconductor"; // ES Modules import
- * // const { BillingconductorClient, CreatePricingRuleCommand } = require("@aws-sdk/client-billingconductor"); // CommonJS import
+ * import { BillingconductorClient, CreatePricingRuleCommand } from '@aws-sdk/client-billingconductor'; // ES Modules import
+ * // const { BillingconductorClient, CreatePricingRuleCommand } = require('@aws-sdk/client-billingconductor'); // CommonJS import
  * const client = new BillingconductorClient(config);
  * const input = { // CreatePricingRuleInput
- *   ClientToken: "STRING_VALUE",
- *   Name: "STRING_VALUE", // required
- *   Description: "STRING_VALUE",
- *   Scope: "STRING_VALUE", // required
- *   Type: "STRING_VALUE", // required
- *   ModifierPercentage: Number("double"),
- *   Service: "STRING_VALUE",
+ *   ClientToken: 'STRING_VALUE',
+ *   Name: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE',
+ *   Scope: 'STRING_VALUE', // required
+ *   Type: 'STRING_VALUE', // required
+ *   ModifierPercentage: Number('double'),
+ *   Service: 'STRING_VALUE',
  *   Tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
- *   BillingEntity: "STRING_VALUE",
+ *   BillingEntity: 'STRING_VALUE',
  *   Tiering: { // CreateTieringInput
  *     FreeTier: { // CreateFreeTierConfig
  *       Activated: true || false, // required
  *     },
  *   },
- *   UsageType: "STRING_VALUE",
- *   Operation: "STRING_VALUE",
+ *   UsageType: 'STRING_VALUE',
+ *   Operation: 'STRING_VALUE',
  * };
  * const command = new CreatePricingRuleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreatePricingRuleOutput
+ *   Arn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreatePricingRuleCommandInput - {@link CreatePricingRuleCommandInput}
@@ -98,6 +103,8 @@ export interface CreatePricingRuleCommandOutput extends CreatePricingRuleOutput,
  * @throws {@link ValidationException} (client fault)
  *  <p>The input doesn't match with the constraints specified by Amazon Web Services services.</p>
  *
+ * @throws {@link BillingconductorServiceException}
+ * <p>Base exception class for all service exceptions from Billingconductor service.</p>
  *
  */
 export class CreatePricingRuleCommand extends $Command<

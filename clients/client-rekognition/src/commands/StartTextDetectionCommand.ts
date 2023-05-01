@@ -43,41 +43,41 @@ export interface StartTextDetectionCommandOutput extends StartTextDetectionRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RekognitionClient, StartTextDetectionCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
- * // const { RekognitionClient, StartTextDetectionCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
+ * import { RekognitionClient, StartTextDetectionCommand } from '@aws-sdk/client-rekognition'; // ES Modules import
+ * // const { RekognitionClient, StartTextDetectionCommand } = require('@aws-sdk/client-rekognition'); // CommonJS import
  * const client = new RekognitionClient(config);
  * const input = { // StartTextDetectionRequest
  *   Video: { // Video
  *     S3Object: { // S3Object
- *       Bucket: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *       Version: "STRING_VALUE",
+ *       Bucket: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *       Version: 'STRING_VALUE',
  *     },
  *   },
- *   ClientRequestToken: "STRING_VALUE",
+ *   ClientRequestToken: 'STRING_VALUE',
  *   NotificationChannel: { // NotificationChannel
- *     SNSTopicArn: "STRING_VALUE", // required
- *     RoleArn: "STRING_VALUE", // required
+ *     SNSTopicArn: 'STRING_VALUE', // required
+ *     RoleArn: 'STRING_VALUE', // required
  *   },
- *   JobTag: "STRING_VALUE",
+ *   JobTag: 'STRING_VALUE',
  *   Filters: { // StartTextDetectionFilters
  *     WordFilter: { // DetectionFilter
- *       MinConfidence: Number("float"),
- *       MinBoundingBoxHeight: Number("float"),
- *       MinBoundingBoxWidth: Number("float"),
+ *       MinConfidence: Number('float'),
+ *       MinBoundingBoxHeight: Number('float'),
+ *       MinBoundingBoxWidth: Number('float'),
  *     },
  *     RegionsOfInterest: [ // RegionsOfInterest
  *       { // RegionOfInterest
  *         BoundingBox: { // BoundingBox
- *           Width: Number("float"),
- *           Height: Number("float"),
- *           Left: Number("float"),
- *           Top: Number("float"),
+ *           Width: Number('float'),
+ *           Height: Number('float'),
+ *           Left: Number('float'),
+ *           Top: Number('float'),
  *         },
  *         Polygon: [ // Polygon
  *           { // Point
- *             X: Number("float"),
- *             Y: Number("float"),
+ *             X: Number('float'),
+ *             Y: Number('float'),
  *           },
  *         ],
  *       },
@@ -86,6 +86,11 @@ export interface StartTextDetectionCommandOutput extends StartTextDetectionRespo
  * };
  * const command = new StartTextDetectionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartTextDetectionResponse
+ *   JobId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param StartTextDetectionCommandInput - {@link StartTextDetectionCommandInput}
@@ -127,6 +132,8 @@ export interface StartTextDetectionCommandOutput extends StartTextDetectionRespo
  *  <p>The file size or duration of the supplied media is too large. The maximum file size is 10GB.
  *         The maximum duration is 6 hours. </p>
  *
+ * @throws {@link RekognitionServiceException}
+ * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
  */
 export class StartTextDetectionCommand extends $Command<

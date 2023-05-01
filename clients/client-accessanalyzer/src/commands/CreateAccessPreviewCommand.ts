@@ -37,86 +37,86 @@ export interface CreateAccessPreviewCommandOutput extends CreateAccessPreviewRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AccessAnalyzerClient, CreateAccessPreviewCommand } from "@aws-sdk/client-accessanalyzer"; // ES Modules import
- * // const { AccessAnalyzerClient, CreateAccessPreviewCommand } = require("@aws-sdk/client-accessanalyzer"); // CommonJS import
+ * import { AccessAnalyzerClient, CreateAccessPreviewCommand } from '@aws-sdk/client-accessanalyzer'; // ES Modules import
+ * // const { AccessAnalyzerClient, CreateAccessPreviewCommand } = require('@aws-sdk/client-accessanalyzer'); // CommonJS import
  * const client = new AccessAnalyzerClient(config);
  * const input = { // CreateAccessPreviewRequest
- *   analyzerArn: "STRING_VALUE", // required
+ *   analyzerArn: 'STRING_VALUE', // required
  *   configurations: { // ConfigurationsMap // required
- *     "<keys>": { // Configuration Union: only one key present
+ *     '<keys>': { // Configuration Union: only one key present
  *       ebsSnapshot: { // EbsSnapshotConfiguration
  *         userIds: [ // EbsUserIdList
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
  *         groups: [ // EbsGroupList
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
- *         kmsKeyId: "STRING_VALUE",
+ *         kmsKeyId: 'STRING_VALUE',
  *       },
  *       ecrRepository: { // EcrRepositoryConfiguration
- *         repositoryPolicy: "STRING_VALUE",
+ *         repositoryPolicy: 'STRING_VALUE',
  *       },
  *       iamRole: { // IamRoleConfiguration
- *         trustPolicy: "STRING_VALUE",
+ *         trustPolicy: 'STRING_VALUE',
  *       },
  *       efsFileSystem: { // EfsFileSystemConfiguration
- *         fileSystemPolicy: "STRING_VALUE",
+ *         fileSystemPolicy: 'STRING_VALUE',
  *       },
  *       kmsKey: { // KmsKeyConfiguration
  *         keyPolicies: { // KmsKeyPoliciesMap
- *           "<keys>": "STRING_VALUE",
+ *           '<keys>': 'STRING_VALUE',
  *         },
  *         grants: [ // KmsGrantConfigurationsList
  *           { // KmsGrantConfiguration
  *             operations: [ // KmsGrantOperationsList // required
- *               "STRING_VALUE",
+ *               'STRING_VALUE',
  *             ],
- *             granteePrincipal: "STRING_VALUE", // required
- *             retiringPrincipal: "STRING_VALUE",
+ *             granteePrincipal: 'STRING_VALUE', // required
+ *             retiringPrincipal: 'STRING_VALUE',
  *             constraints: { // KmsGrantConstraints
  *               encryptionContextEquals: { // KmsConstraintsMap
- *                 "<keys>": "STRING_VALUE",
+ *                 '<keys>': 'STRING_VALUE',
  *               },
  *               encryptionContextSubset: {
- *                 "<keys>": "STRING_VALUE",
+ *                 '<keys>': 'STRING_VALUE',
  *               },
  *             },
- *             issuingAccount: "STRING_VALUE", // required
+ *             issuingAccount: 'STRING_VALUE', // required
  *           },
  *         ],
  *       },
  *       rdsDbClusterSnapshot: { // RdsDbClusterSnapshotConfiguration
  *         attributes: { // RdsDbClusterSnapshotAttributesMap
- *           "<keys>": { // RdsDbClusterSnapshotAttributeValue Union: only one key present
+ *           '<keys>': { // RdsDbClusterSnapshotAttributeValue Union: only one key present
  *             accountIds: [ // RdsDbClusterSnapshotAccountIdsList
- *               "STRING_VALUE",
+ *               'STRING_VALUE',
  *             ],
  *           },
  *         },
- *         kmsKeyId: "STRING_VALUE",
+ *         kmsKeyId: 'STRING_VALUE',
  *       },
  *       rdsDbSnapshot: { // RdsDbSnapshotConfiguration
  *         attributes: { // RdsDbSnapshotAttributesMap
- *           "<keys>": { // RdsDbSnapshotAttributeValue Union: only one key present
+ *           '<keys>': { // RdsDbSnapshotAttributeValue Union: only one key present
  *             accountIds: [ // RdsDbSnapshotAccountIdsList
- *               "STRING_VALUE",
+ *               'STRING_VALUE',
  *             ],
  *           },
  *         },
- *         kmsKeyId: "STRING_VALUE",
+ *         kmsKeyId: 'STRING_VALUE',
  *       },
  *       secretsManagerSecret: { // SecretsManagerSecretConfiguration
- *         kmsKeyId: "STRING_VALUE",
- *         secretPolicy: "STRING_VALUE",
+ *         kmsKeyId: 'STRING_VALUE',
+ *         secretPolicy: 'STRING_VALUE',
  *       },
  *       s3Bucket: { // S3BucketConfiguration
- *         bucketPolicy: "STRING_VALUE",
+ *         bucketPolicy: 'STRING_VALUE',
  *         bucketAclGrants: [ // S3BucketAclGrantConfigurationsList
  *           { // S3BucketAclGrantConfiguration
- *             permission: "STRING_VALUE", // required
+ *             permission: 'STRING_VALUE', // required
  *             grantee: { // AclGrantee Union: only one key present
- *               id: "STRING_VALUE",
- *               uri: "STRING_VALUE",
+ *               id: 'STRING_VALUE',
+ *               uri: 'STRING_VALUE',
  *             },
  *           },
  *         ],
@@ -125,15 +125,15 @@ export interface CreateAccessPreviewCommandOutput extends CreateAccessPreviewRes
  *           restrictPublicBuckets: true || false, // required
  *         },
  *         accessPoints: { // S3AccessPointConfigurationsMap
- *           "<keys>": { // S3AccessPointConfiguration
- *             accessPointPolicy: "STRING_VALUE",
+ *           '<keys>': { // S3AccessPointConfiguration
+ *             accessPointPolicy: 'STRING_VALUE',
  *             publicAccessBlock: {
  *               ignorePublicAcls: true || false, // required
  *               restrictPublicBuckets: true || false, // required
  *             },
  *             networkOrigin: { // NetworkOriginConfiguration Union: only one key present
  *               vpcConfiguration: { // VpcConfiguration
- *                 vpcId: "STRING_VALUE", // required
+ *                 vpcId: 'STRING_VALUE', // required
  *               },
  *               internetConfiguration: {},
  *             },
@@ -141,17 +141,22 @@ export interface CreateAccessPreviewCommandOutput extends CreateAccessPreviewRes
  *         },
  *       },
  *       snsTopic: { // SnsTopicConfiguration
- *         topicPolicy: "STRING_VALUE",
+ *         topicPolicy: 'STRING_VALUE',
  *       },
  *       sqsQueue: { // SqsQueueConfiguration
- *         queuePolicy: "STRING_VALUE",
+ *         queuePolicy: 'STRING_VALUE',
  *       },
  *     },
  *   },
- *   clientToken: "STRING_VALUE",
+ *   clientToken: 'STRING_VALUE',
  * };
  * const command = new CreateAccessPreviewCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateAccessPreviewResponse
+ *   id: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param CreateAccessPreviewCommandInput - {@link CreateAccessPreviewCommandInput}
@@ -181,6 +186,8 @@ export interface CreateAccessPreviewCommandOutput extends CreateAccessPreviewRes
  * @throws {@link ValidationException} (client fault)
  *  <p>Validation exception error.</p>
  *
+ * @throws {@link AccessAnalyzerServiceException}
+ * <p>Base exception class for all service exceptions from AccessAnalyzer service.</p>
  *
  */
 export class CreateAccessPreviewCommand extends $Command<

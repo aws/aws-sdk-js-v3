@@ -46,12 +46,17 @@ export interface GetSagemakerServicecatalogPortfolioStatusCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, GetSagemakerServicecatalogPortfolioStatusCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, GetSagemakerServicecatalogPortfolioStatusCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, GetSagemakerServicecatalogPortfolioStatusCommand } from '@aws-sdk/client-sagemaker'; // ES Modules import
+ * // const { SageMakerClient, GetSagemakerServicecatalogPortfolioStatusCommand } = require('@aws-sdk/client-sagemaker'); // CommonJS import
  * const client = new SageMakerClient(config);
  * const input = {};
  * const command = new GetSagemakerServicecatalogPortfolioStatusCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetSagemakerServicecatalogPortfolioStatusOutput
+ *   Status: 'Enabled' || 'Disabled',
+ * };
+ *
  * ```
  *
  * @param GetSagemakerServicecatalogPortfolioStatusCommandInput - {@link GetSagemakerServicecatalogPortfolioStatusCommandInput}
@@ -60,6 +65,8 @@ export interface GetSagemakerServicecatalogPortfolioStatusCommandOutput
  * @see {@link GetSagemakerServicecatalogPortfolioStatusCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class GetSagemakerServicecatalogPortfolioStatusCommand extends $Command<

@@ -54,35 +54,76 @@ export interface CreateAppVersionResourceCommandOutput extends CreateAppVersionR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ResiliencehubClient, CreateAppVersionResourceCommand } from "@aws-sdk/client-resiliencehub"; // ES Modules import
- * // const { ResiliencehubClient, CreateAppVersionResourceCommand } = require("@aws-sdk/client-resiliencehub"); // CommonJS import
+ * import { ResiliencehubClient, CreateAppVersionResourceCommand } from '@aws-sdk/client-resiliencehub'; // ES Modules import
+ * // const { ResiliencehubClient, CreateAppVersionResourceCommand } = require('@aws-sdk/client-resiliencehub'); // CommonJS import
  * const client = new ResiliencehubClient(config);
  * const input = { // CreateAppVersionResourceRequest
- *   appArn: "STRING_VALUE", // required
- *   resourceName: "STRING_VALUE", // required
+ *   appArn: 'STRING_VALUE', // required
+ *   resourceName: 'STRING_VALUE', // required
  *   logicalResourceId: { // LogicalResourceId
- *     identifier: "STRING_VALUE", // required
- *     logicalStackName: "STRING_VALUE",
- *     resourceGroupName: "STRING_VALUE",
- *     terraformSourceName: "STRING_VALUE",
- *     eksSourceName: "STRING_VALUE",
+ *     identifier: 'STRING_VALUE', // required
+ *     logicalStackName: 'STRING_VALUE',
+ *     resourceGroupName: 'STRING_VALUE',
+ *     terraformSourceName: 'STRING_VALUE',
+ *     eksSourceName: 'STRING_VALUE',
  *   },
- *   physicalResourceId: "STRING_VALUE", // required
- *   awsRegion: "STRING_VALUE",
- *   awsAccountId: "STRING_VALUE",
- *   resourceType: "STRING_VALUE", // required
+ *   physicalResourceId: 'STRING_VALUE', // required
+ *   awsRegion: 'STRING_VALUE',
+ *   awsAccountId: 'STRING_VALUE',
+ *   resourceType: 'STRING_VALUE', // required
  *   appComponents: [ // AppComponentNameList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   additionalInfo: { // AdditionalInfoMap
- *     "<keys>": [ // AdditionalInfoValueList
- *       "STRING_VALUE",
+ *     '<keys>': [ // AdditionalInfoValueList
+ *       'STRING_VALUE',
  *     ],
  *   },
- *   clientToken: "STRING_VALUE",
+ *   clientToken: 'STRING_VALUE',
  * };
  * const command = new CreateAppVersionResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateAppVersionResourceResponse
+ *   appArn: 'STRING_VALUE', // required
+ *   appVersion: 'STRING_VALUE', // required
+ *   physicalResource: { // PhysicalResource
+ *     resourceName: 'STRING_VALUE',
+ *     logicalResourceId: { // LogicalResourceId
+ *       identifier: 'STRING_VALUE', // required
+ *       logicalStackName: 'STRING_VALUE',
+ *       resourceGroupName: 'STRING_VALUE',
+ *       terraformSourceName: 'STRING_VALUE',
+ *       eksSourceName: 'STRING_VALUE',
+ *     },
+ *     physicalResourceId: { // PhysicalResourceId
+ *       identifier: 'STRING_VALUE', // required
+ *       type: 'STRING_VALUE', // required
+ *       awsRegion: 'STRING_VALUE',
+ *       awsAccountId: 'STRING_VALUE',
+ *     },
+ *     resourceType: 'STRING_VALUE', // required
+ *     appComponents: [ // AppComponentList
+ *       { // AppComponent
+ *         name: 'STRING_VALUE', // required
+ *         type: 'STRING_VALUE', // required
+ *         id: 'STRING_VALUE',
+ *         additionalInfo: { // AdditionalInfoMap
+ *           '<keys>': [ // AdditionalInfoValueList
+ *             'STRING_VALUE',
+ *           ],
+ *         },
+ *       },
+ *     ],
+ *     additionalInfo: {
+ *       '<keys>': [
+ *         'STRING_VALUE',
+ *       ],
+ *     },
+ *     excluded: true || false,
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateAppVersionResourceCommandInput - {@link CreateAppVersionResourceCommandInput}
@@ -119,6 +160,8 @@ export interface CreateAppVersionResourceCommandOutput extends CreateAppVersionR
  * @throws {@link ValidationException} (client fault)
  *  <p>This exception occurs when a request is not valid.</p>
  *
+ * @throws {@link ResiliencehubServiceException}
+ * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
  */
 export class CreateAppVersionResourceCommand extends $Command<

@@ -40,16 +40,26 @@ export interface GetPlayerConnectionStatusCommandOutput extends GetPlayerConnect
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GameSparksClient, GetPlayerConnectionStatusCommand } from "@aws-sdk/client-gamesparks"; // ES Modules import
- * // const { GameSparksClient, GetPlayerConnectionStatusCommand } = require("@aws-sdk/client-gamesparks"); // CommonJS import
+ * import { GameSparksClient, GetPlayerConnectionStatusCommand } from '@aws-sdk/client-gamesparks'; // ES Modules import
+ * // const { GameSparksClient, GetPlayerConnectionStatusCommand } = require('@aws-sdk/client-gamesparks'); // CommonJS import
  * const client = new GameSparksClient(config);
  * const input = { // GetPlayerConnectionStatusRequest
- *   PlayerId: "STRING_VALUE", // required
- *   GameName: "STRING_VALUE", // required
- *   StageName: "STRING_VALUE", // required
+ *   PlayerId: 'STRING_VALUE', // required
+ *   GameName: 'STRING_VALUE', // required
+ *   StageName: 'STRING_VALUE', // required
  * };
  * const command = new GetPlayerConnectionStatusCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetPlayerConnectionStatusResult
+ *   Connections: [ // ConnectionList
+ *     { // Connection
+ *       Id: 'STRING_VALUE',
+ *       Created: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetPlayerConnectionStatusCommandInput - {@link GetPlayerConnectionStatusCommandInput}
@@ -73,6 +83,8 @@ export interface GetPlayerConnectionStatusCommandOutput extends GetPlayerConnect
  * @throws {@link ValidationException} (client fault)
  *  <p>One of the parameters in the request is invalid.</p>
  *
+ * @throws {@link GameSparksServiceException}
+ * <p>Base exception class for all service exceptions from GameSparks service.</p>
  *
  */
 export class GetPlayerConnectionStatusCommand extends $Command<

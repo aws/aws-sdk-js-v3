@@ -44,18 +44,39 @@ export interface DescribeRaidArraysCommandOutput extends DescribeRaidArraysResul
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OpsWorksClient, DescribeRaidArraysCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
- * // const { OpsWorksClient, DescribeRaidArraysCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
+ * import { OpsWorksClient, DescribeRaidArraysCommand } from '@aws-sdk/client-opsworks'; // ES Modules import
+ * // const { OpsWorksClient, DescribeRaidArraysCommand } = require('@aws-sdk/client-opsworks'); // CommonJS import
  * const client = new OpsWorksClient(config);
  * const input = { // DescribeRaidArraysRequest
- *   InstanceId: "STRING_VALUE",
- *   StackId: "STRING_VALUE",
+ *   InstanceId: 'STRING_VALUE',
+ *   StackId: 'STRING_VALUE',
  *   RaidArrayIds: [ // Strings
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new DescribeRaidArraysCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeRaidArraysResult
+ *   RaidArrays: [ // RaidArrays
+ *     { // RaidArray
+ *       RaidArrayId: 'STRING_VALUE',
+ *       InstanceId: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *       RaidLevel: Number('int'),
+ *       NumberOfDisks: Number('int'),
+ *       Size: Number('int'),
+ *       Device: 'STRING_VALUE',
+ *       MountPoint: 'STRING_VALUE',
+ *       AvailabilityZone: 'STRING_VALUE',
+ *       CreatedAt: 'STRING_VALUE',
+ *       StackId: 'STRING_VALUE',
+ *       VolumeType: 'STRING_VALUE',
+ *       Iops: Number('int'),
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeRaidArraysCommandInput - {@link DescribeRaidArraysCommandInput}
@@ -70,6 +91,8 @@ export interface DescribeRaidArraysCommandOutput extends DescribeRaidArraysResul
  * @throws {@link ValidationException} (client fault)
  *  <p>Indicates that a request was not valid.</p>
  *
+ * @throws {@link OpsWorksServiceException}
+ * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
  */
 export class DescribeRaidArraysCommand extends $Command<

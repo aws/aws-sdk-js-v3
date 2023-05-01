@@ -43,14 +43,14 @@ export interface PutStorageLensConfigurationCommandOutput extends __MetadataBear
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { S3ControlClient, PutStorageLensConfigurationCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
- * // const { S3ControlClient, PutStorageLensConfigurationCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
+ * import { S3ControlClient, PutStorageLensConfigurationCommand } from '@aws-sdk/client-s3-control'; // ES Modules import
+ * // const { S3ControlClient, PutStorageLensConfigurationCommand } = require('@aws-sdk/client-s3-control'); // CommonJS import
  * const client = new S3ControlClient(config);
  * const input = { // PutStorageLensConfigurationRequest
- *   ConfigId: "STRING_VALUE", // required
- *   AccountId: "STRING_VALUE",
+ *   ConfigId: 'STRING_VALUE', // required
+ *   AccountId: 'STRING_VALUE',
  *   StorageLensConfiguration: { // StorageLensConfiguration
- *     Id: "STRING_VALUE", // required
+ *     Id: 'STRING_VALUE', // required
  *     AccountLevel: { // AccountLevel
  *       ActivityMetrics: { // ActivityMetrics
  *         IsEnabled: true || false,
@@ -63,9 +63,9 @@ export interface PutStorageLensConfigurationCommandOutput extends __MetadataBear
  *           StorageMetrics: { // PrefixLevelStorageMetrics
  *             IsEnabled: true || false,
  *             SelectionCriteria: { // SelectionCriteria
- *               Delimiter: "STRING_VALUE",
- *               MaxDepth: Number("int"),
- *               MinStorageBytesPercentage: Number("double"),
+ *               Delimiter: 'STRING_VALUE',
+ *               MaxDepth: Number('int'),
+ *               MinStorageBytesPercentage: Number('double'),
  *             },
  *           },
  *         },
@@ -91,31 +91,31 @@ export interface PutStorageLensConfigurationCommandOutput extends __MetadataBear
  *     },
  *     Include: { // Include
  *       Buckets: [ // Buckets
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *       Regions: [ // Regions
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *     Exclude: { // Exclude
  *       Buckets: [
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *       Regions: [
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *     DataExport: { // StorageLensDataExport
  *       S3BucketDestination: { // S3BucketDestination
- *         Format: "CSV" || "Parquet", // required
- *         OutputSchemaVersion: "V_1", // required
- *         AccountId: "STRING_VALUE",
- *         Arn: "STRING_VALUE", // required
- *         Prefix: "STRING_VALUE",
+ *         Format: 'CSV' || 'Parquet', // required
+ *         OutputSchemaVersion: 'V_1', // required
+ *         AccountId: 'STRING_VALUE',
+ *         Arn: 'STRING_VALUE', // required
+ *         Prefix: 'STRING_VALUE',
  *         Encryption: { // StorageLensDataExportEncryption
  *           SSES3: {},
  *           SSEKMS: { // SSEKMS
- *             KeyId: "STRING_VALUE", // required
+ *             KeyId: 'STRING_VALUE', // required
  *           },
  *         },
  *       },
@@ -125,19 +125,22 @@ export interface PutStorageLensConfigurationCommandOutput extends __MetadataBear
  *     },
  *     IsEnabled: true || false, // required
  *     AwsOrg: { // StorageLensAwsOrg
- *       Arn: "STRING_VALUE", // required
+ *       Arn: 'STRING_VALUE', // required
  *     },
- *     StorageLensArn: "STRING_VALUE",
+ *     StorageLensArn: 'STRING_VALUE',
  *   },
  *   Tags: [ // StorageLensTags
  *     { // StorageLensTag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new PutStorageLensConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutStorageLensConfigurationCommandInput - {@link PutStorageLensConfigurationCommandInput}
@@ -146,6 +149,8 @@ export interface PutStorageLensConfigurationCommandOutput extends __MetadataBear
  * @see {@link PutStorageLensConfigurationCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
  *
+ * @throws {@link S3ControlServiceException}
+ * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
  */
 export class PutStorageLensConfigurationCommand extends $Command<

@@ -36,15 +36,34 @@ export interface UpdateVpcLinkCommandOutput extends UpdateVpcLinkResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ApiGatewayV2Client, UpdateVpcLinkCommand } from "@aws-sdk/client-apigatewayv2"; // ES Modules import
- * // const { ApiGatewayV2Client, UpdateVpcLinkCommand } = require("@aws-sdk/client-apigatewayv2"); // CommonJS import
+ * import { ApiGatewayV2Client, UpdateVpcLinkCommand } from '@aws-sdk/client-apigatewayv2'; // ES Modules import
+ * // const { ApiGatewayV2Client, UpdateVpcLinkCommand } = require('@aws-sdk/client-apigatewayv2'); // CommonJS import
  * const client = new ApiGatewayV2Client(config);
  * const input = { // UpdateVpcLinkRequest
- *   Name: "STRING_VALUE",
- *   VpcLinkId: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE',
+ *   VpcLinkId: 'STRING_VALUE', // required
  * };
  * const command = new UpdateVpcLinkCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateVpcLinkResponse
+ *   CreatedDate: new Date('TIMESTAMP'),
+ *   Name: 'STRING_VALUE',
+ *   SecurityGroupIds: [ // SecurityGroupIdList
+ *     'STRING_VALUE',
+ *   ],
+ *   SubnetIds: [ // SubnetIdList
+ *     'STRING_VALUE',
+ *   ],
+ *   Tags: { // Tags
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ *   VpcLinkId: 'STRING_VALUE',
+ *   VpcLinkStatus: 'STRING_VALUE',
+ *   VpcLinkStatusMessage: 'STRING_VALUE',
+ *   VpcLinkVersion: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateVpcLinkCommandInput - {@link UpdateVpcLinkCommandInput}
@@ -62,6 +81,8 @@ export interface UpdateVpcLinkCommandOutput extends UpdateVpcLinkResponse, __Met
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>A limit has been exceeded. See the accompanying error message for details.</p>
  *
+ * @throws {@link ApiGatewayV2ServiceException}
+ * <p>Base exception class for all service exceptions from ApiGatewayV2 service.</p>
  *
  */
 export class UpdateVpcLinkCommand extends $Command<

@@ -45,14 +45,36 @@ export interface GetServiceNetworkServiceAssociationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { VPCLatticeClient, GetServiceNetworkServiceAssociationCommand } from "@aws-sdk/client-vpc-lattice"; // ES Modules import
- * // const { VPCLatticeClient, GetServiceNetworkServiceAssociationCommand } = require("@aws-sdk/client-vpc-lattice"); // CommonJS import
+ * import { VPCLatticeClient, GetServiceNetworkServiceAssociationCommand } from '@aws-sdk/client-vpc-lattice'; // ES Modules import
+ * // const { VPCLatticeClient, GetServiceNetworkServiceAssociationCommand } = require('@aws-sdk/client-vpc-lattice'); // CommonJS import
  * const client = new VPCLatticeClient(config);
  * const input = { // GetServiceNetworkServiceAssociationRequest
- *   serviceNetworkServiceAssociationIdentifier: "STRING_VALUE", // required
+ *   serviceNetworkServiceAssociationIdentifier: 'STRING_VALUE', // required
  * };
  * const command = new GetServiceNetworkServiceAssociationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetServiceNetworkServiceAssociationResponse
+ *   id: 'STRING_VALUE',
+ *   status: 'STRING_VALUE',
+ *   arn: 'STRING_VALUE',
+ *   createdBy: 'STRING_VALUE',
+ *   createdAt: new Date('TIMESTAMP'),
+ *   serviceId: 'STRING_VALUE',
+ *   serviceName: 'STRING_VALUE',
+ *   serviceArn: 'STRING_VALUE',
+ *   serviceNetworkId: 'STRING_VALUE',
+ *   serviceNetworkName: 'STRING_VALUE',
+ *   serviceNetworkArn: 'STRING_VALUE',
+ *   dnsEntry: { // DnsEntry
+ *     domainName: 'STRING_VALUE',
+ *     hostedZoneId: 'STRING_VALUE',
+ *   },
+ *   customDomainName: 'STRING_VALUE',
+ *   failureMessage: 'STRING_VALUE',
+ *   failureCode: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetServiceNetworkServiceAssociationCommandInput - {@link GetServiceNetworkServiceAssociationCommandInput}
@@ -77,6 +99,8 @@ export interface GetServiceNetworkServiceAssociationCommandOutput
  *  <p>The input does not satisfy the constraints specified by an Amazon Web Services
  *    service.</p>
  *
+ * @throws {@link VPCLatticeServiceException}
+ * <p>Base exception class for all service exceptions from VPCLattice service.</p>
  *
  */
 export class GetServiceNetworkServiceAssociationCommand extends $Command<

@@ -36,15 +36,21 @@ export interface GetMailboxDetailsCommandOutput extends GetMailboxDetailsRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkMailClient, GetMailboxDetailsCommand } from "@aws-sdk/client-workmail"; // ES Modules import
- * // const { WorkMailClient, GetMailboxDetailsCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
+ * import { WorkMailClient, GetMailboxDetailsCommand } from '@aws-sdk/client-workmail'; // ES Modules import
+ * // const { WorkMailClient, GetMailboxDetailsCommand } = require('@aws-sdk/client-workmail'); // CommonJS import
  * const client = new WorkMailClient(config);
  * const input = { // GetMailboxDetailsRequest
- *   OrganizationId: "STRING_VALUE", // required
- *   UserId: "STRING_VALUE", // required
+ *   OrganizationId: 'STRING_VALUE', // required
+ *   UserId: 'STRING_VALUE', // required
  * };
  * const command = new GetMailboxDetailsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetMailboxDetailsResponse
+ *   MailboxQuota: Number('int'),
+ *   MailboxSize: Number('double'),
+ * };
+ *
  * ```
  *
  * @param GetMailboxDetailsCommandInput - {@link GetMailboxDetailsCommandInput}
@@ -65,6 +71,8 @@ export interface GetMailboxDetailsCommandOutput extends GetMailboxDetailsRespons
  *  <p>The organization must have a valid state to perform certain
  *          operations on the organization or its members.</p>
  *
+ * @throws {@link WorkMailServiceException}
+ * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
  */
 export class GetMailboxDetailsCommand extends $Command<

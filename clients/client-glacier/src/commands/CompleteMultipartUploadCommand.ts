@@ -73,18 +73,25 @@ export interface CompleteMultipartUploadCommandOutput extends ArchiveCreationOut
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlacierClient, CompleteMultipartUploadCommand } from "@aws-sdk/client-glacier"; // ES Modules import
- * // const { GlacierClient, CompleteMultipartUploadCommand } = require("@aws-sdk/client-glacier"); // CommonJS import
+ * import { GlacierClient, CompleteMultipartUploadCommand } from '@aws-sdk/client-glacier'; // ES Modules import
+ * // const { GlacierClient, CompleteMultipartUploadCommand } = require('@aws-sdk/client-glacier'); // CommonJS import
  * const client = new GlacierClient(config);
  * const input = { // CompleteMultipartUploadInput
- *   accountId: "STRING_VALUE", // required
- *   vaultName: "STRING_VALUE", // required
- *   uploadId: "STRING_VALUE", // required
- *   archiveSize: "STRING_VALUE",
- *   checksum: "STRING_VALUE",
+ *   accountId: 'STRING_VALUE', // required
+ *   vaultName: 'STRING_VALUE', // required
+ *   uploadId: 'STRING_VALUE', // required
+ *   archiveSize: 'STRING_VALUE',
+ *   checksum: 'STRING_VALUE',
  * };
  * const command = new CompleteMultipartUploadCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ArchiveCreationOutput
+ *   location: 'STRING_VALUE',
+ *   checksum: 'STRING_VALUE',
+ *   archiveId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CompleteMultipartUploadCommandInput - {@link CompleteMultipartUploadCommandInput}
@@ -106,6 +113,8 @@ export interface CompleteMultipartUploadCommandOutput extends ArchiveCreationOut
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>Returned if the service cannot complete the request.</p>
  *
+ * @throws {@link GlacierServiceException}
+ * <p>Base exception class for all service exceptions from Glacier service.</p>
  *
  * @example To complete a multipart upload
  * ```javascript

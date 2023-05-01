@@ -47,37 +47,67 @@ export interface CreateMeetingCommandOutput extends CreateMeetingResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeSDKMeetingsClient, CreateMeetingCommand } from "@aws-sdk/client-chime-sdk-meetings"; // ES Modules import
- * // const { ChimeSDKMeetingsClient, CreateMeetingCommand } = require("@aws-sdk/client-chime-sdk-meetings"); // CommonJS import
+ * import { ChimeSDKMeetingsClient, CreateMeetingCommand } from '@aws-sdk/client-chime-sdk-meetings'; // ES Modules import
+ * // const { ChimeSDKMeetingsClient, CreateMeetingCommand } = require('@aws-sdk/client-chime-sdk-meetings'); // CommonJS import
  * const client = new ChimeSDKMeetingsClient(config);
  * const input = { // CreateMeetingRequest
- *   ClientRequestToken: "STRING_VALUE", // required
- *   MediaRegion: "STRING_VALUE", // required
- *   MeetingHostId: "STRING_VALUE",
- *   ExternalMeetingId: "STRING_VALUE", // required
+ *   ClientRequestToken: 'STRING_VALUE', // required
+ *   MediaRegion: 'STRING_VALUE', // required
+ *   MeetingHostId: 'STRING_VALUE',
+ *   ExternalMeetingId: 'STRING_VALUE', // required
  *   NotificationsConfiguration: { // NotificationsConfiguration
- *     LambdaFunctionArn: "STRING_VALUE",
- *     SnsTopicArn: "STRING_VALUE",
- *     SqsQueueArn: "STRING_VALUE",
+ *     LambdaFunctionArn: 'STRING_VALUE',
+ *     SnsTopicArn: 'STRING_VALUE',
+ *     SqsQueueArn: 'STRING_VALUE',
  *   },
  *   MeetingFeatures: { // MeetingFeaturesConfiguration
  *     Audio: { // AudioFeatures
- *       EchoReduction: "AVAILABLE" || "UNAVAILABLE",
+ *       EchoReduction: 'AVAILABLE' || 'UNAVAILABLE',
  *     },
  *   },
- *   PrimaryMeetingId: "STRING_VALUE",
+ *   PrimaryMeetingId: 'STRING_VALUE',
  *   TenantIds: [ // TenantIdList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreateMeetingCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateMeetingResponse
+ *   Meeting: { // Meeting
+ *     MeetingId: 'STRING_VALUE',
+ *     MeetingHostId: 'STRING_VALUE',
+ *     ExternalMeetingId: 'STRING_VALUE',
+ *     MediaRegion: 'STRING_VALUE',
+ *     MediaPlacement: { // MediaPlacement
+ *       AudioHostUrl: 'STRING_VALUE',
+ *       AudioFallbackUrl: 'STRING_VALUE',
+ *       SignalingUrl: 'STRING_VALUE',
+ *       TurnControlUrl: 'STRING_VALUE',
+ *       ScreenDataUrl: 'STRING_VALUE',
+ *       ScreenViewingUrl: 'STRING_VALUE',
+ *       ScreenSharingUrl: 'STRING_VALUE',
+ *       EventIngestionUrl: 'STRING_VALUE',
+ *     },
+ *     MeetingFeatures: { // MeetingFeaturesConfiguration
+ *       Audio: { // AudioFeatures
+ *         EchoReduction: 'AVAILABLE' || 'UNAVAILABLE',
+ *       },
+ *     },
+ *     PrimaryMeetingId: 'STRING_VALUE',
+ *     TenantIds: [ // TenantIdList
+ *       'STRING_VALUE',
+ *     ],
+ *     MeetingArn: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateMeetingCommandInput - {@link CreateMeetingCommandInput}
@@ -107,6 +137,8 @@ export interface CreateMeetingCommandOutput extends CreateMeetingResponse, __Met
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The user isn't authorized to request a resource.</p>
  *
+ * @throws {@link ChimeSDKMeetingsServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKMeetings service.</p>
  *
  */
 export class CreateMeetingCommand extends $Command<

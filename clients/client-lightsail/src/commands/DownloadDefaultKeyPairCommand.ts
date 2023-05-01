@@ -38,12 +38,19 @@ export interface DownloadDefaultKeyPairCommandOutput extends DownloadDefaultKeyP
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LightsailClient, DownloadDefaultKeyPairCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
- * // const { LightsailClient, DownloadDefaultKeyPairCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
+ * import { LightsailClient, DownloadDefaultKeyPairCommand } from '@aws-sdk/client-lightsail'; // ES Modules import
+ * // const { LightsailClient, DownloadDefaultKeyPairCommand } = require('@aws-sdk/client-lightsail'); // CommonJS import
  * const client = new LightsailClient(config);
  * const input = {};
  * const command = new DownloadDefaultKeyPairCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DownloadDefaultKeyPairResult
+ *   publicKeyBase64: 'STRING_VALUE',
+ *   privateKeyBase64: 'STRING_VALUE',
+ *   createdAt: new Date('TIMESTAMP'),
+ * };
+ *
  * ```
  *
  * @param DownloadDefaultKeyPairCommandInput - {@link DownloadDefaultKeyPairCommandInput}
@@ -82,6 +89,8 @@ export interface DownloadDefaultKeyPairCommandOutput extends DownloadDefaultKeyP
  * @throws {@link UnauthenticatedException} (client fault)
  *  <p>Lightsail throws this exception when the user has not been authenticated.</p>
  *
+ * @throws {@link LightsailServiceException}
+ * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
  */
 export class DownloadDefaultKeyPairCommand extends $Command<

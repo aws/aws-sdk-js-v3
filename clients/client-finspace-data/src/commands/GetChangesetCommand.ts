@@ -36,15 +36,39 @@ export interface GetChangesetCommandOutput extends GetChangesetResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FinspaceDataClient, GetChangesetCommand } from "@aws-sdk/client-finspace-data"; // ES Modules import
- * // const { FinspaceDataClient, GetChangesetCommand } = require("@aws-sdk/client-finspace-data"); // CommonJS import
+ * import { FinspaceDataClient, GetChangesetCommand } from '@aws-sdk/client-finspace-data'; // ES Modules import
+ * // const { FinspaceDataClient, GetChangesetCommand } = require('@aws-sdk/client-finspace-data'); // CommonJS import
  * const client = new FinspaceDataClient(config);
  * const input = { // GetChangesetRequest
- *   datasetId: "STRING_VALUE", // required
- *   changesetId: "STRING_VALUE", // required
+ *   datasetId: 'STRING_VALUE', // required
+ *   changesetId: 'STRING_VALUE', // required
  * };
  * const command = new GetChangesetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetChangesetResponse
+ *   changesetId: 'STRING_VALUE',
+ *   changesetArn: 'STRING_VALUE',
+ *   datasetId: 'STRING_VALUE',
+ *   changeType: 'STRING_VALUE',
+ *   sourceParams: { // SourceParams
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ *   formatParams: { // FormatParams
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ *   createTime: Number('long'),
+ *   status: 'STRING_VALUE',
+ *   errorInfo: { // ChangesetErrorInfo
+ *     errorMessage: 'STRING_VALUE',
+ *     errorCategory: 'STRING_VALUE',
+ *   },
+ *   activeUntilTimestamp: Number('long'),
+ *   activeFromTimestamp: Number('long'),
+ *   updatesChangesetId: 'STRING_VALUE',
+ *   updatedByChangesetId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetChangesetCommandInput - {@link GetChangesetCommandInput}
@@ -72,6 +96,8 @@ export interface GetChangesetCommandOutput extends GetChangesetResponse, __Metad
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link FinspaceDataServiceException}
+ * <p>Base exception class for all service exceptions from FinspaceData service.</p>
  *
  */
 export class GetChangesetCommand extends $Command<

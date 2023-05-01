@@ -42,14 +42,26 @@ export interface DescribeContainerCommandOutput extends DescribeContainerOutput,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MediaStoreClient, DescribeContainerCommand } from "@aws-sdk/client-mediastore"; // ES Modules import
- * // const { MediaStoreClient, DescribeContainerCommand } = require("@aws-sdk/client-mediastore"); // CommonJS import
+ * import { MediaStoreClient, DescribeContainerCommand } from '@aws-sdk/client-mediastore'; // ES Modules import
+ * // const { MediaStoreClient, DescribeContainerCommand } = require('@aws-sdk/client-mediastore'); // CommonJS import
  * const client = new MediaStoreClient(config);
  * const input = { // DescribeContainerInput
- *   ContainerName: "STRING_VALUE",
+ *   ContainerName: 'STRING_VALUE',
  * };
  * const command = new DescribeContainerCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeContainerOutput
+ *   Container: { // Container
+ *     Endpoint: 'STRING_VALUE',
+ *     CreationTime: new Date('TIMESTAMP'),
+ *     ARN: 'STRING_VALUE',
+ *     Name: 'STRING_VALUE',
+ *     Status: 'STRING_VALUE',
+ *     AccessLoggingEnabled: true || false,
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeContainerCommandInput - {@link DescribeContainerCommandInput}
@@ -64,6 +76,8 @@ export interface DescribeContainerCommandOutput extends DescribeContainerOutput,
  * @throws {@link InternalServerError} (server fault)
  *  <p>The service is temporarily unavailable.</p>
  *
+ * @throws {@link MediaStoreServiceException}
+ * <p>Base exception class for all service exceptions from MediaStore service.</p>
  *
  */
 export class DescribeContainerCommand extends $Command<

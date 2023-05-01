@@ -58,14 +58,62 @@ export interface DescribeWhatIfForecastCommandOutput extends DescribeWhatIfForec
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ForecastClient, DescribeWhatIfForecastCommand } from "@aws-sdk/client-forecast"; // ES Modules import
- * // const { ForecastClient, DescribeWhatIfForecastCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
+ * import { ForecastClient, DescribeWhatIfForecastCommand } from '@aws-sdk/client-forecast'; // ES Modules import
+ * // const { ForecastClient, DescribeWhatIfForecastCommand } = require('@aws-sdk/client-forecast'); // CommonJS import
  * const client = new ForecastClient(config);
  * const input = { // DescribeWhatIfForecastRequest
- *   WhatIfForecastArn: "STRING_VALUE", // required
+ *   WhatIfForecastArn: 'STRING_VALUE', // required
  * };
  * const command = new DescribeWhatIfForecastCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeWhatIfForecastResponse
+ *   WhatIfForecastName: 'STRING_VALUE',
+ *   WhatIfForecastArn: 'STRING_VALUE',
+ *   WhatIfAnalysisArn: 'STRING_VALUE',
+ *   EstimatedTimeRemainingInMinutes: Number('long'),
+ *   Status: 'STRING_VALUE',
+ *   Message: 'STRING_VALUE',
+ *   CreationTime: new Date('TIMESTAMP'),
+ *   LastModificationTime: new Date('TIMESTAMP'),
+ *   TimeSeriesTransformations: [ // TimeSeriesTransformations
+ *     { // TimeSeriesTransformation
+ *       Action: { // Action
+ *         AttributeName: 'STRING_VALUE', // required
+ *         Operation: 'ADD' || 'SUBTRACT' || 'MULTIPLY' || 'DIVIDE', // required
+ *         Value: Number('double'), // required
+ *       },
+ *       TimeSeriesConditions: [ // TimeSeriesConditions
+ *         { // TimeSeriesCondition
+ *           AttributeName: 'STRING_VALUE', // required
+ *           AttributeValue: 'STRING_VALUE', // required
+ *           Condition: 'EQUALS' || 'NOT_EQUALS' || 'LESS_THAN' || 'GREATER_THAN', // required
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   TimeSeriesReplacementsDataSource: { // TimeSeriesReplacementsDataSource
+ *     S3Config: { // S3Config
+ *       Path: 'STRING_VALUE', // required
+ *       RoleArn: 'STRING_VALUE', // required
+ *       KMSKeyArn: 'STRING_VALUE',
+ *     },
+ *     Schema: { // Schema
+ *       Attributes: [ // SchemaAttributes
+ *         { // SchemaAttribute
+ *           AttributeName: 'STRING_VALUE',
+ *           AttributeType: 'string' || 'integer' || 'float' || 'timestamp' || 'geolocation',
+ *         },
+ *       ],
+ *     },
+ *     Format: 'STRING_VALUE',
+ *     TimestampFormat: 'STRING_VALUE',
+ *   },
+ *   ForecastTypes: [ // ForecastTypes
+ *     'STRING_VALUE',
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeWhatIfForecastCommandInput - {@link DescribeWhatIfForecastCommandInput}
@@ -82,6 +130,8 @@ export interface DescribeWhatIfForecastCommandOutput extends DescribeWhatIfForec
  *  <p>We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try
  *       again.</p>
  *
+ * @throws {@link ForecastServiceException}
+ * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
  */
 export class DescribeWhatIfForecastCommand extends $Command<

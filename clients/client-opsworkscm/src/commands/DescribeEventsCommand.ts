@@ -45,16 +45,29 @@ export interface DescribeEventsCommandOutput extends DescribeEventsResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OpsWorksCMClient, DescribeEventsCommand } from "@aws-sdk/client-opsworkscm"; // ES Modules import
- * // const { OpsWorksCMClient, DescribeEventsCommand } = require("@aws-sdk/client-opsworkscm"); // CommonJS import
+ * import { OpsWorksCMClient, DescribeEventsCommand } from '@aws-sdk/client-opsworkscm'; // ES Modules import
+ * // const { OpsWorksCMClient, DescribeEventsCommand } = require('@aws-sdk/client-opsworkscm'); // CommonJS import
  * const client = new OpsWorksCMClient(config);
  * const input = { // DescribeEventsRequest
- *   ServerName: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   ServerName: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new DescribeEventsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeEventsResponse
+ *   ServerEvents: [ // ServerEvents
+ *     { // ServerEvent
+ *       CreatedAt: new Date('TIMESTAMP'),
+ *       ServerName: 'STRING_VALUE',
+ *       Message: 'STRING_VALUE',
+ *       LogUrl: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeEventsCommandInput - {@link DescribeEventsCommandInput}
@@ -75,6 +88,8 @@ export interface DescribeEventsCommandOutput extends DescribeEventsResponse, __M
  *  <p>One or more of the provided request parameters are not valid.
  *     </p>
  *
+ * @throws {@link OpsWorksCMServiceException}
+ * <p>Base exception class for all service exceptions from OpsWorksCM service.</p>
  *
  */
 export class DescribeEventsCommand extends $Command<

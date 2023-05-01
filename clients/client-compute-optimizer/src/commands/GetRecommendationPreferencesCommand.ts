@@ -48,20 +48,39 @@ export interface GetRecommendationPreferencesCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ComputeOptimizerClient, GetRecommendationPreferencesCommand } from "@aws-sdk/client-compute-optimizer"; // ES Modules import
- * // const { ComputeOptimizerClient, GetRecommendationPreferencesCommand } = require("@aws-sdk/client-compute-optimizer"); // CommonJS import
+ * import { ComputeOptimizerClient, GetRecommendationPreferencesCommand } from '@aws-sdk/client-compute-optimizer'; // ES Modules import
+ * // const { ComputeOptimizerClient, GetRecommendationPreferencesCommand } = require('@aws-sdk/client-compute-optimizer'); // CommonJS import
  * const client = new ComputeOptimizerClient(config);
  * const input = { // GetRecommendationPreferencesRequest
- *   resourceType: "Ec2Instance" || "AutoScalingGroup" || "EbsVolume" || "LambdaFunction" || "NotApplicable" || "EcsService", // required
+ *   resourceType: 'Ec2Instance' || 'AutoScalingGroup' || 'EbsVolume' || 'LambdaFunction' || 'NotApplicable' || 'EcsService', // required
  *   scope: { // Scope
- *     name: "Organization" || "AccountId" || "ResourceArn",
- *     value: "STRING_VALUE",
+ *     name: 'Organization' || 'AccountId' || 'ResourceArn',
+ *     value: 'STRING_VALUE',
  *   },
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new GetRecommendationPreferencesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetRecommendationPreferencesResponse
+ *   nextToken: 'STRING_VALUE',
+ *   recommendationPreferencesDetails: [ // RecommendationPreferencesDetails
+ *     { // RecommendationPreferencesDetail
+ *       scope: { // Scope
+ *         name: 'Organization' || 'AccountId' || 'ResourceArn',
+ *         value: 'STRING_VALUE',
+ *       },
+ *       resourceType: 'Ec2Instance' || 'AutoScalingGroup' || 'EbsVolume' || 'LambdaFunction' || 'NotApplicable' || 'EcsService',
+ *       enhancedInfrastructureMetrics: 'Active' || 'Inactive',
+ *       inferredWorkloadTypes: 'Active' || 'Inactive',
+ *       externalMetricsPreference: { // ExternalMetricsPreference
+ *         source: 'Datadog' || 'Dynatrace' || 'NewRelic' || 'Instana',
+ *       },
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetRecommendationPreferencesCommandInput - {@link GetRecommendationPreferencesCommandInput}
@@ -95,6 +114,8 @@ export interface GetRecommendationPreferencesCommandOutput
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
  *
+ * @throws {@link ComputeOptimizerServiceException}
+ * <p>Base exception class for all service exceptions from ComputeOptimizer service.</p>
  *
  */
 export class GetRecommendationPreferencesCommand extends $Command<

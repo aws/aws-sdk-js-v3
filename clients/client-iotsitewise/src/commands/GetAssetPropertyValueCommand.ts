@@ -47,16 +47,33 @@ export interface GetAssetPropertyValueCommandOutput extends GetAssetPropertyValu
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTSiteWiseClient, GetAssetPropertyValueCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
- * // const { IoTSiteWiseClient, GetAssetPropertyValueCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
+ * import { IoTSiteWiseClient, GetAssetPropertyValueCommand } from '@aws-sdk/client-iotsitewise'; // ES Modules import
+ * // const { IoTSiteWiseClient, GetAssetPropertyValueCommand } = require('@aws-sdk/client-iotsitewise'); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
  * const input = { // GetAssetPropertyValueRequest
- *   assetId: "STRING_VALUE",
- *   propertyId: "STRING_VALUE",
- *   propertyAlias: "STRING_VALUE",
+ *   assetId: 'STRING_VALUE',
+ *   propertyId: 'STRING_VALUE',
+ *   propertyAlias: 'STRING_VALUE',
  * };
  * const command = new GetAssetPropertyValueCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetAssetPropertyValueResponse
+ *   propertyValue: { // AssetPropertyValue
+ *     value: { // Variant
+ *       stringValue: 'STRING_VALUE',
+ *       integerValue: Number('int'),
+ *       doubleValue: Number('double'),
+ *       booleanValue: true || false,
+ *     },
+ *     timestamp: { // TimeInNanos
+ *       timeInSeconds: Number('long'), // required
+ *       offsetInNanos: Number('int'),
+ *     },
+ *     quality: 'GOOD' || 'BAD' || 'UNCERTAIN',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetAssetPropertyValueCommandInput - {@link GetAssetPropertyValueCommandInput}
@@ -84,6 +101,8 @@ export interface GetAssetPropertyValueCommandOutput extends GetAssetPropertyValu
  *       on.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
  *
+ * @throws {@link IoTSiteWiseServiceException}
+ * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
  */
 export class GetAssetPropertyValueCommand extends $Command<

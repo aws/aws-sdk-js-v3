@@ -38,15 +38,36 @@ export interface GetPipelineExecutionCommandOutput extends GetPipelineExecutionO
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodePipelineClient, GetPipelineExecutionCommand } from "@aws-sdk/client-codepipeline"; // ES Modules import
- * // const { CodePipelineClient, GetPipelineExecutionCommand } = require("@aws-sdk/client-codepipeline"); // CommonJS import
+ * import { CodePipelineClient, GetPipelineExecutionCommand } from '@aws-sdk/client-codepipeline'; // ES Modules import
+ * // const { CodePipelineClient, GetPipelineExecutionCommand } = require('@aws-sdk/client-codepipeline'); // CommonJS import
  * const client = new CodePipelineClient(config);
  * const input = { // GetPipelineExecutionInput
- *   pipelineName: "STRING_VALUE", // required
- *   pipelineExecutionId: "STRING_VALUE", // required
+ *   pipelineName: 'STRING_VALUE', // required
+ *   pipelineExecutionId: 'STRING_VALUE', // required
  * };
  * const command = new GetPipelineExecutionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetPipelineExecutionOutput
+ *   pipelineExecution: { // PipelineExecution
+ *     pipelineName: 'STRING_VALUE',
+ *     pipelineVersion: Number('int'),
+ *     pipelineExecutionId: 'STRING_VALUE',
+ *     status: 'STRING_VALUE',
+ *     statusSummary: 'STRING_VALUE',
+ *     artifactRevisions: [ // ArtifactRevisionList
+ *       { // ArtifactRevision
+ *         name: 'STRING_VALUE',
+ *         revisionId: 'STRING_VALUE',
+ *         revisionChangeIdentifier: 'STRING_VALUE',
+ *         revisionSummary: 'STRING_VALUE',
+ *         created: new Date('TIMESTAMP'),
+ *         revisionUrl: 'STRING_VALUE',
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetPipelineExecutionCommandInput - {@link GetPipelineExecutionCommandInput}
@@ -65,6 +86,8 @@ export interface GetPipelineExecutionCommandOutput extends GetPipelineExecutionO
  * @throws {@link ValidationException} (client fault)
  *  <p>The validation was specified in an invalid format.</p>
  *
+ * @throws {@link CodePipelineServiceException}
+ * <p>Base exception class for all service exceptions from CodePipeline service.</p>
  *
  */
 export class GetPipelineExecutionCommand extends $Command<

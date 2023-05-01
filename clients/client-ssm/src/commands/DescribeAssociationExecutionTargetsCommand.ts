@@ -44,23 +44,44 @@ export interface DescribeAssociationExecutionTargetsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMClient, DescribeAssociationExecutionTargetsCommand } from "@aws-sdk/client-ssm"; // ES Modules import
- * // const { SSMClient, DescribeAssociationExecutionTargetsCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * import { SSMClient, DescribeAssociationExecutionTargetsCommand } from '@aws-sdk/client-ssm'; // ES Modules import
+ * // const { SSMClient, DescribeAssociationExecutionTargetsCommand } = require('@aws-sdk/client-ssm'); // CommonJS import
  * const client = new SSMClient(config);
  * const input = { // DescribeAssociationExecutionTargetsRequest
- *   AssociationId: "STRING_VALUE", // required
- *   ExecutionId: "STRING_VALUE", // required
+ *   AssociationId: 'STRING_VALUE', // required
+ *   ExecutionId: 'STRING_VALUE', // required
  *   Filters: [ // AssociationExecutionTargetsFilterList
  *     { // AssociationExecutionTargetsFilter
- *       Key: "Status" || "ResourceId" || "ResourceType", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'Status' || 'ResourceId' || 'ResourceType', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new DescribeAssociationExecutionTargetsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeAssociationExecutionTargetsResult
+ *   AssociationExecutionTargets: [ // AssociationExecutionTargetsList
+ *     { // AssociationExecutionTarget
+ *       AssociationId: 'STRING_VALUE',
+ *       AssociationVersion: 'STRING_VALUE',
+ *       ExecutionId: 'STRING_VALUE',
+ *       ResourceId: 'STRING_VALUE',
+ *       ResourceType: 'STRING_VALUE',
+ *       Status: 'STRING_VALUE',
+ *       DetailedStatus: 'STRING_VALUE',
+ *       LastExecutionDate: new Date('TIMESTAMP'),
+ *       OutputSource: { // OutputSource
+ *         OutputSourceId: 'STRING_VALUE',
+ *         OutputSourceType: 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeAssociationExecutionTargetsCommandInput - {@link DescribeAssociationExecutionTargetsCommandInput}
@@ -81,6 +102,8 @@ export interface DescribeAssociationExecutionTargetsCommandOutput
  * @throws {@link InvalidNextToken} (client fault)
  *  <p>The specified token isn't valid.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class DescribeAssociationExecutionTargetsCommand extends $Command<

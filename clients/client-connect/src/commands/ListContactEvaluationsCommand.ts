@@ -36,16 +36,38 @@ export interface ListContactEvaluationsCommandOutput extends ListContactEvaluati
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, ListContactEvaluationsCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, ListContactEvaluationsCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, ListContactEvaluationsCommand } from '@aws-sdk/client-connect'; // ES Modules import
+ * // const { ConnectClient, ListContactEvaluationsCommand } = require('@aws-sdk/client-connect'); // CommonJS import
  * const client = new ConnectClient(config);
  * const input = { // ListContactEvaluationsRequest
- *   InstanceId: "STRING_VALUE", // required
- *   ContactId: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
+ *   InstanceId: 'STRING_VALUE', // required
+ *   ContactId: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListContactEvaluationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListContactEvaluationsResponse
+ *   EvaluationSummaryList: [ // EvaluationSummaryList // required
+ *     { // EvaluationSummary
+ *       EvaluationId: 'STRING_VALUE', // required
+ *       EvaluationArn: 'STRING_VALUE', // required
+ *       EvaluationFormTitle: 'STRING_VALUE', // required
+ *       EvaluationFormId: 'STRING_VALUE', // required
+ *       Status: 'DRAFT' || 'SUBMITTED', // required
+ *       EvaluatorArn: 'STRING_VALUE', // required
+ *       Score: { // EvaluationScore
+ *         Percentage: Number('double'),
+ *         NotApplicable: true || false,
+ *         AutomaticFail: true || false,
+ *       },
+ *       CreatedTime: new Date('TIMESTAMP'), // required
+ *       LastModifiedTime: new Date('TIMESTAMP'), // required
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListContactEvaluationsCommandInput - {@link ListContactEvaluationsCommandInput}
@@ -66,6 +88,8 @@ export interface ListContactEvaluationsCommandOutput extends ListContactEvaluati
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class ListContactEvaluationsCommand extends $Command<

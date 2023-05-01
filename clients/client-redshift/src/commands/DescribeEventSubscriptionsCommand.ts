@@ -46,22 +46,51 @@ export interface DescribeEventSubscriptionsCommandOutput extends EventSubscripti
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RedshiftClient, DescribeEventSubscriptionsCommand } from "@aws-sdk/client-redshift"; // ES Modules import
- * // const { RedshiftClient, DescribeEventSubscriptionsCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * import { RedshiftClient, DescribeEventSubscriptionsCommand } from '@aws-sdk/client-redshift'; // ES Modules import
+ * // const { RedshiftClient, DescribeEventSubscriptionsCommand } = require('@aws-sdk/client-redshift'); // CommonJS import
  * const client = new RedshiftClient(config);
  * const input = { // DescribeEventSubscriptionsMessage
- *   SubscriptionName: "STRING_VALUE",
- *   MaxRecords: Number("int"),
- *   Marker: "STRING_VALUE",
+ *   SubscriptionName: 'STRING_VALUE',
+ *   MaxRecords: Number('int'),
+ *   Marker: 'STRING_VALUE',
  *   TagKeys: [ // TagKeyList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   TagValues: [ // TagValueList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new DescribeEventSubscriptionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // EventSubscriptionsMessage
+ *   Marker: 'STRING_VALUE',
+ *   EventSubscriptionsList: [ // EventSubscriptionsList
+ *     { // EventSubscription
+ *       CustomerAwsId: 'STRING_VALUE',
+ *       CustSubscriptionId: 'STRING_VALUE',
+ *       SnsTopicArn: 'STRING_VALUE',
+ *       Status: 'STRING_VALUE',
+ *       SubscriptionCreationTime: new Date('TIMESTAMP'),
+ *       SourceType: 'STRING_VALUE',
+ *       SourceIdsList: [ // SourceIdsList
+ *         'STRING_VALUE',
+ *       ],
+ *       EventCategoriesList: [ // EventCategoriesList
+ *         'STRING_VALUE',
+ *       ],
+ *       Severity: 'STRING_VALUE',
+ *       Enabled: true || false,
+ *       Tags: [ // TagList
+ *         { // Tag
+ *           Key: 'STRING_VALUE',
+ *           Value: 'STRING_VALUE',
+ *         },
+ *       ],
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeEventSubscriptionsCommandInput - {@link DescribeEventSubscriptionsCommandInput}
@@ -77,6 +106,8 @@ export interface DescribeEventSubscriptionsCommandOutput extends EventSubscripti
  *  <p>An Amazon Redshift event notification subscription with the specified name does not
  *             exist.</p>
  *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class DescribeEventSubscriptionsCommand extends $Command<

@@ -36,23 +36,39 @@ export interface ListModelCardExportJobsCommandOutput extends ListModelCardExpor
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, ListModelCardExportJobsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, ListModelCardExportJobsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, ListModelCardExportJobsCommand } from '@aws-sdk/client-sagemaker'; // ES Modules import
+ * // const { SageMakerClient, ListModelCardExportJobsCommand } = require('@aws-sdk/client-sagemaker'); // CommonJS import
  * const client = new SageMakerClient(config);
  * const input = { // ListModelCardExportJobsRequest
- *   ModelCardName: "STRING_VALUE", // required
- *   ModelCardVersion: Number("int"),
- *   CreationTimeAfter: new Date("TIMESTAMP"),
- *   CreationTimeBefore: new Date("TIMESTAMP"),
- *   ModelCardExportJobNameContains: "STRING_VALUE",
- *   StatusEquals: "InProgress" || "Completed" || "Failed",
- *   SortBy: "Name" || "CreationTime" || "Status",
- *   SortOrder: "Ascending" || "Descending",
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   ModelCardName: 'STRING_VALUE', // required
+ *   ModelCardVersion: Number('int'),
+ *   CreationTimeAfter: new Date('TIMESTAMP'),
+ *   CreationTimeBefore: new Date('TIMESTAMP'),
+ *   ModelCardExportJobNameContains: 'STRING_VALUE',
+ *   StatusEquals: 'InProgress' || 'Completed' || 'Failed',
+ *   SortBy: 'Name' || 'CreationTime' || 'Status',
+ *   SortOrder: 'Ascending' || 'Descending',
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListModelCardExportJobsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListModelCardExportJobsResponse
+ *   ModelCardExportJobSummaries: [ // ModelCardExportJobSummaryList // required
+ *     { // ModelCardExportJobSummary
+ *       ModelCardExportJobName: 'STRING_VALUE', // required
+ *       ModelCardExportJobArn: 'STRING_VALUE', // required
+ *       Status: 'InProgress' || 'Completed' || 'Failed', // required
+ *       ModelCardName: 'STRING_VALUE', // required
+ *       ModelCardVersion: Number('int'), // required
+ *       CreatedAt: new Date('TIMESTAMP'), // required
+ *       LastModifiedAt: new Date('TIMESTAMP'), // required
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListModelCardExportJobsCommandInput - {@link ListModelCardExportJobsCommandInput}
@@ -61,6 +77,8 @@ export interface ListModelCardExportJobsCommandOutput extends ListModelCardExpor
  * @see {@link ListModelCardExportJobsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class ListModelCardExportJobsCommand extends $Command<

@@ -53,14 +53,22 @@ export interface DescribePublisherCommandOutput extends DescribePublisherOutput,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudFormationClient, DescribePublisherCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
- * // const { CloudFormationClient, DescribePublisherCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
+ * import { CloudFormationClient, DescribePublisherCommand } from '@aws-sdk/client-cloudformation'; // ES Modules import
+ * // const { CloudFormationClient, DescribePublisherCommand } = require('@aws-sdk/client-cloudformation'); // CommonJS import
  * const client = new CloudFormationClient(config);
  * const input = { // DescribePublisherInput
- *   PublisherId: "STRING_VALUE",
+ *   PublisherId: 'STRING_VALUE',
  * };
  * const command = new DescribePublisherCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribePublisherOutput
+ *   PublisherId: 'STRING_VALUE',
+ *   PublisherStatus: 'VERIFIED' || 'UNVERIFIED',
+ *   IdentityProvider: 'AWS_Marketplace' || 'GitHub' || 'Bitbucket',
+ *   PublisherProfile: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribePublisherCommandInput - {@link DescribePublisherCommandInput}
@@ -72,6 +80,8 @@ export interface DescribePublisherCommandOutput extends DescribePublisherOutput,
  * @throws {@link CFNRegistryException} (client fault)
  *  <p>An error occurred during a CloudFormation registry operation.</p>
  *
+ * @throws {@link CloudFormationServiceException}
+ * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
  */
 export class DescribePublisherCommand extends $Command<

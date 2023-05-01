@@ -42,15 +42,18 @@ export interface AdminDeleteUserCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CognitoIdentityProviderClient, AdminDeleteUserCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
- * // const { CognitoIdentityProviderClient, AdminDeleteUserCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
+ * import { CognitoIdentityProviderClient, AdminDeleteUserCommand } from '@aws-sdk/client-cognito-identity-provider'; // ES Modules import
+ * // const { CognitoIdentityProviderClient, AdminDeleteUserCommand } = require('@aws-sdk/client-cognito-identity-provider'); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
  * const input = { // AdminDeleteUserRequest
- *   UserPoolId: "STRING_VALUE", // required
- *   Username: "STRING_VALUE", // required
+ *   UserPoolId: 'STRING_VALUE', // required
+ *   Username: 'STRING_VALUE', // required
  * };
  * const command = new AdminDeleteUserCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param AdminDeleteUserCommandInput - {@link AdminDeleteUserCommandInput}
@@ -80,6 +83,8 @@ export interface AdminDeleteUserCommandOutput extends __MetadataBearer {}
  * @throws {@link UserNotFoundException} (client fault)
  *  <p>This exception is thrown when a user isn't found.</p>
  *
+ * @throws {@link CognitoIdentityProviderServiceException}
+ * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
  */
 export class AdminDeleteUserCommand extends $Command<

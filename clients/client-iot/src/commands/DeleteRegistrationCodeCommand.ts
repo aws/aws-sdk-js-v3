@@ -37,12 +37,15 @@ export interface DeleteRegistrationCodeCommandOutput extends DeleteRegistrationC
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTClient, DeleteRegistrationCodeCommand } from "@aws-sdk/client-iot"; // ES Modules import
- * // const { IoTClient, DeleteRegistrationCodeCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * import { IoTClient, DeleteRegistrationCodeCommand } from '@aws-sdk/client-iot'; // ES Modules import
+ * // const { IoTClient, DeleteRegistrationCodeCommand } = require('@aws-sdk/client-iot'); // CommonJS import
  * const client = new IoTClient(config);
  * const input = {};
  * const command = new DeleteRegistrationCodeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteRegistrationCodeCommandInput - {@link DeleteRegistrationCodeCommandInput}
@@ -66,6 +69,8 @@ export interface DeleteRegistrationCodeCommandOutput extends DeleteRegistrationC
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this operation.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class DeleteRegistrationCodeCommand extends $Command<

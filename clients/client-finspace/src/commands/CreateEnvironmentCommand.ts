@@ -40,38 +40,45 @@ export interface CreateEnvironmentCommandOutput extends CreateEnvironmentRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FinspaceClient, CreateEnvironmentCommand } from "@aws-sdk/client-finspace"; // ES Modules import
- * // const { FinspaceClient, CreateEnvironmentCommand } = require("@aws-sdk/client-finspace"); // CommonJS import
+ * import { FinspaceClient, CreateEnvironmentCommand } from '@aws-sdk/client-finspace'; // ES Modules import
+ * // const { FinspaceClient, CreateEnvironmentCommand } = require('@aws-sdk/client-finspace'); // CommonJS import
  * const client = new FinspaceClient(config);
  * const input = { // CreateEnvironmentRequest
- *   name: "STRING_VALUE", // required
- *   description: "STRING_VALUE",
- *   kmsKeyId: "STRING_VALUE",
+ *   name: 'STRING_VALUE', // required
+ *   description: 'STRING_VALUE',
+ *   kmsKeyId: 'STRING_VALUE',
  *   tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
- *   federationMode: "STRING_VALUE",
+ *   federationMode: 'STRING_VALUE',
  *   federationParameters: { // FederationParameters
- *     samlMetadataDocument: "STRING_VALUE",
- *     samlMetadataURL: "STRING_VALUE",
- *     applicationCallBackURL: "STRING_VALUE",
- *     federationURN: "STRING_VALUE",
- *     federationProviderName: "STRING_VALUE",
+ *     samlMetadataDocument: 'STRING_VALUE',
+ *     samlMetadataURL: 'STRING_VALUE',
+ *     applicationCallBackURL: 'STRING_VALUE',
+ *     federationURN: 'STRING_VALUE',
+ *     federationProviderName: 'STRING_VALUE',
  *     attributeMap: { // AttributeMap
- *       "<keys>": "STRING_VALUE",
+ *       '<keys>': 'STRING_VALUE',
  *     },
  *   },
  *   superuserParameters: { // SuperuserParameters
- *     emailAddress: "STRING_VALUE", // required
- *     firstName: "STRING_VALUE", // required
- *     lastName: "STRING_VALUE", // required
+ *     emailAddress: 'STRING_VALUE', // required
+ *     firstName: 'STRING_VALUE', // required
+ *     lastName: 'STRING_VALUE', // required
  *   },
  *   dataBundles: [ // DataBundleArns
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new CreateEnvironmentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateEnvironmentResponse
+ *   environmentId: 'STRING_VALUE',
+ *   environmentArn: 'STRING_VALUE',
+ *   environmentUrl: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateEnvironmentCommandInput - {@link CreateEnvironmentCommandInput}
@@ -100,6 +107,8 @@ export interface CreateEnvironmentCommandOutput extends CreateEnvironmentRespons
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link FinspaceServiceException}
+ * <p>Base exception class for all service exceptions from Finspace service.</p>
  *
  */
 export class CreateEnvironmentCommand extends $Command<

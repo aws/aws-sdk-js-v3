@@ -52,30 +52,45 @@ export interface GetComplianceSummaryCommandOutput extends GetComplianceSummaryO
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ResourceGroupsTaggingAPIClient, GetComplianceSummaryCommand } from "@aws-sdk/client-resource-groups-tagging-api"; // ES Modules import
- * // const { ResourceGroupsTaggingAPIClient, GetComplianceSummaryCommand } = require("@aws-sdk/client-resource-groups-tagging-api"); // CommonJS import
+ * import { ResourceGroupsTaggingAPIClient, GetComplianceSummaryCommand } from '@aws-sdk/client-resource-groups-tagging-api'; // ES Modules import
+ * // const { ResourceGroupsTaggingAPIClient, GetComplianceSummaryCommand } = require('@aws-sdk/client-resource-groups-tagging-api'); // CommonJS import
  * const client = new ResourceGroupsTaggingAPIClient(config);
  * const input = { // GetComplianceSummaryInput
  *   TargetIdFilters: [ // TargetIdFilterList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   RegionFilters: [ // RegionFilterList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   ResourceTypeFilters: [ // ResourceTypeFilterList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   TagKeyFilters: [ // TagKeyFilterList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   GroupBy: [ // GroupBy
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   MaxResults: Number("int"),
- *   PaginationToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   PaginationToken: 'STRING_VALUE',
  * };
  * const command = new GetComplianceSummaryCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetComplianceSummaryOutput
+ *   SummaryList: [ // SummaryList
+ *     { // Summary
+ *       LastUpdated: 'STRING_VALUE',
+ *       TargetId: 'STRING_VALUE',
+ *       TargetIdType: 'STRING_VALUE',
+ *       Region: 'STRING_VALUE',
+ *       ResourceType: 'STRING_VALUE',
+ *       NonCompliantResources: Number('long'),
+ *     },
+ *   ],
+ *   PaginationToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetComplianceSummaryCommandInput - {@link GetComplianceSummaryCommandInput}
@@ -136,6 +151,8 @@ export interface GetComplianceSummaryCommandOutput extends GetComplianceSummaryO
  * @throws {@link ThrottledException} (client fault)
  *  <p>The request was denied to limit the frequency of submitted requests.</p>
  *
+ * @throws {@link ResourceGroupsTaggingAPIServiceException}
+ * <p>Base exception class for all service exceptions from ResourceGroupsTaggingAPI service.</p>
  *
  */
 export class GetComplianceSummaryCommand extends $Command<

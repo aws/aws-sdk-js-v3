@@ -36,16 +36,21 @@ export interface StartBlueprintRunCommandOutput extends StartBlueprintRunRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlueClient, StartBlueprintRunCommand } from "@aws-sdk/client-glue"; // ES Modules import
- * // const { GlueClient, StartBlueprintRunCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * import { GlueClient, StartBlueprintRunCommand } from '@aws-sdk/client-glue'; // ES Modules import
+ * // const { GlueClient, StartBlueprintRunCommand } = require('@aws-sdk/client-glue'); // CommonJS import
  * const client = new GlueClient(config);
  * const input = { // StartBlueprintRunRequest
- *   BlueprintName: "STRING_VALUE", // required
- *   Parameters: "STRING_VALUE",
- *   RoleArn: "STRING_VALUE", // required
+ *   BlueprintName: 'STRING_VALUE', // required
+ *   Parameters: 'STRING_VALUE',
+ *   RoleArn: 'STRING_VALUE', // required
  * };
  * const command = new StartBlueprintRunCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartBlueprintRunResponse
+ *   RunId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param StartBlueprintRunCommandInput - {@link StartBlueprintRunCommandInput}
@@ -72,6 +77,8 @@ export interface StartBlueprintRunCommandOutput extends StartBlueprintRunRespons
  * @throws {@link ResourceNumberLimitExceededException} (client fault)
  *  <p>A resource numerical limit was exceeded.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class StartBlueprintRunCommand extends $Command<

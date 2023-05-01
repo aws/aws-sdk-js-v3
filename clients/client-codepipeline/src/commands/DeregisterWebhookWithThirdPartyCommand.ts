@@ -43,14 +43,17 @@ export interface DeregisterWebhookWithThirdPartyCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodePipelineClient, DeregisterWebhookWithThirdPartyCommand } from "@aws-sdk/client-codepipeline"; // ES Modules import
- * // const { CodePipelineClient, DeregisterWebhookWithThirdPartyCommand } = require("@aws-sdk/client-codepipeline"); // CommonJS import
+ * import { CodePipelineClient, DeregisterWebhookWithThirdPartyCommand } from '@aws-sdk/client-codepipeline'; // ES Modules import
+ * // const { CodePipelineClient, DeregisterWebhookWithThirdPartyCommand } = require('@aws-sdk/client-codepipeline'); // CommonJS import
  * const client = new CodePipelineClient(config);
  * const input = { // DeregisterWebhookWithThirdPartyInput
- *   webhookName: "STRING_VALUE",
+ *   webhookName: 'STRING_VALUE',
  * };
  * const command = new DeregisterWebhookWithThirdPartyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeregisterWebhookWithThirdPartyCommandInput - {@link DeregisterWebhookWithThirdPartyCommandInput}
@@ -66,6 +69,8 @@ export interface DeregisterWebhookWithThirdPartyCommandOutput
  *  <p>The specified webhook was entered in an invalid format or cannot be
  *             found.</p>
  *
+ * @throws {@link CodePipelineServiceException}
+ * <p>Base exception class for all service exceptions from CodePipeline service.</p>
  *
  */
 export class DeregisterWebhookWithThirdPartyCommand extends $Command<

@@ -36,22 +36,25 @@ export interface DeleteTagsCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AutoScalingClient, DeleteTagsCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
- * // const { AutoScalingClient, DeleteTagsCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
+ * import { AutoScalingClient, DeleteTagsCommand } from '@aws-sdk/client-auto-scaling'; // ES Modules import
+ * // const { AutoScalingClient, DeleteTagsCommand } = require('@aws-sdk/client-auto-scaling'); // CommonJS import
  * const client = new AutoScalingClient(config);
  * const input = { // DeleteTagsType
  *   Tags: [ // Tags // required
  *     { // Tag
- *       ResourceId: "STRING_VALUE",
- *       ResourceType: "STRING_VALUE",
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE",
+ *       ResourceId: 'STRING_VALUE',
+ *       ResourceType: 'STRING_VALUE',
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE',
  *       PropagateAtLaunch: true || false,
  *     },
  *   ],
  * };
  * const command = new DeleteTagsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteTagsCommandInput - {@link DeleteTagsCommandInput}
@@ -67,6 +70,8 @@ export interface DeleteTagsCommandOutput extends __MetadataBearer {}
  * @throws {@link ResourceInUseFault} (client fault)
  *  <p>The operation can't be performed because the resource is in use.</p>
  *
+ * @throws {@link AutoScalingServiceException}
+ * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
  * @example To delete a tag from an Auto Scaling group
  * ```javascript

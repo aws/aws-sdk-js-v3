@@ -72,24 +72,53 @@ export interface ReceiveMessageCommandOutput extends ReceiveMessageResult, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SQSClient, ReceiveMessageCommand } from "@aws-sdk/client-sqs"; // ES Modules import
- * // const { SQSClient, ReceiveMessageCommand } = require("@aws-sdk/client-sqs"); // CommonJS import
+ * import { SQSClient, ReceiveMessageCommand } from '@aws-sdk/client-sqs'; // ES Modules import
+ * // const { SQSClient, ReceiveMessageCommand } = require('@aws-sdk/client-sqs'); // CommonJS import
  * const client = new SQSClient(config);
  * const input = { // ReceiveMessageRequest
- *   QueueUrl: "STRING_VALUE", // required
+ *   QueueUrl: 'STRING_VALUE', // required
  *   AttributeNames: [ // AttributeNameList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   MessageAttributeNames: [ // MessageAttributeNameList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   MaxNumberOfMessages: Number("int"),
- *   VisibilityTimeout: Number("int"),
- *   WaitTimeSeconds: Number("int"),
- *   ReceiveRequestAttemptId: "STRING_VALUE",
+ *   MaxNumberOfMessages: Number('int'),
+ *   VisibilityTimeout: Number('int'),
+ *   WaitTimeSeconds: Number('int'),
+ *   ReceiveRequestAttemptId: 'STRING_VALUE',
  * };
  * const command = new ReceiveMessageCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ReceiveMessageResult
+ *   Messages: [ // MessageList
+ *     { // Message
+ *       MessageId: 'STRING_VALUE',
+ *       ReceiptHandle: 'STRING_VALUE',
+ *       MD5OfBody: 'STRING_VALUE',
+ *       Body: 'STRING_VALUE',
+ *       Attributes: { // MessageSystemAttributeMap
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *       MD5OfMessageAttributes: 'STRING_VALUE',
+ *       MessageAttributes: { // MessageBodyAttributeMap
+ *         '<keys>': { // MessageAttributeValue
+ *           StringValue: 'STRING_VALUE',
+ *           BinaryValue: 'BLOB_VALUE',
+ *           StringListValues: [ // StringList
+ *             'STRING_VALUE',
+ *           ],
+ *           BinaryListValues: [ // BinaryList
+ *             'BLOB_VALUE',
+ *           ],
+ *           DataType: 'STRING_VALUE', // required
+ *         },
+ *       },
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ReceiveMessageCommandInput - {@link ReceiveMessageCommandInput}
@@ -104,6 +133,8 @@ export interface ReceiveMessageCommandOutput extends ReceiveMessageResult, __Met
  *                 <code>AddPermission</code> returns this error if the maximum number of permissions
  *             for the queue is reached.</p>
  *
+ * @throws {@link SQSServiceException}
+ * <p>Base exception class for all service exceptions from SQS service.</p>
  *
  */
 export class ReceiveMessageCommand extends $Command<

@@ -41,16 +41,19 @@ export interface DeleteNodeCommandOutput extends DeleteNodeOutput, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ManagedBlockchainClient, DeleteNodeCommand } from "@aws-sdk/client-managedblockchain"; // ES Modules import
- * // const { ManagedBlockchainClient, DeleteNodeCommand } = require("@aws-sdk/client-managedblockchain"); // CommonJS import
+ * import { ManagedBlockchainClient, DeleteNodeCommand } from '@aws-sdk/client-managedblockchain'; // ES Modules import
+ * // const { ManagedBlockchainClient, DeleteNodeCommand } = require('@aws-sdk/client-managedblockchain'); // CommonJS import
  * const client = new ManagedBlockchainClient(config);
  * const input = { // DeleteNodeInput
- *   NetworkId: "STRING_VALUE", // required
- *   MemberId: "STRING_VALUE",
- *   NodeId: "STRING_VALUE", // required
+ *   NetworkId: 'STRING_VALUE', // required
+ *   MemberId: 'STRING_VALUE',
+ *   NodeId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteNodeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteNodeCommandInput - {@link DeleteNodeCommandInput}
@@ -80,6 +83,8 @@ export interface DeleteNodeCommandOutput extends DeleteNodeOutput, __MetadataBea
  *          creating resources that exceed your service limit for this resource type.
  *          Request a limit increase or delete unused resources if possible.</p>
  *
+ * @throws {@link ManagedBlockchainServiceException}
+ * <p>Base exception class for all service exceptions from ManagedBlockchain service.</p>
  *
  */
 export class DeleteNodeCommand extends $Command<

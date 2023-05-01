@@ -46,21 +46,30 @@ export interface CreateOrganizationalUnitCommandOutput extends CreateOrganizatio
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OrganizationsClient, CreateOrganizationalUnitCommand } from "@aws-sdk/client-organizations"; // ES Modules import
- * // const { OrganizationsClient, CreateOrganizationalUnitCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
+ * import { OrganizationsClient, CreateOrganizationalUnitCommand } from '@aws-sdk/client-organizations'; // ES Modules import
+ * // const { OrganizationsClient, CreateOrganizationalUnitCommand } = require('@aws-sdk/client-organizations'); // CommonJS import
  * const client = new OrganizationsClient(config);
  * const input = { // CreateOrganizationalUnitRequest
- *   ParentId: "STRING_VALUE", // required
- *   Name: "STRING_VALUE", // required
+ *   ParentId: 'STRING_VALUE', // required
+ *   Name: 'STRING_VALUE', // required
  *   Tags: [ // Tags
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreateOrganizationalUnitCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateOrganizationalUnitResponse
+ *   OrganizationalUnit: { // OrganizationalUnit
+ *     Id: 'STRING_VALUE',
+ *     Arn: 'STRING_VALUE',
+ *     Name: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateOrganizationalUnitCommandInput - {@link CreateOrganizationalUnitCommandInput}
@@ -402,6 +411,8 @@ export interface CreateOrganizationalUnitCommandOutput extends CreateOrganizatio
  *                 <i>Organizations User Guide.</i>
  *          </p>
  *
+ * @throws {@link OrganizationsServiceException}
+ * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
  * @example To create a new organization unit
  * ```javascript

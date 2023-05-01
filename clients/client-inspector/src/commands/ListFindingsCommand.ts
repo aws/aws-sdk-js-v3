@@ -37,51 +37,59 @@ export interface ListFindingsCommandOutput extends ListFindingsResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { InspectorClient, ListFindingsCommand } from "@aws-sdk/client-inspector"; // ES Modules import
- * // const { InspectorClient, ListFindingsCommand } = require("@aws-sdk/client-inspector"); // CommonJS import
+ * import { InspectorClient, ListFindingsCommand } from '@aws-sdk/client-inspector'; // ES Modules import
+ * // const { InspectorClient, ListFindingsCommand } = require('@aws-sdk/client-inspector'); // CommonJS import
  * const client = new InspectorClient(config);
  * const input = { // ListFindingsRequest
  *   assessmentRunArns: [ // ListParentArnList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   filter: { // FindingFilter
  *     agentIds: [ // AgentIdList
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     autoScalingGroups: [ // AutoScalingGroupList
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     ruleNames: [ // RuleNameList
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     severities: [ // SeverityList
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     rulesPackageArns: [ // FilterRulesPackageArnList
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     attributes: [ // AttributeList
  *       { // Attribute
- *         key: "STRING_VALUE", // required
- *         value: "STRING_VALUE",
+ *         key: 'STRING_VALUE', // required
+ *         value: 'STRING_VALUE',
  *       },
  *     ],
  *     userAttributes: [
  *       {
- *         key: "STRING_VALUE", // required
- *         value: "STRING_VALUE",
+ *         key: 'STRING_VALUE', // required
+ *         value: 'STRING_VALUE',
  *       },
  *     ],
  *     creationTimeRange: { // TimestampRange
- *       beginDate: new Date("TIMESTAMP"),
- *       endDate: new Date("TIMESTAMP"),
+ *       beginDate: new Date('TIMESTAMP'),
+ *       endDate: new Date('TIMESTAMP'),
  *     },
  *   },
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new ListFindingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListFindingsResponse
+ *   findingArns: [ // ListReturnedArnList // required
+ *     'STRING_VALUE',
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListFindingsCommandInput - {@link ListFindingsCommandInput}
@@ -104,6 +112,8 @@ export interface ListFindingsCommandOutput extends ListFindingsResponse, __Metad
  *  <p>The request was rejected because it referenced an entity that does not exist. The
  *          error code describes the entity.</p>
  *
+ * @throws {@link InspectorServiceException}
+ * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
  * @example List findings
  * ```javascript

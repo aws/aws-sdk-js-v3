@@ -42,15 +42,35 @@ export interface ListRecordingConfigurationsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IvsClient, ListRecordingConfigurationsCommand } from "@aws-sdk/client-ivs"; // ES Modules import
- * // const { IvsClient, ListRecordingConfigurationsCommand } = require("@aws-sdk/client-ivs"); // CommonJS import
+ * import { IvsClient, ListRecordingConfigurationsCommand } from '@aws-sdk/client-ivs'; // ES Modules import
+ * // const { IvsClient, ListRecordingConfigurationsCommand } = require('@aws-sdk/client-ivs'); // CommonJS import
  * const client = new IvsClient(config);
  * const input = { // ListRecordingConfigurationsRequest
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new ListRecordingConfigurationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListRecordingConfigurationsResponse
+ *   recordingConfigurations: [ // RecordingConfigurationList // required
+ *     { // RecordingConfigurationSummary
+ *       arn: 'STRING_VALUE', // required
+ *       name: 'STRING_VALUE',
+ *       destinationConfiguration: { // DestinationConfiguration
+ *         s3: { // S3DestinationConfiguration
+ *           bucketName: 'STRING_VALUE', // required
+ *         },
+ *       },
+ *       state: 'STRING_VALUE', // required
+ *       tags: { // Tags
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListRecordingConfigurationsCommandInput - {@link ListRecordingConfigurationsCommandInput}
@@ -68,6 +88,8 @@ export interface ListRecordingConfigurationsCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p/>
  *
+ * @throws {@link IvsServiceException}
+ * <p>Base exception class for all service exceptions from Ivs service.</p>
  *
  */
 export class ListRecordingConfigurationsCommand extends $Command<

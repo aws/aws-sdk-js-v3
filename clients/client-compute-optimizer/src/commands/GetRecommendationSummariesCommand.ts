@@ -60,18 +60,54 @@ export interface GetRecommendationSummariesCommandOutput extends GetRecommendati
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ComputeOptimizerClient, GetRecommendationSummariesCommand } from "@aws-sdk/client-compute-optimizer"; // ES Modules import
- * // const { ComputeOptimizerClient, GetRecommendationSummariesCommand } = require("@aws-sdk/client-compute-optimizer"); // CommonJS import
+ * import { ComputeOptimizerClient, GetRecommendationSummariesCommand } from '@aws-sdk/client-compute-optimizer'; // ES Modules import
+ * // const { ComputeOptimizerClient, GetRecommendationSummariesCommand } = require('@aws-sdk/client-compute-optimizer'); // CommonJS import
  * const client = new ComputeOptimizerClient(config);
  * const input = { // GetRecommendationSummariesRequest
  *   accountIds: [ // AccountIds
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new GetRecommendationSummariesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetRecommendationSummariesResponse
+ *   nextToken: 'STRING_VALUE',
+ *   recommendationSummaries: [ // RecommendationSummaries
+ *     { // RecommendationSummary
+ *       summaries: [ // Summaries
+ *         { // Summary
+ *           name: 'Underprovisioned' || 'Overprovisioned' || 'Optimized' || 'NotOptimized',
+ *           value: Number('double'),
+ *           reasonCodeSummaries: [ // ReasonCodeSummaries
+ *             { // ReasonCodeSummary
+ *               name: 'MemoryOverprovisioned' || 'MemoryUnderprovisioned',
+ *               value: Number('double'),
+ *             },
+ *           ],
+ *         },
+ *       ],
+ *       recommendationResourceType: 'Ec2Instance' || 'AutoScalingGroup' || 'EbsVolume' || 'LambdaFunction' || 'EcsService',
+ *       accountId: 'STRING_VALUE',
+ *       savingsOpportunity: { // SavingsOpportunity
+ *         savingsOpportunityPercentage: Number('double'),
+ *         estimatedMonthlySavings: { // EstimatedMonthlySavings
+ *           currency: 'USD' || 'CNY',
+ *           value: Number('double'),
+ *         },
+ *       },
+ *       currentPerformanceRiskRatings: { // CurrentPerformanceRiskRatings
+ *         high: Number('long'),
+ *         medium: Number('long'),
+ *         low: Number('long'),
+ *         veryLow: Number('long'),
+ *       },
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetRecommendationSummariesCommandInput - {@link GetRecommendationSummariesCommandInput}
@@ -102,6 +138,8 @@ export interface GetRecommendationSummariesCommandOutput extends GetRecommendati
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
  *
+ * @throws {@link ComputeOptimizerServiceException}
+ * <p>Base exception class for all service exceptions from ComputeOptimizer service.</p>
  *
  */
 export class GetRecommendationSummariesCommand extends $Command<

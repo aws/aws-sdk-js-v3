@@ -39,17 +39,22 @@ export interface RetryStageExecutionCommandOutput extends RetryStageExecutionOut
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodePipelineClient, RetryStageExecutionCommand } from "@aws-sdk/client-codepipeline"; // ES Modules import
- * // const { CodePipelineClient, RetryStageExecutionCommand } = require("@aws-sdk/client-codepipeline"); // CommonJS import
+ * import { CodePipelineClient, RetryStageExecutionCommand } from '@aws-sdk/client-codepipeline'; // ES Modules import
+ * // const { CodePipelineClient, RetryStageExecutionCommand } = require('@aws-sdk/client-codepipeline'); // CommonJS import
  * const client = new CodePipelineClient(config);
  * const input = { // RetryStageExecutionInput
- *   pipelineName: "STRING_VALUE", // required
- *   stageName: "STRING_VALUE", // required
- *   pipelineExecutionId: "STRING_VALUE", // required
- *   retryMode: "STRING_VALUE", // required
+ *   pipelineName: 'STRING_VALUE', // required
+ *   stageName: 'STRING_VALUE', // required
+ *   pipelineExecutionId: 'STRING_VALUE', // required
+ *   retryMode: 'STRING_VALUE', // required
  * };
  * const command = new RetryStageExecutionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // RetryStageExecutionOutput
+ *   pipelineExecutionId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param RetryStageExecutionCommandInput - {@link RetryStageExecutionCommandInput}
@@ -80,6 +85,8 @@ export interface RetryStageExecutionCommandOutput extends RetryStageExecutionOut
  * @throws {@link ValidationException} (client fault)
  *  <p>The validation was specified in an invalid format.</p>
  *
+ * @throws {@link CodePipelineServiceException}
+ * <p>Base exception class for all service exceptions from CodePipeline service.</p>
  *
  */
 export class RetryStageExecutionCommand extends $Command<

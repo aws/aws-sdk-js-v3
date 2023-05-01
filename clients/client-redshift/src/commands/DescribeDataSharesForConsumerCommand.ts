@@ -41,17 +41,39 @@ export interface DescribeDataSharesForConsumerCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RedshiftClient, DescribeDataSharesForConsumerCommand } from "@aws-sdk/client-redshift"; // ES Modules import
- * // const { RedshiftClient, DescribeDataSharesForConsumerCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * import { RedshiftClient, DescribeDataSharesForConsumerCommand } from '@aws-sdk/client-redshift'; // ES Modules import
+ * // const { RedshiftClient, DescribeDataSharesForConsumerCommand } = require('@aws-sdk/client-redshift'); // CommonJS import
  * const client = new RedshiftClient(config);
  * const input = { // DescribeDataSharesForConsumerMessage
- *   ConsumerArn: "STRING_VALUE",
- *   Status: "ACTIVE" || "AVAILABLE",
- *   MaxRecords: Number("int"),
- *   Marker: "STRING_VALUE",
+ *   ConsumerArn: 'STRING_VALUE',
+ *   Status: 'ACTIVE' || 'AVAILABLE',
+ *   MaxRecords: Number('int'),
+ *   Marker: 'STRING_VALUE',
  * };
  * const command = new DescribeDataSharesForConsumerCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeDataSharesForConsumerResult
+ *   DataShares: [ // DataShareList
+ *     { // DataShare
+ *       DataShareArn: 'STRING_VALUE',
+ *       ProducerArn: 'STRING_VALUE',
+ *       AllowPubliclyAccessibleConsumers: true || false,
+ *       DataShareAssociations: [ // DataShareAssociationList
+ *         { // DataShareAssociation
+ *           ConsumerIdentifier: 'STRING_VALUE',
+ *           Status: 'ACTIVE' || 'PENDING_AUTHORIZATION' || 'AUTHORIZED' || 'DEAUTHORIZED' || 'REJECTED' || 'AVAILABLE',
+ *           ConsumerRegion: 'STRING_VALUE',
+ *           CreatedDate: new Date('TIMESTAMP'),
+ *           StatusChangeDate: new Date('TIMESTAMP'),
+ *         },
+ *       ],
+ *       ManagedBy: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   Marker: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeDataSharesForConsumerCommandInput - {@link DescribeDataSharesForConsumerCommandInput}
@@ -63,6 +85,8 @@ export interface DescribeDataSharesForConsumerCommandOutput
  * @throws {@link InvalidNamespaceFault} (client fault)
  *  <p>The namespace isn't valid because the namespace doesn't exist. Provide a valid namespace.</p>
  *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class DescribeDataSharesForConsumerCommand extends $Command<

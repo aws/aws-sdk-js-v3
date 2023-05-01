@@ -36,31 +36,60 @@ export interface ListIntentsCommandOutput extends ListIntentsResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LexModelsV2Client, ListIntentsCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
- * // const { LexModelsV2Client, ListIntentsCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
+ * import { LexModelsV2Client, ListIntentsCommand } from '@aws-sdk/client-lex-models-v2'; // ES Modules import
+ * // const { LexModelsV2Client, ListIntentsCommand } = require('@aws-sdk/client-lex-models-v2'); // CommonJS import
  * const client = new LexModelsV2Client(config);
  * const input = { // ListIntentsRequest
- *   botId: "STRING_VALUE", // required
- *   botVersion: "STRING_VALUE", // required
- *   localeId: "STRING_VALUE", // required
+ *   botId: 'STRING_VALUE', // required
+ *   botVersion: 'STRING_VALUE', // required
+ *   localeId: 'STRING_VALUE', // required
  *   sortBy: { // IntentSortBy
- *     attribute: "IntentName" || "LastUpdatedDateTime", // required
- *     order: "Ascending" || "Descending", // required
+ *     attribute: 'IntentName' || 'LastUpdatedDateTime', // required
+ *     order: 'Ascending' || 'Descending', // required
  *   },
  *   filters: [ // IntentFilters
  *     { // IntentFilter
- *       name: "IntentName", // required
+ *       name: 'IntentName', // required
  *       values: [ // FilterValues // required
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
- *       operator: "CO" || "EQ", // required
+ *       operator: 'CO' || 'EQ', // required
  *     },
  *   ],
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new ListIntentsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListIntentsResponse
+ *   botId: 'STRING_VALUE',
+ *   botVersion: 'STRING_VALUE',
+ *   localeId: 'STRING_VALUE',
+ *   intentSummaries: [ // IntentSummaryList
+ *     { // IntentSummary
+ *       intentId: 'STRING_VALUE',
+ *       intentName: 'STRING_VALUE',
+ *       description: 'STRING_VALUE',
+ *       parentIntentSignature: 'STRING_VALUE',
+ *       inputContexts: [ // InputContextsList
+ *         { // InputContext
+ *           name: 'STRING_VALUE', // required
+ *         },
+ *       ],
+ *       outputContexts: [ // OutputContextsList
+ *         { // OutputContext
+ *           name: 'STRING_VALUE', // required
+ *           timeToLiveInSeconds: Number('int'), // required
+ *           turnsToLive: Number('int'), // required
+ *         },
+ *       ],
+ *       lastUpdatedDateTime: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListIntentsCommandInput - {@link ListIntentsCommandInput}
@@ -84,6 +113,8 @@ export interface ListIntentsCommandOutput extends ListIntentsResponse, __Metadat
  *  <p>One of the input parameters in your request isn't valid. Check the
  *          parameters and try your request again.</p>
  *
+ * @throws {@link LexModelsV2ServiceException}
+ * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
  */
 export class ListIntentsCommand extends $Command<

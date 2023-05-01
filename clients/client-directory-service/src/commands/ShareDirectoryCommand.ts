@@ -52,20 +52,25 @@ export interface ShareDirectoryCommandOutput extends ShareDirectoryResult, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DirectoryServiceClient, ShareDirectoryCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
- * // const { DirectoryServiceClient, ShareDirectoryCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
+ * import { DirectoryServiceClient, ShareDirectoryCommand } from '@aws-sdk/client-directory-service'; // ES Modules import
+ * // const { DirectoryServiceClient, ShareDirectoryCommand } = require('@aws-sdk/client-directory-service'); // CommonJS import
  * const client = new DirectoryServiceClient(config);
  * const input = { // ShareDirectoryRequest
- *   DirectoryId: "STRING_VALUE", // required
- *   ShareNotes: "STRING_VALUE",
+ *   DirectoryId: 'STRING_VALUE', // required
+ *   ShareNotes: 'STRING_VALUE',
  *   ShareTarget: { // ShareTarget
- *     Id: "STRING_VALUE", // required
- *     Type: "ACCOUNT", // required
+ *     Id: 'STRING_VALUE', // required
+ *     Type: 'ACCOUNT', // required
  *   },
- *   ShareMethod: "ORGANIZATIONS" || "HANDSHAKE", // required
+ *   ShareMethod: 'ORGANIZATIONS' || 'HANDSHAKE', // required
  * };
  * const command = new ShareDirectoryCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ShareDirectoryResult
+ *   SharedDirectoryId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ShareDirectoryCommandInput - {@link ShareDirectoryCommandInput}
@@ -105,6 +110,8 @@ export interface ShareDirectoryCommandOutput extends ShareDirectoryResult, __Met
  * @throws {@link UnsupportedOperationException} (client fault)
  *  <p>The operation is not supported.</p>
  *
+ * @throws {@link DirectoryServiceServiceException}
+ * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
  */
 export class ShareDirectoryCommand extends $Command<

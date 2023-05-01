@@ -42,20 +42,31 @@ export interface ListImagesCommandOutput extends ListImagesResponse, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ECRClient, ListImagesCommand } from "@aws-sdk/client-ecr"; // ES Modules import
- * // const { ECRClient, ListImagesCommand } = require("@aws-sdk/client-ecr"); // CommonJS import
+ * import { ECRClient, ListImagesCommand } from '@aws-sdk/client-ecr'; // ES Modules import
+ * // const { ECRClient, ListImagesCommand } = require('@aws-sdk/client-ecr'); // CommonJS import
  * const client = new ECRClient(config);
  * const input = { // ListImagesRequest
- *   registryId: "STRING_VALUE",
- *   repositoryName: "STRING_VALUE", // required
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   registryId: 'STRING_VALUE',
+ *   repositoryName: 'STRING_VALUE', // required
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  *   filter: { // ListImagesFilter
- *     tagStatus: "STRING_VALUE",
+ *     tagStatus: 'STRING_VALUE',
  *   },
  * };
  * const command = new ListImagesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListImagesResponse
+ *   imageIds: [ // ImageIdentifierList
+ *     { // ImageIdentifier
+ *       imageDigest: 'STRING_VALUE',
+ *       imageTag: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListImagesCommandInput - {@link ListImagesCommandInput}
@@ -75,6 +86,8 @@ export interface ListImagesCommandOutput extends ListImagesResponse, __MetadataB
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server-side issue.</p>
  *
+ * @throws {@link ECRServiceException}
+ * <p>Base exception class for all service exceptions from ECR service.</p>
  *
  * @example To list all images in a repository
  * ```javascript

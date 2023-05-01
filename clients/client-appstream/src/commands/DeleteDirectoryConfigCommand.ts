@@ -36,14 +36,17 @@ export interface DeleteDirectoryConfigCommandOutput extends DeleteDirectoryConfi
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppStreamClient, DeleteDirectoryConfigCommand } from "@aws-sdk/client-appstream"; // ES Modules import
- * // const { AppStreamClient, DeleteDirectoryConfigCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
+ * import { AppStreamClient, DeleteDirectoryConfigCommand } from '@aws-sdk/client-appstream'; // ES Modules import
+ * // const { AppStreamClient, DeleteDirectoryConfigCommand } = require('@aws-sdk/client-appstream'); // CommonJS import
  * const client = new AppStreamClient(config);
  * const input = { // DeleteDirectoryConfigRequest
- *   DirectoryName: "STRING_VALUE", // required
+ *   DirectoryName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteDirectoryConfigCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteDirectoryConfigCommandInput - {@link DeleteDirectoryConfigCommandInput}
@@ -58,6 +61,8 @@ export interface DeleteDirectoryConfigCommandOutput extends DeleteDirectoryConfi
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link AppStreamServiceException}
+ * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
  */
 export class DeleteDirectoryConfigCommand extends $Command<

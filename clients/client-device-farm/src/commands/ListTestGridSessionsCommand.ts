@@ -36,21 +36,36 @@ export interface ListTestGridSessionsCommandOutput extends ListTestGridSessionsR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DeviceFarmClient, ListTestGridSessionsCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
- * // const { DeviceFarmClient, ListTestGridSessionsCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
+ * import { DeviceFarmClient, ListTestGridSessionsCommand } from '@aws-sdk/client-device-farm'; // ES Modules import
+ * // const { DeviceFarmClient, ListTestGridSessionsCommand } = require('@aws-sdk/client-device-farm'); // CommonJS import
  * const client = new DeviceFarmClient(config);
  * const input = { // ListTestGridSessionsRequest
- *   projectArn: "STRING_VALUE", // required
- *   status: "ACTIVE" || "CLOSED" || "ERRORED",
- *   creationTimeAfter: new Date("TIMESTAMP"),
- *   creationTimeBefore: new Date("TIMESTAMP"),
- *   endTimeAfter: new Date("TIMESTAMP"),
- *   endTimeBefore: new Date("TIMESTAMP"),
- *   maxResult: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   projectArn: 'STRING_VALUE', // required
+ *   status: 'ACTIVE' || 'CLOSED' || 'ERRORED',
+ *   creationTimeAfter: new Date('TIMESTAMP'),
+ *   creationTimeBefore: new Date('TIMESTAMP'),
+ *   endTimeAfter: new Date('TIMESTAMP'),
+ *   endTimeBefore: new Date('TIMESTAMP'),
+ *   maxResult: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new ListTestGridSessionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTestGridSessionsResult
+ *   testGridSessions: [ // TestGridSessions
+ *     { // TestGridSession
+ *       arn: 'STRING_VALUE',
+ *       status: 'ACTIVE' || 'CLOSED' || 'ERRORED',
+ *       created: new Date('TIMESTAMP'),
+ *       ended: new Date('TIMESTAMP'),
+ *       billingMinutes: Number('double'),
+ *       seleniumProperties: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListTestGridSessionsCommandInput - {@link ListTestGridSessionsCommandInput}
@@ -69,6 +84,8 @@ export interface ListTestGridSessionsCommandOutput extends ListTestGridSessionsR
  * @throws {@link NotFoundException} (client fault)
  *  <p>The specified entity was not found.</p>
  *
+ * @throws {@link DeviceFarmServiceException}
+ * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
  */
 export class ListTestGridSessionsCommand extends $Command<

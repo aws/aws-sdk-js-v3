@@ -38,14 +38,24 @@ export interface GetAccessKeyLastUsedCommandOutput extends GetAccessKeyLastUsedR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IAMClient, GetAccessKeyLastUsedCommand } from "@aws-sdk/client-iam"; // ES Modules import
- * // const { IAMClient, GetAccessKeyLastUsedCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * import { IAMClient, GetAccessKeyLastUsedCommand } from '@aws-sdk/client-iam'; // ES Modules import
+ * // const { IAMClient, GetAccessKeyLastUsedCommand } = require('@aws-sdk/client-iam'); // CommonJS import
  * const client = new IAMClient(config);
  * const input = { // GetAccessKeyLastUsedRequest
- *   AccessKeyId: "STRING_VALUE", // required
+ *   AccessKeyId: 'STRING_VALUE', // required
  * };
  * const command = new GetAccessKeyLastUsedCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetAccessKeyLastUsedResponse
+ *   UserName: 'STRING_VALUE',
+ *   AccessKeyLastUsed: { // AccessKeyLastUsed
+ *     LastUsedDate: new Date('TIMESTAMP'), // required
+ *     ServiceName: 'STRING_VALUE', // required
+ *     Region: 'STRING_VALUE', // required
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetAccessKeyLastUsedCommandInput - {@link GetAccessKeyLastUsedCommandInput}
@@ -58,6 +68,8 @@ export interface GetAccessKeyLastUsedCommandOutput extends GetAccessKeyLastUsedR
  *  <p>The request was rejected because it referenced a resource entity that does not exist. The
  *       error message describes the resource.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  */
 export class GetAccessKeyLastUsedCommand extends $Command<

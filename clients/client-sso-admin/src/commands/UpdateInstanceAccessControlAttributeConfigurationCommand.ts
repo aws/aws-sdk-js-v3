@@ -50,18 +50,18 @@ export interface UpdateInstanceAccessControlAttributeConfigurationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSOAdminClient, UpdateInstanceAccessControlAttributeConfigurationCommand } from "@aws-sdk/client-sso-admin"; // ES Modules import
- * // const { SSOAdminClient, UpdateInstanceAccessControlAttributeConfigurationCommand } = require("@aws-sdk/client-sso-admin"); // CommonJS import
+ * import { SSOAdminClient, UpdateInstanceAccessControlAttributeConfigurationCommand } from '@aws-sdk/client-sso-admin'; // ES Modules import
+ * // const { SSOAdminClient, UpdateInstanceAccessControlAttributeConfigurationCommand } = require('@aws-sdk/client-sso-admin'); // CommonJS import
  * const client = new SSOAdminClient(config);
  * const input = { // UpdateInstanceAccessControlAttributeConfigurationRequest
- *   InstanceArn: "STRING_VALUE", // required
+ *   InstanceArn: 'STRING_VALUE', // required
  *   InstanceAccessControlAttributeConfiguration: { // InstanceAccessControlAttributeConfiguration
  *     AccessControlAttributes: [ // AccessControlAttributeList // required
  *       { // AccessControlAttribute
- *         Key: "STRING_VALUE", // required
+ *         Key: 'STRING_VALUE', // required
  *         Value: { // AccessControlAttributeValue
  *           Source: [ // AccessControlAttributeValueSourceList // required
- *             "STRING_VALUE",
+ *             'STRING_VALUE',
  *           ],
  *         },
  *       },
@@ -70,6 +70,9 @@ export interface UpdateInstanceAccessControlAttributeConfigurationCommandOutput
  * };
  * const command = new UpdateInstanceAccessControlAttributeConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateInstanceAccessControlAttributeConfigurationCommandInput - {@link UpdateInstanceAccessControlAttributeConfigurationCommandInput}
@@ -101,6 +104,8 @@ export interface UpdateInstanceAccessControlAttributeConfigurationCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The request failed because it contains a syntax error.</p>
  *
+ * @throws {@link SSOAdminServiceException}
+ * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
  */
 export class UpdateInstanceAccessControlAttributeConfigurationCommand extends $Command<

@@ -41,20 +41,25 @@ export interface SubscribeCommandOutput extends SubscribeResponse, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SNSClient, SubscribeCommand } from "@aws-sdk/client-sns"; // ES Modules import
- * // const { SNSClient, SubscribeCommand } = require("@aws-sdk/client-sns"); // CommonJS import
+ * import { SNSClient, SubscribeCommand } from '@aws-sdk/client-sns'; // ES Modules import
+ * // const { SNSClient, SubscribeCommand } = require('@aws-sdk/client-sns'); // CommonJS import
  * const client = new SNSClient(config);
  * const input = { // SubscribeInput
- *   TopicArn: "STRING_VALUE", // required
- *   Protocol: "STRING_VALUE", // required
- *   Endpoint: "STRING_VALUE",
+ *   TopicArn: 'STRING_VALUE', // required
+ *   Protocol: 'STRING_VALUE', // required
+ *   Endpoint: 'STRING_VALUE',
  *   Attributes: { // SubscriptionAttributesMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  *   ReturnSubscriptionArn: true || false,
  * };
  * const command = new SubscribeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SubscribeResponse
+ *   SubscriptionArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param SubscribeCommandInput - {@link SubscribeCommandInput}
@@ -89,6 +94,8 @@ export interface SubscribeCommandOutput extends SubscribeResponse, __MetadataBea
  *  <p>Indicates that the customer already owns the maximum allowed number of
  *             subscriptions.</p>
  *
+ * @throws {@link SNSServiceException}
+ * <p>Base exception class for all service exceptions from SNS service.</p>
  *
  */
 export class SubscribeCommand extends $Command<SubscribeCommandInput, SubscribeCommandOutput, SNSClientResolvedConfig> {

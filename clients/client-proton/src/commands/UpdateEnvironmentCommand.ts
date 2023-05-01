@@ -89,28 +89,58 @@ export interface UpdateEnvironmentCommandOutput extends UpdateEnvironmentOutput,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ProtonClient, UpdateEnvironmentCommand } from "@aws-sdk/client-proton"; // ES Modules import
- * // const { ProtonClient, UpdateEnvironmentCommand } = require("@aws-sdk/client-proton"); // CommonJS import
+ * import { ProtonClient, UpdateEnvironmentCommand } from '@aws-sdk/client-proton'; // ES Modules import
+ * // const { ProtonClient, UpdateEnvironmentCommand } = require('@aws-sdk/client-proton'); // CommonJS import
  * const client = new ProtonClient(config);
  * const input = { // UpdateEnvironmentInput
- *   name: "STRING_VALUE", // required
- *   description: "STRING_VALUE",
- *   spec: "STRING_VALUE",
- *   templateMajorVersion: "STRING_VALUE",
- *   templateMinorVersion: "STRING_VALUE",
- *   protonServiceRoleArn: "STRING_VALUE",
- *   deploymentType: "STRING_VALUE", // required
- *   environmentAccountConnectionId: "STRING_VALUE",
+ *   name: 'STRING_VALUE', // required
+ *   description: 'STRING_VALUE',
+ *   spec: 'STRING_VALUE',
+ *   templateMajorVersion: 'STRING_VALUE',
+ *   templateMinorVersion: 'STRING_VALUE',
+ *   protonServiceRoleArn: 'STRING_VALUE',
+ *   deploymentType: 'STRING_VALUE', // required
+ *   environmentAccountConnectionId: 'STRING_VALUE',
  *   provisioningRepository: { // RepositoryBranchInput
- *     provider: "STRING_VALUE", // required
- *     name: "STRING_VALUE", // required
- *     branch: "STRING_VALUE", // required
+ *     provider: 'STRING_VALUE', // required
+ *     name: 'STRING_VALUE', // required
+ *     branch: 'STRING_VALUE', // required
  *   },
- *   componentRoleArn: "STRING_VALUE",
- *   codebuildRoleArn: "STRING_VALUE",
+ *   componentRoleArn: 'STRING_VALUE',
+ *   codebuildRoleArn: 'STRING_VALUE',
  * };
  * const command = new UpdateEnvironmentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateEnvironmentOutput
+ *   environment: { // Environment
+ *     name: 'STRING_VALUE', // required
+ *     description: 'STRING_VALUE',
+ *     createdAt: new Date('TIMESTAMP'), // required
+ *     lastDeploymentAttemptedAt: new Date('TIMESTAMP'), // required
+ *     lastDeploymentSucceededAt: new Date('TIMESTAMP'), // required
+ *     arn: 'STRING_VALUE', // required
+ *     templateName: 'STRING_VALUE', // required
+ *     templateMajorVersion: 'STRING_VALUE', // required
+ *     templateMinorVersion: 'STRING_VALUE', // required
+ *     deploymentStatus: 'STRING_VALUE', // required
+ *     deploymentStatusMessage: 'STRING_VALUE',
+ *     protonServiceRoleArn: 'STRING_VALUE',
+ *     environmentAccountConnectionId: 'STRING_VALUE',
+ *     environmentAccountId: 'STRING_VALUE',
+ *     spec: 'STRING_VALUE',
+ *     provisioning: 'STRING_VALUE',
+ *     provisioningRepository: { // RepositoryBranch
+ *       arn: 'STRING_VALUE', // required
+ *       provider: 'STRING_VALUE', // required
+ *       name: 'STRING_VALUE', // required
+ *       branch: 'STRING_VALUE', // required
+ *     },
+ *     componentRoleArn: 'STRING_VALUE',
+ *     codebuildRoleArn: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateEnvironmentCommandInput - {@link UpdateEnvironmentCommandInput}
@@ -137,6 +167,8 @@ export interface UpdateEnvironmentCommandOutput extends UpdateEnvironmentOutput,
  * @throws {@link ValidationException} (client fault)
  *  <p>The input is invalid or an out-of-range value was supplied for the input parameter.</p>
  *
+ * @throws {@link ProtonServiceException}
+ * <p>Base exception class for all service exceptions from Proton service.</p>
  *
  */
 export class UpdateEnvironmentCommand extends $Command<

@@ -38,44 +38,81 @@ export interface CreateResolverCommandOutput extends CreateResolverResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppSyncClient, CreateResolverCommand } from "@aws-sdk/client-appsync"; // ES Modules import
- * // const { AppSyncClient, CreateResolverCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
+ * import { AppSyncClient, CreateResolverCommand } from '@aws-sdk/client-appsync'; // ES Modules import
+ * // const { AppSyncClient, CreateResolverCommand } = require('@aws-sdk/client-appsync'); // CommonJS import
  * const client = new AppSyncClient(config);
  * const input = { // CreateResolverRequest
- *   apiId: "STRING_VALUE", // required
- *   typeName: "STRING_VALUE", // required
- *   fieldName: "STRING_VALUE", // required
- *   dataSourceName: "STRING_VALUE",
- *   requestMappingTemplate: "STRING_VALUE",
- *   responseMappingTemplate: "STRING_VALUE",
- *   kind: "UNIT" || "PIPELINE",
+ *   apiId: 'STRING_VALUE', // required
+ *   typeName: 'STRING_VALUE', // required
+ *   fieldName: 'STRING_VALUE', // required
+ *   dataSourceName: 'STRING_VALUE',
+ *   requestMappingTemplate: 'STRING_VALUE',
+ *   responseMappingTemplate: 'STRING_VALUE',
+ *   kind: 'UNIT' || 'PIPELINE',
  *   pipelineConfig: { // PipelineConfig
  *     functions: [ // FunctionsIds
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *   },
  *   syncConfig: { // SyncConfig
- *     conflictHandler: "OPTIMISTIC_CONCURRENCY" || "LAMBDA" || "AUTOMERGE" || "NONE",
- *     conflictDetection: "VERSION" || "NONE",
+ *     conflictHandler: 'OPTIMISTIC_CONCURRENCY' || 'LAMBDA' || 'AUTOMERGE' || 'NONE',
+ *     conflictDetection: 'VERSION' || 'NONE',
  *     lambdaConflictHandlerConfig: { // LambdaConflictHandlerConfig
- *       lambdaConflictHandlerArn: "STRING_VALUE",
+ *       lambdaConflictHandlerArn: 'STRING_VALUE',
  *     },
  *   },
  *   cachingConfig: { // CachingConfig
- *     ttl: Number("long"), // required
+ *     ttl: Number('long'), // required
  *     cachingKeys: [ // CachingKeys
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *   },
- *   maxBatchSize: Number("int"),
+ *   maxBatchSize: Number('int'),
  *   runtime: { // AppSyncRuntime
- *     name: "APPSYNC_JS", // required
- *     runtimeVersion: "STRING_VALUE", // required
+ *     name: 'APPSYNC_JS', // required
+ *     runtimeVersion: 'STRING_VALUE', // required
  *   },
- *   code: "STRING_VALUE",
+ *   code: 'STRING_VALUE',
  * };
  * const command = new CreateResolverCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateResolverResponse
+ *   resolver: { // Resolver
+ *     typeName: 'STRING_VALUE',
+ *     fieldName: 'STRING_VALUE',
+ *     dataSourceName: 'STRING_VALUE',
+ *     resolverArn: 'STRING_VALUE',
+ *     requestMappingTemplate: 'STRING_VALUE',
+ *     responseMappingTemplate: 'STRING_VALUE',
+ *     kind: 'UNIT' || 'PIPELINE',
+ *     pipelineConfig: { // PipelineConfig
+ *       functions: [ // FunctionsIds
+ *         'STRING_VALUE',
+ *       ],
+ *     },
+ *     syncConfig: { // SyncConfig
+ *       conflictHandler: 'OPTIMISTIC_CONCURRENCY' || 'LAMBDA' || 'AUTOMERGE' || 'NONE',
+ *       conflictDetection: 'VERSION' || 'NONE',
+ *       lambdaConflictHandlerConfig: { // LambdaConflictHandlerConfig
+ *         lambdaConflictHandlerArn: 'STRING_VALUE',
+ *       },
+ *     },
+ *     cachingConfig: { // CachingConfig
+ *       ttl: Number('long'), // required
+ *       cachingKeys: [ // CachingKeys
+ *         'STRING_VALUE',
+ *       ],
+ *     },
+ *     maxBatchSize: Number('int'),
+ *     runtime: { // AppSyncRuntime
+ *       name: 'APPSYNC_JS', // required
+ *       runtimeVersion: 'STRING_VALUE', // required
+ *     },
+ *     code: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateResolverCommandInput - {@link CreateResolverCommandInput}
@@ -101,6 +138,8 @@ export interface CreateResolverCommandOutput extends CreateResolverResponse, __M
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You aren't authorized to perform this operation.</p>
  *
+ * @throws {@link AppSyncServiceException}
+ * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
  */
 export class CreateResolverCommand extends $Command<

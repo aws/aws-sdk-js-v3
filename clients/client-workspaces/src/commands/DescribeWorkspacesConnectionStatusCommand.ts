@@ -44,17 +44,30 @@ export interface DescribeWorkspacesConnectionStatusCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkSpacesClient, DescribeWorkspacesConnectionStatusCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
- * // const { WorkSpacesClient, DescribeWorkspacesConnectionStatusCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
+ * import { WorkSpacesClient, DescribeWorkspacesConnectionStatusCommand } from '@aws-sdk/client-workspaces'; // ES Modules import
+ * // const { WorkSpacesClient, DescribeWorkspacesConnectionStatusCommand } = require('@aws-sdk/client-workspaces'); // CommonJS import
  * const client = new WorkSpacesClient(config);
  * const input = { // DescribeWorkspacesConnectionStatusRequest
  *   WorkspaceIds: [ // WorkspaceIdList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   NextToken: "STRING_VALUE",
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new DescribeWorkspacesConnectionStatusCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeWorkspacesConnectionStatusResult
+ *   WorkspacesConnectionStatus: [ // WorkspaceConnectionStatusList
+ *     { // WorkspaceConnectionStatus
+ *       WorkspaceId: 'STRING_VALUE',
+ *       ConnectionState: 'CONNECTED' || 'DISCONNECTED' || 'UNKNOWN',
+ *       ConnectionStateCheckTimestamp: new Date('TIMESTAMP'),
+ *       LastKnownUserConnectionTimestamp: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeWorkspacesConnectionStatusCommandInput - {@link DescribeWorkspacesConnectionStatusCommandInput}
@@ -66,6 +79,8 @@ export interface DescribeWorkspacesConnectionStatusCommandOutput
  * @throws {@link InvalidParameterValuesException} (client fault)
  *  <p>One or more parameter values are not valid.</p>
  *
+ * @throws {@link WorkSpacesServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
  */
 export class DescribeWorkspacesConnectionStatusCommand extends $Command<

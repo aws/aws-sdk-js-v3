@@ -43,15 +43,20 @@ export interface RetrieveTapeArchiveCommandOutput extends RetrieveTapeArchiveOut
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { StorageGatewayClient, RetrieveTapeArchiveCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
- * // const { StorageGatewayClient, RetrieveTapeArchiveCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
+ * import { StorageGatewayClient, RetrieveTapeArchiveCommand } from '@aws-sdk/client-storage-gateway'; // ES Modules import
+ * // const { StorageGatewayClient, RetrieveTapeArchiveCommand } = require('@aws-sdk/client-storage-gateway'); // CommonJS import
  * const client = new StorageGatewayClient(config);
  * const input = { // RetrieveTapeArchiveInput
- *   TapeARN: "STRING_VALUE", // required
- *   GatewayARN: "STRING_VALUE", // required
+ *   TapeARN: 'STRING_VALUE', // required
+ *   GatewayARN: 'STRING_VALUE', // required
  * };
  * const command = new RetrieveTapeArchiveCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // RetrieveTapeArchiveOutput
+ *   TapeARN: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param RetrieveTapeArchiveCommandInput - {@link RetrieveTapeArchiveCommandInput}
@@ -68,6 +73,8 @@ export interface RetrieveTapeArchiveCommandOutput extends RetrieveTapeArchiveOut
  *  <p>An exception occurred because an invalid gateway request was issued to the service. For
  *          more information, see the error and message fields.</p>
  *
+ * @throws {@link StorageGatewayServiceException}
+ * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
  * @example To retrieve an archived tape from the VTS
  * ```javascript

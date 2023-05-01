@@ -41,15 +41,24 @@ export interface GetHostedZoneLimitCommandOutput extends GetHostedZoneLimitRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Route53Client, GetHostedZoneLimitCommand } from "@aws-sdk/client-route-53"; // ES Modules import
- * // const { Route53Client, GetHostedZoneLimitCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
+ * import { Route53Client, GetHostedZoneLimitCommand } from '@aws-sdk/client-route-53'; // ES Modules import
+ * // const { Route53Client, GetHostedZoneLimitCommand } = require('@aws-sdk/client-route-53'); // CommonJS import
  * const client = new Route53Client(config);
  * const input = { // GetHostedZoneLimitRequest
- *   Type: "MAX_RRSETS_BY_ZONE" || "MAX_VPCS_ASSOCIATED_BY_ZONE", // required
- *   HostedZoneId: "STRING_VALUE", // required
+ *   Type: 'MAX_RRSETS_BY_ZONE' || 'MAX_VPCS_ASSOCIATED_BY_ZONE', // required
+ *   HostedZoneId: 'STRING_VALUE', // required
  * };
  * const command = new GetHostedZoneLimitCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetHostedZoneLimitResponse
+ *   Limit: { // HostedZoneLimit
+ *     Type: 'MAX_RRSETS_BY_ZONE' || 'MAX_VPCS_ASSOCIATED_BY_ZONE', // required
+ *     Value: Number('long'), // required
+ *   },
+ *   Count: Number('long'), // required
+ * };
+ *
  * ```
  *
  * @param GetHostedZoneLimitCommandInput - {@link GetHostedZoneLimitCommandInput}
@@ -67,6 +76,8 @@ export interface GetHostedZoneLimitCommandOutput extends GetHostedZoneLimitRespo
  * @throws {@link NoSuchHostedZone} (client fault)
  *  <p>No hosted zone exists with the ID that you specified.</p>
  *
+ * @throws {@link Route53ServiceException}
+ * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
  */
 export class GetHostedZoneLimitCommand extends $Command<

@@ -36,15 +36,21 @@ export interface DeleteAssociationCommandOutput extends DeleteAssociationRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, DeleteAssociationCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, DeleteAssociationCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, DeleteAssociationCommand } from '@aws-sdk/client-sagemaker'; // ES Modules import
+ * // const { SageMakerClient, DeleteAssociationCommand } = require('@aws-sdk/client-sagemaker'); // CommonJS import
  * const client = new SageMakerClient(config);
  * const input = { // DeleteAssociationRequest
- *   SourceArn: "STRING_VALUE", // required
- *   DestinationArn: "STRING_VALUE", // required
+ *   SourceArn: 'STRING_VALUE', // required
+ *   DestinationArn: 'STRING_VALUE', // required
  * };
  * const command = new DeleteAssociationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteAssociationResponse
+ *   SourceArn: 'STRING_VALUE',
+ *   DestinationArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DeleteAssociationCommandInput - {@link DeleteAssociationCommandInput}
@@ -56,6 +62,8 @@ export interface DeleteAssociationCommandOutput extends DeleteAssociationRespons
  * @throws {@link ResourceNotFound} (client fault)
  *  <p>Resource being access is not found.</p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class DeleteAssociationCommand extends $Command<

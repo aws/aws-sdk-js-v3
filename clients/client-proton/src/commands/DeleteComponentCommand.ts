@@ -43,14 +43,34 @@ export interface DeleteComponentCommandOutput extends DeleteComponentOutput, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ProtonClient, DeleteComponentCommand } from "@aws-sdk/client-proton"; // ES Modules import
- * // const { ProtonClient, DeleteComponentCommand } = require("@aws-sdk/client-proton"); // CommonJS import
+ * import { ProtonClient, DeleteComponentCommand } from '@aws-sdk/client-proton'; // ES Modules import
+ * // const { ProtonClient, DeleteComponentCommand } = require('@aws-sdk/client-proton'); // CommonJS import
  * const client = new ProtonClient(config);
  * const input = { // DeleteComponentInput
- *   name: "STRING_VALUE", // required
+ *   name: 'STRING_VALUE', // required
  * };
  * const command = new DeleteComponentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteComponentOutput
+ *   component: { // Component
+ *     name: 'STRING_VALUE', // required
+ *     description: 'STRING_VALUE',
+ *     arn: 'STRING_VALUE', // required
+ *     environmentName: 'STRING_VALUE', // required
+ *     serviceName: 'STRING_VALUE',
+ *     serviceInstanceName: 'STRING_VALUE',
+ *     createdAt: new Date('TIMESTAMP'), // required
+ *     lastModifiedAt: new Date('TIMESTAMP'), // required
+ *     lastDeploymentAttemptedAt: new Date('TIMESTAMP'),
+ *     lastDeploymentSucceededAt: new Date('TIMESTAMP'),
+ *     deploymentStatus: 'STRING_VALUE', // required
+ *     deploymentStatusMessage: 'STRING_VALUE',
+ *     serviceSpec: 'STRING_VALUE',
+ *     lastClientRequestToken: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param DeleteComponentCommandInput - {@link DeleteComponentCommandInput}
@@ -77,6 +97,8 @@ export interface DeleteComponentCommandOutput extends DeleteComponentOutput, __M
  * @throws {@link ValidationException} (client fault)
  *  <p>The input is invalid or an out-of-range value was supplied for the input parameter.</p>
  *
+ * @throws {@link ProtonServiceException}
+ * <p>Base exception class for all service exceptions from Proton service.</p>
  *
  */
 export class DeleteComponentCommand extends $Command<

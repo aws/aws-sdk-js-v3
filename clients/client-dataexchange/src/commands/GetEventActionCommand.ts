@@ -36,14 +36,39 @@ export interface GetEventActionCommandOutput extends GetEventActionResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DataExchangeClient, GetEventActionCommand } from "@aws-sdk/client-dataexchange"; // ES Modules import
- * // const { DataExchangeClient, GetEventActionCommand } = require("@aws-sdk/client-dataexchange"); // CommonJS import
+ * import { DataExchangeClient, GetEventActionCommand } from '@aws-sdk/client-dataexchange'; // ES Modules import
+ * // const { DataExchangeClient, GetEventActionCommand } = require('@aws-sdk/client-dataexchange'); // CommonJS import
  * const client = new DataExchangeClient(config);
  * const input = { // GetEventActionRequest
- *   EventActionId: "STRING_VALUE", // required
+ *   EventActionId: 'STRING_VALUE', // required
  * };
  * const command = new GetEventActionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetEventActionResponse
+ *   Action: { // Action
+ *     ExportRevisionToS3: { // AutoExportRevisionToS3RequestDetails
+ *       Encryption: { // ExportServerSideEncryption
+ *         KmsKeyArn: 'STRING_VALUE',
+ *         Type: 'STRING_VALUE', // required
+ *       },
+ *       RevisionDestination: { // AutoExportRevisionDestinationEntry
+ *         Bucket: 'STRING_VALUE', // required
+ *         KeyPattern: 'STRING_VALUE',
+ *       },
+ *     },
+ *   },
+ *   Arn: 'STRING_VALUE',
+ *   CreatedAt: new Date('TIMESTAMP'),
+ *   Event: { // Event
+ *     RevisionPublished: { // RevisionPublished
+ *       DataSetId: 'STRING_VALUE', // required
+ *     },
+ *   },
+ *   Id: 'STRING_VALUE',
+ *   UpdatedAt: new Date('TIMESTAMP'),
+ * };
+ *
  * ```
  *
  * @param GetEventActionCommandInput - {@link GetEventActionCommandInput}
@@ -64,6 +89,8 @@ export interface GetEventActionCommandOutput extends GetEventActionResponse, __M
  * @throws {@link ValidationException} (client fault)
  *  <p>The request was invalid.</p>
  *
+ * @throws {@link DataExchangeServiceException}
+ * <p>Base exception class for all service exceptions from DataExchange service.</p>
  *
  */
 export class GetEventActionCommand extends $Command<

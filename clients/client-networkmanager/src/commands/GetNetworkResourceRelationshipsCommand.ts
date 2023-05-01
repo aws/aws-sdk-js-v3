@@ -41,22 +41,33 @@ export interface GetNetworkResourceRelationshipsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { NetworkManagerClient, GetNetworkResourceRelationshipsCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
- * // const { NetworkManagerClient, GetNetworkResourceRelationshipsCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
+ * import { NetworkManagerClient, GetNetworkResourceRelationshipsCommand } from '@aws-sdk/client-networkmanager'; // ES Modules import
+ * // const { NetworkManagerClient, GetNetworkResourceRelationshipsCommand } = require('@aws-sdk/client-networkmanager'); // CommonJS import
  * const client = new NetworkManagerClient(config);
  * const input = { // GetNetworkResourceRelationshipsRequest
- *   GlobalNetworkId: "STRING_VALUE", // required
- *   CoreNetworkId: "STRING_VALUE",
- *   RegisteredGatewayArn: "STRING_VALUE",
- *   AwsRegion: "STRING_VALUE",
- *   AccountId: "STRING_VALUE",
- *   ResourceType: "STRING_VALUE",
- *   ResourceArn: "STRING_VALUE",
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   GlobalNetworkId: 'STRING_VALUE', // required
+ *   CoreNetworkId: 'STRING_VALUE',
+ *   RegisteredGatewayArn: 'STRING_VALUE',
+ *   AwsRegion: 'STRING_VALUE',
+ *   AccountId: 'STRING_VALUE',
+ *   ResourceType: 'STRING_VALUE',
+ *   ResourceArn: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new GetNetworkResourceRelationshipsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetNetworkResourceRelationshipsResponse
+ *   Relationships: [ // RelationshipList
+ *     { // Relationship
+ *       From: 'STRING_VALUE',
+ *       To: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetNetworkResourceRelationshipsCommandInput - {@link GetNetworkResourceRelationshipsCommandInput}
@@ -80,6 +91,8 @@ export interface GetNetworkResourceRelationshipsCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints.</p>
  *
+ * @throws {@link NetworkManagerServiceException}
+ * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
  */
 export class GetNetworkResourceRelationshipsCommand extends $Command<

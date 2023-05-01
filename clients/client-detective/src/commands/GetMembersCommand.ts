@@ -37,17 +37,54 @@ export interface GetMembersCommandOutput extends GetMembersResponse, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DetectiveClient, GetMembersCommand } from "@aws-sdk/client-detective"; // ES Modules import
- * // const { DetectiveClient, GetMembersCommand } = require("@aws-sdk/client-detective"); // CommonJS import
+ * import { DetectiveClient, GetMembersCommand } from '@aws-sdk/client-detective'; // ES Modules import
+ * // const { DetectiveClient, GetMembersCommand } = require('@aws-sdk/client-detective'); // CommonJS import
  * const client = new DetectiveClient(config);
  * const input = { // GetMembersRequest
- *   GraphArn: "STRING_VALUE", // required
+ *   GraphArn: 'STRING_VALUE', // required
  *   AccountIds: [ // AccountIdList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new GetMembersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetMembersResponse
+ *   MemberDetails: [ // MemberDetailList
+ *     { // MemberDetail
+ *       AccountId: 'STRING_VALUE',
+ *       EmailAddress: 'STRING_VALUE',
+ *       GraphArn: 'STRING_VALUE',
+ *       MasterId: 'STRING_VALUE',
+ *       AdministratorId: 'STRING_VALUE',
+ *       Status: 'INVITED' || 'VERIFICATION_IN_PROGRESS' || 'VERIFICATION_FAILED' || 'ENABLED' || 'ACCEPTED_BUT_DISABLED',
+ *       DisabledReason: 'VOLUME_TOO_HIGH' || 'VOLUME_UNKNOWN',
+ *       InvitedTime: new Date('TIMESTAMP'),
+ *       UpdatedTime: new Date('TIMESTAMP'),
+ *       VolumeUsageInBytes: Number('long'),
+ *       VolumeUsageUpdatedTime: new Date('TIMESTAMP'),
+ *       PercentOfGraphUtilization: Number('double'),
+ *       PercentOfGraphUtilizationUpdatedTime: new Date('TIMESTAMP'),
+ *       InvitationType: 'INVITATION' || 'ORGANIZATION',
+ *       VolumeUsageByDatasourcePackage: { // VolumeUsageByDatasourcePackage
+ *         '<keys>': { // DatasourcePackageUsageInfo
+ *           VolumeUsageInBytes: Number('long'),
+ *           VolumeUsageUpdateTime: new Date('TIMESTAMP'),
+ *         },
+ *       },
+ *       DatasourcePackageIngestStates: { // DatasourcePackageIngestStates
+ *         '<keys>': 'STARTED' || 'STOPPED' || 'DISABLED',
+ *       },
+ *     },
+ *   ],
+ *   UnprocessedAccounts: [ // UnprocessedAccountList
+ *     { // UnprocessedAccount
+ *       AccountId: 'STRING_VALUE',
+ *       Reason: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetMembersCommandInput - {@link GetMembersCommandInput}
@@ -69,6 +106,8 @@ export interface GetMembersCommandOutput extends GetMembersResponse, __MetadataB
  * @throws {@link ValidationException} (client fault)
  *  <p>The request parameters are invalid.</p>
  *
+ * @throws {@link DetectiveServiceException}
+ * <p>Base exception class for all service exceptions from Detective service.</p>
  *
  */
 export class GetMembersCommand extends $Command<

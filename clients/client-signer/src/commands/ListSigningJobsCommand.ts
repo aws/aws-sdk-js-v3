@@ -42,22 +42,58 @@ export interface ListSigningJobsCommandOutput extends ListSigningJobsResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SignerClient, ListSigningJobsCommand } from "@aws-sdk/client-signer"; // ES Modules import
- * // const { SignerClient, ListSigningJobsCommand } = require("@aws-sdk/client-signer"); // CommonJS import
+ * import { SignerClient, ListSigningJobsCommand } from '@aws-sdk/client-signer'; // ES Modules import
+ * // const { SignerClient, ListSigningJobsCommand } = require('@aws-sdk/client-signer'); // CommonJS import
  * const client = new SignerClient(config);
  * const input = { // ListSigningJobsRequest
- *   status: "STRING_VALUE",
- *   platformId: "STRING_VALUE",
- *   requestedBy: "STRING_VALUE",
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   status: 'STRING_VALUE',
+ *   platformId: 'STRING_VALUE',
+ *   requestedBy: 'STRING_VALUE',
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  *   isRevoked: true || false,
- *   signatureExpiresBefore: new Date("TIMESTAMP"),
- *   signatureExpiresAfter: new Date("TIMESTAMP"),
- *   jobInvoker: "STRING_VALUE",
+ *   signatureExpiresBefore: new Date('TIMESTAMP'),
+ *   signatureExpiresAfter: new Date('TIMESTAMP'),
+ *   jobInvoker: 'STRING_VALUE',
  * };
  * const command = new ListSigningJobsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListSigningJobsResponse
+ *   jobs: [ // SigningJobs
+ *     { // SigningJob
+ *       jobId: 'STRING_VALUE',
+ *       source: { // Source
+ *         s3: { // S3Source
+ *           bucketName: 'STRING_VALUE', // required
+ *           key: 'STRING_VALUE', // required
+ *           version: 'STRING_VALUE', // required
+ *         },
+ *       },
+ *       signedObject: { // SignedObject
+ *         s3: { // S3SignedObject
+ *           bucketName: 'STRING_VALUE',
+ *           key: 'STRING_VALUE',
+ *         },
+ *       },
+ *       signingMaterial: { // SigningMaterial
+ *         certificateArn: 'STRING_VALUE', // required
+ *       },
+ *       createdAt: new Date('TIMESTAMP'),
+ *       status: 'STRING_VALUE',
+ *       isRevoked: true || false,
+ *       profileName: 'STRING_VALUE',
+ *       profileVersion: 'STRING_VALUE',
+ *       platformId: 'STRING_VALUE',
+ *       platformDisplayName: 'STRING_VALUE',
+ *       signatureExpiresAt: new Date('TIMESTAMP'),
+ *       jobOwner: 'STRING_VALUE',
+ *       jobInvoker: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListSigningJobsCommandInput - {@link ListSigningJobsCommandInput}
@@ -79,6 +115,8 @@ export interface ListSigningJobsCommandOutput extends ListSigningJobsResponse, _
  * @throws {@link ValidationException} (client fault)
  *  <p>You signing certificate could not be validated.</p>
  *
+ * @throws {@link SignerServiceException}
+ * <p>Base exception class for all service exceptions from Signer service.</p>
  *
  */
 export class ListSigningJobsCommand extends $Command<

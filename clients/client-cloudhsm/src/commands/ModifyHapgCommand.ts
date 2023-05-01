@@ -46,18 +46,23 @@ export interface ModifyHapgCommandOutput extends ModifyHapgResponse, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudHSMClient, ModifyHapgCommand } from "@aws-sdk/client-cloudhsm"; // ES Modules import
- * // const { CloudHSMClient, ModifyHapgCommand } = require("@aws-sdk/client-cloudhsm"); // CommonJS import
+ * import { CloudHSMClient, ModifyHapgCommand } from '@aws-sdk/client-cloudhsm'; // ES Modules import
+ * // const { CloudHSMClient, ModifyHapgCommand } = require('@aws-sdk/client-cloudhsm'); // CommonJS import
  * const client = new CloudHSMClient(config);
  * const input = { // ModifyHapgRequest
- *   HapgArn: "STRING_VALUE", // required
- *   Label: "STRING_VALUE",
+ *   HapgArn: 'STRING_VALUE', // required
+ *   Label: 'STRING_VALUE',
  *   PartitionSerialList: [ // PartitionSerialList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new ModifyHapgCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ModifyHapgResponse
+ *   HapgArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ModifyHapgCommandInput - {@link ModifyHapgCommandInput}
@@ -75,6 +80,8 @@ export interface ModifyHapgCommandOutput extends ModifyHapgResponse, __MetadataB
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>Indicates that one or more of the request parameters are not valid.</p>
  *
+ * @throws {@link CloudHSMServiceException}
+ * <p>Base exception class for all service exceptions from CloudHSM service.</p>
  *
  */
 export class ModifyHapgCommand extends $Command<

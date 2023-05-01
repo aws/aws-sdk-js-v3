@@ -67,17 +67,82 @@ export interface QueryCommandOutput extends QueryResponse, __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { TimestreamQueryClient, QueryCommand } from "@aws-sdk/client-timestream-query"; // ES Modules import
- * // const { TimestreamQueryClient, QueryCommand } = require("@aws-sdk/client-timestream-query"); // CommonJS import
+ * import { TimestreamQueryClient, QueryCommand } from '@aws-sdk/client-timestream-query'; // ES Modules import
+ * // const { TimestreamQueryClient, QueryCommand } = require('@aws-sdk/client-timestream-query'); // CommonJS import
  * const client = new TimestreamQueryClient(config);
  * const input = { // QueryRequest
- *   QueryString: "STRING_VALUE", // required
- *   ClientToken: "STRING_VALUE",
- *   NextToken: "STRING_VALUE",
- *   MaxRows: Number("int"),
+ *   QueryString: 'STRING_VALUE', // required
+ *   ClientToken: 'STRING_VALUE',
+ *   NextToken: 'STRING_VALUE',
+ *   MaxRows: Number('int'),
  * };
  * const command = new QueryCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // QueryResponse
+ *   QueryId: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
+ *   Rows: [ // RowList // required
+ *     { // Row
+ *       Data: [ // DatumList // required
+ *         { // Datum
+ *           ScalarValue: 'STRING_VALUE',
+ *           TimeSeriesValue: [ // TimeSeriesDataPointList
+ *             { // TimeSeriesDataPoint
+ *               Time: 'STRING_VALUE', // required
+ *               Value: {
+ *                 ScalarValue: 'STRING_VALUE',
+ *                 TimeSeriesValue: [
+ *                   {
+ *                     Time: 'STRING_VALUE', // required
+ *                     Value: '<Datum>', // required
+ *                   },
+ *                 ],
+ *                 ArrayValue: [
+ *                   '<Datum>',
+ *                 ],
+ *                 RowValue: {
+ *                   Data: '<DatumList>', // required
+ *                 },
+ *                 NullValue: true || false,
+ *               },
+ *             },
+ *           ],
+ *           ArrayValue: '<DatumList>',
+ *           RowValue: '<Row>',
+ *           NullValue: true || false,
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   ColumnInfo: [ // ColumnInfoList // required
+ *     { // ColumnInfo
+ *       Name: 'STRING_VALUE',
+ *       Type: { // Type
+ *         ScalarType: 'STRING_VALUE',
+ *         ArrayColumnInfo: {
+ *           Name: 'STRING_VALUE',
+ *           Type: {
+ *             ScalarType: 'STRING_VALUE',
+ *             ArrayColumnInfo: '<ColumnInfo>',
+ *             TimeSeriesMeasureValueColumnInfo: '<ColumnInfo>',
+ *             RowColumnInfo: [
+ *               '<ColumnInfo>',
+ *             ],
+ *           },
+ *         },
+ *         TimeSeriesMeasureValueColumnInfo: '<ColumnInfo>',
+ *         RowColumnInfo: '<ColumnInfoList>',
+ *       },
+ *     },
+ *   ],
+ *   QueryStatus: { // QueryStatus
+ *     ProgressPercentage: Number('double'),
+ *     CumulativeBytesScanned: Number('long'),
+ *     CumulativeBytesMetered: Number('long'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param QueryCommandInput - {@link QueryCommandInput}
@@ -110,6 +175,8 @@ export interface QueryCommandOutput extends QueryResponse, __MetadataBearer {}
  * @throws {@link ValidationException} (client fault)
  *  <p> Invalid or malformed request. </p>
  *
+ * @throws {@link TimestreamQueryServiceException}
+ * <p>Base exception class for all service exceptions from TimestreamQuery service.</p>
  *
  */
 export class QueryCommand extends $Command<QueryCommandInput, QueryCommandOutput, TimestreamQueryClientResolvedConfig> {

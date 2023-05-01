@@ -44,24 +44,29 @@ export interface InvokeScreenAutomationCommandOutput extends InvokeScreenAutomat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { HoneycodeClient, InvokeScreenAutomationCommand } from "@aws-sdk/client-honeycode"; // ES Modules import
- * // const { HoneycodeClient, InvokeScreenAutomationCommand } = require("@aws-sdk/client-honeycode"); // CommonJS import
+ * import { HoneycodeClient, InvokeScreenAutomationCommand } from '@aws-sdk/client-honeycode'; // ES Modules import
+ * // const { HoneycodeClient, InvokeScreenAutomationCommand } = require('@aws-sdk/client-honeycode'); // CommonJS import
  * const client = new HoneycodeClient(config);
  * const input = { // InvokeScreenAutomationRequest
- *   workbookId: "STRING_VALUE", // required
- *   appId: "STRING_VALUE", // required
- *   screenId: "STRING_VALUE", // required
- *   screenAutomationId: "STRING_VALUE", // required
+ *   workbookId: 'STRING_VALUE', // required
+ *   appId: 'STRING_VALUE', // required
+ *   screenId: 'STRING_VALUE', // required
+ *   screenAutomationId: 'STRING_VALUE', // required
  *   variables: { // VariableValueMap
- *     "<keys>": { // VariableValue
- *       rawValue: "STRING_VALUE", // required
+ *     '<keys>': { // VariableValue
+ *       rawValue: 'STRING_VALUE', // required
  *     },
  *   },
- *   rowId: "STRING_VALUE",
- *   clientRequestToken: "STRING_VALUE",
+ *   rowId: 'STRING_VALUE',
+ *   clientRequestToken: 'STRING_VALUE',
  * };
  * const command = new InvokeScreenAutomationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // InvokeScreenAutomationResult
+ *   workbookCursor: Number('long'), // required
+ * };
+ *
  * ```
  *
  * @param InvokeScreenAutomationCommandInput - {@link InvokeScreenAutomationCommandInput}
@@ -107,6 +112,8 @@ export interface InvokeScreenAutomationCommandOutput extends InvokeScreenAutomat
  *             Request is invalid. The message in the response contains details on why the request is invalid.
  *         </p>
  *
+ * @throws {@link HoneycodeServiceException}
+ * <p>Base exception class for all service exceptions from Honeycode service.</p>
  *
  */
 export class InvokeScreenAutomationCommand extends $Command<

@@ -37,17 +37,41 @@ export interface DescribeTrailsCommandOutput extends DescribeTrailsResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudTrailClient, DescribeTrailsCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
- * // const { CloudTrailClient, DescribeTrailsCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
+ * import { CloudTrailClient, DescribeTrailsCommand } from '@aws-sdk/client-cloudtrail'; // ES Modules import
+ * // const { CloudTrailClient, DescribeTrailsCommand } = require('@aws-sdk/client-cloudtrail'); // CommonJS import
  * const client = new CloudTrailClient(config);
  * const input = { // DescribeTrailsRequest
  *   trailNameList: [ // TrailNameList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   includeShadowTrails: true || false,
  * };
  * const command = new DescribeTrailsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeTrailsResponse
+ *   trailList: [ // TrailList
+ *     { // Trail
+ *       Name: 'STRING_VALUE',
+ *       S3BucketName: 'STRING_VALUE',
+ *       S3KeyPrefix: 'STRING_VALUE',
+ *       SnsTopicName: 'STRING_VALUE',
+ *       SnsTopicARN: 'STRING_VALUE',
+ *       IncludeGlobalServiceEvents: true || false,
+ *       IsMultiRegionTrail: true || false,
+ *       HomeRegion: 'STRING_VALUE',
+ *       TrailARN: 'STRING_VALUE',
+ *       LogFileValidationEnabled: true || false,
+ *       CloudWatchLogsLogGroupArn: 'STRING_VALUE',
+ *       CloudWatchLogsRoleArn: 'STRING_VALUE',
+ *       KmsKeyId: 'STRING_VALUE',
+ *       HasCustomEventSelectors: true || false,
+ *       HasInsightSelectors: true || false,
+ *       IsOrganizationTrail: true || false,
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeTrailsCommandInput - {@link DescribeTrailsCommandInput}
@@ -89,6 +113,8 @@ export interface DescribeTrailsCommandOutput extends DescribeTrailsResponse, __M
  * @throws {@link UnsupportedOperationException} (client fault)
  *  <p>This exception is thrown when the requested operation is not supported.</p>
  *
+ * @throws {@link CloudTrailServiceException}
+ * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
  */
 export class DescribeTrailsCommand extends $Command<

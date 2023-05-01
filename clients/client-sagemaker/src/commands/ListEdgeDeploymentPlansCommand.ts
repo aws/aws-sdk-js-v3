@@ -36,23 +36,40 @@ export interface ListEdgeDeploymentPlansCommandOutput extends ListEdgeDeployment
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, ListEdgeDeploymentPlansCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, ListEdgeDeploymentPlansCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, ListEdgeDeploymentPlansCommand } from '@aws-sdk/client-sagemaker'; // ES Modules import
+ * // const { SageMakerClient, ListEdgeDeploymentPlansCommand } = require('@aws-sdk/client-sagemaker'); // CommonJS import
  * const client = new SageMakerClient(config);
  * const input = { // ListEdgeDeploymentPlansRequest
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
- *   CreationTimeAfter: new Date("TIMESTAMP"),
- *   CreationTimeBefore: new Date("TIMESTAMP"),
- *   LastModifiedTimeAfter: new Date("TIMESTAMP"),
- *   LastModifiedTimeBefore: new Date("TIMESTAMP"),
- *   NameContains: "STRING_VALUE",
- *   DeviceFleetNameContains: "STRING_VALUE",
- *   SortBy: "NAME" || "DEVICE_FLEET_NAME" || "CREATION_TIME" || "LAST_MODIFIED_TIME",
- *   SortOrder: "Ascending" || "Descending",
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
+ *   CreationTimeAfter: new Date('TIMESTAMP'),
+ *   CreationTimeBefore: new Date('TIMESTAMP'),
+ *   LastModifiedTimeAfter: new Date('TIMESTAMP'),
+ *   LastModifiedTimeBefore: new Date('TIMESTAMP'),
+ *   NameContains: 'STRING_VALUE',
+ *   DeviceFleetNameContains: 'STRING_VALUE',
+ *   SortBy: 'NAME' || 'DEVICE_FLEET_NAME' || 'CREATION_TIME' || 'LAST_MODIFIED_TIME',
+ *   SortOrder: 'Ascending' || 'Descending',
  * };
  * const command = new ListEdgeDeploymentPlansCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListEdgeDeploymentPlansResponse
+ *   EdgeDeploymentPlanSummaries: [ // EdgeDeploymentPlanSummaries // required
+ *     { // EdgeDeploymentPlanSummary
+ *       EdgeDeploymentPlanArn: 'STRING_VALUE', // required
+ *       EdgeDeploymentPlanName: 'STRING_VALUE', // required
+ *       DeviceFleetName: 'STRING_VALUE', // required
+ *       EdgeDeploymentSuccess: Number('int'), // required
+ *       EdgeDeploymentPending: Number('int'), // required
+ *       EdgeDeploymentFailed: Number('int'), // required
+ *       CreationTime: new Date('TIMESTAMP'),
+ *       LastModifiedTime: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListEdgeDeploymentPlansCommandInput - {@link ListEdgeDeploymentPlansCommandInput}
@@ -61,6 +78,8 @@ export interface ListEdgeDeploymentPlansCommandOutput extends ListEdgeDeployment
  * @see {@link ListEdgeDeploymentPlansCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class ListEdgeDeploymentPlansCommand extends $Command<

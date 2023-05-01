@@ -36,15 +36,30 @@ export interface ListAllowListsCommandOutput extends ListAllowListsResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Macie2Client, ListAllowListsCommand } from "@aws-sdk/client-macie2"; // ES Modules import
- * // const { Macie2Client, ListAllowListsCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
+ * import { Macie2Client, ListAllowListsCommand } from '@aws-sdk/client-macie2'; // ES Modules import
+ * // const { Macie2Client, ListAllowListsCommand } = require('@aws-sdk/client-macie2'); // CommonJS import
  * const client = new Macie2Client(config);
  * const input = { // ListAllowListsRequest
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new ListAllowListsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListAllowListsResponse
+ *   allowLists: [ // __listOfAllowListSummary
+ *     { // AllowListSummary
+ *       arn: 'STRING_VALUE',
+ *       createdAt: new Date('TIMESTAMP'),
+ *       description: 'STRING_VALUE',
+ *       id: 'STRING_VALUE',
+ *       name: 'STRING_VALUE',
+ *       updatedAt: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListAllowListsCommandInput - {@link ListAllowListsCommandInput}
@@ -65,6 +80,8 @@ export interface ListAllowListsCommandOutput extends ListAllowListsResponse, __M
  * @throws {@link ValidationException} (client fault)
  *  <p>Provides information about an error that occurred due to a syntax error in a request.</p>
  *
+ * @throws {@link Macie2ServiceException}
+ * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
  */
 export class ListAllowListsCommand extends $Command<

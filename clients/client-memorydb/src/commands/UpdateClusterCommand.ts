@@ -36,33 +36,107 @@ export interface UpdateClusterCommandOutput extends UpdateClusterResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MemoryDBClient, UpdateClusterCommand } from "@aws-sdk/client-memorydb"; // ES Modules import
- * // const { MemoryDBClient, UpdateClusterCommand } = require("@aws-sdk/client-memorydb"); // CommonJS import
+ * import { MemoryDBClient, UpdateClusterCommand } from '@aws-sdk/client-memorydb'; // ES Modules import
+ * // const { MemoryDBClient, UpdateClusterCommand } = require('@aws-sdk/client-memorydb'); // CommonJS import
  * const client = new MemoryDBClient(config);
  * const input = { // UpdateClusterRequest
- *   ClusterName: "STRING_VALUE", // required
- *   Description: "STRING_VALUE",
+ *   ClusterName: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE',
  *   SecurityGroupIds: [ // SecurityGroupIdsList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   MaintenanceWindow: "STRING_VALUE",
- *   SnsTopicArn: "STRING_VALUE",
- *   SnsTopicStatus: "STRING_VALUE",
- *   ParameterGroupName: "STRING_VALUE",
- *   SnapshotWindow: "STRING_VALUE",
- *   SnapshotRetentionLimit: Number("int"),
- *   NodeType: "STRING_VALUE",
- *   EngineVersion: "STRING_VALUE",
+ *   MaintenanceWindow: 'STRING_VALUE',
+ *   SnsTopicArn: 'STRING_VALUE',
+ *   SnsTopicStatus: 'STRING_VALUE',
+ *   ParameterGroupName: 'STRING_VALUE',
+ *   SnapshotWindow: 'STRING_VALUE',
+ *   SnapshotRetentionLimit: Number('int'),
+ *   NodeType: 'STRING_VALUE',
+ *   EngineVersion: 'STRING_VALUE',
  *   ReplicaConfiguration: { // ReplicaConfigurationRequest
- *     ReplicaCount: Number("int"),
+ *     ReplicaCount: Number('int'),
  *   },
  *   ShardConfiguration: { // ShardConfigurationRequest
- *     ShardCount: Number("int"),
+ *     ShardCount: Number('int'),
  *   },
- *   ACLName: "STRING_VALUE",
+ *   ACLName: 'STRING_VALUE',
  * };
  * const command = new UpdateClusterCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateClusterResponse
+ *   Cluster: { // Cluster
+ *     Name: 'STRING_VALUE',
+ *     Description: 'STRING_VALUE',
+ *     Status: 'STRING_VALUE',
+ *     PendingUpdates: { // ClusterPendingUpdates
+ *       Resharding: { // ReshardingStatus
+ *         SlotMigration: { // SlotMigration
+ *           ProgressPercentage: Number('double'),
+ *         },
+ *       },
+ *       ACLs: { // ACLsUpdateStatus
+ *         ACLToApply: 'STRING_VALUE',
+ *       },
+ *       ServiceUpdates: [ // PendingModifiedServiceUpdateList
+ *         { // PendingModifiedServiceUpdate
+ *           ServiceUpdateName: 'STRING_VALUE',
+ *           Status: 'available' || 'in-progress' || 'complete' || 'scheduled',
+ *         },
+ *       ],
+ *     },
+ *     NumberOfShards: Number('int'),
+ *     Shards: [ // ShardList
+ *       { // Shard
+ *         Name: 'STRING_VALUE',
+ *         Status: 'STRING_VALUE',
+ *         Slots: 'STRING_VALUE',
+ *         Nodes: [ // NodeList
+ *           { // Node
+ *             Name: 'STRING_VALUE',
+ *             Status: 'STRING_VALUE',
+ *             AvailabilityZone: 'STRING_VALUE',
+ *             CreateTime: new Date('TIMESTAMP'),
+ *             Endpoint: { // Endpoint
+ *               Address: 'STRING_VALUE',
+ *               Port: Number('int'),
+ *             },
+ *           },
+ *         ],
+ *         NumberOfNodes: Number('int'),
+ *       },
+ *     ],
+ *     AvailabilityMode: 'singleaz' || 'multiaz',
+ *     ClusterEndpoint: {
+ *       Address: 'STRING_VALUE',
+ *       Port: Number('int'),
+ *     },
+ *     NodeType: 'STRING_VALUE',
+ *     EngineVersion: 'STRING_VALUE',
+ *     EnginePatchVersion: 'STRING_VALUE',
+ *     ParameterGroupName: 'STRING_VALUE',
+ *     ParameterGroupStatus: 'STRING_VALUE',
+ *     SecurityGroups: [ // SecurityGroupMembershipList
+ *       { // SecurityGroupMembership
+ *         SecurityGroupId: 'STRING_VALUE',
+ *         Status: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     SubnetGroupName: 'STRING_VALUE',
+ *     TLSEnabled: true || false,
+ *     KmsKeyId: 'STRING_VALUE',
+ *     ARN: 'STRING_VALUE',
+ *     SnsTopicArn: 'STRING_VALUE',
+ *     SnsTopicStatus: 'STRING_VALUE',
+ *     SnapshotRetentionLimit: Number('int'),
+ *     MaintenanceWindow: 'STRING_VALUE',
+ *     SnapshotWindow: 'STRING_VALUE',
+ *     ACLName: 'STRING_VALUE',
+ *     AutoMinorVersionUpgrade: true || false,
+ *     DataTiering: 'true' || 'false',
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateClusterCommandInput - {@link UpdateClusterCommandInput}
@@ -119,6 +193,8 @@ export interface UpdateClusterCommandOutput extends UpdateClusterResponse, __Met
  * @throws {@link ShardsPerClusterQuotaExceededFault} (client fault)
  *  <p></p>
  *
+ * @throws {@link MemoryDBServiceException}
+ * <p>Base exception class for all service exceptions from MemoryDB service.</p>
  *
  */
 export class UpdateClusterCommand extends $Command<

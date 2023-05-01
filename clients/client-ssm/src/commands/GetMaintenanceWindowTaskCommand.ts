@@ -47,15 +47,103 @@ export interface GetMaintenanceWindowTaskCommandOutput extends GetMaintenanceWin
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMClient, GetMaintenanceWindowTaskCommand } from "@aws-sdk/client-ssm"; // ES Modules import
- * // const { SSMClient, GetMaintenanceWindowTaskCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * import { SSMClient, GetMaintenanceWindowTaskCommand } from '@aws-sdk/client-ssm'; // ES Modules import
+ * // const { SSMClient, GetMaintenanceWindowTaskCommand } = require('@aws-sdk/client-ssm'); // CommonJS import
  * const client = new SSMClient(config);
  * const input = { // GetMaintenanceWindowTaskRequest
- *   WindowId: "STRING_VALUE", // required
- *   WindowTaskId: "STRING_VALUE", // required
+ *   WindowId: 'STRING_VALUE', // required
+ *   WindowTaskId: 'STRING_VALUE', // required
  * };
  * const command = new GetMaintenanceWindowTaskCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetMaintenanceWindowTaskResult
+ *   WindowId: 'STRING_VALUE',
+ *   WindowTaskId: 'STRING_VALUE',
+ *   Targets: [ // Targets
+ *     { // Target
+ *       Key: 'STRING_VALUE',
+ *       Values: [ // TargetValues
+ *         'STRING_VALUE',
+ *       ],
+ *     },
+ *   ],
+ *   TaskArn: 'STRING_VALUE',
+ *   ServiceRoleArn: 'STRING_VALUE',
+ *   TaskType: 'RUN_COMMAND' || 'AUTOMATION' || 'STEP_FUNCTIONS' || 'LAMBDA',
+ *   TaskParameters: { // MaintenanceWindowTaskParameters
+ *     '<keys>': { // MaintenanceWindowTaskParameterValueExpression
+ *       Values: [ // MaintenanceWindowTaskParameterValueList
+ *         'STRING_VALUE',
+ *       ],
+ *     },
+ *   },
+ *   TaskInvocationParameters: { // MaintenanceWindowTaskInvocationParameters
+ *     RunCommand: { // MaintenanceWindowRunCommandParameters
+ *       Comment: 'STRING_VALUE',
+ *       CloudWatchOutputConfig: { // CloudWatchOutputConfig
+ *         CloudWatchLogGroupName: 'STRING_VALUE',
+ *         CloudWatchOutputEnabled: true || false,
+ *       },
+ *       DocumentHash: 'STRING_VALUE',
+ *       DocumentHashType: 'Sha256' || 'Sha1',
+ *       DocumentVersion: 'STRING_VALUE',
+ *       NotificationConfig: { // NotificationConfig
+ *         NotificationArn: 'STRING_VALUE',
+ *         NotificationEvents: [ // NotificationEventList
+ *           'All' || 'InProgress' || 'Success' || 'TimedOut' || 'Cancelled' || 'Failed',
+ *         ],
+ *         NotificationType: 'Command' || 'Invocation',
+ *       },
+ *       OutputS3BucketName: 'STRING_VALUE',
+ *       OutputS3KeyPrefix: 'STRING_VALUE',
+ *       Parameters: { // Parameters
+ *         '<keys>': [ // ParameterValueList
+ *           'STRING_VALUE',
+ *         ],
+ *       },
+ *       ServiceRoleArn: 'STRING_VALUE',
+ *       TimeoutSeconds: Number('int'),
+ *     },
+ *     Automation: { // MaintenanceWindowAutomationParameters
+ *       DocumentVersion: 'STRING_VALUE',
+ *       Parameters: { // AutomationParameterMap
+ *         '<keys>': [ // AutomationParameterValueList
+ *           'STRING_VALUE',
+ *         ],
+ *       },
+ *     },
+ *     StepFunctions: { // MaintenanceWindowStepFunctionsParameters
+ *       Input: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *     },
+ *     Lambda: { // MaintenanceWindowLambdaParameters
+ *       ClientContext: 'STRING_VALUE',
+ *       Qualifier: 'STRING_VALUE',
+ *       Payload: 'BLOB_VALUE',
+ *     },
+ *   },
+ *   Priority: Number('int'),
+ *   MaxConcurrency: 'STRING_VALUE',
+ *   MaxErrors: 'STRING_VALUE',
+ *   LoggingInfo: { // LoggingInfo
+ *     S3BucketName: 'STRING_VALUE', // required
+ *     S3KeyPrefix: 'STRING_VALUE',
+ *     S3Region: 'STRING_VALUE', // required
+ *   },
+ *   Name: 'STRING_VALUE',
+ *   Description: 'STRING_VALUE',
+ *   CutoffBehavior: 'CONTINUE_TASK' || 'CANCEL_TASK',
+ *   AlarmConfiguration: { // AlarmConfiguration
+ *     IgnorePollAlarmFailure: true || false,
+ *     Alarms: [ // AlarmList // required
+ *       { // Alarm
+ *         Name: 'STRING_VALUE', // required
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetMaintenanceWindowTaskCommandInput - {@link GetMaintenanceWindowTaskCommandInput}
@@ -73,6 +161,8 @@ export interface GetMaintenanceWindowTaskCommandOutput extends GetMaintenanceWin
  * @throws {@link InternalServerError} (server fault)
  *  <p>An error occurred on the server side.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class GetMaintenanceWindowTaskCommand extends $Command<

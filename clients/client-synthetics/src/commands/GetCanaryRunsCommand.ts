@@ -36,16 +36,37 @@ export interface GetCanaryRunsCommandOutput extends GetCanaryRunsResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SyntheticsClient, GetCanaryRunsCommand } from "@aws-sdk/client-synthetics"; // ES Modules import
- * // const { SyntheticsClient, GetCanaryRunsCommand } = require("@aws-sdk/client-synthetics"); // CommonJS import
+ * import { SyntheticsClient, GetCanaryRunsCommand } from '@aws-sdk/client-synthetics'; // ES Modules import
+ * // const { SyntheticsClient, GetCanaryRunsCommand } = require('@aws-sdk/client-synthetics'); // CommonJS import
  * const client = new SyntheticsClient(config);
  * const input = { // GetCanaryRunsRequest
- *   Name: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   Name: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new GetCanaryRunsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetCanaryRunsResponse
+ *   CanaryRuns: [ // CanaryRuns
+ *     { // CanaryRun
+ *       Id: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *       Status: { // CanaryRunStatus
+ *         State: 'STRING_VALUE',
+ *         StateReason: 'STRING_VALUE',
+ *         StateReasonCode: 'STRING_VALUE',
+ *       },
+ *       Timeline: { // CanaryRunTimeline
+ *         Started: new Date('TIMESTAMP'),
+ *         Completed: new Date('TIMESTAMP'),
+ *       },
+ *       ArtifactS3Location: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetCanaryRunsCommandInput - {@link GetCanaryRunsCommandInput}
@@ -63,6 +84,8 @@ export interface GetCanaryRunsCommandOutput extends GetCanaryRunsResponse, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>A parameter could not be validated.</p>
  *
+ * @throws {@link SyntheticsServiceException}
+ * <p>Base exception class for all service exceptions from Synthetics service.</p>
  *
  */
 export class GetCanaryRunsCommand extends $Command<

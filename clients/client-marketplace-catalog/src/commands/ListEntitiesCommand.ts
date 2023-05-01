@@ -40,30 +40,45 @@ export interface ListEntitiesCommandOutput extends ListEntitiesResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MarketplaceCatalogClient, ListEntitiesCommand } from "@aws-sdk/client-marketplace-catalog"; // ES Modules import
- * // const { MarketplaceCatalogClient, ListEntitiesCommand } = require("@aws-sdk/client-marketplace-catalog"); // CommonJS import
+ * import { MarketplaceCatalogClient, ListEntitiesCommand } from '@aws-sdk/client-marketplace-catalog'; // ES Modules import
+ * // const { MarketplaceCatalogClient, ListEntitiesCommand } = require('@aws-sdk/client-marketplace-catalog'); // CommonJS import
  * const client = new MarketplaceCatalogClient(config);
  * const input = { // ListEntitiesRequest
- *   Catalog: "STRING_VALUE", // required
- *   EntityType: "STRING_VALUE", // required
+ *   Catalog: 'STRING_VALUE', // required
+ *   EntityType: 'STRING_VALUE', // required
  *   FilterList: [ // FilterList
  *     { // Filter
- *       Name: "STRING_VALUE",
+ *       Name: 'STRING_VALUE',
  *       ValueList: [ // ValueList
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
  *   Sort: { // Sort
- *     SortBy: "STRING_VALUE",
- *     SortOrder: "ASCENDING" || "DESCENDING",
+ *     SortBy: 'STRING_VALUE',
+ *     SortOrder: 'ASCENDING' || 'DESCENDING',
  *   },
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
- *   OwnershipType: "SELF" || "SHARED",
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
+ *   OwnershipType: 'SELF' || 'SHARED',
  * };
  * const command = new ListEntitiesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListEntitiesResponse
+ *   EntitySummaryList: [ // EntitySummaryList
+ *     { // EntitySummary
+ *       Name: 'STRING_VALUE',
+ *       EntityType: 'STRING_VALUE',
+ *       EntityId: 'STRING_VALUE',
+ *       EntityArn: 'STRING_VALUE',
+ *       LastModifiedDate: 'STRING_VALUE',
+ *       Visibility: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListEntitiesCommandInput - {@link ListEntitiesCommandInput}
@@ -92,6 +107,8 @@ export interface ListEntitiesCommandOutput extends ListEntitiesResponse, __Metad
  *  <p>An error occurred during validation.</p>
  *          <p>HTTP status code: 422</p>
  *
+ * @throws {@link MarketplaceCatalogServiceException}
+ * <p>Base exception class for all service exceptions from MarketplaceCatalog service.</p>
  *
  */
 export class ListEntitiesCommand extends $Command<

@@ -94,15 +94,72 @@ export interface GetBucketLifecycleConfigurationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { S3Client, GetBucketLifecycleConfigurationCommand } from "@aws-sdk/client-s3"; // ES Modules import
- * // const { S3Client, GetBucketLifecycleConfigurationCommand } = require("@aws-sdk/client-s3"); // CommonJS import
+ * import { S3Client, GetBucketLifecycleConfigurationCommand } from '@aws-sdk/client-s3'; // ES Modules import
+ * // const { S3Client, GetBucketLifecycleConfigurationCommand } = require('@aws-sdk/client-s3'); // CommonJS import
  * const client = new S3Client(config);
  * const input = { // GetBucketLifecycleConfigurationRequest
- *   Bucket: "STRING_VALUE", // required
- *   ExpectedBucketOwner: "STRING_VALUE",
+ *   Bucket: 'STRING_VALUE', // required
+ *   ExpectedBucketOwner: 'STRING_VALUE',
  * };
  * const command = new GetBucketLifecycleConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetBucketLifecycleConfigurationOutput
+ *   Rules: [ // LifecycleRules
+ *     { // LifecycleRule
+ *       Expiration: { // LifecycleExpiration
+ *         Date: new Date('TIMESTAMP'),
+ *         Days: Number('int'),
+ *         ExpiredObjectDeleteMarker: true || false,
+ *       },
+ *       ID: 'STRING_VALUE',
+ *       Prefix: 'STRING_VALUE',
+ *       Filter: { // LifecycleRuleFilter Union: only one key present
+ *         Prefix: 'STRING_VALUE',
+ *         Tag: { // Tag
+ *           Key: 'STRING_VALUE', // required
+ *           Value: 'STRING_VALUE', // required
+ *         },
+ *         ObjectSizeGreaterThan: Number('long'),
+ *         ObjectSizeLessThan: Number('long'),
+ *         And: { // LifecycleRuleAndOperator
+ *           Prefix: 'STRING_VALUE',
+ *           Tags: [ // TagSet
+ *             {
+ *               Key: 'STRING_VALUE', // required
+ *               Value: 'STRING_VALUE', // required
+ *             },
+ *           ],
+ *           ObjectSizeGreaterThan: Number('long'),
+ *           ObjectSizeLessThan: Number('long'),
+ *         },
+ *       },
+ *       Status: 'Enabled' || 'Disabled', // required
+ *       Transitions: [ // TransitionList
+ *         { // Transition
+ *           Date: new Date('TIMESTAMP'),
+ *           Days: Number('int'),
+ *           StorageClass: 'GLACIER' || 'STANDARD_IA' || 'ONEZONE_IA' || 'INTELLIGENT_TIERING' || 'DEEP_ARCHIVE' || 'GLACIER_IR',
+ *         },
+ *       ],
+ *       NoncurrentVersionTransitions: [ // NoncurrentVersionTransitionList
+ *         { // NoncurrentVersionTransition
+ *           NoncurrentDays: Number('int'),
+ *           StorageClass: 'GLACIER' || 'STANDARD_IA' || 'ONEZONE_IA' || 'INTELLIGENT_TIERING' || 'DEEP_ARCHIVE' || 'GLACIER_IR',
+ *           NewerNoncurrentVersions: Number('int'),
+ *         },
+ *       ],
+ *       NoncurrentVersionExpiration: { // NoncurrentVersionExpiration
+ *         NoncurrentDays: Number('int'),
+ *         NewerNoncurrentVersions: Number('int'),
+ *       },
+ *       AbortIncompleteMultipartUpload: { // AbortIncompleteMultipartUpload
+ *         DaysAfterInitiation: Number('int'),
+ *       },
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetBucketLifecycleConfigurationCommandInput - {@link GetBucketLifecycleConfigurationCommandInput}
@@ -111,6 +168,8 @@ export interface GetBucketLifecycleConfigurationCommandOutput
  * @see {@link GetBucketLifecycleConfigurationCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
+ * @throws {@link S3ServiceException}
+ * <p>Base exception class for all service exceptions from S3 service.</p>
  *
  * @example To get lifecycle configuration on a bucket
  * ```javascript

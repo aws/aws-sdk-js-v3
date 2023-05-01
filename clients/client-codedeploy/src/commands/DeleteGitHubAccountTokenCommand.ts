@@ -36,14 +36,19 @@ export interface DeleteGitHubAccountTokenCommandOutput extends DeleteGitHubAccou
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeDeployClient, DeleteGitHubAccountTokenCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
- * // const { CodeDeployClient, DeleteGitHubAccountTokenCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
+ * import { CodeDeployClient, DeleteGitHubAccountTokenCommand } from '@aws-sdk/client-codedeploy'; // ES Modules import
+ * // const { CodeDeployClient, DeleteGitHubAccountTokenCommand } = require('@aws-sdk/client-codedeploy'); // CommonJS import
  * const client = new CodeDeployClient(config);
  * const input = { // DeleteGitHubAccountTokenInput
- *   tokenName: "STRING_VALUE",
+ *   tokenName: 'STRING_VALUE',
  * };
  * const command = new DeleteGitHubAccountTokenCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteGitHubAccountTokenOutput
+ *   tokenName: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DeleteGitHubAccountTokenCommandInput - {@link DeleteGitHubAccountTokenCommandInput}
@@ -67,6 +72,8 @@ export interface DeleteGitHubAccountTokenCommandOutput extends DeleteGitHubAccou
  * @throws {@link ResourceValidationException} (client fault)
  *  <p>The specified resource could not be validated.</p>
  *
+ * @throws {@link CodeDeployServiceException}
+ * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
  */
 export class DeleteGitHubAccountTokenCommand extends $Command<

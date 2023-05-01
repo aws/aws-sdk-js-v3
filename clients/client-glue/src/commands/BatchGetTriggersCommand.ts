@@ -36,16 +36,64 @@ export interface BatchGetTriggersCommandOutput extends BatchGetTriggersResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlueClient, BatchGetTriggersCommand } from "@aws-sdk/client-glue"; // ES Modules import
- * // const { GlueClient, BatchGetTriggersCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * import { GlueClient, BatchGetTriggersCommand } from '@aws-sdk/client-glue'; // ES Modules import
+ * // const { GlueClient, BatchGetTriggersCommand } = require('@aws-sdk/client-glue'); // CommonJS import
  * const client = new GlueClient(config);
  * const input = { // BatchGetTriggersRequest
  *   TriggerNames: [ // TriggerNameList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new BatchGetTriggersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BatchGetTriggersResponse
+ *   Triggers: [ // TriggerList
+ *     { // Trigger
+ *       Name: 'STRING_VALUE',
+ *       WorkflowName: 'STRING_VALUE',
+ *       Id: 'STRING_VALUE',
+ *       Type: 'SCHEDULED' || 'CONDITIONAL' || 'ON_DEMAND' || 'EVENT',
+ *       State: 'CREATING' || 'CREATED' || 'ACTIVATING' || 'ACTIVATED' || 'DEACTIVATING' || 'DEACTIVATED' || 'DELETING' || 'UPDATING',
+ *       Description: 'STRING_VALUE',
+ *       Schedule: 'STRING_VALUE',
+ *       Actions: [ // ActionList
+ *         { // Action
+ *           JobName: 'STRING_VALUE',
+ *           Arguments: { // GenericMap
+ *             '<keys>': 'STRING_VALUE',
+ *           },
+ *           Timeout: Number('int'),
+ *           SecurityConfiguration: 'STRING_VALUE',
+ *           NotificationProperty: { // NotificationProperty
+ *             NotifyDelayAfter: Number('int'),
+ *           },
+ *           CrawlerName: 'STRING_VALUE',
+ *         },
+ *       ],
+ *       Predicate: { // Predicate
+ *         Logical: 'AND' || 'ANY',
+ *         Conditions: [ // ConditionList
+ *           { // Condition
+ *             LogicalOperator: 'EQUALS',
+ *             JobName: 'STRING_VALUE',
+ *             State: 'STARTING' || 'RUNNING' || 'STOPPING' || 'STOPPED' || 'SUCCEEDED' || 'FAILED' || 'TIMEOUT' || 'ERROR' || 'WAITING',
+ *             CrawlerName: 'STRING_VALUE',
+ *             CrawlState: 'RUNNING' || 'CANCELLING' || 'CANCELLED' || 'SUCCEEDED' || 'FAILED' || 'ERROR',
+ *           },
+ *         ],
+ *       },
+ *       EventBatchingCondition: { // EventBatchingCondition
+ *         BatchSize: Number('int'), // required
+ *         BatchWindow: Number('int'),
+ *       },
+ *     },
+ *   ],
+ *   TriggersNotFound: [ // TriggerNameList
+ *     'STRING_VALUE',
+ *   ],
+ * };
+ *
  * ```
  *
  * @param BatchGetTriggersCommandInput - {@link BatchGetTriggersCommandInput}
@@ -63,6 +111,8 @@ export interface BatchGetTriggersCommandOutput extends BatchGetTriggersResponse,
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class BatchGetTriggersCommand extends $Command<

@@ -36,23 +36,43 @@ export interface UpdateSipRuleCommandOutput extends UpdateSipRuleResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeSDKVoiceClient, UpdateSipRuleCommand } from "@aws-sdk/client-chime-sdk-voice"; // ES Modules import
- * // const { ChimeSDKVoiceClient, UpdateSipRuleCommand } = require("@aws-sdk/client-chime-sdk-voice"); // CommonJS import
+ * import { ChimeSDKVoiceClient, UpdateSipRuleCommand } from '@aws-sdk/client-chime-sdk-voice'; // ES Modules import
+ * // const { ChimeSDKVoiceClient, UpdateSipRuleCommand } = require('@aws-sdk/client-chime-sdk-voice'); // CommonJS import
  * const client = new ChimeSDKVoiceClient(config);
  * const input = { // UpdateSipRuleRequest
- *   SipRuleId: "STRING_VALUE", // required
- *   Name: "STRING_VALUE", // required
+ *   SipRuleId: 'STRING_VALUE', // required
+ *   Name: 'STRING_VALUE', // required
  *   Disabled: true || false,
  *   TargetApplications: [ // SipRuleTargetApplicationList
  *     { // SipRuleTargetApplication
- *       SipMediaApplicationId: "STRING_VALUE",
- *       Priority: Number("int"),
- *       AwsRegion: "STRING_VALUE",
+ *       SipMediaApplicationId: 'STRING_VALUE',
+ *       Priority: Number('int'),
+ *       AwsRegion: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new UpdateSipRuleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateSipRuleResponse
+ *   SipRule: { // SipRule
+ *     SipRuleId: 'STRING_VALUE',
+ *     Name: 'STRING_VALUE',
+ *     Disabled: true || false,
+ *     TriggerType: 'ToPhoneNumber' || 'RequestUriHostname',
+ *     TriggerValue: 'STRING_VALUE',
+ *     TargetApplications: [ // SipRuleTargetApplicationList
+ *       { // SipRuleTargetApplication
+ *         SipMediaApplicationId: 'STRING_VALUE',
+ *         Priority: Number('int'),
+ *         AwsRegion: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     CreatedTimestamp: new Date('TIMESTAMP'),
+ *     UpdatedTimestamp: new Date('TIMESTAMP'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateSipRuleCommandInput - {@link UpdateSipRuleCommandInput}
@@ -88,6 +108,8 @@ export interface UpdateSipRuleCommandOutput extends UpdateSipRuleResponse, __Met
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client isn't authorized to request a resource.</p>
  *
+ * @throws {@link ChimeSDKVoiceServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
  */
 export class UpdateSipRuleCommand extends $Command<

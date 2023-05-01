@@ -38,14 +38,17 @@ export interface DeleteLaunchConfigurationCommandOutput extends __MetadataBearer
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AutoScalingClient, DeleteLaunchConfigurationCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
- * // const { AutoScalingClient, DeleteLaunchConfigurationCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
+ * import { AutoScalingClient, DeleteLaunchConfigurationCommand } from '@aws-sdk/client-auto-scaling'; // ES Modules import
+ * // const { AutoScalingClient, DeleteLaunchConfigurationCommand } = require('@aws-sdk/client-auto-scaling'); // CommonJS import
  * const client = new AutoScalingClient(config);
  * const input = { // LaunchConfigurationNameType
- *   LaunchConfigurationName: "STRING_VALUE", // required
+ *   LaunchConfigurationName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteLaunchConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteLaunchConfigurationCommandInput - {@link DeleteLaunchConfigurationCommandInput}
@@ -61,6 +64,8 @@ export interface DeleteLaunchConfigurationCommandOutput extends __MetadataBearer
  * @throws {@link ResourceInUseFault} (client fault)
  *  <p>The operation can't be performed because the resource is in use.</p>
  *
+ * @throws {@link AutoScalingServiceException}
+ * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
  * @example To delete a launch configuration
  * ```javascript

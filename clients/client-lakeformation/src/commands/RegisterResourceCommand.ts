@@ -46,17 +46,20 @@ export interface RegisterResourceCommandOutput extends RegisterResourceResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LakeFormationClient, RegisterResourceCommand } from "@aws-sdk/client-lakeformation"; // ES Modules import
- * // const { LakeFormationClient, RegisterResourceCommand } = require("@aws-sdk/client-lakeformation"); // CommonJS import
+ * import { LakeFormationClient, RegisterResourceCommand } from '@aws-sdk/client-lakeformation'; // ES Modules import
+ * // const { LakeFormationClient, RegisterResourceCommand } = require('@aws-sdk/client-lakeformation'); // CommonJS import
  * const client = new LakeFormationClient(config);
  * const input = { // RegisterResourceRequest
- *   ResourceArn: "STRING_VALUE", // required
+ *   ResourceArn: 'STRING_VALUE', // required
  *   UseServiceLinkedRole: true || false,
- *   RoleArn: "STRING_VALUE",
+ *   RoleArn: 'STRING_VALUE',
  *   WithFederation: true || false,
  * };
  * const command = new RegisterResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param RegisterResourceCommandInput - {@link RegisterResourceCommandInput}
@@ -86,6 +89,8 @@ export interface RegisterResourceCommandOutput extends RegisterResourceResponse,
  * @throws {@link ResourceNumberLimitExceededException} (client fault)
  *  <p>A resource numerical limit was exceeded.</p>
  *
+ * @throws {@link LakeFormationServiceException}
+ * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
  */
 export class RegisterResourceCommand extends $Command<

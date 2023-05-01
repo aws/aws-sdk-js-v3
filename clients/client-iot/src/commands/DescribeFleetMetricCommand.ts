@@ -37,14 +37,36 @@ export interface DescribeFleetMetricCommandOutput extends DescribeFleetMetricRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTClient, DescribeFleetMetricCommand } from "@aws-sdk/client-iot"; // ES Modules import
- * // const { IoTClient, DescribeFleetMetricCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * import { IoTClient, DescribeFleetMetricCommand } from '@aws-sdk/client-iot'; // ES Modules import
+ * // const { IoTClient, DescribeFleetMetricCommand } = require('@aws-sdk/client-iot'); // CommonJS import
  * const client = new IoTClient(config);
  * const input = { // DescribeFleetMetricRequest
- *   metricName: "STRING_VALUE", // required
+ *   metricName: 'STRING_VALUE', // required
  * };
  * const command = new DescribeFleetMetricCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeFleetMetricResponse
+ *   metricName: 'STRING_VALUE',
+ *   queryString: 'STRING_VALUE',
+ *   aggregationType: { // AggregationType
+ *     name: 'Statistics' || 'Percentiles' || 'Cardinality', // required
+ *     values: [ // AggregationTypeValues
+ *       'STRING_VALUE',
+ *     ],
+ *   },
+ *   period: Number('int'),
+ *   aggregationField: 'STRING_VALUE',
+ *   description: 'STRING_VALUE',
+ *   queryVersion: 'STRING_VALUE',
+ *   indexName: 'STRING_VALUE',
+ *   creationDate: new Date('TIMESTAMP'),
+ *   lastModifiedDate: new Date('TIMESTAMP'),
+ *   unit: 'Seconds' || 'Microseconds' || 'Milliseconds' || 'Bytes' || 'Kilobytes' || 'Megabytes' || 'Gigabytes' || 'Terabytes' || 'Bits' || 'Kilobits' || 'Megabits' || 'Gigabits' || 'Terabits' || 'Percent' || 'Count' || 'Bytes/Second' || 'Kilobytes/Second' || 'Megabytes/Second' || 'Gigabytes/Second' || 'Terabytes/Second' || 'Bits/Second' || 'Kilobits/Second' || 'Megabits/Second' || 'Gigabits/Second' || 'Terabits/Second' || 'Count/Second' || 'None',
+ *   version: Number('long'),
+ *   metricArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeFleetMetricCommandInput - {@link DescribeFleetMetricCommandInput}
@@ -71,6 +93,8 @@ export interface DescribeFleetMetricCommandOutput extends DescribeFleetMetricRes
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this operation.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class DescribeFleetMetricCommand extends $Command<

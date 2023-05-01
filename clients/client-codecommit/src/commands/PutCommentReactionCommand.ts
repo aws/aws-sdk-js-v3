@@ -37,15 +37,18 @@ export interface PutCommentReactionCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeCommitClient, PutCommentReactionCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
- * // const { CodeCommitClient, PutCommentReactionCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
+ * import { CodeCommitClient, PutCommentReactionCommand } from '@aws-sdk/client-codecommit'; // ES Modules import
+ * // const { CodeCommitClient, PutCommentReactionCommand } = require('@aws-sdk/client-codecommit'); // CommonJS import
  * const client = new CodeCommitClient(config);
  * const input = { // PutCommentReactionInput
- *   commentId: "STRING_VALUE", // required
- *   reactionValue: "STRING_VALUE", // required
+ *   commentId: 'STRING_VALUE', // required
+ *   reactionValue: 'STRING_VALUE', // required
  * };
  * const command = new PutCommentReactionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutCommentReactionCommandInput - {@link PutCommentReactionCommandInput}
@@ -76,6 +79,8 @@ export interface PutCommentReactionCommandOutput extends __MetadataBearer {}
  * @throws {@link ReactionValueRequiredException} (client fault)
  *  <p>A reaction value is required. </p>
  *
+ * @throws {@link CodeCommitServiceException}
+ * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
  */
 export class PutCommentReactionCommand extends $Command<

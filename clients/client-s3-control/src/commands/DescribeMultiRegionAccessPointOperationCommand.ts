@@ -72,15 +72,65 @@ export interface DescribeMultiRegionAccessPointOperationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { S3ControlClient, DescribeMultiRegionAccessPointOperationCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
- * // const { S3ControlClient, DescribeMultiRegionAccessPointOperationCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
+ * import { S3ControlClient, DescribeMultiRegionAccessPointOperationCommand } from '@aws-sdk/client-s3-control'; // ES Modules import
+ * // const { S3ControlClient, DescribeMultiRegionAccessPointOperationCommand } = require('@aws-sdk/client-s3-control'); // CommonJS import
  * const client = new S3ControlClient(config);
  * const input = { // DescribeMultiRegionAccessPointOperationRequest
- *   AccountId: "STRING_VALUE",
- *   RequestTokenARN: "STRING_VALUE", // required
+ *   AccountId: 'STRING_VALUE',
+ *   RequestTokenARN: 'STRING_VALUE', // required
  * };
  * const command = new DescribeMultiRegionAccessPointOperationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeMultiRegionAccessPointOperationResult
+ *   AsyncOperation: { // AsyncOperation
+ *     CreationTime: new Date('TIMESTAMP'),
+ *     Operation: 'CreateMultiRegionAccessPoint' || 'DeleteMultiRegionAccessPoint' || 'PutMultiRegionAccessPointPolicy',
+ *     RequestTokenARN: 'STRING_VALUE',
+ *     RequestParameters: { // AsyncRequestParameters
+ *       CreateMultiRegionAccessPointRequest: { // CreateMultiRegionAccessPointInput
+ *         Name: 'STRING_VALUE', // required
+ *         PublicAccessBlock: { // PublicAccessBlockConfiguration
+ *           BlockPublicAcls: true || false,
+ *           IgnorePublicAcls: true || false,
+ *           BlockPublicPolicy: true || false,
+ *           RestrictPublicBuckets: true || false,
+ *         },
+ *         Regions: [ // RegionCreationList // required
+ *           { // Region
+ *             Bucket: 'STRING_VALUE', // required
+ *             BucketAccountId: 'STRING_VALUE',
+ *           },
+ *         ],
+ *       },
+ *       DeleteMultiRegionAccessPointRequest: { // DeleteMultiRegionAccessPointInput
+ *         Name: 'STRING_VALUE', // required
+ *       },
+ *       PutMultiRegionAccessPointPolicyRequest: { // PutMultiRegionAccessPointPolicyInput
+ *         Name: 'STRING_VALUE', // required
+ *         Policy: 'STRING_VALUE', // required
+ *       },
+ *     },
+ *     RequestStatus: 'STRING_VALUE',
+ *     ResponseDetails: { // AsyncResponseDetails
+ *       MultiRegionAccessPointDetails: { // MultiRegionAccessPointsAsyncResponse
+ *         Regions: [ // MultiRegionAccessPointRegionalResponseList
+ *           { // MultiRegionAccessPointRegionalResponse
+ *             Name: 'STRING_VALUE',
+ *             RequestStatus: 'STRING_VALUE',
+ *           },
+ *         ],
+ *       },
+ *       ErrorDetails: { // AsyncErrorDetails
+ *         Code: 'STRING_VALUE',
+ *         Message: 'STRING_VALUE',
+ *         Resource: 'STRING_VALUE',
+ *         RequestId: 'STRING_VALUE',
+ *       },
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeMultiRegionAccessPointOperationCommandInput - {@link DescribeMultiRegionAccessPointOperationCommandInput}
@@ -89,6 +139,8 @@ export interface DescribeMultiRegionAccessPointOperationCommandOutput
  * @see {@link DescribeMultiRegionAccessPointOperationCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
  *
+ * @throws {@link S3ControlServiceException}
+ * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
  */
 export class DescribeMultiRegionAccessPointOperationCommand extends $Command<

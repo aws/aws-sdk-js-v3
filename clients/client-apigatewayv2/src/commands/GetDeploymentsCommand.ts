@@ -36,16 +36,31 @@ export interface GetDeploymentsCommandOutput extends GetDeploymentsResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ApiGatewayV2Client, GetDeploymentsCommand } from "@aws-sdk/client-apigatewayv2"; // ES Modules import
- * // const { ApiGatewayV2Client, GetDeploymentsCommand } = require("@aws-sdk/client-apigatewayv2"); // CommonJS import
+ * import { ApiGatewayV2Client, GetDeploymentsCommand } from '@aws-sdk/client-apigatewayv2'; // ES Modules import
+ * // const { ApiGatewayV2Client, GetDeploymentsCommand } = require('@aws-sdk/client-apigatewayv2'); // CommonJS import
  * const client = new ApiGatewayV2Client(config);
  * const input = { // GetDeploymentsRequest
- *   ApiId: "STRING_VALUE", // required
- *   MaxResults: "STRING_VALUE",
- *   NextToken: "STRING_VALUE",
+ *   ApiId: 'STRING_VALUE', // required
+ *   MaxResults: 'STRING_VALUE',
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new GetDeploymentsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetDeploymentsResponse
+ *   Items: [ // __listOfDeployment
+ *     { // Deployment
+ *       AutoDeployed: true || false,
+ *       CreatedDate: new Date('TIMESTAMP'),
+ *       DeploymentId: 'STRING_VALUE',
+ *       DeploymentStatus: 'STRING_VALUE',
+ *       DeploymentStatusMessage: 'STRING_VALUE',
+ *       Description: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetDeploymentsCommandInput - {@link GetDeploymentsCommandInput}
@@ -63,6 +78,8 @@ export interface GetDeploymentsCommandOutput extends GetDeploymentsResponse, __M
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>A limit has been exceeded. See the accompanying error message for details.</p>
  *
+ * @throws {@link ApiGatewayV2ServiceException}
+ * <p>Base exception class for all service exceptions from ApiGatewayV2 service.</p>
  *
  */
 export class GetDeploymentsCommand extends $Command<

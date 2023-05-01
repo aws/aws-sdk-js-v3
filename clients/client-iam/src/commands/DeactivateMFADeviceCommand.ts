@@ -40,15 +40,18 @@ export interface DeactivateMFADeviceCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IAMClient, DeactivateMFADeviceCommand } from "@aws-sdk/client-iam"; // ES Modules import
- * // const { IAMClient, DeactivateMFADeviceCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * import { IAMClient, DeactivateMFADeviceCommand } from '@aws-sdk/client-iam'; // ES Modules import
+ * // const { IAMClient, DeactivateMFADeviceCommand } = require('@aws-sdk/client-iam'); // CommonJS import
  * const client = new IAMClient(config);
  * const input = { // DeactivateMFADeviceRequest
- *   UserName: "STRING_VALUE", // required
- *   SerialNumber: "STRING_VALUE", // required
+ *   UserName: 'STRING_VALUE', // required
+ *   SerialNumber: 'STRING_VALUE', // required
  * };
  * const command = new DeactivateMFADeviceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeactivateMFADeviceCommandInput - {@link DeactivateMFADeviceCommandInput}
@@ -75,6 +78,8 @@ export interface DeactivateMFADeviceCommandOutput extends __MetadataBearer {}
  *  <p>The request processing has failed because of an unknown error, exception or
  *       failure.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  */
 export class DeactivateMFADeviceCommand extends $Command<

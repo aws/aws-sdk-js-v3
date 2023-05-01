@@ -36,16 +36,30 @@ export interface ListCertificatesCommandOutput extends ListCertificatesResult, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DirectoryServiceClient, ListCertificatesCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
- * // const { DirectoryServiceClient, ListCertificatesCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
+ * import { DirectoryServiceClient, ListCertificatesCommand } from '@aws-sdk/client-directory-service'; // ES Modules import
+ * // const { DirectoryServiceClient, ListCertificatesCommand } = require('@aws-sdk/client-directory-service'); // CommonJS import
  * const client = new DirectoryServiceClient(config);
  * const input = { // ListCertificatesRequest
- *   DirectoryId: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   Limit: Number("int"),
+ *   DirectoryId: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
+ *   Limit: Number('int'),
  * };
  * const command = new ListCertificatesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListCertificatesResult
+ *   NextToken: 'STRING_VALUE',
+ *   CertificatesInfo: [ // CertificatesInfo
+ *     { // CertificateInfo
+ *       CertificateId: 'STRING_VALUE',
+ *       CommonName: 'STRING_VALUE',
+ *       State: 'Registering' || 'Registered' || 'RegisterFailed' || 'Deregistering' || 'Deregistered' || 'DeregisterFailed',
+ *       ExpiryDateTime: new Date('TIMESTAMP'),
+ *       Type: 'ClientCertAuth' || 'ClientLDAPS',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListCertificatesCommandInput - {@link ListCertificatesCommandInput}
@@ -72,6 +86,8 @@ export interface ListCertificatesCommandOutput extends ListCertificatesResult, _
  * @throws {@link UnsupportedOperationException} (client fault)
  *  <p>The operation is not supported.</p>
  *
+ * @throws {@link DirectoryServiceServiceException}
+ * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
  */
 export class ListCertificatesCommand extends $Command<

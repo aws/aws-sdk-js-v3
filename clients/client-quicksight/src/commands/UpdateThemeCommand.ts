@@ -36,42 +36,42 @@ export interface UpdateThemeCommandOutput extends UpdateThemeResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { QuickSightClient, UpdateThemeCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
- * // const { QuickSightClient, UpdateThemeCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * import { QuickSightClient, UpdateThemeCommand } from '@aws-sdk/client-quicksight'; // ES Modules import
+ * // const { QuickSightClient, UpdateThemeCommand } = require('@aws-sdk/client-quicksight'); // CommonJS import
  * const client = new QuickSightClient(config);
  * const input = { // UpdateThemeRequest
- *   AwsAccountId: "STRING_VALUE", // required
- *   ThemeId: "STRING_VALUE", // required
- *   Name: "STRING_VALUE",
- *   BaseThemeId: "STRING_VALUE", // required
- *   VersionDescription: "STRING_VALUE",
+ *   AwsAccountId: 'STRING_VALUE', // required
+ *   ThemeId: 'STRING_VALUE', // required
+ *   Name: 'STRING_VALUE',
+ *   BaseThemeId: 'STRING_VALUE', // required
+ *   VersionDescription: 'STRING_VALUE',
  *   Configuration: { // ThemeConfiguration
  *     DataColorPalette: { // DataColorPalette
  *       Colors: [ // ColorList
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *       MinMaxGradient: [
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
- *       EmptyFillColor: "STRING_VALUE",
+ *       EmptyFillColor: 'STRING_VALUE',
  *     },
  *     UIColorPalette: { // UIColorPalette
- *       PrimaryForeground: "STRING_VALUE",
- *       PrimaryBackground: "STRING_VALUE",
- *       SecondaryForeground: "STRING_VALUE",
- *       SecondaryBackground: "STRING_VALUE",
- *       Accent: "STRING_VALUE",
- *       AccentForeground: "STRING_VALUE",
- *       Danger: "STRING_VALUE",
- *       DangerForeground: "STRING_VALUE",
- *       Warning: "STRING_VALUE",
- *       WarningForeground: "STRING_VALUE",
- *       Success: "STRING_VALUE",
- *       SuccessForeground: "STRING_VALUE",
- *       Dimension: "STRING_VALUE",
- *       DimensionForeground: "STRING_VALUE",
- *       Measure: "STRING_VALUE",
- *       MeasureForeground: "STRING_VALUE",
+ *       PrimaryForeground: 'STRING_VALUE',
+ *       PrimaryBackground: 'STRING_VALUE',
+ *       SecondaryForeground: 'STRING_VALUE',
+ *       SecondaryBackground: 'STRING_VALUE',
+ *       Accent: 'STRING_VALUE',
+ *       AccentForeground: 'STRING_VALUE',
+ *       Danger: 'STRING_VALUE',
+ *       DangerForeground: 'STRING_VALUE',
+ *       Warning: 'STRING_VALUE',
+ *       WarningForeground: 'STRING_VALUE',
+ *       Success: 'STRING_VALUE',
+ *       SuccessForeground: 'STRING_VALUE',
+ *       Dimension: 'STRING_VALUE',
+ *       DimensionForeground: 'STRING_VALUE',
+ *       Measure: 'STRING_VALUE',
+ *       MeasureForeground: 'STRING_VALUE',
  *     },
  *     Sheet: { // SheetStyle
  *       Tile: { // TileStyle
@@ -91,7 +91,7 @@ export interface UpdateThemeCommandOutput extends UpdateThemeResponse, __Metadat
  *     Typography: { // Typography
  *       FontFamilies: [ // FontList
  *         { // Font
- *           FontFamily: "STRING_VALUE",
+ *           FontFamily: 'STRING_VALUE',
  *         },
  *       ],
  *     },
@@ -99,6 +99,16 @@ export interface UpdateThemeCommandOutput extends UpdateThemeResponse, __Metadat
  * };
  * const command = new UpdateThemeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateThemeResponse
+ *   ThemeId: 'STRING_VALUE',
+ *   Arn: 'STRING_VALUE',
+ *   VersionArn: 'STRING_VALUE',
+ *   CreationStatus: 'CREATION_IN_PROGRESS' || 'CREATION_SUCCESSFUL' || 'CREATION_FAILED' || 'UPDATE_IN_PROGRESS' || 'UPDATE_SUCCESSFUL' || 'UPDATE_FAILED' || 'DELETED',
+ *   Status: Number('int'),
+ *   RequestId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateThemeCommandInput - {@link UpdateThemeCommandInput}
@@ -137,6 +147,8 @@ export interface UpdateThemeCommandOutput extends UpdateThemeResponse, __Metadat
  * 			Amazon QuickSight currently has Standard Edition and Enterprise Edition. Not every operation and
  * 			capability is available in every edition.</p>
  *
+ * @throws {@link QuickSightServiceException}
+ * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
 export class UpdateThemeCommand extends $Command<

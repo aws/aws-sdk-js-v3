@@ -41,18 +41,23 @@ export interface GetReferenceCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OmicsClient, GetReferenceCommand } from "@aws-sdk/client-omics"; // ES Modules import
- * // const { OmicsClient, GetReferenceCommand } = require("@aws-sdk/client-omics"); // CommonJS import
+ * import { OmicsClient, GetReferenceCommand } from '@aws-sdk/client-omics'; // ES Modules import
+ * // const { OmicsClient, GetReferenceCommand } = require('@aws-sdk/client-omics'); // CommonJS import
  * const client = new OmicsClient(config);
  * const input = { // GetReferenceRequest
- *   id: "STRING_VALUE", // required
- *   referenceStoreId: "STRING_VALUE", // required
- *   range: "STRING_VALUE",
- *   partNumber: Number("int"), // required
- *   file: "STRING_VALUE",
+ *   id: 'STRING_VALUE', // required
+ *   referenceStoreId: 'STRING_VALUE', // required
+ *   range: 'STRING_VALUE',
+ *   partNumber: Number('int'), // required
+ *   file: 'STRING_VALUE',
  * };
  * const command = new GetReferenceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetReferenceResponse
+ *   payload: 'STREAMING_BLOB_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetReferenceCommandInput - {@link GetReferenceCommandInput}
@@ -82,6 +87,8 @@ export interface GetReferenceCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link OmicsServiceException}
+ * <p>Base exception class for all service exceptions from Omics service.</p>
  *
  */
 export class GetReferenceCommand extends $Command<

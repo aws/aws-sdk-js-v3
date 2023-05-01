@@ -102,15 +102,47 @@ export interface DescribeTrustedAdvisorCheckResultCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SupportClient, DescribeTrustedAdvisorCheckResultCommand } from "@aws-sdk/client-support"; // ES Modules import
- * // const { SupportClient, DescribeTrustedAdvisorCheckResultCommand } = require("@aws-sdk/client-support"); // CommonJS import
+ * import { SupportClient, DescribeTrustedAdvisorCheckResultCommand } from '@aws-sdk/client-support'; // ES Modules import
+ * // const { SupportClient, DescribeTrustedAdvisorCheckResultCommand } = require('@aws-sdk/client-support'); // CommonJS import
  * const client = new SupportClient(config);
  * const input = { // DescribeTrustedAdvisorCheckResultRequest
- *   checkId: "STRING_VALUE", // required
- *   language: "STRING_VALUE",
+ *   checkId: 'STRING_VALUE', // required
+ *   language: 'STRING_VALUE',
  * };
  * const command = new DescribeTrustedAdvisorCheckResultCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeTrustedAdvisorCheckResultResponse
+ *   result: { // TrustedAdvisorCheckResult
+ *     checkId: 'STRING_VALUE', // required
+ *     timestamp: 'STRING_VALUE', // required
+ *     status: 'STRING_VALUE', // required
+ *     resourcesSummary: { // TrustedAdvisorResourcesSummary
+ *       resourcesProcessed: Number('long'), // required
+ *       resourcesFlagged: Number('long'), // required
+ *       resourcesIgnored: Number('long'), // required
+ *       resourcesSuppressed: Number('long'), // required
+ *     },
+ *     categorySpecificSummary: { // TrustedAdvisorCategorySpecificSummary
+ *       costOptimizing: { // TrustedAdvisorCostOptimizingSummary
+ *         estimatedMonthlySavings: Number('double'), // required
+ *         estimatedPercentMonthlySavings: Number('double'), // required
+ *       },
+ *     },
+ *     flaggedResources: [ // TrustedAdvisorResourceDetailList // required
+ *       { // TrustedAdvisorResourceDetail
+ *         status: 'STRING_VALUE', // required
+ *         region: 'STRING_VALUE',
+ *         resourceId: 'STRING_VALUE', // required
+ *         isSuppressed: true || false,
+ *         metadata: [ // StringList // required
+ *           'STRING_VALUE',
+ *         ],
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeTrustedAdvisorCheckResultCommandInput - {@link DescribeTrustedAdvisorCheckResultCommandInput}
@@ -122,6 +154,8 @@ export interface DescribeTrustedAdvisorCheckResultCommandOutput
  * @throws {@link InternalServerError} (server fault)
  *  <p>An internal server error occurred.</p>
  *
+ * @throws {@link SupportServiceException}
+ * <p>Base exception class for all service exceptions from Support service.</p>
  *
  */
 export class DescribeTrustedAdvisorCheckResultCommand extends $Command<

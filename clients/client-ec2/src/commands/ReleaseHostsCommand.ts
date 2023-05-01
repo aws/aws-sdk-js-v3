@@ -44,16 +44,32 @@ export interface ReleaseHostsCommandOutput extends ReleaseHostsResult, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, ReleaseHostsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, ReleaseHostsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, ReleaseHostsCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, ReleaseHostsCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // ReleaseHostsRequest
  *   HostIds: [ // RequestHostIdList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new ReleaseHostsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ReleaseHostsResult
+ *   Successful: [ // ResponseHostIdList
+ *     'STRING_VALUE',
+ *   ],
+ *   Unsuccessful: [ // UnsuccessfulItemList
+ *     { // UnsuccessfulItem
+ *       Error: { // UnsuccessfulItemError
+ *         Code: 'STRING_VALUE',
+ *         Message: 'STRING_VALUE',
+ *       },
+ *       ResourceId: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ReleaseHostsCommandInput - {@link ReleaseHostsCommandInput}
@@ -62,6 +78,8 @@ export interface ReleaseHostsCommandOutput extends ReleaseHostsResult, __Metadat
  * @see {@link ReleaseHostsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class ReleaseHostsCommand extends $Command<

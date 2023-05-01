@@ -36,14 +36,21 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SignerClient, ListTagsForResourceCommand } from "@aws-sdk/client-signer"; // ES Modules import
- * // const { SignerClient, ListTagsForResourceCommand } = require("@aws-sdk/client-signer"); // CommonJS import
+ * import { SignerClient, ListTagsForResourceCommand } from '@aws-sdk/client-signer'; // ES Modules import
+ * // const { SignerClient, ListTagsForResourceCommand } = require('@aws-sdk/client-signer'); // CommonJS import
  * const client = new SignerClient(config);
  * const input = { // ListTagsForResourceRequest
- *   resourceArn: "STRING_VALUE", // required
+ *   resourceArn: 'STRING_VALUE', // required
  * };
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTagsForResourceResponse
+ *   tags: { // TagMap
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param ListTagsForResourceCommandInput - {@link ListTagsForResourceCommandInput}
@@ -66,6 +73,8 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  *  <p>The allowed number of job-signing requests has been exceeded.</p>
  * 		       <p>This error supersedes the error <code>ThrottlingException</code>.</p>
  *
+ * @throws {@link SignerServiceException}
+ * <p>Base exception class for all service exceptions from Signer service.</p>
  *
  */
 export class ListTagsForResourceCommand extends $Command<

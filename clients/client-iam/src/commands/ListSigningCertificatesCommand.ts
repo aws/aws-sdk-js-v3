@@ -45,16 +45,31 @@ export interface ListSigningCertificatesCommandOutput extends ListSigningCertifi
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IAMClient, ListSigningCertificatesCommand } from "@aws-sdk/client-iam"; // ES Modules import
- * // const { IAMClient, ListSigningCertificatesCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * import { IAMClient, ListSigningCertificatesCommand } from '@aws-sdk/client-iam'; // ES Modules import
+ * // const { IAMClient, ListSigningCertificatesCommand } = require('@aws-sdk/client-iam'); // CommonJS import
  * const client = new IAMClient(config);
  * const input = { // ListSigningCertificatesRequest
- *   UserName: "STRING_VALUE",
- *   Marker: "STRING_VALUE",
- *   MaxItems: Number("int"),
+ *   UserName: 'STRING_VALUE',
+ *   Marker: 'STRING_VALUE',
+ *   MaxItems: Number('int'),
  * };
  * const command = new ListSigningCertificatesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListSigningCertificatesResponse
+ *   Certificates: [ // certificateListType // required
+ *     { // SigningCertificate
+ *       UserName: 'STRING_VALUE', // required
+ *       CertificateId: 'STRING_VALUE', // required
+ *       CertificateBody: 'STRING_VALUE', // required
+ *       Status: 'Active' || 'Inactive', // required
+ *       UploadDate: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   IsTruncated: true || false,
+ *   Marker: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListSigningCertificatesCommandInput - {@link ListSigningCertificatesCommandInput}
@@ -71,6 +86,8 @@ export interface ListSigningCertificatesCommandOutput extends ListSigningCertifi
  *  <p>The request processing has failed because of an unknown error, exception or
  *       failure.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  * @example To list the signing certificates for an IAM user
  * ```javascript

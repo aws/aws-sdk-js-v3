@@ -53,16 +53,19 @@ export interface CreateAppCookieStickinessPolicyCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElasticLoadBalancingClient, CreateAppCookieStickinessPolicyCommand } from "@aws-sdk/client-elastic-load-balancing"; // ES Modules import
- * // const { ElasticLoadBalancingClient, CreateAppCookieStickinessPolicyCommand } = require("@aws-sdk/client-elastic-load-balancing"); // CommonJS import
+ * import { ElasticLoadBalancingClient, CreateAppCookieStickinessPolicyCommand } from '@aws-sdk/client-elastic-load-balancing'; // ES Modules import
+ * // const { ElasticLoadBalancingClient, CreateAppCookieStickinessPolicyCommand } = require('@aws-sdk/client-elastic-load-balancing'); // CommonJS import
  * const client = new ElasticLoadBalancingClient(config);
  * const input = { // CreateAppCookieStickinessPolicyInput
- *   LoadBalancerName: "STRING_VALUE", // required
- *   PolicyName: "STRING_VALUE", // required
- *   CookieName: "STRING_VALUE", // required
+ *   LoadBalancerName: 'STRING_VALUE', // required
+ *   PolicyName: 'STRING_VALUE', // required
+ *   CookieName: 'STRING_VALUE', // required
  * };
  * const command = new CreateAppCookieStickinessPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param CreateAppCookieStickinessPolicyCommandInput - {@link CreateAppCookieStickinessPolicyCommandInput}
@@ -83,6 +86,8 @@ export interface CreateAppCookieStickinessPolicyCommandOutput
  * @throws {@link TooManyPoliciesException} (client fault)
  *  <p>The quota for the number of policies for this load balancer has been reached.</p>
  *
+ * @throws {@link ElasticLoadBalancingServiceException}
+ * <p>Base exception class for all service exceptions from ElasticLoadBalancing service.</p>
  *
  * @example To generate a stickiness policy for your load balancer
  * ```javascript

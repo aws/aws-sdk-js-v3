@@ -36,18 +36,21 @@ export interface UpdateThreatIntelSetCommandOutput extends UpdateThreatIntelSetR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GuardDutyClient, UpdateThreatIntelSetCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
- * // const { GuardDutyClient, UpdateThreatIntelSetCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
+ * import { GuardDutyClient, UpdateThreatIntelSetCommand } from '@aws-sdk/client-guardduty'; // ES Modules import
+ * // const { GuardDutyClient, UpdateThreatIntelSetCommand } = require('@aws-sdk/client-guardduty'); // CommonJS import
  * const client = new GuardDutyClient(config);
  * const input = { // UpdateThreatIntelSetRequest
- *   DetectorId: "STRING_VALUE", // required
- *   ThreatIntelSetId: "STRING_VALUE", // required
- *   Name: "STRING_VALUE",
- *   Location: "STRING_VALUE",
+ *   DetectorId: 'STRING_VALUE', // required
+ *   ThreatIntelSetId: 'STRING_VALUE', // required
+ *   Name: 'STRING_VALUE',
+ *   Location: 'STRING_VALUE',
  *   Activate: true || false,
  * };
  * const command = new UpdateThreatIntelSetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateThreatIntelSetCommandInput - {@link UpdateThreatIntelSetCommandInput}
@@ -62,6 +65,8 @@ export interface UpdateThreatIntelSetCommandOutput extends UpdateThreatIntelSetR
  * @throws {@link InternalServerErrorException} (server fault)
  *  <p>An internal server error exception object.</p>
  *
+ * @throws {@link GuardDutyServiceException}
+ * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
  */
 export class UpdateThreatIntelSetCommand extends $Command<

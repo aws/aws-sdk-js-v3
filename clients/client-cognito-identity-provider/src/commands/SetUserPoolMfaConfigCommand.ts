@@ -59,26 +59,42 @@ export interface SetUserPoolMfaConfigCommandOutput extends SetUserPoolMfaConfigR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CognitoIdentityProviderClient, SetUserPoolMfaConfigCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
- * // const { CognitoIdentityProviderClient, SetUserPoolMfaConfigCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
+ * import { CognitoIdentityProviderClient, SetUserPoolMfaConfigCommand } from '@aws-sdk/client-cognito-identity-provider'; // ES Modules import
+ * // const { CognitoIdentityProviderClient, SetUserPoolMfaConfigCommand } = require('@aws-sdk/client-cognito-identity-provider'); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
  * const input = { // SetUserPoolMfaConfigRequest
- *   UserPoolId: "STRING_VALUE", // required
+ *   UserPoolId: 'STRING_VALUE', // required
  *   SmsMfaConfiguration: { // SmsMfaConfigType
- *     SmsAuthenticationMessage: "STRING_VALUE",
+ *     SmsAuthenticationMessage: 'STRING_VALUE',
  *     SmsConfiguration: { // SmsConfigurationType
- *       SnsCallerArn: "STRING_VALUE", // required
- *       ExternalId: "STRING_VALUE",
- *       SnsRegion: "STRING_VALUE",
+ *       SnsCallerArn: 'STRING_VALUE', // required
+ *       ExternalId: 'STRING_VALUE',
+ *       SnsRegion: 'STRING_VALUE',
  *     },
  *   },
  *   SoftwareTokenMfaConfiguration: { // SoftwareTokenMfaConfigType
  *     Enabled: true || false,
  *   },
- *   MfaConfiguration: "OFF" || "ON" || "OPTIONAL",
+ *   MfaConfiguration: 'OFF' || 'ON' || 'OPTIONAL',
  * };
  * const command = new SetUserPoolMfaConfigCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SetUserPoolMfaConfigResponse
+ *   SmsMfaConfiguration: { // SmsMfaConfigType
+ *     SmsAuthenticationMessage: 'STRING_VALUE',
+ *     SmsConfiguration: { // SmsConfigurationType
+ *       SnsCallerArn: 'STRING_VALUE', // required
+ *       ExternalId: 'STRING_VALUE',
+ *       SnsRegion: 'STRING_VALUE',
+ *     },
+ *   },
+ *   SoftwareTokenMfaConfiguration: { // SoftwareTokenMfaConfigType
+ *     Enabled: true || false,
+ *   },
+ *   MfaConfiguration: 'OFF' || 'ON' || 'OPTIONAL',
+ * };
+ *
  * ```
  *
  * @param SetUserPoolMfaConfigCommandInput - {@link SetUserPoolMfaConfigCommandInput}
@@ -115,6 +131,8 @@ export interface SetUserPoolMfaConfigCommandOutput extends SetUserPoolMfaConfigR
  *  <p>This exception is thrown when the user has made too many requests for a given
  *             operation.</p>
  *
+ * @throws {@link CognitoIdentityProviderServiceException}
+ * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
  */
 export class SetUserPoolMfaConfigCommand extends $Command<

@@ -43,26 +43,42 @@ export interface DescribeAcceleratorsCommandOutput extends DescribeAcceleratorsR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElasticInferenceClient, DescribeAcceleratorsCommand } from "@aws-sdk/client-elastic-inference"; // ES Modules import
- * // const { ElasticInferenceClient, DescribeAcceleratorsCommand } = require("@aws-sdk/client-elastic-inference"); // CommonJS import
+ * import { ElasticInferenceClient, DescribeAcceleratorsCommand } from '@aws-sdk/client-elastic-inference'; // ES Modules import
+ * // const { ElasticInferenceClient, DescribeAcceleratorsCommand } = require('@aws-sdk/client-elastic-inference'); // CommonJS import
  * const client = new ElasticInferenceClient(config);
  * const input = { // DescribeAcceleratorsRequest
  *   acceleratorIds: [ // AcceleratorIdList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   filters: [ // FilterList
  *     { // Filter
- *       name: "STRING_VALUE",
+ *       name: 'STRING_VALUE',
  *       values: [ // ValueStringList
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new DescribeAcceleratorsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeAcceleratorsResponse
+ *   acceleratorSet: [ // ElasticInferenceAcceleratorSet
+ *     { // ElasticInferenceAccelerator
+ *       acceleratorHealth: { // ElasticInferenceAcceleratorHealth
+ *         status: 'STRING_VALUE',
+ *       },
+ *       acceleratorType: 'STRING_VALUE',
+ *       acceleratorId: 'STRING_VALUE',
+ *       availabilityZone: 'STRING_VALUE',
+ *       attachedResource: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeAcceleratorsCommandInput - {@link DescribeAcceleratorsCommandInput}
@@ -86,6 +102,8 @@ export interface DescribeAcceleratorsCommandOutput extends DescribeAcceleratorsR
  *             Raised when the requested resource cannot be found.
  *         </p>
  *
+ * @throws {@link ElasticInferenceServiceException}
+ * <p>Base exception class for all service exceptions from ElasticInference service.</p>
  *
  */
 export class DescribeAcceleratorsCommand extends $Command<

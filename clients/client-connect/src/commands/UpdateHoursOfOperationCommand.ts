@@ -37,31 +37,34 @@ export interface UpdateHoursOfOperationCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, UpdateHoursOfOperationCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, UpdateHoursOfOperationCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, UpdateHoursOfOperationCommand } from '@aws-sdk/client-connect'; // ES Modules import
+ * // const { ConnectClient, UpdateHoursOfOperationCommand } = require('@aws-sdk/client-connect'); // CommonJS import
  * const client = new ConnectClient(config);
  * const input = { // UpdateHoursOfOperationRequest
- *   InstanceId: "STRING_VALUE", // required
- *   HoursOfOperationId: "STRING_VALUE", // required
- *   Name: "STRING_VALUE",
- *   Description: "STRING_VALUE",
- *   TimeZone: "STRING_VALUE",
+ *   InstanceId: 'STRING_VALUE', // required
+ *   HoursOfOperationId: 'STRING_VALUE', // required
+ *   Name: 'STRING_VALUE',
+ *   Description: 'STRING_VALUE',
+ *   TimeZone: 'STRING_VALUE',
  *   Config: [ // HoursOfOperationConfigList
  *     { // HoursOfOperationConfig
- *       Day: "SUNDAY" || "MONDAY" || "TUESDAY" || "WEDNESDAY" || "THURSDAY" || "FRIDAY" || "SATURDAY", // required
+ *       Day: 'SUNDAY' || 'MONDAY' || 'TUESDAY' || 'WEDNESDAY' || 'THURSDAY' || 'FRIDAY' || 'SATURDAY', // required
  *       StartTime: { // HoursOfOperationTimeSlice
- *         Hours: Number("int"), // required
- *         Minutes: Number("int"), // required
+ *         Hours: Number('int'), // required
+ *         Minutes: Number('int'), // required
  *       },
  *       EndTime: {
- *         Hours: Number("int"), // required
- *         Minutes: Number("int"), // required
+ *         Hours: Number('int'), // required
+ *         Minutes: Number('int'), // required
  *       },
  *     },
  *   ],
  * };
  * const command = new UpdateHoursOfOperationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateHoursOfOperationCommandInput - {@link UpdateHoursOfOperationCommandInput}
@@ -88,6 +91,8 @@ export interface UpdateHoursOfOperationCommandOutput extends __MetadataBearer {}
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class UpdateHoursOfOperationCommand extends $Command<

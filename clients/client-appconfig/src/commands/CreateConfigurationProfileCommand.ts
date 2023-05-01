@@ -80,28 +80,45 @@ export interface CreateConfigurationProfileCommandOutput extends ConfigurationPr
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppConfigClient, CreateConfigurationProfileCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
- * // const { AppConfigClient, CreateConfigurationProfileCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import
+ * import { AppConfigClient, CreateConfigurationProfileCommand } from '@aws-sdk/client-appconfig'; // ES Modules import
+ * // const { AppConfigClient, CreateConfigurationProfileCommand } = require('@aws-sdk/client-appconfig'); // CommonJS import
  * const client = new AppConfigClient(config);
  * const input = { // CreateConfigurationProfileRequest
- *   ApplicationId: "STRING_VALUE", // required
- *   Name: "STRING_VALUE", // required
- *   Description: "STRING_VALUE",
- *   LocationUri: "STRING_VALUE", // required
- *   RetrievalRoleArn: "STRING_VALUE",
+ *   ApplicationId: 'STRING_VALUE', // required
+ *   Name: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE',
+ *   LocationUri: 'STRING_VALUE', // required
+ *   RetrievalRoleArn: 'STRING_VALUE',
  *   Validators: [ // ValidatorList
  *     { // Validator
- *       Type: "JSON_SCHEMA" || "LAMBDA", // required
- *       Content: "STRING_VALUE", // required
+ *       Type: 'JSON_SCHEMA' || 'LAMBDA', // required
+ *       Content: 'STRING_VALUE', // required
  *     },
  *   ],
  *   Tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
- *   Type: "STRING_VALUE",
+ *   Type: 'STRING_VALUE',
  * };
  * const command = new CreateConfigurationProfileCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ConfigurationProfile
+ *   ApplicationId: 'STRING_VALUE',
+ *   Id: 'STRING_VALUE',
+ *   Name: 'STRING_VALUE',
+ *   Description: 'STRING_VALUE',
+ *   LocationUri: 'STRING_VALUE',
+ *   RetrievalRoleArn: 'STRING_VALUE',
+ *   Validators: [ // ValidatorList
+ *     { // Validator
+ *       Type: 'JSON_SCHEMA' || 'LAMBDA', // required
+ *       Content: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ *   Type: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateConfigurationProfileCommandInput - {@link CreateConfigurationProfileCommandInput}
@@ -119,6 +136,8 @@ export interface CreateConfigurationProfileCommandOutput extends ConfigurationPr
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The requested resource could not be found.</p>
  *
+ * @throws {@link AppConfigServiceException}
+ * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
  * @example To create a configuration profile
  * ```javascript

@@ -38,14 +38,17 @@ export interface DeleteFleetCommandOutput extends DeleteFleetResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkLinkClient, DeleteFleetCommand } from "@aws-sdk/client-worklink"; // ES Modules import
- * // const { WorkLinkClient, DeleteFleetCommand } = require("@aws-sdk/client-worklink"); // CommonJS import
+ * import { WorkLinkClient, DeleteFleetCommand } from '@aws-sdk/client-worklink'; // ES Modules import
+ * // const { WorkLinkClient, DeleteFleetCommand } = require('@aws-sdk/client-worklink'); // CommonJS import
  * const client = new WorkLinkClient(config);
  * const input = { // DeleteFleetRequest
- *   FleetArn: "STRING_VALUE", // required
+ *   FleetArn: 'STRING_VALUE', // required
  * };
  * const command = new DeleteFleetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteFleetCommandInput - {@link DeleteFleetCommandInput}
@@ -69,6 +72,8 @@ export interface DeleteFleetCommandOutput extends DeleteFleetResponse, __Metadat
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this action.</p>
  *
+ * @throws {@link WorkLinkServiceException}
+ * <p>Base exception class for all service exceptions from WorkLink service.</p>
  *
  */
 export class DeleteFleetCommand extends $Command<

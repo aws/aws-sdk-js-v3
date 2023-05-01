@@ -36,28 +36,31 @@ export interface UpdateUserDefinedFunctionCommandOutput extends UpdateUserDefine
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlueClient, UpdateUserDefinedFunctionCommand } from "@aws-sdk/client-glue"; // ES Modules import
- * // const { GlueClient, UpdateUserDefinedFunctionCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * import { GlueClient, UpdateUserDefinedFunctionCommand } from '@aws-sdk/client-glue'; // ES Modules import
+ * // const { GlueClient, UpdateUserDefinedFunctionCommand } = require('@aws-sdk/client-glue'); // CommonJS import
  * const client = new GlueClient(config);
  * const input = { // UpdateUserDefinedFunctionRequest
- *   CatalogId: "STRING_VALUE",
- *   DatabaseName: "STRING_VALUE", // required
- *   FunctionName: "STRING_VALUE", // required
+ *   CatalogId: 'STRING_VALUE',
+ *   DatabaseName: 'STRING_VALUE', // required
+ *   FunctionName: 'STRING_VALUE', // required
  *   FunctionInput: { // UserDefinedFunctionInput
- *     FunctionName: "STRING_VALUE",
- *     ClassName: "STRING_VALUE",
- *     OwnerName: "STRING_VALUE",
- *     OwnerType: "USER" || "ROLE" || "GROUP",
+ *     FunctionName: 'STRING_VALUE',
+ *     ClassName: 'STRING_VALUE',
+ *     OwnerName: 'STRING_VALUE',
+ *     OwnerType: 'USER' || 'ROLE' || 'GROUP',
  *     ResourceUris: [ // ResourceUriList
  *       { // ResourceUri
- *         ResourceType: "JAR" || "FILE" || "ARCHIVE",
- *         Uri: "STRING_VALUE",
+ *         ResourceType: 'JAR' || 'FILE' || 'ARCHIVE',
+ *         Uri: 'STRING_VALUE',
  *       },
  *     ],
  *   },
  * };
  * const command = new UpdateUserDefinedFunctionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateUserDefinedFunctionCommandInput - {@link UpdateUserDefinedFunctionCommandInput}
@@ -81,6 +84,8 @@ export interface UpdateUserDefinedFunctionCommandOutput extends UpdateUserDefine
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class UpdateUserDefinedFunctionCommand extends $Command<

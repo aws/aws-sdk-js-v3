@@ -36,17 +36,27 @@ export interface ListBudgetsForResourceCommandOutput extends ListBudgetsForResou
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ServiceCatalogClient, ListBudgetsForResourceCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
- * // const { ServiceCatalogClient, ListBudgetsForResourceCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
+ * import { ServiceCatalogClient, ListBudgetsForResourceCommand } from '@aws-sdk/client-service-catalog'; // ES Modules import
+ * // const { ServiceCatalogClient, ListBudgetsForResourceCommand } = require('@aws-sdk/client-service-catalog'); // CommonJS import
  * const client = new ServiceCatalogClient(config);
  * const input = { // ListBudgetsForResourceInput
- *   AcceptLanguage: "STRING_VALUE",
- *   ResourceId: "STRING_VALUE", // required
- *   PageSize: Number("int"),
- *   PageToken: "STRING_VALUE",
+ *   AcceptLanguage: 'STRING_VALUE',
+ *   ResourceId: 'STRING_VALUE', // required
+ *   PageSize: Number('int'),
+ *   PageToken: 'STRING_VALUE',
  * };
  * const command = new ListBudgetsForResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListBudgetsForResourceOutput
+ *   Budgets: [ // Budgets
+ *     { // BudgetDetail
+ *       BudgetName: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextPageToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListBudgetsForResourceCommandInput - {@link ListBudgetsForResourceCommandInput}
@@ -61,6 +71,8 @@ export interface ListBudgetsForResourceCommandOutput extends ListBudgetsForResou
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link ServiceCatalogServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
  */
 export class ListBudgetsForResourceCommand extends $Command<

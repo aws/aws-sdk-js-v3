@@ -72,54 +72,73 @@ export interface DescribeEventsForOrganizationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { HealthClient, DescribeEventsForOrganizationCommand } from "@aws-sdk/client-health"; // ES Modules import
- * // const { HealthClient, DescribeEventsForOrganizationCommand } = require("@aws-sdk/client-health"); // CommonJS import
+ * import { HealthClient, DescribeEventsForOrganizationCommand } from '@aws-sdk/client-health'; // ES Modules import
+ * // const { HealthClient, DescribeEventsForOrganizationCommand } = require('@aws-sdk/client-health'); // CommonJS import
  * const client = new HealthClient(config);
  * const input = { // DescribeEventsForOrganizationRequest
  *   filter: { // OrganizationEventFilter
  *     eventTypeCodes: [ // eventTypeList2
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     awsAccountIds: [ // awsAccountIdsList
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     services: [ // serviceList
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     regions: [ // regionList
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     startTime: { // DateTimeRange
- *       from: new Date("TIMESTAMP"),
- *       to: new Date("TIMESTAMP"),
+ *       from: new Date('TIMESTAMP'),
+ *       to: new Date('TIMESTAMP'),
  *     },
  *     endTime: {
- *       from: new Date("TIMESTAMP"),
- *       to: new Date("TIMESTAMP"),
+ *       from: new Date('TIMESTAMP'),
+ *       to: new Date('TIMESTAMP'),
  *     },
  *     lastUpdatedTime: {
- *       from: new Date("TIMESTAMP"),
- *       to: new Date("TIMESTAMP"),
+ *       from: new Date('TIMESTAMP'),
+ *       to: new Date('TIMESTAMP'),
  *     },
  *     entityArns: [ // entityArnList
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     entityValues: [ // entityValueList
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     eventTypeCategories: [ // eventTypeCategoryList2
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     eventStatusCodes: [ // eventStatusCodeList
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *   },
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
- *   locale: "STRING_VALUE",
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
+ *   locale: 'STRING_VALUE',
  * };
  * const command = new DescribeEventsForOrganizationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeEventsForOrganizationResponse
+ *   events: [ // OrganizationEventList
+ *     { // OrganizationEvent
+ *       arn: 'STRING_VALUE',
+ *       service: 'STRING_VALUE',
+ *       eventTypeCode: 'STRING_VALUE',
+ *       eventTypeCategory: 'STRING_VALUE',
+ *       eventScopeCode: 'STRING_VALUE',
+ *       region: 'STRING_VALUE',
+ *       startTime: new Date('TIMESTAMP'),
+ *       endTime: new Date('TIMESTAMP'),
+ *       lastUpdatedTime: new Date('TIMESTAMP'),
+ *       statusCode: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeEventsForOrganizationCommandInput - {@link DescribeEventsForOrganizationCommandInput}
@@ -134,6 +153,8 @@ export interface DescribeEventsForOrganizationCommandOutput
  * @throws {@link UnsupportedLocale} (client fault)
  *  <p>The specified locale is not supported.</p>
  *
+ * @throws {@link HealthServiceException}
+ * <p>Base exception class for all service exceptions from Health service.</p>
  *
  */
 export class DescribeEventsForOrganizationCommand extends $Command<

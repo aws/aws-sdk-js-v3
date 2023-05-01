@@ -41,15 +41,21 @@ export interface CreateTestGridUrlCommandOutput extends CreateTestGridUrlResult,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DeviceFarmClient, CreateTestGridUrlCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
- * // const { DeviceFarmClient, CreateTestGridUrlCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
+ * import { DeviceFarmClient, CreateTestGridUrlCommand } from '@aws-sdk/client-device-farm'; // ES Modules import
+ * // const { DeviceFarmClient, CreateTestGridUrlCommand } = require('@aws-sdk/client-device-farm'); // CommonJS import
  * const client = new DeviceFarmClient(config);
  * const input = { // CreateTestGridUrlRequest
- *   projectArn: "STRING_VALUE", // required
- *   expiresInSeconds: Number("int"), // required
+ *   projectArn: 'STRING_VALUE', // required
+ *   expiresInSeconds: Number('int'), // required
  * };
  * const command = new CreateTestGridUrlCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateTestGridUrlResult
+ *   url: 'STRING_VALUE',
+ *   expires: new Date('TIMESTAMP'),
+ * };
+ *
  * ```
  *
  * @param CreateTestGridUrlCommandInput - {@link CreateTestGridUrlCommandInput}
@@ -68,6 +74,8 @@ export interface CreateTestGridUrlCommandOutput extends CreateTestGridUrlResult,
  * @throws {@link NotFoundException} (client fault)
  *  <p>The specified entity was not found.</p>
  *
+ * @throws {@link DeviceFarmServiceException}
+ * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
  */
 export class CreateTestGridUrlCommand extends $Command<

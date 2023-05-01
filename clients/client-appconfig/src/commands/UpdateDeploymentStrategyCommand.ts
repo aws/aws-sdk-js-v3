@@ -36,19 +36,31 @@ export interface UpdateDeploymentStrategyCommandOutput extends DeploymentStrateg
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppConfigClient, UpdateDeploymentStrategyCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
- * // const { AppConfigClient, UpdateDeploymentStrategyCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import
+ * import { AppConfigClient, UpdateDeploymentStrategyCommand } from '@aws-sdk/client-appconfig'; // ES Modules import
+ * // const { AppConfigClient, UpdateDeploymentStrategyCommand } = require('@aws-sdk/client-appconfig'); // CommonJS import
  * const client = new AppConfigClient(config);
  * const input = { // UpdateDeploymentStrategyRequest
- *   DeploymentStrategyId: "STRING_VALUE", // required
- *   Description: "STRING_VALUE",
- *   DeploymentDurationInMinutes: Number("int"),
- *   FinalBakeTimeInMinutes: Number("int"),
- *   GrowthFactor: Number("float"),
- *   GrowthType: "LINEAR" || "EXPONENTIAL",
+ *   DeploymentStrategyId: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE',
+ *   DeploymentDurationInMinutes: Number('int'),
+ *   FinalBakeTimeInMinutes: Number('int'),
+ *   GrowthFactor: Number('float'),
+ *   GrowthType: 'LINEAR' || 'EXPONENTIAL',
  * };
  * const command = new UpdateDeploymentStrategyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeploymentStrategy
+ *   Id: 'STRING_VALUE',
+ *   Name: 'STRING_VALUE',
+ *   Description: 'STRING_VALUE',
+ *   DeploymentDurationInMinutes: Number('int'),
+ *   GrowthType: 'LINEAR' || 'EXPONENTIAL',
+ *   GrowthFactor: Number('float'),
+ *   FinalBakeTimeInMinutes: Number('int'),
+ *   ReplicateTo: 'NONE' || 'SSM_DOCUMENT',
+ * };
+ *
  * ```
  *
  * @param UpdateDeploymentStrategyCommandInput - {@link UpdateDeploymentStrategyCommandInput}
@@ -66,6 +78,8 @@ export interface UpdateDeploymentStrategyCommandOutput extends DeploymentStrateg
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The requested resource could not be found.</p>
  *
+ * @throws {@link AppConfigServiceException}
+ * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
  * @example To update a deployment strategy
  * ```javascript

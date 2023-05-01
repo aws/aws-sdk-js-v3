@@ -72,28 +72,39 @@ export interface ExecuteStatementCommandOutput extends ExecuteStatementOutput, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RedshiftDataClient, ExecuteStatementCommand } from "@aws-sdk/client-redshift-data"; // ES Modules import
- * // const { RedshiftDataClient, ExecuteStatementCommand } = require("@aws-sdk/client-redshift-data"); // CommonJS import
+ * import { RedshiftDataClient, ExecuteStatementCommand } from '@aws-sdk/client-redshift-data'; // ES Modules import
+ * // const { RedshiftDataClient, ExecuteStatementCommand } = require('@aws-sdk/client-redshift-data'); // CommonJS import
  * const client = new RedshiftDataClient(config);
  * const input = { // ExecuteStatementInput
- *   Sql: "STRING_VALUE", // required
- *   ClusterIdentifier: "STRING_VALUE",
- *   SecretArn: "STRING_VALUE",
- *   DbUser: "STRING_VALUE",
- *   Database: "STRING_VALUE", // required
+ *   Sql: 'STRING_VALUE', // required
+ *   ClusterIdentifier: 'STRING_VALUE',
+ *   SecretArn: 'STRING_VALUE',
+ *   DbUser: 'STRING_VALUE',
+ *   Database: 'STRING_VALUE', // required
  *   WithEvent: true || false,
- *   StatementName: "STRING_VALUE",
+ *   StatementName: 'STRING_VALUE',
  *   Parameters: [ // SqlParametersList
  *     { // SqlParameter
- *       name: "STRING_VALUE", // required
- *       value: "STRING_VALUE", // required
+ *       name: 'STRING_VALUE', // required
+ *       value: 'STRING_VALUE', // required
  *     },
  *   ],
- *   WorkgroupName: "STRING_VALUE",
- *   ClientToken: "STRING_VALUE",
+ *   WorkgroupName: 'STRING_VALUE',
+ *   ClientToken: 'STRING_VALUE',
  * };
  * const command = new ExecuteStatementCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ExecuteStatementOutput
+ *   Id: 'STRING_VALUE',
+ *   CreatedAt: new Date('TIMESTAMP'),
+ *   ClusterIdentifier: 'STRING_VALUE',
+ *   DbUser: 'STRING_VALUE',
+ *   Database: 'STRING_VALUE',
+ *   SecretArn: 'STRING_VALUE',
+ *   WorkgroupName: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ExecuteStatementCommandInput - {@link ExecuteStatementCommandInput}
@@ -111,6 +122,8 @@ export interface ExecuteStatementCommandOutput extends ExecuteStatementOutput, _
  * @throws {@link ValidationException} (client fault)
  *  <p>The Amazon Redshift Data API operation failed due to invalid input. </p>
  *
+ * @throws {@link RedshiftDataServiceException}
+ * <p>Base exception class for all service exceptions from RedshiftData service.</p>
  *
  */
 export class ExecuteStatementCommand extends $Command<

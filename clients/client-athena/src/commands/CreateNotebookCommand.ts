@@ -38,16 +38,21 @@ export interface CreateNotebookCommandOutput extends CreateNotebookOutput, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AthenaClient, CreateNotebookCommand } from "@aws-sdk/client-athena"; // ES Modules import
- * // const { AthenaClient, CreateNotebookCommand } = require("@aws-sdk/client-athena"); // CommonJS import
+ * import { AthenaClient, CreateNotebookCommand } from '@aws-sdk/client-athena'; // ES Modules import
+ * // const { AthenaClient, CreateNotebookCommand } = require('@aws-sdk/client-athena'); // CommonJS import
  * const client = new AthenaClient(config);
  * const input = { // CreateNotebookInput
- *   WorkGroup: "STRING_VALUE", // required
- *   Name: "STRING_VALUE", // required
- *   ClientRequestToken: "STRING_VALUE",
+ *   WorkGroup: 'STRING_VALUE', // required
+ *   Name: 'STRING_VALUE', // required
+ *   ClientRequestToken: 'STRING_VALUE',
  * };
  * const command = new CreateNotebookCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateNotebookOutput
+ *   NotebookId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateNotebookCommandInput - {@link CreateNotebookCommandInput}
@@ -67,6 +72,8 @@ export interface CreateNotebookCommandOutput extends CreateNotebookOutput, __Met
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Indicates that the request was throttled.</p>
  *
+ * @throws {@link AthenaServiceException}
+ * <p>Base exception class for all service exceptions from Athena service.</p>
  *
  */
 export class CreateNotebookCommand extends $Command<

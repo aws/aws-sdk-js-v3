@@ -36,25 +36,45 @@ export interface CreateWorldGenerationJobCommandOutput extends CreateWorldGenera
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RoboMakerClient, CreateWorldGenerationJobCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
- * // const { RoboMakerClient, CreateWorldGenerationJobCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
+ * import { RoboMakerClient, CreateWorldGenerationJobCommand } from '@aws-sdk/client-robomaker'; // ES Modules import
+ * // const { RoboMakerClient, CreateWorldGenerationJobCommand } = require('@aws-sdk/client-robomaker'); // CommonJS import
  * const client = new RoboMakerClient(config);
  * const input = { // CreateWorldGenerationJobRequest
- *   clientRequestToken: "STRING_VALUE",
- *   template: "STRING_VALUE", // required
+ *   clientRequestToken: 'STRING_VALUE',
+ *   template: 'STRING_VALUE', // required
  *   worldCount: { // WorldCount
- *     floorplanCount: Number("int"),
- *     interiorCountPerFloorplan: Number("int"),
+ *     floorplanCount: Number('int'),
+ *     interiorCountPerFloorplan: Number('int'),
  *   },
  *   tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  *   worldTags: {
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateWorldGenerationJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateWorldGenerationJobResponse
+ *   arn: 'STRING_VALUE',
+ *   status: 'STRING_VALUE',
+ *   createdAt: new Date('TIMESTAMP'),
+ *   failureCode: 'STRING_VALUE',
+ *   clientRequestToken: 'STRING_VALUE',
+ *   template: 'STRING_VALUE',
+ *   worldCount: { // WorldCount
+ *     floorplanCount: Number('int'),
+ *     interiorCountPerFloorplan: Number('int'),
+ *   },
+ *   tags: { // TagMap
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ *   worldTags: {
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateWorldGenerationJobCommandInput - {@link CreateWorldGenerationJobCommandInput}
@@ -87,6 +107,8 @@ export interface CreateWorldGenerationJobCommandOutput extends CreateWorldGenera
  * @throws {@link ThrottlingException} (client fault)
  *  <p>AWS RoboMaker is temporarily unable to process the request. Try your call again.</p>
  *
+ * @throws {@link RoboMakerServiceException}
+ * <p>Base exception class for all service exceptions from RoboMaker service.</p>
  *
  */
 export class CreateWorldGenerationJobCommand extends $Command<

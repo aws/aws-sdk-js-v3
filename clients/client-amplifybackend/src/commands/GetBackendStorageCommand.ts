@@ -36,16 +36,36 @@ export interface GetBackendStorageCommandOutput extends GetBackendStorageRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AmplifyBackendClient, GetBackendStorageCommand } from "@aws-sdk/client-amplifybackend"; // ES Modules import
- * // const { AmplifyBackendClient, GetBackendStorageCommand } = require("@aws-sdk/client-amplifybackend"); // CommonJS import
+ * import { AmplifyBackendClient, GetBackendStorageCommand } from '@aws-sdk/client-amplifybackend'; // ES Modules import
+ * // const { AmplifyBackendClient, GetBackendStorageCommand } = require('@aws-sdk/client-amplifybackend'); // CommonJS import
  * const client = new AmplifyBackendClient(config);
  * const input = { // GetBackendStorageRequest
- *   AppId: "STRING_VALUE", // required
- *   BackendEnvironmentName: "STRING_VALUE", // required
- *   ResourceName: "STRING_VALUE", // required
+ *   AppId: 'STRING_VALUE', // required
+ *   BackendEnvironmentName: 'STRING_VALUE', // required
+ *   ResourceName: 'STRING_VALUE', // required
  * };
  * const command = new GetBackendStorageCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetBackendStorageResponse
+ *   AppId: 'STRING_VALUE',
+ *   BackendEnvironmentName: 'STRING_VALUE',
+ *   ResourceConfig: { // GetBackendStorageResourceConfig
+ *     BucketName: 'STRING_VALUE',
+ *     Imported: true || false, // required
+ *     Permissions: { // BackendStoragePermissions
+ *       Authenticated: [ // ListOfAuthenticatedElement // required
+ *         'READ' || 'CREATE_AND_UPDATE' || 'DELETE',
+ *       ],
+ *       UnAuthenticated: [ // ListOfUnAuthenticatedElement
+ *         'READ' || 'CREATE_AND_UPDATE' || 'DELETE',
+ *       ],
+ *     },
+ *     ServiceName: 'S3', // required
+ *   },
+ *   ResourceName: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetBackendStorageCommandInput - {@link GetBackendStorageCommandInput}
@@ -66,6 +86,8 @@ export interface GetBackendStorageCommandOutput extends GetBackendStorageRespons
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>An error that is returned when a limit of a specific type has been exceeded.</p>
  *
+ * @throws {@link AmplifyBackendServiceException}
+ * <p>Base exception class for all service exceptions from AmplifyBackend service.</p>
  *
  */
 export class GetBackendStorageCommand extends $Command<

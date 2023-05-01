@@ -54,22 +54,42 @@ export interface RestoreTableFromClusterSnapshotCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RedshiftClient, RestoreTableFromClusterSnapshotCommand } from "@aws-sdk/client-redshift"; // ES Modules import
- * // const { RedshiftClient, RestoreTableFromClusterSnapshotCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * import { RedshiftClient, RestoreTableFromClusterSnapshotCommand } from '@aws-sdk/client-redshift'; // ES Modules import
+ * // const { RedshiftClient, RestoreTableFromClusterSnapshotCommand } = require('@aws-sdk/client-redshift'); // CommonJS import
  * const client = new RedshiftClient(config);
  * const input = { // RestoreTableFromClusterSnapshotMessage
- *   ClusterIdentifier: "STRING_VALUE", // required
- *   SnapshotIdentifier: "STRING_VALUE", // required
- *   SourceDatabaseName: "STRING_VALUE", // required
- *   SourceSchemaName: "STRING_VALUE",
- *   SourceTableName: "STRING_VALUE", // required
- *   TargetDatabaseName: "STRING_VALUE",
- *   TargetSchemaName: "STRING_VALUE",
- *   NewTableName: "STRING_VALUE", // required
+ *   ClusterIdentifier: 'STRING_VALUE', // required
+ *   SnapshotIdentifier: 'STRING_VALUE', // required
+ *   SourceDatabaseName: 'STRING_VALUE', // required
+ *   SourceSchemaName: 'STRING_VALUE',
+ *   SourceTableName: 'STRING_VALUE', // required
+ *   TargetDatabaseName: 'STRING_VALUE',
+ *   TargetSchemaName: 'STRING_VALUE',
+ *   NewTableName: 'STRING_VALUE', // required
  *   EnableCaseSensitiveIdentifier: true || false,
  * };
  * const command = new RestoreTableFromClusterSnapshotCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // RestoreTableFromClusterSnapshotResult
+ *   TableRestoreStatus: { // TableRestoreStatus
+ *     TableRestoreRequestId: 'STRING_VALUE',
+ *     Status: 'PENDING' || 'IN_PROGRESS' || 'SUCCEEDED' || 'FAILED' || 'CANCELED',
+ *     Message: 'STRING_VALUE',
+ *     RequestTime: new Date('TIMESTAMP'),
+ *     ProgressInMegaBytes: Number('long'),
+ *     TotalDataInMegaBytes: Number('long'),
+ *     ClusterIdentifier: 'STRING_VALUE',
+ *     SnapshotIdentifier: 'STRING_VALUE',
+ *     SourceDatabaseName: 'STRING_VALUE',
+ *     SourceSchemaName: 'STRING_VALUE',
+ *     SourceTableName: 'STRING_VALUE',
+ *     TargetDatabaseName: 'STRING_VALUE',
+ *     TargetSchemaName: 'STRING_VALUE',
+ *     NewTableName: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param RestoreTableFromClusterSnapshotCommandInput - {@link RestoreTableFromClusterSnapshotCommandInput}
@@ -104,6 +124,8 @@ export interface RestoreTableFromClusterSnapshotCommandOutput
  * @throws {@link UnsupportedOperationFault} (client fault)
  *  <p>The requested operation isn't supported.</p>
  *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class RestoreTableFromClusterSnapshotCommand extends $Command<

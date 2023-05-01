@@ -44,26 +44,33 @@ export interface CreateVehicleCommandOutput extends CreateVehicleResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTFleetWiseClient, CreateVehicleCommand } from "@aws-sdk/client-iotfleetwise"; // ES Modules import
- * // const { IoTFleetWiseClient, CreateVehicleCommand } = require("@aws-sdk/client-iotfleetwise"); // CommonJS import
+ * import { IoTFleetWiseClient, CreateVehicleCommand } from '@aws-sdk/client-iotfleetwise'; // ES Modules import
+ * // const { IoTFleetWiseClient, CreateVehicleCommand } = require('@aws-sdk/client-iotfleetwise'); // CommonJS import
  * const client = new IoTFleetWiseClient(config);
  * const input = { // CreateVehicleRequest
- *   vehicleName: "STRING_VALUE", // required
- *   modelManifestArn: "STRING_VALUE", // required
- *   decoderManifestArn: "STRING_VALUE", // required
+ *   vehicleName: 'STRING_VALUE', // required
+ *   modelManifestArn: 'STRING_VALUE', // required
+ *   decoderManifestArn: 'STRING_VALUE', // required
  *   attributes: { // attributesMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
- *   associationBehavior: "STRING_VALUE",
+ *   associationBehavior: 'STRING_VALUE',
  *   tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreateVehicleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateVehicleResponse
+ *   vehicleName: 'STRING_VALUE',
+ *   arn: 'STRING_VALUE',
+ *   thingArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateVehicleCommandInput - {@link CreateVehicleCommandInput}
@@ -94,6 +101,8 @@ export interface CreateVehicleCommandOutput extends CreateVehicleResponse, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
  *
+ * @throws {@link IoTFleetWiseServiceException}
+ * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
  */
 export class CreateVehicleCommand extends $Command<

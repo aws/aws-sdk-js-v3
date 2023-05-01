@@ -41,15 +41,39 @@ export interface ListInvitationsCommandOutput extends ListInvitationsOutput, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ManagedBlockchainClient, ListInvitationsCommand } from "@aws-sdk/client-managedblockchain"; // ES Modules import
- * // const { ManagedBlockchainClient, ListInvitationsCommand } = require("@aws-sdk/client-managedblockchain"); // CommonJS import
+ * import { ManagedBlockchainClient, ListInvitationsCommand } from '@aws-sdk/client-managedblockchain'; // ES Modules import
+ * // const { ManagedBlockchainClient, ListInvitationsCommand } = require('@aws-sdk/client-managedblockchain'); // CommonJS import
  * const client = new ManagedBlockchainClient(config);
  * const input = { // ListInvitationsInput
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListInvitationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListInvitationsOutput
+ *   Invitations: [ // InvitationList
+ *     { // Invitation
+ *       InvitationId: 'STRING_VALUE',
+ *       CreationDate: new Date('TIMESTAMP'),
+ *       ExpirationDate: new Date('TIMESTAMP'),
+ *       Status: 'PENDING' || 'ACCEPTED' || 'ACCEPTING' || 'REJECTED' || 'EXPIRED',
+ *       NetworkSummary: { // NetworkSummary
+ *         Id: 'STRING_VALUE',
+ *         Name: 'STRING_VALUE',
+ *         Description: 'STRING_VALUE',
+ *         Framework: 'HYPERLEDGER_FABRIC' || 'ETHEREUM',
+ *         FrameworkVersion: 'STRING_VALUE',
+ *         Status: 'CREATING' || 'AVAILABLE' || 'CREATE_FAILED' || 'DELETING' || 'DELETED',
+ *         CreationDate: new Date('TIMESTAMP'),
+ *         Arn: 'STRING_VALUE',
+ *       },
+ *       Arn: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListInvitationsCommandInput - {@link ListInvitationsCommandInput}
@@ -80,6 +104,8 @@ export interface ListInvitationsCommandOutput extends ListInvitationsOutput, __M
  *          creating resources that exceed your service limit for this resource type.
  *          Request a limit increase or delete unused resources if possible.</p>
  *
+ * @throws {@link ManagedBlockchainServiceException}
+ * <p>Base exception class for all service exceptions from ManagedBlockchain service.</p>
  *
  */
 export class ListInvitationsCommand extends $Command<

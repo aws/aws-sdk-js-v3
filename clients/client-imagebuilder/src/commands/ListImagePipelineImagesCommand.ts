@@ -36,24 +36,74 @@ export interface ListImagePipelineImagesCommandOutput extends ListImagePipelineI
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ImagebuilderClient, ListImagePipelineImagesCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
- * // const { ImagebuilderClient, ListImagePipelineImagesCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
+ * import { ImagebuilderClient, ListImagePipelineImagesCommand } from '@aws-sdk/client-imagebuilder'; // ES Modules import
+ * // const { ImagebuilderClient, ListImagePipelineImagesCommand } = require('@aws-sdk/client-imagebuilder'); // CommonJS import
  * const client = new ImagebuilderClient(config);
  * const input = { // ListImagePipelineImagesRequest
- *   imagePipelineArn: "STRING_VALUE", // required
+ *   imagePipelineArn: 'STRING_VALUE', // required
  *   filters: [ // FilterList
  *     { // Filter
- *       name: "STRING_VALUE",
+ *       name: 'STRING_VALUE',
  *       values: [ // FilterValues
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new ListImagePipelineImagesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListImagePipelineImagesResponse
+ *   requestId: 'STRING_VALUE',
+ *   imageSummaryList: [ // ImageSummaryList
+ *     { // ImageSummary
+ *       arn: 'STRING_VALUE',
+ *       name: 'STRING_VALUE',
+ *       type: 'AMI' || 'DOCKER',
+ *       version: 'STRING_VALUE',
+ *       platform: 'Windows' || 'Linux',
+ *       osVersion: 'STRING_VALUE',
+ *       state: { // ImageState
+ *         status: 'PENDING' || 'CREATING' || 'BUILDING' || 'TESTING' || 'DISTRIBUTING' || 'INTEGRATING' || 'AVAILABLE' || 'CANCELLED' || 'FAILED' || 'DEPRECATED' || 'DELETED',
+ *         reason: 'STRING_VALUE',
+ *       },
+ *       owner: 'STRING_VALUE',
+ *       dateCreated: 'STRING_VALUE',
+ *       outputResources: { // OutputResources
+ *         amis: [ // AmiList
+ *           { // Ami
+ *             region: 'STRING_VALUE',
+ *             image: 'STRING_VALUE',
+ *             name: 'STRING_VALUE',
+ *             description: 'STRING_VALUE',
+ *             state: {
+ *               status: 'PENDING' || 'CREATING' || 'BUILDING' || 'TESTING' || 'DISTRIBUTING' || 'INTEGRATING' || 'AVAILABLE' || 'CANCELLED' || 'FAILED' || 'DEPRECATED' || 'DELETED',
+ *               reason: 'STRING_VALUE',
+ *             },
+ *             accountId: 'STRING_VALUE',
+ *           },
+ *         ],
+ *         containers: [ // ContainerList
+ *           { // Container
+ *             region: 'STRING_VALUE',
+ *             imageUris: [ // StringList
+ *               'STRING_VALUE',
+ *             ],
+ *           },
+ *         ],
+ *       },
+ *       tags: { // TagMap
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *       buildType: 'USER_INITIATED' || 'SCHEDULED' || 'IMPORT',
+ *       imageSource: 'AMAZON_MANAGED' || 'AWS_MARKETPLACE' || 'IMPORTED' || 'CUSTOM',
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListImagePipelineImagesCommandInput - {@link ListImagePipelineImagesCommandInput}
@@ -89,6 +139,8 @@ export interface ListImagePipelineImagesCommandOutput extends ListImagePipelineI
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service is unable to process your request at this time.</p>
  *
+ * @throws {@link ImagebuilderServiceException}
+ * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
  */
 export class ListImagePipelineImagesCommand extends $Command<

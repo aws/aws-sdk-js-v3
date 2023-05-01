@@ -36,22 +36,29 @@ export interface PutFileCommandOutput extends PutFileOutput, __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeCommitClient, PutFileCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
- * // const { CodeCommitClient, PutFileCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
+ * import { CodeCommitClient, PutFileCommand } from '@aws-sdk/client-codecommit'; // ES Modules import
+ * // const { CodeCommitClient, PutFileCommand } = require('@aws-sdk/client-codecommit'); // CommonJS import
  * const client = new CodeCommitClient(config);
  * const input = { // PutFileInput
- *   repositoryName: "STRING_VALUE", // required
- *   branchName: "STRING_VALUE", // required
- *   fileContent: "BLOB_VALUE", // required
- *   filePath: "STRING_VALUE", // required
- *   fileMode: "STRING_VALUE",
- *   parentCommitId: "STRING_VALUE",
- *   commitMessage: "STRING_VALUE",
- *   name: "STRING_VALUE",
- *   email: "STRING_VALUE",
+ *   repositoryName: 'STRING_VALUE', // required
+ *   branchName: 'STRING_VALUE', // required
+ *   fileContent: 'BLOB_VALUE', // required
+ *   filePath: 'STRING_VALUE', // required
+ *   fileMode: 'STRING_VALUE',
+ *   parentCommitId: 'STRING_VALUE',
+ *   commitMessage: 'STRING_VALUE',
+ *   name: 'STRING_VALUE',
+ *   email: 'STRING_VALUE',
  * };
  * const command = new PutFileCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutFileOutput
+ *   commitId: 'STRING_VALUE', // required
+ *   blobId: 'STRING_VALUE', // required
+ *   treeId: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param PutFileCommandInput - {@link PutFileCommandInput}
@@ -169,6 +176,8 @@ export interface PutFileCommandOutput extends PutFileOutput, __MetadataBearer {}
  *  <p>The file was not added or updated because the content of the file is exactly the same as the content of that file in the repository and branch
  *         that you specified.</p>
  *
+ * @throws {@link CodeCommitServiceException}
+ * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
  */
 export class PutFileCommand extends $Command<

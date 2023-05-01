@@ -36,21 +36,40 @@ export interface GetCaseCommandOutput extends GetCaseResponse, __MetadataBearer 
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectCasesClient, GetCaseCommand } from "@aws-sdk/client-connectcases"; // ES Modules import
- * // const { ConnectCasesClient, GetCaseCommand } = require("@aws-sdk/client-connectcases"); // CommonJS import
+ * import { ConnectCasesClient, GetCaseCommand } from '@aws-sdk/client-connectcases'; // ES Modules import
+ * // const { ConnectCasesClient, GetCaseCommand } = require('@aws-sdk/client-connectcases'); // CommonJS import
  * const client = new ConnectCasesClient(config);
  * const input = { // GetCaseRequest
- *   caseId: "STRING_VALUE", // required
- *   domainId: "STRING_VALUE", // required
+ *   caseId: 'STRING_VALUE', // required
+ *   domainId: 'STRING_VALUE', // required
  *   fields: [ // FieldIdentifierList // required
  *     { // FieldIdentifier
- *       id: "STRING_VALUE", // required
+ *       id: 'STRING_VALUE', // required
  *     },
  *   ],
- *   nextToken: "STRING_VALUE",
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new GetCaseCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetCaseResponse
+ *   fields: [ // FieldValueList // required
+ *     { // FieldValue
+ *       id: 'STRING_VALUE', // required
+ *       value: { // FieldValueUnion Union: only one key present
+ *         stringValue: 'STRING_VALUE',
+ *         doubleValue: Number('double'),
+ *         booleanValue: true || false,
+ *       },
+ *     },
+ *   ],
+ *   templateId: 'STRING_VALUE', // required
+ *   nextToken: 'STRING_VALUE',
+ *   tags: { // Tags
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetCaseCommandInput - {@link GetCaseCommandInput}
@@ -76,6 +95,8 @@ export interface GetCaseCommandOutput extends GetCaseResponse, __MetadataBearer 
  * @throws {@link ValidationException} (client fault)
  *  <p>The request isn't valid. Check the syntax and try again.</p>
  *
+ * @throws {@link ConnectCasesServiceException}
+ * <p>Base exception class for all service exceptions from ConnectCases service.</p>
  *
  */
 export class GetCaseCommand extends $Command<

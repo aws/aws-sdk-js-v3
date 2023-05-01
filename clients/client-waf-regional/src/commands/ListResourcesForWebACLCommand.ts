@@ -44,15 +44,22 @@ export interface ListResourcesForWebACLCommandOutput extends ListResourcesForWeb
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WAFRegionalClient, ListResourcesForWebACLCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
- * // const { WAFRegionalClient, ListResourcesForWebACLCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import
+ * import { WAFRegionalClient, ListResourcesForWebACLCommand } from '@aws-sdk/client-waf-regional'; // ES Modules import
+ * // const { WAFRegionalClient, ListResourcesForWebACLCommand } = require('@aws-sdk/client-waf-regional'); // CommonJS import
  * const client = new WAFRegionalClient(config);
  * const input = { // ListResourcesForWebACLRequest
- *   WebACLId: "STRING_VALUE", // required
- *   ResourceType: "STRING_VALUE",
+ *   WebACLId: 'STRING_VALUE', // required
+ *   ResourceType: 'STRING_VALUE',
  * };
  * const command = new ListResourcesForWebACLCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListResourcesForWebACLResponse
+ *   ResourceArns: [ // ResourceArns
+ *     'STRING_VALUE',
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListResourcesForWebACLCommandInput - {@link ListResourcesForWebACLCommandInput}
@@ -110,6 +117,8 @@ export interface ListResourcesForWebACLCommandOutput extends ListResourcesForWeb
  * @throws {@link WAFNonexistentItemException} (client fault)
  *  <p>The operation failed because the referenced object doesn't exist.</p>
  *
+ * @throws {@link WAFRegionalServiceException}
+ * <p>Base exception class for all service exceptions from WAFRegional service.</p>
  *
  */
 export class ListResourcesForWebACLCommand extends $Command<

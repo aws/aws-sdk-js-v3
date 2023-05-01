@@ -36,18 +36,34 @@ export interface ListRotationOverridesCommandOutput extends ListRotationOverride
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMContactsClient, ListRotationOverridesCommand } from "@aws-sdk/client-ssm-contacts"; // ES Modules import
- * // const { SSMContactsClient, ListRotationOverridesCommand } = require("@aws-sdk/client-ssm-contacts"); // CommonJS import
+ * import { SSMContactsClient, ListRotationOverridesCommand } from '@aws-sdk/client-ssm-contacts'; // ES Modules import
+ * // const { SSMContactsClient, ListRotationOverridesCommand } = require('@aws-sdk/client-ssm-contacts'); // CommonJS import
  * const client = new SSMContactsClient(config);
  * const input = { // ListRotationOverridesRequest
- *   RotationId: "STRING_VALUE", // required
- *   StartTime: new Date("TIMESTAMP"), // required
- *   EndTime: new Date("TIMESTAMP"), // required
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   RotationId: 'STRING_VALUE', // required
+ *   StartTime: new Date('TIMESTAMP'), // required
+ *   EndTime: new Date('TIMESTAMP'), // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListRotationOverridesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListRotationOverridesResult
+ *   RotationOverrides: [ // RotationOverrides
+ *     { // RotationOverride
+ *       RotationOverrideId: 'STRING_VALUE', // required
+ *       NewContactIds: [ // SsmContactsArnList // required
+ *         'STRING_VALUE',
+ *       ],
+ *       StartTime: new Date('TIMESTAMP'), // required
+ *       EndTime: new Date('TIMESTAMP'), // required
+ *       CreateTime: new Date('TIMESTAMP'), // required
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListRotationOverridesCommandInput - {@link ListRotationOverridesCommandInput}
@@ -72,6 +88,8 @@ export interface ListRotationOverridesCommandOutput extends ListRotationOverride
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
  *          service.</p>
  *
+ * @throws {@link SSMContactsServiceException}
+ * <p>Base exception class for all service exceptions from SSMContacts service.</p>
  *
  */
 export class ListRotationOverridesCommand extends $Command<

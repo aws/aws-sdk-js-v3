@@ -39,14 +39,17 @@ export interface DeleteLexiconCommandOutput extends DeleteLexiconOutput, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PollyClient, DeleteLexiconCommand } from "@aws-sdk/client-polly"; // ES Modules import
- * // const { PollyClient, DeleteLexiconCommand } = require("@aws-sdk/client-polly"); // CommonJS import
+ * import { PollyClient, DeleteLexiconCommand } from '@aws-sdk/client-polly'; // ES Modules import
+ * // const { PollyClient, DeleteLexiconCommand } = require('@aws-sdk/client-polly'); // CommonJS import
  * const client = new PollyClient(config);
  * const input = { // DeleteLexiconInput
- *   Name: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
  * };
  * const command = new DeleteLexiconCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteLexiconCommandInput - {@link DeleteLexiconCommandInput}
@@ -65,6 +68,8 @@ export interface DeleteLexiconCommandOutput extends DeleteLexiconOutput, __Metad
  * @throws {@link ServiceFailureException} (server fault)
  *  <p>An unknown condition has caused a service failure.</p>
  *
+ * @throws {@link PollyServiceException}
+ * <p>Base exception class for all service exceptions from Polly service.</p>
  *
  * @example To delete a lexicon
  * ```javascript

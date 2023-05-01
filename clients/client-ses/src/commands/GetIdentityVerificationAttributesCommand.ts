@@ -59,16 +59,26 @@ export interface GetIdentityVerificationAttributesCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SESClient, GetIdentityVerificationAttributesCommand } from "@aws-sdk/client-ses"; // ES Modules import
- * // const { SESClient, GetIdentityVerificationAttributesCommand } = require("@aws-sdk/client-ses"); // CommonJS import
+ * import { SESClient, GetIdentityVerificationAttributesCommand } from '@aws-sdk/client-ses'; // ES Modules import
+ * // const { SESClient, GetIdentityVerificationAttributesCommand } = require('@aws-sdk/client-ses'); // CommonJS import
  * const client = new SESClient(config);
  * const input = { // GetIdentityVerificationAttributesRequest
  *   Identities: [ // IdentityList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new GetIdentityVerificationAttributesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetIdentityVerificationAttributesResponse
+ *   VerificationAttributes: { // VerificationAttributes // required
+ *     '<keys>': { // IdentityVerificationAttributes
+ *       VerificationStatus: 'STRING_VALUE', // required
+ *       VerificationToken: 'STRING_VALUE',
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetIdentityVerificationAttributesCommandInput - {@link GetIdentityVerificationAttributesCommandInput}
@@ -77,6 +87,8 @@ export interface GetIdentityVerificationAttributesCommandOutput
  * @see {@link GetIdentityVerificationAttributesCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
+ * @throws {@link SESServiceException}
+ * <p>Base exception class for all service exceptions from SES service.</p>
  *
  * @example GetIdentityVerificationAttributes
  * ```javascript

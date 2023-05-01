@@ -40,15 +40,36 @@ export interface ListPhoneNumberOrdersCommandOutput extends ListPhoneNumberOrder
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeSDKVoiceClient, ListPhoneNumberOrdersCommand } from "@aws-sdk/client-chime-sdk-voice"; // ES Modules import
- * // const { ChimeSDKVoiceClient, ListPhoneNumberOrdersCommand } = require("@aws-sdk/client-chime-sdk-voice"); // CommonJS import
+ * import { ChimeSDKVoiceClient, ListPhoneNumberOrdersCommand } from '@aws-sdk/client-chime-sdk-voice'; // ES Modules import
+ * // const { ChimeSDKVoiceClient, ListPhoneNumberOrdersCommand } = require('@aws-sdk/client-chime-sdk-voice'); // CommonJS import
  * const client = new ChimeSDKVoiceClient(config);
  * const input = { // ListPhoneNumberOrdersRequest
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListPhoneNumberOrdersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListPhoneNumberOrdersResponse
+ *   PhoneNumberOrders: [ // PhoneNumberOrderList
+ *     { // PhoneNumberOrder
+ *       PhoneNumberOrderId: 'STRING_VALUE',
+ *       ProductType: 'VoiceConnector' || 'SipMediaApplicationDialIn',
+ *       Status: 'Processing' || 'Successful' || 'Failed' || 'Partial' || 'PendingDocuments' || 'Submitted' || 'FOC' || 'ChangeRequested' || 'Exception' || 'CancelRequested' || 'Cancelled',
+ *       OrderType: 'New' || 'Porting',
+ *       OrderedPhoneNumbers: [ // OrderedPhoneNumberList
+ *         { // OrderedPhoneNumber
+ *           E164PhoneNumber: 'STRING_VALUE',
+ *           Status: 'Processing' || 'Acquired' || 'Failed',
+ *         },
+ *       ],
+ *       CreatedTimestamp: new Date('TIMESTAMP'),
+ *       UpdatedTimestamp: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListPhoneNumberOrdersCommandInput - {@link ListPhoneNumberOrdersCommandInput}
@@ -75,6 +96,8 @@ export interface ListPhoneNumberOrdersCommandOutput extends ListPhoneNumberOrder
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client isn't authorized to request a resource.</p>
  *
+ * @throws {@link ChimeSDKVoiceServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
  */
 export class ListPhoneNumberOrdersCommand extends $Command<

@@ -36,16 +36,26 @@ export interface UpdateDeploymentCommandOutput extends UpdateDeploymentResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ApiGatewayV2Client, UpdateDeploymentCommand } from "@aws-sdk/client-apigatewayv2"; // ES Modules import
- * // const { ApiGatewayV2Client, UpdateDeploymentCommand } = require("@aws-sdk/client-apigatewayv2"); // CommonJS import
+ * import { ApiGatewayV2Client, UpdateDeploymentCommand } from '@aws-sdk/client-apigatewayv2'; // ES Modules import
+ * // const { ApiGatewayV2Client, UpdateDeploymentCommand } = require('@aws-sdk/client-apigatewayv2'); // CommonJS import
  * const client = new ApiGatewayV2Client(config);
  * const input = { // UpdateDeploymentRequest
- *   ApiId: "STRING_VALUE", // required
- *   DeploymentId: "STRING_VALUE", // required
- *   Description: "STRING_VALUE",
+ *   ApiId: 'STRING_VALUE', // required
+ *   DeploymentId: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE',
  * };
  * const command = new UpdateDeploymentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateDeploymentResponse
+ *   AutoDeployed: true || false,
+ *   CreatedDate: new Date('TIMESTAMP'),
+ *   DeploymentId: 'STRING_VALUE',
+ *   DeploymentStatus: 'STRING_VALUE',
+ *   DeploymentStatusMessage: 'STRING_VALUE',
+ *   Description: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateDeploymentCommandInput - {@link UpdateDeploymentCommandInput}
@@ -66,6 +76,8 @@ export interface UpdateDeploymentCommandOutput extends UpdateDeploymentResponse,
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>A limit has been exceeded. See the accompanying error message for details.</p>
  *
+ * @throws {@link ApiGatewayV2ServiceException}
+ * <p>Base exception class for all service exceptions from ApiGatewayV2 service.</p>
  *
  */
 export class UpdateDeploymentCommand extends $Command<

@@ -47,18 +47,23 @@ export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeClient, UpdateChannelCommand } from "@aws-sdk/client-chime"; // ES Modules import
- * // const { ChimeClient, UpdateChannelCommand } = require("@aws-sdk/client-chime"); // CommonJS import
+ * import { ChimeClient, UpdateChannelCommand } from '@aws-sdk/client-chime'; // ES Modules import
+ * // const { ChimeClient, UpdateChannelCommand } = require('@aws-sdk/client-chime'); // CommonJS import
  * const client = new ChimeClient(config);
  * const input = { // UpdateChannelRequest
- *   ChannelArn: "STRING_VALUE", // required
- *   Name: "STRING_VALUE", // required
- *   Mode: "UNRESTRICTED" || "RESTRICTED", // required
- *   Metadata: "STRING_VALUE",
- *   ChimeBearer: "STRING_VALUE",
+ *   ChannelArn: 'STRING_VALUE', // required
+ *   Name: 'STRING_VALUE', // required
+ *   Mode: 'UNRESTRICTED' || 'RESTRICTED', // required
+ *   Metadata: 'STRING_VALUE',
+ *   ChimeBearer: 'STRING_VALUE',
  * };
  * const command = new UpdateChannelCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateChannelResponse
+ *   ChannelArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateChannelCommandInput - {@link UpdateChannelCommandInput}
@@ -89,6 +94,8 @@ export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __Met
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeServiceException}
+ * <p>Base exception class for all service exceptions from Chime service.</p>
  *
  */
 export class UpdateChannelCommand extends $Command<

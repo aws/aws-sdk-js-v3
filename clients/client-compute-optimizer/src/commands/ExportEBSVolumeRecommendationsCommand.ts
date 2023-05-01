@@ -46,33 +46,43 @@ export interface ExportEBSVolumeRecommendationsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ComputeOptimizerClient, ExportEBSVolumeRecommendationsCommand } from "@aws-sdk/client-compute-optimizer"; // ES Modules import
- * // const { ComputeOptimizerClient, ExportEBSVolumeRecommendationsCommand } = require("@aws-sdk/client-compute-optimizer"); // CommonJS import
+ * import { ComputeOptimizerClient, ExportEBSVolumeRecommendationsCommand } from '@aws-sdk/client-compute-optimizer'; // ES Modules import
+ * // const { ComputeOptimizerClient, ExportEBSVolumeRecommendationsCommand } = require('@aws-sdk/client-compute-optimizer'); // CommonJS import
  * const client = new ComputeOptimizerClient(config);
  * const input = { // ExportEBSVolumeRecommendationsRequest
  *   accountIds: [ // AccountIds
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   filters: [ // EBSFilters
  *     { // EBSFilter
- *       name: "Finding",
+ *       name: 'Finding',
  *       values: [ // FilterValues
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
  *   fieldsToExport: [ // ExportableVolumeFields
- *     "AccountId" || "VolumeArn" || "Finding" || "UtilizationMetricsVolumeReadOpsPerSecondMaximum" || "UtilizationMetricsVolumeWriteOpsPerSecondMaximum" || "UtilizationMetricsVolumeReadBytesPerSecondMaximum" || "UtilizationMetricsVolumeWriteBytesPerSecondMaximum" || "LookbackPeriodInDays" || "CurrentConfigurationVolumeType" || "CurrentConfigurationVolumeBaselineIOPS" || "CurrentConfigurationVolumeBaselineThroughput" || "CurrentConfigurationVolumeBurstIOPS" || "CurrentConfigurationVolumeBurstThroughput" || "CurrentConfigurationVolumeSize" || "CurrentMonthlyPrice" || "RecommendationOptionsConfigurationVolumeType" || "RecommendationOptionsConfigurationVolumeBaselineIOPS" || "RecommendationOptionsConfigurationVolumeBaselineThroughput" || "RecommendationOptionsConfigurationVolumeBurstIOPS" || "RecommendationOptionsConfigurationVolumeBurstThroughput" || "RecommendationOptionsConfigurationVolumeSize" || "RecommendationOptionsMonthlyPrice" || "RecommendationOptionsPerformanceRisk" || "LastRefreshTimestamp" || "CurrentPerformanceRisk" || "RecommendationOptionsSavingsOpportunityPercentage" || "RecommendationOptionsEstimatedMonthlySavingsCurrency" || "RecommendationOptionsEstimatedMonthlySavingsValue" || "RootVolume",
+ *     'AccountId' || 'VolumeArn' || 'Finding' || 'UtilizationMetricsVolumeReadOpsPerSecondMaximum' || 'UtilizationMetricsVolumeWriteOpsPerSecondMaximum' || 'UtilizationMetricsVolumeReadBytesPerSecondMaximum' || 'UtilizationMetricsVolumeWriteBytesPerSecondMaximum' || 'LookbackPeriodInDays' || 'CurrentConfigurationVolumeType' || 'CurrentConfigurationVolumeBaselineIOPS' || 'CurrentConfigurationVolumeBaselineThroughput' || 'CurrentConfigurationVolumeBurstIOPS' || 'CurrentConfigurationVolumeBurstThroughput' || 'CurrentConfigurationVolumeSize' || 'CurrentMonthlyPrice' || 'RecommendationOptionsConfigurationVolumeType' || 'RecommendationOptionsConfigurationVolumeBaselineIOPS' || 'RecommendationOptionsConfigurationVolumeBaselineThroughput' || 'RecommendationOptionsConfigurationVolumeBurstIOPS' || 'RecommendationOptionsConfigurationVolumeBurstThroughput' || 'RecommendationOptionsConfigurationVolumeSize' || 'RecommendationOptionsMonthlyPrice' || 'RecommendationOptionsPerformanceRisk' || 'LastRefreshTimestamp' || 'CurrentPerformanceRisk' || 'RecommendationOptionsSavingsOpportunityPercentage' || 'RecommendationOptionsEstimatedMonthlySavingsCurrency' || 'RecommendationOptionsEstimatedMonthlySavingsValue' || 'RootVolume',
  *   ],
  *   s3DestinationConfig: { // S3DestinationConfig
- *     bucket: "STRING_VALUE",
- *     keyPrefix: "STRING_VALUE",
+ *     bucket: 'STRING_VALUE',
+ *     keyPrefix: 'STRING_VALUE',
  *   },
- *   fileFormat: "Csv",
+ *   fileFormat: 'Csv',
  *   includeMemberAccounts: true || false,
  * };
  * const command = new ExportEBSVolumeRecommendationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ExportEBSVolumeRecommendationsResponse
+ *   jobId: 'STRING_VALUE',
+ *   s3Destination: { // S3Destination
+ *     bucket: 'STRING_VALUE',
+ *     key: 'STRING_VALUE',
+ *     metadataKey: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param ExportEBSVolumeRecommendationsCommandInput - {@link ExportEBSVolumeRecommendationsCommandInput}
@@ -106,6 +116,8 @@ export interface ExportEBSVolumeRecommendationsCommandOutput
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
  *
+ * @throws {@link ComputeOptimizerServiceException}
+ * <p>Base exception class for all service exceptions from ComputeOptimizer service.</p>
  *
  */
 export class ExportEBSVolumeRecommendationsCommand extends $Command<

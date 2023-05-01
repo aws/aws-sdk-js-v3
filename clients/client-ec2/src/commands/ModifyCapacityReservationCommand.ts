@@ -40,20 +40,25 @@ export interface ModifyCapacityReservationCommandOutput extends ModifyCapacityRe
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, ModifyCapacityReservationCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, ModifyCapacityReservationCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, ModifyCapacityReservationCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, ModifyCapacityReservationCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // ModifyCapacityReservationRequest
- *   CapacityReservationId: "STRING_VALUE", // required
- *   InstanceCount: Number("int"),
- *   EndDate: new Date("TIMESTAMP"),
- *   EndDateType: "unlimited" || "limited",
+ *   CapacityReservationId: 'STRING_VALUE', // required
+ *   InstanceCount: Number('int'),
+ *   EndDate: new Date('TIMESTAMP'),
+ *   EndDateType: 'unlimited' || 'limited',
  *   Accept: true || false,
  *   DryRun: true || false,
- *   AdditionalInfo: "STRING_VALUE",
+ *   AdditionalInfo: 'STRING_VALUE',
  * };
  * const command = new ModifyCapacityReservationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ModifyCapacityReservationResult
+ *   Return: true || false,
+ * };
+ *
  * ```
  *
  * @param ModifyCapacityReservationCommandInput - {@link ModifyCapacityReservationCommandInput}
@@ -62,6 +67,8 @@ export interface ModifyCapacityReservationCommandOutput extends ModifyCapacityRe
  * @see {@link ModifyCapacityReservationCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class ModifyCapacityReservationCommand extends $Command<

@@ -40,14 +40,35 @@ export interface GetCorsPolicyCommandOutput extends GetCorsPolicyOutput, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MediaStoreClient, GetCorsPolicyCommand } from "@aws-sdk/client-mediastore"; // ES Modules import
- * // const { MediaStoreClient, GetCorsPolicyCommand } = require("@aws-sdk/client-mediastore"); // CommonJS import
+ * import { MediaStoreClient, GetCorsPolicyCommand } from '@aws-sdk/client-mediastore'; // ES Modules import
+ * // const { MediaStoreClient, GetCorsPolicyCommand } = require('@aws-sdk/client-mediastore'); // CommonJS import
  * const client = new MediaStoreClient(config);
  * const input = { // GetCorsPolicyInput
- *   ContainerName: "STRING_VALUE", // required
+ *   ContainerName: 'STRING_VALUE', // required
  * };
  * const command = new GetCorsPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetCorsPolicyOutput
+ *   CorsPolicy: [ // CorsPolicy // required
+ *     { // CorsRule
+ *       AllowedOrigins: [ // AllowedOrigins // required
+ *         'STRING_VALUE',
+ *       ],
+ *       AllowedMethods: [ // AllowedMethods
+ *         'STRING_VALUE',
+ *       ],
+ *       AllowedHeaders: [ // AllowedHeaders // required
+ *         'STRING_VALUE',
+ *       ],
+ *       MaxAgeSeconds: Number('int'),
+ *       ExposeHeaders: [ // ExposeHeaders
+ *         'STRING_VALUE',
+ *       ],
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetCorsPolicyCommandInput - {@link GetCorsPolicyCommandInput}
@@ -69,6 +90,8 @@ export interface GetCorsPolicyCommandOutput extends GetCorsPolicyOutput, __Metad
  * @throws {@link InternalServerError} (server fault)
  *  <p>The service is temporarily unavailable.</p>
  *
+ * @throws {@link MediaStoreServiceException}
+ * <p>Base exception class for all service exceptions from MediaStore service.</p>
  *
  */
 export class GetCorsPolicyCommand extends $Command<

@@ -39,15 +39,36 @@ export interface GetRealtimeLogConfigCommandOutput extends GetRealtimeLogConfigR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudFrontClient, GetRealtimeLogConfigCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
- * // const { CloudFrontClient, GetRealtimeLogConfigCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
+ * import { CloudFrontClient, GetRealtimeLogConfigCommand } from '@aws-sdk/client-cloudfront'; // ES Modules import
+ * // const { CloudFrontClient, GetRealtimeLogConfigCommand } = require('@aws-sdk/client-cloudfront'); // CommonJS import
  * const client = new CloudFrontClient(config);
  * const input = { // GetRealtimeLogConfigRequest
- *   Name: "STRING_VALUE",
- *   ARN: "STRING_VALUE",
+ *   Name: 'STRING_VALUE',
+ *   ARN: 'STRING_VALUE',
  * };
  * const command = new GetRealtimeLogConfigCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetRealtimeLogConfigResult
+ *   RealtimeLogConfig: { // RealtimeLogConfig
+ *     ARN: 'STRING_VALUE', // required
+ *     Name: 'STRING_VALUE', // required
+ *     SamplingRate: Number('long'), // required
+ *     EndPoints: [ // EndPointList // required
+ *       { // EndPoint
+ *         StreamType: 'STRING_VALUE', // required
+ *         KinesisStreamConfig: { // KinesisStreamConfig
+ *           RoleARN: 'STRING_VALUE', // required
+ *           StreamARN: 'STRING_VALUE', // required
+ *         },
+ *       },
+ *     ],
+ *     Fields: [ // FieldList // required
+ *       'STRING_VALUE',
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetRealtimeLogConfigCommandInput - {@link GetRealtimeLogConfigCommandInput}
@@ -65,6 +86,8 @@ export interface GetRealtimeLogConfigCommandOutput extends GetRealtimeLogConfigR
  * @throws {@link NoSuchRealtimeLogConfig} (client fault)
  *  <p>The real-time log configuration does not exist.</p>
  *
+ * @throws {@link CloudFrontServiceException}
+ * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
  */
 export class GetRealtimeLogConfigCommand extends $Command<

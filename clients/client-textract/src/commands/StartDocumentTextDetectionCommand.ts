@@ -52,31 +52,36 @@ export interface StartDocumentTextDetectionCommandOutput extends StartDocumentTe
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { TextractClient, StartDocumentTextDetectionCommand } from "@aws-sdk/client-textract"; // ES Modules import
- * // const { TextractClient, StartDocumentTextDetectionCommand } = require("@aws-sdk/client-textract"); // CommonJS import
+ * import { TextractClient, StartDocumentTextDetectionCommand } from '@aws-sdk/client-textract'; // ES Modules import
+ * // const { TextractClient, StartDocumentTextDetectionCommand } = require('@aws-sdk/client-textract'); // CommonJS import
  * const client = new TextractClient(config);
  * const input = { // StartDocumentTextDetectionRequest
  *   DocumentLocation: { // DocumentLocation
  *     S3Object: { // S3Object
- *       Bucket: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *       Version: "STRING_VALUE",
+ *       Bucket: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *       Version: 'STRING_VALUE',
  *     },
  *   },
- *   ClientRequestToken: "STRING_VALUE",
- *   JobTag: "STRING_VALUE",
+ *   ClientRequestToken: 'STRING_VALUE',
+ *   JobTag: 'STRING_VALUE',
  *   NotificationChannel: { // NotificationChannel
- *     SNSTopicArn: "STRING_VALUE", // required
- *     RoleArn: "STRING_VALUE", // required
+ *     SNSTopicArn: 'STRING_VALUE', // required
+ *     RoleArn: 'STRING_VALUE', // required
  *   },
  *   OutputConfig: { // OutputConfig
- *     S3Bucket: "STRING_VALUE", // required
- *     S3Prefix: "STRING_VALUE",
+ *     S3Bucket: 'STRING_VALUE', // required
+ *     S3Prefix: 'STRING_VALUE',
  *   },
- *   KMSKeyId: "STRING_VALUE",
+ *   KMSKeyId: 'STRING_VALUE',
  * };
  * const command = new StartDocumentTextDetectionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartDocumentTextDetectionResponse
+ *   JobId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param StartDocumentTextDetectionCommandInput - {@link StartDocumentTextDetectionCommandInput}
@@ -141,6 +146,8 @@ export interface StartDocumentTextDetectionCommandOutput extends StartDocumentTe
  *  <p>The format of the input document isn't supported. Documents for operations can be in
  *          PNG, JPEG, PDF, or TIFF format.</p>
  *
+ * @throws {@link TextractServiceException}
+ * <p>Base exception class for all service exceptions from Textract service.</p>
  *
  */
 export class StartDocumentTextDetectionCommand extends $Command<

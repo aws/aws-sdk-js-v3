@@ -49,15 +49,28 @@ export interface AssociateResolverQueryLogConfigCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Route53ResolverClient, AssociateResolverQueryLogConfigCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
- * // const { Route53ResolverClient, AssociateResolverQueryLogConfigCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
+ * import { Route53ResolverClient, AssociateResolverQueryLogConfigCommand } from '@aws-sdk/client-route53resolver'; // ES Modules import
+ * // const { Route53ResolverClient, AssociateResolverQueryLogConfigCommand } = require('@aws-sdk/client-route53resolver'); // CommonJS import
  * const client = new Route53ResolverClient(config);
  * const input = { // AssociateResolverQueryLogConfigRequest
- *   ResolverQueryLogConfigId: "STRING_VALUE", // required
- *   ResourceId: "STRING_VALUE", // required
+ *   ResolverQueryLogConfigId: 'STRING_VALUE', // required
+ *   ResourceId: 'STRING_VALUE', // required
  * };
  * const command = new AssociateResolverQueryLogConfigCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AssociateResolverQueryLogConfigResponse
+ *   ResolverQueryLogConfigAssociation: { // ResolverQueryLogConfigAssociation
+ *     Id: 'STRING_VALUE',
+ *     ResolverQueryLogConfigId: 'STRING_VALUE',
+ *     ResourceId: 'STRING_VALUE',
+ *     Status: 'CREATING' || 'ACTIVE' || 'ACTION_NEEDED' || 'DELETING' || 'FAILED',
+ *     Error: 'NONE' || 'DESTINATION_NOT_FOUND' || 'ACCESS_DENIED' || 'INTERNAL_SERVICE_ERROR',
+ *     ErrorMessage: 'STRING_VALUE',
+ *     CreationTime: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param AssociateResolverQueryLogConfigCommandInput - {@link AssociateResolverQueryLogConfigCommandInput}
@@ -90,6 +103,8 @@ export interface AssociateResolverQueryLogConfigCommandOutput
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was throttled. Try again in a few minutes.</p>
  *
+ * @throws {@link Route53ResolverServiceException}
+ * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
  */
 export class AssociateResolverQueryLogConfigCommand extends $Command<

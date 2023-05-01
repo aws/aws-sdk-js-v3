@@ -36,16 +36,51 @@ export interface GetImportJobsCommandOutput extends GetImportJobsResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PinpointClient, GetImportJobsCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
- * // const { PinpointClient, GetImportJobsCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
+ * import { PinpointClient, GetImportJobsCommand } from '@aws-sdk/client-pinpoint'; // ES Modules import
+ * // const { PinpointClient, GetImportJobsCommand } = require('@aws-sdk/client-pinpoint'); // CommonJS import
  * const client = new PinpointClient(config);
  * const input = { // GetImportJobsRequest
- *   ApplicationId: "STRING_VALUE", // required
- *   PageSize: "STRING_VALUE",
- *   Token: "STRING_VALUE",
+ *   ApplicationId: 'STRING_VALUE', // required
+ *   PageSize: 'STRING_VALUE',
+ *   Token: 'STRING_VALUE',
  * };
  * const command = new GetImportJobsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetImportJobsResponse
+ *   ImportJobsResponse: { // ImportJobsResponse
+ *     Item: [ // ListOfImportJobResponse // required
+ *       { // ImportJobResponse
+ *         ApplicationId: 'STRING_VALUE', // required
+ *         CompletedPieces: Number('int'),
+ *         CompletionDate: 'STRING_VALUE',
+ *         CreationDate: 'STRING_VALUE', // required
+ *         Definition: { // ImportJobResource
+ *           DefineSegment: true || false,
+ *           ExternalId: 'STRING_VALUE',
+ *           Format: 'CSV' || 'JSON', // required
+ *           RegisterEndpoints: true || false,
+ *           RoleArn: 'STRING_VALUE', // required
+ *           S3Url: 'STRING_VALUE', // required
+ *           SegmentId: 'STRING_VALUE',
+ *           SegmentName: 'STRING_VALUE',
+ *         },
+ *         FailedPieces: Number('int'),
+ *         Failures: [ // ListOf__string
+ *           'STRING_VALUE',
+ *         ],
+ *         Id: 'STRING_VALUE', // required
+ *         JobStatus: 'CREATED' || 'PREPARING_FOR_INITIALIZATION' || 'INITIALIZING' || 'PROCESSING' || 'PENDING_JOB' || 'COMPLETING' || 'COMPLETED' || 'FAILING' || 'FAILED', // required
+ *         TotalFailures: Number('int'),
+ *         TotalPieces: Number('int'),
+ *         TotalProcessed: Number('int'),
+ *         Type: 'STRING_VALUE', // required
+ *       },
+ *     ],
+ *     NextToken: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetImportJobsCommandInput - {@link GetImportJobsCommandInput}
@@ -75,6 +110,8 @@ export interface GetImportJobsCommandOutput extends GetImportJobsResponse, __Met
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Provides information about an API request or response.</p>
  *
+ * @throws {@link PinpointServiceException}
+ * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
  */
 export class GetImportJobsCommand extends $Command<

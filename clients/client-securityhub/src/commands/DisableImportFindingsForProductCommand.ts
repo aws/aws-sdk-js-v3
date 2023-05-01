@@ -42,14 +42,17 @@ export interface DisableImportFindingsForProductCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SecurityHubClient, DisableImportFindingsForProductCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
- * // const { SecurityHubClient, DisableImportFindingsForProductCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
+ * import { SecurityHubClient, DisableImportFindingsForProductCommand } from '@aws-sdk/client-securityhub'; // ES Modules import
+ * // const { SecurityHubClient, DisableImportFindingsForProductCommand } = require('@aws-sdk/client-securityhub'); // CommonJS import
  * const client = new SecurityHubClient(config);
  * const input = { // DisableImportFindingsForProductRequest
- *   ProductSubscriptionArn: "STRING_VALUE", // required
+ *   ProductSubscriptionArn: 'STRING_VALUE', // required
  * };
  * const command = new DisableImportFindingsForProductCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DisableImportFindingsForProductCommandInput - {@link DisableImportFindingsForProductCommandInput}
@@ -75,6 +78,8 @@ export interface DisableImportFindingsForProductCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The request was rejected because we can't find the specified resource.</p>
  *
+ * @throws {@link SecurityHubServiceException}
+ * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
  * @example To end a Security Hub integration
  * ```javascript

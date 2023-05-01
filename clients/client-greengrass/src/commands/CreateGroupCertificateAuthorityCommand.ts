@@ -41,15 +41,20 @@ export interface CreateGroupCertificateAuthorityCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GreengrassClient, CreateGroupCertificateAuthorityCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
- * // const { GreengrassClient, CreateGroupCertificateAuthorityCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
+ * import { GreengrassClient, CreateGroupCertificateAuthorityCommand } from '@aws-sdk/client-greengrass'; // ES Modules import
+ * // const { GreengrassClient, CreateGroupCertificateAuthorityCommand } = require('@aws-sdk/client-greengrass'); // CommonJS import
  * const client = new GreengrassClient(config);
  * const input = { // CreateGroupCertificateAuthorityRequest
- *   AmznClientToken: "STRING_VALUE",
- *   GroupId: "STRING_VALUE", // required
+ *   AmznClientToken: 'STRING_VALUE',
+ *   GroupId: 'STRING_VALUE', // required
  * };
  * const command = new CreateGroupCertificateAuthorityCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateGroupCertificateAuthorityResponse
+ *   GroupCertificateAuthorityArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateGroupCertificateAuthorityCommandInput - {@link CreateGroupCertificateAuthorityCommandInput}
@@ -64,6 +69,8 @@ export interface CreateGroupCertificateAuthorityCommandOutput
  * @throws {@link InternalServerErrorException} (server fault)
  *  General error information.
  *
+ * @throws {@link GreengrassServiceException}
+ * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
  */
 export class CreateGroupCertificateAuthorityCommand extends $Command<

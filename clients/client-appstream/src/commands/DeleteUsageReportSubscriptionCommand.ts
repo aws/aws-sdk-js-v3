@@ -41,12 +41,15 @@ export interface DeleteUsageReportSubscriptionCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppStreamClient, DeleteUsageReportSubscriptionCommand } from "@aws-sdk/client-appstream"; // ES Modules import
- * // const { AppStreamClient, DeleteUsageReportSubscriptionCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
+ * import { AppStreamClient, DeleteUsageReportSubscriptionCommand } from '@aws-sdk/client-appstream'; // ES Modules import
+ * // const { AppStreamClient, DeleteUsageReportSubscriptionCommand } = require('@aws-sdk/client-appstream'); // CommonJS import
  * const client = new AppStreamClient(config);
  * const input = {};
  * const command = new DeleteUsageReportSubscriptionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteUsageReportSubscriptionCommandInput - {@link DeleteUsageReportSubscriptionCommandInput}
@@ -61,6 +64,8 @@ export interface DeleteUsageReportSubscriptionCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link AppStreamServiceException}
+ * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
  */
 export class DeleteUsageReportSubscriptionCommand extends $Command<

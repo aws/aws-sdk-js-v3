@@ -39,14 +39,17 @@ export interface CreateReceiptRuleSetCommandOutput extends CreateReceiptRuleSetR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SESClient, CreateReceiptRuleSetCommand } from "@aws-sdk/client-ses"; // ES Modules import
- * // const { SESClient, CreateReceiptRuleSetCommand } = require("@aws-sdk/client-ses"); // CommonJS import
+ * import { SESClient, CreateReceiptRuleSetCommand } from '@aws-sdk/client-ses'; // ES Modules import
+ * // const { SESClient, CreateReceiptRuleSetCommand } = require('@aws-sdk/client-ses'); // CommonJS import
  * const client = new SESClient(config);
  * const input = { // CreateReceiptRuleSetRequest
- *   RuleSetName: "STRING_VALUE", // required
+ *   RuleSetName: 'STRING_VALUE', // required
  * };
  * const command = new CreateReceiptRuleSetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param CreateReceiptRuleSetCommandInput - {@link CreateReceiptRuleSetCommandInput}
@@ -63,6 +66,8 @@ export interface CreateReceiptRuleSetCommandOutput extends CreateReceiptRuleSetR
  *             of Amazon SES limits, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/limits.html">Amazon SES Developer
  *             Guide</a>.</p>
  *
+ * @throws {@link SESServiceException}
+ * <p>Base exception class for all service exceptions from SES service.</p>
  *
  * @example CreateReceiptRuleSet
  * ```javascript

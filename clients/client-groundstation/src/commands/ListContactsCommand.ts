@@ -39,23 +39,50 @@ export interface ListContactsCommandOutput extends ListContactsResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GroundStationClient, ListContactsCommand } from "@aws-sdk/client-groundstation"; // ES Modules import
- * // const { GroundStationClient, ListContactsCommand } = require("@aws-sdk/client-groundstation"); // CommonJS import
+ * import { GroundStationClient, ListContactsCommand } from '@aws-sdk/client-groundstation'; // ES Modules import
+ * // const { GroundStationClient, ListContactsCommand } = require('@aws-sdk/client-groundstation'); // CommonJS import
  * const client = new GroundStationClient(config);
  * const input = { // ListContactsRequest
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  *   statusList: [ // StatusList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   startTime: new Date("TIMESTAMP"), // required
- *   endTime: new Date("TIMESTAMP"), // required
- *   groundStation: "STRING_VALUE",
- *   satelliteArn: "STRING_VALUE",
- *   missionProfileArn: "STRING_VALUE",
+ *   startTime: new Date('TIMESTAMP'), // required
+ *   endTime: new Date('TIMESTAMP'), // required
+ *   groundStation: 'STRING_VALUE',
+ *   satelliteArn: 'STRING_VALUE',
+ *   missionProfileArn: 'STRING_VALUE',
  * };
  * const command = new ListContactsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListContactsResponse
+ *   nextToken: 'STRING_VALUE',
+ *   contactList: [ // ContactList
+ *     { // ContactData
+ *       contactId: 'STRING_VALUE',
+ *       missionProfileArn: 'STRING_VALUE',
+ *       satelliteArn: 'STRING_VALUE',
+ *       startTime: new Date('TIMESTAMP'),
+ *       endTime: new Date('TIMESTAMP'),
+ *       prePassStartTime: new Date('TIMESTAMP'),
+ *       postPassEndTime: new Date('TIMESTAMP'),
+ *       groundStation: 'STRING_VALUE',
+ *       contactStatus: 'STRING_VALUE',
+ *       errorMessage: 'STRING_VALUE',
+ *       maximumElevation: { // Elevation
+ *         value: Number('double'), // required
+ *         unit: 'STRING_VALUE', // required
+ *       },
+ *       region: 'STRING_VALUE',
+ *       tags: { // TagsMap
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListContactsCommandInput - {@link ListContactsCommandInput}
@@ -73,6 +100,8 @@ export interface ListContactsCommandOutput extends ListContactsResponse, __Metad
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Resource was not found.</p>
  *
+ * @throws {@link GroundStationServiceException}
+ * <p>Base exception class for all service exceptions from GroundStation service.</p>
  *
  */
 export class ListContactsCommand extends $Command<

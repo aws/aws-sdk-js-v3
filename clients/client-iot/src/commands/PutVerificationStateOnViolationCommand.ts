@@ -41,16 +41,19 @@ export interface PutVerificationStateOnViolationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTClient, PutVerificationStateOnViolationCommand } from "@aws-sdk/client-iot"; // ES Modules import
- * // const { IoTClient, PutVerificationStateOnViolationCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * import { IoTClient, PutVerificationStateOnViolationCommand } from '@aws-sdk/client-iot'; // ES Modules import
+ * // const { IoTClient, PutVerificationStateOnViolationCommand } = require('@aws-sdk/client-iot'); // CommonJS import
  * const client = new IoTClient(config);
  * const input = { // PutVerificationStateOnViolationRequest
- *   violationId: "STRING_VALUE", // required
- *   verificationState: "FALSE_POSITIVE" || "BENIGN_POSITIVE" || "TRUE_POSITIVE" || "UNKNOWN", // required
- *   verificationStateDescription: "STRING_VALUE",
+ *   violationId: 'STRING_VALUE', // required
+ *   verificationState: 'FALSE_POSITIVE' || 'BENIGN_POSITIVE' || 'TRUE_POSITIVE' || 'UNKNOWN', // required
+ *   verificationStateDescription: 'STRING_VALUE',
  * };
  * const command = new PutVerificationStateOnViolationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutVerificationStateOnViolationCommandInput - {@link PutVerificationStateOnViolationCommandInput}
@@ -68,6 +71,8 @@ export interface PutVerificationStateOnViolationCommandOutput
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The rate exceeds the limit.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class PutVerificationStateOnViolationCommand extends $Command<

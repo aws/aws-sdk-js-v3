@@ -57,38 +57,38 @@ export interface AddApplicationReferenceDataSourceCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KinesisAnalyticsClient, AddApplicationReferenceDataSourceCommand } from "@aws-sdk/client-kinesis-analytics"; // ES Modules import
- * // const { KinesisAnalyticsClient, AddApplicationReferenceDataSourceCommand } = require("@aws-sdk/client-kinesis-analytics"); // CommonJS import
+ * import { KinesisAnalyticsClient, AddApplicationReferenceDataSourceCommand } from '@aws-sdk/client-kinesis-analytics'; // ES Modules import
+ * // const { KinesisAnalyticsClient, AddApplicationReferenceDataSourceCommand } = require('@aws-sdk/client-kinesis-analytics'); // CommonJS import
  * const client = new KinesisAnalyticsClient(config);
  * const input = { // AddApplicationReferenceDataSourceRequest
- *   ApplicationName: "STRING_VALUE", // required
- *   CurrentApplicationVersionId: Number("long"), // required
+ *   ApplicationName: 'STRING_VALUE', // required
+ *   CurrentApplicationVersionId: Number('long'), // required
  *   ReferenceDataSource: { // ReferenceDataSource
- *     TableName: "STRING_VALUE", // required
+ *     TableName: 'STRING_VALUE', // required
  *     S3ReferenceDataSource: { // S3ReferenceDataSource
- *       BucketARN: "STRING_VALUE", // required
- *       FileKey: "STRING_VALUE", // required
- *       ReferenceRoleARN: "STRING_VALUE", // required
+ *       BucketARN: 'STRING_VALUE', // required
+ *       FileKey: 'STRING_VALUE', // required
+ *       ReferenceRoleARN: 'STRING_VALUE', // required
  *     },
  *     ReferenceSchema: { // SourceSchema
  *       RecordFormat: { // RecordFormat
- *         RecordFormatType: "STRING_VALUE", // required
+ *         RecordFormatType: 'STRING_VALUE', // required
  *         MappingParameters: { // MappingParameters
  *           JSONMappingParameters: { // JSONMappingParameters
- *             RecordRowPath: "STRING_VALUE", // required
+ *             RecordRowPath: 'STRING_VALUE', // required
  *           },
  *           CSVMappingParameters: { // CSVMappingParameters
- *             RecordRowDelimiter: "STRING_VALUE", // required
- *             RecordColumnDelimiter: "STRING_VALUE", // required
+ *             RecordRowDelimiter: 'STRING_VALUE', // required
+ *             RecordColumnDelimiter: 'STRING_VALUE', // required
  *           },
  *         },
  *       },
- *       RecordEncoding: "STRING_VALUE",
+ *       RecordEncoding: 'STRING_VALUE',
  *       RecordColumns: [ // RecordColumns // required
  *         { // RecordColumn
- *           Name: "STRING_VALUE", // required
- *           Mapping: "STRING_VALUE",
- *           SqlType: "STRING_VALUE", // required
+ *           Name: 'STRING_VALUE', // required
+ *           Mapping: 'STRING_VALUE',
+ *           SqlType: 'STRING_VALUE', // required
  *         },
  *       ],
  *     },
@@ -96,6 +96,9 @@ export interface AddApplicationReferenceDataSourceCommandOutput
  * };
  * const command = new AddApplicationReferenceDataSourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param AddApplicationReferenceDataSourceCommandInput - {@link AddApplicationReferenceDataSourceCommandInput}
@@ -119,6 +122,8 @@ export interface AddApplicationReferenceDataSourceCommandOutput
  * @throws {@link UnsupportedOperationException} (client fault)
  *  <p>The request was rejected because a specified parameter is not supported or a specified resource is not valid for this operation. </p>
  *
+ * @throws {@link KinesisAnalyticsServiceException}
+ * <p>Base exception class for all service exceptions from KinesisAnalytics service.</p>
  *
  */
 export class AddApplicationReferenceDataSourceCommand extends $Command<

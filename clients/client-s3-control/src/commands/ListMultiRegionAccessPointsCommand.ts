@@ -66,16 +66,42 @@ export interface ListMultiRegionAccessPointsCommandOutput extends ListMultiRegio
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { S3ControlClient, ListMultiRegionAccessPointsCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
- * // const { S3ControlClient, ListMultiRegionAccessPointsCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
+ * import { S3ControlClient, ListMultiRegionAccessPointsCommand } from '@aws-sdk/client-s3-control'; // ES Modules import
+ * // const { S3ControlClient, ListMultiRegionAccessPointsCommand } = require('@aws-sdk/client-s3-control'); // CommonJS import
  * const client = new S3ControlClient(config);
  * const input = { // ListMultiRegionAccessPointsRequest
- *   AccountId: "STRING_VALUE",
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   AccountId: 'STRING_VALUE',
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListMultiRegionAccessPointsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListMultiRegionAccessPointsResult
+ *   AccessPoints: [ // MultiRegionAccessPointReportList
+ *     { // MultiRegionAccessPointReport
+ *       Name: 'STRING_VALUE',
+ *       Alias: 'STRING_VALUE',
+ *       CreatedAt: new Date('TIMESTAMP'),
+ *       PublicAccessBlock: { // PublicAccessBlockConfiguration
+ *         BlockPublicAcls: true || false,
+ *         IgnorePublicAcls: true || false,
+ *         BlockPublicPolicy: true || false,
+ *         RestrictPublicBuckets: true || false,
+ *       },
+ *       Status: 'READY' || 'INCONSISTENT_ACROSS_REGIONS' || 'CREATING' || 'PARTIALLY_CREATED' || 'PARTIALLY_DELETED' || 'DELETING',
+ *       Regions: [ // RegionReportList
+ *         { // RegionReport
+ *           Bucket: 'STRING_VALUE',
+ *           Region: 'STRING_VALUE',
+ *           BucketAccountId: 'STRING_VALUE',
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListMultiRegionAccessPointsCommandInput - {@link ListMultiRegionAccessPointsCommandInput}
@@ -84,6 +110,8 @@ export interface ListMultiRegionAccessPointsCommandOutput extends ListMultiRegio
  * @see {@link ListMultiRegionAccessPointsCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
  *
+ * @throws {@link S3ControlServiceException}
+ * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
  */
 export class ListMultiRegionAccessPointsCommand extends $Command<

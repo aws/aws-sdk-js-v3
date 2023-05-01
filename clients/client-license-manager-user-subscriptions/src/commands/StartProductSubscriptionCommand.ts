@@ -45,21 +45,39 @@ export interface StartProductSubscriptionCommandOutput extends StartProductSubsc
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LicenseManagerUserSubscriptionsClient, StartProductSubscriptionCommand } from "@aws-sdk/client-license-manager-user-subscriptions"; // ES Modules import
- * // const { LicenseManagerUserSubscriptionsClient, StartProductSubscriptionCommand } = require("@aws-sdk/client-license-manager-user-subscriptions"); // CommonJS import
+ * import { LicenseManagerUserSubscriptionsClient, StartProductSubscriptionCommand } from '@aws-sdk/client-license-manager-user-subscriptions'; // ES Modules import
+ * // const { LicenseManagerUserSubscriptionsClient, StartProductSubscriptionCommand } = require('@aws-sdk/client-license-manager-user-subscriptions'); // CommonJS import
  * const client = new LicenseManagerUserSubscriptionsClient(config);
  * const input = { // StartProductSubscriptionRequest
- *   Username: "STRING_VALUE", // required
+ *   Username: 'STRING_VALUE', // required
  *   IdentityProvider: { // IdentityProvider Union: only one key present
  *     ActiveDirectoryIdentityProvider: { // ActiveDirectoryIdentityProvider
- *       DirectoryId: "STRING_VALUE",
+ *       DirectoryId: 'STRING_VALUE',
  *     },
  *   },
- *   Product: "STRING_VALUE", // required
- *   Domain: "STRING_VALUE",
+ *   Product: 'STRING_VALUE', // required
+ *   Domain: 'STRING_VALUE',
  * };
  * const command = new StartProductSubscriptionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartProductSubscriptionResponse
+ *   ProductUserSummary: { // ProductUserSummary
+ *     Username: 'STRING_VALUE', // required
+ *     Product: 'STRING_VALUE', // required
+ *     IdentityProvider: { // IdentityProvider Union: only one key present
+ *       ActiveDirectoryIdentityProvider: { // ActiveDirectoryIdentityProvider
+ *         DirectoryId: 'STRING_VALUE',
+ *       },
+ *     },
+ *     Status: 'STRING_VALUE', // required
+ *     StatusMessage: 'STRING_VALUE',
+ *     Domain: 'STRING_VALUE',
+ *     SubscriptionStartDate: 'STRING_VALUE',
+ *     SubscriptionEndDate: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param StartProductSubscriptionCommandInput - {@link StartProductSubscriptionCommandInput}
@@ -90,6 +108,8 @@ export interface StartProductSubscriptionCommandOutput extends StartProductSubsc
  * @throws {@link ValidationException} (client fault)
  *  <p>A parameter is not valid.</p>
  *
+ * @throws {@link LicenseManagerUserSubscriptionsServiceException}
+ * <p>Base exception class for all service exceptions from LicenseManagerUserSubscriptions service.</p>
  *
  */
 export class StartProductSubscriptionCommand extends $Command<

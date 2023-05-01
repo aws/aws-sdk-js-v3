@@ -46,24 +46,49 @@ export interface UpdateDirectConnectGatewayAssociationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DirectConnectClient, UpdateDirectConnectGatewayAssociationCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
- * // const { DirectConnectClient, UpdateDirectConnectGatewayAssociationCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
+ * import { DirectConnectClient, UpdateDirectConnectGatewayAssociationCommand } from '@aws-sdk/client-direct-connect'; // ES Modules import
+ * // const { DirectConnectClient, UpdateDirectConnectGatewayAssociationCommand } = require('@aws-sdk/client-direct-connect'); // CommonJS import
  * const client = new DirectConnectClient(config);
  * const input = { // UpdateDirectConnectGatewayAssociationRequest
- *   associationId: "STRING_VALUE",
+ *   associationId: 'STRING_VALUE',
  *   addAllowedPrefixesToDirectConnectGateway: [ // RouteFilterPrefixList
  *     { // RouteFilterPrefix
- *       cidr: "STRING_VALUE",
+ *       cidr: 'STRING_VALUE',
  *     },
  *   ],
  *   removeAllowedPrefixesToDirectConnectGateway: [
  *     {
- *       cidr: "STRING_VALUE",
+ *       cidr: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new UpdateDirectConnectGatewayAssociationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateDirectConnectGatewayAssociationResult
+ *   directConnectGatewayAssociation: { // DirectConnectGatewayAssociation
+ *     directConnectGatewayId: 'STRING_VALUE',
+ *     directConnectGatewayOwnerAccount: 'STRING_VALUE',
+ *     associationState: 'associating' || 'associated' || 'disassociating' || 'disassociated' || 'updating',
+ *     stateChangeError: 'STRING_VALUE',
+ *     associatedGateway: { // AssociatedGateway
+ *       id: 'STRING_VALUE',
+ *       type: 'virtualPrivateGateway' || 'transitGateway',
+ *       ownerAccount: 'STRING_VALUE',
+ *       region: 'STRING_VALUE',
+ *     },
+ *     associationId: 'STRING_VALUE',
+ *     allowedPrefixesToDirectConnectGateway: [ // RouteFilterPrefixList
+ *       { // RouteFilterPrefix
+ *         cidr: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     virtualGatewayId: 'STRING_VALUE',
+ *     virtualGatewayRegion: 'STRING_VALUE',
+ *     virtualGatewayOwnerAccount: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateDirectConnectGatewayAssociationCommandInput - {@link UpdateDirectConnectGatewayAssociationCommandInput}
@@ -78,6 +103,8 @@ export interface UpdateDirectConnectGatewayAssociationCommandOutput
  * @throws {@link DirectConnectServerException} (server fault)
  *  <p>A server-side error occurred.</p>
  *
+ * @throws {@link DirectConnectServiceException}
+ * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
  */
 export class UpdateDirectConnectGatewayAssociationCommand extends $Command<

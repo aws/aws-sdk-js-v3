@@ -36,15 +36,40 @@ export interface ListConferenceProvidersCommandOutput extends ListConferenceProv
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AlexaForBusinessClient, ListConferenceProvidersCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
- * // const { AlexaForBusinessClient, ListConferenceProvidersCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
+ * import { AlexaForBusinessClient, ListConferenceProvidersCommand } from '@aws-sdk/client-alexa-for-business'; // ES Modules import
+ * // const { AlexaForBusinessClient, ListConferenceProvidersCommand } = require('@aws-sdk/client-alexa-for-business'); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
  * const input = { // ListConferenceProvidersRequest
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListConferenceProvidersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListConferenceProvidersResponse
+ *   ConferenceProviders: [ // ConferenceProvidersList
+ *     { // ConferenceProvider
+ *       Arn: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *       Type: 'STRING_VALUE',
+ *       IPDialIn: { // IPDialIn
+ *         Endpoint: 'STRING_VALUE', // required
+ *         CommsProtocol: 'STRING_VALUE', // required
+ *       },
+ *       PSTNDialIn: { // PSTNDialIn
+ *         CountryCode: 'STRING_VALUE', // required
+ *         PhoneNumber: 'STRING_VALUE', // required
+ *         OneClickIdDelay: 'STRING_VALUE', // required
+ *         OneClickPinDelay: 'STRING_VALUE', // required
+ *       },
+ *       MeetingSetting: { // MeetingSetting
+ *         RequirePin: 'STRING_VALUE', // required
+ *       },
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListConferenceProvidersCommandInput - {@link ListConferenceProvidersCommandInput}
@@ -53,6 +78,8 @@ export interface ListConferenceProvidersCommandOutput extends ListConferenceProv
  * @see {@link ListConferenceProvidersCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
  *
+ * @throws {@link AlexaForBusinessServiceException}
+ * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  */
 export class ListConferenceProvidersCommand extends $Command<

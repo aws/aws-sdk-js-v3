@@ -38,14 +38,33 @@ export interface GetQualificationTypeCommandOutput extends GetQualificationTypeR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MTurkClient, GetQualificationTypeCommand } from "@aws-sdk/client-mturk"; // ES Modules import
- * // const { MTurkClient, GetQualificationTypeCommand } = require("@aws-sdk/client-mturk"); // CommonJS import
+ * import { MTurkClient, GetQualificationTypeCommand } from '@aws-sdk/client-mturk'; // ES Modules import
+ * // const { MTurkClient, GetQualificationTypeCommand } = require('@aws-sdk/client-mturk'); // CommonJS import
  * const client = new MTurkClient(config);
  * const input = { // GetQualificationTypeRequest
- *   QualificationTypeId: "STRING_VALUE", // required
+ *   QualificationTypeId: 'STRING_VALUE', // required
  * };
  * const command = new GetQualificationTypeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetQualificationTypeResponse
+ *   QualificationType: { // QualificationType
+ *     QualificationTypeId: 'STRING_VALUE',
+ *     CreationTime: new Date('TIMESTAMP'),
+ *     Name: 'STRING_VALUE',
+ *     Description: 'STRING_VALUE',
+ *     Keywords: 'STRING_VALUE',
+ *     QualificationTypeStatus: 'STRING_VALUE',
+ *     Test: 'STRING_VALUE',
+ *     TestDurationInSeconds: Number('long'),
+ *     AnswerKey: 'STRING_VALUE',
+ *     RetryDelayInSeconds: Number('long'),
+ *     IsRequestable: true || false,
+ *     AutoGranted: true || false,
+ *     AutoGrantedValue: Number('int'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetQualificationTypeCommandInput - {@link GetQualificationTypeCommandInput}
@@ -60,6 +79,8 @@ export interface GetQualificationTypeCommandOutput extends GetQualificationTypeR
  * @throws {@link ServiceFault} (server fault)
  *  <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
  *
+ * @throws {@link MTurkServiceException}
+ * <p>Base exception class for all service exceptions from MTurk service.</p>
  *
  */
 export class GetQualificationTypeCommand extends $Command<

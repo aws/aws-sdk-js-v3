@@ -39,17 +39,20 @@ export interface UpdateApplicationCommandOutput extends UpdateApplicationRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTFleetHubClient, UpdateApplicationCommand } from "@aws-sdk/client-iotfleethub"; // ES Modules import
- * // const { IoTFleetHubClient, UpdateApplicationCommand } = require("@aws-sdk/client-iotfleethub"); // CommonJS import
+ * import { IoTFleetHubClient, UpdateApplicationCommand } from '@aws-sdk/client-iotfleethub'; // ES Modules import
+ * // const { IoTFleetHubClient, UpdateApplicationCommand } = require('@aws-sdk/client-iotfleethub'); // CommonJS import
  * const client = new IoTFleetHubClient(config);
  * const input = { // UpdateApplicationRequest
- *   applicationId: "STRING_VALUE", // required
- *   applicationName: "STRING_VALUE",
- *   applicationDescription: "STRING_VALUE",
- *   clientToken: "STRING_VALUE",
+ *   applicationId: 'STRING_VALUE', // required
+ *   applicationName: 'STRING_VALUE',
+ *   applicationDescription: 'STRING_VALUE',
+ *   clientToken: 'STRING_VALUE',
  * };
  * const command = new UpdateApplicationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateApplicationCommandInput - {@link UpdateApplicationCommandInput}
@@ -73,6 +76,8 @@ export interface UpdateApplicationCommandOutput extends UpdateApplicationRespons
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The rate exceeds the limit.</p>
  *
+ * @throws {@link IoTFleetHubServiceException}
+ * <p>Base exception class for all service exceptions from IoTFleetHub service.</p>
  *
  */
 export class UpdateApplicationCommand extends $Command<

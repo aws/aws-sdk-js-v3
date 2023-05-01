@@ -50,23 +50,37 @@ export interface DescribeFleetAdvisorSchemaObjectSummaryCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DatabaseMigrationServiceClient, DescribeFleetAdvisorSchemaObjectSummaryCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
- * // const { DatabaseMigrationServiceClient, DescribeFleetAdvisorSchemaObjectSummaryCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
+ * import { DatabaseMigrationServiceClient, DescribeFleetAdvisorSchemaObjectSummaryCommand } from '@aws-sdk/client-database-migration-service'; // ES Modules import
+ * // const { DatabaseMigrationServiceClient, DescribeFleetAdvisorSchemaObjectSummaryCommand } = require('@aws-sdk/client-database-migration-service'); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
  * const input = { // DescribeFleetAdvisorSchemaObjectSummaryRequest
  *   Filters: [ // FilterList
  *     { // Filter
- *       Name: "STRING_VALUE", // required
+ *       Name: 'STRING_VALUE', // required
  *       Values: [ // FilterValueList // required
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
- *   MaxRecords: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxRecords: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new DescribeFleetAdvisorSchemaObjectSummaryCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeFleetAdvisorSchemaObjectSummaryResponse
+ *   FleetAdvisorSchemaObjects: [ // FleetAdvisorSchemaObjectList
+ *     { // FleetAdvisorSchemaObjectResponse
+ *       SchemaId: 'STRING_VALUE',
+ *       ObjectType: 'STRING_VALUE',
+ *       NumberOfObjects: Number('long'),
+ *       CodeLineCount: Number('long'),
+ *       CodeSize: Number('long'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeFleetAdvisorSchemaObjectSummaryCommandInput - {@link DescribeFleetAdvisorSchemaObjectSummaryCommandInput}
@@ -78,6 +92,8 @@ export interface DescribeFleetAdvisorSchemaObjectSummaryCommandOutput
  * @throws {@link InvalidResourceStateFault} (client fault)
  *  <p>The resource is in a state that prevents it from being used for database migration.</p>
  *
+ * @throws {@link DatabaseMigrationServiceServiceException}
+ * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
  */
 export class DescribeFleetAdvisorSchemaObjectSummaryCommand extends $Command<

@@ -40,22 +40,25 @@ export interface CreateOrUpdateTagsCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AutoScalingClient, CreateOrUpdateTagsCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
- * // const { AutoScalingClient, CreateOrUpdateTagsCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
+ * import { AutoScalingClient, CreateOrUpdateTagsCommand } from '@aws-sdk/client-auto-scaling'; // ES Modules import
+ * // const { AutoScalingClient, CreateOrUpdateTagsCommand } = require('@aws-sdk/client-auto-scaling'); // CommonJS import
  * const client = new AutoScalingClient(config);
  * const input = { // CreateOrUpdateTagsType
  *   Tags: [ // Tags // required
  *     { // Tag
- *       ResourceId: "STRING_VALUE",
- *       ResourceType: "STRING_VALUE",
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE",
+ *       ResourceId: 'STRING_VALUE',
+ *       ResourceType: 'STRING_VALUE',
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE',
  *       PropagateAtLaunch: true || false,
  *     },
  *   ],
  * };
  * const command = new CreateOrUpdateTagsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param CreateOrUpdateTagsCommandInput - {@link CreateOrUpdateTagsCommandInput}
@@ -80,6 +83,8 @@ export interface CreateOrUpdateTagsCommandOutput extends __MetadataBearer {}
  * @throws {@link ResourceInUseFault} (client fault)
  *  <p>The operation can't be performed because the resource is in use.</p>
  *
+ * @throws {@link AutoScalingServiceException}
+ * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
  * @example To create or update tags for an Auto Scaling group
  * ```javascript

@@ -42,15 +42,56 @@ export interface ListFieldLevelEncryptionConfigsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudFrontClient, ListFieldLevelEncryptionConfigsCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
- * // const { CloudFrontClient, ListFieldLevelEncryptionConfigsCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
+ * import { CloudFrontClient, ListFieldLevelEncryptionConfigsCommand } from '@aws-sdk/client-cloudfront'; // ES Modules import
+ * // const { CloudFrontClient, ListFieldLevelEncryptionConfigsCommand } = require('@aws-sdk/client-cloudfront'); // CommonJS import
  * const client = new CloudFrontClient(config);
  * const input = { // ListFieldLevelEncryptionConfigsRequest
- *   Marker: "STRING_VALUE",
- *   MaxItems: Number("int"),
+ *   Marker: 'STRING_VALUE',
+ *   MaxItems: Number('int'),
  * };
  * const command = new ListFieldLevelEncryptionConfigsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListFieldLevelEncryptionConfigsResult
+ *   FieldLevelEncryptionList: { // FieldLevelEncryptionList
+ *     NextMarker: 'STRING_VALUE',
+ *     MaxItems: Number('int'), // required
+ *     Quantity: Number('int'), // required
+ *     Items: [ // FieldLevelEncryptionSummaryList
+ *       { // FieldLevelEncryptionSummary
+ *         Id: 'STRING_VALUE', // required
+ *         LastModifiedTime: new Date('TIMESTAMP'), // required
+ *         Comment: 'STRING_VALUE',
+ *         QueryArgProfileConfig: { // QueryArgProfileConfig
+ *           ForwardWhenQueryArgProfileIsUnknown: true || false, // required
+ *           QueryArgProfiles: { // QueryArgProfiles
+ *             Quantity: Number('int'), // required
+ *             Items: [ // QueryArgProfileList
+ *               { // QueryArgProfile
+ *                 QueryArg: 'STRING_VALUE', // required
+ *                 ProfileId: 'STRING_VALUE', // required
+ *               },
+ *             ],
+ *           },
+ *         },
+ *         ContentTypeProfileConfig: { // ContentTypeProfileConfig
+ *           ForwardWhenContentTypeIsUnknown: true || false, // required
+ *           ContentTypeProfiles: { // ContentTypeProfiles
+ *             Quantity: Number('int'), // required
+ *             Items: [ // ContentTypeProfileList
+ *               { // ContentTypeProfile
+ *                 Format: 'URLEncoded', // required
+ *                 ProfileId: 'STRING_VALUE',
+ *                 ContentType: 'STRING_VALUE', // required
+ *               },
+ *             ],
+ *           },
+ *         },
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param ListFieldLevelEncryptionConfigsCommandInput - {@link ListFieldLevelEncryptionConfigsCommandInput}
@@ -62,6 +103,8 @@ export interface ListFieldLevelEncryptionConfigsCommandOutput
  * @throws {@link InvalidArgument} (client fault)
  *  <p>An argument is invalid.</p>
  *
+ * @throws {@link CloudFrontServiceException}
+ * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
  */
 export class ListFieldLevelEncryptionConfigsCommand extends $Command<

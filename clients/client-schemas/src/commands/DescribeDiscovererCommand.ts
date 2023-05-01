@@ -36,14 +36,27 @@ export interface DescribeDiscovererCommandOutput extends DescribeDiscovererRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SchemasClient, DescribeDiscovererCommand } from "@aws-sdk/client-schemas"; // ES Modules import
- * // const { SchemasClient, DescribeDiscovererCommand } = require("@aws-sdk/client-schemas"); // CommonJS import
+ * import { SchemasClient, DescribeDiscovererCommand } from '@aws-sdk/client-schemas'; // ES Modules import
+ * // const { SchemasClient, DescribeDiscovererCommand } = require('@aws-sdk/client-schemas'); // CommonJS import
  * const client = new SchemasClient(config);
  * const input = { // DescribeDiscovererRequest
- *   DiscovererId: "STRING_VALUE", // required
+ *   DiscovererId: 'STRING_VALUE', // required
  * };
  * const command = new DescribeDiscovererCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeDiscovererResponse
+ *   Description: 'STRING_VALUE',
+ *   DiscovererArn: 'STRING_VALUE',
+ *   DiscovererId: 'STRING_VALUE',
+ *   SourceArn: 'STRING_VALUE',
+ *   State: 'STRING_VALUE',
+ *   CrossAccount: true || false,
+ *   Tags: { // Tags
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeDiscovererCommandInput - {@link DescribeDiscovererCommandInput}
@@ -64,6 +77,8 @@ export interface DescribeDiscovererCommandOutput extends DescribeDiscovererRespo
  *
  * @throws {@link UnauthorizedException} (client fault)
  *
+ * @throws {@link SchemasServiceException}
+ * <p>Base exception class for all service exceptions from Schemas service.</p>
  *
  */
 export class DescribeDiscovererCommand extends $Command<

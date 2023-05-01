@@ -36,15 +36,27 @@ export interface ListFuotaTasksCommandOutput extends ListFuotaTasksResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTWirelessClient, ListFuotaTasksCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
- * // const { IoTWirelessClient, ListFuotaTasksCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
+ * import { IoTWirelessClient, ListFuotaTasksCommand } from '@aws-sdk/client-iot-wireless'; // ES Modules import
+ * // const { IoTWirelessClient, ListFuotaTasksCommand } = require('@aws-sdk/client-iot-wireless'); // CommonJS import
  * const client = new IoTWirelessClient(config);
  * const input = { // ListFuotaTasksRequest
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListFuotaTasksCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListFuotaTasksResponse
+ *   NextToken: 'STRING_VALUE',
+ *   FuotaTaskList: [ // FuotaTaskList
+ *     { // FuotaTask
+ *       Id: 'STRING_VALUE',
+ *       Arn: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListFuotaTasksCommandInput - {@link ListFuotaTasksCommandInput}
@@ -65,6 +77,8 @@ export interface ListFuotaTasksCommandOutput extends ListFuotaTasksResponse, __M
  * @throws {@link ValidationException} (client fault)
  *  <p>The input did not meet the specified constraints.</p>
  *
+ * @throws {@link IoTWirelessServiceException}
+ * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
  */
 export class ListFuotaTasksCommand extends $Command<

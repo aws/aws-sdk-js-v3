@@ -67,15 +67,35 @@ export interface CreateByteMatchSetCommandOutput extends CreateByteMatchSetRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WAFClient, CreateByteMatchSetCommand } from "@aws-sdk/client-waf"; // ES Modules import
- * // const { WAFClient, CreateByteMatchSetCommand } = require("@aws-sdk/client-waf"); // CommonJS import
+ * import { WAFClient, CreateByteMatchSetCommand } from '@aws-sdk/client-waf'; // ES Modules import
+ * // const { WAFClient, CreateByteMatchSetCommand } = require('@aws-sdk/client-waf'); // CommonJS import
  * const client = new WAFClient(config);
  * const input = { // CreateByteMatchSetRequest
- *   Name: "STRING_VALUE", // required
- *   ChangeToken: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
+ *   ChangeToken: 'STRING_VALUE', // required
  * };
  * const command = new CreateByteMatchSetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateByteMatchSetResponse
+ *   ByteMatchSet: { // ByteMatchSet
+ *     ByteMatchSetId: 'STRING_VALUE', // required
+ *     Name: 'STRING_VALUE',
+ *     ByteMatchTuples: [ // ByteMatchTuples // required
+ *       { // ByteMatchTuple
+ *         FieldToMatch: { // FieldToMatch
+ *           Type: 'STRING_VALUE', // required
+ *           Data: 'STRING_VALUE',
+ *         },
+ *         TargetString: 'BLOB_VALUE', // required
+ *         TextTransformation: 'STRING_VALUE', // required
+ *         PositionalConstraint: 'STRING_VALUE', // required
+ *       },
+ *     ],
+ *   },
+ *   ChangeToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateByteMatchSetCommandInput - {@link CreateByteMatchSetCommandInput}
@@ -141,6 +161,8 @@ export interface CreateByteMatchSetCommandOutput extends CreateByteMatchSetRespo
  * @throws {@link WAFStaleDataException} (client fault)
  *  <p>The operation failed because you tried to create, update, or delete an object by using a change token that has already been used.</p>
  *
+ * @throws {@link WAFServiceException}
+ * <p>Base exception class for all service exceptions from WAF service.</p>
  *
  */
 export class CreateByteMatchSetCommand extends $Command<

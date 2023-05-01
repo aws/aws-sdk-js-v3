@@ -44,24 +44,48 @@ export interface ListReceivedGrantsForOrganizationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LicenseManagerClient, ListReceivedGrantsForOrganizationCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
- * // const { LicenseManagerClient, ListReceivedGrantsForOrganizationCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
+ * import { LicenseManagerClient, ListReceivedGrantsForOrganizationCommand } from '@aws-sdk/client-license-manager'; // ES Modules import
+ * // const { LicenseManagerClient, ListReceivedGrantsForOrganizationCommand } = require('@aws-sdk/client-license-manager'); // CommonJS import
  * const client = new LicenseManagerClient(config);
  * const input = { // ListReceivedGrantsForOrganizationRequest
- *   LicenseArn: "STRING_VALUE", // required
+ *   LicenseArn: 'STRING_VALUE', // required
  *   Filters: [ // FilterList
  *     { // Filter
- *       Name: "STRING_VALUE",
+ *       Name: 'STRING_VALUE',
  *       Values: [ // FilterValues
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListReceivedGrantsForOrganizationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListReceivedGrantsForOrganizationResponse
+ *   Grants: [ // GrantList
+ *     { // Grant
+ *       GrantArn: 'STRING_VALUE', // required
+ *       GrantName: 'STRING_VALUE', // required
+ *       ParentArn: 'STRING_VALUE', // required
+ *       LicenseArn: 'STRING_VALUE', // required
+ *       GranteePrincipalArn: 'STRING_VALUE', // required
+ *       HomeRegion: 'STRING_VALUE', // required
+ *       GrantStatus: 'PENDING_WORKFLOW' || 'PENDING_ACCEPT' || 'REJECTED' || 'ACTIVE' || 'FAILED_WORKFLOW' || 'DELETED' || 'PENDING_DELETE' || 'DISABLED' || 'WORKFLOW_COMPLETED', // required
+ *       StatusReason: 'STRING_VALUE',
+ *       Version: 'STRING_VALUE', // required
+ *       GrantedOperations: [ // AllowedOperationList // required
+ *         'CreateGrant' || 'CheckoutLicense' || 'CheckoutBorrowLicense' || 'CheckInLicense' || 'ExtendConsumptionLicense' || 'ListPurchasedLicenses' || 'CreateToken',
+ *       ],
+ *       Options: { // Options
+ *         ActivationOverrideBehavior: 'DISTRIBUTED_GRANTS_ONLY' || 'ALL_GRANTS_PERMITTED_BY_ISSUER',
+ *       },
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListReceivedGrantsForOrganizationCommandInput - {@link ListReceivedGrantsForOrganizationCommandInput}
@@ -92,6 +116,8 @@ export interface ListReceivedGrantsForOrganizationCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The provided input is not valid. Try your request again.</p>
  *
+ * @throws {@link LicenseManagerServiceException}
+ * <p>Base exception class for all service exceptions from LicenseManager service.</p>
  *
  */
 export class ListReceivedGrantsForOrganizationCommand extends $Command<

@@ -41,16 +41,31 @@ export interface GetDetectorsCommandOutput extends GetDetectorsResult, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FraudDetectorClient, GetDetectorsCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
- * // const { FraudDetectorClient, GetDetectorsCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
+ * import { FraudDetectorClient, GetDetectorsCommand } from '@aws-sdk/client-frauddetector'; // ES Modules import
+ * // const { FraudDetectorClient, GetDetectorsCommand } = require('@aws-sdk/client-frauddetector'); // CommonJS import
  * const client = new FraudDetectorClient(config);
  * const input = { // GetDetectorsRequest
- *   detectorId: "STRING_VALUE",
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   detectorId: 'STRING_VALUE',
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new GetDetectorsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetDetectorsResult
+ *   detectors: [ // DetectorList
+ *     { // Detector
+ *       detectorId: 'STRING_VALUE',
+ *       description: 'STRING_VALUE',
+ *       eventTypeName: 'STRING_VALUE',
+ *       lastUpdatedTime: 'STRING_VALUE',
+ *       createdTime: 'STRING_VALUE',
+ *       arn: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetDetectorsCommandInput - {@link GetDetectorsCommandInput}
@@ -74,6 +89,8 @@ export interface GetDetectorsCommandOutput extends GetDetectorsResult, __Metadat
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception indicating a specified value is not allowed.</p>
  *
+ * @throws {@link FraudDetectorServiceException}
+ * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
  */
 export class GetDetectorsCommand extends $Command<

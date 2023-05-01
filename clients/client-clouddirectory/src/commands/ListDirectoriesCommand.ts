@@ -36,16 +36,29 @@ export interface ListDirectoriesCommandOutput extends ListDirectoriesResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudDirectoryClient, ListDirectoriesCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
- * // const { CloudDirectoryClient, ListDirectoriesCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
+ * import { CloudDirectoryClient, ListDirectoriesCommand } from '@aws-sdk/client-clouddirectory'; // ES Modules import
+ * // const { CloudDirectoryClient, ListDirectoriesCommand } = require('@aws-sdk/client-clouddirectory'); // CommonJS import
  * const client = new CloudDirectoryClient(config);
  * const input = { // ListDirectoriesRequest
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
- *   state: "ENABLED" || "DISABLED" || "DELETED",
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
+ *   state: 'ENABLED' || 'DISABLED' || 'DELETED',
  * };
  * const command = new ListDirectoriesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListDirectoriesResponse
+ *   Directories: [ // DirectoryList // required
+ *     { // Directory
+ *       Name: 'STRING_VALUE',
+ *       DirectoryArn: 'STRING_VALUE',
+ *       State: 'ENABLED' || 'DISABLED' || 'DELETED',
+ *       CreationDateTime: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListDirectoriesCommandInput - {@link ListDirectoriesCommandInput}
@@ -76,6 +89,8 @@ export interface ListDirectoriesCommandOutput extends ListDirectoriesResponse, _
  *  <p>Indicates that your request is malformed in some manner. See the exception
  *       message.</p>
  *
+ * @throws {@link CloudDirectoryServiceException}
+ * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
  */
 export class ListDirectoriesCommand extends $Command<

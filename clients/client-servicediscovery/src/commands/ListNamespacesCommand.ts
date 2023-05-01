@@ -36,24 +36,51 @@ export interface ListNamespacesCommandOutput extends ListNamespacesResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ServiceDiscoveryClient, ListNamespacesCommand } from "@aws-sdk/client-servicediscovery"; // ES Modules import
- * // const { ServiceDiscoveryClient, ListNamespacesCommand } = require("@aws-sdk/client-servicediscovery"); // CommonJS import
+ * import { ServiceDiscoveryClient, ListNamespacesCommand } from '@aws-sdk/client-servicediscovery'; // ES Modules import
+ * // const { ServiceDiscoveryClient, ListNamespacesCommand } = require('@aws-sdk/client-servicediscovery'); // CommonJS import
  * const client = new ServiceDiscoveryClient(config);
  * const input = { // ListNamespacesRequest
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  *   Filters: [ // NamespaceFilters
  *     { // NamespaceFilter
- *       Name: "TYPE" || "NAME" || "HTTP_NAME", // required
+ *       Name: 'TYPE' || 'NAME' || 'HTTP_NAME', // required
  *       Values: [ // FilterValues // required
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
- *       Condition: "EQ" || "IN" || "BETWEEN" || "BEGINS_WITH",
+ *       Condition: 'EQ' || 'IN' || 'BETWEEN' || 'BEGINS_WITH',
  *     },
  *   ],
  * };
  * const command = new ListNamespacesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListNamespacesResponse
+ *   Namespaces: [ // NamespaceSummariesList
+ *     { // NamespaceSummary
+ *       Id: 'STRING_VALUE',
+ *       Arn: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *       Type: 'DNS_PUBLIC' || 'DNS_PRIVATE' || 'HTTP',
+ *       Description: 'STRING_VALUE',
+ *       ServiceCount: Number('int'),
+ *       Properties: { // NamespaceProperties
+ *         DnsProperties: { // DnsProperties
+ *           HostedZoneId: 'STRING_VALUE',
+ *           SOA: { // SOA
+ *             TTL: Number('long'), // required
+ *           },
+ *         },
+ *         HttpProperties: { // HttpProperties
+ *           HttpName: 'STRING_VALUE',
+ *         },
+ *       },
+ *       CreateDate: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListNamespacesCommandInput - {@link ListNamespacesCommandInput}
@@ -67,6 +94,8 @@ export interface ListNamespacesCommandOutput extends ListNamespacesResponse, __M
  *    numeric value might be outside the allowed range, or a string value might exceed length
  *    constraints.</p>
  *
+ * @throws {@link ServiceDiscoveryServiceException}
+ * <p>Base exception class for all service exceptions from ServiceDiscovery service.</p>
  *
  * @example Example: List namespaces
  * ```javascript

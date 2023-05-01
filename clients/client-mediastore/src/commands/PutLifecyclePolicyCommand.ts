@@ -37,15 +37,18 @@ export interface PutLifecyclePolicyCommandOutput extends PutLifecyclePolicyOutpu
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MediaStoreClient, PutLifecyclePolicyCommand } from "@aws-sdk/client-mediastore"; // ES Modules import
- * // const { MediaStoreClient, PutLifecyclePolicyCommand } = require("@aws-sdk/client-mediastore"); // CommonJS import
+ * import { MediaStoreClient, PutLifecyclePolicyCommand } from '@aws-sdk/client-mediastore'; // ES Modules import
+ * // const { MediaStoreClient, PutLifecyclePolicyCommand } = require('@aws-sdk/client-mediastore'); // CommonJS import
  * const client = new MediaStoreClient(config);
  * const input = { // PutLifecyclePolicyInput
- *   ContainerName: "STRING_VALUE", // required
- *   LifecyclePolicy: "STRING_VALUE", // required
+ *   ContainerName: 'STRING_VALUE', // required
+ *   LifecyclePolicy: 'STRING_VALUE', // required
  * };
  * const command = new PutLifecyclePolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutLifecyclePolicyCommandInput - {@link PutLifecyclePolicyCommandInput}
@@ -64,6 +67,8 @@ export interface PutLifecyclePolicyCommandOutput extends PutLifecyclePolicyOutpu
  * @throws {@link InternalServerError} (server fault)
  *  <p>The service is temporarily unavailable.</p>
  *
+ * @throws {@link MediaStoreServiceException}
+ * <p>Base exception class for all service exceptions from MediaStore service.</p>
  *
  */
 export class PutLifecyclePolicyCommand extends $Command<

@@ -43,63 +43,122 @@ export interface UpdateLaunchConfigurationTemplateCommandOutput extends LaunchCo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MgnClient, UpdateLaunchConfigurationTemplateCommand } from "@aws-sdk/client-mgn"; // ES Modules import
- * // const { MgnClient, UpdateLaunchConfigurationTemplateCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
+ * import { MgnClient, UpdateLaunchConfigurationTemplateCommand } from '@aws-sdk/client-mgn'; // ES Modules import
+ * // const { MgnClient, UpdateLaunchConfigurationTemplateCommand } = require('@aws-sdk/client-mgn'); // CommonJS import
  * const client = new MgnClient(config);
  * const input = { // UpdateLaunchConfigurationTemplateRequest
- *   launchConfigurationTemplateID: "STRING_VALUE", // required
+ *   launchConfigurationTemplateID: 'STRING_VALUE', // required
  *   postLaunchActions: { // PostLaunchActions
- *     deployment: "STRING_VALUE",
- *     s3LogBucket: "STRING_VALUE",
- *     s3OutputKeyPrefix: "STRING_VALUE",
- *     cloudWatchLogGroupName: "STRING_VALUE",
+ *     deployment: 'STRING_VALUE',
+ *     s3LogBucket: 'STRING_VALUE',
+ *     s3OutputKeyPrefix: 'STRING_VALUE',
+ *     cloudWatchLogGroupName: 'STRING_VALUE',
  *     ssmDocuments: [ // SsmDocuments
  *       { // SsmDocument
- *         actionName: "STRING_VALUE", // required
- *         ssmDocumentName: "STRING_VALUE", // required
- *         timeoutSeconds: Number("int"),
+ *         actionName: 'STRING_VALUE', // required
+ *         ssmDocumentName: 'STRING_VALUE', // required
+ *         timeoutSeconds: Number('int'),
  *         mustSucceedForCutover: true || false,
  *         parameters: { // SsmDocumentParameters
- *           "<keys>": [ // SsmParameterStoreParameters
+ *           '<keys>': [ // SsmParameterStoreParameters
  *             { // SsmParameterStoreParameter
- *               parameterType: "STRING_VALUE", // required
- *               parameterName: "STRING_VALUE", // required
+ *               parameterType: 'STRING_VALUE', // required
+ *               parameterName: 'STRING_VALUE', // required
  *             },
  *           ],
  *         },
  *         externalParameters: { // SsmDocumentExternalParameters
- *           "<keys>": { // SsmExternalParameter Union: only one key present
- *             dynamicPath: "STRING_VALUE",
+ *           '<keys>': { // SsmExternalParameter Union: only one key present
+ *             dynamicPath: 'STRING_VALUE',
  *           },
  *         },
  *       },
  *     ],
  *   },
  *   enableMapAutoTagging: true || false,
- *   mapAutoTaggingMpeID: "STRING_VALUE",
- *   launchDisposition: "STRING_VALUE",
- *   targetInstanceTypeRightSizingMethod: "STRING_VALUE",
+ *   mapAutoTaggingMpeID: 'STRING_VALUE',
+ *   launchDisposition: 'STRING_VALUE',
+ *   targetInstanceTypeRightSizingMethod: 'STRING_VALUE',
  *   copyPrivateIp: true || false,
  *   associatePublicIpAddress: true || false,
  *   copyTags: true || false,
  *   licensing: { // Licensing
  *     osByol: true || false,
  *   },
- *   bootMode: "STRING_VALUE",
- *   smallVolumeMaxSize: Number("long"),
+ *   bootMode: 'STRING_VALUE',
+ *   smallVolumeMaxSize: Number('long'),
  *   smallVolumeConf: { // LaunchTemplateDiskConf
- *     volumeType: "STRING_VALUE",
- *     iops: Number("long"),
- *     throughput: Number("long"),
+ *     volumeType: 'STRING_VALUE',
+ *     iops: Number('long'),
+ *     throughput: Number('long'),
  *   },
  *   largeVolumeConf: {
- *     volumeType: "STRING_VALUE",
- *     iops: Number("long"),
- *     throughput: Number("long"),
+ *     volumeType: 'STRING_VALUE',
+ *     iops: Number('long'),
+ *     throughput: Number('long'),
  *   },
  * };
  * const command = new UpdateLaunchConfigurationTemplateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // LaunchConfigurationTemplate
+ *   launchConfigurationTemplateID: 'STRING_VALUE', // required
+ *   arn: 'STRING_VALUE',
+ *   postLaunchActions: { // PostLaunchActions
+ *     deployment: 'STRING_VALUE',
+ *     s3LogBucket: 'STRING_VALUE',
+ *     s3OutputKeyPrefix: 'STRING_VALUE',
+ *     cloudWatchLogGroupName: 'STRING_VALUE',
+ *     ssmDocuments: [ // SsmDocuments
+ *       { // SsmDocument
+ *         actionName: 'STRING_VALUE', // required
+ *         ssmDocumentName: 'STRING_VALUE', // required
+ *         timeoutSeconds: Number('int'),
+ *         mustSucceedForCutover: true || false,
+ *         parameters: { // SsmDocumentParameters
+ *           '<keys>': [ // SsmParameterStoreParameters
+ *             { // SsmParameterStoreParameter
+ *               parameterType: 'STRING_VALUE', // required
+ *               parameterName: 'STRING_VALUE', // required
+ *             },
+ *           ],
+ *         },
+ *         externalParameters: { // SsmDocumentExternalParameters
+ *           '<keys>': { // SsmExternalParameter Union: only one key present
+ *             dynamicPath: 'STRING_VALUE',
+ *           },
+ *         },
+ *       },
+ *     ],
+ *   },
+ *   enableMapAutoTagging: true || false,
+ *   mapAutoTaggingMpeID: 'STRING_VALUE',
+ *   tags: { // TagsMap
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ *   ec2LaunchTemplateID: 'STRING_VALUE',
+ *   launchDisposition: 'STRING_VALUE',
+ *   targetInstanceTypeRightSizingMethod: 'STRING_VALUE',
+ *   copyPrivateIp: true || false,
+ *   associatePublicIpAddress: true || false,
+ *   copyTags: true || false,
+ *   licensing: { // Licensing
+ *     osByol: true || false,
+ *   },
+ *   bootMode: 'STRING_VALUE',
+ *   smallVolumeMaxSize: Number('long'),
+ *   smallVolumeConf: { // LaunchTemplateDiskConf
+ *     volumeType: 'STRING_VALUE',
+ *     iops: Number('long'),
+ *     throughput: Number('long'),
+ *   },
+ *   largeVolumeConf: {
+ *     volumeType: 'STRING_VALUE',
+ *     iops: Number('long'),
+ *     throughput: Number('long'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateLaunchConfigurationTemplateCommandInput - {@link UpdateLaunchConfigurationTemplateCommandInput}
@@ -120,6 +179,8 @@ export interface UpdateLaunchConfigurationTemplateCommandOutput extends LaunchCo
  * @throws {@link ValidationException} (client fault)
  *  <p>Validate exception.</p>
  *
+ * @throws {@link MgnServiceException}
+ * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
  */
 export class UpdateLaunchConfigurationTemplateCommand extends $Command<

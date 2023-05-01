@@ -37,15 +37,20 @@ export interface ModifyClusterCommandOutput extends ModifyClusterOutput, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EMRClient, ModifyClusterCommand } from "@aws-sdk/client-emr"; // ES Modules import
- * // const { EMRClient, ModifyClusterCommand } = require("@aws-sdk/client-emr"); // CommonJS import
+ * import { EMRClient, ModifyClusterCommand } from '@aws-sdk/client-emr'; // ES Modules import
+ * // const { EMRClient, ModifyClusterCommand } = require('@aws-sdk/client-emr'); // CommonJS import
  * const client = new EMRClient(config);
  * const input = { // ModifyClusterInput
- *   ClusterId: "STRING_VALUE", // required
- *   StepConcurrencyLevel: Number("int"),
+ *   ClusterId: 'STRING_VALUE', // required
+ *   StepConcurrencyLevel: Number('int'),
  * };
  * const command = new ModifyClusterCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ModifyClusterOutput
+ *   StepConcurrencyLevel: Number('int'),
+ * };
+ *
  * ```
  *
  * @param ModifyClusterCommandInput - {@link ModifyClusterCommandInput}
@@ -61,6 +66,8 @@ export interface ModifyClusterCommandOutput extends ModifyClusterOutput, __Metad
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception occurs when there is something wrong with user input.</p>
  *
+ * @throws {@link EMRServiceException}
+ * <p>Base exception class for all service exceptions from EMR service.</p>
  *
  */
 export class ModifyClusterCommand extends $Command<

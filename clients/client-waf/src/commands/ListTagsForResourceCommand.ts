@@ -45,16 +45,30 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WAFClient, ListTagsForResourceCommand } from "@aws-sdk/client-waf"; // ES Modules import
- * // const { WAFClient, ListTagsForResourceCommand } = require("@aws-sdk/client-waf"); // CommonJS import
+ * import { WAFClient, ListTagsForResourceCommand } from '@aws-sdk/client-waf'; // ES Modules import
+ * // const { WAFClient, ListTagsForResourceCommand } = require('@aws-sdk/client-waf'); // CommonJS import
  * const client = new WAFClient(config);
  * const input = { // ListTagsForResourceRequest
- *   NextMarker: "STRING_VALUE",
- *   Limit: Number("int"),
- *   ResourceARN: "STRING_VALUE", // required
+ *   NextMarker: 'STRING_VALUE',
+ *   Limit: Number('int'),
+ *   ResourceARN: 'STRING_VALUE', // required
  * };
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTagsForResourceResponse
+ *   NextMarker: 'STRING_VALUE',
+ *   TagInfoForResource: { // TagInfoForResource
+ *     ResourceARN: 'STRING_VALUE',
+ *     TagList: [ // TagList
+ *       { // Tag
+ *         Key: 'STRING_VALUE', // required
+ *         Value: 'STRING_VALUE', // required
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param ListTagsForResourceCommandInput - {@link ListTagsForResourceCommandInput}
@@ -118,6 +132,8 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @throws {@link WAFTagOperationInternalErrorException} (server fault)
  *  <p></p>
  *
+ * @throws {@link WAFServiceException}
+ * <p>Base exception class for all service exceptions from WAF service.</p>
  *
  */
 export class ListTagsForResourceCommand extends $Command<

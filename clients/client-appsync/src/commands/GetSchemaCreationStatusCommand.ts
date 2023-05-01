@@ -36,14 +36,20 @@ export interface GetSchemaCreationStatusCommandOutput extends GetSchemaCreationS
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppSyncClient, GetSchemaCreationStatusCommand } from "@aws-sdk/client-appsync"; // ES Modules import
- * // const { AppSyncClient, GetSchemaCreationStatusCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
+ * import { AppSyncClient, GetSchemaCreationStatusCommand } from '@aws-sdk/client-appsync'; // ES Modules import
+ * // const { AppSyncClient, GetSchemaCreationStatusCommand } = require('@aws-sdk/client-appsync'); // CommonJS import
  * const client = new AppSyncClient(config);
  * const input = { // GetSchemaCreationStatusRequest
- *   apiId: "STRING_VALUE", // required
+ *   apiId: 'STRING_VALUE', // required
  * };
  * const command = new GetSchemaCreationStatusCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetSchemaCreationStatusResponse
+ *   status: 'PROCESSING' || 'ACTIVE' || 'DELETING' || 'FAILED' || 'SUCCESS' || 'NOT_APPLICABLE',
+ *   details: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetSchemaCreationStatusCommandInput - {@link GetSchemaCreationStatusCommandInput}
@@ -65,6 +71,8 @@ export interface GetSchemaCreationStatusCommandOutput extends GetSchemaCreationS
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You aren't authorized to perform this operation.</p>
  *
+ * @throws {@link AppSyncServiceException}
+ * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
  */
 export class GetSchemaCreationStatusCommand extends $Command<

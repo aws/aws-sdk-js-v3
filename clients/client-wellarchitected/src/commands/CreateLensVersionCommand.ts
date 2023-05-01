@@ -42,17 +42,23 @@ export interface CreateLensVersionCommandOutput extends CreateLensVersionOutput,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WellArchitectedClient, CreateLensVersionCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
- * // const { WellArchitectedClient, CreateLensVersionCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
+ * import { WellArchitectedClient, CreateLensVersionCommand } from '@aws-sdk/client-wellarchitected'; // ES Modules import
+ * // const { WellArchitectedClient, CreateLensVersionCommand } = require('@aws-sdk/client-wellarchitected'); // CommonJS import
  * const client = new WellArchitectedClient(config);
  * const input = { // CreateLensVersionInput
- *   LensAlias: "STRING_VALUE", // required
- *   LensVersion: "STRING_VALUE", // required
+ *   LensAlias: 'STRING_VALUE', // required
+ *   LensVersion: 'STRING_VALUE', // required
  *   IsMajorVersion: true || false,
- *   ClientRequestToken: "STRING_VALUE", // required
+ *   ClientRequestToken: 'STRING_VALUE', // required
  * };
  * const command = new CreateLensVersionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateLensVersionOutput
+ *   LensArn: 'STRING_VALUE',
+ *   LensVersion: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateLensVersionCommandInput - {@link CreateLensVersionCommandInput}
@@ -82,6 +88,8 @@ export interface CreateLensVersionCommandOutput extends CreateLensVersionOutput,
  * @throws {@link ValidationException} (client fault)
  *  <p>The user input is not valid.</p>
  *
+ * @throws {@link WellArchitectedServiceException}
+ * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
  */
 export class CreateLensVersionCommand extends $Command<

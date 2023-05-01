@@ -38,14 +38,29 @@ export interface UndeploySystemInstanceCommandOutput extends UndeploySystemInsta
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTThingsGraphClient, UndeploySystemInstanceCommand } from "@aws-sdk/client-iotthingsgraph"; // ES Modules import
- * // const { IoTThingsGraphClient, UndeploySystemInstanceCommand } = require("@aws-sdk/client-iotthingsgraph"); // CommonJS import
+ * import { IoTThingsGraphClient, UndeploySystemInstanceCommand } from '@aws-sdk/client-iotthingsgraph'; // ES Modules import
+ * // const { IoTThingsGraphClient, UndeploySystemInstanceCommand } = require('@aws-sdk/client-iotthingsgraph'); // CommonJS import
  * const client = new IoTThingsGraphClient(config);
  * const input = { // UndeploySystemInstanceRequest
- *   id: "STRING_VALUE",
+ *   id: 'STRING_VALUE',
  * };
  * const command = new UndeploySystemInstanceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UndeploySystemInstanceResponse
+ *   summary: { // SystemInstanceSummary
+ *     id: 'STRING_VALUE',
+ *     arn: 'STRING_VALUE',
+ *     status: 'STRING_VALUE',
+ *     target: 'STRING_VALUE',
+ *     greengrassGroupName: 'STRING_VALUE',
+ *     createdAt: new Date('TIMESTAMP'),
+ *     updatedAt: new Date('TIMESTAMP'),
+ *     greengrassGroupId: 'STRING_VALUE',
+ *     greengrassGroupVersionId: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param UndeploySystemInstanceCommandInput - {@link UndeploySystemInstanceCommandInput}
@@ -69,6 +84,8 @@ export interface UndeploySystemInstanceCommandOutput extends UndeploySystemInsta
  * @throws {@link ThrottlingException} (client fault)
  *  <p></p>
  *
+ * @throws {@link IoTThingsGraphServiceException}
+ * <p>Base exception class for all service exceptions from IoTThingsGraph service.</p>
  *
  */
 export class UndeploySystemInstanceCommand extends $Command<

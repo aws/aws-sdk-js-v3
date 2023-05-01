@@ -36,15 +36,18 @@ export interface CreateWorkerBlockCommandOutput extends CreateWorkerBlockRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MTurkClient, CreateWorkerBlockCommand } from "@aws-sdk/client-mturk"; // ES Modules import
- * // const { MTurkClient, CreateWorkerBlockCommand } = require("@aws-sdk/client-mturk"); // CommonJS import
+ * import { MTurkClient, CreateWorkerBlockCommand } from '@aws-sdk/client-mturk'; // ES Modules import
+ * // const { MTurkClient, CreateWorkerBlockCommand } = require('@aws-sdk/client-mturk'); // CommonJS import
  * const client = new MTurkClient(config);
  * const input = { // CreateWorkerBlockRequest
- *   WorkerId: "STRING_VALUE", // required
- *   Reason: "STRING_VALUE", // required
+ *   WorkerId: 'STRING_VALUE', // required
+ *   Reason: 'STRING_VALUE', // required
  * };
  * const command = new CreateWorkerBlockCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param CreateWorkerBlockCommandInput - {@link CreateWorkerBlockCommandInput}
@@ -59,6 +62,8 @@ export interface CreateWorkerBlockCommandOutput extends CreateWorkerBlockRespons
  * @throws {@link ServiceFault} (server fault)
  *  <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
  *
+ * @throws {@link MTurkServiceException}
+ * <p>Base exception class for all service exceptions from MTurk service.</p>
  *
  */
 export class CreateWorkerBlockCommand extends $Command<

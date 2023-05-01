@@ -37,14 +37,24 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OSISClient, ListTagsForResourceCommand } from "@aws-sdk/client-osis"; // ES Modules import
- * // const { OSISClient, ListTagsForResourceCommand } = require("@aws-sdk/client-osis"); // CommonJS import
+ * import { OSISClient, ListTagsForResourceCommand } from '@aws-sdk/client-osis'; // ES Modules import
+ * // const { OSISClient, ListTagsForResourceCommand } = require('@aws-sdk/client-osis'); // CommonJS import
  * const client = new OSISClient(config);
  * const input = { // ListTagsForResourceRequest
- *   Arn: "STRING_VALUE", // required
+ *   Arn: 'STRING_VALUE', // required
  * };
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTagsForResourceResponse
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListTagsForResourceCommandInput - {@link ListTagsForResourceCommandInput}
@@ -66,6 +76,8 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception for missing or invalid input fields.</p>
  *
+ * @throws {@link OSISServiceException}
+ * <p>Base exception class for all service exceptions from OSIS service.</p>
  *
  */
 export class ListTagsForResourceCommand extends $Command<

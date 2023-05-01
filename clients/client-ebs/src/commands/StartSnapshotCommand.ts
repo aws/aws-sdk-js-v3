@@ -44,26 +44,45 @@ export interface StartSnapshotCommandOutput extends StartSnapshotResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EBSClient, StartSnapshotCommand } from "@aws-sdk/client-ebs"; // ES Modules import
- * // const { EBSClient, StartSnapshotCommand } = require("@aws-sdk/client-ebs"); // CommonJS import
+ * import { EBSClient, StartSnapshotCommand } from '@aws-sdk/client-ebs'; // ES Modules import
+ * // const { EBSClient, StartSnapshotCommand } = require('@aws-sdk/client-ebs'); // CommonJS import
  * const client = new EBSClient(config);
  * const input = { // StartSnapshotRequest
- *   VolumeSize: Number("long"), // required
- *   ParentSnapshotId: "STRING_VALUE",
+ *   VolumeSize: Number('long'), // required
+ *   ParentSnapshotId: 'STRING_VALUE',
  *   Tags: [ // Tags
  *     { // Tag
- *       Key: "STRING_VALUE",
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
- *   Description: "STRING_VALUE",
- *   ClientToken: "STRING_VALUE",
+ *   Description: 'STRING_VALUE',
+ *   ClientToken: 'STRING_VALUE',
  *   Encrypted: true || false,
- *   KmsKeyArn: "STRING_VALUE",
- *   Timeout: Number("int"),
+ *   KmsKeyArn: 'STRING_VALUE',
+ *   Timeout: Number('int'),
  * };
  * const command = new StartSnapshotCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartSnapshotResponse
+ *   Description: 'STRING_VALUE',
+ *   SnapshotId: 'STRING_VALUE',
+ *   OwnerId: 'STRING_VALUE',
+ *   Status: 'STRING_VALUE',
+ *   StartTime: new Date('TIMESTAMP'),
+ *   VolumeSize: Number('long'),
+ *   BlockSize: Number('int'),
+ *   Tags: [ // Tags
+ *     { // Tag
+ *       Key: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   ParentSnapshotId: 'STRING_VALUE',
+ *   KmsKeyArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param StartSnapshotCommandInput - {@link StartSnapshotCommandInput}
@@ -100,6 +119,8 @@ export interface StartSnapshotCommandOutput extends StartSnapshotResponse, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints of the EBS direct APIs.</p>
  *
+ * @throws {@link EBSServiceException}
+ * <p>Base exception class for all service exceptions from EBS service.</p>
  *
  */
 export class StartSnapshotCommand extends $Command<

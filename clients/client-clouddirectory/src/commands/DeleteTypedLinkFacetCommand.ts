@@ -36,15 +36,18 @@ export interface DeleteTypedLinkFacetCommandOutput extends DeleteTypedLinkFacetR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudDirectoryClient, DeleteTypedLinkFacetCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
- * // const { CloudDirectoryClient, DeleteTypedLinkFacetCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
+ * import { CloudDirectoryClient, DeleteTypedLinkFacetCommand } from '@aws-sdk/client-clouddirectory'; // ES Modules import
+ * // const { CloudDirectoryClient, DeleteTypedLinkFacetCommand } = require('@aws-sdk/client-clouddirectory'); // CommonJS import
  * const client = new CloudDirectoryClient(config);
  * const input = { // DeleteTypedLinkFacetRequest
- *   SchemaArn: "STRING_VALUE", // required
- *   Name: "STRING_VALUE", // required
+ *   SchemaArn: 'STRING_VALUE', // required
+ *   Name: 'STRING_VALUE', // required
  * };
  * const command = new DeleteTypedLinkFacetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteTypedLinkFacetCommandInput - {@link DeleteTypedLinkFacetCommandInput}
@@ -78,6 +81,8 @@ export interface DeleteTypedLinkFacetCommandOutput extends DeleteTypedLinkFacetR
  *  <p>Indicates that your request is malformed in some manner. See the exception
  *       message.</p>
  *
+ * @throws {@link CloudDirectoryServiceException}
+ * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
  */
 export class DeleteTypedLinkFacetCommand extends $Command<

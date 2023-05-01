@@ -37,21 +37,38 @@ export interface AssociateNatGatewayAddressCommandOutput extends AssociateNatGat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, AssociateNatGatewayAddressCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, AssociateNatGatewayAddressCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, AssociateNatGatewayAddressCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, AssociateNatGatewayAddressCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // AssociateNatGatewayAddressRequest
- *   NatGatewayId: "STRING_VALUE", // required
+ *   NatGatewayId: 'STRING_VALUE', // required
  *   AllocationIds: [ // AllocationIdList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   PrivateIpAddresses: [ // IpList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   DryRun: true || false,
  * };
  * const command = new AssociateNatGatewayAddressCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AssociateNatGatewayAddressResult
+ *   NatGatewayId: 'STRING_VALUE',
+ *   NatGatewayAddresses: [ // NatGatewayAddressList
+ *     { // NatGatewayAddress
+ *       AllocationId: 'STRING_VALUE',
+ *       NetworkInterfaceId: 'STRING_VALUE',
+ *       PrivateIp: 'STRING_VALUE',
+ *       PublicIp: 'STRING_VALUE',
+ *       AssociationId: 'STRING_VALUE',
+ *       IsPrimary: true || false,
+ *       FailureMessage: 'STRING_VALUE',
+ *       Status: 'assigning' || 'unassigning' || 'associating' || 'disassociating' || 'succeeded' || 'failed',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param AssociateNatGatewayAddressCommandInput - {@link AssociateNatGatewayAddressCommandInput}
@@ -60,6 +77,8 @@ export interface AssociateNatGatewayAddressCommandOutput extends AssociateNatGat
  * @see {@link AssociateNatGatewayAddressCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class AssociateNatGatewayAddressCommand extends $Command<

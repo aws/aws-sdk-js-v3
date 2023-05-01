@@ -36,12 +36,23 @@ export interface GetConfigurationCommandOutput extends GetConfigurationResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Inspector2Client, GetConfigurationCommand } from "@aws-sdk/client-inspector2"; // ES Modules import
- * // const { Inspector2Client, GetConfigurationCommand } = require("@aws-sdk/client-inspector2"); // CommonJS import
+ * import { Inspector2Client, GetConfigurationCommand } from '@aws-sdk/client-inspector2'; // ES Modules import
+ * // const { Inspector2Client, GetConfigurationCommand } = require('@aws-sdk/client-inspector2'); // CommonJS import
  * const client = new Inspector2Client(config);
  * const input = {};
  * const command = new GetConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetConfigurationResponse
+ *   ecrConfiguration: { // EcrConfigurationState
+ *     rescanDurationState: { // EcrRescanDurationState
+ *       rescanDuration: 'STRING_VALUE',
+ *       status: 'STRING_VALUE',
+ *       updatedAt: new Date('TIMESTAMP'),
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetConfigurationCommandInput - {@link GetConfigurationCommandInput}
@@ -59,6 +70,8 @@ export interface GetConfigurationCommandOutput extends GetConfigurationResponse,
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The limit on the number of requests per second was exceeded.</p>
  *
+ * @throws {@link Inspector2ServiceException}
+ * <p>Base exception class for all service exceptions from Inspector2 service.</p>
  *
  */
 export class GetConfigurationCommand extends $Command<

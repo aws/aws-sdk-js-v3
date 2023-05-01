@@ -44,33 +44,38 @@ export interface ImportStacksToStackSetCommandOutput extends ImportStacksToStack
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudFormationClient, ImportStacksToStackSetCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
- * // const { CloudFormationClient, ImportStacksToStackSetCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
+ * import { CloudFormationClient, ImportStacksToStackSetCommand } from '@aws-sdk/client-cloudformation'; // ES Modules import
+ * // const { CloudFormationClient, ImportStacksToStackSetCommand } = require('@aws-sdk/client-cloudformation'); // CommonJS import
  * const client = new CloudFormationClient(config);
  * const input = { // ImportStacksToStackSetInput
- *   StackSetName: "STRING_VALUE", // required
+ *   StackSetName: 'STRING_VALUE', // required
  *   StackIds: [ // StackIdList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   StackIdsUrl: "STRING_VALUE",
+ *   StackIdsUrl: 'STRING_VALUE',
  *   OrganizationalUnitIds: [ // OrganizationalUnitIdList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   OperationPreferences: { // StackSetOperationPreferences
- *     RegionConcurrencyType: "SEQUENTIAL" || "PARALLEL",
+ *     RegionConcurrencyType: 'SEQUENTIAL' || 'PARALLEL',
  *     RegionOrder: [ // RegionList
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
- *     FailureToleranceCount: Number("int"),
- *     FailureTolerancePercentage: Number("int"),
- *     MaxConcurrentCount: Number("int"),
- *     MaxConcurrentPercentage: Number("int"),
+ *     FailureToleranceCount: Number('int'),
+ *     FailureTolerancePercentage: Number('int'),
+ *     MaxConcurrentCount: Number('int'),
+ *     MaxConcurrentPercentage: Number('int'),
  *   },
- *   OperationId: "STRING_VALUE",
- *   CallAs: "SELF" || "DELEGATED_ADMIN",
+ *   OperationId: 'STRING_VALUE',
+ *   CallAs: 'SELF' || 'DELEGATED_ADMIN',
  * };
  * const command = new ImportStacksToStackSetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ImportStacksToStackSetOutput
+ *   OperationId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ImportStacksToStackSetCommandInput - {@link ImportStacksToStackSetCommandInput}
@@ -105,6 +110,8 @@ export interface ImportStacksToStackSetCommandOutput extends ImportStacksToStack
  *  <p>Another operation has been performed on this stack set since the specified operation was
  *          performed.</p>
  *
+ * @throws {@link CloudFormationServiceException}
+ * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
  */
 export class ImportStacksToStackSetCommand extends $Command<

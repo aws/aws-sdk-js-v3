@@ -43,12 +43,30 @@ export interface DescribeOrganizationCommandOutput extends DescribeOrganizationR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OrganizationsClient, DescribeOrganizationCommand } from "@aws-sdk/client-organizations"; // ES Modules import
- * // const { OrganizationsClient, DescribeOrganizationCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
+ * import { OrganizationsClient, DescribeOrganizationCommand } from '@aws-sdk/client-organizations'; // ES Modules import
+ * // const { OrganizationsClient, DescribeOrganizationCommand } = require('@aws-sdk/client-organizations'); // CommonJS import
  * const client = new OrganizationsClient(config);
  * const input = {};
  * const command = new DescribeOrganizationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeOrganizationResponse
+ *   Organization: { // Organization
+ *     Id: 'STRING_VALUE',
+ *     Arn: 'STRING_VALUE',
+ *     FeatureSet: 'ALL' || 'CONSOLIDATED_BILLING',
+ *     MasterAccountArn: 'STRING_VALUE',
+ *     MasterAccountId: 'STRING_VALUE',
+ *     MasterAccountEmail: 'STRING_VALUE',
+ *     AvailablePolicyTypes: [ // PolicyTypes
+ *       { // PolicyTypeSummary
+ *         Type: 'SERVICE_CONTROL_POLICY' || 'TAG_POLICY' || 'BACKUP_POLICY' || 'AISERVICES_OPT_OUT_POLICY',
+ *         Status: 'ENABLED' || 'PENDING_ENABLE' || 'PENDING_DISABLE',
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeOrganizationCommandInput - {@link DescribeOrganizationCommandInput}
@@ -83,6 +101,8 @@ export interface DescribeOrganizationCommandOutput extends DescribeOrganizationR
  *                 <i>Organizations User Guide.</i>
  *          </p>
  *
+ * @throws {@link OrganizationsServiceException}
+ * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
  * @example To get information about an organization
  * ```javascript

@@ -36,22 +36,42 @@ export interface UpdateBridgeOutputCommandOutput extends UpdateBridgeOutputRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MediaConnectClient, UpdateBridgeOutputCommand } from "@aws-sdk/client-mediaconnect"; // ES Modules import
- * // const { MediaConnectClient, UpdateBridgeOutputCommand } = require("@aws-sdk/client-mediaconnect"); // CommonJS import
+ * import { MediaConnectClient, UpdateBridgeOutputCommand } from '@aws-sdk/client-mediaconnect'; // ES Modules import
+ * // const { MediaConnectClient, UpdateBridgeOutputCommand } = require('@aws-sdk/client-mediaconnect'); // CommonJS import
  * const client = new MediaConnectClient(config);
  * const input = { // UpdateBridgeOutputRequest
- *   BridgeArn: "STRING_VALUE", // required
+ *   BridgeArn: 'STRING_VALUE', // required
  *   NetworkOutput: { // UpdateBridgeNetworkOutputRequest
- *     IpAddress: "STRING_VALUE",
- *     NetworkName: "STRING_VALUE",
- *     Port: Number("int"),
- *     Protocol: "zixi-push" || "rtp-fec" || "rtp" || "zixi-pull" || "rist" || "st2110-jpegxs" || "cdi" || "srt-listener" || "srt-caller" || "fujitsu-qos" || "udp",
- *     Ttl: Number("int"),
+ *     IpAddress: 'STRING_VALUE',
+ *     NetworkName: 'STRING_VALUE',
+ *     Port: Number('int'),
+ *     Protocol: 'zixi-push' || 'rtp-fec' || 'rtp' || 'zixi-pull' || 'rist' || 'st2110-jpegxs' || 'cdi' || 'srt-listener' || 'srt-caller' || 'fujitsu-qos' || 'udp',
+ *     Ttl: Number('int'),
  *   },
- *   OutputName: "STRING_VALUE", // required
+ *   OutputName: 'STRING_VALUE', // required
  * };
  * const command = new UpdateBridgeOutputCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateBridgeOutputResponse
+ *   BridgeArn: 'STRING_VALUE',
+ *   Output: { // BridgeOutput
+ *     FlowOutput: { // BridgeFlowOutput
+ *       FlowArn: 'STRING_VALUE', // required
+ *       FlowSourceArn: 'STRING_VALUE', // required
+ *       Name: 'STRING_VALUE', // required
+ *     },
+ *     NetworkOutput: { // BridgeNetworkOutput
+ *       IpAddress: 'STRING_VALUE', // required
+ *       Name: 'STRING_VALUE', // required
+ *       NetworkName: 'STRING_VALUE', // required
+ *       Port: Number('int'), // required
+ *       Protocol: 'zixi-push' || 'rtp-fec' || 'rtp' || 'zixi-pull' || 'rist' || 'st2110-jpegxs' || 'cdi' || 'srt-listener' || 'srt-caller' || 'fujitsu-qos' || 'udp', // required
+ *       Ttl: Number('int'), // required
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateBridgeOutputCommandInput - {@link UpdateBridgeOutputCommandInput}
@@ -81,6 +101,8 @@ export interface UpdateBridgeOutputCommandOutput extends UpdateBridgeOutputRespo
  * @throws {@link TooManyRequestsException} (client fault)
  *  Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
  *
+ * @throws {@link MediaConnectServiceException}
+ * <p>Base exception class for all service exceptions from MediaConnect service.</p>
  *
  */
 export class UpdateBridgeOutputCommand extends $Command<

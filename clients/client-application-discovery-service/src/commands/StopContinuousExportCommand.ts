@@ -40,14 +40,20 @@ export interface StopContinuousExportCommandOutput extends StopContinuousExportR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ApplicationDiscoveryServiceClient, StopContinuousExportCommand } from "@aws-sdk/client-application-discovery-service"; // ES Modules import
- * // const { ApplicationDiscoveryServiceClient, StopContinuousExportCommand } = require("@aws-sdk/client-application-discovery-service"); // CommonJS import
+ * import { ApplicationDiscoveryServiceClient, StopContinuousExportCommand } from '@aws-sdk/client-application-discovery-service'; // ES Modules import
+ * // const { ApplicationDiscoveryServiceClient, StopContinuousExportCommand } = require('@aws-sdk/client-application-discovery-service'); // CommonJS import
  * const client = new ApplicationDiscoveryServiceClient(config);
  * const input = { // StopContinuousExportRequest
- *   exportId: "STRING_VALUE", // required
+ *   exportId: 'STRING_VALUE', // required
  * };
  * const command = new StopContinuousExportCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StopContinuousExportResponse
+ *   startTime: new Date('TIMESTAMP'),
+ *   stopTime: new Date('TIMESTAMP'),
+ * };
+ *
  * ```
  *
  * @param StopContinuousExportCommandInput - {@link StopContinuousExportCommandInput}
@@ -87,6 +93,8 @@ export interface StopContinuousExportCommandOutput extends StopContinuousExportR
  * @throws {@link ServerInternalErrorException} (server fault)
  *  <p>The server experienced an internal error. Try again.</p>
  *
+ * @throws {@link ApplicationDiscoveryServiceServiceException}
+ * <p>Base exception class for all service exceptions from ApplicationDiscoveryService service.</p>
  *
  */
 export class StopContinuousExportCommand extends $Command<

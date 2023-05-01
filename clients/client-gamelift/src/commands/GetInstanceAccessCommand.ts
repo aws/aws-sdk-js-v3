@@ -68,15 +68,29 @@ export interface GetInstanceAccessCommandOutput extends GetInstanceAccessOutput,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GameLiftClient, GetInstanceAccessCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
- * // const { GameLiftClient, GetInstanceAccessCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
+ * import { GameLiftClient, GetInstanceAccessCommand } from '@aws-sdk/client-gamelift'; // ES Modules import
+ * // const { GameLiftClient, GetInstanceAccessCommand } = require('@aws-sdk/client-gamelift'); // CommonJS import
  * const client = new GameLiftClient(config);
  * const input = { // GetInstanceAccessInput
- *   FleetId: "STRING_VALUE", // required
- *   InstanceId: "STRING_VALUE", // required
+ *   FleetId: 'STRING_VALUE', // required
+ *   InstanceId: 'STRING_VALUE', // required
  * };
  * const command = new GetInstanceAccessCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetInstanceAccessOutput
+ *   InstanceAccess: { // InstanceAccess
+ *     FleetId: 'STRING_VALUE',
+ *     InstanceId: 'STRING_VALUE',
+ *     IpAddress: 'STRING_VALUE',
+ *     OperatingSystem: 'WINDOWS_2012' || 'AMAZON_LINUX' || 'AMAZON_LINUX_2' || 'WINDOWS_2016',
+ *     Credentials: { // InstanceCredentials
+ *       UserName: 'STRING_VALUE',
+ *       Secret: 'STRING_VALUE',
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetInstanceAccessCommandInput - {@link GetInstanceAccessCommandInput}
@@ -99,6 +113,8 @@ export interface GetInstanceAccessCommandOutput extends GetInstanceAccessOutput,
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client failed authentication. Clients should not retry such requests.</p>
  *
+ * @throws {@link GameLiftServiceException}
+ * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
  */
 export class GetInstanceAccessCommand extends $Command<

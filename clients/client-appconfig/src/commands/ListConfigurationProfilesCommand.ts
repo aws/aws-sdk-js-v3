@@ -36,17 +36,34 @@ export interface ListConfigurationProfilesCommandOutput extends ConfigurationPro
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppConfigClient, ListConfigurationProfilesCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
- * // const { AppConfigClient, ListConfigurationProfilesCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import
+ * import { AppConfigClient, ListConfigurationProfilesCommand } from '@aws-sdk/client-appconfig'; // ES Modules import
+ * // const { AppConfigClient, ListConfigurationProfilesCommand } = require('@aws-sdk/client-appconfig'); // CommonJS import
  * const client = new AppConfigClient(config);
  * const input = { // ListConfigurationProfilesRequest
- *   ApplicationId: "STRING_VALUE", // required
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
- *   Type: "STRING_VALUE",
+ *   ApplicationId: 'STRING_VALUE', // required
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
+ *   Type: 'STRING_VALUE',
  * };
  * const command = new ListConfigurationProfilesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ConfigurationProfiles
+ *   Items: [ // ConfigurationProfileSummaryList
+ *     { // ConfigurationProfileSummary
+ *       ApplicationId: 'STRING_VALUE',
+ *       Id: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *       LocationUri: 'STRING_VALUE',
+ *       ValidatorTypes: [ // ValidatorTypeList
+ *         'JSON_SCHEMA' || 'LAMBDA',
+ *       ],
+ *       Type: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListConfigurationProfilesCommandInput - {@link ListConfigurationProfilesCommandInput}
@@ -64,6 +81,8 @@ export interface ListConfigurationProfilesCommandOutput extends ConfigurationPro
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The requested resource could not be found.</p>
  *
+ * @throws {@link AppConfigServiceException}
+ * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
  * @example To list the available configuration profiles
  * ```javascript

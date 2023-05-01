@@ -43,22 +43,29 @@ export interface CreateMapCommandOutput extends CreateMapResponse, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LocationClient, CreateMapCommand } from "@aws-sdk/client-location"; // ES Modules import
- * // const { LocationClient, CreateMapCommand } = require("@aws-sdk/client-location"); // CommonJS import
+ * import { LocationClient, CreateMapCommand } from '@aws-sdk/client-location'; // ES Modules import
+ * // const { LocationClient, CreateMapCommand } = require('@aws-sdk/client-location'); // CommonJS import
  * const client = new LocationClient(config);
  * const input = { // CreateMapRequest
- *   MapName: "STRING_VALUE", // required
+ *   MapName: 'STRING_VALUE', // required
  *   Configuration: { // MapConfiguration
- *     Style: "STRING_VALUE", // required
+ *     Style: 'STRING_VALUE', // required
  *   },
- *   PricingPlan: "STRING_VALUE",
- *   Description: "STRING_VALUE",
+ *   PricingPlan: 'STRING_VALUE',
+ *   Description: 'STRING_VALUE',
  *   Tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateMapCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateMapResponse
+ *   MapName: 'STRING_VALUE', // required
+ *   MapArn: 'STRING_VALUE', // required
+ *   CreateTime: new Date('TIMESTAMP'), // required
+ * };
+ *
  * ```
  *
  * @param CreateMapCommandInput - {@link CreateMapCommandInput}
@@ -87,6 +94,8 @@ export interface CreateMapCommandOutput extends CreateMapResponse, __MetadataBea
  * @throws {@link ValidationException} (client fault)
  *  <p>The input failed to meet the constraints specified by the AWS service. </p>
  *
+ * @throws {@link LocationServiceException}
+ * <p>Base exception class for all service exceptions from Location service.</p>
  *
  */
 export class CreateMapCommand extends $Command<

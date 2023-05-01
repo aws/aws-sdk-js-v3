@@ -50,17 +50,36 @@ export interface UngroupResourcesCommandOutput extends UngroupResourcesOutput, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ResourceGroupsClient, UngroupResourcesCommand } from "@aws-sdk/client-resource-groups"; // ES Modules import
- * // const { ResourceGroupsClient, UngroupResourcesCommand } = require("@aws-sdk/client-resource-groups"); // CommonJS import
+ * import { ResourceGroupsClient, UngroupResourcesCommand } from '@aws-sdk/client-resource-groups'; // ES Modules import
+ * // const { ResourceGroupsClient, UngroupResourcesCommand } = require('@aws-sdk/client-resource-groups'); // CommonJS import
  * const client = new ResourceGroupsClient(config);
  * const input = { // UngroupResourcesInput
- *   Group: "STRING_VALUE", // required
+ *   Group: 'STRING_VALUE', // required
  *   ResourceArns: [ // ResourceArnList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new UngroupResourcesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UngroupResourcesOutput
+ *   Succeeded: [ // ResourceArnList
+ *     'STRING_VALUE',
+ *   ],
+ *   Failed: [ // FailedResourceList
+ *     { // FailedResource
+ *       ResourceArn: 'STRING_VALUE',
+ *       ErrorMessage: 'STRING_VALUE',
+ *       ErrorCode: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   Pending: [ // PendingResourceList
+ *     { // PendingResource
+ *       ResourceArn: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param UngroupResourcesCommandInput - {@link UngroupResourcesCommandInput}
@@ -88,6 +107,8 @@ export interface UngroupResourcesCommandOutput extends UngroupResourcesOutput, _
  *  <p>You've exceeded throttling limits by making too many requests in a period of
  *             time.</p>
  *
+ * @throws {@link ResourceGroupsServiceException}
+ * <p>Base exception class for all service exceptions from ResourceGroups service.</p>
  *
  */
 export class UngroupResourcesCommand extends $Command<

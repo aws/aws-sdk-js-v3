@@ -40,25 +40,48 @@ export interface DescribeDBClusterEndpointsCommandOutput extends DBClusterEndpoi
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { NeptuneClient, DescribeDBClusterEndpointsCommand } from "@aws-sdk/client-neptune"; // ES Modules import
- * // const { NeptuneClient, DescribeDBClusterEndpointsCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
+ * import { NeptuneClient, DescribeDBClusterEndpointsCommand } from '@aws-sdk/client-neptune'; // ES Modules import
+ * // const { NeptuneClient, DescribeDBClusterEndpointsCommand } = require('@aws-sdk/client-neptune'); // CommonJS import
  * const client = new NeptuneClient(config);
  * const input = { // DescribeDBClusterEndpointsMessage
- *   DBClusterIdentifier: "STRING_VALUE",
- *   DBClusterEndpointIdentifier: "STRING_VALUE",
+ *   DBClusterIdentifier: 'STRING_VALUE',
+ *   DBClusterEndpointIdentifier: 'STRING_VALUE',
  *   Filters: [ // FilterList
  *     { // Filter
- *       Name: "STRING_VALUE", // required
+ *       Name: 'STRING_VALUE', // required
  *       Values: [ // FilterValueList // required
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
- *   MaxRecords: Number("int"),
- *   Marker: "STRING_VALUE",
+ *   MaxRecords: Number('int'),
+ *   Marker: 'STRING_VALUE',
  * };
  * const command = new DescribeDBClusterEndpointsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DBClusterEndpointMessage
+ *   Marker: 'STRING_VALUE',
+ *   DBClusterEndpoints: [ // DBClusterEndpointList
+ *     { // DBClusterEndpoint
+ *       DBClusterEndpointIdentifier: 'STRING_VALUE',
+ *       DBClusterIdentifier: 'STRING_VALUE',
+ *       DBClusterEndpointResourceIdentifier: 'STRING_VALUE',
+ *       Endpoint: 'STRING_VALUE',
+ *       Status: 'STRING_VALUE',
+ *       EndpointType: 'STRING_VALUE',
+ *       CustomEndpointType: 'STRING_VALUE',
+ *       StaticMembers: [ // StringList
+ *         'STRING_VALUE',
+ *       ],
+ *       ExcludedMembers: [
+ *         'STRING_VALUE',
+ *       ],
+ *       DBClusterEndpointArn: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeDBClusterEndpointsCommandInput - {@link DescribeDBClusterEndpointsCommandInput}
@@ -71,6 +94,8 @@ export interface DescribeDBClusterEndpointsCommandOutput extends DBClusterEndpoi
  *  <p>
  *             <i>DBClusterIdentifier</i> does not refer to an existing DB cluster.</p>
  *
+ * @throws {@link NeptuneServiceException}
+ * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
  */
 export class DescribeDBClusterEndpointsCommand extends $Command<

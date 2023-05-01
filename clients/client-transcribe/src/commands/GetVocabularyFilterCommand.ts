@@ -37,14 +37,22 @@ export interface GetVocabularyFilterCommandOutput extends GetVocabularyFilterRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { TranscribeClient, GetVocabularyFilterCommand } from "@aws-sdk/client-transcribe"; // ES Modules import
- * // const { TranscribeClient, GetVocabularyFilterCommand } = require("@aws-sdk/client-transcribe"); // CommonJS import
+ * import { TranscribeClient, GetVocabularyFilterCommand } from '@aws-sdk/client-transcribe'; // ES Modules import
+ * // const { TranscribeClient, GetVocabularyFilterCommand } = require('@aws-sdk/client-transcribe'); // CommonJS import
  * const client = new TranscribeClient(config);
  * const input = { // GetVocabularyFilterRequest
- *   VocabularyFilterName: "STRING_VALUE", // required
+ *   VocabularyFilterName: 'STRING_VALUE', // required
  * };
  * const command = new GetVocabularyFilterCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetVocabularyFilterResponse
+ *   VocabularyFilterName: 'STRING_VALUE',
+ *   LanguageCode: 'af-ZA' || 'ar-AE' || 'ar-SA' || 'da-DK' || 'de-CH' || 'de-DE' || 'en-AB' || 'en-AU' || 'en-GB' || 'en-IE' || 'en-IN' || 'en-US' || 'en-WL' || 'es-ES' || 'es-US' || 'fa-IR' || 'fr-CA' || 'fr-FR' || 'he-IL' || 'hi-IN' || 'id-ID' || 'it-IT' || 'ja-JP' || 'ko-KR' || 'ms-MY' || 'nl-NL' || 'pt-BR' || 'pt-PT' || 'ru-RU' || 'ta-IN' || 'te-IN' || 'tr-TR' || 'zh-CN' || 'zh-TW' || 'th-TH' || 'en-ZA' || 'en-NZ' || 'vi-VN' || 'sv-SE',
+ *   LastModifiedTime: new Date('TIMESTAMP'),
+ *   DownloadUri: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetVocabularyFilterCommandInput - {@link GetVocabularyFilterCommandInput}
@@ -71,6 +79,8 @@ export interface GetVocabularyFilterCommandOutput extends GetVocabularyFilterRes
  *  <p>We can't find the requested resource. Check that the specified name is correct and try
  *             your request again.</p>
  *
+ * @throws {@link TranscribeServiceException}
+ * <p>Base exception class for all service exceptions from Transcribe service.</p>
  *
  */
 export class GetVocabularyFilterCommand extends $Command<

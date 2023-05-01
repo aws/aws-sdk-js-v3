@@ -45,14 +45,23 @@ export interface GetRuleGroupCommandOutput extends GetRuleGroupResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WAFRegionalClient, GetRuleGroupCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
- * // const { WAFRegionalClient, GetRuleGroupCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import
+ * import { WAFRegionalClient, GetRuleGroupCommand } from '@aws-sdk/client-waf-regional'; // ES Modules import
+ * // const { WAFRegionalClient, GetRuleGroupCommand } = require('@aws-sdk/client-waf-regional'); // CommonJS import
  * const client = new WAFRegionalClient(config);
  * const input = { // GetRuleGroupRequest
- *   RuleGroupId: "STRING_VALUE", // required
+ *   RuleGroupId: 'STRING_VALUE', // required
  * };
  * const command = new GetRuleGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetRuleGroupResponse
+ *   RuleGroup: { // RuleGroup
+ *     RuleGroupId: 'STRING_VALUE', // required
+ *     Name: 'STRING_VALUE',
+ *     MetricName: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetRuleGroupCommandInput - {@link GetRuleGroupCommandInput}
@@ -67,6 +76,8 @@ export interface GetRuleGroupCommandOutput extends GetRuleGroupResponse, __Metad
  * @throws {@link WAFNonexistentItemException} (client fault)
  *  <p>The operation failed because the referenced object doesn't exist.</p>
  *
+ * @throws {@link WAFRegionalServiceException}
+ * <p>Base exception class for all service exceptions from WAFRegional service.</p>
  *
  */
 export class GetRuleGroupCommand extends $Command<

@@ -36,15 +36,20 @@ export interface PutSchemaFromJsonCommandOutput extends PutSchemaFromJsonRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudDirectoryClient, PutSchemaFromJsonCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
- * // const { CloudDirectoryClient, PutSchemaFromJsonCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
+ * import { CloudDirectoryClient, PutSchemaFromJsonCommand } from '@aws-sdk/client-clouddirectory'; // ES Modules import
+ * // const { CloudDirectoryClient, PutSchemaFromJsonCommand } = require('@aws-sdk/client-clouddirectory'); // CommonJS import
  * const client = new CloudDirectoryClient(config);
  * const input = { // PutSchemaFromJsonRequest
- *   SchemaArn: "STRING_VALUE", // required
- *   Document: "STRING_VALUE", // required
+ *   SchemaArn: 'STRING_VALUE', // required
+ *   Document: 'STRING_VALUE', // required
  * };
  * const command = new PutSchemaFromJsonCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutSchemaFromJsonResponse
+ *   Arn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param PutSchemaFromJsonCommandInput - {@link PutSchemaFromJsonCommandInput}
@@ -78,6 +83,8 @@ export interface PutSchemaFromJsonCommandOutput extends PutSchemaFromJsonRespons
  *  <p>Indicates that your request is malformed in some manner. See the exception
  *       message.</p>
  *
+ * @throws {@link CloudDirectoryServiceException}
+ * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
  */
 export class PutSchemaFromJsonCommand extends $Command<

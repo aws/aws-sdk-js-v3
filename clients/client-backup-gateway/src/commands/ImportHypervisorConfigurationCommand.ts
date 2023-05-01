@@ -45,24 +45,29 @@ export interface ImportHypervisorConfigurationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BackupGatewayClient, ImportHypervisorConfigurationCommand } from "@aws-sdk/client-backup-gateway"; // ES Modules import
- * // const { BackupGatewayClient, ImportHypervisorConfigurationCommand } = require("@aws-sdk/client-backup-gateway"); // CommonJS import
+ * import { BackupGatewayClient, ImportHypervisorConfigurationCommand } from '@aws-sdk/client-backup-gateway'; // ES Modules import
+ * // const { BackupGatewayClient, ImportHypervisorConfigurationCommand } = require('@aws-sdk/client-backup-gateway'); // CommonJS import
  * const client = new BackupGatewayClient(config);
  * const input = { // ImportHypervisorConfigurationInput
- *   Name: "STRING_VALUE", // required
- *   Host: "STRING_VALUE", // required
- *   Username: "STRING_VALUE",
- *   Password: "STRING_VALUE",
- *   KmsKeyArn: "STRING_VALUE",
+ *   Name: 'STRING_VALUE', // required
+ *   Host: 'STRING_VALUE', // required
+ *   Username: 'STRING_VALUE',
+ *   Password: 'STRING_VALUE',
+ *   KmsKeyArn: 'STRING_VALUE',
  *   Tags: [ // Tags
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new ImportHypervisorConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ImportHypervisorConfigurationOutput
+ *   HypervisorArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ImportHypervisorConfigurationCommandInput - {@link ImportHypervisorConfigurationCommandInput}
@@ -87,6 +92,8 @@ export interface ImportHypervisorConfigurationCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The operation did not succeed because a validation error occurred.</p>
  *
+ * @throws {@link BackupGatewayServiceException}
+ * <p>Base exception class for all service exceptions from BackupGateway service.</p>
  *
  */
 export class ImportHypervisorConfigurationCommand extends $Command<

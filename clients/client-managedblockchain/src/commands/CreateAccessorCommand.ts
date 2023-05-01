@@ -41,18 +41,24 @@ export interface CreateAccessorCommandOutput extends CreateAccessorOutput, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ManagedBlockchainClient, CreateAccessorCommand } from "@aws-sdk/client-managedblockchain"; // ES Modules import
- * // const { ManagedBlockchainClient, CreateAccessorCommand } = require("@aws-sdk/client-managedblockchain"); // CommonJS import
+ * import { ManagedBlockchainClient, CreateAccessorCommand } from '@aws-sdk/client-managedblockchain'; // ES Modules import
+ * // const { ManagedBlockchainClient, CreateAccessorCommand } = require('@aws-sdk/client-managedblockchain'); // CommonJS import
  * const client = new ManagedBlockchainClient(config);
  * const input = { // CreateAccessorInput
- *   ClientRequestToken: "STRING_VALUE", // required
- *   AccessorType: "BILLING_TOKEN", // required
+ *   ClientRequestToken: 'STRING_VALUE', // required
+ *   AccessorType: 'BILLING_TOKEN', // required
  *   Tags: { // InputTagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateAccessorCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateAccessorOutput
+ *   AccessorId: 'STRING_VALUE',
+ *   BillingToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateAccessorCommandInput - {@link CreateAccessorCommandInput}
@@ -86,6 +92,8 @@ export interface CreateAccessorCommandOutput extends CreateAccessorOutput, __Met
  * @throws {@link TooManyTagsException} (client fault)
  *  <p></p>
  *
+ * @throws {@link ManagedBlockchainServiceException}
+ * <p>Base exception class for all service exceptions from ManagedBlockchain service.</p>
  *
  */
 export class CreateAccessorCommand extends $Command<

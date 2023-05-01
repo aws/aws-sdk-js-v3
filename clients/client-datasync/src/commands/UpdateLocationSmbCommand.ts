@@ -42,24 +42,27 @@ export interface UpdateLocationSmbCommandOutput extends UpdateLocationSmbRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DataSyncClient, UpdateLocationSmbCommand } from "@aws-sdk/client-datasync"; // ES Modules import
- * // const { DataSyncClient, UpdateLocationSmbCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
+ * import { DataSyncClient, UpdateLocationSmbCommand } from '@aws-sdk/client-datasync'; // ES Modules import
+ * // const { DataSyncClient, UpdateLocationSmbCommand } = require('@aws-sdk/client-datasync'); // CommonJS import
  * const client = new DataSyncClient(config);
  * const input = { // UpdateLocationSmbRequest
- *   LocationArn: "STRING_VALUE", // required
- *   Subdirectory: "STRING_VALUE",
- *   User: "STRING_VALUE",
- *   Domain: "STRING_VALUE",
- *   Password: "STRING_VALUE",
+ *   LocationArn: 'STRING_VALUE', // required
+ *   Subdirectory: 'STRING_VALUE',
+ *   User: 'STRING_VALUE',
+ *   Domain: 'STRING_VALUE',
+ *   Password: 'STRING_VALUE',
  *   AgentArns: [ // AgentArnList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   MountOptions: { // SmbMountOptions
- *     Version: "AUTOMATIC" || "SMB2" || "SMB3" || "SMB1" || "SMB2_0",
+ *     Version: 'AUTOMATIC' || 'SMB2' || 'SMB3' || 'SMB1' || 'SMB2_0',
  *   },
  * };
  * const command = new UpdateLocationSmbCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateLocationSmbCommandInput - {@link UpdateLocationSmbCommandInput}
@@ -75,6 +78,8 @@ export interface UpdateLocationSmbCommandOutput extends UpdateLocationSmbRespons
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception is thrown when the client submits a malformed request.</p>
  *
+ * @throws {@link DataSyncServiceException}
+ * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
  */
 export class UpdateLocationSmbCommand extends $Command<

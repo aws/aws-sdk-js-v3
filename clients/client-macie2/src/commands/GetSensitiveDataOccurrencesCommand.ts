@@ -41,14 +41,27 @@ export interface GetSensitiveDataOccurrencesCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Macie2Client, GetSensitiveDataOccurrencesCommand } from "@aws-sdk/client-macie2"; // ES Modules import
- * // const { Macie2Client, GetSensitiveDataOccurrencesCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
+ * import { Macie2Client, GetSensitiveDataOccurrencesCommand } from '@aws-sdk/client-macie2'; // ES Modules import
+ * // const { Macie2Client, GetSensitiveDataOccurrencesCommand } = require('@aws-sdk/client-macie2'); // CommonJS import
  * const client = new Macie2Client(config);
  * const input = { // GetSensitiveDataOccurrencesRequest
- *   findingId: "STRING_VALUE", // required
+ *   findingId: 'STRING_VALUE', // required
  * };
  * const command = new GetSensitiveDataOccurrencesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetSensitiveDataOccurrencesResponse
+ *   error: 'STRING_VALUE',
+ *   sensitiveDataOccurrences: { // SensitiveDataOccurrences
+ *     '<keys>': [ // __listOfDetectedDataDetails
+ *       { // DetectedDataDetails
+ *         value: 'STRING_VALUE', // required
+ *       },
+ *     ],
+ *   },
+ *   status: 'SUCCESS' || 'PROCESSING' || 'ERROR',
+ * };
+ *
  * ```
  *
  * @param GetSensitiveDataOccurrencesCommandInput - {@link GetSensitiveDataOccurrencesCommandInput}
@@ -75,6 +88,8 @@ export interface GetSensitiveDataOccurrencesCommandOutput
  * @throws {@link UnprocessableEntityException} (client fault)
  *  <p>Provides information about an error that occurred due to an unprocessable entity.</p>
  *
+ * @throws {@link Macie2ServiceException}
+ * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
  */
 export class GetSensitiveDataOccurrencesCommand extends $Command<

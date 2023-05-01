@@ -45,29 +45,36 @@ export interface StartSimulationCommandOutput extends StartSimulationOutput, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SimSpaceWeaverClient, StartSimulationCommand } from "@aws-sdk/client-simspaceweaver"; // ES Modules import
- * // const { SimSpaceWeaverClient, StartSimulationCommand } = require("@aws-sdk/client-simspaceweaver"); // CommonJS import
+ * import { SimSpaceWeaverClient, StartSimulationCommand } from '@aws-sdk/client-simspaceweaver'; // ES Modules import
+ * // const { SimSpaceWeaverClient, StartSimulationCommand } = require('@aws-sdk/client-simspaceweaver'); // CommonJS import
  * const client = new SimSpaceWeaverClient(config);
  * const input = { // StartSimulationInput
- *   ClientToken: "STRING_VALUE",
- *   Name: "STRING_VALUE", // required
- *   Description: "STRING_VALUE",
- *   RoleArn: "STRING_VALUE", // required
+ *   ClientToken: 'STRING_VALUE',
+ *   Name: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE',
+ *   RoleArn: 'STRING_VALUE', // required
  *   SchemaS3Location: { // S3Location
- *     BucketName: "STRING_VALUE",
- *     ObjectKey: "STRING_VALUE",
+ *     BucketName: 'STRING_VALUE',
+ *     ObjectKey: 'STRING_VALUE',
  *   },
- *   MaximumDuration: "STRING_VALUE",
+ *   MaximumDuration: 'STRING_VALUE',
  *   Tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  *   SnapshotS3Location: {
- *     BucketName: "STRING_VALUE",
- *     ObjectKey: "STRING_VALUE",
+ *     BucketName: 'STRING_VALUE',
+ *     ObjectKey: 'STRING_VALUE',
  *   },
  * };
  * const command = new StartSimulationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartSimulationOutput
+ *   Arn: 'STRING_VALUE',
+ *   ExecutionId: 'STRING_VALUE',
+ *   CreationTime: new Date('TIMESTAMP'),
+ * };
+ *
  * ```
  *
  * @param StartSimulationCommandInput - {@link StartSimulationCommandInput}
@@ -91,6 +98,8 @@ export interface StartSimulationCommandOutput extends StartSimulationOutput, __M
  * @throws {@link ValidationException} (client fault)
  *  <p/>
  *
+ * @throws {@link SimSpaceWeaverServiceException}
+ * <p>Base exception class for all service exceptions from SimSpaceWeaver service.</p>
  *
  */
 export class StartSimulationCommand extends $Command<

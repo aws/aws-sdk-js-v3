@@ -40,15 +40,26 @@ export interface ListMediaCapturePipelinesCommandOutput extends ListMediaCapture
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeSDKMediaPipelinesClient, ListMediaCapturePipelinesCommand } from "@aws-sdk/client-chime-sdk-media-pipelines"; // ES Modules import
- * // const { ChimeSDKMediaPipelinesClient, ListMediaCapturePipelinesCommand } = require("@aws-sdk/client-chime-sdk-media-pipelines"); // CommonJS import
+ * import { ChimeSDKMediaPipelinesClient, ListMediaCapturePipelinesCommand } from '@aws-sdk/client-chime-sdk-media-pipelines'; // ES Modules import
+ * // const { ChimeSDKMediaPipelinesClient, ListMediaCapturePipelinesCommand } = require('@aws-sdk/client-chime-sdk-media-pipelines'); // CommonJS import
  * const client = new ChimeSDKMediaPipelinesClient(config);
  * const input = { // ListMediaCapturePipelinesRequest
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListMediaCapturePipelinesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListMediaCapturePipelinesResponse
+ *   MediaCapturePipelines: [ // MediaCapturePipelineSummaryList
+ *     { // MediaCapturePipelineSummary
+ *       MediaPipelineId: 'STRING_VALUE',
+ *       MediaPipelineArn: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListMediaCapturePipelinesCommandInput - {@link ListMediaCapturePipelinesCommandInput}
@@ -78,6 +89,8 @@ export interface ListMediaCapturePipelinesCommandOutput extends ListMediaCapture
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeSDKMediaPipelinesServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKMediaPipelines service.</p>
  *
  */
 export class ListMediaCapturePipelinesCommand extends $Command<

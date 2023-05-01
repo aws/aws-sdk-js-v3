@@ -40,17 +40,27 @@ export interface CancelSpotInstanceRequestsCommandOutput extends CancelSpotInsta
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, CancelSpotInstanceRequestsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, CancelSpotInstanceRequestsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, CancelSpotInstanceRequestsCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, CancelSpotInstanceRequestsCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // CancelSpotInstanceRequestsRequest
  *   DryRun: true || false,
  *   SpotInstanceRequestIds: [ // SpotInstanceRequestIdList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new CancelSpotInstanceRequestsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CancelSpotInstanceRequestsResult
+ *   CancelledSpotInstanceRequests: [ // CancelledSpotInstanceRequestList
+ *     { // CancelledSpotInstanceRequest
+ *       SpotInstanceRequestId: 'STRING_VALUE',
+ *       State: 'active' || 'open' || 'closed' || 'cancelled' || 'completed',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param CancelSpotInstanceRequestsCommandInput - {@link CancelSpotInstanceRequestsCommandInput}
@@ -59,6 +69,8 @@ export interface CancelSpotInstanceRequestsCommandOutput extends CancelSpotInsta
  * @see {@link CancelSpotInstanceRequestsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @example To cancel Spot Instance requests
  * ```javascript

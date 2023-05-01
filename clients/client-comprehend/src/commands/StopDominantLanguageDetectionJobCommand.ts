@@ -50,14 +50,20 @@ export interface StopDominantLanguageDetectionJobCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ComprehendClient, StopDominantLanguageDetectionJobCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
- * // const { ComprehendClient, StopDominantLanguageDetectionJobCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
+ * import { ComprehendClient, StopDominantLanguageDetectionJobCommand } from '@aws-sdk/client-comprehend'; // ES Modules import
+ * // const { ComprehendClient, StopDominantLanguageDetectionJobCommand } = require('@aws-sdk/client-comprehend'); // CommonJS import
  * const client = new ComprehendClient(config);
  * const input = { // StopDominantLanguageDetectionJobRequest
- *   JobId: "STRING_VALUE", // required
+ *   JobId: 'STRING_VALUE', // required
  * };
  * const command = new StopDominantLanguageDetectionJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StopDominantLanguageDetectionJobResponse
+ *   JobId: 'STRING_VALUE',
+ *   JobStatus: 'SUBMITTED' || 'IN_PROGRESS' || 'COMPLETED' || 'FAILED' || 'STOP_REQUESTED' || 'STOPPED',
+ * };
+ *
  * ```
  *
  * @param StopDominantLanguageDetectionJobCommandInput - {@link StopDominantLanguageDetectionJobCommandInput}
@@ -75,6 +81,8 @@ export interface StopDominantLanguageDetectionJobCommandOutput
  * @throws {@link JobNotFoundException} (client fault)
  *  <p>The specified job was not found. Check the job ID and try again.</p>
  *
+ * @throws {@link ComprehendServiceException}
+ * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
  */
 export class StopDominantLanguageDetectionJobCommand extends $Command<

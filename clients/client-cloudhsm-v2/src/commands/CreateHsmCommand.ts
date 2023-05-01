@@ -37,16 +37,30 @@ export interface CreateHsmCommandOutput extends CreateHsmResponse, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudHSMV2Client, CreateHsmCommand } from "@aws-sdk/client-cloudhsm-v2"; // ES Modules import
- * // const { CloudHSMV2Client, CreateHsmCommand } = require("@aws-sdk/client-cloudhsm-v2"); // CommonJS import
+ * import { CloudHSMV2Client, CreateHsmCommand } from '@aws-sdk/client-cloudhsm-v2'; // ES Modules import
+ * // const { CloudHSMV2Client, CreateHsmCommand } = require('@aws-sdk/client-cloudhsm-v2'); // CommonJS import
  * const client = new CloudHSMV2Client(config);
  * const input = { // CreateHsmRequest
- *   ClusterId: "STRING_VALUE", // required
- *   AvailabilityZone: "STRING_VALUE", // required
- *   IpAddress: "STRING_VALUE",
+ *   ClusterId: 'STRING_VALUE', // required
+ *   AvailabilityZone: 'STRING_VALUE', // required
+ *   IpAddress: 'STRING_VALUE',
  * };
  * const command = new CreateHsmCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateHsmResponse
+ *   Hsm: { // Hsm
+ *     AvailabilityZone: 'STRING_VALUE',
+ *     ClusterId: 'STRING_VALUE',
+ *     SubnetId: 'STRING_VALUE',
+ *     EniId: 'STRING_VALUE',
+ *     EniIp: 'STRING_VALUE',
+ *     HsmId: 'STRING_VALUE', // required
+ *     State: 'STRING_VALUE',
+ *     StateMessage: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateHsmCommandInput - {@link CreateHsmCommandInput}
@@ -73,6 +87,8 @@ export interface CreateHsmCommandOutput extends CreateHsmResponse, __MetadataBea
  * @throws {@link CloudHsmServiceException} (client fault)
  *  <p>The request was rejected because an error occurred.</p>
  *
+ * @throws {@link CloudHSMV2ServiceException}
+ * <p>Base exception class for all service exceptions from CloudHSMV2 service.</p>
  *
  */
 export class CreateHsmCommand extends $Command<

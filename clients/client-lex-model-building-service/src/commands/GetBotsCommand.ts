@@ -54,16 +54,31 @@ export interface GetBotsCommandOutput extends GetBotsResponse, __MetadataBearer 
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LexModelBuildingServiceClient, GetBotsCommand } from "@aws-sdk/client-lex-model-building-service"; // ES Modules import
- * // const { LexModelBuildingServiceClient, GetBotsCommand } = require("@aws-sdk/client-lex-model-building-service"); // CommonJS import
+ * import { LexModelBuildingServiceClient, GetBotsCommand } from '@aws-sdk/client-lex-model-building-service'; // ES Modules import
+ * // const { LexModelBuildingServiceClient, GetBotsCommand } = require('@aws-sdk/client-lex-model-building-service'); // CommonJS import
  * const client = new LexModelBuildingServiceClient(config);
  * const input = { // GetBotsRequest
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
- *   nameContains: "STRING_VALUE",
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
+ *   nameContains: 'STRING_VALUE',
  * };
  * const command = new GetBotsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetBotsResponse
+ *   bots: [ // BotMetadataList
+ *     { // BotMetadata
+ *       name: 'STRING_VALUE',
+ *       description: 'STRING_VALUE',
+ *       status: 'STRING_VALUE',
+ *       lastUpdatedDate: new Date('TIMESTAMP'),
+ *       createdDate: new Date('TIMESTAMP'),
+ *       version: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetBotsCommandInput - {@link GetBotsCommandInput}
@@ -87,6 +102,8 @@ export interface GetBotsCommandOutput extends GetBotsResponse, __MetadataBearer 
  *  <p>The resource specified in the request was not found. Check the
  *       resource and try again.</p>
  *
+ * @throws {@link LexModelBuildingServiceServiceException}
+ * <p>Base exception class for all service exceptions from LexModelBuildingService service.</p>
  *
  * @example To get a list of bots
  * ```javascript

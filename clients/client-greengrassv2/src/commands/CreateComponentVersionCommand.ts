@@ -104,66 +104,66 @@ export interface CreateComponentVersionCommandOutput extends CreateComponentVers
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GreengrassV2Client, CreateComponentVersionCommand } from "@aws-sdk/client-greengrassv2"; // ES Modules import
- * // const { GreengrassV2Client, CreateComponentVersionCommand } = require("@aws-sdk/client-greengrassv2"); // CommonJS import
+ * import { GreengrassV2Client, CreateComponentVersionCommand } from '@aws-sdk/client-greengrassv2'; // ES Modules import
+ * // const { GreengrassV2Client, CreateComponentVersionCommand } = require('@aws-sdk/client-greengrassv2'); // CommonJS import
  * const client = new GreengrassV2Client(config);
  * const input = { // CreateComponentVersionRequest
- *   inlineRecipe: "BLOB_VALUE",
+ *   inlineRecipe: 'BLOB_VALUE',
  *   lambdaFunction: { // LambdaFunctionRecipeSource
- *     lambdaArn: "STRING_VALUE", // required
- *     componentName: "STRING_VALUE",
- *     componentVersion: "STRING_VALUE",
+ *     lambdaArn: 'STRING_VALUE', // required
+ *     componentName: 'STRING_VALUE',
+ *     componentVersion: 'STRING_VALUE',
  *     componentPlatforms: [ // ComponentPlatformList
  *       { // ComponentPlatform
- *         name: "STRING_VALUE",
+ *         name: 'STRING_VALUE',
  *         attributes: { // PlatformAttributesMap
- *           "<keys>": "STRING_VALUE",
+ *           '<keys>': 'STRING_VALUE',
  *         },
  *       },
  *     ],
  *     componentDependencies: { // ComponentDependencyMap
- *       "<keys>": { // ComponentDependencyRequirement
- *         versionRequirement: "STRING_VALUE",
- *         dependencyType: "HARD" || "SOFT",
+ *       '<keys>': { // ComponentDependencyRequirement
+ *         versionRequirement: 'STRING_VALUE',
+ *         dependencyType: 'HARD' || 'SOFT',
  *       },
  *     },
  *     componentLambdaParameters: { // LambdaExecutionParameters
  *       eventSources: [ // LambdaEventSourceList
  *         { // LambdaEventSource
- *           topic: "STRING_VALUE", // required
- *           type: "PUB_SUB" || "IOT_CORE", // required
+ *           topic: 'STRING_VALUE', // required
+ *           type: 'PUB_SUB' || 'IOT_CORE', // required
  *         },
  *       ],
- *       maxQueueSize: Number("int"),
- *       maxInstancesCount: Number("int"),
- *       maxIdleTimeInSeconds: Number("int"),
- *       timeoutInSeconds: Number("int"),
- *       statusTimeoutInSeconds: Number("int"),
+ *       maxQueueSize: Number('int'),
+ *       maxInstancesCount: Number('int'),
+ *       maxIdleTimeInSeconds: Number('int'),
+ *       timeoutInSeconds: Number('int'),
+ *       statusTimeoutInSeconds: Number('int'),
  *       pinned: true || false,
- *       inputPayloadEncodingType: "json" || "binary",
+ *       inputPayloadEncodingType: 'json' || 'binary',
  *       execArgs: [ // LambdaExecArgsList
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *       environmentVariables: { // LambdaEnvironmentVariables
- *         "<keys>": "STRING_VALUE",
+ *         '<keys>': 'STRING_VALUE',
  *       },
  *       linuxProcessParams: { // LambdaLinuxProcessParams
- *         isolationMode: "GreengrassContainer" || "NoContainer",
+ *         isolationMode: 'GreengrassContainer' || 'NoContainer',
  *         containerParams: { // LambdaContainerParams
- *           memorySizeInKB: Number("int"),
+ *           memorySizeInKB: Number('int'),
  *           mountROSysfs: true || false,
  *           volumes: [ // LambdaVolumeList
  *             { // LambdaVolumeMount
- *               sourcePath: "STRING_VALUE", // required
- *               destinationPath: "STRING_VALUE", // required
- *               permission: "ro" || "rw",
+ *               sourcePath: 'STRING_VALUE', // required
+ *               destinationPath: 'STRING_VALUE', // required
+ *               permission: 'ro' || 'rw',
  *               addGroupOwner: true || false,
  *             },
  *           ],
  *           devices: [ // LambdaDeviceList
  *             { // LambdaDeviceMount
- *               path: "STRING_VALUE", // required
- *               permission: "ro" || "rw",
+ *               path: 'STRING_VALUE', // required
+ *               permission: 'ro' || 'rw',
  *               addGroupOwner: true || false,
  *             },
  *           ],
@@ -172,12 +172,29 @@ export interface CreateComponentVersionCommandOutput extends CreateComponentVers
  *     },
  *   },
  *   tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
- *   clientToken: "STRING_VALUE",
+ *   clientToken: 'STRING_VALUE',
  * };
  * const command = new CreateComponentVersionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateComponentVersionResponse
+ *   arn: 'STRING_VALUE',
+ *   componentName: 'STRING_VALUE', // required
+ *   componentVersion: 'STRING_VALUE', // required
+ *   creationTimestamp: new Date('TIMESTAMP'), // required
+ *   status: { // CloudComponentStatus
+ *     componentState: 'REQUESTED' || 'INITIATED' || 'DEPLOYABLE' || 'FAILED' || 'DEPRECATED',
+ *     message: 'STRING_VALUE',
+ *     errors: { // StringMap
+ *       '<keys>': 'STRING_VALUE',
+ *     },
+ *     vendorGuidance: 'ACTIVE' || 'DISCONTINUED' || 'DELETED',
+ *     vendorGuidanceMessage: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateComponentVersionCommandInput - {@link CreateComponentVersionCommandInput}
@@ -213,6 +230,8 @@ export interface CreateComponentVersionCommandOutput extends CreateComponentVers
  *  <p>The request isn't valid. This can occur if your request contains malformed JSON or
  *       unsupported characters.</p>
  *
+ * @throws {@link GreengrassV2ServiceException}
+ * <p>Base exception class for all service exceptions from GreengrassV2 service.</p>
  *
  */
 export class CreateComponentVersionCommand extends $Command<

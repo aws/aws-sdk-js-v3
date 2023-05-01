@@ -36,32 +36,56 @@ export interface ListDataQualityResultsCommandOutput extends ListDataQualityResu
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlueClient, ListDataQualityResultsCommand } from "@aws-sdk/client-glue"; // ES Modules import
- * // const { GlueClient, ListDataQualityResultsCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * import { GlueClient, ListDataQualityResultsCommand } from '@aws-sdk/client-glue'; // ES Modules import
+ * // const { GlueClient, ListDataQualityResultsCommand } = require('@aws-sdk/client-glue'); // CommonJS import
  * const client = new GlueClient(config);
  * const input = { // ListDataQualityResultsRequest
  *   Filter: { // DataQualityResultFilterCriteria
  *     DataSource: { // DataSource
  *       GlueTable: { // GlueTable
- *         DatabaseName: "STRING_VALUE", // required
- *         TableName: "STRING_VALUE", // required
- *         CatalogId: "STRING_VALUE",
- *         ConnectionName: "STRING_VALUE",
+ *         DatabaseName: 'STRING_VALUE', // required
+ *         TableName: 'STRING_VALUE', // required
+ *         CatalogId: 'STRING_VALUE',
+ *         ConnectionName: 'STRING_VALUE',
  *         AdditionalOptions: { // GlueTableAdditionalOptions
- *           "<keys>": "STRING_VALUE",
+ *           '<keys>': 'STRING_VALUE',
  *         },
  *       },
  *     },
- *     JobName: "STRING_VALUE",
- *     JobRunId: "STRING_VALUE",
- *     StartedAfter: new Date("TIMESTAMP"),
- *     StartedBefore: new Date("TIMESTAMP"),
+ *     JobName: 'STRING_VALUE',
+ *     JobRunId: 'STRING_VALUE',
+ *     StartedAfter: new Date('TIMESTAMP'),
+ *     StartedBefore: new Date('TIMESTAMP'),
  *   },
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListDataQualityResultsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListDataQualityResultsResponse
+ *   Results: [ // DataQualityResultDescriptionList // required
+ *     { // DataQualityResultDescription
+ *       ResultId: 'STRING_VALUE',
+ *       DataSource: { // DataSource
+ *         GlueTable: { // GlueTable
+ *           DatabaseName: 'STRING_VALUE', // required
+ *           TableName: 'STRING_VALUE', // required
+ *           CatalogId: 'STRING_VALUE',
+ *           ConnectionName: 'STRING_VALUE',
+ *           AdditionalOptions: { // GlueTableAdditionalOptions
+ *             '<keys>': 'STRING_VALUE',
+ *           },
+ *         },
+ *       },
+ *       JobName: 'STRING_VALUE',
+ *       JobRunId: 'STRING_VALUE',
+ *       StartedOn: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListDataQualityResultsCommandInput - {@link ListDataQualityResultsCommandInput}
@@ -79,6 +103,8 @@ export interface ListDataQualityResultsCommandOutput extends ListDataQualityResu
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class ListDataQualityResultsCommand extends $Command<

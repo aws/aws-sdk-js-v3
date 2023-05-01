@@ -36,15 +36,25 @@ export interface DeleteDeploymentGroupCommandOutput extends DeleteDeploymentGrou
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeDeployClient, DeleteDeploymentGroupCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
- * // const { CodeDeployClient, DeleteDeploymentGroupCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
+ * import { CodeDeployClient, DeleteDeploymentGroupCommand } from '@aws-sdk/client-codedeploy'; // ES Modules import
+ * // const { CodeDeployClient, DeleteDeploymentGroupCommand } = require('@aws-sdk/client-codedeploy'); // CommonJS import
  * const client = new CodeDeployClient(config);
  * const input = { // DeleteDeploymentGroupInput
- *   applicationName: "STRING_VALUE", // required
- *   deploymentGroupName: "STRING_VALUE", // required
+ *   applicationName: 'STRING_VALUE', // required
+ *   deploymentGroupName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteDeploymentGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteDeploymentGroupOutput
+ *   hooksNotCleanedUp: [ // AutoScalingGroupList
+ *     { // AutoScalingGroup
+ *       name: 'STRING_VALUE',
+ *       hook: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DeleteDeploymentGroupCommandInput - {@link DeleteDeploymentGroupCommandInput}
@@ -70,6 +80,8 @@ export interface DeleteDeploymentGroupCommandOutput extends DeleteDeploymentGrou
  *             group was specified, the specified service role does not grant the appropriate
  *             permissions to Amazon EC2 Auto Scaling.</p>
  *
+ * @throws {@link CodeDeployServiceException}
+ * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
  */
 export class DeleteDeploymentGroupCommand extends $Command<

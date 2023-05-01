@@ -47,18 +47,21 @@ export interface UpdateAuthEventFeedbackCommandOutput extends UpdateAuthEventFee
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CognitoIdentityProviderClient, UpdateAuthEventFeedbackCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
- * // const { CognitoIdentityProviderClient, UpdateAuthEventFeedbackCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
+ * import { CognitoIdentityProviderClient, UpdateAuthEventFeedbackCommand } from '@aws-sdk/client-cognito-identity-provider'; // ES Modules import
+ * // const { CognitoIdentityProviderClient, UpdateAuthEventFeedbackCommand } = require('@aws-sdk/client-cognito-identity-provider'); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
  * const input = { // UpdateAuthEventFeedbackRequest
- *   UserPoolId: "STRING_VALUE", // required
- *   Username: "STRING_VALUE", // required
- *   EventId: "STRING_VALUE", // required
- *   FeedbackToken: "STRING_VALUE", // required
- *   FeedbackValue: "Valid" || "Invalid", // required
+ *   UserPoolId: 'STRING_VALUE', // required
+ *   Username: 'STRING_VALUE', // required
+ *   EventId: 'STRING_VALUE', // required
+ *   FeedbackToken: 'STRING_VALUE', // required
+ *   FeedbackValue: 'Valid' || 'Invalid', // required
  * };
  * const command = new UpdateAuthEventFeedbackCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateAuthEventFeedbackCommandInput - {@link UpdateAuthEventFeedbackCommandInput}
@@ -91,6 +94,8 @@ export interface UpdateAuthEventFeedbackCommandOutput extends UpdateAuthEventFee
  * @throws {@link UserPoolAddOnNotEnabledException} (client fault)
  *  <p>This exception is thrown when user pool add-ons aren't enabled.</p>
  *
+ * @throws {@link CognitoIdentityProviderServiceException}
+ * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
  */
 export class UpdateAuthEventFeedbackCommand extends $Command<

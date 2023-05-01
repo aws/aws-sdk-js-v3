@@ -36,14 +36,38 @@ export interface GetPendingJobExecutionsCommandOutput extends GetPendingJobExecu
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTJobsDataPlaneClient, GetPendingJobExecutionsCommand } from "@aws-sdk/client-iot-jobs-data-plane"; // ES Modules import
- * // const { IoTJobsDataPlaneClient, GetPendingJobExecutionsCommand } = require("@aws-sdk/client-iot-jobs-data-plane"); // CommonJS import
+ * import { IoTJobsDataPlaneClient, GetPendingJobExecutionsCommand } from '@aws-sdk/client-iot-jobs-data-plane'; // ES Modules import
+ * // const { IoTJobsDataPlaneClient, GetPendingJobExecutionsCommand } = require('@aws-sdk/client-iot-jobs-data-plane'); // CommonJS import
  * const client = new IoTJobsDataPlaneClient(config);
  * const input = { // GetPendingJobExecutionsRequest
- *   thingName: "STRING_VALUE", // required
+ *   thingName: 'STRING_VALUE', // required
  * };
  * const command = new GetPendingJobExecutionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetPendingJobExecutionsResponse
+ *   inProgressJobs: [ // JobExecutionSummaryList
+ *     { // JobExecutionSummary
+ *       jobId: 'STRING_VALUE',
+ *       queuedAt: Number('long'),
+ *       startedAt: Number('long'),
+ *       lastUpdatedAt: Number('long'),
+ *       versionNumber: Number('long'),
+ *       executionNumber: Number('long'),
+ *     },
+ *   ],
+ *   queuedJobs: [
+ *     {
+ *       jobId: 'STRING_VALUE',
+ *       queuedAt: Number('long'),
+ *       startedAt: Number('long'),
+ *       lastUpdatedAt: Number('long'),
+ *       versionNumber: Number('long'),
+ *       executionNumber: Number('long'),
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetPendingJobExecutionsCommandInput - {@link GetPendingJobExecutionsCommandInput}
@@ -67,6 +91,8 @@ export interface GetPendingJobExecutionsCommandOutput extends GetPendingJobExecu
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The rate exceeds the limit.</p>
  *
+ * @throws {@link IoTJobsDataPlaneServiceException}
+ * <p>Base exception class for all service exceptions from IoTJobsDataPlane service.</p>
  *
  */
 export class GetPendingJobExecutionsCommand extends $Command<

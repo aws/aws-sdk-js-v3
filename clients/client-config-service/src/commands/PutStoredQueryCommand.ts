@@ -42,26 +42,31 @@ export interface PutStoredQueryCommandOutput extends PutStoredQueryResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConfigServiceClient, PutStoredQueryCommand } from "@aws-sdk/client-config-service"; // ES Modules import
- * // const { ConfigServiceClient, PutStoredQueryCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
+ * import { ConfigServiceClient, PutStoredQueryCommand } from '@aws-sdk/client-config-service'; // ES Modules import
+ * // const { ConfigServiceClient, PutStoredQueryCommand } = require('@aws-sdk/client-config-service'); // CommonJS import
  * const client = new ConfigServiceClient(config);
  * const input = { // PutStoredQueryRequest
  *   StoredQuery: { // StoredQuery
- *     QueryId: "STRING_VALUE",
- *     QueryArn: "STRING_VALUE",
- *     QueryName: "STRING_VALUE", // required
- *     Description: "STRING_VALUE",
- *     Expression: "STRING_VALUE",
+ *     QueryId: 'STRING_VALUE',
+ *     QueryArn: 'STRING_VALUE',
+ *     QueryName: 'STRING_VALUE', // required
+ *     Description: 'STRING_VALUE',
+ *     Expression: 'STRING_VALUE',
  *   },
  *   Tags: [ // TagsList
  *     { // Tag
- *       Key: "STRING_VALUE",
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new PutStoredQueryCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutStoredQueryResponse
+ *   QueryArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param PutStoredQueryCommandInput - {@link PutStoredQueryCommandInput}
@@ -84,6 +89,8 @@ export interface PutStoredQueryCommandOutput extends PutStoredQueryResponse, __M
  *          <p>For PutStoredQuery, you will see this exception if there are missing required fields or if the input value fails the validation, or if you are trying to create more than 300 queries.</p>
  *          <p>For GetStoredQuery, ListStoredQuery, and DeleteStoredQuery you will see this exception if there are missing required fields or if the input value fails the validation.</p>
  *
+ * @throws {@link ConfigServiceServiceException}
+ * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
  */
 export class PutStoredQueryCommand extends $Command<

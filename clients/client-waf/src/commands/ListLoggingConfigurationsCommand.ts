@@ -44,15 +44,34 @@ export interface ListLoggingConfigurationsCommandOutput extends ListLoggingConfi
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WAFClient, ListLoggingConfigurationsCommand } from "@aws-sdk/client-waf"; // ES Modules import
- * // const { WAFClient, ListLoggingConfigurationsCommand } = require("@aws-sdk/client-waf"); // CommonJS import
+ * import { WAFClient, ListLoggingConfigurationsCommand } from '@aws-sdk/client-waf'; // ES Modules import
+ * // const { WAFClient, ListLoggingConfigurationsCommand } = require('@aws-sdk/client-waf'); // CommonJS import
  * const client = new WAFClient(config);
  * const input = { // ListLoggingConfigurationsRequest
- *   NextMarker: "STRING_VALUE",
- *   Limit: Number("int"),
+ *   NextMarker: 'STRING_VALUE',
+ *   Limit: Number('int'),
  * };
  * const command = new ListLoggingConfigurationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListLoggingConfigurationsResponse
+ *   LoggingConfigurations: [ // LoggingConfigurations
+ *     { // LoggingConfiguration
+ *       ResourceArn: 'STRING_VALUE', // required
+ *       LogDestinationConfigs: [ // LogDestinationConfigs // required
+ *         'STRING_VALUE',
+ *       ],
+ *       RedactedFields: [ // RedactedFields
+ *         { // FieldToMatch
+ *           Type: 'STRING_VALUE', // required
+ *           Data: 'STRING_VALUE',
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   NextMarker: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListLoggingConfigurationsCommandInput - {@link ListLoggingConfigurationsCommandInput}
@@ -107,6 +126,8 @@ export interface ListLoggingConfigurationsCommandOutput extends ListLoggingConfi
  * @throws {@link WAFNonexistentItemException} (client fault)
  *  <p>The operation failed because the referenced object doesn't exist.</p>
  *
+ * @throws {@link WAFServiceException}
+ * <p>Base exception class for all service exceptions from WAF service.</p>
  *
  */
 export class ListLoggingConfigurationsCommand extends $Command<

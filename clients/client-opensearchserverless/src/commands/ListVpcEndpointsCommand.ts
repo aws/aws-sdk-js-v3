@@ -42,18 +42,30 @@ export interface ListVpcEndpointsCommandOutput extends ListVpcEndpointsResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OpenSearchServerlessClient, ListVpcEndpointsCommand } from "@aws-sdk/client-opensearchserverless"; // ES Modules import
- * // const { OpenSearchServerlessClient, ListVpcEndpointsCommand } = require("@aws-sdk/client-opensearchserverless"); // CommonJS import
+ * import { OpenSearchServerlessClient, ListVpcEndpointsCommand } from '@aws-sdk/client-opensearchserverless'; // ES Modules import
+ * // const { OpenSearchServerlessClient, ListVpcEndpointsCommand } = require('@aws-sdk/client-opensearchserverless'); // CommonJS import
  * const client = new OpenSearchServerlessClient(config);
  * const input = { // ListVpcEndpointsRequest
  *   vpcEndpointFilters: { // VpcEndpointFilters
- *     status: "STRING_VALUE",
+ *     status: 'STRING_VALUE',
  *   },
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new ListVpcEndpointsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListVpcEndpointsResponse
+ *   vpcEndpointSummaries: [ // VpcEndpointSummaries
+ *     { // VpcEndpointSummary
+ *       id: 'STRING_VALUE',
+ *       name: 'STRING_VALUE',
+ *       status: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListVpcEndpointsCommandInput - {@link ListVpcEndpointsCommandInput}
@@ -69,6 +81,8 @@ export interface ListVpcEndpointsCommandOutput extends ListVpcEndpointsResponse,
  *  <p>Thrown when the HTTP request contains invalid input or is missing required
  *             input.</p>
  *
+ * @throws {@link OpenSearchServerlessServiceException}
+ * <p>Base exception class for all service exceptions from OpenSearchServerless service.</p>
  *
  */
 export class ListVpcEndpointsCommand extends $Command<

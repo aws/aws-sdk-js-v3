@@ -37,12 +37,17 @@ export interface GetInvitationsCountCommandOutput extends GetInvitationsCountRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SecurityHubClient, GetInvitationsCountCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
- * // const { SecurityHubClient, GetInvitationsCountCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
+ * import { SecurityHubClient, GetInvitationsCountCommand } from '@aws-sdk/client-securityhub'; // ES Modules import
+ * // const { SecurityHubClient, GetInvitationsCountCommand } = require('@aws-sdk/client-securityhub'); // CommonJS import
  * const client = new SecurityHubClient(config);
  * const input = {};
  * const command = new GetInvitationsCountCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetInvitationsCountResponse
+ *   InvitationsCount: Number('int'),
+ * };
+ *
  * ```
  *
  * @param GetInvitationsCountCommandInput - {@link GetInvitationsCountCommandInput}
@@ -65,6 +70,8 @@ export interface GetInvitationsCountCommandOutput extends GetInvitationsCountRes
  *  <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services
  *          account or throttling limits. The error code describes the limit exceeded.</p>
  *
+ * @throws {@link SecurityHubServiceException}
+ * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
  * @example To get a count of membership invitations
  * ```javascript

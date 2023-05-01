@@ -39,18 +39,24 @@ export interface AttachVolumeCommandOutput extends AttachVolumeOutput, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { StorageGatewayClient, AttachVolumeCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
- * // const { StorageGatewayClient, AttachVolumeCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
+ * import { StorageGatewayClient, AttachVolumeCommand } from '@aws-sdk/client-storage-gateway'; // ES Modules import
+ * // const { StorageGatewayClient, AttachVolumeCommand } = require('@aws-sdk/client-storage-gateway'); // CommonJS import
  * const client = new StorageGatewayClient(config);
  * const input = { // AttachVolumeInput
- *   GatewayARN: "STRING_VALUE", // required
- *   TargetName: "STRING_VALUE",
- *   VolumeARN: "STRING_VALUE", // required
- *   NetworkInterfaceId: "STRING_VALUE", // required
- *   DiskId: "STRING_VALUE",
+ *   GatewayARN: 'STRING_VALUE', // required
+ *   TargetName: 'STRING_VALUE',
+ *   VolumeARN: 'STRING_VALUE', // required
+ *   NetworkInterfaceId: 'STRING_VALUE', // required
+ *   DiskId: 'STRING_VALUE',
  * };
  * const command = new AttachVolumeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AttachVolumeOutput
+ *   VolumeARN: 'STRING_VALUE',
+ *   TargetARN: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param AttachVolumeCommandInput - {@link AttachVolumeCommandInput}
@@ -67,6 +73,8 @@ export interface AttachVolumeCommandOutput extends AttachVolumeOutput, __Metadat
  *  <p>An exception occurred because an invalid gateway request was issued to the service. For
  *          more information, see the error and message fields.</p>
  *
+ * @throws {@link StorageGatewayServiceException}
+ * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
  */
 export class AttachVolumeCommand extends $Command<

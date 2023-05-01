@@ -38,14 +38,32 @@ export interface DescribeEndpointCommandOutput extends DescribeEndpointResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ComprehendClient, DescribeEndpointCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
- * // const { ComprehendClient, DescribeEndpointCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
+ * import { ComprehendClient, DescribeEndpointCommand } from '@aws-sdk/client-comprehend'; // ES Modules import
+ * // const { ComprehendClient, DescribeEndpointCommand } = require('@aws-sdk/client-comprehend'); // CommonJS import
  * const client = new ComprehendClient(config);
  * const input = { // DescribeEndpointRequest
- *   EndpointArn: "STRING_VALUE", // required
+ *   EndpointArn: 'STRING_VALUE', // required
  * };
  * const command = new DescribeEndpointCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeEndpointResponse
+ *   EndpointProperties: { // EndpointProperties
+ *     EndpointArn: 'STRING_VALUE',
+ *     Status: 'CREATING' || 'DELETING' || 'FAILED' || 'IN_SERVICE' || 'UPDATING',
+ *     Message: 'STRING_VALUE',
+ *     ModelArn: 'STRING_VALUE',
+ *     DesiredModelArn: 'STRING_VALUE',
+ *     DesiredInferenceUnits: Number('int'),
+ *     CurrentInferenceUnits: Number('int'),
+ *     CreationTime: new Date('TIMESTAMP'),
+ *     LastModifiedTime: new Date('TIMESTAMP'),
+ *     DataAccessRoleArn: 'STRING_VALUE',
+ *     DesiredDataAccessRoleArn: 'STRING_VALUE',
+ *     FlywheelArn: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeEndpointCommandInput - {@link DescribeEndpointCommandInput}
@@ -66,6 +84,8 @@ export interface DescribeEndpointCommandOutput extends DescribeEndpointResponse,
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>The number of requests exceeds the limit. Resubmit your request later.</p>
  *
+ * @throws {@link ComprehendServiceException}
+ * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
  */
 export class DescribeEndpointCommand extends $Command<

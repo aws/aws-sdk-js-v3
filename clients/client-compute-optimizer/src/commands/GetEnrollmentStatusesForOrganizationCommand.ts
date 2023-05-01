@@ -46,23 +46,36 @@ export interface GetEnrollmentStatusesForOrganizationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ComputeOptimizerClient, GetEnrollmentStatusesForOrganizationCommand } from "@aws-sdk/client-compute-optimizer"; // ES Modules import
- * // const { ComputeOptimizerClient, GetEnrollmentStatusesForOrganizationCommand } = require("@aws-sdk/client-compute-optimizer"); // CommonJS import
+ * import { ComputeOptimizerClient, GetEnrollmentStatusesForOrganizationCommand } from '@aws-sdk/client-compute-optimizer'; // ES Modules import
+ * // const { ComputeOptimizerClient, GetEnrollmentStatusesForOrganizationCommand } = require('@aws-sdk/client-compute-optimizer'); // CommonJS import
  * const client = new ComputeOptimizerClient(config);
  * const input = { // GetEnrollmentStatusesForOrganizationRequest
  *   filters: [ // EnrollmentFilters
  *     { // EnrollmentFilter
- *       name: "Status",
+ *       name: 'Status',
  *       values: [ // FilterValues
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new GetEnrollmentStatusesForOrganizationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetEnrollmentStatusesForOrganizationResponse
+ *   accountEnrollmentStatuses: [ // AccountEnrollmentStatuses
+ *     { // AccountEnrollmentStatus
+ *       accountId: 'STRING_VALUE',
+ *       status: 'Active' || 'Inactive' || 'Pending' || 'Failed',
+ *       statusReason: 'STRING_VALUE',
+ *       lastUpdatedTimestamp: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetEnrollmentStatusesForOrganizationCommandInput - {@link GetEnrollmentStatusesForOrganizationCommandInput}
@@ -90,6 +103,8 @@ export interface GetEnrollmentStatusesForOrganizationCommandOutput
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
  *
+ * @throws {@link ComputeOptimizerServiceException}
+ * <p>Base exception class for all service exceptions from ComputeOptimizer service.</p>
  *
  */
 export class GetEnrollmentStatusesForOrganizationCommand extends $Command<

@@ -36,23 +36,41 @@ export interface DeleteAppInputSourceCommandOutput extends DeleteAppInputSourceR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ResiliencehubClient, DeleteAppInputSourceCommand } from "@aws-sdk/client-resiliencehub"; // ES Modules import
- * // const { ResiliencehubClient, DeleteAppInputSourceCommand } = require("@aws-sdk/client-resiliencehub"); // CommonJS import
+ * import { ResiliencehubClient, DeleteAppInputSourceCommand } from '@aws-sdk/client-resiliencehub'; // ES Modules import
+ * // const { ResiliencehubClient, DeleteAppInputSourceCommand } = require('@aws-sdk/client-resiliencehub'); // CommonJS import
  * const client = new ResiliencehubClient(config);
  * const input = { // DeleteAppInputSourceRequest
- *   appArn: "STRING_VALUE", // required
- *   sourceArn: "STRING_VALUE",
+ *   appArn: 'STRING_VALUE', // required
+ *   sourceArn: 'STRING_VALUE',
  *   terraformSource: { // TerraformSource
- *     s3StateFileUrl: "STRING_VALUE", // required
+ *     s3StateFileUrl: 'STRING_VALUE', // required
  *   },
- *   clientToken: "STRING_VALUE",
+ *   clientToken: 'STRING_VALUE',
  *   eksSourceClusterNamespace: { // EksSourceClusterNamespace
- *     eksClusterArn: "STRING_VALUE", // required
- *     namespace: "STRING_VALUE", // required
+ *     eksClusterArn: 'STRING_VALUE', // required
+ *     namespace: 'STRING_VALUE', // required
  *   },
  * };
  * const command = new DeleteAppInputSourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteAppInputSourceResponse
+ *   appArn: 'STRING_VALUE',
+ *   appInputSource: { // AppInputSource
+ *     sourceName: 'STRING_VALUE',
+ *     importType: 'STRING_VALUE', // required
+ *     sourceArn: 'STRING_VALUE',
+ *     terraformSource: { // TerraformSource
+ *       s3StateFileUrl: 'STRING_VALUE', // required
+ *     },
+ *     resourceCount: Number('int'),
+ *     eksSourceClusterNamespace: { // EksSourceClusterNamespace
+ *       eksClusterArn: 'STRING_VALUE', // required
+ *       namespace: 'STRING_VALUE', // required
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param DeleteAppInputSourceCommandInput - {@link DeleteAppInputSourceCommandInput}
@@ -85,6 +103,8 @@ export interface DeleteAppInputSourceCommandOutput extends DeleteAppInputSourceR
  * @throws {@link ValidationException} (client fault)
  *  <p>This exception occurs when a request is not valid.</p>
  *
+ * @throws {@link ResiliencehubServiceException}
+ * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
  */
 export class DeleteAppInputSourceCommand extends $Command<

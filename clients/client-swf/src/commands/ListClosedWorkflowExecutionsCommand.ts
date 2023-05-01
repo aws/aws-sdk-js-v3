@@ -86,38 +86,67 @@ export interface ListClosedWorkflowExecutionsCommandOutput extends WorkflowExecu
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SWFClient, ListClosedWorkflowExecutionsCommand } from "@aws-sdk/client-swf"; // ES Modules import
- * // const { SWFClient, ListClosedWorkflowExecutionsCommand } = require("@aws-sdk/client-swf"); // CommonJS import
+ * import { SWFClient, ListClosedWorkflowExecutionsCommand } from '@aws-sdk/client-swf'; // ES Modules import
+ * // const { SWFClient, ListClosedWorkflowExecutionsCommand } = require('@aws-sdk/client-swf'); // CommonJS import
  * const client = new SWFClient(config);
  * const input = { // ListClosedWorkflowExecutionsInput
- *   domain: "STRING_VALUE", // required
+ *   domain: 'STRING_VALUE', // required
  *   startTimeFilter: { // ExecutionTimeFilter
- *     oldestDate: new Date("TIMESTAMP"), // required
- *     latestDate: new Date("TIMESTAMP"),
+ *     oldestDate: new Date('TIMESTAMP'), // required
+ *     latestDate: new Date('TIMESTAMP'),
  *   },
  *   closeTimeFilter: {
- *     oldestDate: new Date("TIMESTAMP"), // required
- *     latestDate: new Date("TIMESTAMP"),
+ *     oldestDate: new Date('TIMESTAMP'), // required
+ *     latestDate: new Date('TIMESTAMP'),
  *   },
  *   executionFilter: { // WorkflowExecutionFilter
- *     workflowId: "STRING_VALUE", // required
+ *     workflowId: 'STRING_VALUE', // required
  *   },
  *   closeStatusFilter: { // CloseStatusFilter
- *     status: "COMPLETED" || "FAILED" || "CANCELED" || "TERMINATED" || "CONTINUED_AS_NEW" || "TIMED_OUT", // required
+ *     status: 'COMPLETED' || 'FAILED' || 'CANCELED' || 'TERMINATED' || 'CONTINUED_AS_NEW' || 'TIMED_OUT', // required
  *   },
  *   typeFilter: { // WorkflowTypeFilter
- *     name: "STRING_VALUE", // required
- *     version: "STRING_VALUE",
+ *     name: 'STRING_VALUE', // required
+ *     version: 'STRING_VALUE',
  *   },
  *   tagFilter: { // TagFilter
- *     tag: "STRING_VALUE", // required
+ *     tag: 'STRING_VALUE', // required
  *   },
- *   nextPageToken: "STRING_VALUE",
- *   maximumPageSize: Number("int"),
+ *   nextPageToken: 'STRING_VALUE',
+ *   maximumPageSize: Number('int'),
  *   reverseOrder: true || false,
  * };
  * const command = new ListClosedWorkflowExecutionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // WorkflowExecutionInfos
+ *   executionInfos: [ // WorkflowExecutionInfoList // required
+ *     { // WorkflowExecutionInfo
+ *       execution: { // WorkflowExecution
+ *         workflowId: 'STRING_VALUE', // required
+ *         runId: 'STRING_VALUE', // required
+ *       },
+ *       workflowType: { // WorkflowType
+ *         name: 'STRING_VALUE', // required
+ *         version: 'STRING_VALUE', // required
+ *       },
+ *       startTimestamp: new Date('TIMESTAMP'), // required
+ *       closeTimestamp: new Date('TIMESTAMP'),
+ *       executionStatus: 'OPEN' || 'CLOSED', // required
+ *       closeStatus: 'COMPLETED' || 'FAILED' || 'CANCELED' || 'TERMINATED' || 'CONTINUED_AS_NEW' || 'TIMED_OUT',
+ *       parent: {
+ *         workflowId: 'STRING_VALUE', // required
+ *         runId: 'STRING_VALUE', // required
+ *       },
+ *       tagList: [ // TagList
+ *         'STRING_VALUE',
+ *       ],
+ *       cancelRequested: true || false,
+ *     },
+ *   ],
+ *   nextPageToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListClosedWorkflowExecutionsCommandInput - {@link ListClosedWorkflowExecutionsCommandInput}
@@ -132,6 +161,8 @@ export interface ListClosedWorkflowExecutionsCommandOutput extends WorkflowExecu
  * @throws {@link UnknownResourceFault} (client fault)
  *  <p>Returned when the named resource cannot be found with in the scope of this operation (region or domain). This could happen if the named resource was never created or is no longer available for this operation.</p>
  *
+ * @throws {@link SWFServiceException}
+ * <p>Base exception class for all service exceptions from SWF service.</p>
  *
  */
 export class ListClosedWorkflowExecutionsCommand extends $Command<

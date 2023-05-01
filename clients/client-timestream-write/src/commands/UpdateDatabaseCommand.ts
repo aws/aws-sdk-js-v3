@@ -41,15 +41,27 @@ export interface UpdateDatabaseCommandOutput extends UpdateDatabaseResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { TimestreamWriteClient, UpdateDatabaseCommand } from "@aws-sdk/client-timestream-write"; // ES Modules import
- * // const { TimestreamWriteClient, UpdateDatabaseCommand } = require("@aws-sdk/client-timestream-write"); // CommonJS import
+ * import { TimestreamWriteClient, UpdateDatabaseCommand } from '@aws-sdk/client-timestream-write'; // ES Modules import
+ * // const { TimestreamWriteClient, UpdateDatabaseCommand } = require('@aws-sdk/client-timestream-write'); // CommonJS import
  * const client = new TimestreamWriteClient(config);
  * const input = { // UpdateDatabaseRequest
- *   DatabaseName: "STRING_VALUE", // required
- *   KmsKeyId: "STRING_VALUE", // required
+ *   DatabaseName: 'STRING_VALUE', // required
+ *   KmsKeyId: 'STRING_VALUE', // required
  * };
  * const command = new UpdateDatabaseCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateDatabaseResponse
+ *   Database: { // Database
+ *     Arn: 'STRING_VALUE',
+ *     DatabaseName: 'STRING_VALUE',
+ *     TableCount: Number('long'),
+ *     KmsKeyId: 'STRING_VALUE',
+ *     CreationTime: new Date('TIMESTAMP'),
+ *     LastUpdatedTime: new Date('TIMESTAMP'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateDatabaseCommandInput - {@link UpdateDatabaseCommandInput}
@@ -83,6 +95,8 @@ export interface UpdateDatabaseCommandOutput extends UpdateDatabaseResponse, __M
  * @throws {@link ValidationException} (client fault)
  *  <p> An invalid or malformed request.</p>
  *
+ * @throws {@link TimestreamWriteServiceException}
+ * <p>Base exception class for all service exceptions from TimestreamWrite service.</p>
  *
  */
 export class UpdateDatabaseCommand extends $Command<

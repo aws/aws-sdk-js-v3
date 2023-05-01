@@ -36,16 +36,21 @@ export interface RollbackTransactionCommandOutput extends RollbackTransactionRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RDSDataClient, RollbackTransactionCommand } from "@aws-sdk/client-rds-data"; // ES Modules import
- * // const { RDSDataClient, RollbackTransactionCommand } = require("@aws-sdk/client-rds-data"); // CommonJS import
+ * import { RDSDataClient, RollbackTransactionCommand } from '@aws-sdk/client-rds-data'; // ES Modules import
+ * // const { RDSDataClient, RollbackTransactionCommand } = require('@aws-sdk/client-rds-data'); // CommonJS import
  * const client = new RDSDataClient(config);
  * const input = { // RollbackTransactionRequest
- *   resourceArn: "STRING_VALUE", // required
- *   secretArn: "STRING_VALUE", // required
- *   transactionId: "STRING_VALUE", // required
+ *   resourceArn: 'STRING_VALUE', // required
+ *   secretArn: 'STRING_VALUE', // required
+ *   transactionId: 'STRING_VALUE', // required
  * };
  * const command = new RollbackTransactionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // RollbackTransactionResponse
+ *   transactionStatus: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param RollbackTransactionCommandInput - {@link RollbackTransactionCommandInput}
@@ -76,6 +81,8 @@ export interface RollbackTransactionCommandOutput extends RollbackTransactionRes
  * @throws {@link StatementTimeoutException} (client fault)
  *  <p>The execution of the SQL statement timed out.</p>
  *
+ * @throws {@link RDSDataServiceException}
+ * <p>Base exception class for all service exceptions from RDSData service.</p>
  *
  */
 export class RollbackTransactionCommand extends $Command<

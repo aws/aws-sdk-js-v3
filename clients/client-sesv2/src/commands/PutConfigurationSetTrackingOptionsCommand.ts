@@ -45,15 +45,18 @@ export interface PutConfigurationSetTrackingOptionsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SESv2Client, PutConfigurationSetTrackingOptionsCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
- * // const { SESv2Client, PutConfigurationSetTrackingOptionsCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
+ * import { SESv2Client, PutConfigurationSetTrackingOptionsCommand } from '@aws-sdk/client-sesv2'; // ES Modules import
+ * // const { SESv2Client, PutConfigurationSetTrackingOptionsCommand } = require('@aws-sdk/client-sesv2'); // CommonJS import
  * const client = new SESv2Client(config);
  * const input = { // PutConfigurationSetTrackingOptionsRequest
- *   ConfigurationSetName: "STRING_VALUE", // required
- *   CustomRedirectDomain: "STRING_VALUE",
+ *   ConfigurationSetName: 'STRING_VALUE', // required
+ *   CustomRedirectDomain: 'STRING_VALUE',
  * };
  * const command = new PutConfigurationSetTrackingOptionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutConfigurationSetTrackingOptionsCommandInput - {@link PutConfigurationSetTrackingOptionsCommandInput}
@@ -71,6 +74,8 @@ export interface PutConfigurationSetTrackingOptionsCommandOutput
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Too many requests have been made to the operation.</p>
  *
+ * @throws {@link SESv2ServiceException}
+ * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
  */
 export class PutConfigurationSetTrackingOptionsCommand extends $Command<

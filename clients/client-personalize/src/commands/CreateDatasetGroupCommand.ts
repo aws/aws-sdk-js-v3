@@ -116,23 +116,29 @@ export interface CreateDatasetGroupCommandOutput extends CreateDatasetGroupRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PersonalizeClient, CreateDatasetGroupCommand } from "@aws-sdk/client-personalize"; // ES Modules import
- * // const { PersonalizeClient, CreateDatasetGroupCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
+ * import { PersonalizeClient, CreateDatasetGroupCommand } from '@aws-sdk/client-personalize'; // ES Modules import
+ * // const { PersonalizeClient, CreateDatasetGroupCommand } = require('@aws-sdk/client-personalize'); // CommonJS import
  * const client = new PersonalizeClient(config);
  * const input = { // CreateDatasetGroupRequest
- *   name: "STRING_VALUE", // required
- *   roleArn: "STRING_VALUE",
- *   kmsKeyArn: "STRING_VALUE",
- *   domain: "ECOMMERCE" || "VIDEO_ON_DEMAND",
+ *   name: 'STRING_VALUE', // required
+ *   roleArn: 'STRING_VALUE',
+ *   kmsKeyArn: 'STRING_VALUE',
+ *   domain: 'ECOMMERCE' || 'VIDEO_ON_DEMAND',
  *   tags: [ // Tags
  *     { // Tag
- *       tagKey: "STRING_VALUE", // required
- *       tagValue: "STRING_VALUE", // required
+ *       tagKey: 'STRING_VALUE', // required
+ *       tagValue: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreateDatasetGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateDatasetGroupResponse
+ *   datasetGroupArn: 'STRING_VALUE',
+ *   domain: 'ECOMMERCE' || 'VIDEO_ON_DEMAND',
+ * };
+ *
  * ```
  *
  * @param CreateDatasetGroupCommandInput - {@link CreateDatasetGroupCommandInput}
@@ -153,6 +159,8 @@ export interface CreateDatasetGroupCommandOutput extends CreateDatasetGroupRespo
  * @throws {@link TooManyTagsException} (client fault)
  *  <p>You have exceeded the maximum number of tags you can apply to this resource. </p>
  *
+ * @throws {@link PersonalizeServiceException}
+ * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
  */
 export class CreateDatasetGroupCommand extends $Command<

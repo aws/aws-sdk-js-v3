@@ -48,27 +48,78 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudSearchDomainClient, SearchCommand } from "@aws-sdk/client-cloudsearch-domain"; // ES Modules import
- * // const { CloudSearchDomainClient, SearchCommand } = require("@aws-sdk/client-cloudsearch-domain"); // CommonJS import
+ * import { CloudSearchDomainClient, SearchCommand } from '@aws-sdk/client-cloudsearch-domain'; // ES Modules import
+ * // const { CloudSearchDomainClient, SearchCommand } = require('@aws-sdk/client-cloudsearch-domain'); // CommonJS import
  * const client = new CloudSearchDomainClient(config);
  * const input = { // SearchRequest
- *   cursor: "STRING_VALUE",
- *   expr: "STRING_VALUE",
- *   facet: "STRING_VALUE",
- *   filterQuery: "STRING_VALUE",
- *   highlight: "STRING_VALUE",
+ *   cursor: 'STRING_VALUE',
+ *   expr: 'STRING_VALUE',
+ *   facet: 'STRING_VALUE',
+ *   filterQuery: 'STRING_VALUE',
+ *   highlight: 'STRING_VALUE',
  *   partial: true || false,
- *   query: "STRING_VALUE", // required
- *   queryOptions: "STRING_VALUE",
- *   queryParser: "STRING_VALUE",
- *   return: "STRING_VALUE",
- *   size: Number("long"),
- *   sort: "STRING_VALUE",
- *   start: Number("long"),
- *   stats: "STRING_VALUE",
+ *   query: 'STRING_VALUE', // required
+ *   queryOptions: 'STRING_VALUE',
+ *   queryParser: 'STRING_VALUE',
+ *   return: 'STRING_VALUE',
+ *   size: Number('long'),
+ *   sort: 'STRING_VALUE',
+ *   start: Number('long'),
+ *   stats: 'STRING_VALUE',
  * };
  * const command = new SearchCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SearchResponse
+ *   status: { // SearchStatus
+ *     timems: Number('long'),
+ *     rid: 'STRING_VALUE',
+ *   },
+ *   hits: { // Hits
+ *     found: Number('long'),
+ *     start: Number('long'),
+ *     cursor: 'STRING_VALUE',
+ *     hit: [ // HitList
+ *       { // Hit
+ *         id: 'STRING_VALUE',
+ *         fields: { // Fields
+ *           '<keys>': [ // FieldValue
+ *             'STRING_VALUE',
+ *           ],
+ *         },
+ *         exprs: { // Exprs
+ *           '<keys>': 'STRING_VALUE',
+ *         },
+ *         highlights: { // Highlights
+ *           '<keys>': 'STRING_VALUE',
+ *         },
+ *       },
+ *     ],
+ *   },
+ *   facets: { // Facets
+ *     '<keys>': { // BucketInfo
+ *       buckets: [ // BucketList
+ *         { // Bucket
+ *           value: 'STRING_VALUE',
+ *           count: Number('long'),
+ *         },
+ *       ],
+ *     },
+ *   },
+ *   stats: { // Stats
+ *     '<keys>': { // FieldStats
+ *       min: 'STRING_VALUE',
+ *       max: 'STRING_VALUE',
+ *       count: Number('long'),
+ *       missing: Number('long'),
+ *       sum: Number('double'),
+ *       sumOfSquares: Number('double'),
+ *       mean: 'STRING_VALUE',
+ *       stddev: Number('double'),
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param SearchCommandInput - {@link SearchCommandInput}
@@ -80,6 +131,8 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * @throws {@link SearchException} (client fault)
  *  <p>Information about any problems encountered while processing a search request.</p>
  *
+ * @throws {@link CloudSearchDomainServiceException}
+ * <p>Base exception class for all service exceptions from CloudSearchDomain service.</p>
  *
  */
 export class SearchCommand extends $Command<

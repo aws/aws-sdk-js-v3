@@ -36,16 +36,32 @@ export interface ListSpeakersCommandOutput extends ListSpeakersResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { VoiceIDClient, ListSpeakersCommand } from "@aws-sdk/client-voice-id"; // ES Modules import
- * // const { VoiceIDClient, ListSpeakersCommand } = require("@aws-sdk/client-voice-id"); // CommonJS import
+ * import { VoiceIDClient, ListSpeakersCommand } from '@aws-sdk/client-voice-id'; // ES Modules import
+ * // const { VoiceIDClient, ListSpeakersCommand } = require('@aws-sdk/client-voice-id'); // CommonJS import
  * const client = new VoiceIDClient(config);
  * const input = { // ListSpeakersRequest
- *   DomainId: "STRING_VALUE", // required
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   DomainId: 'STRING_VALUE', // required
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListSpeakersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListSpeakersResponse
+ *   SpeakerSummaries: [ // SpeakerSummaries
+ *     { // SpeakerSummary
+ *       DomainId: 'STRING_VALUE',
+ *       CustomerSpeakerId: 'STRING_VALUE',
+ *       GeneratedSpeakerId: 'STRING_VALUE',
+ *       Status: 'STRING_VALUE',
+ *       CreatedAt: new Date('TIMESTAMP'),
+ *       UpdatedAt: new Date('TIMESTAMP'),
+ *       LastAccessedAt: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListSpeakersCommandInput - {@link ListSpeakersCommandInput}
@@ -75,6 +91,8 @@ export interface ListSpeakersCommandOutput extends ListSpeakersResponse, __Metad
  *  <p>The request failed one or more validations; check the error message for more
  *             details.</p>
  *
+ * @throws {@link VoiceIDServiceException}
+ * <p>Base exception class for all service exceptions from VoiceID service.</p>
  *
  */
 export class ListSpeakersCommand extends $Command<

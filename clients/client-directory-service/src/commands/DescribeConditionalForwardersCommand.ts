@@ -43,17 +43,30 @@ export interface DescribeConditionalForwardersCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DirectoryServiceClient, DescribeConditionalForwardersCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
- * // const { DirectoryServiceClient, DescribeConditionalForwardersCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
+ * import { DirectoryServiceClient, DescribeConditionalForwardersCommand } from '@aws-sdk/client-directory-service'; // ES Modules import
+ * // const { DirectoryServiceClient, DescribeConditionalForwardersCommand } = require('@aws-sdk/client-directory-service'); // CommonJS import
  * const client = new DirectoryServiceClient(config);
  * const input = { // DescribeConditionalForwardersRequest
- *   DirectoryId: "STRING_VALUE", // required
+ *   DirectoryId: 'STRING_VALUE', // required
  *   RemoteDomainNames: [ // RemoteDomainNames
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new DescribeConditionalForwardersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeConditionalForwardersResult
+ *   ConditionalForwarders: [ // ConditionalForwarders
+ *     { // ConditionalForwarder
+ *       RemoteDomainName: 'STRING_VALUE',
+ *       DnsIpAddrs: [ // DnsIpAddrs
+ *         'STRING_VALUE',
+ *       ],
+ *       ReplicationScope: 'Domain',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeConditionalForwardersCommandInput - {@link DescribeConditionalForwardersCommandInput}
@@ -80,6 +93,8 @@ export interface DescribeConditionalForwardersCommandOutput
  * @throws {@link UnsupportedOperationException} (client fault)
  *  <p>The operation is not supported.</p>
  *
+ * @throws {@link DirectoryServiceServiceException}
+ * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
  */
 export class DescribeConditionalForwardersCommand extends $Command<

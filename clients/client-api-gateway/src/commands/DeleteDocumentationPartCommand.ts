@@ -36,15 +36,18 @@ export interface DeleteDocumentationPartCommandOutput extends __MetadataBearer {
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { APIGatewayClient, DeleteDocumentationPartCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
- * // const { APIGatewayClient, DeleteDocumentationPartCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
+ * import { APIGatewayClient, DeleteDocumentationPartCommand } from '@aws-sdk/client-api-gateway'; // ES Modules import
+ * // const { APIGatewayClient, DeleteDocumentationPartCommand } = require('@aws-sdk/client-api-gateway'); // CommonJS import
  * const client = new APIGatewayClient(config);
  * const input = { // DeleteDocumentationPartRequest
- *   restApiId: "STRING_VALUE", // required
- *   documentationPartId: "STRING_VALUE", // required
+ *   restApiId: 'STRING_VALUE', // required
+ *   documentationPartId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteDocumentationPartCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteDocumentationPartCommandInput - {@link DeleteDocumentationPartCommandInput}
@@ -68,6 +71,8 @@ export interface DeleteDocumentationPartCommandOutput extends __MetadataBearer {
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The request is denied because the caller has insufficient permissions.</p>
  *
+ * @throws {@link APIGatewayServiceException}
+ * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
  */
 export class DeleteDocumentationPartCommand extends $Command<

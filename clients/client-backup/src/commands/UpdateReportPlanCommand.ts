@@ -37,39 +37,46 @@ export interface UpdateReportPlanCommandOutput extends UpdateReportPlanOutput, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BackupClient, UpdateReportPlanCommand } from "@aws-sdk/client-backup"; // ES Modules import
- * // const { BackupClient, UpdateReportPlanCommand } = require("@aws-sdk/client-backup"); // CommonJS import
+ * import { BackupClient, UpdateReportPlanCommand } from '@aws-sdk/client-backup'; // ES Modules import
+ * // const { BackupClient, UpdateReportPlanCommand } = require('@aws-sdk/client-backup'); // CommonJS import
  * const client = new BackupClient(config);
  * const input = { // UpdateReportPlanInput
- *   ReportPlanName: "STRING_VALUE", // required
- *   ReportPlanDescription: "STRING_VALUE",
+ *   ReportPlanName: 'STRING_VALUE', // required
+ *   ReportPlanDescription: 'STRING_VALUE',
  *   ReportDeliveryChannel: { // ReportDeliveryChannel
- *     S3BucketName: "STRING_VALUE", // required
- *     S3KeyPrefix: "STRING_VALUE",
+ *     S3BucketName: 'STRING_VALUE', // required
+ *     S3KeyPrefix: 'STRING_VALUE',
  *     Formats: [ // FormatList
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *   },
  *   ReportSetting: { // ReportSetting
- *     ReportTemplate: "STRING_VALUE", // required
+ *     ReportTemplate: 'STRING_VALUE', // required
  *     FrameworkArns: [ // stringList
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
- *     NumberOfFrameworks: Number("int"),
+ *     NumberOfFrameworks: Number('int'),
  *     Accounts: [
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     OrganizationUnits: [
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     Regions: [
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *   },
- *   IdempotencyToken: "STRING_VALUE",
+ *   IdempotencyToken: 'STRING_VALUE',
  * };
  * const command = new UpdateReportPlanCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateReportPlanOutput
+ *   ReportPlanName: 'STRING_VALUE',
+ *   ReportPlanArn: 'STRING_VALUE',
+ *   CreationTime: new Date('TIMESTAMP'),
+ * };
+ *
  * ```
  *
  * @param UpdateReportPlanCommandInput - {@link UpdateReportPlanCommandInput}
@@ -95,6 +102,8 @@ export interface UpdateReportPlanCommandOutput extends UpdateReportPlanOutput, _
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request failed due to a temporary failure of the server.</p>
  *
+ * @throws {@link BackupServiceException}
+ * <p>Base exception class for all service exceptions from Backup service.</p>
  *
  */
 export class UpdateReportPlanCommand extends $Command<

@@ -36,21 +36,26 @@ export interface ReserveContactCommandOutput extends ContactIdResponse, __Metada
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GroundStationClient, ReserveContactCommand } from "@aws-sdk/client-groundstation"; // ES Modules import
- * // const { GroundStationClient, ReserveContactCommand } = require("@aws-sdk/client-groundstation"); // CommonJS import
+ * import { GroundStationClient, ReserveContactCommand } from '@aws-sdk/client-groundstation'; // ES Modules import
+ * // const { GroundStationClient, ReserveContactCommand } = require('@aws-sdk/client-groundstation'); // CommonJS import
  * const client = new GroundStationClient(config);
  * const input = { // ReserveContactRequest
- *   missionProfileArn: "STRING_VALUE", // required
- *   satelliteArn: "STRING_VALUE", // required
- *   startTime: new Date("TIMESTAMP"), // required
- *   endTime: new Date("TIMESTAMP"), // required
- *   groundStation: "STRING_VALUE", // required
+ *   missionProfileArn: 'STRING_VALUE', // required
+ *   satelliteArn: 'STRING_VALUE', // required
+ *   startTime: new Date('TIMESTAMP'), // required
+ *   endTime: new Date('TIMESTAMP'), // required
+ *   groundStation: 'STRING_VALUE', // required
  *   tags: { // TagsMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new ReserveContactCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ContactIdResponse
+ *   contactId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ReserveContactCommandInput - {@link ReserveContactCommandInput}
@@ -68,6 +73,8 @@ export interface ReserveContactCommandOutput extends ContactIdResponse, __Metada
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Resource was not found.</p>
  *
+ * @throws {@link GroundStationServiceException}
+ * <p>Base exception class for all service exceptions from GroundStation service.</p>
  *
  */
 export class ReserveContactCommand extends $Command<

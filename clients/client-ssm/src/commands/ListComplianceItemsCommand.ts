@@ -38,30 +38,54 @@ export interface ListComplianceItemsCommandOutput extends ListComplianceItemsRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMClient, ListComplianceItemsCommand } from "@aws-sdk/client-ssm"; // ES Modules import
- * // const { SSMClient, ListComplianceItemsCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * import { SSMClient, ListComplianceItemsCommand } from '@aws-sdk/client-ssm'; // ES Modules import
+ * // const { SSMClient, ListComplianceItemsCommand } = require('@aws-sdk/client-ssm'); // CommonJS import
  * const client = new SSMClient(config);
  * const input = { // ListComplianceItemsRequest
  *   Filters: [ // ComplianceStringFilterList
  *     { // ComplianceStringFilter
- *       Key: "STRING_VALUE",
+ *       Key: 'STRING_VALUE',
  *       Values: [ // ComplianceStringFilterValueList
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
- *       Type: "EQUAL" || "NOT_EQUAL" || "BEGIN_WITH" || "LESS_THAN" || "GREATER_THAN",
+ *       Type: 'EQUAL' || 'NOT_EQUAL' || 'BEGIN_WITH' || 'LESS_THAN' || 'GREATER_THAN',
  *     },
  *   ],
  *   ResourceIds: [ // ComplianceResourceIdList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   ResourceTypes: [ // ComplianceResourceTypeList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListComplianceItemsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListComplianceItemsResult
+ *   ComplianceItems: [ // ComplianceItemList
+ *     { // ComplianceItem
+ *       ComplianceType: 'STRING_VALUE',
+ *       ResourceType: 'STRING_VALUE',
+ *       ResourceId: 'STRING_VALUE',
+ *       Id: 'STRING_VALUE',
+ *       Title: 'STRING_VALUE',
+ *       Status: 'COMPLIANT' || 'NON_COMPLIANT',
+ *       Severity: 'CRITICAL' || 'HIGH' || 'MEDIUM' || 'LOW' || 'INFORMATIONAL' || 'UNSPECIFIED',
+ *       ExecutionSummary: { // ComplianceExecutionSummary
+ *         ExecutionTime: new Date('TIMESTAMP'), // required
+ *         ExecutionId: 'STRING_VALUE',
+ *         ExecutionType: 'STRING_VALUE',
+ *       },
+ *       Details: { // ComplianceItemDetails
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListComplianceItemsCommandInput - {@link ListComplianceItemsCommandInput}
@@ -86,6 +110,8 @@ export interface ListComplianceItemsCommandOutput extends ListComplianceItemsRes
  *  <p>The resource type isn't valid. For example, if you are attempting to tag an EC2 instance,
  *    the instance must be a registered managed node.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class ListComplianceItemsCommand extends $Command<

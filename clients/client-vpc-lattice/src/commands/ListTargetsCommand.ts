@@ -37,22 +37,35 @@ export interface ListTargetsCommandOutput extends ListTargetsResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { VPCLatticeClient, ListTargetsCommand } from "@aws-sdk/client-vpc-lattice"; // ES Modules import
- * // const { VPCLatticeClient, ListTargetsCommand } = require("@aws-sdk/client-vpc-lattice"); // CommonJS import
+ * import { VPCLatticeClient, ListTargetsCommand } from '@aws-sdk/client-vpc-lattice'; // ES Modules import
+ * // const { VPCLatticeClient, ListTargetsCommand } = require('@aws-sdk/client-vpc-lattice'); // CommonJS import
  * const client = new VPCLatticeClient(config);
  * const input = { // ListTargetsRequest
- *   targetGroupIdentifier: "STRING_VALUE", // required
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   targetGroupIdentifier: 'STRING_VALUE', // required
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  *   targets: [ // TargetList
  *     { // Target
- *       id: "STRING_VALUE", // required
- *       port: Number("int"),
+ *       id: 'STRING_VALUE', // required
+ *       port: Number('int'),
  *     },
  *   ],
  * };
  * const command = new ListTargetsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTargetsResponse
+ *   items: [ // TargetSummaryList // required
+ *     { // TargetSummary
+ *       id: 'STRING_VALUE',
+ *       port: Number('int'),
+ *       status: 'STRING_VALUE',
+ *       reasonCode: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListTargetsCommandInput - {@link ListTargetsCommandInput}
@@ -77,6 +90,8 @@ export interface ListTargetsCommandOutput extends ListTargetsResponse, __Metadat
  *  <p>The input does not satisfy the constraints specified by an Amazon Web Services
  *    service.</p>
  *
+ * @throws {@link VPCLatticeServiceException}
+ * <p>Base exception class for all service exceptions from VPCLattice service.</p>
  *
  */
 export class ListTargetsCommand extends $Command<

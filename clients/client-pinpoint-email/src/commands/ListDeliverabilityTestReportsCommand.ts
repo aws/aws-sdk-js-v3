@@ -43,15 +43,30 @@ export interface ListDeliverabilityTestReportsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PinpointEmailClient, ListDeliverabilityTestReportsCommand } from "@aws-sdk/client-pinpoint-email"; // ES Modules import
- * // const { PinpointEmailClient, ListDeliverabilityTestReportsCommand } = require("@aws-sdk/client-pinpoint-email"); // CommonJS import
+ * import { PinpointEmailClient, ListDeliverabilityTestReportsCommand } from '@aws-sdk/client-pinpoint-email'; // ES Modules import
+ * // const { PinpointEmailClient, ListDeliverabilityTestReportsCommand } = require('@aws-sdk/client-pinpoint-email'); // CommonJS import
  * const client = new PinpointEmailClient(config);
  * const input = { // ListDeliverabilityTestReportsRequest
- *   NextToken: "STRING_VALUE",
- *   PageSize: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   PageSize: Number('int'),
  * };
  * const command = new ListDeliverabilityTestReportsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListDeliverabilityTestReportsResponse
+ *   DeliverabilityTestReports: [ // DeliverabilityTestReports // required
+ *     { // DeliverabilityTestReport
+ *       ReportId: 'STRING_VALUE',
+ *       ReportName: 'STRING_VALUE',
+ *       Subject: 'STRING_VALUE',
+ *       FromEmailAddress: 'STRING_VALUE',
+ *       CreateDate: new Date('TIMESTAMP'),
+ *       DeliverabilityTestStatus: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListDeliverabilityTestReportsCommandInput - {@link ListDeliverabilityTestReportsCommandInput}
@@ -69,6 +84,8 @@ export interface ListDeliverabilityTestReportsCommandOutput
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Too many requests have been made to the operation.</p>
  *
+ * @throws {@link PinpointEmailServiceException}
+ * <p>Base exception class for all service exceptions from PinpointEmail service.</p>
  *
  */
 export class ListDeliverabilityTestReportsCommand extends $Command<

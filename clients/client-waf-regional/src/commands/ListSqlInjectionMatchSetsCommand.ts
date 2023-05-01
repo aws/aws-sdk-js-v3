@@ -44,15 +44,26 @@ export interface ListSqlInjectionMatchSetsCommandOutput extends ListSqlInjection
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WAFRegionalClient, ListSqlInjectionMatchSetsCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
- * // const { WAFRegionalClient, ListSqlInjectionMatchSetsCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import
+ * import { WAFRegionalClient, ListSqlInjectionMatchSetsCommand } from '@aws-sdk/client-waf-regional'; // ES Modules import
+ * // const { WAFRegionalClient, ListSqlInjectionMatchSetsCommand } = require('@aws-sdk/client-waf-regional'); // CommonJS import
  * const client = new WAFRegionalClient(config);
  * const input = { // ListSqlInjectionMatchSetsRequest
- *   NextMarker: "STRING_VALUE",
- *   Limit: Number("int"),
+ *   NextMarker: 'STRING_VALUE',
+ *   Limit: Number('int'),
  * };
  * const command = new ListSqlInjectionMatchSetsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListSqlInjectionMatchSetsResponse
+ *   NextMarker: 'STRING_VALUE',
+ *   SqlInjectionMatchSets: [ // SqlInjectionMatchSetSummaries
+ *     { // SqlInjectionMatchSetSummary
+ *       SqlInjectionMatchSetId: 'STRING_VALUE', // required
+ *       Name: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListSqlInjectionMatchSetsCommandInput - {@link ListSqlInjectionMatchSetsCommandInput}
@@ -67,6 +78,8 @@ export interface ListSqlInjectionMatchSetsCommandOutput extends ListSqlInjection
  * @throws {@link WAFInvalidAccountException} (client fault)
  *  <p>The operation failed because you tried to create, update, or delete an object by using an invalid account identifier.</p>
  *
+ * @throws {@link WAFRegionalServiceException}
+ * <p>Base exception class for all service exceptions from WAFRegional service.</p>
  *
  * @example To list SQL injection match sets
  * ```javascript

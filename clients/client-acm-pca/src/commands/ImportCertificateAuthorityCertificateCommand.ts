@@ -167,16 +167,19 @@ export interface ImportCertificateAuthorityCertificateCommandOutput extends __Me
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ACMPCAClient, ImportCertificateAuthorityCertificateCommand } from "@aws-sdk/client-acm-pca"; // ES Modules import
- * // const { ACMPCAClient, ImportCertificateAuthorityCertificateCommand } = require("@aws-sdk/client-acm-pca"); // CommonJS import
+ * import { ACMPCAClient, ImportCertificateAuthorityCertificateCommand } from '@aws-sdk/client-acm-pca'; // ES Modules import
+ * // const { ACMPCAClient, ImportCertificateAuthorityCertificateCommand } = require('@aws-sdk/client-acm-pca'); // CommonJS import
  * const client = new ACMPCAClient(config);
  * const input = { // ImportCertificateAuthorityCertificateRequest
- *   CertificateAuthorityArn: "STRING_VALUE", // required
- *   Certificate: "BLOB_VALUE", // required
- *   CertificateChain: "BLOB_VALUE",
+ *   CertificateAuthorityArn: 'STRING_VALUE', // required
+ *   Certificate: 'BLOB_VALUE', // required
+ *   CertificateChain: 'BLOB_VALUE',
  * };
  * const command = new ImportCertificateAuthorityCertificateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param ImportCertificateAuthorityCertificateCommandInput - {@link ImportCertificateAuthorityCertificateCommandInput}
@@ -215,6 +218,8 @@ export interface ImportCertificateAuthorityCertificateCommandOutput extends __Me
  *  <p>A resource such as a private CA, S3 bucket, certificate, audit report, or policy
  * 			cannot be found.</p>
  *
+ * @throws {@link ACMPCAServiceException}
+ * <p>Base exception class for all service exceptions from ACMPCA service.</p>
  *
  */
 export class ImportCertificateAuthorityCertificateCommand extends $Command<

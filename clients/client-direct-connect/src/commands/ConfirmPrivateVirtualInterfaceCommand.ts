@@ -44,16 +44,21 @@ export interface ConfirmPrivateVirtualInterfaceCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DirectConnectClient, ConfirmPrivateVirtualInterfaceCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
- * // const { DirectConnectClient, ConfirmPrivateVirtualInterfaceCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
+ * import { DirectConnectClient, ConfirmPrivateVirtualInterfaceCommand } from '@aws-sdk/client-direct-connect'; // ES Modules import
+ * // const { DirectConnectClient, ConfirmPrivateVirtualInterfaceCommand } = require('@aws-sdk/client-direct-connect'); // CommonJS import
  * const client = new DirectConnectClient(config);
  * const input = { // ConfirmPrivateVirtualInterfaceRequest
- *   virtualInterfaceId: "STRING_VALUE", // required
- *   virtualGatewayId: "STRING_VALUE",
- *   directConnectGatewayId: "STRING_VALUE",
+ *   virtualInterfaceId: 'STRING_VALUE', // required
+ *   virtualGatewayId: 'STRING_VALUE',
+ *   directConnectGatewayId: 'STRING_VALUE',
  * };
  * const command = new ConfirmPrivateVirtualInterfaceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ConfirmPrivateVirtualInterfaceResponse
+ *   virtualInterfaceState: 'confirming' || 'verifying' || 'pending' || 'available' || 'down' || 'deleting' || 'deleted' || 'rejected' || 'unknown',
+ * };
+ *
  * ```
  *
  * @param ConfirmPrivateVirtualInterfaceCommandInput - {@link ConfirmPrivateVirtualInterfaceCommandInput}
@@ -68,6 +73,8 @@ export interface ConfirmPrivateVirtualInterfaceCommandOutput
  * @throws {@link DirectConnectServerException} (server fault)
  *  <p>A server-side error occurred.</p>
  *
+ * @throws {@link DirectConnectServiceException}
+ * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
  */
 export class ConfirmPrivateVirtualInterfaceCommand extends $Command<

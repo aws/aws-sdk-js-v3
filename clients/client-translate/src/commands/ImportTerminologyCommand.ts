@@ -47,31 +47,60 @@ export interface ImportTerminologyCommandOutput extends ImportTerminologyRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { TranslateClient, ImportTerminologyCommand } from "@aws-sdk/client-translate"; // ES Modules import
- * // const { TranslateClient, ImportTerminologyCommand } = require("@aws-sdk/client-translate"); // CommonJS import
+ * import { TranslateClient, ImportTerminologyCommand } from '@aws-sdk/client-translate'; // ES Modules import
+ * // const { TranslateClient, ImportTerminologyCommand } = require('@aws-sdk/client-translate'); // CommonJS import
  * const client = new TranslateClient(config);
  * const input = { // ImportTerminologyRequest
- *   Name: "STRING_VALUE", // required
- *   MergeStrategy: "OVERWRITE", // required
- *   Description: "STRING_VALUE",
+ *   Name: 'STRING_VALUE', // required
+ *   MergeStrategy: 'OVERWRITE', // required
+ *   Description: 'STRING_VALUE',
  *   TerminologyData: { // TerminologyData
- *     File: "BLOB_VALUE", // required
- *     Format: "CSV" || "TMX" || "TSV", // required
- *     Directionality: "UNI" || "MULTI",
+ *     File: 'BLOB_VALUE', // required
+ *     Format: 'CSV' || 'TMX' || 'TSV', // required
+ *     Directionality: 'UNI' || 'MULTI',
  *   },
  *   EncryptionKey: { // EncryptionKey
- *     Type: "KMS", // required
- *     Id: "STRING_VALUE", // required
+ *     Type: 'KMS', // required
+ *     Id: 'STRING_VALUE', // required
  *   },
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new ImportTerminologyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ImportTerminologyResponse
+ *   TerminologyProperties: { // TerminologyProperties
+ *     Name: 'STRING_VALUE',
+ *     Description: 'STRING_VALUE',
+ *     Arn: 'STRING_VALUE',
+ *     SourceLanguageCode: 'STRING_VALUE',
+ *     TargetLanguageCodes: [ // LanguageCodeStringList
+ *       'STRING_VALUE',
+ *     ],
+ *     EncryptionKey: { // EncryptionKey
+ *       Type: 'KMS', // required
+ *       Id: 'STRING_VALUE', // required
+ *     },
+ *     SizeBytes: Number('int'),
+ *     TermCount: Number('int'),
+ *     CreatedAt: new Date('TIMESTAMP'),
+ *     LastUpdatedAt: new Date('TIMESTAMP'),
+ *     Directionality: 'UNI' || 'MULTI',
+ *     Message: 'STRING_VALUE',
+ *     SkippedTermCount: Number('int'),
+ *     Format: 'CSV' || 'TMX' || 'TSV',
+ *   },
+ *   AuxiliaryDataLocation: { // TerminologyDataLocation
+ *     RepositoryType: 'STRING_VALUE', // required
+ *     Location: 'STRING_VALUE', // required
+ *   },
+ * };
+ *
  * ```
  *
  * @param ImportTerminologyCommandInput - {@link ImportTerminologyCommandInput}
@@ -102,6 +131,8 @@ export interface ImportTerminologyCommandOutput extends ImportTerminologyRespons
  * @throws {@link TooManyTagsException} (client fault)
  *  <p>You have added too many tags to this resource. The maximum is 50 tags.</p>
  *
+ * @throws {@link TranslateServiceException}
+ * <p>Base exception class for all service exceptions from Translate service.</p>
  *
  */
 export class ImportTerminologyCommand extends $Command<

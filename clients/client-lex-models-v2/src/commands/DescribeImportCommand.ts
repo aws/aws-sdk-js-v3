@@ -36,14 +36,59 @@ export interface DescribeImportCommandOutput extends DescribeImportResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LexModelsV2Client, DescribeImportCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
- * // const { LexModelsV2Client, DescribeImportCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
+ * import { LexModelsV2Client, DescribeImportCommand } from '@aws-sdk/client-lex-models-v2'; // ES Modules import
+ * // const { LexModelsV2Client, DescribeImportCommand } = require('@aws-sdk/client-lex-models-v2'); // CommonJS import
  * const client = new LexModelsV2Client(config);
  * const input = { // DescribeImportRequest
- *   importId: "STRING_VALUE", // required
+ *   importId: 'STRING_VALUE', // required
  * };
  * const command = new DescribeImportCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeImportResponse
+ *   importId: 'STRING_VALUE',
+ *   resourceSpecification: { // ImportResourceSpecification
+ *     botImportSpecification: { // BotImportSpecification
+ *       botName: 'STRING_VALUE', // required
+ *       roleArn: 'STRING_VALUE', // required
+ *       dataPrivacy: { // DataPrivacy
+ *         childDirected: true || false, // required
+ *       },
+ *       idleSessionTTLInSeconds: Number('int'),
+ *       botTags: { // TagMap
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *       testBotAliasTags: {
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *     },
+ *     botLocaleImportSpecification: { // BotLocaleImportSpecification
+ *       botId: 'STRING_VALUE', // required
+ *       botVersion: 'STRING_VALUE', // required
+ *       localeId: 'STRING_VALUE', // required
+ *       nluIntentConfidenceThreshold: Number('double'),
+ *       voiceSettings: { // VoiceSettings
+ *         voiceId: 'STRING_VALUE', // required
+ *         engine: 'standard' || 'neural',
+ *       },
+ *     },
+ *     customVocabularyImportSpecification: { // CustomVocabularyImportSpecification
+ *       botId: 'STRING_VALUE', // required
+ *       botVersion: 'STRING_VALUE', // required
+ *       localeId: 'STRING_VALUE', // required
+ *     },
+ *   },
+ *   importedResourceId: 'STRING_VALUE',
+ *   importedResourceName: 'STRING_VALUE',
+ *   mergeStrategy: 'Overwrite' || 'FailOnConflict' || 'Append',
+ *   importStatus: 'InProgress' || 'Completed' || 'Failed' || 'Deleting',
+ *   failureReasons: [ // FailureReasons
+ *     'STRING_VALUE',
+ *   ],
+ *   creationDateTime: new Date('TIMESTAMP'),
+ *   lastUpdatedDateTime: new Date('TIMESTAMP'),
+ * };
+ *
  * ```
  *
  * @param DescribeImportCommandInput - {@link DescribeImportCommandInput}
@@ -68,6 +113,8 @@ export interface DescribeImportCommandOutput extends DescribeImportResponse, __M
  *  <p>One of the input parameters in your request isn't valid. Check the
  *          parameters and try your request again.</p>
  *
+ * @throws {@link LexModelsV2ServiceException}
+ * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
  */
 export class DescribeImportCommand extends $Command<

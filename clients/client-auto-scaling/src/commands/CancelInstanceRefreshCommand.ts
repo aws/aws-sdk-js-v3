@@ -43,14 +43,19 @@ export interface CancelInstanceRefreshCommandOutput extends CancelInstanceRefres
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AutoScalingClient, CancelInstanceRefreshCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
- * // const { AutoScalingClient, CancelInstanceRefreshCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
+ * import { AutoScalingClient, CancelInstanceRefreshCommand } from '@aws-sdk/client-auto-scaling'; // ES Modules import
+ * // const { AutoScalingClient, CancelInstanceRefreshCommand } = require('@aws-sdk/client-auto-scaling'); // CommonJS import
  * const client = new AutoScalingClient(config);
  * const input = { // CancelInstanceRefreshType
- *   AutoScalingGroupName: "STRING_VALUE", // required
+ *   AutoScalingGroupName: 'STRING_VALUE', // required
  * };
  * const command = new CancelInstanceRefreshCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CancelInstanceRefreshAnswer
+ *   InstanceRefreshId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CancelInstanceRefreshCommandInput - {@link CancelInstanceRefreshCommandInput}
@@ -73,6 +78,8 @@ export interface CancelInstanceRefreshCommandOutput extends CancelInstanceRefres
  *  <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group,
  *             instance, or load balancer).</p>
  *
+ * @throws {@link AutoScalingServiceException}
+ * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
  * @example To cancel an instance refresh
  * ```javascript

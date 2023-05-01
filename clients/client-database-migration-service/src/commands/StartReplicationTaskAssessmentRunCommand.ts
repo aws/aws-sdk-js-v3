@@ -54,26 +54,47 @@ export interface StartReplicationTaskAssessmentRunCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DatabaseMigrationServiceClient, StartReplicationTaskAssessmentRunCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
- * // const { DatabaseMigrationServiceClient, StartReplicationTaskAssessmentRunCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
+ * import { DatabaseMigrationServiceClient, StartReplicationTaskAssessmentRunCommand } from '@aws-sdk/client-database-migration-service'; // ES Modules import
+ * // const { DatabaseMigrationServiceClient, StartReplicationTaskAssessmentRunCommand } = require('@aws-sdk/client-database-migration-service'); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
  * const input = { // StartReplicationTaskAssessmentRunMessage
- *   ReplicationTaskArn: "STRING_VALUE", // required
- *   ServiceAccessRoleArn: "STRING_VALUE", // required
- *   ResultLocationBucket: "STRING_VALUE", // required
- *   ResultLocationFolder: "STRING_VALUE",
- *   ResultEncryptionMode: "STRING_VALUE",
- *   ResultKmsKeyArn: "STRING_VALUE",
- *   AssessmentRunName: "STRING_VALUE", // required
+ *   ReplicationTaskArn: 'STRING_VALUE', // required
+ *   ServiceAccessRoleArn: 'STRING_VALUE', // required
+ *   ResultLocationBucket: 'STRING_VALUE', // required
+ *   ResultLocationFolder: 'STRING_VALUE',
+ *   ResultEncryptionMode: 'STRING_VALUE',
+ *   ResultKmsKeyArn: 'STRING_VALUE',
+ *   AssessmentRunName: 'STRING_VALUE', // required
  *   IncludeOnly: [ // IncludeTestList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   Exclude: [ // ExcludeTestList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new StartReplicationTaskAssessmentRunCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartReplicationTaskAssessmentRunResponse
+ *   ReplicationTaskAssessmentRun: { // ReplicationTaskAssessmentRun
+ *     ReplicationTaskAssessmentRunArn: 'STRING_VALUE',
+ *     ReplicationTaskArn: 'STRING_VALUE',
+ *     Status: 'STRING_VALUE',
+ *     ReplicationTaskAssessmentRunCreationDate: new Date('TIMESTAMP'),
+ *     AssessmentProgress: { // ReplicationTaskAssessmentRunProgress
+ *       IndividualAssessmentCount: Number('int'),
+ *       IndividualAssessmentCompletedCount: Number('int'),
+ *     },
+ *     LastFailureMessage: 'STRING_VALUE',
+ *     ServiceAccessRoleArn: 'STRING_VALUE',
+ *     ResultLocationBucket: 'STRING_VALUE',
+ *     ResultLocationFolder: 'STRING_VALUE',
+ *     ResultEncryptionMode: 'STRING_VALUE',
+ *     ResultKmsKeyArn: 'STRING_VALUE',
+ *     AssessmentRunName: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param StartReplicationTaskAssessmentRunCommandInput - {@link StartReplicationTaskAssessmentRunCommandInput}
@@ -120,6 +141,8 @@ export interface StartReplicationTaskAssessmentRunCommandOutput
  *  <p>A specified Amazon S3 bucket, bucket folder, or other object can't be
  *             found.</p>
  *
+ * @throws {@link DatabaseMigrationServiceServiceException}
+ * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
  */
 export class StartReplicationTaskAssessmentRunCommand extends $Command<

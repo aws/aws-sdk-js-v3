@@ -36,23 +36,37 @@ export interface ListStudioLifecycleConfigsCommandOutput extends ListStudioLifec
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, ListStudioLifecycleConfigsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, ListStudioLifecycleConfigsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, ListStudioLifecycleConfigsCommand } from '@aws-sdk/client-sagemaker'; // ES Modules import
+ * // const { SageMakerClient, ListStudioLifecycleConfigsCommand } = require('@aws-sdk/client-sagemaker'); // CommonJS import
  * const client = new SageMakerClient(config);
  * const input = { // ListStudioLifecycleConfigsRequest
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
- *   NameContains: "STRING_VALUE",
- *   AppTypeEquals: "JupyterServer" || "KernelGateway",
- *   CreationTimeBefore: new Date("TIMESTAMP"),
- *   CreationTimeAfter: new Date("TIMESTAMP"),
- *   ModifiedTimeBefore: new Date("TIMESTAMP"),
- *   ModifiedTimeAfter: new Date("TIMESTAMP"),
- *   SortBy: "CreationTime" || "LastModifiedTime" || "Name",
- *   SortOrder: "Ascending" || "Descending",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
+ *   NameContains: 'STRING_VALUE',
+ *   AppTypeEquals: 'JupyterServer' || 'KernelGateway',
+ *   CreationTimeBefore: new Date('TIMESTAMP'),
+ *   CreationTimeAfter: new Date('TIMESTAMP'),
+ *   ModifiedTimeBefore: new Date('TIMESTAMP'),
+ *   ModifiedTimeAfter: new Date('TIMESTAMP'),
+ *   SortBy: 'CreationTime' || 'LastModifiedTime' || 'Name',
+ *   SortOrder: 'Ascending' || 'Descending',
  * };
  * const command = new ListStudioLifecycleConfigsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListStudioLifecycleConfigsResponse
+ *   NextToken: 'STRING_VALUE',
+ *   StudioLifecycleConfigs: [ // StudioLifecycleConfigsList
+ *     { // StudioLifecycleConfigDetails
+ *       StudioLifecycleConfigArn: 'STRING_VALUE',
+ *       StudioLifecycleConfigName: 'STRING_VALUE',
+ *       CreationTime: new Date('TIMESTAMP'),
+ *       LastModifiedTime: new Date('TIMESTAMP'),
+ *       StudioLifecycleConfigAppType: 'JupyterServer' || 'KernelGateway',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListStudioLifecycleConfigsCommandInput - {@link ListStudioLifecycleConfigsCommandInput}
@@ -64,6 +78,8 @@ export interface ListStudioLifecycleConfigsCommandOutput extends ListStudioLifec
  * @throws {@link ResourceInUse} (client fault)
  *  <p>Resource being accessed is in use.</p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class ListStudioLifecycleConfigsCommand extends $Command<

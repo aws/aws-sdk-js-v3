@@ -42,16 +42,19 @@ export interface UpdateSSHPublicKeyCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IAMClient, UpdateSSHPublicKeyCommand } from "@aws-sdk/client-iam"; // ES Modules import
- * // const { IAMClient, UpdateSSHPublicKeyCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * import { IAMClient, UpdateSSHPublicKeyCommand } from '@aws-sdk/client-iam'; // ES Modules import
+ * // const { IAMClient, UpdateSSHPublicKeyCommand } = require('@aws-sdk/client-iam'); // CommonJS import
  * const client = new IAMClient(config);
  * const input = { // UpdateSSHPublicKeyRequest
- *   UserName: "STRING_VALUE", // required
- *   SSHPublicKeyId: "STRING_VALUE", // required
- *   Status: "Active" || "Inactive", // required
+ *   UserName: 'STRING_VALUE', // required
+ *   SSHPublicKeyId: 'STRING_VALUE', // required
+ *   Status: 'Active' || 'Inactive', // required
  * };
  * const command = new UpdateSSHPublicKeyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateSSHPublicKeyCommandInput - {@link UpdateSSHPublicKeyCommandInput}
@@ -64,6 +67,8 @@ export interface UpdateSSHPublicKeyCommandOutput extends __MetadataBearer {}
  *  <p>The request was rejected because it referenced a resource entity that does not exist. The
  *       error message describes the resource.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  */
 export class UpdateSSHPublicKeyCommand extends $Command<

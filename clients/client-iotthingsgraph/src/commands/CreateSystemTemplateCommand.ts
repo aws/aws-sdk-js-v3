@@ -39,18 +39,28 @@ export interface CreateSystemTemplateCommandOutput extends CreateSystemTemplateR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTThingsGraphClient, CreateSystemTemplateCommand } from "@aws-sdk/client-iotthingsgraph"; // ES Modules import
- * // const { IoTThingsGraphClient, CreateSystemTemplateCommand } = require("@aws-sdk/client-iotthingsgraph"); // CommonJS import
+ * import { IoTThingsGraphClient, CreateSystemTemplateCommand } from '@aws-sdk/client-iotthingsgraph'; // ES Modules import
+ * // const { IoTThingsGraphClient, CreateSystemTemplateCommand } = require('@aws-sdk/client-iotthingsgraph'); // CommonJS import
  * const client = new IoTThingsGraphClient(config);
  * const input = { // CreateSystemTemplateRequest
  *   definition: { // DefinitionDocument
- *     language: "STRING_VALUE", // required
- *     text: "STRING_VALUE", // required
+ *     language: 'STRING_VALUE', // required
+ *     text: 'STRING_VALUE', // required
  *   },
- *   compatibleNamespaceVersion: Number("long"),
+ *   compatibleNamespaceVersion: Number('long'),
  * };
  * const command = new CreateSystemTemplateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateSystemTemplateResponse
+ *   summary: { // SystemTemplateSummary
+ *     id: 'STRING_VALUE',
+ *     arn: 'STRING_VALUE',
+ *     revisionNumber: Number('long'),
+ *     createdAt: new Date('TIMESTAMP'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateSystemTemplateCommandInput - {@link CreateSystemTemplateCommandInput}
@@ -71,6 +81,8 @@ export interface CreateSystemTemplateCommandOutput extends CreateSystemTemplateR
  * @throws {@link ThrottlingException} (client fault)
  *  <p></p>
  *
+ * @throws {@link IoTThingsGraphServiceException}
+ * <p>Base exception class for all service exceptions from IoTThingsGraph service.</p>
  *
  */
 export class CreateSystemTemplateCommand extends $Command<

@@ -36,15 +36,18 @@ export interface DeleteSceneCommandOutput extends DeleteSceneResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTTwinMakerClient, DeleteSceneCommand } from "@aws-sdk/client-iottwinmaker"; // ES Modules import
- * // const { IoTTwinMakerClient, DeleteSceneCommand } = require("@aws-sdk/client-iottwinmaker"); // CommonJS import
+ * import { IoTTwinMakerClient, DeleteSceneCommand } from '@aws-sdk/client-iottwinmaker'; // ES Modules import
+ * // const { IoTTwinMakerClient, DeleteSceneCommand } = require('@aws-sdk/client-iottwinmaker'); // CommonJS import
  * const client = new IoTTwinMakerClient(config);
  * const input = { // DeleteSceneRequest
- *   workspaceId: "STRING_VALUE", // required
- *   sceneId: "STRING_VALUE", // required
+ *   workspaceId: 'STRING_VALUE', // required
+ *   sceneId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteSceneCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteSceneCommandInput - {@link DeleteSceneCommandInput}
@@ -68,6 +71,8 @@ export interface DeleteSceneCommandOutput extends DeleteSceneResponse, __Metadat
  * @throws {@link ValidationException} (client fault)
  *  <p>Failed</p>
  *
+ * @throws {@link IoTTwinMakerServiceException}
+ * <p>Base exception class for all service exceptions from IoTTwinMaker service.</p>
  *
  */
 export class DeleteSceneCommand extends $Command<

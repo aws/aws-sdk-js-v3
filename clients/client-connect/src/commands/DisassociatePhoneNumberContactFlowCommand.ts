@@ -49,15 +49,18 @@ export interface DisassociatePhoneNumberContactFlowCommandOutput extends __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, DisassociatePhoneNumberContactFlowCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, DisassociatePhoneNumberContactFlowCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, DisassociatePhoneNumberContactFlowCommand } from '@aws-sdk/client-connect'; // ES Modules import
+ * // const { ConnectClient, DisassociatePhoneNumberContactFlowCommand } = require('@aws-sdk/client-connect'); // CommonJS import
  * const client = new ConnectClient(config);
  * const input = { // DisassociatePhoneNumberContactFlowRequest
- *   PhoneNumberId: "STRING_VALUE", // required
- *   InstanceId: "STRING_VALUE", // required
+ *   PhoneNumberId: 'STRING_VALUE', // required
+ *   InstanceId: 'STRING_VALUE', // required
  * };
  * const command = new DisassociatePhoneNumberContactFlowCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DisassociatePhoneNumberContactFlowCommandInput - {@link DisassociatePhoneNumberContactFlowCommandInput}
@@ -81,6 +84,8 @@ export interface DisassociatePhoneNumberContactFlowCommandOutput extends __Metad
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class DisassociatePhoneNumberContactFlowCommand extends $Command<

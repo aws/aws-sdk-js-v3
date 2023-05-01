@@ -36,24 +36,35 @@ export interface ListOperationsCommandOutput extends ListOperationsResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ServiceDiscoveryClient, ListOperationsCommand } from "@aws-sdk/client-servicediscovery"; // ES Modules import
- * // const { ServiceDiscoveryClient, ListOperationsCommand } = require("@aws-sdk/client-servicediscovery"); // CommonJS import
+ * import { ServiceDiscoveryClient, ListOperationsCommand } from '@aws-sdk/client-servicediscovery'; // ES Modules import
+ * // const { ServiceDiscoveryClient, ListOperationsCommand } = require('@aws-sdk/client-servicediscovery'); // CommonJS import
  * const client = new ServiceDiscoveryClient(config);
  * const input = { // ListOperationsRequest
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  *   Filters: [ // OperationFilters
  *     { // OperationFilter
- *       Name: "NAMESPACE_ID" || "SERVICE_ID" || "STATUS" || "TYPE" || "UPDATE_DATE", // required
+ *       Name: 'NAMESPACE_ID' || 'SERVICE_ID' || 'STATUS' || 'TYPE' || 'UPDATE_DATE', // required
  *       Values: [ // FilterValues // required
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
- *       Condition: "EQ" || "IN" || "BETWEEN" || "BEGINS_WITH",
+ *       Condition: 'EQ' || 'IN' || 'BETWEEN' || 'BEGINS_WITH',
  *     },
  *   ],
  * };
  * const command = new ListOperationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListOperationsResponse
+ *   Operations: [ // OperationSummaryList
+ *     { // OperationSummary
+ *       Id: 'STRING_VALUE',
+ *       Status: 'SUBMITTED' || 'PENDING' || 'SUCCESS' || 'FAIL',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListOperationsCommandInput - {@link ListOperationsCommandInput}
@@ -67,6 +78,8 @@ export interface ListOperationsCommandOutput extends ListOperationsResponse, __M
  *    numeric value might be outside the allowed range, or a string value might exceed length
  *    constraints.</p>
  *
+ * @throws {@link ServiceDiscoveryServiceException}
+ * <p>Base exception class for all service exceptions from ServiceDiscovery service.</p>
  *
  * @example ListOperations Example
  * ```javascript

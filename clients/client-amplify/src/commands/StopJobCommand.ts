@@ -36,16 +36,31 @@ export interface StopJobCommandOutput extends StopJobResult, __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AmplifyClient, StopJobCommand } from "@aws-sdk/client-amplify"; // ES Modules import
- * // const { AmplifyClient, StopJobCommand } = require("@aws-sdk/client-amplify"); // CommonJS import
+ * import { AmplifyClient, StopJobCommand } from '@aws-sdk/client-amplify'; // ES Modules import
+ * // const { AmplifyClient, StopJobCommand } = require('@aws-sdk/client-amplify'); // CommonJS import
  * const client = new AmplifyClient(config);
  * const input = { // StopJobRequest
- *   appId: "STRING_VALUE", // required
- *   branchName: "STRING_VALUE", // required
- *   jobId: "STRING_VALUE", // required
+ *   appId: 'STRING_VALUE', // required
+ *   branchName: 'STRING_VALUE', // required
+ *   jobId: 'STRING_VALUE', // required
  * };
  * const command = new StopJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StopJobResult
+ *   jobSummary: { // JobSummary
+ *     jobArn: 'STRING_VALUE', // required
+ *     jobId: 'STRING_VALUE', // required
+ *     commitId: 'STRING_VALUE', // required
+ *     commitMessage: 'STRING_VALUE', // required
+ *     commitTime: new Date('TIMESTAMP'), // required
+ *     startTime: new Date('TIMESTAMP'), // required
+ *     status: 'PENDING' || 'PROVISIONING' || 'RUNNING' || 'FAILED' || 'SUCCEED' || 'CANCELLING' || 'CANCELLED', // required
+ *     endTime: new Date('TIMESTAMP'),
+ *     jobType: 'RELEASE' || 'RETRY' || 'MANUAL' || 'WEB_HOOK', // required
+ *   },
+ * };
+ *
  * ```
  *
  * @param StopJobCommandInput - {@link StopJobCommandInput}
@@ -69,6 +84,8 @@ export interface StopJobCommandOutput extends StopJobResult, __MetadataBearer {}
  * @throws {@link UnauthorizedException} (client fault)
  *  <p> An operation failed due to a lack of access. </p>
  *
+ * @throws {@link AmplifyServiceException}
+ * <p>Base exception class for all service exceptions from Amplify service.</p>
  *
  */
 export class StopJobCommand extends $Command<StopJobCommandInput, StopJobCommandOutput, AmplifyClientResolvedConfig> {

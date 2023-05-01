@@ -37,15 +37,23 @@ export interface ListSecurityPoliciesCommandOutput extends ListSecurityPoliciesR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { TransferClient, ListSecurityPoliciesCommand } from "@aws-sdk/client-transfer"; // ES Modules import
- * // const { TransferClient, ListSecurityPoliciesCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
+ * import { TransferClient, ListSecurityPoliciesCommand } from '@aws-sdk/client-transfer'; // ES Modules import
+ * // const { TransferClient, ListSecurityPoliciesCommand } = require('@aws-sdk/client-transfer'); // CommonJS import
  * const client = new TransferClient(config);
  * const input = { // ListSecurityPoliciesRequest
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListSecurityPoliciesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListSecurityPoliciesResponse
+ *   NextToken: 'STRING_VALUE',
+ *   SecurityPolicyNames: [ // SecurityPolicyNames // required
+ *     'STRING_VALUE',
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListSecurityPoliciesCommandInput - {@link ListSecurityPoliciesCommandInput}
@@ -66,6 +74,8 @@ export interface ListSecurityPoliciesCommandOutput extends ListSecurityPoliciesR
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request has failed because the Amazon Web ServicesTransfer Family service is not available.</p>
  *
+ * @throws {@link TransferServiceException}
+ * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
  */
 export class ListSecurityPoliciesCommand extends $Command<

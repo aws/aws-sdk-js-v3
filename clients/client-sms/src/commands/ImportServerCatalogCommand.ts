@@ -39,12 +39,15 @@ export interface ImportServerCatalogCommandOutput extends ImportServerCatalogRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SMSClient, ImportServerCatalogCommand } from "@aws-sdk/client-sms"; // ES Modules import
- * // const { SMSClient, ImportServerCatalogCommand } = require("@aws-sdk/client-sms"); // CommonJS import
+ * import { SMSClient, ImportServerCatalogCommand } from '@aws-sdk/client-sms'; // ES Modules import
+ * // const { SMSClient, ImportServerCatalogCommand } = require('@aws-sdk/client-sms'); // CommonJS import
  * const client = new SMSClient(config);
  * const input = {};
  * const command = new ImportServerCatalogCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param ImportServerCatalogCommandInput - {@link ImportServerCatalogCommandInput}
@@ -69,6 +72,8 @@ export interface ImportServerCatalogCommandOutput extends ImportServerCatalogRes
  *  <p>You lack permissions needed to perform this operation. Check your IAM policies,
  *             and ensure that you are using the correct access keys.</p>
  *
+ * @throws {@link SMSServiceException}
+ * <p>Base exception class for all service exceptions from SMS service.</p>
  *
  */
 export class ImportServerCatalogCommand extends $Command<

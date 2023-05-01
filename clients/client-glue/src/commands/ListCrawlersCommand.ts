@@ -41,18 +41,26 @@ export interface ListCrawlersCommandOutput extends ListCrawlersResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlueClient, ListCrawlersCommand } from "@aws-sdk/client-glue"; // ES Modules import
- * // const { GlueClient, ListCrawlersCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * import { GlueClient, ListCrawlersCommand } from '@aws-sdk/client-glue'; // ES Modules import
+ * // const { GlueClient, ListCrawlersCommand } = require('@aws-sdk/client-glue'); // CommonJS import
  * const client = new GlueClient(config);
  * const input = { // ListCrawlersRequest
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  *   Tags: { // TagsMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new ListCrawlersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListCrawlersResponse
+ *   CrawlerNames: [ // CrawlerNameList
+ *     'STRING_VALUE',
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListCrawlersCommandInput - {@link ListCrawlersCommandInput}
@@ -64,6 +72,8 @@ export interface ListCrawlersCommandOutput extends ListCrawlersResponse, __Metad
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class ListCrawlersCommand extends $Command<

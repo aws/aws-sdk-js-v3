@@ -44,15 +44,26 @@ export interface ListXssMatchSetsCommandOutput extends ListXssMatchSetsResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WAFRegionalClient, ListXssMatchSetsCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
- * // const { WAFRegionalClient, ListXssMatchSetsCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import
+ * import { WAFRegionalClient, ListXssMatchSetsCommand } from '@aws-sdk/client-waf-regional'; // ES Modules import
+ * // const { WAFRegionalClient, ListXssMatchSetsCommand } = require('@aws-sdk/client-waf-regional'); // CommonJS import
  * const client = new WAFRegionalClient(config);
  * const input = { // ListXssMatchSetsRequest
- *   NextMarker: "STRING_VALUE",
- *   Limit: Number("int"),
+ *   NextMarker: 'STRING_VALUE',
+ *   Limit: Number('int'),
  * };
  * const command = new ListXssMatchSetsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListXssMatchSetsResponse
+ *   NextMarker: 'STRING_VALUE',
+ *   XssMatchSets: [ // XssMatchSetSummaries
+ *     { // XssMatchSetSummary
+ *       XssMatchSetId: 'STRING_VALUE', // required
+ *       Name: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListXssMatchSetsCommandInput - {@link ListXssMatchSetsCommandInput}
@@ -67,6 +78,8 @@ export interface ListXssMatchSetsCommandOutput extends ListXssMatchSetsResponse,
  * @throws {@link WAFInvalidAccountException} (client fault)
  *  <p>The operation failed because you tried to create, update, or delete an object by using an invalid account identifier.</p>
  *
+ * @throws {@link WAFRegionalServiceException}
+ * <p>Base exception class for all service exceptions from WAFRegional service.</p>
  *
  * @example To list XSS match sets
  * ```javascript

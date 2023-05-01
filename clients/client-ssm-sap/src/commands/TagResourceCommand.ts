@@ -36,17 +36,20 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SsmSapClient, TagResourceCommand } from "@aws-sdk/client-ssm-sap"; // ES Modules import
- * // const { SsmSapClient, TagResourceCommand } = require("@aws-sdk/client-ssm-sap"); // CommonJS import
+ * import { SsmSapClient, TagResourceCommand } from '@aws-sdk/client-ssm-sap'; // ES Modules import
+ * // const { SsmSapClient, TagResourceCommand } = require('@aws-sdk/client-ssm-sap'); // CommonJS import
  * const client = new SsmSapClient(config);
  * const input = { // TagResourceRequest
- *   resourceArn: "STRING_VALUE", // required
+ *   resourceArn: 'STRING_VALUE', // required
  *   tags: { // TagMap // required
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param TagResourceCommandInput - {@link TagResourceCommandInput}
@@ -64,6 +67,8 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service. </p>
  *
+ * @throws {@link SsmSapServiceException}
+ * <p>Base exception class for all service exceptions from SsmSap service.</p>
  *
  */
 export class TagResourceCommand extends $Command<

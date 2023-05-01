@@ -50,12 +50,17 @@ export interface GetChangeTokenCommandOutput extends GetChangeTokenResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WAFClient, GetChangeTokenCommand } from "@aws-sdk/client-waf"; // ES Modules import
- * // const { WAFClient, GetChangeTokenCommand } = require("@aws-sdk/client-waf"); // CommonJS import
+ * import { WAFClient, GetChangeTokenCommand } from '@aws-sdk/client-waf'; // ES Modules import
+ * // const { WAFClient, GetChangeTokenCommand } = require('@aws-sdk/client-waf'); // CommonJS import
  * const client = new WAFClient(config);
  * const input = {};
  * const command = new GetChangeTokenCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetChangeTokenResponse
+ *   ChangeToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetChangeTokenCommandInput - {@link GetChangeTokenCommandInput}
@@ -67,6 +72,8 @@ export interface GetChangeTokenCommandOutput extends GetChangeTokenResponse, __M
  * @throws {@link WAFInternalErrorException} (server fault)
  *  <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
  *
+ * @throws {@link WAFServiceException}
+ * <p>Base exception class for all service exceptions from WAF service.</p>
  *
  * @example To get a change token
  * ```javascript

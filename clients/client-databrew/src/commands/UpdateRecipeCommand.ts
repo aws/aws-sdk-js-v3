@@ -37,25 +37,25 @@ export interface UpdateRecipeCommandOutput extends UpdateRecipeResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DataBrewClient, UpdateRecipeCommand } from "@aws-sdk/client-databrew"; // ES Modules import
- * // const { DataBrewClient, UpdateRecipeCommand } = require("@aws-sdk/client-databrew"); // CommonJS import
+ * import { DataBrewClient, UpdateRecipeCommand } from '@aws-sdk/client-databrew'; // ES Modules import
+ * // const { DataBrewClient, UpdateRecipeCommand } = require('@aws-sdk/client-databrew'); // CommonJS import
  * const client = new DataBrewClient(config);
  * const input = { // UpdateRecipeRequest
- *   Description: "STRING_VALUE",
- *   Name: "STRING_VALUE", // required
+ *   Description: 'STRING_VALUE',
+ *   Name: 'STRING_VALUE', // required
  *   Steps: [ // RecipeStepList
  *     { // RecipeStep
  *       Action: { // RecipeAction
- *         Operation: "STRING_VALUE", // required
+ *         Operation: 'STRING_VALUE', // required
  *         Parameters: { // ParameterMap
- *           "<keys>": "STRING_VALUE",
+ *           '<keys>': 'STRING_VALUE',
  *         },
  *       },
  *       ConditionExpressions: [ // ConditionExpressionList
  *         { // ConditionExpression
- *           Condition: "STRING_VALUE", // required
- *           Value: "STRING_VALUE",
- *           TargetColumn: "STRING_VALUE", // required
+ *           Condition: 'STRING_VALUE', // required
+ *           Value: 'STRING_VALUE',
+ *           TargetColumn: 'STRING_VALUE', // required
  *         },
  *       ],
  *     },
@@ -63,6 +63,11 @@ export interface UpdateRecipeCommandOutput extends UpdateRecipeResponse, __Metad
  * };
  * const command = new UpdateRecipeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateRecipeResponse
+ *   Name: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param UpdateRecipeCommandInput - {@link UpdateRecipeCommandInput}
@@ -77,6 +82,8 @@ export interface UpdateRecipeCommandOutput extends UpdateRecipeResponse, __Metad
  * @throws {@link ValidationException} (client fault)
  *  <p>The input parameters for this request failed validation.</p>
  *
+ * @throws {@link DataBrewServiceException}
+ * <p>Base exception class for all service exceptions from DataBrew service.</p>
  *
  */
 export class UpdateRecipeCommand extends $Command<

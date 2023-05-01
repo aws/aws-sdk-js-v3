@@ -54,16 +54,32 @@ export interface ListAccountsForParentCommandOutput extends ListAccountsForParen
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OrganizationsClient, ListAccountsForParentCommand } from "@aws-sdk/client-organizations"; // ES Modules import
- * // const { OrganizationsClient, ListAccountsForParentCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
+ * import { OrganizationsClient, ListAccountsForParentCommand } from '@aws-sdk/client-organizations'; // ES Modules import
+ * // const { OrganizationsClient, ListAccountsForParentCommand } = require('@aws-sdk/client-organizations'); // CommonJS import
  * const client = new OrganizationsClient(config);
  * const input = { // ListAccountsForParentRequest
- *   ParentId: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   ParentId: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListAccountsForParentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListAccountsForParentResponse
+ *   Accounts: [ // Accounts
+ *     { // Account
+ *       Id: 'STRING_VALUE',
+ *       Arn: 'STRING_VALUE',
+ *       Email: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *       Status: 'ACTIVE' || 'SUSPENDED' || 'PENDING_CLOSURE',
+ *       JoinedMethod: 'INVITED' || 'CREATED',
+ *       JoinedTimestamp: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListAccountsForParentCommandInput - {@link ListAccountsForParentCommandInput}
@@ -201,6 +217,8 @@ export interface ListAccountsForParentCommandOutput extends ListAccountsForParen
  *                 <i>Organizations User Guide.</i>
  *          </p>
  *
+ * @throws {@link OrganizationsServiceException}
+ * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
  * @example To retrieve a list of all of the accounts in a root or OU
  * ```javascript

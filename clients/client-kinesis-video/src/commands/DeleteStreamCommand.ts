@@ -45,15 +45,18 @@ export interface DeleteStreamCommandOutput extends DeleteStreamOutput, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KinesisVideoClient, DeleteStreamCommand } from "@aws-sdk/client-kinesis-video"; // ES Modules import
- * // const { KinesisVideoClient, DeleteStreamCommand } = require("@aws-sdk/client-kinesis-video"); // CommonJS import
+ * import { KinesisVideoClient, DeleteStreamCommand } from '@aws-sdk/client-kinesis-video'; // ES Modules import
+ * // const { KinesisVideoClient, DeleteStreamCommand } = require('@aws-sdk/client-kinesis-video'); // CommonJS import
  * const client = new KinesisVideoClient(config);
  * const input = { // DeleteStreamInput
- *   StreamARN: "STRING_VALUE", // required
- *   CurrentVersion: "STRING_VALUE",
+ *   StreamARN: 'STRING_VALUE', // required
+ *   CurrentVersion: 'STRING_VALUE',
  * };
  * const command = new DeleteStreamCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteStreamCommandInput - {@link DeleteStreamCommandInput}
@@ -100,6 +103,8 @@ export interface DeleteStreamCommandOutput extends DeleteStreamOutput, __Metadat
  *             version, use the <a href="https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_DescribeStream.html">DescribeStream</a>
  *             API.</p>
  *
+ * @throws {@link KinesisVideoServiceException}
+ * <p>Base exception class for all service exceptions from KinesisVideo service.</p>
  *
  */
 export class DeleteStreamCommand extends $Command<

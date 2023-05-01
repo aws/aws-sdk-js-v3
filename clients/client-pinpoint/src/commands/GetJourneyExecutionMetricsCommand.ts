@@ -36,17 +36,29 @@ export interface GetJourneyExecutionMetricsCommandOutput extends GetJourneyExecu
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PinpointClient, GetJourneyExecutionMetricsCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
- * // const { PinpointClient, GetJourneyExecutionMetricsCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
+ * import { PinpointClient, GetJourneyExecutionMetricsCommand } from '@aws-sdk/client-pinpoint'; // ES Modules import
+ * // const { PinpointClient, GetJourneyExecutionMetricsCommand } = require('@aws-sdk/client-pinpoint'); // CommonJS import
  * const client = new PinpointClient(config);
  * const input = { // GetJourneyExecutionMetricsRequest
- *   ApplicationId: "STRING_VALUE", // required
- *   JourneyId: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   PageSize: "STRING_VALUE",
+ *   ApplicationId: 'STRING_VALUE', // required
+ *   JourneyId: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
+ *   PageSize: 'STRING_VALUE',
  * };
  * const command = new GetJourneyExecutionMetricsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetJourneyExecutionMetricsResponse
+ *   JourneyExecutionMetricsResponse: { // JourneyExecutionMetricsResponse
+ *     ApplicationId: 'STRING_VALUE', // required
+ *     JourneyId: 'STRING_VALUE', // required
+ *     LastEvaluatedTime: 'STRING_VALUE', // required
+ *     Metrics: { // MapOf__string // required
+ *       '<keys>': 'STRING_VALUE',
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetJourneyExecutionMetricsCommandInput - {@link GetJourneyExecutionMetricsCommandInput}
@@ -76,6 +88,8 @@ export interface GetJourneyExecutionMetricsCommandOutput extends GetJourneyExecu
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Provides information about an API request or response.</p>
  *
+ * @throws {@link PinpointServiceException}
+ * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
  */
 export class GetJourneyExecutionMetricsCommand extends $Command<

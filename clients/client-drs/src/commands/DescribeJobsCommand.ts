@@ -36,22 +36,48 @@ export interface DescribeJobsCommandOutput extends DescribeJobsResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DrsClient, DescribeJobsCommand } from "@aws-sdk/client-drs"; // ES Modules import
- * // const { DrsClient, DescribeJobsCommand } = require("@aws-sdk/client-drs"); // CommonJS import
+ * import { DrsClient, DescribeJobsCommand } from '@aws-sdk/client-drs'; // ES Modules import
+ * // const { DrsClient, DescribeJobsCommand } = require('@aws-sdk/client-drs'); // CommonJS import
  * const client = new DrsClient(config);
  * const input = { // DescribeJobsRequest
  *   filters: { // DescribeJobsRequestFilters
  *     jobIDs: [ // DescribeJobsRequestFiltersJobIDs
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
- *     fromDate: "STRING_VALUE",
- *     toDate: "STRING_VALUE",
+ *     fromDate: 'STRING_VALUE',
+ *     toDate: 'STRING_VALUE',
  *   },
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new DescribeJobsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeJobsResponse
+ *   items: [ // JobsList
+ *     { // Job
+ *       jobID: 'STRING_VALUE', // required
+ *       arn: 'STRING_VALUE',
+ *       type: 'STRING_VALUE',
+ *       initiatedBy: 'STRING_VALUE',
+ *       creationDateTime: 'STRING_VALUE',
+ *       endDateTime: 'STRING_VALUE',
+ *       status: 'STRING_VALUE',
+ *       participatingServers: [ // ParticipatingServers
+ *         { // ParticipatingServer
+ *           sourceServerID: 'STRING_VALUE',
+ *           recoveryInstanceID: 'STRING_VALUE',
+ *           launchStatus: 'STRING_VALUE',
+ *         },
+ *       ],
+ *       tags: { // TagsMap
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeJobsCommandInput - {@link DescribeJobsCommandInput}
@@ -72,6 +98,8 @@ export interface DescribeJobsCommandOutput extends DescribeJobsResponse, __Metad
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by the AWS service.</p>
  *
+ * @throws {@link DrsServiceException}
+ * <p>Base exception class for all service exceptions from Drs service.</p>
  *
  */
 export class DescribeJobsCommand extends $Command<

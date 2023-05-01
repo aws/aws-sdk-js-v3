@@ -36,17 +36,24 @@ export interface CreateDocumentationVersionCommandOutput extends DocumentationVe
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { APIGatewayClient, CreateDocumentationVersionCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
- * // const { APIGatewayClient, CreateDocumentationVersionCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
+ * import { APIGatewayClient, CreateDocumentationVersionCommand } from '@aws-sdk/client-api-gateway'; // ES Modules import
+ * // const { APIGatewayClient, CreateDocumentationVersionCommand } = require('@aws-sdk/client-api-gateway'); // CommonJS import
  * const client = new APIGatewayClient(config);
  * const input = { // CreateDocumentationVersionRequest
- *   restApiId: "STRING_VALUE", // required
- *   documentationVersion: "STRING_VALUE", // required
- *   stageName: "STRING_VALUE",
- *   description: "STRING_VALUE",
+ *   restApiId: 'STRING_VALUE', // required
+ *   documentationVersion: 'STRING_VALUE', // required
+ *   stageName: 'STRING_VALUE',
+ *   description: 'STRING_VALUE',
  * };
  * const command = new CreateDocumentationVersionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DocumentationVersion
+ *   version: 'STRING_VALUE',
+ *   createdDate: new Date('TIMESTAMP'),
+ *   description: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateDocumentationVersionCommandInput - {@link CreateDocumentationVersionCommandInput}
@@ -73,6 +80,8 @@ export interface CreateDocumentationVersionCommandOutput extends DocumentationVe
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The request is denied because the caller has insufficient permissions.</p>
  *
+ * @throws {@link APIGatewayServiceException}
+ * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
  */
 export class CreateDocumentationVersionCommand extends $Command<

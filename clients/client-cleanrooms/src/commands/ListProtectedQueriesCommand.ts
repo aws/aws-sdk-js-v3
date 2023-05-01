@@ -36,17 +36,31 @@ export interface ListProtectedQueriesCommandOutput extends ListProtectedQueriesO
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CleanRoomsClient, ListProtectedQueriesCommand } from "@aws-sdk/client-cleanrooms"; // ES Modules import
- * // const { CleanRoomsClient, ListProtectedQueriesCommand } = require("@aws-sdk/client-cleanrooms"); // CommonJS import
+ * import { CleanRoomsClient, ListProtectedQueriesCommand } from '@aws-sdk/client-cleanrooms'; // ES Modules import
+ * // const { CleanRoomsClient, ListProtectedQueriesCommand } = require('@aws-sdk/client-cleanrooms'); // CommonJS import
  * const client = new CleanRoomsClient(config);
  * const input = { // ListProtectedQueriesInput
- *   membershipIdentifier: "STRING_VALUE", // required
- *   status: "STRING_VALUE",
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   membershipIdentifier: 'STRING_VALUE', // required
+ *   status: 'STRING_VALUE',
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new ListProtectedQueriesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListProtectedQueriesOutput
+ *   nextToken: 'STRING_VALUE',
+ *   protectedQueries: [ // ProtectedQuerySummaryList // required
+ *     { // ProtectedQuerySummary
+ *       id: 'STRING_VALUE', // required
+ *       membershipId: 'STRING_VALUE', // required
+ *       membershipArn: 'STRING_VALUE', // required
+ *       createTime: new Date('TIMESTAMP'), // required
+ *       status: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListProtectedQueriesCommandInput - {@link ListProtectedQueriesCommandInput}
@@ -70,6 +84,8 @@ export interface ListProtectedQueriesCommandOutput extends ListProtectedQueriesO
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the specified constraints.</p>
  *
+ * @throws {@link CleanRoomsServiceException}
+ * <p>Base exception class for all service exceptions from CleanRooms service.</p>
  *
  */
 export class ListProtectedQueriesCommand extends $Command<

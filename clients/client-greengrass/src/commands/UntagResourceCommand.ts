@@ -36,17 +36,20 @@ export interface UntagResourceCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GreengrassClient, UntagResourceCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
- * // const { GreengrassClient, UntagResourceCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
+ * import { GreengrassClient, UntagResourceCommand } from '@aws-sdk/client-greengrass'; // ES Modules import
+ * // const { GreengrassClient, UntagResourceCommand } = require('@aws-sdk/client-greengrass'); // CommonJS import
  * const client = new GreengrassClient(config);
  * const input = { // UntagResourceRequest
- *   ResourceArn: "STRING_VALUE", // required
+ *   ResourceArn: 'STRING_VALUE', // required
  *   TagKeys: [ // __listOf__string // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new UntagResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UntagResourceCommandInput - {@link UntagResourceCommandInput}
@@ -58,6 +61,8 @@ export interface UntagResourceCommandOutput extends __MetadataBearer {}
  * @throws {@link BadRequestException} (client fault)
  *  General error information.
  *
+ * @throws {@link GreengrassServiceException}
+ * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
  */
 export class UntagResourceCommand extends $Command<

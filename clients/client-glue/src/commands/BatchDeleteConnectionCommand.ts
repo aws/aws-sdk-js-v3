@@ -36,17 +36,30 @@ export interface BatchDeleteConnectionCommandOutput extends BatchDeleteConnectio
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlueClient, BatchDeleteConnectionCommand } from "@aws-sdk/client-glue"; // ES Modules import
- * // const { GlueClient, BatchDeleteConnectionCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * import { GlueClient, BatchDeleteConnectionCommand } from '@aws-sdk/client-glue'; // ES Modules import
+ * // const { GlueClient, BatchDeleteConnectionCommand } = require('@aws-sdk/client-glue'); // CommonJS import
  * const client = new GlueClient(config);
  * const input = { // BatchDeleteConnectionRequest
- *   CatalogId: "STRING_VALUE",
+ *   CatalogId: 'STRING_VALUE',
  *   ConnectionNameList: [ // DeleteConnectionNameList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new BatchDeleteConnectionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BatchDeleteConnectionResponse
+ *   Succeeded: [ // NameStringList
+ *     'STRING_VALUE',
+ *   ],
+ *   Errors: { // ErrorByName
+ *     '<keys>': { // ErrorDetail
+ *       ErrorCode: 'STRING_VALUE',
+ *       ErrorMessage: 'STRING_VALUE',
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param BatchDeleteConnectionCommandInput - {@link BatchDeleteConnectionCommandInput}
@@ -61,6 +74,8 @@ export interface BatchDeleteConnectionCommandOutput extends BatchDeleteConnectio
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class BatchDeleteConnectionCommand extends $Command<

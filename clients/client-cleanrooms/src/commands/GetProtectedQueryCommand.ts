@@ -40,15 +40,52 @@ export interface GetProtectedQueryCommandOutput extends GetProtectedQueryOutput,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CleanRoomsClient, GetProtectedQueryCommand } from "@aws-sdk/client-cleanrooms"; // ES Modules import
- * // const { CleanRoomsClient, GetProtectedQueryCommand } = require("@aws-sdk/client-cleanrooms"); // CommonJS import
+ * import { CleanRoomsClient, GetProtectedQueryCommand } from '@aws-sdk/client-cleanrooms'; // ES Modules import
+ * // const { CleanRoomsClient, GetProtectedQueryCommand } = require('@aws-sdk/client-cleanrooms'); // CommonJS import
  * const client = new CleanRoomsClient(config);
  * const input = { // GetProtectedQueryInput
- *   membershipIdentifier: "STRING_VALUE", // required
- *   protectedQueryIdentifier: "STRING_VALUE", // required
+ *   membershipIdentifier: 'STRING_VALUE', // required
+ *   protectedQueryIdentifier: 'STRING_VALUE', // required
  * };
  * const command = new GetProtectedQueryCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetProtectedQueryOutput
+ *   protectedQuery: { // ProtectedQuery
+ *     id: 'STRING_VALUE', // required
+ *     membershipId: 'STRING_VALUE', // required
+ *     membershipArn: 'STRING_VALUE', // required
+ *     createTime: new Date('TIMESTAMP'), // required
+ *     sqlParameters: { // ProtectedQuerySQLParameters
+ *       queryString: 'STRING_VALUE', // required
+ *     },
+ *     status: 'STRING_VALUE', // required
+ *     resultConfiguration: { // ProtectedQueryResultConfiguration
+ *       outputConfiguration: { // ProtectedQueryOutputConfiguration Union: only one key present
+ *         s3: { // ProtectedQueryS3OutputConfiguration
+ *           resultFormat: 'STRING_VALUE', // required
+ *           bucket: 'STRING_VALUE', // required
+ *           keyPrefix: 'STRING_VALUE',
+ *         },
+ *       },
+ *     },
+ *     statistics: { // ProtectedQueryStatistics
+ *       totalDurationInMillis: Number('long'),
+ *     },
+ *     result: { // ProtectedQueryResult
+ *       output: { // ProtectedQueryOutput Union: only one key present
+ *         s3: { // ProtectedQueryS3Output
+ *           location: 'STRING_VALUE', // required
+ *         },
+ *       },
+ *     },
+ *     error: { // ProtectedQueryError
+ *       message: 'STRING_VALUE', // required
+ *       code: 'STRING_VALUE', // required
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetProtectedQueryCommandInput - {@link GetProtectedQueryCommandInput}
@@ -72,6 +109,8 @@ export interface GetProtectedQueryCommandOutput extends GetProtectedQueryOutput,
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the specified constraints.</p>
  *
+ * @throws {@link CleanRoomsServiceException}
+ * <p>Base exception class for all service exceptions from CleanRooms service.</p>
  *
  */
 export class GetProtectedQueryCommand extends $Command<

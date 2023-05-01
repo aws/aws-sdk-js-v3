@@ -37,14 +37,20 @@ export interface GetConnectionStatusCommandOutput extends GetConnectionStatusRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMClient, GetConnectionStatusCommand } from "@aws-sdk/client-ssm"; // ES Modules import
- * // const { SSMClient, GetConnectionStatusCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * import { SSMClient, GetConnectionStatusCommand } from '@aws-sdk/client-ssm'; // ES Modules import
+ * // const { SSMClient, GetConnectionStatusCommand } = require('@aws-sdk/client-ssm'); // CommonJS import
  * const client = new SSMClient(config);
  * const input = { // GetConnectionStatusRequest
- *   Target: "STRING_VALUE", // required
+ *   Target: 'STRING_VALUE', // required
  * };
  * const command = new GetConnectionStatusCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetConnectionStatusResponse
+ *   Target: 'STRING_VALUE',
+ *   Status: 'Connected' || 'NotConnected',
+ * };
+ *
  * ```
  *
  * @param GetConnectionStatusCommandInput - {@link GetConnectionStatusCommandInput}
@@ -56,6 +62,8 @@ export interface GetConnectionStatusCommandOutput extends GetConnectionStatusRes
  * @throws {@link InternalServerError} (server fault)
  *  <p>An error occurred on the server side.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class GetConnectionStatusCommand extends $Command<

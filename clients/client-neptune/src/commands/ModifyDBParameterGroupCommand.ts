@@ -55,28 +55,33 @@ export interface ModifyDBParameterGroupCommandOutput extends DBParameterGroupNam
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { NeptuneClient, ModifyDBParameterGroupCommand } from "@aws-sdk/client-neptune"; // ES Modules import
- * // const { NeptuneClient, ModifyDBParameterGroupCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
+ * import { NeptuneClient, ModifyDBParameterGroupCommand } from '@aws-sdk/client-neptune'; // ES Modules import
+ * // const { NeptuneClient, ModifyDBParameterGroupCommand } = require('@aws-sdk/client-neptune'); // CommonJS import
  * const client = new NeptuneClient(config);
  * const input = { // ModifyDBParameterGroupMessage
- *   DBParameterGroupName: "STRING_VALUE", // required
+ *   DBParameterGroupName: 'STRING_VALUE', // required
  *   Parameters: [ // ParametersList // required
  *     { // Parameter
- *       ParameterName: "STRING_VALUE",
- *       ParameterValue: "STRING_VALUE",
- *       Description: "STRING_VALUE",
- *       Source: "STRING_VALUE",
- *       ApplyType: "STRING_VALUE",
- *       DataType: "STRING_VALUE",
- *       AllowedValues: "STRING_VALUE",
+ *       ParameterName: 'STRING_VALUE',
+ *       ParameterValue: 'STRING_VALUE',
+ *       Description: 'STRING_VALUE',
+ *       Source: 'STRING_VALUE',
+ *       ApplyType: 'STRING_VALUE',
+ *       DataType: 'STRING_VALUE',
+ *       AllowedValues: 'STRING_VALUE',
  *       IsModifiable: true || false,
- *       MinimumEngineVersion: "STRING_VALUE",
- *       ApplyMethod: "immediate" || "pending-reboot",
+ *       MinimumEngineVersion: 'STRING_VALUE',
+ *       ApplyMethod: 'immediate' || 'pending-reboot',
  *     },
  *   ],
  * };
  * const command = new ModifyDBParameterGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DBParameterGroupNameMessage
+ *   DBParameterGroupName: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ModifyDBParameterGroupCommandInput - {@link ModifyDBParameterGroupCommandInput}
@@ -94,6 +99,8 @@ export interface ModifyDBParameterGroupCommandOutput extends DBParameterGroupNam
  *  <p>The DB parameter group is in use or is in an invalid state. If you are attempting to
  *       delete the parameter group, you cannot delete it when the parameter group is in this state.</p>
  *
+ * @throws {@link NeptuneServiceException}
+ * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
  */
 export class ModifyDBParameterGroupCommand extends $Command<

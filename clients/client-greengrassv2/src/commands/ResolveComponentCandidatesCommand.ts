@@ -50,28 +50,42 @@ export interface ResolveComponentCandidatesCommandOutput extends ResolveComponen
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GreengrassV2Client, ResolveComponentCandidatesCommand } from "@aws-sdk/client-greengrassv2"; // ES Modules import
- * // const { GreengrassV2Client, ResolveComponentCandidatesCommand } = require("@aws-sdk/client-greengrassv2"); // CommonJS import
+ * import { GreengrassV2Client, ResolveComponentCandidatesCommand } from '@aws-sdk/client-greengrassv2'; // ES Modules import
+ * // const { GreengrassV2Client, ResolveComponentCandidatesCommand } = require('@aws-sdk/client-greengrassv2'); // CommonJS import
  * const client = new GreengrassV2Client(config);
  * const input = { // ResolveComponentCandidatesRequest
  *   platform: { // ComponentPlatform
- *     name: "STRING_VALUE",
+ *     name: 'STRING_VALUE',
  *     attributes: { // PlatformAttributesMap
- *       "<keys>": "STRING_VALUE",
+ *       '<keys>': 'STRING_VALUE',
  *     },
  *   },
  *   componentCandidates: [ // ComponentCandidateList
  *     { // ComponentCandidate
- *       componentName: "STRING_VALUE",
- *       componentVersion: "STRING_VALUE",
+ *       componentName: 'STRING_VALUE',
+ *       componentVersion: 'STRING_VALUE',
  *       versionRequirements: { // ComponentVersionRequirementMap
- *         "<keys>": "STRING_VALUE",
+ *         '<keys>': 'STRING_VALUE',
  *       },
  *     },
  *   ],
  * };
  * const command = new ResolveComponentCandidatesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ResolveComponentCandidatesResponse
+ *   resolvedComponentVersions: [ // ResolvedComponentVersionsList
+ *     { // ResolvedComponentVersion
+ *       arn: 'STRING_VALUE',
+ *       componentName: 'STRING_VALUE',
+ *       componentVersion: 'STRING_VALUE',
+ *       recipe: 'BLOB_VALUE',
+ *       vendorGuidance: 'ACTIVE' || 'DISCONTINUED' || 'DELETED',
+ *       message: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ResolveComponentCandidatesCommandInput - {@link ResolveComponentCandidatesCommandInput}
@@ -101,6 +115,8 @@ export interface ResolveComponentCandidatesCommandOutput extends ResolveComponen
  *  <p>The request isn't valid. This can occur if your request contains malformed JSON or
  *       unsupported characters.</p>
  *
+ * @throws {@link GreengrassV2ServiceException}
+ * <p>Base exception class for all service exceptions from GreengrassV2 service.</p>
  *
  */
 export class ResolveComponentCandidatesCommand extends $Command<

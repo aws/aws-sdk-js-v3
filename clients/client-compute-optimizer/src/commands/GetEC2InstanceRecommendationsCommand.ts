@@ -45,34 +45,113 @@ export interface GetEC2InstanceRecommendationsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ComputeOptimizerClient, GetEC2InstanceRecommendationsCommand } from "@aws-sdk/client-compute-optimizer"; // ES Modules import
- * // const { ComputeOptimizerClient, GetEC2InstanceRecommendationsCommand } = require("@aws-sdk/client-compute-optimizer"); // CommonJS import
+ * import { ComputeOptimizerClient, GetEC2InstanceRecommendationsCommand } from '@aws-sdk/client-compute-optimizer'; // ES Modules import
+ * // const { ComputeOptimizerClient, GetEC2InstanceRecommendationsCommand } = require('@aws-sdk/client-compute-optimizer'); // CommonJS import
  * const client = new ComputeOptimizerClient(config);
  * const input = { // GetEC2InstanceRecommendationsRequest
  *   instanceArns: [ // InstanceArns
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  *   filters: [ // Filters
  *     { // Filter
- *       name: "Finding" || "FindingReasonCodes" || "RecommendationSourceType",
+ *       name: 'Finding' || 'FindingReasonCodes' || 'RecommendationSourceType',
  *       values: [ // FilterValues
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
  *   accountIds: [ // AccountIds
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   recommendationPreferences: { // RecommendationPreferences
  *     cpuVendorArchitectures: [ // CpuVendorArchitectures
- *       "AWS_ARM64" || "CURRENT",
+ *       'AWS_ARM64' || 'CURRENT',
  *     ],
  *   },
  * };
  * const command = new GetEC2InstanceRecommendationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetEC2InstanceRecommendationsResponse
+ *   nextToken: 'STRING_VALUE',
+ *   instanceRecommendations: [ // InstanceRecommendations
+ *     { // InstanceRecommendation
+ *       instanceArn: 'STRING_VALUE',
+ *       accountId: 'STRING_VALUE',
+ *       instanceName: 'STRING_VALUE',
+ *       currentInstanceType: 'STRING_VALUE',
+ *       finding: 'Underprovisioned' || 'Overprovisioned' || 'Optimized' || 'NotOptimized',
+ *       findingReasonCodes: [ // InstanceRecommendationFindingReasonCodes
+ *         'CPUOverprovisioned' || 'CPUUnderprovisioned' || 'MemoryOverprovisioned' || 'MemoryUnderprovisioned' || 'EBSThroughputOverprovisioned' || 'EBSThroughputUnderprovisioned' || 'EBSIOPSOverprovisioned' || 'EBSIOPSUnderprovisioned' || 'NetworkBandwidthOverprovisioned' || 'NetworkBandwidthUnderprovisioned' || 'NetworkPPSOverprovisioned' || 'NetworkPPSUnderprovisioned' || 'DiskIOPSOverprovisioned' || 'DiskIOPSUnderprovisioned' || 'DiskThroughputOverprovisioned' || 'DiskThroughputUnderprovisioned',
+ *       ],
+ *       utilizationMetrics: [ // UtilizationMetrics
+ *         { // UtilizationMetric
+ *           name: 'Cpu' || 'Memory' || 'EBS_READ_OPS_PER_SECOND' || 'EBS_WRITE_OPS_PER_SECOND' || 'EBS_READ_BYTES_PER_SECOND' || 'EBS_WRITE_BYTES_PER_SECOND' || 'DISK_READ_OPS_PER_SECOND' || 'DISK_WRITE_OPS_PER_SECOND' || 'DISK_READ_BYTES_PER_SECOND' || 'DISK_WRITE_BYTES_PER_SECOND' || 'NETWORK_IN_BYTES_PER_SECOND' || 'NETWORK_OUT_BYTES_PER_SECOND' || 'NETWORK_PACKETS_IN_PER_SECOND' || 'NETWORK_PACKETS_OUT_PER_SECOND',
+ *           statistic: 'Maximum' || 'Average',
+ *           value: Number('double'),
+ *         },
+ *       ],
+ *       lookBackPeriodInDays: Number('double'),
+ *       recommendationOptions: [ // RecommendationOptions
+ *         { // InstanceRecommendationOption
+ *           instanceType: 'STRING_VALUE',
+ *           projectedUtilizationMetrics: [ // ProjectedUtilizationMetrics
+ *             {
+ *               name: 'Cpu' || 'Memory' || 'EBS_READ_OPS_PER_SECOND' || 'EBS_WRITE_OPS_PER_SECOND' || 'EBS_READ_BYTES_PER_SECOND' || 'EBS_WRITE_BYTES_PER_SECOND' || 'DISK_READ_OPS_PER_SECOND' || 'DISK_WRITE_OPS_PER_SECOND' || 'DISK_READ_BYTES_PER_SECOND' || 'DISK_WRITE_BYTES_PER_SECOND' || 'NETWORK_IN_BYTES_PER_SECOND' || 'NETWORK_OUT_BYTES_PER_SECOND' || 'NETWORK_PACKETS_IN_PER_SECOND' || 'NETWORK_PACKETS_OUT_PER_SECOND',
+ *               statistic: 'Maximum' || 'Average',
+ *               value: Number('double'),
+ *             },
+ *           ],
+ *           platformDifferences: [ // PlatformDifferences
+ *             'Hypervisor' || 'NetworkInterface' || 'StorageInterface' || 'InstanceStoreAvailability' || 'VirtualizationType' || 'Architecture',
+ *           ],
+ *           performanceRisk: Number('double'),
+ *           rank: Number('int'),
+ *           savingsOpportunity: { // SavingsOpportunity
+ *             savingsOpportunityPercentage: Number('double'),
+ *             estimatedMonthlySavings: { // EstimatedMonthlySavings
+ *               currency: 'USD' || 'CNY',
+ *               value: Number('double'),
+ *             },
+ *           },
+ *           migrationEffort: 'VeryLow' || 'Low' || 'Medium' || 'High',
+ *         },
+ *       ],
+ *       recommendationSources: [ // RecommendationSources
+ *         { // RecommendationSource
+ *           recommendationSourceArn: 'STRING_VALUE',
+ *           recommendationSourceType: 'Ec2Instance' || 'AutoScalingGroup' || 'EbsVolume' || 'LambdaFunction' || 'EcsService',
+ *         },
+ *       ],
+ *       lastRefreshTimestamp: new Date('TIMESTAMP'),
+ *       currentPerformanceRisk: 'VeryLow' || 'Low' || 'Medium' || 'High',
+ *       effectiveRecommendationPreferences: { // EffectiveRecommendationPreferences
+ *         cpuVendorArchitectures: [ // CpuVendorArchitectures
+ *           'AWS_ARM64' || 'CURRENT',
+ *         ],
+ *         enhancedInfrastructureMetrics: 'Active' || 'Inactive',
+ *         inferredWorkloadTypes: 'Active' || 'Inactive',
+ *         externalMetricsPreference: { // ExternalMetricsPreference
+ *           source: 'Datadog' || 'Dynatrace' || 'NewRelic' || 'Instana',
+ *         },
+ *       },
+ *       inferredWorkloadTypes: [ // InferredWorkloadTypes
+ *         'AmazonEmr' || 'ApacheCassandra' || 'ApacheHadoop' || 'Memcached' || 'Nginx' || 'PostgreSql' || 'Redis' || 'Kafka',
+ *       ],
+ *       instanceState: 'pending' || 'running' || 'shutting-down' || 'terminated' || 'stopping' || 'stopped',
+ *     },
+ *   ],
+ *   errors: [ // GetRecommendationErrors
+ *     { // GetRecommendationError
+ *       identifier: 'STRING_VALUE',
+ *       code: 'STRING_VALUE',
+ *       message: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetEC2InstanceRecommendationsCommandInput - {@link GetEC2InstanceRecommendationsCommandInput}
@@ -106,6 +185,8 @@ export interface GetEC2InstanceRecommendationsCommandOutput
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
  *
+ * @throws {@link ComputeOptimizerServiceException}
+ * <p>Base exception class for all service exceptions from ComputeOptimizer service.</p>
  *
  */
 export class GetEC2InstanceRecommendationsCommand extends $Command<

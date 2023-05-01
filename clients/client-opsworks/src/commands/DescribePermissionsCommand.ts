@@ -41,15 +41,28 @@ export interface DescribePermissionsCommandOutput extends DescribePermissionsRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OpsWorksClient, DescribePermissionsCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
- * // const { OpsWorksClient, DescribePermissionsCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
+ * import { OpsWorksClient, DescribePermissionsCommand } from '@aws-sdk/client-opsworks'; // ES Modules import
+ * // const { OpsWorksClient, DescribePermissionsCommand } = require('@aws-sdk/client-opsworks'); // CommonJS import
  * const client = new OpsWorksClient(config);
  * const input = { // DescribePermissionsRequest
- *   IamUserArn: "STRING_VALUE",
- *   StackId: "STRING_VALUE",
+ *   IamUserArn: 'STRING_VALUE',
+ *   StackId: 'STRING_VALUE',
  * };
  * const command = new DescribePermissionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribePermissionsResult
+ *   Permissions: [ // Permissions
+ *     { // Permission
+ *       StackId: 'STRING_VALUE',
+ *       IamUserArn: 'STRING_VALUE',
+ *       AllowSsh: true || false,
+ *       AllowSudo: true || false,
+ *       Level: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribePermissionsCommandInput - {@link DescribePermissionsCommandInput}
@@ -64,6 +77,8 @@ export interface DescribePermissionsCommandOutput extends DescribePermissionsRes
  * @throws {@link ValidationException} (client fault)
  *  <p>Indicates that a request was not valid.</p>
  *
+ * @throws {@link OpsWorksServiceException}
+ * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
  */
 export class DescribePermissionsCommand extends $Command<

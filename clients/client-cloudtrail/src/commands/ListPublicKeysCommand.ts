@@ -44,16 +44,29 @@ export interface ListPublicKeysCommandOutput extends ListPublicKeysResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudTrailClient, ListPublicKeysCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
- * // const { CloudTrailClient, ListPublicKeysCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
+ * import { CloudTrailClient, ListPublicKeysCommand } from '@aws-sdk/client-cloudtrail'; // ES Modules import
+ * // const { CloudTrailClient, ListPublicKeysCommand } = require('@aws-sdk/client-cloudtrail'); // CommonJS import
  * const client = new CloudTrailClient(config);
  * const input = { // ListPublicKeysRequest
- *   StartTime: new Date("TIMESTAMP"),
- *   EndTime: new Date("TIMESTAMP"),
- *   NextToken: "STRING_VALUE",
+ *   StartTime: new Date('TIMESTAMP'),
+ *   EndTime: new Date('TIMESTAMP'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListPublicKeysCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListPublicKeysResponse
+ *   PublicKeyList: [ // PublicKeyList
+ *     { // PublicKey
+ *       Value: 'BLOB_VALUE',
+ *       ValidityStartTime: new Date('TIMESTAMP'),
+ *       ValidityEndTime: new Date('TIMESTAMP'),
+ *       Fingerprint: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListPublicKeysCommandInput - {@link ListPublicKeysCommandInput}
@@ -75,6 +88,8 @@ export interface ListPublicKeysCommandOutput extends ListPublicKeysResponse, __M
  * @throws {@link UnsupportedOperationException} (client fault)
  *  <p>This exception is thrown when the requested operation is not supported.</p>
  *
+ * @throws {@link CloudTrailServiceException}
+ * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
  */
 export class ListPublicKeysCommand extends $Command<

@@ -40,20 +40,25 @@ export interface UpdatePermissionGroupCommandOutput extends UpdatePermissionGrou
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FinspaceDataClient, UpdatePermissionGroupCommand } from "@aws-sdk/client-finspace-data"; // ES Modules import
- * // const { FinspaceDataClient, UpdatePermissionGroupCommand } = require("@aws-sdk/client-finspace-data"); // CommonJS import
+ * import { FinspaceDataClient, UpdatePermissionGroupCommand } from '@aws-sdk/client-finspace-data'; // ES Modules import
+ * // const { FinspaceDataClient, UpdatePermissionGroupCommand } = require('@aws-sdk/client-finspace-data'); // CommonJS import
  * const client = new FinspaceDataClient(config);
  * const input = { // UpdatePermissionGroupRequest
- *   permissionGroupId: "STRING_VALUE", // required
- *   name: "STRING_VALUE",
- *   description: "STRING_VALUE",
+ *   permissionGroupId: 'STRING_VALUE', // required
+ *   name: 'STRING_VALUE',
+ *   description: 'STRING_VALUE',
  *   applicationPermissions: [ // ApplicationPermissionList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   clientToken: "STRING_VALUE",
+ *   clientToken: 'STRING_VALUE',
  * };
  * const command = new UpdatePermissionGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdatePermissionGroupResponse
+ *   permissionGroupId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdatePermissionGroupCommandInput - {@link UpdatePermissionGroupCommandInput}
@@ -81,6 +86,8 @@ export interface UpdatePermissionGroupCommandOutput extends UpdatePermissionGrou
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link FinspaceDataServiceException}
+ * <p>Base exception class for all service exceptions from FinspaceData service.</p>
  *
  */
 export class UpdatePermissionGroupCommand extends $Command<

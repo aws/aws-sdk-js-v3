@@ -53,28 +53,34 @@ export interface PublishCommandOutput extends PublishResponse, __MetadataBearer 
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SNSClient, PublishCommand } from "@aws-sdk/client-sns"; // ES Modules import
- * // const { SNSClient, PublishCommand } = require("@aws-sdk/client-sns"); // CommonJS import
+ * import { SNSClient, PublishCommand } from '@aws-sdk/client-sns'; // ES Modules import
+ * // const { SNSClient, PublishCommand } = require('@aws-sdk/client-sns'); // CommonJS import
  * const client = new SNSClient(config);
  * const input = { // PublishInput
- *   TopicArn: "STRING_VALUE",
- *   TargetArn: "STRING_VALUE",
- *   PhoneNumber: "STRING_VALUE",
- *   Message: "STRING_VALUE", // required
- *   Subject: "STRING_VALUE",
- *   MessageStructure: "STRING_VALUE",
+ *   TopicArn: 'STRING_VALUE',
+ *   TargetArn: 'STRING_VALUE',
+ *   PhoneNumber: 'STRING_VALUE',
+ *   Message: 'STRING_VALUE', // required
+ *   Subject: 'STRING_VALUE',
+ *   MessageStructure: 'STRING_VALUE',
  *   MessageAttributes: { // MessageAttributeMap
- *     "<keys>": { // MessageAttributeValue
- *       DataType: "STRING_VALUE", // required
- *       StringValue: "STRING_VALUE",
- *       BinaryValue: "BLOB_VALUE",
+ *     '<keys>': { // MessageAttributeValue
+ *       DataType: 'STRING_VALUE', // required
+ *       StringValue: 'STRING_VALUE',
+ *       BinaryValue: 'BLOB_VALUE',
  *     },
  *   },
- *   MessageDeduplicationId: "STRING_VALUE",
- *   MessageGroupId: "STRING_VALUE",
+ *   MessageDeduplicationId: 'STRING_VALUE',
+ *   MessageGroupId: 'STRING_VALUE',
  * };
  * const command = new PublishCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PublishResponse
+ *   MessageId: 'STRING_VALUE',
+ *   SequenceNumber: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param PublishCommandInput - {@link PublishCommandInput}
@@ -139,6 +145,8 @@ export interface PublishCommandOutput extends PublishResponse, __MetadataBearer 
  * @throws {@link ValidationException} (client fault)
  *  <p>Indicates that a parameter in the request is invalid.</p>
  *
+ * @throws {@link SNSServiceException}
+ * <p>Base exception class for all service exceptions from SNS service.</p>
  *
  */
 export class PublishCommand extends $Command<PublishCommandInput, PublishCommandOutput, SNSClientResolvedConfig> {

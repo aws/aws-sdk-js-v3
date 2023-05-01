@@ -36,14 +36,17 @@ export interface DeleteCodeRepositoryCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, DeleteCodeRepositoryCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, DeleteCodeRepositoryCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, DeleteCodeRepositoryCommand } from '@aws-sdk/client-sagemaker'; // ES Modules import
+ * // const { SageMakerClient, DeleteCodeRepositoryCommand } = require('@aws-sdk/client-sagemaker'); // CommonJS import
  * const client = new SageMakerClient(config);
  * const input = { // DeleteCodeRepositoryInput
- *   CodeRepositoryName: "STRING_VALUE", // required
+ *   CodeRepositoryName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteCodeRepositoryCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteCodeRepositoryCommandInput - {@link DeleteCodeRepositoryCommandInput}
@@ -52,6 +55,8 @@ export interface DeleteCodeRepositoryCommandOutput extends __MetadataBearer {}
  * @see {@link DeleteCodeRepositoryCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class DeleteCodeRepositoryCommand extends $Command<

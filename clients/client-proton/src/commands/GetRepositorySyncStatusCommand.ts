@@ -43,17 +43,33 @@ export interface GetRepositorySyncStatusCommandOutput extends GetRepositorySyncS
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ProtonClient, GetRepositorySyncStatusCommand } from "@aws-sdk/client-proton"; // ES Modules import
- * // const { ProtonClient, GetRepositorySyncStatusCommand } = require("@aws-sdk/client-proton"); // CommonJS import
+ * import { ProtonClient, GetRepositorySyncStatusCommand } from '@aws-sdk/client-proton'; // ES Modules import
+ * // const { ProtonClient, GetRepositorySyncStatusCommand } = require('@aws-sdk/client-proton'); // CommonJS import
  * const client = new ProtonClient(config);
  * const input = { // GetRepositorySyncStatusInput
- *   repositoryName: "STRING_VALUE", // required
- *   repositoryProvider: "STRING_VALUE", // required
- *   branch: "STRING_VALUE", // required
- *   syncType: "STRING_VALUE", // required
+ *   repositoryName: 'STRING_VALUE', // required
+ *   repositoryProvider: 'STRING_VALUE', // required
+ *   branch: 'STRING_VALUE', // required
+ *   syncType: 'STRING_VALUE', // required
  * };
  * const command = new GetRepositorySyncStatusCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetRepositorySyncStatusOutput
+ *   latestSync: { // RepositorySyncAttempt
+ *     startedAt: new Date('TIMESTAMP'), // required
+ *     status: 'STRING_VALUE', // required
+ *     events: [ // RepositorySyncEvents // required
+ *       { // RepositorySyncEvent
+ *         type: 'STRING_VALUE', // required
+ *         externalId: 'STRING_VALUE',
+ *         time: new Date('TIMESTAMP'), // required
+ *         event: 'STRING_VALUE', // required
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetRepositorySyncStatusCommandInput - {@link GetRepositorySyncStatusCommandInput}
@@ -77,6 +93,8 @@ export interface GetRepositorySyncStatusCommandOutput extends GetRepositorySyncS
  * @throws {@link ValidationException} (client fault)
  *  <p>The input is invalid or an out-of-range value was supplied for the input parameter.</p>
  *
+ * @throws {@link ProtonServiceException}
+ * <p>Base exception class for all service exceptions from Proton service.</p>
  *
  */
 export class GetRepositorySyncStatusCommand extends $Command<

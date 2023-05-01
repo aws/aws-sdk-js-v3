@@ -68,14 +68,17 @@ export interface DisableKeyRotationCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KMSClient, DisableKeyRotationCommand } from "@aws-sdk/client-kms"; // ES Modules import
- * // const { KMSClient, DisableKeyRotationCommand } = require("@aws-sdk/client-kms"); // CommonJS import
+ * import { KMSClient, DisableKeyRotationCommand } from '@aws-sdk/client-kms'; // ES Modules import
+ * // const { KMSClient, DisableKeyRotationCommand } = require('@aws-sdk/client-kms'); // CommonJS import
  * const client = new KMSClient(config);
  * const input = { // DisableKeyRotationRequest
- *   KeyId: "STRING_VALUE", // required
+ *   KeyId: 'STRING_VALUE', // required
  * };
  * const command = new DisableKeyRotationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DisableKeyRotationCommandInput - {@link DisableKeyRotationCommandInput}
@@ -125,6 +128,8 @@ export interface DisableKeyRotationCommandOutput extends __MetadataBearer {}
  *  <p>The request was rejected because a specified parameter is not supported or a specified
  *       resource is not valid for this operation.</p>
  *
+ * @throws {@link KMSServiceException}
+ * <p>Base exception class for all service exceptions from KMS service.</p>
  *
  * @example To disable automatic rotation of key material
  * ```javascript

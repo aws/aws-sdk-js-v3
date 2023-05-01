@@ -38,16 +38,45 @@ export interface ListAnomalousLogGroupsCommandOutput extends ListAnomalousLogGro
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DevOpsGuruClient, ListAnomalousLogGroupsCommand } from "@aws-sdk/client-devops-guru"; // ES Modules import
- * // const { DevOpsGuruClient, ListAnomalousLogGroupsCommand } = require("@aws-sdk/client-devops-guru"); // CommonJS import
+ * import { DevOpsGuruClient, ListAnomalousLogGroupsCommand } from '@aws-sdk/client-devops-guru'; // ES Modules import
+ * // const { DevOpsGuruClient, ListAnomalousLogGroupsCommand } = require('@aws-sdk/client-devops-guru'); // CommonJS import
  * const client = new DevOpsGuruClient(config);
  * const input = { // ListAnomalousLogGroupsRequest
- *   InsightId: "STRING_VALUE", // required
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   InsightId: 'STRING_VALUE', // required
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListAnomalousLogGroupsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListAnomalousLogGroupsResponse
+ *   InsightId: 'STRING_VALUE', // required
+ *   AnomalousLogGroups: [ // AnomalousLogGroups // required
+ *     { // AnomalousLogGroup
+ *       LogGroupName: 'STRING_VALUE',
+ *       ImpactStartTime: new Date('TIMESTAMP'),
+ *       ImpactEndTime: new Date('TIMESTAMP'),
+ *       NumberOfLogLinesScanned: Number('int'),
+ *       LogAnomalyShowcases: [ // LogAnomalyShowcases
+ *         { // LogAnomalyShowcase
+ *           LogAnomalyClasses: [ // LogAnomalyClasses
+ *             { // LogAnomalyClass
+ *               LogStreamName: 'STRING_VALUE',
+ *               LogAnomalyType: 'KEYWORD' || 'KEYWORD_TOKEN' || 'FORMAT' || 'HTTP_CODE' || 'BLOCK_FORMAT' || 'NUMERICAL_POINT' || 'NUMERICAL_NAN' || 'NEW_FIELD_NAME',
+ *               LogAnomalyToken: 'STRING_VALUE',
+ *               LogEventId: 'STRING_VALUE',
+ *               Explanation: 'STRING_VALUE',
+ *               NumberOfLogLinesOccurrences: Number('int'),
+ *               LogEventTimestamp: new Date('TIMESTAMP'),
+ *             },
+ *           ],
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListAnomalousLogGroupsCommandInput - {@link ListAnomalousLogGroupsCommandInput}
@@ -75,6 +104,8 @@ export interface ListAnomalousLogGroupsCommandOutput extends ListAnomalousLogGro
  *  <p> Contains information about data passed in to a field during a request that is not
  * 			valid. </p>
  *
+ * @throws {@link DevOpsGuruServiceException}
+ * <p>Base exception class for all service exceptions from DevOpsGuru service.</p>
  *
  */
 export class ListAnomalousLogGroupsCommand extends $Command<

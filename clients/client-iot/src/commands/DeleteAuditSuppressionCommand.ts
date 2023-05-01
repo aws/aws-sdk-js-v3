@@ -39,33 +39,36 @@ export interface DeleteAuditSuppressionCommandOutput extends DeleteAuditSuppress
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTClient, DeleteAuditSuppressionCommand } from "@aws-sdk/client-iot"; // ES Modules import
- * // const { IoTClient, DeleteAuditSuppressionCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * import { IoTClient, DeleteAuditSuppressionCommand } from '@aws-sdk/client-iot'; // ES Modules import
+ * // const { IoTClient, DeleteAuditSuppressionCommand } = require('@aws-sdk/client-iot'); // CommonJS import
  * const client = new IoTClient(config);
  * const input = { // DeleteAuditSuppressionRequest
- *   checkName: "STRING_VALUE", // required
+ *   checkName: 'STRING_VALUE', // required
  *   resourceIdentifier: { // ResourceIdentifier
- *     deviceCertificateId: "STRING_VALUE",
- *     caCertificateId: "STRING_VALUE",
- *     cognitoIdentityPoolId: "STRING_VALUE",
- *     clientId: "STRING_VALUE",
+ *     deviceCertificateId: 'STRING_VALUE',
+ *     caCertificateId: 'STRING_VALUE',
+ *     cognitoIdentityPoolId: 'STRING_VALUE',
+ *     clientId: 'STRING_VALUE',
  *     policyVersionIdentifier: { // PolicyVersionIdentifier
- *       policyName: "STRING_VALUE",
- *       policyVersionId: "STRING_VALUE",
+ *       policyName: 'STRING_VALUE',
+ *       policyVersionId: 'STRING_VALUE',
  *     },
- *     account: "STRING_VALUE",
- *     iamRoleArn: "STRING_VALUE",
- *     roleAliasArn: "STRING_VALUE",
+ *     account: 'STRING_VALUE',
+ *     iamRoleArn: 'STRING_VALUE',
+ *     roleAliasArn: 'STRING_VALUE',
  *     issuerCertificateIdentifier: { // IssuerCertificateIdentifier
- *       issuerCertificateSubject: "STRING_VALUE",
- *       issuerId: "STRING_VALUE",
- *       issuerCertificateSerialNumber: "STRING_VALUE",
+ *       issuerCertificateSubject: 'STRING_VALUE',
+ *       issuerId: 'STRING_VALUE',
+ *       issuerCertificateSerialNumber: 'STRING_VALUE',
  *     },
- *     deviceCertificateArn: "STRING_VALUE",
+ *     deviceCertificateArn: 'STRING_VALUE',
  *   },
  * };
  * const command = new DeleteAuditSuppressionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteAuditSuppressionCommandInput - {@link DeleteAuditSuppressionCommandInput}
@@ -83,6 +86,8 @@ export interface DeleteAuditSuppressionCommandOutput extends DeleteAuditSuppress
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The rate exceeds the limit.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class DeleteAuditSuppressionCommand extends $Command<

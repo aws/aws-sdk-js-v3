@@ -40,22 +40,45 @@ export interface ListDatasetImportJobsCommandOutput extends ListDatasetImportJob
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ForecastClient, ListDatasetImportJobsCommand } from "@aws-sdk/client-forecast"; // ES Modules import
- * // const { ForecastClient, ListDatasetImportJobsCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
+ * import { ForecastClient, ListDatasetImportJobsCommand } from '@aws-sdk/client-forecast'; // ES Modules import
+ * // const { ForecastClient, ListDatasetImportJobsCommand } = require('@aws-sdk/client-forecast'); // CommonJS import
  * const client = new ForecastClient(config);
  * const input = { // ListDatasetImportJobsRequest
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  *   Filters: [ // Filters
  *     { // Filter
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
- *       Condition: "IS" || "IS_NOT", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
+ *       Condition: 'IS' || 'IS_NOT', // required
  *     },
  *   ],
  * };
  * const command = new ListDatasetImportJobsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListDatasetImportJobsResponse
+ *   DatasetImportJobs: [ // DatasetImportJobs
+ *     { // DatasetImportJobSummary
+ *       DatasetImportJobArn: 'STRING_VALUE',
+ *       DatasetImportJobName: 'STRING_VALUE',
+ *       DataSource: { // DataSource
+ *         S3Config: { // S3Config
+ *           Path: 'STRING_VALUE', // required
+ *           RoleArn: 'STRING_VALUE', // required
+ *           KMSKeyArn: 'STRING_VALUE',
+ *         },
+ *       },
+ *       Status: 'STRING_VALUE',
+ *       Message: 'STRING_VALUE',
+ *       CreationTime: new Date('TIMESTAMP'),
+ *       LastModificationTime: new Date('TIMESTAMP'),
+ *       ImportMode: 'FULL' || 'INCREMENTAL',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListDatasetImportJobsCommandInput - {@link ListDatasetImportJobsCommandInput}
@@ -71,6 +94,8 @@ export interface ListDatasetImportJobsCommandOutput extends ListDatasetImportJob
  * @throws {@link InvalidNextTokenException} (client fault)
  *  <p>The token is not valid. Tokens expire after 24 hours.</p>
  *
+ * @throws {@link ForecastServiceException}
+ * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
  */
 export class ListDatasetImportJobsCommand extends $Command<

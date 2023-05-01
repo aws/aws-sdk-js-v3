@@ -36,23 +36,31 @@ export interface CreateCustomPluginCommandOutput extends CreateCustomPluginRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KafkaConnectClient, CreateCustomPluginCommand } from "@aws-sdk/client-kafkaconnect"; // ES Modules import
- * // const { KafkaConnectClient, CreateCustomPluginCommand } = require("@aws-sdk/client-kafkaconnect"); // CommonJS import
+ * import { KafkaConnectClient, CreateCustomPluginCommand } from '@aws-sdk/client-kafkaconnect'; // ES Modules import
+ * // const { KafkaConnectClient, CreateCustomPluginCommand } = require('@aws-sdk/client-kafkaconnect'); // CommonJS import
  * const client = new KafkaConnectClient(config);
  * const input = { // CreateCustomPluginRequest
- *   contentType: "STRING_VALUE", // required
- *   description: "STRING_VALUE",
+ *   contentType: 'STRING_VALUE', // required
+ *   description: 'STRING_VALUE',
  *   location: { // CustomPluginLocation
  *     s3Location: { // S3Location
- *       bucketArn: "STRING_VALUE", // required
- *       fileKey: "STRING_VALUE", // required
- *       objectVersion: "STRING_VALUE",
+ *       bucketArn: 'STRING_VALUE', // required
+ *       fileKey: 'STRING_VALUE', // required
+ *       objectVersion: 'STRING_VALUE',
  *     },
  *   },
- *   name: "STRING_VALUE", // required
+ *   name: 'STRING_VALUE', // required
  * };
  * const command = new CreateCustomPluginCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateCustomPluginResponse
+ *   customPluginArn: 'STRING_VALUE',
+ *   customPluginState: 'STRING_VALUE',
+ *   name: 'STRING_VALUE',
+ *   revision: Number('long'),
+ * };
+ *
  * ```
  *
  * @param CreateCustomPluginCommandInput - {@link CreateCustomPluginCommandInput}
@@ -92,6 +100,8 @@ export interface CreateCustomPluginCommandOutput extends CreateCustomPluginRespo
  *  <p>HTTP Status Code 401: Unauthorized request. The provided credentials couldn't be
  *          validated.</p>
  *
+ * @throws {@link KafkaConnectServiceException}
+ * <p>Base exception class for all service exceptions from KafkaConnect service.</p>
  *
  */
 export class CreateCustomPluginCommand extends $Command<

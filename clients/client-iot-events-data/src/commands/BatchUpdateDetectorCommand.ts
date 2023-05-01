@@ -37,27 +37,27 @@ export interface BatchUpdateDetectorCommandOutput extends BatchUpdateDetectorRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTEventsDataClient, BatchUpdateDetectorCommand } from "@aws-sdk/client-iot-events-data"; // ES Modules import
- * // const { IoTEventsDataClient, BatchUpdateDetectorCommand } = require("@aws-sdk/client-iot-events-data"); // CommonJS import
+ * import { IoTEventsDataClient, BatchUpdateDetectorCommand } from '@aws-sdk/client-iot-events-data'; // ES Modules import
+ * // const { IoTEventsDataClient, BatchUpdateDetectorCommand } = require('@aws-sdk/client-iot-events-data'); // CommonJS import
  * const client = new IoTEventsDataClient(config);
  * const input = { // BatchUpdateDetectorRequest
  *   detectors: [ // UpdateDetectorRequests // required
  *     { // UpdateDetectorRequest
- *       messageId: "STRING_VALUE", // required
- *       detectorModelName: "STRING_VALUE", // required
- *       keyValue: "STRING_VALUE",
+ *       messageId: 'STRING_VALUE', // required
+ *       detectorModelName: 'STRING_VALUE', // required
+ *       keyValue: 'STRING_VALUE',
  *       state: { // DetectorStateDefinition
- *         stateName: "STRING_VALUE", // required
+ *         stateName: 'STRING_VALUE', // required
  *         variables: [ // VariableDefinitions // required
  *           { // VariableDefinition
- *             name: "STRING_VALUE", // required
- *             value: "STRING_VALUE", // required
+ *             name: 'STRING_VALUE', // required
+ *             value: 'STRING_VALUE', // required
  *           },
  *         ],
  *         timers: [ // TimerDefinitions // required
  *           { // TimerDefinition
- *             name: "STRING_VALUE", // required
- *             seconds: Number("int"), // required
+ *             name: 'STRING_VALUE', // required
+ *             seconds: Number('int'), // required
  *           },
  *         ],
  *       },
@@ -66,6 +66,17 @@ export interface BatchUpdateDetectorCommandOutput extends BatchUpdateDetectorRes
  * };
  * const command = new BatchUpdateDetectorCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BatchUpdateDetectorResponse
+ *   batchUpdateDetectorErrorEntries: [ // BatchUpdateDetectorErrorEntries
+ *     { // BatchUpdateDetectorErrorEntry
+ *       messageId: 'STRING_VALUE',
+ *       errorCode: 'STRING_VALUE',
+ *       errorMessage: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param BatchUpdateDetectorCommandInput - {@link BatchUpdateDetectorCommandInput}
@@ -86,6 +97,8 @@ export interface BatchUpdateDetectorCommandOutput extends BatchUpdateDetectorRes
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request could not be completed due to throttling.</p>
  *
+ * @throws {@link IoTEventsDataServiceException}
+ * <p>Base exception class for all service exceptions from IoTEventsData service.</p>
  *
  */
 export class BatchUpdateDetectorCommand extends $Command<

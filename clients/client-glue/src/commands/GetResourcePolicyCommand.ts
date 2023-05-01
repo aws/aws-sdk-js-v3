@@ -36,14 +36,22 @@ export interface GetResourcePolicyCommandOutput extends GetResourcePolicyRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlueClient, GetResourcePolicyCommand } from "@aws-sdk/client-glue"; // ES Modules import
- * // const { GlueClient, GetResourcePolicyCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * import { GlueClient, GetResourcePolicyCommand } from '@aws-sdk/client-glue'; // ES Modules import
+ * // const { GlueClient, GetResourcePolicyCommand } = require('@aws-sdk/client-glue'); // CommonJS import
  * const client = new GlueClient(config);
  * const input = { // GetResourcePolicyRequest
- *   ResourceArn: "STRING_VALUE",
+ *   ResourceArn: 'STRING_VALUE',
  * };
  * const command = new GetResourcePolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetResourcePolicyResponse
+ *   PolicyInJson: 'STRING_VALUE',
+ *   PolicyHash: 'STRING_VALUE',
+ *   CreateTime: new Date('TIMESTAMP'),
+ *   UpdateTime: new Date('TIMESTAMP'),
+ * };
+ *
  * ```
  *
  * @param GetResourcePolicyCommandInput - {@link GetResourcePolicyCommandInput}
@@ -64,6 +72,8 @@ export interface GetResourcePolicyCommandOutput extends GetResourcePolicyRespons
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class GetResourcePolicyCommand extends $Command<

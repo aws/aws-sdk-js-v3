@@ -36,22 +36,39 @@ export interface DescribeServiceUpdatesCommandOutput extends DescribeServiceUpda
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MemoryDBClient, DescribeServiceUpdatesCommand } from "@aws-sdk/client-memorydb"; // ES Modules import
- * // const { MemoryDBClient, DescribeServiceUpdatesCommand } = require("@aws-sdk/client-memorydb"); // CommonJS import
+ * import { MemoryDBClient, DescribeServiceUpdatesCommand } from '@aws-sdk/client-memorydb'; // ES Modules import
+ * // const { MemoryDBClient, DescribeServiceUpdatesCommand } = require('@aws-sdk/client-memorydb'); // CommonJS import
  * const client = new MemoryDBClient(config);
  * const input = { // DescribeServiceUpdatesRequest
- *   ServiceUpdateName: "STRING_VALUE",
+ *   ServiceUpdateName: 'STRING_VALUE',
  *   ClusterNames: [ // ClusterNameList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   Status: [ // ServiceUpdateStatusList
- *     "available" || "in-progress" || "complete" || "scheduled",
+ *     'available' || 'in-progress' || 'complete' || 'scheduled',
  *   ],
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new DescribeServiceUpdatesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeServiceUpdatesResponse
+ *   NextToken: 'STRING_VALUE',
+ *   ServiceUpdates: [ // ServiceUpdateList
+ *     { // ServiceUpdate
+ *       ClusterName: 'STRING_VALUE',
+ *       ServiceUpdateName: 'STRING_VALUE',
+ *       ReleaseDate: new Date('TIMESTAMP'),
+ *       Description: 'STRING_VALUE',
+ *       Status: 'available' || 'in-progress' || 'complete' || 'scheduled',
+ *       Type: 'security-update',
+ *       NodesUpdated: 'STRING_VALUE',
+ *       AutoUpdateStartDate: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeServiceUpdatesCommandInput - {@link DescribeServiceUpdatesCommandInput}
@@ -66,6 +83,8 @@ export interface DescribeServiceUpdatesCommandOutput extends DescribeServiceUpda
  * @throws {@link InvalidParameterValueException} (client fault)
  *  <p></p>
  *
+ * @throws {@link MemoryDBServiceException}
+ * <p>Base exception class for all service exceptions from MemoryDB service.</p>
  *
  */
 export class DescribeServiceUpdatesCommand extends $Command<

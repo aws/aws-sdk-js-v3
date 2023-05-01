@@ -45,14 +45,24 @@ export interface GetDeviceCommandOutput extends GetDeviceResponse, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BraketClient, GetDeviceCommand } from "@aws-sdk/client-braket"; // ES Modules import
- * // const { BraketClient, GetDeviceCommand } = require("@aws-sdk/client-braket"); // CommonJS import
+ * import { BraketClient, GetDeviceCommand } from '@aws-sdk/client-braket'; // ES Modules import
+ * // const { BraketClient, GetDeviceCommand } = require('@aws-sdk/client-braket'); // CommonJS import
  * const client = new BraketClient(config);
  * const input = { // GetDeviceRequest
- *   deviceArn: "STRING_VALUE", // required
+ *   deviceArn: 'STRING_VALUE', // required
  * };
  * const command = new GetDeviceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetDeviceResponse
+ *   deviceArn: 'STRING_VALUE', // required
+ *   deviceName: 'STRING_VALUE', // required
+ *   providerName: 'STRING_VALUE', // required
+ *   deviceType: 'STRING_VALUE', // required
+ *   deviceStatus: 'STRING_VALUE', // required
+ *   deviceCapabilities: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param GetDeviceCommandInput - {@link GetDeviceCommandInput}
@@ -77,6 +87,8 @@ export interface GetDeviceCommandOutput extends GetDeviceResponse, __MetadataBea
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link BraketServiceException}
+ * <p>Base exception class for all service exceptions from Braket service.</p>
  *
  */
 export class GetDeviceCommand extends $Command<

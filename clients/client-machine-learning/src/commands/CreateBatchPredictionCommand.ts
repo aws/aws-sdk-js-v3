@@ -47,18 +47,23 @@ export interface CreateBatchPredictionCommandOutput extends CreateBatchPredictio
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MachineLearningClient, CreateBatchPredictionCommand } from "@aws-sdk/client-machine-learning"; // ES Modules import
- * // const { MachineLearningClient, CreateBatchPredictionCommand } = require("@aws-sdk/client-machine-learning"); // CommonJS import
+ * import { MachineLearningClient, CreateBatchPredictionCommand } from '@aws-sdk/client-machine-learning'; // ES Modules import
+ * // const { MachineLearningClient, CreateBatchPredictionCommand } = require('@aws-sdk/client-machine-learning'); // CommonJS import
  * const client = new MachineLearningClient(config);
  * const input = { // CreateBatchPredictionInput
- *   BatchPredictionId: "STRING_VALUE", // required
- *   BatchPredictionName: "STRING_VALUE",
- *   MLModelId: "STRING_VALUE", // required
- *   BatchPredictionDataSourceId: "STRING_VALUE", // required
- *   OutputUri: "STRING_VALUE", // required
+ *   BatchPredictionId: 'STRING_VALUE', // required
+ *   BatchPredictionName: 'STRING_VALUE',
+ *   MLModelId: 'STRING_VALUE', // required
+ *   BatchPredictionDataSourceId: 'STRING_VALUE', // required
+ *   OutputUri: 'STRING_VALUE', // required
  * };
  * const command = new CreateBatchPredictionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateBatchPredictionOutput
+ *   BatchPredictionId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateBatchPredictionCommandInput - {@link CreateBatchPredictionCommandInput}
@@ -76,6 +81,8 @@ export interface CreateBatchPredictionCommandOutput extends CreateBatchPredictio
  * @throws {@link InvalidInputException} (client fault)
  *  <p>An error on the client occurred. Typically, the cause is an invalid input value.</p>
  *
+ * @throws {@link MachineLearningServiceException}
+ * <p>Base exception class for all service exceptions from MachineLearning service.</p>
  *
  */
 export class CreateBatchPredictionCommand extends $Command<

@@ -56,31 +56,36 @@ export interface CreateWhatIfForecastExportCommandOutput extends CreateWhatIfFor
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ForecastClient, CreateWhatIfForecastExportCommand } from "@aws-sdk/client-forecast"; // ES Modules import
- * // const { ForecastClient, CreateWhatIfForecastExportCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
+ * import { ForecastClient, CreateWhatIfForecastExportCommand } from '@aws-sdk/client-forecast'; // ES Modules import
+ * // const { ForecastClient, CreateWhatIfForecastExportCommand } = require('@aws-sdk/client-forecast'); // CommonJS import
  * const client = new ForecastClient(config);
  * const input = { // CreateWhatIfForecastExportRequest
- *   WhatIfForecastExportName: "STRING_VALUE", // required
+ *   WhatIfForecastExportName: 'STRING_VALUE', // required
  *   WhatIfForecastArns: [ // WhatIfForecastArnListForExport // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   Destination: { // DataDestination
  *     S3Config: { // S3Config
- *       Path: "STRING_VALUE", // required
- *       RoleArn: "STRING_VALUE", // required
- *       KMSKeyArn: "STRING_VALUE",
+ *       Path: 'STRING_VALUE', // required
+ *       RoleArn: 'STRING_VALUE', // required
+ *       KMSKeyArn: 'STRING_VALUE',
  *     },
  *   },
  *   Tags: [ // Tags
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
- *   Format: "STRING_VALUE",
+ *   Format: 'STRING_VALUE',
  * };
  * const command = new CreateWhatIfForecastExportCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateWhatIfForecastExportResponse
+ *   WhatIfForecastExportArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateWhatIfForecastExportCommandInput - {@link CreateWhatIfForecastExportCommandInput}
@@ -106,6 +111,8 @@ export interface CreateWhatIfForecastExportCommandOutput extends CreateWhatIfFor
  *  <p>We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try
  *       again.</p>
  *
+ * @throws {@link ForecastServiceException}
+ * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
  */
 export class CreateWhatIfForecastExportCommand extends $Command<

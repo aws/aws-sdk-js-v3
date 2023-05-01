@@ -59,21 +59,36 @@ export interface ModifyDBClusterSnapshotAttributeCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RDSClient, ModifyDBClusterSnapshotAttributeCommand } from "@aws-sdk/client-rds"; // ES Modules import
- * // const { RDSClient, ModifyDBClusterSnapshotAttributeCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * import { RDSClient, ModifyDBClusterSnapshotAttributeCommand } from '@aws-sdk/client-rds'; // ES Modules import
+ * // const { RDSClient, ModifyDBClusterSnapshotAttributeCommand } = require('@aws-sdk/client-rds'); // CommonJS import
  * const client = new RDSClient(config);
  * const input = { // ModifyDBClusterSnapshotAttributeMessage
- *   DBClusterSnapshotIdentifier: "STRING_VALUE", // required
- *   AttributeName: "STRING_VALUE", // required
+ *   DBClusterSnapshotIdentifier: 'STRING_VALUE', // required
+ *   AttributeName: 'STRING_VALUE', // required
  *   ValuesToAdd: [ // AttributeValueList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   ValuesToRemove: [
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new ModifyDBClusterSnapshotAttributeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ModifyDBClusterSnapshotAttributeResult
+ *   DBClusterSnapshotAttributesResult: { // DBClusterSnapshotAttributesResult
+ *     DBClusterSnapshotIdentifier: 'STRING_VALUE',
+ *     DBClusterSnapshotAttributes: [ // DBClusterSnapshotAttributeList
+ *       { // DBClusterSnapshotAttribute
+ *         AttributeName: 'STRING_VALUE',
+ *         AttributeValues: [ // AttributeValueList
+ *           'STRING_VALUE',
+ *         ],
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param ModifyDBClusterSnapshotAttributeCommandInput - {@link ModifyDBClusterSnapshotAttributeCommandInput}
@@ -92,6 +107,8 @@ export interface ModifyDBClusterSnapshotAttributeCommandOutput
  * @throws {@link SharedSnapshotQuotaExceededFault} (client fault)
  *  <p>You have exceeded the maximum number of accounts that you can share a manual DB snapshot with.</p>
  *
+ * @throws {@link RDSServiceException}
+ * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  * @example To modify a DB cluster snapshot attribute
  * ```javascript

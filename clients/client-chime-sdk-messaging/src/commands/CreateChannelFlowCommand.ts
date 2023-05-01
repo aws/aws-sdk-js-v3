@@ -63,35 +63,40 @@ export interface CreateChannelFlowCommandOutput extends CreateChannelFlowRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeSDKMessagingClient, CreateChannelFlowCommand } from "@aws-sdk/client-chime-sdk-messaging"; // ES Modules import
- * // const { ChimeSDKMessagingClient, CreateChannelFlowCommand } = require("@aws-sdk/client-chime-sdk-messaging"); // CommonJS import
+ * import { ChimeSDKMessagingClient, CreateChannelFlowCommand } from '@aws-sdk/client-chime-sdk-messaging'; // ES Modules import
+ * // const { ChimeSDKMessagingClient, CreateChannelFlowCommand } = require('@aws-sdk/client-chime-sdk-messaging'); // CommonJS import
  * const client = new ChimeSDKMessagingClient(config);
  * const input = { // CreateChannelFlowRequest
- *   AppInstanceArn: "STRING_VALUE", // required
+ *   AppInstanceArn: 'STRING_VALUE', // required
  *   Processors: [ // ProcessorList // required
  *     { // Processor
- *       Name: "STRING_VALUE", // required
+ *       Name: 'STRING_VALUE', // required
  *       Configuration: { // ProcessorConfiguration
  *         Lambda: { // LambdaConfiguration
- *           ResourceArn: "STRING_VALUE", // required
- *           InvocationType: "ASYNC", // required
+ *           ResourceArn: 'STRING_VALUE', // required
+ *           InvocationType: 'ASYNC', // required
  *         },
  *       },
- *       ExecutionOrder: Number("int"), // required
- *       FallbackAction: "CONTINUE" || "ABORT", // required
+ *       ExecutionOrder: Number('int'), // required
+ *       FallbackAction: 'CONTINUE' || 'ABORT', // required
  *     },
  *   ],
- *   Name: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
- *   ClientRequestToken: "STRING_VALUE", // required
+ *   ClientRequestToken: 'STRING_VALUE', // required
  * };
  * const command = new CreateChannelFlowCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateChannelFlowResponse
+ *   ChannelFlowArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateChannelFlowCommandInput - {@link CreateChannelFlowCommandInput}
@@ -125,6 +130,8 @@ export interface CreateChannelFlowCommandOutput extends CreateChannelFlowRespons
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeSDKMessagingServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKMessaging service.</p>
  *
  */
 export class CreateChannelFlowCommand extends $Command<

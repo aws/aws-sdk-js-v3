@@ -36,23 +36,28 @@ export interface CreateHumanTaskUiCommandOutput extends CreateHumanTaskUiRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, CreateHumanTaskUiCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, CreateHumanTaskUiCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, CreateHumanTaskUiCommand } from '@aws-sdk/client-sagemaker'; // ES Modules import
+ * // const { SageMakerClient, CreateHumanTaskUiCommand } = require('@aws-sdk/client-sagemaker'); // CommonJS import
  * const client = new SageMakerClient(config);
  * const input = { // CreateHumanTaskUiRequest
- *   HumanTaskUiName: "STRING_VALUE", // required
+ *   HumanTaskUiName: 'STRING_VALUE', // required
  *   UiTemplate: { // UiTemplate
- *     Content: "STRING_VALUE", // required
+ *     Content: 'STRING_VALUE', // required
  *   },
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreateHumanTaskUiCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateHumanTaskUiResponse
+ *   HumanTaskUiArn: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param CreateHumanTaskUiCommandInput - {@link CreateHumanTaskUiCommandInput}
@@ -68,6 +73,8 @@ export interface CreateHumanTaskUiCommandOutput extends CreateHumanTaskUiRespons
  *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many
  *             training jobs created. </p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class CreateHumanTaskUiCommand extends $Command<

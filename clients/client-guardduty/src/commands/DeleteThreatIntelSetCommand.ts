@@ -36,15 +36,18 @@ export interface DeleteThreatIntelSetCommandOutput extends DeleteThreatIntelSetR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GuardDutyClient, DeleteThreatIntelSetCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
- * // const { GuardDutyClient, DeleteThreatIntelSetCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
+ * import { GuardDutyClient, DeleteThreatIntelSetCommand } from '@aws-sdk/client-guardduty'; // ES Modules import
+ * // const { GuardDutyClient, DeleteThreatIntelSetCommand } = require('@aws-sdk/client-guardduty'); // CommonJS import
  * const client = new GuardDutyClient(config);
  * const input = { // DeleteThreatIntelSetRequest
- *   DetectorId: "STRING_VALUE", // required
- *   ThreatIntelSetId: "STRING_VALUE", // required
+ *   DetectorId: 'STRING_VALUE', // required
+ *   ThreatIntelSetId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteThreatIntelSetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteThreatIntelSetCommandInput - {@link DeleteThreatIntelSetCommandInput}
@@ -59,6 +62,8 @@ export interface DeleteThreatIntelSetCommandOutput extends DeleteThreatIntelSetR
  * @throws {@link InternalServerErrorException} (server fault)
  *  <p>An internal server error exception object.</p>
  *
+ * @throws {@link GuardDutyServiceException}
+ * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
  */
 export class DeleteThreatIntelSetCommand extends $Command<

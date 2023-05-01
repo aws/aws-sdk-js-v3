@@ -36,19 +36,47 @@ export interface ListDevicesCommandOutput extends ListDevicesResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PanoramaClient, ListDevicesCommand } from "@aws-sdk/client-panorama"; // ES Modules import
- * // const { PanoramaClient, ListDevicesCommand } = require("@aws-sdk/client-panorama"); // CommonJS import
+ * import { PanoramaClient, ListDevicesCommand } from '@aws-sdk/client-panorama'; // ES Modules import
+ * // const { PanoramaClient, ListDevicesCommand } = require('@aws-sdk/client-panorama'); // CommonJS import
  * const client = new PanoramaClient(config);
  * const input = { // ListDevicesRequest
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
- *   SortBy: "STRING_VALUE",
- *   SortOrder: "STRING_VALUE",
- *   NameFilter: "STRING_VALUE",
- *   DeviceAggregatedStatusFilter: "STRING_VALUE",
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
+ *   SortBy: 'STRING_VALUE',
+ *   SortOrder: 'STRING_VALUE',
+ *   NameFilter: 'STRING_VALUE',
+ *   DeviceAggregatedStatusFilter: 'STRING_VALUE',
  * };
  * const command = new ListDevicesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListDevicesResponse
+ *   Devices: [ // DeviceList // required
+ *     { // Device
+ *       DeviceId: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *       CreatedTime: new Date('TIMESTAMP'),
+ *       ProvisioningStatus: 'STRING_VALUE',
+ *       LastUpdatedTime: new Date('TIMESTAMP'),
+ *       LeaseExpirationTime: new Date('TIMESTAMP'),
+ *       Brand: 'STRING_VALUE',
+ *       CurrentSoftware: 'STRING_VALUE',
+ *       Description: 'STRING_VALUE',
+ *       Tags: { // TagMap
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *       Type: 'STRING_VALUE',
+ *       LatestDeviceJob: { // LatestDeviceJob
+ *         ImageVersion: 'STRING_VALUE',
+ *         Status: 'STRING_VALUE',
+ *         JobType: 'STRING_VALUE',
+ *       },
+ *       DeviceAggregatedStatus: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListDevicesCommandInput - {@link ListDevicesCommandInput}
@@ -69,6 +97,8 @@ export interface ListDevicesCommandOutput extends ListDevicesResponse, __Metadat
  * @throws {@link ValidationException} (client fault)
  *  <p>The request contains an invalid parameter value.</p>
  *
+ * @throws {@link PanoramaServiceException}
+ * <p>Base exception class for all service exceptions from Panorama service.</p>
  *
  */
 export class ListDevicesCommand extends $Command<

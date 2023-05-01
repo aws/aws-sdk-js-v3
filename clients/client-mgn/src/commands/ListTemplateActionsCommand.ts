@@ -36,21 +36,54 @@ export interface ListTemplateActionsCommandOutput extends ListTemplateActionsRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MgnClient, ListTemplateActionsCommand } from "@aws-sdk/client-mgn"; // ES Modules import
- * // const { MgnClient, ListTemplateActionsCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
+ * import { MgnClient, ListTemplateActionsCommand } from '@aws-sdk/client-mgn'; // ES Modules import
+ * // const { MgnClient, ListTemplateActionsCommand } = require('@aws-sdk/client-mgn'); // CommonJS import
  * const client = new MgnClient(config);
  * const input = { // ListTemplateActionsRequest
- *   launchConfigurationTemplateID: "STRING_VALUE", // required
+ *   launchConfigurationTemplateID: 'STRING_VALUE', // required
  *   filters: { // TemplateActionsRequestFilters
  *     actionIDs: [ // ActionIDs
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *   },
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new ListTemplateActionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTemplateActionsResponse
+ *   items: [ // TemplateActionDocuments
+ *     { // TemplateActionDocument
+ *       actionID: 'STRING_VALUE',
+ *       actionName: 'STRING_VALUE',
+ *       documentIdentifier: 'STRING_VALUE',
+ *       order: Number('int'),
+ *       documentVersion: 'STRING_VALUE',
+ *       active: true || false,
+ *       timeoutSeconds: Number('int'),
+ *       mustSucceedForCutover: true || false,
+ *       parameters: { // SsmDocumentParameters
+ *         '<keys>': [ // SsmParameterStoreParameters
+ *           { // SsmParameterStoreParameter
+ *             parameterType: 'STRING_VALUE', // required
+ *             parameterName: 'STRING_VALUE', // required
+ *           },
+ *         ],
+ *       },
+ *       operatingSystem: 'STRING_VALUE',
+ *       externalParameters: { // SsmDocumentExternalParameters
+ *         '<keys>': { // SsmExternalParameter Union: only one key present
+ *           dynamicPath: 'STRING_VALUE',
+ *         },
+ *       },
+ *       description: 'STRING_VALUE',
+ *       category: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListTemplateActionsCommandInput - {@link ListTemplateActionsCommandInput}
@@ -65,6 +98,8 @@ export interface ListTemplateActionsCommandOutput extends ListTemplateActionsRes
  * @throws {@link UninitializedAccountException} (client fault)
  *  <p>Uninitialized account exception.</p>
  *
+ * @throws {@link MgnServiceException}
+ * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
  */
 export class ListTemplateActionsCommand extends $Command<

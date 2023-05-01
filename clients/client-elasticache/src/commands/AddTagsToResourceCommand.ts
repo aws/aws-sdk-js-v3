@@ -47,20 +47,30 @@ export interface AddTagsToResourceCommandOutput extends TagListMessage, __Metada
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElastiCacheClient, AddTagsToResourceCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
- * // const { ElastiCacheClient, AddTagsToResourceCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
+ * import { ElastiCacheClient, AddTagsToResourceCommand } from '@aws-sdk/client-elasticache'; // ES Modules import
+ * // const { ElastiCacheClient, AddTagsToResourceCommand } = require('@aws-sdk/client-elasticache'); // CommonJS import
  * const client = new ElastiCacheClient(config);
  * const input = { // AddTagsToResourceMessage
- *   ResourceName: "STRING_VALUE", // required
+ *   ResourceName: 'STRING_VALUE', // required
  *   Tags: [ // TagList // required
  *     { // Tag
- *       Key: "STRING_VALUE",
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new AddTagsToResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // TagListMessage
+ *   TagList: [ // TagList
+ *     { // Tag
+ *       Key: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param AddTagsToResourceCommandInput - {@link AddTagsToResourceCommandInput}
@@ -105,6 +115,8 @@ export interface AddTagsToResourceCommandOutput extends TagListMessage, __Metada
  * @throws {@link UserNotFoundFault} (client fault)
  *  <p>The user does not exist or could not be found.</p>
  *
+ * @throws {@link ElastiCacheServiceException}
+ * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
  * @example AddTagsToResource
  * ```javascript

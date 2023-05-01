@@ -38,19 +38,31 @@ export interface ListAuditTasksCommandOutput extends ListAuditTasksResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTClient, ListAuditTasksCommand } from "@aws-sdk/client-iot"; // ES Modules import
- * // const { IoTClient, ListAuditTasksCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * import { IoTClient, ListAuditTasksCommand } from '@aws-sdk/client-iot'; // ES Modules import
+ * // const { IoTClient, ListAuditTasksCommand } = require('@aws-sdk/client-iot'); // CommonJS import
  * const client = new IoTClient(config);
  * const input = { // ListAuditTasksRequest
- *   startTime: new Date("TIMESTAMP"), // required
- *   endTime: new Date("TIMESTAMP"), // required
- *   taskType: "ON_DEMAND_AUDIT_TASK" || "SCHEDULED_AUDIT_TASK",
- *   taskStatus: "IN_PROGRESS" || "COMPLETED" || "FAILED" || "CANCELED",
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   startTime: new Date('TIMESTAMP'), // required
+ *   endTime: new Date('TIMESTAMP'), // required
+ *   taskType: 'ON_DEMAND_AUDIT_TASK' || 'SCHEDULED_AUDIT_TASK',
+ *   taskStatus: 'IN_PROGRESS' || 'COMPLETED' || 'FAILED' || 'CANCELED',
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new ListAuditTasksCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListAuditTasksResponse
+ *   tasks: [ // AuditTaskMetadataList
+ *     { // AuditTaskMetadata
+ *       taskId: 'STRING_VALUE',
+ *       taskStatus: 'IN_PROGRESS' || 'COMPLETED' || 'FAILED' || 'CANCELED',
+ *       taskType: 'ON_DEMAND_AUDIT_TASK' || 'SCHEDULED_AUDIT_TASK',
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListAuditTasksCommandInput - {@link ListAuditTasksCommandInput}
@@ -68,6 +80,8 @@ export interface ListAuditTasksCommandOutput extends ListAuditTasksResponse, __M
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The rate exceeds the limit.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class ListAuditTasksCommand extends $Command<

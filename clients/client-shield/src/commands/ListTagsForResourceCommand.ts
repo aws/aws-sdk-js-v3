@@ -36,14 +36,24 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ShieldClient, ListTagsForResourceCommand } from "@aws-sdk/client-shield"; // ES Modules import
- * // const { ShieldClient, ListTagsForResourceCommand } = require("@aws-sdk/client-shield"); // CommonJS import
+ * import { ShieldClient, ListTagsForResourceCommand } from '@aws-sdk/client-shield'; // ES Modules import
+ * // const { ShieldClient, ListTagsForResourceCommand } = require('@aws-sdk/client-shield'); // CommonJS import
  * const client = new ShieldClient(config);
  * const input = { // ListTagsForResourceRequest
- *   ResourceARN: "STRING_VALUE", // required
+ *   ResourceARN: 'STRING_VALUE', // required
  * };
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTagsForResourceResponse
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListTagsForResourceCommandInput - {@link ListTagsForResourceCommandInput}
@@ -61,6 +71,8 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Exception indicating the specified resource does not exist. If available, this exception includes details in additional properties. </p>
  *
+ * @throws {@link ShieldServiceException}
+ * <p>Base exception class for all service exceptions from Shield service.</p>
  *
  */
 export class ListTagsForResourceCommand extends $Command<

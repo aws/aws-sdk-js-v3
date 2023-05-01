@@ -42,23 +42,23 @@ export interface BatchCreateVehicleCommandOutput extends BatchCreateVehicleRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTFleetWiseClient, BatchCreateVehicleCommand } from "@aws-sdk/client-iotfleetwise"; // ES Modules import
- * // const { IoTFleetWiseClient, BatchCreateVehicleCommand } = require("@aws-sdk/client-iotfleetwise"); // CommonJS import
+ * import { IoTFleetWiseClient, BatchCreateVehicleCommand } from '@aws-sdk/client-iotfleetwise'; // ES Modules import
+ * // const { IoTFleetWiseClient, BatchCreateVehicleCommand } = require('@aws-sdk/client-iotfleetwise'); // CommonJS import
  * const client = new IoTFleetWiseClient(config);
  * const input = { // BatchCreateVehicleRequest
  *   vehicles: [ // createVehicleRequestItems // required
  *     { // CreateVehicleRequestItem
- *       vehicleName: "STRING_VALUE", // required
- *       modelManifestArn: "STRING_VALUE", // required
- *       decoderManifestArn: "STRING_VALUE", // required
+ *       vehicleName: 'STRING_VALUE', // required
+ *       modelManifestArn: 'STRING_VALUE', // required
+ *       decoderManifestArn: 'STRING_VALUE', // required
  *       attributes: { // attributesMap
- *         "<keys>": "STRING_VALUE",
+ *         '<keys>': 'STRING_VALUE',
  *       },
- *       associationBehavior: "STRING_VALUE",
+ *       associationBehavior: 'STRING_VALUE',
  *       tags: [ // TagList
  *         { // Tag
- *           Key: "STRING_VALUE", // required
- *           Value: "STRING_VALUE", // required
+ *           Key: 'STRING_VALUE', // required
+ *           Value: 'STRING_VALUE', // required
  *         },
  *       ],
  *     },
@@ -66,6 +66,24 @@ export interface BatchCreateVehicleCommandOutput extends BatchCreateVehicleRespo
  * };
  * const command = new BatchCreateVehicleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BatchCreateVehicleResponse
+ *   vehicles: [ // createVehicleResponses
+ *     { // CreateVehicleResponseItem
+ *       vehicleName: 'STRING_VALUE',
+ *       arn: 'STRING_VALUE',
+ *       thingArn: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   errors: [ // createVehicleErrors
+ *     { // CreateVehicleError
+ *       vehicleName: 'STRING_VALUE',
+ *       code: 'STRING_VALUE',
+ *       message: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param BatchCreateVehicleCommandInput - {@link BatchCreateVehicleCommandInput}
@@ -89,6 +107,8 @@ export interface BatchCreateVehicleCommandOutput extends BatchCreateVehicleRespo
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
  *
+ * @throws {@link IoTFleetWiseServiceException}
+ * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
  */
 export class BatchCreateVehicleCommand extends $Command<

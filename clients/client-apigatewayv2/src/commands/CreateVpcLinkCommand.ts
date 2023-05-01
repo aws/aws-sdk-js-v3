@@ -36,23 +36,42 @@ export interface CreateVpcLinkCommandOutput extends CreateVpcLinkResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ApiGatewayV2Client, CreateVpcLinkCommand } from "@aws-sdk/client-apigatewayv2"; // ES Modules import
- * // const { ApiGatewayV2Client, CreateVpcLinkCommand } = require("@aws-sdk/client-apigatewayv2"); // CommonJS import
+ * import { ApiGatewayV2Client, CreateVpcLinkCommand } from '@aws-sdk/client-apigatewayv2'; // ES Modules import
+ * // const { ApiGatewayV2Client, CreateVpcLinkCommand } = require('@aws-sdk/client-apigatewayv2'); // CommonJS import
  * const client = new ApiGatewayV2Client(config);
  * const input = { // CreateVpcLinkRequest
- *   Name: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
  *   SecurityGroupIds: [ // SecurityGroupIdList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   SubnetIds: [ // SubnetIdList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   Tags: { // Tags
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateVpcLinkCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateVpcLinkResponse
+ *   CreatedDate: new Date('TIMESTAMP'),
+ *   Name: 'STRING_VALUE',
+ *   SecurityGroupIds: [ // SecurityGroupIdList
+ *     'STRING_VALUE',
+ *   ],
+ *   SubnetIds: [ // SubnetIdList
+ *     'STRING_VALUE',
+ *   ],
+ *   Tags: { // Tags
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ *   VpcLinkId: 'STRING_VALUE',
+ *   VpcLinkStatus: 'STRING_VALUE',
+ *   VpcLinkStatusMessage: 'STRING_VALUE',
+ *   VpcLinkVersion: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateVpcLinkCommandInput - {@link CreateVpcLinkCommandInput}
@@ -67,6 +86,8 @@ export interface CreateVpcLinkCommandOutput extends CreateVpcLinkResponse, __Met
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>A limit has been exceeded. See the accompanying error message for details.</p>
  *
+ * @throws {@link ApiGatewayV2ServiceException}
+ * <p>Base exception class for all service exceptions from ApiGatewayV2 service.</p>
  *
  */
 export class CreateVpcLinkCommand extends $Command<

@@ -48,31 +48,50 @@ export interface DetectModerationLabelsCommandOutput extends DetectModerationLab
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RekognitionClient, DetectModerationLabelsCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
- * // const { RekognitionClient, DetectModerationLabelsCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
+ * import { RekognitionClient, DetectModerationLabelsCommand } from '@aws-sdk/client-rekognition'; // ES Modules import
+ * // const { RekognitionClient, DetectModerationLabelsCommand } = require('@aws-sdk/client-rekognition'); // CommonJS import
  * const client = new RekognitionClient(config);
  * const input = { // DetectModerationLabelsRequest
  *   Image: { // Image
- *     Bytes: "BLOB_VALUE",
+ *     Bytes: 'BLOB_VALUE',
  *     S3Object: { // S3Object
- *       Bucket: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *       Version: "STRING_VALUE",
+ *       Bucket: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *       Version: 'STRING_VALUE',
  *     },
  *   },
- *   MinConfidence: Number("float"),
+ *   MinConfidence: Number('float'),
  *   HumanLoopConfig: { // HumanLoopConfig
- *     HumanLoopName: "STRING_VALUE", // required
- *     FlowDefinitionArn: "STRING_VALUE", // required
+ *     HumanLoopName: 'STRING_VALUE', // required
+ *     FlowDefinitionArn: 'STRING_VALUE', // required
  *     DataAttributes: { // HumanLoopDataAttributes
  *       ContentClassifiers: [ // ContentClassifiers
- *         "FreeOfPersonallyIdentifiableInformation" || "FreeOfAdultContent",
+ *         'FreeOfPersonallyIdentifiableInformation' || 'FreeOfAdultContent',
  *       ],
  *     },
  *   },
  * };
  * const command = new DetectModerationLabelsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DetectModerationLabelsResponse
+ *   ModerationLabels: [ // ModerationLabels
+ *     { // ModerationLabel
+ *       Confidence: Number('float'),
+ *       Name: 'STRING_VALUE',
+ *       ParentName: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   ModerationModelVersion: 'STRING_VALUE',
+ *   HumanLoopActivationOutput: { // HumanLoopActivationOutput
+ *     HumanLoopArn: 'STRING_VALUE',
+ *     HumanLoopActivationReasons: [ // HumanLoopActivationReasons
+ *       'STRING_VALUE',
+ *     ],
+ *     HumanLoopActivationConditionsEvaluationResults: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param DetectModerationLabelsCommandInput - {@link DetectModerationLabelsCommandInput}
@@ -113,6 +132,8 @@ export interface DetectModerationLabelsCommandOutput extends DetectModerationLab
  * @throws {@link ThrottlingException} (server fault)
  *  <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
  *
+ * @throws {@link RekognitionServiceException}
+ * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
  */
 export class DetectModerationLabelsCommand extends $Command<

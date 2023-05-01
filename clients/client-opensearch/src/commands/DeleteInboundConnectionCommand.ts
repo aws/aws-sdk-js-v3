@@ -38,14 +38,40 @@ export interface DeleteInboundConnectionCommandOutput extends DeleteInboundConne
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OpenSearchClient, DeleteInboundConnectionCommand } from "@aws-sdk/client-opensearch"; // ES Modules import
- * // const { OpenSearchClient, DeleteInboundConnectionCommand } = require("@aws-sdk/client-opensearch"); // CommonJS import
+ * import { OpenSearchClient, DeleteInboundConnectionCommand } from '@aws-sdk/client-opensearch'; // ES Modules import
+ * // const { OpenSearchClient, DeleteInboundConnectionCommand } = require('@aws-sdk/client-opensearch'); // CommonJS import
  * const client = new OpenSearchClient(config);
  * const input = { // DeleteInboundConnectionRequest
- *   ConnectionId: "STRING_VALUE", // required
+ *   ConnectionId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteInboundConnectionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteInboundConnectionResponse
+ *   Connection: { // InboundConnection
+ *     LocalDomainInfo: { // DomainInformationContainer
+ *       AWSDomainInformation: { // AWSDomainInformation
+ *         OwnerId: 'STRING_VALUE',
+ *         DomainName: 'STRING_VALUE', // required
+ *         Region: 'STRING_VALUE',
+ *       },
+ *     },
+ *     RemoteDomainInfo: {
+ *       AWSDomainInformation: {
+ *         OwnerId: 'STRING_VALUE',
+ *         DomainName: 'STRING_VALUE', // required
+ *         Region: 'STRING_VALUE',
+ *       },
+ *     },
+ *     ConnectionId: 'STRING_VALUE',
+ *     ConnectionStatus: { // InboundConnectionStatus
+ *       StatusCode: 'PENDING_ACCEPTANCE' || 'APPROVED' || 'PROVISIONING' || 'ACTIVE' || 'REJECTING' || 'REJECTED' || 'DELETING' || 'DELETED',
+ *       Message: 'STRING_VALUE',
+ *     },
+ *     ConnectionMode: 'DIRECT' || 'VPC_ENDPOINT',
+ *   },
+ * };
+ *
  * ```
  *
  * @param DeleteInboundConnectionCommandInput - {@link DeleteInboundConnectionCommandInput}
@@ -60,6 +86,8 @@ export interface DeleteInboundConnectionCommandOutput extends DeleteInboundConne
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>An exception for accessing or deleting a resource that does not exist..</p>
  *
+ * @throws {@link OpenSearchServiceException}
+ * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
  */
 export class DeleteInboundConnectionCommand extends $Command<

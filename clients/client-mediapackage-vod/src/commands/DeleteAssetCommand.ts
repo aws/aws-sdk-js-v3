@@ -36,14 +36,17 @@ export interface DeleteAssetCommandOutput extends DeleteAssetResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MediaPackageVodClient, DeleteAssetCommand } from "@aws-sdk/client-mediapackage-vod"; // ES Modules import
- * // const { MediaPackageVodClient, DeleteAssetCommand } = require("@aws-sdk/client-mediapackage-vod"); // CommonJS import
+ * import { MediaPackageVodClient, DeleteAssetCommand } from '@aws-sdk/client-mediapackage-vod'; // ES Modules import
+ * // const { MediaPackageVodClient, DeleteAssetCommand } = require('@aws-sdk/client-mediapackage-vod'); // CommonJS import
  * const client = new MediaPackageVodClient(config);
  * const input = { // DeleteAssetRequest
- *   Id: "STRING_VALUE", // required
+ *   Id: 'STRING_VALUE', // required
  * };
  * const command = new DeleteAssetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteAssetCommandInput - {@link DeleteAssetCommandInput}
@@ -70,6 +73,8 @@ export interface DeleteAssetCommandOutput extends DeleteAssetResponse, __Metadat
  * @throws {@link UnprocessableEntityException} (client fault)
  *  The parameters sent in the request are not valid.
  *
+ * @throws {@link MediaPackageVodServiceException}
+ * <p>Base exception class for all service exceptions from MediaPackageVod service.</p>
  *
  */
 export class DeleteAssetCommand extends $Command<

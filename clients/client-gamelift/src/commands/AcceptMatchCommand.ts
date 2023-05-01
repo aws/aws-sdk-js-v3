@@ -64,18 +64,21 @@ export interface AcceptMatchCommandOutput extends AcceptMatchOutput, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GameLiftClient, AcceptMatchCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
- * // const { GameLiftClient, AcceptMatchCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
+ * import { GameLiftClient, AcceptMatchCommand } from '@aws-sdk/client-gamelift'; // ES Modules import
+ * // const { GameLiftClient, AcceptMatchCommand } = require('@aws-sdk/client-gamelift'); // CommonJS import
  * const client = new GameLiftClient(config);
  * const input = { // AcceptMatchInput
- *   TicketId: "STRING_VALUE", // required
+ *   TicketId: 'STRING_VALUE', // required
  *   PlayerIds: [ // StringList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   AcceptanceType: "ACCEPT" || "REJECT", // required
+ *   AcceptanceType: 'ACCEPT' || 'REJECT', // required
  * };
  * const command = new AcceptMatchCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param AcceptMatchCommandInput - {@link AcceptMatchCommandInput}
@@ -98,6 +101,8 @@ export interface AcceptMatchCommandOutput extends AcceptMatchOutput, __MetadataB
  * @throws {@link UnsupportedRegionException} (client fault)
  *  <p>The requested operation is not supported in the Region specified.</p>
  *
+ * @throws {@link GameLiftServiceException}
+ * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
  */
 export class AcceptMatchCommand extends $Command<

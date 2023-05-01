@@ -39,15 +39,48 @@ export interface DescribeExperienceCommandOutput extends DescribeExperienceRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KendraClient, DescribeExperienceCommand } from "@aws-sdk/client-kendra"; // ES Modules import
- * // const { KendraClient, DescribeExperienceCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
+ * import { KendraClient, DescribeExperienceCommand } from '@aws-sdk/client-kendra'; // ES Modules import
+ * // const { KendraClient, DescribeExperienceCommand } = require('@aws-sdk/client-kendra'); // CommonJS import
  * const client = new KendraClient(config);
  * const input = { // DescribeExperienceRequest
- *   Id: "STRING_VALUE", // required
- *   IndexId: "STRING_VALUE", // required
+ *   Id: 'STRING_VALUE', // required
+ *   IndexId: 'STRING_VALUE', // required
  * };
  * const command = new DescribeExperienceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeExperienceResponse
+ *   Id: 'STRING_VALUE',
+ *   IndexId: 'STRING_VALUE',
+ *   Name: 'STRING_VALUE',
+ *   Endpoints: [ // ExperienceEndpoints
+ *     { // ExperienceEndpoint
+ *       EndpointType: 'HOME',
+ *       Endpoint: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   Configuration: { // ExperienceConfiguration
+ *     ContentSourceConfiguration: { // ContentSourceConfiguration
+ *       DataSourceIds: [ // DataSourceIdList
+ *         'STRING_VALUE',
+ *       ],
+ *       FaqIds: [ // FaqIdsList
+ *         'STRING_VALUE',
+ *       ],
+ *       DirectPutContent: true || false,
+ *     },
+ *     UserIdentityConfiguration: { // UserIdentityConfiguration
+ *       IdentityAttributeName: 'STRING_VALUE',
+ *     },
+ *   },
+ *   CreatedAt: new Date('TIMESTAMP'),
+ *   UpdatedAt: new Date('TIMESTAMP'),
+ *   Description: 'STRING_VALUE',
+ *   Status: 'CREATING' || 'ACTIVE' || 'DELETING' || 'FAILED',
+ *   RoleArn: 'STRING_VALUE',
+ *   ErrorMessage: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeExperienceCommandInput - {@link DescribeExperienceCommandInput}
@@ -76,6 +109,8 @@ export interface DescribeExperienceCommandOutput extends DescribeExperienceRespo
  *  <p>The input fails to satisfy the constraints set by the Amazon Kendra service.
  *             Please provide the correct input and try again.</p>
  *
+ * @throws {@link KendraServiceException}
+ * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
  */
 export class DescribeExperienceCommand extends $Command<

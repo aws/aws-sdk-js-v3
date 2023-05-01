@@ -36,14 +36,64 @@ export interface GetPolicyCommandOutput extends GetPolicyResponse, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FMSClient, GetPolicyCommand } from "@aws-sdk/client-fms"; // ES Modules import
- * // const { FMSClient, GetPolicyCommand } = require("@aws-sdk/client-fms"); // CommonJS import
+ * import { FMSClient, GetPolicyCommand } from '@aws-sdk/client-fms'; // ES Modules import
+ * // const { FMSClient, GetPolicyCommand } = require('@aws-sdk/client-fms'); // CommonJS import
  * const client = new FMSClient(config);
  * const input = { // GetPolicyRequest
- *   PolicyId: "STRING_VALUE", // required
+ *   PolicyId: 'STRING_VALUE', // required
  * };
  * const command = new GetPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetPolicyResponse
+ *   Policy: { // Policy
+ *     PolicyId: 'STRING_VALUE',
+ *     PolicyName: 'STRING_VALUE', // required
+ *     PolicyUpdateToken: 'STRING_VALUE',
+ *     SecurityServicePolicyData: { // SecurityServicePolicyData
+ *       Type: 'WAF' || 'WAFV2' || 'SHIELD_ADVANCED' || 'SECURITY_GROUPS_COMMON' || 'SECURITY_GROUPS_CONTENT_AUDIT' || 'SECURITY_GROUPS_USAGE_AUDIT' || 'NETWORK_FIREWALL' || 'DNS_FIREWALL' || 'THIRD_PARTY_FIREWALL' || 'IMPORT_NETWORK_FIREWALL', // required
+ *       ManagedServiceData: 'STRING_VALUE',
+ *       PolicyOption: { // PolicyOption
+ *         NetworkFirewallPolicy: { // NetworkFirewallPolicy
+ *           FirewallDeploymentModel: 'CENTRALIZED' || 'DISTRIBUTED',
+ *         },
+ *         ThirdPartyFirewallPolicy: { // ThirdPartyFirewallPolicy
+ *           FirewallDeploymentModel: 'CENTRALIZED' || 'DISTRIBUTED',
+ *         },
+ *       },
+ *     },
+ *     ResourceType: 'STRING_VALUE', // required
+ *     ResourceTypeList: [ // ResourceTypeList
+ *       'STRING_VALUE',
+ *     ],
+ *     ResourceTags: [ // ResourceTags
+ *       { // ResourceTag
+ *         Key: 'STRING_VALUE', // required
+ *         Value: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     ExcludeResourceTags: true || false, // required
+ *     RemediationEnabled: true || false, // required
+ *     DeleteUnusedFMManagedResources: true || false,
+ *     IncludeMap: { // CustomerPolicyScopeMap
+ *       '<keys>': [ // CustomerPolicyScopeIdList
+ *         'STRING_VALUE',
+ *       ],
+ *     },
+ *     ExcludeMap: {
+ *       '<keys>': [
+ *         'STRING_VALUE',
+ *       ],
+ *     },
+ *     ResourceSetIds: [ // ResourceSetIds
+ *       'STRING_VALUE',
+ *     ],
+ *     PolicyDescription: 'STRING_VALUE',
+ *     PolicyStatus: 'ACTIVE' || 'OUT_OF_ADMIN_SCOPE',
+ *   },
+ *   PolicyArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetPolicyCommandInput - {@link GetPolicyCommandInput}
@@ -69,6 +119,8 @@ export interface GetPolicyCommandOutput extends GetPolicyResponse, __MetadataBea
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link FMSServiceException}
+ * <p>Base exception class for all service exceptions from FMS service.</p>
  *
  */
 export class GetPolicyCommand extends $Command<GetPolicyCommandInput, GetPolicyCommandOutput, FMSClientResolvedConfig> {

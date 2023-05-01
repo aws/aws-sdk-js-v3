@@ -36,17 +36,37 @@ export interface GetCoreNetworkChangeEventsCommandOutput extends GetCoreNetworkC
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { NetworkManagerClient, GetCoreNetworkChangeEventsCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
- * // const { NetworkManagerClient, GetCoreNetworkChangeEventsCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
+ * import { NetworkManagerClient, GetCoreNetworkChangeEventsCommand } from '@aws-sdk/client-networkmanager'; // ES Modules import
+ * // const { NetworkManagerClient, GetCoreNetworkChangeEventsCommand } = require('@aws-sdk/client-networkmanager'); // CommonJS import
  * const client = new NetworkManagerClient(config);
  * const input = { // GetCoreNetworkChangeEventsRequest
- *   CoreNetworkId: "STRING_VALUE", // required
- *   PolicyVersionId: Number("int"), // required
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   CoreNetworkId: 'STRING_VALUE', // required
+ *   PolicyVersionId: Number('int'), // required
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new GetCoreNetworkChangeEventsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetCoreNetworkChangeEventsResponse
+ *   CoreNetworkChangeEvents: [ // CoreNetworkChangeEventList
+ *     { // CoreNetworkChangeEvent
+ *       Type: 'CORE_NETWORK_SEGMENT' || 'CORE_NETWORK_EDGE' || 'ATTACHMENT_MAPPING' || 'ATTACHMENT_ROUTE_PROPAGATION' || 'ATTACHMENT_ROUTE_STATIC' || 'CORE_NETWORK_CONFIGURATION' || 'SEGMENTS_CONFIGURATION' || 'SEGMENT_ACTIONS_CONFIGURATION' || 'ATTACHMENT_POLICIES_CONFIGURATION',
+ *       Action: 'ADD' || 'MODIFY' || 'REMOVE',
+ *       IdentifierPath: 'STRING_VALUE',
+ *       EventTime: new Date('TIMESTAMP'),
+ *       Status: 'NOT_STARTED' || 'IN_PROGRESS' || 'COMPLETE' || 'FAILED',
+ *       Values: { // CoreNetworkChangeEventValues
+ *         EdgeLocation: 'STRING_VALUE',
+ *         SegmentName: 'STRING_VALUE',
+ *         AttachmentId: 'STRING_VALUE',
+ *         Cidr: 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetCoreNetworkChangeEventsCommandInput - {@link GetCoreNetworkChangeEventsCommandInput}
@@ -70,6 +90,8 @@ export interface GetCoreNetworkChangeEventsCommandOutput extends GetCoreNetworkC
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints.</p>
  *
+ * @throws {@link NetworkManagerServiceException}
+ * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
  */
 export class GetCoreNetworkChangeEventsCommand extends $Command<

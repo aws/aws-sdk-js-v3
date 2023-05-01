@@ -36,20 +36,23 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeSDKMeetingsClient, TagResourceCommand } from "@aws-sdk/client-chime-sdk-meetings"; // ES Modules import
- * // const { ChimeSDKMeetingsClient, TagResourceCommand } = require("@aws-sdk/client-chime-sdk-meetings"); // CommonJS import
+ * import { ChimeSDKMeetingsClient, TagResourceCommand } from '@aws-sdk/client-chime-sdk-meetings'; // ES Modules import
+ * // const { ChimeSDKMeetingsClient, TagResourceCommand } = require('@aws-sdk/client-chime-sdk-meetings'); // CommonJS import
  * const client = new ChimeSDKMeetingsClient(config);
  * const input = { // TagResourceRequest
- *   ResourceARN: "STRING_VALUE", // required
+ *   ResourceARN: 'STRING_VALUE', // required
  *   Tags: [ // TagList // required
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param TagResourceCommandInput - {@link TagResourceCommandInput}
@@ -67,6 +70,8 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @throws {@link TooManyTagsException} (client fault)
  *  <p>Too many tags were added to the specified resource.</p>
  *
+ * @throws {@link ChimeSDKMeetingsServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKMeetings service.</p>
  *
  */
 export class TagResourceCommand extends $Command<

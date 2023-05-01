@@ -44,14 +44,33 @@ export interface GetSizeConstraintSetCommandOutput extends GetSizeConstraintSetR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WAFRegionalClient, GetSizeConstraintSetCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
- * // const { WAFRegionalClient, GetSizeConstraintSetCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import
+ * import { WAFRegionalClient, GetSizeConstraintSetCommand } from '@aws-sdk/client-waf-regional'; // ES Modules import
+ * // const { WAFRegionalClient, GetSizeConstraintSetCommand } = require('@aws-sdk/client-waf-regional'); // CommonJS import
  * const client = new WAFRegionalClient(config);
  * const input = { // GetSizeConstraintSetRequest
- *   SizeConstraintSetId: "STRING_VALUE", // required
+ *   SizeConstraintSetId: 'STRING_VALUE', // required
  * };
  * const command = new GetSizeConstraintSetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetSizeConstraintSetResponse
+ *   SizeConstraintSet: { // SizeConstraintSet
+ *     SizeConstraintSetId: 'STRING_VALUE', // required
+ *     Name: 'STRING_VALUE',
+ *     SizeConstraints: [ // SizeConstraints // required
+ *       { // SizeConstraint
+ *         FieldToMatch: { // FieldToMatch
+ *           Type: 'STRING_VALUE', // required
+ *           Data: 'STRING_VALUE',
+ *         },
+ *         TextTransformation: 'STRING_VALUE', // required
+ *         ComparisonOperator: 'STRING_VALUE', // required
+ *         Size: Number('long'), // required
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetSizeConstraintSetCommandInput - {@link GetSizeConstraintSetCommandInput}
@@ -69,6 +88,8 @@ export interface GetSizeConstraintSetCommandOutput extends GetSizeConstraintSetR
  * @throws {@link WAFNonexistentItemException} (client fault)
  *  <p>The operation failed because the referenced object doesn't exist.</p>
  *
+ * @throws {@link WAFRegionalServiceException}
+ * <p>Base exception class for all service exceptions from WAFRegional service.</p>
  *
  * @example To get a size constraint set
  * ```javascript

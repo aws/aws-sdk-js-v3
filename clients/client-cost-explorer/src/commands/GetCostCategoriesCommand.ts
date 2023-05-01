@@ -40,94 +40,107 @@ export interface GetCostCategoriesCommandOutput extends GetCostCategoriesRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CostExplorerClient, GetCostCategoriesCommand } from "@aws-sdk/client-cost-explorer"; // ES Modules import
- * // const { CostExplorerClient, GetCostCategoriesCommand } = require("@aws-sdk/client-cost-explorer"); // CommonJS import
+ * import { CostExplorerClient, GetCostCategoriesCommand } from '@aws-sdk/client-cost-explorer'; // ES Modules import
+ * // const { CostExplorerClient, GetCostCategoriesCommand } = require('@aws-sdk/client-cost-explorer'); // CommonJS import
  * const client = new CostExplorerClient(config);
  * const input = { // GetCostCategoriesRequest
- *   SearchString: "STRING_VALUE",
+ *   SearchString: 'STRING_VALUE',
  *   TimePeriod: { // DateInterval
- *     Start: "STRING_VALUE", // required
- *     End: "STRING_VALUE", // required
+ *     Start: 'STRING_VALUE', // required
+ *     End: 'STRING_VALUE', // required
  *   },
- *   CostCategoryName: "STRING_VALUE",
+ *   CostCategoryName: 'STRING_VALUE',
  *   Filter: { // Expression
  *     Or: [ // Expressions
  *       {
  *         Or: [
- *           "<Expression>",
+ *           '<Expression>',
  *         ],
  *         And: [
- *           "<Expression>",
+ *           '<Expression>',
  *         ],
- *         Not: "<Expression>",
+ *         Not: '<Expression>',
  *         Dimensions: { // DimensionValues
- *           Key: "AZ" || "INSTANCE_TYPE" || "LINKED_ACCOUNT" || "LINKED_ACCOUNT_NAME" || "OPERATION" || "PURCHASE_TYPE" || "REGION" || "SERVICE" || "SERVICE_CODE" || "USAGE_TYPE" || "USAGE_TYPE_GROUP" || "RECORD_TYPE" || "OPERATING_SYSTEM" || "TENANCY" || "SCOPE" || "PLATFORM" || "SUBSCRIPTION_ID" || "LEGAL_ENTITY_NAME" || "DEPLOYMENT_OPTION" || "DATABASE_ENGINE" || "CACHE_ENGINE" || "INSTANCE_TYPE_FAMILY" || "BILLING_ENTITY" || "RESERVATION_ID" || "RESOURCE_ID" || "RIGHTSIZING_TYPE" || "SAVINGS_PLANS_TYPE" || "SAVINGS_PLAN_ARN" || "PAYMENT_OPTION" || "AGREEMENT_END_DATE_TIME_AFTER" || "AGREEMENT_END_DATE_TIME_BEFORE" || "INVOICING_ENTITY" || "ANOMALY_TOTAL_IMPACT_ABSOLUTE" || "ANOMALY_TOTAL_IMPACT_PERCENTAGE",
+ *           Key: 'AZ' || 'INSTANCE_TYPE' || 'LINKED_ACCOUNT' || 'LINKED_ACCOUNT_NAME' || 'OPERATION' || 'PURCHASE_TYPE' || 'REGION' || 'SERVICE' || 'SERVICE_CODE' || 'USAGE_TYPE' || 'USAGE_TYPE_GROUP' || 'RECORD_TYPE' || 'OPERATING_SYSTEM' || 'TENANCY' || 'SCOPE' || 'PLATFORM' || 'SUBSCRIPTION_ID' || 'LEGAL_ENTITY_NAME' || 'DEPLOYMENT_OPTION' || 'DATABASE_ENGINE' || 'CACHE_ENGINE' || 'INSTANCE_TYPE_FAMILY' || 'BILLING_ENTITY' || 'RESERVATION_ID' || 'RESOURCE_ID' || 'RIGHTSIZING_TYPE' || 'SAVINGS_PLANS_TYPE' || 'SAVINGS_PLAN_ARN' || 'PAYMENT_OPTION' || 'AGREEMENT_END_DATE_TIME_AFTER' || 'AGREEMENT_END_DATE_TIME_BEFORE' || 'INVOICING_ENTITY' || 'ANOMALY_TOTAL_IMPACT_ABSOLUTE' || 'ANOMALY_TOTAL_IMPACT_PERCENTAGE',
  *           Values: [ // Values
- *             "STRING_VALUE",
+ *             'STRING_VALUE',
  *           ],
  *           MatchOptions: [ // MatchOptions
- *             "EQUALS" || "ABSENT" || "STARTS_WITH" || "ENDS_WITH" || "CONTAINS" || "CASE_SENSITIVE" || "CASE_INSENSITIVE" || "GREATER_THAN_OR_EQUAL",
+ *             'EQUALS' || 'ABSENT' || 'STARTS_WITH' || 'ENDS_WITH' || 'CONTAINS' || 'CASE_SENSITIVE' || 'CASE_INSENSITIVE' || 'GREATER_THAN_OR_EQUAL',
  *           ],
  *         },
  *         Tags: { // TagValues
- *           Key: "STRING_VALUE",
+ *           Key: 'STRING_VALUE',
  *           Values: [
- *             "STRING_VALUE",
+ *             'STRING_VALUE',
  *           ],
  *           MatchOptions: [
- *             "EQUALS" || "ABSENT" || "STARTS_WITH" || "ENDS_WITH" || "CONTAINS" || "CASE_SENSITIVE" || "CASE_INSENSITIVE" || "GREATER_THAN_OR_EQUAL",
+ *             'EQUALS' || 'ABSENT' || 'STARTS_WITH' || 'ENDS_WITH' || 'CONTAINS' || 'CASE_SENSITIVE' || 'CASE_INSENSITIVE' || 'GREATER_THAN_OR_EQUAL',
  *           ],
  *         },
  *         CostCategories: { // CostCategoryValues
- *           Key: "STRING_VALUE",
+ *           Key: 'STRING_VALUE',
  *           Values: [
- *             "STRING_VALUE",
+ *             'STRING_VALUE',
  *           ],
  *           MatchOptions: [
- *             "EQUALS" || "ABSENT" || "STARTS_WITH" || "ENDS_WITH" || "CONTAINS" || "CASE_SENSITIVE" || "CASE_INSENSITIVE" || "GREATER_THAN_OR_EQUAL",
+ *             'EQUALS' || 'ABSENT' || 'STARTS_WITH' || 'ENDS_WITH' || 'CONTAINS' || 'CASE_SENSITIVE' || 'CASE_INSENSITIVE' || 'GREATER_THAN_OR_EQUAL',
  *           ],
  *         },
  *       },
  *     ],
  *     And: [
- *       "<Expression>",
+ *       '<Expression>',
  *     ],
- *     Not: "<Expression>",
+ *     Not: '<Expression>',
  *     Dimensions: {
- *       Key: "AZ" || "INSTANCE_TYPE" || "LINKED_ACCOUNT" || "LINKED_ACCOUNT_NAME" || "OPERATION" || "PURCHASE_TYPE" || "REGION" || "SERVICE" || "SERVICE_CODE" || "USAGE_TYPE" || "USAGE_TYPE_GROUP" || "RECORD_TYPE" || "OPERATING_SYSTEM" || "TENANCY" || "SCOPE" || "PLATFORM" || "SUBSCRIPTION_ID" || "LEGAL_ENTITY_NAME" || "DEPLOYMENT_OPTION" || "DATABASE_ENGINE" || "CACHE_ENGINE" || "INSTANCE_TYPE_FAMILY" || "BILLING_ENTITY" || "RESERVATION_ID" || "RESOURCE_ID" || "RIGHTSIZING_TYPE" || "SAVINGS_PLANS_TYPE" || "SAVINGS_PLAN_ARN" || "PAYMENT_OPTION" || "AGREEMENT_END_DATE_TIME_AFTER" || "AGREEMENT_END_DATE_TIME_BEFORE" || "INVOICING_ENTITY" || "ANOMALY_TOTAL_IMPACT_ABSOLUTE" || "ANOMALY_TOTAL_IMPACT_PERCENTAGE",
+ *       Key: 'AZ' || 'INSTANCE_TYPE' || 'LINKED_ACCOUNT' || 'LINKED_ACCOUNT_NAME' || 'OPERATION' || 'PURCHASE_TYPE' || 'REGION' || 'SERVICE' || 'SERVICE_CODE' || 'USAGE_TYPE' || 'USAGE_TYPE_GROUP' || 'RECORD_TYPE' || 'OPERATING_SYSTEM' || 'TENANCY' || 'SCOPE' || 'PLATFORM' || 'SUBSCRIPTION_ID' || 'LEGAL_ENTITY_NAME' || 'DEPLOYMENT_OPTION' || 'DATABASE_ENGINE' || 'CACHE_ENGINE' || 'INSTANCE_TYPE_FAMILY' || 'BILLING_ENTITY' || 'RESERVATION_ID' || 'RESOURCE_ID' || 'RIGHTSIZING_TYPE' || 'SAVINGS_PLANS_TYPE' || 'SAVINGS_PLAN_ARN' || 'PAYMENT_OPTION' || 'AGREEMENT_END_DATE_TIME_AFTER' || 'AGREEMENT_END_DATE_TIME_BEFORE' || 'INVOICING_ENTITY' || 'ANOMALY_TOTAL_IMPACT_ABSOLUTE' || 'ANOMALY_TOTAL_IMPACT_PERCENTAGE',
  *       Values: [
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *       MatchOptions: [
- *         "EQUALS" || "ABSENT" || "STARTS_WITH" || "ENDS_WITH" || "CONTAINS" || "CASE_SENSITIVE" || "CASE_INSENSITIVE" || "GREATER_THAN_OR_EQUAL",
+ *         'EQUALS' || 'ABSENT' || 'STARTS_WITH' || 'ENDS_WITH' || 'CONTAINS' || 'CASE_SENSITIVE' || 'CASE_INSENSITIVE' || 'GREATER_THAN_OR_EQUAL',
  *       ],
  *     },
  *     Tags: {
- *       Key: "STRING_VALUE",
+ *       Key: 'STRING_VALUE',
  *       Values: [
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *       MatchOptions: [
- *         "EQUALS" || "ABSENT" || "STARTS_WITH" || "ENDS_WITH" || "CONTAINS" || "CASE_SENSITIVE" || "CASE_INSENSITIVE" || "GREATER_THAN_OR_EQUAL",
+ *         'EQUALS' || 'ABSENT' || 'STARTS_WITH' || 'ENDS_WITH' || 'CONTAINS' || 'CASE_SENSITIVE' || 'CASE_INSENSITIVE' || 'GREATER_THAN_OR_EQUAL',
  *       ],
  *     },
  *     CostCategories: {
- *       Key: "STRING_VALUE",
- *       Values: "<Values>",
- *       MatchOptions: "<MatchOptions>",
+ *       Key: 'STRING_VALUE',
+ *       Values: '<Values>',
+ *       MatchOptions: '<MatchOptions>',
  *     },
  *   },
  *   SortBy: [ // SortDefinitions
  *     { // SortDefinition
- *       Key: "STRING_VALUE", // required
- *       SortOrder: "ASCENDING" || "DESCENDING",
+ *       Key: 'STRING_VALUE', // required
+ *       SortOrder: 'ASCENDING' || 'DESCENDING',
  *     },
  *   ],
- *   MaxResults: Number("int"),
- *   NextPageToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextPageToken: 'STRING_VALUE',
  * };
  * const command = new GetCostCategoriesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetCostCategoriesResponse
+ *   NextPageToken: 'STRING_VALUE',
+ *   CostCategoryNames: [ // CostCategoryNamesList
+ *     'STRING_VALUE',
+ *   ],
+ *   CostCategoryValues: [ // CostCategoryValuesList
+ *     'STRING_VALUE',
+ *   ],
+ *   ReturnSize: Number('int'), // required
+ *   TotalSize: Number('int'), // required
+ * };
+ *
  * ```
  *
  * @param GetCostCategoriesCommandInput - {@link GetCostCategoriesCommandInput}
@@ -152,6 +165,8 @@ export interface GetCostCategoriesCommandOutput extends GetCostCategoriesRespons
  *  <p>Your request parameters changed between pages. Try again with the old parameters or
  *             without a pagination token.</p>
  *
+ * @throws {@link CostExplorerServiceException}
+ * <p>Base exception class for all service exceptions from CostExplorer service.</p>
  *
  */
 export class GetCostCategoriesCommand extends $Command<

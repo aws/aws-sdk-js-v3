@@ -36,15 +36,20 @@ export interface UpdateDeviceMetadataCommandOutput extends UpdateDeviceMetadataR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PanoramaClient, UpdateDeviceMetadataCommand } from "@aws-sdk/client-panorama"; // ES Modules import
- * // const { PanoramaClient, UpdateDeviceMetadataCommand } = require("@aws-sdk/client-panorama"); // CommonJS import
+ * import { PanoramaClient, UpdateDeviceMetadataCommand } from '@aws-sdk/client-panorama'; // ES Modules import
+ * // const { PanoramaClient, UpdateDeviceMetadataCommand } = require('@aws-sdk/client-panorama'); // CommonJS import
  * const client = new PanoramaClient(config);
  * const input = { // UpdateDeviceMetadataRequest
- *   DeviceId: "STRING_VALUE", // required
- *   Description: "STRING_VALUE",
+ *   DeviceId: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE',
  * };
  * const command = new UpdateDeviceMetadataCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateDeviceMetadataResponse
+ *   DeviceId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateDeviceMetadataCommandInput - {@link UpdateDeviceMetadataCommandInput}
@@ -68,6 +73,8 @@ export interface UpdateDeviceMetadataCommandOutput extends UpdateDeviceMetadataR
  * @throws {@link ValidationException} (client fault)
  *  <p>The request contains an invalid parameter value.</p>
  *
+ * @throws {@link PanoramaServiceException}
+ * <p>Base exception class for all service exceptions from Panorama service.</p>
  *
  */
 export class UpdateDeviceMetadataCommand extends $Command<

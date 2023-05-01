@@ -38,27 +38,32 @@ export interface UpdateConnectorCommandOutput extends UpdateConnectorResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { TransferClient, UpdateConnectorCommand } from "@aws-sdk/client-transfer"; // ES Modules import
- * // const { TransferClient, UpdateConnectorCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
+ * import { TransferClient, UpdateConnectorCommand } from '@aws-sdk/client-transfer'; // ES Modules import
+ * // const { TransferClient, UpdateConnectorCommand } = require('@aws-sdk/client-transfer'); // CommonJS import
  * const client = new TransferClient(config);
  * const input = { // UpdateConnectorRequest
- *   ConnectorId: "STRING_VALUE", // required
- *   Url: "STRING_VALUE",
+ *   ConnectorId: 'STRING_VALUE', // required
+ *   Url: 'STRING_VALUE',
  *   As2Config: { // As2ConnectorConfig
- *     LocalProfileId: "STRING_VALUE",
- *     PartnerProfileId: "STRING_VALUE",
- *     MessageSubject: "STRING_VALUE",
- *     Compression: "ZLIB" || "DISABLED",
- *     EncryptionAlgorithm: "AES128_CBC" || "AES192_CBC" || "AES256_CBC" || "NONE",
- *     SigningAlgorithm: "SHA256" || "SHA384" || "SHA512" || "SHA1" || "NONE",
- *     MdnSigningAlgorithm: "SHA256" || "SHA384" || "SHA512" || "SHA1" || "NONE" || "DEFAULT",
- *     MdnResponse: "SYNC" || "NONE",
+ *     LocalProfileId: 'STRING_VALUE',
+ *     PartnerProfileId: 'STRING_VALUE',
+ *     MessageSubject: 'STRING_VALUE',
+ *     Compression: 'ZLIB' || 'DISABLED',
+ *     EncryptionAlgorithm: 'AES128_CBC' || 'AES192_CBC' || 'AES256_CBC' || 'NONE',
+ *     SigningAlgorithm: 'SHA256' || 'SHA384' || 'SHA512' || 'SHA1' || 'NONE',
+ *     MdnSigningAlgorithm: 'SHA256' || 'SHA384' || 'SHA512' || 'SHA1' || 'NONE' || 'DEFAULT',
+ *     MdnResponse: 'SYNC' || 'NONE',
  *   },
- *   AccessRole: "STRING_VALUE",
- *   LoggingRole: "STRING_VALUE",
+ *   AccessRole: 'STRING_VALUE',
+ *   LoggingRole: 'STRING_VALUE',
  * };
  * const command = new UpdateConnectorCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateConnectorResponse
+ *   ConnectorId: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param UpdateConnectorCommandInput - {@link UpdateConnectorCommandInput}
@@ -86,6 +91,8 @@ export interface UpdateConnectorCommandOutput extends UpdateConnectorResponse, _
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
  *
+ * @throws {@link TransferServiceException}
+ * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
  */
 export class UpdateConnectorCommand extends $Command<

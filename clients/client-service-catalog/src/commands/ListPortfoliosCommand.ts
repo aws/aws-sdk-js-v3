@@ -36,16 +36,31 @@ export interface ListPortfoliosCommandOutput extends ListPortfoliosOutput, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ServiceCatalogClient, ListPortfoliosCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
- * // const { ServiceCatalogClient, ListPortfoliosCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
+ * import { ServiceCatalogClient, ListPortfoliosCommand } from '@aws-sdk/client-service-catalog'; // ES Modules import
+ * // const { ServiceCatalogClient, ListPortfoliosCommand } = require('@aws-sdk/client-service-catalog'); // CommonJS import
  * const client = new ServiceCatalogClient(config);
  * const input = { // ListPortfoliosInput
- *   AcceptLanguage: "STRING_VALUE",
- *   PageToken: "STRING_VALUE",
- *   PageSize: Number("int"),
+ *   AcceptLanguage: 'STRING_VALUE',
+ *   PageToken: 'STRING_VALUE',
+ *   PageSize: Number('int'),
  * };
  * const command = new ListPortfoliosCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListPortfoliosOutput
+ *   PortfolioDetails: [ // PortfolioDetails
+ *     { // PortfolioDetail
+ *       Id: 'STRING_VALUE',
+ *       ARN: 'STRING_VALUE',
+ *       DisplayName: 'STRING_VALUE',
+ *       Description: 'STRING_VALUE',
+ *       CreatedTime: new Date('TIMESTAMP'),
+ *       ProviderName: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextPageToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListPortfoliosCommandInput - {@link ListPortfoliosCommandInput}
@@ -57,6 +72,8 @@ export interface ListPortfoliosCommandOutput extends ListPortfoliosOutput, __Met
  * @throws {@link InvalidParametersException} (client fault)
  *  <p>One or more parameters provided to the operation are not valid.</p>
  *
+ * @throws {@link ServiceCatalogServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
  */
 export class ListPortfoliosCommand extends $Command<

@@ -36,18 +36,24 @@ export interface UpdateRegistryCommandOutput extends UpdateRegistryResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlueClient, UpdateRegistryCommand } from "@aws-sdk/client-glue"; // ES Modules import
- * // const { GlueClient, UpdateRegistryCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * import { GlueClient, UpdateRegistryCommand } from '@aws-sdk/client-glue'; // ES Modules import
+ * // const { GlueClient, UpdateRegistryCommand } = require('@aws-sdk/client-glue'); // CommonJS import
  * const client = new GlueClient(config);
  * const input = { // UpdateRegistryInput
  *   RegistryId: { // RegistryId
- *     RegistryName: "STRING_VALUE",
- *     RegistryArn: "STRING_VALUE",
+ *     RegistryName: 'STRING_VALUE',
+ *     RegistryArn: 'STRING_VALUE',
  *   },
- *   Description: "STRING_VALUE", // required
+ *   Description: 'STRING_VALUE', // required
  * };
  * const command = new UpdateRegistryCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateRegistryResponse
+ *   RegistryName: 'STRING_VALUE',
+ *   RegistryArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateRegistryCommandInput - {@link UpdateRegistryCommandInput}
@@ -71,6 +77,8 @@ export interface UpdateRegistryCommandOutput extends UpdateRegistryResponse, __M
  * @throws {@link InvalidInputException} (client fault)
  *  <p>The input provided was not valid.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class UpdateRegistryCommand extends $Command<

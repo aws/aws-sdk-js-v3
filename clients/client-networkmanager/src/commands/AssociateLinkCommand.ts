@@ -36,16 +36,26 @@ export interface AssociateLinkCommandOutput extends AssociateLinkResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { NetworkManagerClient, AssociateLinkCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
- * // const { NetworkManagerClient, AssociateLinkCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
+ * import { NetworkManagerClient, AssociateLinkCommand } from '@aws-sdk/client-networkmanager'; // ES Modules import
+ * // const { NetworkManagerClient, AssociateLinkCommand } = require('@aws-sdk/client-networkmanager'); // CommonJS import
  * const client = new NetworkManagerClient(config);
  * const input = { // AssociateLinkRequest
- *   GlobalNetworkId: "STRING_VALUE", // required
- *   DeviceId: "STRING_VALUE", // required
- *   LinkId: "STRING_VALUE", // required
+ *   GlobalNetworkId: 'STRING_VALUE', // required
+ *   DeviceId: 'STRING_VALUE', // required
+ *   LinkId: 'STRING_VALUE', // required
  * };
  * const command = new AssociateLinkCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AssociateLinkResponse
+ *   LinkAssociation: { // LinkAssociation
+ *     GlobalNetworkId: 'STRING_VALUE',
+ *     DeviceId: 'STRING_VALUE',
+ *     LinkId: 'STRING_VALUE',
+ *     LinkAssociationState: 'PENDING' || 'AVAILABLE' || 'DELETING' || 'DELETED',
+ *   },
+ * };
+ *
  * ```
  *
  * @param AssociateLinkCommandInput - {@link AssociateLinkCommandInput}
@@ -76,6 +86,8 @@ export interface AssociateLinkCommandOutput extends AssociateLinkResponse, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints.</p>
  *
+ * @throws {@link NetworkManagerServiceException}
+ * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
  */
 export class AssociateLinkCommand extends $Command<

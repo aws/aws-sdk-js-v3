@@ -36,17 +36,33 @@ export interface ListSchemasCommandOutput extends ListSchemasResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SchemasClient, ListSchemasCommand } from "@aws-sdk/client-schemas"; // ES Modules import
- * // const { SchemasClient, ListSchemasCommand } = require("@aws-sdk/client-schemas"); // CommonJS import
+ * import { SchemasClient, ListSchemasCommand } from '@aws-sdk/client-schemas'; // ES Modules import
+ * // const { SchemasClient, ListSchemasCommand } = require('@aws-sdk/client-schemas'); // CommonJS import
  * const client = new SchemasClient(config);
  * const input = { // ListSchemasRequest
- *   Limit: Number("int"),
- *   NextToken: "STRING_VALUE",
- *   RegistryName: "STRING_VALUE", // required
- *   SchemaNamePrefix: "STRING_VALUE",
+ *   Limit: Number('int'),
+ *   NextToken: 'STRING_VALUE',
+ *   RegistryName: 'STRING_VALUE', // required
+ *   SchemaNamePrefix: 'STRING_VALUE',
  * };
  * const command = new ListSchemasCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListSchemasResponse
+ *   NextToken: 'STRING_VALUE',
+ *   Schemas: [ // __listOfSchemaSummary
+ *     { // SchemaSummary
+ *       LastModified: new Date('TIMESTAMP'),
+ *       SchemaArn: 'STRING_VALUE',
+ *       SchemaName: 'STRING_VALUE',
+ *       Tags: { // Tags
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *       VersionCount: Number('long'),
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListSchemasCommandInput - {@link ListSchemasCommandInput}
@@ -65,6 +81,8 @@ export interface ListSchemasCommandOutput extends ListSchemasResponse, __Metadat
  *
  * @throws {@link UnauthorizedException} (client fault)
  *
+ * @throws {@link SchemasServiceException}
+ * <p>Base exception class for all service exceptions from Schemas service.</p>
  *
  */
 export class ListSchemasCommand extends $Command<

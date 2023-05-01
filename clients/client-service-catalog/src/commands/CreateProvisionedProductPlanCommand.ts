@@ -48,37 +48,46 @@ export interface CreateProvisionedProductPlanCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ServiceCatalogClient, CreateProvisionedProductPlanCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
- * // const { ServiceCatalogClient, CreateProvisionedProductPlanCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
+ * import { ServiceCatalogClient, CreateProvisionedProductPlanCommand } from '@aws-sdk/client-service-catalog'; // ES Modules import
+ * // const { ServiceCatalogClient, CreateProvisionedProductPlanCommand } = require('@aws-sdk/client-service-catalog'); // CommonJS import
  * const client = new ServiceCatalogClient(config);
  * const input = { // CreateProvisionedProductPlanInput
- *   AcceptLanguage: "STRING_VALUE",
- *   PlanName: "STRING_VALUE", // required
- *   PlanType: "CLOUDFORMATION", // required
+ *   AcceptLanguage: 'STRING_VALUE',
+ *   PlanName: 'STRING_VALUE', // required
+ *   PlanType: 'CLOUDFORMATION', // required
  *   NotificationArns: [ // NotificationArns
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   PathId: "STRING_VALUE",
- *   ProductId: "STRING_VALUE", // required
- *   ProvisionedProductName: "STRING_VALUE", // required
- *   ProvisioningArtifactId: "STRING_VALUE", // required
+ *   PathId: 'STRING_VALUE',
+ *   ProductId: 'STRING_VALUE', // required
+ *   ProvisionedProductName: 'STRING_VALUE', // required
+ *   ProvisioningArtifactId: 'STRING_VALUE', // required
  *   ProvisioningParameters: [ // UpdateProvisioningParameters
  *     { // UpdateProvisioningParameter
- *       Key: "STRING_VALUE",
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
  *       UsePreviousValue: true || false,
  *     },
  *   ],
- *   IdempotencyToken: "STRING_VALUE", // required
+ *   IdempotencyToken: 'STRING_VALUE', // required
  *   Tags: [ // Tags
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreateProvisionedProductPlanCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateProvisionedProductPlanOutput
+ *   PlanName: 'STRING_VALUE',
+ *   PlanId: 'STRING_VALUE',
+ *   ProvisionProductId: 'STRING_VALUE',
+ *   ProvisionedProductName: 'STRING_VALUE',
+ *   ProvisioningArtifactId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateProvisionedProductPlanCommandInput - {@link CreateProvisionedProductPlanCommandInput}
@@ -97,6 +106,8 @@ export interface CreateProvisionedProductPlanCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link ServiceCatalogServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
  */
 export class CreateProvisionedProductPlanCommand extends $Command<

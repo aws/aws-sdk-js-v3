@@ -37,18 +37,39 @@ export interface GetRulesCommandOutput extends GetRulesResult, __MetadataBearer 
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FraudDetectorClient, GetRulesCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
- * // const { FraudDetectorClient, GetRulesCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
+ * import { FraudDetectorClient, GetRulesCommand } from '@aws-sdk/client-frauddetector'; // ES Modules import
+ * // const { FraudDetectorClient, GetRulesCommand } = require('@aws-sdk/client-frauddetector'); // CommonJS import
  * const client = new FraudDetectorClient(config);
  * const input = { // GetRulesRequest
- *   ruleId: "STRING_VALUE",
- *   detectorId: "STRING_VALUE", // required
- *   ruleVersion: "STRING_VALUE",
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   ruleId: 'STRING_VALUE',
+ *   detectorId: 'STRING_VALUE', // required
+ *   ruleVersion: 'STRING_VALUE',
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new GetRulesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetRulesResult
+ *   ruleDetails: [ // RuleDetailList
+ *     { // RuleDetail
+ *       ruleId: 'STRING_VALUE',
+ *       description: 'STRING_VALUE',
+ *       detectorId: 'STRING_VALUE',
+ *       ruleVersion: 'STRING_VALUE',
+ *       expression: 'STRING_VALUE',
+ *       language: 'DETECTORPL',
+ *       outcomes: [ // NonEmptyListOfStrings
+ *         'STRING_VALUE',
+ *       ],
+ *       lastUpdatedTime: 'STRING_VALUE',
+ *       createdTime: 'STRING_VALUE',
+ *       arn: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetRulesCommandInput - {@link GetRulesCommandInput}
@@ -72,6 +93,8 @@ export interface GetRulesCommandOutput extends GetRulesResult, __MetadataBearer 
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception indicating a specified value is not allowed.</p>
  *
+ * @throws {@link FraudDetectorServiceException}
+ * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
  */
 export class GetRulesCommand extends $Command<

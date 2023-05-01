@@ -38,37 +38,65 @@ export interface UpdateIdentityPoolCommandOutput extends IdentityPool, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CognitoIdentityClient, UpdateIdentityPoolCommand } from "@aws-sdk/client-cognito-identity"; // ES Modules import
- * // const { CognitoIdentityClient, UpdateIdentityPoolCommand } = require("@aws-sdk/client-cognito-identity"); // CommonJS import
+ * import { CognitoIdentityClient, UpdateIdentityPoolCommand } from '@aws-sdk/client-cognito-identity'; // ES Modules import
+ * // const { CognitoIdentityClient, UpdateIdentityPoolCommand } = require('@aws-sdk/client-cognito-identity'); // CommonJS import
  * const client = new CognitoIdentityClient(config);
  * const input = { // IdentityPool
- *   IdentityPoolId: "STRING_VALUE", // required
- *   IdentityPoolName: "STRING_VALUE", // required
+ *   IdentityPoolId: 'STRING_VALUE', // required
+ *   IdentityPoolName: 'STRING_VALUE', // required
  *   AllowUnauthenticatedIdentities: true || false, // required
  *   AllowClassicFlow: true || false,
  *   SupportedLoginProviders: { // IdentityProviders
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
- *   DeveloperProviderName: "STRING_VALUE",
+ *   DeveloperProviderName: 'STRING_VALUE',
  *   OpenIdConnectProviderARNs: [ // OIDCProviderList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   CognitoIdentityProviders: [ // CognitoIdentityProviderList
  *     { // CognitoIdentityProvider
- *       ProviderName: "STRING_VALUE",
- *       ClientId: "STRING_VALUE",
+ *       ProviderName: 'STRING_VALUE',
+ *       ClientId: 'STRING_VALUE',
  *       ServerSideTokenCheck: true || false,
  *     },
  *   ],
  *   SamlProviderARNs: [ // SAMLProviderList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   IdentityPoolTags: { // IdentityPoolTagsType
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new UpdateIdentityPoolCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // IdentityPool
+ *   IdentityPoolId: 'STRING_VALUE', // required
+ *   IdentityPoolName: 'STRING_VALUE', // required
+ *   AllowUnauthenticatedIdentities: true || false, // required
+ *   AllowClassicFlow: true || false,
+ *   SupportedLoginProviders: { // IdentityProviders
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ *   DeveloperProviderName: 'STRING_VALUE',
+ *   OpenIdConnectProviderARNs: [ // OIDCProviderList
+ *     'STRING_VALUE',
+ *   ],
+ *   CognitoIdentityProviders: [ // CognitoIdentityProviderList
+ *     { // CognitoIdentityProvider
+ *       ProviderName: 'STRING_VALUE',
+ *       ClientId: 'STRING_VALUE',
+ *       ServerSideTokenCheck: true || false,
+ *     },
+ *   ],
+ *   SamlProviderARNs: [ // SAMLProviderList
+ *     'STRING_VALUE',
+ *   ],
+ *   IdentityPoolTags: { // IdentityPoolTagsType
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateIdentityPoolCommandInput - {@link UpdateIdentityPoolCommandInput}
@@ -103,6 +131,8 @@ export interface UpdateIdentityPoolCommandOutput extends IdentityPool, __Metadat
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Thrown when a request is throttled.</p>
  *
+ * @throws {@link CognitoIdentityServiceException}
+ * <p>Base exception class for all service exceptions from CognitoIdentity service.</p>
  *
  */
 export class UpdateIdentityPoolCommand extends $Command<

@@ -40,18 +40,21 @@ export interface AssociateQueueQuickConnectsCommandOutput extends __MetadataBear
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, AssociateQueueQuickConnectsCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, AssociateQueueQuickConnectsCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, AssociateQueueQuickConnectsCommand } from '@aws-sdk/client-connect'; // ES Modules import
+ * // const { ConnectClient, AssociateQueueQuickConnectsCommand } = require('@aws-sdk/client-connect'); // CommonJS import
  * const client = new ConnectClient(config);
  * const input = { // AssociateQueueQuickConnectsRequest
- *   InstanceId: "STRING_VALUE", // required
- *   QueueId: "STRING_VALUE", // required
+ *   InstanceId: 'STRING_VALUE', // required
+ *   QueueId: 'STRING_VALUE', // required
  *   QuickConnectIds: [ // QuickConnectsList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new AssociateQueueQuickConnectsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param AssociateQueueQuickConnectsCommandInput - {@link AssociateQueueQuickConnectsCommandInput}
@@ -78,6 +81,8 @@ export interface AssociateQueueQuickConnectsCommandOutput extends __MetadataBear
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class AssociateQueueQuickConnectsCommand extends $Command<

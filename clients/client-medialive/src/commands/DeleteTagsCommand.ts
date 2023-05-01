@@ -36,17 +36,20 @@ export interface DeleteTagsCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MediaLiveClient, DeleteTagsCommand } from "@aws-sdk/client-medialive"; // ES Modules import
- * // const { MediaLiveClient, DeleteTagsCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
+ * import { MediaLiveClient, DeleteTagsCommand } from '@aws-sdk/client-medialive'; // ES Modules import
+ * // const { MediaLiveClient, DeleteTagsCommand } = require('@aws-sdk/client-medialive'); // CommonJS import
  * const client = new MediaLiveClient(config);
  * const input = { // DeleteTagsRequest
- *   ResourceArn: "STRING_VALUE", // required
+ *   ResourceArn: 'STRING_VALUE', // required
  *   TagKeys: [ // __listOf__string // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new DeleteTagsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteTagsCommandInput - {@link DeleteTagsCommandInput}
@@ -67,6 +70,8 @@ export interface DeleteTagsCommandOutput extends __MetadataBearer {}
  * @throws {@link NotFoundException} (client fault)
  *  Placeholder documentation for NotFoundException
  *
+ * @throws {@link MediaLiveServiceException}
+ * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
  */
 export class DeleteTagsCommand extends $Command<

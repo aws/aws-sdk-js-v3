@@ -58,14 +58,46 @@ export interface DescribeWhatIfAnalysisCommandOutput extends DescribeWhatIfAnaly
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ForecastClient, DescribeWhatIfAnalysisCommand } from "@aws-sdk/client-forecast"; // ES Modules import
- * // const { ForecastClient, DescribeWhatIfAnalysisCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
+ * import { ForecastClient, DescribeWhatIfAnalysisCommand } from '@aws-sdk/client-forecast'; // ES Modules import
+ * // const { ForecastClient, DescribeWhatIfAnalysisCommand } = require('@aws-sdk/client-forecast'); // CommonJS import
  * const client = new ForecastClient(config);
  * const input = { // DescribeWhatIfAnalysisRequest
- *   WhatIfAnalysisArn: "STRING_VALUE", // required
+ *   WhatIfAnalysisArn: 'STRING_VALUE', // required
  * };
  * const command = new DescribeWhatIfAnalysisCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeWhatIfAnalysisResponse
+ *   WhatIfAnalysisName: 'STRING_VALUE',
+ *   WhatIfAnalysisArn: 'STRING_VALUE',
+ *   ForecastArn: 'STRING_VALUE',
+ *   EstimatedTimeRemainingInMinutes: Number('long'),
+ *   Status: 'STRING_VALUE',
+ *   Message: 'STRING_VALUE',
+ *   CreationTime: new Date('TIMESTAMP'),
+ *   LastModificationTime: new Date('TIMESTAMP'),
+ *   TimeSeriesSelector: { // TimeSeriesSelector
+ *     TimeSeriesIdentifiers: { // TimeSeriesIdentifiers
+ *       DataSource: { // DataSource
+ *         S3Config: { // S3Config
+ *           Path: 'STRING_VALUE', // required
+ *           RoleArn: 'STRING_VALUE', // required
+ *           KMSKeyArn: 'STRING_VALUE',
+ *         },
+ *       },
+ *       Schema: { // Schema
+ *         Attributes: [ // SchemaAttributes
+ *           { // SchemaAttribute
+ *             AttributeName: 'STRING_VALUE',
+ *             AttributeType: 'string' || 'integer' || 'float' || 'timestamp' || 'geolocation',
+ *           },
+ *         ],
+ *       },
+ *       Format: 'STRING_VALUE',
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeWhatIfAnalysisCommandInput - {@link DescribeWhatIfAnalysisCommandInput}
@@ -82,6 +114,8 @@ export interface DescribeWhatIfAnalysisCommandOutput extends DescribeWhatIfAnaly
  *  <p>We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try
  *       again.</p>
  *
+ * @throws {@link ForecastServiceException}
+ * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
  */
 export class DescribeWhatIfAnalysisCommand extends $Command<

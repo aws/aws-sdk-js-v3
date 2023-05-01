@@ -37,15 +37,18 @@ export interface DeleteExperimentCommandOutput extends DeleteExperimentResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EvidentlyClient, DeleteExperimentCommand } from "@aws-sdk/client-evidently"; // ES Modules import
- * // const { EvidentlyClient, DeleteExperimentCommand } = require("@aws-sdk/client-evidently"); // CommonJS import
+ * import { EvidentlyClient, DeleteExperimentCommand } from '@aws-sdk/client-evidently'; // ES Modules import
+ * // const { EvidentlyClient, DeleteExperimentCommand } = require('@aws-sdk/client-evidently'); // CommonJS import
  * const client = new EvidentlyClient(config);
  * const input = { // DeleteExperimentRequest
- *   project: "STRING_VALUE", // required
- *   experiment: "STRING_VALUE", // required
+ *   project: 'STRING_VALUE', // required
+ *   experiment: 'STRING_VALUE', // required
  * };
  * const command = new DeleteExperimentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteExperimentCommandInput - {@link DeleteExperimentCommandInput}
@@ -72,6 +75,8 @@ export interface DeleteExperimentCommandOutput extends DeleteExperimentResponse,
  * @throws {@link ValidationException} (client fault)
  *  <p>The value of a parameter in the request caused an error.</p>
  *
+ * @throws {@link EvidentlyServiceException}
+ * <p>Base exception class for all service exceptions from Evidently service.</p>
  *
  */
 export class DeleteExperimentCommand extends $Command<

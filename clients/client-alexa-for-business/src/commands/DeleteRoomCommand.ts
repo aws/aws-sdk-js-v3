@@ -36,14 +36,17 @@ export interface DeleteRoomCommandOutput extends DeleteRoomResponse, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AlexaForBusinessClient, DeleteRoomCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
- * // const { AlexaForBusinessClient, DeleteRoomCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
+ * import { AlexaForBusinessClient, DeleteRoomCommand } from '@aws-sdk/client-alexa-for-business'; // ES Modules import
+ * // const { AlexaForBusinessClient, DeleteRoomCommand } = require('@aws-sdk/client-alexa-for-business'); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
  * const input = { // DeleteRoomRequest
- *   RoomArn: "STRING_VALUE",
+ *   RoomArn: 'STRING_VALUE',
  * };
  * const command = new DeleteRoomCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteRoomCommandInput - {@link DeleteRoomCommandInput}
@@ -58,6 +61,8 @@ export interface DeleteRoomCommandOutput extends DeleteRoomResponse, __MetadataB
  * @throws {@link NotFoundException} (client fault)
  *  <p>The resource is not found.</p>
  *
+ * @throws {@link AlexaForBusinessServiceException}
+ * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  */
 export class DeleteRoomCommand extends $Command<

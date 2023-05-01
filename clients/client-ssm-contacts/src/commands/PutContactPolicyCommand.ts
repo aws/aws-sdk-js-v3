@@ -38,15 +38,18 @@ export interface PutContactPolicyCommandOutput extends PutContactPolicyResult, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMContactsClient, PutContactPolicyCommand } from "@aws-sdk/client-ssm-contacts"; // ES Modules import
- * // const { SSMContactsClient, PutContactPolicyCommand } = require("@aws-sdk/client-ssm-contacts"); // CommonJS import
+ * import { SSMContactsClient, PutContactPolicyCommand } from '@aws-sdk/client-ssm-contacts'; // ES Modules import
+ * // const { SSMContactsClient, PutContactPolicyCommand } = require('@aws-sdk/client-ssm-contacts'); // CommonJS import
  * const client = new SSMContactsClient(config);
  * const input = { // PutContactPolicyRequest
- *   ContactArn: "STRING_VALUE", // required
- *   Policy: "STRING_VALUE", // required
+ *   ContactArn: 'STRING_VALUE', // required
+ *   Policy: 'STRING_VALUE', // required
  * };
  * const command = new PutContactPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutContactPolicyCommandInput - {@link PutContactPolicyCommandInput}
@@ -74,6 +77,8 @@ export interface PutContactPolicyCommandOutput extends PutContactPolicyResult, _
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
  *          service.</p>
  *
+ * @throws {@link SSMContactsServiceException}
+ * <p>Base exception class for all service exceptions from SSMContacts service.</p>
  *
  */
 export class PutContactPolicyCommand extends $Command<

@@ -36,15 +36,18 @@ export interface DeleteAuthorizerCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ApiGatewayV2Client, DeleteAuthorizerCommand } from "@aws-sdk/client-apigatewayv2"; // ES Modules import
- * // const { ApiGatewayV2Client, DeleteAuthorizerCommand } = require("@aws-sdk/client-apigatewayv2"); // CommonJS import
+ * import { ApiGatewayV2Client, DeleteAuthorizerCommand } from '@aws-sdk/client-apigatewayv2'; // ES Modules import
+ * // const { ApiGatewayV2Client, DeleteAuthorizerCommand } = require('@aws-sdk/client-apigatewayv2'); // CommonJS import
  * const client = new ApiGatewayV2Client(config);
  * const input = { // DeleteAuthorizerRequest
- *   ApiId: "STRING_VALUE", // required
- *   AuthorizerId: "STRING_VALUE", // required
+ *   ApiId: 'STRING_VALUE', // required
+ *   AuthorizerId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteAuthorizerCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteAuthorizerCommandInput - {@link DeleteAuthorizerCommandInput}
@@ -59,6 +62,8 @@ export interface DeleteAuthorizerCommandOutput extends __MetadataBearer {}
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>A limit has been exceeded. See the accompanying error message for details.</p>
  *
+ * @throws {@link ApiGatewayV2ServiceException}
+ * <p>Base exception class for all service exceptions from ApiGatewayV2 service.</p>
  *
  */
 export class DeleteAuthorizerCommand extends $Command<

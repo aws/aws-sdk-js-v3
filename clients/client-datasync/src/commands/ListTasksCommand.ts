@@ -36,24 +36,36 @@ export interface ListTasksCommandOutput extends ListTasksResponse, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DataSyncClient, ListTasksCommand } from "@aws-sdk/client-datasync"; // ES Modules import
- * // const { DataSyncClient, ListTasksCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
+ * import { DataSyncClient, ListTasksCommand } from '@aws-sdk/client-datasync'; // ES Modules import
+ * // const { DataSyncClient, ListTasksCommand } = require('@aws-sdk/client-datasync'); // CommonJS import
  * const client = new DataSyncClient(config);
  * const input = { // ListTasksRequest
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  *   Filters: [ // TaskFilters
  *     { // TaskFilter
- *       Name: "LocationId" || "CreationTime", // required
+ *       Name: 'LocationId' || 'CreationTime', // required
  *       Values: [ // FilterValues // required
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
- *       Operator: "Equals" || "NotEquals" || "In" || "LessThanOrEqual" || "LessThan" || "GreaterThanOrEqual" || "GreaterThan" || "Contains" || "NotContains" || "BeginsWith", // required
+ *       Operator: 'Equals' || 'NotEquals' || 'In' || 'LessThanOrEqual' || 'LessThan' || 'GreaterThanOrEqual' || 'GreaterThan' || 'Contains' || 'NotContains' || 'BeginsWith', // required
  *     },
  *   ],
  * };
  * const command = new ListTasksCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTasksResponse
+ *   Tasks: [ // TaskList
+ *     { // TaskListEntry
+ *       TaskArn: 'STRING_VALUE',
+ *       Status: 'AVAILABLE' || 'CREATING' || 'QUEUED' || 'RUNNING' || 'UNAVAILABLE',
+ *       Name: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListTasksCommandInput - {@link ListTasksCommandInput}
@@ -69,6 +81,8 @@ export interface ListTasksCommandOutput extends ListTasksResponse, __MetadataBea
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception is thrown when the client submits a malformed request.</p>
  *
+ * @throws {@link DataSyncServiceException}
+ * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
  */
 export class ListTasksCommand extends $Command<

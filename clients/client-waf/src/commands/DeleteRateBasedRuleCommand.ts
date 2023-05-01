@@ -63,15 +63,20 @@ export interface DeleteRateBasedRuleCommandOutput extends DeleteRateBasedRuleRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WAFClient, DeleteRateBasedRuleCommand } from "@aws-sdk/client-waf"; // ES Modules import
- * // const { WAFClient, DeleteRateBasedRuleCommand } = require("@aws-sdk/client-waf"); // CommonJS import
+ * import { WAFClient, DeleteRateBasedRuleCommand } from '@aws-sdk/client-waf'; // ES Modules import
+ * // const { WAFClient, DeleteRateBasedRuleCommand } = require('@aws-sdk/client-waf'); // CommonJS import
  * const client = new WAFClient(config);
  * const input = { // DeleteRateBasedRuleRequest
- *   RuleId: "STRING_VALUE", // required
- *   ChangeToken: "STRING_VALUE", // required
+ *   RuleId: 'STRING_VALUE', // required
+ *   ChangeToken: 'STRING_VALUE', // required
  * };
  * const command = new DeleteRateBasedRuleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteRateBasedRuleResponse
+ *   ChangeToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DeleteRateBasedRuleCommandInput - {@link DeleteRateBasedRuleCommandInput}
@@ -127,6 +132,8 @@ export interface DeleteRateBasedRuleCommandOutput extends DeleteRateBasedRuleRes
  * @throws {@link WAFTagOperationInternalErrorException} (server fault)
  *  <p></p>
  *
+ * @throws {@link WAFServiceException}
+ * <p>Base exception class for all service exceptions from WAF service.</p>
  *
  */
 export class DeleteRateBasedRuleCommand extends $Command<

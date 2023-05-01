@@ -36,15 +36,18 @@ export interface UpdateJobShipmentStateCommandOutput extends UpdateJobShipmentSt
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SnowballClient, UpdateJobShipmentStateCommand } from "@aws-sdk/client-snowball"; // ES Modules import
- * // const { SnowballClient, UpdateJobShipmentStateCommand } = require("@aws-sdk/client-snowball"); // CommonJS import
+ * import { SnowballClient, UpdateJobShipmentStateCommand } from '@aws-sdk/client-snowball'; // ES Modules import
+ * // const { SnowballClient, UpdateJobShipmentStateCommand } = require('@aws-sdk/client-snowball'); // CommonJS import
  * const client = new SnowballClient(config);
  * const input = { // UpdateJobShipmentStateRequest
- *   JobId: "STRING_VALUE", // required
- *   ShipmentState: "RECEIVED" || "RETURNED", // required
+ *   JobId: 'STRING_VALUE', // required
+ *   ShipmentState: 'RECEIVED' || 'RETURNED', // required
  * };
  * const command = new UpdateJobShipmentStateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateJobShipmentStateCommandInput - {@link UpdateJobShipmentStateCommandInput}
@@ -61,6 +64,8 @@ export interface UpdateJobShipmentStateCommandOutput extends UpdateJobShipmentSt
  *  <p>The specified resource can't be found. Check the information you provided in your last
  *       request, and try again.</p>
  *
+ * @throws {@link SnowballServiceException}
+ * <p>Base exception class for all service exceptions from Snowball service.</p>
  *
  */
 export class UpdateJobShipmentStateCommand extends $Command<

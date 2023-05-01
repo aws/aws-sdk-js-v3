@@ -41,15 +41,34 @@ export interface StopUserImportJobCommandOutput extends StopUserImportJobRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CognitoIdentityProviderClient, StopUserImportJobCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
- * // const { CognitoIdentityProviderClient, StopUserImportJobCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
+ * import { CognitoIdentityProviderClient, StopUserImportJobCommand } from '@aws-sdk/client-cognito-identity-provider'; // ES Modules import
+ * // const { CognitoIdentityProviderClient, StopUserImportJobCommand } = require('@aws-sdk/client-cognito-identity-provider'); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
  * const input = { // StopUserImportJobRequest
- *   UserPoolId: "STRING_VALUE", // required
- *   JobId: "STRING_VALUE", // required
+ *   UserPoolId: 'STRING_VALUE', // required
+ *   JobId: 'STRING_VALUE', // required
  * };
  * const command = new StopUserImportJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StopUserImportJobResponse
+ *   UserImportJob: { // UserImportJobType
+ *     JobName: 'STRING_VALUE',
+ *     JobId: 'STRING_VALUE',
+ *     UserPoolId: 'STRING_VALUE',
+ *     PreSignedUrl: 'STRING_VALUE',
+ *     CreationDate: new Date('TIMESTAMP'),
+ *     StartDate: new Date('TIMESTAMP'),
+ *     CompletionDate: new Date('TIMESTAMP'),
+ *     Status: 'Created' || 'Pending' || 'InProgress' || 'Stopping' || 'Expired' || 'Stopped' || 'Failed' || 'Succeeded',
+ *     CloudWatchLogsRoleArn: 'STRING_VALUE',
+ *     ImportedUsers: Number('long'),
+ *     SkippedUsers: Number('long'),
+ *     FailedUsers: Number('long'),
+ *     CompletionMessage: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param StopUserImportJobCommandInput - {@link StopUserImportJobCommandInput}
@@ -79,6 +98,8 @@ export interface StopUserImportJobCommandOutput extends StopUserImportJobRespons
  *  <p>This exception is thrown when the user has made too many requests for a given
  *             operation.</p>
  *
+ * @throws {@link CognitoIdentityProviderServiceException}
+ * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
  */
 export class StopUserImportJobCommand extends $Command<

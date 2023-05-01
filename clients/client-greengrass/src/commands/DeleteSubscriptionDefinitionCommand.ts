@@ -41,14 +41,17 @@ export interface DeleteSubscriptionDefinitionCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GreengrassClient, DeleteSubscriptionDefinitionCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
- * // const { GreengrassClient, DeleteSubscriptionDefinitionCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
+ * import { GreengrassClient, DeleteSubscriptionDefinitionCommand } from '@aws-sdk/client-greengrass'; // ES Modules import
+ * // const { GreengrassClient, DeleteSubscriptionDefinitionCommand } = require('@aws-sdk/client-greengrass'); // CommonJS import
  * const client = new GreengrassClient(config);
  * const input = { // DeleteSubscriptionDefinitionRequest
- *   SubscriptionDefinitionId: "STRING_VALUE", // required
+ *   SubscriptionDefinitionId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteSubscriptionDefinitionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteSubscriptionDefinitionCommandInput - {@link DeleteSubscriptionDefinitionCommandInput}
@@ -60,6 +63,8 @@ export interface DeleteSubscriptionDefinitionCommandOutput
  * @throws {@link BadRequestException} (client fault)
  *  General error information.
  *
+ * @throws {@link GreengrassServiceException}
+ * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
  */
 export class DeleteSubscriptionDefinitionCommand extends $Command<

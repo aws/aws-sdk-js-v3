@@ -44,16 +44,28 @@ export interface ListApplicationInstanceDependenciesCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PanoramaClient, ListApplicationInstanceDependenciesCommand } from "@aws-sdk/client-panorama"; // ES Modules import
- * // const { PanoramaClient, ListApplicationInstanceDependenciesCommand } = require("@aws-sdk/client-panorama"); // CommonJS import
+ * import { PanoramaClient, ListApplicationInstanceDependenciesCommand } from '@aws-sdk/client-panorama'; // ES Modules import
+ * // const { PanoramaClient, ListApplicationInstanceDependenciesCommand } = require('@aws-sdk/client-panorama'); // CommonJS import
  * const client = new PanoramaClient(config);
  * const input = { // ListApplicationInstanceDependenciesRequest
- *   ApplicationInstanceId: "STRING_VALUE", // required
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   ApplicationInstanceId: 'STRING_VALUE', // required
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListApplicationInstanceDependenciesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListApplicationInstanceDependenciesResponse
+ *   PackageObjects: [ // PackageObjects
+ *     { // PackageObject
+ *       Name: 'STRING_VALUE', // required
+ *       PackageVersion: 'STRING_VALUE', // required
+ *       PatchVersion: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListApplicationInstanceDependenciesCommandInput - {@link ListApplicationInstanceDependenciesCommandInput}
@@ -68,6 +80,8 @@ export interface ListApplicationInstanceDependenciesCommandOutput
  * @throws {@link InternalServerException} (server fault)
  *  <p>An internal error occurred.</p>
  *
+ * @throws {@link PanoramaServiceException}
+ * <p>Base exception class for all service exceptions from Panorama service.</p>
  *
  */
 export class ListApplicationInstanceDependenciesCommand extends $Command<

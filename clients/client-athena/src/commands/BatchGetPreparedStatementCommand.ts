@@ -40,17 +40,37 @@ export interface BatchGetPreparedStatementCommandOutput extends BatchGetPrepared
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AthenaClient, BatchGetPreparedStatementCommand } from "@aws-sdk/client-athena"; // ES Modules import
- * // const { AthenaClient, BatchGetPreparedStatementCommand } = require("@aws-sdk/client-athena"); // CommonJS import
+ * import { AthenaClient, BatchGetPreparedStatementCommand } from '@aws-sdk/client-athena'; // ES Modules import
+ * // const { AthenaClient, BatchGetPreparedStatementCommand } = require('@aws-sdk/client-athena'); // CommonJS import
  * const client = new AthenaClient(config);
  * const input = { // BatchGetPreparedStatementInput
  *   PreparedStatementNames: [ // PreparedStatementNameList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   WorkGroup: "STRING_VALUE", // required
+ *   WorkGroup: 'STRING_VALUE', // required
  * };
  * const command = new BatchGetPreparedStatementCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BatchGetPreparedStatementOutput
+ *   PreparedStatements: [ // PreparedStatementDetailsList
+ *     { // PreparedStatement
+ *       StatementName: 'STRING_VALUE',
+ *       QueryStatement: 'STRING_VALUE',
+ *       WorkGroupName: 'STRING_VALUE',
+ *       Description: 'STRING_VALUE',
+ *       LastModifiedTime: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   UnprocessedPreparedStatementNames: [ // UnprocessedPreparedStatementNameList
+ *     { // UnprocessedPreparedStatementName
+ *       StatementName: 'STRING_VALUE',
+ *       ErrorCode: 'STRING_VALUE',
+ *       ErrorMessage: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param BatchGetPreparedStatementCommandInput - {@link BatchGetPreparedStatementCommandInput}
@@ -67,6 +87,8 @@ export interface BatchGetPreparedStatementCommandOutput extends BatchGetPrepared
  *  <p>Indicates that something is wrong with the input to the request. For example, a
  *             required parameter may be missing or out of range.</p>
  *
+ * @throws {@link AthenaServiceException}
+ * <p>Base exception class for all service exceptions from Athena service.</p>
  *
  */
 export class BatchGetPreparedStatementCommand extends $Command<

@@ -42,16 +42,19 @@ export interface UpdateLoginProfileCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IAMClient, UpdateLoginProfileCommand } from "@aws-sdk/client-iam"; // ES Modules import
- * // const { IAMClient, UpdateLoginProfileCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * import { IAMClient, UpdateLoginProfileCommand } from '@aws-sdk/client-iam'; // ES Modules import
+ * // const { IAMClient, UpdateLoginProfileCommand } = require('@aws-sdk/client-iam'); // CommonJS import
  * const client = new IAMClient(config);
  * const input = { // UpdateLoginProfileRequest
- *   UserName: "STRING_VALUE", // required
- *   Password: "STRING_VALUE",
+ *   UserName: 'STRING_VALUE', // required
+ *   Password: 'STRING_VALUE',
  *   PasswordResetRequired: true || false,
  * };
  * const command = new UpdateLoginProfileCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateLoginProfileCommandInput - {@link UpdateLoginProfileCommandInput}
@@ -82,6 +85,8 @@ export interface UpdateLoginProfileCommandOutput extends __MetadataBearer {}
  *  <p>The request processing has failed because of an unknown error, exception or
  *       failure.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  * @example To change the password for an IAM user
  * ```javascript

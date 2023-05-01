@@ -43,67 +43,72 @@ export interface CreateTableCommandOutput extends CreateTableResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KeyspacesClient, CreateTableCommand } from "@aws-sdk/client-keyspaces"; // ES Modules import
- * // const { KeyspacesClient, CreateTableCommand } = require("@aws-sdk/client-keyspaces"); // CommonJS import
+ * import { KeyspacesClient, CreateTableCommand } from '@aws-sdk/client-keyspaces'; // ES Modules import
+ * // const { KeyspacesClient, CreateTableCommand } = require('@aws-sdk/client-keyspaces'); // CommonJS import
  * const client = new KeyspacesClient(config);
  * const input = { // CreateTableRequest
- *   keyspaceName: "STRING_VALUE", // required
- *   tableName: "STRING_VALUE", // required
+ *   keyspaceName: 'STRING_VALUE', // required
+ *   tableName: 'STRING_VALUE', // required
  *   schemaDefinition: { // SchemaDefinition
  *     allColumns: [ // ColumnDefinitionList // required
  *       { // ColumnDefinition
- *         name: "STRING_VALUE", // required
- *         type: "STRING_VALUE", // required
+ *         name: 'STRING_VALUE', // required
+ *         type: 'STRING_VALUE', // required
  *       },
  *     ],
  *     partitionKeys: [ // PartitionKeyList // required
  *       { // PartitionKey
- *         name: "STRING_VALUE", // required
+ *         name: 'STRING_VALUE', // required
  *       },
  *     ],
  *     clusteringKeys: [ // ClusteringKeyList
  *       { // ClusteringKey
- *         name: "STRING_VALUE", // required
- *         orderBy: "STRING_VALUE", // required
+ *         name: 'STRING_VALUE', // required
+ *         orderBy: 'STRING_VALUE', // required
  *       },
  *     ],
  *     staticColumns: [ // StaticColumnList
  *       { // StaticColumn
- *         name: "STRING_VALUE", // required
+ *         name: 'STRING_VALUE', // required
  *       },
  *     ],
  *   },
  *   comment: { // Comment
- *     message: "STRING_VALUE", // required
+ *     message: 'STRING_VALUE', // required
  *   },
  *   capacitySpecification: { // CapacitySpecification
- *     throughputMode: "STRING_VALUE", // required
- *     readCapacityUnits: Number("long"),
- *     writeCapacityUnits: Number("long"),
+ *     throughputMode: 'STRING_VALUE', // required
+ *     readCapacityUnits: Number('long'),
+ *     writeCapacityUnits: Number('long'),
  *   },
  *   encryptionSpecification: { // EncryptionSpecification
- *     type: "STRING_VALUE", // required
- *     kmsKeyIdentifier: "STRING_VALUE",
+ *     type: 'STRING_VALUE', // required
+ *     kmsKeyIdentifier: 'STRING_VALUE',
  *   },
  *   pointInTimeRecovery: { // PointInTimeRecovery
- *     status: "STRING_VALUE", // required
+ *     status: 'STRING_VALUE', // required
  *   },
  *   ttl: { // TimeToLive
- *     status: "STRING_VALUE", // required
+ *     status: 'STRING_VALUE', // required
  *   },
- *   defaultTimeToLive: Number("int"),
+ *   defaultTimeToLive: Number('int'),
  *   tags: [ // TagList
  *     { // Tag
- *       key: "STRING_VALUE", // required
- *       value: "STRING_VALUE", // required
+ *       key: 'STRING_VALUE', // required
+ *       value: 'STRING_VALUE', // required
  *     },
  *   ],
  *   clientSideTimestamps: { // ClientSideTimestamps
- *     status: "STRING_VALUE", // required
+ *     status: 'STRING_VALUE', // required
  *   },
  * };
  * const command = new CreateTableCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateTableResponse
+ *   resourceArn: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param CreateTableCommandInput - {@link CreateTableCommandInput}
@@ -133,6 +138,8 @@ export interface CreateTableCommandOutput extends CreateTableResponse, __Metadat
  * @throws {@link ValidationException} (client fault)
  *  <p>The operation failed due to an invalid or malformed request.</p>
  *
+ * @throws {@link KeyspacesServiceException}
+ * <p>Base exception class for all service exceptions from Keyspaces service.</p>
  *
  */
 export class CreateTableCommand extends $Command<

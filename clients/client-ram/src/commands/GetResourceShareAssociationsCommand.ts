@@ -42,22 +42,40 @@ export interface GetResourceShareAssociationsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RAMClient, GetResourceShareAssociationsCommand } from "@aws-sdk/client-ram"; // ES Modules import
- * // const { RAMClient, GetResourceShareAssociationsCommand } = require("@aws-sdk/client-ram"); // CommonJS import
+ * import { RAMClient, GetResourceShareAssociationsCommand } from '@aws-sdk/client-ram'; // ES Modules import
+ * // const { RAMClient, GetResourceShareAssociationsCommand } = require('@aws-sdk/client-ram'); // CommonJS import
  * const client = new RAMClient(config);
  * const input = { // GetResourceShareAssociationsRequest
- *   associationType: "PRINCIPAL" || "RESOURCE", // required
+ *   associationType: 'PRINCIPAL' || 'RESOURCE', // required
  *   resourceShareArns: [ // ResourceShareArnList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   resourceArn: "STRING_VALUE",
- *   principal: "STRING_VALUE",
- *   associationStatus: "ASSOCIATING" || "ASSOCIATED" || "FAILED" || "DISASSOCIATING" || "DISASSOCIATED",
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   resourceArn: 'STRING_VALUE',
+ *   principal: 'STRING_VALUE',
+ *   associationStatus: 'ASSOCIATING' || 'ASSOCIATED' || 'FAILED' || 'DISASSOCIATING' || 'DISASSOCIATED',
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new GetResourceShareAssociationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetResourceShareAssociationsResponse
+ *   resourceShareAssociations: [ // ResourceShareAssociationList
+ *     { // ResourceShareAssociation
+ *       resourceShareArn: 'STRING_VALUE',
+ *       resourceShareName: 'STRING_VALUE',
+ *       associatedEntity: 'STRING_VALUE',
+ *       associationType: 'PRINCIPAL' || 'RESOURCE',
+ *       status: 'ASSOCIATING' || 'ASSOCIATED' || 'FAILED' || 'DISASSOCIATING' || 'DISASSOCIATED',
+ *       statusMessage: 'STRING_VALUE',
+ *       creationTime: new Date('TIMESTAMP'),
+ *       lastUpdatedTime: new Date('TIMESTAMP'),
+ *       external: true || false,
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetResourceShareAssociationsCommandInput - {@link GetResourceShareAssociationsCommandInput}
@@ -91,6 +109,8 @@ export interface GetResourceShareAssociationsCommandOutput
  * @throws {@link UnknownResourceException} (client fault)
  *  <p>The operation failed because a specified resource couldn't be found.</p>
  *
+ * @throws {@link RAMServiceException}
+ * <p>Base exception class for all service exceptions from RAM service.</p>
  *
  */
 export class GetResourceShareAssociationsCommand extends $Command<

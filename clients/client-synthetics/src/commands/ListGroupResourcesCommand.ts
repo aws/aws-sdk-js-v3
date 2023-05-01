@@ -36,16 +36,24 @@ export interface ListGroupResourcesCommandOutput extends ListGroupResourcesRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SyntheticsClient, ListGroupResourcesCommand } from "@aws-sdk/client-synthetics"; // ES Modules import
- * // const { SyntheticsClient, ListGroupResourcesCommand } = require("@aws-sdk/client-synthetics"); // CommonJS import
+ * import { SyntheticsClient, ListGroupResourcesCommand } from '@aws-sdk/client-synthetics'; // ES Modules import
+ * // const { SyntheticsClient, ListGroupResourcesCommand } = require('@aws-sdk/client-synthetics'); // CommonJS import
  * const client = new SyntheticsClient(config);
  * const input = { // ListGroupResourcesRequest
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
- *   GroupIdentifier: "STRING_VALUE", // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
+ *   GroupIdentifier: 'STRING_VALUE', // required
  * };
  * const command = new ListGroupResourcesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListGroupResourcesResponse
+ *   Resources: [ // StringList
+ *     'STRING_VALUE',
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListGroupResourcesCommandInput - {@link ListGroupResourcesCommandInput}
@@ -66,6 +74,8 @@ export interface ListGroupResourcesCommandOutput extends ListGroupResourcesRespo
  * @throws {@link ValidationException} (client fault)
  *  <p>A parameter could not be validated.</p>
  *
+ * @throws {@link SyntheticsServiceException}
+ * <p>Base exception class for all service exceptions from Synthetics service.</p>
  *
  */
 export class ListGroupResourcesCommand extends $Command<

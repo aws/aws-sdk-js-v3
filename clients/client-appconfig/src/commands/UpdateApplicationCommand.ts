@@ -36,16 +36,23 @@ export interface UpdateApplicationCommandOutput extends Application, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppConfigClient, UpdateApplicationCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
- * // const { AppConfigClient, UpdateApplicationCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import
+ * import { AppConfigClient, UpdateApplicationCommand } from '@aws-sdk/client-appconfig'; // ES Modules import
+ * // const { AppConfigClient, UpdateApplicationCommand } = require('@aws-sdk/client-appconfig'); // CommonJS import
  * const client = new AppConfigClient(config);
  * const input = { // UpdateApplicationRequest
- *   ApplicationId: "STRING_VALUE", // required
- *   Name: "STRING_VALUE",
- *   Description: "STRING_VALUE",
+ *   ApplicationId: 'STRING_VALUE', // required
+ *   Name: 'STRING_VALUE',
+ *   Description: 'STRING_VALUE',
  * };
  * const command = new UpdateApplicationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // Application
+ *   Id: 'STRING_VALUE',
+ *   Name: 'STRING_VALUE',
+ *   Description: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateApplicationCommandInput - {@link UpdateApplicationCommandInput}
@@ -63,6 +70,8 @@ export interface UpdateApplicationCommandOutput extends Application, __MetadataB
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The requested resource could not be found.</p>
  *
+ * @throws {@link AppConfigServiceException}
+ * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
  * @example To update an application
  * ```javascript

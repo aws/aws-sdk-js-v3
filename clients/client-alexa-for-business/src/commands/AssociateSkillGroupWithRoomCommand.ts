@@ -39,15 +39,18 @@ export interface AssociateSkillGroupWithRoomCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AlexaForBusinessClient, AssociateSkillGroupWithRoomCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
- * // const { AlexaForBusinessClient, AssociateSkillGroupWithRoomCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
+ * import { AlexaForBusinessClient, AssociateSkillGroupWithRoomCommand } from '@aws-sdk/client-alexa-for-business'; // ES Modules import
+ * // const { AlexaForBusinessClient, AssociateSkillGroupWithRoomCommand } = require('@aws-sdk/client-alexa-for-business'); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
  * const input = { // AssociateSkillGroupWithRoomRequest
- *   SkillGroupArn: "STRING_VALUE",
- *   RoomArn: "STRING_VALUE",
+ *   SkillGroupArn: 'STRING_VALUE',
+ *   RoomArn: 'STRING_VALUE',
  * };
  * const command = new AssociateSkillGroupWithRoomCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param AssociateSkillGroupWithRoomCommandInput - {@link AssociateSkillGroupWithRoomCommandInput}
@@ -59,6 +62,8 @@ export interface AssociateSkillGroupWithRoomCommandOutput
  * @throws {@link ConcurrentModificationException} (client fault)
  *  <p>There is a concurrent modification of resources.</p>
  *
+ * @throws {@link AlexaForBusinessServiceException}
+ * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  */
 export class AssociateSkillGroupWithRoomCommand extends $Command<

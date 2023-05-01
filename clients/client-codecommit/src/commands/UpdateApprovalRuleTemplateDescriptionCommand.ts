@@ -44,15 +44,29 @@ export interface UpdateApprovalRuleTemplateDescriptionCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeCommitClient, UpdateApprovalRuleTemplateDescriptionCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
- * // const { CodeCommitClient, UpdateApprovalRuleTemplateDescriptionCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
+ * import { CodeCommitClient, UpdateApprovalRuleTemplateDescriptionCommand } from '@aws-sdk/client-codecommit'; // ES Modules import
+ * // const { CodeCommitClient, UpdateApprovalRuleTemplateDescriptionCommand } = require('@aws-sdk/client-codecommit'); // CommonJS import
  * const client = new CodeCommitClient(config);
  * const input = { // UpdateApprovalRuleTemplateDescriptionInput
- *   approvalRuleTemplateName: "STRING_VALUE", // required
- *   approvalRuleTemplateDescription: "STRING_VALUE", // required
+ *   approvalRuleTemplateName: 'STRING_VALUE', // required
+ *   approvalRuleTemplateDescription: 'STRING_VALUE', // required
  * };
  * const command = new UpdateApprovalRuleTemplateDescriptionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateApprovalRuleTemplateDescriptionOutput
+ *   approvalRuleTemplate: { // ApprovalRuleTemplate
+ *     approvalRuleTemplateId: 'STRING_VALUE',
+ *     approvalRuleTemplateName: 'STRING_VALUE',
+ *     approvalRuleTemplateDescription: 'STRING_VALUE',
+ *     approvalRuleTemplateContent: 'STRING_VALUE',
+ *     ruleContentSha256: 'STRING_VALUE',
+ *     lastModifiedDate: new Date('TIMESTAMP'),
+ *     creationDate: new Date('TIMESTAMP'),
+ *     lastModifiedUser: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateApprovalRuleTemplateDescriptionCommandInput - {@link UpdateApprovalRuleTemplateDescriptionCommandInput}
@@ -80,6 +94,8 @@ export interface UpdateApprovalRuleTemplateDescriptionCommandOutput
  *             see <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/limits.html">AWS
  *                 CodeCommit User Guide</a>.</p>
  *
+ * @throws {@link CodeCommitServiceException}
+ * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
  */
 export class UpdateApprovalRuleTemplateDescriptionCommand extends $Command<

@@ -45,17 +45,29 @@ export interface DescribeClientAuthenticationSettingsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DirectoryServiceClient, DescribeClientAuthenticationSettingsCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
- * // const { DirectoryServiceClient, DescribeClientAuthenticationSettingsCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
+ * import { DirectoryServiceClient, DescribeClientAuthenticationSettingsCommand } from '@aws-sdk/client-directory-service'; // ES Modules import
+ * // const { DirectoryServiceClient, DescribeClientAuthenticationSettingsCommand } = require('@aws-sdk/client-directory-service'); // CommonJS import
  * const client = new DirectoryServiceClient(config);
  * const input = { // DescribeClientAuthenticationSettingsRequest
- *   DirectoryId: "STRING_VALUE", // required
- *   Type: "SmartCard" || "SmartCardOrPassword",
- *   NextToken: "STRING_VALUE",
- *   Limit: Number("int"),
+ *   DirectoryId: 'STRING_VALUE', // required
+ *   Type: 'SmartCard' || 'SmartCardOrPassword',
+ *   NextToken: 'STRING_VALUE',
+ *   Limit: Number('int'),
  * };
  * const command = new DescribeClientAuthenticationSettingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeClientAuthenticationSettingsResult
+ *   ClientAuthenticationSettingsInfo: [ // ClientAuthenticationSettingsInfo
+ *     { // ClientAuthenticationSettingInfo
+ *       Type: 'SmartCard' || 'SmartCardOrPassword',
+ *       Status: 'Enabled' || 'Disabled',
+ *       LastUpdatedDateTime: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeClientAuthenticationSettingsCommandInput - {@link DescribeClientAuthenticationSettingsCommandInput}
@@ -82,6 +94,8 @@ export interface DescribeClientAuthenticationSettingsCommandOutput
  * @throws {@link UnsupportedOperationException} (client fault)
  *  <p>The operation is not supported.</p>
  *
+ * @throws {@link DirectoryServiceServiceException}
+ * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
  */
 export class DescribeClientAuthenticationSettingsCommand extends $Command<

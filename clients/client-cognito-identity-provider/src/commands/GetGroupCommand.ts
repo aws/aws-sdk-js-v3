@@ -42,15 +42,28 @@ export interface GetGroupCommandOutput extends GetGroupResponse, __MetadataBeare
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CognitoIdentityProviderClient, GetGroupCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
- * // const { CognitoIdentityProviderClient, GetGroupCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
+ * import { CognitoIdentityProviderClient, GetGroupCommand } from '@aws-sdk/client-cognito-identity-provider'; // ES Modules import
+ * // const { CognitoIdentityProviderClient, GetGroupCommand } = require('@aws-sdk/client-cognito-identity-provider'); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
  * const input = { // GetGroupRequest
- *   GroupName: "STRING_VALUE", // required
- *   UserPoolId: "STRING_VALUE", // required
+ *   GroupName: 'STRING_VALUE', // required
+ *   UserPoolId: 'STRING_VALUE', // required
  * };
  * const command = new GetGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetGroupResponse
+ *   Group: { // GroupType
+ *     GroupName: 'STRING_VALUE',
+ *     UserPoolId: 'STRING_VALUE',
+ *     Description: 'STRING_VALUE',
+ *     RoleArn: 'STRING_VALUE',
+ *     Precedence: Number('int'),
+ *     LastModifiedDate: new Date('TIMESTAMP'),
+ *     CreationDate: new Date('TIMESTAMP'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetGroupCommandInput - {@link GetGroupCommandInput}
@@ -77,6 +90,8 @@ export interface GetGroupCommandOutput extends GetGroupResponse, __MetadataBeare
  *  <p>This exception is thrown when the user has made too many requests for a given
  *             operation.</p>
  *
+ * @throws {@link CognitoIdentityProviderServiceException}
+ * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
  */
 export class GetGroupCommand extends $Command<

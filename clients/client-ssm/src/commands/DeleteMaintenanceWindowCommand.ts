@@ -36,14 +36,19 @@ export interface DeleteMaintenanceWindowCommandOutput extends DeleteMaintenanceW
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMClient, DeleteMaintenanceWindowCommand } from "@aws-sdk/client-ssm"; // ES Modules import
- * // const { SSMClient, DeleteMaintenanceWindowCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * import { SSMClient, DeleteMaintenanceWindowCommand } from '@aws-sdk/client-ssm'; // ES Modules import
+ * // const { SSMClient, DeleteMaintenanceWindowCommand } = require('@aws-sdk/client-ssm'); // CommonJS import
  * const client = new SSMClient(config);
  * const input = { // DeleteMaintenanceWindowRequest
- *   WindowId: "STRING_VALUE", // required
+ *   WindowId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteMaintenanceWindowCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteMaintenanceWindowResult
+ *   WindowId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DeleteMaintenanceWindowCommandInput - {@link DeleteMaintenanceWindowCommandInput}
@@ -55,6 +60,8 @@ export interface DeleteMaintenanceWindowCommandOutput extends DeleteMaintenanceW
  * @throws {@link InternalServerError} (server fault)
  *  <p>An error occurred on the server side.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class DeleteMaintenanceWindowCommand extends $Command<

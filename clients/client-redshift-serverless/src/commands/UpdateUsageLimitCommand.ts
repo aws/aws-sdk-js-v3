@@ -40,16 +40,29 @@ export interface UpdateUsageLimitCommandOutput extends UpdateUsageLimitResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RedshiftServerlessClient, UpdateUsageLimitCommand } from "@aws-sdk/client-redshift-serverless"; // ES Modules import
- * // const { RedshiftServerlessClient, UpdateUsageLimitCommand } = require("@aws-sdk/client-redshift-serverless"); // CommonJS import
+ * import { RedshiftServerlessClient, UpdateUsageLimitCommand } from '@aws-sdk/client-redshift-serverless'; // ES Modules import
+ * // const { RedshiftServerlessClient, UpdateUsageLimitCommand } = require('@aws-sdk/client-redshift-serverless'); // CommonJS import
  * const client = new RedshiftServerlessClient(config);
  * const input = { // UpdateUsageLimitRequest
- *   usageLimitId: "STRING_VALUE", // required
- *   amount: Number("long"),
- *   breachAction: "STRING_VALUE",
+ *   usageLimitId: 'STRING_VALUE', // required
+ *   amount: Number('long'),
+ *   breachAction: 'STRING_VALUE',
  * };
  * const command = new UpdateUsageLimitCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateUsageLimitResponse
+ *   usageLimit: { // UsageLimit
+ *     usageLimitId: 'STRING_VALUE',
+ *     usageLimitArn: 'STRING_VALUE',
+ *     resourceArn: 'STRING_VALUE',
+ *     usageType: 'STRING_VALUE',
+ *     amount: Number('long'),
+ *     period: 'STRING_VALUE',
+ *     breachAction: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateUsageLimitCommandInput - {@link UpdateUsageLimitCommandInput}
@@ -70,6 +83,8 @@ export interface UpdateUsageLimitCommandOutput extends UpdateUsageLimitResponse,
  * @throws {@link ValidationException} (client fault)
  *  <p>The input failed to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link RedshiftServerlessServiceException}
+ * <p>Base exception class for all service exceptions from RedshiftServerless service.</p>
  *
  */
 export class UpdateUsageLimitCommand extends $Command<

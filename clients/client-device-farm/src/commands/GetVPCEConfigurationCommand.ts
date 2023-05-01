@@ -37,14 +37,25 @@ export interface GetVPCEConfigurationCommandOutput extends GetVPCEConfigurationR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DeviceFarmClient, GetVPCEConfigurationCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
- * // const { DeviceFarmClient, GetVPCEConfigurationCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
+ * import { DeviceFarmClient, GetVPCEConfigurationCommand } from '@aws-sdk/client-device-farm'; // ES Modules import
+ * // const { DeviceFarmClient, GetVPCEConfigurationCommand } = require('@aws-sdk/client-device-farm'); // CommonJS import
  * const client = new DeviceFarmClient(config);
  * const input = { // GetVPCEConfigurationRequest
- *   arn: "STRING_VALUE", // required
+ *   arn: 'STRING_VALUE', // required
  * };
  * const command = new GetVPCEConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetVPCEConfigurationResult
+ *   vpceConfiguration: { // VPCEConfiguration
+ *     arn: 'STRING_VALUE',
+ *     vpceConfigurationName: 'STRING_VALUE',
+ *     vpceServiceName: 'STRING_VALUE',
+ *     serviceDnsName: 'STRING_VALUE',
+ *     vpceConfigurationDescription: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetVPCEConfigurationCommandInput - {@link GetVPCEConfigurationCommandInput}
@@ -62,6 +73,8 @@ export interface GetVPCEConfigurationCommandOutput extends GetVPCEConfigurationR
  * @throws {@link ServiceAccountException} (client fault)
  *  <p>There was a problem with the service account.</p>
  *
+ * @throws {@link DeviceFarmServiceException}
+ * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
  */
 export class GetVPCEConfigurationCommand extends $Command<

@@ -40,16 +40,28 @@ export interface ListIdentityProvidersCommandOutput extends ListIdentityProvider
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkSpacesWebClient, ListIdentityProvidersCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
- * // const { WorkSpacesWebClient, ListIdentityProvidersCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
+ * import { WorkSpacesWebClient, ListIdentityProvidersCommand } from '@aws-sdk/client-workspaces-web'; // ES Modules import
+ * // const { WorkSpacesWebClient, ListIdentityProvidersCommand } = require('@aws-sdk/client-workspaces-web'); // CommonJS import
  * const client = new WorkSpacesWebClient(config);
  * const input = { // ListIdentityProvidersRequest
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
- *   portalArn: "STRING_VALUE", // required
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
+ *   portalArn: 'STRING_VALUE', // required
  * };
  * const command = new ListIdentityProvidersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListIdentityProvidersResponse
+ *   nextToken: 'STRING_VALUE',
+ *   identityProviders: [ // IdentityProviderList
+ *     { // IdentityProviderSummary
+ *       identityProviderArn: 'STRING_VALUE',
+ *       identityProviderName: 'STRING_VALUE',
+ *       identityProviderType: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListIdentityProvidersCommandInput - {@link ListIdentityProvidersCommandInput}
@@ -70,6 +82,8 @@ export interface ListIdentityProvidersCommandOutput extends ListIdentityProvider
  * @throws {@link ValidationException} (client fault)
  *  <p>There is a validation error.</p>
  *
+ * @throws {@link WorkSpacesWebServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
  */
 export class ListIdentityProvidersCommand extends $Command<

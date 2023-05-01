@@ -43,20 +43,20 @@ export interface IssueCertificateCommandOutput extends IssueCertificateResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ACMPCAClient, IssueCertificateCommand } from "@aws-sdk/client-acm-pca"; // ES Modules import
- * // const { ACMPCAClient, IssueCertificateCommand } = require("@aws-sdk/client-acm-pca"); // CommonJS import
+ * import { ACMPCAClient, IssueCertificateCommand } from '@aws-sdk/client-acm-pca'; // ES Modules import
+ * // const { ACMPCAClient, IssueCertificateCommand } = require('@aws-sdk/client-acm-pca'); // CommonJS import
  * const client = new ACMPCAClient(config);
  * const input = { // IssueCertificateRequest
  *   ApiPassthrough: { // ApiPassthrough
  *     Extensions: { // Extensions
  *       CertificatePolicies: [ // CertificatePolicyList
  *         { // PolicyInformation
- *           CertPolicyId: "STRING_VALUE", // required
+ *           CertPolicyId: 'STRING_VALUE', // required
  *           PolicyQualifiers: [ // PolicyQualifierInfoList
  *             { // PolicyQualifierInfo
- *               PolicyQualifierId: "CPS", // required
+ *               PolicyQualifierId: 'CPS', // required
  *               Qualifier: { // Qualifier
- *                 CpsUri: "STRING_VALUE", // required
+ *                 CpsUri: 'STRING_VALUE', // required
  *               },
  *             },
  *           ],
@@ -64,8 +64,8 @@ export interface IssueCertificateCommandOutput extends IssueCertificateResponse,
  *       ],
  *       ExtendedKeyUsage: [ // ExtendedKeyUsageList
  *         { // ExtendedKeyUsage
- *           ExtendedKeyUsageType: "SERVER_AUTH" || "CLIENT_AUTH" || "CODE_SIGNING" || "EMAIL_PROTECTION" || "TIME_STAMPING" || "OCSP_SIGNING" || "SMART_CARD_LOGIN" || "DOCUMENT_SIGNING" || "CERTIFICATE_TRANSPARENCY",
- *           ExtendedKeyUsageObjectIdentifier: "STRING_VALUE",
+ *           ExtendedKeyUsageType: 'SERVER_AUTH' || 'CLIENT_AUTH' || 'CODE_SIGNING' || 'EMAIL_PROTECTION' || 'TIME_STAMPING' || 'OCSP_SIGNING' || 'SMART_CARD_LOGIN' || 'DOCUMENT_SIGNING' || 'CERTIFICATE_TRANSPARENCY',
+ *           ExtendedKeyUsageObjectIdentifier: 'STRING_VALUE',
  *         },
  *       ],
  *       KeyUsage: { // KeyUsage
@@ -82,89 +82,94 @@ export interface IssueCertificateCommandOutput extends IssueCertificateResponse,
  *       SubjectAlternativeNames: [ // GeneralNameList
  *         { // GeneralName
  *           OtherName: { // OtherName
- *             TypeId: "STRING_VALUE", // required
- *             Value: "STRING_VALUE", // required
+ *             TypeId: 'STRING_VALUE', // required
+ *             Value: 'STRING_VALUE', // required
  *           },
- *           Rfc822Name: "STRING_VALUE",
- *           DnsName: "STRING_VALUE",
+ *           Rfc822Name: 'STRING_VALUE',
+ *           DnsName: 'STRING_VALUE',
  *           DirectoryName: { // ASN1Subject
- *             Country: "STRING_VALUE",
- *             Organization: "STRING_VALUE",
- *             OrganizationalUnit: "STRING_VALUE",
- *             DistinguishedNameQualifier: "STRING_VALUE",
- *             State: "STRING_VALUE",
- *             CommonName: "STRING_VALUE",
- *             SerialNumber: "STRING_VALUE",
- *             Locality: "STRING_VALUE",
- *             Title: "STRING_VALUE",
- *             Surname: "STRING_VALUE",
- *             GivenName: "STRING_VALUE",
- *             Initials: "STRING_VALUE",
- *             Pseudonym: "STRING_VALUE",
- *             GenerationQualifier: "STRING_VALUE",
+ *             Country: 'STRING_VALUE',
+ *             Organization: 'STRING_VALUE',
+ *             OrganizationalUnit: 'STRING_VALUE',
+ *             DistinguishedNameQualifier: 'STRING_VALUE',
+ *             State: 'STRING_VALUE',
+ *             CommonName: 'STRING_VALUE',
+ *             SerialNumber: 'STRING_VALUE',
+ *             Locality: 'STRING_VALUE',
+ *             Title: 'STRING_VALUE',
+ *             Surname: 'STRING_VALUE',
+ *             GivenName: 'STRING_VALUE',
+ *             Initials: 'STRING_VALUE',
+ *             Pseudonym: 'STRING_VALUE',
+ *             GenerationQualifier: 'STRING_VALUE',
  *             CustomAttributes: [ // CustomAttributeList
  *               { // CustomAttribute
- *                 ObjectIdentifier: "STRING_VALUE", // required
- *                 Value: "STRING_VALUE", // required
+ *                 ObjectIdentifier: 'STRING_VALUE', // required
+ *                 Value: 'STRING_VALUE', // required
  *               },
  *             ],
  *           },
  *           EdiPartyName: { // EdiPartyName
- *             PartyName: "STRING_VALUE", // required
- *             NameAssigner: "STRING_VALUE",
+ *             PartyName: 'STRING_VALUE', // required
+ *             NameAssigner: 'STRING_VALUE',
  *           },
- *           UniformResourceIdentifier: "STRING_VALUE",
- *           IpAddress: "STRING_VALUE",
- *           RegisteredId: "STRING_VALUE",
+ *           UniformResourceIdentifier: 'STRING_VALUE',
+ *           IpAddress: 'STRING_VALUE',
+ *           RegisteredId: 'STRING_VALUE',
  *         },
  *       ],
  *       CustomExtensions: [ // CustomExtensionList
  *         { // CustomExtension
- *           ObjectIdentifier: "STRING_VALUE", // required
- *           Value: "STRING_VALUE", // required
+ *           ObjectIdentifier: 'STRING_VALUE', // required
+ *           Value: 'STRING_VALUE', // required
  *           Critical: true || false,
  *         },
  *       ],
  *     },
  *     Subject: {
- *       Country: "STRING_VALUE",
- *       Organization: "STRING_VALUE",
- *       OrganizationalUnit: "STRING_VALUE",
- *       DistinguishedNameQualifier: "STRING_VALUE",
- *       State: "STRING_VALUE",
- *       CommonName: "STRING_VALUE",
- *       SerialNumber: "STRING_VALUE",
- *       Locality: "STRING_VALUE",
- *       Title: "STRING_VALUE",
- *       Surname: "STRING_VALUE",
- *       GivenName: "STRING_VALUE",
- *       Initials: "STRING_VALUE",
- *       Pseudonym: "STRING_VALUE",
- *       GenerationQualifier: "STRING_VALUE",
+ *       Country: 'STRING_VALUE',
+ *       Organization: 'STRING_VALUE',
+ *       OrganizationalUnit: 'STRING_VALUE',
+ *       DistinguishedNameQualifier: 'STRING_VALUE',
+ *       State: 'STRING_VALUE',
+ *       CommonName: 'STRING_VALUE',
+ *       SerialNumber: 'STRING_VALUE',
+ *       Locality: 'STRING_VALUE',
+ *       Title: 'STRING_VALUE',
+ *       Surname: 'STRING_VALUE',
+ *       GivenName: 'STRING_VALUE',
+ *       Initials: 'STRING_VALUE',
+ *       Pseudonym: 'STRING_VALUE',
+ *       GenerationQualifier: 'STRING_VALUE',
  *       CustomAttributes: [
  *         {
- *           ObjectIdentifier: "STRING_VALUE", // required
- *           Value: "STRING_VALUE", // required
+ *           ObjectIdentifier: 'STRING_VALUE', // required
+ *           Value: 'STRING_VALUE', // required
  *         },
  *       ],
  *     },
  *   },
- *   CertificateAuthorityArn: "STRING_VALUE", // required
- *   Csr: "BLOB_VALUE", // required
- *   SigningAlgorithm: "SHA256WITHECDSA" || "SHA384WITHECDSA" || "SHA512WITHECDSA" || "SHA256WITHRSA" || "SHA384WITHRSA" || "SHA512WITHRSA", // required
- *   TemplateArn: "STRING_VALUE",
+ *   CertificateAuthorityArn: 'STRING_VALUE', // required
+ *   Csr: 'BLOB_VALUE', // required
+ *   SigningAlgorithm: 'SHA256WITHECDSA' || 'SHA384WITHECDSA' || 'SHA512WITHECDSA' || 'SHA256WITHRSA' || 'SHA384WITHRSA' || 'SHA512WITHRSA', // required
+ *   TemplateArn: 'STRING_VALUE',
  *   Validity: { // Validity
- *     Value: Number("long"), // required
- *     Type: "END_DATE" || "ABSOLUTE" || "DAYS" || "MONTHS" || "YEARS", // required
+ *     Value: Number('long'), // required
+ *     Type: 'END_DATE' || 'ABSOLUTE' || 'DAYS' || 'MONTHS' || 'YEARS', // required
  *   },
  *   ValidityNotBefore: {
- *     Value: Number("long"), // required
- *     Type: "END_DATE" || "ABSOLUTE" || "DAYS" || "MONTHS" || "YEARS", // required
+ *     Value: Number('long'), // required
+ *     Type: 'END_DATE' || 'ABSOLUTE' || 'DAYS' || 'MONTHS' || 'YEARS', // required
  *   },
- *   IdempotencyToken: "STRING_VALUE",
+ *   IdempotencyToken: 'STRING_VALUE',
  * };
  * const command = new IssueCertificateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // IssueCertificateResponse
+ *   CertificateArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param IssueCertificateCommandInput - {@link IssueCertificateCommandInput}
@@ -194,6 +199,8 @@ export interface IssueCertificateCommandOutput extends IssueCertificateResponse,
  *  <p>A resource such as a private CA, S3 bucket, certificate, audit report, or policy
  * 			cannot be found.</p>
  *
+ * @throws {@link ACMPCAServiceException}
+ * <p>Base exception class for all service exceptions from ACMPCA service.</p>
  *
  */
 export class IssueCertificateCommand extends $Command<

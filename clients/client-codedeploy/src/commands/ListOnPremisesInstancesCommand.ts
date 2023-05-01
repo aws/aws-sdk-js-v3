@@ -39,22 +39,30 @@ export interface ListOnPremisesInstancesCommandOutput extends ListOnPremisesInst
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeDeployClient, ListOnPremisesInstancesCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
- * // const { CodeDeployClient, ListOnPremisesInstancesCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
+ * import { CodeDeployClient, ListOnPremisesInstancesCommand } from '@aws-sdk/client-codedeploy'; // ES Modules import
+ * // const { CodeDeployClient, ListOnPremisesInstancesCommand } = require('@aws-sdk/client-codedeploy'); // CommonJS import
  * const client = new CodeDeployClient(config);
  * const input = { // ListOnPremisesInstancesInput
- *   registrationStatus: "Registered" || "Deregistered",
+ *   registrationStatus: 'Registered' || 'Deregistered',
  *   tagFilters: [ // TagFilterList
  *     { // TagFilter
- *       Key: "STRING_VALUE",
- *       Value: "STRING_VALUE",
- *       Type: "KEY_ONLY" || "VALUE_ONLY" || "KEY_AND_VALUE",
+ *       Key: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
+ *       Type: 'KEY_ONLY' || 'VALUE_ONLY' || 'KEY_AND_VALUE',
  *     },
  *   ],
- *   nextToken: "STRING_VALUE",
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new ListOnPremisesInstancesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListOnPremisesInstancesOutput
+ *   instanceNames: [ // InstanceNameList
+ *     'STRING_VALUE',
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListOnPremisesInstancesCommandInput - {@link ListOnPremisesInstancesCommandInput}
@@ -72,6 +80,8 @@ export interface ListOnPremisesInstancesCommandOutput extends ListOnPremisesInst
  * @throws {@link InvalidTagFilterException} (client fault)
  *  <p>The tag filter was specified in an invalid format.</p>
  *
+ * @throws {@link CodeDeployServiceException}
+ * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
  */
 export class ListOnPremisesInstancesCommand extends $Command<

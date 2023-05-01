@@ -39,15 +39,33 @@ export interface DissociatePackageCommandOutput extends DissociatePackageRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OpenSearchClient, DissociatePackageCommand } from "@aws-sdk/client-opensearch"; // ES Modules import
- * // const { OpenSearchClient, DissociatePackageCommand } = require("@aws-sdk/client-opensearch"); // CommonJS import
+ * import { OpenSearchClient, DissociatePackageCommand } from '@aws-sdk/client-opensearch'; // ES Modules import
+ * // const { OpenSearchClient, DissociatePackageCommand } = require('@aws-sdk/client-opensearch'); // CommonJS import
  * const client = new OpenSearchClient(config);
  * const input = { // DissociatePackageRequest
- *   PackageID: "STRING_VALUE", // required
- *   DomainName: "STRING_VALUE", // required
+ *   PackageID: 'STRING_VALUE', // required
+ *   DomainName: 'STRING_VALUE', // required
  * };
  * const command = new DissociatePackageCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DissociatePackageResponse
+ *   DomainPackageDetails: { // DomainPackageDetails
+ *     PackageID: 'STRING_VALUE',
+ *     PackageName: 'STRING_VALUE',
+ *     PackageType: 'TXT-DICTIONARY',
+ *     LastUpdated: new Date('TIMESTAMP'),
+ *     DomainName: 'STRING_VALUE',
+ *     DomainPackageStatus: 'ASSOCIATING' || 'ASSOCIATION_FAILED' || 'ACTIVE' || 'DISSOCIATING' || 'DISSOCIATION_FAILED',
+ *     PackageVersion: 'STRING_VALUE',
+ *     ReferencePath: 'STRING_VALUE',
+ *     ErrorDetails: { // ErrorDetails
+ *       ErrorType: 'STRING_VALUE',
+ *       ErrorMessage: 'STRING_VALUE',
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param DissociatePackageCommandInput - {@link DissociatePackageCommandInput}
@@ -74,6 +92,8 @@ export interface DissociatePackageCommandOutput extends DissociatePackageRespons
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception for accessing or deleting a resource that doesn't exist.</p>
  *
+ * @throws {@link OpenSearchServiceException}
+ * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
  */
 export class DissociatePackageCommand extends $Command<

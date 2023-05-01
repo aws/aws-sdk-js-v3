@@ -36,15 +36,31 @@ export interface DescribeResourceCommandOutput extends DescribeResourceResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkMailClient, DescribeResourceCommand } from "@aws-sdk/client-workmail"; // ES Modules import
- * // const { WorkMailClient, DescribeResourceCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
+ * import { WorkMailClient, DescribeResourceCommand } from '@aws-sdk/client-workmail'; // ES Modules import
+ * // const { WorkMailClient, DescribeResourceCommand } = require('@aws-sdk/client-workmail'); // CommonJS import
  * const client = new WorkMailClient(config);
  * const input = { // DescribeResourceRequest
- *   OrganizationId: "STRING_VALUE", // required
- *   ResourceId: "STRING_VALUE", // required
+ *   OrganizationId: 'STRING_VALUE', // required
+ *   ResourceId: 'STRING_VALUE', // required
  * };
  * const command = new DescribeResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeResourceResponse
+ *   ResourceId: 'STRING_VALUE',
+ *   Email: 'STRING_VALUE',
+ *   Name: 'STRING_VALUE',
+ *   Type: 'ROOM' || 'EQUIPMENT',
+ *   BookingOptions: { // BookingOptions
+ *     AutoAcceptRequests: true || false,
+ *     AutoDeclineRecurringRequests: true || false,
+ *     AutoDeclineConflictingRequests: true || false,
+ *   },
+ *   State: 'ENABLED' || 'DISABLED' || 'DELETED',
+ *   EnabledDate: new Date('TIMESTAMP'),
+ *   DisabledDate: new Date('TIMESTAMP'),
+ * };
+ *
  * ```
  *
  * @param DescribeResourceCommandInput - {@link DescribeResourceCommandInput}
@@ -68,6 +84,8 @@ export interface DescribeResourceCommandOutput extends DescribeResourceResponse,
  *  <p>The organization must have a valid state to perform certain
  *          operations on the organization or its members.</p>
  *
+ * @throws {@link WorkMailServiceException}
+ * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
  */
 export class DescribeResourceCommand extends $Command<

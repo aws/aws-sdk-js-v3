@@ -39,31 +39,37 @@ export interface ImportHubContentCommandOutput extends ImportHubContentResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, ImportHubContentCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, ImportHubContentCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, ImportHubContentCommand } from '@aws-sdk/client-sagemaker'; // ES Modules import
+ * // const { SageMakerClient, ImportHubContentCommand } = require('@aws-sdk/client-sagemaker'); // CommonJS import
  * const client = new SageMakerClient(config);
  * const input = { // ImportHubContentRequest
- *   HubContentName: "STRING_VALUE", // required
- *   HubContentVersion: "STRING_VALUE",
- *   HubContentType: "Model" || "Notebook", // required
- *   DocumentSchemaVersion: "STRING_VALUE", // required
- *   HubName: "STRING_VALUE", // required
- *   HubContentDisplayName: "STRING_VALUE",
- *   HubContentDescription: "STRING_VALUE",
- *   HubContentMarkdown: "STRING_VALUE",
- *   HubContentDocument: "STRING_VALUE", // required
+ *   HubContentName: 'STRING_VALUE', // required
+ *   HubContentVersion: 'STRING_VALUE',
+ *   HubContentType: 'Model' || 'Notebook', // required
+ *   DocumentSchemaVersion: 'STRING_VALUE', // required
+ *   HubName: 'STRING_VALUE', // required
+ *   HubContentDisplayName: 'STRING_VALUE',
+ *   HubContentDescription: 'STRING_VALUE',
+ *   HubContentMarkdown: 'STRING_VALUE',
+ *   HubContentDocument: 'STRING_VALUE', // required
  *   HubContentSearchKeywords: [ // HubContentSearchKeywordList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new ImportHubContentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ImportHubContentResponse
+ *   HubArn: 'STRING_VALUE', // required
+ *   HubContentArn: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param ImportHubContentCommandInput - {@link ImportHubContentCommandInput}
@@ -82,6 +88,8 @@ export interface ImportHubContentCommandOutput extends ImportHubContentResponse,
  * @throws {@link ResourceNotFound} (client fault)
  *  <p>Resource being access is not found.</p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class ImportHubContentCommand extends $Command<

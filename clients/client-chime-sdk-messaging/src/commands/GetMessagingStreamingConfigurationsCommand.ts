@@ -49,14 +49,24 @@ export interface GetMessagingStreamingConfigurationsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeSDKMessagingClient, GetMessagingStreamingConfigurationsCommand } from "@aws-sdk/client-chime-sdk-messaging"; // ES Modules import
- * // const { ChimeSDKMessagingClient, GetMessagingStreamingConfigurationsCommand } = require("@aws-sdk/client-chime-sdk-messaging"); // CommonJS import
+ * import { ChimeSDKMessagingClient, GetMessagingStreamingConfigurationsCommand } from '@aws-sdk/client-chime-sdk-messaging'; // ES Modules import
+ * // const { ChimeSDKMessagingClient, GetMessagingStreamingConfigurationsCommand } = require('@aws-sdk/client-chime-sdk-messaging'); // CommonJS import
  * const client = new ChimeSDKMessagingClient(config);
  * const input = { // GetMessagingStreamingConfigurationsRequest
- *   AppInstanceArn: "STRING_VALUE", // required
+ *   AppInstanceArn: 'STRING_VALUE', // required
  * };
  * const command = new GetMessagingStreamingConfigurationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetMessagingStreamingConfigurationsResponse
+ *   StreamingConfigurations: [ // StreamingConfigurationList
+ *     { // StreamingConfiguration
+ *       DataType: 'Channel' || 'ChannelMessage', // required
+ *       ResourceArn: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetMessagingStreamingConfigurationsCommandInput - {@link GetMessagingStreamingConfigurationsCommandInput}
@@ -86,6 +96,8 @@ export interface GetMessagingStreamingConfigurationsCommandOutput
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeSDKMessagingServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKMessaging service.</p>
  *
  */
 export class GetMessagingStreamingConfigurationsCommand extends $Command<

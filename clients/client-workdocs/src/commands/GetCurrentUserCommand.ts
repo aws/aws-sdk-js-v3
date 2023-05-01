@@ -47,14 +47,41 @@ export interface GetCurrentUserCommandOutput extends GetCurrentUserResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkDocsClient, GetCurrentUserCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
- * // const { WorkDocsClient, GetCurrentUserCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import
+ * import { WorkDocsClient, GetCurrentUserCommand } from '@aws-sdk/client-workdocs'; // ES Modules import
+ * // const { WorkDocsClient, GetCurrentUserCommand } = require('@aws-sdk/client-workdocs'); // CommonJS import
  * const client = new WorkDocsClient(config);
  * const input = { // GetCurrentUserRequest
- *   AuthenticationToken: "STRING_VALUE", // required
+ *   AuthenticationToken: 'STRING_VALUE', // required
  * };
  * const command = new GetCurrentUserCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetCurrentUserResponse
+ *   User: { // User
+ *     Id: 'STRING_VALUE',
+ *     Username: 'STRING_VALUE',
+ *     EmailAddress: 'STRING_VALUE',
+ *     GivenName: 'STRING_VALUE',
+ *     Surname: 'STRING_VALUE',
+ *     OrganizationId: 'STRING_VALUE',
+ *     RootFolderId: 'STRING_VALUE',
+ *     RecycleBinFolderId: 'STRING_VALUE',
+ *     Status: 'ACTIVE' || 'INACTIVE' || 'PENDING',
+ *     Type: 'USER' || 'ADMIN' || 'POWERUSER' || 'MINIMALUSER' || 'WORKSPACESUSER',
+ *     CreatedTimestamp: new Date('TIMESTAMP'),
+ *     ModifiedTimestamp: new Date('TIMESTAMP'),
+ *     TimeZoneId: 'STRING_VALUE',
+ *     Locale: 'en' || 'fr' || 'ko' || 'de' || 'es' || 'ja' || 'ru' || 'zh_CN' || 'zh_TW' || 'pt_BR' || 'default',
+ *     Storage: { // UserStorageMetadata
+ *       StorageUtilizedInBytes: Number('long'),
+ *       StorageRule: { // StorageRuleType
+ *         StorageAllocatedInBytes: Number('long'),
+ *         StorageType: 'UNLIMITED' || 'QUOTA',
+ *       },
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetCurrentUserCommandInput - {@link GetCurrentUserCommandInput}
@@ -80,6 +107,8 @@ export interface GetCurrentUserCommandOutput extends GetCurrentUserResponse, __M
  * @throws {@link UnauthorizedResourceAccessException} (client fault)
  *  <p>The caller does not have access to perform the action on the resource.</p>
  *
+ * @throws {@link WorkDocsServiceException}
+ * <p>Base exception class for all service exceptions from WorkDocs service.</p>
  *
  */
 export class GetCurrentUserCommand extends $Command<

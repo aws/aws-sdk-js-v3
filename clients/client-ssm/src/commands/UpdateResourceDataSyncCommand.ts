@@ -45,24 +45,24 @@ export interface UpdateResourceDataSyncCommandOutput extends UpdateResourceDataS
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMClient, UpdateResourceDataSyncCommand } from "@aws-sdk/client-ssm"; // ES Modules import
- * // const { SSMClient, UpdateResourceDataSyncCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * import { SSMClient, UpdateResourceDataSyncCommand } from '@aws-sdk/client-ssm'; // ES Modules import
+ * // const { SSMClient, UpdateResourceDataSyncCommand } = require('@aws-sdk/client-ssm'); // CommonJS import
  * const client = new SSMClient(config);
  * const input = { // UpdateResourceDataSyncRequest
- *   SyncName: "STRING_VALUE", // required
- *   SyncType: "STRING_VALUE", // required
+ *   SyncName: 'STRING_VALUE', // required
+ *   SyncType: 'STRING_VALUE', // required
  *   SyncSource: { // ResourceDataSyncSource
- *     SourceType: "STRING_VALUE", // required
+ *     SourceType: 'STRING_VALUE', // required
  *     AwsOrganizationsSource: { // ResourceDataSyncAwsOrganizationsSource
- *       OrganizationSourceType: "STRING_VALUE", // required
+ *       OrganizationSourceType: 'STRING_VALUE', // required
  *       OrganizationalUnits: [ // ResourceDataSyncOrganizationalUnitList
  *         { // ResourceDataSyncOrganizationalUnit
- *           OrganizationalUnitId: "STRING_VALUE",
+ *           OrganizationalUnitId: 'STRING_VALUE',
  *         },
  *       ],
  *     },
  *     SourceRegions: [ // ResourceDataSyncSourceRegionList // required
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     IncludeFutureRegions: true || false,
  *     EnableAllOpsDataSources: true || false,
@@ -70,6 +70,9 @@ export interface UpdateResourceDataSyncCommandOutput extends UpdateResourceDataS
  * };
  * const command = new UpdateResourceDataSyncCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateResourceDataSyncCommandInput - {@link UpdateResourceDataSyncCommandInput}
@@ -91,6 +94,8 @@ export interface UpdateResourceDataSyncCommandOutput extends UpdateResourceDataS
  * @throws {@link ResourceDataSyncNotFoundException} (client fault)
  *  <p>The specified sync name wasn't found.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class UpdateResourceDataSyncCommand extends $Command<

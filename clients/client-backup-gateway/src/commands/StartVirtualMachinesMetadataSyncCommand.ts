@@ -41,14 +41,19 @@ export interface StartVirtualMachinesMetadataSyncCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BackupGatewayClient, StartVirtualMachinesMetadataSyncCommand } from "@aws-sdk/client-backup-gateway"; // ES Modules import
- * // const { BackupGatewayClient, StartVirtualMachinesMetadataSyncCommand } = require("@aws-sdk/client-backup-gateway"); // CommonJS import
+ * import { BackupGatewayClient, StartVirtualMachinesMetadataSyncCommand } from '@aws-sdk/client-backup-gateway'; // ES Modules import
+ * // const { BackupGatewayClient, StartVirtualMachinesMetadataSyncCommand } = require('@aws-sdk/client-backup-gateway'); // CommonJS import
  * const client = new BackupGatewayClient(config);
  * const input = { // StartVirtualMachinesMetadataSyncInput
- *   HypervisorArn: "STRING_VALUE", // required
+ *   HypervisorArn: 'STRING_VALUE', // required
  * };
  * const command = new StartVirtualMachinesMetadataSyncCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartVirtualMachinesMetadataSyncOutput
+ *   HypervisorArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param StartVirtualMachinesMetadataSyncCommandInput - {@link StartVirtualMachinesMetadataSyncCommandInput}
@@ -73,6 +78,8 @@ export interface StartVirtualMachinesMetadataSyncCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The operation did not succeed because a validation error occurred.</p>
  *
+ * @throws {@link BackupGatewayServiceException}
+ * <p>Base exception class for all service exceptions from BackupGateway service.</p>
  *
  */
 export class StartVirtualMachinesMetadataSyncCommand extends $Command<

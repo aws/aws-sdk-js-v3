@@ -38,16 +38,29 @@ export interface ListLabelGroupsCommandOutput extends ListLabelGroupsResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LookoutEquipmentClient, ListLabelGroupsCommand } from "@aws-sdk/client-lookoutequipment"; // ES Modules import
- * // const { LookoutEquipmentClient, ListLabelGroupsCommand } = require("@aws-sdk/client-lookoutequipment"); // CommonJS import
+ * import { LookoutEquipmentClient, ListLabelGroupsCommand } from '@aws-sdk/client-lookoutequipment'; // ES Modules import
+ * // const { LookoutEquipmentClient, ListLabelGroupsCommand } = require('@aws-sdk/client-lookoutequipment'); // CommonJS import
  * const client = new LookoutEquipmentClient(config);
  * const input = { // ListLabelGroupsRequest
- *   LabelGroupNameBeginsWith: "STRING_VALUE",
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   LabelGroupNameBeginsWith: 'STRING_VALUE',
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListLabelGroupsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListLabelGroupsResponse
+ *   NextToken: 'STRING_VALUE',
+ *   LabelGroupSummaries: [ // LabelGroupSummaries
+ *     { // LabelGroupSummary
+ *       LabelGroupName: 'STRING_VALUE',
+ *       LabelGroupArn: 'STRING_VALUE',
+ *       CreatedAt: new Date('TIMESTAMP'),
+ *       UpdatedAt: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListLabelGroupsCommandInput - {@link ListLabelGroupsCommandInput}
@@ -71,6 +84,8 @@ export interface ListLabelGroupsCommandOutput extends ListLabelGroupsResponse, _
  *  <p> The input fails to satisfy constraints specified by Amazon Lookout for Equipment or a
  *          related AWS service that's being utilized. </p>
  *
+ * @throws {@link LookoutEquipmentServiceException}
+ * <p>Base exception class for all service exceptions from LookoutEquipment service.</p>
  *
  */
 export class ListLabelGroupsCommand extends $Command<

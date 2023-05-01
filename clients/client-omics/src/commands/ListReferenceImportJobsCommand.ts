@@ -36,21 +36,36 @@ export interface ListReferenceImportJobsCommandOutput extends ListReferenceImpor
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OmicsClient, ListReferenceImportJobsCommand } from "@aws-sdk/client-omics"; // ES Modules import
- * // const { OmicsClient, ListReferenceImportJobsCommand } = require("@aws-sdk/client-omics"); // CommonJS import
+ * import { OmicsClient, ListReferenceImportJobsCommand } from '@aws-sdk/client-omics'; // ES Modules import
+ * // const { OmicsClient, ListReferenceImportJobsCommand } = require('@aws-sdk/client-omics'); // CommonJS import
  * const client = new OmicsClient(config);
  * const input = { // ListReferenceImportJobsRequest
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
- *   referenceStoreId: "STRING_VALUE", // required
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
+ *   referenceStoreId: 'STRING_VALUE', // required
  *   filter: { // ImportReferenceFilter
- *     status: "STRING_VALUE",
- *     createdAfter: new Date("TIMESTAMP"),
- *     createdBefore: new Date("TIMESTAMP"),
+ *     status: 'STRING_VALUE',
+ *     createdAfter: new Date('TIMESTAMP'),
+ *     createdBefore: new Date('TIMESTAMP'),
  *   },
  * };
  * const command = new ListReferenceImportJobsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListReferenceImportJobsResponse
+ *   nextToken: 'STRING_VALUE',
+ *   importJobs: [ // ImportReferenceJobList
+ *     { // ImportReferenceJobItem
+ *       id: 'STRING_VALUE', // required
+ *       referenceStoreId: 'STRING_VALUE', // required
+ *       roleArn: 'STRING_VALUE', // required
+ *       status: 'STRING_VALUE', // required
+ *       creationTime: new Date('TIMESTAMP'), // required
+ *       completionTime: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListReferenceImportJobsCommandInput - {@link ListReferenceImportJobsCommandInput}
@@ -77,6 +92,8 @@ export interface ListReferenceImportJobsCommandOutput extends ListReferenceImpor
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link OmicsServiceException}
+ * <p>Base exception class for all service exceptions from Omics service.</p>
  *
  */
 export class ListReferenceImportJobsCommand extends $Command<

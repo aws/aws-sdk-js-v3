@@ -38,17 +38,31 @@ export interface ListAssetRelationshipsCommandOutput extends ListAssetRelationsh
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTSiteWiseClient, ListAssetRelationshipsCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
- * // const { IoTSiteWiseClient, ListAssetRelationshipsCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
+ * import { IoTSiteWiseClient, ListAssetRelationshipsCommand } from '@aws-sdk/client-iotsitewise'; // ES Modules import
+ * // const { IoTSiteWiseClient, ListAssetRelationshipsCommand } = require('@aws-sdk/client-iotsitewise'); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
  * const input = { // ListAssetRelationshipsRequest
- *   assetId: "STRING_VALUE", // required
- *   traversalType: "PATH_TO_ROOT", // required
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   assetId: 'STRING_VALUE', // required
+ *   traversalType: 'PATH_TO_ROOT', // required
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new ListAssetRelationshipsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListAssetRelationshipsResponse
+ *   assetRelationshipSummaries: [ // AssetRelationshipSummaries // required
+ *     { // AssetRelationshipSummary
+ *       hierarchyInfo: { // AssetHierarchyInfo
+ *         parentAssetId: 'STRING_VALUE',
+ *         childAssetId: 'STRING_VALUE',
+ *       },
+ *       relationshipType: 'HIERARCHY', // required
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListAssetRelationshipsCommandInput - {@link ListAssetRelationshipsCommandInput}
@@ -73,6 +87,8 @@ export interface ListAssetRelationshipsCommandOutput extends ListAssetRelationsh
  *       on.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
  *
+ * @throws {@link IoTSiteWiseServiceException}
+ * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
  */
 export class ListAssetRelationshipsCommand extends $Command<

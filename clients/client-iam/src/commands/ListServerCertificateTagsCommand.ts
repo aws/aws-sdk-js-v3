@@ -45,16 +45,28 @@ export interface ListServerCertificateTagsCommandOutput extends ListServerCertif
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IAMClient, ListServerCertificateTagsCommand } from "@aws-sdk/client-iam"; // ES Modules import
- * // const { IAMClient, ListServerCertificateTagsCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * import { IAMClient, ListServerCertificateTagsCommand } from '@aws-sdk/client-iam'; // ES Modules import
+ * // const { IAMClient, ListServerCertificateTagsCommand } = require('@aws-sdk/client-iam'); // CommonJS import
  * const client = new IAMClient(config);
  * const input = { // ListServerCertificateTagsRequest
- *   ServerCertificateName: "STRING_VALUE", // required
- *   Marker: "STRING_VALUE",
- *   MaxItems: Number("int"),
+ *   ServerCertificateName: 'STRING_VALUE', // required
+ *   Marker: 'STRING_VALUE',
+ *   MaxItems: Number('int'),
  * };
  * const command = new ListServerCertificateTagsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListServerCertificateTagsResponse
+ *   Tags: [ // tagListType // required
+ *     { // Tag
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ *   IsTruncated: true || false,
+ *   Marker: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListServerCertificateTagsCommandInput - {@link ListServerCertificateTagsCommandInput}
@@ -71,6 +83,8 @@ export interface ListServerCertificateTagsCommandOutput extends ListServerCertif
  *  <p>The request processing has failed because of an unknown error, exception or
  *       failure.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  */
 export class ListServerCertificateTagsCommand extends $Command<

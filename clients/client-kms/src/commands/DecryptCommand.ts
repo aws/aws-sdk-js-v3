@@ -123,22 +123,29 @@ export interface DecryptCommandOutput extends DecryptResponse, __MetadataBearer 
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KMSClient, DecryptCommand } from "@aws-sdk/client-kms"; // ES Modules import
- * // const { KMSClient, DecryptCommand } = require("@aws-sdk/client-kms"); // CommonJS import
+ * import { KMSClient, DecryptCommand } from '@aws-sdk/client-kms'; // ES Modules import
+ * // const { KMSClient, DecryptCommand } = require('@aws-sdk/client-kms'); // CommonJS import
  * const client = new KMSClient(config);
  * const input = { // DecryptRequest
- *   CiphertextBlob: "BLOB_VALUE", // required
+ *   CiphertextBlob: 'BLOB_VALUE', // required
  *   EncryptionContext: { // EncryptionContextType
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  *   GrantTokens: [ // GrantTokenList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   KeyId: "STRING_VALUE",
- *   EncryptionAlgorithm: "SYMMETRIC_DEFAULT" || "RSAES_OAEP_SHA_1" || "RSAES_OAEP_SHA_256" || "SM2PKE",
+ *   KeyId: 'STRING_VALUE',
+ *   EncryptionAlgorithm: 'SYMMETRIC_DEFAULT' || 'RSAES_OAEP_SHA_1' || 'RSAES_OAEP_SHA_256' || 'SM2PKE',
  * };
  * const command = new DecryptCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DecryptResponse
+ *   KeyId: 'STRING_VALUE',
+ *   Plaintext: 'BLOB_VALUE',
+ *   EncryptionAlgorithm: 'SYMMETRIC_DEFAULT' || 'RSAES_OAEP_SHA_1' || 'RSAES_OAEP_SHA_256' || 'SM2PKE',
+ * };
+ *
  * ```
  *
  * @param DecryptCommandInput - {@link DecryptCommandInput}
@@ -222,6 +229,8 @@ export interface DecryptCommandOutput extends DecryptResponse, __MetadataBearer 
  *  <p>The request was rejected because the specified entity or resource could not be
  *       found.</p>
  *
+ * @throws {@link KMSServiceException}
+ * <p>Base exception class for all service exceptions from KMS service.</p>
  *
  * @example To decrypt data
  * ```javascript

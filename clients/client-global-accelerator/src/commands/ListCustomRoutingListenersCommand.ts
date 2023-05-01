@@ -40,16 +40,32 @@ export interface ListCustomRoutingListenersCommandOutput extends ListCustomRouti
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlobalAcceleratorClient, ListCustomRoutingListenersCommand } from "@aws-sdk/client-global-accelerator"; // ES Modules import
- * // const { GlobalAcceleratorClient, ListCustomRoutingListenersCommand } = require("@aws-sdk/client-global-accelerator"); // CommonJS import
+ * import { GlobalAcceleratorClient, ListCustomRoutingListenersCommand } from '@aws-sdk/client-global-accelerator'; // ES Modules import
+ * // const { GlobalAcceleratorClient, ListCustomRoutingListenersCommand } = require('@aws-sdk/client-global-accelerator'); // CommonJS import
  * const client = new GlobalAcceleratorClient(config);
  * const input = { // ListCustomRoutingListenersRequest
- *   AcceleratorArn: "STRING_VALUE", // required
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   AcceleratorArn: 'STRING_VALUE', // required
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListCustomRoutingListenersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListCustomRoutingListenersResponse
+ *   Listeners: [ // CustomRoutingListeners
+ *     { // CustomRoutingListener
+ *       ListenerArn: 'STRING_VALUE',
+ *       PortRanges: [ // PortRanges
+ *         { // PortRange
+ *           FromPort: Number('int'),
+ *           ToPort: Number('int'),
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListCustomRoutingListenersCommandInput - {@link ListCustomRoutingListenersCommandInput}
@@ -70,6 +86,8 @@ export interface ListCustomRoutingListenersCommandOutput extends ListCustomRouti
  * @throws {@link InvalidNextTokenException} (client fault)
  *  <p>There isn't another item to return.</p>
  *
+ * @throws {@link GlobalAcceleratorServiceException}
+ * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
  */
 export class ListCustomRoutingListenersCommand extends $Command<

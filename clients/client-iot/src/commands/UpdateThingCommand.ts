@@ -37,23 +37,26 @@ export interface UpdateThingCommandOutput extends UpdateThingResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTClient, UpdateThingCommand } from "@aws-sdk/client-iot"; // ES Modules import
- * // const { IoTClient, UpdateThingCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * import { IoTClient, UpdateThingCommand } from '@aws-sdk/client-iot'; // ES Modules import
+ * // const { IoTClient, UpdateThingCommand } = require('@aws-sdk/client-iot'); // CommonJS import
  * const client = new IoTClient(config);
  * const input = { // UpdateThingRequest
- *   thingName: "STRING_VALUE", // required
- *   thingTypeName: "STRING_VALUE",
+ *   thingName: 'STRING_VALUE', // required
+ *   thingTypeName: 'STRING_VALUE',
  *   attributePayload: { // AttributePayload
  *     attributes: { // Attributes
- *       "<keys>": "STRING_VALUE",
+ *       '<keys>': 'STRING_VALUE',
  *     },
  *     merge: true || false,
  *   },
- *   expectedVersion: Number("long"),
+ *   expectedVersion: Number('long'),
  *   removeThingType: true || false,
  * };
  * const command = new UpdateThingCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateThingCommandInput - {@link UpdateThingCommandInput}
@@ -85,6 +88,8 @@ export interface UpdateThingCommandOutput extends UpdateThingResponse, __Metadat
  *             <code>expectedVersion</code> parameter does not match the latest version in the
  *          system.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class UpdateThingCommand extends $Command<

@@ -55,16 +55,19 @@ export interface RevokeCertificateCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ACMPCAClient, RevokeCertificateCommand } from "@aws-sdk/client-acm-pca"; // ES Modules import
- * // const { ACMPCAClient, RevokeCertificateCommand } = require("@aws-sdk/client-acm-pca"); // CommonJS import
+ * import { ACMPCAClient, RevokeCertificateCommand } from '@aws-sdk/client-acm-pca'; // ES Modules import
+ * // const { ACMPCAClient, RevokeCertificateCommand } = require('@aws-sdk/client-acm-pca'); // CommonJS import
  * const client = new ACMPCAClient(config);
  * const input = { // RevokeCertificateRequest
- *   CertificateAuthorityArn: "STRING_VALUE", // required
- *   CertificateSerial: "STRING_VALUE", // required
- *   RevocationReason: "UNSPECIFIED" || "KEY_COMPROMISE" || "CERTIFICATE_AUTHORITY_COMPROMISE" || "AFFILIATION_CHANGED" || "SUPERSEDED" || "CESSATION_OF_OPERATION" || "PRIVILEGE_WITHDRAWN" || "A_A_COMPROMISE", // required
+ *   CertificateAuthorityArn: 'STRING_VALUE', // required
+ *   CertificateSerial: 'STRING_VALUE', // required
+ *   RevocationReason: 'UNSPECIFIED' || 'KEY_COMPROMISE' || 'CERTIFICATE_AUTHORITY_COMPROMISE' || 'AFFILIATION_CHANGED' || 'SUPERSEDED' || 'CESSATION_OF_OPERATION' || 'PRIVILEGE_WITHDRAWN' || 'A_A_COMPROMISE', // required
  * };
  * const command = new RevokeCertificateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param RevokeCertificateCommandInput - {@link RevokeCertificateCommandInput}
@@ -103,6 +106,8 @@ export interface RevokeCertificateCommandOutput extends __MetadataBearer {}
  *  <p>A resource such as a private CA, S3 bucket, certificate, audit report, or policy
  * 			cannot be found.</p>
  *
+ * @throws {@link ACMPCAServiceException}
+ * <p>Base exception class for all service exceptions from ACMPCA service.</p>
  *
  */
 export class RevokeCertificateCommand extends $Command<

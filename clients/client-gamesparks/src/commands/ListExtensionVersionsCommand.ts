@@ -40,17 +40,30 @@ export interface ListExtensionVersionsCommandOutput extends ListExtensionVersion
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GameSparksClient, ListExtensionVersionsCommand } from "@aws-sdk/client-gamesparks"; // ES Modules import
- * // const { GameSparksClient, ListExtensionVersionsCommand } = require("@aws-sdk/client-gamesparks"); // CommonJS import
+ * import { GameSparksClient, ListExtensionVersionsCommand } from '@aws-sdk/client-gamesparks'; // ES Modules import
+ * // const { GameSparksClient, ListExtensionVersionsCommand } = require('@aws-sdk/client-gamesparks'); // CommonJS import
  * const client = new GameSparksClient(config);
  * const input = { // ListExtensionVersionsRequest
- *   Namespace: "STRING_VALUE", // required
- *   Name: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   Namespace: 'STRING_VALUE', // required
+ *   Name: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListExtensionVersionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListExtensionVersionsResult
+ *   ExtensionVersions: [ // ExtensionVersionDetailsList
+ *     { // ExtensionVersionDetails
+ *       Namespace: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *       Schema: 'STRING_VALUE',
+ *       Version: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListExtensionVersionsCommandInput - {@link ListExtensionVersionsCommandInput}
@@ -74,6 +87,8 @@ export interface ListExtensionVersionsCommandOutput extends ListExtensionVersion
  * @throws {@link ValidationException} (client fault)
  *  <p>One of the parameters in the request is invalid.</p>
  *
+ * @throws {@link GameSparksServiceException}
+ * <p>Base exception class for all service exceptions from GameSparks service.</p>
  *
  */
 export class ListExtensionVersionsCommand extends $Command<

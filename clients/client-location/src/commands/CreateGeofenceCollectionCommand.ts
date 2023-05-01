@@ -36,21 +36,28 @@ export interface CreateGeofenceCollectionCommandOutput extends CreateGeofenceCol
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LocationClient, CreateGeofenceCollectionCommand } from "@aws-sdk/client-location"; // ES Modules import
- * // const { LocationClient, CreateGeofenceCollectionCommand } = require("@aws-sdk/client-location"); // CommonJS import
+ * import { LocationClient, CreateGeofenceCollectionCommand } from '@aws-sdk/client-location'; // ES Modules import
+ * // const { LocationClient, CreateGeofenceCollectionCommand } = require('@aws-sdk/client-location'); // CommonJS import
  * const client = new LocationClient(config);
  * const input = { // CreateGeofenceCollectionRequest
- *   CollectionName: "STRING_VALUE", // required
- *   PricingPlan: "STRING_VALUE",
- *   PricingPlanDataSource: "STRING_VALUE",
- *   Description: "STRING_VALUE",
+ *   CollectionName: 'STRING_VALUE', // required
+ *   PricingPlan: 'STRING_VALUE',
+ *   PricingPlanDataSource: 'STRING_VALUE',
+ *   Description: 'STRING_VALUE',
  *   Tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
- *   KmsKeyId: "STRING_VALUE",
+ *   KmsKeyId: 'STRING_VALUE',
  * };
  * const command = new CreateGeofenceCollectionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateGeofenceCollectionResponse
+ *   CollectionName: 'STRING_VALUE', // required
+ *   CollectionArn: 'STRING_VALUE', // required
+ *   CreateTime: new Date('TIMESTAMP'), // required
+ * };
+ *
  * ```
  *
  * @param CreateGeofenceCollectionCommandInput - {@link CreateGeofenceCollectionCommandInput}
@@ -79,6 +86,8 @@ export interface CreateGeofenceCollectionCommandOutput extends CreateGeofenceCol
  * @throws {@link ValidationException} (client fault)
  *  <p>The input failed to meet the constraints specified by the AWS service. </p>
  *
+ * @throws {@link LocationServiceException}
+ * <p>Base exception class for all service exceptions from Location service.</p>
  *
  */
 export class CreateGeofenceCollectionCommand extends $Command<

@@ -37,15 +37,18 @@ export interface DeleteUserProfileCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, DeleteUserProfileCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, DeleteUserProfileCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, DeleteUserProfileCommand } from '@aws-sdk/client-sagemaker'; // ES Modules import
+ * // const { SageMakerClient, DeleteUserProfileCommand } = require('@aws-sdk/client-sagemaker'); // CommonJS import
  * const client = new SageMakerClient(config);
  * const input = { // DeleteUserProfileRequest
- *   DomainId: "STRING_VALUE", // required
- *   UserProfileName: "STRING_VALUE", // required
+ *   DomainId: 'STRING_VALUE', // required
+ *   UserProfileName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteUserProfileCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteUserProfileCommandInput - {@link DeleteUserProfileCommandInput}
@@ -60,6 +63,8 @@ export interface DeleteUserProfileCommandOutput extends __MetadataBearer {}
  * @throws {@link ResourceNotFound} (client fault)
  *  <p>Resource being access is not found.</p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class DeleteUserProfileCommand extends $Command<

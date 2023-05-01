@@ -36,16 +36,47 @@ export interface ListExecutionsCommandOutput extends ListExecutionsResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { TransferClient, ListExecutionsCommand } from "@aws-sdk/client-transfer"; // ES Modules import
- * // const { TransferClient, ListExecutionsCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
+ * import { TransferClient, ListExecutionsCommand } from '@aws-sdk/client-transfer'; // ES Modules import
+ * // const { TransferClient, ListExecutionsCommand } = require('@aws-sdk/client-transfer'); // CommonJS import
  * const client = new TransferClient(config);
  * const input = { // ListExecutionsRequest
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
- *   WorkflowId: "STRING_VALUE", // required
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
+ *   WorkflowId: 'STRING_VALUE', // required
  * };
  * const command = new ListExecutionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListExecutionsResponse
+ *   NextToken: 'STRING_VALUE',
+ *   WorkflowId: 'STRING_VALUE', // required
+ *   Executions: [ // ListedExecutions // required
+ *     { // ListedExecution
+ *       ExecutionId: 'STRING_VALUE',
+ *       InitialFileLocation: { // FileLocation
+ *         S3FileLocation: { // S3FileLocation
+ *           Bucket: 'STRING_VALUE',
+ *           Key: 'STRING_VALUE',
+ *           VersionId: 'STRING_VALUE',
+ *           Etag: 'STRING_VALUE',
+ *         },
+ *         EfsFileLocation: { // EfsFileLocation
+ *           FileSystemId: 'STRING_VALUE',
+ *           Path: 'STRING_VALUE',
+ *         },
+ *       },
+ *       ServiceMetadata: { // ServiceMetadata
+ *         UserDetails: { // UserDetails
+ *           UserName: 'STRING_VALUE', // required
+ *           ServerId: 'STRING_VALUE', // required
+ *           SessionId: 'STRING_VALUE',
+ *         },
+ *       },
+ *       Status: 'IN_PROGRESS' || 'COMPLETED' || 'EXCEPTION' || 'HANDLING_EXCEPTION',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListExecutionsCommandInput - {@link ListExecutionsCommandInput}
@@ -70,6 +101,8 @@ export interface ListExecutionsCommandOutput extends ListExecutionsResponse, __M
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request has failed because the Amazon Web ServicesTransfer Family service is not available.</p>
  *
+ * @throws {@link TransferServiceException}
+ * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
  */
 export class ListExecutionsCommand extends $Command<

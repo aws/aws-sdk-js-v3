@@ -40,25 +40,36 @@ export interface BatchUpdateUserCommandOutput extends BatchUpdateUserResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeClient, BatchUpdateUserCommand } from "@aws-sdk/client-chime"; // ES Modules import
- * // const { ChimeClient, BatchUpdateUserCommand } = require("@aws-sdk/client-chime"); // CommonJS import
+ * import { ChimeClient, BatchUpdateUserCommand } from '@aws-sdk/client-chime'; // ES Modules import
+ * // const { ChimeClient, BatchUpdateUserCommand } = require('@aws-sdk/client-chime'); // CommonJS import
  * const client = new ChimeClient(config);
  * const input = { // BatchUpdateUserRequest
- *   AccountId: "STRING_VALUE", // required
+ *   AccountId: 'STRING_VALUE', // required
  *   UpdateUserRequestItems: [ // UpdateUserRequestItemList // required
  *     { // UpdateUserRequestItem
- *       UserId: "STRING_VALUE", // required
- *       LicenseType: "Basic" || "Plus" || "Pro" || "ProTrial",
- *       UserType: "PrivateUser" || "SharedDevice",
+ *       UserId: 'STRING_VALUE', // required
+ *       LicenseType: 'Basic' || 'Plus' || 'Pro' || 'ProTrial',
+ *       UserType: 'PrivateUser' || 'SharedDevice',
  *       AlexaForBusinessMetadata: { // AlexaForBusinessMetadata
  *         IsAlexaForBusinessEnabled: true || false,
- *         AlexaForBusinessRoomArn: "STRING_VALUE",
+ *         AlexaForBusinessRoomArn: 'STRING_VALUE',
  *       },
  *     },
  *   ],
  * };
  * const command = new BatchUpdateUserCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BatchUpdateUserResponse
+ *   UserErrors: [ // UserErrorList
+ *     { // UserError
+ *       UserId: 'STRING_VALUE',
+ *       ErrorCode: 'BadRequest' || 'Conflict' || 'Forbidden' || 'NotFound' || 'PreconditionFailed' || 'ResourceLimitExceeded' || 'ServiceFailure' || 'AccessDenied' || 'ServiceUnavailable' || 'Throttled' || 'Throttling' || 'Unauthorized' || 'Unprocessable' || 'VoiceConnectorGroupAssociationsExist' || 'PhoneNumberAssociationsExist',
+ *       ErrorMessage: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param BatchUpdateUserCommandInput - {@link BatchUpdateUserCommandInput}
@@ -88,6 +99,8 @@ export interface BatchUpdateUserCommandOutput extends BatchUpdateUserResponse, _
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeServiceException}
+ * <p>Base exception class for all service exceptions from Chime service.</p>
  *
  */
 export class BatchUpdateUserCommand extends $Command<

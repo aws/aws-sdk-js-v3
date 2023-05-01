@@ -44,12 +44,17 @@ export interface DescribeHealthServiceStatusForOrganizationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { HealthClient, DescribeHealthServiceStatusForOrganizationCommand } from "@aws-sdk/client-health"; // ES Modules import
- * // const { HealthClient, DescribeHealthServiceStatusForOrganizationCommand } = require("@aws-sdk/client-health"); // CommonJS import
+ * import { HealthClient, DescribeHealthServiceStatusForOrganizationCommand } from '@aws-sdk/client-health'; // ES Modules import
+ * // const { HealthClient, DescribeHealthServiceStatusForOrganizationCommand } = require('@aws-sdk/client-health'); // CommonJS import
  * const client = new HealthClient(config);
  * const input = {};
  * const command = new DescribeHealthServiceStatusForOrganizationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeHealthServiceStatusForOrganizationResponse
+ *   healthServiceAccessStatusForOrganization: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeHealthServiceStatusForOrganizationCommandInput - {@link DescribeHealthServiceStatusForOrganizationCommandInput}
@@ -58,6 +63,8 @@ export interface DescribeHealthServiceStatusForOrganizationCommandOutput
  * @see {@link DescribeHealthServiceStatusForOrganizationCommandOutput} for command's `response` shape.
  * @see {@link HealthClientResolvedConfig | config} for HealthClient's `config` shape.
  *
+ * @throws {@link HealthServiceException}
+ * <p>Base exception class for all service exceptions from Health service.</p>
  *
  */
 export class DescribeHealthServiceStatusForOrganizationCommand extends $Command<

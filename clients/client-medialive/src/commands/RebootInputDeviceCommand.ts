@@ -36,15 +36,18 @@ export interface RebootInputDeviceCommandOutput extends RebootInputDeviceRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MediaLiveClient, RebootInputDeviceCommand } from "@aws-sdk/client-medialive"; // ES Modules import
- * // const { MediaLiveClient, RebootInputDeviceCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
+ * import { MediaLiveClient, RebootInputDeviceCommand } from '@aws-sdk/client-medialive'; // ES Modules import
+ * // const { MediaLiveClient, RebootInputDeviceCommand } = require('@aws-sdk/client-medialive'); // CommonJS import
  * const client = new MediaLiveClient(config);
  * const input = { // RebootInputDeviceRequest
- *   Force: "NO" || "YES",
- *   InputDeviceId: "STRING_VALUE", // required
+ *   Force: 'NO' || 'YES',
+ *   InputDeviceId: 'STRING_VALUE', // required
  * };
  * const command = new RebootInputDeviceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param RebootInputDeviceCommandInput - {@link RebootInputDeviceCommandInput}
@@ -77,6 +80,8 @@ export interface RebootInputDeviceCommandOutput extends RebootInputDeviceRespons
  * @throws {@link UnprocessableEntityException} (client fault)
  *  Placeholder documentation for UnprocessableEntityException
  *
+ * @throws {@link MediaLiveServiceException}
+ * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
  */
 export class RebootInputDeviceCommand extends $Command<

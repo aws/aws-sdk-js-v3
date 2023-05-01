@@ -41,19 +41,24 @@ export interface InvokeDeviceMethodCommandOutput extends InvokeDeviceMethodRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoT1ClickDevicesServiceClient, InvokeDeviceMethodCommand } from "@aws-sdk/client-iot-1click-devices-service"; // ES Modules import
- * // const { IoT1ClickDevicesServiceClient, InvokeDeviceMethodCommand } = require("@aws-sdk/client-iot-1click-devices-service"); // CommonJS import
+ * import { IoT1ClickDevicesServiceClient, InvokeDeviceMethodCommand } from '@aws-sdk/client-iot-1click-devices-service'; // ES Modules import
+ * // const { IoT1ClickDevicesServiceClient, InvokeDeviceMethodCommand } = require('@aws-sdk/client-iot-1click-devices-service'); // CommonJS import
  * const client = new IoT1ClickDevicesServiceClient(config);
  * const input = { // InvokeDeviceMethodRequest
- *   DeviceId: "STRING_VALUE", // required
+ *   DeviceId: 'STRING_VALUE', // required
  *   DeviceMethod: { // DeviceMethod
- *     DeviceType: "STRING_VALUE",
- *     MethodName: "STRING_VALUE",
+ *     DeviceType: 'STRING_VALUE',
+ *     MethodName: 'STRING_VALUE',
  *   },
- *   DeviceMethodParameters: "STRING_VALUE",
+ *   DeviceMethodParameters: 'STRING_VALUE',
  * };
  * const command = new InvokeDeviceMethodCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // InvokeDeviceMethodResponse
+ *   DeviceMethodResponse: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param InvokeDeviceMethodCommandInput - {@link InvokeDeviceMethodCommandInput}
@@ -74,6 +79,8 @@ export interface InvokeDeviceMethodCommandOutput extends InvokeDeviceMethodRespo
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *
+ * @throws {@link IoT1ClickDevicesServiceServiceException}
+ * <p>Base exception class for all service exceptions from IoT1ClickDevicesService service.</p>
  *
  */
 export class InvokeDeviceMethodCommand extends $Command<

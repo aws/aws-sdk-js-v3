@@ -36,40 +36,46 @@ export interface CreateFindingsFilterCommandOutput extends CreateFindingsFilterR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Macie2Client, CreateFindingsFilterCommand } from "@aws-sdk/client-macie2"; // ES Modules import
- * // const { Macie2Client, CreateFindingsFilterCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
+ * import { Macie2Client, CreateFindingsFilterCommand } from '@aws-sdk/client-macie2'; // ES Modules import
+ * // const { Macie2Client, CreateFindingsFilterCommand } = require('@aws-sdk/client-macie2'); // CommonJS import
  * const client = new Macie2Client(config);
  * const input = { // CreateFindingsFilterRequest
- *   action: "ARCHIVE" || "NOOP", // required
- *   clientToken: "STRING_VALUE",
- *   description: "STRING_VALUE",
+ *   action: 'ARCHIVE' || 'NOOP', // required
+ *   clientToken: 'STRING_VALUE',
+ *   description: 'STRING_VALUE',
  *   findingCriteria: { // FindingCriteria
  *     criterion: { // Criterion
- *       "<keys>": { // CriterionAdditionalProperties
+ *       '<keys>': { // CriterionAdditionalProperties
  *         eq: [ // __listOf__string
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
  *         eqExactMatch: [
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
- *         gt: Number("long"),
- *         gte: Number("long"),
- *         lt: Number("long"),
- *         lte: Number("long"),
+ *         gt: Number('long'),
+ *         gte: Number('long'),
+ *         lt: Number('long'),
+ *         lte: Number('long'),
  *         neq: [
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
  *       },
  *     },
  *   },
- *   name: "STRING_VALUE", // required
- *   position: Number("int"),
+ *   name: 'STRING_VALUE', // required
+ *   position: Number('int'),
  *   tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateFindingsFilterCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateFindingsFilterResponse
+ *   arn: 'STRING_VALUE',
+ *   id: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateFindingsFilterCommandInput - {@link CreateFindingsFilterCommandInput}
@@ -99,6 +105,8 @@ export interface CreateFindingsFilterCommandOutput extends CreateFindingsFilterR
  * @throws {@link ValidationException} (client fault)
  *  <p>Provides information about an error that occurred due to a syntax error in a request.</p>
  *
+ * @throws {@link Macie2ServiceException}
+ * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
  */
 export class CreateFindingsFilterCommand extends $Command<

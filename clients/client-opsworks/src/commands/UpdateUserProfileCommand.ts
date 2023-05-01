@@ -40,17 +40,20 @@ export interface UpdateUserProfileCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OpsWorksClient, UpdateUserProfileCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
- * // const { OpsWorksClient, UpdateUserProfileCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
+ * import { OpsWorksClient, UpdateUserProfileCommand } from '@aws-sdk/client-opsworks'; // ES Modules import
+ * // const { OpsWorksClient, UpdateUserProfileCommand } = require('@aws-sdk/client-opsworks'); // CommonJS import
  * const client = new OpsWorksClient(config);
  * const input = { // UpdateUserProfileRequest
- *   IamUserArn: "STRING_VALUE", // required
- *   SshUsername: "STRING_VALUE",
- *   SshPublicKey: "STRING_VALUE",
+ *   IamUserArn: 'STRING_VALUE', // required
+ *   SshUsername: 'STRING_VALUE',
+ *   SshPublicKey: 'STRING_VALUE',
  *   AllowSelfManagement: true || false,
  * };
  * const command = new UpdateUserProfileCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateUserProfileCommandInput - {@link UpdateUserProfileCommandInput}
@@ -65,6 +68,8 @@ export interface UpdateUserProfileCommandOutput extends __MetadataBearer {}
  * @throws {@link ValidationException} (client fault)
  *  <p>Indicates that a request was not valid.</p>
  *
+ * @throws {@link OpsWorksServiceException}
+ * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
  */
 export class UpdateUserProfileCommand extends $Command<

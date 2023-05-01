@@ -39,16 +39,21 @@ export interface ExportBundleCommandOutput extends ExportBundleResult, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MobileClient, ExportBundleCommand } from "@aws-sdk/client-mobile"; // ES Modules import
- * // const { MobileClient, ExportBundleCommand } = require("@aws-sdk/client-mobile"); // CommonJS import
+ * import { MobileClient, ExportBundleCommand } from '@aws-sdk/client-mobile'; // ES Modules import
+ * // const { MobileClient, ExportBundleCommand } = require('@aws-sdk/client-mobile'); // CommonJS import
  * const client = new MobileClient(config);
  * const input = { // ExportBundleRequest
- *   bundleId: "STRING_VALUE", // required
- *   projectId: "STRING_VALUE",
- *   platform: "STRING_VALUE",
+ *   bundleId: 'STRING_VALUE', // required
+ *   projectId: 'STRING_VALUE',
+ *   platform: 'STRING_VALUE',
  * };
  * const command = new ExportBundleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ExportBundleResult
+ *   downloadUrl: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ExportBundleCommandInput - {@link ExportBundleCommandInput}
@@ -91,6 +96,8 @@ export interface ExportBundleCommandOutput extends ExportBundleResult, __Metadat
  *             Credentials of the caller are insufficient to authorize the request.
  *         </p>
  *
+ * @throws {@link MobileServiceException}
+ * <p>Base exception class for all service exceptions from Mobile service.</p>
  *
  */
 export class ExportBundleCommand extends $Command<

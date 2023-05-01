@@ -36,25 +36,38 @@ export interface UpdateIntegrationResponseCommandOutput extends IntegrationRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { APIGatewayClient, UpdateIntegrationResponseCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
- * // const { APIGatewayClient, UpdateIntegrationResponseCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
+ * import { APIGatewayClient, UpdateIntegrationResponseCommand } from '@aws-sdk/client-api-gateway'; // ES Modules import
+ * // const { APIGatewayClient, UpdateIntegrationResponseCommand } = require('@aws-sdk/client-api-gateway'); // CommonJS import
  * const client = new APIGatewayClient(config);
  * const input = { // UpdateIntegrationResponseRequest
- *   restApiId: "STRING_VALUE", // required
- *   resourceId: "STRING_VALUE", // required
- *   httpMethod: "STRING_VALUE", // required
- *   statusCode: "STRING_VALUE", // required
+ *   restApiId: 'STRING_VALUE', // required
+ *   resourceId: 'STRING_VALUE', // required
+ *   httpMethod: 'STRING_VALUE', // required
+ *   statusCode: 'STRING_VALUE', // required
  *   patchOperations: [ // ListOfPatchOperation
  *     { // PatchOperation
- *       op: "add" || "remove" || "replace" || "move" || "copy" || "test",
- *       path: "STRING_VALUE",
- *       value: "STRING_VALUE",
- *       from: "STRING_VALUE",
+ *       op: 'add' || 'remove' || 'replace' || 'move' || 'copy' || 'test',
+ *       path: 'STRING_VALUE',
+ *       value: 'STRING_VALUE',
+ *       from: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new UpdateIntegrationResponseCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // IntegrationResponse
+ *   statusCode: 'STRING_VALUE',
+ *   selectionPattern: 'STRING_VALUE',
+ *   responseParameters: { // MapOfStringToString
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ *   responseTemplates: {
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ *   contentHandling: 'CONVERT_TO_BINARY' || 'CONVERT_TO_TEXT',
+ * };
+ *
  * ```
  *
  * @param UpdateIntegrationResponseCommandInput - {@link UpdateIntegrationResponseCommandInput}
@@ -81,6 +94,8 @@ export interface UpdateIntegrationResponseCommandOutput extends IntegrationRespo
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The request is denied because the caller has insufficient permissions.</p>
  *
+ * @throws {@link APIGatewayServiceException}
+ * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
  */
 export class UpdateIntegrationResponseCommand extends $Command<

@@ -37,19 +37,24 @@ export interface UpdateSMBLocalGroupsCommandOutput extends UpdateSMBLocalGroupsO
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { StorageGatewayClient, UpdateSMBLocalGroupsCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
- * // const { StorageGatewayClient, UpdateSMBLocalGroupsCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
+ * import { StorageGatewayClient, UpdateSMBLocalGroupsCommand } from '@aws-sdk/client-storage-gateway'; // ES Modules import
+ * // const { StorageGatewayClient, UpdateSMBLocalGroupsCommand } = require('@aws-sdk/client-storage-gateway'); // CommonJS import
  * const client = new StorageGatewayClient(config);
  * const input = { // UpdateSMBLocalGroupsInput
- *   GatewayARN: "STRING_VALUE", // required
+ *   GatewayARN: 'STRING_VALUE', // required
  *   SMBLocalGroups: { // SMBLocalGroups
  *     GatewayAdmins: [ // UserList
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *   },
  * };
  * const command = new UpdateSMBLocalGroupsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateSMBLocalGroupsOutput
+ *   GatewayARN: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateSMBLocalGroupsCommandInput - {@link UpdateSMBLocalGroupsCommandInput}
@@ -66,6 +71,8 @@ export interface UpdateSMBLocalGroupsCommandOutput extends UpdateSMBLocalGroupsO
  *  <p>An exception occurred because an invalid gateway request was issued to the service. For
  *          more information, see the error and message fields.</p>
  *
+ * @throws {@link StorageGatewayServiceException}
+ * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
  */
 export class UpdateSMBLocalGroupsCommand extends $Command<

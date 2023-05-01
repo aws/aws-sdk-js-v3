@@ -45,23 +45,42 @@ export interface ListResourceRequestsCommandOutput extends ListResourceRequestsO
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudControlClient, ListResourceRequestsCommand } from "@aws-sdk/client-cloudcontrol"; // ES Modules import
- * // const { CloudControlClient, ListResourceRequestsCommand } = require("@aws-sdk/client-cloudcontrol"); // CommonJS import
+ * import { CloudControlClient, ListResourceRequestsCommand } from '@aws-sdk/client-cloudcontrol'; // ES Modules import
+ * // const { CloudControlClient, ListResourceRequestsCommand } = require('@aws-sdk/client-cloudcontrol'); // CommonJS import
  * const client = new CloudControlClient(config);
  * const input = { // ListResourceRequestsInput
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  *   ResourceRequestStatusFilter: { // ResourceRequestStatusFilter
  *     Operations: [ // Operations
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     OperationStatuses: [ // OperationStatuses
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *   },
  * };
  * const command = new ListResourceRequestsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListResourceRequestsOutput
+ *   ResourceRequestStatusSummaries: [ // ResourceRequestStatusSummaries
+ *     { // ProgressEvent
+ *       TypeName: 'STRING_VALUE',
+ *       Identifier: 'STRING_VALUE',
+ *       RequestToken: 'STRING_VALUE',
+ *       Operation: 'STRING_VALUE',
+ *       OperationStatus: 'STRING_VALUE',
+ *       EventTime: new Date('TIMESTAMP'),
+ *       ResourceModel: 'STRING_VALUE',
+ *       StatusMessage: 'STRING_VALUE',
+ *       ErrorCode: 'STRING_VALUE',
+ *       RetryAfter: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListResourceRequestsCommandInput - {@link ListResourceRequestsCommandInput}
@@ -70,6 +89,8 @@ export interface ListResourceRequestsCommandOutput extends ListResourceRequestsO
  * @see {@link ListResourceRequestsCommandOutput} for command's `response` shape.
  * @see {@link CloudControlClientResolvedConfig | config} for CloudControlClient's `config` shape.
  *
+ * @throws {@link CloudControlServiceException}
+ * <p>Base exception class for all service exceptions from CloudControl service.</p>
  *
  */
 export class ListResourceRequestsCommand extends $Command<

@@ -43,53 +43,53 @@ export interface ExecuteTransactionCommandOutput extends ExecuteTransactionOutpu
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DynamoDBClient, ExecuteTransactionCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
- * // const { DynamoDBClient, ExecuteTransactionCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
+ * import { DynamoDBClient, ExecuteTransactionCommand } from '@aws-sdk/client-dynamodb'; // ES Modules import
+ * // const { DynamoDBClient, ExecuteTransactionCommand } = require('@aws-sdk/client-dynamodb'); // CommonJS import
  * const client = new DynamoDBClient(config);
  * const input = { // ExecuteTransactionInput
  *   TransactStatements: [ // ParameterizedStatements // required
  *     { // ParameterizedStatement
- *       Statement: "STRING_VALUE", // required
+ *       Statement: 'STRING_VALUE', // required
  *       Parameters: [ // PreparedStatementParameters
  *         { // AttributeValue Union: only one key present
- *           S: "STRING_VALUE",
- *           N: "STRING_VALUE",
- *           B: "BLOB_VALUE",
+ *           S: 'STRING_VALUE',
+ *           N: 'STRING_VALUE',
+ *           B: 'BLOB_VALUE',
  *           SS: [ // StringSetAttributeValue
- *             "STRING_VALUE",
+ *             'STRING_VALUE',
  *           ],
  *           NS: [ // NumberSetAttributeValue
- *             "STRING_VALUE",
+ *             'STRING_VALUE',
  *           ],
  *           BS: [ // BinarySetAttributeValue
- *             "BLOB_VALUE",
+ *             'BLOB_VALUE',
  *           ],
  *           M: { // MapAttributeValue
- *             "<keys>": {//  Union: only one key present
- *               S: "STRING_VALUE",
- *               N: "STRING_VALUE",
- *               B: "BLOB_VALUE",
+ *             '<keys>': {//  Union: only one key present
+ *               S: 'STRING_VALUE',
+ *               N: 'STRING_VALUE',
+ *               B: 'BLOB_VALUE',
  *               SS: [
- *                 "STRING_VALUE",
+ *                 'STRING_VALUE',
  *               ],
  *               NS: [
- *                 "STRING_VALUE",
+ *                 'STRING_VALUE',
  *               ],
  *               BS: [
- *                 "BLOB_VALUE",
+ *                 'BLOB_VALUE',
  *               ],
  *               M: {
- *                 "<keys>": "<AttributeValue>",
+ *                 '<keys>': '<AttributeValue>',
  *               },
  *               L: [ // ListAttributeValue
- *                 "<AttributeValue>",
+ *                 '<AttributeValue>',
  *               ],
  *               NULL: true || false,
  *               BOOL: true || false,
  *             },
  *           },
  *           L: [
- *             "<AttributeValue>",
+ *             '<AttributeValue>',
  *           ],
  *           NULL: true || false,
  *           BOOL: true || false,
@@ -97,11 +97,91 @@ export interface ExecuteTransactionCommandOutput extends ExecuteTransactionOutpu
  *       ],
  *     },
  *   ],
- *   ClientRequestToken: "STRING_VALUE",
- *   ReturnConsumedCapacity: "INDEXES" || "TOTAL" || "NONE",
+ *   ClientRequestToken: 'STRING_VALUE',
+ *   ReturnConsumedCapacity: 'INDEXES' || 'TOTAL' || 'NONE',
  * };
  * const command = new ExecuteTransactionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ExecuteTransactionOutput
+ *   Responses: [ // ItemResponseList
+ *     { // ItemResponse
+ *       Item: { // AttributeMap
+ *         '<keys>': { // AttributeValue Union: only one key present
+ *           S: 'STRING_VALUE',
+ *           N: 'STRING_VALUE',
+ *           B: 'BLOB_VALUE',
+ *           SS: [ // StringSetAttributeValue
+ *             'STRING_VALUE',
+ *           ],
+ *           NS: [ // NumberSetAttributeValue
+ *             'STRING_VALUE',
+ *           ],
+ *           BS: [ // BinarySetAttributeValue
+ *             'BLOB_VALUE',
+ *           ],
+ *           M: { // MapAttributeValue
+ *             '<keys>': {//  Union: only one key present
+ *               S: 'STRING_VALUE',
+ *               N: 'STRING_VALUE',
+ *               B: 'BLOB_VALUE',
+ *               SS: [
+ *                 'STRING_VALUE',
+ *               ],
+ *               NS: [
+ *                 'STRING_VALUE',
+ *               ],
+ *               BS: [
+ *                 'BLOB_VALUE',
+ *               ],
+ *               M: {
+ *                 '<keys>': '<AttributeValue>',
+ *               },
+ *               L: [ // ListAttributeValue
+ *                 '<AttributeValue>',
+ *               ],
+ *               NULL: true || false,
+ *               BOOL: true || false,
+ *             },
+ *           },
+ *           L: [
+ *             '<AttributeValue>',
+ *           ],
+ *           NULL: true || false,
+ *           BOOL: true || false,
+ *         },
+ *       },
+ *     },
+ *   ],
+ *   ConsumedCapacity: [ // ConsumedCapacityMultiple
+ *     { // ConsumedCapacity
+ *       TableName: 'STRING_VALUE',
+ *       CapacityUnits: Number('double'),
+ *       ReadCapacityUnits: Number('double'),
+ *       WriteCapacityUnits: Number('double'),
+ *       Table: { // Capacity
+ *         ReadCapacityUnits: Number('double'),
+ *         WriteCapacityUnits: Number('double'),
+ *         CapacityUnits: Number('double'),
+ *       },
+ *       LocalSecondaryIndexes: { // SecondaryIndexesCapacityMap
+ *         '<keys>': {
+ *           ReadCapacityUnits: Number('double'),
+ *           WriteCapacityUnits: Number('double'),
+ *           CapacityUnits: Number('double'),
+ *         },
+ *       },
+ *       GlobalSecondaryIndexes: {
+ *         '<keys>': {
+ *           ReadCapacityUnits: Number('double'),
+ *           WriteCapacityUnits: Number('double'),
+ *           CapacityUnits: Number('double'),
+ *         },
+ *       },
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ExecuteTransactionCommandInput - {@link ExecuteTransactionCommandInput}
@@ -430,6 +510,8 @@ export interface ExecuteTransactionCommandOutput extends ExecuteTransactionOutpu
  *             </li>
  *          </ul>
  *
+ * @throws {@link DynamoDBServiceException}
+ * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
  */
 export class ExecuteTransactionCommand extends $Command<

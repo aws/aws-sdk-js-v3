@@ -45,16 +45,19 @@ export interface DeleteChannelBanCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeSDKMessagingClient, DeleteChannelBanCommand } from "@aws-sdk/client-chime-sdk-messaging"; // ES Modules import
- * // const { ChimeSDKMessagingClient, DeleteChannelBanCommand } = require("@aws-sdk/client-chime-sdk-messaging"); // CommonJS import
+ * import { ChimeSDKMessagingClient, DeleteChannelBanCommand } from '@aws-sdk/client-chime-sdk-messaging'; // ES Modules import
+ * // const { ChimeSDKMessagingClient, DeleteChannelBanCommand } = require('@aws-sdk/client-chime-sdk-messaging'); // CommonJS import
  * const client = new ChimeSDKMessagingClient(config);
  * const input = { // DeleteChannelBanRequest
- *   ChannelArn: "STRING_VALUE", // required
- *   MemberArn: "STRING_VALUE", // required
- *   ChimeBearer: "STRING_VALUE", // required
+ *   ChannelArn: 'STRING_VALUE', // required
+ *   MemberArn: 'STRING_VALUE', // required
+ *   ChimeBearer: 'STRING_VALUE', // required
  * };
  * const command = new DeleteChannelBanCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteChannelBanCommandInput - {@link DeleteChannelBanCommandInput}
@@ -81,6 +84,8 @@ export interface DeleteChannelBanCommandOutput extends __MetadataBearer {}
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeSDKMessagingServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKMessaging service.</p>
  *
  */
 export class DeleteChannelBanCommand extends $Command<

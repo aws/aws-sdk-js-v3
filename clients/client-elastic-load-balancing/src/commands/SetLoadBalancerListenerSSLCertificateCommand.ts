@@ -52,16 +52,19 @@ export interface SetLoadBalancerListenerSSLCertificateCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElasticLoadBalancingClient, SetLoadBalancerListenerSSLCertificateCommand } from "@aws-sdk/client-elastic-load-balancing"; // ES Modules import
- * // const { ElasticLoadBalancingClient, SetLoadBalancerListenerSSLCertificateCommand } = require("@aws-sdk/client-elastic-load-balancing"); // CommonJS import
+ * import { ElasticLoadBalancingClient, SetLoadBalancerListenerSSLCertificateCommand } from '@aws-sdk/client-elastic-load-balancing'; // ES Modules import
+ * // const { ElasticLoadBalancingClient, SetLoadBalancerListenerSSLCertificateCommand } = require('@aws-sdk/client-elastic-load-balancing'); // CommonJS import
  * const client = new ElasticLoadBalancingClient(config);
  * const input = { // SetLoadBalancerListenerSSLCertificateInput
- *   LoadBalancerName: "STRING_VALUE", // required
- *   LoadBalancerPort: Number("int"), // required
- *   SSLCertificateId: "STRING_VALUE", // required
+ *   LoadBalancerName: 'STRING_VALUE', // required
+ *   LoadBalancerPort: Number('int'), // required
+ *   SSLCertificateId: 'STRING_VALUE', // required
  * };
  * const command = new SetLoadBalancerListenerSSLCertificateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param SetLoadBalancerListenerSSLCertificateCommandInput - {@link SetLoadBalancerListenerSSLCertificateCommandInput}
@@ -87,6 +90,8 @@ export interface SetLoadBalancerListenerSSLCertificateCommandOutput
  * @throws {@link UnsupportedProtocolException} (client fault)
  *  <p>The specified protocol or signature version is not supported.</p>
  *
+ * @throws {@link ElasticLoadBalancingServiceException}
+ * <p>Base exception class for all service exceptions from ElasticLoadBalancing service.</p>
  *
  * @example To update the SSL certificate for an HTTPS listener
  * ```javascript

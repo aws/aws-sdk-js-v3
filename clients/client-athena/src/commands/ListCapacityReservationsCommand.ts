@@ -36,15 +36,36 @@ export interface ListCapacityReservationsCommandOutput extends ListCapacityReser
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AthenaClient, ListCapacityReservationsCommand } from "@aws-sdk/client-athena"; // ES Modules import
- * // const { AthenaClient, ListCapacityReservationsCommand } = require("@aws-sdk/client-athena"); // CommonJS import
+ * import { AthenaClient, ListCapacityReservationsCommand } from '@aws-sdk/client-athena'; // ES Modules import
+ * // const { AthenaClient, ListCapacityReservationsCommand } = require('@aws-sdk/client-athena'); // CommonJS import
  * const client = new AthenaClient(config);
  * const input = { // ListCapacityReservationsInput
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListCapacityReservationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListCapacityReservationsOutput
+ *   NextToken: 'STRING_VALUE',
+ *   CapacityReservations: [ // CapacityReservationsList // required
+ *     { // CapacityReservation
+ *       Name: 'STRING_VALUE', // required
+ *       Status: 'PENDING' || 'ACTIVE' || 'CANCELLING' || 'CANCELLED' || 'FAILED' || 'UPDATE_PENDING', // required
+ *       TargetDpus: Number('int'), // required
+ *       AllocatedDpus: Number('int'), // required
+ *       LastAllocation: { // CapacityAllocation
+ *         Status: 'PENDING' || 'SUCCEEDED' || 'FAILED', // required
+ *         StatusMessage: 'STRING_VALUE',
+ *         RequestTime: new Date('TIMESTAMP'), // required
+ *         RequestCompletionTime: new Date('TIMESTAMP'),
+ *       },
+ *       LastSuccessfulAllocationTime: new Date('TIMESTAMP'),
+ *       CreationTime: new Date('TIMESTAMP'), // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListCapacityReservationsCommandInput - {@link ListCapacityReservationsCommandInput}
@@ -61,6 +82,8 @@ export interface ListCapacityReservationsCommandOutput extends ListCapacityReser
  *  <p>Indicates that something is wrong with the input to the request. For example, a
  *             required parameter may be missing or out of range.</p>
  *
+ * @throws {@link AthenaServiceException}
+ * <p>Base exception class for all service exceptions from Athena service.</p>
  *
  */
 export class ListCapacityReservationsCommand extends $Command<

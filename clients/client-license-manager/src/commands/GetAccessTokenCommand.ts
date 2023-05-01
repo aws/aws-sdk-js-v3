@@ -37,17 +37,22 @@ export interface GetAccessTokenCommandOutput extends GetAccessTokenResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LicenseManagerClient, GetAccessTokenCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
- * // const { LicenseManagerClient, GetAccessTokenCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
+ * import { LicenseManagerClient, GetAccessTokenCommand } from '@aws-sdk/client-license-manager'; // ES Modules import
+ * // const { LicenseManagerClient, GetAccessTokenCommand } = require('@aws-sdk/client-license-manager'); // CommonJS import
  * const client = new LicenseManagerClient(config);
  * const input = { // GetAccessTokenRequest
- *   Token: "STRING_VALUE", // required
+ *   Token: 'STRING_VALUE', // required
  *   TokenProperties: [ // MaxSize3StringList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new GetAccessTokenCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetAccessTokenResponse
+ *   AccessToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetAccessTokenCommandInput - {@link GetAccessTokenCommandInput}
@@ -72,6 +77,8 @@ export interface GetAccessTokenCommandOutput extends GetAccessTokenResponse, __M
  * @throws {@link ValidationException} (client fault)
  *  <p>The provided input is not valid. Try your request again.</p>
  *
+ * @throws {@link LicenseManagerServiceException}
+ * <p>Base exception class for all service exceptions from LicenseManager service.</p>
  *
  */
 export class GetAccessTokenCommand extends $Command<

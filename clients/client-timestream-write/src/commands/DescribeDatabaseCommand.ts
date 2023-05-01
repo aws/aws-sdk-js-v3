@@ -40,14 +40,26 @@ export interface DescribeDatabaseCommandOutput extends DescribeDatabaseResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { TimestreamWriteClient, DescribeDatabaseCommand } from "@aws-sdk/client-timestream-write"; // ES Modules import
- * // const { TimestreamWriteClient, DescribeDatabaseCommand } = require("@aws-sdk/client-timestream-write"); // CommonJS import
+ * import { TimestreamWriteClient, DescribeDatabaseCommand } from '@aws-sdk/client-timestream-write'; // ES Modules import
+ * // const { TimestreamWriteClient, DescribeDatabaseCommand } = require('@aws-sdk/client-timestream-write'); // CommonJS import
  * const client = new TimestreamWriteClient(config);
  * const input = { // DescribeDatabaseRequest
- *   DatabaseName: "STRING_VALUE", // required
+ *   DatabaseName: 'STRING_VALUE', // required
  * };
  * const command = new DescribeDatabaseCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeDatabaseResponse
+ *   Database: { // Database
+ *     Arn: 'STRING_VALUE',
+ *     DatabaseName: 'STRING_VALUE',
+ *     TableCount: Number('long'),
+ *     KmsKeyId: 'STRING_VALUE',
+ *     CreationTime: new Date('TIMESTAMP'),
+ *     LastUpdatedTime: new Date('TIMESTAMP'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeDatabaseCommandInput - {@link DescribeDatabaseCommandInput}
@@ -78,6 +90,8 @@ export interface DescribeDatabaseCommandOutput extends DescribeDatabaseResponse,
  * @throws {@link ValidationException} (client fault)
  *  <p> An invalid or malformed request.</p>
  *
+ * @throws {@link TimestreamWriteServiceException}
+ * <p>Base exception class for all service exceptions from TimestreamWrite service.</p>
  *
  */
 export class DescribeDatabaseCommand extends $Command<

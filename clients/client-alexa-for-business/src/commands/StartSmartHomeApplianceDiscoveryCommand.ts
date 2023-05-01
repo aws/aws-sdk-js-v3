@@ -42,14 +42,17 @@ export interface StartSmartHomeApplianceDiscoveryCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AlexaForBusinessClient, StartSmartHomeApplianceDiscoveryCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
- * // const { AlexaForBusinessClient, StartSmartHomeApplianceDiscoveryCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
+ * import { AlexaForBusinessClient, StartSmartHomeApplianceDiscoveryCommand } from '@aws-sdk/client-alexa-for-business'; // ES Modules import
+ * // const { AlexaForBusinessClient, StartSmartHomeApplianceDiscoveryCommand } = require('@aws-sdk/client-alexa-for-business'); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
  * const input = { // StartSmartHomeApplianceDiscoveryRequest
- *   RoomArn: "STRING_VALUE", // required
+ *   RoomArn: 'STRING_VALUE', // required
  * };
  * const command = new StartSmartHomeApplianceDiscoveryCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param StartSmartHomeApplianceDiscoveryCommandInput - {@link StartSmartHomeApplianceDiscoveryCommandInput}
@@ -61,6 +64,8 @@ export interface StartSmartHomeApplianceDiscoveryCommandOutput
  * @throws {@link NotFoundException} (client fault)
  *  <p>The resource is not found.</p>
  *
+ * @throws {@link AlexaForBusinessServiceException}
+ * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  */
 export class StartSmartHomeApplianceDiscoveryCommand extends $Command<

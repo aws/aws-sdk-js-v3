@@ -36,14 +36,17 @@ export interface DeleteFunctionDefinitionCommandOutput extends DeleteFunctionDef
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GreengrassClient, DeleteFunctionDefinitionCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
- * // const { GreengrassClient, DeleteFunctionDefinitionCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
+ * import { GreengrassClient, DeleteFunctionDefinitionCommand } from '@aws-sdk/client-greengrass'; // ES Modules import
+ * // const { GreengrassClient, DeleteFunctionDefinitionCommand } = require('@aws-sdk/client-greengrass'); // CommonJS import
  * const client = new GreengrassClient(config);
  * const input = { // DeleteFunctionDefinitionRequest
- *   FunctionDefinitionId: "STRING_VALUE", // required
+ *   FunctionDefinitionId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteFunctionDefinitionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteFunctionDefinitionCommandInput - {@link DeleteFunctionDefinitionCommandInput}
@@ -55,6 +58,8 @@ export interface DeleteFunctionDefinitionCommandOutput extends DeleteFunctionDef
  * @throws {@link BadRequestException} (client fault)
  *  General error information.
  *
+ * @throws {@link GreengrassServiceException}
+ * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
  */
 export class DeleteFunctionDefinitionCommand extends $Command<

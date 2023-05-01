@@ -63,17 +63,29 @@ export interface ListCoreDevicesCommandOutput extends ListCoreDevicesResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GreengrassV2Client, ListCoreDevicesCommand } from "@aws-sdk/client-greengrassv2"; // ES Modules import
- * // const { GreengrassV2Client, ListCoreDevicesCommand } = require("@aws-sdk/client-greengrassv2"); // CommonJS import
+ * import { GreengrassV2Client, ListCoreDevicesCommand } from '@aws-sdk/client-greengrassv2'; // ES Modules import
+ * // const { GreengrassV2Client, ListCoreDevicesCommand } = require('@aws-sdk/client-greengrassv2'); // CommonJS import
  * const client = new GreengrassV2Client(config);
  * const input = { // ListCoreDevicesRequest
- *   thingGroupArn: "STRING_VALUE",
- *   status: "HEALTHY" || "UNHEALTHY",
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   thingGroupArn: 'STRING_VALUE',
+ *   status: 'HEALTHY' || 'UNHEALTHY',
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new ListCoreDevicesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListCoreDevicesResponse
+ *   coreDevices: [ // CoreDevicesList
+ *     { // CoreDevice
+ *       coreDeviceThingName: 'STRING_VALUE',
+ *       status: 'HEALTHY' || 'UNHEALTHY',
+ *       lastStatusUpdateTimestamp: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListCoreDevicesCommandInput - {@link ListCoreDevicesCommandInput}
@@ -96,6 +108,8 @@ export interface ListCoreDevicesCommandOutput extends ListCoreDevicesResponse, _
  *  <p>The request isn't valid. This can occur if your request contains malformed JSON or
  *       unsupported characters.</p>
  *
+ * @throws {@link GreengrassV2ServiceException}
+ * <p>Base exception class for all service exceptions from GreengrassV2 service.</p>
  *
  */
 export class ListCoreDevicesCommand extends $Command<

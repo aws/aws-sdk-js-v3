@@ -36,21 +36,26 @@ export interface CreateApplicationCommandOutput extends CreateApplicationOutput,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeDeployClient, CreateApplicationCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
- * // const { CodeDeployClient, CreateApplicationCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
+ * import { CodeDeployClient, CreateApplicationCommand } from '@aws-sdk/client-codedeploy'; // ES Modules import
+ * // const { CodeDeployClient, CreateApplicationCommand } = require('@aws-sdk/client-codedeploy'); // CommonJS import
  * const client = new CodeDeployClient(config);
  * const input = { // CreateApplicationInput
- *   applicationName: "STRING_VALUE", // required
- *   computePlatform: "Server" || "Lambda" || "ECS",
+ *   applicationName: 'STRING_VALUE', // required
+ *   computePlatform: 'Server' || 'Lambda' || 'ECS',
  *   tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE",
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new CreateApplicationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateApplicationOutput
+ *   applicationId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateApplicationCommandInput - {@link CreateApplicationCommandInput}
@@ -77,6 +82,8 @@ export interface CreateApplicationCommandOutput extends CreateApplicationOutput,
  * @throws {@link InvalidTagsToAddException} (client fault)
  *  <p> The specified tags are not valid. </p>
  *
+ * @throws {@link CodeDeployServiceException}
+ * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
  */
 export class CreateApplicationCommand extends $Command<

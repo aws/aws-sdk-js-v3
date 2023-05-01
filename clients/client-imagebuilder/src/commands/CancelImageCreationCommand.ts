@@ -37,15 +37,22 @@ export interface CancelImageCreationCommandOutput extends CancelImageCreationRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ImagebuilderClient, CancelImageCreationCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
- * // const { ImagebuilderClient, CancelImageCreationCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
+ * import { ImagebuilderClient, CancelImageCreationCommand } from '@aws-sdk/client-imagebuilder'; // ES Modules import
+ * // const { ImagebuilderClient, CancelImageCreationCommand } = require('@aws-sdk/client-imagebuilder'); // CommonJS import
  * const client = new ImagebuilderClient(config);
  * const input = { // CancelImageCreationRequest
- *   imageBuildVersionArn: "STRING_VALUE", // required
- *   clientToken: "STRING_VALUE", // required
+ *   imageBuildVersionArn: 'STRING_VALUE', // required
+ *   clientToken: 'STRING_VALUE', // required
  * };
  * const command = new CancelImageCreationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CancelImageCreationResponse
+ *   requestId: 'STRING_VALUE',
+ *   clientToken: 'STRING_VALUE',
+ *   imageBuildVersionArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CancelImageCreationCommandInput - {@link CancelImageCreationCommandInput}
@@ -83,6 +90,8 @@ export interface CancelImageCreationCommandOutput extends CancelImageCreationRes
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service is unable to process your request at this time.</p>
  *
+ * @throws {@link ImagebuilderServiceException}
+ * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
  */
 export class CancelImageCreationCommand extends $Command<

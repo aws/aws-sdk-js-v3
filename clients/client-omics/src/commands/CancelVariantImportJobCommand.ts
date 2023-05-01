@@ -36,14 +36,17 @@ export interface CancelVariantImportJobCommandOutput extends CancelVariantImport
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OmicsClient, CancelVariantImportJobCommand } from "@aws-sdk/client-omics"; // ES Modules import
- * // const { OmicsClient, CancelVariantImportJobCommand } = require("@aws-sdk/client-omics"); // CommonJS import
+ * import { OmicsClient, CancelVariantImportJobCommand } from '@aws-sdk/client-omics'; // ES Modules import
+ * // const { OmicsClient, CancelVariantImportJobCommand } = require('@aws-sdk/client-omics'); // CommonJS import
  * const client = new OmicsClient(config);
  * const input = { // CancelVariantImportRequest
- *   jobId: "STRING_VALUE", // required
+ *   jobId: 'STRING_VALUE', // required
  * };
  * const command = new CancelVariantImportJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param CancelVariantImportJobCommandInput - {@link CancelVariantImportJobCommandInput}
@@ -67,6 +70,8 @@ export interface CancelVariantImportJobCommandOutput extends CancelVariantImport
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link OmicsServiceException}
+ * <p>Base exception class for all service exceptions from Omics service.</p>
  *
  */
 export class CancelVariantImportJobCommand extends $Command<

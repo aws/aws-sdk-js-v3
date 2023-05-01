@@ -42,15 +42,21 @@ export interface DeleteRecommendationTemplateCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ResiliencehubClient, DeleteRecommendationTemplateCommand } from "@aws-sdk/client-resiliencehub"; // ES Modules import
- * // const { ResiliencehubClient, DeleteRecommendationTemplateCommand } = require("@aws-sdk/client-resiliencehub"); // CommonJS import
+ * import { ResiliencehubClient, DeleteRecommendationTemplateCommand } from '@aws-sdk/client-resiliencehub'; // ES Modules import
+ * // const { ResiliencehubClient, DeleteRecommendationTemplateCommand } = require('@aws-sdk/client-resiliencehub'); // CommonJS import
  * const client = new ResiliencehubClient(config);
  * const input = { // DeleteRecommendationTemplateRequest
- *   recommendationTemplateArn: "STRING_VALUE", // required
- *   clientToken: "STRING_VALUE",
+ *   recommendationTemplateArn: 'STRING_VALUE', // required
+ *   clientToken: 'STRING_VALUE',
  * };
  * const command = new DeleteRecommendationTemplateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteRecommendationTemplateResponse
+ *   recommendationTemplateArn: 'STRING_VALUE', // required
+ *   status: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param DeleteRecommendationTemplateCommandInput - {@link DeleteRecommendationTemplateCommandInput}
@@ -77,6 +83,8 @@ export interface DeleteRecommendationTemplateCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>This exception occurs when a request is not valid.</p>
  *
+ * @throws {@link ResiliencehubServiceException}
+ * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
  */
 export class DeleteRecommendationTemplateCommand extends $Command<

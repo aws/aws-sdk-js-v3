@@ -38,21 +38,39 @@ export interface AssociateResourceShareCommandOutput extends AssociateResourceSh
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RAMClient, AssociateResourceShareCommand } from "@aws-sdk/client-ram"; // ES Modules import
- * // const { RAMClient, AssociateResourceShareCommand } = require("@aws-sdk/client-ram"); // CommonJS import
+ * import { RAMClient, AssociateResourceShareCommand } from '@aws-sdk/client-ram'; // ES Modules import
+ * // const { RAMClient, AssociateResourceShareCommand } = require('@aws-sdk/client-ram'); // CommonJS import
  * const client = new RAMClient(config);
  * const input = { // AssociateResourceShareRequest
- *   resourceShareArn: "STRING_VALUE", // required
+ *   resourceShareArn: 'STRING_VALUE', // required
  *   resourceArns: [ // ResourceArnList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   principals: [ // PrincipalArnOrIdList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   clientToken: "STRING_VALUE",
+ *   clientToken: 'STRING_VALUE',
  * };
  * const command = new AssociateResourceShareCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AssociateResourceShareResponse
+ *   resourceShareAssociations: [ // ResourceShareAssociationList
+ *     { // ResourceShareAssociation
+ *       resourceShareArn: 'STRING_VALUE',
+ *       resourceShareName: 'STRING_VALUE',
+ *       associatedEntity: 'STRING_VALUE',
+ *       associationType: 'PRINCIPAL' || 'RESOURCE',
+ *       status: 'ASSOCIATING' || 'ASSOCIATED' || 'FAILED' || 'DISASSOCIATING' || 'DISASSOCIATED',
+ *       statusMessage: 'STRING_VALUE',
+ *       creationTime: new Date('TIMESTAMP'),
+ *       lastUpdatedTime: new Date('TIMESTAMP'),
+ *       external: true || false,
+ *     },
+ *   ],
+ *   clientToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param AssociateResourceShareCommandInput - {@link AssociateResourceShareCommandInput}
@@ -102,6 +120,8 @@ export interface AssociateResourceShareCommandOutput extends AssociateResourceSh
  * @throws {@link UnknownResourceException} (client fault)
  *  <p>The operation failed because a specified resource couldn't be found.</p>
  *
+ * @throws {@link RAMServiceException}
+ * <p>Base exception class for all service exceptions from RAM service.</p>
  *
  */
 export class AssociateResourceShareCommand extends $Command<

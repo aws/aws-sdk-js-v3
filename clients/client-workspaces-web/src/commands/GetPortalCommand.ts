@@ -36,14 +36,34 @@ export interface GetPortalCommandOutput extends GetPortalResponse, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkSpacesWebClient, GetPortalCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
- * // const { WorkSpacesWebClient, GetPortalCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
+ * import { WorkSpacesWebClient, GetPortalCommand } from '@aws-sdk/client-workspaces-web'; // ES Modules import
+ * // const { WorkSpacesWebClient, GetPortalCommand } = require('@aws-sdk/client-workspaces-web'); // CommonJS import
  * const client = new WorkSpacesWebClient(config);
  * const input = { // GetPortalRequest
- *   portalArn: "STRING_VALUE", // required
+ *   portalArn: 'STRING_VALUE', // required
  * };
  * const command = new GetPortalCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetPortalResponse
+ *   portal: { // Portal
+ *     portalArn: 'STRING_VALUE',
+ *     rendererType: 'STRING_VALUE',
+ *     browserType: 'STRING_VALUE',
+ *     portalStatus: 'STRING_VALUE',
+ *     portalEndpoint: 'STRING_VALUE',
+ *     displayName: 'STRING_VALUE',
+ *     creationDate: new Date('TIMESTAMP'),
+ *     browserSettingsArn: 'STRING_VALUE',
+ *     userSettingsArn: 'STRING_VALUE',
+ *     networkSettingsArn: 'STRING_VALUE',
+ *     trustStoreArn: 'STRING_VALUE',
+ *     statusReason: 'STRING_VALUE',
+ *     userAccessLoggingSettingsArn: 'STRING_VALUE',
+ *     authenticationType: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetPortalCommandInput - {@link GetPortalCommandInput}
@@ -67,6 +87,8 @@ export interface GetPortalCommandOutput extends GetPortalResponse, __MetadataBea
  * @throws {@link ValidationException} (client fault)
  *  <p>There is a validation error.</p>
  *
+ * @throws {@link WorkSpacesWebServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
  */
 export class GetPortalCommand extends $Command<

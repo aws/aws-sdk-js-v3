@@ -55,15 +55,18 @@ export interface DeleteMessageCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SQSClient, DeleteMessageCommand } from "@aws-sdk/client-sqs"; // ES Modules import
- * // const { SQSClient, DeleteMessageCommand } = require("@aws-sdk/client-sqs"); // CommonJS import
+ * import { SQSClient, DeleteMessageCommand } from '@aws-sdk/client-sqs'; // ES Modules import
+ * // const { SQSClient, DeleteMessageCommand } = require('@aws-sdk/client-sqs'); // CommonJS import
  * const client = new SQSClient(config);
  * const input = { // DeleteMessageRequest
- *   QueueUrl: "STRING_VALUE", // required
- *   ReceiptHandle: "STRING_VALUE", // required
+ *   QueueUrl: 'STRING_VALUE', // required
+ *   ReceiptHandle: 'STRING_VALUE', // required
  * };
  * const command = new DeleteMessageCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteMessageCommandInput - {@link DeleteMessageCommandInput}
@@ -78,6 +81,8 @@ export interface DeleteMessageCommandOutput extends __MetadataBearer {}
  * @throws {@link ReceiptHandleIsInvalid} (client fault)
  *  <p>The specified receipt handle isn't valid.</p>
  *
+ * @throws {@link SQSServiceException}
+ * <p>Base exception class for all service exceptions from SQS service.</p>
  *
  */
 export class DeleteMessageCommand extends $Command<

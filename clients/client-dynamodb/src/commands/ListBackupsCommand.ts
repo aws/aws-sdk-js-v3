@@ -42,19 +42,38 @@ export interface ListBackupsCommandOutput extends ListBackupsOutput, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DynamoDBClient, ListBackupsCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
- * // const { DynamoDBClient, ListBackupsCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
+ * import { DynamoDBClient, ListBackupsCommand } from '@aws-sdk/client-dynamodb'; // ES Modules import
+ * // const { DynamoDBClient, ListBackupsCommand } = require('@aws-sdk/client-dynamodb'); // CommonJS import
  * const client = new DynamoDBClient(config);
  * const input = { // ListBackupsInput
- *   TableName: "STRING_VALUE",
- *   Limit: Number("int"),
- *   TimeRangeLowerBound: new Date("TIMESTAMP"),
- *   TimeRangeUpperBound: new Date("TIMESTAMP"),
- *   ExclusiveStartBackupArn: "STRING_VALUE",
- *   BackupType: "USER" || "SYSTEM" || "AWS_BACKUP" || "ALL",
+ *   TableName: 'STRING_VALUE',
+ *   Limit: Number('int'),
+ *   TimeRangeLowerBound: new Date('TIMESTAMP'),
+ *   TimeRangeUpperBound: new Date('TIMESTAMP'),
+ *   ExclusiveStartBackupArn: 'STRING_VALUE',
+ *   BackupType: 'USER' || 'SYSTEM' || 'AWS_BACKUP' || 'ALL',
  * };
  * const command = new ListBackupsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListBackupsOutput
+ *   BackupSummaries: [ // BackupSummaries
+ *     { // BackupSummary
+ *       TableName: 'STRING_VALUE',
+ *       TableId: 'STRING_VALUE',
+ *       TableArn: 'STRING_VALUE',
+ *       BackupArn: 'STRING_VALUE',
+ *       BackupName: 'STRING_VALUE',
+ *       BackupCreationDateTime: new Date('TIMESTAMP'),
+ *       BackupExpiryDateTime: new Date('TIMESTAMP'),
+ *       BackupStatus: 'CREATING' || 'DELETED' || 'AVAILABLE',
+ *       BackupType: 'USER' || 'SYSTEM' || 'AWS_BACKUP',
+ *       BackupSizeBytes: Number('long'),
+ *     },
+ *   ],
+ *   LastEvaluatedBackupArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListBackupsCommandInput - {@link ListBackupsCommandInput}
@@ -68,6 +87,8 @@ export interface ListBackupsCommandOutput extends ListBackupsOutput, __MetadataB
  *
  * @throws {@link InvalidEndpointException} (client fault)
  *
+ * @throws {@link DynamoDBServiceException}
+ * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
  */
 export class ListBackupsCommand extends $Command<

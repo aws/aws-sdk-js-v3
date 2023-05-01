@@ -48,14 +48,17 @@ export interface DeleteLoginProfileCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IAMClient, DeleteLoginProfileCommand } from "@aws-sdk/client-iam"; // ES Modules import
- * // const { IAMClient, DeleteLoginProfileCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * import { IAMClient, DeleteLoginProfileCommand } from '@aws-sdk/client-iam'; // ES Modules import
+ * // const { IAMClient, DeleteLoginProfileCommand } = require('@aws-sdk/client-iam'); // CommonJS import
  * const client = new IAMClient(config);
  * const input = { // DeleteLoginProfileRequest
- *   UserName: "STRING_VALUE", // required
+ *   UserName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteLoginProfileCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteLoginProfileCommandInput - {@link DeleteLoginProfileCommandInput}
@@ -82,6 +85,8 @@ export interface DeleteLoginProfileCommandOutput extends __MetadataBearer {}
  *  <p>The request processing has failed because of an unknown error, exception or
  *       failure.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  * @example To delete a password for an IAM user
  * ```javascript

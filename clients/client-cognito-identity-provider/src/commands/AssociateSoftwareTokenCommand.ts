@@ -62,15 +62,21 @@ export interface AssociateSoftwareTokenCommandOutput extends AssociateSoftwareTo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CognitoIdentityProviderClient, AssociateSoftwareTokenCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
- * // const { CognitoIdentityProviderClient, AssociateSoftwareTokenCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
+ * import { CognitoIdentityProviderClient, AssociateSoftwareTokenCommand } from '@aws-sdk/client-cognito-identity-provider'; // ES Modules import
+ * // const { CognitoIdentityProviderClient, AssociateSoftwareTokenCommand } = require('@aws-sdk/client-cognito-identity-provider'); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
  * const input = { // AssociateSoftwareTokenRequest
- *   AccessToken: "STRING_VALUE",
- *   Session: "STRING_VALUE",
+ *   AccessToken: 'STRING_VALUE',
+ *   Session: 'STRING_VALUE',
  * };
  * const command = new AssociateSoftwareTokenCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AssociateSoftwareTokenResponse
+ *   SecretCode: 'STRING_VALUE',
+ *   Session: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param AssociateSoftwareTokenCommandInput - {@link AssociateSoftwareTokenCommandInput}
@@ -104,6 +110,8 @@ export interface AssociateSoftwareTokenCommandOutput extends AssociateSoftwareTo
  *  <p>This exception is thrown when the software token time-based one-time password (TOTP)
  *             multi-factor authentication (MFA) isn't activated for the user pool.</p>
  *
+ * @throws {@link CognitoIdentityProviderServiceException}
+ * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
  */
 export class AssociateSoftwareTokenCommand extends $Command<

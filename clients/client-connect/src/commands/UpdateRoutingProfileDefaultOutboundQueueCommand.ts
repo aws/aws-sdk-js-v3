@@ -40,16 +40,19 @@ export interface UpdateRoutingProfileDefaultOutboundQueueCommandOutput extends _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, UpdateRoutingProfileDefaultOutboundQueueCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, UpdateRoutingProfileDefaultOutboundQueueCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, UpdateRoutingProfileDefaultOutboundQueueCommand } from '@aws-sdk/client-connect'; // ES Modules import
+ * // const { ConnectClient, UpdateRoutingProfileDefaultOutboundQueueCommand } = require('@aws-sdk/client-connect'); // CommonJS import
  * const client = new ConnectClient(config);
  * const input = { // UpdateRoutingProfileDefaultOutboundQueueRequest
- *   InstanceId: "STRING_VALUE", // required
- *   RoutingProfileId: "STRING_VALUE", // required
- *   DefaultOutboundQueueId: "STRING_VALUE", // required
+ *   InstanceId: 'STRING_VALUE', // required
+ *   RoutingProfileId: 'STRING_VALUE', // required
+ *   DefaultOutboundQueueId: 'STRING_VALUE', // required
  * };
  * const command = new UpdateRoutingProfileDefaultOutboundQueueCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateRoutingProfileDefaultOutboundQueueCommandInput - {@link UpdateRoutingProfileDefaultOutboundQueueCommandInput}
@@ -73,6 +76,8 @@ export interface UpdateRoutingProfileDefaultOutboundQueueCommandOutput extends _
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class UpdateRoutingProfileDefaultOutboundQueueCommand extends $Command<

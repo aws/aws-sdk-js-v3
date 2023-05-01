@@ -36,15 +36,30 @@ export interface ListDestinationsCommandOutput extends ListDestinationsResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTWirelessClient, ListDestinationsCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
- * // const { IoTWirelessClient, ListDestinationsCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
+ * import { IoTWirelessClient, ListDestinationsCommand } from '@aws-sdk/client-iot-wireless'; // ES Modules import
+ * // const { IoTWirelessClient, ListDestinationsCommand } = require('@aws-sdk/client-iot-wireless'); // CommonJS import
  * const client = new IoTWirelessClient(config);
  * const input = { // ListDestinationsRequest
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListDestinationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListDestinationsResponse
+ *   NextToken: 'STRING_VALUE',
+ *   DestinationList: [ // DestinationList
+ *     { // Destinations
+ *       Arn: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *       ExpressionType: 'RuleName' || 'MqttTopic',
+ *       Expression: 'STRING_VALUE',
+ *       Description: 'STRING_VALUE',
+ *       RoleArn: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListDestinationsCommandInput - {@link ListDestinationsCommandInput}
@@ -65,6 +80,8 @@ export interface ListDestinationsCommandOutput extends ListDestinationsResponse,
  * @throws {@link ValidationException} (client fault)
  *  <p>The input did not meet the specified constraints.</p>
  *
+ * @throws {@link IoTWirelessServiceException}
+ * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
  */
 export class ListDestinationsCommand extends $Command<

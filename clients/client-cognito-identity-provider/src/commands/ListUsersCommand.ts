@@ -41,20 +41,46 @@ export interface ListUsersCommandOutput extends ListUsersResponse, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CognitoIdentityProviderClient, ListUsersCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
- * // const { CognitoIdentityProviderClient, ListUsersCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
+ * import { CognitoIdentityProviderClient, ListUsersCommand } from '@aws-sdk/client-cognito-identity-provider'; // ES Modules import
+ * // const { CognitoIdentityProviderClient, ListUsersCommand } = require('@aws-sdk/client-cognito-identity-provider'); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
  * const input = { // ListUsersRequest
- *   UserPoolId: "STRING_VALUE", // required
+ *   UserPoolId: 'STRING_VALUE', // required
  *   AttributesToGet: [ // SearchedAttributeNamesListType
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   Limit: Number("int"),
- *   PaginationToken: "STRING_VALUE",
- *   Filter: "STRING_VALUE",
+ *   Limit: Number('int'),
+ *   PaginationToken: 'STRING_VALUE',
+ *   Filter: 'STRING_VALUE',
  * };
  * const command = new ListUsersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListUsersResponse
+ *   Users: [ // UsersListType
+ *     { // UserType
+ *       Username: 'STRING_VALUE',
+ *       Attributes: [ // AttributeListType
+ *         { // AttributeType
+ *           Name: 'STRING_VALUE', // required
+ *           Value: 'STRING_VALUE',
+ *         },
+ *       ],
+ *       UserCreateDate: new Date('TIMESTAMP'),
+ *       UserLastModifiedDate: new Date('TIMESTAMP'),
+ *       Enabled: true || false,
+ *       UserStatus: 'UNCONFIRMED' || 'CONFIRMED' || 'ARCHIVED' || 'COMPROMISED' || 'UNKNOWN' || 'RESET_REQUIRED' || 'FORCE_CHANGE_PASSWORD',
+ *       MFAOptions: [ // MFAOptionListType
+ *         { // MFAOptionType
+ *           DeliveryMedium: 'SMS' || 'EMAIL',
+ *           AttributeName: 'STRING_VALUE',
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   PaginationToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListUsersCommandInput - {@link ListUsersCommandInput}
@@ -81,6 +107,8 @@ export interface ListUsersCommandOutput extends ListUsersResponse, __MetadataBea
  *  <p>This exception is thrown when the user has made too many requests for a given
  *             operation.</p>
  *
+ * @throws {@link CognitoIdentityProviderServiceException}
+ * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
  */
 export class ListUsersCommand extends $Command<

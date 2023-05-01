@@ -38,25 +38,31 @@ export interface CreateGatewayCommandOutput extends CreateGatewayResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTSiteWiseClient, CreateGatewayCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
- * // const { IoTSiteWiseClient, CreateGatewayCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
+ * import { IoTSiteWiseClient, CreateGatewayCommand } from '@aws-sdk/client-iotsitewise'; // ES Modules import
+ * // const { IoTSiteWiseClient, CreateGatewayCommand } = require('@aws-sdk/client-iotsitewise'); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
  * const input = { // CreateGatewayRequest
- *   gatewayName: "STRING_VALUE", // required
+ *   gatewayName: 'STRING_VALUE', // required
  *   gatewayPlatform: { // GatewayPlatform
  *     greengrass: { // Greengrass
- *       groupArn: "STRING_VALUE", // required
+ *       groupArn: 'STRING_VALUE', // required
  *     },
  *     greengrassV2: { // GreengrassV2
- *       coreDeviceThingName: "STRING_VALUE", // required
+ *       coreDeviceThingName: 'STRING_VALUE', // required
  *     },
  *   },
  *   tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateGatewayCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateGatewayResponse
+ *   gatewayId: 'STRING_VALUE', // required
+ *   gatewayArn: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param CreateGatewayCommandInput - {@link CreateGatewayCommandInput}
@@ -87,6 +93,8 @@ export interface CreateGatewayCommandOutput extends CreateGatewayResponse, __Met
  *       on.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
  *
+ * @throws {@link IoTSiteWiseServiceException}
+ * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
  */
 export class CreateGatewayCommand extends $Command<

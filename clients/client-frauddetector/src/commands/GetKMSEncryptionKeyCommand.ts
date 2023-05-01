@@ -36,12 +36,19 @@ export interface GetKMSEncryptionKeyCommandOutput extends GetKMSEncryptionKeyRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FraudDetectorClient, GetKMSEncryptionKeyCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
- * // const { FraudDetectorClient, GetKMSEncryptionKeyCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
+ * import { FraudDetectorClient, GetKMSEncryptionKeyCommand } from '@aws-sdk/client-frauddetector'; // ES Modules import
+ * // const { FraudDetectorClient, GetKMSEncryptionKeyCommand } = require('@aws-sdk/client-frauddetector'); // CommonJS import
  * const client = new FraudDetectorClient(config);
  * const input = {};
  * const command = new GetKMSEncryptionKeyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetKMSEncryptionKeyResult
+ *   kmsKey: { // KMSKey
+ *     kmsEncryptionKeyArn: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetKMSEncryptionKeyCommandInput - {@link GetKMSEncryptionKeyCommandInput}
@@ -62,6 +69,8 @@ export interface GetKMSEncryptionKeyCommandOutput extends GetKMSEncryptionKeyRes
  * @throws {@link ThrottlingException} (client fault)
  *  <p>An exception indicating a throttling error.</p>
  *
+ * @throws {@link FraudDetectorServiceException}
+ * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
  */
 export class GetKMSEncryptionKeyCommand extends $Command<

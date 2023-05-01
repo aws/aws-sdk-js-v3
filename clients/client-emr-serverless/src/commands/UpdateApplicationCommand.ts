@@ -37,56 +37,117 @@ export interface UpdateApplicationCommandOutput extends UpdateApplicationRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EMRServerlessClient, UpdateApplicationCommand } from "@aws-sdk/client-emr-serverless"; // ES Modules import
- * // const { EMRServerlessClient, UpdateApplicationCommand } = require("@aws-sdk/client-emr-serverless"); // CommonJS import
+ * import { EMRServerlessClient, UpdateApplicationCommand } from '@aws-sdk/client-emr-serverless'; // ES Modules import
+ * // const { EMRServerlessClient, UpdateApplicationCommand } = require('@aws-sdk/client-emr-serverless'); // CommonJS import
  * const client = new EMRServerlessClient(config);
  * const input = { // UpdateApplicationRequest
- *   applicationId: "STRING_VALUE", // required
- *   clientToken: "STRING_VALUE", // required
+ *   applicationId: 'STRING_VALUE', // required
+ *   clientToken: 'STRING_VALUE', // required
  *   initialCapacity: { // InitialCapacityConfigMap
- *     "<keys>": { // InitialCapacityConfig
- *       workerCount: Number("long"), // required
+ *     '<keys>': { // InitialCapacityConfig
+ *       workerCount: Number('long'), // required
  *       workerConfiguration: { // WorkerResourceConfig
- *         cpu: "STRING_VALUE", // required
- *         memory: "STRING_VALUE", // required
- *         disk: "STRING_VALUE",
+ *         cpu: 'STRING_VALUE', // required
+ *         memory: 'STRING_VALUE', // required
+ *         disk: 'STRING_VALUE',
  *       },
  *     },
  *   },
  *   maximumCapacity: { // MaximumAllowedResources
- *     cpu: "STRING_VALUE", // required
- *     memory: "STRING_VALUE", // required
- *     disk: "STRING_VALUE",
+ *     cpu: 'STRING_VALUE', // required
+ *     memory: 'STRING_VALUE', // required
+ *     disk: 'STRING_VALUE',
  *   },
  *   autoStartConfiguration: { // AutoStartConfig
  *     enabled: true || false,
  *   },
  *   autoStopConfiguration: { // AutoStopConfig
  *     enabled: true || false,
- *     idleTimeoutMinutes: Number("int"),
+ *     idleTimeoutMinutes: Number('int'),
  *   },
  *   networkConfiguration: { // NetworkConfiguration
  *     subnetIds: [ // SubnetIds
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     securityGroupIds: [ // SecurityGroupIds
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *   },
- *   architecture: "STRING_VALUE",
+ *   architecture: 'STRING_VALUE',
  *   imageConfiguration: { // ImageConfigurationInput
- *     imageUri: "STRING_VALUE",
+ *     imageUri: 'STRING_VALUE',
  *   },
  *   workerTypeSpecifications: { // WorkerTypeSpecificationInputMap
- *     "<keys>": { // WorkerTypeSpecificationInput
+ *     '<keys>': { // WorkerTypeSpecificationInput
  *       imageConfiguration: {
- *         imageUri: "STRING_VALUE",
+ *         imageUri: 'STRING_VALUE',
  *       },
  *     },
  *   },
  * };
  * const command = new UpdateApplicationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateApplicationResponse
+ *   application: { // Application
+ *     applicationId: 'STRING_VALUE', // required
+ *     name: 'STRING_VALUE',
+ *     arn: 'STRING_VALUE', // required
+ *     releaseLabel: 'STRING_VALUE', // required
+ *     type: 'STRING_VALUE', // required
+ *     state: 'STRING_VALUE', // required
+ *     stateDetails: 'STRING_VALUE',
+ *     initialCapacity: { // InitialCapacityConfigMap
+ *       '<keys>': { // InitialCapacityConfig
+ *         workerCount: Number('long'), // required
+ *         workerConfiguration: { // WorkerResourceConfig
+ *           cpu: 'STRING_VALUE', // required
+ *           memory: 'STRING_VALUE', // required
+ *           disk: 'STRING_VALUE',
+ *         },
+ *       },
+ *     },
+ *     maximumCapacity: { // MaximumAllowedResources
+ *       cpu: 'STRING_VALUE', // required
+ *       memory: 'STRING_VALUE', // required
+ *       disk: 'STRING_VALUE',
+ *     },
+ *     createdAt: new Date('TIMESTAMP'), // required
+ *     updatedAt: new Date('TIMESTAMP'), // required
+ *     tags: { // TagMap
+ *       '<keys>': 'STRING_VALUE',
+ *     },
+ *     autoStartConfiguration: { // AutoStartConfig
+ *       enabled: true || false,
+ *     },
+ *     autoStopConfiguration: { // AutoStopConfig
+ *       enabled: true || false,
+ *       idleTimeoutMinutes: Number('int'),
+ *     },
+ *     networkConfiguration: { // NetworkConfiguration
+ *       subnetIds: [ // SubnetIds
+ *         'STRING_VALUE',
+ *       ],
+ *       securityGroupIds: [ // SecurityGroupIds
+ *         'STRING_VALUE',
+ *       ],
+ *     },
+ *     architecture: 'STRING_VALUE',
+ *     imageConfiguration: { // ImageConfiguration
+ *       imageUri: 'STRING_VALUE', // required
+ *       resolvedImageDigest: 'STRING_VALUE',
+ *     },
+ *     workerTypeSpecifications: { // WorkerTypeSpecificationMap
+ *       '<keys>': { // WorkerTypeSpecification
+ *         imageConfiguration: {
+ *           imageUri: 'STRING_VALUE', // required
+ *           resolvedImageDigest: 'STRING_VALUE',
+ *         },
+ *       },
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateApplicationCommandInput - {@link UpdateApplicationCommandInput}
@@ -105,6 +166,8 @@ export interface UpdateApplicationCommandOutput extends UpdateApplicationRespons
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
  *          service.</p>
  *
+ * @throws {@link EMRServerlessServiceException}
+ * <p>Base exception class for all service exceptions from EMRServerless service.</p>
  *
  */
 export class UpdateApplicationCommand extends $Command<

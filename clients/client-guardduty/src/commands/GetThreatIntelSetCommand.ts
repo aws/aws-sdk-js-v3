@@ -36,15 +36,26 @@ export interface GetThreatIntelSetCommandOutput extends GetThreatIntelSetRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GuardDutyClient, GetThreatIntelSetCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
- * // const { GuardDutyClient, GetThreatIntelSetCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
+ * import { GuardDutyClient, GetThreatIntelSetCommand } from '@aws-sdk/client-guardduty'; // ES Modules import
+ * // const { GuardDutyClient, GetThreatIntelSetCommand } = require('@aws-sdk/client-guardduty'); // CommonJS import
  * const client = new GuardDutyClient(config);
  * const input = { // GetThreatIntelSetRequest
- *   DetectorId: "STRING_VALUE", // required
- *   ThreatIntelSetId: "STRING_VALUE", // required
+ *   DetectorId: 'STRING_VALUE', // required
+ *   ThreatIntelSetId: 'STRING_VALUE', // required
  * };
  * const command = new GetThreatIntelSetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetThreatIntelSetResponse
+ *   Name: 'STRING_VALUE', // required
+ *   Format: 'TXT' || 'STIX' || 'OTX_CSV' || 'ALIEN_VAULT' || 'PROOF_POINT' || 'FIRE_EYE', // required
+ *   Location: 'STRING_VALUE', // required
+ *   Status: 'INACTIVE' || 'ACTIVATING' || 'ACTIVE' || 'DEACTIVATING' || 'ERROR' || 'DELETE_PENDING' || 'DELETED', // required
+ *   Tags: { // TagMap
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetThreatIntelSetCommandInput - {@link GetThreatIntelSetCommandInput}
@@ -59,6 +70,8 @@ export interface GetThreatIntelSetCommandOutput extends GetThreatIntelSetRespons
  * @throws {@link InternalServerErrorException} (server fault)
  *  <p>An internal server error exception object.</p>
  *
+ * @throws {@link GuardDutyServiceException}
+ * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
  */
 export class GetThreatIntelSetCommand extends $Command<

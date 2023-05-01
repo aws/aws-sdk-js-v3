@@ -37,17 +37,30 @@ export interface ListTransactionsCommandOutput extends ListTransactionsResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LakeFormationClient, ListTransactionsCommand } from "@aws-sdk/client-lakeformation"; // ES Modules import
- * // const { LakeFormationClient, ListTransactionsCommand } = require("@aws-sdk/client-lakeformation"); // CommonJS import
+ * import { LakeFormationClient, ListTransactionsCommand } from '@aws-sdk/client-lakeformation'; // ES Modules import
+ * // const { LakeFormationClient, ListTransactionsCommand } = require('@aws-sdk/client-lakeformation'); // CommonJS import
  * const client = new LakeFormationClient(config);
  * const input = { // ListTransactionsRequest
- *   CatalogId: "STRING_VALUE",
- *   StatusFilter: "ALL" || "COMPLETED" || "ACTIVE" || "COMMITTED" || "ABORTED",
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   CatalogId: 'STRING_VALUE',
+ *   StatusFilter: 'ALL' || 'COMPLETED' || 'ACTIVE' || 'COMMITTED' || 'ABORTED',
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListTransactionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTransactionsResponse
+ *   Transactions: [ // TransactionDescriptionList
+ *     { // TransactionDescription
+ *       TransactionId: 'STRING_VALUE',
+ *       TransactionStatus: 'ACTIVE' || 'COMMITTED' || 'ABORTED' || 'COMMIT_IN_PROGRESS',
+ *       TransactionStartTime: new Date('TIMESTAMP'),
+ *       TransactionEndTime: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListTransactionsCommandInput - {@link ListTransactionsCommandInput}
@@ -65,6 +78,8 @@ export interface ListTransactionsCommandOutput extends ListTransactionsResponse,
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link LakeFormationServiceException}
+ * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
  */
 export class ListTransactionsCommand extends $Command<

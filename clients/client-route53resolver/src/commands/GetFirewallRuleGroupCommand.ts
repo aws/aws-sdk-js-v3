@@ -36,14 +36,31 @@ export interface GetFirewallRuleGroupCommandOutput extends GetFirewallRuleGroupR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Route53ResolverClient, GetFirewallRuleGroupCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
- * // const { Route53ResolverClient, GetFirewallRuleGroupCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
+ * import { Route53ResolverClient, GetFirewallRuleGroupCommand } from '@aws-sdk/client-route53resolver'; // ES Modules import
+ * // const { Route53ResolverClient, GetFirewallRuleGroupCommand } = require('@aws-sdk/client-route53resolver'); // CommonJS import
  * const client = new Route53ResolverClient(config);
  * const input = { // GetFirewallRuleGroupRequest
- *   FirewallRuleGroupId: "STRING_VALUE", // required
+ *   FirewallRuleGroupId: 'STRING_VALUE', // required
  * };
  * const command = new GetFirewallRuleGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetFirewallRuleGroupResponse
+ *   FirewallRuleGroup: { // FirewallRuleGroup
+ *     Id: 'STRING_VALUE',
+ *     Arn: 'STRING_VALUE',
+ *     Name: 'STRING_VALUE',
+ *     RuleCount: Number('int'),
+ *     Status: 'COMPLETE' || 'DELETING' || 'UPDATING',
+ *     StatusMessage: 'STRING_VALUE',
+ *     OwnerId: 'STRING_VALUE',
+ *     CreatorRequestId: 'STRING_VALUE',
+ *     ShareStatus: 'NOT_SHARED' || 'SHARED_WITH_ME' || 'SHARED_BY_ME',
+ *     CreationTime: 'STRING_VALUE',
+ *     ModificationTime: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetFirewallRuleGroupCommandInput - {@link GetFirewallRuleGroupCommandInput}
@@ -64,6 +81,8 @@ export interface GetFirewallRuleGroupCommandOutput extends GetFirewallRuleGroupR
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was throttled. Try again in a few minutes.</p>
  *
+ * @throws {@link Route53ResolverServiceException}
+ * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
  */
 export class GetFirewallRuleGroupCommand extends $Command<

@@ -50,15 +50,18 @@ export interface DetachPolicyCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OrganizationsClient, DetachPolicyCommand } from "@aws-sdk/client-organizations"; // ES Modules import
- * // const { OrganizationsClient, DetachPolicyCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
+ * import { OrganizationsClient, DetachPolicyCommand } from '@aws-sdk/client-organizations'; // ES Modules import
+ * // const { OrganizationsClient, DetachPolicyCommand } = require('@aws-sdk/client-organizations'); // CommonJS import
  * const client = new OrganizationsClient(config);
  * const input = { // DetachPolicyRequest
- *   PolicyId: "STRING_VALUE", // required
- *   TargetId: "STRING_VALUE", // required
+ *   PolicyId: 'STRING_VALUE', // required
+ *   TargetId: 'STRING_VALUE', // required
  * };
  * const command = new DetachPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DetachPolicyCommandInput - {@link DetachPolicyCommandInput}
@@ -411,6 +414,8 @@ export interface DetachPolicyCommandOutput extends __MetadataBearer {}
  * @throws {@link UnsupportedAPIEndpointException} (client fault)
  *  <p>This action isn't available in the current Amazon Web Services Region.</p>
  *
+ * @throws {@link OrganizationsServiceException}
+ * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
  * @example To detach a policy from a root, OU, or account
  * ```javascript

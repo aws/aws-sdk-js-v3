@@ -76,18 +76,39 @@ export interface GetObjectAclCommandOutput extends GetObjectAclOutput, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { S3Client, GetObjectAclCommand } from "@aws-sdk/client-s3"; // ES Modules import
- * // const { S3Client, GetObjectAclCommand } = require("@aws-sdk/client-s3"); // CommonJS import
+ * import { S3Client, GetObjectAclCommand } from '@aws-sdk/client-s3'; // ES Modules import
+ * // const { S3Client, GetObjectAclCommand } = require('@aws-sdk/client-s3'); // CommonJS import
  * const client = new S3Client(config);
  * const input = { // GetObjectAclRequest
- *   Bucket: "STRING_VALUE", // required
- *   Key: "STRING_VALUE", // required
- *   VersionId: "STRING_VALUE",
- *   RequestPayer: "requester",
- *   ExpectedBucketOwner: "STRING_VALUE",
+ *   Bucket: 'STRING_VALUE', // required
+ *   Key: 'STRING_VALUE', // required
+ *   VersionId: 'STRING_VALUE',
+ *   RequestPayer: 'requester',
+ *   ExpectedBucketOwner: 'STRING_VALUE',
  * };
  * const command = new GetObjectAclCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetObjectAclOutput
+ *   Owner: { // Owner
+ *     DisplayName: 'STRING_VALUE',
+ *     ID: 'STRING_VALUE',
+ *   },
+ *   Grants: [ // Grants
+ *     { // Grant
+ *       Grantee: { // Grantee
+ *         DisplayName: 'STRING_VALUE',
+ *         EmailAddress: 'STRING_VALUE',
+ *         ID: 'STRING_VALUE',
+ *         URI: 'STRING_VALUE',
+ *         Type: 'CanonicalUser' || 'AmazonCustomerByEmail' || 'Group', // required
+ *       },
+ *       Permission: 'FULL_CONTROL' || 'WRITE' || 'WRITE_ACP' || 'READ' || 'READ_ACP',
+ *     },
+ *   ],
+ *   RequestCharged: 'requester',
+ * };
+ *
  * ```
  *
  * @param GetObjectAclCommandInput - {@link GetObjectAclCommandInput}
@@ -99,6 +120,8 @@ export interface GetObjectAclCommandOutput extends GetObjectAclOutput, __Metadat
  * @throws {@link NoSuchKey} (client fault)
  *  <p>The specified key does not exist.</p>
  *
+ * @throws {@link S3ServiceException}
+ * <p>Base exception class for all service exceptions from S3 service.</p>
  *
  * @example To retrieve object ACL
  * ```javascript

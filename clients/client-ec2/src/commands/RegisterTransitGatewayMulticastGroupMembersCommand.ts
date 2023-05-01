@@ -50,19 +50,30 @@ export interface RegisterTransitGatewayMulticastGroupMembersCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, RegisterTransitGatewayMulticastGroupMembersCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, RegisterTransitGatewayMulticastGroupMembersCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, RegisterTransitGatewayMulticastGroupMembersCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, RegisterTransitGatewayMulticastGroupMembersCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // RegisterTransitGatewayMulticastGroupMembersRequest
- *   TransitGatewayMulticastDomainId: "STRING_VALUE", // required
- *   GroupIpAddress: "STRING_VALUE",
+ *   TransitGatewayMulticastDomainId: 'STRING_VALUE', // required
+ *   GroupIpAddress: 'STRING_VALUE',
  *   NetworkInterfaceIds: [ // TransitGatewayNetworkInterfaceIdList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   DryRun: true || false,
  * };
  * const command = new RegisterTransitGatewayMulticastGroupMembersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // RegisterTransitGatewayMulticastGroupMembersResult
+ *   RegisteredMulticastGroupMembers: { // TransitGatewayMulticastRegisteredGroupMembers
+ *     TransitGatewayMulticastDomainId: 'STRING_VALUE',
+ *     RegisteredNetworkInterfaceIds: [ // ValueStringList
+ *       'STRING_VALUE',
+ *     ],
+ *     GroupIpAddress: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param RegisterTransitGatewayMulticastGroupMembersCommandInput - {@link RegisterTransitGatewayMulticastGroupMembersCommandInput}
@@ -71,6 +82,8 @@ export interface RegisterTransitGatewayMulticastGroupMembersCommandOutput
  * @see {@link RegisterTransitGatewayMulticastGroupMembersCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class RegisterTransitGatewayMulticastGroupMembersCommand extends $Command<

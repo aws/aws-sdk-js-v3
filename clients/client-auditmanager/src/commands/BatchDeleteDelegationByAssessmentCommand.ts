@@ -44,17 +44,28 @@ export interface BatchDeleteDelegationByAssessmentCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AuditManagerClient, BatchDeleteDelegationByAssessmentCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
- * // const { AuditManagerClient, BatchDeleteDelegationByAssessmentCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import
+ * import { AuditManagerClient, BatchDeleteDelegationByAssessmentCommand } from '@aws-sdk/client-auditmanager'; // ES Modules import
+ * // const { AuditManagerClient, BatchDeleteDelegationByAssessmentCommand } = require('@aws-sdk/client-auditmanager'); // CommonJS import
  * const client = new AuditManagerClient(config);
  * const input = { // BatchDeleteDelegationByAssessmentRequest
  *   delegationIds: [ // DelegationIds // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   assessmentId: "STRING_VALUE", // required
+ *   assessmentId: 'STRING_VALUE', // required
  * };
  * const command = new BatchDeleteDelegationByAssessmentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BatchDeleteDelegationByAssessmentResponse
+ *   errors: [ // BatchDeleteDelegationByAssessmentErrors
+ *     { // BatchDeleteDelegationByAssessmentError
+ *       delegationId: 'STRING_VALUE',
+ *       errorCode: 'STRING_VALUE',
+ *       errorMessage: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param BatchDeleteDelegationByAssessmentCommandInput - {@link BatchDeleteDelegationByAssessmentCommandInput}
@@ -77,6 +88,8 @@ export interface BatchDeleteDelegationByAssessmentCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p> The request has invalid or missing parameters. </p>
  *
+ * @throws {@link AuditManagerServiceException}
+ * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
  */
 export class BatchDeleteDelegationByAssessmentCommand extends $Command<

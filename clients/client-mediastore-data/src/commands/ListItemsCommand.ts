@@ -37,16 +37,31 @@ export interface ListItemsCommandOutput extends ListItemsResponse, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MediaStoreDataClient, ListItemsCommand } from "@aws-sdk/client-mediastore-data"; // ES Modules import
- * // const { MediaStoreDataClient, ListItemsCommand } = require("@aws-sdk/client-mediastore-data"); // CommonJS import
+ * import { MediaStoreDataClient, ListItemsCommand } from '@aws-sdk/client-mediastore-data'; // ES Modules import
+ * // const { MediaStoreDataClient, ListItemsCommand } = require('@aws-sdk/client-mediastore-data'); // CommonJS import
  * const client = new MediaStoreDataClient(config);
  * const input = { // ListItemsRequest
- *   Path: "STRING_VALUE",
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   Path: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListItemsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListItemsResponse
+ *   Items: [ // ItemList
+ *     { // Item
+ *       Name: 'STRING_VALUE',
+ *       Type: 'STRING_VALUE',
+ *       ETag: 'STRING_VALUE',
+ *       LastModified: new Date('TIMESTAMP'),
+ *       ContentType: 'STRING_VALUE',
+ *       ContentLength: Number('long'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListItemsCommandInput - {@link ListItemsCommandInput}
@@ -61,6 +76,8 @@ export interface ListItemsCommandOutput extends ListItemsResponse, __MetadataBea
  * @throws {@link InternalServerError} (server fault)
  *  <p>The service is temporarily unavailable.</p>
  *
+ * @throws {@link MediaStoreDataServiceException}
+ * <p>Base exception class for all service exceptions from MediaStoreData service.</p>
  *
  */
 export class ListItemsCommand extends $Command<

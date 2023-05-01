@@ -51,16 +51,36 @@ export interface ListStreamsCommandOutput extends ListStreamsOutput, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KinesisClient, ListStreamsCommand } from "@aws-sdk/client-kinesis"; // ES Modules import
- * // const { KinesisClient, ListStreamsCommand } = require("@aws-sdk/client-kinesis"); // CommonJS import
+ * import { KinesisClient, ListStreamsCommand } from '@aws-sdk/client-kinesis'; // ES Modules import
+ * // const { KinesisClient, ListStreamsCommand } = require('@aws-sdk/client-kinesis'); // CommonJS import
  * const client = new KinesisClient(config);
  * const input = { // ListStreamsInput
- *   Limit: Number("int"),
- *   ExclusiveStartStreamName: "STRING_VALUE",
- *   NextToken: "STRING_VALUE",
+ *   Limit: Number('int'),
+ *   ExclusiveStartStreamName: 'STRING_VALUE',
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListStreamsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListStreamsOutput
+ *   StreamNames: [ // StreamNameList // required
+ *     'STRING_VALUE',
+ *   ],
+ *   HasMoreStreams: true || false, // required
+ *   NextToken: 'STRING_VALUE',
+ *   StreamSummaries: [ // StreamSummaryList
+ *     { // StreamSummary
+ *       StreamName: 'STRING_VALUE', // required
+ *       StreamARN: 'STRING_VALUE', // required
+ *       StreamStatus: 'CREATING' || 'DELETING' || 'ACTIVE' || 'UPDATING', // required
+ *       StreamModeDetails: { // StreamModeDetails
+ *         StreamMode: 'PROVISIONED' || 'ON_DEMAND', // required
+ *       },
+ *       StreamCreationTimestamp: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListStreamsCommandInput - {@link ListStreamsCommandInput}
@@ -80,6 +100,8 @@ export interface ListStreamsCommandOutput extends ListStreamsOutput, __MetadataB
  *  <p>The requested resource exceeds the maximum number allowed, or the number of concurrent
  *             stream requests exceeds the maximum number allowed. </p>
  *
+ * @throws {@link KinesisServiceException}
+ * <p>Base exception class for all service exceptions from Kinesis service.</p>
  *
  */
 export class ListStreamsCommand extends $Command<

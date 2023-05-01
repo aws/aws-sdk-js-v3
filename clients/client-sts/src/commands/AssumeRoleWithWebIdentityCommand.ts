@@ -168,24 +168,43 @@ export interface AssumeRoleWithWebIdentityCommandOutput extends AssumeRoleWithWe
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { STSClient, AssumeRoleWithWebIdentityCommand } from "@aws-sdk/client-sts"; // ES Modules import
- * // const { STSClient, AssumeRoleWithWebIdentityCommand } = require("@aws-sdk/client-sts"); // CommonJS import
+ * import { STSClient, AssumeRoleWithWebIdentityCommand } from '@aws-sdk/client-sts'; // ES Modules import
+ * // const { STSClient, AssumeRoleWithWebIdentityCommand } = require('@aws-sdk/client-sts'); // CommonJS import
  * const client = new STSClient(config);
  * const input = { // AssumeRoleWithWebIdentityRequest
- *   RoleArn: "STRING_VALUE", // required
- *   RoleSessionName: "STRING_VALUE", // required
- *   WebIdentityToken: "STRING_VALUE", // required
- *   ProviderId: "STRING_VALUE",
+ *   RoleArn: 'STRING_VALUE', // required
+ *   RoleSessionName: 'STRING_VALUE', // required
+ *   WebIdentityToken: 'STRING_VALUE', // required
+ *   ProviderId: 'STRING_VALUE',
  *   PolicyArns: [ // policyDescriptorListType
  *     { // PolicyDescriptorType
- *       arn: "STRING_VALUE",
+ *       arn: 'STRING_VALUE',
  *     },
  *   ],
- *   Policy: "STRING_VALUE",
- *   DurationSeconds: Number("int"),
+ *   Policy: 'STRING_VALUE',
+ *   DurationSeconds: Number('int'),
  * };
  * const command = new AssumeRoleWithWebIdentityCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AssumeRoleWithWebIdentityResponse
+ *   Credentials: { // Credentials
+ *     AccessKeyId: 'STRING_VALUE', // required
+ *     SecretAccessKey: 'STRING_VALUE', // required
+ *     SessionToken: 'STRING_VALUE', // required
+ *     Expiration: new Date('TIMESTAMP'), // required
+ *   },
+ *   SubjectFromWebIdentityToken: 'STRING_VALUE',
+ *   AssumedRoleUser: { // AssumedRoleUser
+ *     AssumedRoleId: 'STRING_VALUE', // required
+ *     Arn: 'STRING_VALUE', // required
+ *   },
+ *   PackedPolicySize: Number('int'),
+ *   Provider: 'STRING_VALUE',
+ *   Audience: 'STRING_VALUE',
+ *   SourceIdentity: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param AssumeRoleWithWebIdentityCommandInput - {@link AssumeRoleWithWebIdentityCommandInput}
@@ -237,6 +256,8 @@ export interface AssumeRoleWithWebIdentityCommandOutput extends AssumeRoleWithWe
  *                 Deactivating Amazon Web Services STS in an Amazon Web Services Region</a> in the <i>IAM User
  *                     Guide</i>.</p>
  *
+ * @throws {@link STSServiceException}
+ * <p>Base exception class for all service exceptions from STS service.</p>
  *
  * @example To assume a role as an OpenID Connect-federated user
  * ```javascript

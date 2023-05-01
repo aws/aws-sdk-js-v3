@@ -36,12 +36,17 @@ export interface PingCommandOutput extends PingResponse, __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PrivateNetworksClient, PingCommand } from "@aws-sdk/client-privatenetworks"; // ES Modules import
- * // const { PrivateNetworksClient, PingCommand } = require("@aws-sdk/client-privatenetworks"); // CommonJS import
+ * import { PrivateNetworksClient, PingCommand } from '@aws-sdk/client-privatenetworks'; // ES Modules import
+ * // const { PrivateNetworksClient, PingCommand } = require('@aws-sdk/client-privatenetworks'); // CommonJS import
  * const client = new PrivateNetworksClient(config);
  * const input = {};
  * const command = new PingCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PingResponse
+ *   status: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param PingCommandInput - {@link PingCommandInput}
@@ -53,6 +58,8 @@ export interface PingCommandOutput extends PingResponse, __MetadataBearer {}
  * @throws {@link InternalServerException} (server fault)
  *  <p>Information about an internal error.</p>
  *
+ * @throws {@link PrivateNetworksServiceException}
+ * <p>Base exception class for all service exceptions from PrivateNetworks service.</p>
  *
  */
 export class PingCommand extends $Command<PingCommandInput, PingCommandOutput, PrivateNetworksClientResolvedConfig> {

@@ -98,15 +98,18 @@ export interface UpdateAliasCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KMSClient, UpdateAliasCommand } from "@aws-sdk/client-kms"; // ES Modules import
- * // const { KMSClient, UpdateAliasCommand } = require("@aws-sdk/client-kms"); // CommonJS import
+ * import { KMSClient, UpdateAliasCommand } from '@aws-sdk/client-kms'; // ES Modules import
+ * // const { KMSClient, UpdateAliasCommand } = require('@aws-sdk/client-kms'); // CommonJS import
  * const client = new KMSClient(config);
  * const input = { // UpdateAliasRequest
- *   AliasName: "STRING_VALUE", // required
- *   TargetKeyId: "STRING_VALUE", // required
+ *   AliasName: 'STRING_VALUE', // required
+ *   TargetKeyId: 'STRING_VALUE', // required
  * };
  * const command = new UpdateAliasCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateAliasCommandInput - {@link UpdateAliasCommandInput}
@@ -149,6 +152,8 @@ export interface UpdateAliasCommandOutput extends __MetadataBearer {}
  *  <p>The request was rejected because the specified entity or resource could not be
  *       found.</p>
  *
+ * @throws {@link KMSServiceException}
+ * <p>Base exception class for all service exceptions from KMS service.</p>
  *
  * @example To update an alias
  * ```javascript

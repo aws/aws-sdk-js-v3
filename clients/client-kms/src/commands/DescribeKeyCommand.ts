@@ -118,17 +118,67 @@ export interface DescribeKeyCommandOutput extends DescribeKeyResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KMSClient, DescribeKeyCommand } from "@aws-sdk/client-kms"; // ES Modules import
- * // const { KMSClient, DescribeKeyCommand } = require("@aws-sdk/client-kms"); // CommonJS import
+ * import { KMSClient, DescribeKeyCommand } from '@aws-sdk/client-kms'; // ES Modules import
+ * // const { KMSClient, DescribeKeyCommand } = require('@aws-sdk/client-kms'); // CommonJS import
  * const client = new KMSClient(config);
  * const input = { // DescribeKeyRequest
- *   KeyId: "STRING_VALUE", // required
+ *   KeyId: 'STRING_VALUE', // required
  *   GrantTokens: [ // GrantTokenList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new DescribeKeyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeKeyResponse
+ *   KeyMetadata: { // KeyMetadata
+ *     AWSAccountId: 'STRING_VALUE',
+ *     KeyId: 'STRING_VALUE', // required
+ *     Arn: 'STRING_VALUE',
+ *     CreationDate: new Date('TIMESTAMP'),
+ *     Enabled: true || false,
+ *     Description: 'STRING_VALUE',
+ *     KeyUsage: 'SIGN_VERIFY' || 'ENCRYPT_DECRYPT' || 'GENERATE_VERIFY_MAC',
+ *     KeyState: 'Creating' || 'Enabled' || 'Disabled' || 'PendingDeletion' || 'PendingImport' || 'PendingReplicaDeletion' || 'Unavailable' || 'Updating',
+ *     DeletionDate: new Date('TIMESTAMP'),
+ *     ValidTo: new Date('TIMESTAMP'),
+ *     Origin: 'AWS_KMS' || 'EXTERNAL' || 'AWS_CLOUDHSM' || 'EXTERNAL_KEY_STORE',
+ *     CustomKeyStoreId: 'STRING_VALUE',
+ *     CloudHsmClusterId: 'STRING_VALUE',
+ *     ExpirationModel: 'KEY_MATERIAL_EXPIRES' || 'KEY_MATERIAL_DOES_NOT_EXPIRE',
+ *     KeyManager: 'AWS' || 'CUSTOMER',
+ *     CustomerMasterKeySpec: 'RSA_2048' || 'RSA_3072' || 'RSA_4096' || 'ECC_NIST_P256' || 'ECC_NIST_P384' || 'ECC_NIST_P521' || 'ECC_SECG_P256K1' || 'SYMMETRIC_DEFAULT' || 'HMAC_224' || 'HMAC_256' || 'HMAC_384' || 'HMAC_512' || 'SM2',
+ *     KeySpec: 'RSA_2048' || 'RSA_3072' || 'RSA_4096' || 'ECC_NIST_P256' || 'ECC_NIST_P384' || 'ECC_NIST_P521' || 'ECC_SECG_P256K1' || 'SYMMETRIC_DEFAULT' || 'HMAC_224' || 'HMAC_256' || 'HMAC_384' || 'HMAC_512' || 'SM2',
+ *     EncryptionAlgorithms: [ // EncryptionAlgorithmSpecList
+ *       'SYMMETRIC_DEFAULT' || 'RSAES_OAEP_SHA_1' || 'RSAES_OAEP_SHA_256' || 'SM2PKE',
+ *     ],
+ *     SigningAlgorithms: [ // SigningAlgorithmSpecList
+ *       'RSASSA_PSS_SHA_256' || 'RSASSA_PSS_SHA_384' || 'RSASSA_PSS_SHA_512' || 'RSASSA_PKCS1_V1_5_SHA_256' || 'RSASSA_PKCS1_V1_5_SHA_384' || 'RSASSA_PKCS1_V1_5_SHA_512' || 'ECDSA_SHA_256' || 'ECDSA_SHA_384' || 'ECDSA_SHA_512' || 'SM2DSA',
+ *     ],
+ *     MultiRegion: true || false,
+ *     MultiRegionConfiguration: { // MultiRegionConfiguration
+ *       MultiRegionKeyType: 'PRIMARY' || 'REPLICA',
+ *       PrimaryKey: { // MultiRegionKey
+ *         Arn: 'STRING_VALUE',
+ *         Region: 'STRING_VALUE',
+ *       },
+ *       ReplicaKeys: [ // MultiRegionKeyList
+ *         {
+ *           Arn: 'STRING_VALUE',
+ *           Region: 'STRING_VALUE',
+ *         },
+ *       ],
+ *     },
+ *     PendingDeletionWindowInDays: Number('int'),
+ *     MacAlgorithms: [ // MacAlgorithmSpecList
+ *       'HMAC_SHA_224' || 'HMAC_SHA_256' || 'HMAC_SHA_384' || 'HMAC_SHA_512',
+ *     ],
+ *     XksKeyConfiguration: { // XksKeyConfigurationType
+ *       Id: 'STRING_VALUE',
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeKeyCommandInput - {@link DescribeKeyCommandInput}
@@ -153,6 +203,8 @@ export interface DescribeKeyCommandOutput extends DescribeKeyResponse, __Metadat
  *  <p>The request was rejected because the specified entity or resource could not be
  *       found.</p>
  *
+ * @throws {@link KMSServiceException}
+ * <p>Base exception class for all service exceptions from KMS service.</p>
  *
  * @example To get details about a KMS key
  * ```javascript

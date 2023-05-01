@@ -39,25 +39,31 @@ export interface CreateModelManifestCommandOutput extends CreateModelManifestRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTFleetWiseClient, CreateModelManifestCommand } from "@aws-sdk/client-iotfleetwise"; // ES Modules import
- * // const { IoTFleetWiseClient, CreateModelManifestCommand } = require("@aws-sdk/client-iotfleetwise"); // CommonJS import
+ * import { IoTFleetWiseClient, CreateModelManifestCommand } from '@aws-sdk/client-iotfleetwise'; // ES Modules import
+ * // const { IoTFleetWiseClient, CreateModelManifestCommand } = require('@aws-sdk/client-iotfleetwise'); // CommonJS import
  * const client = new IoTFleetWiseClient(config);
  * const input = { // CreateModelManifestRequest
- *   name: "STRING_VALUE", // required
- *   description: "STRING_VALUE",
+ *   name: 'STRING_VALUE', // required
+ *   description: 'STRING_VALUE',
  *   nodes: [ // listOfStrings // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   signalCatalogArn: "STRING_VALUE", // required
+ *   signalCatalogArn: 'STRING_VALUE', // required
  *   tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreateModelManifestCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateModelManifestResponse
+ *   name: 'STRING_VALUE', // required
+ *   arn: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param CreateModelManifestCommandInput - {@link CreateModelManifestCommandInput}
@@ -91,6 +97,8 @@ export interface CreateModelManifestCommandOutput extends CreateModelManifestRes
  * @throws {@link InternalServerException} (server fault)
  *  <p>The request couldn't be completed because the server temporarily failed.</p>
  *
+ * @throws {@link IoTFleetWiseServiceException}
+ * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
  */
 export class CreateModelManifestCommand extends $Command<

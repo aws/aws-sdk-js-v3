@@ -37,15 +37,20 @@ export interface UpdateAnomalyMonitorCommandOutput extends UpdateAnomalyMonitorR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CostExplorerClient, UpdateAnomalyMonitorCommand } from "@aws-sdk/client-cost-explorer"; // ES Modules import
- * // const { CostExplorerClient, UpdateAnomalyMonitorCommand } = require("@aws-sdk/client-cost-explorer"); // CommonJS import
+ * import { CostExplorerClient, UpdateAnomalyMonitorCommand } from '@aws-sdk/client-cost-explorer'; // ES Modules import
+ * // const { CostExplorerClient, UpdateAnomalyMonitorCommand } = require('@aws-sdk/client-cost-explorer'); // CommonJS import
  * const client = new CostExplorerClient(config);
  * const input = { // UpdateAnomalyMonitorRequest
- *   MonitorArn: "STRING_VALUE", // required
- *   MonitorName: "STRING_VALUE",
+ *   MonitorArn: 'STRING_VALUE', // required
+ *   MonitorName: 'STRING_VALUE',
  * };
  * const command = new UpdateAnomalyMonitorCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateAnomalyMonitorResponse
+ *   MonitorArn: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param UpdateAnomalyMonitorCommandInput - {@link UpdateAnomalyMonitorCommandInput}
@@ -60,6 +65,8 @@ export interface UpdateAnomalyMonitorCommandOutput extends UpdateAnomalyMonitorR
  * @throws {@link UnknownMonitorException} (client fault)
  *  <p>The cost anomaly monitor does not exist for the account. </p>
  *
+ * @throws {@link CostExplorerServiceException}
+ * <p>Base exception class for all service exceptions from CostExplorer service.</p>
  *
  */
 export class UpdateAnomalyMonitorCommand extends $Command<

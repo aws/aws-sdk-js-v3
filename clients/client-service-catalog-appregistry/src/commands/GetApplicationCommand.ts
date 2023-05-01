@@ -58,14 +58,35 @@ export interface GetApplicationCommandOutput extends GetApplicationResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ServiceCatalogAppRegistryClient, GetApplicationCommand } from "@aws-sdk/client-service-catalog-appregistry"; // ES Modules import
- * // const { ServiceCatalogAppRegistryClient, GetApplicationCommand } = require("@aws-sdk/client-service-catalog-appregistry"); // CommonJS import
+ * import { ServiceCatalogAppRegistryClient, GetApplicationCommand } from '@aws-sdk/client-service-catalog-appregistry'; // ES Modules import
+ * // const { ServiceCatalogAppRegistryClient, GetApplicationCommand } = require('@aws-sdk/client-service-catalog-appregistry'); // CommonJS import
  * const client = new ServiceCatalogAppRegistryClient(config);
  * const input = { // GetApplicationRequest
- *   application: "STRING_VALUE", // required
+ *   application: 'STRING_VALUE', // required
  * };
  * const command = new GetApplicationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetApplicationResponse
+ *   id: 'STRING_VALUE',
+ *   arn: 'STRING_VALUE',
+ *   name: 'STRING_VALUE',
+ *   description: 'STRING_VALUE',
+ *   creationTime: new Date('TIMESTAMP'),
+ *   lastUpdateTime: new Date('TIMESTAMP'),
+ *   associatedResourceCount: Number('int'),
+ *   tags: { // Tags
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ *   integrations: { // Integrations
+ *     resourceGroup: { // ResourceGroup
+ *       state: 'CREATING' || 'CREATE_COMPLETE' || 'CREATE_FAILED' || 'UPDATING' || 'UPDATE_COMPLETE' || 'UPDATE_FAILED',
+ *       arn: 'STRING_VALUE',
+ *       errorMessage: 'STRING_VALUE',
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetApplicationCommandInput - {@link GetApplicationCommandInput}
@@ -87,6 +108,8 @@ export interface GetApplicationCommandOutput extends GetApplicationResponse, __M
  * @throws {@link ValidationException} (client fault)
  *  <p>The request has invalid or missing parameters.</p>
  *
+ * @throws {@link ServiceCatalogAppRegistryServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalogAppRegistry service.</p>
  *
  */
 export class GetApplicationCommand extends $Command<

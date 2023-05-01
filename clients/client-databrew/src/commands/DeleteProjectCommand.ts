@@ -36,14 +36,19 @@ export interface DeleteProjectCommandOutput extends DeleteProjectResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DataBrewClient, DeleteProjectCommand } from "@aws-sdk/client-databrew"; // ES Modules import
- * // const { DataBrewClient, DeleteProjectCommand } = require("@aws-sdk/client-databrew"); // CommonJS import
+ * import { DataBrewClient, DeleteProjectCommand } from '@aws-sdk/client-databrew'; // ES Modules import
+ * // const { DataBrewClient, DeleteProjectCommand } = require('@aws-sdk/client-databrew'); // CommonJS import
  * const client = new DataBrewClient(config);
  * const input = { // DeleteProjectRequest
- *   Name: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
  * };
  * const command = new DeleteProjectCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteProjectResponse
+ *   Name: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param DeleteProjectCommandInput - {@link DeleteProjectCommandInput}
@@ -61,6 +66,8 @@ export interface DeleteProjectCommandOutput extends DeleteProjectResponse, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>The input parameters for this request failed validation.</p>
  *
+ * @throws {@link DataBrewServiceException}
+ * <p>Base exception class for all service exceptions from DataBrew service.</p>
  *
  */
 export class DeleteProjectCommand extends $Command<

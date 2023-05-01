@@ -36,14 +36,45 @@ export interface DescribeSourceLocationCommandOutput extends DescribeSourceLocat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MediaTailorClient, DescribeSourceLocationCommand } from "@aws-sdk/client-mediatailor"; // ES Modules import
- * // const { MediaTailorClient, DescribeSourceLocationCommand } = require("@aws-sdk/client-mediatailor"); // CommonJS import
+ * import { MediaTailorClient, DescribeSourceLocationCommand } from '@aws-sdk/client-mediatailor'; // ES Modules import
+ * // const { MediaTailorClient, DescribeSourceLocationCommand } = require('@aws-sdk/client-mediatailor'); // CommonJS import
  * const client = new MediaTailorClient(config);
  * const input = { // DescribeSourceLocationRequest
- *   SourceLocationName: "STRING_VALUE", // required
+ *   SourceLocationName: 'STRING_VALUE', // required
  * };
  * const command = new DescribeSourceLocationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeSourceLocationResponse
+ *   AccessConfiguration: { // AccessConfiguration
+ *     AccessType: 'S3_SIGV4' || 'SECRETS_MANAGER_ACCESS_TOKEN',
+ *     SecretsManagerAccessTokenConfiguration: { // SecretsManagerAccessTokenConfiguration
+ *       HeaderName: 'STRING_VALUE',
+ *       SecretArn: 'STRING_VALUE',
+ *       SecretStringKey: 'STRING_VALUE',
+ *     },
+ *   },
+ *   Arn: 'STRING_VALUE',
+ *   CreationTime: new Date('TIMESTAMP'),
+ *   DefaultSegmentDeliveryConfiguration: { // DefaultSegmentDeliveryConfiguration
+ *     BaseUrl: 'STRING_VALUE',
+ *   },
+ *   HttpConfiguration: { // HttpConfiguration
+ *     BaseUrl: 'STRING_VALUE', // required
+ *   },
+ *   LastModifiedTime: new Date('TIMESTAMP'),
+ *   SegmentDeliveryConfigurations: [ // __listOfSegmentDeliveryConfiguration
+ *     { // SegmentDeliveryConfiguration
+ *       BaseUrl: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   SourceLocationName: 'STRING_VALUE',
+ *   Tags: { // __mapOf__string
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeSourceLocationCommandInput - {@link DescribeSourceLocationCommandInput}
@@ -52,6 +83,8 @@ export interface DescribeSourceLocationCommandOutput extends DescribeSourceLocat
  * @see {@link DescribeSourceLocationCommandOutput} for command's `response` shape.
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.
  *
+ * @throws {@link MediaTailorServiceException}
+ * <p>Base exception class for all service exceptions from MediaTailor service.</p>
  *
  */
 export class DescribeSourceLocationCommand extends $Command<

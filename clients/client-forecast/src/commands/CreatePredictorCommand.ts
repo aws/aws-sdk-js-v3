@@ -99,76 +99,76 @@ export interface CreatePredictorCommandOutput extends CreatePredictorResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ForecastClient, CreatePredictorCommand } from "@aws-sdk/client-forecast"; // ES Modules import
- * // const { ForecastClient, CreatePredictorCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
+ * import { ForecastClient, CreatePredictorCommand } from '@aws-sdk/client-forecast'; // ES Modules import
+ * // const { ForecastClient, CreatePredictorCommand } = require('@aws-sdk/client-forecast'); // CommonJS import
  * const client = new ForecastClient(config);
  * const input = { // CreatePredictorRequest
- *   PredictorName: "STRING_VALUE", // required
- *   AlgorithmArn: "STRING_VALUE",
- *   ForecastHorizon: Number("int"), // required
+ *   PredictorName: 'STRING_VALUE', // required
+ *   AlgorithmArn: 'STRING_VALUE',
+ *   ForecastHorizon: Number('int'), // required
  *   ForecastTypes: [ // ForecastTypes
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   PerformAutoML: true || false,
- *   AutoMLOverrideStrategy: "LatencyOptimized" || "AccuracyOptimized",
+ *   AutoMLOverrideStrategy: 'LatencyOptimized' || 'AccuracyOptimized',
  *   PerformHPO: true || false,
  *   TrainingParameters: { // TrainingParameters
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  *   EvaluationParameters: { // EvaluationParameters
- *     NumberOfBacktestWindows: Number("int"),
- *     BackTestWindowOffset: Number("int"),
+ *     NumberOfBacktestWindows: Number('int'),
+ *     BackTestWindowOffset: Number('int'),
  *   },
  *   HPOConfig: { // HyperParameterTuningJobConfig
  *     ParameterRanges: { // ParameterRanges
  *       CategoricalParameterRanges: [ // CategoricalParameterRanges
  *         { // CategoricalParameterRange
- *           Name: "STRING_VALUE", // required
+ *           Name: 'STRING_VALUE', // required
  *           Values: [ // Values // required
- *             "STRING_VALUE",
+ *             'STRING_VALUE',
  *           ],
  *         },
  *       ],
  *       ContinuousParameterRanges: [ // ContinuousParameterRanges
  *         { // ContinuousParameterRange
- *           Name: "STRING_VALUE", // required
- *           MaxValue: Number("double"), // required
- *           MinValue: Number("double"), // required
- *           ScalingType: "Auto" || "Linear" || "Logarithmic" || "ReverseLogarithmic",
+ *           Name: 'STRING_VALUE', // required
+ *           MaxValue: Number('double'), // required
+ *           MinValue: Number('double'), // required
+ *           ScalingType: 'Auto' || 'Linear' || 'Logarithmic' || 'ReverseLogarithmic',
  *         },
  *       ],
  *       IntegerParameterRanges: [ // IntegerParameterRanges
  *         { // IntegerParameterRange
- *           Name: "STRING_VALUE", // required
- *           MaxValue: Number("int"), // required
- *           MinValue: Number("int"), // required
- *           ScalingType: "Auto" || "Linear" || "Logarithmic" || "ReverseLogarithmic",
+ *           Name: 'STRING_VALUE', // required
+ *           MaxValue: Number('int'), // required
+ *           MinValue: Number('int'), // required
+ *           ScalingType: 'Auto' || 'Linear' || 'Logarithmic' || 'ReverseLogarithmic',
  *         },
  *       ],
  *     },
  *   },
  *   InputDataConfig: { // InputDataConfig
- *     DatasetGroupArn: "STRING_VALUE", // required
+ *     DatasetGroupArn: 'STRING_VALUE', // required
  *     SupplementaryFeatures: [ // SupplementaryFeatures
  *       { // SupplementaryFeature
- *         Name: "STRING_VALUE", // required
- *         Value: "STRING_VALUE", // required
+ *         Name: 'STRING_VALUE', // required
+ *         Value: 'STRING_VALUE', // required
  *       },
  *     ],
  *   },
  *   FeaturizationConfig: { // FeaturizationConfig
- *     ForecastFrequency: "STRING_VALUE", // required
+ *     ForecastFrequency: 'STRING_VALUE', // required
  *     ForecastDimensions: [ // ForecastDimensions
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     Featurizations: [ // Featurizations
  *       { // Featurization
- *         AttributeName: "STRING_VALUE", // required
+ *         AttributeName: 'STRING_VALUE', // required
  *         FeaturizationPipeline: [ // FeaturizationPipeline
  *           { // FeaturizationMethod
- *             FeaturizationMethodName: "filling", // required
+ *             FeaturizationMethodName: 'filling', // required
  *             FeaturizationMethodParameters: { // FeaturizationMethodParameters
- *               "<keys>": "STRING_VALUE",
+ *               '<keys>': 'STRING_VALUE',
  *             },
  *           },
  *         ],
@@ -176,19 +176,24 @@ export interface CreatePredictorCommandOutput extends CreatePredictorResponse, _
  *     ],
  *   },
  *   EncryptionConfig: { // EncryptionConfig
- *     RoleArn: "STRING_VALUE", // required
- *     KMSKeyArn: "STRING_VALUE", // required
+ *     RoleArn: 'STRING_VALUE', // required
+ *     KMSKeyArn: 'STRING_VALUE', // required
  *   },
  *   Tags: [ // Tags
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
- *   OptimizationMetric: "WAPE" || "RMSE" || "AverageWeightedQuantileLoss" || "MASE" || "MAPE",
+ *   OptimizationMetric: 'WAPE' || 'RMSE' || 'AverageWeightedQuantileLoss' || 'MASE' || 'MAPE',
  * };
  * const command = new CreatePredictorCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreatePredictorResponse
+ *   PredictorArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreatePredictorCommandInput - {@link CreatePredictorCommandInput}
@@ -214,6 +219,8 @@ export interface CreatePredictorCommandOutput extends CreatePredictorResponse, _
  *  <p>We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try
  *       again.</p>
  *
+ * @throws {@link ForecastServiceException}
+ * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
  */
 export class CreatePredictorCommand extends $Command<

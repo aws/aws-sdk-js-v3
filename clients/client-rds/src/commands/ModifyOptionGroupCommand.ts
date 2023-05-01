@@ -36,31 +36,31 @@ export interface ModifyOptionGroupCommandOutput extends ModifyOptionGroupResult,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RDSClient, ModifyOptionGroupCommand } from "@aws-sdk/client-rds"; // ES Modules import
- * // const { RDSClient, ModifyOptionGroupCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * import { RDSClient, ModifyOptionGroupCommand } from '@aws-sdk/client-rds'; // ES Modules import
+ * // const { RDSClient, ModifyOptionGroupCommand } = require('@aws-sdk/client-rds'); // CommonJS import
  * const client = new RDSClient(config);
  * const input = { // ModifyOptionGroupMessage
- *   OptionGroupName: "STRING_VALUE", // required
+ *   OptionGroupName: 'STRING_VALUE', // required
  *   OptionsToInclude: [ // OptionConfigurationList
  *     { // OptionConfiguration
- *       OptionName: "STRING_VALUE", // required
- *       Port: Number("int"),
- *       OptionVersion: "STRING_VALUE",
+ *       OptionName: 'STRING_VALUE', // required
+ *       Port: Number('int'),
+ *       OptionVersion: 'STRING_VALUE',
  *       DBSecurityGroupMemberships: [ // DBSecurityGroupNameList
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *       VpcSecurityGroupMemberships: [ // VpcSecurityGroupIdList
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *       OptionSettings: [ // OptionSettingsList
  *         { // OptionSetting
- *           Name: "STRING_VALUE",
- *           Value: "STRING_VALUE",
- *           DefaultValue: "STRING_VALUE",
- *           Description: "STRING_VALUE",
- *           ApplyType: "STRING_VALUE",
- *           DataType: "STRING_VALUE",
- *           AllowedValues: "STRING_VALUE",
+ *           Name: 'STRING_VALUE',
+ *           Value: 'STRING_VALUE',
+ *           DefaultValue: 'STRING_VALUE',
+ *           Description: 'STRING_VALUE',
+ *           ApplyType: 'STRING_VALUE',
+ *           DataType: 'STRING_VALUE',
+ *           AllowedValues: 'STRING_VALUE',
  *           IsModifiable: true || false,
  *           IsCollection: true || false,
  *         },
@@ -68,12 +68,63 @@ export interface ModifyOptionGroupCommandOutput extends ModifyOptionGroupResult,
  *     },
  *   ],
  *   OptionsToRemove: [ // OptionNamesList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   ApplyImmediately: true || false,
  * };
  * const command = new ModifyOptionGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ModifyOptionGroupResult
+ *   OptionGroup: { // OptionGroup
+ *     OptionGroupName: 'STRING_VALUE',
+ *     OptionGroupDescription: 'STRING_VALUE',
+ *     EngineName: 'STRING_VALUE',
+ *     MajorEngineVersion: 'STRING_VALUE',
+ *     Options: [ // OptionsList
+ *       { // Option
+ *         OptionName: 'STRING_VALUE',
+ *         OptionDescription: 'STRING_VALUE',
+ *         Persistent: true || false,
+ *         Permanent: true || false,
+ *         Port: Number('int'),
+ *         OptionVersion: 'STRING_VALUE',
+ *         OptionSettings: [ // OptionSettingConfigurationList
+ *           { // OptionSetting
+ *             Name: 'STRING_VALUE',
+ *             Value: 'STRING_VALUE',
+ *             DefaultValue: 'STRING_VALUE',
+ *             Description: 'STRING_VALUE',
+ *             ApplyType: 'STRING_VALUE',
+ *             DataType: 'STRING_VALUE',
+ *             AllowedValues: 'STRING_VALUE',
+ *             IsModifiable: true || false,
+ *             IsCollection: true || false,
+ *           },
+ *         ],
+ *         DBSecurityGroupMemberships: [ // DBSecurityGroupMembershipList
+ *           { // DBSecurityGroupMembership
+ *             DBSecurityGroupName: 'STRING_VALUE',
+ *             Status: 'STRING_VALUE',
+ *           },
+ *         ],
+ *         VpcSecurityGroupMemberships: [ // VpcSecurityGroupMembershipList
+ *           { // VpcSecurityGroupMembership
+ *             VpcSecurityGroupId: 'STRING_VALUE',
+ *             Status: 'STRING_VALUE',
+ *           },
+ *         ],
+ *       },
+ *     ],
+ *     AllowsVpcAndNonVpcInstanceMemberships: true || false,
+ *     VpcId: 'STRING_VALUE',
+ *     OptionGroupArn: 'STRING_VALUE',
+ *     SourceOptionGroup: 'STRING_VALUE',
+ *     SourceAccountId: 'STRING_VALUE',
+ *     CopyTimestamp: new Date('TIMESTAMP'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param ModifyOptionGroupCommandInput - {@link ModifyOptionGroupCommandInput}
@@ -88,6 +139,8 @@ export interface ModifyOptionGroupCommandOutput extends ModifyOptionGroupResult,
  * @throws {@link OptionGroupNotFoundFault} (client fault)
  *  <p>The specified option group could not be found.</p>
  *
+ * @throws {@link RDSServiceException}
+ * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  * @example To modify an option group
  * ```javascript

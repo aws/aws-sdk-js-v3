@@ -49,19 +49,32 @@ export interface AddApplicationCloudWatchLoggingOptionCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KinesisAnalyticsV2Client, AddApplicationCloudWatchLoggingOptionCommand } from "@aws-sdk/client-kinesis-analytics-v2"; // ES Modules import
- * // const { KinesisAnalyticsV2Client, AddApplicationCloudWatchLoggingOptionCommand } = require("@aws-sdk/client-kinesis-analytics-v2"); // CommonJS import
+ * import { KinesisAnalyticsV2Client, AddApplicationCloudWatchLoggingOptionCommand } from '@aws-sdk/client-kinesis-analytics-v2'; // ES Modules import
+ * // const { KinesisAnalyticsV2Client, AddApplicationCloudWatchLoggingOptionCommand } = require('@aws-sdk/client-kinesis-analytics-v2'); // CommonJS import
  * const client = new KinesisAnalyticsV2Client(config);
  * const input = { // AddApplicationCloudWatchLoggingOptionRequest
- *   ApplicationName: "STRING_VALUE", // required
- *   CurrentApplicationVersionId: Number("long"),
+ *   ApplicationName: 'STRING_VALUE', // required
+ *   CurrentApplicationVersionId: Number('long'),
  *   CloudWatchLoggingOption: { // CloudWatchLoggingOption
- *     LogStreamARN: "STRING_VALUE", // required
+ *     LogStreamARN: 'STRING_VALUE', // required
  *   },
- *   ConditionalToken: "STRING_VALUE",
+ *   ConditionalToken: 'STRING_VALUE',
  * };
  * const command = new AddApplicationCloudWatchLoggingOptionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AddApplicationCloudWatchLoggingOptionResponse
+ *   ApplicationARN: 'STRING_VALUE',
+ *   ApplicationVersionId: Number('long'),
+ *   CloudWatchLoggingOptionDescriptions: [ // CloudWatchLoggingOptionDescriptions
+ *     { // CloudWatchLoggingOptionDescription
+ *       CloudWatchLoggingOptionId: 'STRING_VALUE',
+ *       LogStreamARN: 'STRING_VALUE', // required
+ *       RoleARN: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param AddApplicationCloudWatchLoggingOptionCommandInput - {@link AddApplicationCloudWatchLoggingOptionCommandInput}
@@ -90,6 +103,8 @@ export interface AddApplicationCloudWatchLoggingOptionCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Specified application can't be found.</p>
  *
+ * @throws {@link KinesisAnalyticsV2ServiceException}
+ * <p>Base exception class for all service exceptions from KinesisAnalyticsV2 service.</p>
  *
  */
 export class AddApplicationCloudWatchLoggingOptionCommand extends $Command<

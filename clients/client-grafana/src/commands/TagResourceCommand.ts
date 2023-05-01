@@ -41,17 +41,20 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GrafanaClient, TagResourceCommand } from "@aws-sdk/client-grafana"; // ES Modules import
- * // const { GrafanaClient, TagResourceCommand } = require("@aws-sdk/client-grafana"); // CommonJS import
+ * import { GrafanaClient, TagResourceCommand } from '@aws-sdk/client-grafana'; // ES Modules import
+ * // const { GrafanaClient, TagResourceCommand } = require('@aws-sdk/client-grafana'); // CommonJS import
  * const client = new GrafanaClient(config);
  * const input = { // TagResourceRequest
- *   resourceArn: "STRING_VALUE", // required
+ *   resourceArn: 'STRING_VALUE', // required
  *   tags: { // TagMap // required
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param TagResourceCommandInput - {@link TagResourceCommandInput}
@@ -75,6 +78,8 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @throws {@link ValidationException} (client fault)
  *  <p>The value of a parameter in the request caused an error.</p>
  *
+ * @throws {@link GrafanaServiceException}
+ * <p>Base exception class for all service exceptions from Grafana service.</p>
  *
  */
 export class TagResourceCommand extends $Command<

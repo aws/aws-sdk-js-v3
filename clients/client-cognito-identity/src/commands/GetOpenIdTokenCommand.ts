@@ -40,17 +40,23 @@ export interface GetOpenIdTokenCommandOutput extends GetOpenIdTokenResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CognitoIdentityClient, GetOpenIdTokenCommand } from "@aws-sdk/client-cognito-identity"; // ES Modules import
- * // const { CognitoIdentityClient, GetOpenIdTokenCommand } = require("@aws-sdk/client-cognito-identity"); // CommonJS import
+ * import { CognitoIdentityClient, GetOpenIdTokenCommand } from '@aws-sdk/client-cognito-identity'; // ES Modules import
+ * // const { CognitoIdentityClient, GetOpenIdTokenCommand } = require('@aws-sdk/client-cognito-identity'); // CommonJS import
  * const client = new CognitoIdentityClient(config);
  * const input = { // GetOpenIdTokenInput
- *   IdentityId: "STRING_VALUE", // required
+ *   IdentityId: 'STRING_VALUE', // required
  *   Logins: { // LoginsMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new GetOpenIdTokenCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetOpenIdTokenResponse
+ *   IdentityId: 'STRING_VALUE',
+ *   Token: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetOpenIdTokenCommandInput - {@link GetOpenIdTokenCommandInput}
@@ -83,6 +89,8 @@ export interface GetOpenIdTokenCommandOutput extends GetOpenIdTokenResponse, __M
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Thrown when a request is throttled.</p>
  *
+ * @throws {@link CognitoIdentityServiceException}
+ * <p>Base exception class for all service exceptions from CognitoIdentity service.</p>
  *
  */
 export class GetOpenIdTokenCommand extends $Command<

@@ -37,14 +37,17 @@ export interface DeleteDeploymentStrategyCommandOutput extends __MetadataBearer 
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppConfigClient, DeleteDeploymentStrategyCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
- * // const { AppConfigClient, DeleteDeploymentStrategyCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import
+ * import { AppConfigClient, DeleteDeploymentStrategyCommand } from '@aws-sdk/client-appconfig'; // ES Modules import
+ * // const { AppConfigClient, DeleteDeploymentStrategyCommand } = require('@aws-sdk/client-appconfig'); // CommonJS import
  * const client = new AppConfigClient(config);
  * const input = { // DeleteDeploymentStrategyRequest
- *   DeploymentStrategyId: "STRING_VALUE", // required
+ *   DeploymentStrategyId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteDeploymentStrategyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteDeploymentStrategyCommandInput - {@link DeleteDeploymentStrategyCommandInput}
@@ -62,6 +65,8 @@ export interface DeleteDeploymentStrategyCommandOutput extends __MetadataBearer 
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The requested resource could not be found.</p>
  *
+ * @throws {@link AppConfigServiceException}
+ * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
  * @example To delete a deployment strategy
  * ```javascript

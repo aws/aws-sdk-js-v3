@@ -41,16 +41,35 @@ export interface GetSubscriptionDefinitionVersionCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GreengrassClient, GetSubscriptionDefinitionVersionCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
- * // const { GreengrassClient, GetSubscriptionDefinitionVersionCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
+ * import { GreengrassClient, GetSubscriptionDefinitionVersionCommand } from '@aws-sdk/client-greengrass'; // ES Modules import
+ * // const { GreengrassClient, GetSubscriptionDefinitionVersionCommand } = require('@aws-sdk/client-greengrass'); // CommonJS import
  * const client = new GreengrassClient(config);
  * const input = { // GetSubscriptionDefinitionVersionRequest
- *   NextToken: "STRING_VALUE",
- *   SubscriptionDefinitionId: "STRING_VALUE", // required
- *   SubscriptionDefinitionVersionId: "STRING_VALUE", // required
+ *   NextToken: 'STRING_VALUE',
+ *   SubscriptionDefinitionId: 'STRING_VALUE', // required
+ *   SubscriptionDefinitionVersionId: 'STRING_VALUE', // required
  * };
  * const command = new GetSubscriptionDefinitionVersionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetSubscriptionDefinitionVersionResponse
+ *   Arn: 'STRING_VALUE',
+ *   CreationTimestamp: 'STRING_VALUE',
+ *   Definition: { // SubscriptionDefinitionVersion
+ *     Subscriptions: [ // __listOfSubscription
+ *       { // Subscription
+ *         Id: 'STRING_VALUE', // required
+ *         Source: 'STRING_VALUE', // required
+ *         Subject: 'STRING_VALUE', // required
+ *         Target: 'STRING_VALUE', // required
+ *       },
+ *     ],
+ *   },
+ *   Id: 'STRING_VALUE',
+ *   NextToken: 'STRING_VALUE',
+ *   Version: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetSubscriptionDefinitionVersionCommandInput - {@link GetSubscriptionDefinitionVersionCommandInput}
@@ -62,6 +81,8 @@ export interface GetSubscriptionDefinitionVersionCommandOutput
  * @throws {@link BadRequestException} (client fault)
  *  General error information.
  *
+ * @throws {@link GreengrassServiceException}
+ * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
  */
 export class GetSubscriptionDefinitionVersionCommand extends $Command<

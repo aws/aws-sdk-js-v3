@@ -59,15 +59,22 @@ export interface PutSinkPolicyCommandOutput extends PutSinkPolicyOutput, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OAMClient, PutSinkPolicyCommand } from "@aws-sdk/client-oam"; // ES Modules import
- * // const { OAMClient, PutSinkPolicyCommand } = require("@aws-sdk/client-oam"); // CommonJS import
+ * import { OAMClient, PutSinkPolicyCommand } from '@aws-sdk/client-oam'; // ES Modules import
+ * // const { OAMClient, PutSinkPolicyCommand } = require('@aws-sdk/client-oam'); // CommonJS import
  * const client = new OAMClient(config);
  * const input = { // PutSinkPolicyInput
- *   SinkIdentifier: "STRING_VALUE", // required
- *   Policy: "STRING_VALUE", // required
+ *   SinkIdentifier: 'STRING_VALUE', // required
+ *   Policy: 'STRING_VALUE', // required
  * };
  * const command = new PutSinkPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutSinkPolicyOutput
+ *   SinkArn: 'STRING_VALUE',
+ *   SinkId: 'STRING_VALUE',
+ *   Policy: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param PutSinkPolicyCommandInput - {@link PutSinkPolicyCommandInput}
@@ -88,6 +95,8 @@ export interface PutSinkPolicyCommandOutput extends PutSinkPolicyOutput, __Metad
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The request references a resource that does not exist.</p>
  *
+ * @throws {@link OAMServiceException}
+ * <p>Base exception class for all service exceptions from OAM service.</p>
  *
  */
 export class PutSinkPolicyCommand extends $Command<

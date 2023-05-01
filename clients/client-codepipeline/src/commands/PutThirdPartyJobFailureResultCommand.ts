@@ -40,20 +40,23 @@ export interface PutThirdPartyJobFailureResultCommandOutput extends __MetadataBe
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodePipelineClient, PutThirdPartyJobFailureResultCommand } from "@aws-sdk/client-codepipeline"; // ES Modules import
- * // const { CodePipelineClient, PutThirdPartyJobFailureResultCommand } = require("@aws-sdk/client-codepipeline"); // CommonJS import
+ * import { CodePipelineClient, PutThirdPartyJobFailureResultCommand } from '@aws-sdk/client-codepipeline'; // ES Modules import
+ * // const { CodePipelineClient, PutThirdPartyJobFailureResultCommand } = require('@aws-sdk/client-codepipeline'); // CommonJS import
  * const client = new CodePipelineClient(config);
  * const input = { // PutThirdPartyJobFailureResultInput
- *   jobId: "STRING_VALUE", // required
- *   clientToken: "STRING_VALUE", // required
+ *   jobId: 'STRING_VALUE', // required
+ *   clientToken: 'STRING_VALUE', // required
  *   failureDetails: { // FailureDetails
- *     type: "STRING_VALUE", // required
- *     message: "STRING_VALUE", // required
- *     externalExecutionId: "STRING_VALUE",
+ *     type: 'STRING_VALUE', // required
+ *     message: 'STRING_VALUE', // required
+ *     externalExecutionId: 'STRING_VALUE',
  *   },
  * };
  * const command = new PutThirdPartyJobFailureResultCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutThirdPartyJobFailureResultCommandInput - {@link PutThirdPartyJobFailureResultCommandInput}
@@ -74,6 +77,8 @@ export interface PutThirdPartyJobFailureResultCommandOutput extends __MetadataBe
  * @throws {@link ValidationException} (client fault)
  *  <p>The validation was specified in an invalid format.</p>
  *
+ * @throws {@link CodePipelineServiceException}
+ * <p>Base exception class for all service exceptions from CodePipeline service.</p>
  *
  */
 export class PutThirdPartyJobFailureResultCommand extends $Command<

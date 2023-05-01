@@ -37,14 +37,19 @@ export interface DeleteJobCommandOutput extends DeleteJobResponse, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlueClient, DeleteJobCommand } from "@aws-sdk/client-glue"; // ES Modules import
- * // const { GlueClient, DeleteJobCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * import { GlueClient, DeleteJobCommand } from '@aws-sdk/client-glue'; // ES Modules import
+ * // const { GlueClient, DeleteJobCommand } = require('@aws-sdk/client-glue'); // CommonJS import
  * const client = new GlueClient(config);
  * const input = { // DeleteJobRequest
- *   JobName: "STRING_VALUE", // required
+ *   JobName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteJobResponse
+ *   JobName: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DeleteJobCommandInput - {@link DeleteJobCommandInput}
@@ -62,6 +67,8 @@ export interface DeleteJobCommandOutput extends DeleteJobResponse, __MetadataBea
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class DeleteJobCommand extends $Command<

@@ -44,16 +44,21 @@ export interface DisassociateUserFromPermissionGroupCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FinspaceDataClient, DisassociateUserFromPermissionGroupCommand } from "@aws-sdk/client-finspace-data"; // ES Modules import
- * // const { FinspaceDataClient, DisassociateUserFromPermissionGroupCommand } = require("@aws-sdk/client-finspace-data"); // CommonJS import
+ * import { FinspaceDataClient, DisassociateUserFromPermissionGroupCommand } from '@aws-sdk/client-finspace-data'; // ES Modules import
+ * // const { FinspaceDataClient, DisassociateUserFromPermissionGroupCommand } = require('@aws-sdk/client-finspace-data'); // CommonJS import
  * const client = new FinspaceDataClient(config);
  * const input = { // DisassociateUserFromPermissionGroupRequest
- *   permissionGroupId: "STRING_VALUE", // required
- *   userId: "STRING_VALUE", // required
- *   clientToken: "STRING_VALUE",
+ *   permissionGroupId: 'STRING_VALUE', // required
+ *   userId: 'STRING_VALUE', // required
+ *   clientToken: 'STRING_VALUE',
  * };
  * const command = new DisassociateUserFromPermissionGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DisassociateUserFromPermissionGroupResponse
+ *   statusCode: Number('int'),
+ * };
+ *
  * ```
  *
  * @param DisassociateUserFromPermissionGroupCommandInput - {@link DisassociateUserFromPermissionGroupCommandInput}
@@ -81,6 +86,8 @@ export interface DisassociateUserFromPermissionGroupCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link FinspaceDataServiceException}
+ * <p>Base exception class for all service exceptions from FinspaceData service.</p>
  *
  */
 export class DisassociateUserFromPermissionGroupCommand extends $Command<

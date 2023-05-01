@@ -36,25 +36,44 @@ export interface AddFlowVpcInterfacesCommandOutput extends AddFlowVpcInterfacesR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MediaConnectClient, AddFlowVpcInterfacesCommand } from "@aws-sdk/client-mediaconnect"; // ES Modules import
- * // const { MediaConnectClient, AddFlowVpcInterfacesCommand } = require("@aws-sdk/client-mediaconnect"); // CommonJS import
+ * import { MediaConnectClient, AddFlowVpcInterfacesCommand } from '@aws-sdk/client-mediaconnect'; // ES Modules import
+ * // const { MediaConnectClient, AddFlowVpcInterfacesCommand } = require('@aws-sdk/client-mediaconnect'); // CommonJS import
  * const client = new MediaConnectClient(config);
  * const input = { // AddFlowVpcInterfacesRequest
- *   FlowArn: "STRING_VALUE", // required
+ *   FlowArn: 'STRING_VALUE', // required
  *   VpcInterfaces: [ // __listOfVpcInterfaceRequest // required
  *     { // VpcInterfaceRequest
- *       Name: "STRING_VALUE", // required
- *       NetworkInterfaceType: "ena" || "efa",
- *       RoleArn: "STRING_VALUE", // required
+ *       Name: 'STRING_VALUE', // required
+ *       NetworkInterfaceType: 'ena' || 'efa',
+ *       RoleArn: 'STRING_VALUE', // required
  *       SecurityGroupIds: [ // __listOf__string // required
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
- *       SubnetId: "STRING_VALUE", // required
+ *       SubnetId: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new AddFlowVpcInterfacesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AddFlowVpcInterfacesResponse
+ *   FlowArn: 'STRING_VALUE',
+ *   VpcInterfaces: [ // __listOfVpcInterface
+ *     { // VpcInterface
+ *       Name: 'STRING_VALUE', // required
+ *       NetworkInterfaceIds: [ // __listOf__string // required
+ *         'STRING_VALUE',
+ *       ],
+ *       NetworkInterfaceType: 'ena' || 'efa', // required
+ *       RoleArn: 'STRING_VALUE', // required
+ *       SecurityGroupIds: [ // required
+ *         'STRING_VALUE',
+ *       ],
+ *       SubnetId: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param AddFlowVpcInterfacesCommandInput - {@link AddFlowVpcInterfacesCommandInput}
@@ -81,6 +100,8 @@ export interface AddFlowVpcInterfacesCommandOutput extends AddFlowVpcInterfacesR
  * @throws {@link TooManyRequestsException} (client fault)
  *  Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
  *
+ * @throws {@link MediaConnectServiceException}
+ * <p>Base exception class for all service exceptions from MediaConnect service.</p>
  *
  */
 export class AddFlowVpcInterfacesCommand extends $Command<

@@ -36,14 +36,17 @@ export interface DeleteMonitorCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ForecastClient, DeleteMonitorCommand } from "@aws-sdk/client-forecast"; // ES Modules import
- * // const { ForecastClient, DeleteMonitorCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
+ * import { ForecastClient, DeleteMonitorCommand } from '@aws-sdk/client-forecast'; // ES Modules import
+ * // const { ForecastClient, DeleteMonitorCommand } = require('@aws-sdk/client-forecast'); // CommonJS import
  * const client = new ForecastClient(config);
  * const input = { // DeleteMonitorRequest
- *   MonitorArn: "STRING_VALUE", // required
+ *   MonitorArn: 'STRING_VALUE', // required
  * };
  * const command = new DeleteMonitorCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteMonitorCommandInput - {@link DeleteMonitorCommandInput}
@@ -63,6 +66,8 @@ export interface DeleteMonitorCommandOutput extends __MetadataBearer {}
  *  <p>We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try
  *       again.</p>
  *
+ * @throws {@link ForecastServiceException}
+ * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
  */
 export class DeleteMonitorCommand extends $Command<

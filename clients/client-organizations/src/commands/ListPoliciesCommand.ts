@@ -46,16 +46,31 @@ export interface ListPoliciesCommandOutput extends ListPoliciesResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OrganizationsClient, ListPoliciesCommand } from "@aws-sdk/client-organizations"; // ES Modules import
- * // const { OrganizationsClient, ListPoliciesCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
+ * import { OrganizationsClient, ListPoliciesCommand } from '@aws-sdk/client-organizations'; // ES Modules import
+ * // const { OrganizationsClient, ListPoliciesCommand } = require('@aws-sdk/client-organizations'); // CommonJS import
  * const client = new OrganizationsClient(config);
  * const input = { // ListPoliciesRequest
- *   Filter: "SERVICE_CONTROL_POLICY" || "TAG_POLICY" || "BACKUP_POLICY" || "AISERVICES_OPT_OUT_POLICY", // required
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   Filter: 'SERVICE_CONTROL_POLICY' || 'TAG_POLICY' || 'BACKUP_POLICY' || 'AISERVICES_OPT_OUT_POLICY', // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListPoliciesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListPoliciesResponse
+ *   Policies: [ // Policies
+ *     { // PolicySummary
+ *       Id: 'STRING_VALUE',
+ *       Arn: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *       Description: 'STRING_VALUE',
+ *       Type: 'SERVICE_CONTROL_POLICY' || 'TAG_POLICY' || 'BACKUP_POLICY' || 'AISERVICES_OPT_OUT_POLICY',
+ *       AwsManaged: true || false,
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListPoliciesCommandInput - {@link ListPoliciesCommandInput}
@@ -193,6 +208,8 @@ export interface ListPoliciesCommandOutput extends ListPoliciesResponse, __Metad
  * @throws {@link UnsupportedAPIEndpointException} (client fault)
  *  <p>This action isn't available in the current Amazon Web Services Region.</p>
  *
+ * @throws {@link OrganizationsServiceException}
+ * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
  * @example To retrieve a list policies in the organization
  * ```javascript

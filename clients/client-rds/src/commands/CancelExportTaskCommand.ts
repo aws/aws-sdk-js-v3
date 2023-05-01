@@ -37,14 +37,36 @@ export interface CancelExportTaskCommandOutput extends ExportTask, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RDSClient, CancelExportTaskCommand } from "@aws-sdk/client-rds"; // ES Modules import
- * // const { RDSClient, CancelExportTaskCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * import { RDSClient, CancelExportTaskCommand } from '@aws-sdk/client-rds'; // ES Modules import
+ * // const { RDSClient, CancelExportTaskCommand } = require('@aws-sdk/client-rds'); // CommonJS import
  * const client = new RDSClient(config);
  * const input = { // CancelExportTaskMessage
- *   ExportTaskIdentifier: "STRING_VALUE", // required
+ *   ExportTaskIdentifier: 'STRING_VALUE', // required
  * };
  * const command = new CancelExportTaskCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ExportTask
+ *   ExportTaskIdentifier: 'STRING_VALUE',
+ *   SourceArn: 'STRING_VALUE',
+ *   ExportOnly: [ // StringList
+ *     'STRING_VALUE',
+ *   ],
+ *   SnapshotTime: new Date('TIMESTAMP'),
+ *   TaskStartTime: new Date('TIMESTAMP'),
+ *   TaskEndTime: new Date('TIMESTAMP'),
+ *   S3Bucket: 'STRING_VALUE',
+ *   S3Prefix: 'STRING_VALUE',
+ *   IamRoleArn: 'STRING_VALUE',
+ *   KmsKeyId: 'STRING_VALUE',
+ *   Status: 'STRING_VALUE',
+ *   PercentProgress: Number('int'),
+ *   TotalExtractedDataInGB: Number('int'),
+ *   FailureCause: 'STRING_VALUE',
+ *   WarningMessage: 'STRING_VALUE',
+ *   SourceType: 'SNAPSHOT' || 'CLUSTER',
+ * };
+ *
  * ```
  *
  * @param CancelExportTaskCommandInput - {@link CancelExportTaskCommandInput}
@@ -59,6 +81,8 @@ export interface CancelExportTaskCommandOutput extends ExportTask, __MetadataBea
  * @throws {@link InvalidExportTaskStateFault} (client fault)
  *  <p>You can't cancel an export task that has completed.</p>
  *
+ * @throws {@link RDSServiceException}
+ * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  * @example To cancel a snapshot export to Amazon S3
  * ```javascript

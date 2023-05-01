@@ -37,17 +37,30 @@ export interface ListContactFlowModulesCommandOutput extends ListContactFlowModu
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, ListContactFlowModulesCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, ListContactFlowModulesCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, ListContactFlowModulesCommand } from '@aws-sdk/client-connect'; // ES Modules import
+ * // const { ConnectClient, ListContactFlowModulesCommand } = require('@aws-sdk/client-connect'); // CommonJS import
  * const client = new ConnectClient(config);
  * const input = { // ListContactFlowModulesRequest
- *   InstanceId: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
- *   ContactFlowModuleState: "ACTIVE" || "ARCHIVED",
+ *   InstanceId: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
+ *   ContactFlowModuleState: 'ACTIVE' || 'ARCHIVED',
  * };
  * const command = new ListContactFlowModulesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListContactFlowModulesResponse
+ *   ContactFlowModulesSummaryList: [ // ContactFlowModulesSummaryList
+ *     { // ContactFlowModuleSummary
+ *       Id: 'STRING_VALUE',
+ *       Arn: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *       State: 'ACTIVE' || 'ARCHIVED',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListContactFlowModulesCommandInput - {@link ListContactFlowModulesCommandInput}
@@ -74,6 +87,8 @@ export interface ListContactFlowModulesCommandOutput extends ListContactFlowModu
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class ListContactFlowModulesCommand extends $Command<

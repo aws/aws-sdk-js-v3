@@ -36,21 +36,26 @@ export interface CreateModelPackageGroupCommandOutput extends CreateModelPackage
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, CreateModelPackageGroupCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, CreateModelPackageGroupCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, CreateModelPackageGroupCommand } from '@aws-sdk/client-sagemaker'; // ES Modules import
+ * // const { SageMakerClient, CreateModelPackageGroupCommand } = require('@aws-sdk/client-sagemaker'); // CommonJS import
  * const client = new SageMakerClient(config);
  * const input = { // CreateModelPackageGroupInput
- *   ModelPackageGroupName: "STRING_VALUE", // required
- *   ModelPackageGroupDescription: "STRING_VALUE",
+ *   ModelPackageGroupName: 'STRING_VALUE', // required
+ *   ModelPackageGroupDescription: 'STRING_VALUE',
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreateModelPackageGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateModelPackageGroupOutput
+ *   ModelPackageGroupArn: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param CreateModelPackageGroupCommandInput - {@link CreateModelPackageGroupCommandInput}
@@ -63,6 +68,8 @@ export interface CreateModelPackageGroupCommandOutput extends CreateModelPackage
  *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many
  *             training jobs created. </p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class CreateModelPackageGroupCommand extends $Command<

@@ -36,14 +36,17 @@ export interface DeleteCollaborationCommandOutput extends DeleteCollaborationOut
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CleanRoomsClient, DeleteCollaborationCommand } from "@aws-sdk/client-cleanrooms"; // ES Modules import
- * // const { CleanRoomsClient, DeleteCollaborationCommand } = require("@aws-sdk/client-cleanrooms"); // CommonJS import
+ * import { CleanRoomsClient, DeleteCollaborationCommand } from '@aws-sdk/client-cleanrooms'; // ES Modules import
+ * // const { CleanRoomsClient, DeleteCollaborationCommand } = require('@aws-sdk/client-cleanrooms'); // CommonJS import
  * const client = new CleanRoomsClient(config);
  * const input = { // DeleteCollaborationInput
- *   collaborationIdentifier: "STRING_VALUE", // required
+ *   collaborationIdentifier: 'STRING_VALUE', // required
  * };
  * const command = new DeleteCollaborationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteCollaborationCommandInput - {@link DeleteCollaborationCommandInput}
@@ -64,6 +67,8 @@ export interface DeleteCollaborationCommandOutput extends DeleteCollaborationOut
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the specified constraints.</p>
  *
+ * @throws {@link CleanRoomsServiceException}
+ * <p>Base exception class for all service exceptions from CleanRooms service.</p>
  *
  */
 export class DeleteCollaborationCommand extends $Command<

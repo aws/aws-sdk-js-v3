@@ -40,14 +40,24 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOut
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeStarConnectionsClient, ListTagsForResourceCommand } from "@aws-sdk/client-codestar-connections"; // ES Modules import
- * // const { CodeStarConnectionsClient, ListTagsForResourceCommand } = require("@aws-sdk/client-codestar-connections"); // CommonJS import
+ * import { CodeStarConnectionsClient, ListTagsForResourceCommand } from '@aws-sdk/client-codestar-connections'; // ES Modules import
+ * // const { CodeStarConnectionsClient, ListTagsForResourceCommand } = require('@aws-sdk/client-codestar-connections'); // CommonJS import
  * const client = new CodeStarConnectionsClient(config);
  * const input = { // ListTagsForResourceInput
- *   ResourceArn: "STRING_VALUE", // required
+ *   ResourceArn: 'STRING_VALUE', // required
  * };
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTagsForResourceOutput
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListTagsForResourceCommandInput - {@link ListTagsForResourceCommandInput}
@@ -59,6 +69,8 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOut
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Resource not found. Verify the connection resource ARN and try again.</p>
  *
+ * @throws {@link CodeStarConnectionsServiceException}
+ * <p>Base exception class for all service exceptions from CodeStarConnections service.</p>
  *
  */
 export class ListTagsForResourceCommand extends $Command<

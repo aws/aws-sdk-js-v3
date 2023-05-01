@@ -42,12 +42,22 @@ export interface GetMasterAccountCommandOutput extends GetMasterAccountResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SecurityHubClient, GetMasterAccountCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
- * // const { SecurityHubClient, GetMasterAccountCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
+ * import { SecurityHubClient, GetMasterAccountCommand } from '@aws-sdk/client-securityhub'; // ES Modules import
+ * // const { SecurityHubClient, GetMasterAccountCommand } = require('@aws-sdk/client-securityhub'); // CommonJS import
  * const client = new SecurityHubClient(config);
  * const input = {};
  * const command = new GetMasterAccountCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetMasterAccountResponse
+ *   Master: { // Invitation
+ *     AccountId: 'STRING_VALUE',
+ *     InvitationId: 'STRING_VALUE',
+ *     InvitedAt: new Date('TIMESTAMP'),
+ *     MemberStatus: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetMasterAccountCommandInput - {@link GetMasterAccountCommandInput}
@@ -73,6 +83,8 @@ export interface GetMasterAccountCommandOutput extends GetMasterAccountResponse,
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The request was rejected because we can't find the specified resource.</p>
  *
+ * @throws {@link SecurityHubServiceException}
+ * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
  */
 export class GetMasterAccountCommand extends $Command<

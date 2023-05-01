@@ -36,25 +36,25 @@ export interface CreateAnalyzerCommandOutput extends CreateAnalyzerResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AccessAnalyzerClient, CreateAnalyzerCommand } from "@aws-sdk/client-accessanalyzer"; // ES Modules import
- * // const { AccessAnalyzerClient, CreateAnalyzerCommand } = require("@aws-sdk/client-accessanalyzer"); // CommonJS import
+ * import { AccessAnalyzerClient, CreateAnalyzerCommand } from '@aws-sdk/client-accessanalyzer'; // ES Modules import
+ * // const { AccessAnalyzerClient, CreateAnalyzerCommand } = require('@aws-sdk/client-accessanalyzer'); // CommonJS import
  * const client = new AccessAnalyzerClient(config);
  * const input = { // CreateAnalyzerRequest
- *   analyzerName: "STRING_VALUE", // required
- *   type: "STRING_VALUE", // required
+ *   analyzerName: 'STRING_VALUE', // required
+ *   type: 'STRING_VALUE', // required
  *   archiveRules: [ // InlineArchiveRulesList
  *     { // InlineArchiveRule
- *       ruleName: "STRING_VALUE", // required
+ *       ruleName: 'STRING_VALUE', // required
  *       filter: { // FilterCriteriaMap // required
- *         "<keys>": { // Criterion
+ *         '<keys>': { // Criterion
  *           eq: [ // ValueList
- *             "STRING_VALUE",
+ *             'STRING_VALUE',
  *           ],
  *           neq: [
- *             "STRING_VALUE",
+ *             'STRING_VALUE',
  *           ],
  *           contains: [
- *             "STRING_VALUE",
+ *             'STRING_VALUE',
  *           ],
  *           exists: true || false,
  *         },
@@ -62,12 +62,17 @@ export interface CreateAnalyzerCommandOutput extends CreateAnalyzerResponse, __M
  *     },
  *   ],
  *   tags: { // TagsMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
- *   clientToken: "STRING_VALUE",
+ *   clientToken: 'STRING_VALUE',
  * };
  * const command = new CreateAnalyzerCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateAnalyzerResponse
+ *   arn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateAnalyzerCommandInput - {@link CreateAnalyzerCommandInput}
@@ -94,6 +99,8 @@ export interface CreateAnalyzerCommandOutput extends CreateAnalyzerResponse, __M
  * @throws {@link ValidationException} (client fault)
  *  <p>Validation exception error.</p>
  *
+ * @throws {@link AccessAnalyzerServiceException}
+ * <p>Base exception class for all service exceptions from AccessAnalyzer service.</p>
  *
  */
 export class CreateAnalyzerCommand extends $Command<

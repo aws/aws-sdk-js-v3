@@ -41,21 +41,26 @@ export interface CreateProtectionCommandOutput extends CreateProtectionResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ShieldClient, CreateProtectionCommand } from "@aws-sdk/client-shield"; // ES Modules import
- * // const { ShieldClient, CreateProtectionCommand } = require("@aws-sdk/client-shield"); // CommonJS import
+ * import { ShieldClient, CreateProtectionCommand } from '@aws-sdk/client-shield'; // ES Modules import
+ * // const { ShieldClient, CreateProtectionCommand } = require('@aws-sdk/client-shield'); // CommonJS import
  * const client = new ShieldClient(config);
  * const input = { // CreateProtectionRequest
- *   Name: "STRING_VALUE", // required
- *   ResourceArn: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
+ *   ResourceArn: 'STRING_VALUE', // required
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE",
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new CreateProtectionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateProtectionResponse
+ *   ProtectionId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateProtectionCommandInput - {@link CreateProtectionCommandInput}
@@ -89,6 +94,8 @@ export interface CreateProtectionCommandOutput extends CreateProtectionResponse,
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Exception indicating the specified resource does not exist. If available, this exception includes details in additional properties. </p>
  *
+ * @throws {@link ShieldServiceException}
+ * <p>Base exception class for all service exceptions from Shield service.</p>
  *
  */
 export class CreateProtectionCommand extends $Command<

@@ -36,37 +36,37 @@ export interface CreateAlertCommandOutput extends CreateAlertResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LookoutMetricsClient, CreateAlertCommand } from "@aws-sdk/client-lookoutmetrics"; // ES Modules import
- * // const { LookoutMetricsClient, CreateAlertCommand } = require("@aws-sdk/client-lookoutmetrics"); // CommonJS import
+ * import { LookoutMetricsClient, CreateAlertCommand } from '@aws-sdk/client-lookoutmetrics'; // ES Modules import
+ * // const { LookoutMetricsClient, CreateAlertCommand } = require('@aws-sdk/client-lookoutmetrics'); // CommonJS import
  * const client = new LookoutMetricsClient(config);
  * const input = { // CreateAlertRequest
- *   AlertName: "STRING_VALUE", // required
- *   AlertSensitivityThreshold: Number("int"),
- *   AlertDescription: "STRING_VALUE",
- *   AnomalyDetectorArn: "STRING_VALUE", // required
+ *   AlertName: 'STRING_VALUE', // required
+ *   AlertSensitivityThreshold: Number('int'),
+ *   AlertDescription: 'STRING_VALUE',
+ *   AnomalyDetectorArn: 'STRING_VALUE', // required
  *   Action: { // Action
  *     SNSConfiguration: { // SNSConfiguration
- *       RoleArn: "STRING_VALUE", // required
- *       SnsTopicArn: "STRING_VALUE", // required
- *       SnsFormat: "STRING_VALUE",
+ *       RoleArn: 'STRING_VALUE', // required
+ *       SnsTopicArn: 'STRING_VALUE', // required
+ *       SnsFormat: 'STRING_VALUE',
  *     },
  *     LambdaConfiguration: { // LambdaConfiguration
- *       RoleArn: "STRING_VALUE", // required
- *       LambdaArn: "STRING_VALUE", // required
+ *       RoleArn: 'STRING_VALUE', // required
+ *       LambdaArn: 'STRING_VALUE', // required
  *     },
  *   },
  *   Tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  *   AlertFilters: { // AlertFilters
  *     MetricList: [ // MetricNameList
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     DimensionFilterList: [ // DimensionFilterList
  *       { // DimensionFilter
- *         DimensionName: "STRING_VALUE",
+ *         DimensionName: 'STRING_VALUE',
  *         DimensionValueList: [ // DimensionValueList
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
  *       },
  *     ],
@@ -74,6 +74,11 @@ export interface CreateAlertCommandOutput extends CreateAlertResponse, __Metadat
  * };
  * const command = new CreateAlertCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateAlertResponse
+ *   AlertArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateAlertCommandInput - {@link CreateAlertCommandInput}
@@ -104,6 +109,8 @@ export interface CreateAlertCommandOutput extends CreateAlertResponse, __Metadat
  *  <p>The input fails to satisfy the constraints specified by the AWS service. Check your input values and try
  *       again.</p>
  *
+ * @throws {@link LookoutMetricsServiceException}
+ * <p>Base exception class for all service exceptions from LookoutMetrics service.</p>
  *
  */
 export class CreateAlertCommand extends $Command<

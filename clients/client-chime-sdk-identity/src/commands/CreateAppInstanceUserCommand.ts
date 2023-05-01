@@ -41,28 +41,33 @@ export interface CreateAppInstanceUserCommandOutput extends CreateAppInstanceUse
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeSDKIdentityClient, CreateAppInstanceUserCommand } from "@aws-sdk/client-chime-sdk-identity"; // ES Modules import
- * // const { ChimeSDKIdentityClient, CreateAppInstanceUserCommand } = require("@aws-sdk/client-chime-sdk-identity"); // CommonJS import
+ * import { ChimeSDKIdentityClient, CreateAppInstanceUserCommand } from '@aws-sdk/client-chime-sdk-identity'; // ES Modules import
+ * // const { ChimeSDKIdentityClient, CreateAppInstanceUserCommand } = require('@aws-sdk/client-chime-sdk-identity'); // CommonJS import
  * const client = new ChimeSDKIdentityClient(config);
  * const input = { // CreateAppInstanceUserRequest
- *   AppInstanceArn: "STRING_VALUE", // required
- *   AppInstanceUserId: "STRING_VALUE", // required
- *   Name: "STRING_VALUE", // required
- *   Metadata: "STRING_VALUE",
- *   ClientRequestToken: "STRING_VALUE", // required
+ *   AppInstanceArn: 'STRING_VALUE', // required
+ *   AppInstanceUserId: 'STRING_VALUE', // required
+ *   Name: 'STRING_VALUE', // required
+ *   Metadata: 'STRING_VALUE',
+ *   ClientRequestToken: 'STRING_VALUE', // required
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  *   ExpirationSettings: { // ExpirationSettings
- *     ExpirationDays: Number("int"), // required
- *     ExpirationCriterion: "CREATED_TIMESTAMP", // required
+ *     ExpirationDays: Number('int'), // required
+ *     ExpirationCriterion: 'CREATED_TIMESTAMP', // required
  *   },
  * };
  * const command = new CreateAppInstanceUserCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateAppInstanceUserResponse
+ *   AppInstanceUserArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateAppInstanceUserCommandInput - {@link CreateAppInstanceUserCommandInput}
@@ -96,6 +101,8 @@ export interface CreateAppInstanceUserCommandOutput extends CreateAppInstanceUse
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeSDKIdentityServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKIdentity service.</p>
  *
  */
 export class CreateAppInstanceUserCommand extends $Command<

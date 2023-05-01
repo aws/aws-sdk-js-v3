@@ -55,33 +55,36 @@ export interface AddApplicationOutputCommandOutput extends AddApplicationOutputR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KinesisAnalyticsClient, AddApplicationOutputCommand } from "@aws-sdk/client-kinesis-analytics"; // ES Modules import
- * // const { KinesisAnalyticsClient, AddApplicationOutputCommand } = require("@aws-sdk/client-kinesis-analytics"); // CommonJS import
+ * import { KinesisAnalyticsClient, AddApplicationOutputCommand } from '@aws-sdk/client-kinesis-analytics'; // ES Modules import
+ * // const { KinesisAnalyticsClient, AddApplicationOutputCommand } = require('@aws-sdk/client-kinesis-analytics'); // CommonJS import
  * const client = new KinesisAnalyticsClient(config);
  * const input = { // AddApplicationOutputRequest
- *   ApplicationName: "STRING_VALUE", // required
- *   CurrentApplicationVersionId: Number("long"), // required
+ *   ApplicationName: 'STRING_VALUE', // required
+ *   CurrentApplicationVersionId: Number('long'), // required
  *   Output: { // Output
- *     Name: "STRING_VALUE", // required
+ *     Name: 'STRING_VALUE', // required
  *     KinesisStreamsOutput: { // KinesisStreamsOutput
- *       ResourceARN: "STRING_VALUE", // required
- *       RoleARN: "STRING_VALUE", // required
+ *       ResourceARN: 'STRING_VALUE', // required
+ *       RoleARN: 'STRING_VALUE', // required
  *     },
  *     KinesisFirehoseOutput: { // KinesisFirehoseOutput
- *       ResourceARN: "STRING_VALUE", // required
- *       RoleARN: "STRING_VALUE", // required
+ *       ResourceARN: 'STRING_VALUE', // required
+ *       RoleARN: 'STRING_VALUE', // required
  *     },
  *     LambdaOutput: { // LambdaOutput
- *       ResourceARN: "STRING_VALUE", // required
- *       RoleARN: "STRING_VALUE", // required
+ *       ResourceARN: 'STRING_VALUE', // required
+ *       RoleARN: 'STRING_VALUE', // required
  *     },
  *     DestinationSchema: { // DestinationSchema
- *       RecordFormatType: "STRING_VALUE", // required
+ *       RecordFormatType: 'STRING_VALUE', // required
  *     },
  *   },
  * };
  * const command = new AddApplicationOutputCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param AddApplicationOutputCommandInput - {@link AddApplicationOutputCommandInput}
@@ -105,6 +108,8 @@ export interface AddApplicationOutputCommandOutput extends AddApplicationOutputR
  * @throws {@link UnsupportedOperationException} (client fault)
  *  <p>The request was rejected because a specified parameter is not supported or a specified resource is not valid for this operation. </p>
  *
+ * @throws {@link KinesisAnalyticsServiceException}
+ * <p>Base exception class for all service exceptions from KinesisAnalytics service.</p>
  *
  */
 export class AddApplicationOutputCommand extends $Command<

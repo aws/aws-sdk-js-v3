@@ -36,17 +36,31 @@ export interface DescribeSpotFleetInstancesCommandOutput extends DescribeSpotFle
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, DescribeSpotFleetInstancesCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, DescribeSpotFleetInstancesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, DescribeSpotFleetInstancesCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, DescribeSpotFleetInstancesCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // DescribeSpotFleetInstancesRequest
  *   DryRun: true || false,
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
- *   SpotFleetRequestId: "STRING_VALUE", // required
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
+ *   SpotFleetRequestId: 'STRING_VALUE', // required
  * };
  * const command = new DescribeSpotFleetInstancesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeSpotFleetInstancesResponse
+ *   ActiveInstances: [ // ActiveInstanceSet
+ *     { // ActiveInstance
+ *       InstanceId: 'STRING_VALUE',
+ *       InstanceType: 'STRING_VALUE',
+ *       SpotInstanceRequestId: 'STRING_VALUE',
+ *       InstanceHealth: 'healthy' || 'unhealthy',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ *   SpotFleetRequestId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeSpotFleetInstancesCommandInput - {@link DescribeSpotFleetInstancesCommandInput}
@@ -55,6 +69,8 @@ export interface DescribeSpotFleetInstancesCommandOutput extends DescribeSpotFle
  * @see {@link DescribeSpotFleetInstancesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @example To describe the Spot Instances associated with a Spot fleet
  * ```javascript

@@ -36,18 +36,44 @@ export interface GetWorkflowCommandOutput extends GetWorkflowResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OmicsClient, GetWorkflowCommand } from "@aws-sdk/client-omics"; // ES Modules import
- * // const { OmicsClient, GetWorkflowCommand } = require("@aws-sdk/client-omics"); // CommonJS import
+ * import { OmicsClient, GetWorkflowCommand } from '@aws-sdk/client-omics'; // ES Modules import
+ * // const { OmicsClient, GetWorkflowCommand } = require('@aws-sdk/client-omics'); // CommonJS import
  * const client = new OmicsClient(config);
  * const input = { // GetWorkflowRequest
- *   id: "STRING_VALUE", // required
- *   type: "STRING_VALUE",
+ *   id: 'STRING_VALUE', // required
+ *   type: 'STRING_VALUE',
  *   export: [ // WorkflowExportList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new GetWorkflowCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetWorkflowResponse
+ *   arn: 'STRING_VALUE',
+ *   id: 'STRING_VALUE',
+ *   status: 'STRING_VALUE',
+ *   type: 'STRING_VALUE',
+ *   name: 'STRING_VALUE',
+ *   description: 'STRING_VALUE',
+ *   engine: 'STRING_VALUE',
+ *   definition: 'STRING_VALUE',
+ *   main: 'STRING_VALUE',
+ *   digest: 'STRING_VALUE',
+ *   parameterTemplate: { // WorkflowParameterTemplate
+ *     '<keys>': { // WorkflowParameter
+ *       description: 'STRING_VALUE',
+ *       optional: true || false,
+ *     },
+ *   },
+ *   storageCapacity: Number('int'),
+ *   creationTime: new Date('TIMESTAMP'),
+ *   statusMessage: 'STRING_VALUE',
+ *   tags: { // TagMap
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetWorkflowCommandInput - {@link GetWorkflowCommandInput}
@@ -80,6 +106,8 @@ export interface GetWorkflowCommandOutput extends GetWorkflowResponse, __Metadat
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link OmicsServiceException}
+ * <p>Base exception class for all service exceptions from Omics service.</p>
  *
  */
 export class GetWorkflowCommand extends $Command<

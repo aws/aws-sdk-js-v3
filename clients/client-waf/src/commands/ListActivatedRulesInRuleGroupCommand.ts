@@ -49,16 +49,39 @@ export interface ListActivatedRulesInRuleGroupCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WAFClient, ListActivatedRulesInRuleGroupCommand } from "@aws-sdk/client-waf"; // ES Modules import
- * // const { WAFClient, ListActivatedRulesInRuleGroupCommand } = require("@aws-sdk/client-waf"); // CommonJS import
+ * import { WAFClient, ListActivatedRulesInRuleGroupCommand } from '@aws-sdk/client-waf'; // ES Modules import
+ * // const { WAFClient, ListActivatedRulesInRuleGroupCommand } = require('@aws-sdk/client-waf'); // CommonJS import
  * const client = new WAFClient(config);
  * const input = { // ListActivatedRulesInRuleGroupRequest
- *   RuleGroupId: "STRING_VALUE",
- *   NextMarker: "STRING_VALUE",
- *   Limit: Number("int"),
+ *   RuleGroupId: 'STRING_VALUE',
+ *   NextMarker: 'STRING_VALUE',
+ *   Limit: Number('int'),
  * };
  * const command = new ListActivatedRulesInRuleGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListActivatedRulesInRuleGroupResponse
+ *   NextMarker: 'STRING_VALUE',
+ *   ActivatedRules: [ // ActivatedRules
+ *     { // ActivatedRule
+ *       Priority: Number('int'), // required
+ *       RuleId: 'STRING_VALUE', // required
+ *       Action: { // WafAction
+ *         Type: 'STRING_VALUE', // required
+ *       },
+ *       OverrideAction: { // WafOverrideAction
+ *         Type: 'STRING_VALUE', // required
+ *       },
+ *       Type: 'STRING_VALUE',
+ *       ExcludedRules: [ // ExcludedRules
+ *         { // ExcludedRule
+ *           RuleId: 'STRING_VALUE', // required
+ *         },
+ *       ],
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListActivatedRulesInRuleGroupCommandInput - {@link ListActivatedRulesInRuleGroupCommandInput}
@@ -113,6 +136,8 @@ export interface ListActivatedRulesInRuleGroupCommandOutput
  * @throws {@link WAFNonexistentItemException} (client fault)
  *  <p>The operation failed because the referenced object doesn't exist.</p>
  *
+ * @throws {@link WAFServiceException}
+ * <p>Base exception class for all service exceptions from WAF service.</p>
  *
  */
 export class ListActivatedRulesInRuleGroupCommand extends $Command<

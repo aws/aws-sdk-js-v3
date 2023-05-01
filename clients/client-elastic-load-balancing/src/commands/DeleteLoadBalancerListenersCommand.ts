@@ -40,17 +40,20 @@ export interface DeleteLoadBalancerListenersCommandOutput extends DeleteLoadBala
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElasticLoadBalancingClient, DeleteLoadBalancerListenersCommand } from "@aws-sdk/client-elastic-load-balancing"; // ES Modules import
- * // const { ElasticLoadBalancingClient, DeleteLoadBalancerListenersCommand } = require("@aws-sdk/client-elastic-load-balancing"); // CommonJS import
+ * import { ElasticLoadBalancingClient, DeleteLoadBalancerListenersCommand } from '@aws-sdk/client-elastic-load-balancing'; // ES Modules import
+ * // const { ElasticLoadBalancingClient, DeleteLoadBalancerListenersCommand } = require('@aws-sdk/client-elastic-load-balancing'); // CommonJS import
  * const client = new ElasticLoadBalancingClient(config);
  * const input = { // DeleteLoadBalancerListenerInput
- *   LoadBalancerName: "STRING_VALUE", // required
+ *   LoadBalancerName: 'STRING_VALUE', // required
  *   LoadBalancerPorts: [ // Ports // required
- *     Number("int"),
+ *     Number('int'),
  *   ],
  * };
  * const command = new DeleteLoadBalancerListenersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteLoadBalancerListenersCommandInput - {@link DeleteLoadBalancerListenersCommandInput}
@@ -62,6 +65,8 @@ export interface DeleteLoadBalancerListenersCommandOutput extends DeleteLoadBala
  * @throws {@link AccessPointNotFoundException} (client fault)
  *  <p>The specified load balancer does not exist.</p>
  *
+ * @throws {@link ElasticLoadBalancingServiceException}
+ * <p>Base exception class for all service exceptions from ElasticLoadBalancing service.</p>
  *
  * @example To delete a listener from your load balancer
  * ```javascript

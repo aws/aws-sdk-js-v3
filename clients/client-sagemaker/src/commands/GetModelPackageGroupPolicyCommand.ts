@@ -39,14 +39,19 @@ export interface GetModelPackageGroupPolicyCommandOutput extends GetModelPackage
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, GetModelPackageGroupPolicyCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, GetModelPackageGroupPolicyCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, GetModelPackageGroupPolicyCommand } from '@aws-sdk/client-sagemaker'; // ES Modules import
+ * // const { SageMakerClient, GetModelPackageGroupPolicyCommand } = require('@aws-sdk/client-sagemaker'); // CommonJS import
  * const client = new SageMakerClient(config);
  * const input = { // GetModelPackageGroupPolicyInput
- *   ModelPackageGroupName: "STRING_VALUE", // required
+ *   ModelPackageGroupName: 'STRING_VALUE', // required
  * };
  * const command = new GetModelPackageGroupPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetModelPackageGroupPolicyOutput
+ *   ResourcePolicy: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param GetModelPackageGroupPolicyCommandInput - {@link GetModelPackageGroupPolicyCommandInput}
@@ -55,6 +60,8 @@ export interface GetModelPackageGroupPolicyCommandOutput extends GetModelPackage
  * @see {@link GetModelPackageGroupPolicyCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class GetModelPackageGroupPolicyCommand extends $Command<

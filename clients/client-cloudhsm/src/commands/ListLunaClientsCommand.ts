@@ -50,14 +50,22 @@ export interface ListLunaClientsCommandOutput extends ListLunaClientsResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudHSMClient, ListLunaClientsCommand } from "@aws-sdk/client-cloudhsm"; // ES Modules import
- * // const { CloudHSMClient, ListLunaClientsCommand } = require("@aws-sdk/client-cloudhsm"); // CommonJS import
+ * import { CloudHSMClient, ListLunaClientsCommand } from '@aws-sdk/client-cloudhsm'; // ES Modules import
+ * // const { CloudHSMClient, ListLunaClientsCommand } = require('@aws-sdk/client-cloudhsm'); // CommonJS import
  * const client = new CloudHSMClient(config);
  * const input = { // ListLunaClientsRequest
- *   NextToken: "STRING_VALUE",
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListLunaClientsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListLunaClientsResponse
+ *   ClientList: [ // ClientList // required
+ *     'STRING_VALUE',
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListLunaClientsCommandInput - {@link ListLunaClientsCommandInput}
@@ -75,6 +83,8 @@ export interface ListLunaClientsCommandOutput extends ListLunaClientsResponse, _
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>Indicates that one or more of the request parameters are not valid.</p>
  *
+ * @throws {@link CloudHSMServiceException}
+ * <p>Base exception class for all service exceptions from CloudHSM service.</p>
  *
  */
 export class ListLunaClientsCommand extends $Command<

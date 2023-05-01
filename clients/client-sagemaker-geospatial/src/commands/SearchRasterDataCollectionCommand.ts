@@ -45,15 +45,15 @@ export interface SearchRasterDataCollectionCommandOutput extends SearchRasterDat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerGeospatialClient, SearchRasterDataCollectionCommand } from "@aws-sdk/client-sagemaker-geospatial"; // ES Modules import
- * // const { SageMakerGeospatialClient, SearchRasterDataCollectionCommand } = require("@aws-sdk/client-sagemaker-geospatial"); // CommonJS import
+ * import { SageMakerGeospatialClient, SearchRasterDataCollectionCommand } from '@aws-sdk/client-sagemaker-geospatial'; // ES Modules import
+ * // const { SageMakerGeospatialClient, SearchRasterDataCollectionCommand } = require('@aws-sdk/client-sagemaker-geospatial'); // CommonJS import
  * const client = new SageMakerGeospatialClient(config);
  * const input = { // SearchRasterDataCollectionInput
- *   Arn: "STRING_VALUE", // required
+ *   Arn: 'STRING_VALUE', // required
  *   RasterDataCollectionQuery: { // RasterDataCollectionQueryWithBandFilterInput
  *     TimeRangeFilter: { // TimeRangeFilterInput
- *       StartTime: new Date("TIMESTAMP"), // required
- *       EndTime: new Date("TIMESTAMP"), // required
+ *       StartTime: new Date('TIMESTAMP'), // required
+ *       EndTime: new Date('TIMESTAMP'), // required
  *     },
  *     AreaOfInterest: { // AreaOfInterest Union: only one key present
  *       AreaOfInterestGeometry: { // AreaOfInterestGeometry Union: only one key present
@@ -61,7 +61,7 @@ export interface SearchRasterDataCollectionCommandOutput extends SearchRasterDat
  *           Coordinates: [ // LinearRings // required
  *             [ // LinearRing
  *               [ // Position
- *                 Number("double"),
+ *                 Number('double'),
  *               ],
  *             ],
  *           ],
@@ -71,7 +71,7 @@ export interface SearchRasterDataCollectionCommandOutput extends SearchRasterDat
  *             [
  *               [
  *                 [
- *                   Number("double"),
+ *                   Number('double'),
  *                 ],
  *               ],
  *             ],
@@ -84,42 +84,77 @@ export interface SearchRasterDataCollectionCommandOutput extends SearchRasterDat
  *         { // PropertyFilter
  *           Property: { // Property Union: only one key present
  *             EoCloudCover: { // EoCloudCoverInput
- *               LowerBound: Number("float"), // required
- *               UpperBound: Number("float"), // required
+ *               LowerBound: Number('float'), // required
+ *               UpperBound: Number('float'), // required
  *             },
  *             ViewOffNadir: { // ViewOffNadirInput
- *               LowerBound: Number("float"), // required
- *               UpperBound: Number("float"), // required
+ *               LowerBound: Number('float'), // required
+ *               UpperBound: Number('float'), // required
  *             },
  *             ViewSunAzimuth: { // ViewSunAzimuthInput
- *               LowerBound: Number("float"), // required
- *               UpperBound: Number("float"), // required
+ *               LowerBound: Number('float'), // required
+ *               UpperBound: Number('float'), // required
  *             },
  *             ViewSunElevation: { // ViewSunElevationInput
- *               LowerBound: Number("float"), // required
- *               UpperBound: Number("float"), // required
+ *               LowerBound: Number('float'), // required
+ *               UpperBound: Number('float'), // required
  *             },
  *             Platform: { // PlatformInput
- *               Value: "STRING_VALUE", // required
- *               ComparisonOperator: "STRING_VALUE",
+ *               Value: 'STRING_VALUE', // required
+ *               ComparisonOperator: 'STRING_VALUE',
  *             },
  *             LandsatCloudCoverLand: { // LandsatCloudCoverLandInput
- *               LowerBound: Number("float"), // required
- *               UpperBound: Number("float"), // required
+ *               LowerBound: Number('float'), // required
+ *               UpperBound: Number('float'), // required
  *             },
  *           },
  *         },
  *       ],
- *       LogicalOperator: "STRING_VALUE",
+ *       LogicalOperator: 'STRING_VALUE',
  *     },
  *     BandFilter: [ // StringListInput
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *   },
- *   NextToken: "STRING_VALUE",
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new SearchRasterDataCollectionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SearchRasterDataCollectionOutput
+ *   ApproximateResultCount: Number('int'), // required
+ *   NextToken: 'STRING_VALUE',
+ *   Items: [ // ItemSourceList
+ *     { // ItemSource
+ *       Id: 'STRING_VALUE', // required
+ *       Geometry: { // Geometry
+ *         Type: 'STRING_VALUE', // required
+ *         Coordinates: [ // LinearRings // required
+ *           [ // LinearRing
+ *             [ // Position
+ *               Number('double'),
+ *             ],
+ *           ],
+ *         ],
+ *       },
+ *       Assets: { // AssetsMap
+ *         '<keys>': { // AssetValue
+ *           Href: 'STRING_VALUE',
+ *         },
+ *       },
+ *       DateTime: new Date('TIMESTAMP'), // required
+ *       Properties: { // Properties
+ *         EoCloudCover: Number('float'),
+ *         ViewOffNadir: Number('float'),
+ *         ViewSunAzimuth: Number('float'),
+ *         ViewSunElevation: Number('float'),
+ *         Platform: 'STRING_VALUE',
+ *         LandsatCloudCoverLand: Number('float'),
+ *       },
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param SearchRasterDataCollectionCommandInput - {@link SearchRasterDataCollectionCommandInput}
@@ -143,6 +178,8 @@ export interface SearchRasterDataCollectionCommandOutput extends SearchRasterDat
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
  *
+ * @throws {@link SageMakerGeospatialServiceException}
+ * <p>Base exception class for all service exceptions from SageMakerGeospatial service.</p>
  *
  */
 export class SearchRasterDataCollectionCommand extends $Command<

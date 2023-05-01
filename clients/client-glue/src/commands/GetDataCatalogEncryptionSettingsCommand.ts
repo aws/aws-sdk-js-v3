@@ -41,14 +41,28 @@ export interface GetDataCatalogEncryptionSettingsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlueClient, GetDataCatalogEncryptionSettingsCommand } from "@aws-sdk/client-glue"; // ES Modules import
- * // const { GlueClient, GetDataCatalogEncryptionSettingsCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * import { GlueClient, GetDataCatalogEncryptionSettingsCommand } from '@aws-sdk/client-glue'; // ES Modules import
+ * // const { GlueClient, GetDataCatalogEncryptionSettingsCommand } = require('@aws-sdk/client-glue'); // CommonJS import
  * const client = new GlueClient(config);
  * const input = { // GetDataCatalogEncryptionSettingsRequest
- *   CatalogId: "STRING_VALUE",
+ *   CatalogId: 'STRING_VALUE',
  * };
  * const command = new GetDataCatalogEncryptionSettingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetDataCatalogEncryptionSettingsResponse
+ *   DataCatalogEncryptionSettings: { // DataCatalogEncryptionSettings
+ *     EncryptionAtRest: { // EncryptionAtRest
+ *       CatalogEncryptionMode: 'DISABLED' || 'SSE-KMS', // required
+ *       SseAwsKmsKeyId: 'STRING_VALUE',
+ *     },
+ *     ConnectionPasswordEncryption: { // ConnectionPasswordEncryption
+ *       ReturnConnectionPasswordEncrypted: true || false, // required
+ *       AwsKmsKeyId: 'STRING_VALUE',
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetDataCatalogEncryptionSettingsCommandInput - {@link GetDataCatalogEncryptionSettingsCommandInput}
@@ -66,6 +80,8 @@ export interface GetDataCatalogEncryptionSettingsCommandOutput
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class GetDataCatalogEncryptionSettingsCommand extends $Command<

@@ -36,15 +36,27 @@ export interface ListSinksCommandOutput extends ListSinksOutput, __MetadataBeare
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OAMClient, ListSinksCommand } from "@aws-sdk/client-oam"; // ES Modules import
- * // const { OAMClient, ListSinksCommand } = require("@aws-sdk/client-oam"); // CommonJS import
+ * import { OAMClient, ListSinksCommand } from '@aws-sdk/client-oam'; // ES Modules import
+ * // const { OAMClient, ListSinksCommand } = require('@aws-sdk/client-oam'); // CommonJS import
  * const client = new OAMClient(config);
  * const input = { // ListSinksInput
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListSinksCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListSinksOutput
+ *   Items: [ // ListSinksItems // required
+ *     { // ListSinksItem
+ *       Arn: 'STRING_VALUE',
+ *       Id: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListSinksCommandInput - {@link ListSinksCommandInput}
@@ -62,6 +74,8 @@ export interface ListSinksCommandOutput extends ListSinksOutput, __MetadataBeare
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The request references a resource that does not exist.</p>
  *
+ * @throws {@link OAMServiceException}
+ * <p>Base exception class for all service exceptions from OAM service.</p>
  *
  */
 export class ListSinksCommand extends $Command<ListSinksCommandInput, ListSinksCommandOutput, OAMClientResolvedConfig> {

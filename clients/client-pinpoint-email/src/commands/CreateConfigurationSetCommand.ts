@@ -40,34 +40,37 @@ export interface CreateConfigurationSetCommandOutput extends CreateConfiguration
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PinpointEmailClient, CreateConfigurationSetCommand } from "@aws-sdk/client-pinpoint-email"; // ES Modules import
- * // const { PinpointEmailClient, CreateConfigurationSetCommand } = require("@aws-sdk/client-pinpoint-email"); // CommonJS import
+ * import { PinpointEmailClient, CreateConfigurationSetCommand } from '@aws-sdk/client-pinpoint-email'; // ES Modules import
+ * // const { PinpointEmailClient, CreateConfigurationSetCommand } = require('@aws-sdk/client-pinpoint-email'); // CommonJS import
  * const client = new PinpointEmailClient(config);
  * const input = { // CreateConfigurationSetRequest
- *   ConfigurationSetName: "STRING_VALUE", // required
+ *   ConfigurationSetName: 'STRING_VALUE', // required
  *   TrackingOptions: { // TrackingOptions
- *     CustomRedirectDomain: "STRING_VALUE", // required
+ *     CustomRedirectDomain: 'STRING_VALUE', // required
  *   },
  *   DeliveryOptions: { // DeliveryOptions
- *     TlsPolicy: "STRING_VALUE",
- *     SendingPoolName: "STRING_VALUE",
+ *     TlsPolicy: 'STRING_VALUE',
+ *     SendingPoolName: 'STRING_VALUE',
  *   },
  *   ReputationOptions: { // ReputationOptions
  *     ReputationMetricsEnabled: true || false,
- *     LastFreshStart: new Date("TIMESTAMP"),
+ *     LastFreshStart: new Date('TIMESTAMP'),
  *   },
  *   SendingOptions: { // SendingOptions
  *     SendingEnabled: true || false,
  *   },
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreateConfigurationSetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param CreateConfigurationSetCommandInput - {@link CreateConfigurationSetCommandInput}
@@ -94,6 +97,8 @@ export interface CreateConfigurationSetCommandOutput extends CreateConfiguration
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Too many requests have been made to the operation.</p>
  *
+ * @throws {@link PinpointEmailServiceException}
+ * <p>Base exception class for all service exceptions from PinpointEmail service.</p>
  *
  */
 export class CreateConfigurationSetCommand extends $Command<

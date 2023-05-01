@@ -69,16 +69,28 @@ export interface ListResourceTagsCommandOutput extends ListResourceTagsResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KMSClient, ListResourceTagsCommand } from "@aws-sdk/client-kms"; // ES Modules import
- * // const { KMSClient, ListResourceTagsCommand } = require("@aws-sdk/client-kms"); // CommonJS import
+ * import { KMSClient, ListResourceTagsCommand } from '@aws-sdk/client-kms'; // ES Modules import
+ * // const { KMSClient, ListResourceTagsCommand } = require('@aws-sdk/client-kms'); // CommonJS import
  * const client = new KMSClient(config);
  * const input = { // ListResourceTagsRequest
- *   KeyId: "STRING_VALUE", // required
- *   Limit: Number("int"),
- *   Marker: "STRING_VALUE",
+ *   KeyId: 'STRING_VALUE', // required
+ *   Limit: Number('int'),
+ *   Marker: 'STRING_VALUE',
  * };
  * const command = new ListResourceTagsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListResourceTagsResponse
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       TagKey: 'STRING_VALUE', // required
+ *       TagValue: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ *   NextMarker: 'STRING_VALUE',
+ *   Truncated: true || false,
+ * };
+ *
  * ```
  *
  * @param ListResourceTagsCommandInput - {@link ListResourceTagsCommandInput}
@@ -103,6 +115,8 @@ export interface ListResourceTagsCommandOutput extends ListResourceTagsResponse,
  *  <p>The request was rejected because the specified entity or resource could not be
  *       found.</p>
  *
+ * @throws {@link KMSServiceException}
+ * <p>Base exception class for all service exceptions from KMS service.</p>
  *
  * @example To list tags for a KMS key
  * ```javascript

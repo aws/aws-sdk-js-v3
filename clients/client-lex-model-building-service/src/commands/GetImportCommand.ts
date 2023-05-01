@@ -41,14 +41,27 @@ export interface GetImportCommandOutput extends GetImportResponse, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LexModelBuildingServiceClient, GetImportCommand } from "@aws-sdk/client-lex-model-building-service"; // ES Modules import
- * // const { LexModelBuildingServiceClient, GetImportCommand } = require("@aws-sdk/client-lex-model-building-service"); // CommonJS import
+ * import { LexModelBuildingServiceClient, GetImportCommand } from '@aws-sdk/client-lex-model-building-service'; // ES Modules import
+ * // const { LexModelBuildingServiceClient, GetImportCommand } = require('@aws-sdk/client-lex-model-building-service'); // CommonJS import
  * const client = new LexModelBuildingServiceClient(config);
  * const input = { // GetImportRequest
- *   importId: "STRING_VALUE", // required
+ *   importId: 'STRING_VALUE', // required
  * };
  * const command = new GetImportCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetImportResponse
+ *   name: 'STRING_VALUE',
+ *   resourceType: 'STRING_VALUE',
+ *   mergeStrategy: 'STRING_VALUE',
+ *   importId: 'STRING_VALUE',
+ *   importStatus: 'STRING_VALUE',
+ *   failureReason: [ // StringList
+ *     'STRING_VALUE',
+ *   ],
+ *   createdDate: new Date('TIMESTAMP'),
+ * };
+ *
  * ```
  *
  * @param GetImportCommandInput - {@link GetImportCommandInput}
@@ -72,6 +85,8 @@ export interface GetImportCommandOutput extends GetImportResponse, __MetadataBea
  *  <p>The resource specified in the request was not found. Check the
  *       resource and try again.</p>
  *
+ * @throws {@link LexModelBuildingServiceServiceException}
+ * <p>Base exception class for all service exceptions from LexModelBuildingService service.</p>
  *
  */
 export class GetImportCommand extends $Command<

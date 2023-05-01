@@ -36,14 +36,30 @@ export interface StopBgpFailoverTestCommandOutput extends StopBgpFailoverTestRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DirectConnectClient, StopBgpFailoverTestCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
- * // const { DirectConnectClient, StopBgpFailoverTestCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
+ * import { DirectConnectClient, StopBgpFailoverTestCommand } from '@aws-sdk/client-direct-connect'; // ES Modules import
+ * // const { DirectConnectClient, StopBgpFailoverTestCommand } = require('@aws-sdk/client-direct-connect'); // CommonJS import
  * const client = new DirectConnectClient(config);
  * const input = { // StopBgpFailoverTestRequest
- *   virtualInterfaceId: "STRING_VALUE", // required
+ *   virtualInterfaceId: 'STRING_VALUE', // required
  * };
  * const command = new StopBgpFailoverTestCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StopBgpFailoverTestResponse
+ *   virtualInterfaceTest: { // VirtualInterfaceTestHistory
+ *     testId: 'STRING_VALUE',
+ *     virtualInterfaceId: 'STRING_VALUE',
+ *     bgpPeers: [ // BGPPeerIdList
+ *       'STRING_VALUE',
+ *     ],
+ *     status: 'STRING_VALUE',
+ *     ownerAccount: 'STRING_VALUE',
+ *     testDurationInMinutes: Number('int'),
+ *     startTime: new Date('TIMESTAMP'),
+ *     endTime: new Date('TIMESTAMP'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param StopBgpFailoverTestCommandInput - {@link StopBgpFailoverTestCommandInput}
@@ -58,6 +74,8 @@ export interface StopBgpFailoverTestCommandOutput extends StopBgpFailoverTestRes
  * @throws {@link DirectConnectServerException} (server fault)
  *  <p>A server-side error occurred.</p>
  *
+ * @throws {@link DirectConnectServiceException}
+ * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
  */
 export class StopBgpFailoverTestCommand extends $Command<

@@ -40,19 +40,56 @@ export interface ListClustersCommandOutput extends ListClustersOutput, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EMRClient, ListClustersCommand } from "@aws-sdk/client-emr"; // ES Modules import
- * // const { EMRClient, ListClustersCommand } = require("@aws-sdk/client-emr"); // CommonJS import
+ * import { EMRClient, ListClustersCommand } from '@aws-sdk/client-emr'; // ES Modules import
+ * // const { EMRClient, ListClustersCommand } = require('@aws-sdk/client-emr'); // CommonJS import
  * const client = new EMRClient(config);
  * const input = { // ListClustersInput
- *   CreatedAfter: new Date("TIMESTAMP"),
- *   CreatedBefore: new Date("TIMESTAMP"),
+ *   CreatedAfter: new Date('TIMESTAMP'),
+ *   CreatedBefore: new Date('TIMESTAMP'),
  *   ClusterStates: [ // ClusterStateList
- *     "STARTING" || "BOOTSTRAPPING" || "RUNNING" || "WAITING" || "TERMINATING" || "TERMINATED" || "TERMINATED_WITH_ERRORS",
+ *     'STARTING' || 'BOOTSTRAPPING' || 'RUNNING' || 'WAITING' || 'TERMINATING' || 'TERMINATED' || 'TERMINATED_WITH_ERRORS',
  *   ],
- *   Marker: "STRING_VALUE",
+ *   Marker: 'STRING_VALUE',
  * };
  * const command = new ListClustersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListClustersOutput
+ *   Clusters: [ // ClusterSummaryList
+ *     { // ClusterSummary
+ *       Id: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *       Status: { // ClusterStatus
+ *         State: 'STARTING' || 'BOOTSTRAPPING' || 'RUNNING' || 'WAITING' || 'TERMINATING' || 'TERMINATED' || 'TERMINATED_WITH_ERRORS',
+ *         StateChangeReason: { // ClusterStateChangeReason
+ *           Code: 'INTERNAL_ERROR' || 'VALIDATION_ERROR' || 'INSTANCE_FAILURE' || 'INSTANCE_FLEET_TIMEOUT' || 'BOOTSTRAP_FAILURE' || 'USER_REQUEST' || 'STEP_FAILURE' || 'ALL_STEPS_COMPLETED',
+ *           Message: 'STRING_VALUE',
+ *         },
+ *         Timeline: { // ClusterTimeline
+ *           CreationDateTime: new Date('TIMESTAMP'),
+ *           ReadyDateTime: new Date('TIMESTAMP'),
+ *           EndDateTime: new Date('TIMESTAMP'),
+ *         },
+ *         ErrorDetails: [ // ErrorDetailList
+ *           { // ErrorDetail
+ *             ErrorCode: 'STRING_VALUE',
+ *             ErrorData: [ // ErrorData
+ *               { // StringMap
+ *                 '<keys>': 'STRING_VALUE',
+ *               },
+ *             ],
+ *             ErrorMessage: 'STRING_VALUE',
+ *           },
+ *         ],
+ *       },
+ *       NormalizedInstanceHours: Number('int'),
+ *       ClusterArn: 'STRING_VALUE',
+ *       OutpostArn: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   Marker: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListClustersCommandInput - {@link ListClustersCommandInput}
@@ -68,6 +105,8 @@ export interface ListClustersCommandOutput extends ListClustersOutput, __Metadat
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception occurs when there is something wrong with user input.</p>
  *
+ * @throws {@link EMRServiceException}
+ * <p>Base exception class for all service exceptions from EMR service.</p>
  *
  */
 export class ListClustersCommand extends $Command<

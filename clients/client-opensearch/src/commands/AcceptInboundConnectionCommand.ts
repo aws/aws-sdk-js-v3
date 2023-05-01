@@ -38,14 +38,40 @@ export interface AcceptInboundConnectionCommandOutput extends AcceptInboundConne
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OpenSearchClient, AcceptInboundConnectionCommand } from "@aws-sdk/client-opensearch"; // ES Modules import
- * // const { OpenSearchClient, AcceptInboundConnectionCommand } = require("@aws-sdk/client-opensearch"); // CommonJS import
+ * import { OpenSearchClient, AcceptInboundConnectionCommand } from '@aws-sdk/client-opensearch'; // ES Modules import
+ * // const { OpenSearchClient, AcceptInboundConnectionCommand } = require('@aws-sdk/client-opensearch'); // CommonJS import
  * const client = new OpenSearchClient(config);
  * const input = { // AcceptInboundConnectionRequest
- *   ConnectionId: "STRING_VALUE", // required
+ *   ConnectionId: 'STRING_VALUE', // required
  * };
  * const command = new AcceptInboundConnectionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AcceptInboundConnectionResponse
+ *   Connection: { // InboundConnection
+ *     LocalDomainInfo: { // DomainInformationContainer
+ *       AWSDomainInformation: { // AWSDomainInformation
+ *         OwnerId: 'STRING_VALUE',
+ *         DomainName: 'STRING_VALUE', // required
+ *         Region: 'STRING_VALUE',
+ *       },
+ *     },
+ *     RemoteDomainInfo: {
+ *       AWSDomainInformation: {
+ *         OwnerId: 'STRING_VALUE',
+ *         DomainName: 'STRING_VALUE', // required
+ *         Region: 'STRING_VALUE',
+ *       },
+ *     },
+ *     ConnectionId: 'STRING_VALUE',
+ *     ConnectionStatus: { // InboundConnectionStatus
+ *       StatusCode: 'PENDING_ACCEPTANCE' || 'APPROVED' || 'PROVISIONING' || 'ACTIVE' || 'REJECTING' || 'REJECTED' || 'DELETING' || 'DELETED',
+ *       Message: 'STRING_VALUE',
+ *     },
+ *     ConnectionMode: 'DIRECT' || 'VPC_ENDPOINT',
+ *   },
+ * };
+ *
  * ```
  *
  * @param AcceptInboundConnectionCommandInput - {@link AcceptInboundConnectionCommandInput}
@@ -63,6 +89,8 @@ export interface AcceptInboundConnectionCommandOutput extends AcceptInboundConne
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>An exception for accessing or deleting a resource that does not exist..</p>
  *
+ * @throws {@link OpenSearchServiceException}
+ * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
  */
 export class AcceptInboundConnectionCommand extends $Command<

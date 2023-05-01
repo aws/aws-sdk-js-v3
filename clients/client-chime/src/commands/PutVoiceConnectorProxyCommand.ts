@@ -41,20 +41,32 @@ export interface PutVoiceConnectorProxyCommandOutput extends PutVoiceConnectorPr
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeClient, PutVoiceConnectorProxyCommand } from "@aws-sdk/client-chime"; // ES Modules import
- * // const { ChimeClient, PutVoiceConnectorProxyCommand } = require("@aws-sdk/client-chime"); // CommonJS import
+ * import { ChimeClient, PutVoiceConnectorProxyCommand } from '@aws-sdk/client-chime'; // ES Modules import
+ * // const { ChimeClient, PutVoiceConnectorProxyCommand } = require('@aws-sdk/client-chime'); // CommonJS import
  * const client = new ChimeClient(config);
  * const input = { // PutVoiceConnectorProxyRequest
- *   VoiceConnectorId: "STRING_VALUE", // required
- *   DefaultSessionExpiryMinutes: Number("int"), // required
+ *   VoiceConnectorId: 'STRING_VALUE', // required
+ *   DefaultSessionExpiryMinutes: Number('int'), // required
  *   PhoneNumberPoolCountries: [ // CountryList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   FallBackPhoneNumber: "STRING_VALUE",
+ *   FallBackPhoneNumber: 'STRING_VALUE',
  *   Disabled: true || false,
  * };
  * const command = new PutVoiceConnectorProxyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutVoiceConnectorProxyResponse
+ *   Proxy: { // Proxy
+ *     DefaultSessionExpiryMinutes: Number('int'),
+ *     Disabled: true || false,
+ *     FallBackPhoneNumber: 'STRING_VALUE',
+ *     PhoneNumberCountries: [ // StringList
+ *       'STRING_VALUE',
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param PutVoiceConnectorProxyCommandInput - {@link PutVoiceConnectorProxyCommandInput}
@@ -87,6 +99,8 @@ export interface PutVoiceConnectorProxyCommandOutput extends PutVoiceConnectorPr
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeServiceException}
+ * <p>Base exception class for all service exceptions from Chime service.</p>
  *
  */
 export class PutVoiceConnectorProxyCommand extends $Command<

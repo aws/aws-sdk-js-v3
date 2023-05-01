@@ -37,43 +37,50 @@ export interface CreateImagePipelineCommandOutput extends CreateImagePipelineRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ImagebuilderClient, CreateImagePipelineCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
- * // const { ImagebuilderClient, CreateImagePipelineCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
+ * import { ImagebuilderClient, CreateImagePipelineCommand } from '@aws-sdk/client-imagebuilder'; // ES Modules import
+ * // const { ImagebuilderClient, CreateImagePipelineCommand } = require('@aws-sdk/client-imagebuilder'); // CommonJS import
  * const client = new ImagebuilderClient(config);
  * const input = { // CreateImagePipelineRequest
- *   name: "STRING_VALUE", // required
- *   description: "STRING_VALUE",
- *   imageRecipeArn: "STRING_VALUE",
- *   containerRecipeArn: "STRING_VALUE",
- *   infrastructureConfigurationArn: "STRING_VALUE", // required
- *   distributionConfigurationArn: "STRING_VALUE",
+ *   name: 'STRING_VALUE', // required
+ *   description: 'STRING_VALUE',
+ *   imageRecipeArn: 'STRING_VALUE',
+ *   containerRecipeArn: 'STRING_VALUE',
+ *   infrastructureConfigurationArn: 'STRING_VALUE', // required
+ *   distributionConfigurationArn: 'STRING_VALUE',
  *   imageTestsConfiguration: { // ImageTestsConfiguration
  *     imageTestsEnabled: true || false,
- *     timeoutMinutes: Number("int"),
+ *     timeoutMinutes: Number('int'),
  *   },
  *   enhancedImageMetadataEnabled: true || false,
  *   schedule: { // Schedule
- *     scheduleExpression: "STRING_VALUE",
- *     timezone: "STRING_VALUE",
- *     pipelineExecutionStartCondition: "EXPRESSION_MATCH_ONLY" || "EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE",
+ *     scheduleExpression: 'STRING_VALUE',
+ *     timezone: 'STRING_VALUE',
+ *     pipelineExecutionStartCondition: 'EXPRESSION_MATCH_ONLY' || 'EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE',
  *   },
- *   status: "DISABLED" || "ENABLED",
+ *   status: 'DISABLED' || 'ENABLED',
  *   tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
- *   clientToken: "STRING_VALUE", // required
+ *   clientToken: 'STRING_VALUE', // required
  *   imageScanningConfiguration: { // ImageScanningConfiguration
  *     imageScanningEnabled: true || false,
  *     ecrConfiguration: { // EcrConfiguration
- *       repositoryName: "STRING_VALUE",
+ *       repositoryName: 'STRING_VALUE',
  *       containerTags: [ // StringList
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   },
  * };
  * const command = new CreateImagePipelineCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateImagePipelineResponse
+ *   requestId: 'STRING_VALUE',
+ *   clientToken: 'STRING_VALUE',
+ *   imagePipelineArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateImagePipelineCommandInput - {@link CreateImagePipelineCommandInput}
@@ -119,6 +126,8 @@ export interface CreateImagePipelineCommandOutput extends CreateImagePipelineRes
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service is unable to process your request at this time.</p>
  *
+ * @throws {@link ImagebuilderServiceException}
+ * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
  */
 export class CreateImagePipelineCommand extends $Command<

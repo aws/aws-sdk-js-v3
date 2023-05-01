@@ -39,19 +39,24 @@ export interface UpdateHubCommandOutput extends UpdateHubResponse, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, UpdateHubCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, UpdateHubCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, UpdateHubCommand } from '@aws-sdk/client-sagemaker'; // ES Modules import
+ * // const { SageMakerClient, UpdateHubCommand } = require('@aws-sdk/client-sagemaker'); // CommonJS import
  * const client = new SageMakerClient(config);
  * const input = { // UpdateHubRequest
- *   HubName: "STRING_VALUE", // required
- *   HubDescription: "STRING_VALUE",
- *   HubDisplayName: "STRING_VALUE",
+ *   HubName: 'STRING_VALUE', // required
+ *   HubDescription: 'STRING_VALUE',
+ *   HubDisplayName: 'STRING_VALUE',
  *   HubSearchKeywords: [ // HubSearchKeywordList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new UpdateHubCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateHubResponse
+ *   HubArn: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param UpdateHubCommandInput - {@link UpdateHubCommandInput}
@@ -63,6 +68,8 @@ export interface UpdateHubCommandOutput extends UpdateHubResponse, __MetadataBea
  * @throws {@link ResourceNotFound} (client fault)
  *  <p>Resource being access is not found.</p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class UpdateHubCommand extends $Command<

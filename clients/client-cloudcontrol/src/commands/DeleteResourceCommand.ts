@@ -40,18 +40,34 @@ export interface DeleteResourceCommandOutput extends DeleteResourceOutput, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudControlClient, DeleteResourceCommand } from "@aws-sdk/client-cloudcontrol"; // ES Modules import
- * // const { CloudControlClient, DeleteResourceCommand } = require("@aws-sdk/client-cloudcontrol"); // CommonJS import
+ * import { CloudControlClient, DeleteResourceCommand } from '@aws-sdk/client-cloudcontrol'; // ES Modules import
+ * // const { CloudControlClient, DeleteResourceCommand } = require('@aws-sdk/client-cloudcontrol'); // CommonJS import
  * const client = new CloudControlClient(config);
  * const input = { // DeleteResourceInput
- *   TypeName: "STRING_VALUE", // required
- *   TypeVersionId: "STRING_VALUE",
- *   RoleArn: "STRING_VALUE",
- *   ClientToken: "STRING_VALUE",
- *   Identifier: "STRING_VALUE", // required
+ *   TypeName: 'STRING_VALUE', // required
+ *   TypeVersionId: 'STRING_VALUE',
+ *   RoleArn: 'STRING_VALUE',
+ *   ClientToken: 'STRING_VALUE',
+ *   Identifier: 'STRING_VALUE', // required
  * };
  * const command = new DeleteResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteResourceOutput
+ *   ProgressEvent: { // ProgressEvent
+ *     TypeName: 'STRING_VALUE',
+ *     Identifier: 'STRING_VALUE',
+ *     RequestToken: 'STRING_VALUE',
+ *     Operation: 'STRING_VALUE',
+ *     OperationStatus: 'STRING_VALUE',
+ *     EventTime: new Date('TIMESTAMP'),
+ *     ResourceModel: 'STRING_VALUE',
+ *     StatusMessage: 'STRING_VALUE',
+ *     ErrorCode: 'STRING_VALUE',
+ *     RetryAfter: new Date('TIMESTAMP'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param DeleteResourceCommandInput - {@link DeleteResourceCommandInput}
@@ -133,6 +149,8 @@ export interface DeleteResourceCommandOutput extends DeleteResourceOutput, __Met
  * @throws {@link UnsupportedActionException} (client fault)
  *  <p>The specified resource doesn't support this resource operation.</p>
  *
+ * @throws {@link CloudControlServiceException}
+ * <p>Base exception class for all service exceptions from CloudControl service.</p>
  *
  */
 export class DeleteResourceCommand extends $Command<

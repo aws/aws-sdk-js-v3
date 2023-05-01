@@ -38,12 +38,24 @@ export interface DescribeServiceIntegrationCommandOutput extends DescribeService
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DevOpsGuruClient, DescribeServiceIntegrationCommand } from "@aws-sdk/client-devops-guru"; // ES Modules import
- * // const { DevOpsGuruClient, DescribeServiceIntegrationCommand } = require("@aws-sdk/client-devops-guru"); // CommonJS import
+ * import { DevOpsGuruClient, DescribeServiceIntegrationCommand } from '@aws-sdk/client-devops-guru'; // ES Modules import
+ * // const { DevOpsGuruClient, DescribeServiceIntegrationCommand } = require('@aws-sdk/client-devops-guru'); // CommonJS import
  * const client = new DevOpsGuruClient(config);
  * const input = {};
  * const command = new DescribeServiceIntegrationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeServiceIntegrationResponse
+ *   ServiceIntegration: { // ServiceIntegrationConfig
+ *     OpsCenter: { // OpsCenterIntegration
+ *       OptInStatus: 'ENABLED' || 'DISABLED',
+ *     },
+ *     LogsAnomalyDetection: { // LogsAnomalyDetectionIntegration
+ *       OptInStatus: 'ENABLED' || 'DISABLED',
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeServiceIntegrationCommandInput - {@link DescribeServiceIntegrationCommandInput}
@@ -71,6 +83,8 @@ export interface DescribeServiceIntegrationCommandOutput extends DescribeService
  *  <p> Contains information about data passed in to a field during a request that is not
  * 			valid. </p>
  *
+ * @throws {@link DevOpsGuruServiceException}
+ * <p>Base exception class for all service exceptions from DevOpsGuru service.</p>
  *
  */
 export class DescribeServiceIntegrationCommand extends $Command<

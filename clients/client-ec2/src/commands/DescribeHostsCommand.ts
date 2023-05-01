@@ -39,26 +39,80 @@ export interface DescribeHostsCommandOutput extends DescribeHostsResult, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, DescribeHostsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, DescribeHostsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, DescribeHostsCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, DescribeHostsCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // DescribeHostsRequest
  *   Filter: [ // FilterList
  *     { // Filter
- *       Name: "STRING_VALUE",
+ *       Name: 'STRING_VALUE',
  *       Values: [ // ValueStringList
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
  *   HostIds: [ // RequestHostIdList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new DescribeHostsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeHostsResult
+ *   Hosts: [ // HostList
+ *     { // Host
+ *       AutoPlacement: 'on' || 'off',
+ *       AvailabilityZone: 'STRING_VALUE',
+ *       AvailableCapacity: { // AvailableCapacity
+ *         AvailableInstanceCapacity: [ // AvailableInstanceCapacityList
+ *           { // InstanceCapacity
+ *             AvailableCapacity: Number('int'),
+ *             InstanceType: 'STRING_VALUE',
+ *             TotalCapacity: Number('int'),
+ *           },
+ *         ],
+ *         AvailableVCpus: Number('int'),
+ *       },
+ *       ClientToken: 'STRING_VALUE',
+ *       HostId: 'STRING_VALUE',
+ *       HostProperties: { // HostProperties
+ *         Cores: Number('int'),
+ *         InstanceType: 'STRING_VALUE',
+ *         InstanceFamily: 'STRING_VALUE',
+ *         Sockets: Number('int'),
+ *         TotalVCpus: Number('int'),
+ *       },
+ *       HostReservationId: 'STRING_VALUE',
+ *       Instances: [ // HostInstanceList
+ *         { // HostInstance
+ *           InstanceId: 'STRING_VALUE',
+ *           InstanceType: 'STRING_VALUE',
+ *           OwnerId: 'STRING_VALUE',
+ *         },
+ *       ],
+ *       State: 'available' || 'under-assessment' || 'permanent-failure' || 'released' || 'released-permanent-failure' || 'pending',
+ *       AllocationTime: new Date('TIMESTAMP'),
+ *       ReleaseTime: new Date('TIMESTAMP'),
+ *       Tags: [ // TagList
+ *         { // Tag
+ *           Key: 'STRING_VALUE',
+ *           Value: 'STRING_VALUE',
+ *         },
+ *       ],
+ *       HostRecovery: 'on' || 'off',
+ *       AllowsMultipleInstanceTypes: 'on' || 'off',
+ *       OwnerId: 'STRING_VALUE',
+ *       AvailabilityZoneId: 'STRING_VALUE',
+ *       MemberOfServiceLinkedResourceGroup: true || false,
+ *       OutpostArn: 'STRING_VALUE',
+ *       HostMaintenance: 'on' || 'off',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeHostsCommandInput - {@link DescribeHostsCommandInput}
@@ -67,6 +121,8 @@ export interface DescribeHostsCommandOutput extends DescribeHostsResult, __Metad
  * @see {@link DescribeHostsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class DescribeHostsCommand extends $Command<

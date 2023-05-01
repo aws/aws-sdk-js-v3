@@ -37,19 +37,27 @@ export interface DescribeOrganizationHealthCommandOutput extends DescribeOrganiz
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DevOpsGuruClient, DescribeOrganizationHealthCommand } from "@aws-sdk/client-devops-guru"; // ES Modules import
- * // const { DevOpsGuruClient, DescribeOrganizationHealthCommand } = require("@aws-sdk/client-devops-guru"); // CommonJS import
+ * import { DevOpsGuruClient, DescribeOrganizationHealthCommand } from '@aws-sdk/client-devops-guru'; // ES Modules import
+ * // const { DevOpsGuruClient, DescribeOrganizationHealthCommand } = require('@aws-sdk/client-devops-guru'); // CommonJS import
  * const client = new DevOpsGuruClient(config);
  * const input = { // DescribeOrganizationHealthRequest
  *   AccountIds: [ // AccountIdList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   OrganizationalUnitIds: [ // OrganizationalUnitIdList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new DescribeOrganizationHealthCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeOrganizationHealthResponse
+ *   OpenReactiveInsights: Number('int'), // required
+ *   OpenProactiveInsights: Number('int'), // required
+ *   MetricsAnalyzed: Number('int'), // required
+ *   ResourceHours: Number('long'), // required
+ * };
+ *
  * ```
  *
  * @param DescribeOrganizationHealthCommandInput - {@link DescribeOrganizationHealthCommandInput}
@@ -74,6 +82,8 @@ export interface DescribeOrganizationHealthCommandOutput extends DescribeOrganiz
  *  <p> Contains information about data passed in to a field during a request that is not
  * 			valid. </p>
  *
+ * @throws {@link DevOpsGuruServiceException}
+ * <p>Base exception class for all service exceptions from DevOpsGuru service.</p>
  *
  */
 export class DescribeOrganizationHealthCommand extends $Command<

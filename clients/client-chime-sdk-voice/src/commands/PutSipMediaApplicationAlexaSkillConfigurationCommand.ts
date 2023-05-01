@@ -47,20 +47,30 @@ export interface PutSipMediaApplicationAlexaSkillConfigurationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeSDKVoiceClient, PutSipMediaApplicationAlexaSkillConfigurationCommand } from "@aws-sdk/client-chime-sdk-voice"; // ES Modules import
- * // const { ChimeSDKVoiceClient, PutSipMediaApplicationAlexaSkillConfigurationCommand } = require("@aws-sdk/client-chime-sdk-voice"); // CommonJS import
+ * import { ChimeSDKVoiceClient, PutSipMediaApplicationAlexaSkillConfigurationCommand } from '@aws-sdk/client-chime-sdk-voice'; // ES Modules import
+ * // const { ChimeSDKVoiceClient, PutSipMediaApplicationAlexaSkillConfigurationCommand } = require('@aws-sdk/client-chime-sdk-voice'); // CommonJS import
  * const client = new ChimeSDKVoiceClient(config);
  * const input = { // PutSipMediaApplicationAlexaSkillConfigurationRequest
- *   SipMediaApplicationId: "STRING_VALUE", // required
+ *   SipMediaApplicationId: 'STRING_VALUE', // required
  *   SipMediaApplicationAlexaSkillConfiguration: { // SipMediaApplicationAlexaSkillConfiguration
- *     AlexaSkillStatus: "ACTIVE" || "INACTIVE", // required
+ *     AlexaSkillStatus: 'ACTIVE' || 'INACTIVE', // required
  *     AlexaSkillIds: [ // AlexaSkillIdList // required
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *   },
  * };
  * const command = new PutSipMediaApplicationAlexaSkillConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutSipMediaApplicationAlexaSkillConfigurationResponse
+ *   SipMediaApplicationAlexaSkillConfiguration: { // SipMediaApplicationAlexaSkillConfiguration
+ *     AlexaSkillStatus: 'ACTIVE' || 'INACTIVE', // required
+ *     AlexaSkillIds: [ // AlexaSkillIdList // required
+ *       'STRING_VALUE',
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param PutSipMediaApplicationAlexaSkillConfigurationCommandInput - {@link PutSipMediaApplicationAlexaSkillConfigurationCommandInput}
@@ -90,6 +100,8 @@ export interface PutSipMediaApplicationAlexaSkillConfigurationCommandOutput
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client isn't authorized to request a resource.</p>
  *
+ * @throws {@link ChimeSDKVoiceServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
  */
 export class PutSipMediaApplicationAlexaSkillConfigurationCommand extends $Command<

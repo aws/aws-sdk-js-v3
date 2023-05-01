@@ -36,14 +36,17 @@ export interface DeleteHsmConfigurationCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RedshiftClient, DeleteHsmConfigurationCommand } from "@aws-sdk/client-redshift"; // ES Modules import
- * // const { RedshiftClient, DeleteHsmConfigurationCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * import { RedshiftClient, DeleteHsmConfigurationCommand } from '@aws-sdk/client-redshift'; // ES Modules import
+ * // const { RedshiftClient, DeleteHsmConfigurationCommand } = require('@aws-sdk/client-redshift'); // CommonJS import
  * const client = new RedshiftClient(config);
  * const input = { // DeleteHsmConfigurationMessage
- *   HsmConfigurationIdentifier: "STRING_VALUE", // required
+ *   HsmConfigurationIdentifier: 'STRING_VALUE', // required
  * };
  * const command = new DeleteHsmConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteHsmConfigurationCommandInput - {@link DeleteHsmConfigurationCommandInput}
@@ -59,6 +62,8 @@ export interface DeleteHsmConfigurationCommandOutput extends __MetadataBearer {}
  *  <p>The specified HSM configuration is not in the <code>available</code> state, or it
  *             is still in use by one or more Amazon Redshift clusters.</p>
  *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class DeleteHsmConfigurationCommand extends $Command<

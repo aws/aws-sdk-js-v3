@@ -36,24 +36,38 @@ export interface CreateIntegrationResponseCommandOutput extends CreateIntegratio
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ApiGatewayV2Client, CreateIntegrationResponseCommand } from "@aws-sdk/client-apigatewayv2"; // ES Modules import
- * // const { ApiGatewayV2Client, CreateIntegrationResponseCommand } = require("@aws-sdk/client-apigatewayv2"); // CommonJS import
+ * import { ApiGatewayV2Client, CreateIntegrationResponseCommand } from '@aws-sdk/client-apigatewayv2'; // ES Modules import
+ * // const { ApiGatewayV2Client, CreateIntegrationResponseCommand } = require('@aws-sdk/client-apigatewayv2'); // CommonJS import
  * const client = new ApiGatewayV2Client(config);
  * const input = { // CreateIntegrationResponseRequest
- *   ApiId: "STRING_VALUE", // required
- *   ContentHandlingStrategy: "STRING_VALUE",
- *   IntegrationId: "STRING_VALUE", // required
- *   IntegrationResponseKey: "STRING_VALUE", // required
+ *   ApiId: 'STRING_VALUE', // required
+ *   ContentHandlingStrategy: 'STRING_VALUE',
+ *   IntegrationId: 'STRING_VALUE', // required
+ *   IntegrationResponseKey: 'STRING_VALUE', // required
  *   ResponseParameters: { // IntegrationParameters
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  *   ResponseTemplates: { // TemplateMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
- *   TemplateSelectionExpression: "STRING_VALUE",
+ *   TemplateSelectionExpression: 'STRING_VALUE',
  * };
  * const command = new CreateIntegrationResponseCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateIntegrationResponseResponse
+ *   ContentHandlingStrategy: 'STRING_VALUE',
+ *   IntegrationResponseId: 'STRING_VALUE',
+ *   IntegrationResponseKey: 'STRING_VALUE',
+ *   ResponseParameters: { // IntegrationParameters
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ *   ResponseTemplates: { // TemplateMap
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ *   TemplateSelectionExpression: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateIntegrationResponseCommandInput - {@link CreateIntegrationResponseCommandInput}
@@ -74,6 +88,8 @@ export interface CreateIntegrationResponseCommandOutput extends CreateIntegratio
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>A limit has been exceeded. See the accompanying error message for details.</p>
  *
+ * @throws {@link ApiGatewayV2ServiceException}
+ * <p>Base exception class for all service exceptions from ApiGatewayV2 service.</p>
  *
  */
 export class CreateIntegrationResponseCommand extends $Command<

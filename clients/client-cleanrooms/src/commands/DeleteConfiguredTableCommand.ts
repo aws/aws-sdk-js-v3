@@ -36,14 +36,17 @@ export interface DeleteConfiguredTableCommandOutput extends DeleteConfiguredTabl
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CleanRoomsClient, DeleteConfiguredTableCommand } from "@aws-sdk/client-cleanrooms"; // ES Modules import
- * // const { CleanRoomsClient, DeleteConfiguredTableCommand } = require("@aws-sdk/client-cleanrooms"); // CommonJS import
+ * import { CleanRoomsClient, DeleteConfiguredTableCommand } from '@aws-sdk/client-cleanrooms'; // ES Modules import
+ * // const { CleanRoomsClient, DeleteConfiguredTableCommand } = require('@aws-sdk/client-cleanrooms'); // CommonJS import
  * const client = new CleanRoomsClient(config);
  * const input = { // DeleteConfiguredTableInput
- *   configuredTableIdentifier: "STRING_VALUE", // required
+ *   configuredTableIdentifier: 'STRING_VALUE', // required
  * };
  * const command = new DeleteConfiguredTableCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteConfiguredTableCommandInput - {@link DeleteConfiguredTableCommandInput}
@@ -70,6 +73,8 @@ export interface DeleteConfiguredTableCommandOutput extends DeleteConfiguredTabl
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the specified constraints.</p>
  *
+ * @throws {@link CleanRoomsServiceException}
+ * <p>Base exception class for all service exceptions from CleanRooms service.</p>
  *
  */
 export class DeleteConfiguredTableCommand extends $Command<

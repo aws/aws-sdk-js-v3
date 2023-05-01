@@ -67,17 +67,30 @@ export interface ListDomainsCommandOutput extends DomainInfos, __MetadataBearer 
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SWFClient, ListDomainsCommand } from "@aws-sdk/client-swf"; // ES Modules import
- * // const { SWFClient, ListDomainsCommand } = require("@aws-sdk/client-swf"); // CommonJS import
+ * import { SWFClient, ListDomainsCommand } from '@aws-sdk/client-swf'; // ES Modules import
+ * // const { SWFClient, ListDomainsCommand } = require('@aws-sdk/client-swf'); // CommonJS import
  * const client = new SWFClient(config);
  * const input = { // ListDomainsInput
- *   nextPageToken: "STRING_VALUE",
- *   registrationStatus: "REGISTERED" || "DEPRECATED", // required
- *   maximumPageSize: Number("int"),
+ *   nextPageToken: 'STRING_VALUE',
+ *   registrationStatus: 'REGISTERED' || 'DEPRECATED', // required
+ *   maximumPageSize: Number('int'),
  *   reverseOrder: true || false,
  * };
  * const command = new ListDomainsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DomainInfos
+ *   domainInfos: [ // DomainInfoList // required
+ *     { // DomainInfo
+ *       name: 'STRING_VALUE', // required
+ *       status: 'REGISTERED' || 'DEPRECATED', // required
+ *       description: 'STRING_VALUE',
+ *       arn: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   nextPageToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListDomainsCommandInput - {@link ListDomainsCommandInput}
@@ -89,6 +102,8 @@ export interface ListDomainsCommandOutput extends DomainInfos, __MetadataBearer 
  * @throws {@link OperationNotPermittedFault} (client fault)
  *  <p>Returned when the caller doesn't have sufficient permissions to invoke the action.</p>
  *
+ * @throws {@link SWFServiceException}
+ * <p>Base exception class for all service exceptions from SWF service.</p>
  *
  */
 export class ListDomainsCommand extends $Command<

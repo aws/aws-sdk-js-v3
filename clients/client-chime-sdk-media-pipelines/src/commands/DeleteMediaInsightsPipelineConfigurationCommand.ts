@@ -44,14 +44,17 @@ export interface DeleteMediaInsightsPipelineConfigurationCommandOutput extends _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeSDKMediaPipelinesClient, DeleteMediaInsightsPipelineConfigurationCommand } from "@aws-sdk/client-chime-sdk-media-pipelines"; // ES Modules import
- * // const { ChimeSDKMediaPipelinesClient, DeleteMediaInsightsPipelineConfigurationCommand } = require("@aws-sdk/client-chime-sdk-media-pipelines"); // CommonJS import
+ * import { ChimeSDKMediaPipelinesClient, DeleteMediaInsightsPipelineConfigurationCommand } from '@aws-sdk/client-chime-sdk-media-pipelines'; // ES Modules import
+ * // const { ChimeSDKMediaPipelinesClient, DeleteMediaInsightsPipelineConfigurationCommand } = require('@aws-sdk/client-chime-sdk-media-pipelines'); // CommonJS import
  * const client = new ChimeSDKMediaPipelinesClient(config);
  * const input = { // DeleteMediaInsightsPipelineConfigurationRequest
- *   Identifier: "STRING_VALUE", // required
+ *   Identifier: 'STRING_VALUE', // required
  * };
  * const command = new DeleteMediaInsightsPipelineConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteMediaInsightsPipelineConfigurationCommandInput - {@link DeleteMediaInsightsPipelineConfigurationCommandInput}
@@ -85,6 +88,8 @@ export interface DeleteMediaInsightsPipelineConfigurationCommandOutput extends _
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeSDKMediaPipelinesServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKMediaPipelines service.</p>
  *
  */
 export class DeleteMediaInsightsPipelineConfigurationCommand extends $Command<

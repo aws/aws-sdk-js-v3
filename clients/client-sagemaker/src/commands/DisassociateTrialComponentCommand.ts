@@ -41,15 +41,21 @@ export interface DisassociateTrialComponentCommandOutput extends DisassociateTri
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, DisassociateTrialComponentCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, DisassociateTrialComponentCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, DisassociateTrialComponentCommand } from '@aws-sdk/client-sagemaker'; // ES Modules import
+ * // const { SageMakerClient, DisassociateTrialComponentCommand } = require('@aws-sdk/client-sagemaker'); // CommonJS import
  * const client = new SageMakerClient(config);
  * const input = { // DisassociateTrialComponentRequest
- *   TrialComponentName: "STRING_VALUE", // required
- *   TrialName: "STRING_VALUE", // required
+ *   TrialComponentName: 'STRING_VALUE', // required
+ *   TrialName: 'STRING_VALUE', // required
  * };
  * const command = new DisassociateTrialComponentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DisassociateTrialComponentResponse
+ *   TrialComponentArn: 'STRING_VALUE',
+ *   TrialArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DisassociateTrialComponentCommandInput - {@link DisassociateTrialComponentCommandInput}
@@ -61,6 +67,8 @@ export interface DisassociateTrialComponentCommandOutput extends DisassociateTri
  * @throws {@link ResourceNotFound} (client fault)
  *  <p>Resource being access is not found.</p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class DisassociateTrialComponentCommand extends $Command<

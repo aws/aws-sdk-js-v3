@@ -50,15 +50,22 @@ export interface PutDataProtectionPolicyCommandOutput extends PutDataProtectionP
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudWatchLogsClient, PutDataProtectionPolicyCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
- * // const { CloudWatchLogsClient, PutDataProtectionPolicyCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
+ * import { CloudWatchLogsClient, PutDataProtectionPolicyCommand } from '@aws-sdk/client-cloudwatch-logs'; // ES Modules import
+ * // const { CloudWatchLogsClient, PutDataProtectionPolicyCommand } = require('@aws-sdk/client-cloudwatch-logs'); // CommonJS import
  * const client = new CloudWatchLogsClient(config);
  * const input = { // PutDataProtectionPolicyRequest
- *   logGroupIdentifier: "STRING_VALUE", // required
- *   policyDocument: "STRING_VALUE", // required
+ *   logGroupIdentifier: 'STRING_VALUE', // required
+ *   policyDocument: 'STRING_VALUE', // required
  * };
  * const command = new PutDataProtectionPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutDataProtectionPolicyResponse
+ *   logGroupIdentifier: 'STRING_VALUE',
+ *   policyDocument: 'STRING_VALUE',
+ *   lastUpdatedTime: Number('long'),
+ * };
+ *
  * ```
  *
  * @param PutDataProtectionPolicyCommandInput - {@link PutDataProtectionPolicyCommandInput}
@@ -82,6 +89,8 @@ export interface PutDataProtectionPolicyCommandOutput extends PutDataProtectionP
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service cannot complete the request.</p>
  *
+ * @throws {@link CloudWatchLogsServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
  */
 export class PutDataProtectionPolicyCommand extends $Command<

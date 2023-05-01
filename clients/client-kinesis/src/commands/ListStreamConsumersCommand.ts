@@ -38,17 +38,30 @@ export interface ListStreamConsumersCommandOutput extends ListStreamConsumersOut
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KinesisClient, ListStreamConsumersCommand } from "@aws-sdk/client-kinesis"; // ES Modules import
- * // const { KinesisClient, ListStreamConsumersCommand } = require("@aws-sdk/client-kinesis"); // CommonJS import
+ * import { KinesisClient, ListStreamConsumersCommand } from '@aws-sdk/client-kinesis'; // ES Modules import
+ * // const { KinesisClient, ListStreamConsumersCommand } = require('@aws-sdk/client-kinesis'); // CommonJS import
  * const client = new KinesisClient(config);
  * const input = { // ListStreamConsumersInput
- *   StreamARN: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
- *   StreamCreationTimestamp: new Date("TIMESTAMP"),
+ *   StreamARN: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
+ *   StreamCreationTimestamp: new Date('TIMESTAMP'),
  * };
  * const command = new ListStreamConsumersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListStreamConsumersOutput
+ *   Consumers: [ // ConsumerList
+ *     { // Consumer
+ *       ConsumerName: 'STRING_VALUE', // required
+ *       ConsumerARN: 'STRING_VALUE', // required
+ *       ConsumerStatus: 'CREATING' || 'DELETING' || 'ACTIVE', // required
+ *       ConsumerCreationTimestamp: new Date('TIMESTAMP'), // required
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListStreamConsumersCommandInput - {@link ListStreamConsumersCommandInput}
@@ -76,6 +89,8 @@ export interface ListStreamConsumersCommandOutput extends ListStreamConsumersOut
  *  <p>The requested resource could not be found. The stream might not be specified
  *             correctly.</p>
  *
+ * @throws {@link KinesisServiceException}
+ * <p>Base exception class for all service exceptions from Kinesis service.</p>
  *
  */
 export class ListStreamConsumersCommand extends $Command<

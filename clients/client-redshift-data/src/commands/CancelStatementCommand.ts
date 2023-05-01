@@ -39,14 +39,19 @@ export interface CancelStatementCommandOutput extends CancelStatementResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RedshiftDataClient, CancelStatementCommand } from "@aws-sdk/client-redshift-data"; // ES Modules import
- * // const { RedshiftDataClient, CancelStatementCommand } = require("@aws-sdk/client-redshift-data"); // CommonJS import
+ * import { RedshiftDataClient, CancelStatementCommand } from '@aws-sdk/client-redshift-data'; // ES Modules import
+ * // const { RedshiftDataClient, CancelStatementCommand } = require('@aws-sdk/client-redshift-data'); // CommonJS import
  * const client = new RedshiftDataClient(config);
  * const input = { // CancelStatementRequest
- *   Id: "STRING_VALUE", // required
+ *   Id: 'STRING_VALUE', // required
  * };
  * const command = new CancelStatementCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CancelStatementResponse
+ *   Status: true || false,
+ * };
+ *
  * ```
  *
  * @param CancelStatementCommandInput - {@link CancelStatementCommandInput}
@@ -67,6 +72,8 @@ export interface CancelStatementCommandOutput extends CancelStatementResponse, _
  * @throws {@link ValidationException} (client fault)
  *  <p>The Amazon Redshift Data API operation failed due to invalid input. </p>
  *
+ * @throws {@link RedshiftDataServiceException}
+ * <p>Base exception class for all service exceptions from RedshiftData service.</p>
  *
  */
 export class CancelStatementCommand extends $Command<

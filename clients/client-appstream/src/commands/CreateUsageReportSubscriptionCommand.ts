@@ -41,12 +41,18 @@ export interface CreateUsageReportSubscriptionCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppStreamClient, CreateUsageReportSubscriptionCommand } from "@aws-sdk/client-appstream"; // ES Modules import
- * // const { AppStreamClient, CreateUsageReportSubscriptionCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
+ * import { AppStreamClient, CreateUsageReportSubscriptionCommand } from '@aws-sdk/client-appstream'; // ES Modules import
+ * // const { AppStreamClient, CreateUsageReportSubscriptionCommand } = require('@aws-sdk/client-appstream'); // CommonJS import
  * const client = new AppStreamClient(config);
  * const input = {};
  * const command = new CreateUsageReportSubscriptionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateUsageReportSubscriptionResult
+ *   S3BucketName: 'STRING_VALUE',
+ *   Schedule: 'DAILY',
+ * };
+ *
  * ```
  *
  * @param CreateUsageReportSubscriptionCommandInput - {@link CreateUsageReportSubscriptionCommandInput}
@@ -64,6 +70,8 @@ export interface CreateUsageReportSubscriptionCommandOutput
  * @throws {@link LimitExceededException} (client fault)
  *  <p>The requested limit exceeds the permitted limit for an account.</p>
  *
+ * @throws {@link AppStreamServiceException}
+ * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
  */
 export class CreateUsageReportSubscriptionCommand extends $Command<

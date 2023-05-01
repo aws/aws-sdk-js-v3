@@ -38,16 +38,32 @@ export interface ListDeploymentsCommandOutput extends ListDeploymentsResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { M2Client, ListDeploymentsCommand } from "@aws-sdk/client-m2"; // ES Modules import
- * // const { M2Client, ListDeploymentsCommand } = require("@aws-sdk/client-m2"); // CommonJS import
+ * import { M2Client, ListDeploymentsCommand } from '@aws-sdk/client-m2'; // ES Modules import
+ * // const { M2Client, ListDeploymentsCommand } = require('@aws-sdk/client-m2'); // CommonJS import
  * const client = new M2Client(config);
  * const input = { // ListDeploymentsRequest
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
- *   applicationId: "STRING_VALUE", // required
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
+ *   applicationId: 'STRING_VALUE', // required
  * };
  * const command = new ListDeploymentsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListDeploymentsResponse
+ *   deployments: [ // DeploymentList // required
+ *     { // DeploymentSummary
+ *       deploymentId: 'STRING_VALUE', // required
+ *       applicationId: 'STRING_VALUE', // required
+ *       environmentId: 'STRING_VALUE', // required
+ *       applicationVersion: Number('int'), // required
+ *       status: 'STRING_VALUE', // required
+ *       creationTime: new Date('TIMESTAMP'), // required
+ *       statusReason: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListDeploymentsCommandInput - {@link ListDeploymentsCommandInput}
@@ -71,6 +87,8 @@ export interface ListDeploymentsCommandOutput extends ListDeploymentsResponse, _
  * @throws {@link ValidationException} (client fault)
  *  <p>One or more parameters provided in the request is not valid.</p>
  *
+ * @throws {@link M2ServiceException}
+ * <p>Base exception class for all service exceptions from M2 service.</p>
  *
  */
 export class ListDeploymentsCommand extends $Command<

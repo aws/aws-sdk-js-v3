@@ -63,31 +63,57 @@ export interface CreateFargateProfileCommandOutput extends CreateFargateProfileR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EKSClient, CreateFargateProfileCommand } from "@aws-sdk/client-eks"; // ES Modules import
- * // const { EKSClient, CreateFargateProfileCommand } = require("@aws-sdk/client-eks"); // CommonJS import
+ * import { EKSClient, CreateFargateProfileCommand } from '@aws-sdk/client-eks'; // ES Modules import
+ * // const { EKSClient, CreateFargateProfileCommand } = require('@aws-sdk/client-eks'); // CommonJS import
  * const client = new EKSClient(config);
  * const input = { // CreateFargateProfileRequest
- *   fargateProfileName: "STRING_VALUE", // required
- *   clusterName: "STRING_VALUE", // required
- *   podExecutionRoleArn: "STRING_VALUE", // required
+ *   fargateProfileName: 'STRING_VALUE', // required
+ *   clusterName: 'STRING_VALUE', // required
+ *   podExecutionRoleArn: 'STRING_VALUE', // required
  *   subnets: [ // StringList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   selectors: [ // FargateProfileSelectors
  *     { // FargateProfileSelector
- *       namespace: "STRING_VALUE",
+ *       namespace: 'STRING_VALUE',
  *       labels: { // FargateProfileLabel
- *         "<keys>": "STRING_VALUE",
+ *         '<keys>': 'STRING_VALUE',
  *       },
  *     },
  *   ],
- *   clientRequestToken: "STRING_VALUE",
+ *   clientRequestToken: 'STRING_VALUE',
  *   tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateFargateProfileCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateFargateProfileResponse
+ *   fargateProfile: { // FargateProfile
+ *     fargateProfileName: 'STRING_VALUE',
+ *     fargateProfileArn: 'STRING_VALUE',
+ *     clusterName: 'STRING_VALUE',
+ *     createdAt: new Date('TIMESTAMP'),
+ *     podExecutionRoleArn: 'STRING_VALUE',
+ *     subnets: [ // StringList
+ *       'STRING_VALUE',
+ *     ],
+ *     selectors: [ // FargateProfileSelectors
+ *       { // FargateProfileSelector
+ *         namespace: 'STRING_VALUE',
+ *         labels: { // FargateProfileLabel
+ *           '<keys>': 'STRING_VALUE',
+ *         },
+ *       },
+ *     ],
+ *     status: 'CREATING' || 'ACTIVE' || 'DELETING' || 'CREATE_FAILED' || 'DELETE_FAILED',
+ *     tags: { // TagMap
+ *       '<keys>': 'STRING_VALUE',
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateFargateProfileCommandInput - {@link CreateFargateProfileCommandInput}
@@ -121,6 +147,8 @@ export interface CreateFargateProfileCommandOutput extends CreateFargateProfileR
  *             Availability Zones for your account, from which you can choose subnets for your
  *             cluster.</p>
  *
+ * @throws {@link EKSServiceException}
+ * <p>Base exception class for all service exceptions from EKS service.</p>
  *
  */
 export class CreateFargateProfileCommand extends $Command<

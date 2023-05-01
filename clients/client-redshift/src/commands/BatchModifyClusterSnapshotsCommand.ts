@@ -38,18 +38,33 @@ export interface BatchModifyClusterSnapshotsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RedshiftClient, BatchModifyClusterSnapshotsCommand } from "@aws-sdk/client-redshift"; // ES Modules import
- * // const { RedshiftClient, BatchModifyClusterSnapshotsCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * import { RedshiftClient, BatchModifyClusterSnapshotsCommand } from '@aws-sdk/client-redshift'; // ES Modules import
+ * // const { RedshiftClient, BatchModifyClusterSnapshotsCommand } = require('@aws-sdk/client-redshift'); // CommonJS import
  * const client = new RedshiftClient(config);
  * const input = { // BatchModifyClusterSnapshotsMessage
  *   SnapshotIdentifierList: [ // SnapshotIdentifierList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   ManualSnapshotRetentionPeriod: Number("int"),
+ *   ManualSnapshotRetentionPeriod: Number('int'),
  *   Force: true || false,
  * };
  * const command = new BatchModifyClusterSnapshotsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BatchModifyClusterSnapshotsOutputMessage
+ *   Resources: [ // SnapshotIdentifierList
+ *     'STRING_VALUE',
+ *   ],
+ *   Errors: [ // BatchSnapshotOperationErrors
+ *     { // SnapshotErrorMessage
+ *       SnapshotIdentifier: 'STRING_VALUE',
+ *       SnapshotClusterIdentifier: 'STRING_VALUE',
+ *       FailureCode: 'STRING_VALUE',
+ *       FailureReason: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param BatchModifyClusterSnapshotsCommandInput - {@link BatchModifyClusterSnapshotsCommandInput}
@@ -66,6 +81,8 @@ export interface BatchModifyClusterSnapshotsCommandOutput
  *  <p>The retention period specified is either in the past or is not a valid value.</p>
  *          <p>The value must be either -1 or an integer between 1 and 3,653.</p>
  *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class BatchModifyClusterSnapshotsCommand extends $Command<

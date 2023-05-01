@@ -36,16 +36,53 @@ export interface GetFolderCommandOutput extends GetFolderOutput, __MetadataBeare
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeCommitClient, GetFolderCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
- * // const { CodeCommitClient, GetFolderCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
+ * import { CodeCommitClient, GetFolderCommand } from '@aws-sdk/client-codecommit'; // ES Modules import
+ * // const { CodeCommitClient, GetFolderCommand } = require('@aws-sdk/client-codecommit'); // CommonJS import
  * const client = new CodeCommitClient(config);
  * const input = { // GetFolderInput
- *   repositoryName: "STRING_VALUE", // required
- *   commitSpecifier: "STRING_VALUE",
- *   folderPath: "STRING_VALUE", // required
+ *   repositoryName: 'STRING_VALUE', // required
+ *   commitSpecifier: 'STRING_VALUE',
+ *   folderPath: 'STRING_VALUE', // required
  * };
  * const command = new GetFolderCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetFolderOutput
+ *   commitId: 'STRING_VALUE', // required
+ *   folderPath: 'STRING_VALUE', // required
+ *   treeId: 'STRING_VALUE',
+ *   subFolders: [ // FolderList
+ *     { // Folder
+ *       treeId: 'STRING_VALUE',
+ *       absolutePath: 'STRING_VALUE',
+ *       relativePath: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   files: [ // FileList
+ *     { // File
+ *       blobId: 'STRING_VALUE',
+ *       absolutePath: 'STRING_VALUE',
+ *       relativePath: 'STRING_VALUE',
+ *       fileMode: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   symbolicLinks: [ // SymbolicLinkList
+ *     { // SymbolicLink
+ *       blobId: 'STRING_VALUE',
+ *       absolutePath: 'STRING_VALUE',
+ *       relativePath: 'STRING_VALUE',
+ *       fileMode: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   subModules: [ // SubModuleList
+ *     { // SubModule
+ *       commitId: 'STRING_VALUE',
+ *       absolutePath: 'STRING_VALUE',
+ *       relativePath: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetFolderCommandInput - {@link GetFolderCommandInput}
@@ -100,6 +137,8 @@ export interface GetFolderCommandOutput extends GetFolderOutput, __MetadataBeare
  * @throws {@link RepositoryNameRequiredException} (client fault)
  *  <p>A repository name is required, but was not specified.</p>
  *
+ * @throws {@link CodeCommitServiceException}
+ * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
  */
 export class GetFolderCommand extends $Command<

@@ -36,15 +36,26 @@ export interface GetDatabaseCommandOutput extends GetDatabaseOutput, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AthenaClient, GetDatabaseCommand } from "@aws-sdk/client-athena"; // ES Modules import
- * // const { AthenaClient, GetDatabaseCommand } = require("@aws-sdk/client-athena"); // CommonJS import
+ * import { AthenaClient, GetDatabaseCommand } from '@aws-sdk/client-athena'; // ES Modules import
+ * // const { AthenaClient, GetDatabaseCommand } = require('@aws-sdk/client-athena'); // CommonJS import
  * const client = new AthenaClient(config);
  * const input = { // GetDatabaseInput
- *   CatalogName: "STRING_VALUE", // required
- *   DatabaseName: "STRING_VALUE", // required
+ *   CatalogName: 'STRING_VALUE', // required
+ *   DatabaseName: 'STRING_VALUE', // required
  * };
  * const command = new GetDatabaseCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetDatabaseOutput
+ *   Database: { // Database
+ *     Name: 'STRING_VALUE', // required
+ *     Description: 'STRING_VALUE',
+ *     Parameters: { // ParametersMap
+ *       '<keys>': 'STRING_VALUE',
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetDatabaseCommandInput - {@link GetDatabaseCommandInput}
@@ -69,6 +80,8 @@ export interface GetDatabaseCommandOutput extends GetDatabaseOutput, __MetadataB
  *                 Lambda
  *             <code>4XX</code> exception is returned in a <code>MetadataException</code>.</p>
  *
+ * @throws {@link AthenaServiceException}
+ * <p>Base exception class for all service exceptions from Athena service.</p>
  *
  */
 export class GetDatabaseCommand extends $Command<

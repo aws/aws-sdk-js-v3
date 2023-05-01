@@ -43,48 +43,56 @@ export interface StartDocumentClassificationJobCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ComprehendClient, StartDocumentClassificationJobCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
- * // const { ComprehendClient, StartDocumentClassificationJobCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
+ * import { ComprehendClient, StartDocumentClassificationJobCommand } from '@aws-sdk/client-comprehend'; // ES Modules import
+ * // const { ComprehendClient, StartDocumentClassificationJobCommand } = require('@aws-sdk/client-comprehend'); // CommonJS import
  * const client = new ComprehendClient(config);
  * const input = { // StartDocumentClassificationJobRequest
- *   JobName: "STRING_VALUE",
- *   DocumentClassifierArn: "STRING_VALUE",
+ *   JobName: 'STRING_VALUE',
+ *   DocumentClassifierArn: 'STRING_VALUE',
  *   InputDataConfig: { // InputDataConfig
- *     S3Uri: "STRING_VALUE", // required
- *     InputFormat: "ONE_DOC_PER_FILE" || "ONE_DOC_PER_LINE",
+ *     S3Uri: 'STRING_VALUE', // required
+ *     InputFormat: 'ONE_DOC_PER_FILE' || 'ONE_DOC_PER_LINE',
  *     DocumentReaderConfig: { // DocumentReaderConfig
- *       DocumentReadAction: "TEXTRACT_DETECT_DOCUMENT_TEXT" || "TEXTRACT_ANALYZE_DOCUMENT", // required
- *       DocumentReadMode: "SERVICE_DEFAULT" || "FORCE_DOCUMENT_READ_ACTION",
+ *       DocumentReadAction: 'TEXTRACT_DETECT_DOCUMENT_TEXT' || 'TEXTRACT_ANALYZE_DOCUMENT', // required
+ *       DocumentReadMode: 'SERVICE_DEFAULT' || 'FORCE_DOCUMENT_READ_ACTION',
  *       FeatureTypes: [ // ListOfDocumentReadFeatureTypes
- *         "TABLES" || "FORMS",
+ *         'TABLES' || 'FORMS',
  *       ],
  *     },
  *   },
  *   OutputDataConfig: { // OutputDataConfig
- *     S3Uri: "STRING_VALUE", // required
- *     KmsKeyId: "STRING_VALUE",
+ *     S3Uri: 'STRING_VALUE', // required
+ *     KmsKeyId: 'STRING_VALUE',
  *   },
- *   DataAccessRoleArn: "STRING_VALUE", // required
- *   ClientRequestToken: "STRING_VALUE",
- *   VolumeKmsKeyId: "STRING_VALUE",
+ *   DataAccessRoleArn: 'STRING_VALUE', // required
+ *   ClientRequestToken: 'STRING_VALUE',
+ *   VolumeKmsKeyId: 'STRING_VALUE',
  *   VpcConfig: { // VpcConfig
  *     SecurityGroupIds: [ // SecurityGroupIds // required
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     Subnets: [ // Subnets // required
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *   },
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
- *   FlywheelArn: "STRING_VALUE",
+ *   FlywheelArn: 'STRING_VALUE',
  * };
  * const command = new StartDocumentClassificationJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartDocumentClassificationJobResponse
+ *   JobId: 'STRING_VALUE',
+ *   JobArn: 'STRING_VALUE',
+ *   JobStatus: 'SUBMITTED' || 'IN_PROGRESS' || 'COMPLETED' || 'FAILED' || 'STOP_REQUESTED' || 'STOPPED',
+ *   DocumentClassifierArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param StartDocumentClassificationJobCommandInput - {@link StartDocumentClassificationJobCommandInput}
@@ -122,6 +130,8 @@ export interface StartDocumentClassificationJobCommandOutput
  *       resource). The maximum number of tags includes both existing tags and those included in your
  *       current request. </p>
  *
+ * @throws {@link ComprehendServiceException}
+ * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
  */
 export class StartDocumentClassificationJobCommand extends $Command<

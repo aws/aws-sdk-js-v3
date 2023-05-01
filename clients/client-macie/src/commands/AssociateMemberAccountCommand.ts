@@ -37,14 +37,17 @@ export interface AssociateMemberAccountCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MacieClient, AssociateMemberAccountCommand } from "@aws-sdk/client-macie"; // ES Modules import
- * // const { MacieClient, AssociateMemberAccountCommand } = require("@aws-sdk/client-macie"); // CommonJS import
+ * import { MacieClient, AssociateMemberAccountCommand } from '@aws-sdk/client-macie'; // ES Modules import
+ * // const { MacieClient, AssociateMemberAccountCommand } = require('@aws-sdk/client-macie'); // CommonJS import
  * const client = new MacieClient(config);
  * const input = { // AssociateMemberAccountRequest
- *   memberAccountId: "STRING_VALUE", // required
+ *   memberAccountId: 'STRING_VALUE', // required
  * };
  * const command = new AssociateMemberAccountCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param AssociateMemberAccountCommandInput - {@link AssociateMemberAccountCommandInput}
@@ -64,6 +67,8 @@ export interface AssociateMemberAccountCommandOutput extends __MetadataBearer {}
  *  <p>(Discontinued) The request was rejected because it attempted to create resources beyond the current
  *       Amazon Web Services account quotas. The error code describes the quota exceeded.</p>
  *
+ * @throws {@link MacieServiceException}
+ * <p>Base exception class for all service exceptions from Macie service.</p>
  *
  */
 export class AssociateMemberAccountCommand extends $Command<

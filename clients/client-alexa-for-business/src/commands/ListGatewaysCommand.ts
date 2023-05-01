@@ -38,16 +38,30 @@ export interface ListGatewaysCommandOutput extends ListGatewaysResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AlexaForBusinessClient, ListGatewaysCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
- * // const { AlexaForBusinessClient, ListGatewaysCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
+ * import { AlexaForBusinessClient, ListGatewaysCommand } from '@aws-sdk/client-alexa-for-business'; // ES Modules import
+ * // const { AlexaForBusinessClient, ListGatewaysCommand } = require('@aws-sdk/client-alexa-for-business'); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
  * const input = { // ListGatewaysRequest
- *   GatewayGroupArn: "STRING_VALUE",
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   GatewayGroupArn: 'STRING_VALUE',
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListGatewaysCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListGatewaysResponse
+ *   Gateways: [ // GatewaySummaries
+ *     { // GatewaySummary
+ *       Arn: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *       Description: 'STRING_VALUE',
+ *       GatewayGroupArn: 'STRING_VALUE',
+ *       SoftwareVersion: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListGatewaysCommandInput - {@link ListGatewaysCommandInput}
@@ -56,6 +70,8 @@ export interface ListGatewaysCommandOutput extends ListGatewaysResponse, __Metad
  * @see {@link ListGatewaysCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
  *
+ * @throws {@link AlexaForBusinessServiceException}
+ * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  */
 export class ListGatewaysCommand extends $Command<

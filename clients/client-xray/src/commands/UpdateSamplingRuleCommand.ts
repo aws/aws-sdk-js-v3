@@ -36,29 +36,54 @@ export interface UpdateSamplingRuleCommandOutput extends UpdateSamplingRuleResul
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { XRayClient, UpdateSamplingRuleCommand } from "@aws-sdk/client-xray"; // ES Modules import
- * // const { XRayClient, UpdateSamplingRuleCommand } = require("@aws-sdk/client-xray"); // CommonJS import
+ * import { XRayClient, UpdateSamplingRuleCommand } from '@aws-sdk/client-xray'; // ES Modules import
+ * // const { XRayClient, UpdateSamplingRuleCommand } = require('@aws-sdk/client-xray'); // CommonJS import
  * const client = new XRayClient(config);
  * const input = { // UpdateSamplingRuleRequest
  *   SamplingRuleUpdate: { // SamplingRuleUpdate
- *     RuleName: "STRING_VALUE",
- *     RuleARN: "STRING_VALUE",
- *     ResourceARN: "STRING_VALUE",
- *     Priority: Number("int"),
- *     FixedRate: Number("double"),
- *     ReservoirSize: Number("int"),
- *     Host: "STRING_VALUE",
- *     ServiceName: "STRING_VALUE",
- *     ServiceType: "STRING_VALUE",
- *     HTTPMethod: "STRING_VALUE",
- *     URLPath: "STRING_VALUE",
+ *     RuleName: 'STRING_VALUE',
+ *     RuleARN: 'STRING_VALUE',
+ *     ResourceARN: 'STRING_VALUE',
+ *     Priority: Number('int'),
+ *     FixedRate: Number('double'),
+ *     ReservoirSize: Number('int'),
+ *     Host: 'STRING_VALUE',
+ *     ServiceName: 'STRING_VALUE',
+ *     ServiceType: 'STRING_VALUE',
+ *     HTTPMethod: 'STRING_VALUE',
+ *     URLPath: 'STRING_VALUE',
  *     Attributes: { // AttributeMap
- *       "<keys>": "STRING_VALUE",
+ *       '<keys>': 'STRING_VALUE',
  *     },
  *   },
  * };
  * const command = new UpdateSamplingRuleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateSamplingRuleResult
+ *   SamplingRuleRecord: { // SamplingRuleRecord
+ *     SamplingRule: { // SamplingRule
+ *       RuleName: 'STRING_VALUE',
+ *       RuleARN: 'STRING_VALUE',
+ *       ResourceARN: 'STRING_VALUE', // required
+ *       Priority: Number('int'), // required
+ *       FixedRate: Number('double'), // required
+ *       ReservoirSize: Number('int'), // required
+ *       ServiceName: 'STRING_VALUE', // required
+ *       ServiceType: 'STRING_VALUE', // required
+ *       Host: 'STRING_VALUE', // required
+ *       HTTPMethod: 'STRING_VALUE', // required
+ *       URLPath: 'STRING_VALUE', // required
+ *       Version: Number('int'), // required
+ *       Attributes: { // AttributeMap
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *     },
+ *     CreatedAt: new Date('TIMESTAMP'),
+ *     ModifiedAt: new Date('TIMESTAMP'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateSamplingRuleCommandInput - {@link UpdateSamplingRuleCommandInput}
@@ -73,6 +98,8 @@ export interface UpdateSamplingRuleCommandOutput extends UpdateSamplingRuleResul
  * @throws {@link ThrottledException} (client fault)
  *  <p>The request exceeds the maximum number of requests per second.</p>
  *
+ * @throws {@link XRayServiceException}
+ * <p>Base exception class for all service exceptions from XRay service.</p>
  *
  */
 export class UpdateSamplingRuleCommand extends $Command<

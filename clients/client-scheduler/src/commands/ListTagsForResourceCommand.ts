@@ -36,14 +36,24 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOut
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SchedulerClient, ListTagsForResourceCommand } from "@aws-sdk/client-scheduler"; // ES Modules import
- * // const { SchedulerClient, ListTagsForResourceCommand } = require("@aws-sdk/client-scheduler"); // CommonJS import
+ * import { SchedulerClient, ListTagsForResourceCommand } from '@aws-sdk/client-scheduler'; // ES Modules import
+ * // const { SchedulerClient, ListTagsForResourceCommand } = require('@aws-sdk/client-scheduler'); // CommonJS import
  * const client = new SchedulerClient(config);
  * const input = { // ListTagsForResourceInput
- *   ResourceArn: "STRING_VALUE", // required
+ *   ResourceArn: 'STRING_VALUE', // required
  * };
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTagsForResourceOutput
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListTagsForResourceCommandInput - {@link ListTagsForResourceCommandInput}
@@ -64,6 +74,8 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOut
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link SchedulerServiceException}
+ * <p>Base exception class for all service exceptions from Scheduler service.</p>
  *
  */
 export class ListTagsForResourceCommand extends $Command<

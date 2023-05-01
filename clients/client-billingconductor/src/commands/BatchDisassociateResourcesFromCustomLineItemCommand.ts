@@ -47,21 +47,43 @@ export interface BatchDisassociateResourcesFromCustomLineItemCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BillingconductorClient, BatchDisassociateResourcesFromCustomLineItemCommand } from "@aws-sdk/client-billingconductor"; // ES Modules import
- * // const { BillingconductorClient, BatchDisassociateResourcesFromCustomLineItemCommand } = require("@aws-sdk/client-billingconductor"); // CommonJS import
+ * import { BillingconductorClient, BatchDisassociateResourcesFromCustomLineItemCommand } from '@aws-sdk/client-billingconductor'; // ES Modules import
+ * // const { BillingconductorClient, BatchDisassociateResourcesFromCustomLineItemCommand } = require('@aws-sdk/client-billingconductor'); // CommonJS import
  * const client = new BillingconductorClient(config);
  * const input = { // BatchDisassociateResourcesFromCustomLineItemInput
- *   TargetArn: "STRING_VALUE", // required
+ *   TargetArn: 'STRING_VALUE', // required
  *   ResourceArns: [ // CustomLineItemBatchDisassociationsList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   BillingPeriodRange: { // CustomLineItemBillingPeriodRange
- *     InclusiveStartBillingPeriod: "STRING_VALUE", // required
- *     ExclusiveEndBillingPeriod: "STRING_VALUE",
+ *     InclusiveStartBillingPeriod: 'STRING_VALUE', // required
+ *     ExclusiveEndBillingPeriod: 'STRING_VALUE',
  *   },
  * };
  * const command = new BatchDisassociateResourcesFromCustomLineItemCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BatchDisassociateResourcesFromCustomLineItemOutput
+ *   SuccessfullyDisassociatedResources: [ // DisassociateResourcesResponseList
+ *     { // DisassociateResourceResponseElement
+ *       Arn: 'STRING_VALUE',
+ *       Error: { // AssociateResourceError
+ *         Message: 'STRING_VALUE',
+ *         Reason: 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ *   FailedDisassociatedResources: [
+ *     {
+ *       Arn: 'STRING_VALUE',
+ *       Error: {
+ *         Message: 'STRING_VALUE',
+ *         Reason: 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param BatchDisassociateResourcesFromCustomLineItemCommandInput - {@link BatchDisassociateResourcesFromCustomLineItemCommandInput}
@@ -93,6 +115,8 @@ export interface BatchDisassociateResourcesFromCustomLineItemCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The input doesn't match with the constraints specified by Amazon Web Services services.</p>
  *
+ * @throws {@link BillingconductorServiceException}
+ * <p>Base exception class for all service exceptions from Billingconductor service.</p>
  *
  */
 export class BatchDisassociateResourcesFromCustomLineItemCommand extends $Command<

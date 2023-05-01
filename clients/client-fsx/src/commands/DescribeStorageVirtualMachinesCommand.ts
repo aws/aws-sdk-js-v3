@@ -41,26 +41,91 @@ export interface DescribeStorageVirtualMachinesCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FSxClient, DescribeStorageVirtualMachinesCommand } from "@aws-sdk/client-fsx"; // ES Modules import
- * // const { FSxClient, DescribeStorageVirtualMachinesCommand } = require("@aws-sdk/client-fsx"); // CommonJS import
+ * import { FSxClient, DescribeStorageVirtualMachinesCommand } from '@aws-sdk/client-fsx'; // ES Modules import
+ * // const { FSxClient, DescribeStorageVirtualMachinesCommand } = require('@aws-sdk/client-fsx'); // CommonJS import
  * const client = new FSxClient(config);
  * const input = { // DescribeStorageVirtualMachinesRequest
  *   StorageVirtualMachineIds: [ // StorageVirtualMachineIds
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   Filters: [ // StorageVirtualMachineFilters
  *     { // StorageVirtualMachineFilter
- *       Name: "file-system-id",
+ *       Name: 'file-system-id',
  *       Values: [ // StorageVirtualMachineFilterValues
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new DescribeStorageVirtualMachinesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeStorageVirtualMachinesResponse
+ *   StorageVirtualMachines: [ // StorageVirtualMachines
+ *     { // StorageVirtualMachine
+ *       ActiveDirectoryConfiguration: { // SvmActiveDirectoryConfiguration
+ *         NetBiosName: 'STRING_VALUE',
+ *         SelfManagedActiveDirectoryConfiguration: { // SelfManagedActiveDirectoryAttributes
+ *           DomainName: 'STRING_VALUE',
+ *           OrganizationalUnitDistinguishedName: 'STRING_VALUE',
+ *           FileSystemAdministratorsGroup: 'STRING_VALUE',
+ *           UserName: 'STRING_VALUE',
+ *           DnsIps: [ // DnsIps
+ *             'STRING_VALUE',
+ *           ],
+ *         },
+ *       },
+ *       CreationTime: new Date('TIMESTAMP'),
+ *       Endpoints: { // SvmEndpoints
+ *         Iscsi: { // SvmEndpoint
+ *           DNSName: 'STRING_VALUE',
+ *           IpAddresses: [ // OntapEndpointIpAddresses
+ *             'STRING_VALUE',
+ *           ],
+ *         },
+ *         Management: {
+ *           DNSName: 'STRING_VALUE',
+ *           IpAddresses: [
+ *             'STRING_VALUE',
+ *           ],
+ *         },
+ *         Nfs: {
+ *           DNSName: 'STRING_VALUE',
+ *           IpAddresses: [
+ *             'STRING_VALUE',
+ *           ],
+ *         },
+ *         Smb: {
+ *           DNSName: 'STRING_VALUE',
+ *           IpAddresses: [
+ *             'STRING_VALUE',
+ *           ],
+ *         },
+ *       },
+ *       FileSystemId: 'STRING_VALUE',
+ *       Lifecycle: 'CREATED' || 'CREATING' || 'DELETING' || 'FAILED' || 'MISCONFIGURED' || 'PENDING',
+ *       Name: 'STRING_VALUE',
+ *       ResourceARN: 'STRING_VALUE',
+ *       StorageVirtualMachineId: 'STRING_VALUE',
+ *       Subtype: 'DEFAULT' || 'DP_DESTINATION' || 'SYNC_DESTINATION' || 'SYNC_SOURCE',
+ *       UUID: 'STRING_VALUE',
+ *       Tags: [ // Tags
+ *         { // Tag
+ *           Key: 'STRING_VALUE', // required
+ *           Value: 'STRING_VALUE', // required
+ *         },
+ *       ],
+ *       LifecycleTransitionReason: { // LifecycleTransitionReason
+ *         Message: 'STRING_VALUE',
+ *       },
+ *       RootVolumeSecurityStyle: 'UNIX' || 'NTFS' || 'MIXED',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeStorageVirtualMachinesCommandInput - {@link DescribeStorageVirtualMachinesCommandInput}
@@ -78,6 +143,8 @@ export interface DescribeStorageVirtualMachinesCommandOutput
  * @throws {@link StorageVirtualMachineNotFound} (client fault)
  *  <p>No FSx for ONTAP SVMs were found based upon the supplied parameters.</p>
  *
+ * @throws {@link FSxServiceException}
+ * <p>Base exception class for all service exceptions from FSx service.</p>
  *
  */
 export class DescribeStorageVirtualMachinesCommand extends $Command<

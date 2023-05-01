@@ -36,93 +36,103 @@ export interface UpdateBackendAuthCommandOutput extends UpdateBackendAuthRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AmplifyBackendClient, UpdateBackendAuthCommand } from "@aws-sdk/client-amplifybackend"; // ES Modules import
- * // const { AmplifyBackendClient, UpdateBackendAuthCommand } = require("@aws-sdk/client-amplifybackend"); // CommonJS import
+ * import { AmplifyBackendClient, UpdateBackendAuthCommand } from '@aws-sdk/client-amplifybackend'; // ES Modules import
+ * // const { AmplifyBackendClient, UpdateBackendAuthCommand } = require('@aws-sdk/client-amplifybackend'); // CommonJS import
  * const client = new AmplifyBackendClient(config);
  * const input = { // UpdateBackendAuthRequest
- *   AppId: "STRING_VALUE", // required
- *   BackendEnvironmentName: "STRING_VALUE", // required
+ *   AppId: 'STRING_VALUE', // required
+ *   BackendEnvironmentName: 'STRING_VALUE', // required
  *   ResourceConfig: { // UpdateBackendAuthResourceConfig
- *     AuthResources: "USER_POOL_ONLY" || "IDENTITY_POOL_AND_USER_POOL", // required
+ *     AuthResources: 'USER_POOL_ONLY' || 'IDENTITY_POOL_AND_USER_POOL', // required
  *     IdentityPoolConfigs: { // UpdateBackendAuthIdentityPoolConfig
  *       UnauthenticatedLogin: true || false,
  *     },
- *     Service: "COGNITO", // required
+ *     Service: 'COGNITO', // required
  *     UserPoolConfigs: { // UpdateBackendAuthUserPoolConfig
  *       ForgotPassword: { // UpdateBackendAuthForgotPasswordConfig
- *         DeliveryMethod: "EMAIL" || "SMS",
+ *         DeliveryMethod: 'EMAIL' || 'SMS',
  *         EmailSettings: { // EmailSettings
- *           EmailMessage: "STRING_VALUE",
- *           EmailSubject: "STRING_VALUE",
+ *           EmailMessage: 'STRING_VALUE',
+ *           EmailSubject: 'STRING_VALUE',
  *         },
  *         SmsSettings: { // SmsSettings
- *           SmsMessage: "STRING_VALUE",
+ *           SmsMessage: 'STRING_VALUE',
  *         },
  *       },
  *       Mfa: { // UpdateBackendAuthMFAConfig
- *         MFAMode: "ON" || "OFF" || "OPTIONAL",
+ *         MFAMode: 'ON' || 'OFF' || 'OPTIONAL',
  *         Settings: { // Settings
  *           MfaTypes: [ // ListOfMfaTypesElement
- *             "SMS" || "TOTP",
+ *             'SMS' || 'TOTP',
  *           ],
- *           SmsMessage: "STRING_VALUE",
+ *           SmsMessage: 'STRING_VALUE',
  *         },
  *       },
  *       OAuth: { // UpdateBackendAuthOAuthConfig
- *         DomainPrefix: "STRING_VALUE",
- *         OAuthGrantType: "CODE" || "IMPLICIT",
+ *         DomainPrefix: 'STRING_VALUE',
+ *         OAuthGrantType: 'CODE' || 'IMPLICIT',
  *         OAuthScopes: [ // ListOfOAuthScopesElement
- *           "PHONE" || "EMAIL" || "OPENID" || "PROFILE" || "AWS_COGNITO_SIGNIN_USER_ADMIN",
+ *           'PHONE' || 'EMAIL' || 'OPENID' || 'PROFILE' || 'AWS_COGNITO_SIGNIN_USER_ADMIN',
  *         ],
  *         RedirectSignInURIs: [ // ListOf__string
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
  *         RedirectSignOutURIs: [
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
  *         SocialProviderSettings: { // SocialProviderSettings
  *           Facebook: { // BackendAuthSocialProviderConfig
- *             ClientId: "STRING_VALUE",
- *             ClientSecret: "STRING_VALUE",
+ *             ClientId: 'STRING_VALUE',
+ *             ClientSecret: 'STRING_VALUE',
  *           },
  *           Google: {
- *             ClientId: "STRING_VALUE",
- *             ClientSecret: "STRING_VALUE",
+ *             ClientId: 'STRING_VALUE',
+ *             ClientSecret: 'STRING_VALUE',
  *           },
  *           LoginWithAmazon: {
- *             ClientId: "STRING_VALUE",
- *             ClientSecret: "STRING_VALUE",
+ *             ClientId: 'STRING_VALUE',
+ *             ClientSecret: 'STRING_VALUE',
  *           },
  *           SignInWithApple: { // BackendAuthAppleProviderConfig
- *             ClientId: "STRING_VALUE",
- *             KeyId: "STRING_VALUE",
- *             PrivateKey: "STRING_VALUE",
- *             TeamId: "STRING_VALUE",
+ *             ClientId: 'STRING_VALUE',
+ *             KeyId: 'STRING_VALUE',
+ *             PrivateKey: 'STRING_VALUE',
+ *             TeamId: 'STRING_VALUE',
  *           },
  *         },
  *       },
  *       PasswordPolicy: { // UpdateBackendAuthPasswordPolicyConfig
  *         AdditionalConstraints: [ // ListOfAdditionalConstraintsElement
- *           "REQUIRE_DIGIT" || "REQUIRE_LOWERCASE" || "REQUIRE_SYMBOL" || "REQUIRE_UPPERCASE",
+ *           'REQUIRE_DIGIT' || 'REQUIRE_LOWERCASE' || 'REQUIRE_SYMBOL' || 'REQUIRE_UPPERCASE',
  *         ],
- *         MinimumLength: Number("double"),
+ *         MinimumLength: Number('double'),
  *       },
  *       VerificationMessage: { // UpdateBackendAuthVerificationMessageConfig
- *         DeliveryMethod: "EMAIL" || "SMS", // required
+ *         DeliveryMethod: 'EMAIL' || 'SMS', // required
  *         EmailSettings: {
- *           EmailMessage: "STRING_VALUE",
- *           EmailSubject: "STRING_VALUE",
+ *           EmailMessage: 'STRING_VALUE',
+ *           EmailSubject: 'STRING_VALUE',
  *         },
  *         SmsSettings: {
- *           SmsMessage: "STRING_VALUE",
+ *           SmsMessage: 'STRING_VALUE',
  *         },
  *       },
  *     },
  *   },
- *   ResourceName: "STRING_VALUE", // required
+ *   ResourceName: 'STRING_VALUE', // required
  * };
  * const command = new UpdateBackendAuthCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateBackendAuthResponse
+ *   AppId: 'STRING_VALUE',
+ *   BackendEnvironmentName: 'STRING_VALUE',
+ *   Error: 'STRING_VALUE',
+ *   JobId: 'STRING_VALUE',
+ *   Operation: 'STRING_VALUE',
+ *   Status: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateBackendAuthCommandInput - {@link UpdateBackendAuthCommandInput}
@@ -143,6 +153,8 @@ export interface UpdateBackendAuthCommandOutput extends UpdateBackendAuthRespons
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>An error that is returned when a limit of a specific type has been exceeded.</p>
  *
+ * @throws {@link AmplifyBackendServiceException}
+ * <p>Base exception class for all service exceptions from AmplifyBackend service.</p>
  *
  */
 export class UpdateBackendAuthCommand extends $Command<

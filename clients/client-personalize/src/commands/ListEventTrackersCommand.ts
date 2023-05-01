@@ -39,16 +39,30 @@ export interface ListEventTrackersCommandOutput extends ListEventTrackersRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PersonalizeClient, ListEventTrackersCommand } from "@aws-sdk/client-personalize"; // ES Modules import
- * // const { PersonalizeClient, ListEventTrackersCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
+ * import { PersonalizeClient, ListEventTrackersCommand } from '@aws-sdk/client-personalize'; // ES Modules import
+ * // const { PersonalizeClient, ListEventTrackersCommand } = require('@aws-sdk/client-personalize'); // CommonJS import
  * const client = new PersonalizeClient(config);
  * const input = { // ListEventTrackersRequest
- *   datasetGroupArn: "STRING_VALUE",
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   datasetGroupArn: 'STRING_VALUE',
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new ListEventTrackersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListEventTrackersResponse
+ *   eventTrackers: [ // EventTrackers
+ *     { // EventTrackerSummary
+ *       name: 'STRING_VALUE',
+ *       eventTrackerArn: 'STRING_VALUE',
+ *       status: 'STRING_VALUE',
+ *       creationDateTime: new Date('TIMESTAMP'),
+ *       lastUpdatedDateTime: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListEventTrackersCommandInput - {@link ListEventTrackersCommandInput}
@@ -63,6 +77,8 @@ export interface ListEventTrackersCommandOutput extends ListEventTrackersRespons
  * @throws {@link InvalidNextTokenException} (client fault)
  *  <p>The token is not valid.</p>
  *
+ * @throws {@link PersonalizeServiceException}
+ * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
  */
 export class ListEventTrackersCommand extends $Command<

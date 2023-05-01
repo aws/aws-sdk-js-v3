@@ -68,29 +68,43 @@ export interface BatchEvaluateGeofencesCommandOutput extends BatchEvaluateGeofen
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LocationClient, BatchEvaluateGeofencesCommand } from "@aws-sdk/client-location"; // ES Modules import
- * // const { LocationClient, BatchEvaluateGeofencesCommand } = require("@aws-sdk/client-location"); // CommonJS import
+ * import { LocationClient, BatchEvaluateGeofencesCommand } from '@aws-sdk/client-location'; // ES Modules import
+ * // const { LocationClient, BatchEvaluateGeofencesCommand } = require('@aws-sdk/client-location'); // CommonJS import
  * const client = new LocationClient(config);
  * const input = { // BatchEvaluateGeofencesRequest
- *   CollectionName: "STRING_VALUE", // required
+ *   CollectionName: 'STRING_VALUE', // required
  *   DevicePositionUpdates: [ // DevicePositionUpdateList // required
  *     { // DevicePositionUpdate
- *       DeviceId: "STRING_VALUE", // required
- *       SampleTime: new Date("TIMESTAMP"), // required
+ *       DeviceId: 'STRING_VALUE', // required
+ *       SampleTime: new Date('TIMESTAMP'), // required
  *       Position: [ // Position // required
- *         Number("double"),
+ *         Number('double'),
  *       ],
  *       Accuracy: { // PositionalAccuracy
- *         Horizontal: Number("double"), // required
+ *         Horizontal: Number('double'), // required
  *       },
  *       PositionProperties: { // PropertyMap
- *         "<keys>": "STRING_VALUE",
+ *         '<keys>': 'STRING_VALUE',
  *       },
  *     },
  *   ],
  * };
  * const command = new BatchEvaluateGeofencesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BatchEvaluateGeofencesResponse
+ *   Errors: [ // BatchEvaluateGeofencesErrorList // required
+ *     { // BatchEvaluateGeofencesError
+ *       DeviceId: 'STRING_VALUE', // required
+ *       SampleTime: new Date('TIMESTAMP'), // required
+ *       Error: { // BatchItemError
+ *         Code: 'STRING_VALUE',
+ *         Message: 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param BatchEvaluateGeofencesCommandInput - {@link BatchEvaluateGeofencesCommandInput}
@@ -115,6 +129,8 @@ export interface BatchEvaluateGeofencesCommandOutput extends BatchEvaluateGeofen
  * @throws {@link ValidationException} (client fault)
  *  <p>The input failed to meet the constraints specified by the AWS service. </p>
  *
+ * @throws {@link LocationServiceException}
+ * <p>Base exception class for all service exceptions from Location service.</p>
  *
  */
 export class BatchEvaluateGeofencesCommand extends $Command<

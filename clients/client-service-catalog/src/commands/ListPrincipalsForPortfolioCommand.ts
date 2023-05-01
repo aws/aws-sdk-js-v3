@@ -36,17 +36,28 @@ export interface ListPrincipalsForPortfolioCommandOutput extends ListPrincipalsF
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ServiceCatalogClient, ListPrincipalsForPortfolioCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
- * // const { ServiceCatalogClient, ListPrincipalsForPortfolioCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
+ * import { ServiceCatalogClient, ListPrincipalsForPortfolioCommand } from '@aws-sdk/client-service-catalog'; // ES Modules import
+ * // const { ServiceCatalogClient, ListPrincipalsForPortfolioCommand } = require('@aws-sdk/client-service-catalog'); // CommonJS import
  * const client = new ServiceCatalogClient(config);
  * const input = { // ListPrincipalsForPortfolioInput
- *   AcceptLanguage: "STRING_VALUE",
- *   PortfolioId: "STRING_VALUE", // required
- *   PageSize: Number("int"),
- *   PageToken: "STRING_VALUE",
+ *   AcceptLanguage: 'STRING_VALUE',
+ *   PortfolioId: 'STRING_VALUE', // required
+ *   PageSize: Number('int'),
+ *   PageToken: 'STRING_VALUE',
  * };
  * const command = new ListPrincipalsForPortfolioCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListPrincipalsForPortfolioOutput
+ *   Principals: [ // Principals
+ *     { // Principal
+ *       PrincipalARN: 'STRING_VALUE',
+ *       PrincipalType: 'IAM' || 'IAM_PATTERN',
+ *     },
+ *   ],
+ *   NextPageToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListPrincipalsForPortfolioCommandInput - {@link ListPrincipalsForPortfolioCommandInput}
@@ -61,6 +72,8 @@ export interface ListPrincipalsForPortfolioCommandOutput extends ListPrincipalsF
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link ServiceCatalogServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
  */
 export class ListPrincipalsForPortfolioCommand extends $Command<

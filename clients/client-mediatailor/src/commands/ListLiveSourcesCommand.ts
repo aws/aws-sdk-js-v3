@@ -36,16 +36,40 @@ export interface ListLiveSourcesCommandOutput extends ListLiveSourcesResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MediaTailorClient, ListLiveSourcesCommand } from "@aws-sdk/client-mediatailor"; // ES Modules import
- * // const { MediaTailorClient, ListLiveSourcesCommand } = require("@aws-sdk/client-mediatailor"); // CommonJS import
+ * import { MediaTailorClient, ListLiveSourcesCommand } from '@aws-sdk/client-mediatailor'; // ES Modules import
+ * // const { MediaTailorClient, ListLiveSourcesCommand } = require('@aws-sdk/client-mediatailor'); // CommonJS import
  * const client = new MediaTailorClient(config);
  * const input = { // ListLiveSourcesRequest
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
- *   SourceLocationName: "STRING_VALUE", // required
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
+ *   SourceLocationName: 'STRING_VALUE', // required
  * };
  * const command = new ListLiveSourcesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListLiveSourcesResponse
+ *   Items: [ // __listOfLiveSource
+ *     { // LiveSource
+ *       Arn: 'STRING_VALUE', // required
+ *       CreationTime: new Date('TIMESTAMP'),
+ *       HttpPackageConfigurations: [ // HttpPackageConfigurations // required
+ *         { // HttpPackageConfiguration
+ *           Path: 'STRING_VALUE', // required
+ *           SourceGroup: 'STRING_VALUE', // required
+ *           Type: 'DASH' || 'HLS', // required
+ *         },
+ *       ],
+ *       LastModifiedTime: new Date('TIMESTAMP'),
+ *       LiveSourceName: 'STRING_VALUE', // required
+ *       SourceLocationName: 'STRING_VALUE', // required
+ *       Tags: { // __mapOf__string
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListLiveSourcesCommandInput - {@link ListLiveSourcesCommandInput}
@@ -54,6 +78,8 @@ export interface ListLiveSourcesCommandOutput extends ListLiveSourcesResponse, _
  * @see {@link ListLiveSourcesCommandOutput} for command's `response` shape.
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.
  *
+ * @throws {@link MediaTailorServiceException}
+ * <p>Base exception class for all service exceptions from MediaTailor service.</p>
  *
  */
 export class ListLiveSourcesCommand extends $Command<

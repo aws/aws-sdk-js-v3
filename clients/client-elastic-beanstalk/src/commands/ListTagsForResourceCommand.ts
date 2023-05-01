@@ -39,14 +39,25 @@ export interface ListTagsForResourceCommandOutput extends ResourceTagsDescriptio
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElasticBeanstalkClient, ListTagsForResourceCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
- * // const { ElasticBeanstalkClient, ListTagsForResourceCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
+ * import { ElasticBeanstalkClient, ListTagsForResourceCommand } from '@aws-sdk/client-elastic-beanstalk'; // ES Modules import
+ * // const { ElasticBeanstalkClient, ListTagsForResourceCommand } = require('@aws-sdk/client-elastic-beanstalk'); // CommonJS import
  * const client = new ElasticBeanstalkClient(config);
  * const input = { // ListTagsForResourceMessage
- *   ResourceArn: "STRING_VALUE", // required
+ *   ResourceArn: 'STRING_VALUE', // required
  * };
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ResourceTagsDescriptionMessage
+ *   ResourceArn: 'STRING_VALUE',
+ *   ResourceTags: [ // TagList
+ *     { // Tag
+ *       Key: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListTagsForResourceCommandInput - {@link ListTagsForResourceCommandInput}
@@ -65,6 +76,8 @@ export interface ListTagsForResourceCommandOutput extends ResourceTagsDescriptio
  * @throws {@link ResourceTypeNotSupportedException} (client fault)
  *  <p>The type of the specified Amazon Resource Name (ARN) isn't supported for this operation.</p>
  *
+ * @throws {@link ElasticBeanstalkServiceException}
+ * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
  */
 export class ListTagsForResourceCommand extends $Command<

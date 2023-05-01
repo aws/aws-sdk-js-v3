@@ -36,15 +36,21 @@ export interface CancelJobRunCommandOutput extends CancelJobRunResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EMRServerlessClient, CancelJobRunCommand } from "@aws-sdk/client-emr-serverless"; // ES Modules import
- * // const { EMRServerlessClient, CancelJobRunCommand } = require("@aws-sdk/client-emr-serverless"); // CommonJS import
+ * import { EMRServerlessClient, CancelJobRunCommand } from '@aws-sdk/client-emr-serverless'; // ES Modules import
+ * // const { EMRServerlessClient, CancelJobRunCommand } = require('@aws-sdk/client-emr-serverless'); // CommonJS import
  * const client = new EMRServerlessClient(config);
  * const input = { // CancelJobRunRequest
- *   applicationId: "STRING_VALUE", // required
- *   jobRunId: "STRING_VALUE", // required
+ *   applicationId: 'STRING_VALUE', // required
+ *   jobRunId: 'STRING_VALUE', // required
  * };
  * const command = new CancelJobRunCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CancelJobRunResponse
+ *   applicationId: 'STRING_VALUE', // required
+ *   jobRunId: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param CancelJobRunCommandInput - {@link CancelJobRunCommandInput}
@@ -63,6 +69,8 @@ export interface CancelJobRunCommandOutput extends CancelJobRunResponse, __Metad
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
  *          service.</p>
  *
+ * @throws {@link EMRServerlessServiceException}
+ * <p>Base exception class for all service exceptions from EMRServerless service.</p>
  *
  */
 export class CancelJobRunCommand extends $Command<

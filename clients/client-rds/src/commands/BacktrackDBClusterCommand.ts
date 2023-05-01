@@ -43,17 +43,27 @@ export interface BacktrackDBClusterCommandOutput extends DBClusterBacktrack, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RDSClient, BacktrackDBClusterCommand } from "@aws-sdk/client-rds"; // ES Modules import
- * // const { RDSClient, BacktrackDBClusterCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * import { RDSClient, BacktrackDBClusterCommand } from '@aws-sdk/client-rds'; // ES Modules import
+ * // const { RDSClient, BacktrackDBClusterCommand } = require('@aws-sdk/client-rds'); // CommonJS import
  * const client = new RDSClient(config);
  * const input = { // BacktrackDBClusterMessage
- *   DBClusterIdentifier: "STRING_VALUE", // required
- *   BacktrackTo: new Date("TIMESTAMP"), // required
+ *   DBClusterIdentifier: 'STRING_VALUE', // required
+ *   BacktrackTo: new Date('TIMESTAMP'), // required
  *   Force: true || false,
  *   UseEarliestTimeOnPointInTimeUnavailable: true || false,
  * };
  * const command = new BacktrackDBClusterCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DBClusterBacktrack
+ *   DBClusterIdentifier: 'STRING_VALUE',
+ *   BacktrackIdentifier: 'STRING_VALUE',
+ *   BacktrackTo: new Date('TIMESTAMP'),
+ *   BacktrackedFrom: new Date('TIMESTAMP'),
+ *   BacktrackRequestCreationTime: new Date('TIMESTAMP'),
+ *   Status: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param BacktrackDBClusterCommandInput - {@link BacktrackDBClusterCommandInput}
@@ -69,6 +79,8 @@ export interface BacktrackDBClusterCommandOutput extends DBClusterBacktrack, __M
  * @throws {@link InvalidDBClusterStateFault} (client fault)
  *  <p>The requested operation can't be performed while the cluster is in this state.</p>
  *
+ * @throws {@link RDSServiceException}
+ * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  */
 export class BacktrackDBClusterCommand extends $Command<

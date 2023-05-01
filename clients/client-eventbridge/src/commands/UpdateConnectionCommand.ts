@@ -36,72 +36,72 @@ export interface UpdateConnectionCommandOutput extends UpdateConnectionResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EventBridgeClient, UpdateConnectionCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
- * // const { EventBridgeClient, UpdateConnectionCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
+ * import { EventBridgeClient, UpdateConnectionCommand } from '@aws-sdk/client-eventbridge'; // ES Modules import
+ * // const { EventBridgeClient, UpdateConnectionCommand } = require('@aws-sdk/client-eventbridge'); // CommonJS import
  * const client = new EventBridgeClient(config);
  * const input = { // UpdateConnectionRequest
- *   Name: "STRING_VALUE", // required
- *   Description: "STRING_VALUE",
- *   AuthorizationType: "BASIC" || "OAUTH_CLIENT_CREDENTIALS" || "API_KEY",
+ *   Name: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE',
+ *   AuthorizationType: 'BASIC' || 'OAUTH_CLIENT_CREDENTIALS' || 'API_KEY',
  *   AuthParameters: { // UpdateConnectionAuthRequestParameters
  *     BasicAuthParameters: { // UpdateConnectionBasicAuthRequestParameters
- *       Username: "STRING_VALUE",
- *       Password: "STRING_VALUE",
+ *       Username: 'STRING_VALUE',
+ *       Password: 'STRING_VALUE',
  *     },
  *     OAuthParameters: { // UpdateConnectionOAuthRequestParameters
  *       ClientParameters: { // UpdateConnectionOAuthClientRequestParameters
- *         ClientID: "STRING_VALUE",
- *         ClientSecret: "STRING_VALUE",
+ *         ClientID: 'STRING_VALUE',
+ *         ClientSecret: 'STRING_VALUE',
  *       },
- *       AuthorizationEndpoint: "STRING_VALUE",
- *       HttpMethod: "GET" || "POST" || "PUT",
+ *       AuthorizationEndpoint: 'STRING_VALUE',
+ *       HttpMethod: 'GET' || 'POST' || 'PUT',
  *       OAuthHttpParameters: { // ConnectionHttpParameters
  *         HeaderParameters: [ // ConnectionHeaderParametersList
  *           { // ConnectionHeaderParameter
- *             Key: "STRING_VALUE",
- *             Value: "STRING_VALUE",
+ *             Key: 'STRING_VALUE',
+ *             Value: 'STRING_VALUE',
  *             IsValueSecret: true || false,
  *           },
  *         ],
  *         QueryStringParameters: [ // ConnectionQueryStringParametersList
  *           { // ConnectionQueryStringParameter
- *             Key: "STRING_VALUE",
- *             Value: "STRING_VALUE",
+ *             Key: 'STRING_VALUE',
+ *             Value: 'STRING_VALUE',
  *             IsValueSecret: true || false,
  *           },
  *         ],
  *         BodyParameters: [ // ConnectionBodyParametersList
  *           { // ConnectionBodyParameter
- *             Key: "STRING_VALUE",
- *             Value: "STRING_VALUE",
+ *             Key: 'STRING_VALUE',
+ *             Value: 'STRING_VALUE',
  *             IsValueSecret: true || false,
  *           },
  *         ],
  *       },
  *     },
  *     ApiKeyAuthParameters: { // UpdateConnectionApiKeyAuthRequestParameters
- *       ApiKeyName: "STRING_VALUE",
- *       ApiKeyValue: "STRING_VALUE",
+ *       ApiKeyName: 'STRING_VALUE',
+ *       ApiKeyValue: 'STRING_VALUE',
  *     },
  *     InvocationHttpParameters: {
  *       HeaderParameters: [
  *         {
- *           Key: "STRING_VALUE",
- *           Value: "STRING_VALUE",
+ *           Key: 'STRING_VALUE',
+ *           Value: 'STRING_VALUE',
  *           IsValueSecret: true || false,
  *         },
  *       ],
  *       QueryStringParameters: [
  *         {
- *           Key: "STRING_VALUE",
- *           Value: "STRING_VALUE",
+ *           Key: 'STRING_VALUE',
+ *           Value: 'STRING_VALUE',
  *           IsValueSecret: true || false,
  *         },
  *       ],
  *       BodyParameters: [
  *         {
- *           Key: "STRING_VALUE",
- *           Value: "STRING_VALUE",
+ *           Key: 'STRING_VALUE',
+ *           Value: 'STRING_VALUE',
  *           IsValueSecret: true || false,
  *         },
  *       ],
@@ -110,6 +110,15 @@ export interface UpdateConnectionCommandOutput extends UpdateConnectionResponse,
  * };
  * const command = new UpdateConnectionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateConnectionResponse
+ *   ConnectionArn: 'STRING_VALUE',
+ *   ConnectionState: 'CREATING' || 'UPDATING' || 'DELETING' || 'AUTHORIZED' || 'DEAUTHORIZED' || 'AUTHORIZING' || 'DEAUTHORIZING',
+ *   CreationTime: new Date('TIMESTAMP'),
+ *   LastModifiedTime: new Date('TIMESTAMP'),
+ *   LastAuthorizedTime: new Date('TIMESTAMP'),
+ * };
+ *
  * ```
  *
  * @param UpdateConnectionCommandInput - {@link UpdateConnectionCommandInput}
@@ -131,6 +140,8 @@ export interface UpdateConnectionCommandOutput extends UpdateConnectionResponse,
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>An entity that you specified does not exist.</p>
  *
+ * @throws {@link EventBridgeServiceException}
+ * <p>Base exception class for all service exceptions from EventBridge service.</p>
  *
  */
 export class UpdateConnectionCommand extends $Command<

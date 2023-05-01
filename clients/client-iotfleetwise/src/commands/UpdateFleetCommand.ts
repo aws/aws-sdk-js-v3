@@ -40,15 +40,21 @@ export interface UpdateFleetCommandOutput extends UpdateFleetResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTFleetWiseClient, UpdateFleetCommand } from "@aws-sdk/client-iotfleetwise"; // ES Modules import
- * // const { IoTFleetWiseClient, UpdateFleetCommand } = require("@aws-sdk/client-iotfleetwise"); // CommonJS import
+ * import { IoTFleetWiseClient, UpdateFleetCommand } from '@aws-sdk/client-iotfleetwise'; // ES Modules import
+ * // const { IoTFleetWiseClient, UpdateFleetCommand } = require('@aws-sdk/client-iotfleetwise'); // CommonJS import
  * const client = new IoTFleetWiseClient(config);
  * const input = { // UpdateFleetRequest
- *   fleetId: "STRING_VALUE", // required
- *   description: "STRING_VALUE",
+ *   fleetId: 'STRING_VALUE', // required
+ *   description: 'STRING_VALUE',
  * };
  * const command = new UpdateFleetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateFleetResponse
+ *   id: 'STRING_VALUE',
+ *   arn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateFleetCommandInput - {@link UpdateFleetCommandInput}
@@ -76,6 +82,8 @@ export interface UpdateFleetCommandOutput extends UpdateFleetResponse, __Metadat
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
  *
+ * @throws {@link IoTFleetWiseServiceException}
+ * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
  */
 export class UpdateFleetCommand extends $Command<

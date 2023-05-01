@@ -38,16 +38,22 @@ export interface GetConsoleScreenshotCommandOutput extends GetConsoleScreenshotR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, GetConsoleScreenshotCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, GetConsoleScreenshotCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, GetConsoleScreenshotCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, GetConsoleScreenshotCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // GetConsoleScreenshotRequest
  *   DryRun: true || false,
- *   InstanceId: "STRING_VALUE", // required
+ *   InstanceId: 'STRING_VALUE', // required
  *   WakeUp: true || false,
  * };
  * const command = new GetConsoleScreenshotCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetConsoleScreenshotResult
+ *   ImageData: 'STRING_VALUE',
+ *   InstanceId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetConsoleScreenshotCommandInput - {@link GetConsoleScreenshotCommandInput}
@@ -56,6 +62,8 @@ export interface GetConsoleScreenshotCommandOutput extends GetConsoleScreenshotR
  * @see {@link GetConsoleScreenshotCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class GetConsoleScreenshotCommand extends $Command<

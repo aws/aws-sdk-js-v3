@@ -36,12 +36,25 @@ export interface GetInsightsCommandOutput extends GetInsightsResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AuditManagerClient, GetInsightsCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
- * // const { AuditManagerClient, GetInsightsCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import
+ * import { AuditManagerClient, GetInsightsCommand } from '@aws-sdk/client-auditmanager'; // ES Modules import
+ * // const { AuditManagerClient, GetInsightsCommand } = require('@aws-sdk/client-auditmanager'); // CommonJS import
  * const client = new AuditManagerClient(config);
  * const input = {};
  * const command = new GetInsightsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetInsightsResponse
+ *   insights: { // Insights
+ *     activeAssessmentsCount: Number('int'),
+ *     noncompliantEvidenceCount: Number('int'),
+ *     compliantEvidenceCount: Number('int'),
+ *     inconclusiveEvidenceCount: Number('int'),
+ *     assessmentControlsCountByNoncompliantEvidence: Number('int'),
+ *     totalAssessmentControlsCount: Number('int'),
+ *     lastUpdated: new Date('TIMESTAMP'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetInsightsCommandInput - {@link GetInsightsCommandInput}
@@ -58,6 +71,8 @@ export interface GetInsightsCommandOutput extends GetInsightsResponse, __Metadat
  *  <p> An internal service error occurred during the processing of your request. Try again
  *          later. </p>
  *
+ * @throws {@link AuditManagerServiceException}
+ * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
  */
 export class GetInsightsCommand extends $Command<

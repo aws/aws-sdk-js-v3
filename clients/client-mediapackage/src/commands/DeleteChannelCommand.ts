@@ -36,14 +36,17 @@ export interface DeleteChannelCommandOutput extends DeleteChannelResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MediaPackageClient, DeleteChannelCommand } from "@aws-sdk/client-mediapackage"; // ES Modules import
- * // const { MediaPackageClient, DeleteChannelCommand } = require("@aws-sdk/client-mediapackage"); // CommonJS import
+ * import { MediaPackageClient, DeleteChannelCommand } from '@aws-sdk/client-mediapackage'; // ES Modules import
+ * // const { MediaPackageClient, DeleteChannelCommand } = require('@aws-sdk/client-mediapackage'); // CommonJS import
  * const client = new MediaPackageClient(config);
  * const input = { // DeleteChannelRequest
- *   Id: "STRING_VALUE", // required
+ *   Id: 'STRING_VALUE', // required
  * };
  * const command = new DeleteChannelCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteChannelCommandInput - {@link DeleteChannelCommandInput}
@@ -70,6 +73,8 @@ export interface DeleteChannelCommandOutput extends DeleteChannelResponse, __Met
  * @throws {@link UnprocessableEntityException} (client fault)
  *  The parameters sent in the request are not valid.
  *
+ * @throws {@link MediaPackageServiceException}
+ * <p>Base exception class for all service exceptions from MediaPackage service.</p>
  *
  */
 export class DeleteChannelCommand extends $Command<

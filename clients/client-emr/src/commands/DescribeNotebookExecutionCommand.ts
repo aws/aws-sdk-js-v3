@@ -36,14 +36,42 @@ export interface DescribeNotebookExecutionCommandOutput extends DescribeNotebook
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EMRClient, DescribeNotebookExecutionCommand } from "@aws-sdk/client-emr"; // ES Modules import
- * // const { EMRClient, DescribeNotebookExecutionCommand } = require("@aws-sdk/client-emr"); // CommonJS import
+ * import { EMRClient, DescribeNotebookExecutionCommand } from '@aws-sdk/client-emr'; // ES Modules import
+ * // const { EMRClient, DescribeNotebookExecutionCommand } = require('@aws-sdk/client-emr'); // CommonJS import
  * const client = new EMRClient(config);
  * const input = { // DescribeNotebookExecutionInput
- *   NotebookExecutionId: "STRING_VALUE", // required
+ *   NotebookExecutionId: 'STRING_VALUE', // required
  * };
  * const command = new DescribeNotebookExecutionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeNotebookExecutionOutput
+ *   NotebookExecution: { // NotebookExecution
+ *     NotebookExecutionId: 'STRING_VALUE',
+ *     EditorId: 'STRING_VALUE',
+ *     ExecutionEngine: { // ExecutionEngineConfig
+ *       Id: 'STRING_VALUE', // required
+ *       Type: 'EMR',
+ *       MasterInstanceSecurityGroupId: 'STRING_VALUE',
+ *     },
+ *     NotebookExecutionName: 'STRING_VALUE',
+ *     NotebookParams: 'STRING_VALUE',
+ *     Status: 'START_PENDING' || 'STARTING' || 'RUNNING' || 'FINISHING' || 'FINISHED' || 'FAILING' || 'FAILED' || 'STOP_PENDING' || 'STOPPING' || 'STOPPED',
+ *     StartTime: new Date('TIMESTAMP'),
+ *     EndTime: new Date('TIMESTAMP'),
+ *     Arn: 'STRING_VALUE',
+ *     OutputNotebookURI: 'STRING_VALUE',
+ *     LastStateChangeReason: 'STRING_VALUE',
+ *     NotebookInstanceSecurityGroupId: 'STRING_VALUE',
+ *     Tags: [ // TagList
+ *       { // Tag
+ *         Key: 'STRING_VALUE',
+ *         Value: 'STRING_VALUE',
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeNotebookExecutionCommandInput - {@link DescribeNotebookExecutionCommandInput}
@@ -59,6 +87,8 @@ export interface DescribeNotebookExecutionCommandOutput extends DescribeNotebook
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception occurs when there is something wrong with user input.</p>
  *
+ * @throws {@link EMRServiceException}
+ * <p>Base exception class for all service exceptions from EMR service.</p>
  *
  */
 export class DescribeNotebookExecutionCommand extends $Command<

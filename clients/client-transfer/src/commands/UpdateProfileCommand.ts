@@ -38,17 +38,22 @@ export interface UpdateProfileCommandOutput extends UpdateProfileResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { TransferClient, UpdateProfileCommand } from "@aws-sdk/client-transfer"; // ES Modules import
- * // const { TransferClient, UpdateProfileCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
+ * import { TransferClient, UpdateProfileCommand } from '@aws-sdk/client-transfer'; // ES Modules import
+ * // const { TransferClient, UpdateProfileCommand } = require('@aws-sdk/client-transfer'); // CommonJS import
  * const client = new TransferClient(config);
  * const input = { // UpdateProfileRequest
- *   ProfileId: "STRING_VALUE", // required
+ *   ProfileId: 'STRING_VALUE', // required
  *   CertificateIds: [ // CertificateIds
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new UpdateProfileCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateProfileResponse
+ *   ProfileId: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param UpdateProfileCommandInput - {@link UpdateProfileCommandInput}
@@ -73,6 +78,8 @@ export interface UpdateProfileCommandOutput extends UpdateProfileResponse, __Met
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
  *
+ * @throws {@link TransferServiceException}
+ * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
  */
 export class UpdateProfileCommand extends $Command<

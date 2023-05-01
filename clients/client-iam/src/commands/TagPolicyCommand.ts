@@ -71,20 +71,23 @@ export interface TagPolicyCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IAMClient, TagPolicyCommand } from "@aws-sdk/client-iam"; // ES Modules import
- * // const { IAMClient, TagPolicyCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * import { IAMClient, TagPolicyCommand } from '@aws-sdk/client-iam'; // ES Modules import
+ * // const { IAMClient, TagPolicyCommand } = require('@aws-sdk/client-iam'); // CommonJS import
  * const client = new IAMClient(config);
  * const input = { // TagPolicyRequest
- *   PolicyArn: "STRING_VALUE", // required
+ *   PolicyArn: 'STRING_VALUE', // required
  *   Tags: [ // tagListType // required
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new TagPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param TagPolicyCommandInput - {@link TagPolicyCommandInput}
@@ -113,6 +116,8 @@ export interface TagPolicyCommandOutput extends __MetadataBearer {}
  *  <p>The request processing has failed because of an unknown error, exception or
  *       failure.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  */
 export class TagPolicyCommand extends $Command<TagPolicyCommandInput, TagPolicyCommandOutput, IAMClientResolvedConfig> {

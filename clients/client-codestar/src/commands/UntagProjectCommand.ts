@@ -36,17 +36,20 @@ export interface UntagProjectCommandOutput extends UntagProjectResult, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeStarClient, UntagProjectCommand } from "@aws-sdk/client-codestar"; // ES Modules import
- * // const { CodeStarClient, UntagProjectCommand } = require("@aws-sdk/client-codestar"); // CommonJS import
+ * import { CodeStarClient, UntagProjectCommand } from '@aws-sdk/client-codestar'; // ES Modules import
+ * // const { CodeStarClient, UntagProjectCommand } = require('@aws-sdk/client-codestar'); // CommonJS import
  * const client = new CodeStarClient(config);
  * const input = { // UntagProjectRequest
- *   id: "STRING_VALUE", // required
+ *   id: 'STRING_VALUE', // required
  *   tags: [ // TagKeys // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new UntagProjectCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UntagProjectCommandInput - {@link UntagProjectCommandInput}
@@ -68,6 +71,8 @@ export interface UntagProjectCommandOutput extends UntagProjectResult, __Metadat
  * @throws {@link ValidationException} (client fault)
  *  <p>The specified input is either not valid, or it could not be validated.</p>
  *
+ * @throws {@link CodeStarServiceException}
+ * <p>Base exception class for all service exceptions from CodeStar service.</p>
  *
  */
 export class UntagProjectCommand extends $Command<

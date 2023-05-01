@@ -54,15 +54,25 @@ export interface GetStorageLensConfigurationTaggingCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { S3ControlClient, GetStorageLensConfigurationTaggingCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
- * // const { S3ControlClient, GetStorageLensConfigurationTaggingCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
+ * import { S3ControlClient, GetStorageLensConfigurationTaggingCommand } from '@aws-sdk/client-s3-control'; // ES Modules import
+ * // const { S3ControlClient, GetStorageLensConfigurationTaggingCommand } = require('@aws-sdk/client-s3-control'); // CommonJS import
  * const client = new S3ControlClient(config);
  * const input = { // GetStorageLensConfigurationTaggingRequest
- *   ConfigId: "STRING_VALUE", // required
- *   AccountId: "STRING_VALUE",
+ *   ConfigId: 'STRING_VALUE', // required
+ *   AccountId: 'STRING_VALUE',
  * };
  * const command = new GetStorageLensConfigurationTaggingCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetStorageLensConfigurationTaggingResult
+ *   Tags: [ // StorageLensTags
+ *     { // StorageLensTag
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetStorageLensConfigurationTaggingCommandInput - {@link GetStorageLensConfigurationTaggingCommandInput}
@@ -71,6 +81,8 @@ export interface GetStorageLensConfigurationTaggingCommandOutput
  * @see {@link GetStorageLensConfigurationTaggingCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
  *
+ * @throws {@link S3ControlServiceException}
+ * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
  */
 export class GetStorageLensConfigurationTaggingCommand extends $Command<

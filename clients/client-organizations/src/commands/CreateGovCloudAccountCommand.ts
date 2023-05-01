@@ -171,23 +171,37 @@ export interface CreateGovCloudAccountCommandOutput extends CreateGovCloudAccoun
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OrganizationsClient, CreateGovCloudAccountCommand } from "@aws-sdk/client-organizations"; // ES Modules import
- * // const { OrganizationsClient, CreateGovCloudAccountCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
+ * import { OrganizationsClient, CreateGovCloudAccountCommand } from '@aws-sdk/client-organizations'; // ES Modules import
+ * // const { OrganizationsClient, CreateGovCloudAccountCommand } = require('@aws-sdk/client-organizations'); // CommonJS import
  * const client = new OrganizationsClient(config);
  * const input = { // CreateGovCloudAccountRequest
- *   Email: "STRING_VALUE", // required
- *   AccountName: "STRING_VALUE", // required
- *   RoleName: "STRING_VALUE",
- *   IamUserAccessToBilling: "ALLOW" || "DENY",
+ *   Email: 'STRING_VALUE', // required
+ *   AccountName: 'STRING_VALUE', // required
+ *   RoleName: 'STRING_VALUE',
+ *   IamUserAccessToBilling: 'ALLOW' || 'DENY',
  *   Tags: [ // Tags
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreateGovCloudAccountCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateGovCloudAccountResponse
+ *   CreateAccountStatus: { // CreateAccountStatus
+ *     Id: 'STRING_VALUE',
+ *     AccountName: 'STRING_VALUE',
+ *     State: 'IN_PROGRESS' || 'SUCCEEDED' || 'FAILED',
+ *     RequestedTimestamp: new Date('TIMESTAMP'),
+ *     CompletedTimestamp: new Date('TIMESTAMP'),
+ *     AccountId: 'STRING_VALUE',
+ *     GovCloudAccountId: 'STRING_VALUE',
+ *     FailureReason: 'ACCOUNT_LIMIT_EXCEEDED' || 'EMAIL_ALREADY_EXISTS' || 'INVALID_ADDRESS' || 'INVALID_EMAIL' || 'CONCURRENT_ACCOUNT_MODIFICATION' || 'INTERNAL_FAILURE' || 'GOVCLOUD_ACCOUNT_ALREADY_EXISTS' || 'MISSING_BUSINESS_VALIDATION' || 'FAILED_BUSINESS_VALIDATION' || 'PENDING_BUSINESS_VALIDATION' || 'INVALID_IDENTITY_FOR_BUSINESS_VALIDATION' || 'UNKNOWN_BUSINESS_VALIDATION' || 'MISSING_PAYMENT_INSTRUMENT' || 'INVALID_PAYMENT_INSTRUMENT' || 'UPDATE_EXISTING_RESOURCE_POLICY_WITH_TAGS_NOT_SUPPORTED',
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateGovCloudAccountCommandInput - {@link CreateGovCloudAccountCommandInput}
@@ -531,6 +545,8 @@ export interface CreateGovCloudAccountCommandOutput extends CreateGovCloudAccoun
  * @throws {@link UnsupportedAPIEndpointException} (client fault)
  *  <p>This action isn't available in the current Amazon Web Services Region.</p>
  *
+ * @throws {@link OrganizationsServiceException}
+ * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
  */
 export class CreateGovCloudAccountCommand extends $Command<

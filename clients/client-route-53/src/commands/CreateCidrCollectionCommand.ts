@@ -36,15 +36,26 @@ export interface CreateCidrCollectionCommandOutput extends CreateCidrCollectionR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Route53Client, CreateCidrCollectionCommand } from "@aws-sdk/client-route-53"; // ES Modules import
- * // const { Route53Client, CreateCidrCollectionCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
+ * import { Route53Client, CreateCidrCollectionCommand } from '@aws-sdk/client-route-53'; // ES Modules import
+ * // const { Route53Client, CreateCidrCollectionCommand } = require('@aws-sdk/client-route-53'); // CommonJS import
  * const client = new Route53Client(config);
  * const input = { // CreateCidrCollectionRequest
- *   Name: "STRING_VALUE", // required
- *   CallerReference: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
+ *   CallerReference: 'STRING_VALUE', // required
  * };
  * const command = new CreateCidrCollectionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateCidrCollectionResponse
+ *   Collection: { // CidrCollection
+ *     Arn: 'STRING_VALUE',
+ *     Id: 'STRING_VALUE',
+ *     Name: 'STRING_VALUE',
+ *     Version: Number('long'),
+ *   },
+ *   Location: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateCidrCollectionCommandInput - {@link CreateCidrCollectionCommandInput}
@@ -68,6 +79,8 @@ export interface CreateCidrCollectionCommandOutput extends CreateCidrCollectionR
  * 			limit on the resource you are trying to create. To request a higher limit, <a href="http://aws.amazon.com/route53-request">create a case</a> with the Amazon Web Services Support
  * 			Center.</p>
  *
+ * @throws {@link Route53ServiceException}
+ * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
  */
 export class CreateCidrCollectionCommand extends $Command<

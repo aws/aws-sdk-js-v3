@@ -43,15 +43,20 @@ export interface GetKeyPolicyCommandOutput extends GetKeyPolicyResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KMSClient, GetKeyPolicyCommand } from "@aws-sdk/client-kms"; // ES Modules import
- * // const { KMSClient, GetKeyPolicyCommand } = require("@aws-sdk/client-kms"); // CommonJS import
+ * import { KMSClient, GetKeyPolicyCommand } from '@aws-sdk/client-kms'; // ES Modules import
+ * // const { KMSClient, GetKeyPolicyCommand } = require('@aws-sdk/client-kms'); // CommonJS import
  * const client = new KMSClient(config);
  * const input = { // GetKeyPolicyRequest
- *   KeyId: "STRING_VALUE", // required
- *   PolicyName: "STRING_VALUE", // required
+ *   KeyId: 'STRING_VALUE', // required
+ *   PolicyName: 'STRING_VALUE', // required
  * };
  * const command = new GetKeyPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetKeyPolicyResponse
+ *   Policy: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetKeyPolicyCommandInput - {@link GetKeyPolicyCommandInput}
@@ -94,6 +99,8 @@ export interface GetKeyPolicyCommandOutput extends GetKeyPolicyResponse, __Metad
  *  <p>The request was rejected because the specified entity or resource could not be
  *       found.</p>
  *
+ * @throws {@link KMSServiceException}
+ * <p>Base exception class for all service exceptions from KMS service.</p>
  *
  * @example To retrieve a key policy
  * ```javascript

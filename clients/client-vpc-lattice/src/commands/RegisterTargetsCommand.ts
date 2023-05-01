@@ -37,20 +37,38 @@ export interface RegisterTargetsCommandOutput extends RegisterTargetsResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { VPCLatticeClient, RegisterTargetsCommand } from "@aws-sdk/client-vpc-lattice"; // ES Modules import
- * // const { VPCLatticeClient, RegisterTargetsCommand } = require("@aws-sdk/client-vpc-lattice"); // CommonJS import
+ * import { VPCLatticeClient, RegisterTargetsCommand } from '@aws-sdk/client-vpc-lattice'; // ES Modules import
+ * // const { VPCLatticeClient, RegisterTargetsCommand } = require('@aws-sdk/client-vpc-lattice'); // CommonJS import
  * const client = new VPCLatticeClient(config);
  * const input = { // RegisterTargetsRequest
- *   targetGroupIdentifier: "STRING_VALUE", // required
+ *   targetGroupIdentifier: 'STRING_VALUE', // required
  *   targets: [ // TargetList // required
  *     { // Target
- *       id: "STRING_VALUE", // required
- *       port: Number("int"),
+ *       id: 'STRING_VALUE', // required
+ *       port: Number('int'),
  *     },
  *   ],
  * };
  * const command = new RegisterTargetsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // RegisterTargetsResponse
+ *   successful: [ // TargetList
+ *     { // Target
+ *       id: 'STRING_VALUE', // required
+ *       port: Number('int'),
+ *     },
+ *   ],
+ *   unsuccessful: [ // TargetFailureList
+ *     { // TargetFailure
+ *       id: 'STRING_VALUE',
+ *       port: Number('int'),
+ *       failureCode: 'STRING_VALUE',
+ *       failureMessage: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param RegisterTargetsCommandInput - {@link RegisterTargetsCommandInput}
@@ -82,6 +100,8 @@ export interface RegisterTargetsCommandOutput extends RegisterTargetsResponse, _
  *  <p>The input does not satisfy the constraints specified by an Amazon Web Services
  *    service.</p>
  *
+ * @throws {@link VPCLatticeServiceException}
+ * <p>Base exception class for all service exceptions from VPCLattice service.</p>
  *
  */
 export class RegisterTargetsCommand extends $Command<

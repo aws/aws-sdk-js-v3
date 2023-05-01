@@ -36,14 +36,67 @@ export interface GetPlaybackConfigurationCommandOutput extends GetPlaybackConfig
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MediaTailorClient, GetPlaybackConfigurationCommand } from "@aws-sdk/client-mediatailor"; // ES Modules import
- * // const { MediaTailorClient, GetPlaybackConfigurationCommand } = require("@aws-sdk/client-mediatailor"); // CommonJS import
+ * import { MediaTailorClient, GetPlaybackConfigurationCommand } from '@aws-sdk/client-mediatailor'; // ES Modules import
+ * // const { MediaTailorClient, GetPlaybackConfigurationCommand } = require('@aws-sdk/client-mediatailor'); // CommonJS import
  * const client = new MediaTailorClient(config);
  * const input = { // GetPlaybackConfigurationRequest
- *   Name: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
  * };
  * const command = new GetPlaybackConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetPlaybackConfigurationResponse
+ *   AdDecisionServerUrl: 'STRING_VALUE',
+ *   AvailSuppression: { // AvailSuppression
+ *     Mode: 'OFF' || 'BEHIND_LIVE_EDGE',
+ *     Value: 'STRING_VALUE',
+ *   },
+ *   Bumper: { // Bumper
+ *     EndUrl: 'STRING_VALUE',
+ *     StartUrl: 'STRING_VALUE',
+ *   },
+ *   CdnConfiguration: { // CdnConfiguration
+ *     AdSegmentUrlPrefix: 'STRING_VALUE',
+ *     ContentSegmentUrlPrefix: 'STRING_VALUE',
+ *   },
+ *   ConfigurationAliases: { // ConfigurationAliasesResponse
+ *     '<keys>': { // __mapOf__string
+ *       '<keys>': 'STRING_VALUE',
+ *     },
+ *   },
+ *   DashConfiguration: { // DashConfiguration
+ *     ManifestEndpointPrefix: 'STRING_VALUE',
+ *     MpdLocation: 'STRING_VALUE',
+ *     OriginManifestType: 'SINGLE_PERIOD' || 'MULTI_PERIOD',
+ *   },
+ *   HlsConfiguration: { // HlsConfiguration
+ *     ManifestEndpointPrefix: 'STRING_VALUE',
+ *   },
+ *   LivePreRollConfiguration: { // LivePreRollConfiguration
+ *     AdDecisionServerUrl: 'STRING_VALUE',
+ *     MaxDurationSeconds: Number('int'),
+ *   },
+ *   LogConfiguration: { // LogConfiguration
+ *     PercentEnabled: Number('int'), // required
+ *   },
+ *   ManifestProcessingRules: { // ManifestProcessingRules
+ *     AdMarkerPassthrough: { // AdMarkerPassthrough
+ *       Enabled: true || false,
+ *     },
+ *   },
+ *   Name: 'STRING_VALUE',
+ *   PersonalizationThresholdSeconds: Number('int'),
+ *   PlaybackConfigurationArn: 'STRING_VALUE',
+ *   PlaybackEndpointPrefix: 'STRING_VALUE',
+ *   SessionInitializationEndpointPrefix: 'STRING_VALUE',
+ *   SlateAdUrl: 'STRING_VALUE',
+ *   Tags: {
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ *   TranscodeProfileName: 'STRING_VALUE',
+ *   VideoContentSourceUrl: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetPlaybackConfigurationCommandInput - {@link GetPlaybackConfigurationCommandInput}
@@ -52,6 +105,8 @@ export interface GetPlaybackConfigurationCommandOutput extends GetPlaybackConfig
  * @see {@link GetPlaybackConfigurationCommandOutput} for command's `response` shape.
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.
  *
+ * @throws {@link MediaTailorServiceException}
+ * <p>Base exception class for all service exceptions from MediaTailor service.</p>
  *
  */
 export class GetPlaybackConfigurationCommand extends $Command<

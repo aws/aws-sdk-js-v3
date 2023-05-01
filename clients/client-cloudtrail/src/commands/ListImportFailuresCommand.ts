@@ -36,16 +36,30 @@ export interface ListImportFailuresCommandOutput extends ListImportFailuresRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudTrailClient, ListImportFailuresCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
- * // const { CloudTrailClient, ListImportFailuresCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
+ * import { CloudTrailClient, ListImportFailuresCommand } from '@aws-sdk/client-cloudtrail'; // ES Modules import
+ * // const { CloudTrailClient, ListImportFailuresCommand } = require('@aws-sdk/client-cloudtrail'); // CommonJS import
  * const client = new CloudTrailClient(config);
  * const input = { // ListImportFailuresRequest
- *   ImportId: "STRING_VALUE", // required
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   ImportId: 'STRING_VALUE', // required
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListImportFailuresCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListImportFailuresResponse
+ *   Failures: [ // ImportFailureList
+ *     { // ImportFailureListItem
+ *       Location: 'STRING_VALUE',
+ *       Status: 'FAILED' || 'RETRY' || 'SUCCEEDED',
+ *       ErrorType: 'STRING_VALUE',
+ *       ErrorMessage: 'STRING_VALUE',
+ *       LastUpdatedTime: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListImportFailuresCommandInput - {@link ListImportFailuresCommandInput}
@@ -64,6 +78,8 @@ export interface ListImportFailuresCommandOutput extends ListImportFailuresRespo
  * @throws {@link UnsupportedOperationException} (client fault)
  *  <p>This exception is thrown when the requested operation is not supported.</p>
  *
+ * @throws {@link CloudTrailServiceException}
+ * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
  */
 export class ListImportFailuresCommand extends $Command<

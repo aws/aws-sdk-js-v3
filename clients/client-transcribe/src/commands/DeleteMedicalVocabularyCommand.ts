@@ -38,14 +38,17 @@ export interface DeleteMedicalVocabularyCommandOutput extends __MetadataBearer {
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { TranscribeClient, DeleteMedicalVocabularyCommand } from "@aws-sdk/client-transcribe"; // ES Modules import
- * // const { TranscribeClient, DeleteMedicalVocabularyCommand } = require("@aws-sdk/client-transcribe"); // CommonJS import
+ * import { TranscribeClient, DeleteMedicalVocabularyCommand } from '@aws-sdk/client-transcribe'; // ES Modules import
+ * // const { TranscribeClient, DeleteMedicalVocabularyCommand } = require('@aws-sdk/client-transcribe'); // CommonJS import
  * const client = new TranscribeClient(config);
  * const input = { // DeleteMedicalVocabularyRequest
- *   VocabularyName: "STRING_VALUE", // required
+ *   VocabularyName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteMedicalVocabularyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteMedicalVocabularyCommandInput - {@link DeleteMedicalVocabularyCommandInput}
@@ -72,6 +75,8 @@ export interface DeleteMedicalVocabularyCommandOutput extends __MetadataBearer {
  *  <p>We can't find the requested resource. Check that the specified name is correct and try
  *             your request again.</p>
  *
+ * @throws {@link TranscribeServiceException}
+ * <p>Base exception class for all service exceptions from Transcribe service.</p>
  *
  */
 export class DeleteMedicalVocabularyCommand extends $Command<

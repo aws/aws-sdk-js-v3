@@ -38,16 +38,34 @@ export interface ListMetricSetsCommandOutput extends ListMetricSetsResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LookoutMetricsClient, ListMetricSetsCommand } from "@aws-sdk/client-lookoutmetrics"; // ES Modules import
- * // const { LookoutMetricsClient, ListMetricSetsCommand } = require("@aws-sdk/client-lookoutmetrics"); // CommonJS import
+ * import { LookoutMetricsClient, ListMetricSetsCommand } from '@aws-sdk/client-lookoutmetrics'; // ES Modules import
+ * // const { LookoutMetricsClient, ListMetricSetsCommand } = require('@aws-sdk/client-lookoutmetrics'); // CommonJS import
  * const client = new LookoutMetricsClient(config);
  * const input = { // ListMetricSetsRequest
- *   AnomalyDetectorArn: "STRING_VALUE",
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   AnomalyDetectorArn: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListMetricSetsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListMetricSetsResponse
+ *   MetricSetSummaryList: [ // MetricSetSummaryList
+ *     { // MetricSetSummary
+ *       MetricSetArn: 'STRING_VALUE',
+ *       AnomalyDetectorArn: 'STRING_VALUE',
+ *       MetricSetDescription: 'STRING_VALUE',
+ *       MetricSetName: 'STRING_VALUE',
+ *       CreationTime: new Date('TIMESTAMP'),
+ *       LastModificationTime: new Date('TIMESTAMP'),
+ *       Tags: { // TagMap
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListMetricSetsCommandInput - {@link ListMetricSetsCommandInput}
@@ -72,6 +90,8 @@ export interface ListMetricSetsCommandOutput extends ListMetricSetsResponse, __M
  *  <p>The input fails to satisfy the constraints specified by the AWS service. Check your input values and try
  *       again.</p>
  *
+ * @throws {@link LookoutMetricsServiceException}
+ * <p>Base exception class for all service exceptions from LookoutMetrics service.</p>
  *
  */
 export class ListMetricSetsCommand extends $Command<

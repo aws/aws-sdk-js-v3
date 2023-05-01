@@ -40,16 +40,29 @@ export interface ListPlacementsCommandOutput extends ListPlacementsResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoT1ClickProjectsClient, ListPlacementsCommand } from "@aws-sdk/client-iot-1click-projects"; // ES Modules import
- * // const { IoT1ClickProjectsClient, ListPlacementsCommand } = require("@aws-sdk/client-iot-1click-projects"); // CommonJS import
+ * import { IoT1ClickProjectsClient, ListPlacementsCommand } from '@aws-sdk/client-iot-1click-projects'; // ES Modules import
+ * // const { IoT1ClickProjectsClient, ListPlacementsCommand } = require('@aws-sdk/client-iot-1click-projects'); // CommonJS import
  * const client = new IoT1ClickProjectsClient(config);
  * const input = { // ListPlacementsRequest
- *   projectName: "STRING_VALUE", // required
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   projectName: 'STRING_VALUE', // required
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new ListPlacementsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListPlacementsResponse
+ *   placements: [ // PlacementSummaryList // required
+ *     { // PlacementSummary
+ *       projectName: 'STRING_VALUE', // required
+ *       placementName: 'STRING_VALUE', // required
+ *       createdDate: new Date('TIMESTAMP'), // required
+ *       updatedDate: new Date('TIMESTAMP'), // required
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListPlacementsCommandInput - {@link ListPlacementsCommandInput}
@@ -67,6 +80,8 @@ export interface ListPlacementsCommandOutput extends ListPlacementsResponse, __M
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p></p>
  *
+ * @throws {@link IoT1ClickProjectsServiceException}
+ * <p>Base exception class for all service exceptions from IoT1ClickProjects service.</p>
  *
  */
 export class ListPlacementsCommand extends $Command<

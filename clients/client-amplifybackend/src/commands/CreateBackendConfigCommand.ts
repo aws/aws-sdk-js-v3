@@ -36,15 +36,23 @@ export interface CreateBackendConfigCommandOutput extends CreateBackendConfigRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AmplifyBackendClient, CreateBackendConfigCommand } from "@aws-sdk/client-amplifybackend"; // ES Modules import
- * // const { AmplifyBackendClient, CreateBackendConfigCommand } = require("@aws-sdk/client-amplifybackend"); // CommonJS import
+ * import { AmplifyBackendClient, CreateBackendConfigCommand } from '@aws-sdk/client-amplifybackend'; // ES Modules import
+ * // const { AmplifyBackendClient, CreateBackendConfigCommand } = require('@aws-sdk/client-amplifybackend'); // CommonJS import
  * const client = new AmplifyBackendClient(config);
  * const input = { // CreateBackendConfigRequest
- *   AppId: "STRING_VALUE", // required
- *   BackendManagerAppId: "STRING_VALUE",
+ *   AppId: 'STRING_VALUE', // required
+ *   BackendManagerAppId: 'STRING_VALUE',
  * };
  * const command = new CreateBackendConfigCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateBackendConfigResponse
+ *   AppId: 'STRING_VALUE',
+ *   BackendEnvironmentName: 'STRING_VALUE',
+ *   JobId: 'STRING_VALUE',
+ *   Status: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateBackendConfigCommandInput - {@link CreateBackendConfigCommandInput}
@@ -65,6 +73,8 @@ export interface CreateBackendConfigCommandOutput extends CreateBackendConfigRes
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>An error that is returned when a limit of a specific type has been exceeded.</p>
  *
+ * @throws {@link AmplifyBackendServiceException}
+ * <p>Base exception class for all service exceptions from AmplifyBackend service.</p>
  *
  */
 export class CreateBackendConfigCommand extends $Command<

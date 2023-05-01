@@ -36,14 +36,27 @@ export interface DeleteAppCommandOutput extends DeleteAppResponse, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PinpointClient, DeleteAppCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
- * // const { PinpointClient, DeleteAppCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
+ * import { PinpointClient, DeleteAppCommand } from '@aws-sdk/client-pinpoint'; // ES Modules import
+ * // const { PinpointClient, DeleteAppCommand } = require('@aws-sdk/client-pinpoint'); // CommonJS import
  * const client = new PinpointClient(config);
  * const input = { // DeleteAppRequest
- *   ApplicationId: "STRING_VALUE", // required
+ *   ApplicationId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteAppCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteAppResponse
+ *   ApplicationResponse: { // ApplicationResponse
+ *     Arn: 'STRING_VALUE', // required
+ *     Id: 'STRING_VALUE', // required
+ *     Name: 'STRING_VALUE', // required
+ *     tags: { // MapOf__string
+ *       '<keys>': 'STRING_VALUE',
+ *     },
+ *     CreationDate: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param DeleteAppCommandInput - {@link DeleteAppCommandInput}
@@ -73,6 +86,8 @@ export interface DeleteAppCommandOutput extends DeleteAppResponse, __MetadataBea
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Provides information about an API request or response.</p>
  *
+ * @throws {@link PinpointServiceException}
+ * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
  */
 export class DeleteAppCommand extends $Command<

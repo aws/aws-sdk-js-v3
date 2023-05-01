@@ -48,17 +48,20 @@ export interface PutKeyPolicyCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KMSClient, PutKeyPolicyCommand } from "@aws-sdk/client-kms"; // ES Modules import
- * // const { KMSClient, PutKeyPolicyCommand } = require("@aws-sdk/client-kms"); // CommonJS import
+ * import { KMSClient, PutKeyPolicyCommand } from '@aws-sdk/client-kms'; // ES Modules import
+ * // const { KMSClient, PutKeyPolicyCommand } = require('@aws-sdk/client-kms'); // CommonJS import
  * const client = new KMSClient(config);
  * const input = { // PutKeyPolicyRequest
- *   KeyId: "STRING_VALUE", // required
- *   PolicyName: "STRING_VALUE", // required
- *   Policy: "STRING_VALUE", // required
+ *   KeyId: 'STRING_VALUE', // required
+ *   PolicyName: 'STRING_VALUE', // required
+ *   Policy: 'STRING_VALUE', // required
  *   BypassPolicyLockoutSafetyCheck: true || false,
  * };
  * const command = new PutKeyPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutKeyPolicyCommandInput - {@link PutKeyPolicyCommandInput}
@@ -113,6 +116,8 @@ export interface PutKeyPolicyCommandOutput extends __MetadataBearer {}
  *  <p>The request was rejected because a specified parameter is not supported or a specified
  *       resource is not valid for this operation.</p>
  *
+ * @throws {@link KMSServiceException}
+ * <p>Base exception class for all service exceptions from KMS service.</p>
  *
  * @example To attach a key policy to a KMS key
  * ```javascript

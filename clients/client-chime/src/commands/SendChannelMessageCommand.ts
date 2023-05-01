@@ -47,20 +47,26 @@ export interface SendChannelMessageCommandOutput extends SendChannelMessageRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeClient, SendChannelMessageCommand } from "@aws-sdk/client-chime"; // ES Modules import
- * // const { ChimeClient, SendChannelMessageCommand } = require("@aws-sdk/client-chime"); // CommonJS import
+ * import { ChimeClient, SendChannelMessageCommand } from '@aws-sdk/client-chime'; // ES Modules import
+ * // const { ChimeClient, SendChannelMessageCommand } = require('@aws-sdk/client-chime'); // CommonJS import
  * const client = new ChimeClient(config);
  * const input = { // SendChannelMessageRequest
- *   ChannelArn: "STRING_VALUE", // required
- *   Content: "STRING_VALUE", // required
- *   Type: "STANDARD" || "CONTROL", // required
- *   Persistence: "PERSISTENT" || "NON_PERSISTENT", // required
- *   Metadata: "STRING_VALUE",
- *   ClientRequestToken: "STRING_VALUE", // required
- *   ChimeBearer: "STRING_VALUE",
+ *   ChannelArn: 'STRING_VALUE', // required
+ *   Content: 'STRING_VALUE', // required
+ *   Type: 'STANDARD' || 'CONTROL', // required
+ *   Persistence: 'PERSISTENT' || 'NON_PERSISTENT', // required
+ *   Metadata: 'STRING_VALUE',
+ *   ClientRequestToken: 'STRING_VALUE', // required
+ *   ChimeBearer: 'STRING_VALUE',
  * };
  * const command = new SendChannelMessageCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SendChannelMessageResponse
+ *   ChannelArn: 'STRING_VALUE',
+ *   MessageId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param SendChannelMessageCommandInput - {@link SendChannelMessageCommandInput}
@@ -91,6 +97,8 @@ export interface SendChannelMessageCommandOutput extends SendChannelMessageRespo
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeServiceException}
+ * <p>Base exception class for all service exceptions from Chime service.</p>
  *
  */
 export class SendChannelMessageCommand extends $Command<

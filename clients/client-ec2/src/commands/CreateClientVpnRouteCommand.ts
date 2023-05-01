@@ -37,19 +37,27 @@ export interface CreateClientVpnRouteCommandOutput extends CreateClientVpnRouteR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, CreateClientVpnRouteCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, CreateClientVpnRouteCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, CreateClientVpnRouteCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, CreateClientVpnRouteCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // CreateClientVpnRouteRequest
- *   ClientVpnEndpointId: "STRING_VALUE", // required
- *   DestinationCidrBlock: "STRING_VALUE", // required
- *   TargetVpcSubnetId: "STRING_VALUE", // required
- *   Description: "STRING_VALUE",
- *   ClientToken: "STRING_VALUE",
+ *   ClientVpnEndpointId: 'STRING_VALUE', // required
+ *   DestinationCidrBlock: 'STRING_VALUE', // required
+ *   TargetVpcSubnetId: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE',
+ *   ClientToken: 'STRING_VALUE',
  *   DryRun: true || false,
  * };
  * const command = new CreateClientVpnRouteCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateClientVpnRouteResult
+ *   Status: { // ClientVpnRouteStatus
+ *     Code: 'creating' || 'active' || 'failed' || 'deleting',
+ *     Message: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateClientVpnRouteCommandInput - {@link CreateClientVpnRouteCommandInput}
@@ -58,6 +66,8 @@ export interface CreateClientVpnRouteCommandOutput extends CreateClientVpnRouteR
  * @see {@link CreateClientVpnRouteCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class CreateClientVpnRouteCommand extends $Command<

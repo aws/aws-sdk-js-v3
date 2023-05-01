@@ -45,14 +45,17 @@ export interface RegisterOrganizationDelegatedAdminCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudTrailClient, RegisterOrganizationDelegatedAdminCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
- * // const { CloudTrailClient, RegisterOrganizationDelegatedAdminCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
+ * import { CloudTrailClient, RegisterOrganizationDelegatedAdminCommand } from '@aws-sdk/client-cloudtrail'; // ES Modules import
+ * // const { CloudTrailClient, RegisterOrganizationDelegatedAdminCommand } = require('@aws-sdk/client-cloudtrail'); // CommonJS import
  * const client = new CloudTrailClient(config);
  * const input = { // RegisterOrganizationDelegatedAdminRequest
- *   MemberAccountId: "STRING_VALUE", // required
+ *   MemberAccountId: 'STRING_VALUE', // required
  * };
  * const command = new RegisterOrganizationDelegatedAdminCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param RegisterOrganizationDelegatedAdminCommandInput - {@link RegisterOrganizationDelegatedAdminCommandInput}
@@ -114,6 +117,8 @@ export interface RegisterOrganizationDelegatedAdminCommandOutput
  * @throws {@link UnsupportedOperationException} (client fault)
  *  <p>This exception is thrown when the requested operation is not supported.</p>
  *
+ * @throws {@link CloudTrailServiceException}
+ * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
  */
 export class RegisterOrganizationDelegatedAdminCommand extends $Command<

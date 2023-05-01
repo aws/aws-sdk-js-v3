@@ -89,19 +89,30 @@ export interface TagResourcesCommandOutput extends TagResourcesOutput, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ResourceGroupsTaggingAPIClient, TagResourcesCommand } from "@aws-sdk/client-resource-groups-tagging-api"; // ES Modules import
- * // const { ResourceGroupsTaggingAPIClient, TagResourcesCommand } = require("@aws-sdk/client-resource-groups-tagging-api"); // CommonJS import
+ * import { ResourceGroupsTaggingAPIClient, TagResourcesCommand } from '@aws-sdk/client-resource-groups-tagging-api'; // ES Modules import
+ * // const { ResourceGroupsTaggingAPIClient, TagResourcesCommand } = require('@aws-sdk/client-resource-groups-tagging-api'); // CommonJS import
  * const client = new ResourceGroupsTaggingAPIClient(config);
  * const input = { // TagResourcesInput
  *   ResourceARNList: [ // ResourceARNListForTagUntag // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   Tags: { // TagMap // required
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new TagResourcesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // TagResourcesOutput
+ *   FailedResourcesMap: { // FailedResourcesMap
+ *     '<keys>': { // FailureInfo
+ *       StatusCode: Number('int'),
+ *       ErrorCode: 'STRING_VALUE',
+ *       ErrorMessage: 'STRING_VALUE',
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param TagResourcesCommandInput - {@link TagResourcesCommandInput}
@@ -140,6 +151,8 @@ export interface TagResourcesCommandOutput extends TagResourcesOutput, __Metadat
  * @throws {@link ThrottledException} (client fault)
  *  <p>The request was denied to limit the frequency of submitted requests.</p>
  *
+ * @throws {@link ResourceGroupsTaggingAPIServiceException}
+ * <p>Base exception class for all service exceptions from ResourceGroupsTaggingAPI service.</p>
  *
  */
 export class TagResourcesCommand extends $Command<

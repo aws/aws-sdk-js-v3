@@ -41,16 +41,24 @@ export interface DeleteSessionCommandOutput extends DeleteSessionResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LexRuntimeServiceClient, DeleteSessionCommand } from "@aws-sdk/client-lex-runtime-service"; // ES Modules import
- * // const { LexRuntimeServiceClient, DeleteSessionCommand } = require("@aws-sdk/client-lex-runtime-service"); // CommonJS import
+ * import { LexRuntimeServiceClient, DeleteSessionCommand } from '@aws-sdk/client-lex-runtime-service'; // ES Modules import
+ * // const { LexRuntimeServiceClient, DeleteSessionCommand } = require('@aws-sdk/client-lex-runtime-service'); // CommonJS import
  * const client = new LexRuntimeServiceClient(config);
  * const input = { // DeleteSessionRequest
- *   botName: "STRING_VALUE", // required
- *   botAlias: "STRING_VALUE", // required
- *   userId: "STRING_VALUE", // required
+ *   botName: 'STRING_VALUE', // required
+ *   botAlias: 'STRING_VALUE', // required
+ *   userId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteSessionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteSessionResponse
+ *   botName: 'STRING_VALUE',
+ *   botAlias: 'STRING_VALUE',
+ *   userId: 'STRING_VALUE',
+ *   sessionId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DeleteSessionCommandInput - {@link DeleteSessionCommandInput}
@@ -78,6 +86,8 @@ export interface DeleteSessionCommandOutput extends DeleteSessionResponse, __Met
  *  <p>The resource (such as the Amazon Lex bot or an alias) that is referred
  *       to is not found.</p>
  *
+ * @throws {@link LexRuntimeServiceServiceException}
+ * <p>Base exception class for all service exceptions from LexRuntimeService service.</p>
  *
  */
 export class DeleteSessionCommand extends $Command<

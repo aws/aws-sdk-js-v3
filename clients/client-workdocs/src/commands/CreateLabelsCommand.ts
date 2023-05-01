@@ -37,18 +37,21 @@ export interface CreateLabelsCommandOutput extends CreateLabelsResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkDocsClient, CreateLabelsCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
- * // const { WorkDocsClient, CreateLabelsCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import
+ * import { WorkDocsClient, CreateLabelsCommand } from '@aws-sdk/client-workdocs'; // ES Modules import
+ * // const { WorkDocsClient, CreateLabelsCommand } = require('@aws-sdk/client-workdocs'); // CommonJS import
  * const client = new WorkDocsClient(config);
  * const input = { // CreateLabelsRequest
- *   ResourceId: "STRING_VALUE", // required
+ *   ResourceId: 'STRING_VALUE', // required
  *   Labels: [ // SharedLabels // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   AuthenticationToken: "STRING_VALUE",
+ *   AuthenticationToken: 'STRING_VALUE',
  * };
  * const command = new CreateLabelsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param CreateLabelsCommandInput - {@link CreateLabelsCommandInput}
@@ -78,6 +81,8 @@ export interface CreateLabelsCommandOutput extends CreateLabelsResponse, __Metad
  * @throws {@link UnauthorizedResourceAccessException} (client fault)
  *  <p>The caller does not have access to perform the action on the resource.</p>
  *
+ * @throws {@link WorkDocsServiceException}
+ * <p>Base exception class for all service exceptions from WorkDocs service.</p>
  *
  */
 export class CreateLabelsCommand extends $Command<

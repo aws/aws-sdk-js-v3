@@ -46,16 +46,28 @@ export interface ListDataIntegrationAssociationsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppIntegrationsClient, ListDataIntegrationAssociationsCommand } from "@aws-sdk/client-appintegrations"; // ES Modules import
- * // const { AppIntegrationsClient, ListDataIntegrationAssociationsCommand } = require("@aws-sdk/client-appintegrations"); // CommonJS import
+ * import { AppIntegrationsClient, ListDataIntegrationAssociationsCommand } from '@aws-sdk/client-appintegrations'; // ES Modules import
+ * // const { AppIntegrationsClient, ListDataIntegrationAssociationsCommand } = require('@aws-sdk/client-appintegrations'); // CommonJS import
  * const client = new AppIntegrationsClient(config);
  * const input = { // ListDataIntegrationAssociationsRequest
- *   DataIntegrationIdentifier: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   DataIntegrationIdentifier: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListDataIntegrationAssociationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListDataIntegrationAssociationsResponse
+ *   DataIntegrationAssociations: [ // DataIntegrationAssociationsList
+ *     { // DataIntegrationAssociationSummary
+ *       DataIntegrationAssociationArn: 'STRING_VALUE',
+ *       DataIntegrationArn: 'STRING_VALUE',
+ *       ClientId: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListDataIntegrationAssociationsCommandInput - {@link ListDataIntegrationAssociationsCommandInput}
@@ -79,6 +91,8 @@ export interface ListDataIntegrationAssociationsCommandOutput
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link AppIntegrationsServiceException}
+ * <p>Base exception class for all service exceptions from AppIntegrations service.</p>
  *
  */
 export class ListDataIntegrationAssociationsCommand extends $Command<

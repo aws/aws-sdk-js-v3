@@ -37,14 +37,19 @@ export interface StartRecommenderCommandOutput extends StartRecommenderResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PersonalizeClient, StartRecommenderCommand } from "@aws-sdk/client-personalize"; // ES Modules import
- * // const { PersonalizeClient, StartRecommenderCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
+ * import { PersonalizeClient, StartRecommenderCommand } from '@aws-sdk/client-personalize'; // ES Modules import
+ * // const { PersonalizeClient, StartRecommenderCommand } = require('@aws-sdk/client-personalize'); // CommonJS import
  * const client = new PersonalizeClient(config);
  * const input = { // StartRecommenderRequest
- *   recommenderArn: "STRING_VALUE", // required
+ *   recommenderArn: 'STRING_VALUE', // required
  * };
  * const command = new StartRecommenderCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartRecommenderResponse
+ *   recommenderArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param StartRecommenderCommandInput - {@link StartRecommenderCommandInput}
@@ -62,6 +67,8 @@ export interface StartRecommenderCommandOutput extends StartRecommenderResponse,
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Could not find the specified resource.</p>
  *
+ * @throws {@link PersonalizeServiceException}
+ * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
  */
 export class StartRecommenderCommand extends $Command<

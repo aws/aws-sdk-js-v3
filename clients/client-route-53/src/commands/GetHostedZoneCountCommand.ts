@@ -36,12 +36,17 @@ export interface GetHostedZoneCountCommandOutput extends GetHostedZoneCountRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Route53Client, GetHostedZoneCountCommand } from "@aws-sdk/client-route-53"; // ES Modules import
- * // const { Route53Client, GetHostedZoneCountCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
+ * import { Route53Client, GetHostedZoneCountCommand } from '@aws-sdk/client-route-53'; // ES Modules import
+ * // const { Route53Client, GetHostedZoneCountCommand } = require('@aws-sdk/client-route-53'); // CommonJS import
  * const client = new Route53Client(config);
  * const input = {};
  * const command = new GetHostedZoneCountCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetHostedZoneCountResponse
+ *   HostedZoneCount: Number('long'), // required
+ * };
+ *
  * ```
  *
  * @param GetHostedZoneCountCommandInput - {@link GetHostedZoneCountCommandInput}
@@ -53,6 +58,8 @@ export interface GetHostedZoneCountCommandOutput extends GetHostedZoneCountRespo
  * @throws {@link InvalidInput} (client fault)
  *  <p>The input is not valid.</p>
  *
+ * @throws {@link Route53ServiceException}
+ * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
  */
 export class GetHostedZoneCountCommand extends $Command<

@@ -36,16 +36,27 @@ export interface ListPreparedStatementsCommandOutput extends ListPreparedStateme
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AthenaClient, ListPreparedStatementsCommand } from "@aws-sdk/client-athena"; // ES Modules import
- * // const { AthenaClient, ListPreparedStatementsCommand } = require("@aws-sdk/client-athena"); // CommonJS import
+ * import { AthenaClient, ListPreparedStatementsCommand } from '@aws-sdk/client-athena'; // ES Modules import
+ * // const { AthenaClient, ListPreparedStatementsCommand } = require('@aws-sdk/client-athena'); // CommonJS import
  * const client = new AthenaClient(config);
  * const input = { // ListPreparedStatementsInput
- *   WorkGroup: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   WorkGroup: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListPreparedStatementsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListPreparedStatementsOutput
+ *   PreparedStatements: [ // PreparedStatementsList
+ *     { // PreparedStatementSummary
+ *       StatementName: 'STRING_VALUE',
+ *       LastModifiedTime: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListPreparedStatementsCommandInput - {@link ListPreparedStatementsCommandInput}
@@ -62,6 +73,8 @@ export interface ListPreparedStatementsCommandOutput extends ListPreparedStateme
  *  <p>Indicates that something is wrong with the input to the request. For example, a
  *             required parameter may be missing or out of range.</p>
  *
+ * @throws {@link AthenaServiceException}
+ * <p>Base exception class for all service exceptions from Athena service.</p>
  *
  */
 export class ListPreparedStatementsCommand extends $Command<

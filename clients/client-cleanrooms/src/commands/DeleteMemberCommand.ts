@@ -38,15 +38,18 @@ export interface DeleteMemberCommandOutput extends DeleteMemberOutput, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CleanRoomsClient, DeleteMemberCommand } from "@aws-sdk/client-cleanrooms"; // ES Modules import
- * // const { CleanRoomsClient, DeleteMemberCommand } = require("@aws-sdk/client-cleanrooms"); // CommonJS import
+ * import { CleanRoomsClient, DeleteMemberCommand } from '@aws-sdk/client-cleanrooms'; // ES Modules import
+ * // const { CleanRoomsClient, DeleteMemberCommand } = require('@aws-sdk/client-cleanrooms'); // CommonJS import
  * const client = new CleanRoomsClient(config);
  * const input = { // DeleteMemberInput
- *   collaborationIdentifier: "STRING_VALUE", // required
- *   accountId: "STRING_VALUE", // required
+ *   collaborationIdentifier: 'STRING_VALUE', // required
+ *   accountId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteMemberCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteMemberCommandInput - {@link DeleteMemberCommandInput}
@@ -73,6 +76,8 @@ export interface DeleteMemberCommandOutput extends DeleteMemberOutput, __Metadat
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the specified constraints.</p>
  *
+ * @throws {@link CleanRoomsServiceException}
+ * <p>Base exception class for all service exceptions from CleanRooms service.</p>
  *
  */
 export class DeleteMemberCommand extends $Command<

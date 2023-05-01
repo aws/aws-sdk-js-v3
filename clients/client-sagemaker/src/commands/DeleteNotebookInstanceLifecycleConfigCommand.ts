@@ -39,14 +39,17 @@ export interface DeleteNotebookInstanceLifecycleConfigCommandOutput extends __Me
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, DeleteNotebookInstanceLifecycleConfigCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, DeleteNotebookInstanceLifecycleConfigCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, DeleteNotebookInstanceLifecycleConfigCommand } from '@aws-sdk/client-sagemaker'; // ES Modules import
+ * // const { SageMakerClient, DeleteNotebookInstanceLifecycleConfigCommand } = require('@aws-sdk/client-sagemaker'); // CommonJS import
  * const client = new SageMakerClient(config);
  * const input = { // DeleteNotebookInstanceLifecycleConfigInput
- *   NotebookInstanceLifecycleConfigName: "STRING_VALUE", // required
+ *   NotebookInstanceLifecycleConfigName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteNotebookInstanceLifecycleConfigCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteNotebookInstanceLifecycleConfigCommandInput - {@link DeleteNotebookInstanceLifecycleConfigCommandInput}
@@ -55,6 +58,8 @@ export interface DeleteNotebookInstanceLifecycleConfigCommandOutput extends __Me
  * @see {@link DeleteNotebookInstanceLifecycleConfigCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class DeleteNotebookInstanceLifecycleConfigCommand extends $Command<

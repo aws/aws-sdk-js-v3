@@ -36,15 +36,27 @@ export interface ListResponsePlansCommandOutput extends ListResponsePlansOutput,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMIncidentsClient, ListResponsePlansCommand } from "@aws-sdk/client-ssm-incidents"; // ES Modules import
- * // const { SSMIncidentsClient, ListResponsePlansCommand } = require("@aws-sdk/client-ssm-incidents"); // CommonJS import
+ * import { SSMIncidentsClient, ListResponsePlansCommand } from '@aws-sdk/client-ssm-incidents'; // ES Modules import
+ * // const { SSMIncidentsClient, ListResponsePlansCommand } = require('@aws-sdk/client-ssm-incidents'); // CommonJS import
  * const client = new SSMIncidentsClient(config);
  * const input = { // ListResponsePlansInput
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new ListResponsePlansCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListResponsePlansOutput
+ *   responsePlanSummaries: [ // ResponsePlanSummaryList // required
+ *     { // ResponsePlanSummary
+ *       arn: 'STRING_VALUE', // required
+ *       name: 'STRING_VALUE', // required
+ *       displayName: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListResponsePlansCommandInput - {@link ListResponsePlansCommandInput}
@@ -67,6 +79,8 @@ export interface ListResponsePlansCommandOutput extends ListResponsePlansOutput,
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
  *       service.</p>
  *
+ * @throws {@link SSMIncidentsServiceException}
+ * <p>Base exception class for all service exceptions from SSMIncidents service.</p>
  *
  */
 export class ListResponsePlansCommand extends $Command<

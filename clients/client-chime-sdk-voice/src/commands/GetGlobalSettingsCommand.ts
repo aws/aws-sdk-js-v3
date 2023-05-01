@@ -36,12 +36,19 @@ export interface GetGlobalSettingsCommandOutput extends GetGlobalSettingsRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeSDKVoiceClient, GetGlobalSettingsCommand } from "@aws-sdk/client-chime-sdk-voice"; // ES Modules import
- * // const { ChimeSDKVoiceClient, GetGlobalSettingsCommand } = require("@aws-sdk/client-chime-sdk-voice"); // CommonJS import
+ * import { ChimeSDKVoiceClient, GetGlobalSettingsCommand } from '@aws-sdk/client-chime-sdk-voice'; // ES Modules import
+ * // const { ChimeSDKVoiceClient, GetGlobalSettingsCommand } = require('@aws-sdk/client-chime-sdk-voice'); // CommonJS import
  * const client = new ChimeSDKVoiceClient(config);
  * const input = {};
  * const command = new GetGlobalSettingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetGlobalSettingsResponse
+ *   VoiceConnector: { // VoiceConnectorSettings
+ *     CdrBucket: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetGlobalSettingsCommandInput - {@link GetGlobalSettingsCommandInput}
@@ -68,6 +75,8 @@ export interface GetGlobalSettingsCommandOutput extends GetGlobalSettingsRespons
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client isn't authorized to request a resource.</p>
  *
+ * @throws {@link ChimeSDKVoiceServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
  */
 export class GetGlobalSettingsCommand extends $Command<

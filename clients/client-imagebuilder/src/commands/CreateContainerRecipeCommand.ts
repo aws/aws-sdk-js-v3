@@ -37,65 +37,72 @@ export interface CreateContainerRecipeCommandOutput extends CreateContainerRecip
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ImagebuilderClient, CreateContainerRecipeCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
- * // const { ImagebuilderClient, CreateContainerRecipeCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
+ * import { ImagebuilderClient, CreateContainerRecipeCommand } from '@aws-sdk/client-imagebuilder'; // ES Modules import
+ * // const { ImagebuilderClient, CreateContainerRecipeCommand } = require('@aws-sdk/client-imagebuilder'); // CommonJS import
  * const client = new ImagebuilderClient(config);
  * const input = { // CreateContainerRecipeRequest
- *   containerType: "DOCKER", // required
- *   name: "STRING_VALUE", // required
- *   description: "STRING_VALUE",
- *   semanticVersion: "STRING_VALUE", // required
+ *   containerType: 'DOCKER', // required
+ *   name: 'STRING_VALUE', // required
+ *   description: 'STRING_VALUE',
+ *   semanticVersion: 'STRING_VALUE', // required
  *   components: [ // ComponentConfigurationList // required
  *     { // ComponentConfiguration
- *       componentArn: "STRING_VALUE", // required
+ *       componentArn: 'STRING_VALUE', // required
  *       parameters: [ // ComponentParameterList
  *         { // ComponentParameter
- *           name: "STRING_VALUE", // required
+ *           name: 'STRING_VALUE', // required
  *           value: [ // ComponentParameterValueList // required
- *             "STRING_VALUE",
+ *             'STRING_VALUE',
  *           ],
  *         },
  *       ],
  *     },
  *   ],
  *   instanceConfiguration: { // InstanceConfiguration
- *     image: "STRING_VALUE",
+ *     image: 'STRING_VALUE',
  *     blockDeviceMappings: [ // InstanceBlockDeviceMappings
  *       { // InstanceBlockDeviceMapping
- *         deviceName: "STRING_VALUE",
+ *         deviceName: 'STRING_VALUE',
  *         ebs: { // EbsInstanceBlockDeviceSpecification
  *           encrypted: true || false,
  *           deleteOnTermination: true || false,
- *           iops: Number("int"),
- *           kmsKeyId: "STRING_VALUE",
- *           snapshotId: "STRING_VALUE",
- *           volumeSize: Number("int"),
- *           volumeType: "standard" || "io1" || "io2" || "gp2" || "gp3" || "sc1" || "st1",
- *           throughput: Number("int"),
+ *           iops: Number('int'),
+ *           kmsKeyId: 'STRING_VALUE',
+ *           snapshotId: 'STRING_VALUE',
+ *           volumeSize: Number('int'),
+ *           volumeType: 'standard' || 'io1' || 'io2' || 'gp2' || 'gp3' || 'sc1' || 'st1',
+ *           throughput: Number('int'),
  *         },
- *         virtualName: "STRING_VALUE",
- *         noDevice: "STRING_VALUE",
+ *         virtualName: 'STRING_VALUE',
+ *         noDevice: 'STRING_VALUE',
  *       },
  *     ],
  *   },
- *   dockerfileTemplateData: "STRING_VALUE",
- *   dockerfileTemplateUri: "STRING_VALUE",
- *   platformOverride: "Windows" || "Linux",
- *   imageOsVersionOverride: "STRING_VALUE",
- *   parentImage: "STRING_VALUE", // required
+ *   dockerfileTemplateData: 'STRING_VALUE',
+ *   dockerfileTemplateUri: 'STRING_VALUE',
+ *   platformOverride: 'Windows' || 'Linux',
+ *   imageOsVersionOverride: 'STRING_VALUE',
+ *   parentImage: 'STRING_VALUE', // required
  *   tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
- *   workingDirectory: "STRING_VALUE",
+ *   workingDirectory: 'STRING_VALUE',
  *   targetRepository: { // TargetContainerRepository
- *     service: "ECR", // required
- *     repositoryName: "STRING_VALUE", // required
+ *     service: 'ECR', // required
+ *     repositoryName: 'STRING_VALUE', // required
  *   },
- *   kmsKeyId: "STRING_VALUE",
- *   clientToken: "STRING_VALUE", // required
+ *   kmsKeyId: 'STRING_VALUE',
+ *   clientToken: 'STRING_VALUE', // required
  * };
  * const command = new CreateContainerRecipeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateContainerRecipeResponse
+ *   requestId: 'STRING_VALUE',
+ *   clientToken: 'STRING_VALUE',
+ *   containerRecipeArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateContainerRecipeCommandInput - {@link CreateContainerRecipeCommandInput}
@@ -144,6 +151,8 @@ export interface CreateContainerRecipeCommandOutput extends CreateContainerRecip
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service is unable to process your request at this time.</p>
  *
+ * @throws {@link ImagebuilderServiceException}
+ * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
  */
 export class CreateContainerRecipeCommand extends $Command<

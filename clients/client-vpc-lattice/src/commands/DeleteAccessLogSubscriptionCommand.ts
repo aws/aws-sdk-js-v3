@@ -41,14 +41,17 @@ export interface DeleteAccessLogSubscriptionCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { VPCLatticeClient, DeleteAccessLogSubscriptionCommand } from "@aws-sdk/client-vpc-lattice"; // ES Modules import
- * // const { VPCLatticeClient, DeleteAccessLogSubscriptionCommand } = require("@aws-sdk/client-vpc-lattice"); // CommonJS import
+ * import { VPCLatticeClient, DeleteAccessLogSubscriptionCommand } from '@aws-sdk/client-vpc-lattice'; // ES Modules import
+ * // const { VPCLatticeClient, DeleteAccessLogSubscriptionCommand } = require('@aws-sdk/client-vpc-lattice'); // CommonJS import
  * const client = new VPCLatticeClient(config);
  * const input = { // DeleteAccessLogSubscriptionRequest
- *   accessLogSubscriptionIdentifier: "STRING_VALUE", // required
+ *   accessLogSubscriptionIdentifier: 'STRING_VALUE', // required
  * };
  * const command = new DeleteAccessLogSubscriptionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteAccessLogSubscriptionCommandInput - {@link DeleteAccessLogSubscriptionCommandInput}
@@ -73,6 +76,8 @@ export interface DeleteAccessLogSubscriptionCommandOutput
  *  <p>The input does not satisfy the constraints specified by an Amazon Web Services
  *    service.</p>
  *
+ * @throws {@link VPCLatticeServiceException}
+ * <p>Base exception class for all service exceptions from VPCLattice service.</p>
  *
  */
 export class DeleteAccessLogSubscriptionCommand extends $Command<

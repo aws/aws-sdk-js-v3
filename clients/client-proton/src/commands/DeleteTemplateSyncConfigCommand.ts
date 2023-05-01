@@ -36,15 +36,27 @@ export interface DeleteTemplateSyncConfigCommandOutput extends DeleteTemplateSyn
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ProtonClient, DeleteTemplateSyncConfigCommand } from "@aws-sdk/client-proton"; // ES Modules import
- * // const { ProtonClient, DeleteTemplateSyncConfigCommand } = require("@aws-sdk/client-proton"); // CommonJS import
+ * import { ProtonClient, DeleteTemplateSyncConfigCommand } from '@aws-sdk/client-proton'; // ES Modules import
+ * // const { ProtonClient, DeleteTemplateSyncConfigCommand } = require('@aws-sdk/client-proton'); // CommonJS import
  * const client = new ProtonClient(config);
  * const input = { // DeleteTemplateSyncConfigInput
- *   templateName: "STRING_VALUE", // required
- *   templateType: "STRING_VALUE", // required
+ *   templateName: 'STRING_VALUE', // required
+ *   templateType: 'STRING_VALUE', // required
  * };
  * const command = new DeleteTemplateSyncConfigCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteTemplateSyncConfigOutput
+ *   templateSyncConfig: { // TemplateSyncConfig
+ *     templateName: 'STRING_VALUE', // required
+ *     templateType: 'STRING_VALUE', // required
+ *     repositoryProvider: 'STRING_VALUE', // required
+ *     repositoryName: 'STRING_VALUE', // required
+ *     branch: 'STRING_VALUE', // required
+ *     subdirectory: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param DeleteTemplateSyncConfigCommandInput - {@link DeleteTemplateSyncConfigCommandInput}
@@ -71,6 +83,8 @@ export interface DeleteTemplateSyncConfigCommandOutput extends DeleteTemplateSyn
  * @throws {@link ValidationException} (client fault)
  *  <p>The input is invalid or an out-of-range value was supplied for the input parameter.</p>
  *
+ * @throws {@link ProtonServiceException}
+ * <p>Base exception class for all service exceptions from Proton service.</p>
  *
  */
 export class DeleteTemplateSyncConfigCommand extends $Command<

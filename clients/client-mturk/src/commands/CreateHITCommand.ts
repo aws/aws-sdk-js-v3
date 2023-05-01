@@ -52,51 +52,51 @@ export interface CreateHITCommandOutput extends CreateHITResponse, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MTurkClient, CreateHITCommand } from "@aws-sdk/client-mturk"; // ES Modules import
- * // const { MTurkClient, CreateHITCommand } = require("@aws-sdk/client-mturk"); // CommonJS import
+ * import { MTurkClient, CreateHITCommand } from '@aws-sdk/client-mturk'; // ES Modules import
+ * // const { MTurkClient, CreateHITCommand } = require('@aws-sdk/client-mturk'); // CommonJS import
  * const client = new MTurkClient(config);
  * const input = { // CreateHITRequest
- *   MaxAssignments: Number("int"),
- *   AutoApprovalDelayInSeconds: Number("long"),
- *   LifetimeInSeconds: Number("long"), // required
- *   AssignmentDurationInSeconds: Number("long"), // required
- *   Reward: "STRING_VALUE", // required
- *   Title: "STRING_VALUE", // required
- *   Keywords: "STRING_VALUE",
- *   Description: "STRING_VALUE", // required
- *   Question: "STRING_VALUE",
- *   RequesterAnnotation: "STRING_VALUE",
+ *   MaxAssignments: Number('int'),
+ *   AutoApprovalDelayInSeconds: Number('long'),
+ *   LifetimeInSeconds: Number('long'), // required
+ *   AssignmentDurationInSeconds: Number('long'), // required
+ *   Reward: 'STRING_VALUE', // required
+ *   Title: 'STRING_VALUE', // required
+ *   Keywords: 'STRING_VALUE',
+ *   Description: 'STRING_VALUE', // required
+ *   Question: 'STRING_VALUE',
+ *   RequesterAnnotation: 'STRING_VALUE',
  *   QualificationRequirements: [ // QualificationRequirementList
  *     { // QualificationRequirement
- *       QualificationTypeId: "STRING_VALUE", // required
- *       Comparator: "STRING_VALUE", // required
+ *       QualificationTypeId: 'STRING_VALUE', // required
+ *       Comparator: 'STRING_VALUE', // required
  *       IntegerValues: [ // IntegerList
- *         Number("int"),
+ *         Number('int'),
  *       ],
  *       LocaleValues: [ // LocaleList
  *         { // Locale
- *           Country: "STRING_VALUE", // required
- *           Subdivision: "STRING_VALUE",
+ *           Country: 'STRING_VALUE', // required
+ *           Subdivision: 'STRING_VALUE',
  *         },
  *       ],
  *       RequiredToPreview: true || false,
- *       ActionsGuarded: "STRING_VALUE",
+ *       ActionsGuarded: 'STRING_VALUE',
  *     },
  *   ],
- *   UniqueRequestToken: "STRING_VALUE",
+ *   UniqueRequestToken: 'STRING_VALUE',
  *   AssignmentReviewPolicy: { // ReviewPolicy
- *     PolicyName: "STRING_VALUE", // required
+ *     PolicyName: 'STRING_VALUE', // required
  *     Parameters: [ // PolicyParameterList
  *       { // PolicyParameter
- *         Key: "STRING_VALUE",
+ *         Key: 'STRING_VALUE',
  *         Values: [ // StringList
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
  *         MapEntries: [ // ParameterMapEntryList
  *           { // ParameterMapEntry
- *             Key: "STRING_VALUE",
+ *             Key: 'STRING_VALUE',
  *             Values: [
- *               "STRING_VALUE",
+ *               'STRING_VALUE',
  *             ],
  *           },
  *         ],
@@ -104,34 +104,77 @@ export interface CreateHITCommandOutput extends CreateHITResponse, __MetadataBea
  *     ],
  *   },
  *   HITReviewPolicy: {
- *     PolicyName: "STRING_VALUE", // required
+ *     PolicyName: 'STRING_VALUE', // required
  *     Parameters: [
  *       {
- *         Key: "STRING_VALUE",
+ *         Key: 'STRING_VALUE',
  *         Values: [
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
  *         MapEntries: [
  *           {
- *             Key: "STRING_VALUE",
+ *             Key: 'STRING_VALUE',
  *             Values: [
- *               "STRING_VALUE",
+ *               'STRING_VALUE',
  *             ],
  *           },
  *         ],
  *       },
  *     ],
  *   },
- *   HITLayoutId: "STRING_VALUE",
+ *   HITLayoutId: 'STRING_VALUE',
  *   HITLayoutParameters: [ // HITLayoutParameterList
  *     { // HITLayoutParameter
- *       Name: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Name: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreateHITCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateHITResponse
+ *   HIT: { // HIT
+ *     HITId: 'STRING_VALUE',
+ *     HITTypeId: 'STRING_VALUE',
+ *     HITGroupId: 'STRING_VALUE',
+ *     HITLayoutId: 'STRING_VALUE',
+ *     CreationTime: new Date('TIMESTAMP'),
+ *     Title: 'STRING_VALUE',
+ *     Description: 'STRING_VALUE',
+ *     Question: 'STRING_VALUE',
+ *     Keywords: 'STRING_VALUE',
+ *     HITStatus: 'STRING_VALUE',
+ *     MaxAssignments: Number('int'),
+ *     Reward: 'STRING_VALUE',
+ *     AutoApprovalDelayInSeconds: Number('long'),
+ *     Expiration: new Date('TIMESTAMP'),
+ *     AssignmentDurationInSeconds: Number('long'),
+ *     RequesterAnnotation: 'STRING_VALUE',
+ *     QualificationRequirements: [ // QualificationRequirementList
+ *       { // QualificationRequirement
+ *         QualificationTypeId: 'STRING_VALUE', // required
+ *         Comparator: 'STRING_VALUE', // required
+ *         IntegerValues: [ // IntegerList
+ *           Number('int'),
+ *         ],
+ *         LocaleValues: [ // LocaleList
+ *           { // Locale
+ *             Country: 'STRING_VALUE', // required
+ *             Subdivision: 'STRING_VALUE',
+ *           },
+ *         ],
+ *         RequiredToPreview: true || false,
+ *         ActionsGuarded: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     HITReviewStatus: 'STRING_VALUE',
+ *     NumberOfAssignmentsPending: Number('int'),
+ *     NumberOfAssignmentsAvailable: Number('int'),
+ *     NumberOfAssignmentsCompleted: Number('int'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateHITCommandInput - {@link CreateHITCommandInput}
@@ -146,6 +189,8 @@ export interface CreateHITCommandOutput extends CreateHITResponse, __MetadataBea
  * @throws {@link ServiceFault} (server fault)
  *  <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
  *
+ * @throws {@link MTurkServiceException}
+ * <p>Base exception class for all service exceptions from MTurk service.</p>
  *
  */
 export class CreateHITCommand extends $Command<

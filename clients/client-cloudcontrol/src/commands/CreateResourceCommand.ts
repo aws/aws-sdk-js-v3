@@ -45,18 +45,34 @@ export interface CreateResourceCommandOutput extends CreateResourceOutput, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudControlClient, CreateResourceCommand } from "@aws-sdk/client-cloudcontrol"; // ES Modules import
- * // const { CloudControlClient, CreateResourceCommand } = require("@aws-sdk/client-cloudcontrol"); // CommonJS import
+ * import { CloudControlClient, CreateResourceCommand } from '@aws-sdk/client-cloudcontrol'; // ES Modules import
+ * // const { CloudControlClient, CreateResourceCommand } = require('@aws-sdk/client-cloudcontrol'); // CommonJS import
  * const client = new CloudControlClient(config);
  * const input = { // CreateResourceInput
- *   TypeName: "STRING_VALUE", // required
- *   TypeVersionId: "STRING_VALUE",
- *   RoleArn: "STRING_VALUE",
- *   ClientToken: "STRING_VALUE",
- *   DesiredState: "STRING_VALUE", // required
+ *   TypeName: 'STRING_VALUE', // required
+ *   TypeVersionId: 'STRING_VALUE',
+ *   RoleArn: 'STRING_VALUE',
+ *   ClientToken: 'STRING_VALUE',
+ *   DesiredState: 'STRING_VALUE', // required
  * };
  * const command = new CreateResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateResourceOutput
+ *   ProgressEvent: { // ProgressEvent
+ *     TypeName: 'STRING_VALUE',
+ *     Identifier: 'STRING_VALUE',
+ *     RequestToken: 'STRING_VALUE',
+ *     Operation: 'STRING_VALUE',
+ *     OperationStatus: 'STRING_VALUE',
+ *     EventTime: new Date('TIMESTAMP'),
+ *     ResourceModel: 'STRING_VALUE',
+ *     StatusMessage: 'STRING_VALUE',
+ *     ErrorCode: 'STRING_VALUE',
+ *     RetryAfter: new Date('TIMESTAMP'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateResourceCommandInput - {@link CreateResourceCommandInput}
@@ -138,6 +154,8 @@ export interface CreateResourceCommandOutput extends CreateResourceOutput, __Met
  * @throws {@link UnsupportedActionException} (client fault)
  *  <p>The specified resource doesn't support this resource operation.</p>
  *
+ * @throws {@link CloudControlServiceException}
+ * <p>Base exception class for all service exceptions from CloudControl service.</p>
  *
  */
 export class CreateResourceCommand extends $Command<

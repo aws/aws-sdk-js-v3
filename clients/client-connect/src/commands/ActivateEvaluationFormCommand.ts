@@ -37,16 +37,23 @@ export interface ActivateEvaluationFormCommandOutput extends ActivateEvaluationF
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, ActivateEvaluationFormCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, ActivateEvaluationFormCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, ActivateEvaluationFormCommand } from '@aws-sdk/client-connect'; // ES Modules import
+ * // const { ConnectClient, ActivateEvaluationFormCommand } = require('@aws-sdk/client-connect'); // CommonJS import
  * const client = new ConnectClient(config);
  * const input = { // ActivateEvaluationFormRequest
- *   InstanceId: "STRING_VALUE", // required
- *   EvaluationFormId: "STRING_VALUE", // required
- *   EvaluationFormVersion: Number("int"), // required
+ *   InstanceId: 'STRING_VALUE', // required
+ *   EvaluationFormId: 'STRING_VALUE', // required
+ *   EvaluationFormVersion: Number('int'), // required
  * };
  * const command = new ActivateEvaluationFormCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ActivateEvaluationFormResponse
+ *   EvaluationFormId: 'STRING_VALUE', // required
+ *   EvaluationFormArn: 'STRING_VALUE', // required
+ *   EvaluationFormVersion: Number('int'), // required
+ * };
+ *
  * ```
  *
  * @param ActivateEvaluationFormCommandInput - {@link ActivateEvaluationFormCommandInput}
@@ -70,6 +77,8 @@ export interface ActivateEvaluationFormCommandOutput extends ActivateEvaluationF
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class ActivateEvaluationFormCommand extends $Command<

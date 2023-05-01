@@ -36,29 +36,32 @@ export interface CreateDeviceFleetCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, CreateDeviceFleetCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, CreateDeviceFleetCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, CreateDeviceFleetCommand } from '@aws-sdk/client-sagemaker'; // ES Modules import
+ * // const { SageMakerClient, CreateDeviceFleetCommand } = require('@aws-sdk/client-sagemaker'); // CommonJS import
  * const client = new SageMakerClient(config);
  * const input = { // CreateDeviceFleetRequest
- *   DeviceFleetName: "STRING_VALUE", // required
- *   RoleArn: "STRING_VALUE",
- *   Description: "STRING_VALUE",
+ *   DeviceFleetName: 'STRING_VALUE', // required
+ *   RoleArn: 'STRING_VALUE',
+ *   Description: 'STRING_VALUE',
  *   OutputConfig: { // EdgeOutputConfig
- *     S3OutputLocation: "STRING_VALUE", // required
- *     KmsKeyId: "STRING_VALUE",
- *     PresetDeploymentType: "GreengrassV2Component",
- *     PresetDeploymentConfig: "STRING_VALUE",
+ *     S3OutputLocation: 'STRING_VALUE', // required
+ *     KmsKeyId: 'STRING_VALUE',
+ *     PresetDeploymentType: 'GreengrassV2Component',
+ *     PresetDeploymentConfig: 'STRING_VALUE',
  *   },
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  *   EnableIotRoleAlias: true || false,
  * };
  * const command = new CreateDeviceFleetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param CreateDeviceFleetCommandInput - {@link CreateDeviceFleetCommandInput}
@@ -74,6 +77,8 @@ export interface CreateDeviceFleetCommandOutput extends __MetadataBearer {}
  *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many
  *             training jobs created. </p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class CreateDeviceFleetCommand extends $Command<

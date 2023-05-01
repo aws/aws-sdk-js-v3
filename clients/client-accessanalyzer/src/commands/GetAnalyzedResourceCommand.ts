@@ -36,15 +36,36 @@ export interface GetAnalyzedResourceCommandOutput extends GetAnalyzedResourceRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AccessAnalyzerClient, GetAnalyzedResourceCommand } from "@aws-sdk/client-accessanalyzer"; // ES Modules import
- * // const { AccessAnalyzerClient, GetAnalyzedResourceCommand } = require("@aws-sdk/client-accessanalyzer"); // CommonJS import
+ * import { AccessAnalyzerClient, GetAnalyzedResourceCommand } from '@aws-sdk/client-accessanalyzer'; // ES Modules import
+ * // const { AccessAnalyzerClient, GetAnalyzedResourceCommand } = require('@aws-sdk/client-accessanalyzer'); // CommonJS import
  * const client = new AccessAnalyzerClient(config);
  * const input = { // GetAnalyzedResourceRequest
- *   analyzerArn: "STRING_VALUE", // required
- *   resourceArn: "STRING_VALUE", // required
+ *   analyzerArn: 'STRING_VALUE', // required
+ *   resourceArn: 'STRING_VALUE', // required
  * };
  * const command = new GetAnalyzedResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetAnalyzedResourceResponse
+ *   resource: { // AnalyzedResource
+ *     resourceArn: 'STRING_VALUE', // required
+ *     resourceType: 'STRING_VALUE', // required
+ *     createdAt: new Date('TIMESTAMP'), // required
+ *     analyzedAt: new Date('TIMESTAMP'), // required
+ *     updatedAt: new Date('TIMESTAMP'), // required
+ *     isPublic: true || false, // required
+ *     actions: [ // ActionList
+ *       'STRING_VALUE',
+ *     ],
+ *     sharedVia: [ // SharedViaList
+ *       'STRING_VALUE',
+ *     ],
+ *     status: 'STRING_VALUE',
+ *     resourceOwnerAccount: 'STRING_VALUE', // required
+ *     error: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetAnalyzedResourceCommandInput - {@link GetAnalyzedResourceCommandInput}
@@ -68,6 +89,8 @@ export interface GetAnalyzedResourceCommandOutput extends GetAnalyzedResourceRes
  * @throws {@link ValidationException} (client fault)
  *  <p>Validation exception error.</p>
  *
+ * @throws {@link AccessAnalyzerServiceException}
+ * <p>Base exception class for all service exceptions from AccessAnalyzer service.</p>
  *
  */
 export class GetAnalyzedResourceCommand extends $Command<

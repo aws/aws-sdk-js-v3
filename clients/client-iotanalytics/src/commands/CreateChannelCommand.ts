@@ -37,32 +37,42 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTAnalyticsClient, CreateChannelCommand } from "@aws-sdk/client-iotanalytics"; // ES Modules import
- * // const { IoTAnalyticsClient, CreateChannelCommand } = require("@aws-sdk/client-iotanalytics"); // CommonJS import
+ * import { IoTAnalyticsClient, CreateChannelCommand } from '@aws-sdk/client-iotanalytics'; // ES Modules import
+ * // const { IoTAnalyticsClient, CreateChannelCommand } = require('@aws-sdk/client-iotanalytics'); // CommonJS import
  * const client = new IoTAnalyticsClient(config);
  * const input = { // CreateChannelRequest
- *   channelName: "STRING_VALUE", // required
+ *   channelName: 'STRING_VALUE', // required
  *   channelStorage: { // ChannelStorage
  *     serviceManagedS3: {},
  *     customerManagedS3: { // CustomerManagedChannelS3Storage
- *       bucket: "STRING_VALUE", // required
- *       keyPrefix: "STRING_VALUE",
- *       roleArn: "STRING_VALUE", // required
+ *       bucket: 'STRING_VALUE', // required
+ *       keyPrefix: 'STRING_VALUE',
+ *       roleArn: 'STRING_VALUE', // required
  *     },
  *   },
  *   retentionPeriod: { // RetentionPeriod
  *     unlimited: true || false,
- *     numberOfDays: Number("int"),
+ *     numberOfDays: Number('int'),
  *   },
  *   tags: [ // TagList
  *     { // Tag
- *       key: "STRING_VALUE", // required
- *       value: "STRING_VALUE", // required
+ *       key: 'STRING_VALUE', // required
+ *       value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreateChannelCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateChannelResponse
+ *   channelName: 'STRING_VALUE',
+ *   channelArn: 'STRING_VALUE',
+ *   retentionPeriod: { // RetentionPeriod
+ *     unlimited: true || false,
+ *     numberOfDays: Number('int'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateChannelCommandInput - {@link CreateChannelCommandInput}
@@ -89,6 +99,8 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
  *
+ * @throws {@link IoTAnalyticsServiceException}
+ * <p>Base exception class for all service exceptions from IoTAnalytics service.</p>
  *
  */
 export class CreateChannelCommand extends $Command<

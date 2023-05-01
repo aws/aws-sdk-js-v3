@@ -36,29 +36,37 @@ export interface StartBackupJobCommandOutput extends StartBackupJobOutput, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BackupClient, StartBackupJobCommand } from "@aws-sdk/client-backup"; // ES Modules import
- * // const { BackupClient, StartBackupJobCommand } = require("@aws-sdk/client-backup"); // CommonJS import
+ * import { BackupClient, StartBackupJobCommand } from '@aws-sdk/client-backup'; // ES Modules import
+ * // const { BackupClient, StartBackupJobCommand } = require('@aws-sdk/client-backup'); // CommonJS import
  * const client = new BackupClient(config);
  * const input = { // StartBackupJobInput
- *   BackupVaultName: "STRING_VALUE", // required
- *   ResourceArn: "STRING_VALUE", // required
- *   IamRoleArn: "STRING_VALUE", // required
- *   IdempotencyToken: "STRING_VALUE",
- *   StartWindowMinutes: Number("long"),
- *   CompleteWindowMinutes: Number("long"),
+ *   BackupVaultName: 'STRING_VALUE', // required
+ *   ResourceArn: 'STRING_VALUE', // required
+ *   IamRoleArn: 'STRING_VALUE', // required
+ *   IdempotencyToken: 'STRING_VALUE',
+ *   StartWindowMinutes: Number('long'),
+ *   CompleteWindowMinutes: Number('long'),
  *   Lifecycle: { // Lifecycle
- *     MoveToColdStorageAfterDays: Number("long"),
- *     DeleteAfterDays: Number("long"),
+ *     MoveToColdStorageAfterDays: Number('long'),
+ *     DeleteAfterDays: Number('long'),
  *   },
  *   RecoveryPointTags: { // Tags
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  *   BackupOptions: { // BackupOptions
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new StartBackupJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartBackupJobOutput
+ *   BackupJobId: 'STRING_VALUE',
+ *   RecoveryPointArn: 'STRING_VALUE',
+ *   CreationDate: new Date('TIMESTAMP'),
+ *   IsParent: true || false,
+ * };
+ *
  * ```
  *
  * @param StartBackupJobCommandInput - {@link StartBackupJobCommandInput}
@@ -88,6 +96,8 @@ export interface StartBackupJobCommandOutput extends StartBackupJobOutput, __Met
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request failed due to a temporary failure of the server.</p>
  *
+ * @throws {@link BackupServiceException}
+ * <p>Base exception class for all service exceptions from Backup service.</p>
  *
  */
 export class StartBackupJobCommand extends $Command<

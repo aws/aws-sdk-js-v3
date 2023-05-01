@@ -46,14 +46,24 @@ export interface PutAccountPreferencesCommandOutput extends PutAccountPreference
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EFSClient, PutAccountPreferencesCommand } from "@aws-sdk/client-efs"; // ES Modules import
- * // const { EFSClient, PutAccountPreferencesCommand } = require("@aws-sdk/client-efs"); // CommonJS import
+ * import { EFSClient, PutAccountPreferencesCommand } from '@aws-sdk/client-efs'; // ES Modules import
+ * // const { EFSClient, PutAccountPreferencesCommand } = require('@aws-sdk/client-efs'); // CommonJS import
  * const client = new EFSClient(config);
  * const input = { // PutAccountPreferencesRequest
- *   ResourceIdType: "LONG_ID" || "SHORT_ID", // required
+ *   ResourceIdType: 'LONG_ID' || 'SHORT_ID', // required
  * };
  * const command = new PutAccountPreferencesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutAccountPreferencesResponse
+ *   ResourceIdPreference: { // ResourceIdPreference
+ *     ResourceIdType: 'LONG_ID' || 'SHORT_ID',
+ *     Resources: [ // Resources
+ *       'FILE_SYSTEM' || 'MOUNT_TARGET',
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param PutAccountPreferencesCommandInput - {@link PutAccountPreferencesCommandInput}
@@ -69,6 +79,8 @@ export interface PutAccountPreferencesCommandOutput extends PutAccountPreference
  * @throws {@link InternalServerError} (server fault)
  *  <p>Returned if an error occurred on the server side.</p>
  *
+ * @throws {@link EFSServiceException}
+ * <p>Base exception class for all service exceptions from EFS service.</p>
  *
  */
 export class PutAccountPreferencesCommand extends $Command<

@@ -39,16 +39,32 @@ export interface ListDecoderManifestsCommandOutput extends ListDecoderManifestsR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTFleetWiseClient, ListDecoderManifestsCommand } from "@aws-sdk/client-iotfleetwise"; // ES Modules import
- * // const { IoTFleetWiseClient, ListDecoderManifestsCommand } = require("@aws-sdk/client-iotfleetwise"); // CommonJS import
+ * import { IoTFleetWiseClient, ListDecoderManifestsCommand } from '@aws-sdk/client-iotfleetwise'; // ES Modules import
+ * // const { IoTFleetWiseClient, ListDecoderManifestsCommand } = require('@aws-sdk/client-iotfleetwise'); // CommonJS import
  * const client = new IoTFleetWiseClient(config);
  * const input = { // ListDecoderManifestsRequest
- *   modelManifestArn: "STRING_VALUE",
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   modelManifestArn: 'STRING_VALUE',
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new ListDecoderManifestsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListDecoderManifestsResponse
+ *   summaries: [ // decoderManifestSummaries
+ *     { // DecoderManifestSummary
+ *       name: 'STRING_VALUE',
+ *       arn: 'STRING_VALUE',
+ *       modelManifestArn: 'STRING_VALUE',
+ *       description: 'STRING_VALUE',
+ *       status: 'STRING_VALUE',
+ *       creationTime: new Date('TIMESTAMP'), // required
+ *       lastModificationTime: new Date('TIMESTAMP'), // required
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListDecoderManifestsCommandInput - {@link ListDecoderManifestsCommandInput}
@@ -69,6 +85,8 @@ export interface ListDecoderManifestsCommandOutput extends ListDecoderManifestsR
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
  *
+ * @throws {@link IoTFleetWiseServiceException}
+ * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
  */
 export class ListDecoderManifestsCommand extends $Command<

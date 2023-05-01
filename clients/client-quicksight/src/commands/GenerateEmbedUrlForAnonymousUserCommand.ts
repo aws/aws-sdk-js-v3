@@ -63,43 +63,51 @@ export interface GenerateEmbedUrlForAnonymousUserCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { QuickSightClient, GenerateEmbedUrlForAnonymousUserCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
- * // const { QuickSightClient, GenerateEmbedUrlForAnonymousUserCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * import { QuickSightClient, GenerateEmbedUrlForAnonymousUserCommand } from '@aws-sdk/client-quicksight'; // ES Modules import
+ * // const { QuickSightClient, GenerateEmbedUrlForAnonymousUserCommand } = require('@aws-sdk/client-quicksight'); // CommonJS import
  * const client = new QuickSightClient(config);
  * const input = { // GenerateEmbedUrlForAnonymousUserRequest
- *   AwsAccountId: "STRING_VALUE", // required
- *   SessionLifetimeInMinutes: Number("long"),
- *   Namespace: "STRING_VALUE", // required
+ *   AwsAccountId: 'STRING_VALUE', // required
+ *   SessionLifetimeInMinutes: Number('long'),
+ *   Namespace: 'STRING_VALUE', // required
  *   SessionTags: [ // SessionTagList
  *     { // SessionTag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  *   AuthorizedResourceArns: [ // ArnList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   ExperienceConfiguration: { // AnonymousUserEmbeddingExperienceConfiguration
  *     Dashboard: { // AnonymousUserDashboardEmbeddingConfiguration
- *       InitialDashboardId: "STRING_VALUE", // required
+ *       InitialDashboardId: 'STRING_VALUE', // required
  *     },
  *     DashboardVisual: { // AnonymousUserDashboardVisualEmbeddingConfiguration
  *       InitialDashboardVisualId: { // DashboardVisualId
- *         DashboardId: "STRING_VALUE", // required
- *         SheetId: "STRING_VALUE", // required
- *         VisualId: "STRING_VALUE", // required
+ *         DashboardId: 'STRING_VALUE', // required
+ *         SheetId: 'STRING_VALUE', // required
+ *         VisualId: 'STRING_VALUE', // required
  *       },
  *     },
  *     QSearchBar: { // AnonymousUserQSearchBarEmbeddingConfiguration
- *       InitialTopicId: "STRING_VALUE", // required
+ *       InitialTopicId: 'STRING_VALUE', // required
  *     },
  *   },
  *   AllowedDomains: [ // StringList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new GenerateEmbedUrlForAnonymousUserCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GenerateEmbedUrlForAnonymousUserResponse
+ *   EmbedUrl: 'STRING_VALUE', // required
+ *   Status: Number('int'), // required
+ *   RequestId: 'STRING_VALUE', // required
+ *   AnonymousUserArn: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param GenerateEmbedUrlForAnonymousUserCommandInput - {@link GenerateEmbedUrlForAnonymousUserCommandInput}
@@ -147,6 +155,8 @@ export interface GenerateEmbedUrlForAnonymousUserCommandOutput
  * 			Amazon QuickSight currently has Standard Edition and Enterprise Edition. Not every operation and
  * 			capability is available in every edition.</p>
  *
+ * @throws {@link QuickSightServiceException}
+ * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
 export class GenerateEmbedUrlForAnonymousUserCommand extends $Command<

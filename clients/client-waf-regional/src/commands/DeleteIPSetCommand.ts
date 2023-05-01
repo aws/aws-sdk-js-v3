@@ -59,15 +59,20 @@ export interface DeleteIPSetCommandOutput extends DeleteIPSetResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WAFRegionalClient, DeleteIPSetCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
- * // const { WAFRegionalClient, DeleteIPSetCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import
+ * import { WAFRegionalClient, DeleteIPSetCommand } from '@aws-sdk/client-waf-regional'; // ES Modules import
+ * // const { WAFRegionalClient, DeleteIPSetCommand } = require('@aws-sdk/client-waf-regional'); // CommonJS import
  * const client = new WAFRegionalClient(config);
  * const input = { // DeleteIPSetRequest
- *   IPSetId: "STRING_VALUE", // required
- *   ChangeToken: "STRING_VALUE", // required
+ *   IPSetId: 'STRING_VALUE', // required
+ *   ChangeToken: 'STRING_VALUE', // required
  * };
  * const command = new DeleteIPSetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteIPSetResponse
+ *   ChangeToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DeleteIPSetCommandInput - {@link DeleteIPSetCommandInput}
@@ -117,6 +122,8 @@ export interface DeleteIPSetCommandOutput extends DeleteIPSetResponse, __Metadat
  * @throws {@link WAFStaleDataException} (client fault)
  *  <p>The operation failed because you tried to create, update, or delete an object by using a change token that has already been used.</p>
  *
+ * @throws {@link WAFRegionalServiceException}
+ * <p>Base exception class for all service exceptions from WAFRegional service.</p>
  *
  * @example To delete an IP set
  * ```javascript

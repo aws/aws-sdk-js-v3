@@ -72,18 +72,26 @@ export interface LabelParameterVersionCommandOutput extends LabelParameterVersio
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMClient, LabelParameterVersionCommand } from "@aws-sdk/client-ssm"; // ES Modules import
- * // const { SSMClient, LabelParameterVersionCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * import { SSMClient, LabelParameterVersionCommand } from '@aws-sdk/client-ssm'; // ES Modules import
+ * // const { SSMClient, LabelParameterVersionCommand } = require('@aws-sdk/client-ssm'); // CommonJS import
  * const client = new SSMClient(config);
  * const input = { // LabelParameterVersionRequest
- *   Name: "STRING_VALUE", // required
- *   ParameterVersion: Number("long"),
+ *   Name: 'STRING_VALUE', // required
+ *   ParameterVersion: Number('long'),
  *   Labels: [ // ParameterLabelList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new LabelParameterVersionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // LabelParameterVersionResult
+ *   InvalidLabels: [ // ParameterLabelList
+ *     'STRING_VALUE',
+ *   ],
+ *   ParameterVersion: Number('long'),
+ * };
+ *
  * ```
  *
  * @param LabelParameterVersionCommandInput - {@link LabelParameterVersionCommandInput}
@@ -108,6 +116,8 @@ export interface LabelParameterVersionCommandOutput extends LabelParameterVersio
  * @throws {@link TooManyUpdates} (client fault)
  *  <p>There are concurrent updates for a resource that supports one update at a time.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class LabelParameterVersionCommand extends $Command<

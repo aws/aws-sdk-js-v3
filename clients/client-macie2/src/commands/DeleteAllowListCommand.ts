@@ -36,15 +36,18 @@ export interface DeleteAllowListCommandOutput extends DeleteAllowListResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Macie2Client, DeleteAllowListCommand } from "@aws-sdk/client-macie2"; // ES Modules import
- * // const { Macie2Client, DeleteAllowListCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
+ * import { Macie2Client, DeleteAllowListCommand } from '@aws-sdk/client-macie2'; // ES Modules import
+ * // const { Macie2Client, DeleteAllowListCommand } = require('@aws-sdk/client-macie2'); // CommonJS import
  * const client = new Macie2Client(config);
  * const input = { // DeleteAllowListRequest
- *   id: "STRING_VALUE", // required
- *   ignoreJobChecks: "STRING_VALUE",
+ *   id: 'STRING_VALUE', // required
+ *   ignoreJobChecks: 'STRING_VALUE',
  * };
  * const command = new DeleteAllowListCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteAllowListCommandInput - {@link DeleteAllowListCommandInput}
@@ -68,6 +71,8 @@ export interface DeleteAllowListCommandOutput extends DeleteAllowListResponse, _
  * @throws {@link ValidationException} (client fault)
  *  <p>Provides information about an error that occurred due to a syntax error in a request.</p>
  *
+ * @throws {@link Macie2ServiceException}
+ * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
  */
 export class DeleteAllowListCommand extends $Command<

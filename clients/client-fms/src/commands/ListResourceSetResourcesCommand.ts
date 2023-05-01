@@ -36,16 +36,27 @@ export interface ListResourceSetResourcesCommandOutput extends ListResourceSetRe
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FMSClient, ListResourceSetResourcesCommand } from "@aws-sdk/client-fms"; // ES Modules import
- * // const { FMSClient, ListResourceSetResourcesCommand } = require("@aws-sdk/client-fms"); // CommonJS import
+ * import { FMSClient, ListResourceSetResourcesCommand } from '@aws-sdk/client-fms'; // ES Modules import
+ * // const { FMSClient, ListResourceSetResourcesCommand } = require('@aws-sdk/client-fms'); // CommonJS import
  * const client = new FMSClient(config);
  * const input = { // ListResourceSetResourcesRequest
- *   Identifier: "STRING_VALUE", // required
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   Identifier: 'STRING_VALUE', // required
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListResourceSetResourcesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListResourceSetResourcesResponse
+ *   Items: [ // ResourceList // required
+ *     { // Resource
+ *       URI: 'STRING_VALUE', // required
+ *       AccountId: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListResourceSetResourcesCommandInput - {@link ListResourceSetResourcesCommandInput}
@@ -71,6 +82,8 @@ export interface ListResourceSetResourcesCommandOutput extends ListResourceSetRe
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link FMSServiceException}
+ * <p>Base exception class for all service exceptions from FMS service.</p>
  *
  */
 export class ListResourceSetResourcesCommand extends $Command<

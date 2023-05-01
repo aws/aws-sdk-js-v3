@@ -225,41 +225,44 @@ export interface PutBucketAclCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { S3Client, PutBucketAclCommand } from "@aws-sdk/client-s3"; // ES Modules import
- * // const { S3Client, PutBucketAclCommand } = require("@aws-sdk/client-s3"); // CommonJS import
+ * import { S3Client, PutBucketAclCommand } from '@aws-sdk/client-s3'; // ES Modules import
+ * // const { S3Client, PutBucketAclCommand } = require('@aws-sdk/client-s3'); // CommonJS import
  * const client = new S3Client(config);
  * const input = { // PutBucketAclRequest
- *   ACL: "private" || "public-read" || "public-read-write" || "authenticated-read",
+ *   ACL: 'private' || 'public-read' || 'public-read-write' || 'authenticated-read',
  *   AccessControlPolicy: { // AccessControlPolicy
  *     Grants: [ // Grants
  *       { // Grant
  *         Grantee: { // Grantee
- *           DisplayName: "STRING_VALUE",
- *           EmailAddress: "STRING_VALUE",
- *           ID: "STRING_VALUE",
- *           URI: "STRING_VALUE",
- *           Type: "CanonicalUser" || "AmazonCustomerByEmail" || "Group", // required
+ *           DisplayName: 'STRING_VALUE',
+ *           EmailAddress: 'STRING_VALUE',
+ *           ID: 'STRING_VALUE',
+ *           URI: 'STRING_VALUE',
+ *           Type: 'CanonicalUser' || 'AmazonCustomerByEmail' || 'Group', // required
  *         },
- *         Permission: "FULL_CONTROL" || "WRITE" || "WRITE_ACP" || "READ" || "READ_ACP",
+ *         Permission: 'FULL_CONTROL' || 'WRITE' || 'WRITE_ACP' || 'READ' || 'READ_ACP',
  *       },
  *     ],
  *     Owner: { // Owner
- *       DisplayName: "STRING_VALUE",
- *       ID: "STRING_VALUE",
+ *       DisplayName: 'STRING_VALUE',
+ *       ID: 'STRING_VALUE',
  *     },
  *   },
- *   Bucket: "STRING_VALUE", // required
- *   ContentMD5: "STRING_VALUE",
- *   ChecksumAlgorithm: "CRC32" || "CRC32C" || "SHA1" || "SHA256",
- *   GrantFullControl: "STRING_VALUE",
- *   GrantRead: "STRING_VALUE",
- *   GrantReadACP: "STRING_VALUE",
- *   GrantWrite: "STRING_VALUE",
- *   GrantWriteACP: "STRING_VALUE",
- *   ExpectedBucketOwner: "STRING_VALUE",
+ *   Bucket: 'STRING_VALUE', // required
+ *   ContentMD5: 'STRING_VALUE',
+ *   ChecksumAlgorithm: 'CRC32' || 'CRC32C' || 'SHA1' || 'SHA256',
+ *   GrantFullControl: 'STRING_VALUE',
+ *   GrantRead: 'STRING_VALUE',
+ *   GrantReadACP: 'STRING_VALUE',
+ *   GrantWrite: 'STRING_VALUE',
+ *   GrantWriteACP: 'STRING_VALUE',
+ *   ExpectedBucketOwner: 'STRING_VALUE',
  * };
  * const command = new PutBucketAclCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutBucketAclCommandInput - {@link PutBucketAclCommandInput}
@@ -268,6 +271,8 @@ export interface PutBucketAclCommandOutput extends __MetadataBearer {}
  * @see {@link PutBucketAclCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
+ * @throws {@link S3ServiceException}
+ * <p>Base exception class for all service exceptions from S3 service.</p>
  *
  * @example Put bucket acl
  * ```javascript

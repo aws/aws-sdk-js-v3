@@ -37,18 +37,40 @@ export interface DescribeProjectsCommandOutput extends DescribeProjectsResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RekognitionClient, DescribeProjectsCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
- * // const { RekognitionClient, DescribeProjectsCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
+ * import { RekognitionClient, DescribeProjectsCommand } from '@aws-sdk/client-rekognition'; // ES Modules import
+ * // const { RekognitionClient, DescribeProjectsCommand } = require('@aws-sdk/client-rekognition'); // CommonJS import
  * const client = new RekognitionClient(config);
  * const input = { // DescribeProjectsRequest
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  *   ProjectNames: [ // ProjectNames
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new DescribeProjectsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeProjectsResponse
+ *   ProjectDescriptions: [ // ProjectDescriptions
+ *     { // ProjectDescription
+ *       ProjectArn: 'STRING_VALUE',
+ *       CreationTimestamp: new Date('TIMESTAMP'),
+ *       Status: 'CREATING' || 'CREATED' || 'DELETING',
+ *       Datasets: [ // DatasetMetadataList
+ *         { // DatasetMetadata
+ *           CreationTimestamp: new Date('TIMESTAMP'),
+ *           DatasetType: 'TRAIN' || 'TEST',
+ *           DatasetArn: 'STRING_VALUE',
+ *           Status: 'CREATE_IN_PROGRESS' || 'CREATE_COMPLETE' || 'CREATE_FAILED' || 'UPDATE_IN_PROGRESS' || 'UPDATE_COMPLETE' || 'UPDATE_FAILED' || 'DELETE_IN_PROGRESS',
+ *           StatusMessage: 'STRING_VALUE',
+ *           StatusMessageCode: 'SUCCESS' || 'SERVICE_ERROR' || 'CLIENT_ERROR',
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeProjectsCommandInput - {@link DescribeProjectsCommandInput}
@@ -77,6 +99,8 @@ export interface DescribeProjectsCommandOutput extends DescribeProjectsResponse,
  * @throws {@link ThrottlingException} (server fault)
  *  <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
  *
+ * @throws {@link RekognitionServiceException}
+ * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
  */
 export class DescribeProjectsCommand extends $Command<

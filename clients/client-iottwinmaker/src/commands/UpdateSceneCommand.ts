@@ -36,23 +36,28 @@ export interface UpdateSceneCommandOutput extends UpdateSceneResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTTwinMakerClient, UpdateSceneCommand } from "@aws-sdk/client-iottwinmaker"; // ES Modules import
- * // const { IoTTwinMakerClient, UpdateSceneCommand } = require("@aws-sdk/client-iottwinmaker"); // CommonJS import
+ * import { IoTTwinMakerClient, UpdateSceneCommand } from '@aws-sdk/client-iottwinmaker'; // ES Modules import
+ * // const { IoTTwinMakerClient, UpdateSceneCommand } = require('@aws-sdk/client-iottwinmaker'); // CommonJS import
  * const client = new IoTTwinMakerClient(config);
  * const input = { // UpdateSceneRequest
- *   workspaceId: "STRING_VALUE", // required
- *   sceneId: "STRING_VALUE", // required
- *   contentLocation: "STRING_VALUE",
- *   description: "STRING_VALUE",
+ *   workspaceId: 'STRING_VALUE', // required
+ *   sceneId: 'STRING_VALUE', // required
+ *   contentLocation: 'STRING_VALUE',
+ *   description: 'STRING_VALUE',
  *   capabilities: [ // SceneCapabilities
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   sceneMetadata: { // SceneMetadataMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new UpdateSceneCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateSceneResponse
+ *   updateDateTime: new Date('TIMESTAMP'), // required
+ * };
+ *
  * ```
  *
  * @param UpdateSceneCommandInput - {@link UpdateSceneCommandInput}
@@ -76,6 +81,8 @@ export interface UpdateSceneCommandOutput extends UpdateSceneResponse, __Metadat
  * @throws {@link ValidationException} (client fault)
  *  <p>Failed</p>
  *
+ * @throws {@link IoTTwinMakerServiceException}
+ * <p>Base exception class for all service exceptions from IoTTwinMaker service.</p>
  *
  */
 export class UpdateSceneCommand extends $Command<

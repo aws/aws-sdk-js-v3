@@ -41,42 +41,45 @@ export interface UpdateMobileDeviceAccessRuleCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkMailClient, UpdateMobileDeviceAccessRuleCommand } from "@aws-sdk/client-workmail"; // ES Modules import
- * // const { WorkMailClient, UpdateMobileDeviceAccessRuleCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
+ * import { WorkMailClient, UpdateMobileDeviceAccessRuleCommand } from '@aws-sdk/client-workmail'; // ES Modules import
+ * // const { WorkMailClient, UpdateMobileDeviceAccessRuleCommand } = require('@aws-sdk/client-workmail'); // CommonJS import
  * const client = new WorkMailClient(config);
  * const input = { // UpdateMobileDeviceAccessRuleRequest
- *   OrganizationId: "STRING_VALUE", // required
- *   MobileDeviceAccessRuleId: "STRING_VALUE", // required
- *   Name: "STRING_VALUE", // required
- *   Description: "STRING_VALUE",
- *   Effect: "ALLOW" || "DENY", // required
+ *   OrganizationId: 'STRING_VALUE', // required
+ *   MobileDeviceAccessRuleId: 'STRING_VALUE', // required
+ *   Name: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE',
+ *   Effect: 'ALLOW' || 'DENY', // required
  *   DeviceTypes: [ // DeviceTypeList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   NotDeviceTypes: [
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   DeviceModels: [ // DeviceModelList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   NotDeviceModels: [
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   DeviceOperatingSystems: [ // DeviceOperatingSystemList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   NotDeviceOperatingSystems: [
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   DeviceUserAgents: [ // DeviceUserAgentList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   NotDeviceUserAgents: [
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new UpdateMobileDeviceAccessRuleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateMobileDeviceAccessRuleCommandInput - {@link UpdateMobileDeviceAccessRuleCommandInput}
@@ -100,6 +103,8 @@ export interface UpdateMobileDeviceAccessRuleCommandOutput
  *  <p>The organization must have a valid state to perform certain
  *          operations on the organization or its members.</p>
  *
+ * @throws {@link WorkMailServiceException}
+ * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
  */
 export class UpdateMobileDeviceAccessRuleCommand extends $Command<

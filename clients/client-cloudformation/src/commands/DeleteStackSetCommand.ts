@@ -37,15 +37,18 @@ export interface DeleteStackSetCommandOutput extends DeleteStackSetOutput, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudFormationClient, DeleteStackSetCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
- * // const { CloudFormationClient, DeleteStackSetCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
+ * import { CloudFormationClient, DeleteStackSetCommand } from '@aws-sdk/client-cloudformation'; // ES Modules import
+ * // const { CloudFormationClient, DeleteStackSetCommand } = require('@aws-sdk/client-cloudformation'); // CommonJS import
  * const client = new CloudFormationClient(config);
  * const input = { // DeleteStackSetInput
- *   StackSetName: "STRING_VALUE", // required
- *   CallAs: "SELF" || "DELEGATED_ADMIN",
+ *   StackSetName: 'STRING_VALUE', // required
+ *   CallAs: 'SELF' || 'DELEGATED_ADMIN',
  * };
  * const command = new DeleteStackSetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteStackSetCommandInput - {@link DeleteStackSetCommandInput}
@@ -63,6 +66,8 @@ export interface DeleteStackSetCommandOutput extends DeleteStackSetOutput, __Met
  *          instances. Delete all stack instances from the stack set before deleting the stack
  *          set.</p>
  *
+ * @throws {@link CloudFormationServiceException}
+ * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
  */
 export class DeleteStackSetCommand extends $Command<

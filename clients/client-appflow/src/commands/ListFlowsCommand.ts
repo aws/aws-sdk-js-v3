@@ -36,15 +36,45 @@ export interface ListFlowsCommandOutput extends ListFlowsResponse, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppflowClient, ListFlowsCommand } from "@aws-sdk/client-appflow"; // ES Modules import
- * // const { AppflowClient, ListFlowsCommand } = require("@aws-sdk/client-appflow"); // CommonJS import
+ * import { AppflowClient, ListFlowsCommand } from '@aws-sdk/client-appflow'; // ES Modules import
+ * // const { AppflowClient, ListFlowsCommand } = require('@aws-sdk/client-appflow'); // CommonJS import
  * const client = new AppflowClient(config);
  * const input = { // ListFlowsRequest
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new ListFlowsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListFlowsResponse
+ *   flows: [ // FlowList
+ *     { // FlowDefinition
+ *       flowArn: 'STRING_VALUE',
+ *       description: 'STRING_VALUE',
+ *       flowName: 'STRING_VALUE',
+ *       flowStatus: 'Active' || 'Deprecated' || 'Deleted' || 'Draft' || 'Errored' || 'Suspended',
+ *       sourceConnectorType: 'Salesforce' || 'Singular' || 'Slack' || 'Redshift' || 'S3' || 'Marketo' || 'Googleanalytics' || 'Zendesk' || 'Servicenow' || 'Datadog' || 'Trendmicro' || 'Snowflake' || 'Dynatrace' || 'Infornexus' || 'Amplitude' || 'Veeva' || 'EventBridge' || 'LookoutMetrics' || 'Upsolver' || 'Honeycode' || 'CustomerProfiles' || 'SAPOData' || 'CustomConnector' || 'Pardot',
+ *       sourceConnectorLabel: 'STRING_VALUE',
+ *       destinationConnectorType: 'Salesforce' || 'Singular' || 'Slack' || 'Redshift' || 'S3' || 'Marketo' || 'Googleanalytics' || 'Zendesk' || 'Servicenow' || 'Datadog' || 'Trendmicro' || 'Snowflake' || 'Dynatrace' || 'Infornexus' || 'Amplitude' || 'Veeva' || 'EventBridge' || 'LookoutMetrics' || 'Upsolver' || 'Honeycode' || 'CustomerProfiles' || 'SAPOData' || 'CustomConnector' || 'Pardot',
+ *       destinationConnectorLabel: 'STRING_VALUE',
+ *       triggerType: 'Scheduled' || 'Event' || 'OnDemand',
+ *       createdAt: new Date('TIMESTAMP'),
+ *       lastUpdatedAt: new Date('TIMESTAMP'),
+ *       createdBy: 'STRING_VALUE',
+ *       lastUpdatedBy: 'STRING_VALUE',
+ *       tags: { // TagMap
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *       lastRunExecutionDetails: { // ExecutionDetails
+ *         mostRecentExecutionMessage: 'STRING_VALUE',
+ *         mostRecentExecutionTime: new Date('TIMESTAMP'),
+ *         mostRecentExecutionStatus: 'InProgress' || 'Successful' || 'Error',
+ *       },
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListFlowsCommandInput - {@link ListFlowsCommandInput}
@@ -60,6 +90,8 @@ export interface ListFlowsCommandOutput extends ListFlowsResponse, __MetadataBea
  * @throws {@link ValidationException} (client fault)
  *  <p> The request has invalid or missing parameters. </p>
  *
+ * @throws {@link AppflowServiceException}
+ * <p>Base exception class for all service exceptions from Appflow service.</p>
  *
  */
 export class ListFlowsCommand extends $Command<

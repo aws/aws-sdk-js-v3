@@ -54,15 +54,20 @@ export interface StartMLLabelingSetGenerationTaskRunCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlueClient, StartMLLabelingSetGenerationTaskRunCommand } from "@aws-sdk/client-glue"; // ES Modules import
- * // const { GlueClient, StartMLLabelingSetGenerationTaskRunCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * import { GlueClient, StartMLLabelingSetGenerationTaskRunCommand } from '@aws-sdk/client-glue'; // ES Modules import
+ * // const { GlueClient, StartMLLabelingSetGenerationTaskRunCommand } = require('@aws-sdk/client-glue'); // CommonJS import
  * const client = new GlueClient(config);
  * const input = { // StartMLLabelingSetGenerationTaskRunRequest
- *   TransformId: "STRING_VALUE", // required
- *   OutputS3Path: "STRING_VALUE", // required
+ *   TransformId: 'STRING_VALUE', // required
+ *   OutputS3Path: 'STRING_VALUE', // required
  * };
  * const command = new StartMLLabelingSetGenerationTaskRunCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartMLLabelingSetGenerationTaskRunResponse
+ *   TaskRunId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param StartMLLabelingSetGenerationTaskRunCommandInput - {@link StartMLLabelingSetGenerationTaskRunCommandInput}
@@ -86,6 +91,8 @@ export interface StartMLLabelingSetGenerationTaskRunCommandOutput
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class StartMLLabelingSetGenerationTaskRunCommand extends $Command<

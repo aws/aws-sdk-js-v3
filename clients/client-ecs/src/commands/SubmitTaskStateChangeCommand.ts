@@ -39,54 +39,59 @@ export interface SubmitTaskStateChangeCommandOutput extends SubmitTaskStateChang
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ECSClient, SubmitTaskStateChangeCommand } from "@aws-sdk/client-ecs"; // ES Modules import
- * // const { ECSClient, SubmitTaskStateChangeCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
+ * import { ECSClient, SubmitTaskStateChangeCommand } from '@aws-sdk/client-ecs'; // ES Modules import
+ * // const { ECSClient, SubmitTaskStateChangeCommand } = require('@aws-sdk/client-ecs'); // CommonJS import
  * const client = new ECSClient(config);
  * const input = { // SubmitTaskStateChangeRequest
- *   cluster: "STRING_VALUE",
- *   task: "STRING_VALUE",
- *   status: "STRING_VALUE",
- *   reason: "STRING_VALUE",
+ *   cluster: 'STRING_VALUE',
+ *   task: 'STRING_VALUE',
+ *   status: 'STRING_VALUE',
+ *   reason: 'STRING_VALUE',
  *   containers: [ // ContainerStateChanges
  *     { // ContainerStateChange
- *       containerName: "STRING_VALUE",
- *       imageDigest: "STRING_VALUE",
- *       runtimeId: "STRING_VALUE",
- *       exitCode: Number("int"),
+ *       containerName: 'STRING_VALUE',
+ *       imageDigest: 'STRING_VALUE',
+ *       runtimeId: 'STRING_VALUE',
+ *       exitCode: Number('int'),
  *       networkBindings: [ // NetworkBindings
  *         { // NetworkBinding
- *           bindIP: "STRING_VALUE",
- *           containerPort: Number("int"),
- *           hostPort: Number("int"),
- *           protocol: "tcp" || "udp",
- *           containerPortRange: "STRING_VALUE",
- *           hostPortRange: "STRING_VALUE",
+ *           bindIP: 'STRING_VALUE',
+ *           containerPort: Number('int'),
+ *           hostPort: Number('int'),
+ *           protocol: 'tcp' || 'udp',
+ *           containerPortRange: 'STRING_VALUE',
+ *           hostPortRange: 'STRING_VALUE',
  *         },
  *       ],
- *       reason: "STRING_VALUE",
- *       status: "STRING_VALUE",
+ *       reason: 'STRING_VALUE',
+ *       status: 'STRING_VALUE',
  *     },
  *   ],
  *   attachments: [ // AttachmentStateChanges
  *     { // AttachmentStateChange
- *       attachmentArn: "STRING_VALUE", // required
- *       status: "STRING_VALUE", // required
+ *       attachmentArn: 'STRING_VALUE', // required
+ *       status: 'STRING_VALUE', // required
  *     },
  *   ],
  *   managedAgents: [ // ManagedAgentStateChanges
  *     { // ManagedAgentStateChange
- *       containerName: "STRING_VALUE", // required
- *       managedAgentName: "ExecuteCommandAgent", // required
- *       status: "STRING_VALUE", // required
- *       reason: "STRING_VALUE",
+ *       containerName: 'STRING_VALUE', // required
+ *       managedAgentName: 'ExecuteCommandAgent', // required
+ *       status: 'STRING_VALUE', // required
+ *       reason: 'STRING_VALUE',
  *     },
  *   ],
- *   pullStartedAt: new Date("TIMESTAMP"),
- *   pullStoppedAt: new Date("TIMESTAMP"),
- *   executionStoppedAt: new Date("TIMESTAMP"),
+ *   pullStartedAt: new Date('TIMESTAMP'),
+ *   pullStoppedAt: new Date('TIMESTAMP'),
+ *   executionStoppedAt: new Date('TIMESTAMP'),
  * };
  * const command = new SubmitTaskStateChangeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SubmitTaskStateChangeResponse
+ *   acknowledgment: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param SubmitTaskStateChangeCommandInput - {@link SubmitTaskStateChangeCommandInput}
@@ -110,6 +115,8 @@ export interface SubmitTaskStateChangeCommandOutput extends SubmitTaskStateChang
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server issue.</p>
  *
+ * @throws {@link ECSServiceException}
+ * <p>Base exception class for all service exceptions from ECS service.</p>
  *
  */
 export class SubmitTaskStateChangeCommand extends $Command<

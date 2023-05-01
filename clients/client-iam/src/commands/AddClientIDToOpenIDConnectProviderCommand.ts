@@ -42,15 +42,18 @@ export interface AddClientIDToOpenIDConnectProviderCommandOutput extends __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IAMClient, AddClientIDToOpenIDConnectProviderCommand } from "@aws-sdk/client-iam"; // ES Modules import
- * // const { IAMClient, AddClientIDToOpenIDConnectProviderCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * import { IAMClient, AddClientIDToOpenIDConnectProviderCommand } from '@aws-sdk/client-iam'; // ES Modules import
+ * // const { IAMClient, AddClientIDToOpenIDConnectProviderCommand } = require('@aws-sdk/client-iam'); // CommonJS import
  * const client = new IAMClient(config);
  * const input = { // AddClientIDToOpenIDConnectProviderRequest
- *   OpenIDConnectProviderArn: "STRING_VALUE", // required
- *   ClientID: "STRING_VALUE", // required
+ *   OpenIDConnectProviderArn: 'STRING_VALUE', // required
+ *   ClientID: 'STRING_VALUE', // required
  * };
  * const command = new AddClientIDToOpenIDConnectProviderCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param AddClientIDToOpenIDConnectProviderCommandInput - {@link AddClientIDToOpenIDConnectProviderCommandInput}
@@ -75,6 +78,8 @@ export interface AddClientIDToOpenIDConnectProviderCommandOutput extends __Metad
  *  <p>The request processing has failed because of an unknown error, exception or
  *       failure.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  * @example To add a client ID (audience) to an Open-ID Connect (OIDC) provider
  * ```javascript

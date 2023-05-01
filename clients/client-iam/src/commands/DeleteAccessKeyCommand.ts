@@ -40,15 +40,18 @@ export interface DeleteAccessKeyCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IAMClient, DeleteAccessKeyCommand } from "@aws-sdk/client-iam"; // ES Modules import
- * // const { IAMClient, DeleteAccessKeyCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * import { IAMClient, DeleteAccessKeyCommand } from '@aws-sdk/client-iam'; // ES Modules import
+ * // const { IAMClient, DeleteAccessKeyCommand } = require('@aws-sdk/client-iam'); // CommonJS import
  * const client = new IAMClient(config);
  * const input = { // DeleteAccessKeyRequest
- *   UserName: "STRING_VALUE",
- *   AccessKeyId: "STRING_VALUE", // required
+ *   UserName: 'STRING_VALUE',
+ *   AccessKeyId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteAccessKeyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteAccessKeyCommandInput - {@link DeleteAccessKeyCommandInput}
@@ -69,6 +72,8 @@ export interface DeleteAccessKeyCommandOutput extends __MetadataBearer {}
  *  <p>The request processing has failed because of an unknown error, exception or
  *       failure.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  * @example To delete an access key for an IAM user
  * ```javascript

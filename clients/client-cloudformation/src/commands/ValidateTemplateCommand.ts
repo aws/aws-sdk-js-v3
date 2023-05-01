@@ -38,15 +38,35 @@ export interface ValidateTemplateCommandOutput extends ValidateTemplateOutput, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudFormationClient, ValidateTemplateCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
- * // const { CloudFormationClient, ValidateTemplateCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
+ * import { CloudFormationClient, ValidateTemplateCommand } from '@aws-sdk/client-cloudformation'; // ES Modules import
+ * // const { CloudFormationClient, ValidateTemplateCommand } = require('@aws-sdk/client-cloudformation'); // CommonJS import
  * const client = new CloudFormationClient(config);
  * const input = { // ValidateTemplateInput
- *   TemplateBody: "STRING_VALUE",
- *   TemplateURL: "STRING_VALUE",
+ *   TemplateBody: 'STRING_VALUE',
+ *   TemplateURL: 'STRING_VALUE',
  * };
  * const command = new ValidateTemplateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ValidateTemplateOutput
+ *   Parameters: [ // TemplateParameters
+ *     { // TemplateParameter
+ *       ParameterKey: 'STRING_VALUE',
+ *       DefaultValue: 'STRING_VALUE',
+ *       NoEcho: true || false,
+ *       Description: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   Description: 'STRING_VALUE',
+ *   Capabilities: [ // Capabilities
+ *     'CAPABILITY_IAM' || 'CAPABILITY_NAMED_IAM' || 'CAPABILITY_AUTO_EXPAND',
+ *   ],
+ *   CapabilitiesReason: 'STRING_VALUE',
+ *   DeclaredTransforms: [ // TransformsList
+ *     'STRING_VALUE',
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ValidateTemplateCommandInput - {@link ValidateTemplateCommandInput}
@@ -55,6 +75,8 @@ export interface ValidateTemplateCommandOutput extends ValidateTemplateOutput, _
  * @see {@link ValidateTemplateCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
+ * @throws {@link CloudFormationServiceException}
+ * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
  */
 export class ValidateTemplateCommand extends $Command<

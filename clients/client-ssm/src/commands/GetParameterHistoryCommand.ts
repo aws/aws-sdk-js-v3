@@ -46,17 +46,47 @@ export interface GetParameterHistoryCommandOutput extends GetParameterHistoryRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMClient, GetParameterHistoryCommand } from "@aws-sdk/client-ssm"; // ES Modules import
- * // const { SSMClient, GetParameterHistoryCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * import { SSMClient, GetParameterHistoryCommand } from '@aws-sdk/client-ssm'; // ES Modules import
+ * // const { SSMClient, GetParameterHistoryCommand } = require('@aws-sdk/client-ssm'); // CommonJS import
  * const client = new SSMClient(config);
  * const input = { // GetParameterHistoryRequest
- *   Name: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
  *   WithDecryption: true || false,
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new GetParameterHistoryCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetParameterHistoryResult
+ *   Parameters: [ // ParameterHistoryList
+ *     { // ParameterHistory
+ *       Name: 'STRING_VALUE',
+ *       Type: 'String' || 'StringList' || 'SecureString',
+ *       KeyId: 'STRING_VALUE',
+ *       LastModifiedDate: new Date('TIMESTAMP'),
+ *       LastModifiedUser: 'STRING_VALUE',
+ *       Description: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
+ *       AllowedPattern: 'STRING_VALUE',
+ *       Version: Number('long'),
+ *       Labels: [ // ParameterLabelList
+ *         'STRING_VALUE',
+ *       ],
+ *       Tier: 'Standard' || 'Advanced' || 'Intelligent-Tiering',
+ *       Policies: [ // ParameterPolicyList
+ *         { // ParameterInlinePolicy
+ *           PolicyText: 'STRING_VALUE',
+ *           PolicyType: 'STRING_VALUE',
+ *           PolicyStatus: 'STRING_VALUE',
+ *         },
+ *       ],
+ *       DataType: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetParameterHistoryCommandInput - {@link GetParameterHistoryCommandInput}
@@ -77,6 +107,8 @@ export interface GetParameterHistoryCommandOutput extends GetParameterHistoryRes
  * @throws {@link ParameterNotFound} (client fault)
  *  <p>The parameter couldn't be found. Verify the name and try again.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class GetParameterHistoryCommand extends $Command<

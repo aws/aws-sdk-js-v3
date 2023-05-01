@@ -62,18 +62,24 @@ export interface StopFleetActionsCommandOutput extends StopFleetActionsOutput, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GameLiftClient, StopFleetActionsCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
- * // const { GameLiftClient, StopFleetActionsCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
+ * import { GameLiftClient, StopFleetActionsCommand } from '@aws-sdk/client-gamelift'; // ES Modules import
+ * // const { GameLiftClient, StopFleetActionsCommand } = require('@aws-sdk/client-gamelift'); // CommonJS import
  * const client = new GameLiftClient(config);
  * const input = { // StopFleetActionsInput
- *   FleetId: "STRING_VALUE", // required
+ *   FleetId: 'STRING_VALUE', // required
  *   Actions: [ // FleetActionList // required
- *     "AUTO_SCALING",
+ *     'AUTO_SCALING',
  *   ],
- *   Location: "STRING_VALUE",
+ *   Location: 'STRING_VALUE',
  * };
  * const command = new StopFleetActionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StopFleetActionsOutput
+ *   FleetId: 'STRING_VALUE',
+ *   FleetArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param StopFleetActionsCommandInput - {@link StopFleetActionsCommandInput}
@@ -99,6 +105,8 @@ export interface StopFleetActionsCommandOutput extends StopFleetActionsOutput, _
  * @throws {@link UnsupportedRegionException} (client fault)
  *  <p>The requested operation is not supported in the Region specified.</p>
  *
+ * @throws {@link GameLiftServiceException}
+ * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
  */
 export class StopFleetActionsCommand extends $Command<

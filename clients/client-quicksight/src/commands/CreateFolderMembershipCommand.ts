@@ -36,17 +36,27 @@ export interface CreateFolderMembershipCommandOutput extends CreateFolderMembers
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { QuickSightClient, CreateFolderMembershipCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
- * // const { QuickSightClient, CreateFolderMembershipCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * import { QuickSightClient, CreateFolderMembershipCommand } from '@aws-sdk/client-quicksight'; // ES Modules import
+ * // const { QuickSightClient, CreateFolderMembershipCommand } = require('@aws-sdk/client-quicksight'); // CommonJS import
  * const client = new QuickSightClient(config);
  * const input = { // CreateFolderMembershipRequest
- *   AwsAccountId: "STRING_VALUE", // required
- *   FolderId: "STRING_VALUE", // required
- *   MemberId: "STRING_VALUE", // required
- *   MemberType: "DASHBOARD" || "ANALYSIS" || "DATASET", // required
+ *   AwsAccountId: 'STRING_VALUE', // required
+ *   FolderId: 'STRING_VALUE', // required
+ *   MemberId: 'STRING_VALUE', // required
+ *   MemberType: 'DASHBOARD' || 'ANALYSIS' || 'DATASET', // required
  * };
  * const command = new CreateFolderMembershipCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateFolderMembershipResponse
+ *   Status: Number('int'),
+ *   FolderMember: { // FolderMember
+ *     MemberId: 'STRING_VALUE',
+ *     MemberType: 'DASHBOARD' || 'ANALYSIS' || 'DATASET',
+ *   },
+ *   RequestId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateFolderMembershipCommandInput - {@link CreateFolderMembershipCommandInput}
@@ -85,6 +95,8 @@ export interface CreateFolderMembershipCommandOutput extends CreateFolderMembers
  * 			Amazon QuickSight currently has Standard Edition and Enterprise Edition. Not every operation and
  * 			capability is available in every edition.</p>
  *
+ * @throws {@link QuickSightServiceException}
+ * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
 export class CreateFolderMembershipCommand extends $Command<

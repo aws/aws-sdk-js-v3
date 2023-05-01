@@ -195,44 +195,65 @@ export interface PutPipelineDefinitionCommandOutput extends PutPipelineDefinitio
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DataPipelineClient, PutPipelineDefinitionCommand } from "@aws-sdk/client-data-pipeline"; // ES Modules import
- * // const { DataPipelineClient, PutPipelineDefinitionCommand } = require("@aws-sdk/client-data-pipeline"); // CommonJS import
+ * import { DataPipelineClient, PutPipelineDefinitionCommand } from '@aws-sdk/client-data-pipeline'; // ES Modules import
+ * // const { DataPipelineClient, PutPipelineDefinitionCommand } = require('@aws-sdk/client-data-pipeline'); // CommonJS import
  * const client = new DataPipelineClient(config);
  * const input = { // PutPipelineDefinitionInput
- *   pipelineId: "STRING_VALUE", // required
+ *   pipelineId: 'STRING_VALUE', // required
  *   pipelineObjects: [ // PipelineObjectList // required
  *     { // PipelineObject
- *       id: "STRING_VALUE", // required
- *       name: "STRING_VALUE", // required
+ *       id: 'STRING_VALUE', // required
+ *       name: 'STRING_VALUE', // required
  *       fields: [ // fieldList // required
  *         { // Field
- *           key: "STRING_VALUE", // required
- *           stringValue: "STRING_VALUE",
- *           refValue: "STRING_VALUE",
+ *           key: 'STRING_VALUE', // required
+ *           stringValue: 'STRING_VALUE',
+ *           refValue: 'STRING_VALUE',
  *         },
  *       ],
  *     },
  *   ],
  *   parameterObjects: [ // ParameterObjectList
  *     { // ParameterObject
- *       id: "STRING_VALUE", // required
+ *       id: 'STRING_VALUE', // required
  *       attributes: [ // ParameterAttributeList // required
  *         { // ParameterAttribute
- *           key: "STRING_VALUE", // required
- *           stringValue: "STRING_VALUE", // required
+ *           key: 'STRING_VALUE', // required
+ *           stringValue: 'STRING_VALUE', // required
  *         },
  *       ],
  *     },
  *   ],
  *   parameterValues: [ // ParameterValueList
  *     { // ParameterValue
- *       id: "STRING_VALUE", // required
- *       stringValue: "STRING_VALUE", // required
+ *       id: 'STRING_VALUE', // required
+ *       stringValue: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new PutPipelineDefinitionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutPipelineDefinitionOutput
+ *   validationErrors: [ // ValidationErrors
+ *     { // ValidationError
+ *       id: 'STRING_VALUE',
+ *       errors: [ // validationMessages
+ *         'STRING_VALUE',
+ *       ],
+ *     },
+ *   ],
+ *   validationWarnings: [ // ValidationWarnings
+ *     { // ValidationWarning
+ *       id: 'STRING_VALUE',
+ *       warnings: [
+ *         'STRING_VALUE',
+ *       ],
+ *     },
+ *   ],
+ *   errored: true || false, // required
+ * };
+ *
  * ```
  *
  * @param PutPipelineDefinitionCommandInput - {@link PutPipelineDefinitionCommandInput}
@@ -253,6 +274,8 @@ export interface PutPipelineDefinitionCommandOutput extends PutPipelineDefinitio
  * @throws {@link PipelineNotFoundException} (client fault)
  *  <p>The specified pipeline was not found. Verify that you used the correct user and account identifiers.</p>
  *
+ * @throws {@link DataPipelineServiceException}
+ * <p>Base exception class for all service exceptions from DataPipeline service.</p>
  *
  */
 export class PutPipelineDefinitionCommand extends $Command<

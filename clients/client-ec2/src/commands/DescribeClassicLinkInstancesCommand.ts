@@ -43,27 +43,50 @@ export interface DescribeClassicLinkInstancesCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, DescribeClassicLinkInstancesCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, DescribeClassicLinkInstancesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, DescribeClassicLinkInstancesCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, DescribeClassicLinkInstancesCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // DescribeClassicLinkInstancesRequest
  *   Filters: [ // FilterList
  *     { // Filter
- *       Name: "STRING_VALUE",
+ *       Name: 'STRING_VALUE',
  *       Values: [ // ValueStringList
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
  *   DryRun: true || false,
  *   InstanceIds: [ // InstanceIdStringList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new DescribeClassicLinkInstancesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeClassicLinkInstancesResult
+ *   Instances: [ // ClassicLinkInstanceList
+ *     { // ClassicLinkInstance
+ *       Groups: [ // GroupIdentifierList
+ *         { // GroupIdentifier
+ *           GroupName: 'STRING_VALUE',
+ *           GroupId: 'STRING_VALUE',
+ *         },
+ *       ],
+ *       InstanceId: 'STRING_VALUE',
+ *       Tags: [ // TagList
+ *         { // Tag
+ *           Key: 'STRING_VALUE',
+ *           Value: 'STRING_VALUE',
+ *         },
+ *       ],
+ *       VpcId: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeClassicLinkInstancesCommandInput - {@link DescribeClassicLinkInstancesCommandInput}
@@ -72,6 +95,8 @@ export interface DescribeClassicLinkInstancesCommandOutput
  * @see {@link DescribeClassicLinkInstancesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class DescribeClassicLinkInstancesCommand extends $Command<

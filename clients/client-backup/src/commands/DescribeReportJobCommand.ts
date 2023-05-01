@@ -37,14 +37,33 @@ export interface DescribeReportJobCommandOutput extends DescribeReportJobOutput,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BackupClient, DescribeReportJobCommand } from "@aws-sdk/client-backup"; // ES Modules import
- * // const { BackupClient, DescribeReportJobCommand } = require("@aws-sdk/client-backup"); // CommonJS import
+ * import { BackupClient, DescribeReportJobCommand } from '@aws-sdk/client-backup'; // ES Modules import
+ * // const { BackupClient, DescribeReportJobCommand } = require('@aws-sdk/client-backup'); // CommonJS import
  * const client = new BackupClient(config);
  * const input = { // DescribeReportJobInput
- *   ReportJobId: "STRING_VALUE", // required
+ *   ReportJobId: 'STRING_VALUE', // required
  * };
  * const command = new DescribeReportJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeReportJobOutput
+ *   ReportJob: { // ReportJob
+ *     ReportJobId: 'STRING_VALUE',
+ *     ReportPlanArn: 'STRING_VALUE',
+ *     ReportTemplate: 'STRING_VALUE',
+ *     CreationTime: new Date('TIMESTAMP'),
+ *     CompletionTime: new Date('TIMESTAMP'),
+ *     Status: 'STRING_VALUE',
+ *     StatusMessage: 'STRING_VALUE',
+ *     ReportDestination: { // ReportDestination
+ *       S3BucketName: 'STRING_VALUE',
+ *       S3Keys: [ // stringList
+ *         'STRING_VALUE',
+ *       ],
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeReportJobCommandInput - {@link DescribeReportJobCommandInput}
@@ -62,6 +81,8 @@ export interface DescribeReportJobCommandOutput extends DescribeReportJobOutput,
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request failed due to a temporary failure of the server.</p>
  *
+ * @throws {@link BackupServiceException}
+ * <p>Base exception class for all service exceptions from Backup service.</p>
  *
  */
 export class DescribeReportJobCommand extends $Command<

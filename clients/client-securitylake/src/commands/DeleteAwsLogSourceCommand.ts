@@ -50,31 +50,41 @@ export interface DeleteAwsLogSourceCommandOutput extends DeleteAwsLogSourceRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SecurityLakeClient, DeleteAwsLogSourceCommand } from "@aws-sdk/client-securitylake"; // ES Modules import
- * // const { SecurityLakeClient, DeleteAwsLogSourceCommand } = require("@aws-sdk/client-securitylake"); // CommonJS import
+ * import { SecurityLakeClient, DeleteAwsLogSourceCommand } from '@aws-sdk/client-securitylake'; // ES Modules import
+ * // const { SecurityLakeClient, DeleteAwsLogSourceCommand } = require('@aws-sdk/client-securitylake'); // CommonJS import
  * const client = new SecurityLakeClient(config);
  * const input = { // DeleteAwsLogSourceRequest
  *   inputOrder: [ // DimensionSet // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   disableAllDimensions: { // AllDimensionsMap
- *     "<keys>": { // TwoDimensionsMap
- *       "<keys>": [ // ValueSet
- *         "STRING_VALUE",
+ *     '<keys>': { // TwoDimensionsMap
+ *       '<keys>': [ // ValueSet
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   },
  *   disableTwoDimensions: {
- *     "<keys>": [
- *       "STRING_VALUE",
+ *     '<keys>': [
+ *       'STRING_VALUE',
  *     ],
  *   },
  *   disableSingleDimension: [ // InputSet
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new DeleteAwsLogSourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteAwsLogSourceResponse
+ *   processing: [ // AccountList
+ *     'STRING_VALUE',
+ *   ],
+ *   failed: [
+ *     'STRING_VALUE',
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DeleteAwsLogSourceCommandInput - {@link DeleteAwsLogSourceCommandInput}
@@ -101,6 +111,8 @@ export interface DeleteAwsLogSourceCommandOutput extends DeleteAwsLogSourceRespo
  * @throws {@link ValidationException} (client fault)
  *  <p>Your signing certificate could not be validated. </p>
  *
+ * @throws {@link SecurityLakeServiceException}
+ * <p>Base exception class for all service exceptions from SecurityLake service.</p>
  *
  */
 export class DeleteAwsLogSourceCommand extends $Command<

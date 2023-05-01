@@ -49,14 +49,55 @@ export interface StopDBInstanceAutomatedBackupsReplicationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RDSClient, StopDBInstanceAutomatedBackupsReplicationCommand } from "@aws-sdk/client-rds"; // ES Modules import
- * // const { RDSClient, StopDBInstanceAutomatedBackupsReplicationCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * import { RDSClient, StopDBInstanceAutomatedBackupsReplicationCommand } from '@aws-sdk/client-rds'; // ES Modules import
+ * // const { RDSClient, StopDBInstanceAutomatedBackupsReplicationCommand } = require('@aws-sdk/client-rds'); // CommonJS import
  * const client = new RDSClient(config);
  * const input = { // StopDBInstanceAutomatedBackupsReplicationMessage
- *   SourceDBInstanceArn: "STRING_VALUE", // required
+ *   SourceDBInstanceArn: 'STRING_VALUE', // required
  * };
  * const command = new StopDBInstanceAutomatedBackupsReplicationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StopDBInstanceAutomatedBackupsReplicationResult
+ *   DBInstanceAutomatedBackup: { // DBInstanceAutomatedBackup
+ *     DBInstanceArn: 'STRING_VALUE',
+ *     DbiResourceId: 'STRING_VALUE',
+ *     Region: 'STRING_VALUE',
+ *     DBInstanceIdentifier: 'STRING_VALUE',
+ *     RestoreWindow: { // RestoreWindow
+ *       EarliestTime: new Date('TIMESTAMP'),
+ *       LatestTime: new Date('TIMESTAMP'),
+ *     },
+ *     AllocatedStorage: Number('int'),
+ *     Status: 'STRING_VALUE',
+ *     Port: Number('int'),
+ *     AvailabilityZone: 'STRING_VALUE',
+ *     VpcId: 'STRING_VALUE',
+ *     InstanceCreateTime: new Date('TIMESTAMP'),
+ *     MasterUsername: 'STRING_VALUE',
+ *     Engine: 'STRING_VALUE',
+ *     EngineVersion: 'STRING_VALUE',
+ *     LicenseModel: 'STRING_VALUE',
+ *     Iops: Number('int'),
+ *     OptionGroupName: 'STRING_VALUE',
+ *     TdeCredentialArn: 'STRING_VALUE',
+ *     Encrypted: true || false,
+ *     StorageType: 'STRING_VALUE',
+ *     KmsKeyId: 'STRING_VALUE',
+ *     Timezone: 'STRING_VALUE',
+ *     IAMDatabaseAuthenticationEnabled: true || false,
+ *     BackupRetentionPeriod: Number('int'),
+ *     DBInstanceAutomatedBackupsArn: 'STRING_VALUE',
+ *     DBInstanceAutomatedBackupsReplications: [ // DBInstanceAutomatedBackupsReplicationList
+ *       { // DBInstanceAutomatedBackupsReplication
+ *         DBInstanceAutomatedBackupsArn: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     BackupTarget: 'STRING_VALUE',
+ *     StorageThroughput: Number('int'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param StopDBInstanceAutomatedBackupsReplicationCommandInput - {@link StopDBInstanceAutomatedBackupsReplicationCommandInput}
@@ -72,6 +113,8 @@ export interface StopDBInstanceAutomatedBackupsReplicationCommandOutput
  * @throws {@link InvalidDBInstanceStateFault} (client fault)
  *  <p>The DB instance isn't in a valid state.</p>
  *
+ * @throws {@link RDSServiceException}
+ * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  * @example To stop replicating automated backups
  * ```javascript

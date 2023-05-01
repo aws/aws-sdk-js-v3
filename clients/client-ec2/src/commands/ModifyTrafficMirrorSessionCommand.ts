@@ -36,24 +36,45 @@ export interface ModifyTrafficMirrorSessionCommandOutput extends ModifyTrafficMi
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, ModifyTrafficMirrorSessionCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, ModifyTrafficMirrorSessionCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, ModifyTrafficMirrorSessionCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, ModifyTrafficMirrorSessionCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // ModifyTrafficMirrorSessionRequest
- *   TrafficMirrorSessionId: "STRING_VALUE", // required
- *   TrafficMirrorTargetId: "STRING_VALUE",
- *   TrafficMirrorFilterId: "STRING_VALUE",
- *   PacketLength: Number("int"),
- *   SessionNumber: Number("int"),
- *   VirtualNetworkId: Number("int"),
- *   Description: "STRING_VALUE",
+ *   TrafficMirrorSessionId: 'STRING_VALUE', // required
+ *   TrafficMirrorTargetId: 'STRING_VALUE',
+ *   TrafficMirrorFilterId: 'STRING_VALUE',
+ *   PacketLength: Number('int'),
+ *   SessionNumber: Number('int'),
+ *   VirtualNetworkId: Number('int'),
+ *   Description: 'STRING_VALUE',
  *   RemoveFields: [ // TrafficMirrorSessionFieldList
- *     "packet-length" || "description" || "virtual-network-id",
+ *     'packet-length' || 'description' || 'virtual-network-id',
  *   ],
  *   DryRun: true || false,
  * };
  * const command = new ModifyTrafficMirrorSessionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ModifyTrafficMirrorSessionResult
+ *   TrafficMirrorSession: { // TrafficMirrorSession
+ *     TrafficMirrorSessionId: 'STRING_VALUE',
+ *     TrafficMirrorTargetId: 'STRING_VALUE',
+ *     TrafficMirrorFilterId: 'STRING_VALUE',
+ *     NetworkInterfaceId: 'STRING_VALUE',
+ *     OwnerId: 'STRING_VALUE',
+ *     PacketLength: Number('int'),
+ *     SessionNumber: Number('int'),
+ *     VirtualNetworkId: Number('int'),
+ *     Description: 'STRING_VALUE',
+ *     Tags: [ // TagList
+ *       { // Tag
+ *         Key: 'STRING_VALUE',
+ *         Value: 'STRING_VALUE',
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param ModifyTrafficMirrorSessionCommandInput - {@link ModifyTrafficMirrorSessionCommandInput}
@@ -62,6 +83,8 @@ export interface ModifyTrafficMirrorSessionCommandOutput extends ModifyTrafficMi
  * @see {@link ModifyTrafficMirrorSessionCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class ModifyTrafficMirrorSessionCommand extends $Command<

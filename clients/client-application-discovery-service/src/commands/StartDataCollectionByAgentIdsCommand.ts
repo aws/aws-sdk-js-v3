@@ -45,16 +45,27 @@ export interface StartDataCollectionByAgentIdsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ApplicationDiscoveryServiceClient, StartDataCollectionByAgentIdsCommand } from "@aws-sdk/client-application-discovery-service"; // ES Modules import
- * // const { ApplicationDiscoveryServiceClient, StartDataCollectionByAgentIdsCommand } = require("@aws-sdk/client-application-discovery-service"); // CommonJS import
+ * import { ApplicationDiscoveryServiceClient, StartDataCollectionByAgentIdsCommand } from '@aws-sdk/client-application-discovery-service'; // ES Modules import
+ * // const { ApplicationDiscoveryServiceClient, StartDataCollectionByAgentIdsCommand } = require('@aws-sdk/client-application-discovery-service'); // CommonJS import
  * const client = new ApplicationDiscoveryServiceClient(config);
  * const input = { // StartDataCollectionByAgentIdsRequest
  *   agentIds: [ // AgentIds // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new StartDataCollectionByAgentIdsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartDataCollectionByAgentIdsResponse
+ *   agentsConfigurationStatus: [ // AgentConfigurationStatusList
+ *     { // AgentConfigurationStatus
+ *       agentId: 'STRING_VALUE',
+ *       operationSucceeded: true || false,
+ *       description: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param StartDataCollectionByAgentIdsCommandInput - {@link StartDataCollectionByAgentIdsCommandInput}
@@ -80,6 +91,8 @@ export interface StartDataCollectionByAgentIdsCommandOutput
  * @throws {@link ServerInternalErrorException} (server fault)
  *  <p>The server experienced an internal error. Try again.</p>
  *
+ * @throws {@link ApplicationDiscoveryServiceServiceException}
+ * <p>Base exception class for all service exceptions from ApplicationDiscoveryService service.</p>
  *
  */
 export class StartDataCollectionByAgentIdsCommand extends $Command<

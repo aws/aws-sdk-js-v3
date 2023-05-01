@@ -45,12 +45,19 @@ export interface GetCheckerIpRangesCommandOutput extends GetCheckerIpRangesRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Route53Client, GetCheckerIpRangesCommand } from "@aws-sdk/client-route-53"; // ES Modules import
- * // const { Route53Client, GetCheckerIpRangesCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
+ * import { Route53Client, GetCheckerIpRangesCommand } from '@aws-sdk/client-route-53'; // ES Modules import
+ * // const { Route53Client, GetCheckerIpRangesCommand } = require('@aws-sdk/client-route-53'); // CommonJS import
  * const client = new Route53Client(config);
  * const input = {};
  * const command = new GetCheckerIpRangesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetCheckerIpRangesResponse
+ *   CheckerIpRanges: [ // CheckerIpRanges // required
+ *     'STRING_VALUE',
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetCheckerIpRangesCommandInput - {@link GetCheckerIpRangesCommandInput}
@@ -59,6 +66,8 @@ export interface GetCheckerIpRangesCommandOutput extends GetCheckerIpRangesRespo
  * @see {@link GetCheckerIpRangesCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
  *
+ * @throws {@link Route53ServiceException}
+ * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
  */
 export class GetCheckerIpRangesCommand extends $Command<

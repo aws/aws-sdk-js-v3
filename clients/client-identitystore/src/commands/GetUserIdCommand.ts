@@ -36,24 +36,30 @@ export interface GetUserIdCommandOutput extends GetUserIdResponse, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IdentitystoreClient, GetUserIdCommand } from "@aws-sdk/client-identitystore"; // ES Modules import
- * // const { IdentitystoreClient, GetUserIdCommand } = require("@aws-sdk/client-identitystore"); // CommonJS import
+ * import { IdentitystoreClient, GetUserIdCommand } from '@aws-sdk/client-identitystore'; // ES Modules import
+ * // const { IdentitystoreClient, GetUserIdCommand } = require('@aws-sdk/client-identitystore'); // CommonJS import
  * const client = new IdentitystoreClient(config);
  * const input = { // GetUserIdRequest
- *   IdentityStoreId: "STRING_VALUE", // required
+ *   IdentityStoreId: 'STRING_VALUE', // required
  *   AlternateIdentifier: { // AlternateIdentifier Union: only one key present
  *     ExternalId: { // ExternalId
- *       Issuer: "STRING_VALUE", // required
- *       Id: "STRING_VALUE", // required
+ *       Issuer: 'STRING_VALUE', // required
+ *       Id: 'STRING_VALUE', // required
  *     },
  *     UniqueAttribute: { // UniqueAttribute
- *       AttributePath: "STRING_VALUE", // required
- *       AttributeValue: "DOCUMENT_VALUE", // required
+ *       AttributePath: 'STRING_VALUE', // required
+ *       AttributeValue: 'DOCUMENT_VALUE', // required
  *     },
  *   },
  * };
  * const command = new GetUserIdCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetUserIdResponse
+ *   UserId: 'STRING_VALUE', // required
+ *   IdentityStoreId: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param GetUserIdCommandInput - {@link GetUserIdCommandInput}
@@ -77,6 +83,8 @@ export interface GetUserIdCommandOutput extends GetUserIdResponse, __MetadataBea
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Indicates that the principal has crossed the throttling limits of the API operations.</p>
  *
+ * @throws {@link IdentitystoreServiceException}
+ * <p>Base exception class for all service exceptions from Identitystore service.</p>
  *
  */
 export class GetUserIdCommand extends $Command<

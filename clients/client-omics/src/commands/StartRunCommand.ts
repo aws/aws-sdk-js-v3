@@ -36,28 +36,38 @@ export interface StartRunCommandOutput extends StartRunResponse, __MetadataBeare
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OmicsClient, StartRunCommand } from "@aws-sdk/client-omics"; // ES Modules import
- * // const { OmicsClient, StartRunCommand } = require("@aws-sdk/client-omics"); // CommonJS import
+ * import { OmicsClient, StartRunCommand } from '@aws-sdk/client-omics'; // ES Modules import
+ * // const { OmicsClient, StartRunCommand } = require('@aws-sdk/client-omics'); // CommonJS import
  * const client = new OmicsClient(config);
  * const input = { // StartRunRequest
- *   workflowId: "STRING_VALUE",
- *   workflowType: "STRING_VALUE",
- *   runId: "STRING_VALUE",
- *   roleArn: "STRING_VALUE", // required
- *   name: "STRING_VALUE",
- *   runGroupId: "STRING_VALUE",
- *   priority: Number("int"),
- *   parameters: "DOCUMENT_VALUE",
- *   storageCapacity: Number("int"),
- *   outputUri: "STRING_VALUE",
- *   logLevel: "STRING_VALUE",
+ *   workflowId: 'STRING_VALUE',
+ *   workflowType: 'STRING_VALUE',
+ *   runId: 'STRING_VALUE',
+ *   roleArn: 'STRING_VALUE', // required
+ *   name: 'STRING_VALUE',
+ *   runGroupId: 'STRING_VALUE',
+ *   priority: Number('int'),
+ *   parameters: 'DOCUMENT_VALUE',
+ *   storageCapacity: Number('int'),
+ *   outputUri: 'STRING_VALUE',
+ *   logLevel: 'STRING_VALUE',
  *   tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
- *   requestId: "STRING_VALUE", // required
+ *   requestId: 'STRING_VALUE', // required
  * };
  * const command = new StartRunCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartRunResponse
+ *   arn: 'STRING_VALUE',
+ *   id: 'STRING_VALUE',
+ *   status: 'STRING_VALUE',
+ *   tags: { // TagMap
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param StartRunCommandInput - {@link StartRunCommandInput}
@@ -90,6 +100,8 @@ export interface StartRunCommandOutput extends StartRunResponse, __MetadataBeare
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link OmicsServiceException}
+ * <p>Base exception class for all service exceptions from Omics service.</p>
  *
  */
 export class StartRunCommand extends $Command<StartRunCommandInput, StartRunCommandOutput, OmicsClientResolvedConfig> {

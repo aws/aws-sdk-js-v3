@@ -43,14 +43,56 @@ export interface GetReplicationConfigurationCommandOutput extends ReplicationCon
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DrsClient, GetReplicationConfigurationCommand } from "@aws-sdk/client-drs"; // ES Modules import
- * // const { DrsClient, GetReplicationConfigurationCommand } = require("@aws-sdk/client-drs"); // CommonJS import
+ * import { DrsClient, GetReplicationConfigurationCommand } from '@aws-sdk/client-drs'; // ES Modules import
+ * // const { DrsClient, GetReplicationConfigurationCommand } = require('@aws-sdk/client-drs'); // CommonJS import
  * const client = new DrsClient(config);
  * const input = { // GetReplicationConfigurationRequest
- *   sourceServerID: "STRING_VALUE", // required
+ *   sourceServerID: 'STRING_VALUE', // required
  * };
  * const command = new GetReplicationConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ReplicationConfiguration
+ *   sourceServerID: 'STRING_VALUE',
+ *   name: 'STRING_VALUE',
+ *   stagingAreaSubnetId: 'STRING_VALUE',
+ *   associateDefaultSecurityGroup: true || false,
+ *   replicationServersSecurityGroupsIDs: [ // ReplicationServersSecurityGroupsIDs
+ *     'STRING_VALUE',
+ *   ],
+ *   replicationServerInstanceType: 'STRING_VALUE',
+ *   useDedicatedReplicationServer: true || false,
+ *   defaultLargeStagingDiskType: 'STRING_VALUE',
+ *   replicatedDisks: [ // ReplicationConfigurationReplicatedDisks
+ *     { // ReplicationConfigurationReplicatedDisk
+ *       deviceName: 'STRING_VALUE',
+ *       isBootDisk: true || false,
+ *       stagingDiskType: 'STRING_VALUE',
+ *       iops: Number('long'),
+ *       throughput: Number('long'),
+ *       optimizedStagingDiskType: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   ebsEncryption: 'STRING_VALUE',
+ *   ebsEncryptionKeyArn: 'STRING_VALUE',
+ *   bandwidthThrottling: Number('long'),
+ *   dataPlaneRouting: 'STRING_VALUE',
+ *   createPublicIP: true || false,
+ *   stagingAreaTags: { // TagsMap
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ *   pitPolicy: [ // PITPolicy
+ *     { // PITPolicyRule
+ *       ruleID: Number('long'),
+ *       units: 'STRING_VALUE', // required
+ *       interval: Number('int'), // required
+ *       retentionDuration: Number('int'), // required
+ *       enabled: true || false,
+ *     },
+ *   ],
+ *   autoReplicateNewDisks: true || false,
+ * };
+ *
  * ```
  *
  * @param GetReplicationConfigurationCommandInput - {@link GetReplicationConfigurationCommandInput}
@@ -74,6 +116,8 @@ export interface GetReplicationConfigurationCommandOutput extends ReplicationCon
  * @throws {@link UninitializedAccountException} (client fault)
  *  <p>The account performing the request has not been initialized.</p>
  *
+ * @throws {@link DrsServiceException}
+ * <p>Base exception class for all service exceptions from Drs service.</p>
  *
  */
 export class GetReplicationConfigurationCommand extends $Command<

@@ -38,23 +38,36 @@ export interface SearchFlowTemplatesCommandOutput extends SearchFlowTemplatesRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTThingsGraphClient, SearchFlowTemplatesCommand } from "@aws-sdk/client-iotthingsgraph"; // ES Modules import
- * // const { IoTThingsGraphClient, SearchFlowTemplatesCommand } = require("@aws-sdk/client-iotthingsgraph"); // CommonJS import
+ * import { IoTThingsGraphClient, SearchFlowTemplatesCommand } from '@aws-sdk/client-iotthingsgraph'; // ES Modules import
+ * // const { IoTThingsGraphClient, SearchFlowTemplatesCommand } = require('@aws-sdk/client-iotthingsgraph'); // CommonJS import
  * const client = new IoTThingsGraphClient(config);
  * const input = { // SearchFlowTemplatesRequest
  *   filters: [ // FlowTemplateFilters
  *     { // FlowTemplateFilter
- *       name: "STRING_VALUE", // required
+ *       name: 'STRING_VALUE', // required
  *       value: [ // FlowTemplateFilterValues // required
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new SearchFlowTemplatesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SearchFlowTemplatesResponse
+ *   summaries: [ // FlowTemplateSummaries
+ *     { // FlowTemplateSummary
+ *       id: 'STRING_VALUE',
+ *       arn: 'STRING_VALUE',
+ *       revisionNumber: Number('long'),
+ *       createdAt: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param SearchFlowTemplatesCommandInput - {@link SearchFlowTemplatesCommandInput}
@@ -72,6 +85,8 @@ export interface SearchFlowTemplatesCommandOutput extends SearchFlowTemplatesRes
  * @throws {@link ThrottlingException} (client fault)
  *  <p></p>
  *
+ * @throws {@link IoTThingsGraphServiceException}
+ * <p>Base exception class for all service exceptions from IoTThingsGraph service.</p>
  *
  */
 export class SearchFlowTemplatesCommand extends $Command<

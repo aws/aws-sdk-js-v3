@@ -37,28 +37,41 @@ export interface ListDomainsCommandOutput extends ListDomainsResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Route53DomainsClient, ListDomainsCommand } from "@aws-sdk/client-route-53-domains"; // ES Modules import
- * // const { Route53DomainsClient, ListDomainsCommand } = require("@aws-sdk/client-route-53-domains"); // CommonJS import
+ * import { Route53DomainsClient, ListDomainsCommand } from '@aws-sdk/client-route-53-domains'; // ES Modules import
+ * // const { Route53DomainsClient, ListDomainsCommand } = require('@aws-sdk/client-route-53-domains'); // CommonJS import
  * const client = new Route53DomainsClient(config);
  * const input = { // ListDomainsRequest
  *   FilterConditions: [ // FilterConditions
  *     { // FilterCondition
- *       Name: "DomainName" || "Expiry", // required
- *       Operator: "LE" || "GE" || "BEGINS_WITH", // required
+ *       Name: 'DomainName' || 'Expiry', // required
+ *       Operator: 'LE' || 'GE' || 'BEGINS_WITH', // required
  *       Values: [ // Values // required
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
  *   SortCondition: { // SortCondition
- *     Name: "DomainName" || "Expiry", // required
- *     SortOrder: "ASC" || "DESC", // required
+ *     Name: 'DomainName' || 'Expiry', // required
+ *     SortOrder: 'ASC' || 'DESC', // required
  *   },
- *   Marker: "STRING_VALUE",
- *   MaxItems: Number("int"),
+ *   Marker: 'STRING_VALUE',
+ *   MaxItems: Number('int'),
  * };
  * const command = new ListDomainsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListDomainsResponse
+ *   Domains: [ // DomainSummaryList
+ *     { // DomainSummary
+ *       DomainName: 'STRING_VALUE',
+ *       AutoRenew: true || false,
+ *       TransferLock: true || false,
+ *       Expiry: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   NextPageMarker: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListDomainsCommandInput - {@link ListDomainsCommandInput}
@@ -73,6 +86,8 @@ export interface ListDomainsCommandOutput extends ListDomainsResponse, __Metadat
  * 			submitted the request. For <code>AcceptDomainTransferFromAnotherAwsAccount</code>, the
  * 			password might be invalid.</p>
  *
+ * @throws {@link Route53DomainsServiceException}
+ * <p>Base exception class for all service exceptions from Route53Domains service.</p>
  *
  */
 export class ListDomainsCommand extends $Command<

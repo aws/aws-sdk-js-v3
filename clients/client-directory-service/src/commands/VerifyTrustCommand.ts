@@ -39,14 +39,19 @@ export interface VerifyTrustCommandOutput extends VerifyTrustResult, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DirectoryServiceClient, VerifyTrustCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
- * // const { DirectoryServiceClient, VerifyTrustCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
+ * import { DirectoryServiceClient, VerifyTrustCommand } from '@aws-sdk/client-directory-service'; // ES Modules import
+ * // const { DirectoryServiceClient, VerifyTrustCommand } = require('@aws-sdk/client-directory-service'); // CommonJS import
  * const client = new DirectoryServiceClient(config);
  * const input = { // VerifyTrustRequest
- *   TrustId: "STRING_VALUE", // required
+ *   TrustId: 'STRING_VALUE', // required
  * };
  * const command = new VerifyTrustCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // VerifyTrustResult
+ *   TrustId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param VerifyTrustCommandInput - {@link VerifyTrustCommandInput}
@@ -70,6 +75,8 @@ export interface VerifyTrustCommandOutput extends VerifyTrustResult, __MetadataB
  * @throws {@link UnsupportedOperationException} (client fault)
  *  <p>The operation is not supported.</p>
  *
+ * @throws {@link DirectoryServiceServiceException}
+ * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
  */
 export class VerifyTrustCommand extends $Command<

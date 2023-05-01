@@ -37,15 +37,41 @@ export interface ListSolNetworkPackagesCommandOutput extends ListSolNetworkPacka
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { TnbClient, ListSolNetworkPackagesCommand } from "@aws-sdk/client-tnb"; // ES Modules import
- * // const { TnbClient, ListSolNetworkPackagesCommand } = require("@aws-sdk/client-tnb"); // CommonJS import
+ * import { TnbClient, ListSolNetworkPackagesCommand } from '@aws-sdk/client-tnb'; // ES Modules import
+ * // const { TnbClient, ListSolNetworkPackagesCommand } = require('@aws-sdk/client-tnb'); // CommonJS import
  * const client = new TnbClient(config);
  * const input = { // ListSolNetworkPackagesInput
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new ListSolNetworkPackagesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListSolNetworkPackagesOutput
+ *   nextToken: 'STRING_VALUE',
+ *   networkPackages: [ // ListSolNetworkPackageResources // required
+ *     { // ListSolNetworkPackageInfo
+ *       id: 'STRING_VALUE', // required
+ *       arn: 'STRING_VALUE', // required
+ *       nsdOnboardingState: 'CREATED' || 'ONBOARDED' || 'ERROR', // required
+ *       nsdOperationalState: 'ENABLED' || 'DISABLED', // required
+ *       nsdUsageState: 'IN_USE' || 'NOT_IN_USE', // required
+ *       nsdId: 'STRING_VALUE',
+ *       nsdName: 'STRING_VALUE',
+ *       nsdVersion: 'STRING_VALUE',
+ *       nsdDesigner: 'STRING_VALUE',
+ *       nsdInvariantId: 'STRING_VALUE',
+ *       vnfPkgIds: [ // VnfPkgIdList
+ *         'STRING_VALUE',
+ *       ],
+ *       metadata: { // ListSolNetworkPackageMetadata
+ *         createdAt: new Date('TIMESTAMP'), // required
+ *         lastModified: new Date('TIMESTAMP'), // required
+ *       },
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListSolNetworkPackagesCommandInput - {@link ListSolNetworkPackagesCommandInput}
@@ -66,6 +92,8 @@ export interface ListSolNetworkPackagesCommandOutput extends ListSolNetworkPacka
  * @throws {@link ValidationException} (client fault)
  *  <p>Unable to process the request because the client provided input failed to satisfy request constraints.</p>
  *
+ * @throws {@link TnbServiceException}
+ * <p>Base exception class for all service exceptions from Tnb service.</p>
  *
  */
 export class ListSolNetworkPackagesCommand extends $Command<

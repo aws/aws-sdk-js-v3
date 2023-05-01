@@ -38,14 +38,23 @@ export interface DescribeOrganizationalUnitCommandOutput extends DescribeOrganiz
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OrganizationsClient, DescribeOrganizationalUnitCommand } from "@aws-sdk/client-organizations"; // ES Modules import
- * // const { OrganizationsClient, DescribeOrganizationalUnitCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
+ * import { OrganizationsClient, DescribeOrganizationalUnitCommand } from '@aws-sdk/client-organizations'; // ES Modules import
+ * // const { OrganizationsClient, DescribeOrganizationalUnitCommand } = require('@aws-sdk/client-organizations'); // CommonJS import
  * const client = new OrganizationsClient(config);
  * const input = { // DescribeOrganizationalUnitRequest
- *   OrganizationalUnitId: "STRING_VALUE", // required
+ *   OrganizationalUnitId: 'STRING_VALUE', // required
  * };
  * const command = new DescribeOrganizationalUnitCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeOrganizationalUnitResponse
+ *   OrganizationalUnit: { // OrganizationalUnit
+ *     Id: 'STRING_VALUE',
+ *     Arn: 'STRING_VALUE',
+ *     Name: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeOrganizationalUnitCommandInput - {@link DescribeOrganizationalUnitCommandInput}
@@ -184,6 +193,8 @@ export interface DescribeOrganizationalUnitCommandOutput extends DescribeOrganiz
  *                 <i>Organizations User Guide.</i>
  *          </p>
  *
+ * @throws {@link OrganizationsServiceException}
+ * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
  * @example To get information about an organizational unit
  * ```javascript

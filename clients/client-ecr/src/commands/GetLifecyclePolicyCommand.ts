@@ -36,15 +36,23 @@ export interface GetLifecyclePolicyCommandOutput extends GetLifecyclePolicyRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ECRClient, GetLifecyclePolicyCommand } from "@aws-sdk/client-ecr"; // ES Modules import
- * // const { ECRClient, GetLifecyclePolicyCommand } = require("@aws-sdk/client-ecr"); // CommonJS import
+ * import { ECRClient, GetLifecyclePolicyCommand } from '@aws-sdk/client-ecr'; // ES Modules import
+ * // const { ECRClient, GetLifecyclePolicyCommand } = require('@aws-sdk/client-ecr'); // CommonJS import
  * const client = new ECRClient(config);
  * const input = { // GetLifecyclePolicyRequest
- *   registryId: "STRING_VALUE",
- *   repositoryName: "STRING_VALUE", // required
+ *   registryId: 'STRING_VALUE',
+ *   repositoryName: 'STRING_VALUE', // required
  * };
  * const command = new GetLifecyclePolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetLifecyclePolicyResponse
+ *   registryId: 'STRING_VALUE',
+ *   repositoryName: 'STRING_VALUE',
+ *   lifecyclePolicyText: 'STRING_VALUE',
+ *   lastEvaluatedAt: new Date('TIMESTAMP'),
+ * };
+ *
  * ```
  *
  * @param GetLifecyclePolicyCommandInput - {@link GetLifecyclePolicyCommandInput}
@@ -68,6 +76,8 @@ export interface GetLifecyclePolicyCommandOutput extends GetLifecyclePolicyRespo
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server-side issue.</p>
  *
+ * @throws {@link ECRServiceException}
+ * <p>Base exception class for all service exceptions from ECR service.</p>
  *
  */
 export class GetLifecyclePolicyCommand extends $Command<

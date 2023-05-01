@@ -36,24 +36,29 @@ export interface CreateRoomCommandOutput extends CreateRoomResponse, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AlexaForBusinessClient, CreateRoomCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
- * // const { AlexaForBusinessClient, CreateRoomCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
+ * import { AlexaForBusinessClient, CreateRoomCommand } from '@aws-sdk/client-alexa-for-business'; // ES Modules import
+ * // const { AlexaForBusinessClient, CreateRoomCommand } = require('@aws-sdk/client-alexa-for-business'); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
  * const input = { // CreateRoomRequest
- *   RoomName: "STRING_VALUE", // required
- *   Description: "STRING_VALUE",
- *   ProfileArn: "STRING_VALUE",
- *   ProviderCalendarId: "STRING_VALUE",
- *   ClientRequestToken: "STRING_VALUE",
+ *   RoomName: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE',
+ *   ProfileArn: 'STRING_VALUE',
+ *   ProviderCalendarId: 'STRING_VALUE',
+ *   ClientRequestToken: 'STRING_VALUE',
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreateRoomCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateRoomResponse
+ *   RoomArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateRoomCommandInput - {@link CreateRoomCommandInput}
@@ -68,6 +73,8 @@ export interface CreateRoomCommandOutput extends CreateRoomResponse, __MetadataB
  * @throws {@link LimitExceededException} (client fault)
  *  <p>You are performing an action that would put you beyond your account's limits.</p>
  *
+ * @throws {@link AlexaForBusinessServiceException}
+ * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  */
 export class CreateRoomCommand extends $Command<

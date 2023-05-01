@@ -40,15 +40,32 @@ export interface ListRecoveryGroupsCommandOutput extends ListRecoveryGroupsRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Route53RecoveryReadinessClient, ListRecoveryGroupsCommand } from "@aws-sdk/client-route53-recovery-readiness"; // ES Modules import
- * // const { Route53RecoveryReadinessClient, ListRecoveryGroupsCommand } = require("@aws-sdk/client-route53-recovery-readiness"); // CommonJS import
+ * import { Route53RecoveryReadinessClient, ListRecoveryGroupsCommand } from '@aws-sdk/client-route53-recovery-readiness'; // ES Modules import
+ * // const { Route53RecoveryReadinessClient, ListRecoveryGroupsCommand } = require('@aws-sdk/client-route53-recovery-readiness'); // CommonJS import
  * const client = new Route53RecoveryReadinessClient(config);
  * const input = { // ListRecoveryGroupsRequest
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListRecoveryGroupsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListRecoveryGroupsResponse
+ *   NextToken: 'STRING_VALUE',
+ *   RecoveryGroups: [ // __listOfRecoveryGroupOutput
+ *     { // RecoveryGroupOutput
+ *       Cells: [ // __listOf__string // required
+ *         'STRING_VALUE',
+ *       ],
+ *       RecoveryGroupArn: 'STRING_VALUE', // required
+ *       RecoveryGroupName: 'STRING_VALUE', // required
+ *       Tags: { // Tags
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListRecoveryGroupsCommandInput - {@link ListRecoveryGroupsCommandInput}
@@ -69,6 +86,8 @@ export interface ListRecoveryGroupsCommandOutput extends ListRecoveryGroupsRespo
  * @throws {@link ValidationException} (client fault)
  *  The input fails to satisfy the constraints specified by an AWS service.
  *
+ * @throws {@link Route53RecoveryReadinessServiceException}
+ * <p>Base exception class for all service exceptions from Route53RecoveryReadiness service.</p>
  *
  */
 export class ListRecoveryGroupsCommand extends $Command<

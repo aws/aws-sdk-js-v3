@@ -39,20 +39,25 @@ export interface StartGeneratedCodeJobCommandOutput extends StartGeneratedCodeJo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GameSparksClient, StartGeneratedCodeJobCommand } from "@aws-sdk/client-gamesparks"; // ES Modules import
- * // const { GameSparksClient, StartGeneratedCodeJobCommand } = require("@aws-sdk/client-gamesparks"); // CommonJS import
+ * import { GameSparksClient, StartGeneratedCodeJobCommand } from '@aws-sdk/client-gamesparks'; // ES Modules import
+ * // const { GameSparksClient, StartGeneratedCodeJobCommand } = require('@aws-sdk/client-gamesparks'); // CommonJS import
  * const client = new GameSparksClient(config);
  * const input = { // StartGeneratedCodeJobRequest
- *   GameName: "STRING_VALUE", // required
- *   SnapshotId: "STRING_VALUE", // required
+ *   GameName: 'STRING_VALUE', // required
+ *   SnapshotId: 'STRING_VALUE', // required
  *   Generator: { // Generator
- *     TargetPlatform: "STRING_VALUE",
- *     Language: "STRING_VALUE",
- *     GameSdkVersion: "STRING_VALUE",
+ *     TargetPlatform: 'STRING_VALUE',
+ *     Language: 'STRING_VALUE',
+ *     GameSdkVersion: 'STRING_VALUE',
  *   },
  * };
  * const command = new StartGeneratedCodeJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartGeneratedCodeJobResult
+ *   GeneratedCodeJobId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param StartGeneratedCodeJobCommandInput - {@link StartGeneratedCodeJobCommandInput}
@@ -76,6 +81,8 @@ export interface StartGeneratedCodeJobCommandOutput extends StartGeneratedCodeJo
  * @throws {@link ValidationException} (client fault)
  *  <p>One of the parameters in the request is invalid.</p>
  *
+ * @throws {@link GameSparksServiceException}
+ * <p>Base exception class for all service exceptions from GameSparks service.</p>
  *
  */
 export class StartGeneratedCodeJobCommand extends $Command<

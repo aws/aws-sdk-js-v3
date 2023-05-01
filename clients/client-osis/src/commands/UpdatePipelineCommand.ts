@@ -36,23 +36,63 @@ export interface UpdatePipelineCommandOutput extends UpdatePipelineResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OSISClient, UpdatePipelineCommand } from "@aws-sdk/client-osis"; // ES Modules import
- * // const { OSISClient, UpdatePipelineCommand } = require("@aws-sdk/client-osis"); // CommonJS import
+ * import { OSISClient, UpdatePipelineCommand } from '@aws-sdk/client-osis'; // ES Modules import
+ * // const { OSISClient, UpdatePipelineCommand } = require('@aws-sdk/client-osis'); // CommonJS import
  * const client = new OSISClient(config);
  * const input = { // UpdatePipelineRequest
- *   PipelineName: "STRING_VALUE", // required
- *   MinUnits: Number("int"),
- *   MaxUnits: Number("int"),
- *   PipelineConfigurationBody: "STRING_VALUE",
+ *   PipelineName: 'STRING_VALUE', // required
+ *   MinUnits: Number('int'),
+ *   MaxUnits: Number('int'),
+ *   PipelineConfigurationBody: 'STRING_VALUE',
  *   LogPublishingOptions: { // LogPublishingOptions
  *     IsLoggingEnabled: true || false,
  *     CloudWatchLogDestination: { // CloudWatchLogDestination
- *       LogGroup: "STRING_VALUE", // required
+ *       LogGroup: 'STRING_VALUE', // required
  *     },
  *   },
  * };
  * const command = new UpdatePipelineCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdatePipelineResponse
+ *   Pipeline: { // Pipeline
+ *     PipelineName: 'STRING_VALUE',
+ *     PipelineArn: 'STRING_VALUE',
+ *     MinUnits: Number('int'),
+ *     MaxUnits: Number('int'),
+ *     Status: 'CREATING' || 'ACTIVE' || 'UPDATING' || 'DELETING' || 'CREATE_FAILED' || 'UPDATE_FAILED' || 'STARTING' || 'START_FAILED' || 'STOPPING' || 'STOPPED',
+ *     StatusReason: { // PipelineStatusReason
+ *       Description: 'STRING_VALUE',
+ *     },
+ *     PipelineConfigurationBody: 'STRING_VALUE',
+ *     CreatedAt: new Date('TIMESTAMP'),
+ *     LastUpdatedAt: new Date('TIMESTAMP'),
+ *     IngestEndpointUrls: [ // IngestEndpointUrlsList
+ *       'STRING_VALUE',
+ *     ],
+ *     LogPublishingOptions: { // LogPublishingOptions
+ *       IsLoggingEnabled: true || false,
+ *       CloudWatchLogDestination: { // CloudWatchLogDestination
+ *         LogGroup: 'STRING_VALUE', // required
+ *       },
+ *     },
+ *     VpcEndpoints: [ // VpcEndpointsList
+ *       { // VpcEndpoint
+ *         VpcEndpointId: 'STRING_VALUE',
+ *         VpcId: 'STRING_VALUE',
+ *         VpcOptions: { // VpcOptions
+ *           SubnetIds: [ // SubnetIds // required
+ *             'STRING_VALUE',
+ *           ],
+ *           SecurityGroupIds: [ // SecurityGroupIds
+ *             'STRING_VALUE',
+ *           ],
+ *         },
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdatePipelineCommandInput - {@link UpdatePipelineCommandInput}
@@ -77,6 +117,8 @@ export interface UpdatePipelineCommandOutput extends UpdatePipelineResponse, __M
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception for missing or invalid input fields.</p>
  *
+ * @throws {@link OSISServiceException}
+ * <p>Base exception class for all service exceptions from OSIS service.</p>
  *
  */
 export class UpdatePipelineCommand extends $Command<

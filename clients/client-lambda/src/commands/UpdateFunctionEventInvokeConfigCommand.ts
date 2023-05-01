@@ -40,25 +40,41 @@ export interface UpdateFunctionEventInvokeConfigCommandOutput extends FunctionEv
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LambdaClient, UpdateFunctionEventInvokeConfigCommand } from "@aws-sdk/client-lambda"; // ES Modules import
- * // const { LambdaClient, UpdateFunctionEventInvokeConfigCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
+ * import { LambdaClient, UpdateFunctionEventInvokeConfigCommand } from '@aws-sdk/client-lambda'; // ES Modules import
+ * // const { LambdaClient, UpdateFunctionEventInvokeConfigCommand } = require('@aws-sdk/client-lambda'); // CommonJS import
  * const client = new LambdaClient(config);
  * const input = { // UpdateFunctionEventInvokeConfigRequest
- *   FunctionName: "STRING_VALUE", // required
- *   Qualifier: "STRING_VALUE",
- *   MaximumRetryAttempts: Number("int"),
- *   MaximumEventAgeInSeconds: Number("int"),
+ *   FunctionName: 'STRING_VALUE', // required
+ *   Qualifier: 'STRING_VALUE',
+ *   MaximumRetryAttempts: Number('int'),
+ *   MaximumEventAgeInSeconds: Number('int'),
  *   DestinationConfig: { // DestinationConfig
  *     OnSuccess: { // OnSuccess
- *       Destination: "STRING_VALUE",
+ *       Destination: 'STRING_VALUE',
  *     },
  *     OnFailure: { // OnFailure
- *       Destination: "STRING_VALUE",
+ *       Destination: 'STRING_VALUE',
  *     },
  *   },
  * };
  * const command = new UpdateFunctionEventInvokeConfigCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // FunctionEventInvokeConfig
+ *   LastModified: new Date('TIMESTAMP'),
+ *   FunctionArn: 'STRING_VALUE',
+ *   MaximumRetryAttempts: Number('int'),
+ *   MaximumEventAgeInSeconds: Number('int'),
+ *   DestinationConfig: { // DestinationConfig
+ *     OnSuccess: { // OnSuccess
+ *       Destination: 'STRING_VALUE',
+ *     },
+ *     OnFailure: { // OnFailure
+ *       Destination: 'STRING_VALUE',
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateFunctionEventInvokeConfigCommandInput - {@link UpdateFunctionEventInvokeConfigCommandInput}
@@ -82,6 +98,8 @@ export interface UpdateFunctionEventInvokeConfigCommandOutput extends FunctionEv
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>The request throughput limit was exceeded. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests">Lambda quotas</a>.</p>
  *
+ * @throws {@link LambdaServiceException}
+ * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
  */
 export class UpdateFunctionEventInvokeConfigCommand extends $Command<

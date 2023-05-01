@@ -39,29 +39,34 @@ export interface CreateAddressCommandOutput extends CreateAddressResult, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SnowballClient, CreateAddressCommand } from "@aws-sdk/client-snowball"; // ES Modules import
- * // const { SnowballClient, CreateAddressCommand } = require("@aws-sdk/client-snowball"); // CommonJS import
+ * import { SnowballClient, CreateAddressCommand } from '@aws-sdk/client-snowball'; // ES Modules import
+ * // const { SnowballClient, CreateAddressCommand } = require('@aws-sdk/client-snowball'); // CommonJS import
  * const client = new SnowballClient(config);
  * const input = { // CreateAddressRequest
  *   Address: { // Address
- *     AddressId: "STRING_VALUE",
- *     Name: "STRING_VALUE",
- *     Company: "STRING_VALUE",
- *     Street1: "STRING_VALUE",
- *     Street2: "STRING_VALUE",
- *     Street3: "STRING_VALUE",
- *     City: "STRING_VALUE",
- *     StateOrProvince: "STRING_VALUE",
- *     PrefectureOrDistrict: "STRING_VALUE",
- *     Landmark: "STRING_VALUE",
- *     Country: "STRING_VALUE",
- *     PostalCode: "STRING_VALUE",
- *     PhoneNumber: "STRING_VALUE",
+ *     AddressId: 'STRING_VALUE',
+ *     Name: 'STRING_VALUE',
+ *     Company: 'STRING_VALUE',
+ *     Street1: 'STRING_VALUE',
+ *     Street2: 'STRING_VALUE',
+ *     Street3: 'STRING_VALUE',
+ *     City: 'STRING_VALUE',
+ *     StateOrProvince: 'STRING_VALUE',
+ *     PrefectureOrDistrict: 'STRING_VALUE',
+ *     Landmark: 'STRING_VALUE',
+ *     Country: 'STRING_VALUE',
+ *     PostalCode: 'STRING_VALUE',
+ *     PhoneNumber: 'STRING_VALUE',
  *     IsRestricted: true || false,
  *   },
  * };
  * const command = new CreateAddressCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateAddressResult
+ *   AddressId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateAddressCommandInput - {@link CreateAddressCommandInput}
@@ -79,6 +84,8 @@ export interface CreateAddressCommandOutput extends CreateAddressResult, __Metad
  *       occurred. Check the address with your region's carrier and try again. If the issue persists,
  *       contact Amazon Web Services Support.</p>
  *
+ * @throws {@link SnowballServiceException}
+ * <p>Base exception class for all service exceptions from Snowball service.</p>
  *
  * @example To create an address for a job
  * ```javascript

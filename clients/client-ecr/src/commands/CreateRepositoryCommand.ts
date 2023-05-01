@@ -37,29 +37,48 @@ export interface CreateRepositoryCommandOutput extends CreateRepositoryResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ECRClient, CreateRepositoryCommand } from "@aws-sdk/client-ecr"; // ES Modules import
- * // const { ECRClient, CreateRepositoryCommand } = require("@aws-sdk/client-ecr"); // CommonJS import
+ * import { ECRClient, CreateRepositoryCommand } from '@aws-sdk/client-ecr'; // ES Modules import
+ * // const { ECRClient, CreateRepositoryCommand } = require('@aws-sdk/client-ecr'); // CommonJS import
  * const client = new ECRClient(config);
  * const input = { // CreateRepositoryRequest
- *   registryId: "STRING_VALUE",
- *   repositoryName: "STRING_VALUE", // required
+ *   registryId: 'STRING_VALUE',
+ *   repositoryName: 'STRING_VALUE', // required
  *   tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE",
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
- *   imageTagMutability: "STRING_VALUE",
+ *   imageTagMutability: 'STRING_VALUE',
  *   imageScanningConfiguration: { // ImageScanningConfiguration
  *     scanOnPush: true || false,
  *   },
  *   encryptionConfiguration: { // EncryptionConfiguration
- *     encryptionType: "STRING_VALUE", // required
- *     kmsKey: "STRING_VALUE",
+ *     encryptionType: 'STRING_VALUE', // required
+ *     kmsKey: 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateRepositoryCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateRepositoryResponse
+ *   repository: { // Repository
+ *     repositoryArn: 'STRING_VALUE',
+ *     registryId: 'STRING_VALUE',
+ *     repositoryName: 'STRING_VALUE',
+ *     repositoryUri: 'STRING_VALUE',
+ *     createdAt: new Date('TIMESTAMP'),
+ *     imageTagMutability: 'STRING_VALUE',
+ *     imageScanningConfiguration: { // ImageScanningConfiguration
+ *       scanOnPush: true || false,
+ *     },
+ *     encryptionConfiguration: { // EncryptionConfiguration
+ *       encryptionType: 'STRING_VALUE', // required
+ *       kmsKey: 'STRING_VALUE',
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateRepositoryCommandInput - {@link CreateRepositoryCommandInput}
@@ -94,6 +113,8 @@ export interface CreateRepositoryCommandOutput extends CreateRepositoryResponse,
  *  <p>The list of tags on the repository is over the limit. The maximum number of tags that
  *             can be applied to a repository is 50.</p>
  *
+ * @throws {@link ECRServiceException}
+ * <p>Base exception class for all service exceptions from ECR service.</p>
  *
  * @example To create a new repository
  * ```javascript

@@ -52,18 +52,32 @@ export interface DescribeOrganizationConfigRuleStatusesCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConfigServiceClient, DescribeOrganizationConfigRuleStatusesCommand } from "@aws-sdk/client-config-service"; // ES Modules import
- * // const { ConfigServiceClient, DescribeOrganizationConfigRuleStatusesCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
+ * import { ConfigServiceClient, DescribeOrganizationConfigRuleStatusesCommand } from '@aws-sdk/client-config-service'; // ES Modules import
+ * // const { ConfigServiceClient, DescribeOrganizationConfigRuleStatusesCommand } = require('@aws-sdk/client-config-service'); // CommonJS import
  * const client = new ConfigServiceClient(config);
  * const input = { // DescribeOrganizationConfigRuleStatusesRequest
  *   OrganizationConfigRuleNames: [ // OrganizationConfigRuleNames
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   Limit: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   Limit: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new DescribeOrganizationConfigRuleStatusesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeOrganizationConfigRuleStatusesResponse
+ *   OrganizationConfigRuleStatuses: [ // OrganizationConfigRuleStatuses
+ *     { // OrganizationConfigRuleStatus
+ *       OrganizationConfigRuleName: 'STRING_VALUE', // required
+ *       OrganizationRuleStatus: 'CREATE_SUCCESSFUL' || 'CREATE_IN_PROGRESS' || 'CREATE_FAILED' || 'DELETE_SUCCESSFUL' || 'DELETE_FAILED' || 'DELETE_IN_PROGRESS' || 'UPDATE_SUCCESSFUL' || 'UPDATE_IN_PROGRESS' || 'UPDATE_FAILED', // required
+ *       ErrorCode: 'STRING_VALUE',
+ *       ErrorMessage: 'STRING_VALUE',
+ *       LastUpdateTime: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeOrganizationConfigRuleStatusesCommandInput - {@link DescribeOrganizationConfigRuleStatusesCommandInput}
@@ -104,6 +118,8 @@ export interface DescribeOrganizationConfigRuleStatusesCommandOutput
  *          </ul>
  *          <p>For all <code>OrganizationConfigRule</code> and <code>OrganizationConformancePack</code> APIs, Config throws an exception if APIs are called from member accounts. All APIs must be called from organization management account.</p>
  *
+ * @throws {@link ConfigServiceServiceException}
+ * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
  */
 export class DescribeOrganizationConfigRuleStatusesCommand extends $Command<

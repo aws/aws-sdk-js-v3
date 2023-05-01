@@ -36,15 +36,33 @@ export interface ListWorkerConfigurationsCommandOutput extends ListWorkerConfigu
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KafkaConnectClient, ListWorkerConfigurationsCommand } from "@aws-sdk/client-kafkaconnect"; // ES Modules import
- * // const { KafkaConnectClient, ListWorkerConfigurationsCommand } = require("@aws-sdk/client-kafkaconnect"); // CommonJS import
+ * import { KafkaConnectClient, ListWorkerConfigurationsCommand } from '@aws-sdk/client-kafkaconnect'; // ES Modules import
+ * // const { KafkaConnectClient, ListWorkerConfigurationsCommand } = require('@aws-sdk/client-kafkaconnect'); // CommonJS import
  * const client = new KafkaConnectClient(config);
  * const input = { // ListWorkerConfigurationsRequest
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new ListWorkerConfigurationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListWorkerConfigurationsResponse
+ *   nextToken: 'STRING_VALUE',
+ *   workerConfigurations: [ // __listOfWorkerConfigurationSummary
+ *     { // WorkerConfigurationSummary
+ *       creationTime: new Date('TIMESTAMP'),
+ *       description: 'STRING_VALUE',
+ *       latestRevision: { // WorkerConfigurationRevisionSummary
+ *         creationTime: new Date('TIMESTAMP'),
+ *         description: 'STRING_VALUE',
+ *         revision: Number('long'),
+ *       },
+ *       name: 'STRING_VALUE',
+ *       workerConfigurationArn: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListWorkerConfigurationsCommandInput - {@link ListWorkerConfigurationsCommandInput}
@@ -80,6 +98,8 @@ export interface ListWorkerConfigurationsCommandOutput extends ListWorkerConfigu
  *  <p>HTTP Status Code 401: Unauthorized request. The provided credentials couldn't be
  *          validated.</p>
  *
+ * @throws {@link KafkaConnectServiceException}
+ * <p>Base exception class for all service exceptions from KafkaConnect service.</p>
  *
  */
 export class ListWorkerConfigurationsCommand extends $Command<

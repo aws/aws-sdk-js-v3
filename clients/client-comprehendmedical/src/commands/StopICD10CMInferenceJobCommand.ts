@@ -40,14 +40,19 @@ export interface StopICD10CMInferenceJobCommandOutput extends StopICD10CMInferen
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ComprehendMedicalClient, StopICD10CMInferenceJobCommand } from "@aws-sdk/client-comprehendmedical"; // ES Modules import
- * // const { ComprehendMedicalClient, StopICD10CMInferenceJobCommand } = require("@aws-sdk/client-comprehendmedical"); // CommonJS import
+ * import { ComprehendMedicalClient, StopICD10CMInferenceJobCommand } from '@aws-sdk/client-comprehendmedical'; // ES Modules import
+ * // const { ComprehendMedicalClient, StopICD10CMInferenceJobCommand } = require('@aws-sdk/client-comprehendmedical'); // CommonJS import
  * const client = new ComprehendMedicalClient(config);
  * const input = { // StopICD10CMInferenceJobRequest
- *   JobId: "STRING_VALUE", // required
+ *   JobId: 'STRING_VALUE', // required
  * };
  * const command = new StopICD10CMInferenceJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StopICD10CMInferenceJobResponse
+ *   JobId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param StopICD10CMInferenceJobCommandInput - {@link StopICD10CMInferenceJobCommandInput}
@@ -67,6 +72,8 @@ export interface StopICD10CMInferenceJobCommandOutput extends StopICD10CMInferen
  *  <p>The resource identified by the specified Amazon Resource Name (ARN) was not found. Check
  *       the ARN and try your request again.</p>
  *
+ * @throws {@link ComprehendMedicalServiceException}
+ * <p>Base exception class for all service exceptions from ComprehendMedical service.</p>
  *
  */
 export class StopICD10CMInferenceJobCommand extends $Command<

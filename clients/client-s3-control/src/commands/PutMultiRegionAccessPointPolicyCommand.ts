@@ -62,19 +62,24 @@ export interface PutMultiRegionAccessPointPolicyCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { S3ControlClient, PutMultiRegionAccessPointPolicyCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
- * // const { S3ControlClient, PutMultiRegionAccessPointPolicyCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
+ * import { S3ControlClient, PutMultiRegionAccessPointPolicyCommand } from '@aws-sdk/client-s3-control'; // ES Modules import
+ * // const { S3ControlClient, PutMultiRegionAccessPointPolicyCommand } = require('@aws-sdk/client-s3-control'); // CommonJS import
  * const client = new S3ControlClient(config);
  * const input = { // PutMultiRegionAccessPointPolicyRequest
- *   AccountId: "STRING_VALUE",
- *   ClientToken: "STRING_VALUE", // required
+ *   AccountId: 'STRING_VALUE',
+ *   ClientToken: 'STRING_VALUE', // required
  *   Details: { // PutMultiRegionAccessPointPolicyInput
- *     Name: "STRING_VALUE", // required
- *     Policy: "STRING_VALUE", // required
+ *     Name: 'STRING_VALUE', // required
+ *     Policy: 'STRING_VALUE', // required
  *   },
  * };
  * const command = new PutMultiRegionAccessPointPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutMultiRegionAccessPointPolicyResult
+ *   RequestTokenARN: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param PutMultiRegionAccessPointPolicyCommandInput - {@link PutMultiRegionAccessPointPolicyCommandInput}
@@ -83,6 +88,8 @@ export interface PutMultiRegionAccessPointPolicyCommandOutput
  * @see {@link PutMultiRegionAccessPointPolicyCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
  *
+ * @throws {@link S3ControlServiceException}
+ * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
  */
 export class PutMultiRegionAccessPointPolicyCommand extends $Command<

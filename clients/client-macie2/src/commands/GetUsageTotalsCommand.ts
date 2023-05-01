@@ -36,14 +36,26 @@ export interface GetUsageTotalsCommandOutput extends GetUsageTotalsResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Macie2Client, GetUsageTotalsCommand } from "@aws-sdk/client-macie2"; // ES Modules import
- * // const { Macie2Client, GetUsageTotalsCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
+ * import { Macie2Client, GetUsageTotalsCommand } from '@aws-sdk/client-macie2'; // ES Modules import
+ * // const { Macie2Client, GetUsageTotalsCommand } = require('@aws-sdk/client-macie2'); // CommonJS import
  * const client = new Macie2Client(config);
  * const input = { // GetUsageTotalsRequest
- *   timeRange: "STRING_VALUE",
+ *   timeRange: 'STRING_VALUE',
  * };
  * const command = new GetUsageTotalsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetUsageTotalsResponse
+ *   timeRange: 'MONTH_TO_DATE' || 'PAST_30_DAYS',
+ *   usageTotals: [ // __listOfUsageTotal
+ *     { // UsageTotal
+ *       currency: 'USD',
+ *       estimatedCost: 'STRING_VALUE',
+ *       type: 'DATA_INVENTORY_EVALUATION' || 'SENSITIVE_DATA_DISCOVERY' || 'AUTOMATED_SENSITIVE_DATA_DISCOVERY' || 'AUTOMATED_OBJECT_MONITORING',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetUsageTotalsCommandInput - {@link GetUsageTotalsCommandInput}
@@ -73,6 +85,8 @@ export interface GetUsageTotalsCommandOutput extends GetUsageTotalsResponse, __M
  * @throws {@link ValidationException} (client fault)
  *  <p>Provides information about an error that occurred due to a syntax error in a request.</p>
  *
+ * @throws {@link Macie2ServiceException}
+ * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
  */
 export class GetUsageTotalsCommand extends $Command<

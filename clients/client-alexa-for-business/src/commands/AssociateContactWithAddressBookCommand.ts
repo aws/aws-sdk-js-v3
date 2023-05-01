@@ -41,15 +41,18 @@ export interface AssociateContactWithAddressBookCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AlexaForBusinessClient, AssociateContactWithAddressBookCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
- * // const { AlexaForBusinessClient, AssociateContactWithAddressBookCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
+ * import { AlexaForBusinessClient, AssociateContactWithAddressBookCommand } from '@aws-sdk/client-alexa-for-business'; // ES Modules import
+ * // const { AlexaForBusinessClient, AssociateContactWithAddressBookCommand } = require('@aws-sdk/client-alexa-for-business'); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
  * const input = { // AssociateContactWithAddressBookRequest
- *   ContactArn: "STRING_VALUE", // required
- *   AddressBookArn: "STRING_VALUE", // required
+ *   ContactArn: 'STRING_VALUE', // required
+ *   AddressBookArn: 'STRING_VALUE', // required
  * };
  * const command = new AssociateContactWithAddressBookCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param AssociateContactWithAddressBookCommandInput - {@link AssociateContactWithAddressBookCommandInput}
@@ -61,6 +64,8 @@ export interface AssociateContactWithAddressBookCommandOutput
  * @throws {@link LimitExceededException} (client fault)
  *  <p>You are performing an action that would put you beyond your account's limits.</p>
  *
+ * @throws {@link AlexaForBusinessServiceException}
+ * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  */
 export class AssociateContactWithAddressBookCommand extends $Command<

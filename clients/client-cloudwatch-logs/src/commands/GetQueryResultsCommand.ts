@@ -48,14 +48,32 @@ export interface GetQueryResultsCommandOutput extends GetQueryResultsResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudWatchLogsClient, GetQueryResultsCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
- * // const { CloudWatchLogsClient, GetQueryResultsCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
+ * import { CloudWatchLogsClient, GetQueryResultsCommand } from '@aws-sdk/client-cloudwatch-logs'; // ES Modules import
+ * // const { CloudWatchLogsClient, GetQueryResultsCommand } = require('@aws-sdk/client-cloudwatch-logs'); // CommonJS import
  * const client = new CloudWatchLogsClient(config);
  * const input = { // GetQueryResultsRequest
- *   queryId: "STRING_VALUE", // required
+ *   queryId: 'STRING_VALUE', // required
  * };
  * const command = new GetQueryResultsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetQueryResultsResponse
+ *   results: [ // QueryResults
+ *     [ // ResultRows
+ *       { // ResultField
+ *         field: 'STRING_VALUE',
+ *         value: 'STRING_VALUE',
+ *       },
+ *     ],
+ *   ],
+ *   statistics: { // QueryStatistics
+ *     recordsMatched: Number('double'),
+ *     recordsScanned: Number('double'),
+ *     bytesScanned: Number('double'),
+ *   },
+ *   status: 'Scheduled' || 'Running' || 'Complete' || 'Failed' || 'Cancelled' || 'Timeout' || 'Unknown',
+ * };
+ *
  * ```
  *
  * @param GetQueryResultsCommandInput - {@link GetQueryResultsCommandInput}
@@ -73,6 +91,8 @@ export interface GetQueryResultsCommandOutput extends GetQueryResultsResponse, _
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service cannot complete the request.</p>
  *
+ * @throws {@link CloudWatchLogsServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
  */
 export class GetQueryResultsCommand extends $Command<

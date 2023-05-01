@@ -39,12 +39,27 @@ export interface ListAvailableSolutionStacksCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElasticBeanstalkClient, ListAvailableSolutionStacksCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
- * // const { ElasticBeanstalkClient, ListAvailableSolutionStacksCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
+ * import { ElasticBeanstalkClient, ListAvailableSolutionStacksCommand } from '@aws-sdk/client-elastic-beanstalk'; // ES Modules import
+ * // const { ElasticBeanstalkClient, ListAvailableSolutionStacksCommand } = require('@aws-sdk/client-elastic-beanstalk'); // CommonJS import
  * const client = new ElasticBeanstalkClient(config);
  * const input = {};
  * const command = new ListAvailableSolutionStacksCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListAvailableSolutionStacksResultMessage
+ *   SolutionStacks: [ // AvailableSolutionStackNamesList
+ *     'STRING_VALUE',
+ *   ],
+ *   SolutionStackDetails: [ // AvailableSolutionStackDetailsList
+ *     { // SolutionStackDescription
+ *       SolutionStackName: 'STRING_VALUE',
+ *       PermittedFileTypes: [ // SolutionStackFileTypeList
+ *         'STRING_VALUE',
+ *       ],
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListAvailableSolutionStacksCommandInput - {@link ListAvailableSolutionStacksCommandInput}
@@ -53,6 +68,8 @@ export interface ListAvailableSolutionStacksCommandOutput
  * @see {@link ListAvailableSolutionStacksCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
+ * @throws {@link ElasticBeanstalkServiceException}
+ * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
  * @example To view solution stacks
  * ```javascript

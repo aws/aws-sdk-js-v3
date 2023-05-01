@@ -36,16 +36,44 @@ export interface DescribeUserGroupsCommandOutput extends DescribeUserGroupsResul
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElastiCacheClient, DescribeUserGroupsCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
- * // const { ElastiCacheClient, DescribeUserGroupsCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
+ * import { ElastiCacheClient, DescribeUserGroupsCommand } from '@aws-sdk/client-elasticache'; // ES Modules import
+ * // const { ElastiCacheClient, DescribeUserGroupsCommand } = require('@aws-sdk/client-elasticache'); // CommonJS import
  * const client = new ElastiCacheClient(config);
  * const input = { // DescribeUserGroupsMessage
- *   UserGroupId: "STRING_VALUE",
- *   MaxRecords: Number("int"),
- *   Marker: "STRING_VALUE",
+ *   UserGroupId: 'STRING_VALUE',
+ *   MaxRecords: Number('int'),
+ *   Marker: 'STRING_VALUE',
  * };
  * const command = new DescribeUserGroupsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeUserGroupsResult
+ *   UserGroups: [ // UserGroupList
+ *     { // UserGroup
+ *       UserGroupId: 'STRING_VALUE',
+ *       Status: 'STRING_VALUE',
+ *       Engine: 'STRING_VALUE',
+ *       UserIds: [ // UserIdList
+ *         'STRING_VALUE',
+ *       ],
+ *       MinimumEngineVersion: 'STRING_VALUE',
+ *       PendingChanges: { // UserGroupPendingChanges
+ *         UserIdsToRemove: [
+ *           'STRING_VALUE',
+ *         ],
+ *         UserIdsToAdd: [
+ *           'STRING_VALUE',
+ *         ],
+ *       },
+ *       ReplicationGroups: [ // UGReplicationGroupIdList
+ *         'STRING_VALUE',
+ *       ],
+ *       ARN: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   Marker: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeUserGroupsCommandInput - {@link DescribeUserGroupsCommandInput}
@@ -63,6 +91,8 @@ export interface DescribeUserGroupsCommandOutput extends DescribeUserGroupsResul
  * @throws {@link UserGroupNotFoundFault} (client fault)
  *  <p>The user group was not found or does not exist</p>
  *
+ * @throws {@link ElastiCacheServiceException}
+ * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
  */
 export class DescribeUserGroupsCommand extends $Command<

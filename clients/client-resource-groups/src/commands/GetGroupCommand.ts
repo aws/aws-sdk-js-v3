@@ -47,15 +47,24 @@ export interface GetGroupCommandOutput extends GetGroupOutput, __MetadataBearer 
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ResourceGroupsClient, GetGroupCommand } from "@aws-sdk/client-resource-groups"; // ES Modules import
- * // const { ResourceGroupsClient, GetGroupCommand } = require("@aws-sdk/client-resource-groups"); // CommonJS import
+ * import { ResourceGroupsClient, GetGroupCommand } from '@aws-sdk/client-resource-groups'; // ES Modules import
+ * // const { ResourceGroupsClient, GetGroupCommand } = require('@aws-sdk/client-resource-groups'); // CommonJS import
  * const client = new ResourceGroupsClient(config);
  * const input = { // GetGroupInput
- *   GroupName: "STRING_VALUE",
- *   Group: "STRING_VALUE",
+ *   GroupName: 'STRING_VALUE',
+ *   Group: 'STRING_VALUE',
  * };
  * const command = new GetGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetGroupOutput
+ *   Group: { // Group
+ *     GroupArn: 'STRING_VALUE', // required
+ *     Name: 'STRING_VALUE', // required
+ *     Description: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetGroupCommandInput - {@link GetGroupCommandInput}
@@ -83,6 +92,8 @@ export interface GetGroupCommandOutput extends GetGroupOutput, __MetadataBearer 
  *  <p>You've exceeded throttling limits by making too many requests in a period of
  *             time.</p>
  *
+ * @throws {@link ResourceGroupsServiceException}
+ * <p>Base exception class for all service exceptions from ResourceGroups service.</p>
  *
  */
 export class GetGroupCommand extends $Command<

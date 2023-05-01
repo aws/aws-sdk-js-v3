@@ -46,17 +46,33 @@ export interface DescribeLoadBalancerPoliciesCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElasticLoadBalancingClient, DescribeLoadBalancerPoliciesCommand } from "@aws-sdk/client-elastic-load-balancing"; // ES Modules import
- * // const { ElasticLoadBalancingClient, DescribeLoadBalancerPoliciesCommand } = require("@aws-sdk/client-elastic-load-balancing"); // CommonJS import
+ * import { ElasticLoadBalancingClient, DescribeLoadBalancerPoliciesCommand } from '@aws-sdk/client-elastic-load-balancing'; // ES Modules import
+ * // const { ElasticLoadBalancingClient, DescribeLoadBalancerPoliciesCommand } = require('@aws-sdk/client-elastic-load-balancing'); // CommonJS import
  * const client = new ElasticLoadBalancingClient(config);
  * const input = { // DescribeLoadBalancerPoliciesInput
- *   LoadBalancerName: "STRING_VALUE",
+ *   LoadBalancerName: 'STRING_VALUE',
  *   PolicyNames: [ // PolicyNames
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new DescribeLoadBalancerPoliciesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeLoadBalancerPoliciesOutput
+ *   PolicyDescriptions: [ // PolicyDescriptions
+ *     { // PolicyDescription
+ *       PolicyName: 'STRING_VALUE',
+ *       PolicyTypeName: 'STRING_VALUE',
+ *       PolicyAttributeDescriptions: [ // PolicyAttributeDescriptions
+ *         { // PolicyAttributeDescription
+ *           AttributeName: 'STRING_VALUE',
+ *           AttributeValue: 'STRING_VALUE',
+ *         },
+ *       ],
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeLoadBalancerPoliciesCommandInput - {@link DescribeLoadBalancerPoliciesCommandInput}
@@ -71,6 +87,8 @@ export interface DescribeLoadBalancerPoliciesCommandOutput
  * @throws {@link PolicyNotFoundException} (client fault)
  *  <p>One or more of the specified policies do not exist.</p>
  *
+ * @throws {@link ElasticLoadBalancingServiceException}
+ * <p>Base exception class for all service exceptions from ElasticLoadBalancing service.</p>
  *
  * @example To describe a policy associated with a load balancer
  * ```javascript

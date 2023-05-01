@@ -45,18 +45,36 @@ export interface ListVectorEnrichmentJobsCommandOutput extends ListVectorEnrichm
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerGeospatialClient, ListVectorEnrichmentJobsCommand } from "@aws-sdk/client-sagemaker-geospatial"; // ES Modules import
- * // const { SageMakerGeospatialClient, ListVectorEnrichmentJobsCommand } = require("@aws-sdk/client-sagemaker-geospatial"); // CommonJS import
+ * import { SageMakerGeospatialClient, ListVectorEnrichmentJobsCommand } from '@aws-sdk/client-sagemaker-geospatial'; // ES Modules import
+ * // const { SageMakerGeospatialClient, ListVectorEnrichmentJobsCommand } = require('@aws-sdk/client-sagemaker-geospatial'); // CommonJS import
  * const client = new SageMakerGeospatialClient(config);
  * const input = { // ListVectorEnrichmentJobInput
- *   StatusEquals: "STRING_VALUE",
- *   SortOrder: "STRING_VALUE",
- *   SortBy: "STRING_VALUE",
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   StatusEquals: 'STRING_VALUE',
+ *   SortOrder: 'STRING_VALUE',
+ *   SortBy: 'STRING_VALUE',
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListVectorEnrichmentJobsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListVectorEnrichmentJobOutput
+ *   VectorEnrichmentJobSummaries: [ // VectorEnrichmentJobList // required
+ *     { // ListVectorEnrichmentJobOutputConfig
+ *       Arn: 'STRING_VALUE', // required
+ *       Name: 'STRING_VALUE', // required
+ *       Type: 'STRING_VALUE', // required
+ *       CreationTime: new Date('TIMESTAMP'), // required
+ *       DurationInSeconds: Number('int'), // required
+ *       Status: 'STRING_VALUE', // required
+ *       Tags: { // Tags
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListVectorEnrichmentJobsCommandInput - {@link ListVectorEnrichmentJobsCommandInput}
@@ -80,6 +98,8 @@ export interface ListVectorEnrichmentJobsCommandOutput extends ListVectorEnrichm
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
  *
+ * @throws {@link SageMakerGeospatialServiceException}
+ * <p>Base exception class for all service exceptions from SageMakerGeospatial service.</p>
  *
  */
 export class ListVectorEnrichmentJobsCommand extends $Command<

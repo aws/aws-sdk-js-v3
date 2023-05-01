@@ -39,17 +39,20 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTFleetHubClient, UntagResourceCommand } from "@aws-sdk/client-iotfleethub"; // ES Modules import
- * // const { IoTFleetHubClient, UntagResourceCommand } = require("@aws-sdk/client-iotfleethub"); // CommonJS import
+ * import { IoTFleetHubClient, UntagResourceCommand } from '@aws-sdk/client-iotfleethub'; // ES Modules import
+ * // const { IoTFleetHubClient, UntagResourceCommand } = require('@aws-sdk/client-iotfleethub'); // CommonJS import
  * const client = new IoTFleetHubClient(config);
  * const input = { // UntagResourceRequest
- *   resourceArn: "STRING_VALUE", // required
+ *   resourceArn: 'STRING_VALUE', // required
  *   tagKeys: [ // TagKeyList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new UntagResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UntagResourceCommandInput - {@link UntagResourceCommandInput}
@@ -67,6 +70,8 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource does not exist.</p>
  *
+ * @throws {@link IoTFleetHubServiceException}
+ * <p>Base exception class for all service exceptions from IoTFleetHub service.</p>
  *
  */
 export class UntagResourceCommand extends $Command<

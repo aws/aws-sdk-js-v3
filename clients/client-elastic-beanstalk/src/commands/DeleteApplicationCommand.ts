@@ -41,15 +41,18 @@ export interface DeleteApplicationCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElasticBeanstalkClient, DeleteApplicationCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
- * // const { ElasticBeanstalkClient, DeleteApplicationCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
+ * import { ElasticBeanstalkClient, DeleteApplicationCommand } from '@aws-sdk/client-elastic-beanstalk'; // ES Modules import
+ * // const { ElasticBeanstalkClient, DeleteApplicationCommand } = require('@aws-sdk/client-elastic-beanstalk'); // CommonJS import
  * const client = new ElasticBeanstalkClient(config);
  * const input = { // DeleteApplicationMessage
- *   ApplicationName: "STRING_VALUE", // required
+ *   ApplicationName: 'STRING_VALUE', // required
  *   TerminateEnvByForce: true || false,
  * };
  * const command = new DeleteApplicationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteApplicationCommandInput - {@link DeleteApplicationCommandInput}
@@ -62,6 +65,8 @@ export interface DeleteApplicationCommandOutput extends __MetadataBearer {}
  *  <p>Unable to perform the specified operation because another operation that effects an
  *       element in this activity is already in progress.</p>
  *
+ * @throws {@link ElasticBeanstalkServiceException}
+ * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
  * @example To delete an application
  * ```javascript

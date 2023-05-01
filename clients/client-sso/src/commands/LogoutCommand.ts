@@ -51,14 +51,17 @@ export interface LogoutCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSOClient, LogoutCommand } from "@aws-sdk/client-sso"; // ES Modules import
- * // const { SSOClient, LogoutCommand } = require("@aws-sdk/client-sso"); // CommonJS import
+ * import { SSOClient, LogoutCommand } from '@aws-sdk/client-sso'; // ES Modules import
+ * // const { SSOClient, LogoutCommand } = require('@aws-sdk/client-sso'); // CommonJS import
  * const client = new SSOClient(config);
  * const input = { // LogoutRequest
- *   accessToken: "STRING_VALUE", // required
+ *   accessToken: 'STRING_VALUE', // required
  * };
  * const command = new LogoutCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param LogoutCommandInput - {@link LogoutCommandInput}
@@ -79,6 +82,8 @@ export interface LogoutCommandOutput extends __MetadataBearer {}
  *  <p>Indicates that the request is not authorized. This can happen due to an invalid access
  *       token in the request.</p>
  *
+ * @throws {@link SSOServiceException}
+ * <p>Base exception class for all service exceptions from SSO service.</p>
  *
  */
 export class LogoutCommand extends $Command<LogoutCommandInput, LogoutCommandOutput, SSOClientResolvedConfig> {

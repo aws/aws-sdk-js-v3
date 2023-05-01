@@ -46,16 +46,19 @@ export interface SetSMSAttributesCommandOutput extends SetSMSAttributesResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SNSClient, SetSMSAttributesCommand } from "@aws-sdk/client-sns"; // ES Modules import
- * // const { SNSClient, SetSMSAttributesCommand } = require("@aws-sdk/client-sns"); // CommonJS import
+ * import { SNSClient, SetSMSAttributesCommand } from '@aws-sdk/client-sns'; // ES Modules import
+ * // const { SNSClient, SetSMSAttributesCommand } = require('@aws-sdk/client-sns'); // CommonJS import
  * const client = new SNSClient(config);
  * const input = { // SetSMSAttributesInput
  *   attributes: { // MapStringToString // required
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new SetSMSAttributesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param SetSMSAttributesCommandInput - {@link SetSMSAttributesCommandInput}
@@ -77,6 +80,8 @@ export interface SetSMSAttributesCommandOutput extends SetSMSAttributesResponse,
  * @throws {@link ThrottledException} (client fault)
  *  <p>Indicates that the rate at which requests have been submitted for this action exceeds the limit for your Amazon Web Services account.</p>
  *
+ * @throws {@link SNSServiceException}
+ * <p>Base exception class for all service exceptions from SNS service.</p>
  *
  */
 export class SetSMSAttributesCommand extends $Command<

@@ -42,16 +42,19 @@ export interface DeleteAssociationCommandOutput extends DeleteAssociationResult,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMClient, DeleteAssociationCommand } from "@aws-sdk/client-ssm"; // ES Modules import
- * // const { SSMClient, DeleteAssociationCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * import { SSMClient, DeleteAssociationCommand } from '@aws-sdk/client-ssm'; // ES Modules import
+ * // const { SSMClient, DeleteAssociationCommand } = require('@aws-sdk/client-ssm'); // CommonJS import
  * const client = new SSMClient(config);
  * const input = { // DeleteAssociationRequest
- *   Name: "STRING_VALUE",
- *   InstanceId: "STRING_VALUE",
- *   AssociationId: "STRING_VALUE",
+ *   Name: 'STRING_VALUE',
+ *   InstanceId: 'STRING_VALUE',
+ *   AssociationId: 'STRING_VALUE',
  * };
  * const command = new DeleteAssociationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteAssociationCommandInput - {@link DeleteAssociationCommandInput}
@@ -92,6 +95,8 @@ export interface DeleteAssociationCommandOutput extends DeleteAssociationResult,
  * @throws {@link TooManyUpdates} (client fault)
  *  <p>There are concurrent updates for a resource that supports one update at a time.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class DeleteAssociationCommand extends $Command<

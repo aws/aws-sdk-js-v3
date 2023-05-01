@@ -36,14 +36,32 @@ export interface GetNetworkProfileCommandOutput extends GetNetworkProfileResult,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DeviceFarmClient, GetNetworkProfileCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
- * // const { DeviceFarmClient, GetNetworkProfileCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
+ * import { DeviceFarmClient, GetNetworkProfileCommand } from '@aws-sdk/client-device-farm'; // ES Modules import
+ * // const { DeviceFarmClient, GetNetworkProfileCommand } = require('@aws-sdk/client-device-farm'); // CommonJS import
  * const client = new DeviceFarmClient(config);
  * const input = { // GetNetworkProfileRequest
- *   arn: "STRING_VALUE", // required
+ *   arn: 'STRING_VALUE', // required
  * };
  * const command = new GetNetworkProfileCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetNetworkProfileResult
+ *   networkProfile: { // NetworkProfile
+ *     arn: 'STRING_VALUE',
+ *     name: 'STRING_VALUE',
+ *     description: 'STRING_VALUE',
+ *     type: 'CURATED' || 'PRIVATE',
+ *     uplinkBandwidthBits: Number('long'),
+ *     downlinkBandwidthBits: Number('long'),
+ *     uplinkDelayMs: Number('long'),
+ *     downlinkDelayMs: Number('long'),
+ *     uplinkJitterMs: Number('long'),
+ *     downlinkJitterMs: Number('long'),
+ *     uplinkLossPercent: Number('int'),
+ *     downlinkLossPercent: Number('int'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetNetworkProfileCommandInput - {@link GetNetworkProfileCommandInput}
@@ -64,6 +82,8 @@ export interface GetNetworkProfileCommandOutput extends GetNetworkProfileResult,
  * @throws {@link ServiceAccountException} (client fault)
  *  <p>There was a problem with the service account.</p>
  *
+ * @throws {@link DeviceFarmServiceException}
+ * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
  */
 export class GetNetworkProfileCommand extends $Command<

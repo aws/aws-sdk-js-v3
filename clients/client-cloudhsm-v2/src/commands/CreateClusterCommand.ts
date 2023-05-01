@@ -36,28 +36,76 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudHSMV2Client, CreateClusterCommand } from "@aws-sdk/client-cloudhsm-v2"; // ES Modules import
- * // const { CloudHSMV2Client, CreateClusterCommand } = require("@aws-sdk/client-cloudhsm-v2"); // CommonJS import
+ * import { CloudHSMV2Client, CreateClusterCommand } from '@aws-sdk/client-cloudhsm-v2'; // ES Modules import
+ * // const { CloudHSMV2Client, CreateClusterCommand } = require('@aws-sdk/client-cloudhsm-v2'); // CommonJS import
  * const client = new CloudHSMV2Client(config);
  * const input = { // CreateClusterRequest
  *   BackupRetentionPolicy: { // BackupRetentionPolicy
- *     Type: "STRING_VALUE",
- *     Value: "STRING_VALUE",
+ *     Type: 'STRING_VALUE',
+ *     Value: 'STRING_VALUE',
  *   },
- *   HsmType: "STRING_VALUE", // required
- *   SourceBackupId: "STRING_VALUE",
+ *   HsmType: 'STRING_VALUE', // required
+ *   SourceBackupId: 'STRING_VALUE',
  *   SubnetIds: [ // SubnetIds // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   TagList: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreateClusterCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateClusterResponse
+ *   Cluster: { // Cluster
+ *     BackupPolicy: 'STRING_VALUE',
+ *     BackupRetentionPolicy: { // BackupRetentionPolicy
+ *       Type: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
+ *     },
+ *     ClusterId: 'STRING_VALUE',
+ *     CreateTimestamp: new Date('TIMESTAMP'),
+ *     Hsms: [ // Hsms
+ *       { // Hsm
+ *         AvailabilityZone: 'STRING_VALUE',
+ *         ClusterId: 'STRING_VALUE',
+ *         SubnetId: 'STRING_VALUE',
+ *         EniId: 'STRING_VALUE',
+ *         EniIp: 'STRING_VALUE',
+ *         HsmId: 'STRING_VALUE', // required
+ *         State: 'STRING_VALUE',
+ *         StateMessage: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     HsmType: 'STRING_VALUE',
+ *     PreCoPassword: 'STRING_VALUE',
+ *     SecurityGroup: 'STRING_VALUE',
+ *     SourceBackupId: 'STRING_VALUE',
+ *     State: 'STRING_VALUE',
+ *     StateMessage: 'STRING_VALUE',
+ *     SubnetMapping: { // ExternalSubnetMapping
+ *       '<keys>': 'STRING_VALUE',
+ *     },
+ *     VpcId: 'STRING_VALUE',
+ *     Certificates: { // Certificates
+ *       ClusterCsr: 'STRING_VALUE',
+ *       HsmCertificate: 'STRING_VALUE',
+ *       AwsHardwareCertificate: 'STRING_VALUE',
+ *       ManufacturerHardwareCertificate: 'STRING_VALUE',
+ *       ClusterCertificate: 'STRING_VALUE',
+ *     },
+ *     TagList: [ // TagList
+ *       { // Tag
+ *         Key: 'STRING_VALUE', // required
+ *         Value: 'STRING_VALUE', // required
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateClusterCommandInput - {@link CreateClusterCommandInput}
@@ -87,6 +135,8 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  * @throws {@link CloudHsmTagException} (client fault)
  *  <p>The request was rejected because of a tagging failure. Verify the tag conditions in all applicable policies, and then retry the request.</p>
  *
+ * @throws {@link CloudHSMV2ServiceException}
+ * <p>Base exception class for all service exceptions from CloudHSMV2 service.</p>
  *
  */
 export class CreateClusterCommand extends $Command<

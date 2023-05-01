@@ -40,61 +40,81 @@ export interface GetOpsSummaryCommandOutput extends GetOpsSummaryResult, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMClient, GetOpsSummaryCommand } from "@aws-sdk/client-ssm"; // ES Modules import
- * // const { SSMClient, GetOpsSummaryCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * import { SSMClient, GetOpsSummaryCommand } from '@aws-sdk/client-ssm'; // ES Modules import
+ * // const { SSMClient, GetOpsSummaryCommand } = require('@aws-sdk/client-ssm'); // CommonJS import
  * const client = new SSMClient(config);
  * const input = { // GetOpsSummaryRequest
- *   SyncName: "STRING_VALUE",
+ *   SyncName: 'STRING_VALUE',
  *   Filters: [ // OpsFilterList
  *     { // OpsFilter
- *       Key: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
  *       Values: [ // OpsFilterValueList // required
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
- *       Type: "Equal" || "NotEqual" || "BeginWith" || "LessThan" || "GreaterThan" || "Exists",
+ *       Type: 'Equal' || 'NotEqual' || 'BeginWith' || 'LessThan' || 'GreaterThan' || 'Exists',
  *     },
  *   ],
  *   Aggregators: [ // OpsAggregatorList
  *     { // OpsAggregator
- *       AggregatorType: "STRING_VALUE",
- *       TypeName: "STRING_VALUE",
- *       AttributeName: "STRING_VALUE",
+ *       AggregatorType: 'STRING_VALUE',
+ *       TypeName: 'STRING_VALUE',
+ *       AttributeName: 'STRING_VALUE',
  *       Values: { // OpsAggregatorValueMap
- *         "<keys>": "STRING_VALUE",
+ *         '<keys>': 'STRING_VALUE',
  *       },
  *       Filters: [
  *         {
- *           Key: "STRING_VALUE", // required
+ *           Key: 'STRING_VALUE', // required
  *           Values: [ // required
- *             "STRING_VALUE",
+ *             'STRING_VALUE',
  *           ],
- *           Type: "Equal" || "NotEqual" || "BeginWith" || "LessThan" || "GreaterThan" || "Exists",
+ *           Type: 'Equal' || 'NotEqual' || 'BeginWith' || 'LessThan' || 'GreaterThan' || 'Exists',
  *         },
  *       ],
  *       Aggregators: [
  *         {
- *           AggregatorType: "STRING_VALUE",
- *           TypeName: "STRING_VALUE",
- *           AttributeName: "STRING_VALUE",
+ *           AggregatorType: 'STRING_VALUE',
+ *           TypeName: 'STRING_VALUE',
+ *           AttributeName: 'STRING_VALUE',
  *           Values: {
- *             "<keys>": "STRING_VALUE",
+ *             '<keys>': 'STRING_VALUE',
  *           },
- *           Filters: "<OpsFilterList>",
- *           Aggregators: "<OpsAggregatorList>",
+ *           Filters: '<OpsFilterList>',
+ *           Aggregators: '<OpsAggregatorList>',
  *         },
  *       ],
  *     },
  *   ],
  *   ResultAttributes: [ // OpsResultAttributeList
  *     { // OpsResultAttribute
- *       TypeName: "STRING_VALUE", // required
+ *       TypeName: 'STRING_VALUE', // required
  *     },
  *   ],
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new GetOpsSummaryCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetOpsSummaryResult
+ *   Entities: [ // OpsEntityList
+ *     { // OpsEntity
+ *       Id: 'STRING_VALUE',
+ *       Data: { // OpsEntityItemMap
+ *         '<keys>': { // OpsEntityItem
+ *           CaptureTime: 'STRING_VALUE',
+ *           Content: [ // OpsEntityItemEntryList
+ *             { // OpsEntityItemEntry
+ *               '<keys>': 'STRING_VALUE',
+ *             },
+ *           ],
+ *         },
+ *       },
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetOpsSummaryCommandInput - {@link GetOpsSummaryCommandInput}
@@ -123,6 +143,8 @@ export interface GetOpsSummaryCommandOutput extends GetOpsSummaryResult, __Metad
  * @throws {@link ResourceDataSyncNotFoundException} (client fault)
  *  <p>The specified sync name wasn't found.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class GetOpsSummaryCommand extends $Command<

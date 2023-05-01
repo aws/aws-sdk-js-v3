@@ -37,16 +37,66 @@ export interface DescribeSMBFileSharesCommandOutput extends DescribeSMBFileShare
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { StorageGatewayClient, DescribeSMBFileSharesCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
- * // const { StorageGatewayClient, DescribeSMBFileSharesCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
+ * import { StorageGatewayClient, DescribeSMBFileSharesCommand } from '@aws-sdk/client-storage-gateway'; // ES Modules import
+ * // const { StorageGatewayClient, DescribeSMBFileSharesCommand } = require('@aws-sdk/client-storage-gateway'); // CommonJS import
  * const client = new StorageGatewayClient(config);
  * const input = { // DescribeSMBFileSharesInput
  *   FileShareARNList: [ // FileShareARNList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new DescribeSMBFileSharesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeSMBFileSharesOutput
+ *   SMBFileShareInfoList: [ // SMBFileShareInfoList
+ *     { // SMBFileShareInfo
+ *       FileShareARN: 'STRING_VALUE',
+ *       FileShareId: 'STRING_VALUE',
+ *       FileShareStatus: 'STRING_VALUE',
+ *       GatewayARN: 'STRING_VALUE',
+ *       KMSEncrypted: true || false,
+ *       KMSKey: 'STRING_VALUE',
+ *       Path: 'STRING_VALUE',
+ *       Role: 'STRING_VALUE',
+ *       LocationARN: 'STRING_VALUE',
+ *       DefaultStorageClass: 'STRING_VALUE',
+ *       ObjectACL: 'STRING_VALUE',
+ *       ReadOnly: true || false,
+ *       GuessMIMETypeEnabled: true || false,
+ *       RequesterPays: true || false,
+ *       SMBACLEnabled: true || false,
+ *       AccessBasedEnumeration: true || false,
+ *       AdminUserList: [ // UserList
+ *         'STRING_VALUE',
+ *       ],
+ *       ValidUserList: [
+ *         'STRING_VALUE',
+ *       ],
+ *       InvalidUserList: [
+ *         'STRING_VALUE',
+ *       ],
+ *       AuditDestinationARN: 'STRING_VALUE',
+ *       Authentication: 'STRING_VALUE',
+ *       CaseSensitivity: 'STRING_VALUE',
+ *       Tags: [ // Tags
+ *         { // Tag
+ *           Key: 'STRING_VALUE', // required
+ *           Value: 'STRING_VALUE', // required
+ *         },
+ *       ],
+ *       FileShareName: 'STRING_VALUE',
+ *       CacheAttributes: { // CacheAttributes
+ *         CacheStaleTimeoutInSeconds: Number('int'),
+ *       },
+ *       NotificationPolicy: 'STRING_VALUE',
+ *       VPCEndpointDNSName: 'STRING_VALUE',
+ *       BucketRegion: 'STRING_VALUE',
+ *       OplocksEnabled: true || false,
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeSMBFileSharesCommandInput - {@link DescribeSMBFileSharesCommandInput}
@@ -63,6 +113,8 @@ export interface DescribeSMBFileSharesCommandOutput extends DescribeSMBFileShare
  *  <p>An exception occurred because an invalid gateway request was issued to the service. For
  *          more information, see the error and message fields.</p>
  *
+ * @throws {@link StorageGatewayServiceException}
+ * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
  */
 export class DescribeSMBFileSharesCommand extends $Command<

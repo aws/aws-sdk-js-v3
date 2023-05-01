@@ -38,25 +38,47 @@ export interface BatchGetMetricDataCommandOutput extends BatchGetMetricDataRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SESv2Client, BatchGetMetricDataCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
- * // const { SESv2Client, BatchGetMetricDataCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
+ * import { SESv2Client, BatchGetMetricDataCommand } from '@aws-sdk/client-sesv2'; // ES Modules import
+ * // const { SESv2Client, BatchGetMetricDataCommand } = require('@aws-sdk/client-sesv2'); // CommonJS import
  * const client = new SESv2Client(config);
  * const input = { // BatchGetMetricDataRequest
  *   Queries: [ // BatchGetMetricDataQueries // required
  *     { // BatchGetMetricDataQuery
- *       Id: "STRING_VALUE", // required
- *       Namespace: "VDM", // required
- *       Metric: "SEND" || "COMPLAINT" || "PERMANENT_BOUNCE" || "TRANSIENT_BOUNCE" || "OPEN" || "CLICK" || "DELIVERY" || "DELIVERY_OPEN" || "DELIVERY_CLICK" || "DELIVERY_COMPLAINT", // required
+ *       Id: 'STRING_VALUE', // required
+ *       Namespace: 'VDM', // required
+ *       Metric: 'SEND' || 'COMPLAINT' || 'PERMANENT_BOUNCE' || 'TRANSIENT_BOUNCE' || 'OPEN' || 'CLICK' || 'DELIVERY' || 'DELIVERY_OPEN' || 'DELIVERY_CLICK' || 'DELIVERY_COMPLAINT', // required
  *       Dimensions: { // Dimensions
- *         "<keys>": "STRING_VALUE",
+ *         '<keys>': 'STRING_VALUE',
  *       },
- *       StartDate: new Date("TIMESTAMP"), // required
- *       EndDate: new Date("TIMESTAMP"), // required
+ *       StartDate: new Date('TIMESTAMP'), // required
+ *       EndDate: new Date('TIMESTAMP'), // required
  *     },
  *   ],
  * };
  * const command = new BatchGetMetricDataCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BatchGetMetricDataResponse
+ *   Results: [ // MetricDataResultList
+ *     { // MetricDataResult
+ *       Id: 'STRING_VALUE',
+ *       Timestamps: [ // TimestampList
+ *         new Date('TIMESTAMP'),
+ *       ],
+ *       Values: [ // MetricValueList
+ *         Number('long'),
+ *       ],
+ *     },
+ *   ],
+ *   Errors: [ // MetricDataErrorList
+ *     { // MetricDataError
+ *       Id: 'STRING_VALUE',
+ *       Code: 'INTERNAL_FAILURE' || 'ACCESS_DENIED',
+ *       Message: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param BatchGetMetricDataCommandInput - {@link BatchGetMetricDataCommandInput}
@@ -77,6 +99,8 @@ export interface BatchGetMetricDataCommandOutput extends BatchGetMetricDataRespo
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Too many requests have been made to the operation.</p>
  *
+ * @throws {@link SESv2ServiceException}
+ * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
  */
 export class BatchGetMetricDataCommand extends $Command<

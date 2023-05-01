@@ -36,16 +36,43 @@ export interface BatchGetChannelCommandOutput extends BatchGetChannelResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IvsClient, BatchGetChannelCommand } from "@aws-sdk/client-ivs"; // ES Modules import
- * // const { IvsClient, BatchGetChannelCommand } = require("@aws-sdk/client-ivs"); // CommonJS import
+ * import { IvsClient, BatchGetChannelCommand } from '@aws-sdk/client-ivs'; // ES Modules import
+ * // const { IvsClient, BatchGetChannelCommand } = require('@aws-sdk/client-ivs'); // CommonJS import
  * const client = new IvsClient(config);
  * const input = { // BatchGetChannelRequest
  *   arns: [ // ChannelArnList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new BatchGetChannelCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BatchGetChannelResponse
+ *   channels: [ // Channels
+ *     { // Channel
+ *       arn: 'STRING_VALUE',
+ *       name: 'STRING_VALUE',
+ *       latencyMode: 'STRING_VALUE',
+ *       type: 'BASIC' || 'STANDARD',
+ *       recordingConfigurationArn: 'STRING_VALUE',
+ *       ingestEndpoint: 'STRING_VALUE',
+ *       playbackUrl: 'STRING_VALUE',
+ *       authorized: true || false,
+ *       tags: { // Tags
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *       insecureIngest: true || false,
+ *     },
+ *   ],
+ *   errors: [ // BatchErrors
+ *     { // BatchError
+ *       arn: 'STRING_VALUE',
+ *       code: 'STRING_VALUE',
+ *       message: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param BatchGetChannelCommandInput - {@link BatchGetChannelCommandInput}
@@ -54,6 +81,8 @@ export interface BatchGetChannelCommandOutput extends BatchGetChannelResponse, _
  * @see {@link BatchGetChannelCommandOutput} for command's `response` shape.
  * @see {@link IvsClientResolvedConfig | config} for IvsClient's `config` shape.
  *
+ * @throws {@link IvsServiceException}
+ * <p>Base exception class for all service exceptions from Ivs service.</p>
  *
  */
 export class BatchGetChannelCommand extends $Command<

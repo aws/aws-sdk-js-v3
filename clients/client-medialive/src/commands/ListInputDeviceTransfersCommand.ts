@@ -36,16 +36,29 @@ export interface ListInputDeviceTransfersCommandOutput extends ListInputDeviceTr
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MediaLiveClient, ListInputDeviceTransfersCommand } from "@aws-sdk/client-medialive"; // ES Modules import
- * // const { MediaLiveClient, ListInputDeviceTransfersCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
+ * import { MediaLiveClient, ListInputDeviceTransfersCommand } from '@aws-sdk/client-medialive'; // ES Modules import
+ * // const { MediaLiveClient, ListInputDeviceTransfersCommand } = require('@aws-sdk/client-medialive'); // CommonJS import
  * const client = new MediaLiveClient(config);
  * const input = { // ListInputDeviceTransfersRequest
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
- *   TransferType: "STRING_VALUE", // required
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
+ *   TransferType: 'STRING_VALUE', // required
  * };
  * const command = new ListInputDeviceTransfersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListInputDeviceTransfersResponse
+ *   InputDeviceTransfers: [ // __listOfTransferringInputDeviceSummary
+ *     { // TransferringInputDeviceSummary
+ *       Id: 'STRING_VALUE',
+ *       Message: 'STRING_VALUE',
+ *       TargetCustomerId: 'STRING_VALUE',
+ *       TransferType: 'OUTGOING' || 'INCOMING',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListInputDeviceTransfersCommandInput - {@link ListInputDeviceTransfersCommandInput}
@@ -75,6 +88,8 @@ export interface ListInputDeviceTransfersCommandOutput extends ListInputDeviceTr
  * @throws {@link UnprocessableEntityException} (client fault)
  *  Placeholder documentation for UnprocessableEntityException
  *
+ * @throws {@link MediaLiveServiceException}
+ * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
  */
 export class ListInputDeviceTransfersCommand extends $Command<

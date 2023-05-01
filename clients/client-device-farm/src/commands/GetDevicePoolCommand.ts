@@ -36,14 +36,32 @@ export interface GetDevicePoolCommandOutput extends GetDevicePoolResult, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DeviceFarmClient, GetDevicePoolCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
- * // const { DeviceFarmClient, GetDevicePoolCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
+ * import { DeviceFarmClient, GetDevicePoolCommand } from '@aws-sdk/client-device-farm'; // ES Modules import
+ * // const { DeviceFarmClient, GetDevicePoolCommand } = require('@aws-sdk/client-device-farm'); // CommonJS import
  * const client = new DeviceFarmClient(config);
  * const input = { // GetDevicePoolRequest
- *   arn: "STRING_VALUE", // required
+ *   arn: 'STRING_VALUE', // required
  * };
  * const command = new GetDevicePoolCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetDevicePoolResult
+ *   devicePool: { // DevicePool
+ *     arn: 'STRING_VALUE',
+ *     name: 'STRING_VALUE',
+ *     description: 'STRING_VALUE',
+ *     type: 'CURATED' || 'PRIVATE',
+ *     rules: [ // Rules
+ *       { // Rule
+ *         attribute: 'ARN' || 'PLATFORM' || 'FORM_FACTOR' || 'MANUFACTURER' || 'REMOTE_ACCESS_ENABLED' || 'REMOTE_DEBUG_ENABLED' || 'APPIUM_VERSION' || 'INSTANCE_ARN' || 'INSTANCE_LABELS' || 'FLEET_TYPE' || 'OS_VERSION' || 'MODEL' || 'AVAILABILITY',
+ *         operator: 'EQUALS' || 'LESS_THAN' || 'LESS_THAN_OR_EQUALS' || 'GREATER_THAN' || 'GREATER_THAN_OR_EQUALS' || 'IN' || 'NOT_IN' || 'CONTAINS',
+ *         value: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     maxDevices: Number('int'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetDevicePoolCommandInput - {@link GetDevicePoolCommandInput}
@@ -64,6 +82,8 @@ export interface GetDevicePoolCommandOutput extends GetDevicePoolResult, __Metad
  * @throws {@link ServiceAccountException} (client fault)
  *  <p>There was a problem with the service account.</p>
  *
+ * @throws {@link DeviceFarmServiceException}
+ * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
  * @example To get information about a device pool
  * ```javascript

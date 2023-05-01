@@ -44,17 +44,66 @@ export interface DescribeAppsCommandOutput extends DescribeAppsResult, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OpsWorksClient, DescribeAppsCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
- * // const { OpsWorksClient, DescribeAppsCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
+ * import { OpsWorksClient, DescribeAppsCommand } from '@aws-sdk/client-opsworks'; // ES Modules import
+ * // const { OpsWorksClient, DescribeAppsCommand } = require('@aws-sdk/client-opsworks'); // CommonJS import
  * const client = new OpsWorksClient(config);
  * const input = { // DescribeAppsRequest
- *   StackId: "STRING_VALUE",
+ *   StackId: 'STRING_VALUE',
  *   AppIds: [ // Strings
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new DescribeAppsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeAppsResult
+ *   Apps: [ // Apps
+ *     { // App
+ *       AppId: 'STRING_VALUE',
+ *       StackId: 'STRING_VALUE',
+ *       Shortname: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *       Description: 'STRING_VALUE',
+ *       DataSources: [ // DataSources
+ *         { // DataSource
+ *           Type: 'STRING_VALUE',
+ *           Arn: 'STRING_VALUE',
+ *           DatabaseName: 'STRING_VALUE',
+ *         },
+ *       ],
+ *       Type: 'STRING_VALUE',
+ *       AppSource: { // Source
+ *         Type: 'STRING_VALUE',
+ *         Url: 'STRING_VALUE',
+ *         Username: 'STRING_VALUE',
+ *         Password: 'STRING_VALUE',
+ *         SshKey: 'STRING_VALUE',
+ *         Revision: 'STRING_VALUE',
+ *       },
+ *       Domains: [ // Strings
+ *         'STRING_VALUE',
+ *       ],
+ *       EnableSsl: true || false,
+ *       SslConfiguration: { // SslConfiguration
+ *         Certificate: 'STRING_VALUE', // required
+ *         PrivateKey: 'STRING_VALUE', // required
+ *         Chain: 'STRING_VALUE',
+ *       },
+ *       Attributes: { // AppAttributes
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *       CreatedAt: 'STRING_VALUE',
+ *       Environment: [ // EnvironmentVariables
+ *         { // EnvironmentVariable
+ *           Key: 'STRING_VALUE', // required
+ *           Value: 'STRING_VALUE', // required
+ *           Secure: true || false,
+ *         },
+ *       ],
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeAppsCommandInput - {@link DescribeAppsCommandInput}
@@ -69,6 +118,8 @@ export interface DescribeAppsCommandOutput extends DescribeAppsResult, __Metadat
  * @throws {@link ValidationException} (client fault)
  *  <p>Indicates that a request was not valid.</p>
  *
+ * @throws {@link OpsWorksServiceException}
+ * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
  */
 export class DescribeAppsCommand extends $Command<

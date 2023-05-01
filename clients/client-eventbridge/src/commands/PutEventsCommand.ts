@@ -39,27 +39,39 @@ export interface PutEventsCommandOutput extends PutEventsResponse, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EventBridgeClient, PutEventsCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
- * // const { EventBridgeClient, PutEventsCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
+ * import { EventBridgeClient, PutEventsCommand } from '@aws-sdk/client-eventbridge'; // ES Modules import
+ * // const { EventBridgeClient, PutEventsCommand } = require('@aws-sdk/client-eventbridge'); // CommonJS import
  * const client = new EventBridgeClient(config);
  * const input = { // PutEventsRequest
  *   Entries: [ // PutEventsRequestEntryList // required
  *     { // PutEventsRequestEntry
- *       Time: new Date("TIMESTAMP"),
- *       Source: "STRING_VALUE",
+ *       Time: new Date('TIMESTAMP'),
+ *       Source: 'STRING_VALUE',
  *       Resources: [ // EventResourceList
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
- *       DetailType: "STRING_VALUE",
- *       Detail: "STRING_VALUE",
- *       EventBusName: "STRING_VALUE",
- *       TraceHeader: "STRING_VALUE",
+ *       DetailType: 'STRING_VALUE',
+ *       Detail: 'STRING_VALUE',
+ *       EventBusName: 'STRING_VALUE',
+ *       TraceHeader: 'STRING_VALUE',
  *     },
  *   ],
- *   EndpointId: "STRING_VALUE",
+ *   EndpointId: 'STRING_VALUE',
  * };
  * const command = new PutEventsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutEventsResponse
+ *   FailedEntryCount: Number('int'),
+ *   Entries: [ // PutEventsResultEntryList
+ *     { // PutEventsResultEntry
+ *       EventId: 'STRING_VALUE',
+ *       ErrorCode: 'STRING_VALUE',
+ *       ErrorMessage: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param PutEventsCommandInput - {@link PutEventsCommandInput}
@@ -71,6 +83,8 @@ export interface PutEventsCommandOutput extends PutEventsResponse, __MetadataBea
  * @throws {@link InternalException} (server fault)
  *  <p>This exception occurs due to unexpected causes.</p>
  *
+ * @throws {@link EventBridgeServiceException}
+ * <p>Base exception class for all service exceptions from EventBridge service.</p>
  *
  */
 export class PutEventsCommand extends $Command<

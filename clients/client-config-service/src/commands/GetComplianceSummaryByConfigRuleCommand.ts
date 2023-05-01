@@ -42,12 +42,27 @@ export interface GetComplianceSummaryByConfigRuleCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConfigServiceClient, GetComplianceSummaryByConfigRuleCommand } from "@aws-sdk/client-config-service"; // ES Modules import
- * // const { ConfigServiceClient, GetComplianceSummaryByConfigRuleCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
+ * import { ConfigServiceClient, GetComplianceSummaryByConfigRuleCommand } from '@aws-sdk/client-config-service'; // ES Modules import
+ * // const { ConfigServiceClient, GetComplianceSummaryByConfigRuleCommand } = require('@aws-sdk/client-config-service'); // CommonJS import
  * const client = new ConfigServiceClient(config);
  * const input = {};
  * const command = new GetComplianceSummaryByConfigRuleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetComplianceSummaryByConfigRuleResponse
+ *   ComplianceSummary: { // ComplianceSummary
+ *     CompliantResourceCount: { // ComplianceContributorCount
+ *       CappedCount: Number('int'),
+ *       CapExceeded: true || false,
+ *     },
+ *     NonCompliantResourceCount: {
+ *       CappedCount: Number('int'),
+ *       CapExceeded: true || false,
+ *     },
+ *     ComplianceSummaryTimestamp: new Date('TIMESTAMP'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetComplianceSummaryByConfigRuleCommandInput - {@link GetComplianceSummaryByConfigRuleCommandInput}
@@ -56,6 +71,8 @@ export interface GetComplianceSummaryByConfigRuleCommandOutput
  * @see {@link GetComplianceSummaryByConfigRuleCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
  *
+ * @throws {@link ConfigServiceServiceException}
+ * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
  */
 export class GetComplianceSummaryByConfigRuleCommand extends $Command<

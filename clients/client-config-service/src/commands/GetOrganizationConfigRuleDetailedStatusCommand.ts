@@ -45,20 +45,35 @@ export interface GetOrganizationConfigRuleDetailedStatusCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConfigServiceClient, GetOrganizationConfigRuleDetailedStatusCommand } from "@aws-sdk/client-config-service"; // ES Modules import
- * // const { ConfigServiceClient, GetOrganizationConfigRuleDetailedStatusCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
+ * import { ConfigServiceClient, GetOrganizationConfigRuleDetailedStatusCommand } from '@aws-sdk/client-config-service'; // ES Modules import
+ * // const { ConfigServiceClient, GetOrganizationConfigRuleDetailedStatusCommand } = require('@aws-sdk/client-config-service'); // CommonJS import
  * const client = new ConfigServiceClient(config);
  * const input = { // GetOrganizationConfigRuleDetailedStatusRequest
- *   OrganizationConfigRuleName: "STRING_VALUE", // required
+ *   OrganizationConfigRuleName: 'STRING_VALUE', // required
  *   Filters: { // StatusDetailFilters
- *     AccountId: "STRING_VALUE",
- *     MemberAccountRuleStatus: "CREATE_SUCCESSFUL" || "CREATE_IN_PROGRESS" || "CREATE_FAILED" || "DELETE_SUCCESSFUL" || "DELETE_FAILED" || "DELETE_IN_PROGRESS" || "UPDATE_SUCCESSFUL" || "UPDATE_IN_PROGRESS" || "UPDATE_FAILED",
+ *     AccountId: 'STRING_VALUE',
+ *     MemberAccountRuleStatus: 'CREATE_SUCCESSFUL' || 'CREATE_IN_PROGRESS' || 'CREATE_FAILED' || 'DELETE_SUCCESSFUL' || 'DELETE_FAILED' || 'DELETE_IN_PROGRESS' || 'UPDATE_SUCCESSFUL' || 'UPDATE_IN_PROGRESS' || 'UPDATE_FAILED',
  *   },
- *   Limit: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   Limit: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new GetOrganizationConfigRuleDetailedStatusCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetOrganizationConfigRuleDetailedStatusResponse
+ *   OrganizationConfigRuleDetailedStatus: [ // OrganizationConfigRuleDetailedStatus
+ *     { // MemberAccountStatus
+ *       AccountId: 'STRING_VALUE', // required
+ *       ConfigRuleName: 'STRING_VALUE', // required
+ *       MemberAccountRuleStatus: 'CREATE_SUCCESSFUL' || 'CREATE_IN_PROGRESS' || 'CREATE_FAILED' || 'DELETE_SUCCESSFUL' || 'DELETE_FAILED' || 'DELETE_IN_PROGRESS' || 'UPDATE_SUCCESSFUL' || 'UPDATE_IN_PROGRESS' || 'UPDATE_FAILED', // required
+ *       ErrorCode: 'STRING_VALUE',
+ *       ErrorMessage: 'STRING_VALUE',
+ *       LastUpdateTime: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetOrganizationConfigRuleDetailedStatusCommandInput - {@link GetOrganizationConfigRuleDetailedStatusCommandInput}
@@ -99,6 +114,8 @@ export interface GetOrganizationConfigRuleDetailedStatusCommandOutput
  *          </ul>
  *          <p>For all <code>OrganizationConfigRule</code> and <code>OrganizationConformancePack</code> APIs, Config throws an exception if APIs are called from member accounts. All APIs must be called from organization management account.</p>
  *
+ * @throws {@link ConfigServiceServiceException}
+ * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
  */
 export class GetOrganizationConfigRuleDetailedStatusCommand extends $Command<

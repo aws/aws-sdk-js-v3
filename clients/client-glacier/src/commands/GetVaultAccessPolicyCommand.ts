@@ -41,15 +41,22 @@ export interface GetVaultAccessPolicyCommandOutput extends GetVaultAccessPolicyO
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlacierClient, GetVaultAccessPolicyCommand } from "@aws-sdk/client-glacier"; // ES Modules import
- * // const { GlacierClient, GetVaultAccessPolicyCommand } = require("@aws-sdk/client-glacier"); // CommonJS import
+ * import { GlacierClient, GetVaultAccessPolicyCommand } from '@aws-sdk/client-glacier'; // ES Modules import
+ * // const { GlacierClient, GetVaultAccessPolicyCommand } = require('@aws-sdk/client-glacier'); // CommonJS import
  * const client = new GlacierClient(config);
  * const input = { // GetVaultAccessPolicyInput
- *   accountId: "STRING_VALUE", // required
- *   vaultName: "STRING_VALUE", // required
+ *   accountId: 'STRING_VALUE', // required
+ *   vaultName: 'STRING_VALUE', // required
  * };
  * const command = new GetVaultAccessPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetVaultAccessPolicyOutput
+ *   policy: { // VaultAccessPolicy
+ *     Policy: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetVaultAccessPolicyCommandInput - {@link GetVaultAccessPolicyCommandInput}
@@ -71,6 +78,8 @@ export interface GetVaultAccessPolicyCommandOutput extends GetVaultAccessPolicyO
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>Returned if the service cannot complete the request.</p>
  *
+ * @throws {@link GlacierServiceException}
+ * <p>Base exception class for all service exceptions from Glacier service.</p>
  *
  * @example To  get the access-policy set on the vault
  * ```javascript

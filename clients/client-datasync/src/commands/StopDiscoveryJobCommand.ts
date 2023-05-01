@@ -39,14 +39,17 @@ export interface StopDiscoveryJobCommandOutput extends StopDiscoveryJobResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DataSyncClient, StopDiscoveryJobCommand } from "@aws-sdk/client-datasync"; // ES Modules import
- * // const { DataSyncClient, StopDiscoveryJobCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
+ * import { DataSyncClient, StopDiscoveryJobCommand } from '@aws-sdk/client-datasync'; // ES Modules import
+ * // const { DataSyncClient, StopDiscoveryJobCommand } = require('@aws-sdk/client-datasync'); // CommonJS import
  * const client = new DataSyncClient(config);
  * const input = { // StopDiscoveryJobRequest
- *   DiscoveryJobArn: "STRING_VALUE", // required
+ *   DiscoveryJobArn: 'STRING_VALUE', // required
  * };
  * const command = new StopDiscoveryJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param StopDiscoveryJobCommandInput - {@link StopDiscoveryJobCommandInput}
@@ -62,6 +65,8 @@ export interface StopDiscoveryJobCommandOutput extends StopDiscoveryJobResponse,
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception is thrown when the client submits a malformed request.</p>
  *
+ * @throws {@link DataSyncServiceException}
+ * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
  */
 export class StopDiscoveryJobCommand extends $Command<

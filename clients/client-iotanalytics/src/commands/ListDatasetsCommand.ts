@@ -36,15 +36,44 @@ export interface ListDatasetsCommandOutput extends ListDatasetsResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTAnalyticsClient, ListDatasetsCommand } from "@aws-sdk/client-iotanalytics"; // ES Modules import
- * // const { IoTAnalyticsClient, ListDatasetsCommand } = require("@aws-sdk/client-iotanalytics"); // CommonJS import
+ * import { IoTAnalyticsClient, ListDatasetsCommand } from '@aws-sdk/client-iotanalytics'; // ES Modules import
+ * // const { IoTAnalyticsClient, ListDatasetsCommand } = require('@aws-sdk/client-iotanalytics'); // CommonJS import
  * const client = new IoTAnalyticsClient(config);
  * const input = { // ListDatasetsRequest
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new ListDatasetsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListDatasetsResponse
+ *   datasetSummaries: [ // DatasetSummaries
+ *     { // DatasetSummary
+ *       datasetName: 'STRING_VALUE',
+ *       status: 'STRING_VALUE',
+ *       creationTime: new Date('TIMESTAMP'),
+ *       lastUpdateTime: new Date('TIMESTAMP'),
+ *       triggers: [ // DatasetTriggers
+ *         { // DatasetTrigger
+ *           schedule: { // Schedule
+ *             expression: 'STRING_VALUE',
+ *           },
+ *           dataset: { // TriggeringDataset
+ *             name: 'STRING_VALUE', // required
+ *           },
+ *         },
+ *       ],
+ *       actions: [ // DatasetActionSummaries
+ *         { // DatasetActionSummary
+ *           actionName: 'STRING_VALUE',
+ *           actionType: 'STRING_VALUE',
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListDatasetsCommandInput - {@link ListDatasetsCommandInput}
@@ -65,6 +94,8 @@ export interface ListDatasetsCommandOutput extends ListDatasetsResponse, __Metad
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
  *
+ * @throws {@link IoTAnalyticsServiceException}
+ * <p>Base exception class for all service exceptions from IoTAnalytics service.</p>
  *
  */
 export class ListDatasetsCommand extends $Command<

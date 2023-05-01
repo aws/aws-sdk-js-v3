@@ -40,16 +40,37 @@ export interface DescribeEnvironmentsCommandOutput extends DescribeEnvironmentsR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Cloud9Client, DescribeEnvironmentsCommand } from "@aws-sdk/client-cloud9"; // ES Modules import
- * // const { Cloud9Client, DescribeEnvironmentsCommand } = require("@aws-sdk/client-cloud9"); // CommonJS import
+ * import { Cloud9Client, DescribeEnvironmentsCommand } from '@aws-sdk/client-cloud9'; // ES Modules import
+ * // const { Cloud9Client, DescribeEnvironmentsCommand } = require('@aws-sdk/client-cloud9'); // CommonJS import
  * const client = new Cloud9Client(config);
  * const input = { // DescribeEnvironmentsRequest
  *   environmentIds: [ // BoundedEnvironmentIdList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new DescribeEnvironmentsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeEnvironmentsResult
+ *   environments: [ // EnvironmentList
+ *     { // Environment
+ *       id: 'STRING_VALUE',
+ *       name: 'STRING_VALUE',
+ *       description: 'STRING_VALUE',
+ *       type: 'ssh' || 'ec2', // required
+ *       connectionType: 'CONNECT_SSH' || 'CONNECT_SSM',
+ *       arn: 'STRING_VALUE', // required
+ *       ownerArn: 'STRING_VALUE', // required
+ *       lifecycle: { // EnvironmentLifecycle
+ *         status: 'CREATING' || 'CREATED' || 'CREATE_FAILED' || 'DELETING' || 'DELETE_FAILED',
+ *         reason: 'STRING_VALUE',
+ *         failureResource: 'STRING_VALUE',
+ *       },
+ *       managedCredentialsStatus: 'ENABLED_ON_CREATE' || 'ENABLED_BY_OWNER' || 'DISABLED_BY_DEFAULT' || 'DISABLED_BY_OWNER' || 'DISABLED_BY_COLLABORATOR' || 'PENDING_REMOVAL_BY_COLLABORATOR' || 'PENDING_START_REMOVAL_BY_COLLABORATOR' || 'PENDING_REMOVAL_BY_OWNER' || 'PENDING_START_REMOVAL_BY_OWNER' || 'FAILED_REMOVAL_BY_COLLABORATOR' || 'FAILED_REMOVAL_BY_OWNER',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeEnvironmentsCommandInput - {@link DescribeEnvironmentsCommandInput}
@@ -79,6 +100,8 @@ export interface DescribeEnvironmentsCommandOutput extends DescribeEnvironmentsR
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Too many service requests were made over the given time period.</p>
  *
+ * @throws {@link Cloud9ServiceException}
+ * <p>Base exception class for all service exceptions from Cloud9 service.</p>
  *
  * @example DescribeEnvironments
  * ```javascript

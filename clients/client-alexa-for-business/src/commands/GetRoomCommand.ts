@@ -36,14 +36,25 @@ export interface GetRoomCommandOutput extends GetRoomResponse, __MetadataBearer 
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AlexaForBusinessClient, GetRoomCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
- * // const { AlexaForBusinessClient, GetRoomCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
+ * import { AlexaForBusinessClient, GetRoomCommand } from '@aws-sdk/client-alexa-for-business'; // ES Modules import
+ * // const { AlexaForBusinessClient, GetRoomCommand } = require('@aws-sdk/client-alexa-for-business'); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
  * const input = { // GetRoomRequest
- *   RoomArn: "STRING_VALUE",
+ *   RoomArn: 'STRING_VALUE',
  * };
  * const command = new GetRoomCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetRoomResponse
+ *   Room: { // Room
+ *     RoomArn: 'STRING_VALUE',
+ *     RoomName: 'STRING_VALUE',
+ *     Description: 'STRING_VALUE',
+ *     ProviderCalendarId: 'STRING_VALUE',
+ *     ProfileArn: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetRoomCommandInput - {@link GetRoomCommandInput}
@@ -55,6 +66,8 @@ export interface GetRoomCommandOutput extends GetRoomResponse, __MetadataBearer 
  * @throws {@link NotFoundException} (client fault)
  *  <p>The resource is not found.</p>
  *
+ * @throws {@link AlexaForBusinessServiceException}
+ * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  */
 export class GetRoomCommand extends $Command<

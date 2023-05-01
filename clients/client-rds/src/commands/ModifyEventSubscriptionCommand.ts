@@ -40,20 +40,40 @@ export interface ModifyEventSubscriptionCommandOutput extends ModifyEventSubscri
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RDSClient, ModifyEventSubscriptionCommand } from "@aws-sdk/client-rds"; // ES Modules import
- * // const { RDSClient, ModifyEventSubscriptionCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * import { RDSClient, ModifyEventSubscriptionCommand } from '@aws-sdk/client-rds'; // ES Modules import
+ * // const { RDSClient, ModifyEventSubscriptionCommand } = require('@aws-sdk/client-rds'); // CommonJS import
  * const client = new RDSClient(config);
  * const input = { // ModifyEventSubscriptionMessage
- *   SubscriptionName: "STRING_VALUE", // required
- *   SnsTopicArn: "STRING_VALUE",
- *   SourceType: "STRING_VALUE",
+ *   SubscriptionName: 'STRING_VALUE', // required
+ *   SnsTopicArn: 'STRING_VALUE',
+ *   SourceType: 'STRING_VALUE',
  *   EventCategories: [ // EventCategoriesList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   Enabled: true || false,
  * };
  * const command = new ModifyEventSubscriptionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ModifyEventSubscriptionResult
+ *   EventSubscription: { // EventSubscription
+ *     CustomerAwsId: 'STRING_VALUE',
+ *     CustSubscriptionId: 'STRING_VALUE',
+ *     SnsTopicArn: 'STRING_VALUE',
+ *     Status: 'STRING_VALUE',
+ *     SubscriptionCreationTime: 'STRING_VALUE',
+ *     SourceType: 'STRING_VALUE',
+ *     SourceIdsList: [ // SourceIdsList
+ *       'STRING_VALUE',
+ *     ],
+ *     EventCategoriesList: [ // EventCategoriesList
+ *       'STRING_VALUE',
+ *     ],
+ *     Enabled: true || false,
+ *     EventSubscriptionArn: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param ModifyEventSubscriptionCommandInput - {@link ModifyEventSubscriptionCommandInput}
@@ -80,6 +100,8 @@ export interface ModifyEventSubscriptionCommandOutput extends ModifyEventSubscri
  * @throws {@link SubscriptionNotFoundFault} (client fault)
  *  <p>The subscription name does not exist.</p>
  *
+ * @throws {@link RDSServiceException}
+ * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  * @example To modify an event subscription
  * ```javascript

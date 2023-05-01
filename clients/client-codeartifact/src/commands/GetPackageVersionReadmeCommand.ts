@@ -41,20 +41,30 @@ export interface GetPackageVersionReadmeCommandOutput extends GetPackageVersionR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeartifactClient, GetPackageVersionReadmeCommand } from "@aws-sdk/client-codeartifact"; // ES Modules import
- * // const { CodeartifactClient, GetPackageVersionReadmeCommand } = require("@aws-sdk/client-codeartifact"); // CommonJS import
+ * import { CodeartifactClient, GetPackageVersionReadmeCommand } from '@aws-sdk/client-codeartifact'; // ES Modules import
+ * // const { CodeartifactClient, GetPackageVersionReadmeCommand } = require('@aws-sdk/client-codeartifact'); // CommonJS import
  * const client = new CodeartifactClient(config);
  * const input = { // GetPackageVersionReadmeRequest
- *   domain: "STRING_VALUE", // required
- *   domainOwner: "STRING_VALUE",
- *   repository: "STRING_VALUE", // required
- *   format: "npm" || "pypi" || "maven" || "nuget" || "generic", // required
- *   namespace: "STRING_VALUE",
- *   package: "STRING_VALUE", // required
- *   packageVersion: "STRING_VALUE", // required
+ *   domain: 'STRING_VALUE', // required
+ *   domainOwner: 'STRING_VALUE',
+ *   repository: 'STRING_VALUE', // required
+ *   format: 'npm' || 'pypi' || 'maven' || 'nuget' || 'generic', // required
+ *   namespace: 'STRING_VALUE',
+ *   package: 'STRING_VALUE', // required
+ *   packageVersion: 'STRING_VALUE', // required
  * };
  * const command = new GetPackageVersionReadmeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetPackageVersionReadmeResult
+ *   format: 'npm' || 'pypi' || 'maven' || 'nuget' || 'generic',
+ *   namespace: 'STRING_VALUE',
+ *   package: 'STRING_VALUE',
+ *   version: 'STRING_VALUE',
+ *   versionRevision: 'STRING_VALUE',
+ *   readme: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetPackageVersionReadmeCommandInput - {@link GetPackageVersionReadmeCommandInput}
@@ -86,6 +96,8 @@ export interface GetPackageVersionReadmeCommandOutput extends GetPackageVersionR
  *       The operation did not succeed because a parameter in the request was sent with an invalid value.
  *     </p>
  *
+ * @throws {@link CodeartifactServiceException}
+ * <p>Base exception class for all service exceptions from Codeartifact service.</p>
  *
  */
 export class GetPackageVersionReadmeCommand extends $Command<

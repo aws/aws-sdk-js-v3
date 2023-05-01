@@ -37,15 +37,30 @@ export interface ListFirewallRuleGroupsCommandOutput extends ListFirewallRuleGro
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Route53ResolverClient, ListFirewallRuleGroupsCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
- * // const { Route53ResolverClient, ListFirewallRuleGroupsCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
+ * import { Route53ResolverClient, ListFirewallRuleGroupsCommand } from '@aws-sdk/client-route53resolver'; // ES Modules import
+ * // const { Route53ResolverClient, ListFirewallRuleGroupsCommand } = require('@aws-sdk/client-route53resolver'); // CommonJS import
  * const client = new Route53ResolverClient(config);
  * const input = { // ListFirewallRuleGroupsRequest
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListFirewallRuleGroupsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListFirewallRuleGroupsResponse
+ *   NextToken: 'STRING_VALUE',
+ *   FirewallRuleGroups: [ // FirewallRuleGroupMetadataList
+ *     { // FirewallRuleGroupMetadata
+ *       Id: 'STRING_VALUE',
+ *       Arn: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *       OwnerId: 'STRING_VALUE',
+ *       CreatorRequestId: 'STRING_VALUE',
+ *       ShareStatus: 'NOT_SHARED' || 'SHARED_WITH_ME' || 'SHARED_BY_ME',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListFirewallRuleGroupsCommandInput - {@link ListFirewallRuleGroupsCommandInput}
@@ -67,6 +82,8 @@ export interface ListFirewallRuleGroupsCommandOutput extends ListFirewallRuleGro
  *  <p>You have provided an invalid command. Supported values are <code>ADD</code>,
  * 			<code>REMOVE</code>, or <code>REPLACE</code> a domain.</p>
  *
+ * @throws {@link Route53ResolverServiceException}
+ * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
  */
 export class ListFirewallRuleGroupsCommand extends $Command<

@@ -36,15 +36,18 @@ export interface DeleteTimelineEventCommandOutput extends DeleteTimelineEventOut
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMIncidentsClient, DeleteTimelineEventCommand } from "@aws-sdk/client-ssm-incidents"; // ES Modules import
- * // const { SSMIncidentsClient, DeleteTimelineEventCommand } = require("@aws-sdk/client-ssm-incidents"); // CommonJS import
+ * import { SSMIncidentsClient, DeleteTimelineEventCommand } from '@aws-sdk/client-ssm-incidents'; // ES Modules import
+ * // const { SSMIncidentsClient, DeleteTimelineEventCommand } = require('@aws-sdk/client-ssm-incidents'); // CommonJS import
  * const client = new SSMIncidentsClient(config);
  * const input = { // DeleteTimelineEventInput
- *   incidentRecordArn: "STRING_VALUE", // required
- *   eventId: "STRING_VALUE", // required
+ *   incidentRecordArn: 'STRING_VALUE', // required
+ *   eventId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteTimelineEventCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteTimelineEventCommandInput - {@link DeleteTimelineEventCommandInput}
@@ -67,6 +70,8 @@ export interface DeleteTimelineEventCommandOutput extends DeleteTimelineEventOut
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
  *       service.</p>
  *
+ * @throws {@link SSMIncidentsServiceException}
+ * <p>Base exception class for all service exceptions from SSMIncidents service.</p>
  *
  */
 export class DeleteTimelineEventCommand extends $Command<

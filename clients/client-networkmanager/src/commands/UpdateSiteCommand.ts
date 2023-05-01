@@ -42,21 +42,44 @@ export interface UpdateSiteCommandOutput extends UpdateSiteResponse, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { NetworkManagerClient, UpdateSiteCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
- * // const { NetworkManagerClient, UpdateSiteCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
+ * import { NetworkManagerClient, UpdateSiteCommand } from '@aws-sdk/client-networkmanager'; // ES Modules import
+ * // const { NetworkManagerClient, UpdateSiteCommand } = require('@aws-sdk/client-networkmanager'); // CommonJS import
  * const client = new NetworkManagerClient(config);
  * const input = { // UpdateSiteRequest
- *   GlobalNetworkId: "STRING_VALUE", // required
- *   SiteId: "STRING_VALUE", // required
- *   Description: "STRING_VALUE",
+ *   GlobalNetworkId: 'STRING_VALUE', // required
+ *   SiteId: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE',
  *   Location: { // Location
- *     Address: "STRING_VALUE",
- *     Latitude: "STRING_VALUE",
- *     Longitude: "STRING_VALUE",
+ *     Address: 'STRING_VALUE',
+ *     Latitude: 'STRING_VALUE',
+ *     Longitude: 'STRING_VALUE',
  *   },
  * };
  * const command = new UpdateSiteCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateSiteResponse
+ *   Site: { // Site
+ *     SiteId: 'STRING_VALUE',
+ *     SiteArn: 'STRING_VALUE',
+ *     GlobalNetworkId: 'STRING_VALUE',
+ *     Description: 'STRING_VALUE',
+ *     Location: { // Location
+ *       Address: 'STRING_VALUE',
+ *       Latitude: 'STRING_VALUE',
+ *       Longitude: 'STRING_VALUE',
+ *     },
+ *     CreatedAt: new Date('TIMESTAMP'),
+ *     State: 'PENDING' || 'AVAILABLE' || 'DELETING' || 'UPDATING',
+ *     Tags: [ // TagList
+ *       { // Tag
+ *         Key: 'STRING_VALUE',
+ *         Value: 'STRING_VALUE',
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateSiteCommandInput - {@link UpdateSiteCommandInput}
@@ -84,6 +107,8 @@ export interface UpdateSiteCommandOutput extends UpdateSiteResponse, __MetadataB
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints.</p>
  *
+ * @throws {@link NetworkManagerServiceException}
+ * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
  */
 export class UpdateSiteCommand extends $Command<

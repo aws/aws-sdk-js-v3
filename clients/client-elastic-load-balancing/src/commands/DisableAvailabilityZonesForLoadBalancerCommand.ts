@@ -53,17 +53,24 @@ export interface DisableAvailabilityZonesForLoadBalancerCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElasticLoadBalancingClient, DisableAvailabilityZonesForLoadBalancerCommand } from "@aws-sdk/client-elastic-load-balancing"; // ES Modules import
- * // const { ElasticLoadBalancingClient, DisableAvailabilityZonesForLoadBalancerCommand } = require("@aws-sdk/client-elastic-load-balancing"); // CommonJS import
+ * import { ElasticLoadBalancingClient, DisableAvailabilityZonesForLoadBalancerCommand } from '@aws-sdk/client-elastic-load-balancing'; // ES Modules import
+ * // const { ElasticLoadBalancingClient, DisableAvailabilityZonesForLoadBalancerCommand } = require('@aws-sdk/client-elastic-load-balancing'); // CommonJS import
  * const client = new ElasticLoadBalancingClient(config);
  * const input = { // RemoveAvailabilityZonesInput
- *   LoadBalancerName: "STRING_VALUE", // required
+ *   LoadBalancerName: 'STRING_VALUE', // required
  *   AvailabilityZones: [ // AvailabilityZones // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new DisableAvailabilityZonesForLoadBalancerCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // RemoveAvailabilityZonesOutput
+ *   AvailabilityZones: [ // AvailabilityZones
+ *     'STRING_VALUE',
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DisableAvailabilityZonesForLoadBalancerCommandInput - {@link DisableAvailabilityZonesForLoadBalancerCommandInput}
@@ -78,6 +85,8 @@ export interface DisableAvailabilityZonesForLoadBalancerCommandOutput
  * @throws {@link InvalidConfigurationRequestException} (client fault)
  *  <p>The requested configuration change is not valid.</p>
  *
+ * @throws {@link ElasticLoadBalancingServiceException}
+ * <p>Base exception class for all service exceptions from ElasticLoadBalancing service.</p>
  *
  * @example To disable an Availability Zone for a load balancer
  * ```javascript

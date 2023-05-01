@@ -41,14 +41,28 @@ export interface DescribeFeatureTransformationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PersonalizeClient, DescribeFeatureTransformationCommand } from "@aws-sdk/client-personalize"; // ES Modules import
- * // const { PersonalizeClient, DescribeFeatureTransformationCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
+ * import { PersonalizeClient, DescribeFeatureTransformationCommand } from '@aws-sdk/client-personalize'; // ES Modules import
+ * // const { PersonalizeClient, DescribeFeatureTransformationCommand } = require('@aws-sdk/client-personalize'); // CommonJS import
  * const client = new PersonalizeClient(config);
  * const input = { // DescribeFeatureTransformationRequest
- *   featureTransformationArn: "STRING_VALUE", // required
+ *   featureTransformationArn: 'STRING_VALUE', // required
  * };
  * const command = new DescribeFeatureTransformationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeFeatureTransformationResponse
+ *   featureTransformation: { // FeatureTransformation
+ *     name: 'STRING_VALUE',
+ *     featureTransformationArn: 'STRING_VALUE',
+ *     defaultParameters: { // FeaturizationParameters
+ *       '<keys>': 'STRING_VALUE',
+ *     },
+ *     creationDateTime: new Date('TIMESTAMP'),
+ *     lastUpdatedDateTime: new Date('TIMESTAMP'),
+ *     status: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeFeatureTransformationCommandInput - {@link DescribeFeatureTransformationCommandInput}
@@ -63,6 +77,8 @@ export interface DescribeFeatureTransformationCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Could not find the specified resource.</p>
  *
+ * @throws {@link PersonalizeServiceException}
+ * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
  */
 export class DescribeFeatureTransformationCommand extends $Command<

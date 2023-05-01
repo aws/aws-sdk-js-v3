@@ -36,14 +36,17 @@ export interface DeleteVcenterClientCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MgnClient, DeleteVcenterClientCommand } from "@aws-sdk/client-mgn"; // ES Modules import
- * // const { MgnClient, DeleteVcenterClientCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
+ * import { MgnClient, DeleteVcenterClientCommand } from '@aws-sdk/client-mgn'; // ES Modules import
+ * // const { MgnClient, DeleteVcenterClientCommand } = require('@aws-sdk/client-mgn'); // CommonJS import
  * const client = new MgnClient(config);
  * const input = { // DeleteVcenterClientRequest
- *   vcenterClientID: "STRING_VALUE", // required
+ *   vcenterClientID: 'STRING_VALUE', // required
  * };
  * const command = new DeleteVcenterClientCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteVcenterClientCommandInput - {@link DeleteVcenterClientCommandInput}
@@ -61,6 +64,8 @@ export interface DeleteVcenterClientCommandOutput extends __MetadataBearer {}
  * @throws {@link ValidationException} (client fault)
  *  <p>Validate exception.</p>
  *
+ * @throws {@link MgnServiceException}
+ * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
  */
 export class DeleteVcenterClientCommand extends $Command<

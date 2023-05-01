@@ -40,17 +40,24 @@ export interface TagResourceCommandOutput extends TagResourceResult, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodestarNotificationsClient, TagResourceCommand } from "@aws-sdk/client-codestar-notifications"; // ES Modules import
- * // const { CodestarNotificationsClient, TagResourceCommand } = require("@aws-sdk/client-codestar-notifications"); // CommonJS import
+ * import { CodestarNotificationsClient, TagResourceCommand } from '@aws-sdk/client-codestar-notifications'; // ES Modules import
+ * // const { CodestarNotificationsClient, TagResourceCommand } = require('@aws-sdk/client-codestar-notifications'); // CommonJS import
  * const client = new CodestarNotificationsClient(config);
  * const input = { // TagResourceRequest
- *   Arn: "STRING_VALUE", // required
+ *   Arn: 'STRING_VALUE', // required
  *   Tags: { // Tags // required
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // TagResourceResult
+ *   Tags: { // Tags
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param TagResourceCommandInput - {@link TagResourceCommandInput}
@@ -74,6 +81,8 @@ export interface TagResourceCommandOutput extends TagResourceResult, __MetadataB
  * @throws {@link ValidationException} (client fault)
  *  <p>One or more parameter values are not valid.</p>
  *
+ * @throws {@link CodestarNotificationsServiceException}
+ * <p>Base exception class for all service exceptions from CodestarNotifications service.</p>
  *
  */
 export class TagResourceCommand extends $Command<

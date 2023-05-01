@@ -41,18 +41,39 @@ export interface CreateWaveCommandOutput extends Wave, __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MgnClient, CreateWaveCommand } from "@aws-sdk/client-mgn"; // ES Modules import
- * // const { MgnClient, CreateWaveCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
+ * import { MgnClient, CreateWaveCommand } from '@aws-sdk/client-mgn'; // ES Modules import
+ * // const { MgnClient, CreateWaveCommand } = require('@aws-sdk/client-mgn'); // CommonJS import
  * const client = new MgnClient(config);
  * const input = { // CreateWaveRequest
- *   name: "STRING_VALUE", // required
- *   description: "STRING_VALUE",
+ *   name: 'STRING_VALUE', // required
+ *   description: 'STRING_VALUE',
  *   tags: { // TagsMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateWaveCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // Wave
+ *   waveID: 'STRING_VALUE',
+ *   arn: 'STRING_VALUE',
+ *   name: 'STRING_VALUE',
+ *   description: 'STRING_VALUE',
+ *   isArchived: true || false,
+ *   waveAggregatedStatus: { // WaveAggregatedStatus
+ *     lastUpdateDateTime: 'STRING_VALUE',
+ *     replicationStartedDateTime: 'STRING_VALUE',
+ *     healthStatus: 'STRING_VALUE',
+ *     progressStatus: 'STRING_VALUE',
+ *     totalApplications: Number('long'),
+ *   },
+ *   creationDateTime: 'STRING_VALUE',
+ *   lastModifiedDateTime: 'STRING_VALUE',
+ *   tags: { // TagsMap
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateWaveCommandInput - {@link CreateWaveCommandInput}
@@ -70,6 +91,8 @@ export interface CreateWaveCommandOutput extends Wave, __MetadataBearer {}
  * @throws {@link UninitializedAccountException} (client fault)
  *  <p>Uninitialized account exception.</p>
  *
+ * @throws {@link MgnServiceException}
+ * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
  */
 export class CreateWaveCommand extends $Command<

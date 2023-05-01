@@ -46,14 +46,24 @@ export interface GetSipMediaApplicationAlexaSkillConfigurationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeSDKVoiceClient, GetSipMediaApplicationAlexaSkillConfigurationCommand } from "@aws-sdk/client-chime-sdk-voice"; // ES Modules import
- * // const { ChimeSDKVoiceClient, GetSipMediaApplicationAlexaSkillConfigurationCommand } = require("@aws-sdk/client-chime-sdk-voice"); // CommonJS import
+ * import { ChimeSDKVoiceClient, GetSipMediaApplicationAlexaSkillConfigurationCommand } from '@aws-sdk/client-chime-sdk-voice'; // ES Modules import
+ * // const { ChimeSDKVoiceClient, GetSipMediaApplicationAlexaSkillConfigurationCommand } = require('@aws-sdk/client-chime-sdk-voice'); // CommonJS import
  * const client = new ChimeSDKVoiceClient(config);
  * const input = { // GetSipMediaApplicationAlexaSkillConfigurationRequest
- *   SipMediaApplicationId: "STRING_VALUE", // required
+ *   SipMediaApplicationId: 'STRING_VALUE', // required
  * };
  * const command = new GetSipMediaApplicationAlexaSkillConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetSipMediaApplicationAlexaSkillConfigurationResponse
+ *   SipMediaApplicationAlexaSkillConfiguration: { // SipMediaApplicationAlexaSkillConfiguration
+ *     AlexaSkillStatus: 'ACTIVE' || 'INACTIVE', // required
+ *     AlexaSkillIds: [ // AlexaSkillIdList // required
+ *       'STRING_VALUE',
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetSipMediaApplicationAlexaSkillConfigurationCommandInput - {@link GetSipMediaApplicationAlexaSkillConfigurationCommandInput}
@@ -83,6 +93,8 @@ export interface GetSipMediaApplicationAlexaSkillConfigurationCommandOutput
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client isn't authorized to request a resource.</p>
  *
+ * @throws {@link ChimeSDKVoiceServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
  */
 export class GetSipMediaApplicationAlexaSkillConfigurationCommand extends $Command<

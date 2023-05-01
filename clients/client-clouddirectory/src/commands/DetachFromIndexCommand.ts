@@ -36,20 +36,25 @@ export interface DetachFromIndexCommandOutput extends DetachFromIndexResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudDirectoryClient, DetachFromIndexCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
- * // const { CloudDirectoryClient, DetachFromIndexCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
+ * import { CloudDirectoryClient, DetachFromIndexCommand } from '@aws-sdk/client-clouddirectory'; // ES Modules import
+ * // const { CloudDirectoryClient, DetachFromIndexCommand } = require('@aws-sdk/client-clouddirectory'); // CommonJS import
  * const client = new CloudDirectoryClient(config);
  * const input = { // DetachFromIndexRequest
- *   DirectoryArn: "STRING_VALUE", // required
+ *   DirectoryArn: 'STRING_VALUE', // required
  *   IndexReference: { // ObjectReference
- *     Selector: "STRING_VALUE",
+ *     Selector: 'STRING_VALUE',
  *   },
  *   TargetReference: {
- *     Selector: "STRING_VALUE",
+ *     Selector: 'STRING_VALUE',
  *   },
  * };
  * const command = new DetachFromIndexCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DetachFromIndexResponse
+ *   DetachedObjectIdentifier: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DetachFromIndexCommandInput - {@link DetachFromIndexCommandInput}
@@ -89,6 +94,8 @@ export interface DetachFromIndexCommandOutput extends DetachFromIndexResponse, _
  *  <p>Indicates that your request is malformed in some manner. See the exception
  *       message.</p>
  *
+ * @throws {@link CloudDirectoryServiceException}
+ * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
  */
 export class DetachFromIndexCommand extends $Command<

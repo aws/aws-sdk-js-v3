@@ -47,17 +47,26 @@ export interface PutKeywordCommandOutput extends PutKeywordResult, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PinpointSMSVoiceV2Client, PutKeywordCommand } from "@aws-sdk/client-pinpoint-sms-voice-v2"; // ES Modules import
- * // const { PinpointSMSVoiceV2Client, PutKeywordCommand } = require("@aws-sdk/client-pinpoint-sms-voice-v2"); // CommonJS import
+ * import { PinpointSMSVoiceV2Client, PutKeywordCommand } from '@aws-sdk/client-pinpoint-sms-voice-v2'; // ES Modules import
+ * // const { PinpointSMSVoiceV2Client, PutKeywordCommand } = require('@aws-sdk/client-pinpoint-sms-voice-v2'); // CommonJS import
  * const client = new PinpointSMSVoiceV2Client(config);
  * const input = { // PutKeywordRequest
- *   OriginationIdentity: "STRING_VALUE", // required
- *   Keyword: "STRING_VALUE", // required
- *   KeywordMessage: "STRING_VALUE", // required
- *   KeywordAction: "STRING_VALUE",
+ *   OriginationIdentity: 'STRING_VALUE', // required
+ *   Keyword: 'STRING_VALUE', // required
+ *   KeywordMessage: 'STRING_VALUE', // required
+ *   KeywordAction: 'STRING_VALUE',
  * };
  * const command = new PutKeywordCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutKeywordResult
+ *   OriginationIdentityArn: 'STRING_VALUE',
+ *   OriginationIdentity: 'STRING_VALUE',
+ *   Keyword: 'STRING_VALUE',
+ *   KeywordMessage: 'STRING_VALUE',
+ *   KeywordAction: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param PutKeywordCommandInput - {@link PutKeywordCommandInput}
@@ -93,6 +102,8 @@ export interface PutKeywordCommandOutput extends PutKeywordResult, __MetadataBea
  * @throws {@link ValidationException} (client fault)
  *  <p>A validation exception for a field.</p>
  *
+ * @throws {@link PinpointSMSVoiceV2ServiceException}
+ * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
  *
  */
 export class PutKeywordCommand extends $Command<

@@ -36,16 +36,30 @@ export interface ListTestGridSessionActionsCommandOutput extends ListTestGridSes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DeviceFarmClient, ListTestGridSessionActionsCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
- * // const { DeviceFarmClient, ListTestGridSessionActionsCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
+ * import { DeviceFarmClient, ListTestGridSessionActionsCommand } from '@aws-sdk/client-device-farm'; // ES Modules import
+ * // const { DeviceFarmClient, ListTestGridSessionActionsCommand } = require('@aws-sdk/client-device-farm'); // CommonJS import
  * const client = new DeviceFarmClient(config);
  * const input = { // ListTestGridSessionActionsRequest
- *   sessionArn: "STRING_VALUE", // required
- *   maxResult: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   sessionArn: 'STRING_VALUE', // required
+ *   maxResult: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new ListTestGridSessionActionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTestGridSessionActionsResult
+ *   actions: [ // TestGridSessionActions
+ *     { // TestGridSessionAction
+ *       action: 'STRING_VALUE',
+ *       started: new Date('TIMESTAMP'),
+ *       duration: Number('long'),
+ *       statusCode: 'STRING_VALUE',
+ *       requestMethod: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListTestGridSessionActionsCommandInput - {@link ListTestGridSessionActionsCommandInput}
@@ -64,6 +78,8 @@ export interface ListTestGridSessionActionsCommandOutput extends ListTestGridSes
  * @throws {@link NotFoundException} (client fault)
  *  <p>The specified entity was not found.</p>
  *
+ * @throws {@link DeviceFarmServiceException}
+ * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
  */
 export class ListTestGridSessionActionsCommand extends $Command<

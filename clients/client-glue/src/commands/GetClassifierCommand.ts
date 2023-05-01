@@ -36,14 +36,62 @@ export interface GetClassifierCommandOutput extends GetClassifierResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlueClient, GetClassifierCommand } from "@aws-sdk/client-glue"; // ES Modules import
- * // const { GlueClient, GetClassifierCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * import { GlueClient, GetClassifierCommand } from '@aws-sdk/client-glue'; // ES Modules import
+ * // const { GlueClient, GetClassifierCommand } = require('@aws-sdk/client-glue'); // CommonJS import
  * const client = new GlueClient(config);
  * const input = { // GetClassifierRequest
- *   Name: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
  * };
  * const command = new GetClassifierCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetClassifierResponse
+ *   Classifier: { // Classifier
+ *     GrokClassifier: { // GrokClassifier
+ *       Name: 'STRING_VALUE', // required
+ *       Classification: 'STRING_VALUE', // required
+ *       CreationTime: new Date('TIMESTAMP'),
+ *       LastUpdated: new Date('TIMESTAMP'),
+ *       Version: Number('long'),
+ *       GrokPattern: 'STRING_VALUE', // required
+ *       CustomPatterns: 'STRING_VALUE',
+ *     },
+ *     XMLClassifier: { // XMLClassifier
+ *       Name: 'STRING_VALUE', // required
+ *       Classification: 'STRING_VALUE', // required
+ *       CreationTime: new Date('TIMESTAMP'),
+ *       LastUpdated: new Date('TIMESTAMP'),
+ *       Version: Number('long'),
+ *       RowTag: 'STRING_VALUE',
+ *     },
+ *     JsonClassifier: { // JsonClassifier
+ *       Name: 'STRING_VALUE', // required
+ *       CreationTime: new Date('TIMESTAMP'),
+ *       LastUpdated: new Date('TIMESTAMP'),
+ *       Version: Number('long'),
+ *       JsonPath: 'STRING_VALUE', // required
+ *     },
+ *     CsvClassifier: { // CsvClassifier
+ *       Name: 'STRING_VALUE', // required
+ *       CreationTime: new Date('TIMESTAMP'),
+ *       LastUpdated: new Date('TIMESTAMP'),
+ *       Version: Number('long'),
+ *       Delimiter: 'STRING_VALUE',
+ *       QuoteSymbol: 'STRING_VALUE',
+ *       ContainsHeader: 'UNKNOWN' || 'PRESENT' || 'ABSENT',
+ *       Header: [ // CsvHeader
+ *         'STRING_VALUE',
+ *       ],
+ *       DisableValueTrimming: true || false,
+ *       AllowSingleColumn: true || false,
+ *       CustomDatatypeConfigured: true || false,
+ *       CustomDatatypes: [ // CustomDatatypes
+ *         'STRING_VALUE',
+ *       ],
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetClassifierCommandInput - {@link GetClassifierCommandInput}
@@ -58,6 +106,8 @@ export interface GetClassifierCommandOutput extends GetClassifierResponse, __Met
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class GetClassifierCommand extends $Command<

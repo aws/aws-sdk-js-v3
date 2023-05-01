@@ -40,17 +40,20 @@ export interface SendWorkflowStepStateCommandOutput extends SendWorkflowStepStat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { TransferClient, SendWorkflowStepStateCommand } from "@aws-sdk/client-transfer"; // ES Modules import
- * // const { TransferClient, SendWorkflowStepStateCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
+ * import { TransferClient, SendWorkflowStepStateCommand } from '@aws-sdk/client-transfer'; // ES Modules import
+ * // const { TransferClient, SendWorkflowStepStateCommand } = require('@aws-sdk/client-transfer'); // CommonJS import
  * const client = new TransferClient(config);
  * const input = { // SendWorkflowStepStateRequest
- *   WorkflowId: "STRING_VALUE", // required
- *   ExecutionId: "STRING_VALUE", // required
- *   Token: "STRING_VALUE", // required
- *   Status: "SUCCESS" || "FAILURE", // required
+ *   WorkflowId: 'STRING_VALUE', // required
+ *   ExecutionId: 'STRING_VALUE', // required
+ *   Token: 'STRING_VALUE', // required
+ *   Status: 'SUCCESS' || 'FAILURE', // required
  * };
  * const command = new SendWorkflowStepStateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param SendWorkflowStepStateCommandInput - {@link SendWorkflowStepStateCommandInput}
@@ -78,6 +81,8 @@ export interface SendWorkflowStepStateCommandOutput extends SendWorkflowStepStat
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
  *
+ * @throws {@link TransferServiceException}
+ * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
  */
 export class SendWorkflowStepStateCommand extends $Command<

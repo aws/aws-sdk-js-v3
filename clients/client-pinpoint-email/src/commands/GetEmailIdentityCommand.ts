@@ -38,14 +38,39 @@ export interface GetEmailIdentityCommandOutput extends GetEmailIdentityResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PinpointEmailClient, GetEmailIdentityCommand } from "@aws-sdk/client-pinpoint-email"; // ES Modules import
- * // const { PinpointEmailClient, GetEmailIdentityCommand } = require("@aws-sdk/client-pinpoint-email"); // CommonJS import
+ * import { PinpointEmailClient, GetEmailIdentityCommand } from '@aws-sdk/client-pinpoint-email'; // ES Modules import
+ * // const { PinpointEmailClient, GetEmailIdentityCommand } = require('@aws-sdk/client-pinpoint-email'); // CommonJS import
  * const client = new PinpointEmailClient(config);
  * const input = { // GetEmailIdentityRequest
- *   EmailIdentity: "STRING_VALUE", // required
+ *   EmailIdentity: 'STRING_VALUE', // required
  * };
  * const command = new GetEmailIdentityCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetEmailIdentityResponse
+ *   IdentityType: 'STRING_VALUE',
+ *   FeedbackForwardingStatus: true || false,
+ *   VerifiedForSendingStatus: true || false,
+ *   DkimAttributes: { // DkimAttributes
+ *     SigningEnabled: true || false,
+ *     Status: 'STRING_VALUE',
+ *     Tokens: [ // DnsTokenList
+ *       'STRING_VALUE',
+ *     ],
+ *   },
+ *   MailFromAttributes: { // MailFromAttributes
+ *     MailFromDomain: 'STRING_VALUE', // required
+ *     MailFromDomainStatus: 'STRING_VALUE', // required
+ *     BehaviorOnMxFailure: 'STRING_VALUE', // required
+ *   },
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetEmailIdentityCommandInput - {@link GetEmailIdentityCommandInput}
@@ -63,6 +88,8 @@ export interface GetEmailIdentityCommandOutput extends GetEmailIdentityResponse,
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Too many requests have been made to the operation.</p>
  *
+ * @throws {@link PinpointEmailServiceException}
+ * <p>Base exception class for all service exceptions from PinpointEmail service.</p>
  *
  */
 export class GetEmailIdentityCommand extends $Command<

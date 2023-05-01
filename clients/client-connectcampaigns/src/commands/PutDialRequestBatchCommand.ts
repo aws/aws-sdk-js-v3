@@ -40,24 +40,41 @@ export interface PutDialRequestBatchCommandOutput extends PutDialRequestBatchRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectCampaignsClient, PutDialRequestBatchCommand } from "@aws-sdk/client-connectcampaigns"; // ES Modules import
- * // const { ConnectCampaignsClient, PutDialRequestBatchCommand } = require("@aws-sdk/client-connectcampaigns"); // CommonJS import
+ * import { ConnectCampaignsClient, PutDialRequestBatchCommand } from '@aws-sdk/client-connectcampaigns'; // ES Modules import
+ * // const { ConnectCampaignsClient, PutDialRequestBatchCommand } = require('@aws-sdk/client-connectcampaigns'); // CommonJS import
  * const client = new ConnectCampaignsClient(config);
  * const input = { // PutDialRequestBatchRequest
- *   id: "STRING_VALUE", // required
+ *   id: 'STRING_VALUE', // required
  *   dialRequests: [ // DialRequestList // required
  *     { // DialRequest
- *       clientToken: "STRING_VALUE", // required
- *       phoneNumber: "STRING_VALUE", // required
- *       expirationTime: new Date("TIMESTAMP"), // required
+ *       clientToken: 'STRING_VALUE', // required
+ *       phoneNumber: 'STRING_VALUE', // required
+ *       expirationTime: new Date('TIMESTAMP'), // required
  *       attributes: { // Attributes // required
- *         "<keys>": "STRING_VALUE",
+ *         '<keys>': 'STRING_VALUE',
  *       },
  *     },
  *   ],
  * };
  * const command = new PutDialRequestBatchCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutDialRequestBatchResponse
+ *   successfulRequests: [ // SuccessfulRequestList
+ *     { // SuccessfulRequest
+ *       clientToken: 'STRING_VALUE',
+ *       id: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   failedRequests: [ // FailedRequestList
+ *     { // FailedRequest
+ *       clientToken: 'STRING_VALUE',
+ *       id: 'STRING_VALUE',
+ *       failureCode: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param PutDialRequestBatchCommandInput - {@link PutDialRequestBatchCommandInput}
@@ -87,6 +104,8 @@ export interface PutDialRequestBatchCommandOutput extends PutDialRequestBatchRes
  * @throws {@link ValidationException} (client fault)
  *  The input fails to satisfy the constraints specified by an AWS service.
  *
+ * @throws {@link ConnectCampaignsServiceException}
+ * <p>Base exception class for all service exceptions from ConnectCampaigns service.</p>
  *
  */
 export class PutDialRequestBatchCommand extends $Command<

@@ -36,15 +36,21 @@ export interface CreateWirelessGatewayTaskCommandOutput extends CreateWirelessGa
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTWirelessClient, CreateWirelessGatewayTaskCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
- * // const { IoTWirelessClient, CreateWirelessGatewayTaskCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
+ * import { IoTWirelessClient, CreateWirelessGatewayTaskCommand } from '@aws-sdk/client-iot-wireless'; // ES Modules import
+ * // const { IoTWirelessClient, CreateWirelessGatewayTaskCommand } = require('@aws-sdk/client-iot-wireless'); // CommonJS import
  * const client = new IoTWirelessClient(config);
  * const input = { // CreateWirelessGatewayTaskRequest
- *   Id: "STRING_VALUE", // required
- *   WirelessGatewayTaskDefinitionId: "STRING_VALUE", // required
+ *   Id: 'STRING_VALUE', // required
+ *   WirelessGatewayTaskDefinitionId: 'STRING_VALUE', // required
  * };
  * const command = new CreateWirelessGatewayTaskCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateWirelessGatewayTaskResponse
+ *   WirelessGatewayTaskDefinitionId: 'STRING_VALUE',
+ *   Status: 'PENDING' || 'IN_PROGRESS' || 'FIRST_RETRY' || 'SECOND_RETRY' || 'COMPLETED' || 'FAILED',
+ * };
+ *
  * ```
  *
  * @param CreateWirelessGatewayTaskCommandInput - {@link CreateWirelessGatewayTaskCommandInput}
@@ -71,6 +77,8 @@ export interface CreateWirelessGatewayTaskCommandOutput extends CreateWirelessGa
  * @throws {@link ValidationException} (client fault)
  *  <p>The input did not meet the specified constraints.</p>
  *
+ * @throws {@link IoTWirelessServiceException}
+ * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
  */
 export class CreateWirelessGatewayTaskCommand extends $Command<

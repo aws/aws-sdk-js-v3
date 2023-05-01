@@ -41,14 +41,17 @@ export interface StopTransformJobCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, StopTransformJobCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, StopTransformJobCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, StopTransformJobCommand } from '@aws-sdk/client-sagemaker'; // ES Modules import
+ * // const { SageMakerClient, StopTransformJobCommand } = require('@aws-sdk/client-sagemaker'); // CommonJS import
  * const client = new SageMakerClient(config);
  * const input = { // StopTransformJobRequest
- *   TransformJobName: "STRING_VALUE", // required
+ *   TransformJobName: 'STRING_VALUE', // required
  * };
  * const command = new StopTransformJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param StopTransformJobCommandInput - {@link StopTransformJobCommandInput}
@@ -60,6 +63,8 @@ export interface StopTransformJobCommandOutput extends __MetadataBearer {}
  * @throws {@link ResourceNotFound} (client fault)
  *  <p>Resource being access is not found.</p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class StopTransformJobCommand extends $Command<

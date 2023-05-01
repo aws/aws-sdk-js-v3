@@ -46,27 +46,64 @@ export interface DiscoverInputSchemaCommandOutput extends DiscoverInputSchemaRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KinesisAnalyticsV2Client, DiscoverInputSchemaCommand } from "@aws-sdk/client-kinesis-analytics-v2"; // ES Modules import
- * // const { KinesisAnalyticsV2Client, DiscoverInputSchemaCommand } = require("@aws-sdk/client-kinesis-analytics-v2"); // CommonJS import
+ * import { KinesisAnalyticsV2Client, DiscoverInputSchemaCommand } from '@aws-sdk/client-kinesis-analytics-v2'; // ES Modules import
+ * // const { KinesisAnalyticsV2Client, DiscoverInputSchemaCommand } = require('@aws-sdk/client-kinesis-analytics-v2'); // CommonJS import
  * const client = new KinesisAnalyticsV2Client(config);
  * const input = { // DiscoverInputSchemaRequest
- *   ResourceARN: "STRING_VALUE",
- *   ServiceExecutionRole: "STRING_VALUE", // required
+ *   ResourceARN: 'STRING_VALUE',
+ *   ServiceExecutionRole: 'STRING_VALUE', // required
  *   InputStartingPositionConfiguration: { // InputStartingPositionConfiguration
- *     InputStartingPosition: "NOW" || "TRIM_HORIZON" || "LAST_STOPPED_POINT",
+ *     InputStartingPosition: 'NOW' || 'TRIM_HORIZON' || 'LAST_STOPPED_POINT',
  *   },
  *   S3Configuration: { // S3Configuration
- *     BucketARN: "STRING_VALUE", // required
- *     FileKey: "STRING_VALUE", // required
+ *     BucketARN: 'STRING_VALUE', // required
+ *     FileKey: 'STRING_VALUE', // required
  *   },
  *   InputProcessingConfiguration: { // InputProcessingConfiguration
  *     InputLambdaProcessor: { // InputLambdaProcessor
- *       ResourceARN: "STRING_VALUE", // required
+ *       ResourceARN: 'STRING_VALUE', // required
  *     },
  *   },
  * };
  * const command = new DiscoverInputSchemaCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DiscoverInputSchemaResponse
+ *   InputSchema: { // SourceSchema
+ *     RecordFormat: { // RecordFormat
+ *       RecordFormatType: 'JSON' || 'CSV', // required
+ *       MappingParameters: { // MappingParameters
+ *         JSONMappingParameters: { // JSONMappingParameters
+ *           RecordRowPath: 'STRING_VALUE', // required
+ *         },
+ *         CSVMappingParameters: { // CSVMappingParameters
+ *           RecordRowDelimiter: 'STRING_VALUE', // required
+ *           RecordColumnDelimiter: 'STRING_VALUE', // required
+ *         },
+ *       },
+ *     },
+ *     RecordEncoding: 'STRING_VALUE',
+ *     RecordColumns: [ // RecordColumns // required
+ *       { // RecordColumn
+ *         Name: 'STRING_VALUE', // required
+ *         Mapping: 'STRING_VALUE',
+ *         SqlType: 'STRING_VALUE', // required
+ *       },
+ *     ],
+ *   },
+ *   ParsedInputRecords: [ // ParsedInputRecords
+ *     [ // ParsedInputRecord
+ *       'STRING_VALUE',
+ *     ],
+ *   ],
+ *   ProcessedInputRecords: [ // ProcessedInputRecords
+ *     'STRING_VALUE',
+ *   ],
+ *   RawInputRecords: [ // RawInputRecords
+ *     'STRING_VALUE',
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DiscoverInputSchemaCommandInput - {@link DiscoverInputSchemaCommandInput}
@@ -96,6 +133,8 @@ export interface DiscoverInputSchemaCommandOutput extends DiscoverInputSchemaRes
  *  <p>The request was rejected because a specified parameter is not supported or a specified resource is not valid for this
  *       operation. </p>
  *
+ * @throws {@link KinesisAnalyticsV2ServiceException}
+ * <p>Base exception class for all service exceptions from KinesisAnalyticsV2 service.</p>
  *
  */
 export class DiscoverInputSchemaCommand extends $Command<

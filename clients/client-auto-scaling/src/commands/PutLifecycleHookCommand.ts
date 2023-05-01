@@ -78,21 +78,24 @@ export interface PutLifecycleHookCommandOutput extends PutLifecycleHookAnswer, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AutoScalingClient, PutLifecycleHookCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
- * // const { AutoScalingClient, PutLifecycleHookCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
+ * import { AutoScalingClient, PutLifecycleHookCommand } from '@aws-sdk/client-auto-scaling'; // ES Modules import
+ * // const { AutoScalingClient, PutLifecycleHookCommand } = require('@aws-sdk/client-auto-scaling'); // CommonJS import
  * const client = new AutoScalingClient(config);
  * const input = { // PutLifecycleHookType
- *   LifecycleHookName: "STRING_VALUE", // required
- *   AutoScalingGroupName: "STRING_VALUE", // required
- *   LifecycleTransition: "STRING_VALUE",
- *   RoleARN: "STRING_VALUE",
- *   NotificationTargetARN: "STRING_VALUE",
- *   NotificationMetadata: "STRING_VALUE",
- *   HeartbeatTimeout: Number("int"),
- *   DefaultResult: "STRING_VALUE",
+ *   LifecycleHookName: 'STRING_VALUE', // required
+ *   AutoScalingGroupName: 'STRING_VALUE', // required
+ *   LifecycleTransition: 'STRING_VALUE',
+ *   RoleARN: 'STRING_VALUE',
+ *   NotificationTargetARN: 'STRING_VALUE',
+ *   NotificationMetadata: 'STRING_VALUE',
+ *   HeartbeatTimeout: Number('int'),
+ *   DefaultResult: 'STRING_VALUE',
  * };
  * const command = new PutLifecycleHookCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutLifecycleHookCommandInput - {@link PutLifecycleHookCommandInput}
@@ -111,6 +114,8 @@ export interface PutLifecycleHookCommandOutput extends PutLifecycleHookAnswer, _
  *  <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group,
  *             instance, or load balancer).</p>
  *
+ * @throws {@link AutoScalingServiceException}
+ * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
  * @example To create a launch lifecycle hook
  * ```javascript

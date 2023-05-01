@@ -37,19 +37,22 @@ export interface PutRoomSkillParameterCommandOutput extends PutRoomSkillParamete
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AlexaForBusinessClient, PutRoomSkillParameterCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
- * // const { AlexaForBusinessClient, PutRoomSkillParameterCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
+ * import { AlexaForBusinessClient, PutRoomSkillParameterCommand } from '@aws-sdk/client-alexa-for-business'; // ES Modules import
+ * // const { AlexaForBusinessClient, PutRoomSkillParameterCommand } = require('@aws-sdk/client-alexa-for-business'); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
  * const input = { // PutRoomSkillParameterRequest
- *   RoomArn: "STRING_VALUE",
- *   SkillId: "STRING_VALUE", // required
+ *   RoomArn: 'STRING_VALUE',
+ *   SkillId: 'STRING_VALUE', // required
  *   RoomSkillParameter: { // RoomSkillParameter
- *     ParameterKey: "STRING_VALUE", // required
- *     ParameterValue: "STRING_VALUE", // required
+ *     ParameterKey: 'STRING_VALUE', // required
+ *     ParameterValue: 'STRING_VALUE', // required
  *   },
  * };
  * const command = new PutRoomSkillParameterCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutRoomSkillParameterCommandInput - {@link PutRoomSkillParameterCommandInput}
@@ -61,6 +64,8 @@ export interface PutRoomSkillParameterCommandOutput extends PutRoomSkillParamete
  * @throws {@link ConcurrentModificationException} (client fault)
  *  <p>There is a concurrent modification of resources.</p>
  *
+ * @throws {@link AlexaForBusinessServiceException}
+ * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  */
 export class PutRoomSkillParameterCommand extends $Command<

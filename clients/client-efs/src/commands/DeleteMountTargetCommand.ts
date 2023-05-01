@@ -66,14 +66,17 @@ export interface DeleteMountTargetCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EFSClient, DeleteMountTargetCommand } from "@aws-sdk/client-efs"; // ES Modules import
- * // const { EFSClient, DeleteMountTargetCommand } = require("@aws-sdk/client-efs"); // CommonJS import
+ * import { EFSClient, DeleteMountTargetCommand } from '@aws-sdk/client-efs'; // ES Modules import
+ * // const { EFSClient, DeleteMountTargetCommand } = require('@aws-sdk/client-efs'); // CommonJS import
  * const client = new EFSClient(config);
  * const input = { // DeleteMountTargetRequest
- *   MountTargetId: "STRING_VALUE", // required
+ *   MountTargetId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteMountTargetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteMountTargetCommandInput - {@link DeleteMountTargetCommandInput}
@@ -97,6 +100,8 @@ export interface DeleteMountTargetCommandOutput extends __MetadataBearer {}
  *  <p>Returned if there is no mount target with the specified ID found in the
  *             caller's Amazon Web Services account.</p>
  *
+ * @throws {@link EFSServiceException}
+ * <p>Base exception class for all service exceptions from EFS service.</p>
  *
  * @example To delete a mount target
  * ```javascript

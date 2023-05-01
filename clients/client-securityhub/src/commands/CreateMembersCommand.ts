@@ -70,19 +70,29 @@ export interface CreateMembersCommandOutput extends CreateMembersResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SecurityHubClient, CreateMembersCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
- * // const { SecurityHubClient, CreateMembersCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
+ * import { SecurityHubClient, CreateMembersCommand } from '@aws-sdk/client-securityhub'; // ES Modules import
+ * // const { SecurityHubClient, CreateMembersCommand } = require('@aws-sdk/client-securityhub'); // CommonJS import
  * const client = new SecurityHubClient(config);
  * const input = { // CreateMembersRequest
  *   AccountDetails: [ // AccountDetailsList // required
  *     { // AccountDetails
- *       AccountId: "STRING_VALUE", // required
- *       Email: "STRING_VALUE",
+ *       AccountId: 'STRING_VALUE', // required
+ *       Email: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new CreateMembersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateMembersResponse
+ *   UnprocessedAccounts: [ // ResultList
+ *     { // Result
+ *       AccountId: 'STRING_VALUE',
+ *       ProcessingResult: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param CreateMembersCommandInput - {@link CreateMembersCommandInput}
@@ -108,6 +118,8 @@ export interface CreateMembersCommandOutput extends CreateMembersResponse, __Met
  * @throws {@link ResourceConflictException} (client fault)
  *  <p>The resource specified in the request conflicts with an existing resource.</p>
  *
+ * @throws {@link SecurityHubServiceException}
+ * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
  * @example To add a member account
  * ```javascript

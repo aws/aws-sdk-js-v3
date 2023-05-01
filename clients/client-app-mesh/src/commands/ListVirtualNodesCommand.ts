@@ -36,17 +36,34 @@ export interface ListVirtualNodesCommandOutput extends ListVirtualNodesOutput, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppMeshClient, ListVirtualNodesCommand } from "@aws-sdk/client-app-mesh"; // ES Modules import
- * // const { AppMeshClient, ListVirtualNodesCommand } = require("@aws-sdk/client-app-mesh"); // CommonJS import
+ * import { AppMeshClient, ListVirtualNodesCommand } from '@aws-sdk/client-app-mesh'; // ES Modules import
+ * // const { AppMeshClient, ListVirtualNodesCommand } = require('@aws-sdk/client-app-mesh'); // CommonJS import
  * const client = new AppMeshClient(config);
  * const input = { // ListVirtualNodesInput
- *   meshName: "STRING_VALUE", // required
- *   nextToken: "STRING_VALUE",
- *   limit: Number("int"),
- *   meshOwner: "STRING_VALUE",
+ *   meshName: 'STRING_VALUE', // required
+ *   nextToken: 'STRING_VALUE',
+ *   limit: Number('int'),
+ *   meshOwner: 'STRING_VALUE',
  * };
  * const command = new ListVirtualNodesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListVirtualNodesOutput
+ *   virtualNodes: [ // VirtualNodeList // required
+ *     { // VirtualNodeRef
+ *       meshName: 'STRING_VALUE', // required
+ *       virtualNodeName: 'STRING_VALUE', // required
+ *       meshOwner: 'STRING_VALUE', // required
+ *       resourceOwner: 'STRING_VALUE', // required
+ *       arn: 'STRING_VALUE', // required
+ *       version: Number('long'), // required
+ *       createdAt: new Date('TIMESTAMP'), // required
+ *       lastUpdatedAt: new Date('TIMESTAMP'), // required
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListVirtualNodesCommandInput - {@link ListVirtualNodesCommandInput}
@@ -76,6 +93,8 @@ export interface ListVirtualNodesCommandOutput extends ListVirtualNodesOutput, _
  *          your account. For best results, use an increasing or variable sleep interval between
  *          requests.</p>
  *
+ * @throws {@link AppMeshServiceException}
+ * <p>Base exception class for all service exceptions from AppMesh service.</p>
  *
  */
 export class ListVirtualNodesCommand extends $Command<

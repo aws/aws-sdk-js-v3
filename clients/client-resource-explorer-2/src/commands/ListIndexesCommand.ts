@@ -41,19 +41,31 @@ export interface ListIndexesCommandOutput extends ListIndexesOutput, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ResourceExplorer2Client, ListIndexesCommand } from "@aws-sdk/client-resource-explorer-2"; // ES Modules import
- * // const { ResourceExplorer2Client, ListIndexesCommand } = require("@aws-sdk/client-resource-explorer-2"); // CommonJS import
+ * import { ResourceExplorer2Client, ListIndexesCommand } from '@aws-sdk/client-resource-explorer-2'; // ES Modules import
+ * // const { ResourceExplorer2Client, ListIndexesCommand } = require('@aws-sdk/client-resource-explorer-2'); // CommonJS import
  * const client = new ResourceExplorer2Client(config);
  * const input = { // ListIndexesInput
- *   Type: "STRING_VALUE",
+ *   Type: 'STRING_VALUE',
  *   Regions: [ // RegionList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListIndexesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListIndexesOutput
+ *   Indexes: [ // IndexList
+ *     { // Index
+ *       Region: 'STRING_VALUE',
+ *       Arn: 'STRING_VALUE',
+ *       Type: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListIndexesCommandInput - {@link ListIndexesCommandInput}
@@ -79,6 +91,8 @@ export interface ListIndexesCommandOutput extends ListIndexesOutput, __MetadataB
  *  <p>You provided an invalid value for one of the operation's parameters. Check the syntax
  *             for the operation, and try again.</p>
  *
+ * @throws {@link ResourceExplorer2ServiceException}
+ * <p>Base exception class for all service exceptions from ResourceExplorer2 service.</p>
  *
  */
 export class ListIndexesCommand extends $Command<

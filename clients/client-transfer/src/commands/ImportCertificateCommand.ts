@@ -42,26 +42,31 @@ export interface ImportCertificateCommandOutput extends ImportCertificateRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { TransferClient, ImportCertificateCommand } from "@aws-sdk/client-transfer"; // ES Modules import
- * // const { TransferClient, ImportCertificateCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
+ * import { TransferClient, ImportCertificateCommand } from '@aws-sdk/client-transfer'; // ES Modules import
+ * // const { TransferClient, ImportCertificateCommand } = require('@aws-sdk/client-transfer'); // CommonJS import
  * const client = new TransferClient(config);
  * const input = { // ImportCertificateRequest
- *   Usage: "SIGNING" || "ENCRYPTION", // required
- *   Certificate: "STRING_VALUE", // required
- *   CertificateChain: "STRING_VALUE",
- *   PrivateKey: "STRING_VALUE",
- *   ActiveDate: new Date("TIMESTAMP"),
- *   InactiveDate: new Date("TIMESTAMP"),
- *   Description: "STRING_VALUE",
+ *   Usage: 'SIGNING' || 'ENCRYPTION', // required
+ *   Certificate: 'STRING_VALUE', // required
+ *   CertificateChain: 'STRING_VALUE',
+ *   PrivateKey: 'STRING_VALUE',
+ *   ActiveDate: new Date('TIMESTAMP'),
+ *   InactiveDate: new Date('TIMESTAMP'),
+ *   Description: 'STRING_VALUE',
  *   Tags: [ // Tags
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new ImportCertificateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ImportCertificateResponse
+ *   CertificateId: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param ImportCertificateCommandInput - {@link ImportCertificateCommandInput}
@@ -83,6 +88,8 @@ export interface ImportCertificateCommandOutput extends ImportCertificateRespons
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request has failed because the Amazon Web ServicesTransfer Family service is not available.</p>
  *
+ * @throws {@link TransferServiceException}
+ * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
  */
 export class ImportCertificateCommand extends $Command<

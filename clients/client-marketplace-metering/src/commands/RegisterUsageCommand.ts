@@ -79,16 +79,22 @@ export interface RegisterUsageCommandOutput extends RegisterUsageResult, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MarketplaceMeteringClient, RegisterUsageCommand } from "@aws-sdk/client-marketplace-metering"; // ES Modules import
- * // const { MarketplaceMeteringClient, RegisterUsageCommand } = require("@aws-sdk/client-marketplace-metering"); // CommonJS import
+ * import { MarketplaceMeteringClient, RegisterUsageCommand } from '@aws-sdk/client-marketplace-metering'; // ES Modules import
+ * // const { MarketplaceMeteringClient, RegisterUsageCommand } = require('@aws-sdk/client-marketplace-metering'); // CommonJS import
  * const client = new MarketplaceMeteringClient(config);
  * const input = { // RegisterUsageRequest
- *   ProductCode: "STRING_VALUE", // required
- *   PublicKeyVersion: Number("int"), // required
- *   Nonce: "STRING_VALUE",
+ *   ProductCode: 'STRING_VALUE', // required
+ *   PublicKeyVersion: Number('int'), // required
+ *   Nonce: 'STRING_VALUE',
  * };
  * const command = new RegisterUsageCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // RegisterUsageResult
+ *   PublicKeyRotationTimestamp: new Date('TIMESTAMP'),
+ *   Signature: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param RegisterUsageCommandInput - {@link RegisterUsageCommandInput}
@@ -128,6 +134,8 @@ export interface RegisterUsageCommandOutput extends RegisterUsageResult, __Metad
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The calls to the API are throttled.</p>
  *
+ * @throws {@link MarketplaceMeteringServiceException}
+ * <p>Base exception class for all service exceptions from MarketplaceMetering service.</p>
  *
  */
 export class RegisterUsageCommand extends $Command<

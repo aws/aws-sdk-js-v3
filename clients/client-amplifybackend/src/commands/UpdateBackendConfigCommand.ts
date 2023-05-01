@@ -36,20 +36,33 @@ export interface UpdateBackendConfigCommandOutput extends UpdateBackendConfigRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AmplifyBackendClient, UpdateBackendConfigCommand } from "@aws-sdk/client-amplifybackend"; // ES Modules import
- * // const { AmplifyBackendClient, UpdateBackendConfigCommand } = require("@aws-sdk/client-amplifybackend"); // CommonJS import
+ * import { AmplifyBackendClient, UpdateBackendConfigCommand } from '@aws-sdk/client-amplifybackend'; // ES Modules import
+ * // const { AmplifyBackendClient, UpdateBackendConfigCommand } = require('@aws-sdk/client-amplifybackend'); // CommonJS import
  * const client = new AmplifyBackendClient(config);
  * const input = { // UpdateBackendConfigRequest
- *   AppId: "STRING_VALUE", // required
+ *   AppId: 'STRING_VALUE', // required
  *   LoginAuthConfig: { // LoginAuthConfigReqObj
- *     AwsCognitoIdentityPoolId: "STRING_VALUE",
- *     AwsCognitoRegion: "STRING_VALUE",
- *     AwsUserPoolsId: "STRING_VALUE",
- *     AwsUserPoolsWebClientId: "STRING_VALUE",
+ *     AwsCognitoIdentityPoolId: 'STRING_VALUE',
+ *     AwsCognitoRegion: 'STRING_VALUE',
+ *     AwsUserPoolsId: 'STRING_VALUE',
+ *     AwsUserPoolsWebClientId: 'STRING_VALUE',
  *   },
  * };
  * const command = new UpdateBackendConfigCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateBackendConfigResponse
+ *   AppId: 'STRING_VALUE',
+ *   BackendManagerAppId: 'STRING_VALUE',
+ *   Error: 'STRING_VALUE',
+ *   LoginAuthConfig: { // LoginAuthConfigReqObj
+ *     AwsCognitoIdentityPoolId: 'STRING_VALUE',
+ *     AwsCognitoRegion: 'STRING_VALUE',
+ *     AwsUserPoolsId: 'STRING_VALUE',
+ *     AwsUserPoolsWebClientId: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateBackendConfigCommandInput - {@link UpdateBackendConfigCommandInput}
@@ -70,6 +83,8 @@ export interface UpdateBackendConfigCommandOutput extends UpdateBackendConfigRes
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>An error that is returned when a limit of a specific type has been exceeded.</p>
  *
+ * @throws {@link AmplifyBackendServiceException}
+ * <p>Base exception class for all service exceptions from AmplifyBackend service.</p>
  *
  */
 export class UpdateBackendConfigCommand extends $Command<

@@ -41,14 +41,19 @@ export interface DeleteMLModelCommandOutput extends DeleteMLModelOutput, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MachineLearningClient, DeleteMLModelCommand } from "@aws-sdk/client-machine-learning"; // ES Modules import
- * // const { MachineLearningClient, DeleteMLModelCommand } = require("@aws-sdk/client-machine-learning"); // CommonJS import
+ * import { MachineLearningClient, DeleteMLModelCommand } from '@aws-sdk/client-machine-learning'; // ES Modules import
+ * // const { MachineLearningClient, DeleteMLModelCommand } = require('@aws-sdk/client-machine-learning'); // CommonJS import
  * const client = new MachineLearningClient(config);
  * const input = { // DeleteMLModelInput
- *   MLModelId: "STRING_VALUE", // required
+ *   MLModelId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteMLModelCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteMLModelOutput
+ *   MLModelId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DeleteMLModelCommandInput - {@link DeleteMLModelCommandInput}
@@ -66,6 +71,8 @@ export interface DeleteMLModelCommandOutput extends DeleteMLModelOutput, __Metad
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>A specified resource cannot be located.</p>
  *
+ * @throws {@link MachineLearningServiceException}
+ * <p>Base exception class for all service exceptions from MachineLearning service.</p>
  *
  */
 export class DeleteMLModelCommand extends $Command<

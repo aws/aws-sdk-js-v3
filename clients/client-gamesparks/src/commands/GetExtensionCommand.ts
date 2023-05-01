@@ -36,15 +36,24 @@ export interface GetExtensionCommandOutput extends GetExtensionResult, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GameSparksClient, GetExtensionCommand } from "@aws-sdk/client-gamesparks"; // ES Modules import
- * // const { GameSparksClient, GetExtensionCommand } = require("@aws-sdk/client-gamesparks"); // CommonJS import
+ * import { GameSparksClient, GetExtensionCommand } from '@aws-sdk/client-gamesparks'; // ES Modules import
+ * // const { GameSparksClient, GetExtensionCommand } = require('@aws-sdk/client-gamesparks'); // CommonJS import
  * const client = new GameSparksClient(config);
  * const input = { // GetExtensionRequest
- *   Namespace: "STRING_VALUE", // required
- *   Name: "STRING_VALUE", // required
+ *   Namespace: 'STRING_VALUE', // required
+ *   Name: 'STRING_VALUE', // required
  * };
  * const command = new GetExtensionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetExtensionResult
+ *   Extension: { // ExtensionDetails
+ *     Namespace: 'STRING_VALUE',
+ *     Name: 'STRING_VALUE',
+ *     Description: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetExtensionCommandInput - {@link GetExtensionCommandInput}
@@ -68,6 +77,8 @@ export interface GetExtensionCommandOutput extends GetExtensionResult, __Metadat
  * @throws {@link ValidationException} (client fault)
  *  <p>One of the parameters in the request is invalid.</p>
  *
+ * @throws {@link GameSparksServiceException}
+ * <p>Base exception class for all service exceptions from GameSparks service.</p>
  *
  */
 export class GetExtensionCommand extends $Command<

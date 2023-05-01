@@ -36,16 +36,40 @@ export interface BatchGetFreeTrialInfoCommandOutput extends BatchGetFreeTrialInf
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Inspector2Client, BatchGetFreeTrialInfoCommand } from "@aws-sdk/client-inspector2"; // ES Modules import
- * // const { Inspector2Client, BatchGetFreeTrialInfoCommand } = require("@aws-sdk/client-inspector2"); // CommonJS import
+ * import { Inspector2Client, BatchGetFreeTrialInfoCommand } from '@aws-sdk/client-inspector2'; // ES Modules import
+ * // const { Inspector2Client, BatchGetFreeTrialInfoCommand } = require('@aws-sdk/client-inspector2'); // CommonJS import
  * const client = new Inspector2Client(config);
  * const input = { // BatchGetFreeTrialInfoRequest
  *   accountIds: [ // MeteringAccountIdList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new BatchGetFreeTrialInfoCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BatchGetFreeTrialInfoResponse
+ *   accounts: [ // FreeTrialAccountInfoList // required
+ *     { // FreeTrialAccountInfo
+ *       accountId: 'STRING_VALUE', // required
+ *       freeTrialInfo: [ // FreeTrialInfoList // required
+ *         { // FreeTrialInfo
+ *           type: 'STRING_VALUE', // required
+ *           start: new Date('TIMESTAMP'), // required
+ *           end: new Date('TIMESTAMP'), // required
+ *           status: 'STRING_VALUE', // required
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   failedAccounts: [ // FreeTrialInfoErrorList // required
+ *     { // FreeTrialInfoError
+ *       accountId: 'STRING_VALUE', // required
+ *       code: 'STRING_VALUE', // required
+ *       message: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param BatchGetFreeTrialInfoCommandInput - {@link BatchGetFreeTrialInfoCommandInput}
@@ -67,6 +91,8 @@ export interface BatchGetFreeTrialInfoCommandOutput extends BatchGetFreeTrialInf
  *  <p>The request has failed validation due to missing required fields or having invalid
  *          inputs.</p>
  *
+ * @throws {@link Inspector2ServiceException}
+ * <p>Base exception class for all service exceptions from Inspector2 service.</p>
  *
  */
 export class BatchGetFreeTrialInfoCommand extends $Command<

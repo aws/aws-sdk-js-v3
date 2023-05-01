@@ -38,15 +38,20 @@ export interface CancelRetrievalCommandOutput extends CancelRetrievalOutput, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { StorageGatewayClient, CancelRetrievalCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
- * // const { StorageGatewayClient, CancelRetrievalCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
+ * import { StorageGatewayClient, CancelRetrievalCommand } from '@aws-sdk/client-storage-gateway'; // ES Modules import
+ * // const { StorageGatewayClient, CancelRetrievalCommand } = require('@aws-sdk/client-storage-gateway'); // CommonJS import
  * const client = new StorageGatewayClient(config);
  * const input = { // CancelRetrievalInput
- *   GatewayARN: "STRING_VALUE", // required
- *   TapeARN: "STRING_VALUE", // required
+ *   GatewayARN: 'STRING_VALUE', // required
+ *   TapeARN: 'STRING_VALUE', // required
  * };
  * const command = new CancelRetrievalCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CancelRetrievalOutput
+ *   TapeARN: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CancelRetrievalCommandInput - {@link CancelRetrievalCommandInput}
@@ -63,6 +68,8 @@ export interface CancelRetrievalCommandOutput extends CancelRetrievalOutput, __M
  *  <p>An exception occurred because an invalid gateway request was issued to the service. For
  *          more information, see the error and message fields.</p>
  *
+ * @throws {@link StorageGatewayServiceException}
+ * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
  * @example To cancel virtual tape retrieval
  * ```javascript

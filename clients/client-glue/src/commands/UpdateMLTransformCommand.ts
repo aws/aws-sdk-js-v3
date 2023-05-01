@@ -39,32 +39,37 @@ export interface UpdateMLTransformCommandOutput extends UpdateMLTransformRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlueClient, UpdateMLTransformCommand } from "@aws-sdk/client-glue"; // ES Modules import
- * // const { GlueClient, UpdateMLTransformCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * import { GlueClient, UpdateMLTransformCommand } from '@aws-sdk/client-glue'; // ES Modules import
+ * // const { GlueClient, UpdateMLTransformCommand } = require('@aws-sdk/client-glue'); // CommonJS import
  * const client = new GlueClient(config);
  * const input = { // UpdateMLTransformRequest
- *   TransformId: "STRING_VALUE", // required
- *   Name: "STRING_VALUE",
- *   Description: "STRING_VALUE",
+ *   TransformId: 'STRING_VALUE', // required
+ *   Name: 'STRING_VALUE',
+ *   Description: 'STRING_VALUE',
  *   Parameters: { // TransformParameters
- *     TransformType: "FIND_MATCHES", // required
+ *     TransformType: 'FIND_MATCHES', // required
  *     FindMatchesParameters: { // FindMatchesParameters
- *       PrimaryKeyColumnName: "STRING_VALUE",
- *       PrecisionRecallTradeoff: Number("double"),
- *       AccuracyCostTradeoff: Number("double"),
+ *       PrimaryKeyColumnName: 'STRING_VALUE',
+ *       PrecisionRecallTradeoff: Number('double'),
+ *       AccuracyCostTradeoff: Number('double'),
  *       EnforceProvidedLabels: true || false,
  *     },
  *   },
- *   Role: "STRING_VALUE",
- *   GlueVersion: "STRING_VALUE",
- *   MaxCapacity: Number("double"),
- *   WorkerType: "Standard" || "G.1X" || "G.2X" || "G.025X",
- *   NumberOfWorkers: Number("int"),
- *   Timeout: Number("int"),
- *   MaxRetries: Number("int"),
+ *   Role: 'STRING_VALUE',
+ *   GlueVersion: 'STRING_VALUE',
+ *   MaxCapacity: Number('double'),
+ *   WorkerType: 'Standard' || 'G.1X' || 'G.2X' || 'G.025X',
+ *   NumberOfWorkers: Number('int'),
+ *   Timeout: Number('int'),
+ *   MaxRetries: Number('int'),
  * };
  * const command = new UpdateMLTransformCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateMLTransformResponse
+ *   TransformId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateMLTransformCommandInput - {@link UpdateMLTransformCommandInput}
@@ -88,6 +93,8 @@ export interface UpdateMLTransformCommandOutput extends UpdateMLTransformRespons
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class UpdateMLTransformCommand extends $Command<

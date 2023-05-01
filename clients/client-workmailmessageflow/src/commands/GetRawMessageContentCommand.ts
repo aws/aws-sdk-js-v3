@@ -49,14 +49,19 @@ export interface GetRawMessageContentCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkMailMessageFlowClient, GetRawMessageContentCommand } from "@aws-sdk/client-workmailmessageflow"; // ES Modules import
- * // const { WorkMailMessageFlowClient, GetRawMessageContentCommand } = require("@aws-sdk/client-workmailmessageflow"); // CommonJS import
+ * import { WorkMailMessageFlowClient, GetRawMessageContentCommand } from '@aws-sdk/client-workmailmessageflow'; // ES Modules import
+ * // const { WorkMailMessageFlowClient, GetRawMessageContentCommand } = require('@aws-sdk/client-workmailmessageflow'); // CommonJS import
  * const client = new WorkMailMessageFlowClient(config);
  * const input = { // GetRawMessageContentRequest
- *   messageId: "STRING_VALUE", // required
+ *   messageId: 'STRING_VALUE', // required
  * };
  * const command = new GetRawMessageContentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetRawMessageContentResponse
+ *   messageContent: 'STREAMING_BLOB_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param GetRawMessageContentCommandInput - {@link GetRawMessageContentCommandInput}
@@ -68,6 +73,8 @@ export interface GetRawMessageContentCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The requested email message is not found.</p>
  *
+ * @throws {@link WorkMailMessageFlowServiceException}
+ * <p>Base exception class for all service exceptions from WorkMailMessageFlow service.</p>
  *
  */
 export class GetRawMessageContentCommand extends $Command<

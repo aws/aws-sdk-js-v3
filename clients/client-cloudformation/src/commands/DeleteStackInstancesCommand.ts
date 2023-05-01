@@ -36,43 +36,48 @@ export interface DeleteStackInstancesCommandOutput extends DeleteStackInstancesO
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudFormationClient, DeleteStackInstancesCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
- * // const { CloudFormationClient, DeleteStackInstancesCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
+ * import { CloudFormationClient, DeleteStackInstancesCommand } from '@aws-sdk/client-cloudformation'; // ES Modules import
+ * // const { CloudFormationClient, DeleteStackInstancesCommand } = require('@aws-sdk/client-cloudformation'); // CommonJS import
  * const client = new CloudFormationClient(config);
  * const input = { // DeleteStackInstancesInput
- *   StackSetName: "STRING_VALUE", // required
+ *   StackSetName: 'STRING_VALUE', // required
  *   Accounts: [ // AccountList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   DeploymentTargets: { // DeploymentTargets
  *     Accounts: [
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
- *     AccountsUrl: "STRING_VALUE",
+ *     AccountsUrl: 'STRING_VALUE',
  *     OrganizationalUnitIds: [ // OrganizationalUnitIdList
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
- *     AccountFilterType: "NONE" || "INTERSECTION" || "DIFFERENCE" || "UNION",
+ *     AccountFilterType: 'NONE' || 'INTERSECTION' || 'DIFFERENCE' || 'UNION',
  *   },
  *   Regions: [ // RegionList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   OperationPreferences: { // StackSetOperationPreferences
- *     RegionConcurrencyType: "SEQUENTIAL" || "PARALLEL",
+ *     RegionConcurrencyType: 'SEQUENTIAL' || 'PARALLEL',
  *     RegionOrder: [
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
- *     FailureToleranceCount: Number("int"),
- *     FailureTolerancePercentage: Number("int"),
- *     MaxConcurrentCount: Number("int"),
- *     MaxConcurrentPercentage: Number("int"),
+ *     FailureToleranceCount: Number('int'),
+ *     FailureTolerancePercentage: Number('int'),
+ *     MaxConcurrentCount: Number('int'),
+ *     MaxConcurrentPercentage: Number('int'),
  *   },
  *   RetainStacks: true || false, // required
- *   OperationId: "STRING_VALUE",
- *   CallAs: "SELF" || "DELEGATED_ADMIN",
+ *   OperationId: 'STRING_VALUE',
+ *   CallAs: 'SELF' || 'DELEGATED_ADMIN',
  * };
  * const command = new DeleteStackInstancesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteStackInstancesOutput
+ *   OperationId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DeleteStackInstancesCommandInput - {@link DeleteStackInstancesCommandInput}
@@ -98,6 +103,8 @@ export interface DeleteStackInstancesCommandOutput extends DeleteStackInstancesO
  *  <p>Another operation has been performed on this stack set since the specified operation was
  *          performed.</p>
  *
+ * @throws {@link CloudFormationServiceException}
+ * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
  */
 export class DeleteStackInstancesCommand extends $Command<

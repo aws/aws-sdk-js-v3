@@ -45,14 +45,17 @@ export interface DeleteEventDataStoreCommandOutput extends DeleteEventDataStoreR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudTrailClient, DeleteEventDataStoreCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
- * // const { CloudTrailClient, DeleteEventDataStoreCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
+ * import { CloudTrailClient, DeleteEventDataStoreCommand } from '@aws-sdk/client-cloudtrail'; // ES Modules import
+ * // const { CloudTrailClient, DeleteEventDataStoreCommand } = require('@aws-sdk/client-cloudtrail'); // CommonJS import
  * const client = new CloudTrailClient(config);
  * const input = { // DeleteEventDataStoreRequest
- *   EventDataStore: "STRING_VALUE", // required
+ *   EventDataStore: 'STRING_VALUE', // required
  * };
  * const command = new DeleteEventDataStoreCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteEventDataStoreCommandInput - {@link DeleteEventDataStoreCommandInput}
@@ -106,6 +109,8 @@ export interface DeleteEventDataStoreCommandOutput extends DeleteEventDataStoreR
  * @throws {@link UnsupportedOperationException} (client fault)
  *  <p>This exception is thrown when the requested operation is not supported.</p>
  *
+ * @throws {@link CloudTrailServiceException}
+ * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
  */
 export class DeleteEventDataStoreCommand extends $Command<

@@ -36,25 +36,64 @@ export interface PurchaseOfferingCommandOutput extends PurchaseOfferingResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MediaLiveClient, PurchaseOfferingCommand } from "@aws-sdk/client-medialive"; // ES Modules import
- * // const { MediaLiveClient, PurchaseOfferingCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
+ * import { MediaLiveClient, PurchaseOfferingCommand } from '@aws-sdk/client-medialive'; // ES Modules import
+ * // const { MediaLiveClient, PurchaseOfferingCommand } = require('@aws-sdk/client-medialive'); // CommonJS import
  * const client = new MediaLiveClient(config);
  * const input = { // PurchaseOfferingRequest
- *   Count: Number("int"), // required
- *   Name: "STRING_VALUE",
- *   OfferingId: "STRING_VALUE", // required
+ *   Count: Number('int'), // required
+ *   Name: 'STRING_VALUE',
+ *   OfferingId: 'STRING_VALUE', // required
  *   RenewalSettings: { // RenewalSettings
- *     AutomaticRenewal: "DISABLED" || "ENABLED" || "UNAVAILABLE",
- *     RenewalCount: Number("int"),
+ *     AutomaticRenewal: 'DISABLED' || 'ENABLED' || 'UNAVAILABLE',
+ *     RenewalCount: Number('int'),
  *   },
- *   RequestId: "STRING_VALUE",
- *   Start: "STRING_VALUE",
+ *   RequestId: 'STRING_VALUE',
+ *   Start: 'STRING_VALUE',
  *   Tags: { // Tags
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new PurchaseOfferingCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PurchaseOfferingResponse
+ *   Reservation: { // Reservation
+ *     Arn: 'STRING_VALUE',
+ *     Count: Number('int'),
+ *     CurrencyCode: 'STRING_VALUE',
+ *     Duration: Number('int'),
+ *     DurationUnits: 'MONTHS',
+ *     End: 'STRING_VALUE',
+ *     FixedPrice: Number('double'),
+ *     Name: 'STRING_VALUE',
+ *     OfferingDescription: 'STRING_VALUE',
+ *     OfferingId: 'STRING_VALUE',
+ *     OfferingType: 'NO_UPFRONT',
+ *     Region: 'STRING_VALUE',
+ *     RenewalSettings: { // RenewalSettings
+ *       AutomaticRenewal: 'DISABLED' || 'ENABLED' || 'UNAVAILABLE',
+ *       RenewalCount: Number('int'),
+ *     },
+ *     ReservationId: 'STRING_VALUE',
+ *     ResourceSpecification: { // ReservationResourceSpecification
+ *       ChannelClass: 'STANDARD' || 'SINGLE_PIPELINE',
+ *       Codec: 'MPEG2' || 'AVC' || 'HEVC' || 'AUDIO' || 'LINK',
+ *       MaximumBitrate: 'MAX_10_MBPS' || 'MAX_20_MBPS' || 'MAX_50_MBPS',
+ *       MaximumFramerate: 'MAX_30_FPS' || 'MAX_60_FPS',
+ *       Resolution: 'SD' || 'HD' || 'FHD' || 'UHD',
+ *       ResourceType: 'INPUT' || 'OUTPUT' || 'MULTIPLEX' || 'CHANNEL',
+ *       SpecialFeature: 'ADVANCED_AUDIO' || 'AUDIO_NORMALIZATION' || 'MGHD' || 'MGUHD',
+ *       VideoQuality: 'STANDARD' || 'ENHANCED' || 'PREMIUM',
+ *     },
+ *     Start: 'STRING_VALUE',
+ *     State: 'ACTIVE' || 'EXPIRED' || 'CANCELED' || 'DELETED',
+ *     Tags: { // Tags
+ *       '<keys>': 'STRING_VALUE',
+ *     },
+ *     UsagePrice: Number('double'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param PurchaseOfferingCommandInput - {@link PurchaseOfferingCommandInput}
@@ -87,6 +126,8 @@ export interface PurchaseOfferingCommandOutput extends PurchaseOfferingResponse,
  * @throws {@link TooManyRequestsException} (client fault)
  *  Placeholder documentation for TooManyRequestsException
  *
+ * @throws {@link MediaLiveServiceException}
+ * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
  */
 export class PurchaseOfferingCommand extends $Command<

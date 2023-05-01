@@ -46,14 +46,17 @@ export interface DeleteLicenseManagerReportGeneratorCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LicenseManagerClient, DeleteLicenseManagerReportGeneratorCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
- * // const { LicenseManagerClient, DeleteLicenseManagerReportGeneratorCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
+ * import { LicenseManagerClient, DeleteLicenseManagerReportGeneratorCommand } from '@aws-sdk/client-license-manager'; // ES Modules import
+ * // const { LicenseManagerClient, DeleteLicenseManagerReportGeneratorCommand } = require('@aws-sdk/client-license-manager'); // CommonJS import
  * const client = new LicenseManagerClient(config);
  * const input = { // DeleteLicenseManagerReportGeneratorRequest
- *   LicenseManagerReportGeneratorArn: "STRING_VALUE", // required
+ *   LicenseManagerReportGeneratorArn: 'STRING_VALUE', // required
  * };
  * const command = new DeleteLicenseManagerReportGeneratorCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteLicenseManagerReportGeneratorCommandInput - {@link DeleteLicenseManagerReportGeneratorCommandInput}
@@ -87,6 +90,8 @@ export interface DeleteLicenseManagerReportGeneratorCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The provided input is not valid. Try your request again.</p>
  *
+ * @throws {@link LicenseManagerServiceException}
+ * <p>Base exception class for all service exceptions from LicenseManager service.</p>
  *
  */
 export class DeleteLicenseManagerReportGeneratorCommand extends $Command<

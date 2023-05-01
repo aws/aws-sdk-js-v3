@@ -41,15 +41,40 @@ export interface GetRecommenderConfigurationsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PinpointClient, GetRecommenderConfigurationsCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
- * // const { PinpointClient, GetRecommenderConfigurationsCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
+ * import { PinpointClient, GetRecommenderConfigurationsCommand } from '@aws-sdk/client-pinpoint'; // ES Modules import
+ * // const { PinpointClient, GetRecommenderConfigurationsCommand } = require('@aws-sdk/client-pinpoint'); // CommonJS import
  * const client = new PinpointClient(config);
  * const input = { // GetRecommenderConfigurationsRequest
- *   PageSize: "STRING_VALUE",
- *   Token: "STRING_VALUE",
+ *   PageSize: 'STRING_VALUE',
+ *   Token: 'STRING_VALUE',
  * };
  * const command = new GetRecommenderConfigurationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetRecommenderConfigurationsResponse
+ *   ListRecommenderConfigurationsResponse: { // ListRecommenderConfigurationsResponse
+ *     Item: [ // ListOfRecommenderConfigurationResponse // required
+ *       { // RecommenderConfigurationResponse
+ *         Attributes: { // MapOf__string
+ *           '<keys>': 'STRING_VALUE',
+ *         },
+ *         CreationDate: 'STRING_VALUE', // required
+ *         Description: 'STRING_VALUE',
+ *         Id: 'STRING_VALUE', // required
+ *         LastModifiedDate: 'STRING_VALUE', // required
+ *         Name: 'STRING_VALUE',
+ *         RecommendationProviderIdType: 'STRING_VALUE',
+ *         RecommendationProviderRoleArn: 'STRING_VALUE', // required
+ *         RecommendationProviderUri: 'STRING_VALUE', // required
+ *         RecommendationTransformerUri: 'STRING_VALUE',
+ *         RecommendationsDisplayName: 'STRING_VALUE',
+ *         RecommendationsPerMessage: Number('int'),
+ *       },
+ *     ],
+ *     NextToken: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetRecommenderConfigurationsCommandInput - {@link GetRecommenderConfigurationsCommandInput}
@@ -79,6 +104,8 @@ export interface GetRecommenderConfigurationsCommandOutput
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Provides information about an API request or response.</p>
  *
+ * @throws {@link PinpointServiceException}
+ * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
  */
 export class GetRecommenderConfigurationsCommand extends $Command<

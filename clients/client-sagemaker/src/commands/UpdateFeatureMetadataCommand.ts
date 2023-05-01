@@ -36,25 +36,28 @@ export interface UpdateFeatureMetadataCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, UpdateFeatureMetadataCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, UpdateFeatureMetadataCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, UpdateFeatureMetadataCommand } from '@aws-sdk/client-sagemaker'; // ES Modules import
+ * // const { SageMakerClient, UpdateFeatureMetadataCommand } = require('@aws-sdk/client-sagemaker'); // CommonJS import
  * const client = new SageMakerClient(config);
  * const input = { // UpdateFeatureMetadataRequest
- *   FeatureGroupName: "STRING_VALUE", // required
- *   FeatureName: "STRING_VALUE", // required
- *   Description: "STRING_VALUE",
+ *   FeatureGroupName: 'STRING_VALUE', // required
+ *   FeatureName: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE',
  *   ParameterAdditions: [ // FeatureParameterAdditions
  *     { // FeatureParameter
- *       Key: "STRING_VALUE",
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
  *   ParameterRemovals: [ // FeatureParameterRemovals
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new UpdateFeatureMetadataCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateFeatureMetadataCommandInput - {@link UpdateFeatureMetadataCommandInput}
@@ -66,6 +69,8 @@ export interface UpdateFeatureMetadataCommandOutput extends __MetadataBearer {}
  * @throws {@link ResourceNotFound} (client fault)
  *  <p>Resource being access is not found.</p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class UpdateFeatureMetadataCommand extends $Command<

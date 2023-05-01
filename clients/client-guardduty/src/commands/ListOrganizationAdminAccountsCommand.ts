@@ -41,15 +41,26 @@ export interface ListOrganizationAdminAccountsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GuardDutyClient, ListOrganizationAdminAccountsCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
- * // const { GuardDutyClient, ListOrganizationAdminAccountsCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
+ * import { GuardDutyClient, ListOrganizationAdminAccountsCommand } from '@aws-sdk/client-guardduty'; // ES Modules import
+ * // const { GuardDutyClient, ListOrganizationAdminAccountsCommand } = require('@aws-sdk/client-guardduty'); // CommonJS import
  * const client = new GuardDutyClient(config);
  * const input = { // ListOrganizationAdminAccountsRequest
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListOrganizationAdminAccountsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListOrganizationAdminAccountsResponse
+ *   AdminAccounts: [ // AdminAccounts
+ *     { // AdminAccount
+ *       AdminAccountId: 'STRING_VALUE',
+ *       AdminStatus: 'ENABLED' || 'DISABLE_IN_PROGRESS',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListOrganizationAdminAccountsCommandInput - {@link ListOrganizationAdminAccountsCommandInput}
@@ -64,6 +75,8 @@ export interface ListOrganizationAdminAccountsCommandOutput
  * @throws {@link InternalServerErrorException} (server fault)
  *  <p>An internal server error exception object.</p>
  *
+ * @throws {@link GuardDutyServiceException}
+ * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
  */
 export class ListOrganizationAdminAccountsCommand extends $Command<

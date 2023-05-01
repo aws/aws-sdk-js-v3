@@ -36,15 +36,34 @@ export interface DescribeVodSourceCommandOutput extends DescribeVodSourceRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MediaTailorClient, DescribeVodSourceCommand } from "@aws-sdk/client-mediatailor"; // ES Modules import
- * // const { MediaTailorClient, DescribeVodSourceCommand } = require("@aws-sdk/client-mediatailor"); // CommonJS import
+ * import { MediaTailorClient, DescribeVodSourceCommand } from '@aws-sdk/client-mediatailor'; // ES Modules import
+ * // const { MediaTailorClient, DescribeVodSourceCommand } = require('@aws-sdk/client-mediatailor'); // CommonJS import
  * const client = new MediaTailorClient(config);
  * const input = { // DescribeVodSourceRequest
- *   SourceLocationName: "STRING_VALUE", // required
- *   VodSourceName: "STRING_VALUE", // required
+ *   SourceLocationName: 'STRING_VALUE', // required
+ *   VodSourceName: 'STRING_VALUE', // required
  * };
  * const command = new DescribeVodSourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeVodSourceResponse
+ *   Arn: 'STRING_VALUE',
+ *   CreationTime: new Date('TIMESTAMP'),
+ *   HttpPackageConfigurations: [ // HttpPackageConfigurations
+ *     { // HttpPackageConfiguration
+ *       Path: 'STRING_VALUE', // required
+ *       SourceGroup: 'STRING_VALUE', // required
+ *       Type: 'DASH' || 'HLS', // required
+ *     },
+ *   ],
+ *   LastModifiedTime: new Date('TIMESTAMP'),
+ *   SourceLocationName: 'STRING_VALUE',
+ *   Tags: { // __mapOf__string
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ *   VodSourceName: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeVodSourceCommandInput - {@link DescribeVodSourceCommandInput}
@@ -53,6 +72,8 @@ export interface DescribeVodSourceCommandOutput extends DescribeVodSourceRespons
  * @see {@link DescribeVodSourceCommandOutput} for command's `response` shape.
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.
  *
+ * @throws {@link MediaTailorServiceException}
+ * <p>Base exception class for all service exceptions from MediaTailor service.</p>
  *
  */
 export class DescribeVodSourceCommand extends $Command<

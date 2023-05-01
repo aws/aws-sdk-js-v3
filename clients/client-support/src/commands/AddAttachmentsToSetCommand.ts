@@ -53,20 +53,26 @@ export interface AddAttachmentsToSetCommandOutput extends AddAttachmentsToSetRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SupportClient, AddAttachmentsToSetCommand } from "@aws-sdk/client-support"; // ES Modules import
- * // const { SupportClient, AddAttachmentsToSetCommand } = require("@aws-sdk/client-support"); // CommonJS import
+ * import { SupportClient, AddAttachmentsToSetCommand } from '@aws-sdk/client-support'; // ES Modules import
+ * // const { SupportClient, AddAttachmentsToSetCommand } = require('@aws-sdk/client-support'); // CommonJS import
  * const client = new SupportClient(config);
  * const input = { // AddAttachmentsToSetRequest
- *   attachmentSetId: "STRING_VALUE",
+ *   attachmentSetId: 'STRING_VALUE',
  *   attachments: [ // Attachments // required
  *     { // Attachment
- *       fileName: "STRING_VALUE",
- *       data: "BLOB_VALUE",
+ *       fileName: 'STRING_VALUE',
+ *       data: 'BLOB_VALUE',
  *     },
  *   ],
  * };
  * const command = new AddAttachmentsToSetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AddAttachmentsToSetResponse
+ *   attachmentSetId: 'STRING_VALUE',
+ *   expiryTime: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param AddAttachmentsToSetCommandInput - {@link AddAttachmentsToSetCommandInput}
@@ -93,6 +99,8 @@ export interface AddAttachmentsToSetCommandOutput extends AddAttachmentsToSetRes
  * @throws {@link InternalServerError} (server fault)
  *  <p>An internal server error occurred.</p>
  *
+ * @throws {@link SupportServiceException}
+ * <p>Base exception class for all service exceptions from Support service.</p>
  *
  */
 export class AddAttachmentsToSetCommand extends $Command<

@@ -57,26 +57,51 @@ export interface SearchPlaceIndexForSuggestionsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LocationClient, SearchPlaceIndexForSuggestionsCommand } from "@aws-sdk/client-location"; // ES Modules import
- * // const { LocationClient, SearchPlaceIndexForSuggestionsCommand } = require("@aws-sdk/client-location"); // CommonJS import
+ * import { LocationClient, SearchPlaceIndexForSuggestionsCommand } from '@aws-sdk/client-location'; // ES Modules import
+ * // const { LocationClient, SearchPlaceIndexForSuggestionsCommand } = require('@aws-sdk/client-location'); // CommonJS import
  * const client = new LocationClient(config);
  * const input = { // SearchPlaceIndexForSuggestionsRequest
- *   IndexName: "STRING_VALUE", // required
- *   Text: "STRING_VALUE", // required
+ *   IndexName: 'STRING_VALUE', // required
+ *   Text: 'STRING_VALUE', // required
  *   BiasPosition: [ // Position
- *     Number("double"),
+ *     Number('double'),
  *   ],
  *   FilterBBox: [ // BoundingBox
- *     Number("double"),
+ *     Number('double'),
  *   ],
  *   FilterCountries: [ // CountryCodeList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   MaxResults: Number("int"),
- *   Language: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   Language: 'STRING_VALUE',
  * };
  * const command = new SearchPlaceIndexForSuggestionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SearchPlaceIndexForSuggestionsResponse
+ *   Summary: { // SearchPlaceIndexForSuggestionsSummary
+ *     Text: 'STRING_VALUE', // required
+ *     BiasPosition: [ // Position
+ *       Number('double'),
+ *     ],
+ *     FilterBBox: [ // BoundingBox
+ *       Number('double'),
+ *     ],
+ *     FilterCountries: [ // CountryCodeList
+ *       'STRING_VALUE',
+ *     ],
+ *     MaxResults: Number('int'),
+ *     DataSource: 'STRING_VALUE', // required
+ *     Language: 'STRING_VALUE',
+ *   },
+ *   Results: [ // SearchForSuggestionsResultList // required
+ *     { // SearchForSuggestionsResult
+ *       Text: 'STRING_VALUE', // required
+ *       PlaceId: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param SearchPlaceIndexForSuggestionsCommandInput - {@link SearchPlaceIndexForSuggestionsCommandInput}
@@ -101,6 +126,8 @@ export interface SearchPlaceIndexForSuggestionsCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The input failed to meet the constraints specified by the AWS service. </p>
  *
+ * @throws {@link LocationServiceException}
+ * <p>Base exception class for all service exceptions from Location service.</p>
  *
  */
 export class SearchPlaceIndexForSuggestionsCommand extends $Command<

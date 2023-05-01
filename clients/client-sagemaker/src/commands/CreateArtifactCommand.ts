@@ -40,39 +40,44 @@ export interface CreateArtifactCommandOutput extends CreateArtifactResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, CreateArtifactCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, CreateArtifactCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, CreateArtifactCommand } from '@aws-sdk/client-sagemaker'; // ES Modules import
+ * // const { SageMakerClient, CreateArtifactCommand } = require('@aws-sdk/client-sagemaker'); // CommonJS import
  * const client = new SageMakerClient(config);
  * const input = { // CreateArtifactRequest
- *   ArtifactName: "STRING_VALUE",
+ *   ArtifactName: 'STRING_VALUE',
  *   Source: { // ArtifactSource
- *     SourceUri: "STRING_VALUE", // required
+ *     SourceUri: 'STRING_VALUE', // required
  *     SourceTypes: [ // ArtifactSourceTypes
  *       { // ArtifactSourceType
- *         SourceIdType: "MD5Hash" || "S3ETag" || "S3Version" || "Custom", // required
- *         Value: "STRING_VALUE", // required
+ *         SourceIdType: 'MD5Hash' || 'S3ETag' || 'S3Version' || 'Custom', // required
+ *         Value: 'STRING_VALUE', // required
  *       },
  *     ],
  *   },
- *   ArtifactType: "STRING_VALUE", // required
+ *   ArtifactType: 'STRING_VALUE', // required
  *   Properties: { // LineageEntityParameters
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  *   MetadataProperties: { // MetadataProperties
- *     CommitId: "STRING_VALUE",
- *     Repository: "STRING_VALUE",
- *     GeneratedBy: "STRING_VALUE",
- *     ProjectId: "STRING_VALUE",
+ *     CommitId: 'STRING_VALUE',
+ *     Repository: 'STRING_VALUE',
+ *     GeneratedBy: 'STRING_VALUE',
+ *     ProjectId: 'STRING_VALUE',
  *   },
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreateArtifactCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateArtifactResponse
+ *   ArtifactArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateArtifactCommandInput - {@link CreateArtifactCommandInput}
@@ -85,6 +90,8 @@ export interface CreateArtifactCommandOutput extends CreateArtifactResponse, __M
  *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many
  *             training jobs created. </p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class CreateArtifactCommand extends $Command<

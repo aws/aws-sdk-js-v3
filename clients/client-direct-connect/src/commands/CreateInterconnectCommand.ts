@@ -51,24 +51,48 @@ export interface CreateInterconnectCommandOutput extends Interconnect, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DirectConnectClient, CreateInterconnectCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
- * // const { DirectConnectClient, CreateInterconnectCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
+ * import { DirectConnectClient, CreateInterconnectCommand } from '@aws-sdk/client-direct-connect'; // ES Modules import
+ * // const { DirectConnectClient, CreateInterconnectCommand } = require('@aws-sdk/client-direct-connect'); // CommonJS import
  * const client = new DirectConnectClient(config);
  * const input = { // CreateInterconnectRequest
- *   interconnectName: "STRING_VALUE", // required
- *   bandwidth: "STRING_VALUE", // required
- *   location: "STRING_VALUE", // required
- *   lagId: "STRING_VALUE",
+ *   interconnectName: 'STRING_VALUE', // required
+ *   bandwidth: 'STRING_VALUE', // required
+ *   location: 'STRING_VALUE', // required
+ *   lagId: 'STRING_VALUE',
  *   tags: [ // TagList
  *     { // Tag
- *       key: "STRING_VALUE", // required
- *       value: "STRING_VALUE",
+ *       key: 'STRING_VALUE', // required
+ *       value: 'STRING_VALUE',
  *     },
  *   ],
- *   providerName: "STRING_VALUE",
+ *   providerName: 'STRING_VALUE',
  * };
  * const command = new CreateInterconnectCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // Interconnect
+ *   interconnectId: 'STRING_VALUE',
+ *   interconnectName: 'STRING_VALUE',
+ *   interconnectState: 'requested' || 'pending' || 'available' || 'down' || 'deleting' || 'deleted' || 'unknown',
+ *   region: 'STRING_VALUE',
+ *   location: 'STRING_VALUE',
+ *   bandwidth: 'STRING_VALUE',
+ *   loaIssueTime: new Date('TIMESTAMP'),
+ *   lagId: 'STRING_VALUE',
+ *   awsDevice: 'STRING_VALUE',
+ *   jumboFrameCapable: true || false,
+ *   awsDeviceV2: 'STRING_VALUE',
+ *   awsLogicalDeviceId: 'STRING_VALUE',
+ *   hasLogicalRedundancy: 'unknown' || 'yes' || 'no',
+ *   tags: [ // TagList
+ *     { // Tag
+ *       key: 'STRING_VALUE', // required
+ *       value: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   providerName: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateInterconnectCommandInput - {@link CreateInterconnectCommandInput}
@@ -89,6 +113,8 @@ export interface CreateInterconnectCommandOutput extends Interconnect, __Metadat
  * @throws {@link TooManyTagsException} (client fault)
  *  <p>You have reached the limit on the number of tags that can be assigned.</p>
  *
+ * @throws {@link DirectConnectServiceException}
+ * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
  */
 export class CreateInterconnectCommand extends $Command<

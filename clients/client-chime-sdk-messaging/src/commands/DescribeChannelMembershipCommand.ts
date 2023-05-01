@@ -49,17 +49,36 @@ export interface DescribeChannelMembershipCommandOutput extends DescribeChannelM
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeSDKMessagingClient, DescribeChannelMembershipCommand } from "@aws-sdk/client-chime-sdk-messaging"; // ES Modules import
- * // const { ChimeSDKMessagingClient, DescribeChannelMembershipCommand } = require("@aws-sdk/client-chime-sdk-messaging"); // CommonJS import
+ * import { ChimeSDKMessagingClient, DescribeChannelMembershipCommand } from '@aws-sdk/client-chime-sdk-messaging'; // ES Modules import
+ * // const { ChimeSDKMessagingClient, DescribeChannelMembershipCommand } = require('@aws-sdk/client-chime-sdk-messaging'); // CommonJS import
  * const client = new ChimeSDKMessagingClient(config);
  * const input = { // DescribeChannelMembershipRequest
- *   ChannelArn: "STRING_VALUE", // required
- *   MemberArn: "STRING_VALUE", // required
- *   ChimeBearer: "STRING_VALUE", // required
- *   SubChannelId: "STRING_VALUE",
+ *   ChannelArn: 'STRING_VALUE', // required
+ *   MemberArn: 'STRING_VALUE', // required
+ *   ChimeBearer: 'STRING_VALUE', // required
+ *   SubChannelId: 'STRING_VALUE',
  * };
  * const command = new DescribeChannelMembershipCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeChannelMembershipResponse
+ *   ChannelMembership: { // ChannelMembership
+ *     InvitedBy: { // Identity
+ *       Arn: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *     },
+ *     Type: 'DEFAULT' || 'HIDDEN',
+ *     Member: {
+ *       Arn: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *     },
+ *     ChannelArn: 'STRING_VALUE',
+ *     CreatedTimestamp: new Date('TIMESTAMP'),
+ *     LastUpdatedTimestamp: new Date('TIMESTAMP'),
+ *     SubChannelId: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeChannelMembershipCommandInput - {@link DescribeChannelMembershipCommandInput}
@@ -89,6 +108,8 @@ export interface DescribeChannelMembershipCommandOutput extends DescribeChannelM
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeSDKMessagingServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKMessaging service.</p>
  *
  */
 export class DescribeChannelMembershipCommand extends $Command<

@@ -36,14 +36,43 @@ export interface GetDeviceCommandOutput extends GetDeviceResponse, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AlexaForBusinessClient, GetDeviceCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
- * // const { AlexaForBusinessClient, GetDeviceCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
+ * import { AlexaForBusinessClient, GetDeviceCommand } from '@aws-sdk/client-alexa-for-business'; // ES Modules import
+ * // const { AlexaForBusinessClient, GetDeviceCommand } = require('@aws-sdk/client-alexa-for-business'); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
  * const input = { // GetDeviceRequest
- *   DeviceArn: "STRING_VALUE",
+ *   DeviceArn: 'STRING_VALUE',
  * };
  * const command = new GetDeviceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetDeviceResponse
+ *   Device: { // Device
+ *     DeviceArn: 'STRING_VALUE',
+ *     DeviceSerialNumber: 'STRING_VALUE',
+ *     DeviceType: 'STRING_VALUE',
+ *     DeviceName: 'STRING_VALUE',
+ *     SoftwareVersion: 'STRING_VALUE',
+ *     MacAddress: 'STRING_VALUE',
+ *     RoomArn: 'STRING_VALUE',
+ *     DeviceStatus: 'STRING_VALUE',
+ *     DeviceStatusInfo: { // DeviceStatusInfo
+ *       DeviceStatusDetails: [ // DeviceStatusDetails
+ *         { // DeviceStatusDetail
+ *           Feature: 'STRING_VALUE',
+ *           Code: 'STRING_VALUE',
+ *         },
+ *       ],
+ *       ConnectionStatus: 'STRING_VALUE',
+ *       ConnectionStatusUpdatedTime: new Date('TIMESTAMP'),
+ *     },
+ *     NetworkProfileInfo: { // DeviceNetworkProfileInfo
+ *       NetworkProfileArn: 'STRING_VALUE',
+ *       CertificateArn: 'STRING_VALUE',
+ *       CertificateExpirationTime: new Date('TIMESTAMP'),
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetDeviceCommandInput - {@link GetDeviceCommandInput}
@@ -55,6 +84,8 @@ export interface GetDeviceCommandOutput extends GetDeviceResponse, __MetadataBea
  * @throws {@link NotFoundException} (client fault)
  *  <p>The resource is not found.</p>
  *
+ * @throws {@link AlexaForBusinessServiceException}
+ * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  */
 export class GetDeviceCommand extends $Command<

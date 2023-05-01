@@ -78,28 +78,33 @@ export interface UpdateRegexMatchSetCommandOutput extends UpdateRegexMatchSetRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WAFRegionalClient, UpdateRegexMatchSetCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
- * // const { WAFRegionalClient, UpdateRegexMatchSetCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import
+ * import { WAFRegionalClient, UpdateRegexMatchSetCommand } from '@aws-sdk/client-waf-regional'; // ES Modules import
+ * // const { WAFRegionalClient, UpdateRegexMatchSetCommand } = require('@aws-sdk/client-waf-regional'); // CommonJS import
  * const client = new WAFRegionalClient(config);
  * const input = { // UpdateRegexMatchSetRequest
- *   RegexMatchSetId: "STRING_VALUE", // required
+ *   RegexMatchSetId: 'STRING_VALUE', // required
  *   Updates: [ // RegexMatchSetUpdates // required
  *     { // RegexMatchSetUpdate
- *       Action: "STRING_VALUE", // required
+ *       Action: 'STRING_VALUE', // required
  *       RegexMatchTuple: { // RegexMatchTuple
  *         FieldToMatch: { // FieldToMatch
- *           Type: "STRING_VALUE", // required
- *           Data: "STRING_VALUE",
+ *           Type: 'STRING_VALUE', // required
+ *           Data: 'STRING_VALUE',
  *         },
- *         TextTransformation: "STRING_VALUE", // required
- *         RegexPatternSetId: "STRING_VALUE", // required
+ *         TextTransformation: 'STRING_VALUE', // required
+ *         RegexPatternSetId: 'STRING_VALUE', // required
  *       },
  *     },
  *   ],
- *   ChangeToken: "STRING_VALUE", // required
+ *   ChangeToken: 'STRING_VALUE', // required
  * };
  * const command = new UpdateRegexMatchSetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateRegexMatchSetResponse
+ *   ChangeToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateRegexMatchSetCommandInput - {@link UpdateRegexMatchSetCommandInput}
@@ -169,6 +174,8 @@ export interface UpdateRegexMatchSetCommandOutput extends UpdateRegexMatchSetRes
  * @throws {@link WAFStaleDataException} (client fault)
  *  <p>The operation failed because you tried to create, update, or delete an object by using a change token that has already been used.</p>
  *
+ * @throws {@link WAFRegionalServiceException}
+ * <p>Base exception class for all service exceptions from WAFRegional service.</p>
  *
  */
 export class UpdateRegexMatchSetCommand extends $Command<

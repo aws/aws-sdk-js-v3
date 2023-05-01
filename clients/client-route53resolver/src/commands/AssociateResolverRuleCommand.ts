@@ -39,16 +39,28 @@ export interface AssociateResolverRuleCommandOutput extends AssociateResolverRul
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Route53ResolverClient, AssociateResolverRuleCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
- * // const { Route53ResolverClient, AssociateResolverRuleCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
+ * import { Route53ResolverClient, AssociateResolverRuleCommand } from '@aws-sdk/client-route53resolver'; // ES Modules import
+ * // const { Route53ResolverClient, AssociateResolverRuleCommand } = require('@aws-sdk/client-route53resolver'); // CommonJS import
  * const client = new Route53ResolverClient(config);
  * const input = { // AssociateResolverRuleRequest
- *   ResolverRuleId: "STRING_VALUE", // required
- *   Name: "STRING_VALUE",
- *   VPCId: "STRING_VALUE", // required
+ *   ResolverRuleId: 'STRING_VALUE', // required
+ *   Name: 'STRING_VALUE',
+ *   VPCId: 'STRING_VALUE', // required
  * };
  * const command = new AssociateResolverRuleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AssociateResolverRuleResponse
+ *   ResolverRuleAssociation: { // ResolverRuleAssociation
+ *     Id: 'STRING_VALUE',
+ *     ResolverRuleId: 'STRING_VALUE',
+ *     Name: 'STRING_VALUE',
+ *     VPCId: 'STRING_VALUE',
+ *     Status: 'CREATING' || 'COMPLETE' || 'DELETING' || 'FAILED' || 'OVERRIDDEN',
+ *     StatusMessage: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param AssociateResolverRuleCommandInput - {@link AssociateResolverRuleCommandInput}
@@ -81,6 +93,8 @@ export interface AssociateResolverRuleCommandOutput extends AssociateResolverRul
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was throttled. Try again in a few minutes.</p>
  *
+ * @throws {@link Route53ResolverServiceException}
+ * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
  */
 export class AssociateResolverRuleCommand extends $Command<

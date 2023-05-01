@@ -48,19 +48,28 @@ export interface DeregisterInstancesFromLoadBalancerCommandOutput extends Deregi
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElasticLoadBalancingClient, DeregisterInstancesFromLoadBalancerCommand } from "@aws-sdk/client-elastic-load-balancing"; // ES Modules import
- * // const { ElasticLoadBalancingClient, DeregisterInstancesFromLoadBalancerCommand } = require("@aws-sdk/client-elastic-load-balancing"); // CommonJS import
+ * import { ElasticLoadBalancingClient, DeregisterInstancesFromLoadBalancerCommand } from '@aws-sdk/client-elastic-load-balancing'; // ES Modules import
+ * // const { ElasticLoadBalancingClient, DeregisterInstancesFromLoadBalancerCommand } = require('@aws-sdk/client-elastic-load-balancing'); // CommonJS import
  * const client = new ElasticLoadBalancingClient(config);
  * const input = { // DeregisterEndPointsInput
- *   LoadBalancerName: "STRING_VALUE", // required
+ *   LoadBalancerName: 'STRING_VALUE', // required
  *   Instances: [ // Instances // required
  *     { // Instance
- *       InstanceId: "STRING_VALUE",
+ *       InstanceId: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new DeregisterInstancesFromLoadBalancerCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeregisterEndPointsOutput
+ *   Instances: [ // Instances
+ *     { // Instance
+ *       InstanceId: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DeregisterInstancesFromLoadBalancerCommandInput - {@link DeregisterInstancesFromLoadBalancerCommandInput}
@@ -75,6 +84,8 @@ export interface DeregisterInstancesFromLoadBalancerCommandOutput extends Deregi
  * @throws {@link InvalidEndPointException} (client fault)
  *  <p>The specified endpoint is not valid.</p>
  *
+ * @throws {@link ElasticLoadBalancingServiceException}
+ * <p>Base exception class for all service exceptions from ElasticLoadBalancing service.</p>
  *
  * @example To deregister instances from a load balancer
  * ```javascript

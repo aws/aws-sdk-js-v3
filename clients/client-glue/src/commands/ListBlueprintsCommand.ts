@@ -36,18 +36,26 @@ export interface ListBlueprintsCommandOutput extends ListBlueprintsResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlueClient, ListBlueprintsCommand } from "@aws-sdk/client-glue"; // ES Modules import
- * // const { GlueClient, ListBlueprintsCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * import { GlueClient, ListBlueprintsCommand } from '@aws-sdk/client-glue'; // ES Modules import
+ * // const { GlueClient, ListBlueprintsCommand } = require('@aws-sdk/client-glue'); // CommonJS import
  * const client = new GlueClient(config);
  * const input = { // ListBlueprintsRequest
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  *   Tags: { // TagsMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new ListBlueprintsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListBlueprintsResponse
+ *   Blueprints: [ // BlueprintNames
+ *     'STRING_VALUE',
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListBlueprintsCommandInput - {@link ListBlueprintsCommandInput}
@@ -65,6 +73,8 @@ export interface ListBlueprintsCommandOutput extends ListBlueprintsResponse, __M
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class ListBlueprintsCommand extends $Command<

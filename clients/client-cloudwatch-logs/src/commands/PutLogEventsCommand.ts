@@ -81,22 +81,32 @@ export interface PutLogEventsCommandOutput extends PutLogEventsResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudWatchLogsClient, PutLogEventsCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
- * // const { CloudWatchLogsClient, PutLogEventsCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
+ * import { CloudWatchLogsClient, PutLogEventsCommand } from '@aws-sdk/client-cloudwatch-logs'; // ES Modules import
+ * // const { CloudWatchLogsClient, PutLogEventsCommand } = require('@aws-sdk/client-cloudwatch-logs'); // CommonJS import
  * const client = new CloudWatchLogsClient(config);
  * const input = { // PutLogEventsRequest
- *   logGroupName: "STRING_VALUE", // required
- *   logStreamName: "STRING_VALUE", // required
+ *   logGroupName: 'STRING_VALUE', // required
+ *   logStreamName: 'STRING_VALUE', // required
  *   logEvents: [ // InputLogEvents // required
  *     { // InputLogEvent
- *       timestamp: Number("long"), // required
- *       message: "STRING_VALUE", // required
+ *       timestamp: Number('long'), // required
+ *       message: 'STRING_VALUE', // required
  *     },
  *   ],
- *   sequenceToken: "STRING_VALUE",
+ *   sequenceToken: 'STRING_VALUE',
  * };
  * const command = new PutLogEventsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutLogEventsResponse
+ *   nextSequenceToken: 'STRING_VALUE',
+ *   rejectedLogEventsInfo: { // RejectedLogEventsInfo
+ *     tooNewLogEventStartIndex: Number('int'),
+ *     tooOldLogEventEndIndex: Number('int'),
+ *     expiredLogEventEndIndex: Number('int'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param PutLogEventsCommandInput - {@link PutLogEventsCommandInput}
@@ -139,6 +149,8 @@ export interface PutLogEventsCommandOutput extends PutLogEventsResponse, __Metad
  *  <p>The most likely cause is an Amazon Web Services access key ID or secret key that's not
  *       valid.</p>
  *
+ * @throws {@link CloudWatchLogsServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
  */
 export class PutLogEventsCommand extends $Command<

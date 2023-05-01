@@ -40,16 +40,19 @@ export interface DeleteHostedConfigurationVersionCommandOutput extends __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppConfigClient, DeleteHostedConfigurationVersionCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
- * // const { AppConfigClient, DeleteHostedConfigurationVersionCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import
+ * import { AppConfigClient, DeleteHostedConfigurationVersionCommand } from '@aws-sdk/client-appconfig'; // ES Modules import
+ * // const { AppConfigClient, DeleteHostedConfigurationVersionCommand } = require('@aws-sdk/client-appconfig'); // CommonJS import
  * const client = new AppConfigClient(config);
  * const input = { // DeleteHostedConfigurationVersionRequest
- *   ApplicationId: "STRING_VALUE", // required
- *   ConfigurationProfileId: "STRING_VALUE", // required
- *   VersionNumber: Number("int"), // required
+ *   ApplicationId: 'STRING_VALUE', // required
+ *   ConfigurationProfileId: 'STRING_VALUE', // required
+ *   VersionNumber: Number('int'), // required
  * };
  * const command = new DeleteHostedConfigurationVersionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteHostedConfigurationVersionCommandInput - {@link DeleteHostedConfigurationVersionCommandInput}
@@ -67,6 +70,8 @@ export interface DeleteHostedConfigurationVersionCommandOutput extends __Metadat
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The requested resource could not be found.</p>
  *
+ * @throws {@link AppConfigServiceException}
+ * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
  * @example To delete a hosted configuration version
  * ```javascript

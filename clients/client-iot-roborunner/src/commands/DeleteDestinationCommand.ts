@@ -36,14 +36,17 @@ export interface DeleteDestinationCommandOutput extends DeleteDestinationRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTRoboRunnerClient, DeleteDestinationCommand } from "@aws-sdk/client-iot-roborunner"; // ES Modules import
- * // const { IoTRoboRunnerClient, DeleteDestinationCommand } = require("@aws-sdk/client-iot-roborunner"); // CommonJS import
+ * import { IoTRoboRunnerClient, DeleteDestinationCommand } from '@aws-sdk/client-iot-roborunner'; // ES Modules import
+ * // const { IoTRoboRunnerClient, DeleteDestinationCommand } = require('@aws-sdk/client-iot-roborunner'); // CommonJS import
  * const client = new IoTRoboRunnerClient(config);
  * const input = { // DeleteDestinationRequest
- *   id: "STRING_VALUE", // required
+ *   id: 'STRING_VALUE', // required
  * };
  * const command = new DeleteDestinationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteDestinationCommandInput - {@link DeleteDestinationCommandInput}
@@ -70,6 +73,8 @@ export interface DeleteDestinationCommandOutput extends DeleteDestinationRespons
  * @throws {@link ValidationException} (client fault)
  *  Exception thrown if an invalid parameter is provided to an API.
  *
+ * @throws {@link IoTRoboRunnerServiceException}
+ * <p>Base exception class for all service exceptions from IoTRoboRunner service.</p>
  *
  */
 export class DeleteDestinationCommand extends $Command<

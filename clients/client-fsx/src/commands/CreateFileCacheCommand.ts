@@ -59,47 +59,47 @@ export interface CreateFileCacheCommandOutput extends CreateFileCacheResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FSxClient, CreateFileCacheCommand } from "@aws-sdk/client-fsx"; // ES Modules import
- * // const { FSxClient, CreateFileCacheCommand } = require("@aws-sdk/client-fsx"); // CommonJS import
+ * import { FSxClient, CreateFileCacheCommand } from '@aws-sdk/client-fsx'; // ES Modules import
+ * // const { FSxClient, CreateFileCacheCommand } = require('@aws-sdk/client-fsx'); // CommonJS import
  * const client = new FSxClient(config);
  * const input = { // CreateFileCacheRequest
- *   ClientRequestToken: "STRING_VALUE",
- *   FileCacheType: "LUSTRE", // required
- *   FileCacheTypeVersion: "STRING_VALUE", // required
- *   StorageCapacity: Number("int"), // required
+ *   ClientRequestToken: 'STRING_VALUE',
+ *   FileCacheType: 'LUSTRE', // required
+ *   FileCacheTypeVersion: 'STRING_VALUE', // required
+ *   StorageCapacity: Number('int'), // required
  *   SubnetIds: [ // SubnetIds // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   SecurityGroupIds: [ // SecurityGroupIds
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   Tags: [ // Tags
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  *   CopyTagsToDataRepositoryAssociations: true || false,
- *   KmsKeyId: "STRING_VALUE",
+ *   KmsKeyId: 'STRING_VALUE',
  *   LustreConfiguration: { // CreateFileCacheLustreConfiguration
- *     PerUnitStorageThroughput: Number("int"), // required
- *     DeploymentType: "CACHE_1", // required
- *     WeeklyMaintenanceStartTime: "STRING_VALUE",
+ *     PerUnitStorageThroughput: Number('int'), // required
+ *     DeploymentType: 'CACHE_1', // required
+ *     WeeklyMaintenanceStartTime: 'STRING_VALUE',
  *     MetadataConfiguration: { // FileCacheLustreMetadataConfiguration
- *       StorageCapacity: Number("int"), // required
+ *       StorageCapacity: Number('int'), // required
  *     },
  *   },
  *   DataRepositoryAssociations: [ // CreateFileCacheDataRepositoryAssociations
  *     { // FileCacheDataRepositoryAssociation
- *       FileCachePath: "STRING_VALUE", // required
- *       DataRepositoryPath: "STRING_VALUE", // required
+ *       FileCachePath: 'STRING_VALUE', // required
+ *       DataRepositoryPath: 'STRING_VALUE', // required
  *       DataRepositorySubdirectories: [ // SubDirectoriesPaths
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *       NFS: { // FileCacheNFSConfiguration
- *         Version: "NFS3", // required
+ *         Version: 'NFS3', // required
  *         DnsIps: [ // RepositoryDnsIps
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
  *       },
  *     },
@@ -107,6 +107,55 @@ export interface CreateFileCacheCommandOutput extends CreateFileCacheResponse, _
  * };
  * const command = new CreateFileCacheCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateFileCacheResponse
+ *   FileCache: { // FileCacheCreating
+ *     OwnerId: 'STRING_VALUE',
+ *     CreationTime: new Date('TIMESTAMP'),
+ *     FileCacheId: 'STRING_VALUE',
+ *     FileCacheType: 'LUSTRE',
+ *     FileCacheTypeVersion: 'STRING_VALUE',
+ *     Lifecycle: 'AVAILABLE' || 'CREATING' || 'DELETING' || 'UPDATING' || 'FAILED',
+ *     FailureDetails: { // FileCacheFailureDetails
+ *       Message: 'STRING_VALUE',
+ *     },
+ *     StorageCapacity: Number('int'),
+ *     VpcId: 'STRING_VALUE',
+ *     SubnetIds: [ // SubnetIds
+ *       'STRING_VALUE',
+ *     ],
+ *     NetworkInterfaceIds: [ // NetworkInterfaceIds
+ *       'STRING_VALUE',
+ *     ],
+ *     DNSName: 'STRING_VALUE',
+ *     KmsKeyId: 'STRING_VALUE',
+ *     ResourceARN: 'STRING_VALUE',
+ *     Tags: [ // Tags
+ *       { // Tag
+ *         Key: 'STRING_VALUE', // required
+ *         Value: 'STRING_VALUE', // required
+ *       },
+ *     ],
+ *     CopyTagsToDataRepositoryAssociations: true || false,
+ *     LustreConfiguration: { // FileCacheLustreConfiguration
+ *       PerUnitStorageThroughput: Number('int'),
+ *       DeploymentType: 'CACHE_1',
+ *       MountName: 'STRING_VALUE',
+ *       WeeklyMaintenanceStartTime: 'STRING_VALUE',
+ *       MetadataConfiguration: { // FileCacheLustreMetadataConfiguration
+ *         StorageCapacity: Number('int'), // required
+ *       },
+ *       LogConfiguration: { // LustreLogConfiguration
+ *         Level: 'DISABLED' || 'WARN_ONLY' || 'ERROR_ONLY' || 'WARN_ERROR', // required
+ *         Destination: 'STRING_VALUE',
+ *       },
+ *     },
+ *     DataRepositoryAssociationIds: [ // DataRepositoryAssociationIds
+ *       'STRING_VALUE',
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateFileCacheCommandInput - {@link CreateFileCacheCommandInput}
@@ -139,6 +188,8 @@ export interface CreateFileCacheCommandOutput extends CreateFileCacheResponse, _
  *  <p>An error indicating that a particular service limit was exceeded. You can increase
  *             some service limits by contacting Amazon Web Services Support.</p>
  *
+ * @throws {@link FSxServiceException}
+ * <p>Base exception class for all service exceptions from FSx service.</p>
  *
  */
 export class CreateFileCacheCommand extends $Command<

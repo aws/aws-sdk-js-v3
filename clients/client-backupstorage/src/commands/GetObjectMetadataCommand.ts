@@ -45,15 +45,24 @@ export interface GetObjectMetadataCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BackupStorageClient, GetObjectMetadataCommand } from "@aws-sdk/client-backupstorage"; // ES Modules import
- * // const { BackupStorageClient, GetObjectMetadataCommand } = require("@aws-sdk/client-backupstorage"); // CommonJS import
+ * import { BackupStorageClient, GetObjectMetadataCommand } from '@aws-sdk/client-backupstorage'; // ES Modules import
+ * // const { BackupStorageClient, GetObjectMetadataCommand } = require('@aws-sdk/client-backupstorage'); // CommonJS import
  * const client = new BackupStorageClient(config);
  * const input = { // GetObjectMetadataInput
- *   StorageJobId: "STRING_VALUE", // required
- *   ObjectToken: "STRING_VALUE", // required
+ *   StorageJobId: 'STRING_VALUE', // required
+ *   ObjectToken: 'STRING_VALUE', // required
  * };
  * const command = new GetObjectMetadataCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetObjectMetadataOutput
+ *   MetadataString: 'STRING_VALUE',
+ *   MetadataBlob: 'STREAMING_BLOB_VALUE',
+ *   MetadataBlobLength: Number('long'),
+ *   MetadataBlobChecksum: 'STRING_VALUE',
+ *   MetadataBlobChecksumAlgorithm: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetObjectMetadataCommandInput - {@link GetObjectMetadataCommandInput}
@@ -86,6 +95,8 @@ export interface GetObjectMetadataCommandOutput
  * @throws {@link ThrottlingException} (client fault)
  *  Increased rate over throttling limits. Can be retried with exponential backoff.
  *
+ * @throws {@link BackupStorageServiceException}
+ * <p>Base exception class for all service exceptions from BackupStorage service.</p>
  *
  */
 export class GetObjectMetadataCommand extends $Command<

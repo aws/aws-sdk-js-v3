@@ -37,17 +37,29 @@ export interface ProvisionPermissionSetCommandOutput extends ProvisionPermission
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSOAdminClient, ProvisionPermissionSetCommand } from "@aws-sdk/client-sso-admin"; // ES Modules import
- * // const { SSOAdminClient, ProvisionPermissionSetCommand } = require("@aws-sdk/client-sso-admin"); // CommonJS import
+ * import { SSOAdminClient, ProvisionPermissionSetCommand } from '@aws-sdk/client-sso-admin'; // ES Modules import
+ * // const { SSOAdminClient, ProvisionPermissionSetCommand } = require('@aws-sdk/client-sso-admin'); // CommonJS import
  * const client = new SSOAdminClient(config);
  * const input = { // ProvisionPermissionSetRequest
- *   InstanceArn: "STRING_VALUE", // required
- *   PermissionSetArn: "STRING_VALUE", // required
- *   TargetId: "STRING_VALUE",
- *   TargetType: "AWS_ACCOUNT" || "ALL_PROVISIONED_ACCOUNTS", // required
+ *   InstanceArn: 'STRING_VALUE', // required
+ *   PermissionSetArn: 'STRING_VALUE', // required
+ *   TargetId: 'STRING_VALUE',
+ *   TargetType: 'AWS_ACCOUNT' || 'ALL_PROVISIONED_ACCOUNTS', // required
  * };
  * const command = new ProvisionPermissionSetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ProvisionPermissionSetResponse
+ *   PermissionSetProvisioningStatus: { // PermissionSetProvisioningStatus
+ *     Status: 'IN_PROGRESS' || 'FAILED' || 'SUCCEEDED',
+ *     RequestId: 'STRING_VALUE',
+ *     AccountId: 'STRING_VALUE',
+ *     PermissionSetArn: 'STRING_VALUE',
+ *     FailureReason: 'STRING_VALUE',
+ *     CreatedDate: new Date('TIMESTAMP'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param ProvisionPermissionSetCommandInput - {@link ProvisionPermissionSetCommandInput}
@@ -79,6 +91,8 @@ export interface ProvisionPermissionSetCommandOutput extends ProvisionPermission
  * @throws {@link ValidationException} (client fault)
  *  <p>The request failed because it contains a syntax error.</p>
  *
+ * @throws {@link SSOAdminServiceException}
+ * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
  */
 export class ProvisionPermissionSetCommand extends $Command<

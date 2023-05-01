@@ -37,16 +37,22 @@ export interface DeleteProjectCommandOutput extends DeleteProjectResult, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeStarClient, DeleteProjectCommand } from "@aws-sdk/client-codestar"; // ES Modules import
- * // const { CodeStarClient, DeleteProjectCommand } = require("@aws-sdk/client-codestar"); // CommonJS import
+ * import { CodeStarClient, DeleteProjectCommand } from '@aws-sdk/client-codestar'; // ES Modules import
+ * // const { CodeStarClient, DeleteProjectCommand } = require('@aws-sdk/client-codestar'); // CommonJS import
  * const client = new CodeStarClient(config);
  * const input = { // DeleteProjectRequest
- *   id: "STRING_VALUE", // required
- *   clientRequestToken: "STRING_VALUE",
+ *   id: 'STRING_VALUE', // required
+ *   clientRequestToken: 'STRING_VALUE',
  *   deleteStack: true || false,
  * };
  * const command = new DeleteProjectCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteProjectResult
+ *   stackId: 'STRING_VALUE',
+ *   projectArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DeleteProjectCommandInput - {@link DeleteProjectCommandInput}
@@ -65,6 +71,8 @@ export interface DeleteProjectCommandOutput extends DeleteProjectResult, __Metad
  * @throws {@link ValidationException} (client fault)
  *  <p>The specified input is either not valid, or it could not be validated.</p>
  *
+ * @throws {@link CodeStarServiceException}
+ * <p>Base exception class for all service exceptions from CodeStar service.</p>
  *
  */
 export class DeleteProjectCommand extends $Command<

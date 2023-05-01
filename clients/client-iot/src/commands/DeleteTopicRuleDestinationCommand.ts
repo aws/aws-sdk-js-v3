@@ -37,14 +37,17 @@ export interface DeleteTopicRuleDestinationCommandOutput extends DeleteTopicRule
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTClient, DeleteTopicRuleDestinationCommand } from "@aws-sdk/client-iot"; // ES Modules import
- * // const { IoTClient, DeleteTopicRuleDestinationCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * import { IoTClient, DeleteTopicRuleDestinationCommand } from '@aws-sdk/client-iot'; // ES Modules import
+ * // const { IoTClient, DeleteTopicRuleDestinationCommand } = require('@aws-sdk/client-iot'); // CommonJS import
  * const client = new IoTClient(config);
  * const input = { // DeleteTopicRuleDestinationRequest
- *   arn: "STRING_VALUE", // required
+ *   arn: 'STRING_VALUE', // required
  * };
  * const command = new DeleteTopicRuleDestinationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteTopicRuleDestinationCommandInput - {@link DeleteTopicRuleDestinationCommandInput}
@@ -69,6 +72,8 @@ export interface DeleteTopicRuleDestinationCommandOutput extends DeleteTopicRule
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this operation.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class DeleteTopicRuleDestinationCommand extends $Command<

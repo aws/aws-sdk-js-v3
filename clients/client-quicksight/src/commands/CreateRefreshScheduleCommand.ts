@@ -36,30 +36,38 @@ export interface CreateRefreshScheduleCommandOutput extends CreateRefreshSchedul
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { QuickSightClient, CreateRefreshScheduleCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
- * // const { QuickSightClient, CreateRefreshScheduleCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * import { QuickSightClient, CreateRefreshScheduleCommand } from '@aws-sdk/client-quicksight'; // ES Modules import
+ * // const { QuickSightClient, CreateRefreshScheduleCommand } = require('@aws-sdk/client-quicksight'); // CommonJS import
  * const client = new QuickSightClient(config);
  * const input = { // CreateRefreshScheduleRequest
- *   DataSetId: "STRING_VALUE", // required
- *   AwsAccountId: "STRING_VALUE", // required
+ *   DataSetId: 'STRING_VALUE', // required
+ *   AwsAccountId: 'STRING_VALUE', // required
  *   Schedule: { // RefreshSchedule
- *     ScheduleId: "STRING_VALUE", // required
+ *     ScheduleId: 'STRING_VALUE', // required
  *     ScheduleFrequency: { // RefreshFrequency
- *       Interval: "MINUTE15" || "MINUTE30" || "HOURLY" || "DAILY" || "WEEKLY" || "MONTHLY", // required
+ *       Interval: 'MINUTE15' || 'MINUTE30' || 'HOURLY' || 'DAILY' || 'WEEKLY' || 'MONTHLY', // required
  *       RefreshOnDay: { // ScheduleRefreshOnEntity
- *         DayOfWeek: "SUNDAY" || "MONDAY" || "TUESDAY" || "WEDNESDAY" || "THURSDAY" || "FRIDAY" || "SATURDAY",
- *         DayOfMonth: "STRING_VALUE",
+ *         DayOfWeek: 'SUNDAY' || 'MONDAY' || 'TUESDAY' || 'WEDNESDAY' || 'THURSDAY' || 'FRIDAY' || 'SATURDAY',
+ *         DayOfMonth: 'STRING_VALUE',
  *       },
- *       Timezone: "STRING_VALUE",
- *       TimeOfTheDay: "STRING_VALUE",
+ *       Timezone: 'STRING_VALUE',
+ *       TimeOfTheDay: 'STRING_VALUE',
  *     },
- *     StartAfterDateTime: new Date("TIMESTAMP"),
- *     RefreshType: "INCREMENTAL_REFRESH" || "FULL_REFRESH", // required
- *     Arn: "STRING_VALUE",
+ *     StartAfterDateTime: new Date('TIMESTAMP'),
+ *     RefreshType: 'INCREMENTAL_REFRESH' || 'FULL_REFRESH', // required
+ *     Arn: 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateRefreshScheduleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateRefreshScheduleResponse
+ *   Status: Number('int'),
+ *   RequestId: 'STRING_VALUE',
+ *   ScheduleId: 'STRING_VALUE',
+ *   Arn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateRefreshScheduleCommandInput - {@link CreateRefreshScheduleCommandInput}
@@ -95,6 +103,8 @@ export interface CreateRefreshScheduleCommandOutput extends CreateRefreshSchedul
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Access is throttled.</p>
  *
+ * @throws {@link QuickSightServiceException}
+ * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
 export class CreateRefreshScheduleCommand extends $Command<

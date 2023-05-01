@@ -44,22 +44,22 @@ export interface UpdateApplicationResourceLifecycleCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElasticBeanstalkClient, UpdateApplicationResourceLifecycleCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
- * // const { ElasticBeanstalkClient, UpdateApplicationResourceLifecycleCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
+ * import { ElasticBeanstalkClient, UpdateApplicationResourceLifecycleCommand } from '@aws-sdk/client-elastic-beanstalk'; // ES Modules import
+ * // const { ElasticBeanstalkClient, UpdateApplicationResourceLifecycleCommand } = require('@aws-sdk/client-elastic-beanstalk'); // CommonJS import
  * const client = new ElasticBeanstalkClient(config);
  * const input = { // UpdateApplicationResourceLifecycleMessage
- *   ApplicationName: "STRING_VALUE", // required
+ *   ApplicationName: 'STRING_VALUE', // required
  *   ResourceLifecycleConfig: { // ApplicationResourceLifecycleConfig
- *     ServiceRole: "STRING_VALUE",
+ *     ServiceRole: 'STRING_VALUE',
  *     VersionLifecycleConfig: { // ApplicationVersionLifecycleConfig
  *       MaxCountRule: { // MaxCountRule
  *         Enabled: true || false, // required
- *         MaxCount: Number("int"),
+ *         MaxCount: Number('int'),
  *         DeleteSourceFromS3: true || false,
  *       },
  *       MaxAgeRule: { // MaxAgeRule
  *         Enabled: true || false, // required
- *         MaxAgeInDays: Number("int"),
+ *         MaxAgeInDays: Number('int'),
  *         DeleteSourceFromS3: true || false,
  *       },
  *     },
@@ -67,6 +67,26 @@ export interface UpdateApplicationResourceLifecycleCommandOutput
  * };
  * const command = new UpdateApplicationResourceLifecycleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ApplicationResourceLifecycleDescriptionMessage
+ *   ApplicationName: 'STRING_VALUE',
+ *   ResourceLifecycleConfig: { // ApplicationResourceLifecycleConfig
+ *     ServiceRole: 'STRING_VALUE',
+ *     VersionLifecycleConfig: { // ApplicationVersionLifecycleConfig
+ *       MaxCountRule: { // MaxCountRule
+ *         Enabled: true || false, // required
+ *         MaxCount: Number('int'),
+ *         DeleteSourceFromS3: true || false,
+ *       },
+ *       MaxAgeRule: { // MaxAgeRule
+ *         Enabled: true || false, // required
+ *         MaxAgeInDays: Number('int'),
+ *         DeleteSourceFromS3: true || false,
+ *       },
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateApplicationResourceLifecycleCommandInput - {@link UpdateApplicationResourceLifecycleCommandInput}
@@ -79,6 +99,8 @@ export interface UpdateApplicationResourceLifecycleCommandOutput
  *  <p>The specified account does not have sufficient privileges for one or more AWS
  *       services.</p>
  *
+ * @throws {@link ElasticBeanstalkServiceException}
+ * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
  */
 export class UpdateApplicationResourceLifecycleCommand extends $Command<

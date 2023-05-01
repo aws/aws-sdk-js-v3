@@ -41,20 +41,34 @@ export interface DescribeEnvironmentMembershipsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Cloud9Client, DescribeEnvironmentMembershipsCommand } from "@aws-sdk/client-cloud9"; // ES Modules import
- * // const { Cloud9Client, DescribeEnvironmentMembershipsCommand } = require("@aws-sdk/client-cloud9"); // CommonJS import
+ * import { Cloud9Client, DescribeEnvironmentMembershipsCommand } from '@aws-sdk/client-cloud9'; // ES Modules import
+ * // const { Cloud9Client, DescribeEnvironmentMembershipsCommand } = require('@aws-sdk/client-cloud9'); // CommonJS import
  * const client = new Cloud9Client(config);
  * const input = { // DescribeEnvironmentMembershipsRequest
- *   userArn: "STRING_VALUE",
- *   environmentId: "STRING_VALUE",
+ *   userArn: 'STRING_VALUE',
+ *   environmentId: 'STRING_VALUE',
  *   permissions: [ // PermissionsList
- *     "owner" || "read-write" || "read-only",
+ *     'owner' || 'read-write' || 'read-only',
  *   ],
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new DescribeEnvironmentMembershipsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeEnvironmentMembershipsResult
+ *   memberships: [ // EnvironmentMembersList
+ *     { // EnvironmentMember
+ *       permissions: 'owner' || 'read-write' || 'read-only', // required
+ *       userId: 'STRING_VALUE', // required
+ *       userArn: 'STRING_VALUE', // required
+ *       environmentId: 'STRING_VALUE', // required
+ *       lastAccess: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeEnvironmentMembershipsCommandInput - {@link DescribeEnvironmentMembershipsCommandInput}
@@ -84,6 +98,8 @@ export interface DescribeEnvironmentMembershipsCommandOutput
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Too many service requests were made over the given time period.</p>
  *
+ * @throws {@link Cloud9ServiceException}
+ * <p>Base exception class for all service exceptions from Cloud9 service.</p>
  *
  * @example DescribeEnvironmentMemberships1
  * ```javascript

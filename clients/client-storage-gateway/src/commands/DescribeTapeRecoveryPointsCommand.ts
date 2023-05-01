@@ -42,16 +42,30 @@ export interface DescribeTapeRecoveryPointsCommandOutput extends DescribeTapeRec
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { StorageGatewayClient, DescribeTapeRecoveryPointsCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
- * // const { StorageGatewayClient, DescribeTapeRecoveryPointsCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
+ * import { StorageGatewayClient, DescribeTapeRecoveryPointsCommand } from '@aws-sdk/client-storage-gateway'; // ES Modules import
+ * // const { StorageGatewayClient, DescribeTapeRecoveryPointsCommand } = require('@aws-sdk/client-storage-gateway'); // CommonJS import
  * const client = new StorageGatewayClient(config);
  * const input = { // DescribeTapeRecoveryPointsInput
- *   GatewayARN: "STRING_VALUE", // required
- *   Marker: "STRING_VALUE",
- *   Limit: Number("int"),
+ *   GatewayARN: 'STRING_VALUE', // required
+ *   Marker: 'STRING_VALUE',
+ *   Limit: Number('int'),
  * };
  * const command = new DescribeTapeRecoveryPointsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeTapeRecoveryPointsOutput
+ *   GatewayARN: 'STRING_VALUE',
+ *   TapeRecoveryPointInfos: [ // TapeRecoveryPointInfos
+ *     { // TapeRecoveryPointInfo
+ *       TapeARN: 'STRING_VALUE',
+ *       TapeRecoveryPointTime: new Date('TIMESTAMP'),
+ *       TapeSizeInBytes: Number('long'),
+ *       TapeStatus: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   Marker: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeTapeRecoveryPointsCommandInput - {@link DescribeTapeRecoveryPointsCommandInput}
@@ -68,6 +82,8 @@ export interface DescribeTapeRecoveryPointsCommandOutput extends DescribeTapeRec
  *  <p>An exception occurred because an invalid gateway request was issued to the service. For
  *          more information, see the error and message fields.</p>
  *
+ * @throws {@link StorageGatewayServiceException}
+ * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
  * @example To describe virtual tape recovery points
  * ```javascript

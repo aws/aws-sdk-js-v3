@@ -39,17 +39,74 @@ export interface GetMemberDetectorsCommandOutput extends GetMemberDetectorsRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GuardDutyClient, GetMemberDetectorsCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
- * // const { GuardDutyClient, GetMemberDetectorsCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
+ * import { GuardDutyClient, GetMemberDetectorsCommand } from '@aws-sdk/client-guardduty'; // ES Modules import
+ * // const { GuardDutyClient, GetMemberDetectorsCommand } = require('@aws-sdk/client-guardduty'); // CommonJS import
  * const client = new GuardDutyClient(config);
  * const input = { // GetMemberDetectorsRequest
- *   DetectorId: "STRING_VALUE", // required
+ *   DetectorId: 'STRING_VALUE', // required
  *   AccountIds: [ // AccountIds // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new GetMemberDetectorsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetMemberDetectorsResponse
+ *   MemberDataSourceConfigurations: [ // MemberDataSourceConfigurations // required
+ *     { // MemberDataSourceConfiguration
+ *       AccountId: 'STRING_VALUE', // required
+ *       DataSources: { // DataSourceConfigurationsResult
+ *         CloudTrail: { // CloudTrailConfigurationResult
+ *           Status: 'ENABLED' || 'DISABLED', // required
+ *         },
+ *         DNSLogs: { // DNSLogsConfigurationResult
+ *           Status: 'ENABLED' || 'DISABLED', // required
+ *         },
+ *         FlowLogs: { // FlowLogsConfigurationResult
+ *           Status: 'ENABLED' || 'DISABLED', // required
+ *         },
+ *         S3Logs: { // S3LogsConfigurationResult
+ *           Status: 'ENABLED' || 'DISABLED', // required
+ *         },
+ *         Kubernetes: { // KubernetesConfigurationResult
+ *           AuditLogs: { // KubernetesAuditLogsConfigurationResult
+ *             Status: 'ENABLED' || 'DISABLED', // required
+ *           },
+ *         },
+ *         MalwareProtection: { // MalwareProtectionConfigurationResult
+ *           ScanEc2InstanceWithFindings: { // ScanEc2InstanceWithFindingsResult
+ *             EbsVolumes: { // EbsVolumesResult
+ *               Status: 'ENABLED' || 'DISABLED',
+ *               Reason: 'STRING_VALUE',
+ *             },
+ *           },
+ *           ServiceRole: 'STRING_VALUE',
+ *         },
+ *       },
+ *       Features: [ // MemberFeaturesConfigurationsResults
+ *         { // MemberFeaturesConfigurationResult
+ *           Name: 'S3_DATA_EVENTS' || 'EKS_AUDIT_LOGS' || 'EBS_MALWARE_PROTECTION' || 'RDS_LOGIN_EVENTS' || 'EKS_RUNTIME_MONITORING' || 'LAMBDA_NETWORK_LOGS',
+ *           Status: 'ENABLED' || 'DISABLED',
+ *           UpdatedAt: new Date('TIMESTAMP'),
+ *           AdditionalConfiguration: [ // MemberAdditionalConfigurationResults
+ *             { // MemberAdditionalConfigurationResult
+ *               Name: 'EKS_ADDON_MANAGEMENT',
+ *               Status: 'ENABLED' || 'DISABLED',
+ *               UpdatedAt: new Date('TIMESTAMP'),
+ *             },
+ *           ],
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   UnprocessedAccounts: [ // UnprocessedAccounts // required
+ *     { // UnprocessedAccount
+ *       AccountId: 'STRING_VALUE', // required
+ *       Result: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetMemberDetectorsCommandInput - {@link GetMemberDetectorsCommandInput}
@@ -64,6 +121,8 @@ export interface GetMemberDetectorsCommandOutput extends GetMemberDetectorsRespo
  * @throws {@link InternalServerErrorException} (server fault)
  *  <p>An internal server error exception object.</p>
  *
+ * @throws {@link GuardDutyServiceException}
+ * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
  */
 export class GetMemberDetectorsCommand extends $Command<

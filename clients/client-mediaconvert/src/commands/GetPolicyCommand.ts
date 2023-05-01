@@ -36,12 +36,21 @@ export interface GetPolicyCommandOutput extends GetPolicyResponse, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MediaConvertClient, GetPolicyCommand } from "@aws-sdk/client-mediaconvert"; // ES Modules import
- * // const { MediaConvertClient, GetPolicyCommand } = require("@aws-sdk/client-mediaconvert"); // CommonJS import
+ * import { MediaConvertClient, GetPolicyCommand } from '@aws-sdk/client-mediaconvert'; // ES Modules import
+ * // const { MediaConvertClient, GetPolicyCommand } = require('@aws-sdk/client-mediaconvert'); // CommonJS import
  * const client = new MediaConvertClient(config);
  * const input = {};
  * const command = new GetPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetPolicyResponse
+ *   Policy: { // Policy
+ *     HttpInputs: 'ALLOWED' || 'DISALLOWED',
+ *     HttpsInputs: 'ALLOWED' || 'DISALLOWED',
+ *     S3Inputs: 'ALLOWED' || 'DISALLOWED',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetPolicyCommandInput - {@link GetPolicyCommandInput}
@@ -68,6 +77,8 @@ export interface GetPolicyCommandOutput extends GetPolicyResponse, __MetadataBea
  * @throws {@link TooManyRequestsException} (client fault)
  *  Too many requests have been sent in too short of a time. The service limits the rate at which it will accept requests.
  *
+ * @throws {@link MediaConvertServiceException}
+ * <p>Base exception class for all service exceptions from MediaConvert service.</p>
  *
  */
 export class GetPolicyCommand extends $Command<

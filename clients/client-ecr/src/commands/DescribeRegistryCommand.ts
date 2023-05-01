@@ -38,12 +38,35 @@ export interface DescribeRegistryCommandOutput extends DescribeRegistryResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ECRClient, DescribeRegistryCommand } from "@aws-sdk/client-ecr"; // ES Modules import
- * // const { ECRClient, DescribeRegistryCommand } = require("@aws-sdk/client-ecr"); // CommonJS import
+ * import { ECRClient, DescribeRegistryCommand } from '@aws-sdk/client-ecr'; // ES Modules import
+ * // const { ECRClient, DescribeRegistryCommand } = require('@aws-sdk/client-ecr'); // CommonJS import
  * const client = new ECRClient(config);
  * const input = {};
  * const command = new DescribeRegistryCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeRegistryResponse
+ *   registryId: 'STRING_VALUE',
+ *   replicationConfiguration: { // ReplicationConfiguration
+ *     rules: [ // ReplicationRuleList // required
+ *       { // ReplicationRule
+ *         destinations: [ // ReplicationDestinationList // required
+ *           { // ReplicationDestination
+ *             region: 'STRING_VALUE', // required
+ *             registryId: 'STRING_VALUE', // required
+ *           },
+ *         ],
+ *         repositoryFilters: [ // RepositoryFilterList
+ *           { // RepositoryFilter
+ *             filter: 'STRING_VALUE', // required
+ *             filterType: 'STRING_VALUE', // required
+ *           },
+ *         ],
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeRegistryCommandInput - {@link DescribeRegistryCommandInput}
@@ -62,6 +85,8 @@ export interface DescribeRegistryCommandOutput extends DescribeRegistryResponse,
  * @throws {@link ValidationException} (client fault)
  *  <p>There was an exception validating this request.</p>
  *
+ * @throws {@link ECRServiceException}
+ * <p>Base exception class for all service exceptions from ECR service.</p>
  *
  */
 export class DescribeRegistryCommand extends $Command<

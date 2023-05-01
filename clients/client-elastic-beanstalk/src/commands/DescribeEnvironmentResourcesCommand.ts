@@ -38,15 +38,58 @@ export interface DescribeEnvironmentResourcesCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElasticBeanstalkClient, DescribeEnvironmentResourcesCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
- * // const { ElasticBeanstalkClient, DescribeEnvironmentResourcesCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
+ * import { ElasticBeanstalkClient, DescribeEnvironmentResourcesCommand } from '@aws-sdk/client-elastic-beanstalk'; // ES Modules import
+ * // const { ElasticBeanstalkClient, DescribeEnvironmentResourcesCommand } = require('@aws-sdk/client-elastic-beanstalk'); // CommonJS import
  * const client = new ElasticBeanstalkClient(config);
  * const input = { // DescribeEnvironmentResourcesMessage
- *   EnvironmentId: "STRING_VALUE",
- *   EnvironmentName: "STRING_VALUE",
+ *   EnvironmentId: 'STRING_VALUE',
+ *   EnvironmentName: 'STRING_VALUE',
  * };
  * const command = new DescribeEnvironmentResourcesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // EnvironmentResourceDescriptionsMessage
+ *   EnvironmentResources: { // EnvironmentResourceDescription
+ *     EnvironmentName: 'STRING_VALUE',
+ *     AutoScalingGroups: [ // AutoScalingGroupList
+ *       { // AutoScalingGroup
+ *         Name: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     Instances: [ // InstanceList
+ *       { // Instance
+ *         Id: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     LaunchConfigurations: [ // LaunchConfigurationList
+ *       { // LaunchConfiguration
+ *         Name: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     LaunchTemplates: [ // LaunchTemplateList
+ *       { // LaunchTemplate
+ *         Id: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     LoadBalancers: [ // LoadBalancerList
+ *       { // LoadBalancer
+ *         Name: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     Triggers: [ // TriggerList
+ *       { // Trigger
+ *         Name: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     Queues: [ // QueueList
+ *       { // Queue
+ *         Name: 'STRING_VALUE',
+ *         URL: 'STRING_VALUE',
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeEnvironmentResourcesCommandInput - {@link DescribeEnvironmentResourcesCommandInput}
@@ -59,6 +102,8 @@ export interface DescribeEnvironmentResourcesCommandOutput
  *  <p>The specified account does not have sufficient privileges for one or more AWS
  *       services.</p>
  *
+ * @throws {@link ElasticBeanstalkServiceException}
+ * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
  * @example To view information about the AWS resources in your environment
  * ```javascript

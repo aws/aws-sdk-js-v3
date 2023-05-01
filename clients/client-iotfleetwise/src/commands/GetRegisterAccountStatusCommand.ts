@@ -42,12 +42,33 @@ export interface GetRegisterAccountStatusCommandOutput extends GetRegisterAccoun
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTFleetWiseClient, GetRegisterAccountStatusCommand } from "@aws-sdk/client-iotfleetwise"; // ES Modules import
- * // const { IoTFleetWiseClient, GetRegisterAccountStatusCommand } = require("@aws-sdk/client-iotfleetwise"); // CommonJS import
+ * import { IoTFleetWiseClient, GetRegisterAccountStatusCommand } from '@aws-sdk/client-iotfleetwise'; // ES Modules import
+ * // const { IoTFleetWiseClient, GetRegisterAccountStatusCommand } = require('@aws-sdk/client-iotfleetwise'); // CommonJS import
  * const client = new IoTFleetWiseClient(config);
  * const input = {};
  * const command = new GetRegisterAccountStatusCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetRegisterAccountStatusResponse
+ *   customerAccountId: 'STRING_VALUE', // required
+ *   accountStatus: 'STRING_VALUE', // required
+ *   timestreamRegistrationResponse: { // TimestreamRegistrationResponse
+ *     timestreamDatabaseName: 'STRING_VALUE', // required
+ *     timestreamTableName: 'STRING_VALUE', // required
+ *     timestreamDatabaseArn: 'STRING_VALUE',
+ *     timestreamTableArn: 'STRING_VALUE',
+ *     registrationStatus: 'STRING_VALUE', // required
+ *     errorMessage: 'STRING_VALUE',
+ *   },
+ *   iamRegistrationResponse: { // IamRegistrationResponse
+ *     roleArn: 'STRING_VALUE', // required
+ *     registrationStatus: 'STRING_VALUE', // required
+ *     errorMessage: 'STRING_VALUE',
+ *   },
+ *   creationTime: new Date('TIMESTAMP'), // required
+ *   lastModificationTime: new Date('TIMESTAMP'), // required
+ * };
+ *
  * ```
  *
  * @param GetRegisterAccountStatusCommandInput - {@link GetRegisterAccountStatusCommandInput}
@@ -71,6 +92,8 @@ export interface GetRegisterAccountStatusCommandOutput extends GetRegisterAccoun
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
  *
+ * @throws {@link IoTFleetWiseServiceException}
+ * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
  */
 export class GetRegisterAccountStatusCommand extends $Command<

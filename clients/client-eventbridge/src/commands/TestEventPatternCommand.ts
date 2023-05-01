@@ -40,15 +40,20 @@ export interface TestEventPatternCommandOutput extends TestEventPatternResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EventBridgeClient, TestEventPatternCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
- * // const { EventBridgeClient, TestEventPatternCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
+ * import { EventBridgeClient, TestEventPatternCommand } from '@aws-sdk/client-eventbridge'; // ES Modules import
+ * // const { EventBridgeClient, TestEventPatternCommand } = require('@aws-sdk/client-eventbridge'); // CommonJS import
  * const client = new EventBridgeClient(config);
  * const input = { // TestEventPatternRequest
- *   EventPattern: "STRING_VALUE", // required
- *   Event: "STRING_VALUE", // required
+ *   EventPattern: 'STRING_VALUE', // required
+ *   Event: 'STRING_VALUE', // required
  * };
  * const command = new TestEventPatternCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // TestEventPatternResponse
+ *   Result: true || false,
+ * };
+ *
  * ```
  *
  * @param TestEventPatternCommandInput - {@link TestEventPatternCommandInput}
@@ -63,6 +68,8 @@ export interface TestEventPatternCommandOutput extends TestEventPatternResponse,
  * @throws {@link InvalidEventPatternException} (client fault)
  *  <p>The event pattern is not valid.</p>
  *
+ * @throws {@link EventBridgeServiceException}
+ * <p>Base exception class for all service exceptions from EventBridge service.</p>
  *
  */
 export class TestEventPatternCommand extends $Command<

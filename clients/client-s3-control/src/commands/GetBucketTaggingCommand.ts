@@ -73,15 +73,25 @@ export interface GetBucketTaggingCommandOutput extends GetBucketTaggingResult, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { S3ControlClient, GetBucketTaggingCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
- * // const { S3ControlClient, GetBucketTaggingCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
+ * import { S3ControlClient, GetBucketTaggingCommand } from '@aws-sdk/client-s3-control'; // ES Modules import
+ * // const { S3ControlClient, GetBucketTaggingCommand } = require('@aws-sdk/client-s3-control'); // CommonJS import
  * const client = new S3ControlClient(config);
  * const input = { // GetBucketTaggingRequest
- *   AccountId: "STRING_VALUE",
- *   Bucket: "STRING_VALUE", // required
+ *   AccountId: 'STRING_VALUE',
+ *   Bucket: 'STRING_VALUE', // required
  * };
  * const command = new GetBucketTaggingCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetBucketTaggingResult
+ *   TagSet: [ // S3TagSet // required
+ *     { // S3Tag
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetBucketTaggingCommandInput - {@link GetBucketTaggingCommandInput}
@@ -90,6 +100,8 @@ export interface GetBucketTaggingCommandOutput extends GetBucketTaggingResult, _
  * @see {@link GetBucketTaggingCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
  *
+ * @throws {@link S3ControlServiceException}
+ * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
  */
 export class GetBucketTaggingCommand extends $Command<

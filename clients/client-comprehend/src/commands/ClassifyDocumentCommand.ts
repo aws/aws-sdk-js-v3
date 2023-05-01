@@ -51,23 +51,70 @@ export interface ClassifyDocumentCommandOutput extends ClassifyDocumentResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ComprehendClient, ClassifyDocumentCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
- * // const { ComprehendClient, ClassifyDocumentCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
+ * import { ComprehendClient, ClassifyDocumentCommand } from '@aws-sdk/client-comprehend'; // ES Modules import
+ * // const { ComprehendClient, ClassifyDocumentCommand } = require('@aws-sdk/client-comprehend'); // CommonJS import
  * const client = new ComprehendClient(config);
  * const input = { // ClassifyDocumentRequest
- *   Text: "STRING_VALUE",
- *   EndpointArn: "STRING_VALUE", // required
- *   Bytes: "BLOB_VALUE",
+ *   Text: 'STRING_VALUE',
+ *   EndpointArn: 'STRING_VALUE', // required
+ *   Bytes: 'BLOB_VALUE',
  *   DocumentReaderConfig: { // DocumentReaderConfig
- *     DocumentReadAction: "TEXTRACT_DETECT_DOCUMENT_TEXT" || "TEXTRACT_ANALYZE_DOCUMENT", // required
- *     DocumentReadMode: "SERVICE_DEFAULT" || "FORCE_DOCUMENT_READ_ACTION",
+ *     DocumentReadAction: 'TEXTRACT_DETECT_DOCUMENT_TEXT' || 'TEXTRACT_ANALYZE_DOCUMENT', // required
+ *     DocumentReadMode: 'SERVICE_DEFAULT' || 'FORCE_DOCUMENT_READ_ACTION',
  *     FeatureTypes: [ // ListOfDocumentReadFeatureTypes
- *       "TABLES" || "FORMS",
+ *       'TABLES' || 'FORMS',
  *     ],
  *   },
  * };
  * const command = new ClassifyDocumentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ClassifyDocumentResponse
+ *   Classes: [ // ListOfClasses
+ *     { // DocumentClass
+ *       Name: 'STRING_VALUE',
+ *       Score: Number('float'),
+ *       Page: Number('int'),
+ *     },
+ *   ],
+ *   Labels: [ // ListOfLabels
+ *     { // DocumentLabel
+ *       Name: 'STRING_VALUE',
+ *       Score: Number('float'),
+ *       Page: Number('int'),
+ *     },
+ *   ],
+ *   DocumentMetadata: { // DocumentMetadata
+ *     Pages: Number('int'),
+ *     ExtractedCharacters: [ // ListOfExtractedCharacters
+ *       { // ExtractedCharactersListItem
+ *         Page: Number('int'),
+ *         Count: Number('int'),
+ *       },
+ *     ],
+ *   },
+ *   DocumentType: [ // ListOfDocumentType
+ *     { // DocumentTypeListItem
+ *       Page: Number('int'),
+ *       Type: 'NATIVE_PDF' || 'SCANNED_PDF' || 'MS_WORD' || 'IMAGE' || 'PLAIN_TEXT' || 'TEXTRACT_DETECT_DOCUMENT_TEXT_JSON' || 'TEXTRACT_ANALYZE_DOCUMENT_JSON',
+ *     },
+ *   ],
+ *   Errors: [ // ListOfErrors
+ *     { // ErrorsListItem
+ *       Page: Number('int'),
+ *       ErrorCode: 'TEXTRACT_BAD_PAGE' || 'TEXTRACT_PROVISIONED_THROUGHPUT_EXCEEDED' || 'PAGE_CHARACTERS_EXCEEDED' || 'PAGE_SIZE_EXCEEDED' || 'INTERNAL_SERVER_ERROR',
+ *       ErrorMessage: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   Warnings: [ // ListOfWarnings
+ *     { // WarningsListItem
+ *       Page: Number('int'),
+ *       WarnCode: 'INFERENCING_PLAINTEXT_WITH_NATIVE_TRAINED_MODEL' || 'INFERENCING_NATIVE_DOCUMENT_WITH_PLAINTEXT_TRAINED_MODEL',
+ *       WarnMessage: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ClassifyDocumentCommandInput - {@link ClassifyDocumentCommandInput}
@@ -89,6 +136,8 @@ export interface ClassifyDocumentCommandOutput extends ClassifyDocumentResponse,
  * @throws {@link TextSizeLimitExceededException} (client fault)
  *  <p>The size of the input text exceeds the limit. Use a smaller document.</p>
  *
+ * @throws {@link ComprehendServiceException}
+ * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
  */
 export class ClassifyDocumentCommand extends $Command<

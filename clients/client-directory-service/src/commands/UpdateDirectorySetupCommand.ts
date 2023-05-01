@@ -38,19 +38,22 @@ export interface UpdateDirectorySetupCommandOutput extends UpdateDirectorySetupR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DirectoryServiceClient, UpdateDirectorySetupCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
- * // const { DirectoryServiceClient, UpdateDirectorySetupCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
+ * import { DirectoryServiceClient, UpdateDirectorySetupCommand } from '@aws-sdk/client-directory-service'; // ES Modules import
+ * // const { DirectoryServiceClient, UpdateDirectorySetupCommand } = require('@aws-sdk/client-directory-service'); // CommonJS import
  * const client = new DirectoryServiceClient(config);
  * const input = { // UpdateDirectorySetupRequest
- *   DirectoryId: "STRING_VALUE", // required
- *   UpdateType: "OS", // required
+ *   DirectoryId: 'STRING_VALUE', // required
+ *   UpdateType: 'OS', // required
  *   OSUpdateSettings: { // OSUpdateSettings
- *     OSVersion: "SERVER_2012" || "SERVER_2019",
+ *     OSVersion: 'SERVER_2012' || 'SERVER_2019',
  *   },
  *   CreateSnapshotBeforeUpdate: true || false,
  * };
  * const command = new UpdateDirectorySetupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateDirectorySetupCommandInput - {@link UpdateDirectorySetupCommandInput}
@@ -90,6 +93,8 @@ export interface UpdateDirectorySetupCommandOutput extends UpdateDirectorySetupR
  * @throws {@link UnsupportedOperationException} (client fault)
  *  <p>The operation is not supported.</p>
  *
+ * @throws {@link DirectoryServiceServiceException}
+ * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
  */
 export class UpdateDirectorySetupCommand extends $Command<

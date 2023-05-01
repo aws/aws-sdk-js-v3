@@ -40,16 +40,29 @@ export interface DescribeUserProfilesCommandOutput extends DescribeUserProfilesR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OpsWorksClient, DescribeUserProfilesCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
- * // const { OpsWorksClient, DescribeUserProfilesCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
+ * import { OpsWorksClient, DescribeUserProfilesCommand } from '@aws-sdk/client-opsworks'; // ES Modules import
+ * // const { OpsWorksClient, DescribeUserProfilesCommand } = require('@aws-sdk/client-opsworks'); // CommonJS import
  * const client = new OpsWorksClient(config);
  * const input = { // DescribeUserProfilesRequest
  *   IamUserArns: [ // Strings
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new DescribeUserProfilesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeUserProfilesResult
+ *   UserProfiles: [ // UserProfiles
+ *     { // UserProfile
+ *       IamUserArn: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *       SshUsername: 'STRING_VALUE',
+ *       SshPublicKey: 'STRING_VALUE',
+ *       AllowSelfManagement: true || false,
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeUserProfilesCommandInput - {@link DescribeUserProfilesCommandInput}
@@ -64,6 +77,8 @@ export interface DescribeUserProfilesCommandOutput extends DescribeUserProfilesR
  * @throws {@link ValidationException} (client fault)
  *  <p>Indicates that a request was not valid.</p>
  *
+ * @throws {@link OpsWorksServiceException}
+ * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
  */
 export class DescribeUserProfilesCommand extends $Command<

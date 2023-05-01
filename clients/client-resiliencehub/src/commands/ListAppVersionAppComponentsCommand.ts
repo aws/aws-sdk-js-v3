@@ -41,17 +41,36 @@ export interface ListAppVersionAppComponentsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ResiliencehubClient, ListAppVersionAppComponentsCommand } from "@aws-sdk/client-resiliencehub"; // ES Modules import
- * // const { ResiliencehubClient, ListAppVersionAppComponentsCommand } = require("@aws-sdk/client-resiliencehub"); // CommonJS import
+ * import { ResiliencehubClient, ListAppVersionAppComponentsCommand } from '@aws-sdk/client-resiliencehub'; // ES Modules import
+ * // const { ResiliencehubClient, ListAppVersionAppComponentsCommand } = require('@aws-sdk/client-resiliencehub'); // CommonJS import
  * const client = new ResiliencehubClient(config);
  * const input = { // ListAppVersionAppComponentsRequest
- *   appArn: "STRING_VALUE", // required
- *   appVersion: "STRING_VALUE", // required
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   appArn: 'STRING_VALUE', // required
+ *   appVersion: 'STRING_VALUE', // required
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new ListAppVersionAppComponentsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListAppVersionAppComponentsResponse
+ *   appArn: 'STRING_VALUE', // required
+ *   appVersion: 'STRING_VALUE', // required
+ *   appComponents: [ // AppComponentList
+ *     { // AppComponent
+ *       name: 'STRING_VALUE', // required
+ *       type: 'STRING_VALUE', // required
+ *       id: 'STRING_VALUE',
+ *       additionalInfo: { // AdditionalInfoMap
+ *         '<keys>': [ // AdditionalInfoValueList
+ *           'STRING_VALUE',
+ *         ],
+ *       },
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListAppVersionAppComponentsCommandInput - {@link ListAppVersionAppComponentsCommandInput}
@@ -84,6 +103,8 @@ export interface ListAppVersionAppComponentsCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>This exception occurs when a request is not valid.</p>
  *
+ * @throws {@link ResiliencehubServiceException}
+ * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
  */
 export class ListAppVersionAppComponentsCommand extends $Command<

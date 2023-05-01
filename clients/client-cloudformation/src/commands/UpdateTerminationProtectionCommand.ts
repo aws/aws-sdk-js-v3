@@ -42,15 +42,20 @@ export interface UpdateTerminationProtectionCommandOutput extends UpdateTerminat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudFormationClient, UpdateTerminationProtectionCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
- * // const { CloudFormationClient, UpdateTerminationProtectionCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
+ * import { CloudFormationClient, UpdateTerminationProtectionCommand } from '@aws-sdk/client-cloudformation'; // ES Modules import
+ * // const { CloudFormationClient, UpdateTerminationProtectionCommand } = require('@aws-sdk/client-cloudformation'); // CommonJS import
  * const client = new CloudFormationClient(config);
  * const input = { // UpdateTerminationProtectionInput
  *   EnableTerminationProtection: true || false, // required
- *   StackName: "STRING_VALUE", // required
+ *   StackName: 'STRING_VALUE', // required
  * };
  * const command = new UpdateTerminationProtectionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateTerminationProtectionOutput
+ *   StackId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateTerminationProtectionCommandInput - {@link UpdateTerminationProtectionCommandInput}
@@ -59,6 +64,8 @@ export interface UpdateTerminationProtectionCommandOutput extends UpdateTerminat
  * @see {@link UpdateTerminationProtectionCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
+ * @throws {@link CloudFormationServiceException}
+ * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
  */
 export class UpdateTerminationProtectionCommand extends $Command<

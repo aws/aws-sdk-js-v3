@@ -38,22 +38,81 @@ export interface DescribeMergeConflictsCommandOutput extends DescribeMergeConfli
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeCommitClient, DescribeMergeConflictsCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
- * // const { CodeCommitClient, DescribeMergeConflictsCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
+ * import { CodeCommitClient, DescribeMergeConflictsCommand } from '@aws-sdk/client-codecommit'; // ES Modules import
+ * // const { CodeCommitClient, DescribeMergeConflictsCommand } = require('@aws-sdk/client-codecommit'); // CommonJS import
  * const client = new CodeCommitClient(config);
  * const input = { // DescribeMergeConflictsInput
- *   repositoryName: "STRING_VALUE", // required
- *   destinationCommitSpecifier: "STRING_VALUE", // required
- *   sourceCommitSpecifier: "STRING_VALUE", // required
- *   mergeOption: "STRING_VALUE", // required
- *   maxMergeHunks: Number("int"),
- *   filePath: "STRING_VALUE", // required
- *   conflictDetailLevel: "STRING_VALUE",
- *   conflictResolutionStrategy: "STRING_VALUE",
- *   nextToken: "STRING_VALUE",
+ *   repositoryName: 'STRING_VALUE', // required
+ *   destinationCommitSpecifier: 'STRING_VALUE', // required
+ *   sourceCommitSpecifier: 'STRING_VALUE', // required
+ *   mergeOption: 'STRING_VALUE', // required
+ *   maxMergeHunks: Number('int'),
+ *   filePath: 'STRING_VALUE', // required
+ *   conflictDetailLevel: 'STRING_VALUE',
+ *   conflictResolutionStrategy: 'STRING_VALUE',
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new DescribeMergeConflictsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeMergeConflictsOutput
+ *   conflictMetadata: { // ConflictMetadata
+ *     filePath: 'STRING_VALUE',
+ *     fileSizes: { // FileSizes
+ *       source: Number('long'),
+ *       destination: Number('long'),
+ *       base: Number('long'),
+ *     },
+ *     fileModes: { // FileModes
+ *       source: 'STRING_VALUE',
+ *       destination: 'STRING_VALUE',
+ *       base: 'STRING_VALUE',
+ *     },
+ *     objectTypes: { // ObjectTypes
+ *       source: 'STRING_VALUE',
+ *       destination: 'STRING_VALUE',
+ *       base: 'STRING_VALUE',
+ *     },
+ *     numberOfConflicts: Number('int'),
+ *     isBinaryFile: { // IsBinaryFile
+ *       source: true || false,
+ *       destination: true || false,
+ *       base: true || false,
+ *     },
+ *     contentConflict: true || false,
+ *     fileModeConflict: true || false,
+ *     objectTypeConflict: true || false,
+ *     mergeOperations: { // MergeOperations
+ *       source: 'STRING_VALUE',
+ *       destination: 'STRING_VALUE',
+ *     },
+ *   },
+ *   mergeHunks: [ // MergeHunks // required
+ *     { // MergeHunk
+ *       isConflict: true || false,
+ *       source: { // MergeHunkDetail
+ *         startLine: Number('int'),
+ *         endLine: Number('int'),
+ *         hunkContent: 'STRING_VALUE',
+ *       },
+ *       destination: {
+ *         startLine: Number('int'),
+ *         endLine: Number('int'),
+ *         hunkContent: 'STRING_VALUE',
+ *       },
+ *       base: {
+ *         startLine: Number('int'),
+ *         endLine: Number('int'),
+ *         hunkContent: 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ *   destinationCommitId: 'STRING_VALUE', // required
+ *   sourceCommitId: 'STRING_VALUE', // required
+ *   baseCommitId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeMergeConflictsCommandInput - {@link DescribeMergeConflictsCommandInput}
@@ -139,6 +198,8 @@ export interface DescribeMergeConflictsCommandOutput extends DescribeMergeConfli
  *  <p>The divergence between the tips of the provided commit specifiers is too great to determine whether there might be
  *             any merge conflicts. Locally compare the specifiers using <code>git diff</code> or a diff tool.</p>
  *
+ * @throws {@link CodeCommitServiceException}
+ * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
  */
 export class DescribeMergeConflictsCommand extends $Command<

@@ -36,14 +36,17 @@ export interface DeleteProfilingGroupCommandOutput extends DeleteProfilingGroupR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeGuruProfilerClient, DeleteProfilingGroupCommand } from "@aws-sdk/client-codeguruprofiler"; // ES Modules import
- * // const { CodeGuruProfilerClient, DeleteProfilingGroupCommand } = require("@aws-sdk/client-codeguruprofiler"); // CommonJS import
+ * import { CodeGuruProfilerClient, DeleteProfilingGroupCommand } from '@aws-sdk/client-codeguruprofiler'; // ES Modules import
+ * // const { CodeGuruProfilerClient, DeleteProfilingGroupCommand } = require('@aws-sdk/client-codeguruprofiler'); // CommonJS import
  * const client = new CodeGuruProfilerClient(config);
  * const input = { // DeleteProfilingGroupRequest
- *   profilingGroupName: "STRING_VALUE", // required
+ *   profilingGroupName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteProfilingGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteProfilingGroupCommandInput - {@link DeleteProfilingGroupCommandInput}
@@ -70,6 +73,8 @@ export interface DeleteProfilingGroupCommandOutput extends DeleteProfilingGroupR
  * @throws {@link ValidationException} (client fault)
  *  <p>The parameter is not valid.</p>
  *
+ * @throws {@link CodeGuruProfilerServiceException}
+ * <p>Base exception class for all service exceptions from CodeGuruProfiler service.</p>
  *
  */
 export class DeleteProfilingGroupCommand extends $Command<

@@ -38,14 +38,24 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { HealthLakeClient, ListTagsForResourceCommand } from "@aws-sdk/client-healthlake"; // ES Modules import
- * // const { HealthLakeClient, ListTagsForResourceCommand } = require("@aws-sdk/client-healthlake"); // CommonJS import
+ * import { HealthLakeClient, ListTagsForResourceCommand } from '@aws-sdk/client-healthlake'; // ES Modules import
+ * // const { HealthLakeClient, ListTagsForResourceCommand } = require('@aws-sdk/client-healthlake'); // CommonJS import
  * const client = new HealthLakeClient(config);
  * const input = { // ListTagsForResourceRequest
- *   ResourceARN: "STRING_VALUE", // required
+ *   ResourceARN: 'STRING_VALUE', // required
  * };
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTagsForResourceResponse
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListTagsForResourceCommandInput - {@link ListTagsForResourceCommandInput}
@@ -60,6 +70,8 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @throws {@link ValidationException} (client fault)
  *  <p>The user input parameter was invalid.</p>
  *
+ * @throws {@link HealthLakeServiceException}
+ * <p>Base exception class for all service exceptions from HealthLake service.</p>
  *
  */
 export class ListTagsForResourceCommand extends $Command<

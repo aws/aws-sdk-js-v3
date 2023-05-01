@@ -36,15 +36,41 @@ export interface DescribeFargateProfileCommandOutput extends DescribeFargateProf
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EKSClient, DescribeFargateProfileCommand } from "@aws-sdk/client-eks"; // ES Modules import
- * // const { EKSClient, DescribeFargateProfileCommand } = require("@aws-sdk/client-eks"); // CommonJS import
+ * import { EKSClient, DescribeFargateProfileCommand } from '@aws-sdk/client-eks'; // ES Modules import
+ * // const { EKSClient, DescribeFargateProfileCommand } = require('@aws-sdk/client-eks'); // CommonJS import
  * const client = new EKSClient(config);
  * const input = { // DescribeFargateProfileRequest
- *   clusterName: "STRING_VALUE", // required
- *   fargateProfileName: "STRING_VALUE", // required
+ *   clusterName: 'STRING_VALUE', // required
+ *   fargateProfileName: 'STRING_VALUE', // required
  * };
  * const command = new DescribeFargateProfileCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeFargateProfileResponse
+ *   fargateProfile: { // FargateProfile
+ *     fargateProfileName: 'STRING_VALUE',
+ *     fargateProfileArn: 'STRING_VALUE',
+ *     clusterName: 'STRING_VALUE',
+ *     createdAt: new Date('TIMESTAMP'),
+ *     podExecutionRoleArn: 'STRING_VALUE',
+ *     subnets: [ // StringList
+ *       'STRING_VALUE',
+ *     ],
+ *     selectors: [ // FargateProfileSelectors
+ *       { // FargateProfileSelector
+ *         namespace: 'STRING_VALUE',
+ *         labels: { // FargateProfileLabel
+ *           '<keys>': 'STRING_VALUE',
+ *         },
+ *       },
+ *     ],
+ *     status: 'CREATING' || 'ACTIVE' || 'DELETING' || 'CREATE_FAILED' || 'DELETE_FAILED',
+ *     tags: { // TagMap
+ *       '<keys>': 'STRING_VALUE',
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeFargateProfileCommandInput - {@link DescribeFargateProfileCommandInput}
@@ -71,6 +97,8 @@ export interface DescribeFargateProfileCommandOutput extends DescribeFargateProf
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server-side issue.</p>
  *
+ * @throws {@link EKSServiceException}
+ * <p>Base exception class for all service exceptions from EKS service.</p>
  *
  */
 export class DescribeFargateProfileCommand extends $Command<

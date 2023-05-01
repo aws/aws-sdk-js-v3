@@ -36,14 +36,19 @@ export interface DeleteSchemaCommandOutput extends DeleteSchemaResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudDirectoryClient, DeleteSchemaCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
- * // const { CloudDirectoryClient, DeleteSchemaCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
+ * import { CloudDirectoryClient, DeleteSchemaCommand } from '@aws-sdk/client-clouddirectory'; // ES Modules import
+ * // const { CloudDirectoryClient, DeleteSchemaCommand } = require('@aws-sdk/client-clouddirectory'); // CommonJS import
  * const client = new CloudDirectoryClient(config);
  * const input = { // DeleteSchemaRequest
- *   SchemaArn: "STRING_VALUE", // required
+ *   SchemaArn: 'STRING_VALUE', // required
  * };
  * const command = new DeleteSchemaCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteSchemaResponse
+ *   SchemaArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DeleteSchemaCommandInput - {@link DeleteSchemaCommandInput}
@@ -78,6 +83,8 @@ export interface DeleteSchemaCommandOutput extends DeleteSchemaResponse, __Metad
  *  <p>Indicates that your request is malformed in some manner. See the exception
  *       message.</p>
  *
+ * @throws {@link CloudDirectoryServiceException}
+ * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
  */
 export class DeleteSchemaCommand extends $Command<

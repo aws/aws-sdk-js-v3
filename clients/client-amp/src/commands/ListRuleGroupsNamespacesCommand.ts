@@ -36,17 +36,37 @@ export interface ListRuleGroupsNamespacesCommandOutput extends ListRuleGroupsNam
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AmpClient, ListRuleGroupsNamespacesCommand } from "@aws-sdk/client-amp"; // ES Modules import
- * // const { AmpClient, ListRuleGroupsNamespacesCommand } = require("@aws-sdk/client-amp"); // CommonJS import
+ * import { AmpClient, ListRuleGroupsNamespacesCommand } from '@aws-sdk/client-amp'; // ES Modules import
+ * // const { AmpClient, ListRuleGroupsNamespacesCommand } = require('@aws-sdk/client-amp'); // CommonJS import
  * const client = new AmpClient(config);
  * const input = { // ListRuleGroupsNamespacesRequest
- *   workspaceId: "STRING_VALUE", // required
- *   name: "STRING_VALUE",
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   workspaceId: 'STRING_VALUE', // required
+ *   name: 'STRING_VALUE',
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new ListRuleGroupsNamespacesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListRuleGroupsNamespacesResponse
+ *   ruleGroupsNamespaces: [ // RuleGroupsNamespaceSummaryList // required
+ *     { // RuleGroupsNamespaceSummary
+ *       arn: 'STRING_VALUE', // required
+ *       name: 'STRING_VALUE', // required
+ *       status: { // RuleGroupsNamespaceStatus
+ *         statusCode: 'STRING_VALUE', // required
+ *         statusReason: 'STRING_VALUE',
+ *       },
+ *       createdAt: new Date('TIMESTAMP'), // required
+ *       modifiedAt: new Date('TIMESTAMP'), // required
+ *       tags: { // TagMap
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListRuleGroupsNamespacesCommandInput - {@link ListRuleGroupsNamespacesCommandInput}
@@ -70,6 +90,8 @@ export interface ListRuleGroupsNamespacesCommandOutput extends ListRuleGroupsNam
  * @throws {@link ValidationException} (client fault)
  *  The input fails to satisfy the constraints specified by an AWS service.
  *
+ * @throws {@link AmpServiceException}
+ * <p>Base exception class for all service exceptions from Amp service.</p>
  *
  */
 export class ListRuleGroupsNamespacesCommand extends $Command<

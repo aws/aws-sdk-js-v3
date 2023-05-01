@@ -47,18 +47,64 @@ export interface GetReservedNodeExchangeConfigurationOptionsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RedshiftClient, GetReservedNodeExchangeConfigurationOptionsCommand } from "@aws-sdk/client-redshift"; // ES Modules import
- * // const { RedshiftClient, GetReservedNodeExchangeConfigurationOptionsCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * import { RedshiftClient, GetReservedNodeExchangeConfigurationOptionsCommand } from '@aws-sdk/client-redshift'; // ES Modules import
+ * // const { RedshiftClient, GetReservedNodeExchangeConfigurationOptionsCommand } = require('@aws-sdk/client-redshift'); // CommonJS import
  * const client = new RedshiftClient(config);
  * const input = { // GetReservedNodeExchangeConfigurationOptionsInputMessage
- *   ActionType: "restore-cluster" || "resize-cluster", // required
- *   ClusterIdentifier: "STRING_VALUE",
- *   SnapshotIdentifier: "STRING_VALUE",
- *   MaxRecords: Number("int"),
- *   Marker: "STRING_VALUE",
+ *   ActionType: 'restore-cluster' || 'resize-cluster', // required
+ *   ClusterIdentifier: 'STRING_VALUE',
+ *   SnapshotIdentifier: 'STRING_VALUE',
+ *   MaxRecords: Number('int'),
+ *   Marker: 'STRING_VALUE',
  * };
  * const command = new GetReservedNodeExchangeConfigurationOptionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetReservedNodeExchangeConfigurationOptionsOutputMessage
+ *   Marker: 'STRING_VALUE',
+ *   ReservedNodeConfigurationOptionList: [ // ReservedNodeConfigurationOptionList
+ *     { // ReservedNodeConfigurationOption
+ *       SourceReservedNode: { // ReservedNode
+ *         ReservedNodeId: 'STRING_VALUE',
+ *         ReservedNodeOfferingId: 'STRING_VALUE',
+ *         NodeType: 'STRING_VALUE',
+ *         StartTime: new Date('TIMESTAMP'),
+ *         Duration: Number('int'),
+ *         FixedPrice: Number('double'),
+ *         UsagePrice: Number('double'),
+ *         CurrencyCode: 'STRING_VALUE',
+ *         NodeCount: Number('int'),
+ *         State: 'STRING_VALUE',
+ *         OfferingType: 'STRING_VALUE',
+ *         RecurringCharges: [ // RecurringChargeList
+ *           { // RecurringCharge
+ *             RecurringChargeAmount: Number('double'),
+ *             RecurringChargeFrequency: 'STRING_VALUE',
+ *           },
+ *         ],
+ *         ReservedNodeOfferingType: 'Regular' || 'Upgradable',
+ *       },
+ *       TargetReservedNodeCount: Number('int'),
+ *       TargetReservedNodeOffering: { // ReservedNodeOffering
+ *         ReservedNodeOfferingId: 'STRING_VALUE',
+ *         NodeType: 'STRING_VALUE',
+ *         Duration: Number('int'),
+ *         FixedPrice: Number('double'),
+ *         UsagePrice: Number('double'),
+ *         CurrencyCode: 'STRING_VALUE',
+ *         OfferingType: 'STRING_VALUE',
+ *         RecurringCharges: [
+ *           {
+ *             RecurringChargeAmount: Number('double'),
+ *             RecurringChargeFrequency: 'STRING_VALUE',
+ *           },
+ *         ],
+ *         ReservedNodeOfferingType: 'Regular' || 'Upgradable',
+ *       },
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetReservedNodeExchangeConfigurationOptionsCommandInput - {@link GetReservedNodeExchangeConfigurationOptionsCommandInput}
@@ -93,6 +139,8 @@ export interface GetReservedNodeExchangeConfigurationOptionsCommandOutput
  * @throws {@link UnsupportedOperationFault} (client fault)
  *  <p>The requested operation isn't supported.</p>
  *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class GetReservedNodeExchangeConfigurationOptionsCommand extends $Command<

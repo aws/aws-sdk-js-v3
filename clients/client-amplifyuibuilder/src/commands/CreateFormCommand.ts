@@ -36,170 +36,331 @@ export interface CreateFormCommandOutput extends CreateFormResponse, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AmplifyUIBuilderClient, CreateFormCommand } from "@aws-sdk/client-amplifyuibuilder"; // ES Modules import
- * // const { AmplifyUIBuilderClient, CreateFormCommand } = require("@aws-sdk/client-amplifyuibuilder"); // CommonJS import
+ * import { AmplifyUIBuilderClient, CreateFormCommand } from '@aws-sdk/client-amplifyuibuilder'; // ES Modules import
+ * // const { AmplifyUIBuilderClient, CreateFormCommand } = require('@aws-sdk/client-amplifyuibuilder'); // CommonJS import
  * const client = new AmplifyUIBuilderClient(config);
  * const input = { // CreateFormRequest
- *   appId: "STRING_VALUE", // required
- *   environmentName: "STRING_VALUE", // required
- *   clientToken: "STRING_VALUE",
+ *   appId: 'STRING_VALUE', // required
+ *   environmentName: 'STRING_VALUE', // required
+ *   clientToken: 'STRING_VALUE',
  *   formToCreate: { // CreateFormData
- *     name: "STRING_VALUE", // required
+ *     name: 'STRING_VALUE', // required
  *     dataType: { // FormDataTypeConfig
- *       dataSourceType: "STRING_VALUE", // required
- *       dataTypeName: "STRING_VALUE", // required
+ *       dataSourceType: 'STRING_VALUE', // required
+ *       dataTypeName: 'STRING_VALUE', // required
  *     },
- *     formActionType: "STRING_VALUE", // required
+ *     formActionType: 'STRING_VALUE', // required
  *     fields: { // FieldsMap // required
- *       "<keys>": { // FieldConfig
- *         label: "STRING_VALUE",
+ *       '<keys>': { // FieldConfig
+ *         label: 'STRING_VALUE',
  *         position: { // FieldPosition Union: only one key present
- *           fixed: "STRING_VALUE",
- *           rightOf: "STRING_VALUE",
- *           below: "STRING_VALUE",
+ *           fixed: 'STRING_VALUE',
+ *           rightOf: 'STRING_VALUE',
+ *           below: 'STRING_VALUE',
  *         },
  *         excluded: true || false,
  *         inputType: { // FieldInputConfig
- *           type: "STRING_VALUE", // required
+ *           type: 'STRING_VALUE', // required
  *           required: true || false,
  *           readOnly: true || false,
- *           placeholder: "STRING_VALUE",
- *           defaultValue: "STRING_VALUE",
- *           descriptiveText: "STRING_VALUE",
+ *           placeholder: 'STRING_VALUE',
+ *           defaultValue: 'STRING_VALUE',
+ *           descriptiveText: 'STRING_VALUE',
  *           defaultChecked: true || false,
- *           defaultCountryCode: "STRING_VALUE",
+ *           defaultCountryCode: 'STRING_VALUE',
  *           valueMappings: { // ValueMappings
  *             values: [ // ValueMappingList // required
  *               { // ValueMapping
  *                 displayValue: { // FormInputValueProperty
- *                   value: "STRING_VALUE",
+ *                   value: 'STRING_VALUE',
  *                   bindingProperties: { // FormInputValuePropertyBindingProperties
- *                     property: "STRING_VALUE", // required
- *                     field: "STRING_VALUE",
+ *                     property: 'STRING_VALUE', // required
+ *                     field: 'STRING_VALUE',
  *                   },
  *                   concat: [ // FormInputValuePropertyList
  *                     {
- *                       value: "STRING_VALUE",
+ *                       value: 'STRING_VALUE',
  *                       bindingProperties: {
- *                         property: "STRING_VALUE", // required
- *                         field: "STRING_VALUE",
+ *                         property: 'STRING_VALUE', // required
+ *                         field: 'STRING_VALUE',
  *                       },
  *                       concat: [
- *                         "<FormInputValueProperty>",
+ *                         '<FormInputValueProperty>',
  *                       ],
  *                     },
  *                   ],
  *                 },
- *                 value: "<FormInputValueProperty>", // required
+ *                 value: '<FormInputValueProperty>', // required
  *               },
  *             ],
  *             bindingProperties: { // FormInputBindingProperties
- *               "<keys>": { // FormInputBindingPropertiesValue
- *                 type: "STRING_VALUE",
+ *               '<keys>': { // FormInputBindingPropertiesValue
+ *                 type: 'STRING_VALUE',
  *                 bindingProperties: { // FormInputBindingPropertiesValueProperties
- *                   model: "STRING_VALUE",
+ *                   model: 'STRING_VALUE',
  *                 },
  *               },
  *             },
  *           },
- *           name: "STRING_VALUE",
- *           minValue: Number("float"),
- *           maxValue: Number("float"),
- *           step: Number("float"),
- *           value: "STRING_VALUE",
+ *           name: 'STRING_VALUE',
+ *           minValue: Number('float'),
+ *           maxValue: Number('float'),
+ *           step: Number('float'),
+ *           value: 'STRING_VALUE',
  *           isArray: true || false,
  *           fileUploaderConfig: { // FileUploaderFieldConfig
- *             accessLevel: "STRING_VALUE", // required
+ *             accessLevel: 'STRING_VALUE', // required
  *             acceptedFileTypes: [ // StrValues // required
- *               "STRING_VALUE",
+ *               'STRING_VALUE',
  *             ],
  *             showThumbnails: true || false,
  *             isResumable: true || false,
- *             maxFileCount: Number("int"),
- *             maxSize: Number("int"),
+ *             maxFileCount: Number('int'),
+ *             maxSize: Number('int'),
  *           },
  *         },
  *         validations: [ // ValidationsList
  *           { // FieldValidationConfiguration
- *             type: "STRING_VALUE", // required
+ *             type: 'STRING_VALUE', // required
  *             strValues: [
- *               "STRING_VALUE",
+ *               'STRING_VALUE',
  *             ],
  *             numValues: [ // NumValues
- *               Number("int"),
+ *               Number('int'),
  *             ],
- *             validationMessage: "STRING_VALUE",
+ *             validationMessage: 'STRING_VALUE',
  *           },
  *         ],
  *       },
  *     },
  *     style: { // FormStyle
  *       horizontalGap: { // FormStyleConfig Union: only one key present
- *         tokenReference: "STRING_VALUE",
- *         value: "STRING_VALUE",
+ *         tokenReference: 'STRING_VALUE',
+ *         value: 'STRING_VALUE',
  *       },
  *       verticalGap: {//  Union: only one key present
- *         tokenReference: "STRING_VALUE",
- *         value: "STRING_VALUE",
+ *         tokenReference: 'STRING_VALUE',
+ *         value: 'STRING_VALUE',
  *       },
  *       outerPadding: {//  Union: only one key present
- *         tokenReference: "STRING_VALUE",
- *         value: "STRING_VALUE",
+ *         tokenReference: 'STRING_VALUE',
+ *         value: 'STRING_VALUE',
  *       },
  *     },
  *     sectionalElements: { // SectionalElementMap // required
- *       "<keys>": { // SectionalElement
- *         type: "STRING_VALUE", // required
+ *       '<keys>': { // SectionalElement
+ *         type: 'STRING_VALUE', // required
  *         position: {//  Union: only one key present
- *           fixed: "STRING_VALUE",
- *           rightOf: "STRING_VALUE",
- *           below: "STRING_VALUE",
+ *           fixed: 'STRING_VALUE',
+ *           rightOf: 'STRING_VALUE',
+ *           below: 'STRING_VALUE',
  *         },
- *         text: "STRING_VALUE",
- *         level: Number("int"),
- *         orientation: "STRING_VALUE",
+ *         text: 'STRING_VALUE',
+ *         level: Number('int'),
+ *         orientation: 'STRING_VALUE',
  *         excluded: true || false,
  *       },
  *     },
- *     schemaVersion: "STRING_VALUE", // required
+ *     schemaVersion: 'STRING_VALUE', // required
  *     cta: { // FormCTA
- *       position: "STRING_VALUE",
+ *       position: 'STRING_VALUE',
  *       clear: { // FormButton
  *         excluded: true || false,
- *         children: "STRING_VALUE",
+ *         children: 'STRING_VALUE',
  *         position: {//  Union: only one key present
- *           fixed: "STRING_VALUE",
- *           rightOf: "STRING_VALUE",
- *           below: "STRING_VALUE",
+ *           fixed: 'STRING_VALUE',
+ *           rightOf: 'STRING_VALUE',
+ *           below: 'STRING_VALUE',
  *         },
  *       },
  *       cancel: {
  *         excluded: true || false,
- *         children: "STRING_VALUE",
+ *         children: 'STRING_VALUE',
  *         position: {//  Union: only one key present
- *           fixed: "STRING_VALUE",
- *           rightOf: "STRING_VALUE",
- *           below: "STRING_VALUE",
+ *           fixed: 'STRING_VALUE',
+ *           rightOf: 'STRING_VALUE',
+ *           below: 'STRING_VALUE',
  *         },
  *       },
  *       submit: {
  *         excluded: true || false,
- *         children: "STRING_VALUE",
+ *         children: 'STRING_VALUE',
  *         position: {//  Union: only one key present
- *           fixed: "STRING_VALUE",
- *           rightOf: "STRING_VALUE",
- *           below: "STRING_VALUE",
+ *           fixed: 'STRING_VALUE',
+ *           rightOf: 'STRING_VALUE',
+ *           below: 'STRING_VALUE',
  *         },
  *       },
  *     },
  *     tags: { // Tags
- *       "<keys>": "STRING_VALUE",
+ *       '<keys>': 'STRING_VALUE',
  *     },
- *     labelDecorator: "STRING_VALUE",
+ *     labelDecorator: 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateFormCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateFormResponse
+ *   entity: { // Form
+ *     appId: 'STRING_VALUE', // required
+ *     environmentName: 'STRING_VALUE', // required
+ *     id: 'STRING_VALUE', // required
+ *     name: 'STRING_VALUE', // required
+ *     formActionType: 'STRING_VALUE', // required
+ *     style: { // FormStyle
+ *       horizontalGap: { // FormStyleConfig Union: only one key present
+ *         tokenReference: 'STRING_VALUE',
+ *         value: 'STRING_VALUE',
+ *       },
+ *       verticalGap: {//  Union: only one key present
+ *         tokenReference: 'STRING_VALUE',
+ *         value: 'STRING_VALUE',
+ *       },
+ *       outerPadding: {//  Union: only one key present
+ *         tokenReference: 'STRING_VALUE',
+ *         value: 'STRING_VALUE',
+ *       },
+ *     },
+ *     dataType: { // FormDataTypeConfig
+ *       dataSourceType: 'STRING_VALUE', // required
+ *       dataTypeName: 'STRING_VALUE', // required
+ *     },
+ *     fields: { // FieldsMap // required
+ *       '<keys>': { // FieldConfig
+ *         label: 'STRING_VALUE',
+ *         position: { // FieldPosition Union: only one key present
+ *           fixed: 'STRING_VALUE',
+ *           rightOf: 'STRING_VALUE',
+ *           below: 'STRING_VALUE',
+ *         },
+ *         excluded: true || false,
+ *         inputType: { // FieldInputConfig
+ *           type: 'STRING_VALUE', // required
+ *           required: true || false,
+ *           readOnly: true || false,
+ *           placeholder: 'STRING_VALUE',
+ *           defaultValue: 'STRING_VALUE',
+ *           descriptiveText: 'STRING_VALUE',
+ *           defaultChecked: true || false,
+ *           defaultCountryCode: 'STRING_VALUE',
+ *           valueMappings: { // ValueMappings
+ *             values: [ // ValueMappingList // required
+ *               { // ValueMapping
+ *                 displayValue: { // FormInputValueProperty
+ *                   value: 'STRING_VALUE',
+ *                   bindingProperties: { // FormInputValuePropertyBindingProperties
+ *                     property: 'STRING_VALUE', // required
+ *                     field: 'STRING_VALUE',
+ *                   },
+ *                   concat: [ // FormInputValuePropertyList
+ *                     {
+ *                       value: 'STRING_VALUE',
+ *                       bindingProperties: {
+ *                         property: 'STRING_VALUE', // required
+ *                         field: 'STRING_VALUE',
+ *                       },
+ *                       concat: [
+ *                         '<FormInputValueProperty>',
+ *                       ],
+ *                     },
+ *                   ],
+ *                 },
+ *                 value: '<FormInputValueProperty>', // required
+ *               },
+ *             ],
+ *             bindingProperties: { // FormInputBindingProperties
+ *               '<keys>': { // FormInputBindingPropertiesValue
+ *                 type: 'STRING_VALUE',
+ *                 bindingProperties: { // FormInputBindingPropertiesValueProperties
+ *                   model: 'STRING_VALUE',
+ *                 },
+ *               },
+ *             },
+ *           },
+ *           name: 'STRING_VALUE',
+ *           minValue: Number('float'),
+ *           maxValue: Number('float'),
+ *           step: Number('float'),
+ *           value: 'STRING_VALUE',
+ *           isArray: true || false,
+ *           fileUploaderConfig: { // FileUploaderFieldConfig
+ *             accessLevel: 'STRING_VALUE', // required
+ *             acceptedFileTypes: [ // StrValues // required
+ *               'STRING_VALUE',
+ *             ],
+ *             showThumbnails: true || false,
+ *             isResumable: true || false,
+ *             maxFileCount: Number('int'),
+ *             maxSize: Number('int'),
+ *           },
+ *         },
+ *         validations: [ // ValidationsList
+ *           { // FieldValidationConfiguration
+ *             type: 'STRING_VALUE', // required
+ *             strValues: [
+ *               'STRING_VALUE',
+ *             ],
+ *             numValues: [ // NumValues
+ *               Number('int'),
+ *             ],
+ *             validationMessage: 'STRING_VALUE',
+ *           },
+ *         ],
+ *       },
+ *     },
+ *     sectionalElements: { // SectionalElementMap // required
+ *       '<keys>': { // SectionalElement
+ *         type: 'STRING_VALUE', // required
+ *         position: {//  Union: only one key present
+ *           fixed: 'STRING_VALUE',
+ *           rightOf: 'STRING_VALUE',
+ *           below: 'STRING_VALUE',
+ *         },
+ *         text: 'STRING_VALUE',
+ *         level: Number('int'),
+ *         orientation: 'STRING_VALUE',
+ *         excluded: true || false,
+ *       },
+ *     },
+ *     schemaVersion: 'STRING_VALUE', // required
+ *     tags: { // Tags
+ *       '<keys>': 'STRING_VALUE',
+ *     },
+ *     cta: { // FormCTA
+ *       position: 'STRING_VALUE',
+ *       clear: { // FormButton
+ *         excluded: true || false,
+ *         children: 'STRING_VALUE',
+ *         position: {//  Union: only one key present
+ *           fixed: 'STRING_VALUE',
+ *           rightOf: 'STRING_VALUE',
+ *           below: 'STRING_VALUE',
+ *         },
+ *       },
+ *       cancel: {
+ *         excluded: true || false,
+ *         children: 'STRING_VALUE',
+ *         position: {//  Union: only one key present
+ *           fixed: 'STRING_VALUE',
+ *           rightOf: 'STRING_VALUE',
+ *           below: 'STRING_VALUE',
+ *         },
+ *       },
+ *       submit: {
+ *         excluded: true || false,
+ *         children: 'STRING_VALUE',
+ *         position: {//  Union: only one key present
+ *           fixed: 'STRING_VALUE',
+ *           rightOf: 'STRING_VALUE',
+ *           below: 'STRING_VALUE',
+ *         },
+ *       },
+ *     },
+ *     labelDecorator: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateFormCommandInput - {@link CreateFormCommandInput}
@@ -221,6 +382,8 @@ export interface CreateFormCommandOutput extends CreateFormResponse, __MetadataB
  *  <p>You exceeded your service quota. Service quotas, also referred to as limits, are the
  *       maximum number of service resources or operations for your Amazon Web Services account. </p>
  *
+ * @throws {@link AmplifyUIBuilderServiceException}
+ * <p>Base exception class for all service exceptions from AmplifyUIBuilder service.</p>
  *
  */
 export class CreateFormCommand extends $Command<

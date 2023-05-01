@@ -36,16 +36,32 @@ export interface GetRegexPatternSetCommandOutput extends GetRegexPatternSetRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WAFV2Client, GetRegexPatternSetCommand } from "@aws-sdk/client-wafv2"; // ES Modules import
- * // const { WAFV2Client, GetRegexPatternSetCommand } = require("@aws-sdk/client-wafv2"); // CommonJS import
+ * import { WAFV2Client, GetRegexPatternSetCommand } from '@aws-sdk/client-wafv2'; // ES Modules import
+ * // const { WAFV2Client, GetRegexPatternSetCommand } = require('@aws-sdk/client-wafv2'); // CommonJS import
  * const client = new WAFV2Client(config);
  * const input = { // GetRegexPatternSetRequest
- *   Name: "STRING_VALUE", // required
- *   Scope: "CLOUDFRONT" || "REGIONAL", // required
- *   Id: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
+ *   Scope: 'CLOUDFRONT' || 'REGIONAL', // required
+ *   Id: 'STRING_VALUE', // required
  * };
  * const command = new GetRegexPatternSetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetRegexPatternSetResponse
+ *   RegexPatternSet: { // RegexPatternSet
+ *     Name: 'STRING_VALUE',
+ *     Id: 'STRING_VALUE',
+ *     ARN: 'STRING_VALUE',
+ *     Description: 'STRING_VALUE',
+ *     RegularExpressionList: [ // RegularExpressionList
+ *       { // Regex
+ *         RegexString: 'STRING_VALUE',
+ *       },
+ *     ],
+ *   },
+ *   LockToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetRegexPatternSetCommandInput - {@link GetRegexPatternSetCommandInput}
@@ -88,6 +104,8 @@ export interface GetRegexPatternSetCommandOutput extends GetRegexPatternSetRespo
  *        just need to wait a few minutes. It can take from a few seconds to a number of minutes
  *        for changes to propagate. </p>
  *
+ * @throws {@link WAFV2ServiceException}
+ * <p>Base exception class for all service exceptions from WAFV2 service.</p>
  *
  */
 export class GetRegexPatternSetCommand extends $Command<

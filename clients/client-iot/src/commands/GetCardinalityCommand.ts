@@ -37,17 +37,22 @@ export interface GetCardinalityCommandOutput extends GetCardinalityResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTClient, GetCardinalityCommand } from "@aws-sdk/client-iot"; // ES Modules import
- * // const { IoTClient, GetCardinalityCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * import { IoTClient, GetCardinalityCommand } from '@aws-sdk/client-iot'; // ES Modules import
+ * // const { IoTClient, GetCardinalityCommand } = require('@aws-sdk/client-iot'); // CommonJS import
  * const client = new IoTClient(config);
  * const input = { // GetCardinalityRequest
- *   indexName: "STRING_VALUE",
- *   queryString: "STRING_VALUE", // required
- *   aggregationField: "STRING_VALUE",
- *   queryVersion: "STRING_VALUE",
+ *   indexName: 'STRING_VALUE',
+ *   queryString: 'STRING_VALUE', // required
+ *   aggregationField: 'STRING_VALUE',
+ *   queryVersion: 'STRING_VALUE',
  * };
  * const command = new GetCardinalityCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetCardinalityResponse
+ *   cardinality: Number('int'),
+ * };
+ *
  * ```
  *
  * @param GetCardinalityCommandInput - {@link GetCardinalityCommandInput}
@@ -83,6 +88,8 @@ export interface GetCardinalityCommandOutput extends GetCardinalityResponse, __M
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this operation.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class GetCardinalityCommand extends $Command<

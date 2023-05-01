@@ -36,14 +36,19 @@ export interface DeleteSnapshotCommandOutput extends DeleteSnapshotResult, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DirectoryServiceClient, DeleteSnapshotCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
- * // const { DirectoryServiceClient, DeleteSnapshotCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
+ * import { DirectoryServiceClient, DeleteSnapshotCommand } from '@aws-sdk/client-directory-service'; // ES Modules import
+ * // const { DirectoryServiceClient, DeleteSnapshotCommand } = require('@aws-sdk/client-directory-service'); // CommonJS import
  * const client = new DirectoryServiceClient(config);
  * const input = { // DeleteSnapshotRequest
- *   SnapshotId: "STRING_VALUE", // required
+ *   SnapshotId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteSnapshotCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteSnapshotResult
+ *   SnapshotId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DeleteSnapshotCommandInput - {@link DeleteSnapshotCommandInput}
@@ -64,6 +69,8 @@ export interface DeleteSnapshotCommandOutput extends DeleteSnapshotResult, __Met
  * @throws {@link ServiceException} (server fault)
  *  <p>An exception has occurred in Directory Service.</p>
  *
+ * @throws {@link DirectoryServiceServiceException}
+ * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
  */
 export class DeleteSnapshotCommand extends $Command<

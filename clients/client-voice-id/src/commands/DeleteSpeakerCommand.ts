@@ -36,15 +36,18 @@ export interface DeleteSpeakerCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { VoiceIDClient, DeleteSpeakerCommand } from "@aws-sdk/client-voice-id"; // ES Modules import
- * // const { VoiceIDClient, DeleteSpeakerCommand } = require("@aws-sdk/client-voice-id"); // CommonJS import
+ * import { VoiceIDClient, DeleteSpeakerCommand } from '@aws-sdk/client-voice-id'; // ES Modules import
+ * // const { VoiceIDClient, DeleteSpeakerCommand } = require('@aws-sdk/client-voice-id'); // CommonJS import
  * const client = new VoiceIDClient(config);
  * const input = { // DeleteSpeakerRequest
- *   DomainId: "STRING_VALUE", // required
- *   SpeakerId: "STRING_VALUE", // required
+ *   DomainId: 'STRING_VALUE', // required
+ *   SpeakerId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteSpeakerCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteSpeakerCommandInput - {@link DeleteSpeakerCommandInput}
@@ -78,6 +81,8 @@ export interface DeleteSpeakerCommandOutput extends __MetadataBearer {}
  *  <p>The request failed one or more validations; check the error message for more
  *             details.</p>
  *
+ * @throws {@link VoiceIDServiceException}
+ * <p>Base exception class for all service exceptions from VoiceID service.</p>
  *
  */
 export class DeleteSpeakerCommand extends $Command<

@@ -51,99 +51,195 @@ export interface UpdateMediaInsightsPipelineConfigurationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeSDKMediaPipelinesClient, UpdateMediaInsightsPipelineConfigurationCommand } from "@aws-sdk/client-chime-sdk-media-pipelines"; // ES Modules import
- * // const { ChimeSDKMediaPipelinesClient, UpdateMediaInsightsPipelineConfigurationCommand } = require("@aws-sdk/client-chime-sdk-media-pipelines"); // CommonJS import
+ * import { ChimeSDKMediaPipelinesClient, UpdateMediaInsightsPipelineConfigurationCommand } from '@aws-sdk/client-chime-sdk-media-pipelines'; // ES Modules import
+ * // const { ChimeSDKMediaPipelinesClient, UpdateMediaInsightsPipelineConfigurationCommand } = require('@aws-sdk/client-chime-sdk-media-pipelines'); // CommonJS import
  * const client = new ChimeSDKMediaPipelinesClient(config);
  * const input = { // UpdateMediaInsightsPipelineConfigurationRequest
- *   Identifier: "STRING_VALUE", // required
- *   ResourceAccessRoleArn: "STRING_VALUE", // required
+ *   Identifier: 'STRING_VALUE', // required
+ *   ResourceAccessRoleArn: 'STRING_VALUE', // required
  *   RealTimeAlertConfiguration: { // RealTimeAlertConfiguration
  *     Disabled: true || false,
  *     Rules: [ // RealTimeAlertRuleList
  *       { // RealTimeAlertRule
- *         Type: "KeywordMatch" || "Sentiment" || "IssueDetection", // required
+ *         Type: 'KeywordMatch' || 'Sentiment' || 'IssueDetection', // required
  *         KeywordMatchConfiguration: { // KeywordMatchConfiguration
- *           RuleName: "STRING_VALUE", // required
+ *           RuleName: 'STRING_VALUE', // required
  *           Keywords: [ // KeywordMatchWordList // required
- *             "STRING_VALUE",
+ *             'STRING_VALUE',
  *           ],
  *           Negate: true || false,
  *         },
  *         SentimentConfiguration: { // SentimentConfiguration
- *           RuleName: "STRING_VALUE", // required
- *           SentimentType: "NEGATIVE", // required
- *           TimePeriod: Number("int"), // required
+ *           RuleName: 'STRING_VALUE', // required
+ *           SentimentType: 'NEGATIVE', // required
+ *           TimePeriod: Number('int'), // required
  *         },
  *         IssueDetectionConfiguration: { // IssueDetectionConfiguration
- *           RuleName: "STRING_VALUE", // required
+ *           RuleName: 'STRING_VALUE', // required
  *         },
  *       },
  *     ],
  *   },
  *   Elements: [ // MediaInsightsPipelineConfigurationElements // required
  *     { // MediaInsightsPipelineConfigurationElement
- *       Type: "AmazonTranscribeCallAnalyticsProcessor" || "VoiceAnalyticsProcessor" || "AmazonTranscribeProcessor" || "KinesisDataStreamSink" || "LambdaFunctionSink" || "SqsQueueSink" || "SnsTopicSink" || "S3RecordingSink", // required
+ *       Type: 'AmazonTranscribeCallAnalyticsProcessor' || 'VoiceAnalyticsProcessor' || 'AmazonTranscribeProcessor' || 'KinesisDataStreamSink' || 'LambdaFunctionSink' || 'SqsQueueSink' || 'SnsTopicSink' || 'S3RecordingSink', // required
  *       AmazonTranscribeCallAnalyticsProcessorConfiguration: { // AmazonTranscribeCallAnalyticsProcessorConfiguration
- *         LanguageCode: "en-US" || "en-GB" || "es-US" || "fr-CA" || "fr-FR" || "en-AU" || "it-IT" || "de-DE" || "pt-BR", // required
- *         VocabularyName: "STRING_VALUE",
- *         VocabularyFilterName: "STRING_VALUE",
- *         VocabularyFilterMethod: "remove" || "mask" || "tag",
- *         LanguageModelName: "STRING_VALUE",
+ *         LanguageCode: 'en-US' || 'en-GB' || 'es-US' || 'fr-CA' || 'fr-FR' || 'en-AU' || 'it-IT' || 'de-DE' || 'pt-BR', // required
+ *         VocabularyName: 'STRING_VALUE',
+ *         VocabularyFilterName: 'STRING_VALUE',
+ *         VocabularyFilterMethod: 'remove' || 'mask' || 'tag',
+ *         LanguageModelName: 'STRING_VALUE',
  *         EnablePartialResultsStabilization: true || false,
- *         PartialResultsStability: "high" || "medium" || "low",
- *         ContentIdentificationType: "PII",
- *         ContentRedactionType: "PII",
- *         PiiEntityTypes: "STRING_VALUE",
+ *         PartialResultsStability: 'high' || 'medium' || 'low',
+ *         ContentIdentificationType: 'PII',
+ *         ContentRedactionType: 'PII',
+ *         PiiEntityTypes: 'STRING_VALUE',
  *         FilterPartialResults: true || false,
  *         PostCallAnalyticsSettings: { // PostCallAnalyticsSettings
- *           OutputLocation: "STRING_VALUE", // required
- *           DataAccessRoleArn: "STRING_VALUE", // required
- *           ContentRedactionOutput: "redacted" || "redacted_and_unredacted",
- *           OutputEncryptionKMSKeyId: "STRING_VALUE",
+ *           OutputLocation: 'STRING_VALUE', // required
+ *           DataAccessRoleArn: 'STRING_VALUE', // required
+ *           ContentRedactionOutput: 'redacted' || 'redacted_and_unredacted',
+ *           OutputEncryptionKMSKeyId: 'STRING_VALUE',
  *         },
  *         CallAnalyticsStreamCategories: [ // CategoryNameList
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
  *       },
  *       AmazonTranscribeProcessorConfiguration: { // AmazonTranscribeProcessorConfiguration
- *         LanguageCode: "en-US" || "en-GB" || "es-US" || "fr-CA" || "fr-FR" || "en-AU" || "it-IT" || "de-DE" || "pt-BR", // required
- *         VocabularyName: "STRING_VALUE",
- *         VocabularyFilterName: "STRING_VALUE",
- *         VocabularyFilterMethod: "remove" || "mask" || "tag",
+ *         LanguageCode: 'en-US' || 'en-GB' || 'es-US' || 'fr-CA' || 'fr-FR' || 'en-AU' || 'it-IT' || 'de-DE' || 'pt-BR', // required
+ *         VocabularyName: 'STRING_VALUE',
+ *         VocabularyFilterName: 'STRING_VALUE',
+ *         VocabularyFilterMethod: 'remove' || 'mask' || 'tag',
  *         ShowSpeakerLabel: true || false,
  *         EnablePartialResultsStabilization: true || false,
- *         PartialResultsStability: "high" || "medium" || "low",
- *         ContentIdentificationType: "PII",
- *         ContentRedactionType: "PII",
- *         PiiEntityTypes: "STRING_VALUE",
- *         LanguageModelName: "STRING_VALUE",
+ *         PartialResultsStability: 'high' || 'medium' || 'low',
+ *         ContentIdentificationType: 'PII',
+ *         ContentRedactionType: 'PII',
+ *         PiiEntityTypes: 'STRING_VALUE',
+ *         LanguageModelName: 'STRING_VALUE',
  *         FilterPartialResults: true || false,
  *       },
  *       KinesisDataStreamSinkConfiguration: { // KinesisDataStreamSinkConfiguration
- *         InsightsTarget: "STRING_VALUE",
+ *         InsightsTarget: 'STRING_VALUE',
  *       },
  *       S3RecordingSinkConfiguration: { // S3RecordingSinkConfiguration
- *         Destination: "STRING_VALUE",
- *         RecordingFileFormat: "Wav" || "Opus",
+ *         Destination: 'STRING_VALUE',
+ *         RecordingFileFormat: 'Wav' || 'Opus',
  *       },
  *       VoiceAnalyticsProcessorConfiguration: { // VoiceAnalyticsProcessorConfiguration
- *         SpeakerSearchStatus: "Enabled" || "Disabled",
- *         VoiceToneAnalysisStatus: "Enabled" || "Disabled",
+ *         SpeakerSearchStatus: 'Enabled' || 'Disabled',
+ *         VoiceToneAnalysisStatus: 'Enabled' || 'Disabled',
  *       },
  *       LambdaFunctionSinkConfiguration: { // LambdaFunctionSinkConfiguration
- *         InsightsTarget: "STRING_VALUE",
+ *         InsightsTarget: 'STRING_VALUE',
  *       },
  *       SqsQueueSinkConfiguration: { // SqsQueueSinkConfiguration
- *         InsightsTarget: "STRING_VALUE",
+ *         InsightsTarget: 'STRING_VALUE',
  *       },
  *       SnsTopicSinkConfiguration: { // SnsTopicSinkConfiguration
- *         InsightsTarget: "STRING_VALUE",
+ *         InsightsTarget: 'STRING_VALUE',
  *       },
  *     },
  *   ],
  * };
  * const command = new UpdateMediaInsightsPipelineConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateMediaInsightsPipelineConfigurationResponse
+ *   MediaInsightsPipelineConfiguration: { // MediaInsightsPipelineConfiguration
+ *     MediaInsightsPipelineConfigurationName: 'STRING_VALUE',
+ *     MediaInsightsPipelineConfigurationArn: 'STRING_VALUE',
+ *     ResourceAccessRoleArn: 'STRING_VALUE',
+ *     RealTimeAlertConfiguration: { // RealTimeAlertConfiguration
+ *       Disabled: true || false,
+ *       Rules: [ // RealTimeAlertRuleList
+ *         { // RealTimeAlertRule
+ *           Type: 'KeywordMatch' || 'Sentiment' || 'IssueDetection', // required
+ *           KeywordMatchConfiguration: { // KeywordMatchConfiguration
+ *             RuleName: 'STRING_VALUE', // required
+ *             Keywords: [ // KeywordMatchWordList // required
+ *               'STRING_VALUE',
+ *             ],
+ *             Negate: true || false,
+ *           },
+ *           SentimentConfiguration: { // SentimentConfiguration
+ *             RuleName: 'STRING_VALUE', // required
+ *             SentimentType: 'NEGATIVE', // required
+ *             TimePeriod: Number('int'), // required
+ *           },
+ *           IssueDetectionConfiguration: { // IssueDetectionConfiguration
+ *             RuleName: 'STRING_VALUE', // required
+ *           },
+ *         },
+ *       ],
+ *     },
+ *     Elements: [ // MediaInsightsPipelineConfigurationElements
+ *       { // MediaInsightsPipelineConfigurationElement
+ *         Type: 'AmazonTranscribeCallAnalyticsProcessor' || 'VoiceAnalyticsProcessor' || 'AmazonTranscribeProcessor' || 'KinesisDataStreamSink' || 'LambdaFunctionSink' || 'SqsQueueSink' || 'SnsTopicSink' || 'S3RecordingSink', // required
+ *         AmazonTranscribeCallAnalyticsProcessorConfiguration: { // AmazonTranscribeCallAnalyticsProcessorConfiguration
+ *           LanguageCode: 'en-US' || 'en-GB' || 'es-US' || 'fr-CA' || 'fr-FR' || 'en-AU' || 'it-IT' || 'de-DE' || 'pt-BR', // required
+ *           VocabularyName: 'STRING_VALUE',
+ *           VocabularyFilterName: 'STRING_VALUE',
+ *           VocabularyFilterMethod: 'remove' || 'mask' || 'tag',
+ *           LanguageModelName: 'STRING_VALUE',
+ *           EnablePartialResultsStabilization: true || false,
+ *           PartialResultsStability: 'high' || 'medium' || 'low',
+ *           ContentIdentificationType: 'PII',
+ *           ContentRedactionType: 'PII',
+ *           PiiEntityTypes: 'STRING_VALUE',
+ *           FilterPartialResults: true || false,
+ *           PostCallAnalyticsSettings: { // PostCallAnalyticsSettings
+ *             OutputLocation: 'STRING_VALUE', // required
+ *             DataAccessRoleArn: 'STRING_VALUE', // required
+ *             ContentRedactionOutput: 'redacted' || 'redacted_and_unredacted',
+ *             OutputEncryptionKMSKeyId: 'STRING_VALUE',
+ *           },
+ *           CallAnalyticsStreamCategories: [ // CategoryNameList
+ *             'STRING_VALUE',
+ *           ],
+ *         },
+ *         AmazonTranscribeProcessorConfiguration: { // AmazonTranscribeProcessorConfiguration
+ *           LanguageCode: 'en-US' || 'en-GB' || 'es-US' || 'fr-CA' || 'fr-FR' || 'en-AU' || 'it-IT' || 'de-DE' || 'pt-BR', // required
+ *           VocabularyName: 'STRING_VALUE',
+ *           VocabularyFilterName: 'STRING_VALUE',
+ *           VocabularyFilterMethod: 'remove' || 'mask' || 'tag',
+ *           ShowSpeakerLabel: true || false,
+ *           EnablePartialResultsStabilization: true || false,
+ *           PartialResultsStability: 'high' || 'medium' || 'low',
+ *           ContentIdentificationType: 'PII',
+ *           ContentRedactionType: 'PII',
+ *           PiiEntityTypes: 'STRING_VALUE',
+ *           LanguageModelName: 'STRING_VALUE',
+ *           FilterPartialResults: true || false,
+ *         },
+ *         KinesisDataStreamSinkConfiguration: { // KinesisDataStreamSinkConfiguration
+ *           InsightsTarget: 'STRING_VALUE',
+ *         },
+ *         S3RecordingSinkConfiguration: { // S3RecordingSinkConfiguration
+ *           Destination: 'STRING_VALUE',
+ *           RecordingFileFormat: 'Wav' || 'Opus',
+ *         },
+ *         VoiceAnalyticsProcessorConfiguration: { // VoiceAnalyticsProcessorConfiguration
+ *           SpeakerSearchStatus: 'Enabled' || 'Disabled',
+ *           VoiceToneAnalysisStatus: 'Enabled' || 'Disabled',
+ *         },
+ *         LambdaFunctionSinkConfiguration: { // LambdaFunctionSinkConfiguration
+ *           InsightsTarget: 'STRING_VALUE',
+ *         },
+ *         SqsQueueSinkConfiguration: { // SqsQueueSinkConfiguration
+ *           InsightsTarget: 'STRING_VALUE',
+ *         },
+ *         SnsTopicSinkConfiguration: { // SnsTopicSinkConfiguration
+ *           InsightsTarget: 'STRING_VALUE',
+ *         },
+ *       },
+ *     ],
+ *     MediaInsightsPipelineConfigurationId: 'STRING_VALUE',
+ *     CreatedTimestamp: new Date('TIMESTAMP'),
+ *     UpdatedTimestamp: new Date('TIMESTAMP'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateMediaInsightsPipelineConfigurationCommandInput - {@link UpdateMediaInsightsPipelineConfigurationCommandInput}
@@ -177,6 +273,8 @@ export interface UpdateMediaInsightsPipelineConfigurationCommandOutput
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeSDKMediaPipelinesServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKMediaPipelines service.</p>
  *
  */
 export class UpdateMediaInsightsPipelineConfigurationCommand extends $Command<

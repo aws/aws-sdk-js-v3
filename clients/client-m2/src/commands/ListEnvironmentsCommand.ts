@@ -36,19 +36,36 @@ export interface ListEnvironmentsCommandOutput extends ListEnvironmentsResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { M2Client, ListEnvironmentsCommand } from "@aws-sdk/client-m2"; // ES Modules import
- * // const { M2Client, ListEnvironmentsCommand } = require("@aws-sdk/client-m2"); // CommonJS import
+ * import { M2Client, ListEnvironmentsCommand } from '@aws-sdk/client-m2'; // ES Modules import
+ * // const { M2Client, ListEnvironmentsCommand } = require('@aws-sdk/client-m2'); // CommonJS import
  * const client = new M2Client(config);
  * const input = { // ListEnvironmentsRequest
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  *   names: [ // EntityNameList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   engineType: "STRING_VALUE",
+ *   engineType: 'STRING_VALUE',
  * };
  * const command = new ListEnvironmentsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListEnvironmentsResponse
+ *   environments: [ // EnvironmentSummaryList // required
+ *     { // EnvironmentSummary
+ *       name: 'STRING_VALUE', // required
+ *       environmentArn: 'STRING_VALUE', // required
+ *       environmentId: 'STRING_VALUE', // required
+ *       instanceType: 'STRING_VALUE', // required
+ *       status: 'STRING_VALUE', // required
+ *       engineType: 'STRING_VALUE', // required
+ *       engineVersion: 'STRING_VALUE', // required
+ *       creationTime: new Date('TIMESTAMP'), // required
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListEnvironmentsCommandInput - {@link ListEnvironmentsCommandInput}
@@ -69,6 +86,8 @@ export interface ListEnvironmentsCommandOutput extends ListEnvironmentsResponse,
  * @throws {@link ValidationException} (client fault)
  *  <p>One or more parameters provided in the request is not valid.</p>
  *
+ * @throws {@link M2ServiceException}
+ * <p>Base exception class for all service exceptions from M2 service.</p>
  *
  */
 export class ListEnvironmentsCommand extends $Command<

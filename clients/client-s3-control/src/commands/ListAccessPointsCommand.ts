@@ -64,17 +64,35 @@ export interface ListAccessPointsCommandOutput extends ListAccessPointsResult, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { S3ControlClient, ListAccessPointsCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
- * // const { S3ControlClient, ListAccessPointsCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
+ * import { S3ControlClient, ListAccessPointsCommand } from '@aws-sdk/client-s3-control'; // ES Modules import
+ * // const { S3ControlClient, ListAccessPointsCommand } = require('@aws-sdk/client-s3-control'); // CommonJS import
  * const client = new S3ControlClient(config);
  * const input = { // ListAccessPointsRequest
- *   AccountId: "STRING_VALUE",
- *   Bucket: "STRING_VALUE",
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   AccountId: 'STRING_VALUE',
+ *   Bucket: 'STRING_VALUE',
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListAccessPointsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListAccessPointsResult
+ *   AccessPointList: [ // AccessPointList
+ *     { // AccessPoint
+ *       Name: 'STRING_VALUE', // required
+ *       NetworkOrigin: 'Internet' || 'VPC', // required
+ *       VpcConfiguration: { // VpcConfiguration
+ *         VpcId: 'STRING_VALUE', // required
+ *       },
+ *       Bucket: 'STRING_VALUE', // required
+ *       AccessPointArn: 'STRING_VALUE',
+ *       Alias: 'STRING_VALUE',
+ *       BucketAccountId: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListAccessPointsCommandInput - {@link ListAccessPointsCommandInput}
@@ -83,6 +101,8 @@ export interface ListAccessPointsCommandOutput extends ListAccessPointsResult, _
  * @see {@link ListAccessPointsCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
  *
+ * @throws {@link S3ControlServiceException}
+ * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
  */
 export class ListAccessPointsCommand extends $Command<

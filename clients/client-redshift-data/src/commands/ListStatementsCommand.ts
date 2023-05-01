@@ -40,18 +40,44 @@ export interface ListStatementsCommandOutput extends ListStatementsResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RedshiftDataClient, ListStatementsCommand } from "@aws-sdk/client-redshift-data"; // ES Modules import
- * // const { RedshiftDataClient, ListStatementsCommand } = require("@aws-sdk/client-redshift-data"); // CommonJS import
+ * import { RedshiftDataClient, ListStatementsCommand } from '@aws-sdk/client-redshift-data'; // ES Modules import
+ * // const { RedshiftDataClient, ListStatementsCommand } = require('@aws-sdk/client-redshift-data'); // CommonJS import
  * const client = new RedshiftDataClient(config);
  * const input = { // ListStatementsRequest
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
- *   StatementName: "STRING_VALUE",
- *   Status: "STRING_VALUE",
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
+ *   StatementName: 'STRING_VALUE',
+ *   Status: 'STRING_VALUE',
  *   RoleLevel: true || false,
  * };
  * const command = new ListStatementsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListStatementsResponse
+ *   Statements: [ // StatementList // required
+ *     { // StatementData
+ *       Id: 'STRING_VALUE', // required
+ *       QueryString: 'STRING_VALUE',
+ *       QueryStrings: [ // StatementStringList
+ *         'STRING_VALUE',
+ *       ],
+ *       SecretArn: 'STRING_VALUE',
+ *       Status: 'STRING_VALUE',
+ *       StatementName: 'STRING_VALUE',
+ *       CreatedAt: new Date('TIMESTAMP'),
+ *       UpdatedAt: new Date('TIMESTAMP'),
+ *       QueryParameters: [ // SqlParametersList
+ *         { // SqlParameter
+ *           name: 'STRING_VALUE', // required
+ *           value: 'STRING_VALUE', // required
+ *         },
+ *       ],
+ *       IsBatchStatement: true || false,
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListStatementsCommandInput - {@link ListStatementsCommandInput}
@@ -66,6 +92,8 @@ export interface ListStatementsCommandOutput extends ListStatementsResponse, __M
  * @throws {@link ValidationException} (client fault)
  *  <p>The Amazon Redshift Data API operation failed due to invalid input. </p>
  *
+ * @throws {@link RedshiftDataServiceException}
+ * <p>Base exception class for all service exceptions from RedshiftData service.</p>
  *
  */
 export class ListStatementsCommand extends $Command<

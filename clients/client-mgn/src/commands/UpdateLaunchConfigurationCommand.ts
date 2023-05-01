@@ -36,52 +36,96 @@ export interface UpdateLaunchConfigurationCommandOutput extends LaunchConfigurat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MgnClient, UpdateLaunchConfigurationCommand } from "@aws-sdk/client-mgn"; // ES Modules import
- * // const { MgnClient, UpdateLaunchConfigurationCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
+ * import { MgnClient, UpdateLaunchConfigurationCommand } from '@aws-sdk/client-mgn'; // ES Modules import
+ * // const { MgnClient, UpdateLaunchConfigurationCommand } = require('@aws-sdk/client-mgn'); // CommonJS import
  * const client = new MgnClient(config);
  * const input = { // UpdateLaunchConfigurationRequest
- *   sourceServerID: "STRING_VALUE", // required
- *   name: "STRING_VALUE",
- *   launchDisposition: "STRING_VALUE",
- *   targetInstanceTypeRightSizingMethod: "STRING_VALUE",
+ *   sourceServerID: 'STRING_VALUE', // required
+ *   name: 'STRING_VALUE',
+ *   launchDisposition: 'STRING_VALUE',
+ *   targetInstanceTypeRightSizingMethod: 'STRING_VALUE',
  *   copyPrivateIp: true || false,
  *   copyTags: true || false,
  *   licensing: { // Licensing
  *     osByol: true || false,
  *   },
- *   bootMode: "STRING_VALUE",
+ *   bootMode: 'STRING_VALUE',
  *   postLaunchActions: { // PostLaunchActions
- *     deployment: "STRING_VALUE",
- *     s3LogBucket: "STRING_VALUE",
- *     s3OutputKeyPrefix: "STRING_VALUE",
- *     cloudWatchLogGroupName: "STRING_VALUE",
+ *     deployment: 'STRING_VALUE',
+ *     s3LogBucket: 'STRING_VALUE',
+ *     s3OutputKeyPrefix: 'STRING_VALUE',
+ *     cloudWatchLogGroupName: 'STRING_VALUE',
  *     ssmDocuments: [ // SsmDocuments
  *       { // SsmDocument
- *         actionName: "STRING_VALUE", // required
- *         ssmDocumentName: "STRING_VALUE", // required
- *         timeoutSeconds: Number("int"),
+ *         actionName: 'STRING_VALUE', // required
+ *         ssmDocumentName: 'STRING_VALUE', // required
+ *         timeoutSeconds: Number('int'),
  *         mustSucceedForCutover: true || false,
  *         parameters: { // SsmDocumentParameters
- *           "<keys>": [ // SsmParameterStoreParameters
+ *           '<keys>': [ // SsmParameterStoreParameters
  *             { // SsmParameterStoreParameter
- *               parameterType: "STRING_VALUE", // required
- *               parameterName: "STRING_VALUE", // required
+ *               parameterType: 'STRING_VALUE', // required
+ *               parameterName: 'STRING_VALUE', // required
  *             },
  *           ],
  *         },
  *         externalParameters: { // SsmDocumentExternalParameters
- *           "<keys>": { // SsmExternalParameter Union: only one key present
- *             dynamicPath: "STRING_VALUE",
+ *           '<keys>': { // SsmExternalParameter Union: only one key present
+ *             dynamicPath: 'STRING_VALUE',
  *           },
  *         },
  *       },
  *     ],
  *   },
  *   enableMapAutoTagging: true || false,
- *   mapAutoTaggingMpeID: "STRING_VALUE",
+ *   mapAutoTaggingMpeID: 'STRING_VALUE',
  * };
  * const command = new UpdateLaunchConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // LaunchConfiguration
+ *   sourceServerID: 'STRING_VALUE',
+ *   name: 'STRING_VALUE',
+ *   ec2LaunchTemplateID: 'STRING_VALUE',
+ *   launchDisposition: 'STRING_VALUE',
+ *   targetInstanceTypeRightSizingMethod: 'STRING_VALUE',
+ *   copyPrivateIp: true || false,
+ *   copyTags: true || false,
+ *   licensing: { // Licensing
+ *     osByol: true || false,
+ *   },
+ *   bootMode: 'STRING_VALUE',
+ *   postLaunchActions: { // PostLaunchActions
+ *     deployment: 'STRING_VALUE',
+ *     s3LogBucket: 'STRING_VALUE',
+ *     s3OutputKeyPrefix: 'STRING_VALUE',
+ *     cloudWatchLogGroupName: 'STRING_VALUE',
+ *     ssmDocuments: [ // SsmDocuments
+ *       { // SsmDocument
+ *         actionName: 'STRING_VALUE', // required
+ *         ssmDocumentName: 'STRING_VALUE', // required
+ *         timeoutSeconds: Number('int'),
+ *         mustSucceedForCutover: true || false,
+ *         parameters: { // SsmDocumentParameters
+ *           '<keys>': [ // SsmParameterStoreParameters
+ *             { // SsmParameterStoreParameter
+ *               parameterType: 'STRING_VALUE', // required
+ *               parameterName: 'STRING_VALUE', // required
+ *             },
+ *           ],
+ *         },
+ *         externalParameters: { // SsmDocumentExternalParameters
+ *           '<keys>': { // SsmExternalParameter Union: only one key present
+ *             dynamicPath: 'STRING_VALUE',
+ *           },
+ *         },
+ *       },
+ *     ],
+ *   },
+ *   enableMapAutoTagging: true || false,
+ *   mapAutoTaggingMpeID: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateLaunchConfigurationCommandInput - {@link UpdateLaunchConfigurationCommandInput}
@@ -102,6 +146,8 @@ export interface UpdateLaunchConfigurationCommandOutput extends LaunchConfigurat
  * @throws {@link ValidationException} (client fault)
  *  <p>Validate exception.</p>
  *
+ * @throws {@link MgnServiceException}
+ * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
  */
 export class UpdateLaunchConfigurationCommand extends $Command<

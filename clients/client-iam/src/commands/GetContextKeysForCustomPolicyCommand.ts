@@ -48,16 +48,23 @@ export interface GetContextKeysForCustomPolicyCommandOutput extends GetContextKe
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IAMClient, GetContextKeysForCustomPolicyCommand } from "@aws-sdk/client-iam"; // ES Modules import
- * // const { IAMClient, GetContextKeysForCustomPolicyCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * import { IAMClient, GetContextKeysForCustomPolicyCommand } from '@aws-sdk/client-iam'; // ES Modules import
+ * // const { IAMClient, GetContextKeysForCustomPolicyCommand } = require('@aws-sdk/client-iam'); // CommonJS import
  * const client = new IAMClient(config);
  * const input = { // GetContextKeysForCustomPolicyRequest
  *   PolicyInputList: [ // SimulationPolicyListType // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new GetContextKeysForCustomPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetContextKeysForPolicyResponse
+ *   ContextKeyNames: [ // ContextKeyNamesResultListType
+ *     'STRING_VALUE',
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetContextKeysForCustomPolicyCommandInput - {@link GetContextKeysForCustomPolicyCommandInput}
@@ -70,6 +77,8 @@ export interface GetContextKeysForCustomPolicyCommandOutput extends GetContextKe
  *  <p>The request was rejected because an invalid or out-of-range value was supplied for an
  *       input parameter.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  */
 export class GetContextKeysForCustomPolicyCommand extends $Command<

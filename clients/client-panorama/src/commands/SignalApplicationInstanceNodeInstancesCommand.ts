@@ -45,20 +45,25 @@ export interface SignalApplicationInstanceNodeInstancesCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PanoramaClient, SignalApplicationInstanceNodeInstancesCommand } from "@aws-sdk/client-panorama"; // ES Modules import
- * // const { PanoramaClient, SignalApplicationInstanceNodeInstancesCommand } = require("@aws-sdk/client-panorama"); // CommonJS import
+ * import { PanoramaClient, SignalApplicationInstanceNodeInstancesCommand } from '@aws-sdk/client-panorama'; // ES Modules import
+ * // const { PanoramaClient, SignalApplicationInstanceNodeInstancesCommand } = require('@aws-sdk/client-panorama'); // CommonJS import
  * const client = new PanoramaClient(config);
  * const input = { // SignalApplicationInstanceNodeInstancesRequest
- *   ApplicationInstanceId: "STRING_VALUE", // required
+ *   ApplicationInstanceId: 'STRING_VALUE', // required
  *   NodeSignals: [ // NodeSignalList // required
  *     { // NodeSignal
- *       NodeInstanceId: "STRING_VALUE", // required
- *       Signal: "STRING_VALUE", // required
+ *       NodeInstanceId: 'STRING_VALUE', // required
+ *       Signal: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new SignalApplicationInstanceNodeInstancesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SignalApplicationInstanceNodeInstancesResponse
+ *   ApplicationInstanceId: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param SignalApplicationInstanceNodeInstancesCommandInput - {@link SignalApplicationInstanceNodeInstancesCommandInput}
@@ -79,6 +84,8 @@ export interface SignalApplicationInstanceNodeInstancesCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The request contains an invalid parameter value.</p>
  *
+ * @throws {@link PanoramaServiceException}
+ * <p>Base exception class for all service exceptions from Panorama service.</p>
  *
  */
 export class SignalApplicationInstanceNodeInstancesCommand extends $Command<

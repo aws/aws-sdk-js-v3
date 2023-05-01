@@ -41,16 +41,36 @@ export interface GetConnectorDefinitionVersionCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GreengrassClient, GetConnectorDefinitionVersionCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
- * // const { GreengrassClient, GetConnectorDefinitionVersionCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
+ * import { GreengrassClient, GetConnectorDefinitionVersionCommand } from '@aws-sdk/client-greengrass'; // ES Modules import
+ * // const { GreengrassClient, GetConnectorDefinitionVersionCommand } = require('@aws-sdk/client-greengrass'); // CommonJS import
  * const client = new GreengrassClient(config);
  * const input = { // GetConnectorDefinitionVersionRequest
- *   ConnectorDefinitionId: "STRING_VALUE", // required
- *   ConnectorDefinitionVersionId: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
+ *   ConnectorDefinitionId: 'STRING_VALUE', // required
+ *   ConnectorDefinitionVersionId: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new GetConnectorDefinitionVersionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetConnectorDefinitionVersionResponse
+ *   Arn: 'STRING_VALUE',
+ *   CreationTimestamp: 'STRING_VALUE',
+ *   Definition: { // ConnectorDefinitionVersion
+ *     Connectors: [ // __listOfConnector
+ *       { // Connector
+ *         ConnectorArn: 'STRING_VALUE', // required
+ *         Id: 'STRING_VALUE', // required
+ *         Parameters: { // __mapOf__string
+ *           '<keys>': 'STRING_VALUE',
+ *         },
+ *       },
+ *     ],
+ *   },
+ *   Id: 'STRING_VALUE',
+ *   NextToken: 'STRING_VALUE',
+ *   Version: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetConnectorDefinitionVersionCommandInput - {@link GetConnectorDefinitionVersionCommandInput}
@@ -62,6 +82,8 @@ export interface GetConnectorDefinitionVersionCommandOutput
  * @throws {@link BadRequestException} (client fault)
  *  General error information.
  *
+ * @throws {@link GreengrassServiceException}
+ * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
  */
 export class GetConnectorDefinitionVersionCommand extends $Command<

@@ -37,56 +37,59 @@ export interface PutDataLakeSettingsCommandOutput extends PutDataLakeSettingsRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LakeFormationClient, PutDataLakeSettingsCommand } from "@aws-sdk/client-lakeformation"; // ES Modules import
- * // const { LakeFormationClient, PutDataLakeSettingsCommand } = require("@aws-sdk/client-lakeformation"); // CommonJS import
+ * import { LakeFormationClient, PutDataLakeSettingsCommand } from '@aws-sdk/client-lakeformation'; // ES Modules import
+ * // const { LakeFormationClient, PutDataLakeSettingsCommand } = require('@aws-sdk/client-lakeformation'); // CommonJS import
  * const client = new LakeFormationClient(config);
  * const input = { // PutDataLakeSettingsRequest
- *   CatalogId: "STRING_VALUE",
+ *   CatalogId: 'STRING_VALUE',
  *   DataLakeSettings: { // DataLakeSettings
  *     DataLakeAdmins: [ // DataLakePrincipalList
  *       { // DataLakePrincipal
- *         DataLakePrincipalIdentifier: "STRING_VALUE",
+ *         DataLakePrincipalIdentifier: 'STRING_VALUE',
  *       },
  *     ],
  *     CreateDatabaseDefaultPermissions: [ // PrincipalPermissionsList
  *       { // PrincipalPermissions
  *         Principal: {
- *           DataLakePrincipalIdentifier: "STRING_VALUE",
+ *           DataLakePrincipalIdentifier: 'STRING_VALUE',
  *         },
  *         Permissions: [ // PermissionList
- *           "ALL" || "SELECT" || "ALTER" || "DROP" || "DELETE" || "INSERT" || "DESCRIBE" || "CREATE_DATABASE" || "CREATE_TABLE" || "DATA_LOCATION_ACCESS" || "CREATE_TAG" || "ASSOCIATE",
+ *           'ALL' || 'SELECT' || 'ALTER' || 'DROP' || 'DELETE' || 'INSERT' || 'DESCRIBE' || 'CREATE_DATABASE' || 'CREATE_TABLE' || 'DATA_LOCATION_ACCESS' || 'CREATE_TAG' || 'ASSOCIATE',
  *         ],
  *       },
  *     ],
  *     CreateTableDefaultPermissions: [
  *       {
  *         Principal: {
- *           DataLakePrincipalIdentifier: "STRING_VALUE",
+ *           DataLakePrincipalIdentifier: 'STRING_VALUE',
  *         },
  *         Permissions: [
- *           "ALL" || "SELECT" || "ALTER" || "DROP" || "DELETE" || "INSERT" || "DESCRIBE" || "CREATE_DATABASE" || "CREATE_TABLE" || "DATA_LOCATION_ACCESS" || "CREATE_TAG" || "ASSOCIATE",
+ *           'ALL' || 'SELECT' || 'ALTER' || 'DROP' || 'DELETE' || 'INSERT' || 'DESCRIBE' || 'CREATE_DATABASE' || 'CREATE_TABLE' || 'DATA_LOCATION_ACCESS' || 'CREATE_TAG' || 'ASSOCIATE',
  *         ],
  *       },
  *     ],
  *     Parameters: { // ParametersMap
- *       "<keys>": "STRING_VALUE",
+ *       '<keys>': 'STRING_VALUE',
  *     },
  *     TrustedResourceOwners: [ // TrustedResourceOwners
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     AllowExternalDataFiltering: true || false,
  *     ExternalDataFilteringAllowList: [
  *       {
- *         DataLakePrincipalIdentifier: "STRING_VALUE",
+ *         DataLakePrincipalIdentifier: 'STRING_VALUE',
  *       },
  *     ],
  *     AuthorizedSessionTagValueList: [ // AuthorizedSessionTagValueList
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *   },
  * };
  * const command = new PutDataLakeSettingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutDataLakeSettingsCommandInput - {@link PutDataLakeSettingsCommandInput}
@@ -101,6 +104,8 @@ export interface PutDataLakeSettingsCommandOutput extends PutDataLakeSettingsRes
  * @throws {@link InvalidInputException} (client fault)
  *  <p>The input provided was not valid.</p>
  *
+ * @throws {@link LakeFormationServiceException}
+ * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
  */
 export class PutDataLakeSettingsCommand extends $Command<

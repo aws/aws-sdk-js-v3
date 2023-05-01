@@ -59,14 +59,19 @@ export interface ShutdownGatewayCommandOutput extends ShutdownGatewayOutput, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { StorageGatewayClient, ShutdownGatewayCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
- * // const { StorageGatewayClient, ShutdownGatewayCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
+ * import { StorageGatewayClient, ShutdownGatewayCommand } from '@aws-sdk/client-storage-gateway'; // ES Modules import
+ * // const { StorageGatewayClient, ShutdownGatewayCommand } = require('@aws-sdk/client-storage-gateway'); // CommonJS import
  * const client = new StorageGatewayClient(config);
  * const input = { // ShutdownGatewayInput
- *   GatewayARN: "STRING_VALUE", // required
+ *   GatewayARN: 'STRING_VALUE', // required
  * };
  * const command = new ShutdownGatewayCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ShutdownGatewayOutput
+ *   GatewayARN: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ShutdownGatewayCommandInput - {@link ShutdownGatewayCommandInput}
@@ -83,6 +88,8 @@ export interface ShutdownGatewayCommandOutput extends ShutdownGatewayOutput, __M
  *  <p>An exception occurred because an invalid gateway request was issued to the service. For
  *          more information, see the error and message fields.</p>
  *
+ * @throws {@link StorageGatewayServiceException}
+ * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
  * @example To shut down a gateway service
  * ```javascript

@@ -36,17 +36,20 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PersonalizeClient, UntagResourceCommand } from "@aws-sdk/client-personalize"; // ES Modules import
- * // const { PersonalizeClient, UntagResourceCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
+ * import { PersonalizeClient, UntagResourceCommand } from '@aws-sdk/client-personalize'; // ES Modules import
+ * // const { PersonalizeClient, UntagResourceCommand } = require('@aws-sdk/client-personalize'); // CommonJS import
  * const client = new PersonalizeClient(config);
  * const input = { // UntagResourceRequest
- *   resourceArn: "STRING_VALUE", // required
+ *   resourceArn: 'STRING_VALUE', // required
  *   tagKeys: [ // TagKeys // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new UntagResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UntagResourceCommandInput - {@link UntagResourceCommandInput}
@@ -67,6 +70,8 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * @throws {@link TooManyTagKeysException} (client fault)
  *  <p>The request contains more tag keys than can be associated with a resource (50 tag keys per resource). </p>
  *
+ * @throws {@link PersonalizeServiceException}
+ * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
  */
 export class UntagResourceCommand extends $Command<

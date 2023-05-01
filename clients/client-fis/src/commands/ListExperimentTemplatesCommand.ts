@@ -36,15 +36,31 @@ export interface ListExperimentTemplatesCommandOutput extends ListExperimentTemp
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FisClient, ListExperimentTemplatesCommand } from "@aws-sdk/client-fis"; // ES Modules import
- * // const { FisClient, ListExperimentTemplatesCommand } = require("@aws-sdk/client-fis"); // CommonJS import
+ * import { FisClient, ListExperimentTemplatesCommand } from '@aws-sdk/client-fis'; // ES Modules import
+ * // const { FisClient, ListExperimentTemplatesCommand } = require('@aws-sdk/client-fis'); // CommonJS import
  * const client = new FisClient(config);
  * const input = { // ListExperimentTemplatesRequest
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new ListExperimentTemplatesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListExperimentTemplatesResponse
+ *   experimentTemplates: [ // ExperimentTemplateSummaryList
+ *     { // ExperimentTemplateSummary
+ *       id: 'STRING_VALUE',
+ *       description: 'STRING_VALUE',
+ *       creationTime: new Date('TIMESTAMP'),
+ *       lastUpdateTime: new Date('TIMESTAMP'),
+ *       tags: { // TagMap
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListExperimentTemplatesCommandInput - {@link ListExperimentTemplatesCommandInput}
@@ -56,6 +72,8 @@ export interface ListExperimentTemplatesCommandOutput extends ListExperimentTemp
  * @throws {@link ValidationException} (client fault)
  *  <p>The specified input is not valid, or fails to satisfy the constraints for the request.</p>
  *
+ * @throws {@link FisServiceException}
+ * <p>Base exception class for all service exceptions from Fis service.</p>
  *
  */
 export class ListExperimentTemplatesCommand extends $Command<

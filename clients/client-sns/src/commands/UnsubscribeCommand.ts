@@ -47,14 +47,17 @@ export interface UnsubscribeCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SNSClient, UnsubscribeCommand } from "@aws-sdk/client-sns"; // ES Modules import
- * // const { SNSClient, UnsubscribeCommand } = require("@aws-sdk/client-sns"); // CommonJS import
+ * import { SNSClient, UnsubscribeCommand } from '@aws-sdk/client-sns'; // ES Modules import
+ * // const { SNSClient, UnsubscribeCommand } = require('@aws-sdk/client-sns'); // CommonJS import
  * const client = new SNSClient(config);
  * const input = { // UnsubscribeInput
- *   SubscriptionArn: "STRING_VALUE", // required
+ *   SubscriptionArn: 'STRING_VALUE', // required
  * };
  * const command = new UnsubscribeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UnsubscribeCommandInput - {@link UnsubscribeCommandInput}
@@ -80,6 +83,8 @@ export interface UnsubscribeCommandOutput extends __MetadataBearer {}
  * @throws {@link NotFoundException} (client fault)
  *  <p>Indicates that the requested resource does not exist.</p>
  *
+ * @throws {@link SNSServiceException}
+ * <p>Base exception class for all service exceptions from SNS service.</p>
  *
  */
 export class UnsubscribeCommand extends $Command<

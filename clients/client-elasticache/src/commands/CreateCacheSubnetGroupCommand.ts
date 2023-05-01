@@ -37,24 +37,51 @@ export interface CreateCacheSubnetGroupCommandOutput extends CreateCacheSubnetGr
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElastiCacheClient, CreateCacheSubnetGroupCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
- * // const { ElastiCacheClient, CreateCacheSubnetGroupCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
+ * import { ElastiCacheClient, CreateCacheSubnetGroupCommand } from '@aws-sdk/client-elasticache'; // ES Modules import
+ * // const { ElastiCacheClient, CreateCacheSubnetGroupCommand } = require('@aws-sdk/client-elasticache'); // CommonJS import
  * const client = new ElastiCacheClient(config);
  * const input = { // CreateCacheSubnetGroupMessage
- *   CacheSubnetGroupName: "STRING_VALUE", // required
- *   CacheSubnetGroupDescription: "STRING_VALUE", // required
+ *   CacheSubnetGroupName: 'STRING_VALUE', // required
+ *   CacheSubnetGroupDescription: 'STRING_VALUE', // required
  *   SubnetIds: [ // SubnetIdentifierList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE",
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new CreateCacheSubnetGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateCacheSubnetGroupResult
+ *   CacheSubnetGroup: { // CacheSubnetGroup
+ *     CacheSubnetGroupName: 'STRING_VALUE',
+ *     CacheSubnetGroupDescription: 'STRING_VALUE',
+ *     VpcId: 'STRING_VALUE',
+ *     Subnets: [ // SubnetList
+ *       { // Subnet
+ *         SubnetIdentifier: 'STRING_VALUE',
+ *         SubnetAvailabilityZone: { // AvailabilityZone
+ *           Name: 'STRING_VALUE',
+ *         },
+ *         SubnetOutpost: { // SubnetOutpost
+ *           SubnetOutpostArn: 'STRING_VALUE',
+ *         },
+ *         SupportedNetworkTypes: [ // NetworkTypeList
+ *           'ipv4' || 'ipv6' || 'dual_stack',
+ *         ],
+ *       },
+ *     ],
+ *     ARN: 'STRING_VALUE',
+ *     SupportedNetworkTypes: [
+ *       'ipv4' || 'ipv6' || 'dual_stack',
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateCacheSubnetGroupCommandInput - {@link CreateCacheSubnetGroupCommandInput}
@@ -82,6 +109,8 @@ export interface CreateCacheSubnetGroupCommandOutput extends CreateCacheSubnetGr
  * @throws {@link TagQuotaPerResourceExceeded} (client fault)
  *  <p>The request cannot be processed because it would cause the resource to have more than the allowed number of tags. The maximum number of tags permitted on a resource is 50.</p>
  *
+ * @throws {@link ElastiCacheServiceException}
+ * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
  * @example CreateCacheSubnet
  * ```javascript

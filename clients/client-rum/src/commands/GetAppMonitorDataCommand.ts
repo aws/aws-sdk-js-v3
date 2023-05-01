@@ -37,28 +37,36 @@ export interface GetAppMonitorDataCommandOutput extends GetAppMonitorDataRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RUMClient, GetAppMonitorDataCommand } from "@aws-sdk/client-rum"; // ES Modules import
- * // const { RUMClient, GetAppMonitorDataCommand } = require("@aws-sdk/client-rum"); // CommonJS import
+ * import { RUMClient, GetAppMonitorDataCommand } from '@aws-sdk/client-rum'; // ES Modules import
+ * // const { RUMClient, GetAppMonitorDataCommand } = require('@aws-sdk/client-rum'); // CommonJS import
  * const client = new RUMClient(config);
  * const input = { // GetAppMonitorDataRequest
- *   Name: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
  *   TimeRange: { // TimeRange
- *     After: Number("long"), // required
- *     Before: Number("long"),
+ *     After: Number('long'), // required
+ *     Before: Number('long'),
  *   },
  *   Filters: [ // QueryFilters
  *     { // QueryFilter
- *       Name: "STRING_VALUE",
+ *       Name: 'STRING_VALUE',
  *       Values: [ // QueryFilterValueList
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new GetAppMonitorDataCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetAppMonitorDataResponse
+ *   Events: [ // EventDataList
+ *     'STRING_VALUE',
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetAppMonitorDataCommandInput - {@link GetAppMonitorDataCommandInput}
@@ -82,6 +90,8 @@ export interface GetAppMonitorDataCommandOutput extends GetAppMonitorDataRespons
  * @throws {@link ValidationException} (client fault)
  *  <p>One of the arguments for the request is not valid.</p>
  *
+ * @throws {@link RUMServiceException}
+ * <p>Base exception class for all service exceptions from RUM service.</p>
  *
  */
 export class GetAppMonitorDataCommand extends $Command<

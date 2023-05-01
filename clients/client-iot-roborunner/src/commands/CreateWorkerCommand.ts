@@ -36,34 +36,43 @@ export interface CreateWorkerCommandOutput extends CreateWorkerResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTRoboRunnerClient, CreateWorkerCommand } from "@aws-sdk/client-iot-roborunner"; // ES Modules import
- * // const { IoTRoboRunnerClient, CreateWorkerCommand } = require("@aws-sdk/client-iot-roborunner"); // CommonJS import
+ * import { IoTRoboRunnerClient, CreateWorkerCommand } from '@aws-sdk/client-iot-roborunner'; // ES Modules import
+ * // const { IoTRoboRunnerClient, CreateWorkerCommand } = require('@aws-sdk/client-iot-roborunner'); // CommonJS import
  * const client = new IoTRoboRunnerClient(config);
  * const input = { // CreateWorkerRequest
- *   clientToken: "STRING_VALUE",
- *   name: "STRING_VALUE", // required
- *   fleet: "STRING_VALUE", // required
- *   additionalTransientProperties: "STRING_VALUE",
- *   additionalFixedProperties: "STRING_VALUE",
+ *   clientToken: 'STRING_VALUE',
+ *   name: 'STRING_VALUE', // required
+ *   fleet: 'STRING_VALUE', // required
+ *   additionalTransientProperties: 'STRING_VALUE',
+ *   additionalFixedProperties: 'STRING_VALUE',
  *   vendorProperties: { // VendorProperties
- *     vendorWorkerId: "STRING_VALUE", // required
- *     vendorWorkerIpAddress: "STRING_VALUE",
- *     vendorAdditionalTransientProperties: "STRING_VALUE",
- *     vendorAdditionalFixedProperties: "STRING_VALUE",
+ *     vendorWorkerId: 'STRING_VALUE', // required
+ *     vendorWorkerIpAddress: 'STRING_VALUE',
+ *     vendorAdditionalTransientProperties: 'STRING_VALUE',
+ *     vendorAdditionalFixedProperties: 'STRING_VALUE',
  *   },
  *   position: { // PositionCoordinates Union: only one key present
  *     cartesianCoordinates: { // CartesianCoordinates
- *       x: Number("double"), // required
- *       y: Number("double"), // required
- *       z: Number("double"),
+ *       x: Number('double'), // required
+ *       y: Number('double'), // required
+ *       z: Number('double'),
  *     },
  *   },
  *   orientation: { // Orientation Union: only one key present
- *     degrees: Number("double"),
+ *     degrees: Number('double'),
  *   },
  * };
  * const command = new CreateWorkerCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateWorkerResponse
+ *   arn: 'STRING_VALUE', // required
+ *   id: 'STRING_VALUE', // required
+ *   createdAt: new Date('TIMESTAMP'), // required
+ *   updatedAt: new Date('TIMESTAMP'), // required
+ *   site: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param CreateWorkerCommandInput - {@link CreateWorkerCommandInput}
@@ -93,6 +102,8 @@ export interface CreateWorkerCommandOutput extends CreateWorkerResponse, __Metad
  * @throws {@link ValidationException} (client fault)
  *  Exception thrown if an invalid parameter is provided to an API.
  *
+ * @throws {@link IoTRoboRunnerServiceException}
+ * <p>Base exception class for all service exceptions from IoTRoboRunner service.</p>
  *
  */
 export class CreateWorkerCommand extends $Command<

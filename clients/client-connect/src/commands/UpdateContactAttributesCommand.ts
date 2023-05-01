@@ -49,18 +49,21 @@ export interface UpdateContactAttributesCommandOutput extends UpdateContactAttri
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, UpdateContactAttributesCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, UpdateContactAttributesCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, UpdateContactAttributesCommand } from '@aws-sdk/client-connect'; // ES Modules import
+ * // const { ConnectClient, UpdateContactAttributesCommand } = require('@aws-sdk/client-connect'); // CommonJS import
  * const client = new ConnectClient(config);
  * const input = { // UpdateContactAttributesRequest
- *   InitialContactId: "STRING_VALUE", // required
- *   InstanceId: "STRING_VALUE", // required
+ *   InitialContactId: 'STRING_VALUE', // required
+ *   InstanceId: 'STRING_VALUE', // required
  *   Attributes: { // Attributes // required
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new UpdateContactAttributesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateContactAttributesCommandInput - {@link UpdateContactAttributesCommandInput}
@@ -81,6 +84,8 @@ export interface UpdateContactAttributesCommandOutput extends UpdateContactAttri
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class UpdateContactAttributesCommand extends $Command<

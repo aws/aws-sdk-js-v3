@@ -61,22 +61,25 @@ export interface PutResourceAttributesCommandOutput extends PutResourceAttribute
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MigrationHubClient, PutResourceAttributesCommand } from "@aws-sdk/client-migration-hub"; // ES Modules import
- * // const { MigrationHubClient, PutResourceAttributesCommand } = require("@aws-sdk/client-migration-hub"); // CommonJS import
+ * import { MigrationHubClient, PutResourceAttributesCommand } from '@aws-sdk/client-migration-hub'; // ES Modules import
+ * // const { MigrationHubClient, PutResourceAttributesCommand } = require('@aws-sdk/client-migration-hub'); // CommonJS import
  * const client = new MigrationHubClient(config);
  * const input = { // PutResourceAttributesRequest
- *   ProgressUpdateStream: "STRING_VALUE", // required
- *   MigrationTaskName: "STRING_VALUE", // required
+ *   ProgressUpdateStream: 'STRING_VALUE', // required
+ *   MigrationTaskName: 'STRING_VALUE', // required
  *   ResourceAttributeList: [ // ResourceAttributeList // required
  *     { // ResourceAttribute
- *       Type: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Type: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  *   DryRun: true || false,
  * };
  * const command = new PutResourceAttributesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutResourceAttributesCommandInput - {@link PutResourceAttributesCommandInput}
@@ -119,6 +122,8 @@ export interface PutResourceAttributesCommandOutput extends PutResourceAttribute
  *  <p>Exception raised to indicate a request was not authorized when the <code>DryRun</code>
  *          flag is set to "true".</p>
  *
+ * @throws {@link MigrationHubServiceException}
+ * <p>Base exception class for all service exceptions from MigrationHub service.</p>
  *
  */
 export class PutResourceAttributesCommand extends $Command<

@@ -62,19 +62,28 @@ export interface PutChannelExpirationSettingsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeSDKMessagingClient, PutChannelExpirationSettingsCommand } from "@aws-sdk/client-chime-sdk-messaging"; // ES Modules import
- * // const { ChimeSDKMessagingClient, PutChannelExpirationSettingsCommand } = require("@aws-sdk/client-chime-sdk-messaging"); // CommonJS import
+ * import { ChimeSDKMessagingClient, PutChannelExpirationSettingsCommand } from '@aws-sdk/client-chime-sdk-messaging'; // ES Modules import
+ * // const { ChimeSDKMessagingClient, PutChannelExpirationSettingsCommand } = require('@aws-sdk/client-chime-sdk-messaging'); // CommonJS import
  * const client = new ChimeSDKMessagingClient(config);
  * const input = { // PutChannelExpirationSettingsRequest
- *   ChannelArn: "STRING_VALUE", // required
- *   ChimeBearer: "STRING_VALUE",
+ *   ChannelArn: 'STRING_VALUE', // required
+ *   ChimeBearer: 'STRING_VALUE',
  *   ExpirationSettings: { // ExpirationSettings
- *     ExpirationDays: Number("int"), // required
- *     ExpirationCriterion: "CREATED_TIMESTAMP" || "LAST_MESSAGE_TIMESTAMP", // required
+ *     ExpirationDays: Number('int'), // required
+ *     ExpirationCriterion: 'CREATED_TIMESTAMP' || 'LAST_MESSAGE_TIMESTAMP', // required
  *   },
  * };
  * const command = new PutChannelExpirationSettingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutChannelExpirationSettingsResponse
+ *   ChannelArn: 'STRING_VALUE',
+ *   ExpirationSettings: { // ExpirationSettings
+ *     ExpirationDays: Number('int'), // required
+ *     ExpirationCriterion: 'CREATED_TIMESTAMP' || 'LAST_MESSAGE_TIMESTAMP', // required
+ *   },
+ * };
+ *
  * ```
  *
  * @param PutChannelExpirationSettingsCommandInput - {@link PutChannelExpirationSettingsCommandInput}
@@ -105,6 +114,8 @@ export interface PutChannelExpirationSettingsCommandOutput
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeSDKMessagingServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKMessaging service.</p>
  *
  */
 export class PutChannelExpirationSettingsCommand extends $Command<

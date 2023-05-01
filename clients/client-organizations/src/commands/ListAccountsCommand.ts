@@ -47,15 +47,31 @@ export interface ListAccountsCommandOutput extends ListAccountsResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OrganizationsClient, ListAccountsCommand } from "@aws-sdk/client-organizations"; // ES Modules import
- * // const { OrganizationsClient, ListAccountsCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
+ * import { OrganizationsClient, ListAccountsCommand } from '@aws-sdk/client-organizations'; // ES Modules import
+ * // const { OrganizationsClient, ListAccountsCommand } = require('@aws-sdk/client-organizations'); // CommonJS import
  * const client = new OrganizationsClient(config);
  * const input = { // ListAccountsRequest
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListAccountsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListAccountsResponse
+ *   Accounts: [ // Accounts
+ *     { // Account
+ *       Id: 'STRING_VALUE',
+ *       Arn: 'STRING_VALUE',
+ *       Email: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *       Status: 'ACTIVE' || 'SUSPENDED' || 'PENDING_CLOSURE',
+ *       JoinedMethod: 'INVITED' || 'CREATED',
+ *       JoinedTimestamp: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListAccountsCommandInput - {@link ListAccountsCommandInput}
@@ -190,6 +206,8 @@ export interface ListAccountsCommandOutput extends ListAccountsResponse, __Metad
  *                 <i>Organizations User Guide.</i>
  *          </p>
  *
+ * @throws {@link OrganizationsServiceException}
+ * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
  * @example To retrieve a list of all of the accounts in an organization
  * ```javascript

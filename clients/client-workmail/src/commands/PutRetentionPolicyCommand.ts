@@ -40,24 +40,27 @@ export interface PutRetentionPolicyCommandOutput extends PutRetentionPolicyRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkMailClient, PutRetentionPolicyCommand } from "@aws-sdk/client-workmail"; // ES Modules import
- * // const { WorkMailClient, PutRetentionPolicyCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
+ * import { WorkMailClient, PutRetentionPolicyCommand } from '@aws-sdk/client-workmail'; // ES Modules import
+ * // const { WorkMailClient, PutRetentionPolicyCommand } = require('@aws-sdk/client-workmail'); // CommonJS import
  * const client = new WorkMailClient(config);
  * const input = { // PutRetentionPolicyRequest
- *   OrganizationId: "STRING_VALUE", // required
- *   Id: "STRING_VALUE",
- *   Name: "STRING_VALUE", // required
- *   Description: "STRING_VALUE",
+ *   OrganizationId: 'STRING_VALUE', // required
+ *   Id: 'STRING_VALUE',
+ *   Name: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE',
  *   FolderConfigurations: [ // FolderConfigurations // required
  *     { // FolderConfiguration
- *       Name: "INBOX" || "DELETED_ITEMS" || "SENT_ITEMS" || "DRAFTS" || "JUNK_EMAIL", // required
- *       Action: "NONE" || "DELETE" || "PERMANENTLY_DELETE", // required
- *       Period: Number("int"),
+ *       Name: 'INBOX' || 'DELETED_ITEMS' || 'SENT_ITEMS' || 'DRAFTS' || 'JUNK_EMAIL', // required
+ *       Action: 'NONE' || 'DELETE' || 'PERMANENTLY_DELETE', // required
+ *       Period: Number('int'),
  *     },
  *   ],
  * };
  * const command = new PutRetentionPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutRetentionPolicyCommandInput - {@link PutRetentionPolicyCommandInput}
@@ -80,6 +83,8 @@ export interface PutRetentionPolicyCommandOutput extends PutRetentionPolicyRespo
  *  <p>The organization must have a valid state to perform certain
  *          operations on the organization or its members.</p>
  *
+ * @throws {@link WorkMailServiceException}
+ * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
  */
 export class PutRetentionPolicyCommand extends $Command<

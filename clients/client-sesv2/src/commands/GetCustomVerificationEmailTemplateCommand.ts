@@ -49,14 +49,24 @@ export interface GetCustomVerificationEmailTemplateCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SESv2Client, GetCustomVerificationEmailTemplateCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
- * // const { SESv2Client, GetCustomVerificationEmailTemplateCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
+ * import { SESv2Client, GetCustomVerificationEmailTemplateCommand } from '@aws-sdk/client-sesv2'; // ES Modules import
+ * // const { SESv2Client, GetCustomVerificationEmailTemplateCommand } = require('@aws-sdk/client-sesv2'); // CommonJS import
  * const client = new SESv2Client(config);
  * const input = { // GetCustomVerificationEmailTemplateRequest
- *   TemplateName: "STRING_VALUE", // required
+ *   TemplateName: 'STRING_VALUE', // required
  * };
  * const command = new GetCustomVerificationEmailTemplateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetCustomVerificationEmailTemplateResponse
+ *   TemplateName: 'STRING_VALUE',
+ *   FromEmailAddress: 'STRING_VALUE',
+ *   TemplateSubject: 'STRING_VALUE',
+ *   TemplateContent: 'STRING_VALUE',
+ *   SuccessRedirectionURL: 'STRING_VALUE',
+ *   FailureRedirectionURL: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetCustomVerificationEmailTemplateCommandInput - {@link GetCustomVerificationEmailTemplateCommandInput}
@@ -74,6 +84,8 @@ export interface GetCustomVerificationEmailTemplateCommandOutput
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Too many requests have been made to the operation.</p>
  *
+ * @throws {@link SESv2ServiceException}
+ * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
  */
 export class GetCustomVerificationEmailTemplateCommand extends $Command<

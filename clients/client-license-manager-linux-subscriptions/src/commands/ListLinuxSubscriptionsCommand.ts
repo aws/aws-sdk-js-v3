@@ -42,24 +42,36 @@ export interface ListLinuxSubscriptionsCommandOutput extends ListLinuxSubscripti
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LicenseManagerLinuxSubscriptionsClient, ListLinuxSubscriptionsCommand } from "@aws-sdk/client-license-manager-linux-subscriptions"; // ES Modules import
- * // const { LicenseManagerLinuxSubscriptionsClient, ListLinuxSubscriptionsCommand } = require("@aws-sdk/client-license-manager-linux-subscriptions"); // CommonJS import
+ * import { LicenseManagerLinuxSubscriptionsClient, ListLinuxSubscriptionsCommand } from '@aws-sdk/client-license-manager-linux-subscriptions'; // ES Modules import
+ * // const { LicenseManagerLinuxSubscriptionsClient, ListLinuxSubscriptionsCommand } = require('@aws-sdk/client-license-manager-linux-subscriptions'); // CommonJS import
  * const client = new LicenseManagerLinuxSubscriptionsClient(config);
  * const input = { // ListLinuxSubscriptionsRequest
  *   Filters: [ // FilterList
  *     { // Filter
- *       Name: "STRING_VALUE",
+ *       Name: 'STRING_VALUE',
  *       Values: [ // StringList
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
- *       Operator: "STRING_VALUE",
+ *       Operator: 'STRING_VALUE',
  *     },
  *   ],
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListLinuxSubscriptionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListLinuxSubscriptionsResponse
+ *   Subscriptions: [ // SubscriptionList
+ *     { // Subscription
+ *       Name: 'STRING_VALUE',
+ *       Type: 'STRING_VALUE',
+ *       InstanceCount: Number('long'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListLinuxSubscriptionsCommandInput - {@link ListLinuxSubscriptionsCommandInput}
@@ -77,6 +89,8 @@ export interface ListLinuxSubscriptionsCommandOutput extends ListLinuxSubscripti
  * @throws {@link ValidationException} (client fault)
  *  <p>The provided input is not valid. Try your request again.</p>
  *
+ * @throws {@link LicenseManagerLinuxSubscriptionsServiceException}
+ * <p>Base exception class for all service exceptions from LicenseManagerLinuxSubscriptions service.</p>
  *
  */
 export class ListLinuxSubscriptionsCommand extends $Command<

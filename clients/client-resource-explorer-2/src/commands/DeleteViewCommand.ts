@@ -43,14 +43,19 @@ export interface DeleteViewCommandOutput extends DeleteViewOutput, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ResourceExplorer2Client, DeleteViewCommand } from "@aws-sdk/client-resource-explorer-2"; // ES Modules import
- * // const { ResourceExplorer2Client, DeleteViewCommand } = require("@aws-sdk/client-resource-explorer-2"); // CommonJS import
+ * import { ResourceExplorer2Client, DeleteViewCommand } from '@aws-sdk/client-resource-explorer-2'; // ES Modules import
+ * // const { ResourceExplorer2Client, DeleteViewCommand } = require('@aws-sdk/client-resource-explorer-2'); // CommonJS import
  * const client = new ResourceExplorer2Client(config);
  * const input = { // DeleteViewInput
- *   ViewArn: "STRING_VALUE", // required
+ *   ViewArn: 'STRING_VALUE', // required
  * };
  * const command = new DeleteViewCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteViewOutput
+ *   ViewArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DeleteViewCommandInput - {@link DeleteViewCommandInput}
@@ -83,6 +88,8 @@ export interface DeleteViewCommandOutput extends DeleteViewOutput, __MetadataBea
  *  <p>You provided an invalid value for one of the operation's parameters. Check the syntax
  *             for the operation, and try again.</p>
  *
+ * @throws {@link ResourceExplorer2ServiceException}
+ * <p>Base exception class for all service exceptions from ResourceExplorer2 service.</p>
  *
  */
 export class DeleteViewCommand extends $Command<

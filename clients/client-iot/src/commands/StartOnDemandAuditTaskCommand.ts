@@ -37,16 +37,21 @@ export interface StartOnDemandAuditTaskCommandOutput extends StartOnDemandAuditT
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTClient, StartOnDemandAuditTaskCommand } from "@aws-sdk/client-iot"; // ES Modules import
- * // const { IoTClient, StartOnDemandAuditTaskCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * import { IoTClient, StartOnDemandAuditTaskCommand } from '@aws-sdk/client-iot'; // ES Modules import
+ * // const { IoTClient, StartOnDemandAuditTaskCommand } = require('@aws-sdk/client-iot'); // CommonJS import
  * const client = new IoTClient(config);
  * const input = { // StartOnDemandAuditTaskRequest
  *   targetCheckNames: [ // TargetAuditCheckNames // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new StartOnDemandAuditTaskCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartOnDemandAuditTaskResponse
+ *   taskId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param StartOnDemandAuditTaskCommandInput - {@link StartOnDemandAuditTaskCommandInput}
@@ -67,6 +72,8 @@ export interface StartOnDemandAuditTaskCommandOutput extends StartOnDemandAuditT
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The rate exceeds the limit.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class StartOnDemandAuditTaskCommand extends $Command<

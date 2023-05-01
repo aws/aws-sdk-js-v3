@@ -48,16 +48,30 @@ export interface ListExtensibleSourceServersCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DrsClient, ListExtensibleSourceServersCommand } from "@aws-sdk/client-drs"; // ES Modules import
- * // const { DrsClient, ListExtensibleSourceServersCommand } = require("@aws-sdk/client-drs"); // CommonJS import
+ * import { DrsClient, ListExtensibleSourceServersCommand } from '@aws-sdk/client-drs'; // ES Modules import
+ * // const { DrsClient, ListExtensibleSourceServersCommand } = require('@aws-sdk/client-drs'); // CommonJS import
  * const client = new DrsClient(config);
  * const input = { // ListExtensibleSourceServersRequest
- *   stagingAccountID: "STRING_VALUE", // required
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   stagingAccountID: 'STRING_VALUE', // required
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new ListExtensibleSourceServersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListExtensibleSourceServersResponse
+ *   items: [ // StagingSourceServersList
+ *     { // StagingSourceServer
+ *       hostname: 'STRING_VALUE',
+ *       arn: 'STRING_VALUE',
+ *       tags: { // TagsMap
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListExtensibleSourceServersCommandInput - {@link ListExtensibleSourceServersCommandInput}
@@ -81,6 +95,8 @@ export interface ListExtensibleSourceServersCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by the AWS service.</p>
  *
+ * @throws {@link DrsServiceException}
+ * <p>Base exception class for all service exceptions from Drs service.</p>
  *
  */
 export class ListExtensibleSourceServersCommand extends $Command<

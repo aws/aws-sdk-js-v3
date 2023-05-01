@@ -37,17 +37,24 @@ export interface SampleChannelDataCommandOutput extends SampleChannelDataRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTAnalyticsClient, SampleChannelDataCommand } from "@aws-sdk/client-iotanalytics"; // ES Modules import
- * // const { IoTAnalyticsClient, SampleChannelDataCommand } = require("@aws-sdk/client-iotanalytics"); // CommonJS import
+ * import { IoTAnalyticsClient, SampleChannelDataCommand } from '@aws-sdk/client-iotanalytics'; // ES Modules import
+ * // const { IoTAnalyticsClient, SampleChannelDataCommand } = require('@aws-sdk/client-iotanalytics'); // CommonJS import
  * const client = new IoTAnalyticsClient(config);
  * const input = { // SampleChannelDataRequest
- *   channelName: "STRING_VALUE", // required
- *   maxMessages: Number("int"),
- *   startTime: new Date("TIMESTAMP"),
- *   endTime: new Date("TIMESTAMP"),
+ *   channelName: 'STRING_VALUE', // required
+ *   maxMessages: Number('int'),
+ *   startTime: new Date('TIMESTAMP'),
+ *   endTime: new Date('TIMESTAMP'),
  * };
  * const command = new SampleChannelDataCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SampleChannelDataResponse
+ *   payloads: [ // MessagePayloads
+ *     'BLOB_VALUE',
+ *   ],
+ * };
+ *
  * ```
  *
  * @param SampleChannelDataCommandInput - {@link SampleChannelDataCommandInput}
@@ -71,6 +78,8 @@ export interface SampleChannelDataCommandOutput extends SampleChannelDataRespons
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
  *
+ * @throws {@link IoTAnalyticsServiceException}
+ * <p>Base exception class for all service exceptions from IoTAnalytics service.</p>
  *
  */
 export class SampleChannelDataCommand extends $Command<

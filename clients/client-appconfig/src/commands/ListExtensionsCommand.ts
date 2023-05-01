@@ -39,16 +39,30 @@ export interface ListExtensionsCommandOutput extends Extensions, __MetadataBeare
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppConfigClient, ListExtensionsCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
- * // const { AppConfigClient, ListExtensionsCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import
+ * import { AppConfigClient, ListExtensionsCommand } from '@aws-sdk/client-appconfig'; // ES Modules import
+ * // const { AppConfigClient, ListExtensionsCommand } = require('@aws-sdk/client-appconfig'); // CommonJS import
  * const client = new AppConfigClient(config);
  * const input = { // ListExtensionsRequest
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
- *   Name: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
+ *   Name: 'STRING_VALUE',
  * };
  * const command = new ListExtensionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // Extensions
+ *   Items: [ // ExtensionSummaries
+ *     { // ExtensionSummary
+ *       Id: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *       VersionNumber: Number('int'),
+ *       Arn: 'STRING_VALUE',
+ *       Description: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListExtensionsCommandInput - {@link ListExtensionsCommandInput}
@@ -63,6 +77,8 @@ export interface ListExtensionsCommandOutput extends Extensions, __MetadataBeare
  * @throws {@link InternalServerException} (server fault)
  *  <p>There was an internal failure in the AppConfig service.</p>
  *
+ * @throws {@link AppConfigServiceException}
+ * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
  */
 export class ListExtensionsCommand extends $Command<

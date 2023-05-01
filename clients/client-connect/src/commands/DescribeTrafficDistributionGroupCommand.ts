@@ -41,14 +41,29 @@ export interface DescribeTrafficDistributionGroupCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, DescribeTrafficDistributionGroupCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, DescribeTrafficDistributionGroupCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, DescribeTrafficDistributionGroupCommand } from '@aws-sdk/client-connect'; // ES Modules import
+ * // const { ConnectClient, DescribeTrafficDistributionGroupCommand } = require('@aws-sdk/client-connect'); // CommonJS import
  * const client = new ConnectClient(config);
  * const input = { // DescribeTrafficDistributionGroupRequest
- *   TrafficDistributionGroupId: "STRING_VALUE", // required
+ *   TrafficDistributionGroupId: 'STRING_VALUE', // required
  * };
  * const command = new DescribeTrafficDistributionGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeTrafficDistributionGroupResponse
+ *   TrafficDistributionGroup: { // TrafficDistributionGroup
+ *     Id: 'STRING_VALUE',
+ *     Arn: 'STRING_VALUE',
+ *     Name: 'STRING_VALUE',
+ *     Description: 'STRING_VALUE',
+ *     InstanceArn: 'STRING_VALUE',
+ *     Status: 'CREATION_IN_PROGRESS' || 'ACTIVE' || 'CREATION_FAILED' || 'PENDING_DELETION' || 'DELETION_FAILED' || 'UPDATE_IN_PROGRESS',
+ *     Tags: { // TagMap
+ *       '<keys>': 'STRING_VALUE',
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeTrafficDistributionGroupCommandInput - {@link DescribeTrafficDistributionGroupCommandInput}
@@ -72,6 +87,8 @@ export interface DescribeTrafficDistributionGroupCommandOutput
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class DescribeTrafficDistributionGroupCommand extends $Command<

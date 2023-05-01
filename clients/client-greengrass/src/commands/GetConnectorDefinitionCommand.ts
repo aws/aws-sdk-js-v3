@@ -36,14 +36,28 @@ export interface GetConnectorDefinitionCommandOutput extends GetConnectorDefinit
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GreengrassClient, GetConnectorDefinitionCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
- * // const { GreengrassClient, GetConnectorDefinitionCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
+ * import { GreengrassClient, GetConnectorDefinitionCommand } from '@aws-sdk/client-greengrass'; // ES Modules import
+ * // const { GreengrassClient, GetConnectorDefinitionCommand } = require('@aws-sdk/client-greengrass'); // CommonJS import
  * const client = new GreengrassClient(config);
  * const input = { // GetConnectorDefinitionRequest
- *   ConnectorDefinitionId: "STRING_VALUE", // required
+ *   ConnectorDefinitionId: 'STRING_VALUE', // required
  * };
  * const command = new GetConnectorDefinitionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetConnectorDefinitionResponse
+ *   Arn: 'STRING_VALUE',
+ *   CreationTimestamp: 'STRING_VALUE',
+ *   Id: 'STRING_VALUE',
+ *   LastUpdatedTimestamp: 'STRING_VALUE',
+ *   LatestVersion: 'STRING_VALUE',
+ *   LatestVersionArn: 'STRING_VALUE',
+ *   Name: 'STRING_VALUE',
+ *   tags: { // Tags
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetConnectorDefinitionCommandInput - {@link GetConnectorDefinitionCommandInput}
@@ -55,6 +69,8 @@ export interface GetConnectorDefinitionCommandOutput extends GetConnectorDefinit
  * @throws {@link BadRequestException} (client fault)
  *  General error information.
  *
+ * @throws {@link GreengrassServiceException}
+ * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
  */
 export class GetConnectorDefinitionCommand extends $Command<

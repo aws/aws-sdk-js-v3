@@ -36,20 +36,35 @@ export interface ListPipelineExecutionsCommandOutput extends ListPipelineExecuti
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, ListPipelineExecutionsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, ListPipelineExecutionsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, ListPipelineExecutionsCommand } from '@aws-sdk/client-sagemaker'; // ES Modules import
+ * // const { SageMakerClient, ListPipelineExecutionsCommand } = require('@aws-sdk/client-sagemaker'); // CommonJS import
  * const client = new SageMakerClient(config);
  * const input = { // ListPipelineExecutionsRequest
- *   PipelineName: "STRING_VALUE", // required
- *   CreatedAfter: new Date("TIMESTAMP"),
- *   CreatedBefore: new Date("TIMESTAMP"),
- *   SortBy: "CreationTime" || "PipelineExecutionArn",
- *   SortOrder: "Ascending" || "Descending",
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   PipelineName: 'STRING_VALUE', // required
+ *   CreatedAfter: new Date('TIMESTAMP'),
+ *   CreatedBefore: new Date('TIMESTAMP'),
+ *   SortBy: 'CreationTime' || 'PipelineExecutionArn',
+ *   SortOrder: 'Ascending' || 'Descending',
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListPipelineExecutionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListPipelineExecutionsResponse
+ *   PipelineExecutionSummaries: [ // PipelineExecutionSummaryList
+ *     { // PipelineExecutionSummary
+ *       PipelineExecutionArn: 'STRING_VALUE',
+ *       StartTime: new Date('TIMESTAMP'),
+ *       PipelineExecutionStatus: 'Executing' || 'Stopping' || 'Stopped' || 'Failed' || 'Succeeded',
+ *       PipelineExecutionDescription: 'STRING_VALUE',
+ *       PipelineExecutionDisplayName: 'STRING_VALUE',
+ *       PipelineExecutionFailureReason: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListPipelineExecutionsCommandInput - {@link ListPipelineExecutionsCommandInput}
@@ -61,6 +76,8 @@ export interface ListPipelineExecutionsCommandOutput extends ListPipelineExecuti
  * @throws {@link ResourceNotFound} (client fault)
  *  <p>Resource being access is not found.</p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class ListPipelineExecutionsCommand extends $Command<

@@ -41,28 +41,47 @@ export interface DescribeOrderableDBInstanceOptionsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DocDBClient, DescribeOrderableDBInstanceOptionsCommand } from "@aws-sdk/client-docdb"; // ES Modules import
- * // const { DocDBClient, DescribeOrderableDBInstanceOptionsCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
+ * import { DocDBClient, DescribeOrderableDBInstanceOptionsCommand } from '@aws-sdk/client-docdb'; // ES Modules import
+ * // const { DocDBClient, DescribeOrderableDBInstanceOptionsCommand } = require('@aws-sdk/client-docdb'); // CommonJS import
  * const client = new DocDBClient(config);
  * const input = { // DescribeOrderableDBInstanceOptionsMessage
- *   Engine: "STRING_VALUE", // required
- *   EngineVersion: "STRING_VALUE",
- *   DBInstanceClass: "STRING_VALUE",
- *   LicenseModel: "STRING_VALUE",
+ *   Engine: 'STRING_VALUE', // required
+ *   EngineVersion: 'STRING_VALUE',
+ *   DBInstanceClass: 'STRING_VALUE',
+ *   LicenseModel: 'STRING_VALUE',
  *   Vpc: true || false,
  *   Filters: [ // FilterList
  *     { // Filter
- *       Name: "STRING_VALUE", // required
+ *       Name: 'STRING_VALUE', // required
  *       Values: [ // FilterValueList // required
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
- *   MaxRecords: Number("int"),
- *   Marker: "STRING_VALUE",
+ *   MaxRecords: Number('int'),
+ *   Marker: 'STRING_VALUE',
  * };
  * const command = new DescribeOrderableDBInstanceOptionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // OrderableDBInstanceOptionsMessage
+ *   OrderableDBInstanceOptions: [ // OrderableDBInstanceOptionsList
+ *     { // OrderableDBInstanceOption
+ *       Engine: 'STRING_VALUE',
+ *       EngineVersion: 'STRING_VALUE',
+ *       DBInstanceClass: 'STRING_VALUE',
+ *       LicenseModel: 'STRING_VALUE',
+ *       AvailabilityZones: [ // AvailabilityZoneList
+ *         { // AvailabilityZone
+ *           Name: 'STRING_VALUE',
+ *         },
+ *       ],
+ *       Vpc: true || false,
+ *     },
+ *   ],
+ *   Marker: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeOrderableDBInstanceOptionsCommandInput - {@link DescribeOrderableDBInstanceOptionsCommandInput}
@@ -71,6 +90,8 @@ export interface DescribeOrderableDBInstanceOptionsCommandOutput
  * @see {@link DescribeOrderableDBInstanceOptionsCommandOutput} for command's `response` shape.
  * @see {@link DocDBClientResolvedConfig | config} for DocDBClient's `config` shape.
  *
+ * @throws {@link DocDBServiceException}
+ * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
  */
 export class DescribeOrderableDBInstanceOptionsCommand extends $Command<

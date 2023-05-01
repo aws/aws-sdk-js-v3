@@ -44,16 +44,27 @@ export interface ListLicenseSpecificationsForResourceCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LicenseManagerClient, ListLicenseSpecificationsForResourceCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
- * // const { LicenseManagerClient, ListLicenseSpecificationsForResourceCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
+ * import { LicenseManagerClient, ListLicenseSpecificationsForResourceCommand } from '@aws-sdk/client-license-manager'; // ES Modules import
+ * // const { LicenseManagerClient, ListLicenseSpecificationsForResourceCommand } = require('@aws-sdk/client-license-manager'); // CommonJS import
  * const client = new LicenseManagerClient(config);
  * const input = { // ListLicenseSpecificationsForResourceRequest
- *   ResourceArn: "STRING_VALUE", // required
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   ResourceArn: 'STRING_VALUE', // required
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListLicenseSpecificationsForResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListLicenseSpecificationsForResourceResponse
+ *   LicenseSpecifications: [ // LicenseSpecifications
+ *     { // LicenseSpecification
+ *       LicenseConfigurationArn: 'STRING_VALUE', // required
+ *       AmiAssociationScope: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListLicenseSpecificationsForResourceCommandInput - {@link ListLicenseSpecificationsForResourceCommandInput}
@@ -78,6 +89,8 @@ export interface ListLicenseSpecificationsForResourceCommandOutput
  * @throws {@link ServerInternalException} (server fault)
  *  <p>The server experienced an internal error. Try again.</p>
  *
+ * @throws {@link LicenseManagerServiceException}
+ * <p>Base exception class for all service exceptions from LicenseManager service.</p>
  *
  */
 export class ListLicenseSpecificationsForResourceCommand extends $Command<

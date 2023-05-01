@@ -48,20 +48,38 @@ export interface ListDetectMitigationActionsExecutionsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTClient, ListDetectMitigationActionsExecutionsCommand } from "@aws-sdk/client-iot"; // ES Modules import
- * // const { IoTClient, ListDetectMitigationActionsExecutionsCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * import { IoTClient, ListDetectMitigationActionsExecutionsCommand } from '@aws-sdk/client-iot'; // ES Modules import
+ * // const { IoTClient, ListDetectMitigationActionsExecutionsCommand } = require('@aws-sdk/client-iot'); // CommonJS import
  * const client = new IoTClient(config);
  * const input = { // ListDetectMitigationActionsExecutionsRequest
- *   taskId: "STRING_VALUE",
- *   violationId: "STRING_VALUE",
- *   thingName: "STRING_VALUE",
- *   startTime: new Date("TIMESTAMP"),
- *   endTime: new Date("TIMESTAMP"),
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   taskId: 'STRING_VALUE',
+ *   violationId: 'STRING_VALUE',
+ *   thingName: 'STRING_VALUE',
+ *   startTime: new Date('TIMESTAMP'),
+ *   endTime: new Date('TIMESTAMP'),
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new ListDetectMitigationActionsExecutionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListDetectMitigationActionsExecutionsResponse
+ *   actionsExecutions: [ // DetectMitigationActionExecutionList
+ *     { // DetectMitigationActionExecution
+ *       taskId: 'STRING_VALUE',
+ *       violationId: 'STRING_VALUE',
+ *       actionName: 'STRING_VALUE',
+ *       thingName: 'STRING_VALUE',
+ *       executionStartDate: new Date('TIMESTAMP'),
+ *       executionEndDate: new Date('TIMESTAMP'),
+ *       status: 'IN_PROGRESS' || 'SUCCESSFUL' || 'FAILED' || 'SKIPPED',
+ *       errorCode: 'STRING_VALUE',
+ *       message: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListDetectMitigationActionsExecutionsCommandInput - {@link ListDetectMitigationActionsExecutionsCommandInput}
@@ -79,6 +97,8 @@ export interface ListDetectMitigationActionsExecutionsCommandOutput
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The rate exceeds the limit.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class ListDetectMitigationActionsExecutionsCommand extends $Command<

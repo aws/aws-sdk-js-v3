@@ -38,16 +38,33 @@ export interface DescribeReleaseLabelCommandOutput extends DescribeReleaseLabelO
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EMRClient, DescribeReleaseLabelCommand } from "@aws-sdk/client-emr"; // ES Modules import
- * // const { EMRClient, DescribeReleaseLabelCommand } = require("@aws-sdk/client-emr"); // CommonJS import
+ * import { EMRClient, DescribeReleaseLabelCommand } from '@aws-sdk/client-emr'; // ES Modules import
+ * // const { EMRClient, DescribeReleaseLabelCommand } = require('@aws-sdk/client-emr'); // CommonJS import
  * const client = new EMRClient(config);
  * const input = { // DescribeReleaseLabelInput
- *   ReleaseLabel: "STRING_VALUE",
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   ReleaseLabel: 'STRING_VALUE',
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new DescribeReleaseLabelCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeReleaseLabelOutput
+ *   ReleaseLabel: 'STRING_VALUE',
+ *   Applications: [ // SimplifiedApplicationList
+ *     { // SimplifiedApplication
+ *       Name: 'STRING_VALUE',
+ *       Version: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ *   AvailableOSReleases: [ // OSReleaseList
+ *     { // OSRelease
+ *       Label: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeReleaseLabelCommandInput - {@link DescribeReleaseLabelCommandInput}
@@ -63,6 +80,8 @@ export interface DescribeReleaseLabelCommandOutput extends DescribeReleaseLabelO
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception occurs when there is something wrong with user input.</p>
  *
+ * @throws {@link EMRServiceException}
+ * <p>Base exception class for all service exceptions from EMR service.</p>
  *
  */
 export class DescribeReleaseLabelCommand extends $Command<

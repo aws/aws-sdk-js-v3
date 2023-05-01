@@ -36,17 +36,36 @@ export interface ListRunsCommandOutput extends ListRunsResponse, __MetadataBeare
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OmicsClient, ListRunsCommand } from "@aws-sdk/client-omics"; // ES Modules import
- * // const { OmicsClient, ListRunsCommand } = require("@aws-sdk/client-omics"); // CommonJS import
+ * import { OmicsClient, ListRunsCommand } from '@aws-sdk/client-omics'; // ES Modules import
+ * // const { OmicsClient, ListRunsCommand } = require('@aws-sdk/client-omics'); // CommonJS import
  * const client = new OmicsClient(config);
  * const input = { // ListRunsRequest
- *   name: "STRING_VALUE",
- *   runGroupId: "STRING_VALUE",
- *   startingToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   name: 'STRING_VALUE',
+ *   runGroupId: 'STRING_VALUE',
+ *   startingToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new ListRunsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListRunsResponse
+ *   items: [ // RunList
+ *     { // RunListItem
+ *       arn: 'STRING_VALUE',
+ *       id: 'STRING_VALUE',
+ *       status: 'STRING_VALUE',
+ *       workflowId: 'STRING_VALUE',
+ *       name: 'STRING_VALUE',
+ *       priority: Number('int'),
+ *       storageCapacity: Number('int'),
+ *       creationTime: new Date('TIMESTAMP'),
+ *       startTime: new Date('TIMESTAMP'),
+ *       stopTime: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListRunsCommandInput - {@link ListRunsCommandInput}
@@ -79,6 +98,8 @@ export interface ListRunsCommandOutput extends ListRunsResponse, __MetadataBeare
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link OmicsServiceException}
+ * <p>Base exception class for all service exceptions from Omics service.</p>
  *
  */
 export class ListRunsCommand extends $Command<ListRunsCommandInput, ListRunsCommandOutput, OmicsClientResolvedConfig> {

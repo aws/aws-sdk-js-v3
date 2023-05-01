@@ -51,22 +51,33 @@ export interface CreateCacheParameterGroupCommandOutput extends CreateCacheParam
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElastiCacheClient, CreateCacheParameterGroupCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
- * // const { ElastiCacheClient, CreateCacheParameterGroupCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
+ * import { ElastiCacheClient, CreateCacheParameterGroupCommand } from '@aws-sdk/client-elasticache'; // ES Modules import
+ * // const { ElastiCacheClient, CreateCacheParameterGroupCommand } = require('@aws-sdk/client-elasticache'); // CommonJS import
  * const client = new ElastiCacheClient(config);
  * const input = { // CreateCacheParameterGroupMessage
- *   CacheParameterGroupName: "STRING_VALUE", // required
- *   CacheParameterGroupFamily: "STRING_VALUE", // required
- *   Description: "STRING_VALUE", // required
+ *   CacheParameterGroupName: 'STRING_VALUE', // required
+ *   CacheParameterGroupFamily: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE', // required
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE",
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new CreateCacheParameterGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateCacheParameterGroupResult
+ *   CacheParameterGroup: { // CacheParameterGroup
+ *     CacheParameterGroupName: 'STRING_VALUE',
+ *     CacheParameterGroupFamily: 'STRING_VALUE',
+ *     Description: 'STRING_VALUE',
+ *     IsGlobal: true || false,
+ *     ARN: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateCacheParameterGroupCommandInput - {@link CreateCacheParameterGroupCommandInput}
@@ -93,6 +104,8 @@ export interface CreateCacheParameterGroupCommandOutput extends CreateCacheParam
  * @throws {@link TagQuotaPerResourceExceeded} (client fault)
  *  <p>The request cannot be processed because it would cause the resource to have more than the allowed number of tags. The maximum number of tags permitted on a resource is 50.</p>
  *
+ * @throws {@link ElastiCacheServiceException}
+ * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
  * @example CreateCacheParameterGroup
  * ```javascript

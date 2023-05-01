@@ -71,16 +71,48 @@ export interface GetBucketInventoryConfigurationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { S3Client, GetBucketInventoryConfigurationCommand } from "@aws-sdk/client-s3"; // ES Modules import
- * // const { S3Client, GetBucketInventoryConfigurationCommand } = require("@aws-sdk/client-s3"); // CommonJS import
+ * import { S3Client, GetBucketInventoryConfigurationCommand } from '@aws-sdk/client-s3'; // ES Modules import
+ * // const { S3Client, GetBucketInventoryConfigurationCommand } = require('@aws-sdk/client-s3'); // CommonJS import
  * const client = new S3Client(config);
  * const input = { // GetBucketInventoryConfigurationRequest
- *   Bucket: "STRING_VALUE", // required
- *   Id: "STRING_VALUE", // required
- *   ExpectedBucketOwner: "STRING_VALUE",
+ *   Bucket: 'STRING_VALUE', // required
+ *   Id: 'STRING_VALUE', // required
+ *   ExpectedBucketOwner: 'STRING_VALUE',
  * };
  * const command = new GetBucketInventoryConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetBucketInventoryConfigurationOutput
+ *   InventoryConfiguration: { // InventoryConfiguration
+ *     Destination: { // InventoryDestination
+ *       S3BucketDestination: { // InventoryS3BucketDestination
+ *         AccountId: 'STRING_VALUE',
+ *         Bucket: 'STRING_VALUE', // required
+ *         Format: 'CSV' || 'ORC' || 'Parquet', // required
+ *         Prefix: 'STRING_VALUE',
+ *         Encryption: { // InventoryEncryption
+ *           SSES3: {},
+ *           SSEKMS: { // SSEKMS
+ *             KeyId: 'STRING_VALUE', // required
+ *           },
+ *         },
+ *       },
+ *     },
+ *     IsEnabled: true || false, // required
+ *     Filter: { // InventoryFilter
+ *       Prefix: 'STRING_VALUE', // required
+ *     },
+ *     Id: 'STRING_VALUE', // required
+ *     IncludedObjectVersions: 'All' || 'Current', // required
+ *     OptionalFields: [ // InventoryOptionalFields
+ *       'Size' || 'LastModifiedDate' || 'StorageClass' || 'ETag' || 'IsMultipartUploaded' || 'ReplicationStatus' || 'EncryptionStatus' || 'ObjectLockRetainUntilDate' || 'ObjectLockMode' || 'ObjectLockLegalHoldStatus' || 'IntelligentTieringAccessTier' || 'BucketKeyStatus' || 'ChecksumAlgorithm',
+ *     ],
+ *     Schedule: { // InventorySchedule
+ *       Frequency: 'Daily' || 'Weekly', // required
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetBucketInventoryConfigurationCommandInput - {@link GetBucketInventoryConfigurationCommandInput}
@@ -89,6 +121,8 @@ export interface GetBucketInventoryConfigurationCommandOutput
  * @see {@link GetBucketInventoryConfigurationCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
+ * @throws {@link S3ServiceException}
+ * <p>Base exception class for all service exceptions from S3 service.</p>
  *
  */
 export class GetBucketInventoryConfigurationCommand extends $Command<

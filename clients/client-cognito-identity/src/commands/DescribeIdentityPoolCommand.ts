@@ -39,14 +39,42 @@ export interface DescribeIdentityPoolCommandOutput extends IdentityPool, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CognitoIdentityClient, DescribeIdentityPoolCommand } from "@aws-sdk/client-cognito-identity"; // ES Modules import
- * // const { CognitoIdentityClient, DescribeIdentityPoolCommand } = require("@aws-sdk/client-cognito-identity"); // CommonJS import
+ * import { CognitoIdentityClient, DescribeIdentityPoolCommand } from '@aws-sdk/client-cognito-identity'; // ES Modules import
+ * // const { CognitoIdentityClient, DescribeIdentityPoolCommand } = require('@aws-sdk/client-cognito-identity'); // CommonJS import
  * const client = new CognitoIdentityClient(config);
  * const input = { // DescribeIdentityPoolInput
- *   IdentityPoolId: "STRING_VALUE", // required
+ *   IdentityPoolId: 'STRING_VALUE', // required
  * };
  * const command = new DescribeIdentityPoolCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // IdentityPool
+ *   IdentityPoolId: 'STRING_VALUE', // required
+ *   IdentityPoolName: 'STRING_VALUE', // required
+ *   AllowUnauthenticatedIdentities: true || false, // required
+ *   AllowClassicFlow: true || false,
+ *   SupportedLoginProviders: { // IdentityProviders
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ *   DeveloperProviderName: 'STRING_VALUE',
+ *   OpenIdConnectProviderARNs: [ // OIDCProviderList
+ *     'STRING_VALUE',
+ *   ],
+ *   CognitoIdentityProviders: [ // CognitoIdentityProviderList
+ *     { // CognitoIdentityProvider
+ *       ProviderName: 'STRING_VALUE',
+ *       ClientId: 'STRING_VALUE',
+ *       ServerSideTokenCheck: true || false,
+ *     },
+ *   ],
+ *   SamlProviderARNs: [ // SAMLProviderList
+ *     'STRING_VALUE',
+ *   ],
+ *   IdentityPoolTags: { // IdentityPoolTagsType
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeIdentityPoolCommandInput - {@link DescribeIdentityPoolCommandInput}
@@ -71,6 +99,8 @@ export interface DescribeIdentityPoolCommandOutput extends IdentityPool, __Metad
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Thrown when a request is throttled.</p>
  *
+ * @throws {@link CognitoIdentityServiceException}
+ * <p>Base exception class for all service exceptions from CognitoIdentity service.</p>
  *
  */
 export class DescribeIdentityPoolCommand extends $Command<

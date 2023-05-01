@@ -50,24 +50,44 @@ export interface ListShardsCommandOutput extends ListShardsOutput, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KinesisClient, ListShardsCommand } from "@aws-sdk/client-kinesis"; // ES Modules import
- * // const { KinesisClient, ListShardsCommand } = require("@aws-sdk/client-kinesis"); // CommonJS import
+ * import { KinesisClient, ListShardsCommand } from '@aws-sdk/client-kinesis'; // ES Modules import
+ * // const { KinesisClient, ListShardsCommand } = require('@aws-sdk/client-kinesis'); // CommonJS import
  * const client = new KinesisClient(config);
  * const input = { // ListShardsInput
- *   StreamName: "STRING_VALUE",
- *   NextToken: "STRING_VALUE",
- *   ExclusiveStartShardId: "STRING_VALUE",
- *   MaxResults: Number("int"),
- *   StreamCreationTimestamp: new Date("TIMESTAMP"),
+ *   StreamName: 'STRING_VALUE',
+ *   NextToken: 'STRING_VALUE',
+ *   ExclusiveStartShardId: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
+ *   StreamCreationTimestamp: new Date('TIMESTAMP'),
  *   ShardFilter: { // ShardFilter
- *     Type: "AFTER_SHARD_ID" || "AT_TRIM_HORIZON" || "FROM_TRIM_HORIZON" || "AT_LATEST" || "AT_TIMESTAMP" || "FROM_TIMESTAMP", // required
- *     ShardId: "STRING_VALUE",
- *     Timestamp: new Date("TIMESTAMP"),
+ *     Type: 'AFTER_SHARD_ID' || 'AT_TRIM_HORIZON' || 'FROM_TRIM_HORIZON' || 'AT_LATEST' || 'AT_TIMESTAMP' || 'FROM_TIMESTAMP', // required
+ *     ShardId: 'STRING_VALUE',
+ *     Timestamp: new Date('TIMESTAMP'),
  *   },
- *   StreamARN: "STRING_VALUE",
+ *   StreamARN: 'STRING_VALUE',
  * };
  * const command = new ListShardsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListShardsOutput
+ *   Shards: [ // ShardList
+ *     { // Shard
+ *       ShardId: 'STRING_VALUE', // required
+ *       ParentShardId: 'STRING_VALUE',
+ *       AdjacentParentShardId: 'STRING_VALUE',
+ *       HashKeyRange: { // HashKeyRange
+ *         StartingHashKey: 'STRING_VALUE', // required
+ *         EndingHashKey: 'STRING_VALUE', // required
+ *       },
+ *       SequenceNumberRange: { // SequenceNumberRange
+ *         StartingSequenceNumber: 'STRING_VALUE', // required
+ *         EndingSequenceNumber: 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListShardsCommandInput - {@link ListShardsCommandInput}
@@ -99,6 +119,8 @@ export interface ListShardsCommandOutput extends ListShardsOutput, __MetadataBea
  *  <p>The requested resource could not be found. The stream might not be specified
  *             correctly.</p>
  *
+ * @throws {@link KinesisServiceException}
+ * <p>Base exception class for all service exceptions from Kinesis service.</p>
  *
  */
 export class ListShardsCommand extends $Command<

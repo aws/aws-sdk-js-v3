@@ -76,14 +76,17 @@ export interface EnableKeyRotationCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KMSClient, EnableKeyRotationCommand } from "@aws-sdk/client-kms"; // ES Modules import
- * // const { KMSClient, EnableKeyRotationCommand } = require("@aws-sdk/client-kms"); // CommonJS import
+ * import { KMSClient, EnableKeyRotationCommand } from '@aws-sdk/client-kms'; // ES Modules import
+ * // const { KMSClient, EnableKeyRotationCommand } = require('@aws-sdk/client-kms'); // CommonJS import
  * const client = new KMSClient(config);
  * const input = { // EnableKeyRotationRequest
- *   KeyId: "STRING_VALUE", // required
+ *   KeyId: 'STRING_VALUE', // required
  * };
  * const command = new EnableKeyRotationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param EnableKeyRotationCommandInput - {@link EnableKeyRotationCommandInput}
@@ -133,6 +136,8 @@ export interface EnableKeyRotationCommandOutput extends __MetadataBearer {}
  *  <p>The request was rejected because a specified parameter is not supported or a specified
  *       resource is not valid for this operation.</p>
  *
+ * @throws {@link KMSServiceException}
+ * <p>Base exception class for all service exceptions from KMS service.</p>
  *
  * @example To enable automatic rotation of key material
  * ```javascript

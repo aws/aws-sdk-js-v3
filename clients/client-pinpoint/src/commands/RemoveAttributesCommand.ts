@@ -36,20 +36,31 @@ export interface RemoveAttributesCommandOutput extends RemoveAttributesResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PinpointClient, RemoveAttributesCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
- * // const { PinpointClient, RemoveAttributesCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
+ * import { PinpointClient, RemoveAttributesCommand } from '@aws-sdk/client-pinpoint'; // ES Modules import
+ * // const { PinpointClient, RemoveAttributesCommand } = require('@aws-sdk/client-pinpoint'); // CommonJS import
  * const client = new PinpointClient(config);
  * const input = { // RemoveAttributesRequest
- *   ApplicationId: "STRING_VALUE", // required
- *   AttributeType: "STRING_VALUE", // required
+ *   ApplicationId: 'STRING_VALUE', // required
+ *   AttributeType: 'STRING_VALUE', // required
  *   UpdateAttributesRequest: { // UpdateAttributesRequest
  *     Blacklist: [ // ListOf__string
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *   },
  * };
  * const command = new RemoveAttributesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // RemoveAttributesResponse
+ *   AttributesResource: { // AttributesResource
+ *     ApplicationId: 'STRING_VALUE', // required
+ *     AttributeType: 'STRING_VALUE', // required
+ *     Attributes: [ // ListOf__string
+ *       'STRING_VALUE',
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param RemoveAttributesCommandInput - {@link RemoveAttributesCommandInput}
@@ -79,6 +90,8 @@ export interface RemoveAttributesCommandOutput extends RemoveAttributesResponse,
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Provides information about an API request or response.</p>
  *
+ * @throws {@link PinpointServiceException}
+ * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
  */
 export class RemoveAttributesCommand extends $Command<

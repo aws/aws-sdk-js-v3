@@ -36,15 +36,18 @@ export interface DeleteWorkloadCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WellArchitectedClient, DeleteWorkloadCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
- * // const { WellArchitectedClient, DeleteWorkloadCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
+ * import { WellArchitectedClient, DeleteWorkloadCommand } from '@aws-sdk/client-wellarchitected'; // ES Modules import
+ * // const { WellArchitectedClient, DeleteWorkloadCommand } = require('@aws-sdk/client-wellarchitected'); // CommonJS import
  * const client = new WellArchitectedClient(config);
  * const input = { // DeleteWorkloadInput
- *   WorkloadId: "STRING_VALUE", // required
- *   ClientRequestToken: "STRING_VALUE", // required
+ *   WorkloadId: 'STRING_VALUE', // required
+ *   ClientRequestToken: 'STRING_VALUE', // required
  * };
  * const command = new DeleteWorkloadCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteWorkloadCommandInput - {@link DeleteWorkloadCommandInput}
@@ -71,6 +74,8 @@ export interface DeleteWorkloadCommandOutput extends __MetadataBearer {}
  * @throws {@link ValidationException} (client fault)
  *  <p>The user input is not valid.</p>
  *
+ * @throws {@link WellArchitectedServiceException}
+ * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
  */
 export class DeleteWorkloadCommand extends $Command<

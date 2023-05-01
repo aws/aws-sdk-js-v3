@@ -40,15 +40,33 @@ export interface ActivateDeviceIdentifierCommandOutput extends ActivateDeviceIde
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PrivateNetworksClient, ActivateDeviceIdentifierCommand } from "@aws-sdk/client-privatenetworks"; // ES Modules import
- * // const { PrivateNetworksClient, ActivateDeviceIdentifierCommand } = require("@aws-sdk/client-privatenetworks"); // CommonJS import
+ * import { PrivateNetworksClient, ActivateDeviceIdentifierCommand } from '@aws-sdk/client-privatenetworks'; // ES Modules import
+ * // const { PrivateNetworksClient, ActivateDeviceIdentifierCommand } = require('@aws-sdk/client-privatenetworks'); // CommonJS import
  * const client = new PrivateNetworksClient(config);
  * const input = { // ActivateDeviceIdentifierRequest
- *   deviceIdentifierArn: "STRING_VALUE", // required
- *   clientToken: "STRING_VALUE",
+ *   deviceIdentifierArn: 'STRING_VALUE', // required
+ *   clientToken: 'STRING_VALUE',
  * };
  * const command = new ActivateDeviceIdentifierCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ActivateDeviceIdentifierResponse
+ *   deviceIdentifier: { // DeviceIdentifier
+ *     deviceIdentifierArn: 'STRING_VALUE',
+ *     trafficGroupArn: 'STRING_VALUE',
+ *     networkArn: 'STRING_VALUE',
+ *     imsi: 'STRING_VALUE',
+ *     iccid: 'STRING_VALUE',
+ *     vendor: 'STRING_VALUE',
+ *     status: 'STRING_VALUE',
+ *     orderArn: 'STRING_VALUE',
+ *     createdAt: new Date('TIMESTAMP'),
+ *   },
+ *   tags: { // TagMap
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param ActivateDeviceIdentifierCommandInput - {@link ActivateDeviceIdentifierCommandInput}
@@ -66,6 +84,8 @@ export interface ActivateDeviceIdentifierCommandOutput extends ActivateDeviceIde
  * @throws {@link ValidationException} (client fault)
  *  <p>The request failed validation.</p>
  *
+ * @throws {@link PrivateNetworksServiceException}
+ * <p>Base exception class for all service exceptions from PrivateNetworks service.</p>
  *
  */
 export class ActivateDeviceIdentifierCommand extends $Command<

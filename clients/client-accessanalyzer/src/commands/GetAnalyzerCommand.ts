@@ -36,14 +36,33 @@ export interface GetAnalyzerCommandOutput extends GetAnalyzerResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AccessAnalyzerClient, GetAnalyzerCommand } from "@aws-sdk/client-accessanalyzer"; // ES Modules import
- * // const { AccessAnalyzerClient, GetAnalyzerCommand } = require("@aws-sdk/client-accessanalyzer"); // CommonJS import
+ * import { AccessAnalyzerClient, GetAnalyzerCommand } from '@aws-sdk/client-accessanalyzer'; // ES Modules import
+ * // const { AccessAnalyzerClient, GetAnalyzerCommand } = require('@aws-sdk/client-accessanalyzer'); // CommonJS import
  * const client = new AccessAnalyzerClient(config);
  * const input = { // GetAnalyzerRequest
- *   analyzerName: "STRING_VALUE", // required
+ *   analyzerName: 'STRING_VALUE', // required
  * };
  * const command = new GetAnalyzerCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetAnalyzerResponse
+ *   analyzer: { // AnalyzerSummary
+ *     arn: 'STRING_VALUE', // required
+ *     name: 'STRING_VALUE', // required
+ *     type: 'STRING_VALUE', // required
+ *     createdAt: new Date('TIMESTAMP'), // required
+ *     lastResourceAnalyzed: 'STRING_VALUE',
+ *     lastResourceAnalyzedAt: new Date('TIMESTAMP'),
+ *     tags: { // TagsMap
+ *       '<keys>': 'STRING_VALUE',
+ *     },
+ *     status: 'STRING_VALUE', // required
+ *     statusReason: { // StatusReason
+ *       code: 'STRING_VALUE', // required
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetAnalyzerCommandInput - {@link GetAnalyzerCommandInput}
@@ -67,6 +86,8 @@ export interface GetAnalyzerCommandOutput extends GetAnalyzerResponse, __Metadat
  * @throws {@link ValidationException} (client fault)
  *  <p>Validation exception error.</p>
  *
+ * @throws {@link AccessAnalyzerServiceException}
+ * <p>Base exception class for all service exceptions from AccessAnalyzer service.</p>
  *
  */
 export class GetAnalyzerCommand extends $Command<

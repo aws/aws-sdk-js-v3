@@ -36,15 +36,31 @@ export interface DescribeContactFlowModuleCommandOutput extends DescribeContactF
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, DescribeContactFlowModuleCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, DescribeContactFlowModuleCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, DescribeContactFlowModuleCommand } from '@aws-sdk/client-connect'; // ES Modules import
+ * // const { ConnectClient, DescribeContactFlowModuleCommand } = require('@aws-sdk/client-connect'); // CommonJS import
  * const client = new ConnectClient(config);
  * const input = { // DescribeContactFlowModuleRequest
- *   InstanceId: "STRING_VALUE", // required
- *   ContactFlowModuleId: "STRING_VALUE", // required
+ *   InstanceId: 'STRING_VALUE', // required
+ *   ContactFlowModuleId: 'STRING_VALUE', // required
  * };
  * const command = new DescribeContactFlowModuleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeContactFlowModuleResponse
+ *   ContactFlowModule: { // ContactFlowModule
+ *     Arn: 'STRING_VALUE',
+ *     Id: 'STRING_VALUE',
+ *     Name: 'STRING_VALUE',
+ *     Content: 'STRING_VALUE',
+ *     Description: 'STRING_VALUE',
+ *     State: 'ACTIVE' || 'ARCHIVED',
+ *     Status: 'PUBLISHED' || 'SAVED',
+ *     Tags: { // TagMap
+ *       '<keys>': 'STRING_VALUE',
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeContactFlowModuleCommandInput - {@link DescribeContactFlowModuleCommandInput}
@@ -71,6 +87,8 @@ export interface DescribeContactFlowModuleCommandOutput extends DescribeContactF
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class DescribeContactFlowModuleCommand extends $Command<

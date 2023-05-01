@@ -40,14 +40,23 @@ export interface StopWorkflowCommandOutput extends StopMigrationWorkflowResponse
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MigrationHubOrchestratorClient, StopWorkflowCommand } from "@aws-sdk/client-migrationhuborchestrator"; // ES Modules import
- * // const { MigrationHubOrchestratorClient, StopWorkflowCommand } = require("@aws-sdk/client-migrationhuborchestrator"); // CommonJS import
+ * import { MigrationHubOrchestratorClient, StopWorkflowCommand } from '@aws-sdk/client-migrationhuborchestrator'; // ES Modules import
+ * // const { MigrationHubOrchestratorClient, StopWorkflowCommand } = require('@aws-sdk/client-migrationhuborchestrator'); // CommonJS import
  * const client = new MigrationHubOrchestratorClient(config);
  * const input = { // StopMigrationWorkflowRequest
- *   id: "STRING_VALUE", // required
+ *   id: 'STRING_VALUE', // required
  * };
  * const command = new StopWorkflowCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StopMigrationWorkflowResponse
+ *   id: 'STRING_VALUE',
+ *   arn: 'STRING_VALUE',
+ *   status: 'STRING_VALUE',
+ *   statusMessage: 'STRING_VALUE',
+ *   lastStopTime: new Date('TIMESTAMP'),
+ * };
+ *
  * ```
  *
  * @param StopWorkflowCommandInput - {@link StopWorkflowCommandInput}
@@ -71,6 +80,8 @@ export interface StopWorkflowCommandOutput extends StopMigrationWorkflowResponse
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link MigrationHubOrchestratorServiceException}
+ * <p>Base exception class for all service exceptions from MigrationHubOrchestrator service.</p>
  *
  */
 export class StopWorkflowCommand extends $Command<

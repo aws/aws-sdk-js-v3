@@ -38,14 +38,17 @@ export interface DeleteAgentCommandOutput extends DeleteAgentResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DataSyncClient, DeleteAgentCommand } from "@aws-sdk/client-datasync"; // ES Modules import
- * // const { DataSyncClient, DeleteAgentCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
+ * import { DataSyncClient, DeleteAgentCommand } from '@aws-sdk/client-datasync'; // ES Modules import
+ * // const { DataSyncClient, DeleteAgentCommand } = require('@aws-sdk/client-datasync'); // CommonJS import
  * const client = new DataSyncClient(config);
  * const input = { // DeleteAgentRequest
- *   AgentArn: "STRING_VALUE", // required
+ *   AgentArn: 'STRING_VALUE', // required
  * };
  * const command = new DeleteAgentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteAgentCommandInput - {@link DeleteAgentCommandInput}
@@ -61,6 +64,8 @@ export interface DeleteAgentCommandOutput extends DeleteAgentResponse, __Metadat
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception is thrown when the client submits a malformed request.</p>
  *
+ * @throws {@link DataSyncServiceException}
+ * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
  */
 export class DeleteAgentCommand extends $Command<

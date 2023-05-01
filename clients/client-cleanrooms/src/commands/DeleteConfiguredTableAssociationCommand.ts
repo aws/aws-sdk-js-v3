@@ -41,15 +41,18 @@ export interface DeleteConfiguredTableAssociationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CleanRoomsClient, DeleteConfiguredTableAssociationCommand } from "@aws-sdk/client-cleanrooms"; // ES Modules import
- * // const { CleanRoomsClient, DeleteConfiguredTableAssociationCommand } = require("@aws-sdk/client-cleanrooms"); // CommonJS import
+ * import { CleanRoomsClient, DeleteConfiguredTableAssociationCommand } from '@aws-sdk/client-cleanrooms'; // ES Modules import
+ * // const { CleanRoomsClient, DeleteConfiguredTableAssociationCommand } = require('@aws-sdk/client-cleanrooms'); // CommonJS import
  * const client = new CleanRoomsClient(config);
  * const input = { // DeleteConfiguredTableAssociationInput
- *   configuredTableAssociationIdentifier: "STRING_VALUE", // required
- *   membershipIdentifier: "STRING_VALUE", // required
+ *   configuredTableAssociationIdentifier: 'STRING_VALUE', // required
+ *   membershipIdentifier: 'STRING_VALUE', // required
  * };
  * const command = new DeleteConfiguredTableAssociationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteConfiguredTableAssociationCommandInput - {@link DeleteConfiguredTableAssociationCommandInput}
@@ -76,6 +79,8 @@ export interface DeleteConfiguredTableAssociationCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the specified constraints.</p>
  *
+ * @throws {@link CleanRoomsServiceException}
+ * <p>Base exception class for all service exceptions from CleanRooms service.</p>
  *
  */
 export class DeleteConfiguredTableAssociationCommand extends $Command<

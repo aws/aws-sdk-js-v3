@@ -37,16 +37,28 @@ export interface ListEventBusesCommandOutput extends ListEventBusesResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EventBridgeClient, ListEventBusesCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
- * // const { EventBridgeClient, ListEventBusesCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
+ * import { EventBridgeClient, ListEventBusesCommand } from '@aws-sdk/client-eventbridge'; // ES Modules import
+ * // const { EventBridgeClient, ListEventBusesCommand } = require('@aws-sdk/client-eventbridge'); // CommonJS import
  * const client = new EventBridgeClient(config);
  * const input = { // ListEventBusesRequest
- *   NamePrefix: "STRING_VALUE",
- *   NextToken: "STRING_VALUE",
- *   Limit: Number("int"),
+ *   NamePrefix: 'STRING_VALUE',
+ *   NextToken: 'STRING_VALUE',
+ *   Limit: Number('int'),
  * };
  * const command = new ListEventBusesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListEventBusesResponse
+ *   EventBuses: [ // EventBusList
+ *     { // EventBus
+ *       Name: 'STRING_VALUE',
+ *       Arn: 'STRING_VALUE',
+ *       Policy: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListEventBusesCommandInput - {@link ListEventBusesCommandInput}
@@ -58,6 +70,8 @@ export interface ListEventBusesCommandOutput extends ListEventBusesResponse, __M
  * @throws {@link InternalException} (server fault)
  *  <p>This exception occurs due to unexpected causes.</p>
  *
+ * @throws {@link EventBridgeServiceException}
+ * <p>Base exception class for all service exceptions from EventBridge service.</p>
  *
  */
 export class ListEventBusesCommand extends $Command<

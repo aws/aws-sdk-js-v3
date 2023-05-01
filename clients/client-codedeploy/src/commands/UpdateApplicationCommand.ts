@@ -36,15 +36,18 @@ export interface UpdateApplicationCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeDeployClient, UpdateApplicationCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
- * // const { CodeDeployClient, UpdateApplicationCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
+ * import { CodeDeployClient, UpdateApplicationCommand } from '@aws-sdk/client-codedeploy'; // ES Modules import
+ * // const { CodeDeployClient, UpdateApplicationCommand } = require('@aws-sdk/client-codedeploy'); // CommonJS import
  * const client = new CodeDeployClient(config);
  * const input = { // UpdateApplicationInput
- *   applicationName: "STRING_VALUE",
- *   newApplicationName: "STRING_VALUE",
+ *   applicationName: 'STRING_VALUE',
+ *   newApplicationName: 'STRING_VALUE',
  * };
  * const command = new UpdateApplicationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateApplicationCommandInput - {@link UpdateApplicationCommandInput}
@@ -65,6 +68,8 @@ export interface UpdateApplicationCommandOutput extends __MetadataBearer {}
  * @throws {@link InvalidApplicationNameException} (client fault)
  *  <p>The application name was specified in an invalid format.</p>
  *
+ * @throws {@link CodeDeployServiceException}
+ * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
  */
 export class UpdateApplicationCommand extends $Command<

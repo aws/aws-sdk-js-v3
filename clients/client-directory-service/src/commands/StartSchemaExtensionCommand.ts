@@ -36,17 +36,22 @@ export interface StartSchemaExtensionCommandOutput extends StartSchemaExtensionR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DirectoryServiceClient, StartSchemaExtensionCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
- * // const { DirectoryServiceClient, StartSchemaExtensionCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
+ * import { DirectoryServiceClient, StartSchemaExtensionCommand } from '@aws-sdk/client-directory-service'; // ES Modules import
+ * // const { DirectoryServiceClient, StartSchemaExtensionCommand } = require('@aws-sdk/client-directory-service'); // CommonJS import
  * const client = new DirectoryServiceClient(config);
  * const input = { // StartSchemaExtensionRequest
- *   DirectoryId: "STRING_VALUE", // required
+ *   DirectoryId: 'STRING_VALUE', // required
  *   CreateSnapshotBeforeSchemaExtension: true || false, // required
- *   LdifContent: "STRING_VALUE", // required
- *   Description: "STRING_VALUE", // required
+ *   LdifContent: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE', // required
  * };
  * const command = new StartSchemaExtensionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartSchemaExtensionResult
+ *   SchemaExtensionId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param StartSchemaExtensionCommandInput - {@link StartSchemaExtensionCommandInput}
@@ -75,6 +80,8 @@ export interface StartSchemaExtensionCommandOutput extends StartSchemaExtensionR
  *             use the <a>GetSnapshotLimits</a> operation to determine the snapshot limits
  *             for a directory.</p>
  *
+ * @throws {@link DirectoryServiceServiceException}
+ * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
  */
 export class StartSchemaExtensionCommand extends $Command<

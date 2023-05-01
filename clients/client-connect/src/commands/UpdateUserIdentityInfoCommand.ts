@@ -45,22 +45,25 @@ export interface UpdateUserIdentityInfoCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, UpdateUserIdentityInfoCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, UpdateUserIdentityInfoCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, UpdateUserIdentityInfoCommand } from '@aws-sdk/client-connect'; // ES Modules import
+ * // const { ConnectClient, UpdateUserIdentityInfoCommand } = require('@aws-sdk/client-connect'); // CommonJS import
  * const client = new ConnectClient(config);
  * const input = { // UpdateUserIdentityInfoRequest
  *   IdentityInfo: { // UserIdentityInfo
- *     FirstName: "STRING_VALUE",
- *     LastName: "STRING_VALUE",
- *     Email: "STRING_VALUE",
- *     SecondaryEmail: "STRING_VALUE",
- *     Mobile: "STRING_VALUE",
+ *     FirstName: 'STRING_VALUE',
+ *     LastName: 'STRING_VALUE',
+ *     Email: 'STRING_VALUE',
+ *     SecondaryEmail: 'STRING_VALUE',
+ *     Mobile: 'STRING_VALUE',
  *   },
- *   UserId: "STRING_VALUE", // required
- *   InstanceId: "STRING_VALUE", // required
+ *   UserId: 'STRING_VALUE', // required
+ *   InstanceId: 'STRING_VALUE', // required
  * };
  * const command = new UpdateUserIdentityInfoCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateUserIdentityInfoCommandInput - {@link UpdateUserIdentityInfoCommandInput}
@@ -84,6 +87,8 @@ export interface UpdateUserIdentityInfoCommandOutput extends __MetadataBearer {}
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class UpdateUserIdentityInfoCommand extends $Command<

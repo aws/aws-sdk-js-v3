@@ -38,16 +38,37 @@ export interface ListPackagesForDomainCommandOutput extends ListPackagesForDomai
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OpenSearchClient, ListPackagesForDomainCommand } from "@aws-sdk/client-opensearch"; // ES Modules import
- * // const { OpenSearchClient, ListPackagesForDomainCommand } = require("@aws-sdk/client-opensearch"); // CommonJS import
+ * import { OpenSearchClient, ListPackagesForDomainCommand } from '@aws-sdk/client-opensearch'; // ES Modules import
+ * // const { OpenSearchClient, ListPackagesForDomainCommand } = require('@aws-sdk/client-opensearch'); // CommonJS import
  * const client = new OpenSearchClient(config);
  * const input = { // ListPackagesForDomainRequest
- *   DomainName: "STRING_VALUE", // required
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   DomainName: 'STRING_VALUE', // required
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListPackagesForDomainCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListPackagesForDomainResponse
+ *   DomainPackageDetailsList: [ // DomainPackageDetailsList
+ *     { // DomainPackageDetails
+ *       PackageID: 'STRING_VALUE',
+ *       PackageName: 'STRING_VALUE',
+ *       PackageType: 'TXT-DICTIONARY',
+ *       LastUpdated: new Date('TIMESTAMP'),
+ *       DomainName: 'STRING_VALUE',
+ *       DomainPackageStatus: 'ASSOCIATING' || 'ASSOCIATION_FAILED' || 'ACTIVE' || 'DISSOCIATING' || 'DISSOCIATION_FAILED',
+ *       PackageVersion: 'STRING_VALUE',
+ *       ReferencePath: 'STRING_VALUE',
+ *       ErrorDetails: { // ErrorDetails
+ *         ErrorType: 'STRING_VALUE',
+ *         ErrorMessage: 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListPackagesForDomainCommandInput - {@link ListPackagesForDomainCommandInput}
@@ -71,6 +92,8 @@ export interface ListPackagesForDomainCommandOutput extends ListPackagesForDomai
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception for accessing or deleting a resource that doesn't exist.</p>
  *
+ * @throws {@link OpenSearchServiceException}
+ * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
  */
 export class ListPackagesForDomainCommand extends $Command<

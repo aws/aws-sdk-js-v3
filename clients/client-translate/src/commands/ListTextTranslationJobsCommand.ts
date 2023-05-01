@@ -36,21 +36,67 @@ export interface ListTextTranslationJobsCommandOutput extends ListTextTranslatio
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { TranslateClient, ListTextTranslationJobsCommand } from "@aws-sdk/client-translate"; // ES Modules import
- * // const { TranslateClient, ListTextTranslationJobsCommand } = require("@aws-sdk/client-translate"); // CommonJS import
+ * import { TranslateClient, ListTextTranslationJobsCommand } from '@aws-sdk/client-translate'; // ES Modules import
+ * // const { TranslateClient, ListTextTranslationJobsCommand } = require('@aws-sdk/client-translate'); // CommonJS import
  * const client = new TranslateClient(config);
  * const input = { // ListTextTranslationJobsRequest
  *   Filter: { // TextTranslationJobFilter
- *     JobName: "STRING_VALUE",
- *     JobStatus: "SUBMITTED" || "IN_PROGRESS" || "COMPLETED" || "COMPLETED_WITH_ERROR" || "FAILED" || "STOP_REQUESTED" || "STOPPED",
- *     SubmittedBeforeTime: new Date("TIMESTAMP"),
- *     SubmittedAfterTime: new Date("TIMESTAMP"),
+ *     JobName: 'STRING_VALUE',
+ *     JobStatus: 'SUBMITTED' || 'IN_PROGRESS' || 'COMPLETED' || 'COMPLETED_WITH_ERROR' || 'FAILED' || 'STOP_REQUESTED' || 'STOPPED',
+ *     SubmittedBeforeTime: new Date('TIMESTAMP'),
+ *     SubmittedAfterTime: new Date('TIMESTAMP'),
  *   },
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListTextTranslationJobsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTextTranslationJobsResponse
+ *   TextTranslationJobPropertiesList: [ // TextTranslationJobPropertiesList
+ *     { // TextTranslationJobProperties
+ *       JobId: 'STRING_VALUE',
+ *       JobName: 'STRING_VALUE',
+ *       JobStatus: 'SUBMITTED' || 'IN_PROGRESS' || 'COMPLETED' || 'COMPLETED_WITH_ERROR' || 'FAILED' || 'STOP_REQUESTED' || 'STOPPED',
+ *       JobDetails: { // JobDetails
+ *         TranslatedDocumentsCount: Number('int'),
+ *         DocumentsWithErrorsCount: Number('int'),
+ *         InputDocumentsCount: Number('int'),
+ *       },
+ *       SourceLanguageCode: 'STRING_VALUE',
+ *       TargetLanguageCodes: [ // TargetLanguageCodeStringList
+ *         'STRING_VALUE',
+ *       ],
+ *       TerminologyNames: [ // ResourceNameList
+ *         'STRING_VALUE',
+ *       ],
+ *       ParallelDataNames: [
+ *         'STRING_VALUE',
+ *       ],
+ *       Message: 'STRING_VALUE',
+ *       SubmittedTime: new Date('TIMESTAMP'),
+ *       EndTime: new Date('TIMESTAMP'),
+ *       InputDataConfig: { // InputDataConfig
+ *         S3Uri: 'STRING_VALUE', // required
+ *         ContentType: 'STRING_VALUE', // required
+ *       },
+ *       OutputDataConfig: { // OutputDataConfig
+ *         S3Uri: 'STRING_VALUE', // required
+ *         EncryptionKey: { // EncryptionKey
+ *           Type: 'KMS', // required
+ *           Id: 'STRING_VALUE', // required
+ *         },
+ *       },
+ *       DataAccessRoleArn: 'STRING_VALUE',
+ *       Settings: { // TranslationSettings
+ *         Formality: 'FORMAL' || 'INFORMAL',
+ *         Profanity: 'MASK',
+ *       },
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListTextTranslationJobsCommandInput - {@link ListTextTranslationJobsCommandInput}
@@ -73,6 +119,8 @@ export interface ListTextTranslationJobsCommandOutput extends ListTextTranslatio
  *  <p> You have made too many requests within a short period of time. Wait for a short time and
  *       then try your request again.</p>
  *
+ * @throws {@link TranslateServiceException}
+ * <p>Base exception class for all service exceptions from Translate service.</p>
  *
  */
 export class ListTextTranslationJobsCommand extends $Command<

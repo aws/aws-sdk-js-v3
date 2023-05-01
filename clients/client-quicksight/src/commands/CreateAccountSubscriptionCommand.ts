@@ -58,34 +58,46 @@ export interface CreateAccountSubscriptionCommandOutput extends CreateAccountSub
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { QuickSightClient, CreateAccountSubscriptionCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
- * // const { QuickSightClient, CreateAccountSubscriptionCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * import { QuickSightClient, CreateAccountSubscriptionCommand } from '@aws-sdk/client-quicksight'; // ES Modules import
+ * // const { QuickSightClient, CreateAccountSubscriptionCommand } = require('@aws-sdk/client-quicksight'); // CommonJS import
  * const client = new QuickSightClient(config);
  * const input = { // CreateAccountSubscriptionRequest
- *   Edition: "STANDARD" || "ENTERPRISE" || "ENTERPRISE_AND_Q", // required
- *   AuthenticationMethod: "IAM_AND_QUICKSIGHT" || "IAM_ONLY" || "ACTIVE_DIRECTORY", // required
- *   AwsAccountId: "STRING_VALUE", // required
- *   AccountName: "STRING_VALUE", // required
- *   NotificationEmail: "STRING_VALUE", // required
- *   ActiveDirectoryName: "STRING_VALUE",
- *   Realm: "STRING_VALUE",
- *   DirectoryId: "STRING_VALUE",
+ *   Edition: 'STANDARD' || 'ENTERPRISE' || 'ENTERPRISE_AND_Q', // required
+ *   AuthenticationMethod: 'IAM_AND_QUICKSIGHT' || 'IAM_ONLY' || 'ACTIVE_DIRECTORY', // required
+ *   AwsAccountId: 'STRING_VALUE', // required
+ *   AccountName: 'STRING_VALUE', // required
+ *   NotificationEmail: 'STRING_VALUE', // required
+ *   ActiveDirectoryName: 'STRING_VALUE',
+ *   Realm: 'STRING_VALUE',
+ *   DirectoryId: 'STRING_VALUE',
  *   AdminGroup: [ // GroupsList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   AuthorGroup: [
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   ReaderGroup: [
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   FirstName: "STRING_VALUE",
- *   LastName: "STRING_VALUE",
- *   EmailAddress: "STRING_VALUE",
- *   ContactNumber: "STRING_VALUE",
+ *   FirstName: 'STRING_VALUE',
+ *   LastName: 'STRING_VALUE',
+ *   EmailAddress: 'STRING_VALUE',
+ *   ContactNumber: 'STRING_VALUE',
  * };
  * const command = new CreateAccountSubscriptionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateAccountSubscriptionResponse
+ *   SignupResponse: { // SignupResponse
+ *     IAMUser: true || false,
+ *     userLoginName: 'STRING_VALUE',
+ *     accountName: 'STRING_VALUE',
+ *     directoryType: 'STRING_VALUE',
+ *   },
+ *   Status: Number('int'),
+ *   RequestId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateAccountSubscriptionCommandInput - {@link CreateAccountSubscriptionCommandInput}
@@ -124,6 +136,8 @@ export interface CreateAccountSubscriptionCommandOutput extends CreateAccountSub
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Access is throttled.</p>
  *
+ * @throws {@link QuickSightServiceException}
+ * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
 export class CreateAccountSubscriptionCommand extends $Command<

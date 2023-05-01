@@ -40,14 +40,17 @@ export interface DeleteMapCommandOutput extends DeleteMapResponse, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LocationClient, DeleteMapCommand } from "@aws-sdk/client-location"; // ES Modules import
- * // const { LocationClient, DeleteMapCommand } = require("@aws-sdk/client-location"); // CommonJS import
+ * import { LocationClient, DeleteMapCommand } from '@aws-sdk/client-location'; // ES Modules import
+ * // const { LocationClient, DeleteMapCommand } = require('@aws-sdk/client-location'); // CommonJS import
  * const client = new LocationClient(config);
  * const input = { // DeleteMapRequest
- *   MapName: "STRING_VALUE", // required
+ *   MapName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteMapCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteMapCommandInput - {@link DeleteMapCommandInput}
@@ -72,6 +75,8 @@ export interface DeleteMapCommandOutput extends DeleteMapResponse, __MetadataBea
  * @throws {@link ValidationException} (client fault)
  *  <p>The input failed to meet the constraints specified by the AWS service. </p>
  *
+ * @throws {@link LocationServiceException}
+ * <p>Base exception class for all service exceptions from Location service.</p>
  *
  */
 export class DeleteMapCommand extends $Command<

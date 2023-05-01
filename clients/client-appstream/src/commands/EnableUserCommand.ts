@@ -36,15 +36,18 @@ export interface EnableUserCommandOutput extends EnableUserResult, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppStreamClient, EnableUserCommand } from "@aws-sdk/client-appstream"; // ES Modules import
- * // const { AppStreamClient, EnableUserCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
+ * import { AppStreamClient, EnableUserCommand } from '@aws-sdk/client-appstream'; // ES Modules import
+ * // const { AppStreamClient, EnableUserCommand } = require('@aws-sdk/client-appstream'); // CommonJS import
  * const client = new AppStreamClient(config);
  * const input = { // EnableUserRequest
- *   UserName: "STRING_VALUE", // required
- *   AuthenticationType: "API" || "SAML" || "USERPOOL" || "AWS_AD", // required
+ *   UserName: 'STRING_VALUE', // required
+ *   AuthenticationType: 'API' || 'SAML' || 'USERPOOL' || 'AWS_AD', // required
  * };
  * const command = new EnableUserCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param EnableUserCommandInput - {@link EnableUserCommandInput}
@@ -59,6 +62,8 @@ export interface EnableUserCommandOutput extends EnableUserResult, __MetadataBea
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link AppStreamServiceException}
+ * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
  */
 export class EnableUserCommand extends $Command<

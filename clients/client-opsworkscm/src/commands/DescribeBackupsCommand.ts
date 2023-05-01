@@ -46,17 +46,54 @@ export interface DescribeBackupsCommandOutput extends DescribeBackupsResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OpsWorksCMClient, DescribeBackupsCommand } from "@aws-sdk/client-opsworkscm"; // ES Modules import
- * // const { OpsWorksCMClient, DescribeBackupsCommand } = require("@aws-sdk/client-opsworkscm"); // CommonJS import
+ * import { OpsWorksCMClient, DescribeBackupsCommand } from '@aws-sdk/client-opsworkscm'; // ES Modules import
+ * // const { OpsWorksCMClient, DescribeBackupsCommand } = require('@aws-sdk/client-opsworkscm'); // CommonJS import
  * const client = new OpsWorksCMClient(config);
  * const input = { // DescribeBackupsRequest
- *   BackupId: "STRING_VALUE",
- *   ServerName: "STRING_VALUE",
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   BackupId: 'STRING_VALUE',
+ *   ServerName: 'STRING_VALUE',
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new DescribeBackupsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeBackupsResponse
+ *   Backups: [ // Backups
+ *     { // Backup
+ *       BackupArn: 'STRING_VALUE',
+ *       BackupId: 'STRING_VALUE',
+ *       BackupType: 'STRING_VALUE',
+ *       CreatedAt: new Date('TIMESTAMP'),
+ *       Description: 'STRING_VALUE',
+ *       Engine: 'STRING_VALUE',
+ *       EngineModel: 'STRING_VALUE',
+ *       EngineVersion: 'STRING_VALUE',
+ *       InstanceProfileArn: 'STRING_VALUE',
+ *       InstanceType: 'STRING_VALUE',
+ *       KeyPair: 'STRING_VALUE',
+ *       PreferredBackupWindow: 'STRING_VALUE',
+ *       PreferredMaintenanceWindow: 'STRING_VALUE',
+ *       S3DataSize: Number('int'),
+ *       S3DataUrl: 'STRING_VALUE',
+ *       S3LogUrl: 'STRING_VALUE',
+ *       SecurityGroupIds: [ // Strings
+ *         'STRING_VALUE',
+ *       ],
+ *       ServerName: 'STRING_VALUE',
+ *       ServiceRoleArn: 'STRING_VALUE',
+ *       Status: 'STRING_VALUE',
+ *       StatusDescription: 'STRING_VALUE',
+ *       SubnetIds: [
+ *         'STRING_VALUE',
+ *       ],
+ *       ToolsVersion: 'STRING_VALUE',
+ *       UserArn: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeBackupsCommandInput - {@link DescribeBackupsCommandInput}
@@ -77,6 +114,8 @@ export interface DescribeBackupsCommandOutput extends DescribeBackupsResponse, _
  *  <p>One or more of the provided request parameters are not valid.
  *     </p>
  *
+ * @throws {@link OpsWorksCMServiceException}
+ * <p>Base exception class for all service exceptions from OpsWorksCM service.</p>
  *
  */
 export class DescribeBackupsCommand extends $Command<

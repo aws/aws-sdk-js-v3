@@ -43,21 +43,26 @@ export interface SendPipelineExecutionStepSuccessCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, SendPipelineExecutionStepSuccessCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, SendPipelineExecutionStepSuccessCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, SendPipelineExecutionStepSuccessCommand } from '@aws-sdk/client-sagemaker'; // ES Modules import
+ * // const { SageMakerClient, SendPipelineExecutionStepSuccessCommand } = require('@aws-sdk/client-sagemaker'); // CommonJS import
  * const client = new SageMakerClient(config);
  * const input = { // SendPipelineExecutionStepSuccessRequest
- *   CallbackToken: "STRING_VALUE", // required
+ *   CallbackToken: 'STRING_VALUE', // required
  *   OutputParameters: [ // OutputParameterList
  *     { // OutputParameter
- *       Name: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Name: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
- *   ClientRequestToken: "STRING_VALUE",
+ *   ClientRequestToken: 'STRING_VALUE',
  * };
  * const command = new SendPipelineExecutionStepSuccessCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SendPipelineExecutionStepSuccessResponse
+ *   PipelineExecutionArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param SendPipelineExecutionStepSuccessCommandInput - {@link SendPipelineExecutionStepSuccessCommandInput}
@@ -73,6 +78,8 @@ export interface SendPipelineExecutionStepSuccessCommandOutput
  * @throws {@link ResourceNotFound} (client fault)
  *  <p>Resource being access is not found.</p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class SendPipelineExecutionStepSuccessCommand extends $Command<

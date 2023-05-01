@@ -36,14 +36,27 @@ export interface ListResourcePoliciesCommandOutput extends ListResourcePoliciesR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { XRayClient, ListResourcePoliciesCommand } from "@aws-sdk/client-xray"; // ES Modules import
- * // const { XRayClient, ListResourcePoliciesCommand } = require("@aws-sdk/client-xray"); // CommonJS import
+ * import { XRayClient, ListResourcePoliciesCommand } from '@aws-sdk/client-xray'; // ES Modules import
+ * // const { XRayClient, ListResourcePoliciesCommand } = require('@aws-sdk/client-xray'); // CommonJS import
  * const client = new XRayClient(config);
  * const input = { // ListResourcePoliciesRequest
- *   NextToken: "STRING_VALUE",
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListResourcePoliciesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListResourcePoliciesResult
+ *   ResourcePolicies: [ // ResourcePolicyList
+ *     { // ResourcePolicy
+ *       PolicyName: 'STRING_VALUE',
+ *       PolicyDocument: 'STRING_VALUE',
+ *       PolicyRevisionId: 'STRING_VALUE',
+ *       LastUpdatedTime: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListResourcePoliciesCommandInput - {@link ListResourcePoliciesCommandInput}
@@ -58,6 +71,8 @@ export interface ListResourcePoliciesCommandOutput extends ListResourcePoliciesR
  * @throws {@link ThrottledException} (client fault)
  *  <p>The request exceeds the maximum number of requests per second.</p>
  *
+ * @throws {@link XRayServiceException}
+ * <p>Base exception class for all service exceptions from XRay service.</p>
  *
  */
 export class ListResourcePoliciesCommand extends $Command<

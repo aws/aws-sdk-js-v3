@@ -58,21 +58,21 @@ export interface UpdateParticipantRoleConfigCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, UpdateParticipantRoleConfigCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, UpdateParticipantRoleConfigCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, UpdateParticipantRoleConfigCommand } from '@aws-sdk/client-connect'; // ES Modules import
+ * // const { ConnectClient, UpdateParticipantRoleConfigCommand } = require('@aws-sdk/client-connect'); // CommonJS import
  * const client = new ConnectClient(config);
  * const input = { // UpdateParticipantRoleConfigRequest
- *   InstanceId: "STRING_VALUE", // required
- *   ContactId: "STRING_VALUE", // required
+ *   InstanceId: 'STRING_VALUE', // required
+ *   ContactId: 'STRING_VALUE', // required
  *   ChannelConfiguration: { // UpdateParticipantRoleConfigChannelInfo Union: only one key present
  *     Chat: { // ChatParticipantRoleConfig
  *       ParticipantTimerConfigList: [ // ParticipantTimerConfigList // required
  *         { // ParticipantTimerConfiguration
- *           ParticipantRole: "CUSTOMER" || "AGENT", // required
- *           TimerType: "IDLE" || "DISCONNECT_NONCUSTOMER", // required
+ *           ParticipantRole: 'CUSTOMER' || 'AGENT', // required
+ *           TimerType: 'IDLE' || 'DISCONNECT_NONCUSTOMER', // required
  *           TimerValue: { // ParticipantTimerValue Union: only one key present
- *             ParticipantTimerAction: "Unset",
- *             ParticipantTimerDurationInMinutes: Number("int"),
+ *             ParticipantTimerAction: 'Unset',
+ *             ParticipantTimerDurationInMinutes: Number('int'),
  *           },
  *         },
  *       ],
@@ -81,6 +81,9 @@ export interface UpdateParticipantRoleConfigCommandOutput
  * };
  * const command = new UpdateParticipantRoleConfigCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateParticipantRoleConfigCommandInput - {@link UpdateParticipantRoleConfigCommandInput}
@@ -107,6 +110,8 @@ export interface UpdateParticipantRoleConfigCommandOutput
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class UpdateParticipantRoleConfigCommand extends $Command<

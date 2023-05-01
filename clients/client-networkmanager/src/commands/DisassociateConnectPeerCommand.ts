@@ -36,15 +36,26 @@ export interface DisassociateConnectPeerCommandOutput extends DisassociateConnec
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { NetworkManagerClient, DisassociateConnectPeerCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
- * // const { NetworkManagerClient, DisassociateConnectPeerCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
+ * import { NetworkManagerClient, DisassociateConnectPeerCommand } from '@aws-sdk/client-networkmanager'; // ES Modules import
+ * // const { NetworkManagerClient, DisassociateConnectPeerCommand } = require('@aws-sdk/client-networkmanager'); // CommonJS import
  * const client = new NetworkManagerClient(config);
  * const input = { // DisassociateConnectPeerRequest
- *   GlobalNetworkId: "STRING_VALUE", // required
- *   ConnectPeerId: "STRING_VALUE", // required
+ *   GlobalNetworkId: 'STRING_VALUE', // required
+ *   ConnectPeerId: 'STRING_VALUE', // required
  * };
  * const command = new DisassociateConnectPeerCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DisassociateConnectPeerResponse
+ *   ConnectPeerAssociation: { // ConnectPeerAssociation
+ *     ConnectPeerId: 'STRING_VALUE',
+ *     GlobalNetworkId: 'STRING_VALUE',
+ *     DeviceId: 'STRING_VALUE',
+ *     LinkId: 'STRING_VALUE',
+ *     State: 'PENDING' || 'AVAILABLE' || 'DELETING' || 'DELETED',
+ *   },
+ * };
+ *
  * ```
  *
  * @param DisassociateConnectPeerCommandInput - {@link DisassociateConnectPeerCommandInput}
@@ -72,6 +83,8 @@ export interface DisassociateConnectPeerCommandOutput extends DisassociateConnec
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints.</p>
  *
+ * @throws {@link NetworkManagerServiceException}
+ * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
  */
 export class DisassociateConnectPeerCommand extends $Command<

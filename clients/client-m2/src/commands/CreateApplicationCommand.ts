@@ -37,25 +37,32 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { M2Client, CreateApplicationCommand } from "@aws-sdk/client-m2"; // ES Modules import
- * // const { M2Client, CreateApplicationCommand } = require("@aws-sdk/client-m2"); // CommonJS import
+ * import { M2Client, CreateApplicationCommand } from '@aws-sdk/client-m2'; // ES Modules import
+ * // const { M2Client, CreateApplicationCommand } = require('@aws-sdk/client-m2'); // CommonJS import
  * const client = new M2Client(config);
  * const input = { // CreateApplicationRequest
- *   name: "STRING_VALUE", // required
- *   description: "STRING_VALUE",
- *   engineType: "STRING_VALUE", // required
+ *   name: 'STRING_VALUE', // required
+ *   description: 'STRING_VALUE',
+ *   engineType: 'STRING_VALUE', // required
  *   definition: { // Definition Union: only one key present
- *     s3Location: "STRING_VALUE",
- *     content: "STRING_VALUE",
+ *     s3Location: 'STRING_VALUE',
+ *     content: 'STRING_VALUE',
  *   },
  *   tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
- *   clientToken: "STRING_VALUE",
- *   kmsKeyId: "STRING_VALUE",
+ *   clientToken: 'STRING_VALUE',
+ *   kmsKeyId: 'STRING_VALUE',
  * };
  * const command = new CreateApplicationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateApplicationResponse
+ *   applicationArn: 'STRING_VALUE', // required
+ *   applicationId: 'STRING_VALUE', // required
+ *   applicationVersion: Number('int'), // required
+ * };
+ *
  * ```
  *
  * @param CreateApplicationCommandInput - {@link CreateApplicationCommandInput}
@@ -82,6 +89,8 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  * @throws {@link ValidationException} (client fault)
  *  <p>One or more parameters provided in the request is not valid.</p>
  *
+ * @throws {@link M2ServiceException}
+ * <p>Base exception class for all service exceptions from M2 service.</p>
  *
  */
 export class CreateApplicationCommand extends $Command<

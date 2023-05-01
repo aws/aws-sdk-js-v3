@@ -36,14 +36,57 @@ export interface GetAppMonitorCommandOutput extends GetAppMonitorResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RUMClient, GetAppMonitorCommand } from "@aws-sdk/client-rum"; // ES Modules import
- * // const { RUMClient, GetAppMonitorCommand } = require("@aws-sdk/client-rum"); // CommonJS import
+ * import { RUMClient, GetAppMonitorCommand } from '@aws-sdk/client-rum'; // ES Modules import
+ * // const { RUMClient, GetAppMonitorCommand } = require('@aws-sdk/client-rum'); // CommonJS import
  * const client = new RUMClient(config);
  * const input = { // GetAppMonitorRequest
- *   Name: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
  * };
  * const command = new GetAppMonitorCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetAppMonitorResponse
+ *   AppMonitor: { // AppMonitor
+ *     Name: 'STRING_VALUE',
+ *     Domain: 'STRING_VALUE',
+ *     Id: 'STRING_VALUE',
+ *     Created: 'STRING_VALUE',
+ *     LastModified: 'STRING_VALUE',
+ *     Tags: { // TagMap
+ *       '<keys>': 'STRING_VALUE',
+ *     },
+ *     State: 'STRING_VALUE',
+ *     AppMonitorConfiguration: { // AppMonitorConfiguration
+ *       IdentityPoolId: 'STRING_VALUE',
+ *       ExcludedPages: [ // Pages
+ *         'STRING_VALUE',
+ *       ],
+ *       IncludedPages: [
+ *         'STRING_VALUE',
+ *       ],
+ *       FavoritePages: [ // FavoritePages
+ *         'STRING_VALUE',
+ *       ],
+ *       SessionSampleRate: Number('double'),
+ *       GuestRoleArn: 'STRING_VALUE',
+ *       AllowCookies: true || false,
+ *       Telemetries: [ // Telemetries
+ *         'STRING_VALUE',
+ *       ],
+ *       EnableXRay: true || false,
+ *     },
+ *     DataStorage: { // DataStorage
+ *       CwLog: { // CwLog
+ *         CwLogEnabled: true || false,
+ *         CwLogGroup: 'STRING_VALUE',
+ *       },
+ *     },
+ *     CustomEvents: { // CustomEvents
+ *       Status: 'STRING_VALUE',
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetAppMonitorCommandInput - {@link GetAppMonitorCommandInput}
@@ -67,6 +110,8 @@ export interface GetAppMonitorCommandOutput extends GetAppMonitorResponse, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>One of the arguments for the request is not valid.</p>
  *
+ * @throws {@link RUMServiceException}
+ * <p>Base exception class for all service exceptions from RUM service.</p>
  *
  */
 export class GetAppMonitorCommand extends $Command<

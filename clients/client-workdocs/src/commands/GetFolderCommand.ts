@@ -41,16 +41,38 @@ export interface GetFolderCommandOutput extends GetFolderResponse, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkDocsClient, GetFolderCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
- * // const { WorkDocsClient, GetFolderCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import
+ * import { WorkDocsClient, GetFolderCommand } from '@aws-sdk/client-workdocs'; // ES Modules import
+ * // const { WorkDocsClient, GetFolderCommand } = require('@aws-sdk/client-workdocs'); // CommonJS import
  * const client = new WorkDocsClient(config);
  * const input = { // GetFolderRequest
- *   AuthenticationToken: "STRING_VALUE",
- *   FolderId: "STRING_VALUE", // required
+ *   AuthenticationToken: 'STRING_VALUE',
+ *   FolderId: 'STRING_VALUE', // required
  *   IncludeCustomMetadata: true || false,
  * };
  * const command = new GetFolderCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetFolderResponse
+ *   Metadata: { // FolderMetadata
+ *     Id: 'STRING_VALUE',
+ *     Name: 'STRING_VALUE',
+ *     CreatorId: 'STRING_VALUE',
+ *     ParentFolderId: 'STRING_VALUE',
+ *     CreatedTimestamp: new Date('TIMESTAMP'),
+ *     ModifiedTimestamp: new Date('TIMESTAMP'),
+ *     ResourceState: 'ACTIVE' || 'RESTORING' || 'RECYCLING' || 'RECYCLED',
+ *     Signature: 'STRING_VALUE',
+ *     Labels: [ // SharedLabels
+ *       'STRING_VALUE',
+ *     ],
+ *     Size: Number('long'),
+ *     LatestVersionSize: Number('long'),
+ *   },
+ *   CustomMetadata: { // CustomMetadataMap
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetFolderCommandInput - {@link GetFolderCommandInput}
@@ -82,6 +104,8 @@ export interface GetFolderCommandOutput extends GetFolderResponse, __MetadataBea
  * @throws {@link UnauthorizedResourceAccessException} (client fault)
  *  <p>The caller does not have access to perform the action on the resource.</p>
  *
+ * @throws {@link WorkDocsServiceException}
+ * <p>Base exception class for all service exceptions from WorkDocs service.</p>
  *
  */
 export class GetFolderCommand extends $Command<

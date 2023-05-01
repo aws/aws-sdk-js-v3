@@ -36,17 +36,68 @@ export interface DescribeSlotTypeCommandOutput extends DescribeSlotTypeResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LexModelsV2Client, DescribeSlotTypeCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
- * // const { LexModelsV2Client, DescribeSlotTypeCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
+ * import { LexModelsV2Client, DescribeSlotTypeCommand } from '@aws-sdk/client-lex-models-v2'; // ES Modules import
+ * // const { LexModelsV2Client, DescribeSlotTypeCommand } = require('@aws-sdk/client-lex-models-v2'); // CommonJS import
  * const client = new LexModelsV2Client(config);
  * const input = { // DescribeSlotTypeRequest
- *   slotTypeId: "STRING_VALUE", // required
- *   botId: "STRING_VALUE", // required
- *   botVersion: "STRING_VALUE", // required
- *   localeId: "STRING_VALUE", // required
+ *   slotTypeId: 'STRING_VALUE', // required
+ *   botId: 'STRING_VALUE', // required
+ *   botVersion: 'STRING_VALUE', // required
+ *   localeId: 'STRING_VALUE', // required
  * };
  * const command = new DescribeSlotTypeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeSlotTypeResponse
+ *   slotTypeId: 'STRING_VALUE',
+ *   slotTypeName: 'STRING_VALUE',
+ *   description: 'STRING_VALUE',
+ *   slotTypeValues: [ // SlotTypeValues
+ *     { // SlotTypeValue
+ *       sampleValue: { // SampleValue
+ *         value: 'STRING_VALUE', // required
+ *       },
+ *       synonyms: [ // SynonymList
+ *         {
+ *           value: 'STRING_VALUE', // required
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   valueSelectionSetting: { // SlotValueSelectionSetting
+ *     resolutionStrategy: 'OriginalValue' || 'TopResolution' || 'Concatenation', // required
+ *     regexFilter: { // SlotValueRegexFilter
+ *       pattern: 'STRING_VALUE', // required
+ *     },
+ *     advancedRecognitionSetting: { // AdvancedRecognitionSetting
+ *       audioRecognitionStrategy: 'UseSlotValuesAsCustomVocabulary',
+ *     },
+ *   },
+ *   parentSlotTypeSignature: 'STRING_VALUE',
+ *   botId: 'STRING_VALUE',
+ *   botVersion: 'STRING_VALUE',
+ *   localeId: 'STRING_VALUE',
+ *   creationDateTime: new Date('TIMESTAMP'),
+ *   lastUpdatedDateTime: new Date('TIMESTAMP'),
+ *   externalSourceSetting: { // ExternalSourceSetting
+ *     grammarSlotTypeSetting: { // GrammarSlotTypeSetting
+ *       source: { // GrammarSlotTypeSource
+ *         s3BucketName: 'STRING_VALUE', // required
+ *         s3ObjectKey: 'STRING_VALUE', // required
+ *         kmsKeyArn: 'STRING_VALUE',
+ *       },
+ *     },
+ *   },
+ *   compositeSlotTypeSetting: { // CompositeSlotTypeSetting
+ *     subSlots: [ // SubSlotTypeList
+ *       { // SubSlotTypeComposition
+ *         name: 'STRING_VALUE', // required
+ *         slotTypeId: 'STRING_VALUE', // required
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeSlotTypeCommandInput - {@link DescribeSlotTypeCommandInput}
@@ -74,6 +125,8 @@ export interface DescribeSlotTypeCommandOutput extends DescribeSlotTypeResponse,
  *  <p>One of the input parameters in your request isn't valid. Check the
  *          parameters and try your request again.</p>
  *
+ * @throws {@link LexModelsV2ServiceException}
+ * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
  */
 export class DescribeSlotTypeCommand extends $Command<

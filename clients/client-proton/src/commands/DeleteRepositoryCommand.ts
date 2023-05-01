@@ -36,15 +36,26 @@ export interface DeleteRepositoryCommandOutput extends DeleteRepositoryOutput, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ProtonClient, DeleteRepositoryCommand } from "@aws-sdk/client-proton"; // ES Modules import
- * // const { ProtonClient, DeleteRepositoryCommand } = require("@aws-sdk/client-proton"); // CommonJS import
+ * import { ProtonClient, DeleteRepositoryCommand } from '@aws-sdk/client-proton'; // ES Modules import
+ * // const { ProtonClient, DeleteRepositoryCommand } = require('@aws-sdk/client-proton'); // CommonJS import
  * const client = new ProtonClient(config);
  * const input = { // DeleteRepositoryInput
- *   provider: "STRING_VALUE", // required
- *   name: "STRING_VALUE", // required
+ *   provider: 'STRING_VALUE', // required
+ *   name: 'STRING_VALUE', // required
  * };
  * const command = new DeleteRepositoryCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteRepositoryOutput
+ *   repository: { // Repository
+ *     arn: 'STRING_VALUE', // required
+ *     provider: 'STRING_VALUE', // required
+ *     name: 'STRING_VALUE', // required
+ *     connectionArn: 'STRING_VALUE', // required
+ *     encryptionKey: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param DeleteRepositoryCommandInput - {@link DeleteRepositoryCommandInput}
@@ -71,6 +82,8 @@ export interface DeleteRepositoryCommandOutput extends DeleteRepositoryOutput, _
  * @throws {@link ValidationException} (client fault)
  *  <p>The input is invalid or an out-of-range value was supplied for the input parameter.</p>
  *
+ * @throws {@link ProtonServiceException}
+ * <p>Base exception class for all service exceptions from Proton service.</p>
  *
  */
 export class DeleteRepositoryCommand extends $Command<

@@ -36,30 +36,36 @@ export interface CreateDataViewCommandOutput extends CreateDataViewResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FinspaceDataClient, CreateDataViewCommand } from "@aws-sdk/client-finspace-data"; // ES Modules import
- * // const { FinspaceDataClient, CreateDataViewCommand } = require("@aws-sdk/client-finspace-data"); // CommonJS import
+ * import { FinspaceDataClient, CreateDataViewCommand } from '@aws-sdk/client-finspace-data'; // ES Modules import
+ * // const { FinspaceDataClient, CreateDataViewCommand } = require('@aws-sdk/client-finspace-data'); // CommonJS import
  * const client = new FinspaceDataClient(config);
  * const input = { // CreateDataViewRequest
- *   clientToken: "STRING_VALUE",
- *   datasetId: "STRING_VALUE", // required
+ *   clientToken: 'STRING_VALUE',
+ *   datasetId: 'STRING_VALUE', // required
  *   autoUpdate: true || false,
  *   sortColumns: [ // SortColumnList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   partitionColumns: [ // PartitionColumnList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   asOfTimestamp: Number("long"),
+ *   asOfTimestamp: Number('long'),
  *   destinationTypeParams: { // DataViewDestinationTypeParams
- *     destinationType: "STRING_VALUE", // required
- *     s3DestinationExportFileFormat: "STRING_VALUE",
+ *     destinationType: 'STRING_VALUE', // required
+ *     s3DestinationExportFileFormat: 'STRING_VALUE',
  *     s3DestinationExportFileFormatOptions: { // S3DestinationFormatOptions
- *       "<keys>": "STRING_VALUE",
+ *       '<keys>': 'STRING_VALUE',
  *     },
  *   },
  * };
  * const command = new CreateDataViewCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateDataViewResponse
+ *   datasetId: 'STRING_VALUE',
+ *   dataViewId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateDataViewCommandInput - {@link CreateDataViewCommandInput}
@@ -87,6 +93,8 @@ export interface CreateDataViewCommandOutput extends CreateDataViewResponse, __M
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link FinspaceDataServiceException}
+ * <p>Base exception class for all service exceptions from FinspaceData service.</p>
  *
  */
 export class CreateDataViewCommand extends $Command<

@@ -46,16 +46,21 @@ export interface GetWorkUnitResultsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LakeFormationClient, GetWorkUnitResultsCommand } from "@aws-sdk/client-lakeformation"; // ES Modules import
- * // const { LakeFormationClient, GetWorkUnitResultsCommand } = require("@aws-sdk/client-lakeformation"); // CommonJS import
+ * import { LakeFormationClient, GetWorkUnitResultsCommand } from '@aws-sdk/client-lakeformation'; // ES Modules import
+ * // const { LakeFormationClient, GetWorkUnitResultsCommand } = require('@aws-sdk/client-lakeformation'); // CommonJS import
  * const client = new LakeFormationClient(config);
  * const input = { // GetWorkUnitResultsRequest
- *   QueryId: "STRING_VALUE", // required
- *   WorkUnitId: Number("long"), // required
- *   WorkUnitToken: "STRING_VALUE", // required
+ *   QueryId: 'STRING_VALUE', // required
+ *   WorkUnitId: Number('long'), // required
+ *   WorkUnitToken: 'STRING_VALUE', // required
  * };
  * const command = new GetWorkUnitResultsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetWorkUnitResultsResponse
+ *   ResultStream: 'STREAMING_BLOB_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetWorkUnitResultsCommandInput - {@link GetWorkUnitResultsCommandInput}
@@ -79,6 +84,8 @@ export interface GetWorkUnitResultsCommandOutput
  * @throws {@link ThrottledException} (client fault)
  *  <p>Contains details about an error where the query request was throttled.</p>
  *
+ * @throws {@link LakeFormationServiceException}
+ * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
  */
 export class GetWorkUnitResultsCommand extends $Command<

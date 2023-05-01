@@ -40,14 +40,24 @@ export interface DescribeUserProfileCommandOutput extends DescribeUserProfileRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeStarClient, DescribeUserProfileCommand } from "@aws-sdk/client-codestar"; // ES Modules import
- * // const { CodeStarClient, DescribeUserProfileCommand } = require("@aws-sdk/client-codestar"); // CommonJS import
+ * import { CodeStarClient, DescribeUserProfileCommand } from '@aws-sdk/client-codestar'; // ES Modules import
+ * // const { CodeStarClient, DescribeUserProfileCommand } = require('@aws-sdk/client-codestar'); // CommonJS import
  * const client = new CodeStarClient(config);
  * const input = { // DescribeUserProfileRequest
- *   userArn: "STRING_VALUE", // required
+ *   userArn: 'STRING_VALUE', // required
  * };
  * const command = new DescribeUserProfileCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeUserProfileResult
+ *   userArn: 'STRING_VALUE', // required
+ *   displayName: 'STRING_VALUE',
+ *   emailAddress: 'STRING_VALUE',
+ *   sshPublicKey: 'STRING_VALUE',
+ *   createdTimestamp: new Date('TIMESTAMP'), // required
+ *   lastModifiedTimestamp: new Date('TIMESTAMP'), // required
+ * };
+ *
  * ```
  *
  * @param DescribeUserProfileCommandInput - {@link DescribeUserProfileCommandInput}
@@ -62,6 +72,8 @@ export interface DescribeUserProfileCommandOutput extends DescribeUserProfileRes
  * @throws {@link ValidationException} (client fault)
  *  <p>The specified input is either not valid, or it could not be validated.</p>
  *
+ * @throws {@link CodeStarServiceException}
+ * <p>Base exception class for all service exceptions from CodeStar service.</p>
  *
  */
 export class DescribeUserProfileCommand extends $Command<

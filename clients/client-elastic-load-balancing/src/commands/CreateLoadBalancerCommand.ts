@@ -53,39 +53,44 @@ export interface CreateLoadBalancerCommandOutput extends CreateAccessPointOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElasticLoadBalancingClient, CreateLoadBalancerCommand } from "@aws-sdk/client-elastic-load-balancing"; // ES Modules import
- * // const { ElasticLoadBalancingClient, CreateLoadBalancerCommand } = require("@aws-sdk/client-elastic-load-balancing"); // CommonJS import
+ * import { ElasticLoadBalancingClient, CreateLoadBalancerCommand } from '@aws-sdk/client-elastic-load-balancing'; // ES Modules import
+ * // const { ElasticLoadBalancingClient, CreateLoadBalancerCommand } = require('@aws-sdk/client-elastic-load-balancing'); // CommonJS import
  * const client = new ElasticLoadBalancingClient(config);
  * const input = { // CreateAccessPointInput
- *   LoadBalancerName: "STRING_VALUE", // required
+ *   LoadBalancerName: 'STRING_VALUE', // required
  *   Listeners: [ // Listeners // required
  *     { // Listener
- *       Protocol: "STRING_VALUE", // required
- *       LoadBalancerPort: Number("int"), // required
- *       InstanceProtocol: "STRING_VALUE",
- *       InstancePort: Number("int"), // required
- *       SSLCertificateId: "STRING_VALUE",
+ *       Protocol: 'STRING_VALUE', // required
+ *       LoadBalancerPort: Number('int'), // required
+ *       InstanceProtocol: 'STRING_VALUE',
+ *       InstancePort: Number('int'), // required
+ *       SSLCertificateId: 'STRING_VALUE',
  *     },
  *   ],
  *   AvailabilityZones: [ // AvailabilityZones
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   Subnets: [ // Subnets
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   SecurityGroups: [ // SecurityGroups
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   Scheme: "STRING_VALUE",
+ *   Scheme: 'STRING_VALUE',
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new CreateLoadBalancerCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateAccessPointOutput
+ *   DNSName: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateLoadBalancerCommandInput - {@link CreateLoadBalancerCommandInput}
@@ -132,6 +137,8 @@ export interface CreateLoadBalancerCommandOutput extends CreateAccessPointOutput
  * @throws {@link UnsupportedProtocolException} (client fault)
  *  <p>The specified protocol or signature version is not supported.</p>
  *
+ * @throws {@link ElasticLoadBalancingServiceException}
+ * <p>Base exception class for all service exceptions from ElasticLoadBalancing service.</p>
  *
  * @example To create an HTTP load balancer in a VPC
  * ```javascript

@@ -42,22 +42,39 @@ export interface DescribeSnapshotCopyGrantsCommandOutput extends SnapshotCopyGra
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RedshiftClient, DescribeSnapshotCopyGrantsCommand } from "@aws-sdk/client-redshift"; // ES Modules import
- * // const { RedshiftClient, DescribeSnapshotCopyGrantsCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * import { RedshiftClient, DescribeSnapshotCopyGrantsCommand } from '@aws-sdk/client-redshift'; // ES Modules import
+ * // const { RedshiftClient, DescribeSnapshotCopyGrantsCommand } = require('@aws-sdk/client-redshift'); // CommonJS import
  * const client = new RedshiftClient(config);
  * const input = { // DescribeSnapshotCopyGrantsMessage
- *   SnapshotCopyGrantName: "STRING_VALUE",
- *   MaxRecords: Number("int"),
- *   Marker: "STRING_VALUE",
+ *   SnapshotCopyGrantName: 'STRING_VALUE',
+ *   MaxRecords: Number('int'),
+ *   Marker: 'STRING_VALUE',
  *   TagKeys: [ // TagKeyList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   TagValues: [ // TagValueList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new DescribeSnapshotCopyGrantsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SnapshotCopyGrantMessage
+ *   Marker: 'STRING_VALUE',
+ *   SnapshotCopyGrants: [ // SnapshotCopyGrantList
+ *     { // SnapshotCopyGrant
+ *       SnapshotCopyGrantName: 'STRING_VALUE',
+ *       KmsKeyId: 'STRING_VALUE',
+ *       Tags: [ // TagList
+ *         { // Tag
+ *           Key: 'STRING_VALUE',
+ *           Value: 'STRING_VALUE',
+ *         },
+ *       ],
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeSnapshotCopyGrantsCommandInput - {@link DescribeSnapshotCopyGrantsCommandInput}
@@ -73,6 +90,8 @@ export interface DescribeSnapshotCopyGrantsCommandOutput extends SnapshotCopyGra
  *  <p>The specified snapshot copy grant can't be found. Make sure that the name is typed
  *             correctly and that the grant exists in the destination region.</p>
  *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class DescribeSnapshotCopyGrantsCommand extends $Command<

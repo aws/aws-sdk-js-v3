@@ -47,47 +47,96 @@ export interface CreateMeetingWithAttendeesCommandOutput extends CreateMeetingWi
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeSDKMeetingsClient, CreateMeetingWithAttendeesCommand } from "@aws-sdk/client-chime-sdk-meetings"; // ES Modules import
- * // const { ChimeSDKMeetingsClient, CreateMeetingWithAttendeesCommand } = require("@aws-sdk/client-chime-sdk-meetings"); // CommonJS import
+ * import { ChimeSDKMeetingsClient, CreateMeetingWithAttendeesCommand } from '@aws-sdk/client-chime-sdk-meetings'; // ES Modules import
+ * // const { ChimeSDKMeetingsClient, CreateMeetingWithAttendeesCommand } = require('@aws-sdk/client-chime-sdk-meetings'); // CommonJS import
  * const client = new ChimeSDKMeetingsClient(config);
  * const input = { // CreateMeetingWithAttendeesRequest
- *   ClientRequestToken: "STRING_VALUE", // required
- *   MediaRegion: "STRING_VALUE", // required
- *   MeetingHostId: "STRING_VALUE",
- *   ExternalMeetingId: "STRING_VALUE", // required
+ *   ClientRequestToken: 'STRING_VALUE', // required
+ *   MediaRegion: 'STRING_VALUE', // required
+ *   MeetingHostId: 'STRING_VALUE',
+ *   ExternalMeetingId: 'STRING_VALUE', // required
  *   MeetingFeatures: { // MeetingFeaturesConfiguration
  *     Audio: { // AudioFeatures
- *       EchoReduction: "AVAILABLE" || "UNAVAILABLE",
+ *       EchoReduction: 'AVAILABLE' || 'UNAVAILABLE',
  *     },
  *   },
  *   NotificationsConfiguration: { // NotificationsConfiguration
- *     LambdaFunctionArn: "STRING_VALUE",
- *     SnsTopicArn: "STRING_VALUE",
- *     SqsQueueArn: "STRING_VALUE",
+ *     LambdaFunctionArn: 'STRING_VALUE',
+ *     SnsTopicArn: 'STRING_VALUE',
+ *     SqsQueueArn: 'STRING_VALUE',
  *   },
  *   Attendees: [ // CreateMeetingWithAttendeesRequestItemList // required
  *     { // CreateAttendeeRequestItem
- *       ExternalUserId: "STRING_VALUE", // required
+ *       ExternalUserId: 'STRING_VALUE', // required
  *       Capabilities: { // AttendeeCapabilities
- *         Audio: "SendReceive" || "Send" || "Receive" || "None", // required
- *         Video: "SendReceive" || "Send" || "Receive" || "None", // required
- *         Content: "SendReceive" || "Send" || "Receive" || "None", // required
+ *         Audio: 'SendReceive' || 'Send' || 'Receive' || 'None', // required
+ *         Video: 'SendReceive' || 'Send' || 'Receive' || 'None', // required
+ *         Content: 'SendReceive' || 'Send' || 'Receive' || 'None', // required
  *       },
  *     },
  *   ],
- *   PrimaryMeetingId: "STRING_VALUE",
+ *   PrimaryMeetingId: 'STRING_VALUE',
  *   TenantIds: [ // TenantIdList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreateMeetingWithAttendeesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateMeetingWithAttendeesResponse
+ *   Meeting: { // Meeting
+ *     MeetingId: 'STRING_VALUE',
+ *     MeetingHostId: 'STRING_VALUE',
+ *     ExternalMeetingId: 'STRING_VALUE',
+ *     MediaRegion: 'STRING_VALUE',
+ *     MediaPlacement: { // MediaPlacement
+ *       AudioHostUrl: 'STRING_VALUE',
+ *       AudioFallbackUrl: 'STRING_VALUE',
+ *       SignalingUrl: 'STRING_VALUE',
+ *       TurnControlUrl: 'STRING_VALUE',
+ *       ScreenDataUrl: 'STRING_VALUE',
+ *       ScreenViewingUrl: 'STRING_VALUE',
+ *       ScreenSharingUrl: 'STRING_VALUE',
+ *       EventIngestionUrl: 'STRING_VALUE',
+ *     },
+ *     MeetingFeatures: { // MeetingFeaturesConfiguration
+ *       Audio: { // AudioFeatures
+ *         EchoReduction: 'AVAILABLE' || 'UNAVAILABLE',
+ *       },
+ *     },
+ *     PrimaryMeetingId: 'STRING_VALUE',
+ *     TenantIds: [ // TenantIdList
+ *       'STRING_VALUE',
+ *     ],
+ *     MeetingArn: 'STRING_VALUE',
+ *   },
+ *   Attendees: [ // AttendeeList
+ *     { // Attendee
+ *       ExternalUserId: 'STRING_VALUE',
+ *       AttendeeId: 'STRING_VALUE',
+ *       JoinToken: 'STRING_VALUE',
+ *       Capabilities: { // AttendeeCapabilities
+ *         Audio: 'SendReceive' || 'Send' || 'Receive' || 'None', // required
+ *         Video: 'SendReceive' || 'Send' || 'Receive' || 'None', // required
+ *         Content: 'SendReceive' || 'Send' || 'Receive' || 'None', // required
+ *       },
+ *     },
+ *   ],
+ *   Errors: [ // BatchCreateAttendeeErrorList
+ *     { // CreateAttendeeError
+ *       ExternalUserId: 'STRING_VALUE',
+ *       ErrorCode: 'STRING_VALUE',
+ *       ErrorMessage: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param CreateMeetingWithAttendeesCommandInput - {@link CreateMeetingWithAttendeesCommandInput}
@@ -117,6 +166,8 @@ export interface CreateMeetingWithAttendeesCommandOutput extends CreateMeetingWi
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The user isn't authorized to request a resource.</p>
  *
+ * @throws {@link ChimeSDKMeetingsServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKMeetings service.</p>
  *
  */
 export class CreateMeetingWithAttendeesCommand extends $Command<

@@ -37,15 +37,25 @@ export interface ListMemberAccountsCommandOutput extends ListMemberAccountsResul
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MacieClient, ListMemberAccountsCommand } from "@aws-sdk/client-macie"; // ES Modules import
- * // const { MacieClient, ListMemberAccountsCommand } = require("@aws-sdk/client-macie"); // CommonJS import
+ * import { MacieClient, ListMemberAccountsCommand } from '@aws-sdk/client-macie'; // ES Modules import
+ * // const { MacieClient, ListMemberAccountsCommand } = require('@aws-sdk/client-macie'); // CommonJS import
  * const client = new MacieClient(config);
  * const input = { // ListMemberAccountsRequest
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new ListMemberAccountsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListMemberAccountsResult
+ *   memberAccounts: [ // MemberAccounts
+ *     { // MemberAccount
+ *       accountId: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListMemberAccountsCommandInput - {@link ListMemberAccountsCommandInput}
@@ -61,6 +71,8 @@ export interface ListMemberAccountsCommandOutput extends ListMemberAccountsResul
  *  <p>(Discontinued) The request was rejected because an invalid or out-of-range value was supplied for an
  *       input parameter.</p>
  *
+ * @throws {@link MacieServiceException}
+ * <p>Base exception class for all service exceptions from Macie service.</p>
  *
  */
 export class ListMemberAccountsCommand extends $Command<

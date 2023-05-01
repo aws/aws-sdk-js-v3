@@ -45,14 +45,17 @@ export interface DeleteOrganizationConformancePackCommandOutput extends __Metada
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConfigServiceClient, DeleteOrganizationConformancePackCommand } from "@aws-sdk/client-config-service"; // ES Modules import
- * // const { ConfigServiceClient, DeleteOrganizationConformancePackCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
+ * import { ConfigServiceClient, DeleteOrganizationConformancePackCommand } from '@aws-sdk/client-config-service'; // ES Modules import
+ * // const { ConfigServiceClient, DeleteOrganizationConformancePackCommand } = require('@aws-sdk/client-config-service'); // CommonJS import
  * const client = new ConfigServiceClient(config);
  * const input = { // DeleteOrganizationConformancePackRequest
- *   OrganizationConformancePackName: "STRING_VALUE", // required
+ *   OrganizationConformancePackName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteOrganizationConformancePackCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteOrganizationConformancePackCommandInput - {@link DeleteOrganizationConformancePackCommandInput}
@@ -112,6 +115,8 @@ export interface DeleteOrganizationConformancePackCommandOutput extends __Metada
  *             </li>
  *          </ul>
  *
+ * @throws {@link ConfigServiceServiceException}
+ * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
  */
 export class DeleteOrganizationConformancePackCommand extends $Command<

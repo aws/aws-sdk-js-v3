@@ -87,20 +87,27 @@ export interface SignCommandOutput extends SignResponse, __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KMSClient, SignCommand } from "@aws-sdk/client-kms"; // ES Modules import
- * // const { KMSClient, SignCommand } = require("@aws-sdk/client-kms"); // CommonJS import
+ * import { KMSClient, SignCommand } from '@aws-sdk/client-kms'; // ES Modules import
+ * // const { KMSClient, SignCommand } = require('@aws-sdk/client-kms'); // CommonJS import
  * const client = new KMSClient(config);
  * const input = { // SignRequest
- *   KeyId: "STRING_VALUE", // required
- *   Message: "BLOB_VALUE", // required
- *   MessageType: "RAW" || "DIGEST",
+ *   KeyId: 'STRING_VALUE', // required
+ *   Message: 'BLOB_VALUE', // required
+ *   MessageType: 'RAW' || 'DIGEST',
  *   GrantTokens: [ // GrantTokenList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   SigningAlgorithm: "RSASSA_PSS_SHA_256" || "RSASSA_PSS_SHA_384" || "RSASSA_PSS_SHA_512" || "RSASSA_PKCS1_V1_5_SHA_256" || "RSASSA_PKCS1_V1_5_SHA_384" || "RSASSA_PKCS1_V1_5_SHA_512" || "ECDSA_SHA_256" || "ECDSA_SHA_384" || "ECDSA_SHA_512" || "SM2DSA", // required
+ *   SigningAlgorithm: 'RSASSA_PSS_SHA_256' || 'RSASSA_PSS_SHA_384' || 'RSASSA_PSS_SHA_512' || 'RSASSA_PKCS1_V1_5_SHA_256' || 'RSASSA_PKCS1_V1_5_SHA_384' || 'RSASSA_PKCS1_V1_5_SHA_512' || 'ECDSA_SHA_256' || 'ECDSA_SHA_384' || 'ECDSA_SHA_512' || 'SM2DSA', // required
  * };
  * const command = new SignCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SignResponse
+ *   KeyId: 'STRING_VALUE',
+ *   Signature: 'BLOB_VALUE',
+ *   SigningAlgorithm: 'RSASSA_PSS_SHA_256' || 'RSASSA_PSS_SHA_384' || 'RSASSA_PSS_SHA_512' || 'RSASSA_PKCS1_V1_5_SHA_256' || 'RSASSA_PKCS1_V1_5_SHA_384' || 'RSASSA_PKCS1_V1_5_SHA_512' || 'ECDSA_SHA_256' || 'ECDSA_SHA_384' || 'ECDSA_SHA_512' || 'SM2DSA',
+ * };
+ *
  * ```
  *
  * @param SignCommandInput - {@link SignCommandInput}
@@ -170,6 +177,8 @@ export interface SignCommandOutput extends SignResponse, __MetadataBearer {}
  *  <p>The request was rejected because the specified entity or resource could not be
  *       found.</p>
  *
+ * @throws {@link KMSServiceException}
+ * <p>Base exception class for all service exceptions from KMS service.</p>
  *
  * @example To digitally sign a message with an asymmetric KMS key.
  * ```javascript

@@ -38,14 +38,17 @@ export interface DeleteTranscriptionJobCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { TranscribeClient, DeleteTranscriptionJobCommand } from "@aws-sdk/client-transcribe"; // ES Modules import
- * // const { TranscribeClient, DeleteTranscriptionJobCommand } = require("@aws-sdk/client-transcribe"); // CommonJS import
+ * import { TranscribeClient, DeleteTranscriptionJobCommand } from '@aws-sdk/client-transcribe'; // ES Modules import
+ * // const { TranscribeClient, DeleteTranscriptionJobCommand } = require('@aws-sdk/client-transcribe'); // CommonJS import
  * const client = new TranscribeClient(config);
  * const input = { // DeleteTranscriptionJobRequest
- *   TranscriptionJobName: "STRING_VALUE", // required
+ *   TranscriptionJobName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteTranscriptionJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteTranscriptionJobCommandInput - {@link DeleteTranscriptionJobCommandInput}
@@ -68,6 +71,8 @@ export interface DeleteTranscriptionJobCommandOutput extends __MetadataBearer {}
  *  <p>You've either sent too many requests or your input file is too long. Wait before
  *             retrying your request, or use a smaller file and try your request again.</p>
  *
+ * @throws {@link TranscribeServiceException}
+ * <p>Base exception class for all service exceptions from Transcribe service.</p>
  *
  */
 export class DeleteTranscriptionJobCommand extends $Command<

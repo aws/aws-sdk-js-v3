@@ -50,14 +50,17 @@ export interface DisableKeyCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KMSClient, DisableKeyCommand } from "@aws-sdk/client-kms"; // ES Modules import
- * // const { KMSClient, DisableKeyCommand } = require("@aws-sdk/client-kms"); // CommonJS import
+ * import { KMSClient, DisableKeyCommand } from '@aws-sdk/client-kms'; // ES Modules import
+ * // const { KMSClient, DisableKeyCommand } = require('@aws-sdk/client-kms'); // CommonJS import
  * const client = new KMSClient(config);
  * const input = { // DisableKeyRequest
- *   KeyId: "STRING_VALUE", // required
+ *   KeyId: 'STRING_VALUE', // required
  * };
  * const command = new DisableKeyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DisableKeyCommandInput - {@link DisableKeyCommandInput}
@@ -100,6 +103,8 @@ export interface DisableKeyCommandOutput extends __MetadataBearer {}
  *  <p>The request was rejected because the specified entity or resource could not be
  *       found.</p>
  *
+ * @throws {@link KMSServiceException}
+ * <p>Base exception class for all service exceptions from KMS service.</p>
  *
  * @example To disable a KMS key
  * ```javascript

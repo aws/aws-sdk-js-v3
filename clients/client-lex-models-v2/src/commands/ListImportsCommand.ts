@@ -37,31 +37,51 @@ export interface ListImportsCommandOutput extends ListImportsResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LexModelsV2Client, ListImportsCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
- * // const { LexModelsV2Client, ListImportsCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
+ * import { LexModelsV2Client, ListImportsCommand } from '@aws-sdk/client-lex-models-v2'; // ES Modules import
+ * // const { LexModelsV2Client, ListImportsCommand } = require('@aws-sdk/client-lex-models-v2'); // CommonJS import
  * const client = new LexModelsV2Client(config);
  * const input = { // ListImportsRequest
- *   botId: "STRING_VALUE",
- *   botVersion: "STRING_VALUE",
+ *   botId: 'STRING_VALUE',
+ *   botVersion: 'STRING_VALUE',
  *   sortBy: { // ImportSortBy
- *     attribute: "LastUpdatedDateTime", // required
- *     order: "Ascending" || "Descending", // required
+ *     attribute: 'LastUpdatedDateTime', // required
+ *     order: 'Ascending' || 'Descending', // required
  *   },
  *   filters: [ // ImportFilters
  *     { // ImportFilter
- *       name: "ImportResourceType", // required
+ *       name: 'ImportResourceType', // required
  *       values: [ // FilterValues // required
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
- *       operator: "CO" || "EQ", // required
+ *       operator: 'CO' || 'EQ', // required
  *     },
  *   ],
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
- *   localeId: "STRING_VALUE",
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
+ *   localeId: 'STRING_VALUE',
  * };
  * const command = new ListImportsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListImportsResponse
+ *   botId: 'STRING_VALUE',
+ *   botVersion: 'STRING_VALUE',
+ *   importSummaries: [ // ImportSummaryList
+ *     { // ImportSummary
+ *       importId: 'STRING_VALUE',
+ *       importedResourceId: 'STRING_VALUE',
+ *       importedResourceName: 'STRING_VALUE',
+ *       importStatus: 'InProgress' || 'Completed' || 'Failed' || 'Deleting',
+ *       mergeStrategy: 'Overwrite' || 'FailOnConflict' || 'Append',
+ *       creationDateTime: new Date('TIMESTAMP'),
+ *       lastUpdatedDateTime: new Date('TIMESTAMP'),
+ *       importedResourceType: 'Bot' || 'BotLocale' || 'CustomVocabulary',
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ *   localeId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListImportsCommandInput - {@link ListImportsCommandInput}
@@ -82,6 +102,8 @@ export interface ListImportsCommandOutput extends ListImportsResponse, __Metadat
  *  <p>One of the input parameters in your request isn't valid. Check the
  *          parameters and try your request again.</p>
  *
+ * @throws {@link LexModelsV2ServiceException}
+ * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
  */
 export class ListImportsCommand extends $Command<

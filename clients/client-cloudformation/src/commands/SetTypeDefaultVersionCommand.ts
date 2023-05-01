@@ -37,17 +37,20 @@ export interface SetTypeDefaultVersionCommandOutput extends SetTypeDefaultVersio
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudFormationClient, SetTypeDefaultVersionCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
- * // const { CloudFormationClient, SetTypeDefaultVersionCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
+ * import { CloudFormationClient, SetTypeDefaultVersionCommand } from '@aws-sdk/client-cloudformation'; // ES Modules import
+ * // const { CloudFormationClient, SetTypeDefaultVersionCommand } = require('@aws-sdk/client-cloudformation'); // CommonJS import
  * const client = new CloudFormationClient(config);
  * const input = { // SetTypeDefaultVersionInput
- *   Arn: "STRING_VALUE",
- *   Type: "RESOURCE" || "MODULE" || "HOOK",
- *   TypeName: "STRING_VALUE",
- *   VersionId: "STRING_VALUE",
+ *   Arn: 'STRING_VALUE',
+ *   Type: 'RESOURCE' || 'MODULE' || 'HOOK',
+ *   TypeName: 'STRING_VALUE',
+ *   VersionId: 'STRING_VALUE',
  * };
  * const command = new SetTypeDefaultVersionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param SetTypeDefaultVersionCommandInput - {@link SetTypeDefaultVersionCommandInput}
@@ -62,6 +65,8 @@ export interface SetTypeDefaultVersionCommandOutput extends SetTypeDefaultVersio
  * @throws {@link TypeNotFoundException} (client fault)
  *  <p>The specified extension doesn't exist in the CloudFormation registry.</p>
  *
+ * @throws {@link CloudFormationServiceException}
+ * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
  */
 export class SetTypeDefaultVersionCommand extends $Command<

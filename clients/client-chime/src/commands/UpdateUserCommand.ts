@@ -41,21 +41,43 @@ export interface UpdateUserCommandOutput extends UpdateUserResponse, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeClient, UpdateUserCommand } from "@aws-sdk/client-chime"; // ES Modules import
- * // const { ChimeClient, UpdateUserCommand } = require("@aws-sdk/client-chime"); // CommonJS import
+ * import { ChimeClient, UpdateUserCommand } from '@aws-sdk/client-chime'; // ES Modules import
+ * // const { ChimeClient, UpdateUserCommand } = require('@aws-sdk/client-chime'); // CommonJS import
  * const client = new ChimeClient(config);
  * const input = { // UpdateUserRequest
- *   AccountId: "STRING_VALUE", // required
- *   UserId: "STRING_VALUE", // required
- *   LicenseType: "Basic" || "Plus" || "Pro" || "ProTrial",
- *   UserType: "PrivateUser" || "SharedDevice",
+ *   AccountId: 'STRING_VALUE', // required
+ *   UserId: 'STRING_VALUE', // required
+ *   LicenseType: 'Basic' || 'Plus' || 'Pro' || 'ProTrial',
+ *   UserType: 'PrivateUser' || 'SharedDevice',
  *   AlexaForBusinessMetadata: { // AlexaForBusinessMetadata
  *     IsAlexaForBusinessEnabled: true || false,
- *     AlexaForBusinessRoomArn: "STRING_VALUE",
+ *     AlexaForBusinessRoomArn: 'STRING_VALUE',
  *   },
  * };
  * const command = new UpdateUserCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateUserResponse
+ *   User: { // User
+ *     UserId: 'STRING_VALUE', // required
+ *     AccountId: 'STRING_VALUE',
+ *     PrimaryEmail: 'STRING_VALUE',
+ *     PrimaryProvisionedNumber: 'STRING_VALUE',
+ *     DisplayName: 'STRING_VALUE',
+ *     LicenseType: 'Basic' || 'Plus' || 'Pro' || 'ProTrial',
+ *     UserType: 'PrivateUser' || 'SharedDevice',
+ *     UserRegistrationStatus: 'Unregistered' || 'Registered' || 'Suspended',
+ *     UserInvitationStatus: 'Pending' || 'Accepted' || 'Failed',
+ *     RegisteredOn: new Date('TIMESTAMP'),
+ *     InvitedOn: new Date('TIMESTAMP'),
+ *     AlexaForBusinessMetadata: { // AlexaForBusinessMetadata
+ *       IsAlexaForBusinessEnabled: true || false,
+ *       AlexaForBusinessRoomArn: 'STRING_VALUE',
+ *     },
+ *     PersonalPIN: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateUserCommandInput - {@link UpdateUserCommandInput}
@@ -85,6 +107,8 @@ export interface UpdateUserCommandOutput extends UpdateUserResponse, __MetadataB
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeServiceException}
+ * <p>Base exception class for all service exceptions from Chime service.</p>
  *
  */
 export class UpdateUserCommand extends $Command<

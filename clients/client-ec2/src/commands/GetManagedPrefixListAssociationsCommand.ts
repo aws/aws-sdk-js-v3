@@ -41,17 +41,28 @@ export interface GetManagedPrefixListAssociationsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, GetManagedPrefixListAssociationsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, GetManagedPrefixListAssociationsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, GetManagedPrefixListAssociationsCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, GetManagedPrefixListAssociationsCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // GetManagedPrefixListAssociationsRequest
  *   DryRun: true || false,
- *   PrefixListId: "STRING_VALUE", // required
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   PrefixListId: 'STRING_VALUE', // required
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new GetManagedPrefixListAssociationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetManagedPrefixListAssociationsResult
+ *   PrefixListAssociations: [ // PrefixListAssociationSet
+ *     { // PrefixListAssociation
+ *       ResourceId: 'STRING_VALUE',
+ *       ResourceOwner: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetManagedPrefixListAssociationsCommandInput - {@link GetManagedPrefixListAssociationsCommandInput}
@@ -60,6 +71,8 @@ export interface GetManagedPrefixListAssociationsCommandOutput
  * @see {@link GetManagedPrefixListAssociationsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class GetManagedPrefixListAssociationsCommand extends $Command<

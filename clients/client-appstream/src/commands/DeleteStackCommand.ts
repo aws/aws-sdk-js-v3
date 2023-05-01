@@ -36,14 +36,17 @@ export interface DeleteStackCommandOutput extends DeleteStackResult, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppStreamClient, DeleteStackCommand } from "@aws-sdk/client-appstream"; // ES Modules import
- * // const { AppStreamClient, DeleteStackCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
+ * import { AppStreamClient, DeleteStackCommand } from '@aws-sdk/client-appstream'; // ES Modules import
+ * // const { AppStreamClient, DeleteStackCommand } = require('@aws-sdk/client-appstream'); // CommonJS import
  * const client = new AppStreamClient(config);
  * const input = { // DeleteStackRequest
- *   Name: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
  * };
  * const command = new DeleteStackCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteStackCommandInput - {@link DeleteStackCommandInput}
@@ -64,6 +67,8 @@ export interface DeleteStackCommandOutput extends DeleteStackResult, __MetadataB
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link AppStreamServiceException}
+ * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
  */
 export class DeleteStackCommand extends $Command<

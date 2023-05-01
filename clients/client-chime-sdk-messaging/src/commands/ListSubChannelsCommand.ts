@@ -45,17 +45,29 @@ export interface ListSubChannelsCommandOutput extends ListSubChannelsResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeSDKMessagingClient, ListSubChannelsCommand } from "@aws-sdk/client-chime-sdk-messaging"; // ES Modules import
- * // const { ChimeSDKMessagingClient, ListSubChannelsCommand } = require("@aws-sdk/client-chime-sdk-messaging"); // CommonJS import
+ * import { ChimeSDKMessagingClient, ListSubChannelsCommand } from '@aws-sdk/client-chime-sdk-messaging'; // ES Modules import
+ * // const { ChimeSDKMessagingClient, ListSubChannelsCommand } = require('@aws-sdk/client-chime-sdk-messaging'); // CommonJS import
  * const client = new ChimeSDKMessagingClient(config);
  * const input = { // ListSubChannelsRequest
- *   ChannelArn: "STRING_VALUE", // required
- *   ChimeBearer: "STRING_VALUE", // required
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   ChannelArn: 'STRING_VALUE', // required
+ *   ChimeBearer: 'STRING_VALUE', // required
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListSubChannelsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListSubChannelsResponse
+ *   ChannelArn: 'STRING_VALUE',
+ *   SubChannels: [ // SubChannelSummaryList
+ *     { // SubChannelSummary
+ *       SubChannelId: 'STRING_VALUE',
+ *       MembershipCount: Number('int'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListSubChannelsCommandInput - {@link ListSubChannelsCommandInput}
@@ -82,6 +94,8 @@ export interface ListSubChannelsCommandOutput extends ListSubChannelsResponse, _
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeSDKMessagingServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKMessaging service.</p>
  *
  */
 export class ListSubChannelsCommand extends $Command<

@@ -96,15 +96,23 @@ export interface UpdateIndexTypeCommandOutput extends UpdateIndexTypeOutput, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ResourceExplorer2Client, UpdateIndexTypeCommand } from "@aws-sdk/client-resource-explorer-2"; // ES Modules import
- * // const { ResourceExplorer2Client, UpdateIndexTypeCommand } = require("@aws-sdk/client-resource-explorer-2"); // CommonJS import
+ * import { ResourceExplorer2Client, UpdateIndexTypeCommand } from '@aws-sdk/client-resource-explorer-2'; // ES Modules import
+ * // const { ResourceExplorer2Client, UpdateIndexTypeCommand } = require('@aws-sdk/client-resource-explorer-2'); // CommonJS import
  * const client = new ResourceExplorer2Client(config);
  * const input = { // UpdateIndexTypeInput
- *   Arn: "STRING_VALUE", // required
- *   Type: "STRING_VALUE", // required
+ *   Arn: 'STRING_VALUE', // required
+ *   Type: 'STRING_VALUE', // required
  * };
  * const command = new UpdateIndexTypeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateIndexTypeOutput
+ *   Arn: 'STRING_VALUE',
+ *   Type: 'STRING_VALUE',
+ *   State: 'STRING_VALUE',
+ *   LastUpdatedAt: new Date('TIMESTAMP'),
+ * };
+ *
  * ```
  *
  * @param UpdateIndexTypeCommandInput - {@link UpdateIndexTypeCommandInput}
@@ -142,6 +150,8 @@ export interface UpdateIndexTypeCommandOutput extends UpdateIndexTypeOutput, __M
  *  <p>You provided an invalid value for one of the operation's parameters. Check the syntax
  *             for the operation, and try again.</p>
  *
+ * @throws {@link ResourceExplorer2ServiceException}
+ * <p>Base exception class for all service exceptions from ResourceExplorer2 service.</p>
  *
  */
 export class UpdateIndexTypeCommand extends $Command<

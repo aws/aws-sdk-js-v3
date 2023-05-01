@@ -47,12 +47,17 @@ export interface DisassociateServiceRoleFromAccountCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GreengrassV2Client, DisassociateServiceRoleFromAccountCommand } from "@aws-sdk/client-greengrassv2"; // ES Modules import
- * // const { GreengrassV2Client, DisassociateServiceRoleFromAccountCommand } = require("@aws-sdk/client-greengrassv2"); // CommonJS import
+ * import { GreengrassV2Client, DisassociateServiceRoleFromAccountCommand } from '@aws-sdk/client-greengrassv2'; // ES Modules import
+ * // const { GreengrassV2Client, DisassociateServiceRoleFromAccountCommand } = require('@aws-sdk/client-greengrassv2'); // CommonJS import
  * const client = new GreengrassV2Client(config);
  * const input = {};
  * const command = new DisassociateServiceRoleFromAccountCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DisassociateServiceRoleFromAccountResponse
+ *   disassociatedAt: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DisassociateServiceRoleFromAccountCommandInput - {@link DisassociateServiceRoleFromAccountCommandInput}
@@ -64,6 +69,8 @@ export interface DisassociateServiceRoleFromAccountCommandOutput
  * @throws {@link InternalServerException} (server fault)
  *  <p>IoT Greengrass can't process your request right now. Try again later.</p>
  *
+ * @throws {@link GreengrassV2ServiceException}
+ * <p>Base exception class for all service exceptions from GreengrassV2 service.</p>
  *
  */
 export class DisassociateServiceRoleFromAccountCommand extends $Command<

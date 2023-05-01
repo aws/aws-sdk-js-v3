@@ -38,21 +38,24 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RAMClient, TagResourceCommand } from "@aws-sdk/client-ram"; // ES Modules import
- * // const { RAMClient, TagResourceCommand } = require("@aws-sdk/client-ram"); // CommonJS import
+ * import { RAMClient, TagResourceCommand } from '@aws-sdk/client-ram'; // ES Modules import
+ * // const { RAMClient, TagResourceCommand } = require('@aws-sdk/client-ram'); // CommonJS import
  * const client = new RAMClient(config);
  * const input = { // TagResourceRequest
- *   resourceShareArn: "STRING_VALUE",
+ *   resourceShareArn: 'STRING_VALUE',
  *   tags: [ // TagList // required
  *     { // Tag
- *       key: "STRING_VALUE",
- *       value: "STRING_VALUE",
+ *       key: 'STRING_VALUE',
+ *       value: 'STRING_VALUE',
  *     },
  *   ],
- *   resourceArn: "STRING_VALUE",
+ *   resourceArn: 'STRING_VALUE',
  * };
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param TagResourceCommandInput - {@link TagResourceCommandInput}
@@ -89,6 +92,8 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @throws {@link UnknownResourceException} (client fault)
  *  <p>The operation failed because a specified resource couldn't be found.</p>
  *
+ * @throws {@link RAMServiceException}
+ * <p>Base exception class for all service exceptions from RAM service.</p>
  *
  */
 export class TagResourceCommand extends $Command<

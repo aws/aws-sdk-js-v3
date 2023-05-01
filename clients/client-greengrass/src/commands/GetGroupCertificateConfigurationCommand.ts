@@ -41,14 +41,21 @@ export interface GetGroupCertificateConfigurationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GreengrassClient, GetGroupCertificateConfigurationCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
- * // const { GreengrassClient, GetGroupCertificateConfigurationCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
+ * import { GreengrassClient, GetGroupCertificateConfigurationCommand } from '@aws-sdk/client-greengrass'; // ES Modules import
+ * // const { GreengrassClient, GetGroupCertificateConfigurationCommand } = require('@aws-sdk/client-greengrass'); // CommonJS import
  * const client = new GreengrassClient(config);
  * const input = { // GetGroupCertificateConfigurationRequest
- *   GroupId: "STRING_VALUE", // required
+ *   GroupId: 'STRING_VALUE', // required
  * };
  * const command = new GetGroupCertificateConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetGroupCertificateConfigurationResponse
+ *   CertificateAuthorityExpiryInMilliseconds: 'STRING_VALUE',
+ *   CertificateExpiryInMilliseconds: 'STRING_VALUE',
+ *   GroupId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetGroupCertificateConfigurationCommandInput - {@link GetGroupCertificateConfigurationCommandInput}
@@ -63,6 +70,8 @@ export interface GetGroupCertificateConfigurationCommandOutput
  * @throws {@link InternalServerErrorException} (server fault)
  *  General error information.
  *
+ * @throws {@link GreengrassServiceException}
+ * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
  */
 export class GetGroupCertificateConfigurationCommand extends $Command<

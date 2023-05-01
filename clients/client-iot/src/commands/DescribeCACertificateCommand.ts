@@ -37,14 +37,40 @@ export interface DescribeCACertificateCommandOutput extends DescribeCACertificat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTClient, DescribeCACertificateCommand } from "@aws-sdk/client-iot"; // ES Modules import
- * // const { IoTClient, DescribeCACertificateCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * import { IoTClient, DescribeCACertificateCommand } from '@aws-sdk/client-iot'; // ES Modules import
+ * // const { IoTClient, DescribeCACertificateCommand } = require('@aws-sdk/client-iot'); // CommonJS import
  * const client = new IoTClient(config);
  * const input = { // DescribeCACertificateRequest
- *   certificateId: "STRING_VALUE", // required
+ *   certificateId: 'STRING_VALUE', // required
  * };
  * const command = new DescribeCACertificateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeCACertificateResponse
+ *   certificateDescription: { // CACertificateDescription
+ *     certificateArn: 'STRING_VALUE',
+ *     certificateId: 'STRING_VALUE',
+ *     status: 'ACTIVE' || 'INACTIVE',
+ *     certificatePem: 'STRING_VALUE',
+ *     ownedBy: 'STRING_VALUE',
+ *     creationDate: new Date('TIMESTAMP'),
+ *     autoRegistrationStatus: 'ENABLE' || 'DISABLE',
+ *     lastModifiedDate: new Date('TIMESTAMP'),
+ *     customerVersion: Number('int'),
+ *     generationId: 'STRING_VALUE',
+ *     validity: { // CertificateValidity
+ *       notBefore: new Date('TIMESTAMP'),
+ *       notAfter: new Date('TIMESTAMP'),
+ *     },
+ *     certificateMode: 'DEFAULT' || 'SNI_ONLY',
+ *   },
+ *   registrationConfig: { // RegistrationConfig
+ *     templateBody: 'STRING_VALUE',
+ *     roleArn: 'STRING_VALUE',
+ *     templateName: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeCACertificateCommandInput - {@link DescribeCACertificateCommandInput}
@@ -71,6 +97,8 @@ export interface DescribeCACertificateCommandOutput extends DescribeCACertificat
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this operation.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class DescribeCACertificateCommand extends $Command<

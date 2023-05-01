@@ -36,15 +36,18 @@ export interface DeleteResourcePolicyCommandOutput extends DeleteResourcePolicyR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ComprehendClient, DeleteResourcePolicyCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
- * // const { ComprehendClient, DeleteResourcePolicyCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
+ * import { ComprehendClient, DeleteResourcePolicyCommand } from '@aws-sdk/client-comprehend'; // ES Modules import
+ * // const { ComprehendClient, DeleteResourcePolicyCommand } = require('@aws-sdk/client-comprehend'); // CommonJS import
  * const client = new ComprehendClient(config);
  * const input = { // DeleteResourcePolicyRequest
- *   ResourceArn: "STRING_VALUE", // required
- *   PolicyRevisionId: "STRING_VALUE",
+ *   ResourceArn: 'STRING_VALUE', // required
+ *   PolicyRevisionId: 'STRING_VALUE',
  * };
  * const command = new DeleteResourcePolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteResourcePolicyCommandInput - {@link DeleteResourcePolicyCommandInput}
@@ -62,6 +65,8 @@ export interface DeleteResourcePolicyCommandOutput extends DeleteResourcePolicyR
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource ARN was not found. Check the ARN and try your request again.</p>
  *
+ * @throws {@link ComprehendServiceException}
+ * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
  */
 export class DeleteResourcePolicyCommand extends $Command<

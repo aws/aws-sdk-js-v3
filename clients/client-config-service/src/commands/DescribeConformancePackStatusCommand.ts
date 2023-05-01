@@ -44,18 +44,35 @@ export interface DescribeConformancePackStatusCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConfigServiceClient, DescribeConformancePackStatusCommand } from "@aws-sdk/client-config-service"; // ES Modules import
- * // const { ConfigServiceClient, DescribeConformancePackStatusCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
+ * import { ConfigServiceClient, DescribeConformancePackStatusCommand } from '@aws-sdk/client-config-service'; // ES Modules import
+ * // const { ConfigServiceClient, DescribeConformancePackStatusCommand } = require('@aws-sdk/client-config-service'); // CommonJS import
  * const client = new ConfigServiceClient(config);
  * const input = { // DescribeConformancePackStatusRequest
  *   ConformancePackNames: [ // ConformancePackNamesList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   Limit: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   Limit: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new DescribeConformancePackStatusCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeConformancePackStatusResponse
+ *   ConformancePackStatusDetails: [ // ConformancePackStatusDetailsList
+ *     { // ConformancePackStatusDetail
+ *       ConformancePackName: 'STRING_VALUE', // required
+ *       ConformancePackId: 'STRING_VALUE', // required
+ *       ConformancePackArn: 'STRING_VALUE', // required
+ *       ConformancePackState: 'CREATE_IN_PROGRESS' || 'CREATE_COMPLETE' || 'CREATE_FAILED' || 'DELETE_IN_PROGRESS' || 'DELETE_FAILED', // required
+ *       StackArn: 'STRING_VALUE', // required
+ *       ConformancePackStatusReason: 'STRING_VALUE',
+ *       LastUpdateRequestedTime: new Date('TIMESTAMP'), // required
+ *       LastUpdateCompletedTime: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeConformancePackStatusCommandInput - {@link DescribeConformancePackStatusCommandInput}
@@ -76,6 +93,8 @@ export interface DescribeConformancePackStatusCommandOutput
  *  <p>One or more of the specified parameters are not valid. Verify
  * 			that your parameters are valid and try again.</p>
  *
+ * @throws {@link ConfigServiceServiceException}
+ * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
  */
 export class DescribeConformancePackStatusCommand extends $Command<

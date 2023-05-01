@@ -36,14 +36,25 @@ export interface ListManagedDataIdentifiersCommandOutput extends ListManagedData
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Macie2Client, ListManagedDataIdentifiersCommand } from "@aws-sdk/client-macie2"; // ES Modules import
- * // const { Macie2Client, ListManagedDataIdentifiersCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
+ * import { Macie2Client, ListManagedDataIdentifiersCommand } from '@aws-sdk/client-macie2'; // ES Modules import
+ * // const { Macie2Client, ListManagedDataIdentifiersCommand } = require('@aws-sdk/client-macie2'); // CommonJS import
  * const client = new Macie2Client(config);
  * const input = { // ListManagedDataIdentifiersRequest
- *   nextToken: "STRING_VALUE",
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new ListManagedDataIdentifiersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListManagedDataIdentifiersResponse
+ *   items: [ // __listOfManagedDataIdentifierSummary
+ *     { // ManagedDataIdentifierSummary
+ *       category: 'FINANCIAL_INFORMATION' || 'PERSONAL_INFORMATION' || 'CREDENTIALS' || 'CUSTOM_IDENTIFIER',
+ *       id: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListManagedDataIdentifiersCommandInput - {@link ListManagedDataIdentifiersCommandInput}
@@ -52,6 +63,8 @@ export interface ListManagedDataIdentifiersCommandOutput extends ListManagedData
  * @see {@link ListManagedDataIdentifiersCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.
  *
+ * @throws {@link Macie2ServiceException}
+ * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
  */
 export class ListManagedDataIdentifiersCommand extends $Command<

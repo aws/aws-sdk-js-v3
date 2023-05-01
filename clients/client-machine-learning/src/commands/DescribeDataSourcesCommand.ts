@@ -36,24 +36,68 @@ export interface DescribeDataSourcesCommandOutput extends DescribeDataSourcesOut
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MachineLearningClient, DescribeDataSourcesCommand } from "@aws-sdk/client-machine-learning"; // ES Modules import
- * // const { MachineLearningClient, DescribeDataSourcesCommand } = require("@aws-sdk/client-machine-learning"); // CommonJS import
+ * import { MachineLearningClient, DescribeDataSourcesCommand } from '@aws-sdk/client-machine-learning'; // ES Modules import
+ * // const { MachineLearningClient, DescribeDataSourcesCommand } = require('@aws-sdk/client-machine-learning'); // CommonJS import
  * const client = new MachineLearningClient(config);
  * const input = { // DescribeDataSourcesInput
- *   FilterVariable: "STRING_VALUE",
- *   EQ: "STRING_VALUE",
- *   GT: "STRING_VALUE",
- *   LT: "STRING_VALUE",
- *   GE: "STRING_VALUE",
- *   LE: "STRING_VALUE",
- *   NE: "STRING_VALUE",
- *   Prefix: "STRING_VALUE",
- *   SortOrder: "STRING_VALUE",
- *   NextToken: "STRING_VALUE",
- *   Limit: Number("int"),
+ *   FilterVariable: 'STRING_VALUE',
+ *   EQ: 'STRING_VALUE',
+ *   GT: 'STRING_VALUE',
+ *   LT: 'STRING_VALUE',
+ *   GE: 'STRING_VALUE',
+ *   LE: 'STRING_VALUE',
+ *   NE: 'STRING_VALUE',
+ *   Prefix: 'STRING_VALUE',
+ *   SortOrder: 'STRING_VALUE',
+ *   NextToken: 'STRING_VALUE',
+ *   Limit: Number('int'),
  * };
  * const command = new DescribeDataSourcesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeDataSourcesOutput
+ *   Results: [ // DataSources
+ *     { // DataSource
+ *       DataSourceId: 'STRING_VALUE',
+ *       DataLocationS3: 'STRING_VALUE',
+ *       DataRearrangement: 'STRING_VALUE',
+ *       CreatedByIamUser: 'STRING_VALUE',
+ *       CreatedAt: new Date('TIMESTAMP'),
+ *       LastUpdatedAt: new Date('TIMESTAMP'),
+ *       DataSizeInBytes: Number('long'),
+ *       NumberOfFiles: Number('long'),
+ *       Name: 'STRING_VALUE',
+ *       Status: 'STRING_VALUE',
+ *       Message: 'STRING_VALUE',
+ *       RedshiftMetadata: { // RedshiftMetadata
+ *         RedshiftDatabase: { // RedshiftDatabase
+ *           DatabaseName: 'STRING_VALUE', // required
+ *           ClusterIdentifier: 'STRING_VALUE', // required
+ *         },
+ *         DatabaseUserName: 'STRING_VALUE',
+ *         SelectSqlQuery: 'STRING_VALUE',
+ *       },
+ *       RDSMetadata: { // RDSMetadata
+ *         Database: { // RDSDatabase
+ *           InstanceIdentifier: 'STRING_VALUE', // required
+ *           DatabaseName: 'STRING_VALUE', // required
+ *         },
+ *         DatabaseUserName: 'STRING_VALUE',
+ *         SelectSqlQuery: 'STRING_VALUE',
+ *         ResourceRole: 'STRING_VALUE',
+ *         ServiceRole: 'STRING_VALUE',
+ *         DataPipelineId: 'STRING_VALUE',
+ *       },
+ *       RoleARN: 'STRING_VALUE',
+ *       ComputeStatistics: true || false,
+ *       ComputeTime: Number('long'),
+ *       FinishedAt: new Date('TIMESTAMP'),
+ *       StartedAt: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeDataSourcesCommandInput - {@link DescribeDataSourcesCommandInput}
@@ -68,6 +112,8 @@ export interface DescribeDataSourcesCommandOutput extends DescribeDataSourcesOut
  * @throws {@link InvalidInputException} (client fault)
  *  <p>An error on the client occurred. Typically, the cause is an invalid input value.</p>
  *
+ * @throws {@link MachineLearningServiceException}
+ * <p>Base exception class for all service exceptions from MachineLearning service.</p>
  *
  */
 export class DescribeDataSourcesCommand extends $Command<

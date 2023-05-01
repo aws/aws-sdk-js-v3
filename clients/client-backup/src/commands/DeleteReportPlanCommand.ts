@@ -36,14 +36,17 @@ export interface DeleteReportPlanCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BackupClient, DeleteReportPlanCommand } from "@aws-sdk/client-backup"; // ES Modules import
- * // const { BackupClient, DeleteReportPlanCommand } = require("@aws-sdk/client-backup"); // CommonJS import
+ * import { BackupClient, DeleteReportPlanCommand } from '@aws-sdk/client-backup'; // ES Modules import
+ * // const { BackupClient, DeleteReportPlanCommand } = require('@aws-sdk/client-backup'); // CommonJS import
  * const client = new BackupClient(config);
  * const input = { // DeleteReportPlanInput
- *   ReportPlanName: "STRING_VALUE", // required
+ *   ReportPlanName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteReportPlanCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteReportPlanCommandInput - {@link DeleteReportPlanCommandInput}
@@ -69,6 +72,8 @@ export interface DeleteReportPlanCommandOutput extends __MetadataBearer {}
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request failed due to a temporary failure of the server.</p>
  *
+ * @throws {@link BackupServiceException}
+ * <p>Base exception class for all service exceptions from Backup service.</p>
  *
  */
 export class DeleteReportPlanCommand extends $Command<

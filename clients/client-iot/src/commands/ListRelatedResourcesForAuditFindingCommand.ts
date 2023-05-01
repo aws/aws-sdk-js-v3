@@ -80,16 +80,48 @@ export interface ListRelatedResourcesForAuditFindingCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTClient, ListRelatedResourcesForAuditFindingCommand } from "@aws-sdk/client-iot"; // ES Modules import
- * // const { IoTClient, ListRelatedResourcesForAuditFindingCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * import { IoTClient, ListRelatedResourcesForAuditFindingCommand } from '@aws-sdk/client-iot'; // ES Modules import
+ * // const { IoTClient, ListRelatedResourcesForAuditFindingCommand } = require('@aws-sdk/client-iot'); // CommonJS import
  * const client = new IoTClient(config);
  * const input = { // ListRelatedResourcesForAuditFindingRequest
- *   findingId: "STRING_VALUE", // required
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   findingId: 'STRING_VALUE', // required
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new ListRelatedResourcesForAuditFindingCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListRelatedResourcesForAuditFindingResponse
+ *   relatedResources: [ // RelatedResources
+ *     { // RelatedResource
+ *       resourceType: 'DEVICE_CERTIFICATE' || 'CA_CERTIFICATE' || 'IOT_POLICY' || 'COGNITO_IDENTITY_POOL' || 'CLIENT_ID' || 'ACCOUNT_SETTINGS' || 'ROLE_ALIAS' || 'IAM_ROLE' || 'ISSUER_CERTIFICATE',
+ *       resourceIdentifier: { // ResourceIdentifier
+ *         deviceCertificateId: 'STRING_VALUE',
+ *         caCertificateId: 'STRING_VALUE',
+ *         cognitoIdentityPoolId: 'STRING_VALUE',
+ *         clientId: 'STRING_VALUE',
+ *         policyVersionIdentifier: { // PolicyVersionIdentifier
+ *           policyName: 'STRING_VALUE',
+ *           policyVersionId: 'STRING_VALUE',
+ *         },
+ *         account: 'STRING_VALUE',
+ *         iamRoleArn: 'STRING_VALUE',
+ *         roleAliasArn: 'STRING_VALUE',
+ *         issuerCertificateIdentifier: { // IssuerCertificateIdentifier
+ *           issuerCertificateSubject: 'STRING_VALUE',
+ *           issuerId: 'STRING_VALUE',
+ *           issuerCertificateSerialNumber: 'STRING_VALUE',
+ *         },
+ *         deviceCertificateArn: 'STRING_VALUE',
+ *       },
+ *       additionalInfo: { // StringMap
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListRelatedResourcesForAuditFindingCommandInput - {@link ListRelatedResourcesForAuditFindingCommandInput}
@@ -110,6 +142,8 @@ export interface ListRelatedResourcesForAuditFindingCommandOutput
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The rate exceeds the limit.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class ListRelatedResourcesForAuditFindingCommand extends $Command<

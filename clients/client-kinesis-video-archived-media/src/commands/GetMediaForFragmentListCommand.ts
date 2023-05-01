@@ -85,18 +85,24 @@ export interface GetMediaForFragmentListCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KinesisVideoArchivedMediaClient, GetMediaForFragmentListCommand } from "@aws-sdk/client-kinesis-video-archived-media"; // ES Modules import
- * // const { KinesisVideoArchivedMediaClient, GetMediaForFragmentListCommand } = require("@aws-sdk/client-kinesis-video-archived-media"); // CommonJS import
+ * import { KinesisVideoArchivedMediaClient, GetMediaForFragmentListCommand } from '@aws-sdk/client-kinesis-video-archived-media'; // ES Modules import
+ * // const { KinesisVideoArchivedMediaClient, GetMediaForFragmentListCommand } = require('@aws-sdk/client-kinesis-video-archived-media'); // CommonJS import
  * const client = new KinesisVideoArchivedMediaClient(config);
  * const input = { // GetMediaForFragmentListInput
- *   StreamName: "STRING_VALUE",
- *   StreamARN: "STRING_VALUE",
+ *   StreamName: 'STRING_VALUE',
+ *   StreamARN: 'STRING_VALUE',
  *   Fragments: [ // FragmentNumberList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new GetMediaForFragmentListCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetMediaForFragmentListOutput
+ *   ContentType: 'STRING_VALUE',
+ *   Payload: 'STREAMING_BLOB_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetMediaForFragmentListCommandInput - {@link GetMediaForFragmentListCommandInput}
@@ -128,6 +134,8 @@ export interface GetMediaForFragmentListCommandOutput
  *                 <code>LIVE</code> is requested for a stream that has no fragments within the last 30
  *             seconds.</p>
  *
+ * @throws {@link KinesisVideoArchivedMediaServiceException}
+ * <p>Base exception class for all service exceptions from KinesisVideoArchivedMedia service.</p>
  *
  */
 export class GetMediaForFragmentListCommand extends $Command<

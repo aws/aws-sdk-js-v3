@@ -36,14 +36,21 @@ export interface PutRegistryCatalogDataCommandOutput extends PutRegistryCatalogD
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ECRPUBLICClient, PutRegistryCatalogDataCommand } from "@aws-sdk/client-ecr-public"; // ES Modules import
- * // const { ECRPUBLICClient, PutRegistryCatalogDataCommand } = require("@aws-sdk/client-ecr-public"); // CommonJS import
+ * import { ECRPUBLICClient, PutRegistryCatalogDataCommand } from '@aws-sdk/client-ecr-public'; // ES Modules import
+ * // const { ECRPUBLICClient, PutRegistryCatalogDataCommand } = require('@aws-sdk/client-ecr-public'); // CommonJS import
  * const client = new ECRPUBLICClient(config);
  * const input = { // PutRegistryCatalogDataRequest
- *   displayName: "STRING_VALUE",
+ *   displayName: 'STRING_VALUE',
  * };
  * const command = new PutRegistryCatalogDataCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutRegistryCatalogDataResponse
+ *   registryCatalogData: { // RegistryCatalogData
+ *     displayName: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param PutRegistryCatalogDataCommandInput - {@link PutRegistryCatalogDataCommandInput}
@@ -62,6 +69,8 @@ export interface PutRegistryCatalogDataCommandOutput extends PutRegistryCatalogD
  * @throws {@link UnsupportedCommandException} (client fault)
  *  <p>The action isn't supported in this Region.</p>
  *
+ * @throws {@link ECRPUBLICServiceException}
+ * <p>Base exception class for all service exceptions from ECRPUBLIC service.</p>
  *
  */
 export class PutRegistryCatalogDataCommand extends $Command<

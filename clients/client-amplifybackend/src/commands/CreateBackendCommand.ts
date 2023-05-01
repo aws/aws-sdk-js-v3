@@ -36,18 +36,28 @@ export interface CreateBackendCommandOutput extends CreateBackendResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AmplifyBackendClient, CreateBackendCommand } from "@aws-sdk/client-amplifybackend"; // ES Modules import
- * // const { AmplifyBackendClient, CreateBackendCommand } = require("@aws-sdk/client-amplifybackend"); // CommonJS import
+ * import { AmplifyBackendClient, CreateBackendCommand } from '@aws-sdk/client-amplifybackend'; // ES Modules import
+ * // const { AmplifyBackendClient, CreateBackendCommand } = require('@aws-sdk/client-amplifybackend'); // CommonJS import
  * const client = new AmplifyBackendClient(config);
  * const input = { // CreateBackendRequest
- *   AppId: "STRING_VALUE", // required
- *   AppName: "STRING_VALUE", // required
- *   BackendEnvironmentName: "STRING_VALUE", // required
+ *   AppId: 'STRING_VALUE', // required
+ *   AppName: 'STRING_VALUE', // required
+ *   BackendEnvironmentName: 'STRING_VALUE', // required
  *   ResourceConfig: {},
- *   ResourceName: "STRING_VALUE",
+ *   ResourceName: 'STRING_VALUE',
  * };
  * const command = new CreateBackendCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateBackendResponse
+ *   AppId: 'STRING_VALUE',
+ *   BackendEnvironmentName: 'STRING_VALUE',
+ *   Error: 'STRING_VALUE',
+ *   JobId: 'STRING_VALUE',
+ *   Operation: 'STRING_VALUE',
+ *   Status: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateBackendCommandInput - {@link CreateBackendCommandInput}
@@ -68,6 +78,8 @@ export interface CreateBackendCommandOutput extends CreateBackendResponse, __Met
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>An error that is returned when a limit of a specific type has been exceeded.</p>
  *
+ * @throws {@link AmplifyBackendServiceException}
+ * <p>Base exception class for all service exceptions from AmplifyBackend service.</p>
  *
  */
 export class CreateBackendCommand extends $Command<

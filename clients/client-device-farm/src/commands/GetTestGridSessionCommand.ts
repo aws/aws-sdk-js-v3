@@ -45,16 +45,28 @@ export interface GetTestGridSessionCommandOutput extends GetTestGridSessionResul
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DeviceFarmClient, GetTestGridSessionCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
- * // const { DeviceFarmClient, GetTestGridSessionCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
+ * import { DeviceFarmClient, GetTestGridSessionCommand } from '@aws-sdk/client-device-farm'; // ES Modules import
+ * // const { DeviceFarmClient, GetTestGridSessionCommand } = require('@aws-sdk/client-device-farm'); // CommonJS import
  * const client = new DeviceFarmClient(config);
  * const input = { // GetTestGridSessionRequest
- *   projectArn: "STRING_VALUE",
- *   sessionId: "STRING_VALUE",
- *   sessionArn: "STRING_VALUE",
+ *   projectArn: 'STRING_VALUE',
+ *   sessionId: 'STRING_VALUE',
+ *   sessionArn: 'STRING_VALUE',
  * };
  * const command = new GetTestGridSessionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetTestGridSessionResult
+ *   testGridSession: { // TestGridSession
+ *     arn: 'STRING_VALUE',
+ *     status: 'ACTIVE' || 'CLOSED' || 'ERRORED',
+ *     created: new Date('TIMESTAMP'),
+ *     ended: new Date('TIMESTAMP'),
+ *     billingMinutes: Number('double'),
+ *     seleniumProperties: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetTestGridSessionCommandInput - {@link GetTestGridSessionCommandInput}
@@ -73,6 +85,8 @@ export interface GetTestGridSessionCommandOutput extends GetTestGridSessionResul
  * @throws {@link NotFoundException} (client fault)
  *  <p>The specified entity was not found.</p>
  *
+ * @throws {@link DeviceFarmServiceException}
+ * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
  */
 export class GetTestGridSessionCommand extends $Command<

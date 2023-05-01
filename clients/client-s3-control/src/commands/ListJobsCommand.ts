@@ -63,19 +63,43 @@ export interface ListJobsCommandOutput extends ListJobsResult, __MetadataBearer 
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { S3ControlClient, ListJobsCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
- * // const { S3ControlClient, ListJobsCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
+ * import { S3ControlClient, ListJobsCommand } from '@aws-sdk/client-s3-control'; // ES Modules import
+ * // const { S3ControlClient, ListJobsCommand } = require('@aws-sdk/client-s3-control'); // CommonJS import
  * const client = new S3ControlClient(config);
  * const input = { // ListJobsRequest
- *   AccountId: "STRING_VALUE",
+ *   AccountId: 'STRING_VALUE',
  *   JobStatuses: [ // JobStatusList
- *     "Active" || "Cancelled" || "Cancelling" || "Complete" || "Completing" || "Failed" || "Failing" || "New" || "Paused" || "Pausing" || "Preparing" || "Ready" || "Suspended",
+ *     'Active' || 'Cancelled' || 'Cancelling' || 'Complete' || 'Completing' || 'Failed' || 'Failing' || 'New' || 'Paused' || 'Pausing' || 'Preparing' || 'Ready' || 'Suspended',
  *   ],
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListJobsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListJobsResult
+ *   NextToken: 'STRING_VALUE',
+ *   Jobs: [ // JobListDescriptorList
+ *     { // JobListDescriptor
+ *       JobId: 'STRING_VALUE',
+ *       Description: 'STRING_VALUE',
+ *       Operation: 'LambdaInvoke' || 'S3PutObjectCopy' || 'S3PutObjectAcl' || 'S3PutObjectTagging' || 'S3DeleteObjectTagging' || 'S3InitiateRestoreObject' || 'S3PutObjectLegalHold' || 'S3PutObjectRetention' || 'S3ReplicateObject',
+ *       Priority: Number('int'),
+ *       Status: 'Active' || 'Cancelled' || 'Cancelling' || 'Complete' || 'Completing' || 'Failed' || 'Failing' || 'New' || 'Paused' || 'Pausing' || 'Preparing' || 'Ready' || 'Suspended',
+ *       CreationTime: new Date('TIMESTAMP'),
+ *       TerminationDate: new Date('TIMESTAMP'),
+ *       ProgressSummary: { // JobProgressSummary
+ *         TotalNumberOfTasks: Number('long'),
+ *         NumberOfTasksSucceeded: Number('long'),
+ *         NumberOfTasksFailed: Number('long'),
+ *         Timers: { // JobTimers
+ *           ElapsedTimeInActiveSeconds: Number('long'),
+ *         },
+ *       },
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListJobsCommandInput - {@link ListJobsCommandInput}
@@ -93,6 +117,8 @@ export interface ListJobsCommandOutput extends ListJobsResult, __MetadataBearer 
  * @throws {@link InvalidRequestException} (client fault)
  *  <p></p>
  *
+ * @throws {@link S3ControlServiceException}
+ * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
  */
 export class ListJobsCommand extends $Command<

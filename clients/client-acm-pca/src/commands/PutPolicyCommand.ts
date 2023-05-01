@@ -67,15 +67,18 @@ export interface PutPolicyCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ACMPCAClient, PutPolicyCommand } from "@aws-sdk/client-acm-pca"; // ES Modules import
- * // const { ACMPCAClient, PutPolicyCommand } = require("@aws-sdk/client-acm-pca"); // CommonJS import
+ * import { ACMPCAClient, PutPolicyCommand } from '@aws-sdk/client-acm-pca'; // ES Modules import
+ * // const { ACMPCAClient, PutPolicyCommand } = require('@aws-sdk/client-acm-pca'); // CommonJS import
  * const client = new ACMPCAClient(config);
  * const input = { // PutPolicyRequest
- *   ResourceArn: "STRING_VALUE", // required
- *   Policy: "STRING_VALUE", // required
+ *   ResourceArn: 'STRING_VALUE', // required
+ *   Policy: 'STRING_VALUE', // required
  * };
  * const command = new PutPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutPolicyCommandInput - {@link PutPolicyCommandInput}
@@ -110,6 +113,8 @@ export interface PutPolicyCommandOutput extends __MetadataBearer {}
  *  <p>A resource such as a private CA, S3 bucket, certificate, audit report, or policy
  * 			cannot be found.</p>
  *
+ * @throws {@link ACMPCAServiceException}
+ * <p>Base exception class for all service exceptions from ACMPCA service.</p>
  *
  */
 export class PutPolicyCommand extends $Command<

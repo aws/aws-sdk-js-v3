@@ -37,17 +37,25 @@ export interface ListRuleNamesByTargetCommandOutput extends ListRuleNamesByTarge
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EventBridgeClient, ListRuleNamesByTargetCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
- * // const { EventBridgeClient, ListRuleNamesByTargetCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
+ * import { EventBridgeClient, ListRuleNamesByTargetCommand } from '@aws-sdk/client-eventbridge'; // ES Modules import
+ * // const { EventBridgeClient, ListRuleNamesByTargetCommand } = require('@aws-sdk/client-eventbridge'); // CommonJS import
  * const client = new EventBridgeClient(config);
  * const input = { // ListRuleNamesByTargetRequest
- *   TargetArn: "STRING_VALUE", // required
- *   EventBusName: "STRING_VALUE",
- *   NextToken: "STRING_VALUE",
- *   Limit: Number("int"),
+ *   TargetArn: 'STRING_VALUE', // required
+ *   EventBusName: 'STRING_VALUE',
+ *   NextToken: 'STRING_VALUE',
+ *   Limit: Number('int'),
  * };
  * const command = new ListRuleNamesByTargetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListRuleNamesByTargetResponse
+ *   RuleNames: [ // RuleNameList
+ *     'STRING_VALUE',
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListRuleNamesByTargetCommandInput - {@link ListRuleNamesByTargetCommandInput}
@@ -62,6 +70,8 @@ export interface ListRuleNamesByTargetCommandOutput extends ListRuleNamesByTarge
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>An entity that you specified does not exist.</p>
  *
+ * @throws {@link EventBridgeServiceException}
+ * <p>Base exception class for all service exceptions from EventBridge service.</p>
  *
  */
 export class ListRuleNamesByTargetCommand extends $Command<

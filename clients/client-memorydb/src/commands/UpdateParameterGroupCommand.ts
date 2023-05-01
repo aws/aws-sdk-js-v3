@@ -36,20 +36,30 @@ export interface UpdateParameterGroupCommandOutput extends UpdateParameterGroupR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MemoryDBClient, UpdateParameterGroupCommand } from "@aws-sdk/client-memorydb"; // ES Modules import
- * // const { MemoryDBClient, UpdateParameterGroupCommand } = require("@aws-sdk/client-memorydb"); // CommonJS import
+ * import { MemoryDBClient, UpdateParameterGroupCommand } from '@aws-sdk/client-memorydb'; // ES Modules import
+ * // const { MemoryDBClient, UpdateParameterGroupCommand } = require('@aws-sdk/client-memorydb'); // CommonJS import
  * const client = new MemoryDBClient(config);
  * const input = { // UpdateParameterGroupRequest
- *   ParameterGroupName: "STRING_VALUE", // required
+ *   ParameterGroupName: 'STRING_VALUE', // required
  *   ParameterNameValues: [ // ParameterNameValueList // required
  *     { // ParameterNameValue
- *       ParameterName: "STRING_VALUE",
- *       ParameterValue: "STRING_VALUE",
+ *       ParameterName: 'STRING_VALUE',
+ *       ParameterValue: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new UpdateParameterGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateParameterGroupResponse
+ *   ParameterGroup: { // ParameterGroup
+ *     Name: 'STRING_VALUE',
+ *     Family: 'STRING_VALUE',
+ *     Description: 'STRING_VALUE',
+ *     ARN: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateParameterGroupCommandInput - {@link UpdateParameterGroupCommandInput}
@@ -73,6 +83,8 @@ export interface UpdateParameterGroupCommandOutput extends UpdateParameterGroupR
  * @throws {@link ServiceLinkedRoleNotFoundFault} (client fault)
  *  <p></p>
  *
+ * @throws {@link MemoryDBServiceException}
+ * <p>Base exception class for all service exceptions from MemoryDB service.</p>
  *
  */
 export class UpdateParameterGroupCommand extends $Command<

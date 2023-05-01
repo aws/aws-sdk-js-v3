@@ -44,41 +44,47 @@ export interface StartTextTranslationJobCommandOutput extends StartTextTranslati
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { TranslateClient, StartTextTranslationJobCommand } from "@aws-sdk/client-translate"; // ES Modules import
- * // const { TranslateClient, StartTextTranslationJobCommand } = require("@aws-sdk/client-translate"); // CommonJS import
+ * import { TranslateClient, StartTextTranslationJobCommand } from '@aws-sdk/client-translate'; // ES Modules import
+ * // const { TranslateClient, StartTextTranslationJobCommand } = require('@aws-sdk/client-translate'); // CommonJS import
  * const client = new TranslateClient(config);
  * const input = { // StartTextTranslationJobRequest
- *   JobName: "STRING_VALUE",
+ *   JobName: 'STRING_VALUE',
  *   InputDataConfig: { // InputDataConfig
- *     S3Uri: "STRING_VALUE", // required
- *     ContentType: "STRING_VALUE", // required
+ *     S3Uri: 'STRING_VALUE', // required
+ *     ContentType: 'STRING_VALUE', // required
  *   },
  *   OutputDataConfig: { // OutputDataConfig
- *     S3Uri: "STRING_VALUE", // required
+ *     S3Uri: 'STRING_VALUE', // required
  *     EncryptionKey: { // EncryptionKey
- *       Type: "KMS", // required
- *       Id: "STRING_VALUE", // required
+ *       Type: 'KMS', // required
+ *       Id: 'STRING_VALUE', // required
  *     },
  *   },
- *   DataAccessRoleArn: "STRING_VALUE", // required
- *   SourceLanguageCode: "STRING_VALUE", // required
+ *   DataAccessRoleArn: 'STRING_VALUE', // required
+ *   SourceLanguageCode: 'STRING_VALUE', // required
  *   TargetLanguageCodes: [ // TargetLanguageCodeStringList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   TerminologyNames: [ // ResourceNameList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   ParallelDataNames: [
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   ClientToken: "STRING_VALUE", // required
+ *   ClientToken: 'STRING_VALUE', // required
  *   Settings: { // TranslationSettings
- *     Formality: "FORMAL" || "INFORMAL",
- *     Profanity: "MASK",
+ *     Formality: 'FORMAL' || 'INFORMAL',
+ *     Profanity: 'MASK',
  *   },
  * };
  * const command = new StartTextTranslationJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartTextTranslationJobResponse
+ *   JobId: 'STRING_VALUE',
+ *   JobStatus: 'SUBMITTED' || 'IN_PROGRESS' || 'COMPLETED' || 'COMPLETED_WITH_ERROR' || 'FAILED' || 'STOP_REQUESTED' || 'STOPPED',
+ * };
+ *
  * ```
  *
  * @param StartTextTranslationJobCommandInput - {@link StartTextTranslationJobCommandInput}
@@ -111,6 +117,8 @@ export interface StartTextTranslationJobCommandOutput extends StartTextTranslati
  *  <p>Amazon Translate does not support translation from the language of the source text into the requested
  *       target language. For more information, see <a href="https://docs.aws.amazon.com/translate/latest/dg/how-to-error-msg.html">Error messages</a>. </p>
  *
+ * @throws {@link TranslateServiceException}
+ * <p>Base exception class for all service exceptions from Translate service.</p>
  *
  */
 export class StartTextTranslationJobCommand extends $Command<

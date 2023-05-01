@@ -40,14 +40,26 @@ export interface GetDeploymentStrategyCommandOutput extends DeploymentStrategy, 
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppConfigClient, GetDeploymentStrategyCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
- * // const { AppConfigClient, GetDeploymentStrategyCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import
+ * import { AppConfigClient, GetDeploymentStrategyCommand } from '@aws-sdk/client-appconfig'; // ES Modules import
+ * // const { AppConfigClient, GetDeploymentStrategyCommand } = require('@aws-sdk/client-appconfig'); // CommonJS import
  * const client = new AppConfigClient(config);
  * const input = { // GetDeploymentStrategyRequest
- *   DeploymentStrategyId: "STRING_VALUE", // required
+ *   DeploymentStrategyId: 'STRING_VALUE', // required
  * };
  * const command = new GetDeploymentStrategyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeploymentStrategy
+ *   Id: 'STRING_VALUE',
+ *   Name: 'STRING_VALUE',
+ *   Description: 'STRING_VALUE',
+ *   DeploymentDurationInMinutes: Number('int'),
+ *   GrowthType: 'LINEAR' || 'EXPONENTIAL',
+ *   GrowthFactor: Number('float'),
+ *   FinalBakeTimeInMinutes: Number('int'),
+ *   ReplicateTo: 'NONE' || 'SSM_DOCUMENT',
+ * };
+ *
  * ```
  *
  * @param GetDeploymentStrategyCommandInput - {@link GetDeploymentStrategyCommandInput}
@@ -65,6 +77,8 @@ export interface GetDeploymentStrategyCommandOutput extends DeploymentStrategy, 
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The requested resource could not be found.</p>
  *
+ * @throws {@link AppConfigServiceException}
+ * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
  * @example To retrieve details of a deployment strategy
  * ```javascript

@@ -36,33 +36,38 @@ export interface UpdateDatasetCommandOutput extends UpdateDatasetResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FinspaceDataClient, UpdateDatasetCommand } from "@aws-sdk/client-finspace-data"; // ES Modules import
- * // const { FinspaceDataClient, UpdateDatasetCommand } = require("@aws-sdk/client-finspace-data"); // CommonJS import
+ * import { FinspaceDataClient, UpdateDatasetCommand } from '@aws-sdk/client-finspace-data'; // ES Modules import
+ * // const { FinspaceDataClient, UpdateDatasetCommand } = require('@aws-sdk/client-finspace-data'); // CommonJS import
  * const client = new FinspaceDataClient(config);
  * const input = { // UpdateDatasetRequest
- *   clientToken: "STRING_VALUE",
- *   datasetId: "STRING_VALUE", // required
- *   datasetTitle: "STRING_VALUE", // required
- *   kind: "STRING_VALUE", // required
- *   datasetDescription: "STRING_VALUE",
- *   alias: "STRING_VALUE",
+ *   clientToken: 'STRING_VALUE',
+ *   datasetId: 'STRING_VALUE', // required
+ *   datasetTitle: 'STRING_VALUE', // required
+ *   kind: 'STRING_VALUE', // required
+ *   datasetDescription: 'STRING_VALUE',
+ *   alias: 'STRING_VALUE',
  *   schemaDefinition: { // SchemaUnion
  *     tabularSchemaConfig: { // SchemaDefinition
  *       columns: [ // ColumnList
  *         { // ColumnDefinition
- *           dataType: "STRING_VALUE",
- *           columnName: "STRING_VALUE",
- *           columnDescription: "STRING_VALUE",
+ *           dataType: 'STRING_VALUE',
+ *           columnName: 'STRING_VALUE',
+ *           columnDescription: 'STRING_VALUE',
  *         },
  *       ],
  *       primaryKeyColumns: [ // ColumnNameList
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   },
  * };
  * const command = new UpdateDatasetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateDatasetResponse
+ *   datasetId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateDatasetCommandInput - {@link UpdateDatasetCommandInput}
@@ -90,6 +95,8 @@ export interface UpdateDatasetCommandOutput extends UpdateDatasetResponse, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link FinspaceDataServiceException}
+ * <p>Base exception class for all service exceptions from FinspaceData service.</p>
  *
  */
 export class UpdateDatasetCommand extends $Command<

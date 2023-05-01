@@ -36,14 +36,21 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FinspaceClient, ListTagsForResourceCommand } from "@aws-sdk/client-finspace"; // ES Modules import
- * // const { FinspaceClient, ListTagsForResourceCommand } = require("@aws-sdk/client-finspace"); // CommonJS import
+ * import { FinspaceClient, ListTagsForResourceCommand } from '@aws-sdk/client-finspace'; // ES Modules import
+ * // const { FinspaceClient, ListTagsForResourceCommand } = require('@aws-sdk/client-finspace'); // CommonJS import
  * const client = new FinspaceClient(config);
  * const input = { // ListTagsForResourceRequest
- *   resourceArn: "STRING_VALUE", // required
+ *   resourceArn: 'STRING_VALUE', // required
  * };
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTagsForResourceResponse
+ *   tags: { // TagMap
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param ListTagsForResourceCommandInput - {@link ListTagsForResourceCommandInput}
@@ -62,6 +69,8 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>One or more resources can't be found.</p>
  *
+ * @throws {@link FinspaceServiceException}
+ * <p>Base exception class for all service exceptions from Finspace service.</p>
  *
  */
 export class ListTagsForResourceCommand extends $Command<

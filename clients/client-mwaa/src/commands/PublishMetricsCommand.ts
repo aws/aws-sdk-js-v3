@@ -37,34 +37,37 @@ export interface PublishMetricsCommandOutput extends PublishMetricsOutput, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MWAAClient, PublishMetricsCommand } from "@aws-sdk/client-mwaa"; // ES Modules import
- * // const { MWAAClient, PublishMetricsCommand } = require("@aws-sdk/client-mwaa"); // CommonJS import
+ * import { MWAAClient, PublishMetricsCommand } from '@aws-sdk/client-mwaa'; // ES Modules import
+ * // const { MWAAClient, PublishMetricsCommand } = require('@aws-sdk/client-mwaa'); // CommonJS import
  * const client = new MWAAClient(config);
  * const input = { // PublishMetricsInput
- *   EnvironmentName: "STRING_VALUE", // required
+ *   EnvironmentName: 'STRING_VALUE', // required
  *   MetricData: [ // MetricData // required
  *     { // MetricDatum
- *       MetricName: "STRING_VALUE", // required
- *       Timestamp: new Date("TIMESTAMP"), // required
+ *       MetricName: 'STRING_VALUE', // required
+ *       Timestamp: new Date('TIMESTAMP'), // required
  *       Dimensions: [ // Dimensions
  *         { // Dimension
- *           Name: "STRING_VALUE", // required
- *           Value: "STRING_VALUE", // required
+ *           Name: 'STRING_VALUE', // required
+ *           Value: 'STRING_VALUE', // required
  *         },
  *       ],
- *       Value: Number("double"),
- *       Unit: "STRING_VALUE",
+ *       Value: Number('double'),
+ *       Unit: 'STRING_VALUE',
  *       StatisticValues: { // StatisticSet
- *         SampleCount: Number("int"),
- *         Sum: Number("double"),
- *         Minimum: Number("double"),
- *         Maximum: Number("double"),
+ *         SampleCount: Number('int'),
+ *         Sum: Number('double'),
+ *         Minimum: Number('double'),
+ *         Maximum: Number('double'),
  *       },
  *     },
  *   ],
  * };
  * const command = new PublishMetricsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PublishMetricsCommandInput - {@link PublishMetricsCommandInput}
@@ -79,6 +82,8 @@ export interface PublishMetricsCommandOutput extends PublishMetricsOutput, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>ValidationException: The provided input is not valid.</p>
  *
+ * @throws {@link MWAAServiceException}
+ * <p>Base exception class for all service exceptions from MWAA service.</p>
  *
  */
 export class PublishMetricsCommand extends $Command<

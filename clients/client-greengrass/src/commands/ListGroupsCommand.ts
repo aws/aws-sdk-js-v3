@@ -36,15 +36,31 @@ export interface ListGroupsCommandOutput extends ListGroupsResponse, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GreengrassClient, ListGroupsCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
- * // const { GreengrassClient, ListGroupsCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
+ * import { GreengrassClient, ListGroupsCommand } from '@aws-sdk/client-greengrass'; // ES Modules import
+ * // const { GreengrassClient, ListGroupsCommand } = require('@aws-sdk/client-greengrass'); // CommonJS import
  * const client = new GreengrassClient(config);
  * const input = { // ListGroupsRequest
- *   MaxResults: "STRING_VALUE",
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: 'STRING_VALUE',
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListGroupsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListGroupsResponse
+ *   Groups: [ // __listOfGroupInformation
+ *     { // GroupInformation
+ *       Arn: 'STRING_VALUE',
+ *       CreationTimestamp: 'STRING_VALUE',
+ *       Id: 'STRING_VALUE',
+ *       LastUpdatedTimestamp: 'STRING_VALUE',
+ *       LatestVersion: 'STRING_VALUE',
+ *       LatestVersionArn: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListGroupsCommandInput - {@link ListGroupsCommandInput}
@@ -53,6 +69,8 @@ export interface ListGroupsCommandOutput extends ListGroupsResponse, __MetadataB
  * @see {@link ListGroupsCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
  *
+ * @throws {@link GreengrassServiceException}
+ * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
  */
 export class ListGroupsCommand extends $Command<

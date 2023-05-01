@@ -36,15 +36,29 @@ export interface ListWorldTemplatesCommandOutput extends ListWorldTemplatesRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RoboMakerClient, ListWorldTemplatesCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
- * // const { RoboMakerClient, ListWorldTemplatesCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
+ * import { RoboMakerClient, ListWorldTemplatesCommand } from '@aws-sdk/client-robomaker'; // ES Modules import
+ * // const { RoboMakerClient, ListWorldTemplatesCommand } = require('@aws-sdk/client-robomaker'); // CommonJS import
  * const client = new RoboMakerClient(config);
  * const input = { // ListWorldTemplatesRequest
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new ListWorldTemplatesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListWorldTemplatesResponse
+ *   templateSummaries: [ // TemplateSummaries
+ *     { // TemplateSummary
+ *       arn: 'STRING_VALUE',
+ *       createdAt: new Date('TIMESTAMP'),
+ *       lastUpdatedAt: new Date('TIMESTAMP'),
+ *       name: 'STRING_VALUE',
+ *       version: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListWorldTemplatesCommandInput - {@link ListWorldTemplatesCommandInput}
@@ -63,6 +77,8 @@ export interface ListWorldTemplatesCommandOutput extends ListWorldTemplatesRespo
  * @throws {@link ThrottlingException} (client fault)
  *  <p>AWS RoboMaker is temporarily unable to process the request. Try your call again.</p>
  *
+ * @throws {@link RoboMakerServiceException}
+ * <p>Base exception class for all service exceptions from RoboMaker service.</p>
  *
  */
 export class ListWorldTemplatesCommand extends $Command<

@@ -41,14 +41,17 @@ export interface DeleteFleetCommandOutput extends DeleteFleetResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RoboMakerClient, DeleteFleetCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
- * // const { RoboMakerClient, DeleteFleetCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
+ * import { RoboMakerClient, DeleteFleetCommand } from '@aws-sdk/client-robomaker'; // ES Modules import
+ * // const { RoboMakerClient, DeleteFleetCommand } = require('@aws-sdk/client-robomaker'); // CommonJS import
  * const client = new RoboMakerClient(config);
  * const input = { // DeleteFleetRequest
- *   fleet: "STRING_VALUE", // required
+ *   fleet: 'STRING_VALUE', // required
  * };
  * const command = new DeleteFleetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteFleetCommandInput - {@link DeleteFleetCommandInput}
@@ -67,6 +70,8 @@ export interface DeleteFleetCommandOutput extends DeleteFleetResponse, __Metadat
  * @throws {@link ThrottlingException} (client fault)
  *  <p>AWS RoboMaker is temporarily unable to process the request. Try your call again.</p>
  *
+ * @throws {@link RoboMakerServiceException}
+ * <p>Base exception class for all service exceptions from RoboMaker service.</p>
  *
  */
 export class DeleteFleetCommand extends $Command<

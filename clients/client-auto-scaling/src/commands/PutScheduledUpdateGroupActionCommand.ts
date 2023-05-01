@@ -45,23 +45,26 @@ export interface PutScheduledUpdateGroupActionCommandOutput extends __MetadataBe
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AutoScalingClient, PutScheduledUpdateGroupActionCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
- * // const { AutoScalingClient, PutScheduledUpdateGroupActionCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
+ * import { AutoScalingClient, PutScheduledUpdateGroupActionCommand } from '@aws-sdk/client-auto-scaling'; // ES Modules import
+ * // const { AutoScalingClient, PutScheduledUpdateGroupActionCommand } = require('@aws-sdk/client-auto-scaling'); // CommonJS import
  * const client = new AutoScalingClient(config);
  * const input = { // PutScheduledUpdateGroupActionType
- *   AutoScalingGroupName: "STRING_VALUE", // required
- *   ScheduledActionName: "STRING_VALUE", // required
- *   Time: new Date("TIMESTAMP"),
- *   StartTime: new Date("TIMESTAMP"),
- *   EndTime: new Date("TIMESTAMP"),
- *   Recurrence: "STRING_VALUE",
- *   MinSize: Number("int"),
- *   MaxSize: Number("int"),
- *   DesiredCapacity: Number("int"),
- *   TimeZone: "STRING_VALUE",
+ *   AutoScalingGroupName: 'STRING_VALUE', // required
+ *   ScheduledActionName: 'STRING_VALUE', // required
+ *   Time: new Date('TIMESTAMP'),
+ *   StartTime: new Date('TIMESTAMP'),
+ *   EndTime: new Date('TIMESTAMP'),
+ *   Recurrence: 'STRING_VALUE',
+ *   MinSize: Number('int'),
+ *   MaxSize: Number('int'),
+ *   DesiredCapacity: Number('int'),
+ *   TimeZone: 'STRING_VALUE',
  * };
  * const command = new PutScheduledUpdateGroupActionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutScheduledUpdateGroupActionCommandInput - {@link PutScheduledUpdateGroupActionCommandInput}
@@ -83,6 +86,8 @@ export interface PutScheduledUpdateGroupActionCommandOutput extends __MetadataBe
  *  <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group,
  *             instance, or load balancer).</p>
  *
+ * @throws {@link AutoScalingServiceException}
+ * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
  * @example To add a scheduled action to an Auto Scaling group
  * ```javascript

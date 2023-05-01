@@ -39,38 +39,44 @@ export interface CreateUserCommandOutput extends CreateUserResponse, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, CreateUserCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, CreateUserCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, CreateUserCommand } from '@aws-sdk/client-connect'; // ES Modules import
+ * // const { ConnectClient, CreateUserCommand } = require('@aws-sdk/client-connect'); // CommonJS import
  * const client = new ConnectClient(config);
  * const input = { // CreateUserRequest
- *   Username: "STRING_VALUE", // required
- *   Password: "STRING_VALUE",
+ *   Username: 'STRING_VALUE', // required
+ *   Password: 'STRING_VALUE',
  *   IdentityInfo: { // UserIdentityInfo
- *     FirstName: "STRING_VALUE",
- *     LastName: "STRING_VALUE",
- *     Email: "STRING_VALUE",
- *     SecondaryEmail: "STRING_VALUE",
- *     Mobile: "STRING_VALUE",
+ *     FirstName: 'STRING_VALUE',
+ *     LastName: 'STRING_VALUE',
+ *     Email: 'STRING_VALUE',
+ *     SecondaryEmail: 'STRING_VALUE',
+ *     Mobile: 'STRING_VALUE',
  *   },
  *   PhoneConfig: { // UserPhoneConfig
- *     PhoneType: "SOFT_PHONE" || "DESK_PHONE", // required
+ *     PhoneType: 'SOFT_PHONE' || 'DESK_PHONE', // required
  *     AutoAccept: true || false,
- *     AfterContactWorkTimeLimit: Number("int"),
- *     DeskPhoneNumber: "STRING_VALUE",
+ *     AfterContactWorkTimeLimit: Number('int'),
+ *     DeskPhoneNumber: 'STRING_VALUE',
  *   },
- *   DirectoryUserId: "STRING_VALUE",
+ *   DirectoryUserId: 'STRING_VALUE',
  *   SecurityProfileIds: [ // SecurityProfileIds // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   RoutingProfileId: "STRING_VALUE", // required
- *   HierarchyGroupId: "STRING_VALUE",
- *   InstanceId: "STRING_VALUE", // required
+ *   RoutingProfileId: 'STRING_VALUE', // required
+ *   HierarchyGroupId: 'STRING_VALUE',
+ *   InstanceId: 'STRING_VALUE', // required
  *   Tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateUserCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateUserResponse
+ *   UserId: 'STRING_VALUE',
+ *   UserArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateUserCommandInput - {@link CreateUserCommandInput}
@@ -100,6 +106,8 @@ export interface CreateUserCommandOutput extends CreateUserResponse, __MetadataB
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class CreateUserCommand extends $Command<

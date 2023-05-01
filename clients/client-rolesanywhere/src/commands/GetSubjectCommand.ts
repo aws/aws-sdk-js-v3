@@ -40,14 +40,46 @@ export interface GetSubjectCommandOutput extends SubjectDetailResponse, __Metada
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RolesAnywhereClient, GetSubjectCommand } from "@aws-sdk/client-rolesanywhere"; // ES Modules import
- * // const { RolesAnywhereClient, GetSubjectCommand } = require("@aws-sdk/client-rolesanywhere"); // CommonJS import
+ * import { RolesAnywhereClient, GetSubjectCommand } from '@aws-sdk/client-rolesanywhere'; // ES Modules import
+ * // const { RolesAnywhereClient, GetSubjectCommand } = require('@aws-sdk/client-rolesanywhere'); // CommonJS import
  * const client = new RolesAnywhereClient(config);
  * const input = { // ScalarSubjectRequest
- *   subjectId: "STRING_VALUE", // required
+ *   subjectId: 'STRING_VALUE', // required
  * };
  * const command = new GetSubjectCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SubjectDetailResponse
+ *   subject: { // SubjectDetail
+ *     subjectArn: 'STRING_VALUE',
+ *     subjectId: 'STRING_VALUE',
+ *     enabled: true || false,
+ *     x509Subject: 'STRING_VALUE',
+ *     lastSeenAt: new Date('TIMESTAMP'),
+ *     createdAt: new Date('TIMESTAMP'),
+ *     updatedAt: new Date('TIMESTAMP'),
+ *     credentials: [ // CredentialSummaries
+ *       { // CredentialSummary
+ *         seenAt: new Date('TIMESTAMP'),
+ *         serialNumber: 'STRING_VALUE',
+ *         issuer: 'STRING_VALUE',
+ *         enabled: true || false,
+ *         x509CertificateData: 'STRING_VALUE',
+ *         failed: true || false,
+ *       },
+ *     ],
+ *     instanceProperties: [ // InstanceProperties
+ *       { // InstanceProperty
+ *         seenAt: new Date('TIMESTAMP'),
+ *         properties: { // InstancePropertyMap
+ *           '<keys>': 'STRING_VALUE',
+ *         },
+ *         failed: true || false,
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetSubjectCommandInput - {@link GetSubjectCommandInput}
@@ -62,6 +94,8 @@ export interface GetSubjectCommandOutput extends SubjectDetailResponse, __Metada
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource could not be found.</p>
  *
+ * @throws {@link RolesAnywhereServiceException}
+ * <p>Base exception class for all service exceptions from RolesAnywhere service.</p>
  *
  */
 export class GetSubjectCommand extends $Command<

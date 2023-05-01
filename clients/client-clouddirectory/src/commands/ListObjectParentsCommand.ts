@@ -37,21 +37,35 @@ export interface ListObjectParentsCommandOutput extends ListObjectParentsRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudDirectoryClient, ListObjectParentsCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
- * // const { CloudDirectoryClient, ListObjectParentsCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
+ * import { CloudDirectoryClient, ListObjectParentsCommand } from '@aws-sdk/client-clouddirectory'; // ES Modules import
+ * // const { CloudDirectoryClient, ListObjectParentsCommand } = require('@aws-sdk/client-clouddirectory'); // CommonJS import
  * const client = new CloudDirectoryClient(config);
  * const input = { // ListObjectParentsRequest
- *   DirectoryArn: "STRING_VALUE", // required
+ *   DirectoryArn: 'STRING_VALUE', // required
  *   ObjectReference: { // ObjectReference
- *     Selector: "STRING_VALUE",
+ *     Selector: 'STRING_VALUE',
  *   },
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
- *   ConsistencyLevel: "SERIALIZABLE" || "EVENTUAL",
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
+ *   ConsistencyLevel: 'SERIALIZABLE' || 'EVENTUAL',
  *   IncludeAllLinksToEachParent: true || false,
  * };
  * const command = new ListObjectParentsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListObjectParentsResponse
+ *   Parents: { // ObjectIdentifierToLinkNameMap
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ *   NextToken: 'STRING_VALUE',
+ *   ParentLinks: [ // ObjectIdentifierAndLinkNameList
+ *     { // ObjectIdentifierAndLinkNameTuple
+ *       ObjectIdentifier: 'STRING_VALUE',
+ *       LinkName: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListObjectParentsCommandInput - {@link ListObjectParentsCommandInput}
@@ -91,6 +105,8 @@ export interface ListObjectParentsCommandOutput extends ListObjectParentsRespons
  *  <p>Indicates that your request is malformed in some manner. See the exception
  *       message.</p>
  *
+ * @throws {@link CloudDirectoryServiceException}
+ * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
  */
 export class ListObjectParentsCommand extends $Command<

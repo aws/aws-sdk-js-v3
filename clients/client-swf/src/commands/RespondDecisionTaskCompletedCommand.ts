@@ -58,116 +58,119 @@ export interface RespondDecisionTaskCompletedCommandOutput extends __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SWFClient, RespondDecisionTaskCompletedCommand } from "@aws-sdk/client-swf"; // ES Modules import
- * // const { SWFClient, RespondDecisionTaskCompletedCommand } = require("@aws-sdk/client-swf"); // CommonJS import
+ * import { SWFClient, RespondDecisionTaskCompletedCommand } from '@aws-sdk/client-swf'; // ES Modules import
+ * // const { SWFClient, RespondDecisionTaskCompletedCommand } = require('@aws-sdk/client-swf'); // CommonJS import
  * const client = new SWFClient(config);
  * const input = { // RespondDecisionTaskCompletedInput
- *   taskToken: "STRING_VALUE", // required
+ *   taskToken: 'STRING_VALUE', // required
  *   decisions: [ // DecisionList
  *     { // Decision
- *       decisionType: "ScheduleActivityTask" || "RequestCancelActivityTask" || "CompleteWorkflowExecution" || "FailWorkflowExecution" || "CancelWorkflowExecution" || "ContinueAsNewWorkflowExecution" || "RecordMarker" || "StartTimer" || "CancelTimer" || "SignalExternalWorkflowExecution" || "RequestCancelExternalWorkflowExecution" || "StartChildWorkflowExecution" || "ScheduleLambdaFunction", // required
+ *       decisionType: 'ScheduleActivityTask' || 'RequestCancelActivityTask' || 'CompleteWorkflowExecution' || 'FailWorkflowExecution' || 'CancelWorkflowExecution' || 'ContinueAsNewWorkflowExecution' || 'RecordMarker' || 'StartTimer' || 'CancelTimer' || 'SignalExternalWorkflowExecution' || 'RequestCancelExternalWorkflowExecution' || 'StartChildWorkflowExecution' || 'ScheduleLambdaFunction', // required
  *       scheduleActivityTaskDecisionAttributes: { // ScheduleActivityTaskDecisionAttributes
  *         activityType: { // ActivityType
- *           name: "STRING_VALUE", // required
- *           version: "STRING_VALUE", // required
+ *           name: 'STRING_VALUE', // required
+ *           version: 'STRING_VALUE', // required
  *         },
- *         activityId: "STRING_VALUE", // required
- *         control: "STRING_VALUE",
- *         input: "STRING_VALUE",
- *         scheduleToCloseTimeout: "STRING_VALUE",
+ *         activityId: 'STRING_VALUE', // required
+ *         control: 'STRING_VALUE',
+ *         input: 'STRING_VALUE',
+ *         scheduleToCloseTimeout: 'STRING_VALUE',
  *         taskList: { // TaskList
- *           name: "STRING_VALUE", // required
+ *           name: 'STRING_VALUE', // required
  *         },
- *         taskPriority: "STRING_VALUE",
- *         scheduleToStartTimeout: "STRING_VALUE",
- *         startToCloseTimeout: "STRING_VALUE",
- *         heartbeatTimeout: "STRING_VALUE",
+ *         taskPriority: 'STRING_VALUE',
+ *         scheduleToStartTimeout: 'STRING_VALUE',
+ *         startToCloseTimeout: 'STRING_VALUE',
+ *         heartbeatTimeout: 'STRING_VALUE',
  *       },
  *       requestCancelActivityTaskDecisionAttributes: { // RequestCancelActivityTaskDecisionAttributes
- *         activityId: "STRING_VALUE", // required
+ *         activityId: 'STRING_VALUE', // required
  *       },
  *       completeWorkflowExecutionDecisionAttributes: { // CompleteWorkflowExecutionDecisionAttributes
- *         result: "STRING_VALUE",
+ *         result: 'STRING_VALUE',
  *       },
  *       failWorkflowExecutionDecisionAttributes: { // FailWorkflowExecutionDecisionAttributes
- *         reason: "STRING_VALUE",
- *         details: "STRING_VALUE",
+ *         reason: 'STRING_VALUE',
+ *         details: 'STRING_VALUE',
  *       },
  *       cancelWorkflowExecutionDecisionAttributes: { // CancelWorkflowExecutionDecisionAttributes
- *         details: "STRING_VALUE",
+ *         details: 'STRING_VALUE',
  *       },
  *       continueAsNewWorkflowExecutionDecisionAttributes: { // ContinueAsNewWorkflowExecutionDecisionAttributes
- *         input: "STRING_VALUE",
- *         executionStartToCloseTimeout: "STRING_VALUE",
+ *         input: 'STRING_VALUE',
+ *         executionStartToCloseTimeout: 'STRING_VALUE',
  *         taskList: {
- *           name: "STRING_VALUE", // required
+ *           name: 'STRING_VALUE', // required
  *         },
- *         taskPriority: "STRING_VALUE",
- *         taskStartToCloseTimeout: "STRING_VALUE",
- *         childPolicy: "TERMINATE" || "REQUEST_CANCEL" || "ABANDON",
+ *         taskPriority: 'STRING_VALUE',
+ *         taskStartToCloseTimeout: 'STRING_VALUE',
+ *         childPolicy: 'TERMINATE' || 'REQUEST_CANCEL' || 'ABANDON',
  *         tagList: [ // TagList
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
- *         workflowTypeVersion: "STRING_VALUE",
- *         lambdaRole: "STRING_VALUE",
+ *         workflowTypeVersion: 'STRING_VALUE',
+ *         lambdaRole: 'STRING_VALUE',
  *       },
  *       recordMarkerDecisionAttributes: { // RecordMarkerDecisionAttributes
- *         markerName: "STRING_VALUE", // required
- *         details: "STRING_VALUE",
+ *         markerName: 'STRING_VALUE', // required
+ *         details: 'STRING_VALUE',
  *       },
  *       startTimerDecisionAttributes: { // StartTimerDecisionAttributes
- *         timerId: "STRING_VALUE", // required
- *         control: "STRING_VALUE",
- *         startToFireTimeout: "STRING_VALUE", // required
+ *         timerId: 'STRING_VALUE', // required
+ *         control: 'STRING_VALUE',
+ *         startToFireTimeout: 'STRING_VALUE', // required
  *       },
  *       cancelTimerDecisionAttributes: { // CancelTimerDecisionAttributes
- *         timerId: "STRING_VALUE", // required
+ *         timerId: 'STRING_VALUE', // required
  *       },
  *       signalExternalWorkflowExecutionDecisionAttributes: { // SignalExternalWorkflowExecutionDecisionAttributes
- *         workflowId: "STRING_VALUE", // required
- *         runId: "STRING_VALUE",
- *         signalName: "STRING_VALUE", // required
- *         input: "STRING_VALUE",
- *         control: "STRING_VALUE",
+ *         workflowId: 'STRING_VALUE', // required
+ *         runId: 'STRING_VALUE',
+ *         signalName: 'STRING_VALUE', // required
+ *         input: 'STRING_VALUE',
+ *         control: 'STRING_VALUE',
  *       },
  *       requestCancelExternalWorkflowExecutionDecisionAttributes: { // RequestCancelExternalWorkflowExecutionDecisionAttributes
- *         workflowId: "STRING_VALUE", // required
- *         runId: "STRING_VALUE",
- *         control: "STRING_VALUE",
+ *         workflowId: 'STRING_VALUE', // required
+ *         runId: 'STRING_VALUE',
+ *         control: 'STRING_VALUE',
  *       },
  *       startChildWorkflowExecutionDecisionAttributes: { // StartChildWorkflowExecutionDecisionAttributes
  *         workflowType: { // WorkflowType
- *           name: "STRING_VALUE", // required
- *           version: "STRING_VALUE", // required
+ *           name: 'STRING_VALUE', // required
+ *           version: 'STRING_VALUE', // required
  *         },
- *         workflowId: "STRING_VALUE", // required
- *         control: "STRING_VALUE",
- *         input: "STRING_VALUE",
- *         executionStartToCloseTimeout: "STRING_VALUE",
+ *         workflowId: 'STRING_VALUE', // required
+ *         control: 'STRING_VALUE',
+ *         input: 'STRING_VALUE',
+ *         executionStartToCloseTimeout: 'STRING_VALUE',
  *         taskList: {
- *           name: "STRING_VALUE", // required
+ *           name: 'STRING_VALUE', // required
  *         },
- *         taskPriority: "STRING_VALUE",
- *         taskStartToCloseTimeout: "STRING_VALUE",
- *         childPolicy: "TERMINATE" || "REQUEST_CANCEL" || "ABANDON",
+ *         taskPriority: 'STRING_VALUE',
+ *         taskStartToCloseTimeout: 'STRING_VALUE',
+ *         childPolicy: 'TERMINATE' || 'REQUEST_CANCEL' || 'ABANDON',
  *         tagList: [
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
- *         lambdaRole: "STRING_VALUE",
+ *         lambdaRole: 'STRING_VALUE',
  *       },
  *       scheduleLambdaFunctionDecisionAttributes: { // ScheduleLambdaFunctionDecisionAttributes
- *         id: "STRING_VALUE", // required
- *         name: "STRING_VALUE", // required
- *         control: "STRING_VALUE",
- *         input: "STRING_VALUE",
- *         startToCloseTimeout: "STRING_VALUE",
+ *         id: 'STRING_VALUE', // required
+ *         name: 'STRING_VALUE', // required
+ *         control: 'STRING_VALUE',
+ *         input: 'STRING_VALUE',
+ *         startToCloseTimeout: 'STRING_VALUE',
  *       },
  *     },
  *   ],
- *   executionContext: "STRING_VALUE",
+ *   executionContext: 'STRING_VALUE',
  * };
  * const command = new RespondDecisionTaskCompletedCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param RespondDecisionTaskCompletedCommandInput - {@link RespondDecisionTaskCompletedCommandInput}
@@ -182,6 +185,8 @@ export interface RespondDecisionTaskCompletedCommandOutput extends __MetadataBea
  * @throws {@link UnknownResourceFault} (client fault)
  *  <p>Returned when the named resource cannot be found with in the scope of this operation (region or domain). This could happen if the named resource was never created or is no longer available for this operation.</p>
  *
+ * @throws {@link SWFServiceException}
+ * <p>Base exception class for all service exceptions from SWF service.</p>
  *
  */
 export class RespondDecisionTaskCompletedCommand extends $Command<

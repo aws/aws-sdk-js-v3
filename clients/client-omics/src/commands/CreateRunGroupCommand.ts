@@ -36,21 +36,30 @@ export interface CreateRunGroupCommandOutput extends CreateRunGroupResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OmicsClient, CreateRunGroupCommand } from "@aws-sdk/client-omics"; // ES Modules import
- * // const { OmicsClient, CreateRunGroupCommand } = require("@aws-sdk/client-omics"); // CommonJS import
+ * import { OmicsClient, CreateRunGroupCommand } from '@aws-sdk/client-omics'; // ES Modules import
+ * // const { OmicsClient, CreateRunGroupCommand } = require('@aws-sdk/client-omics'); // CommonJS import
  * const client = new OmicsClient(config);
  * const input = { // CreateRunGroupRequest
- *   name: "STRING_VALUE",
- *   maxCpus: Number("int"),
- *   maxRuns: Number("int"),
- *   maxDuration: Number("int"),
+ *   name: 'STRING_VALUE',
+ *   maxCpus: Number('int'),
+ *   maxRuns: Number('int'),
+ *   maxDuration: Number('int'),
  *   tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
- *   requestId: "STRING_VALUE", // required
+ *   requestId: 'STRING_VALUE', // required
  * };
  * const command = new CreateRunGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateRunGroupResponse
+ *   arn: 'STRING_VALUE',
+ *   id: 'STRING_VALUE',
+ *   tags: { // TagMap
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateRunGroupCommandInput - {@link CreateRunGroupCommandInput}
@@ -83,6 +92,8 @@ export interface CreateRunGroupCommandOutput extends CreateRunGroupResponse, __M
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link OmicsServiceException}
+ * <p>Base exception class for all service exceptions from Omics service.</p>
  *
  */
 export class CreateRunGroupCommand extends $Command<

@@ -40,14 +40,17 @@ export interface DeleteChannelCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IvsClient, DeleteChannelCommand } from "@aws-sdk/client-ivs"; // ES Modules import
- * // const { IvsClient, DeleteChannelCommand } = require("@aws-sdk/client-ivs"); // CommonJS import
+ * import { IvsClient, DeleteChannelCommand } from '@aws-sdk/client-ivs'; // ES Modules import
+ * // const { IvsClient, DeleteChannelCommand } = require('@aws-sdk/client-ivs'); // CommonJS import
  * const client = new IvsClient(config);
  * const input = { // DeleteChannelRequest
- *   arn: "STRING_VALUE", // required
+ *   arn: 'STRING_VALUE', // required
  * };
  * const command = new DeleteChannelCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteChannelCommandInput - {@link DeleteChannelCommandInput}
@@ -71,6 +74,8 @@ export interface DeleteChannelCommandOutput extends __MetadataBearer {}
  * @throws {@link ValidationException} (client fault)
  *  <p/>
  *
+ * @throws {@link IvsServiceException}
+ * <p>Base exception class for all service exceptions from Ivs service.</p>
  *
  */
 export class DeleteChannelCommand extends $Command<

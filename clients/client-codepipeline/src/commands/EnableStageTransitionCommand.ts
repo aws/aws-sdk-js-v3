@@ -36,16 +36,19 @@ export interface EnableStageTransitionCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodePipelineClient, EnableStageTransitionCommand } from "@aws-sdk/client-codepipeline"; // ES Modules import
- * // const { CodePipelineClient, EnableStageTransitionCommand } = require("@aws-sdk/client-codepipeline"); // CommonJS import
+ * import { CodePipelineClient, EnableStageTransitionCommand } from '@aws-sdk/client-codepipeline'; // ES Modules import
+ * // const { CodePipelineClient, EnableStageTransitionCommand } = require('@aws-sdk/client-codepipeline'); // CommonJS import
  * const client = new CodePipelineClient(config);
  * const input = { // EnableStageTransitionInput
- *   pipelineName: "STRING_VALUE", // required
- *   stageName: "STRING_VALUE", // required
- *   transitionType: "STRING_VALUE", // required
+ *   pipelineName: 'STRING_VALUE', // required
+ *   stageName: 'STRING_VALUE', // required
+ *   transitionType: 'STRING_VALUE', // required
  * };
  * const command = new EnableStageTransitionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param EnableStageTransitionCommandInput - {@link EnableStageTransitionCommandInput}
@@ -63,6 +66,8 @@ export interface EnableStageTransitionCommandOutput extends __MetadataBearer {}
  * @throws {@link ValidationException} (client fault)
  *  <p>The validation was specified in an invalid format.</p>
  *
+ * @throws {@link CodePipelineServiceException}
+ * <p>Base exception class for all service exceptions from CodePipeline service.</p>
  *
  */
 export class EnableStageTransitionCommand extends $Command<

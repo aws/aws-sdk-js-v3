@@ -36,15 +36,21 @@ export interface CheckSchemaVersionValidityCommandOutput extends CheckSchemaVers
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlueClient, CheckSchemaVersionValidityCommand } from "@aws-sdk/client-glue"; // ES Modules import
- * // const { GlueClient, CheckSchemaVersionValidityCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * import { GlueClient, CheckSchemaVersionValidityCommand } from '@aws-sdk/client-glue'; // ES Modules import
+ * // const { GlueClient, CheckSchemaVersionValidityCommand } = require('@aws-sdk/client-glue'); // CommonJS import
  * const client = new GlueClient(config);
  * const input = { // CheckSchemaVersionValidityInput
- *   DataFormat: "AVRO" || "JSON" || "PROTOBUF", // required
- *   SchemaDefinition: "STRING_VALUE", // required
+ *   DataFormat: 'AVRO' || 'JSON' || 'PROTOBUF', // required
+ *   SchemaDefinition: 'STRING_VALUE', // required
  * };
  * const command = new CheckSchemaVersionValidityCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CheckSchemaVersionValidityResponse
+ *   Valid: true || false,
+ *   Error: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CheckSchemaVersionValidityCommandInput - {@link CheckSchemaVersionValidityCommandInput}
@@ -62,6 +68,8 @@ export interface CheckSchemaVersionValidityCommandOutput extends CheckSchemaVers
  * @throws {@link InvalidInputException} (client fault)
  *  <p>The input provided was not valid.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class CheckSchemaVersionValidityCommand extends $Command<

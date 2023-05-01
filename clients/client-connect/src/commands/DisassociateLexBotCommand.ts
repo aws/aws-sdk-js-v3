@@ -38,16 +38,19 @@ export interface DisassociateLexBotCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, DisassociateLexBotCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, DisassociateLexBotCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, DisassociateLexBotCommand } from '@aws-sdk/client-connect'; // ES Modules import
+ * // const { ConnectClient, DisassociateLexBotCommand } = require('@aws-sdk/client-connect'); // CommonJS import
  * const client = new ConnectClient(config);
  * const input = { // DisassociateLexBotRequest
- *   InstanceId: "STRING_VALUE", // required
- *   BotName: "STRING_VALUE", // required
- *   LexRegion: "STRING_VALUE", // required
+ *   InstanceId: 'STRING_VALUE', // required
+ *   BotName: 'STRING_VALUE', // required
+ *   LexRegion: 'STRING_VALUE', // required
  * };
  * const command = new DisassociateLexBotCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DisassociateLexBotCommandInput - {@link DisassociateLexBotCommandInput}
@@ -71,6 +74,8 @@ export interface DisassociateLexBotCommandOutput extends __MetadataBearer {}
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class DisassociateLexBotCommand extends $Command<

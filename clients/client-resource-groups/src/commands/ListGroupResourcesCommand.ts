@@ -63,25 +63,53 @@ export interface ListGroupResourcesCommandOutput extends ListGroupResourcesOutpu
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ResourceGroupsClient, ListGroupResourcesCommand } from "@aws-sdk/client-resource-groups"; // ES Modules import
- * // const { ResourceGroupsClient, ListGroupResourcesCommand } = require("@aws-sdk/client-resource-groups"); // CommonJS import
+ * import { ResourceGroupsClient, ListGroupResourcesCommand } from '@aws-sdk/client-resource-groups'; // ES Modules import
+ * // const { ResourceGroupsClient, ListGroupResourcesCommand } = require('@aws-sdk/client-resource-groups'); // CommonJS import
  * const client = new ResourceGroupsClient(config);
  * const input = { // ListGroupResourcesInput
- *   GroupName: "STRING_VALUE",
- *   Group: "STRING_VALUE",
+ *   GroupName: 'STRING_VALUE',
+ *   Group: 'STRING_VALUE',
  *   Filters: [ // ResourceFilterList
  *     { // ResourceFilter
- *       Name: "resource-type", // required
+ *       Name: 'resource-type', // required
  *       Values: [ // ResourceFilterValues // required
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListGroupResourcesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListGroupResourcesOutput
+ *   Resources: [ // ListGroupResourcesItemList
+ *     { // ListGroupResourcesItem
+ *       Identifier: { // ResourceIdentifier
+ *         ResourceArn: 'STRING_VALUE',
+ *         ResourceType: 'STRING_VALUE',
+ *       },
+ *       Status: { // ResourceStatus
+ *         Name: 'PENDING',
+ *       },
+ *     },
+ *   ],
+ *   ResourceIdentifiers: [ // ResourceIdentifierList
+ *     {
+ *       ResourceArn: 'STRING_VALUE',
+ *       ResourceType: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ *   QueryErrors: [ // QueryErrorList
+ *     { // QueryError
+ *       ErrorCode: 'CLOUDFORMATION_STACK_INACTIVE' || 'CLOUDFORMATION_STACK_NOT_EXISTING' || 'CLOUDFORMATION_STACK_UNASSUMABLE_ROLE',
+ *       Message: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListGroupResourcesCommandInput - {@link ListGroupResourcesCommandInput}
@@ -113,6 +141,8 @@ export interface ListGroupResourcesCommandOutput extends ListGroupResourcesOutpu
  *  <p>The request was rejected because it doesn't have valid credentials for the target
  *             resource.</p>
  *
+ * @throws {@link ResourceGroupsServiceException}
+ * <p>Base exception class for all service exceptions from ResourceGroups service.</p>
  *
  */
 export class ListGroupResourcesCommand extends $Command<

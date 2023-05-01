@@ -38,15 +38,38 @@ export interface ListStackResourcesCommandOutput extends ListStackResourcesOutpu
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudFormationClient, ListStackResourcesCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
- * // const { CloudFormationClient, ListStackResourcesCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
+ * import { CloudFormationClient, ListStackResourcesCommand } from '@aws-sdk/client-cloudformation'; // ES Modules import
+ * // const { CloudFormationClient, ListStackResourcesCommand } = require('@aws-sdk/client-cloudformation'); // CommonJS import
  * const client = new CloudFormationClient(config);
  * const input = { // ListStackResourcesInput
- *   StackName: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
+ *   StackName: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListStackResourcesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListStackResourcesOutput
+ *   StackResourceSummaries: [ // StackResourceSummaries
+ *     { // StackResourceSummary
+ *       LogicalResourceId: 'STRING_VALUE', // required
+ *       PhysicalResourceId: 'STRING_VALUE',
+ *       ResourceType: 'STRING_VALUE', // required
+ *       LastUpdatedTimestamp: new Date('TIMESTAMP'), // required
+ *       ResourceStatus: 'CREATE_IN_PROGRESS' || 'CREATE_FAILED' || 'CREATE_COMPLETE' || 'DELETE_IN_PROGRESS' || 'DELETE_FAILED' || 'DELETE_COMPLETE' || 'DELETE_SKIPPED' || 'UPDATE_IN_PROGRESS' || 'UPDATE_FAILED' || 'UPDATE_COMPLETE' || 'IMPORT_FAILED' || 'IMPORT_COMPLETE' || 'IMPORT_IN_PROGRESS' || 'IMPORT_ROLLBACK_IN_PROGRESS' || 'IMPORT_ROLLBACK_FAILED' || 'IMPORT_ROLLBACK_COMPLETE' || 'UPDATE_ROLLBACK_IN_PROGRESS' || 'UPDATE_ROLLBACK_COMPLETE' || 'UPDATE_ROLLBACK_FAILED' || 'ROLLBACK_IN_PROGRESS' || 'ROLLBACK_COMPLETE' || 'ROLLBACK_FAILED', // required
+ *       ResourceStatusReason: 'STRING_VALUE',
+ *       DriftInformation: { // StackResourceDriftInformationSummary
+ *         StackResourceDriftStatus: 'IN_SYNC' || 'MODIFIED' || 'DELETED' || 'NOT_CHECKED', // required
+ *         LastCheckTimestamp: new Date('TIMESTAMP'),
+ *       },
+ *       ModuleInfo: { // ModuleInfo
+ *         TypeHierarchy: 'STRING_VALUE',
+ *         LogicalIdHierarchy: 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListStackResourcesCommandInput - {@link ListStackResourcesCommandInput}
@@ -55,6 +78,8 @@ export interface ListStackResourcesCommandOutput extends ListStackResourcesOutpu
  * @see {@link ListStackResourcesCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
+ * @throws {@link CloudFormationServiceException}
+ * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
  */
 export class ListStackResourcesCommand extends $Command<

@@ -47,22 +47,35 @@ export interface PutRetentionSettingsCommandOutput extends PutRetentionSettingsR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeClient, PutRetentionSettingsCommand } from "@aws-sdk/client-chime"; // ES Modules import
- * // const { ChimeClient, PutRetentionSettingsCommand } = require("@aws-sdk/client-chime"); // CommonJS import
+ * import { ChimeClient, PutRetentionSettingsCommand } from '@aws-sdk/client-chime'; // ES Modules import
+ * // const { ChimeClient, PutRetentionSettingsCommand } = require('@aws-sdk/client-chime'); // CommonJS import
  * const client = new ChimeClient(config);
  * const input = { // PutRetentionSettingsRequest
- *   AccountId: "STRING_VALUE", // required
+ *   AccountId: 'STRING_VALUE', // required
  *   RetentionSettings: { // RetentionSettings
  *     RoomRetentionSettings: { // RoomRetentionSettings
- *       RetentionDays: Number("int"),
+ *       RetentionDays: Number('int'),
  *     },
  *     ConversationRetentionSettings: { // ConversationRetentionSettings
- *       RetentionDays: Number("int"),
+ *       RetentionDays: Number('int'),
  *     },
  *   },
  * };
  * const command = new PutRetentionSettingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutRetentionSettingsResponse
+ *   RetentionSettings: { // RetentionSettings
+ *     RoomRetentionSettings: { // RoomRetentionSettings
+ *       RetentionDays: Number('int'),
+ *     },
+ *     ConversationRetentionSettings: { // ConversationRetentionSettings
+ *       RetentionDays: Number('int'),
+ *     },
+ *   },
+ *   InitiateDeletionTimestamp: new Date('TIMESTAMP'),
+ * };
+ *
  * ```
  *
  * @param PutRetentionSettingsCommandInput - {@link PutRetentionSettingsCommandInput}
@@ -96,6 +109,8 @@ export interface PutRetentionSettingsCommandOutput extends PutRetentionSettingsR
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeServiceException}
+ * <p>Base exception class for all service exceptions from Chime service.</p>
  *
  */
 export class PutRetentionSettingsCommand extends $Command<

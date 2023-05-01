@@ -46,15 +46,26 @@ export interface DescribeFleetAdvisorLsaAnalysisCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DatabaseMigrationServiceClient, DescribeFleetAdvisorLsaAnalysisCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
- * // const { DatabaseMigrationServiceClient, DescribeFleetAdvisorLsaAnalysisCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
+ * import { DatabaseMigrationServiceClient, DescribeFleetAdvisorLsaAnalysisCommand } from '@aws-sdk/client-database-migration-service'; // ES Modules import
+ * // const { DatabaseMigrationServiceClient, DescribeFleetAdvisorLsaAnalysisCommand } = require('@aws-sdk/client-database-migration-service'); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
  * const input = { // DescribeFleetAdvisorLsaAnalysisRequest
- *   MaxRecords: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxRecords: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new DescribeFleetAdvisorLsaAnalysisCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeFleetAdvisorLsaAnalysisResponse
+ *   Analysis: [ // FleetAdvisorLsaAnalysisResponseList
+ *     { // FleetAdvisorLsaAnalysisResponse
+ *       LsaAnalysisId: 'STRING_VALUE',
+ *       Status: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeFleetAdvisorLsaAnalysisCommandInput - {@link DescribeFleetAdvisorLsaAnalysisCommandInput}
@@ -66,6 +77,8 @@ export interface DescribeFleetAdvisorLsaAnalysisCommandOutput
  * @throws {@link InvalidResourceStateFault} (client fault)
  *  <p>The resource is in a state that prevents it from being used for database migration.</p>
  *
+ * @throws {@link DatabaseMigrationServiceServiceException}
+ * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
  */
 export class DescribeFleetAdvisorLsaAnalysisCommand extends $Command<

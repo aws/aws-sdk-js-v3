@@ -47,22 +47,25 @@ export interface StartApplicationCommandOutput extends StartApplicationResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KinesisAnalyticsClient, StartApplicationCommand } from "@aws-sdk/client-kinesis-analytics"; // ES Modules import
- * // const { KinesisAnalyticsClient, StartApplicationCommand } = require("@aws-sdk/client-kinesis-analytics"); // CommonJS import
+ * import { KinesisAnalyticsClient, StartApplicationCommand } from '@aws-sdk/client-kinesis-analytics'; // ES Modules import
+ * // const { KinesisAnalyticsClient, StartApplicationCommand } = require('@aws-sdk/client-kinesis-analytics'); // CommonJS import
  * const client = new KinesisAnalyticsClient(config);
  * const input = { // StartApplicationRequest
- *   ApplicationName: "STRING_VALUE", // required
+ *   ApplicationName: 'STRING_VALUE', // required
  *   InputConfigurations: [ // InputConfigurations // required
  *     { // InputConfiguration
- *       Id: "STRING_VALUE", // required
+ *       Id: 'STRING_VALUE', // required
  *       InputStartingPositionConfiguration: { // InputStartingPositionConfiguration
- *         InputStartingPosition: "STRING_VALUE",
+ *         InputStartingPosition: 'STRING_VALUE',
  *       },
  *     },
  *   ],
  * };
  * const command = new StartApplicationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param StartApplicationCommandInput - {@link StartApplicationCommandInput}
@@ -86,6 +89,8 @@ export interface StartApplicationCommandOutput extends StartApplicationResponse,
  * @throws {@link UnsupportedOperationException} (client fault)
  *  <p>The request was rejected because a specified parameter is not supported or a specified resource is not valid for this operation. </p>
  *
+ * @throws {@link KinesisAnalyticsServiceException}
+ * <p>Base exception class for all service exceptions from KinesisAnalytics service.</p>
  *
  */
 export class StartApplicationCommand extends $Command<

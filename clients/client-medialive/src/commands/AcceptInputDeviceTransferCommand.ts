@@ -36,14 +36,17 @@ export interface AcceptInputDeviceTransferCommandOutput extends AcceptInputDevic
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MediaLiveClient, AcceptInputDeviceTransferCommand } from "@aws-sdk/client-medialive"; // ES Modules import
- * // const { MediaLiveClient, AcceptInputDeviceTransferCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
+ * import { MediaLiveClient, AcceptInputDeviceTransferCommand } from '@aws-sdk/client-medialive'; // ES Modules import
+ * // const { MediaLiveClient, AcceptInputDeviceTransferCommand } = require('@aws-sdk/client-medialive'); // CommonJS import
  * const client = new MediaLiveClient(config);
  * const input = { // AcceptInputDeviceTransferRequest
- *   InputDeviceId: "STRING_VALUE", // required
+ *   InputDeviceId: 'STRING_VALUE', // required
  * };
  * const command = new AcceptInputDeviceTransferCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param AcceptInputDeviceTransferCommandInput - {@link AcceptInputDeviceTransferCommandInput}
@@ -79,6 +82,8 @@ export interface AcceptInputDeviceTransferCommandOutput extends AcceptInputDevic
  * @throws {@link UnprocessableEntityException} (client fault)
  *  Placeholder documentation for UnprocessableEntityException
  *
+ * @throws {@link MediaLiveServiceException}
+ * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
  */
 export class AcceptInputDeviceTransferCommand extends $Command<

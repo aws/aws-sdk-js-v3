@@ -42,22 +42,25 @@ export interface SendTestEventNotificationCommandOutput extends SendTestEventNot
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MTurkClient, SendTestEventNotificationCommand } from "@aws-sdk/client-mturk"; // ES Modules import
- * // const { MTurkClient, SendTestEventNotificationCommand } = require("@aws-sdk/client-mturk"); // CommonJS import
+ * import { MTurkClient, SendTestEventNotificationCommand } from '@aws-sdk/client-mturk'; // ES Modules import
+ * // const { MTurkClient, SendTestEventNotificationCommand } = require('@aws-sdk/client-mturk'); // CommonJS import
  * const client = new MTurkClient(config);
  * const input = { // SendTestEventNotificationRequest
  *   Notification: { // NotificationSpecification
- *     Destination: "STRING_VALUE", // required
- *     Transport: "STRING_VALUE", // required
- *     Version: "STRING_VALUE", // required
+ *     Destination: 'STRING_VALUE', // required
+ *     Transport: 'STRING_VALUE', // required
+ *     Version: 'STRING_VALUE', // required
  *     EventTypes: [ // EventTypeList // required
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *   },
- *   TestEventType: "STRING_VALUE", // required
+ *   TestEventType: 'STRING_VALUE', // required
  * };
  * const command = new SendTestEventNotificationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param SendTestEventNotificationCommandInput - {@link SendTestEventNotificationCommandInput}
@@ -72,6 +75,8 @@ export interface SendTestEventNotificationCommandOutput extends SendTestEventNot
  * @throws {@link ServiceFault} (server fault)
  *  <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
  *
+ * @throws {@link MTurkServiceException}
+ * <p>Base exception class for all service exceptions from MTurk service.</p>
  *
  */
 export class SendTestEventNotificationCommand extends $Command<

@@ -44,27 +44,52 @@ export interface DescribeVolumesModificationsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, DescribeVolumesModificationsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, DescribeVolumesModificationsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, DescribeVolumesModificationsCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, DescribeVolumesModificationsCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // DescribeVolumesModificationsRequest
  *   DryRun: true || false,
  *   VolumeIds: [ // VolumeIdStringList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   Filters: [ // FilterList
  *     { // Filter
- *       Name: "STRING_VALUE",
+ *       Name: 'STRING_VALUE',
  *       Values: [ // ValueStringList
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new DescribeVolumesModificationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeVolumesModificationsResult
+ *   VolumesModifications: [ // VolumeModificationList
+ *     { // VolumeModification
+ *       VolumeId: 'STRING_VALUE',
+ *       ModificationState: 'modifying' || 'optimizing' || 'completed' || 'failed',
+ *       StatusMessage: 'STRING_VALUE',
+ *       TargetSize: Number('int'),
+ *       TargetIops: Number('int'),
+ *       TargetVolumeType: 'standard' || 'io1' || 'io2' || 'gp2' || 'sc1' || 'st1' || 'gp3',
+ *       TargetThroughput: Number('int'),
+ *       TargetMultiAttachEnabled: true || false,
+ *       OriginalSize: Number('int'),
+ *       OriginalIops: Number('int'),
+ *       OriginalVolumeType: 'standard' || 'io1' || 'io2' || 'gp2' || 'sc1' || 'st1' || 'gp3',
+ *       OriginalThroughput: Number('int'),
+ *       OriginalMultiAttachEnabled: true || false,
+ *       Progress: Number('long'),
+ *       StartTime: new Date('TIMESTAMP'),
+ *       EndTime: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeVolumesModificationsCommandInput - {@link DescribeVolumesModificationsCommandInput}
@@ -73,6 +98,8 @@ export interface DescribeVolumesModificationsCommandOutput
  * @see {@link DescribeVolumesModificationsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class DescribeVolumesModificationsCommand extends $Command<

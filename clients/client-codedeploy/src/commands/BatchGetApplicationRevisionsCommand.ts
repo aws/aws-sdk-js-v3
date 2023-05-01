@@ -42,38 +42,79 @@ export interface BatchGetApplicationRevisionsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeDeployClient, BatchGetApplicationRevisionsCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
- * // const { CodeDeployClient, BatchGetApplicationRevisionsCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
+ * import { CodeDeployClient, BatchGetApplicationRevisionsCommand } from '@aws-sdk/client-codedeploy'; // ES Modules import
+ * // const { CodeDeployClient, BatchGetApplicationRevisionsCommand } = require('@aws-sdk/client-codedeploy'); // CommonJS import
  * const client = new CodeDeployClient(config);
  * const input = { // BatchGetApplicationRevisionsInput
- *   applicationName: "STRING_VALUE", // required
+ *   applicationName: 'STRING_VALUE', // required
  *   revisions: [ // RevisionLocationList // required
  *     { // RevisionLocation
- *       revisionType: "S3" || "GitHub" || "String" || "AppSpecContent",
+ *       revisionType: 'S3' || 'GitHub' || 'String' || 'AppSpecContent',
  *       s3Location: { // S3Location
- *         bucket: "STRING_VALUE",
- *         key: "STRING_VALUE",
- *         bundleType: "tar" || "tgz" || "zip" || "YAML" || "JSON",
- *         version: "STRING_VALUE",
- *         eTag: "STRING_VALUE",
+ *         bucket: 'STRING_VALUE',
+ *         key: 'STRING_VALUE',
+ *         bundleType: 'tar' || 'tgz' || 'zip' || 'YAML' || 'JSON',
+ *         version: 'STRING_VALUE',
+ *         eTag: 'STRING_VALUE',
  *       },
  *       gitHubLocation: { // GitHubLocation
- *         repository: "STRING_VALUE",
- *         commitId: "STRING_VALUE",
+ *         repository: 'STRING_VALUE',
+ *         commitId: 'STRING_VALUE',
  *       },
  *       string: { // RawString
- *         content: "STRING_VALUE",
- *         sha256: "STRING_VALUE",
+ *         content: 'STRING_VALUE',
+ *         sha256: 'STRING_VALUE',
  *       },
  *       appSpecContent: { // AppSpecContent
- *         content: "STRING_VALUE",
- *         sha256: "STRING_VALUE",
+ *         content: 'STRING_VALUE',
+ *         sha256: 'STRING_VALUE',
  *       },
  *     },
  *   ],
  * };
  * const command = new BatchGetApplicationRevisionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BatchGetApplicationRevisionsOutput
+ *   applicationName: 'STRING_VALUE',
+ *   errorMessage: 'STRING_VALUE',
+ *   revisions: [ // RevisionInfoList
+ *     { // RevisionInfo
+ *       revisionLocation: { // RevisionLocation
+ *         revisionType: 'S3' || 'GitHub' || 'String' || 'AppSpecContent',
+ *         s3Location: { // S3Location
+ *           bucket: 'STRING_VALUE',
+ *           key: 'STRING_VALUE',
+ *           bundleType: 'tar' || 'tgz' || 'zip' || 'YAML' || 'JSON',
+ *           version: 'STRING_VALUE',
+ *           eTag: 'STRING_VALUE',
+ *         },
+ *         gitHubLocation: { // GitHubLocation
+ *           repository: 'STRING_VALUE',
+ *           commitId: 'STRING_VALUE',
+ *         },
+ *         string: { // RawString
+ *           content: 'STRING_VALUE',
+ *           sha256: 'STRING_VALUE',
+ *         },
+ *         appSpecContent: { // AppSpecContent
+ *           content: 'STRING_VALUE',
+ *           sha256: 'STRING_VALUE',
+ *         },
+ *       },
+ *       genericRevisionInfo: { // GenericRevisionInfo
+ *         description: 'STRING_VALUE',
+ *         deploymentGroups: [ // DeploymentGroupsList
+ *           'STRING_VALUE',
+ *         ],
+ *         firstUsedTime: new Date('TIMESTAMP'),
+ *         lastUsedTime: new Date('TIMESTAMP'),
+ *         registerTime: new Date('TIMESTAMP'),
+ *       },
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param BatchGetApplicationRevisionsCommandInput - {@link BatchGetApplicationRevisionsCommandInput}
@@ -100,6 +141,8 @@ export interface BatchGetApplicationRevisionsCommandOutput
  * @throws {@link RevisionRequiredException} (client fault)
  *  <p>The revision ID was not specified.</p>
  *
+ * @throws {@link CodeDeployServiceException}
+ * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
  */
 export class BatchGetApplicationRevisionsCommand extends $Command<

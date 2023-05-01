@@ -45,18 +45,21 @@ export interface TagStreamCommandOutput extends TagStreamOutput, __MetadataBeare
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KinesisVideoClient, TagStreamCommand } from "@aws-sdk/client-kinesis-video"; // ES Modules import
- * // const { KinesisVideoClient, TagStreamCommand } = require("@aws-sdk/client-kinesis-video"); // CommonJS import
+ * import { KinesisVideoClient, TagStreamCommand } from '@aws-sdk/client-kinesis-video'; // ES Modules import
+ * // const { KinesisVideoClient, TagStreamCommand } = require('@aws-sdk/client-kinesis-video'); // CommonJS import
  * const client = new KinesisVideoClient(config);
  * const input = { // TagStreamInput
- *   StreamARN: "STRING_VALUE",
- *   StreamName: "STRING_VALUE",
+ *   StreamARN: 'STRING_VALUE',
+ *   StreamName: 'STRING_VALUE',
  *   Tags: { // ResourceTags // required
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new TagStreamCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param TagStreamCommandInput - {@link TagStreamCommandInput}
@@ -85,6 +88,8 @@ export interface TagStreamCommandOutput extends TagStreamOutput, __MetadataBeare
  *  <p>You have exceeded the limit of tags that you can associate with the resource.
  *             A Kinesis video stream can support up to 50 tags. </p>
  *
+ * @throws {@link KinesisVideoServiceException}
+ * <p>Base exception class for all service exceptions from KinesisVideo service.</p>
  *
  */
 export class TagStreamCommand extends $Command<

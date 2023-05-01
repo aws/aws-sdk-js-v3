@@ -42,16 +42,25 @@ export interface RegisterContainerImageCommandOutput extends RegisterContainerIm
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LightsailClient, RegisterContainerImageCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
- * // const { LightsailClient, RegisterContainerImageCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
+ * import { LightsailClient, RegisterContainerImageCommand } from '@aws-sdk/client-lightsail'; // ES Modules import
+ * // const { LightsailClient, RegisterContainerImageCommand } = require('@aws-sdk/client-lightsail'); // CommonJS import
  * const client = new LightsailClient(config);
  * const input = { // RegisterContainerImageRequest
- *   serviceName: "STRING_VALUE", // required
- *   label: "STRING_VALUE", // required
- *   digest: "STRING_VALUE", // required
+ *   serviceName: 'STRING_VALUE', // required
+ *   label: 'STRING_VALUE', // required
+ *   digest: 'STRING_VALUE', // required
  * };
  * const command = new RegisterContainerImageCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // RegisterContainerImageResult
+ *   containerImage: { // ContainerImage
+ *     image: 'STRING_VALUE',
+ *     digest: 'STRING_VALUE',
+ *     createdAt: new Date('TIMESTAMP'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param RegisterContainerImageCommandInput - {@link RegisterContainerImageCommandInput}
@@ -83,6 +92,8 @@ export interface RegisterContainerImageCommandOutput extends RegisterContainerIm
  * @throws {@link UnauthenticatedException} (client fault)
  *  <p>Lightsail throws this exception when the user has not been authenticated.</p>
  *
+ * @throws {@link LightsailServiceException}
+ * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
  */
 export class RegisterContainerImageCommand extends $Command<

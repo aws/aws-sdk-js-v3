@@ -41,15 +41,25 @@ export interface GetProgrammaticAccessCredentialsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FinspaceDataClient, GetProgrammaticAccessCredentialsCommand } from "@aws-sdk/client-finspace-data"; // ES Modules import
- * // const { FinspaceDataClient, GetProgrammaticAccessCredentialsCommand } = require("@aws-sdk/client-finspace-data"); // CommonJS import
+ * import { FinspaceDataClient, GetProgrammaticAccessCredentialsCommand } from '@aws-sdk/client-finspace-data'; // ES Modules import
+ * // const { FinspaceDataClient, GetProgrammaticAccessCredentialsCommand } = require('@aws-sdk/client-finspace-data'); // CommonJS import
  * const client = new FinspaceDataClient(config);
  * const input = { // GetProgrammaticAccessCredentialsRequest
- *   durationInMinutes: Number("long"),
- *   environmentId: "STRING_VALUE", // required
+ *   durationInMinutes: Number('long'),
+ *   environmentId: 'STRING_VALUE', // required
  * };
  * const command = new GetProgrammaticAccessCredentialsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetProgrammaticAccessCredentialsResponse
+ *   credentials: { // Credentials
+ *     accessKeyId: 'STRING_VALUE',
+ *     secretAccessKey: 'STRING_VALUE',
+ *     sessionToken: 'STRING_VALUE',
+ *   },
+ *   durationInMinutes: Number('long'),
+ * };
+ *
  * ```
  *
  * @param GetProgrammaticAccessCredentialsCommandInput - {@link GetProgrammaticAccessCredentialsCommandInput}
@@ -71,6 +81,8 @@ export interface GetProgrammaticAccessCredentialsCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link FinspaceDataServiceException}
+ * <p>Base exception class for all service exceptions from FinspaceData service.</p>
  *
  */
 export class GetProgrammaticAccessCredentialsCommand extends $Command<

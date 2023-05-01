@@ -56,15 +56,27 @@ export interface UploadDocumentsCommandOutput extends UploadDocumentsResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudSearchDomainClient, UploadDocumentsCommand } from "@aws-sdk/client-cloudsearch-domain"; // ES Modules import
- * // const { CloudSearchDomainClient, UploadDocumentsCommand } = require("@aws-sdk/client-cloudsearch-domain"); // CommonJS import
+ * import { CloudSearchDomainClient, UploadDocumentsCommand } from '@aws-sdk/client-cloudsearch-domain'; // ES Modules import
+ * // const { CloudSearchDomainClient, UploadDocumentsCommand } = require('@aws-sdk/client-cloudsearch-domain'); // CommonJS import
  * const client = new CloudSearchDomainClient(config);
  * const input = { // UploadDocumentsRequest
- *   documents: "STREAMING_BLOB_VALUE", // required
- *   contentType: "STRING_VALUE", // required
+ *   documents: 'STREAMING_BLOB_VALUE', // required
+ *   contentType: 'STRING_VALUE', // required
  * };
  * const command = new UploadDocumentsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UploadDocumentsResponse
+ *   status: 'STRING_VALUE',
+ *   adds: Number('long'),
+ *   deletes: Number('long'),
+ *   warnings: [ // DocumentServiceWarnings
+ *     { // DocumentServiceWarning
+ *       message: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param UploadDocumentsCommandInput - {@link UploadDocumentsCommandInput}
@@ -76,6 +88,8 @@ export interface UploadDocumentsCommandOutput extends UploadDocumentsResponse, _
  * @throws {@link DocumentServiceException} (client fault)
  *  <p>Information about any problems encountered while processing an upload request.</p>
  *
+ * @throws {@link CloudSearchDomainServiceException}
+ * <p>Base exception class for all service exceptions from CloudSearchDomain service.</p>
  *
  */
 export class UploadDocumentsCommand extends $Command<

@@ -40,15 +40,26 @@ export interface ListDataCatalogsCommandOutput extends ListDataCatalogsOutput, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AthenaClient, ListDataCatalogsCommand } from "@aws-sdk/client-athena"; // ES Modules import
- * // const { AthenaClient, ListDataCatalogsCommand } = require("@aws-sdk/client-athena"); // CommonJS import
+ * import { AthenaClient, ListDataCatalogsCommand } from '@aws-sdk/client-athena'; // ES Modules import
+ * // const { AthenaClient, ListDataCatalogsCommand } = require('@aws-sdk/client-athena'); // CommonJS import
  * const client = new AthenaClient(config);
  * const input = { // ListDataCatalogsInput
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListDataCatalogsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListDataCatalogsOutput
+ *   DataCatalogsSummary: [ // DataCatalogSummaryList
+ *     { // DataCatalogSummary
+ *       CatalogName: 'STRING_VALUE',
+ *       Type: 'LAMBDA' || 'GLUE' || 'HIVE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListDataCatalogsCommandInput - {@link ListDataCatalogsCommandInput}
@@ -65,6 +76,8 @@ export interface ListDataCatalogsCommandOutput extends ListDataCatalogsOutput, _
  *  <p>Indicates that something is wrong with the input to the request. For example, a
  *             required parameter may be missing or out of range.</p>
  *
+ * @throws {@link AthenaServiceException}
+ * <p>Base exception class for all service exceptions from Athena service.</p>
  *
  */
 export class ListDataCatalogsCommand extends $Command<

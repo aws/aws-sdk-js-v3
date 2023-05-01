@@ -38,16 +38,28 @@ export interface ListInstanceProfileTagsCommandOutput extends ListInstanceProfil
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IAMClient, ListInstanceProfileTagsCommand } from "@aws-sdk/client-iam"; // ES Modules import
- * // const { IAMClient, ListInstanceProfileTagsCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * import { IAMClient, ListInstanceProfileTagsCommand } from '@aws-sdk/client-iam'; // ES Modules import
+ * // const { IAMClient, ListInstanceProfileTagsCommand } = require('@aws-sdk/client-iam'); // CommonJS import
  * const client = new IAMClient(config);
  * const input = { // ListInstanceProfileTagsRequest
- *   InstanceProfileName: "STRING_VALUE", // required
- *   Marker: "STRING_VALUE",
- *   MaxItems: Number("int"),
+ *   InstanceProfileName: 'STRING_VALUE', // required
+ *   Marker: 'STRING_VALUE',
+ *   MaxItems: Number('int'),
  * };
  * const command = new ListInstanceProfileTagsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListInstanceProfileTagsResponse
+ *   Tags: [ // tagListType // required
+ *     { // Tag
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ *   IsTruncated: true || false,
+ *   Marker: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListInstanceProfileTagsCommandInput - {@link ListInstanceProfileTagsCommandInput}
@@ -64,6 +76,8 @@ export interface ListInstanceProfileTagsCommandOutput extends ListInstanceProfil
  *  <p>The request processing has failed because of an unknown error, exception or
  *       failure.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  */
 export class ListInstanceProfileTagsCommand extends $Command<

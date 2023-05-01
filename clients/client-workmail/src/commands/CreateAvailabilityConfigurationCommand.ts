@@ -45,24 +45,27 @@ export interface CreateAvailabilityConfigurationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkMailClient, CreateAvailabilityConfigurationCommand } from "@aws-sdk/client-workmail"; // ES Modules import
- * // const { WorkMailClient, CreateAvailabilityConfigurationCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
+ * import { WorkMailClient, CreateAvailabilityConfigurationCommand } from '@aws-sdk/client-workmail'; // ES Modules import
+ * // const { WorkMailClient, CreateAvailabilityConfigurationCommand } = require('@aws-sdk/client-workmail'); // CommonJS import
  * const client = new WorkMailClient(config);
  * const input = { // CreateAvailabilityConfigurationRequest
- *   ClientToken: "STRING_VALUE",
- *   OrganizationId: "STRING_VALUE", // required
- *   DomainName: "STRING_VALUE", // required
+ *   ClientToken: 'STRING_VALUE',
+ *   OrganizationId: 'STRING_VALUE', // required
+ *   DomainName: 'STRING_VALUE', // required
  *   EwsProvider: { // EwsAvailabilityProvider
- *     EwsEndpoint: "STRING_VALUE", // required
- *     EwsUsername: "STRING_VALUE", // required
- *     EwsPassword: "STRING_VALUE", // required
+ *     EwsEndpoint: 'STRING_VALUE', // required
+ *     EwsUsername: 'STRING_VALUE', // required
+ *     EwsPassword: 'STRING_VALUE', // required
  *   },
  *   LambdaProvider: { // LambdaAvailabilityProvider
- *     LambdaArn: "STRING_VALUE", // required
+ *     LambdaArn: 'STRING_VALUE', // required
  *   },
  * };
  * const command = new CreateAvailabilityConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param CreateAvailabilityConfigurationCommandInput - {@link CreateAvailabilityConfigurationCommandInput}
@@ -88,6 +91,8 @@ export interface CreateAvailabilityConfigurationCommandOutput
  *  <p>The organization must have a valid state to perform certain
  *          operations on the organization or its members.</p>
  *
+ * @throws {@link WorkMailServiceException}
+ * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
  */
 export class CreateAvailabilityConfigurationCommand extends $Command<

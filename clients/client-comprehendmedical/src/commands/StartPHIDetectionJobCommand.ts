@@ -41,26 +41,31 @@ export interface StartPHIDetectionJobCommandOutput extends StartPHIDetectionJobR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ComprehendMedicalClient, StartPHIDetectionJobCommand } from "@aws-sdk/client-comprehendmedical"; // ES Modules import
- * // const { ComprehendMedicalClient, StartPHIDetectionJobCommand } = require("@aws-sdk/client-comprehendmedical"); // CommonJS import
+ * import { ComprehendMedicalClient, StartPHIDetectionJobCommand } from '@aws-sdk/client-comprehendmedical'; // ES Modules import
+ * // const { ComprehendMedicalClient, StartPHIDetectionJobCommand } = require('@aws-sdk/client-comprehendmedical'); // CommonJS import
  * const client = new ComprehendMedicalClient(config);
  * const input = { // StartPHIDetectionJobRequest
  *   InputDataConfig: { // InputDataConfig
- *     S3Bucket: "STRING_VALUE", // required
- *     S3Key: "STRING_VALUE",
+ *     S3Bucket: 'STRING_VALUE', // required
+ *     S3Key: 'STRING_VALUE',
  *   },
  *   OutputDataConfig: { // OutputDataConfig
- *     S3Bucket: "STRING_VALUE", // required
- *     S3Key: "STRING_VALUE",
+ *     S3Bucket: 'STRING_VALUE', // required
+ *     S3Key: 'STRING_VALUE',
  *   },
- *   DataAccessRoleArn: "STRING_VALUE", // required
- *   JobName: "STRING_VALUE",
- *   ClientRequestToken: "STRING_VALUE",
- *   KMSKey: "STRING_VALUE",
- *   LanguageCode: "en", // required
+ *   DataAccessRoleArn: 'STRING_VALUE', // required
+ *   JobName: 'STRING_VALUE',
+ *   ClientRequestToken: 'STRING_VALUE',
+ *   KMSKey: 'STRING_VALUE',
+ *   LanguageCode: 'en', // required
  * };
  * const command = new StartPHIDetectionJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartPHIDetectionJobResponse
+ *   JobId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param StartPHIDetectionJobCommandInput - {@link StartPHIDetectionJobCommandInput}
@@ -85,6 +90,8 @@ export interface StartPHIDetectionJobCommandOutput extends StartPHIDetectionJobR
  *       then try your request again. Contact customer support for more information about a service
  *       limit increase. </p>
  *
+ * @throws {@link ComprehendMedicalServiceException}
+ * <p>Base exception class for all service exceptions from ComprehendMedical service.</p>
  *
  */
 export class StartPHIDetectionJobCommand extends $Command<

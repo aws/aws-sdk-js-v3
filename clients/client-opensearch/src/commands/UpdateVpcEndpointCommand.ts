@@ -36,22 +36,45 @@ export interface UpdateVpcEndpointCommandOutput extends UpdateVpcEndpointRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OpenSearchClient, UpdateVpcEndpointCommand } from "@aws-sdk/client-opensearch"; // ES Modules import
- * // const { OpenSearchClient, UpdateVpcEndpointCommand } = require("@aws-sdk/client-opensearch"); // CommonJS import
+ * import { OpenSearchClient, UpdateVpcEndpointCommand } from '@aws-sdk/client-opensearch'; // ES Modules import
+ * // const { OpenSearchClient, UpdateVpcEndpointCommand } = require('@aws-sdk/client-opensearch'); // CommonJS import
  * const client = new OpenSearchClient(config);
  * const input = { // UpdateVpcEndpointRequest
- *   VpcEndpointId: "STRING_VALUE", // required
+ *   VpcEndpointId: 'STRING_VALUE', // required
  *   VpcOptions: { // VPCOptions
  *     SubnetIds: [ // StringList
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     SecurityGroupIds: [
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *   },
  * };
  * const command = new UpdateVpcEndpointCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateVpcEndpointResponse
+ *   VpcEndpoint: { // VpcEndpoint
+ *     VpcEndpointId: 'STRING_VALUE',
+ *     VpcEndpointOwner: 'STRING_VALUE',
+ *     DomainArn: 'STRING_VALUE',
+ *     VpcOptions: { // VPCDerivedInfo
+ *       VPCId: 'STRING_VALUE',
+ *       SubnetIds: [ // StringList
+ *         'STRING_VALUE',
+ *       ],
+ *       AvailabilityZones: [
+ *         'STRING_VALUE',
+ *       ],
+ *       SecurityGroupIds: [
+ *         'STRING_VALUE',
+ *       ],
+ *     },
+ *     Status: 'CREATING' || 'CREATE_FAILED' || 'ACTIVE' || 'UPDATING' || 'UPDATE_FAILED' || 'DELETING' || 'DELETE_FAILED',
+ *     Endpoint: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateVpcEndpointCommandInput - {@link UpdateVpcEndpointCommandInput}
@@ -78,6 +101,8 @@ export interface UpdateVpcEndpointCommandOutput extends UpdateVpcEndpointRespons
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception for accessing or deleting a resource that doesn't exist.</p>
  *
+ * @throws {@link OpenSearchServiceException}
+ * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
  */
 export class UpdateVpcEndpointCommand extends $Command<

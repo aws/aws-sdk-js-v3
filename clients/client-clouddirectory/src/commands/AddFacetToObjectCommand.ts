@@ -36,37 +36,40 @@ export interface AddFacetToObjectCommandOutput extends AddFacetToObjectResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudDirectoryClient, AddFacetToObjectCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
- * // const { CloudDirectoryClient, AddFacetToObjectCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
+ * import { CloudDirectoryClient, AddFacetToObjectCommand } from '@aws-sdk/client-clouddirectory'; // ES Modules import
+ * // const { CloudDirectoryClient, AddFacetToObjectCommand } = require('@aws-sdk/client-clouddirectory'); // CommonJS import
  * const client = new CloudDirectoryClient(config);
  * const input = { // AddFacetToObjectRequest
- *   DirectoryArn: "STRING_VALUE", // required
+ *   DirectoryArn: 'STRING_VALUE', // required
  *   SchemaFacet: { // SchemaFacet
- *     SchemaArn: "STRING_VALUE",
- *     FacetName: "STRING_VALUE",
+ *     SchemaArn: 'STRING_VALUE',
+ *     FacetName: 'STRING_VALUE',
  *   },
  *   ObjectAttributeList: [ // AttributeKeyAndValueList
  *     { // AttributeKeyAndValue
  *       Key: { // AttributeKey
- *         SchemaArn: "STRING_VALUE", // required
- *         FacetName: "STRING_VALUE", // required
- *         Name: "STRING_VALUE", // required
+ *         SchemaArn: 'STRING_VALUE', // required
+ *         FacetName: 'STRING_VALUE', // required
+ *         Name: 'STRING_VALUE', // required
  *       },
  *       Value: { // TypedAttributeValue Union: only one key present
- *         StringValue: "STRING_VALUE",
- *         BinaryValue: "BLOB_VALUE",
+ *         StringValue: 'STRING_VALUE',
+ *         BinaryValue: 'BLOB_VALUE',
  *         BooleanValue: true || false,
- *         NumberValue: "STRING_VALUE",
- *         DatetimeValue: new Date("TIMESTAMP"),
+ *         NumberValue: 'STRING_VALUE',
+ *         DatetimeValue: new Date('TIMESTAMP'),
  *       },
  *     },
  *   ],
  *   ObjectReference: { // ObjectReference
- *     Selector: "STRING_VALUE",
+ *     Selector: 'STRING_VALUE',
  *   },
  * };
  * const command = new AddFacetToObjectCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param AddFacetToObjectCommandInput - {@link AddFacetToObjectCommandInput}
@@ -104,6 +107,8 @@ export interface AddFacetToObjectCommandOutput extends AddFacetToObjectResponse,
  *  <p>Indicates that your request is malformed in some manner. See the exception
  *       message.</p>
  *
+ * @throws {@link CloudDirectoryServiceException}
+ * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
  */
 export class AddFacetToObjectCommand extends $Command<

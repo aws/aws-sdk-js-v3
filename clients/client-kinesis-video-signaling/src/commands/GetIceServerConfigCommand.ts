@@ -53,17 +53,31 @@ export interface GetIceServerConfigCommandOutput extends GetIceServerConfigRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KinesisVideoSignalingClient, GetIceServerConfigCommand } from "@aws-sdk/client-kinesis-video-signaling"; // ES Modules import
- * // const { KinesisVideoSignalingClient, GetIceServerConfigCommand } = require("@aws-sdk/client-kinesis-video-signaling"); // CommonJS import
+ * import { KinesisVideoSignalingClient, GetIceServerConfigCommand } from '@aws-sdk/client-kinesis-video-signaling'; // ES Modules import
+ * // const { KinesisVideoSignalingClient, GetIceServerConfigCommand } = require('@aws-sdk/client-kinesis-video-signaling'); // CommonJS import
  * const client = new KinesisVideoSignalingClient(config);
  * const input = { // GetIceServerConfigRequest
- *   ChannelARN: "STRING_VALUE", // required
- *   ClientId: "STRING_VALUE",
- *   Service: "STRING_VALUE",
- *   Username: "STRING_VALUE",
+ *   ChannelARN: 'STRING_VALUE', // required
+ *   ClientId: 'STRING_VALUE',
+ *   Service: 'STRING_VALUE',
+ *   Username: 'STRING_VALUE',
  * };
  * const command = new GetIceServerConfigCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetIceServerConfigResponse
+ *   IceServerList: [ // IceServerList
+ *     { // IceServer
+ *       Uris: [ // Uris
+ *         'STRING_VALUE',
+ *       ],
+ *       Username: 'STRING_VALUE',
+ *       Password: 'STRING_VALUE',
+ *       Ttl: Number('int'),
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetIceServerConfigCommandInput - {@link GetIceServerConfigCommandInput}
@@ -93,6 +107,8 @@ export interface GetIceServerConfigCommandOutput extends GetIceServerConfigRespo
  *             for 45 minutes. Client should reconnect to the channel to continue sending/receiving
  *             messages.</p>
  *
+ * @throws {@link KinesisVideoSignalingServiceException}
+ * <p>Base exception class for all service exceptions from KinesisVideoSignaling service.</p>
  *
  */
 export class GetIceServerConfigCommand extends $Command<

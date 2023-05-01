@@ -36,16 +36,19 @@ export interface StopAppCommandOutput extends StopAppOutput, __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SimSpaceWeaverClient, StopAppCommand } from "@aws-sdk/client-simspaceweaver"; // ES Modules import
- * // const { SimSpaceWeaverClient, StopAppCommand } = require("@aws-sdk/client-simspaceweaver"); // CommonJS import
+ * import { SimSpaceWeaverClient, StopAppCommand } from '@aws-sdk/client-simspaceweaver'; // ES Modules import
+ * // const { SimSpaceWeaverClient, StopAppCommand } = require('@aws-sdk/client-simspaceweaver'); // CommonJS import
  * const client = new SimSpaceWeaverClient(config);
  * const input = { // StopAppInput
- *   Simulation: "STRING_VALUE", // required
- *   Domain: "STRING_VALUE", // required
- *   App: "STRING_VALUE", // required
+ *   Simulation: 'STRING_VALUE', // required
+ *   Domain: 'STRING_VALUE', // required
+ *   App: 'STRING_VALUE', // required
  * };
  * const command = new StopAppCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param StopAppCommandInput - {@link StopAppCommandInput}
@@ -69,6 +72,8 @@ export interface StopAppCommandOutput extends StopAppOutput, __MetadataBearer {}
  * @throws {@link ValidationException} (client fault)
  *  <p/>
  *
+ * @throws {@link SimSpaceWeaverServiceException}
+ * <p>Base exception class for all service exceptions from SimSpaceWeaver service.</p>
  *
  */
 export class StopAppCommand extends $Command<

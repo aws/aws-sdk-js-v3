@@ -36,14 +36,17 @@ export interface DeleteStageCommandOutput extends DeleteStageResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IVSRealTimeClient, DeleteStageCommand } from "@aws-sdk/client-ivs-realtime"; // ES Modules import
- * // const { IVSRealTimeClient, DeleteStageCommand } = require("@aws-sdk/client-ivs-realtime"); // CommonJS import
+ * import { IVSRealTimeClient, DeleteStageCommand } from '@aws-sdk/client-ivs-realtime'; // ES Modules import
+ * // const { IVSRealTimeClient, DeleteStageCommand } = require('@aws-sdk/client-ivs-realtime'); // CommonJS import
  * const client = new IVSRealTimeClient(config);
  * const input = { // DeleteStageRequest
- *   arn: "STRING_VALUE", // required
+ *   arn: 'STRING_VALUE', // required
  * };
  * const command = new DeleteStageCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteStageCommandInput - {@link DeleteStageCommandInput}
@@ -67,6 +70,8 @@ export interface DeleteStageCommandOutput extends DeleteStageResponse, __Metadat
  * @throws {@link ValidationException} (client fault)
  *  <p/>
  *
+ * @throws {@link IVSRealTimeServiceException}
+ * <p>Base exception class for all service exceptions from IVSRealTime service.</p>
  *
  */
 export class DeleteStageCommand extends $Command<

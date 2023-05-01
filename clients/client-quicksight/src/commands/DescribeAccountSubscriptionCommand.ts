@@ -41,14 +41,27 @@ export interface DescribeAccountSubscriptionCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { QuickSightClient, DescribeAccountSubscriptionCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
- * // const { QuickSightClient, DescribeAccountSubscriptionCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * import { QuickSightClient, DescribeAccountSubscriptionCommand } from '@aws-sdk/client-quicksight'; // ES Modules import
+ * // const { QuickSightClient, DescribeAccountSubscriptionCommand } = require('@aws-sdk/client-quicksight'); // CommonJS import
  * const client = new QuickSightClient(config);
  * const input = { // DescribeAccountSubscriptionRequest
- *   AwsAccountId: "STRING_VALUE", // required
+ *   AwsAccountId: 'STRING_VALUE', // required
  * };
  * const command = new DescribeAccountSubscriptionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeAccountSubscriptionResponse
+ *   AccountInfo: { // AccountInfo
+ *     AccountName: 'STRING_VALUE',
+ *     Edition: 'STANDARD' || 'ENTERPRISE' || 'ENTERPRISE_AND_Q',
+ *     NotificationEmail: 'STRING_VALUE',
+ *     AuthenticationType: 'STRING_VALUE',
+ *     AccountSubscriptionStatus: 'STRING_VALUE',
+ *   },
+ *   Status: Number('int'),
+ *   RequestId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeAccountSubscriptionCommandInput - {@link DescribeAccountSubscriptionCommandInput}
@@ -78,6 +91,8 @@ export interface DescribeAccountSubscriptionCommandOutput
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Access is throttled.</p>
  *
+ * @throws {@link QuickSightServiceException}
+ * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
 export class DescribeAccountSubscriptionCommand extends $Command<

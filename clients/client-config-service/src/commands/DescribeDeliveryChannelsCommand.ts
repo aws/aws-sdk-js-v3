@@ -42,16 +42,32 @@ export interface DescribeDeliveryChannelsCommandOutput extends DescribeDeliveryC
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConfigServiceClient, DescribeDeliveryChannelsCommand } from "@aws-sdk/client-config-service"; // ES Modules import
- * // const { ConfigServiceClient, DescribeDeliveryChannelsCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
+ * import { ConfigServiceClient, DescribeDeliveryChannelsCommand } from '@aws-sdk/client-config-service'; // ES Modules import
+ * // const { ConfigServiceClient, DescribeDeliveryChannelsCommand } = require('@aws-sdk/client-config-service'); // CommonJS import
  * const client = new ConfigServiceClient(config);
  * const input = { // DescribeDeliveryChannelsRequest
  *   DeliveryChannelNames: [ // DeliveryChannelNameList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new DescribeDeliveryChannelsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeDeliveryChannelsResponse
+ *   DeliveryChannels: [ // DeliveryChannelList
+ *     { // DeliveryChannel
+ *       name: 'STRING_VALUE',
+ *       s3BucketName: 'STRING_VALUE',
+ *       s3KeyPrefix: 'STRING_VALUE',
+ *       s3KmsKeyArn: 'STRING_VALUE',
+ *       snsTopicARN: 'STRING_VALUE',
+ *       configSnapshotDeliveryProperties: { // ConfigSnapshotDeliveryProperties
+ *         deliveryFrequency: 'One_Hour' || 'Three_Hours' || 'Six_Hours' || 'Twelve_Hours' || 'TwentyFour_Hours',
+ *       },
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeDeliveryChannelsCommandInput - {@link DescribeDeliveryChannelsCommandInput}
@@ -64,6 +80,8 @@ export interface DescribeDeliveryChannelsCommandOutput extends DescribeDeliveryC
  *  <p>You have specified a delivery channel that does not
  * 			exist.</p>
  *
+ * @throws {@link ConfigServiceServiceException}
+ * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
  */
 export class DescribeDeliveryChannelsCommand extends $Command<

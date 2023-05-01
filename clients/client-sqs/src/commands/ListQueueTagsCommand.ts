@@ -42,14 +42,21 @@ export interface ListQueueTagsCommandOutput extends ListQueueTagsResult, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SQSClient, ListQueueTagsCommand } from "@aws-sdk/client-sqs"; // ES Modules import
- * // const { SQSClient, ListQueueTagsCommand } = require("@aws-sdk/client-sqs"); // CommonJS import
+ * import { SQSClient, ListQueueTagsCommand } from '@aws-sdk/client-sqs'; // ES Modules import
+ * // const { SQSClient, ListQueueTagsCommand } = require('@aws-sdk/client-sqs'); // CommonJS import
  * const client = new SQSClient(config);
  * const input = { // ListQueueTagsRequest
- *   QueueUrl: "STRING_VALUE", // required
+ *   QueueUrl: 'STRING_VALUE', // required
  * };
  * const command = new ListQueueTagsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListQueueTagsResult
+ *   Tags: { // TagMap
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param ListQueueTagsCommandInput - {@link ListQueueTagsCommandInput}
@@ -58,6 +65,8 @@ export interface ListQueueTagsCommandOutput extends ListQueueTagsResult, __Metad
  * @see {@link ListQueueTagsCommandOutput} for command's `response` shape.
  * @see {@link SQSClientResolvedConfig | config} for SQSClient's `config` shape.
  *
+ * @throws {@link SQSServiceException}
+ * <p>Base exception class for all service exceptions from SQS service.</p>
  *
  */
 export class ListQueueTagsCommand extends $Command<

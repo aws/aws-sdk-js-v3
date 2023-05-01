@@ -38,16 +38,30 @@ export interface ListAttachedLinksCommandOutput extends ListAttachedLinksOutput,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OAMClient, ListAttachedLinksCommand } from "@aws-sdk/client-oam"; // ES Modules import
- * // const { OAMClient, ListAttachedLinksCommand } = require("@aws-sdk/client-oam"); // CommonJS import
+ * import { OAMClient, ListAttachedLinksCommand } from '@aws-sdk/client-oam'; // ES Modules import
+ * // const { OAMClient, ListAttachedLinksCommand } = require('@aws-sdk/client-oam'); // CommonJS import
  * const client = new OAMClient(config);
  * const input = { // ListAttachedLinksInput
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
- *   SinkIdentifier: "STRING_VALUE", // required
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
+ *   SinkIdentifier: 'STRING_VALUE', // required
  * };
  * const command = new ListAttachedLinksCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListAttachedLinksOutput
+ *   Items: [ // ListAttachedLinksItems // required
+ *     { // ListAttachedLinksItem
+ *       Label: 'STRING_VALUE',
+ *       LinkArn: 'STRING_VALUE',
+ *       ResourceTypes: [ // ResourceTypesOutput
+ *         'STRING_VALUE',
+ *       ],
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListAttachedLinksCommandInput - {@link ListAttachedLinksCommandInput}
@@ -68,6 +82,8 @@ export interface ListAttachedLinksCommandOutput extends ListAttachedLinksOutput,
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The request references a resource that does not exist.</p>
  *
+ * @throws {@link OAMServiceException}
+ * <p>Base exception class for all service exceptions from OAM service.</p>
  *
  */
 export class ListAttachedLinksCommand extends $Command<

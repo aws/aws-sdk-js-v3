@@ -40,15 +40,18 @@ export interface DeleteScalingPolicyCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GameLiftClient, DeleteScalingPolicyCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
- * // const { GameLiftClient, DeleteScalingPolicyCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
+ * import { GameLiftClient, DeleteScalingPolicyCommand } from '@aws-sdk/client-gamelift'; // ES Modules import
+ * // const { GameLiftClient, DeleteScalingPolicyCommand } = require('@aws-sdk/client-gamelift'); // CommonJS import
  * const client = new GameLiftClient(config);
  * const input = { // DeleteScalingPolicyInput
- *   Name: "STRING_VALUE", // required
- *   FleetId: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
+ *   FleetId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteScalingPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteScalingPolicyCommandInput - {@link DeleteScalingPolicyCommandInput}
@@ -71,6 +74,8 @@ export interface DeleteScalingPolicyCommandOutput extends __MetadataBearer {}
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client failed authentication. Clients should not retry such requests.</p>
  *
+ * @throws {@link GameLiftServiceException}
+ * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
  */
 export class DeleteScalingPolicyCommand extends $Command<

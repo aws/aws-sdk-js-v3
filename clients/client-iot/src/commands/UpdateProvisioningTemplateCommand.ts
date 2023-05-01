@@ -37,23 +37,26 @@ export interface UpdateProvisioningTemplateCommandOutput extends UpdateProvision
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTClient, UpdateProvisioningTemplateCommand } from "@aws-sdk/client-iot"; // ES Modules import
- * // const { IoTClient, UpdateProvisioningTemplateCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * import { IoTClient, UpdateProvisioningTemplateCommand } from '@aws-sdk/client-iot'; // ES Modules import
+ * // const { IoTClient, UpdateProvisioningTemplateCommand } = require('@aws-sdk/client-iot'); // CommonJS import
  * const client = new IoTClient(config);
  * const input = { // UpdateProvisioningTemplateRequest
- *   templateName: "STRING_VALUE", // required
- *   description: "STRING_VALUE",
+ *   templateName: 'STRING_VALUE', // required
+ *   description: 'STRING_VALUE',
  *   enabled: true || false,
- *   defaultVersionId: Number("int"),
- *   provisioningRoleArn: "STRING_VALUE",
+ *   defaultVersionId: Number('int'),
+ *   provisioningRoleArn: 'STRING_VALUE',
  *   preProvisioningHook: { // ProvisioningHook
- *     payloadVersion: "STRING_VALUE",
- *     targetArn: "STRING_VALUE", // required
+ *     payloadVersion: 'STRING_VALUE',
+ *     targetArn: 'STRING_VALUE', // required
  *   },
  *   removePreProvisioningHook: true || false,
  * };
  * const command = new UpdateProvisioningTemplateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateProvisioningTemplateCommandInput - {@link UpdateProvisioningTemplateCommandInput}
@@ -78,6 +81,8 @@ export interface UpdateProvisioningTemplateCommandOutput extends UpdateProvision
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this operation.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class UpdateProvisioningTemplateCommand extends $Command<

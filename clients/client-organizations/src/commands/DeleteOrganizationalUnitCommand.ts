@@ -38,14 +38,17 @@ export interface DeleteOrganizationalUnitCommandOutput extends __MetadataBearer 
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OrganizationsClient, DeleteOrganizationalUnitCommand } from "@aws-sdk/client-organizations"; // ES Modules import
- * // const { OrganizationsClient, DeleteOrganizationalUnitCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
+ * import { OrganizationsClient, DeleteOrganizationalUnitCommand } from '@aws-sdk/client-organizations'; // ES Modules import
+ * // const { OrganizationsClient, DeleteOrganizationalUnitCommand } = require('@aws-sdk/client-organizations'); // CommonJS import
  * const client = new OrganizationsClient(config);
  * const input = { // DeleteOrganizationalUnitRequest
- *   OrganizationalUnitId: "STRING_VALUE", // required
+ *   OrganizationalUnitId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteOrganizationalUnitCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteOrganizationalUnitCommandInput - {@link DeleteOrganizationalUnitCommandInput}
@@ -192,6 +195,8 @@ export interface DeleteOrganizationalUnitCommandOutput extends __MetadataBearer 
  *                 <i>Organizations User Guide.</i>
  *          </p>
  *
+ * @throws {@link OrganizationsServiceException}
+ * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
  * @example To delete an organization unit
  * ```javascript

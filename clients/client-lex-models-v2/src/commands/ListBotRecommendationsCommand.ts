@@ -37,18 +37,34 @@ export interface ListBotRecommendationsCommandOutput extends ListBotRecommendati
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LexModelsV2Client, ListBotRecommendationsCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
- * // const { LexModelsV2Client, ListBotRecommendationsCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
+ * import { LexModelsV2Client, ListBotRecommendationsCommand } from '@aws-sdk/client-lex-models-v2'; // ES Modules import
+ * // const { LexModelsV2Client, ListBotRecommendationsCommand } = require('@aws-sdk/client-lex-models-v2'); // CommonJS import
  * const client = new LexModelsV2Client(config);
  * const input = { // ListBotRecommendationsRequest
- *   botId: "STRING_VALUE", // required
- *   botVersion: "STRING_VALUE", // required
- *   localeId: "STRING_VALUE", // required
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   botId: 'STRING_VALUE', // required
+ *   botVersion: 'STRING_VALUE', // required
+ *   localeId: 'STRING_VALUE', // required
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new ListBotRecommendationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListBotRecommendationsResponse
+ *   botId: 'STRING_VALUE',
+ *   botVersion: 'STRING_VALUE',
+ *   localeId: 'STRING_VALUE',
+ *   botRecommendationSummaries: [ // BotRecommendationSummaryList
+ *     { // BotRecommendationSummary
+ *       botRecommendationStatus: 'Processing' || 'Deleting' || 'Deleted' || 'Downloading' || 'Updating' || 'Available' || 'Failed' || 'Stopping' || 'Stopped', // required
+ *       botRecommendationId: 'STRING_VALUE', // required
+ *       creationDateTime: new Date('TIMESTAMP'),
+ *       lastUpdatedDateTime: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListBotRecommendationsCommandInput - {@link ListBotRecommendationsCommandInput}
@@ -73,6 +89,8 @@ export interface ListBotRecommendationsCommandOutput extends ListBotRecommendati
  *  <p>One of the input parameters in your request isn't valid. Check the
  *          parameters and try your request again.</p>
  *
+ * @throws {@link LexModelsV2ServiceException}
+ * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
  */
 export class ListBotRecommendationsCommand extends $Command<

@@ -50,14 +50,17 @@ export interface DeleteQueueCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SQSClient, DeleteQueueCommand } from "@aws-sdk/client-sqs"; // ES Modules import
- * // const { SQSClient, DeleteQueueCommand } = require("@aws-sdk/client-sqs"); // CommonJS import
+ * import { SQSClient, DeleteQueueCommand } from '@aws-sdk/client-sqs'; // ES Modules import
+ * // const { SQSClient, DeleteQueueCommand } = require('@aws-sdk/client-sqs'); // CommonJS import
  * const client = new SQSClient(config);
  * const input = { // DeleteQueueRequest
- *   QueueUrl: "STRING_VALUE", // required
+ *   QueueUrl: 'STRING_VALUE', // required
  * };
  * const command = new DeleteQueueCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteQueueCommandInput - {@link DeleteQueueCommandInput}
@@ -66,6 +69,8 @@ export interface DeleteQueueCommandOutput extends __MetadataBearer {}
  * @see {@link DeleteQueueCommandOutput} for command's `response` shape.
  * @see {@link SQSClientResolvedConfig | config} for SQSClient's `config` shape.
  *
+ * @throws {@link SQSServiceException}
+ * <p>Base exception class for all service exceptions from SQS service.</p>
  *
  */
 export class DeleteQueueCommand extends $Command<

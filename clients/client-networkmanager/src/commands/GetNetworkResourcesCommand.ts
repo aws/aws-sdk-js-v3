@@ -37,22 +37,49 @@ export interface GetNetworkResourcesCommandOutput extends GetNetworkResourcesRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { NetworkManagerClient, GetNetworkResourcesCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
- * // const { NetworkManagerClient, GetNetworkResourcesCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
+ * import { NetworkManagerClient, GetNetworkResourcesCommand } from '@aws-sdk/client-networkmanager'; // ES Modules import
+ * // const { NetworkManagerClient, GetNetworkResourcesCommand } = require('@aws-sdk/client-networkmanager'); // CommonJS import
  * const client = new NetworkManagerClient(config);
  * const input = { // GetNetworkResourcesRequest
- *   GlobalNetworkId: "STRING_VALUE", // required
- *   CoreNetworkId: "STRING_VALUE",
- *   RegisteredGatewayArn: "STRING_VALUE",
- *   AwsRegion: "STRING_VALUE",
- *   AccountId: "STRING_VALUE",
- *   ResourceType: "STRING_VALUE",
- *   ResourceArn: "STRING_VALUE",
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   GlobalNetworkId: 'STRING_VALUE', // required
+ *   CoreNetworkId: 'STRING_VALUE',
+ *   RegisteredGatewayArn: 'STRING_VALUE',
+ *   AwsRegion: 'STRING_VALUE',
+ *   AccountId: 'STRING_VALUE',
+ *   ResourceType: 'STRING_VALUE',
+ *   ResourceArn: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new GetNetworkResourcesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetNetworkResourcesResponse
+ *   NetworkResources: [ // NetworkResourceList
+ *     { // NetworkResource
+ *       RegisteredGatewayArn: 'STRING_VALUE',
+ *       CoreNetworkId: 'STRING_VALUE',
+ *       AwsRegion: 'STRING_VALUE',
+ *       AccountId: 'STRING_VALUE',
+ *       ResourceType: 'STRING_VALUE',
+ *       ResourceId: 'STRING_VALUE',
+ *       ResourceArn: 'STRING_VALUE',
+ *       Definition: 'STRING_VALUE',
+ *       DefinitionTimestamp: new Date('TIMESTAMP'),
+ *       Tags: [ // TagList
+ *         { // Tag
+ *           Key: 'STRING_VALUE',
+ *           Value: 'STRING_VALUE',
+ *         },
+ *       ],
+ *       Metadata: { // NetworkResourceMetadataMap
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetNetworkResourcesCommandInput - {@link GetNetworkResourcesCommandInput}
@@ -76,6 +103,8 @@ export interface GetNetworkResourcesCommandOutput extends GetNetworkResourcesRes
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints.</p>
  *
+ * @throws {@link NetworkManagerServiceException}
+ * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
  */
 export class GetNetworkResourcesCommand extends $Command<

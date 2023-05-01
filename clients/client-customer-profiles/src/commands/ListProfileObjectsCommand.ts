@@ -36,24 +36,36 @@ export interface ListProfileObjectsCommandOutput extends ListProfileObjectsRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CustomerProfilesClient, ListProfileObjectsCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
- * // const { CustomerProfilesClient, ListProfileObjectsCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
+ * import { CustomerProfilesClient, ListProfileObjectsCommand } from '@aws-sdk/client-customer-profiles'; // ES Modules import
+ * // const { CustomerProfilesClient, ListProfileObjectsCommand } = require('@aws-sdk/client-customer-profiles'); // CommonJS import
  * const client = new CustomerProfilesClient(config);
  * const input = { // ListProfileObjectsRequest
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
- *   DomainName: "STRING_VALUE", // required
- *   ObjectTypeName: "STRING_VALUE", // required
- *   ProfileId: "STRING_VALUE", // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
+ *   DomainName: 'STRING_VALUE', // required
+ *   ObjectTypeName: 'STRING_VALUE', // required
+ *   ProfileId: 'STRING_VALUE', // required
  *   ObjectFilter: { // ObjectFilter
- *     KeyName: "STRING_VALUE", // required
+ *     KeyName: 'STRING_VALUE', // required
  *     Values: [ // requestValueList // required
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *   },
  * };
  * const command = new ListProfileObjectsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListProfileObjectsResponse
+ *   Items: [ // ProfileObjectList
+ *     { // ListProfileObjectsItem
+ *       ObjectTypeName: 'STRING_VALUE',
+ *       ProfileObjectUniqueKey: 'STRING_VALUE',
+ *       Object: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListProfileObjectsCommandInput - {@link ListProfileObjectsCommandInput}
@@ -77,6 +89,8 @@ export interface ListProfileObjectsCommandOutput extends ListProfileObjectsRespo
  * @throws {@link ThrottlingException} (client fault)
  *  <p>You exceeded the maximum number of requests.</p>
  *
+ * @throws {@link CustomerProfilesServiceException}
+ * <p>Base exception class for all service exceptions from CustomerProfiles service.</p>
  *
  */
 export class ListProfileObjectsCommand extends $Command<

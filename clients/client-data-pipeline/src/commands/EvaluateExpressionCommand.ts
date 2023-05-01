@@ -66,16 +66,21 @@ export interface EvaluateExpressionCommandOutput extends EvaluateExpressionOutpu
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DataPipelineClient, EvaluateExpressionCommand } from "@aws-sdk/client-data-pipeline"; // ES Modules import
- * // const { DataPipelineClient, EvaluateExpressionCommand } = require("@aws-sdk/client-data-pipeline"); // CommonJS import
+ * import { DataPipelineClient, EvaluateExpressionCommand } from '@aws-sdk/client-data-pipeline'; // ES Modules import
+ * // const { DataPipelineClient, EvaluateExpressionCommand } = require('@aws-sdk/client-data-pipeline'); // CommonJS import
  * const client = new DataPipelineClient(config);
  * const input = { // EvaluateExpressionInput
- *   pipelineId: "STRING_VALUE", // required
- *   objectId: "STRING_VALUE", // required
- *   expression: "STRING_VALUE", // required
+ *   pipelineId: 'STRING_VALUE', // required
+ *   objectId: 'STRING_VALUE', // required
+ *   expression: 'STRING_VALUE', // required
  * };
  * const command = new EvaluateExpressionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // EvaluateExpressionOutput
+ *   evaluatedExpression: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param EvaluateExpressionCommandInput - {@link EvaluateExpressionCommandInput}
@@ -99,6 +104,8 @@ export interface EvaluateExpressionCommandOutput extends EvaluateExpressionOutpu
  * @throws {@link TaskNotFoundException} (client fault)
  *  <p>The specified task was not found. </p>
  *
+ * @throws {@link DataPipelineServiceException}
+ * <p>Base exception class for all service exceptions from DataPipeline service.</p>
  *
  */
 export class EvaluateExpressionCommand extends $Command<

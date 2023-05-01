@@ -36,16 +36,30 @@ export interface ListThesauriCommandOutput extends ListThesauriResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KendraClient, ListThesauriCommand } from "@aws-sdk/client-kendra"; // ES Modules import
- * // const { KendraClient, ListThesauriCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
+ * import { KendraClient, ListThesauriCommand } from '@aws-sdk/client-kendra'; // ES Modules import
+ * // const { KendraClient, ListThesauriCommand } = require('@aws-sdk/client-kendra'); // CommonJS import
  * const client = new KendraClient(config);
  * const input = { // ListThesauriRequest
- *   IndexId: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   IndexId: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListThesauriCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListThesauriResponse
+ *   NextToken: 'STRING_VALUE',
+ *   ThesaurusSummaryItems: [ // ThesaurusSummaryItems
+ *     { // ThesaurusSummary
+ *       Id: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *       Status: 'CREATING' || 'ACTIVE' || 'DELETING' || 'UPDATING' || 'ACTIVE_BUT_UPDATE_FAILED' || 'FAILED',
+ *       CreatedAt: new Date('TIMESTAMP'),
+ *       UpdatedAt: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListThesauriCommandInput - {@link ListThesauriCommandInput}
@@ -74,6 +88,8 @@ export interface ListThesauriCommandOutput extends ListThesauriResponse, __Metad
  *  <p>The input fails to satisfy the constraints set by the Amazon Kendra service.
  *             Please provide the correct input and try again.</p>
  *
+ * @throws {@link KendraServiceException}
+ * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
  */
 export class ListThesauriCommand extends $Command<

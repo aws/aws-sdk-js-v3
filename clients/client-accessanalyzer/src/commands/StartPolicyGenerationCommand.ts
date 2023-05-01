@@ -36,31 +36,36 @@ export interface StartPolicyGenerationCommandOutput extends StartPolicyGeneratio
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AccessAnalyzerClient, StartPolicyGenerationCommand } from "@aws-sdk/client-accessanalyzer"; // ES Modules import
- * // const { AccessAnalyzerClient, StartPolicyGenerationCommand } = require("@aws-sdk/client-accessanalyzer"); // CommonJS import
+ * import { AccessAnalyzerClient, StartPolicyGenerationCommand } from '@aws-sdk/client-accessanalyzer'; // ES Modules import
+ * // const { AccessAnalyzerClient, StartPolicyGenerationCommand } = require('@aws-sdk/client-accessanalyzer'); // CommonJS import
  * const client = new AccessAnalyzerClient(config);
  * const input = { // StartPolicyGenerationRequest
  *   policyGenerationDetails: { // PolicyGenerationDetails
- *     principalArn: "STRING_VALUE", // required
+ *     principalArn: 'STRING_VALUE', // required
  *   },
  *   cloudTrailDetails: { // CloudTrailDetails
  *     trails: [ // TrailList // required
  *       { // Trail
- *         cloudTrailArn: "STRING_VALUE", // required
+ *         cloudTrailArn: 'STRING_VALUE', // required
  *         regions: [ // RegionList
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
  *         allRegions: true || false,
  *       },
  *     ],
- *     accessRole: "STRING_VALUE", // required
- *     startTime: new Date("TIMESTAMP"), // required
- *     endTime: new Date("TIMESTAMP"),
+ *     accessRole: 'STRING_VALUE', // required
+ *     startTime: new Date('TIMESTAMP'), // required
+ *     endTime: new Date('TIMESTAMP'),
  *   },
- *   clientToken: "STRING_VALUE",
+ *   clientToken: 'STRING_VALUE',
  * };
  * const command = new StartPolicyGenerationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartPolicyGenerationResponse
+ *   jobId: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param StartPolicyGenerationCommandInput - {@link StartPolicyGenerationCommandInput}
@@ -87,6 +92,8 @@ export interface StartPolicyGenerationCommandOutput extends StartPolicyGeneratio
  * @throws {@link ValidationException} (client fault)
  *  <p>Validation exception error.</p>
  *
+ * @throws {@link AccessAnalyzerServiceException}
+ * <p>Base exception class for all service exceptions from AccessAnalyzer service.</p>
  *
  */
 export class StartPolicyGenerationCommand extends $Command<

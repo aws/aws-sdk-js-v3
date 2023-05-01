@@ -66,37 +66,57 @@ export interface AdminInitiateAuthCommandOutput extends AdminInitiateAuthRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CognitoIdentityProviderClient, AdminInitiateAuthCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
- * // const { CognitoIdentityProviderClient, AdminInitiateAuthCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
+ * import { CognitoIdentityProviderClient, AdminInitiateAuthCommand } from '@aws-sdk/client-cognito-identity-provider'; // ES Modules import
+ * // const { CognitoIdentityProviderClient, AdminInitiateAuthCommand } = require('@aws-sdk/client-cognito-identity-provider'); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
  * const input = { // AdminInitiateAuthRequest
- *   UserPoolId: "STRING_VALUE", // required
- *   ClientId: "STRING_VALUE", // required
- *   AuthFlow: "USER_SRP_AUTH" || "REFRESH_TOKEN_AUTH" || "REFRESH_TOKEN" || "CUSTOM_AUTH" || "ADMIN_NO_SRP_AUTH" || "USER_PASSWORD_AUTH" || "ADMIN_USER_PASSWORD_AUTH", // required
+ *   UserPoolId: 'STRING_VALUE', // required
+ *   ClientId: 'STRING_VALUE', // required
+ *   AuthFlow: 'USER_SRP_AUTH' || 'REFRESH_TOKEN_AUTH' || 'REFRESH_TOKEN' || 'CUSTOM_AUTH' || 'ADMIN_NO_SRP_AUTH' || 'USER_PASSWORD_AUTH' || 'ADMIN_USER_PASSWORD_AUTH', // required
  *   AuthParameters: { // AuthParametersType
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  *   ClientMetadata: { // ClientMetadataType
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  *   AnalyticsMetadata: { // AnalyticsMetadataType
- *     AnalyticsEndpointId: "STRING_VALUE",
+ *     AnalyticsEndpointId: 'STRING_VALUE',
  *   },
  *   ContextData: { // ContextDataType
- *     IpAddress: "STRING_VALUE", // required
- *     ServerName: "STRING_VALUE", // required
- *     ServerPath: "STRING_VALUE", // required
+ *     IpAddress: 'STRING_VALUE', // required
+ *     ServerName: 'STRING_VALUE', // required
+ *     ServerPath: 'STRING_VALUE', // required
  *     HttpHeaders: [ // HttpHeaderList // required
  *       { // HttpHeader
- *         headerName: "STRING_VALUE",
- *         headerValue: "STRING_VALUE",
+ *         headerName: 'STRING_VALUE',
+ *         headerValue: 'STRING_VALUE',
  *       },
  *     ],
- *     EncodedData: "STRING_VALUE",
+ *     EncodedData: 'STRING_VALUE',
  *   },
  * };
  * const command = new AdminInitiateAuthCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AdminInitiateAuthResponse
+ *   ChallengeName: 'SMS_MFA' || 'SOFTWARE_TOKEN_MFA' || 'SELECT_MFA_TYPE' || 'MFA_SETUP' || 'PASSWORD_VERIFIER' || 'CUSTOM_CHALLENGE' || 'DEVICE_SRP_AUTH' || 'DEVICE_PASSWORD_VERIFIER' || 'ADMIN_NO_SRP_AUTH' || 'NEW_PASSWORD_REQUIRED',
+ *   Session: 'STRING_VALUE',
+ *   ChallengeParameters: { // ChallengeParametersType
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ *   AuthenticationResult: { // AuthenticationResultType
+ *     AccessToken: 'STRING_VALUE',
+ *     ExpiresIn: Number('int'),
+ *     TokenType: 'STRING_VALUE',
+ *     RefreshToken: 'STRING_VALUE',
+ *     IdToken: 'STRING_VALUE',
+ *     NewDeviceMetadata: { // NewDeviceMetadataType
+ *       DeviceKey: 'STRING_VALUE',
+ *       DeviceGroupKey: 'STRING_VALUE',
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param AdminInitiateAuthCommandInput - {@link AdminInitiateAuthCommandInput}
@@ -160,6 +180,8 @@ export interface AdminInitiateAuthCommandOutput extends AdminInitiateAuthRespons
  * @throws {@link UserNotFoundException} (client fault)
  *  <p>This exception is thrown when a user isn't found.</p>
  *
+ * @throws {@link CognitoIdentityProviderServiceException}
+ * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
  */
 export class AdminInitiateAuthCommand extends $Command<

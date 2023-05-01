@@ -94,14 +94,17 @@ export interface DeleteCustomKeyStoreCommandOutput extends DeleteCustomKeyStoreR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KMSClient, DeleteCustomKeyStoreCommand } from "@aws-sdk/client-kms"; // ES Modules import
- * // const { KMSClient, DeleteCustomKeyStoreCommand } = require("@aws-sdk/client-kms"); // CommonJS import
+ * import { KMSClient, DeleteCustomKeyStoreCommand } from '@aws-sdk/client-kms'; // ES Modules import
+ * // const { KMSClient, DeleteCustomKeyStoreCommand } = require('@aws-sdk/client-kms'); // CommonJS import
  * const client = new KMSClient(config);
  * const input = { // DeleteCustomKeyStoreRequest
- *   CustomKeyStoreId: "STRING_VALUE", // required
+ *   CustomKeyStoreId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteCustomKeyStoreCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteCustomKeyStoreCommandInput - {@link DeleteCustomKeyStoreCommandInput}
@@ -160,6 +163,8 @@ export interface DeleteCustomKeyStoreCommandOutput extends DeleteCustomKeyStoreR
  *  <p>The request was rejected because an internal exception occurred. The request can be
  *       retried.</p>
  *
+ * @throws {@link KMSServiceException}
+ * <p>Base exception class for all service exceptions from KMS service.</p>
  *
  * @example To delete a custom key store from AWS KMS
  * ```javascript

@@ -45,24 +45,47 @@ export interface DescribeMaintenanceWindowTargetsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMClient, DescribeMaintenanceWindowTargetsCommand } from "@aws-sdk/client-ssm"; // ES Modules import
- * // const { SSMClient, DescribeMaintenanceWindowTargetsCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * import { SSMClient, DescribeMaintenanceWindowTargetsCommand } from '@aws-sdk/client-ssm'; // ES Modules import
+ * // const { SSMClient, DescribeMaintenanceWindowTargetsCommand } = require('@aws-sdk/client-ssm'); // CommonJS import
  * const client = new SSMClient(config);
  * const input = { // DescribeMaintenanceWindowTargetsRequest
- *   WindowId: "STRING_VALUE", // required
+ *   WindowId: 'STRING_VALUE', // required
  *   Filters: [ // MaintenanceWindowFilterList
  *     { // MaintenanceWindowFilter
- *       Key: "STRING_VALUE",
+ *       Key: 'STRING_VALUE',
  *       Values: [ // MaintenanceWindowFilterValues
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new DescribeMaintenanceWindowTargetsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeMaintenanceWindowTargetsResult
+ *   Targets: [ // MaintenanceWindowTargetList
+ *     { // MaintenanceWindowTarget
+ *       WindowId: 'STRING_VALUE',
+ *       WindowTargetId: 'STRING_VALUE',
+ *       ResourceType: 'INSTANCE' || 'RESOURCE_GROUP',
+ *       Targets: [ // Targets
+ *         { // Target
+ *           Key: 'STRING_VALUE',
+ *           Values: [ // TargetValues
+ *             'STRING_VALUE',
+ *           ],
+ *         },
+ *       ],
+ *       OwnerInformation: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *       Description: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeMaintenanceWindowTargetsCommandInput - {@link DescribeMaintenanceWindowTargetsCommandInput}
@@ -80,6 +103,8 @@ export interface DescribeMaintenanceWindowTargetsCommandOutput
  * @throws {@link InternalServerError} (server fault)
  *  <p>An error occurred on the server side.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class DescribeMaintenanceWindowTargetsCommand extends $Command<

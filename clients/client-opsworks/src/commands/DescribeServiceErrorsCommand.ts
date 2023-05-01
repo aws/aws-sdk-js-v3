@@ -42,18 +42,32 @@ export interface DescribeServiceErrorsCommandOutput extends DescribeServiceError
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OpsWorksClient, DescribeServiceErrorsCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
- * // const { OpsWorksClient, DescribeServiceErrorsCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
+ * import { OpsWorksClient, DescribeServiceErrorsCommand } from '@aws-sdk/client-opsworks'; // ES Modules import
+ * // const { OpsWorksClient, DescribeServiceErrorsCommand } = require('@aws-sdk/client-opsworks'); // CommonJS import
  * const client = new OpsWorksClient(config);
  * const input = { // DescribeServiceErrorsRequest
- *   StackId: "STRING_VALUE",
- *   InstanceId: "STRING_VALUE",
+ *   StackId: 'STRING_VALUE',
+ *   InstanceId: 'STRING_VALUE',
  *   ServiceErrorIds: [ // Strings
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new DescribeServiceErrorsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeServiceErrorsResult
+ *   ServiceErrors: [ // ServiceErrors
+ *     { // ServiceError
+ *       ServiceErrorId: 'STRING_VALUE',
+ *       StackId: 'STRING_VALUE',
+ *       InstanceId: 'STRING_VALUE',
+ *       Type: 'STRING_VALUE',
+ *       Message: 'STRING_VALUE',
+ *       CreatedAt: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeServiceErrorsCommandInput - {@link DescribeServiceErrorsCommandInput}
@@ -68,6 +82,8 @@ export interface DescribeServiceErrorsCommandOutput extends DescribeServiceError
  * @throws {@link ValidationException} (client fault)
  *  <p>Indicates that a request was not valid.</p>
  *
+ * @throws {@link OpsWorksServiceException}
+ * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
  */
 export class DescribeServiceErrorsCommand extends $Command<

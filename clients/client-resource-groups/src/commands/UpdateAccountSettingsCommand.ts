@@ -40,14 +40,23 @@ export interface UpdateAccountSettingsCommandOutput extends UpdateAccountSetting
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ResourceGroupsClient, UpdateAccountSettingsCommand } from "@aws-sdk/client-resource-groups"; // ES Modules import
- * // const { ResourceGroupsClient, UpdateAccountSettingsCommand } = require("@aws-sdk/client-resource-groups"); // CommonJS import
+ * import { ResourceGroupsClient, UpdateAccountSettingsCommand } from '@aws-sdk/client-resource-groups'; // ES Modules import
+ * // const { ResourceGroupsClient, UpdateAccountSettingsCommand } = require('@aws-sdk/client-resource-groups'); // CommonJS import
  * const client = new ResourceGroupsClient(config);
  * const input = { // UpdateAccountSettingsInput
- *   GroupLifecycleEventsDesiredStatus: "ACTIVE" || "INACTIVE",
+ *   GroupLifecycleEventsDesiredStatus: 'ACTIVE' || 'INACTIVE',
  * };
  * const command = new UpdateAccountSettingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateAccountSettingsOutput
+ *   AccountSettings: { // AccountSettings
+ *     GroupLifecycleEventsDesiredStatus: 'ACTIVE' || 'INACTIVE',
+ *     GroupLifecycleEventsStatus: 'ACTIVE' || 'INACTIVE' || 'IN_PROGRESS' || 'ERROR',
+ *     GroupLifecycleEventsStatusMessage: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateAccountSettingsCommandInput - {@link UpdateAccountSettingsCommandInput}
@@ -72,6 +81,8 @@ export interface UpdateAccountSettingsCommandOutput extends UpdateAccountSetting
  *  <p>You've exceeded throttling limits by making too many requests in a period of
  *             time.</p>
  *
+ * @throws {@link ResourceGroupsServiceException}
+ * <p>Base exception class for all service exceptions from ResourceGroups service.</p>
  *
  */
 export class UpdateAccountSettingsCommand extends $Command<

@@ -42,16 +42,19 @@ export interface UpdateServiceSpecificCredentialCommandOutput extends __Metadata
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IAMClient, UpdateServiceSpecificCredentialCommand } from "@aws-sdk/client-iam"; // ES Modules import
- * // const { IAMClient, UpdateServiceSpecificCredentialCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * import { IAMClient, UpdateServiceSpecificCredentialCommand } from '@aws-sdk/client-iam'; // ES Modules import
+ * // const { IAMClient, UpdateServiceSpecificCredentialCommand } = require('@aws-sdk/client-iam'); // CommonJS import
  * const client = new IAMClient(config);
  * const input = { // UpdateServiceSpecificCredentialRequest
- *   UserName: "STRING_VALUE",
- *   ServiceSpecificCredentialId: "STRING_VALUE", // required
- *   Status: "Active" || "Inactive", // required
+ *   UserName: 'STRING_VALUE',
+ *   ServiceSpecificCredentialId: 'STRING_VALUE', // required
+ *   Status: 'Active' || 'Inactive', // required
  * };
  * const command = new UpdateServiceSpecificCredentialCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateServiceSpecificCredentialCommandInput - {@link UpdateServiceSpecificCredentialCommandInput}
@@ -64,6 +67,8 @@ export interface UpdateServiceSpecificCredentialCommandOutput extends __Metadata
  *  <p>The request was rejected because it referenced a resource entity that does not exist. The
  *       error message describes the resource.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  */
 export class UpdateServiceSpecificCredentialCommand extends $Command<

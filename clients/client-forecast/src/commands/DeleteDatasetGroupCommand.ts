@@ -39,14 +39,17 @@ export interface DeleteDatasetGroupCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ForecastClient, DeleteDatasetGroupCommand } from "@aws-sdk/client-forecast"; // ES Modules import
- * // const { ForecastClient, DeleteDatasetGroupCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
+ * import { ForecastClient, DeleteDatasetGroupCommand } from '@aws-sdk/client-forecast'; // ES Modules import
+ * // const { ForecastClient, DeleteDatasetGroupCommand } = require('@aws-sdk/client-forecast'); // CommonJS import
  * const client = new ForecastClient(config);
  * const input = { // DeleteDatasetGroupRequest
- *   DatasetGroupArn: "STRING_VALUE", // required
+ *   DatasetGroupArn: 'STRING_VALUE', // required
  * };
  * const command = new DeleteDatasetGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteDatasetGroupCommandInput - {@link DeleteDatasetGroupCommandInput}
@@ -66,6 +69,8 @@ export interface DeleteDatasetGroupCommandOutput extends __MetadataBearer {}
  *  <p>We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try
  *       again.</p>
  *
+ * @throws {@link ForecastServiceException}
+ * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
  */
 export class DeleteDatasetGroupCommand extends $Command<

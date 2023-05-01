@@ -42,17 +42,27 @@ export interface CreateSinkCommandOutput extends CreateSinkOutput, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OAMClient, CreateSinkCommand } from "@aws-sdk/client-oam"; // ES Modules import
- * // const { OAMClient, CreateSinkCommand } = require("@aws-sdk/client-oam"); // CommonJS import
+ * import { OAMClient, CreateSinkCommand } from '@aws-sdk/client-oam'; // ES Modules import
+ * // const { OAMClient, CreateSinkCommand } = require('@aws-sdk/client-oam'); // CommonJS import
  * const client = new OAMClient(config);
  * const input = { // CreateSinkInput
- *   Name: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
  *   Tags: { // TagMapInput
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateSinkCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateSinkOutput
+ *   Arn: 'STRING_VALUE',
+ *   Id: 'STRING_VALUE',
+ *   Name: 'STRING_VALUE',
+ *   Tags: { // TagMapOutput
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateSinkCommandInput - {@link CreateSinkCommandInput}
@@ -76,6 +86,8 @@ export interface CreateSinkCommandOutput extends CreateSinkOutput, __MetadataBea
  * @throws {@link ServiceQuotaExceededException} (client fault)
  *  <p>The request would cause a service quota to be exceeded.</p>
  *
+ * @throws {@link OAMServiceException}
+ * <p>Base exception class for all service exceptions from OAM service.</p>
  *
  */
 export class CreateSinkCommand extends $Command<

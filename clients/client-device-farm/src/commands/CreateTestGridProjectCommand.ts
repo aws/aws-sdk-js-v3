@@ -37,24 +37,43 @@ export interface CreateTestGridProjectCommandOutput extends CreateTestGridProjec
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DeviceFarmClient, CreateTestGridProjectCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
- * // const { DeviceFarmClient, CreateTestGridProjectCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
+ * import { DeviceFarmClient, CreateTestGridProjectCommand } from '@aws-sdk/client-device-farm'; // ES Modules import
+ * // const { DeviceFarmClient, CreateTestGridProjectCommand } = require('@aws-sdk/client-device-farm'); // CommonJS import
  * const client = new DeviceFarmClient(config);
  * const input = { // CreateTestGridProjectRequest
- *   name: "STRING_VALUE", // required
- *   description: "STRING_VALUE",
+ *   name: 'STRING_VALUE', // required
+ *   description: 'STRING_VALUE',
  *   vpcConfig: { // TestGridVpcConfig
  *     securityGroupIds: [ // SecurityGroupIds // required
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     subnetIds: [ // SubnetIds // required
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
- *     vpcId: "STRING_VALUE", // required
+ *     vpcId: 'STRING_VALUE', // required
  *   },
  * };
  * const command = new CreateTestGridProjectCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateTestGridProjectResult
+ *   testGridProject: { // TestGridProject
+ *     arn: 'STRING_VALUE',
+ *     name: 'STRING_VALUE',
+ *     description: 'STRING_VALUE',
+ *     vpcConfig: { // TestGridVpcConfig
+ *       securityGroupIds: [ // SecurityGroupIds // required
+ *         'STRING_VALUE',
+ *       ],
+ *       subnetIds: [ // SubnetIds // required
+ *         'STRING_VALUE',
+ *       ],
+ *       vpcId: 'STRING_VALUE', // required
+ *     },
+ *     created: new Date('TIMESTAMP'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateTestGridProjectCommandInput - {@link CreateTestGridProjectCommandInput}
@@ -73,6 +92,8 @@ export interface CreateTestGridProjectCommandOutput extends CreateTestGridProjec
  * @throws {@link LimitExceededException} (client fault)
  *  <p>A limit was exceeded.</p>
  *
+ * @throws {@link DeviceFarmServiceException}
+ * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
  */
 export class CreateTestGridProjectCommand extends $Command<

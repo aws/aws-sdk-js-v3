@@ -36,15 +36,20 @@ export interface CreateReturnShippingLabelCommandOutput extends CreateReturnShip
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SnowballClient, CreateReturnShippingLabelCommand } from "@aws-sdk/client-snowball"; // ES Modules import
- * // const { SnowballClient, CreateReturnShippingLabelCommand } = require("@aws-sdk/client-snowball"); // CommonJS import
+ * import { SnowballClient, CreateReturnShippingLabelCommand } from '@aws-sdk/client-snowball'; // ES Modules import
+ * // const { SnowballClient, CreateReturnShippingLabelCommand } = require('@aws-sdk/client-snowball'); // CommonJS import
  * const client = new SnowballClient(config);
  * const input = { // CreateReturnShippingLabelRequest
- *   JobId: "STRING_VALUE", // required
- *   ShippingOption: "SECOND_DAY" || "NEXT_DAY" || "EXPRESS" || "STANDARD",
+ *   JobId: 'STRING_VALUE', // required
+ *   ShippingOption: 'SECOND_DAY' || 'NEXT_DAY' || 'EXPRESS' || 'STANDARD',
  * };
  * const command = new CreateReturnShippingLabelCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateReturnShippingLabelResult
+ *   Status: 'InProgress' || 'TimedOut' || 'Succeeded' || 'Failed',
+ * };
+ *
  * ```
  *
  * @param CreateReturnShippingLabelCommandInput - {@link CreateReturnShippingLabelCommandInput}
@@ -73,6 +78,8 @@ export interface CreateReturnShippingLabelCommandOutput extends CreateReturnShip
  *       return shipping label already exists. In this case, use
  *         <code>DescribeReturnShippingLabel</code> to get the URL.</p>
  *
+ * @throws {@link SnowballServiceException}
+ * <p>Base exception class for all service exceptions from Snowball service.</p>
  *
  */
 export class CreateReturnShippingLabelCommand extends $Command<

@@ -43,15 +43,18 @@ export interface PushDomainCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Route53DomainsClient, PushDomainCommand } from "@aws-sdk/client-route-53-domains"; // ES Modules import
- * // const { Route53DomainsClient, PushDomainCommand } = require("@aws-sdk/client-route-53-domains"); // CommonJS import
+ * import { Route53DomainsClient, PushDomainCommand } from '@aws-sdk/client-route-53-domains'; // ES Modules import
+ * // const { Route53DomainsClient, PushDomainCommand } = require('@aws-sdk/client-route-53-domains'); // CommonJS import
  * const client = new Route53DomainsClient(config);
  * const input = { // PushDomainRequest
- *   DomainName: "STRING_VALUE", // required
- *   Target: "STRING_VALUE", // required
+ *   DomainName: 'STRING_VALUE', // required
+ *   Target: 'STRING_VALUE', // required
  * };
  * const command = new PushDomainCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PushDomainCommandInput - {@link PushDomainCommandInput}
@@ -73,6 +76,8 @@ export interface PushDomainCommandOutput extends __MetadataBearer {}
  * @throws {@link UnsupportedTLD} (client fault)
  *  <p>Amazon Route 53 does not support this top-level domain (TLD).</p>
  *
+ * @throws {@link Route53DomainsServiceException}
+ * <p>Base exception class for all service exceptions from Route53Domains service.</p>
  *
  */
 export class PushDomainCommand extends $Command<

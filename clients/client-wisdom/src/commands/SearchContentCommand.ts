@@ -37,25 +37,49 @@ export interface SearchContentCommandOutput extends SearchContentResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WisdomClient, SearchContentCommand } from "@aws-sdk/client-wisdom"; // ES Modules import
- * // const { WisdomClient, SearchContentCommand } = require("@aws-sdk/client-wisdom"); // CommonJS import
+ * import { WisdomClient, SearchContentCommand } from '@aws-sdk/client-wisdom'; // ES Modules import
+ * // const { WisdomClient, SearchContentCommand } = require('@aws-sdk/client-wisdom'); // CommonJS import
  * const client = new WisdomClient(config);
  * const input = { // SearchContentRequest
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
- *   knowledgeBaseId: "STRING_VALUE", // required
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
+ *   knowledgeBaseId: 'STRING_VALUE', // required
  *   searchExpression: { // SearchExpression
  *     filters: [ // FilterList // required
  *       { // Filter
- *         field: "STRING_VALUE", // required
- *         operator: "STRING_VALUE", // required
- *         value: "STRING_VALUE", // required
+ *         field: 'STRING_VALUE', // required
+ *         operator: 'STRING_VALUE', // required
+ *         value: 'STRING_VALUE', // required
  *       },
  *     ],
  *   },
  * };
  * const command = new SearchContentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SearchContentResponse
+ *   contentSummaries: [ // ContentSummaryList // required
+ *     { // ContentSummary
+ *       contentArn: 'STRING_VALUE', // required
+ *       contentId: 'STRING_VALUE', // required
+ *       knowledgeBaseArn: 'STRING_VALUE', // required
+ *       knowledgeBaseId: 'STRING_VALUE', // required
+ *       name: 'STRING_VALUE', // required
+ *       revisionId: 'STRING_VALUE', // required
+ *       title: 'STRING_VALUE', // required
+ *       contentType: 'STRING_VALUE', // required
+ *       status: 'STRING_VALUE', // required
+ *       metadata: { // ContentMetadata // required
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *       tags: { // Tags
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param SearchContentCommandInput - {@link SearchContentCommandInput}
@@ -73,6 +97,8 @@ export interface SearchContentCommandOutput extends SearchContentResponse, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by a service.</p>
  *
+ * @throws {@link WisdomServiceException}
+ * <p>Base exception class for all service exceptions from Wisdom service.</p>
  *
  */
 export class SearchContentCommand extends $Command<

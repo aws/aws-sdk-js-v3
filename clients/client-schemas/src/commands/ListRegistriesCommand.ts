@@ -36,17 +36,31 @@ export interface ListRegistriesCommandOutput extends ListRegistriesResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SchemasClient, ListRegistriesCommand } from "@aws-sdk/client-schemas"; // ES Modules import
- * // const { SchemasClient, ListRegistriesCommand } = require("@aws-sdk/client-schemas"); // CommonJS import
+ * import { SchemasClient, ListRegistriesCommand } from '@aws-sdk/client-schemas'; // ES Modules import
+ * // const { SchemasClient, ListRegistriesCommand } = require('@aws-sdk/client-schemas'); // CommonJS import
  * const client = new SchemasClient(config);
  * const input = { // ListRegistriesRequest
- *   Limit: Number("int"),
- *   NextToken: "STRING_VALUE",
- *   RegistryNamePrefix: "STRING_VALUE",
- *   Scope: "STRING_VALUE",
+ *   Limit: Number('int'),
+ *   NextToken: 'STRING_VALUE',
+ *   RegistryNamePrefix: 'STRING_VALUE',
+ *   Scope: 'STRING_VALUE',
  * };
  * const command = new ListRegistriesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListRegistriesResponse
+ *   NextToken: 'STRING_VALUE',
+ *   Registries: [ // __listOfRegistrySummary
+ *     { // RegistrySummary
+ *       RegistryArn: 'STRING_VALUE',
+ *       RegistryName: 'STRING_VALUE',
+ *       Tags: { // Tags
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListRegistriesCommandInput - {@link ListRegistriesCommandInput}
@@ -65,6 +79,8 @@ export interface ListRegistriesCommandOutput extends ListRegistriesResponse, __M
  *
  * @throws {@link UnauthorizedException} (client fault)
  *
+ * @throws {@link SchemasServiceException}
+ * <p>Base exception class for all service exceptions from Schemas service.</p>
  *
  */
 export class ListRegistriesCommand extends $Command<

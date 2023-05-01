@@ -47,19 +47,27 @@ export interface TestRoleCommandOutput extends TestRoleResponse, __MetadataBeare
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElasticTranscoderClient, TestRoleCommand } from "@aws-sdk/client-elastic-transcoder"; // ES Modules import
- * // const { ElasticTranscoderClient, TestRoleCommand } = require("@aws-sdk/client-elastic-transcoder"); // CommonJS import
+ * import { ElasticTranscoderClient, TestRoleCommand } from '@aws-sdk/client-elastic-transcoder'; // ES Modules import
+ * // const { ElasticTranscoderClient, TestRoleCommand } = require('@aws-sdk/client-elastic-transcoder'); // CommonJS import
  * const client = new ElasticTranscoderClient(config);
  * const input = { // TestRoleRequest
- *   Role: "STRING_VALUE", // required
- *   InputBucket: "STRING_VALUE", // required
- *   OutputBucket: "STRING_VALUE", // required
+ *   Role: 'STRING_VALUE', // required
+ *   InputBucket: 'STRING_VALUE', // required
+ *   OutputBucket: 'STRING_VALUE', // required
  *   Topics: [ // SnsTopics // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new TestRoleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // TestRoleResponse
+ *   Success: 'STRING_VALUE',
+ *   Messages: [ // ExceptionMessages
+ *     'STRING_VALUE',
+ *   ],
+ * };
+ *
  * ```
  *
  * @param TestRoleCommandInput - {@link TestRoleCommandInput}
@@ -83,6 +91,8 @@ export interface TestRoleCommandOutput extends TestRoleResponse, __MetadataBeare
  * @throws {@link ValidationException} (client fault)
  *  <p>One or more required parameter values were not provided in the request.</p>
  *
+ * @throws {@link ElasticTranscoderServiceException}
+ * <p>Base exception class for all service exceptions from ElasticTranscoder service.</p>
  *
  */
 export class TestRoleCommand extends $Command<

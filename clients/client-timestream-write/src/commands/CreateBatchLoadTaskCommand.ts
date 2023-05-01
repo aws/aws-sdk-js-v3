@@ -49,81 +49,86 @@ export interface CreateBatchLoadTaskCommandOutput extends CreateBatchLoadTaskRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { TimestreamWriteClient, CreateBatchLoadTaskCommand } from "@aws-sdk/client-timestream-write"; // ES Modules import
- * // const { TimestreamWriteClient, CreateBatchLoadTaskCommand } = require("@aws-sdk/client-timestream-write"); // CommonJS import
+ * import { TimestreamWriteClient, CreateBatchLoadTaskCommand } from '@aws-sdk/client-timestream-write'; // ES Modules import
+ * // const { TimestreamWriteClient, CreateBatchLoadTaskCommand } = require('@aws-sdk/client-timestream-write'); // CommonJS import
  * const client = new TimestreamWriteClient(config);
  * const input = { // CreateBatchLoadTaskRequest
- *   ClientToken: "STRING_VALUE",
+ *   ClientToken: 'STRING_VALUE',
  *   DataModelConfiguration: { // DataModelConfiguration
  *     DataModel: { // DataModel
- *       TimeColumn: "STRING_VALUE",
- *       TimeUnit: "MILLISECONDS" || "SECONDS" || "MICROSECONDS" || "NANOSECONDS",
+ *       TimeColumn: 'STRING_VALUE',
+ *       TimeUnit: 'MILLISECONDS' || 'SECONDS' || 'MICROSECONDS' || 'NANOSECONDS',
  *       DimensionMappings: [ // DimensionMappings // required
  *         { // DimensionMapping
- *           SourceColumn: "STRING_VALUE",
- *           DestinationColumn: "STRING_VALUE",
+ *           SourceColumn: 'STRING_VALUE',
+ *           DestinationColumn: 'STRING_VALUE',
  *         },
  *       ],
  *       MultiMeasureMappings: { // MultiMeasureMappings
- *         TargetMultiMeasureName: "STRING_VALUE",
+ *         TargetMultiMeasureName: 'STRING_VALUE',
  *         MultiMeasureAttributeMappings: [ // MultiMeasureAttributeMappingList // required
  *           { // MultiMeasureAttributeMapping
- *             SourceColumn: "STRING_VALUE", // required
- *             TargetMultiMeasureAttributeName: "STRING_VALUE",
- *             MeasureValueType: "DOUBLE" || "BIGINT" || "BOOLEAN" || "VARCHAR" || "TIMESTAMP",
+ *             SourceColumn: 'STRING_VALUE', // required
+ *             TargetMultiMeasureAttributeName: 'STRING_VALUE',
+ *             MeasureValueType: 'DOUBLE' || 'BIGINT' || 'BOOLEAN' || 'VARCHAR' || 'TIMESTAMP',
  *           },
  *         ],
  *       },
  *       MixedMeasureMappings: [ // MixedMeasureMappingList
  *         { // MixedMeasureMapping
- *           MeasureName: "STRING_VALUE",
- *           SourceColumn: "STRING_VALUE",
- *           TargetMeasureName: "STRING_VALUE",
- *           MeasureValueType: "DOUBLE" || "BIGINT" || "VARCHAR" || "BOOLEAN" || "TIMESTAMP" || "MULTI", // required
+ *           MeasureName: 'STRING_VALUE',
+ *           SourceColumn: 'STRING_VALUE',
+ *           TargetMeasureName: 'STRING_VALUE',
+ *           MeasureValueType: 'DOUBLE' || 'BIGINT' || 'VARCHAR' || 'BOOLEAN' || 'TIMESTAMP' || 'MULTI', // required
  *           MultiMeasureAttributeMappings: [
  *             {
- *               SourceColumn: "STRING_VALUE", // required
- *               TargetMultiMeasureAttributeName: "STRING_VALUE",
- *               MeasureValueType: "DOUBLE" || "BIGINT" || "BOOLEAN" || "VARCHAR" || "TIMESTAMP",
+ *               SourceColumn: 'STRING_VALUE', // required
+ *               TargetMultiMeasureAttributeName: 'STRING_VALUE',
+ *               MeasureValueType: 'DOUBLE' || 'BIGINT' || 'BOOLEAN' || 'VARCHAR' || 'TIMESTAMP',
  *             },
  *           ],
  *         },
  *       ],
- *       MeasureNameColumn: "STRING_VALUE",
+ *       MeasureNameColumn: 'STRING_VALUE',
  *     },
  *     DataModelS3Configuration: { // DataModelS3Configuration
- *       BucketName: "STRING_VALUE",
- *       ObjectKey: "STRING_VALUE",
+ *       BucketName: 'STRING_VALUE',
+ *       ObjectKey: 'STRING_VALUE',
  *     },
  *   },
  *   DataSourceConfiguration: { // DataSourceConfiguration
  *     DataSourceS3Configuration: { // DataSourceS3Configuration
- *       BucketName: "STRING_VALUE", // required
- *       ObjectKeyPrefix: "STRING_VALUE",
+ *       BucketName: 'STRING_VALUE', // required
+ *       ObjectKeyPrefix: 'STRING_VALUE',
  *     },
  *     CsvConfiguration: { // CsvConfiguration
- *       ColumnSeparator: "STRING_VALUE",
- *       EscapeChar: "STRING_VALUE",
- *       QuoteChar: "STRING_VALUE",
- *       NullValue: "STRING_VALUE",
+ *       ColumnSeparator: 'STRING_VALUE',
+ *       EscapeChar: 'STRING_VALUE',
+ *       QuoteChar: 'STRING_VALUE',
+ *       NullValue: 'STRING_VALUE',
  *       TrimWhiteSpace: true || false,
  *     },
- *     DataFormat: "CSV", // required
+ *     DataFormat: 'CSV', // required
  *   },
  *   ReportConfiguration: { // ReportConfiguration
  *     ReportS3Configuration: { // ReportS3Configuration
- *       BucketName: "STRING_VALUE", // required
- *       ObjectKeyPrefix: "STRING_VALUE",
- *       EncryptionOption: "SSE_S3" || "SSE_KMS",
- *       KmsKeyId: "STRING_VALUE",
+ *       BucketName: 'STRING_VALUE', // required
+ *       ObjectKeyPrefix: 'STRING_VALUE',
+ *       EncryptionOption: 'SSE_S3' || 'SSE_KMS',
+ *       KmsKeyId: 'STRING_VALUE',
  *     },
  *   },
- *   TargetDatabaseName: "STRING_VALUE", // required
- *   TargetTableName: "STRING_VALUE", // required
- *   RecordVersion: Number("long"),
+ *   TargetDatabaseName: 'STRING_VALUE', // required
+ *   TargetTableName: 'STRING_VALUE', // required
+ *   RecordVersion: Number('long'),
  * };
  * const command = new CreateBatchLoadTaskCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateBatchLoadTaskResponse
+ *   TaskId: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param CreateBatchLoadTaskCommandInput - {@link CreateBatchLoadTaskCommandInput}
@@ -161,6 +166,8 @@ export interface CreateBatchLoadTaskCommandOutput extends CreateBatchLoadTaskRes
  * @throws {@link ValidationException} (client fault)
  *  <p> An invalid or malformed request.</p>
  *
+ * @throws {@link TimestreamWriteServiceException}
+ * <p>Base exception class for all service exceptions from TimestreamWrite service.</p>
  *
  */
 export class CreateBatchLoadTaskCommand extends $Command<

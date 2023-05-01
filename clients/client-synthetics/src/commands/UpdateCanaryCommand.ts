@@ -40,63 +40,66 @@ export interface UpdateCanaryCommandOutput extends UpdateCanaryResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SyntheticsClient, UpdateCanaryCommand } from "@aws-sdk/client-synthetics"; // ES Modules import
- * // const { SyntheticsClient, UpdateCanaryCommand } = require("@aws-sdk/client-synthetics"); // CommonJS import
+ * import { SyntheticsClient, UpdateCanaryCommand } from '@aws-sdk/client-synthetics'; // ES Modules import
+ * // const { SyntheticsClient, UpdateCanaryCommand } = require('@aws-sdk/client-synthetics'); // CommonJS import
  * const client = new SyntheticsClient(config);
  * const input = { // UpdateCanaryRequest
- *   Name: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
  *   Code: { // CanaryCodeInput
- *     S3Bucket: "STRING_VALUE",
- *     S3Key: "STRING_VALUE",
- *     S3Version: "STRING_VALUE",
- *     ZipFile: "BLOB_VALUE",
- *     Handler: "STRING_VALUE", // required
+ *     S3Bucket: 'STRING_VALUE',
+ *     S3Key: 'STRING_VALUE',
+ *     S3Version: 'STRING_VALUE',
+ *     ZipFile: 'BLOB_VALUE',
+ *     Handler: 'STRING_VALUE', // required
  *   },
- *   ExecutionRoleArn: "STRING_VALUE",
- *   RuntimeVersion: "STRING_VALUE",
+ *   ExecutionRoleArn: 'STRING_VALUE',
+ *   RuntimeVersion: 'STRING_VALUE',
  *   Schedule: { // CanaryScheduleInput
- *     Expression: "STRING_VALUE", // required
- *     DurationInSeconds: Number("long"),
+ *     Expression: 'STRING_VALUE', // required
+ *     DurationInSeconds: Number('long'),
  *   },
  *   RunConfig: { // CanaryRunConfigInput
- *     TimeoutInSeconds: Number("int"),
- *     MemoryInMB: Number("int"),
+ *     TimeoutInSeconds: Number('int'),
+ *     MemoryInMB: Number('int'),
  *     ActiveTracing: true || false,
  *     EnvironmentVariables: { // EnvironmentVariablesMap
- *       "<keys>": "STRING_VALUE",
+ *       '<keys>': 'STRING_VALUE',
  *     },
  *   },
- *   SuccessRetentionPeriodInDays: Number("int"),
- *   FailureRetentionPeriodInDays: Number("int"),
+ *   SuccessRetentionPeriodInDays: Number('int'),
+ *   FailureRetentionPeriodInDays: Number('int'),
  *   VpcConfig: { // VpcConfigInput
  *     SubnetIds: [ // SubnetIds
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     SecurityGroupIds: [ // SecurityGroupIds
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *   },
  *   VisualReference: { // VisualReferenceInput
  *     BaseScreenshots: [ // BaseScreenshots
  *       { // BaseScreenshot
- *         ScreenshotName: "STRING_VALUE", // required
+ *         ScreenshotName: 'STRING_VALUE', // required
  *         IgnoreCoordinates: [ // BaseScreenshotIgnoreCoordinates
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
  *       },
  *     ],
- *     BaseCanaryRunId: "STRING_VALUE", // required
+ *     BaseCanaryRunId: 'STRING_VALUE', // required
  *   },
- *   ArtifactS3Location: "STRING_VALUE",
+ *   ArtifactS3Location: 'STRING_VALUE',
  *   ArtifactConfig: { // ArtifactConfigInput
  *     S3Encryption: { // S3EncryptionConfig
- *       EncryptionMode: "STRING_VALUE",
- *       KmsKeyArn: "STRING_VALUE",
+ *       EncryptionMode: 'STRING_VALUE',
+ *       KmsKeyArn: 'STRING_VALUE',
  *     },
  *   },
  * };
  * const command = new UpdateCanaryCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateCanaryCommandInput - {@link UpdateCanaryCommandInput}
@@ -120,6 +123,8 @@ export interface UpdateCanaryCommandOutput extends UpdateCanaryResponse, __Metad
  * @throws {@link ValidationException} (client fault)
  *  <p>A parameter could not be validated.</p>
  *
+ * @throws {@link SyntheticsServiceException}
+ * <p>Base exception class for all service exceptions from Synthetics service.</p>
  *
  */
 export class UpdateCanaryCommand extends $Command<

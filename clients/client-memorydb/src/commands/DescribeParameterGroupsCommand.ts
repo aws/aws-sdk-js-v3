@@ -36,16 +36,29 @@ export interface DescribeParameterGroupsCommandOutput extends DescribeParameterG
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MemoryDBClient, DescribeParameterGroupsCommand } from "@aws-sdk/client-memorydb"; // ES Modules import
- * // const { MemoryDBClient, DescribeParameterGroupsCommand } = require("@aws-sdk/client-memorydb"); // CommonJS import
+ * import { MemoryDBClient, DescribeParameterGroupsCommand } from '@aws-sdk/client-memorydb'; // ES Modules import
+ * // const { MemoryDBClient, DescribeParameterGroupsCommand } = require('@aws-sdk/client-memorydb'); // CommonJS import
  * const client = new MemoryDBClient(config);
  * const input = { // DescribeParameterGroupsRequest
- *   ParameterGroupName: "STRING_VALUE",
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   ParameterGroupName: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new DescribeParameterGroupsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeParameterGroupsResponse
+ *   NextToken: 'STRING_VALUE',
+ *   ParameterGroups: [ // ParameterGroupList
+ *     { // ParameterGroup
+ *       Name: 'STRING_VALUE',
+ *       Family: 'STRING_VALUE',
+ *       Description: 'STRING_VALUE',
+ *       ARN: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeParameterGroupsCommandInput - {@link DescribeParameterGroupsCommandInput}
@@ -66,6 +79,8 @@ export interface DescribeParameterGroupsCommandOutput extends DescribeParameterG
  * @throws {@link ServiceLinkedRoleNotFoundFault} (client fault)
  *  <p></p>
  *
+ * @throws {@link MemoryDBServiceException}
+ * <p>Base exception class for all service exceptions from MemoryDB service.</p>
  *
  */
 export class DescribeParameterGroupsCommand extends $Command<

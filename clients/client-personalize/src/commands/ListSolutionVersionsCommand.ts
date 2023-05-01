@@ -38,16 +38,30 @@ export interface ListSolutionVersionsCommandOutput extends ListSolutionVersionsR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PersonalizeClient, ListSolutionVersionsCommand } from "@aws-sdk/client-personalize"; // ES Modules import
- * // const { PersonalizeClient, ListSolutionVersionsCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
+ * import { PersonalizeClient, ListSolutionVersionsCommand } from '@aws-sdk/client-personalize'; // ES Modules import
+ * // const { PersonalizeClient, ListSolutionVersionsCommand } = require('@aws-sdk/client-personalize'); // CommonJS import
  * const client = new PersonalizeClient(config);
  * const input = { // ListSolutionVersionsRequest
- *   solutionArn: "STRING_VALUE",
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   solutionArn: 'STRING_VALUE',
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new ListSolutionVersionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListSolutionVersionsResponse
+ *   solutionVersions: [ // SolutionVersions
+ *     { // SolutionVersionSummary
+ *       solutionVersionArn: 'STRING_VALUE',
+ *       status: 'STRING_VALUE',
+ *       creationDateTime: new Date('TIMESTAMP'),
+ *       lastUpdatedDateTime: new Date('TIMESTAMP'),
+ *       failureReason: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListSolutionVersionsCommandInput - {@link ListSolutionVersionsCommandInput}
@@ -65,6 +79,8 @@ export interface ListSolutionVersionsCommandOutput extends ListSolutionVersionsR
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Could not find the specified resource.</p>
  *
+ * @throws {@link PersonalizeServiceException}
+ * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
  */
 export class ListSolutionVersionsCommand extends $Command<

@@ -39,15 +39,37 @@ export interface ListMeetingsCommandOutput extends ListMeetingsResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeClient, ListMeetingsCommand } from "@aws-sdk/client-chime"; // ES Modules import
- * // const { ChimeClient, ListMeetingsCommand } = require("@aws-sdk/client-chime"); // CommonJS import
+ * import { ChimeClient, ListMeetingsCommand } from '@aws-sdk/client-chime'; // ES Modules import
+ * // const { ChimeClient, ListMeetingsCommand } = require('@aws-sdk/client-chime'); // CommonJS import
  * const client = new ChimeClient(config);
  * const input = { // ListMeetingsRequest
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListMeetingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListMeetingsResponse
+ *   Meetings: [ // MeetingList
+ *     { // Meeting
+ *       MeetingId: 'STRING_VALUE',
+ *       ExternalMeetingId: 'STRING_VALUE',
+ *       MediaPlacement: { // MediaPlacement
+ *         AudioHostUrl: 'STRING_VALUE',
+ *         AudioFallbackUrl: 'STRING_VALUE',
+ *         ScreenDataUrl: 'STRING_VALUE',
+ *         ScreenSharingUrl: 'STRING_VALUE',
+ *         ScreenViewingUrl: 'STRING_VALUE',
+ *         SignalingUrl: 'STRING_VALUE',
+ *         TurnControlUrl: 'STRING_VALUE',
+ *         EventIngestionUrl: 'STRING_VALUE',
+ *       },
+ *       MediaRegion: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListMeetingsCommandInput - {@link ListMeetingsCommandInput}
@@ -74,6 +96,8 @@ export interface ListMeetingsCommandOutput extends ListMeetingsResponse, __Metad
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeServiceException}
+ * <p>Base exception class for all service exceptions from Chime service.</p>
  *
  */
 export class ListMeetingsCommand extends $Command<

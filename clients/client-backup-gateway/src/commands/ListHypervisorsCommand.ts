@@ -36,15 +36,29 @@ export interface ListHypervisorsCommandOutput extends ListHypervisorsOutput, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BackupGatewayClient, ListHypervisorsCommand } from "@aws-sdk/client-backup-gateway"; // ES Modules import
- * // const { BackupGatewayClient, ListHypervisorsCommand } = require("@aws-sdk/client-backup-gateway"); // CommonJS import
+ * import { BackupGatewayClient, ListHypervisorsCommand } from '@aws-sdk/client-backup-gateway'; // ES Modules import
+ * // const { BackupGatewayClient, ListHypervisorsCommand } = require('@aws-sdk/client-backup-gateway'); // CommonJS import
  * const client = new BackupGatewayClient(config);
  * const input = { // ListHypervisorsInput
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListHypervisorsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListHypervisorsOutput
+ *   Hypervisors: [ // Hypervisors
+ *     { // Hypervisor
+ *       Host: 'STRING_VALUE',
+ *       HypervisorArn: 'STRING_VALUE',
+ *       KmsKeyArn: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *       State: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListHypervisorsCommandInput - {@link ListHypervisorsCommandInput}
@@ -63,6 +77,8 @@ export interface ListHypervisorsCommandOutput extends ListHypervisorsOutput, __M
  * @throws {@link ValidationException} (client fault)
  *  <p>The operation did not succeed because a validation error occurred.</p>
  *
+ * @throws {@link BackupGatewayServiceException}
+ * <p>Base exception class for all service exceptions from BackupGateway service.</p>
  *
  */
 export class ListHypervisorsCommand extends $Command<

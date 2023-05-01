@@ -157,56 +157,81 @@ export interface SelectObjectContentCommandOutput extends SelectObjectContentOut
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { S3Client, SelectObjectContentCommand } from "@aws-sdk/client-s3"; // ES Modules import
- * // const { S3Client, SelectObjectContentCommand } = require("@aws-sdk/client-s3"); // CommonJS import
+ * import { S3Client, SelectObjectContentCommand } from '@aws-sdk/client-s3'; // ES Modules import
+ * // const { S3Client, SelectObjectContentCommand } = require('@aws-sdk/client-s3'); // CommonJS import
  * const client = new S3Client(config);
  * const input = { // SelectObjectContentRequest
- *   Bucket: "STRING_VALUE", // required
- *   Key: "STRING_VALUE", // required
- *   SSECustomerAlgorithm: "STRING_VALUE",
- *   SSECustomerKey: "STRING_VALUE",
- *   SSECustomerKeyMD5: "STRING_VALUE",
- *   Expression: "STRING_VALUE", // required
- *   ExpressionType: "SQL", // required
+ *   Bucket: 'STRING_VALUE', // required
+ *   Key: 'STRING_VALUE', // required
+ *   SSECustomerAlgorithm: 'STRING_VALUE',
+ *   SSECustomerKey: 'STRING_VALUE',
+ *   SSECustomerKeyMD5: 'STRING_VALUE',
+ *   Expression: 'STRING_VALUE', // required
+ *   ExpressionType: 'SQL', // required
  *   RequestProgress: { // RequestProgress
  *     Enabled: true || false,
  *   },
  *   InputSerialization: { // InputSerialization
  *     CSV: { // CSVInput
- *       FileHeaderInfo: "USE" || "IGNORE" || "NONE",
- *       Comments: "STRING_VALUE",
- *       QuoteEscapeCharacter: "STRING_VALUE",
- *       RecordDelimiter: "STRING_VALUE",
- *       FieldDelimiter: "STRING_VALUE",
- *       QuoteCharacter: "STRING_VALUE",
+ *       FileHeaderInfo: 'USE' || 'IGNORE' || 'NONE',
+ *       Comments: 'STRING_VALUE',
+ *       QuoteEscapeCharacter: 'STRING_VALUE',
+ *       RecordDelimiter: 'STRING_VALUE',
+ *       FieldDelimiter: 'STRING_VALUE',
+ *       QuoteCharacter: 'STRING_VALUE',
  *       AllowQuotedRecordDelimiter: true || false,
  *     },
- *     CompressionType: "NONE" || "GZIP" || "BZIP2",
+ *     CompressionType: 'NONE' || 'GZIP' || 'BZIP2',
  *     JSON: { // JSONInput
- *       Type: "DOCUMENT" || "LINES",
+ *       Type: 'DOCUMENT' || 'LINES',
  *     },
  *     Parquet: {},
  *   },
  *   OutputSerialization: { // OutputSerialization
  *     CSV: { // CSVOutput
- *       QuoteFields: "ALWAYS" || "ASNEEDED",
- *       QuoteEscapeCharacter: "STRING_VALUE",
- *       RecordDelimiter: "STRING_VALUE",
- *       FieldDelimiter: "STRING_VALUE",
- *       QuoteCharacter: "STRING_VALUE",
+ *       QuoteFields: 'ALWAYS' || 'ASNEEDED',
+ *       QuoteEscapeCharacter: 'STRING_VALUE',
+ *       RecordDelimiter: 'STRING_VALUE',
+ *       FieldDelimiter: 'STRING_VALUE',
+ *       QuoteCharacter: 'STRING_VALUE',
  *     },
  *     JSON: { // JSONOutput
- *       RecordDelimiter: "STRING_VALUE",
+ *       RecordDelimiter: 'STRING_VALUE',
  *     },
  *   },
  *   ScanRange: { // ScanRange
- *     Start: Number("long"),
- *     End: Number("long"),
+ *     Start: Number('long'),
+ *     End: Number('long'),
  *   },
- *   ExpectedBucketOwner: "STRING_VALUE",
+ *   ExpectedBucketOwner: 'STRING_VALUE',
  * };
  * const command = new SelectObjectContentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SelectObjectContentOutput
+ *   Payload: { // SelectObjectContentEventStream Union: only one key present
+ *     Records: { // RecordsEvent
+ *       Payload: 'BLOB_VALUE',
+ *     },
+ *     Stats: { // StatsEvent
+ *       Details: { // Stats
+ *         BytesScanned: Number('long'),
+ *         BytesProcessed: Number('long'),
+ *         BytesReturned: Number('long'),
+ *       },
+ *     },
+ *     Progress: { // ProgressEvent
+ *       Details: { // Progress
+ *         BytesScanned: Number('long'),
+ *         BytesProcessed: Number('long'),
+ *         BytesReturned: Number('long'),
+ *       },
+ *     },
+ *     Cont: {},
+ *     End: {},
+ *   },
+ * };
+ *
  * ```
  *
  * @param SelectObjectContentCommandInput - {@link SelectObjectContentCommandInput}
@@ -215,6 +240,8 @@ export interface SelectObjectContentCommandOutput extends SelectObjectContentOut
  * @see {@link SelectObjectContentCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
+ * @throws {@link S3ServiceException}
+ * <p>Base exception class for all service exceptions from S3 service.</p>
  *
  */
 export class SelectObjectContentCommand extends $Command<

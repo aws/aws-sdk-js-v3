@@ -42,15 +42,18 @@ export interface DeleteComponentCommandOutput extends DeleteComponentResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ApplicationInsightsClient, DeleteComponentCommand } from "@aws-sdk/client-application-insights"; // ES Modules import
- * // const { ApplicationInsightsClient, DeleteComponentCommand } = require("@aws-sdk/client-application-insights"); // CommonJS import
+ * import { ApplicationInsightsClient, DeleteComponentCommand } from '@aws-sdk/client-application-insights'; // ES Modules import
+ * // const { ApplicationInsightsClient, DeleteComponentCommand } = require('@aws-sdk/client-application-insights'); // CommonJS import
  * const client = new ApplicationInsightsClient(config);
  * const input = { // DeleteComponentRequest
- *   ResourceGroupName: "STRING_VALUE", // required
- *   ComponentName: "STRING_VALUE", // required
+ *   ResourceGroupName: 'STRING_VALUE', // required
+ *   ComponentName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteComponentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteComponentCommandInput - {@link DeleteComponentCommandInput}
@@ -68,6 +71,8 @@ export interface DeleteComponentCommandOutput extends DeleteComponentResponse, _
  * @throws {@link ValidationException} (client fault)
  *  <p>The parameter is not valid.</p>
  *
+ * @throws {@link ApplicationInsightsServiceException}
+ * <p>Base exception class for all service exceptions from ApplicationInsights service.</p>
  *
  */
 export class DeleteComponentCommand extends $Command<

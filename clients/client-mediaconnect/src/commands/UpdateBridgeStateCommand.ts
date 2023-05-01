@@ -36,15 +36,21 @@ export interface UpdateBridgeStateCommandOutput extends UpdateBridgeStateRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MediaConnectClient, UpdateBridgeStateCommand } from "@aws-sdk/client-mediaconnect"; // ES Modules import
- * // const { MediaConnectClient, UpdateBridgeStateCommand } = require("@aws-sdk/client-mediaconnect"); // CommonJS import
+ * import { MediaConnectClient, UpdateBridgeStateCommand } from '@aws-sdk/client-mediaconnect'; // ES Modules import
+ * // const { MediaConnectClient, UpdateBridgeStateCommand } = require('@aws-sdk/client-mediaconnect'); // CommonJS import
  * const client = new MediaConnectClient(config);
  * const input = { // UpdateBridgeStateRequest
- *   BridgeArn: "STRING_VALUE", // required
- *   DesiredState: "ACTIVE" || "STANDBY" || "DELETED", // required
+ *   BridgeArn: 'STRING_VALUE', // required
+ *   DesiredState: 'ACTIVE' || 'STANDBY' || 'DELETED', // required
  * };
  * const command = new UpdateBridgeStateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateBridgeStateResponse
+ *   BridgeArn: 'STRING_VALUE',
+ *   DesiredState: 'ACTIVE' || 'STANDBY' || 'DELETED',
+ * };
+ *
  * ```
  *
  * @param UpdateBridgeStateCommandInput - {@link UpdateBridgeStateCommandInput}
@@ -74,6 +80,8 @@ export interface UpdateBridgeStateCommandOutput extends UpdateBridgeStateRespons
  * @throws {@link TooManyRequestsException} (client fault)
  *  Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
  *
+ * @throws {@link MediaConnectServiceException}
+ * <p>Base exception class for all service exceptions from MediaConnect service.</p>
  *
  */
 export class UpdateBridgeStateCommand extends $Command<

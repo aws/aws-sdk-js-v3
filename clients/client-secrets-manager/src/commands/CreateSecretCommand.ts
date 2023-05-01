@@ -71,32 +71,48 @@ export interface CreateSecretCommandOutput extends CreateSecretResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SecretsManagerClient, CreateSecretCommand } from "@aws-sdk/client-secrets-manager"; // ES Modules import
- * // const { SecretsManagerClient, CreateSecretCommand } = require("@aws-sdk/client-secrets-manager"); // CommonJS import
+ * import { SecretsManagerClient, CreateSecretCommand } from '@aws-sdk/client-secrets-manager'; // ES Modules import
+ * // const { SecretsManagerClient, CreateSecretCommand } = require('@aws-sdk/client-secrets-manager'); // CommonJS import
  * const client = new SecretsManagerClient(config);
  * const input = { // CreateSecretRequest
- *   Name: "STRING_VALUE", // required
- *   ClientRequestToken: "STRING_VALUE",
- *   Description: "STRING_VALUE",
- *   KmsKeyId: "STRING_VALUE",
- *   SecretBinary: "BLOB_VALUE",
- *   SecretString: "STRING_VALUE",
+ *   Name: 'STRING_VALUE', // required
+ *   ClientRequestToken: 'STRING_VALUE',
+ *   Description: 'STRING_VALUE',
+ *   KmsKeyId: 'STRING_VALUE',
+ *   SecretBinary: 'BLOB_VALUE',
+ *   SecretString: 'STRING_VALUE',
  *   Tags: [ // TagListType
  *     { // Tag
- *       Key: "STRING_VALUE",
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
  *   AddReplicaRegions: [ // AddReplicaRegionListType
  *     { // ReplicaRegionType
- *       Region: "STRING_VALUE",
- *       KmsKeyId: "STRING_VALUE",
+ *       Region: 'STRING_VALUE',
+ *       KmsKeyId: 'STRING_VALUE',
  *     },
  *   ],
  *   ForceOverwriteReplicaSecret: true || false,
  * };
  * const command = new CreateSecretCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateSecretResponse
+ *   ARN: 'STRING_VALUE',
+ *   Name: 'STRING_VALUE',
+ *   VersionId: 'STRING_VALUE',
+ *   ReplicationStatus: [ // ReplicationStatusListType
+ *     { // ReplicationStatusType
+ *       Region: 'STRING_VALUE',
+ *       KmsKeyId: 'STRING_VALUE',
+ *       Status: 'InSync' || 'Failed' || 'InProgress',
+ *       StatusMessage: 'STRING_VALUE',
+ *       LastAccessedDate: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param CreateSecretCommandInput - {@link CreateSecretCommandInput}
@@ -152,6 +168,8 @@ export interface CreateSecretCommandOutput extends CreateSecretResponse, __Metad
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Secrets Manager can't find the resource that you asked for.</p>
  *
+ * @throws {@link SecretsManagerServiceException}
+ * <p>Base exception class for all service exceptions from SecretsManager service.</p>
  *
  * @example To create a basic secret
  * ```javascript

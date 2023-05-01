@@ -38,15 +38,31 @@ export interface ListLinksCommandOutput extends ListLinksOutput, __MetadataBeare
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OAMClient, ListLinksCommand } from "@aws-sdk/client-oam"; // ES Modules import
- * // const { OAMClient, ListLinksCommand } = require("@aws-sdk/client-oam"); // CommonJS import
+ * import { OAMClient, ListLinksCommand } from '@aws-sdk/client-oam'; // ES Modules import
+ * // const { OAMClient, ListLinksCommand } = require('@aws-sdk/client-oam'); // CommonJS import
  * const client = new OAMClient(config);
  * const input = { // ListLinksInput
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListLinksCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListLinksOutput
+ *   Items: [ // ListLinksItems // required
+ *     { // ListLinksItem
+ *       Arn: 'STRING_VALUE',
+ *       Id: 'STRING_VALUE',
+ *       Label: 'STRING_VALUE',
+ *       ResourceTypes: [ // ResourceTypesOutput
+ *         'STRING_VALUE',
+ *       ],
+ *       SinkArn: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListLinksCommandInput - {@link ListLinksCommandInput}
@@ -64,6 +80,8 @@ export interface ListLinksCommandOutput extends ListLinksOutput, __MetadataBeare
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The request references a resource that does not exist.</p>
  *
+ * @throws {@link OAMServiceException}
+ * <p>Base exception class for all service exceptions from OAM service.</p>
  *
  */
 export class ListLinksCommand extends $Command<ListLinksCommandInput, ListLinksCommandOutput, OAMClientResolvedConfig> {

@@ -37,58 +37,65 @@ export interface CreateBackupSelectionCommandOutput extends CreateBackupSelectio
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BackupClient, CreateBackupSelectionCommand } from "@aws-sdk/client-backup"; // ES Modules import
- * // const { BackupClient, CreateBackupSelectionCommand } = require("@aws-sdk/client-backup"); // CommonJS import
+ * import { BackupClient, CreateBackupSelectionCommand } from '@aws-sdk/client-backup'; // ES Modules import
+ * // const { BackupClient, CreateBackupSelectionCommand } = require('@aws-sdk/client-backup'); // CommonJS import
  * const client = new BackupClient(config);
  * const input = { // CreateBackupSelectionInput
- *   BackupPlanId: "STRING_VALUE", // required
+ *   BackupPlanId: 'STRING_VALUE', // required
  *   BackupSelection: { // BackupSelection
- *     SelectionName: "STRING_VALUE", // required
- *     IamRoleArn: "STRING_VALUE", // required
+ *     SelectionName: 'STRING_VALUE', // required
+ *     IamRoleArn: 'STRING_VALUE', // required
  *     Resources: [ // ResourceArns
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     ListOfTags: [ // ListOfTags
  *       { // Condition
- *         ConditionType: "STRINGEQUALS", // required
- *         ConditionKey: "STRING_VALUE", // required
- *         ConditionValue: "STRING_VALUE", // required
+ *         ConditionType: 'STRINGEQUALS', // required
+ *         ConditionKey: 'STRING_VALUE', // required
+ *         ConditionValue: 'STRING_VALUE', // required
  *       },
  *     ],
  *     NotResources: [
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     Conditions: { // Conditions
  *       StringEquals: [ // ConditionParameters
  *         { // ConditionParameter
- *           ConditionKey: "STRING_VALUE",
- *           ConditionValue: "STRING_VALUE",
+ *           ConditionKey: 'STRING_VALUE',
+ *           ConditionValue: 'STRING_VALUE',
  *         },
  *       ],
  *       StringNotEquals: [
  *         {
- *           ConditionKey: "STRING_VALUE",
- *           ConditionValue: "STRING_VALUE",
+ *           ConditionKey: 'STRING_VALUE',
+ *           ConditionValue: 'STRING_VALUE',
  *         },
  *       ],
  *       StringLike: [
  *         {
- *           ConditionKey: "STRING_VALUE",
- *           ConditionValue: "STRING_VALUE",
+ *           ConditionKey: 'STRING_VALUE',
+ *           ConditionValue: 'STRING_VALUE',
  *         },
  *       ],
  *       StringNotLike: [
  *         {
- *           ConditionKey: "STRING_VALUE",
- *           ConditionValue: "STRING_VALUE",
+ *           ConditionKey: 'STRING_VALUE',
+ *           ConditionValue: 'STRING_VALUE',
  *         },
  *       ],
  *     },
  *   },
- *   CreatorRequestId: "STRING_VALUE",
+ *   CreatorRequestId: 'STRING_VALUE',
  * };
  * const command = new CreateBackupSelectionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateBackupSelectionOutput
+ *   SelectionId: 'STRING_VALUE',
+ *   BackupPlanId: 'STRING_VALUE',
+ *   CreationDate: new Date('TIMESTAMP'),
+ * };
+ *
  * ```
  *
  * @param CreateBackupSelectionCommandInput - {@link CreateBackupSelectionCommandInput}
@@ -114,6 +121,8 @@ export interface CreateBackupSelectionCommandOutput extends CreateBackupSelectio
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request failed due to a temporary failure of the server.</p>
  *
+ * @throws {@link BackupServiceException}
+ * <p>Base exception class for all service exceptions from Backup service.</p>
  *
  */
 export class CreateBackupSelectionCommand extends $Command<

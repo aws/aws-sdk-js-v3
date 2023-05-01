@@ -42,30 +42,58 @@ export interface RequestPhoneNumberCommandOutput extends RequestPhoneNumberResul
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PinpointSMSVoiceV2Client, RequestPhoneNumberCommand } from "@aws-sdk/client-pinpoint-sms-voice-v2"; // ES Modules import
- * // const { PinpointSMSVoiceV2Client, RequestPhoneNumberCommand } = require("@aws-sdk/client-pinpoint-sms-voice-v2"); // CommonJS import
+ * import { PinpointSMSVoiceV2Client, RequestPhoneNumberCommand } from '@aws-sdk/client-pinpoint-sms-voice-v2'; // ES Modules import
+ * // const { PinpointSMSVoiceV2Client, RequestPhoneNumberCommand } = require('@aws-sdk/client-pinpoint-sms-voice-v2'); // CommonJS import
  * const client = new PinpointSMSVoiceV2Client(config);
  * const input = { // RequestPhoneNumberRequest
- *   IsoCountryCode: "STRING_VALUE", // required
- *   MessageType: "STRING_VALUE", // required
+ *   IsoCountryCode: 'STRING_VALUE', // required
+ *   MessageType: 'STRING_VALUE', // required
  *   NumberCapabilities: [ // NumberCapabilityList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   NumberType: "STRING_VALUE", // required
- *   OptOutListName: "STRING_VALUE",
- *   PoolId: "STRING_VALUE",
- *   RegistrationId: "STRING_VALUE",
+ *   NumberType: 'STRING_VALUE', // required
+ *   OptOutListName: 'STRING_VALUE',
+ *   PoolId: 'STRING_VALUE',
+ *   RegistrationId: 'STRING_VALUE',
  *   DeletionProtectionEnabled: true || false,
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
- *   ClientToken: "STRING_VALUE",
+ *   ClientToken: 'STRING_VALUE',
  * };
  * const command = new RequestPhoneNumberCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // RequestPhoneNumberResult
+ *   PhoneNumberArn: 'STRING_VALUE',
+ *   PhoneNumberId: 'STRING_VALUE',
+ *   PhoneNumber: 'STRING_VALUE',
+ *   Status: 'STRING_VALUE',
+ *   IsoCountryCode: 'STRING_VALUE',
+ *   MessageType: 'STRING_VALUE',
+ *   NumberCapabilities: [ // NumberCapabilityList
+ *     'STRING_VALUE',
+ *   ],
+ *   NumberType: 'STRING_VALUE',
+ *   MonthlyLeasingPrice: 'STRING_VALUE',
+ *   TwoWayEnabled: true || false,
+ *   TwoWayChannelArn: 'STRING_VALUE',
+ *   SelfManagedOptOutsEnabled: true || false,
+ *   OptOutListName: 'STRING_VALUE',
+ *   DeletionProtectionEnabled: true || false,
+ *   PoolId: 'STRING_VALUE',
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ *   CreatedTimestamp: new Date('TIMESTAMP'),
+ * };
+ *
  * ```
  *
  * @param RequestPhoneNumberCommandInput - {@link RequestPhoneNumberCommandInput}
@@ -101,6 +129,8 @@ export interface RequestPhoneNumberCommandOutput extends RequestPhoneNumberResul
  * @throws {@link ValidationException} (client fault)
  *  <p>A validation exception for a field.</p>
  *
+ * @throws {@link PinpointSMSVoiceV2ServiceException}
+ * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
  *
  */
 export class RequestPhoneNumberCommand extends $Command<

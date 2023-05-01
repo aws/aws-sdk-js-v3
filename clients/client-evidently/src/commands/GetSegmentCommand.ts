@@ -37,14 +37,31 @@ export interface GetSegmentCommandOutput extends GetSegmentResponse, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EvidentlyClient, GetSegmentCommand } from "@aws-sdk/client-evidently"; // ES Modules import
- * // const { EvidentlyClient, GetSegmentCommand } = require("@aws-sdk/client-evidently"); // CommonJS import
+ * import { EvidentlyClient, GetSegmentCommand } from '@aws-sdk/client-evidently'; // ES Modules import
+ * // const { EvidentlyClient, GetSegmentCommand } = require('@aws-sdk/client-evidently'); // CommonJS import
  * const client = new EvidentlyClient(config);
  * const input = { // GetSegmentRequest
- *   segment: "STRING_VALUE", // required
+ *   segment: 'STRING_VALUE', // required
  * };
  * const command = new GetSegmentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetSegmentResponse
+ *   segment: { // Segment
+ *     arn: 'STRING_VALUE', // required
+ *     name: 'STRING_VALUE', // required
+ *     pattern: 'STRING_VALUE', // required
+ *     createdTime: new Date('TIMESTAMP'), // required
+ *     lastUpdatedTime: new Date('TIMESTAMP'), // required
+ *     description: 'STRING_VALUE',
+ *     experimentCount: Number('long'),
+ *     launchCount: Number('long'),
+ *     tags: { // TagMap
+ *       '<keys>': 'STRING_VALUE',
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetSegmentCommandInput - {@link GetSegmentCommandInput}
@@ -65,6 +82,8 @@ export interface GetSegmentCommandOutput extends GetSegmentResponse, __MetadataB
  * @throws {@link ValidationException} (client fault)
  *  <p>The value of a parameter in the request caused an error.</p>
  *
+ * @throws {@link EvidentlyServiceException}
+ * <p>Base exception class for all service exceptions from Evidently service.</p>
  *
  */
 export class GetSegmentCommand extends $Command<

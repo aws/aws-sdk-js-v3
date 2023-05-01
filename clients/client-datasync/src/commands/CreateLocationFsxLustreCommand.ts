@@ -36,24 +36,29 @@ export interface CreateLocationFsxLustreCommandOutput extends CreateLocationFsxL
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DataSyncClient, CreateLocationFsxLustreCommand } from "@aws-sdk/client-datasync"; // ES Modules import
- * // const { DataSyncClient, CreateLocationFsxLustreCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
+ * import { DataSyncClient, CreateLocationFsxLustreCommand } from '@aws-sdk/client-datasync'; // ES Modules import
+ * // const { DataSyncClient, CreateLocationFsxLustreCommand } = require('@aws-sdk/client-datasync'); // CommonJS import
  * const client = new DataSyncClient(config);
  * const input = { // CreateLocationFsxLustreRequest
- *   FsxFilesystemArn: "STRING_VALUE", // required
+ *   FsxFilesystemArn: 'STRING_VALUE', // required
  *   SecurityGroupArns: [ // Ec2SecurityGroupArnList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   Subdirectory: "STRING_VALUE",
+ *   Subdirectory: 'STRING_VALUE',
  *   Tags: [ // InputTagList
  *     { // TagListEntry
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new CreateLocationFsxLustreCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateLocationFsxLustreResponse
+ *   LocationArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateLocationFsxLustreCommandInput - {@link CreateLocationFsxLustreCommandInput}
@@ -69,6 +74,8 @@ export interface CreateLocationFsxLustreCommandOutput extends CreateLocationFsxL
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception is thrown when the client submits a malformed request.</p>
  *
+ * @throws {@link DataSyncServiceException}
+ * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
  */
 export class CreateLocationFsxLustreCommand extends $Command<

@@ -40,14 +40,26 @@ export interface GetIdentityProviderCommandOutput extends GetIdentityProviderRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkSpacesWebClient, GetIdentityProviderCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
- * // const { WorkSpacesWebClient, GetIdentityProviderCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
+ * import { WorkSpacesWebClient, GetIdentityProviderCommand } from '@aws-sdk/client-workspaces-web'; // ES Modules import
+ * // const { WorkSpacesWebClient, GetIdentityProviderCommand } = require('@aws-sdk/client-workspaces-web'); // CommonJS import
  * const client = new WorkSpacesWebClient(config);
  * const input = { // GetIdentityProviderRequest
- *   identityProviderArn: "STRING_VALUE", // required
+ *   identityProviderArn: 'STRING_VALUE', // required
  * };
  * const command = new GetIdentityProviderCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetIdentityProviderResponse
+ *   identityProvider: { // IdentityProvider
+ *     identityProviderArn: 'STRING_VALUE', // required
+ *     identityProviderName: 'STRING_VALUE',
+ *     identityProviderType: 'STRING_VALUE',
+ *     identityProviderDetails: { // IdentityProviderDetails
+ *       '<keys>': 'STRING_VALUE',
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetIdentityProviderCommandInput - {@link GetIdentityProviderCommandInput}
@@ -71,6 +83,8 @@ export interface GetIdentityProviderCommandOutput extends GetIdentityProviderRes
  * @throws {@link ValidationException} (client fault)
  *  <p>There is a validation error.</p>
  *
+ * @throws {@link WorkSpacesWebServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
  */
 export class GetIdentityProviderCommand extends $Command<

@@ -112,35 +112,38 @@ export interface PutBucketLoggingCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { S3Client, PutBucketLoggingCommand } from "@aws-sdk/client-s3"; // ES Modules import
- * // const { S3Client, PutBucketLoggingCommand } = require("@aws-sdk/client-s3"); // CommonJS import
+ * import { S3Client, PutBucketLoggingCommand } from '@aws-sdk/client-s3'; // ES Modules import
+ * // const { S3Client, PutBucketLoggingCommand } = require('@aws-sdk/client-s3'); // CommonJS import
  * const client = new S3Client(config);
  * const input = { // PutBucketLoggingRequest
- *   Bucket: "STRING_VALUE", // required
+ *   Bucket: 'STRING_VALUE', // required
  *   BucketLoggingStatus: { // BucketLoggingStatus
  *     LoggingEnabled: { // LoggingEnabled
- *       TargetBucket: "STRING_VALUE", // required
+ *       TargetBucket: 'STRING_VALUE', // required
  *       TargetGrants: [ // TargetGrants
  *         { // TargetGrant
  *           Grantee: { // Grantee
- *             DisplayName: "STRING_VALUE",
- *             EmailAddress: "STRING_VALUE",
- *             ID: "STRING_VALUE",
- *             URI: "STRING_VALUE",
- *             Type: "CanonicalUser" || "AmazonCustomerByEmail" || "Group", // required
+ *             DisplayName: 'STRING_VALUE',
+ *             EmailAddress: 'STRING_VALUE',
+ *             ID: 'STRING_VALUE',
+ *             URI: 'STRING_VALUE',
+ *             Type: 'CanonicalUser' || 'AmazonCustomerByEmail' || 'Group', // required
  *           },
- *           Permission: "FULL_CONTROL" || "READ" || "WRITE",
+ *           Permission: 'FULL_CONTROL' || 'READ' || 'WRITE',
  *         },
  *       ],
- *       TargetPrefix: "STRING_VALUE", // required
+ *       TargetPrefix: 'STRING_VALUE', // required
  *     },
  *   },
- *   ContentMD5: "STRING_VALUE",
- *   ChecksumAlgorithm: "CRC32" || "CRC32C" || "SHA1" || "SHA256",
- *   ExpectedBucketOwner: "STRING_VALUE",
+ *   ContentMD5: 'STRING_VALUE',
+ *   ChecksumAlgorithm: 'CRC32' || 'CRC32C' || 'SHA1' || 'SHA256',
+ *   ExpectedBucketOwner: 'STRING_VALUE',
  * };
  * const command = new PutBucketLoggingCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutBucketLoggingCommandInput - {@link PutBucketLoggingCommandInput}
@@ -149,6 +152,8 @@ export interface PutBucketLoggingCommandOutput extends __MetadataBearer {}
  * @see {@link PutBucketLoggingCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
+ * @throws {@link S3ServiceException}
+ * <p>Base exception class for all service exceptions from S3 service.</p>
  *
  * @example Set logging configuration for a bucket
  * ```javascript

@@ -39,16 +39,19 @@ export interface ModifyClusterSnapshotScheduleCommandOutput extends __MetadataBe
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RedshiftClient, ModifyClusterSnapshotScheduleCommand } from "@aws-sdk/client-redshift"; // ES Modules import
- * // const { RedshiftClient, ModifyClusterSnapshotScheduleCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * import { RedshiftClient, ModifyClusterSnapshotScheduleCommand } from '@aws-sdk/client-redshift'; // ES Modules import
+ * // const { RedshiftClient, ModifyClusterSnapshotScheduleCommand } = require('@aws-sdk/client-redshift'); // CommonJS import
  * const client = new RedshiftClient(config);
  * const input = { // ModifyClusterSnapshotScheduleMessage
- *   ClusterIdentifier: "STRING_VALUE", // required
- *   ScheduleIdentifier: "STRING_VALUE",
+ *   ClusterIdentifier: 'STRING_VALUE', // required
+ *   ScheduleIdentifier: 'STRING_VALUE',
  *   DisassociateSchedule: true || false,
  * };
  * const command = new ModifyClusterSnapshotScheduleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param ModifyClusterSnapshotScheduleCommandInput - {@link ModifyClusterSnapshotScheduleCommandInput}
@@ -67,6 +70,8 @@ export interface ModifyClusterSnapshotScheduleCommandOutput extends __MetadataBe
  * @throws {@link SnapshotScheduleNotFoundFault} (client fault)
  *  <p>We could not find the specified snapshot schedule. </p>
  *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class ModifyClusterSnapshotScheduleCommand extends $Command<

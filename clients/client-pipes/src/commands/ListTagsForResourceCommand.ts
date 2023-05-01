@@ -40,14 +40,21 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PipesClient, ListTagsForResourceCommand } from "@aws-sdk/client-pipes"; // ES Modules import
- * // const { PipesClient, ListTagsForResourceCommand } = require("@aws-sdk/client-pipes"); // CommonJS import
+ * import { PipesClient, ListTagsForResourceCommand } from '@aws-sdk/client-pipes'; // ES Modules import
+ * // const { PipesClient, ListTagsForResourceCommand } = require('@aws-sdk/client-pipes'); // CommonJS import
  * const client = new PipesClient(config);
  * const input = { // ListTagsForResourceRequest
- *   resourceArn: "STRING_VALUE", // required
+ *   resourceArn: 'STRING_VALUE', // required
  * };
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTagsForResourceResponse
+ *   tags: { // TagMap
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param ListTagsForResourceCommandInput - {@link ListTagsForResourceCommandInput}
@@ -65,6 +72,8 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @throws {@link ValidationException} (client fault)
  *  <p>Indicates that an error has occurred while performing a validate operation.</p>
  *
+ * @throws {@link PipesServiceException}
+ * <p>Base exception class for all service exceptions from Pipes service.</p>
  *
  */
 export class ListTagsForResourceCommand extends $Command<

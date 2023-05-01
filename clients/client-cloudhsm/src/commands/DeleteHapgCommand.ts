@@ -46,14 +46,19 @@ export interface DeleteHapgCommandOutput extends DeleteHapgResponse, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudHSMClient, DeleteHapgCommand } from "@aws-sdk/client-cloudhsm"; // ES Modules import
- * // const { CloudHSMClient, DeleteHapgCommand } = require("@aws-sdk/client-cloudhsm"); // CommonJS import
+ * import { CloudHSMClient, DeleteHapgCommand } from '@aws-sdk/client-cloudhsm'; // ES Modules import
+ * // const { CloudHSMClient, DeleteHapgCommand } = require('@aws-sdk/client-cloudhsm'); // CommonJS import
  * const client = new CloudHSMClient(config);
  * const input = { // DeleteHapgRequest
- *   HapgArn: "STRING_VALUE", // required
+ *   HapgArn: 'STRING_VALUE', // required
  * };
  * const command = new DeleteHapgCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteHapgResponse
+ *   Status: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param DeleteHapgCommandInput - {@link DeleteHapgCommandInput}
@@ -71,6 +76,8 @@ export interface DeleteHapgCommandOutput extends DeleteHapgResponse, __MetadataB
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>Indicates that one or more of the request parameters are not valid.</p>
  *
+ * @throws {@link CloudHSMServiceException}
+ * <p>Base exception class for all service exceptions from CloudHSM service.</p>
  *
  */
 export class DeleteHapgCommand extends $Command<

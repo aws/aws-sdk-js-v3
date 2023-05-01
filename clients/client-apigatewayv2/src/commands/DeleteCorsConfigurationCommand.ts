@@ -36,14 +36,17 @@ export interface DeleteCorsConfigurationCommandOutput extends __MetadataBearer {
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ApiGatewayV2Client, DeleteCorsConfigurationCommand } from "@aws-sdk/client-apigatewayv2"; // ES Modules import
- * // const { ApiGatewayV2Client, DeleteCorsConfigurationCommand } = require("@aws-sdk/client-apigatewayv2"); // CommonJS import
+ * import { ApiGatewayV2Client, DeleteCorsConfigurationCommand } from '@aws-sdk/client-apigatewayv2'; // ES Modules import
+ * // const { ApiGatewayV2Client, DeleteCorsConfigurationCommand } = require('@aws-sdk/client-apigatewayv2'); // CommonJS import
  * const client = new ApiGatewayV2Client(config);
  * const input = { // DeleteCorsConfigurationRequest
- *   ApiId: "STRING_VALUE", // required
+ *   ApiId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteCorsConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteCorsConfigurationCommandInput - {@link DeleteCorsConfigurationCommandInput}
@@ -58,6 +61,8 @@ export interface DeleteCorsConfigurationCommandOutput extends __MetadataBearer {
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>A limit has been exceeded. See the accompanying error message for details.</p>
  *
+ * @throws {@link ApiGatewayV2ServiceException}
+ * <p>Base exception class for all service exceptions from ApiGatewayV2 service.</p>
  *
  */
 export class DeleteCorsConfigurationCommand extends $Command<

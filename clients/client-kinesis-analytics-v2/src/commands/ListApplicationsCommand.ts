@@ -44,15 +44,30 @@ export interface ListApplicationsCommandOutput extends ListApplicationsResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KinesisAnalyticsV2Client, ListApplicationsCommand } from "@aws-sdk/client-kinesis-analytics-v2"; // ES Modules import
- * // const { KinesisAnalyticsV2Client, ListApplicationsCommand } = require("@aws-sdk/client-kinesis-analytics-v2"); // CommonJS import
+ * import { KinesisAnalyticsV2Client, ListApplicationsCommand } from '@aws-sdk/client-kinesis-analytics-v2'; // ES Modules import
+ * // const { KinesisAnalyticsV2Client, ListApplicationsCommand } = require('@aws-sdk/client-kinesis-analytics-v2'); // CommonJS import
  * const client = new KinesisAnalyticsV2Client(config);
  * const input = { // ListApplicationsRequest
- *   Limit: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   Limit: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListApplicationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListApplicationsResponse
+ *   ApplicationSummaries: [ // ApplicationSummaries // required
+ *     { // ApplicationSummary
+ *       ApplicationName: 'STRING_VALUE', // required
+ *       ApplicationARN: 'STRING_VALUE', // required
+ *       ApplicationStatus: 'DELETING' || 'STARTING' || 'STOPPING' || 'READY' || 'RUNNING' || 'UPDATING' || 'AUTOSCALING' || 'FORCE_STOPPING' || 'ROLLING_BACK' || 'MAINTENANCE' || 'ROLLED_BACK', // required
+ *       ApplicationVersionId: Number('long'), // required
+ *       RuntimeEnvironment: 'SQL-1_0' || 'FLINK-1_6' || 'FLINK-1_8' || 'ZEPPELIN-FLINK-1_0' || 'FLINK-1_11' || 'FLINK-1_13' || 'ZEPPELIN-FLINK-2_0' || 'FLINK-1_15', // required
+ *       ApplicationMode: 'STREAMING' || 'INTERACTIVE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListApplicationsCommandInput - {@link ListApplicationsCommandInput}
@@ -64,6 +79,8 @@ export interface ListApplicationsCommandOutput extends ListApplicationsResponse,
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>The request JSON is not valid for the operation.</p>
  *
+ * @throws {@link KinesisAnalyticsV2ServiceException}
+ * <p>Base exception class for all service exceptions from KinesisAnalyticsV2 service.</p>
  *
  */
 export class ListApplicationsCommand extends $Command<

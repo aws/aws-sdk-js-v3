@@ -36,20 +36,31 @@ export interface UnassignIpv6AddressesCommandOutput extends UnassignIpv6Addresse
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, UnassignIpv6AddressesCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, UnassignIpv6AddressesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, UnassignIpv6AddressesCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, UnassignIpv6AddressesCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // UnassignIpv6AddressesRequest
  *   Ipv6Addresses: [ // Ipv6AddressList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   Ipv6Prefixes: [ // IpPrefixList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   NetworkInterfaceId: "STRING_VALUE", // required
+ *   NetworkInterfaceId: 'STRING_VALUE', // required
  * };
  * const command = new UnassignIpv6AddressesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UnassignIpv6AddressesResult
+ *   NetworkInterfaceId: 'STRING_VALUE',
+ *   UnassignedIpv6Addresses: [ // Ipv6AddressList
+ *     'STRING_VALUE',
+ *   ],
+ *   UnassignedIpv6Prefixes: [ // IpPrefixList
+ *     'STRING_VALUE',
+ *   ],
+ * };
+ *
  * ```
  *
  * @param UnassignIpv6AddressesCommandInput - {@link UnassignIpv6AddressesCommandInput}
@@ -58,6 +69,8 @@ export interface UnassignIpv6AddressesCommandOutput extends UnassignIpv6Addresse
  * @see {@link UnassignIpv6AddressesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class UnassignIpv6AddressesCommand extends $Command<

@@ -47,17 +47,23 @@ export interface SendMessageCommandOutput extends SendMessageResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectParticipantClient, SendMessageCommand } from "@aws-sdk/client-connectparticipant"; // ES Modules import
- * // const { ConnectParticipantClient, SendMessageCommand } = require("@aws-sdk/client-connectparticipant"); // CommonJS import
+ * import { ConnectParticipantClient, SendMessageCommand } from '@aws-sdk/client-connectparticipant'; // ES Modules import
+ * // const { ConnectParticipantClient, SendMessageCommand } = require('@aws-sdk/client-connectparticipant'); // CommonJS import
  * const client = new ConnectParticipantClient(config);
  * const input = { // SendMessageRequest
- *   ContentType: "STRING_VALUE", // required
- *   Content: "STRING_VALUE", // required
- *   ClientToken: "STRING_VALUE",
- *   ConnectionToken: "STRING_VALUE", // required
+ *   ContentType: 'STRING_VALUE', // required
+ *   Content: 'STRING_VALUE', // required
+ *   ClientToken: 'STRING_VALUE',
+ *   ConnectionToken: 'STRING_VALUE', // required
  * };
  * const command = new SendMessageCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SendMessageResponse
+ *   Id: 'STRING_VALUE',
+ *   AbsoluteTime: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param SendMessageCommandInput - {@link SendMessageCommandInput}
@@ -78,6 +84,8 @@ export interface SendMessageCommandOutput extends SendMessageResponse, __Metadat
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by Amazon Connect.</p>
  *
+ * @throws {@link ConnectParticipantServiceException}
+ * <p>Base exception class for all service exceptions from ConnectParticipant service.</p>
  *
  */
 export class SendMessageCommand extends $Command<

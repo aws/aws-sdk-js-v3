@@ -36,20 +36,25 @@ export interface AttachToIndexCommandOutput extends AttachToIndexResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudDirectoryClient, AttachToIndexCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
- * // const { CloudDirectoryClient, AttachToIndexCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
+ * import { CloudDirectoryClient, AttachToIndexCommand } from '@aws-sdk/client-clouddirectory'; // ES Modules import
+ * // const { CloudDirectoryClient, AttachToIndexCommand } = require('@aws-sdk/client-clouddirectory'); // CommonJS import
  * const client = new CloudDirectoryClient(config);
  * const input = { // AttachToIndexRequest
- *   DirectoryArn: "STRING_VALUE", // required
+ *   DirectoryArn: 'STRING_VALUE', // required
  *   IndexReference: { // ObjectReference
- *     Selector: "STRING_VALUE",
+ *     Selector: 'STRING_VALUE',
  *   },
  *   TargetReference: {
- *     Selector: "STRING_VALUE",
+ *     Selector: 'STRING_VALUE',
  *   },
  * };
  * const command = new AttachToIndexCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AttachToIndexResponse
+ *   AttachedObjectIdentifier: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param AttachToIndexCommandInput - {@link AttachToIndexCommandInput}
@@ -97,6 +102,8 @@ export interface AttachToIndexCommandOutput extends AttachToIndexResponse, __Met
  *  <p>Indicates that your request is malformed in some manner. See the exception
  *       message.</p>
  *
+ * @throws {@link CloudDirectoryServiceException}
+ * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
  */
 export class AttachToIndexCommand extends $Command<

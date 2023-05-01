@@ -61,17 +61,23 @@ export interface GetObjectTorrentCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { S3Client, GetObjectTorrentCommand } from "@aws-sdk/client-s3"; // ES Modules import
- * // const { S3Client, GetObjectTorrentCommand } = require("@aws-sdk/client-s3"); // CommonJS import
+ * import { S3Client, GetObjectTorrentCommand } from '@aws-sdk/client-s3'; // ES Modules import
+ * // const { S3Client, GetObjectTorrentCommand } = require('@aws-sdk/client-s3'); // CommonJS import
  * const client = new S3Client(config);
  * const input = { // GetObjectTorrentRequest
- *   Bucket: "STRING_VALUE", // required
- *   Key: "STRING_VALUE", // required
- *   RequestPayer: "requester",
- *   ExpectedBucketOwner: "STRING_VALUE",
+ *   Bucket: 'STRING_VALUE', // required
+ *   Key: 'STRING_VALUE', // required
+ *   RequestPayer: 'requester',
+ *   ExpectedBucketOwner: 'STRING_VALUE',
  * };
  * const command = new GetObjectTorrentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetObjectTorrentOutput
+ *   Body: 'STREAMING_BLOB_VALUE',
+ *   RequestCharged: 'requester',
+ * };
+ *
  * ```
  *
  * @param GetObjectTorrentCommandInput - {@link GetObjectTorrentCommandInput}
@@ -80,6 +86,8 @@ export interface GetObjectTorrentCommandOutput
  * @see {@link GetObjectTorrentCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
+ * @throws {@link S3ServiceException}
+ * <p>Base exception class for all service exceptions from S3 service.</p>
  *
  * @example To retrieve torrent files for an object
  * ```javascript

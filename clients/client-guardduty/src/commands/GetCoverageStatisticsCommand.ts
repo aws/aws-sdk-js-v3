@@ -39,32 +39,44 @@ export interface GetCoverageStatisticsCommandOutput extends GetCoverageStatistic
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GuardDutyClient, GetCoverageStatisticsCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
- * // const { GuardDutyClient, GetCoverageStatisticsCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
+ * import { GuardDutyClient, GetCoverageStatisticsCommand } from '@aws-sdk/client-guardduty'; // ES Modules import
+ * // const { GuardDutyClient, GetCoverageStatisticsCommand } = require('@aws-sdk/client-guardduty'); // CommonJS import
  * const client = new GuardDutyClient(config);
  * const input = { // GetCoverageStatisticsRequest
- *   DetectorId: "STRING_VALUE", // required
+ *   DetectorId: 'STRING_VALUE', // required
  *   FilterCriteria: { // CoverageFilterCriteria
  *     FilterCriterion: [ // CoverageFilterCriterionList
  *       { // CoverageFilterCriterion
- *         CriterionKey: "ACCOUNT_ID" || "CLUSTER_NAME" || "RESOURCE_TYPE" || "COVERAGE_STATUS" || "ADDON_VERSION",
+ *         CriterionKey: 'ACCOUNT_ID' || 'CLUSTER_NAME' || 'RESOURCE_TYPE' || 'COVERAGE_STATUS' || 'ADDON_VERSION',
  *         FilterCondition: { // CoverageFilterCondition
  *           Equals: [ // Equals
- *             "STRING_VALUE",
+ *             'STRING_VALUE',
  *           ],
  *           NotEquals: [ // NotEquals
- *             "STRING_VALUE",
+ *             'STRING_VALUE',
  *           ],
  *         },
  *       },
  *     ],
  *   },
  *   StatisticsType: [ // CoverageStatisticsTypeList // required
- *     "COUNT_BY_RESOURCE_TYPE" || "COUNT_BY_COVERAGE_STATUS",
+ *     'COUNT_BY_RESOURCE_TYPE' || 'COUNT_BY_COVERAGE_STATUS',
  *   ],
  * };
  * const command = new GetCoverageStatisticsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetCoverageStatisticsResponse
+ *   CoverageStatistics: { // CoverageStatistics
+ *     CountByResourceType: { // CountByResourceType
+ *       '<keys>': Number('long'),
+ *     },
+ *     CountByCoverageStatus: { // CountByCoverageStatus
+ *       '<keys>': Number('long'),
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetCoverageStatisticsCommandInput - {@link GetCoverageStatisticsCommandInput}
@@ -79,6 +91,8 @@ export interface GetCoverageStatisticsCommandOutput extends GetCoverageStatistic
  * @throws {@link InternalServerErrorException} (server fault)
  *  <p>An internal server error exception object.</p>
  *
+ * @throws {@link GuardDutyServiceException}
+ * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
  */
 export class GetCoverageStatisticsCommand extends $Command<

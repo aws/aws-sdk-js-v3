@@ -46,15 +46,18 @@ export interface StopApplicationCommandOutput extends StopApplicationResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KinesisAnalyticsV2Client, StopApplicationCommand } from "@aws-sdk/client-kinesis-analytics-v2"; // ES Modules import
- * // const { KinesisAnalyticsV2Client, StopApplicationCommand } = require("@aws-sdk/client-kinesis-analytics-v2"); // CommonJS import
+ * import { KinesisAnalyticsV2Client, StopApplicationCommand } from '@aws-sdk/client-kinesis-analytics-v2'; // ES Modules import
+ * // const { KinesisAnalyticsV2Client, StopApplicationCommand } = require('@aws-sdk/client-kinesis-analytics-v2'); // CommonJS import
  * const client = new KinesisAnalyticsV2Client(config);
  * const input = { // StopApplicationRequest
- *   ApplicationName: "STRING_VALUE", // required
+ *   ApplicationName: 'STRING_VALUE', // required
  *   Force: true || false,
  * };
  * const command = new StopApplicationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param StopApplicationCommandInput - {@link StopApplicationCommandInput}
@@ -83,6 +86,8 @@ export interface StopApplicationCommandOutput extends StopApplicationResponse, _
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Specified application can't be found.</p>
  *
+ * @throws {@link KinesisAnalyticsV2ServiceException}
+ * <p>Base exception class for all service exceptions from KinesisAnalyticsV2 service.</p>
  *
  */
 export class StopApplicationCommand extends $Command<

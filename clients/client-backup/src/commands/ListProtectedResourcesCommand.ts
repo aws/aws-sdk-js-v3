@@ -38,15 +38,28 @@ export interface ListProtectedResourcesCommandOutput extends ListProtectedResour
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BackupClient, ListProtectedResourcesCommand } from "@aws-sdk/client-backup"; // ES Modules import
- * // const { BackupClient, ListProtectedResourcesCommand } = require("@aws-sdk/client-backup"); // CommonJS import
+ * import { BackupClient, ListProtectedResourcesCommand } from '@aws-sdk/client-backup'; // ES Modules import
+ * // const { BackupClient, ListProtectedResourcesCommand } = require('@aws-sdk/client-backup'); // CommonJS import
  * const client = new BackupClient(config);
  * const input = { // ListProtectedResourcesInput
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListProtectedResourcesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListProtectedResourcesOutput
+ *   Results: [ // ProtectedResourcesList
+ *     { // ProtectedResource
+ *       ResourceArn: 'STRING_VALUE',
+ *       ResourceType: 'STRING_VALUE',
+ *       LastBackupTime: new Date('TIMESTAMP'),
+ *       ResourceName: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListProtectedResourcesCommandInput - {@link ListProtectedResourcesCommandInput}
@@ -62,6 +75,8 @@ export interface ListProtectedResourcesCommandOutput extends ListProtectedResour
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request failed due to a temporary failure of the server.</p>
  *
+ * @throws {@link BackupServiceException}
+ * <p>Base exception class for all service exceptions from Backup service.</p>
  *
  */
 export class ListProtectedResourcesCommand extends $Command<

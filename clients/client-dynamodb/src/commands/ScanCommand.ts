@@ -61,86 +61,167 @@ export interface ScanCommandOutput extends ScanOutput, __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DynamoDBClient, ScanCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
- * // const { DynamoDBClient, ScanCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
+ * import { DynamoDBClient, ScanCommand } from '@aws-sdk/client-dynamodb'; // ES Modules import
+ * // const { DynamoDBClient, ScanCommand } = require('@aws-sdk/client-dynamodb'); // CommonJS import
  * const client = new DynamoDBClient(config);
  * const input = { // ScanInput
- *   TableName: "STRING_VALUE", // required
- *   IndexName: "STRING_VALUE",
+ *   TableName: 'STRING_VALUE', // required
+ *   IndexName: 'STRING_VALUE',
  *   AttributesToGet: [ // AttributeNameList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   Limit: Number("int"),
- *   Select: "ALL_ATTRIBUTES" || "ALL_PROJECTED_ATTRIBUTES" || "SPECIFIC_ATTRIBUTES" || "COUNT",
+ *   Limit: Number('int'),
+ *   Select: 'ALL_ATTRIBUTES' || 'ALL_PROJECTED_ATTRIBUTES' || 'SPECIFIC_ATTRIBUTES' || 'COUNT',
  *   ScanFilter: { // FilterConditionMap
- *     "<keys>": { // Condition
+ *     '<keys>': { // Condition
  *       AttributeValueList: [ // AttributeValueList
  *         { // AttributeValue Union: only one key present
- *           S: "STRING_VALUE",
- *           N: "STRING_VALUE",
- *           B: "BLOB_VALUE",
+ *           S: 'STRING_VALUE',
+ *           N: 'STRING_VALUE',
+ *           B: 'BLOB_VALUE',
  *           SS: [ // StringSetAttributeValue
- *             "STRING_VALUE",
+ *             'STRING_VALUE',
  *           ],
  *           NS: [ // NumberSetAttributeValue
- *             "STRING_VALUE",
+ *             'STRING_VALUE',
  *           ],
  *           BS: [ // BinarySetAttributeValue
- *             "BLOB_VALUE",
+ *             'BLOB_VALUE',
  *           ],
  *           M: { // MapAttributeValue
- *             "<keys>": {//  Union: only one key present
- *               S: "STRING_VALUE",
- *               N: "STRING_VALUE",
- *               B: "BLOB_VALUE",
+ *             '<keys>': {//  Union: only one key present
+ *               S: 'STRING_VALUE',
+ *               N: 'STRING_VALUE',
+ *               B: 'BLOB_VALUE',
  *               SS: [
- *                 "STRING_VALUE",
+ *                 'STRING_VALUE',
  *               ],
  *               NS: [
- *                 "STRING_VALUE",
+ *                 'STRING_VALUE',
  *               ],
  *               BS: [
- *                 "BLOB_VALUE",
+ *                 'BLOB_VALUE',
  *               ],
  *               M: {
- *                 "<keys>": "<AttributeValue>",
+ *                 '<keys>': '<AttributeValue>',
  *               },
  *               L: [ // ListAttributeValue
- *                 "<AttributeValue>",
+ *                 '<AttributeValue>',
  *               ],
  *               NULL: true || false,
  *               BOOL: true || false,
  *             },
  *           },
  *           L: [
- *             "<AttributeValue>",
+ *             '<AttributeValue>',
  *           ],
  *           NULL: true || false,
  *           BOOL: true || false,
  *         },
  *       ],
- *       ComparisonOperator: "EQ" || "NE" || "IN" || "LE" || "LT" || "GE" || "GT" || "BETWEEN" || "NOT_NULL" || "NULL" || "CONTAINS" || "NOT_CONTAINS" || "BEGINS_WITH", // required
+ *       ComparisonOperator: 'EQ' || 'NE' || 'IN' || 'LE' || 'LT' || 'GE' || 'GT' || 'BETWEEN' || 'NOT_NULL' || 'NULL' || 'CONTAINS' || 'NOT_CONTAINS' || 'BEGINS_WITH', // required
  *     },
  *   },
- *   ConditionalOperator: "AND" || "OR",
+ *   ConditionalOperator: 'AND' || 'OR',
  *   ExclusiveStartKey: { // Key
- *     "<keys>": "<AttributeValue>",
+ *     '<keys>': '<AttributeValue>',
  *   },
- *   ReturnConsumedCapacity: "INDEXES" || "TOTAL" || "NONE",
- *   TotalSegments: Number("int"),
- *   Segment: Number("int"),
- *   ProjectionExpression: "STRING_VALUE",
- *   FilterExpression: "STRING_VALUE",
+ *   ReturnConsumedCapacity: 'INDEXES' || 'TOTAL' || 'NONE',
+ *   TotalSegments: Number('int'),
+ *   Segment: Number('int'),
+ *   ProjectionExpression: 'STRING_VALUE',
+ *   FilterExpression: 'STRING_VALUE',
  *   ExpressionAttributeNames: { // ExpressionAttributeNameMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  *   ExpressionAttributeValues: { // ExpressionAttributeValueMap
- *     "<keys>": "<AttributeValue>",
+ *     '<keys>': '<AttributeValue>',
  *   },
  *   ConsistentRead: true || false,
  * };
  * const command = new ScanCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ScanOutput
+ *   Items: [ // ItemList
+ *     { // AttributeMap
+ *       '<keys>': { // AttributeValue Union: only one key present
+ *         S: 'STRING_VALUE',
+ *         N: 'STRING_VALUE',
+ *         B: 'BLOB_VALUE',
+ *         SS: [ // StringSetAttributeValue
+ *           'STRING_VALUE',
+ *         ],
+ *         NS: [ // NumberSetAttributeValue
+ *           'STRING_VALUE',
+ *         ],
+ *         BS: [ // BinarySetAttributeValue
+ *           'BLOB_VALUE',
+ *         ],
+ *         M: { // MapAttributeValue
+ *           '<keys>': {//  Union: only one key present
+ *             S: 'STRING_VALUE',
+ *             N: 'STRING_VALUE',
+ *             B: 'BLOB_VALUE',
+ *             SS: [
+ *               'STRING_VALUE',
+ *             ],
+ *             NS: [
+ *               'STRING_VALUE',
+ *             ],
+ *             BS: [
+ *               'BLOB_VALUE',
+ *             ],
+ *             M: {
+ *               '<keys>': '<AttributeValue>',
+ *             },
+ *             L: [ // ListAttributeValue
+ *               '<AttributeValue>',
+ *             ],
+ *             NULL: true || false,
+ *             BOOL: true || false,
+ *           },
+ *         },
+ *         L: [
+ *           '<AttributeValue>',
+ *         ],
+ *         NULL: true || false,
+ *         BOOL: true || false,
+ *       },
+ *     },
+ *   ],
+ *   Count: Number('int'),
+ *   ScannedCount: Number('int'),
+ *   LastEvaluatedKey: { // Key
+ *     '<keys>': '<AttributeValue>',
+ *   },
+ *   ConsumedCapacity: { // ConsumedCapacity
+ *     TableName: 'STRING_VALUE',
+ *     CapacityUnits: Number('double'),
+ *     ReadCapacityUnits: Number('double'),
+ *     WriteCapacityUnits: Number('double'),
+ *     Table: { // Capacity
+ *       ReadCapacityUnits: Number('double'),
+ *       WriteCapacityUnits: Number('double'),
+ *       CapacityUnits: Number('double'),
+ *     },
+ *     LocalSecondaryIndexes: { // SecondaryIndexesCapacityMap
+ *       '<keys>': {
+ *         ReadCapacityUnits: Number('double'),
+ *         WriteCapacityUnits: Number('double'),
+ *         CapacityUnits: Number('double'),
+ *       },
+ *     },
+ *     GlobalSecondaryIndexes: {
+ *       '<keys>': {
+ *         ReadCapacityUnits: Number('double'),
+ *         WriteCapacityUnits: Number('double'),
+ *         CapacityUnits: Number('double'),
+ *       },
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param ScanCommandInput - {@link ScanCommandInput}
@@ -169,6 +250,8 @@ export interface ScanCommandOutput extends ScanOutput, __MetadataBearer {}
  *  <p>The operation tried to access a nonexistent table or index. The resource might not
  *             be specified correctly, or its status might not be <code>ACTIVE</code>.</p>
  *
+ * @throws {@link DynamoDBServiceException}
+ * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
  * @example To scan a table
  * ```javascript

@@ -36,14 +36,31 @@ export interface DeleteFirewallRuleGroupCommandOutput extends DeleteFirewallRule
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Route53ResolverClient, DeleteFirewallRuleGroupCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
- * // const { Route53ResolverClient, DeleteFirewallRuleGroupCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
+ * import { Route53ResolverClient, DeleteFirewallRuleGroupCommand } from '@aws-sdk/client-route53resolver'; // ES Modules import
+ * // const { Route53ResolverClient, DeleteFirewallRuleGroupCommand } = require('@aws-sdk/client-route53resolver'); // CommonJS import
  * const client = new Route53ResolverClient(config);
  * const input = { // DeleteFirewallRuleGroupRequest
- *   FirewallRuleGroupId: "STRING_VALUE", // required
+ *   FirewallRuleGroupId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteFirewallRuleGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteFirewallRuleGroupResponse
+ *   FirewallRuleGroup: { // FirewallRuleGroup
+ *     Id: 'STRING_VALUE',
+ *     Arn: 'STRING_VALUE',
+ *     Name: 'STRING_VALUE',
+ *     RuleCount: Number('int'),
+ *     Status: 'COMPLETE' || 'DELETING' || 'UPDATING',
+ *     StatusMessage: 'STRING_VALUE',
+ *     OwnerId: 'STRING_VALUE',
+ *     CreatorRequestId: 'STRING_VALUE',
+ *     ShareStatus: 'NOT_SHARED' || 'SHARED_WITH_ME' || 'SHARED_BY_ME',
+ *     CreationTime: 'STRING_VALUE',
+ *     ModificationTime: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param DeleteFirewallRuleGroupCommandInput - {@link DeleteFirewallRuleGroupCommandInput}
@@ -73,6 +90,8 @@ export interface DeleteFirewallRuleGroupCommandOutput extends DeleteFirewallRule
  *  <p>You have provided an invalid command. Supported values are <code>ADD</code>,
  * 			<code>REMOVE</code>, or <code>REPLACE</code> a domain.</p>
  *
+ * @throws {@link Route53ResolverServiceException}
+ * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
  */
 export class DeleteFirewallRuleGroupCommand extends $Command<

@@ -45,17 +45,28 @@ export interface StartZonalShiftCommandOutput extends ZonalShift, __MetadataBear
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ARCZonalShiftClient, StartZonalShiftCommand } from "@aws-sdk/client-arc-zonal-shift"; // ES Modules import
- * // const { ARCZonalShiftClient, StartZonalShiftCommand } = require("@aws-sdk/client-arc-zonal-shift"); // CommonJS import
+ * import { ARCZonalShiftClient, StartZonalShiftCommand } from '@aws-sdk/client-arc-zonal-shift'; // ES Modules import
+ * // const { ARCZonalShiftClient, StartZonalShiftCommand } = require('@aws-sdk/client-arc-zonal-shift'); // CommonJS import
  * const client = new ARCZonalShiftClient(config);
  * const input = { // StartZonalShiftRequest
- *   resourceIdentifier: "STRING_VALUE", // required
- *   awayFrom: "STRING_VALUE", // required
- *   expiresIn: "STRING_VALUE", // required
- *   comment: "STRING_VALUE", // required
+ *   resourceIdentifier: 'STRING_VALUE', // required
+ *   awayFrom: 'STRING_VALUE', // required
+ *   expiresIn: 'STRING_VALUE', // required
+ *   comment: 'STRING_VALUE', // required
  * };
  * const command = new StartZonalShiftCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ZonalShift
+ *   zonalShiftId: 'STRING_VALUE', // required
+ *   resourceIdentifier: 'STRING_VALUE', // required
+ *   awayFrom: 'STRING_VALUE', // required
+ *   expiryTime: new Date('TIMESTAMP'), // required
+ *   startTime: new Date('TIMESTAMP'), // required
+ *   status: 'ACTIVE' || 'EXPIRED' || 'CANCELED', // required
+ *   comment: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param StartZonalShiftCommandInput - {@link StartZonalShiftCommandInput}
@@ -82,6 +93,8 @@ export interface StartZonalShiftCommandOutput extends ZonalShift, __MetadataBear
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link ARCZonalShiftServiceException}
+ * <p>Base exception class for all service exceptions from ARCZonalShift service.</p>
  *
  */
 export class StartZonalShiftCommand extends $Command<

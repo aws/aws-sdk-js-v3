@@ -36,22 +36,39 @@ export interface UpdateNetworkSettingsCommandOutput extends UpdateNetworkSetting
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkSpacesWebClient, UpdateNetworkSettingsCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
- * // const { WorkSpacesWebClient, UpdateNetworkSettingsCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
+ * import { WorkSpacesWebClient, UpdateNetworkSettingsCommand } from '@aws-sdk/client-workspaces-web'; // ES Modules import
+ * // const { WorkSpacesWebClient, UpdateNetworkSettingsCommand } = require('@aws-sdk/client-workspaces-web'); // CommonJS import
  * const client = new WorkSpacesWebClient(config);
  * const input = { // UpdateNetworkSettingsRequest
- *   networkSettingsArn: "STRING_VALUE", // required
- *   vpcId: "STRING_VALUE",
+ *   networkSettingsArn: 'STRING_VALUE', // required
+ *   vpcId: 'STRING_VALUE',
  *   subnetIds: [ // SubnetIdList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   securityGroupIds: [ // SecurityGroupIdList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   clientToken: "STRING_VALUE",
+ *   clientToken: 'STRING_VALUE',
  * };
  * const command = new UpdateNetworkSettingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateNetworkSettingsResponse
+ *   networkSettings: { // NetworkSettings
+ *     networkSettingsArn: 'STRING_VALUE', // required
+ *     associatedPortalArns: [ // ArnList
+ *       'STRING_VALUE',
+ *     ],
+ *     vpcId: 'STRING_VALUE',
+ *     subnetIds: [ // SubnetIdList
+ *       'STRING_VALUE',
+ *     ],
+ *     securityGroupIds: [ // SecurityGroupIdList
+ *       'STRING_VALUE',
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateNetworkSettingsCommandInput - {@link UpdateNetworkSettingsCommandInput}
@@ -75,6 +92,8 @@ export interface UpdateNetworkSettingsCommandOutput extends UpdateNetworkSetting
  * @throws {@link ValidationException} (client fault)
  *  <p>There is a validation error.</p>
  *
+ * @throws {@link WorkSpacesWebServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
  */
 export class UpdateNetworkSettingsCommand extends $Command<

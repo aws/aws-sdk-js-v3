@@ -36,14 +36,36 @@ export interface DeletePlatformVersionCommandOutput extends DeletePlatformVersio
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElasticBeanstalkClient, DeletePlatformVersionCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
- * // const { ElasticBeanstalkClient, DeletePlatformVersionCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
+ * import { ElasticBeanstalkClient, DeletePlatformVersionCommand } from '@aws-sdk/client-elastic-beanstalk'; // ES Modules import
+ * // const { ElasticBeanstalkClient, DeletePlatformVersionCommand } = require('@aws-sdk/client-elastic-beanstalk'); // CommonJS import
  * const client = new ElasticBeanstalkClient(config);
  * const input = { // DeletePlatformVersionRequest
- *   PlatformArn: "STRING_VALUE",
+ *   PlatformArn: 'STRING_VALUE',
  * };
  * const command = new DeletePlatformVersionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeletePlatformVersionResult
+ *   PlatformSummary: { // PlatformSummary
+ *     PlatformArn: 'STRING_VALUE',
+ *     PlatformOwner: 'STRING_VALUE',
+ *     PlatformStatus: 'Creating' || 'Failed' || 'Ready' || 'Deleting' || 'Deleted',
+ *     PlatformCategory: 'STRING_VALUE',
+ *     OperatingSystemName: 'STRING_VALUE',
+ *     OperatingSystemVersion: 'STRING_VALUE',
+ *     SupportedTierList: [ // SupportedTierList
+ *       'STRING_VALUE',
+ *     ],
+ *     SupportedAddonList: [ // SupportedAddonList
+ *       'STRING_VALUE',
+ *     ],
+ *     PlatformLifecycleState: 'STRING_VALUE',
+ *     PlatformVersion: 'STRING_VALUE',
+ *     PlatformBranchName: 'STRING_VALUE',
+ *     PlatformBranchLifecycleState: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param DeletePlatformVersionCommandInput - {@link DeletePlatformVersionCommandInput}
@@ -66,6 +88,8 @@ export interface DeletePlatformVersionCommandOutput extends DeletePlatformVersio
  * @throws {@link PlatformVersionStillReferencedException} (client fault)
  *  <p>You cannot delete the platform version because there are still environments running on it.</p>
  *
+ * @throws {@link ElasticBeanstalkServiceException}
+ * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
  */
 export class DeletePlatformVersionCommand extends $Command<

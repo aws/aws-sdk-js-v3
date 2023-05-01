@@ -43,14 +43,22 @@ export interface ListPhoneNumbersOptedOutCommandOutput extends ListPhoneNumbersO
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SNSClient, ListPhoneNumbersOptedOutCommand } from "@aws-sdk/client-sns"; // ES Modules import
- * // const { SNSClient, ListPhoneNumbersOptedOutCommand } = require("@aws-sdk/client-sns"); // CommonJS import
+ * import { SNSClient, ListPhoneNumbersOptedOutCommand } from '@aws-sdk/client-sns'; // ES Modules import
+ * // const { SNSClient, ListPhoneNumbersOptedOutCommand } = require('@aws-sdk/client-sns'); // CommonJS import
  * const client = new SNSClient(config);
  * const input = { // ListPhoneNumbersOptedOutInput
- *   nextToken: "STRING_VALUE",
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new ListPhoneNumbersOptedOutCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListPhoneNumbersOptedOutResponse
+ *   phoneNumbers: [ // PhoneNumberList
+ *     'STRING_VALUE',
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListPhoneNumbersOptedOutCommandInput - {@link ListPhoneNumbersOptedOutCommandInput}
@@ -72,6 +80,8 @@ export interface ListPhoneNumbersOptedOutCommandOutput extends ListPhoneNumbersO
  * @throws {@link ThrottledException} (client fault)
  *  <p>Indicates that the rate at which requests have been submitted for this action exceeds the limit for your Amazon Web Services account.</p>
  *
+ * @throws {@link SNSServiceException}
+ * <p>Base exception class for all service exceptions from SNS service.</p>
  *
  */
 export class ListPhoneNumbersOptedOutCommand extends $Command<

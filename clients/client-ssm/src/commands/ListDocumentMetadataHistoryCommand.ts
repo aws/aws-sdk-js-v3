@@ -38,18 +38,42 @@ export interface ListDocumentMetadataHistoryCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMClient, ListDocumentMetadataHistoryCommand } from "@aws-sdk/client-ssm"; // ES Modules import
- * // const { SSMClient, ListDocumentMetadataHistoryCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * import { SSMClient, ListDocumentMetadataHistoryCommand } from '@aws-sdk/client-ssm'; // ES Modules import
+ * // const { SSMClient, ListDocumentMetadataHistoryCommand } = require('@aws-sdk/client-ssm'); // CommonJS import
  * const client = new SSMClient(config);
  * const input = { // ListDocumentMetadataHistoryRequest
- *   Name: "STRING_VALUE", // required
- *   DocumentVersion: "STRING_VALUE",
- *   Metadata: "DocumentReviews", // required
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   Name: 'STRING_VALUE', // required
+ *   DocumentVersion: 'STRING_VALUE',
+ *   Metadata: 'DocumentReviews', // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListDocumentMetadataHistoryCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListDocumentMetadataHistoryResponse
+ *   Name: 'STRING_VALUE',
+ *   DocumentVersion: 'STRING_VALUE',
+ *   Author: 'STRING_VALUE',
+ *   Metadata: { // DocumentMetadataResponseInfo
+ *     ReviewerResponse: [ // DocumentReviewerResponseList
+ *       { // DocumentReviewerResponseSource
+ *         CreateTime: new Date('TIMESTAMP'),
+ *         UpdatedTime: new Date('TIMESTAMP'),
+ *         ReviewStatus: 'APPROVED' || 'NOT_REVIEWED' || 'PENDING' || 'REJECTED',
+ *         Comment: [ // DocumentReviewCommentList
+ *           { // DocumentReviewCommentSource
+ *             Type: 'Comment',
+ *             Content: 'STRING_VALUE',
+ *           },
+ *         ],
+ *         Reviewer: 'STRING_VALUE',
+ *       },
+ *     ],
+ *   },
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListDocumentMetadataHistoryCommandInput - {@link ListDocumentMetadataHistoryCommandInput}
@@ -70,6 +94,8 @@ export interface ListDocumentMetadataHistoryCommandOutput
  * @throws {@link InvalidNextToken} (client fault)
  *  <p>The specified token isn't valid.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class ListDocumentMetadataHistoryCommand extends $Command<

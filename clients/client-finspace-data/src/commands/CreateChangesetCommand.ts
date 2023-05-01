@@ -36,22 +36,28 @@ export interface CreateChangesetCommandOutput extends CreateChangesetResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FinspaceDataClient, CreateChangesetCommand } from "@aws-sdk/client-finspace-data"; // ES Modules import
- * // const { FinspaceDataClient, CreateChangesetCommand } = require("@aws-sdk/client-finspace-data"); // CommonJS import
+ * import { FinspaceDataClient, CreateChangesetCommand } from '@aws-sdk/client-finspace-data'; // ES Modules import
+ * // const { FinspaceDataClient, CreateChangesetCommand } = require('@aws-sdk/client-finspace-data'); // CommonJS import
  * const client = new FinspaceDataClient(config);
  * const input = { // CreateChangesetRequest
- *   clientToken: "STRING_VALUE",
- *   datasetId: "STRING_VALUE", // required
- *   changeType: "STRING_VALUE", // required
+ *   clientToken: 'STRING_VALUE',
+ *   datasetId: 'STRING_VALUE', // required
+ *   changeType: 'STRING_VALUE', // required
  *   sourceParams: { // SourceParams // required
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  *   formatParams: { // FormatParams // required
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateChangesetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateChangesetResponse
+ *   datasetId: 'STRING_VALUE',
+ *   changesetId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateChangesetCommandInput - {@link CreateChangesetCommandInput}
@@ -82,6 +88,8 @@ export interface CreateChangesetCommandOutput extends CreateChangesetResponse, _
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link FinspaceDataServiceException}
+ * <p>Base exception class for all service exceptions from FinspaceData service.</p>
  *
  */
 export class CreateChangesetCommand extends $Command<

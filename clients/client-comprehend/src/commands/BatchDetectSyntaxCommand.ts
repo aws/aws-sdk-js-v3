@@ -44,17 +44,45 @@ export interface BatchDetectSyntaxCommandOutput extends BatchDetectSyntaxRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ComprehendClient, BatchDetectSyntaxCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
- * // const { ComprehendClient, BatchDetectSyntaxCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
+ * import { ComprehendClient, BatchDetectSyntaxCommand } from '@aws-sdk/client-comprehend'; // ES Modules import
+ * // const { ComprehendClient, BatchDetectSyntaxCommand } = require('@aws-sdk/client-comprehend'); // CommonJS import
  * const client = new ComprehendClient(config);
  * const input = { // BatchDetectSyntaxRequest
  *   TextList: [ // CustomerInputStringList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   LanguageCode: "en" || "es" || "fr" || "de" || "it" || "pt", // required
+ *   LanguageCode: 'en' || 'es' || 'fr' || 'de' || 'it' || 'pt', // required
  * };
  * const command = new BatchDetectSyntaxCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BatchDetectSyntaxResponse
+ *   ResultList: [ // ListOfDetectSyntaxResult // required
+ *     { // BatchDetectSyntaxItemResult
+ *       Index: Number('int'),
+ *       SyntaxTokens: [ // ListOfSyntaxTokens
+ *         { // SyntaxToken
+ *           TokenId: Number('int'),
+ *           Text: 'STRING_VALUE',
+ *           BeginOffset: Number('int'),
+ *           EndOffset: Number('int'),
+ *           PartOfSpeech: { // PartOfSpeechTag
+ *             Tag: 'ADJ' || 'ADP' || 'ADV' || 'AUX' || 'CONJ' || 'CCONJ' || 'DET' || 'INTJ' || 'NOUN' || 'NUM' || 'O' || 'PART' || 'PRON' || 'PROPN' || 'PUNCT' || 'SCONJ' || 'SYM' || 'VERB',
+ *             Score: Number('float'),
+ *           },
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   ErrorList: [ // BatchItemErrorList // required
+ *     { // BatchItemError
+ *       Index: Number('int'),
+ *       ErrorCode: 'STRING_VALUE',
+ *       ErrorMessage: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param BatchDetectSyntaxCommandInput - {@link BatchDetectSyntaxCommandInput}
@@ -83,6 +111,8 @@ export interface BatchDetectSyntaxCommandOutput extends BatchDetectSyntaxRespons
  *       <a href="https://docs.aws.amazon.com/comprehend/latest/dg/supported-languages.html">Supported languages</a> in the Comprehend Developer Guide.
  *     </p>
  *
+ * @throws {@link ComprehendServiceException}
+ * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
  */
 export class BatchDetectSyntaxCommand extends $Command<

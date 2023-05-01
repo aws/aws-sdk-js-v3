@@ -41,17 +41,20 @@ export interface PutAccountConfigurationCommandOutput extends __MetadataBearer {
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ACMClient, PutAccountConfigurationCommand } from "@aws-sdk/client-acm"; // ES Modules import
- * // const { ACMClient, PutAccountConfigurationCommand } = require("@aws-sdk/client-acm"); // CommonJS import
+ * import { ACMClient, PutAccountConfigurationCommand } from '@aws-sdk/client-acm'; // ES Modules import
+ * // const { ACMClient, PutAccountConfigurationCommand } = require('@aws-sdk/client-acm'); // CommonJS import
  * const client = new ACMClient(config);
  * const input = { // PutAccountConfigurationRequest
  *   ExpiryEvents: { // ExpiryEventsConfiguration
- *     DaysBeforeExpiry: Number("int"),
+ *     DaysBeforeExpiry: Number('int'),
  *   },
- *   IdempotencyToken: "STRING_VALUE", // required
+ *   IdempotencyToken: 'STRING_VALUE', // required
  * };
  * const command = new PutAccountConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutAccountConfigurationCommandInput - {@link PutAccountConfigurationCommandInput}
@@ -73,6 +76,8 @@ export interface PutAccountConfigurationCommandOutput extends __MetadataBearer {
  * @throws {@link ValidationException} (client fault)
  *  <p>The supplied input failed to satisfy constraints of an Amazon Web Services service.</p>
  *
+ * @throws {@link ACMServiceException}
+ * <p>Base exception class for all service exceptions from ACM service.</p>
  *
  */
 export class PutAccountConfigurationCommand extends $Command<

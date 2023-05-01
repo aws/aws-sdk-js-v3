@@ -42,20 +42,33 @@ export interface UpdateCustomRoutingListenerCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlobalAcceleratorClient, UpdateCustomRoutingListenerCommand } from "@aws-sdk/client-global-accelerator"; // ES Modules import
- * // const { GlobalAcceleratorClient, UpdateCustomRoutingListenerCommand } = require("@aws-sdk/client-global-accelerator"); // CommonJS import
+ * import { GlobalAcceleratorClient, UpdateCustomRoutingListenerCommand } from '@aws-sdk/client-global-accelerator'; // ES Modules import
+ * // const { GlobalAcceleratorClient, UpdateCustomRoutingListenerCommand } = require('@aws-sdk/client-global-accelerator'); // CommonJS import
  * const client = new GlobalAcceleratorClient(config);
  * const input = { // UpdateCustomRoutingListenerRequest
- *   ListenerArn: "STRING_VALUE", // required
+ *   ListenerArn: 'STRING_VALUE', // required
  *   PortRanges: [ // PortRanges // required
  *     { // PortRange
- *       FromPort: Number("int"),
- *       ToPort: Number("int"),
+ *       FromPort: Number('int'),
+ *       ToPort: Number('int'),
  *     },
  *   ],
  * };
  * const command = new UpdateCustomRoutingListenerCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateCustomRoutingListenerResponse
+ *   Listener: { // CustomRoutingListener
+ *     ListenerArn: 'STRING_VALUE',
+ *     PortRanges: [ // PortRanges
+ *       { // PortRange
+ *         FromPort: Number('int'),
+ *         ToPort: Number('int'),
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateCustomRoutingListenerCommandInput - {@link UpdateCustomRoutingListenerCommandInput}
@@ -79,6 +92,8 @@ export interface UpdateCustomRoutingListenerCommandOutput
  * @throws {@link ListenerNotFoundException} (client fault)
  *  <p>The listener that you specified doesn't exist.</p>
  *
+ * @throws {@link GlobalAcceleratorServiceException}
+ * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
  */
 export class UpdateCustomRoutingListenerCommand extends $Command<

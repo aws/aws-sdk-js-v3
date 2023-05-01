@@ -42,16 +42,32 @@ export interface ListGroupsCommandOutput extends ListGroupsResponse, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CognitoIdentityProviderClient, ListGroupsCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
- * // const { CognitoIdentityProviderClient, ListGroupsCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
+ * import { CognitoIdentityProviderClient, ListGroupsCommand } from '@aws-sdk/client-cognito-identity-provider'; // ES Modules import
+ * // const { CognitoIdentityProviderClient, ListGroupsCommand } = require('@aws-sdk/client-cognito-identity-provider'); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
  * const input = { // ListGroupsRequest
- *   UserPoolId: "STRING_VALUE", // required
- *   Limit: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   UserPoolId: 'STRING_VALUE', // required
+ *   Limit: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListGroupsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListGroupsResponse
+ *   Groups: [ // GroupListType
+ *     { // GroupType
+ *       GroupName: 'STRING_VALUE',
+ *       UserPoolId: 'STRING_VALUE',
+ *       Description: 'STRING_VALUE',
+ *       RoleArn: 'STRING_VALUE',
+ *       Precedence: Number('int'),
+ *       LastModifiedDate: new Date('TIMESTAMP'),
+ *       CreationDate: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListGroupsCommandInput - {@link ListGroupsCommandInput}
@@ -78,6 +94,8 @@ export interface ListGroupsCommandOutput extends ListGroupsResponse, __MetadataB
  *  <p>This exception is thrown when the user has made too many requests for a given
  *             operation.</p>
  *
+ * @throws {@link CognitoIdentityProviderServiceException}
+ * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
  */
 export class ListGroupsCommand extends $Command<

@@ -37,14 +37,36 @@ export interface GetContactListCommandOutput extends GetContactListResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SESv2Client, GetContactListCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
- * // const { SESv2Client, GetContactListCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
+ * import { SESv2Client, GetContactListCommand } from '@aws-sdk/client-sesv2'; // ES Modules import
+ * // const { SESv2Client, GetContactListCommand } = require('@aws-sdk/client-sesv2'); // CommonJS import
  * const client = new SESv2Client(config);
  * const input = { // GetContactListRequest
- *   ContactListName: "STRING_VALUE", // required
+ *   ContactListName: 'STRING_VALUE', // required
  * };
  * const command = new GetContactListCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetContactListResponse
+ *   ContactListName: 'STRING_VALUE',
+ *   Topics: [ // Topics
+ *     { // Topic
+ *       TopicName: 'STRING_VALUE', // required
+ *       DisplayName: 'STRING_VALUE', // required
+ *       Description: 'STRING_VALUE',
+ *       DefaultSubscriptionStatus: 'OPT_IN' || 'OPT_OUT', // required
+ *     },
+ *   ],
+ *   Description: 'STRING_VALUE',
+ *   CreatedTimestamp: new Date('TIMESTAMP'),
+ *   LastUpdatedTimestamp: new Date('TIMESTAMP'),
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetContactListCommandInput - {@link GetContactListCommandInput}
@@ -62,6 +84,8 @@ export interface GetContactListCommandOutput extends GetContactListResponse, __M
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Too many requests have been made to the operation.</p>
  *
+ * @throws {@link SESv2ServiceException}
+ * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
  */
 export class GetContactListCommand extends $Command<

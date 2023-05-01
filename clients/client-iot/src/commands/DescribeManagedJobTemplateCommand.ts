@@ -36,15 +36,36 @@ export interface DescribeManagedJobTemplateCommandOutput extends DescribeManaged
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTClient, DescribeManagedJobTemplateCommand } from "@aws-sdk/client-iot"; // ES Modules import
- * // const { IoTClient, DescribeManagedJobTemplateCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * import { IoTClient, DescribeManagedJobTemplateCommand } from '@aws-sdk/client-iot'; // ES Modules import
+ * // const { IoTClient, DescribeManagedJobTemplateCommand } = require('@aws-sdk/client-iot'); // CommonJS import
  * const client = new IoTClient(config);
  * const input = { // DescribeManagedJobTemplateRequest
- *   templateName: "STRING_VALUE", // required
- *   templateVersion: "STRING_VALUE",
+ *   templateName: 'STRING_VALUE', // required
+ *   templateVersion: 'STRING_VALUE',
  * };
  * const command = new DescribeManagedJobTemplateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeManagedJobTemplateResponse
+ *   templateName: 'STRING_VALUE',
+ *   templateArn: 'STRING_VALUE',
+ *   description: 'STRING_VALUE',
+ *   templateVersion: 'STRING_VALUE',
+ *   environments: [ // Environments
+ *     'STRING_VALUE',
+ *   ],
+ *   documentParameters: [ // DocumentParameters
+ *     { // DocumentParameter
+ *       key: 'STRING_VALUE',
+ *       description: 'STRING_VALUE',
+ *       regex: 'STRING_VALUE',
+ *       example: 'STRING_VALUE',
+ *       optional: true || false,
+ *     },
+ *   ],
+ *   document: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeManagedJobTemplateCommandInput - {@link DescribeManagedJobTemplateCommandInput}
@@ -66,6 +87,8 @@ export interface DescribeManagedJobTemplateCommandOutput extends DescribeManaged
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The rate exceeds the limit.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class DescribeManagedJobTemplateCommand extends $Command<

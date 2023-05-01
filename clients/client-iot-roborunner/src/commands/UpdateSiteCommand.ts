@@ -36,17 +36,27 @@ export interface UpdateSiteCommandOutput extends UpdateSiteResponse, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTRoboRunnerClient, UpdateSiteCommand } from "@aws-sdk/client-iot-roborunner"; // ES Modules import
- * // const { IoTRoboRunnerClient, UpdateSiteCommand } = require("@aws-sdk/client-iot-roborunner"); // CommonJS import
+ * import { IoTRoboRunnerClient, UpdateSiteCommand } from '@aws-sdk/client-iot-roborunner'; // ES Modules import
+ * // const { IoTRoboRunnerClient, UpdateSiteCommand } = require('@aws-sdk/client-iot-roborunner'); // CommonJS import
  * const client = new IoTRoboRunnerClient(config);
  * const input = { // UpdateSiteRequest
- *   id: "STRING_VALUE", // required
- *   name: "STRING_VALUE",
- *   countryCode: "STRING_VALUE",
- *   description: "STRING_VALUE",
+ *   id: 'STRING_VALUE', // required
+ *   name: 'STRING_VALUE',
+ *   countryCode: 'STRING_VALUE',
+ *   description: 'STRING_VALUE',
  * };
  * const command = new UpdateSiteCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateSiteResponse
+ *   arn: 'STRING_VALUE', // required
+ *   id: 'STRING_VALUE', // required
+ *   name: 'STRING_VALUE', // required
+ *   countryCode: 'STRING_VALUE',
+ *   description: 'STRING_VALUE',
+ *   updatedAt: new Date('TIMESTAMP'), // required
+ * };
+ *
  * ```
  *
  * @param UpdateSiteCommandInput - {@link UpdateSiteCommandInput}
@@ -70,6 +80,8 @@ export interface UpdateSiteCommandOutput extends UpdateSiteResponse, __MetadataB
  * @throws {@link ValidationException} (client fault)
  *  Exception thrown if an invalid parameter is provided to an API.
  *
+ * @throws {@link IoTRoboRunnerServiceException}
+ * <p>Base exception class for all service exceptions from IoTRoboRunner service.</p>
  *
  */
 export class UpdateSiteCommand extends $Command<

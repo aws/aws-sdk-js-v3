@@ -42,15 +42,20 @@ export interface PutResolverQueryLogConfigPolicyCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Route53ResolverClient, PutResolverQueryLogConfigPolicyCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
- * // const { Route53ResolverClient, PutResolverQueryLogConfigPolicyCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
+ * import { Route53ResolverClient, PutResolverQueryLogConfigPolicyCommand } from '@aws-sdk/client-route53resolver'; // ES Modules import
+ * // const { Route53ResolverClient, PutResolverQueryLogConfigPolicyCommand } = require('@aws-sdk/client-route53resolver'); // CommonJS import
  * const client = new Route53ResolverClient(config);
  * const input = { // PutResolverQueryLogConfigPolicyRequest
- *   Arn: "STRING_VALUE", // required
- *   ResolverQueryLogConfigPolicy: "STRING_VALUE", // required
+ *   Arn: 'STRING_VALUE', // required
+ *   ResolverQueryLogConfigPolicy: 'STRING_VALUE', // required
  * };
  * const command = new PutResolverQueryLogConfigPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutResolverQueryLogConfigPolicyResponse
+ *   ReturnValue: true || false,
+ * };
+ *
  * ```
  *
  * @param PutResolverQueryLogConfigPolicyCommandInput - {@link PutResolverQueryLogConfigPolicyCommandInput}
@@ -77,6 +82,8 @@ export interface PutResolverQueryLogConfigPolicyCommandOutput
  * @throws {@link UnknownResourceException} (client fault)
  *  <p>The specified resource doesn't exist.</p>
  *
+ * @throws {@link Route53ResolverServiceException}
+ * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
  */
 export class PutResolverQueryLogConfigPolicyCommand extends $Command<

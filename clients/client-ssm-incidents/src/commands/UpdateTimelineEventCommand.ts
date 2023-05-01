@@ -36,25 +36,28 @@ export interface UpdateTimelineEventCommandOutput extends UpdateTimelineEventOut
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMIncidentsClient, UpdateTimelineEventCommand } from "@aws-sdk/client-ssm-incidents"; // ES Modules import
- * // const { SSMIncidentsClient, UpdateTimelineEventCommand } = require("@aws-sdk/client-ssm-incidents"); // CommonJS import
+ * import { SSMIncidentsClient, UpdateTimelineEventCommand } from '@aws-sdk/client-ssm-incidents'; // ES Modules import
+ * // const { SSMIncidentsClient, UpdateTimelineEventCommand } = require('@aws-sdk/client-ssm-incidents'); // CommonJS import
  * const client = new SSMIncidentsClient(config);
  * const input = { // UpdateTimelineEventInput
- *   clientToken: "STRING_VALUE",
- *   incidentRecordArn: "STRING_VALUE", // required
- *   eventId: "STRING_VALUE", // required
- *   eventTime: new Date("TIMESTAMP"),
- *   eventType: "STRING_VALUE",
- *   eventData: "STRING_VALUE",
+ *   clientToken: 'STRING_VALUE',
+ *   incidentRecordArn: 'STRING_VALUE', // required
+ *   eventId: 'STRING_VALUE', // required
+ *   eventTime: new Date('TIMESTAMP'),
+ *   eventType: 'STRING_VALUE',
+ *   eventData: 'STRING_VALUE',
  *   eventReferences: [ // EventReferenceList
  *     { // EventReference Union: only one key present
- *       resource: "STRING_VALUE",
- *       relatedItemId: "STRING_VALUE",
+ *       resource: 'STRING_VALUE',
+ *       relatedItemId: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new UpdateTimelineEventCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateTimelineEventCommandInput - {@link UpdateTimelineEventCommandInput}
@@ -83,6 +86,8 @@ export interface UpdateTimelineEventCommandOutput extends UpdateTimelineEventOut
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
  *       service.</p>
  *
+ * @throws {@link SSMIncidentsServiceException}
+ * <p>Base exception class for all service exceptions from SSMIncidents service.</p>
  *
  */
 export class UpdateTimelineEventCommand extends $Command<

@@ -55,75 +55,80 @@ export interface CreateModelCommandOutput extends CreateModelOutput, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, CreateModelCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, CreateModelCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, CreateModelCommand } from '@aws-sdk/client-sagemaker'; // ES Modules import
+ * // const { SageMakerClient, CreateModelCommand } = require('@aws-sdk/client-sagemaker'); // CommonJS import
  * const client = new SageMakerClient(config);
  * const input = { // CreateModelInput
- *   ModelName: "STRING_VALUE", // required
+ *   ModelName: 'STRING_VALUE', // required
  *   PrimaryContainer: { // ContainerDefinition
- *     ContainerHostname: "STRING_VALUE",
- *     Image: "STRING_VALUE",
+ *     ContainerHostname: 'STRING_VALUE',
+ *     Image: 'STRING_VALUE',
  *     ImageConfig: { // ImageConfig
- *       RepositoryAccessMode: "Platform" || "Vpc", // required
+ *       RepositoryAccessMode: 'Platform' || 'Vpc', // required
  *       RepositoryAuthConfig: { // RepositoryAuthConfig
- *         RepositoryCredentialsProviderArn: "STRING_VALUE", // required
+ *         RepositoryCredentialsProviderArn: 'STRING_VALUE', // required
  *       },
  *     },
- *     Mode: "SingleModel" || "MultiModel",
- *     ModelDataUrl: "STRING_VALUE",
+ *     Mode: 'SingleModel' || 'MultiModel',
+ *     ModelDataUrl: 'STRING_VALUE',
  *     Environment: { // EnvironmentMap
- *       "<keys>": "STRING_VALUE",
+ *       '<keys>': 'STRING_VALUE',
  *     },
- *     ModelPackageName: "STRING_VALUE",
- *     InferenceSpecificationName: "STRING_VALUE",
+ *     ModelPackageName: 'STRING_VALUE',
+ *     InferenceSpecificationName: 'STRING_VALUE',
  *     MultiModelConfig: { // MultiModelConfig
- *       ModelCacheSetting: "Enabled" || "Disabled",
+ *       ModelCacheSetting: 'Enabled' || 'Disabled',
  *     },
  *   },
  *   Containers: [ // ContainerDefinitionList
  *     {
- *       ContainerHostname: "STRING_VALUE",
- *       Image: "STRING_VALUE",
+ *       ContainerHostname: 'STRING_VALUE',
+ *       Image: 'STRING_VALUE',
  *       ImageConfig: {
- *         RepositoryAccessMode: "Platform" || "Vpc", // required
+ *         RepositoryAccessMode: 'Platform' || 'Vpc', // required
  *         RepositoryAuthConfig: {
- *           RepositoryCredentialsProviderArn: "STRING_VALUE", // required
+ *           RepositoryCredentialsProviderArn: 'STRING_VALUE', // required
  *         },
  *       },
- *       Mode: "SingleModel" || "MultiModel",
- *       ModelDataUrl: "STRING_VALUE",
+ *       Mode: 'SingleModel' || 'MultiModel',
+ *       ModelDataUrl: 'STRING_VALUE',
  *       Environment: {
- *         "<keys>": "STRING_VALUE",
+ *         '<keys>': 'STRING_VALUE',
  *       },
- *       ModelPackageName: "STRING_VALUE",
- *       InferenceSpecificationName: "STRING_VALUE",
+ *       ModelPackageName: 'STRING_VALUE',
+ *       InferenceSpecificationName: 'STRING_VALUE',
  *       MultiModelConfig: {
- *         ModelCacheSetting: "Enabled" || "Disabled",
+ *         ModelCacheSetting: 'Enabled' || 'Disabled',
  *       },
  *     },
  *   ],
  *   InferenceExecutionConfig: { // InferenceExecutionConfig
- *     Mode: "Serial" || "Direct", // required
+ *     Mode: 'Serial' || 'Direct', // required
  *   },
- *   ExecutionRoleArn: "STRING_VALUE", // required
+ *   ExecutionRoleArn: 'STRING_VALUE', // required
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  *   VpcConfig: { // VpcConfig
  *     SecurityGroupIds: [ // VpcSecurityGroupIds // required
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     Subnets: [ // Subnets // required
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *   },
  *   EnableNetworkIsolation: true || false,
  * };
  * const command = new CreateModelCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateModelOutput
+ *   ModelArn: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param CreateModelCommandInput - {@link CreateModelCommandInput}
@@ -136,6 +141,8 @@ export interface CreateModelCommandOutput extends CreateModelOutput, __MetadataB
  *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many
  *             training jobs created. </p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class CreateModelCommand extends $Command<

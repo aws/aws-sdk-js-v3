@@ -36,24 +36,46 @@ export interface ListInferenceExperimentsCommandOutput extends ListInferenceExpe
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, ListInferenceExperimentsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, ListInferenceExperimentsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, ListInferenceExperimentsCommand } from '@aws-sdk/client-sagemaker'; // ES Modules import
+ * // const { SageMakerClient, ListInferenceExperimentsCommand } = require('@aws-sdk/client-sagemaker'); // CommonJS import
  * const client = new SageMakerClient(config);
  * const input = { // ListInferenceExperimentsRequest
- *   NameContains: "STRING_VALUE",
- *   Type: "ShadowMode",
- *   StatusEquals: "Creating" || "Created" || "Updating" || "Running" || "Starting" || "Stopping" || "Completed" || "Cancelled",
- *   CreationTimeAfter: new Date("TIMESTAMP"),
- *   CreationTimeBefore: new Date("TIMESTAMP"),
- *   LastModifiedTimeAfter: new Date("TIMESTAMP"),
- *   LastModifiedTimeBefore: new Date("TIMESTAMP"),
- *   SortBy: "Name" || "CreationTime" || "Status",
- *   SortOrder: "Ascending" || "Descending",
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NameContains: 'STRING_VALUE',
+ *   Type: 'ShadowMode',
+ *   StatusEquals: 'Creating' || 'Created' || 'Updating' || 'Running' || 'Starting' || 'Stopping' || 'Completed' || 'Cancelled',
+ *   CreationTimeAfter: new Date('TIMESTAMP'),
+ *   CreationTimeBefore: new Date('TIMESTAMP'),
+ *   LastModifiedTimeAfter: new Date('TIMESTAMP'),
+ *   LastModifiedTimeBefore: new Date('TIMESTAMP'),
+ *   SortBy: 'Name' || 'CreationTime' || 'Status',
+ *   SortOrder: 'Ascending' || 'Descending',
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListInferenceExperimentsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListInferenceExperimentsResponse
+ *   InferenceExperiments: [ // InferenceExperimentList
+ *     { // InferenceExperimentSummary
+ *       Name: 'STRING_VALUE', // required
+ *       Type: 'ShadowMode', // required
+ *       Schedule: { // InferenceExperimentSchedule
+ *         StartTime: new Date('TIMESTAMP'),
+ *         EndTime: new Date('TIMESTAMP'),
+ *       },
+ *       Status: 'Creating' || 'Created' || 'Updating' || 'Running' || 'Starting' || 'Stopping' || 'Completed' || 'Cancelled', // required
+ *       StatusReason: 'STRING_VALUE',
+ *       Description: 'STRING_VALUE',
+ *       CreationTime: new Date('TIMESTAMP'), // required
+ *       CompletionTime: new Date('TIMESTAMP'),
+ *       LastModifiedTime: new Date('TIMESTAMP'), // required
+ *       RoleArn: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListInferenceExperimentsCommandInput - {@link ListInferenceExperimentsCommandInput}
@@ -62,6 +84,8 @@ export interface ListInferenceExperimentsCommandOutput extends ListInferenceExpe
  * @see {@link ListInferenceExperimentsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class ListInferenceExperimentsCommand extends $Command<

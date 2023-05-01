@@ -40,19 +40,34 @@ export interface ListAccessPoliciesCommandOutput extends ListAccessPoliciesRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OpenSearchServerlessClient, ListAccessPoliciesCommand } from "@aws-sdk/client-opensearchserverless"; // ES Modules import
- * // const { OpenSearchServerlessClient, ListAccessPoliciesCommand } = require("@aws-sdk/client-opensearchserverless"); // CommonJS import
+ * import { OpenSearchServerlessClient, ListAccessPoliciesCommand } from '@aws-sdk/client-opensearchserverless'; // ES Modules import
+ * // const { OpenSearchServerlessClient, ListAccessPoliciesCommand } = require('@aws-sdk/client-opensearchserverless'); // CommonJS import
  * const client = new OpenSearchServerlessClient(config);
  * const input = { // ListAccessPoliciesRequest
- *   type: "STRING_VALUE", // required
+ *   type: 'STRING_VALUE', // required
  *   resource: [ // ResourceFilter
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new ListAccessPoliciesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListAccessPoliciesResponse
+ *   accessPolicySummaries: [ // AccessPolicySummaries
+ *     { // AccessPolicySummary
+ *       type: 'STRING_VALUE',
+ *       name: 'STRING_VALUE',
+ *       policyVersion: 'STRING_VALUE',
+ *       description: 'STRING_VALUE',
+ *       createdDate: Number('long'),
+ *       lastModifiedDate: Number('long'),
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListAccessPoliciesCommandInput - {@link ListAccessPoliciesCommandInput}
@@ -68,6 +83,8 @@ export interface ListAccessPoliciesCommandOutput extends ListAccessPoliciesRespo
  *  <p>Thrown when the HTTP request contains invalid input or is missing required
  *             input.</p>
  *
+ * @throws {@link OpenSearchServerlessServiceException}
+ * <p>Base exception class for all service exceptions from OpenSearchServerless service.</p>
  *
  */
 export class ListAccessPoliciesCommand extends $Command<

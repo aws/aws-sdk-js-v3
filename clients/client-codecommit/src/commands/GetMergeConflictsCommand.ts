@@ -36,21 +36,63 @@ export interface GetMergeConflictsCommandOutput extends GetMergeConflictsOutput,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeCommitClient, GetMergeConflictsCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
- * // const { CodeCommitClient, GetMergeConflictsCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
+ * import { CodeCommitClient, GetMergeConflictsCommand } from '@aws-sdk/client-codecommit'; // ES Modules import
+ * // const { CodeCommitClient, GetMergeConflictsCommand } = require('@aws-sdk/client-codecommit'); // CommonJS import
  * const client = new CodeCommitClient(config);
  * const input = { // GetMergeConflictsInput
- *   repositoryName: "STRING_VALUE", // required
- *   destinationCommitSpecifier: "STRING_VALUE", // required
- *   sourceCommitSpecifier: "STRING_VALUE", // required
- *   mergeOption: "STRING_VALUE", // required
- *   conflictDetailLevel: "STRING_VALUE",
- *   maxConflictFiles: Number("int"),
- *   conflictResolutionStrategy: "STRING_VALUE",
- *   nextToken: "STRING_VALUE",
+ *   repositoryName: 'STRING_VALUE', // required
+ *   destinationCommitSpecifier: 'STRING_VALUE', // required
+ *   sourceCommitSpecifier: 'STRING_VALUE', // required
+ *   mergeOption: 'STRING_VALUE', // required
+ *   conflictDetailLevel: 'STRING_VALUE',
+ *   maxConflictFiles: Number('int'),
+ *   conflictResolutionStrategy: 'STRING_VALUE',
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new GetMergeConflictsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetMergeConflictsOutput
+ *   mergeable: true || false, // required
+ *   destinationCommitId: 'STRING_VALUE', // required
+ *   sourceCommitId: 'STRING_VALUE', // required
+ *   baseCommitId: 'STRING_VALUE',
+ *   conflictMetadataList: [ // ConflictMetadataList // required
+ *     { // ConflictMetadata
+ *       filePath: 'STRING_VALUE',
+ *       fileSizes: { // FileSizes
+ *         source: Number('long'),
+ *         destination: Number('long'),
+ *         base: Number('long'),
+ *       },
+ *       fileModes: { // FileModes
+ *         source: 'STRING_VALUE',
+ *         destination: 'STRING_VALUE',
+ *         base: 'STRING_VALUE',
+ *       },
+ *       objectTypes: { // ObjectTypes
+ *         source: 'STRING_VALUE',
+ *         destination: 'STRING_VALUE',
+ *         base: 'STRING_VALUE',
+ *       },
+ *       numberOfConflicts: Number('int'),
+ *       isBinaryFile: { // IsBinaryFile
+ *         source: true || false,
+ *         destination: true || false,
+ *         base: true || false,
+ *       },
+ *       contentConflict: true || false,
+ *       fileModeConflict: true || false,
+ *       objectTypeConflict: true || false,
+ *       mergeOperations: { // MergeOperations
+ *         source: 'STRING_VALUE',
+ *         destination: 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetMergeConflictsCommandInput - {@link GetMergeConflictsCommandInput}
@@ -132,6 +174,8 @@ export interface GetMergeConflictsCommandOutput extends GetMergeConflictsOutput,
  *  <p>The divergence between the tips of the provided commit specifiers is too great to determine whether there might be
  *             any merge conflicts. Locally compare the specifiers using <code>git diff</code> or a diff tool.</p>
  *
+ * @throws {@link CodeCommitServiceException}
+ * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
  */
 export class GetMergeConflictsCommand extends $Command<

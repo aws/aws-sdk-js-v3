@@ -38,14 +38,21 @@ export interface ListVolumeInitiatorsCommandOutput extends ListVolumeInitiatorsO
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { StorageGatewayClient, ListVolumeInitiatorsCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
- * // const { StorageGatewayClient, ListVolumeInitiatorsCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
+ * import { StorageGatewayClient, ListVolumeInitiatorsCommand } from '@aws-sdk/client-storage-gateway'; // ES Modules import
+ * // const { StorageGatewayClient, ListVolumeInitiatorsCommand } = require('@aws-sdk/client-storage-gateway'); // CommonJS import
  * const client = new StorageGatewayClient(config);
  * const input = { // ListVolumeInitiatorsInput
- *   VolumeARN: "STRING_VALUE", // required
+ *   VolumeARN: 'STRING_VALUE', // required
  * };
  * const command = new ListVolumeInitiatorsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListVolumeInitiatorsOutput
+ *   Initiators: [ // Initiators
+ *     'STRING_VALUE',
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListVolumeInitiatorsCommandInput - {@link ListVolumeInitiatorsCommandInput}
@@ -62,6 +69,8 @@ export interface ListVolumeInitiatorsCommandOutput extends ListVolumeInitiatorsO
  *  <p>An exception occurred because an invalid gateway request was issued to the service. For
  *          more information, see the error and message fields.</p>
  *
+ * @throws {@link StorageGatewayServiceException}
+ * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
  */
 export class ListVolumeInitiatorsCommand extends $Command<

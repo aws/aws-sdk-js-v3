@@ -36,16 +36,23 @@ export interface GetBackendAPIModelsCommandOutput extends GetBackendAPIModelsRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AmplifyBackendClient, GetBackendAPIModelsCommand } from "@aws-sdk/client-amplifybackend"; // ES Modules import
- * // const { AmplifyBackendClient, GetBackendAPIModelsCommand } = require("@aws-sdk/client-amplifybackend"); // CommonJS import
+ * import { AmplifyBackendClient, GetBackendAPIModelsCommand } from '@aws-sdk/client-amplifybackend'; // ES Modules import
+ * // const { AmplifyBackendClient, GetBackendAPIModelsCommand } = require('@aws-sdk/client-amplifybackend'); // CommonJS import
  * const client = new AmplifyBackendClient(config);
  * const input = { // GetBackendAPIModelsRequest
- *   AppId: "STRING_VALUE", // required
- *   BackendEnvironmentName: "STRING_VALUE", // required
- *   ResourceName: "STRING_VALUE", // required
+ *   AppId: 'STRING_VALUE', // required
+ *   BackendEnvironmentName: 'STRING_VALUE', // required
+ *   ResourceName: 'STRING_VALUE', // required
  * };
  * const command = new GetBackendAPIModelsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetBackendAPIModelsResponse
+ *   Models: 'STRING_VALUE',
+ *   Status: 'LATEST' || 'STALE',
+ *   ModelIntrospectionSchema: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetBackendAPIModelsCommandInput - {@link GetBackendAPIModelsCommandInput}
@@ -66,6 +73,8 @@ export interface GetBackendAPIModelsCommandOutput extends GetBackendAPIModelsRes
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>An error that is returned when a limit of a specific type has been exceeded.</p>
  *
+ * @throws {@link AmplifyBackendServiceException}
+ * <p>Base exception class for all service exceptions from AmplifyBackend service.</p>
  *
  */
 export class GetBackendAPIModelsCommand extends $Command<

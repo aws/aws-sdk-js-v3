@@ -37,25 +37,44 @@ export interface UpdateProjectCommandOutput extends UpdateProjectResult, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DeviceFarmClient, UpdateProjectCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
- * // const { DeviceFarmClient, UpdateProjectCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
+ * import { DeviceFarmClient, UpdateProjectCommand } from '@aws-sdk/client-device-farm'; // ES Modules import
+ * // const { DeviceFarmClient, UpdateProjectCommand } = require('@aws-sdk/client-device-farm'); // CommonJS import
  * const client = new DeviceFarmClient(config);
  * const input = { // UpdateProjectRequest
- *   arn: "STRING_VALUE", // required
- *   name: "STRING_VALUE",
- *   defaultJobTimeoutMinutes: Number("int"),
+ *   arn: 'STRING_VALUE', // required
+ *   name: 'STRING_VALUE',
+ *   defaultJobTimeoutMinutes: Number('int'),
  *   vpcConfig: { // VpcConfig
  *     securityGroupIds: [ // VpcSecurityGroupIds // required
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     subnetIds: [ // VpcSubnetIds // required
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
- *     vpcId: "STRING_VALUE", // required
+ *     vpcId: 'STRING_VALUE', // required
  *   },
  * };
  * const command = new UpdateProjectCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateProjectResult
+ *   project: { // Project
+ *     arn: 'STRING_VALUE',
+ *     name: 'STRING_VALUE',
+ *     defaultJobTimeoutMinutes: Number('int'),
+ *     created: new Date('TIMESTAMP'),
+ *     vpcConfig: { // VpcConfig
+ *       securityGroupIds: [ // VpcSecurityGroupIds // required
+ *         'STRING_VALUE',
+ *       ],
+ *       subnetIds: [ // VpcSubnetIds // required
+ *         'STRING_VALUE',
+ *       ],
+ *       vpcId: 'STRING_VALUE', // required
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateProjectCommandInput - {@link UpdateProjectCommandInput}
@@ -76,6 +95,8 @@ export interface UpdateProjectCommandOutput extends UpdateProjectResult, __Metad
  * @throws {@link ServiceAccountException} (client fault)
  *  <p>There was a problem with the service account.</p>
  *
+ * @throws {@link DeviceFarmServiceException}
+ * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
  * @example To update a device pool
  * ```javascript

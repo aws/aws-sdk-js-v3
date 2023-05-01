@@ -38,14 +38,48 @@ export interface AcceptAttachmentCommandOutput extends AcceptAttachmentResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { NetworkManagerClient, AcceptAttachmentCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
- * // const { NetworkManagerClient, AcceptAttachmentCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
+ * import { NetworkManagerClient, AcceptAttachmentCommand } from '@aws-sdk/client-networkmanager'; // ES Modules import
+ * // const { NetworkManagerClient, AcceptAttachmentCommand } = require('@aws-sdk/client-networkmanager'); // CommonJS import
  * const client = new NetworkManagerClient(config);
  * const input = { // AcceptAttachmentRequest
- *   AttachmentId: "STRING_VALUE", // required
+ *   AttachmentId: 'STRING_VALUE', // required
  * };
  * const command = new AcceptAttachmentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AcceptAttachmentResponse
+ *   Attachment: { // Attachment
+ *     CoreNetworkId: 'STRING_VALUE',
+ *     CoreNetworkArn: 'STRING_VALUE',
+ *     AttachmentId: 'STRING_VALUE',
+ *     OwnerAccountId: 'STRING_VALUE',
+ *     AttachmentType: 'CONNECT' || 'SITE_TO_SITE_VPN' || 'VPC' || 'TRANSIT_GATEWAY_ROUTE_TABLE',
+ *     State: 'REJECTED' || 'PENDING_ATTACHMENT_ACCEPTANCE' || 'CREATING' || 'FAILED' || 'AVAILABLE' || 'UPDATING' || 'PENDING_NETWORK_UPDATE' || 'PENDING_TAG_ACCEPTANCE' || 'DELETING',
+ *     EdgeLocation: 'STRING_VALUE',
+ *     ResourceArn: 'STRING_VALUE',
+ *     AttachmentPolicyRuleNumber: Number('int'),
+ *     SegmentName: 'STRING_VALUE',
+ *     Tags: [ // TagList
+ *       { // Tag
+ *         Key: 'STRING_VALUE',
+ *         Value: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     ProposedSegmentChange: { // ProposedSegmentChange
+ *       Tags: [
+ *         {
+ *           Key: 'STRING_VALUE',
+ *           Value: 'STRING_VALUE',
+ *         },
+ *       ],
+ *       AttachmentPolicyRuleNumber: Number('int'),
+ *       SegmentName: 'STRING_VALUE',
+ *     },
+ *     CreatedAt: new Date('TIMESTAMP'),
+ *     UpdatedAt: new Date('TIMESTAMP'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param AcceptAttachmentCommandInput - {@link AcceptAttachmentCommandInput}
@@ -73,6 +107,8 @@ export interface AcceptAttachmentCommandOutput extends AcceptAttachmentResponse,
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints.</p>
  *
+ * @throws {@link NetworkManagerServiceException}
+ * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
  */
 export class AcceptAttachmentCommand extends $Command<

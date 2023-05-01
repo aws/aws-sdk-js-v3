@@ -36,32 +36,38 @@ export interface UpdateConnectorCommandOutput extends UpdateConnectorResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KafkaConnectClient, UpdateConnectorCommand } from "@aws-sdk/client-kafkaconnect"; // ES Modules import
- * // const { KafkaConnectClient, UpdateConnectorCommand } = require("@aws-sdk/client-kafkaconnect"); // CommonJS import
+ * import { KafkaConnectClient, UpdateConnectorCommand } from '@aws-sdk/client-kafkaconnect'; // ES Modules import
+ * // const { KafkaConnectClient, UpdateConnectorCommand } = require('@aws-sdk/client-kafkaconnect'); // CommonJS import
  * const client = new KafkaConnectClient(config);
  * const input = { // UpdateConnectorRequest
  *   capacity: { // CapacityUpdate
  *     autoScaling: { // AutoScalingUpdate
- *       maxWorkerCount: Number("int"), // required
- *       mcuCount: Number("int"), // required
- *       minWorkerCount: Number("int"), // required
+ *       maxWorkerCount: Number('int'), // required
+ *       mcuCount: Number('int'), // required
+ *       minWorkerCount: Number('int'), // required
  *       scaleInPolicy: { // ScaleInPolicyUpdate
- *         cpuUtilizationPercentage: Number("int"), // required
+ *         cpuUtilizationPercentage: Number('int'), // required
  *       },
  *       scaleOutPolicy: { // ScaleOutPolicyUpdate
- *         cpuUtilizationPercentage: Number("int"), // required
+ *         cpuUtilizationPercentage: Number('int'), // required
  *       },
  *     },
  *     provisionedCapacity: { // ProvisionedCapacityUpdate
- *       mcuCount: Number("int"), // required
- *       workerCount: Number("int"), // required
+ *       mcuCount: Number('int'), // required
+ *       workerCount: Number('int'), // required
  *     },
  *   },
- *   connectorArn: "STRING_VALUE", // required
- *   currentVersion: "STRING_VALUE", // required
+ *   connectorArn: 'STRING_VALUE', // required
+ *   currentVersion: 'STRING_VALUE', // required
  * };
  * const command = new UpdateConnectorCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateConnectorResponse
+ *   connectorArn: 'STRING_VALUE',
+ *   connectorState: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateConnectorCommandInput - {@link UpdateConnectorCommandInput}
@@ -97,6 +103,8 @@ export interface UpdateConnectorCommandOutput extends UpdateConnectorResponse, _
  *  <p>HTTP Status Code 401: Unauthorized request. The provided credentials couldn't be
  *          validated.</p>
  *
+ * @throws {@link KafkaConnectServiceException}
+ * <p>Base exception class for all service exceptions from KafkaConnect service.</p>
  *
  */
 export class UpdateConnectorCommand extends $Command<

@@ -41,15 +41,18 @@ export interface ModifyWorkspaceStateCommandOutput extends ModifyWorkspaceStateR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkSpacesClient, ModifyWorkspaceStateCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
- * // const { WorkSpacesClient, ModifyWorkspaceStateCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
+ * import { WorkSpacesClient, ModifyWorkspaceStateCommand } from '@aws-sdk/client-workspaces'; // ES Modules import
+ * // const { WorkSpacesClient, ModifyWorkspaceStateCommand } = require('@aws-sdk/client-workspaces'); // CommonJS import
  * const client = new WorkSpacesClient(config);
  * const input = { // ModifyWorkspaceStateRequest
- *   WorkspaceId: "STRING_VALUE", // required
- *   WorkspaceState: "AVAILABLE" || "ADMIN_MAINTENANCE", // required
+ *   WorkspaceId: 'STRING_VALUE', // required
+ *   WorkspaceState: 'AVAILABLE' || 'ADMIN_MAINTENANCE', // required
  * };
  * const command = new ModifyWorkspaceStateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param ModifyWorkspaceStateCommandInput - {@link ModifyWorkspaceStateCommandInput}
@@ -70,6 +73,8 @@ export interface ModifyWorkspaceStateCommandOutput extends ModifyWorkspaceStateR
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource could not be found.</p>
  *
+ * @throws {@link WorkSpacesServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
  */
 export class ModifyWorkspaceStateCommand extends $Command<

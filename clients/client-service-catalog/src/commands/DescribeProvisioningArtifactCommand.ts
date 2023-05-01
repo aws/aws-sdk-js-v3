@@ -41,19 +41,37 @@ export interface DescribeProvisioningArtifactCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ServiceCatalogClient, DescribeProvisioningArtifactCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
- * // const { ServiceCatalogClient, DescribeProvisioningArtifactCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
+ * import { ServiceCatalogClient, DescribeProvisioningArtifactCommand } from '@aws-sdk/client-service-catalog'; // ES Modules import
+ * // const { ServiceCatalogClient, DescribeProvisioningArtifactCommand } = require('@aws-sdk/client-service-catalog'); // CommonJS import
  * const client = new ServiceCatalogClient(config);
  * const input = { // DescribeProvisioningArtifactInput
- *   AcceptLanguage: "STRING_VALUE",
- *   ProvisioningArtifactId: "STRING_VALUE",
- *   ProductId: "STRING_VALUE",
- *   ProvisioningArtifactName: "STRING_VALUE",
- *   ProductName: "STRING_VALUE",
+ *   AcceptLanguage: 'STRING_VALUE',
+ *   ProvisioningArtifactId: 'STRING_VALUE',
+ *   ProductId: 'STRING_VALUE',
+ *   ProvisioningArtifactName: 'STRING_VALUE',
+ *   ProductName: 'STRING_VALUE',
  *   Verbose: true || false,
  * };
  * const command = new DescribeProvisioningArtifactCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeProvisioningArtifactOutput
+ *   ProvisioningArtifactDetail: { // ProvisioningArtifactDetail
+ *     Id: 'STRING_VALUE',
+ *     Name: 'STRING_VALUE',
+ *     Description: 'STRING_VALUE',
+ *     Type: 'CLOUD_FORMATION_TEMPLATE' || 'MARKETPLACE_AMI' || 'MARKETPLACE_CAR' || 'TERRAFORM_OPEN_SOURCE',
+ *     CreatedTime: new Date('TIMESTAMP'),
+ *     Active: true || false,
+ *     Guidance: 'DEFAULT' || 'DEPRECATED',
+ *     SourceRevision: 'STRING_VALUE',
+ *   },
+ *   Info: { // ProvisioningArtifactInfo
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ *   Status: 'AVAILABLE' || 'CREATING' || 'FAILED',
+ * };
+ *
  * ```
  *
  * @param DescribeProvisioningArtifactCommandInput - {@link DescribeProvisioningArtifactCommandInput}
@@ -68,6 +86,8 @@ export interface DescribeProvisioningArtifactCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link ServiceCatalogServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
  */
 export class DescribeProvisioningArtifactCommand extends $Command<

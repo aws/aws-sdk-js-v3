@@ -46,26 +46,52 @@ export interface CreateDirectConnectGatewayAssociationProposalCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DirectConnectClient, CreateDirectConnectGatewayAssociationProposalCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
- * // const { DirectConnectClient, CreateDirectConnectGatewayAssociationProposalCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
+ * import { DirectConnectClient, CreateDirectConnectGatewayAssociationProposalCommand } from '@aws-sdk/client-direct-connect'; // ES Modules import
+ * // const { DirectConnectClient, CreateDirectConnectGatewayAssociationProposalCommand } = require('@aws-sdk/client-direct-connect'); // CommonJS import
  * const client = new DirectConnectClient(config);
  * const input = { // CreateDirectConnectGatewayAssociationProposalRequest
- *   directConnectGatewayId: "STRING_VALUE", // required
- *   directConnectGatewayOwnerAccount: "STRING_VALUE", // required
- *   gatewayId: "STRING_VALUE", // required
+ *   directConnectGatewayId: 'STRING_VALUE', // required
+ *   directConnectGatewayOwnerAccount: 'STRING_VALUE', // required
+ *   gatewayId: 'STRING_VALUE', // required
  *   addAllowedPrefixesToDirectConnectGateway: [ // RouteFilterPrefixList
  *     { // RouteFilterPrefix
- *       cidr: "STRING_VALUE",
+ *       cidr: 'STRING_VALUE',
  *     },
  *   ],
  *   removeAllowedPrefixesToDirectConnectGateway: [
  *     {
- *       cidr: "STRING_VALUE",
+ *       cidr: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new CreateDirectConnectGatewayAssociationProposalCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateDirectConnectGatewayAssociationProposalResult
+ *   directConnectGatewayAssociationProposal: { // DirectConnectGatewayAssociationProposal
+ *     proposalId: 'STRING_VALUE',
+ *     directConnectGatewayId: 'STRING_VALUE',
+ *     directConnectGatewayOwnerAccount: 'STRING_VALUE',
+ *     proposalState: 'requested' || 'accepted' || 'deleted',
+ *     associatedGateway: { // AssociatedGateway
+ *       id: 'STRING_VALUE',
+ *       type: 'virtualPrivateGateway' || 'transitGateway',
+ *       ownerAccount: 'STRING_VALUE',
+ *       region: 'STRING_VALUE',
+ *     },
+ *     existingAllowedPrefixesToDirectConnectGateway: [ // RouteFilterPrefixList
+ *       { // RouteFilterPrefix
+ *         cidr: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     requestedAllowedPrefixesToDirectConnectGateway: [
+ *       {
+ *         cidr: 'STRING_VALUE',
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateDirectConnectGatewayAssociationProposalCommandInput - {@link CreateDirectConnectGatewayAssociationProposalCommandInput}
@@ -80,6 +106,8 @@ export interface CreateDirectConnectGatewayAssociationProposalCommandOutput
  * @throws {@link DirectConnectServerException} (server fault)
  *  <p>A server-side error occurred.</p>
  *
+ * @throws {@link DirectConnectServiceException}
+ * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
  */
 export class CreateDirectConnectGatewayAssociationProposalCommand extends $Command<

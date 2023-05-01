@@ -42,16 +42,31 @@ export interface ListManagedInsightRulesCommandOutput extends ListManagedInsight
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudWatchClient, ListManagedInsightRulesCommand } from "@aws-sdk/client-cloudwatch"; // ES Modules import
- * // const { CloudWatchClient, ListManagedInsightRulesCommand } = require("@aws-sdk/client-cloudwatch"); // CommonJS import
+ * import { CloudWatchClient, ListManagedInsightRulesCommand } from '@aws-sdk/client-cloudwatch'; // ES Modules import
+ * // const { CloudWatchClient, ListManagedInsightRulesCommand } = require('@aws-sdk/client-cloudwatch'); // CommonJS import
  * const client = new CloudWatchClient(config);
  * const input = { // ListManagedInsightRulesInput
- *   ResourceARN: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   ResourceARN: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListManagedInsightRulesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListManagedInsightRulesOutput
+ *   ManagedRules: [ // ManagedRuleDescriptions
+ *     { // ManagedRuleDescription
+ *       TemplateName: 'STRING_VALUE',
+ *       ResourceARN: 'STRING_VALUE',
+ *       RuleState: { // ManagedRuleState
+ *         RuleName: 'STRING_VALUE', // required
+ *         State: 'STRING_VALUE', // required
+ *       },
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListManagedInsightRulesCommandInput - {@link ListManagedInsightRulesCommandInput}
@@ -69,6 +84,8 @@ export interface ListManagedInsightRulesCommandOutput extends ListManagedInsight
  * @throws {@link MissingRequiredParameterException} (client fault)
  *  <p>An input parameter that is required is missing.</p>
  *
+ * @throws {@link CloudWatchServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatch service.</p>
  *
  */
 export class ListManagedInsightRulesCommand extends $Command<

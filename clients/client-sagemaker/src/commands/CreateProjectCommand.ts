@@ -37,32 +37,38 @@ export interface CreateProjectCommandOutput extends CreateProjectOutput, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, CreateProjectCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, CreateProjectCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, CreateProjectCommand } from '@aws-sdk/client-sagemaker'; // ES Modules import
+ * // const { SageMakerClient, CreateProjectCommand } = require('@aws-sdk/client-sagemaker'); // CommonJS import
  * const client = new SageMakerClient(config);
  * const input = { // CreateProjectInput
- *   ProjectName: "STRING_VALUE", // required
- *   ProjectDescription: "STRING_VALUE",
+ *   ProjectName: 'STRING_VALUE', // required
+ *   ProjectDescription: 'STRING_VALUE',
  *   ServiceCatalogProvisioningDetails: { // ServiceCatalogProvisioningDetails
- *     ProductId: "STRING_VALUE", // required
- *     ProvisioningArtifactId: "STRING_VALUE",
- *     PathId: "STRING_VALUE",
+ *     ProductId: 'STRING_VALUE', // required
+ *     ProvisioningArtifactId: 'STRING_VALUE',
+ *     PathId: 'STRING_VALUE',
  *     ProvisioningParameters: [ // ProvisioningParameters
  *       { // ProvisioningParameter
- *         Key: "STRING_VALUE",
- *         Value: "STRING_VALUE",
+ *         Key: 'STRING_VALUE',
+ *         Value: 'STRING_VALUE',
  *       },
  *     ],
  *   },
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreateProjectCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateProjectOutput
+ *   ProjectArn: 'STRING_VALUE', // required
+ *   ProjectId: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param CreateProjectCommandInput - {@link CreateProjectCommandInput}
@@ -75,6 +81,8 @@ export interface CreateProjectCommandOutput extends CreateProjectOutput, __Metad
  *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many
  *             training jobs created. </p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class CreateProjectCommand extends $Command<

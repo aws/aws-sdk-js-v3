@@ -38,27 +38,40 @@ export interface TestRepositoryTriggersCommandOutput extends TestRepositoryTrigg
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeCommitClient, TestRepositoryTriggersCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
- * // const { CodeCommitClient, TestRepositoryTriggersCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
+ * import { CodeCommitClient, TestRepositoryTriggersCommand } from '@aws-sdk/client-codecommit'; // ES Modules import
+ * // const { CodeCommitClient, TestRepositoryTriggersCommand } = require('@aws-sdk/client-codecommit'); // CommonJS import
  * const client = new CodeCommitClient(config);
  * const input = { // TestRepositoryTriggersInput
- *   repositoryName: "STRING_VALUE", // required
+ *   repositoryName: 'STRING_VALUE', // required
  *   triggers: [ // RepositoryTriggersList // required
  *     { // RepositoryTrigger
- *       name: "STRING_VALUE", // required
- *       destinationArn: "STRING_VALUE", // required
- *       customData: "STRING_VALUE",
+ *       name: 'STRING_VALUE', // required
+ *       destinationArn: 'STRING_VALUE', // required
+ *       customData: 'STRING_VALUE',
  *       branches: [ // BranchNameList
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *       events: [ // RepositoryTriggerEventList // required
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
  * };
  * const command = new TestRepositoryTriggersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // TestRepositoryTriggersOutput
+ *   successfulExecutions: [ // RepositoryTriggerNameList
+ *     'STRING_VALUE',
+ *   ],
+ *   failedExecutions: [ // RepositoryTriggerExecutionFailureList
+ *     { // RepositoryTriggerExecutionFailure
+ *       trigger: 'STRING_VALUE',
+ *       failureMessage: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param TestRepositoryTriggersCommandInput - {@link TestRepositoryTriggersCommandInput}
@@ -140,6 +153,8 @@ export interface TestRepositoryTriggersCommandOutput extends TestRepositoryTrigg
  * @throws {@link RepositoryTriggersListRequiredException} (client fault)
  *  <p>The list of triggers for the repository is required, but was not specified.</p>
  *
+ * @throws {@link CodeCommitServiceException}
+ * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
  */
 export class TestRepositoryTriggersCommand extends $Command<

@@ -45,20 +45,30 @@ export interface ModifyLoadBalancerAttributesCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElasticLoadBalancingV2Client, ModifyLoadBalancerAttributesCommand } from "@aws-sdk/client-elastic-load-balancing-v2"; // ES Modules import
- * // const { ElasticLoadBalancingV2Client, ModifyLoadBalancerAttributesCommand } = require("@aws-sdk/client-elastic-load-balancing-v2"); // CommonJS import
+ * import { ElasticLoadBalancingV2Client, ModifyLoadBalancerAttributesCommand } from '@aws-sdk/client-elastic-load-balancing-v2'; // ES Modules import
+ * // const { ElasticLoadBalancingV2Client, ModifyLoadBalancerAttributesCommand } = require('@aws-sdk/client-elastic-load-balancing-v2'); // CommonJS import
  * const client = new ElasticLoadBalancingV2Client(config);
  * const input = { // ModifyLoadBalancerAttributesInput
- *   LoadBalancerArn: "STRING_VALUE", // required
+ *   LoadBalancerArn: 'STRING_VALUE', // required
  *   Attributes: [ // LoadBalancerAttributes // required
  *     { // LoadBalancerAttribute
- *       Key: "STRING_VALUE",
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new ModifyLoadBalancerAttributesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ModifyLoadBalancerAttributesOutput
+ *   Attributes: [ // LoadBalancerAttributes
+ *     { // LoadBalancerAttribute
+ *       Key: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ModifyLoadBalancerAttributesCommandInput - {@link ModifyLoadBalancerAttributesCommandInput}
@@ -73,6 +83,8 @@ export interface ModifyLoadBalancerAttributesCommandOutput
  * @throws {@link LoadBalancerNotFoundException} (client fault)
  *  <p>The specified load balancer does not exist.</p>
  *
+ * @throws {@link ElasticLoadBalancingV2ServiceException}
+ * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
  * @example To enable deletion protection
  * ```javascript

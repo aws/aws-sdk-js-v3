@@ -36,14 +36,17 @@ export interface StopNotebookExecutionCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EMRClient, StopNotebookExecutionCommand } from "@aws-sdk/client-emr"; // ES Modules import
- * // const { EMRClient, StopNotebookExecutionCommand } = require("@aws-sdk/client-emr"); // CommonJS import
+ * import { EMRClient, StopNotebookExecutionCommand } from '@aws-sdk/client-emr'; // ES Modules import
+ * // const { EMRClient, StopNotebookExecutionCommand } = require('@aws-sdk/client-emr'); // CommonJS import
  * const client = new EMRClient(config);
  * const input = { // StopNotebookExecutionInput
- *   NotebookExecutionId: "STRING_VALUE", // required
+ *   NotebookExecutionId: 'STRING_VALUE', // required
  * };
  * const command = new StopNotebookExecutionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param StopNotebookExecutionCommandInput - {@link StopNotebookExecutionCommandInput}
@@ -59,6 +62,8 @@ export interface StopNotebookExecutionCommandOutput extends __MetadataBearer {}
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception occurs when there is something wrong with user input.</p>
  *
+ * @throws {@link EMRServiceException}
+ * <p>Base exception class for all service exceptions from EMR service.</p>
  *
  */
 export class StopNotebookExecutionCommand extends $Command<

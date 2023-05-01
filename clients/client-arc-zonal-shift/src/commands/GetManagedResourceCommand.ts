@@ -38,14 +38,34 @@ export interface GetManagedResourceCommandOutput extends GetManagedResourceRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ARCZonalShiftClient, GetManagedResourceCommand } from "@aws-sdk/client-arc-zonal-shift"; // ES Modules import
- * // const { ARCZonalShiftClient, GetManagedResourceCommand } = require("@aws-sdk/client-arc-zonal-shift"); // CommonJS import
+ * import { ARCZonalShiftClient, GetManagedResourceCommand } from '@aws-sdk/client-arc-zonal-shift'; // ES Modules import
+ * // const { ARCZonalShiftClient, GetManagedResourceCommand } = require('@aws-sdk/client-arc-zonal-shift'); // CommonJS import
  * const client = new ARCZonalShiftClient(config);
  * const input = { // GetManagedResourceRequest
- *   resourceIdentifier: "STRING_VALUE", // required
+ *   resourceIdentifier: 'STRING_VALUE', // required
  * };
  * const command = new GetManagedResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetManagedResourceResponse
+ *   arn: 'STRING_VALUE',
+ *   name: 'STRING_VALUE',
+ *   appliedWeights: { // AppliedWeights // required
+ *     '<keys>': Number('float'),
+ *   },
+ *   zonalShifts: [ // ZonalShiftsInResource // required
+ *     { // ZonalShiftInResource
+ *       appliedStatus: 'APPLIED' || 'NOT_APPLIED', // required
+ *       zonalShiftId: 'STRING_VALUE', // required
+ *       resourceIdentifier: 'STRING_VALUE', // required
+ *       awayFrom: 'STRING_VALUE', // required
+ *       expiryTime: new Date('TIMESTAMP'), // required
+ *       startTime: new Date('TIMESTAMP'), // required
+ *       comment: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetManagedResourceCommandInput - {@link GetManagedResourceCommandInput}
@@ -69,6 +89,8 @@ export interface GetManagedResourceCommandOutput extends GetManagedResourceRespo
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link ARCZonalShiftServiceException}
+ * <p>Base exception class for all service exceptions from ARCZonalShift service.</p>
  *
  */
 export class GetManagedResourceCommand extends $Command<

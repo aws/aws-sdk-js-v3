@@ -43,17 +43,30 @@ export interface GetBuiltinIntentsCommandOutput extends GetBuiltinIntentsRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LexModelBuildingServiceClient, GetBuiltinIntentsCommand } from "@aws-sdk/client-lex-model-building-service"; // ES Modules import
- * // const { LexModelBuildingServiceClient, GetBuiltinIntentsCommand } = require("@aws-sdk/client-lex-model-building-service"); // CommonJS import
+ * import { LexModelBuildingServiceClient, GetBuiltinIntentsCommand } from '@aws-sdk/client-lex-model-building-service'; // ES Modules import
+ * // const { LexModelBuildingServiceClient, GetBuiltinIntentsCommand } = require('@aws-sdk/client-lex-model-building-service'); // CommonJS import
  * const client = new LexModelBuildingServiceClient(config);
  * const input = { // GetBuiltinIntentsRequest
- *   locale: "STRING_VALUE",
- *   signatureContains: "STRING_VALUE",
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   locale: 'STRING_VALUE',
+ *   signatureContains: 'STRING_VALUE',
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new GetBuiltinIntentsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetBuiltinIntentsResponse
+ *   intents: [ // BuiltinIntentMetadataList
+ *     { // BuiltinIntentMetadata
+ *       signature: 'STRING_VALUE',
+ *       supportedLocales: [ // LocaleList
+ *         'STRING_VALUE',
+ *       ],
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetBuiltinIntentsCommandInput - {@link GetBuiltinIntentsCommandInput}
@@ -73,6 +86,8 @@ export interface GetBuiltinIntentsCommandOutput extends GetBuiltinIntentsRespons
  * @throws {@link LimitExceededException} (client fault)
  *  <p>The request exceeded a limit. Try your request again.</p>
  *
+ * @throws {@link LexModelBuildingServiceServiceException}
+ * <p>Base exception class for all service exceptions from LexModelBuildingService service.</p>
  *
  */
 export class GetBuiltinIntentsCommand extends $Command<

@@ -40,32 +40,35 @@ export interface ModifyReportDefinitionCommandOutput extends ModifyReportDefinit
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CostAndUsageReportServiceClient, ModifyReportDefinitionCommand } from "@aws-sdk/client-cost-and-usage-report-service"; // ES Modules import
- * // const { CostAndUsageReportServiceClient, ModifyReportDefinitionCommand } = require("@aws-sdk/client-cost-and-usage-report-service"); // CommonJS import
+ * import { CostAndUsageReportServiceClient, ModifyReportDefinitionCommand } from '@aws-sdk/client-cost-and-usage-report-service'; // ES Modules import
+ * // const { CostAndUsageReportServiceClient, ModifyReportDefinitionCommand } = require('@aws-sdk/client-cost-and-usage-report-service'); // CommonJS import
  * const client = new CostAndUsageReportServiceClient(config);
  * const input = { // ModifyReportDefinitionRequest
- *   ReportName: "STRING_VALUE", // required
+ *   ReportName: 'STRING_VALUE', // required
  *   ReportDefinition: { // ReportDefinition
- *     ReportName: "STRING_VALUE", // required
- *     TimeUnit: "HOURLY" || "DAILY" || "MONTHLY", // required
- *     Format: "textORcsv" || "Parquet", // required
- *     Compression: "ZIP" || "GZIP" || "Parquet", // required
+ *     ReportName: 'STRING_VALUE', // required
+ *     TimeUnit: 'HOURLY' || 'DAILY' || 'MONTHLY', // required
+ *     Format: 'textORcsv' || 'Parquet', // required
+ *     Compression: 'ZIP' || 'GZIP' || 'Parquet', // required
  *     AdditionalSchemaElements: [ // SchemaElementList // required
- *       "RESOURCES",
+ *       'RESOURCES',
  *     ],
- *     S3Bucket: "STRING_VALUE", // required
- *     S3Prefix: "STRING_VALUE", // required
- *     S3Region: "af-south-1" || "ap-east-1" || "ap-south-1" || "ap-southeast-1" || "ap-southeast-2" || "ap-southeast-3" || "ap-northeast-1" || "ap-northeast-2" || "ap-northeast-3" || "ca-central-1" || "eu-central-1" || "eu-west-1" || "eu-west-2" || "eu-west-3" || "eu-north-1" || "eu-south-1" || "eu-south-2" || "me-central-1" || "me-south-1" || "sa-east-1" || "us-east-1" || "us-east-2" || "us-west-1" || "us-west-2" || "cn-north-1" || "cn-northwest-1", // required
+ *     S3Bucket: 'STRING_VALUE', // required
+ *     S3Prefix: 'STRING_VALUE', // required
+ *     S3Region: 'af-south-1' || 'ap-east-1' || 'ap-south-1' || 'ap-southeast-1' || 'ap-southeast-2' || 'ap-southeast-3' || 'ap-northeast-1' || 'ap-northeast-2' || 'ap-northeast-3' || 'ca-central-1' || 'eu-central-1' || 'eu-west-1' || 'eu-west-2' || 'eu-west-3' || 'eu-north-1' || 'eu-south-1' || 'eu-south-2' || 'me-central-1' || 'me-south-1' || 'sa-east-1' || 'us-east-1' || 'us-east-2' || 'us-west-1' || 'us-west-2' || 'cn-north-1' || 'cn-northwest-1', // required
  *     AdditionalArtifacts: [ // AdditionalArtifactList
- *       "REDSHIFT" || "QUICKSIGHT" || "ATHENA",
+ *       'REDSHIFT' || 'QUICKSIGHT' || 'ATHENA',
  *     ],
  *     RefreshClosedReports: true || false,
- *     ReportVersioning: "CREATE_NEW_REPORT" || "OVERWRITE_REPORT",
- *     BillingViewArn: "STRING_VALUE",
+ *     ReportVersioning: 'CREATE_NEW_REPORT' || 'OVERWRITE_REPORT',
+ *     BillingViewArn: 'STRING_VALUE',
  *   },
  * };
  * const command = new ModifyReportDefinitionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param ModifyReportDefinitionCommandInput - {@link ModifyReportDefinitionCommandInput}
@@ -80,6 +83,8 @@ export interface ModifyReportDefinitionCommandOutput extends ModifyReportDefinit
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link CostAndUsageReportServiceServiceException}
+ * <p>Base exception class for all service exceptions from CostAndUsageReportService service.</p>
  *
  */
 export class ModifyReportDefinitionCommand extends $Command<

@@ -49,20 +49,23 @@ export interface AddTagsToCertificateCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ACMClient, AddTagsToCertificateCommand } from "@aws-sdk/client-acm"; // ES Modules import
- * // const { ACMClient, AddTagsToCertificateCommand } = require("@aws-sdk/client-acm"); // CommonJS import
+ * import { ACMClient, AddTagsToCertificateCommand } from '@aws-sdk/client-acm'; // ES Modules import
+ * // const { ACMClient, AddTagsToCertificateCommand } = require('@aws-sdk/client-acm'); // CommonJS import
  * const client = new ACMClient(config);
  * const input = { // AddTagsToCertificateRequest
- *   CertificateArn: "STRING_VALUE", // required
+ *   CertificateArn: 'STRING_VALUE', // required
  *   Tags: [ // TagList // required
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new AddTagsToCertificateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param AddTagsToCertificateCommandInput - {@link AddTagsToCertificateCommandInput}
@@ -94,6 +97,8 @@ export interface AddTagsToCertificateCommandOutput extends __MetadataBearer {}
  * @throws {@link TooManyTagsException} (client fault)
  *  <p>The request contains too many tags. Try the request again with fewer tags.</p>
  *
+ * @throws {@link ACMServiceException}
+ * <p>Base exception class for all service exceptions from ACM service.</p>
  *
  */
 export class AddTagsToCertificateCommand extends $Command<

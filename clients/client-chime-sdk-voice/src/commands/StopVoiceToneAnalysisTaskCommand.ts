@@ -36,15 +36,18 @@ export interface StopVoiceToneAnalysisTaskCommandOutput extends __MetadataBearer
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeSDKVoiceClient, StopVoiceToneAnalysisTaskCommand } from "@aws-sdk/client-chime-sdk-voice"; // ES Modules import
- * // const { ChimeSDKVoiceClient, StopVoiceToneAnalysisTaskCommand } = require("@aws-sdk/client-chime-sdk-voice"); // CommonJS import
+ * import { ChimeSDKVoiceClient, StopVoiceToneAnalysisTaskCommand } from '@aws-sdk/client-chime-sdk-voice'; // ES Modules import
+ * // const { ChimeSDKVoiceClient, StopVoiceToneAnalysisTaskCommand } = require('@aws-sdk/client-chime-sdk-voice'); // CommonJS import
  * const client = new ChimeSDKVoiceClient(config);
  * const input = { // StopVoiceToneAnalysisTaskRequest
- *   VoiceConnectorId: "STRING_VALUE", // required
- *   VoiceToneAnalysisTaskId: "STRING_VALUE", // required
+ *   VoiceConnectorId: 'STRING_VALUE', // required
+ *   VoiceToneAnalysisTaskId: 'STRING_VALUE', // required
  * };
  * const command = new StopVoiceToneAnalysisTaskCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param StopVoiceToneAnalysisTaskCommandInput - {@link StopVoiceToneAnalysisTaskCommandInput}
@@ -83,6 +86,8 @@ export interface StopVoiceToneAnalysisTaskCommandOutput extends __MetadataBearer
  * @throws {@link UnprocessableEntityException} (client fault)
  *  <p>A well-formed request couldn't be followed due to semantic errors.</p>
  *
+ * @throws {@link ChimeSDKVoiceServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
  */
 export class StopVoiceToneAnalysisTaskCommand extends $Command<

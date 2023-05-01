@@ -36,14 +36,19 @@ export interface GetResourcePolicyCommandOutput extends GetResourcePolicyRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { NetworkManagerClient, GetResourcePolicyCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
- * // const { NetworkManagerClient, GetResourcePolicyCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
+ * import { NetworkManagerClient, GetResourcePolicyCommand } from '@aws-sdk/client-networkmanager'; // ES Modules import
+ * // const { NetworkManagerClient, GetResourcePolicyCommand } = require('@aws-sdk/client-networkmanager'); // CommonJS import
  * const client = new NetworkManagerClient(config);
  * const input = { // GetResourcePolicyRequest
- *   ResourceArn: "STRING_VALUE", // required
+ *   ResourceArn: 'STRING_VALUE', // required
  * };
  * const command = new GetResourcePolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetResourcePolicyResponse
+ *   PolicyDocument: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetResourcePolicyCommandInput - {@link GetResourcePolicyCommandInput}
@@ -64,6 +69,8 @@ export interface GetResourcePolicyCommandOutput extends GetResourcePolicyRespons
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints.</p>
  *
+ * @throws {@link NetworkManagerServiceException}
+ * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
  */
 export class GetResourcePolicyCommand extends $Command<

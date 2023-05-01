@@ -54,37 +54,40 @@ export interface CreateConfigurationSetEventDestinationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SESClient, CreateConfigurationSetEventDestinationCommand } from "@aws-sdk/client-ses"; // ES Modules import
- * // const { SESClient, CreateConfigurationSetEventDestinationCommand } = require("@aws-sdk/client-ses"); // CommonJS import
+ * import { SESClient, CreateConfigurationSetEventDestinationCommand } from '@aws-sdk/client-ses'; // ES Modules import
+ * // const { SESClient, CreateConfigurationSetEventDestinationCommand } = require('@aws-sdk/client-ses'); // CommonJS import
  * const client = new SESClient(config);
  * const input = { // CreateConfigurationSetEventDestinationRequest
- *   ConfigurationSetName: "STRING_VALUE", // required
+ *   ConfigurationSetName: 'STRING_VALUE', // required
  *   EventDestination: { // EventDestination
- *     Name: "STRING_VALUE", // required
+ *     Name: 'STRING_VALUE', // required
  *     Enabled: true || false,
  *     MatchingEventTypes: [ // EventTypes // required
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     KinesisFirehoseDestination: { // KinesisFirehoseDestination
- *       IAMRoleARN: "STRING_VALUE", // required
- *       DeliveryStreamARN: "STRING_VALUE", // required
+ *       IAMRoleARN: 'STRING_VALUE', // required
+ *       DeliveryStreamARN: 'STRING_VALUE', // required
  *     },
  *     CloudWatchDestination: { // CloudWatchDestination
  *       DimensionConfigurations: [ // CloudWatchDimensionConfigurations // required
  *         { // CloudWatchDimensionConfiguration
- *           DimensionName: "STRING_VALUE", // required
- *           DimensionValueSource: "STRING_VALUE", // required
- *           DefaultDimensionValue: "STRING_VALUE", // required
+ *           DimensionName: 'STRING_VALUE', // required
+ *           DimensionValueSource: 'STRING_VALUE', // required
+ *           DefaultDimensionValue: 'STRING_VALUE', // required
  *         },
  *       ],
  *     },
  *     SNSDestination: { // SNSDestination
- *       TopicARN: "STRING_VALUE", // required
+ *       TopicARN: 'STRING_VALUE', // required
  *     },
  *   },
  * };
  * const command = new CreateConfigurationSetEventDestinationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param CreateConfigurationSetEventDestinationCommandInput - {@link CreateConfigurationSetEventDestinationCommandInput}
@@ -117,6 +120,8 @@ export interface CreateConfigurationSetEventDestinationCommandOutput
  *             of Amazon SES limits, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/limits.html">Amazon SES Developer
  *             Guide</a>.</p>
  *
+ * @throws {@link SESServiceException}
+ * <p>Base exception class for all service exceptions from SES service.</p>
  *
  */
 export class CreateConfigurationSetEventDestinationCommand extends $Command<

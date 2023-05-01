@@ -64,18 +64,33 @@ export interface ListChannelsCommandOutput extends ListChannelsResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeSDKMessagingClient, ListChannelsCommand } from "@aws-sdk/client-chime-sdk-messaging"; // ES Modules import
- * // const { ChimeSDKMessagingClient, ListChannelsCommand } = require("@aws-sdk/client-chime-sdk-messaging"); // CommonJS import
+ * import { ChimeSDKMessagingClient, ListChannelsCommand } from '@aws-sdk/client-chime-sdk-messaging'; // ES Modules import
+ * // const { ChimeSDKMessagingClient, ListChannelsCommand } = require('@aws-sdk/client-chime-sdk-messaging'); // CommonJS import
  * const client = new ChimeSDKMessagingClient(config);
  * const input = { // ListChannelsRequest
- *   AppInstanceArn: "STRING_VALUE", // required
- *   Privacy: "PUBLIC" || "PRIVATE",
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
- *   ChimeBearer: "STRING_VALUE", // required
+ *   AppInstanceArn: 'STRING_VALUE', // required
+ *   Privacy: 'PUBLIC' || 'PRIVATE',
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
+ *   ChimeBearer: 'STRING_VALUE', // required
  * };
  * const command = new ListChannelsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListChannelsResponse
+ *   Channels: [ // ChannelSummaryList
+ *     { // ChannelSummary
+ *       Name: 'STRING_VALUE',
+ *       ChannelArn: 'STRING_VALUE',
+ *       Mode: 'UNRESTRICTED' || 'RESTRICTED',
+ *       Privacy: 'PUBLIC' || 'PRIVATE',
+ *       Metadata: 'STRING_VALUE',
+ *       LastMessageTimestamp: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListChannelsCommandInput - {@link ListChannelsCommandInput}
@@ -102,6 +117,8 @@ export interface ListChannelsCommandOutput extends ListChannelsResponse, __Metad
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeSDKMessagingServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKMessaging service.</p>
  *
  */
 export class ListChannelsCommand extends $Command<

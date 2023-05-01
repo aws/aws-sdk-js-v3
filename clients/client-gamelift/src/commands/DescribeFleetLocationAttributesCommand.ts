@@ -66,19 +66,38 @@ export interface DescribeFleetLocationAttributesCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GameLiftClient, DescribeFleetLocationAttributesCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
- * // const { GameLiftClient, DescribeFleetLocationAttributesCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
+ * import { GameLiftClient, DescribeFleetLocationAttributesCommand } from '@aws-sdk/client-gamelift'; // ES Modules import
+ * // const { GameLiftClient, DescribeFleetLocationAttributesCommand } = require('@aws-sdk/client-gamelift'); // CommonJS import
  * const client = new GameLiftClient(config);
  * const input = { // DescribeFleetLocationAttributesInput
- *   FleetId: "STRING_VALUE", // required
+ *   FleetId: 'STRING_VALUE', // required
  *   Locations: [ // LocationList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   Limit: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   Limit: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new DescribeFleetLocationAttributesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeFleetLocationAttributesOutput
+ *   FleetId: 'STRING_VALUE',
+ *   FleetArn: 'STRING_VALUE',
+ *   LocationAttributes: [ // LocationAttributesList
+ *     { // LocationAttributes
+ *       LocationState: { // LocationState
+ *         Location: 'STRING_VALUE',
+ *         Status: 'NEW' || 'DOWNLOADING' || 'VALIDATING' || 'BUILDING' || 'ACTIVATING' || 'ACTIVE' || 'DELETING' || 'ERROR' || 'TERMINATED' || 'NOT_FOUND',
+ *       },
+ *       StoppedActions: [ // FleetActionList
+ *         'AUTO_SCALING',
+ *       ],
+ *       UpdateStatus: 'PENDING_UPDATE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeFleetLocationAttributesCommandInput - {@link DescribeFleetLocationAttributesCommandInput}
@@ -104,6 +123,8 @@ export interface DescribeFleetLocationAttributesCommandOutput
  * @throws {@link UnsupportedRegionException} (client fault)
  *  <p>The requested operation is not supported in the Region specified.</p>
  *
+ * @throws {@link GameLiftServiceException}
+ * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
  */
 export class DescribeFleetLocationAttributesCommand extends $Command<

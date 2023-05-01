@@ -36,14 +36,25 @@ export interface DeleteRealtimeEndpointCommandOutput extends DeleteRealtimeEndpo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MachineLearningClient, DeleteRealtimeEndpointCommand } from "@aws-sdk/client-machine-learning"; // ES Modules import
- * // const { MachineLearningClient, DeleteRealtimeEndpointCommand } = require("@aws-sdk/client-machine-learning"); // CommonJS import
+ * import { MachineLearningClient, DeleteRealtimeEndpointCommand } from '@aws-sdk/client-machine-learning'; // ES Modules import
+ * // const { MachineLearningClient, DeleteRealtimeEndpointCommand } = require('@aws-sdk/client-machine-learning'); // CommonJS import
  * const client = new MachineLearningClient(config);
  * const input = { // DeleteRealtimeEndpointInput
- *   MLModelId: "STRING_VALUE", // required
+ *   MLModelId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteRealtimeEndpointCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteRealtimeEndpointOutput
+ *   MLModelId: 'STRING_VALUE',
+ *   RealtimeEndpointInfo: { // RealtimeEndpointInfo
+ *     PeakRequestsPerSecond: Number('int'),
+ *     CreatedAt: new Date('TIMESTAMP'),
+ *     EndpointUrl: 'STRING_VALUE',
+ *     EndpointStatus: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param DeleteRealtimeEndpointCommandInput - {@link DeleteRealtimeEndpointCommandInput}
@@ -61,6 +72,8 @@ export interface DeleteRealtimeEndpointCommandOutput extends DeleteRealtimeEndpo
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>A specified resource cannot be located.</p>
  *
+ * @throws {@link MachineLearningServiceException}
+ * <p>Base exception class for all service exceptions from MachineLearning service.</p>
  *
  */
 export class DeleteRealtimeEndpointCommand extends $Command<

@@ -46,54 +46,60 @@ export interface CreateFlywheelCommandOutput extends CreateFlywheelResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ComprehendClient, CreateFlywheelCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
- * // const { ComprehendClient, CreateFlywheelCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
+ * import { ComprehendClient, CreateFlywheelCommand } from '@aws-sdk/client-comprehend'; // ES Modules import
+ * // const { ComprehendClient, CreateFlywheelCommand } = require('@aws-sdk/client-comprehend'); // CommonJS import
  * const client = new ComprehendClient(config);
  * const input = { // CreateFlywheelRequest
- *   FlywheelName: "STRING_VALUE", // required
- *   ActiveModelArn: "STRING_VALUE",
- *   DataAccessRoleArn: "STRING_VALUE", // required
+ *   FlywheelName: 'STRING_VALUE', // required
+ *   ActiveModelArn: 'STRING_VALUE',
+ *   DataAccessRoleArn: 'STRING_VALUE', // required
  *   TaskConfig: { // TaskConfig
- *     LanguageCode: "en" || "es" || "fr" || "de" || "it" || "pt" || "ar" || "hi" || "ja" || "ko" || "zh" || "zh-TW", // required
+ *     LanguageCode: 'en' || 'es' || 'fr' || 'de' || 'it' || 'pt' || 'ar' || 'hi' || 'ja' || 'ko' || 'zh' || 'zh-TW', // required
  *     DocumentClassificationConfig: { // DocumentClassificationConfig
- *       Mode: "MULTI_CLASS" || "MULTI_LABEL", // required
+ *       Mode: 'MULTI_CLASS' || 'MULTI_LABEL', // required
  *       Labels: [ // LabelsList
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *     EntityRecognitionConfig: { // EntityRecognitionConfig
  *       EntityTypes: [ // EntityTypesList // required
  *         { // EntityTypesListItem
- *           Type: "STRING_VALUE", // required
+ *           Type: 'STRING_VALUE', // required
  *         },
  *       ],
  *     },
  *   },
- *   ModelType: "DOCUMENT_CLASSIFIER" || "ENTITY_RECOGNIZER",
- *   DataLakeS3Uri: "STRING_VALUE", // required
+ *   ModelType: 'DOCUMENT_CLASSIFIER' || 'ENTITY_RECOGNIZER',
+ *   DataLakeS3Uri: 'STRING_VALUE', // required
  *   DataSecurityConfig: { // DataSecurityConfig
- *     ModelKmsKeyId: "STRING_VALUE",
- *     VolumeKmsKeyId: "STRING_VALUE",
- *     DataLakeKmsKeyId: "STRING_VALUE",
+ *     ModelKmsKeyId: 'STRING_VALUE',
+ *     VolumeKmsKeyId: 'STRING_VALUE',
+ *     DataLakeKmsKeyId: 'STRING_VALUE',
  *     VpcConfig: { // VpcConfig
  *       SecurityGroupIds: [ // SecurityGroupIds // required
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *       Subnets: [ // Subnets // required
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   },
- *   ClientRequestToken: "STRING_VALUE",
+ *   ClientRequestToken: 'STRING_VALUE',
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new CreateFlywheelCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateFlywheelResponse
+ *   FlywheelArn: 'STRING_VALUE',
+ *   ActiveModelArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateFlywheelCommandInput - {@link CreateFlywheelCommandInput}
@@ -142,6 +148,8 @@ export interface CreateFlywheelCommandOutput extends CreateFlywheelResponse, __M
  *       <a href="https://docs.aws.amazon.com/comprehend/latest/dg/supported-languages.html">Supported languages</a> in the Comprehend Developer Guide.
  *     </p>
  *
+ * @throws {@link ComprehendServiceException}
+ * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
  */
 export class CreateFlywheelCommand extends $Command<

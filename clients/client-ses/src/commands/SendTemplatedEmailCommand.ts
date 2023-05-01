@@ -85,41 +85,46 @@ export interface SendTemplatedEmailCommandOutput extends SendTemplatedEmailRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SESClient, SendTemplatedEmailCommand } from "@aws-sdk/client-ses"; // ES Modules import
- * // const { SESClient, SendTemplatedEmailCommand } = require("@aws-sdk/client-ses"); // CommonJS import
+ * import { SESClient, SendTemplatedEmailCommand } from '@aws-sdk/client-ses'; // ES Modules import
+ * // const { SESClient, SendTemplatedEmailCommand } = require('@aws-sdk/client-ses'); // CommonJS import
  * const client = new SESClient(config);
  * const input = { // SendTemplatedEmailRequest
- *   Source: "STRING_VALUE", // required
+ *   Source: 'STRING_VALUE', // required
  *   Destination: { // Destination
  *     ToAddresses: [ // AddressList
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     CcAddresses: [
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     BccAddresses: [
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *   },
  *   ReplyToAddresses: [
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   ReturnPath: "STRING_VALUE",
- *   SourceArn: "STRING_VALUE",
- *   ReturnPathArn: "STRING_VALUE",
+ *   ReturnPath: 'STRING_VALUE',
+ *   SourceArn: 'STRING_VALUE',
+ *   ReturnPathArn: 'STRING_VALUE',
  *   Tags: [ // MessageTagList
  *     { // MessageTag
- *       Name: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Name: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
- *   ConfigurationSetName: "STRING_VALUE",
- *   Template: "STRING_VALUE", // required
- *   TemplateArn: "STRING_VALUE",
- *   TemplateData: "STRING_VALUE", // required
+ *   ConfigurationSetName: 'STRING_VALUE',
+ *   Template: 'STRING_VALUE', // required
+ *   TemplateArn: 'STRING_VALUE',
+ *   TemplateData: 'STRING_VALUE', // required
  * };
  * const command = new SendTemplatedEmailCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SendTemplatedEmailResponse
+ *   MessageId: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param SendTemplatedEmailCommandInput - {@link SendTemplatedEmailCommandInput}
@@ -153,6 +158,8 @@ export interface SendTemplatedEmailCommandOutput extends SendTemplatedEmailRespo
  *  <p>Indicates that the Template object you specified does not exist in your Amazon SES
  *             account.</p>
  *
+ * @throws {@link SESServiceException}
+ * <p>Base exception class for all service exceptions from SES service.</p>
  *
  */
 export class SendTemplatedEmailCommand extends $Command<

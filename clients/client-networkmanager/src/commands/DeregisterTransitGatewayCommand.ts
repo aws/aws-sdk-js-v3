@@ -37,15 +37,27 @@ export interface DeregisterTransitGatewayCommandOutput extends DeregisterTransit
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { NetworkManagerClient, DeregisterTransitGatewayCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
- * // const { NetworkManagerClient, DeregisterTransitGatewayCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
+ * import { NetworkManagerClient, DeregisterTransitGatewayCommand } from '@aws-sdk/client-networkmanager'; // ES Modules import
+ * // const { NetworkManagerClient, DeregisterTransitGatewayCommand } = require('@aws-sdk/client-networkmanager'); // CommonJS import
  * const client = new NetworkManagerClient(config);
  * const input = { // DeregisterTransitGatewayRequest
- *   GlobalNetworkId: "STRING_VALUE", // required
- *   TransitGatewayArn: "STRING_VALUE", // required
+ *   GlobalNetworkId: 'STRING_VALUE', // required
+ *   TransitGatewayArn: 'STRING_VALUE', // required
  * };
  * const command = new DeregisterTransitGatewayCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeregisterTransitGatewayResponse
+ *   TransitGatewayRegistration: { // TransitGatewayRegistration
+ *     GlobalNetworkId: 'STRING_VALUE',
+ *     TransitGatewayArn: 'STRING_VALUE',
+ *     State: { // TransitGatewayRegistrationStateReason
+ *       Code: 'PENDING' || 'AVAILABLE' || 'DELETING' || 'DELETED' || 'FAILED',
+ *       Message: 'STRING_VALUE',
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param DeregisterTransitGatewayCommandInput - {@link DeregisterTransitGatewayCommandInput}
@@ -73,6 +85,8 @@ export interface DeregisterTransitGatewayCommandOutput extends DeregisterTransit
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints.</p>
  *
+ * @throws {@link NetworkManagerServiceException}
+ * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
  */
 export class DeregisterTransitGatewayCommand extends $Command<

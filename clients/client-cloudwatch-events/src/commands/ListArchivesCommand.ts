@@ -37,18 +37,35 @@ export interface ListArchivesCommandOutput extends ListArchivesResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudWatchEventsClient, ListArchivesCommand } from "@aws-sdk/client-cloudwatch-events"; // ES Modules import
- * // const { CloudWatchEventsClient, ListArchivesCommand } = require("@aws-sdk/client-cloudwatch-events"); // CommonJS import
+ * import { CloudWatchEventsClient, ListArchivesCommand } from '@aws-sdk/client-cloudwatch-events'; // ES Modules import
+ * // const { CloudWatchEventsClient, ListArchivesCommand } = require('@aws-sdk/client-cloudwatch-events'); // CommonJS import
  * const client = new CloudWatchEventsClient(config);
  * const input = { // ListArchivesRequest
- *   NamePrefix: "STRING_VALUE",
- *   EventSourceArn: "STRING_VALUE",
- *   State: "STRING_VALUE",
- *   NextToken: "STRING_VALUE",
- *   Limit: Number("int"),
+ *   NamePrefix: 'STRING_VALUE',
+ *   EventSourceArn: 'STRING_VALUE',
+ *   State: 'STRING_VALUE',
+ *   NextToken: 'STRING_VALUE',
+ *   Limit: Number('int'),
  * };
  * const command = new ListArchivesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListArchivesResponse
+ *   Archives: [ // ArchiveResponseList
+ *     { // Archive
+ *       ArchiveName: 'STRING_VALUE',
+ *       EventSourceArn: 'STRING_VALUE',
+ *       State: 'STRING_VALUE',
+ *       StateReason: 'STRING_VALUE',
+ *       RetentionDays: Number('int'),
+ *       SizeBytes: Number('long'),
+ *       EventCount: Number('long'),
+ *       CreationTime: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListArchivesCommandInput - {@link ListArchivesCommandInput}
@@ -63,6 +80,8 @@ export interface ListArchivesCommandOutput extends ListArchivesResponse, __Metad
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>An entity that you specified does not exist.</p>
  *
+ * @throws {@link CloudWatchEventsServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatchEvents service.</p>
  *
  */
 export class ListArchivesCommand extends $Command<

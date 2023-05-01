@@ -36,14 +36,95 @@ export interface DescribeImportCommandOutput extends DescribeImportOutput, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DynamoDBClient, DescribeImportCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
- * // const { DynamoDBClient, DescribeImportCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
+ * import { DynamoDBClient, DescribeImportCommand } from '@aws-sdk/client-dynamodb'; // ES Modules import
+ * // const { DynamoDBClient, DescribeImportCommand } = require('@aws-sdk/client-dynamodb'); // CommonJS import
  * const client = new DynamoDBClient(config);
  * const input = { // DescribeImportInput
- *   ImportArn: "STRING_VALUE", // required
+ *   ImportArn: 'STRING_VALUE', // required
  * };
  * const command = new DescribeImportCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeImportOutput
+ *   ImportTableDescription: { // ImportTableDescription
+ *     ImportArn: 'STRING_VALUE',
+ *     ImportStatus: 'IN_PROGRESS' || 'COMPLETED' || 'CANCELLING' || 'CANCELLED' || 'FAILED',
+ *     TableArn: 'STRING_VALUE',
+ *     TableId: 'STRING_VALUE',
+ *     ClientToken: 'STRING_VALUE',
+ *     S3BucketSource: { // S3BucketSource
+ *       S3BucketOwner: 'STRING_VALUE',
+ *       S3Bucket: 'STRING_VALUE', // required
+ *       S3KeyPrefix: 'STRING_VALUE',
+ *     },
+ *     ErrorCount: Number('long'),
+ *     CloudWatchLogGroupArn: 'STRING_VALUE',
+ *     InputFormat: 'DYNAMODB_JSON' || 'ION' || 'CSV',
+ *     InputFormatOptions: { // InputFormatOptions
+ *       Csv: { // CsvOptions
+ *         Delimiter: 'STRING_VALUE',
+ *         HeaderList: [ // CsvHeaderList
+ *           'STRING_VALUE',
+ *         ],
+ *       },
+ *     },
+ *     InputCompressionType: 'GZIP' || 'ZSTD' || 'NONE',
+ *     TableCreationParameters: { // TableCreationParameters
+ *       TableName: 'STRING_VALUE', // required
+ *       AttributeDefinitions: [ // AttributeDefinitions // required
+ *         { // AttributeDefinition
+ *           AttributeName: 'STRING_VALUE', // required
+ *           AttributeType: 'S' || 'N' || 'B', // required
+ *         },
+ *       ],
+ *       KeySchema: [ // KeySchema // required
+ *         { // KeySchemaElement
+ *           AttributeName: 'STRING_VALUE', // required
+ *           KeyType: 'HASH' || 'RANGE', // required
+ *         },
+ *       ],
+ *       BillingMode: 'PROVISIONED' || 'PAY_PER_REQUEST',
+ *       ProvisionedThroughput: { // ProvisionedThroughput
+ *         ReadCapacityUnits: Number('long'), // required
+ *         WriteCapacityUnits: Number('long'), // required
+ *       },
+ *       SSESpecification: { // SSESpecification
+ *         Enabled: true || false,
+ *         SSEType: 'AES256' || 'KMS',
+ *         KMSMasterKeyId: 'STRING_VALUE',
+ *       },
+ *       GlobalSecondaryIndexes: [ // GlobalSecondaryIndexList
+ *         { // GlobalSecondaryIndex
+ *           IndexName: 'STRING_VALUE', // required
+ *           KeySchema: [ // required
+ *             {
+ *               AttributeName: 'STRING_VALUE', // required
+ *               KeyType: 'HASH' || 'RANGE', // required
+ *             },
+ *           ],
+ *           Projection: { // Projection
+ *             ProjectionType: 'ALL' || 'KEYS_ONLY' || 'INCLUDE',
+ *             NonKeyAttributes: [ // NonKeyAttributeNameList
+ *               'STRING_VALUE',
+ *             ],
+ *           },
+ *           ProvisionedThroughput: {
+ *             ReadCapacityUnits: Number('long'), // required
+ *             WriteCapacityUnits: Number('long'), // required
+ *           },
+ *         },
+ *       ],
+ *     },
+ *     StartTime: new Date('TIMESTAMP'),
+ *     EndTime: new Date('TIMESTAMP'),
+ *     ProcessedSizeBytes: Number('long'),
+ *     ProcessedItemCount: Number('long'),
+ *     ImportedItemCount: Number('long'),
+ *     FailureCode: 'STRING_VALUE',
+ *     FailureMessage: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeImportCommandInput - {@link DescribeImportCommandInput}
@@ -57,6 +138,8 @@ export interface DescribeImportCommandOutput extends DescribeImportOutput, __Met
  *             The specified import was not found.
  *             </p>
  *
+ * @throws {@link DynamoDBServiceException}
+ * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
  */
 export class DescribeImportCommand extends $Command<

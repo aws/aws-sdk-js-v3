@@ -42,14 +42,25 @@ export interface GetCelebrityInfoCommandOutput extends GetCelebrityInfoResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RekognitionClient, GetCelebrityInfoCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
- * // const { RekognitionClient, GetCelebrityInfoCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
+ * import { RekognitionClient, GetCelebrityInfoCommand } from '@aws-sdk/client-rekognition'; // ES Modules import
+ * // const { RekognitionClient, GetCelebrityInfoCommand } = require('@aws-sdk/client-rekognition'); // CommonJS import
  * const client = new RekognitionClient(config);
  * const input = { // GetCelebrityInfoRequest
- *   Id: "STRING_VALUE", // required
+ *   Id: 'STRING_VALUE', // required
  * };
  * const command = new GetCelebrityInfoCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetCelebrityInfoResponse
+ *   Urls: [ // Urls
+ *     'STRING_VALUE',
+ *   ],
+ *   Name: 'STRING_VALUE',
+ *   KnownGender: { // KnownGender
+ *     Type: 'Male' || 'Female' || 'Nonbinary' || 'Unlisted',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetCelebrityInfoCommandInput - {@link GetCelebrityInfoCommandInput}
@@ -78,6 +89,8 @@ export interface GetCelebrityInfoCommandOutput extends GetCelebrityInfoResponse,
  * @throws {@link ThrottlingException} (server fault)
  *  <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
  *
+ * @throws {@link RekognitionServiceException}
+ * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
  */
 export class GetCelebrityInfoCommand extends $Command<

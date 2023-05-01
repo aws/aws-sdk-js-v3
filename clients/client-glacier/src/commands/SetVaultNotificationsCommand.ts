@@ -73,21 +73,24 @@ export interface SetVaultNotificationsCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlacierClient, SetVaultNotificationsCommand } from "@aws-sdk/client-glacier"; // ES Modules import
- * // const { GlacierClient, SetVaultNotificationsCommand } = require("@aws-sdk/client-glacier"); // CommonJS import
+ * import { GlacierClient, SetVaultNotificationsCommand } from '@aws-sdk/client-glacier'; // ES Modules import
+ * // const { GlacierClient, SetVaultNotificationsCommand } = require('@aws-sdk/client-glacier'); // CommonJS import
  * const client = new GlacierClient(config);
  * const input = { // SetVaultNotificationsInput
- *   accountId: "STRING_VALUE", // required
- *   vaultName: "STRING_VALUE", // required
+ *   accountId: 'STRING_VALUE', // required
+ *   vaultName: 'STRING_VALUE', // required
  *   vaultNotificationConfig: { // VaultNotificationConfig
- *     SNSTopic: "STRING_VALUE",
+ *     SNSTopic: 'STRING_VALUE',
  *     Events: [ // NotificationEventList
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *   },
  * };
  * const command = new SetVaultNotificationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param SetVaultNotificationsCommandInput - {@link SetVaultNotificationsCommandInput}
@@ -109,6 +112,8 @@ export interface SetVaultNotificationsCommandOutput extends __MetadataBearer {}
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>Returned if the service cannot complete the request.</p>
  *
+ * @throws {@link GlacierServiceException}
+ * <p>Base exception class for all service exceptions from Glacier service.</p>
  *
  * @example To configure a vault to post a message to an Amazon SNS topic when jobs complete
  * ```javascript

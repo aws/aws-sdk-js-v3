@@ -36,15 +36,24 @@ export interface GetLFTagCommandOutput extends GetLFTagResponse, __MetadataBeare
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LakeFormationClient, GetLFTagCommand } from "@aws-sdk/client-lakeformation"; // ES Modules import
- * // const { LakeFormationClient, GetLFTagCommand } = require("@aws-sdk/client-lakeformation"); // CommonJS import
+ * import { LakeFormationClient, GetLFTagCommand } from '@aws-sdk/client-lakeformation'; // ES Modules import
+ * // const { LakeFormationClient, GetLFTagCommand } = require('@aws-sdk/client-lakeformation'); // CommonJS import
  * const client = new LakeFormationClient(config);
  * const input = { // GetLFTagRequest
- *   CatalogId: "STRING_VALUE",
- *   TagKey: "STRING_VALUE", // required
+ *   CatalogId: 'STRING_VALUE',
+ *   TagKey: 'STRING_VALUE', // required
  * };
  * const command = new GetLFTagCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetLFTagResponse
+ *   CatalogId: 'STRING_VALUE',
+ *   TagKey: 'STRING_VALUE',
+ *   TagValues: [ // TagValueList
+ *     'STRING_VALUE',
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetLFTagCommandInput - {@link GetLFTagCommandInput}
@@ -68,6 +77,8 @@ export interface GetLFTagCommandOutput extends GetLFTagResponse, __MetadataBeare
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link LakeFormationServiceException}
+ * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
  */
 export class GetLFTagCommand extends $Command<

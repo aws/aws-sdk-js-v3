@@ -36,16 +36,21 @@ export interface RunStatementCommandOutput extends RunStatementResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlueClient, RunStatementCommand } from "@aws-sdk/client-glue"; // ES Modules import
- * // const { GlueClient, RunStatementCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * import { GlueClient, RunStatementCommand } from '@aws-sdk/client-glue'; // ES Modules import
+ * // const { GlueClient, RunStatementCommand } = require('@aws-sdk/client-glue'); // CommonJS import
  * const client = new GlueClient(config);
  * const input = { // RunStatementRequest
- *   SessionId: "STRING_VALUE", // required
- *   Code: "STRING_VALUE", // required
- *   RequestOrigin: "STRING_VALUE",
+ *   SessionId: 'STRING_VALUE', // required
+ *   Code: 'STRING_VALUE', // required
+ *   RequestOrigin: 'STRING_VALUE',
  * };
  * const command = new RunStatementCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // RunStatementResponse
+ *   Id: Number('int'),
+ * };
+ *
  * ```
  *
  * @param RunStatementCommandInput - {@link RunStatementCommandInput}
@@ -78,6 +83,8 @@ export interface RunStatementCommandOutput extends RunStatementResponse, __Metad
  * @throws {@link ValidationException} (client fault)
  *  <p>A value could not be validated.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class RunStatementCommand extends $Command<

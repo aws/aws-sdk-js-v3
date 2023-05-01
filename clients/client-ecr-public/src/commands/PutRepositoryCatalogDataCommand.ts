@@ -36,27 +36,44 @@ export interface PutRepositoryCatalogDataCommandOutput extends PutRepositoryCata
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ECRPUBLICClient, PutRepositoryCatalogDataCommand } from "@aws-sdk/client-ecr-public"; // ES Modules import
- * // const { ECRPUBLICClient, PutRepositoryCatalogDataCommand } = require("@aws-sdk/client-ecr-public"); // CommonJS import
+ * import { ECRPUBLICClient, PutRepositoryCatalogDataCommand } from '@aws-sdk/client-ecr-public'; // ES Modules import
+ * // const { ECRPUBLICClient, PutRepositoryCatalogDataCommand } = require('@aws-sdk/client-ecr-public'); // CommonJS import
  * const client = new ECRPUBLICClient(config);
  * const input = { // PutRepositoryCatalogDataRequest
- *   registryId: "STRING_VALUE",
- *   repositoryName: "STRING_VALUE", // required
+ *   registryId: 'STRING_VALUE',
+ *   repositoryName: 'STRING_VALUE', // required
  *   catalogData: { // RepositoryCatalogDataInput
- *     description: "STRING_VALUE",
+ *     description: 'STRING_VALUE',
  *     architectures: [ // ArchitectureList
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     operatingSystems: [ // OperatingSystemList
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
- *     logoImageBlob: "BLOB_VALUE",
- *     aboutText: "STRING_VALUE",
- *     usageText: "STRING_VALUE",
+ *     logoImageBlob: 'BLOB_VALUE',
+ *     aboutText: 'STRING_VALUE',
+ *     usageText: 'STRING_VALUE',
  *   },
  * };
  * const command = new PutRepositoryCatalogDataCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutRepositoryCatalogDataResponse
+ *   catalogData: { // RepositoryCatalogData
+ *     description: 'STRING_VALUE',
+ *     architectures: [ // ArchitectureList
+ *       'STRING_VALUE',
+ *     ],
+ *     operatingSystems: [ // OperatingSystemList
+ *       'STRING_VALUE',
+ *     ],
+ *     logoUrl: 'STRING_VALUE',
+ *     aboutText: 'STRING_VALUE',
+ *     usageText: 'STRING_VALUE',
+ *     marketplaceCertified: true || false,
+ *   },
+ * };
+ *
  * ```
  *
  * @param PutRepositoryCatalogDataCommandInput - {@link PutRepositoryCatalogDataCommandInput}
@@ -79,6 +96,8 @@ export interface PutRepositoryCatalogDataCommandOutput extends PutRepositoryCata
  * @throws {@link UnsupportedCommandException} (client fault)
  *  <p>The action isn't supported in this Region.</p>
  *
+ * @throws {@link ECRPUBLICServiceException}
+ * <p>Base exception class for all service exceptions from ECRPUBLIC service.</p>
  *
  */
 export class PutRepositoryCatalogDataCommand extends $Command<

@@ -36,23 +36,45 @@ export interface ListLicenseConversionTasksCommandOutput extends ListLicenseConv
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LicenseManagerClient, ListLicenseConversionTasksCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
- * // const { LicenseManagerClient, ListLicenseConversionTasksCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
+ * import { LicenseManagerClient, ListLicenseConversionTasksCommand } from '@aws-sdk/client-license-manager'; // ES Modules import
+ * // const { LicenseManagerClient, ListLicenseConversionTasksCommand } = require('@aws-sdk/client-license-manager'); // CommonJS import
  * const client = new LicenseManagerClient(config);
  * const input = { // ListLicenseConversionTasksRequest
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  *   Filters: [ // Filters
  *     { // Filter
- *       Name: "STRING_VALUE",
+ *       Name: 'STRING_VALUE',
  *       Values: [ // FilterValues
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
  * };
  * const command = new ListLicenseConversionTasksCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListLicenseConversionTasksResponse
+ *   LicenseConversionTasks: [ // LicenseConversionTasks
+ *     { // LicenseConversionTask
+ *       LicenseConversionTaskId: 'STRING_VALUE',
+ *       ResourceArn: 'STRING_VALUE',
+ *       SourceLicenseContext: { // LicenseConversionContext
+ *         UsageOperation: 'STRING_VALUE',
+ *       },
+ *       DestinationLicenseContext: {
+ *         UsageOperation: 'STRING_VALUE',
+ *       },
+ *       Status: 'IN_PROGRESS' || 'SUCCEEDED' || 'FAILED',
+ *       StatusMessage: 'STRING_VALUE',
+ *       StartTime: new Date('TIMESTAMP'),
+ *       LicenseConversionTime: new Date('TIMESTAMP'),
+ *       EndTime: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListLicenseConversionTasksCommandInput - {@link ListLicenseConversionTasksCommandInput}
@@ -77,6 +99,8 @@ export interface ListLicenseConversionTasksCommandOutput extends ListLicenseConv
  * @throws {@link ServerInternalException} (server fault)
  *  <p>The server experienced an internal error. Try again.</p>
  *
+ * @throws {@link LicenseManagerServiceException}
+ * <p>Base exception class for all service exceptions from LicenseManager service.</p>
  *
  */
 export class ListLicenseConversionTasksCommand extends $Command<

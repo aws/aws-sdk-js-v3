@@ -63,32 +63,57 @@ export interface GetResourcesCommandOutput extends GetResourcesOutput, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ResourceGroupsTaggingAPIClient, GetResourcesCommand } from "@aws-sdk/client-resource-groups-tagging-api"; // ES Modules import
- * // const { ResourceGroupsTaggingAPIClient, GetResourcesCommand } = require("@aws-sdk/client-resource-groups-tagging-api"); // CommonJS import
+ * import { ResourceGroupsTaggingAPIClient, GetResourcesCommand } from '@aws-sdk/client-resource-groups-tagging-api'; // ES Modules import
+ * // const { ResourceGroupsTaggingAPIClient, GetResourcesCommand } = require('@aws-sdk/client-resource-groups-tagging-api'); // CommonJS import
  * const client = new ResourceGroupsTaggingAPIClient(config);
  * const input = { // GetResourcesInput
- *   PaginationToken: "STRING_VALUE",
+ *   PaginationToken: 'STRING_VALUE',
  *   TagFilters: [ // TagFilterList
  *     { // TagFilter
- *       Key: "STRING_VALUE",
+ *       Key: 'STRING_VALUE',
  *       Values: [ // TagValueList
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
- *   ResourcesPerPage: Number("int"),
- *   TagsPerPage: Number("int"),
+ *   ResourcesPerPage: Number('int'),
+ *   TagsPerPage: Number('int'),
  *   ResourceTypeFilters: [ // ResourceTypeFilterList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   IncludeComplianceDetails: true || false,
  *   ExcludeCompliantResources: true || false,
  *   ResourceARNList: [ // ResourceARNListForGet
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new GetResourcesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetResourcesOutput
+ *   PaginationToken: 'STRING_VALUE',
+ *   ResourceTagMappingList: [ // ResourceTagMappingList
+ *     { // ResourceTagMapping
+ *       ResourceARN: 'STRING_VALUE',
+ *       Tags: [ // TagList
+ *         { // Tag
+ *           Key: 'STRING_VALUE', // required
+ *           Value: 'STRING_VALUE', // required
+ *         },
+ *       ],
+ *       ComplianceDetails: { // ComplianceDetails
+ *         NoncompliantKeys: [ // TagKeyList
+ *           'STRING_VALUE',
+ *         ],
+ *         KeysWithNoncompliantValues: [
+ *           'STRING_VALUE',
+ *         ],
+ *         ComplianceStatus: true || false,
+ *       },
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetResourcesCommandInput - {@link GetResourcesCommandInput}
@@ -131,6 +156,8 @@ export interface GetResourcesCommandOutput extends GetResourcesOutput, __Metadat
  * @throws {@link ThrottledException} (client fault)
  *  <p>The request was denied to limit the frequency of submitted requests.</p>
  *
+ * @throws {@link ResourceGroupsTaggingAPIServiceException}
+ * <p>Base exception class for all service exceptions from ResourceGroupsTaggingAPI service.</p>
  *
  */
 export class GetResourcesCommand extends $Command<

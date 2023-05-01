@@ -43,15 +43,18 @@ export interface DeleteIntentVersionCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LexModelBuildingServiceClient, DeleteIntentVersionCommand } from "@aws-sdk/client-lex-model-building-service"; // ES Modules import
- * // const { LexModelBuildingServiceClient, DeleteIntentVersionCommand } = require("@aws-sdk/client-lex-model-building-service"); // CommonJS import
+ * import { LexModelBuildingServiceClient, DeleteIntentVersionCommand } from '@aws-sdk/client-lex-model-building-service'; // ES Modules import
+ * // const { LexModelBuildingServiceClient, DeleteIntentVersionCommand } = require('@aws-sdk/client-lex-model-building-service'); // CommonJS import
  * const client = new LexModelBuildingServiceClient(config);
  * const input = { // DeleteIntentVersionRequest
- *   name: "STRING_VALUE", // required
- *   version: "STRING_VALUE", // required
+ *   name: 'STRING_VALUE', // required
+ *   version: 'STRING_VALUE', // required
  * };
  * const command = new DeleteIntentVersionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteIntentVersionCommandInput - {@link DeleteIntentVersionCommandInput}
@@ -97,6 +100,8 @@ export interface DeleteIntentVersionCommandOutput extends __MetadataBearer {}
  *           <i>string</i> } }</code>
  *          </p>
  *
+ * @throws {@link LexModelBuildingServiceServiceException}
+ * <p>Base exception class for all service exceptions from LexModelBuildingService service.</p>
  *
  */
 export class DeleteIntentVersionCommand extends $Command<

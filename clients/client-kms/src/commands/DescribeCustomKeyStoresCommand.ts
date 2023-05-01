@@ -98,17 +98,42 @@ export interface DescribeCustomKeyStoresCommandOutput extends DescribeCustomKeyS
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KMSClient, DescribeCustomKeyStoresCommand } from "@aws-sdk/client-kms"; // ES Modules import
- * // const { KMSClient, DescribeCustomKeyStoresCommand } = require("@aws-sdk/client-kms"); // CommonJS import
+ * import { KMSClient, DescribeCustomKeyStoresCommand } from '@aws-sdk/client-kms'; // ES Modules import
+ * // const { KMSClient, DescribeCustomKeyStoresCommand } = require('@aws-sdk/client-kms'); // CommonJS import
  * const client = new KMSClient(config);
  * const input = { // DescribeCustomKeyStoresRequest
- *   CustomKeyStoreId: "STRING_VALUE",
- *   CustomKeyStoreName: "STRING_VALUE",
- *   Limit: Number("int"),
- *   Marker: "STRING_VALUE",
+ *   CustomKeyStoreId: 'STRING_VALUE',
+ *   CustomKeyStoreName: 'STRING_VALUE',
+ *   Limit: Number('int'),
+ *   Marker: 'STRING_VALUE',
  * };
  * const command = new DescribeCustomKeyStoresCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeCustomKeyStoresResponse
+ *   CustomKeyStores: [ // CustomKeyStoresList
+ *     { // CustomKeyStoresListEntry
+ *       CustomKeyStoreId: 'STRING_VALUE',
+ *       CustomKeyStoreName: 'STRING_VALUE',
+ *       CloudHsmClusterId: 'STRING_VALUE',
+ *       TrustAnchorCertificate: 'STRING_VALUE',
+ *       ConnectionState: 'CONNECTED' || 'CONNECTING' || 'FAILED' || 'DISCONNECTED' || 'DISCONNECTING',
+ *       ConnectionErrorCode: 'INVALID_CREDENTIALS' || 'CLUSTER_NOT_FOUND' || 'NETWORK_ERRORS' || 'INTERNAL_ERROR' || 'INSUFFICIENT_CLOUDHSM_HSMS' || 'USER_LOCKED_OUT' || 'USER_NOT_FOUND' || 'USER_LOGGED_IN' || 'SUBNET_NOT_FOUND' || 'INSUFFICIENT_FREE_ADDRESSES_IN_SUBNET' || 'XKS_PROXY_ACCESS_DENIED' || 'XKS_PROXY_NOT_REACHABLE' || 'XKS_VPC_ENDPOINT_SERVICE_NOT_FOUND' || 'XKS_PROXY_INVALID_RESPONSE' || 'XKS_PROXY_INVALID_CONFIGURATION' || 'XKS_VPC_ENDPOINT_SERVICE_INVALID_CONFIGURATION' || 'XKS_PROXY_TIMED_OUT' || 'XKS_PROXY_INVALID_TLS_CONFIGURATION',
+ *       CreationDate: new Date('TIMESTAMP'),
+ *       CustomKeyStoreType: 'AWS_CLOUDHSM' || 'EXTERNAL_KEY_STORE',
+ *       XksProxyConfiguration: { // XksProxyConfigurationType
+ *         Connectivity: 'PUBLIC_ENDPOINT' || 'VPC_ENDPOINT_SERVICE',
+ *         AccessKeyId: 'STRING_VALUE',
+ *         UriEndpoint: 'STRING_VALUE',
+ *         UriPath: 'STRING_VALUE',
+ *         VpcEndpointServiceName: 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ *   NextMarker: 'STRING_VALUE',
+ *   Truncated: true || false,
+ * };
+ *
  * ```
  *
  * @param DescribeCustomKeyStoresCommandInput - {@link DescribeCustomKeyStoresCommandInput}
@@ -129,6 +154,8 @@ export interface DescribeCustomKeyStoresCommandOutput extends DescribeCustomKeyS
  *  <p>The request was rejected because an internal exception occurred. The request can be
  *       retried.</p>
  *
+ * @throws {@link KMSServiceException}
+ * <p>Base exception class for all service exceptions from KMS service.</p>
  *
  * @example To get detailed information about custom key stores in the account and Region
  * ```javascript

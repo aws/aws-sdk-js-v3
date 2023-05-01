@@ -36,21 +36,26 @@ export interface CreateScheduleGroupCommandOutput extends CreateScheduleGroupOut
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SchedulerClient, CreateScheduleGroupCommand } from "@aws-sdk/client-scheduler"; // ES Modules import
- * // const { SchedulerClient, CreateScheduleGroupCommand } = require("@aws-sdk/client-scheduler"); // CommonJS import
+ * import { SchedulerClient, CreateScheduleGroupCommand } from '@aws-sdk/client-scheduler'; // ES Modules import
+ * // const { SchedulerClient, CreateScheduleGroupCommand } = require('@aws-sdk/client-scheduler'); // CommonJS import
  * const client = new SchedulerClient(config);
  * const input = { // CreateScheduleGroupInput
- *   Name: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
- *   ClientToken: "STRING_VALUE",
+ *   ClientToken: 'STRING_VALUE',
  * };
  * const command = new CreateScheduleGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateScheduleGroupOutput
+ *   ScheduleGroupArn: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param CreateScheduleGroupCommandInput - {@link CreateScheduleGroupCommandInput}
@@ -74,6 +79,8 @@ export interface CreateScheduleGroupCommandOutput extends CreateScheduleGroupOut
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link SchedulerServiceException}
+ * <p>Base exception class for all service exceptions from Scheduler service.</p>
  *
  */
 export class CreateScheduleGroupCommand extends $Command<

@@ -65,15 +65,22 @@ export interface GetBucketCommandOutput extends GetBucketResult, __MetadataBeare
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { S3ControlClient, GetBucketCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
- * // const { S3ControlClient, GetBucketCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
+ * import { S3ControlClient, GetBucketCommand } from '@aws-sdk/client-s3-control'; // ES Modules import
+ * // const { S3ControlClient, GetBucketCommand } = require('@aws-sdk/client-s3-control'); // CommonJS import
  * const client = new S3ControlClient(config);
  * const input = { // GetBucketRequest
- *   AccountId: "STRING_VALUE",
- *   Bucket: "STRING_VALUE", // required
+ *   AccountId: 'STRING_VALUE',
+ *   Bucket: 'STRING_VALUE', // required
  * };
  * const command = new GetBucketCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetBucketResult
+ *   Bucket: 'STRING_VALUE',
+ *   PublicAccessBlockEnabled: true || false,
+ *   CreationDate: new Date('TIMESTAMP'),
+ * };
+ *
  * ```
  *
  * @param GetBucketCommandInput - {@link GetBucketCommandInput}
@@ -82,6 +89,8 @@ export interface GetBucketCommandOutput extends GetBucketResult, __MetadataBeare
  * @see {@link GetBucketCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
  *
+ * @throws {@link S3ControlServiceException}
+ * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
  */
 export class GetBucketCommand extends $Command<

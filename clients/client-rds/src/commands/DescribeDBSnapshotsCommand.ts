@@ -36,29 +36,81 @@ export interface DescribeDBSnapshotsCommandOutput extends DBSnapshotMessage, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RDSClient, DescribeDBSnapshotsCommand } from "@aws-sdk/client-rds"; // ES Modules import
- * // const { RDSClient, DescribeDBSnapshotsCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * import { RDSClient, DescribeDBSnapshotsCommand } from '@aws-sdk/client-rds'; // ES Modules import
+ * // const { RDSClient, DescribeDBSnapshotsCommand } = require('@aws-sdk/client-rds'); // CommonJS import
  * const client = new RDSClient(config);
  * const input = { // DescribeDBSnapshotsMessage
- *   DBInstanceIdentifier: "STRING_VALUE",
- *   DBSnapshotIdentifier: "STRING_VALUE",
- *   SnapshotType: "STRING_VALUE",
+ *   DBInstanceIdentifier: 'STRING_VALUE',
+ *   DBSnapshotIdentifier: 'STRING_VALUE',
+ *   SnapshotType: 'STRING_VALUE',
  *   Filters: [ // FilterList
  *     { // Filter
- *       Name: "STRING_VALUE", // required
+ *       Name: 'STRING_VALUE', // required
  *       Values: [ // FilterValueList // required
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
- *   MaxRecords: Number("int"),
- *   Marker: "STRING_VALUE",
+ *   MaxRecords: Number('int'),
+ *   Marker: 'STRING_VALUE',
  *   IncludeShared: true || false,
  *   IncludePublic: true || false,
- *   DbiResourceId: "STRING_VALUE",
+ *   DbiResourceId: 'STRING_VALUE',
  * };
  * const command = new DescribeDBSnapshotsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DBSnapshotMessage
+ *   Marker: 'STRING_VALUE',
+ *   DBSnapshots: [ // DBSnapshotList
+ *     { // DBSnapshot
+ *       DBSnapshotIdentifier: 'STRING_VALUE',
+ *       DBInstanceIdentifier: 'STRING_VALUE',
+ *       SnapshotCreateTime: new Date('TIMESTAMP'),
+ *       Engine: 'STRING_VALUE',
+ *       AllocatedStorage: Number('int'),
+ *       Status: 'STRING_VALUE',
+ *       Port: Number('int'),
+ *       AvailabilityZone: 'STRING_VALUE',
+ *       VpcId: 'STRING_VALUE',
+ *       InstanceCreateTime: new Date('TIMESTAMP'),
+ *       MasterUsername: 'STRING_VALUE',
+ *       EngineVersion: 'STRING_VALUE',
+ *       LicenseModel: 'STRING_VALUE',
+ *       SnapshotType: 'STRING_VALUE',
+ *       Iops: Number('int'),
+ *       OptionGroupName: 'STRING_VALUE',
+ *       PercentProgress: Number('int'),
+ *       SourceRegion: 'STRING_VALUE',
+ *       SourceDBSnapshotIdentifier: 'STRING_VALUE',
+ *       StorageType: 'STRING_VALUE',
+ *       TdeCredentialArn: 'STRING_VALUE',
+ *       Encrypted: true || false,
+ *       KmsKeyId: 'STRING_VALUE',
+ *       DBSnapshotArn: 'STRING_VALUE',
+ *       Timezone: 'STRING_VALUE',
+ *       IAMDatabaseAuthenticationEnabled: true || false,
+ *       ProcessorFeatures: [ // ProcessorFeatureList
+ *         { // ProcessorFeature
+ *           Name: 'STRING_VALUE',
+ *           Value: 'STRING_VALUE',
+ *         },
+ *       ],
+ *       DbiResourceId: 'STRING_VALUE',
+ *       TagList: [ // TagList
+ *         { // Tag
+ *           Key: 'STRING_VALUE',
+ *           Value: 'STRING_VALUE',
+ *         },
+ *       ],
+ *       OriginalSnapshotCreateTime: new Date('TIMESTAMP'),
+ *       SnapshotDatabaseTime: new Date('TIMESTAMP'),
+ *       SnapshotTarget: 'STRING_VALUE',
+ *       StorageThroughput: Number('int'),
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeDBSnapshotsCommandInput - {@link DescribeDBSnapshotsCommandInput}
@@ -71,6 +123,8 @@ export interface DescribeDBSnapshotsCommandOutput extends DBSnapshotMessage, __M
  *  <p>
  *             <code>DBSnapshotIdentifier</code> doesn't refer to an existing DB snapshot.</p>
  *
+ * @throws {@link RDSServiceException}
+ * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  * @example To describe a DB snapshot for a DB instance
  * ```javascript

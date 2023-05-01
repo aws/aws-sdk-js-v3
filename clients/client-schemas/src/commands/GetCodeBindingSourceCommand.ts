@@ -36,17 +36,22 @@ export interface GetCodeBindingSourceCommandOutput extends GetCodeBindingSourceR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SchemasClient, GetCodeBindingSourceCommand } from "@aws-sdk/client-schemas"; // ES Modules import
- * // const { SchemasClient, GetCodeBindingSourceCommand } = require("@aws-sdk/client-schemas"); // CommonJS import
+ * import { SchemasClient, GetCodeBindingSourceCommand } from '@aws-sdk/client-schemas'; // ES Modules import
+ * // const { SchemasClient, GetCodeBindingSourceCommand } = require('@aws-sdk/client-schemas'); // CommonJS import
  * const client = new SchemasClient(config);
  * const input = { // GetCodeBindingSourceRequest
- *   Language: "STRING_VALUE", // required
- *   RegistryName: "STRING_VALUE", // required
- *   SchemaName: "STRING_VALUE", // required
- *   SchemaVersion: "STRING_VALUE",
+ *   Language: 'STRING_VALUE', // required
+ *   RegistryName: 'STRING_VALUE', // required
+ *   SchemaName: 'STRING_VALUE', // required
+ *   SchemaVersion: 'STRING_VALUE',
  * };
  * const command = new GetCodeBindingSourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetCodeBindingSourceResponse
+ *   Body: 'BLOB_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetCodeBindingSourceCommandInput - {@link GetCodeBindingSourceCommandInput}
@@ -67,6 +72,8 @@ export interface GetCodeBindingSourceCommandOutput extends GetCodeBindingSourceR
  *
  * @throws {@link UnauthorizedException} (client fault)
  *
+ * @throws {@link SchemasServiceException}
+ * <p>Base exception class for all service exceptions from Schemas service.</p>
  *
  */
 export class GetCodeBindingSourceCommand extends $Command<

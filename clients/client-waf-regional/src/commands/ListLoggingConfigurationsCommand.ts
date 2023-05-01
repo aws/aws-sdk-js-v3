@@ -44,15 +44,34 @@ export interface ListLoggingConfigurationsCommandOutput extends ListLoggingConfi
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WAFRegionalClient, ListLoggingConfigurationsCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
- * // const { WAFRegionalClient, ListLoggingConfigurationsCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import
+ * import { WAFRegionalClient, ListLoggingConfigurationsCommand } from '@aws-sdk/client-waf-regional'; // ES Modules import
+ * // const { WAFRegionalClient, ListLoggingConfigurationsCommand } = require('@aws-sdk/client-waf-regional'); // CommonJS import
  * const client = new WAFRegionalClient(config);
  * const input = { // ListLoggingConfigurationsRequest
- *   NextMarker: "STRING_VALUE",
- *   Limit: Number("int"),
+ *   NextMarker: 'STRING_VALUE',
+ *   Limit: Number('int'),
  * };
  * const command = new ListLoggingConfigurationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListLoggingConfigurationsResponse
+ *   LoggingConfigurations: [ // LoggingConfigurations
+ *     { // LoggingConfiguration
+ *       ResourceArn: 'STRING_VALUE', // required
+ *       LogDestinationConfigs: [ // LogDestinationConfigs // required
+ *         'STRING_VALUE',
+ *       ],
+ *       RedactedFields: [ // RedactedFields
+ *         { // FieldToMatch
+ *           Type: 'STRING_VALUE', // required
+ *           Data: 'STRING_VALUE',
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   NextMarker: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListLoggingConfigurationsCommandInput - {@link ListLoggingConfigurationsCommandInput}
@@ -107,6 +126,8 @@ export interface ListLoggingConfigurationsCommandOutput extends ListLoggingConfi
  * @throws {@link WAFNonexistentItemException} (client fault)
  *  <p>The operation failed because the referenced object doesn't exist.</p>
  *
+ * @throws {@link WAFRegionalServiceException}
+ * <p>Base exception class for all service exceptions from WAFRegional service.</p>
  *
  */
 export class ListLoggingConfigurationsCommand extends $Command<

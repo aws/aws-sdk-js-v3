@@ -38,29 +38,74 @@ export interface ModifyVerifiedAccessEndpointCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, ModifyVerifiedAccessEndpointCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, ModifyVerifiedAccessEndpointCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, ModifyVerifiedAccessEndpointCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, ModifyVerifiedAccessEndpointCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // ModifyVerifiedAccessEndpointRequest
- *   VerifiedAccessEndpointId: "STRING_VALUE", // required
- *   VerifiedAccessGroupId: "STRING_VALUE",
+ *   VerifiedAccessEndpointId: 'STRING_VALUE', // required
+ *   VerifiedAccessGroupId: 'STRING_VALUE',
  *   LoadBalancerOptions: { // ModifyVerifiedAccessEndpointLoadBalancerOptions
  *     SubnetIds: [ // ModifyVerifiedAccessEndpointSubnetIdList
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
- *     Protocol: "http" || "https",
- *     Port: Number("int"),
+ *     Protocol: 'http' || 'https',
+ *     Port: Number('int'),
  *   },
  *   NetworkInterfaceOptions: { // ModifyVerifiedAccessEndpointEniOptions
- *     Protocol: "http" || "https",
- *     Port: Number("int"),
+ *     Protocol: 'http' || 'https',
+ *     Port: Number('int'),
  *   },
- *   Description: "STRING_VALUE",
- *   ClientToken: "STRING_VALUE",
+ *   Description: 'STRING_VALUE',
+ *   ClientToken: 'STRING_VALUE',
  *   DryRun: true || false,
  * };
  * const command = new ModifyVerifiedAccessEndpointCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ModifyVerifiedAccessEndpointResult
+ *   VerifiedAccessEndpoint: { // VerifiedAccessEndpoint
+ *     VerifiedAccessInstanceId: 'STRING_VALUE',
+ *     VerifiedAccessGroupId: 'STRING_VALUE',
+ *     VerifiedAccessEndpointId: 'STRING_VALUE',
+ *     ApplicationDomain: 'STRING_VALUE',
+ *     EndpointType: 'load-balancer' || 'network-interface',
+ *     AttachmentType: 'vpc',
+ *     DomainCertificateArn: 'STRING_VALUE',
+ *     EndpointDomain: 'STRING_VALUE',
+ *     DeviceValidationDomain: 'STRING_VALUE',
+ *     SecurityGroupIds: [ // SecurityGroupIdList
+ *       'STRING_VALUE',
+ *     ],
+ *     LoadBalancerOptions: { // VerifiedAccessEndpointLoadBalancerOptions
+ *       Protocol: 'http' || 'https',
+ *       Port: Number('int'),
+ *       LoadBalancerArn: 'STRING_VALUE',
+ *       SubnetIds: [ // VerifiedAccessEndpointSubnetIdList
+ *         'STRING_VALUE',
+ *       ],
+ *     },
+ *     NetworkInterfaceOptions: { // VerifiedAccessEndpointEniOptions
+ *       NetworkInterfaceId: 'STRING_VALUE',
+ *       Protocol: 'http' || 'https',
+ *       Port: Number('int'),
+ *     },
+ *     Status: { // VerifiedAccessEndpointStatus
+ *       Code: 'pending' || 'active' || 'updating' || 'deleting' || 'deleted',
+ *       Message: 'STRING_VALUE',
+ *     },
+ *     Description: 'STRING_VALUE',
+ *     CreationTime: 'STRING_VALUE',
+ *     LastUpdatedTime: 'STRING_VALUE',
+ *     DeletionTime: 'STRING_VALUE',
+ *     Tags: [ // TagList
+ *       { // Tag
+ *         Key: 'STRING_VALUE',
+ *         Value: 'STRING_VALUE',
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param ModifyVerifiedAccessEndpointCommandInput - {@link ModifyVerifiedAccessEndpointCommandInput}
@@ -69,6 +114,8 @@ export interface ModifyVerifiedAccessEndpointCommandOutput
  * @see {@link ModifyVerifiedAccessEndpointCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class ModifyVerifiedAccessEndpointCommand extends $Command<

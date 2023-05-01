@@ -40,14 +40,20 @@ export interface DeleteSignalCatalogCommandOutput extends DeleteSignalCatalogRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTFleetWiseClient, DeleteSignalCatalogCommand } from "@aws-sdk/client-iotfleetwise"; // ES Modules import
- * // const { IoTFleetWiseClient, DeleteSignalCatalogCommand } = require("@aws-sdk/client-iotfleetwise"); // CommonJS import
+ * import { IoTFleetWiseClient, DeleteSignalCatalogCommand } from '@aws-sdk/client-iotfleetwise'; // ES Modules import
+ * // const { IoTFleetWiseClient, DeleteSignalCatalogCommand } = require('@aws-sdk/client-iotfleetwise'); // CommonJS import
  * const client = new IoTFleetWiseClient(config);
  * const input = { // DeleteSignalCatalogRequest
- *   name: "STRING_VALUE", // required
+ *   name: 'STRING_VALUE', // required
  * };
  * const command = new DeleteSignalCatalogCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteSignalCatalogResponse
+ *   name: 'STRING_VALUE', // required
+ *   arn: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param DeleteSignalCatalogCommandInput - {@link DeleteSignalCatalogCommandInput}
@@ -72,6 +78,8 @@ export interface DeleteSignalCatalogCommandOutput extends DeleteSignalCatalogRes
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
  *
+ * @throws {@link IoTFleetWiseServiceException}
+ * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
  */
 export class DeleteSignalCatalogCommand extends $Command<

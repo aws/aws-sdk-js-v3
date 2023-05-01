@@ -79,133 +79,136 @@ export interface UpdateAutoScalingGroupCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AutoScalingClient, UpdateAutoScalingGroupCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
- * // const { AutoScalingClient, UpdateAutoScalingGroupCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
+ * import { AutoScalingClient, UpdateAutoScalingGroupCommand } from '@aws-sdk/client-auto-scaling'; // ES Modules import
+ * // const { AutoScalingClient, UpdateAutoScalingGroupCommand } = require('@aws-sdk/client-auto-scaling'); // CommonJS import
  * const client = new AutoScalingClient(config);
  * const input = { // UpdateAutoScalingGroupType
- *   AutoScalingGroupName: "STRING_VALUE", // required
- *   LaunchConfigurationName: "STRING_VALUE",
+ *   AutoScalingGroupName: 'STRING_VALUE', // required
+ *   LaunchConfigurationName: 'STRING_VALUE',
  *   LaunchTemplate: { // LaunchTemplateSpecification
- *     LaunchTemplateId: "STRING_VALUE",
- *     LaunchTemplateName: "STRING_VALUE",
- *     Version: "STRING_VALUE",
+ *     LaunchTemplateId: 'STRING_VALUE',
+ *     LaunchTemplateName: 'STRING_VALUE',
+ *     Version: 'STRING_VALUE',
  *   },
  *   MixedInstancesPolicy: { // MixedInstancesPolicy
  *     LaunchTemplate: { // LaunchTemplate
  *       LaunchTemplateSpecification: {
- *         LaunchTemplateId: "STRING_VALUE",
- *         LaunchTemplateName: "STRING_VALUE",
- *         Version: "STRING_VALUE",
+ *         LaunchTemplateId: 'STRING_VALUE',
+ *         LaunchTemplateName: 'STRING_VALUE',
+ *         Version: 'STRING_VALUE',
  *       },
  *       Overrides: [ // Overrides
  *         { // LaunchTemplateOverrides
- *           InstanceType: "STRING_VALUE",
- *           WeightedCapacity: "STRING_VALUE",
- *           LaunchTemplateSpecification: "<LaunchTemplateSpecification>",
+ *           InstanceType: 'STRING_VALUE',
+ *           WeightedCapacity: 'STRING_VALUE',
+ *           LaunchTemplateSpecification: '<LaunchTemplateSpecification>',
  *           InstanceRequirements: { // InstanceRequirements
  *             VCpuCount: { // VCpuCountRequest
- *               Min: Number("int"), // required
- *               Max: Number("int"),
+ *               Min: Number('int'), // required
+ *               Max: Number('int'),
  *             },
  *             MemoryMiB: { // MemoryMiBRequest
- *               Min: Number("int"), // required
- *               Max: Number("int"),
+ *               Min: Number('int'), // required
+ *               Max: Number('int'),
  *             },
  *             CpuManufacturers: [ // CpuManufacturers
- *               "intel" || "amd" || "amazon-web-services",
+ *               'intel' || 'amd' || 'amazon-web-services',
  *             ],
  *             MemoryGiBPerVCpu: { // MemoryGiBPerVCpuRequest
- *               Min: Number("double"),
- *               Max: Number("double"),
+ *               Min: Number('double'),
+ *               Max: Number('double'),
  *             },
  *             ExcludedInstanceTypes: [ // ExcludedInstanceTypes
- *               "STRING_VALUE",
+ *               'STRING_VALUE',
  *             ],
  *             InstanceGenerations: [ // InstanceGenerations
- *               "current" || "previous",
+ *               'current' || 'previous',
  *             ],
- *             SpotMaxPricePercentageOverLowestPrice: Number("int"),
- *             OnDemandMaxPricePercentageOverLowestPrice: Number("int"),
- *             BareMetal: "included" || "excluded" || "required",
- *             BurstablePerformance: "included" || "excluded" || "required",
+ *             SpotMaxPricePercentageOverLowestPrice: Number('int'),
+ *             OnDemandMaxPricePercentageOverLowestPrice: Number('int'),
+ *             BareMetal: 'included' || 'excluded' || 'required',
+ *             BurstablePerformance: 'included' || 'excluded' || 'required',
  *             RequireHibernateSupport: true || false,
  *             NetworkInterfaceCount: { // NetworkInterfaceCountRequest
- *               Min: Number("int"),
- *               Max: Number("int"),
+ *               Min: Number('int'),
+ *               Max: Number('int'),
  *             },
- *             LocalStorage: "included" || "excluded" || "required",
+ *             LocalStorage: 'included' || 'excluded' || 'required',
  *             LocalStorageTypes: [ // LocalStorageTypes
- *               "hdd" || "ssd",
+ *               'hdd' || 'ssd',
  *             ],
  *             TotalLocalStorageGB: { // TotalLocalStorageGBRequest
- *               Min: Number("double"),
- *               Max: Number("double"),
+ *               Min: Number('double'),
+ *               Max: Number('double'),
  *             },
  *             BaselineEbsBandwidthMbps: { // BaselineEbsBandwidthMbpsRequest
- *               Min: Number("int"),
- *               Max: Number("int"),
+ *               Min: Number('int'),
+ *               Max: Number('int'),
  *             },
  *             AcceleratorTypes: [ // AcceleratorTypes
- *               "gpu" || "fpga" || "inference",
+ *               'gpu' || 'fpga' || 'inference',
  *             ],
  *             AcceleratorCount: { // AcceleratorCountRequest
- *               Min: Number("int"),
- *               Max: Number("int"),
+ *               Min: Number('int'),
+ *               Max: Number('int'),
  *             },
  *             AcceleratorManufacturers: [ // AcceleratorManufacturers
- *               "nvidia" || "amd" || "amazon-web-services" || "xilinx",
+ *               'nvidia' || 'amd' || 'amazon-web-services' || 'xilinx',
  *             ],
  *             AcceleratorNames: [ // AcceleratorNames
- *               "a100" || "v100" || "k80" || "t4" || "m60" || "radeon-pro-v520" || "vu9p",
+ *               'a100' || 'v100' || 'k80' || 't4' || 'm60' || 'radeon-pro-v520' || 'vu9p',
  *             ],
  *             AcceleratorTotalMemoryMiB: { // AcceleratorTotalMemoryMiBRequest
- *               Min: Number("int"),
- *               Max: Number("int"),
+ *               Min: Number('int'),
+ *               Max: Number('int'),
  *             },
  *             NetworkBandwidthGbps: { // NetworkBandwidthGbpsRequest
- *               Min: Number("double"),
- *               Max: Number("double"),
+ *               Min: Number('double'),
+ *               Max: Number('double'),
  *             },
  *             AllowedInstanceTypes: [ // AllowedInstanceTypes
- *               "STRING_VALUE",
+ *               'STRING_VALUE',
  *             ],
  *           },
  *         },
  *       ],
  *     },
  *     InstancesDistribution: { // InstancesDistribution
- *       OnDemandAllocationStrategy: "STRING_VALUE",
- *       OnDemandBaseCapacity: Number("int"),
- *       OnDemandPercentageAboveBaseCapacity: Number("int"),
- *       SpotAllocationStrategy: "STRING_VALUE",
- *       SpotInstancePools: Number("int"),
- *       SpotMaxPrice: "STRING_VALUE",
+ *       OnDemandAllocationStrategy: 'STRING_VALUE',
+ *       OnDemandBaseCapacity: Number('int'),
+ *       OnDemandPercentageAboveBaseCapacity: Number('int'),
+ *       SpotAllocationStrategy: 'STRING_VALUE',
+ *       SpotInstancePools: Number('int'),
+ *       SpotMaxPrice: 'STRING_VALUE',
  *     },
  *   },
- *   MinSize: Number("int"),
- *   MaxSize: Number("int"),
- *   DesiredCapacity: Number("int"),
- *   DefaultCooldown: Number("int"),
+ *   MinSize: Number('int'),
+ *   MaxSize: Number('int'),
+ *   DesiredCapacity: Number('int'),
+ *   DefaultCooldown: Number('int'),
  *   AvailabilityZones: [ // AvailabilityZones
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   HealthCheckType: "STRING_VALUE",
- *   HealthCheckGracePeriod: Number("int"),
- *   PlacementGroup: "STRING_VALUE",
- *   VPCZoneIdentifier: "STRING_VALUE",
+ *   HealthCheckType: 'STRING_VALUE',
+ *   HealthCheckGracePeriod: Number('int'),
+ *   PlacementGroup: 'STRING_VALUE',
+ *   VPCZoneIdentifier: 'STRING_VALUE',
  *   TerminationPolicies: [ // TerminationPolicies
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   NewInstancesProtectedFromScaleIn: true || false,
- *   ServiceLinkedRoleARN: "STRING_VALUE",
- *   MaxInstanceLifetime: Number("int"),
+ *   ServiceLinkedRoleARN: 'STRING_VALUE',
+ *   MaxInstanceLifetime: Number('int'),
  *   CapacityRebalance: true || false,
- *   Context: "STRING_VALUE",
- *   DesiredCapacityType: "STRING_VALUE",
- *   DefaultInstanceWarmup: Number("int"),
+ *   Context: 'STRING_VALUE',
+ *   DesiredCapacityType: 'STRING_VALUE',
+ *   DefaultInstanceWarmup: Number('int'),
  * };
  * const command = new UpdateAutoScalingGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateAutoScalingGroupCommandInput - {@link UpdateAutoScalingGroupCommandInput}
@@ -225,6 +228,8 @@ export interface UpdateAutoScalingGroupCommandOutput extends __MetadataBearer {}
  * @throws {@link ServiceLinkedRoleFailure} (server fault)
  *  <p>The service-linked role is not yet ready for use.</p>
  *
+ * @throws {@link AutoScalingServiceException}
+ * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
  * @example To update an Auto Scaling group
  * ```javascript

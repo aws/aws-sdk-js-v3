@@ -46,19 +46,35 @@ export interface DescribeConfigurationAggregatorSourcesStatusCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConfigServiceClient, DescribeConfigurationAggregatorSourcesStatusCommand } from "@aws-sdk/client-config-service"; // ES Modules import
- * // const { ConfigServiceClient, DescribeConfigurationAggregatorSourcesStatusCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
+ * import { ConfigServiceClient, DescribeConfigurationAggregatorSourcesStatusCommand } from '@aws-sdk/client-config-service'; // ES Modules import
+ * // const { ConfigServiceClient, DescribeConfigurationAggregatorSourcesStatusCommand } = require('@aws-sdk/client-config-service'); // CommonJS import
  * const client = new ConfigServiceClient(config);
  * const input = { // DescribeConfigurationAggregatorSourcesStatusRequest
- *   ConfigurationAggregatorName: "STRING_VALUE", // required
+ *   ConfigurationAggregatorName: 'STRING_VALUE', // required
  *   UpdateStatus: [ // AggregatedSourceStatusTypeList
- *     "FAILED" || "SUCCEEDED" || "OUTDATED",
+ *     'FAILED' || 'SUCCEEDED' || 'OUTDATED',
  *   ],
- *   NextToken: "STRING_VALUE",
- *   Limit: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   Limit: Number('int'),
  * };
  * const command = new DescribeConfigurationAggregatorSourcesStatusCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeConfigurationAggregatorSourcesStatusResponse
+ *   AggregatedSourceStatusList: [ // AggregatedSourceStatusList
+ *     { // AggregatedSourceStatus
+ *       SourceId: 'STRING_VALUE',
+ *       SourceType: 'ACCOUNT' || 'ORGANIZATION',
+ *       AwsRegion: 'STRING_VALUE',
+ *       LastUpdateStatus: 'FAILED' || 'SUCCEEDED' || 'OUTDATED',
+ *       LastUpdateTime: new Date('TIMESTAMP'),
+ *       LastErrorCode: 'STRING_VALUE',
+ *       LastErrorMessage: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeConfigurationAggregatorSourcesStatusCommandInput - {@link DescribeConfigurationAggregatorSourcesStatusCommandInput}
@@ -82,6 +98,8 @@ export interface DescribeConfigurationAggregatorSourcesStatusCommandOutput
  * @throws {@link NoSuchConfigurationAggregatorException} (client fault)
  *  <p>You have specified a configuration aggregator that does not exist.</p>
  *
+ * @throws {@link ConfigServiceServiceException}
+ * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
  */
 export class DescribeConfigurationAggregatorSourcesStatusCommand extends $Command<

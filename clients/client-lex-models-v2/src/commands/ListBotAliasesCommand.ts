@@ -36,16 +36,33 @@ export interface ListBotAliasesCommandOutput extends ListBotAliasesResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LexModelsV2Client, ListBotAliasesCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
- * // const { LexModelsV2Client, ListBotAliasesCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
+ * import { LexModelsV2Client, ListBotAliasesCommand } from '@aws-sdk/client-lex-models-v2'; // ES Modules import
+ * // const { LexModelsV2Client, ListBotAliasesCommand } = require('@aws-sdk/client-lex-models-v2'); // CommonJS import
  * const client = new LexModelsV2Client(config);
  * const input = { // ListBotAliasesRequest
- *   botId: "STRING_VALUE", // required
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   botId: 'STRING_VALUE', // required
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new ListBotAliasesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListBotAliasesResponse
+ *   botAliasSummaries: [ // BotAliasSummaryList
+ *     { // BotAliasSummary
+ *       botAliasId: 'STRING_VALUE',
+ *       botAliasName: 'STRING_VALUE',
+ *       description: 'STRING_VALUE',
+ *       botVersion: 'STRING_VALUE',
+ *       botAliasStatus: 'Creating' || 'Available' || 'Deleting' || 'Failed',
+ *       creationDateTime: new Date('TIMESTAMP'),
+ *       lastUpdatedDateTime: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ *   botId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListBotAliasesCommandInput - {@link ListBotAliasesCommandInput}
@@ -69,6 +86,8 @@ export interface ListBotAliasesCommandOutput extends ListBotAliasesResponse, __M
  *  <p>One of the input parameters in your request isn't valid. Check the
  *          parameters and try your request again.</p>
  *
+ * @throws {@link LexModelsV2ServiceException}
+ * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
  */
 export class ListBotAliasesCommand extends $Command<

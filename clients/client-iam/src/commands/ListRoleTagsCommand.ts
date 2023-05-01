@@ -38,16 +38,28 @@ export interface ListRoleTagsCommandOutput extends ListRoleTagsResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IAMClient, ListRoleTagsCommand } from "@aws-sdk/client-iam"; // ES Modules import
- * // const { IAMClient, ListRoleTagsCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * import { IAMClient, ListRoleTagsCommand } from '@aws-sdk/client-iam'; // ES Modules import
+ * // const { IAMClient, ListRoleTagsCommand } = require('@aws-sdk/client-iam'); // CommonJS import
  * const client = new IAMClient(config);
  * const input = { // ListRoleTagsRequest
- *   RoleName: "STRING_VALUE", // required
- *   Marker: "STRING_VALUE",
- *   MaxItems: Number("int"),
+ *   RoleName: 'STRING_VALUE', // required
+ *   Marker: 'STRING_VALUE',
+ *   MaxItems: Number('int'),
  * };
  * const command = new ListRoleTagsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListRoleTagsResponse
+ *   Tags: [ // tagListType // required
+ *     { // Tag
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ *   IsTruncated: true || false,
+ *   Marker: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListRoleTagsCommandInput - {@link ListRoleTagsCommandInput}
@@ -64,6 +76,8 @@ export interface ListRoleTagsCommandOutput extends ListRoleTagsResponse, __Metad
  *  <p>The request processing has failed because of an unknown error, exception or
  *       failure.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  * @example To list the tags attached to an IAM role
  * ```javascript

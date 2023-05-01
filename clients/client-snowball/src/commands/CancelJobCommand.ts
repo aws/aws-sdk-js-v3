@@ -39,14 +39,17 @@ export interface CancelJobCommandOutput extends CancelJobResult, __MetadataBeare
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SnowballClient, CancelJobCommand } from "@aws-sdk/client-snowball"; // ES Modules import
- * // const { SnowballClient, CancelJobCommand } = require("@aws-sdk/client-snowball"); // CommonJS import
+ * import { SnowballClient, CancelJobCommand } from '@aws-sdk/client-snowball'; // ES Modules import
+ * // const { SnowballClient, CancelJobCommand } = require('@aws-sdk/client-snowball'); // CommonJS import
  * const client = new SnowballClient(config);
  * const input = { // CancelJobRequest
- *   JobId: "STRING_VALUE", // required
+ *   JobId: 'STRING_VALUE', // required
  * };
  * const command = new CancelJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param CancelJobCommandInput - {@link CancelJobCommandInput}
@@ -67,6 +70,8 @@ export interface CancelJobCommandOutput extends CancelJobResult, __MetadataBeare
  *  <p>The provided Key Management Service key lacks the permissions to perform the specified
  *         <a>CreateJob</a> or <a>UpdateJob</a> action.</p>
  *
+ * @throws {@link SnowballServiceException}
+ * <p>Base exception class for all service exceptions from Snowball service.</p>
  *
  * @example To cancel a job for a Snowball device
  * ```javascript

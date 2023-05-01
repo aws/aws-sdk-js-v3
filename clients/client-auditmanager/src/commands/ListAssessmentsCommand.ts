@@ -36,16 +36,52 @@ export interface ListAssessmentsCommandOutput extends ListAssessmentsResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AuditManagerClient, ListAssessmentsCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
- * // const { AuditManagerClient, ListAssessmentsCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import
+ * import { AuditManagerClient, ListAssessmentsCommand } from '@aws-sdk/client-auditmanager'; // ES Modules import
+ * // const { AuditManagerClient, ListAssessmentsCommand } = require('@aws-sdk/client-auditmanager'); // CommonJS import
  * const client = new AuditManagerClient(config);
  * const input = { // ListAssessmentsRequest
- *   status: "ACTIVE" || "INACTIVE",
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   status: 'ACTIVE' || 'INACTIVE',
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new ListAssessmentsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListAssessmentsResponse
+ *   assessmentMetadata: [ // ListAssessmentMetadata
+ *     { // AssessmentMetadataItem
+ *       name: 'STRING_VALUE',
+ *       id: 'STRING_VALUE',
+ *       complianceType: 'STRING_VALUE',
+ *       status: 'ACTIVE' || 'INACTIVE',
+ *       roles: [ // Roles
+ *         { // Role
+ *           roleType: 'PROCESS_OWNER' || 'RESOURCE_OWNER', // required
+ *           roleArn: 'STRING_VALUE', // required
+ *         },
+ *       ],
+ *       delegations: [ // Delegations
+ *         { // Delegation
+ *           id: 'STRING_VALUE',
+ *           assessmentName: 'STRING_VALUE',
+ *           assessmentId: 'STRING_VALUE',
+ *           status: 'IN_PROGRESS' || 'UNDER_REVIEW' || 'COMPLETE',
+ *           roleArn: 'STRING_VALUE',
+ *           roleType: 'PROCESS_OWNER' || 'RESOURCE_OWNER',
+ *           creationTime: new Date('TIMESTAMP'),
+ *           lastUpdated: new Date('TIMESTAMP'),
+ *           controlSetId: 'STRING_VALUE',
+ *           comment: 'STRING_VALUE',
+ *           createdBy: 'STRING_VALUE',
+ *         },
+ *       ],
+ *       creationTime: new Date('TIMESTAMP'),
+ *       lastUpdated: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListAssessmentsCommandInput - {@link ListAssessmentsCommandInput}
@@ -65,6 +101,8 @@ export interface ListAssessmentsCommandOutput extends ListAssessmentsResponse, _
  * @throws {@link ValidationException} (client fault)
  *  <p> The request has invalid or missing parameters. </p>
  *
+ * @throws {@link AuditManagerServiceException}
+ * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
  */
 export class ListAssessmentsCommand extends $Command<

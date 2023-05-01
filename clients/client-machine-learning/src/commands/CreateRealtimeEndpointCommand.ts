@@ -36,14 +36,25 @@ export interface CreateRealtimeEndpointCommandOutput extends CreateRealtimeEndpo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MachineLearningClient, CreateRealtimeEndpointCommand } from "@aws-sdk/client-machine-learning"; // ES Modules import
- * // const { MachineLearningClient, CreateRealtimeEndpointCommand } = require("@aws-sdk/client-machine-learning"); // CommonJS import
+ * import { MachineLearningClient, CreateRealtimeEndpointCommand } from '@aws-sdk/client-machine-learning'; // ES Modules import
+ * // const { MachineLearningClient, CreateRealtimeEndpointCommand } = require('@aws-sdk/client-machine-learning'); // CommonJS import
  * const client = new MachineLearningClient(config);
  * const input = { // CreateRealtimeEndpointInput
- *   MLModelId: "STRING_VALUE", // required
+ *   MLModelId: 'STRING_VALUE', // required
  * };
  * const command = new CreateRealtimeEndpointCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateRealtimeEndpointOutput
+ *   MLModelId: 'STRING_VALUE',
+ *   RealtimeEndpointInfo: { // RealtimeEndpointInfo
+ *     PeakRequestsPerSecond: Number('int'),
+ *     CreatedAt: new Date('TIMESTAMP'),
+ *     EndpointUrl: 'STRING_VALUE',
+ *     EndpointStatus: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateRealtimeEndpointCommandInput - {@link CreateRealtimeEndpointCommandInput}
@@ -61,6 +72,8 @@ export interface CreateRealtimeEndpointCommandOutput extends CreateRealtimeEndpo
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>A specified resource cannot be located.</p>
  *
+ * @throws {@link MachineLearningServiceException}
+ * <p>Base exception class for all service exceptions from MachineLearning service.</p>
  *
  */
 export class CreateRealtimeEndpointCommand extends $Command<

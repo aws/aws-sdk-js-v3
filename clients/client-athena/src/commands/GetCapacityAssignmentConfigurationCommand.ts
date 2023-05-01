@@ -41,14 +41,28 @@ export interface GetCapacityAssignmentConfigurationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AthenaClient, GetCapacityAssignmentConfigurationCommand } from "@aws-sdk/client-athena"; // ES Modules import
- * // const { AthenaClient, GetCapacityAssignmentConfigurationCommand } = require("@aws-sdk/client-athena"); // CommonJS import
+ * import { AthenaClient, GetCapacityAssignmentConfigurationCommand } from '@aws-sdk/client-athena'; // ES Modules import
+ * // const { AthenaClient, GetCapacityAssignmentConfigurationCommand } = require('@aws-sdk/client-athena'); // CommonJS import
  * const client = new AthenaClient(config);
  * const input = { // GetCapacityAssignmentConfigurationInput
- *   CapacityReservationName: "STRING_VALUE", // required
+ *   CapacityReservationName: 'STRING_VALUE', // required
  * };
  * const command = new GetCapacityAssignmentConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetCapacityAssignmentConfigurationOutput
+ *   CapacityAssignmentConfiguration: { // CapacityAssignmentConfiguration
+ *     CapacityReservationName: 'STRING_VALUE',
+ *     CapacityAssignments: [ // CapacityAssignmentsList
+ *       { // CapacityAssignment
+ *         WorkGroupNames: [ // WorkGroupNamesList
+ *           'STRING_VALUE',
+ *         ],
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetCapacityAssignmentConfigurationCommandInput - {@link GetCapacityAssignmentConfigurationCommandInput}
@@ -65,6 +79,8 @@ export interface GetCapacityAssignmentConfigurationCommandOutput
  *  <p>Indicates that something is wrong with the input to the request. For example, a
  *             required parameter may be missing or out of range.</p>
  *
+ * @throws {@link AthenaServiceException}
+ * <p>Base exception class for all service exceptions from Athena service.</p>
  *
  */
 export class GetCapacityAssignmentConfigurationCommand extends $Command<

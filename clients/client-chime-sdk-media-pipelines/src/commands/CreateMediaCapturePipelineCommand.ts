@@ -45,45 +45,45 @@ export interface CreateMediaCapturePipelineCommandOutput extends CreateMediaCapt
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeSDKMediaPipelinesClient, CreateMediaCapturePipelineCommand } from "@aws-sdk/client-chime-sdk-media-pipelines"; // ES Modules import
- * // const { ChimeSDKMediaPipelinesClient, CreateMediaCapturePipelineCommand } = require("@aws-sdk/client-chime-sdk-media-pipelines"); // CommonJS import
+ * import { ChimeSDKMediaPipelinesClient, CreateMediaCapturePipelineCommand } from '@aws-sdk/client-chime-sdk-media-pipelines'; // ES Modules import
+ * // const { ChimeSDKMediaPipelinesClient, CreateMediaCapturePipelineCommand } = require('@aws-sdk/client-chime-sdk-media-pipelines'); // CommonJS import
  * const client = new ChimeSDKMediaPipelinesClient(config);
  * const input = { // CreateMediaCapturePipelineRequest
- *   SourceType: "ChimeSdkMeeting", // required
- *   SourceArn: "STRING_VALUE", // required
- *   SinkType: "S3Bucket", // required
- *   SinkArn: "STRING_VALUE", // required
- *   ClientRequestToken: "STRING_VALUE",
+ *   SourceType: 'ChimeSdkMeeting', // required
+ *   SourceArn: 'STRING_VALUE', // required
+ *   SinkType: 'S3Bucket', // required
+ *   SinkArn: 'STRING_VALUE', // required
+ *   ClientRequestToken: 'STRING_VALUE',
  *   ChimeSdkMeetingConfiguration: { // ChimeSdkMeetingConfiguration
  *     SourceConfiguration: { // SourceConfiguration
  *       SelectedVideoStreams: { // SelectedVideoStreams
  *         AttendeeIds: [ // AttendeeIdList
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
  *         ExternalUserIds: [ // ExternalUserIdList
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
  *       },
  *     },
  *     ArtifactsConfiguration: { // ArtifactsConfiguration
  *       Audio: { // AudioArtifactsConfiguration
- *         MuxType: "AudioOnly" || "AudioWithActiveSpeakerVideo" || "AudioWithCompositedVideo", // required
+ *         MuxType: 'AudioOnly' || 'AudioWithActiveSpeakerVideo' || 'AudioWithCompositedVideo', // required
  *       },
  *       Video: { // VideoArtifactsConfiguration
- *         State: "Enabled" || "Disabled", // required
- *         MuxType: "VideoOnly",
+ *         State: 'Enabled' || 'Disabled', // required
+ *         MuxType: 'VideoOnly',
  *       },
  *       Content: { // ContentArtifactsConfiguration
- *         State: "Enabled" || "Disabled", // required
- *         MuxType: "ContentOnly",
+ *         State: 'Enabled' || 'Disabled', // required
+ *         MuxType: 'ContentOnly',
  *       },
  *       CompositedVideo: { // CompositedVideoArtifactsConfiguration
- *         Layout: "GridView",
- *         Resolution: "HD" || "FHD",
+ *         Layout: 'GridView',
+ *         Resolution: 'HD' || 'FHD',
  *         GridViewConfiguration: { // GridViewConfiguration
- *           ContentShareLayout: "PresenterOnly" || "Horizontal" || "Vertical", // required
+ *           ContentShareLayout: 'PresenterOnly' || 'Horizontal' || 'Vertical', // required
  *           PresenterOnlyConfiguration: { // PresenterOnlyConfiguration
- *             PresenterPosition: "TopLeft" || "TopRight" || "BottomLeft" || "BottomRight",
+ *             PresenterPosition: 'TopLeft' || 'TopRight' || 'BottomLeft' || 'BottomRight',
  *           },
  *         },
  *       },
@@ -91,13 +91,63 @@ export interface CreateMediaCapturePipelineCommandOutput extends CreateMediaCapt
  *   },
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreateMediaCapturePipelineCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateMediaCapturePipelineResponse
+ *   MediaCapturePipeline: { // MediaCapturePipeline
+ *     MediaPipelineId: 'STRING_VALUE',
+ *     MediaPipelineArn: 'STRING_VALUE',
+ *     SourceType: 'ChimeSdkMeeting',
+ *     SourceArn: 'STRING_VALUE',
+ *     Status: 'Initializing' || 'InProgress' || 'Failed' || 'Stopping' || 'Stopped' || 'Paused',
+ *     SinkType: 'S3Bucket',
+ *     SinkArn: 'STRING_VALUE',
+ *     CreatedTimestamp: new Date('TIMESTAMP'),
+ *     UpdatedTimestamp: new Date('TIMESTAMP'),
+ *     ChimeSdkMeetingConfiguration: { // ChimeSdkMeetingConfiguration
+ *       SourceConfiguration: { // SourceConfiguration
+ *         SelectedVideoStreams: { // SelectedVideoStreams
+ *           AttendeeIds: [ // AttendeeIdList
+ *             'STRING_VALUE',
+ *           ],
+ *           ExternalUserIds: [ // ExternalUserIdList
+ *             'STRING_VALUE',
+ *           ],
+ *         },
+ *       },
+ *       ArtifactsConfiguration: { // ArtifactsConfiguration
+ *         Audio: { // AudioArtifactsConfiguration
+ *           MuxType: 'AudioOnly' || 'AudioWithActiveSpeakerVideo' || 'AudioWithCompositedVideo', // required
+ *         },
+ *         Video: { // VideoArtifactsConfiguration
+ *           State: 'Enabled' || 'Disabled', // required
+ *           MuxType: 'VideoOnly',
+ *         },
+ *         Content: { // ContentArtifactsConfiguration
+ *           State: 'Enabled' || 'Disabled', // required
+ *           MuxType: 'ContentOnly',
+ *         },
+ *         CompositedVideo: { // CompositedVideoArtifactsConfiguration
+ *           Layout: 'GridView',
+ *           Resolution: 'HD' || 'FHD',
+ *           GridViewConfiguration: { // GridViewConfiguration
+ *             ContentShareLayout: 'PresenterOnly' || 'Horizontal' || 'Vertical', // required
+ *             PresenterOnlyConfiguration: { // PresenterOnlyConfiguration
+ *               PresenterPosition: 'TopLeft' || 'TopRight' || 'BottomLeft' || 'BottomRight',
+ *             },
+ *           },
+ *         },
+ *       },
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateMediaCapturePipelineCommandInput - {@link CreateMediaCapturePipelineCommandInput}
@@ -127,6 +177,8 @@ export interface CreateMediaCapturePipelineCommandOutput extends CreateMediaCapt
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeSDKMediaPipelinesServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKMediaPipelines service.</p>
  *
  */
 export class CreateMediaCapturePipelineCommand extends $Command<

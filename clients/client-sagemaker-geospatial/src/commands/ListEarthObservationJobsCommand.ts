@@ -45,18 +45,36 @@ export interface ListEarthObservationJobsCommandOutput extends ListEarthObservat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerGeospatialClient, ListEarthObservationJobsCommand } from "@aws-sdk/client-sagemaker-geospatial"; // ES Modules import
- * // const { SageMakerGeospatialClient, ListEarthObservationJobsCommand } = require("@aws-sdk/client-sagemaker-geospatial"); // CommonJS import
+ * import { SageMakerGeospatialClient, ListEarthObservationJobsCommand } from '@aws-sdk/client-sagemaker-geospatial'; // ES Modules import
+ * // const { SageMakerGeospatialClient, ListEarthObservationJobsCommand } = require('@aws-sdk/client-sagemaker-geospatial'); // CommonJS import
  * const client = new SageMakerGeospatialClient(config);
  * const input = { // ListEarthObservationJobInput
- *   StatusEquals: "STRING_VALUE",
- *   SortOrder: "STRING_VALUE",
- *   SortBy: "STRING_VALUE",
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   StatusEquals: 'STRING_VALUE',
+ *   SortOrder: 'STRING_VALUE',
+ *   SortBy: 'STRING_VALUE',
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListEarthObservationJobsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListEarthObservationJobOutput
+ *   EarthObservationJobSummaries: [ // EarthObservationJobList // required
+ *     { // ListEarthObservationJobOutputConfig
+ *       Arn: 'STRING_VALUE', // required
+ *       Name: 'STRING_VALUE', // required
+ *       CreationTime: new Date('TIMESTAMP'), // required
+ *       DurationInSeconds: Number('int'), // required
+ *       Status: 'STRING_VALUE', // required
+ *       OperationType: 'STRING_VALUE', // required
+ *       Tags: { // Tags
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListEarthObservationJobsCommandInput - {@link ListEarthObservationJobsCommandInput}
@@ -80,6 +98,8 @@ export interface ListEarthObservationJobsCommandOutput extends ListEarthObservat
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
  *
+ * @throws {@link SageMakerGeospatialServiceException}
+ * <p>Base exception class for all service exceptions from SageMakerGeospatial service.</p>
  *
  */
 export class ListEarthObservationJobsCommand extends $Command<

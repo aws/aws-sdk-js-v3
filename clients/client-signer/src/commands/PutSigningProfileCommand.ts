@@ -38,35 +38,42 @@ export interface PutSigningProfileCommandOutput extends PutSigningProfileRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SignerClient, PutSigningProfileCommand } from "@aws-sdk/client-signer"; // ES Modules import
- * // const { SignerClient, PutSigningProfileCommand } = require("@aws-sdk/client-signer"); // CommonJS import
+ * import { SignerClient, PutSigningProfileCommand } from '@aws-sdk/client-signer'; // ES Modules import
+ * // const { SignerClient, PutSigningProfileCommand } = require('@aws-sdk/client-signer'); // CommonJS import
  * const client = new SignerClient(config);
  * const input = { // PutSigningProfileRequest
- *   profileName: "STRING_VALUE", // required
+ *   profileName: 'STRING_VALUE', // required
  *   signingMaterial: { // SigningMaterial
- *     certificateArn: "STRING_VALUE", // required
+ *     certificateArn: 'STRING_VALUE', // required
  *   },
  *   signatureValidityPeriod: { // SignatureValidityPeriod
- *     value: Number("int"),
- *     type: "STRING_VALUE",
+ *     value: Number('int'),
+ *     type: 'STRING_VALUE',
  *   },
- *   platformId: "STRING_VALUE", // required
+ *   platformId: 'STRING_VALUE', // required
  *   overrides: { // SigningPlatformOverrides
  *     signingConfiguration: { // SigningConfigurationOverrides
- *       encryptionAlgorithm: "STRING_VALUE",
- *       hashAlgorithm: "STRING_VALUE",
+ *       encryptionAlgorithm: 'STRING_VALUE',
+ *       hashAlgorithm: 'STRING_VALUE',
  *     },
- *     signingImageFormat: "STRING_VALUE",
+ *     signingImageFormat: 'STRING_VALUE',
  *   },
  *   signingParameters: { // SigningParameters
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  *   tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new PutSigningProfileCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutSigningProfileResponse
+ *   arn: 'STRING_VALUE',
+ *   profileVersion: 'STRING_VALUE',
+ *   profileVersionArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param PutSigningProfileCommandInput - {@link PutSigningProfileCommandInput}
@@ -91,6 +98,8 @@ export interface PutSigningProfileCommandOutput extends PutSigningProfileRespons
  * @throws {@link ValidationException} (client fault)
  *  <p>You signing certificate could not be validated.</p>
  *
+ * @throws {@link SignerServiceException}
+ * <p>Base exception class for all service exceptions from Signer service.</p>
  *
  */
 export class PutSigningProfileCommand extends $Command<

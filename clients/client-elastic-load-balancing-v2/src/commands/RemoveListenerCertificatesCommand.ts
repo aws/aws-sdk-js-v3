@@ -41,20 +41,23 @@ export interface RemoveListenerCertificatesCommandOutput extends RemoveListenerC
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElasticLoadBalancingV2Client, RemoveListenerCertificatesCommand } from "@aws-sdk/client-elastic-load-balancing-v2"; // ES Modules import
- * // const { ElasticLoadBalancingV2Client, RemoveListenerCertificatesCommand } = require("@aws-sdk/client-elastic-load-balancing-v2"); // CommonJS import
+ * import { ElasticLoadBalancingV2Client, RemoveListenerCertificatesCommand } from '@aws-sdk/client-elastic-load-balancing-v2'; // ES Modules import
+ * // const { ElasticLoadBalancingV2Client, RemoveListenerCertificatesCommand } = require('@aws-sdk/client-elastic-load-balancing-v2'); // CommonJS import
  * const client = new ElasticLoadBalancingV2Client(config);
  * const input = { // RemoveListenerCertificatesInput
- *   ListenerArn: "STRING_VALUE", // required
+ *   ListenerArn: 'STRING_VALUE', // required
  *   Certificates: [ // CertificateList // required
  *     { // Certificate
- *       CertificateArn: "STRING_VALUE",
+ *       CertificateArn: 'STRING_VALUE',
  *       IsDefault: true || false,
  *     },
  *   ],
  * };
  * const command = new RemoveListenerCertificatesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param RemoveListenerCertificatesCommandInput - {@link RemoveListenerCertificatesCommandInput}
@@ -69,6 +72,8 @@ export interface RemoveListenerCertificatesCommandOutput extends RemoveListenerC
  * @throws {@link OperationNotPermittedException} (client fault)
  *  <p>This operation is not allowed.</p>
  *
+ * @throws {@link ElasticLoadBalancingV2ServiceException}
+ * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
  */
 export class RemoveListenerCertificatesCommand extends $Command<

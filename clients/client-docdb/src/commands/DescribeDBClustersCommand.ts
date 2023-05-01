@@ -41,24 +41,88 @@ export interface DescribeDBClustersCommandOutput extends DBClusterMessage, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DocDBClient, DescribeDBClustersCommand } from "@aws-sdk/client-docdb"; // ES Modules import
- * // const { DocDBClient, DescribeDBClustersCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
+ * import { DocDBClient, DescribeDBClustersCommand } from '@aws-sdk/client-docdb'; // ES Modules import
+ * // const { DocDBClient, DescribeDBClustersCommand } = require('@aws-sdk/client-docdb'); // CommonJS import
  * const client = new DocDBClient(config);
  * const input = { // DescribeDBClustersMessage
- *   DBClusterIdentifier: "STRING_VALUE",
+ *   DBClusterIdentifier: 'STRING_VALUE',
  *   Filters: [ // FilterList
  *     { // Filter
- *       Name: "STRING_VALUE", // required
+ *       Name: 'STRING_VALUE', // required
  *       Values: [ // FilterValueList // required
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
- *   MaxRecords: Number("int"),
- *   Marker: "STRING_VALUE",
+ *   MaxRecords: Number('int'),
+ *   Marker: 'STRING_VALUE',
  * };
  * const command = new DescribeDBClustersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DBClusterMessage
+ *   Marker: 'STRING_VALUE',
+ *   DBClusters: [ // DBClusterList
+ *     { // DBCluster
+ *       AvailabilityZones: [ // AvailabilityZones
+ *         'STRING_VALUE',
+ *       ],
+ *       BackupRetentionPeriod: Number('int'),
+ *       DBClusterIdentifier: 'STRING_VALUE',
+ *       DBClusterParameterGroup: 'STRING_VALUE',
+ *       DBSubnetGroup: 'STRING_VALUE',
+ *       Status: 'STRING_VALUE',
+ *       PercentProgress: 'STRING_VALUE',
+ *       EarliestRestorableTime: new Date('TIMESTAMP'),
+ *       Endpoint: 'STRING_VALUE',
+ *       ReaderEndpoint: 'STRING_VALUE',
+ *       MultiAZ: true || false,
+ *       Engine: 'STRING_VALUE',
+ *       EngineVersion: 'STRING_VALUE',
+ *       LatestRestorableTime: new Date('TIMESTAMP'),
+ *       Port: Number('int'),
+ *       MasterUsername: 'STRING_VALUE',
+ *       PreferredBackupWindow: 'STRING_VALUE',
+ *       PreferredMaintenanceWindow: 'STRING_VALUE',
+ *       ReplicationSourceIdentifier: 'STRING_VALUE',
+ *       ReadReplicaIdentifiers: [ // ReadReplicaIdentifierList
+ *         'STRING_VALUE',
+ *       ],
+ *       DBClusterMembers: [ // DBClusterMemberList
+ *         { // DBClusterMember
+ *           DBInstanceIdentifier: 'STRING_VALUE',
+ *           IsClusterWriter: true || false,
+ *           DBClusterParameterGroupStatus: 'STRING_VALUE',
+ *           PromotionTier: Number('int'),
+ *         },
+ *       ],
+ *       VpcSecurityGroups: [ // VpcSecurityGroupMembershipList
+ *         { // VpcSecurityGroupMembership
+ *           VpcSecurityGroupId: 'STRING_VALUE',
+ *           Status: 'STRING_VALUE',
+ *         },
+ *       ],
+ *       HostedZoneId: 'STRING_VALUE',
+ *       StorageEncrypted: true || false,
+ *       KmsKeyId: 'STRING_VALUE',
+ *       DbClusterResourceId: 'STRING_VALUE',
+ *       DBClusterArn: 'STRING_VALUE',
+ *       AssociatedRoles: [ // DBClusterRoles
+ *         { // DBClusterRole
+ *           RoleArn: 'STRING_VALUE',
+ *           Status: 'STRING_VALUE',
+ *         },
+ *       ],
+ *       CloneGroupId: 'STRING_VALUE',
+ *       ClusterCreateTime: new Date('TIMESTAMP'),
+ *       EnabledCloudwatchLogsExports: [ // LogTypeList
+ *         'STRING_VALUE',
+ *       ],
+ *       DeletionProtection: true || false,
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeDBClustersCommandInput - {@link DescribeDBClustersCommandInput}
@@ -71,6 +135,8 @@ export interface DescribeDBClustersCommandOutput extends DBClusterMessage, __Met
  *  <p>
  *             <code>DBClusterIdentifier</code> doesn't refer to an existing cluster. </p>
  *
+ * @throws {@link DocDBServiceException}
+ * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
  */
 export class DescribeDBClustersCommand extends $Command<

@@ -41,14 +41,17 @@ export interface DisassociateNetworkSettingsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkSpacesWebClient, DisassociateNetworkSettingsCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
- * // const { WorkSpacesWebClient, DisassociateNetworkSettingsCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
+ * import { WorkSpacesWebClient, DisassociateNetworkSettingsCommand } from '@aws-sdk/client-workspaces-web'; // ES Modules import
+ * // const { WorkSpacesWebClient, DisassociateNetworkSettingsCommand } = require('@aws-sdk/client-workspaces-web'); // CommonJS import
  * const client = new WorkSpacesWebClient(config);
  * const input = { // DisassociateNetworkSettingsRequest
- *   portalArn: "STRING_VALUE", // required
+ *   portalArn: 'STRING_VALUE', // required
  * };
  * const command = new DisassociateNetworkSettingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DisassociateNetworkSettingsCommandInput - {@link DisassociateNetworkSettingsCommandInput}
@@ -72,6 +75,8 @@ export interface DisassociateNetworkSettingsCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>There is a validation error.</p>
  *
+ * @throws {@link WorkSpacesWebServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
  */
 export class DisassociateNetworkSettingsCommand extends $Command<

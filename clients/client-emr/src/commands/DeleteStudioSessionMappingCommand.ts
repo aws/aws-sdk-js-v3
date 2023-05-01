@@ -36,17 +36,20 @@ export interface DeleteStudioSessionMappingCommandOutput extends __MetadataBeare
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EMRClient, DeleteStudioSessionMappingCommand } from "@aws-sdk/client-emr"; // ES Modules import
- * // const { EMRClient, DeleteStudioSessionMappingCommand } = require("@aws-sdk/client-emr"); // CommonJS import
+ * import { EMRClient, DeleteStudioSessionMappingCommand } from '@aws-sdk/client-emr'; // ES Modules import
+ * // const { EMRClient, DeleteStudioSessionMappingCommand } = require('@aws-sdk/client-emr'); // CommonJS import
  * const client = new EMRClient(config);
  * const input = { // DeleteStudioSessionMappingInput
- *   StudioId: "STRING_VALUE", // required
- *   IdentityId: "STRING_VALUE",
- *   IdentityName: "STRING_VALUE",
- *   IdentityType: "USER" || "GROUP", // required
+ *   StudioId: 'STRING_VALUE', // required
+ *   IdentityId: 'STRING_VALUE',
+ *   IdentityName: 'STRING_VALUE',
+ *   IdentityType: 'USER' || 'GROUP', // required
  * };
  * const command = new DeleteStudioSessionMappingCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteStudioSessionMappingCommandInput - {@link DeleteStudioSessionMappingCommandInput}
@@ -62,6 +65,8 @@ export interface DeleteStudioSessionMappingCommandOutput extends __MetadataBeare
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception occurs when there is something wrong with user input.</p>
  *
+ * @throws {@link EMRServiceException}
+ * <p>Base exception class for all service exceptions from EMR service.</p>
  *
  */
 export class DeleteStudioSessionMappingCommand extends $Command<

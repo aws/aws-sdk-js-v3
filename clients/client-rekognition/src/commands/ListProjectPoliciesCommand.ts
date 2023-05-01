@@ -38,16 +38,31 @@ export interface ListProjectPoliciesCommandOutput extends ListProjectPoliciesRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RekognitionClient, ListProjectPoliciesCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
- * // const { RekognitionClient, ListProjectPoliciesCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
+ * import { RekognitionClient, ListProjectPoliciesCommand } from '@aws-sdk/client-rekognition'; // ES Modules import
+ * // const { RekognitionClient, ListProjectPoliciesCommand } = require('@aws-sdk/client-rekognition'); // CommonJS import
  * const client = new RekognitionClient(config);
  * const input = { // ListProjectPoliciesRequest
- *   ProjectArn: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   ProjectArn: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListProjectPoliciesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListProjectPoliciesResponse
+ *   ProjectPolicies: [ // ProjectPolicies
+ *     { // ProjectPolicy
+ *       ProjectArn: 'STRING_VALUE',
+ *       PolicyName: 'STRING_VALUE',
+ *       PolicyRevisionId: 'STRING_VALUE',
+ *       PolicyDocument: 'STRING_VALUE',
+ *       CreationTimestamp: new Date('TIMESTAMP'),
+ *       LastUpdatedTimestamp: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListProjectPoliciesCommandInput - {@link ListProjectPoliciesCommandInput}
@@ -79,6 +94,8 @@ export interface ListProjectPoliciesCommandOutput extends ListProjectPoliciesRes
  * @throws {@link ThrottlingException} (server fault)
  *  <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
  *
+ * @throws {@link RekognitionServiceException}
+ * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
  * @example ListProjectPolicies
  * ```javascript

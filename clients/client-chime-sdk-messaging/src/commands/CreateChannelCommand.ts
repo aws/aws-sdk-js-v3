@@ -52,42 +52,47 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeSDKMessagingClient, CreateChannelCommand } from "@aws-sdk/client-chime-sdk-messaging"; // ES Modules import
- * // const { ChimeSDKMessagingClient, CreateChannelCommand } = require("@aws-sdk/client-chime-sdk-messaging"); // CommonJS import
+ * import { ChimeSDKMessagingClient, CreateChannelCommand } from '@aws-sdk/client-chime-sdk-messaging'; // ES Modules import
+ * // const { ChimeSDKMessagingClient, CreateChannelCommand } = require('@aws-sdk/client-chime-sdk-messaging'); // CommonJS import
  * const client = new ChimeSDKMessagingClient(config);
  * const input = { // CreateChannelRequest
- *   AppInstanceArn: "STRING_VALUE", // required
- *   Name: "STRING_VALUE", // required
- *   Mode: "UNRESTRICTED" || "RESTRICTED",
- *   Privacy: "PUBLIC" || "PRIVATE",
- *   Metadata: "STRING_VALUE",
- *   ClientRequestToken: "STRING_VALUE", // required
+ *   AppInstanceArn: 'STRING_VALUE', // required
+ *   Name: 'STRING_VALUE', // required
+ *   Mode: 'UNRESTRICTED' || 'RESTRICTED',
+ *   Privacy: 'PUBLIC' || 'PRIVATE',
+ *   Metadata: 'STRING_VALUE',
+ *   ClientRequestToken: 'STRING_VALUE', // required
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
- *   ChimeBearer: "STRING_VALUE", // required
- *   ChannelId: "STRING_VALUE",
+ *   ChimeBearer: 'STRING_VALUE', // required
+ *   ChannelId: 'STRING_VALUE',
  *   MemberArns: [ // ChannelMemberArns
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   ModeratorArns: [ // ChannelModeratorArns
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   ElasticChannelConfiguration: { // ElasticChannelConfiguration
- *     MaximumSubChannels: Number("int"), // required
- *     TargetMembershipsPerSubChannel: Number("int"), // required
- *     MinimumMembershipPercentage: Number("int"), // required
+ *     MaximumSubChannels: Number('int'), // required
+ *     TargetMembershipsPerSubChannel: Number('int'), // required
+ *     MinimumMembershipPercentage: Number('int'), // required
  *   },
  *   ExpirationSettings: { // ExpirationSettings
- *     ExpirationDays: Number("int"), // required
- *     ExpirationCriterion: "CREATED_TIMESTAMP" || "LAST_MESSAGE_TIMESTAMP", // required
+ *     ExpirationDays: Number('int'), // required
+ *     ExpirationCriterion: 'CREATED_TIMESTAMP' || 'LAST_MESSAGE_TIMESTAMP', // required
  *   },
  * };
  * const command = new CreateChannelCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateChannelResponse
+ *   ChannelArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateChannelCommandInput - {@link CreateChannelCommandInput}
@@ -121,6 +126,8 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeSDKMessagingServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKMessaging service.</p>
  *
  */
 export class CreateChannelCommand extends $Command<

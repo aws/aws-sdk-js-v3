@@ -36,15 +36,40 @@ export interface GetRouteCommandOutput extends GetRouteResult, __MetadataBearer 
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ApiGatewayV2Client, GetRouteCommand } from "@aws-sdk/client-apigatewayv2"; // ES Modules import
- * // const { ApiGatewayV2Client, GetRouteCommand } = require("@aws-sdk/client-apigatewayv2"); // CommonJS import
+ * import { ApiGatewayV2Client, GetRouteCommand } from '@aws-sdk/client-apigatewayv2'; // ES Modules import
+ * // const { ApiGatewayV2Client, GetRouteCommand } = require('@aws-sdk/client-apigatewayv2'); // CommonJS import
  * const client = new ApiGatewayV2Client(config);
  * const input = { // GetRouteRequest
- *   ApiId: "STRING_VALUE", // required
- *   RouteId: "STRING_VALUE", // required
+ *   ApiId: 'STRING_VALUE', // required
+ *   RouteId: 'STRING_VALUE', // required
  * };
  * const command = new GetRouteCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetRouteResult
+ *   ApiGatewayManaged: true || false,
+ *   ApiKeyRequired: true || false,
+ *   AuthorizationScopes: [ // AuthorizationScopes
+ *     'STRING_VALUE',
+ *   ],
+ *   AuthorizationType: 'STRING_VALUE',
+ *   AuthorizerId: 'STRING_VALUE',
+ *   ModelSelectionExpression: 'STRING_VALUE',
+ *   OperationName: 'STRING_VALUE',
+ *   RequestModels: { // RouteModels
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ *   RequestParameters: { // RouteParameters
+ *     '<keys>': { // ParameterConstraints
+ *       Required: true || false,
+ *     },
+ *   },
+ *   RouteId: 'STRING_VALUE',
+ *   RouteKey: 'STRING_VALUE',
+ *   RouteResponseSelectionExpression: 'STRING_VALUE',
+ *   Target: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetRouteCommandInput - {@link GetRouteCommandInput}
@@ -59,6 +84,8 @@ export interface GetRouteCommandOutput extends GetRouteResult, __MetadataBearer 
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>A limit has been exceeded. See the accompanying error message for details.</p>
  *
+ * @throws {@link ApiGatewayV2ServiceException}
+ * <p>Base exception class for all service exceptions from ApiGatewayV2 service.</p>
  *
  */
 export class GetRouteCommand extends $Command<

@@ -38,14 +38,44 @@ export interface GetMeetingCommandOutput extends GetMeetingResponse, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeSDKMeetingsClient, GetMeetingCommand } from "@aws-sdk/client-chime-sdk-meetings"; // ES Modules import
- * // const { ChimeSDKMeetingsClient, GetMeetingCommand } = require("@aws-sdk/client-chime-sdk-meetings"); // CommonJS import
+ * import { ChimeSDKMeetingsClient, GetMeetingCommand } from '@aws-sdk/client-chime-sdk-meetings'; // ES Modules import
+ * // const { ChimeSDKMeetingsClient, GetMeetingCommand } = require('@aws-sdk/client-chime-sdk-meetings'); // CommonJS import
  * const client = new ChimeSDKMeetingsClient(config);
  * const input = { // GetMeetingRequest
- *   MeetingId: "STRING_VALUE", // required
+ *   MeetingId: 'STRING_VALUE', // required
  * };
  * const command = new GetMeetingCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetMeetingResponse
+ *   Meeting: { // Meeting
+ *     MeetingId: 'STRING_VALUE',
+ *     MeetingHostId: 'STRING_VALUE',
+ *     ExternalMeetingId: 'STRING_VALUE',
+ *     MediaRegion: 'STRING_VALUE',
+ *     MediaPlacement: { // MediaPlacement
+ *       AudioHostUrl: 'STRING_VALUE',
+ *       AudioFallbackUrl: 'STRING_VALUE',
+ *       SignalingUrl: 'STRING_VALUE',
+ *       TurnControlUrl: 'STRING_VALUE',
+ *       ScreenDataUrl: 'STRING_VALUE',
+ *       ScreenViewingUrl: 'STRING_VALUE',
+ *       ScreenSharingUrl: 'STRING_VALUE',
+ *       EventIngestionUrl: 'STRING_VALUE',
+ *     },
+ *     MeetingFeatures: { // MeetingFeaturesConfiguration
+ *       Audio: { // AudioFeatures
+ *         EchoReduction: 'AVAILABLE' || 'UNAVAILABLE',
+ *       },
+ *     },
+ *     PrimaryMeetingId: 'STRING_VALUE',
+ *     TenantIds: [ // TenantIdList
+ *       'STRING_VALUE',
+ *     ],
+ *     MeetingArn: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetMeetingCommandInput - {@link GetMeetingCommandInput}
@@ -75,6 +105,8 @@ export interface GetMeetingCommandOutput extends GetMeetingResponse, __MetadataB
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The user isn't authorized to request a resource.</p>
  *
+ * @throws {@link ChimeSDKMeetingsServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKMeetings service.</p>
  *
  */
 export class GetMeetingCommand extends $Command<

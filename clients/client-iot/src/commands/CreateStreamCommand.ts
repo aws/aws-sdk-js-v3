@@ -39,32 +39,40 @@ export interface CreateStreamCommandOutput extends CreateStreamResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTClient, CreateStreamCommand } from "@aws-sdk/client-iot"; // ES Modules import
- * // const { IoTClient, CreateStreamCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * import { IoTClient, CreateStreamCommand } from '@aws-sdk/client-iot'; // ES Modules import
+ * // const { IoTClient, CreateStreamCommand } = require('@aws-sdk/client-iot'); // CommonJS import
  * const client = new IoTClient(config);
  * const input = { // CreateStreamRequest
- *   streamId: "STRING_VALUE", // required
- *   description: "STRING_VALUE",
+ *   streamId: 'STRING_VALUE', // required
+ *   description: 'STRING_VALUE',
  *   files: [ // StreamFiles // required
  *     { // StreamFile
- *       fileId: Number("int"),
+ *       fileId: Number('int'),
  *       s3Location: { // S3Location
- *         bucket: "STRING_VALUE",
- *         key: "STRING_VALUE",
- *         version: "STRING_VALUE",
+ *         bucket: 'STRING_VALUE',
+ *         key: 'STRING_VALUE',
+ *         version: 'STRING_VALUE',
  *       },
  *     },
  *   ],
- *   roleArn: "STRING_VALUE", // required
+ *   roleArn: 'STRING_VALUE', // required
  *   tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new CreateStreamCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateStreamResponse
+ *   streamId: 'STRING_VALUE',
+ *   streamArn: 'STRING_VALUE',
+ *   description: 'STRING_VALUE',
+ *   streamVersion: Number('int'),
+ * };
+ *
  * ```
  *
  * @param CreateStreamCommandInput - {@link CreateStreamCommandInput}
@@ -97,6 +105,8 @@ export interface CreateStreamCommandOutput extends CreateStreamResponse, __Metad
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this operation.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class CreateStreamCommand extends $Command<

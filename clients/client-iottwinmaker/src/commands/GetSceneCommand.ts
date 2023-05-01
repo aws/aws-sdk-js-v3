@@ -36,15 +36,35 @@ export interface GetSceneCommandOutput extends GetSceneResponse, __MetadataBeare
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTTwinMakerClient, GetSceneCommand } from "@aws-sdk/client-iottwinmaker"; // ES Modules import
- * // const { IoTTwinMakerClient, GetSceneCommand } = require("@aws-sdk/client-iottwinmaker"); // CommonJS import
+ * import { IoTTwinMakerClient, GetSceneCommand } from '@aws-sdk/client-iottwinmaker'; // ES Modules import
+ * // const { IoTTwinMakerClient, GetSceneCommand } = require('@aws-sdk/client-iottwinmaker'); // CommonJS import
  * const client = new IoTTwinMakerClient(config);
  * const input = { // GetSceneRequest
- *   workspaceId: "STRING_VALUE", // required
- *   sceneId: "STRING_VALUE", // required
+ *   workspaceId: 'STRING_VALUE', // required
+ *   sceneId: 'STRING_VALUE', // required
  * };
  * const command = new GetSceneCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetSceneResponse
+ *   workspaceId: 'STRING_VALUE', // required
+ *   sceneId: 'STRING_VALUE', // required
+ *   contentLocation: 'STRING_VALUE', // required
+ *   arn: 'STRING_VALUE', // required
+ *   creationDateTime: new Date('TIMESTAMP'), // required
+ *   updateDateTime: new Date('TIMESTAMP'), // required
+ *   description: 'STRING_VALUE',
+ *   capabilities: [ // SceneCapabilities
+ *     'STRING_VALUE',
+ *   ],
+ *   sceneMetadata: { // SceneMetadataMap
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ *   generatedSceneMetadata: { // GeneratedSceneMetadataMap
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetSceneCommandInput - {@link GetSceneCommandInput}
@@ -68,6 +88,8 @@ export interface GetSceneCommandOutput extends GetSceneResponse, __MetadataBeare
  * @throws {@link ValidationException} (client fault)
  *  <p>Failed</p>
  *
+ * @throws {@link IoTTwinMakerServiceException}
+ * <p>Base exception class for all service exceptions from IoTTwinMaker service.</p>
  *
  */
 export class GetSceneCommand extends $Command<

@@ -49,23 +49,48 @@ export interface DescribeOutboundCrossClusterSearchConnectionsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElasticsearchServiceClient, DescribeOutboundCrossClusterSearchConnectionsCommand } from "@aws-sdk/client-elasticsearch-service"; // ES Modules import
- * // const { ElasticsearchServiceClient, DescribeOutboundCrossClusterSearchConnectionsCommand } = require("@aws-sdk/client-elasticsearch-service"); // CommonJS import
+ * import { ElasticsearchServiceClient, DescribeOutboundCrossClusterSearchConnectionsCommand } from '@aws-sdk/client-elasticsearch-service'; // ES Modules import
+ * // const { ElasticsearchServiceClient, DescribeOutboundCrossClusterSearchConnectionsCommand } = require('@aws-sdk/client-elasticsearch-service'); // CommonJS import
  * const client = new ElasticsearchServiceClient(config);
  * const input = { // DescribeOutboundCrossClusterSearchConnectionsRequest
  *   Filters: [ // FilterList
  *     { // Filter
- *       Name: "STRING_VALUE",
+ *       Name: 'STRING_VALUE',
  *       Values: [ // ValueStringList
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new DescribeOutboundCrossClusterSearchConnectionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeOutboundCrossClusterSearchConnectionsResponse
+ *   CrossClusterSearchConnections: [ // OutboundCrossClusterSearchConnections
+ *     { // OutboundCrossClusterSearchConnection
+ *       SourceDomainInfo: { // DomainInformation
+ *         OwnerId: 'STRING_VALUE',
+ *         DomainName: 'STRING_VALUE', // required
+ *         Region: 'STRING_VALUE',
+ *       },
+ *       DestinationDomainInfo: {
+ *         OwnerId: 'STRING_VALUE',
+ *         DomainName: 'STRING_VALUE', // required
+ *         Region: 'STRING_VALUE',
+ *       },
+ *       CrossClusterSearchConnectionId: 'STRING_VALUE',
+ *       ConnectionAlias: 'STRING_VALUE',
+ *       ConnectionStatus: { // OutboundCrossClusterSearchConnectionStatus
+ *         StatusCode: 'PENDING_ACCEPTANCE' || 'VALIDATING' || 'VALIDATION_FAILED' || 'PROVISIONING' || 'ACTIVE' || 'REJECTED' || 'DELETING' || 'DELETED',
+ *         Message: 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeOutboundCrossClusterSearchConnectionsCommandInput - {@link DescribeOutboundCrossClusterSearchConnectionsCommandInput}
@@ -80,6 +105,8 @@ export interface DescribeOutboundCrossClusterSearchConnectionsCommandOutput
  * @throws {@link InvalidPaginationTokenException} (client fault)
  *  <p>The request processing has failed because of invalid pagination token provided by customer. Returns an HTTP status code of 400. </p>
  *
+ * @throws {@link ElasticsearchServiceServiceException}
+ * <p>Base exception class for all service exceptions from ElasticsearchService service.</p>
  *
  */
 export class DescribeOutboundCrossClusterSearchConnectionsCommand extends $Command<

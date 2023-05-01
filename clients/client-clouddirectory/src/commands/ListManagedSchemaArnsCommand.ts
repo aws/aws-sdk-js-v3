@@ -36,16 +36,24 @@ export interface ListManagedSchemaArnsCommandOutput extends ListManagedSchemaArn
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudDirectoryClient, ListManagedSchemaArnsCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
- * // const { CloudDirectoryClient, ListManagedSchemaArnsCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
+ * import { CloudDirectoryClient, ListManagedSchemaArnsCommand } from '@aws-sdk/client-clouddirectory'; // ES Modules import
+ * // const { CloudDirectoryClient, ListManagedSchemaArnsCommand } = require('@aws-sdk/client-clouddirectory'); // CommonJS import
  * const client = new CloudDirectoryClient(config);
  * const input = { // ListManagedSchemaArnsRequest
- *   SchemaArn: "STRING_VALUE",
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   SchemaArn: 'STRING_VALUE',
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListManagedSchemaArnsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListManagedSchemaArnsResponse
+ *   SchemaArns: [ // Arns
+ *     'STRING_VALUE',
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListManagedSchemaArnsCommandInput - {@link ListManagedSchemaArnsCommandInput}
@@ -73,6 +81,8 @@ export interface ListManagedSchemaArnsCommandOutput extends ListManagedSchemaArn
  *  <p>Indicates that your request is malformed in some manner. See the exception
  *       message.</p>
  *
+ * @throws {@link CloudDirectoryServiceException}
+ * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
  */
 export class ListManagedSchemaArnsCommand extends $Command<

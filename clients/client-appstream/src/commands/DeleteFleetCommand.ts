@@ -36,14 +36,17 @@ export interface DeleteFleetCommandOutput extends DeleteFleetResult, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppStreamClient, DeleteFleetCommand } from "@aws-sdk/client-appstream"; // ES Modules import
- * // const { AppStreamClient, DeleteFleetCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
+ * import { AppStreamClient, DeleteFleetCommand } from '@aws-sdk/client-appstream'; // ES Modules import
+ * // const { AppStreamClient, DeleteFleetCommand } = require('@aws-sdk/client-appstream'); // CommonJS import
  * const client = new AppStreamClient(config);
  * const input = { // DeleteFleetRequest
- *   Name: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
  * };
  * const command = new DeleteFleetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteFleetCommandInput - {@link DeleteFleetCommandInput}
@@ -61,6 +64,8 @@ export interface DeleteFleetCommandOutput extends DeleteFleetResult, __MetadataB
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link AppStreamServiceException}
+ * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
  */
 export class DeleteFleetCommand extends $Command<

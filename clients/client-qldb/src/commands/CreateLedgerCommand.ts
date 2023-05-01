@@ -36,20 +36,31 @@ export interface CreateLedgerCommandOutput extends CreateLedgerResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { QLDBClient, CreateLedgerCommand } from "@aws-sdk/client-qldb"; // ES Modules import
- * // const { QLDBClient, CreateLedgerCommand } = require("@aws-sdk/client-qldb"); // CommonJS import
+ * import { QLDBClient, CreateLedgerCommand } from '@aws-sdk/client-qldb'; // ES Modules import
+ * // const { QLDBClient, CreateLedgerCommand } = require('@aws-sdk/client-qldb'); // CommonJS import
  * const client = new QLDBClient(config);
  * const input = { // CreateLedgerRequest
- *   Name: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
  *   Tags: { // Tags
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
- *   PermissionsMode: "ALLOW_ALL" || "STANDARD", // required
+ *   PermissionsMode: 'ALLOW_ALL' || 'STANDARD', // required
  *   DeletionProtection: true || false,
- *   KmsKey: "STRING_VALUE",
+ *   KmsKey: 'STRING_VALUE',
  * };
  * const command = new CreateLedgerCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateLedgerResponse
+ *   Name: 'STRING_VALUE',
+ *   Arn: 'STRING_VALUE',
+ *   State: 'CREATING' || 'ACTIVE' || 'DELETING' || 'DELETED',
+ *   CreationDateTime: new Date('TIMESTAMP'),
+ *   PermissionsMode: 'ALLOW_ALL' || 'STANDARD',
+ *   DeletionProtection: true || false,
+ *   KmsKeyArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateLedgerCommandInput - {@link CreateLedgerCommandInput}
@@ -70,6 +81,8 @@ export interface CreateLedgerCommandOutput extends CreateLedgerResponse, __Metad
  * @throws {@link ResourceInUseException} (client fault)
  *  <p>The specified resource can't be modified at this time.</p>
  *
+ * @throws {@link QLDBServiceException}
+ * <p>Base exception class for all service exceptions from QLDB service.</p>
  *
  */
 export class CreateLedgerCommand extends $Command<

@@ -36,20 +36,25 @@ export interface UpdateRecommenderCommandOutput extends UpdateRecommenderRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PersonalizeClient, UpdateRecommenderCommand } from "@aws-sdk/client-personalize"; // ES Modules import
- * // const { PersonalizeClient, UpdateRecommenderCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
+ * import { PersonalizeClient, UpdateRecommenderCommand } from '@aws-sdk/client-personalize'; // ES Modules import
+ * // const { PersonalizeClient, UpdateRecommenderCommand } = require('@aws-sdk/client-personalize'); // CommonJS import
  * const client = new PersonalizeClient(config);
  * const input = { // UpdateRecommenderRequest
- *   recommenderArn: "STRING_VALUE", // required
+ *   recommenderArn: 'STRING_VALUE', // required
  *   recommenderConfig: { // RecommenderConfig
  *     itemExplorationConfig: { // HyperParameters
- *       "<keys>": "STRING_VALUE",
+ *       '<keys>': 'STRING_VALUE',
  *     },
- *     minRecommendationRequestsPerSecond: Number("int"),
+ *     minRecommendationRequestsPerSecond: Number('int'),
  *   },
  * };
  * const command = new UpdateRecommenderCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateRecommenderResponse
+ *   recommenderArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateRecommenderCommandInput - {@link UpdateRecommenderCommandInput}
@@ -67,6 +72,8 @@ export interface UpdateRecommenderCommandOutput extends UpdateRecommenderRespons
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Could not find the specified resource.</p>
  *
+ * @throws {@link PersonalizeServiceException}
+ * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
  */
 export class UpdateRecommenderCommand extends $Command<

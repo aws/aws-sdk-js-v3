@@ -37,15 +37,23 @@ export interface CreateParameterGroupCommandOutput extends CreateParameterGroupR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DAXClient, CreateParameterGroupCommand } from "@aws-sdk/client-dax"; // ES Modules import
- * // const { DAXClient, CreateParameterGroupCommand } = require("@aws-sdk/client-dax"); // CommonJS import
+ * import { DAXClient, CreateParameterGroupCommand } from '@aws-sdk/client-dax'; // ES Modules import
+ * // const { DAXClient, CreateParameterGroupCommand } = require('@aws-sdk/client-dax'); // CommonJS import
  * const client = new DAXClient(config);
  * const input = { // CreateParameterGroupRequest
- *   ParameterGroupName: "STRING_VALUE", // required
- *   Description: "STRING_VALUE",
+ *   ParameterGroupName: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE',
  * };
  * const command = new CreateParameterGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateParameterGroupResponse
+ *   ParameterGroup: { // ParameterGroup
+ *     ParameterGroupName: 'STRING_VALUE',
+ *     Description: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateParameterGroupCommandInput - {@link CreateParameterGroupCommandInput}
@@ -72,6 +80,8 @@ export interface CreateParameterGroupCommandOutput extends CreateParameterGroupR
  * @throws {@link ServiceLinkedRoleNotFoundFault} (client fault)
  *  <p>The specified service linked role (SLR) was not found.</p>
  *
+ * @throws {@link DAXServiceException}
+ * <p>Base exception class for all service exceptions from DAX service.</p>
  *
  */
 export class CreateParameterGroupCommand extends $Command<

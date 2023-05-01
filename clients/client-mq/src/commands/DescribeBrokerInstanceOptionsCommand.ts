@@ -41,18 +41,42 @@ export interface DescribeBrokerInstanceOptionsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MqClient, DescribeBrokerInstanceOptionsCommand } from "@aws-sdk/client-mq"; // ES Modules import
- * // const { MqClient, DescribeBrokerInstanceOptionsCommand } = require("@aws-sdk/client-mq"); // CommonJS import
+ * import { MqClient, DescribeBrokerInstanceOptionsCommand } from '@aws-sdk/client-mq'; // ES Modules import
+ * // const { MqClient, DescribeBrokerInstanceOptionsCommand } = require('@aws-sdk/client-mq'); // CommonJS import
  * const client = new MqClient(config);
  * const input = { // DescribeBrokerInstanceOptionsRequest
- *   EngineType: "STRING_VALUE",
- *   HostInstanceType: "STRING_VALUE",
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
- *   StorageType: "STRING_VALUE",
+ *   EngineType: 'STRING_VALUE',
+ *   HostInstanceType: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
+ *   StorageType: 'STRING_VALUE',
  * };
  * const command = new DescribeBrokerInstanceOptionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeBrokerInstanceOptionsResponse
+ *   BrokerInstanceOptions: [ // __listOfBrokerInstanceOption
+ *     { // BrokerInstanceOption
+ *       AvailabilityZones: [ // __listOfAvailabilityZone
+ *         { // AvailabilityZone
+ *           Name: 'STRING_VALUE',
+ *         },
+ *       ],
+ *       EngineType: 'STRING_VALUE',
+ *       HostInstanceType: 'STRING_VALUE',
+ *       StorageType: 'STRING_VALUE',
+ *       SupportedDeploymentModes: [ // __listOfDeploymentMode
+ *         'STRING_VALUE',
+ *       ],
+ *       SupportedEngineVersions: [ // __listOf__string
+ *         'STRING_VALUE',
+ *       ],
+ *     },
+ *   ],
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeBrokerInstanceOptionsCommandInput - {@link DescribeBrokerInstanceOptionsCommandInput}
@@ -70,6 +94,8 @@ export interface DescribeBrokerInstanceOptionsCommandOutput
  * @throws {@link InternalServerErrorException} (server fault)
  *  <p>Returns information about an error.</p>
  *
+ * @throws {@link MqServiceException}
+ * <p>Base exception class for all service exceptions from Mq service.</p>
  *
  */
 export class DescribeBrokerInstanceOptionsCommand extends $Command<

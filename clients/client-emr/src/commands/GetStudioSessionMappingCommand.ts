@@ -37,17 +37,30 @@ export interface GetStudioSessionMappingCommandOutput extends GetStudioSessionMa
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EMRClient, GetStudioSessionMappingCommand } from "@aws-sdk/client-emr"; // ES Modules import
- * // const { EMRClient, GetStudioSessionMappingCommand } = require("@aws-sdk/client-emr"); // CommonJS import
+ * import { EMRClient, GetStudioSessionMappingCommand } from '@aws-sdk/client-emr'; // ES Modules import
+ * // const { EMRClient, GetStudioSessionMappingCommand } = require('@aws-sdk/client-emr'); // CommonJS import
  * const client = new EMRClient(config);
  * const input = { // GetStudioSessionMappingInput
- *   StudioId: "STRING_VALUE", // required
- *   IdentityId: "STRING_VALUE",
- *   IdentityName: "STRING_VALUE",
- *   IdentityType: "USER" || "GROUP", // required
+ *   StudioId: 'STRING_VALUE', // required
+ *   IdentityId: 'STRING_VALUE',
+ *   IdentityName: 'STRING_VALUE',
+ *   IdentityType: 'USER' || 'GROUP', // required
  * };
  * const command = new GetStudioSessionMappingCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetStudioSessionMappingOutput
+ *   SessionMapping: { // SessionMappingDetail
+ *     StudioId: 'STRING_VALUE',
+ *     IdentityId: 'STRING_VALUE',
+ *     IdentityName: 'STRING_VALUE',
+ *     IdentityType: 'USER' || 'GROUP',
+ *     SessionPolicyArn: 'STRING_VALUE',
+ *     CreationTime: new Date('TIMESTAMP'),
+ *     LastModifiedTime: new Date('TIMESTAMP'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetStudioSessionMappingCommandInput - {@link GetStudioSessionMappingCommandInput}
@@ -63,6 +76,8 @@ export interface GetStudioSessionMappingCommandOutput extends GetStudioSessionMa
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception occurs when there is something wrong with user input.</p>
  *
+ * @throws {@link EMRServiceException}
+ * <p>Base exception class for all service exceptions from EMR service.</p>
  *
  */
 export class GetStudioSessionMappingCommand extends $Command<

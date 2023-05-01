@@ -36,15 +36,33 @@ export interface GetTimelineEventCommandOutput extends GetTimelineEventOutput, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMIncidentsClient, GetTimelineEventCommand } from "@aws-sdk/client-ssm-incidents"; // ES Modules import
- * // const { SSMIncidentsClient, GetTimelineEventCommand } = require("@aws-sdk/client-ssm-incidents"); // CommonJS import
+ * import { SSMIncidentsClient, GetTimelineEventCommand } from '@aws-sdk/client-ssm-incidents'; // ES Modules import
+ * // const { SSMIncidentsClient, GetTimelineEventCommand } = require('@aws-sdk/client-ssm-incidents'); // CommonJS import
  * const client = new SSMIncidentsClient(config);
  * const input = { // GetTimelineEventInput
- *   incidentRecordArn: "STRING_VALUE", // required
- *   eventId: "STRING_VALUE", // required
+ *   incidentRecordArn: 'STRING_VALUE', // required
+ *   eventId: 'STRING_VALUE', // required
  * };
  * const command = new GetTimelineEventCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetTimelineEventOutput
+ *   event: { // TimelineEvent
+ *     incidentRecordArn: 'STRING_VALUE', // required
+ *     eventId: 'STRING_VALUE', // required
+ *     eventTime: new Date('TIMESTAMP'), // required
+ *     eventUpdatedTime: new Date('TIMESTAMP'), // required
+ *     eventType: 'STRING_VALUE', // required
+ *     eventData: 'STRING_VALUE', // required
+ *     eventReferences: [ // EventReferenceList
+ *       { // EventReference Union: only one key present
+ *         resource: 'STRING_VALUE',
+ *         relatedItemId: 'STRING_VALUE',
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetTimelineEventCommandInput - {@link GetTimelineEventCommandInput}
@@ -70,6 +88,8 @@ export interface GetTimelineEventCommandOutput extends GetTimelineEventOutput, _
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
  *       service.</p>
  *
+ * @throws {@link SSMIncidentsServiceException}
+ * <p>Base exception class for all service exceptions from SSMIncidents service.</p>
  *
  */
 export class GetTimelineEventCommand extends $Command<

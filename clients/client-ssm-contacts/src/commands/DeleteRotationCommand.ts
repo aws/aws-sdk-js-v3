@@ -37,14 +37,17 @@ export interface DeleteRotationCommandOutput extends DeleteRotationResult, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMContactsClient, DeleteRotationCommand } from "@aws-sdk/client-ssm-contacts"; // ES Modules import
- * // const { SSMContactsClient, DeleteRotationCommand } = require("@aws-sdk/client-ssm-contacts"); // CommonJS import
+ * import { SSMContactsClient, DeleteRotationCommand } from '@aws-sdk/client-ssm-contacts'; // ES Modules import
+ * // const { SSMContactsClient, DeleteRotationCommand } = require('@aws-sdk/client-ssm-contacts'); // CommonJS import
  * const client = new SSMContactsClient(config);
  * const input = { // DeleteRotationRequest
- *   RotationId: "STRING_VALUE", // required
+ *   RotationId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteRotationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteRotationCommandInput - {@link DeleteRotationCommandInput}
@@ -72,6 +75,8 @@ export interface DeleteRotationCommandOutput extends DeleteRotationResult, __Met
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
  *          service.</p>
  *
+ * @throws {@link SSMContactsServiceException}
+ * <p>Base exception class for all service exceptions from SSMContacts service.</p>
  *
  */
 export class DeleteRotationCommand extends $Command<

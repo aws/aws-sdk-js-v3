@@ -36,19 +36,25 @@ export interface StartBulkDeploymentCommandOutput extends StartBulkDeploymentRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GreengrassClient, StartBulkDeploymentCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
- * // const { GreengrassClient, StartBulkDeploymentCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
+ * import { GreengrassClient, StartBulkDeploymentCommand } from '@aws-sdk/client-greengrass'; // ES Modules import
+ * // const { GreengrassClient, StartBulkDeploymentCommand } = require('@aws-sdk/client-greengrass'); // CommonJS import
  * const client = new GreengrassClient(config);
  * const input = { // StartBulkDeploymentRequest
- *   AmznClientToken: "STRING_VALUE",
- *   ExecutionRoleArn: "STRING_VALUE", // required
- *   InputFileUri: "STRING_VALUE", // required
+ *   AmznClientToken: 'STRING_VALUE',
+ *   ExecutionRoleArn: 'STRING_VALUE', // required
+ *   InputFileUri: 'STRING_VALUE', // required
  *   tags: { // Tags
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new StartBulkDeploymentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartBulkDeploymentResponse
+ *   BulkDeploymentArn: 'STRING_VALUE',
+ *   BulkDeploymentId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param StartBulkDeploymentCommandInput - {@link StartBulkDeploymentCommandInput}
@@ -60,6 +66,8 @@ export interface StartBulkDeploymentCommandOutput extends StartBulkDeploymentRes
  * @throws {@link BadRequestException} (client fault)
  *  General error information.
  *
+ * @throws {@link GreengrassServiceException}
+ * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
  */
 export class StartBulkDeploymentCommand extends $Command<

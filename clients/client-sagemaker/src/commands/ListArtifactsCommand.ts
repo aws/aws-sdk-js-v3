@@ -36,21 +36,44 @@ export interface ListArtifactsCommandOutput extends ListArtifactsResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, ListArtifactsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, ListArtifactsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, ListArtifactsCommand } from '@aws-sdk/client-sagemaker'; // ES Modules import
+ * // const { SageMakerClient, ListArtifactsCommand } = require('@aws-sdk/client-sagemaker'); // CommonJS import
  * const client = new SageMakerClient(config);
  * const input = { // ListArtifactsRequest
- *   SourceUri: "STRING_VALUE",
- *   ArtifactType: "STRING_VALUE",
- *   CreatedAfter: new Date("TIMESTAMP"),
- *   CreatedBefore: new Date("TIMESTAMP"),
- *   SortBy: "CreationTime",
- *   SortOrder: "Ascending" || "Descending",
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   SourceUri: 'STRING_VALUE',
+ *   ArtifactType: 'STRING_VALUE',
+ *   CreatedAfter: new Date('TIMESTAMP'),
+ *   CreatedBefore: new Date('TIMESTAMP'),
+ *   SortBy: 'CreationTime',
+ *   SortOrder: 'Ascending' || 'Descending',
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListArtifactsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListArtifactsResponse
+ *   ArtifactSummaries: [ // ArtifactSummaries
+ *     { // ArtifactSummary
+ *       ArtifactArn: 'STRING_VALUE',
+ *       ArtifactName: 'STRING_VALUE',
+ *       Source: { // ArtifactSource
+ *         SourceUri: 'STRING_VALUE', // required
+ *         SourceTypes: [ // ArtifactSourceTypes
+ *           { // ArtifactSourceType
+ *             SourceIdType: 'MD5Hash' || 'S3ETag' || 'S3Version' || 'Custom', // required
+ *             Value: 'STRING_VALUE', // required
+ *           },
+ *         ],
+ *       },
+ *       ArtifactType: 'STRING_VALUE',
+ *       CreationTime: new Date('TIMESTAMP'),
+ *       LastModifiedTime: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListArtifactsCommandInput - {@link ListArtifactsCommandInput}
@@ -62,6 +85,8 @@ export interface ListArtifactsCommandOutput extends ListArtifactsResponse, __Met
  * @throws {@link ResourceNotFound} (client fault)
  *  <p>Resource being access is not found.</p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class ListArtifactsCommand extends $Command<

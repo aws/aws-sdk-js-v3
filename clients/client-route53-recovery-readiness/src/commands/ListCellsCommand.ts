@@ -40,15 +40,35 @@ export interface ListCellsCommandOutput extends ListCellsResponse, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Route53RecoveryReadinessClient, ListCellsCommand } from "@aws-sdk/client-route53-recovery-readiness"; // ES Modules import
- * // const { Route53RecoveryReadinessClient, ListCellsCommand } = require("@aws-sdk/client-route53-recovery-readiness"); // CommonJS import
+ * import { Route53RecoveryReadinessClient, ListCellsCommand } from '@aws-sdk/client-route53-recovery-readiness'; // ES Modules import
+ * // const { Route53RecoveryReadinessClient, ListCellsCommand } = require('@aws-sdk/client-route53-recovery-readiness'); // CommonJS import
  * const client = new Route53RecoveryReadinessClient(config);
  * const input = { // ListCellsRequest
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListCellsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListCellsResponse
+ *   Cells: [ // __listOfCellOutput
+ *     { // CellOutput
+ *       CellArn: 'STRING_VALUE', // required
+ *       CellName: 'STRING_VALUE', // required
+ *       Cells: [ // __listOf__string // required
+ *         'STRING_VALUE',
+ *       ],
+ *       ParentReadinessScopes: [ // required
+ *         'STRING_VALUE',
+ *       ],
+ *       Tags: { // Tags
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListCellsCommandInput - {@link ListCellsCommandInput}
@@ -69,6 +89,8 @@ export interface ListCellsCommandOutput extends ListCellsResponse, __MetadataBea
  * @throws {@link ValidationException} (client fault)
  *  The input fails to satisfy the constraints specified by an AWS service.
  *
+ * @throws {@link Route53RecoveryReadinessServiceException}
+ * <p>Base exception class for all service exceptions from Route53RecoveryReadiness service.</p>
  *
  */
 export class ListCellsCommand extends $Command<

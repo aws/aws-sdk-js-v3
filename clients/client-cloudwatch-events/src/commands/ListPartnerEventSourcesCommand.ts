@@ -37,16 +37,27 @@ export interface ListPartnerEventSourcesCommandOutput extends ListPartnerEventSo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudWatchEventsClient, ListPartnerEventSourcesCommand } from "@aws-sdk/client-cloudwatch-events"; // ES Modules import
- * // const { CloudWatchEventsClient, ListPartnerEventSourcesCommand } = require("@aws-sdk/client-cloudwatch-events"); // CommonJS import
+ * import { CloudWatchEventsClient, ListPartnerEventSourcesCommand } from '@aws-sdk/client-cloudwatch-events'; // ES Modules import
+ * // const { CloudWatchEventsClient, ListPartnerEventSourcesCommand } = require('@aws-sdk/client-cloudwatch-events'); // CommonJS import
  * const client = new CloudWatchEventsClient(config);
  * const input = { // ListPartnerEventSourcesRequest
- *   NamePrefix: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   Limit: Number("int"),
+ *   NamePrefix: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
+ *   Limit: Number('int'),
  * };
  * const command = new ListPartnerEventSourcesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListPartnerEventSourcesResponse
+ *   PartnerEventSources: [ // PartnerEventSourceList
+ *     { // PartnerEventSource
+ *       Arn: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListPartnerEventSourcesCommandInput - {@link ListPartnerEventSourcesCommandInput}
@@ -61,6 +72,8 @@ export interface ListPartnerEventSourcesCommandOutput extends ListPartnerEventSo
  * @throws {@link OperationDisabledException} (client fault)
  *  <p>The operation you are attempting is not available in this region.</p>
  *
+ * @throws {@link CloudWatchEventsServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatchEvents service.</p>
  *
  */
 export class ListPartnerEventSourcesCommand extends $Command<

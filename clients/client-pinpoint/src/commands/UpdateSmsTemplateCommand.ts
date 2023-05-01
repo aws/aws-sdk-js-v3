@@ -36,25 +36,33 @@ export interface UpdateSmsTemplateCommandOutput extends UpdateSmsTemplateRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PinpointClient, UpdateSmsTemplateCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
- * // const { PinpointClient, UpdateSmsTemplateCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
+ * import { PinpointClient, UpdateSmsTemplateCommand } from '@aws-sdk/client-pinpoint'; // ES Modules import
+ * // const { PinpointClient, UpdateSmsTemplateCommand } = require('@aws-sdk/client-pinpoint'); // CommonJS import
  * const client = new PinpointClient(config);
  * const input = { // UpdateSmsTemplateRequest
  *   CreateNewVersion: true || false,
  *   SMSTemplateRequest: { // SMSTemplateRequest
- *     Body: "STRING_VALUE",
- *     DefaultSubstitutions: "STRING_VALUE",
- *     RecommenderId: "STRING_VALUE",
+ *     Body: 'STRING_VALUE',
+ *     DefaultSubstitutions: 'STRING_VALUE',
+ *     RecommenderId: 'STRING_VALUE',
  *     tags: { // MapOf__string
- *       "<keys>": "STRING_VALUE",
+ *       '<keys>': 'STRING_VALUE',
  *     },
- *     TemplateDescription: "STRING_VALUE",
+ *     TemplateDescription: 'STRING_VALUE',
  *   },
- *   TemplateName: "STRING_VALUE", // required
- *   Version: "STRING_VALUE",
+ *   TemplateName: 'STRING_VALUE', // required
+ *   Version: 'STRING_VALUE',
  * };
  * const command = new UpdateSmsTemplateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateSmsTemplateResponse
+ *   MessageBody: { // MessageBody
+ *     Message: 'STRING_VALUE',
+ *     RequestID: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateSmsTemplateCommandInput - {@link UpdateSmsTemplateCommandInput}
@@ -84,6 +92,8 @@ export interface UpdateSmsTemplateCommandOutput extends UpdateSmsTemplateRespons
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Provides information about an API request or response.</p>
  *
+ * @throws {@link PinpointServiceException}
+ * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
  */
 export class UpdateSmsTemplateCommand extends $Command<

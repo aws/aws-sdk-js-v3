@@ -38,14 +38,53 @@ export interface DescribeAlertCommandOutput extends DescribeAlertResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LookoutMetricsClient, DescribeAlertCommand } from "@aws-sdk/client-lookoutmetrics"; // ES Modules import
- * // const { LookoutMetricsClient, DescribeAlertCommand } = require("@aws-sdk/client-lookoutmetrics"); // CommonJS import
+ * import { LookoutMetricsClient, DescribeAlertCommand } from '@aws-sdk/client-lookoutmetrics'; // ES Modules import
+ * // const { LookoutMetricsClient, DescribeAlertCommand } = require('@aws-sdk/client-lookoutmetrics'); // CommonJS import
  * const client = new LookoutMetricsClient(config);
  * const input = { // DescribeAlertRequest
- *   AlertArn: "STRING_VALUE", // required
+ *   AlertArn: 'STRING_VALUE', // required
  * };
  * const command = new DescribeAlertCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeAlertResponse
+ *   Alert: { // Alert
+ *     Action: { // Action
+ *       SNSConfiguration: { // SNSConfiguration
+ *         RoleArn: 'STRING_VALUE', // required
+ *         SnsTopicArn: 'STRING_VALUE', // required
+ *         SnsFormat: 'STRING_VALUE',
+ *       },
+ *       LambdaConfiguration: { // LambdaConfiguration
+ *         RoleArn: 'STRING_VALUE', // required
+ *         LambdaArn: 'STRING_VALUE', // required
+ *       },
+ *     },
+ *     AlertDescription: 'STRING_VALUE',
+ *     AlertArn: 'STRING_VALUE',
+ *     AnomalyDetectorArn: 'STRING_VALUE',
+ *     AlertName: 'STRING_VALUE',
+ *     AlertSensitivityThreshold: Number('int'),
+ *     AlertType: 'STRING_VALUE',
+ *     AlertStatus: 'STRING_VALUE',
+ *     LastModificationTime: new Date('TIMESTAMP'),
+ *     CreationTime: new Date('TIMESTAMP'),
+ *     AlertFilters: { // AlertFilters
+ *       MetricList: [ // MetricNameList
+ *         'STRING_VALUE',
+ *       ],
+ *       DimensionFilterList: [ // DimensionFilterList
+ *         { // DimensionFilter
+ *           DimensionName: 'STRING_VALUE',
+ *           DimensionValueList: [ // DimensionValueList
+ *             'STRING_VALUE',
+ *           ],
+ *         },
+ *       ],
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeAlertCommandInput - {@link DescribeAlertCommandInput}
@@ -70,6 +109,8 @@ export interface DescribeAlertCommandOutput extends DescribeAlertResponse, __Met
  *  <p>The input fails to satisfy the constraints specified by the AWS service. Check your input values and try
  *       again.</p>
  *
+ * @throws {@link LookoutMetricsServiceException}
+ * <p>Base exception class for all service exceptions from LookoutMetrics service.</p>
  *
  */
 export class DescribeAlertCommand extends $Command<

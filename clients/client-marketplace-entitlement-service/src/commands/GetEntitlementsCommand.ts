@@ -41,21 +41,40 @@ export interface GetEntitlementsCommandOutput extends GetEntitlementsResult, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MarketplaceEntitlementServiceClient, GetEntitlementsCommand } from "@aws-sdk/client-marketplace-entitlement-service"; // ES Modules import
- * // const { MarketplaceEntitlementServiceClient, GetEntitlementsCommand } = require("@aws-sdk/client-marketplace-entitlement-service"); // CommonJS import
+ * import { MarketplaceEntitlementServiceClient, GetEntitlementsCommand } from '@aws-sdk/client-marketplace-entitlement-service'; // ES Modules import
+ * // const { MarketplaceEntitlementServiceClient, GetEntitlementsCommand } = require('@aws-sdk/client-marketplace-entitlement-service'); // CommonJS import
  * const client = new MarketplaceEntitlementServiceClient(config);
  * const input = { // GetEntitlementsRequest
- *   ProductCode: "STRING_VALUE", // required
+ *   ProductCode: 'STRING_VALUE', // required
  *   Filter: { // GetEntitlementFilters
- *     "<keys>": [ // FilterValueList
- *       "STRING_VALUE",
+ *     '<keys>': [ // FilterValueList
+ *       'STRING_VALUE',
  *     ],
  *   },
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new GetEntitlementsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetEntitlementsResult
+ *   Entitlements: [ // EntitlementList
+ *     { // Entitlement
+ *       ProductCode: 'STRING_VALUE',
+ *       Dimension: 'STRING_VALUE',
+ *       CustomerIdentifier: 'STRING_VALUE',
+ *       Value: { // EntitlementValue
+ *         IntegerValue: Number('int'),
+ *         DoubleValue: Number('double'),
+ *         BooleanValue: true || false,
+ *         StringValue: 'STRING_VALUE',
+ *       },
+ *       ExpirationDate: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetEntitlementsCommandInput - {@link GetEntitlementsCommandInput}
@@ -74,6 +93,8 @@ export interface GetEntitlementsCommandOutput extends GetEntitlementsResult, __M
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The calls to the GetEntitlements API are throttled.</p>
  *
+ * @throws {@link MarketplaceEntitlementServiceServiceException}
+ * <p>Base exception class for all service exceptions from MarketplaceEntitlementService service.</p>
  *
  */
 export class GetEntitlementsCommand extends $Command<

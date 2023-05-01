@@ -42,20 +42,35 @@ export interface DeleteRemediationExceptionsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConfigServiceClient, DeleteRemediationExceptionsCommand } from "@aws-sdk/client-config-service"; // ES Modules import
- * // const { ConfigServiceClient, DeleteRemediationExceptionsCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
+ * import { ConfigServiceClient, DeleteRemediationExceptionsCommand } from '@aws-sdk/client-config-service'; // ES Modules import
+ * // const { ConfigServiceClient, DeleteRemediationExceptionsCommand } = require('@aws-sdk/client-config-service'); // CommonJS import
  * const client = new ConfigServiceClient(config);
  * const input = { // DeleteRemediationExceptionsRequest
- *   ConfigRuleName: "STRING_VALUE", // required
+ *   ConfigRuleName: 'STRING_VALUE', // required
  *   ResourceKeys: [ // RemediationExceptionResourceKeys // required
  *     { // RemediationExceptionResourceKey
- *       ResourceType: "STRING_VALUE",
- *       ResourceId: "STRING_VALUE",
+ *       ResourceType: 'STRING_VALUE',
+ *       ResourceId: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new DeleteRemediationExceptionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteRemediationExceptionsResponse
+ *   FailedBatches: [ // FailedDeleteRemediationExceptionsBatches
+ *     { // FailedDeleteRemediationExceptionsBatch
+ *       FailureMessage: 'STRING_VALUE',
+ *       FailedItems: [ // RemediationExceptionResourceKeys
+ *         { // RemediationExceptionResourceKey
+ *           ResourceType: 'STRING_VALUE',
+ *           ResourceId: 'STRING_VALUE',
+ *         },
+ *       ],
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DeleteRemediationExceptionsCommandInput - {@link DeleteRemediationExceptionsCommandInput}
@@ -67,6 +82,8 @@ export interface DeleteRemediationExceptionsCommandOutput
  * @throws {@link NoSuchRemediationExceptionException} (client fault)
  *  <p>You tried to delete a remediation exception that does not exist.</p>
  *
+ * @throws {@link ConfigServiceServiceException}
+ * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
  */
 export class DeleteRemediationExceptionsCommand extends $Command<

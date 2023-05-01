@@ -36,20 +36,50 @@ export interface CreateEndpointAccessCommandOutput extends EndpointAccess, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RedshiftClient, CreateEndpointAccessCommand } from "@aws-sdk/client-redshift"; // ES Modules import
- * // const { RedshiftClient, CreateEndpointAccessCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * import { RedshiftClient, CreateEndpointAccessCommand } from '@aws-sdk/client-redshift'; // ES Modules import
+ * // const { RedshiftClient, CreateEndpointAccessCommand } = require('@aws-sdk/client-redshift'); // CommonJS import
  * const client = new RedshiftClient(config);
  * const input = { // CreateEndpointAccessMessage
- *   ClusterIdentifier: "STRING_VALUE",
- *   ResourceOwner: "STRING_VALUE",
- *   EndpointName: "STRING_VALUE", // required
- *   SubnetGroupName: "STRING_VALUE", // required
+ *   ClusterIdentifier: 'STRING_VALUE',
+ *   ResourceOwner: 'STRING_VALUE',
+ *   EndpointName: 'STRING_VALUE', // required
+ *   SubnetGroupName: 'STRING_VALUE', // required
  *   VpcSecurityGroupIds: [ // VpcSecurityGroupIdList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new CreateEndpointAccessCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // EndpointAccess
+ *   ClusterIdentifier: 'STRING_VALUE',
+ *   ResourceOwner: 'STRING_VALUE',
+ *   SubnetGroupName: 'STRING_VALUE',
+ *   EndpointStatus: 'STRING_VALUE',
+ *   EndpointName: 'STRING_VALUE',
+ *   EndpointCreateTime: new Date('TIMESTAMP'),
+ *   Port: Number('int'),
+ *   Address: 'STRING_VALUE',
+ *   VpcSecurityGroups: [ // VpcSecurityGroupMembershipList
+ *     { // VpcSecurityGroupMembership
+ *       VpcSecurityGroupId: 'STRING_VALUE',
+ *       Status: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   VpcEndpoint: { // VpcEndpoint
+ *     VpcEndpointId: 'STRING_VALUE',
+ *     VpcId: 'STRING_VALUE',
+ *     NetworkInterfaces: [ // NetworkInterfaceList
+ *       { // NetworkInterface
+ *         NetworkInterfaceId: 'STRING_VALUE',
+ *         SubnetId: 'STRING_VALUE',
+ *         PrivateIpAddress: 'STRING_VALUE',
+ *         AvailabilityZone: 'STRING_VALUE',
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateEndpointAccessCommandInput - {@link CreateEndpointAccessCommandInput}
@@ -90,6 +120,8 @@ export interface CreateEndpointAccessCommandOutput extends EndpointAccess, __Met
  * @throws {@link UnsupportedOperationFault} (client fault)
  *  <p>The requested operation isn't supported.</p>
  *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class CreateEndpointAccessCommand extends $Command<

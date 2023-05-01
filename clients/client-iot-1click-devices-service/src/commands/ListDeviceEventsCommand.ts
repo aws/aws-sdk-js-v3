@@ -41,18 +41,33 @@ export interface ListDeviceEventsCommandOutput extends ListDeviceEventsResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoT1ClickDevicesServiceClient, ListDeviceEventsCommand } from "@aws-sdk/client-iot-1click-devices-service"; // ES Modules import
- * // const { IoT1ClickDevicesServiceClient, ListDeviceEventsCommand } = require("@aws-sdk/client-iot-1click-devices-service"); // CommonJS import
+ * import { IoT1ClickDevicesServiceClient, ListDeviceEventsCommand } from '@aws-sdk/client-iot-1click-devices-service'; // ES Modules import
+ * // const { IoT1ClickDevicesServiceClient, ListDeviceEventsCommand } = require('@aws-sdk/client-iot-1click-devices-service'); // CommonJS import
  * const client = new IoT1ClickDevicesServiceClient(config);
  * const input = { // ListDeviceEventsRequest
- *   DeviceId: "STRING_VALUE", // required
- *   FromTimeStamp: new Date("TIMESTAMP"), // required
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
- *   ToTimeStamp: new Date("TIMESTAMP"), // required
+ *   DeviceId: 'STRING_VALUE', // required
+ *   FromTimeStamp: new Date('TIMESTAMP'), // required
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
+ *   ToTimeStamp: new Date('TIMESTAMP'), // required
  * };
  * const command = new ListDeviceEventsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListDeviceEventsResponse
+ *   Events: [ // __listOfDeviceEvent
+ *     { // DeviceEvent
+ *       Device: { // Device
+ *         Attributes: {},
+ *         DeviceId: 'STRING_VALUE',
+ *         Type: 'STRING_VALUE',
+ *       },
+ *       StdEvent: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListDeviceEventsCommandInput - {@link ListDeviceEventsCommandInput}
@@ -69,6 +84,8 @@ export interface ListDeviceEventsCommandOutput extends ListDeviceEventsResponse,
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *
+ * @throws {@link IoT1ClickDevicesServiceServiceException}
+ * <p>Base exception class for all service exceptions from IoT1ClickDevicesService service.</p>
  *
  */
 export class ListDeviceEventsCommand extends $Command<

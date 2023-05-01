@@ -36,14 +36,38 @@ export interface GetCalculationExecutionCommandOutput extends GetCalculationExec
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AthenaClient, GetCalculationExecutionCommand } from "@aws-sdk/client-athena"; // ES Modules import
- * // const { AthenaClient, GetCalculationExecutionCommand } = require("@aws-sdk/client-athena"); // CommonJS import
+ * import { AthenaClient, GetCalculationExecutionCommand } from '@aws-sdk/client-athena'; // ES Modules import
+ * // const { AthenaClient, GetCalculationExecutionCommand } = require('@aws-sdk/client-athena'); // CommonJS import
  * const client = new AthenaClient(config);
  * const input = { // GetCalculationExecutionRequest
- *   CalculationExecutionId: "STRING_VALUE", // required
+ *   CalculationExecutionId: 'STRING_VALUE', // required
  * };
  * const command = new GetCalculationExecutionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetCalculationExecutionResponse
+ *   CalculationExecutionId: 'STRING_VALUE',
+ *   SessionId: 'STRING_VALUE',
+ *   Description: 'STRING_VALUE',
+ *   WorkingDirectory: 'STRING_VALUE',
+ *   Status: { // CalculationStatus
+ *     SubmissionDateTime: new Date('TIMESTAMP'),
+ *     CompletionDateTime: new Date('TIMESTAMP'),
+ *     State: 'CREATING' || 'CREATED' || 'QUEUED' || 'RUNNING' || 'CANCELING' || 'CANCELED' || 'COMPLETED' || 'FAILED',
+ *     StateChangeReason: 'STRING_VALUE',
+ *   },
+ *   Statistics: { // CalculationStatistics
+ *     DpuExecutionInMillis: Number('long'),
+ *     Progress: 'STRING_VALUE',
+ *   },
+ *   Result: { // CalculationResult
+ *     StdOutS3Uri: 'STRING_VALUE',
+ *     StdErrorS3Uri: 'STRING_VALUE',
+ *     ResultS3Uri: 'STRING_VALUE',
+ *     ResultType: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetCalculationExecutionCommandInput - {@link GetCalculationExecutionCommandInput}
@@ -63,6 +87,8 @@ export interface GetCalculationExecutionCommandOutput extends GetCalculationExec
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>A resource, such as a workgroup, was not found.</p>
  *
+ * @throws {@link AthenaServiceException}
+ * <p>Base exception class for all service exceptions from Athena service.</p>
  *
  */
 export class GetCalculationExecutionCommand extends $Command<

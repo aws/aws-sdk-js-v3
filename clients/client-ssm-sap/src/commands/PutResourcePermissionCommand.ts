@@ -36,16 +36,21 @@ export interface PutResourcePermissionCommandOutput extends PutResourcePermissio
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SsmSapClient, PutResourcePermissionCommand } from "@aws-sdk/client-ssm-sap"; // ES Modules import
- * // const { SsmSapClient, PutResourcePermissionCommand } = require("@aws-sdk/client-ssm-sap"); // CommonJS import
+ * import { SsmSapClient, PutResourcePermissionCommand } from '@aws-sdk/client-ssm-sap'; // ES Modules import
+ * // const { SsmSapClient, PutResourcePermissionCommand } = require('@aws-sdk/client-ssm-sap'); // CommonJS import
  * const client = new SsmSapClient(config);
  * const input = { // PutResourcePermissionInput
- *   ActionType: "STRING_VALUE", // required
- *   SourceResourceArn: "STRING_VALUE", // required
- *   ResourceArn: "STRING_VALUE", // required
+ *   ActionType: 'STRING_VALUE', // required
+ *   SourceResourceArn: 'STRING_VALUE', // required
+ *   ResourceArn: 'STRING_VALUE', // required
  * };
  * const command = new PutResourcePermissionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutResourcePermissionOutput
+ *   Policy: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param PutResourcePermissionCommandInput - {@link PutResourcePermissionCommandInput}
@@ -63,6 +68,8 @@ export interface PutResourcePermissionCommandOutput extends PutResourcePermissio
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service. </p>
  *
+ * @throws {@link SsmSapServiceException}
+ * <p>Base exception class for all service exceptions from SsmSap service.</p>
  *
  */
 export class PutResourcePermissionCommand extends $Command<

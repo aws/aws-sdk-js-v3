@@ -43,15 +43,20 @@ export interface AssociateConnectionAliasCommandOutput extends AssociateConnecti
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkSpacesClient, AssociateConnectionAliasCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
- * // const { WorkSpacesClient, AssociateConnectionAliasCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
+ * import { WorkSpacesClient, AssociateConnectionAliasCommand } from '@aws-sdk/client-workspaces'; // ES Modules import
+ * // const { WorkSpacesClient, AssociateConnectionAliasCommand } = require('@aws-sdk/client-workspaces'); // CommonJS import
  * const client = new WorkSpacesClient(config);
  * const input = { // AssociateConnectionAliasRequest
- *   AliasId: "STRING_VALUE", // required
- *   ResourceId: "STRING_VALUE", // required
+ *   AliasId: 'STRING_VALUE', // required
+ *   ResourceId: 'STRING_VALUE', // required
  * };
  * const command = new AssociateConnectionAliasCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AssociateConnectionAliasResult
+ *   ConnectionIdentifier: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param AssociateConnectionAliasCommandInput - {@link AssociateConnectionAliasCommandInput}
@@ -78,6 +83,8 @@ export interface AssociateConnectionAliasCommandOutput extends AssociateConnecti
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource could not be found.</p>
  *
+ * @throws {@link WorkSpacesServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
  */
 export class AssociateConnectionAliasCommand extends $Command<

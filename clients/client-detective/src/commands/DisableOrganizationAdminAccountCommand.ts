@@ -43,12 +43,15 @@ export interface DisableOrganizationAdminAccountCommandOutput extends __Metadata
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DetectiveClient, DisableOrganizationAdminAccountCommand } from "@aws-sdk/client-detective"; // ES Modules import
- * // const { DetectiveClient, DisableOrganizationAdminAccountCommand } = require("@aws-sdk/client-detective"); // CommonJS import
+ * import { DetectiveClient, DisableOrganizationAdminAccountCommand } from '@aws-sdk/client-detective'; // ES Modules import
+ * // const { DetectiveClient, DisableOrganizationAdminAccountCommand } = require('@aws-sdk/client-detective'); // CommonJS import
  * const client = new DetectiveClient(config);
  * const input = {};
  * const command = new DisableOrganizationAdminAccountCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DisableOrganizationAdminAccountCommandInput - {@link DisableOrganizationAdminAccountCommandInput}
@@ -71,6 +74,8 @@ export interface DisableOrganizationAdminAccountCommandOutput extends __Metadata
  * @throws {@link ValidationException} (client fault)
  *  <p>The request parameters are invalid.</p>
  *
+ * @throws {@link DetectiveServiceException}
+ * <p>Base exception class for all service exceptions from Detective service.</p>
  *
  */
 export class DisableOrganizationAdminAccountCommand extends $Command<

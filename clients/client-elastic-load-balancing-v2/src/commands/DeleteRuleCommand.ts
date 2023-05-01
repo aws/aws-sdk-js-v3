@@ -41,14 +41,17 @@ export interface DeleteRuleCommandOutput extends DeleteRuleOutput, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElasticLoadBalancingV2Client, DeleteRuleCommand } from "@aws-sdk/client-elastic-load-balancing-v2"; // ES Modules import
- * // const { ElasticLoadBalancingV2Client, DeleteRuleCommand } = require("@aws-sdk/client-elastic-load-balancing-v2"); // CommonJS import
+ * import { ElasticLoadBalancingV2Client, DeleteRuleCommand } from '@aws-sdk/client-elastic-load-balancing-v2'; // ES Modules import
+ * // const { ElasticLoadBalancingV2Client, DeleteRuleCommand } = require('@aws-sdk/client-elastic-load-balancing-v2'); // CommonJS import
  * const client = new ElasticLoadBalancingV2Client(config);
  * const input = { // DeleteRuleInput
- *   RuleArn: "STRING_VALUE", // required
+ *   RuleArn: 'STRING_VALUE', // required
  * };
  * const command = new DeleteRuleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteRuleCommandInput - {@link DeleteRuleCommandInput}
@@ -63,6 +66,8 @@ export interface DeleteRuleCommandOutput extends DeleteRuleOutput, __MetadataBea
  * @throws {@link RuleNotFoundException} (client fault)
  *  <p>The specified rule does not exist.</p>
  *
+ * @throws {@link ElasticLoadBalancingV2ServiceException}
+ * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
  * @example To delete a rule
  * ```javascript

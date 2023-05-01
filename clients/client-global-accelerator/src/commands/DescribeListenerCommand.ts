@@ -40,14 +40,29 @@ export interface DescribeListenerCommandOutput extends DescribeListenerResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlobalAcceleratorClient, DescribeListenerCommand } from "@aws-sdk/client-global-accelerator"; // ES Modules import
- * // const { GlobalAcceleratorClient, DescribeListenerCommand } = require("@aws-sdk/client-global-accelerator"); // CommonJS import
+ * import { GlobalAcceleratorClient, DescribeListenerCommand } from '@aws-sdk/client-global-accelerator'; // ES Modules import
+ * // const { GlobalAcceleratorClient, DescribeListenerCommand } = require('@aws-sdk/client-global-accelerator'); // CommonJS import
  * const client = new GlobalAcceleratorClient(config);
  * const input = { // DescribeListenerRequest
- *   ListenerArn: "STRING_VALUE", // required
+ *   ListenerArn: 'STRING_VALUE', // required
  * };
  * const command = new DescribeListenerCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeListenerResponse
+ *   Listener: { // Listener
+ *     ListenerArn: 'STRING_VALUE',
+ *     PortRanges: [ // PortRanges
+ *       { // PortRange
+ *         FromPort: Number('int'),
+ *         ToPort: Number('int'),
+ *       },
+ *     ],
+ *     Protocol: 'TCP' || 'UDP',
+ *     ClientAffinity: 'NONE' || 'SOURCE_IP',
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeListenerCommandInput - {@link DescribeListenerCommandInput}
@@ -65,6 +80,8 @@ export interface DescribeListenerCommandOutput extends DescribeListenerResponse,
  * @throws {@link ListenerNotFoundException} (client fault)
  *  <p>The listener that you specified doesn't exist.</p>
  *
+ * @throws {@link GlobalAcceleratorServiceException}
+ * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
  */
 export class DescribeListenerCommand extends $Command<

@@ -42,15 +42,18 @@ export interface DeregisterAppInstanceUserEndpointCommandOutput extends __Metada
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeSDKIdentityClient, DeregisterAppInstanceUserEndpointCommand } from "@aws-sdk/client-chime-sdk-identity"; // ES Modules import
- * // const { ChimeSDKIdentityClient, DeregisterAppInstanceUserEndpointCommand } = require("@aws-sdk/client-chime-sdk-identity"); // CommonJS import
+ * import { ChimeSDKIdentityClient, DeregisterAppInstanceUserEndpointCommand } from '@aws-sdk/client-chime-sdk-identity'; // ES Modules import
+ * // const { ChimeSDKIdentityClient, DeregisterAppInstanceUserEndpointCommand } = require('@aws-sdk/client-chime-sdk-identity'); // CommonJS import
  * const client = new ChimeSDKIdentityClient(config);
  * const input = { // DeregisterAppInstanceUserEndpointRequest
- *   AppInstanceUserArn: "STRING_VALUE", // required
- *   EndpointId: "STRING_VALUE", // required
+ *   AppInstanceUserArn: 'STRING_VALUE', // required
+ *   EndpointId: 'STRING_VALUE', // required
  * };
  * const command = new DeregisterAppInstanceUserEndpointCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeregisterAppInstanceUserEndpointCommandInput - {@link DeregisterAppInstanceUserEndpointCommandInput}
@@ -77,6 +80,8 @@ export interface DeregisterAppInstanceUserEndpointCommandOutput extends __Metada
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeSDKIdentityServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKIdentity service.</p>
  *
  */
 export class DeregisterAppInstanceUserEndpointCommand extends $Command<

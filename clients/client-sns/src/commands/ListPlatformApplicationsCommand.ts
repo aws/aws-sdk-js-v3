@@ -45,14 +45,27 @@ export interface ListPlatformApplicationsCommandOutput extends ListPlatformAppli
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SNSClient, ListPlatformApplicationsCommand } from "@aws-sdk/client-sns"; // ES Modules import
- * // const { SNSClient, ListPlatformApplicationsCommand } = require("@aws-sdk/client-sns"); // CommonJS import
+ * import { SNSClient, ListPlatformApplicationsCommand } from '@aws-sdk/client-sns'; // ES Modules import
+ * // const { SNSClient, ListPlatformApplicationsCommand } = require('@aws-sdk/client-sns'); // CommonJS import
  * const client = new SNSClient(config);
  * const input = { // ListPlatformApplicationsInput
- *   NextToken: "STRING_VALUE",
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListPlatformApplicationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListPlatformApplicationsResponse
+ *   PlatformApplications: [ // ListOfPlatformApplications
+ *     { // PlatformApplication
+ *       PlatformApplicationArn: 'STRING_VALUE',
+ *       Attributes: { // MapStringToString
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListPlatformApplicationsCommandInput - {@link ListPlatformApplicationsCommandInput}
@@ -71,6 +84,8 @@ export interface ListPlatformApplicationsCommandOutput extends ListPlatformAppli
  *  <p>Indicates that a request parameter does not comply with the associated
  *             constraints.</p>
  *
+ * @throws {@link SNSServiceException}
+ * <p>Base exception class for all service exceptions from SNS service.</p>
  *
  */
 export class ListPlatformApplicationsCommand extends $Command<

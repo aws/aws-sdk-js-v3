@@ -36,23 +36,51 @@ export interface GetConnectionsCommandOutput extends GetConnectionsResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlueClient, GetConnectionsCommand } from "@aws-sdk/client-glue"; // ES Modules import
- * // const { GlueClient, GetConnectionsCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * import { GlueClient, GetConnectionsCommand } from '@aws-sdk/client-glue'; // ES Modules import
+ * // const { GlueClient, GetConnectionsCommand } = require('@aws-sdk/client-glue'); // CommonJS import
  * const client = new GlueClient(config);
  * const input = { // GetConnectionsRequest
- *   CatalogId: "STRING_VALUE",
+ *   CatalogId: 'STRING_VALUE',
  *   Filter: { // GetConnectionsFilter
  *     MatchCriteria: [ // MatchCriteria
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
- *     ConnectionType: "JDBC" || "SFTP" || "MONGODB" || "KAFKA" || "NETWORK" || "MARKETPLACE" || "CUSTOM",
+ *     ConnectionType: 'JDBC' || 'SFTP' || 'MONGODB' || 'KAFKA' || 'NETWORK' || 'MARKETPLACE' || 'CUSTOM',
  *   },
  *   HidePassword: true || false,
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new GetConnectionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetConnectionsResponse
+ *   ConnectionList: [ // ConnectionList
+ *     { // Connection
+ *       Name: 'STRING_VALUE',
+ *       Description: 'STRING_VALUE',
+ *       ConnectionType: 'JDBC' || 'SFTP' || 'MONGODB' || 'KAFKA' || 'NETWORK' || 'MARKETPLACE' || 'CUSTOM',
+ *       MatchCriteria: [ // MatchCriteria
+ *         'STRING_VALUE',
+ *       ],
+ *       ConnectionProperties: { // ConnectionProperties
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *       PhysicalConnectionRequirements: { // PhysicalConnectionRequirements
+ *         SubnetId: 'STRING_VALUE',
+ *         SecurityGroupIdList: [ // SecurityGroupIdList
+ *           'STRING_VALUE',
+ *         ],
+ *         AvailabilityZone: 'STRING_VALUE',
+ *       },
+ *       CreationTime: new Date('TIMESTAMP'),
+ *       LastUpdatedTime: new Date('TIMESTAMP'),
+ *       LastUpdatedBy: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetConnectionsCommandInput - {@link GetConnectionsCommandInput}
@@ -73,6 +101,8 @@ export interface GetConnectionsCommandOutput extends GetConnectionsResponse, __M
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class GetConnectionsCommand extends $Command<

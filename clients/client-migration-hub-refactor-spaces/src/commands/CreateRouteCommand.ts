@@ -116,32 +116,57 @@ export interface CreateRouteCommandOutput extends CreateRouteResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MigrationHubRefactorSpacesClient, CreateRouteCommand } from "@aws-sdk/client-migration-hub-refactor-spaces"; // ES Modules import
- * // const { MigrationHubRefactorSpacesClient, CreateRouteCommand } = require("@aws-sdk/client-migration-hub-refactor-spaces"); // CommonJS import
+ * import { MigrationHubRefactorSpacesClient, CreateRouteCommand } from '@aws-sdk/client-migration-hub-refactor-spaces'; // ES Modules import
+ * // const { MigrationHubRefactorSpacesClient, CreateRouteCommand } = require('@aws-sdk/client-migration-hub-refactor-spaces'); // CommonJS import
  * const client = new MigrationHubRefactorSpacesClient(config);
  * const input = { // CreateRouteRequest
- *   EnvironmentIdentifier: "STRING_VALUE", // required
- *   ApplicationIdentifier: "STRING_VALUE", // required
- *   ServiceIdentifier: "STRING_VALUE", // required
- *   RouteType: "STRING_VALUE", // required
+ *   EnvironmentIdentifier: 'STRING_VALUE', // required
+ *   ApplicationIdentifier: 'STRING_VALUE', // required
+ *   ServiceIdentifier: 'STRING_VALUE', // required
+ *   RouteType: 'STRING_VALUE', // required
  *   DefaultRoute: { // DefaultRouteInput
- *     ActivationState: "STRING_VALUE",
+ *     ActivationState: 'STRING_VALUE',
  *   },
  *   UriPathRoute: { // UriPathRouteInput
- *     SourcePath: "STRING_VALUE", // required
- *     ActivationState: "STRING_VALUE", // required
+ *     SourcePath: 'STRING_VALUE', // required
+ *     ActivationState: 'STRING_VALUE', // required
  *     Methods: [ // HttpMethods
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     IncludeChildPaths: true || false,
  *   },
  *   Tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
- *   ClientToken: "STRING_VALUE",
+ *   ClientToken: 'STRING_VALUE',
  * };
  * const command = new CreateRouteCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateRouteResponse
+ *   RouteId: 'STRING_VALUE',
+ *   Arn: 'STRING_VALUE',
+ *   OwnerAccountId: 'STRING_VALUE',
+ *   CreatedByAccountId: 'STRING_VALUE',
+ *   RouteType: 'STRING_VALUE',
+ *   ServiceId: 'STRING_VALUE',
+ *   ApplicationId: 'STRING_VALUE',
+ *   UriPathRoute: { // UriPathRouteInput
+ *     SourcePath: 'STRING_VALUE', // required
+ *     ActivationState: 'STRING_VALUE', // required
+ *     Methods: [ // HttpMethods
+ *       'STRING_VALUE',
+ *     ],
+ *     IncludeChildPaths: true || false,
+ *   },
+ *   State: 'STRING_VALUE',
+ *   Tags: { // TagMap
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ *   LastUpdatedTime: new Date('TIMESTAMP'),
+ *   CreatedTime: new Date('TIMESTAMP'),
+ * };
+ *
  * ```
  *
  * @param CreateRouteCommandInput - {@link CreateRouteCommandInput}
@@ -172,6 +197,8 @@ export interface CreateRouteCommandOutput extends CreateRouteResponse, __Metadat
  *  <p>The input does not satisfy the constraints specified by an Amazon Web Service.
  *     </p>
  *
+ * @throws {@link MigrationHubRefactorSpacesServiceException}
+ * <p>Base exception class for all service exceptions from MigrationHubRefactorSpaces service.</p>
  *
  */
 export class CreateRouteCommand extends $Command<

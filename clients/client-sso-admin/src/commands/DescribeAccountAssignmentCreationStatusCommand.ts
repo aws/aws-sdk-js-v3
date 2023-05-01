@@ -45,15 +45,30 @@ export interface DescribeAccountAssignmentCreationStatusCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSOAdminClient, DescribeAccountAssignmentCreationStatusCommand } from "@aws-sdk/client-sso-admin"; // ES Modules import
- * // const { SSOAdminClient, DescribeAccountAssignmentCreationStatusCommand } = require("@aws-sdk/client-sso-admin"); // CommonJS import
+ * import { SSOAdminClient, DescribeAccountAssignmentCreationStatusCommand } from '@aws-sdk/client-sso-admin'; // ES Modules import
+ * // const { SSOAdminClient, DescribeAccountAssignmentCreationStatusCommand } = require('@aws-sdk/client-sso-admin'); // CommonJS import
  * const client = new SSOAdminClient(config);
  * const input = { // DescribeAccountAssignmentCreationStatusRequest
- *   InstanceArn: "STRING_VALUE", // required
- *   AccountAssignmentCreationRequestId: "STRING_VALUE", // required
+ *   InstanceArn: 'STRING_VALUE', // required
+ *   AccountAssignmentCreationRequestId: 'STRING_VALUE', // required
  * };
  * const command = new DescribeAccountAssignmentCreationStatusCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeAccountAssignmentCreationStatusResponse
+ *   AccountAssignmentCreationStatus: { // AccountAssignmentOperationStatus
+ *     Status: 'IN_PROGRESS' || 'FAILED' || 'SUCCEEDED',
+ *     RequestId: 'STRING_VALUE',
+ *     FailureReason: 'STRING_VALUE',
+ *     TargetId: 'STRING_VALUE',
+ *     TargetType: 'AWS_ACCOUNT',
+ *     PermissionSetArn: 'STRING_VALUE',
+ *     PrincipalType: 'USER' || 'GROUP',
+ *     PrincipalId: 'STRING_VALUE',
+ *     CreatedDate: new Date('TIMESTAMP'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeAccountAssignmentCreationStatusCommandInput - {@link DescribeAccountAssignmentCreationStatusCommandInput}
@@ -79,6 +94,8 @@ export interface DescribeAccountAssignmentCreationStatusCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The request failed because it contains a syntax error.</p>
  *
+ * @throws {@link SSOAdminServiceException}
+ * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
  */
 export class DescribeAccountAssignmentCreationStatusCommand extends $Command<

@@ -37,24 +37,32 @@ export interface ListDeploymentsCommandOutput extends ListDeploymentsOutput, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeDeployClient, ListDeploymentsCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
- * // const { CodeDeployClient, ListDeploymentsCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
+ * import { CodeDeployClient, ListDeploymentsCommand } from '@aws-sdk/client-codedeploy'; // ES Modules import
+ * // const { CodeDeployClient, ListDeploymentsCommand } = require('@aws-sdk/client-codedeploy'); // CommonJS import
  * const client = new CodeDeployClient(config);
  * const input = { // ListDeploymentsInput
- *   applicationName: "STRING_VALUE",
- *   deploymentGroupName: "STRING_VALUE",
- *   externalId: "STRING_VALUE",
+ *   applicationName: 'STRING_VALUE',
+ *   deploymentGroupName: 'STRING_VALUE',
+ *   externalId: 'STRING_VALUE',
  *   includeOnlyStatuses: [ // DeploymentStatusList
- *     "Created" || "Queued" || "InProgress" || "Baking" || "Succeeded" || "Failed" || "Stopped" || "Ready",
+ *     'Created' || 'Queued' || 'InProgress' || 'Baking' || 'Succeeded' || 'Failed' || 'Stopped' || 'Ready',
  *   ],
  *   createTimeRange: { // TimeRange
- *     start: new Date("TIMESTAMP"),
- *     end: new Date("TIMESTAMP"),
+ *     start: new Date('TIMESTAMP'),
+ *     end: new Date('TIMESTAMP'),
  *   },
- *   nextToken: "STRING_VALUE",
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new ListDeploymentsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListDeploymentsOutput
+ *   deployments: [ // DeploymentsList
+ *     'STRING_VALUE',
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListDeploymentsCommandInput - {@link ListDeploymentsCommandInput}
@@ -96,6 +104,8 @@ export interface ListDeploymentsCommandOutput extends ListDeploymentsOutput, __M
  * @throws {@link InvalidTimeRangeException} (client fault)
  *  <p>The specified time range was specified in an invalid format.</p>
  *
+ * @throws {@link CodeDeployServiceException}
+ * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
  */
 export class ListDeploymentsCommand extends $Command<

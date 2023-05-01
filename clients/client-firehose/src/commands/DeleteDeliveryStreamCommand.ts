@@ -45,15 +45,18 @@ export interface DeleteDeliveryStreamCommandOutput extends DeleteDeliveryStreamO
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FirehoseClient, DeleteDeliveryStreamCommand } from "@aws-sdk/client-firehose"; // ES Modules import
- * // const { FirehoseClient, DeleteDeliveryStreamCommand } = require("@aws-sdk/client-firehose"); // CommonJS import
+ * import { FirehoseClient, DeleteDeliveryStreamCommand } from '@aws-sdk/client-firehose'; // ES Modules import
+ * // const { FirehoseClient, DeleteDeliveryStreamCommand } = require('@aws-sdk/client-firehose'); // CommonJS import
  * const client = new FirehoseClient(config);
  * const input = { // DeleteDeliveryStreamInput
- *   DeliveryStreamName: "STRING_VALUE", // required
+ *   DeliveryStreamName: 'STRING_VALUE', // required
  *   AllowForceDelete: true || false,
  * };
  * const command = new DeleteDeliveryStreamCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteDeliveryStreamCommandInput - {@link DeleteDeliveryStreamCommandInput}
@@ -68,6 +71,8 @@ export interface DeleteDeliveryStreamCommandOutput extends DeleteDeliveryStreamO
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource could not be found.</p>
  *
+ * @throws {@link FirehoseServiceException}
+ * <p>Base exception class for all service exceptions from Firehose service.</p>
  *
  */
 export class DeleteDeliveryStreamCommand extends $Command<

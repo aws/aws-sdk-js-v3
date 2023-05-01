@@ -38,14 +38,17 @@ export interface SendActivationCodeCommandOutput extends SendActivationCodeResul
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMContactsClient, SendActivationCodeCommand } from "@aws-sdk/client-ssm-contacts"; // ES Modules import
- * // const { SSMContactsClient, SendActivationCodeCommand } = require("@aws-sdk/client-ssm-contacts"); // CommonJS import
+ * import { SSMContactsClient, SendActivationCodeCommand } from '@aws-sdk/client-ssm-contacts'; // ES Modules import
+ * // const { SSMContactsClient, SendActivationCodeCommand } = require('@aws-sdk/client-ssm-contacts'); // CommonJS import
  * const client = new SSMContactsClient(config);
  * const input = { // SendActivationCodeRequest
- *   ContactChannelId: "STRING_VALUE", // required
+ *   ContactChannelId: 'STRING_VALUE', // required
  * };
  * const command = new SendActivationCodeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param SendActivationCodeCommandInput - {@link SendActivationCodeCommandInput}
@@ -76,6 +79,8 @@ export interface SendActivationCodeCommandOutput extends SendActivationCodeResul
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
  *          service.</p>
  *
+ * @throws {@link SSMContactsServiceException}
+ * <p>Base exception class for all service exceptions from SSMContacts service.</p>
  *
  */
 export class SendActivationCodeCommand extends $Command<

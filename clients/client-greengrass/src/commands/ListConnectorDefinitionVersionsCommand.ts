@@ -41,16 +41,29 @@ export interface ListConnectorDefinitionVersionsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GreengrassClient, ListConnectorDefinitionVersionsCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
- * // const { GreengrassClient, ListConnectorDefinitionVersionsCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
+ * import { GreengrassClient, ListConnectorDefinitionVersionsCommand } from '@aws-sdk/client-greengrass'; // ES Modules import
+ * // const { GreengrassClient, ListConnectorDefinitionVersionsCommand } = require('@aws-sdk/client-greengrass'); // CommonJS import
  * const client = new GreengrassClient(config);
  * const input = { // ListConnectorDefinitionVersionsRequest
- *   ConnectorDefinitionId: "STRING_VALUE", // required
- *   MaxResults: "STRING_VALUE",
- *   NextToken: "STRING_VALUE",
+ *   ConnectorDefinitionId: 'STRING_VALUE', // required
+ *   MaxResults: 'STRING_VALUE',
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListConnectorDefinitionVersionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListConnectorDefinitionVersionsResponse
+ *   NextToken: 'STRING_VALUE',
+ *   Versions: [ // __listOfVersionInformation
+ *     { // VersionInformation
+ *       Arn: 'STRING_VALUE',
+ *       CreationTimestamp: 'STRING_VALUE',
+ *       Id: 'STRING_VALUE',
+ *       Version: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListConnectorDefinitionVersionsCommandInput - {@link ListConnectorDefinitionVersionsCommandInput}
@@ -62,6 +75,8 @@ export interface ListConnectorDefinitionVersionsCommandOutput
  * @throws {@link BadRequestException} (client fault)
  *  General error information.
  *
+ * @throws {@link GreengrassServiceException}
+ * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
  */
 export class ListConnectorDefinitionVersionsCommand extends $Command<

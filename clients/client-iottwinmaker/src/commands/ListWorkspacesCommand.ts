@@ -36,15 +36,29 @@ export interface ListWorkspacesCommandOutput extends ListWorkspacesResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTTwinMakerClient, ListWorkspacesCommand } from "@aws-sdk/client-iottwinmaker"; // ES Modules import
- * // const { IoTTwinMakerClient, ListWorkspacesCommand } = require("@aws-sdk/client-iottwinmaker"); // CommonJS import
+ * import { IoTTwinMakerClient, ListWorkspacesCommand } from '@aws-sdk/client-iottwinmaker'; // ES Modules import
+ * // const { IoTTwinMakerClient, ListWorkspacesCommand } = require('@aws-sdk/client-iottwinmaker'); // CommonJS import
  * const client = new IoTTwinMakerClient(config);
  * const input = { // ListWorkspacesRequest
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new ListWorkspacesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListWorkspacesResponse
+ *   workspaceSummaries: [ // WorkspaceSummaries
+ *     { // WorkspaceSummary
+ *       workspaceId: 'STRING_VALUE', // required
+ *       arn: 'STRING_VALUE', // required
+ *       description: 'STRING_VALUE',
+ *       creationDateTime: new Date('TIMESTAMP'), // required
+ *       updateDateTime: new Date('TIMESTAMP'), // required
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListWorkspacesCommandInput - {@link ListWorkspacesCommandInput}
@@ -65,6 +79,8 @@ export interface ListWorkspacesCommandOutput extends ListWorkspacesResponse, __M
  * @throws {@link ValidationException} (client fault)
  *  <p>Failed</p>
  *
+ * @throws {@link IoTTwinMakerServiceException}
+ * <p>Base exception class for all service exceptions from IoTTwinMaker service.</p>
  *
  */
 export class ListWorkspacesCommand extends $Command<

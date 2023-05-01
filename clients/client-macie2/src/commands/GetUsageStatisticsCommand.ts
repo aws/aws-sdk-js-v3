@@ -36,29 +36,54 @@ export interface GetUsageStatisticsCommandOutput extends GetUsageStatisticsRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Macie2Client, GetUsageStatisticsCommand } from "@aws-sdk/client-macie2"; // ES Modules import
- * // const { Macie2Client, GetUsageStatisticsCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
+ * import { Macie2Client, GetUsageStatisticsCommand } from '@aws-sdk/client-macie2'; // ES Modules import
+ * // const { Macie2Client, GetUsageStatisticsCommand } = require('@aws-sdk/client-macie2'); // CommonJS import
  * const client = new Macie2Client(config);
  * const input = { // GetUsageStatisticsRequest
  *   filterBy: [ // __listOfUsageStatisticsFilter
  *     { // UsageStatisticsFilter
- *       comparator: "GT" || "GTE" || "LT" || "LTE" || "EQ" || "NE" || "CONTAINS",
- *       key: "accountId" || "serviceLimit" || "freeTrialStartDate" || "total",
+ *       comparator: 'GT' || 'GTE' || 'LT' || 'LTE' || 'EQ' || 'NE' || 'CONTAINS',
+ *       key: 'accountId' || 'serviceLimit' || 'freeTrialStartDate' || 'total',
  *       values: [ // __listOf__string
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  *   sortBy: { // UsageStatisticsSortBy
- *     key: "accountId" || "total" || "serviceLimitValue" || "freeTrialStartDate",
- *     orderBy: "ASC" || "DESC",
+ *     key: 'accountId' || 'total' || 'serviceLimitValue' || 'freeTrialStartDate',
+ *     orderBy: 'ASC' || 'DESC',
  *   },
- *   timeRange: "MONTH_TO_DATE" || "PAST_30_DAYS",
+ *   timeRange: 'MONTH_TO_DATE' || 'PAST_30_DAYS',
  * };
  * const command = new GetUsageStatisticsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetUsageStatisticsResponse
+ *   nextToken: 'STRING_VALUE',
+ *   records: [ // __listOfUsageRecord
+ *     { // UsageRecord
+ *       accountId: 'STRING_VALUE',
+ *       automatedDiscoveryFreeTrialStartDate: new Date('TIMESTAMP'),
+ *       freeTrialStartDate: new Date('TIMESTAMP'),
+ *       usage: [ // __listOfUsageByAccount
+ *         { // UsageByAccount
+ *           currency: 'USD',
+ *           estimatedCost: 'STRING_VALUE',
+ *           serviceLimit: { // ServiceLimit
+ *             isServiceLimited: true || false,
+ *             unit: 'TERABYTES',
+ *             value: Number('long'),
+ *           },
+ *           type: 'DATA_INVENTORY_EVALUATION' || 'SENSITIVE_DATA_DISCOVERY' || 'AUTOMATED_SENSITIVE_DATA_DISCOVERY' || 'AUTOMATED_OBJECT_MONITORING',
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   timeRange: 'MONTH_TO_DATE' || 'PAST_30_DAYS',
+ * };
+ *
  * ```
  *
  * @param GetUsageStatisticsCommandInput - {@link GetUsageStatisticsCommandInput}
@@ -88,6 +113,8 @@ export interface GetUsageStatisticsCommandOutput extends GetUsageStatisticsRespo
  * @throws {@link ValidationException} (client fault)
  *  <p>Provides information about an error that occurred due to a syntax error in a request.</p>
  *
+ * @throws {@link Macie2ServiceException}
+ * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
  */
 export class GetUsageStatisticsCommand extends $Command<

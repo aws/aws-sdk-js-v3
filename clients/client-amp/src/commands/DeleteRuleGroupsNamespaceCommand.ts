@@ -36,16 +36,19 @@ export interface DeleteRuleGroupsNamespaceCommandOutput extends __MetadataBearer
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AmpClient, DeleteRuleGroupsNamespaceCommand } from "@aws-sdk/client-amp"; // ES Modules import
- * // const { AmpClient, DeleteRuleGroupsNamespaceCommand } = require("@aws-sdk/client-amp"); // CommonJS import
+ * import { AmpClient, DeleteRuleGroupsNamespaceCommand } from '@aws-sdk/client-amp'; // ES Modules import
+ * // const { AmpClient, DeleteRuleGroupsNamespaceCommand } = require('@aws-sdk/client-amp'); // CommonJS import
  * const client = new AmpClient(config);
  * const input = { // DeleteRuleGroupsNamespaceRequest
- *   workspaceId: "STRING_VALUE", // required
- *   name: "STRING_VALUE", // required
- *   clientToken: "STRING_VALUE",
+ *   workspaceId: 'STRING_VALUE', // required
+ *   name: 'STRING_VALUE', // required
+ *   clientToken: 'STRING_VALUE',
  * };
  * const command = new DeleteRuleGroupsNamespaceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteRuleGroupsNamespaceCommandInput - {@link DeleteRuleGroupsNamespaceCommandInput}
@@ -72,6 +75,8 @@ export interface DeleteRuleGroupsNamespaceCommandOutput extends __MetadataBearer
  * @throws {@link ValidationException} (client fault)
  *  The input fails to satisfy the constraints specified by an AWS service.
  *
+ * @throws {@link AmpServiceException}
+ * <p>Base exception class for all service exceptions from Amp service.</p>
  *
  */
 export class DeleteRuleGroupsNamespaceCommand extends $Command<

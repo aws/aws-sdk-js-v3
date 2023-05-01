@@ -37,23 +37,44 @@ export interface GetSamplingTargetsCommandOutput extends GetSamplingTargetsResul
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { XRayClient, GetSamplingTargetsCommand } from "@aws-sdk/client-xray"; // ES Modules import
- * // const { XRayClient, GetSamplingTargetsCommand } = require("@aws-sdk/client-xray"); // CommonJS import
+ * import { XRayClient, GetSamplingTargetsCommand } from '@aws-sdk/client-xray'; // ES Modules import
+ * // const { XRayClient, GetSamplingTargetsCommand } = require('@aws-sdk/client-xray'); // CommonJS import
  * const client = new XRayClient(config);
  * const input = { // GetSamplingTargetsRequest
  *   SamplingStatisticsDocuments: [ // SamplingStatisticsDocumentList // required
  *     { // SamplingStatisticsDocument
- *       RuleName: "STRING_VALUE", // required
- *       ClientID: "STRING_VALUE", // required
- *       Timestamp: new Date("TIMESTAMP"), // required
- *       RequestCount: Number("int"), // required
- *       SampledCount: Number("int"), // required
- *       BorrowCount: Number("int"),
+ *       RuleName: 'STRING_VALUE', // required
+ *       ClientID: 'STRING_VALUE', // required
+ *       Timestamp: new Date('TIMESTAMP'), // required
+ *       RequestCount: Number('int'), // required
+ *       SampledCount: Number('int'), // required
+ *       BorrowCount: Number('int'),
  *     },
  *   ],
  * };
  * const command = new GetSamplingTargetsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetSamplingTargetsResult
+ *   SamplingTargetDocuments: [ // SamplingTargetDocumentList
+ *     { // SamplingTargetDocument
+ *       RuleName: 'STRING_VALUE',
+ *       FixedRate: Number('double'),
+ *       ReservoirQuota: Number('int'),
+ *       ReservoirQuotaTTL: new Date('TIMESTAMP'),
+ *       Interval: Number('int'),
+ *     },
+ *   ],
+ *   LastRuleModification: new Date('TIMESTAMP'),
+ *   UnprocessedStatistics: [ // UnprocessedStatisticsList
+ *     { // UnprocessedStatistics
+ *       RuleName: 'STRING_VALUE',
+ *       ErrorCode: 'STRING_VALUE',
+ *       Message: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetSamplingTargetsCommandInput - {@link GetSamplingTargetsCommandInput}
@@ -68,6 +89,8 @@ export interface GetSamplingTargetsCommandOutput extends GetSamplingTargetsResul
  * @throws {@link ThrottledException} (client fault)
  *  <p>The request exceeds the maximum number of requests per second.</p>
  *
+ * @throws {@link XRayServiceException}
+ * <p>Base exception class for all service exceptions from XRay service.</p>
  *
  */
 export class GetSamplingTargetsCommand extends $Command<

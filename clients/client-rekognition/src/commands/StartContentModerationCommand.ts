@@ -46,27 +46,32 @@ export interface StartContentModerationCommandOutput extends StartContentModerat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RekognitionClient, StartContentModerationCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
- * // const { RekognitionClient, StartContentModerationCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
+ * import { RekognitionClient, StartContentModerationCommand } from '@aws-sdk/client-rekognition'; // ES Modules import
+ * // const { RekognitionClient, StartContentModerationCommand } = require('@aws-sdk/client-rekognition'); // CommonJS import
  * const client = new RekognitionClient(config);
  * const input = { // StartContentModerationRequest
  *   Video: { // Video
  *     S3Object: { // S3Object
- *       Bucket: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *       Version: "STRING_VALUE",
+ *       Bucket: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *       Version: 'STRING_VALUE',
  *     },
  *   },
- *   MinConfidence: Number("float"),
- *   ClientRequestToken: "STRING_VALUE",
+ *   MinConfidence: Number('float'),
+ *   ClientRequestToken: 'STRING_VALUE',
  *   NotificationChannel: { // NotificationChannel
- *     SNSTopicArn: "STRING_VALUE", // required
- *     RoleArn: "STRING_VALUE", // required
+ *     SNSTopicArn: 'STRING_VALUE', // required
+ *     RoleArn: 'STRING_VALUE', // required
  *   },
- *   JobTag: "STRING_VALUE",
+ *   JobTag: 'STRING_VALUE',
  * };
  * const command = new StartContentModerationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartContentModerationResponse
+ *   JobId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param StartContentModerationCommandInput - {@link StartContentModerationCommandInput}
@@ -108,6 +113,8 @@ export interface StartContentModerationCommandOutput extends StartContentModerat
  *  <p>The file size or duration of the supplied media is too large. The maximum file size is 10GB.
  *         The maximum duration is 6 hours. </p>
  *
+ * @throws {@link RekognitionServiceException}
+ * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
  */
 export class StartContentModerationCommand extends $Command<

@@ -36,20 +36,41 @@ export interface BatchApplyUpdateActionCommandOutput extends UpdateActionResults
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElastiCacheClient, BatchApplyUpdateActionCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
- * // const { ElastiCacheClient, BatchApplyUpdateActionCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
+ * import { ElastiCacheClient, BatchApplyUpdateActionCommand } from '@aws-sdk/client-elasticache'; // ES Modules import
+ * // const { ElastiCacheClient, BatchApplyUpdateActionCommand } = require('@aws-sdk/client-elasticache'); // CommonJS import
  * const client = new ElastiCacheClient(config);
  * const input = { // BatchApplyUpdateActionMessage
  *   ReplicationGroupIds: [ // ReplicationGroupIdList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   CacheClusterIds: [ // CacheClusterIdList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   ServiceUpdateName: "STRING_VALUE", // required
+ *   ServiceUpdateName: 'STRING_VALUE', // required
  * };
  * const command = new BatchApplyUpdateActionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateActionResultsMessage
+ *   ProcessedUpdateActions: [ // ProcessedUpdateActionList
+ *     { // ProcessedUpdateAction
+ *       ReplicationGroupId: 'STRING_VALUE',
+ *       CacheClusterId: 'STRING_VALUE',
+ *       ServiceUpdateName: 'STRING_VALUE',
+ *       UpdateActionStatus: 'not-applied' || 'waiting-to-start' || 'in-progress' || 'stopping' || 'stopped' || 'complete' || 'scheduling' || 'scheduled' || 'not-applicable',
+ *     },
+ *   ],
+ *   UnprocessedUpdateActions: [ // UnprocessedUpdateActionList
+ *     { // UnprocessedUpdateAction
+ *       ReplicationGroupId: 'STRING_VALUE',
+ *       CacheClusterId: 'STRING_VALUE',
+ *       ServiceUpdateName: 'STRING_VALUE',
+ *       ErrorType: 'STRING_VALUE',
+ *       ErrorMessage: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param BatchApplyUpdateActionCommandInput - {@link BatchApplyUpdateActionCommandInput}
@@ -64,6 +85,8 @@ export interface BatchApplyUpdateActionCommandOutput extends UpdateActionResults
  * @throws {@link ServiceUpdateNotFoundFault} (client fault)
  *  <p>The service update doesn't exist</p>
  *
+ * @throws {@link ElastiCacheServiceException}
+ * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
  */
 export class BatchApplyUpdateActionCommand extends $Command<

@@ -46,12 +46,24 @@ export interface DescribeAccountAttributesCommandOutput extends DescribeAccountA
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DatabaseMigrationServiceClient, DescribeAccountAttributesCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
- * // const { DatabaseMigrationServiceClient, DescribeAccountAttributesCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
+ * import { DatabaseMigrationServiceClient, DescribeAccountAttributesCommand } from '@aws-sdk/client-database-migration-service'; // ES Modules import
+ * // const { DatabaseMigrationServiceClient, DescribeAccountAttributesCommand } = require('@aws-sdk/client-database-migration-service'); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
  * const input = {};
  * const command = new DescribeAccountAttributesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeAccountAttributesResponse
+ *   AccountQuotas: [ // AccountQuotaList
+ *     { // AccountQuota
+ *       AccountQuotaName: 'STRING_VALUE',
+ *       Used: Number('long'),
+ *       Max: Number('long'),
+ *     },
+ *   ],
+ *   UniqueAccountIdentifier: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeAccountAttributesCommandInput - {@link DescribeAccountAttributesCommandInput}
@@ -60,6 +72,8 @@ export interface DescribeAccountAttributesCommandOutput extends DescribeAccountA
  * @see {@link DescribeAccountAttributesCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
+ * @throws {@link DatabaseMigrationServiceServiceException}
+ * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
  * @example Describe acount attributes
  * ```javascript

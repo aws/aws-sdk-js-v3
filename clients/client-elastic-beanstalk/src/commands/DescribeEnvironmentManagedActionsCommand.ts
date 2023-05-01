@@ -41,16 +41,29 @@ export interface DescribeEnvironmentManagedActionsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElasticBeanstalkClient, DescribeEnvironmentManagedActionsCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
- * // const { ElasticBeanstalkClient, DescribeEnvironmentManagedActionsCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
+ * import { ElasticBeanstalkClient, DescribeEnvironmentManagedActionsCommand } from '@aws-sdk/client-elastic-beanstalk'; // ES Modules import
+ * // const { ElasticBeanstalkClient, DescribeEnvironmentManagedActionsCommand } = require('@aws-sdk/client-elastic-beanstalk'); // CommonJS import
  * const client = new ElasticBeanstalkClient(config);
  * const input = { // DescribeEnvironmentManagedActionsRequest
- *   EnvironmentName: "STRING_VALUE",
- *   EnvironmentId: "STRING_VALUE",
- *   Status: "Scheduled" || "Pending" || "Running" || "Unknown",
+ *   EnvironmentName: 'STRING_VALUE',
+ *   EnvironmentId: 'STRING_VALUE',
+ *   Status: 'Scheduled' || 'Pending' || 'Running' || 'Unknown',
  * };
  * const command = new DescribeEnvironmentManagedActionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeEnvironmentManagedActionsResult
+ *   ManagedActions: [ // ManagedActions
+ *     { // ManagedAction
+ *       ActionId: 'STRING_VALUE',
+ *       ActionDescription: 'STRING_VALUE',
+ *       ActionType: 'InstanceRefresh' || 'PlatformUpdate' || 'Unknown',
+ *       Status: 'Scheduled' || 'Pending' || 'Running' || 'Unknown',
+ *       WindowStartTime: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeEnvironmentManagedActionsCommandInput - {@link DescribeEnvironmentManagedActionsCommandInput}
@@ -62,6 +75,8 @@ export interface DescribeEnvironmentManagedActionsCommandOutput
  * @throws {@link ElasticBeanstalkServiceException} (client fault)
  *  <p>A generic service exception has occurred.</p>
  *
+ * @throws {@link ElasticBeanstalkServiceException}
+ * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
  */
 export class DescribeEnvironmentManagedActionsCommand extends $Command<

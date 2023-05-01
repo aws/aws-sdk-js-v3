@@ -49,14 +49,19 @@ export interface ValidateMatchmakingRuleSetCommandOutput extends ValidateMatchma
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GameLiftClient, ValidateMatchmakingRuleSetCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
- * // const { GameLiftClient, ValidateMatchmakingRuleSetCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
+ * import { GameLiftClient, ValidateMatchmakingRuleSetCommand } from '@aws-sdk/client-gamelift'; // ES Modules import
+ * // const { GameLiftClient, ValidateMatchmakingRuleSetCommand } = require('@aws-sdk/client-gamelift'); // CommonJS import
  * const client = new GameLiftClient(config);
  * const input = { // ValidateMatchmakingRuleSetInput
- *   RuleSetBody: "STRING_VALUE", // required
+ *   RuleSetBody: 'STRING_VALUE', // required
  * };
  * const command = new ValidateMatchmakingRuleSetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ValidateMatchmakingRuleSetOutput
+ *   Valid: true || false,
+ * };
+ *
  * ```
  *
  * @param ValidateMatchmakingRuleSetCommandInput - {@link ValidateMatchmakingRuleSetCommandInput}
@@ -76,6 +81,8 @@ export interface ValidateMatchmakingRuleSetCommandOutput extends ValidateMatchma
  * @throws {@link UnsupportedRegionException} (client fault)
  *  <p>The requested operation is not supported in the Region specified.</p>
  *
+ * @throws {@link GameLiftServiceException}
+ * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
  */
 export class ValidateMatchmakingRuleSetCommand extends $Command<

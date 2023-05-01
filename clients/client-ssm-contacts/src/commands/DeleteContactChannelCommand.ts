@@ -39,14 +39,17 @@ export interface DeleteContactChannelCommandOutput extends DeleteContactChannelR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMContactsClient, DeleteContactChannelCommand } from "@aws-sdk/client-ssm-contacts"; // ES Modules import
- * // const { SSMContactsClient, DeleteContactChannelCommand } = require("@aws-sdk/client-ssm-contacts"); // CommonJS import
+ * import { SSMContactsClient, DeleteContactChannelCommand } from '@aws-sdk/client-ssm-contacts'; // ES Modules import
+ * // const { SSMContactsClient, DeleteContactChannelCommand } = require('@aws-sdk/client-ssm-contacts'); // CommonJS import
  * const client = new SSMContactsClient(config);
  * const input = { // DeleteContactChannelRequest
- *   ContactChannelId: "STRING_VALUE", // required
+ *   ContactChannelId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteContactChannelCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteContactChannelCommandInput - {@link DeleteContactChannelCommandInput}
@@ -71,6 +74,8 @@ export interface DeleteContactChannelCommandOutput extends DeleteContactChannelR
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
  *          service.</p>
  *
+ * @throws {@link SSMContactsServiceException}
+ * <p>Base exception class for all service exceptions from SSMContacts service.</p>
  *
  */
 export class DeleteContactChannelCommand extends $Command<

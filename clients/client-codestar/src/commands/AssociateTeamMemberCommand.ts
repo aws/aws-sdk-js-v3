@@ -36,18 +36,23 @@ export interface AssociateTeamMemberCommandOutput extends AssociateTeamMemberRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeStarClient, AssociateTeamMemberCommand } from "@aws-sdk/client-codestar"; // ES Modules import
- * // const { CodeStarClient, AssociateTeamMemberCommand } = require("@aws-sdk/client-codestar"); // CommonJS import
+ * import { CodeStarClient, AssociateTeamMemberCommand } from '@aws-sdk/client-codestar'; // ES Modules import
+ * // const { CodeStarClient, AssociateTeamMemberCommand } = require('@aws-sdk/client-codestar'); // CommonJS import
  * const client = new CodeStarClient(config);
  * const input = { // AssociateTeamMemberRequest
- *   projectId: "STRING_VALUE", // required
- *   clientRequestToken: "STRING_VALUE",
- *   userArn: "STRING_VALUE", // required
- *   projectRole: "STRING_VALUE", // required
+ *   projectId: 'STRING_VALUE', // required
+ *   clientRequestToken: 'STRING_VALUE',
+ *   userArn: 'STRING_VALUE', // required
+ *   projectRole: 'STRING_VALUE', // required
  *   remoteAccessAllowed: true || false,
  * };
  * const command = new AssociateTeamMemberCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AssociateTeamMemberResult
+ *   clientRequestToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param AssociateTeamMemberCommandInput - {@link AssociateTeamMemberCommandInput}
@@ -78,6 +83,8 @@ export interface AssociateTeamMemberCommandOutput extends AssociateTeamMemberRes
  * @throws {@link ValidationException} (client fault)
  *  <p>The specified input is either not valid, or it could not be validated.</p>
  *
+ * @throws {@link CodeStarServiceException}
+ * <p>Base exception class for all service exceptions from CodeStar service.</p>
  *
  */
 export class AssociateTeamMemberCommand extends $Command<

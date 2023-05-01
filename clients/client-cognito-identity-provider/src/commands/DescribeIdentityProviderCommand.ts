@@ -41,15 +41,35 @@ export interface DescribeIdentityProviderCommandOutput extends DescribeIdentityP
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CognitoIdentityProviderClient, DescribeIdentityProviderCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
- * // const { CognitoIdentityProviderClient, DescribeIdentityProviderCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
+ * import { CognitoIdentityProviderClient, DescribeIdentityProviderCommand } from '@aws-sdk/client-cognito-identity-provider'; // ES Modules import
+ * // const { CognitoIdentityProviderClient, DescribeIdentityProviderCommand } = require('@aws-sdk/client-cognito-identity-provider'); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
  * const input = { // DescribeIdentityProviderRequest
- *   UserPoolId: "STRING_VALUE", // required
- *   ProviderName: "STRING_VALUE", // required
+ *   UserPoolId: 'STRING_VALUE', // required
+ *   ProviderName: 'STRING_VALUE', // required
  * };
  * const command = new DescribeIdentityProviderCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeIdentityProviderResponse
+ *   IdentityProvider: { // IdentityProviderType
+ *     UserPoolId: 'STRING_VALUE',
+ *     ProviderName: 'STRING_VALUE',
+ *     ProviderType: 'SAML' || 'Facebook' || 'Google' || 'LoginWithAmazon' || 'SignInWithApple' || 'OIDC',
+ *     ProviderDetails: { // ProviderDetailsType
+ *       '<keys>': 'STRING_VALUE',
+ *     },
+ *     AttributeMapping: { // AttributeMappingType
+ *       '<keys>': 'STRING_VALUE',
+ *     },
+ *     IdpIdentifiers: [ // IdpIdentifiersListType
+ *       'STRING_VALUE',
+ *     ],
+ *     LastModifiedDate: new Date('TIMESTAMP'),
+ *     CreationDate: new Date('TIMESTAMP'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeIdentityProviderCommandInput - {@link DescribeIdentityProviderCommandInput}
@@ -76,6 +96,8 @@ export interface DescribeIdentityProviderCommandOutput extends DescribeIdentityP
  *  <p>This exception is thrown when the user has made too many requests for a given
  *             operation.</p>
  *
+ * @throws {@link CognitoIdentityProviderServiceException}
+ * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
  */
 export class DescribeIdentityProviderCommand extends $Command<

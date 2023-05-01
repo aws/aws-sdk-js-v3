@@ -36,14 +36,35 @@ export interface DeletePeeringCommandOutput extends DeletePeeringResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { NetworkManagerClient, DeletePeeringCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
- * // const { NetworkManagerClient, DeletePeeringCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
+ * import { NetworkManagerClient, DeletePeeringCommand } from '@aws-sdk/client-networkmanager'; // ES Modules import
+ * // const { NetworkManagerClient, DeletePeeringCommand } = require('@aws-sdk/client-networkmanager'); // CommonJS import
  * const client = new NetworkManagerClient(config);
  * const input = { // DeletePeeringRequest
- *   PeeringId: "STRING_VALUE", // required
+ *   PeeringId: 'STRING_VALUE', // required
  * };
  * const command = new DeletePeeringCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeletePeeringResponse
+ *   Peering: { // Peering
+ *     CoreNetworkId: 'STRING_VALUE',
+ *     CoreNetworkArn: 'STRING_VALUE',
+ *     PeeringId: 'STRING_VALUE',
+ *     OwnerAccountId: 'STRING_VALUE',
+ *     PeeringType: 'TRANSIT_GATEWAY',
+ *     State: 'CREATING' || 'FAILED' || 'AVAILABLE' || 'DELETING',
+ *     EdgeLocation: 'STRING_VALUE',
+ *     ResourceArn: 'STRING_VALUE',
+ *     Tags: [ // TagList
+ *       { // Tag
+ *         Key: 'STRING_VALUE',
+ *         Value: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     CreatedAt: new Date('TIMESTAMP'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param DeletePeeringCommandInput - {@link DeletePeeringCommandInput}
@@ -71,6 +92,8 @@ export interface DeletePeeringCommandOutput extends DeletePeeringResponse, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints.</p>
  *
+ * @throws {@link NetworkManagerServiceException}
+ * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
  */
 export class DeletePeeringCommand extends $Command<

@@ -43,31 +43,39 @@ export interface CreateKeyCommandOutput extends CreateKeyResponse, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LocationClient, CreateKeyCommand } from "@aws-sdk/client-location"; // ES Modules import
- * // const { LocationClient, CreateKeyCommand } = require("@aws-sdk/client-location"); // CommonJS import
+ * import { LocationClient, CreateKeyCommand } from '@aws-sdk/client-location'; // ES Modules import
+ * // const { LocationClient, CreateKeyCommand } = require('@aws-sdk/client-location'); // CommonJS import
  * const client = new LocationClient(config);
  * const input = { // CreateKeyRequest
- *   KeyName: "STRING_VALUE", // required
+ *   KeyName: 'STRING_VALUE', // required
  *   Restrictions: { // ApiKeyRestrictions
  *     AllowActions: [ // ApiKeyActionList // required
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     AllowResources: [ // GeoArnList // required
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     AllowReferers: [ // RefererPatternList
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *   },
- *   Description: "STRING_VALUE",
- *   ExpireTime: new Date("TIMESTAMP"),
+ *   Description: 'STRING_VALUE',
+ *   ExpireTime: new Date('TIMESTAMP'),
  *   NoExpiry: true || false,
  *   Tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateKeyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateKeyResponse
+ *   Key: 'STRING_VALUE', // required
+ *   KeyArn: 'STRING_VALUE', // required
+ *   KeyName: 'STRING_VALUE', // required
+ *   CreateTime: new Date('TIMESTAMP'), // required
+ * };
+ *
  * ```
  *
  * @param CreateKeyCommandInput - {@link CreateKeyCommandInput}
@@ -96,6 +104,8 @@ export interface CreateKeyCommandOutput extends CreateKeyResponse, __MetadataBea
  * @throws {@link ValidationException} (client fault)
  *  <p>The input failed to meet the constraints specified by the AWS service. </p>
  *
+ * @throws {@link LocationServiceException}
+ * <p>Base exception class for all service exceptions from Location service.</p>
  *
  */
 export class CreateKeyCommand extends $Command<

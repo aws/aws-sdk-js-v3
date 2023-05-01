@@ -36,14 +36,17 @@ export interface DeleteNotebookCommandOutput extends DeleteNotebookOutput, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AthenaClient, DeleteNotebookCommand } from "@aws-sdk/client-athena"; // ES Modules import
- * // const { AthenaClient, DeleteNotebookCommand } = require("@aws-sdk/client-athena"); // CommonJS import
+ * import { AthenaClient, DeleteNotebookCommand } from '@aws-sdk/client-athena'; // ES Modules import
+ * // const { AthenaClient, DeleteNotebookCommand } = require('@aws-sdk/client-athena'); // CommonJS import
  * const client = new AthenaClient(config);
  * const input = { // DeleteNotebookInput
- *   NotebookId: "STRING_VALUE", // required
+ *   NotebookId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteNotebookCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteNotebookCommandInput - {@link DeleteNotebookCommandInput}
@@ -63,6 +66,8 @@ export interface DeleteNotebookCommandOutput extends DeleteNotebookOutput, __Met
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Indicates that the request was throttled.</p>
  *
+ * @throws {@link AthenaServiceException}
+ * <p>Base exception class for all service exceptions from Athena service.</p>
  *
  */
 export class DeleteNotebookCommand extends $Command<

@@ -45,14 +45,19 @@ export interface CancelTaskCommandOutput extends CancelTaskOutput, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SnowDeviceManagementClient, CancelTaskCommand } from "@aws-sdk/client-snow-device-management"; // ES Modules import
- * // const { SnowDeviceManagementClient, CancelTaskCommand } = require("@aws-sdk/client-snow-device-management"); // CommonJS import
+ * import { SnowDeviceManagementClient, CancelTaskCommand } from '@aws-sdk/client-snow-device-management'; // ES Modules import
+ * // const { SnowDeviceManagementClient, CancelTaskCommand } = require('@aws-sdk/client-snow-device-management'); // CommonJS import
  * const client = new SnowDeviceManagementClient(config);
  * const input = { // CancelTaskInput
- *   taskId: "STRING_VALUE", // required
+ *   taskId: 'STRING_VALUE', // required
  * };
  * const command = new CancelTaskCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CancelTaskOutput
+ *   taskId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CancelTaskCommandInput - {@link CancelTaskCommandInput}
@@ -76,6 +81,8 @@ export interface CancelTaskCommandOutput extends CancelTaskOutput, __MetadataBea
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
  *
+ * @throws {@link SnowDeviceManagementServiceException}
+ * <p>Base exception class for all service exceptions from SnowDeviceManagement service.</p>
  *
  */
 export class CancelTaskCommand extends $Command<

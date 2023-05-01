@@ -41,14 +41,70 @@ export interface DeleteSnapshotCommandOutput extends DeleteSnapshotResult, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElastiCacheClient, DeleteSnapshotCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
- * // const { ElastiCacheClient, DeleteSnapshotCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
+ * import { ElastiCacheClient, DeleteSnapshotCommand } from '@aws-sdk/client-elasticache'; // ES Modules import
+ * // const { ElastiCacheClient, DeleteSnapshotCommand } = require('@aws-sdk/client-elasticache'); // CommonJS import
  * const client = new ElastiCacheClient(config);
  * const input = { // DeleteSnapshotMessage
- *   SnapshotName: "STRING_VALUE", // required
+ *   SnapshotName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteSnapshotCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteSnapshotResult
+ *   Snapshot: { // Snapshot
+ *     SnapshotName: 'STRING_VALUE',
+ *     ReplicationGroupId: 'STRING_VALUE',
+ *     ReplicationGroupDescription: 'STRING_VALUE',
+ *     CacheClusterId: 'STRING_VALUE',
+ *     SnapshotStatus: 'STRING_VALUE',
+ *     SnapshotSource: 'STRING_VALUE',
+ *     CacheNodeType: 'STRING_VALUE',
+ *     Engine: 'STRING_VALUE',
+ *     EngineVersion: 'STRING_VALUE',
+ *     NumCacheNodes: Number('int'),
+ *     PreferredAvailabilityZone: 'STRING_VALUE',
+ *     PreferredOutpostArn: 'STRING_VALUE',
+ *     CacheClusterCreateTime: new Date('TIMESTAMP'),
+ *     PreferredMaintenanceWindow: 'STRING_VALUE',
+ *     TopicArn: 'STRING_VALUE',
+ *     Port: Number('int'),
+ *     CacheParameterGroupName: 'STRING_VALUE',
+ *     CacheSubnetGroupName: 'STRING_VALUE',
+ *     VpcId: 'STRING_VALUE',
+ *     AutoMinorVersionUpgrade: true || false,
+ *     SnapshotRetentionLimit: Number('int'),
+ *     SnapshotWindow: 'STRING_VALUE',
+ *     NumNodeGroups: Number('int'),
+ *     AutomaticFailover: 'enabled' || 'disabled' || 'enabling' || 'disabling',
+ *     NodeSnapshots: [ // NodeSnapshotList
+ *       { // NodeSnapshot
+ *         CacheClusterId: 'STRING_VALUE',
+ *         NodeGroupId: 'STRING_VALUE',
+ *         CacheNodeId: 'STRING_VALUE',
+ *         NodeGroupConfiguration: { // NodeGroupConfiguration
+ *           NodeGroupId: 'STRING_VALUE',
+ *           Slots: 'STRING_VALUE',
+ *           ReplicaCount: Number('int'),
+ *           PrimaryAvailabilityZone: 'STRING_VALUE',
+ *           ReplicaAvailabilityZones: [ // AvailabilityZonesList
+ *             'STRING_VALUE',
+ *           ],
+ *           PrimaryOutpostArn: 'STRING_VALUE',
+ *           ReplicaOutpostArns: [ // OutpostArnsList
+ *             'STRING_VALUE',
+ *           ],
+ *         },
+ *         CacheSize: 'STRING_VALUE',
+ *         CacheNodeCreateTime: new Date('TIMESTAMP'),
+ *         SnapshotCreateTime: new Date('TIMESTAMP'),
+ *       },
+ *     ],
+ *     KmsKeyId: 'STRING_VALUE',
+ *     ARN: 'STRING_VALUE',
+ *     DataTiering: 'enabled' || 'disabled',
+ *   },
+ * };
+ *
  * ```
  *
  * @param DeleteSnapshotCommandInput - {@link DeleteSnapshotCommandInput}
@@ -69,6 +125,8 @@ export interface DeleteSnapshotCommandOutput extends DeleteSnapshotResult, __Met
  * @throws {@link SnapshotNotFoundFault} (client fault)
  *  <p>The requested snapshot name does not refer to an existing snapshot.</p>
  *
+ * @throws {@link ElastiCacheServiceException}
+ * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
  * @example DeleteSnapshot
  * ```javascript

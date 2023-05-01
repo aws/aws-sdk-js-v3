@@ -36,15 +36,36 @@ export interface GetEmailTemplateCommandOutput extends GetEmailTemplateResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PinpointClient, GetEmailTemplateCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
- * // const { PinpointClient, GetEmailTemplateCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
+ * import { PinpointClient, GetEmailTemplateCommand } from '@aws-sdk/client-pinpoint'; // ES Modules import
+ * // const { PinpointClient, GetEmailTemplateCommand } = require('@aws-sdk/client-pinpoint'); // CommonJS import
  * const client = new PinpointClient(config);
  * const input = { // GetEmailTemplateRequest
- *   TemplateName: "STRING_VALUE", // required
- *   Version: "STRING_VALUE",
+ *   TemplateName: 'STRING_VALUE', // required
+ *   Version: 'STRING_VALUE',
  * };
  * const command = new GetEmailTemplateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetEmailTemplateResponse
+ *   EmailTemplateResponse: { // EmailTemplateResponse
+ *     Arn: 'STRING_VALUE',
+ *     CreationDate: 'STRING_VALUE', // required
+ *     DefaultSubstitutions: 'STRING_VALUE',
+ *     HtmlPart: 'STRING_VALUE',
+ *     LastModifiedDate: 'STRING_VALUE', // required
+ *     RecommenderId: 'STRING_VALUE',
+ *     Subject: 'STRING_VALUE',
+ *     tags: { // MapOf__string
+ *       '<keys>': 'STRING_VALUE',
+ *     },
+ *     TemplateDescription: 'STRING_VALUE',
+ *     TemplateName: 'STRING_VALUE', // required
+ *     TemplateType: 'EMAIL' || 'SMS' || 'VOICE' || 'PUSH' || 'INAPP', // required
+ *     TextPart: 'STRING_VALUE',
+ *     Version: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetEmailTemplateCommandInput - {@link GetEmailTemplateCommandInput}
@@ -74,6 +95,8 @@ export interface GetEmailTemplateCommandOutput extends GetEmailTemplateResponse,
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Provides information about an API request or response.</p>
  *
+ * @throws {@link PinpointServiceException}
+ * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
  */
 export class GetEmailTemplateCommand extends $Command<

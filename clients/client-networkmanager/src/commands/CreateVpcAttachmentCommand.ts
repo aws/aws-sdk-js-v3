@@ -36,14 +36,14 @@ export interface CreateVpcAttachmentCommandOutput extends CreateVpcAttachmentRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { NetworkManagerClient, CreateVpcAttachmentCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
- * // const { NetworkManagerClient, CreateVpcAttachmentCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
+ * import { NetworkManagerClient, CreateVpcAttachmentCommand } from '@aws-sdk/client-networkmanager'; // ES Modules import
+ * // const { NetworkManagerClient, CreateVpcAttachmentCommand } = require('@aws-sdk/client-networkmanager'); // CommonJS import
  * const client = new NetworkManagerClient(config);
  * const input = { // CreateVpcAttachmentRequest
- *   CoreNetworkId: "STRING_VALUE", // required
- *   VpcArn: "STRING_VALUE", // required
+ *   CoreNetworkId: 'STRING_VALUE', // required
+ *   VpcArn: 'STRING_VALUE', // required
  *   SubnetArns: [ // SubnetArnList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   Options: { // VpcOptions
  *     Ipv6Support: true || false,
@@ -51,14 +51,57 @@ export interface CreateVpcAttachmentCommandOutput extends CreateVpcAttachmentRes
  *   },
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE",
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
- *   ClientToken: "STRING_VALUE",
+ *   ClientToken: 'STRING_VALUE',
  * };
  * const command = new CreateVpcAttachmentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateVpcAttachmentResponse
+ *   VpcAttachment: { // VpcAttachment
+ *     Attachment: { // Attachment
+ *       CoreNetworkId: 'STRING_VALUE',
+ *       CoreNetworkArn: 'STRING_VALUE',
+ *       AttachmentId: 'STRING_VALUE',
+ *       OwnerAccountId: 'STRING_VALUE',
+ *       AttachmentType: 'CONNECT' || 'SITE_TO_SITE_VPN' || 'VPC' || 'TRANSIT_GATEWAY_ROUTE_TABLE',
+ *       State: 'REJECTED' || 'PENDING_ATTACHMENT_ACCEPTANCE' || 'CREATING' || 'FAILED' || 'AVAILABLE' || 'UPDATING' || 'PENDING_NETWORK_UPDATE' || 'PENDING_TAG_ACCEPTANCE' || 'DELETING',
+ *       EdgeLocation: 'STRING_VALUE',
+ *       ResourceArn: 'STRING_VALUE',
+ *       AttachmentPolicyRuleNumber: Number('int'),
+ *       SegmentName: 'STRING_VALUE',
+ *       Tags: [ // TagList
+ *         { // Tag
+ *           Key: 'STRING_VALUE',
+ *           Value: 'STRING_VALUE',
+ *         },
+ *       ],
+ *       ProposedSegmentChange: { // ProposedSegmentChange
+ *         Tags: [
+ *           {
+ *             Key: 'STRING_VALUE',
+ *             Value: 'STRING_VALUE',
+ *           },
+ *         ],
+ *         AttachmentPolicyRuleNumber: Number('int'),
+ *         SegmentName: 'STRING_VALUE',
+ *       },
+ *       CreatedAt: new Date('TIMESTAMP'),
+ *       UpdatedAt: new Date('TIMESTAMP'),
+ *     },
+ *     SubnetArns: [ // SubnetArnList
+ *       'STRING_VALUE',
+ *     ],
+ *     Options: { // VpcOptions
+ *       Ipv6Support: true || false,
+ *       ApplianceModeSupport: true || false,
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateVpcAttachmentCommandInput - {@link CreateVpcAttachmentCommandInput}
@@ -86,6 +129,8 @@ export interface CreateVpcAttachmentCommandOutput extends CreateVpcAttachmentRes
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints.</p>
  *
+ * @throws {@link NetworkManagerServiceException}
+ * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
  */
 export class CreateVpcAttachmentCommand extends $Command<

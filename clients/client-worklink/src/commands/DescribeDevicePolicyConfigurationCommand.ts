@@ -46,14 +46,19 @@ export interface DescribeDevicePolicyConfigurationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkLinkClient, DescribeDevicePolicyConfigurationCommand } from "@aws-sdk/client-worklink"; // ES Modules import
- * // const { WorkLinkClient, DescribeDevicePolicyConfigurationCommand } = require("@aws-sdk/client-worklink"); // CommonJS import
+ * import { WorkLinkClient, DescribeDevicePolicyConfigurationCommand } from '@aws-sdk/client-worklink'; // ES Modules import
+ * // const { WorkLinkClient, DescribeDevicePolicyConfigurationCommand } = require('@aws-sdk/client-worklink'); // CommonJS import
  * const client = new WorkLinkClient(config);
  * const input = { // DescribeDevicePolicyConfigurationRequest
- *   FleetArn: "STRING_VALUE", // required
+ *   FleetArn: 'STRING_VALUE', // required
  * };
  * const command = new DescribeDevicePolicyConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeDevicePolicyConfigurationResponse
+ *   DeviceCaCertificate: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeDevicePolicyConfigurationCommandInput - {@link DescribeDevicePolicyConfigurationCommandInput}
@@ -77,6 +82,8 @@ export interface DescribeDevicePolicyConfigurationCommandOutput
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this action.</p>
  *
+ * @throws {@link WorkLinkServiceException}
+ * <p>Base exception class for all service exceptions from WorkLink service.</p>
  *
  */
 export class DescribeDevicePolicyConfigurationCommand extends $Command<

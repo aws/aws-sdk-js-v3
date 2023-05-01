@@ -78,41 +78,44 @@ export interface PutMetricDataCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudWatchClient, PutMetricDataCommand } from "@aws-sdk/client-cloudwatch"; // ES Modules import
- * // const { CloudWatchClient, PutMetricDataCommand } = require("@aws-sdk/client-cloudwatch"); // CommonJS import
+ * import { CloudWatchClient, PutMetricDataCommand } from '@aws-sdk/client-cloudwatch'; // ES Modules import
+ * // const { CloudWatchClient, PutMetricDataCommand } = require('@aws-sdk/client-cloudwatch'); // CommonJS import
  * const client = new CloudWatchClient(config);
  * const input = { // PutMetricDataInput
- *   Namespace: "STRING_VALUE", // required
+ *   Namespace: 'STRING_VALUE', // required
  *   MetricData: [ // MetricData // required
  *     { // MetricDatum
- *       MetricName: "STRING_VALUE", // required
+ *       MetricName: 'STRING_VALUE', // required
  *       Dimensions: [ // Dimensions
  *         { // Dimension
- *           Name: "STRING_VALUE", // required
- *           Value: "STRING_VALUE", // required
+ *           Name: 'STRING_VALUE', // required
+ *           Value: 'STRING_VALUE', // required
  *         },
  *       ],
- *       Timestamp: new Date("TIMESTAMP"),
- *       Value: Number("double"),
+ *       Timestamp: new Date('TIMESTAMP'),
+ *       Value: Number('double'),
  *       StatisticValues: { // StatisticSet
- *         SampleCount: Number("double"), // required
- *         Sum: Number("double"), // required
- *         Minimum: Number("double"), // required
- *         Maximum: Number("double"), // required
+ *         SampleCount: Number('double'), // required
+ *         Sum: Number('double'), // required
+ *         Minimum: Number('double'), // required
+ *         Maximum: Number('double'), // required
  *       },
  *       Values: [ // Values
- *         Number("double"),
+ *         Number('double'),
  *       ],
  *       Counts: [ // Counts
- *         Number("double"),
+ *         Number('double'),
  *       ],
- *       Unit: "Seconds" || "Microseconds" || "Milliseconds" || "Bytes" || "Kilobytes" || "Megabytes" || "Gigabytes" || "Terabytes" || "Bits" || "Kilobits" || "Megabits" || "Gigabits" || "Terabits" || "Percent" || "Count" || "Bytes/Second" || "Kilobytes/Second" || "Megabytes/Second" || "Gigabytes/Second" || "Terabytes/Second" || "Bits/Second" || "Kilobits/Second" || "Megabits/Second" || "Gigabits/Second" || "Terabits/Second" || "Count/Second" || "None",
- *       StorageResolution: Number("int"),
+ *       Unit: 'Seconds' || 'Microseconds' || 'Milliseconds' || 'Bytes' || 'Kilobytes' || 'Megabytes' || 'Gigabytes' || 'Terabytes' || 'Bits' || 'Kilobits' || 'Megabits' || 'Gigabits' || 'Terabits' || 'Percent' || 'Count' || 'Bytes/Second' || 'Kilobytes/Second' || 'Megabytes/Second' || 'Gigabytes/Second' || 'Terabytes/Second' || 'Bits/Second' || 'Kilobits/Second' || 'Megabits/Second' || 'Gigabits/Second' || 'Terabits/Second' || 'Count/Second' || 'None',
+ *       StorageResolution: Number('int'),
  *     },
  *   ],
  * };
  * const command = new PutMetricDataCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutMetricDataCommandInput - {@link PutMetricDataCommandInput}
@@ -133,6 +136,8 @@ export interface PutMetricDataCommandOutput extends __MetadataBearer {}
  * @throws {@link MissingRequiredParameterException} (client fault)
  *  <p>An input parameter that is required is missing.</p>
  *
+ * @throws {@link CloudWatchServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatch service.</p>
  *
  */
 export class PutMetricDataCommand extends $Command<

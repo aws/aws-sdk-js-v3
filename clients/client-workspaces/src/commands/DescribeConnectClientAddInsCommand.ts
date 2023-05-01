@@ -36,16 +36,29 @@ export interface DescribeConnectClientAddInsCommandOutput extends DescribeConnec
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkSpacesClient, DescribeConnectClientAddInsCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
- * // const { WorkSpacesClient, DescribeConnectClientAddInsCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
+ * import { WorkSpacesClient, DescribeConnectClientAddInsCommand } from '@aws-sdk/client-workspaces'; // ES Modules import
+ * // const { WorkSpacesClient, DescribeConnectClientAddInsCommand } = require('@aws-sdk/client-workspaces'); // CommonJS import
  * const client = new WorkSpacesClient(config);
  * const input = { // DescribeConnectClientAddInsRequest
- *   ResourceId: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   ResourceId: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new DescribeConnectClientAddInsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeConnectClientAddInsResult
+ *   AddIns: [ // ConnectClientAddInList
+ *     { // ConnectClientAddIn
+ *       AddInId: 'STRING_VALUE',
+ *       ResourceId: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *       URL: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeConnectClientAddInsCommandInput - {@link DescribeConnectClientAddInsCommandInput}
@@ -63,6 +76,8 @@ export interface DescribeConnectClientAddInsCommandOutput extends DescribeConnec
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource could not be found.</p>
  *
+ * @throws {@link WorkSpacesServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
  */
 export class DescribeConnectClientAddInsCommand extends $Command<

@@ -39,47 +39,56 @@ export interface ProvisionDeviceCommandOutput extends ProvisionDeviceResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PanoramaClient, ProvisionDeviceCommand } from "@aws-sdk/client-panorama"; // ES Modules import
- * // const { PanoramaClient, ProvisionDeviceCommand } = require("@aws-sdk/client-panorama"); // CommonJS import
+ * import { PanoramaClient, ProvisionDeviceCommand } from '@aws-sdk/client-panorama'; // ES Modules import
+ * // const { PanoramaClient, ProvisionDeviceCommand } = require('@aws-sdk/client-panorama'); // CommonJS import
  * const client = new PanoramaClient(config);
  * const input = { // ProvisionDeviceRequest
- *   Name: "STRING_VALUE", // required
- *   Description: "STRING_VALUE",
+ *   Name: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE',
  *   Tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  *   NetworkingConfiguration: { // NetworkPayload
  *     Ethernet0: { // EthernetPayload
- *       ConnectionType: "STRING_VALUE", // required
+ *       ConnectionType: 'STRING_VALUE', // required
  *       StaticIpConnectionInfo: { // StaticIpConnectionInfo
- *         IpAddress: "STRING_VALUE", // required
- *         Mask: "STRING_VALUE", // required
+ *         IpAddress: 'STRING_VALUE', // required
+ *         Mask: 'STRING_VALUE', // required
  *         Dns: [ // DnsList // required
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
- *         DefaultGateway: "STRING_VALUE", // required
+ *         DefaultGateway: 'STRING_VALUE', // required
  *       },
  *     },
  *     Ethernet1: {
- *       ConnectionType: "STRING_VALUE", // required
+ *       ConnectionType: 'STRING_VALUE', // required
  *       StaticIpConnectionInfo: {
- *         IpAddress: "STRING_VALUE", // required
- *         Mask: "STRING_VALUE", // required
+ *         IpAddress: 'STRING_VALUE', // required
+ *         Mask: 'STRING_VALUE', // required
  *         Dns: [ // required
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
- *         DefaultGateway: "STRING_VALUE", // required
+ *         DefaultGateway: 'STRING_VALUE', // required
  *       },
  *     },
  *     Ntp: { // NtpPayload
  *       NtpServers: [ // NtpServerList // required
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   },
  * };
  * const command = new ProvisionDeviceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ProvisionDeviceResponse
+ *   DeviceId: 'STRING_VALUE',
+ *   Arn: 'STRING_VALUE', // required
+ *   Status: 'STRING_VALUE', // required
+ *   Certificates: 'BLOB_VALUE',
+ *   IotThingName: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ProvisionDeviceCommandInput - {@link ProvisionDeviceCommandInput}
@@ -103,6 +112,8 @@ export interface ProvisionDeviceCommandOutput extends ProvisionDeviceResponse, _
  * @throws {@link ValidationException} (client fault)
  *  <p>The request contains an invalid parameter value.</p>
  *
+ * @throws {@link PanoramaServiceException}
+ * <p>Base exception class for all service exceptions from Panorama service.</p>
  *
  */
 export class ProvisionDeviceCommand extends $Command<

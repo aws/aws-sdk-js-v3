@@ -48,19 +48,34 @@ export interface ListPriceListsCommandOutput extends ListPriceListsResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PricingClient, ListPriceListsCommand } from "@aws-sdk/client-pricing"; // ES Modules import
- * // const { PricingClient, ListPriceListsCommand } = require("@aws-sdk/client-pricing"); // CommonJS import
+ * import { PricingClient, ListPriceListsCommand } from '@aws-sdk/client-pricing'; // ES Modules import
+ * // const { PricingClient, ListPriceListsCommand } = require('@aws-sdk/client-pricing'); // CommonJS import
  * const client = new PricingClient(config);
  * const input = { // ListPriceListsRequest
- *   ServiceCode: "STRING_VALUE", // required
- *   EffectiveDate: new Date("TIMESTAMP"), // required
- *   RegionCode: "STRING_VALUE",
- *   CurrencyCode: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   ServiceCode: 'STRING_VALUE', // required
+ *   EffectiveDate: new Date('TIMESTAMP'), // required
+ *   RegionCode: 'STRING_VALUE',
+ *   CurrencyCode: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListPriceListsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListPriceListsResponse
+ *   PriceLists: [ // PriceLists
+ *     { // PriceList
+ *       PriceListArn: 'STRING_VALUE',
+ *       RegionCode: 'STRING_VALUE',
+ *       CurrencyCode: 'STRING_VALUE',
+ *       FileFormats: [ // FileFormats
+ *         'STRING_VALUE',
+ *       ],
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListPriceListsCommandInput - {@link ListPriceListsCommandInput}
@@ -87,6 +102,8 @@ export interface ListPriceListsCommandOutput extends ListPriceListsResponse, __M
  * @throws {@link NotFoundException} (client fault)
  *  <p>The requested resource can't be found.</p>
  *
+ * @throws {@link PricingServiceException}
+ * <p>Base exception class for all service exceptions from Pricing service.</p>
  *
  */
 export class ListPriceListsCommand extends $Command<

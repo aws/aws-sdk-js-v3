@@ -45,11 +45,11 @@ export interface PutVoiceConnectorLoggingConfigurationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeSDKVoiceClient, PutVoiceConnectorLoggingConfigurationCommand } from "@aws-sdk/client-chime-sdk-voice"; // ES Modules import
- * // const { ChimeSDKVoiceClient, PutVoiceConnectorLoggingConfigurationCommand } = require("@aws-sdk/client-chime-sdk-voice"); // CommonJS import
+ * import { ChimeSDKVoiceClient, PutVoiceConnectorLoggingConfigurationCommand } from '@aws-sdk/client-chime-sdk-voice'; // ES Modules import
+ * // const { ChimeSDKVoiceClient, PutVoiceConnectorLoggingConfigurationCommand } = require('@aws-sdk/client-chime-sdk-voice'); // CommonJS import
  * const client = new ChimeSDKVoiceClient(config);
  * const input = { // PutVoiceConnectorLoggingConfigurationRequest
- *   VoiceConnectorId: "STRING_VALUE", // required
+ *   VoiceConnectorId: 'STRING_VALUE', // required
  *   LoggingConfiguration: { // LoggingConfiguration
  *     EnableSIPLogs: true || false,
  *     EnableMediaMetricLogs: true || false,
@@ -57,6 +57,14 @@ export interface PutVoiceConnectorLoggingConfigurationCommandOutput
  * };
  * const command = new PutVoiceConnectorLoggingConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutVoiceConnectorLoggingConfigurationResponse
+ *   LoggingConfiguration: { // LoggingConfiguration
+ *     EnableSIPLogs: true || false,
+ *     EnableMediaMetricLogs: true || false,
+ *   },
+ * };
+ *
  * ```
  *
  * @param PutVoiceConnectorLoggingConfigurationCommandInput - {@link PutVoiceConnectorLoggingConfigurationCommandInput}
@@ -86,6 +94,8 @@ export interface PutVoiceConnectorLoggingConfigurationCommandOutput
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client isn't authorized to request a resource.</p>
  *
+ * @throws {@link ChimeSDKVoiceServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
  */
 export class PutVoiceConnectorLoggingConfigurationCommand extends $Command<

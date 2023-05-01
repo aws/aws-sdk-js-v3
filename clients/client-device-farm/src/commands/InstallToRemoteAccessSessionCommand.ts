@@ -47,15 +47,31 @@ export interface InstallToRemoteAccessSessionCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DeviceFarmClient, InstallToRemoteAccessSessionCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
- * // const { DeviceFarmClient, InstallToRemoteAccessSessionCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
+ * import { DeviceFarmClient, InstallToRemoteAccessSessionCommand } from '@aws-sdk/client-device-farm'; // ES Modules import
+ * // const { DeviceFarmClient, InstallToRemoteAccessSessionCommand } = require('@aws-sdk/client-device-farm'); // CommonJS import
  * const client = new DeviceFarmClient(config);
  * const input = { // InstallToRemoteAccessSessionRequest
- *   remoteAccessSessionArn: "STRING_VALUE", // required
- *   appArn: "STRING_VALUE", // required
+ *   remoteAccessSessionArn: 'STRING_VALUE', // required
+ *   appArn: 'STRING_VALUE', // required
  * };
  * const command = new InstallToRemoteAccessSessionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // InstallToRemoteAccessSessionResult
+ *   appUpload: { // Upload
+ *     arn: 'STRING_VALUE',
+ *     name: 'STRING_VALUE',
+ *     created: new Date('TIMESTAMP'),
+ *     type: 'ANDROID_APP' || 'IOS_APP' || 'WEB_APP' || 'EXTERNAL_DATA' || 'APPIUM_JAVA_JUNIT_TEST_PACKAGE' || 'APPIUM_JAVA_TESTNG_TEST_PACKAGE' || 'APPIUM_PYTHON_TEST_PACKAGE' || 'APPIUM_NODE_TEST_PACKAGE' || 'APPIUM_RUBY_TEST_PACKAGE' || 'APPIUM_WEB_JAVA_JUNIT_TEST_PACKAGE' || 'APPIUM_WEB_JAVA_TESTNG_TEST_PACKAGE' || 'APPIUM_WEB_PYTHON_TEST_PACKAGE' || 'APPIUM_WEB_NODE_TEST_PACKAGE' || 'APPIUM_WEB_RUBY_TEST_PACKAGE' || 'CALABASH_TEST_PACKAGE' || 'INSTRUMENTATION_TEST_PACKAGE' || 'UIAUTOMATION_TEST_PACKAGE' || 'UIAUTOMATOR_TEST_PACKAGE' || 'XCTEST_TEST_PACKAGE' || 'XCTEST_UI_TEST_PACKAGE' || 'APPIUM_JAVA_JUNIT_TEST_SPEC' || 'APPIUM_JAVA_TESTNG_TEST_SPEC' || 'APPIUM_PYTHON_TEST_SPEC' || 'APPIUM_NODE_TEST_SPEC' || 'APPIUM_RUBY_TEST_SPEC' || 'APPIUM_WEB_JAVA_JUNIT_TEST_SPEC' || 'APPIUM_WEB_JAVA_TESTNG_TEST_SPEC' || 'APPIUM_WEB_PYTHON_TEST_SPEC' || 'APPIUM_WEB_NODE_TEST_SPEC' || 'APPIUM_WEB_RUBY_TEST_SPEC' || 'INSTRUMENTATION_TEST_SPEC' || 'XCTEST_UI_TEST_SPEC',
+ *     status: 'INITIALIZED' || 'PROCESSING' || 'SUCCEEDED' || 'FAILED',
+ *     url: 'STRING_VALUE',
+ *     metadata: 'STRING_VALUE',
+ *     contentType: 'STRING_VALUE',
+ *     message: 'STRING_VALUE',
+ *     category: 'CURATED' || 'PRIVATE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param InstallToRemoteAccessSessionCommandInput - {@link InstallToRemoteAccessSessionCommandInput}
@@ -76,6 +92,8 @@ export interface InstallToRemoteAccessSessionCommandOutput
  * @throws {@link ServiceAccountException} (client fault)
  *  <p>There was a problem with the service account.</p>
  *
+ * @throws {@link DeviceFarmServiceException}
+ * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
  * @example To install to a remote access session
  * ```javascript

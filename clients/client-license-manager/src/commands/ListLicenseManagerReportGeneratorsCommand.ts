@@ -44,23 +44,62 @@ export interface ListLicenseManagerReportGeneratorsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LicenseManagerClient, ListLicenseManagerReportGeneratorsCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
- * // const { LicenseManagerClient, ListLicenseManagerReportGeneratorsCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
+ * import { LicenseManagerClient, ListLicenseManagerReportGeneratorsCommand } from '@aws-sdk/client-license-manager'; // ES Modules import
+ * // const { LicenseManagerClient, ListLicenseManagerReportGeneratorsCommand } = require('@aws-sdk/client-license-manager'); // CommonJS import
  * const client = new LicenseManagerClient(config);
  * const input = { // ListLicenseManagerReportGeneratorsRequest
  *   Filters: [ // FilterList
  *     { // Filter
- *       Name: "STRING_VALUE",
+ *       Name: 'STRING_VALUE',
  *       Values: [ // FilterValues
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListLicenseManagerReportGeneratorsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListLicenseManagerReportGeneratorsResponse
+ *   ReportGenerators: [ // ReportGeneratorList
+ *     { // ReportGenerator
+ *       ReportGeneratorName: 'STRING_VALUE',
+ *       ReportType: [ // ReportTypeList
+ *         'LicenseConfigurationSummaryReport' || 'LicenseConfigurationUsageReport',
+ *       ],
+ *       ReportContext: { // ReportContext
+ *         licenseConfigurationArns: [ // ArnList // required
+ *           'STRING_VALUE',
+ *         ],
+ *       },
+ *       ReportFrequency: { // ReportFrequency
+ *         value: Number('int'),
+ *         period: 'DAY' || 'WEEK' || 'MONTH',
+ *       },
+ *       LicenseManagerReportGeneratorArn: 'STRING_VALUE',
+ *       LastRunStatus: 'STRING_VALUE',
+ *       LastRunFailureReason: 'STRING_VALUE',
+ *       LastReportGenerationTime: 'STRING_VALUE',
+ *       ReportCreatorAccount: 'STRING_VALUE',
+ *       Description: 'STRING_VALUE',
+ *       S3Location: { // S3Location
+ *         bucket: 'STRING_VALUE',
+ *         keyPrefix: 'STRING_VALUE',
+ *       },
+ *       CreateTime: 'STRING_VALUE',
+ *       Tags: [ // TagList
+ *         { // Tag
+ *           Key: 'STRING_VALUE',
+ *           Value: 'STRING_VALUE',
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListLicenseManagerReportGeneratorsCommandInput - {@link ListLicenseManagerReportGeneratorsCommandInput}
@@ -94,6 +133,8 @@ export interface ListLicenseManagerReportGeneratorsCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The provided input is not valid. Try your request again.</p>
  *
+ * @throws {@link LicenseManagerServiceException}
+ * <p>Base exception class for all service exceptions from LicenseManager service.</p>
  *
  */
 export class ListLicenseManagerReportGeneratorsCommand extends $Command<

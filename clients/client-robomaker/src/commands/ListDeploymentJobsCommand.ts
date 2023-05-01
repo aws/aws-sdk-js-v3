@@ -41,23 +41,63 @@ export interface ListDeploymentJobsCommandOutput extends ListDeploymentJobsRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RoboMakerClient, ListDeploymentJobsCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
- * // const { RoboMakerClient, ListDeploymentJobsCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
+ * import { RoboMakerClient, ListDeploymentJobsCommand } from '@aws-sdk/client-robomaker'; // ES Modules import
+ * // const { RoboMakerClient, ListDeploymentJobsCommand } = require('@aws-sdk/client-robomaker'); // CommonJS import
  * const client = new RoboMakerClient(config);
  * const input = { // ListDeploymentJobsRequest
  *   filters: [ // Filters
  *     { // Filter
- *       name: "STRING_VALUE",
+ *       name: 'STRING_VALUE',
  *       values: [ // FilterValues
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new ListDeploymentJobsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListDeploymentJobsResponse
+ *   deploymentJobs: [ // DeploymentJobs
+ *     { // DeploymentJob
+ *       arn: 'STRING_VALUE',
+ *       fleet: 'STRING_VALUE',
+ *       status: 'STRING_VALUE',
+ *       deploymentApplicationConfigs: [ // DeploymentApplicationConfigs
+ *         { // DeploymentApplicationConfig
+ *           application: 'STRING_VALUE', // required
+ *           applicationVersion: 'STRING_VALUE', // required
+ *           launchConfig: { // DeploymentLaunchConfig
+ *             packageName: 'STRING_VALUE', // required
+ *             preLaunchFile: 'STRING_VALUE',
+ *             launchFile: 'STRING_VALUE', // required
+ *             postLaunchFile: 'STRING_VALUE',
+ *             environmentVariables: { // EnvironmentVariableMap
+ *               '<keys>': 'STRING_VALUE',
+ *             },
+ *           },
+ *         },
+ *       ],
+ *       deploymentConfig: { // DeploymentConfig
+ *         concurrentDeploymentPercentage: Number('int'),
+ *         failureThresholdPercentage: Number('int'),
+ *         robotDeploymentTimeoutInSeconds: Number('long'),
+ *         downloadConditionFile: { // S3Object
+ *           bucket: 'STRING_VALUE', // required
+ *           key: 'STRING_VALUE', // required
+ *           etag: 'STRING_VALUE',
+ *         },
+ *       },
+ *       failureReason: 'STRING_VALUE',
+ *       failureCode: 'STRING_VALUE',
+ *       createdAt: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListDeploymentJobsCommandInput - {@link ListDeploymentJobsCommandInput}
@@ -79,6 +119,8 @@ export interface ListDeploymentJobsCommandOutput extends ListDeploymentJobsRespo
  * @throws {@link ThrottlingException} (client fault)
  *  <p>AWS RoboMaker is temporarily unable to process the request. Try your call again.</p>
  *
+ * @throws {@link RoboMakerServiceException}
+ * <p>Base exception class for all service exceptions from RoboMaker service.</p>
  *
  */
 export class ListDeploymentJobsCommand extends $Command<

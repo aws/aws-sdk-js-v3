@@ -40,27 +40,39 @@ export interface GetImagesCommandOutput extends GetImagesOutput, __MetadataBeare
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KinesisVideoArchivedMediaClient, GetImagesCommand } from "@aws-sdk/client-kinesis-video-archived-media"; // ES Modules import
- * // const { KinesisVideoArchivedMediaClient, GetImagesCommand } = require("@aws-sdk/client-kinesis-video-archived-media"); // CommonJS import
+ * import { KinesisVideoArchivedMediaClient, GetImagesCommand } from '@aws-sdk/client-kinesis-video-archived-media'; // ES Modules import
+ * // const { KinesisVideoArchivedMediaClient, GetImagesCommand } = require('@aws-sdk/client-kinesis-video-archived-media'); // CommonJS import
  * const client = new KinesisVideoArchivedMediaClient(config);
  * const input = { // GetImagesInput
- *   StreamName: "STRING_VALUE",
- *   StreamARN: "STRING_VALUE",
- *   ImageSelectorType: "STRING_VALUE", // required
- *   StartTimestamp: new Date("TIMESTAMP"), // required
- *   EndTimestamp: new Date("TIMESTAMP"), // required
- *   SamplingInterval: Number("int"), // required
- *   Format: "STRING_VALUE", // required
+ *   StreamName: 'STRING_VALUE',
+ *   StreamARN: 'STRING_VALUE',
+ *   ImageSelectorType: 'STRING_VALUE', // required
+ *   StartTimestamp: new Date('TIMESTAMP'), // required
+ *   EndTimestamp: new Date('TIMESTAMP'), // required
+ *   SamplingInterval: Number('int'), // required
+ *   Format: 'STRING_VALUE', // required
  *   FormatConfig: { // FormatConfig
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
- *   WidthPixels: Number("int"),
- *   HeightPixels: Number("int"),
- *   MaxResults: Number("long"),
- *   NextToken: "STRING_VALUE",
+ *   WidthPixels: Number('int'),
+ *   HeightPixels: Number('int'),
+ *   MaxResults: Number('long'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new GetImagesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetImagesOutput
+ *   Images: [ // Images
+ *     { // Image
+ *       TimeStamp: new Date('TIMESTAMP'),
+ *       Error: 'STRING_VALUE',
+ *       ImageContent: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetImagesCommandInput - {@link GetImagesCommandInput}
@@ -92,6 +104,8 @@ export interface GetImagesCommandOutput extends GetImagesOutput, __MetadataBeare
  *                 <code>LIVE</code> is requested for a stream that has no fragments within the last 30
  *             seconds.</p>
  *
+ * @throws {@link KinesisVideoArchivedMediaServiceException}
+ * <p>Base exception class for all service exceptions from KinesisVideoArchivedMedia service.</p>
  *
  */
 export class GetImagesCommand extends $Command<

@@ -37,18 +37,35 @@ export interface ListInferenceSchedulersCommandOutput extends ListInferenceSched
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LookoutEquipmentClient, ListInferenceSchedulersCommand } from "@aws-sdk/client-lookoutequipment"; // ES Modules import
- * // const { LookoutEquipmentClient, ListInferenceSchedulersCommand } = require("@aws-sdk/client-lookoutequipment"); // CommonJS import
+ * import { LookoutEquipmentClient, ListInferenceSchedulersCommand } from '@aws-sdk/client-lookoutequipment'; // ES Modules import
+ * // const { LookoutEquipmentClient, ListInferenceSchedulersCommand } = require('@aws-sdk/client-lookoutequipment'); // CommonJS import
  * const client = new LookoutEquipmentClient(config);
  * const input = { // ListInferenceSchedulersRequest
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
- *   InferenceSchedulerNameBeginsWith: "STRING_VALUE",
- *   ModelName: "STRING_VALUE",
- *   Status: "PENDING" || "RUNNING" || "STOPPING" || "STOPPED",
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
+ *   InferenceSchedulerNameBeginsWith: 'STRING_VALUE',
+ *   ModelName: 'STRING_VALUE',
+ *   Status: 'PENDING' || 'RUNNING' || 'STOPPING' || 'STOPPED',
  * };
  * const command = new ListInferenceSchedulersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListInferenceSchedulersResponse
+ *   NextToken: 'STRING_VALUE',
+ *   InferenceSchedulerSummaries: [ // InferenceSchedulerSummaries
+ *     { // InferenceSchedulerSummary
+ *       ModelName: 'STRING_VALUE',
+ *       ModelArn: 'STRING_VALUE',
+ *       InferenceSchedulerName: 'STRING_VALUE',
+ *       InferenceSchedulerArn: 'STRING_VALUE',
+ *       Status: 'PENDING' || 'RUNNING' || 'STOPPING' || 'STOPPED',
+ *       DataDelayOffsetInMinutes: Number('long'),
+ *       DataUploadFrequency: 'PT5M' || 'PT10M' || 'PT15M' || 'PT30M' || 'PT1H',
+ *       LatestInferenceResult: 'ANOMALOUS' || 'NORMAL',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListInferenceSchedulersCommandInput - {@link ListInferenceSchedulersCommandInput}
@@ -72,6 +89,8 @@ export interface ListInferenceSchedulersCommandOutput extends ListInferenceSched
  *  <p> The input fails to satisfy constraints specified by Amazon Lookout for Equipment or a
  *          related AWS service that's being utilized. </p>
  *
+ * @throws {@link LookoutEquipmentServiceException}
+ * <p>Base exception class for all service exceptions from LookoutEquipment service.</p>
  *
  */
 export class ListInferenceSchedulersCommand extends $Command<

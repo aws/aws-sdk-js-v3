@@ -39,14 +39,38 @@ export interface DeleteGlobalClusterCommandOutput extends DeleteGlobalClusterRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DocDBClient, DeleteGlobalClusterCommand } from "@aws-sdk/client-docdb"; // ES Modules import
- * // const { DocDBClient, DeleteGlobalClusterCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
+ * import { DocDBClient, DeleteGlobalClusterCommand } from '@aws-sdk/client-docdb'; // ES Modules import
+ * // const { DocDBClient, DeleteGlobalClusterCommand } = require('@aws-sdk/client-docdb'); // CommonJS import
  * const client = new DocDBClient(config);
  * const input = { // DeleteGlobalClusterMessage
- *   GlobalClusterIdentifier: "STRING_VALUE", // required
+ *   GlobalClusterIdentifier: 'STRING_VALUE', // required
  * };
  * const command = new DeleteGlobalClusterCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteGlobalClusterResult
+ *   GlobalCluster: { // GlobalCluster
+ *     GlobalClusterIdentifier: 'STRING_VALUE',
+ *     GlobalClusterResourceId: 'STRING_VALUE',
+ *     GlobalClusterArn: 'STRING_VALUE',
+ *     Status: 'STRING_VALUE',
+ *     Engine: 'STRING_VALUE',
+ *     EngineVersion: 'STRING_VALUE',
+ *     DatabaseName: 'STRING_VALUE',
+ *     StorageEncrypted: true || false,
+ *     DeletionProtection: true || false,
+ *     GlobalClusterMembers: [ // GlobalClusterMemberList
+ *       { // GlobalClusterMember
+ *         DBClusterArn: 'STRING_VALUE',
+ *         Readers: [ // ReadersArnList
+ *           'STRING_VALUE',
+ *         ],
+ *         IsWriter: true || false,
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param DeleteGlobalClusterCommandInput - {@link DeleteGlobalClusterCommandInput}
@@ -61,6 +85,8 @@ export interface DeleteGlobalClusterCommandOutput extends DeleteGlobalClusterRes
  * @throws {@link InvalidGlobalClusterStateFault} (client fault)
  *  <p>The requested operation can't be performed while the cluster is in this state.</p>
  *
+ * @throws {@link DocDBServiceException}
+ * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
  */
 export class DeleteGlobalClusterCommand extends $Command<

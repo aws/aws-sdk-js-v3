@@ -36,14 +36,22 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RUMClient, ListTagsForResourceCommand } from "@aws-sdk/client-rum"; // ES Modules import
- * // const { RUMClient, ListTagsForResourceCommand } = require("@aws-sdk/client-rum"); // CommonJS import
+ * import { RUMClient, ListTagsForResourceCommand } from '@aws-sdk/client-rum'; // ES Modules import
+ * // const { RUMClient, ListTagsForResourceCommand } = require('@aws-sdk/client-rum'); // CommonJS import
  * const client = new RUMClient(config);
  * const input = { // ListTagsForResourceRequest
- *   ResourceArn: "STRING_VALUE", // required
+ *   ResourceArn: 'STRING_VALUE', // required
  * };
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTagsForResourceResponse
+ *   ResourceArn: 'STRING_VALUE', // required
+ *   Tags: { // TagMap // required
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param ListTagsForResourceCommandInput - {@link ListTagsForResourceCommandInput}
@@ -61,6 +69,8 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @throws {@link ValidationException} (client fault)
  *  <p>One of the arguments for the request is not valid.</p>
  *
+ * @throws {@link RUMServiceException}
+ * <p>Base exception class for all service exceptions from RUM service.</p>
  *
  */
 export class ListTagsForResourceCommand extends $Command<

@@ -36,16 +36,32 @@ export interface ListManagedJobTemplatesCommandOutput extends ListManagedJobTemp
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTClient, ListManagedJobTemplatesCommand } from "@aws-sdk/client-iot"; // ES Modules import
- * // const { IoTClient, ListManagedJobTemplatesCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * import { IoTClient, ListManagedJobTemplatesCommand } from '@aws-sdk/client-iot'; // ES Modules import
+ * // const { IoTClient, ListManagedJobTemplatesCommand } = require('@aws-sdk/client-iot'); // CommonJS import
  * const client = new IoTClient(config);
  * const input = { // ListManagedJobTemplatesRequest
- *   templateName: "STRING_VALUE",
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   templateName: 'STRING_VALUE',
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new ListManagedJobTemplatesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListManagedJobTemplatesResponse
+ *   managedJobTemplates: [ // ManagedJobTemplatesSummaryList
+ *     { // ManagedJobTemplateSummary
+ *       templateArn: 'STRING_VALUE',
+ *       templateName: 'STRING_VALUE',
+ *       description: 'STRING_VALUE',
+ *       environments: [ // Environments
+ *         'STRING_VALUE',
+ *       ],
+ *       templateVersion: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListManagedJobTemplatesCommandInput - {@link ListManagedJobTemplatesCommandInput}
@@ -67,6 +83,8 @@ export interface ListManagedJobTemplatesCommandOutput extends ListManagedJobTemp
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The rate exceeds the limit.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class ListManagedJobTemplatesCommand extends $Command<

@@ -36,32 +36,32 @@ export interface CreateAnnotationStoreCommandOutput extends CreateAnnotationStor
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OmicsClient, CreateAnnotationStoreCommand } from "@aws-sdk/client-omics"; // ES Modules import
- * // const { OmicsClient, CreateAnnotationStoreCommand } = require("@aws-sdk/client-omics"); // CommonJS import
+ * import { OmicsClient, CreateAnnotationStoreCommand } from '@aws-sdk/client-omics'; // ES Modules import
+ * // const { OmicsClient, CreateAnnotationStoreCommand } = require('@aws-sdk/client-omics'); // CommonJS import
  * const client = new OmicsClient(config);
  * const input = { // CreateAnnotationStoreRequest
  *   reference: { // ReferenceItem Union: only one key present
- *     referenceArn: "STRING_VALUE",
+ *     referenceArn: 'STRING_VALUE',
  *   },
- *   name: "STRING_VALUE",
- *   description: "STRING_VALUE",
+ *   name: 'STRING_VALUE',
+ *   description: 'STRING_VALUE',
  *   tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  *   sseConfig: { // SseConfig
- *     type: "STRING_VALUE", // required
- *     keyArn: "STRING_VALUE",
+ *     type: 'STRING_VALUE', // required
+ *     keyArn: 'STRING_VALUE',
  *   },
- *   storeFormat: "STRING_VALUE", // required
+ *   storeFormat: 'STRING_VALUE', // required
  *   storeOptions: { // StoreOptions Union: only one key present
  *     tsvStoreOptions: { // TsvStoreOptions
- *       annotationType: "STRING_VALUE",
+ *       annotationType: 'STRING_VALUE',
  *       formatToHeader: { // FormatToHeader
- *         "<keys>": "STRING_VALUE",
+ *         '<keys>': 'STRING_VALUE',
  *       },
  *       schema: [ // Schema
  *         { // SchemaItem
- *           "<keys>": "STRING_VALUE",
+ *           '<keys>': 'STRING_VALUE',
  *         },
  *       ],
  *     },
@@ -69,6 +69,31 @@ export interface CreateAnnotationStoreCommandOutput extends CreateAnnotationStor
  * };
  * const command = new CreateAnnotationStoreCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateAnnotationStoreResponse
+ *   id: 'STRING_VALUE', // required
+ *   reference: { // ReferenceItem Union: only one key present
+ *     referenceArn: 'STRING_VALUE',
+ *   },
+ *   storeFormat: 'STRING_VALUE',
+ *   storeOptions: { // StoreOptions Union: only one key present
+ *     tsvStoreOptions: { // TsvStoreOptions
+ *       annotationType: 'STRING_VALUE',
+ *       formatToHeader: { // FormatToHeader
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *       schema: [ // Schema
+ *         { // SchemaItem
+ *           '<keys>': 'STRING_VALUE',
+ *         },
+ *       ],
+ *     },
+ *   },
+ *   status: 'STRING_VALUE', // required
+ *   name: 'STRING_VALUE', // required
+ *   creationTime: new Date('TIMESTAMP'), // required
+ * };
+ *
  * ```
  *
  * @param CreateAnnotationStoreCommandInput - {@link CreateAnnotationStoreCommandInput}
@@ -98,6 +123,8 @@ export interface CreateAnnotationStoreCommandOutput extends CreateAnnotationStor
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link OmicsServiceException}
+ * <p>Base exception class for all service exceptions from Omics service.</p>
  *
  */
 export class CreateAnnotationStoreCommand extends $Command<

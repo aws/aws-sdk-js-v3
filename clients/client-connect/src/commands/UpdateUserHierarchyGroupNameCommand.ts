@@ -39,16 +39,19 @@ export interface UpdateUserHierarchyGroupNameCommandOutput extends __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, UpdateUserHierarchyGroupNameCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, UpdateUserHierarchyGroupNameCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, UpdateUserHierarchyGroupNameCommand } from '@aws-sdk/client-connect'; // ES Modules import
+ * // const { ConnectClient, UpdateUserHierarchyGroupNameCommand } = require('@aws-sdk/client-connect'); // CommonJS import
  * const client = new ConnectClient(config);
  * const input = { // UpdateUserHierarchyGroupNameRequest
- *   Name: "STRING_VALUE", // required
- *   HierarchyGroupId: "STRING_VALUE", // required
- *   InstanceId: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
+ *   HierarchyGroupId: 'STRING_VALUE', // required
+ *   InstanceId: 'STRING_VALUE', // required
  * };
  * const command = new UpdateUserHierarchyGroupNameCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateUserHierarchyGroupNameCommandInput - {@link UpdateUserHierarchyGroupNameCommandInput}
@@ -75,6 +78,8 @@ export interface UpdateUserHierarchyGroupNameCommandOutput extends __MetadataBea
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class UpdateUserHierarchyGroupNameCommand extends $Command<

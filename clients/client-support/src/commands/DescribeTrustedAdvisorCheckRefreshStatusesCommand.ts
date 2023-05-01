@@ -68,16 +68,27 @@ export interface DescribeTrustedAdvisorCheckRefreshStatusesCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SupportClient, DescribeTrustedAdvisorCheckRefreshStatusesCommand } from "@aws-sdk/client-support"; // ES Modules import
- * // const { SupportClient, DescribeTrustedAdvisorCheckRefreshStatusesCommand } = require("@aws-sdk/client-support"); // CommonJS import
+ * import { SupportClient, DescribeTrustedAdvisorCheckRefreshStatusesCommand } from '@aws-sdk/client-support'; // ES Modules import
+ * // const { SupportClient, DescribeTrustedAdvisorCheckRefreshStatusesCommand } = require('@aws-sdk/client-support'); // CommonJS import
  * const client = new SupportClient(config);
  * const input = { // DescribeTrustedAdvisorCheckRefreshStatusesRequest
  *   checkIds: [ // StringList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new DescribeTrustedAdvisorCheckRefreshStatusesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeTrustedAdvisorCheckRefreshStatusesResponse
+ *   statuses: [ // TrustedAdvisorCheckRefreshStatusList // required
+ *     { // TrustedAdvisorCheckRefreshStatus
+ *       checkId: 'STRING_VALUE', // required
+ *       status: 'STRING_VALUE', // required
+ *       millisUntilNextRefreshable: Number('long'), // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeTrustedAdvisorCheckRefreshStatusesCommandInput - {@link DescribeTrustedAdvisorCheckRefreshStatusesCommandInput}
@@ -89,6 +100,8 @@ export interface DescribeTrustedAdvisorCheckRefreshStatusesCommandOutput
  * @throws {@link InternalServerError} (server fault)
  *  <p>An internal server error occurred.</p>
  *
+ * @throws {@link SupportServiceException}
+ * <p>Base exception class for all service exceptions from Support service.</p>
  *
  */
 export class DescribeTrustedAdvisorCheckRefreshStatusesCommand extends $Command<

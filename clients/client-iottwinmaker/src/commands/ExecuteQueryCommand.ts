@@ -37,17 +37,35 @@ export interface ExecuteQueryCommandOutput extends ExecuteQueryResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTTwinMakerClient, ExecuteQueryCommand } from "@aws-sdk/client-iottwinmaker"; // ES Modules import
- * // const { IoTTwinMakerClient, ExecuteQueryCommand } = require("@aws-sdk/client-iottwinmaker"); // CommonJS import
+ * import { IoTTwinMakerClient, ExecuteQueryCommand } from '@aws-sdk/client-iottwinmaker'; // ES Modules import
+ * // const { IoTTwinMakerClient, ExecuteQueryCommand } = require('@aws-sdk/client-iottwinmaker'); // CommonJS import
  * const client = new IoTTwinMakerClient(config);
  * const input = { // ExecuteQueryRequest
- *   workspaceId: "STRING_VALUE", // required
- *   queryStatement: "STRING_VALUE", // required
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   workspaceId: 'STRING_VALUE', // required
+ *   queryStatement: 'STRING_VALUE', // required
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new ExecuteQueryCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ExecuteQueryResponse
+ *   columnDescriptions: [ // ColumnDescriptions
+ *     { // ColumnDescription
+ *       name: 'STRING_VALUE',
+ *       type: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   rows: [ // Rows
+ *     { // Row
+ *       rowData: [ // RowData
+ *         'DOCUMENT_VALUE',
+ *       ],
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ExecuteQueryCommandInput - {@link ExecuteQueryCommandInput}
@@ -74,6 +92,8 @@ export interface ExecuteQueryCommandOutput extends ExecuteQueryResponse, __Metad
  * @throws {@link ValidationException} (client fault)
  *  <p>Failed</p>
  *
+ * @throws {@link IoTTwinMakerServiceException}
+ * <p>Base exception class for all service exceptions from IoTTwinMaker service.</p>
  *
  */
 export class ExecuteQueryCommand extends $Command<

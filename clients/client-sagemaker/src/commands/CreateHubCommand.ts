@@ -39,28 +39,33 @@ export interface CreateHubCommandOutput extends CreateHubResponse, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, CreateHubCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, CreateHubCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, CreateHubCommand } from '@aws-sdk/client-sagemaker'; // ES Modules import
+ * // const { SageMakerClient, CreateHubCommand } = require('@aws-sdk/client-sagemaker'); // CommonJS import
  * const client = new SageMakerClient(config);
  * const input = { // CreateHubRequest
- *   HubName: "STRING_VALUE", // required
- *   HubDescription: "STRING_VALUE", // required
- *   HubDisplayName: "STRING_VALUE",
+ *   HubName: 'STRING_VALUE', // required
+ *   HubDescription: 'STRING_VALUE', // required
+ *   HubDisplayName: 'STRING_VALUE',
  *   HubSearchKeywords: [ // HubSearchKeywordList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   S3StorageConfig: { // HubS3StorageConfig
- *     S3OutputPath: "STRING_VALUE",
+ *     S3OutputPath: 'STRING_VALUE',
  *   },
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreateHubCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateHubResponse
+ *   HubArn: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param CreateHubCommandInput - {@link CreateHubCommandInput}
@@ -76,6 +81,8 @@ export interface CreateHubCommandOutput extends CreateHubResponse, __MetadataBea
  *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many
  *             training jobs created. </p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class CreateHubCommand extends $Command<

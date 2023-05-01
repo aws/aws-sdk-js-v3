@@ -36,17 +36,24 @@ export interface GetMapGlyphsCommandOutput extends GetMapGlyphsResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LocationClient, GetMapGlyphsCommand } from "@aws-sdk/client-location"; // ES Modules import
- * // const { LocationClient, GetMapGlyphsCommand } = require("@aws-sdk/client-location"); // CommonJS import
+ * import { LocationClient, GetMapGlyphsCommand } from '@aws-sdk/client-location'; // ES Modules import
+ * // const { LocationClient, GetMapGlyphsCommand } = require('@aws-sdk/client-location'); // CommonJS import
  * const client = new LocationClient(config);
  * const input = { // GetMapGlyphsRequest
- *   MapName: "STRING_VALUE", // required
- *   FontStack: "STRING_VALUE", // required
- *   FontUnicodeRange: "STRING_VALUE", // required
- *   Key: "STRING_VALUE",
+ *   MapName: 'STRING_VALUE', // required
+ *   FontStack: 'STRING_VALUE', // required
+ *   FontUnicodeRange: 'STRING_VALUE', // required
+ *   Key: 'STRING_VALUE',
  * };
  * const command = new GetMapGlyphsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetMapGlyphsResponse
+ *   Blob: 'BLOB_VALUE',
+ *   ContentType: 'STRING_VALUE',
+ *   CacheControl: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetMapGlyphsCommandInput - {@link GetMapGlyphsCommandInput}
@@ -71,6 +78,8 @@ export interface GetMapGlyphsCommandOutput extends GetMapGlyphsResponse, __Metad
  * @throws {@link ValidationException} (client fault)
  *  <p>The input failed to meet the constraints specified by the AWS service. </p>
  *
+ * @throws {@link LocationServiceException}
+ * <p>Base exception class for all service exceptions from Location service.</p>
  *
  */
 export class GetMapGlyphsCommand extends $Command<

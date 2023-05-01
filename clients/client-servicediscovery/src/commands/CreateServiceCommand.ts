@@ -77,42 +77,75 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ServiceDiscoveryClient, CreateServiceCommand } from "@aws-sdk/client-servicediscovery"; // ES Modules import
- * // const { ServiceDiscoveryClient, CreateServiceCommand } = require("@aws-sdk/client-servicediscovery"); // CommonJS import
+ * import { ServiceDiscoveryClient, CreateServiceCommand } from '@aws-sdk/client-servicediscovery'; // ES Modules import
+ * // const { ServiceDiscoveryClient, CreateServiceCommand } = require('@aws-sdk/client-servicediscovery'); // CommonJS import
  * const client = new ServiceDiscoveryClient(config);
  * const input = { // CreateServiceRequest
- *   Name: "STRING_VALUE", // required
- *   NamespaceId: "STRING_VALUE",
- *   CreatorRequestId: "STRING_VALUE",
- *   Description: "STRING_VALUE",
+ *   Name: 'STRING_VALUE', // required
+ *   NamespaceId: 'STRING_VALUE',
+ *   CreatorRequestId: 'STRING_VALUE',
+ *   Description: 'STRING_VALUE',
  *   DnsConfig: { // DnsConfig
- *     NamespaceId: "STRING_VALUE",
- *     RoutingPolicy: "MULTIVALUE" || "WEIGHTED",
+ *     NamespaceId: 'STRING_VALUE',
+ *     RoutingPolicy: 'MULTIVALUE' || 'WEIGHTED',
  *     DnsRecords: [ // DnsRecordList // required
  *       { // DnsRecord
- *         Type: "SRV" || "A" || "AAAA" || "CNAME", // required
- *         TTL: Number("long"), // required
+ *         Type: 'SRV' || 'A' || 'AAAA' || 'CNAME', // required
+ *         TTL: Number('long'), // required
  *       },
  *     ],
  *   },
  *   HealthCheckConfig: { // HealthCheckConfig
- *     Type: "HTTP" || "HTTPS" || "TCP", // required
- *     ResourcePath: "STRING_VALUE",
- *     FailureThreshold: Number("int"),
+ *     Type: 'HTTP' || 'HTTPS' || 'TCP', // required
+ *     ResourcePath: 'STRING_VALUE',
+ *     FailureThreshold: Number('int'),
  *   },
  *   HealthCheckCustomConfig: { // HealthCheckCustomConfig
- *     FailureThreshold: Number("int"),
+ *     FailureThreshold: Number('int'),
  *   },
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
- *   Type: "HTTP",
+ *   Type: 'HTTP',
  * };
  * const command = new CreateServiceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateServiceResponse
+ *   Service: { // Service
+ *     Id: 'STRING_VALUE',
+ *     Arn: 'STRING_VALUE',
+ *     Name: 'STRING_VALUE',
+ *     NamespaceId: 'STRING_VALUE',
+ *     Description: 'STRING_VALUE',
+ *     InstanceCount: Number('int'),
+ *     DnsConfig: { // DnsConfig
+ *       NamespaceId: 'STRING_VALUE',
+ *       RoutingPolicy: 'MULTIVALUE' || 'WEIGHTED',
+ *       DnsRecords: [ // DnsRecordList // required
+ *         { // DnsRecord
+ *           Type: 'SRV' || 'A' || 'AAAA' || 'CNAME', // required
+ *           TTL: Number('long'), // required
+ *         },
+ *       ],
+ *     },
+ *     Type: 'HTTP' || 'DNS_HTTP' || 'DNS',
+ *     HealthCheckConfig: { // HealthCheckConfig
+ *       Type: 'HTTP' || 'HTTPS' || 'TCP', // required
+ *       ResourcePath: 'STRING_VALUE',
+ *       FailureThreshold: Number('int'),
+ *     },
+ *     HealthCheckCustomConfig: { // HealthCheckCustomConfig
+ *       FailureThreshold: Number('int'),
+ *     },
+ *     CreateDate: new Date('TIMESTAMP'),
+ *     CreatorRequestId: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateServiceCommandInput - {@link CreateServiceCommandInput}
@@ -140,6 +173,8 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  *  <p>The list of tags on the resource is over the quota. The maximum number of tags that can be
  *    applied to a resource is 50.</p>
  *
+ * @throws {@link ServiceDiscoveryServiceException}
+ * <p>Base exception class for all service exceptions from ServiceDiscovery service.</p>
  *
  * @example Example: Create service
  * ```javascript

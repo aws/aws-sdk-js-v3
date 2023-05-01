@@ -36,18 +36,21 @@ export interface UpdateContactChannelCommandOutput extends UpdateContactChannelR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMContactsClient, UpdateContactChannelCommand } from "@aws-sdk/client-ssm-contacts"; // ES Modules import
- * // const { SSMContactsClient, UpdateContactChannelCommand } = require("@aws-sdk/client-ssm-contacts"); // CommonJS import
+ * import { SSMContactsClient, UpdateContactChannelCommand } from '@aws-sdk/client-ssm-contacts'; // ES Modules import
+ * // const { SSMContactsClient, UpdateContactChannelCommand } = require('@aws-sdk/client-ssm-contacts'); // CommonJS import
  * const client = new SSMContactsClient(config);
  * const input = { // UpdateContactChannelRequest
- *   ContactChannelId: "STRING_VALUE", // required
- *   Name: "STRING_VALUE",
+ *   ContactChannelId: 'STRING_VALUE', // required
+ *   Name: 'STRING_VALUE',
  *   DeliveryAddress: { // ContactChannelAddress
- *     SimpleAddress: "STRING_VALUE",
+ *     SimpleAddress: 'STRING_VALUE',
  *   },
  * };
  * const command = new UpdateContactChannelCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateContactChannelCommandInput - {@link UpdateContactChannelCommandInput}
@@ -78,6 +81,8 @@ export interface UpdateContactChannelCommandOutput extends UpdateContactChannelR
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
  *          service.</p>
  *
+ * @throws {@link SSMContactsServiceException}
+ * <p>Base exception class for all service exceptions from SSMContacts service.</p>
  *
  */
 export class UpdateContactChannelCommand extends $Command<

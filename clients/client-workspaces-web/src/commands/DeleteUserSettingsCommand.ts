@@ -36,14 +36,17 @@ export interface DeleteUserSettingsCommandOutput extends DeleteUserSettingsRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkSpacesWebClient, DeleteUserSettingsCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
- * // const { WorkSpacesWebClient, DeleteUserSettingsCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
+ * import { WorkSpacesWebClient, DeleteUserSettingsCommand } from '@aws-sdk/client-workspaces-web'; // ES Modules import
+ * // const { WorkSpacesWebClient, DeleteUserSettingsCommand } = require('@aws-sdk/client-workspaces-web'); // CommonJS import
  * const client = new WorkSpacesWebClient(config);
  * const input = { // DeleteUserSettingsRequest
- *   userSettingsArn: "STRING_VALUE", // required
+ *   userSettingsArn: 'STRING_VALUE', // required
  * };
  * const command = new DeleteUserSettingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteUserSettingsCommandInput - {@link DeleteUserSettingsCommandInput}
@@ -67,6 +70,8 @@ export interface DeleteUserSettingsCommandOutput extends DeleteUserSettingsRespo
  * @throws {@link ValidationException} (client fault)
  *  <p>There is a validation error.</p>
  *
+ * @throws {@link WorkSpacesWebServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
  */
 export class DeleteUserSettingsCommand extends $Command<

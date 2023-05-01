@@ -48,50 +48,55 @@ export interface CreateFeatureGroupCommandOutput extends CreateFeatureGroupRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, CreateFeatureGroupCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, CreateFeatureGroupCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, CreateFeatureGroupCommand } from '@aws-sdk/client-sagemaker'; // ES Modules import
+ * // const { SageMakerClient, CreateFeatureGroupCommand } = require('@aws-sdk/client-sagemaker'); // CommonJS import
  * const client = new SageMakerClient(config);
  * const input = { // CreateFeatureGroupRequest
- *   FeatureGroupName: "STRING_VALUE", // required
- *   RecordIdentifierFeatureName: "STRING_VALUE", // required
- *   EventTimeFeatureName: "STRING_VALUE", // required
+ *   FeatureGroupName: 'STRING_VALUE', // required
+ *   RecordIdentifierFeatureName: 'STRING_VALUE', // required
+ *   EventTimeFeatureName: 'STRING_VALUE', // required
  *   FeatureDefinitions: [ // FeatureDefinitions // required
  *     { // FeatureDefinition
- *       FeatureName: "STRING_VALUE",
- *       FeatureType: "Integral" || "Fractional" || "String",
+ *       FeatureName: 'STRING_VALUE',
+ *       FeatureType: 'Integral' || 'Fractional' || 'String',
  *     },
  *   ],
  *   OnlineStoreConfig: { // OnlineStoreConfig
  *     SecurityConfig: { // OnlineStoreSecurityConfig
- *       KmsKeyId: "STRING_VALUE",
+ *       KmsKeyId: 'STRING_VALUE',
  *     },
  *     EnableOnlineStore: true || false,
  *   },
  *   OfflineStoreConfig: { // OfflineStoreConfig
  *     S3StorageConfig: { // S3StorageConfig
- *       S3Uri: "STRING_VALUE", // required
- *       KmsKeyId: "STRING_VALUE",
- *       ResolvedOutputS3Uri: "STRING_VALUE",
+ *       S3Uri: 'STRING_VALUE', // required
+ *       KmsKeyId: 'STRING_VALUE',
+ *       ResolvedOutputS3Uri: 'STRING_VALUE',
  *     },
  *     DisableGlueTableCreation: true || false,
  *     DataCatalogConfig: { // DataCatalogConfig
- *       TableName: "STRING_VALUE", // required
- *       Catalog: "STRING_VALUE", // required
- *       Database: "STRING_VALUE", // required
+ *       TableName: 'STRING_VALUE', // required
+ *       Catalog: 'STRING_VALUE', // required
+ *       Database: 'STRING_VALUE', // required
  *     },
- *     TableFormat: "Glue" || "Iceberg",
+ *     TableFormat: 'Glue' || 'Iceberg',
  *   },
- *   RoleArn: "STRING_VALUE",
- *   Description: "STRING_VALUE",
+ *   RoleArn: 'STRING_VALUE',
+ *   Description: 'STRING_VALUE',
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreateFeatureGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateFeatureGroupResponse
+ *   FeatureGroupArn: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param CreateFeatureGroupCommandInput - {@link CreateFeatureGroupCommandInput}
@@ -107,6 +112,8 @@ export interface CreateFeatureGroupCommandOutput extends CreateFeatureGroupRespo
  *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many
  *             training jobs created. </p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class CreateFeatureGroupCommand extends $Command<

@@ -38,15 +38,29 @@ export interface DescribeInsightRulesCommandOutput extends DescribeInsightRulesO
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudWatchClient, DescribeInsightRulesCommand } from "@aws-sdk/client-cloudwatch"; // ES Modules import
- * // const { CloudWatchClient, DescribeInsightRulesCommand } = require("@aws-sdk/client-cloudwatch"); // CommonJS import
+ * import { CloudWatchClient, DescribeInsightRulesCommand } from '@aws-sdk/client-cloudwatch'; // ES Modules import
+ * // const { CloudWatchClient, DescribeInsightRulesCommand } = require('@aws-sdk/client-cloudwatch'); // CommonJS import
  * const client = new CloudWatchClient(config);
  * const input = { // DescribeInsightRulesInput
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new DescribeInsightRulesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeInsightRulesOutput
+ *   NextToken: 'STRING_VALUE',
+ *   InsightRules: [ // InsightRules
+ *     { // InsightRule
+ *       Name: 'STRING_VALUE', // required
+ *       State: 'STRING_VALUE', // required
+ *       Schema: 'STRING_VALUE', // required
+ *       Definition: 'STRING_VALUE', // required
+ *       ManagedRule: true || false,
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeInsightRulesCommandInput - {@link DescribeInsightRulesCommandInput}
@@ -58,6 +72,8 @@ export interface DescribeInsightRulesCommandOutput extends DescribeInsightRulesO
  * @throws {@link InvalidNextToken} (client fault)
  *  <p>The next token specified is invalid.</p>
  *
+ * @throws {@link CloudWatchServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatch service.</p>
  *
  */
 export class DescribeInsightRulesCommand extends $Command<

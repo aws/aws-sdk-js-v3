@@ -36,17 +36,29 @@ export interface BatchAssociateScramSecretCommandOutput extends BatchAssociateSc
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KafkaClient, BatchAssociateScramSecretCommand } from "@aws-sdk/client-kafka"; // ES Modules import
- * // const { KafkaClient, BatchAssociateScramSecretCommand } = require("@aws-sdk/client-kafka"); // CommonJS import
+ * import { KafkaClient, BatchAssociateScramSecretCommand } from '@aws-sdk/client-kafka'; // ES Modules import
+ * // const { KafkaClient, BatchAssociateScramSecretCommand } = require('@aws-sdk/client-kafka'); // CommonJS import
  * const client = new KafkaClient(config);
  * const input = { // BatchAssociateScramSecretRequest
- *   ClusterArn: "STRING_VALUE", // required
+ *   ClusterArn: 'STRING_VALUE', // required
  *   SecretArnList: [ // __listOf__string // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new BatchAssociateScramSecretCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BatchAssociateScramSecretResponse
+ *   ClusterArn: 'STRING_VALUE',
+ *   UnprocessedScramSecrets: [ // __listOfUnprocessedScramSecret
+ *     { // UnprocessedScramSecret
+ *       ErrorCode: 'STRING_VALUE',
+ *       ErrorMessage: 'STRING_VALUE',
+ *       SecretArn: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param BatchAssociateScramSecretCommandInput - {@link BatchAssociateScramSecretCommandInput}
@@ -76,6 +88,8 @@ export interface BatchAssociateScramSecretCommandOutput extends BatchAssociateSc
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>Returns information about an error.</p>
  *
+ * @throws {@link KafkaServiceException}
+ * <p>Base exception class for all service exceptions from Kafka service.</p>
  *
  */
 export class BatchAssociateScramSecretCommand extends $Command<

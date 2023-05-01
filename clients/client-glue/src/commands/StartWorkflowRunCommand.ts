@@ -36,17 +36,22 @@ export interface StartWorkflowRunCommandOutput extends StartWorkflowRunResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlueClient, StartWorkflowRunCommand } from "@aws-sdk/client-glue"; // ES Modules import
- * // const { GlueClient, StartWorkflowRunCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * import { GlueClient, StartWorkflowRunCommand } from '@aws-sdk/client-glue'; // ES Modules import
+ * // const { GlueClient, StartWorkflowRunCommand } = require('@aws-sdk/client-glue'); // CommonJS import
  * const client = new GlueClient(config);
  * const input = { // StartWorkflowRunRequest
- *   Name: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
  *   RunProperties: { // WorkflowRunProperties
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new StartWorkflowRunCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartWorkflowRunResponse
+ *   RunId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param StartWorkflowRunCommandInput - {@link StartWorkflowRunCommandInput}
@@ -73,6 +78,8 @@ export interface StartWorkflowRunCommandOutput extends StartWorkflowRunResponse,
  * @throws {@link ResourceNumberLimitExceededException} (client fault)
  *  <p>A resource numerical limit was exceeded.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class StartWorkflowRunCommand extends $Command<

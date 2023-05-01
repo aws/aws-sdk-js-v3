@@ -41,26 +41,37 @@ export interface BatchPutScheduledUpdateGroupActionCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AutoScalingClient, BatchPutScheduledUpdateGroupActionCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
- * // const { AutoScalingClient, BatchPutScheduledUpdateGroupActionCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
+ * import { AutoScalingClient, BatchPutScheduledUpdateGroupActionCommand } from '@aws-sdk/client-auto-scaling'; // ES Modules import
+ * // const { AutoScalingClient, BatchPutScheduledUpdateGroupActionCommand } = require('@aws-sdk/client-auto-scaling'); // CommonJS import
  * const client = new AutoScalingClient(config);
  * const input = { // BatchPutScheduledUpdateGroupActionType
- *   AutoScalingGroupName: "STRING_VALUE", // required
+ *   AutoScalingGroupName: 'STRING_VALUE', // required
  *   ScheduledUpdateGroupActions: [ // ScheduledUpdateGroupActionRequests // required
  *     { // ScheduledUpdateGroupActionRequest
- *       ScheduledActionName: "STRING_VALUE", // required
- *       StartTime: new Date("TIMESTAMP"),
- *       EndTime: new Date("TIMESTAMP"),
- *       Recurrence: "STRING_VALUE",
- *       MinSize: Number("int"),
- *       MaxSize: Number("int"),
- *       DesiredCapacity: Number("int"),
- *       TimeZone: "STRING_VALUE",
+ *       ScheduledActionName: 'STRING_VALUE', // required
+ *       StartTime: new Date('TIMESTAMP'),
+ *       EndTime: new Date('TIMESTAMP'),
+ *       Recurrence: 'STRING_VALUE',
+ *       MinSize: Number('int'),
+ *       MaxSize: Number('int'),
+ *       DesiredCapacity: Number('int'),
+ *       TimeZone: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new BatchPutScheduledUpdateGroupActionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BatchPutScheduledUpdateGroupActionAnswer
+ *   FailedScheduledUpdateGroupActions: [ // FailedScheduledUpdateGroupActionRequests
+ *     { // FailedScheduledUpdateGroupActionRequest
+ *       ScheduledActionName: 'STRING_VALUE', // required
+ *       ErrorCode: 'STRING_VALUE',
+ *       ErrorMessage: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param BatchPutScheduledUpdateGroupActionCommandInput - {@link BatchPutScheduledUpdateGroupActionCommandInput}
@@ -82,6 +93,8 @@ export interface BatchPutScheduledUpdateGroupActionCommandOutput
  *  <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group,
  *             instance, or load balancer).</p>
  *
+ * @throws {@link AutoScalingServiceException}
+ * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
  */
 export class BatchPutScheduledUpdateGroupActionCommand extends $Command<

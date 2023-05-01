@@ -37,18 +37,102 @@ export interface GetAnomalyMonitorsCommandOutput extends GetAnomalyMonitorsRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CostExplorerClient, GetAnomalyMonitorsCommand } from "@aws-sdk/client-cost-explorer"; // ES Modules import
- * // const { CostExplorerClient, GetAnomalyMonitorsCommand } = require("@aws-sdk/client-cost-explorer"); // CommonJS import
+ * import { CostExplorerClient, GetAnomalyMonitorsCommand } from '@aws-sdk/client-cost-explorer'; // ES Modules import
+ * // const { CostExplorerClient, GetAnomalyMonitorsCommand } = require('@aws-sdk/client-cost-explorer'); // CommonJS import
  * const client = new CostExplorerClient(config);
  * const input = { // GetAnomalyMonitorsRequest
  *   MonitorArnList: [ // Values
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   NextPageToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextPageToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new GetAnomalyMonitorsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetAnomalyMonitorsResponse
+ *   AnomalyMonitors: [ // AnomalyMonitors // required
+ *     { // AnomalyMonitor
+ *       MonitorArn: 'STRING_VALUE',
+ *       MonitorName: 'STRING_VALUE', // required
+ *       CreationDate: 'STRING_VALUE',
+ *       LastUpdatedDate: 'STRING_VALUE',
+ *       LastEvaluatedDate: 'STRING_VALUE',
+ *       MonitorType: 'DIMENSIONAL' || 'CUSTOM', // required
+ *       MonitorDimension: 'SERVICE',
+ *       MonitorSpecification: { // Expression
+ *         Or: [ // Expressions
+ *           {
+ *             Or: [
+ *               '<Expression>',
+ *             ],
+ *             And: [
+ *               '<Expression>',
+ *             ],
+ *             Not: '<Expression>',
+ *             Dimensions: { // DimensionValues
+ *               Key: 'AZ' || 'INSTANCE_TYPE' || 'LINKED_ACCOUNT' || 'LINKED_ACCOUNT_NAME' || 'OPERATION' || 'PURCHASE_TYPE' || 'REGION' || 'SERVICE' || 'SERVICE_CODE' || 'USAGE_TYPE' || 'USAGE_TYPE_GROUP' || 'RECORD_TYPE' || 'OPERATING_SYSTEM' || 'TENANCY' || 'SCOPE' || 'PLATFORM' || 'SUBSCRIPTION_ID' || 'LEGAL_ENTITY_NAME' || 'DEPLOYMENT_OPTION' || 'DATABASE_ENGINE' || 'CACHE_ENGINE' || 'INSTANCE_TYPE_FAMILY' || 'BILLING_ENTITY' || 'RESERVATION_ID' || 'RESOURCE_ID' || 'RIGHTSIZING_TYPE' || 'SAVINGS_PLANS_TYPE' || 'SAVINGS_PLAN_ARN' || 'PAYMENT_OPTION' || 'AGREEMENT_END_DATE_TIME_AFTER' || 'AGREEMENT_END_DATE_TIME_BEFORE' || 'INVOICING_ENTITY' || 'ANOMALY_TOTAL_IMPACT_ABSOLUTE' || 'ANOMALY_TOTAL_IMPACT_PERCENTAGE',
+ *               Values: [ // Values
+ *                 'STRING_VALUE',
+ *               ],
+ *               MatchOptions: [ // MatchOptions
+ *                 'EQUALS' || 'ABSENT' || 'STARTS_WITH' || 'ENDS_WITH' || 'CONTAINS' || 'CASE_SENSITIVE' || 'CASE_INSENSITIVE' || 'GREATER_THAN_OR_EQUAL',
+ *               ],
+ *             },
+ *             Tags: { // TagValues
+ *               Key: 'STRING_VALUE',
+ *               Values: [
+ *                 'STRING_VALUE',
+ *               ],
+ *               MatchOptions: [
+ *                 'EQUALS' || 'ABSENT' || 'STARTS_WITH' || 'ENDS_WITH' || 'CONTAINS' || 'CASE_SENSITIVE' || 'CASE_INSENSITIVE' || 'GREATER_THAN_OR_EQUAL',
+ *               ],
+ *             },
+ *             CostCategories: { // CostCategoryValues
+ *               Key: 'STRING_VALUE',
+ *               Values: [
+ *                 'STRING_VALUE',
+ *               ],
+ *               MatchOptions: [
+ *                 'EQUALS' || 'ABSENT' || 'STARTS_WITH' || 'ENDS_WITH' || 'CONTAINS' || 'CASE_SENSITIVE' || 'CASE_INSENSITIVE' || 'GREATER_THAN_OR_EQUAL',
+ *               ],
+ *             },
+ *           },
+ *         ],
+ *         And: [
+ *           '<Expression>',
+ *         ],
+ *         Not: '<Expression>',
+ *         Dimensions: {
+ *           Key: 'AZ' || 'INSTANCE_TYPE' || 'LINKED_ACCOUNT' || 'LINKED_ACCOUNT_NAME' || 'OPERATION' || 'PURCHASE_TYPE' || 'REGION' || 'SERVICE' || 'SERVICE_CODE' || 'USAGE_TYPE' || 'USAGE_TYPE_GROUP' || 'RECORD_TYPE' || 'OPERATING_SYSTEM' || 'TENANCY' || 'SCOPE' || 'PLATFORM' || 'SUBSCRIPTION_ID' || 'LEGAL_ENTITY_NAME' || 'DEPLOYMENT_OPTION' || 'DATABASE_ENGINE' || 'CACHE_ENGINE' || 'INSTANCE_TYPE_FAMILY' || 'BILLING_ENTITY' || 'RESERVATION_ID' || 'RESOURCE_ID' || 'RIGHTSIZING_TYPE' || 'SAVINGS_PLANS_TYPE' || 'SAVINGS_PLAN_ARN' || 'PAYMENT_OPTION' || 'AGREEMENT_END_DATE_TIME_AFTER' || 'AGREEMENT_END_DATE_TIME_BEFORE' || 'INVOICING_ENTITY' || 'ANOMALY_TOTAL_IMPACT_ABSOLUTE' || 'ANOMALY_TOTAL_IMPACT_PERCENTAGE',
+ *           Values: [
+ *             'STRING_VALUE',
+ *           ],
+ *           MatchOptions: [
+ *             'EQUALS' || 'ABSENT' || 'STARTS_WITH' || 'ENDS_WITH' || 'CONTAINS' || 'CASE_SENSITIVE' || 'CASE_INSENSITIVE' || 'GREATER_THAN_OR_EQUAL',
+ *           ],
+ *         },
+ *         Tags: {
+ *           Key: 'STRING_VALUE',
+ *           Values: [
+ *             'STRING_VALUE',
+ *           ],
+ *           MatchOptions: [
+ *             'EQUALS' || 'ABSENT' || 'STARTS_WITH' || 'ENDS_WITH' || 'CONTAINS' || 'CASE_SENSITIVE' || 'CASE_INSENSITIVE' || 'GREATER_THAN_OR_EQUAL',
+ *           ],
+ *         },
+ *         CostCategories: {
+ *           Key: 'STRING_VALUE',
+ *           Values: '<Values>',
+ *           MatchOptions: '<MatchOptions>',
+ *         },
+ *       },
+ *       DimensionalValueCount: Number('int'),
+ *     },
+ *   ],
+ *   NextPageToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetAnomalyMonitorsCommandInput - {@link GetAnomalyMonitorsCommandInput}
@@ -66,6 +150,8 @@ export interface GetAnomalyMonitorsCommandOutput extends GetAnomalyMonitorsRespo
  * @throws {@link UnknownMonitorException} (client fault)
  *  <p>The cost anomaly monitor does not exist for the account. </p>
  *
+ * @throws {@link CostExplorerServiceException}
+ * <p>Base exception class for all service exceptions from CostExplorer service.</p>
  *
  */
 export class GetAnomalyMonitorsCommand extends $Command<

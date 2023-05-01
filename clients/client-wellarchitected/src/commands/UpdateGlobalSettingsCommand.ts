@@ -36,14 +36,17 @@ export interface UpdateGlobalSettingsCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WellArchitectedClient, UpdateGlobalSettingsCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
- * // const { WellArchitectedClient, UpdateGlobalSettingsCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
+ * import { WellArchitectedClient, UpdateGlobalSettingsCommand } from '@aws-sdk/client-wellarchitected'; // ES Modules import
+ * // const { WellArchitectedClient, UpdateGlobalSettingsCommand } = require('@aws-sdk/client-wellarchitected'); // CommonJS import
  * const client = new WellArchitectedClient(config);
  * const input = { // UpdateGlobalSettingsInput
- *   OrganizationSharingStatus: "ENABLED" || "DISABLED",
+ *   OrganizationSharingStatus: 'ENABLED' || 'DISABLED',
  * };
  * const command = new UpdateGlobalSettingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateGlobalSettingsCommandInput - {@link UpdateGlobalSettingsCommandInput}
@@ -67,6 +70,8 @@ export interface UpdateGlobalSettingsCommandOutput extends __MetadataBearer {}
  * @throws {@link ValidationException} (client fault)
  *  <p>The user input is not valid.</p>
  *
+ * @throws {@link WellArchitectedServiceException}
+ * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
  */
 export class UpdateGlobalSettingsCommand extends $Command<

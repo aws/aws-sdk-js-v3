@@ -90,26 +90,31 @@ export interface UpdateRateBasedRuleCommandOutput extends UpdateRateBasedRuleRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WAFRegionalClient, UpdateRateBasedRuleCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
- * // const { WAFRegionalClient, UpdateRateBasedRuleCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import
+ * import { WAFRegionalClient, UpdateRateBasedRuleCommand } from '@aws-sdk/client-waf-regional'; // ES Modules import
+ * // const { WAFRegionalClient, UpdateRateBasedRuleCommand } = require('@aws-sdk/client-waf-regional'); // CommonJS import
  * const client = new WAFRegionalClient(config);
  * const input = { // UpdateRateBasedRuleRequest
- *   RuleId: "STRING_VALUE", // required
- *   ChangeToken: "STRING_VALUE", // required
+ *   RuleId: 'STRING_VALUE', // required
+ *   ChangeToken: 'STRING_VALUE', // required
  *   Updates: [ // RuleUpdates // required
  *     { // RuleUpdate
- *       Action: "STRING_VALUE", // required
+ *       Action: 'STRING_VALUE', // required
  *       Predicate: { // Predicate
  *         Negated: true || false, // required
- *         Type: "STRING_VALUE", // required
- *         DataId: "STRING_VALUE", // required
+ *         Type: 'STRING_VALUE', // required
+ *         DataId: 'STRING_VALUE', // required
  *       },
  *     },
  *   ],
- *   RateLimit: Number("long"), // required
+ *   RateLimit: Number('long'), // required
  * };
  * const command = new UpdateRateBasedRuleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateRateBasedRuleResponse
+ *   ChangeToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateRateBasedRuleCommandInput - {@link UpdateRateBasedRuleCommandInput}
@@ -227,6 +232,8 @@ export interface UpdateRateBasedRuleCommandOutput extends UpdateRateBasedRuleRes
  * @throws {@link WAFStaleDataException} (client fault)
  *  <p>The operation failed because you tried to create, update, or delete an object by using a change token that has already been used.</p>
  *
+ * @throws {@link WAFRegionalServiceException}
+ * <p>Base exception class for all service exceptions from WAFRegional service.</p>
  *
  */
 export class UpdateRateBasedRuleCommand extends $Command<

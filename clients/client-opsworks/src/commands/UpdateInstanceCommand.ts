@@ -41,27 +41,30 @@ export interface UpdateInstanceCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OpsWorksClient, UpdateInstanceCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
- * // const { OpsWorksClient, UpdateInstanceCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
+ * import { OpsWorksClient, UpdateInstanceCommand } from '@aws-sdk/client-opsworks'; // ES Modules import
+ * // const { OpsWorksClient, UpdateInstanceCommand } = require('@aws-sdk/client-opsworks'); // CommonJS import
  * const client = new OpsWorksClient(config);
  * const input = { // UpdateInstanceRequest
- *   InstanceId: "STRING_VALUE", // required
+ *   InstanceId: 'STRING_VALUE', // required
  *   LayerIds: [ // Strings
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   InstanceType: "STRING_VALUE",
- *   AutoScalingType: "STRING_VALUE",
- *   Hostname: "STRING_VALUE",
- *   Os: "STRING_VALUE",
- *   AmiId: "STRING_VALUE",
- *   SshKeyName: "STRING_VALUE",
- *   Architecture: "STRING_VALUE",
+ *   InstanceType: 'STRING_VALUE',
+ *   AutoScalingType: 'STRING_VALUE',
+ *   Hostname: 'STRING_VALUE',
+ *   Os: 'STRING_VALUE',
+ *   AmiId: 'STRING_VALUE',
+ *   SshKeyName: 'STRING_VALUE',
+ *   Architecture: 'STRING_VALUE',
  *   InstallUpdatesOnBoot: true || false,
  *   EbsOptimized: true || false,
- *   AgentVersion: "STRING_VALUE",
+ *   AgentVersion: 'STRING_VALUE',
  * };
  * const command = new UpdateInstanceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateInstanceCommandInput - {@link UpdateInstanceCommandInput}
@@ -76,6 +79,8 @@ export interface UpdateInstanceCommandOutput extends __MetadataBearer {}
  * @throws {@link ValidationException} (client fault)
  *  <p>Indicates that a request was not valid.</p>
  *
+ * @throws {@link OpsWorksServiceException}
+ * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
  */
 export class UpdateInstanceCommand extends $Command<

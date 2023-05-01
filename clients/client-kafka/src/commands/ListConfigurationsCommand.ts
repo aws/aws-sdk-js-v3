@@ -36,15 +36,37 @@ export interface ListConfigurationsCommandOutput extends ListConfigurationsRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KafkaClient, ListConfigurationsCommand } from "@aws-sdk/client-kafka"; // ES Modules import
- * // const { KafkaClient, ListConfigurationsCommand } = require("@aws-sdk/client-kafka"); // CommonJS import
+ * import { KafkaClient, ListConfigurationsCommand } from '@aws-sdk/client-kafka'; // ES Modules import
+ * // const { KafkaClient, ListConfigurationsCommand } = require('@aws-sdk/client-kafka'); // CommonJS import
  * const client = new KafkaClient(config);
  * const input = { // ListConfigurationsRequest
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListConfigurationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListConfigurationsResponse
+ *   Configurations: [ // __listOfConfiguration
+ *     { // Configuration
+ *       Arn: 'STRING_VALUE', // required
+ *       CreationTime: new Date('TIMESTAMP'), // required
+ *       Description: 'STRING_VALUE', // required
+ *       KafkaVersions: [ // __listOf__string // required
+ *         'STRING_VALUE',
+ *       ],
+ *       LatestRevision: { // ConfigurationRevision
+ *         CreationTime: new Date('TIMESTAMP'), // required
+ *         Description: 'STRING_VALUE',
+ *         Revision: Number('long'), // required
+ *       },
+ *       Name: 'STRING_VALUE', // required
+ *       State: 'ACTIVE' || 'DELETING' || 'DELETE_FAILED', // required
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListConfigurationsCommandInput - {@link ListConfigurationsCommandInput}
@@ -68,6 +90,8 @@ export interface ListConfigurationsCommandOutput extends ListConfigurationsRespo
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>Returns information about an error.</p>
  *
+ * @throws {@link KafkaServiceException}
+ * <p>Base exception class for all service exceptions from Kafka service.</p>
  *
  */
 export class ListConfigurationsCommand extends $Command<

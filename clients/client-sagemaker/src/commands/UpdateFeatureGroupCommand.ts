@@ -36,20 +36,25 @@ export interface UpdateFeatureGroupCommandOutput extends UpdateFeatureGroupRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, UpdateFeatureGroupCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, UpdateFeatureGroupCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, UpdateFeatureGroupCommand } from '@aws-sdk/client-sagemaker'; // ES Modules import
+ * // const { SageMakerClient, UpdateFeatureGroupCommand } = require('@aws-sdk/client-sagemaker'); // CommonJS import
  * const client = new SageMakerClient(config);
  * const input = { // UpdateFeatureGroupRequest
- *   FeatureGroupName: "STRING_VALUE", // required
+ *   FeatureGroupName: 'STRING_VALUE', // required
  *   FeatureAdditions: [ // FeatureAdditions
  *     { // FeatureDefinition
- *       FeatureName: "STRING_VALUE",
- *       FeatureType: "Integral" || "Fractional" || "String",
+ *       FeatureName: 'STRING_VALUE',
+ *       FeatureType: 'Integral' || 'Fractional' || 'String',
  *     },
  *   ],
  * };
  * const command = new UpdateFeatureGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateFeatureGroupResponse
+ *   FeatureGroupArn: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param UpdateFeatureGroupCommandInput - {@link UpdateFeatureGroupCommandInput}
@@ -61,6 +66,8 @@ export interface UpdateFeatureGroupCommandOutput extends UpdateFeatureGroupRespo
  * @throws {@link ResourceNotFound} (client fault)
  *  <p>Resource being access is not found.</p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class UpdateFeatureGroupCommand extends $Command<

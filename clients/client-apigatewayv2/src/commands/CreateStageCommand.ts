@@ -36,45 +36,84 @@ export interface CreateStageCommandOutput extends CreateStageResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ApiGatewayV2Client, CreateStageCommand } from "@aws-sdk/client-apigatewayv2"; // ES Modules import
- * // const { ApiGatewayV2Client, CreateStageCommand } = require("@aws-sdk/client-apigatewayv2"); // CommonJS import
+ * import { ApiGatewayV2Client, CreateStageCommand } from '@aws-sdk/client-apigatewayv2'; // ES Modules import
+ * // const { ApiGatewayV2Client, CreateStageCommand } = require('@aws-sdk/client-apigatewayv2'); // CommonJS import
  * const client = new ApiGatewayV2Client(config);
  * const input = { // CreateStageRequest
  *   AccessLogSettings: { // AccessLogSettings
- *     DestinationArn: "STRING_VALUE",
- *     Format: "STRING_VALUE",
+ *     DestinationArn: 'STRING_VALUE',
+ *     Format: 'STRING_VALUE',
  *   },
- *   ApiId: "STRING_VALUE", // required
+ *   ApiId: 'STRING_VALUE', // required
  *   AutoDeploy: true || false,
- *   ClientCertificateId: "STRING_VALUE",
+ *   ClientCertificateId: 'STRING_VALUE',
  *   DefaultRouteSettings: { // RouteSettings
  *     DataTraceEnabled: true || false,
  *     DetailedMetricsEnabled: true || false,
- *     LoggingLevel: "STRING_VALUE",
- *     ThrottlingBurstLimit: Number("int"),
- *     ThrottlingRateLimit: Number("double"),
+ *     LoggingLevel: 'STRING_VALUE',
+ *     ThrottlingBurstLimit: Number('int'),
+ *     ThrottlingRateLimit: Number('double'),
  *   },
- *   DeploymentId: "STRING_VALUE",
- *   Description: "STRING_VALUE",
+ *   DeploymentId: 'STRING_VALUE',
+ *   Description: 'STRING_VALUE',
  *   RouteSettings: { // RouteSettingsMap
- *     "<keys>": {
+ *     '<keys>': {
  *       DataTraceEnabled: true || false,
  *       DetailedMetricsEnabled: true || false,
- *       LoggingLevel: "STRING_VALUE",
- *       ThrottlingBurstLimit: Number("int"),
- *       ThrottlingRateLimit: Number("double"),
+ *       LoggingLevel: 'STRING_VALUE',
+ *       ThrottlingBurstLimit: Number('int'),
+ *       ThrottlingRateLimit: Number('double'),
  *     },
  *   },
- *   StageName: "STRING_VALUE", // required
+ *   StageName: 'STRING_VALUE', // required
  *   StageVariables: { // StageVariablesMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  *   Tags: { // Tags
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateStageCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateStageResponse
+ *   AccessLogSettings: { // AccessLogSettings
+ *     DestinationArn: 'STRING_VALUE',
+ *     Format: 'STRING_VALUE',
+ *   },
+ *   ApiGatewayManaged: true || false,
+ *   AutoDeploy: true || false,
+ *   ClientCertificateId: 'STRING_VALUE',
+ *   CreatedDate: new Date('TIMESTAMP'),
+ *   DefaultRouteSettings: { // RouteSettings
+ *     DataTraceEnabled: true || false,
+ *     DetailedMetricsEnabled: true || false,
+ *     LoggingLevel: 'STRING_VALUE',
+ *     ThrottlingBurstLimit: Number('int'),
+ *     ThrottlingRateLimit: Number('double'),
+ *   },
+ *   DeploymentId: 'STRING_VALUE',
+ *   Description: 'STRING_VALUE',
+ *   LastDeploymentStatusMessage: 'STRING_VALUE',
+ *   LastUpdatedDate: new Date('TIMESTAMP'),
+ *   RouteSettings: { // RouteSettingsMap
+ *     '<keys>': {
+ *       DataTraceEnabled: true || false,
+ *       DetailedMetricsEnabled: true || false,
+ *       LoggingLevel: 'STRING_VALUE',
+ *       ThrottlingBurstLimit: Number('int'),
+ *       ThrottlingRateLimit: Number('double'),
+ *     },
+ *   },
+ *   StageName: 'STRING_VALUE',
+ *   StageVariables: { // StageVariablesMap
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ *   Tags: { // Tags
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateStageCommandInput - {@link CreateStageCommandInput}
@@ -95,6 +134,8 @@ export interface CreateStageCommandOutput extends CreateStageResponse, __Metadat
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>A limit has been exceeded. See the accompanying error message for details.</p>
  *
+ * @throws {@link ApiGatewayV2ServiceException}
+ * <p>Base exception class for all service exceptions from ApiGatewayV2 service.</p>
  *
  */
 export class CreateStageCommand extends $Command<

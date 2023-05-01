@@ -39,22 +39,41 @@ export interface ListAssetsCommandOutput extends ListAssetsOutput, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OutpostsClient, ListAssetsCommand } from "@aws-sdk/client-outposts"; // ES Modules import
- * // const { OutpostsClient, ListAssetsCommand } = require("@aws-sdk/client-outposts"); // CommonJS import
+ * import { OutpostsClient, ListAssetsCommand } from '@aws-sdk/client-outposts'; // ES Modules import
+ * // const { OutpostsClient, ListAssetsCommand } = require('@aws-sdk/client-outposts'); // CommonJS import
  * const client = new OutpostsClient(config);
  * const input = { // ListAssetsInput
- *   OutpostIdentifier: "STRING_VALUE", // required
+ *   OutpostIdentifier: 'STRING_VALUE', // required
  *   HostIdFilter: [ // HostIdList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  *   StatusFilter: [ // StatusList
- *     "ACTIVE" || "RETIRING",
+ *     'ACTIVE' || 'RETIRING',
  *   ],
  * };
  * const command = new ListAssetsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListAssetsOutput
+ *   Assets: [ // AssetListDefinition
+ *     { // AssetInfo
+ *       AssetId: 'STRING_VALUE',
+ *       RackId: 'STRING_VALUE',
+ *       AssetType: 'COMPUTE',
+ *       ComputeAttributes: { // ComputeAttributes
+ *         HostId: 'STRING_VALUE',
+ *         State: 'ACTIVE' || 'ISOLATED' || 'RETIRING',
+ *       },
+ *       AssetLocation: { // AssetLocation
+ *         RackElevation: Number('float'),
+ *       },
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListAssetsCommandInput - {@link ListAssetsCommandInput}
@@ -75,6 +94,8 @@ export interface ListAssetsCommandOutput extends ListAssetsOutput, __MetadataBea
  * @throws {@link ValidationException} (client fault)
  *  <p>A parameter is not valid.</p>
  *
+ * @throws {@link OutpostsServiceException}
+ * <p>Base exception class for all service exceptions from Outposts service.</p>
  *
  */
 export class ListAssetsCommand extends $Command<

@@ -45,24 +45,55 @@ export interface DescribeMaintenanceWindowExecutionTasksCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMClient, DescribeMaintenanceWindowExecutionTasksCommand } from "@aws-sdk/client-ssm"; // ES Modules import
- * // const { SSMClient, DescribeMaintenanceWindowExecutionTasksCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * import { SSMClient, DescribeMaintenanceWindowExecutionTasksCommand } from '@aws-sdk/client-ssm'; // ES Modules import
+ * // const { SSMClient, DescribeMaintenanceWindowExecutionTasksCommand } = require('@aws-sdk/client-ssm'); // CommonJS import
  * const client = new SSMClient(config);
  * const input = { // DescribeMaintenanceWindowExecutionTasksRequest
- *   WindowExecutionId: "STRING_VALUE", // required
+ *   WindowExecutionId: 'STRING_VALUE', // required
  *   Filters: [ // MaintenanceWindowFilterList
  *     { // MaintenanceWindowFilter
- *       Key: "STRING_VALUE",
+ *       Key: 'STRING_VALUE',
  *       Values: [ // MaintenanceWindowFilterValues
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new DescribeMaintenanceWindowExecutionTasksCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeMaintenanceWindowExecutionTasksResult
+ *   WindowExecutionTaskIdentities: [ // MaintenanceWindowExecutionTaskIdentityList
+ *     { // MaintenanceWindowExecutionTaskIdentity
+ *       WindowExecutionId: 'STRING_VALUE',
+ *       TaskExecutionId: 'STRING_VALUE',
+ *       Status: 'PENDING' || 'IN_PROGRESS' || 'SUCCESS' || 'FAILED' || 'TIMED_OUT' || 'CANCELLING' || 'CANCELLED' || 'SKIPPED_OVERLAPPING',
+ *       StatusDetails: 'STRING_VALUE',
+ *       StartTime: new Date('TIMESTAMP'),
+ *       EndTime: new Date('TIMESTAMP'),
+ *       TaskArn: 'STRING_VALUE',
+ *       TaskType: 'RUN_COMMAND' || 'AUTOMATION' || 'STEP_FUNCTIONS' || 'LAMBDA',
+ *       AlarmConfiguration: { // AlarmConfiguration
+ *         IgnorePollAlarmFailure: true || false,
+ *         Alarms: [ // AlarmList // required
+ *           { // Alarm
+ *             Name: 'STRING_VALUE', // required
+ *           },
+ *         ],
+ *       },
+ *       TriggeredAlarms: [ // AlarmStateInformationList
+ *         { // AlarmStateInformation
+ *           Name: 'STRING_VALUE', // required
+ *           State: 'UNKNOWN' || 'ALARM', // required
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeMaintenanceWindowExecutionTasksCommandInput - {@link DescribeMaintenanceWindowExecutionTasksCommandInput}
@@ -80,6 +111,8 @@ export interface DescribeMaintenanceWindowExecutionTasksCommandOutput
  * @throws {@link InternalServerError} (server fault)
  *  <p>An error occurred on the server side.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class DescribeMaintenanceWindowExecutionTasksCommand extends $Command<

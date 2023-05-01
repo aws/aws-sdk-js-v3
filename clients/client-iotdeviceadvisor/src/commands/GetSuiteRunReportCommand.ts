@@ -37,15 +37,20 @@ export interface GetSuiteRunReportCommandOutput extends GetSuiteRunReportRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IotDeviceAdvisorClient, GetSuiteRunReportCommand } from "@aws-sdk/client-iotdeviceadvisor"; // ES Modules import
- * // const { IotDeviceAdvisorClient, GetSuiteRunReportCommand } = require("@aws-sdk/client-iotdeviceadvisor"); // CommonJS import
+ * import { IotDeviceAdvisorClient, GetSuiteRunReportCommand } from '@aws-sdk/client-iotdeviceadvisor'; // ES Modules import
+ * // const { IotDeviceAdvisorClient, GetSuiteRunReportCommand } = require('@aws-sdk/client-iotdeviceadvisor'); // CommonJS import
  * const client = new IotDeviceAdvisorClient(config);
  * const input = { // GetSuiteRunReportRequest
- *   suiteDefinitionId: "STRING_VALUE", // required
- *   suiteRunId: "STRING_VALUE", // required
+ *   suiteDefinitionId: 'STRING_VALUE', // required
+ *   suiteRunId: 'STRING_VALUE', // required
  * };
  * const command = new GetSuiteRunReportCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetSuiteRunReportResponse
+ *   qualificationReportDownloadUrl: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetSuiteRunReportCommandInput - {@link GetSuiteRunReportCommandInput}
@@ -63,6 +68,8 @@ export interface GetSuiteRunReportCommandOutput extends GetSuiteRunReportRespons
  * @throws {@link ValidationException} (client fault)
  *  <p>Sends a validation exception.</p>
  *
+ * @throws {@link IotDeviceAdvisorServiceException}
+ * <p>Base exception class for all service exceptions from IotDeviceAdvisor service.</p>
  *
  */
 export class GetSuiteRunReportCommand extends $Command<

@@ -36,14 +36,39 @@ export interface DescribeExportCommandOutput extends DescribeExportOutput, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DynamoDBClient, DescribeExportCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
- * // const { DynamoDBClient, DescribeExportCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
+ * import { DynamoDBClient, DescribeExportCommand } from '@aws-sdk/client-dynamodb'; // ES Modules import
+ * // const { DynamoDBClient, DescribeExportCommand } = require('@aws-sdk/client-dynamodb'); // CommonJS import
  * const client = new DynamoDBClient(config);
  * const input = { // DescribeExportInput
- *   ExportArn: "STRING_VALUE", // required
+ *   ExportArn: 'STRING_VALUE', // required
  * };
  * const command = new DescribeExportCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeExportOutput
+ *   ExportDescription: { // ExportDescription
+ *     ExportArn: 'STRING_VALUE',
+ *     ExportStatus: 'IN_PROGRESS' || 'COMPLETED' || 'FAILED',
+ *     StartTime: new Date('TIMESTAMP'),
+ *     EndTime: new Date('TIMESTAMP'),
+ *     ExportManifest: 'STRING_VALUE',
+ *     TableArn: 'STRING_VALUE',
+ *     TableId: 'STRING_VALUE',
+ *     ExportTime: new Date('TIMESTAMP'),
+ *     ClientToken: 'STRING_VALUE',
+ *     S3Bucket: 'STRING_VALUE',
+ *     S3BucketOwner: 'STRING_VALUE',
+ *     S3Prefix: 'STRING_VALUE',
+ *     S3SseAlgorithm: 'AES256' || 'KMS',
+ *     S3SseKmsKeyId: 'STRING_VALUE',
+ *     FailureCode: 'STRING_VALUE',
+ *     FailureMessage: 'STRING_VALUE',
+ *     ExportFormat: 'DYNAMODB_JSON' || 'ION',
+ *     BilledSizeBytes: Number('long'),
+ *     ItemCount: Number('long'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeExportCommandInput - {@link DescribeExportCommandInput}
@@ -71,6 +96,8 @@ export interface DescribeExportCommandOutput extends DescribeExportOutput, __Met
  *          <p>When importing into DynamoDB, up to 50 simultaneous import table operations are allowed per account.</p>
  *          <p>There is a soft account quota of 2,500 tables.</p>
  *
+ * @throws {@link DynamoDBServiceException}
+ * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
  */
 export class DescribeExportCommand extends $Command<

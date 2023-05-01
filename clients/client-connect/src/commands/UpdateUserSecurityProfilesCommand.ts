@@ -36,18 +36,21 @@ export interface UpdateUserSecurityProfilesCommandOutput extends __MetadataBeare
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, UpdateUserSecurityProfilesCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, UpdateUserSecurityProfilesCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, UpdateUserSecurityProfilesCommand } from '@aws-sdk/client-connect'; // ES Modules import
+ * // const { ConnectClient, UpdateUserSecurityProfilesCommand } = require('@aws-sdk/client-connect'); // CommonJS import
  * const client = new ConnectClient(config);
  * const input = { // UpdateUserSecurityProfilesRequest
  *   SecurityProfileIds: [ // SecurityProfileIds // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   UserId: "STRING_VALUE", // required
- *   InstanceId: "STRING_VALUE", // required
+ *   UserId: 'STRING_VALUE', // required
+ *   InstanceId: 'STRING_VALUE', // required
  * };
  * const command = new UpdateUserSecurityProfilesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateUserSecurityProfilesCommandInput - {@link UpdateUserSecurityProfilesCommandInput}
@@ -71,6 +74,8 @@ export interface UpdateUserSecurityProfilesCommandOutput extends __MetadataBeare
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class UpdateUserSecurityProfilesCommand extends $Command<

@@ -40,17 +40,32 @@ export interface ListConnectionsCommandOutput extends ListConnectionsOutput, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeStarConnectionsClient, ListConnectionsCommand } from "@aws-sdk/client-codestar-connections"; // ES Modules import
- * // const { CodeStarConnectionsClient, ListConnectionsCommand } = require("@aws-sdk/client-codestar-connections"); // CommonJS import
+ * import { CodeStarConnectionsClient, ListConnectionsCommand } from '@aws-sdk/client-codestar-connections'; // ES Modules import
+ * // const { CodeStarConnectionsClient, ListConnectionsCommand } = require('@aws-sdk/client-codestar-connections'); // CommonJS import
  * const client = new CodeStarConnectionsClient(config);
  * const input = { // ListConnectionsInput
- *   ProviderTypeFilter: "STRING_VALUE",
- *   HostArnFilter: "STRING_VALUE",
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   ProviderTypeFilter: 'STRING_VALUE',
+ *   HostArnFilter: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListConnectionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListConnectionsOutput
+ *   Connections: [ // ConnectionList
+ *     { // Connection
+ *       ConnectionName: 'STRING_VALUE',
+ *       ConnectionArn: 'STRING_VALUE',
+ *       ProviderType: 'STRING_VALUE',
+ *       OwnerAccountId: 'STRING_VALUE',
+ *       ConnectionStatus: 'STRING_VALUE',
+ *       HostArn: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListConnectionsCommandInput - {@link ListConnectionsCommandInput}
@@ -59,6 +74,8 @@ export interface ListConnectionsCommandOutput extends ListConnectionsOutput, __M
  * @see {@link ListConnectionsCommandOutput} for command's `response` shape.
  * @see {@link CodeStarConnectionsClientResolvedConfig | config} for CodeStarConnectionsClient's `config` shape.
  *
+ * @throws {@link CodeStarConnectionsServiceException}
+ * <p>Base exception class for all service exceptions from CodeStarConnections service.</p>
  *
  */
 export class ListConnectionsCommand extends $Command<

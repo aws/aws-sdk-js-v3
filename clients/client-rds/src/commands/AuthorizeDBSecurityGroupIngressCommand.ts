@@ -56,18 +56,43 @@ export interface AuthorizeDBSecurityGroupIngressCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RDSClient, AuthorizeDBSecurityGroupIngressCommand } from "@aws-sdk/client-rds"; // ES Modules import
- * // const { RDSClient, AuthorizeDBSecurityGroupIngressCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * import { RDSClient, AuthorizeDBSecurityGroupIngressCommand } from '@aws-sdk/client-rds'; // ES Modules import
+ * // const { RDSClient, AuthorizeDBSecurityGroupIngressCommand } = require('@aws-sdk/client-rds'); // CommonJS import
  * const client = new RDSClient(config);
  * const input = { // AuthorizeDBSecurityGroupIngressMessage
- *   DBSecurityGroupName: "STRING_VALUE", // required
- *   CIDRIP: "STRING_VALUE",
- *   EC2SecurityGroupName: "STRING_VALUE",
- *   EC2SecurityGroupId: "STRING_VALUE",
- *   EC2SecurityGroupOwnerId: "STRING_VALUE",
+ *   DBSecurityGroupName: 'STRING_VALUE', // required
+ *   CIDRIP: 'STRING_VALUE',
+ *   EC2SecurityGroupName: 'STRING_VALUE',
+ *   EC2SecurityGroupId: 'STRING_VALUE',
+ *   EC2SecurityGroupOwnerId: 'STRING_VALUE',
  * };
  * const command = new AuthorizeDBSecurityGroupIngressCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AuthorizeDBSecurityGroupIngressResult
+ *   DBSecurityGroup: { // DBSecurityGroup
+ *     OwnerId: 'STRING_VALUE',
+ *     DBSecurityGroupName: 'STRING_VALUE',
+ *     DBSecurityGroupDescription: 'STRING_VALUE',
+ *     VpcId: 'STRING_VALUE',
+ *     EC2SecurityGroups: [ // EC2SecurityGroupList
+ *       { // EC2SecurityGroup
+ *         Status: 'STRING_VALUE',
+ *         EC2SecurityGroupName: 'STRING_VALUE',
+ *         EC2SecurityGroupId: 'STRING_VALUE',
+ *         EC2SecurityGroupOwnerId: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     IPRanges: [ // IPRangeList
+ *       { // IPRange
+ *         Status: 'STRING_VALUE',
+ *         CIDRIP: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     DBSecurityGroupArn: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param AuthorizeDBSecurityGroupIngressCommandInput - {@link AuthorizeDBSecurityGroupIngressCommandInput}
@@ -90,6 +115,8 @@ export interface AuthorizeDBSecurityGroupIngressCommandOutput
  * @throws {@link InvalidDBSecurityGroupStateFault} (client fault)
  *  <p>The state of the DB security group doesn't allow deletion.</p>
  *
+ * @throws {@link RDSServiceException}
+ * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  * @example To authorize DB security group integress
  * ```javascript

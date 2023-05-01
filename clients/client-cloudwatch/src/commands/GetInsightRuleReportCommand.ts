@@ -72,22 +72,58 @@ export interface GetInsightRuleReportCommandOutput extends GetInsightRuleReportO
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudWatchClient, GetInsightRuleReportCommand } from "@aws-sdk/client-cloudwatch"; // ES Modules import
- * // const { CloudWatchClient, GetInsightRuleReportCommand } = require("@aws-sdk/client-cloudwatch"); // CommonJS import
+ * import { CloudWatchClient, GetInsightRuleReportCommand } from '@aws-sdk/client-cloudwatch'; // ES Modules import
+ * // const { CloudWatchClient, GetInsightRuleReportCommand } = require('@aws-sdk/client-cloudwatch'); // CommonJS import
  * const client = new CloudWatchClient(config);
  * const input = { // GetInsightRuleReportInput
- *   RuleName: "STRING_VALUE", // required
- *   StartTime: new Date("TIMESTAMP"), // required
- *   EndTime: new Date("TIMESTAMP"), // required
- *   Period: Number("int"), // required
- *   MaxContributorCount: Number("int"),
+ *   RuleName: 'STRING_VALUE', // required
+ *   StartTime: new Date('TIMESTAMP'), // required
+ *   EndTime: new Date('TIMESTAMP'), // required
+ *   Period: Number('int'), // required
+ *   MaxContributorCount: Number('int'),
  *   Metrics: [ // InsightRuleMetricList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   OrderBy: "STRING_VALUE",
+ *   OrderBy: 'STRING_VALUE',
  * };
  * const command = new GetInsightRuleReportCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetInsightRuleReportOutput
+ *   KeyLabels: [ // InsightRuleContributorKeyLabels
+ *     'STRING_VALUE',
+ *   ],
+ *   AggregationStatistic: 'STRING_VALUE',
+ *   AggregateValue: Number('double'),
+ *   ApproximateUniqueCount: Number('long'),
+ *   Contributors: [ // InsightRuleContributors
+ *     { // InsightRuleContributor
+ *       Keys: [ // InsightRuleContributorKeys // required
+ *         'STRING_VALUE',
+ *       ],
+ *       ApproximateAggregateValue: Number('double'), // required
+ *       Datapoints: [ // InsightRuleContributorDatapoints // required
+ *         { // InsightRuleContributorDatapoint
+ *           Timestamp: new Date('TIMESTAMP'), // required
+ *           ApproximateValue: Number('double'), // required
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   MetricDatapoints: [ // InsightRuleMetricDatapoints
+ *     { // InsightRuleMetricDatapoint
+ *       Timestamp: new Date('TIMESTAMP'), // required
+ *       UniqueContributors: Number('double'),
+ *       MaxContributorValue: Number('double'),
+ *       SampleCount: Number('double'),
+ *       Average: Number('double'),
+ *       Sum: Number('double'),
+ *       Minimum: Number('double'),
+ *       Maximum: Number('double'),
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetInsightRuleReportCommandInput - {@link GetInsightRuleReportCommandInput}
@@ -105,6 +141,8 @@ export interface GetInsightRuleReportCommandOutput extends GetInsightRuleReportO
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The named resource does not exist.</p>
  *
+ * @throws {@link CloudWatchServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatch service.</p>
  *
  */
 export class GetInsightRuleReportCommand extends $Command<

@@ -59,15 +59,20 @@ export interface DeleteRuleCommandOutput extends DeleteRuleResponse, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WAFClient, DeleteRuleCommand } from "@aws-sdk/client-waf"; // ES Modules import
- * // const { WAFClient, DeleteRuleCommand } = require("@aws-sdk/client-waf"); // CommonJS import
+ * import { WAFClient, DeleteRuleCommand } from '@aws-sdk/client-waf'; // ES Modules import
+ * // const { WAFClient, DeleteRuleCommand } = require('@aws-sdk/client-waf'); // CommonJS import
  * const client = new WAFClient(config);
  * const input = { // DeleteRuleRequest
- *   RuleId: "STRING_VALUE", // required
- *   ChangeToken: "STRING_VALUE", // required
+ *   RuleId: 'STRING_VALUE', // required
+ *   ChangeToken: 'STRING_VALUE', // required
  * };
  * const command = new DeleteRuleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteRuleResponse
+ *   ChangeToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DeleteRuleCommandInput - {@link DeleteRuleCommandInput}
@@ -123,6 +128,8 @@ export interface DeleteRuleCommandOutput extends DeleteRuleResponse, __MetadataB
  * @throws {@link WAFTagOperationInternalErrorException} (server fault)
  *  <p></p>
  *
+ * @throws {@link WAFServiceException}
+ * <p>Base exception class for all service exceptions from WAF service.</p>
  *
  * @example To delete a rule
  * ```javascript

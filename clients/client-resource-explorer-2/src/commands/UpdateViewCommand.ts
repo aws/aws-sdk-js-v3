@@ -46,22 +46,40 @@ export interface UpdateViewCommandOutput extends UpdateViewOutput, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ResourceExplorer2Client, UpdateViewCommand } from "@aws-sdk/client-resource-explorer-2"; // ES Modules import
- * // const { ResourceExplorer2Client, UpdateViewCommand } = require("@aws-sdk/client-resource-explorer-2"); // CommonJS import
+ * import { ResourceExplorer2Client, UpdateViewCommand } from '@aws-sdk/client-resource-explorer-2'; // ES Modules import
+ * // const { ResourceExplorer2Client, UpdateViewCommand } = require('@aws-sdk/client-resource-explorer-2'); // CommonJS import
  * const client = new ResourceExplorer2Client(config);
  * const input = { // UpdateViewInput
- *   ViewArn: "STRING_VALUE", // required
+ *   ViewArn: 'STRING_VALUE', // required
  *   IncludedProperties: [ // IncludedPropertyList
  *     { // IncludedProperty
- *       Name: "STRING_VALUE", // required
+ *       Name: 'STRING_VALUE', // required
  *     },
  *   ],
  *   Filters: { // SearchFilter
- *     FilterString: "STRING_VALUE", // required
+ *     FilterString: 'STRING_VALUE', // required
  *   },
  * };
  * const command = new UpdateViewCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateViewOutput
+ *   View: { // View
+ *     ViewArn: 'STRING_VALUE',
+ *     Owner: 'STRING_VALUE',
+ *     LastUpdatedAt: new Date('TIMESTAMP'),
+ *     Scope: 'STRING_VALUE',
+ *     IncludedProperties: [ // IncludedPropertyList
+ *       { // IncludedProperty
+ *         Name: 'STRING_VALUE', // required
+ *       },
+ *     ],
+ *     Filters: { // SearchFilter
+ *       FilterString: 'STRING_VALUE', // required
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateViewCommandInput - {@link UpdateViewCommandInput}
@@ -93,6 +111,8 @@ export interface UpdateViewCommandOutput extends UpdateViewOutput, __MetadataBea
  *  <p>You provided an invalid value for one of the operation's parameters. Check the syntax
  *             for the operation, and try again.</p>
  *
+ * @throws {@link ResourceExplorer2ServiceException}
+ * <p>Base exception class for all service exceptions from ResourceExplorer2 service.</p>
  *
  */
 export class UpdateViewCommand extends $Command<

@@ -124,35 +124,51 @@ export interface AssumeRoleCommandOutput extends AssumeRoleResponse, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { STSClient, AssumeRoleCommand } from "@aws-sdk/client-sts"; // ES Modules import
- * // const { STSClient, AssumeRoleCommand } = require("@aws-sdk/client-sts"); // CommonJS import
+ * import { STSClient, AssumeRoleCommand } from '@aws-sdk/client-sts'; // ES Modules import
+ * // const { STSClient, AssumeRoleCommand } = require('@aws-sdk/client-sts'); // CommonJS import
  * const client = new STSClient(config);
  * const input = { // AssumeRoleRequest
- *   RoleArn: "STRING_VALUE", // required
- *   RoleSessionName: "STRING_VALUE", // required
+ *   RoleArn: 'STRING_VALUE', // required
+ *   RoleSessionName: 'STRING_VALUE', // required
  *   PolicyArns: [ // policyDescriptorListType
  *     { // PolicyDescriptorType
- *       arn: "STRING_VALUE",
+ *       arn: 'STRING_VALUE',
  *     },
  *   ],
- *   Policy: "STRING_VALUE",
- *   DurationSeconds: Number("int"),
+ *   Policy: 'STRING_VALUE',
+ *   DurationSeconds: Number('int'),
  *   Tags: [ // tagListType
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  *   TransitiveTagKeys: [ // tagKeyListType
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   ExternalId: "STRING_VALUE",
- *   SerialNumber: "STRING_VALUE",
- *   TokenCode: "STRING_VALUE",
- *   SourceIdentity: "STRING_VALUE",
+ *   ExternalId: 'STRING_VALUE',
+ *   SerialNumber: 'STRING_VALUE',
+ *   TokenCode: 'STRING_VALUE',
+ *   SourceIdentity: 'STRING_VALUE',
  * };
  * const command = new AssumeRoleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AssumeRoleResponse
+ *   Credentials: { // Credentials
+ *     AccessKeyId: 'STRING_VALUE', // required
+ *     SecretAccessKey: 'STRING_VALUE', // required
+ *     SessionToken: 'STRING_VALUE', // required
+ *     Expiration: new Date('TIMESTAMP'), // required
+ *   },
+ *   AssumedRoleUser: { // AssumedRoleUser
+ *     AssumedRoleId: 'STRING_VALUE', // required
+ *     Arn: 'STRING_VALUE', // required
+ *   },
+ *   PackedPolicySize: Number('int'),
+ *   SourceIdentity: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param AssumeRoleCommandInput - {@link AssumeRoleCommandInput}
@@ -187,6 +203,8 @@ export interface AssumeRoleCommandOutput extends AssumeRoleResponse, __MetadataB
  *                 Deactivating Amazon Web Services STS in an Amazon Web Services Region</a> in the <i>IAM User
  *                     Guide</i>.</p>
  *
+ * @throws {@link STSServiceException}
+ * <p>Base exception class for all service exceptions from STS service.</p>
  *
  * @example To assume a role
  * ```javascript

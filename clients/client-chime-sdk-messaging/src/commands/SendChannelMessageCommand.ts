@@ -51,34 +51,45 @@ export interface SendChannelMessageCommandOutput extends SendChannelMessageRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeSDKMessagingClient, SendChannelMessageCommand } from "@aws-sdk/client-chime-sdk-messaging"; // ES Modules import
- * // const { ChimeSDKMessagingClient, SendChannelMessageCommand } = require("@aws-sdk/client-chime-sdk-messaging"); // CommonJS import
+ * import { ChimeSDKMessagingClient, SendChannelMessageCommand } from '@aws-sdk/client-chime-sdk-messaging'; // ES Modules import
+ * // const { ChimeSDKMessagingClient, SendChannelMessageCommand } = require('@aws-sdk/client-chime-sdk-messaging'); // CommonJS import
  * const client = new ChimeSDKMessagingClient(config);
  * const input = { // SendChannelMessageRequest
- *   ChannelArn: "STRING_VALUE", // required
- *   Content: "STRING_VALUE", // required
- *   Type: "STANDARD" || "CONTROL", // required
- *   Persistence: "PERSISTENT" || "NON_PERSISTENT", // required
- *   Metadata: "STRING_VALUE",
- *   ClientRequestToken: "STRING_VALUE", // required
- *   ChimeBearer: "STRING_VALUE", // required
+ *   ChannelArn: 'STRING_VALUE', // required
+ *   Content: 'STRING_VALUE', // required
+ *   Type: 'STANDARD' || 'CONTROL', // required
+ *   Persistence: 'PERSISTENT' || 'NON_PERSISTENT', // required
+ *   Metadata: 'STRING_VALUE',
+ *   ClientRequestToken: 'STRING_VALUE', // required
+ *   ChimeBearer: 'STRING_VALUE', // required
  *   PushNotification: { // PushNotificationConfiguration
- *     Title: "STRING_VALUE",
- *     Body: "STRING_VALUE",
- *     Type: "DEFAULT" || "VOIP",
+ *     Title: 'STRING_VALUE',
+ *     Body: 'STRING_VALUE',
+ *     Type: 'DEFAULT' || 'VOIP',
  *   },
  *   MessageAttributes: { // MessageAttributeMap
- *     "<keys>": { // MessageAttributeValue
+ *     '<keys>': { // MessageAttributeValue
  *       StringValues: [ // MessageAttributeStringValues
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   },
- *   SubChannelId: "STRING_VALUE",
- *   ContentType: "STRING_VALUE",
+ *   SubChannelId: 'STRING_VALUE',
+ *   ContentType: 'STRING_VALUE',
  * };
  * const command = new SendChannelMessageCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SendChannelMessageResponse
+ *   ChannelArn: 'STRING_VALUE',
+ *   MessageId: 'STRING_VALUE',
+ *   Status: { // ChannelMessageStatusStructure
+ *     Value: 'SENT' || 'PENDING' || 'FAILED' || 'DENIED',
+ *     Detail: 'STRING_VALUE',
+ *   },
+ *   SubChannelId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param SendChannelMessageCommandInput - {@link SendChannelMessageCommandInput}
@@ -109,6 +120,8 @@ export interface SendChannelMessageCommandOutput extends SendChannelMessageRespo
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeSDKMessagingServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKMessaging service.</p>
  *
  */
 export class SendChannelMessageCommand extends $Command<

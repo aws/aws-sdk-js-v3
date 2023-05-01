@@ -36,14 +36,17 @@ export interface DeleteChannelCommandOutput extends DeleteChannelResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MediaTailorClient, DeleteChannelCommand } from "@aws-sdk/client-mediatailor"; // ES Modules import
- * // const { MediaTailorClient, DeleteChannelCommand } = require("@aws-sdk/client-mediatailor"); // CommonJS import
+ * import { MediaTailorClient, DeleteChannelCommand } from '@aws-sdk/client-mediatailor'; // ES Modules import
+ * // const { MediaTailorClient, DeleteChannelCommand } = require('@aws-sdk/client-mediatailor'); // CommonJS import
  * const client = new MediaTailorClient(config);
  * const input = { // DeleteChannelRequest
- *   ChannelName: "STRING_VALUE", // required
+ *   ChannelName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteChannelCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteChannelCommandInput - {@link DeleteChannelCommandInput}
@@ -52,6 +55,8 @@ export interface DeleteChannelCommandOutput extends DeleteChannelResponse, __Met
  * @see {@link DeleteChannelCommandOutput} for command's `response` shape.
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.
  *
+ * @throws {@link MediaTailorServiceException}
+ * <p>Base exception class for all service exceptions from MediaTailor service.</p>
  *
  */
 export class DeleteChannelCommand extends $Command<

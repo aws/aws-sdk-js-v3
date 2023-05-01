@@ -86,23 +86,59 @@ export interface ListPartsCommandOutput extends ListPartsOutput, __MetadataBeare
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { S3Client, ListPartsCommand } from "@aws-sdk/client-s3"; // ES Modules import
- * // const { S3Client, ListPartsCommand } = require("@aws-sdk/client-s3"); // CommonJS import
+ * import { S3Client, ListPartsCommand } from '@aws-sdk/client-s3'; // ES Modules import
+ * // const { S3Client, ListPartsCommand } = require('@aws-sdk/client-s3'); // CommonJS import
  * const client = new S3Client(config);
  * const input = { // ListPartsRequest
- *   Bucket: "STRING_VALUE", // required
- *   Key: "STRING_VALUE", // required
- *   MaxParts: Number("int"),
- *   PartNumberMarker: "STRING_VALUE",
- *   UploadId: "STRING_VALUE", // required
- *   RequestPayer: "requester",
- *   ExpectedBucketOwner: "STRING_VALUE",
- *   SSECustomerAlgorithm: "STRING_VALUE",
- *   SSECustomerKey: "STRING_VALUE",
- *   SSECustomerKeyMD5: "STRING_VALUE",
+ *   Bucket: 'STRING_VALUE', // required
+ *   Key: 'STRING_VALUE', // required
+ *   MaxParts: Number('int'),
+ *   PartNumberMarker: 'STRING_VALUE',
+ *   UploadId: 'STRING_VALUE', // required
+ *   RequestPayer: 'requester',
+ *   ExpectedBucketOwner: 'STRING_VALUE',
+ *   SSECustomerAlgorithm: 'STRING_VALUE',
+ *   SSECustomerKey: 'STRING_VALUE',
+ *   SSECustomerKeyMD5: 'STRING_VALUE',
  * };
  * const command = new ListPartsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListPartsOutput
+ *   AbortDate: new Date('TIMESTAMP'),
+ *   AbortRuleId: 'STRING_VALUE',
+ *   Bucket: 'STRING_VALUE',
+ *   Key: 'STRING_VALUE',
+ *   UploadId: 'STRING_VALUE',
+ *   PartNumberMarker: 'STRING_VALUE',
+ *   NextPartNumberMarker: 'STRING_VALUE',
+ *   MaxParts: Number('int'),
+ *   IsTruncated: true || false,
+ *   Parts: [ // Parts
+ *     { // Part
+ *       PartNumber: Number('int'),
+ *       LastModified: new Date('TIMESTAMP'),
+ *       ETag: 'STRING_VALUE',
+ *       Size: Number('long'),
+ *       ChecksumCRC32: 'STRING_VALUE',
+ *       ChecksumCRC32C: 'STRING_VALUE',
+ *       ChecksumSHA1: 'STRING_VALUE',
+ *       ChecksumSHA256: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   Initiator: { // Initiator
+ *     ID: 'STRING_VALUE',
+ *     DisplayName: 'STRING_VALUE',
+ *   },
+ *   Owner: { // Owner
+ *     DisplayName: 'STRING_VALUE',
+ *     ID: 'STRING_VALUE',
+ *   },
+ *   StorageClass: 'STANDARD' || 'REDUCED_REDUNDANCY' || 'STANDARD_IA' || 'ONEZONE_IA' || 'INTELLIGENT_TIERING' || 'GLACIER' || 'DEEP_ARCHIVE' || 'OUTPOSTS' || 'GLACIER_IR' || 'SNOW',
+ *   RequestCharged: 'requester',
+ *   ChecksumAlgorithm: 'CRC32' || 'CRC32C' || 'SHA1' || 'SHA256',
+ * };
+ *
  * ```
  *
  * @param ListPartsCommandInput - {@link ListPartsCommandInput}
@@ -111,6 +147,8 @@ export interface ListPartsCommandOutput extends ListPartsOutput, __MetadataBeare
  * @see {@link ListPartsCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
+ * @throws {@link S3ServiceException}
+ * <p>Base exception class for all service exceptions from S3 service.</p>
  *
  * @example To list parts of a multipart upload.
  * ```javascript

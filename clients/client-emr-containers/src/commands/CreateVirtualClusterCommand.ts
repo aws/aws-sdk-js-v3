@@ -39,27 +39,34 @@ export interface CreateVirtualClusterCommandOutput extends CreateVirtualClusterR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EMRContainersClient, CreateVirtualClusterCommand } from "@aws-sdk/client-emr-containers"; // ES Modules import
- * // const { EMRContainersClient, CreateVirtualClusterCommand } = require("@aws-sdk/client-emr-containers"); // CommonJS import
+ * import { EMRContainersClient, CreateVirtualClusterCommand } from '@aws-sdk/client-emr-containers'; // ES Modules import
+ * // const { EMRContainersClient, CreateVirtualClusterCommand } = require('@aws-sdk/client-emr-containers'); // CommonJS import
  * const client = new EMRContainersClient(config);
  * const input = { // CreateVirtualClusterRequest
- *   name: "STRING_VALUE", // required
+ *   name: 'STRING_VALUE', // required
  *   containerProvider: { // ContainerProvider
- *     type: "EKS", // required
- *     id: "STRING_VALUE", // required
+ *     type: 'EKS', // required
+ *     id: 'STRING_VALUE', // required
  *     info: { // ContainerInfo Union: only one key present
  *       eksInfo: { // EksInfo
- *         namespace: "STRING_VALUE",
+ *         namespace: 'STRING_VALUE',
  *       },
  *     },
  *   },
- *   clientToken: "STRING_VALUE", // required
+ *   clientToken: 'STRING_VALUE', // required
  *   tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateVirtualClusterCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateVirtualClusterResponse
+ *   id: 'STRING_VALUE',
+ *   name: 'STRING_VALUE',
+ *   arn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateVirtualClusterCommandInput - {@link CreateVirtualClusterCommandInput}
@@ -77,6 +84,8 @@ export interface CreateVirtualClusterCommandOutput extends CreateVirtualClusterR
  * @throws {@link ValidationException} (client fault)
  *  <p>There are invalid parameters in the client request.</p>
  *
+ * @throws {@link EMRContainersServiceException}
+ * <p>Base exception class for all service exceptions from EMRContainers service.</p>
  *
  */
 export class CreateVirtualClusterCommand extends $Command<

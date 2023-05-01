@@ -42,16 +42,45 @@ export interface ListStreamingImagesCommandOutput extends ListStreamingImagesRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { NimbleClient, ListStreamingImagesCommand } from "@aws-sdk/client-nimble"; // ES Modules import
- * // const { NimbleClient, ListStreamingImagesCommand } = require("@aws-sdk/client-nimble"); // CommonJS import
+ * import { NimbleClient, ListStreamingImagesCommand } from '@aws-sdk/client-nimble'; // ES Modules import
+ * // const { NimbleClient, ListStreamingImagesCommand } = require('@aws-sdk/client-nimble'); // CommonJS import
  * const client = new NimbleClient(config);
  * const input = { // ListStreamingImagesRequest
- *   nextToken: "STRING_VALUE",
- *   owner: "STRING_VALUE",
- *   studioId: "STRING_VALUE", // required
+ *   nextToken: 'STRING_VALUE',
+ *   owner: 'STRING_VALUE',
+ *   studioId: 'STRING_VALUE', // required
  * };
  * const command = new ListStreamingImagesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListStreamingImagesResponse
+ *   nextToken: 'STRING_VALUE',
+ *   streamingImages: [ // StreamingImageList
+ *     { // StreamingImage
+ *       arn: 'STRING_VALUE',
+ *       description: 'STRING_VALUE',
+ *       ec2ImageId: 'STRING_VALUE',
+ *       encryptionConfiguration: { // StreamingImageEncryptionConfiguration
+ *         keyArn: 'STRING_VALUE',
+ *         keyType: 'CUSTOMER_MANAGED_KEY', // required
+ *       },
+ *       eulaIds: [ // EulaIdList
+ *         'STRING_VALUE',
+ *       ],
+ *       name: 'STRING_VALUE',
+ *       owner: 'STRING_VALUE',
+ *       platform: 'STRING_VALUE',
+ *       state: 'CREATE_IN_PROGRESS' || 'READY' || 'DELETE_IN_PROGRESS' || 'DELETED' || 'UPDATE_IN_PROGRESS' || 'UPDATE_FAILED' || 'CREATE_FAILED' || 'DELETE_FAILED',
+ *       statusCode: 'STREAMING_IMAGE_CREATE_IN_PROGRESS' || 'STREAMING_IMAGE_READY' || 'STREAMING_IMAGE_DELETE_IN_PROGRESS' || 'STREAMING_IMAGE_DELETED' || 'STREAMING_IMAGE_UPDATE_IN_PROGRESS' || 'INTERNAL_ERROR' || 'ACCESS_DENIED',
+ *       statusMessage: 'STRING_VALUE',
+ *       streamingImageId: 'STRING_VALUE',
+ *       tags: { // Tags
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListStreamingImagesCommandInput - {@link ListStreamingImagesCommandInput}
@@ -84,6 +113,8 @@ export interface ListStreamingImagesCommandOutput extends ListStreamingImagesRes
  * @throws {@link ValidationException} (client fault)
  *  <p>One of the parameters in the request is invalid.</p>
  *
+ * @throws {@link NimbleServiceException}
+ * <p>Base exception class for all service exceptions from Nimble service.</p>
  *
  */
 export class ListStreamingImagesCommand extends $Command<

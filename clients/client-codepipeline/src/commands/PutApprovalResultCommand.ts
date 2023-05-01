@@ -37,21 +37,26 @@ export interface PutApprovalResultCommandOutput extends PutApprovalResultOutput,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodePipelineClient, PutApprovalResultCommand } from "@aws-sdk/client-codepipeline"; // ES Modules import
- * // const { CodePipelineClient, PutApprovalResultCommand } = require("@aws-sdk/client-codepipeline"); // CommonJS import
+ * import { CodePipelineClient, PutApprovalResultCommand } from '@aws-sdk/client-codepipeline'; // ES Modules import
+ * // const { CodePipelineClient, PutApprovalResultCommand } = require('@aws-sdk/client-codepipeline'); // CommonJS import
  * const client = new CodePipelineClient(config);
  * const input = { // PutApprovalResultInput
- *   pipelineName: "STRING_VALUE", // required
- *   stageName: "STRING_VALUE", // required
- *   actionName: "STRING_VALUE", // required
+ *   pipelineName: 'STRING_VALUE', // required
+ *   stageName: 'STRING_VALUE', // required
+ *   actionName: 'STRING_VALUE', // required
  *   result: { // ApprovalResult
- *     summary: "STRING_VALUE", // required
- *     status: "STRING_VALUE", // required
+ *     summary: 'STRING_VALUE', // required
+ *     status: 'STRING_VALUE', // required
  *   },
- *   token: "STRING_VALUE", // required
+ *   token: 'STRING_VALUE', // required
  * };
  * const command = new PutApprovalResultCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutApprovalResultOutput
+ *   approvedAt: new Date('TIMESTAMP'),
+ * };
+ *
  * ```
  *
  * @param PutApprovalResultCommandInput - {@link PutApprovalResultCommandInput}
@@ -78,6 +83,8 @@ export interface PutApprovalResultCommandOutput extends PutApprovalResultOutput,
  * @throws {@link ValidationException} (client fault)
  *  <p>The validation was specified in an invalid format.</p>
  *
+ * @throws {@link CodePipelineServiceException}
+ * <p>Base exception class for all service exceptions from CodePipeline service.</p>
  *
  */
 export class PutApprovalResultCommand extends $Command<

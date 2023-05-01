@@ -45,16 +45,21 @@ export interface PutProfileObjectCommandOutput extends PutProfileObjectResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CustomerProfilesClient, PutProfileObjectCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
- * // const { CustomerProfilesClient, PutProfileObjectCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
+ * import { CustomerProfilesClient, PutProfileObjectCommand } from '@aws-sdk/client-customer-profiles'; // ES Modules import
+ * // const { CustomerProfilesClient, PutProfileObjectCommand } = require('@aws-sdk/client-customer-profiles'); // CommonJS import
  * const client = new CustomerProfilesClient(config);
  * const input = { // PutProfileObjectRequest
- *   ObjectTypeName: "STRING_VALUE", // required
- *   Object: "STRING_VALUE", // required
- *   DomainName: "STRING_VALUE", // required
+ *   ObjectTypeName: 'STRING_VALUE', // required
+ *   Object: 'STRING_VALUE', // required
+ *   DomainName: 'STRING_VALUE', // required
  * };
  * const command = new PutProfileObjectCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutProfileObjectResponse
+ *   ProfileObjectUniqueKey: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param PutProfileObjectCommandInput - {@link PutProfileObjectCommandInput}
@@ -78,6 +83,8 @@ export interface PutProfileObjectCommandOutput extends PutProfileObjectResponse,
  * @throws {@link ThrottlingException} (client fault)
  *  <p>You exceeded the maximum number of requests.</p>
  *
+ * @throws {@link CustomerProfilesServiceException}
+ * <p>Base exception class for all service exceptions from CustomerProfiles service.</p>
  *
  */
 export class PutProfileObjectCommand extends $Command<

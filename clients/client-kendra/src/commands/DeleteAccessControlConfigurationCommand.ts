@@ -44,15 +44,18 @@ export interface DeleteAccessControlConfigurationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KendraClient, DeleteAccessControlConfigurationCommand } from "@aws-sdk/client-kendra"; // ES Modules import
- * // const { KendraClient, DeleteAccessControlConfigurationCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
+ * import { KendraClient, DeleteAccessControlConfigurationCommand } from '@aws-sdk/client-kendra'; // ES Modules import
+ * // const { KendraClient, DeleteAccessControlConfigurationCommand } = require('@aws-sdk/client-kendra'); // CommonJS import
  * const client = new KendraClient(config);
  * const input = { // DeleteAccessControlConfigurationRequest
- *   IndexId: "STRING_VALUE", // required
- *   Id: "STRING_VALUE", // required
+ *   IndexId: 'STRING_VALUE', // required
+ *   Id: 'STRING_VALUE', // required
  * };
  * const command = new DeleteAccessControlConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteAccessControlConfigurationCommandInput - {@link DeleteAccessControlConfigurationCommandInput}
@@ -85,6 +88,8 @@ export interface DeleteAccessControlConfigurationCommandOutput
  *  <p>The input fails to satisfy the constraints set by the Amazon Kendra service.
  *             Please provide the correct input and try again.</p>
  *
+ * @throws {@link KendraServiceException}
+ * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
  */
 export class DeleteAccessControlConfigurationCommand extends $Command<

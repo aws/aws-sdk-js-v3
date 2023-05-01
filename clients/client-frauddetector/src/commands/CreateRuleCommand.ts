@@ -36,27 +36,36 @@ export interface CreateRuleCommandOutput extends CreateRuleResult, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FraudDetectorClient, CreateRuleCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
- * // const { FraudDetectorClient, CreateRuleCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
+ * import { FraudDetectorClient, CreateRuleCommand } from '@aws-sdk/client-frauddetector'; // ES Modules import
+ * // const { FraudDetectorClient, CreateRuleCommand } = require('@aws-sdk/client-frauddetector'); // CommonJS import
  * const client = new FraudDetectorClient(config);
  * const input = { // CreateRuleRequest
- *   ruleId: "STRING_VALUE", // required
- *   detectorId: "STRING_VALUE", // required
- *   description: "STRING_VALUE",
- *   expression: "STRING_VALUE", // required
- *   language: "DETECTORPL", // required
+ *   ruleId: 'STRING_VALUE', // required
+ *   detectorId: 'STRING_VALUE', // required
+ *   description: 'STRING_VALUE',
+ *   expression: 'STRING_VALUE', // required
+ *   language: 'DETECTORPL', // required
  *   outcomes: [ // NonEmptyListOfStrings // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   tags: [ // tagList
  *     { // Tag
- *       key: "STRING_VALUE", // required
- *       value: "STRING_VALUE", // required
+ *       key: 'STRING_VALUE', // required
+ *       value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreateRuleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateRuleResult
+ *   rule: { // Rule
+ *     detectorId: 'STRING_VALUE', // required
+ *     ruleId: 'STRING_VALUE', // required
+ *     ruleVersion: 'STRING_VALUE', // required
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateRuleCommandInput - {@link CreateRuleCommandInput}
@@ -77,6 +86,8 @@ export interface CreateRuleCommandOutput extends CreateRuleResult, __MetadataBea
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception indicating a specified value is not allowed.</p>
  *
+ * @throws {@link FraudDetectorServiceException}
+ * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
  */
 export class CreateRuleCommand extends $Command<

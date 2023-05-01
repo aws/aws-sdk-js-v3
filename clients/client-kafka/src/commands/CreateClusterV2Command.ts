@@ -36,36 +36,36 @@ export interface CreateClusterV2CommandOutput extends CreateClusterV2Response, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KafkaClient, CreateClusterV2Command } from "@aws-sdk/client-kafka"; // ES Modules import
- * // const { KafkaClient, CreateClusterV2Command } = require("@aws-sdk/client-kafka"); // CommonJS import
+ * import { KafkaClient, CreateClusterV2Command } from '@aws-sdk/client-kafka'; // ES Modules import
+ * // const { KafkaClient, CreateClusterV2Command } = require('@aws-sdk/client-kafka'); // CommonJS import
  * const client = new KafkaClient(config);
  * const input = { // CreateClusterV2Request
- *   ClusterName: "STRING_VALUE", // required
+ *   ClusterName: 'STRING_VALUE', // required
  *   Tags: { // __mapOf__string
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  *   Provisioned: { // ProvisionedRequest
  *     BrokerNodeGroupInfo: { // BrokerNodeGroupInfo
- *       BrokerAZDistribution: "DEFAULT",
+ *       BrokerAZDistribution: 'DEFAULT',
  *       ClientSubnets: [ // __listOf__string // required
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
- *       InstanceType: "STRING_VALUE", // required
+ *       InstanceType: 'STRING_VALUE', // required
  *       SecurityGroups: [
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *       StorageInfo: { // StorageInfo
  *         EbsStorageInfo: { // EBSStorageInfo
  *           ProvisionedThroughput: { // ProvisionedThroughput
  *             Enabled: true || false,
- *             VolumeThroughput: Number("int"),
+ *             VolumeThroughput: Number('int'),
  *           },
- *           VolumeSize: Number("int"),
+ *           VolumeSize: Number('int'),
  *         },
  *       },
  *       ConnectivityInfo: { // ConnectivityInfo
  *         PublicAccess: { // PublicAccess
- *           Type: "STRING_VALUE",
+ *           Type: 'STRING_VALUE',
  *         },
  *         VpcConnectivity: { // VpcConnectivity
  *           ClientAuthentication: { // VpcConnectivityClientAuthentication
@@ -84,7 +84,7 @@ export interface CreateClusterV2CommandOutput extends CreateClusterV2Response, _
  *         },
  *       },
  *       ZoneIds: [
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *     ClientAuthentication: { // ClientAuthentication
@@ -98,7 +98,7 @@ export interface CreateClusterV2CommandOutput extends CreateClusterV2Response, _
  *       },
  *       Tls: { // Tls
  *         CertificateAuthorityArnList: [
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
  *         Enabled: true || false,
  *       },
@@ -107,19 +107,19 @@ export interface CreateClusterV2CommandOutput extends CreateClusterV2Response, _
  *       },
  *     },
  *     ConfigurationInfo: { // ConfigurationInfo
- *       Arn: "STRING_VALUE", // required
- *       Revision: Number("long"), // required
+ *       Arn: 'STRING_VALUE', // required
+ *       Revision: Number('long'), // required
  *     },
  *     EncryptionInfo: { // EncryptionInfo
  *       EncryptionAtRest: { // EncryptionAtRest
- *         DataVolumeKMSKeyId: "STRING_VALUE", // required
+ *         DataVolumeKMSKeyId: 'STRING_VALUE', // required
  *       },
  *       EncryptionInTransit: { // EncryptionInTransit
- *         ClientBroker: "TLS" || "TLS_PLAINTEXT" || "PLAINTEXT",
+ *         ClientBroker: 'TLS' || 'TLS_PLAINTEXT' || 'PLAINTEXT',
  *         InCluster: true || false,
  *       },
  *     },
- *     EnhancedMonitoring: "DEFAULT" || "PER_BROKER" || "PER_TOPIC_PER_BROKER" || "PER_TOPIC_PER_PARTITION",
+ *     EnhancedMonitoring: 'DEFAULT' || 'PER_BROKER' || 'PER_TOPIC_PER_BROKER' || 'PER_TOPIC_PER_PARTITION',
  *     OpenMonitoring: { // OpenMonitoringInfo
  *       Prometheus: { // PrometheusInfo
  *         JmxExporter: { // JmxExporterInfo
@@ -130,34 +130,34 @@ export interface CreateClusterV2CommandOutput extends CreateClusterV2Response, _
  *         },
  *       },
  *     },
- *     KafkaVersion: "STRING_VALUE", // required
+ *     KafkaVersion: 'STRING_VALUE', // required
  *     LoggingInfo: { // LoggingInfo
  *       BrokerLogs: { // BrokerLogs
  *         CloudWatchLogs: { // CloudWatchLogs
  *           Enabled: true || false, // required
- *           LogGroup: "STRING_VALUE",
+ *           LogGroup: 'STRING_VALUE',
  *         },
  *         Firehose: { // Firehose
- *           DeliveryStream: "STRING_VALUE",
+ *           DeliveryStream: 'STRING_VALUE',
  *           Enabled: true || false, // required
  *         },
  *         S3: { // S3
- *           Bucket: "STRING_VALUE",
+ *           Bucket: 'STRING_VALUE',
  *           Enabled: true || false, // required
- *           Prefix: "STRING_VALUE",
+ *           Prefix: 'STRING_VALUE',
  *         },
  *       },
  *     },
- *     NumberOfBrokerNodes: Number("int"), // required
- *     StorageMode: "LOCAL" || "TIERED",
+ *     NumberOfBrokerNodes: Number('int'), // required
+ *     StorageMode: 'LOCAL' || 'TIERED',
  *   },
  *   Serverless: { // ServerlessRequest
  *     VpcConfigs: [ // __listOfVpcConfig // required
  *       { // VpcConfig
  *         SubnetIds: [ // required
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
- *         SecurityGroupIds: "<__listOf__string>",
+ *         SecurityGroupIds: '<__listOf__string>',
  *       },
  *     ],
  *     ClientAuthentication: { // ServerlessClientAuthentication
@@ -171,6 +171,14 @@ export interface CreateClusterV2CommandOutput extends CreateClusterV2Response, _
  * };
  * const command = new CreateClusterV2Command(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateClusterV2Response
+ *   ClusterArn: 'STRING_VALUE',
+ *   ClusterName: 'STRING_VALUE',
+ *   State: 'ACTIVE' || 'CREATING' || 'DELETING' || 'FAILED' || 'HEALING' || 'MAINTENANCE' || 'REBOOTING_BROKER' || 'UPDATING',
+ *   ClusterType: 'PROVISIONED' || 'SERVERLESS',
+ * };
+ *
  * ```
  *
  * @param CreateClusterV2CommandInput - {@link CreateClusterV2CommandInput}
@@ -200,6 +208,8 @@ export interface CreateClusterV2CommandOutput extends CreateClusterV2Response, _
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>Returns information about an error.</p>
  *
+ * @throws {@link KafkaServiceException}
+ * <p>Base exception class for all service exceptions from Kafka service.</p>
  *
  */
 export class CreateClusterV2Command extends $Command<

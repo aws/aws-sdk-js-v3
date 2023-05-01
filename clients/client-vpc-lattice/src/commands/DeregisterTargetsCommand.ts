@@ -36,20 +36,38 @@ export interface DeregisterTargetsCommandOutput extends DeregisterTargetsRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { VPCLatticeClient, DeregisterTargetsCommand } from "@aws-sdk/client-vpc-lattice"; // ES Modules import
- * // const { VPCLatticeClient, DeregisterTargetsCommand } = require("@aws-sdk/client-vpc-lattice"); // CommonJS import
+ * import { VPCLatticeClient, DeregisterTargetsCommand } from '@aws-sdk/client-vpc-lattice'; // ES Modules import
+ * // const { VPCLatticeClient, DeregisterTargetsCommand } = require('@aws-sdk/client-vpc-lattice'); // CommonJS import
  * const client = new VPCLatticeClient(config);
  * const input = { // DeregisterTargetsRequest
- *   targetGroupIdentifier: "STRING_VALUE", // required
+ *   targetGroupIdentifier: 'STRING_VALUE', // required
  *   targets: [ // TargetList // required
  *     { // Target
- *       id: "STRING_VALUE", // required
- *       port: Number("int"),
+ *       id: 'STRING_VALUE', // required
+ *       port: Number('int'),
  *     },
  *   ],
  * };
  * const command = new DeregisterTargetsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeregisterTargetsResponse
+ *   successful: [ // TargetList
+ *     { // Target
+ *       id: 'STRING_VALUE', // required
+ *       port: Number('int'),
+ *     },
+ *   ],
+ *   unsuccessful: [ // TargetFailureList
+ *     { // TargetFailure
+ *       id: 'STRING_VALUE',
+ *       port: Number('int'),
+ *       failureCode: 'STRING_VALUE',
+ *       failureMessage: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DeregisterTargetsCommandInput - {@link DeregisterTargetsCommandInput}
@@ -78,6 +96,8 @@ export interface DeregisterTargetsCommandOutput extends DeregisterTargetsRespons
  *  <p>The input does not satisfy the constraints specified by an Amazon Web Services
  *    service.</p>
  *
+ * @throws {@link VPCLatticeServiceException}
+ * <p>Base exception class for all service exceptions from VPCLattice service.</p>
  *
  */
 export class DeregisterTargetsCommand extends $Command<

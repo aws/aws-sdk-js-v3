@@ -37,14 +37,21 @@ export interface GetBackupVaultAccessPolicyCommandOutput extends GetBackupVaultA
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BackupClient, GetBackupVaultAccessPolicyCommand } from "@aws-sdk/client-backup"; // ES Modules import
- * // const { BackupClient, GetBackupVaultAccessPolicyCommand } = require("@aws-sdk/client-backup"); // CommonJS import
+ * import { BackupClient, GetBackupVaultAccessPolicyCommand } from '@aws-sdk/client-backup'; // ES Modules import
+ * // const { BackupClient, GetBackupVaultAccessPolicyCommand } = require('@aws-sdk/client-backup'); // CommonJS import
  * const client = new BackupClient(config);
  * const input = { // GetBackupVaultAccessPolicyInput
- *   BackupVaultName: "STRING_VALUE", // required
+ *   BackupVaultName: 'STRING_VALUE', // required
  * };
  * const command = new GetBackupVaultAccessPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetBackupVaultAccessPolicyOutput
+ *   BackupVaultName: 'STRING_VALUE',
+ *   BackupVaultArn: 'STRING_VALUE',
+ *   Policy: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetBackupVaultAccessPolicyCommandInput - {@link GetBackupVaultAccessPolicyCommandInput}
@@ -66,6 +73,8 @@ export interface GetBackupVaultAccessPolicyCommandOutput extends GetBackupVaultA
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request failed due to a temporary failure of the server.</p>
  *
+ * @throws {@link BackupServiceException}
+ * <p>Base exception class for all service exceptions from Backup service.</p>
  *
  */
 export class GetBackupVaultAccessPolicyCommand extends $Command<

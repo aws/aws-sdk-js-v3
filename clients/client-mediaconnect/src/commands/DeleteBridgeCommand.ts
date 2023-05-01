@@ -36,14 +36,19 @@ export interface DeleteBridgeCommandOutput extends DeleteBridgeResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MediaConnectClient, DeleteBridgeCommand } from "@aws-sdk/client-mediaconnect"; // ES Modules import
- * // const { MediaConnectClient, DeleteBridgeCommand } = require("@aws-sdk/client-mediaconnect"); // CommonJS import
+ * import { MediaConnectClient, DeleteBridgeCommand } from '@aws-sdk/client-mediaconnect'; // ES Modules import
+ * // const { MediaConnectClient, DeleteBridgeCommand } = require('@aws-sdk/client-mediaconnect'); // CommonJS import
  * const client = new MediaConnectClient(config);
  * const input = { // DeleteBridgeRequest
- *   BridgeArn: "STRING_VALUE", // required
+ *   BridgeArn: 'STRING_VALUE', // required
  * };
  * const command = new DeleteBridgeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteBridgeResponse
+ *   BridgeArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DeleteBridgeCommandInput - {@link DeleteBridgeCommandInput}
@@ -73,6 +78,8 @@ export interface DeleteBridgeCommandOutput extends DeleteBridgeResponse, __Metad
  * @throws {@link TooManyRequestsException} (client fault)
  *  Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
  *
+ * @throws {@link MediaConnectServiceException}
+ * <p>Base exception class for all service exceptions from MediaConnect service.</p>
  *
  */
 export class DeleteBridgeCommand extends $Command<

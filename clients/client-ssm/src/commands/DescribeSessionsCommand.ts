@@ -37,22 +37,45 @@ export interface DescribeSessionsCommandOutput extends DescribeSessionsResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMClient, DescribeSessionsCommand } from "@aws-sdk/client-ssm"; // ES Modules import
- * // const { SSMClient, DescribeSessionsCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * import { SSMClient, DescribeSessionsCommand } from '@aws-sdk/client-ssm'; // ES Modules import
+ * // const { SSMClient, DescribeSessionsCommand } = require('@aws-sdk/client-ssm'); // CommonJS import
  * const client = new SSMClient(config);
  * const input = { // DescribeSessionsRequest
- *   State: "Active" || "History", // required
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   State: 'Active' || 'History', // required
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  *   Filters: [ // SessionFilterList
  *     { // SessionFilter
- *       key: "InvokedAfter" || "InvokedBefore" || "Target" || "Owner" || "Status" || "SessionId", // required
- *       value: "STRING_VALUE", // required
+ *       key: 'InvokedAfter' || 'InvokedBefore' || 'Target' || 'Owner' || 'Status' || 'SessionId', // required
+ *       value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new DescribeSessionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeSessionsResponse
+ *   Sessions: [ // SessionList
+ *     { // Session
+ *       SessionId: 'STRING_VALUE',
+ *       Target: 'STRING_VALUE',
+ *       Status: 'Connected' || 'Connecting' || 'Disconnected' || 'Terminated' || 'Terminating' || 'Failed',
+ *       StartDate: new Date('TIMESTAMP'),
+ *       EndDate: new Date('TIMESTAMP'),
+ *       DocumentName: 'STRING_VALUE',
+ *       Owner: 'STRING_VALUE',
+ *       Reason: 'STRING_VALUE',
+ *       Details: 'STRING_VALUE',
+ *       OutputUrl: { // SessionManagerOutputUrl
+ *         S3OutputUrl: 'STRING_VALUE',
+ *         CloudWatchOutputUrl: 'STRING_VALUE',
+ *       },
+ *       MaxSessionDuration: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeSessionsCommandInput - {@link DescribeSessionsCommandInput}
@@ -70,6 +93,8 @@ export interface DescribeSessionsCommandOutput extends DescribeSessionsResponse,
  * @throws {@link InvalidNextToken} (client fault)
  *  <p>The specified token isn't valid.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class DescribeSessionsCommand extends $Command<

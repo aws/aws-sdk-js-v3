@@ -36,15 +36,18 @@ export interface UpdateDeviceCommandOutput extends UpdateDeviceResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AlexaForBusinessClient, UpdateDeviceCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
- * // const { AlexaForBusinessClient, UpdateDeviceCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
+ * import { AlexaForBusinessClient, UpdateDeviceCommand } from '@aws-sdk/client-alexa-for-business'; // ES Modules import
+ * // const { AlexaForBusinessClient, UpdateDeviceCommand } = require('@aws-sdk/client-alexa-for-business'); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
  * const input = { // UpdateDeviceRequest
- *   DeviceArn: "STRING_VALUE",
- *   DeviceName: "STRING_VALUE",
+ *   DeviceArn: 'STRING_VALUE',
+ *   DeviceName: 'STRING_VALUE',
  * };
  * const command = new UpdateDeviceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateDeviceCommandInput - {@link UpdateDeviceCommandInput}
@@ -62,6 +65,8 @@ export interface UpdateDeviceCommandOutput extends UpdateDeviceResponse, __Metad
  * @throws {@link NotFoundException} (client fault)
  *  <p>The resource is not found.</p>
  *
+ * @throws {@link AlexaForBusinessServiceException}
+ * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  */
 export class UpdateDeviceCommand extends $Command<

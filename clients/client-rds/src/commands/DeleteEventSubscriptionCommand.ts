@@ -36,14 +36,34 @@ export interface DeleteEventSubscriptionCommandOutput extends DeleteEventSubscri
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RDSClient, DeleteEventSubscriptionCommand } from "@aws-sdk/client-rds"; // ES Modules import
- * // const { RDSClient, DeleteEventSubscriptionCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * import { RDSClient, DeleteEventSubscriptionCommand } from '@aws-sdk/client-rds'; // ES Modules import
+ * // const { RDSClient, DeleteEventSubscriptionCommand } = require('@aws-sdk/client-rds'); // CommonJS import
  * const client = new RDSClient(config);
  * const input = { // DeleteEventSubscriptionMessage
- *   SubscriptionName: "STRING_VALUE", // required
+ *   SubscriptionName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteEventSubscriptionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteEventSubscriptionResult
+ *   EventSubscription: { // EventSubscription
+ *     CustomerAwsId: 'STRING_VALUE',
+ *     CustSubscriptionId: 'STRING_VALUE',
+ *     SnsTopicArn: 'STRING_VALUE',
+ *     Status: 'STRING_VALUE',
+ *     SubscriptionCreationTime: 'STRING_VALUE',
+ *     SourceType: 'STRING_VALUE',
+ *     SourceIdsList: [ // SourceIdsList
+ *       'STRING_VALUE',
+ *     ],
+ *     EventCategoriesList: [ // EventCategoriesList
+ *       'STRING_VALUE',
+ *     ],
+ *     Enabled: true || false,
+ *     EventSubscriptionArn: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param DeleteEventSubscriptionCommandInput - {@link DeleteEventSubscriptionCommandInput}
@@ -58,6 +78,8 @@ export interface DeleteEventSubscriptionCommandOutput extends DeleteEventSubscri
  * @throws {@link SubscriptionNotFoundFault} (client fault)
  *  <p>The subscription name does not exist.</p>
  *
+ * @throws {@link RDSServiceException}
+ * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  * @example To delete an event subscription
  * ```javascript

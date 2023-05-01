@@ -45,14 +45,25 @@ export interface GetWirelessGatewayFirmwareInformationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTWirelessClient, GetWirelessGatewayFirmwareInformationCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
- * // const { IoTWirelessClient, GetWirelessGatewayFirmwareInformationCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
+ * import { IoTWirelessClient, GetWirelessGatewayFirmwareInformationCommand } from '@aws-sdk/client-iot-wireless'; // ES Modules import
+ * // const { IoTWirelessClient, GetWirelessGatewayFirmwareInformationCommand } = require('@aws-sdk/client-iot-wireless'); // CommonJS import
  * const client = new IoTWirelessClient(config);
  * const input = { // GetWirelessGatewayFirmwareInformationRequest
- *   Id: "STRING_VALUE", // required
+ *   Id: 'STRING_VALUE', // required
  * };
  * const command = new GetWirelessGatewayFirmwareInformationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetWirelessGatewayFirmwareInformationResponse
+ *   LoRaWAN: { // LoRaWANGatewayCurrentVersion
+ *     CurrentVersion: { // LoRaWANGatewayVersion
+ *       PackageVersion: 'STRING_VALUE',
+ *       Model: 'STRING_VALUE',
+ *       Station: 'STRING_VALUE',
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetWirelessGatewayFirmwareInformationCommandInput - {@link GetWirelessGatewayFirmwareInformationCommandInput}
@@ -76,6 +87,8 @@ export interface GetWirelessGatewayFirmwareInformationCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The input did not meet the specified constraints.</p>
  *
+ * @throws {@link IoTWirelessServiceException}
+ * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
  */
 export class GetWirelessGatewayFirmwareInformationCommand extends $Command<

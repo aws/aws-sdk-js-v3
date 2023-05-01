@@ -36,14 +36,21 @@ export interface DescribeBackupPolicyCommandOutput extends BackupPolicyDescripti
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EFSClient, DescribeBackupPolicyCommand } from "@aws-sdk/client-efs"; // ES Modules import
- * // const { EFSClient, DescribeBackupPolicyCommand } = require("@aws-sdk/client-efs"); // CommonJS import
+ * import { EFSClient, DescribeBackupPolicyCommand } from '@aws-sdk/client-efs'; // ES Modules import
+ * // const { EFSClient, DescribeBackupPolicyCommand } = require('@aws-sdk/client-efs'); // CommonJS import
  * const client = new EFSClient(config);
  * const input = { // DescribeBackupPolicyRequest
- *   FileSystemId: "STRING_VALUE", // required
+ *   FileSystemId: 'STRING_VALUE', // required
  * };
  * const command = new DescribeBackupPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BackupPolicyDescription
+ *   BackupPolicy: { // BackupPolicy
+ *     Status: 'ENABLED' || 'ENABLING' || 'DISABLED' || 'DISABLING', // required
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeBackupPolicyCommandInput - {@link DescribeBackupPolicyCommandInput}
@@ -69,6 +76,8 @@ export interface DescribeBackupPolicyCommandOutput extends BackupPolicyDescripti
  * @throws {@link ValidationException} (client fault)
  *  <p>Returned if the Backup service is not available in the Amazon Web Services Region in which the request was made.</p>
  *
+ * @throws {@link EFSServiceException}
+ * <p>Base exception class for all service exceptions from EFS service.</p>
  *
  */
 export class DescribeBackupPolicyCommand extends $Command<

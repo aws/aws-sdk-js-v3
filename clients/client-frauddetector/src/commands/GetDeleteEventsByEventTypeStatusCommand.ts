@@ -41,14 +41,20 @@ export interface GetDeleteEventsByEventTypeStatusCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FraudDetectorClient, GetDeleteEventsByEventTypeStatusCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
- * // const { FraudDetectorClient, GetDeleteEventsByEventTypeStatusCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
+ * import { FraudDetectorClient, GetDeleteEventsByEventTypeStatusCommand } from '@aws-sdk/client-frauddetector'; // ES Modules import
+ * // const { FraudDetectorClient, GetDeleteEventsByEventTypeStatusCommand } = require('@aws-sdk/client-frauddetector'); // CommonJS import
  * const client = new FraudDetectorClient(config);
  * const input = { // GetDeleteEventsByEventTypeStatusRequest
- *   eventTypeName: "STRING_VALUE", // required
+ *   eventTypeName: 'STRING_VALUE', // required
  * };
  * const command = new GetDeleteEventsByEventTypeStatusCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetDeleteEventsByEventTypeStatusResult
+ *   eventTypeName: 'STRING_VALUE',
+ *   eventsDeletionStatus: 'IN_PROGRESS_INITIALIZING' || 'IN_PROGRESS' || 'CANCEL_IN_PROGRESS' || 'CANCELED' || 'COMPLETE' || 'FAILED',
+ * };
+ *
  * ```
  *
  * @param GetDeleteEventsByEventTypeStatusCommandInput - {@link GetDeleteEventsByEventTypeStatusCommandInput}
@@ -72,6 +78,8 @@ export interface GetDeleteEventsByEventTypeStatusCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception indicating a specified value is not allowed.</p>
  *
+ * @throws {@link FraudDetectorServiceException}
+ * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
  */
 export class GetDeleteEventsByEventTypeStatusCommand extends $Command<

@@ -39,18 +39,26 @@ export interface ListJobsCommandOutput extends ListJobsResponse, __MetadataBeare
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlueClient, ListJobsCommand } from "@aws-sdk/client-glue"; // ES Modules import
- * // const { GlueClient, ListJobsCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * import { GlueClient, ListJobsCommand } from '@aws-sdk/client-glue'; // ES Modules import
+ * // const { GlueClient, ListJobsCommand } = require('@aws-sdk/client-glue'); // CommonJS import
  * const client = new GlueClient(config);
  * const input = { // ListJobsRequest
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  *   Tags: { // TagsMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new ListJobsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListJobsResponse
+ *   JobNames: [ // JobNameList
+ *     'STRING_VALUE',
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListJobsCommandInput - {@link ListJobsCommandInput}
@@ -71,6 +79,8 @@ export interface ListJobsCommandOutput extends ListJobsResponse, __MetadataBeare
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class ListJobsCommand extends $Command<ListJobsCommandInput, ListJobsCommandOutput, GlueClientResolvedConfig> {

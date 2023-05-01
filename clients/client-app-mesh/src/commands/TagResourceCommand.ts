@@ -39,20 +39,23 @@ export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppMeshClient, TagResourceCommand } from "@aws-sdk/client-app-mesh"; // ES Modules import
- * // const { AppMeshClient, TagResourceCommand } = require("@aws-sdk/client-app-mesh"); // CommonJS import
+ * import { AppMeshClient, TagResourceCommand } from '@aws-sdk/client-app-mesh'; // ES Modules import
+ * // const { AppMeshClient, TagResourceCommand } = require('@aws-sdk/client-app-mesh'); // CommonJS import
  * const client = new AppMeshClient(config);
  * const input = { // TagResourceInput
- *   resourceArn: "STRING_VALUE", // required
+ *   resourceArn: 'STRING_VALUE', // required
  *   tags: [ // TagList // required
  *     { // TagRef
- *       key: "STRING_VALUE", // required
- *       value: "STRING_VALUE", // required
+ *       key: 'STRING_VALUE', // required
+ *       value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param TagResourceCommandInput - {@link TagResourceCommandInput}
@@ -87,6 +90,8 @@ export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataB
  *          limit is 50 user tags per resource. You must reduce the number of tags in the request. None
  *          of the tags in this request were applied.</p>
  *
+ * @throws {@link AppMeshServiceException}
+ * <p>Base exception class for all service exceptions from AppMesh service.</p>
  *
  */
 export class TagResourceCommand extends $Command<

@@ -41,25 +41,30 @@ export interface CreateModelCardCommandOutput extends CreateModelCardResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, CreateModelCardCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, CreateModelCardCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, CreateModelCardCommand } from '@aws-sdk/client-sagemaker'; // ES Modules import
+ * // const { SageMakerClient, CreateModelCardCommand } = require('@aws-sdk/client-sagemaker'); // CommonJS import
  * const client = new SageMakerClient(config);
  * const input = { // CreateModelCardRequest
- *   ModelCardName: "STRING_VALUE", // required
+ *   ModelCardName: 'STRING_VALUE', // required
  *   SecurityConfig: { // ModelCardSecurityConfig
- *     KmsKeyId: "STRING_VALUE",
+ *     KmsKeyId: 'STRING_VALUE',
  *   },
- *   Content: "STRING_VALUE", // required
- *   ModelCardStatus: "Draft" || "PendingReview" || "Approved" || "Archived", // required
+ *   Content: 'STRING_VALUE', // required
+ *   ModelCardStatus: 'Draft' || 'PendingReview' || 'Approved' || 'Archived', // required
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreateModelCardCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateModelCardResponse
+ *   ModelCardArn: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param CreateModelCardCommandInput - {@link CreateModelCardCommandInput}
@@ -76,6 +81,8 @@ export interface CreateModelCardCommandOutput extends CreateModelCardResponse, _
  *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many
  *             training jobs created. </p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class CreateModelCardCommand extends $Command<

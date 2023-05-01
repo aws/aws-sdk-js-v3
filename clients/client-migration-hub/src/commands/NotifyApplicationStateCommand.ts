@@ -39,17 +39,20 @@ export interface NotifyApplicationStateCommandOutput extends NotifyApplicationSt
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MigrationHubClient, NotifyApplicationStateCommand } from "@aws-sdk/client-migration-hub"; // ES Modules import
- * // const { MigrationHubClient, NotifyApplicationStateCommand } = require("@aws-sdk/client-migration-hub"); // CommonJS import
+ * import { MigrationHubClient, NotifyApplicationStateCommand } from '@aws-sdk/client-migration-hub'; // ES Modules import
+ * // const { MigrationHubClient, NotifyApplicationStateCommand } = require('@aws-sdk/client-migration-hub'); // CommonJS import
  * const client = new MigrationHubClient(config);
  * const input = { // NotifyApplicationStateRequest
- *   ApplicationId: "STRING_VALUE", // required
- *   Status: "STRING_VALUE", // required
- *   UpdateDateTime: new Date("TIMESTAMP"),
+ *   ApplicationId: 'STRING_VALUE', // required
+ *   Status: 'STRING_VALUE', // required
+ *   UpdateDateTime: new Date('TIMESTAMP'),
  *   DryRun: true || false,
  * };
  * const command = new NotifyApplicationStateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param NotifyApplicationStateCommandInput - {@link NotifyApplicationStateCommandInput}
@@ -97,6 +100,8 @@ export interface NotifyApplicationStateCommandOutput extends NotifyApplicationSt
  *  <p>Exception raised to indicate a request was not authorized when the <code>DryRun</code>
  *          flag is set to "true".</p>
  *
+ * @throws {@link MigrationHubServiceException}
+ * <p>Base exception class for all service exceptions from MigrationHub service.</p>
  *
  */
 export class NotifyApplicationStateCommand extends $Command<

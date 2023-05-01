@@ -40,16 +40,28 @@ export interface ListSAMLProviderTagsCommandOutput extends ListSAMLProviderTagsR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IAMClient, ListSAMLProviderTagsCommand } from "@aws-sdk/client-iam"; // ES Modules import
- * // const { IAMClient, ListSAMLProviderTagsCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * import { IAMClient, ListSAMLProviderTagsCommand } from '@aws-sdk/client-iam'; // ES Modules import
+ * // const { IAMClient, ListSAMLProviderTagsCommand } = require('@aws-sdk/client-iam'); // CommonJS import
  * const client = new IAMClient(config);
  * const input = { // ListSAMLProviderTagsRequest
- *   SAMLProviderArn: "STRING_VALUE", // required
- *   Marker: "STRING_VALUE",
- *   MaxItems: Number("int"),
+ *   SAMLProviderArn: 'STRING_VALUE', // required
+ *   Marker: 'STRING_VALUE',
+ *   MaxItems: Number('int'),
  * };
  * const command = new ListSAMLProviderTagsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListSAMLProviderTagsResponse
+ *   Tags: [ // tagListType // required
+ *     { // Tag
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ *   IsTruncated: true || false,
+ *   Marker: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListSAMLProviderTagsCommandInput - {@link ListSAMLProviderTagsCommandInput}
@@ -70,6 +82,8 @@ export interface ListSAMLProviderTagsCommandOutput extends ListSAMLProviderTagsR
  *  <p>The request processing has failed because of an unknown error, exception or
  *       failure.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  */
 export class ListSAMLProviderTagsCommand extends $Command<

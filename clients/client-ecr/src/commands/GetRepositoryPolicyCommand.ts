@@ -36,15 +36,22 @@ export interface GetRepositoryPolicyCommandOutput extends GetRepositoryPolicyRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ECRClient, GetRepositoryPolicyCommand } from "@aws-sdk/client-ecr"; // ES Modules import
- * // const { ECRClient, GetRepositoryPolicyCommand } = require("@aws-sdk/client-ecr"); // CommonJS import
+ * import { ECRClient, GetRepositoryPolicyCommand } from '@aws-sdk/client-ecr'; // ES Modules import
+ * // const { ECRClient, GetRepositoryPolicyCommand } = require('@aws-sdk/client-ecr'); // CommonJS import
  * const client = new ECRClient(config);
  * const input = { // GetRepositoryPolicyRequest
- *   registryId: "STRING_VALUE",
- *   repositoryName: "STRING_VALUE", // required
+ *   registryId: 'STRING_VALUE',
+ *   repositoryName: 'STRING_VALUE', // required
  * };
  * const command = new GetRepositoryPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetRepositoryPolicyResponse
+ *   registryId: 'STRING_VALUE',
+ *   repositoryName: 'STRING_VALUE',
+ *   policyText: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetRepositoryPolicyCommandInput - {@link GetRepositoryPolicyCommandInput}
@@ -68,6 +75,8 @@ export interface GetRepositoryPolicyCommandOutput extends GetRepositoryPolicyRes
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server-side issue.</p>
  *
+ * @throws {@link ECRServiceException}
+ * <p>Base exception class for all service exceptions from ECR service.</p>
  *
  * @example To get the current policy for a repository
  * ```javascript

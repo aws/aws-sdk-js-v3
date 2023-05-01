@@ -54,16 +54,33 @@ export interface DescribeReplicationTaskAssessmentResultsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DatabaseMigrationServiceClient, DescribeReplicationTaskAssessmentResultsCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
- * // const { DatabaseMigrationServiceClient, DescribeReplicationTaskAssessmentResultsCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
+ * import { DatabaseMigrationServiceClient, DescribeReplicationTaskAssessmentResultsCommand } from '@aws-sdk/client-database-migration-service'; // ES Modules import
+ * // const { DatabaseMigrationServiceClient, DescribeReplicationTaskAssessmentResultsCommand } = require('@aws-sdk/client-database-migration-service'); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
  * const input = { // DescribeReplicationTaskAssessmentResultsMessage
- *   ReplicationTaskArn: "STRING_VALUE",
- *   MaxRecords: Number("int"),
- *   Marker: "STRING_VALUE",
+ *   ReplicationTaskArn: 'STRING_VALUE',
+ *   MaxRecords: Number('int'),
+ *   Marker: 'STRING_VALUE',
  * };
  * const command = new DescribeReplicationTaskAssessmentResultsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeReplicationTaskAssessmentResultsResponse
+ *   Marker: 'STRING_VALUE',
+ *   BucketName: 'STRING_VALUE',
+ *   ReplicationTaskAssessmentResults: [ // ReplicationTaskAssessmentResultList
+ *     { // ReplicationTaskAssessmentResult
+ *       ReplicationTaskIdentifier: 'STRING_VALUE',
+ *       ReplicationTaskArn: 'STRING_VALUE',
+ *       ReplicationTaskLastAssessmentDate: new Date('TIMESTAMP'),
+ *       AssessmentStatus: 'STRING_VALUE',
+ *       AssessmentResultsFile: 'STRING_VALUE',
+ *       AssessmentResults: 'STRING_VALUE',
+ *       S3ObjectUrl: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeReplicationTaskAssessmentResultsCommandInput - {@link DescribeReplicationTaskAssessmentResultsCommandInput}
@@ -75,6 +92,8 @@ export interface DescribeReplicationTaskAssessmentResultsCommandOutput
  * @throws {@link ResourceNotFoundFault} (client fault)
  *  <p>The resource could not be found.</p>
  *
+ * @throws {@link DatabaseMigrationServiceServiceException}
+ * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
  */
 export class DescribeReplicationTaskAssessmentResultsCommand extends $Command<

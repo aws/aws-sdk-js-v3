@@ -36,15 +36,18 @@ export interface DeleteContactFlowCommandOutput extends DeleteContactFlowRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, DeleteContactFlowCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, DeleteContactFlowCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, DeleteContactFlowCommand } from '@aws-sdk/client-connect'; // ES Modules import
+ * // const { ConnectClient, DeleteContactFlowCommand } = require('@aws-sdk/client-connect'); // CommonJS import
  * const client = new ConnectClient(config);
  * const input = { // DeleteContactFlowRequest
- *   InstanceId: "STRING_VALUE", // required
- *   ContactFlowId: "STRING_VALUE", // required
+ *   InstanceId: 'STRING_VALUE', // required
+ *   ContactFlowId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteContactFlowCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteContactFlowCommandInput - {@link DeleteContactFlowCommandInput}
@@ -71,6 +74,8 @@ export interface DeleteContactFlowCommandOutput extends DeleteContactFlowRespons
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class DeleteContactFlowCommand extends $Command<

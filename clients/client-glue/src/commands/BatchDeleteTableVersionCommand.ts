@@ -36,19 +36,33 @@ export interface BatchDeleteTableVersionCommandOutput extends BatchDeleteTableVe
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlueClient, BatchDeleteTableVersionCommand } from "@aws-sdk/client-glue"; // ES Modules import
- * // const { GlueClient, BatchDeleteTableVersionCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * import { GlueClient, BatchDeleteTableVersionCommand } from '@aws-sdk/client-glue'; // ES Modules import
+ * // const { GlueClient, BatchDeleteTableVersionCommand } = require('@aws-sdk/client-glue'); // CommonJS import
  * const client = new GlueClient(config);
  * const input = { // BatchDeleteTableVersionRequest
- *   CatalogId: "STRING_VALUE",
- *   DatabaseName: "STRING_VALUE", // required
- *   TableName: "STRING_VALUE", // required
+ *   CatalogId: 'STRING_VALUE',
+ *   DatabaseName: 'STRING_VALUE', // required
+ *   TableName: 'STRING_VALUE', // required
  *   VersionIds: [ // BatchDeleteTableVersionList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new BatchDeleteTableVersionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BatchDeleteTableVersionResponse
+ *   Errors: [ // TableVersionErrors
+ *     { // TableVersionError
+ *       TableName: 'STRING_VALUE',
+ *       VersionId: 'STRING_VALUE',
+ *       ErrorDetail: { // ErrorDetail
+ *         ErrorCode: 'STRING_VALUE',
+ *         ErrorMessage: 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param BatchDeleteTableVersionCommandInput - {@link BatchDeleteTableVersionCommandInput}
@@ -69,6 +83,8 @@ export interface BatchDeleteTableVersionCommandOutput extends BatchDeleteTableVe
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class BatchDeleteTableVersionCommand extends $Command<

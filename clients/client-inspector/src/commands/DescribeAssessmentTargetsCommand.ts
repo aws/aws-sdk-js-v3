@@ -37,16 +37,35 @@ export interface DescribeAssessmentTargetsCommandOutput extends DescribeAssessme
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { InspectorClient, DescribeAssessmentTargetsCommand } from "@aws-sdk/client-inspector"; // ES Modules import
- * // const { InspectorClient, DescribeAssessmentTargetsCommand } = require("@aws-sdk/client-inspector"); // CommonJS import
+ * import { InspectorClient, DescribeAssessmentTargetsCommand } from '@aws-sdk/client-inspector'; // ES Modules import
+ * // const { InspectorClient, DescribeAssessmentTargetsCommand } = require('@aws-sdk/client-inspector'); // CommonJS import
  * const client = new InspectorClient(config);
  * const input = { // DescribeAssessmentTargetsRequest
  *   assessmentTargetArns: [ // BatchDescribeArnList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new DescribeAssessmentTargetsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeAssessmentTargetsResponse
+ *   assessmentTargets: [ // AssessmentTargetList // required
+ *     { // AssessmentTarget
+ *       arn: 'STRING_VALUE', // required
+ *       name: 'STRING_VALUE', // required
+ *       resourceGroupArn: 'STRING_VALUE',
+ *       createdAt: new Date('TIMESTAMP'), // required
+ *       updatedAt: new Date('TIMESTAMP'), // required
+ *     },
+ *   ],
+ *   failedItems: { // FailedItems // required
+ *     '<keys>': { // FailedItemDetails
+ *       failureCode: 'STRING_VALUE', // required
+ *       retryable: true || false, // required
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeAssessmentTargetsCommandInput - {@link DescribeAssessmentTargetsCommandInput}
@@ -62,6 +81,8 @@ export interface DescribeAssessmentTargetsCommandOutput extends DescribeAssessme
  *  <p>The request was rejected because an invalid or out-of-range value was supplied for an
  *          input parameter.</p>
  *
+ * @throws {@link InspectorServiceException}
+ * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
  * @example Describte assessment targets
  * ```javascript

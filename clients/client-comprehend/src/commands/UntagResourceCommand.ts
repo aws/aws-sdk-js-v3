@@ -36,17 +36,20 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ComprehendClient, UntagResourceCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
- * // const { ComprehendClient, UntagResourceCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
+ * import { ComprehendClient, UntagResourceCommand } from '@aws-sdk/client-comprehend'; // ES Modules import
+ * // const { ComprehendClient, UntagResourceCommand } = require('@aws-sdk/client-comprehend'); // CommonJS import
  * const client = new ComprehendClient(config);
  * const input = { // UntagResourceRequest
- *   ResourceArn: "STRING_VALUE", // required
+ *   ResourceArn: 'STRING_VALUE', // required
  *   TagKeys: [ // TagKeyList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new UntagResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UntagResourceCommandInput - {@link UntagResourceCommandInput}
@@ -72,6 +75,8 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  *  <p>The request contains more tag keys than can be associated with a resource (50 tag keys per
  *       resource).</p>
  *
+ * @throws {@link ComprehendServiceException}
+ * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
  */
 export class UntagResourceCommand extends $Command<

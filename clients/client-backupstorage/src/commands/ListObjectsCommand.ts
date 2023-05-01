@@ -36,20 +36,35 @@ export interface ListObjectsCommandOutput extends ListObjectsOutput, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BackupStorageClient, ListObjectsCommand } from "@aws-sdk/client-backupstorage"; // ES Modules import
- * // const { BackupStorageClient, ListObjectsCommand } = require("@aws-sdk/client-backupstorage"); // CommonJS import
+ * import { BackupStorageClient, ListObjectsCommand } from '@aws-sdk/client-backupstorage'; // ES Modules import
+ * // const { BackupStorageClient, ListObjectsCommand } = require('@aws-sdk/client-backupstorage'); // CommonJS import
  * const client = new BackupStorageClient(config);
  * const input = { // ListObjectsInput
- *   StorageJobId: "STRING_VALUE", // required
- *   StartingObjectName: "STRING_VALUE",
- *   StartingObjectPrefix: "STRING_VALUE",
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
- *   CreatedBefore: new Date("TIMESTAMP"),
- *   CreatedAfter: new Date("TIMESTAMP"),
+ *   StorageJobId: 'STRING_VALUE', // required
+ *   StartingObjectName: 'STRING_VALUE',
+ *   StartingObjectPrefix: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
+ *   CreatedBefore: new Date('TIMESTAMP'),
+ *   CreatedAfter: new Date('TIMESTAMP'),
  * };
  * const command = new ListObjectsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListObjectsOutput
+ *   ObjectList: [ // ObjectList // required
+ *     { // BackupObject
+ *       Name: 'STRING_VALUE', // required
+ *       ChunksCount: Number('long'),
+ *       MetadataString: 'STRING_VALUE',
+ *       ObjectChecksum: 'STRING_VALUE', // required
+ *       ObjectChecksumAlgorithm: 'STRING_VALUE', // required
+ *       ObjectToken: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListObjectsCommandInput - {@link ListObjectsCommandInput}
@@ -82,6 +97,8 @@ export interface ListObjectsCommandOutput extends ListObjectsOutput, __MetadataB
  * @throws {@link ThrottlingException} (client fault)
  *  Increased rate over throttling limits. Can be retried with exponential backoff.
  *
+ * @throws {@link BackupStorageServiceException}
+ * <p>Base exception class for all service exceptions from BackupStorage service.</p>
  *
  */
 export class ListObjectsCommand extends $Command<

@@ -46,30 +46,35 @@ export interface CreateNotificationRuleCommandOutput extends CreateNotificationR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodestarNotificationsClient, CreateNotificationRuleCommand } from "@aws-sdk/client-codestar-notifications"; // ES Modules import
- * // const { CodestarNotificationsClient, CreateNotificationRuleCommand } = require("@aws-sdk/client-codestar-notifications"); // CommonJS import
+ * import { CodestarNotificationsClient, CreateNotificationRuleCommand } from '@aws-sdk/client-codestar-notifications'; // ES Modules import
+ * // const { CodestarNotificationsClient, CreateNotificationRuleCommand } = require('@aws-sdk/client-codestar-notifications'); // CommonJS import
  * const client = new CodestarNotificationsClient(config);
  * const input = { // CreateNotificationRuleRequest
- *   Name: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
  *   EventTypeIds: [ // EventTypeIds // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   Resource: "STRING_VALUE", // required
+ *   Resource: 'STRING_VALUE', // required
  *   Targets: [ // Targets // required
  *     { // Target
- *       TargetType: "STRING_VALUE",
- *       TargetAddress: "STRING_VALUE",
+ *       TargetType: 'STRING_VALUE',
+ *       TargetAddress: 'STRING_VALUE',
  *     },
  *   ],
- *   DetailType: "BASIC" || "FULL", // required
- *   ClientRequestToken: "STRING_VALUE",
+ *   DetailType: 'BASIC' || 'FULL', // required
+ *   ClientRequestToken: 'STRING_VALUE',
  *   Tags: { // Tags
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
- *   Status: "ENABLED" || "DISABLED",
+ *   Status: 'ENABLED' || 'DISABLED',
  * };
  * const command = new CreateNotificationRuleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateNotificationRuleResult
+ *   Arn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateNotificationRuleCommandInput - {@link CreateNotificationRuleCommandInput}
@@ -101,6 +106,8 @@ export interface CreateNotificationRuleCommandOutput extends CreateNotificationR
  * @throws {@link ValidationException} (client fault)
  *  <p>One or more parameter values are not valid.</p>
  *
+ * @throws {@link CodestarNotificationsServiceException}
+ * <p>Base exception class for all service exceptions from CodestarNotifications service.</p>
  *
  */
 export class CreateNotificationRuleCommand extends $Command<

@@ -44,41 +44,46 @@ export interface CreateAppMonitorCommandOutput extends CreateAppMonitorResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RUMClient, CreateAppMonitorCommand } from "@aws-sdk/client-rum"; // ES Modules import
- * // const { RUMClient, CreateAppMonitorCommand } = require("@aws-sdk/client-rum"); // CommonJS import
+ * import { RUMClient, CreateAppMonitorCommand } from '@aws-sdk/client-rum'; // ES Modules import
+ * // const { RUMClient, CreateAppMonitorCommand } = require('@aws-sdk/client-rum'); // CommonJS import
  * const client = new RUMClient(config);
  * const input = { // CreateAppMonitorRequest
- *   Name: "STRING_VALUE", // required
- *   Domain: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
+ *   Domain: 'STRING_VALUE', // required
  *   Tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  *   AppMonitorConfiguration: { // AppMonitorConfiguration
- *     IdentityPoolId: "STRING_VALUE",
+ *     IdentityPoolId: 'STRING_VALUE',
  *     ExcludedPages: [ // Pages
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     IncludedPages: [
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     FavoritePages: [ // FavoritePages
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
- *     SessionSampleRate: Number("double"),
- *     GuestRoleArn: "STRING_VALUE",
+ *     SessionSampleRate: Number('double'),
+ *     GuestRoleArn: 'STRING_VALUE',
  *     AllowCookies: true || false,
  *     Telemetries: [ // Telemetries
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     EnableXRay: true || false,
  *   },
  *   CwLogEnabled: true || false,
  *   CustomEvents: { // CustomEvents
- *     Status: "STRING_VALUE",
+ *     Status: 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateAppMonitorCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateAppMonitorResponse
+ *   Id: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateAppMonitorCommandInput - {@link CreateAppMonitorCommandInput}
@@ -108,6 +113,8 @@ export interface CreateAppMonitorCommandOutput extends CreateAppMonitorResponse,
  * @throws {@link ValidationException} (client fault)
  *  <p>One of the arguments for the request is not valid.</p>
  *
+ * @throws {@link RUMServiceException}
+ * <p>Base exception class for all service exceptions from RUM service.</p>
  *
  */
 export class CreateAppMonitorCommand extends $Command<

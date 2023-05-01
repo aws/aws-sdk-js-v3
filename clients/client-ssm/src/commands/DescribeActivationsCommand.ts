@@ -39,23 +39,47 @@ export interface DescribeActivationsCommandOutput extends DescribeActivationsRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMClient, DescribeActivationsCommand } from "@aws-sdk/client-ssm"; // ES Modules import
- * // const { SSMClient, DescribeActivationsCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * import { SSMClient, DescribeActivationsCommand } from '@aws-sdk/client-ssm'; // ES Modules import
+ * // const { SSMClient, DescribeActivationsCommand } = require('@aws-sdk/client-ssm'); // CommonJS import
  * const client = new SSMClient(config);
  * const input = { // DescribeActivationsRequest
  *   Filters: [ // DescribeActivationsFilterList
  *     { // DescribeActivationsFilter
- *       FilterKey: "ActivationIds" || "DefaultInstanceName" || "IamRole",
+ *       FilterKey: 'ActivationIds' || 'DefaultInstanceName' || 'IamRole',
  *       FilterValues: [ // StringList
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new DescribeActivationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeActivationsResult
+ *   ActivationList: [ // ActivationList
+ *     { // Activation
+ *       ActivationId: 'STRING_VALUE',
+ *       Description: 'STRING_VALUE',
+ *       DefaultInstanceName: 'STRING_VALUE',
+ *       IamRole: 'STRING_VALUE',
+ *       RegistrationLimit: Number('int'),
+ *       RegistrationsCount: Number('int'),
+ *       ExpirationDate: new Date('TIMESTAMP'),
+ *       Expired: true || false,
+ *       CreatedDate: new Date('TIMESTAMP'),
+ *       Tags: [ // TagList
+ *         { // Tag
+ *           Key: 'STRING_VALUE', // required
+ *           Value: 'STRING_VALUE', // required
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeActivationsCommandInput - {@link DescribeActivationsCommandInput}
@@ -73,6 +97,8 @@ export interface DescribeActivationsCommandOutput extends DescribeActivationsRes
  * @throws {@link InvalidNextToken} (client fault)
  *  <p>The specified token isn't valid.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class DescribeActivationsCommand extends $Command<

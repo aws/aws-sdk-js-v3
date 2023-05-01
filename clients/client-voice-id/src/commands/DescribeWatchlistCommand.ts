@@ -40,15 +40,28 @@ export interface DescribeWatchlistCommandOutput extends DescribeWatchlistRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { VoiceIDClient, DescribeWatchlistCommand } from "@aws-sdk/client-voice-id"; // ES Modules import
- * // const { VoiceIDClient, DescribeWatchlistCommand } = require("@aws-sdk/client-voice-id"); // CommonJS import
+ * import { VoiceIDClient, DescribeWatchlistCommand } from '@aws-sdk/client-voice-id'; // ES Modules import
+ * // const { VoiceIDClient, DescribeWatchlistCommand } = require('@aws-sdk/client-voice-id'); // CommonJS import
  * const client = new VoiceIDClient(config);
  * const input = { // DescribeWatchlistRequest
- *   DomainId: "STRING_VALUE", // required
- *   WatchlistId: "STRING_VALUE", // required
+ *   DomainId: 'STRING_VALUE', // required
+ *   WatchlistId: 'STRING_VALUE', // required
  * };
  * const command = new DescribeWatchlistCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeWatchlistResponse
+ *   Watchlist: { // Watchlist
+ *     DomainId: 'STRING_VALUE',
+ *     WatchlistId: 'STRING_VALUE',
+ *     Name: 'STRING_VALUE',
+ *     Description: 'STRING_VALUE',
+ *     DefaultWatchlist: true || false,
+ *     CreatedAt: new Date('TIMESTAMP'),
+ *     UpdatedAt: new Date('TIMESTAMP'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeWatchlistCommandInput - {@link DescribeWatchlistCommandInput}
@@ -78,6 +91,8 @@ export interface DescribeWatchlistCommandOutput extends DescribeWatchlistRespons
  *  <p>The request failed one or more validations; check the error message for more
  *             details.</p>
  *
+ * @throws {@link VoiceIDServiceException}
+ * <p>Base exception class for all service exceptions from VoiceID service.</p>
  *
  */
 export class DescribeWatchlistCommand extends $Command<

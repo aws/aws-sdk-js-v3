@@ -40,24 +40,27 @@ export interface PutLoggingOptionsCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTEventsClient, PutLoggingOptionsCommand } from "@aws-sdk/client-iot-events"; // ES Modules import
- * // const { IoTEventsClient, PutLoggingOptionsCommand } = require("@aws-sdk/client-iot-events"); // CommonJS import
+ * import { IoTEventsClient, PutLoggingOptionsCommand } from '@aws-sdk/client-iot-events'; // ES Modules import
+ * // const { IoTEventsClient, PutLoggingOptionsCommand } = require('@aws-sdk/client-iot-events'); // CommonJS import
  * const client = new IoTEventsClient(config);
  * const input = { // PutLoggingOptionsRequest
  *   loggingOptions: { // LoggingOptions
- *     roleArn: "STRING_VALUE", // required
- *     level: "STRING_VALUE", // required
+ *     roleArn: 'STRING_VALUE', // required
+ *     level: 'STRING_VALUE', // required
  *     enabled: true || false, // required
  *     detectorDebugOptions: [ // DetectorDebugOptions
  *       { // DetectorDebugOption
- *         detectorModelName: "STRING_VALUE", // required
- *         keyValue: "STRING_VALUE",
+ *         detectorModelName: 'STRING_VALUE', // required
+ *         keyValue: 'STRING_VALUE',
  *       },
  *     ],
  *   },
  * };
  * const command = new PutLoggingOptionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutLoggingOptionsCommandInput - {@link PutLoggingOptionsCommandInput}
@@ -84,6 +87,8 @@ export interface PutLoggingOptionsCommandOutput extends __MetadataBearer {}
  * @throws {@link UnsupportedOperationException} (server fault)
  *  <p>The requested operation is not supported.</p>
  *
+ * @throws {@link IoTEventsServiceException}
+ * <p>Base exception class for all service exceptions from IoTEvents service.</p>
  *
  */
 export class PutLoggingOptionsCommand extends $Command<

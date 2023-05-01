@@ -40,21 +40,24 @@ export interface PutAccountDetailsCommandOutput extends PutAccountDetailsRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SESv2Client, PutAccountDetailsCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
- * // const { SESv2Client, PutAccountDetailsCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
+ * import { SESv2Client, PutAccountDetailsCommand } from '@aws-sdk/client-sesv2'; // ES Modules import
+ * // const { SESv2Client, PutAccountDetailsCommand } = require('@aws-sdk/client-sesv2'); // CommonJS import
  * const client = new SESv2Client(config);
  * const input = { // PutAccountDetailsRequest
- *   MailType: "MARKETING" || "TRANSACTIONAL", // required
- *   WebsiteURL: "STRING_VALUE", // required
- *   ContactLanguage: "EN" || "JA",
- *   UseCaseDescription: "STRING_VALUE", // required
+ *   MailType: 'MARKETING' || 'TRANSACTIONAL', // required
+ *   WebsiteURL: 'STRING_VALUE', // required
+ *   ContactLanguage: 'EN' || 'JA',
+ *   UseCaseDescription: 'STRING_VALUE', // required
  *   AdditionalContactEmailAddresses: [ // AdditionalContactEmailAddresses
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   ProductionAccessEnabled: true || false,
  * };
  * const command = new PutAccountDetailsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutAccountDetailsCommandInput - {@link PutAccountDetailsCommandInput}
@@ -72,6 +75,8 @@ export interface PutAccountDetailsCommandOutput extends PutAccountDetailsRespons
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Too many requests have been made to the operation.</p>
  *
+ * @throws {@link SESv2ServiceException}
+ * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
  */
 export class PutAccountDetailsCommand extends $Command<

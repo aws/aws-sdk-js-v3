@@ -36,20 +36,23 @@ export interface UpdateFindingsCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AccessAnalyzerClient, UpdateFindingsCommand } from "@aws-sdk/client-accessanalyzer"; // ES Modules import
- * // const { AccessAnalyzerClient, UpdateFindingsCommand } = require("@aws-sdk/client-accessanalyzer"); // CommonJS import
+ * import { AccessAnalyzerClient, UpdateFindingsCommand } from '@aws-sdk/client-accessanalyzer'; // ES Modules import
+ * // const { AccessAnalyzerClient, UpdateFindingsCommand } = require('@aws-sdk/client-accessanalyzer'); // CommonJS import
  * const client = new AccessAnalyzerClient(config);
  * const input = { // UpdateFindingsRequest
- *   analyzerArn: "STRING_VALUE", // required
- *   status: "STRING_VALUE", // required
+ *   analyzerArn: 'STRING_VALUE', // required
+ *   status: 'STRING_VALUE', // required
  *   ids: [ // FindingIdList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   resourceArn: "STRING_VALUE",
- *   clientToken: "STRING_VALUE",
+ *   resourceArn: 'STRING_VALUE',
+ *   clientToken: 'STRING_VALUE',
  * };
  * const command = new UpdateFindingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateFindingsCommandInput - {@link UpdateFindingsCommandInput}
@@ -73,6 +76,8 @@ export interface UpdateFindingsCommandOutput extends __MetadataBearer {}
  * @throws {@link ValidationException} (client fault)
  *  <p>Validation exception error.</p>
  *
+ * @throws {@link AccessAnalyzerServiceException}
+ * <p>Base exception class for all service exceptions from AccessAnalyzer service.</p>
  *
  */
 export class UpdateFindingsCommand extends $Command<

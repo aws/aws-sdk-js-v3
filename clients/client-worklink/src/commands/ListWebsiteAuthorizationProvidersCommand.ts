@@ -46,16 +46,29 @@ export interface ListWebsiteAuthorizationProvidersCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkLinkClient, ListWebsiteAuthorizationProvidersCommand } from "@aws-sdk/client-worklink"; // ES Modules import
- * // const { WorkLinkClient, ListWebsiteAuthorizationProvidersCommand } = require("@aws-sdk/client-worklink"); // CommonJS import
+ * import { WorkLinkClient, ListWebsiteAuthorizationProvidersCommand } from '@aws-sdk/client-worklink'; // ES Modules import
+ * // const { WorkLinkClient, ListWebsiteAuthorizationProvidersCommand } = require('@aws-sdk/client-worklink'); // CommonJS import
  * const client = new WorkLinkClient(config);
  * const input = { // ListWebsiteAuthorizationProvidersRequest
- *   FleetArn: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   FleetArn: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListWebsiteAuthorizationProvidersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListWebsiteAuthorizationProvidersResponse
+ *   WebsiteAuthorizationProviders: [ // WebsiteAuthorizationProvidersSummaryList
+ *     { // WebsiteAuthorizationProviderSummary
+ *       AuthorizationProviderId: 'STRING_VALUE',
+ *       AuthorizationProviderType: 'STRING_VALUE', // required
+ *       DomainName: 'STRING_VALUE',
+ *       CreatedTime: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListWebsiteAuthorizationProvidersCommandInput - {@link ListWebsiteAuthorizationProvidersCommandInput}
@@ -79,6 +92,8 @@ export interface ListWebsiteAuthorizationProvidersCommandOutput
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this action.</p>
  *
+ * @throws {@link WorkLinkServiceException}
+ * <p>Base exception class for all service exceptions from WorkLink service.</p>
  *
  */
 export class ListWebsiteAuthorizationProvidersCommand extends $Command<

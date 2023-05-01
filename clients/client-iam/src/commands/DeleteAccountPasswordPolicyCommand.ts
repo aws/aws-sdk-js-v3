@@ -35,12 +35,15 @@ export interface DeleteAccountPasswordPolicyCommandOutput extends __MetadataBear
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IAMClient, DeleteAccountPasswordPolicyCommand } from "@aws-sdk/client-iam"; // ES Modules import
- * // const { IAMClient, DeleteAccountPasswordPolicyCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * import { IAMClient, DeleteAccountPasswordPolicyCommand } from '@aws-sdk/client-iam'; // ES Modules import
+ * // const { IAMClient, DeleteAccountPasswordPolicyCommand } = require('@aws-sdk/client-iam'); // CommonJS import
  * const client = new IAMClient(config);
  * const input = {};
  * const command = new DeleteAccountPasswordPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteAccountPasswordPolicyCommandInput - {@link DeleteAccountPasswordPolicyCommandInput}
@@ -61,6 +64,8 @@ export interface DeleteAccountPasswordPolicyCommandOutput extends __MetadataBear
  *  <p>The request processing has failed because of an unknown error, exception or
  *       failure.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  * @example To delete the current account password policy
  * ```javascript

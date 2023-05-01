@@ -41,19 +41,36 @@ export interface DescribeImageReplicationStatusCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ECRClient, DescribeImageReplicationStatusCommand } from "@aws-sdk/client-ecr"; // ES Modules import
- * // const { ECRClient, DescribeImageReplicationStatusCommand } = require("@aws-sdk/client-ecr"); // CommonJS import
+ * import { ECRClient, DescribeImageReplicationStatusCommand } from '@aws-sdk/client-ecr'; // ES Modules import
+ * // const { ECRClient, DescribeImageReplicationStatusCommand } = require('@aws-sdk/client-ecr'); // CommonJS import
  * const client = new ECRClient(config);
  * const input = { // DescribeImageReplicationStatusRequest
- *   repositoryName: "STRING_VALUE", // required
+ *   repositoryName: 'STRING_VALUE', // required
  *   imageId: { // ImageIdentifier
- *     imageDigest: "STRING_VALUE",
- *     imageTag: "STRING_VALUE",
+ *     imageDigest: 'STRING_VALUE',
+ *     imageTag: 'STRING_VALUE',
  *   },
- *   registryId: "STRING_VALUE",
+ *   registryId: 'STRING_VALUE',
  * };
  * const command = new DescribeImageReplicationStatusCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeImageReplicationStatusResponse
+ *   repositoryName: 'STRING_VALUE',
+ *   imageId: { // ImageIdentifier
+ *     imageDigest: 'STRING_VALUE',
+ *     imageTag: 'STRING_VALUE',
+ *   },
+ *   replicationStatuses: [ // ImageReplicationStatusList
+ *     { // ImageReplicationStatus
+ *       region: 'STRING_VALUE',
+ *       registryId: 'STRING_VALUE',
+ *       status: 'STRING_VALUE',
+ *       failureCode: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeImageReplicationStatusCommandInput - {@link DescribeImageReplicationStatusCommandInput}
@@ -79,6 +96,8 @@ export interface DescribeImageReplicationStatusCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>There was an exception validating this request.</p>
  *
+ * @throws {@link ECRServiceException}
+ * <p>Base exception class for all service exceptions from ECR service.</p>
  *
  */
 export class DescribeImageReplicationStatusCommand extends $Command<

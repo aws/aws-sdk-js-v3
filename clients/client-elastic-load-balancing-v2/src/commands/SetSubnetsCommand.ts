@@ -45,26 +45,46 @@ export interface SetSubnetsCommandOutput extends SetSubnetsOutput, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElasticLoadBalancingV2Client, SetSubnetsCommand } from "@aws-sdk/client-elastic-load-balancing-v2"; // ES Modules import
- * // const { ElasticLoadBalancingV2Client, SetSubnetsCommand } = require("@aws-sdk/client-elastic-load-balancing-v2"); // CommonJS import
+ * import { ElasticLoadBalancingV2Client, SetSubnetsCommand } from '@aws-sdk/client-elastic-load-balancing-v2'; // ES Modules import
+ * // const { ElasticLoadBalancingV2Client, SetSubnetsCommand } = require('@aws-sdk/client-elastic-load-balancing-v2'); // CommonJS import
  * const client = new ElasticLoadBalancingV2Client(config);
  * const input = { // SetSubnetsInput
- *   LoadBalancerArn: "STRING_VALUE", // required
+ *   LoadBalancerArn: 'STRING_VALUE', // required
  *   Subnets: [ // Subnets
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   SubnetMappings: [ // SubnetMappings
  *     { // SubnetMapping
- *       SubnetId: "STRING_VALUE",
- *       AllocationId: "STRING_VALUE",
- *       PrivateIPv4Address: "STRING_VALUE",
- *       IPv6Address: "STRING_VALUE",
+ *       SubnetId: 'STRING_VALUE',
+ *       AllocationId: 'STRING_VALUE',
+ *       PrivateIPv4Address: 'STRING_VALUE',
+ *       IPv6Address: 'STRING_VALUE',
  *     },
  *   ],
- *   IpAddressType: "ipv4" || "dualstack",
+ *   IpAddressType: 'ipv4' || 'dualstack',
  * };
  * const command = new SetSubnetsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SetSubnetsOutput
+ *   AvailabilityZones: [ // AvailabilityZones
+ *     { // AvailabilityZone
+ *       ZoneName: 'STRING_VALUE',
+ *       SubnetId: 'STRING_VALUE',
+ *       OutpostId: 'STRING_VALUE',
+ *       LoadBalancerAddresses: [ // LoadBalancerAddresses
+ *         { // LoadBalancerAddress
+ *           IpAddress: 'STRING_VALUE',
+ *           AllocationId: 'STRING_VALUE',
+ *           PrivateIPv4Address: 'STRING_VALUE',
+ *           IPv6Address: 'STRING_VALUE',
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   IpAddressType: 'ipv4' || 'dualstack',
+ * };
+ *
  * ```
  *
  * @param SetSubnetsCommandInput - {@link SetSubnetsCommandInput}
@@ -91,6 +111,8 @@ export interface SetSubnetsCommandOutput extends SetSubnetsOutput, __MetadataBea
  * @throws {@link SubnetNotFoundException} (client fault)
  *  <p>The specified subnet does not exist.</p>
  *
+ * @throws {@link ElasticLoadBalancingV2ServiceException}
+ * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
  * @example To enable Availability Zones for a load balancer
  * ```javascript

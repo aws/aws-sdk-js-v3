@@ -39,24 +39,51 @@ export interface DescribeGlobalClustersCommandOutput extends GlobalClustersMessa
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DocDBClient, DescribeGlobalClustersCommand } from "@aws-sdk/client-docdb"; // ES Modules import
- * // const { DocDBClient, DescribeGlobalClustersCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
+ * import { DocDBClient, DescribeGlobalClustersCommand } from '@aws-sdk/client-docdb'; // ES Modules import
+ * // const { DocDBClient, DescribeGlobalClustersCommand } = require('@aws-sdk/client-docdb'); // CommonJS import
  * const client = new DocDBClient(config);
  * const input = { // DescribeGlobalClustersMessage
- *   GlobalClusterIdentifier: "STRING_VALUE",
+ *   GlobalClusterIdentifier: 'STRING_VALUE',
  *   Filters: [ // FilterList
  *     { // Filter
- *       Name: "STRING_VALUE", // required
+ *       Name: 'STRING_VALUE', // required
  *       Values: [ // FilterValueList // required
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
- *   MaxRecords: Number("int"),
- *   Marker: "STRING_VALUE",
+ *   MaxRecords: Number('int'),
+ *   Marker: 'STRING_VALUE',
  * };
  * const command = new DescribeGlobalClustersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GlobalClustersMessage
+ *   Marker: 'STRING_VALUE',
+ *   GlobalClusters: [ // GlobalClusterList
+ *     { // GlobalCluster
+ *       GlobalClusterIdentifier: 'STRING_VALUE',
+ *       GlobalClusterResourceId: 'STRING_VALUE',
+ *       GlobalClusterArn: 'STRING_VALUE',
+ *       Status: 'STRING_VALUE',
+ *       Engine: 'STRING_VALUE',
+ *       EngineVersion: 'STRING_VALUE',
+ *       DatabaseName: 'STRING_VALUE',
+ *       StorageEncrypted: true || false,
+ *       DeletionProtection: true || false,
+ *       GlobalClusterMembers: [ // GlobalClusterMemberList
+ *         { // GlobalClusterMember
+ *           DBClusterArn: 'STRING_VALUE',
+ *           Readers: [ // ReadersArnList
+ *             'STRING_VALUE',
+ *           ],
+ *           IsWriter: true || false,
+ *         },
+ *       ],
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeGlobalClustersCommandInput - {@link DescribeGlobalClustersCommandInput}
@@ -68,6 +95,8 @@ export interface DescribeGlobalClustersCommandOutput extends GlobalClustersMessa
  * @throws {@link GlobalClusterNotFoundFault} (client fault)
  *  <p>The <code>GlobalClusterIdentifier</code> doesn't refer to an existing global cluster.</p>
  *
+ * @throws {@link DocDBServiceException}
+ * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
  */
 export class DescribeGlobalClustersCommand extends $Command<

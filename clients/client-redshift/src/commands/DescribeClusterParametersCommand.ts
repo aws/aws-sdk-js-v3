@@ -47,17 +47,35 @@ export interface DescribeClusterParametersCommandOutput extends ClusterParameter
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RedshiftClient, DescribeClusterParametersCommand } from "@aws-sdk/client-redshift"; // ES Modules import
- * // const { RedshiftClient, DescribeClusterParametersCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * import { RedshiftClient, DescribeClusterParametersCommand } from '@aws-sdk/client-redshift'; // ES Modules import
+ * // const { RedshiftClient, DescribeClusterParametersCommand } = require('@aws-sdk/client-redshift'); // CommonJS import
  * const client = new RedshiftClient(config);
  * const input = { // DescribeClusterParametersMessage
- *   ParameterGroupName: "STRING_VALUE", // required
- *   Source: "STRING_VALUE",
- *   MaxRecords: Number("int"),
- *   Marker: "STRING_VALUE",
+ *   ParameterGroupName: 'STRING_VALUE', // required
+ *   Source: 'STRING_VALUE',
+ *   MaxRecords: Number('int'),
+ *   Marker: 'STRING_VALUE',
  * };
  * const command = new DescribeClusterParametersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ClusterParameterGroupDetails
+ *   Parameters: [ // ParametersList
+ *     { // Parameter
+ *       ParameterName: 'STRING_VALUE',
+ *       ParameterValue: 'STRING_VALUE',
+ *       Description: 'STRING_VALUE',
+ *       Source: 'STRING_VALUE',
+ *       DataType: 'STRING_VALUE',
+ *       AllowedValues: 'STRING_VALUE',
+ *       ApplyType: 'static' || 'dynamic',
+ *       IsModifiable: true || false,
+ *       MinimumEngineVersion: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   Marker: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeClusterParametersCommandInput - {@link DescribeClusterParametersCommandInput}
@@ -69,6 +87,8 @@ export interface DescribeClusterParametersCommandOutput extends ClusterParameter
  * @throws {@link ClusterParameterGroupNotFoundFault} (client fault)
  *  <p>The parameter group name does not refer to an existing parameter group.</p>
  *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class DescribeClusterParametersCommand extends $Command<

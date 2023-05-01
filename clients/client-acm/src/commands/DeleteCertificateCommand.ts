@@ -43,14 +43,17 @@ export interface DeleteCertificateCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ACMClient, DeleteCertificateCommand } from "@aws-sdk/client-acm"; // ES Modules import
- * // const { ACMClient, DeleteCertificateCommand } = require("@aws-sdk/client-acm"); // CommonJS import
+ * import { ACMClient, DeleteCertificateCommand } from '@aws-sdk/client-acm'; // ES Modules import
+ * // const { ACMClient, DeleteCertificateCommand } = require('@aws-sdk/client-acm'); // CommonJS import
  * const client = new ACMClient(config);
  * const input = { // DeleteCertificateRequest
- *   CertificateArn: "STRING_VALUE", // required
+ *   CertificateArn: 'STRING_VALUE', // required
  * };
  * const command = new DeleteCertificateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteCertificateCommandInput - {@link DeleteCertificateCommandInput}
@@ -80,6 +83,8 @@ export interface DeleteCertificateCommandOutput extends __MetadataBearer {}
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied because it exceeded a quota.</p>
  *
+ * @throws {@link ACMServiceException}
+ * <p>Base exception class for all service exceptions from ACM service.</p>
  *
  */
 export class DeleteCertificateCommand extends $Command<

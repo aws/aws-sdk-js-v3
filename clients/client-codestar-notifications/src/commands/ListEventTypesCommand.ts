@@ -40,21 +40,34 @@ export interface ListEventTypesCommandOutput extends ListEventTypesResult, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodestarNotificationsClient, ListEventTypesCommand } from "@aws-sdk/client-codestar-notifications"; // ES Modules import
- * // const { CodestarNotificationsClient, ListEventTypesCommand } = require("@aws-sdk/client-codestar-notifications"); // CommonJS import
+ * import { CodestarNotificationsClient, ListEventTypesCommand } from '@aws-sdk/client-codestar-notifications'; // ES Modules import
+ * // const { CodestarNotificationsClient, ListEventTypesCommand } = require('@aws-sdk/client-codestar-notifications'); // CommonJS import
  * const client = new CodestarNotificationsClient(config);
  * const input = { // ListEventTypesRequest
  *   Filters: [ // ListEventTypesFilters
  *     { // ListEventTypesFilter
- *       Name: "RESOURCE_TYPE" || "SERVICE_NAME", // required
- *       Value: "STRING_VALUE", // required
+ *       Name: 'RESOURCE_TYPE' || 'SERVICE_NAME', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListEventTypesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListEventTypesResult
+ *   EventTypes: [ // EventTypeBatch
+ *     { // EventTypeSummary
+ *       EventTypeId: 'STRING_VALUE',
+ *       ServiceName: 'STRING_VALUE',
+ *       EventTypeName: 'STRING_VALUE',
+ *       ResourceType: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListEventTypesCommandInput - {@link ListEventTypesCommandInput}
@@ -69,6 +82,8 @@ export interface ListEventTypesCommandOutput extends ListEventTypesResult, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>One or more parameter values are not valid.</p>
  *
+ * @throws {@link CodestarNotificationsServiceException}
+ * <p>Base exception class for all service exceptions from CodestarNotifications service.</p>
  *
  */
 export class ListEventTypesCommand extends $Command<

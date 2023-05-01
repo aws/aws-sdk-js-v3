@@ -36,30 +36,47 @@ export interface ListBotLocalesCommandOutput extends ListBotLocalesResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LexModelsV2Client, ListBotLocalesCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
- * // const { LexModelsV2Client, ListBotLocalesCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
+ * import { LexModelsV2Client, ListBotLocalesCommand } from '@aws-sdk/client-lex-models-v2'; // ES Modules import
+ * // const { LexModelsV2Client, ListBotLocalesCommand } = require('@aws-sdk/client-lex-models-v2'); // CommonJS import
  * const client = new LexModelsV2Client(config);
  * const input = { // ListBotLocalesRequest
- *   botId: "STRING_VALUE", // required
- *   botVersion: "STRING_VALUE", // required
+ *   botId: 'STRING_VALUE', // required
+ *   botVersion: 'STRING_VALUE', // required
  *   sortBy: { // BotLocaleSortBy
- *     attribute: "BotLocaleName", // required
- *     order: "Ascending" || "Descending", // required
+ *     attribute: 'BotLocaleName', // required
+ *     order: 'Ascending' || 'Descending', // required
  *   },
  *   filters: [ // BotLocaleFilters
  *     { // BotLocaleFilter
- *       name: "BotLocaleName", // required
+ *       name: 'BotLocaleName', // required
  *       values: [ // FilterValues // required
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
- *       operator: "CO" || "EQ", // required
+ *       operator: 'CO' || 'EQ', // required
  *     },
  *   ],
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new ListBotLocalesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListBotLocalesResponse
+ *   botId: 'STRING_VALUE',
+ *   botVersion: 'STRING_VALUE',
+ *   nextToken: 'STRING_VALUE',
+ *   botLocaleSummaries: [ // BotLocaleSummaryList
+ *     { // BotLocaleSummary
+ *       localeId: 'STRING_VALUE',
+ *       localeName: 'STRING_VALUE',
+ *       description: 'STRING_VALUE',
+ *       botLocaleStatus: 'Creating' || 'Building' || 'Built' || 'ReadyExpressTesting' || 'Failed' || 'Deleting' || 'NotBuilt' || 'Importing' || 'Processing',
+ *       lastUpdatedDateTime: new Date('TIMESTAMP'),
+ *       lastBuildSubmittedDateTime: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListBotLocalesCommandInput - {@link ListBotLocalesCommandInput}
@@ -83,6 +100,8 @@ export interface ListBotLocalesCommandOutput extends ListBotLocalesResponse, __M
  *  <p>One of the input parameters in your request isn't valid. Check the
  *          parameters and try your request again.</p>
  *
+ * @throws {@link LexModelsV2ServiceException}
+ * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
  */
 export class ListBotLocalesCommand extends $Command<

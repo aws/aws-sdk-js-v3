@@ -39,15 +39,75 @@ export interface DescribeBudgetCommandOutput extends DescribeBudgetResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BudgetsClient, DescribeBudgetCommand } from "@aws-sdk/client-budgets"; // ES Modules import
- * // const { BudgetsClient, DescribeBudgetCommand } = require("@aws-sdk/client-budgets"); // CommonJS import
+ * import { BudgetsClient, DescribeBudgetCommand } from '@aws-sdk/client-budgets'; // ES Modules import
+ * // const { BudgetsClient, DescribeBudgetCommand } = require('@aws-sdk/client-budgets'); // CommonJS import
  * const client = new BudgetsClient(config);
  * const input = { // DescribeBudgetRequest
- *   AccountId: "STRING_VALUE", // required
- *   BudgetName: "STRING_VALUE", // required
+ *   AccountId: 'STRING_VALUE', // required
+ *   BudgetName: 'STRING_VALUE', // required
  * };
  * const command = new DescribeBudgetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeBudgetResponse
+ *   Budget: { // Budget
+ *     BudgetName: 'STRING_VALUE', // required
+ *     BudgetLimit: { // Spend
+ *       Amount: 'STRING_VALUE', // required
+ *       Unit: 'STRING_VALUE', // required
+ *     },
+ *     PlannedBudgetLimits: { // PlannedBudgetLimits
+ *       '<keys>': {
+ *         Amount: 'STRING_VALUE', // required
+ *         Unit: 'STRING_VALUE', // required
+ *       },
+ *     },
+ *     CostFilters: { // CostFilters
+ *       '<keys>': [ // DimensionValues
+ *         'STRING_VALUE',
+ *       ],
+ *     },
+ *     CostTypes: { // CostTypes
+ *       IncludeTax: true || false,
+ *       IncludeSubscription: true || false,
+ *       UseBlended: true || false,
+ *       IncludeRefund: true || false,
+ *       IncludeCredit: true || false,
+ *       IncludeUpfront: true || false,
+ *       IncludeRecurring: true || false,
+ *       IncludeOtherSubscription: true || false,
+ *       IncludeSupport: true || false,
+ *       IncludeDiscount: true || false,
+ *       UseAmortized: true || false,
+ *     },
+ *     TimeUnit: 'STRING_VALUE', // required
+ *     TimePeriod: { // TimePeriod
+ *       Start: new Date('TIMESTAMP'),
+ *       End: new Date('TIMESTAMP'),
+ *     },
+ *     CalculatedSpend: { // CalculatedSpend
+ *       ActualSpend: {
+ *         Amount: 'STRING_VALUE', // required
+ *         Unit: 'STRING_VALUE', // required
+ *       },
+ *       ForecastedSpend: {
+ *         Amount: 'STRING_VALUE', // required
+ *         Unit: 'STRING_VALUE', // required
+ *       },
+ *     },
+ *     BudgetType: 'STRING_VALUE', // required
+ *     LastUpdatedTime: new Date('TIMESTAMP'),
+ *     AutoAdjustData: { // AutoAdjustData
+ *       AutoAdjustType: 'STRING_VALUE', // required
+ *       HistoricalOptions: { // HistoricalOptions
+ *         BudgetAdjustmentPeriod: Number('int'), // required
+ *         LookBackAvailablePeriods: Number('int'),
+ *       },
+ *       LastAutoAdjustTime: new Date('TIMESTAMP'),
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeBudgetCommandInput - {@link DescribeBudgetCommandInput}
@@ -73,6 +133,8 @@ export interface DescribeBudgetCommandOutput extends DescribeBudgetResponse, __M
  *       The number of API requests has exceeded the maximum allowed API request throttling limit for the account.
  *     </p>
  *
+ * @throws {@link BudgetsServiceException}
+ * <p>Base exception class for all service exceptions from Budgets service.</p>
  *
  */
 export class DescribeBudgetCommand extends $Command<

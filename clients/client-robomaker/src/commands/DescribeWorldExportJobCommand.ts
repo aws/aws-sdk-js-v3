@@ -36,14 +36,35 @@ export interface DescribeWorldExportJobCommandOutput extends DescribeWorldExport
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RoboMakerClient, DescribeWorldExportJobCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
- * // const { RoboMakerClient, DescribeWorldExportJobCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
+ * import { RoboMakerClient, DescribeWorldExportJobCommand } from '@aws-sdk/client-robomaker'; // ES Modules import
+ * // const { RoboMakerClient, DescribeWorldExportJobCommand } = require('@aws-sdk/client-robomaker'); // CommonJS import
  * const client = new RoboMakerClient(config);
  * const input = { // DescribeWorldExportJobRequest
- *   job: "STRING_VALUE", // required
+ *   job: 'STRING_VALUE', // required
  * };
  * const command = new DescribeWorldExportJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeWorldExportJobResponse
+ *   arn: 'STRING_VALUE',
+ *   status: 'STRING_VALUE',
+ *   createdAt: new Date('TIMESTAMP'),
+ *   failureCode: 'STRING_VALUE',
+ *   failureReason: 'STRING_VALUE',
+ *   clientRequestToken: 'STRING_VALUE',
+ *   worlds: [ // Arns
+ *     'STRING_VALUE',
+ *   ],
+ *   outputLocation: { // OutputLocation
+ *     s3Bucket: 'STRING_VALUE',
+ *     s3Prefix: 'STRING_VALUE',
+ *   },
+ *   iamRole: 'STRING_VALUE',
+ *   tags: { // TagMap
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeWorldExportJobCommandInput - {@link DescribeWorldExportJobCommandInput}
@@ -65,6 +86,8 @@ export interface DescribeWorldExportJobCommandOutput extends DescribeWorldExport
  * @throws {@link ThrottlingException} (client fault)
  *  <p>AWS RoboMaker is temporarily unable to process the request. Try your call again.</p>
  *
+ * @throws {@link RoboMakerServiceException}
+ * <p>Base exception class for all service exceptions from RoboMaker service.</p>
  *
  */
 export class DescribeWorldExportJobCommand extends $Command<

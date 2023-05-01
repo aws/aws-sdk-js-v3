@@ -36,61 +36,61 @@ export interface UpdateResponsePlanCommandOutput extends UpdateResponsePlanOutpu
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMIncidentsClient, UpdateResponsePlanCommand } from "@aws-sdk/client-ssm-incidents"; // ES Modules import
- * // const { SSMIncidentsClient, UpdateResponsePlanCommand } = require("@aws-sdk/client-ssm-incidents"); // CommonJS import
+ * import { SSMIncidentsClient, UpdateResponsePlanCommand } from '@aws-sdk/client-ssm-incidents'; // ES Modules import
+ * // const { SSMIncidentsClient, UpdateResponsePlanCommand } = require('@aws-sdk/client-ssm-incidents'); // CommonJS import
  * const client = new SSMIncidentsClient(config);
  * const input = { // UpdateResponsePlanInput
- *   clientToken: "STRING_VALUE",
- *   arn: "STRING_VALUE", // required
- *   displayName: "STRING_VALUE",
- *   incidentTemplateTitle: "STRING_VALUE",
- *   incidentTemplateImpact: Number("int"),
- *   incidentTemplateSummary: "STRING_VALUE",
- *   incidentTemplateDedupeString: "STRING_VALUE",
+ *   clientToken: 'STRING_VALUE',
+ *   arn: 'STRING_VALUE', // required
+ *   displayName: 'STRING_VALUE',
+ *   incidentTemplateTitle: 'STRING_VALUE',
+ *   incidentTemplateImpact: Number('int'),
+ *   incidentTemplateSummary: 'STRING_VALUE',
+ *   incidentTemplateDedupeString: 'STRING_VALUE',
  *   incidentTemplateNotificationTargets: [ // NotificationTargetSet
  *     { // NotificationTargetItem Union: only one key present
- *       snsTopicArn: "STRING_VALUE",
+ *       snsTopicArn: 'STRING_VALUE',
  *     },
  *   ],
  *   chatChannel: { // ChatChannel Union: only one key present
  *     empty: {},
  *     chatbotSns: [ // ChatbotSnsConfigurationSet
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *   },
  *   engagements: [ // EngagementSet
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   actions: [ // ActionsList
  *     { // Action Union: only one key present
  *       ssmAutomation: { // SsmAutomation
- *         roleArn: "STRING_VALUE", // required
- *         documentName: "STRING_VALUE", // required
- *         documentVersion: "STRING_VALUE",
- *         targetAccount: "STRING_VALUE",
+ *         roleArn: 'STRING_VALUE', // required
+ *         documentName: 'STRING_VALUE', // required
+ *         documentVersion: 'STRING_VALUE',
+ *         targetAccount: 'STRING_VALUE',
  *         parameters: { // SsmParameters
- *           "<keys>": [ // SsmParameterValues
- *             "STRING_VALUE",
+ *           '<keys>': [ // SsmParameterValues
+ *             'STRING_VALUE',
  *           ],
  *         },
  *         dynamicParameters: { // DynamicSsmParameters
- *           "<keys>": { // DynamicSsmParameterValue Union: only one key present
- *             variable: "STRING_VALUE",
+ *           '<keys>': { // DynamicSsmParameterValue Union: only one key present
+ *             variable: 'STRING_VALUE',
  *           },
  *         },
  *       },
  *     },
  *   ],
  *   incidentTemplateTags: { // TagMapUpdate
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  *   integrations: [ // Integrations
  *     { // Integration Union: only one key present
  *       pagerDutyConfiguration: { // PagerDutyConfiguration
- *         name: "STRING_VALUE", // required
- *         secretId: "STRING_VALUE", // required
+ *         name: 'STRING_VALUE', // required
+ *         secretId: 'STRING_VALUE', // required
  *         pagerDutyIncidentConfiguration: { // PagerDutyIncidentConfiguration
- *           serviceId: "STRING_VALUE", // required
+ *           serviceId: 'STRING_VALUE', // required
  *         },
  *       },
  *     },
@@ -98,6 +98,9 @@ export interface UpdateResponsePlanCommandOutput extends UpdateResponsePlanOutpu
  * };
  * const command = new UpdateResponsePlanCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateResponsePlanCommandInput - {@link UpdateResponsePlanCommandInput}
@@ -126,6 +129,8 @@ export interface UpdateResponsePlanCommandOutput extends UpdateResponsePlanOutpu
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
  *       service.</p>
  *
+ * @throws {@link SSMIncidentsServiceException}
+ * <p>Base exception class for all service exceptions from SSMIncidents service.</p>
  *
  */
 export class UpdateResponsePlanCommand extends $Command<

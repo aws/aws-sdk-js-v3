@@ -51,15 +51,18 @@ export interface DeleteUtterancesCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LexModelBuildingServiceClient, DeleteUtterancesCommand } from "@aws-sdk/client-lex-model-building-service"; // ES Modules import
- * // const { LexModelBuildingServiceClient, DeleteUtterancesCommand } = require("@aws-sdk/client-lex-model-building-service"); // CommonJS import
+ * import { LexModelBuildingServiceClient, DeleteUtterancesCommand } from '@aws-sdk/client-lex-model-building-service'; // ES Modules import
+ * // const { LexModelBuildingServiceClient, DeleteUtterancesCommand } = require('@aws-sdk/client-lex-model-building-service'); // CommonJS import
  * const client = new LexModelBuildingServiceClient(config);
  * const input = { // DeleteUtterancesRequest
- *   botName: "STRING_VALUE", // required
- *   userId: "STRING_VALUE", // required
+ *   botName: 'STRING_VALUE', // required
+ *   userId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteUtterancesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteUtterancesCommandInput - {@link DeleteUtterancesCommandInput}
@@ -83,6 +86,8 @@ export interface DeleteUtterancesCommandOutput extends __MetadataBearer {}
  *  <p>The resource specified in the request was not found. Check the
  *       resource and try again.</p>
  *
+ * @throws {@link LexModelBuildingServiceServiceException}
+ * <p>Base exception class for all service exceptions from LexModelBuildingService service.</p>
  *
  */
 export class DeleteUtterancesCommand extends $Command<

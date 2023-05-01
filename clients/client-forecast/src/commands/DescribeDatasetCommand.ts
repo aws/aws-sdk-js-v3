@@ -55,14 +55,38 @@ export interface DescribeDatasetCommandOutput extends DescribeDatasetResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ForecastClient, DescribeDatasetCommand } from "@aws-sdk/client-forecast"; // ES Modules import
- * // const { ForecastClient, DescribeDatasetCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
+ * import { ForecastClient, DescribeDatasetCommand } from '@aws-sdk/client-forecast'; // ES Modules import
+ * // const { ForecastClient, DescribeDatasetCommand } = require('@aws-sdk/client-forecast'); // CommonJS import
  * const client = new ForecastClient(config);
  * const input = { // DescribeDatasetRequest
- *   DatasetArn: "STRING_VALUE", // required
+ *   DatasetArn: 'STRING_VALUE', // required
  * };
  * const command = new DescribeDatasetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeDatasetResponse
+ *   DatasetArn: 'STRING_VALUE',
+ *   DatasetName: 'STRING_VALUE',
+ *   Domain: 'RETAIL' || 'CUSTOM' || 'INVENTORY_PLANNING' || 'EC2_CAPACITY' || 'WORK_FORCE' || 'WEB_TRAFFIC' || 'METRICS',
+ *   DatasetType: 'TARGET_TIME_SERIES' || 'RELATED_TIME_SERIES' || 'ITEM_METADATA',
+ *   DataFrequency: 'STRING_VALUE',
+ *   Schema: { // Schema
+ *     Attributes: [ // SchemaAttributes
+ *       { // SchemaAttribute
+ *         AttributeName: 'STRING_VALUE',
+ *         AttributeType: 'string' || 'integer' || 'float' || 'timestamp' || 'geolocation',
+ *       },
+ *     ],
+ *   },
+ *   EncryptionConfig: { // EncryptionConfig
+ *     RoleArn: 'STRING_VALUE', // required
+ *     KMSKeyArn: 'STRING_VALUE', // required
+ *   },
+ *   Status: 'STRING_VALUE',
+ *   CreationTime: new Date('TIMESTAMP'),
+ *   LastModificationTime: new Date('TIMESTAMP'),
+ * };
+ *
  * ```
  *
  * @param DescribeDatasetCommandInput - {@link DescribeDatasetCommandInput}
@@ -79,6 +103,8 @@ export interface DescribeDatasetCommandOutput extends DescribeDatasetResponse, _
  *  <p>We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try
  *       again.</p>
  *
+ * @throws {@link ForecastServiceException}
+ * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
  */
 export class DescribeDatasetCommand extends $Command<

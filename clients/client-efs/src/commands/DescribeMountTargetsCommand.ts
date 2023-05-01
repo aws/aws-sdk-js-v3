@@ -42,18 +42,38 @@ export interface DescribeMountTargetsCommandOutput extends DescribeMountTargetsR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EFSClient, DescribeMountTargetsCommand } from "@aws-sdk/client-efs"; // ES Modules import
- * // const { EFSClient, DescribeMountTargetsCommand } = require("@aws-sdk/client-efs"); // CommonJS import
+ * import { EFSClient, DescribeMountTargetsCommand } from '@aws-sdk/client-efs'; // ES Modules import
+ * // const { EFSClient, DescribeMountTargetsCommand } = require('@aws-sdk/client-efs'); // CommonJS import
  * const client = new EFSClient(config);
  * const input = { // DescribeMountTargetsRequest
- *   MaxItems: Number("int"),
- *   Marker: "STRING_VALUE",
- *   FileSystemId: "STRING_VALUE",
- *   MountTargetId: "STRING_VALUE",
- *   AccessPointId: "STRING_VALUE",
+ *   MaxItems: Number('int'),
+ *   Marker: 'STRING_VALUE',
+ *   FileSystemId: 'STRING_VALUE',
+ *   MountTargetId: 'STRING_VALUE',
+ *   AccessPointId: 'STRING_VALUE',
  * };
  * const command = new DescribeMountTargetsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeMountTargetsResponse
+ *   Marker: 'STRING_VALUE',
+ *   MountTargets: [ // MountTargetDescriptions
+ *     { // MountTargetDescription
+ *       OwnerId: 'STRING_VALUE',
+ *       MountTargetId: 'STRING_VALUE', // required
+ *       FileSystemId: 'STRING_VALUE', // required
+ *       SubnetId: 'STRING_VALUE', // required
+ *       LifeCycleState: 'creating' || 'available' || 'updating' || 'deleting' || 'deleted' || 'error', // required
+ *       IpAddress: 'STRING_VALUE',
+ *       NetworkInterfaceId: 'STRING_VALUE',
+ *       AvailabilityZoneId: 'STRING_VALUE',
+ *       AvailabilityZoneName: 'STRING_VALUE',
+ *       VpcId: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextMarker: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeMountTargetsCommandInput - {@link DescribeMountTargetsCommandInput}
@@ -81,6 +101,8 @@ export interface DescribeMountTargetsCommandOutput extends DescribeMountTargetsR
  *  <p>Returned if there is no mount target with the specified ID found in the
  *             caller's Amazon Web Services account.</p>
  *
+ * @throws {@link EFSServiceException}
+ * <p>Base exception class for all service exceptions from EFS service.</p>
  *
  * @example To describe the mount targets for a file system
  * ```javascript

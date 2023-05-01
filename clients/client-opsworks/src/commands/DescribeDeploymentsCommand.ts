@@ -44,18 +44,47 @@ export interface DescribeDeploymentsCommandOutput extends DescribeDeploymentsRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OpsWorksClient, DescribeDeploymentsCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
- * // const { OpsWorksClient, DescribeDeploymentsCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
+ * import { OpsWorksClient, DescribeDeploymentsCommand } from '@aws-sdk/client-opsworks'; // ES Modules import
+ * // const { OpsWorksClient, DescribeDeploymentsCommand } = require('@aws-sdk/client-opsworks'); // CommonJS import
  * const client = new OpsWorksClient(config);
  * const input = { // DescribeDeploymentsRequest
- *   StackId: "STRING_VALUE",
- *   AppId: "STRING_VALUE",
+ *   StackId: 'STRING_VALUE',
+ *   AppId: 'STRING_VALUE',
  *   DeploymentIds: [ // Strings
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new DescribeDeploymentsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeDeploymentsResult
+ *   Deployments: [ // Deployments
+ *     { // Deployment
+ *       DeploymentId: 'STRING_VALUE',
+ *       StackId: 'STRING_VALUE',
+ *       AppId: 'STRING_VALUE',
+ *       CreatedAt: 'STRING_VALUE',
+ *       CompletedAt: 'STRING_VALUE',
+ *       Duration: Number('int'),
+ *       IamUserArn: 'STRING_VALUE',
+ *       Comment: 'STRING_VALUE',
+ *       Command: { // DeploymentCommand
+ *         Name: 'STRING_VALUE', // required
+ *         Args: { // DeploymentCommandArgs
+ *           '<keys>': [ // Strings
+ *             'STRING_VALUE',
+ *           ],
+ *         },
+ *       },
+ *       Status: 'STRING_VALUE',
+ *       CustomJson: 'STRING_VALUE',
+ *       InstanceIds: [
+ *         'STRING_VALUE',
+ *       ],
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeDeploymentsCommandInput - {@link DescribeDeploymentsCommandInput}
@@ -70,6 +99,8 @@ export interface DescribeDeploymentsCommandOutput extends DescribeDeploymentsRes
  * @throws {@link ValidationException} (client fault)
  *  <p>Indicates that a request was not valid.</p>
  *
+ * @throws {@link OpsWorksServiceException}
+ * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
  */
 export class DescribeDeploymentsCommand extends $Command<

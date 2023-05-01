@@ -38,25 +38,25 @@ export interface CreateContactCommandOutput extends CreateContactResult, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMContactsClient, CreateContactCommand } from "@aws-sdk/client-ssm-contacts"; // ES Modules import
- * // const { SSMContactsClient, CreateContactCommand } = require("@aws-sdk/client-ssm-contacts"); // CommonJS import
+ * import { SSMContactsClient, CreateContactCommand } from '@aws-sdk/client-ssm-contacts'; // ES Modules import
+ * // const { SSMContactsClient, CreateContactCommand } = require('@aws-sdk/client-ssm-contacts'); // CommonJS import
  * const client = new SSMContactsClient(config);
  * const input = { // CreateContactRequest
- *   Alias: "STRING_VALUE", // required
- *   DisplayName: "STRING_VALUE",
- *   Type: "PERSONAL" || "ESCALATION" || "ONCALL_SCHEDULE", // required
+ *   Alias: 'STRING_VALUE', // required
+ *   DisplayName: 'STRING_VALUE',
+ *   Type: 'PERSONAL' || 'ESCALATION' || 'ONCALL_SCHEDULE', // required
  *   Plan: { // Plan
  *     Stages: [ // StagesList
  *       { // Stage
- *         DurationInMinutes: Number("int"), // required
+ *         DurationInMinutes: Number('int'), // required
  *         Targets: [ // TargetsList // required
  *           { // Target
  *             ChannelTargetInfo: { // ChannelTargetInfo
- *               ContactChannelId: "STRING_VALUE", // required
- *               RetryIntervalInMinutes: Number("int"),
+ *               ContactChannelId: 'STRING_VALUE', // required
+ *               RetryIntervalInMinutes: Number('int'),
  *             },
  *             ContactTargetInfo: { // ContactTargetInfo
- *               ContactId: "STRING_VALUE",
+ *               ContactId: 'STRING_VALUE',
  *               IsEssential: true || false, // required
  *             },
  *           },
@@ -64,19 +64,24 @@ export interface CreateContactCommandOutput extends CreateContactResult, __Metad
  *       },
  *     ],
  *     RotationIds: [ // SsmContactsArnList
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *   },
  *   Tags: [ // TagsList
  *     { // Tag
- *       Key: "STRING_VALUE",
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
- *   IdempotencyToken: "STRING_VALUE",
+ *   IdempotencyToken: 'STRING_VALUE',
  * };
  * const command = new CreateContactCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateContactResult
+ *   ContactArn: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param CreateContactCommandInput - {@link CreateContactCommandInput}
@@ -107,6 +112,8 @@ export interface CreateContactCommandOutput extends CreateContactResult, __Metad
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
  *          service.</p>
  *
+ * @throws {@link SSMContactsServiceException}
+ * <p>Base exception class for all service exceptions from SSMContacts service.</p>
  *
  */
 export class CreateContactCommand extends $Command<

@@ -46,15 +46,22 @@ export interface DescribeWebsiteCertificateAuthorityCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkLinkClient, DescribeWebsiteCertificateAuthorityCommand } from "@aws-sdk/client-worklink"; // ES Modules import
- * // const { WorkLinkClient, DescribeWebsiteCertificateAuthorityCommand } = require("@aws-sdk/client-worklink"); // CommonJS import
+ * import { WorkLinkClient, DescribeWebsiteCertificateAuthorityCommand } from '@aws-sdk/client-worklink'; // ES Modules import
+ * // const { WorkLinkClient, DescribeWebsiteCertificateAuthorityCommand } = require('@aws-sdk/client-worklink'); // CommonJS import
  * const client = new WorkLinkClient(config);
  * const input = { // DescribeWebsiteCertificateAuthorityRequest
- *   FleetArn: "STRING_VALUE", // required
- *   WebsiteCaId: "STRING_VALUE", // required
+ *   FleetArn: 'STRING_VALUE', // required
+ *   WebsiteCaId: 'STRING_VALUE', // required
  * };
  * const command = new DescribeWebsiteCertificateAuthorityCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeWebsiteCertificateAuthorityResponse
+ *   Certificate: 'STRING_VALUE',
+ *   CreatedTime: new Date('TIMESTAMP'),
+ *   DisplayName: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeWebsiteCertificateAuthorityCommandInput - {@link DescribeWebsiteCertificateAuthorityCommandInput}
@@ -78,6 +85,8 @@ export interface DescribeWebsiteCertificateAuthorityCommandOutput
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this action.</p>
  *
+ * @throws {@link WorkLinkServiceException}
+ * <p>Base exception class for all service exceptions from WorkLink service.</p>
  *
  */
 export class DescribeWebsiteCertificateAuthorityCommand extends $Command<

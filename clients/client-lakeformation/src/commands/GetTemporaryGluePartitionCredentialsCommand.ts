@@ -44,29 +44,37 @@ export interface GetTemporaryGluePartitionCredentialsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LakeFormationClient, GetTemporaryGluePartitionCredentialsCommand } from "@aws-sdk/client-lakeformation"; // ES Modules import
- * // const { LakeFormationClient, GetTemporaryGluePartitionCredentialsCommand } = require("@aws-sdk/client-lakeformation"); // CommonJS import
+ * import { LakeFormationClient, GetTemporaryGluePartitionCredentialsCommand } from '@aws-sdk/client-lakeformation'; // ES Modules import
+ * // const { LakeFormationClient, GetTemporaryGluePartitionCredentialsCommand } = require('@aws-sdk/client-lakeformation'); // CommonJS import
  * const client = new LakeFormationClient(config);
  * const input = { // GetTemporaryGluePartitionCredentialsRequest
- *   TableArn: "STRING_VALUE", // required
+ *   TableArn: 'STRING_VALUE', // required
  *   Partition: { // PartitionValueList
  *     Values: [ // ValueStringList // required
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *   },
  *   Permissions: [ // PermissionList
- *     "ALL" || "SELECT" || "ALTER" || "DROP" || "DELETE" || "INSERT" || "DESCRIBE" || "CREATE_DATABASE" || "CREATE_TABLE" || "DATA_LOCATION_ACCESS" || "CREATE_TAG" || "ASSOCIATE",
+ *     'ALL' || 'SELECT' || 'ALTER' || 'DROP' || 'DELETE' || 'INSERT' || 'DESCRIBE' || 'CREATE_DATABASE' || 'CREATE_TABLE' || 'DATA_LOCATION_ACCESS' || 'CREATE_TAG' || 'ASSOCIATE',
  *   ],
- *   DurationSeconds: Number("int"),
+ *   DurationSeconds: Number('int'),
  *   AuditContext: { // AuditContext
- *     AdditionalAuditContext: "STRING_VALUE",
+ *     AdditionalAuditContext: 'STRING_VALUE',
  *   },
  *   SupportedPermissionTypes: [ // PermissionTypeList // required
- *     "COLUMN_PERMISSION" || "CELL_FILTER_PERMISSION",
+ *     'COLUMN_PERMISSION' || 'CELL_FILTER_PERMISSION',
  *   ],
  * };
  * const command = new GetTemporaryGluePartitionCredentialsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetTemporaryGluePartitionCredentialsResponse
+ *   AccessKeyId: 'STRING_VALUE',
+ *   SecretAccessKey: 'STRING_VALUE',
+ *   SessionToken: 'STRING_VALUE',
+ *   Expiration: new Date('TIMESTAMP'),
+ * };
+ *
  * ```
  *
  * @param GetTemporaryGluePartitionCredentialsCommandInput - {@link GetTemporaryGluePartitionCredentialsCommandInput}
@@ -93,6 +101,8 @@ export interface GetTemporaryGluePartitionCredentialsCommandOutput
  * @throws {@link PermissionTypeMismatchException} (client fault)
  *  <p>The engine does not support filtering data based on the enforced permissions. For example, if you call the <code>GetTemporaryGlueTableCredentials</code> operation with <code>SupportedPermissionType</code> equal to <code>ColumnPermission</code>, but cell-level permissions exist on the table, this exception is thrown.</p>
  *
+ * @throws {@link LakeFormationServiceException}
+ * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
  */
 export class GetTemporaryGluePartitionCredentialsCommand extends $Command<

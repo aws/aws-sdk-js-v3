@@ -36,23 +36,61 @@ export interface DescribeAvailablePatchesCommandOutput extends DescribeAvailable
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMClient, DescribeAvailablePatchesCommand } from "@aws-sdk/client-ssm"; // ES Modules import
- * // const { SSMClient, DescribeAvailablePatchesCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * import { SSMClient, DescribeAvailablePatchesCommand } from '@aws-sdk/client-ssm'; // ES Modules import
+ * // const { SSMClient, DescribeAvailablePatchesCommand } = require('@aws-sdk/client-ssm'); // CommonJS import
  * const client = new SSMClient(config);
  * const input = { // DescribeAvailablePatchesRequest
  *   Filters: [ // PatchOrchestratorFilterList
  *     { // PatchOrchestratorFilter
- *       Key: "STRING_VALUE",
+ *       Key: 'STRING_VALUE',
  *       Values: [ // PatchOrchestratorFilterValues
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new DescribeAvailablePatchesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeAvailablePatchesResult
+ *   Patches: [ // PatchList
+ *     { // Patch
+ *       Id: 'STRING_VALUE',
+ *       ReleaseDate: new Date('TIMESTAMP'),
+ *       Title: 'STRING_VALUE',
+ *       Description: 'STRING_VALUE',
+ *       ContentUrl: 'STRING_VALUE',
+ *       Vendor: 'STRING_VALUE',
+ *       ProductFamily: 'STRING_VALUE',
+ *       Product: 'STRING_VALUE',
+ *       Classification: 'STRING_VALUE',
+ *       MsrcSeverity: 'STRING_VALUE',
+ *       KbNumber: 'STRING_VALUE',
+ *       MsrcNumber: 'STRING_VALUE',
+ *       Language: 'STRING_VALUE',
+ *       AdvisoryIds: [ // PatchAdvisoryIdList
+ *         'STRING_VALUE',
+ *       ],
+ *       BugzillaIds: [ // PatchBugzillaIdList
+ *         'STRING_VALUE',
+ *       ],
+ *       CVEIds: [ // PatchCVEIdList
+ *         'STRING_VALUE',
+ *       ],
+ *       Name: 'STRING_VALUE',
+ *       Epoch: Number('int'),
+ *       Version: 'STRING_VALUE',
+ *       Release: 'STRING_VALUE',
+ *       Arch: 'STRING_VALUE',
+ *       Severity: 'STRING_VALUE',
+ *       Repository: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeAvailablePatchesCommandInput - {@link DescribeAvailablePatchesCommandInput}
@@ -64,6 +102,8 @@ export interface DescribeAvailablePatchesCommandOutput extends DescribeAvailable
  * @throws {@link InternalServerError} (server fault)
  *  <p>An error occurred on the server side.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class DescribeAvailablePatchesCommand extends $Command<

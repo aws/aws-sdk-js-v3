@@ -36,30 +36,55 @@ export interface CreateEventActionCommandOutput extends CreateEventActionRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DataExchangeClient, CreateEventActionCommand } from "@aws-sdk/client-dataexchange"; // ES Modules import
- * // const { DataExchangeClient, CreateEventActionCommand } = require("@aws-sdk/client-dataexchange"); // CommonJS import
+ * import { DataExchangeClient, CreateEventActionCommand } from '@aws-sdk/client-dataexchange'; // ES Modules import
+ * // const { DataExchangeClient, CreateEventActionCommand } = require('@aws-sdk/client-dataexchange'); // CommonJS import
  * const client = new DataExchangeClient(config);
  * const input = { // CreateEventActionRequest
  *   Action: { // Action
  *     ExportRevisionToS3: { // AutoExportRevisionToS3RequestDetails
  *       Encryption: { // ExportServerSideEncryption
- *         KmsKeyArn: "STRING_VALUE",
- *         Type: "STRING_VALUE", // required
+ *         KmsKeyArn: 'STRING_VALUE',
+ *         Type: 'STRING_VALUE', // required
  *       },
  *       RevisionDestination: { // AutoExportRevisionDestinationEntry
- *         Bucket: "STRING_VALUE", // required
- *         KeyPattern: "STRING_VALUE",
+ *         Bucket: 'STRING_VALUE', // required
+ *         KeyPattern: 'STRING_VALUE',
  *       },
  *     },
  *   },
  *   Event: { // Event
  *     RevisionPublished: { // RevisionPublished
- *       DataSetId: "STRING_VALUE", // required
+ *       DataSetId: 'STRING_VALUE', // required
  *     },
  *   },
  * };
  * const command = new CreateEventActionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateEventActionResponse
+ *   Action: { // Action
+ *     ExportRevisionToS3: { // AutoExportRevisionToS3RequestDetails
+ *       Encryption: { // ExportServerSideEncryption
+ *         KmsKeyArn: 'STRING_VALUE',
+ *         Type: 'STRING_VALUE', // required
+ *       },
+ *       RevisionDestination: { // AutoExportRevisionDestinationEntry
+ *         Bucket: 'STRING_VALUE', // required
+ *         KeyPattern: 'STRING_VALUE',
+ *       },
+ *     },
+ *   },
+ *   Arn: 'STRING_VALUE',
+ *   CreatedAt: new Date('TIMESTAMP'),
+ *   Event: { // Event
+ *     RevisionPublished: { // RevisionPublished
+ *       DataSetId: 'STRING_VALUE', // required
+ *     },
+ *   },
+ *   Id: 'STRING_VALUE',
+ *   UpdatedAt: new Date('TIMESTAMP'),
+ * };
+ *
  * ```
  *
  * @param CreateEventActionCommandInput - {@link CreateEventActionCommandInput}
@@ -83,6 +108,8 @@ export interface CreateEventActionCommandOutput extends CreateEventActionRespons
  * @throws {@link ValidationException} (client fault)
  *  <p>The request was invalid.</p>
  *
+ * @throws {@link DataExchangeServiceException}
+ * <p>Base exception class for all service exceptions from DataExchange service.</p>
  *
  */
 export class CreateEventActionCommand extends $Command<

@@ -42,87 +42,169 @@ export interface UpdateItemCommandOutput extends UpdateItemOutput, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DynamoDBClient, UpdateItemCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
- * // const { DynamoDBClient, UpdateItemCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
+ * import { DynamoDBClient, UpdateItemCommand } from '@aws-sdk/client-dynamodb'; // ES Modules import
+ * // const { DynamoDBClient, UpdateItemCommand } = require('@aws-sdk/client-dynamodb'); // CommonJS import
  * const client = new DynamoDBClient(config);
  * const input = { // UpdateItemInput
- *   TableName: "STRING_VALUE", // required
+ *   TableName: 'STRING_VALUE', // required
  *   Key: { // Key // required
- *     "<keys>": { // AttributeValue Union: only one key present
- *       S: "STRING_VALUE",
- *       N: "STRING_VALUE",
- *       B: "BLOB_VALUE",
+ *     '<keys>': { // AttributeValue Union: only one key present
+ *       S: 'STRING_VALUE',
+ *       N: 'STRING_VALUE',
+ *       B: 'BLOB_VALUE',
  *       SS: [ // StringSetAttributeValue
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *       NS: [ // NumberSetAttributeValue
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *       BS: [ // BinarySetAttributeValue
- *         "BLOB_VALUE",
+ *         'BLOB_VALUE',
  *       ],
  *       M: { // MapAttributeValue
- *         "<keys>": {//  Union: only one key present
- *           S: "STRING_VALUE",
- *           N: "STRING_VALUE",
- *           B: "BLOB_VALUE",
+ *         '<keys>': {//  Union: only one key present
+ *           S: 'STRING_VALUE',
+ *           N: 'STRING_VALUE',
+ *           B: 'BLOB_VALUE',
  *           SS: [
- *             "STRING_VALUE",
+ *             'STRING_VALUE',
  *           ],
  *           NS: [
- *             "STRING_VALUE",
+ *             'STRING_VALUE',
  *           ],
  *           BS: [
- *             "BLOB_VALUE",
+ *             'BLOB_VALUE',
  *           ],
  *           M: {
- *             "<keys>": "<AttributeValue>",
+ *             '<keys>': '<AttributeValue>',
  *           },
  *           L: [ // ListAttributeValue
- *             "<AttributeValue>",
+ *             '<AttributeValue>',
  *           ],
  *           NULL: true || false,
  *           BOOL: true || false,
  *         },
  *       },
  *       L: [
- *         "<AttributeValue>",
+ *         '<AttributeValue>',
  *       ],
  *       NULL: true || false,
  *       BOOL: true || false,
  *     },
  *   },
  *   AttributeUpdates: { // AttributeUpdates
- *     "<keys>": { // AttributeValueUpdate
- *       Value: "<AttributeValue>",
- *       Action: "ADD" || "PUT" || "DELETE",
+ *     '<keys>': { // AttributeValueUpdate
+ *       Value: '<AttributeValue>',
+ *       Action: 'ADD' || 'PUT' || 'DELETE',
  *     },
  *   },
  *   Expected: { // ExpectedAttributeMap
- *     "<keys>": { // ExpectedAttributeValue
- *       Value: "<AttributeValue>",
+ *     '<keys>': { // ExpectedAttributeValue
+ *       Value: '<AttributeValue>',
  *       Exists: true || false,
- *       ComparisonOperator: "EQ" || "NE" || "IN" || "LE" || "LT" || "GE" || "GT" || "BETWEEN" || "NOT_NULL" || "NULL" || "CONTAINS" || "NOT_CONTAINS" || "BEGINS_WITH",
+ *       ComparisonOperator: 'EQ' || 'NE' || 'IN' || 'LE' || 'LT' || 'GE' || 'GT' || 'BETWEEN' || 'NOT_NULL' || 'NULL' || 'CONTAINS' || 'NOT_CONTAINS' || 'BEGINS_WITH',
  *       AttributeValueList: [ // AttributeValueList
- *         "<AttributeValue>",
+ *         '<AttributeValue>',
  *       ],
  *     },
  *   },
- *   ConditionalOperator: "AND" || "OR",
- *   ReturnValues: "NONE" || "ALL_OLD" || "UPDATED_OLD" || "ALL_NEW" || "UPDATED_NEW",
- *   ReturnConsumedCapacity: "INDEXES" || "TOTAL" || "NONE",
- *   ReturnItemCollectionMetrics: "SIZE" || "NONE",
- *   UpdateExpression: "STRING_VALUE",
- *   ConditionExpression: "STRING_VALUE",
+ *   ConditionalOperator: 'AND' || 'OR',
+ *   ReturnValues: 'NONE' || 'ALL_OLD' || 'UPDATED_OLD' || 'ALL_NEW' || 'UPDATED_NEW',
+ *   ReturnConsumedCapacity: 'INDEXES' || 'TOTAL' || 'NONE',
+ *   ReturnItemCollectionMetrics: 'SIZE' || 'NONE',
+ *   UpdateExpression: 'STRING_VALUE',
+ *   ConditionExpression: 'STRING_VALUE',
  *   ExpressionAttributeNames: { // ExpressionAttributeNameMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  *   ExpressionAttributeValues: { // ExpressionAttributeValueMap
- *     "<keys>": "<AttributeValue>",
+ *     '<keys>': '<AttributeValue>',
  *   },
  * };
  * const command = new UpdateItemCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateItemOutput
+ *   Attributes: { // AttributeMap
+ *     '<keys>': { // AttributeValue Union: only one key present
+ *       S: 'STRING_VALUE',
+ *       N: 'STRING_VALUE',
+ *       B: 'BLOB_VALUE',
+ *       SS: [ // StringSetAttributeValue
+ *         'STRING_VALUE',
+ *       ],
+ *       NS: [ // NumberSetAttributeValue
+ *         'STRING_VALUE',
+ *       ],
+ *       BS: [ // BinarySetAttributeValue
+ *         'BLOB_VALUE',
+ *       ],
+ *       M: { // MapAttributeValue
+ *         '<keys>': {//  Union: only one key present
+ *           S: 'STRING_VALUE',
+ *           N: 'STRING_VALUE',
+ *           B: 'BLOB_VALUE',
+ *           SS: [
+ *             'STRING_VALUE',
+ *           ],
+ *           NS: [
+ *             'STRING_VALUE',
+ *           ],
+ *           BS: [
+ *             'BLOB_VALUE',
+ *           ],
+ *           M: {
+ *             '<keys>': '<AttributeValue>',
+ *           },
+ *           L: [ // ListAttributeValue
+ *             '<AttributeValue>',
+ *           ],
+ *           NULL: true || false,
+ *           BOOL: true || false,
+ *         },
+ *       },
+ *       L: [
+ *         '<AttributeValue>',
+ *       ],
+ *       NULL: true || false,
+ *       BOOL: true || false,
+ *     },
+ *   },
+ *   ConsumedCapacity: { // ConsumedCapacity
+ *     TableName: 'STRING_VALUE',
+ *     CapacityUnits: Number('double'),
+ *     ReadCapacityUnits: Number('double'),
+ *     WriteCapacityUnits: Number('double'),
+ *     Table: { // Capacity
+ *       ReadCapacityUnits: Number('double'),
+ *       WriteCapacityUnits: Number('double'),
+ *       CapacityUnits: Number('double'),
+ *     },
+ *     LocalSecondaryIndexes: { // SecondaryIndexesCapacityMap
+ *       '<keys>': {
+ *         ReadCapacityUnits: Number('double'),
+ *         WriteCapacityUnits: Number('double'),
+ *         CapacityUnits: Number('double'),
+ *       },
+ *     },
+ *     GlobalSecondaryIndexes: {
+ *       '<keys>': {
+ *         ReadCapacityUnits: Number('double'),
+ *         WriteCapacityUnits: Number('double'),
+ *         CapacityUnits: Number('double'),
+ *       },
+ *     },
+ *   },
+ *   ItemCollectionMetrics: { // ItemCollectionMetrics
+ *     ItemCollectionKey: { // ItemCollectionKeyAttributeMap
+ *       '<keys>': '<AttributeValue>',
+ *     },
+ *     SizeEstimateRangeGB: [ // ItemCollectionSizeEstimateRange
+ *       Number('double'),
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateItemCommandInput - {@link UpdateItemCommandInput}
@@ -162,6 +244,8 @@ export interface UpdateItemCommandOutput extends UpdateItemOutput, __MetadataBea
  *  <p>Operation was rejected because there is an ongoing transaction for the
  *             item.</p>
  *
+ * @throws {@link DynamoDBServiceException}
+ * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
  * @example To update an item in a table
  * ```javascript

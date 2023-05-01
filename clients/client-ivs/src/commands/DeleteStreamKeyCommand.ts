@@ -37,14 +37,17 @@ export interface DeleteStreamKeyCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IvsClient, DeleteStreamKeyCommand } from "@aws-sdk/client-ivs"; // ES Modules import
- * // const { IvsClient, DeleteStreamKeyCommand } = require("@aws-sdk/client-ivs"); // CommonJS import
+ * import { IvsClient, DeleteStreamKeyCommand } from '@aws-sdk/client-ivs'; // ES Modules import
+ * // const { IvsClient, DeleteStreamKeyCommand } = require('@aws-sdk/client-ivs'); // CommonJS import
  * const client = new IvsClient(config);
  * const input = { // DeleteStreamKeyRequest
- *   arn: "STRING_VALUE", // required
+ *   arn: 'STRING_VALUE', // required
  * };
  * const command = new DeleteStreamKeyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteStreamKeyCommandInput - {@link DeleteStreamKeyCommandInput}
@@ -65,6 +68,8 @@ export interface DeleteStreamKeyCommandOutput extends __MetadataBearer {}
  * @throws {@link ValidationException} (client fault)
  *  <p/>
  *
+ * @throws {@link IvsServiceException}
+ * <p>Base exception class for all service exceptions from Ivs service.</p>
  *
  */
 export class DeleteStreamKeyCommand extends $Command<

@@ -37,15 +37,20 @@ export interface CreateDatasetContentCommandOutput extends CreateDatasetContentR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTAnalyticsClient, CreateDatasetContentCommand } from "@aws-sdk/client-iotanalytics"; // ES Modules import
- * // const { IoTAnalyticsClient, CreateDatasetContentCommand } = require("@aws-sdk/client-iotanalytics"); // CommonJS import
+ * import { IoTAnalyticsClient, CreateDatasetContentCommand } from '@aws-sdk/client-iotanalytics'; // ES Modules import
+ * // const { IoTAnalyticsClient, CreateDatasetContentCommand } = require('@aws-sdk/client-iotanalytics'); // CommonJS import
  * const client = new IoTAnalyticsClient(config);
  * const input = { // CreateDatasetContentRequest
- *   datasetName: "STRING_VALUE", // required
- *   versionId: "STRING_VALUE",
+ *   datasetName: 'STRING_VALUE', // required
+ *   versionId: 'STRING_VALUE',
  * };
  * const command = new CreateDatasetContentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateDatasetContentResponse
+ *   versionId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateDatasetContentCommandInput - {@link CreateDatasetContentCommandInput}
@@ -69,6 +74,8 @@ export interface CreateDatasetContentCommandOutput extends CreateDatasetContentR
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
  *
+ * @throws {@link IoTAnalyticsServiceException}
+ * <p>Base exception class for all service exceptions from IoTAnalytics service.</p>
  *
  */
 export class CreateDatasetContentCommand extends $Command<

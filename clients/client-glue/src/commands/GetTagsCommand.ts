@@ -36,14 +36,21 @@ export interface GetTagsCommandOutput extends GetTagsResponse, __MetadataBearer 
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlueClient, GetTagsCommand } from "@aws-sdk/client-glue"; // ES Modules import
- * // const { GlueClient, GetTagsCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * import { GlueClient, GetTagsCommand } from '@aws-sdk/client-glue'; // ES Modules import
+ * // const { GlueClient, GetTagsCommand } = require('@aws-sdk/client-glue'); // CommonJS import
  * const client = new GlueClient(config);
  * const input = { // GetTagsRequest
- *   ResourceArn: "STRING_VALUE", // required
+ *   ResourceArn: 'STRING_VALUE', // required
  * };
  * const command = new GetTagsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetTagsResponse
+ *   Tags: { // TagsMap
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetTagsCommandInput - {@link GetTagsCommandInput}
@@ -64,6 +71,8 @@ export interface GetTagsCommandOutput extends GetTagsResponse, __MetadataBearer 
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class GetTagsCommand extends $Command<GetTagsCommandInput, GetTagsCommandOutput, GlueClientResolvedConfig> {

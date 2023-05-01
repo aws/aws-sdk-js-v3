@@ -36,19 +36,34 @@ export interface DescribeImagePermissionsCommandOutput extends DescribeImagePerm
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppStreamClient, DescribeImagePermissionsCommand } from "@aws-sdk/client-appstream"; // ES Modules import
- * // const { AppStreamClient, DescribeImagePermissionsCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
+ * import { AppStreamClient, DescribeImagePermissionsCommand } from '@aws-sdk/client-appstream'; // ES Modules import
+ * // const { AppStreamClient, DescribeImagePermissionsCommand } = require('@aws-sdk/client-appstream'); // CommonJS import
  * const client = new AppStreamClient(config);
  * const input = { // DescribeImagePermissionsRequest
- *   Name: "STRING_VALUE", // required
- *   MaxResults: Number("int"),
+ *   Name: 'STRING_VALUE', // required
+ *   MaxResults: Number('int'),
  *   SharedAwsAccountIds: [ // AwsAccountIdList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   NextToken: "STRING_VALUE",
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new DescribeImagePermissionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeImagePermissionsResult
+ *   Name: 'STRING_VALUE',
+ *   SharedImagePermissionsList: [ // SharedImagePermissionsList
+ *     { // SharedImagePermissions
+ *       sharedAccountId: 'STRING_VALUE', // required
+ *       imagePermissions: { // ImagePermissions
+ *         allowFleet: true || false,
+ *         allowImageBuilder: true || false,
+ *       },
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeImagePermissionsCommandInput - {@link DescribeImagePermissionsCommandInput}
@@ -60,6 +75,8 @@ export interface DescribeImagePermissionsCommandOutput extends DescribeImagePerm
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link AppStreamServiceException}
+ * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
  */
 export class DescribeImagePermissionsCommand extends $Command<

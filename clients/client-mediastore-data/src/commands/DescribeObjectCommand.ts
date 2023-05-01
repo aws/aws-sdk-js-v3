@@ -36,14 +36,23 @@ export interface DescribeObjectCommandOutput extends DescribeObjectResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MediaStoreDataClient, DescribeObjectCommand } from "@aws-sdk/client-mediastore-data"; // ES Modules import
- * // const { MediaStoreDataClient, DescribeObjectCommand } = require("@aws-sdk/client-mediastore-data"); // CommonJS import
+ * import { MediaStoreDataClient, DescribeObjectCommand } from '@aws-sdk/client-mediastore-data'; // ES Modules import
+ * // const { MediaStoreDataClient, DescribeObjectCommand } = require('@aws-sdk/client-mediastore-data'); // CommonJS import
  * const client = new MediaStoreDataClient(config);
  * const input = { // DescribeObjectRequest
- *   Path: "STRING_VALUE", // required
+ *   Path: 'STRING_VALUE', // required
  * };
  * const command = new DescribeObjectCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeObjectResponse
+ *   ETag: 'STRING_VALUE',
+ *   ContentType: 'STRING_VALUE',
+ *   ContentLength: Number('long'),
+ *   CacheControl: 'STRING_VALUE',
+ *   LastModified: new Date('TIMESTAMP'),
+ * };
+ *
  * ```
  *
  * @param DescribeObjectCommandInput - {@link DescribeObjectCommandInput}
@@ -61,6 +70,8 @@ export interface DescribeObjectCommandOutput extends DescribeObjectResponse, __M
  * @throws {@link ObjectNotFoundException} (client fault)
  *  <p>Could not perform an operation on an object that does not exist.</p>
  *
+ * @throws {@link MediaStoreDataServiceException}
+ * <p>Base exception class for all service exceptions from MediaStoreData service.</p>
  *
  */
 export class DescribeObjectCommand extends $Command<

@@ -36,16 +36,31 @@ export interface ListProtocolsListsCommandOutput extends ListProtocolsListsRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FMSClient, ListProtocolsListsCommand } from "@aws-sdk/client-fms"; // ES Modules import
- * // const { FMSClient, ListProtocolsListsCommand } = require("@aws-sdk/client-fms"); // CommonJS import
+ * import { FMSClient, ListProtocolsListsCommand } from '@aws-sdk/client-fms'; // ES Modules import
+ * // const { FMSClient, ListProtocolsListsCommand } = require('@aws-sdk/client-fms'); // CommonJS import
  * const client = new FMSClient(config);
  * const input = { // ListProtocolsListsRequest
  *   DefaultLists: true || false,
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"), // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'), // required
  * };
  * const command = new ListProtocolsListsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListProtocolsListsResponse
+ *   ProtocolsLists: [ // ProtocolsListsData
+ *     { // ProtocolsListDataSummary
+ *       ListArn: 'STRING_VALUE',
+ *       ListId: 'STRING_VALUE',
+ *       ListName: 'STRING_VALUE',
+ *       ProtocolsList: [ // ProtocolsList
+ *         'STRING_VALUE',
+ *       ],
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListProtocolsListsCommandInput - {@link ListProtocolsListsCommandInput}
@@ -68,6 +83,8 @@ export interface ListProtocolsListsCommandOutput extends ListProtocolsListsRespo
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link FMSServiceException}
+ * <p>Base exception class for all service exceptions from FMS service.</p>
  *
  */
 export class ListProtocolsListsCommand extends $Command<

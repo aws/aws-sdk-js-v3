@@ -40,20 +40,23 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTSecureTunnelingClient, TagResourceCommand } from "@aws-sdk/client-iotsecuretunneling"; // ES Modules import
- * // const { IoTSecureTunnelingClient, TagResourceCommand } = require("@aws-sdk/client-iotsecuretunneling"); // CommonJS import
+ * import { IoTSecureTunnelingClient, TagResourceCommand } from '@aws-sdk/client-iotsecuretunneling'; // ES Modules import
+ * // const { IoTSecureTunnelingClient, TagResourceCommand } = require('@aws-sdk/client-iotsecuretunneling'); // CommonJS import
  * const client = new IoTSecureTunnelingClient(config);
  * const input = { // TagResourceRequest
- *   resourceArn: "STRING_VALUE", // required
+ *   resourceArn: 'STRING_VALUE', // required
  *   tags: [ // TagList // required
  *     { // Tag
- *       key: "STRING_VALUE", // required
- *       value: "STRING_VALUE", // required
+ *       key: 'STRING_VALUE', // required
+ *       value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param TagResourceCommandInput - {@link TagResourceCommandInput}
@@ -65,6 +68,8 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Thrown when an operation is attempted on a resource that does not exist.</p>
  *
+ * @throws {@link IoTSecureTunnelingServiceException}
+ * <p>Base exception class for all service exceptions from IoTSecureTunneling service.</p>
  *
  */
 export class TagResourceCommand extends $Command<

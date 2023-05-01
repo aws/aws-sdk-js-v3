@@ -46,37 +46,40 @@ export interface SetLoadBasedAutoScalingCommandOutput extends __MetadataBearer {
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OpsWorksClient, SetLoadBasedAutoScalingCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
- * // const { OpsWorksClient, SetLoadBasedAutoScalingCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
+ * import { OpsWorksClient, SetLoadBasedAutoScalingCommand } from '@aws-sdk/client-opsworks'; // ES Modules import
+ * // const { OpsWorksClient, SetLoadBasedAutoScalingCommand } = require('@aws-sdk/client-opsworks'); // CommonJS import
  * const client = new OpsWorksClient(config);
  * const input = { // SetLoadBasedAutoScalingRequest
- *   LayerId: "STRING_VALUE", // required
+ *   LayerId: 'STRING_VALUE', // required
  *   Enable: true || false,
  *   UpScaling: { // AutoScalingThresholds
- *     InstanceCount: Number("int"),
- *     ThresholdsWaitTime: Number("int"),
- *     IgnoreMetricsTime: Number("int"),
- *     CpuThreshold: Number("double"),
- *     MemoryThreshold: Number("double"),
- *     LoadThreshold: Number("double"),
+ *     InstanceCount: Number('int'),
+ *     ThresholdsWaitTime: Number('int'),
+ *     IgnoreMetricsTime: Number('int'),
+ *     CpuThreshold: Number('double'),
+ *     MemoryThreshold: Number('double'),
+ *     LoadThreshold: Number('double'),
  *     Alarms: [ // Strings
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *   },
  *   DownScaling: {
- *     InstanceCount: Number("int"),
- *     ThresholdsWaitTime: Number("int"),
- *     IgnoreMetricsTime: Number("int"),
- *     CpuThreshold: Number("double"),
- *     MemoryThreshold: Number("double"),
- *     LoadThreshold: Number("double"),
+ *     InstanceCount: Number('int'),
+ *     ThresholdsWaitTime: Number('int'),
+ *     IgnoreMetricsTime: Number('int'),
+ *     CpuThreshold: Number('double'),
+ *     MemoryThreshold: Number('double'),
+ *     LoadThreshold: Number('double'),
  *     Alarms: [
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *   },
  * };
  * const command = new SetLoadBasedAutoScalingCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param SetLoadBasedAutoScalingCommandInput - {@link SetLoadBasedAutoScalingCommandInput}
@@ -91,6 +94,8 @@ export interface SetLoadBasedAutoScalingCommandOutput extends __MetadataBearer {
  * @throws {@link ValidationException} (client fault)
  *  <p>Indicates that a request was not valid.</p>
  *
+ * @throws {@link OpsWorksServiceException}
+ * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
  */
 export class SetLoadBasedAutoScalingCommand extends $Command<

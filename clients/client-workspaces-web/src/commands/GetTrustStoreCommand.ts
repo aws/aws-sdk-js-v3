@@ -36,14 +36,24 @@ export interface GetTrustStoreCommandOutput extends GetTrustStoreResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkSpacesWebClient, GetTrustStoreCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
- * // const { WorkSpacesWebClient, GetTrustStoreCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
+ * import { WorkSpacesWebClient, GetTrustStoreCommand } from '@aws-sdk/client-workspaces-web'; // ES Modules import
+ * // const { WorkSpacesWebClient, GetTrustStoreCommand } = require('@aws-sdk/client-workspaces-web'); // CommonJS import
  * const client = new WorkSpacesWebClient(config);
  * const input = { // GetTrustStoreRequest
- *   trustStoreArn: "STRING_VALUE", // required
+ *   trustStoreArn: 'STRING_VALUE', // required
  * };
  * const command = new GetTrustStoreCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetTrustStoreResponse
+ *   trustStore: { // TrustStore
+ *     associatedPortalArns: [ // ArnList
+ *       'STRING_VALUE',
+ *     ],
+ *     trustStoreArn: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetTrustStoreCommandInput - {@link GetTrustStoreCommandInput}
@@ -67,6 +77,8 @@ export interface GetTrustStoreCommandOutput extends GetTrustStoreResponse, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>There is a validation error.</p>
  *
+ * @throws {@link WorkSpacesWebServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
  */
 export class GetTrustStoreCommand extends $Command<

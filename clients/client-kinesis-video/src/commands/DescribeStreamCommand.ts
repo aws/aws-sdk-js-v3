@@ -37,15 +37,30 @@ export interface DescribeStreamCommandOutput extends DescribeStreamOutput, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KinesisVideoClient, DescribeStreamCommand } from "@aws-sdk/client-kinesis-video"; // ES Modules import
- * // const { KinesisVideoClient, DescribeStreamCommand } = require("@aws-sdk/client-kinesis-video"); // CommonJS import
+ * import { KinesisVideoClient, DescribeStreamCommand } from '@aws-sdk/client-kinesis-video'; // ES Modules import
+ * // const { KinesisVideoClient, DescribeStreamCommand } = require('@aws-sdk/client-kinesis-video'); // CommonJS import
  * const client = new KinesisVideoClient(config);
  * const input = { // DescribeStreamInput
- *   StreamName: "STRING_VALUE",
- *   StreamARN: "STRING_VALUE",
+ *   StreamName: 'STRING_VALUE',
+ *   StreamARN: 'STRING_VALUE',
  * };
  * const command = new DescribeStreamCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeStreamOutput
+ *   StreamInfo: { // StreamInfo
+ *     DeviceName: 'STRING_VALUE',
+ *     StreamName: 'STRING_VALUE',
+ *     StreamARN: 'STRING_VALUE',
+ *     MediaType: 'STRING_VALUE',
+ *     KmsKeyId: 'STRING_VALUE',
+ *     Version: 'STRING_VALUE',
+ *     Status: 'CREATING' || 'ACTIVE' || 'UPDATING' || 'DELETING',
+ *     CreationTime: new Date('TIMESTAMP'),
+ *     DataRetentionInHours: Number('int'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeStreamCommandInput - {@link DescribeStreamCommandInput}
@@ -67,6 +82,8 @@ export interface DescribeStreamCommandOutput extends DescribeStreamOutput, __Met
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Amazon Kinesis Video Streams can't find the stream that you specified.</p>
  *
+ * @throws {@link KinesisVideoServiceException}
+ * <p>Base exception class for all service exceptions from KinesisVideo service.</p>
  *
  */
 export class DescribeStreamCommand extends $Command<

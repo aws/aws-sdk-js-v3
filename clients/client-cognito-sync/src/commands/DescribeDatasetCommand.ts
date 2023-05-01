@@ -39,16 +39,29 @@ export interface DescribeDatasetCommandOutput extends DescribeDatasetResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CognitoSyncClient, DescribeDatasetCommand } from "@aws-sdk/client-cognito-sync"; // ES Modules import
- * // const { CognitoSyncClient, DescribeDatasetCommand } = require("@aws-sdk/client-cognito-sync"); // CommonJS import
+ * import { CognitoSyncClient, DescribeDatasetCommand } from '@aws-sdk/client-cognito-sync'; // ES Modules import
+ * // const { CognitoSyncClient, DescribeDatasetCommand } = require('@aws-sdk/client-cognito-sync'); // CommonJS import
  * const client = new CognitoSyncClient(config);
  * const input = { // DescribeDatasetRequest
- *   IdentityPoolId: "STRING_VALUE", // required
- *   IdentityId: "STRING_VALUE", // required
- *   DatasetName: "STRING_VALUE", // required
+ *   IdentityPoolId: 'STRING_VALUE', // required
+ *   IdentityId: 'STRING_VALUE', // required
+ *   DatasetName: 'STRING_VALUE', // required
  * };
  * const command = new DescribeDatasetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeDatasetResponse
+ *   Dataset: { // Dataset
+ *     IdentityId: 'STRING_VALUE',
+ *     DatasetName: 'STRING_VALUE',
+ *     CreationDate: new Date('TIMESTAMP'),
+ *     LastModifiedDate: new Date('TIMESTAMP'),
+ *     LastModifiedBy: 'STRING_VALUE',
+ *     DataStorage: Number('long'),
+ *     NumRecords: Number('long'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeDatasetCommandInput - {@link DescribeDatasetCommandInput}
@@ -77,6 +90,8 @@ export interface DescribeDatasetCommandOutput extends DescribeDatasetResponse, _
  *  Thrown if the request is
  *       throttled.
  *
+ * @throws {@link CognitoSyncServiceException}
+ * <p>Base exception class for all service exceptions from CognitoSync service.</p>
  *
  */
 export class DescribeDatasetCommand extends $Command<

@@ -43,19 +43,31 @@ export interface ListResourcesCommandOutput extends ListResourcesOutput, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudControlClient, ListResourcesCommand } from "@aws-sdk/client-cloudcontrol"; // ES Modules import
- * // const { CloudControlClient, ListResourcesCommand } = require("@aws-sdk/client-cloudcontrol"); // CommonJS import
+ * import { CloudControlClient, ListResourcesCommand } from '@aws-sdk/client-cloudcontrol'; // ES Modules import
+ * // const { CloudControlClient, ListResourcesCommand } = require('@aws-sdk/client-cloudcontrol'); // CommonJS import
  * const client = new CloudControlClient(config);
  * const input = { // ListResourcesInput
- *   TypeName: "STRING_VALUE", // required
- *   TypeVersionId: "STRING_VALUE",
- *   RoleArn: "STRING_VALUE",
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
- *   ResourceModel: "STRING_VALUE",
+ *   TypeName: 'STRING_VALUE', // required
+ *   TypeVersionId: 'STRING_VALUE',
+ *   RoleArn: 'STRING_VALUE',
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
+ *   ResourceModel: 'STRING_VALUE',
  * };
  * const command = new ListResourcesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListResourcesOutput
+ *   TypeName: 'STRING_VALUE',
+ *   ResourceDescriptions: [ // ResourceDescriptions
+ *     { // ResourceDescription
+ *       Identifier: 'STRING_VALUE',
+ *       Properties: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListResourcesCommandInput - {@link ListResourcesCommandInput}
@@ -129,6 +141,8 @@ export interface ListResourcesCommandOutput extends ListResourcesOutput, __Metad
  * @throws {@link UnsupportedActionException} (client fault)
  *  <p>The specified resource doesn't support this resource operation.</p>
  *
+ * @throws {@link CloudControlServiceException}
+ * <p>Base exception class for all service exceptions from CloudControl service.</p>
  *
  */
 export class ListResourcesCommand extends $Command<

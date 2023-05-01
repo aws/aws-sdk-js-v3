@@ -40,16 +40,31 @@ export interface DescribeTagsCommandOutput extends DescribeTagsOutput, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElasticLoadBalancingClient, DescribeTagsCommand } from "@aws-sdk/client-elastic-load-balancing"; // ES Modules import
- * // const { ElasticLoadBalancingClient, DescribeTagsCommand } = require("@aws-sdk/client-elastic-load-balancing"); // CommonJS import
+ * import { ElasticLoadBalancingClient, DescribeTagsCommand } from '@aws-sdk/client-elastic-load-balancing'; // ES Modules import
+ * // const { ElasticLoadBalancingClient, DescribeTagsCommand } = require('@aws-sdk/client-elastic-load-balancing'); // CommonJS import
  * const client = new ElasticLoadBalancingClient(config);
  * const input = { // DescribeTagsInput
  *   LoadBalancerNames: [ // LoadBalancerNamesMax20 // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new DescribeTagsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeTagsOutput
+ *   TagDescriptions: [ // TagDescriptions
+ *     { // TagDescription
+ *       LoadBalancerName: 'STRING_VALUE',
+ *       Tags: [ // TagList
+ *         { // Tag
+ *           Key: 'STRING_VALUE', // required
+ *           Value: 'STRING_VALUE',
+ *         },
+ *       ],
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeTagsCommandInput - {@link DescribeTagsCommandInput}
@@ -61,6 +76,8 @@ export interface DescribeTagsCommandOutput extends DescribeTagsOutput, __Metadat
  * @throws {@link AccessPointNotFoundException} (client fault)
  *  <p>The specified load balancer does not exist.</p>
  *
+ * @throws {@link ElasticLoadBalancingServiceException}
+ * <p>Base exception class for all service exceptions from ElasticLoadBalancing service.</p>
  *
  * @example To describe the tags for a load balancer
  * ```javascript

@@ -36,14 +36,17 @@ export interface DeleteDedicatedIpPoolCommandOutput extends DeleteDedicatedIpPoo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PinpointEmailClient, DeleteDedicatedIpPoolCommand } from "@aws-sdk/client-pinpoint-email"; // ES Modules import
- * // const { PinpointEmailClient, DeleteDedicatedIpPoolCommand } = require("@aws-sdk/client-pinpoint-email"); // CommonJS import
+ * import { PinpointEmailClient, DeleteDedicatedIpPoolCommand } from '@aws-sdk/client-pinpoint-email'; // ES Modules import
+ * // const { PinpointEmailClient, DeleteDedicatedIpPoolCommand } = require('@aws-sdk/client-pinpoint-email'); // CommonJS import
  * const client = new PinpointEmailClient(config);
  * const input = { // DeleteDedicatedIpPoolRequest
- *   PoolName: "STRING_VALUE", // required
+ *   PoolName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteDedicatedIpPoolCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteDedicatedIpPoolCommandInput - {@link DeleteDedicatedIpPoolCommandInput}
@@ -64,6 +67,8 @@ export interface DeleteDedicatedIpPoolCommandOutput extends DeleteDedicatedIpPoo
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Too many requests have been made to the operation.</p>
  *
+ * @throws {@link PinpointEmailServiceException}
+ * <p>Base exception class for all service exceptions from PinpointEmail service.</p>
  *
  */
 export class DeleteDedicatedIpPoolCommand extends $Command<

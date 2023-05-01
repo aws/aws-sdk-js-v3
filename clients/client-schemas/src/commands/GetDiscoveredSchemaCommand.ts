@@ -36,17 +36,22 @@ export interface GetDiscoveredSchemaCommandOutput extends GetDiscoveredSchemaRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SchemasClient, GetDiscoveredSchemaCommand } from "@aws-sdk/client-schemas"; // ES Modules import
- * // const { SchemasClient, GetDiscoveredSchemaCommand } = require("@aws-sdk/client-schemas"); // CommonJS import
+ * import { SchemasClient, GetDiscoveredSchemaCommand } from '@aws-sdk/client-schemas'; // ES Modules import
+ * // const { SchemasClient, GetDiscoveredSchemaCommand } = require('@aws-sdk/client-schemas'); // CommonJS import
  * const client = new SchemasClient(config);
  * const input = { // GetDiscoveredSchemaRequest
  *   Events: [ // __listOfGetDiscoveredSchemaVersionItemInput // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   Type: "STRING_VALUE", // required
+ *   Type: 'STRING_VALUE', // required
  * };
  * const command = new GetDiscoveredSchemaCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetDiscoveredSchemaResponse
+ *   Content: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetDiscoveredSchemaCommandInput - {@link GetDiscoveredSchemaCommandInput}
@@ -65,6 +70,8 @@ export interface GetDiscoveredSchemaCommandOutput extends GetDiscoveredSchemaRes
  *
  * @throws {@link UnauthorizedException} (client fault)
  *
+ * @throws {@link SchemasServiceException}
+ * <p>Base exception class for all service exceptions from Schemas service.</p>
  *
  */
 export class GetDiscoveredSchemaCommand extends $Command<

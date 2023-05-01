@@ -43,19 +43,22 @@ export interface UpdateCustomVerificationEmailTemplateCommandOutput extends __Me
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SESClient, UpdateCustomVerificationEmailTemplateCommand } from "@aws-sdk/client-ses"; // ES Modules import
- * // const { SESClient, UpdateCustomVerificationEmailTemplateCommand } = require("@aws-sdk/client-ses"); // CommonJS import
+ * import { SESClient, UpdateCustomVerificationEmailTemplateCommand } from '@aws-sdk/client-ses'; // ES Modules import
+ * // const { SESClient, UpdateCustomVerificationEmailTemplateCommand } = require('@aws-sdk/client-ses'); // CommonJS import
  * const client = new SESClient(config);
  * const input = { // UpdateCustomVerificationEmailTemplateRequest
- *   TemplateName: "STRING_VALUE", // required
- *   FromEmailAddress: "STRING_VALUE",
- *   TemplateSubject: "STRING_VALUE",
- *   TemplateContent: "STRING_VALUE",
- *   SuccessRedirectionURL: "STRING_VALUE",
- *   FailureRedirectionURL: "STRING_VALUE",
+ *   TemplateName: 'STRING_VALUE', // required
+ *   FromEmailAddress: 'STRING_VALUE',
+ *   TemplateSubject: 'STRING_VALUE',
+ *   TemplateContent: 'STRING_VALUE',
+ *   SuccessRedirectionURL: 'STRING_VALUE',
+ *   FailureRedirectionURL: 'STRING_VALUE',
  * };
  * const command = new UpdateCustomVerificationEmailTemplateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateCustomVerificationEmailTemplateCommandInput - {@link UpdateCustomVerificationEmailTemplateCommandInput}
@@ -75,6 +78,8 @@ export interface UpdateCustomVerificationEmailTemplateCommandOutput extends __Me
  *  <p>Indicates that the sender address specified for a custom verification email is not
  *             verified, and is therefore not eligible to send the custom verification email. </p>
  *
+ * @throws {@link SESServiceException}
+ * <p>Base exception class for all service exceptions from SES service.</p>
  *
  */
 export class UpdateCustomVerificationEmailTemplateCommand extends $Command<

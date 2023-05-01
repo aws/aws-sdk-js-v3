@@ -36,18 +36,30 @@ export interface CreateWorkspaceCommandOutput extends CreateWorkspaceResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AmpClient, CreateWorkspaceCommand } from "@aws-sdk/client-amp"; // ES Modules import
- * // const { AmpClient, CreateWorkspaceCommand } = require("@aws-sdk/client-amp"); // CommonJS import
+ * import { AmpClient, CreateWorkspaceCommand } from '@aws-sdk/client-amp'; // ES Modules import
+ * // const { AmpClient, CreateWorkspaceCommand } = require('@aws-sdk/client-amp'); // CommonJS import
  * const client = new AmpClient(config);
  * const input = { // CreateWorkspaceRequest
- *   alias: "STRING_VALUE",
- *   clientToken: "STRING_VALUE",
+ *   alias: 'STRING_VALUE',
+ *   clientToken: 'STRING_VALUE',
  *   tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateWorkspaceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateWorkspaceResponse
+ *   workspaceId: 'STRING_VALUE', // required
+ *   arn: 'STRING_VALUE', // required
+ *   status: { // WorkspaceStatus
+ *     statusCode: 'STRING_VALUE', // required
+ *   },
+ *   tags: { // TagMap
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateWorkspaceCommandInput - {@link CreateWorkspaceCommandInput}
@@ -74,6 +86,8 @@ export interface CreateWorkspaceCommandOutput extends CreateWorkspaceResponse, _
  * @throws {@link ValidationException} (client fault)
  *  The input fails to satisfy the constraints specified by an AWS service.
  *
+ * @throws {@link AmpServiceException}
+ * <p>Base exception class for all service exceptions from Amp service.</p>
  *
  */
 export class CreateWorkspaceCommand extends $Command<

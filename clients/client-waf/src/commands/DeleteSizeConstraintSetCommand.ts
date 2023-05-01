@@ -59,15 +59,20 @@ export interface DeleteSizeConstraintSetCommandOutput extends DeleteSizeConstrai
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WAFClient, DeleteSizeConstraintSetCommand } from "@aws-sdk/client-waf"; // ES Modules import
- * // const { WAFClient, DeleteSizeConstraintSetCommand } = require("@aws-sdk/client-waf"); // CommonJS import
+ * import { WAFClient, DeleteSizeConstraintSetCommand } from '@aws-sdk/client-waf'; // ES Modules import
+ * // const { WAFClient, DeleteSizeConstraintSetCommand } = require('@aws-sdk/client-waf'); // CommonJS import
  * const client = new WAFClient(config);
  * const input = { // DeleteSizeConstraintSetRequest
- *   SizeConstraintSetId: "STRING_VALUE", // required
- *   ChangeToken: "STRING_VALUE", // required
+ *   SizeConstraintSetId: 'STRING_VALUE', // required
+ *   ChangeToken: 'STRING_VALUE', // required
  * };
  * const command = new DeleteSizeConstraintSetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteSizeConstraintSetResponse
+ *   ChangeToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DeleteSizeConstraintSetCommandInput - {@link DeleteSizeConstraintSetCommandInput}
@@ -117,6 +122,8 @@ export interface DeleteSizeConstraintSetCommandOutput extends DeleteSizeConstrai
  * @throws {@link WAFStaleDataException} (client fault)
  *  <p>The operation failed because you tried to create, update, or delete an object by using a change token that has already been used.</p>
  *
+ * @throws {@link WAFServiceException}
+ * <p>Base exception class for all service exceptions from WAF service.</p>
  *
  * @example To delete a size constraint set
  * ```javascript

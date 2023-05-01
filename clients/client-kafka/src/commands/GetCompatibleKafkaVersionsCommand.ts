@@ -36,14 +36,26 @@ export interface GetCompatibleKafkaVersionsCommandOutput extends GetCompatibleKa
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KafkaClient, GetCompatibleKafkaVersionsCommand } from "@aws-sdk/client-kafka"; // ES Modules import
- * // const { KafkaClient, GetCompatibleKafkaVersionsCommand } = require("@aws-sdk/client-kafka"); // CommonJS import
+ * import { KafkaClient, GetCompatibleKafkaVersionsCommand } from '@aws-sdk/client-kafka'; // ES Modules import
+ * // const { KafkaClient, GetCompatibleKafkaVersionsCommand } = require('@aws-sdk/client-kafka'); // CommonJS import
  * const client = new KafkaClient(config);
  * const input = { // GetCompatibleKafkaVersionsRequest
- *   ClusterArn: "STRING_VALUE",
+ *   ClusterArn: 'STRING_VALUE',
  * };
  * const command = new GetCompatibleKafkaVersionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetCompatibleKafkaVersionsResponse
+ *   CompatibleKafkaVersions: [ // __listOfCompatibleKafkaVersion
+ *     { // CompatibleKafkaVersion
+ *       SourceVersion: 'STRING_VALUE',
+ *       TargetVersions: [ // __listOf__string
+ *         'STRING_VALUE',
+ *       ],
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetCompatibleKafkaVersionsCommandInput - {@link GetCompatibleKafkaVersionsCommandInput}
@@ -73,6 +85,8 @@ export interface GetCompatibleKafkaVersionsCommandOutput extends GetCompatibleKa
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>Returns information about an error.</p>
  *
+ * @throws {@link KafkaServiceException}
+ * <p>Base exception class for all service exceptions from Kafka service.</p>
  *
  */
 export class GetCompatibleKafkaVersionsCommand extends $Command<

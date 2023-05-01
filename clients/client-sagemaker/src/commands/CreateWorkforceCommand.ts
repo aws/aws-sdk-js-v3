@@ -57,48 +57,53 @@ export interface CreateWorkforceCommandOutput extends CreateWorkforceResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, CreateWorkforceCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, CreateWorkforceCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, CreateWorkforceCommand } from '@aws-sdk/client-sagemaker'; // ES Modules import
+ * // const { SageMakerClient, CreateWorkforceCommand } = require('@aws-sdk/client-sagemaker'); // CommonJS import
  * const client = new SageMakerClient(config);
  * const input = { // CreateWorkforceRequest
  *   CognitoConfig: { // CognitoConfig
- *     UserPool: "STRING_VALUE", // required
- *     ClientId: "STRING_VALUE", // required
+ *     UserPool: 'STRING_VALUE', // required
+ *     ClientId: 'STRING_VALUE', // required
  *   },
  *   OidcConfig: { // OidcConfig
- *     ClientId: "STRING_VALUE", // required
- *     ClientSecret: "STRING_VALUE", // required
- *     Issuer: "STRING_VALUE", // required
- *     AuthorizationEndpoint: "STRING_VALUE", // required
- *     TokenEndpoint: "STRING_VALUE", // required
- *     UserInfoEndpoint: "STRING_VALUE", // required
- *     LogoutEndpoint: "STRING_VALUE", // required
- *     JwksUri: "STRING_VALUE", // required
+ *     ClientId: 'STRING_VALUE', // required
+ *     ClientSecret: 'STRING_VALUE', // required
+ *     Issuer: 'STRING_VALUE', // required
+ *     AuthorizationEndpoint: 'STRING_VALUE', // required
+ *     TokenEndpoint: 'STRING_VALUE', // required
+ *     UserInfoEndpoint: 'STRING_VALUE', // required
+ *     LogoutEndpoint: 'STRING_VALUE', // required
+ *     JwksUri: 'STRING_VALUE', // required
  *   },
  *   SourceIpConfig: { // SourceIpConfig
  *     Cidrs: [ // Cidrs // required
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *   },
- *   WorkforceName: "STRING_VALUE", // required
+ *   WorkforceName: 'STRING_VALUE', // required
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  *   WorkforceVpcConfig: { // WorkforceVpcConfigRequest
- *     VpcId: "STRING_VALUE",
+ *     VpcId: 'STRING_VALUE',
  *     SecurityGroupIds: [ // WorkforceSecurityGroupIds
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     Subnets: [ // WorkforceSubnets
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *   },
  * };
  * const command = new CreateWorkforceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateWorkforceResponse
+ *   WorkforceArn: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param CreateWorkforceCommandInput - {@link CreateWorkforceCommandInput}
@@ -107,6 +112,8 @@ export interface CreateWorkforceCommandOutput extends CreateWorkforceResponse, _
  * @see {@link CreateWorkforceCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class CreateWorkforceCommand extends $Command<

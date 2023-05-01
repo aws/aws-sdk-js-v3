@@ -41,87 +41,104 @@ export interface PutIntegrationCommandOutput extends PutIntegrationResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CustomerProfilesClient, PutIntegrationCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
- * // const { CustomerProfilesClient, PutIntegrationCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
+ * import { CustomerProfilesClient, PutIntegrationCommand } from '@aws-sdk/client-customer-profiles'; // ES Modules import
+ * // const { CustomerProfilesClient, PutIntegrationCommand } = require('@aws-sdk/client-customer-profiles'); // CommonJS import
  * const client = new CustomerProfilesClient(config);
  * const input = { // PutIntegrationRequest
- *   DomainName: "STRING_VALUE", // required
- *   Uri: "STRING_VALUE",
- *   ObjectTypeName: "STRING_VALUE",
+ *   DomainName: 'STRING_VALUE', // required
+ *   Uri: 'STRING_VALUE',
+ *   ObjectTypeName: 'STRING_VALUE',
  *   Tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  *   FlowDefinition: { // FlowDefinition
- *     Description: "STRING_VALUE",
- *     FlowName: "STRING_VALUE", // required
- *     KmsArn: "STRING_VALUE", // required
+ *     Description: 'STRING_VALUE',
+ *     FlowName: 'STRING_VALUE', // required
+ *     KmsArn: 'STRING_VALUE', // required
  *     SourceFlowConfig: { // SourceFlowConfig
- *       ConnectorProfileName: "STRING_VALUE",
- *       ConnectorType: "Salesforce" || "Marketo" || "Zendesk" || "Servicenow" || "S3", // required
+ *       ConnectorProfileName: 'STRING_VALUE',
+ *       ConnectorType: 'Salesforce' || 'Marketo' || 'Zendesk' || 'Servicenow' || 'S3', // required
  *       IncrementalPullConfig: { // IncrementalPullConfig
- *         DatetimeTypeFieldName: "STRING_VALUE",
+ *         DatetimeTypeFieldName: 'STRING_VALUE',
  *       },
  *       SourceConnectorProperties: { // SourceConnectorProperties
  *         Marketo: { // MarketoSourceProperties
- *           Object: "STRING_VALUE", // required
+ *           Object: 'STRING_VALUE', // required
  *         },
  *         S3: { // S3SourceProperties
- *           BucketName: "STRING_VALUE", // required
- *           BucketPrefix: "STRING_VALUE",
+ *           BucketName: 'STRING_VALUE', // required
+ *           BucketPrefix: 'STRING_VALUE',
  *         },
  *         Salesforce: { // SalesforceSourceProperties
- *           Object: "STRING_VALUE", // required
+ *           Object: 'STRING_VALUE', // required
  *           EnableDynamicFieldUpdate: true || false,
  *           IncludeDeletedRecords: true || false,
  *         },
  *         ServiceNow: { // ServiceNowSourceProperties
- *           Object: "STRING_VALUE", // required
+ *           Object: 'STRING_VALUE', // required
  *         },
  *         Zendesk: { // ZendeskSourceProperties
- *           Object: "STRING_VALUE", // required
+ *           Object: 'STRING_VALUE', // required
  *         },
  *       },
  *     },
  *     Tasks: [ // Tasks // required
  *       { // Task
  *         ConnectorOperator: { // ConnectorOperator
- *           Marketo: "PROJECTION" || "LESS_THAN" || "GREATER_THAN" || "BETWEEN" || "ADDITION" || "MULTIPLICATION" || "DIVISION" || "SUBTRACTION" || "MASK_ALL" || "MASK_FIRST_N" || "MASK_LAST_N" || "VALIDATE_NON_NULL" || "VALIDATE_NON_ZERO" || "VALIDATE_NON_NEGATIVE" || "VALIDATE_NUMERIC" || "NO_OP",
- *           S3: "PROJECTION" || "LESS_THAN" || "GREATER_THAN" || "BETWEEN" || "LESS_THAN_OR_EQUAL_TO" || "GREATER_THAN_OR_EQUAL_TO" || "EQUAL_TO" || "NOT_EQUAL_TO" || "ADDITION" || "MULTIPLICATION" || "DIVISION" || "SUBTRACTION" || "MASK_ALL" || "MASK_FIRST_N" || "MASK_LAST_N" || "VALIDATE_NON_NULL" || "VALIDATE_NON_ZERO" || "VALIDATE_NON_NEGATIVE" || "VALIDATE_NUMERIC" || "NO_OP",
- *           Salesforce: "PROJECTION" || "LESS_THAN" || "CONTAINS" || "GREATER_THAN" || "BETWEEN" || "LESS_THAN_OR_EQUAL_TO" || "GREATER_THAN_OR_EQUAL_TO" || "EQUAL_TO" || "NOT_EQUAL_TO" || "ADDITION" || "MULTIPLICATION" || "DIVISION" || "SUBTRACTION" || "MASK_ALL" || "MASK_FIRST_N" || "MASK_LAST_N" || "VALIDATE_NON_NULL" || "VALIDATE_NON_ZERO" || "VALIDATE_NON_NEGATIVE" || "VALIDATE_NUMERIC" || "NO_OP",
- *           ServiceNow: "PROJECTION" || "CONTAINS" || "LESS_THAN" || "GREATER_THAN" || "BETWEEN" || "LESS_THAN_OR_EQUAL_TO" || "GREATER_THAN_OR_EQUAL_TO" || "EQUAL_TO" || "NOT_EQUAL_TO" || "ADDITION" || "MULTIPLICATION" || "DIVISION" || "SUBTRACTION" || "MASK_ALL" || "MASK_FIRST_N" || "MASK_LAST_N" || "VALIDATE_NON_NULL" || "VALIDATE_NON_ZERO" || "VALIDATE_NON_NEGATIVE" || "VALIDATE_NUMERIC" || "NO_OP",
- *           Zendesk: "PROJECTION" || "GREATER_THAN" || "ADDITION" || "MULTIPLICATION" || "DIVISION" || "SUBTRACTION" || "MASK_ALL" || "MASK_FIRST_N" || "MASK_LAST_N" || "VALIDATE_NON_NULL" || "VALIDATE_NON_ZERO" || "VALIDATE_NON_NEGATIVE" || "VALIDATE_NUMERIC" || "NO_OP",
+ *           Marketo: 'PROJECTION' || 'LESS_THAN' || 'GREATER_THAN' || 'BETWEEN' || 'ADDITION' || 'MULTIPLICATION' || 'DIVISION' || 'SUBTRACTION' || 'MASK_ALL' || 'MASK_FIRST_N' || 'MASK_LAST_N' || 'VALIDATE_NON_NULL' || 'VALIDATE_NON_ZERO' || 'VALIDATE_NON_NEGATIVE' || 'VALIDATE_NUMERIC' || 'NO_OP',
+ *           S3: 'PROJECTION' || 'LESS_THAN' || 'GREATER_THAN' || 'BETWEEN' || 'LESS_THAN_OR_EQUAL_TO' || 'GREATER_THAN_OR_EQUAL_TO' || 'EQUAL_TO' || 'NOT_EQUAL_TO' || 'ADDITION' || 'MULTIPLICATION' || 'DIVISION' || 'SUBTRACTION' || 'MASK_ALL' || 'MASK_FIRST_N' || 'MASK_LAST_N' || 'VALIDATE_NON_NULL' || 'VALIDATE_NON_ZERO' || 'VALIDATE_NON_NEGATIVE' || 'VALIDATE_NUMERIC' || 'NO_OP',
+ *           Salesforce: 'PROJECTION' || 'LESS_THAN' || 'CONTAINS' || 'GREATER_THAN' || 'BETWEEN' || 'LESS_THAN_OR_EQUAL_TO' || 'GREATER_THAN_OR_EQUAL_TO' || 'EQUAL_TO' || 'NOT_EQUAL_TO' || 'ADDITION' || 'MULTIPLICATION' || 'DIVISION' || 'SUBTRACTION' || 'MASK_ALL' || 'MASK_FIRST_N' || 'MASK_LAST_N' || 'VALIDATE_NON_NULL' || 'VALIDATE_NON_ZERO' || 'VALIDATE_NON_NEGATIVE' || 'VALIDATE_NUMERIC' || 'NO_OP',
+ *           ServiceNow: 'PROJECTION' || 'CONTAINS' || 'LESS_THAN' || 'GREATER_THAN' || 'BETWEEN' || 'LESS_THAN_OR_EQUAL_TO' || 'GREATER_THAN_OR_EQUAL_TO' || 'EQUAL_TO' || 'NOT_EQUAL_TO' || 'ADDITION' || 'MULTIPLICATION' || 'DIVISION' || 'SUBTRACTION' || 'MASK_ALL' || 'MASK_FIRST_N' || 'MASK_LAST_N' || 'VALIDATE_NON_NULL' || 'VALIDATE_NON_ZERO' || 'VALIDATE_NON_NEGATIVE' || 'VALIDATE_NUMERIC' || 'NO_OP',
+ *           Zendesk: 'PROJECTION' || 'GREATER_THAN' || 'ADDITION' || 'MULTIPLICATION' || 'DIVISION' || 'SUBTRACTION' || 'MASK_ALL' || 'MASK_FIRST_N' || 'MASK_LAST_N' || 'VALIDATE_NON_NULL' || 'VALIDATE_NON_ZERO' || 'VALIDATE_NON_NEGATIVE' || 'VALIDATE_NUMERIC' || 'NO_OP',
  *         },
- *         DestinationField: "STRING_VALUE",
+ *         DestinationField: 'STRING_VALUE',
  *         SourceFields: [ // SourceFields // required
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
  *         TaskProperties: { // TaskPropertiesMap
- *           "<keys>": "STRING_VALUE",
+ *           '<keys>': 'STRING_VALUE',
  *         },
- *         TaskType: "Arithmetic" || "Filter" || "Map" || "Mask" || "Merge" || "Truncate" || "Validate", // required
+ *         TaskType: 'Arithmetic' || 'Filter' || 'Map' || 'Mask' || 'Merge' || 'Truncate' || 'Validate', // required
  *       },
  *     ],
  *     TriggerConfig: { // TriggerConfig
- *       TriggerType: "Scheduled" || "Event" || "OnDemand", // required
+ *       TriggerType: 'Scheduled' || 'Event' || 'OnDemand', // required
  *       TriggerProperties: { // TriggerProperties
  *         Scheduled: { // ScheduledTriggerProperties
- *           ScheduleExpression: "STRING_VALUE", // required
- *           DataPullMode: "Incremental" || "Complete",
- *           ScheduleStartTime: new Date("TIMESTAMP"),
- *           ScheduleEndTime: new Date("TIMESTAMP"),
- *           Timezone: "STRING_VALUE",
- *           ScheduleOffset: Number("long"),
- *           FirstExecutionFrom: new Date("TIMESTAMP"),
+ *           ScheduleExpression: 'STRING_VALUE', // required
+ *           DataPullMode: 'Incremental' || 'Complete',
+ *           ScheduleStartTime: new Date('TIMESTAMP'),
+ *           ScheduleEndTime: new Date('TIMESTAMP'),
+ *           Timezone: 'STRING_VALUE',
+ *           ScheduleOffset: Number('long'),
+ *           FirstExecutionFrom: new Date('TIMESTAMP'),
  *         },
  *       },
  *     },
  *   },
  *   ObjectTypeNames: { // ObjectTypeNames
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new PutIntegrationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutIntegrationResponse
+ *   DomainName: 'STRING_VALUE', // required
+ *   Uri: 'STRING_VALUE', // required
+ *   ObjectTypeName: 'STRING_VALUE',
+ *   CreatedAt: new Date('TIMESTAMP'), // required
+ *   LastUpdatedAt: new Date('TIMESTAMP'), // required
+ *   Tags: { // TagMap
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ *   ObjectTypeNames: { // ObjectTypeNames
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ *   WorkflowId: 'STRING_VALUE',
+ *   IsUnstructured: true || false,
+ * };
+ *
  * ```
  *
  * @param PutIntegrationCommandInput - {@link PutIntegrationCommandInput}
@@ -145,6 +162,8 @@ export interface PutIntegrationCommandOutput extends PutIntegrationResponse, __M
  * @throws {@link ThrottlingException} (client fault)
  *  <p>You exceeded the maximum number of requests.</p>
  *
+ * @throws {@link CustomerProfilesServiceException}
+ * <p>Base exception class for all service exceptions from CustomerProfiles service.</p>
  *
  */
 export class PutIntegrationCommand extends $Command<

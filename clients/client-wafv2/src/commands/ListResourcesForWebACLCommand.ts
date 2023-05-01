@@ -38,15 +38,22 @@ export interface ListResourcesForWebACLCommandOutput extends ListResourcesForWeb
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WAFV2Client, ListResourcesForWebACLCommand } from "@aws-sdk/client-wafv2"; // ES Modules import
- * // const { WAFV2Client, ListResourcesForWebACLCommand } = require("@aws-sdk/client-wafv2"); // CommonJS import
+ * import { WAFV2Client, ListResourcesForWebACLCommand } from '@aws-sdk/client-wafv2'; // ES Modules import
+ * // const { WAFV2Client, ListResourcesForWebACLCommand } = require('@aws-sdk/client-wafv2'); // CommonJS import
  * const client = new WAFV2Client(config);
  * const input = { // ListResourcesForWebACLRequest
- *   WebACLArn: "STRING_VALUE", // required
- *   ResourceType: "APPLICATION_LOAD_BALANCER" || "API_GATEWAY" || "APPSYNC" || "COGNITO_USER_POOL" || "APP_RUNNER_SERVICE" || "VERIFIED_ACCESS_INSTANCE",
+ *   WebACLArn: 'STRING_VALUE', // required
+ *   ResourceType: 'APPLICATION_LOAD_BALANCER' || 'API_GATEWAY' || 'APPSYNC' || 'COGNITO_USER_POOL' || 'APP_RUNNER_SERVICE' || 'VERIFIED_ACCESS_INSTANCE',
  * };
  * const command = new ListResourcesForWebACLCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListResourcesForWebACLResponse
+ *   ResourceArns: [ // ResourceArns
+ *     'STRING_VALUE',
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListResourcesForWebACLCommandInput - {@link ListResourcesForWebACLCommandInput}
@@ -89,6 +96,8 @@ export interface ListResourcesForWebACLCommandOutput extends ListResourcesForWeb
  *        just need to wait a few minutes. It can take from a few seconds to a number of minutes
  *        for changes to propagate. </p>
  *
+ * @throws {@link WAFV2ServiceException}
+ * <p>Base exception class for all service exceptions from WAFV2 service.</p>
  *
  */
 export class ListResourcesForWebACLCommand extends $Command<

@@ -36,16 +36,29 @@ export interface GetRequestValidatorsCommandOutput extends RequestValidators, __
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { APIGatewayClient, GetRequestValidatorsCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
- * // const { APIGatewayClient, GetRequestValidatorsCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
+ * import { APIGatewayClient, GetRequestValidatorsCommand } from '@aws-sdk/client-api-gateway'; // ES Modules import
+ * // const { APIGatewayClient, GetRequestValidatorsCommand } = require('@aws-sdk/client-api-gateway'); // CommonJS import
  * const client = new APIGatewayClient(config);
  * const input = { // GetRequestValidatorsRequest
- *   restApiId: "STRING_VALUE", // required
- *   position: "STRING_VALUE",
- *   limit: Number("int"),
+ *   restApiId: 'STRING_VALUE', // required
+ *   position: 'STRING_VALUE',
+ *   limit: Number('int'),
  * };
  * const command = new GetRequestValidatorsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // RequestValidators
+ *   items: [ // ListOfRequestValidator
+ *     { // RequestValidator
+ *       id: 'STRING_VALUE',
+ *       name: 'STRING_VALUE',
+ *       validateRequestBody: true || false,
+ *       validateRequestParameters: true || false,
+ *     },
+ *   ],
+ *   position: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetRequestValidatorsCommandInput - {@link GetRequestValidatorsCommandInput}
@@ -66,6 +79,8 @@ export interface GetRequestValidatorsCommandOutput extends RequestValidators, __
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The request is denied because the caller has insufficient permissions.</p>
  *
+ * @throws {@link APIGatewayServiceException}
+ * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
  */
 export class GetRequestValidatorsCommand extends $Command<

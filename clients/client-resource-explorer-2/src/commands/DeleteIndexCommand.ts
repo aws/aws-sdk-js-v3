@@ -51,14 +51,21 @@ export interface DeleteIndexCommandOutput extends DeleteIndexOutput, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ResourceExplorer2Client, DeleteIndexCommand } from "@aws-sdk/client-resource-explorer-2"; // ES Modules import
- * // const { ResourceExplorer2Client, DeleteIndexCommand } = require("@aws-sdk/client-resource-explorer-2"); // CommonJS import
+ * import { ResourceExplorer2Client, DeleteIndexCommand } from '@aws-sdk/client-resource-explorer-2'; // ES Modules import
+ * // const { ResourceExplorer2Client, DeleteIndexCommand } = require('@aws-sdk/client-resource-explorer-2'); // CommonJS import
  * const client = new ResourceExplorer2Client(config);
  * const input = { // DeleteIndexInput
- *   Arn: "STRING_VALUE", // required
+ *   Arn: 'STRING_VALUE', // required
  * };
  * const command = new DeleteIndexCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteIndexOutput
+ *   Arn: 'STRING_VALUE',
+ *   State: 'STRING_VALUE',
+ *   LastUpdatedAt: new Date('TIMESTAMP'),
+ * };
+ *
  * ```
  *
  * @param DeleteIndexCommandInput - {@link DeleteIndexCommandInput}
@@ -88,6 +95,8 @@ export interface DeleteIndexCommandOutput extends DeleteIndexOutput, __MetadataB
  *  <p>You provided an invalid value for one of the operation's parameters. Check the syntax
  *             for the operation, and try again.</p>
  *
+ * @throws {@link ResourceExplorer2ServiceException}
+ * <p>Base exception class for all service exceptions from ResourceExplorer2 service.</p>
  *
  */
 export class DeleteIndexCommand extends $Command<

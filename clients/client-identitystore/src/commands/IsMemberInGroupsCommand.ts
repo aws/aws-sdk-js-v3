@@ -40,20 +40,33 @@ export interface IsMemberInGroupsCommandOutput extends IsMemberInGroupsResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IdentitystoreClient, IsMemberInGroupsCommand } from "@aws-sdk/client-identitystore"; // ES Modules import
- * // const { IdentitystoreClient, IsMemberInGroupsCommand } = require("@aws-sdk/client-identitystore"); // CommonJS import
+ * import { IdentitystoreClient, IsMemberInGroupsCommand } from '@aws-sdk/client-identitystore'; // ES Modules import
+ * // const { IdentitystoreClient, IsMemberInGroupsCommand } = require('@aws-sdk/client-identitystore'); // CommonJS import
  * const client = new IdentitystoreClient(config);
  * const input = { // IsMemberInGroupsRequest
- *   IdentityStoreId: "STRING_VALUE", // required
+ *   IdentityStoreId: 'STRING_VALUE', // required
  *   MemberId: { // MemberId Union: only one key present
- *     UserId: "STRING_VALUE",
+ *     UserId: 'STRING_VALUE',
  *   },
  *   GroupIds: [ // GroupIds // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new IsMemberInGroupsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // IsMemberInGroupsResponse
+ *   Results: [ // GroupMembershipExistenceResults // required
+ *     { // GroupMembershipExistenceResult
+ *       GroupId: 'STRING_VALUE',
+ *       MemberId: { // MemberId Union: only one key present
+ *         UserId: 'STRING_VALUE',
+ *       },
+ *       MembershipExists: true || false,
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param IsMemberInGroupsCommandInput - {@link IsMemberInGroupsCommandInput}
@@ -77,6 +90,8 @@ export interface IsMemberInGroupsCommandOutput extends IsMemberInGroupsResponse,
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Indicates that the principal has crossed the throttling limits of the API operations.</p>
  *
+ * @throws {@link IdentitystoreServiceException}
+ * <p>Base exception class for all service exceptions from Identitystore service.</p>
  *
  */
 export class IsMemberInGroupsCommand extends $Command<

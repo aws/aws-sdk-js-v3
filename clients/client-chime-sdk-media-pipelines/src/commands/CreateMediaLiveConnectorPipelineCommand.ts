@@ -50,33 +50,33 @@ export interface CreateMediaLiveConnectorPipelineCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeSDKMediaPipelinesClient, CreateMediaLiveConnectorPipelineCommand } from "@aws-sdk/client-chime-sdk-media-pipelines"; // ES Modules import
- * // const { ChimeSDKMediaPipelinesClient, CreateMediaLiveConnectorPipelineCommand } = require("@aws-sdk/client-chime-sdk-media-pipelines"); // CommonJS import
+ * import { ChimeSDKMediaPipelinesClient, CreateMediaLiveConnectorPipelineCommand } from '@aws-sdk/client-chime-sdk-media-pipelines'; // ES Modules import
+ * // const { ChimeSDKMediaPipelinesClient, CreateMediaLiveConnectorPipelineCommand } = require('@aws-sdk/client-chime-sdk-media-pipelines'); // CommonJS import
  * const client = new ChimeSDKMediaPipelinesClient(config);
  * const input = { // CreateMediaLiveConnectorPipelineRequest
  *   Sources: [ // LiveConnectorSourceList // required
  *     { // LiveConnectorSourceConfiguration
- *       SourceType: "ChimeSdkMeeting", // required
+ *       SourceType: 'ChimeSdkMeeting', // required
  *       ChimeSdkMeetingLiveConnectorConfiguration: { // ChimeSdkMeetingLiveConnectorConfiguration
- *         Arn: "STRING_VALUE", // required
- *         MuxType: "AudioWithCompositedVideo" || "AudioWithActiveSpeakerVideo", // required
+ *         Arn: 'STRING_VALUE', // required
+ *         MuxType: 'AudioWithCompositedVideo' || 'AudioWithActiveSpeakerVideo', // required
  *         CompositedVideo: { // CompositedVideoArtifactsConfiguration
- *           Layout: "GridView",
- *           Resolution: "HD" || "FHD",
+ *           Layout: 'GridView',
+ *           Resolution: 'HD' || 'FHD',
  *           GridViewConfiguration: { // GridViewConfiguration
- *             ContentShareLayout: "PresenterOnly" || "Horizontal" || "Vertical", // required
+ *             ContentShareLayout: 'PresenterOnly' || 'Horizontal' || 'Vertical', // required
  *             PresenterOnlyConfiguration: { // PresenterOnlyConfiguration
- *               PresenterPosition: "TopLeft" || "TopRight" || "BottomLeft" || "BottomRight",
+ *               PresenterPosition: 'TopLeft' || 'TopRight' || 'BottomLeft' || 'BottomRight',
  *             },
  *           },
  *         },
  *         SourceConfiguration: { // SourceConfiguration
  *           SelectedVideoStreams: { // SelectedVideoStreams
  *             AttendeeIds: [ // AttendeeIdList
- *               "STRING_VALUE",
+ *               'STRING_VALUE',
  *             ],
  *             ExternalUserIds: [ // ExternalUserIdList
- *               "STRING_VALUE",
+ *               'STRING_VALUE',
  *             ],
  *           },
  *         },
@@ -85,24 +85,74 @@ export interface CreateMediaLiveConnectorPipelineCommandOutput
  *   ],
  *   Sinks: [ // LiveConnectorSinkList // required
  *     { // LiveConnectorSinkConfiguration
- *       SinkType: "RTMP", // required
+ *       SinkType: 'RTMP', // required
  *       RTMPConfiguration: { // LiveConnectorRTMPConfiguration
- *         Url: "STRING_VALUE", // required
- *         AudioChannels: "Stereo" || "Mono",
- *         AudioSampleRate: "STRING_VALUE",
+ *         Url: 'STRING_VALUE', // required
+ *         AudioChannels: 'Stereo' || 'Mono',
+ *         AudioSampleRate: 'STRING_VALUE',
  *       },
  *     },
  *   ],
- *   ClientRequestToken: "STRING_VALUE",
+ *   ClientRequestToken: 'STRING_VALUE',
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreateMediaLiveConnectorPipelineCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateMediaLiveConnectorPipelineResponse
+ *   MediaLiveConnectorPipeline: { // MediaLiveConnectorPipeline
+ *     Sources: [ // LiveConnectorSourceList
+ *       { // LiveConnectorSourceConfiguration
+ *         SourceType: 'ChimeSdkMeeting', // required
+ *         ChimeSdkMeetingLiveConnectorConfiguration: { // ChimeSdkMeetingLiveConnectorConfiguration
+ *           Arn: 'STRING_VALUE', // required
+ *           MuxType: 'AudioWithCompositedVideo' || 'AudioWithActiveSpeakerVideo', // required
+ *           CompositedVideo: { // CompositedVideoArtifactsConfiguration
+ *             Layout: 'GridView',
+ *             Resolution: 'HD' || 'FHD',
+ *             GridViewConfiguration: { // GridViewConfiguration
+ *               ContentShareLayout: 'PresenterOnly' || 'Horizontal' || 'Vertical', // required
+ *               PresenterOnlyConfiguration: { // PresenterOnlyConfiguration
+ *                 PresenterPosition: 'TopLeft' || 'TopRight' || 'BottomLeft' || 'BottomRight',
+ *               },
+ *             },
+ *           },
+ *           SourceConfiguration: { // SourceConfiguration
+ *             SelectedVideoStreams: { // SelectedVideoStreams
+ *               AttendeeIds: [ // AttendeeIdList
+ *                 'STRING_VALUE',
+ *               ],
+ *               ExternalUserIds: [ // ExternalUserIdList
+ *                 'STRING_VALUE',
+ *               ],
+ *             },
+ *           },
+ *         },
+ *       },
+ *     ],
+ *     Sinks: [ // LiveConnectorSinkList
+ *       { // LiveConnectorSinkConfiguration
+ *         SinkType: 'RTMP', // required
+ *         RTMPConfiguration: { // LiveConnectorRTMPConfiguration
+ *           Url: 'STRING_VALUE', // required
+ *           AudioChannels: 'Stereo' || 'Mono',
+ *           AudioSampleRate: 'STRING_VALUE',
+ *         },
+ *       },
+ *     ],
+ *     MediaPipelineId: 'STRING_VALUE',
+ *     MediaPipelineArn: 'STRING_VALUE',
+ *     Status: 'Initializing' || 'InProgress' || 'Failed' || 'Stopping' || 'Stopped' || 'Paused',
+ *     CreatedTimestamp: new Date('TIMESTAMP'),
+ *     UpdatedTimestamp: new Date('TIMESTAMP'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateMediaLiveConnectorPipelineCommandInput - {@link CreateMediaLiveConnectorPipelineCommandInput}
@@ -132,6 +182,8 @@ export interface CreateMediaLiveConnectorPipelineCommandOutput
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeSDKMediaPipelinesServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKMediaPipelines service.</p>
  *
  */
 export class CreateMediaLiveConnectorPipelineCommand extends $Command<

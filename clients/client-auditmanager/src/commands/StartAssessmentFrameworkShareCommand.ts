@@ -77,17 +77,38 @@ export interface StartAssessmentFrameworkShareCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AuditManagerClient, StartAssessmentFrameworkShareCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
- * // const { AuditManagerClient, StartAssessmentFrameworkShareCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import
+ * import { AuditManagerClient, StartAssessmentFrameworkShareCommand } from '@aws-sdk/client-auditmanager'; // ES Modules import
+ * // const { AuditManagerClient, StartAssessmentFrameworkShareCommand } = require('@aws-sdk/client-auditmanager'); // CommonJS import
  * const client = new AuditManagerClient(config);
  * const input = { // StartAssessmentFrameworkShareRequest
- *   frameworkId: "STRING_VALUE", // required
- *   destinationAccount: "STRING_VALUE", // required
- *   destinationRegion: "STRING_VALUE", // required
- *   comment: "STRING_VALUE",
+ *   frameworkId: 'STRING_VALUE', // required
+ *   destinationAccount: 'STRING_VALUE', // required
+ *   destinationRegion: 'STRING_VALUE', // required
+ *   comment: 'STRING_VALUE',
  * };
  * const command = new StartAssessmentFrameworkShareCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartAssessmentFrameworkShareResponse
+ *   assessmentFrameworkShareRequest: { // AssessmentFrameworkShareRequest
+ *     id: 'STRING_VALUE',
+ *     frameworkId: 'STRING_VALUE',
+ *     frameworkName: 'STRING_VALUE',
+ *     frameworkDescription: 'STRING_VALUE',
+ *     status: 'ACTIVE' || 'REPLICATING' || 'SHARED' || 'EXPIRING' || 'FAILED' || 'EXPIRED' || 'DECLINED' || 'REVOKED',
+ *     sourceAccount: 'STRING_VALUE',
+ *     destinationAccount: 'STRING_VALUE',
+ *     destinationRegion: 'STRING_VALUE',
+ *     expirationTime: new Date('TIMESTAMP'),
+ *     creationTime: new Date('TIMESTAMP'),
+ *     lastUpdated: new Date('TIMESTAMP'),
+ *     comment: 'STRING_VALUE',
+ *     standardControlsCount: Number('int'),
+ *     customControlsCount: Number('int'),
+ *     complianceType: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param StartAssessmentFrameworkShareCommandInput - {@link StartAssessmentFrameworkShareCommandInput}
@@ -110,6 +131,8 @@ export interface StartAssessmentFrameworkShareCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p> The request has invalid or missing parameters. </p>
  *
+ * @throws {@link AuditManagerServiceException}
+ * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
  */
 export class StartAssessmentFrameworkShareCommand extends $Command<

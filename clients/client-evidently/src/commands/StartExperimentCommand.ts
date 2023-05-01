@@ -37,16 +37,21 @@ export interface StartExperimentCommandOutput extends StartExperimentResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EvidentlyClient, StartExperimentCommand } from "@aws-sdk/client-evidently"; // ES Modules import
- * // const { EvidentlyClient, StartExperimentCommand } = require("@aws-sdk/client-evidently"); // CommonJS import
+ * import { EvidentlyClient, StartExperimentCommand } from '@aws-sdk/client-evidently'; // ES Modules import
+ * // const { EvidentlyClient, StartExperimentCommand } = require('@aws-sdk/client-evidently'); // CommonJS import
  * const client = new EvidentlyClient(config);
  * const input = { // StartExperimentRequest
- *   project: "STRING_VALUE", // required
- *   experiment: "STRING_VALUE", // required
- *   analysisCompleteTime: new Date("TIMESTAMP"), // required
+ *   project: 'STRING_VALUE', // required
+ *   experiment: 'STRING_VALUE', // required
+ *   analysisCompleteTime: new Date('TIMESTAMP'), // required
  * };
  * const command = new StartExperimentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartExperimentResponse
+ *   startedTime: new Date('TIMESTAMP'),
+ * };
+ *
  * ```
  *
  * @param StartExperimentCommandInput - {@link StartExperimentCommandInput}
@@ -73,6 +78,8 @@ export interface StartExperimentCommandOutput extends StartExperimentResponse, _
  * @throws {@link ValidationException} (client fault)
  *  <p>The value of a parameter in the request caused an error.</p>
  *
+ * @throws {@link EvidentlyServiceException}
+ * <p>Base exception class for all service exceptions from Evidently service.</p>
  *
  */
 export class StartExperimentCommand extends $Command<

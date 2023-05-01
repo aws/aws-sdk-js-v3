@@ -36,14 +36,32 @@ export interface GetRepositoryTriggersCommandOutput extends GetRepositoryTrigger
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeCommitClient, GetRepositoryTriggersCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
- * // const { CodeCommitClient, GetRepositoryTriggersCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
+ * import { CodeCommitClient, GetRepositoryTriggersCommand } from '@aws-sdk/client-codecommit'; // ES Modules import
+ * // const { CodeCommitClient, GetRepositoryTriggersCommand } = require('@aws-sdk/client-codecommit'); // CommonJS import
  * const client = new CodeCommitClient(config);
  * const input = { // GetRepositoryTriggersInput
- *   repositoryName: "STRING_VALUE", // required
+ *   repositoryName: 'STRING_VALUE', // required
  * };
  * const command = new GetRepositoryTriggersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetRepositoryTriggersOutput
+ *   configurationId: 'STRING_VALUE',
+ *   triggers: [ // RepositoryTriggersList
+ *     { // RepositoryTrigger
+ *       name: 'STRING_VALUE', // required
+ *       destinationArn: 'STRING_VALUE', // required
+ *       customData: 'STRING_VALUE',
+ *       branches: [ // BranchNameList
+ *         'STRING_VALUE',
+ *       ],
+ *       events: [ // RepositoryTriggerEventList // required
+ *         'STRING_VALUE',
+ *       ],
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetRepositoryTriggersCommandInput - {@link GetRepositoryTriggersCommandInput}
@@ -82,6 +100,8 @@ export interface GetRepositoryTriggersCommandOutput extends GetRepositoryTrigger
  * @throws {@link RepositoryNameRequiredException} (client fault)
  *  <p>A repository name is required, but was not specified.</p>
  *
+ * @throws {@link CodeCommitServiceException}
+ * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
  */
 export class GetRepositoryTriggersCommand extends $Command<

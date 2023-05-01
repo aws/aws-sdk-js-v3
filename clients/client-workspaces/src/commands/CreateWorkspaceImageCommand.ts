@@ -36,22 +36,36 @@ export interface CreateWorkspaceImageCommandOutput extends CreateWorkspaceImageR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkSpacesClient, CreateWorkspaceImageCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
- * // const { WorkSpacesClient, CreateWorkspaceImageCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
+ * import { WorkSpacesClient, CreateWorkspaceImageCommand } from '@aws-sdk/client-workspaces'; // ES Modules import
+ * // const { WorkSpacesClient, CreateWorkspaceImageCommand } = require('@aws-sdk/client-workspaces'); // CommonJS import
  * const client = new WorkSpacesClient(config);
  * const input = { // CreateWorkspaceImageRequest
- *   Name: "STRING_VALUE", // required
- *   Description: "STRING_VALUE", // required
- *   WorkspaceId: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE', // required
+ *   WorkspaceId: 'STRING_VALUE', // required
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new CreateWorkspaceImageCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateWorkspaceImageResult
+ *   ImageId: 'STRING_VALUE',
+ *   Name: 'STRING_VALUE',
+ *   Description: 'STRING_VALUE',
+ *   OperatingSystem: { // OperatingSystem
+ *     Type: 'WINDOWS' || 'LINUX',
+ *   },
+ *   State: 'AVAILABLE' || 'PENDING' || 'ERROR',
+ *   RequiredTenancy: 'DEFAULT' || 'DEDICATED',
+ *   Created: new Date('TIMESTAMP'),
+ *   OwnerAccountId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateWorkspaceImageCommandInput - {@link CreateWorkspaceImageCommandInput}
@@ -81,6 +95,8 @@ export interface CreateWorkspaceImageCommandOutput extends CreateWorkspaceImageR
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource could not be found.</p>
  *
+ * @throws {@link WorkSpacesServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
  */
 export class CreateWorkspaceImageCommand extends $Command<

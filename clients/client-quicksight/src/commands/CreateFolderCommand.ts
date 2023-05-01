@@ -36,32 +36,40 @@ export interface CreateFolderCommandOutput extends CreateFolderResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { QuickSightClient, CreateFolderCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
- * // const { QuickSightClient, CreateFolderCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * import { QuickSightClient, CreateFolderCommand } from '@aws-sdk/client-quicksight'; // ES Modules import
+ * // const { QuickSightClient, CreateFolderCommand } = require('@aws-sdk/client-quicksight'); // CommonJS import
  * const client = new QuickSightClient(config);
  * const input = { // CreateFolderRequest
- *   AwsAccountId: "STRING_VALUE", // required
- *   FolderId: "STRING_VALUE", // required
- *   Name: "STRING_VALUE",
- *   FolderType: "SHARED",
- *   ParentFolderArn: "STRING_VALUE",
+ *   AwsAccountId: 'STRING_VALUE', // required
+ *   FolderId: 'STRING_VALUE', // required
+ *   Name: 'STRING_VALUE',
+ *   FolderType: 'SHARED',
+ *   ParentFolderArn: 'STRING_VALUE',
  *   Permissions: [ // ResourcePermissionList
  *     { // ResourcePermission
- *       Principal: "STRING_VALUE", // required
+ *       Principal: 'STRING_VALUE', // required
  *       Actions: [ // ActionList // required
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreateFolderCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateFolderResponse
+ *   Status: Number('int'),
+ *   Arn: 'STRING_VALUE',
+ *   FolderId: 'STRING_VALUE',
+ *   RequestId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateFolderCommandInput - {@link CreateFolderCommandInput}
@@ -103,6 +111,8 @@ export interface CreateFolderCommandOutput extends CreateFolderResponse, __Metad
  * 			Amazon QuickSight currently has Standard Edition and Enterprise Edition. Not every operation and
  * 			capability is available in every edition.</p>
  *
+ * @throws {@link QuickSightServiceException}
+ * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
 export class CreateFolderCommand extends $Command<

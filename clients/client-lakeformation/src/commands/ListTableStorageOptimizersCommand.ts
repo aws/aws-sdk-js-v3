@@ -36,19 +36,35 @@ export interface ListTableStorageOptimizersCommandOutput extends ListTableStorag
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LakeFormationClient, ListTableStorageOptimizersCommand } from "@aws-sdk/client-lakeformation"; // ES Modules import
- * // const { LakeFormationClient, ListTableStorageOptimizersCommand } = require("@aws-sdk/client-lakeformation"); // CommonJS import
+ * import { LakeFormationClient, ListTableStorageOptimizersCommand } from '@aws-sdk/client-lakeformation'; // ES Modules import
+ * // const { LakeFormationClient, ListTableStorageOptimizersCommand } = require('@aws-sdk/client-lakeformation'); // CommonJS import
  * const client = new LakeFormationClient(config);
  * const input = { // ListTableStorageOptimizersRequest
- *   CatalogId: "STRING_VALUE",
- *   DatabaseName: "STRING_VALUE", // required
- *   TableName: "STRING_VALUE", // required
- *   StorageOptimizerType: "COMPACTION" || "GARBAGE_COLLECTION" || "ALL",
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   CatalogId: 'STRING_VALUE',
+ *   DatabaseName: 'STRING_VALUE', // required
+ *   TableName: 'STRING_VALUE', // required
+ *   StorageOptimizerType: 'COMPACTION' || 'GARBAGE_COLLECTION' || 'ALL',
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListTableStorageOptimizersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTableStorageOptimizersResponse
+ *   StorageOptimizerList: [ // StorageOptimizerList
+ *     { // StorageOptimizer
+ *       StorageOptimizerType: 'COMPACTION' || 'GARBAGE_COLLECTION' || 'ALL',
+ *       Config: { // StorageOptimizerConfig
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *       ErrorMessage: 'STRING_VALUE',
+ *       Warnings: 'STRING_VALUE',
+ *       LastRunDetails: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListTableStorageOptimizersCommandInput - {@link ListTableStorageOptimizersCommandInput}
@@ -69,6 +85,8 @@ export interface ListTableStorageOptimizersCommandOutput extends ListTableStorag
  * @throws {@link InvalidInputException} (client fault)
  *  <p>The input provided was not valid.</p>
  *
+ * @throws {@link LakeFormationServiceException}
+ * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
  */
 export class ListTableStorageOptimizersCommand extends $Command<

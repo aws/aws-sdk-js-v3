@@ -37,43 +37,51 @@ export interface ListAssessmentRunsCommandOutput extends ListAssessmentRunsRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { InspectorClient, ListAssessmentRunsCommand } from "@aws-sdk/client-inspector"; // ES Modules import
- * // const { InspectorClient, ListAssessmentRunsCommand } = require("@aws-sdk/client-inspector"); // CommonJS import
+ * import { InspectorClient, ListAssessmentRunsCommand } from '@aws-sdk/client-inspector'; // ES Modules import
+ * // const { InspectorClient, ListAssessmentRunsCommand } = require('@aws-sdk/client-inspector'); // CommonJS import
  * const client = new InspectorClient(config);
  * const input = { // ListAssessmentRunsRequest
  *   assessmentTemplateArns: [ // ListParentArnList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   filter: { // AssessmentRunFilter
- *     namePattern: "STRING_VALUE",
+ *     namePattern: 'STRING_VALUE',
  *     states: [ // AssessmentRunStateList
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     durationRange: { // DurationRange
- *       minSeconds: Number("int"),
- *       maxSeconds: Number("int"),
+ *       minSeconds: Number('int'),
+ *       maxSeconds: Number('int'),
  *     },
  *     rulesPackageArns: [ // FilterRulesPackageArnList
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     startTimeRange: { // TimestampRange
- *       beginDate: new Date("TIMESTAMP"),
- *       endDate: new Date("TIMESTAMP"),
+ *       beginDate: new Date('TIMESTAMP'),
+ *       endDate: new Date('TIMESTAMP'),
  *     },
  *     completionTimeRange: {
- *       beginDate: new Date("TIMESTAMP"),
- *       endDate: new Date("TIMESTAMP"),
+ *       beginDate: new Date('TIMESTAMP'),
+ *       endDate: new Date('TIMESTAMP'),
  *     },
  *     stateChangeTimeRange: {
- *       beginDate: new Date("TIMESTAMP"),
- *       endDate: new Date("TIMESTAMP"),
+ *       beginDate: new Date('TIMESTAMP'),
+ *       endDate: new Date('TIMESTAMP'),
  *     },
  *   },
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new ListAssessmentRunsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListAssessmentRunsResponse
+ *   assessmentRunArns: [ // ListReturnedArnList // required
+ *     'STRING_VALUE',
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListAssessmentRunsCommandInput - {@link ListAssessmentRunsCommandInput}
@@ -96,6 +104,8 @@ export interface ListAssessmentRunsCommandOutput extends ListAssessmentRunsRespo
  *  <p>The request was rejected because it referenced an entity that does not exist. The
  *          error code describes the entity.</p>
  *
+ * @throws {@link InspectorServiceException}
+ * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
  * @example List assessment runs
  * ```javascript

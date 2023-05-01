@@ -36,18 +36,21 @@ export interface UpdatePermissionSetCommandOutput extends UpdatePermissionSetRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSOAdminClient, UpdatePermissionSetCommand } from "@aws-sdk/client-sso-admin"; // ES Modules import
- * // const { SSOAdminClient, UpdatePermissionSetCommand } = require("@aws-sdk/client-sso-admin"); // CommonJS import
+ * import { SSOAdminClient, UpdatePermissionSetCommand } from '@aws-sdk/client-sso-admin'; // ES Modules import
+ * // const { SSOAdminClient, UpdatePermissionSetCommand } = require('@aws-sdk/client-sso-admin'); // CommonJS import
  * const client = new SSOAdminClient(config);
  * const input = { // UpdatePermissionSetRequest
- *   InstanceArn: "STRING_VALUE", // required
- *   PermissionSetArn: "STRING_VALUE", // required
- *   Description: "STRING_VALUE",
- *   SessionDuration: "STRING_VALUE",
- *   RelayState: "STRING_VALUE",
+ *   InstanceArn: 'STRING_VALUE', // required
+ *   PermissionSetArn: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE',
+ *   SessionDuration: 'STRING_VALUE',
+ *   RelayState: 'STRING_VALUE',
  * };
  * const command = new UpdatePermissionSetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdatePermissionSetCommandInput - {@link UpdatePermissionSetCommandInput}
@@ -79,6 +82,8 @@ export interface UpdatePermissionSetCommandOutput extends UpdatePermissionSetRes
  * @throws {@link ValidationException} (client fault)
  *  <p>The request failed because it contains a syntax error.</p>
  *
+ * @throws {@link SSOAdminServiceException}
+ * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
  */
 export class UpdatePermissionSetCommand extends $Command<

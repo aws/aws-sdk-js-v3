@@ -40,22 +40,45 @@ export interface UpdateVpcEndpointCommandOutput extends UpdateVpcEndpointRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElasticsearchServiceClient, UpdateVpcEndpointCommand } from "@aws-sdk/client-elasticsearch-service"; // ES Modules import
- * // const { ElasticsearchServiceClient, UpdateVpcEndpointCommand } = require("@aws-sdk/client-elasticsearch-service"); // CommonJS import
+ * import { ElasticsearchServiceClient, UpdateVpcEndpointCommand } from '@aws-sdk/client-elasticsearch-service'; // ES Modules import
+ * // const { ElasticsearchServiceClient, UpdateVpcEndpointCommand } = require('@aws-sdk/client-elasticsearch-service'); // CommonJS import
  * const client = new ElasticsearchServiceClient(config);
  * const input = { // UpdateVpcEndpointRequest
- *   VpcEndpointId: "STRING_VALUE", // required
+ *   VpcEndpointId: 'STRING_VALUE', // required
  *   VpcOptions: { // VPCOptions
  *     SubnetIds: [ // StringList
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     SecurityGroupIds: [
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *   },
  * };
  * const command = new UpdateVpcEndpointCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateVpcEndpointResponse
+ *   VpcEndpoint: { // VpcEndpoint
+ *     VpcEndpointId: 'STRING_VALUE',
+ *     VpcEndpointOwner: 'STRING_VALUE',
+ *     DomainArn: 'STRING_VALUE',
+ *     VpcOptions: { // VPCDerivedInfo
+ *       VPCId: 'STRING_VALUE',
+ *       SubnetIds: [ // StringList
+ *         'STRING_VALUE',
+ *       ],
+ *       AvailabilityZones: [
+ *         'STRING_VALUE',
+ *       ],
+ *       SecurityGroupIds: [
+ *         'STRING_VALUE',
+ *       ],
+ *     },
+ *     Status: 'CREATING' || 'CREATE_FAILED' || 'ACTIVE' || 'UPDATING' || 'UPDATE_FAILED' || 'DELETING' || 'DELETE_FAILED',
+ *     Endpoint: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateVpcEndpointCommandInput - {@link UpdateVpcEndpointCommandInput}
@@ -82,6 +105,8 @@ export interface UpdateVpcEndpointCommandOutput extends UpdateVpcEndpointRespons
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception for missing / invalid input fields. Gives http status code of 400.</p>
  *
+ * @throws {@link ElasticsearchServiceServiceException}
+ * <p>Base exception class for all service exceptions from ElasticsearchService service.</p>
  *
  */
 export class UpdateVpcEndpointCommand extends $Command<

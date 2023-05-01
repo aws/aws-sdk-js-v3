@@ -37,15 +37,18 @@ export interface ActivateContactChannelCommandOutput extends ActivateContactChan
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMContactsClient, ActivateContactChannelCommand } from "@aws-sdk/client-ssm-contacts"; // ES Modules import
- * // const { SSMContactsClient, ActivateContactChannelCommand } = require("@aws-sdk/client-ssm-contacts"); // CommonJS import
+ * import { SSMContactsClient, ActivateContactChannelCommand } from '@aws-sdk/client-ssm-contacts'; // ES Modules import
+ * // const { SSMContactsClient, ActivateContactChannelCommand } = require('@aws-sdk/client-ssm-contacts'); // CommonJS import
  * const client = new SSMContactsClient(config);
  * const input = { // ActivateContactChannelRequest
- *   ContactChannelId: "STRING_VALUE", // required
- *   ActivationCode: "STRING_VALUE", // required
+ *   ContactChannelId: 'STRING_VALUE', // required
+ *   ActivationCode: 'STRING_VALUE', // required
  * };
  * const command = new ActivateContactChannelCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param ActivateContactChannelCommandInput - {@link ActivateContactChannelCommandInput}
@@ -70,6 +73,8 @@ export interface ActivateContactChannelCommandOutput extends ActivateContactChan
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
  *          service.</p>
  *
+ * @throws {@link SSMContactsServiceException}
+ * <p>Base exception class for all service exceptions from SSMContacts service.</p>
  *
  */
 export class ActivateContactChannelCommand extends $Command<

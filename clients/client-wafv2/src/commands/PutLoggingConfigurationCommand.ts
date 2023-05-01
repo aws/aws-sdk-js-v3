@@ -78,66 +78,66 @@ export interface PutLoggingConfigurationCommandOutput extends PutLoggingConfigur
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WAFV2Client, PutLoggingConfigurationCommand } from "@aws-sdk/client-wafv2"; // ES Modules import
- * // const { WAFV2Client, PutLoggingConfigurationCommand } = require("@aws-sdk/client-wafv2"); // CommonJS import
+ * import { WAFV2Client, PutLoggingConfigurationCommand } from '@aws-sdk/client-wafv2'; // ES Modules import
+ * // const { WAFV2Client, PutLoggingConfigurationCommand } = require('@aws-sdk/client-wafv2'); // CommonJS import
  * const client = new WAFV2Client(config);
  * const input = { // PutLoggingConfigurationRequest
  *   LoggingConfiguration: { // LoggingConfiguration
- *     ResourceArn: "STRING_VALUE", // required
+ *     ResourceArn: 'STRING_VALUE', // required
  *     LogDestinationConfigs: [ // LogDestinationConfigs // required
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     RedactedFields: [ // RedactedFields
  *       { // FieldToMatch
  *         SingleHeader: { // SingleHeader
- *           Name: "STRING_VALUE", // required
+ *           Name: 'STRING_VALUE', // required
  *         },
  *         SingleQueryArgument: { // SingleQueryArgument
- *           Name: "STRING_VALUE", // required
+ *           Name: 'STRING_VALUE', // required
  *         },
  *         AllQueryArguments: {},
  *         UriPath: {},
  *         QueryString: {},
  *         Body: { // Body
- *           OversizeHandling: "CONTINUE" || "MATCH" || "NO_MATCH",
+ *           OversizeHandling: 'CONTINUE' || 'MATCH' || 'NO_MATCH',
  *         },
  *         Method: {},
  *         JsonBody: { // JsonBody
  *           MatchPattern: { // JsonMatchPattern
  *             All: {},
  *             IncludedPaths: [ // JsonPointerPaths
- *               "STRING_VALUE",
+ *               'STRING_VALUE',
  *             ],
  *           },
- *           MatchScope: "ALL" || "KEY" || "VALUE", // required
- *           InvalidFallbackBehavior: "MATCH" || "NO_MATCH" || "EVALUATE_AS_STRING",
- *           OversizeHandling: "CONTINUE" || "MATCH" || "NO_MATCH",
+ *           MatchScope: 'ALL' || 'KEY' || 'VALUE', // required
+ *           InvalidFallbackBehavior: 'MATCH' || 'NO_MATCH' || 'EVALUATE_AS_STRING',
+ *           OversizeHandling: 'CONTINUE' || 'MATCH' || 'NO_MATCH',
  *         },
  *         Headers: { // Headers
  *           MatchPattern: { // HeaderMatchPattern
  *             All: {},
  *             IncludedHeaders: [ // HeaderNames
- *               "STRING_VALUE",
+ *               'STRING_VALUE',
  *             ],
  *             ExcludedHeaders: [
- *               "STRING_VALUE",
+ *               'STRING_VALUE',
  *             ],
  *           },
- *           MatchScope: "ALL" || "KEY" || "VALUE", // required
- *           OversizeHandling: "CONTINUE" || "MATCH" || "NO_MATCH", // required
+ *           MatchScope: 'ALL' || 'KEY' || 'VALUE', // required
+ *           OversizeHandling: 'CONTINUE' || 'MATCH' || 'NO_MATCH', // required
  *         },
  *         Cookies: { // Cookies
  *           MatchPattern: { // CookieMatchPattern
  *             All: {},
  *             IncludedCookies: [ // CookieNames
- *               "STRING_VALUE",
+ *               'STRING_VALUE',
  *             ],
  *             ExcludedCookies: [
- *               "STRING_VALUE",
+ *               'STRING_VALUE',
  *             ],
  *           },
- *           MatchScope: "ALL" || "KEY" || "VALUE", // required
- *           OversizeHandling: "CONTINUE" || "MATCH" || "NO_MATCH", // required
+ *           MatchScope: 'ALL' || 'KEY' || 'VALUE', // required
+ *           OversizeHandling: 'CONTINUE' || 'MATCH' || 'NO_MATCH', // required
  *         },
  *       },
  *     ],
@@ -145,26 +145,110 @@ export interface PutLoggingConfigurationCommandOutput extends PutLoggingConfigur
  *     LoggingFilter: { // LoggingFilter
  *       Filters: [ // Filters // required
  *         { // Filter
- *           Behavior: "KEEP" || "DROP", // required
- *           Requirement: "MEETS_ALL" || "MEETS_ANY", // required
+ *           Behavior: 'KEEP' || 'DROP', // required
+ *           Requirement: 'MEETS_ALL' || 'MEETS_ANY', // required
  *           Conditions: [ // Conditions // required
  *             { // Condition
  *               ActionCondition: { // ActionCondition
- *                 Action: "ALLOW" || "BLOCK" || "COUNT" || "CAPTCHA" || "CHALLENGE" || "EXCLUDED_AS_COUNT", // required
+ *                 Action: 'ALLOW' || 'BLOCK' || 'COUNT' || 'CAPTCHA' || 'CHALLENGE' || 'EXCLUDED_AS_COUNT', // required
  *               },
  *               LabelNameCondition: { // LabelNameCondition
- *                 LabelName: "STRING_VALUE", // required
+ *                 LabelName: 'STRING_VALUE', // required
  *               },
  *             },
  *           ],
  *         },
  *       ],
- *       DefaultBehavior: "KEEP" || "DROP", // required
+ *       DefaultBehavior: 'KEEP' || 'DROP', // required
  *     },
  *   },
  * };
  * const command = new PutLoggingConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutLoggingConfigurationResponse
+ *   LoggingConfiguration: { // LoggingConfiguration
+ *     ResourceArn: 'STRING_VALUE', // required
+ *     LogDestinationConfigs: [ // LogDestinationConfigs // required
+ *       'STRING_VALUE',
+ *     ],
+ *     RedactedFields: [ // RedactedFields
+ *       { // FieldToMatch
+ *         SingleHeader: { // SingleHeader
+ *           Name: 'STRING_VALUE', // required
+ *         },
+ *         SingleQueryArgument: { // SingleQueryArgument
+ *           Name: 'STRING_VALUE', // required
+ *         },
+ *         AllQueryArguments: {},
+ *         UriPath: {},
+ *         QueryString: {},
+ *         Body: { // Body
+ *           OversizeHandling: 'CONTINUE' || 'MATCH' || 'NO_MATCH',
+ *         },
+ *         Method: {},
+ *         JsonBody: { // JsonBody
+ *           MatchPattern: { // JsonMatchPattern
+ *             All: {},
+ *             IncludedPaths: [ // JsonPointerPaths
+ *               'STRING_VALUE',
+ *             ],
+ *           },
+ *           MatchScope: 'ALL' || 'KEY' || 'VALUE', // required
+ *           InvalidFallbackBehavior: 'MATCH' || 'NO_MATCH' || 'EVALUATE_AS_STRING',
+ *           OversizeHandling: 'CONTINUE' || 'MATCH' || 'NO_MATCH',
+ *         },
+ *         Headers: { // Headers
+ *           MatchPattern: { // HeaderMatchPattern
+ *             All: {},
+ *             IncludedHeaders: [ // HeaderNames
+ *               'STRING_VALUE',
+ *             ],
+ *             ExcludedHeaders: [
+ *               'STRING_VALUE',
+ *             ],
+ *           },
+ *           MatchScope: 'ALL' || 'KEY' || 'VALUE', // required
+ *           OversizeHandling: 'CONTINUE' || 'MATCH' || 'NO_MATCH', // required
+ *         },
+ *         Cookies: { // Cookies
+ *           MatchPattern: { // CookieMatchPattern
+ *             All: {},
+ *             IncludedCookies: [ // CookieNames
+ *               'STRING_VALUE',
+ *             ],
+ *             ExcludedCookies: [
+ *               'STRING_VALUE',
+ *             ],
+ *           },
+ *           MatchScope: 'ALL' || 'KEY' || 'VALUE', // required
+ *           OversizeHandling: 'CONTINUE' || 'MATCH' || 'NO_MATCH', // required
+ *         },
+ *       },
+ *     ],
+ *     ManagedByFirewallManager: true || false,
+ *     LoggingFilter: { // LoggingFilter
+ *       Filters: [ // Filters // required
+ *         { // Filter
+ *           Behavior: 'KEEP' || 'DROP', // required
+ *           Requirement: 'MEETS_ALL' || 'MEETS_ANY', // required
+ *           Conditions: [ // Conditions // required
+ *             { // Condition
+ *               ActionCondition: { // ActionCondition
+ *                 Action: 'ALLOW' || 'BLOCK' || 'COUNT' || 'CAPTCHA' || 'CHALLENGE' || 'EXCLUDED_AS_COUNT', // required
+ *               },
+ *               LabelNameCondition: { // LabelNameCondition
+ *                 LabelName: 'STRING_VALUE', // required
+ *               },
+ *             },
+ *           ],
+ *         },
+ *       ],
+ *       DefaultBehavior: 'KEEP' || 'DROP', // required
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param PutLoggingConfigurationCommandInput - {@link PutLoggingConfigurationCommandInput}
@@ -233,6 +317,8 @@ export interface PutLoggingConfigurationCommandOutput extends PutLoggingConfigur
  *          again. If you receive this same exception again, you will have to wait additional time
  *          until the role is unlocked.</p>
  *
+ * @throws {@link WAFV2ServiceException}
+ * <p>Base exception class for all service exceptions from WAFV2 service.</p>
  *
  */
 export class PutLoggingConfigurationCommand extends $Command<

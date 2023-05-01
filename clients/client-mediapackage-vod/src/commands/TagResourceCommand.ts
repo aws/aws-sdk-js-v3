@@ -36,17 +36,20 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MediaPackageVodClient, TagResourceCommand } from "@aws-sdk/client-mediapackage-vod"; // ES Modules import
- * // const { MediaPackageVodClient, TagResourceCommand } = require("@aws-sdk/client-mediapackage-vod"); // CommonJS import
+ * import { MediaPackageVodClient, TagResourceCommand } from '@aws-sdk/client-mediapackage-vod'; // ES Modules import
+ * // const { MediaPackageVodClient, TagResourceCommand } = require('@aws-sdk/client-mediapackage-vod'); // CommonJS import
  * const client = new MediaPackageVodClient(config);
  * const input = { // TagResourceRequest
- *   ResourceArn: "STRING_VALUE", // required
+ *   ResourceArn: 'STRING_VALUE', // required
  *   Tags: { // __mapOf__string // required
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param TagResourceCommandInput - {@link TagResourceCommandInput}
@@ -55,6 +58,8 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
  * @see {@link TagResourceCommandOutput} for command's `response` shape.
  * @see {@link MediaPackageVodClientResolvedConfig | config} for MediaPackageVodClient's `config` shape.
  *
+ * @throws {@link MediaPackageVodServiceException}
+ * <p>Base exception class for all service exceptions from MediaPackageVod service.</p>
  *
  */
 export class TagResourceCommand extends $Command<

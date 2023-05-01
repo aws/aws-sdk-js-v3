@@ -40,15 +40,28 @@ export interface ListUserProfilesCommandOutput extends ListUserProfilesResult, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeStarClient, ListUserProfilesCommand } from "@aws-sdk/client-codestar"; // ES Modules import
- * // const { CodeStarClient, ListUserProfilesCommand } = require("@aws-sdk/client-codestar"); // CommonJS import
+ * import { CodeStarClient, ListUserProfilesCommand } from '@aws-sdk/client-codestar'; // ES Modules import
+ * // const { CodeStarClient, ListUserProfilesCommand } = require('@aws-sdk/client-codestar'); // CommonJS import
  * const client = new CodeStarClient(config);
  * const input = { // ListUserProfilesRequest
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new ListUserProfilesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListUserProfilesResult
+ *   userProfiles: [ // UserProfilesList // required
+ *     { // UserProfileSummary
+ *       userArn: 'STRING_VALUE',
+ *       displayName: 'STRING_VALUE',
+ *       emailAddress: 'STRING_VALUE',
+ *       sshPublicKey: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListUserProfilesCommandInput - {@link ListUserProfilesCommandInput}
@@ -63,6 +76,8 @@ export interface ListUserProfilesCommandOutput extends ListUserProfilesResult, _
  * @throws {@link ValidationException} (client fault)
  *  <p>The specified input is either not valid, or it could not be validated.</p>
  *
+ * @throws {@link CodeStarServiceException}
+ * <p>Base exception class for all service exceptions from CodeStar service.</p>
  *
  */
 export class ListUserProfilesCommand extends $Command<

@@ -46,14 +46,31 @@ export interface DeleteEnvironmentAccountConnectionCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ProtonClient, DeleteEnvironmentAccountConnectionCommand } from "@aws-sdk/client-proton"; // ES Modules import
- * // const { ProtonClient, DeleteEnvironmentAccountConnectionCommand } = require("@aws-sdk/client-proton"); // CommonJS import
+ * import { ProtonClient, DeleteEnvironmentAccountConnectionCommand } from '@aws-sdk/client-proton'; // ES Modules import
+ * // const { ProtonClient, DeleteEnvironmentAccountConnectionCommand } = require('@aws-sdk/client-proton'); // CommonJS import
  * const client = new ProtonClient(config);
  * const input = { // DeleteEnvironmentAccountConnectionInput
- *   id: "STRING_VALUE", // required
+ *   id: 'STRING_VALUE', // required
  * };
  * const command = new DeleteEnvironmentAccountConnectionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteEnvironmentAccountConnectionOutput
+ *   environmentAccountConnection: { // EnvironmentAccountConnection
+ *     id: 'STRING_VALUE', // required
+ *     arn: 'STRING_VALUE', // required
+ *     managementAccountId: 'STRING_VALUE', // required
+ *     environmentAccountId: 'STRING_VALUE', // required
+ *     roleArn: 'STRING_VALUE', // required
+ *     environmentName: 'STRING_VALUE', // required
+ *     requestedAt: new Date('TIMESTAMP'), // required
+ *     lastModifiedAt: new Date('TIMESTAMP'), // required
+ *     status: 'STRING_VALUE', // required
+ *     componentRoleArn: 'STRING_VALUE',
+ *     codebuildRoleArn: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param DeleteEnvironmentAccountConnectionCommandInput - {@link DeleteEnvironmentAccountConnectionCommandInput}
@@ -80,6 +97,8 @@ export interface DeleteEnvironmentAccountConnectionCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The input is invalid or an out-of-range value was supplied for the input parameter.</p>
  *
+ * @throws {@link ProtonServiceException}
+ * <p>Base exception class for all service exceptions from Proton service.</p>
  *
  */
 export class DeleteEnvironmentAccountConnectionCommand extends $Command<

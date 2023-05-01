@@ -44,16 +44,40 @@ export interface ListCostCategoryDefinitionsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CostExplorerClient, ListCostCategoryDefinitionsCommand } from "@aws-sdk/client-cost-explorer"; // ES Modules import
- * // const { CostExplorerClient, ListCostCategoryDefinitionsCommand } = require("@aws-sdk/client-cost-explorer"); // CommonJS import
+ * import { CostExplorerClient, ListCostCategoryDefinitionsCommand } from '@aws-sdk/client-cost-explorer'; // ES Modules import
+ * // const { CostExplorerClient, ListCostCategoryDefinitionsCommand } = require('@aws-sdk/client-cost-explorer'); // CommonJS import
  * const client = new CostExplorerClient(config);
  * const input = { // ListCostCategoryDefinitionsRequest
- *   EffectiveOn: "STRING_VALUE",
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   EffectiveOn: 'STRING_VALUE',
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListCostCategoryDefinitionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListCostCategoryDefinitionsResponse
+ *   CostCategoryReferences: [ // CostCategoryReferencesList
+ *     { // CostCategoryReference
+ *       CostCategoryArn: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *       EffectiveStart: 'STRING_VALUE',
+ *       EffectiveEnd: 'STRING_VALUE',
+ *       NumberOfRules: Number('int'),
+ *       ProcessingStatus: [ // CostCategoryProcessingStatusList
+ *         { // CostCategoryProcessingStatus
+ *           Component: 'COST_EXPLORER',
+ *           Status: 'PROCESSING' || 'APPLIED',
+ *         },
+ *       ],
+ *       Values: [ // CostCategoryValuesList
+ *         'STRING_VALUE',
+ *       ],
+ *       DefaultValue: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListCostCategoryDefinitionsCommandInput - {@link ListCostCategoryDefinitionsCommandInput}
@@ -65,6 +89,8 @@ export interface ListCostCategoryDefinitionsCommandOutput
  * @throws {@link LimitExceededException} (client fault)
  *  <p>You made too many calls in a short period of time. Try again later.</p>
  *
+ * @throws {@link CostExplorerServiceException}
+ * <p>Base exception class for all service exceptions from CostExplorer service.</p>
  *
  */
 export class ListCostCategoryDefinitionsCommand extends $Command<

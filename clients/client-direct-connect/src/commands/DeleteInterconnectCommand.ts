@@ -40,14 +40,19 @@ export interface DeleteInterconnectCommandOutput extends DeleteInterconnectRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DirectConnectClient, DeleteInterconnectCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
- * // const { DirectConnectClient, DeleteInterconnectCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
+ * import { DirectConnectClient, DeleteInterconnectCommand } from '@aws-sdk/client-direct-connect'; // ES Modules import
+ * // const { DirectConnectClient, DeleteInterconnectCommand } = require('@aws-sdk/client-direct-connect'); // CommonJS import
  * const client = new DirectConnectClient(config);
  * const input = { // DeleteInterconnectRequest
- *   interconnectId: "STRING_VALUE", // required
+ *   interconnectId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteInterconnectCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteInterconnectResponse
+ *   interconnectState: 'requested' || 'pending' || 'available' || 'down' || 'deleting' || 'deleted' || 'unknown',
+ * };
+ *
  * ```
  *
  * @param DeleteInterconnectCommandInput - {@link DeleteInterconnectCommandInput}
@@ -62,6 +67,8 @@ export interface DeleteInterconnectCommandOutput extends DeleteInterconnectRespo
  * @throws {@link DirectConnectServerException} (server fault)
  *  <p>A server-side error occurred.</p>
  *
+ * @throws {@link DirectConnectServiceException}
+ * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
  */
 export class DeleteInterconnectCommand extends $Command<

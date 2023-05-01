@@ -37,15 +37,23 @@ export interface ListDevelopmentSchemaArnsCommandOutput extends ListDevelopmentS
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudDirectoryClient, ListDevelopmentSchemaArnsCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
- * // const { CloudDirectoryClient, ListDevelopmentSchemaArnsCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
+ * import { CloudDirectoryClient, ListDevelopmentSchemaArnsCommand } from '@aws-sdk/client-clouddirectory'; // ES Modules import
+ * // const { CloudDirectoryClient, ListDevelopmentSchemaArnsCommand } = require('@aws-sdk/client-clouddirectory'); // CommonJS import
  * const client = new CloudDirectoryClient(config);
  * const input = { // ListDevelopmentSchemaArnsRequest
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListDevelopmentSchemaArnsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListDevelopmentSchemaArnsResponse
+ *   SchemaArns: [ // Arns
+ *     'STRING_VALUE',
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListDevelopmentSchemaArnsCommandInput - {@link ListDevelopmentSchemaArnsCommandInput}
@@ -79,6 +87,8 @@ export interface ListDevelopmentSchemaArnsCommandOutput extends ListDevelopmentS
  *  <p>Indicates that your request is malformed in some manner. See the exception
  *       message.</p>
  *
+ * @throws {@link CloudDirectoryServiceException}
+ * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
  */
 export class ListDevelopmentSchemaArnsCommand extends $Command<

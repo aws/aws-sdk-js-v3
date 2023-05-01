@@ -41,15 +41,48 @@ export interface DeleteTransitGatewayConnectPeerCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, DeleteTransitGatewayConnectPeerCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, DeleteTransitGatewayConnectPeerCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, DeleteTransitGatewayConnectPeerCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, DeleteTransitGatewayConnectPeerCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // DeleteTransitGatewayConnectPeerRequest
- *   TransitGatewayConnectPeerId: "STRING_VALUE", // required
+ *   TransitGatewayConnectPeerId: 'STRING_VALUE', // required
  *   DryRun: true || false,
  * };
  * const command = new DeleteTransitGatewayConnectPeerCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteTransitGatewayConnectPeerResult
+ *   TransitGatewayConnectPeer: { // TransitGatewayConnectPeer
+ *     TransitGatewayAttachmentId: 'STRING_VALUE',
+ *     TransitGatewayConnectPeerId: 'STRING_VALUE',
+ *     State: 'pending' || 'available' || 'deleting' || 'deleted',
+ *     CreationTime: new Date('TIMESTAMP'),
+ *     ConnectPeerConfiguration: { // TransitGatewayConnectPeerConfiguration
+ *       TransitGatewayAddress: 'STRING_VALUE',
+ *       PeerAddress: 'STRING_VALUE',
+ *       InsideCidrBlocks: [ // InsideCidrBlocksStringList
+ *         'STRING_VALUE',
+ *       ],
+ *       Protocol: 'gre',
+ *       BgpConfigurations: [ // TransitGatewayAttachmentBgpConfigurationList
+ *         { // TransitGatewayAttachmentBgpConfiguration
+ *           TransitGatewayAsn: Number('long'),
+ *           PeerAsn: Number('long'),
+ *           TransitGatewayAddress: 'STRING_VALUE',
+ *           PeerAddress: 'STRING_VALUE',
+ *           BgpStatus: 'up' || 'down',
+ *         },
+ *       ],
+ *     },
+ *     Tags: [ // TagList
+ *       { // Tag
+ *         Key: 'STRING_VALUE',
+ *         Value: 'STRING_VALUE',
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param DeleteTransitGatewayConnectPeerCommandInput - {@link DeleteTransitGatewayConnectPeerCommandInput}
@@ -58,6 +91,8 @@ export interface DeleteTransitGatewayConnectPeerCommandOutput
  * @see {@link DeleteTransitGatewayConnectPeerCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class DeleteTransitGatewayConnectPeerCommand extends $Command<

@@ -46,16 +46,19 @@ export interface DeleteServiceQuotaIncreaseRequestFromTemplateCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ServiceQuotasClient, DeleteServiceQuotaIncreaseRequestFromTemplateCommand } from "@aws-sdk/client-service-quotas"; // ES Modules import
- * // const { ServiceQuotasClient, DeleteServiceQuotaIncreaseRequestFromTemplateCommand } = require("@aws-sdk/client-service-quotas"); // CommonJS import
+ * import { ServiceQuotasClient, DeleteServiceQuotaIncreaseRequestFromTemplateCommand } from '@aws-sdk/client-service-quotas'; // ES Modules import
+ * // const { ServiceQuotasClient, DeleteServiceQuotaIncreaseRequestFromTemplateCommand } = require('@aws-sdk/client-service-quotas'); // CommonJS import
  * const client = new ServiceQuotasClient(config);
  * const input = { // DeleteServiceQuotaIncreaseRequestFromTemplateRequest
- *   ServiceCode: "STRING_VALUE", // required
- *   QuotaCode: "STRING_VALUE", // required
- *   AwsRegion: "STRING_VALUE", // required
+ *   ServiceCode: 'STRING_VALUE', // required
+ *   QuotaCode: 'STRING_VALUE', // required
+ *   AwsRegion: 'STRING_VALUE', // required
  * };
  * const command = new DeleteServiceQuotaIncreaseRequestFromTemplateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteServiceQuotaIncreaseRequestFromTemplateCommandInput - {@link DeleteServiceQuotaIncreaseRequestFromTemplateCommandInput}
@@ -93,6 +96,8 @@ export interface DeleteServiceQuotaIncreaseRequestFromTemplateCommandOutput
  *  <p>Due to throttling, the request was denied. Slow down the rate of request calls, or request
  *       an increase for this quota.</p>
  *
+ * @throws {@link ServiceQuotasServiceException}
+ * <p>Base exception class for all service exceptions from ServiceQuotas service.</p>
  *
  */
 export class DeleteServiceQuotaIncreaseRequestFromTemplateCommand extends $Command<

@@ -37,22 +37,37 @@ export interface ListMonitorsCommandOutput extends ListMonitorsResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ForecastClient, ListMonitorsCommand } from "@aws-sdk/client-forecast"; // ES Modules import
- * // const { ForecastClient, ListMonitorsCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
+ * import { ForecastClient, ListMonitorsCommand } from '@aws-sdk/client-forecast'; // ES Modules import
+ * // const { ForecastClient, ListMonitorsCommand } = require('@aws-sdk/client-forecast'); // CommonJS import
  * const client = new ForecastClient(config);
  * const input = { // ListMonitorsRequest
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  *   Filters: [ // Filters
  *     { // Filter
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
- *       Condition: "IS" || "IS_NOT", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
+ *       Condition: 'IS' || 'IS_NOT', // required
  *     },
  *   ],
  * };
  * const command = new ListMonitorsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListMonitorsResponse
+ *   Monitors: [ // Monitors
+ *     { // MonitorSummary
+ *       MonitorArn: 'STRING_VALUE',
+ *       MonitorName: 'STRING_VALUE',
+ *       ResourceArn: 'STRING_VALUE',
+ *       Status: 'STRING_VALUE',
+ *       CreationTime: new Date('TIMESTAMP'),
+ *       LastModificationTime: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListMonitorsCommandInput - {@link ListMonitorsCommandInput}
@@ -68,6 +83,8 @@ export interface ListMonitorsCommandOutput extends ListMonitorsResponse, __Metad
  * @throws {@link InvalidNextTokenException} (client fault)
  *  <p>The token is not valid. Tokens expire after 24 hours.</p>
  *
+ * @throws {@link ForecastServiceException}
+ * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
  */
 export class ListMonitorsCommand extends $Command<

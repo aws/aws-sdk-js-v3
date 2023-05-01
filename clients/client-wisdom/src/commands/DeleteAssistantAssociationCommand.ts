@@ -36,15 +36,18 @@ export interface DeleteAssistantAssociationCommandOutput extends DeleteAssistant
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WisdomClient, DeleteAssistantAssociationCommand } from "@aws-sdk/client-wisdom"; // ES Modules import
- * // const { WisdomClient, DeleteAssistantAssociationCommand } = require("@aws-sdk/client-wisdom"); // CommonJS import
+ * import { WisdomClient, DeleteAssistantAssociationCommand } from '@aws-sdk/client-wisdom'; // ES Modules import
+ * // const { WisdomClient, DeleteAssistantAssociationCommand } = require('@aws-sdk/client-wisdom'); // CommonJS import
  * const client = new WisdomClient(config);
  * const input = { // DeleteAssistantAssociationRequest
- *   assistantAssociationId: "STRING_VALUE", // required
- *   assistantId: "STRING_VALUE", // required
+ *   assistantAssociationId: 'STRING_VALUE', // required
+ *   assistantId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteAssistantAssociationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteAssistantAssociationCommandInput - {@link DeleteAssistantAssociationCommandInput}
@@ -62,6 +65,8 @@ export interface DeleteAssistantAssociationCommandOutput extends DeleteAssistant
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by a service.</p>
  *
+ * @throws {@link WisdomServiceException}
+ * <p>Base exception class for all service exceptions from Wisdom service.</p>
  *
  */
 export class DeleteAssistantAssociationCommand extends $Command<

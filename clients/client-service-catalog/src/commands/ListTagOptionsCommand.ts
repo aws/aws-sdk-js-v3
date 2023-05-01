@@ -36,20 +36,34 @@ export interface ListTagOptionsCommandOutput extends ListTagOptionsOutput, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ServiceCatalogClient, ListTagOptionsCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
- * // const { ServiceCatalogClient, ListTagOptionsCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
+ * import { ServiceCatalogClient, ListTagOptionsCommand } from '@aws-sdk/client-service-catalog'; // ES Modules import
+ * // const { ServiceCatalogClient, ListTagOptionsCommand } = require('@aws-sdk/client-service-catalog'); // CommonJS import
  * const client = new ServiceCatalogClient(config);
  * const input = { // ListTagOptionsInput
  *   Filters: { // ListTagOptionsFilters
- *     Key: "STRING_VALUE",
- *     Value: "STRING_VALUE",
+ *     Key: 'STRING_VALUE',
+ *     Value: 'STRING_VALUE',
  *     Active: true || false,
  *   },
- *   PageSize: Number("int"),
- *   PageToken: "STRING_VALUE",
+ *   PageSize: Number('int'),
+ *   PageToken: 'STRING_VALUE',
  * };
  * const command = new ListTagOptionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTagOptionsOutput
+ *   TagOptionDetails: [ // TagOptionDetails
+ *     { // TagOptionDetail
+ *       Key: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
+ *       Active: true || false,
+ *       Id: 'STRING_VALUE',
+ *       Owner: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   PageToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListTagOptionsCommandInput - {@link ListTagOptionsCommandInput}
@@ -66,6 +80,8 @@ export interface ListTagOptionsCommandOutput extends ListTagOptionsOutput, __Met
  *          not been performed for this account. Use the Amazon Web Services Management Console to perform the migration
  *          process before retrying the operation.</p>
  *
+ * @throws {@link ServiceCatalogServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
  */
 export class ListTagOptionsCommand extends $Command<

@@ -39,12 +39,18 @@ export interface DeleteNamespaceCommandOutput extends DeleteNamespaceResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTThingsGraphClient, DeleteNamespaceCommand } from "@aws-sdk/client-iotthingsgraph"; // ES Modules import
- * // const { IoTThingsGraphClient, DeleteNamespaceCommand } = require("@aws-sdk/client-iotthingsgraph"); // CommonJS import
+ * import { IoTThingsGraphClient, DeleteNamespaceCommand } from '@aws-sdk/client-iotthingsgraph'; // ES Modules import
+ * // const { IoTThingsGraphClient, DeleteNamespaceCommand } = require('@aws-sdk/client-iotthingsgraph'); // CommonJS import
  * const client = new IoTThingsGraphClient(config);
  * const input = {};
  * const command = new DeleteNamespaceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteNamespaceResponse
+ *   namespaceArn: 'STRING_VALUE',
+ *   namespaceName: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DeleteNamespaceCommandInput - {@link DeleteNamespaceCommandInput}
@@ -59,6 +65,8 @@ export interface DeleteNamespaceCommandOutput extends DeleteNamespaceResponse, _
  * @throws {@link ThrottlingException} (client fault)
  *  <p></p>
  *
+ * @throws {@link IoTThingsGraphServiceException}
+ * <p>Base exception class for all service exceptions from IoTThingsGraph service.</p>
  *
  */
 export class DeleteNamespaceCommand extends $Command<

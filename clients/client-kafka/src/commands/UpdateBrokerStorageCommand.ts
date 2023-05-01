@@ -36,25 +36,31 @@ export interface UpdateBrokerStorageCommandOutput extends UpdateBrokerStorageRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KafkaClient, UpdateBrokerStorageCommand } from "@aws-sdk/client-kafka"; // ES Modules import
- * // const { KafkaClient, UpdateBrokerStorageCommand } = require("@aws-sdk/client-kafka"); // CommonJS import
+ * import { KafkaClient, UpdateBrokerStorageCommand } from '@aws-sdk/client-kafka'; // ES Modules import
+ * // const { KafkaClient, UpdateBrokerStorageCommand } = require('@aws-sdk/client-kafka'); // CommonJS import
  * const client = new KafkaClient(config);
  * const input = { // UpdateBrokerStorageRequest
- *   ClusterArn: "STRING_VALUE", // required
- *   CurrentVersion: "STRING_VALUE", // required
+ *   ClusterArn: 'STRING_VALUE', // required
+ *   CurrentVersion: 'STRING_VALUE', // required
  *   TargetBrokerEBSVolumeInfo: [ // __listOfBrokerEBSVolumeInfo // required
  *     { // BrokerEBSVolumeInfo
- *       KafkaBrokerNodeId: "STRING_VALUE", // required
+ *       KafkaBrokerNodeId: 'STRING_VALUE', // required
  *       ProvisionedThroughput: { // ProvisionedThroughput
  *         Enabled: true || false,
- *         VolumeThroughput: Number("int"),
+ *         VolumeThroughput: Number('int'),
  *       },
- *       VolumeSizeGB: Number("int"),
+ *       VolumeSizeGB: Number('int'),
  *     },
  *   ],
  * };
  * const command = new UpdateBrokerStorageCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateBrokerStorageResponse
+ *   ClusterArn: 'STRING_VALUE',
+ *   ClusterOperationArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateBrokerStorageCommandInput - {@link UpdateBrokerStorageCommandInput}
@@ -78,6 +84,8 @@ export interface UpdateBrokerStorageCommandOutput extends UpdateBrokerStorageRes
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>Returns information about an error.</p>
  *
+ * @throws {@link KafkaServiceException}
+ * <p>Base exception class for all service exceptions from Kafka service.</p>
  *
  */
 export class UpdateBrokerStorageCommand extends $Command<

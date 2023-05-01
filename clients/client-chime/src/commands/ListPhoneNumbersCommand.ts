@@ -40,19 +40,54 @@ export interface ListPhoneNumbersCommandOutput extends ListPhoneNumbersResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeClient, ListPhoneNumbersCommand } from "@aws-sdk/client-chime"; // ES Modules import
- * // const { ChimeClient, ListPhoneNumbersCommand } = require("@aws-sdk/client-chime"); // CommonJS import
+ * import { ChimeClient, ListPhoneNumbersCommand } from '@aws-sdk/client-chime'; // ES Modules import
+ * // const { ChimeClient, ListPhoneNumbersCommand } = require('@aws-sdk/client-chime'); // CommonJS import
  * const client = new ChimeClient(config);
  * const input = { // ListPhoneNumbersRequest
- *   Status: "AcquireInProgress" || "AcquireFailed" || "Unassigned" || "Assigned" || "ReleaseInProgress" || "DeleteInProgress" || "ReleaseFailed" || "DeleteFailed",
- *   ProductType: "BusinessCalling" || "VoiceConnector" || "SipMediaApplicationDialIn",
- *   FilterName: "AccountId" || "UserId" || "VoiceConnectorId" || "VoiceConnectorGroupId" || "SipRuleId",
- *   FilterValue: "STRING_VALUE",
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   Status: 'AcquireInProgress' || 'AcquireFailed' || 'Unassigned' || 'Assigned' || 'ReleaseInProgress' || 'DeleteInProgress' || 'ReleaseFailed' || 'DeleteFailed',
+ *   ProductType: 'BusinessCalling' || 'VoiceConnector' || 'SipMediaApplicationDialIn',
+ *   FilterName: 'AccountId' || 'UserId' || 'VoiceConnectorId' || 'VoiceConnectorGroupId' || 'SipRuleId',
+ *   FilterValue: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListPhoneNumbersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListPhoneNumbersResponse
+ *   PhoneNumbers: [ // PhoneNumberList
+ *     { // PhoneNumber
+ *       PhoneNumberId: 'STRING_VALUE',
+ *       E164PhoneNumber: 'STRING_VALUE',
+ *       Country: 'STRING_VALUE',
+ *       Type: 'Local' || 'TollFree',
+ *       ProductType: 'BusinessCalling' || 'VoiceConnector' || 'SipMediaApplicationDialIn',
+ *       Status: 'AcquireInProgress' || 'AcquireFailed' || 'Unassigned' || 'Assigned' || 'ReleaseInProgress' || 'DeleteInProgress' || 'ReleaseFailed' || 'DeleteFailed',
+ *       Capabilities: { // PhoneNumberCapabilities
+ *         InboundCall: true || false,
+ *         OutboundCall: true || false,
+ *         InboundSMS: true || false,
+ *         OutboundSMS: true || false,
+ *         InboundMMS: true || false,
+ *         OutboundMMS: true || false,
+ *       },
+ *       Associations: [ // PhoneNumberAssociationList
+ *         { // PhoneNumberAssociation
+ *           Value: 'STRING_VALUE',
+ *           Name: 'AccountId' || 'UserId' || 'VoiceConnectorId' || 'VoiceConnectorGroupId' || 'SipRuleId',
+ *           AssociatedTimestamp: new Date('TIMESTAMP'),
+ *         },
+ *       ],
+ *       CallingName: 'STRING_VALUE',
+ *       CallingNameStatus: 'Unassigned' || 'UpdateInProgress' || 'UpdateSucceeded' || 'UpdateFailed',
+ *       CreatedTimestamp: new Date('TIMESTAMP'),
+ *       UpdatedTimestamp: new Date('TIMESTAMP'),
+ *       DeletionTimestamp: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListPhoneNumbersCommandInput - {@link ListPhoneNumbersCommandInput}
@@ -82,6 +117,8 @@ export interface ListPhoneNumbersCommandOutput extends ListPhoneNumbersResponse,
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeServiceException}
+ * <p>Base exception class for all service exceptions from Chime service.</p>
  *
  */
 export class ListPhoneNumbersCommand extends $Command<

@@ -36,15 +36,23 @@ export interface DeleteBranchCommandOutput extends DeleteBranchOutput, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeCommitClient, DeleteBranchCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
- * // const { CodeCommitClient, DeleteBranchCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
+ * import { CodeCommitClient, DeleteBranchCommand } from '@aws-sdk/client-codecommit'; // ES Modules import
+ * // const { CodeCommitClient, DeleteBranchCommand } = require('@aws-sdk/client-codecommit'); // CommonJS import
  * const client = new CodeCommitClient(config);
  * const input = { // DeleteBranchInput
- *   repositoryName: "STRING_VALUE", // required
- *   branchName: "STRING_VALUE", // required
+ *   repositoryName: 'STRING_VALUE', // required
+ *   branchName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteBranchCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteBranchOutput
+ *   deletedBranch: { // BranchInfo
+ *     branchName: 'STRING_VALUE',
+ *     commitId: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param DeleteBranchCommandInput - {@link DeleteBranchCommandInput}
@@ -92,6 +100,8 @@ export interface DeleteBranchCommandOutput extends DeleteBranchOutput, __Metadat
  * @throws {@link RepositoryNameRequiredException} (client fault)
  *  <p>A repository name is required, but was not specified.</p>
  *
+ * @throws {@link CodeCommitServiceException}
+ * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
  */
 export class DeleteBranchCommand extends $Command<

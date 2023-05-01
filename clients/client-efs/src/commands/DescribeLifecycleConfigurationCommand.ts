@@ -49,14 +49,24 @@ export interface DescribeLifecycleConfigurationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EFSClient, DescribeLifecycleConfigurationCommand } from "@aws-sdk/client-efs"; // ES Modules import
- * // const { EFSClient, DescribeLifecycleConfigurationCommand } = require("@aws-sdk/client-efs"); // CommonJS import
+ * import { EFSClient, DescribeLifecycleConfigurationCommand } from '@aws-sdk/client-efs'; // ES Modules import
+ * // const { EFSClient, DescribeLifecycleConfigurationCommand } = require('@aws-sdk/client-efs'); // CommonJS import
  * const client = new EFSClient(config);
  * const input = { // DescribeLifecycleConfigurationRequest
- *   FileSystemId: "STRING_VALUE", // required
+ *   FileSystemId: 'STRING_VALUE', // required
  * };
  * const command = new DescribeLifecycleConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // LifecycleConfigurationDescription
+ *   LifecyclePolicies: [ // LifecyclePolicies
+ *     { // LifecyclePolicy
+ *       TransitionToIA: 'AFTER_7_DAYS' || 'AFTER_14_DAYS' || 'AFTER_30_DAYS' || 'AFTER_60_DAYS' || 'AFTER_90_DAYS' || 'AFTER_1_DAY',
+ *       TransitionToPrimaryStorageClass: 'AFTER_1_ACCESS',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeLifecycleConfigurationCommandInput - {@link DescribeLifecycleConfigurationCommandInput}
@@ -76,6 +86,8 @@ export interface DescribeLifecycleConfigurationCommandOutput
  * @throws {@link InternalServerError} (server fault)
  *  <p>Returned if an error occurred on the server side.</p>
  *
+ * @throws {@link EFSServiceException}
+ * <p>Base exception class for all service exceptions from EFS service.</p>
  *
  * @example To describe the lifecycle configuration for a file system
  * ```javascript

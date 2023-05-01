@@ -58,20 +58,23 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SNSClient, TagResourceCommand } from "@aws-sdk/client-sns"; // ES Modules import
- * // const { SNSClient, TagResourceCommand } = require("@aws-sdk/client-sns"); // CommonJS import
+ * import { SNSClient, TagResourceCommand } from '@aws-sdk/client-sns'; // ES Modules import
+ * // const { SNSClient, TagResourceCommand } = require('@aws-sdk/client-sns'); // CommonJS import
  * const client = new SNSClient(config);
  * const input = { // TagResourceRequest
- *   ResourceArn: "STRING_VALUE", // required
+ *   ResourceArn: 'STRING_VALUE', // required
  *   Tags: [ // TagList // required
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param TagResourceCommandInput - {@link TagResourceCommandInput}
@@ -106,6 +109,8 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  *  <p>The request doesn't comply with the IAM tag policy. Correct your request and then
  *             retry it.</p>
  *
+ * @throws {@link SNSServiceException}
+ * <p>Base exception class for all service exceptions from SNS service.</p>
  *
  */
 export class TagResourceCommand extends $Command<

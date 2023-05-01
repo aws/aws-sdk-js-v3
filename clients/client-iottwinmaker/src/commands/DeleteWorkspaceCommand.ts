@@ -36,14 +36,17 @@ export interface DeleteWorkspaceCommandOutput extends DeleteWorkspaceResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTTwinMakerClient, DeleteWorkspaceCommand } from "@aws-sdk/client-iottwinmaker"; // ES Modules import
- * // const { IoTTwinMakerClient, DeleteWorkspaceCommand } = require("@aws-sdk/client-iottwinmaker"); // CommonJS import
+ * import { IoTTwinMakerClient, DeleteWorkspaceCommand } from '@aws-sdk/client-iottwinmaker'; // ES Modules import
+ * // const { IoTTwinMakerClient, DeleteWorkspaceCommand } = require('@aws-sdk/client-iottwinmaker'); // CommonJS import
  * const client = new IoTTwinMakerClient(config);
  * const input = { // DeleteWorkspaceRequest
- *   workspaceId: "STRING_VALUE", // required
+ *   workspaceId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteWorkspaceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteWorkspaceCommandInput - {@link DeleteWorkspaceCommandInput}
@@ -67,6 +70,8 @@ export interface DeleteWorkspaceCommandOutput extends DeleteWorkspaceResponse, _
  * @throws {@link ValidationException} (client fault)
  *  <p>Failed</p>
  *
+ * @throws {@link IoTTwinMakerServiceException}
+ * <p>Base exception class for all service exceptions from IoTTwinMaker service.</p>
  *
  */
 export class DeleteWorkspaceCommand extends $Command<

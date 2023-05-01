@@ -41,15 +41,18 @@ export interface DisassociatePhoneNumberFromUserCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeClient, DisassociatePhoneNumberFromUserCommand } from "@aws-sdk/client-chime"; // ES Modules import
- * // const { ChimeClient, DisassociatePhoneNumberFromUserCommand } = require("@aws-sdk/client-chime"); // CommonJS import
+ * import { ChimeClient, DisassociatePhoneNumberFromUserCommand } from '@aws-sdk/client-chime'; // ES Modules import
+ * // const { ChimeClient, DisassociatePhoneNumberFromUserCommand } = require('@aws-sdk/client-chime'); // CommonJS import
  * const client = new ChimeClient(config);
  * const input = { // DisassociatePhoneNumberFromUserRequest
- *   AccountId: "STRING_VALUE", // required
- *   UserId: "STRING_VALUE", // required
+ *   AccountId: 'STRING_VALUE', // required
+ *   UserId: 'STRING_VALUE', // required
  * };
  * const command = new DisassociatePhoneNumberFromUserCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DisassociatePhoneNumberFromUserCommandInput - {@link DisassociatePhoneNumberFromUserCommandInput}
@@ -79,6 +82,8 @@ export interface DisassociatePhoneNumberFromUserCommandOutput
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeServiceException}
+ * <p>Base exception class for all service exceptions from Chime service.</p>
  *
  */
 export class DisassociatePhoneNumberFromUserCommand extends $Command<

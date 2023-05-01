@@ -45,20 +45,56 @@ export interface DescribeStorageSystemResourceMetricsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DataSyncClient, DescribeStorageSystemResourceMetricsCommand } from "@aws-sdk/client-datasync"; // ES Modules import
- * // const { DataSyncClient, DescribeStorageSystemResourceMetricsCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
+ * import { DataSyncClient, DescribeStorageSystemResourceMetricsCommand } from '@aws-sdk/client-datasync'; // ES Modules import
+ * // const { DataSyncClient, DescribeStorageSystemResourceMetricsCommand } = require('@aws-sdk/client-datasync'); // CommonJS import
  * const client = new DataSyncClient(config);
  * const input = { // DescribeStorageSystemResourceMetricsRequest
- *   DiscoveryJobArn: "STRING_VALUE", // required
- *   ResourceType: "SVM" || "VOLUME" || "CLUSTER", // required
- *   ResourceId: "STRING_VALUE", // required
- *   StartTime: new Date("TIMESTAMP"),
- *   EndTime: new Date("TIMESTAMP"),
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   DiscoveryJobArn: 'STRING_VALUE', // required
+ *   ResourceType: 'SVM' || 'VOLUME' || 'CLUSTER', // required
+ *   ResourceId: 'STRING_VALUE', // required
+ *   StartTime: new Date('TIMESTAMP'),
+ *   EndTime: new Date('TIMESTAMP'),
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new DescribeStorageSystemResourceMetricsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeStorageSystemResourceMetricsResponse
+ *   Metrics: [ // Metrics
+ *     { // ResourceMetrics
+ *       Timestamp: new Date('TIMESTAMP'),
+ *       P95Metrics: { // P95Metrics
+ *         IOPS: { // IOPS
+ *           Read: Number('double'),
+ *           Write: Number('double'),
+ *           Other: Number('double'),
+ *           Total: Number('double'),
+ *         },
+ *         Throughput: { // Throughput
+ *           Read: Number('double'),
+ *           Write: Number('double'),
+ *           Other: Number('double'),
+ *           Total: Number('double'),
+ *         },
+ *         Latency: { // Latency
+ *           Read: Number('double'),
+ *           Write: Number('double'),
+ *           Other: Number('double'),
+ *         },
+ *       },
+ *       Capacity: { // Capacity
+ *         Used: Number('long'),
+ *         Provisioned: Number('long'),
+ *         LogicalUsed: Number('long'),
+ *       },
+ *       ResourceId: 'STRING_VALUE',
+ *       ResourceType: 'SVM' || 'VOLUME' || 'CLUSTER',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeStorageSystemResourceMetricsCommandInput - {@link DescribeStorageSystemResourceMetricsCommandInput}
@@ -74,6 +110,8 @@ export interface DescribeStorageSystemResourceMetricsCommandOutput
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception is thrown when the client submits a malformed request.</p>
  *
+ * @throws {@link DataSyncServiceException}
+ * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
  */
 export class DescribeStorageSystemResourceMetricsCommand extends $Command<

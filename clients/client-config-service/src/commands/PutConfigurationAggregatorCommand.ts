@@ -54,38 +54,67 @@ export interface PutConfigurationAggregatorCommandOutput extends PutConfiguratio
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConfigServiceClient, PutConfigurationAggregatorCommand } from "@aws-sdk/client-config-service"; // ES Modules import
- * // const { ConfigServiceClient, PutConfigurationAggregatorCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
+ * import { ConfigServiceClient, PutConfigurationAggregatorCommand } from '@aws-sdk/client-config-service'; // ES Modules import
+ * // const { ConfigServiceClient, PutConfigurationAggregatorCommand } = require('@aws-sdk/client-config-service'); // CommonJS import
  * const client = new ConfigServiceClient(config);
  * const input = { // PutConfigurationAggregatorRequest
- *   ConfigurationAggregatorName: "STRING_VALUE", // required
+ *   ConfigurationAggregatorName: 'STRING_VALUE', // required
  *   AccountAggregationSources: [ // AccountAggregationSourceList
  *     { // AccountAggregationSource
  *       AccountIds: [ // AccountAggregationSourceAccountList // required
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *       AllAwsRegions: true || false,
  *       AwsRegions: [ // AggregatorRegionList
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
  *   OrganizationAggregationSource: { // OrganizationAggregationSource
- *     RoleArn: "STRING_VALUE", // required
+ *     RoleArn: 'STRING_VALUE', // required
  *     AwsRegions: [
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     AllAwsRegions: true || false,
  *   },
  *   Tags: [ // TagsList
  *     { // Tag
- *       Key: "STRING_VALUE",
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new PutConfigurationAggregatorCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutConfigurationAggregatorResponse
+ *   ConfigurationAggregator: { // ConfigurationAggregator
+ *     ConfigurationAggregatorName: 'STRING_VALUE',
+ *     ConfigurationAggregatorArn: 'STRING_VALUE',
+ *     AccountAggregationSources: [ // AccountAggregationSourceList
+ *       { // AccountAggregationSource
+ *         AccountIds: [ // AccountAggregationSourceAccountList // required
+ *           'STRING_VALUE',
+ *         ],
+ *         AllAwsRegions: true || false,
+ *         AwsRegions: [ // AggregatorRegionList
+ *           'STRING_VALUE',
+ *         ],
+ *       },
+ *     ],
+ *     OrganizationAggregationSource: { // OrganizationAggregationSource
+ *       RoleArn: 'STRING_VALUE', // required
+ *       AwsRegions: [
+ *         'STRING_VALUE',
+ *       ],
+ *       AllAwsRegions: true || false,
+ *     },
+ *     CreationTime: new Date('TIMESTAMP'),
+ *     LastUpdatedTime: new Date('TIMESTAMP'),
+ *     CreatedBy: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param PutConfigurationAggregatorCommandInput - {@link PutConfigurationAggregatorCommandInput}
@@ -136,6 +165,8 @@ export interface PutConfigurationAggregatorCommandOutput extends PutConfiguratio
  * @throws {@link OrganizationAllFeaturesNotEnabledException} (client fault)
  *  <p>Config resource cannot be created because your organization does not have all features enabled.</p>
  *
+ * @throws {@link ConfigServiceServiceException}
+ * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
  */
 export class PutConfigurationAggregatorCommand extends $Command<

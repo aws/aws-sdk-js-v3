@@ -36,20 +36,37 @@ export interface ListPipelinesCommandOutput extends ListPipelinesResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, ListPipelinesCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, ListPipelinesCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, ListPipelinesCommand } from '@aws-sdk/client-sagemaker'; // ES Modules import
+ * // const { SageMakerClient, ListPipelinesCommand } = require('@aws-sdk/client-sagemaker'); // CommonJS import
  * const client = new SageMakerClient(config);
  * const input = { // ListPipelinesRequest
- *   PipelineNamePrefix: "STRING_VALUE",
- *   CreatedAfter: new Date("TIMESTAMP"),
- *   CreatedBefore: new Date("TIMESTAMP"),
- *   SortBy: "Name" || "CreationTime",
- *   SortOrder: "Ascending" || "Descending",
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   PipelineNamePrefix: 'STRING_VALUE',
+ *   CreatedAfter: new Date('TIMESTAMP'),
+ *   CreatedBefore: new Date('TIMESTAMP'),
+ *   SortBy: 'Name' || 'CreationTime',
+ *   SortOrder: 'Ascending' || 'Descending',
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListPipelinesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListPipelinesResponse
+ *   PipelineSummaries: [ // PipelineSummaryList
+ *     { // PipelineSummary
+ *       PipelineArn: 'STRING_VALUE',
+ *       PipelineName: 'STRING_VALUE',
+ *       PipelineDisplayName: 'STRING_VALUE',
+ *       PipelineDescription: 'STRING_VALUE',
+ *       RoleArn: 'STRING_VALUE',
+ *       CreationTime: new Date('TIMESTAMP'),
+ *       LastModifiedTime: new Date('TIMESTAMP'),
+ *       LastExecutionTime: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListPipelinesCommandInput - {@link ListPipelinesCommandInput}
@@ -58,6 +75,8 @@ export interface ListPipelinesCommandOutput extends ListPipelinesResponse, __Met
  * @see {@link ListPipelinesCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class ListPipelinesCommand extends $Command<

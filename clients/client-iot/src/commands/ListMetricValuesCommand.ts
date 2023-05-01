@@ -37,21 +37,47 @@ export interface ListMetricValuesCommandOutput extends ListMetricValuesResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTClient, ListMetricValuesCommand } from "@aws-sdk/client-iot"; // ES Modules import
- * // const { IoTClient, ListMetricValuesCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * import { IoTClient, ListMetricValuesCommand } from '@aws-sdk/client-iot'; // ES Modules import
+ * // const { IoTClient, ListMetricValuesCommand } = require('@aws-sdk/client-iot'); // CommonJS import
  * const client = new IoTClient(config);
  * const input = { // ListMetricValuesRequest
- *   thingName: "STRING_VALUE", // required
- *   metricName: "STRING_VALUE", // required
- *   dimensionName: "STRING_VALUE",
- *   dimensionValueOperator: "IN" || "NOT_IN",
- *   startTime: new Date("TIMESTAMP"), // required
- *   endTime: new Date("TIMESTAMP"), // required
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   thingName: 'STRING_VALUE', // required
+ *   metricName: 'STRING_VALUE', // required
+ *   dimensionName: 'STRING_VALUE',
+ *   dimensionValueOperator: 'IN' || 'NOT_IN',
+ *   startTime: new Date('TIMESTAMP'), // required
+ *   endTime: new Date('TIMESTAMP'), // required
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new ListMetricValuesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListMetricValuesResponse
+ *   metricDatumList: [ // MetricDatumList
+ *     { // MetricDatum
+ *       timestamp: new Date('TIMESTAMP'),
+ *       value: { // MetricValue
+ *         count: Number('long'),
+ *         cidrs: [ // Cidrs
+ *           'STRING_VALUE',
+ *         ],
+ *         ports: [ // Ports
+ *           Number('int'),
+ *         ],
+ *         number: Number('double'),
+ *         numbers: [ // NumberList
+ *           Number('double'),
+ *         ],
+ *         strings: [ // StringList
+ *           'STRING_VALUE',
+ *         ],
+ *       },
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListMetricValuesCommandInput - {@link ListMetricValuesCommandInput}
@@ -72,6 +98,8 @@ export interface ListMetricValuesCommandOutput extends ListMetricValuesResponse,
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The rate exceeds the limit.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class ListMetricValuesCommand extends $Command<

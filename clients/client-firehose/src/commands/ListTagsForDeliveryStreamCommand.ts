@@ -37,16 +37,27 @@ export interface ListTagsForDeliveryStreamCommandOutput extends ListTagsForDeliv
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FirehoseClient, ListTagsForDeliveryStreamCommand } from "@aws-sdk/client-firehose"; // ES Modules import
- * // const { FirehoseClient, ListTagsForDeliveryStreamCommand } = require("@aws-sdk/client-firehose"); // CommonJS import
+ * import { FirehoseClient, ListTagsForDeliveryStreamCommand } from '@aws-sdk/client-firehose'; // ES Modules import
+ * // const { FirehoseClient, ListTagsForDeliveryStreamCommand } = require('@aws-sdk/client-firehose'); // CommonJS import
  * const client = new FirehoseClient(config);
  * const input = { // ListTagsForDeliveryStreamInput
- *   DeliveryStreamName: "STRING_VALUE", // required
- *   ExclusiveStartTagKey: "STRING_VALUE",
- *   Limit: Number("int"),
+ *   DeliveryStreamName: 'STRING_VALUE', // required
+ *   ExclusiveStartTagKey: 'STRING_VALUE',
+ *   Limit: Number('int'),
  * };
  * const command = new ListTagsForDeliveryStreamCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTagsForDeliveryStreamOutput
+ *   Tags: [ // ListTagsForDeliveryStreamOutputTagList // required
+ *     { // Tag
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   HasMoreTags: true || false, // required
+ * };
+ *
  * ```
  *
  * @param ListTagsForDeliveryStreamCommandInput - {@link ListTagsForDeliveryStreamCommandInput}
@@ -64,6 +75,8 @@ export interface ListTagsForDeliveryStreamCommandOutput extends ListTagsForDeliv
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource could not be found.</p>
  *
+ * @throws {@link FirehoseServiceException}
+ * <p>Base exception class for all service exceptions from Firehose service.</p>
  *
  */
 export class ListTagsForDeliveryStreamCommand extends $Command<

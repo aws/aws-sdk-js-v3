@@ -36,19 +36,47 @@ export interface UpdateLensReviewCommandOutput extends UpdateLensReviewOutput, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WellArchitectedClient, UpdateLensReviewCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
- * // const { WellArchitectedClient, UpdateLensReviewCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
+ * import { WellArchitectedClient, UpdateLensReviewCommand } from '@aws-sdk/client-wellarchitected'; // ES Modules import
+ * // const { WellArchitectedClient, UpdateLensReviewCommand } = require('@aws-sdk/client-wellarchitected'); // CommonJS import
  * const client = new WellArchitectedClient(config);
  * const input = { // UpdateLensReviewInput
- *   WorkloadId: "STRING_VALUE", // required
- *   LensAlias: "STRING_VALUE", // required
- *   LensNotes: "STRING_VALUE",
+ *   WorkloadId: 'STRING_VALUE', // required
+ *   LensAlias: 'STRING_VALUE', // required
+ *   LensNotes: 'STRING_VALUE',
  *   PillarNotes: { // PillarNotes
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new UpdateLensReviewCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateLensReviewOutput
+ *   WorkloadId: 'STRING_VALUE',
+ *   LensReview: { // LensReview
+ *     LensAlias: 'STRING_VALUE',
+ *     LensArn: 'STRING_VALUE',
+ *     LensVersion: 'STRING_VALUE',
+ *     LensName: 'STRING_VALUE',
+ *     LensStatus: 'CURRENT' || 'NOT_CURRENT' || 'DEPRECATED' || 'DELETED' || 'UNSHARED',
+ *     PillarReviewSummaries: [ // PillarReviewSummaries
+ *       { // PillarReviewSummary
+ *         PillarId: 'STRING_VALUE',
+ *         PillarName: 'STRING_VALUE',
+ *         Notes: 'STRING_VALUE',
+ *         RiskCounts: { // RiskCounts
+ *           '<keys>': Number('int'),
+ *         },
+ *       },
+ *     ],
+ *     UpdatedAt: new Date('TIMESTAMP'),
+ *     Notes: 'STRING_VALUE',
+ *     RiskCounts: {
+ *       '<keys>': Number('int'),
+ *     },
+ *     NextToken: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateLensReviewCommandInput - {@link UpdateLensReviewCommandInput}
@@ -75,6 +103,8 @@ export interface UpdateLensReviewCommandOutput extends UpdateLensReviewOutput, _
  * @throws {@link ValidationException} (client fault)
  *  <p>The user input is not valid.</p>
  *
+ * @throws {@link WellArchitectedServiceException}
+ * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
  */
 export class UpdateLensReviewCommand extends $Command<

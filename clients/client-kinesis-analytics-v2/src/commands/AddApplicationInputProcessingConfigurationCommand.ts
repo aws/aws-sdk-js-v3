@@ -51,21 +51,34 @@ export interface AddApplicationInputProcessingConfigurationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KinesisAnalyticsV2Client, AddApplicationInputProcessingConfigurationCommand } from "@aws-sdk/client-kinesis-analytics-v2"; // ES Modules import
- * // const { KinesisAnalyticsV2Client, AddApplicationInputProcessingConfigurationCommand } = require("@aws-sdk/client-kinesis-analytics-v2"); // CommonJS import
+ * import { KinesisAnalyticsV2Client, AddApplicationInputProcessingConfigurationCommand } from '@aws-sdk/client-kinesis-analytics-v2'; // ES Modules import
+ * // const { KinesisAnalyticsV2Client, AddApplicationInputProcessingConfigurationCommand } = require('@aws-sdk/client-kinesis-analytics-v2'); // CommonJS import
  * const client = new KinesisAnalyticsV2Client(config);
  * const input = { // AddApplicationInputProcessingConfigurationRequest
- *   ApplicationName: "STRING_VALUE", // required
- *   CurrentApplicationVersionId: Number("long"), // required
- *   InputId: "STRING_VALUE", // required
+ *   ApplicationName: 'STRING_VALUE', // required
+ *   CurrentApplicationVersionId: Number('long'), // required
+ *   InputId: 'STRING_VALUE', // required
  *   InputProcessingConfiguration: { // InputProcessingConfiguration
  *     InputLambdaProcessor: { // InputLambdaProcessor
- *       ResourceARN: "STRING_VALUE", // required
+ *       ResourceARN: 'STRING_VALUE', // required
  *     },
  *   },
  * };
  * const command = new AddApplicationInputProcessingConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AddApplicationInputProcessingConfigurationResponse
+ *   ApplicationARN: 'STRING_VALUE',
+ *   ApplicationVersionId: Number('long'),
+ *   InputId: 'STRING_VALUE',
+ *   InputProcessingConfigurationDescription: { // InputProcessingConfigurationDescription
+ *     InputLambdaProcessorDescription: { // InputLambdaProcessorDescription
+ *       ResourceARN: 'STRING_VALUE', // required
+ *       RoleARN: 'STRING_VALUE',
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param AddApplicationInputProcessingConfigurationCommandInput - {@link AddApplicationInputProcessingConfigurationCommandInput}
@@ -91,6 +104,8 @@ export interface AddApplicationInputProcessingConfigurationCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Specified application can't be found.</p>
  *
+ * @throws {@link KinesisAnalyticsV2ServiceException}
+ * <p>Base exception class for all service exceptions from KinesisAnalyticsV2 service.</p>
  *
  */
 export class AddApplicationInputProcessingConfigurationCommand extends $Command<

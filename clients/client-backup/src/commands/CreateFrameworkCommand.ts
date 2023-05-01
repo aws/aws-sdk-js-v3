@@ -39,41 +39,47 @@ export interface CreateFrameworkCommandOutput extends CreateFrameworkOutput, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BackupClient, CreateFrameworkCommand } from "@aws-sdk/client-backup"; // ES Modules import
- * // const { BackupClient, CreateFrameworkCommand } = require("@aws-sdk/client-backup"); // CommonJS import
+ * import { BackupClient, CreateFrameworkCommand } from '@aws-sdk/client-backup'; // ES Modules import
+ * // const { BackupClient, CreateFrameworkCommand } = require('@aws-sdk/client-backup'); // CommonJS import
  * const client = new BackupClient(config);
  * const input = { // CreateFrameworkInput
- *   FrameworkName: "STRING_VALUE", // required
- *   FrameworkDescription: "STRING_VALUE",
+ *   FrameworkName: 'STRING_VALUE', // required
+ *   FrameworkDescription: 'STRING_VALUE',
  *   FrameworkControls: [ // FrameworkControls // required
  *     { // FrameworkControl
- *       ControlName: "STRING_VALUE", // required
+ *       ControlName: 'STRING_VALUE', // required
  *       ControlInputParameters: [ // ControlInputParameters
  *         { // ControlInputParameter
- *           ParameterName: "STRING_VALUE",
- *           ParameterValue: "STRING_VALUE",
+ *           ParameterName: 'STRING_VALUE',
+ *           ParameterValue: 'STRING_VALUE',
  *         },
  *       ],
  *       ControlScope: { // ControlScope
  *         ComplianceResourceIds: [ // ComplianceResourceIdList
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
  *         ComplianceResourceTypes: [ // ResourceTypeList
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
  *         Tags: { // stringMap
- *           "<keys>": "STRING_VALUE",
+ *           '<keys>': 'STRING_VALUE',
  *         },
  *       },
  *     },
  *   ],
- *   IdempotencyToken: "STRING_VALUE",
+ *   IdempotencyToken: 'STRING_VALUE',
  *   FrameworkTags: {
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateFrameworkCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateFrameworkOutput
+ *   FrameworkName: 'STRING_VALUE',
+ *   FrameworkArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateFrameworkCommandInput - {@link CreateFrameworkCommandInput}
@@ -99,6 +105,8 @@ export interface CreateFrameworkCommandOutput extends CreateFrameworkOutput, __M
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request failed due to a temporary failure of the server.</p>
  *
+ * @throws {@link BackupServiceException}
+ * <p>Base exception class for all service exceptions from Backup service.</p>
  *
  */
 export class CreateFrameworkCommand extends $Command<

@@ -44,25 +44,31 @@ export interface CreateRelatedItemCommandOutput extends CreateRelatedItemRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectCasesClient, CreateRelatedItemCommand } from "@aws-sdk/client-connectcases"; // ES Modules import
- * // const { ConnectCasesClient, CreateRelatedItemCommand } = require("@aws-sdk/client-connectcases"); // CommonJS import
+ * import { ConnectCasesClient, CreateRelatedItemCommand } from '@aws-sdk/client-connectcases'; // ES Modules import
+ * // const { ConnectCasesClient, CreateRelatedItemCommand } = require('@aws-sdk/client-connectcases'); // CommonJS import
  * const client = new ConnectCasesClient(config);
  * const input = { // CreateRelatedItemRequest
- *   domainId: "STRING_VALUE", // required
- *   caseId: "STRING_VALUE", // required
- *   type: "STRING_VALUE", // required
+ *   domainId: 'STRING_VALUE', // required
+ *   caseId: 'STRING_VALUE', // required
+ *   type: 'STRING_VALUE', // required
  *   content: { // RelatedItemInputContent Union: only one key present
  *     contact: { // Contact
- *       contactArn: "STRING_VALUE", // required
+ *       contactArn: 'STRING_VALUE', // required
  *     },
  *     comment: { // CommentContent
- *       body: "STRING_VALUE", // required
- *       contentType: "STRING_VALUE", // required
+ *       body: 'STRING_VALUE', // required
+ *       contentType: 'STRING_VALUE', // required
  *     },
  *   },
  * };
  * const command = new CreateRelatedItemCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateRelatedItemResponse
+ *   relatedItemId: 'STRING_VALUE', // required
+ *   relatedItemArn: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param CreateRelatedItemCommandInput - {@link CreateRelatedItemCommandInput}
@@ -92,6 +98,8 @@ export interface CreateRelatedItemCommandOutput extends CreateRelatedItemRespons
  * @throws {@link ValidationException} (client fault)
  *  <p>The request isn't valid. Check the syntax and try again.</p>
  *
+ * @throws {@link ConnectCasesServiceException}
+ * <p>Base exception class for all service exceptions from ConnectCases service.</p>
  *
  */
 export class CreateRelatedItemCommand extends $Command<

@@ -46,16 +46,47 @@ export interface ListComponentBuildVersionsCommandOutput extends ListComponentBu
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ImagebuilderClient, ListComponentBuildVersionsCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
- * // const { ImagebuilderClient, ListComponentBuildVersionsCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
+ * import { ImagebuilderClient, ListComponentBuildVersionsCommand } from '@aws-sdk/client-imagebuilder'; // ES Modules import
+ * // const { ImagebuilderClient, ListComponentBuildVersionsCommand } = require('@aws-sdk/client-imagebuilder'); // CommonJS import
  * const client = new ImagebuilderClient(config);
  * const input = { // ListComponentBuildVersionsRequest
- *   componentVersionArn: "STRING_VALUE", // required
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   componentVersionArn: 'STRING_VALUE', // required
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new ListComponentBuildVersionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListComponentBuildVersionsResponse
+ *   requestId: 'STRING_VALUE',
+ *   componentSummaryList: [ // ComponentSummaryList
+ *     { // ComponentSummary
+ *       arn: 'STRING_VALUE',
+ *       name: 'STRING_VALUE',
+ *       version: 'STRING_VALUE',
+ *       platform: 'Windows' || 'Linux',
+ *       supportedOsVersions: [ // OsVersionList
+ *         'STRING_VALUE',
+ *       ],
+ *       state: { // ComponentState
+ *         status: 'DEPRECATED',
+ *         reason: 'STRING_VALUE',
+ *       },
+ *       type: 'BUILD' || 'TEST',
+ *       owner: 'STRING_VALUE',
+ *       description: 'STRING_VALUE',
+ *       changeDescription: 'STRING_VALUE',
+ *       dateCreated: 'STRING_VALUE',
+ *       tags: { // TagMap
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *       publisher: 'STRING_VALUE',
+ *       obfuscate: true || false,
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListComponentBuildVersionsCommandInput - {@link ListComponentBuildVersionsCommandInput}
@@ -88,6 +119,8 @@ export interface ListComponentBuildVersionsCommandOutput extends ListComponentBu
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service is unable to process your request at this time.</p>
  *
+ * @throws {@link ImagebuilderServiceException}
+ * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
  */
 export class ListComponentBuildVersionsCommand extends $Command<

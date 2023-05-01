@@ -47,24 +47,33 @@ export interface AssociateAwsAccountWithPartnerAccountCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTWirelessClient, AssociateAwsAccountWithPartnerAccountCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
- * // const { IoTWirelessClient, AssociateAwsAccountWithPartnerAccountCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
+ * import { IoTWirelessClient, AssociateAwsAccountWithPartnerAccountCommand } from '@aws-sdk/client-iot-wireless'; // ES Modules import
+ * // const { IoTWirelessClient, AssociateAwsAccountWithPartnerAccountCommand } = require('@aws-sdk/client-iot-wireless'); // CommonJS import
  * const client = new IoTWirelessClient(config);
  * const input = { // AssociateAwsAccountWithPartnerAccountRequest
  *   Sidewalk: { // SidewalkAccountInfo
- *     AmazonId: "STRING_VALUE",
- *     AppServerPrivateKey: "STRING_VALUE",
+ *     AmazonId: 'STRING_VALUE',
+ *     AppServerPrivateKey: 'STRING_VALUE',
  *   },
- *   ClientRequestToken: "STRING_VALUE",
+ *   ClientRequestToken: 'STRING_VALUE',
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new AssociateAwsAccountWithPartnerAccountCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AssociateAwsAccountWithPartnerAccountResponse
+ *   Sidewalk: { // SidewalkAccountInfo
+ *     AmazonId: 'STRING_VALUE',
+ *     AppServerPrivateKey: 'STRING_VALUE',
+ *   },
+ *   Arn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param AssociateAwsAccountWithPartnerAccountCommandInput - {@link AssociateAwsAccountWithPartnerAccountCommandInput}
@@ -91,6 +100,8 @@ export interface AssociateAwsAccountWithPartnerAccountCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The input did not meet the specified constraints.</p>
  *
+ * @throws {@link IoTWirelessServiceException}
+ * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
  */
 export class AssociateAwsAccountWithPartnerAccountCommand extends $Command<

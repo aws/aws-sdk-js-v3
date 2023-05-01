@@ -36,15 +36,18 @@ export interface CheckInLicenseCommandOutput extends CheckInLicenseResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LicenseManagerClient, CheckInLicenseCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
- * // const { LicenseManagerClient, CheckInLicenseCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
+ * import { LicenseManagerClient, CheckInLicenseCommand } from '@aws-sdk/client-license-manager'; // ES Modules import
+ * // const { LicenseManagerClient, CheckInLicenseCommand } = require('@aws-sdk/client-license-manager'); // CommonJS import
  * const client = new LicenseManagerClient(config);
  * const input = { // CheckInLicenseRequest
- *   LicenseConsumptionToken: "STRING_VALUE", // required
- *   Beneficiary: "STRING_VALUE",
+ *   LicenseConsumptionToken: 'STRING_VALUE', // required
+ *   Beneficiary: 'STRING_VALUE',
  * };
  * const command = new CheckInLicenseCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param CheckInLicenseCommandInput - {@link CheckInLicenseCommandInput}
@@ -78,6 +81,8 @@ export interface CheckInLicenseCommandOutput extends CheckInLicenseResponse, __M
  * @throws {@link ValidationException} (client fault)
  *  <p>The provided input is not valid. Try your request again.</p>
  *
+ * @throws {@link LicenseManagerServiceException}
+ * <p>Base exception class for all service exceptions from LicenseManager service.</p>
  *
  */
 export class CheckInLicenseCommand extends $Command<

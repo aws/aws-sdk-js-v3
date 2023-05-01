@@ -62,15 +62,26 @@ export interface DescribeAccountLimitsCommandOutput extends DescribeAccountLimit
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElasticLoadBalancingV2Client, DescribeAccountLimitsCommand } from "@aws-sdk/client-elastic-load-balancing-v2"; // ES Modules import
- * // const { ElasticLoadBalancingV2Client, DescribeAccountLimitsCommand } = require("@aws-sdk/client-elastic-load-balancing-v2"); // CommonJS import
+ * import { ElasticLoadBalancingV2Client, DescribeAccountLimitsCommand } from '@aws-sdk/client-elastic-load-balancing-v2'; // ES Modules import
+ * // const { ElasticLoadBalancingV2Client, DescribeAccountLimitsCommand } = require('@aws-sdk/client-elastic-load-balancing-v2'); // CommonJS import
  * const client = new ElasticLoadBalancingV2Client(config);
  * const input = { // DescribeAccountLimitsInput
- *   Marker: "STRING_VALUE",
- *   PageSize: Number("int"),
+ *   Marker: 'STRING_VALUE',
+ *   PageSize: Number('int'),
  * };
  * const command = new DescribeAccountLimitsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeAccountLimitsOutput
+ *   Limits: [ // Limits
+ *     { // Limit
+ *       Name: 'STRING_VALUE',
+ *       Max: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextMarker: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeAccountLimitsCommandInput - {@link DescribeAccountLimitsCommandInput}
@@ -79,6 +90,8 @@ export interface DescribeAccountLimitsCommandOutput extends DescribeAccountLimit
  * @see {@link DescribeAccountLimitsCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
  *
+ * @throws {@link ElasticLoadBalancingV2ServiceException}
+ * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
  */
 export class DescribeAccountLimitsCommand extends $Command<

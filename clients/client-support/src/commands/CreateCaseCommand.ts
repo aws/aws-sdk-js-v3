@@ -68,24 +68,29 @@ export interface CreateCaseCommandOutput extends CreateCaseResponse, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SupportClient, CreateCaseCommand } from "@aws-sdk/client-support"; // ES Modules import
- * // const { SupportClient, CreateCaseCommand } = require("@aws-sdk/client-support"); // CommonJS import
+ * import { SupportClient, CreateCaseCommand } from '@aws-sdk/client-support'; // ES Modules import
+ * // const { SupportClient, CreateCaseCommand } = require('@aws-sdk/client-support'); // CommonJS import
  * const client = new SupportClient(config);
  * const input = { // CreateCaseRequest
- *   subject: "STRING_VALUE", // required
- *   serviceCode: "STRING_VALUE",
- *   severityCode: "STRING_VALUE",
- *   categoryCode: "STRING_VALUE",
- *   communicationBody: "STRING_VALUE", // required
+ *   subject: 'STRING_VALUE', // required
+ *   serviceCode: 'STRING_VALUE',
+ *   severityCode: 'STRING_VALUE',
+ *   categoryCode: 'STRING_VALUE',
+ *   communicationBody: 'STRING_VALUE', // required
  *   ccEmailAddresses: [ // CcEmailAddressList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   language: "STRING_VALUE",
- *   issueType: "STRING_VALUE",
- *   attachmentSetId: "STRING_VALUE",
+ *   language: 'STRING_VALUE',
+ *   issueType: 'STRING_VALUE',
+ *   attachmentSetId: 'STRING_VALUE',
  * };
  * const command = new CreateCaseCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateCaseResponse
+ *   caseId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateCaseCommandInput - {@link CreateCaseCommandInput}
@@ -107,6 +112,8 @@ export interface CreateCaseCommandOutput extends CreateCaseResponse, __MetadataB
  * @throws {@link InternalServerError} (server fault)
  *  <p>An internal server error occurred.</p>
  *
+ * @throws {@link SupportServiceException}
+ * <p>Base exception class for all service exceptions from Support service.</p>
  *
  */
 export class CreateCaseCommand extends $Command<

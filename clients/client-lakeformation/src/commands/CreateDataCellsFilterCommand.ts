@@ -36,32 +36,35 @@ export interface CreateDataCellsFilterCommandOutput extends CreateDataCellsFilte
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LakeFormationClient, CreateDataCellsFilterCommand } from "@aws-sdk/client-lakeformation"; // ES Modules import
- * // const { LakeFormationClient, CreateDataCellsFilterCommand } = require("@aws-sdk/client-lakeformation"); // CommonJS import
+ * import { LakeFormationClient, CreateDataCellsFilterCommand } from '@aws-sdk/client-lakeformation'; // ES Modules import
+ * // const { LakeFormationClient, CreateDataCellsFilterCommand } = require('@aws-sdk/client-lakeformation'); // CommonJS import
  * const client = new LakeFormationClient(config);
  * const input = { // CreateDataCellsFilterRequest
  *   TableData: { // DataCellsFilter
- *     TableCatalogId: "STRING_VALUE", // required
- *     DatabaseName: "STRING_VALUE", // required
- *     TableName: "STRING_VALUE", // required
- *     Name: "STRING_VALUE", // required
+ *     TableCatalogId: 'STRING_VALUE', // required
+ *     DatabaseName: 'STRING_VALUE', // required
+ *     TableName: 'STRING_VALUE', // required
+ *     Name: 'STRING_VALUE', // required
  *     RowFilter: { // RowFilter
- *       FilterExpression: "STRING_VALUE",
+ *       FilterExpression: 'STRING_VALUE',
  *       AllRowsWildcard: {},
  *     },
  *     ColumnNames: [ // ColumnNames
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     ColumnWildcard: { // ColumnWildcard
  *       ExcludedColumnNames: [
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
- *     VersionId: "STRING_VALUE",
+ *     VersionId: 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateDataCellsFilterCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param CreateDataCellsFilterCommandInput - {@link CreateDataCellsFilterCommandInput}
@@ -91,6 +94,8 @@ export interface CreateDataCellsFilterCommandOutput extends CreateDataCellsFilte
  * @throws {@link ResourceNumberLimitExceededException} (client fault)
  *  <p>A resource numerical limit was exceeded.</p>
  *
+ * @throws {@link LakeFormationServiceException}
+ * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
  */
 export class CreateDataCellsFilterCommand extends $Command<

@@ -36,25 +36,47 @@ export interface CreateConnectionCommandOutput extends CreateConnectionResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { NetworkManagerClient, CreateConnectionCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
- * // const { NetworkManagerClient, CreateConnectionCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
+ * import { NetworkManagerClient, CreateConnectionCommand } from '@aws-sdk/client-networkmanager'; // ES Modules import
+ * // const { NetworkManagerClient, CreateConnectionCommand } = require('@aws-sdk/client-networkmanager'); // CommonJS import
  * const client = new NetworkManagerClient(config);
  * const input = { // CreateConnectionRequest
- *   GlobalNetworkId: "STRING_VALUE", // required
- *   DeviceId: "STRING_VALUE", // required
- *   ConnectedDeviceId: "STRING_VALUE", // required
- *   LinkId: "STRING_VALUE",
- *   ConnectedLinkId: "STRING_VALUE",
- *   Description: "STRING_VALUE",
+ *   GlobalNetworkId: 'STRING_VALUE', // required
+ *   DeviceId: 'STRING_VALUE', // required
+ *   ConnectedDeviceId: 'STRING_VALUE', // required
+ *   LinkId: 'STRING_VALUE',
+ *   ConnectedLinkId: 'STRING_VALUE',
+ *   Description: 'STRING_VALUE',
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE",
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new CreateConnectionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateConnectionResponse
+ *   Connection: { // Connection
+ *     ConnectionId: 'STRING_VALUE',
+ *     ConnectionArn: 'STRING_VALUE',
+ *     GlobalNetworkId: 'STRING_VALUE',
+ *     DeviceId: 'STRING_VALUE',
+ *     ConnectedDeviceId: 'STRING_VALUE',
+ *     LinkId: 'STRING_VALUE',
+ *     ConnectedLinkId: 'STRING_VALUE',
+ *     Description: 'STRING_VALUE',
+ *     CreatedAt: new Date('TIMESTAMP'),
+ *     State: 'PENDING' || 'AVAILABLE' || 'DELETING' || 'UPDATING',
+ *     Tags: [ // TagList
+ *       { // Tag
+ *         Key: 'STRING_VALUE',
+ *         Value: 'STRING_VALUE',
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateConnectionCommandInput - {@link CreateConnectionCommandInput}
@@ -82,6 +104,8 @@ export interface CreateConnectionCommandOutput extends CreateConnectionResponse,
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints.</p>
  *
+ * @throws {@link NetworkManagerServiceException}
+ * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
  */
 export class CreateConnectionCommand extends $Command<

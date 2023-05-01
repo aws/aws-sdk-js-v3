@@ -63,29 +63,49 @@ export interface RespondToAuthChallengeCommandOutput extends RespondToAuthChalle
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CognitoIdentityProviderClient, RespondToAuthChallengeCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
- * // const { CognitoIdentityProviderClient, RespondToAuthChallengeCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
+ * import { CognitoIdentityProviderClient, RespondToAuthChallengeCommand } from '@aws-sdk/client-cognito-identity-provider'; // ES Modules import
+ * // const { CognitoIdentityProviderClient, RespondToAuthChallengeCommand } = require('@aws-sdk/client-cognito-identity-provider'); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
  * const input = { // RespondToAuthChallengeRequest
- *   ClientId: "STRING_VALUE", // required
- *   ChallengeName: "SMS_MFA" || "SOFTWARE_TOKEN_MFA" || "SELECT_MFA_TYPE" || "MFA_SETUP" || "PASSWORD_VERIFIER" || "CUSTOM_CHALLENGE" || "DEVICE_SRP_AUTH" || "DEVICE_PASSWORD_VERIFIER" || "ADMIN_NO_SRP_AUTH" || "NEW_PASSWORD_REQUIRED", // required
- *   Session: "STRING_VALUE",
+ *   ClientId: 'STRING_VALUE', // required
+ *   ChallengeName: 'SMS_MFA' || 'SOFTWARE_TOKEN_MFA' || 'SELECT_MFA_TYPE' || 'MFA_SETUP' || 'PASSWORD_VERIFIER' || 'CUSTOM_CHALLENGE' || 'DEVICE_SRP_AUTH' || 'DEVICE_PASSWORD_VERIFIER' || 'ADMIN_NO_SRP_AUTH' || 'NEW_PASSWORD_REQUIRED', // required
+ *   Session: 'STRING_VALUE',
  *   ChallengeResponses: { // ChallengeResponsesType
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  *   AnalyticsMetadata: { // AnalyticsMetadataType
- *     AnalyticsEndpointId: "STRING_VALUE",
+ *     AnalyticsEndpointId: 'STRING_VALUE',
  *   },
  *   UserContextData: { // UserContextDataType
- *     IpAddress: "STRING_VALUE",
- *     EncodedData: "STRING_VALUE",
+ *     IpAddress: 'STRING_VALUE',
+ *     EncodedData: 'STRING_VALUE',
  *   },
  *   ClientMetadata: { // ClientMetadataType
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new RespondToAuthChallengeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // RespondToAuthChallengeResponse
+ *   ChallengeName: 'SMS_MFA' || 'SOFTWARE_TOKEN_MFA' || 'SELECT_MFA_TYPE' || 'MFA_SETUP' || 'PASSWORD_VERIFIER' || 'CUSTOM_CHALLENGE' || 'DEVICE_SRP_AUTH' || 'DEVICE_PASSWORD_VERIFIER' || 'ADMIN_NO_SRP_AUTH' || 'NEW_PASSWORD_REQUIRED',
+ *   Session: 'STRING_VALUE',
+ *   ChallengeParameters: { // ChallengeParametersType
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ *   AuthenticationResult: { // AuthenticationResultType
+ *     AccessToken: 'STRING_VALUE',
+ *     ExpiresIn: Number('int'),
+ *     TokenType: 'STRING_VALUE',
+ *     RefreshToken: 'STRING_VALUE',
+ *     IdToken: 'STRING_VALUE',
+ *     NewDeviceMetadata: { // NewDeviceMetadataType
+ *       DeviceKey: 'STRING_VALUE',
+ *       DeviceGroupKey: 'STRING_VALUE',
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param RespondToAuthChallengeCommandInput - {@link RespondToAuthChallengeCommandInput}
@@ -173,6 +193,8 @@ export interface RespondToAuthChallengeCommandOutput extends RespondToAuthChalle
  * @throws {@link UserNotFoundException} (client fault)
  *  <p>This exception is thrown when a user isn't found.</p>
  *
+ * @throws {@link CognitoIdentityProviderServiceException}
+ * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
  */
 export class RespondToAuthChallengeCommand extends $Command<

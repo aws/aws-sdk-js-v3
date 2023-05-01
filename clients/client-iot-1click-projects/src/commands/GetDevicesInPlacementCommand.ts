@@ -40,15 +40,22 @@ export interface GetDevicesInPlacementCommandOutput extends GetDevicesInPlacemen
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoT1ClickProjectsClient, GetDevicesInPlacementCommand } from "@aws-sdk/client-iot-1click-projects"; // ES Modules import
- * // const { IoT1ClickProjectsClient, GetDevicesInPlacementCommand } = require("@aws-sdk/client-iot-1click-projects"); // CommonJS import
+ * import { IoT1ClickProjectsClient, GetDevicesInPlacementCommand } from '@aws-sdk/client-iot-1click-projects'; // ES Modules import
+ * // const { IoT1ClickProjectsClient, GetDevicesInPlacementCommand } = require('@aws-sdk/client-iot-1click-projects'); // CommonJS import
  * const client = new IoT1ClickProjectsClient(config);
  * const input = { // GetDevicesInPlacementRequest
- *   projectName: "STRING_VALUE", // required
- *   placementName: "STRING_VALUE", // required
+ *   projectName: 'STRING_VALUE', // required
+ *   placementName: 'STRING_VALUE', // required
  * };
  * const command = new GetDevicesInPlacementCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetDevicesInPlacementResponse
+ *   devices: { // DeviceMap // required
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetDevicesInPlacementCommandInput - {@link GetDevicesInPlacementCommandInput}
@@ -66,6 +73,8 @@ export interface GetDevicesInPlacementCommandOutput extends GetDevicesInPlacemen
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p></p>
  *
+ * @throws {@link IoT1ClickProjectsServiceException}
+ * <p>Base exception class for all service exceptions from IoT1ClickProjects service.</p>
  *
  */
 export class GetDevicesInPlacementCommand extends $Command<

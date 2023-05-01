@@ -47,26 +47,70 @@ export interface DescribeDataRepositoryTasksCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FSxClient, DescribeDataRepositoryTasksCommand } from "@aws-sdk/client-fsx"; // ES Modules import
- * // const { FSxClient, DescribeDataRepositoryTasksCommand } = require("@aws-sdk/client-fsx"); // CommonJS import
+ * import { FSxClient, DescribeDataRepositoryTasksCommand } from '@aws-sdk/client-fsx'; // ES Modules import
+ * // const { FSxClient, DescribeDataRepositoryTasksCommand } = require('@aws-sdk/client-fsx'); // CommonJS import
  * const client = new FSxClient(config);
  * const input = { // DescribeDataRepositoryTasksRequest
  *   TaskIds: [ // TaskIds
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   Filters: [ // DataRepositoryTaskFilters
  *     { // DataRepositoryTaskFilter
- *       Name: "file-system-id" || "task-lifecycle" || "data-repository-association-id" || "file-cache-id",
+ *       Name: 'file-system-id' || 'task-lifecycle' || 'data-repository-association-id' || 'file-cache-id',
  *       Values: [ // DataRepositoryTaskFilterValues
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new DescribeDataRepositoryTasksCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeDataRepositoryTasksResponse
+ *   DataRepositoryTasks: [ // DataRepositoryTasks
+ *     { // DataRepositoryTask
+ *       TaskId: 'STRING_VALUE', // required
+ *       Lifecycle: 'PENDING' || 'EXECUTING' || 'FAILED' || 'SUCCEEDED' || 'CANCELED' || 'CANCELING', // required
+ *       Type: 'EXPORT_TO_REPOSITORY' || 'IMPORT_METADATA_FROM_REPOSITORY' || 'RELEASE_DATA_FROM_FILESYSTEM' || 'AUTO_RELEASE_DATA', // required
+ *       CreationTime: new Date('TIMESTAMP'), // required
+ *       StartTime: new Date('TIMESTAMP'),
+ *       EndTime: new Date('TIMESTAMP'),
+ *       ResourceARN: 'STRING_VALUE',
+ *       Tags: [ // Tags
+ *         { // Tag
+ *           Key: 'STRING_VALUE', // required
+ *           Value: 'STRING_VALUE', // required
+ *         },
+ *       ],
+ *       FileSystemId: 'STRING_VALUE',
+ *       Paths: [ // DataRepositoryTaskPaths
+ *         'STRING_VALUE',
+ *       ],
+ *       FailureDetails: { // DataRepositoryTaskFailureDetails
+ *         Message: 'STRING_VALUE',
+ *       },
+ *       Status: { // DataRepositoryTaskStatus
+ *         TotalCount: Number('long'),
+ *         SucceededCount: Number('long'),
+ *         FailedCount: Number('long'),
+ *         LastUpdatedTime: new Date('TIMESTAMP'),
+ *         ReleasedCapacity: Number('long'),
+ *       },
+ *       Report: { // CompletionReport
+ *         Enabled: true || false, // required
+ *         Path: 'STRING_VALUE',
+ *         Format: 'REPORT_CSV_20191124',
+ *         Scope: 'FAILED_FILES_ONLY',
+ *       },
+ *       CapacityToRelease: Number('long'),
+ *       FileCacheId: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeDataRepositoryTasksCommandInput - {@link DescribeDataRepositoryTasksCommandInput}
@@ -87,6 +131,8 @@ export interface DescribeDataRepositoryTasksCommandOutput
  * @throws {@link InternalServerError} (server fault)
  *  <p>A generic error indicating a server-side failure.</p>
  *
+ * @throws {@link FSxServiceException}
+ * <p>Base exception class for all service exceptions from FSx service.</p>
  *
  */
 export class DescribeDataRepositoryTasksCommand extends $Command<

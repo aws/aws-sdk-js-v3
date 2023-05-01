@@ -36,15 +36,52 @@ export interface GetFilterCommandOutput extends GetFilterResponse, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GuardDutyClient, GetFilterCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
- * // const { GuardDutyClient, GetFilterCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
+ * import { GuardDutyClient, GetFilterCommand } from '@aws-sdk/client-guardduty'; // ES Modules import
+ * // const { GuardDutyClient, GetFilterCommand } = require('@aws-sdk/client-guardduty'); // CommonJS import
  * const client = new GuardDutyClient(config);
  * const input = { // GetFilterRequest
- *   DetectorId: "STRING_VALUE", // required
- *   FilterName: "STRING_VALUE", // required
+ *   DetectorId: 'STRING_VALUE', // required
+ *   FilterName: 'STRING_VALUE', // required
  * };
  * const command = new GetFilterCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetFilterResponse
+ *   Name: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE',
+ *   Action: 'NOOP' || 'ARCHIVE', // required
+ *   Rank: Number('int'),
+ *   FindingCriteria: { // FindingCriteria
+ *     Criterion: { // Criterion
+ *       '<keys>': { // Condition
+ *         Eq: [ // Eq
+ *           'STRING_VALUE',
+ *         ],
+ *         Neq: [ // Neq
+ *           'STRING_VALUE',
+ *         ],
+ *         Gt: Number('int'),
+ *         Gte: Number('int'),
+ *         Lt: Number('int'),
+ *         Lte: Number('int'),
+ *         Equals: [ // Equals
+ *           'STRING_VALUE',
+ *         ],
+ *         NotEquals: [ // NotEquals
+ *           'STRING_VALUE',
+ *         ],
+ *         GreaterThan: Number('long'),
+ *         GreaterThanOrEqual: Number('long'),
+ *         LessThan: Number('long'),
+ *         LessThanOrEqual: Number('long'),
+ *       },
+ *     },
+ *   },
+ *   Tags: { // TagMap
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetFilterCommandInput - {@link GetFilterCommandInput}
@@ -59,6 +96,8 @@ export interface GetFilterCommandOutput extends GetFilterResponse, __MetadataBea
  * @throws {@link InternalServerErrorException} (server fault)
  *  <p>An internal server error exception object.</p>
  *
+ * @throws {@link GuardDutyServiceException}
+ * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
  */
 export class GetFilterCommand extends $Command<

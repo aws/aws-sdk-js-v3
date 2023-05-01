@@ -47,16 +47,21 @@ export interface AssociateWebsiteAuthorizationProviderCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkLinkClient, AssociateWebsiteAuthorizationProviderCommand } from "@aws-sdk/client-worklink"; // ES Modules import
- * // const { WorkLinkClient, AssociateWebsiteAuthorizationProviderCommand } = require("@aws-sdk/client-worklink"); // CommonJS import
+ * import { WorkLinkClient, AssociateWebsiteAuthorizationProviderCommand } from '@aws-sdk/client-worklink'; // ES Modules import
+ * // const { WorkLinkClient, AssociateWebsiteAuthorizationProviderCommand } = require('@aws-sdk/client-worklink'); // CommonJS import
  * const client = new WorkLinkClient(config);
  * const input = { // AssociateWebsiteAuthorizationProviderRequest
- *   FleetArn: "STRING_VALUE", // required
- *   AuthorizationProviderType: "STRING_VALUE", // required
- *   DomainName: "STRING_VALUE",
+ *   FleetArn: 'STRING_VALUE', // required
+ *   AuthorizationProviderType: 'STRING_VALUE', // required
+ *   DomainName: 'STRING_VALUE',
  * };
  * const command = new AssociateWebsiteAuthorizationProviderCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AssociateWebsiteAuthorizationProviderResponse
+ *   AuthorizationProviderId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param AssociateWebsiteAuthorizationProviderCommandInput - {@link AssociateWebsiteAuthorizationProviderCommandInput}
@@ -83,6 +88,8 @@ export interface AssociateWebsiteAuthorizationProviderCommandOutput
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this action.</p>
  *
+ * @throws {@link WorkLinkServiceException}
+ * <p>Base exception class for all service exceptions from WorkLink service.</p>
  *
  */
 export class AssociateWebsiteAuthorizationProviderCommand extends $Command<

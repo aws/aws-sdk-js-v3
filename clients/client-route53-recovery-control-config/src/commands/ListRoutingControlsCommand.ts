@@ -40,16 +40,29 @@ export interface ListRoutingControlsCommandOutput extends ListRoutingControlsRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Route53RecoveryControlConfigClient, ListRoutingControlsCommand } from "@aws-sdk/client-route53-recovery-control-config"; // ES Modules import
- * // const { Route53RecoveryControlConfigClient, ListRoutingControlsCommand } = require("@aws-sdk/client-route53-recovery-control-config"); // CommonJS import
+ * import { Route53RecoveryControlConfigClient, ListRoutingControlsCommand } from '@aws-sdk/client-route53-recovery-control-config'; // ES Modules import
+ * // const { Route53RecoveryControlConfigClient, ListRoutingControlsCommand } = require('@aws-sdk/client-route53-recovery-control-config'); // CommonJS import
  * const client = new Route53RecoveryControlConfigClient(config);
  * const input = { // ListRoutingControlsRequest
- *   ControlPanelArn: "STRING_VALUE", // required
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   ControlPanelArn: 'STRING_VALUE', // required
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListRoutingControlsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListRoutingControlsResponse
+ *   NextToken: 'STRING_VALUE',
+ *   RoutingControls: [ // __listOfRoutingControl
+ *     { // RoutingControl
+ *       ControlPanelArn: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *       RoutingControlArn: 'STRING_VALUE',
+ *       Status: 'PENDING' || 'DEPLOYED' || 'PENDING_DELETION',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListRoutingControlsCommandInput - {@link ListRoutingControlsCommandInput}
@@ -73,6 +86,8 @@ export interface ListRoutingControlsCommandOutput extends ListRoutingControlsRes
  * @throws {@link ValidationException} (client fault)
  *  <p>400 response - Multiple causes. For example, you might have a malformed query string and input parameter might be out of range, or you might have used parameters together incorrectly.</p>
  *
+ * @throws {@link Route53RecoveryControlConfigServiceException}
+ * <p>Base exception class for all service exceptions from Route53RecoveryControlConfig service.</p>
  *
  */
 export class ListRoutingControlsCommand extends $Command<

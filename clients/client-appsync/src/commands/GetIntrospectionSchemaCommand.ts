@@ -36,16 +36,21 @@ export interface GetIntrospectionSchemaCommandOutput extends GetIntrospectionSch
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppSyncClient, GetIntrospectionSchemaCommand } from "@aws-sdk/client-appsync"; // ES Modules import
- * // const { AppSyncClient, GetIntrospectionSchemaCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
+ * import { AppSyncClient, GetIntrospectionSchemaCommand } from '@aws-sdk/client-appsync'; // ES Modules import
+ * // const { AppSyncClient, GetIntrospectionSchemaCommand } = require('@aws-sdk/client-appsync'); // CommonJS import
  * const client = new AppSyncClient(config);
  * const input = { // GetIntrospectionSchemaRequest
- *   apiId: "STRING_VALUE", // required
- *   format: "SDL" || "JSON", // required
+ *   apiId: 'STRING_VALUE', // required
+ *   format: 'SDL' || 'JSON', // required
  *   includeDirectives: true || false,
  * };
  * const command = new GetIntrospectionSchemaCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetIntrospectionSchemaResponse
+ *   schema: 'BLOB_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetIntrospectionSchemaCommandInput - {@link GetIntrospectionSchemaCommandInput}
@@ -66,6 +71,8 @@ export interface GetIntrospectionSchemaCommandOutput extends GetIntrospectionSch
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You aren't authorized to perform this operation.</p>
  *
+ * @throws {@link AppSyncServiceException}
+ * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
  */
 export class GetIntrospectionSchemaCommand extends $Command<

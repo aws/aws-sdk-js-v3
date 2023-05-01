@@ -36,24 +36,81 @@ export interface ListDevicesCommandOutput extends ListDevicesResult, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DeviceFarmClient, ListDevicesCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
- * // const { DeviceFarmClient, ListDevicesCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
+ * import { DeviceFarmClient, ListDevicesCommand } from '@aws-sdk/client-device-farm'; // ES Modules import
+ * // const { DeviceFarmClient, ListDevicesCommand } = require('@aws-sdk/client-device-farm'); // CommonJS import
  * const client = new DeviceFarmClient(config);
  * const input = { // ListDevicesRequest
- *   arn: "STRING_VALUE",
- *   nextToken: "STRING_VALUE",
+ *   arn: 'STRING_VALUE',
+ *   nextToken: 'STRING_VALUE',
  *   filters: [ // DeviceFilters
  *     { // DeviceFilter
- *       attribute: "ARN" || "PLATFORM" || "OS_VERSION" || "MODEL" || "AVAILABILITY" || "FORM_FACTOR" || "MANUFACTURER" || "REMOTE_ACCESS_ENABLED" || "REMOTE_DEBUG_ENABLED" || "INSTANCE_ARN" || "INSTANCE_LABELS" || "FLEET_TYPE", // required
- *       operator: "EQUALS" || "LESS_THAN" || "LESS_THAN_OR_EQUALS" || "GREATER_THAN" || "GREATER_THAN_OR_EQUALS" || "IN" || "NOT_IN" || "CONTAINS", // required
+ *       attribute: 'ARN' || 'PLATFORM' || 'OS_VERSION' || 'MODEL' || 'AVAILABILITY' || 'FORM_FACTOR' || 'MANUFACTURER' || 'REMOTE_ACCESS_ENABLED' || 'REMOTE_DEBUG_ENABLED' || 'INSTANCE_ARN' || 'INSTANCE_LABELS' || 'FLEET_TYPE', // required
+ *       operator: 'EQUALS' || 'LESS_THAN' || 'LESS_THAN_OR_EQUALS' || 'GREATER_THAN' || 'GREATER_THAN_OR_EQUALS' || 'IN' || 'NOT_IN' || 'CONTAINS', // required
  *       values: [ // DeviceFilterValues // required
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
  * };
  * const command = new ListDevicesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListDevicesResult
+ *   devices: [ // Devices
+ *     { // Device
+ *       arn: 'STRING_VALUE',
+ *       name: 'STRING_VALUE',
+ *       manufacturer: 'STRING_VALUE',
+ *       model: 'STRING_VALUE',
+ *       modelId: 'STRING_VALUE',
+ *       formFactor: 'PHONE' || 'TABLET',
+ *       platform: 'ANDROID' || 'IOS',
+ *       os: 'STRING_VALUE',
+ *       cpu: { // CPU
+ *         frequency: 'STRING_VALUE',
+ *         architecture: 'STRING_VALUE',
+ *         clock: Number('double'),
+ *       },
+ *       resolution: { // Resolution
+ *         width: Number('int'),
+ *         height: Number('int'),
+ *       },
+ *       heapSize: Number('long'),
+ *       memory: Number('long'),
+ *       image: 'STRING_VALUE',
+ *       carrier: 'STRING_VALUE',
+ *       radio: 'STRING_VALUE',
+ *       remoteAccessEnabled: true || false,
+ *       remoteDebugEnabled: true || false,
+ *       fleetType: 'STRING_VALUE',
+ *       fleetName: 'STRING_VALUE',
+ *       instances: [ // DeviceInstances
+ *         { // DeviceInstance
+ *           arn: 'STRING_VALUE',
+ *           deviceArn: 'STRING_VALUE',
+ *           labels: [ // InstanceLabels
+ *             'STRING_VALUE',
+ *           ],
+ *           status: 'IN_USE' || 'PREPARING' || 'AVAILABLE' || 'NOT_AVAILABLE',
+ *           udid: 'STRING_VALUE',
+ *           instanceProfile: { // InstanceProfile
+ *             arn: 'STRING_VALUE',
+ *             packageCleanup: true || false,
+ *             excludeAppPackagesFromCleanup: [ // PackageIds
+ *               'STRING_VALUE',
+ *             ],
+ *             rebootAfterUse: true || false,
+ *             name: 'STRING_VALUE',
+ *             description: 'STRING_VALUE',
+ *           },
+ *         },
+ *       ],
+ *       availability: 'TEMPORARY_NOT_AVAILABLE' || 'BUSY' || 'AVAILABLE' || 'HIGHLY_AVAILABLE',
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListDevicesCommandInput - {@link ListDevicesCommandInput}
@@ -74,6 +131,8 @@ export interface ListDevicesCommandOutput extends ListDevicesResult, __MetadataB
  * @throws {@link ServiceAccountException} (client fault)
  *  <p>There was a problem with the service account.</p>
  *
+ * @throws {@link DeviceFarmServiceException}
+ * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
  * @example To get information about devices
  * ```javascript

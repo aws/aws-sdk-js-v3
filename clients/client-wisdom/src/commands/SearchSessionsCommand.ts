@@ -36,25 +36,38 @@ export interface SearchSessionsCommandOutput extends SearchSessionsResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WisdomClient, SearchSessionsCommand } from "@aws-sdk/client-wisdom"; // ES Modules import
- * // const { WisdomClient, SearchSessionsCommand } = require("@aws-sdk/client-wisdom"); // CommonJS import
+ * import { WisdomClient, SearchSessionsCommand } from '@aws-sdk/client-wisdom'; // ES Modules import
+ * // const { WisdomClient, SearchSessionsCommand } = require('@aws-sdk/client-wisdom'); // CommonJS import
  * const client = new WisdomClient(config);
  * const input = { // SearchSessionsRequest
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
- *   assistantId: "STRING_VALUE", // required
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
+ *   assistantId: 'STRING_VALUE', // required
  *   searchExpression: { // SearchExpression
  *     filters: [ // FilterList // required
  *       { // Filter
- *         field: "STRING_VALUE", // required
- *         operator: "STRING_VALUE", // required
- *         value: "STRING_VALUE", // required
+ *         field: 'STRING_VALUE', // required
+ *         operator: 'STRING_VALUE', // required
+ *         value: 'STRING_VALUE', // required
  *       },
  *     ],
  *   },
  * };
  * const command = new SearchSessionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SearchSessionsResponse
+ *   sessionSummaries: [ // SessionSummaries // required
+ *     { // SessionSummary
+ *       sessionId: 'STRING_VALUE', // required
+ *       sessionArn: 'STRING_VALUE', // required
+ *       assistantId: 'STRING_VALUE', // required
+ *       assistantArn: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param SearchSessionsCommandInput - {@link SearchSessionsCommandInput}
@@ -72,6 +85,8 @@ export interface SearchSessionsCommandOutput extends SearchSessionsResponse, __M
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by a service.</p>
  *
+ * @throws {@link WisdomServiceException}
+ * <p>Base exception class for all service exceptions from Wisdom service.</p>
  *
  */
 export class SearchSessionsCommand extends $Command<

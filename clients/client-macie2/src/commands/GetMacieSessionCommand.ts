@@ -36,12 +36,21 @@ export interface GetMacieSessionCommandOutput extends GetMacieSessionResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Macie2Client, GetMacieSessionCommand } from "@aws-sdk/client-macie2"; // ES Modules import
- * // const { Macie2Client, GetMacieSessionCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
+ * import { Macie2Client, GetMacieSessionCommand } from '@aws-sdk/client-macie2'; // ES Modules import
+ * // const { Macie2Client, GetMacieSessionCommand } = require('@aws-sdk/client-macie2'); // CommonJS import
  * const client = new Macie2Client(config);
  * const input = {};
  * const command = new GetMacieSessionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetMacieSessionResponse
+ *   createdAt: new Date('TIMESTAMP'),
+ *   findingPublishingFrequency: 'FIFTEEN_MINUTES' || 'ONE_HOUR' || 'SIX_HOURS',
+ *   serviceRole: 'STRING_VALUE',
+ *   status: 'PAUSED' || 'ENABLED',
+ *   updatedAt: new Date('TIMESTAMP'),
+ * };
+ *
  * ```
  *
  * @param GetMacieSessionCommandInput - {@link GetMacieSessionCommandInput}
@@ -71,6 +80,8 @@ export interface GetMacieSessionCommandOutput extends GetMacieSessionResponse, _
  * @throws {@link ValidationException} (client fault)
  *  <p>Provides information about an error that occurred due to a syntax error in a request.</p>
  *
+ * @throws {@link Macie2ServiceException}
+ * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
  */
 export class GetMacieSessionCommand extends $Command<

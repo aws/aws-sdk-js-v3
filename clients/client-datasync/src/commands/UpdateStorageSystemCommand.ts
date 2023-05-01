@@ -41,27 +41,30 @@ export interface UpdateStorageSystemCommandOutput extends UpdateStorageSystemRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DataSyncClient, UpdateStorageSystemCommand } from "@aws-sdk/client-datasync"; // ES Modules import
- * // const { DataSyncClient, UpdateStorageSystemCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
+ * import { DataSyncClient, UpdateStorageSystemCommand } from '@aws-sdk/client-datasync'; // ES Modules import
+ * // const { DataSyncClient, UpdateStorageSystemCommand } = require('@aws-sdk/client-datasync'); // CommonJS import
  * const client = new DataSyncClient(config);
  * const input = { // UpdateStorageSystemRequest
- *   StorageSystemArn: "STRING_VALUE", // required
+ *   StorageSystemArn: 'STRING_VALUE', // required
  *   ServerConfiguration: { // DiscoveryServerConfiguration
- *     ServerHostname: "STRING_VALUE", // required
- *     ServerPort: Number("int"),
+ *     ServerHostname: 'STRING_VALUE', // required
+ *     ServerPort: Number('int'),
  *   },
  *   AgentArns: [ // DiscoveryAgentArnList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   Name: "STRING_VALUE",
- *   CloudWatchLogGroupArn: "STRING_VALUE",
+ *   Name: 'STRING_VALUE',
+ *   CloudWatchLogGroupArn: 'STRING_VALUE',
  *   Credentials: { // Credentials
- *     Username: "STRING_VALUE", // required
- *     Password: "STRING_VALUE", // required
+ *     Username: 'STRING_VALUE', // required
+ *     Password: 'STRING_VALUE', // required
  *   },
  * };
  * const command = new UpdateStorageSystemCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateStorageSystemCommandInput - {@link UpdateStorageSystemCommandInput}
@@ -77,6 +80,8 @@ export interface UpdateStorageSystemCommandOutput extends UpdateStorageSystemRes
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception is thrown when the client submits a malformed request.</p>
  *
+ * @throws {@link DataSyncServiceException}
+ * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
  */
 export class UpdateStorageSystemCommand extends $Command<

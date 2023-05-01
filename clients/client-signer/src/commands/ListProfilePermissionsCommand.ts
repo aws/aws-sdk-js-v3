@@ -36,15 +36,30 @@ export interface ListProfilePermissionsCommandOutput extends ListProfilePermissi
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SignerClient, ListProfilePermissionsCommand } from "@aws-sdk/client-signer"; // ES Modules import
- * // const { SignerClient, ListProfilePermissionsCommand } = require("@aws-sdk/client-signer"); // CommonJS import
+ * import { SignerClient, ListProfilePermissionsCommand } from '@aws-sdk/client-signer'; // ES Modules import
+ * // const { SignerClient, ListProfilePermissionsCommand } = require('@aws-sdk/client-signer'); // CommonJS import
  * const client = new SignerClient(config);
  * const input = { // ListProfilePermissionsRequest
- *   profileName: "STRING_VALUE", // required
- *   nextToken: "STRING_VALUE",
+ *   profileName: 'STRING_VALUE', // required
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new ListProfilePermissionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListProfilePermissionsResponse
+ *   revisionId: 'STRING_VALUE',
+ *   policySizeBytes: Number('int'),
+ *   permissions: [ // Permissions
+ *     { // Permission
+ *       action: 'STRING_VALUE',
+ *       principal: 'STRING_VALUE',
+ *       statementId: 'STRING_VALUE',
+ *       profileVersion: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListProfilePermissionsCommandInput - {@link ListProfilePermissionsCommandInput}
@@ -69,6 +84,8 @@ export interface ListProfilePermissionsCommandOutput extends ListProfilePermissi
  * @throws {@link ValidationException} (client fault)
  *  <p>You signing certificate could not be validated.</p>
  *
+ * @throws {@link SignerServiceException}
+ * <p>Base exception class for all service exceptions from Signer service.</p>
  *
  */
 export class ListProfilePermissionsCommand extends $Command<

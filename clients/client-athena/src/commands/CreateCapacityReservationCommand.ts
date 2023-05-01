@@ -36,21 +36,24 @@ export interface CreateCapacityReservationCommandOutput extends CreateCapacityRe
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AthenaClient, CreateCapacityReservationCommand } from "@aws-sdk/client-athena"; // ES Modules import
- * // const { AthenaClient, CreateCapacityReservationCommand } = require("@aws-sdk/client-athena"); // CommonJS import
+ * import { AthenaClient, CreateCapacityReservationCommand } from '@aws-sdk/client-athena'; // ES Modules import
+ * // const { AthenaClient, CreateCapacityReservationCommand } = require('@aws-sdk/client-athena'); // CommonJS import
  * const client = new AthenaClient(config);
  * const input = { // CreateCapacityReservationInput
- *   TargetDpus: Number("int"), // required
- *   Name: "STRING_VALUE", // required
+ *   TargetDpus: Number('int'), // required
+ *   Name: 'STRING_VALUE', // required
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE",
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new CreateCapacityReservationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param CreateCapacityReservationCommandInput - {@link CreateCapacityReservationCommandInput}
@@ -67,6 +70,8 @@ export interface CreateCapacityReservationCommandOutput extends CreateCapacityRe
  *  <p>Indicates that something is wrong with the input to the request. For example, a
  *             required parameter may be missing or out of range.</p>
  *
+ * @throws {@link AthenaServiceException}
+ * <p>Base exception class for all service exceptions from Athena service.</p>
  *
  */
 export class CreateCapacityReservationCommand extends $Command<

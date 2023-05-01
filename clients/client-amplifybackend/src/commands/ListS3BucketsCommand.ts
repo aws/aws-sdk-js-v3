@@ -36,14 +36,25 @@ export interface ListS3BucketsCommandOutput extends ListS3BucketsResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AmplifyBackendClient, ListS3BucketsCommand } from "@aws-sdk/client-amplifybackend"; // ES Modules import
- * // const { AmplifyBackendClient, ListS3BucketsCommand } = require("@aws-sdk/client-amplifybackend"); // CommonJS import
+ * import { AmplifyBackendClient, ListS3BucketsCommand } from '@aws-sdk/client-amplifybackend'; // ES Modules import
+ * // const { AmplifyBackendClient, ListS3BucketsCommand } = require('@aws-sdk/client-amplifybackend'); // CommonJS import
  * const client = new AmplifyBackendClient(config);
  * const input = { // ListS3BucketsRequest
- *   NextToken: "STRING_VALUE",
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListS3BucketsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListS3BucketsResponse
+ *   Buckets: [ // ListOfS3BucketInfo
+ *     { // S3BucketInfo
+ *       CreationDate: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListS3BucketsCommandInput - {@link ListS3BucketsCommandInput}
@@ -64,6 +75,8 @@ export interface ListS3BucketsCommandOutput extends ListS3BucketsResponse, __Met
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>An error that is returned when a limit of a specific type has been exceeded.</p>
  *
+ * @throws {@link AmplifyBackendServiceException}
+ * <p>Base exception class for all service exceptions from AmplifyBackend service.</p>
  *
  */
 export class ListS3BucketsCommand extends $Command<

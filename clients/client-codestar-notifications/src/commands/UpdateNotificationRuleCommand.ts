@@ -49,26 +49,29 @@ export interface UpdateNotificationRuleCommandOutput extends UpdateNotificationR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodestarNotificationsClient, UpdateNotificationRuleCommand } from "@aws-sdk/client-codestar-notifications"; // ES Modules import
- * // const { CodestarNotificationsClient, UpdateNotificationRuleCommand } = require("@aws-sdk/client-codestar-notifications"); // CommonJS import
+ * import { CodestarNotificationsClient, UpdateNotificationRuleCommand } from '@aws-sdk/client-codestar-notifications'; // ES Modules import
+ * // const { CodestarNotificationsClient, UpdateNotificationRuleCommand } = require('@aws-sdk/client-codestar-notifications'); // CommonJS import
  * const client = new CodestarNotificationsClient(config);
  * const input = { // UpdateNotificationRuleRequest
- *   Arn: "STRING_VALUE", // required
- *   Name: "STRING_VALUE",
- *   Status: "ENABLED" || "DISABLED",
+ *   Arn: 'STRING_VALUE', // required
+ *   Name: 'STRING_VALUE',
+ *   Status: 'ENABLED' || 'DISABLED',
  *   EventTypeIds: [ // EventTypeIds
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   Targets: [ // Targets
  *     { // Target
- *       TargetType: "STRING_VALUE",
- *       TargetAddress: "STRING_VALUE",
+ *       TargetType: 'STRING_VALUE',
+ *       TargetAddress: 'STRING_VALUE',
  *     },
  *   ],
- *   DetailType: "BASIC" || "FULL",
+ *   DetailType: 'BASIC' || 'FULL',
  * };
  * const command = new UpdateNotificationRuleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateNotificationRuleCommandInput - {@link UpdateNotificationRuleCommandInput}
@@ -86,6 +89,8 @@ export interface UpdateNotificationRuleCommandOutput extends UpdateNotificationR
  * @throws {@link ValidationException} (client fault)
  *  <p>One or more parameter values are not valid.</p>
  *
+ * @throws {@link CodestarNotificationsServiceException}
+ * <p>Base exception class for all service exceptions from CodestarNotifications service.</p>
  *
  */
 export class UpdateNotificationRuleCommand extends $Command<

@@ -66,22 +66,27 @@ export interface CreateDataSourceFromS3CommandOutput extends CreateDataSourceFro
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MachineLearningClient, CreateDataSourceFromS3Command } from "@aws-sdk/client-machine-learning"; // ES Modules import
- * // const { MachineLearningClient, CreateDataSourceFromS3Command } = require("@aws-sdk/client-machine-learning"); // CommonJS import
+ * import { MachineLearningClient, CreateDataSourceFromS3Command } from '@aws-sdk/client-machine-learning'; // ES Modules import
+ * // const { MachineLearningClient, CreateDataSourceFromS3Command } = require('@aws-sdk/client-machine-learning'); // CommonJS import
  * const client = new MachineLearningClient(config);
  * const input = { // CreateDataSourceFromS3Input
- *   DataSourceId: "STRING_VALUE", // required
- *   DataSourceName: "STRING_VALUE",
+ *   DataSourceId: 'STRING_VALUE', // required
+ *   DataSourceName: 'STRING_VALUE',
  *   DataSpec: { // S3DataSpec
- *     DataLocationS3: "STRING_VALUE", // required
- *     DataRearrangement: "STRING_VALUE",
- *     DataSchema: "STRING_VALUE",
- *     DataSchemaLocationS3: "STRING_VALUE",
+ *     DataLocationS3: 'STRING_VALUE', // required
+ *     DataRearrangement: 'STRING_VALUE',
+ *     DataSchema: 'STRING_VALUE',
+ *     DataSchemaLocationS3: 'STRING_VALUE',
  *   },
  *   ComputeStatistics: true || false,
  * };
  * const command = new CreateDataSourceFromS3Command(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateDataSourceFromS3Output
+ *   DataSourceId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateDataSourceFromS3CommandInput - {@link CreateDataSourceFromS3CommandInput}
@@ -99,6 +104,8 @@ export interface CreateDataSourceFromS3CommandOutput extends CreateDataSourceFro
  * @throws {@link InvalidInputException} (client fault)
  *  <p>An error on the client occurred. Typically, the cause is an invalid input value.</p>
  *
+ * @throws {@link MachineLearningServiceException}
+ * <p>Base exception class for all service exceptions from MachineLearning service.</p>
  *
  */
 export class CreateDataSourceFromS3Command extends $Command<

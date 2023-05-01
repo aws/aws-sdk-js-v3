@@ -45,16 +45,41 @@ export interface ListCustomRoutingEndpointGroupsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlobalAcceleratorClient, ListCustomRoutingEndpointGroupsCommand } from "@aws-sdk/client-global-accelerator"; // ES Modules import
- * // const { GlobalAcceleratorClient, ListCustomRoutingEndpointGroupsCommand } = require("@aws-sdk/client-global-accelerator"); // CommonJS import
+ * import { GlobalAcceleratorClient, ListCustomRoutingEndpointGroupsCommand } from '@aws-sdk/client-global-accelerator'; // ES Modules import
+ * // const { GlobalAcceleratorClient, ListCustomRoutingEndpointGroupsCommand } = require('@aws-sdk/client-global-accelerator'); // CommonJS import
  * const client = new GlobalAcceleratorClient(config);
  * const input = { // ListCustomRoutingEndpointGroupsRequest
- *   ListenerArn: "STRING_VALUE", // required
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   ListenerArn: 'STRING_VALUE', // required
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListCustomRoutingEndpointGroupsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListCustomRoutingEndpointGroupsResponse
+ *   EndpointGroups: [ // CustomRoutingEndpointGroups
+ *     { // CustomRoutingEndpointGroup
+ *       EndpointGroupArn: 'STRING_VALUE',
+ *       EndpointGroupRegion: 'STRING_VALUE',
+ *       DestinationDescriptions: [ // CustomRoutingDestinationDescriptions
+ *         { // CustomRoutingDestinationDescription
+ *           FromPort: Number('int'),
+ *           ToPort: Number('int'),
+ *           Protocols: [ // Protocols
+ *             'TCP' || 'UDP',
+ *           ],
+ *         },
+ *       ],
+ *       EndpointDescriptions: [ // CustomRoutingEndpointDescriptions
+ *         { // CustomRoutingEndpointDescription
+ *           EndpointId: 'STRING_VALUE',
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListCustomRoutingEndpointGroupsCommandInput - {@link ListCustomRoutingEndpointGroupsCommandInput}
@@ -75,6 +100,8 @@ export interface ListCustomRoutingEndpointGroupsCommandOutput
  * @throws {@link ListenerNotFoundException} (client fault)
  *  <p>The listener that you specified doesn't exist.</p>
  *
+ * @throws {@link GlobalAcceleratorServiceException}
+ * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
  */
 export class ListCustomRoutingEndpointGroupsCommand extends $Command<

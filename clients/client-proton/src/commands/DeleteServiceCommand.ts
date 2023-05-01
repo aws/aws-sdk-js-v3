@@ -43,14 +43,44 @@ export interface DeleteServiceCommandOutput extends DeleteServiceOutput, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ProtonClient, DeleteServiceCommand } from "@aws-sdk/client-proton"; // ES Modules import
- * // const { ProtonClient, DeleteServiceCommand } = require("@aws-sdk/client-proton"); // CommonJS import
+ * import { ProtonClient, DeleteServiceCommand } from '@aws-sdk/client-proton'; // ES Modules import
+ * // const { ProtonClient, DeleteServiceCommand } = require('@aws-sdk/client-proton'); // CommonJS import
  * const client = new ProtonClient(config);
  * const input = { // DeleteServiceInput
- *   name: "STRING_VALUE", // required
+ *   name: 'STRING_VALUE', // required
  * };
  * const command = new DeleteServiceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteServiceOutput
+ *   service: { // Service
+ *     name: 'STRING_VALUE', // required
+ *     description: 'STRING_VALUE',
+ *     arn: 'STRING_VALUE', // required
+ *     templateName: 'STRING_VALUE', // required
+ *     createdAt: new Date('TIMESTAMP'), // required
+ *     lastModifiedAt: new Date('TIMESTAMP'), // required
+ *     status: 'STRING_VALUE', // required
+ *     statusMessage: 'STRING_VALUE',
+ *     spec: 'STRING_VALUE', // required
+ *     pipeline: { // ServicePipeline
+ *       arn: 'STRING_VALUE', // required
+ *       createdAt: new Date('TIMESTAMP'), // required
+ *       lastDeploymentAttemptedAt: new Date('TIMESTAMP'), // required
+ *       lastDeploymentSucceededAt: new Date('TIMESTAMP'), // required
+ *       templateName: 'STRING_VALUE', // required
+ *       templateMajorVersion: 'STRING_VALUE', // required
+ *       templateMinorVersion: 'STRING_VALUE', // required
+ *       deploymentStatus: 'STRING_VALUE', // required
+ *       deploymentStatusMessage: 'STRING_VALUE',
+ *       spec: 'STRING_VALUE',
+ *     },
+ *     repositoryConnectionArn: 'STRING_VALUE',
+ *     repositoryId: 'STRING_VALUE',
+ *     branchName: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param DeleteServiceCommandInput - {@link DeleteServiceCommandInput}
@@ -77,6 +107,8 @@ export interface DeleteServiceCommandOutput extends DeleteServiceOutput, __Metad
  * @throws {@link ValidationException} (client fault)
  *  <p>The input is invalid or an out-of-range value was supplied for the input parameter.</p>
  *
+ * @throws {@link ProtonServiceException}
+ * <p>Base exception class for all service exceptions from Proton service.</p>
  *
  */
 export class DeleteServiceCommand extends $Command<

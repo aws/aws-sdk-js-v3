@@ -41,14 +41,31 @@ export interface GetNetworkAnalyzerConfigurationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTWirelessClient, GetNetworkAnalyzerConfigurationCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
- * // const { IoTWirelessClient, GetNetworkAnalyzerConfigurationCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
+ * import { IoTWirelessClient, GetNetworkAnalyzerConfigurationCommand } from '@aws-sdk/client-iot-wireless'; // ES Modules import
+ * // const { IoTWirelessClient, GetNetworkAnalyzerConfigurationCommand } = require('@aws-sdk/client-iot-wireless'); // CommonJS import
  * const client = new IoTWirelessClient(config);
  * const input = { // GetNetworkAnalyzerConfigurationRequest
- *   ConfigurationName: "STRING_VALUE", // required
+ *   ConfigurationName: 'STRING_VALUE', // required
  * };
  * const command = new GetNetworkAnalyzerConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetNetworkAnalyzerConfigurationResponse
+ *   TraceContent: { // TraceContent
+ *     WirelessDeviceFrameInfo: 'ENABLED' || 'DISABLED',
+ *     LogLevel: 'INFO' || 'ERROR' || 'DISABLED',
+ *   },
+ *   WirelessDevices: [ // WirelessDeviceList
+ *     'STRING_VALUE',
+ *   ],
+ *   WirelessGateways: [ // WirelessGatewayList
+ *     'STRING_VALUE',
+ *   ],
+ *   Description: 'STRING_VALUE',
+ *   Arn: 'STRING_VALUE',
+ *   Name: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetNetworkAnalyzerConfigurationCommandInput - {@link GetNetworkAnalyzerConfigurationCommandInput}
@@ -72,6 +89,8 @@ export interface GetNetworkAnalyzerConfigurationCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The input did not meet the specified constraints.</p>
  *
+ * @throws {@link IoTWirelessServiceException}
+ * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
  */
 export class GetNetworkAnalyzerConfigurationCommand extends $Command<

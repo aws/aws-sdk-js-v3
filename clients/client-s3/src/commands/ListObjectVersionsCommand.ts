@@ -74,21 +74,70 @@ export interface ListObjectVersionsCommandOutput extends ListObjectVersionsOutpu
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { S3Client, ListObjectVersionsCommand } from "@aws-sdk/client-s3"; // ES Modules import
- * // const { S3Client, ListObjectVersionsCommand } = require("@aws-sdk/client-s3"); // CommonJS import
+ * import { S3Client, ListObjectVersionsCommand } from '@aws-sdk/client-s3'; // ES Modules import
+ * // const { S3Client, ListObjectVersionsCommand } = require('@aws-sdk/client-s3'); // CommonJS import
  * const client = new S3Client(config);
  * const input = { // ListObjectVersionsRequest
- *   Bucket: "STRING_VALUE", // required
- *   Delimiter: "STRING_VALUE",
- *   EncodingType: "url",
- *   KeyMarker: "STRING_VALUE",
- *   MaxKeys: Number("int"),
- *   Prefix: "STRING_VALUE",
- *   VersionIdMarker: "STRING_VALUE",
- *   ExpectedBucketOwner: "STRING_VALUE",
+ *   Bucket: 'STRING_VALUE', // required
+ *   Delimiter: 'STRING_VALUE',
+ *   EncodingType: 'url',
+ *   KeyMarker: 'STRING_VALUE',
+ *   MaxKeys: Number('int'),
+ *   Prefix: 'STRING_VALUE',
+ *   VersionIdMarker: 'STRING_VALUE',
+ *   ExpectedBucketOwner: 'STRING_VALUE',
  * };
  * const command = new ListObjectVersionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListObjectVersionsOutput
+ *   IsTruncated: true || false,
+ *   KeyMarker: 'STRING_VALUE',
+ *   VersionIdMarker: 'STRING_VALUE',
+ *   NextKeyMarker: 'STRING_VALUE',
+ *   NextVersionIdMarker: 'STRING_VALUE',
+ *   Versions: [ // ObjectVersionList
+ *     { // ObjectVersion
+ *       ETag: 'STRING_VALUE',
+ *       ChecksumAlgorithm: [ // ChecksumAlgorithmList
+ *         'CRC32' || 'CRC32C' || 'SHA1' || 'SHA256',
+ *       ],
+ *       Size: Number('long'),
+ *       StorageClass: 'STANDARD',
+ *       Key: 'STRING_VALUE',
+ *       VersionId: 'STRING_VALUE',
+ *       IsLatest: true || false,
+ *       LastModified: new Date('TIMESTAMP'),
+ *       Owner: { // Owner
+ *         DisplayName: 'STRING_VALUE',
+ *         ID: 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ *   DeleteMarkers: [ // DeleteMarkers
+ *     { // DeleteMarkerEntry
+ *       Owner: {
+ *         DisplayName: 'STRING_VALUE',
+ *         ID: 'STRING_VALUE',
+ *       },
+ *       Key: 'STRING_VALUE',
+ *       VersionId: 'STRING_VALUE',
+ *       IsLatest: true || false,
+ *       LastModified: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   Name: 'STRING_VALUE',
+ *   Prefix: 'STRING_VALUE',
+ *   Delimiter: 'STRING_VALUE',
+ *   MaxKeys: Number('int'),
+ *   CommonPrefixes: [ // CommonPrefixList
+ *     { // CommonPrefix
+ *       Prefix: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   EncodingType: 'url',
+ * };
+ *
  * ```
  *
  * @param ListObjectVersionsCommandInput - {@link ListObjectVersionsCommandInput}
@@ -97,6 +146,8 @@ export interface ListObjectVersionsCommandOutput extends ListObjectVersionsOutpu
  * @see {@link ListObjectVersionsCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
+ * @throws {@link S3ServiceException}
+ * <p>Base exception class for all service exceptions from S3 service.</p>
  *
  * @example To list object versions
  * ```javascript

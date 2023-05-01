@@ -36,17 +36,27 @@ export interface UpdateDestinationCommandOutput extends UpdateDestinationRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTRoboRunnerClient, UpdateDestinationCommand } from "@aws-sdk/client-iot-roborunner"; // ES Modules import
- * // const { IoTRoboRunnerClient, UpdateDestinationCommand } = require("@aws-sdk/client-iot-roborunner"); // CommonJS import
+ * import { IoTRoboRunnerClient, UpdateDestinationCommand } from '@aws-sdk/client-iot-roborunner'; // ES Modules import
+ * // const { IoTRoboRunnerClient, UpdateDestinationCommand } = require('@aws-sdk/client-iot-roborunner'); // CommonJS import
  * const client = new IoTRoboRunnerClient(config);
  * const input = { // UpdateDestinationRequest
- *   id: "STRING_VALUE", // required
- *   name: "STRING_VALUE",
- *   state: "STRING_VALUE",
- *   additionalFixedProperties: "STRING_VALUE",
+ *   id: 'STRING_VALUE', // required
+ *   name: 'STRING_VALUE',
+ *   state: 'STRING_VALUE',
+ *   additionalFixedProperties: 'STRING_VALUE',
  * };
  * const command = new UpdateDestinationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateDestinationResponse
+ *   arn: 'STRING_VALUE', // required
+ *   id: 'STRING_VALUE', // required
+ *   name: 'STRING_VALUE', // required
+ *   updatedAt: new Date('TIMESTAMP'), // required
+ *   state: 'STRING_VALUE', // required
+ *   additionalFixedProperties: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateDestinationCommandInput - {@link UpdateDestinationCommandInput}
@@ -70,6 +80,8 @@ export interface UpdateDestinationCommandOutput extends UpdateDestinationRespons
  * @throws {@link ValidationException} (client fault)
  *  Exception thrown if an invalid parameter is provided to an API.
  *
+ * @throws {@link IoTRoboRunnerServiceException}
+ * <p>Base exception class for all service exceptions from IoTRoboRunner service.</p>
  *
  */
 export class UpdateDestinationCommand extends $Command<

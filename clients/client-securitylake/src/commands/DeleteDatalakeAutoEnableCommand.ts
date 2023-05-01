@@ -41,21 +41,24 @@ export interface DeleteDatalakeAutoEnableCommandOutput extends DeleteDatalakeAut
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SecurityLakeClient, DeleteDatalakeAutoEnableCommand } from "@aws-sdk/client-securitylake"; // ES Modules import
- * // const { SecurityLakeClient, DeleteDatalakeAutoEnableCommand } = require("@aws-sdk/client-securitylake"); // CommonJS import
+ * import { SecurityLakeClient, DeleteDatalakeAutoEnableCommand } from '@aws-sdk/client-securitylake'; // ES Modules import
+ * // const { SecurityLakeClient, DeleteDatalakeAutoEnableCommand } = require('@aws-sdk/client-securitylake'); // CommonJS import
  * const client = new SecurityLakeClient(config);
  * const input = { // DeleteDatalakeAutoEnableRequest
  *   removeFromConfigurationForNewAccounts: [ // AutoEnableNewRegionConfigurationList // required
  *     { // AutoEnableNewRegionConfiguration
- *       region: "STRING_VALUE", // required
+ *       region: 'STRING_VALUE', // required
  *       sources: [ // AwsSourceTypeList // required
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
  * };
  * const command = new DeleteDatalakeAutoEnableCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteDatalakeAutoEnableCommandInput - {@link DeleteDatalakeAutoEnableCommandInput}
@@ -82,6 +85,8 @@ export interface DeleteDatalakeAutoEnableCommandOutput extends DeleteDatalakeAut
  * @throws {@link ValidationException} (client fault)
  *  <p>Your signing certificate could not be validated. </p>
  *
+ * @throws {@link SecurityLakeServiceException}
+ * <p>Base exception class for all service exceptions from SecurityLake service.</p>
  *
  */
 export class DeleteDatalakeAutoEnableCommand extends $Command<

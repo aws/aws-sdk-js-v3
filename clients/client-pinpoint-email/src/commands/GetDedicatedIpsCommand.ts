@@ -37,16 +37,29 @@ export interface GetDedicatedIpsCommandOutput extends GetDedicatedIpsResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PinpointEmailClient, GetDedicatedIpsCommand } from "@aws-sdk/client-pinpoint-email"; // ES Modules import
- * // const { PinpointEmailClient, GetDedicatedIpsCommand } = require("@aws-sdk/client-pinpoint-email"); // CommonJS import
+ * import { PinpointEmailClient, GetDedicatedIpsCommand } from '@aws-sdk/client-pinpoint-email'; // ES Modules import
+ * // const { PinpointEmailClient, GetDedicatedIpsCommand } = require('@aws-sdk/client-pinpoint-email'); // CommonJS import
  * const client = new PinpointEmailClient(config);
  * const input = { // GetDedicatedIpsRequest
- *   PoolName: "STRING_VALUE",
- *   NextToken: "STRING_VALUE",
- *   PageSize: Number("int"),
+ *   PoolName: 'STRING_VALUE',
+ *   NextToken: 'STRING_VALUE',
+ *   PageSize: Number('int'),
  * };
  * const command = new GetDedicatedIpsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetDedicatedIpsResponse
+ *   DedicatedIps: [ // DedicatedIpList
+ *     { // DedicatedIp
+ *       Ip: 'STRING_VALUE', // required
+ *       WarmupStatus: 'STRING_VALUE', // required
+ *       WarmupPercentage: Number('int'), // required
+ *       PoolName: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetDedicatedIpsCommandInput - {@link GetDedicatedIpsCommandInput}
@@ -64,6 +77,8 @@ export interface GetDedicatedIpsCommandOutput extends GetDedicatedIpsResponse, _
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Too many requests have been made to the operation.</p>
  *
+ * @throws {@link PinpointEmailServiceException}
+ * <p>Base exception class for all service exceptions from PinpointEmail service.</p>
  *
  */
 export class GetDedicatedIpsCommand extends $Command<

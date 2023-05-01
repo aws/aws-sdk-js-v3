@@ -49,21 +49,29 @@ export interface SearchAvailablePhoneNumbersCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeClient, SearchAvailablePhoneNumbersCommand } from "@aws-sdk/client-chime"; // ES Modules import
- * // const { ChimeClient, SearchAvailablePhoneNumbersCommand } = require("@aws-sdk/client-chime"); // CommonJS import
+ * import { ChimeClient, SearchAvailablePhoneNumbersCommand } from '@aws-sdk/client-chime'; // ES Modules import
+ * // const { ChimeClient, SearchAvailablePhoneNumbersCommand } = require('@aws-sdk/client-chime'); // CommonJS import
  * const client = new ChimeClient(config);
  * const input = { // SearchAvailablePhoneNumbersRequest
- *   AreaCode: "STRING_VALUE",
- *   City: "STRING_VALUE",
- *   Country: "STRING_VALUE",
- *   State: "STRING_VALUE",
- *   TollFreePrefix: "STRING_VALUE",
- *   PhoneNumberType: "Local" || "TollFree",
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   AreaCode: 'STRING_VALUE',
+ *   City: 'STRING_VALUE',
+ *   Country: 'STRING_VALUE',
+ *   State: 'STRING_VALUE',
+ *   TollFreePrefix: 'STRING_VALUE',
+ *   PhoneNumberType: 'Local' || 'TollFree',
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new SearchAvailablePhoneNumbersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SearchAvailablePhoneNumbersResponse
+ *   E164PhoneNumbers: [ // E164PhoneNumberList
+ *     'STRING_VALUE',
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param SearchAvailablePhoneNumbersCommandInput - {@link SearchAvailablePhoneNumbersCommandInput}
@@ -93,6 +101,8 @@ export interface SearchAvailablePhoneNumbersCommandOutput
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeServiceException}
+ * <p>Base exception class for all service exceptions from Chime service.</p>
  *
  */
 export class SearchAvailablePhoneNumbersCommand extends $Command<

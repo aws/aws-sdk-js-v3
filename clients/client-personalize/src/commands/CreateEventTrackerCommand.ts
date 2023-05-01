@@ -81,21 +81,27 @@ export interface CreateEventTrackerCommandOutput extends CreateEventTrackerRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PersonalizeClient, CreateEventTrackerCommand } from "@aws-sdk/client-personalize"; // ES Modules import
- * // const { PersonalizeClient, CreateEventTrackerCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
+ * import { PersonalizeClient, CreateEventTrackerCommand } from '@aws-sdk/client-personalize'; // ES Modules import
+ * // const { PersonalizeClient, CreateEventTrackerCommand } = require('@aws-sdk/client-personalize'); // CommonJS import
  * const client = new PersonalizeClient(config);
  * const input = { // CreateEventTrackerRequest
- *   name: "STRING_VALUE", // required
- *   datasetGroupArn: "STRING_VALUE", // required
+ *   name: 'STRING_VALUE', // required
+ *   datasetGroupArn: 'STRING_VALUE', // required
  *   tags: [ // Tags
  *     { // Tag
- *       tagKey: "STRING_VALUE", // required
- *       tagValue: "STRING_VALUE", // required
+ *       tagKey: 'STRING_VALUE', // required
+ *       tagValue: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreateEventTrackerCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateEventTrackerResponse
+ *   eventTrackerArn: 'STRING_VALUE',
+ *   trackingId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateEventTrackerCommandInput - {@link CreateEventTrackerCommandInput}
@@ -122,6 +128,8 @@ export interface CreateEventTrackerCommandOutput extends CreateEventTrackerRespo
  * @throws {@link TooManyTagsException} (client fault)
  *  <p>You have exceeded the maximum number of tags you can apply to this resource. </p>
  *
+ * @throws {@link PersonalizeServiceException}
+ * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
  */
 export class CreateEventTrackerCommand extends $Command<

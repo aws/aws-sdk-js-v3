@@ -42,16 +42,48 @@ export interface DescribeFileSystemAssociationsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { StorageGatewayClient, DescribeFileSystemAssociationsCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
- * // const { StorageGatewayClient, DescribeFileSystemAssociationsCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
+ * import { StorageGatewayClient, DescribeFileSystemAssociationsCommand } from '@aws-sdk/client-storage-gateway'; // ES Modules import
+ * // const { StorageGatewayClient, DescribeFileSystemAssociationsCommand } = require('@aws-sdk/client-storage-gateway'); // CommonJS import
  * const client = new StorageGatewayClient(config);
  * const input = { // DescribeFileSystemAssociationsInput
  *   FileSystemAssociationARNList: [ // FileSystemAssociationARNList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new DescribeFileSystemAssociationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeFileSystemAssociationsOutput
+ *   FileSystemAssociationInfoList: [ // FileSystemAssociationInfoList
+ *     { // FileSystemAssociationInfo
+ *       FileSystemAssociationARN: 'STRING_VALUE',
+ *       LocationARN: 'STRING_VALUE',
+ *       FileSystemAssociationStatus: 'STRING_VALUE',
+ *       AuditDestinationARN: 'STRING_VALUE',
+ *       GatewayARN: 'STRING_VALUE',
+ *       Tags: [ // Tags
+ *         { // Tag
+ *           Key: 'STRING_VALUE', // required
+ *           Value: 'STRING_VALUE', // required
+ *         },
+ *       ],
+ *       CacheAttributes: { // CacheAttributes
+ *         CacheStaleTimeoutInSeconds: Number('int'),
+ *       },
+ *       EndpointNetworkConfiguration: { // EndpointNetworkConfiguration
+ *         IpAddresses: [ // IpAddressList
+ *           'STRING_VALUE',
+ *         ],
+ *       },
+ *       FileSystemAssociationStatusDetails: [ // FileSystemAssociationStatusDetails
+ *         { // FileSystemAssociationStatusDetail
+ *           ErrorCode: 'STRING_VALUE',
+ *         },
+ *       ],
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeFileSystemAssociationsCommandInput - {@link DescribeFileSystemAssociationsCommandInput}
@@ -68,6 +100,8 @@ export interface DescribeFileSystemAssociationsCommandOutput
  *  <p>An exception occurred because an invalid gateway request was issued to the service. For
  *          more information, see the error and message fields.</p>
  *
+ * @throws {@link StorageGatewayServiceException}
+ * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
  */
 export class DescribeFileSystemAssociationsCommand extends $Command<

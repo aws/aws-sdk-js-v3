@@ -39,40 +39,45 @@ export interface CreateObjectCommandOutput extends CreateObjectResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudDirectoryClient, CreateObjectCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
- * // const { CloudDirectoryClient, CreateObjectCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
+ * import { CloudDirectoryClient, CreateObjectCommand } from '@aws-sdk/client-clouddirectory'; // ES Modules import
+ * // const { CloudDirectoryClient, CreateObjectCommand } = require('@aws-sdk/client-clouddirectory'); // CommonJS import
  * const client = new CloudDirectoryClient(config);
  * const input = { // CreateObjectRequest
- *   DirectoryArn: "STRING_VALUE", // required
+ *   DirectoryArn: 'STRING_VALUE', // required
  *   SchemaFacets: [ // SchemaFacetList // required
  *     { // SchemaFacet
- *       SchemaArn: "STRING_VALUE",
- *       FacetName: "STRING_VALUE",
+ *       SchemaArn: 'STRING_VALUE',
+ *       FacetName: 'STRING_VALUE',
  *     },
  *   ],
  *   ObjectAttributeList: [ // AttributeKeyAndValueList
  *     { // AttributeKeyAndValue
  *       Key: { // AttributeKey
- *         SchemaArn: "STRING_VALUE", // required
- *         FacetName: "STRING_VALUE", // required
- *         Name: "STRING_VALUE", // required
+ *         SchemaArn: 'STRING_VALUE', // required
+ *         FacetName: 'STRING_VALUE', // required
+ *         Name: 'STRING_VALUE', // required
  *       },
  *       Value: { // TypedAttributeValue Union: only one key present
- *         StringValue: "STRING_VALUE",
- *         BinaryValue: "BLOB_VALUE",
+ *         StringValue: 'STRING_VALUE',
+ *         BinaryValue: 'BLOB_VALUE',
  *         BooleanValue: true || false,
- *         NumberValue: "STRING_VALUE",
- *         DatetimeValue: new Date("TIMESTAMP"),
+ *         NumberValue: 'STRING_VALUE',
+ *         DatetimeValue: new Date('TIMESTAMP'),
  *       },
  *     },
  *   ],
  *   ParentReference: { // ObjectReference
- *     Selector: "STRING_VALUE",
+ *     Selector: 'STRING_VALUE',
  *   },
- *   LinkName: "STRING_VALUE",
+ *   LinkName: 'STRING_VALUE',
  * };
  * const command = new CreateObjectCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateObjectResponse
+ *   ObjectIdentifier: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateObjectCommandInput - {@link CreateObjectCommandInput}
@@ -117,6 +122,8 @@ export interface CreateObjectCommandOutput extends CreateObjectResponse, __Metad
  *  <p>Indicates that your request is malformed in some manner. See the exception
  *       message.</p>
  *
+ * @throws {@link CloudDirectoryServiceException}
+ * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
  */
 export class CreateObjectCommand extends $Command<

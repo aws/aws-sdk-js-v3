@@ -41,16 +41,27 @@ export interface UpdateUserAccessLoggingSettingsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkSpacesWebClient, UpdateUserAccessLoggingSettingsCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
- * // const { WorkSpacesWebClient, UpdateUserAccessLoggingSettingsCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
+ * import { WorkSpacesWebClient, UpdateUserAccessLoggingSettingsCommand } from '@aws-sdk/client-workspaces-web'; // ES Modules import
+ * // const { WorkSpacesWebClient, UpdateUserAccessLoggingSettingsCommand } = require('@aws-sdk/client-workspaces-web'); // CommonJS import
  * const client = new WorkSpacesWebClient(config);
  * const input = { // UpdateUserAccessLoggingSettingsRequest
- *   userAccessLoggingSettingsArn: "STRING_VALUE", // required
- *   kinesisStreamArn: "STRING_VALUE",
- *   clientToken: "STRING_VALUE",
+ *   userAccessLoggingSettingsArn: 'STRING_VALUE', // required
+ *   kinesisStreamArn: 'STRING_VALUE',
+ *   clientToken: 'STRING_VALUE',
  * };
  * const command = new UpdateUserAccessLoggingSettingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateUserAccessLoggingSettingsResponse
+ *   userAccessLoggingSettings: { // UserAccessLoggingSettings
+ *     userAccessLoggingSettingsArn: 'STRING_VALUE', // required
+ *     associatedPortalArns: [ // ArnList
+ *       'STRING_VALUE',
+ *     ],
+ *     kinesisStreamArn: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateUserAccessLoggingSettingsCommandInput - {@link UpdateUserAccessLoggingSettingsCommandInput}
@@ -74,6 +85,8 @@ export interface UpdateUserAccessLoggingSettingsCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>There is a validation error.</p>
  *
+ * @throws {@link WorkSpacesWebServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
  */
 export class UpdateUserAccessLoggingSettingsCommand extends $Command<

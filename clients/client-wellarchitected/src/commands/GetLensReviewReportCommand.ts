@@ -36,16 +36,27 @@ export interface GetLensReviewReportCommandOutput extends GetLensReviewReportOut
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WellArchitectedClient, GetLensReviewReportCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
- * // const { WellArchitectedClient, GetLensReviewReportCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
+ * import { WellArchitectedClient, GetLensReviewReportCommand } from '@aws-sdk/client-wellarchitected'; // ES Modules import
+ * // const { WellArchitectedClient, GetLensReviewReportCommand } = require('@aws-sdk/client-wellarchitected'); // CommonJS import
  * const client = new WellArchitectedClient(config);
  * const input = { // GetLensReviewReportInput
- *   WorkloadId: "STRING_VALUE", // required
- *   LensAlias: "STRING_VALUE", // required
- *   MilestoneNumber: Number("int"),
+ *   WorkloadId: 'STRING_VALUE', // required
+ *   LensAlias: 'STRING_VALUE', // required
+ *   MilestoneNumber: Number('int'),
  * };
  * const command = new GetLensReviewReportCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetLensReviewReportOutput
+ *   WorkloadId: 'STRING_VALUE',
+ *   MilestoneNumber: Number('int'),
+ *   LensReviewReport: { // LensReviewReport
+ *     LensAlias: 'STRING_VALUE',
+ *     LensArn: 'STRING_VALUE',
+ *     Base64String: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetLensReviewReportCommandInput - {@link GetLensReviewReportCommandInput}
@@ -69,6 +80,8 @@ export interface GetLensReviewReportCommandOutput extends GetLensReviewReportOut
  * @throws {@link ValidationException} (client fault)
  *  <p>The user input is not valid.</p>
  *
+ * @throws {@link WellArchitectedServiceException}
+ * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
  */
 export class GetLensReviewReportCommand extends $Command<

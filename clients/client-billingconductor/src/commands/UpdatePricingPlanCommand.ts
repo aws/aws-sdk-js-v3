@@ -42,16 +42,25 @@ export interface UpdatePricingPlanCommandOutput extends UpdatePricingPlanOutput,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BillingconductorClient, UpdatePricingPlanCommand } from "@aws-sdk/client-billingconductor"; // ES Modules import
- * // const { BillingconductorClient, UpdatePricingPlanCommand } = require("@aws-sdk/client-billingconductor"); // CommonJS import
+ * import { BillingconductorClient, UpdatePricingPlanCommand } from '@aws-sdk/client-billingconductor'; // ES Modules import
+ * // const { BillingconductorClient, UpdatePricingPlanCommand } = require('@aws-sdk/client-billingconductor'); // CommonJS import
  * const client = new BillingconductorClient(config);
  * const input = { // UpdatePricingPlanInput
- *   Arn: "STRING_VALUE", // required
- *   Name: "STRING_VALUE",
- *   Description: "STRING_VALUE",
+ *   Arn: 'STRING_VALUE', // required
+ *   Name: 'STRING_VALUE',
+ *   Description: 'STRING_VALUE',
  * };
  * const command = new UpdatePricingPlanCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdatePricingPlanOutput
+ *   Arn: 'STRING_VALUE',
+ *   Name: 'STRING_VALUE',
+ *   Description: 'STRING_VALUE',
+ *   Size: Number('long'),
+ *   LastModifiedTime: Number('long'),
+ * };
+ *
  * ```
  *
  * @param UpdatePricingPlanCommandInput - {@link UpdatePricingPlanCommandInput}
@@ -83,6 +92,8 @@ export interface UpdatePricingPlanCommandOutput extends UpdatePricingPlanOutput,
  * @throws {@link ValidationException} (client fault)
  *  <p>The input doesn't match with the constraints specified by Amazon Web Services services.</p>
  *
+ * @throws {@link BillingconductorServiceException}
+ * <p>Base exception class for all service exceptions from Billingconductor service.</p>
  *
  */
 export class UpdatePricingPlanCommand extends $Command<

@@ -42,18 +42,21 @@ export interface PutSkillAuthorizationCommandOutput extends PutSkillAuthorizatio
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AlexaForBusinessClient, PutSkillAuthorizationCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
- * // const { AlexaForBusinessClient, PutSkillAuthorizationCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
+ * import { AlexaForBusinessClient, PutSkillAuthorizationCommand } from '@aws-sdk/client-alexa-for-business'; // ES Modules import
+ * // const { AlexaForBusinessClient, PutSkillAuthorizationCommand } = require('@aws-sdk/client-alexa-for-business'); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
  * const input = { // PutSkillAuthorizationRequest
  *   AuthorizationResult: { // AuthorizationResult // required
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
- *   SkillId: "STRING_VALUE", // required
- *   RoomArn: "STRING_VALUE",
+ *   SkillId: 'STRING_VALUE', // required
+ *   RoomArn: 'STRING_VALUE',
  * };
  * const command = new PutSkillAuthorizationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutSkillAuthorizationCommandInput - {@link PutSkillAuthorizationCommandInput}
@@ -68,6 +71,8 @@ export interface PutSkillAuthorizationCommandOutput extends PutSkillAuthorizatio
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The caller has no permissions to operate on the resource involved in the API call.</p>
  *
+ * @throws {@link AlexaForBusinessServiceException}
+ * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  */
 export class PutSkillAuthorizationCommand extends $Command<

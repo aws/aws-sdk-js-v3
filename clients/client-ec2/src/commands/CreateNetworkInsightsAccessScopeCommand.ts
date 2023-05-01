@@ -44,8 +44,8 @@ export interface CreateNetworkInsightsAccessScopeCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, CreateNetworkInsightsAccessScopeCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, CreateNetworkInsightsAccessScopeCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, CreateNetworkInsightsAccessScopeCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, CreateNetworkInsightsAccessScopeCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // CreateNetworkInsightsAccessScopeRequest
  *   MatchPaths: [ // AccessScopePathListRequest
@@ -53,52 +53,52 @@ export interface CreateNetworkInsightsAccessScopeCommandOutput
  *       Source: { // PathStatementRequest
  *         PacketHeaderStatement: { // PacketHeaderStatementRequest
  *           SourceAddresses: [ // ValueStringList
- *             "STRING_VALUE",
+ *             'STRING_VALUE',
  *           ],
  *           DestinationAddresses: [
- *             "STRING_VALUE",
+ *             'STRING_VALUE',
  *           ],
  *           SourcePorts: [
- *             "STRING_VALUE",
+ *             'STRING_VALUE',
  *           ],
  *           DestinationPorts: [
- *             "STRING_VALUE",
+ *             'STRING_VALUE',
  *           ],
  *           SourcePrefixLists: [
- *             "STRING_VALUE",
+ *             'STRING_VALUE',
  *           ],
- *           DestinationPrefixLists: "<ValueStringList>",
+ *           DestinationPrefixLists: '<ValueStringList>',
  *           Protocols: [ // ProtocolList
- *             "tcp" || "udp",
+ *             'tcp' || 'udp',
  *           ],
  *         },
  *         ResourceStatement: { // ResourceStatementRequest
- *           Resources: "<ValueStringList>",
- *           ResourceTypes: "<ValueStringList>",
+ *           Resources: '<ValueStringList>',
+ *           ResourceTypes: '<ValueStringList>',
  *         },
  *       },
  *       Destination: {
  *         PacketHeaderStatement: {
- *           SourceAddresses: "<ValueStringList>",
- *           DestinationAddresses: "<ValueStringList>",
- *           SourcePorts: "<ValueStringList>",
- *           DestinationPorts: "<ValueStringList>",
- *           SourcePrefixLists: "<ValueStringList>",
- *           DestinationPrefixLists: "<ValueStringList>",
+ *           SourceAddresses: '<ValueStringList>',
+ *           DestinationAddresses: '<ValueStringList>',
+ *           SourcePorts: '<ValueStringList>',
+ *           DestinationPorts: '<ValueStringList>',
+ *           SourcePrefixLists: '<ValueStringList>',
+ *           DestinationPrefixLists: '<ValueStringList>',
  *           Protocols: [
- *             "tcp" || "udp",
+ *             'tcp' || 'udp',
  *           ],
  *         },
  *         ResourceStatement: {
- *           Resources: "<ValueStringList>",
- *           ResourceTypes: "<ValueStringList>",
+ *           Resources: '<ValueStringList>',
+ *           ResourceTypes: '<ValueStringList>',
  *         },
  *       },
  *       ThroughResources: [ // ThroughResourcesStatementRequestList
  *         { // ThroughResourcesStatementRequest
  *           ResourceStatement: {
- *             Resources: "<ValueStringList>",
- *             ResourceTypes: "<ValueStringList>",
+ *             Resources: '<ValueStringList>',
+ *             ResourceTypes: '<ValueStringList>',
  *           },
  *         },
  *       ],
@@ -108,53 +108,53 @@ export interface CreateNetworkInsightsAccessScopeCommandOutput
  *     {
  *       Source: {
  *         PacketHeaderStatement: {
- *           SourceAddresses: "<ValueStringList>",
- *           DestinationAddresses: "<ValueStringList>",
- *           SourcePorts: "<ValueStringList>",
- *           DestinationPorts: "<ValueStringList>",
- *           SourcePrefixLists: "<ValueStringList>",
- *           DestinationPrefixLists: "<ValueStringList>",
+ *           SourceAddresses: '<ValueStringList>',
+ *           DestinationAddresses: '<ValueStringList>',
+ *           SourcePorts: '<ValueStringList>',
+ *           DestinationPorts: '<ValueStringList>',
+ *           SourcePrefixLists: '<ValueStringList>',
+ *           DestinationPrefixLists: '<ValueStringList>',
  *           Protocols: [
- *             "tcp" || "udp",
+ *             'tcp' || 'udp',
  *           ],
  *         },
  *         ResourceStatement: {
- *           Resources: "<ValueStringList>",
- *           ResourceTypes: "<ValueStringList>",
+ *           Resources: '<ValueStringList>',
+ *           ResourceTypes: '<ValueStringList>',
  *         },
  *       },
  *       Destination: {
  *         PacketHeaderStatement: {
- *           SourceAddresses: "<ValueStringList>",
- *           DestinationAddresses: "<ValueStringList>",
- *           SourcePorts: "<ValueStringList>",
- *           DestinationPorts: "<ValueStringList>",
- *           SourcePrefixLists: "<ValueStringList>",
- *           DestinationPrefixLists: "<ValueStringList>",
+ *           SourceAddresses: '<ValueStringList>',
+ *           DestinationAddresses: '<ValueStringList>',
+ *           SourcePorts: '<ValueStringList>',
+ *           DestinationPorts: '<ValueStringList>',
+ *           SourcePrefixLists: '<ValueStringList>',
+ *           DestinationPrefixLists: '<ValueStringList>',
  *           Protocols: [
- *             "tcp" || "udp",
+ *             'tcp' || 'udp',
  *           ],
  *         },
  *         ResourceStatement: {
- *           Resources: "<ValueStringList>",
- *           ResourceTypes: "<ValueStringList>",
+ *           Resources: '<ValueStringList>',
+ *           ResourceTypes: '<ValueStringList>',
  *         },
  *       },
  *       ThroughResources: [
  *         {
- *           ResourceStatement: "<ResourceStatementRequest>",
+ *           ResourceStatement: '<ResourceStatementRequest>',
  *         },
  *       ],
  *     },
  *   ],
- *   ClientToken: "STRING_VALUE", // required
+ *   ClientToken: 'STRING_VALUE', // required
  *   TagSpecifications: [ // TagSpecificationList
  *     { // TagSpecification
- *       ResourceType: "capacity-reservation" || "client-vpn-endpoint" || "customer-gateway" || "carrier-gateway" || "coip-pool" || "dedicated-host" || "dhcp-options" || "egress-only-internet-gateway" || "elastic-ip" || "elastic-gpu" || "export-image-task" || "export-instance-task" || "fleet" || "fpga-image" || "host-reservation" || "image" || "import-image-task" || "import-snapshot-task" || "instance" || "instance-event-window" || "internet-gateway" || "ipam" || "ipam-pool" || "ipam-scope" || "ipv4pool-ec2" || "ipv6pool-ec2" || "key-pair" || "launch-template" || "local-gateway" || "local-gateway-route-table" || "local-gateway-virtual-interface" || "local-gateway-virtual-interface-group" || "local-gateway-route-table-vpc-association" || "local-gateway-route-table-virtual-interface-group-association" || "natgateway" || "network-acl" || "network-interface" || "network-insights-analysis" || "network-insights-path" || "network-insights-access-scope" || "network-insights-access-scope-analysis" || "placement-group" || "prefix-list" || "replace-root-volume-task" || "reserved-instances" || "route-table" || "security-group" || "security-group-rule" || "snapshot" || "spot-fleet-request" || "spot-instances-request" || "subnet" || "subnet-cidr-reservation" || "traffic-mirror-filter" || "traffic-mirror-session" || "traffic-mirror-target" || "transit-gateway" || "transit-gateway-attachment" || "transit-gateway-connect-peer" || "transit-gateway-multicast-domain" || "transit-gateway-policy-table" || "transit-gateway-route-table" || "transit-gateway-route-table-announcement" || "volume" || "vpc" || "vpc-endpoint" || "vpc-endpoint-connection" || "vpc-endpoint-service" || "vpc-endpoint-service-permission" || "vpc-peering-connection" || "vpn-connection" || "vpn-gateway" || "vpc-flow-log" || "capacity-reservation-fleet" || "traffic-mirror-filter-rule" || "vpc-endpoint-connection-device-type" || "verified-access-instance" || "verified-access-group" || "verified-access-endpoint" || "verified-access-policy" || "verified-access-trust-provider" || "vpn-connection-device-type" || "vpc-block-public-access-exclusion" || "ipam-resource-discovery" || "ipam-resource-discovery-association",
+ *       ResourceType: 'capacity-reservation' || 'client-vpn-endpoint' || 'customer-gateway' || 'carrier-gateway' || 'coip-pool' || 'dedicated-host' || 'dhcp-options' || 'egress-only-internet-gateway' || 'elastic-ip' || 'elastic-gpu' || 'export-image-task' || 'export-instance-task' || 'fleet' || 'fpga-image' || 'host-reservation' || 'image' || 'import-image-task' || 'import-snapshot-task' || 'instance' || 'instance-event-window' || 'internet-gateway' || 'ipam' || 'ipam-pool' || 'ipam-scope' || 'ipv4pool-ec2' || 'ipv6pool-ec2' || 'key-pair' || 'launch-template' || 'local-gateway' || 'local-gateway-route-table' || 'local-gateway-virtual-interface' || 'local-gateway-virtual-interface-group' || 'local-gateway-route-table-vpc-association' || 'local-gateway-route-table-virtual-interface-group-association' || 'natgateway' || 'network-acl' || 'network-interface' || 'network-insights-analysis' || 'network-insights-path' || 'network-insights-access-scope' || 'network-insights-access-scope-analysis' || 'placement-group' || 'prefix-list' || 'replace-root-volume-task' || 'reserved-instances' || 'route-table' || 'security-group' || 'security-group-rule' || 'snapshot' || 'spot-fleet-request' || 'spot-instances-request' || 'subnet' || 'subnet-cidr-reservation' || 'traffic-mirror-filter' || 'traffic-mirror-session' || 'traffic-mirror-target' || 'transit-gateway' || 'transit-gateway-attachment' || 'transit-gateway-connect-peer' || 'transit-gateway-multicast-domain' || 'transit-gateway-policy-table' || 'transit-gateway-route-table' || 'transit-gateway-route-table-announcement' || 'volume' || 'vpc' || 'vpc-endpoint' || 'vpc-endpoint-connection' || 'vpc-endpoint-service' || 'vpc-endpoint-service-permission' || 'vpc-peering-connection' || 'vpn-connection' || 'vpn-gateway' || 'vpc-flow-log' || 'capacity-reservation-fleet' || 'traffic-mirror-filter-rule' || 'vpc-endpoint-connection-device-type' || 'verified-access-instance' || 'verified-access-group' || 'verified-access-endpoint' || 'verified-access-policy' || 'verified-access-trust-provider' || 'vpn-connection-device-type' || 'vpc-block-public-access-exclusion' || 'ipam-resource-discovery' || 'ipam-resource-discovery-association',
  *       Tags: [ // TagList
  *         { // Tag
- *           Key: "STRING_VALUE",
- *           Value: "STRING_VALUE",
+ *           Key: 'STRING_VALUE',
+ *           Value: 'STRING_VALUE',
  *         },
  *       ],
  *     },
@@ -163,6 +163,124 @@ export interface CreateNetworkInsightsAccessScopeCommandOutput
  * };
  * const command = new CreateNetworkInsightsAccessScopeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateNetworkInsightsAccessScopeResult
+ *   NetworkInsightsAccessScope: { // NetworkInsightsAccessScope
+ *     NetworkInsightsAccessScopeId: 'STRING_VALUE',
+ *     NetworkInsightsAccessScopeArn: 'STRING_VALUE',
+ *     CreatedDate: new Date('TIMESTAMP'),
+ *     UpdatedDate: new Date('TIMESTAMP'),
+ *     Tags: [ // TagList
+ *       { // Tag
+ *         Key: 'STRING_VALUE',
+ *         Value: 'STRING_VALUE',
+ *       },
+ *     ],
+ *   },
+ *   NetworkInsightsAccessScopeContent: { // NetworkInsightsAccessScopeContent
+ *     NetworkInsightsAccessScopeId: 'STRING_VALUE',
+ *     MatchPaths: [ // AccessScopePathList
+ *       { // AccessScopePath
+ *         Source: { // PathStatement
+ *           PacketHeaderStatement: { // PacketHeaderStatement
+ *             SourceAddresses: [ // ValueStringList
+ *               'STRING_VALUE',
+ *             ],
+ *             DestinationAddresses: [
+ *               'STRING_VALUE',
+ *             ],
+ *             SourcePorts: [
+ *               'STRING_VALUE',
+ *             ],
+ *             DestinationPorts: [
+ *               'STRING_VALUE',
+ *             ],
+ *             SourcePrefixLists: [
+ *               'STRING_VALUE',
+ *             ],
+ *             DestinationPrefixLists: '<ValueStringList>',
+ *             Protocols: [ // ProtocolList
+ *               'tcp' || 'udp',
+ *             ],
+ *           },
+ *           ResourceStatement: { // ResourceStatement
+ *             Resources: '<ValueStringList>',
+ *             ResourceTypes: '<ValueStringList>',
+ *           },
+ *         },
+ *         Destination: {
+ *           PacketHeaderStatement: {
+ *             SourceAddresses: '<ValueStringList>',
+ *             DestinationAddresses: '<ValueStringList>',
+ *             SourcePorts: '<ValueStringList>',
+ *             DestinationPorts: '<ValueStringList>',
+ *             SourcePrefixLists: '<ValueStringList>',
+ *             DestinationPrefixLists: '<ValueStringList>',
+ *             Protocols: [
+ *               'tcp' || 'udp',
+ *             ],
+ *           },
+ *           ResourceStatement: {
+ *             Resources: '<ValueStringList>',
+ *             ResourceTypes: '<ValueStringList>',
+ *           },
+ *         },
+ *         ThroughResources: [ // ThroughResourcesStatementList
+ *           { // ThroughResourcesStatement
+ *             ResourceStatement: {
+ *               Resources: '<ValueStringList>',
+ *               ResourceTypes: '<ValueStringList>',
+ *             },
+ *           },
+ *         ],
+ *       },
+ *     ],
+ *     ExcludePaths: [
+ *       {
+ *         Source: {
+ *           PacketHeaderStatement: {
+ *             SourceAddresses: '<ValueStringList>',
+ *             DestinationAddresses: '<ValueStringList>',
+ *             SourcePorts: '<ValueStringList>',
+ *             DestinationPorts: '<ValueStringList>',
+ *             SourcePrefixLists: '<ValueStringList>',
+ *             DestinationPrefixLists: '<ValueStringList>',
+ *             Protocols: [
+ *               'tcp' || 'udp',
+ *             ],
+ *           },
+ *           ResourceStatement: {
+ *             Resources: '<ValueStringList>',
+ *             ResourceTypes: '<ValueStringList>',
+ *           },
+ *         },
+ *         Destination: {
+ *           PacketHeaderStatement: {
+ *             SourceAddresses: '<ValueStringList>',
+ *             DestinationAddresses: '<ValueStringList>',
+ *             SourcePorts: '<ValueStringList>',
+ *             DestinationPorts: '<ValueStringList>',
+ *             SourcePrefixLists: '<ValueStringList>',
+ *             DestinationPrefixLists: '<ValueStringList>',
+ *             Protocols: [
+ *               'tcp' || 'udp',
+ *             ],
+ *           },
+ *           ResourceStatement: {
+ *             Resources: '<ValueStringList>',
+ *             ResourceTypes: '<ValueStringList>',
+ *           },
+ *         },
+ *         ThroughResources: [
+ *           {
+ *             ResourceStatement: '<ResourceStatement>',
+ *           },
+ *         ],
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateNetworkInsightsAccessScopeCommandInput - {@link CreateNetworkInsightsAccessScopeCommandInput}
@@ -171,6 +289,8 @@ export interface CreateNetworkInsightsAccessScopeCommandOutput
  * @see {@link CreateNetworkInsightsAccessScopeCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class CreateNetworkInsightsAccessScopeCommand extends $Command<

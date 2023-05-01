@@ -36,16 +36,29 @@ export interface UpdateDiscovererCommandOutput extends UpdateDiscovererResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SchemasClient, UpdateDiscovererCommand } from "@aws-sdk/client-schemas"; // ES Modules import
- * // const { SchemasClient, UpdateDiscovererCommand } = require("@aws-sdk/client-schemas"); // CommonJS import
+ * import { SchemasClient, UpdateDiscovererCommand } from '@aws-sdk/client-schemas'; // ES Modules import
+ * // const { SchemasClient, UpdateDiscovererCommand } = require('@aws-sdk/client-schemas'); // CommonJS import
  * const client = new SchemasClient(config);
  * const input = { // UpdateDiscovererRequest
- *   Description: "STRING_VALUE",
- *   DiscovererId: "STRING_VALUE", // required
+ *   Description: 'STRING_VALUE',
+ *   DiscovererId: 'STRING_VALUE', // required
  *   CrossAccount: true || false,
  * };
  * const command = new UpdateDiscovererCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateDiscovererResponse
+ *   Description: 'STRING_VALUE',
+ *   DiscovererArn: 'STRING_VALUE',
+ *   DiscovererId: 'STRING_VALUE',
+ *   SourceArn: 'STRING_VALUE',
+ *   State: 'STRING_VALUE',
+ *   CrossAccount: true || false,
+ *   Tags: { // Tags
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateDiscovererCommandInput - {@link UpdateDiscovererCommandInput}
@@ -66,6 +79,8 @@ export interface UpdateDiscovererCommandOutput extends UpdateDiscovererResponse,
  *
  * @throws {@link UnauthorizedException} (client fault)
  *
+ * @throws {@link SchemasServiceException}
+ * <p>Base exception class for all service exceptions from Schemas service.</p>
  *
  */
 export class UpdateDiscovererCommand extends $Command<

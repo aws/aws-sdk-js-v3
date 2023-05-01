@@ -42,22 +42,28 @@ export interface CreateIntegrationAssociationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, CreateIntegrationAssociationCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, CreateIntegrationAssociationCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, CreateIntegrationAssociationCommand } from '@aws-sdk/client-connect'; // ES Modules import
+ * // const { ConnectClient, CreateIntegrationAssociationCommand } = require('@aws-sdk/client-connect'); // CommonJS import
  * const client = new ConnectClient(config);
  * const input = { // CreateIntegrationAssociationRequest
- *   InstanceId: "STRING_VALUE", // required
- *   IntegrationType: "EVENT" || "VOICE_ID" || "PINPOINT_APP" || "WISDOM_ASSISTANT" || "WISDOM_KNOWLEDGE_BASE" || "CASES_DOMAIN", // required
- *   IntegrationArn: "STRING_VALUE", // required
- *   SourceApplicationUrl: "STRING_VALUE",
- *   SourceApplicationName: "STRING_VALUE",
- *   SourceType: "SALESFORCE" || "ZENDESK",
+ *   InstanceId: 'STRING_VALUE', // required
+ *   IntegrationType: 'EVENT' || 'VOICE_ID' || 'PINPOINT_APP' || 'WISDOM_ASSISTANT' || 'WISDOM_KNOWLEDGE_BASE' || 'CASES_DOMAIN', // required
+ *   IntegrationArn: 'STRING_VALUE', // required
+ *   SourceApplicationUrl: 'STRING_VALUE',
+ *   SourceApplicationName: 'STRING_VALUE',
+ *   SourceType: 'SALESFORCE' || 'ZENDESK',
  *   Tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateIntegrationAssociationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateIntegrationAssociationResponse
+ *   IntegrationAssociationId: 'STRING_VALUE',
+ *   IntegrationAssociationArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateIntegrationAssociationCommandInput - {@link CreateIntegrationAssociationCommandInput}
@@ -81,6 +87,8 @@ export interface CreateIntegrationAssociationCommandOutput
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class CreateIntegrationAssociationCommand extends $Command<

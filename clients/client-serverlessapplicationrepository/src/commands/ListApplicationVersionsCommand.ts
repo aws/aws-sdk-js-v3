@@ -40,16 +40,29 @@ export interface ListApplicationVersionsCommandOutput extends ListApplicationVer
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ServerlessApplicationRepositoryClient, ListApplicationVersionsCommand } from "@aws-sdk/client-serverlessapplicationrepository"; // ES Modules import
- * // const { ServerlessApplicationRepositoryClient, ListApplicationVersionsCommand } = require("@aws-sdk/client-serverlessapplicationrepository"); // CommonJS import
+ * import { ServerlessApplicationRepositoryClient, ListApplicationVersionsCommand } from '@aws-sdk/client-serverlessapplicationrepository'; // ES Modules import
+ * // const { ServerlessApplicationRepositoryClient, ListApplicationVersionsCommand } = require('@aws-sdk/client-serverlessapplicationrepository'); // CommonJS import
  * const client = new ServerlessApplicationRepositoryClient(config);
  * const input = { // ListApplicationVersionsRequest
- *   ApplicationId: "STRING_VALUE", // required
- *   MaxItems: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   ApplicationId: 'STRING_VALUE', // required
+ *   MaxItems: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListApplicationVersionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListApplicationVersionsResponse
+ *   NextToken: 'STRING_VALUE',
+ *   Versions: [ // __listOfVersionSummary
+ *     { // VersionSummary
+ *       ApplicationId: 'STRING_VALUE', // required
+ *       CreationTime: 'STRING_VALUE', // required
+ *       SemanticVersion: 'STRING_VALUE', // required
+ *       SourceCodeUrl: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListApplicationVersionsCommandInput - {@link ListApplicationVersionsCommandInput}
@@ -73,6 +86,8 @@ export interface ListApplicationVersionsCommandOutput extends ListApplicationVer
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>The client is sending more than the allowed number of requests per unit of time.</p>
  *
+ * @throws {@link ServerlessApplicationRepositoryServiceException}
+ * <p>Base exception class for all service exceptions from ServerlessApplicationRepository service.</p>
  *
  */
 export class ListApplicationVersionsCommand extends $Command<

@@ -68,18 +68,21 @@ export interface SetStatusCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DataPipelineClient, SetStatusCommand } from "@aws-sdk/client-data-pipeline"; // ES Modules import
- * // const { DataPipelineClient, SetStatusCommand } = require("@aws-sdk/client-data-pipeline"); // CommonJS import
+ * import { DataPipelineClient, SetStatusCommand } from '@aws-sdk/client-data-pipeline'; // ES Modules import
+ * // const { DataPipelineClient, SetStatusCommand } = require('@aws-sdk/client-data-pipeline'); // CommonJS import
  * const client = new DataPipelineClient(config);
  * const input = { // SetStatusInput
- *   pipelineId: "STRING_VALUE", // required
+ *   pipelineId: 'STRING_VALUE', // required
  *   objectIds: [ // idList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   status: "STRING_VALUE", // required
+ *   status: 'STRING_VALUE', // required
  * };
  * const command = new SetStatusCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param SetStatusCommandInput - {@link SetStatusCommandInput}
@@ -100,6 +103,8 @@ export interface SetStatusCommandOutput extends __MetadataBearer {}
  * @throws {@link PipelineNotFoundException} (client fault)
  *  <p>The specified pipeline was not found. Verify that you used the correct user and account identifiers.</p>
  *
+ * @throws {@link DataPipelineServiceException}
+ * <p>Base exception class for all service exceptions from DataPipeline service.</p>
  *
  */
 export class SetStatusCommand extends $Command<

@@ -39,19 +39,31 @@ export interface UpdateTemplateSyncConfigCommandOutput extends UpdateTemplateSyn
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ProtonClient, UpdateTemplateSyncConfigCommand } from "@aws-sdk/client-proton"; // ES Modules import
- * // const { ProtonClient, UpdateTemplateSyncConfigCommand } = require("@aws-sdk/client-proton"); // CommonJS import
+ * import { ProtonClient, UpdateTemplateSyncConfigCommand } from '@aws-sdk/client-proton'; // ES Modules import
+ * // const { ProtonClient, UpdateTemplateSyncConfigCommand } = require('@aws-sdk/client-proton'); // CommonJS import
  * const client = new ProtonClient(config);
  * const input = { // UpdateTemplateSyncConfigInput
- *   templateName: "STRING_VALUE", // required
- *   templateType: "STRING_VALUE", // required
- *   repositoryProvider: "STRING_VALUE", // required
- *   repositoryName: "STRING_VALUE", // required
- *   branch: "STRING_VALUE", // required
- *   subdirectory: "STRING_VALUE",
+ *   templateName: 'STRING_VALUE', // required
+ *   templateType: 'STRING_VALUE', // required
+ *   repositoryProvider: 'STRING_VALUE', // required
+ *   repositoryName: 'STRING_VALUE', // required
+ *   branch: 'STRING_VALUE', // required
+ *   subdirectory: 'STRING_VALUE',
  * };
  * const command = new UpdateTemplateSyncConfigCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateTemplateSyncConfigOutput
+ *   templateSyncConfig: { // TemplateSyncConfig
+ *     templateName: 'STRING_VALUE', // required
+ *     templateType: 'STRING_VALUE', // required
+ *     repositoryProvider: 'STRING_VALUE', // required
+ *     repositoryName: 'STRING_VALUE', // required
+ *     branch: 'STRING_VALUE', // required
+ *     subdirectory: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateTemplateSyncConfigCommandInput - {@link UpdateTemplateSyncConfigCommandInput}
@@ -78,6 +90,8 @@ export interface UpdateTemplateSyncConfigCommandOutput extends UpdateTemplateSyn
  * @throws {@link ValidationException} (client fault)
  *  <p>The input is invalid or an out-of-range value was supplied for the input parameter.</p>
  *
+ * @throws {@link ProtonServiceException}
+ * <p>Base exception class for all service exceptions from Proton service.</p>
  *
  */
 export class UpdateTemplateSyncConfigCommand extends $Command<

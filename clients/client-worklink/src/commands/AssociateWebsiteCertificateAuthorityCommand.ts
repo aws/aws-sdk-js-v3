@@ -47,16 +47,21 @@ export interface AssociateWebsiteCertificateAuthorityCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkLinkClient, AssociateWebsiteCertificateAuthorityCommand } from "@aws-sdk/client-worklink"; // ES Modules import
- * // const { WorkLinkClient, AssociateWebsiteCertificateAuthorityCommand } = require("@aws-sdk/client-worklink"); // CommonJS import
+ * import { WorkLinkClient, AssociateWebsiteCertificateAuthorityCommand } from '@aws-sdk/client-worklink'; // ES Modules import
+ * // const { WorkLinkClient, AssociateWebsiteCertificateAuthorityCommand } = require('@aws-sdk/client-worklink'); // CommonJS import
  * const client = new WorkLinkClient(config);
  * const input = { // AssociateWebsiteCertificateAuthorityRequest
- *   FleetArn: "STRING_VALUE", // required
- *   Certificate: "STRING_VALUE", // required
- *   DisplayName: "STRING_VALUE",
+ *   FleetArn: 'STRING_VALUE', // required
+ *   Certificate: 'STRING_VALUE', // required
+ *   DisplayName: 'STRING_VALUE',
  * };
  * const command = new AssociateWebsiteCertificateAuthorityCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AssociateWebsiteCertificateAuthorityResponse
+ *   WebsiteCaId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param AssociateWebsiteCertificateAuthorityCommandInput - {@link AssociateWebsiteCertificateAuthorityCommandInput}
@@ -83,6 +88,8 @@ export interface AssociateWebsiteCertificateAuthorityCommandOutput
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this action.</p>
  *
+ * @throws {@link WorkLinkServiceException}
+ * <p>Base exception class for all service exceptions from WorkLink service.</p>
  *
  */
 export class AssociateWebsiteCertificateAuthorityCommand extends $Command<

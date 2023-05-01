@@ -44,16 +44,38 @@ export interface ListBulkDeploymentDetailedReportsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GreengrassClient, ListBulkDeploymentDetailedReportsCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
- * // const { GreengrassClient, ListBulkDeploymentDetailedReportsCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
+ * import { GreengrassClient, ListBulkDeploymentDetailedReportsCommand } from '@aws-sdk/client-greengrass'; // ES Modules import
+ * // const { GreengrassClient, ListBulkDeploymentDetailedReportsCommand } = require('@aws-sdk/client-greengrass'); // CommonJS import
  * const client = new GreengrassClient(config);
  * const input = { // ListBulkDeploymentDetailedReportsRequest
- *   BulkDeploymentId: "STRING_VALUE", // required
- *   MaxResults: "STRING_VALUE",
- *   NextToken: "STRING_VALUE",
+ *   BulkDeploymentId: 'STRING_VALUE', // required
+ *   MaxResults: 'STRING_VALUE',
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListBulkDeploymentDetailedReportsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListBulkDeploymentDetailedReportsResponse
+ *   Deployments: [ // BulkDeploymentResults
+ *     { // BulkDeploymentResult
+ *       CreatedAt: 'STRING_VALUE',
+ *       DeploymentArn: 'STRING_VALUE',
+ *       DeploymentId: 'STRING_VALUE',
+ *       DeploymentStatus: 'STRING_VALUE',
+ *       DeploymentType: 'NewDeployment' || 'Redeployment' || 'ResetDeployment' || 'ForceResetDeployment',
+ *       ErrorDetails: [ // ErrorDetails
+ *         { // ErrorDetail
+ *           DetailedErrorCode: 'STRING_VALUE',
+ *           DetailedErrorMessage: 'STRING_VALUE',
+ *         },
+ *       ],
+ *       ErrorMessage: 'STRING_VALUE',
+ *       GroupArn: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListBulkDeploymentDetailedReportsCommandInput - {@link ListBulkDeploymentDetailedReportsCommandInput}
@@ -65,6 +87,8 @@ export interface ListBulkDeploymentDetailedReportsCommandOutput
  * @throws {@link BadRequestException} (client fault)
  *  General error information.
  *
+ * @throws {@link GreengrassServiceException}
+ * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
  */
 export class ListBulkDeploymentDetailedReportsCommand extends $Command<

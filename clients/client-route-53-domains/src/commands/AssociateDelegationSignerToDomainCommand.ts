@@ -51,19 +51,24 @@ export interface AssociateDelegationSignerToDomainCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Route53DomainsClient, AssociateDelegationSignerToDomainCommand } from "@aws-sdk/client-route-53-domains"; // ES Modules import
- * // const { Route53DomainsClient, AssociateDelegationSignerToDomainCommand } = require("@aws-sdk/client-route-53-domains"); // CommonJS import
+ * import { Route53DomainsClient, AssociateDelegationSignerToDomainCommand } from '@aws-sdk/client-route-53-domains'; // ES Modules import
+ * // const { Route53DomainsClient, AssociateDelegationSignerToDomainCommand } = require('@aws-sdk/client-route-53-domains'); // CommonJS import
  * const client = new Route53DomainsClient(config);
  * const input = { // AssociateDelegationSignerToDomainRequest
- *   DomainName: "STRING_VALUE", // required
+ *   DomainName: 'STRING_VALUE', // required
  *   SigningAttributes: { // DnssecSigningAttributes
- *     Algorithm: Number("int"),
- *     Flags: Number("int"),
- *     PublicKey: "STRING_VALUE",
+ *     Algorithm: Number('int'),
+ *     Flags: Number('int'),
+ *     PublicKey: 'STRING_VALUE',
  *   },
  * };
  * const command = new AssociateDelegationSignerToDomainCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AssociateDelegationSignerToDomainResponse
+ *   OperationId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param AssociateDelegationSignerToDomainCommandInput - {@link AssociateDelegationSignerToDomainCommandInput}
@@ -96,6 +101,8 @@ export interface AssociateDelegationSignerToDomainCommandOutput
  * @throws {@link UnsupportedTLD} (client fault)
  *  <p>Amazon Route 53 does not support this top-level domain (TLD).</p>
  *
+ * @throws {@link Route53DomainsServiceException}
+ * <p>Base exception class for all service exceptions from Route53Domains service.</p>
  *
  */
 export class AssociateDelegationSignerToDomainCommand extends $Command<

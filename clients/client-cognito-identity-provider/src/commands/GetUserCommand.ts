@@ -45,14 +45,35 @@ export interface GetUserCommandOutput extends GetUserResponse, __MetadataBearer 
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CognitoIdentityProviderClient, GetUserCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
- * // const { CognitoIdentityProviderClient, GetUserCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
+ * import { CognitoIdentityProviderClient, GetUserCommand } from '@aws-sdk/client-cognito-identity-provider'; // ES Modules import
+ * // const { CognitoIdentityProviderClient, GetUserCommand } = require('@aws-sdk/client-cognito-identity-provider'); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
  * const input = { // GetUserRequest
- *   AccessToken: "STRING_VALUE", // required
+ *   AccessToken: 'STRING_VALUE', // required
  * };
  * const command = new GetUserCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetUserResponse
+ *   Username: 'STRING_VALUE', // required
+ *   UserAttributes: [ // AttributeListType // required
+ *     { // AttributeType
+ *       Name: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   MFAOptions: [ // MFAOptionListType
+ *     { // MFAOptionType
+ *       DeliveryMedium: 'SMS' || 'EMAIL',
+ *       AttributeName: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   PreferredMfaSetting: 'STRING_VALUE',
+ *   UserMFASettingList: [ // UserMFASettingListType
+ *     'STRING_VALUE',
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetUserCommandInput - {@link GetUserCommandInput}
@@ -91,6 +112,8 @@ export interface GetUserCommandOutput extends GetUserResponse, __MetadataBearer 
  * @throws {@link UserNotFoundException} (client fault)
  *  <p>This exception is thrown when a user isn't found.</p>
  *
+ * @throws {@link CognitoIdentityProviderServiceException}
+ * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
  */
 export class GetUserCommand extends $Command<

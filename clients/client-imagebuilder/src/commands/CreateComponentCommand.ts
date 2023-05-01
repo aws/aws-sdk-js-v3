@@ -47,28 +47,35 @@ export interface CreateComponentCommandOutput extends CreateComponentResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ImagebuilderClient, CreateComponentCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
- * // const { ImagebuilderClient, CreateComponentCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
+ * import { ImagebuilderClient, CreateComponentCommand } from '@aws-sdk/client-imagebuilder'; // ES Modules import
+ * // const { ImagebuilderClient, CreateComponentCommand } = require('@aws-sdk/client-imagebuilder'); // CommonJS import
  * const client = new ImagebuilderClient(config);
  * const input = { // CreateComponentRequest
- *   name: "STRING_VALUE", // required
- *   semanticVersion: "STRING_VALUE", // required
- *   description: "STRING_VALUE",
- *   changeDescription: "STRING_VALUE",
- *   platform: "Windows" || "Linux", // required
+ *   name: 'STRING_VALUE', // required
+ *   semanticVersion: 'STRING_VALUE', // required
+ *   description: 'STRING_VALUE',
+ *   changeDescription: 'STRING_VALUE',
+ *   platform: 'Windows' || 'Linux', // required
  *   supportedOsVersions: [ // OsVersionList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   data: "STRING_VALUE",
- *   uri: "STRING_VALUE",
- *   kmsKeyId: "STRING_VALUE",
+ *   data: 'STRING_VALUE',
+ *   uri: 'STRING_VALUE',
+ *   kmsKeyId: 'STRING_VALUE',
  *   tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
- *   clientToken: "STRING_VALUE", // required
+ *   clientToken: 'STRING_VALUE', // required
  * };
  * const command = new CreateComponentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateComponentResponse
+ *   requestId: 'STRING_VALUE',
+ *   clientToken: 'STRING_VALUE',
+ *   componentBuildVersionArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateComponentCommandInput - {@link CreateComponentCommandInput}
@@ -118,6 +125,8 @@ export interface CreateComponentCommandOutput extends CreateComponentResponse, _
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service is unable to process your request at this time.</p>
  *
+ * @throws {@link ImagebuilderServiceException}
+ * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
  */
 export class CreateComponentCommand extends $Command<

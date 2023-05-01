@@ -36,16 +36,40 @@ export interface GetBatchPredictionJobsCommandOutput extends GetBatchPredictionJ
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FraudDetectorClient, GetBatchPredictionJobsCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
- * // const { FraudDetectorClient, GetBatchPredictionJobsCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
+ * import { FraudDetectorClient, GetBatchPredictionJobsCommand } from '@aws-sdk/client-frauddetector'; // ES Modules import
+ * // const { FraudDetectorClient, GetBatchPredictionJobsCommand } = require('@aws-sdk/client-frauddetector'); // CommonJS import
  * const client = new FraudDetectorClient(config);
  * const input = { // GetBatchPredictionJobsRequest
- *   jobId: "STRING_VALUE",
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   jobId: 'STRING_VALUE',
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new GetBatchPredictionJobsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetBatchPredictionJobsResult
+ *   batchPredictions: [ // BatchPredictionList
+ *     { // BatchPrediction
+ *       jobId: 'STRING_VALUE',
+ *       status: 'IN_PROGRESS_INITIALIZING' || 'IN_PROGRESS' || 'CANCEL_IN_PROGRESS' || 'CANCELED' || 'COMPLETE' || 'FAILED',
+ *       failureReason: 'STRING_VALUE',
+ *       startTime: 'STRING_VALUE',
+ *       completionTime: 'STRING_VALUE',
+ *       lastHeartbeatTime: 'STRING_VALUE',
+ *       inputPath: 'STRING_VALUE',
+ *       outputPath: 'STRING_VALUE',
+ *       eventTypeName: 'STRING_VALUE',
+ *       detectorName: 'STRING_VALUE',
+ *       detectorVersion: 'STRING_VALUE',
+ *       iamRoleArn: 'STRING_VALUE',
+ *       arn: 'STRING_VALUE',
+ *       processedRecordsCount: Number('int'),
+ *       totalRecordsCount: Number('int'),
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetBatchPredictionJobsCommandInput - {@link GetBatchPredictionJobsCommandInput}
@@ -69,6 +93,8 @@ export interface GetBatchPredictionJobsCommandOutput extends GetBatchPredictionJ
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception indicating a specified value is not allowed.</p>
  *
+ * @throws {@link FraudDetectorServiceException}
+ * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
  */
 export class GetBatchPredictionJobsCommand extends $Command<

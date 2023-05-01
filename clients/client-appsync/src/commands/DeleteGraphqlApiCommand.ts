@@ -36,14 +36,17 @@ export interface DeleteGraphqlApiCommandOutput extends DeleteGraphqlApiResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppSyncClient, DeleteGraphqlApiCommand } from "@aws-sdk/client-appsync"; // ES Modules import
- * // const { AppSyncClient, DeleteGraphqlApiCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
+ * import { AppSyncClient, DeleteGraphqlApiCommand } from '@aws-sdk/client-appsync'; // ES Modules import
+ * // const { AppSyncClient, DeleteGraphqlApiCommand } = require('@aws-sdk/client-appsync'); // CommonJS import
  * const client = new AppSyncClient(config);
  * const input = { // DeleteGraphqlApiRequest
- *   apiId: "STRING_VALUE", // required
+ *   apiId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteGraphqlApiCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteGraphqlApiCommandInput - {@link DeleteGraphqlApiCommandInput}
@@ -72,6 +75,8 @@ export interface DeleteGraphqlApiCommandOutput extends DeleteGraphqlApiResponse,
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You aren't authorized to perform this operation.</p>
  *
+ * @throws {@link AppSyncServiceException}
+ * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
  */
 export class DeleteGraphqlApiCommand extends $Command<

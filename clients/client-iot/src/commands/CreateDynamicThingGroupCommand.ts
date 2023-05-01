@@ -37,32 +37,42 @@ export interface CreateDynamicThingGroupCommandOutput extends CreateDynamicThing
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTClient, CreateDynamicThingGroupCommand } from "@aws-sdk/client-iot"; // ES Modules import
- * // const { IoTClient, CreateDynamicThingGroupCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * import { IoTClient, CreateDynamicThingGroupCommand } from '@aws-sdk/client-iot'; // ES Modules import
+ * // const { IoTClient, CreateDynamicThingGroupCommand } = require('@aws-sdk/client-iot'); // CommonJS import
  * const client = new IoTClient(config);
  * const input = { // CreateDynamicThingGroupRequest
- *   thingGroupName: "STRING_VALUE", // required
+ *   thingGroupName: 'STRING_VALUE', // required
  *   thingGroupProperties: { // ThingGroupProperties
- *     thingGroupDescription: "STRING_VALUE",
+ *     thingGroupDescription: 'STRING_VALUE',
  *     attributePayload: { // AttributePayload
  *       attributes: { // Attributes
- *         "<keys>": "STRING_VALUE",
+ *         '<keys>': 'STRING_VALUE',
  *       },
  *       merge: true || false,
  *     },
  *   },
- *   indexName: "STRING_VALUE",
- *   queryString: "STRING_VALUE", // required
- *   queryVersion: "STRING_VALUE",
+ *   indexName: 'STRING_VALUE',
+ *   queryString: 'STRING_VALUE', // required
+ *   queryVersion: 'STRING_VALUE',
  *   tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new CreateDynamicThingGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateDynamicThingGroupResponse
+ *   thingGroupName: 'STRING_VALUE',
+ *   thingGroupArn: 'STRING_VALUE',
+ *   thingGroupId: 'STRING_VALUE',
+ *   indexName: 'STRING_VALUE',
+ *   queryString: 'STRING_VALUE',
+ *   queryVersion: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateDynamicThingGroupCommandInput - {@link CreateDynamicThingGroupCommandInput}
@@ -92,6 +102,8 @@ export interface CreateDynamicThingGroupCommandOutput extends CreateDynamicThing
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The rate exceeds the limit.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class CreateDynamicThingGroupCommand extends $Command<

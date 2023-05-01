@@ -39,16 +39,30 @@ export interface ListPolicyVersionsCommandOutput extends ListPolicyVersionsRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IAMClient, ListPolicyVersionsCommand } from "@aws-sdk/client-iam"; // ES Modules import
- * // const { IAMClient, ListPolicyVersionsCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * import { IAMClient, ListPolicyVersionsCommand } from '@aws-sdk/client-iam'; // ES Modules import
+ * // const { IAMClient, ListPolicyVersionsCommand } = require('@aws-sdk/client-iam'); // CommonJS import
  * const client = new IAMClient(config);
  * const input = { // ListPolicyVersionsRequest
- *   PolicyArn: "STRING_VALUE", // required
- *   Marker: "STRING_VALUE",
- *   MaxItems: Number("int"),
+ *   PolicyArn: 'STRING_VALUE', // required
+ *   Marker: 'STRING_VALUE',
+ *   MaxItems: Number('int'),
  * };
  * const command = new ListPolicyVersionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListPolicyVersionsResponse
+ *   Versions: [ // policyDocumentVersionListType
+ *     { // PolicyVersion
+ *       Document: 'STRING_VALUE',
+ *       VersionId: 'STRING_VALUE',
+ *       IsDefaultVersion: true || false,
+ *       CreateDate: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   IsTruncated: true || false,
+ *   Marker: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListPolicyVersionsCommandInput - {@link ListPolicyVersionsCommandInput}
@@ -69,6 +83,8 @@ export interface ListPolicyVersionsCommandOutput extends ListPolicyVersionsRespo
  *  <p>The request processing has failed because of an unknown error, exception or
  *       failure.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  */
 export class ListPolicyVersionsCommand extends $Command<

@@ -39,12 +39,18 @@ export interface GetSnowballUsageCommandOutput extends GetSnowballUsageResult, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SnowballClient, GetSnowballUsageCommand } from "@aws-sdk/client-snowball"; // ES Modules import
- * // const { SnowballClient, GetSnowballUsageCommand } = require("@aws-sdk/client-snowball"); // CommonJS import
+ * import { SnowballClient, GetSnowballUsageCommand } from '@aws-sdk/client-snowball'; // ES Modules import
+ * // const { SnowballClient, GetSnowballUsageCommand } = require('@aws-sdk/client-snowball'); // CommonJS import
  * const client = new SnowballClient(config);
  * const input = {};
  * const command = new GetSnowballUsageCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetSnowballUsageResult
+ *   SnowballLimit: Number('int'),
+ *   SnowballsInUse: Number('int'),
+ * };
+ *
  * ```
  *
  * @param GetSnowballUsageCommandInput - {@link GetSnowballUsageCommandInput}
@@ -53,6 +59,8 @@ export interface GetSnowballUsageCommandOutput extends GetSnowballUsageResult, _
  * @see {@link GetSnowballUsageCommandOutput} for command's `response` shape.
  * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.
  *
+ * @throws {@link SnowballServiceException}
+ * <p>Base exception class for all service exceptions from Snowball service.</p>
  *
  * @example To see your Snowball service limit and the number of Snowballs you have in use
  * ```javascript

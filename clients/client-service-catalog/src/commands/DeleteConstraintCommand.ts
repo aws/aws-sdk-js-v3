@@ -37,15 +37,18 @@ export interface DeleteConstraintCommandOutput extends DeleteConstraintOutput, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ServiceCatalogClient, DeleteConstraintCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
- * // const { ServiceCatalogClient, DeleteConstraintCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
+ * import { ServiceCatalogClient, DeleteConstraintCommand } from '@aws-sdk/client-service-catalog'; // ES Modules import
+ * // const { ServiceCatalogClient, DeleteConstraintCommand } = require('@aws-sdk/client-service-catalog'); // CommonJS import
  * const client = new ServiceCatalogClient(config);
  * const input = { // DeleteConstraintInput
- *   AcceptLanguage: "STRING_VALUE",
- *   Id: "STRING_VALUE", // required
+ *   AcceptLanguage: 'STRING_VALUE',
+ *   Id: 'STRING_VALUE', // required
  * };
  * const command = new DeleteConstraintCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteConstraintCommandInput - {@link DeleteConstraintCommandInput}
@@ -60,6 +63,8 @@ export interface DeleteConstraintCommandOutput extends DeleteConstraintOutput, _
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link ServiceCatalogServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
  */
 export class DeleteConstraintCommand extends $Command<

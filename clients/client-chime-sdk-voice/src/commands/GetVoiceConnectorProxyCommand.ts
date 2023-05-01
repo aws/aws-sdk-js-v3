@@ -41,14 +41,26 @@ export interface GetVoiceConnectorProxyCommandOutput extends GetVoiceConnectorPr
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeSDKVoiceClient, GetVoiceConnectorProxyCommand } from "@aws-sdk/client-chime-sdk-voice"; // ES Modules import
- * // const { ChimeSDKVoiceClient, GetVoiceConnectorProxyCommand } = require("@aws-sdk/client-chime-sdk-voice"); // CommonJS import
+ * import { ChimeSDKVoiceClient, GetVoiceConnectorProxyCommand } from '@aws-sdk/client-chime-sdk-voice'; // ES Modules import
+ * // const { ChimeSDKVoiceClient, GetVoiceConnectorProxyCommand } = require('@aws-sdk/client-chime-sdk-voice'); // CommonJS import
  * const client = new ChimeSDKVoiceClient(config);
  * const input = { // GetVoiceConnectorProxyRequest
- *   VoiceConnectorId: "STRING_VALUE", // required
+ *   VoiceConnectorId: 'STRING_VALUE', // required
  * };
  * const command = new GetVoiceConnectorProxyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetVoiceConnectorProxyResponse
+ *   Proxy: { // Proxy
+ *     DefaultSessionExpiryMinutes: Number('int'),
+ *     Disabled: true || false,
+ *     FallBackPhoneNumber: 'STRING_VALUE',
+ *     PhoneNumberCountries: [ // StringList
+ *       'STRING_VALUE',
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetVoiceConnectorProxyCommandInput - {@link GetVoiceConnectorProxyCommandInput}
@@ -78,6 +90,8 @@ export interface GetVoiceConnectorProxyCommandOutput extends GetVoiceConnectorPr
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client isn't authorized to request a resource.</p>
  *
+ * @throws {@link ChimeSDKVoiceServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
  */
 export class GetVoiceConnectorProxyCommand extends $Command<

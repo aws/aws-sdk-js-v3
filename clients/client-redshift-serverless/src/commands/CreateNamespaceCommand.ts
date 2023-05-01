@@ -45,31 +45,52 @@ export interface CreateNamespaceCommandOutput extends CreateNamespaceResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RedshiftServerlessClient, CreateNamespaceCommand } from "@aws-sdk/client-redshift-serverless"; // ES Modules import
- * // const { RedshiftServerlessClient, CreateNamespaceCommand } = require("@aws-sdk/client-redshift-serverless"); // CommonJS import
+ * import { RedshiftServerlessClient, CreateNamespaceCommand } from '@aws-sdk/client-redshift-serverless'; // ES Modules import
+ * // const { RedshiftServerlessClient, CreateNamespaceCommand } = require('@aws-sdk/client-redshift-serverless'); // CommonJS import
  * const client = new RedshiftServerlessClient(config);
  * const input = { // CreateNamespaceRequest
- *   namespaceName: "STRING_VALUE", // required
- *   adminUsername: "STRING_VALUE",
- *   adminUserPassword: "STRING_VALUE",
- *   dbName: "STRING_VALUE",
- *   kmsKeyId: "STRING_VALUE",
- *   defaultIamRoleArn: "STRING_VALUE",
+ *   namespaceName: 'STRING_VALUE', // required
+ *   adminUsername: 'STRING_VALUE',
+ *   adminUserPassword: 'STRING_VALUE',
+ *   dbName: 'STRING_VALUE',
+ *   kmsKeyId: 'STRING_VALUE',
+ *   defaultIamRoleArn: 'STRING_VALUE',
  *   iamRoles: [ // IamRoleArnList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   logExports: [ // LogExportList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   tags: [ // TagList
  *     { // Tag
- *       key: "STRING_VALUE", // required
- *       value: "STRING_VALUE", // required
+ *       key: 'STRING_VALUE', // required
+ *       value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreateNamespaceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateNamespaceResponse
+ *   namespace: { // Namespace
+ *     namespaceArn: 'STRING_VALUE',
+ *     namespaceId: 'STRING_VALUE',
+ *     namespaceName: 'STRING_VALUE',
+ *     adminUsername: 'STRING_VALUE',
+ *     dbName: 'STRING_VALUE',
+ *     kmsKeyId: 'STRING_VALUE',
+ *     defaultIamRoleArn: 'STRING_VALUE',
+ *     iamRoles: [ // IamRoleArnList
+ *       'STRING_VALUE',
+ *     ],
+ *     logExports: [ // LogExportList
+ *       'STRING_VALUE',
+ *     ],
+ *     status: 'STRING_VALUE',
+ *     creationDate: new Date('TIMESTAMP'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateNamespaceCommandInput - {@link CreateNamespaceCommandInput}
@@ -90,6 +111,8 @@ export interface CreateNamespaceCommandOutput extends CreateNamespaceResponse, _
  * @throws {@link ValidationException} (client fault)
  *  <p>The input failed to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link RedshiftServerlessServiceException}
+ * <p>Base exception class for all service exceptions from RedshiftServerless service.</p>
  *
  */
 export class CreateNamespaceCommand extends $Command<

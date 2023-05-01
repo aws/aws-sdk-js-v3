@@ -36,15 +36,32 @@ export interface CreateSnapshotCommandOutput extends CreateSnapshotResult, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GameSparksClient, CreateSnapshotCommand } from "@aws-sdk/client-gamesparks"; // ES Modules import
- * // const { GameSparksClient, CreateSnapshotCommand } = require("@aws-sdk/client-gamesparks"); // CommonJS import
+ * import { GameSparksClient, CreateSnapshotCommand } from '@aws-sdk/client-gamesparks'; // ES Modules import
+ * // const { GameSparksClient, CreateSnapshotCommand } = require('@aws-sdk/client-gamesparks'); // CommonJS import
  * const client = new GameSparksClient(config);
  * const input = { // CreateSnapshotRequest
- *   GameName: "STRING_VALUE", // required
- *   Description: "STRING_VALUE",
+ *   GameName: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE',
  * };
  * const command = new CreateSnapshotCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateSnapshotResult
+ *   Snapshot: { // SnapshotDetails
+ *     Id: 'STRING_VALUE',
+ *     Description: 'STRING_VALUE',
+ *     Sections: { // Sections
+ *       '<keys>': { // Section
+ *         Name: 'STRING_VALUE',
+ *         Size: Number('int'),
+ *         Attributes: 'DOCUMENT_VALUE',
+ *       },
+ *     },
+ *     Created: new Date('TIMESTAMP'),
+ *     LastUpdated: new Date('TIMESTAMP'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateSnapshotCommandInput - {@link CreateSnapshotCommandInput}
@@ -71,6 +88,8 @@ export interface CreateSnapshotCommandOutput extends CreateSnapshotResult, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>One of the parameters in the request is invalid.</p>
  *
+ * @throws {@link GameSparksServiceException}
+ * <p>Base exception class for all service exceptions from GameSparks service.</p>
  *
  */
 export class CreateSnapshotCommand extends $Command<

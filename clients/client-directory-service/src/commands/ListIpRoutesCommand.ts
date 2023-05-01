@@ -36,16 +36,31 @@ export interface ListIpRoutesCommandOutput extends ListIpRoutesResult, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DirectoryServiceClient, ListIpRoutesCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
- * // const { DirectoryServiceClient, ListIpRoutesCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
+ * import { DirectoryServiceClient, ListIpRoutesCommand } from '@aws-sdk/client-directory-service'; // ES Modules import
+ * // const { DirectoryServiceClient, ListIpRoutesCommand } = require('@aws-sdk/client-directory-service'); // CommonJS import
  * const client = new DirectoryServiceClient(config);
  * const input = { // ListIpRoutesRequest
- *   DirectoryId: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   Limit: Number("int"),
+ *   DirectoryId: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
+ *   Limit: Number('int'),
  * };
  * const command = new ListIpRoutesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListIpRoutesResult
+ *   IpRoutesInfo: [ // IpRoutesInfo
+ *     { // IpRouteInfo
+ *       DirectoryId: 'STRING_VALUE',
+ *       CidrIp: 'STRING_VALUE',
+ *       IpRouteStatusMsg: 'Adding' || 'Added' || 'Removing' || 'Removed' || 'AddFailed' || 'RemoveFailed',
+ *       AddedDateTime: new Date('TIMESTAMP'),
+ *       IpRouteStatusReason: 'STRING_VALUE',
+ *       Description: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListIpRoutesCommandInput - {@link ListIpRoutesCommandInput}
@@ -69,6 +84,8 @@ export interface ListIpRoutesCommandOutput extends ListIpRoutesResult, __Metadat
  * @throws {@link ServiceException} (server fault)
  *  <p>An exception has occurred in Directory Service.</p>
  *
+ * @throws {@link DirectoryServiceServiceException}
+ * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
  */
 export class ListIpRoutesCommand extends $Command<

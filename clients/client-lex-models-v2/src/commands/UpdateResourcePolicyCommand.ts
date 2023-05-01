@@ -38,16 +38,22 @@ export interface UpdateResourcePolicyCommandOutput extends UpdateResourcePolicyR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LexModelsV2Client, UpdateResourcePolicyCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
- * // const { LexModelsV2Client, UpdateResourcePolicyCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
+ * import { LexModelsV2Client, UpdateResourcePolicyCommand } from '@aws-sdk/client-lex-models-v2'; // ES Modules import
+ * // const { LexModelsV2Client, UpdateResourcePolicyCommand } = require('@aws-sdk/client-lex-models-v2'); // CommonJS import
  * const client = new LexModelsV2Client(config);
  * const input = { // UpdateResourcePolicyRequest
- *   resourceArn: "STRING_VALUE", // required
- *   policy: "STRING_VALUE", // required
- *   expectedRevisionId: "STRING_VALUE",
+ *   resourceArn: 'STRING_VALUE', // required
+ *   policy: 'STRING_VALUE', // required
+ *   expectedRevisionId: 'STRING_VALUE',
  * };
  * const command = new UpdateResourcePolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateResourcePolicyResponse
+ *   resourceArn: 'STRING_VALUE',
+ *   revisionId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateResourcePolicyCommandInput - {@link UpdateResourcePolicyCommandInput}
@@ -80,6 +86,8 @@ export interface UpdateResourcePolicyCommandOutput extends UpdateResourcePolicyR
  *  <p>One of the input parameters in your request isn't valid. Check the
  *          parameters and try your request again.</p>
  *
+ * @throws {@link LexModelsV2ServiceException}
+ * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
  */
 export class UpdateResourcePolicyCommand extends $Command<

@@ -36,16 +36,31 @@ export interface DescribeSchemaCommandOutput extends DescribeSchemaResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SchemasClient, DescribeSchemaCommand } from "@aws-sdk/client-schemas"; // ES Modules import
- * // const { SchemasClient, DescribeSchemaCommand } = require("@aws-sdk/client-schemas"); // CommonJS import
+ * import { SchemasClient, DescribeSchemaCommand } from '@aws-sdk/client-schemas'; // ES Modules import
+ * // const { SchemasClient, DescribeSchemaCommand } = require('@aws-sdk/client-schemas'); // CommonJS import
  * const client = new SchemasClient(config);
  * const input = { // DescribeSchemaRequest
- *   RegistryName: "STRING_VALUE", // required
- *   SchemaName: "STRING_VALUE", // required
- *   SchemaVersion: "STRING_VALUE",
+ *   RegistryName: 'STRING_VALUE', // required
+ *   SchemaName: 'STRING_VALUE', // required
+ *   SchemaVersion: 'STRING_VALUE',
  * };
  * const command = new DescribeSchemaCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeSchemaResponse
+ *   Content: 'STRING_VALUE',
+ *   Description: 'STRING_VALUE',
+ *   LastModified: new Date('TIMESTAMP'),
+ *   SchemaArn: 'STRING_VALUE',
+ *   SchemaName: 'STRING_VALUE',
+ *   SchemaVersion: 'STRING_VALUE',
+ *   Tags: { // Tags
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ *   Type: 'STRING_VALUE',
+ *   VersionCreatedDate: new Date('TIMESTAMP'),
+ * };
+ *
  * ```
  *
  * @param DescribeSchemaCommandInput - {@link DescribeSchemaCommandInput}
@@ -66,6 +81,8 @@ export interface DescribeSchemaCommandOutput extends DescribeSchemaResponse, __M
  *
  * @throws {@link UnauthorizedException} (client fault)
  *
+ * @throws {@link SchemasServiceException}
+ * <p>Base exception class for all service exceptions from Schemas service.</p>
  *
  */
 export class DescribeSchemaCommand extends $Command<

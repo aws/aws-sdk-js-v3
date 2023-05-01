@@ -36,14 +36,19 @@ export interface DeleteWorkflowCommandOutput extends DeleteWorkflowResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlueClient, DeleteWorkflowCommand } from "@aws-sdk/client-glue"; // ES Modules import
- * // const { GlueClient, DeleteWorkflowCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * import { GlueClient, DeleteWorkflowCommand } from '@aws-sdk/client-glue'; // ES Modules import
+ * // const { GlueClient, DeleteWorkflowCommand } = require('@aws-sdk/client-glue'); // CommonJS import
  * const client = new GlueClient(config);
  * const input = { // DeleteWorkflowRequest
- *   Name: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
  * };
  * const command = new DeleteWorkflowCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteWorkflowResponse
+ *   Name: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DeleteWorkflowCommandInput - {@link DeleteWorkflowCommandInput}
@@ -64,6 +69,8 @@ export interface DeleteWorkflowCommandOutput extends DeleteWorkflowResponse, __M
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class DeleteWorkflowCommand extends $Command<

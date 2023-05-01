@@ -38,22 +38,27 @@ export interface RegisterConnectorCommandOutput extends RegisterConnectorRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppflowClient, RegisterConnectorCommand } from "@aws-sdk/client-appflow"; // ES Modules import
- * // const { AppflowClient, RegisterConnectorCommand } = require("@aws-sdk/client-appflow"); // CommonJS import
+ * import { AppflowClient, RegisterConnectorCommand } from '@aws-sdk/client-appflow'; // ES Modules import
+ * // const { AppflowClient, RegisterConnectorCommand } = require('@aws-sdk/client-appflow'); // CommonJS import
  * const client = new AppflowClient(config);
  * const input = { // RegisterConnectorRequest
- *   connectorLabel: "STRING_VALUE",
- *   description: "STRING_VALUE",
- *   connectorProvisioningType: "LAMBDA",
+ *   connectorLabel: 'STRING_VALUE',
+ *   description: 'STRING_VALUE',
+ *   connectorProvisioningType: 'LAMBDA',
  *   connectorProvisioningConfig: { // ConnectorProvisioningConfig
  *     lambda: { // LambdaConnectorProvisioningConfig
- *       lambdaArn: "STRING_VALUE", // required
+ *       lambdaArn: 'STRING_VALUE', // required
  *     },
  *   },
- *   clientToken: "STRING_VALUE",
+ *   clientToken: 'STRING_VALUE',
  * };
  * const command = new RegisterConnectorCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // RegisterConnectorResponse
+ *   connectorArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param RegisterConnectorCommandInput - {@link RegisterConnectorCommandInput}
@@ -94,6 +99,8 @@ export interface RegisterConnectorCommandOutput extends RegisterConnectorRespons
  * @throws {@link ValidationException} (client fault)
  *  <p> The request has invalid or missing parameters. </p>
  *
+ * @throws {@link AppflowServiceException}
+ * <p>Base exception class for all service exceptions from Appflow service.</p>
  *
  */
 export class RegisterConnectorCommand extends $Command<

@@ -51,14 +51,29 @@ export interface DescribeDBClusterSnapshotAttributesCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RDSClient, DescribeDBClusterSnapshotAttributesCommand } from "@aws-sdk/client-rds"; // ES Modules import
- * // const { RDSClient, DescribeDBClusterSnapshotAttributesCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * import { RDSClient, DescribeDBClusterSnapshotAttributesCommand } from '@aws-sdk/client-rds'; // ES Modules import
+ * // const { RDSClient, DescribeDBClusterSnapshotAttributesCommand } = require('@aws-sdk/client-rds'); // CommonJS import
  * const client = new RDSClient(config);
  * const input = { // DescribeDBClusterSnapshotAttributesMessage
- *   DBClusterSnapshotIdentifier: "STRING_VALUE", // required
+ *   DBClusterSnapshotIdentifier: 'STRING_VALUE', // required
  * };
  * const command = new DescribeDBClusterSnapshotAttributesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeDBClusterSnapshotAttributesResult
+ *   DBClusterSnapshotAttributesResult: { // DBClusterSnapshotAttributesResult
+ *     DBClusterSnapshotIdentifier: 'STRING_VALUE',
+ *     DBClusterSnapshotAttributes: [ // DBClusterSnapshotAttributeList
+ *       { // DBClusterSnapshotAttribute
+ *         AttributeName: 'STRING_VALUE',
+ *         AttributeValues: [ // AttributeValueList
+ *           'STRING_VALUE',
+ *         ],
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeDBClusterSnapshotAttributesCommandInput - {@link DescribeDBClusterSnapshotAttributesCommandInput}
@@ -71,6 +86,8 @@ export interface DescribeDBClusterSnapshotAttributesCommandOutput
  *  <p>
  *             <code>DBClusterSnapshotIdentifier</code> doesn't refer to an existing DB cluster snapshot.</p>
  *
+ * @throws {@link RDSServiceException}
+ * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  * @example To describe the attribute names and values for a DB cluster snapshot
  * ```javascript

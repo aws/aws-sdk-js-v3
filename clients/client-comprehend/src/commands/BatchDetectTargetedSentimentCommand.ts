@@ -48,17 +48,59 @@ export interface BatchDetectTargetedSentimentCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ComprehendClient, BatchDetectTargetedSentimentCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
- * // const { ComprehendClient, BatchDetectTargetedSentimentCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
+ * import { ComprehendClient, BatchDetectTargetedSentimentCommand } from '@aws-sdk/client-comprehend'; // ES Modules import
+ * // const { ComprehendClient, BatchDetectTargetedSentimentCommand } = require('@aws-sdk/client-comprehend'); // CommonJS import
  * const client = new ComprehendClient(config);
  * const input = { // BatchDetectTargetedSentimentRequest
  *   TextList: [ // CustomerInputStringList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   LanguageCode: "en" || "es" || "fr" || "de" || "it" || "pt" || "ar" || "hi" || "ja" || "ko" || "zh" || "zh-TW", // required
+ *   LanguageCode: 'en' || 'es' || 'fr' || 'de' || 'it' || 'pt' || 'ar' || 'hi' || 'ja' || 'ko' || 'zh' || 'zh-TW', // required
  * };
  * const command = new BatchDetectTargetedSentimentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BatchDetectTargetedSentimentResponse
+ *   ResultList: [ // ListOfDetectTargetedSentimentResult // required
+ *     { // BatchDetectTargetedSentimentItemResult
+ *       Index: Number('int'),
+ *       Entities: [ // ListOfTargetedSentimentEntities
+ *         { // TargetedSentimentEntity
+ *           DescriptiveMentionIndex: [ // ListOfDescriptiveMentionIndices
+ *             Number('int'),
+ *           ],
+ *           Mentions: [ // ListOfMentions
+ *             { // TargetedSentimentMention
+ *               Score: Number('float'),
+ *               GroupScore: Number('float'),
+ *               Text: 'STRING_VALUE',
+ *               Type: 'PERSON' || 'LOCATION' || 'ORGANIZATION' || 'FACILITY' || 'BRAND' || 'COMMERCIAL_ITEM' || 'MOVIE' || 'MUSIC' || 'BOOK' || 'SOFTWARE' || 'GAME' || 'PERSONAL_TITLE' || 'EVENT' || 'DATE' || 'QUANTITY' || 'ATTRIBUTE' || 'OTHER',
+ *               MentionSentiment: { // MentionSentiment
+ *                 Sentiment: 'POSITIVE' || 'NEGATIVE' || 'NEUTRAL' || 'MIXED',
+ *                 SentimentScore: { // SentimentScore
+ *                   Positive: Number('float'),
+ *                   Negative: Number('float'),
+ *                   Neutral: Number('float'),
+ *                   Mixed: Number('float'),
+ *                 },
+ *               },
+ *               BeginOffset: Number('int'),
+ *               EndOffset: Number('int'),
+ *             },
+ *           ],
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   ErrorList: [ // BatchItemErrorList // required
+ *     { // BatchItemError
+ *       Index: Number('int'),
+ *       ErrorCode: 'STRING_VALUE',
+ *       ErrorMessage: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param BatchDetectTargetedSentimentCommandInput - {@link BatchDetectTargetedSentimentCommandInput}
@@ -87,6 +129,8 @@ export interface BatchDetectTargetedSentimentCommandOutput
  *       <a href="https://docs.aws.amazon.com/comprehend/latest/dg/supported-languages.html">Supported languages</a> in the Comprehend Developer Guide.
  *     </p>
  *
+ * @throws {@link ComprehendServiceException}
+ * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
  */
 export class BatchDetectTargetedSentimentCommand extends $Command<

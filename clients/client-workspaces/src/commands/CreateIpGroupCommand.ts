@@ -44,27 +44,32 @@ export interface CreateIpGroupCommandOutput extends CreateIpGroupResult, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkSpacesClient, CreateIpGroupCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
- * // const { WorkSpacesClient, CreateIpGroupCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
+ * import { WorkSpacesClient, CreateIpGroupCommand } from '@aws-sdk/client-workspaces'; // ES Modules import
+ * // const { WorkSpacesClient, CreateIpGroupCommand } = require('@aws-sdk/client-workspaces'); // CommonJS import
  * const client = new WorkSpacesClient(config);
  * const input = { // CreateIpGroupRequest
- *   GroupName: "STRING_VALUE", // required
- *   GroupDesc: "STRING_VALUE",
+ *   GroupName: 'STRING_VALUE', // required
+ *   GroupDesc: 'STRING_VALUE',
  *   UserRules: [ // IpRuleList
  *     { // IpRuleItem
- *       ipRule: "STRING_VALUE",
- *       ruleDesc: "STRING_VALUE",
+ *       ipRule: 'STRING_VALUE',
+ *       ruleDesc: 'STRING_VALUE',
  *     },
  *   ],
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new CreateIpGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateIpGroupResult
+ *   GroupId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateIpGroupCommandInput - {@link CreateIpGroupCommandInput}
@@ -88,6 +93,8 @@ export interface CreateIpGroupCommandOutput extends CreateIpGroupResult, __Metad
  * @throws {@link ResourceLimitExceededException} (client fault)
  *  <p>Your resource limits have been exceeded.</p>
  *
+ * @throws {@link WorkSpacesServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
  */
 export class CreateIpGroupCommand extends $Command<

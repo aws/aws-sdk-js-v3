@@ -36,14 +36,20 @@ export interface DescribeEnvironmentStatusCommandOutput extends DescribeEnvironm
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Cloud9Client, DescribeEnvironmentStatusCommand } from "@aws-sdk/client-cloud9"; // ES Modules import
- * // const { Cloud9Client, DescribeEnvironmentStatusCommand } = require("@aws-sdk/client-cloud9"); // CommonJS import
+ * import { Cloud9Client, DescribeEnvironmentStatusCommand } from '@aws-sdk/client-cloud9'; // ES Modules import
+ * // const { Cloud9Client, DescribeEnvironmentStatusCommand } = require('@aws-sdk/client-cloud9'); // CommonJS import
  * const client = new Cloud9Client(config);
  * const input = { // DescribeEnvironmentStatusRequest
- *   environmentId: "STRING_VALUE", // required
+ *   environmentId: 'STRING_VALUE', // required
  * };
  * const command = new DescribeEnvironmentStatusCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeEnvironmentStatusResult
+ *   status: 'error' || 'creating' || 'connecting' || 'ready' || 'stopping' || 'stopped' || 'deleting', // required
+ *   message: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param DescribeEnvironmentStatusCommandInput - {@link DescribeEnvironmentStatusCommandInput}
@@ -73,6 +79,8 @@ export interface DescribeEnvironmentStatusCommandOutput extends DescribeEnvironm
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Too many service requests were made over the given time period.</p>
  *
+ * @throws {@link Cloud9ServiceException}
+ * <p>Base exception class for all service exceptions from Cloud9 service.</p>
  *
  * @example DescribeEnvironmentStatus
  * ```javascript

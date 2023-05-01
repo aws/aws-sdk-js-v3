@@ -37,26 +37,49 @@ export interface UpdateClusterCommandOutput extends UpdateClusterOutput, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DocDBElasticClient, UpdateClusterCommand } from "@aws-sdk/client-docdb-elastic"; // ES Modules import
- * // const { DocDBElasticClient, UpdateClusterCommand } = require("@aws-sdk/client-docdb-elastic"); // CommonJS import
+ * import { DocDBElasticClient, UpdateClusterCommand } from '@aws-sdk/client-docdb-elastic'; // ES Modules import
+ * // const { DocDBElasticClient, UpdateClusterCommand } = require('@aws-sdk/client-docdb-elastic'); // CommonJS import
  * const client = new DocDBElasticClient(config);
  * const input = { // UpdateClusterInput
- *   clusterArn: "STRING_VALUE", // required
- *   authType: "STRING_VALUE",
- *   shardCapacity: Number("int"),
- *   shardCount: Number("int"),
+ *   clusterArn: 'STRING_VALUE', // required
+ *   authType: 'STRING_VALUE',
+ *   shardCapacity: Number('int'),
+ *   shardCount: Number('int'),
  *   vpcSecurityGroupIds: [ // StringList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   subnetIds: [
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   adminUserPassword: "STRING_VALUE",
- *   clientToken: "STRING_VALUE",
- *   preferredMaintenanceWindow: "STRING_VALUE",
+ *   adminUserPassword: 'STRING_VALUE',
+ *   clientToken: 'STRING_VALUE',
+ *   preferredMaintenanceWindow: 'STRING_VALUE',
  * };
  * const command = new UpdateClusterCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateClusterOutput
+ *   cluster: { // Cluster
+ *     clusterName: 'STRING_VALUE', // required
+ *     clusterArn: 'STRING_VALUE', // required
+ *     status: 'STRING_VALUE', // required
+ *     clusterEndpoint: 'STRING_VALUE', // required
+ *     createTime: 'STRING_VALUE', // required
+ *     adminUserName: 'STRING_VALUE', // required
+ *     authType: 'STRING_VALUE', // required
+ *     shardCapacity: Number('int'), // required
+ *     shardCount: Number('int'), // required
+ *     vpcSecurityGroupIds: [ // StringList // required
+ *       'STRING_VALUE',
+ *     ],
+ *     subnetIds: [ // required
+ *       'STRING_VALUE',
+ *     ],
+ *     preferredMaintenanceWindow: 'STRING_VALUE', // required
+ *     kmsKeyId: 'STRING_VALUE', // required
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateClusterCommandInput - {@link UpdateClusterCommandInput}
@@ -83,6 +106,8 @@ export interface UpdateClusterCommandOutput extends UpdateClusterOutput, __Metad
  * @throws {@link ValidationException} (client fault)
  *  <p>A structure defining a validation exception.</p>
  *
+ * @throws {@link DocDBElasticServiceException}
+ * <p>Base exception class for all service exceptions from DocDBElastic service.</p>
  *
  */
 export class UpdateClusterCommand extends $Command<

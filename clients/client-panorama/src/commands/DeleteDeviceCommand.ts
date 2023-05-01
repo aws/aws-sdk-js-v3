@@ -36,14 +36,19 @@ export interface DeleteDeviceCommandOutput extends DeleteDeviceResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PanoramaClient, DeleteDeviceCommand } from "@aws-sdk/client-panorama"; // ES Modules import
- * // const { PanoramaClient, DeleteDeviceCommand } = require("@aws-sdk/client-panorama"); // CommonJS import
+ * import { PanoramaClient, DeleteDeviceCommand } from '@aws-sdk/client-panorama'; // ES Modules import
+ * // const { PanoramaClient, DeleteDeviceCommand } = require('@aws-sdk/client-panorama'); // CommonJS import
  * const client = new PanoramaClient(config);
  * const input = { // DeleteDeviceRequest
- *   DeviceId: "STRING_VALUE", // required
+ *   DeviceId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteDeviceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteDeviceResponse
+ *   DeviceId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DeleteDeviceCommandInput - {@link DeleteDeviceCommandInput}
@@ -67,6 +72,8 @@ export interface DeleteDeviceCommandOutput extends DeleteDeviceResponse, __Metad
  * @throws {@link ValidationException} (client fault)
  *  <p>The request contains an invalid parameter value.</p>
  *
+ * @throws {@link PanoramaServiceException}
+ * <p>Base exception class for all service exceptions from Panorama service.</p>
  *
  */
 export class DeleteDeviceCommand extends $Command<

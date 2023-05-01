@@ -42,14 +42,27 @@ export interface DescribeAccountCommandOutput extends DescribeAccountResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OrganizationsClient, DescribeAccountCommand } from "@aws-sdk/client-organizations"; // ES Modules import
- * // const { OrganizationsClient, DescribeAccountCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
+ * import { OrganizationsClient, DescribeAccountCommand } from '@aws-sdk/client-organizations'; // ES Modules import
+ * // const { OrganizationsClient, DescribeAccountCommand } = require('@aws-sdk/client-organizations'); // CommonJS import
  * const client = new OrganizationsClient(config);
  * const input = { // DescribeAccountRequest
- *   AccountId: "STRING_VALUE", // required
+ *   AccountId: 'STRING_VALUE', // required
  * };
  * const command = new DescribeAccountCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeAccountResponse
+ *   Account: { // Account
+ *     Id: 'STRING_VALUE',
+ *     Arn: 'STRING_VALUE',
+ *     Email: 'STRING_VALUE',
+ *     Name: 'STRING_VALUE',
+ *     Status: 'ACTIVE' || 'SUSPENDED' || 'PENDING_CLOSURE',
+ *     JoinedMethod: 'INVITED' || 'CREATED',
+ *     JoinedTimestamp: new Date('TIMESTAMP'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeAccountCommandInput - {@link DescribeAccountCommandInput}
@@ -189,6 +202,8 @@ export interface DescribeAccountCommandOutput extends DescribeAccountResponse, _
  *                 <i>Organizations User Guide.</i>
  *          </p>
  *
+ * @throws {@link OrganizationsServiceException}
+ * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
  * @example To get the details about an account
  * ```javascript

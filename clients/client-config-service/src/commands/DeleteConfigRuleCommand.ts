@@ -44,14 +44,17 @@ export interface DeleteConfigRuleCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConfigServiceClient, DeleteConfigRuleCommand } from "@aws-sdk/client-config-service"; // ES Modules import
- * // const { ConfigServiceClient, DeleteConfigRuleCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
+ * import { ConfigServiceClient, DeleteConfigRuleCommand } from '@aws-sdk/client-config-service'; // ES Modules import
+ * // const { ConfigServiceClient, DeleteConfigRuleCommand } = require('@aws-sdk/client-config-service'); // CommonJS import
  * const client = new ConfigServiceClient(config);
  * const input = { // DeleteConfigRuleRequest
- *   ConfigRuleName: "STRING_VALUE", // required
+ *   ConfigRuleName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteConfigRuleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteConfigRuleCommandInput - {@link DeleteConfigRuleCommandInput}
@@ -89,6 +92,8 @@ export interface DeleteConfigRuleCommandOutput extends __MetadataBearer {}
  *             </li>
  *          </ul>
  *
+ * @throws {@link ConfigServiceServiceException}
+ * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
  */
 export class DeleteConfigRuleCommand extends $Command<

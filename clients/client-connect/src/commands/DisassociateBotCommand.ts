@@ -38,21 +38,24 @@ export interface DisassociateBotCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, DisassociateBotCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, DisassociateBotCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, DisassociateBotCommand } from '@aws-sdk/client-connect'; // ES Modules import
+ * // const { ConnectClient, DisassociateBotCommand } = require('@aws-sdk/client-connect'); // CommonJS import
  * const client = new ConnectClient(config);
  * const input = { // DisassociateBotRequest
- *   InstanceId: "STRING_VALUE", // required
+ *   InstanceId: 'STRING_VALUE', // required
  *   LexBot: { // LexBot
- *     Name: "STRING_VALUE", // required
- *     LexRegion: "STRING_VALUE", // required
+ *     Name: 'STRING_VALUE', // required
+ *     LexRegion: 'STRING_VALUE', // required
  *   },
  *   LexV2Bot: { // LexV2Bot
- *     AliasArn: "STRING_VALUE",
+ *     AliasArn: 'STRING_VALUE',
  *   },
  * };
  * const command = new DisassociateBotCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DisassociateBotCommandInput - {@link DisassociateBotCommandInput}
@@ -73,6 +76,8 @@ export interface DisassociateBotCommandOutput extends __MetadataBearer {}
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class DisassociateBotCommand extends $Command<

@@ -36,14 +36,39 @@ export interface GetTransitGatewayPeeringCommandOutput extends GetTransitGateway
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { NetworkManagerClient, GetTransitGatewayPeeringCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
- * // const { NetworkManagerClient, GetTransitGatewayPeeringCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
+ * import { NetworkManagerClient, GetTransitGatewayPeeringCommand } from '@aws-sdk/client-networkmanager'; // ES Modules import
+ * // const { NetworkManagerClient, GetTransitGatewayPeeringCommand } = require('@aws-sdk/client-networkmanager'); // CommonJS import
  * const client = new NetworkManagerClient(config);
  * const input = { // GetTransitGatewayPeeringRequest
- *   PeeringId: "STRING_VALUE", // required
+ *   PeeringId: 'STRING_VALUE', // required
  * };
  * const command = new GetTransitGatewayPeeringCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetTransitGatewayPeeringResponse
+ *   TransitGatewayPeering: { // TransitGatewayPeering
+ *     Peering: { // Peering
+ *       CoreNetworkId: 'STRING_VALUE',
+ *       CoreNetworkArn: 'STRING_VALUE',
+ *       PeeringId: 'STRING_VALUE',
+ *       OwnerAccountId: 'STRING_VALUE',
+ *       PeeringType: 'TRANSIT_GATEWAY',
+ *       State: 'CREATING' || 'FAILED' || 'AVAILABLE' || 'DELETING',
+ *       EdgeLocation: 'STRING_VALUE',
+ *       ResourceArn: 'STRING_VALUE',
+ *       Tags: [ // TagList
+ *         { // Tag
+ *           Key: 'STRING_VALUE',
+ *           Value: 'STRING_VALUE',
+ *         },
+ *       ],
+ *       CreatedAt: new Date('TIMESTAMP'),
+ *     },
+ *     TransitGatewayArn: 'STRING_VALUE',
+ *     TransitGatewayPeeringAttachmentId: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetTransitGatewayPeeringCommandInput - {@link GetTransitGatewayPeeringCommandInput}
@@ -67,6 +92,8 @@ export interface GetTransitGatewayPeeringCommandOutput extends GetTransitGateway
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints.</p>
  *
+ * @throws {@link NetworkManagerServiceException}
+ * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
  */
 export class GetTransitGatewayPeeringCommand extends $Command<

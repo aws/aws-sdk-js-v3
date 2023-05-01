@@ -41,16 +41,43 @@ export interface DescribeCachediSCSIVolumesCommandOutput extends DescribeCachedi
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { StorageGatewayClient, DescribeCachediSCSIVolumesCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
- * // const { StorageGatewayClient, DescribeCachediSCSIVolumesCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
+ * import { StorageGatewayClient, DescribeCachediSCSIVolumesCommand } from '@aws-sdk/client-storage-gateway'; // ES Modules import
+ * // const { StorageGatewayClient, DescribeCachediSCSIVolumesCommand } = require('@aws-sdk/client-storage-gateway'); // CommonJS import
  * const client = new StorageGatewayClient(config);
  * const input = { // DescribeCachediSCSIVolumesInput
  *   VolumeARNs: [ // VolumeARNs // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new DescribeCachediSCSIVolumesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeCachediSCSIVolumesOutput
+ *   CachediSCSIVolumes: [ // CachediSCSIVolumes
+ *     { // CachediSCSIVolume
+ *       VolumeARN: 'STRING_VALUE',
+ *       VolumeId: 'STRING_VALUE',
+ *       VolumeType: 'STRING_VALUE',
+ *       VolumeStatus: 'STRING_VALUE',
+ *       VolumeAttachmentStatus: 'STRING_VALUE',
+ *       VolumeSizeInBytes: Number('long'),
+ *       VolumeProgress: Number('double'),
+ *       SourceSnapshotId: 'STRING_VALUE',
+ *       VolumeiSCSIAttributes: { // VolumeiSCSIAttributes
+ *         TargetARN: 'STRING_VALUE',
+ *         NetworkInterfaceId: 'STRING_VALUE',
+ *         NetworkInterfacePort: Number('int'),
+ *         LunNumber: Number('int'),
+ *         ChapEnabled: true || false,
+ *       },
+ *       CreatedDate: new Date('TIMESTAMP'),
+ *       VolumeUsedInBytes: Number('long'),
+ *       KMSKey: 'STRING_VALUE',
+ *       TargetName: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeCachediSCSIVolumesCommandInput - {@link DescribeCachediSCSIVolumesCommandInput}
@@ -67,6 +94,8 @@ export interface DescribeCachediSCSIVolumesCommandOutput extends DescribeCachedi
  *  <p>An exception occurred because an invalid gateway request was issued to the service. For
  *          more information, see the error and message fields.</p>
  *
+ * @throws {@link StorageGatewayServiceException}
+ * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
  * @example To describe gateway cached iSCSI volumes
  * ```javascript

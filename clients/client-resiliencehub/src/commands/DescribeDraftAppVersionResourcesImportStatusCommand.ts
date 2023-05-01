@@ -52,14 +52,23 @@ export interface DescribeDraftAppVersionResourcesImportStatusCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ResiliencehubClient, DescribeDraftAppVersionResourcesImportStatusCommand } from "@aws-sdk/client-resiliencehub"; // ES Modules import
- * // const { ResiliencehubClient, DescribeDraftAppVersionResourcesImportStatusCommand } = require("@aws-sdk/client-resiliencehub"); // CommonJS import
+ * import { ResiliencehubClient, DescribeDraftAppVersionResourcesImportStatusCommand } from '@aws-sdk/client-resiliencehub'; // ES Modules import
+ * // const { ResiliencehubClient, DescribeDraftAppVersionResourcesImportStatusCommand } = require('@aws-sdk/client-resiliencehub'); // CommonJS import
  * const client = new ResiliencehubClient(config);
  * const input = { // DescribeDraftAppVersionResourcesImportStatusRequest
- *   appArn: "STRING_VALUE", // required
+ *   appArn: 'STRING_VALUE', // required
  * };
  * const command = new DescribeDraftAppVersionResourcesImportStatusCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeDraftAppVersionResourcesImportStatusResponse
+ *   appArn: 'STRING_VALUE', // required
+ *   appVersion: 'STRING_VALUE', // required
+ *   status: 'STRING_VALUE', // required
+ *   statusChangeTime: new Date('TIMESTAMP'), // required
+ *   errorMessage: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeDraftAppVersionResourcesImportStatusCommandInput - {@link DescribeDraftAppVersionResourcesImportStatusCommandInput}
@@ -86,6 +95,8 @@ export interface DescribeDraftAppVersionResourcesImportStatusCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>This exception occurs when a request is not valid.</p>
  *
+ * @throws {@link ResiliencehubServiceException}
+ * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
  */
 export class DescribeDraftAppVersionResourcesImportStatusCommand extends $Command<

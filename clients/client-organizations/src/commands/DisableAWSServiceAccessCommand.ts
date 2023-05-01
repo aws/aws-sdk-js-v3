@@ -91,14 +91,17 @@ export interface DisableAWSServiceAccessCommandOutput extends __MetadataBearer {
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OrganizationsClient, DisableAWSServiceAccessCommand } from "@aws-sdk/client-organizations"; // ES Modules import
- * // const { OrganizationsClient, DisableAWSServiceAccessCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
+ * import { OrganizationsClient, DisableAWSServiceAccessCommand } from '@aws-sdk/client-organizations'; // ES Modules import
+ * // const { OrganizationsClient, DisableAWSServiceAccessCommand } = require('@aws-sdk/client-organizations'); // CommonJS import
  * const client = new OrganizationsClient(config);
  * const input = { // DisableAWSServiceAccessRequest
- *   ServicePrincipal: "STRING_VALUE", // required
+ *   ServicePrincipal: 'STRING_VALUE', // required
  * };
  * const command = new DisableAWSServiceAccessCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DisableAWSServiceAccessCommandInput - {@link DisableAWSServiceAccessCommandInput}
@@ -437,6 +440,8 @@ export interface DisableAWSServiceAccessCommandOutput extends __MetadataBearer {
  * @throws {@link UnsupportedAPIEndpointException} (client fault)
  *  <p>This action isn't available in the current Amazon Web Services Region.</p>
  *
+ * @throws {@link OrganizationsServiceException}
+ * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
  */
 export class DisableAWSServiceAccessCommand extends $Command<

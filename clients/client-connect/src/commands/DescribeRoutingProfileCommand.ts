@@ -36,15 +36,41 @@ export interface DescribeRoutingProfileCommandOutput extends DescribeRoutingProf
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, DescribeRoutingProfileCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, DescribeRoutingProfileCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, DescribeRoutingProfileCommand } from '@aws-sdk/client-connect'; // ES Modules import
+ * // const { ConnectClient, DescribeRoutingProfileCommand } = require('@aws-sdk/client-connect'); // CommonJS import
  * const client = new ConnectClient(config);
  * const input = { // DescribeRoutingProfileRequest
- *   InstanceId: "STRING_VALUE", // required
- *   RoutingProfileId: "STRING_VALUE", // required
+ *   InstanceId: 'STRING_VALUE', // required
+ *   RoutingProfileId: 'STRING_VALUE', // required
  * };
  * const command = new DescribeRoutingProfileCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeRoutingProfileResponse
+ *   RoutingProfile: { // RoutingProfile
+ *     InstanceId: 'STRING_VALUE',
+ *     Name: 'STRING_VALUE',
+ *     RoutingProfileArn: 'STRING_VALUE',
+ *     RoutingProfileId: 'STRING_VALUE',
+ *     Description: 'STRING_VALUE',
+ *     MediaConcurrencies: [ // MediaConcurrencies
+ *       { // MediaConcurrency
+ *         Channel: 'VOICE' || 'CHAT' || 'TASK', // required
+ *         Concurrency: Number('int'), // required
+ *         CrossChannelBehavior: { // CrossChannelBehavior
+ *           BehaviorType: 'ROUTE_CURRENT_CHANNEL_ONLY' || 'ROUTE_ANY_CHANNEL', // required
+ *         },
+ *       },
+ *     ],
+ *     DefaultOutboundQueueId: 'STRING_VALUE',
+ *     Tags: { // TagMap
+ *       '<keys>': 'STRING_VALUE',
+ *     },
+ *     NumberOfAssociatedQueues: Number('long'),
+ *     NumberOfAssociatedUsers: Number('long'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeRoutingProfileCommandInput - {@link DescribeRoutingProfileCommandInput}
@@ -68,6 +94,8 @@ export interface DescribeRoutingProfileCommandOutput extends DescribeRoutingProf
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class DescribeRoutingProfileCommand extends $Command<

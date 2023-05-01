@@ -36,16 +36,24 @@ export interface PutAlertManagerDefinitionCommandOutput extends PutAlertManagerD
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AmpClient, PutAlertManagerDefinitionCommand } from "@aws-sdk/client-amp"; // ES Modules import
- * // const { AmpClient, PutAlertManagerDefinitionCommand } = require("@aws-sdk/client-amp"); // CommonJS import
+ * import { AmpClient, PutAlertManagerDefinitionCommand } from '@aws-sdk/client-amp'; // ES Modules import
+ * // const { AmpClient, PutAlertManagerDefinitionCommand } = require('@aws-sdk/client-amp'); // CommonJS import
  * const client = new AmpClient(config);
  * const input = { // PutAlertManagerDefinitionRequest
- *   workspaceId: "STRING_VALUE", // required
- *   data: "BLOB_VALUE", // required
- *   clientToken: "STRING_VALUE",
+ *   workspaceId: 'STRING_VALUE', // required
+ *   data: 'BLOB_VALUE', // required
+ *   clientToken: 'STRING_VALUE',
  * };
  * const command = new PutAlertManagerDefinitionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutAlertManagerDefinitionResponse
+ *   status: { // AlertManagerDefinitionStatus
+ *     statusCode: 'STRING_VALUE', // required
+ *     statusReason: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param PutAlertManagerDefinitionCommandInput - {@link PutAlertManagerDefinitionCommandInput}
@@ -75,6 +83,8 @@ export interface PutAlertManagerDefinitionCommandOutput extends PutAlertManagerD
  * @throws {@link ValidationException} (client fault)
  *  The input fails to satisfy the constraints specified by an AWS service.
  *
+ * @throws {@link AmpServiceException}
+ * <p>Base exception class for all service exceptions from Amp service.</p>
  *
  */
 export class PutAlertManagerDefinitionCommand extends $Command<

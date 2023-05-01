@@ -36,15 +36,30 @@ export interface GetMailDomainCommandOutput extends GetMailDomainResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkMailClient, GetMailDomainCommand } from "@aws-sdk/client-workmail"; // ES Modules import
- * // const { WorkMailClient, GetMailDomainCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
+ * import { WorkMailClient, GetMailDomainCommand } from '@aws-sdk/client-workmail'; // ES Modules import
+ * // const { WorkMailClient, GetMailDomainCommand } = require('@aws-sdk/client-workmail'); // CommonJS import
  * const client = new WorkMailClient(config);
  * const input = { // GetMailDomainRequest
- *   OrganizationId: "STRING_VALUE", // required
- *   DomainName: "STRING_VALUE", // required
+ *   OrganizationId: 'STRING_VALUE', // required
+ *   DomainName: 'STRING_VALUE', // required
  * };
  * const command = new GetMailDomainCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetMailDomainResponse
+ *   Records: [ // DnsRecords
+ *     { // DnsRecord
+ *       Type: 'STRING_VALUE',
+ *       Hostname: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   IsTestDomain: true || false,
+ *   IsDefault: true || false,
+ *   OwnershipVerificationStatus: 'PENDING' || 'VERIFIED' || 'FAILED',
+ *   DkimVerificationStatus: 'PENDING' || 'VERIFIED' || 'FAILED',
+ * };
+ *
  * ```
  *
  * @param GetMailDomainCommandInput - {@link GetMailDomainCommandInput}
@@ -67,6 +82,8 @@ export interface GetMailDomainCommandOutput extends GetMailDomainResponse, __Met
  *  <p>The organization must have a valid state to perform certain
  *          operations on the organization or its members.</p>
  *
+ * @throws {@link WorkMailServiceException}
+ * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
  */
 export class GetMailDomainCommand extends $Command<

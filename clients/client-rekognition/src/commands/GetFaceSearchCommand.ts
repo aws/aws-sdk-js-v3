@@ -64,17 +64,136 @@ export interface GetFaceSearchCommandOutput extends GetFaceSearchResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RekognitionClient, GetFaceSearchCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
- * // const { RekognitionClient, GetFaceSearchCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
+ * import { RekognitionClient, GetFaceSearchCommand } from '@aws-sdk/client-rekognition'; // ES Modules import
+ * // const { RekognitionClient, GetFaceSearchCommand } = require('@aws-sdk/client-rekognition'); // CommonJS import
  * const client = new RekognitionClient(config);
  * const input = { // GetFaceSearchRequest
- *   JobId: "STRING_VALUE", // required
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
- *   SortBy: "INDEX" || "TIMESTAMP",
+ *   JobId: 'STRING_VALUE', // required
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
+ *   SortBy: 'INDEX' || 'TIMESTAMP',
  * };
  * const command = new GetFaceSearchCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetFaceSearchResponse
+ *   JobStatus: 'IN_PROGRESS' || 'SUCCEEDED' || 'FAILED',
+ *   StatusMessage: 'STRING_VALUE',
+ *   NextToken: 'STRING_VALUE',
+ *   VideoMetadata: { // VideoMetadata
+ *     Codec: 'STRING_VALUE',
+ *     DurationMillis: Number('long'),
+ *     Format: 'STRING_VALUE',
+ *     FrameRate: Number('float'),
+ *     FrameHeight: Number('long'),
+ *     FrameWidth: Number('long'),
+ *     ColorRange: 'FULL' || 'LIMITED',
+ *   },
+ *   Persons: [ // PersonMatches
+ *     { // PersonMatch
+ *       Timestamp: Number('long'),
+ *       Person: { // PersonDetail
+ *         Index: Number('long'),
+ *         BoundingBox: { // BoundingBox
+ *           Width: Number('float'),
+ *           Height: Number('float'),
+ *           Left: Number('float'),
+ *           Top: Number('float'),
+ *         },
+ *         Face: { // FaceDetail
+ *           BoundingBox: {
+ *             Width: Number('float'),
+ *             Height: Number('float'),
+ *             Left: Number('float'),
+ *             Top: Number('float'),
+ *           },
+ *           AgeRange: { // AgeRange
+ *             Low: Number('int'),
+ *             High: Number('int'),
+ *           },
+ *           Smile: { // Smile
+ *             Value: true || false,
+ *             Confidence: Number('float'),
+ *           },
+ *           Eyeglasses: { // Eyeglasses
+ *             Value: true || false,
+ *             Confidence: Number('float'),
+ *           },
+ *           Sunglasses: { // Sunglasses
+ *             Value: true || false,
+ *             Confidence: Number('float'),
+ *           },
+ *           Gender: { // Gender
+ *             Value: 'Male' || 'Female',
+ *             Confidence: Number('float'),
+ *           },
+ *           Beard: { // Beard
+ *             Value: true || false,
+ *             Confidence: Number('float'),
+ *           },
+ *           Mustache: { // Mustache
+ *             Value: true || false,
+ *             Confidence: Number('float'),
+ *           },
+ *           EyesOpen: { // EyeOpen
+ *             Value: true || false,
+ *             Confidence: Number('float'),
+ *           },
+ *           MouthOpen: { // MouthOpen
+ *             Value: true || false,
+ *             Confidence: Number('float'),
+ *           },
+ *           Emotions: [ // Emotions
+ *             { // Emotion
+ *               Type: 'HAPPY' || 'SAD' || 'ANGRY' || 'CONFUSED' || 'DISGUSTED' || 'SURPRISED' || 'CALM' || 'UNKNOWN' || 'FEAR',
+ *               Confidence: Number('float'),
+ *             },
+ *           ],
+ *           Landmarks: [ // Landmarks
+ *             { // Landmark
+ *               Type: 'eyeLeft' || 'eyeRight' || 'nose' || 'mouthLeft' || 'mouthRight' || 'leftEyeBrowLeft' || 'leftEyeBrowRight' || 'leftEyeBrowUp' || 'rightEyeBrowLeft' || 'rightEyeBrowRight' || 'rightEyeBrowUp' || 'leftEyeLeft' || 'leftEyeRight' || 'leftEyeUp' || 'leftEyeDown' || 'rightEyeLeft' || 'rightEyeRight' || 'rightEyeUp' || 'rightEyeDown' || 'noseLeft' || 'noseRight' || 'mouthUp' || 'mouthDown' || 'leftPupil' || 'rightPupil' || 'upperJawlineLeft' || 'midJawlineLeft' || 'chinBottom' || 'midJawlineRight' || 'upperJawlineRight',
+ *               X: Number('float'),
+ *               Y: Number('float'),
+ *             },
+ *           ],
+ *           Pose: { // Pose
+ *             Roll: Number('float'),
+ *             Yaw: Number('float'),
+ *             Pitch: Number('float'),
+ *           },
+ *           Quality: { // ImageQuality
+ *             Brightness: Number('float'),
+ *             Sharpness: Number('float'),
+ *           },
+ *           Confidence: Number('float'),
+ *         },
+ *       },
+ *       FaceMatches: [ // FaceMatchList
+ *         { // FaceMatch
+ *           Similarity: Number('float'),
+ *           Face: { // Face
+ *             FaceId: 'STRING_VALUE',
+ *             BoundingBox: '<BoundingBox>',
+ *             ImageId: 'STRING_VALUE',
+ *             ExternalImageId: 'STRING_VALUE',
+ *             Confidence: Number('float'),
+ *             IndexFacesModelVersion: 'STRING_VALUE',
+ *           },
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   JobId: 'STRING_VALUE',
+ *   Video: { // Video
+ *     S3Object: { // S3Object
+ *       Bucket: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *       Version: 'STRING_VALUE',
+ *     },
+ *   },
+ *   JobTag: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetFaceSearchCommandInput - {@link GetFaceSearchCommandInput}
@@ -106,6 +225,8 @@ export interface GetFaceSearchCommandOutput extends GetFaceSearchResponse, __Met
  * @throws {@link ThrottlingException} (server fault)
  *  <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
  *
+ * @throws {@link RekognitionServiceException}
+ * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
  */
 export class GetFaceSearchCommand extends $Command<

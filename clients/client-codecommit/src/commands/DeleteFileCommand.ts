@@ -38,21 +38,29 @@ export interface DeleteFileCommandOutput extends DeleteFileOutput, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeCommitClient, DeleteFileCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
- * // const { CodeCommitClient, DeleteFileCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
+ * import { CodeCommitClient, DeleteFileCommand } from '@aws-sdk/client-codecommit'; // ES Modules import
+ * // const { CodeCommitClient, DeleteFileCommand } = require('@aws-sdk/client-codecommit'); // CommonJS import
  * const client = new CodeCommitClient(config);
  * const input = { // DeleteFileInput
- *   repositoryName: "STRING_VALUE", // required
- *   branchName: "STRING_VALUE", // required
- *   filePath: "STRING_VALUE", // required
- *   parentCommitId: "STRING_VALUE", // required
+ *   repositoryName: 'STRING_VALUE', // required
+ *   branchName: 'STRING_VALUE', // required
+ *   filePath: 'STRING_VALUE', // required
+ *   parentCommitId: 'STRING_VALUE', // required
  *   keepEmptyFolders: true || false,
- *   commitMessage: "STRING_VALUE",
- *   name: "STRING_VALUE",
- *   email: "STRING_VALUE",
+ *   commitMessage: 'STRING_VALUE',
+ *   name: 'STRING_VALUE',
+ *   email: 'STRING_VALUE',
  * };
  * const command = new DeleteFileCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteFileOutput
+ *   commitId: 'STRING_VALUE', // required
+ *   blobId: 'STRING_VALUE', // required
+ *   treeId: 'STRING_VALUE', // required
+ *   filePath: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param DeleteFileCommandInput - {@link DeleteFileCommandInput}
@@ -139,6 +147,8 @@ export interface DeleteFileCommandOutput extends DeleteFileOutput, __MetadataBea
  * @throws {@link RepositoryNameRequiredException} (client fault)
  *  <p>A repository name is required, but was not specified.</p>
  *
+ * @throws {@link CodeCommitServiceException}
+ * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
  */
 export class DeleteFileCommand extends $Command<

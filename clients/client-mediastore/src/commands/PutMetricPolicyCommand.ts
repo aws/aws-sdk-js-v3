@@ -36,23 +36,26 @@ export interface PutMetricPolicyCommandOutput extends PutMetricPolicyOutput, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MediaStoreClient, PutMetricPolicyCommand } from "@aws-sdk/client-mediastore"; // ES Modules import
- * // const { MediaStoreClient, PutMetricPolicyCommand } = require("@aws-sdk/client-mediastore"); // CommonJS import
+ * import { MediaStoreClient, PutMetricPolicyCommand } from '@aws-sdk/client-mediastore'; // ES Modules import
+ * // const { MediaStoreClient, PutMetricPolicyCommand } = require('@aws-sdk/client-mediastore'); // CommonJS import
  * const client = new MediaStoreClient(config);
  * const input = { // PutMetricPolicyInput
- *   ContainerName: "STRING_VALUE", // required
+ *   ContainerName: 'STRING_VALUE', // required
  *   MetricPolicy: { // MetricPolicy
- *     ContainerLevelMetrics: "STRING_VALUE", // required
+ *     ContainerLevelMetrics: 'STRING_VALUE', // required
  *     MetricPolicyRules: [ // MetricPolicyRules
  *       { // MetricPolicyRule
- *         ObjectGroup: "STRING_VALUE", // required
- *         ObjectGroupName: "STRING_VALUE", // required
+ *         ObjectGroup: 'STRING_VALUE', // required
+ *         ObjectGroupName: 'STRING_VALUE', // required
  *       },
  *     ],
  *   },
  * };
  * const command = new PutMetricPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutMetricPolicyCommandInput - {@link PutMetricPolicyCommandInput}
@@ -71,6 +74,8 @@ export interface PutMetricPolicyCommandOutput extends PutMetricPolicyOutput, __M
  * @throws {@link InternalServerError} (server fault)
  *  <p>The service is temporarily unavailable.</p>
  *
+ * @throws {@link MediaStoreServiceException}
+ * <p>Base exception class for all service exceptions from MediaStore service.</p>
  *
  */
 export class PutMetricPolicyCommand extends $Command<

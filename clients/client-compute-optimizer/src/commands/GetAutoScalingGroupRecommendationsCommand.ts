@@ -48,34 +48,110 @@ export interface GetAutoScalingGroupRecommendationsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ComputeOptimizerClient, GetAutoScalingGroupRecommendationsCommand } from "@aws-sdk/client-compute-optimizer"; // ES Modules import
- * // const { ComputeOptimizerClient, GetAutoScalingGroupRecommendationsCommand } = require("@aws-sdk/client-compute-optimizer"); // CommonJS import
+ * import { ComputeOptimizerClient, GetAutoScalingGroupRecommendationsCommand } from '@aws-sdk/client-compute-optimizer'; // ES Modules import
+ * // const { ComputeOptimizerClient, GetAutoScalingGroupRecommendationsCommand } = require('@aws-sdk/client-compute-optimizer'); // CommonJS import
  * const client = new ComputeOptimizerClient(config);
  * const input = { // GetAutoScalingGroupRecommendationsRequest
  *   accountIds: [ // AccountIds
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   autoScalingGroupArns: [ // AutoScalingGroupArns
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  *   filters: [ // Filters
  *     { // Filter
- *       name: "Finding" || "FindingReasonCodes" || "RecommendationSourceType",
+ *       name: 'Finding' || 'FindingReasonCodes' || 'RecommendationSourceType',
  *       values: [ // FilterValues
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
  *   recommendationPreferences: { // RecommendationPreferences
  *     cpuVendorArchitectures: [ // CpuVendorArchitectures
- *       "AWS_ARM64" || "CURRENT",
+ *       'AWS_ARM64' || 'CURRENT',
  *     ],
  *   },
  * };
  * const command = new GetAutoScalingGroupRecommendationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetAutoScalingGroupRecommendationsResponse
+ *   nextToken: 'STRING_VALUE',
+ *   autoScalingGroupRecommendations: [ // AutoScalingGroupRecommendations
+ *     { // AutoScalingGroupRecommendation
+ *       accountId: 'STRING_VALUE',
+ *       autoScalingGroupArn: 'STRING_VALUE',
+ *       autoScalingGroupName: 'STRING_VALUE',
+ *       finding: 'Underprovisioned' || 'Overprovisioned' || 'Optimized' || 'NotOptimized',
+ *       utilizationMetrics: [ // UtilizationMetrics
+ *         { // UtilizationMetric
+ *           name: 'Cpu' || 'Memory' || 'EBS_READ_OPS_PER_SECOND' || 'EBS_WRITE_OPS_PER_SECOND' || 'EBS_READ_BYTES_PER_SECOND' || 'EBS_WRITE_BYTES_PER_SECOND' || 'DISK_READ_OPS_PER_SECOND' || 'DISK_WRITE_OPS_PER_SECOND' || 'DISK_READ_BYTES_PER_SECOND' || 'DISK_WRITE_BYTES_PER_SECOND' || 'NETWORK_IN_BYTES_PER_SECOND' || 'NETWORK_OUT_BYTES_PER_SECOND' || 'NETWORK_PACKETS_IN_PER_SECOND' || 'NETWORK_PACKETS_OUT_PER_SECOND',
+ *           statistic: 'Maximum' || 'Average',
+ *           value: Number('double'),
+ *         },
+ *       ],
+ *       lookBackPeriodInDays: Number('double'),
+ *       currentConfiguration: { // AutoScalingGroupConfiguration
+ *         desiredCapacity: Number('int'),
+ *         minSize: Number('int'),
+ *         maxSize: Number('int'),
+ *         instanceType: 'STRING_VALUE',
+ *       },
+ *       recommendationOptions: [ // AutoScalingGroupRecommendationOptions
+ *         { // AutoScalingGroupRecommendationOption
+ *           configuration: {
+ *             desiredCapacity: Number('int'),
+ *             minSize: Number('int'),
+ *             maxSize: Number('int'),
+ *             instanceType: 'STRING_VALUE',
+ *           },
+ *           projectedUtilizationMetrics: [ // ProjectedUtilizationMetrics
+ *             {
+ *               name: 'Cpu' || 'Memory' || 'EBS_READ_OPS_PER_SECOND' || 'EBS_WRITE_OPS_PER_SECOND' || 'EBS_READ_BYTES_PER_SECOND' || 'EBS_WRITE_BYTES_PER_SECOND' || 'DISK_READ_OPS_PER_SECOND' || 'DISK_WRITE_OPS_PER_SECOND' || 'DISK_READ_BYTES_PER_SECOND' || 'DISK_WRITE_BYTES_PER_SECOND' || 'NETWORK_IN_BYTES_PER_SECOND' || 'NETWORK_OUT_BYTES_PER_SECOND' || 'NETWORK_PACKETS_IN_PER_SECOND' || 'NETWORK_PACKETS_OUT_PER_SECOND',
+ *               statistic: 'Maximum' || 'Average',
+ *               value: Number('double'),
+ *             },
+ *           ],
+ *           performanceRisk: Number('double'),
+ *           rank: Number('int'),
+ *           savingsOpportunity: { // SavingsOpportunity
+ *             savingsOpportunityPercentage: Number('double'),
+ *             estimatedMonthlySavings: { // EstimatedMonthlySavings
+ *               currency: 'USD' || 'CNY',
+ *               value: Number('double'),
+ *             },
+ *           },
+ *           migrationEffort: 'VeryLow' || 'Low' || 'Medium' || 'High',
+ *         },
+ *       ],
+ *       lastRefreshTimestamp: new Date('TIMESTAMP'),
+ *       currentPerformanceRisk: 'VeryLow' || 'Low' || 'Medium' || 'High',
+ *       effectiveRecommendationPreferences: { // EffectiveRecommendationPreferences
+ *         cpuVendorArchitectures: [ // CpuVendorArchitectures
+ *           'AWS_ARM64' || 'CURRENT',
+ *         ],
+ *         enhancedInfrastructureMetrics: 'Active' || 'Inactive',
+ *         inferredWorkloadTypes: 'Active' || 'Inactive',
+ *         externalMetricsPreference: { // ExternalMetricsPreference
+ *           source: 'Datadog' || 'Dynatrace' || 'NewRelic' || 'Instana',
+ *         },
+ *       },
+ *       inferredWorkloadTypes: [ // InferredWorkloadTypes
+ *         'AmazonEmr' || 'ApacheCassandra' || 'ApacheHadoop' || 'Memcached' || 'Nginx' || 'PostgreSql' || 'Redis' || 'Kafka',
+ *       ],
+ *     },
+ *   ],
+ *   errors: [ // GetRecommendationErrors
+ *     { // GetRecommendationError
+ *       identifier: 'STRING_VALUE',
+ *       code: 'STRING_VALUE',
+ *       message: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetAutoScalingGroupRecommendationsCommandInput - {@link GetAutoScalingGroupRecommendationsCommandInput}
@@ -109,6 +185,8 @@ export interface GetAutoScalingGroupRecommendationsCommandOutput
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
  *
+ * @throws {@link ComputeOptimizerServiceException}
+ * <p>Base exception class for all service exceptions from ComputeOptimizer service.</p>
  *
  */
 export class GetAutoScalingGroupRecommendationsCommand extends $Command<

@@ -43,16 +43,19 @@ export interface UpdateSigningCertificateCommandOutput extends __MetadataBearer 
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IAMClient, UpdateSigningCertificateCommand } from "@aws-sdk/client-iam"; // ES Modules import
- * // const { IAMClient, UpdateSigningCertificateCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * import { IAMClient, UpdateSigningCertificateCommand } from '@aws-sdk/client-iam'; // ES Modules import
+ * // const { IAMClient, UpdateSigningCertificateCommand } = require('@aws-sdk/client-iam'); // CommonJS import
  * const client = new IAMClient(config);
  * const input = { // UpdateSigningCertificateRequest
- *   UserName: "STRING_VALUE",
- *   CertificateId: "STRING_VALUE", // required
- *   Status: "Active" || "Inactive", // required
+ *   UserName: 'STRING_VALUE',
+ *   CertificateId: 'STRING_VALUE', // required
+ *   Status: 'Active' || 'Inactive', // required
  * };
  * const command = new UpdateSigningCertificateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateSigningCertificateCommandInput - {@link UpdateSigningCertificateCommandInput}
@@ -73,6 +76,8 @@ export interface UpdateSigningCertificateCommandOutput extends __MetadataBearer 
  *  <p>The request processing has failed because of an unknown error, exception or
  *       failure.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  * @example To change the active status of a signing certificate for an IAM user
  * ```javascript

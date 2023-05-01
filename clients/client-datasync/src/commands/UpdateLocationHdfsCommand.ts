@@ -37,36 +37,39 @@ export interface UpdateLocationHdfsCommandOutput extends UpdateLocationHdfsRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DataSyncClient, UpdateLocationHdfsCommand } from "@aws-sdk/client-datasync"; // ES Modules import
- * // const { DataSyncClient, UpdateLocationHdfsCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
+ * import { DataSyncClient, UpdateLocationHdfsCommand } from '@aws-sdk/client-datasync'; // ES Modules import
+ * // const { DataSyncClient, UpdateLocationHdfsCommand } = require('@aws-sdk/client-datasync'); // CommonJS import
  * const client = new DataSyncClient(config);
  * const input = { // UpdateLocationHdfsRequest
- *   LocationArn: "STRING_VALUE", // required
- *   Subdirectory: "STRING_VALUE",
+ *   LocationArn: 'STRING_VALUE', // required
+ *   Subdirectory: 'STRING_VALUE',
  *   NameNodes: [ // HdfsNameNodeList
  *     { // HdfsNameNode
- *       Hostname: "STRING_VALUE", // required
- *       Port: Number("int"), // required
+ *       Hostname: 'STRING_VALUE', // required
+ *       Port: Number('int'), // required
  *     },
  *   ],
- *   BlockSize: Number("int"),
- *   ReplicationFactor: Number("int"),
- *   KmsKeyProviderUri: "STRING_VALUE",
+ *   BlockSize: Number('int'),
+ *   ReplicationFactor: Number('int'),
+ *   KmsKeyProviderUri: 'STRING_VALUE',
  *   QopConfiguration: { // QopConfiguration
- *     RpcProtection: "DISABLED" || "AUTHENTICATION" || "INTEGRITY" || "PRIVACY",
- *     DataTransferProtection: "DISABLED" || "AUTHENTICATION" || "INTEGRITY" || "PRIVACY",
+ *     RpcProtection: 'DISABLED' || 'AUTHENTICATION' || 'INTEGRITY' || 'PRIVACY',
+ *     DataTransferProtection: 'DISABLED' || 'AUTHENTICATION' || 'INTEGRITY' || 'PRIVACY',
  *   },
- *   AuthenticationType: "SIMPLE" || "KERBEROS",
- *   SimpleUser: "STRING_VALUE",
- *   KerberosPrincipal: "STRING_VALUE",
- *   KerberosKeytab: "BLOB_VALUE",
- *   KerberosKrb5Conf: "BLOB_VALUE",
+ *   AuthenticationType: 'SIMPLE' || 'KERBEROS',
+ *   SimpleUser: 'STRING_VALUE',
+ *   KerberosPrincipal: 'STRING_VALUE',
+ *   KerberosKeytab: 'BLOB_VALUE',
+ *   KerberosKrb5Conf: 'BLOB_VALUE',
  *   AgentArns: [ // AgentArnList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new UpdateLocationHdfsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateLocationHdfsCommandInput - {@link UpdateLocationHdfsCommandInput}
@@ -82,6 +85,8 @@ export interface UpdateLocationHdfsCommandOutput extends UpdateLocationHdfsRespo
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception is thrown when the client submits a malformed request.</p>
  *
+ * @throws {@link DataSyncServiceException}
+ * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
  */
 export class UpdateLocationHdfsCommand extends $Command<

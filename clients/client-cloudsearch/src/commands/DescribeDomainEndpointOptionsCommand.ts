@@ -41,15 +41,32 @@ export interface DescribeDomainEndpointOptionsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudSearchClient, DescribeDomainEndpointOptionsCommand } from "@aws-sdk/client-cloudsearch"; // ES Modules import
- * // const { CloudSearchClient, DescribeDomainEndpointOptionsCommand } = require("@aws-sdk/client-cloudsearch"); // CommonJS import
+ * import { CloudSearchClient, DescribeDomainEndpointOptionsCommand } from '@aws-sdk/client-cloudsearch'; // ES Modules import
+ * // const { CloudSearchClient, DescribeDomainEndpointOptionsCommand } = require('@aws-sdk/client-cloudsearch'); // CommonJS import
  * const client = new CloudSearchClient(config);
  * const input = { // DescribeDomainEndpointOptionsRequest
- *   DomainName: "STRING_VALUE", // required
+ *   DomainName: 'STRING_VALUE', // required
  *   Deployed: true || false,
  * };
  * const command = new DescribeDomainEndpointOptionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeDomainEndpointOptionsResponse
+ *   DomainEndpointOptions: { // DomainEndpointOptionsStatus
+ *     Options: { // DomainEndpointOptions
+ *       EnforceHTTPS: true || false,
+ *       TLSSecurityPolicy: 'STRING_VALUE',
+ *     },
+ *     Status: { // OptionStatus
+ *       CreationDate: new Date('TIMESTAMP'), // required
+ *       UpdateDate: new Date('TIMESTAMP'), // required
+ *       UpdateVersion: Number('int'),
+ *       State: 'STRING_VALUE', // required
+ *       PendingDeletion: true || false,
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeDomainEndpointOptionsCommandInput - {@link DescribeDomainEndpointOptionsCommandInput}
@@ -74,6 +91,8 @@ export interface DescribeDomainEndpointOptionsCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The request was rejected because it attempted to reference a resource that does not exist.</p>
  *
+ * @throws {@link CloudSearchServiceException}
+ * <p>Base exception class for all service exceptions from CloudSearch service.</p>
  *
  */
 export class DescribeDomainEndpointOptionsCommand extends $Command<

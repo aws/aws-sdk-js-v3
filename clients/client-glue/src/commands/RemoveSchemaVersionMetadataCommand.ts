@@ -38,27 +38,39 @@ export interface RemoveSchemaVersionMetadataCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlueClient, RemoveSchemaVersionMetadataCommand } from "@aws-sdk/client-glue"; // ES Modules import
- * // const { GlueClient, RemoveSchemaVersionMetadataCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * import { GlueClient, RemoveSchemaVersionMetadataCommand } from '@aws-sdk/client-glue'; // ES Modules import
+ * // const { GlueClient, RemoveSchemaVersionMetadataCommand } = require('@aws-sdk/client-glue'); // CommonJS import
  * const client = new GlueClient(config);
  * const input = { // RemoveSchemaVersionMetadataInput
  *   SchemaId: { // SchemaId
- *     SchemaArn: "STRING_VALUE",
- *     SchemaName: "STRING_VALUE",
- *     RegistryName: "STRING_VALUE",
+ *     SchemaArn: 'STRING_VALUE',
+ *     SchemaName: 'STRING_VALUE',
+ *     RegistryName: 'STRING_VALUE',
  *   },
  *   SchemaVersionNumber: { // SchemaVersionNumber
  *     LatestVersion: true || false,
- *     VersionNumber: Number("long"),
+ *     VersionNumber: Number('long'),
  *   },
- *   SchemaVersionId: "STRING_VALUE",
+ *   SchemaVersionId: 'STRING_VALUE',
  *   MetadataKeyValue: { // MetadataKeyValuePair
- *     MetadataKey: "STRING_VALUE",
- *     MetadataValue: "STRING_VALUE",
+ *     MetadataKey: 'STRING_VALUE',
+ *     MetadataValue: 'STRING_VALUE',
  *   },
  * };
  * const command = new RemoveSchemaVersionMetadataCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // RemoveSchemaVersionMetadataResponse
+ *   SchemaArn: 'STRING_VALUE',
+ *   SchemaName: 'STRING_VALUE',
+ *   RegistryName: 'STRING_VALUE',
+ *   LatestVersion: true || false,
+ *   VersionNumber: Number('long'),
+ *   SchemaVersionId: 'STRING_VALUE',
+ *   MetadataKey: 'STRING_VALUE',
+ *   MetadataValue: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param RemoveSchemaVersionMetadataCommandInput - {@link RemoveSchemaVersionMetadataCommandInput}
@@ -76,6 +88,8 @@ export interface RemoveSchemaVersionMetadataCommandOutput
  * @throws {@link InvalidInputException} (client fault)
  *  <p>The input provided was not valid.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class RemoveSchemaVersionMetadataCommand extends $Command<

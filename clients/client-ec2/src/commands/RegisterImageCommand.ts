@@ -84,49 +84,54 @@ export interface RegisterImageCommandOutput extends RegisterImageResult, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, RegisterImageCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, RegisterImageCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, RegisterImageCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, RegisterImageCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // RegisterImageRequest
- *   ImageLocation: "STRING_VALUE",
- *   Architecture: "i386" || "x86_64" || "arm64" || "x86_64_mac" || "arm64_mac",
+ *   ImageLocation: 'STRING_VALUE',
+ *   Architecture: 'i386' || 'x86_64' || 'arm64' || 'x86_64_mac' || 'arm64_mac',
  *   BlockDeviceMappings: [ // BlockDeviceMappingRequestList
  *     { // BlockDeviceMapping
- *       DeviceName: "STRING_VALUE",
- *       VirtualName: "STRING_VALUE",
+ *       DeviceName: 'STRING_VALUE',
+ *       VirtualName: 'STRING_VALUE',
  *       Ebs: { // EbsBlockDevice
  *         DeleteOnTermination: true || false,
- *         Iops: Number("int"),
- *         SnapshotId: "STRING_VALUE",
- *         VolumeSize: Number("int"),
- *         VolumeType: "standard" || "io1" || "io2" || "gp2" || "sc1" || "st1" || "gp3",
- *         KmsKeyId: "STRING_VALUE",
- *         Throughput: Number("int"),
- *         OutpostArn: "STRING_VALUE",
+ *         Iops: Number('int'),
+ *         SnapshotId: 'STRING_VALUE',
+ *         VolumeSize: Number('int'),
+ *         VolumeType: 'standard' || 'io1' || 'io2' || 'gp2' || 'sc1' || 'st1' || 'gp3',
+ *         KmsKeyId: 'STRING_VALUE',
+ *         Throughput: Number('int'),
+ *         OutpostArn: 'STRING_VALUE',
  *         Encrypted: true || false,
  *       },
- *       NoDevice: "STRING_VALUE",
+ *       NoDevice: 'STRING_VALUE',
  *     },
  *   ],
- *   Description: "STRING_VALUE",
+ *   Description: 'STRING_VALUE',
  *   DryRun: true || false,
  *   EnaSupport: true || false,
- *   KernelId: "STRING_VALUE",
- *   Name: "STRING_VALUE", // required
+ *   KernelId: 'STRING_VALUE',
+ *   Name: 'STRING_VALUE', // required
  *   BillingProducts: [ // BillingProductList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   RamdiskId: "STRING_VALUE",
- *   RootDeviceName: "STRING_VALUE",
- *   SriovNetSupport: "STRING_VALUE",
- *   VirtualizationType: "STRING_VALUE",
- *   BootMode: "legacy-bios" || "uefi" || "uefi-preferred",
- *   TpmSupport: "v2.0",
- *   UefiData: "STRING_VALUE",
- *   ImdsSupport: "v2.0",
+ *   RamdiskId: 'STRING_VALUE',
+ *   RootDeviceName: 'STRING_VALUE',
+ *   SriovNetSupport: 'STRING_VALUE',
+ *   VirtualizationType: 'STRING_VALUE',
+ *   BootMode: 'legacy-bios' || 'uefi' || 'uefi-preferred',
+ *   TpmSupport: 'v2.0',
+ *   UefiData: 'STRING_VALUE',
+ *   ImdsSupport: 'v2.0',
  * };
  * const command = new RegisterImageCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // RegisterImageResult
+ *   ImageId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param RegisterImageCommandInput - {@link RegisterImageCommandInput}
@@ -135,6 +140,8 @@ export interface RegisterImageCommandOutput extends RegisterImageResult, __Metad
  * @see {@link RegisterImageCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class RegisterImageCommand extends $Command<

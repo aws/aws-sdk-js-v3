@@ -40,17 +40,41 @@ export interface ListTableRestoreStatusCommandOutput extends ListTableRestoreSta
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RedshiftServerlessClient, ListTableRestoreStatusCommand } from "@aws-sdk/client-redshift-serverless"; // ES Modules import
- * // const { RedshiftServerlessClient, ListTableRestoreStatusCommand } = require("@aws-sdk/client-redshift-serverless"); // CommonJS import
+ * import { RedshiftServerlessClient, ListTableRestoreStatusCommand } from '@aws-sdk/client-redshift-serverless'; // ES Modules import
+ * // const { RedshiftServerlessClient, ListTableRestoreStatusCommand } = require('@aws-sdk/client-redshift-serverless'); // CommonJS import
  * const client = new RedshiftServerlessClient(config);
  * const input = { // ListTableRestoreStatusRequest
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
- *   namespaceName: "STRING_VALUE",
- *   workgroupName: "STRING_VALUE",
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
+ *   namespaceName: 'STRING_VALUE',
+ *   workgroupName: 'STRING_VALUE',
  * };
  * const command = new ListTableRestoreStatusCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTableRestoreStatusResponse
+ *   nextToken: 'STRING_VALUE',
+ *   tableRestoreStatuses: [ // TableRestoreStatusList
+ *     { // TableRestoreStatus
+ *       tableRestoreRequestId: 'STRING_VALUE',
+ *       status: 'STRING_VALUE',
+ *       message: 'STRING_VALUE',
+ *       requestTime: new Date('TIMESTAMP'),
+ *       namespaceName: 'STRING_VALUE',
+ *       workgroupName: 'STRING_VALUE',
+ *       snapshotName: 'STRING_VALUE',
+ *       progressInMegaBytes: Number('long'),
+ *       totalDataInMegaBytes: Number('long'),
+ *       sourceDatabaseName: 'STRING_VALUE',
+ *       sourceSchemaName: 'STRING_VALUE',
+ *       sourceTableName: 'STRING_VALUE',
+ *       targetDatabaseName: 'STRING_VALUE',
+ *       targetSchemaName: 'STRING_VALUE',
+ *       newTableName: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListTableRestoreStatusCommandInput - {@link ListTableRestoreStatusCommandInput}
@@ -68,6 +92,8 @@ export interface ListTableRestoreStatusCommandOutput extends ListTableRestoreSta
  * @throws {@link ValidationException} (client fault)
  *  <p>The input failed to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link RedshiftServerlessServiceException}
+ * <p>Base exception class for all service exceptions from RedshiftServerless service.</p>
  *
  */
 export class ListTableRestoreStatusCommand extends $Command<

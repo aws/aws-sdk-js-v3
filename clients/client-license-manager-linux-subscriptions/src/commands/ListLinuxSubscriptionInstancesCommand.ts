@@ -46,24 +46,45 @@ export interface ListLinuxSubscriptionInstancesCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LicenseManagerLinuxSubscriptionsClient, ListLinuxSubscriptionInstancesCommand } from "@aws-sdk/client-license-manager-linux-subscriptions"; // ES Modules import
- * // const { LicenseManagerLinuxSubscriptionsClient, ListLinuxSubscriptionInstancesCommand } = require("@aws-sdk/client-license-manager-linux-subscriptions"); // CommonJS import
+ * import { LicenseManagerLinuxSubscriptionsClient, ListLinuxSubscriptionInstancesCommand } from '@aws-sdk/client-license-manager-linux-subscriptions'; // ES Modules import
+ * // const { LicenseManagerLinuxSubscriptionsClient, ListLinuxSubscriptionInstancesCommand } = require('@aws-sdk/client-license-manager-linux-subscriptions'); // CommonJS import
  * const client = new LicenseManagerLinuxSubscriptionsClient(config);
  * const input = { // ListLinuxSubscriptionInstancesRequest
  *   Filters: [ // FilterList
  *     { // Filter
- *       Name: "STRING_VALUE",
+ *       Name: 'STRING_VALUE',
  *       Values: [ // StringList
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
- *       Operator: "STRING_VALUE",
+ *       Operator: 'STRING_VALUE',
  *     },
  *   ],
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListLinuxSubscriptionInstancesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListLinuxSubscriptionInstancesResponse
+ *   Instances: [ // InstanceList
+ *     { // Instance
+ *       AmiId: 'STRING_VALUE',
+ *       InstanceID: 'STRING_VALUE',
+ *       InstanceType: 'STRING_VALUE',
+ *       AccountID: 'STRING_VALUE',
+ *       Status: 'STRING_VALUE',
+ *       Region: 'STRING_VALUE',
+ *       UsageOperation: 'STRING_VALUE',
+ *       ProductCode: [ // ProductCodeList
+ *         'STRING_VALUE',
+ *       ],
+ *       LastUpdatedTime: 'STRING_VALUE',
+ *       SubscriptionName: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListLinuxSubscriptionInstancesCommandInput - {@link ListLinuxSubscriptionInstancesCommandInput}
@@ -81,6 +102,8 @@ export interface ListLinuxSubscriptionInstancesCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The provided input is not valid. Try your request again.</p>
  *
+ * @throws {@link LicenseManagerLinuxSubscriptionsServiceException}
+ * <p>Base exception class for all service exceptions from LicenseManagerLinuxSubscriptions service.</p>
  *
  */
 export class ListLinuxSubscriptionInstancesCommand extends $Command<

@@ -46,18 +46,18 @@ export interface BatchCreateAttendeeCommandOutput extends BatchCreateAttendeeRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeClient, BatchCreateAttendeeCommand } from "@aws-sdk/client-chime"; // ES Modules import
- * // const { ChimeClient, BatchCreateAttendeeCommand } = require("@aws-sdk/client-chime"); // CommonJS import
+ * import { ChimeClient, BatchCreateAttendeeCommand } from '@aws-sdk/client-chime'; // ES Modules import
+ * // const { ChimeClient, BatchCreateAttendeeCommand } = require('@aws-sdk/client-chime'); // CommonJS import
  * const client = new ChimeClient(config);
  * const input = { // BatchCreateAttendeeRequest
- *   MeetingId: "STRING_VALUE", // required
+ *   MeetingId: 'STRING_VALUE', // required
  *   Attendees: [ // CreateAttendeeRequestItemList // required
  *     { // CreateAttendeeRequestItem
- *       ExternalUserId: "STRING_VALUE", // required
+ *       ExternalUserId: 'STRING_VALUE', // required
  *       Tags: [ // AttendeeTagList
  *         { // Tag
- *           Key: "STRING_VALUE", // required
- *           Value: "STRING_VALUE", // required
+ *           Key: 'STRING_VALUE', // required
+ *           Value: 'STRING_VALUE', // required
  *         },
  *       ],
  *     },
@@ -65,6 +65,24 @@ export interface BatchCreateAttendeeCommandOutput extends BatchCreateAttendeeRes
  * };
  * const command = new BatchCreateAttendeeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BatchCreateAttendeeResponse
+ *   Attendees: [ // AttendeeList
+ *     { // Attendee
+ *       ExternalUserId: 'STRING_VALUE',
+ *       AttendeeId: 'STRING_VALUE',
+ *       JoinToken: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   Errors: [ // BatchCreateAttendeeErrorList
+ *     { // CreateAttendeeError
+ *       ExternalUserId: 'STRING_VALUE',
+ *       ErrorCode: 'STRING_VALUE',
+ *       ErrorMessage: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param BatchCreateAttendeeCommandInput - {@link BatchCreateAttendeeCommandInput}
@@ -97,6 +115,8 @@ export interface BatchCreateAttendeeCommandOutput extends BatchCreateAttendeeRes
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeServiceException}
+ * <p>Base exception class for all service exceptions from Chime service.</p>
  *
  */
 export class BatchCreateAttendeeCommand extends $Command<

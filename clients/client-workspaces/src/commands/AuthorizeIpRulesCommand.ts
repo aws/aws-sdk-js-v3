@@ -38,20 +38,23 @@ export interface AuthorizeIpRulesCommandOutput extends AuthorizeIpRulesResult, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkSpacesClient, AuthorizeIpRulesCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
- * // const { WorkSpacesClient, AuthorizeIpRulesCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
+ * import { WorkSpacesClient, AuthorizeIpRulesCommand } from '@aws-sdk/client-workspaces'; // ES Modules import
+ * // const { WorkSpacesClient, AuthorizeIpRulesCommand } = require('@aws-sdk/client-workspaces'); // CommonJS import
  * const client = new WorkSpacesClient(config);
  * const input = { // AuthorizeIpRulesRequest
- *   GroupId: "STRING_VALUE", // required
+ *   GroupId: 'STRING_VALUE', // required
  *   UserRules: [ // IpRuleList // required
  *     { // IpRuleItem
- *       ipRule: "STRING_VALUE",
- *       ruleDesc: "STRING_VALUE",
+ *       ipRule: 'STRING_VALUE',
+ *       ruleDesc: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new AuthorizeIpRulesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param AuthorizeIpRulesCommandInput - {@link AuthorizeIpRulesCommandInput}
@@ -75,6 +78,8 @@ export interface AuthorizeIpRulesCommandOutput extends AuthorizeIpRulesResult, _
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource could not be found.</p>
  *
+ * @throws {@link WorkSpacesServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
  */
 export class AuthorizeIpRulesCommand extends $Command<

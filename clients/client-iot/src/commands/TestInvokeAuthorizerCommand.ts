@@ -39,30 +39,41 @@ export interface TestInvokeAuthorizerCommandOutput extends TestInvokeAuthorizerR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTClient, TestInvokeAuthorizerCommand } from "@aws-sdk/client-iot"; // ES Modules import
- * // const { IoTClient, TestInvokeAuthorizerCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * import { IoTClient, TestInvokeAuthorizerCommand } from '@aws-sdk/client-iot'; // ES Modules import
+ * // const { IoTClient, TestInvokeAuthorizerCommand } = require('@aws-sdk/client-iot'); // CommonJS import
  * const client = new IoTClient(config);
  * const input = { // TestInvokeAuthorizerRequest
- *   authorizerName: "STRING_VALUE", // required
- *   token: "STRING_VALUE",
- *   tokenSignature: "STRING_VALUE",
+ *   authorizerName: 'STRING_VALUE', // required
+ *   token: 'STRING_VALUE',
+ *   tokenSignature: 'STRING_VALUE',
  *   httpContext: { // HttpContext
  *     headers: { // HttpHeaders
- *       "<keys>": "STRING_VALUE",
+ *       '<keys>': 'STRING_VALUE',
  *     },
- *     queryString: "STRING_VALUE",
+ *     queryString: 'STRING_VALUE',
  *   },
  *   mqttContext: { // MqttContext
- *     username: "STRING_VALUE",
- *     password: "BLOB_VALUE",
- *     clientId: "STRING_VALUE",
+ *     username: 'STRING_VALUE',
+ *     password: 'BLOB_VALUE',
+ *     clientId: 'STRING_VALUE',
  *   },
  *   tlsContext: { // TlsContext
- *     serverName: "STRING_VALUE",
+ *     serverName: 'STRING_VALUE',
  *   },
  * };
  * const command = new TestInvokeAuthorizerCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // TestInvokeAuthorizerResponse
+ *   isAuthenticated: true || false,
+ *   principalId: 'STRING_VALUE',
+ *   policyDocuments: [ // PolicyDocuments
+ *     'STRING_VALUE',
+ *   ],
+ *   refreshAfterInSeconds: Number('int'),
+ *   disconnectAfterInSeconds: Number('int'),
+ * };
+ *
  * ```
  *
  * @param TestInvokeAuthorizerCommandInput - {@link TestInvokeAuthorizerCommandInput}
@@ -92,6 +103,8 @@ export interface TestInvokeAuthorizerCommandOutput extends TestInvokeAuthorizerR
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this operation.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class TestInvokeAuthorizerCommand extends $Command<

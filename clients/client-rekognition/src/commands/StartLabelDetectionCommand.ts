@@ -60,46 +60,51 @@ export interface StartLabelDetectionCommandOutput extends StartLabelDetectionRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RekognitionClient, StartLabelDetectionCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
- * // const { RekognitionClient, StartLabelDetectionCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
+ * import { RekognitionClient, StartLabelDetectionCommand } from '@aws-sdk/client-rekognition'; // ES Modules import
+ * // const { RekognitionClient, StartLabelDetectionCommand } = require('@aws-sdk/client-rekognition'); // CommonJS import
  * const client = new RekognitionClient(config);
  * const input = { // StartLabelDetectionRequest
  *   Video: { // Video
  *     S3Object: { // S3Object
- *       Bucket: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *       Version: "STRING_VALUE",
+ *       Bucket: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *       Version: 'STRING_VALUE',
  *     },
  *   },
- *   ClientRequestToken: "STRING_VALUE",
- *   MinConfidence: Number("float"),
+ *   ClientRequestToken: 'STRING_VALUE',
+ *   MinConfidence: Number('float'),
  *   NotificationChannel: { // NotificationChannel
- *     SNSTopicArn: "STRING_VALUE", // required
- *     RoleArn: "STRING_VALUE", // required
+ *     SNSTopicArn: 'STRING_VALUE', // required
+ *     RoleArn: 'STRING_VALUE', // required
  *   },
- *   JobTag: "STRING_VALUE",
+ *   JobTag: 'STRING_VALUE',
  *   Features: [ // LabelDetectionFeatureList
- *     "GENERAL_LABELS",
+ *     'GENERAL_LABELS',
  *   ],
  *   Settings: { // LabelDetectionSettings
  *     GeneralLabels: { // GeneralLabelsSettings
  *       LabelInclusionFilters: [ // GeneralLabelsFilterList
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *       LabelExclusionFilters: [
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *       LabelCategoryInclusionFilters: [
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *       LabelCategoryExclusionFilters: [
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   },
  * };
  * const command = new StartLabelDetectionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartLabelDetectionResponse
+ *   JobId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param StartLabelDetectionCommandInput - {@link StartLabelDetectionCommandInput}
@@ -141,6 +146,8 @@ export interface StartLabelDetectionCommandOutput extends StartLabelDetectionRes
  *  <p>The file size or duration of the supplied media is too large. The maximum file size is 10GB.
  *         The maximum duration is 6 hours. </p>
  *
+ * @throws {@link RekognitionServiceException}
+ * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
  */
 export class StartLabelDetectionCommand extends $Command<

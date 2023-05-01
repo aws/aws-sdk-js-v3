@@ -42,35 +42,67 @@ export interface CreateDeviceCommandOutput extends CreateDeviceResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { NetworkManagerClient, CreateDeviceCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
- * // const { NetworkManagerClient, CreateDeviceCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
+ * import { NetworkManagerClient, CreateDeviceCommand } from '@aws-sdk/client-networkmanager'; // ES Modules import
+ * // const { NetworkManagerClient, CreateDeviceCommand } = require('@aws-sdk/client-networkmanager'); // CommonJS import
  * const client = new NetworkManagerClient(config);
  * const input = { // CreateDeviceRequest
- *   GlobalNetworkId: "STRING_VALUE", // required
+ *   GlobalNetworkId: 'STRING_VALUE', // required
  *   AWSLocation: { // AWSLocation
- *     Zone: "STRING_VALUE",
- *     SubnetArn: "STRING_VALUE",
+ *     Zone: 'STRING_VALUE',
+ *     SubnetArn: 'STRING_VALUE',
  *   },
- *   Description: "STRING_VALUE",
- *   Type: "STRING_VALUE",
- *   Vendor: "STRING_VALUE",
- *   Model: "STRING_VALUE",
- *   SerialNumber: "STRING_VALUE",
+ *   Description: 'STRING_VALUE',
+ *   Type: 'STRING_VALUE',
+ *   Vendor: 'STRING_VALUE',
+ *   Model: 'STRING_VALUE',
+ *   SerialNumber: 'STRING_VALUE',
  *   Location: { // Location
- *     Address: "STRING_VALUE",
- *     Latitude: "STRING_VALUE",
- *     Longitude: "STRING_VALUE",
+ *     Address: 'STRING_VALUE',
+ *     Latitude: 'STRING_VALUE',
+ *     Longitude: 'STRING_VALUE',
  *   },
- *   SiteId: "STRING_VALUE",
+ *   SiteId: 'STRING_VALUE',
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE",
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new CreateDeviceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateDeviceResponse
+ *   Device: { // Device
+ *     DeviceId: 'STRING_VALUE',
+ *     DeviceArn: 'STRING_VALUE',
+ *     GlobalNetworkId: 'STRING_VALUE',
+ *     AWSLocation: { // AWSLocation
+ *       Zone: 'STRING_VALUE',
+ *       SubnetArn: 'STRING_VALUE',
+ *     },
+ *     Description: 'STRING_VALUE',
+ *     Type: 'STRING_VALUE',
+ *     Vendor: 'STRING_VALUE',
+ *     Model: 'STRING_VALUE',
+ *     SerialNumber: 'STRING_VALUE',
+ *     Location: { // Location
+ *       Address: 'STRING_VALUE',
+ *       Latitude: 'STRING_VALUE',
+ *       Longitude: 'STRING_VALUE',
+ *     },
+ *     SiteId: 'STRING_VALUE',
+ *     CreatedAt: new Date('TIMESTAMP'),
+ *     State: 'PENDING' || 'AVAILABLE' || 'DELETING' || 'UPDATING',
+ *     Tags: [ // TagList
+ *       { // Tag
+ *         Key: 'STRING_VALUE',
+ *         Value: 'STRING_VALUE',
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateDeviceCommandInput - {@link CreateDeviceCommandInput}
@@ -101,6 +133,8 @@ export interface CreateDeviceCommandOutput extends CreateDeviceResponse, __Metad
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints.</p>
  *
+ * @throws {@link NetworkManagerServiceException}
+ * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
  */
 export class CreateDeviceCommand extends $Command<

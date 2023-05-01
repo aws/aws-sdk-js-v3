@@ -36,33 +36,36 @@ export interface UpdateConnectionCommandOutput extends UpdateConnectionResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlueClient, UpdateConnectionCommand } from "@aws-sdk/client-glue"; // ES Modules import
- * // const { GlueClient, UpdateConnectionCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * import { GlueClient, UpdateConnectionCommand } from '@aws-sdk/client-glue'; // ES Modules import
+ * // const { GlueClient, UpdateConnectionCommand } = require('@aws-sdk/client-glue'); // CommonJS import
  * const client = new GlueClient(config);
  * const input = { // UpdateConnectionRequest
- *   CatalogId: "STRING_VALUE",
- *   Name: "STRING_VALUE", // required
+ *   CatalogId: 'STRING_VALUE',
+ *   Name: 'STRING_VALUE', // required
  *   ConnectionInput: { // ConnectionInput
- *     Name: "STRING_VALUE", // required
- *     Description: "STRING_VALUE",
- *     ConnectionType: "JDBC" || "SFTP" || "MONGODB" || "KAFKA" || "NETWORK" || "MARKETPLACE" || "CUSTOM", // required
+ *     Name: 'STRING_VALUE', // required
+ *     Description: 'STRING_VALUE',
+ *     ConnectionType: 'JDBC' || 'SFTP' || 'MONGODB' || 'KAFKA' || 'NETWORK' || 'MARKETPLACE' || 'CUSTOM', // required
  *     MatchCriteria: [ // MatchCriteria
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     ConnectionProperties: { // ConnectionProperties // required
- *       "<keys>": "STRING_VALUE",
+ *       '<keys>': 'STRING_VALUE',
  *     },
  *     PhysicalConnectionRequirements: { // PhysicalConnectionRequirements
- *       SubnetId: "STRING_VALUE",
+ *       SubnetId: 'STRING_VALUE',
  *       SecurityGroupIdList: [ // SecurityGroupIdList
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
- *       AvailabilityZone: "STRING_VALUE",
+ *       AvailabilityZone: 'STRING_VALUE',
  *     },
  *   },
  * };
  * const command = new UpdateConnectionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateConnectionCommandInput - {@link UpdateConnectionCommandInput}
@@ -83,6 +86,8 @@ export interface UpdateConnectionCommandOutput extends UpdateConnectionResponse,
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class UpdateConnectionCommand extends $Command<

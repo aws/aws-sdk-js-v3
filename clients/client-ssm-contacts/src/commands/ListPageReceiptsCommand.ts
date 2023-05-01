@@ -36,16 +36,29 @@ export interface ListPageReceiptsCommandOutput extends ListPageReceiptsResult, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMContactsClient, ListPageReceiptsCommand } from "@aws-sdk/client-ssm-contacts"; // ES Modules import
- * // const { SSMContactsClient, ListPageReceiptsCommand } = require("@aws-sdk/client-ssm-contacts"); // CommonJS import
+ * import { SSMContactsClient, ListPageReceiptsCommand } from '@aws-sdk/client-ssm-contacts'; // ES Modules import
+ * // const { SSMContactsClient, ListPageReceiptsCommand } = require('@aws-sdk/client-ssm-contacts'); // CommonJS import
  * const client = new SSMContactsClient(config);
  * const input = { // ListPageReceiptsRequest
- *   PageId: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   PageId: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListPageReceiptsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListPageReceiptsResult
+ *   NextToken: 'STRING_VALUE',
+ *   Receipts: [ // ReceiptsList
+ *     { // Receipt
+ *       ContactChannelArn: 'STRING_VALUE',
+ *       ReceiptType: 'DELIVERED' || 'ERROR' || 'READ' || 'SENT' || 'STOP', // required
+ *       ReceiptInfo: 'STRING_VALUE',
+ *       ReceiptTime: new Date('TIMESTAMP'), // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListPageReceiptsCommandInput - {@link ListPageReceiptsCommandInput}
@@ -70,6 +83,8 @@ export interface ListPageReceiptsCommandOutput extends ListPageReceiptsResult, _
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
  *          service.</p>
  *
+ * @throws {@link SSMContactsServiceException}
+ * <p>Base exception class for all service exceptions from SSMContacts service.</p>
  *
  */
 export class ListPageReceiptsCommand extends $Command<

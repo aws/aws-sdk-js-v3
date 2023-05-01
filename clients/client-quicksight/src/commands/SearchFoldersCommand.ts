@@ -36,23 +36,40 @@ export interface SearchFoldersCommandOutput extends SearchFoldersResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { QuickSightClient, SearchFoldersCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
- * // const { QuickSightClient, SearchFoldersCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * import { QuickSightClient, SearchFoldersCommand } from '@aws-sdk/client-quicksight'; // ES Modules import
+ * // const { QuickSightClient, SearchFoldersCommand } = require('@aws-sdk/client-quicksight'); // CommonJS import
  * const client = new QuickSightClient(config);
  * const input = { // SearchFoldersRequest
- *   AwsAccountId: "STRING_VALUE", // required
+ *   AwsAccountId: 'STRING_VALUE', // required
  *   Filters: [ // FolderSearchFilterList // required
  *     { // FolderSearchFilter
- *       Operator: "StringEquals" || "StringLike",
- *       Name: "PARENT_FOLDER_ARN" || "DIRECT_QUICKSIGHT_OWNER" || "DIRECT_QUICKSIGHT_SOLE_OWNER" || "DIRECT_QUICKSIGHT_VIEWER_OR_OWNER" || "QUICKSIGHT_OWNER" || "QUICKSIGHT_VIEWER_OR_OWNER" || "FOLDER_NAME",
- *       Value: "STRING_VALUE",
+ *       Operator: 'StringEquals' || 'StringLike',
+ *       Name: 'PARENT_FOLDER_ARN' || 'DIRECT_QUICKSIGHT_OWNER' || 'DIRECT_QUICKSIGHT_SOLE_OWNER' || 'DIRECT_QUICKSIGHT_VIEWER_OR_OWNER' || 'QUICKSIGHT_OWNER' || 'QUICKSIGHT_VIEWER_OR_OWNER' || 'FOLDER_NAME',
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new SearchFoldersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SearchFoldersResponse
+ *   Status: Number('int'),
+ *   FolderSummaryList: [ // FolderSummaryList
+ *     { // FolderSummary
+ *       Arn: 'STRING_VALUE',
+ *       FolderId: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *       FolderType: 'SHARED',
+ *       CreatedTime: new Date('TIMESTAMP'),
+ *       LastUpdatedTime: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ *   RequestId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param SearchFoldersCommandInput - {@link SearchFoldersCommandInput}
@@ -91,6 +108,8 @@ export interface SearchFoldersCommandOutput extends SearchFoldersResponse, __Met
  * 			Amazon QuickSight currently has Standard Edition and Enterprise Edition. Not every operation and
  * 			capability is available in every edition.</p>
  *
+ * @throws {@link QuickSightServiceException}
+ * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
 export class SearchFoldersCommand extends $Command<

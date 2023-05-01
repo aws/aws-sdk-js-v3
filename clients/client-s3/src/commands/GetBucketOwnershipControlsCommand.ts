@@ -53,15 +53,26 @@ export interface GetBucketOwnershipControlsCommandOutput extends GetBucketOwners
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { S3Client, GetBucketOwnershipControlsCommand } from "@aws-sdk/client-s3"; // ES Modules import
- * // const { S3Client, GetBucketOwnershipControlsCommand } = require("@aws-sdk/client-s3"); // CommonJS import
+ * import { S3Client, GetBucketOwnershipControlsCommand } from '@aws-sdk/client-s3'; // ES Modules import
+ * // const { S3Client, GetBucketOwnershipControlsCommand } = require('@aws-sdk/client-s3'); // CommonJS import
  * const client = new S3Client(config);
  * const input = { // GetBucketOwnershipControlsRequest
- *   Bucket: "STRING_VALUE", // required
- *   ExpectedBucketOwner: "STRING_VALUE",
+ *   Bucket: 'STRING_VALUE', // required
+ *   ExpectedBucketOwner: 'STRING_VALUE',
  * };
  * const command = new GetBucketOwnershipControlsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetBucketOwnershipControlsOutput
+ *   OwnershipControls: { // OwnershipControls
+ *     Rules: [ // OwnershipControlsRules // required
+ *       { // OwnershipControlsRule
+ *         ObjectOwnership: 'BucketOwnerPreferred' || 'ObjectWriter' || 'BucketOwnerEnforced', // required
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetBucketOwnershipControlsCommandInput - {@link GetBucketOwnershipControlsCommandInput}
@@ -70,6 +81,8 @@ export interface GetBucketOwnershipControlsCommandOutput extends GetBucketOwners
  * @see {@link GetBucketOwnershipControlsCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
+ * @throws {@link S3ServiceException}
+ * <p>Base exception class for all service exceptions from S3 service.</p>
  *
  */
 export class GetBucketOwnershipControlsCommand extends $Command<

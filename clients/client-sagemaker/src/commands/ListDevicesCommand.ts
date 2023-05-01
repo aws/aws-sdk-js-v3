@@ -36,18 +36,41 @@ export interface ListDevicesCommandOutput extends ListDevicesResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, ListDevicesCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, ListDevicesCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, ListDevicesCommand } from '@aws-sdk/client-sagemaker'; // ES Modules import
+ * // const { SageMakerClient, ListDevicesCommand } = require('@aws-sdk/client-sagemaker'); // CommonJS import
  * const client = new SageMakerClient(config);
  * const input = { // ListDevicesRequest
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
- *   LatestHeartbeatAfter: new Date("TIMESTAMP"),
- *   ModelName: "STRING_VALUE",
- *   DeviceFleetName: "STRING_VALUE",
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
+ *   LatestHeartbeatAfter: new Date('TIMESTAMP'),
+ *   ModelName: 'STRING_VALUE',
+ *   DeviceFleetName: 'STRING_VALUE',
  * };
  * const command = new ListDevicesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListDevicesResponse
+ *   DeviceSummaries: [ // DeviceSummaries // required
+ *     { // DeviceSummary
+ *       DeviceName: 'STRING_VALUE', // required
+ *       DeviceArn: 'STRING_VALUE', // required
+ *       Description: 'STRING_VALUE',
+ *       DeviceFleetName: 'STRING_VALUE',
+ *       IotThingName: 'STRING_VALUE',
+ *       RegistrationTime: new Date('TIMESTAMP'),
+ *       LatestHeartbeat: new Date('TIMESTAMP'),
+ *       Models: [ // EdgeModelSummaries
+ *         { // EdgeModelSummary
+ *           ModelName: 'STRING_VALUE', // required
+ *           ModelVersion: 'STRING_VALUE', // required
+ *         },
+ *       ],
+ *       AgentVersion: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListDevicesCommandInput - {@link ListDevicesCommandInput}
@@ -56,6 +79,8 @@ export interface ListDevicesCommandOutput extends ListDevicesResponse, __Metadat
  * @see {@link ListDevicesCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class ListDevicesCommand extends $Command<

@@ -47,23 +47,36 @@ export interface PutVoiceConnectorEmergencyCallingConfigurationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeSDKVoiceClient, PutVoiceConnectorEmergencyCallingConfigurationCommand } from "@aws-sdk/client-chime-sdk-voice"; // ES Modules import
- * // const { ChimeSDKVoiceClient, PutVoiceConnectorEmergencyCallingConfigurationCommand } = require("@aws-sdk/client-chime-sdk-voice"); // CommonJS import
+ * import { ChimeSDKVoiceClient, PutVoiceConnectorEmergencyCallingConfigurationCommand } from '@aws-sdk/client-chime-sdk-voice'; // ES Modules import
+ * // const { ChimeSDKVoiceClient, PutVoiceConnectorEmergencyCallingConfigurationCommand } = require('@aws-sdk/client-chime-sdk-voice'); // CommonJS import
  * const client = new ChimeSDKVoiceClient(config);
  * const input = { // PutVoiceConnectorEmergencyCallingConfigurationRequest
- *   VoiceConnectorId: "STRING_VALUE", // required
+ *   VoiceConnectorId: 'STRING_VALUE', // required
  *   EmergencyCallingConfiguration: { // EmergencyCallingConfiguration
  *     DNIS: [ // DNISEmergencyCallingConfigurationList
  *       { // DNISEmergencyCallingConfiguration
- *         EmergencyPhoneNumber: "STRING_VALUE", // required
- *         TestPhoneNumber: "STRING_VALUE",
- *         CallingCountry: "STRING_VALUE", // required
+ *         EmergencyPhoneNumber: 'STRING_VALUE', // required
+ *         TestPhoneNumber: 'STRING_VALUE',
+ *         CallingCountry: 'STRING_VALUE', // required
  *       },
  *     ],
  *   },
  * };
  * const command = new PutVoiceConnectorEmergencyCallingConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutVoiceConnectorEmergencyCallingConfigurationResponse
+ *   EmergencyCallingConfiguration: { // EmergencyCallingConfiguration
+ *     DNIS: [ // DNISEmergencyCallingConfigurationList
+ *       { // DNISEmergencyCallingConfiguration
+ *         EmergencyPhoneNumber: 'STRING_VALUE', // required
+ *         TestPhoneNumber: 'STRING_VALUE',
+ *         CallingCountry: 'STRING_VALUE', // required
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param PutVoiceConnectorEmergencyCallingConfigurationCommandInput - {@link PutVoiceConnectorEmergencyCallingConfigurationCommandInput}
@@ -93,6 +106,8 @@ export interface PutVoiceConnectorEmergencyCallingConfigurationCommandOutput
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client isn't authorized to request a resource.</p>
  *
+ * @throws {@link ChimeSDKVoiceServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
  */
 export class PutVoiceConnectorEmergencyCallingConfigurationCommand extends $Command<

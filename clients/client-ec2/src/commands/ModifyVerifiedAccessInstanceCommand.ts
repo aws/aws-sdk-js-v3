@@ -38,17 +38,42 @@ export interface ModifyVerifiedAccessInstanceCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, ModifyVerifiedAccessInstanceCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, ModifyVerifiedAccessInstanceCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, ModifyVerifiedAccessInstanceCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, ModifyVerifiedAccessInstanceCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // ModifyVerifiedAccessInstanceRequest
- *   VerifiedAccessInstanceId: "STRING_VALUE", // required
- *   Description: "STRING_VALUE",
+ *   VerifiedAccessInstanceId: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE',
  *   DryRun: true || false,
- *   ClientToken: "STRING_VALUE",
+ *   ClientToken: 'STRING_VALUE',
  * };
  * const command = new ModifyVerifiedAccessInstanceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ModifyVerifiedAccessInstanceResult
+ *   VerifiedAccessInstance: { // VerifiedAccessInstance
+ *     VerifiedAccessInstanceId: 'STRING_VALUE',
+ *     Description: 'STRING_VALUE',
+ *     VerifiedAccessTrustProviders: [ // VerifiedAccessTrustProviderCondensedList
+ *       { // VerifiedAccessTrustProviderCondensed
+ *         VerifiedAccessTrustProviderId: 'STRING_VALUE',
+ *         Description: 'STRING_VALUE',
+ *         TrustProviderType: 'user' || 'device',
+ *         UserTrustProviderType: 'iam-identity-center' || 'oidc',
+ *         DeviceTrustProviderType: 'jamf' || 'crowdstrike',
+ *       },
+ *     ],
+ *     CreationTime: 'STRING_VALUE',
+ *     LastUpdatedTime: 'STRING_VALUE',
+ *     Tags: [ // TagList
+ *       { // Tag
+ *         Key: 'STRING_VALUE',
+ *         Value: 'STRING_VALUE',
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param ModifyVerifiedAccessInstanceCommandInput - {@link ModifyVerifiedAccessInstanceCommandInput}
@@ -57,6 +82,8 @@ export interface ModifyVerifiedAccessInstanceCommandOutput
  * @see {@link ModifyVerifiedAccessInstanceCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class ModifyVerifiedAccessInstanceCommand extends $Command<

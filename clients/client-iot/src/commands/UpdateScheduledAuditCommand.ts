@@ -38,20 +38,25 @@ export interface UpdateScheduledAuditCommandOutput extends UpdateScheduledAuditR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTClient, UpdateScheduledAuditCommand } from "@aws-sdk/client-iot"; // ES Modules import
- * // const { IoTClient, UpdateScheduledAuditCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * import { IoTClient, UpdateScheduledAuditCommand } from '@aws-sdk/client-iot'; // ES Modules import
+ * // const { IoTClient, UpdateScheduledAuditCommand } = require('@aws-sdk/client-iot'); // CommonJS import
  * const client = new IoTClient(config);
  * const input = { // UpdateScheduledAuditRequest
- *   frequency: "DAILY" || "WEEKLY" || "BIWEEKLY" || "MONTHLY",
- *   dayOfMonth: "STRING_VALUE",
- *   dayOfWeek: "SUN" || "MON" || "TUE" || "WED" || "THU" || "FRI" || "SAT",
+ *   frequency: 'DAILY' || 'WEEKLY' || 'BIWEEKLY' || 'MONTHLY',
+ *   dayOfMonth: 'STRING_VALUE',
+ *   dayOfWeek: 'SUN' || 'MON' || 'TUE' || 'WED' || 'THU' || 'FRI' || 'SAT',
  *   targetCheckNames: [ // TargetAuditCheckNames
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   scheduledAuditName: "STRING_VALUE", // required
+ *   scheduledAuditName: 'STRING_VALUE', // required
  * };
  * const command = new UpdateScheduledAuditCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateScheduledAuditResponse
+ *   scheduledAuditArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateScheduledAuditCommandInput - {@link UpdateScheduledAuditCommandInput}
@@ -72,6 +77,8 @@ export interface UpdateScheduledAuditCommandOutput extends UpdateScheduledAuditR
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The rate exceeds the limit.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class UpdateScheduledAuditCommand extends $Command<

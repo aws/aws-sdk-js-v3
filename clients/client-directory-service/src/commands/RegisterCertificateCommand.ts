@@ -36,19 +36,24 @@ export interface RegisterCertificateCommandOutput extends RegisterCertificateRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DirectoryServiceClient, RegisterCertificateCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
- * // const { DirectoryServiceClient, RegisterCertificateCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
+ * import { DirectoryServiceClient, RegisterCertificateCommand } from '@aws-sdk/client-directory-service'; // ES Modules import
+ * // const { DirectoryServiceClient, RegisterCertificateCommand } = require('@aws-sdk/client-directory-service'); // CommonJS import
  * const client = new DirectoryServiceClient(config);
  * const input = { // RegisterCertificateRequest
- *   DirectoryId: "STRING_VALUE", // required
- *   CertificateData: "STRING_VALUE", // required
- *   Type: "ClientCertAuth" || "ClientLDAPS",
+ *   DirectoryId: 'STRING_VALUE', // required
+ *   CertificateData: 'STRING_VALUE', // required
+ *   Type: 'ClientCertAuth' || 'ClientLDAPS',
  *   ClientCertAuthSettings: { // ClientCertAuthSettings
- *     OCSPUrl: "STRING_VALUE",
+ *     OCSPUrl: 'STRING_VALUE',
  *   },
  * };
  * const command = new RegisterCertificateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // RegisterCertificateResult
+ *   CertificateId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param RegisterCertificateCommandInput - {@link RegisterCertificateCommandInput}
@@ -84,6 +89,8 @@ export interface RegisterCertificateCommandOutput extends RegisterCertificateRes
  * @throws {@link UnsupportedOperationException} (client fault)
  *  <p>The operation is not supported.</p>
  *
+ * @throws {@link DirectoryServiceServiceException}
+ * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
  */
 export class RegisterCertificateCommand extends $Command<

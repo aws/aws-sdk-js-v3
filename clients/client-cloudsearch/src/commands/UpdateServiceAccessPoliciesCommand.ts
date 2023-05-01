@@ -40,15 +40,29 @@ export interface UpdateServiceAccessPoliciesCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudSearchClient, UpdateServiceAccessPoliciesCommand } from "@aws-sdk/client-cloudsearch"; // ES Modules import
- * // const { CloudSearchClient, UpdateServiceAccessPoliciesCommand } = require("@aws-sdk/client-cloudsearch"); // CommonJS import
+ * import { CloudSearchClient, UpdateServiceAccessPoliciesCommand } from '@aws-sdk/client-cloudsearch'; // ES Modules import
+ * // const { CloudSearchClient, UpdateServiceAccessPoliciesCommand } = require('@aws-sdk/client-cloudsearch'); // CommonJS import
  * const client = new CloudSearchClient(config);
  * const input = { // UpdateServiceAccessPoliciesRequest
- *   DomainName: "STRING_VALUE", // required
- *   AccessPolicies: "STRING_VALUE", // required
+ *   DomainName: 'STRING_VALUE', // required
+ *   AccessPolicies: 'STRING_VALUE', // required
  * };
  * const command = new UpdateServiceAccessPoliciesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateServiceAccessPoliciesResponse
+ *   AccessPolicies: { // AccessPoliciesStatus
+ *     Options: 'STRING_VALUE', // required
+ *     Status: { // OptionStatus
+ *       CreationDate: new Date('TIMESTAMP'), // required
+ *       UpdateDate: new Date('TIMESTAMP'), // required
+ *       UpdateVersion: Number('int'),
+ *       State: 'STRING_VALUE', // required
+ *       PendingDeletion: true || false,
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateServiceAccessPoliciesCommandInput - {@link UpdateServiceAccessPoliciesCommandInput}
@@ -76,6 +90,8 @@ export interface UpdateServiceAccessPoliciesCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The request was rejected because it has invalid parameters.</p>
  *
+ * @throws {@link CloudSearchServiceException}
+ * <p>Base exception class for all service exceptions from CloudSearch service.</p>
  *
  */
 export class UpdateServiceAccessPoliciesCommand extends $Command<

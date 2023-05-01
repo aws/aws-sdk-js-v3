@@ -97,31 +97,37 @@ export interface CreateGrantCommandOutput extends CreateGrantResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KMSClient, CreateGrantCommand } from "@aws-sdk/client-kms"; // ES Modules import
- * // const { KMSClient, CreateGrantCommand } = require("@aws-sdk/client-kms"); // CommonJS import
+ * import { KMSClient, CreateGrantCommand } from '@aws-sdk/client-kms'; // ES Modules import
+ * // const { KMSClient, CreateGrantCommand } = require('@aws-sdk/client-kms'); // CommonJS import
  * const client = new KMSClient(config);
  * const input = { // CreateGrantRequest
- *   KeyId: "STRING_VALUE", // required
- *   GranteePrincipal: "STRING_VALUE", // required
- *   RetiringPrincipal: "STRING_VALUE",
+ *   KeyId: 'STRING_VALUE', // required
+ *   GranteePrincipal: 'STRING_VALUE', // required
+ *   RetiringPrincipal: 'STRING_VALUE',
  *   Operations: [ // GrantOperationList // required
- *     "Decrypt" || "Encrypt" || "GenerateDataKey" || "GenerateDataKeyWithoutPlaintext" || "ReEncryptFrom" || "ReEncryptTo" || "Sign" || "Verify" || "GetPublicKey" || "CreateGrant" || "RetireGrant" || "DescribeKey" || "GenerateDataKeyPair" || "GenerateDataKeyPairWithoutPlaintext" || "GenerateMac" || "VerifyMac",
+ *     'Decrypt' || 'Encrypt' || 'GenerateDataKey' || 'GenerateDataKeyWithoutPlaintext' || 'ReEncryptFrom' || 'ReEncryptTo' || 'Sign' || 'Verify' || 'GetPublicKey' || 'CreateGrant' || 'RetireGrant' || 'DescribeKey' || 'GenerateDataKeyPair' || 'GenerateDataKeyPairWithoutPlaintext' || 'GenerateMac' || 'VerifyMac',
  *   ],
  *   Constraints: { // GrantConstraints
  *     EncryptionContextSubset: { // EncryptionContextType
- *       "<keys>": "STRING_VALUE",
+ *       '<keys>': 'STRING_VALUE',
  *     },
  *     EncryptionContextEquals: {
- *       "<keys>": "STRING_VALUE",
+ *       '<keys>': 'STRING_VALUE',
  *     },
  *   },
  *   GrantTokens: [ // GrantTokenList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   Name: "STRING_VALUE",
+ *   Name: 'STRING_VALUE',
  * };
  * const command = new CreateGrantCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateGrantResponse
+ *   GrantToken: 'STRING_VALUE',
+ *   GrantId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateGrantCommandInput - {@link CreateGrantCommandInput}
@@ -174,6 +180,8 @@ export interface CreateGrantCommandOutput extends CreateGrantResponse, __Metadat
  *  <p>The request was rejected because the specified entity or resource could not be
  *       found.</p>
  *
+ * @throws {@link KMSServiceException}
+ * <p>Base exception class for all service exceptions from KMS service.</p>
  *
  * @example To create a grant
  * ```javascript

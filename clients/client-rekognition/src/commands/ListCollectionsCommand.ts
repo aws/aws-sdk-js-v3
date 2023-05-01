@@ -42,15 +42,26 @@ export interface ListCollectionsCommandOutput extends ListCollectionsResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RekognitionClient, ListCollectionsCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
- * // const { RekognitionClient, ListCollectionsCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
+ * import { RekognitionClient, ListCollectionsCommand } from '@aws-sdk/client-rekognition'; // ES Modules import
+ * // const { RekognitionClient, ListCollectionsCommand } = require('@aws-sdk/client-rekognition'); // CommonJS import
  * const client = new RekognitionClient(config);
  * const input = { // ListCollectionsRequest
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListCollectionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListCollectionsResponse
+ *   CollectionIds: [ // CollectionIdList
+ *     'STRING_VALUE',
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ *   FaceModelVersions: [ // FaceModelVersionList
+ *     'STRING_VALUE',
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListCollectionsCommandInput - {@link ListCollectionsCommandInput}
@@ -82,6 +93,8 @@ export interface ListCollectionsCommandOutput extends ListCollectionsResponse, _
  * @throws {@link ThrottlingException} (server fault)
  *  <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
  *
+ * @throws {@link RekognitionServiceException}
+ * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
  * @example To list the collections
  * ```javascript

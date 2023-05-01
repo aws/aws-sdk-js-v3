@@ -40,17 +40,23 @@ export interface PutResourcePolicyCommandOutput extends PutResourcePolicyRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMClient, PutResourcePolicyCommand } from "@aws-sdk/client-ssm"; // ES Modules import
- * // const { SSMClient, PutResourcePolicyCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * import { SSMClient, PutResourcePolicyCommand } from '@aws-sdk/client-ssm'; // ES Modules import
+ * // const { SSMClient, PutResourcePolicyCommand } = require('@aws-sdk/client-ssm'); // CommonJS import
  * const client = new SSMClient(config);
  * const input = { // PutResourcePolicyRequest
- *   ResourceArn: "STRING_VALUE", // required
- *   Policy: "STRING_VALUE", // required
- *   PolicyId: "STRING_VALUE",
- *   PolicyHash: "STRING_VALUE",
+ *   ResourceArn: 'STRING_VALUE', // required
+ *   Policy: 'STRING_VALUE', // required
+ *   PolicyId: 'STRING_VALUE',
+ *   PolicyHash: 'STRING_VALUE',
  * };
  * const command = new PutResourcePolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutResourcePolicyResponse
+ *   PolicyId: 'STRING_VALUE',
+ *   PolicyHash: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param PutResourcePolicyCommandInput - {@link PutResourcePolicyCommandInput}
@@ -76,6 +82,8 @@ export interface PutResourcePolicyCommandOutput extends PutResourcePolicyRespons
  *    greater than 1024 bytes in size. And only one policy can be attached to
  *    <code>OpsItemGroup</code>. Verify these limits and try again.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class PutResourcePolicyCommand extends $Command<

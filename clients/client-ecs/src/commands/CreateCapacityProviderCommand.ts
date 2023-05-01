@@ -42,31 +42,59 @@ export interface CreateCapacityProviderCommandOutput extends CreateCapacityProvi
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ECSClient, CreateCapacityProviderCommand } from "@aws-sdk/client-ecs"; // ES Modules import
- * // const { ECSClient, CreateCapacityProviderCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
+ * import { ECSClient, CreateCapacityProviderCommand } from '@aws-sdk/client-ecs'; // ES Modules import
+ * // const { ECSClient, CreateCapacityProviderCommand } = require('@aws-sdk/client-ecs'); // CommonJS import
  * const client = new ECSClient(config);
  * const input = { // CreateCapacityProviderRequest
- *   name: "STRING_VALUE", // required
+ *   name: 'STRING_VALUE', // required
  *   autoScalingGroupProvider: { // AutoScalingGroupProvider
- *     autoScalingGroupArn: "STRING_VALUE", // required
+ *     autoScalingGroupArn: 'STRING_VALUE', // required
  *     managedScaling: { // ManagedScaling
- *       status: "ENABLED" || "DISABLED",
- *       targetCapacity: Number("int"),
- *       minimumScalingStepSize: Number("int"),
- *       maximumScalingStepSize: Number("int"),
- *       instanceWarmupPeriod: Number("int"),
+ *       status: 'ENABLED' || 'DISABLED',
+ *       targetCapacity: Number('int'),
+ *       minimumScalingStepSize: Number('int'),
+ *       maximumScalingStepSize: Number('int'),
+ *       instanceWarmupPeriod: Number('int'),
  *     },
- *     managedTerminationProtection: "ENABLED" || "DISABLED",
+ *     managedTerminationProtection: 'ENABLED' || 'DISABLED',
  *   },
  *   tags: [ // Tags
  *     { // Tag
- *       key: "STRING_VALUE",
- *       value: "STRING_VALUE",
+ *       key: 'STRING_VALUE',
+ *       value: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new CreateCapacityProviderCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateCapacityProviderResponse
+ *   capacityProvider: { // CapacityProvider
+ *     capacityProviderArn: 'STRING_VALUE',
+ *     name: 'STRING_VALUE',
+ *     status: 'ACTIVE' || 'INACTIVE',
+ *     autoScalingGroupProvider: { // AutoScalingGroupProvider
+ *       autoScalingGroupArn: 'STRING_VALUE', // required
+ *       managedScaling: { // ManagedScaling
+ *         status: 'ENABLED' || 'DISABLED',
+ *         targetCapacity: Number('int'),
+ *         minimumScalingStepSize: Number('int'),
+ *         maximumScalingStepSize: Number('int'),
+ *         instanceWarmupPeriod: Number('int'),
+ *       },
+ *       managedTerminationProtection: 'ENABLED' || 'DISABLED',
+ *     },
+ *     updateStatus: 'DELETE_IN_PROGRESS' || 'DELETE_COMPLETE' || 'DELETE_FAILED' || 'UPDATE_IN_PROGRESS' || 'UPDATE_COMPLETE' || 'UPDATE_FAILED',
+ *     updateStatusReason: 'STRING_VALUE',
+ *     tags: [ // Tags
+ *       { // Tag
+ *         key: 'STRING_VALUE',
+ *         value: 'STRING_VALUE',
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateCapacityProviderCommandInput - {@link CreateCapacityProviderCommandInput}
@@ -97,6 +125,8 @@ export interface CreateCapacityProviderCommandOutput extends CreateCapacityProvi
  * 			process can get stuck in that state. However, when the agent reconnects, it resumes
  * 			where it stopped previously.</p>
  *
+ * @throws {@link ECSServiceException}
+ * <p>Base exception class for all service exceptions from ECS service.</p>
  *
  */
 export class CreateCapacityProviderCommand extends $Command<

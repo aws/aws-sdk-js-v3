@@ -36,63 +36,74 @@ export interface CreateFunctionDefinitionCommandOutput extends CreateFunctionDef
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GreengrassClient, CreateFunctionDefinitionCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
- * // const { GreengrassClient, CreateFunctionDefinitionCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
+ * import { GreengrassClient, CreateFunctionDefinitionCommand } from '@aws-sdk/client-greengrass'; // ES Modules import
+ * // const { GreengrassClient, CreateFunctionDefinitionCommand } = require('@aws-sdk/client-greengrass'); // CommonJS import
  * const client = new GreengrassClient(config);
  * const input = { // CreateFunctionDefinitionRequest
- *   AmznClientToken: "STRING_VALUE",
+ *   AmznClientToken: 'STRING_VALUE',
  *   InitialVersion: { // FunctionDefinitionVersion
  *     DefaultConfig: { // FunctionDefaultConfig
  *       Execution: { // FunctionDefaultExecutionConfig
- *         IsolationMode: "GreengrassContainer" || "NoContainer",
+ *         IsolationMode: 'GreengrassContainer' || 'NoContainer',
  *         RunAs: { // FunctionRunAsConfig
- *           Gid: Number("int"),
- *           Uid: Number("int"),
+ *           Gid: Number('int'),
+ *           Uid: Number('int'),
  *         },
  *       },
  *     },
  *     Functions: [ // __listOfFunction
  *       { // Function
- *         FunctionArn: "STRING_VALUE",
+ *         FunctionArn: 'STRING_VALUE',
  *         FunctionConfiguration: { // FunctionConfiguration
- *           EncodingType: "binary" || "json",
+ *           EncodingType: 'binary' || 'json',
  *           Environment: { // FunctionConfigurationEnvironment
  *             AccessSysfs: true || false,
  *             Execution: { // FunctionExecutionConfig
- *               IsolationMode: "GreengrassContainer" || "NoContainer",
+ *               IsolationMode: 'GreengrassContainer' || 'NoContainer',
  *               RunAs: {
- *                 Gid: Number("int"),
- *                 Uid: Number("int"),
+ *                 Gid: Number('int'),
+ *                 Uid: Number('int'),
  *               },
  *             },
  *             ResourceAccessPolicies: [ // __listOfResourceAccessPolicy
  *               { // ResourceAccessPolicy
- *                 Permission: "ro" || "rw",
- *                 ResourceId: "STRING_VALUE", // required
+ *                 Permission: 'ro' || 'rw',
+ *                 ResourceId: 'STRING_VALUE', // required
  *               },
  *             ],
  *             Variables: { // __mapOf__string
- *               "<keys>": "STRING_VALUE",
+ *               '<keys>': 'STRING_VALUE',
  *             },
  *           },
- *           ExecArgs: "STRING_VALUE",
- *           Executable: "STRING_VALUE",
- *           MemorySize: Number("int"),
+ *           ExecArgs: 'STRING_VALUE',
+ *           Executable: 'STRING_VALUE',
+ *           MemorySize: Number('int'),
  *           Pinned: true || false,
- *           Timeout: Number("int"),
- *           FunctionRuntimeOverride: "STRING_VALUE",
+ *           Timeout: Number('int'),
+ *           FunctionRuntimeOverride: 'STRING_VALUE',
  *         },
- *         Id: "STRING_VALUE", // required
+ *         Id: 'STRING_VALUE', // required
  *       },
  *     ],
  *   },
- *   Name: "STRING_VALUE",
+ *   Name: 'STRING_VALUE',
  *   tags: { // Tags
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateFunctionDefinitionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateFunctionDefinitionResponse
+ *   Arn: 'STRING_VALUE',
+ *   CreationTimestamp: 'STRING_VALUE',
+ *   Id: 'STRING_VALUE',
+ *   LastUpdatedTimestamp: 'STRING_VALUE',
+ *   LatestVersion: 'STRING_VALUE',
+ *   LatestVersionArn: 'STRING_VALUE',
+ *   Name: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateFunctionDefinitionCommandInput - {@link CreateFunctionDefinitionCommandInput}
@@ -104,6 +115,8 @@ export interface CreateFunctionDefinitionCommandOutput extends CreateFunctionDef
  * @throws {@link BadRequestException} (client fault)
  *  General error information.
  *
+ * @throws {@link GreengrassServiceException}
+ * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
  */
 export class CreateFunctionDefinitionCommand extends $Command<

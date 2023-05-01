@@ -36,20 +36,25 @@ export interface SendDataToMulticastGroupCommandOutput extends SendDataToMultica
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTWirelessClient, SendDataToMulticastGroupCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
- * // const { IoTWirelessClient, SendDataToMulticastGroupCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
+ * import { IoTWirelessClient, SendDataToMulticastGroupCommand } from '@aws-sdk/client-iot-wireless'; // ES Modules import
+ * // const { IoTWirelessClient, SendDataToMulticastGroupCommand } = require('@aws-sdk/client-iot-wireless'); // CommonJS import
  * const client = new IoTWirelessClient(config);
  * const input = { // SendDataToMulticastGroupRequest
- *   Id: "STRING_VALUE", // required
- *   PayloadData: "STRING_VALUE", // required
+ *   Id: 'STRING_VALUE', // required
+ *   PayloadData: 'STRING_VALUE', // required
  *   WirelessMetadata: { // MulticastWirelessMetadata
  *     LoRaWAN: { // LoRaWANMulticastMetadata
- *       FPort: Number("int"),
+ *       FPort: Number('int'),
  *     },
  *   },
  * };
  * const command = new SendDataToMulticastGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SendDataToMulticastGroupResponse
+ *   MessageId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param SendDataToMulticastGroupCommandInput - {@link SendDataToMulticastGroupCommandInput}
@@ -76,6 +81,8 @@ export interface SendDataToMulticastGroupCommandOutput extends SendDataToMultica
  * @throws {@link ValidationException} (client fault)
  *  <p>The input did not meet the specified constraints.</p>
  *
+ * @throws {@link IoTWirelessServiceException}
+ * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
  */
 export class SendDataToMulticastGroupCommand extends $Command<

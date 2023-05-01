@@ -37,19 +37,32 @@ export interface ListQuickConnectsCommandOutput extends ListQuickConnectsRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, ListQuickConnectsCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, ListQuickConnectsCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, ListQuickConnectsCommand } from '@aws-sdk/client-connect'; // ES Modules import
+ * // const { ConnectClient, ListQuickConnectsCommand } = require('@aws-sdk/client-connect'); // CommonJS import
  * const client = new ConnectClient(config);
  * const input = { // ListQuickConnectsRequest
- *   InstanceId: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   InstanceId: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  *   QuickConnectTypes: [ // QuickConnectTypes
- *     "USER" || "QUEUE" || "PHONE_NUMBER",
+ *     'USER' || 'QUEUE' || 'PHONE_NUMBER',
  *   ],
  * };
  * const command = new ListQuickConnectsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListQuickConnectsResponse
+ *   QuickConnectSummaryList: [ // QuickConnectSummaryList
+ *     { // QuickConnectSummary
+ *       Id: 'STRING_VALUE',
+ *       Arn: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *       QuickConnectType: 'USER' || 'QUEUE' || 'PHONE_NUMBER',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListQuickConnectsCommandInput - {@link ListQuickConnectsCommandInput}
@@ -73,6 +86,8 @@ export interface ListQuickConnectsCommandOutput extends ListQuickConnectsRespons
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class ListQuickConnectsCommand extends $Command<

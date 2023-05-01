@@ -42,19 +42,27 @@ export interface GetInstancesHealthStatusCommandOutput extends GetInstancesHealt
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ServiceDiscoveryClient, GetInstancesHealthStatusCommand } from "@aws-sdk/client-servicediscovery"; // ES Modules import
- * // const { ServiceDiscoveryClient, GetInstancesHealthStatusCommand } = require("@aws-sdk/client-servicediscovery"); // CommonJS import
+ * import { ServiceDiscoveryClient, GetInstancesHealthStatusCommand } from '@aws-sdk/client-servicediscovery'; // ES Modules import
+ * // const { ServiceDiscoveryClient, GetInstancesHealthStatusCommand } = require('@aws-sdk/client-servicediscovery'); // CommonJS import
  * const client = new ServiceDiscoveryClient(config);
  * const input = { // GetInstancesHealthStatusRequest
- *   ServiceId: "STRING_VALUE", // required
+ *   ServiceId: 'STRING_VALUE', // required
  *   Instances: [ // InstanceIdList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new GetInstancesHealthStatusCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetInstancesHealthStatusResponse
+ *   Status: { // InstanceHealthStatusMap
+ *     '<keys>': 'HEALTHY' || 'UNHEALTHY' || 'UNKNOWN',
+ *   },
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetInstancesHealthStatusCommandInput - {@link GetInstancesHealthStatusCommandInput}
@@ -75,6 +83,8 @@ export interface GetInstancesHealthStatusCommandOutput extends GetInstancesHealt
  * @throws {@link ServiceNotFound} (client fault)
  *  <p>No service exists with the specified ID.</p>
  *
+ * @throws {@link ServiceDiscoveryServiceException}
+ * <p>Base exception class for all service exceptions from ServiceDiscovery service.</p>
  *
  * @example GetInstancesHealthStatus example
  * ```javascript

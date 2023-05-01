@@ -38,19 +38,49 @@ export interface TerminateProvisionedProductCommandOutput extends TerminateProvi
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ServiceCatalogClient, TerminateProvisionedProductCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
- * // const { ServiceCatalogClient, TerminateProvisionedProductCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
+ * import { ServiceCatalogClient, TerminateProvisionedProductCommand } from '@aws-sdk/client-service-catalog'; // ES Modules import
+ * // const { ServiceCatalogClient, TerminateProvisionedProductCommand } = require('@aws-sdk/client-service-catalog'); // CommonJS import
  * const client = new ServiceCatalogClient(config);
  * const input = { // TerminateProvisionedProductInput
- *   ProvisionedProductName: "STRING_VALUE",
- *   ProvisionedProductId: "STRING_VALUE",
- *   TerminateToken: "STRING_VALUE", // required
+ *   ProvisionedProductName: 'STRING_VALUE',
+ *   ProvisionedProductId: 'STRING_VALUE',
+ *   TerminateToken: 'STRING_VALUE', // required
  *   IgnoreErrors: true || false,
- *   AcceptLanguage: "STRING_VALUE",
+ *   AcceptLanguage: 'STRING_VALUE',
  *   RetainPhysicalResources: true || false,
  * };
  * const command = new TerminateProvisionedProductCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // TerminateProvisionedProductOutput
+ *   RecordDetail: { // RecordDetail
+ *     RecordId: 'STRING_VALUE',
+ *     ProvisionedProductName: 'STRING_VALUE',
+ *     Status: 'CREATED' || 'IN_PROGRESS' || 'IN_PROGRESS_IN_ERROR' || 'SUCCEEDED' || 'FAILED',
+ *     CreatedTime: new Date('TIMESTAMP'),
+ *     UpdatedTime: new Date('TIMESTAMP'),
+ *     ProvisionedProductType: 'STRING_VALUE',
+ *     RecordType: 'STRING_VALUE',
+ *     ProvisionedProductId: 'STRING_VALUE',
+ *     ProductId: 'STRING_VALUE',
+ *     ProvisioningArtifactId: 'STRING_VALUE',
+ *     PathId: 'STRING_VALUE',
+ *     RecordErrors: [ // RecordErrors
+ *       { // RecordError
+ *         Code: 'STRING_VALUE',
+ *         Description: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     RecordTags: [ // RecordTags
+ *       { // RecordTag
+ *         Key: 'STRING_VALUE',
+ *         Value: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     LaunchRoleArn: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param TerminateProvisionedProductCommandInput - {@link TerminateProvisionedProductCommandInput}
@@ -62,6 +92,8 @@ export interface TerminateProvisionedProductCommandOutput extends TerminateProvi
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link ServiceCatalogServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
  */
 export class TerminateProvisionedProductCommand extends $Command<

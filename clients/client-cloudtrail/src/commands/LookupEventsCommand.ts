@@ -83,24 +83,47 @@ export interface LookupEventsCommandOutput extends LookupEventsResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudTrailClient, LookupEventsCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
- * // const { CloudTrailClient, LookupEventsCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
+ * import { CloudTrailClient, LookupEventsCommand } from '@aws-sdk/client-cloudtrail'; // ES Modules import
+ * // const { CloudTrailClient, LookupEventsCommand } = require('@aws-sdk/client-cloudtrail'); // CommonJS import
  * const client = new CloudTrailClient(config);
  * const input = { // LookupEventsRequest
  *   LookupAttributes: [ // LookupAttributesList
  *     { // LookupAttribute
- *       AttributeKey: "EventId" || "EventName" || "ReadOnly" || "Username" || "ResourceType" || "ResourceName" || "EventSource" || "AccessKeyId", // required
- *       AttributeValue: "STRING_VALUE", // required
+ *       AttributeKey: 'EventId' || 'EventName' || 'ReadOnly' || 'Username' || 'ResourceType' || 'ResourceName' || 'EventSource' || 'AccessKeyId', // required
+ *       AttributeValue: 'STRING_VALUE', // required
  *     },
  *   ],
- *   StartTime: new Date("TIMESTAMP"),
- *   EndTime: new Date("TIMESTAMP"),
- *   EventCategory: "insight",
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   StartTime: new Date('TIMESTAMP'),
+ *   EndTime: new Date('TIMESTAMP'),
+ *   EventCategory: 'insight',
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new LookupEventsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // LookupEventsResponse
+ *   Events: [ // EventsList
+ *     { // Event
+ *       EventId: 'STRING_VALUE',
+ *       EventName: 'STRING_VALUE',
+ *       ReadOnly: 'STRING_VALUE',
+ *       AccessKeyId: 'STRING_VALUE',
+ *       EventTime: new Date('TIMESTAMP'),
+ *       EventSource: 'STRING_VALUE',
+ *       Username: 'STRING_VALUE',
+ *       Resources: [ // ResourceList
+ *         { // Resource
+ *           ResourceType: 'STRING_VALUE',
+ *           ResourceName: 'STRING_VALUE',
+ *         },
+ *       ],
+ *       CloudTrailEvent: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param LookupEventsCommandInput - {@link LookupEventsCommandInput}
@@ -133,6 +156,8 @@ export interface LookupEventsCommandOutput extends LookupEventsResponse, __Metad
  * @throws {@link UnsupportedOperationException} (client fault)
  *  <p>This exception is thrown when the requested operation is not supported.</p>
  *
+ * @throws {@link CloudTrailServiceException}
+ * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
  */
 export class LookupEventsCommand extends $Command<

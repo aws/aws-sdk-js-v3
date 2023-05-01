@@ -60,23 +60,31 @@ export interface InvokeEndpointCommandOutput extends InvokeEndpointOutput, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerRuntimeClient, InvokeEndpointCommand } from "@aws-sdk/client-sagemaker-runtime"; // ES Modules import
- * // const { SageMakerRuntimeClient, InvokeEndpointCommand } = require("@aws-sdk/client-sagemaker-runtime"); // CommonJS import
+ * import { SageMakerRuntimeClient, InvokeEndpointCommand } from '@aws-sdk/client-sagemaker-runtime'; // ES Modules import
+ * // const { SageMakerRuntimeClient, InvokeEndpointCommand } = require('@aws-sdk/client-sagemaker-runtime'); // CommonJS import
  * const client = new SageMakerRuntimeClient(config);
  * const input = { // InvokeEndpointInput
- *   EndpointName: "STRING_VALUE", // required
- *   Body: "BLOB_VALUE", // required
- *   ContentType: "STRING_VALUE",
- *   Accept: "STRING_VALUE",
- *   CustomAttributes: "STRING_VALUE",
- *   TargetModel: "STRING_VALUE",
- *   TargetVariant: "STRING_VALUE",
- *   TargetContainerHostname: "STRING_VALUE",
- *   InferenceId: "STRING_VALUE",
- *   EnableExplanations: "STRING_VALUE",
+ *   EndpointName: 'STRING_VALUE', // required
+ *   Body: 'BLOB_VALUE', // required
+ *   ContentType: 'STRING_VALUE',
+ *   Accept: 'STRING_VALUE',
+ *   CustomAttributes: 'STRING_VALUE',
+ *   TargetModel: 'STRING_VALUE',
+ *   TargetVariant: 'STRING_VALUE',
+ *   TargetContainerHostname: 'STRING_VALUE',
+ *   InferenceId: 'STRING_VALUE',
+ *   EnableExplanations: 'STRING_VALUE',
  * };
  * const command = new InvokeEndpointCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // InvokeEndpointOutput
+ *   Body: 'BLOB_VALUE', // required
+ *   ContentType: 'STRING_VALUE',
+ *   InvokedProductionVariant: 'STRING_VALUE',
+ *   CustomAttributes: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param InvokeEndpointCommandInput - {@link InvokeEndpointCommandInput}
@@ -107,6 +115,8 @@ export interface InvokeEndpointCommandOutput extends InvokeEndpointOutput, __Met
  * @throws {@link ValidationError} (client fault)
  *  <p> Inspect your request and try again. </p>
  *
+ * @throws {@link SageMakerRuntimeServiceException}
+ * <p>Base exception class for all service exceptions from SageMakerRuntime service.</p>
  *
  */
 export class InvokeEndpointCommand extends $Command<

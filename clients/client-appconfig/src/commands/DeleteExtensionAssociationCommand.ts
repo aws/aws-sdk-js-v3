@@ -37,14 +37,17 @@ export interface DeleteExtensionAssociationCommandOutput extends __MetadataBeare
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppConfigClient, DeleteExtensionAssociationCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
- * // const { AppConfigClient, DeleteExtensionAssociationCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import
+ * import { AppConfigClient, DeleteExtensionAssociationCommand } from '@aws-sdk/client-appconfig'; // ES Modules import
+ * // const { AppConfigClient, DeleteExtensionAssociationCommand } = require('@aws-sdk/client-appconfig'); // CommonJS import
  * const client = new AppConfigClient(config);
  * const input = { // DeleteExtensionAssociationRequest
- *   ExtensionAssociationId: "STRING_VALUE", // required
+ *   ExtensionAssociationId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteExtensionAssociationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteExtensionAssociationCommandInput - {@link DeleteExtensionAssociationCommandInput}
@@ -62,6 +65,8 @@ export interface DeleteExtensionAssociationCommandOutput extends __MetadataBeare
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The requested resource could not be found.</p>
  *
+ * @throws {@link AppConfigServiceException}
+ * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
  */
 export class DeleteExtensionAssociationCommand extends $Command<

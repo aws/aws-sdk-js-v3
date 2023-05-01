@@ -36,16 +36,28 @@ export interface GetBasePathMappingsCommandOutput extends BasePathMappings, __Me
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { APIGatewayClient, GetBasePathMappingsCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
- * // const { APIGatewayClient, GetBasePathMappingsCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
+ * import { APIGatewayClient, GetBasePathMappingsCommand } from '@aws-sdk/client-api-gateway'; // ES Modules import
+ * // const { APIGatewayClient, GetBasePathMappingsCommand } = require('@aws-sdk/client-api-gateway'); // CommonJS import
  * const client = new APIGatewayClient(config);
  * const input = { // GetBasePathMappingsRequest
- *   domainName: "STRING_VALUE", // required
- *   position: "STRING_VALUE",
- *   limit: Number("int"),
+ *   domainName: 'STRING_VALUE', // required
+ *   position: 'STRING_VALUE',
+ *   limit: Number('int'),
  * };
  * const command = new GetBasePathMappingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BasePathMappings
+ *   items: [ // ListOfBasePathMapping
+ *     { // BasePathMapping
+ *       basePath: 'STRING_VALUE',
+ *       restApiId: 'STRING_VALUE',
+ *       stage: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   position: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetBasePathMappingsCommandInput - {@link GetBasePathMappingsCommandInput}
@@ -66,6 +78,8 @@ export interface GetBasePathMappingsCommandOutput extends BasePathMappings, __Me
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The request is denied because the caller has insufficient permissions.</p>
  *
+ * @throws {@link APIGatewayServiceException}
+ * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
  */
 export class GetBasePathMappingsCommand extends $Command<

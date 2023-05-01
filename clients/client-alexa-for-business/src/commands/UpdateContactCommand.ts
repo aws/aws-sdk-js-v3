@@ -40,30 +40,33 @@ export interface UpdateContactCommandOutput extends UpdateContactResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AlexaForBusinessClient, UpdateContactCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
- * // const { AlexaForBusinessClient, UpdateContactCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
+ * import { AlexaForBusinessClient, UpdateContactCommand } from '@aws-sdk/client-alexa-for-business'; // ES Modules import
+ * // const { AlexaForBusinessClient, UpdateContactCommand } = require('@aws-sdk/client-alexa-for-business'); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
  * const input = { // UpdateContactRequest
- *   ContactArn: "STRING_VALUE", // required
- *   DisplayName: "STRING_VALUE",
- *   FirstName: "STRING_VALUE",
- *   LastName: "STRING_VALUE",
- *   PhoneNumber: "STRING_VALUE",
+ *   ContactArn: 'STRING_VALUE', // required
+ *   DisplayName: 'STRING_VALUE',
+ *   FirstName: 'STRING_VALUE',
+ *   LastName: 'STRING_VALUE',
+ *   PhoneNumber: 'STRING_VALUE',
  *   PhoneNumbers: [ // PhoneNumberList
  *     { // PhoneNumber
- *       Number: "STRING_VALUE", // required
- *       Type: "STRING_VALUE", // required
+ *       Number: 'STRING_VALUE', // required
+ *       Type: 'STRING_VALUE', // required
  *     },
  *   ],
  *   SipAddresses: [ // SipAddressList
  *     { // SipAddress
- *       Uri: "STRING_VALUE", // required
- *       Type: "STRING_VALUE", // required
+ *       Uri: 'STRING_VALUE', // required
+ *       Type: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new UpdateContactCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateContactCommandInput - {@link UpdateContactCommandInput}
@@ -78,6 +81,8 @@ export interface UpdateContactCommandOutput extends UpdateContactResponse, __Met
  * @throws {@link NotFoundException} (client fault)
  *  <p>The resource is not found.</p>
  *
+ * @throws {@link AlexaForBusinessServiceException}
+ * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  */
 export class UpdateContactCommand extends $Command<

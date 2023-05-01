@@ -36,24 +36,37 @@ export interface ListResourcesCommandOutput extends ListResourcesResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LakeFormationClient, ListResourcesCommand } from "@aws-sdk/client-lakeformation"; // ES Modules import
- * // const { LakeFormationClient, ListResourcesCommand } = require("@aws-sdk/client-lakeformation"); // CommonJS import
+ * import { LakeFormationClient, ListResourcesCommand } from '@aws-sdk/client-lakeformation'; // ES Modules import
+ * // const { LakeFormationClient, ListResourcesCommand } = require('@aws-sdk/client-lakeformation'); // CommonJS import
  * const client = new LakeFormationClient(config);
  * const input = { // ListResourcesRequest
  *   FilterConditionList: [ // FilterConditionList
  *     { // FilterCondition
- *       Field: "RESOURCE_ARN" || "ROLE_ARN" || "LAST_MODIFIED",
- *       ComparisonOperator: "EQ" || "NE" || "LE" || "LT" || "GE" || "GT" || "CONTAINS" || "NOT_CONTAINS" || "BEGINS_WITH" || "IN" || "BETWEEN",
+ *       Field: 'RESOURCE_ARN' || 'ROLE_ARN' || 'LAST_MODIFIED',
+ *       ComparisonOperator: 'EQ' || 'NE' || 'LE' || 'LT' || 'GE' || 'GT' || 'CONTAINS' || 'NOT_CONTAINS' || 'BEGINS_WITH' || 'IN' || 'BETWEEN',
  *       StringValueList: [ // StringValueList
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListResourcesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListResourcesResponse
+ *   ResourceInfoList: [ // ResourceInfoList
+ *     { // ResourceInfo
+ *       ResourceArn: 'STRING_VALUE',
+ *       RoleArn: 'STRING_VALUE',
+ *       LastModified: new Date('TIMESTAMP'),
+ *       WithFederation: true || false,
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListResourcesCommandInput - {@link ListResourcesCommandInput}
@@ -71,6 +84,8 @@ export interface ListResourcesCommandOutput extends ListResourcesResponse, __Met
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link LakeFormationServiceException}
+ * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
  */
 export class ListResourcesCommand extends $Command<

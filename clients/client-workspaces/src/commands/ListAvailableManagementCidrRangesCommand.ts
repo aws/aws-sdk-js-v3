@@ -48,16 +48,24 @@ export interface ListAvailableManagementCidrRangesCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkSpacesClient, ListAvailableManagementCidrRangesCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
- * // const { WorkSpacesClient, ListAvailableManagementCidrRangesCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
+ * import { WorkSpacesClient, ListAvailableManagementCidrRangesCommand } from '@aws-sdk/client-workspaces'; // ES Modules import
+ * // const { WorkSpacesClient, ListAvailableManagementCidrRangesCommand } = require('@aws-sdk/client-workspaces'); // CommonJS import
  * const client = new WorkSpacesClient(config);
  * const input = { // ListAvailableManagementCidrRangesRequest
- *   ManagementCidrRangeConstraint: "STRING_VALUE", // required
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   ManagementCidrRangeConstraint: 'STRING_VALUE', // required
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListAvailableManagementCidrRangesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListAvailableManagementCidrRangesResult
+ *   ManagementCidrRanges: [ // DedicatedTenancyCidrRangeList
+ *     'STRING_VALUE',
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListAvailableManagementCidrRangesCommandInput - {@link ListAvailableManagementCidrRangesCommandInput}
@@ -72,6 +80,8 @@ export interface ListAvailableManagementCidrRangesCommandOutput
  * @throws {@link InvalidParameterValuesException} (client fault)
  *  <p>One or more parameter values are not valid.</p>
  *
+ * @throws {@link WorkSpacesServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
  */
 export class ListAvailableManagementCidrRangesCommand extends $Command<

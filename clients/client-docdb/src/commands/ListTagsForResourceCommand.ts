@@ -36,22 +36,32 @@ export interface ListTagsForResourceCommandOutput extends TagListMessage, __Meta
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DocDBClient, ListTagsForResourceCommand } from "@aws-sdk/client-docdb"; // ES Modules import
- * // const { DocDBClient, ListTagsForResourceCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
+ * import { DocDBClient, ListTagsForResourceCommand } from '@aws-sdk/client-docdb'; // ES Modules import
+ * // const { DocDBClient, ListTagsForResourceCommand } = require('@aws-sdk/client-docdb'); // CommonJS import
  * const client = new DocDBClient(config);
  * const input = { // ListTagsForResourceMessage
- *   ResourceName: "STRING_VALUE", // required
+ *   ResourceName: 'STRING_VALUE', // required
  *   Filters: [ // FilterList
  *     { // Filter
- *       Name: "STRING_VALUE", // required
+ *       Name: 'STRING_VALUE', // required
  *       Values: [ // FilterValueList // required
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
  * };
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // TagListMessage
+ *   TagList: [ // TagList
+ *     { // Tag
+ *       Key: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListTagsForResourceCommandInput - {@link ListTagsForResourceCommandInput}
@@ -72,6 +82,8 @@ export interface ListTagsForResourceCommandOutput extends TagListMessage, __Meta
  *  <p>
  *             <code>DBSnapshotIdentifier</code> doesn't refer to an existing snapshot. </p>
  *
+ * @throws {@link DocDBServiceException}
+ * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
  */
 export class ListTagsForResourceCommand extends $Command<

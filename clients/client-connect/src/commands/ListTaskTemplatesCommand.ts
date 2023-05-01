@@ -36,18 +36,34 @@ export interface ListTaskTemplatesCommandOutput extends ListTaskTemplatesRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, ListTaskTemplatesCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, ListTaskTemplatesCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, ListTaskTemplatesCommand } from '@aws-sdk/client-connect'; // ES Modules import
+ * // const { ConnectClient, ListTaskTemplatesCommand } = require('@aws-sdk/client-connect'); // CommonJS import
  * const client = new ConnectClient(config);
  * const input = { // ListTaskTemplatesRequest
- *   InstanceId: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
- *   Status: "ACTIVE" || "INACTIVE",
- *   Name: "STRING_VALUE",
+ *   InstanceId: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
+ *   Status: 'ACTIVE' || 'INACTIVE',
+ *   Name: 'STRING_VALUE',
  * };
  * const command = new ListTaskTemplatesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTaskTemplatesResponse
+ *   TaskTemplates: [ // TaskTemplateList
+ *     { // TaskTemplateMetadata
+ *       Id: 'STRING_VALUE',
+ *       Arn: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *       Description: 'STRING_VALUE',
+ *       Status: 'ACTIVE' || 'INACTIVE',
+ *       LastModifiedTime: new Date('TIMESTAMP'),
+ *       CreatedTime: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListTaskTemplatesCommandInput - {@link ListTaskTemplatesCommandInput}
@@ -71,6 +87,8 @@ export interface ListTaskTemplatesCommandOutput extends ListTaskTemplatesRespons
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class ListTaskTemplatesCommand extends $Command<

@@ -45,19 +45,32 @@ export interface DescribeEcsClustersCommandOutput extends DescribeEcsClustersRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OpsWorksClient, DescribeEcsClustersCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
- * // const { OpsWorksClient, DescribeEcsClustersCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
+ * import { OpsWorksClient, DescribeEcsClustersCommand } from '@aws-sdk/client-opsworks'; // ES Modules import
+ * // const { OpsWorksClient, DescribeEcsClustersCommand } = require('@aws-sdk/client-opsworks'); // CommonJS import
  * const client = new OpsWorksClient(config);
  * const input = { // DescribeEcsClustersRequest
  *   EcsClusterArns: [ // Strings
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   StackId: "STRING_VALUE",
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   StackId: 'STRING_VALUE',
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new DescribeEcsClustersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeEcsClustersResult
+ *   EcsClusters: [ // EcsClusters
+ *     { // EcsCluster
+ *       EcsClusterArn: 'STRING_VALUE',
+ *       EcsClusterName: 'STRING_VALUE',
+ *       StackId: 'STRING_VALUE',
+ *       RegisteredAt: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeEcsClustersCommandInput - {@link DescribeEcsClustersCommandInput}
@@ -72,6 +85,8 @@ export interface DescribeEcsClustersCommandOutput extends DescribeEcsClustersRes
  * @throws {@link ValidationException} (client fault)
  *  <p>Indicates that a request was not valid.</p>
  *
+ * @throws {@link OpsWorksServiceException}
+ * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
  */
 export class DescribeEcsClustersCommand extends $Command<

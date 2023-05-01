@@ -38,14 +38,17 @@ export interface DeleteWorkspaceImageCommandOutput extends DeleteWorkspaceImageR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkSpacesClient, DeleteWorkspaceImageCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
- * // const { WorkSpacesClient, DeleteWorkspaceImageCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
+ * import { WorkSpacesClient, DeleteWorkspaceImageCommand } from '@aws-sdk/client-workspaces'; // ES Modules import
+ * // const { WorkSpacesClient, DeleteWorkspaceImageCommand } = require('@aws-sdk/client-workspaces'); // CommonJS import
  * const client = new WorkSpacesClient(config);
  * const input = { // DeleteWorkspaceImageRequest
- *   ImageId: "STRING_VALUE", // required
+ *   ImageId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteWorkspaceImageCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteWorkspaceImageCommandInput - {@link DeleteWorkspaceImageCommandInput}
@@ -63,6 +66,8 @@ export interface DeleteWorkspaceImageCommandOutput extends DeleteWorkspaceImageR
  * @throws {@link ResourceAssociatedException} (client fault)
  *  <p>The resource is associated with a directory.</p>
  *
+ * @throws {@link WorkSpacesServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
  */
 export class DeleteWorkspaceImageCommand extends $Command<

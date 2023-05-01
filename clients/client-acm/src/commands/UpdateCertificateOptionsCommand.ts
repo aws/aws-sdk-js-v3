@@ -39,17 +39,20 @@ export interface UpdateCertificateOptionsCommandOutput extends __MetadataBearer 
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ACMClient, UpdateCertificateOptionsCommand } from "@aws-sdk/client-acm"; // ES Modules import
- * // const { ACMClient, UpdateCertificateOptionsCommand } = require("@aws-sdk/client-acm"); // CommonJS import
+ * import { ACMClient, UpdateCertificateOptionsCommand } from '@aws-sdk/client-acm'; // ES Modules import
+ * // const { ACMClient, UpdateCertificateOptionsCommand } = require('@aws-sdk/client-acm'); // CommonJS import
  * const client = new ACMClient(config);
  * const input = { // UpdateCertificateOptionsRequest
- *   CertificateArn: "STRING_VALUE", // required
+ *   CertificateArn: 'STRING_VALUE', // required
  *   Options: { // CertificateOptions
- *     CertificateTransparencyLoggingPreference: "ENABLED" || "DISABLED",
+ *     CertificateTransparencyLoggingPreference: 'ENABLED' || 'DISABLED',
  *   },
  * };
  * const command = new UpdateCertificateOptionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateCertificateOptionsCommandInput - {@link UpdateCertificateOptionsCommandInput}
@@ -71,6 +74,8 @@ export interface UpdateCertificateOptionsCommandOutput extends __MetadataBearer 
  *  <p>The specified certificate cannot be found in the caller's account or the caller's account
  *       cannot be found.</p>
  *
+ * @throws {@link ACMServiceException}
+ * <p>Base exception class for all service exceptions from ACM service.</p>
  *
  */
 export class UpdateCertificateOptionsCommand extends $Command<

@@ -94,15 +94,30 @@ export interface ListIdentityPoolUsageCommandOutput extends ListIdentityPoolUsag
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CognitoSyncClient, ListIdentityPoolUsageCommand } from "@aws-sdk/client-cognito-sync"; // ES Modules import
- * // const { CognitoSyncClient, ListIdentityPoolUsageCommand } = require("@aws-sdk/client-cognito-sync"); // CommonJS import
+ * import { CognitoSyncClient, ListIdentityPoolUsageCommand } from '@aws-sdk/client-cognito-sync'; // ES Modules import
+ * // const { CognitoSyncClient, ListIdentityPoolUsageCommand } = require('@aws-sdk/client-cognito-sync'); // CommonJS import
  * const client = new CognitoSyncClient(config);
  * const input = { // ListIdentityPoolUsageRequest
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListIdentityPoolUsageCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListIdentityPoolUsageResponse
+ *   IdentityPoolUsages: [ // IdentityPoolUsageList
+ *     { // IdentityPoolUsage
+ *       IdentityPoolId: 'STRING_VALUE',
+ *       SyncSessionsCount: Number('long'),
+ *       DataStorage: Number('long'),
+ *       LastModifiedDate: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   MaxResults: Number('int'),
+ *   Count: Number('int'),
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListIdentityPoolUsageCommandInput - {@link ListIdentityPoolUsageCommandInput}
@@ -127,6 +142,8 @@ export interface ListIdentityPoolUsageCommandOutput extends ListIdentityPoolUsag
  *  Thrown if the request is
  *       throttled.
  *
+ * @throws {@link CognitoSyncServiceException}
+ * <p>Base exception class for all service exceptions from CognitoSync service.</p>
  *
  */
 export class ListIdentityPoolUsageCommand extends $Command<

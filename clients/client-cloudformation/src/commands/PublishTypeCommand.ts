@@ -39,17 +39,22 @@ export interface PublishTypeCommandOutput extends PublishTypeOutput, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudFormationClient, PublishTypeCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
- * // const { CloudFormationClient, PublishTypeCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
+ * import { CloudFormationClient, PublishTypeCommand } from '@aws-sdk/client-cloudformation'; // ES Modules import
+ * // const { CloudFormationClient, PublishTypeCommand } = require('@aws-sdk/client-cloudformation'); // CommonJS import
  * const client = new CloudFormationClient(config);
  * const input = { // PublishTypeInput
- *   Type: "RESOURCE" || "MODULE" || "HOOK",
- *   Arn: "STRING_VALUE",
- *   TypeName: "STRING_VALUE",
- *   PublicVersionNumber: "STRING_VALUE",
+ *   Type: 'RESOURCE' || 'MODULE' || 'HOOK',
+ *   Arn: 'STRING_VALUE',
+ *   TypeName: 'STRING_VALUE',
+ *   PublicVersionNumber: 'STRING_VALUE',
  * };
  * const command = new PublishTypeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PublishTypeOutput
+ *   PublicTypeArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param PublishTypeCommandInput - {@link PublishTypeCommandInput}
@@ -64,6 +69,8 @@ export interface PublishTypeCommandOutput extends PublishTypeOutput, __MetadataB
  * @throws {@link TypeNotFoundException} (client fault)
  *  <p>The specified extension doesn't exist in the CloudFormation registry.</p>
  *
+ * @throws {@link CloudFormationServiceException}
+ * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
  */
 export class PublishTypeCommand extends $Command<

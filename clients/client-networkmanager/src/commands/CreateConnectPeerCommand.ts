@@ -37,29 +37,63 @@ export interface CreateConnectPeerCommandOutput extends CreateConnectPeerRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { NetworkManagerClient, CreateConnectPeerCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
- * // const { NetworkManagerClient, CreateConnectPeerCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
+ * import { NetworkManagerClient, CreateConnectPeerCommand } from '@aws-sdk/client-networkmanager'; // ES Modules import
+ * // const { NetworkManagerClient, CreateConnectPeerCommand } = require('@aws-sdk/client-networkmanager'); // CommonJS import
  * const client = new NetworkManagerClient(config);
  * const input = { // CreateConnectPeerRequest
- *   ConnectAttachmentId: "STRING_VALUE", // required
- *   CoreNetworkAddress: "STRING_VALUE",
- *   PeerAddress: "STRING_VALUE", // required
+ *   ConnectAttachmentId: 'STRING_VALUE', // required
+ *   CoreNetworkAddress: 'STRING_VALUE',
+ *   PeerAddress: 'STRING_VALUE', // required
  *   BgpOptions: { // BgpOptions
- *     PeerAsn: Number("long"),
+ *     PeerAsn: Number('long'),
  *   },
  *   InsideCidrBlocks: [ // ConstrainedStringList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE",
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
- *   ClientToken: "STRING_VALUE",
+ *   ClientToken: 'STRING_VALUE',
  * };
  * const command = new CreateConnectPeerCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateConnectPeerResponse
+ *   ConnectPeer: { // ConnectPeer
+ *     CoreNetworkId: 'STRING_VALUE',
+ *     ConnectAttachmentId: 'STRING_VALUE',
+ *     ConnectPeerId: 'STRING_VALUE',
+ *     EdgeLocation: 'STRING_VALUE',
+ *     State: 'CREATING' || 'FAILED' || 'AVAILABLE' || 'DELETING',
+ *     CreatedAt: new Date('TIMESTAMP'),
+ *     Configuration: { // ConnectPeerConfiguration
+ *       CoreNetworkAddress: 'STRING_VALUE',
+ *       PeerAddress: 'STRING_VALUE',
+ *       InsideCidrBlocks: [ // ConstrainedStringList
+ *         'STRING_VALUE',
+ *       ],
+ *       Protocol: 'GRE',
+ *       BgpConfigurations: [ // ConnectPeerBgpConfigurationList
+ *         { // ConnectPeerBgpConfiguration
+ *           CoreNetworkAsn: Number('long'),
+ *           PeerAsn: Number('long'),
+ *           CoreNetworkAddress: 'STRING_VALUE',
+ *           PeerAddress: 'STRING_VALUE',
+ *         },
+ *       ],
+ *     },
+ *     Tags: [ // TagList
+ *       { // Tag
+ *         Key: 'STRING_VALUE',
+ *         Value: 'STRING_VALUE',
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateConnectPeerCommandInput - {@link CreateConnectPeerCommandInput}
@@ -87,6 +121,8 @@ export interface CreateConnectPeerCommandOutput extends CreateConnectPeerRespons
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints.</p>
  *
+ * @throws {@link NetworkManagerServiceException}
+ * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
  */
 export class CreateConnectPeerCommand extends $Command<

@@ -44,16 +44,34 @@ export interface ListModelPackagingJobsCommandOutput extends ListModelPackagingJ
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LookoutVisionClient, ListModelPackagingJobsCommand } from "@aws-sdk/client-lookoutvision"; // ES Modules import
- * // const { LookoutVisionClient, ListModelPackagingJobsCommand } = require("@aws-sdk/client-lookoutvision"); // CommonJS import
+ * import { LookoutVisionClient, ListModelPackagingJobsCommand } from '@aws-sdk/client-lookoutvision'; // ES Modules import
+ * // const { LookoutVisionClient, ListModelPackagingJobsCommand } = require('@aws-sdk/client-lookoutvision'); // CommonJS import
  * const client = new LookoutVisionClient(config);
  * const input = { // ListModelPackagingJobsRequest
- *   ProjectName: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   ProjectName: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListModelPackagingJobsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListModelPackagingJobsResponse
+ *   ModelPackagingJobs: [ // ModelPackagingJobsList
+ *     { // ModelPackagingJobMetadata
+ *       JobName: 'STRING_VALUE',
+ *       ProjectName: 'STRING_VALUE',
+ *       ModelVersion: 'STRING_VALUE',
+ *       ModelPackagingJobDescription: 'STRING_VALUE',
+ *       ModelPackagingMethod: 'STRING_VALUE',
+ *       Status: 'CREATED' || 'RUNNING' || 'SUCCEEDED' || 'FAILED',
+ *       StatusMessage: 'STRING_VALUE',
+ *       CreationTimestamp: new Date('TIMESTAMP'),
+ *       LastUpdatedTimestamp: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListModelPackagingJobsCommandInput - {@link ListModelPackagingJobsCommandInput}
@@ -78,6 +96,8 @@ export interface ListModelPackagingJobsCommandOutput extends ListModelPackagingJ
  *  <p>An input validation error occured. For example, invalid characters in a project name,
  *       or if a pagination token is invalid.</p>
  *
+ * @throws {@link LookoutVisionServiceException}
+ * <p>Base exception class for all service exceptions from LookoutVision service.</p>
  *
  */
 export class ListModelPackagingJobsCommand extends $Command<

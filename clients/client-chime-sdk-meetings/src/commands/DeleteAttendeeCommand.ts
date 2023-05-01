@@ -39,15 +39,18 @@ export interface DeleteAttendeeCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeSDKMeetingsClient, DeleteAttendeeCommand } from "@aws-sdk/client-chime-sdk-meetings"; // ES Modules import
- * // const { ChimeSDKMeetingsClient, DeleteAttendeeCommand } = require("@aws-sdk/client-chime-sdk-meetings"); // CommonJS import
+ * import { ChimeSDKMeetingsClient, DeleteAttendeeCommand } from '@aws-sdk/client-chime-sdk-meetings'; // ES Modules import
+ * // const { ChimeSDKMeetingsClient, DeleteAttendeeCommand } = require('@aws-sdk/client-chime-sdk-meetings'); // CommonJS import
  * const client = new ChimeSDKMeetingsClient(config);
  * const input = { // DeleteAttendeeRequest
- *   MeetingId: "STRING_VALUE", // required
- *   AttendeeId: "STRING_VALUE", // required
+ *   MeetingId: 'STRING_VALUE', // required
+ *   AttendeeId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteAttendeeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteAttendeeCommandInput - {@link DeleteAttendeeCommandInput}
@@ -77,6 +80,8 @@ export interface DeleteAttendeeCommandOutput extends __MetadataBearer {}
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The user isn't authorized to request a resource.</p>
  *
+ * @throws {@link ChimeSDKMeetingsServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKMeetings service.</p>
  *
  */
 export class DeleteAttendeeCommand extends $Command<

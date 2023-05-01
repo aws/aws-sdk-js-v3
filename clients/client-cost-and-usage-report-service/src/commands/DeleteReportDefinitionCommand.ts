@@ -40,14 +40,19 @@ export interface DeleteReportDefinitionCommandOutput extends DeleteReportDefinit
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CostAndUsageReportServiceClient, DeleteReportDefinitionCommand } from "@aws-sdk/client-cost-and-usage-report-service"; // ES Modules import
- * // const { CostAndUsageReportServiceClient, DeleteReportDefinitionCommand } = require("@aws-sdk/client-cost-and-usage-report-service"); // CommonJS import
+ * import { CostAndUsageReportServiceClient, DeleteReportDefinitionCommand } from '@aws-sdk/client-cost-and-usage-report-service'; // ES Modules import
+ * // const { CostAndUsageReportServiceClient, DeleteReportDefinitionCommand } = require('@aws-sdk/client-cost-and-usage-report-service'); // CommonJS import
  * const client = new CostAndUsageReportServiceClient(config);
  * const input = { // DeleteReportDefinitionRequest
- *   ReportName: "STRING_VALUE",
+ *   ReportName: 'STRING_VALUE',
  * };
  * const command = new DeleteReportDefinitionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteReportDefinitionResponse
+ *   ResponseMessage: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DeleteReportDefinitionCommandInput - {@link DeleteReportDefinitionCommandInput}
@@ -62,6 +67,8 @@ export interface DeleteReportDefinitionCommandOutput extends DeleteReportDefinit
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link CostAndUsageReportServiceServiceException}
+ * <p>Base exception class for all service exceptions from CostAndUsageReportService service.</p>
  *
  * @example To delete the AWS Cost and Usage report named ExampleReport.
  * ```javascript

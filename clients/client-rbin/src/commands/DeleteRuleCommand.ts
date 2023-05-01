@@ -37,14 +37,17 @@ export interface DeleteRuleCommandOutput extends DeleteRuleResponse, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RbinClient, DeleteRuleCommand } from "@aws-sdk/client-rbin"; // ES Modules import
- * // const { RbinClient, DeleteRuleCommand } = require("@aws-sdk/client-rbin"); // CommonJS import
+ * import { RbinClient, DeleteRuleCommand } from '@aws-sdk/client-rbin'; // ES Modules import
+ * // const { RbinClient, DeleteRuleCommand } = require('@aws-sdk/client-rbin'); // CommonJS import
  * const client = new RbinClient(config);
  * const input = { // DeleteRuleRequest
- *   Identifier: "STRING_VALUE", // required
+ *   Identifier: 'STRING_VALUE', // required
  * };
  * const command = new DeleteRuleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteRuleCommandInput - {@link DeleteRuleCommandInput}
@@ -65,6 +68,8 @@ export interface DeleteRuleCommandOutput extends DeleteRuleResponse, __MetadataB
  * @throws {@link ValidationException} (client fault)
  *  <p>One or more of the parameters in the request is not valid.</p>
  *
+ * @throws {@link RbinServiceException}
+ * <p>Base exception class for all service exceptions from Rbin service.</p>
  *
  */
 export class DeleteRuleCommand extends $Command<

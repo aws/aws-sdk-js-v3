@@ -36,21 +36,42 @@ export interface UpdateEmailChannelCommandOutput extends UpdateEmailChannelRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PinpointClient, UpdateEmailChannelCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
- * // const { PinpointClient, UpdateEmailChannelCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
+ * import { PinpointClient, UpdateEmailChannelCommand } from '@aws-sdk/client-pinpoint'; // ES Modules import
+ * // const { PinpointClient, UpdateEmailChannelCommand } = require('@aws-sdk/client-pinpoint'); // CommonJS import
  * const client = new PinpointClient(config);
  * const input = { // UpdateEmailChannelRequest
- *   ApplicationId: "STRING_VALUE", // required
+ *   ApplicationId: 'STRING_VALUE', // required
  *   EmailChannelRequest: { // EmailChannelRequest
- *     ConfigurationSet: "STRING_VALUE",
+ *     ConfigurationSet: 'STRING_VALUE',
  *     Enabled: true || false,
- *     FromAddress: "STRING_VALUE", // required
- *     Identity: "STRING_VALUE", // required
- *     RoleArn: "STRING_VALUE",
+ *     FromAddress: 'STRING_VALUE', // required
+ *     Identity: 'STRING_VALUE', // required
+ *     RoleArn: 'STRING_VALUE',
  *   },
  * };
  * const command = new UpdateEmailChannelCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateEmailChannelResponse
+ *   EmailChannelResponse: { // EmailChannelResponse
+ *     ApplicationId: 'STRING_VALUE',
+ *     ConfigurationSet: 'STRING_VALUE',
+ *     CreationDate: 'STRING_VALUE',
+ *     Enabled: true || false,
+ *     FromAddress: 'STRING_VALUE',
+ *     HasCredential: true || false,
+ *     Id: 'STRING_VALUE',
+ *     Identity: 'STRING_VALUE',
+ *     IsArchived: true || false,
+ *     LastModifiedBy: 'STRING_VALUE',
+ *     LastModifiedDate: 'STRING_VALUE',
+ *     MessagesPerSecond: Number('int'),
+ *     Platform: 'STRING_VALUE', // required
+ *     RoleArn: 'STRING_VALUE',
+ *     Version: Number('int'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateEmailChannelCommandInput - {@link UpdateEmailChannelCommandInput}
@@ -80,6 +101,8 @@ export interface UpdateEmailChannelCommandOutput extends UpdateEmailChannelRespo
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Provides information about an API request or response.</p>
  *
+ * @throws {@link PinpointServiceException}
+ * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
  */
 export class UpdateEmailChannelCommand extends $Command<

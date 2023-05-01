@@ -36,22 +36,35 @@ export interface ListDeviceFleetsCommandOutput extends ListDeviceFleetsResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, ListDeviceFleetsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, ListDeviceFleetsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, ListDeviceFleetsCommand } from '@aws-sdk/client-sagemaker'; // ES Modules import
+ * // const { SageMakerClient, ListDeviceFleetsCommand } = require('@aws-sdk/client-sagemaker'); // CommonJS import
  * const client = new SageMakerClient(config);
  * const input = { // ListDeviceFleetsRequest
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
- *   CreationTimeAfter: new Date("TIMESTAMP"),
- *   CreationTimeBefore: new Date("TIMESTAMP"),
- *   LastModifiedTimeAfter: new Date("TIMESTAMP"),
- *   LastModifiedTimeBefore: new Date("TIMESTAMP"),
- *   NameContains: "STRING_VALUE",
- *   SortBy: "NAME" || "CREATION_TIME" || "LAST_MODIFIED_TIME",
- *   SortOrder: "Ascending" || "Descending",
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
+ *   CreationTimeAfter: new Date('TIMESTAMP'),
+ *   CreationTimeBefore: new Date('TIMESTAMP'),
+ *   LastModifiedTimeAfter: new Date('TIMESTAMP'),
+ *   LastModifiedTimeBefore: new Date('TIMESTAMP'),
+ *   NameContains: 'STRING_VALUE',
+ *   SortBy: 'NAME' || 'CREATION_TIME' || 'LAST_MODIFIED_TIME',
+ *   SortOrder: 'Ascending' || 'Descending',
  * };
  * const command = new ListDeviceFleetsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListDeviceFleetsResponse
+ *   DeviceFleetSummaries: [ // DeviceFleetSummaries // required
+ *     { // DeviceFleetSummary
+ *       DeviceFleetArn: 'STRING_VALUE', // required
+ *       DeviceFleetName: 'STRING_VALUE', // required
+ *       CreationTime: new Date('TIMESTAMP'),
+ *       LastModifiedTime: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListDeviceFleetsCommandInput - {@link ListDeviceFleetsCommandInput}
@@ -60,6 +73,8 @@ export interface ListDeviceFleetsCommandOutput extends ListDeviceFleetsResponse,
  * @see {@link ListDeviceFleetsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class ListDeviceFleetsCommand extends $Command<

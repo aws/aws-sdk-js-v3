@@ -38,14 +38,22 @@ export interface DeleteBackupPlanCommandOutput extends DeleteBackupPlanOutput, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BackupClient, DeleteBackupPlanCommand } from "@aws-sdk/client-backup"; // ES Modules import
- * // const { BackupClient, DeleteBackupPlanCommand } = require("@aws-sdk/client-backup"); // CommonJS import
+ * import { BackupClient, DeleteBackupPlanCommand } from '@aws-sdk/client-backup'; // ES Modules import
+ * // const { BackupClient, DeleteBackupPlanCommand } = require('@aws-sdk/client-backup'); // CommonJS import
  * const client = new BackupClient(config);
  * const input = { // DeleteBackupPlanInput
- *   BackupPlanId: "STRING_VALUE", // required
+ *   BackupPlanId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteBackupPlanCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteBackupPlanOutput
+ *   BackupPlanId: 'STRING_VALUE',
+ *   BackupPlanArn: 'STRING_VALUE',
+ *   DeletionDate: new Date('TIMESTAMP'),
+ *   VersionId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DeleteBackupPlanCommandInput - {@link DeleteBackupPlanCommandInput}
@@ -71,6 +79,8 @@ export interface DeleteBackupPlanCommandOutput extends DeleteBackupPlanOutput, _
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request failed due to a temporary failure of the server.</p>
  *
+ * @throws {@link BackupServiceException}
+ * <p>Base exception class for all service exceptions from Backup service.</p>
  *
  */
 export class DeleteBackupPlanCommand extends $Command<

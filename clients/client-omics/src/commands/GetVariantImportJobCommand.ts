@@ -36,14 +36,34 @@ export interface GetVariantImportJobCommandOutput extends GetVariantImportRespon
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OmicsClient, GetVariantImportJobCommand } from "@aws-sdk/client-omics"; // ES Modules import
- * // const { OmicsClient, GetVariantImportJobCommand } = require("@aws-sdk/client-omics"); // CommonJS import
+ * import { OmicsClient, GetVariantImportJobCommand } from '@aws-sdk/client-omics'; // ES Modules import
+ * // const { OmicsClient, GetVariantImportJobCommand } = require('@aws-sdk/client-omics'); // CommonJS import
  * const client = new OmicsClient(config);
  * const input = { // GetVariantImportRequest
- *   jobId: "STRING_VALUE", // required
+ *   jobId: 'STRING_VALUE', // required
  * };
  * const command = new GetVariantImportJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetVariantImportResponse
+ *   id: 'STRING_VALUE', // required
+ *   destinationName: 'STRING_VALUE', // required
+ *   roleArn: 'STRING_VALUE', // required
+ *   status: 'STRING_VALUE', // required
+ *   statusMessage: 'STRING_VALUE', // required
+ *   creationTime: new Date('TIMESTAMP'), // required
+ *   updateTime: new Date('TIMESTAMP'), // required
+ *   completionTime: new Date('TIMESTAMP'),
+ *   items: [ // VariantImportItemDetails // required
+ *     { // VariantImportItemDetail
+ *       source: 'STRING_VALUE', // required
+ *       jobStatus: 'STRING_VALUE', // required
+ *       statusMessage: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   runLeftNormalization: true || false, // required
+ * };
+ *
  * ```
  *
  * @param GetVariantImportJobCommandInput - {@link GetVariantImportJobCommandInput}
@@ -67,6 +87,8 @@ export interface GetVariantImportJobCommandOutput extends GetVariantImportRespon
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link OmicsServiceException}
+ * <p>Base exception class for all service exceptions from Omics service.</p>
  *
  */
 export class GetVariantImportJobCommand extends $Command<

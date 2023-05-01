@@ -66,22 +66,27 @@ export interface CreatePipelineCommandOutput extends CreatePipelineOutput, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DataPipelineClient, CreatePipelineCommand } from "@aws-sdk/client-data-pipeline"; // ES Modules import
- * // const { DataPipelineClient, CreatePipelineCommand } = require("@aws-sdk/client-data-pipeline"); // CommonJS import
+ * import { DataPipelineClient, CreatePipelineCommand } from '@aws-sdk/client-data-pipeline'; // ES Modules import
+ * // const { DataPipelineClient, CreatePipelineCommand } = require('@aws-sdk/client-data-pipeline'); // CommonJS import
  * const client = new DataPipelineClient(config);
  * const input = { // CreatePipelineInput
- *   name: "STRING_VALUE", // required
- *   uniqueId: "STRING_VALUE", // required
- *   description: "STRING_VALUE",
+ *   name: 'STRING_VALUE', // required
+ *   uniqueId: 'STRING_VALUE', // required
+ *   description: 'STRING_VALUE',
  *   tags: [ // tagList
  *     { // Tag
- *       key: "STRING_VALUE", // required
- *       value: "STRING_VALUE", // required
+ *       key: 'STRING_VALUE', // required
+ *       value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreatePipelineCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreatePipelineOutput
+ *   pipelineId: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param CreatePipelineCommandInput - {@link CreatePipelineCommandInput}
@@ -96,6 +101,8 @@ export interface CreatePipelineCommandOutput extends CreatePipelineOutput, __Met
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>The request was not valid. Verify that your request was properly formatted, that the signature was generated with the correct credentials, and that you haven't exceeded any of the service limits for your account.</p>
  *
+ * @throws {@link DataPipelineServiceException}
+ * <p>Base exception class for all service exceptions from DataPipeline service.</p>
  *
  */
 export class CreatePipelineCommand extends $Command<

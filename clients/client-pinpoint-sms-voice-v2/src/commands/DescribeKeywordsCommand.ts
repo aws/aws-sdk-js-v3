@@ -47,27 +47,41 @@ export interface DescribeKeywordsCommandOutput extends DescribeKeywordsResult, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PinpointSMSVoiceV2Client, DescribeKeywordsCommand } from "@aws-sdk/client-pinpoint-sms-voice-v2"; // ES Modules import
- * // const { PinpointSMSVoiceV2Client, DescribeKeywordsCommand } = require("@aws-sdk/client-pinpoint-sms-voice-v2"); // CommonJS import
+ * import { PinpointSMSVoiceV2Client, DescribeKeywordsCommand } from '@aws-sdk/client-pinpoint-sms-voice-v2'; // ES Modules import
+ * // const { PinpointSMSVoiceV2Client, DescribeKeywordsCommand } = require('@aws-sdk/client-pinpoint-sms-voice-v2'); // CommonJS import
  * const client = new PinpointSMSVoiceV2Client(config);
  * const input = { // DescribeKeywordsRequest
- *   OriginationIdentity: "STRING_VALUE", // required
+ *   OriginationIdentity: 'STRING_VALUE', // required
  *   Keywords: [ // KeywordList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   Filters: [ // KeywordFilterList
  *     { // KeywordFilter
- *       Name: "STRING_VALUE", // required
+ *       Name: 'STRING_VALUE', // required
  *       Values: [ // FilterValueList // required
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new DescribeKeywordsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeKeywordsResult
+ *   OriginationIdentityArn: 'STRING_VALUE',
+ *   OriginationIdentity: 'STRING_VALUE',
+ *   Keywords: [ // KeywordInformationList
+ *     { // KeywordInformation
+ *       Keyword: 'STRING_VALUE', // required
+ *       KeywordMessage: 'STRING_VALUE', // required
+ *       KeywordAction: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeKeywordsCommandInput - {@link DescribeKeywordsCommandInput}
@@ -94,6 +108,8 @@ export interface DescribeKeywordsCommandOutput extends DescribeKeywordsResult, _
  * @throws {@link ValidationException} (client fault)
  *  <p>A validation exception for a field.</p>
  *
+ * @throws {@link PinpointSMSVoiceV2ServiceException}
+ * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
  *
  */
 export class DescribeKeywordsCommand extends $Command<

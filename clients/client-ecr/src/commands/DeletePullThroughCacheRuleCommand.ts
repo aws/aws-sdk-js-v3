@@ -36,15 +36,23 @@ export interface DeletePullThroughCacheRuleCommandOutput extends DeletePullThrou
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ECRClient, DeletePullThroughCacheRuleCommand } from "@aws-sdk/client-ecr"; // ES Modules import
- * // const { ECRClient, DeletePullThroughCacheRuleCommand } = require("@aws-sdk/client-ecr"); // CommonJS import
+ * import { ECRClient, DeletePullThroughCacheRuleCommand } from '@aws-sdk/client-ecr'; // ES Modules import
+ * // const { ECRClient, DeletePullThroughCacheRuleCommand } = require('@aws-sdk/client-ecr'); // CommonJS import
  * const client = new ECRClient(config);
  * const input = { // DeletePullThroughCacheRuleRequest
- *   ecrRepositoryPrefix: "STRING_VALUE", // required
- *   registryId: "STRING_VALUE",
+ *   ecrRepositoryPrefix: 'STRING_VALUE', // required
+ *   registryId: 'STRING_VALUE',
  * };
  * const command = new DeletePullThroughCacheRuleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeletePullThroughCacheRuleResponse
+ *   ecrRepositoryPrefix: 'STRING_VALUE',
+ *   upstreamRegistryUrl: 'STRING_VALUE',
+ *   createdAt: new Date('TIMESTAMP'),
+ *   registryId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DeletePullThroughCacheRuleCommandInput - {@link DeletePullThroughCacheRuleCommandInput}
@@ -67,6 +75,8 @@ export interface DeletePullThroughCacheRuleCommandOutput extends DeletePullThrou
  * @throws {@link ValidationException} (client fault)
  *  <p>There was an exception validating this request.</p>
  *
+ * @throws {@link ECRServiceException}
+ * <p>Base exception class for all service exceptions from ECR service.</p>
  *
  */
 export class DeletePullThroughCacheRuleCommand extends $Command<

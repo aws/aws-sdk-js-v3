@@ -37,14 +37,26 @@ export interface DescribeSchemaCommandOutput extends DescribeSchemaResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PersonalizeClient, DescribeSchemaCommand } from "@aws-sdk/client-personalize"; // ES Modules import
- * // const { PersonalizeClient, DescribeSchemaCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
+ * import { PersonalizeClient, DescribeSchemaCommand } from '@aws-sdk/client-personalize'; // ES Modules import
+ * // const { PersonalizeClient, DescribeSchemaCommand } = require('@aws-sdk/client-personalize'); // CommonJS import
  * const client = new PersonalizeClient(config);
  * const input = { // DescribeSchemaRequest
- *   schemaArn: "STRING_VALUE", // required
+ *   schemaArn: 'STRING_VALUE', // required
  * };
  * const command = new DescribeSchemaCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeSchemaResponse
+ *   schema: { // DatasetSchema
+ *     name: 'STRING_VALUE',
+ *     schemaArn: 'STRING_VALUE',
+ *     schema: 'STRING_VALUE',
+ *     creationDateTime: new Date('TIMESTAMP'),
+ *     lastUpdatedDateTime: new Date('TIMESTAMP'),
+ *     domain: 'ECOMMERCE' || 'VIDEO_ON_DEMAND',
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeSchemaCommandInput - {@link DescribeSchemaCommandInput}
@@ -59,6 +71,8 @@ export interface DescribeSchemaCommandOutput extends DescribeSchemaResponse, __M
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Could not find the specified resource.</p>
  *
+ * @throws {@link PersonalizeServiceException}
+ * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
  */
 export class DescribeSchemaCommand extends $Command<

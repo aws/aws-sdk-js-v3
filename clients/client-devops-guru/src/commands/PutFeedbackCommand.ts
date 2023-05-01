@@ -36,17 +36,20 @@ export interface PutFeedbackCommandOutput extends PutFeedbackResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DevOpsGuruClient, PutFeedbackCommand } from "@aws-sdk/client-devops-guru"; // ES Modules import
- * // const { DevOpsGuruClient, PutFeedbackCommand } = require("@aws-sdk/client-devops-guru"); // CommonJS import
+ * import { DevOpsGuruClient, PutFeedbackCommand } from '@aws-sdk/client-devops-guru'; // ES Modules import
+ * // const { DevOpsGuruClient, PutFeedbackCommand } = require('@aws-sdk/client-devops-guru'); // CommonJS import
  * const client = new DevOpsGuruClient(config);
  * const input = { // PutFeedbackRequest
  *   InsightFeedback: { // InsightFeedback
- *     Id: "STRING_VALUE",
- *     Feedback: "VALID_COLLECTION" || "RECOMMENDATION_USEFUL" || "ALERT_TOO_SENSITIVE" || "DATA_NOISY_ANOMALY" || "DATA_INCORRECT",
+ *     Id: 'STRING_VALUE',
+ *     Feedback: 'VALID_COLLECTION' || 'RECOMMENDATION_USEFUL' || 'ALERT_TOO_SENSITIVE' || 'DATA_NOISY_ANOMALY' || 'DATA_INCORRECT',
  *   },
  * };
  * const command = new PutFeedbackCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutFeedbackCommandInput - {@link PutFeedbackCommandInput}
@@ -77,6 +80,8 @@ export interface PutFeedbackCommandOutput extends PutFeedbackResponse, __Metadat
  *  <p> Contains information about data passed in to a field during a request that is not
  * 			valid. </p>
  *
+ * @throws {@link DevOpsGuruServiceException}
+ * <p>Base exception class for all service exceptions from DevOpsGuru service.</p>
  *
  */
 export class PutFeedbackCommand extends $Command<

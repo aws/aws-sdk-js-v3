@@ -39,32 +39,84 @@ export interface GetUsageStatisticsCommandOutput extends GetUsageStatisticsRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GuardDutyClient, GetUsageStatisticsCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
- * // const { GuardDutyClient, GetUsageStatisticsCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
+ * import { GuardDutyClient, GetUsageStatisticsCommand } from '@aws-sdk/client-guardduty'; // ES Modules import
+ * // const { GuardDutyClient, GetUsageStatisticsCommand } = require('@aws-sdk/client-guardduty'); // CommonJS import
  * const client = new GuardDutyClient(config);
  * const input = { // GetUsageStatisticsRequest
- *   DetectorId: "STRING_VALUE", // required
- *   UsageStatisticType: "SUM_BY_ACCOUNT" || "SUM_BY_DATA_SOURCE" || "SUM_BY_RESOURCE" || "TOP_RESOURCES" || "SUM_BY_FEATURES", // required
+ *   DetectorId: 'STRING_VALUE', // required
+ *   UsageStatisticType: 'SUM_BY_ACCOUNT' || 'SUM_BY_DATA_SOURCE' || 'SUM_BY_RESOURCE' || 'TOP_RESOURCES' || 'SUM_BY_FEATURES', // required
  *   UsageCriteria: { // UsageCriteria
  *     AccountIds: [ // AccountIds
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     DataSources: [ // DataSourceList
- *       "FLOW_LOGS" || "CLOUD_TRAIL" || "DNS_LOGS" || "S3_LOGS" || "KUBERNETES_AUDIT_LOGS" || "EC2_MALWARE_SCAN",
+ *       'FLOW_LOGS' || 'CLOUD_TRAIL' || 'DNS_LOGS' || 'S3_LOGS' || 'KUBERNETES_AUDIT_LOGS' || 'EC2_MALWARE_SCAN',
  *     ],
  *     Resources: [ // ResourceList
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     Features: [ // UsageFeatureList
- *       "FLOW_LOGS" || "CLOUD_TRAIL" || "DNS_LOGS" || "S3_DATA_EVENTS" || "EKS_AUDIT_LOGS" || "EBS_MALWARE_PROTECTION" || "RDS_LOGIN_EVENTS" || "LAMBDA_NETWORK_LOGS" || "EKS_RUNTIME_MONITORING",
+ *       'FLOW_LOGS' || 'CLOUD_TRAIL' || 'DNS_LOGS' || 'S3_DATA_EVENTS' || 'EKS_AUDIT_LOGS' || 'EBS_MALWARE_PROTECTION' || 'RDS_LOGIN_EVENTS' || 'LAMBDA_NETWORK_LOGS' || 'EKS_RUNTIME_MONITORING',
  *     ],
  *   },
- *   Unit: "STRING_VALUE",
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   Unit: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new GetUsageStatisticsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetUsageStatisticsResponse
+ *   UsageStatistics: { // UsageStatistics
+ *     SumByAccount: [ // UsageAccountResultList
+ *       { // UsageAccountResult
+ *         AccountId: 'STRING_VALUE',
+ *         Total: { // Total
+ *           Amount: 'STRING_VALUE',
+ *           Unit: 'STRING_VALUE',
+ *         },
+ *       },
+ *     ],
+ *     SumByDataSource: [ // UsageDataSourceResultList
+ *       { // UsageDataSourceResult
+ *         DataSource: 'FLOW_LOGS' || 'CLOUD_TRAIL' || 'DNS_LOGS' || 'S3_LOGS' || 'KUBERNETES_AUDIT_LOGS' || 'EC2_MALWARE_SCAN',
+ *         Total: {
+ *           Amount: 'STRING_VALUE',
+ *           Unit: 'STRING_VALUE',
+ *         },
+ *       },
+ *     ],
+ *     SumByResource: [ // UsageResourceResultList
+ *       { // UsageResourceResult
+ *         Resource: 'STRING_VALUE',
+ *         Total: {
+ *           Amount: 'STRING_VALUE',
+ *           Unit: 'STRING_VALUE',
+ *         },
+ *       },
+ *     ],
+ *     TopResources: [
+ *       {
+ *         Resource: 'STRING_VALUE',
+ *         Total: {
+ *           Amount: 'STRING_VALUE',
+ *           Unit: 'STRING_VALUE',
+ *         },
+ *       },
+ *     ],
+ *     SumByFeature: [ // UsageFeatureResultList
+ *       { // UsageFeatureResult
+ *         Feature: 'FLOW_LOGS' || 'CLOUD_TRAIL' || 'DNS_LOGS' || 'S3_DATA_EVENTS' || 'EKS_AUDIT_LOGS' || 'EBS_MALWARE_PROTECTION' || 'RDS_LOGIN_EVENTS' || 'LAMBDA_NETWORK_LOGS' || 'EKS_RUNTIME_MONITORING',
+ *         Total: {
+ *           Amount: 'STRING_VALUE',
+ *           Unit: 'STRING_VALUE',
+ *         },
+ *       },
+ *     ],
+ *   },
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetUsageStatisticsCommandInput - {@link GetUsageStatisticsCommandInput}
@@ -79,6 +131,8 @@ export interface GetUsageStatisticsCommandOutput extends GetUsageStatisticsRespo
  * @throws {@link InternalServerErrorException} (server fault)
  *  <p>An internal server error exception object.</p>
  *
+ * @throws {@link GuardDutyServiceException}
+ * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
  */
 export class GetUsageStatisticsCommand extends $Command<

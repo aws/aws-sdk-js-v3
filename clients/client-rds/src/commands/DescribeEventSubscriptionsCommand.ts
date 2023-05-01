@@ -38,24 +38,47 @@ export interface DescribeEventSubscriptionsCommandOutput extends EventSubscripti
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RDSClient, DescribeEventSubscriptionsCommand } from "@aws-sdk/client-rds"; // ES Modules import
- * // const { RDSClient, DescribeEventSubscriptionsCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * import { RDSClient, DescribeEventSubscriptionsCommand } from '@aws-sdk/client-rds'; // ES Modules import
+ * // const { RDSClient, DescribeEventSubscriptionsCommand } = require('@aws-sdk/client-rds'); // CommonJS import
  * const client = new RDSClient(config);
  * const input = { // DescribeEventSubscriptionsMessage
- *   SubscriptionName: "STRING_VALUE",
+ *   SubscriptionName: 'STRING_VALUE',
  *   Filters: [ // FilterList
  *     { // Filter
- *       Name: "STRING_VALUE", // required
+ *       Name: 'STRING_VALUE', // required
  *       Values: [ // FilterValueList // required
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
- *   MaxRecords: Number("int"),
- *   Marker: "STRING_VALUE",
+ *   MaxRecords: Number('int'),
+ *   Marker: 'STRING_VALUE',
  * };
  * const command = new DescribeEventSubscriptionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // EventSubscriptionsMessage
+ *   Marker: 'STRING_VALUE',
+ *   EventSubscriptionsList: [ // EventSubscriptionsList
+ *     { // EventSubscription
+ *       CustomerAwsId: 'STRING_VALUE',
+ *       CustSubscriptionId: 'STRING_VALUE',
+ *       SnsTopicArn: 'STRING_VALUE',
+ *       Status: 'STRING_VALUE',
+ *       SubscriptionCreationTime: 'STRING_VALUE',
+ *       SourceType: 'STRING_VALUE',
+ *       SourceIdsList: [ // SourceIdsList
+ *         'STRING_VALUE',
+ *       ],
+ *       EventCategoriesList: [ // EventCategoriesList
+ *         'STRING_VALUE',
+ *       ],
+ *       Enabled: true || false,
+ *       EventSubscriptionArn: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeEventSubscriptionsCommandInput - {@link DescribeEventSubscriptionsCommandInput}
@@ -67,6 +90,8 @@ export interface DescribeEventSubscriptionsCommandOutput extends EventSubscripti
  * @throws {@link SubscriptionNotFoundFault} (client fault)
  *  <p>The subscription name does not exist.</p>
  *
+ * @throws {@link RDSServiceException}
+ * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  * @example To describe event subscriptions
  * ```javascript

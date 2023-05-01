@@ -36,62 +36,67 @@ export interface CreateRotationCommandOutput extends CreateRotationResult, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMContactsClient, CreateRotationCommand } from "@aws-sdk/client-ssm-contacts"; // ES Modules import
- * // const { SSMContactsClient, CreateRotationCommand } = require("@aws-sdk/client-ssm-contacts"); // CommonJS import
+ * import { SSMContactsClient, CreateRotationCommand } from '@aws-sdk/client-ssm-contacts'; // ES Modules import
+ * // const { SSMContactsClient, CreateRotationCommand } = require('@aws-sdk/client-ssm-contacts'); // CommonJS import
  * const client = new SSMContactsClient(config);
  * const input = { // CreateRotationRequest
- *   Name: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
  *   ContactIds: [ // RotationContactsArnList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   StartTime: new Date("TIMESTAMP"),
- *   TimeZoneId: "STRING_VALUE", // required
+ *   StartTime: new Date('TIMESTAMP'),
+ *   TimeZoneId: 'STRING_VALUE', // required
  *   Recurrence: { // RecurrenceSettings
  *     MonthlySettings: [ // MonthlySettings
  *       { // MonthlySetting
- *         DayOfMonth: Number("int"), // required
+ *         DayOfMonth: Number('int'), // required
  *         HandOffTime: { // HandOffTime
- *           HourOfDay: Number("int"), // required
- *           MinuteOfHour: Number("int"), // required
+ *           HourOfDay: Number('int'), // required
+ *           MinuteOfHour: Number('int'), // required
  *         },
  *       },
  *     ],
  *     WeeklySettings: [ // WeeklySettings
  *       { // WeeklySetting
- *         DayOfWeek: "MON" || "TUE" || "WED" || "THU" || "FRI" || "SAT" || "SUN", // required
+ *         DayOfWeek: 'MON' || 'TUE' || 'WED' || 'THU' || 'FRI' || 'SAT' || 'SUN', // required
  *         HandOffTime: {
- *           HourOfDay: Number("int"), // required
- *           MinuteOfHour: Number("int"), // required
+ *           HourOfDay: Number('int'), // required
+ *           MinuteOfHour: Number('int'), // required
  *         },
  *       },
  *     ],
  *     DailySettings: [ // DailySettings
  *       {
- *         HourOfDay: Number("int"), // required
- *         MinuteOfHour: Number("int"), // required
+ *         HourOfDay: Number('int'), // required
+ *         MinuteOfHour: Number('int'), // required
  *       },
  *     ],
- *     NumberOfOnCalls: Number("int"), // required
+ *     NumberOfOnCalls: Number('int'), // required
  *     ShiftCoverages: { // ShiftCoveragesMap
- *       "<keys>": [ // CoverageTimes
+ *       '<keys>': [ // CoverageTimes
  *         { // CoverageTime
- *           Start: "<HandOffTime>",
- *           End: "<HandOffTime>",
+ *           Start: '<HandOffTime>',
+ *           End: '<HandOffTime>',
  *         },
  *       ],
  *     },
- *     RecurrenceMultiplier: Number("int"), // required
+ *     RecurrenceMultiplier: Number('int'), // required
  *   },
  *   Tags: [ // TagsList
  *     { // Tag
- *       Key: "STRING_VALUE",
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
- *   IdempotencyToken: "STRING_VALUE",
+ *   IdempotencyToken: 'STRING_VALUE',
  * };
  * const command = new CreateRotationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateRotationResult
+ *   RotationArn: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param CreateRotationCommandInput - {@link CreateRotationCommandInput}
@@ -119,6 +124,8 @@ export interface CreateRotationCommandOutput extends CreateRotationResult, __Met
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
  *          service.</p>
  *
+ * @throws {@link SSMContactsServiceException}
+ * <p>Base exception class for all service exceptions from SSMContacts service.</p>
  *
  */
 export class CreateRotationCommand extends $Command<

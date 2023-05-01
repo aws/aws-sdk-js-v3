@@ -38,15 +38,33 @@ export interface ListAnomalyDetectorsCommandOutput extends ListAnomalyDetectorsR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LookoutMetricsClient, ListAnomalyDetectorsCommand } from "@aws-sdk/client-lookoutmetrics"; // ES Modules import
- * // const { LookoutMetricsClient, ListAnomalyDetectorsCommand } = require("@aws-sdk/client-lookoutmetrics"); // CommonJS import
+ * import { LookoutMetricsClient, ListAnomalyDetectorsCommand } from '@aws-sdk/client-lookoutmetrics'; // ES Modules import
+ * // const { LookoutMetricsClient, ListAnomalyDetectorsCommand } = require('@aws-sdk/client-lookoutmetrics'); // CommonJS import
  * const client = new LookoutMetricsClient(config);
  * const input = { // ListAnomalyDetectorsRequest
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListAnomalyDetectorsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListAnomalyDetectorsResponse
+ *   AnomalyDetectorSummaryList: [ // AnomalyDetectorSummaryList
+ *     { // AnomalyDetectorSummary
+ *       AnomalyDetectorArn: 'STRING_VALUE',
+ *       AnomalyDetectorName: 'STRING_VALUE',
+ *       AnomalyDetectorDescription: 'STRING_VALUE',
+ *       CreationTime: new Date('TIMESTAMP'),
+ *       LastModificationTime: new Date('TIMESTAMP'),
+ *       Status: 'STRING_VALUE',
+ *       Tags: { // TagMap
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListAnomalyDetectorsCommandInput - {@link ListAnomalyDetectorsCommandInput}
@@ -71,6 +89,8 @@ export interface ListAnomalyDetectorsCommandOutput extends ListAnomalyDetectorsR
  *  <p>The input fails to satisfy the constraints specified by the AWS service. Check your input values and try
  *       again.</p>
  *
+ * @throws {@link LookoutMetricsServiceException}
+ * <p>Base exception class for all service exceptions from LookoutMetrics service.</p>
  *
  */
 export class ListAnomalyDetectorsCommand extends $Command<

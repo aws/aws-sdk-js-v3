@@ -41,26 +41,32 @@ export interface CreateJobQueueCommandOutput extends CreateJobQueueResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BatchClient, CreateJobQueueCommand } from "@aws-sdk/client-batch"; // ES Modules import
- * // const { BatchClient, CreateJobQueueCommand } = require("@aws-sdk/client-batch"); // CommonJS import
+ * import { BatchClient, CreateJobQueueCommand } from '@aws-sdk/client-batch'; // ES Modules import
+ * // const { BatchClient, CreateJobQueueCommand } = require('@aws-sdk/client-batch'); // CommonJS import
  * const client = new BatchClient(config);
  * const input = { // CreateJobQueueRequest
- *   jobQueueName: "STRING_VALUE", // required
- *   state: "ENABLED" || "DISABLED",
- *   schedulingPolicyArn: "STRING_VALUE",
- *   priority: Number("int"), // required
+ *   jobQueueName: 'STRING_VALUE', // required
+ *   state: 'ENABLED' || 'DISABLED',
+ *   schedulingPolicyArn: 'STRING_VALUE',
+ *   priority: Number('int'), // required
  *   computeEnvironmentOrder: [ // ComputeEnvironmentOrders // required
  *     { // ComputeEnvironmentOrder
- *       order: Number("int"), // required
- *       computeEnvironment: "STRING_VALUE", // required
+ *       order: Number('int'), // required
+ *       computeEnvironment: 'STRING_VALUE', // required
  *     },
  *   ],
  *   tags: { // TagrisTagsMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateJobQueueCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateJobQueueResponse
+ *   jobQueueName: 'STRING_VALUE', // required
+ *   jobQueueArn: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param CreateJobQueueCommandInput - {@link CreateJobQueueCommandInput}
@@ -77,6 +83,8 @@ export interface CreateJobQueueCommandOutput extends CreateJobQueueResponse, __M
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server issue.</p>
  *
+ * @throws {@link BatchServiceException}
+ * <p>Base exception class for all service exceptions from Batch service.</p>
  *
  * @example To create a job queue with a single compute environment
  * ```javascript

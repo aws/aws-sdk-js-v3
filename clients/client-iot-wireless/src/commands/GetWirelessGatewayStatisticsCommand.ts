@@ -41,14 +41,21 @@ export interface GetWirelessGatewayStatisticsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTWirelessClient, GetWirelessGatewayStatisticsCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
- * // const { IoTWirelessClient, GetWirelessGatewayStatisticsCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
+ * import { IoTWirelessClient, GetWirelessGatewayStatisticsCommand } from '@aws-sdk/client-iot-wireless'; // ES Modules import
+ * // const { IoTWirelessClient, GetWirelessGatewayStatisticsCommand } = require('@aws-sdk/client-iot-wireless'); // CommonJS import
  * const client = new IoTWirelessClient(config);
  * const input = { // GetWirelessGatewayStatisticsRequest
- *   WirelessGatewayId: "STRING_VALUE", // required
+ *   WirelessGatewayId: 'STRING_VALUE', // required
  * };
  * const command = new GetWirelessGatewayStatisticsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetWirelessGatewayStatisticsResponse
+ *   WirelessGatewayId: 'STRING_VALUE',
+ *   LastUplinkReceivedAt: 'STRING_VALUE',
+ *   ConnectionStatus: 'Connected' || 'Disconnected',
+ * };
+ *
  * ```
  *
  * @param GetWirelessGatewayStatisticsCommandInput - {@link GetWirelessGatewayStatisticsCommandInput}
@@ -72,6 +79,8 @@ export interface GetWirelessGatewayStatisticsCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The input did not meet the specified constraints.</p>
  *
+ * @throws {@link IoTWirelessServiceException}
+ * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
  */
 export class GetWirelessGatewayStatisticsCommand extends $Command<

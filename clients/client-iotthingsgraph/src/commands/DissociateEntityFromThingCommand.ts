@@ -39,15 +39,18 @@ export interface DissociateEntityFromThingCommandOutput extends DissociateEntity
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTThingsGraphClient, DissociateEntityFromThingCommand } from "@aws-sdk/client-iotthingsgraph"; // ES Modules import
- * // const { IoTThingsGraphClient, DissociateEntityFromThingCommand } = require("@aws-sdk/client-iotthingsgraph"); // CommonJS import
+ * import { IoTThingsGraphClient, DissociateEntityFromThingCommand } from '@aws-sdk/client-iotthingsgraph'; // ES Modules import
+ * // const { IoTThingsGraphClient, DissociateEntityFromThingCommand } = require('@aws-sdk/client-iotthingsgraph'); // CommonJS import
  * const client = new IoTThingsGraphClient(config);
  * const input = { // DissociateEntityFromThingRequest
- *   thingName: "STRING_VALUE", // required
- *   entityType: "STRING_VALUE", // required
+ *   thingName: 'STRING_VALUE', // required
+ *   entityType: 'STRING_VALUE', // required
  * };
  * const command = new DissociateEntityFromThingCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DissociateEntityFromThingCommandInput - {@link DissociateEntityFromThingCommandInput}
@@ -68,6 +71,8 @@ export interface DissociateEntityFromThingCommandOutput extends DissociateEntity
  * @throws {@link ThrottlingException} (client fault)
  *  <p></p>
  *
+ * @throws {@link IoTThingsGraphServiceException}
+ * <p>Base exception class for all service exceptions from IoTThingsGraph service.</p>
  *
  */
 export class DissociateEntityFromThingCommand extends $Command<

@@ -36,14 +36,17 @@ export interface DeleteSnapshotCopyGrantCommandOutput extends __MetadataBearer {
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RedshiftClient, DeleteSnapshotCopyGrantCommand } from "@aws-sdk/client-redshift"; // ES Modules import
- * // const { RedshiftClient, DeleteSnapshotCopyGrantCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * import { RedshiftClient, DeleteSnapshotCopyGrantCommand } from '@aws-sdk/client-redshift'; // ES Modules import
+ * // const { RedshiftClient, DeleteSnapshotCopyGrantCommand } = require('@aws-sdk/client-redshift'); // CommonJS import
  * const client = new RedshiftClient(config);
  * const input = { // DeleteSnapshotCopyGrantMessage
- *   SnapshotCopyGrantName: "STRING_VALUE", // required
+ *   SnapshotCopyGrantName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteSnapshotCopyGrantCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteSnapshotCopyGrantCommandInput - {@link DeleteSnapshotCopyGrantCommandInput}
@@ -60,6 +63,8 @@ export interface DeleteSnapshotCopyGrantCommandOutput extends __MetadataBearer {
  *  <p>The specified snapshot copy grant can't be found. Make sure that the name is typed
  *             correctly and that the grant exists in the destination region.</p>
  *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class DeleteSnapshotCopyGrantCommand extends $Command<

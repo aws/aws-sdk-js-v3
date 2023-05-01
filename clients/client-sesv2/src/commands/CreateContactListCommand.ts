@@ -36,29 +36,32 @@ export interface CreateContactListCommandOutput extends CreateContactListRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SESv2Client, CreateContactListCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
- * // const { SESv2Client, CreateContactListCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
+ * import { SESv2Client, CreateContactListCommand } from '@aws-sdk/client-sesv2'; // ES Modules import
+ * // const { SESv2Client, CreateContactListCommand } = require('@aws-sdk/client-sesv2'); // CommonJS import
  * const client = new SESv2Client(config);
  * const input = { // CreateContactListRequest
- *   ContactListName: "STRING_VALUE", // required
+ *   ContactListName: 'STRING_VALUE', // required
  *   Topics: [ // Topics
  *     { // Topic
- *       TopicName: "STRING_VALUE", // required
- *       DisplayName: "STRING_VALUE", // required
- *       Description: "STRING_VALUE",
- *       DefaultSubscriptionStatus: "OPT_IN" || "OPT_OUT", // required
+ *       TopicName: 'STRING_VALUE', // required
+ *       DisplayName: 'STRING_VALUE', // required
+ *       Description: 'STRING_VALUE',
+ *       DefaultSubscriptionStatus: 'OPT_IN' || 'OPT_OUT', // required
  *     },
  *   ],
- *   Description: "STRING_VALUE",
+ *   Description: 'STRING_VALUE',
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreateContactListCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param CreateContactListCommandInput - {@link CreateContactListCommandInput}
@@ -79,6 +82,8 @@ export interface CreateContactListCommandOutput extends CreateContactListRespons
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Too many requests have been made to the operation.</p>
  *
+ * @throws {@link SESv2ServiceException}
+ * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
  */
 export class CreateContactListCommand extends $Command<

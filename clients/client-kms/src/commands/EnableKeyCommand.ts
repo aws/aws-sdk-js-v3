@@ -46,14 +46,17 @@ export interface EnableKeyCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KMSClient, EnableKeyCommand } from "@aws-sdk/client-kms"; // ES Modules import
- * // const { KMSClient, EnableKeyCommand } = require("@aws-sdk/client-kms"); // CommonJS import
+ * import { KMSClient, EnableKeyCommand } from '@aws-sdk/client-kms'; // ES Modules import
+ * // const { KMSClient, EnableKeyCommand } = require('@aws-sdk/client-kms'); // CommonJS import
  * const client = new KMSClient(config);
  * const input = { // EnableKeyRequest
- *   KeyId: "STRING_VALUE", // required
+ *   KeyId: 'STRING_VALUE', // required
  * };
  * const command = new EnableKeyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param EnableKeyCommandInput - {@link EnableKeyCommandInput}
@@ -100,6 +103,8 @@ export interface EnableKeyCommandOutput extends __MetadataBearer {}
  *  <p>The request was rejected because the specified entity or resource could not be
  *       found.</p>
  *
+ * @throws {@link KMSServiceException}
+ * <p>Base exception class for all service exceptions from KMS service.</p>
  *
  * @example To enable a KMS key
  * ```javascript

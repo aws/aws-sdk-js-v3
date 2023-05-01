@@ -47,16 +47,32 @@ export interface AdminGetDeviceCommandOutput extends AdminGetDeviceResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CognitoIdentityProviderClient, AdminGetDeviceCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
- * // const { CognitoIdentityProviderClient, AdminGetDeviceCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
+ * import { CognitoIdentityProviderClient, AdminGetDeviceCommand } from '@aws-sdk/client-cognito-identity-provider'; // ES Modules import
+ * // const { CognitoIdentityProviderClient, AdminGetDeviceCommand } = require('@aws-sdk/client-cognito-identity-provider'); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
  * const input = { // AdminGetDeviceRequest
- *   DeviceKey: "STRING_VALUE", // required
- *   UserPoolId: "STRING_VALUE", // required
- *   Username: "STRING_VALUE", // required
+ *   DeviceKey: 'STRING_VALUE', // required
+ *   UserPoolId: 'STRING_VALUE', // required
+ *   Username: 'STRING_VALUE', // required
  * };
  * const command = new AdminGetDeviceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AdminGetDeviceResponse
+ *   Device: { // DeviceType
+ *     DeviceKey: 'STRING_VALUE',
+ *     DeviceAttributes: [ // AttributeListType
+ *       { // AttributeType
+ *         Name: 'STRING_VALUE', // required
+ *         Value: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     DeviceCreateDate: new Date('TIMESTAMP'),
+ *     DeviceLastModifiedDate: new Date('TIMESTAMP'),
+ *     DeviceLastAuthenticatedDate: new Date('TIMESTAMP'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param AdminGetDeviceCommandInput - {@link AdminGetDeviceCommandInput}
@@ -86,6 +102,8 @@ export interface AdminGetDeviceCommandOutput extends AdminGetDeviceResponse, __M
  *  <p>This exception is thrown when the user has made too many requests for a given
  *             operation.</p>
  *
+ * @throws {@link CognitoIdentityProviderServiceException}
+ * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
  */
 export class AdminGetDeviceCommand extends $Command<

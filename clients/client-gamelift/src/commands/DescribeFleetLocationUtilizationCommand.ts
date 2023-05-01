@@ -58,15 +58,28 @@ export interface DescribeFleetLocationUtilizationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GameLiftClient, DescribeFleetLocationUtilizationCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
- * // const { GameLiftClient, DescribeFleetLocationUtilizationCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
+ * import { GameLiftClient, DescribeFleetLocationUtilizationCommand } from '@aws-sdk/client-gamelift'; // ES Modules import
+ * // const { GameLiftClient, DescribeFleetLocationUtilizationCommand } = require('@aws-sdk/client-gamelift'); // CommonJS import
  * const client = new GameLiftClient(config);
  * const input = { // DescribeFleetLocationUtilizationInput
- *   FleetId: "STRING_VALUE", // required
- *   Location: "STRING_VALUE", // required
+ *   FleetId: 'STRING_VALUE', // required
+ *   Location: 'STRING_VALUE', // required
  * };
  * const command = new DescribeFleetLocationUtilizationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeFleetLocationUtilizationOutput
+ *   FleetUtilization: { // FleetUtilization
+ *     FleetId: 'STRING_VALUE',
+ *     FleetArn: 'STRING_VALUE',
+ *     ActiveServerProcessCount: Number('int'),
+ *     ActiveGameSessionCount: Number('int'),
+ *     CurrentPlayerSessionCount: Number('int'),
+ *     MaximumPlayerSessionCount: Number('int'),
+ *     Location: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeFleetLocationUtilizationCommandInput - {@link DescribeFleetLocationUtilizationCommandInput}
@@ -92,6 +105,8 @@ export interface DescribeFleetLocationUtilizationCommandOutput
  * @throws {@link UnsupportedRegionException} (client fault)
  *  <p>The requested operation is not supported in the Region specified.</p>
  *
+ * @throws {@link GameLiftServiceException}
+ * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
  */
 export class DescribeFleetLocationUtilizationCommand extends $Command<

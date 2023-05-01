@@ -57,14 +57,32 @@ export interface DescribeBandwidthRateLimitScheduleCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { StorageGatewayClient, DescribeBandwidthRateLimitScheduleCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
- * // const { StorageGatewayClient, DescribeBandwidthRateLimitScheduleCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
+ * import { StorageGatewayClient, DescribeBandwidthRateLimitScheduleCommand } from '@aws-sdk/client-storage-gateway'; // ES Modules import
+ * // const { StorageGatewayClient, DescribeBandwidthRateLimitScheduleCommand } = require('@aws-sdk/client-storage-gateway'); // CommonJS import
  * const client = new StorageGatewayClient(config);
  * const input = { // DescribeBandwidthRateLimitScheduleInput
- *   GatewayARN: "STRING_VALUE", // required
+ *   GatewayARN: 'STRING_VALUE', // required
  * };
  * const command = new DescribeBandwidthRateLimitScheduleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeBandwidthRateLimitScheduleOutput
+ *   GatewayARN: 'STRING_VALUE',
+ *   BandwidthRateLimitIntervals: [ // BandwidthRateLimitIntervals
+ *     { // BandwidthRateLimitInterval
+ *       StartHourOfDay: Number('int'), // required
+ *       StartMinuteOfHour: Number('int'), // required
+ *       EndHourOfDay: Number('int'), // required
+ *       EndMinuteOfHour: Number('int'), // required
+ *       DaysOfWeek: [ // DaysOfWeek // required
+ *         Number('int'),
+ *       ],
+ *       AverageUploadRateLimitInBitsPerSec: Number('long'),
+ *       AverageDownloadRateLimitInBitsPerSec: Number('long'),
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeBandwidthRateLimitScheduleCommandInput - {@link DescribeBandwidthRateLimitScheduleCommandInput}
@@ -81,6 +99,8 @@ export interface DescribeBandwidthRateLimitScheduleCommandOutput
  *  <p>An exception occurred because an invalid gateway request was issued to the service. For
  *          more information, see the error and message fields.</p>
  *
+ * @throws {@link StorageGatewayServiceException}
+ * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
  */
 export class DescribeBandwidthRateLimitScheduleCommand extends $Command<

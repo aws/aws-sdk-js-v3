@@ -52,18 +52,25 @@ export interface GetConfigurationCommandOutput extends Configuration, __Metadata
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppConfigClient, GetConfigurationCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
- * // const { AppConfigClient, GetConfigurationCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import
+ * import { AppConfigClient, GetConfigurationCommand } from '@aws-sdk/client-appconfig'; // ES Modules import
+ * // const { AppConfigClient, GetConfigurationCommand } = require('@aws-sdk/client-appconfig'); // CommonJS import
  * const client = new AppConfigClient(config);
  * const input = { // GetConfigurationRequest
- *   Application: "STRING_VALUE", // required
- *   Environment: "STRING_VALUE", // required
- *   Configuration: "STRING_VALUE", // required
- *   ClientId: "STRING_VALUE", // required
- *   ClientConfigurationVersion: "STRING_VALUE",
+ *   Application: 'STRING_VALUE', // required
+ *   Environment: 'STRING_VALUE', // required
+ *   Configuration: 'STRING_VALUE', // required
+ *   ClientId: 'STRING_VALUE', // required
+ *   ClientConfigurationVersion: 'STRING_VALUE',
  * };
  * const command = new GetConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // Configuration
+ *   Content: 'BLOB_VALUE',
+ *   ConfigurationVersion: 'STRING_VALUE',
+ *   ContentType: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetConfigurationCommandInput - {@link GetConfigurationCommandInput}
@@ -81,6 +88,8 @@ export interface GetConfigurationCommandOutput extends Configuration, __Metadata
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The requested resource could not be found.</p>
  *
+ * @throws {@link AppConfigServiceException}
+ * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
  * @example To retrieve configuration details
  * ```javascript

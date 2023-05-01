@@ -61,25 +61,32 @@ export interface GetDashboardEmbedUrlCommandOutput extends GetDashboardEmbedUrlR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { QuickSightClient, GetDashboardEmbedUrlCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
- * // const { QuickSightClient, GetDashboardEmbedUrlCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * import { QuickSightClient, GetDashboardEmbedUrlCommand } from '@aws-sdk/client-quicksight'; // ES Modules import
+ * // const { QuickSightClient, GetDashboardEmbedUrlCommand } = require('@aws-sdk/client-quicksight'); // CommonJS import
  * const client = new QuickSightClient(config);
  * const input = { // GetDashboardEmbedUrlRequest
- *   AwsAccountId: "STRING_VALUE", // required
- *   DashboardId: "STRING_VALUE", // required
- *   IdentityType: "IAM" || "QUICKSIGHT" || "ANONYMOUS", // required
- *   SessionLifetimeInMinutes: Number("long"),
+ *   AwsAccountId: 'STRING_VALUE', // required
+ *   DashboardId: 'STRING_VALUE', // required
+ *   IdentityType: 'IAM' || 'QUICKSIGHT' || 'ANONYMOUS', // required
+ *   SessionLifetimeInMinutes: Number('long'),
  *   UndoRedoDisabled: true || false,
  *   ResetDisabled: true || false,
  *   StatePersistenceEnabled: true || false,
- *   UserArn: "STRING_VALUE",
- *   Namespace: "STRING_VALUE",
+ *   UserArn: 'STRING_VALUE',
+ *   Namespace: 'STRING_VALUE',
  *   AdditionalDashboardIds: [ // AdditionalDashboardIdList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new GetDashboardEmbedUrlCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetDashboardEmbedUrlResponse
+ *   EmbedUrl: 'STRING_VALUE',
+ *   Status: Number('int'),
+ *   RequestId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetDashboardEmbedUrlCommandInput - {@link GetDashboardEmbedUrlCommandInput}
@@ -143,6 +150,8 @@ export interface GetDashboardEmbedUrlCommandOutput extends GetDashboardEmbedUrlR
  * 			Amazon QuickSight currently has Standard Edition and Enterprise Edition. Not every operation and
  * 			capability is available in every edition.</p>
  *
+ * @throws {@link QuickSightServiceException}
+ * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
 export class GetDashboardEmbedUrlCommand extends $Command<

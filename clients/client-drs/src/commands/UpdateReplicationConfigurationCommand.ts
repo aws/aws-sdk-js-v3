@@ -44,44 +44,44 @@ export interface UpdateReplicationConfigurationCommandOutput extends Replication
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DrsClient, UpdateReplicationConfigurationCommand } from "@aws-sdk/client-drs"; // ES Modules import
- * // const { DrsClient, UpdateReplicationConfigurationCommand } = require("@aws-sdk/client-drs"); // CommonJS import
+ * import { DrsClient, UpdateReplicationConfigurationCommand } from '@aws-sdk/client-drs'; // ES Modules import
+ * // const { DrsClient, UpdateReplicationConfigurationCommand } = require('@aws-sdk/client-drs'); // CommonJS import
  * const client = new DrsClient(config);
  * const input = { // UpdateReplicationConfigurationRequest
- *   sourceServerID: "STRING_VALUE", // required
- *   name: "STRING_VALUE",
- *   stagingAreaSubnetId: "STRING_VALUE",
+ *   sourceServerID: 'STRING_VALUE', // required
+ *   name: 'STRING_VALUE',
+ *   stagingAreaSubnetId: 'STRING_VALUE',
  *   associateDefaultSecurityGroup: true || false,
  *   replicationServersSecurityGroupsIDs: [ // ReplicationServersSecurityGroupsIDs
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   replicationServerInstanceType: "STRING_VALUE",
+ *   replicationServerInstanceType: 'STRING_VALUE',
  *   useDedicatedReplicationServer: true || false,
- *   defaultLargeStagingDiskType: "STRING_VALUE",
+ *   defaultLargeStagingDiskType: 'STRING_VALUE',
  *   replicatedDisks: [ // ReplicationConfigurationReplicatedDisks
  *     { // ReplicationConfigurationReplicatedDisk
- *       deviceName: "STRING_VALUE",
+ *       deviceName: 'STRING_VALUE',
  *       isBootDisk: true || false,
- *       stagingDiskType: "STRING_VALUE",
- *       iops: Number("long"),
- *       throughput: Number("long"),
- *       optimizedStagingDiskType: "STRING_VALUE",
+ *       stagingDiskType: 'STRING_VALUE',
+ *       iops: Number('long'),
+ *       throughput: Number('long'),
+ *       optimizedStagingDiskType: 'STRING_VALUE',
  *     },
  *   ],
- *   ebsEncryption: "STRING_VALUE",
- *   ebsEncryptionKeyArn: "STRING_VALUE",
- *   bandwidthThrottling: Number("long"),
- *   dataPlaneRouting: "STRING_VALUE",
+ *   ebsEncryption: 'STRING_VALUE',
+ *   ebsEncryptionKeyArn: 'STRING_VALUE',
+ *   bandwidthThrottling: Number('long'),
+ *   dataPlaneRouting: 'STRING_VALUE',
  *   createPublicIP: true || false,
  *   stagingAreaTags: { // TagsMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  *   pitPolicy: [ // PITPolicy
  *     { // PITPolicyRule
- *       ruleID: Number("long"),
- *       units: "STRING_VALUE", // required
- *       interval: Number("int"), // required
- *       retentionDuration: Number("int"), // required
+ *       ruleID: Number('long'),
+ *       units: 'STRING_VALUE', // required
+ *       interval: Number('int'), // required
+ *       retentionDuration: Number('int'), // required
  *       enabled: true || false,
  *     },
  *   ],
@@ -89,6 +89,48 @@ export interface UpdateReplicationConfigurationCommandOutput extends Replication
  * };
  * const command = new UpdateReplicationConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ReplicationConfiguration
+ *   sourceServerID: 'STRING_VALUE',
+ *   name: 'STRING_VALUE',
+ *   stagingAreaSubnetId: 'STRING_VALUE',
+ *   associateDefaultSecurityGroup: true || false,
+ *   replicationServersSecurityGroupsIDs: [ // ReplicationServersSecurityGroupsIDs
+ *     'STRING_VALUE',
+ *   ],
+ *   replicationServerInstanceType: 'STRING_VALUE',
+ *   useDedicatedReplicationServer: true || false,
+ *   defaultLargeStagingDiskType: 'STRING_VALUE',
+ *   replicatedDisks: [ // ReplicationConfigurationReplicatedDisks
+ *     { // ReplicationConfigurationReplicatedDisk
+ *       deviceName: 'STRING_VALUE',
+ *       isBootDisk: true || false,
+ *       stagingDiskType: 'STRING_VALUE',
+ *       iops: Number('long'),
+ *       throughput: Number('long'),
+ *       optimizedStagingDiskType: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   ebsEncryption: 'STRING_VALUE',
+ *   ebsEncryptionKeyArn: 'STRING_VALUE',
+ *   bandwidthThrottling: Number('long'),
+ *   dataPlaneRouting: 'STRING_VALUE',
+ *   createPublicIP: true || false,
+ *   stagingAreaTags: { // TagsMap
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ *   pitPolicy: [ // PITPolicy
+ *     { // PITPolicyRule
+ *       ruleID: Number('long'),
+ *       units: 'STRING_VALUE', // required
+ *       interval: Number('int'), // required
+ *       retentionDuration: Number('int'), // required
+ *       enabled: true || false,
+ *     },
+ *   ],
+ *   autoReplicateNewDisks: true || false,
+ * };
+ *
  * ```
  *
  * @param UpdateReplicationConfigurationCommandInput - {@link UpdateReplicationConfigurationCommandInput}
@@ -118,6 +160,8 @@ export interface UpdateReplicationConfigurationCommandOutput extends Replication
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by the AWS service.</p>
  *
+ * @throws {@link DrsServiceException}
+ * <p>Base exception class for all service exceptions from Drs service.</p>
  *
  */
 export class UpdateReplicationConfigurationCommand extends $Command<

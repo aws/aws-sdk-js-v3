@@ -76,15 +76,18 @@ export interface PutPermissionPolicyCommandOutput extends PutPermissionPolicyRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WAFClient, PutPermissionPolicyCommand } from "@aws-sdk/client-waf"; // ES Modules import
- * // const { WAFClient, PutPermissionPolicyCommand } = require("@aws-sdk/client-waf"); // CommonJS import
+ * import { WAFClient, PutPermissionPolicyCommand } from '@aws-sdk/client-waf'; // ES Modules import
+ * // const { WAFClient, PutPermissionPolicyCommand } = require('@aws-sdk/client-waf'); // CommonJS import
  * const client = new WAFClient(config);
  * const input = { // PutPermissionPolicyRequest
- *   ResourceArn: "STRING_VALUE", // required
- *   Policy: "STRING_VALUE", // required
+ *   ResourceArn: 'STRING_VALUE', // required
+ *   Policy: 'STRING_VALUE', // required
  * };
  * const command = new PutPermissionPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutPermissionPolicyCommandInput - {@link PutPermissionPolicyCommandInput}
@@ -134,6 +137,8 @@ export interface PutPermissionPolicyCommandOutput extends PutPermissionPolicyRes
  * @throws {@link WAFStaleDataException} (client fault)
  *  <p>The operation failed because you tried to create, update, or delete an object by using a change token that has already been used.</p>
  *
+ * @throws {@link WAFServiceException}
+ * <p>Base exception class for all service exceptions from WAF service.</p>
  *
  */
 export class PutPermissionPolicyCommand extends $Command<

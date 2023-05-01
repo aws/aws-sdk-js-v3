@@ -71,27 +71,44 @@ export interface UpdateMaintenanceWindowTargetCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMClient, UpdateMaintenanceWindowTargetCommand } from "@aws-sdk/client-ssm"; // ES Modules import
- * // const { SSMClient, UpdateMaintenanceWindowTargetCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * import { SSMClient, UpdateMaintenanceWindowTargetCommand } from '@aws-sdk/client-ssm'; // ES Modules import
+ * // const { SSMClient, UpdateMaintenanceWindowTargetCommand } = require('@aws-sdk/client-ssm'); // CommonJS import
  * const client = new SSMClient(config);
  * const input = { // UpdateMaintenanceWindowTargetRequest
- *   WindowId: "STRING_VALUE", // required
- *   WindowTargetId: "STRING_VALUE", // required
+ *   WindowId: 'STRING_VALUE', // required
+ *   WindowTargetId: 'STRING_VALUE', // required
  *   Targets: [ // Targets
  *     { // Target
- *       Key: "STRING_VALUE",
+ *       Key: 'STRING_VALUE',
  *       Values: [ // TargetValues
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
- *   OwnerInformation: "STRING_VALUE",
- *   Name: "STRING_VALUE",
- *   Description: "STRING_VALUE",
+ *   OwnerInformation: 'STRING_VALUE',
+ *   Name: 'STRING_VALUE',
+ *   Description: 'STRING_VALUE',
  *   Replace: true || false,
  * };
  * const command = new UpdateMaintenanceWindowTargetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateMaintenanceWindowTargetResult
+ *   WindowId: 'STRING_VALUE',
+ *   WindowTargetId: 'STRING_VALUE',
+ *   Targets: [ // Targets
+ *     { // Target
+ *       Key: 'STRING_VALUE',
+ *       Values: [ // TargetValues
+ *         'STRING_VALUE',
+ *       ],
+ *     },
+ *   ],
+ *   OwnerInformation: 'STRING_VALUE',
+ *   Name: 'STRING_VALUE',
+ *   Description: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateMaintenanceWindowTargetCommandInput - {@link UpdateMaintenanceWindowTargetCommandInput}
@@ -109,6 +126,8 @@ export interface UpdateMaintenanceWindowTargetCommandOutput
  * @throws {@link InternalServerError} (server fault)
  *  <p>An error occurred on the server side.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class UpdateMaintenanceWindowTargetCommand extends $Command<

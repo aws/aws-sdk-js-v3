@@ -38,56 +38,62 @@ export interface CreateRuleCommandOutput extends CreateRuleResponse, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, CreateRuleCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, CreateRuleCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, CreateRuleCommand } from '@aws-sdk/client-connect'; // ES Modules import
+ * // const { ConnectClient, CreateRuleCommand } = require('@aws-sdk/client-connect'); // CommonJS import
  * const client = new ConnectClient(config);
  * const input = { // CreateRuleRequest
- *   InstanceId: "STRING_VALUE", // required
- *   Name: "STRING_VALUE", // required
+ *   InstanceId: 'STRING_VALUE', // required
+ *   Name: 'STRING_VALUE', // required
  *   TriggerEventSource: { // RuleTriggerEventSource
- *     EventSourceName: "OnPostCallAnalysisAvailable" || "OnRealTimeCallAnalysisAvailable" || "OnPostChatAnalysisAvailable" || "OnZendeskTicketCreate" || "OnZendeskTicketStatusUpdate" || "OnSalesforceCaseCreate", // required
- *     IntegrationAssociationId: "STRING_VALUE",
+ *     EventSourceName: 'OnPostCallAnalysisAvailable' || 'OnRealTimeCallAnalysisAvailable' || 'OnPostChatAnalysisAvailable' || 'OnZendeskTicketCreate' || 'OnZendeskTicketStatusUpdate' || 'OnSalesforceCaseCreate', // required
+ *     IntegrationAssociationId: 'STRING_VALUE',
  *   },
- *   Function: "STRING_VALUE", // required
+ *   Function: 'STRING_VALUE', // required
  *   Actions: [ // RuleActions // required
  *     { // RuleAction
- *       ActionType: "CREATE_TASK" || "ASSIGN_CONTACT_CATEGORY" || "GENERATE_EVENTBRIDGE_EVENT" || "SEND_NOTIFICATION", // required
+ *       ActionType: 'CREATE_TASK' || 'ASSIGN_CONTACT_CATEGORY' || 'GENERATE_EVENTBRIDGE_EVENT' || 'SEND_NOTIFICATION', // required
  *       TaskAction: { // TaskActionDefinition
- *         Name: "STRING_VALUE", // required
- *         Description: "STRING_VALUE",
- *         ContactFlowId: "STRING_VALUE", // required
+ *         Name: 'STRING_VALUE', // required
+ *         Description: 'STRING_VALUE',
+ *         ContactFlowId: 'STRING_VALUE', // required
  *         References: { // ContactReferences
- *           "<keys>": { // Reference
- *             Value: "STRING_VALUE", // required
- *             Type: "URL" || "ATTACHMENT" || "NUMBER" || "STRING" || "DATE" || "EMAIL", // required
+ *           '<keys>': { // Reference
+ *             Value: 'STRING_VALUE', // required
+ *             Type: 'URL' || 'ATTACHMENT' || 'NUMBER' || 'STRING' || 'DATE' || 'EMAIL', // required
  *           },
  *         },
  *       },
  *       EventBridgeAction: { // EventBridgeActionDefinition
- *         Name: "STRING_VALUE", // required
+ *         Name: 'STRING_VALUE', // required
  *       },
  *       AssignContactCategoryAction: {},
  *       SendNotificationAction: { // SendNotificationActionDefinition
- *         DeliveryMethod: "EMAIL", // required
- *         Subject: "STRING_VALUE",
- *         Content: "STRING_VALUE", // required
- *         ContentType: "PLAIN_TEXT", // required
+ *         DeliveryMethod: 'EMAIL', // required
+ *         Subject: 'STRING_VALUE',
+ *         Content: 'STRING_VALUE', // required
+ *         ContentType: 'PLAIN_TEXT', // required
  *         Recipient: { // NotificationRecipientType
  *           UserTags: { // UserTagMap
- *             "<keys>": "STRING_VALUE",
+ *             '<keys>': 'STRING_VALUE',
  *           },
  *           UserIds: [ // UserIdList
- *             "STRING_VALUE",
+ *             'STRING_VALUE',
  *           ],
  *         },
  *       },
  *     },
  *   ],
- *   PublishStatus: "DRAFT" || "PUBLISHED", // required
- *   ClientToken: "STRING_VALUE",
+ *   PublishStatus: 'DRAFT' || 'PUBLISHED', // required
+ *   ClientToken: 'STRING_VALUE',
  * };
  * const command = new CreateRuleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateRuleResponse
+ *   RuleArn: 'STRING_VALUE', // required
+ *   RuleId: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param CreateRuleCommandInput - {@link CreateRuleCommandInput}
@@ -117,6 +123,8 @@ export interface CreateRuleCommandOutput extends CreateRuleResponse, __MetadataB
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class CreateRuleCommand extends $Command<

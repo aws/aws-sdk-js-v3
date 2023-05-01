@@ -37,16 +37,36 @@ export interface BatchGetOnPremisesInstancesCommandOutput extends BatchGetOnPrem
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeDeployClient, BatchGetOnPremisesInstancesCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
- * // const { CodeDeployClient, BatchGetOnPremisesInstancesCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
+ * import { CodeDeployClient, BatchGetOnPremisesInstancesCommand } from '@aws-sdk/client-codedeploy'; // ES Modules import
+ * // const { CodeDeployClient, BatchGetOnPremisesInstancesCommand } = require('@aws-sdk/client-codedeploy'); // CommonJS import
  * const client = new CodeDeployClient(config);
  * const input = { // BatchGetOnPremisesInstancesInput
  *   instanceNames: [ // InstanceNameList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new BatchGetOnPremisesInstancesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BatchGetOnPremisesInstancesOutput
+ *   instanceInfos: [ // InstanceInfoList
+ *     { // InstanceInfo
+ *       instanceName: 'STRING_VALUE',
+ *       iamSessionArn: 'STRING_VALUE',
+ *       iamUserArn: 'STRING_VALUE',
+ *       instanceArn: 'STRING_VALUE',
+ *       registerTime: new Date('TIMESTAMP'),
+ *       deregisterTime: new Date('TIMESTAMP'),
+ *       tags: [ // TagList
+ *         { // Tag
+ *           Key: 'STRING_VALUE',
+ *           Value: 'STRING_VALUE',
+ *         },
+ *       ],
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param BatchGetOnPremisesInstancesCommandInput - {@link BatchGetOnPremisesInstancesCommandInput}
@@ -64,6 +84,8 @@ export interface BatchGetOnPremisesInstancesCommandOutput extends BatchGetOnPrem
  * @throws {@link InvalidInstanceNameException} (client fault)
  *  <p>The on-premises instance name was specified in an invalid format.</p>
  *
+ * @throws {@link CodeDeployServiceException}
+ * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
  */
 export class BatchGetOnPremisesInstancesCommand extends $Command<

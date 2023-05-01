@@ -126,23 +126,79 @@ export interface CopySnapshotCommandOutput extends CopySnapshotResult, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElastiCacheClient, CopySnapshotCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
- * // const { ElastiCacheClient, CopySnapshotCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
+ * import { ElastiCacheClient, CopySnapshotCommand } from '@aws-sdk/client-elasticache'; // ES Modules import
+ * // const { ElastiCacheClient, CopySnapshotCommand } = require('@aws-sdk/client-elasticache'); // CommonJS import
  * const client = new ElastiCacheClient(config);
  * const input = { // CopySnapshotMessage
- *   SourceSnapshotName: "STRING_VALUE", // required
- *   TargetSnapshotName: "STRING_VALUE", // required
- *   TargetBucket: "STRING_VALUE",
- *   KmsKeyId: "STRING_VALUE",
+ *   SourceSnapshotName: 'STRING_VALUE', // required
+ *   TargetSnapshotName: 'STRING_VALUE', // required
+ *   TargetBucket: 'STRING_VALUE',
+ *   KmsKeyId: 'STRING_VALUE',
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE",
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new CopySnapshotCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CopySnapshotResult
+ *   Snapshot: { // Snapshot
+ *     SnapshotName: 'STRING_VALUE',
+ *     ReplicationGroupId: 'STRING_VALUE',
+ *     ReplicationGroupDescription: 'STRING_VALUE',
+ *     CacheClusterId: 'STRING_VALUE',
+ *     SnapshotStatus: 'STRING_VALUE',
+ *     SnapshotSource: 'STRING_VALUE',
+ *     CacheNodeType: 'STRING_VALUE',
+ *     Engine: 'STRING_VALUE',
+ *     EngineVersion: 'STRING_VALUE',
+ *     NumCacheNodes: Number('int'),
+ *     PreferredAvailabilityZone: 'STRING_VALUE',
+ *     PreferredOutpostArn: 'STRING_VALUE',
+ *     CacheClusterCreateTime: new Date('TIMESTAMP'),
+ *     PreferredMaintenanceWindow: 'STRING_VALUE',
+ *     TopicArn: 'STRING_VALUE',
+ *     Port: Number('int'),
+ *     CacheParameterGroupName: 'STRING_VALUE',
+ *     CacheSubnetGroupName: 'STRING_VALUE',
+ *     VpcId: 'STRING_VALUE',
+ *     AutoMinorVersionUpgrade: true || false,
+ *     SnapshotRetentionLimit: Number('int'),
+ *     SnapshotWindow: 'STRING_VALUE',
+ *     NumNodeGroups: Number('int'),
+ *     AutomaticFailover: 'enabled' || 'disabled' || 'enabling' || 'disabling',
+ *     NodeSnapshots: [ // NodeSnapshotList
+ *       { // NodeSnapshot
+ *         CacheClusterId: 'STRING_VALUE',
+ *         NodeGroupId: 'STRING_VALUE',
+ *         CacheNodeId: 'STRING_VALUE',
+ *         NodeGroupConfiguration: { // NodeGroupConfiguration
+ *           NodeGroupId: 'STRING_VALUE',
+ *           Slots: 'STRING_VALUE',
+ *           ReplicaCount: Number('int'),
+ *           PrimaryAvailabilityZone: 'STRING_VALUE',
+ *           ReplicaAvailabilityZones: [ // AvailabilityZonesList
+ *             'STRING_VALUE',
+ *           ],
+ *           PrimaryOutpostArn: 'STRING_VALUE',
+ *           ReplicaOutpostArns: [ // OutpostArnsList
+ *             'STRING_VALUE',
+ *           ],
+ *         },
+ *         CacheSize: 'STRING_VALUE',
+ *         CacheNodeCreateTime: new Date('TIMESTAMP'),
+ *         SnapshotCreateTime: new Date('TIMESTAMP'),
+ *       },
+ *     ],
+ *     KmsKeyId: 'STRING_VALUE',
+ *     ARN: 'STRING_VALUE',
+ *     DataTiering: 'enabled' || 'disabled',
+ *   },
+ * };
+ *
  * ```
  *
  * @param CopySnapshotCommandInput - {@link CopySnapshotCommandInput}
@@ -172,6 +228,8 @@ export interface CopySnapshotCommandOutput extends CopySnapshotResult, __Metadat
  * @throws {@link TagQuotaPerResourceExceeded} (client fault)
  *  <p>The request cannot be processed because it would cause the resource to have more than the allowed number of tags. The maximum number of tags permitted on a resource is 50.</p>
  *
+ * @throws {@link ElastiCacheServiceException}
+ * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
  * @example CopySnapshot
  * ```javascript

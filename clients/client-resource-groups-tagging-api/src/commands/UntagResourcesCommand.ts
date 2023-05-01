@@ -76,19 +76,30 @@ export interface UntagResourcesCommandOutput extends UntagResourcesOutput, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ResourceGroupsTaggingAPIClient, UntagResourcesCommand } from "@aws-sdk/client-resource-groups-tagging-api"; // ES Modules import
- * // const { ResourceGroupsTaggingAPIClient, UntagResourcesCommand } = require("@aws-sdk/client-resource-groups-tagging-api"); // CommonJS import
+ * import { ResourceGroupsTaggingAPIClient, UntagResourcesCommand } from '@aws-sdk/client-resource-groups-tagging-api'; // ES Modules import
+ * // const { ResourceGroupsTaggingAPIClient, UntagResourcesCommand } = require('@aws-sdk/client-resource-groups-tagging-api'); // CommonJS import
  * const client = new ResourceGroupsTaggingAPIClient(config);
  * const input = { // UntagResourcesInput
  *   ResourceARNList: [ // ResourceARNListForTagUntag // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   TagKeys: [ // TagKeyListForUntag // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new UntagResourcesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UntagResourcesOutput
+ *   FailedResourcesMap: { // FailedResourcesMap
+ *     '<keys>': { // FailureInfo
+ *       StatusCode: Number('int'),
+ *       ErrorCode: 'STRING_VALUE',
+ *       ErrorMessage: 'STRING_VALUE',
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param UntagResourcesCommandInput - {@link UntagResourcesCommandInput}
@@ -127,6 +138,8 @@ export interface UntagResourcesCommandOutput extends UntagResourcesOutput, __Met
  * @throws {@link ThrottledException} (client fault)
  *  <p>The request was denied to limit the frequency of submitted requests.</p>
  *
+ * @throws {@link ResourceGroupsTaggingAPIServiceException}
+ * <p>Base exception class for all service exceptions from ResourceGroupsTaggingAPI service.</p>
  *
  */
 export class UntagResourcesCommand extends $Command<

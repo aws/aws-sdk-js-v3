@@ -36,17 +36,22 @@ export interface CopyImageCommandOutput extends CopyImageResponse, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppStreamClient, CopyImageCommand } from "@aws-sdk/client-appstream"; // ES Modules import
- * // const { AppStreamClient, CopyImageCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
+ * import { AppStreamClient, CopyImageCommand } from '@aws-sdk/client-appstream'; // ES Modules import
+ * // const { AppStreamClient, CopyImageCommand } = require('@aws-sdk/client-appstream'); // CommonJS import
  * const client = new AppStreamClient(config);
  * const input = { // CopyImageRequest
- *   SourceImageName: "STRING_VALUE", // required
- *   DestinationImageName: "STRING_VALUE", // required
- *   DestinationRegion: "STRING_VALUE", // required
- *   DestinationImageDescription: "STRING_VALUE",
+ *   SourceImageName: 'STRING_VALUE', // required
+ *   DestinationImageName: 'STRING_VALUE', // required
+ *   DestinationRegion: 'STRING_VALUE', // required
+ *   DestinationImageDescription: 'STRING_VALUE',
  * };
  * const command = new CopyImageCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CopyImageResponse
+ *   DestinationImageName: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CopyImageCommandInput - {@link CopyImageCommandInput}
@@ -73,6 +78,8 @@ export interface CopyImageCommandOutput extends CopyImageResponse, __MetadataBea
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link AppStreamServiceException}
+ * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
  */
 export class CopyImageCommand extends $Command<

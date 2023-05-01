@@ -41,23 +41,28 @@ export interface StartQueryPlanningCommandOutput extends StartQueryPlanningRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LakeFormationClient, StartQueryPlanningCommand } from "@aws-sdk/client-lakeformation"; // ES Modules import
- * // const { LakeFormationClient, StartQueryPlanningCommand } = require("@aws-sdk/client-lakeformation"); // CommonJS import
+ * import { LakeFormationClient, StartQueryPlanningCommand } from '@aws-sdk/client-lakeformation'; // ES Modules import
+ * // const { LakeFormationClient, StartQueryPlanningCommand } = require('@aws-sdk/client-lakeformation'); // CommonJS import
  * const client = new LakeFormationClient(config);
  * const input = { // StartQueryPlanningRequest
  *   QueryPlanningContext: { // QueryPlanningContext
- *     CatalogId: "STRING_VALUE",
- *     DatabaseName: "STRING_VALUE", // required
- *     QueryAsOfTime: new Date("TIMESTAMP"),
+ *     CatalogId: 'STRING_VALUE',
+ *     DatabaseName: 'STRING_VALUE', // required
+ *     QueryAsOfTime: new Date('TIMESTAMP'),
  *     QueryParameters: { // QueryParameterMap
- *       "<keys>": "STRING_VALUE",
+ *       '<keys>': 'STRING_VALUE',
  *     },
- *     TransactionId: "STRING_VALUE",
+ *     TransactionId: 'STRING_VALUE',
  *   },
- *   QueryString: "STRING_VALUE", // required
+ *   QueryString: 'STRING_VALUE', // required
  * };
  * const command = new StartQueryPlanningCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartQueryPlanningResponse
+ *   QueryId: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param StartQueryPlanningCommandInput - {@link StartQueryPlanningCommandInput}
@@ -78,6 +83,8 @@ export interface StartQueryPlanningCommandOutput extends StartQueryPlanningRespo
  * @throws {@link ThrottledException} (client fault)
  *  <p>Contains details about an error where the query request was throttled.</p>
  *
+ * @throws {@link LakeFormationServiceException}
+ * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
  */
 export class StartQueryPlanningCommand extends $Command<

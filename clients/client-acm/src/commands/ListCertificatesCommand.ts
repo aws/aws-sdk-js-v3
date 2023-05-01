@@ -39,31 +39,64 @@ export interface ListCertificatesCommandOutput extends ListCertificatesResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ACMClient, ListCertificatesCommand } from "@aws-sdk/client-acm"; // ES Modules import
- * // const { ACMClient, ListCertificatesCommand } = require("@aws-sdk/client-acm"); // CommonJS import
+ * import { ACMClient, ListCertificatesCommand } from '@aws-sdk/client-acm'; // ES Modules import
+ * // const { ACMClient, ListCertificatesCommand } = require('@aws-sdk/client-acm'); // CommonJS import
  * const client = new ACMClient(config);
  * const input = { // ListCertificatesRequest
  *   CertificateStatuses: [ // CertificateStatuses
- *     "PENDING_VALIDATION" || "ISSUED" || "INACTIVE" || "EXPIRED" || "VALIDATION_TIMED_OUT" || "REVOKED" || "FAILED",
+ *     'PENDING_VALIDATION' || 'ISSUED' || 'INACTIVE' || 'EXPIRED' || 'VALIDATION_TIMED_OUT' || 'REVOKED' || 'FAILED',
  *   ],
  *   Includes: { // Filters
  *     extendedKeyUsage: [ // ExtendedKeyUsageFilterList
- *       "TLS_WEB_SERVER_AUTHENTICATION" || "TLS_WEB_CLIENT_AUTHENTICATION" || "CODE_SIGNING" || "EMAIL_PROTECTION" || "TIME_STAMPING" || "OCSP_SIGNING" || "IPSEC_END_SYSTEM" || "IPSEC_TUNNEL" || "IPSEC_USER" || "ANY" || "NONE" || "CUSTOM",
+ *       'TLS_WEB_SERVER_AUTHENTICATION' || 'TLS_WEB_CLIENT_AUTHENTICATION' || 'CODE_SIGNING' || 'EMAIL_PROTECTION' || 'TIME_STAMPING' || 'OCSP_SIGNING' || 'IPSEC_END_SYSTEM' || 'IPSEC_TUNNEL' || 'IPSEC_USER' || 'ANY' || 'NONE' || 'CUSTOM',
  *     ],
  *     keyUsage: [ // KeyUsageFilterList
- *       "DIGITAL_SIGNATURE" || "NON_REPUDIATION" || "KEY_ENCIPHERMENT" || "DATA_ENCIPHERMENT" || "KEY_AGREEMENT" || "CERTIFICATE_SIGNING" || "CRL_SIGNING" || "ENCIPHER_ONLY" || "DECIPHER_ONLY" || "ANY" || "CUSTOM",
+ *       'DIGITAL_SIGNATURE' || 'NON_REPUDIATION' || 'KEY_ENCIPHERMENT' || 'DATA_ENCIPHERMENT' || 'KEY_AGREEMENT' || 'CERTIFICATE_SIGNING' || 'CRL_SIGNING' || 'ENCIPHER_ONLY' || 'DECIPHER_ONLY' || 'ANY' || 'CUSTOM',
  *     ],
  *     keyTypes: [ // KeyAlgorithmList
- *       "RSA_1024" || "RSA_2048" || "RSA_3072" || "RSA_4096" || "EC_prime256v1" || "EC_secp384r1" || "EC_secp521r1",
+ *       'RSA_1024' || 'RSA_2048' || 'RSA_3072' || 'RSA_4096' || 'EC_prime256v1' || 'EC_secp384r1' || 'EC_secp521r1',
  *     ],
  *   },
- *   NextToken: "STRING_VALUE",
- *   MaxItems: Number("int"),
- *   SortBy: "CREATED_AT",
- *   SortOrder: "ASCENDING" || "DESCENDING",
+ *   NextToken: 'STRING_VALUE',
+ *   MaxItems: Number('int'),
+ *   SortBy: 'CREATED_AT',
+ *   SortOrder: 'ASCENDING' || 'DESCENDING',
  * };
  * const command = new ListCertificatesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListCertificatesResponse
+ *   NextToken: 'STRING_VALUE',
+ *   CertificateSummaryList: [ // CertificateSummaryList
+ *     { // CertificateSummary
+ *       CertificateArn: 'STRING_VALUE',
+ *       DomainName: 'STRING_VALUE',
+ *       SubjectAlternativeNameSummaries: [ // DomainList
+ *         'STRING_VALUE',
+ *       ],
+ *       HasAdditionalSubjectAlternativeNames: true || false,
+ *       Status: 'PENDING_VALIDATION' || 'ISSUED' || 'INACTIVE' || 'EXPIRED' || 'VALIDATION_TIMED_OUT' || 'REVOKED' || 'FAILED',
+ *       Type: 'IMPORTED' || 'AMAZON_ISSUED' || 'PRIVATE',
+ *       KeyAlgorithm: 'RSA_1024' || 'RSA_2048' || 'RSA_3072' || 'RSA_4096' || 'EC_prime256v1' || 'EC_secp384r1' || 'EC_secp521r1',
+ *       KeyUsages: [ // KeyUsageNames
+ *         'DIGITAL_SIGNATURE' || 'NON_REPUDIATION' || 'KEY_ENCIPHERMENT' || 'DATA_ENCIPHERMENT' || 'KEY_AGREEMENT' || 'CERTIFICATE_SIGNING' || 'CRL_SIGNING' || 'ENCIPHER_ONLY' || 'DECIPHER_ONLY' || 'ANY' || 'CUSTOM',
+ *       ],
+ *       ExtendedKeyUsages: [ // ExtendedKeyUsageNames
+ *         'TLS_WEB_SERVER_AUTHENTICATION' || 'TLS_WEB_CLIENT_AUTHENTICATION' || 'CODE_SIGNING' || 'EMAIL_PROTECTION' || 'TIME_STAMPING' || 'OCSP_SIGNING' || 'IPSEC_END_SYSTEM' || 'IPSEC_TUNNEL' || 'IPSEC_USER' || 'ANY' || 'NONE' || 'CUSTOM',
+ *       ],
+ *       InUse: true || false,
+ *       Exported: true || false,
+ *       RenewalEligibility: 'ELIGIBLE' || 'INELIGIBLE',
+ *       NotBefore: new Date('TIMESTAMP'),
+ *       NotAfter: new Date('TIMESTAMP'),
+ *       CreatedAt: new Date('TIMESTAMP'),
+ *       IssuedAt: new Date('TIMESTAMP'),
+ *       ImportedAt: new Date('TIMESTAMP'),
+ *       RevokedAt: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListCertificatesCommandInput - {@link ListCertificatesCommandInput}
@@ -78,6 +111,8 @@ export interface ListCertificatesCommandOutput extends ListCertificatesResponse,
  * @throws {@link ValidationException} (client fault)
  *  <p>The supplied input failed to satisfy constraints of an Amazon Web Services service.</p>
  *
+ * @throws {@link ACMServiceException}
+ * <p>Base exception class for all service exceptions from ACM service.</p>
  *
  */
 export class ListCertificatesCommand extends $Command<

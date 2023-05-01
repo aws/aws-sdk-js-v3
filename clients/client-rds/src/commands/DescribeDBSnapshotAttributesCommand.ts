@@ -45,14 +45,29 @@ export interface DescribeDBSnapshotAttributesCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RDSClient, DescribeDBSnapshotAttributesCommand } from "@aws-sdk/client-rds"; // ES Modules import
- * // const { RDSClient, DescribeDBSnapshotAttributesCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * import { RDSClient, DescribeDBSnapshotAttributesCommand } from '@aws-sdk/client-rds'; // ES Modules import
+ * // const { RDSClient, DescribeDBSnapshotAttributesCommand } = require('@aws-sdk/client-rds'); // CommonJS import
  * const client = new RDSClient(config);
  * const input = { // DescribeDBSnapshotAttributesMessage
- *   DBSnapshotIdentifier: "STRING_VALUE", // required
+ *   DBSnapshotIdentifier: 'STRING_VALUE', // required
  * };
  * const command = new DescribeDBSnapshotAttributesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeDBSnapshotAttributesResult
+ *   DBSnapshotAttributesResult: { // DBSnapshotAttributesResult
+ *     DBSnapshotIdentifier: 'STRING_VALUE',
+ *     DBSnapshotAttributes: [ // DBSnapshotAttributeList
+ *       { // DBSnapshotAttribute
+ *         AttributeName: 'STRING_VALUE',
+ *         AttributeValues: [ // AttributeValueList
+ *           'STRING_VALUE',
+ *         ],
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeDBSnapshotAttributesCommandInput - {@link DescribeDBSnapshotAttributesCommandInput}
@@ -65,6 +80,8 @@ export interface DescribeDBSnapshotAttributesCommandOutput
  *  <p>
  *             <code>DBSnapshotIdentifier</code> doesn't refer to an existing DB snapshot.</p>
  *
+ * @throws {@link RDSServiceException}
+ * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  * @example To describe the attribute names and values for a DB snapshot
  * ```javascript

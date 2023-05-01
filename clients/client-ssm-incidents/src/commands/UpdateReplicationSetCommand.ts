@@ -36,26 +36,29 @@ export interface UpdateReplicationSetCommandOutput extends UpdateReplicationSetO
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMIncidentsClient, UpdateReplicationSetCommand } from "@aws-sdk/client-ssm-incidents"; // ES Modules import
- * // const { SSMIncidentsClient, UpdateReplicationSetCommand } = require("@aws-sdk/client-ssm-incidents"); // CommonJS import
+ * import { SSMIncidentsClient, UpdateReplicationSetCommand } from '@aws-sdk/client-ssm-incidents'; // ES Modules import
+ * // const { SSMIncidentsClient, UpdateReplicationSetCommand } = require('@aws-sdk/client-ssm-incidents'); // CommonJS import
  * const client = new SSMIncidentsClient(config);
  * const input = { // UpdateReplicationSetInput
- *   arn: "STRING_VALUE", // required
+ *   arn: 'STRING_VALUE', // required
  *   actions: [ // UpdateActionList // required
  *     { // UpdateReplicationSetAction Union: only one key present
  *       addRegionAction: { // AddRegionAction
- *         regionName: "STRING_VALUE", // required
- *         sseKmsKeyId: "STRING_VALUE",
+ *         regionName: 'STRING_VALUE', // required
+ *         sseKmsKeyId: 'STRING_VALUE',
  *       },
  *       deleteRegionAction: { // DeleteRegionAction
- *         regionName: "STRING_VALUE", // required
+ *         regionName: 'STRING_VALUE', // required
  *       },
  *     },
  *   ],
- *   clientToken: "STRING_VALUE",
+ *   clientToken: 'STRING_VALUE',
  * };
  * const command = new UpdateReplicationSetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateReplicationSetCommandInput - {@link UpdateReplicationSetCommandInput}
@@ -84,6 +87,8 @@ export interface UpdateReplicationSetCommandOutput extends UpdateReplicationSetO
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
  *       service.</p>
  *
+ * @throws {@link SSMIncidentsServiceException}
+ * <p>Base exception class for all service exceptions from SSMIncidents service.</p>
  *
  */
 export class UpdateReplicationSetCommand extends $Command<

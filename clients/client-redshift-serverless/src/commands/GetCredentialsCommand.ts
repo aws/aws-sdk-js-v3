@@ -54,16 +54,24 @@ export interface GetCredentialsCommandOutput extends GetCredentialsResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RedshiftServerlessClient, GetCredentialsCommand } from "@aws-sdk/client-redshift-serverless"; // ES Modules import
- * // const { RedshiftServerlessClient, GetCredentialsCommand } = require("@aws-sdk/client-redshift-serverless"); // CommonJS import
+ * import { RedshiftServerlessClient, GetCredentialsCommand } from '@aws-sdk/client-redshift-serverless'; // ES Modules import
+ * // const { RedshiftServerlessClient, GetCredentialsCommand } = require('@aws-sdk/client-redshift-serverless'); // CommonJS import
  * const client = new RedshiftServerlessClient(config);
  * const input = { // GetCredentialsRequest
- *   workgroupName: "STRING_VALUE", // required
- *   dbName: "STRING_VALUE",
- *   durationSeconds: Number("int"),
+ *   workgroupName: 'STRING_VALUE', // required
+ *   dbName: 'STRING_VALUE',
+ *   durationSeconds: Number('int'),
  * };
  * const command = new GetCredentialsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetCredentialsResponse
+ *   dbUser: 'STRING_VALUE',
+ *   dbPassword: 'STRING_VALUE',
+ *   expiration: new Date('TIMESTAMP'),
+ *   nextRefreshTime: new Date('TIMESTAMP'),
+ * };
+ *
  * ```
  *
  * @param GetCredentialsCommandInput - {@link GetCredentialsCommandInput}
@@ -81,6 +89,8 @@ export interface GetCredentialsCommandOutput extends GetCredentialsResponse, __M
  * @throws {@link ValidationException} (client fault)
  *  <p>The input failed to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link RedshiftServerlessServiceException}
+ * <p>Base exception class for all service exceptions from RedshiftServerless service.</p>
  *
  */
 export class GetCredentialsCommand extends $Command<

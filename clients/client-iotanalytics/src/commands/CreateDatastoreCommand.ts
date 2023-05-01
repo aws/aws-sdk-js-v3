@@ -36,33 +36,33 @@ export interface CreateDatastoreCommandOutput extends CreateDatastoreResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTAnalyticsClient, CreateDatastoreCommand } from "@aws-sdk/client-iotanalytics"; // ES Modules import
- * // const { IoTAnalyticsClient, CreateDatastoreCommand } = require("@aws-sdk/client-iotanalytics"); // CommonJS import
+ * import { IoTAnalyticsClient, CreateDatastoreCommand } from '@aws-sdk/client-iotanalytics'; // ES Modules import
+ * // const { IoTAnalyticsClient, CreateDatastoreCommand } = require('@aws-sdk/client-iotanalytics'); // CommonJS import
  * const client = new IoTAnalyticsClient(config);
  * const input = { // CreateDatastoreRequest
- *   datastoreName: "STRING_VALUE", // required
+ *   datastoreName: 'STRING_VALUE', // required
  *   datastoreStorage: { // DatastoreStorage Union: only one key present
  *     serviceManagedS3: {},
  *     customerManagedS3: { // CustomerManagedDatastoreS3Storage
- *       bucket: "STRING_VALUE", // required
- *       keyPrefix: "STRING_VALUE",
- *       roleArn: "STRING_VALUE", // required
+ *       bucket: 'STRING_VALUE', // required
+ *       keyPrefix: 'STRING_VALUE',
+ *       roleArn: 'STRING_VALUE', // required
  *     },
  *     iotSiteWiseMultiLayerStorage: { // DatastoreIotSiteWiseMultiLayerStorage
  *       customerManagedS3Storage: { // IotSiteWiseCustomerManagedDatastoreS3Storage
- *         bucket: "STRING_VALUE", // required
- *         keyPrefix: "STRING_VALUE",
+ *         bucket: 'STRING_VALUE', // required
+ *         keyPrefix: 'STRING_VALUE',
  *       },
  *     },
  *   },
  *   retentionPeriod: { // RetentionPeriod
  *     unlimited: true || false,
- *     numberOfDays: Number("int"),
+ *     numberOfDays: Number('int'),
  *   },
  *   tags: [ // TagList
  *     { // Tag
- *       key: "STRING_VALUE", // required
- *       value: "STRING_VALUE", // required
+ *       key: 'STRING_VALUE', // required
+ *       value: 'STRING_VALUE', // required
  *     },
  *   ],
  *   fileFormatConfiguration: { // FileFormatConfiguration
@@ -71,8 +71,8 @@ export interface CreateDatastoreCommandOutput extends CreateDatastoreResponse, _
  *       schemaDefinition: { // SchemaDefinition
  *         columns: [ // Columns
  *           { // Column
- *             name: "STRING_VALUE", // required
- *             type: "STRING_VALUE", // required
+ *             name: 'STRING_VALUE', // required
+ *             type: 'STRING_VALUE', // required
  *           },
  *         ],
  *       },
@@ -82,11 +82,11 @@ export interface CreateDatastoreCommandOutput extends CreateDatastoreResponse, _
  *     partitions: [ // Partitions
  *       { // DatastorePartition
  *         attributePartition: { // Partition
- *           attributeName: "STRING_VALUE", // required
+ *           attributeName: 'STRING_VALUE', // required
  *         },
  *         timestampPartition: { // TimestampPartition
- *           attributeName: "STRING_VALUE", // required
- *           timestampFormat: "STRING_VALUE",
+ *           attributeName: 'STRING_VALUE', // required
+ *           timestampFormat: 'STRING_VALUE',
  *         },
  *       },
  *     ],
@@ -94,6 +94,16 @@ export interface CreateDatastoreCommandOutput extends CreateDatastoreResponse, _
  * };
  * const command = new CreateDatastoreCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateDatastoreResponse
+ *   datastoreName: 'STRING_VALUE',
+ *   datastoreArn: 'STRING_VALUE',
+ *   retentionPeriod: { // RetentionPeriod
+ *     unlimited: true || false,
+ *     numberOfDays: Number('int'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateDatastoreCommandInput - {@link CreateDatastoreCommandInput}
@@ -120,6 +130,8 @@ export interface CreateDatastoreCommandOutput extends CreateDatastoreResponse, _
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
  *
+ * @throws {@link IoTAnalyticsServiceException}
+ * <p>Base exception class for all service exceptions from IoTAnalytics service.</p>
  *
  */
 export class CreateDatastoreCommand extends $Command<

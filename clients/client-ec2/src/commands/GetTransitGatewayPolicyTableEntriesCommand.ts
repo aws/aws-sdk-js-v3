@@ -44,25 +44,46 @@ export interface GetTransitGatewayPolicyTableEntriesCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, GetTransitGatewayPolicyTableEntriesCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, GetTransitGatewayPolicyTableEntriesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, GetTransitGatewayPolicyTableEntriesCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, GetTransitGatewayPolicyTableEntriesCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // GetTransitGatewayPolicyTableEntriesRequest
- *   TransitGatewayPolicyTableId: "STRING_VALUE", // required
+ *   TransitGatewayPolicyTableId: 'STRING_VALUE', // required
  *   Filters: [ // FilterList
  *     { // Filter
- *       Name: "STRING_VALUE",
+ *       Name: 'STRING_VALUE',
  *       Values: [ // ValueStringList
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  *   DryRun: true || false,
  * };
  * const command = new GetTransitGatewayPolicyTableEntriesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetTransitGatewayPolicyTableEntriesResult
+ *   TransitGatewayPolicyTableEntries: [ // TransitGatewayPolicyTableEntryList
+ *     { // TransitGatewayPolicyTableEntry
+ *       PolicyRuleNumber: 'STRING_VALUE',
+ *       PolicyRule: { // TransitGatewayPolicyRule
+ *         SourceCidrBlock: 'STRING_VALUE',
+ *         SourcePortRange: 'STRING_VALUE',
+ *         DestinationCidrBlock: 'STRING_VALUE',
+ *         DestinationPortRange: 'STRING_VALUE',
+ *         Protocol: 'STRING_VALUE',
+ *         MetaData: { // TransitGatewayPolicyRuleMetaData
+ *           MetaDataKey: 'STRING_VALUE',
+ *           MetaDataValue: 'STRING_VALUE',
+ *         },
+ *       },
+ *       TargetRouteTableId: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetTransitGatewayPolicyTableEntriesCommandInput - {@link GetTransitGatewayPolicyTableEntriesCommandInput}
@@ -71,6 +92,8 @@ export interface GetTransitGatewayPolicyTableEntriesCommandOutput
  * @see {@link GetTransitGatewayPolicyTableEntriesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class GetTransitGatewayPolicyTableEntriesCommand extends $Command<

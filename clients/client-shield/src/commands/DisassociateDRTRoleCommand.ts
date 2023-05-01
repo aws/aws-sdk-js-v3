@@ -36,12 +36,15 @@ export interface DisassociateDRTRoleCommandOutput extends DisassociateDRTRoleRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ShieldClient, DisassociateDRTRoleCommand } from "@aws-sdk/client-shield"; // ES Modules import
- * // const { ShieldClient, DisassociateDRTRoleCommand } = require("@aws-sdk/client-shield"); // CommonJS import
+ * import { ShieldClient, DisassociateDRTRoleCommand } from '@aws-sdk/client-shield'; // ES Modules import
+ * // const { ShieldClient, DisassociateDRTRoleCommand } = require('@aws-sdk/client-shield'); // CommonJS import
  * const client = new ShieldClient(config);
  * const input = {};
  * const command = new DisassociateDRTRoleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DisassociateDRTRoleCommandInput - {@link DisassociateDRTRoleCommandInput}
@@ -63,6 +66,8 @@ export interface DisassociateDRTRoleCommandOutput extends DisassociateDRTRoleRes
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Exception indicating the specified resource does not exist. If available, this exception includes details in additional properties. </p>
  *
+ * @throws {@link ShieldServiceException}
+ * <p>Base exception class for all service exceptions from Shield service.</p>
  *
  */
 export class DisassociateDRTRoleCommand extends $Command<

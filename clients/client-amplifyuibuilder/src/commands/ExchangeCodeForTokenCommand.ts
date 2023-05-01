@@ -41,19 +41,26 @@ export interface ExchangeCodeForTokenCommandOutput extends ExchangeCodeForTokenR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AmplifyUIBuilderClient, ExchangeCodeForTokenCommand } from "@aws-sdk/client-amplifyuibuilder"; // ES Modules import
- * // const { AmplifyUIBuilderClient, ExchangeCodeForTokenCommand } = require("@aws-sdk/client-amplifyuibuilder"); // CommonJS import
+ * import { AmplifyUIBuilderClient, ExchangeCodeForTokenCommand } from '@aws-sdk/client-amplifyuibuilder'; // ES Modules import
+ * // const { AmplifyUIBuilderClient, ExchangeCodeForTokenCommand } = require('@aws-sdk/client-amplifyuibuilder'); // CommonJS import
  * const client = new AmplifyUIBuilderClient(config);
  * const input = { // ExchangeCodeForTokenRequest
- *   provider: "STRING_VALUE", // required
+ *   provider: 'STRING_VALUE', // required
  *   request: { // ExchangeCodeForTokenRequestBody
- *     code: "STRING_VALUE", // required
- *     redirectUri: "STRING_VALUE", // required
- *     clientId: "STRING_VALUE",
+ *     code: 'STRING_VALUE', // required
+ *     redirectUri: 'STRING_VALUE', // required
+ *     clientId: 'STRING_VALUE',
  *   },
  * };
  * const command = new ExchangeCodeForTokenCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ExchangeCodeForTokenResponse
+ *   accessToken: 'STRING_VALUE', // required
+ *   expiresIn: Number('int'), // required
+ *   refreshToken: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param ExchangeCodeForTokenCommandInput - {@link ExchangeCodeForTokenCommandInput}
@@ -65,6 +72,8 @@ export interface ExchangeCodeForTokenCommandOutput extends ExchangeCodeForTokenR
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>An invalid or out-of-range value was supplied for the input parameter.</p>
  *
+ * @throws {@link AmplifyUIBuilderServiceException}
+ * <p>Base exception class for all service exceptions from AmplifyUIBuilder service.</p>
  *
  */
 export class ExchangeCodeForTokenCommand extends $Command<

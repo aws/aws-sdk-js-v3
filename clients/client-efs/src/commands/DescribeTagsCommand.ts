@@ -47,16 +47,28 @@ export interface DescribeTagsCommandOutput extends DescribeTagsResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EFSClient, DescribeTagsCommand } from "@aws-sdk/client-efs"; // ES Modules import
- * // const { EFSClient, DescribeTagsCommand } = require("@aws-sdk/client-efs"); // CommonJS import
+ * import { EFSClient, DescribeTagsCommand } from '@aws-sdk/client-efs'; // ES Modules import
+ * // const { EFSClient, DescribeTagsCommand } = require('@aws-sdk/client-efs'); // CommonJS import
  * const client = new EFSClient(config);
  * const input = { // DescribeTagsRequest
- *   MaxItems: Number("int"),
- *   Marker: "STRING_VALUE",
- *   FileSystemId: "STRING_VALUE", // required
+ *   MaxItems: Number('int'),
+ *   Marker: 'STRING_VALUE',
+ *   FileSystemId: 'STRING_VALUE', // required
  * };
  * const command = new DescribeTagsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeTagsResponse
+ *   Marker: 'STRING_VALUE',
+ *   Tags: [ // Tags // required
+ *     { // Tag
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ *   NextMarker: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeTagsCommandInput - {@link DescribeTagsCommandInput}
@@ -76,6 +88,8 @@ export interface DescribeTagsCommandOutput extends DescribeTagsResponse, __Metad
  * @throws {@link InternalServerError} (server fault)
  *  <p>Returned if an error occurred on the server side.</p>
  *
+ * @throws {@link EFSServiceException}
+ * <p>Base exception class for all service exceptions from EFS service.</p>
  *
  * @example To describe the tags for a file system
  * ```javascript

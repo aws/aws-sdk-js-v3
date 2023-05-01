@@ -36,14 +36,17 @@ export interface RemoveAutoTerminationPolicyCommandOutput extends RemoveAutoTerm
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EMRClient, RemoveAutoTerminationPolicyCommand } from "@aws-sdk/client-emr"; // ES Modules import
- * // const { EMRClient, RemoveAutoTerminationPolicyCommand } = require("@aws-sdk/client-emr"); // CommonJS import
+ * import { EMRClient, RemoveAutoTerminationPolicyCommand } from '@aws-sdk/client-emr'; // ES Modules import
+ * // const { EMRClient, RemoveAutoTerminationPolicyCommand } = require('@aws-sdk/client-emr'); // CommonJS import
  * const client = new EMRClient(config);
  * const input = { // RemoveAutoTerminationPolicyInput
- *   ClusterId: "STRING_VALUE", // required
+ *   ClusterId: 'STRING_VALUE', // required
  * };
  * const command = new RemoveAutoTerminationPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param RemoveAutoTerminationPolicyCommandInput - {@link RemoveAutoTerminationPolicyCommandInput}
@@ -52,6 +55,8 @@ export interface RemoveAutoTerminationPolicyCommandOutput extends RemoveAutoTerm
  * @see {@link RemoveAutoTerminationPolicyCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
  *
+ * @throws {@link EMRServiceException}
+ * <p>Base exception class for all service exceptions from EMR service.</p>
  *
  */
 export class RemoveAutoTerminationPolicyCommand extends $Command<

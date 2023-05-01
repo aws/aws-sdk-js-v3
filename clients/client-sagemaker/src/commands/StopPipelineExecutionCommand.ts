@@ -58,15 +58,20 @@ export interface StopPipelineExecutionCommandOutput extends StopPipelineExecutio
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, StopPipelineExecutionCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, StopPipelineExecutionCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, StopPipelineExecutionCommand } from '@aws-sdk/client-sagemaker'; // ES Modules import
+ * // const { SageMakerClient, StopPipelineExecutionCommand } = require('@aws-sdk/client-sagemaker'); // CommonJS import
  * const client = new SageMakerClient(config);
  * const input = { // StopPipelineExecutionRequest
- *   PipelineExecutionArn: "STRING_VALUE", // required
- *   ClientRequestToken: "STRING_VALUE", // required
+ *   PipelineExecutionArn: 'STRING_VALUE', // required
+ *   ClientRequestToken: 'STRING_VALUE', // required
  * };
  * const command = new StopPipelineExecutionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StopPipelineExecutionResponse
+ *   PipelineExecutionArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param StopPipelineExecutionCommandInput - {@link StopPipelineExecutionCommandInput}
@@ -78,6 +83,8 @@ export interface StopPipelineExecutionCommandOutput extends StopPipelineExecutio
  * @throws {@link ResourceNotFound} (client fault)
  *  <p>Resource being access is not found.</p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class StopPipelineExecutionCommand extends $Command<

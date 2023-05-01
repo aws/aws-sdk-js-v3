@@ -37,22 +37,33 @@ export interface BatchPutFieldOptionsCommandOutput extends BatchPutFieldOptionsR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectCasesClient, BatchPutFieldOptionsCommand } from "@aws-sdk/client-connectcases"; // ES Modules import
- * // const { ConnectCasesClient, BatchPutFieldOptionsCommand } = require("@aws-sdk/client-connectcases"); // CommonJS import
+ * import { ConnectCasesClient, BatchPutFieldOptionsCommand } from '@aws-sdk/client-connectcases'; // ES Modules import
+ * // const { ConnectCasesClient, BatchPutFieldOptionsCommand } = require('@aws-sdk/client-connectcases'); // CommonJS import
  * const client = new ConnectCasesClient(config);
  * const input = { // BatchPutFieldOptionsRequest
- *   domainId: "STRING_VALUE", // required
- *   fieldId: "STRING_VALUE", // required
+ *   domainId: 'STRING_VALUE', // required
+ *   fieldId: 'STRING_VALUE', // required
  *   options: [ // FieldOptionsList // required
  *     { // FieldOption
- *       name: "STRING_VALUE", // required
- *       value: "STRING_VALUE", // required
+ *       name: 'STRING_VALUE', // required
+ *       value: 'STRING_VALUE', // required
  *       active: true || false, // required
  *     },
  *   ],
  * };
  * const command = new BatchPutFieldOptionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BatchPutFieldOptionsResponse
+ *   errors: [ // FieldOptionErrorList
+ *     { // FieldOptionError
+ *       message: 'STRING_VALUE', // required
+ *       errorCode: 'STRING_VALUE', // required
+ *       value: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param BatchPutFieldOptionsCommandInput - {@link BatchPutFieldOptionsCommandInput}
@@ -82,6 +93,8 @@ export interface BatchPutFieldOptionsCommandOutput extends BatchPutFieldOptionsR
  * @throws {@link ValidationException} (client fault)
  *  <p>The request isn't valid. Check the syntax and try again.</p>
  *
+ * @throws {@link ConnectCasesServiceException}
+ * <p>Base exception class for all service exceptions from ConnectCases service.</p>
  *
  */
 export class BatchPutFieldOptionsCommand extends $Command<

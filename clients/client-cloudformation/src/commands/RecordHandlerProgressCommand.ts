@@ -37,20 +37,23 @@ export interface RecordHandlerProgressCommandOutput extends RecordHandlerProgres
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudFormationClient, RecordHandlerProgressCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
- * // const { CloudFormationClient, RecordHandlerProgressCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
+ * import { CloudFormationClient, RecordHandlerProgressCommand } from '@aws-sdk/client-cloudformation'; // ES Modules import
+ * // const { CloudFormationClient, RecordHandlerProgressCommand } = require('@aws-sdk/client-cloudformation'); // CommonJS import
  * const client = new CloudFormationClient(config);
  * const input = { // RecordHandlerProgressInput
- *   BearerToken: "STRING_VALUE", // required
- *   OperationStatus: "PENDING" || "IN_PROGRESS" || "SUCCESS" || "FAILED", // required
- *   CurrentOperationStatus: "PENDING" || "IN_PROGRESS" || "SUCCESS" || "FAILED",
- *   StatusMessage: "STRING_VALUE",
- *   ErrorCode: "NotUpdatable" || "InvalidRequest" || "AccessDenied" || "InvalidCredentials" || "AlreadyExists" || "NotFound" || "ResourceConflict" || "Throttling" || "ServiceLimitExceeded" || "NotStabilized" || "GeneralServiceException" || "ServiceInternalError" || "NetworkFailure" || "InternalFailure" || "InvalidTypeConfiguration" || "HandlerInternalFailure" || "NonCompliant" || "Unknown" || "UnsupportedTarget",
- *   ResourceModel: "STRING_VALUE",
- *   ClientRequestToken: "STRING_VALUE",
+ *   BearerToken: 'STRING_VALUE', // required
+ *   OperationStatus: 'PENDING' || 'IN_PROGRESS' || 'SUCCESS' || 'FAILED', // required
+ *   CurrentOperationStatus: 'PENDING' || 'IN_PROGRESS' || 'SUCCESS' || 'FAILED',
+ *   StatusMessage: 'STRING_VALUE',
+ *   ErrorCode: 'NotUpdatable' || 'InvalidRequest' || 'AccessDenied' || 'InvalidCredentials' || 'AlreadyExists' || 'NotFound' || 'ResourceConflict' || 'Throttling' || 'ServiceLimitExceeded' || 'NotStabilized' || 'GeneralServiceException' || 'ServiceInternalError' || 'NetworkFailure' || 'InternalFailure' || 'InvalidTypeConfiguration' || 'HandlerInternalFailure' || 'NonCompliant' || 'Unknown' || 'UnsupportedTarget',
+ *   ResourceModel: 'STRING_VALUE',
+ *   ClientRequestToken: 'STRING_VALUE',
  * };
  * const command = new RecordHandlerProgressCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param RecordHandlerProgressCommandInput - {@link RecordHandlerProgressCommandInput}
@@ -67,6 +70,8 @@ export interface RecordHandlerProgressCommandOutput extends RecordHandlerProgres
  *  <p>Error reserved for use by the <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html">CloudFormation CLI</a>. CloudFormation doesn't return this error to
  *          users.</p>
  *
+ * @throws {@link CloudFormationServiceException}
+ * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
  */
 export class RecordHandlerProgressCommand extends $Command<

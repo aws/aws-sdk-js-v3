@@ -39,30 +39,35 @@ export interface CreateFaqCommandOutput extends CreateFaqResponse, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KendraClient, CreateFaqCommand } from "@aws-sdk/client-kendra"; // ES Modules import
- * // const { KendraClient, CreateFaqCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
+ * import { KendraClient, CreateFaqCommand } from '@aws-sdk/client-kendra'; // ES Modules import
+ * // const { KendraClient, CreateFaqCommand } = require('@aws-sdk/client-kendra'); // CommonJS import
  * const client = new KendraClient(config);
  * const input = { // CreateFaqRequest
- *   IndexId: "STRING_VALUE", // required
- *   Name: "STRING_VALUE", // required
- *   Description: "STRING_VALUE",
+ *   IndexId: 'STRING_VALUE', // required
+ *   Name: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE',
  *   S3Path: { // S3Path
- *     Bucket: "STRING_VALUE", // required
- *     Key: "STRING_VALUE", // required
+ *     Bucket: 'STRING_VALUE', // required
+ *     Key: 'STRING_VALUE', // required
  *   },
- *   RoleArn: "STRING_VALUE", // required
+ *   RoleArn: 'STRING_VALUE', // required
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
- *   FileFormat: "CSV" || "CSV_WITH_HEADER" || "JSON",
- *   ClientToken: "STRING_VALUE",
- *   LanguageCode: "STRING_VALUE",
+ *   FileFormat: 'CSV' || 'CSV_WITH_HEADER' || 'JSON',
+ *   ClientToken: 'STRING_VALUE',
+ *   LanguageCode: 'STRING_VALUE',
  * };
  * const command = new CreateFaqCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateFaqResponse
+ *   Id: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateFaqCommandInput - {@link CreateFaqCommandInput}
@@ -101,6 +106,8 @@ export interface CreateFaqCommandOutput extends CreateFaqResponse, __MetadataBea
  *  <p>The input fails to satisfy the constraints set by the Amazon Kendra service.
  *             Please provide the correct input and try again.</p>
  *
+ * @throws {@link KendraServiceException}
+ * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
  */
 export class CreateFaqCommand extends $Command<

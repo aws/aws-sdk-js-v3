@@ -36,16 +36,35 @@ export interface DescribeClusterDbRevisionsCommandOutput extends ClusterDbRevisi
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RedshiftClient, DescribeClusterDbRevisionsCommand } from "@aws-sdk/client-redshift"; // ES Modules import
- * // const { RedshiftClient, DescribeClusterDbRevisionsCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * import { RedshiftClient, DescribeClusterDbRevisionsCommand } from '@aws-sdk/client-redshift'; // ES Modules import
+ * // const { RedshiftClient, DescribeClusterDbRevisionsCommand } = require('@aws-sdk/client-redshift'); // CommonJS import
  * const client = new RedshiftClient(config);
  * const input = { // DescribeClusterDbRevisionsMessage
- *   ClusterIdentifier: "STRING_VALUE",
- *   MaxRecords: Number("int"),
- *   Marker: "STRING_VALUE",
+ *   ClusterIdentifier: 'STRING_VALUE',
+ *   MaxRecords: Number('int'),
+ *   Marker: 'STRING_VALUE',
  * };
  * const command = new DescribeClusterDbRevisionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ClusterDbRevisionsMessage
+ *   Marker: 'STRING_VALUE',
+ *   ClusterDbRevisions: [ // ClusterDbRevisionsList
+ *     { // ClusterDbRevision
+ *       ClusterIdentifier: 'STRING_VALUE',
+ *       CurrentDatabaseRevision: 'STRING_VALUE',
+ *       DatabaseRevisionReleaseDate: new Date('TIMESTAMP'),
+ *       RevisionTargets: [ // RevisionTargetsList
+ *         { // RevisionTarget
+ *           DatabaseRevision: 'STRING_VALUE',
+ *           Description: 'STRING_VALUE',
+ *           DatabaseRevisionReleaseDate: new Date('TIMESTAMP'),
+ *         },
+ *       ],
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeClusterDbRevisionsCommandInput - {@link DescribeClusterDbRevisionsCommandInput}
@@ -61,6 +80,8 @@ export interface DescribeClusterDbRevisionsCommandOutput extends ClusterDbRevisi
  * @throws {@link InvalidClusterStateFault} (client fault)
  *  <p>The specified cluster is not in the <code>available</code> state. </p>
  *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class DescribeClusterDbRevisionsCommand extends $Command<

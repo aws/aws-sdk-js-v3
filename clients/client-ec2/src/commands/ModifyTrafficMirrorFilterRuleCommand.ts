@@ -41,33 +41,56 @@ export interface ModifyTrafficMirrorFilterRuleCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, ModifyTrafficMirrorFilterRuleCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, ModifyTrafficMirrorFilterRuleCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, ModifyTrafficMirrorFilterRuleCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, ModifyTrafficMirrorFilterRuleCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // ModifyTrafficMirrorFilterRuleRequest
- *   TrafficMirrorFilterRuleId: "STRING_VALUE", // required
- *   TrafficDirection: "ingress" || "egress",
- *   RuleNumber: Number("int"),
- *   RuleAction: "accept" || "reject",
+ *   TrafficMirrorFilterRuleId: 'STRING_VALUE', // required
+ *   TrafficDirection: 'ingress' || 'egress',
+ *   RuleNumber: Number('int'),
+ *   RuleAction: 'accept' || 'reject',
  *   DestinationPortRange: { // TrafficMirrorPortRangeRequest
- *     FromPort: Number("int"),
- *     ToPort: Number("int"),
+ *     FromPort: Number('int'),
+ *     ToPort: Number('int'),
  *   },
  *   SourcePortRange: {
- *     FromPort: Number("int"),
- *     ToPort: Number("int"),
+ *     FromPort: Number('int'),
+ *     ToPort: Number('int'),
  *   },
- *   Protocol: Number("int"),
- *   DestinationCidrBlock: "STRING_VALUE",
- *   SourceCidrBlock: "STRING_VALUE",
- *   Description: "STRING_VALUE",
+ *   Protocol: Number('int'),
+ *   DestinationCidrBlock: 'STRING_VALUE',
+ *   SourceCidrBlock: 'STRING_VALUE',
+ *   Description: 'STRING_VALUE',
  *   RemoveFields: [ // TrafficMirrorFilterRuleFieldList
- *     "destination-port-range" || "source-port-range" || "protocol" || "description",
+ *     'destination-port-range' || 'source-port-range' || 'protocol' || 'description',
  *   ],
  *   DryRun: true || false,
  * };
  * const command = new ModifyTrafficMirrorFilterRuleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ModifyTrafficMirrorFilterRuleResult
+ *   TrafficMirrorFilterRule: { // TrafficMirrorFilterRule
+ *     TrafficMirrorFilterRuleId: 'STRING_VALUE',
+ *     TrafficMirrorFilterId: 'STRING_VALUE',
+ *     TrafficDirection: 'ingress' || 'egress',
+ *     RuleNumber: Number('int'),
+ *     RuleAction: 'accept' || 'reject',
+ *     Protocol: Number('int'),
+ *     DestinationPortRange: { // TrafficMirrorPortRange
+ *       FromPort: Number('int'),
+ *       ToPort: Number('int'),
+ *     },
+ *     SourcePortRange: {
+ *       FromPort: Number('int'),
+ *       ToPort: Number('int'),
+ *     },
+ *     DestinationCidrBlock: 'STRING_VALUE',
+ *     SourceCidrBlock: 'STRING_VALUE',
+ *     Description: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param ModifyTrafficMirrorFilterRuleCommandInput - {@link ModifyTrafficMirrorFilterRuleCommandInput}
@@ -76,6 +99,8 @@ export interface ModifyTrafficMirrorFilterRuleCommandOutput
  * @see {@link ModifyTrafficMirrorFilterRuleCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class ModifyTrafficMirrorFilterRuleCommand extends $Command<

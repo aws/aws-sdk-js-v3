@@ -44,15 +44,28 @@ export interface ListDashboardsCommandOutput extends ListDashboardsOutput, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudWatchClient, ListDashboardsCommand } from "@aws-sdk/client-cloudwatch"; // ES Modules import
- * // const { CloudWatchClient, ListDashboardsCommand } = require("@aws-sdk/client-cloudwatch"); // CommonJS import
+ * import { CloudWatchClient, ListDashboardsCommand } from '@aws-sdk/client-cloudwatch'; // ES Modules import
+ * // const { CloudWatchClient, ListDashboardsCommand } = require('@aws-sdk/client-cloudwatch'); // CommonJS import
  * const client = new CloudWatchClient(config);
  * const input = { // ListDashboardsInput
- *   DashboardNamePrefix: "STRING_VALUE",
- *   NextToken: "STRING_VALUE",
+ *   DashboardNamePrefix: 'STRING_VALUE',
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListDashboardsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListDashboardsOutput
+ *   DashboardEntries: [ // DashboardEntries
+ *     { // DashboardEntry
+ *       DashboardName: 'STRING_VALUE',
+ *       DashboardArn: 'STRING_VALUE',
+ *       LastModified: new Date('TIMESTAMP'),
+ *       Size: Number('long'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListDashboardsCommandInput - {@link ListDashboardsCommandInput}
@@ -67,6 +80,8 @@ export interface ListDashboardsCommandOutput extends ListDashboardsOutput, __Met
  * @throws {@link InvalidParameterValueException} (client fault)
  *  <p>The value of an input parameter is bad or out-of-range.</p>
  *
+ * @throws {@link CloudWatchServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatch service.</p>
  *
  */
 export class ListDashboardsCommand extends $Command<

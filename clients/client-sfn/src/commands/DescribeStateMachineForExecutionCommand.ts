@@ -49,14 +49,39 @@ export interface DescribeStateMachineForExecutionCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SFNClient, DescribeStateMachineForExecutionCommand } from "@aws-sdk/client-sfn"; // ES Modules import
- * // const { SFNClient, DescribeStateMachineForExecutionCommand } = require("@aws-sdk/client-sfn"); // CommonJS import
+ * import { SFNClient, DescribeStateMachineForExecutionCommand } from '@aws-sdk/client-sfn'; // ES Modules import
+ * // const { SFNClient, DescribeStateMachineForExecutionCommand } = require('@aws-sdk/client-sfn'); // CommonJS import
  * const client = new SFNClient(config);
  * const input = { // DescribeStateMachineForExecutionInput
- *   executionArn: "STRING_VALUE", // required
+ *   executionArn: 'STRING_VALUE', // required
  * };
  * const command = new DescribeStateMachineForExecutionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeStateMachineForExecutionOutput
+ *   stateMachineArn: 'STRING_VALUE', // required
+ *   name: 'STRING_VALUE', // required
+ *   definition: 'STRING_VALUE', // required
+ *   roleArn: 'STRING_VALUE', // required
+ *   updateDate: new Date('TIMESTAMP'), // required
+ *   loggingConfiguration: { // LoggingConfiguration
+ *     level: 'ALL' || 'ERROR' || 'FATAL' || 'OFF',
+ *     includeExecutionData: true || false,
+ *     destinations: [ // LogDestinationList
+ *       { // LogDestination
+ *         cloudWatchLogsLogGroup: { // CloudWatchLogsLogGroup
+ *           logGroupArn: 'STRING_VALUE',
+ *         },
+ *       },
+ *     ],
+ *   },
+ *   tracingConfiguration: { // TracingConfiguration
+ *     enabled: true || false,
+ *   },
+ *   mapRunArn: 'STRING_VALUE',
+ *   label: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeStateMachineForExecutionCommandInput - {@link DescribeStateMachineForExecutionCommandInput}
@@ -71,6 +96,8 @@ export interface DescribeStateMachineForExecutionCommandOutput
  * @throws {@link InvalidArn} (client fault)
  *  <p>The provided Amazon Resource Name (ARN) is not valid.</p>
  *
+ * @throws {@link SFNServiceException}
+ * <p>Base exception class for all service exceptions from SFN service.</p>
  *
  */
 export class DescribeStateMachineForExecutionCommand extends $Command<

@@ -42,24 +42,86 @@ export interface ListManagedEndpointsCommandOutput extends ListManagedEndpointsR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EMRContainersClient, ListManagedEndpointsCommand } from "@aws-sdk/client-emr-containers"; // ES Modules import
- * // const { EMRContainersClient, ListManagedEndpointsCommand } = require("@aws-sdk/client-emr-containers"); // CommonJS import
+ * import { EMRContainersClient, ListManagedEndpointsCommand } from '@aws-sdk/client-emr-containers'; // ES Modules import
+ * // const { EMRContainersClient, ListManagedEndpointsCommand } = require('@aws-sdk/client-emr-containers'); // CommonJS import
  * const client = new EMRContainersClient(config);
  * const input = { // ListManagedEndpointsRequest
- *   virtualClusterId: "STRING_VALUE", // required
- *   createdBefore: new Date("TIMESTAMP"),
- *   createdAfter: new Date("TIMESTAMP"),
+ *   virtualClusterId: 'STRING_VALUE', // required
+ *   createdBefore: new Date('TIMESTAMP'),
+ *   createdAfter: new Date('TIMESTAMP'),
  *   types: [ // EndpointTypes
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   states: [ // EndpointStates
- *     "CREATING" || "ACTIVE" || "TERMINATING" || "TERMINATED" || "TERMINATED_WITH_ERRORS",
+ *     'CREATING' || 'ACTIVE' || 'TERMINATING' || 'TERMINATED' || 'TERMINATED_WITH_ERRORS',
  *   ],
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new ListManagedEndpointsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListManagedEndpointsResponse
+ *   endpoints: [ // Endpoints
+ *     { // Endpoint
+ *       id: 'STRING_VALUE',
+ *       name: 'STRING_VALUE',
+ *       arn: 'STRING_VALUE',
+ *       virtualClusterId: 'STRING_VALUE',
+ *       type: 'STRING_VALUE',
+ *       state: 'CREATING' || 'ACTIVE' || 'TERMINATING' || 'TERMINATED' || 'TERMINATED_WITH_ERRORS',
+ *       releaseLabel: 'STRING_VALUE',
+ *       executionRoleArn: 'STRING_VALUE',
+ *       certificateArn: 'STRING_VALUE',
+ *       certificateAuthority: { // Certificate
+ *         certificateArn: 'STRING_VALUE',
+ *         certificateData: 'STRING_VALUE',
+ *       },
+ *       configurationOverrides: { // ConfigurationOverrides
+ *         applicationConfiguration: [ // ConfigurationList
+ *           { // Configuration
+ *             classification: 'STRING_VALUE', // required
+ *             properties: { // SensitivePropertiesMap
+ *               '<keys>': 'STRING_VALUE',
+ *             },
+ *             configurations: [
+ *               {
+ *                 classification: 'STRING_VALUE', // required
+ *                 properties: {
+ *                   '<keys>': 'STRING_VALUE',
+ *                 },
+ *                 configurations: '<ConfigurationList>',
+ *               },
+ *             ],
+ *           },
+ *         ],
+ *         monitoringConfiguration: { // MonitoringConfiguration
+ *           persistentAppUI: 'ENABLED' || 'DISABLED',
+ *           cloudWatchMonitoringConfiguration: { // CloudWatchMonitoringConfiguration
+ *             logGroupName: 'STRING_VALUE', // required
+ *             logStreamNamePrefix: 'STRING_VALUE',
+ *           },
+ *           s3MonitoringConfiguration: { // S3MonitoringConfiguration
+ *             logUri: 'STRING_VALUE', // required
+ *           },
+ *         },
+ *       },
+ *       serverUrl: 'STRING_VALUE',
+ *       createdAt: new Date('TIMESTAMP'),
+ *       securityGroup: 'STRING_VALUE',
+ *       subnetIds: [ // SubnetIds
+ *         'STRING_VALUE',
+ *       ],
+ *       stateDetails: 'STRING_VALUE',
+ *       failureReason: 'INTERNAL_ERROR' || 'USER_ERROR' || 'VALIDATION_ERROR' || 'CLUSTER_UNAVAILABLE',
+ *       tags: { // TagMap
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListManagedEndpointsCommandInput - {@link ListManagedEndpointsCommandInput}
@@ -74,6 +136,8 @@ export interface ListManagedEndpointsCommandOutput extends ListManagedEndpointsR
  * @throws {@link ValidationException} (client fault)
  *  <p>There are invalid parameters in the client request.</p>
  *
+ * @throws {@link EMRContainersServiceException}
+ * <p>Base exception class for all service exceptions from EMRContainers service.</p>
  *
  */
 export class ListManagedEndpointsCommand extends $Command<

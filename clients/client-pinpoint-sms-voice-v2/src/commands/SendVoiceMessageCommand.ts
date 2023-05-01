@@ -42,25 +42,30 @@ export interface SendVoiceMessageCommandOutput extends SendVoiceMessageResult, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PinpointSMSVoiceV2Client, SendVoiceMessageCommand } from "@aws-sdk/client-pinpoint-sms-voice-v2"; // ES Modules import
- * // const { PinpointSMSVoiceV2Client, SendVoiceMessageCommand } = require("@aws-sdk/client-pinpoint-sms-voice-v2"); // CommonJS import
+ * import { PinpointSMSVoiceV2Client, SendVoiceMessageCommand } from '@aws-sdk/client-pinpoint-sms-voice-v2'; // ES Modules import
+ * // const { PinpointSMSVoiceV2Client, SendVoiceMessageCommand } = require('@aws-sdk/client-pinpoint-sms-voice-v2'); // CommonJS import
  * const client = new PinpointSMSVoiceV2Client(config);
  * const input = { // SendVoiceMessageRequest
- *   DestinationPhoneNumber: "STRING_VALUE", // required
- *   OriginationIdentity: "STRING_VALUE", // required
- *   MessageBody: "STRING_VALUE",
- *   MessageBodyTextType: "STRING_VALUE",
- *   VoiceId: "STRING_VALUE",
- *   ConfigurationSetName: "STRING_VALUE",
- *   MaxPricePerMinute: "STRING_VALUE",
- *   TimeToLive: Number("int"),
+ *   DestinationPhoneNumber: 'STRING_VALUE', // required
+ *   OriginationIdentity: 'STRING_VALUE', // required
+ *   MessageBody: 'STRING_VALUE',
+ *   MessageBodyTextType: 'STRING_VALUE',
+ *   VoiceId: 'STRING_VALUE',
+ *   ConfigurationSetName: 'STRING_VALUE',
+ *   MaxPricePerMinute: 'STRING_VALUE',
+ *   TimeToLive: Number('int'),
  *   Context: { // ContextMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  *   DryRun: true || false,
  * };
  * const command = new SendVoiceMessageCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SendVoiceMessageResult
+ *   MessageId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param SendVoiceMessageCommandInput - {@link SendVoiceMessageCommandInput}
@@ -96,6 +101,8 @@ export interface SendVoiceMessageCommandOutput extends SendVoiceMessageResult, _
  * @throws {@link ValidationException} (client fault)
  *  <p>A validation exception for a field.</p>
  *
+ * @throws {@link PinpointSMSVoiceV2ServiceException}
+ * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
  *
  */
 export class SendVoiceMessageCommand extends $Command<

@@ -58,18 +58,23 @@ export interface TestTypeCommandOutput extends TestTypeOutput, __MetadataBearer 
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudFormationClient, TestTypeCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
- * // const { CloudFormationClient, TestTypeCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
+ * import { CloudFormationClient, TestTypeCommand } from '@aws-sdk/client-cloudformation'; // ES Modules import
+ * // const { CloudFormationClient, TestTypeCommand } = require('@aws-sdk/client-cloudformation'); // CommonJS import
  * const client = new CloudFormationClient(config);
  * const input = { // TestTypeInput
- *   Arn: "STRING_VALUE",
- *   Type: "RESOURCE" || "MODULE" || "HOOK",
- *   TypeName: "STRING_VALUE",
- *   VersionId: "STRING_VALUE",
- *   LogDeliveryBucket: "STRING_VALUE",
+ *   Arn: 'STRING_VALUE',
+ *   Type: 'RESOURCE' || 'MODULE' || 'HOOK',
+ *   TypeName: 'STRING_VALUE',
+ *   VersionId: 'STRING_VALUE',
+ *   LogDeliveryBucket: 'STRING_VALUE',
  * };
  * const command = new TestTypeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // TestTypeOutput
+ *   TypeVersionArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param TestTypeCommandInput - {@link TestTypeCommandInput}
@@ -84,6 +89,8 @@ export interface TestTypeCommandOutput extends TestTypeOutput, __MetadataBearer 
  * @throws {@link TypeNotFoundException} (client fault)
  *  <p>The specified extension doesn't exist in the CloudFormation registry.</p>
  *
+ * @throws {@link CloudFormationServiceException}
+ * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
  */
 export class TestTypeCommand extends $Command<

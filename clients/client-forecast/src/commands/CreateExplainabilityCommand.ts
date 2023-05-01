@@ -158,43 +158,48 @@ export interface CreateExplainabilityCommandOutput extends CreateExplainabilityR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ForecastClient, CreateExplainabilityCommand } from "@aws-sdk/client-forecast"; // ES Modules import
- * // const { ForecastClient, CreateExplainabilityCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
+ * import { ForecastClient, CreateExplainabilityCommand } from '@aws-sdk/client-forecast'; // ES Modules import
+ * // const { ForecastClient, CreateExplainabilityCommand } = require('@aws-sdk/client-forecast'); // CommonJS import
  * const client = new ForecastClient(config);
  * const input = { // CreateExplainabilityRequest
- *   ExplainabilityName: "STRING_VALUE", // required
- *   ResourceArn: "STRING_VALUE", // required
+ *   ExplainabilityName: 'STRING_VALUE', // required
+ *   ResourceArn: 'STRING_VALUE', // required
  *   ExplainabilityConfig: { // ExplainabilityConfig
- *     TimeSeriesGranularity: "ALL" || "SPECIFIC", // required
- *     TimePointGranularity: "ALL" || "SPECIFIC", // required
+ *     TimeSeriesGranularity: 'ALL' || 'SPECIFIC', // required
+ *     TimePointGranularity: 'ALL' || 'SPECIFIC', // required
  *   },
  *   DataSource: { // DataSource
  *     S3Config: { // S3Config
- *       Path: "STRING_VALUE", // required
- *       RoleArn: "STRING_VALUE", // required
- *       KMSKeyArn: "STRING_VALUE",
+ *       Path: 'STRING_VALUE', // required
+ *       RoleArn: 'STRING_VALUE', // required
+ *       KMSKeyArn: 'STRING_VALUE',
  *     },
  *   },
  *   Schema: { // Schema
  *     Attributes: [ // SchemaAttributes
  *       { // SchemaAttribute
- *         AttributeName: "STRING_VALUE",
- *         AttributeType: "string" || "integer" || "float" || "timestamp" || "geolocation",
+ *         AttributeName: 'STRING_VALUE',
+ *         AttributeType: 'string' || 'integer' || 'float' || 'timestamp' || 'geolocation',
  *       },
  *     ],
  *   },
  *   EnableVisualization: true || false,
- *   StartDateTime: "STRING_VALUE",
- *   EndDateTime: "STRING_VALUE",
+ *   StartDateTime: 'STRING_VALUE',
+ *   EndDateTime: 'STRING_VALUE',
  *   Tags: [ // Tags
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreateExplainabilityCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateExplainabilityResponse
+ *   ExplainabilityArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateExplainabilityCommandInput - {@link CreateExplainabilityCommandInput}
@@ -220,6 +225,8 @@ export interface CreateExplainabilityCommandOutput extends CreateExplainabilityR
  *  <p>We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try
  *       again.</p>
  *
+ * @throws {@link ForecastServiceException}
+ * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
  */
 export class CreateExplainabilityCommand extends $Command<

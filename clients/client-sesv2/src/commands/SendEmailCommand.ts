@@ -59,68 +59,73 @@ export interface SendEmailCommandOutput extends SendEmailResponse, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SESv2Client, SendEmailCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
- * // const { SESv2Client, SendEmailCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
+ * import { SESv2Client, SendEmailCommand } from '@aws-sdk/client-sesv2'; // ES Modules import
+ * // const { SESv2Client, SendEmailCommand } = require('@aws-sdk/client-sesv2'); // CommonJS import
  * const client = new SESv2Client(config);
  * const input = { // SendEmailRequest
- *   FromEmailAddress: "STRING_VALUE",
- *   FromEmailAddressIdentityArn: "STRING_VALUE",
+ *   FromEmailAddress: 'STRING_VALUE',
+ *   FromEmailAddressIdentityArn: 'STRING_VALUE',
  *   Destination: { // Destination
  *     ToAddresses: [ // EmailAddressList
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     CcAddresses: [
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     BccAddresses: [
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *   },
  *   ReplyToAddresses: [
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   FeedbackForwardingEmailAddress: "STRING_VALUE",
- *   FeedbackForwardingEmailAddressIdentityArn: "STRING_VALUE",
+ *   FeedbackForwardingEmailAddress: 'STRING_VALUE',
+ *   FeedbackForwardingEmailAddressIdentityArn: 'STRING_VALUE',
  *   Content: { // EmailContent
  *     Simple: { // Message
  *       Subject: { // Content
- *         Data: "STRING_VALUE", // required
- *         Charset: "STRING_VALUE",
+ *         Data: 'STRING_VALUE', // required
+ *         Charset: 'STRING_VALUE',
  *       },
  *       Body: { // Body
  *         Text: {
- *           Data: "STRING_VALUE", // required
- *           Charset: "STRING_VALUE",
+ *           Data: 'STRING_VALUE', // required
+ *           Charset: 'STRING_VALUE',
  *         },
  *         Html: {
- *           Data: "STRING_VALUE", // required
- *           Charset: "STRING_VALUE",
+ *           Data: 'STRING_VALUE', // required
+ *           Charset: 'STRING_VALUE',
  *         },
  *       },
  *     },
  *     Raw: { // RawMessage
- *       Data: "BLOB_VALUE", // required
+ *       Data: 'BLOB_VALUE', // required
  *     },
  *     Template: { // Template
- *       TemplateName: "STRING_VALUE",
- *       TemplateArn: "STRING_VALUE",
- *       TemplateData: "STRING_VALUE",
+ *       TemplateName: 'STRING_VALUE',
+ *       TemplateArn: 'STRING_VALUE',
+ *       TemplateData: 'STRING_VALUE',
  *     },
  *   },
  *   EmailTags: [ // MessageTagList
  *     { // MessageTag
- *       Name: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Name: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
- *   ConfigurationSetName: "STRING_VALUE",
+ *   ConfigurationSetName: 'STRING_VALUE',
  *   ListManagementOptions: { // ListManagementOptions
- *     ContactListName: "STRING_VALUE", // required
- *     TopicName: "STRING_VALUE",
+ *     ContactListName: 'STRING_VALUE', // required
+ *     TopicName: 'STRING_VALUE',
  *   },
  * };
  * const command = new SendEmailCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SendEmailResponse
+ *   MessageId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param SendEmailCommandInput - {@link SendEmailCommandInput}
@@ -155,6 +160,8 @@ export interface SendEmailCommandOutput extends SendEmailResponse, __MetadataBea
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Too many requests have been made to the operation.</p>
  *
+ * @throws {@link SESv2ServiceException}
+ * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
  */
 export class SendEmailCommand extends $Command<

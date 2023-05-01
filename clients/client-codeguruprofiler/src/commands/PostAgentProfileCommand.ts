@@ -42,17 +42,20 @@ export interface PostAgentProfileCommandOutput extends PostAgentProfileResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeGuruProfilerClient, PostAgentProfileCommand } from "@aws-sdk/client-codeguruprofiler"; // ES Modules import
- * // const { CodeGuruProfilerClient, PostAgentProfileCommand } = require("@aws-sdk/client-codeguruprofiler"); // CommonJS import
+ * import { CodeGuruProfilerClient, PostAgentProfileCommand } from '@aws-sdk/client-codeguruprofiler'; // ES Modules import
+ * // const { CodeGuruProfilerClient, PostAgentProfileCommand } = require('@aws-sdk/client-codeguruprofiler'); // CommonJS import
  * const client = new CodeGuruProfilerClient(config);
  * const input = { // PostAgentProfileRequest
- *   profilingGroupName: "STRING_VALUE", // required
- *   agentProfile: "BLOB_VALUE", // required
- *   profileToken: "STRING_VALUE",
- *   contentType: "STRING_VALUE", // required
+ *   profilingGroupName: 'STRING_VALUE', // required
+ *   agentProfile: 'BLOB_VALUE', // required
+ *   profileToken: 'STRING_VALUE',
+ *   contentType: 'STRING_VALUE', // required
  * };
  * const command = new PostAgentProfileCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PostAgentProfileCommandInput - {@link PostAgentProfileCommandInput}
@@ -73,6 +76,8 @@ export interface PostAgentProfileCommandOutput extends PostAgentProfileResponse,
  * @throws {@link ValidationException} (client fault)
  *  <p>The parameter is not valid.</p>
  *
+ * @throws {@link CodeGuruProfilerServiceException}
+ * <p>Base exception class for all service exceptions from CodeGuruProfiler service.</p>
  *
  */
 export class PostAgentProfileCommand extends $Command<

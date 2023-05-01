@@ -42,14 +42,25 @@ export interface GetContainerImagesCommandOutput extends GetContainerImagesResul
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LightsailClient, GetContainerImagesCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
- * // const { LightsailClient, GetContainerImagesCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
+ * import { LightsailClient, GetContainerImagesCommand } from '@aws-sdk/client-lightsail'; // ES Modules import
+ * // const { LightsailClient, GetContainerImagesCommand } = require('@aws-sdk/client-lightsail'); // CommonJS import
  * const client = new LightsailClient(config);
  * const input = { // GetContainerImagesRequest
- *   serviceName: "STRING_VALUE", // required
+ *   serviceName: 'STRING_VALUE', // required
  * };
  * const command = new GetContainerImagesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetContainerImagesResult
+ *   containerImages: [ // ContainerImageList
+ *     { // ContainerImage
+ *       image: 'STRING_VALUE',
+ *       digest: 'STRING_VALUE',
+ *       createdAt: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetContainerImagesCommandInput - {@link GetContainerImagesCommandInput}
@@ -81,6 +92,8 @@ export interface GetContainerImagesCommandOutput extends GetContainerImagesResul
  * @throws {@link UnauthenticatedException} (client fault)
  *  <p>Lightsail throws this exception when the user has not been authenticated.</p>
  *
+ * @throws {@link LightsailServiceException}
+ * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
  */
 export class GetContainerImagesCommand extends $Command<

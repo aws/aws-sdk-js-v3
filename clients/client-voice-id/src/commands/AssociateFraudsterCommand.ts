@@ -40,16 +40,28 @@ export interface AssociateFraudsterCommandOutput extends AssociateFraudsterRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { VoiceIDClient, AssociateFraudsterCommand } from "@aws-sdk/client-voice-id"; // ES Modules import
- * // const { VoiceIDClient, AssociateFraudsterCommand } = require("@aws-sdk/client-voice-id"); // CommonJS import
+ * import { VoiceIDClient, AssociateFraudsterCommand } from '@aws-sdk/client-voice-id'; // ES Modules import
+ * // const { VoiceIDClient, AssociateFraudsterCommand } = require('@aws-sdk/client-voice-id'); // CommonJS import
  * const client = new VoiceIDClient(config);
  * const input = { // AssociateFraudsterRequest
- *   DomainId: "STRING_VALUE", // required
- *   WatchlistId: "STRING_VALUE", // required
- *   FraudsterId: "STRING_VALUE", // required
+ *   DomainId: 'STRING_VALUE', // required
+ *   WatchlistId: 'STRING_VALUE', // required
+ *   FraudsterId: 'STRING_VALUE', // required
  * };
  * const command = new AssociateFraudsterCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AssociateFraudsterResponse
+ *   Fraudster: { // Fraudster
+ *     DomainId: 'STRING_VALUE',
+ *     GeneratedFraudsterId: 'STRING_VALUE',
+ *     CreatedAt: new Date('TIMESTAMP'),
+ *     WatchlistIds: [ // ResponseWatchlistIds
+ *       'STRING_VALUE',
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param AssociateFraudsterCommandInput - {@link AssociateFraudsterCommandInput}
@@ -86,6 +98,8 @@ export interface AssociateFraudsterCommandOutput extends AssociateFraudsterRespo
  *  <p>The request failed one or more validations; check the error message for more
  *             details.</p>
  *
+ * @throws {@link VoiceIDServiceException}
+ * <p>Base exception class for all service exceptions from VoiceID service.</p>
  *
  */
 export class AssociateFraudsterCommand extends $Command<

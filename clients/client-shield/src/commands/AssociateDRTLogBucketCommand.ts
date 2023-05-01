@@ -37,14 +37,17 @@ export interface AssociateDRTLogBucketCommandOutput extends AssociateDRTLogBucke
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ShieldClient, AssociateDRTLogBucketCommand } from "@aws-sdk/client-shield"; // ES Modules import
- * // const { ShieldClient, AssociateDRTLogBucketCommand } = require("@aws-sdk/client-shield"); // CommonJS import
+ * import { ShieldClient, AssociateDRTLogBucketCommand } from '@aws-sdk/client-shield'; // ES Modules import
+ * // const { ShieldClient, AssociateDRTLogBucketCommand } = require('@aws-sdk/client-shield'); // CommonJS import
  * const client = new ShieldClient(config);
  * const input = { // AssociateDRTLogBucketRequest
- *   LogBucket: "STRING_VALUE", // required
+ *   LogBucket: 'STRING_VALUE', // required
  * };
  * const command = new AssociateDRTLogBucketCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param AssociateDRTLogBucketCommandInput - {@link AssociateDRTLogBucketCommandInput}
@@ -78,6 +81,8 @@ export interface AssociateDRTLogBucketCommandOutput extends AssociateDRTLogBucke
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Exception indicating the specified resource does not exist. If available, this exception includes details in additional properties. </p>
  *
+ * @throws {@link ShieldServiceException}
+ * <p>Base exception class for all service exceptions from Shield service.</p>
  *
  */
 export class AssociateDRTLogBucketCommand extends $Command<

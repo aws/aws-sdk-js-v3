@@ -46,17 +46,23 @@ export interface StartConnectionCommandOutput extends StartConnectionResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OutpostsClient, StartConnectionCommand } from "@aws-sdk/client-outposts"; // ES Modules import
- * // const { OutpostsClient, StartConnectionCommand } = require("@aws-sdk/client-outposts"); // CommonJS import
+ * import { OutpostsClient, StartConnectionCommand } from '@aws-sdk/client-outposts'; // ES Modules import
+ * // const { OutpostsClient, StartConnectionCommand } = require('@aws-sdk/client-outposts'); // CommonJS import
  * const client = new OutpostsClient(config);
  * const input = { // StartConnectionRequest
- *   DeviceSerialNumber: "STRING_VALUE", // required
- *   AssetId: "STRING_VALUE", // required
- *   ClientPublicKey: "STRING_VALUE", // required
- *   NetworkInterfaceDeviceIndex: Number("int"), // required
+ *   DeviceSerialNumber: 'STRING_VALUE', // required
+ *   AssetId: 'STRING_VALUE', // required
+ *   ClientPublicKey: 'STRING_VALUE', // required
+ *   NetworkInterfaceDeviceIndex: Number('int'), // required
  * };
  * const command = new StartConnectionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartConnectionResponse
+ *   ConnectionId: 'STRING_VALUE',
+ *   UnderlayIpAddress: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param StartConnectionCommandInput - {@link StartConnectionCommandInput}
@@ -77,6 +83,8 @@ export interface StartConnectionCommandOutput extends StartConnectionResponse, _
  * @throws {@link ValidationException} (client fault)
  *  <p>A parameter is not valid.</p>
  *
+ * @throws {@link OutpostsServiceException}
+ * <p>Base exception class for all service exceptions from Outposts service.</p>
  *
  */
 export class StartConnectionCommand extends $Command<

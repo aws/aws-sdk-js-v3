@@ -48,15 +48,24 @@ export interface DeleteGroupCommandOutput extends DeleteGroupOutput, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ResourceGroupsClient, DeleteGroupCommand } from "@aws-sdk/client-resource-groups"; // ES Modules import
- * // const { ResourceGroupsClient, DeleteGroupCommand } = require("@aws-sdk/client-resource-groups"); // CommonJS import
+ * import { ResourceGroupsClient, DeleteGroupCommand } from '@aws-sdk/client-resource-groups'; // ES Modules import
+ * // const { ResourceGroupsClient, DeleteGroupCommand } = require('@aws-sdk/client-resource-groups'); // CommonJS import
  * const client = new ResourceGroupsClient(config);
  * const input = { // DeleteGroupInput
- *   GroupName: "STRING_VALUE",
- *   Group: "STRING_VALUE",
+ *   GroupName: 'STRING_VALUE',
+ *   Group: 'STRING_VALUE',
  * };
  * const command = new DeleteGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteGroupOutput
+ *   Group: { // Group
+ *     GroupArn: 'STRING_VALUE', // required
+ *     Name: 'STRING_VALUE', // required
+ *     Description: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param DeleteGroupCommandInput - {@link DeleteGroupCommandInput}
@@ -84,6 +93,8 @@ export interface DeleteGroupCommandOutput extends DeleteGroupOutput, __MetadataB
  *  <p>You've exceeded throttling limits by making too many requests in a period of
  *             time.</p>
  *
+ * @throws {@link ResourceGroupsServiceException}
+ * <p>Base exception class for all service exceptions from ResourceGroups service.</p>
  *
  */
 export class DeleteGroupCommand extends $Command<

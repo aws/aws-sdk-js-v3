@@ -36,14 +36,33 @@ export interface GetOperationCommandOutput extends GetOperationOutput, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SsmSapClient, GetOperationCommand } from "@aws-sdk/client-ssm-sap"; // ES Modules import
- * // const { SsmSapClient, GetOperationCommand } = require("@aws-sdk/client-ssm-sap"); // CommonJS import
+ * import { SsmSapClient, GetOperationCommand } from '@aws-sdk/client-ssm-sap'; // ES Modules import
+ * // const { SsmSapClient, GetOperationCommand } = require('@aws-sdk/client-ssm-sap'); // CommonJS import
  * const client = new SsmSapClient(config);
  * const input = { // GetOperationInput
- *   OperationId: "STRING_VALUE", // required
+ *   OperationId: 'STRING_VALUE', // required
  * };
  * const command = new GetOperationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetOperationOutput
+ *   Operation: { // Operation
+ *     Id: 'STRING_VALUE',
+ *     Type: 'STRING_VALUE',
+ *     Status: 'STRING_VALUE',
+ *     StatusMessage: 'STRING_VALUE',
+ *     Properties: { // OperationProperties
+ *       '<keys>': 'STRING_VALUE',
+ *     },
+ *     ResourceType: 'STRING_VALUE',
+ *     ResourceId: 'STRING_VALUE',
+ *     ResourceArn: 'STRING_VALUE',
+ *     StartTime: new Date('TIMESTAMP'),
+ *     EndTime: new Date('TIMESTAMP'),
+ *     LastUpdatedTime: new Date('TIMESTAMP'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetOperationCommandInput - {@link GetOperationCommandInput}
@@ -58,6 +77,8 @@ export interface GetOperationCommandOutput extends GetOperationOutput, __Metadat
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service. </p>
  *
+ * @throws {@link SsmSapServiceException}
+ * <p>Base exception class for all service exceptions from SsmSap service.</p>
  *
  */
 export class GetOperationCommand extends $Command<

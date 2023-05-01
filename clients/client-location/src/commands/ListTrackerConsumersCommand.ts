@@ -36,16 +36,24 @@ export interface ListTrackerConsumersCommandOutput extends ListTrackerConsumersR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LocationClient, ListTrackerConsumersCommand } from "@aws-sdk/client-location"; // ES Modules import
- * // const { LocationClient, ListTrackerConsumersCommand } = require("@aws-sdk/client-location"); // CommonJS import
+ * import { LocationClient, ListTrackerConsumersCommand } from '@aws-sdk/client-location'; // ES Modules import
+ * // const { LocationClient, ListTrackerConsumersCommand } = require('@aws-sdk/client-location'); // CommonJS import
  * const client = new LocationClient(config);
  * const input = { // ListTrackerConsumersRequest
- *   TrackerName: "STRING_VALUE", // required
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   TrackerName: 'STRING_VALUE', // required
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListTrackerConsumersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTrackerConsumersResponse
+ *   ConsumerArns: [ // ArnList // required
+ *     'STRING_VALUE',
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListTrackerConsumersCommandInput - {@link ListTrackerConsumersCommandInput}
@@ -70,6 +78,8 @@ export interface ListTrackerConsumersCommandOutput extends ListTrackerConsumersR
  * @throws {@link ValidationException} (client fault)
  *  <p>The input failed to meet the constraints specified by the AWS service. </p>
  *
+ * @throws {@link LocationServiceException}
+ * <p>Base exception class for all service exceptions from Location service.</p>
  *
  */
 export class ListTrackerConsumersCommand extends $Command<

@@ -36,23 +36,26 @@ export interface UpdateContactListCommandOutput extends UpdateContactListRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SESv2Client, UpdateContactListCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
- * // const { SESv2Client, UpdateContactListCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
+ * import { SESv2Client, UpdateContactListCommand } from '@aws-sdk/client-sesv2'; // ES Modules import
+ * // const { SESv2Client, UpdateContactListCommand } = require('@aws-sdk/client-sesv2'); // CommonJS import
  * const client = new SESv2Client(config);
  * const input = { // UpdateContactListRequest
- *   ContactListName: "STRING_VALUE", // required
+ *   ContactListName: 'STRING_VALUE', // required
  *   Topics: [ // Topics
  *     { // Topic
- *       TopicName: "STRING_VALUE", // required
- *       DisplayName: "STRING_VALUE", // required
- *       Description: "STRING_VALUE",
- *       DefaultSubscriptionStatus: "OPT_IN" || "OPT_OUT", // required
+ *       TopicName: 'STRING_VALUE', // required
+ *       DisplayName: 'STRING_VALUE', // required
+ *       Description: 'STRING_VALUE',
+ *       DefaultSubscriptionStatus: 'OPT_IN' || 'OPT_OUT', // required
  *     },
  *   ],
- *   Description: "STRING_VALUE",
+ *   Description: 'STRING_VALUE',
  * };
  * const command = new UpdateContactListCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateContactListCommandInput - {@link UpdateContactListCommandInput}
@@ -73,6 +76,8 @@ export interface UpdateContactListCommandOutput extends UpdateContactListRespons
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Too many requests have been made to the operation.</p>
  *
+ * @throws {@link SESv2ServiceException}
+ * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
  */
 export class UpdateContactListCommand extends $Command<

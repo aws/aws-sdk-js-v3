@@ -38,16 +38,27 @@ export interface ListDevicesCommandOutput extends ListDevicesResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkLinkClient, ListDevicesCommand } from "@aws-sdk/client-worklink"; // ES Modules import
- * // const { WorkLinkClient, ListDevicesCommand } = require("@aws-sdk/client-worklink"); // CommonJS import
+ * import { WorkLinkClient, ListDevicesCommand } from '@aws-sdk/client-worklink'; // ES Modules import
+ * // const { WorkLinkClient, ListDevicesCommand } = require('@aws-sdk/client-worklink'); // CommonJS import
  * const client = new WorkLinkClient(config);
  * const input = { // ListDevicesRequest
- *   FleetArn: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   FleetArn: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListDevicesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListDevicesResponse
+ *   Devices: [ // DeviceSummaryList
+ *     { // DeviceSummary
+ *       DeviceId: 'STRING_VALUE',
+ *       DeviceStatus: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListDevicesCommandInput - {@link ListDevicesCommandInput}
@@ -71,6 +82,8 @@ export interface ListDevicesCommandOutput extends ListDevicesResponse, __Metadat
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this action.</p>
  *
+ * @throws {@link WorkLinkServiceException}
+ * <p>Base exception class for all service exceptions from WorkLink service.</p>
  *
  */
 export class ListDevicesCommand extends $Command<

@@ -44,28 +44,80 @@ export interface UpdateDataRepositoryAssociationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FSxClient, UpdateDataRepositoryAssociationCommand } from "@aws-sdk/client-fsx"; // ES Modules import
- * // const { FSxClient, UpdateDataRepositoryAssociationCommand } = require("@aws-sdk/client-fsx"); // CommonJS import
+ * import { FSxClient, UpdateDataRepositoryAssociationCommand } from '@aws-sdk/client-fsx'; // ES Modules import
+ * // const { FSxClient, UpdateDataRepositoryAssociationCommand } = require('@aws-sdk/client-fsx'); // CommonJS import
  * const client = new FSxClient(config);
  * const input = { // UpdateDataRepositoryAssociationRequest
- *   AssociationId: "STRING_VALUE", // required
- *   ClientRequestToken: "STRING_VALUE",
- *   ImportedFileChunkSize: Number("int"),
+ *   AssociationId: 'STRING_VALUE', // required
+ *   ClientRequestToken: 'STRING_VALUE',
+ *   ImportedFileChunkSize: Number('int'),
  *   S3: { // S3DataRepositoryConfiguration
  *     AutoImportPolicy: { // AutoImportPolicy
  *       Events: [ // EventTypes
- *         "NEW" || "CHANGED" || "DELETED",
+ *         'NEW' || 'CHANGED' || 'DELETED',
  *       ],
  *     },
  *     AutoExportPolicy: { // AutoExportPolicy
  *       Events: [
- *         "NEW" || "CHANGED" || "DELETED",
+ *         'NEW' || 'CHANGED' || 'DELETED',
  *       ],
  *     },
  *   },
  * };
  * const command = new UpdateDataRepositoryAssociationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateDataRepositoryAssociationResponse
+ *   Association: { // DataRepositoryAssociation
+ *     AssociationId: 'STRING_VALUE',
+ *     ResourceARN: 'STRING_VALUE',
+ *     FileSystemId: 'STRING_VALUE',
+ *     Lifecycle: 'CREATING' || 'AVAILABLE' || 'MISCONFIGURED' || 'UPDATING' || 'DELETING' || 'FAILED',
+ *     FailureDetails: { // DataRepositoryFailureDetails
+ *       Message: 'STRING_VALUE',
+ *     },
+ *     FileSystemPath: 'STRING_VALUE',
+ *     DataRepositoryPath: 'STRING_VALUE',
+ *     BatchImportMetaDataOnCreate: true || false,
+ *     ImportedFileChunkSize: Number('int'),
+ *     S3: { // S3DataRepositoryConfiguration
+ *       AutoImportPolicy: { // AutoImportPolicy
+ *         Events: [ // EventTypes
+ *           'NEW' || 'CHANGED' || 'DELETED',
+ *         ],
+ *       },
+ *       AutoExportPolicy: { // AutoExportPolicy
+ *         Events: [
+ *           'NEW' || 'CHANGED' || 'DELETED',
+ *         ],
+ *       },
+ *     },
+ *     Tags: [ // Tags
+ *       { // Tag
+ *         Key: 'STRING_VALUE', // required
+ *         Value: 'STRING_VALUE', // required
+ *       },
+ *     ],
+ *     CreationTime: new Date('TIMESTAMP'),
+ *     FileCacheId: 'STRING_VALUE',
+ *     FileCachePath: 'STRING_VALUE',
+ *     DataRepositorySubdirectories: [ // SubDirectoriesPaths
+ *       'STRING_VALUE',
+ *     ],
+ *     NFS: { // NFSDataRepositoryConfiguration
+ *       Version: 'NFS3', // required
+ *       DnsIps: [ // RepositoryDnsIps
+ *         'STRING_VALUE',
+ *       ],
+ *       AutoExportPolicy: {
+ *         Events: [
+ *           'NEW' || 'CHANGED' || 'DELETED',
+ *         ],
+ *       },
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateDataRepositoryAssociationCommandInput - {@link UpdateDataRepositoryAssociationCommandInput}
@@ -92,6 +144,8 @@ export interface UpdateDataRepositoryAssociationCommandOutput
  *  <p>An error indicating that a particular service limit was exceeded. You can increase
  *             some service limits by contacting Amazon Web Services Support.</p>
  *
+ * @throws {@link FSxServiceException}
+ * <p>Base exception class for all service exceptions from FSx service.</p>
  *
  */
 export class UpdateDataRepositoryAssociationCommand extends $Command<

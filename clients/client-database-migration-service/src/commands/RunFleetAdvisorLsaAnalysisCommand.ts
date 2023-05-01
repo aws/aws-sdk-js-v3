@@ -40,12 +40,18 @@ export interface RunFleetAdvisorLsaAnalysisCommandOutput extends RunFleetAdvisor
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DatabaseMigrationServiceClient, RunFleetAdvisorLsaAnalysisCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
- * // const { DatabaseMigrationServiceClient, RunFleetAdvisorLsaAnalysisCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
+ * import { DatabaseMigrationServiceClient, RunFleetAdvisorLsaAnalysisCommand } from '@aws-sdk/client-database-migration-service'; // ES Modules import
+ * // const { DatabaseMigrationServiceClient, RunFleetAdvisorLsaAnalysisCommand } = require('@aws-sdk/client-database-migration-service'); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
  * const input = {};
  * const command = new RunFleetAdvisorLsaAnalysisCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // RunFleetAdvisorLsaAnalysisResponse
+ *   LsaAnalysisId: 'STRING_VALUE',
+ *   Status: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param RunFleetAdvisorLsaAnalysisCommandInput - {@link RunFleetAdvisorLsaAnalysisCommandInput}
@@ -60,6 +66,8 @@ export interface RunFleetAdvisorLsaAnalysisCommandOutput extends RunFleetAdvisor
  * @throws {@link ResourceNotFoundFault} (client fault)
  *  <p>The resource could not be found.</p>
  *
+ * @throws {@link DatabaseMigrationServiceServiceException}
+ * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
  */
 export class RunFleetAdvisorLsaAnalysisCommand extends $Command<

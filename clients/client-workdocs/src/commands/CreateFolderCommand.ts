@@ -41,16 +41,35 @@ export interface CreateFolderCommandOutput extends CreateFolderResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkDocsClient, CreateFolderCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
- * // const { WorkDocsClient, CreateFolderCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import
+ * import { WorkDocsClient, CreateFolderCommand } from '@aws-sdk/client-workdocs'; // ES Modules import
+ * // const { WorkDocsClient, CreateFolderCommand } = require('@aws-sdk/client-workdocs'); // CommonJS import
  * const client = new WorkDocsClient(config);
  * const input = { // CreateFolderRequest
- *   AuthenticationToken: "STRING_VALUE",
- *   Name: "STRING_VALUE",
- *   ParentFolderId: "STRING_VALUE", // required
+ *   AuthenticationToken: 'STRING_VALUE',
+ *   Name: 'STRING_VALUE',
+ *   ParentFolderId: 'STRING_VALUE', // required
  * };
  * const command = new CreateFolderCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateFolderResponse
+ *   Metadata: { // FolderMetadata
+ *     Id: 'STRING_VALUE',
+ *     Name: 'STRING_VALUE',
+ *     CreatorId: 'STRING_VALUE',
+ *     ParentFolderId: 'STRING_VALUE',
+ *     CreatedTimestamp: new Date('TIMESTAMP'),
+ *     ModifiedTimestamp: new Date('TIMESTAMP'),
+ *     ResourceState: 'ACTIVE' || 'RESTORING' || 'RECYCLING' || 'RECYCLED',
+ *     Signature: 'STRING_VALUE',
+ *     Labels: [ // SharedLabels
+ *       'STRING_VALUE',
+ *     ],
+ *     Size: Number('long'),
+ *     LatestVersionSize: Number('long'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateFolderCommandInput - {@link CreateFolderCommandInput}
@@ -91,6 +110,8 @@ export interface CreateFolderCommandOutput extends CreateFolderResponse, __Metad
  * @throws {@link UnauthorizedResourceAccessException} (client fault)
  *  <p>The caller does not have access to perform the action on the resource.</p>
  *
+ * @throws {@link WorkDocsServiceException}
+ * <p>Base exception class for all service exceptions from WorkDocs service.</p>
  *
  */
 export class CreateFolderCommand extends $Command<

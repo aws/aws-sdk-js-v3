@@ -36,15 +36,26 @@ export interface ListProjectsCommandOutput extends ListProjectsResult, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeStarClient, ListProjectsCommand } from "@aws-sdk/client-codestar"; // ES Modules import
- * // const { CodeStarClient, ListProjectsCommand } = require("@aws-sdk/client-codestar"); // CommonJS import
+ * import { CodeStarClient, ListProjectsCommand } from '@aws-sdk/client-codestar'; // ES Modules import
+ * // const { CodeStarClient, ListProjectsCommand } = require('@aws-sdk/client-codestar'); // CommonJS import
  * const client = new CodeStarClient(config);
  * const input = { // ListProjectsRequest
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new ListProjectsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListProjectsResult
+ *   projects: [ // ProjectsList // required
+ *     { // ProjectSummary
+ *       projectId: 'STRING_VALUE',
+ *       projectArn: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListProjectsCommandInput - {@link ListProjectsCommandInput}
@@ -59,6 +70,8 @@ export interface ListProjectsCommandOutput extends ListProjectsResult, __Metadat
  * @throws {@link ValidationException} (client fault)
  *  <p>The specified input is either not valid, or it could not be validated.</p>
  *
+ * @throws {@link CodeStarServiceException}
+ * <p>Base exception class for all service exceptions from CodeStar service.</p>
  *
  */
 export class ListProjectsCommand extends $Command<

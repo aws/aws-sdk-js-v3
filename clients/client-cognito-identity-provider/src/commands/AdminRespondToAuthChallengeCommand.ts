@@ -68,38 +68,58 @@ export interface AdminRespondToAuthChallengeCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CognitoIdentityProviderClient, AdminRespondToAuthChallengeCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
- * // const { CognitoIdentityProviderClient, AdminRespondToAuthChallengeCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
+ * import { CognitoIdentityProviderClient, AdminRespondToAuthChallengeCommand } from '@aws-sdk/client-cognito-identity-provider'; // ES Modules import
+ * // const { CognitoIdentityProviderClient, AdminRespondToAuthChallengeCommand } = require('@aws-sdk/client-cognito-identity-provider'); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
  * const input = { // AdminRespondToAuthChallengeRequest
- *   UserPoolId: "STRING_VALUE", // required
- *   ClientId: "STRING_VALUE", // required
- *   ChallengeName: "SMS_MFA" || "SOFTWARE_TOKEN_MFA" || "SELECT_MFA_TYPE" || "MFA_SETUP" || "PASSWORD_VERIFIER" || "CUSTOM_CHALLENGE" || "DEVICE_SRP_AUTH" || "DEVICE_PASSWORD_VERIFIER" || "ADMIN_NO_SRP_AUTH" || "NEW_PASSWORD_REQUIRED", // required
+ *   UserPoolId: 'STRING_VALUE', // required
+ *   ClientId: 'STRING_VALUE', // required
+ *   ChallengeName: 'SMS_MFA' || 'SOFTWARE_TOKEN_MFA' || 'SELECT_MFA_TYPE' || 'MFA_SETUP' || 'PASSWORD_VERIFIER' || 'CUSTOM_CHALLENGE' || 'DEVICE_SRP_AUTH' || 'DEVICE_PASSWORD_VERIFIER' || 'ADMIN_NO_SRP_AUTH' || 'NEW_PASSWORD_REQUIRED', // required
  *   ChallengeResponses: { // ChallengeResponsesType
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
- *   Session: "STRING_VALUE",
+ *   Session: 'STRING_VALUE',
  *   AnalyticsMetadata: { // AnalyticsMetadataType
- *     AnalyticsEndpointId: "STRING_VALUE",
+ *     AnalyticsEndpointId: 'STRING_VALUE',
  *   },
  *   ContextData: { // ContextDataType
- *     IpAddress: "STRING_VALUE", // required
- *     ServerName: "STRING_VALUE", // required
- *     ServerPath: "STRING_VALUE", // required
+ *     IpAddress: 'STRING_VALUE', // required
+ *     ServerName: 'STRING_VALUE', // required
+ *     ServerPath: 'STRING_VALUE', // required
  *     HttpHeaders: [ // HttpHeaderList // required
  *       { // HttpHeader
- *         headerName: "STRING_VALUE",
- *         headerValue: "STRING_VALUE",
+ *         headerName: 'STRING_VALUE',
+ *         headerValue: 'STRING_VALUE',
  *       },
  *     ],
- *     EncodedData: "STRING_VALUE",
+ *     EncodedData: 'STRING_VALUE',
  *   },
  *   ClientMetadata: { // ClientMetadataType
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new AdminRespondToAuthChallengeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AdminRespondToAuthChallengeResponse
+ *   ChallengeName: 'SMS_MFA' || 'SOFTWARE_TOKEN_MFA' || 'SELECT_MFA_TYPE' || 'MFA_SETUP' || 'PASSWORD_VERIFIER' || 'CUSTOM_CHALLENGE' || 'DEVICE_SRP_AUTH' || 'DEVICE_PASSWORD_VERIFIER' || 'ADMIN_NO_SRP_AUTH' || 'NEW_PASSWORD_REQUIRED',
+ *   Session: 'STRING_VALUE',
+ *   ChallengeParameters: { // ChallengeParametersType
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ *   AuthenticationResult: { // AuthenticationResultType
+ *     AccessToken: 'STRING_VALUE',
+ *     ExpiresIn: Number('int'),
+ *     TokenType: 'STRING_VALUE',
+ *     RefreshToken: 'STRING_VALUE',
+ *     IdToken: 'STRING_VALUE',
+ *     NewDeviceMetadata: { // NewDeviceMetadataType
+ *       DeviceKey: 'STRING_VALUE',
+ *       DeviceGroupKey: 'STRING_VALUE',
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param AdminRespondToAuthChallengeCommandInput - {@link AdminRespondToAuthChallengeCommandInput}
@@ -184,6 +204,8 @@ export interface AdminRespondToAuthChallengeCommandOutput
  * @throws {@link UserNotFoundException} (client fault)
  *  <p>This exception is thrown when a user isn't found.</p>
  *
+ * @throws {@link CognitoIdentityProviderServiceException}
+ * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
  */
 export class AdminRespondToAuthChallengeCommand extends $Command<

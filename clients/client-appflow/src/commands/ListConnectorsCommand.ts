@@ -38,15 +38,37 @@ export interface ListConnectorsCommandOutput extends ListConnectorsResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppflowClient, ListConnectorsCommand } from "@aws-sdk/client-appflow"; // ES Modules import
- * // const { AppflowClient, ListConnectorsCommand } = require("@aws-sdk/client-appflow"); // CommonJS import
+ * import { AppflowClient, ListConnectorsCommand } from '@aws-sdk/client-appflow'; // ES Modules import
+ * // const { AppflowClient, ListConnectorsCommand } = require('@aws-sdk/client-appflow'); // CommonJS import
  * const client = new AppflowClient(config);
  * const input = { // ListConnectorsRequest
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new ListConnectorsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListConnectorsResponse
+ *   connectors: [ // ConnectorList
+ *     { // ConnectorDetail
+ *       connectorDescription: 'STRING_VALUE',
+ *       connectorName: 'STRING_VALUE',
+ *       connectorOwner: 'STRING_VALUE',
+ *       connectorVersion: 'STRING_VALUE',
+ *       applicationType: 'STRING_VALUE',
+ *       connectorType: 'Salesforce' || 'Singular' || 'Slack' || 'Redshift' || 'S3' || 'Marketo' || 'Googleanalytics' || 'Zendesk' || 'Servicenow' || 'Datadog' || 'Trendmicro' || 'Snowflake' || 'Dynatrace' || 'Infornexus' || 'Amplitude' || 'Veeva' || 'EventBridge' || 'LookoutMetrics' || 'Upsolver' || 'Honeycode' || 'CustomerProfiles' || 'SAPOData' || 'CustomConnector' || 'Pardot',
+ *       connectorLabel: 'STRING_VALUE',
+ *       registeredAt: new Date('TIMESTAMP'),
+ *       registeredBy: 'STRING_VALUE',
+ *       connectorProvisioningType: 'LAMBDA',
+ *       connectorModes: [ // ConnectorModeList
+ *         'STRING_VALUE',
+ *       ],
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListConnectorsCommandInput - {@link ListConnectorsCommandInput}
@@ -62,6 +84,8 @@ export interface ListConnectorsCommandOutput extends ListConnectorsResponse, __M
  * @throws {@link ValidationException} (client fault)
  *  <p> The request has invalid or missing parameters. </p>
  *
+ * @throws {@link AppflowServiceException}
+ * <p>Base exception class for all service exceptions from Appflow service.</p>
  *
  */
 export class ListConnectorsCommand extends $Command<

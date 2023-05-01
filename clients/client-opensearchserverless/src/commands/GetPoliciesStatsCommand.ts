@@ -41,12 +41,27 @@ export interface GetPoliciesStatsCommandOutput extends GetPoliciesStatsResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OpenSearchServerlessClient, GetPoliciesStatsCommand } from "@aws-sdk/client-opensearchserverless"; // ES Modules import
- * // const { OpenSearchServerlessClient, GetPoliciesStatsCommand } = require("@aws-sdk/client-opensearchserverless"); // CommonJS import
+ * import { OpenSearchServerlessClient, GetPoliciesStatsCommand } from '@aws-sdk/client-opensearchserverless'; // ES Modules import
+ * // const { OpenSearchServerlessClient, GetPoliciesStatsCommand } = require('@aws-sdk/client-opensearchserverless'); // CommonJS import
  * const client = new OpenSearchServerlessClient(config);
  * const input = {};
  * const command = new GetPoliciesStatsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetPoliciesStatsResponse
+ *   AccessPolicyStats: { // AccessPolicyStats
+ *     DataPolicyCount: Number('long'),
+ *   },
+ *   SecurityPolicyStats: { // SecurityPolicyStats
+ *     EncryptionPolicyCount: Number('long'),
+ *     NetworkPolicyCount: Number('long'),
+ *   },
+ *   SecurityConfigStats: { // SecurityConfigStats
+ *     SamlConfigCount: Number('long'),
+ *   },
+ *   TotalPolicyCount: Number('long'),
+ * };
+ *
  * ```
  *
  * @param GetPoliciesStatsCommandInput - {@link GetPoliciesStatsCommandInput}
@@ -58,6 +73,8 @@ export interface GetPoliciesStatsCommandOutput extends GetPoliciesStatsResponse,
  * @throws {@link InternalServerException} (server fault)
  *  <p>Thrown when an error internal to the service occurs while processing a request.</p>
  *
+ * @throws {@link OpenSearchServerlessServiceException}
+ * <p>Base exception class for all service exceptions from OpenSearchServerless service.</p>
  *
  */
 export class GetPoliciesStatsCommand extends $Command<

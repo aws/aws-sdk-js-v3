@@ -36,32 +36,114 @@ export interface DescribeScalingPlansCommandOutput extends DescribeScalingPlansR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AutoScalingPlansClient, DescribeScalingPlansCommand } from "@aws-sdk/client-auto-scaling-plans"; // ES Modules import
- * // const { AutoScalingPlansClient, DescribeScalingPlansCommand } = require("@aws-sdk/client-auto-scaling-plans"); // CommonJS import
+ * import { AutoScalingPlansClient, DescribeScalingPlansCommand } from '@aws-sdk/client-auto-scaling-plans'; // ES Modules import
+ * // const { AutoScalingPlansClient, DescribeScalingPlansCommand } = require('@aws-sdk/client-auto-scaling-plans'); // CommonJS import
  * const client = new AutoScalingPlansClient(config);
  * const input = { // DescribeScalingPlansRequest
  *   ScalingPlanNames: [ // ScalingPlanNames
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   ScalingPlanVersion: Number("long"),
+ *   ScalingPlanVersion: Number('long'),
  *   ApplicationSources: [ // ApplicationSources
  *     { // ApplicationSource
- *       CloudFormationStackARN: "STRING_VALUE",
+ *       CloudFormationStackARN: 'STRING_VALUE',
  *       TagFilters: [ // TagFilters
  *         { // TagFilter
- *           Key: "STRING_VALUE",
+ *           Key: 'STRING_VALUE',
  *           Values: [ // TagValues
- *             "STRING_VALUE",
+ *             'STRING_VALUE',
  *           ],
  *         },
  *       ],
  *     },
  *   ],
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new DescribeScalingPlansCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeScalingPlansResponse
+ *   ScalingPlans: [ // ScalingPlans
+ *     { // ScalingPlan
+ *       ScalingPlanName: 'STRING_VALUE', // required
+ *       ScalingPlanVersion: Number('long'), // required
+ *       ApplicationSource: { // ApplicationSource
+ *         CloudFormationStackARN: 'STRING_VALUE',
+ *         TagFilters: [ // TagFilters
+ *           { // TagFilter
+ *             Key: 'STRING_VALUE',
+ *             Values: [ // TagValues
+ *               'STRING_VALUE',
+ *             ],
+ *           },
+ *         ],
+ *       },
+ *       ScalingInstructions: [ // ScalingInstructions // required
+ *         { // ScalingInstruction
+ *           ServiceNamespace: 'STRING_VALUE', // required
+ *           ResourceId: 'STRING_VALUE', // required
+ *           ScalableDimension: 'STRING_VALUE', // required
+ *           MinCapacity: Number('int'), // required
+ *           MaxCapacity: Number('int'), // required
+ *           TargetTrackingConfigurations: [ // TargetTrackingConfigurations // required
+ *             { // TargetTrackingConfiguration
+ *               PredefinedScalingMetricSpecification: { // PredefinedScalingMetricSpecification
+ *                 PredefinedScalingMetricType: 'STRING_VALUE', // required
+ *                 ResourceLabel: 'STRING_VALUE',
+ *               },
+ *               CustomizedScalingMetricSpecification: { // CustomizedScalingMetricSpecification
+ *                 MetricName: 'STRING_VALUE', // required
+ *                 Namespace: 'STRING_VALUE', // required
+ *                 Dimensions: [ // MetricDimensions
+ *                   { // MetricDimension
+ *                     Name: 'STRING_VALUE', // required
+ *                     Value: 'STRING_VALUE', // required
+ *                   },
+ *                 ],
+ *                 Statistic: 'STRING_VALUE', // required
+ *                 Unit: 'STRING_VALUE',
+ *               },
+ *               TargetValue: Number('double'), // required
+ *               DisableScaleIn: true || false,
+ *               ScaleOutCooldown: Number('int'),
+ *               ScaleInCooldown: Number('int'),
+ *               EstimatedInstanceWarmup: Number('int'),
+ *             },
+ *           ],
+ *           PredefinedLoadMetricSpecification: { // PredefinedLoadMetricSpecification
+ *             PredefinedLoadMetricType: 'STRING_VALUE', // required
+ *             ResourceLabel: 'STRING_VALUE',
+ *           },
+ *           CustomizedLoadMetricSpecification: { // CustomizedLoadMetricSpecification
+ *             MetricName: 'STRING_VALUE', // required
+ *             Namespace: 'STRING_VALUE', // required
+ *             Dimensions: [
+ *               {
+ *                 Name: 'STRING_VALUE', // required
+ *                 Value: 'STRING_VALUE', // required
+ *               },
+ *             ],
+ *             Statistic: 'STRING_VALUE', // required
+ *             Unit: 'STRING_VALUE',
+ *           },
+ *           ScheduledActionBufferTime: Number('int'),
+ *           PredictiveScalingMaxCapacityBehavior: 'STRING_VALUE',
+ *           PredictiveScalingMaxCapacityBuffer: Number('int'),
+ *           PredictiveScalingMode: 'STRING_VALUE',
+ *           ScalingPolicyUpdateBehavior: 'STRING_VALUE',
+ *           DisableDynamicScaling: true || false,
+ *         },
+ *       ],
+ *       StatusCode: 'STRING_VALUE', // required
+ *       StatusMessage: 'STRING_VALUE',
+ *       StatusStartTime: new Date('TIMESTAMP'),
+ *       CreationTime: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeScalingPlansCommandInput - {@link DescribeScalingPlansCommandInput}
@@ -83,6 +165,8 @@ export interface DescribeScalingPlansCommandOutput extends DescribeScalingPlansR
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception was thrown for a validation issue. Review the parameters provided.</p>
  *
+ * @throws {@link AutoScalingPlansServiceException}
+ * <p>Base exception class for all service exceptions from AutoScalingPlans service.</p>
  *
  */
 export class DescribeScalingPlansCommand extends $Command<

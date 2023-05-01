@@ -36,15 +36,20 @@ export interface DeleteComponentTypeCommandOutput extends DeleteComponentTypeRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTTwinMakerClient, DeleteComponentTypeCommand } from "@aws-sdk/client-iottwinmaker"; // ES Modules import
- * // const { IoTTwinMakerClient, DeleteComponentTypeCommand } = require("@aws-sdk/client-iottwinmaker"); // CommonJS import
+ * import { IoTTwinMakerClient, DeleteComponentTypeCommand } from '@aws-sdk/client-iottwinmaker'; // ES Modules import
+ * // const { IoTTwinMakerClient, DeleteComponentTypeCommand } = require('@aws-sdk/client-iottwinmaker'); // CommonJS import
  * const client = new IoTTwinMakerClient(config);
  * const input = { // DeleteComponentTypeRequest
- *   workspaceId: "STRING_VALUE", // required
- *   componentTypeId: "STRING_VALUE", // required
+ *   workspaceId: 'STRING_VALUE', // required
+ *   componentTypeId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteComponentTypeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteComponentTypeResponse
+ *   state: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param DeleteComponentTypeCommandInput - {@link DeleteComponentTypeCommandInput}
@@ -68,6 +73,8 @@ export interface DeleteComponentTypeCommandOutput extends DeleteComponentTypeRes
  * @throws {@link ValidationException} (client fault)
  *  <p>Failed</p>
  *
+ * @throws {@link IoTTwinMakerServiceException}
+ * <p>Base exception class for all service exceptions from IoTTwinMaker service.</p>
  *
  */
 export class DeleteComponentTypeCommand extends $Command<

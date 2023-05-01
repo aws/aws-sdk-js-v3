@@ -36,18 +36,30 @@ export interface PutEventStreamCommandOutput extends PutEventStreamResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PinpointClient, PutEventStreamCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
- * // const { PinpointClient, PutEventStreamCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
+ * import { PinpointClient, PutEventStreamCommand } from '@aws-sdk/client-pinpoint'; // ES Modules import
+ * // const { PinpointClient, PutEventStreamCommand } = require('@aws-sdk/client-pinpoint'); // CommonJS import
  * const client = new PinpointClient(config);
  * const input = { // PutEventStreamRequest
- *   ApplicationId: "STRING_VALUE", // required
+ *   ApplicationId: 'STRING_VALUE', // required
  *   WriteEventStream: { // WriteEventStream
- *     DestinationStreamArn: "STRING_VALUE", // required
- *     RoleArn: "STRING_VALUE", // required
+ *     DestinationStreamArn: 'STRING_VALUE', // required
+ *     RoleArn: 'STRING_VALUE', // required
  *   },
  * };
  * const command = new PutEventStreamCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutEventStreamResponse
+ *   EventStream: { // EventStream
+ *     ApplicationId: 'STRING_VALUE', // required
+ *     DestinationStreamArn: 'STRING_VALUE', // required
+ *     ExternalId: 'STRING_VALUE',
+ *     LastModifiedDate: 'STRING_VALUE',
+ *     LastUpdatedBy: 'STRING_VALUE',
+ *     RoleArn: 'STRING_VALUE', // required
+ *   },
+ * };
+ *
  * ```
  *
  * @param PutEventStreamCommandInput - {@link PutEventStreamCommandInput}
@@ -77,6 +89,8 @@ export interface PutEventStreamCommandOutput extends PutEventStreamResponse, __M
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Provides information about an API request or response.</p>
  *
+ * @throws {@link PinpointServiceException}
+ * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
  */
 export class PutEventStreamCommand extends $Command<

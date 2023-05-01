@@ -43,16 +43,21 @@ export interface CreateWebACLMigrationStackCommandOutput extends CreateWebACLMig
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WAFClient, CreateWebACLMigrationStackCommand } from "@aws-sdk/client-waf"; // ES Modules import
- * // const { WAFClient, CreateWebACLMigrationStackCommand } = require("@aws-sdk/client-waf"); // CommonJS import
+ * import { WAFClient, CreateWebACLMigrationStackCommand } from '@aws-sdk/client-waf'; // ES Modules import
+ * // const { WAFClient, CreateWebACLMigrationStackCommand } = require('@aws-sdk/client-waf'); // CommonJS import
  * const client = new WAFClient(config);
  * const input = { // CreateWebACLMigrationStackRequest
- *   WebACLId: "STRING_VALUE", // required
- *   S3BucketName: "STRING_VALUE", // required
+ *   WebACLId: 'STRING_VALUE', // required
+ *   S3BucketName: 'STRING_VALUE', // required
  *   IgnoreUnsupportedType: true || false, // required
  * };
  * const command = new CreateWebACLMigrationStackCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateWebACLMigrationStackResponse
+ *   S3ObjectUrl: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param CreateWebACLMigrationStackCommandInput - {@link CreateWebACLMigrationStackCommandInput}
@@ -163,6 +168,8 @@ export interface CreateWebACLMigrationStackCommandOutput extends CreateWebACLMig
  * @throws {@link WAFNonexistentItemException} (client fault)
  *  <p>The operation failed because the referenced object doesn't exist.</p>
  *
+ * @throws {@link WAFServiceException}
+ * <p>Base exception class for all service exceptions from WAF service.</p>
  *
  */
 export class CreateWebACLMigrationStackCommand extends $Command<

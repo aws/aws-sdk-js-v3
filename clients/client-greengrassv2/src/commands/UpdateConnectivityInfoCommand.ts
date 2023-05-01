@@ -42,22 +42,28 @@ export interface UpdateConnectivityInfoCommandOutput extends UpdateConnectivityI
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GreengrassV2Client, UpdateConnectivityInfoCommand } from "@aws-sdk/client-greengrassv2"; // ES Modules import
- * // const { GreengrassV2Client, UpdateConnectivityInfoCommand } = require("@aws-sdk/client-greengrassv2"); // CommonJS import
+ * import { GreengrassV2Client, UpdateConnectivityInfoCommand } from '@aws-sdk/client-greengrassv2'; // ES Modules import
+ * // const { GreengrassV2Client, UpdateConnectivityInfoCommand } = require('@aws-sdk/client-greengrassv2'); // CommonJS import
  * const client = new GreengrassV2Client(config);
  * const input = { // UpdateConnectivityInfoRequest
- *   thingName: "STRING_VALUE", // required
+ *   thingName: 'STRING_VALUE', // required
  *   connectivityInfo: [ // connectivityInfoList // required
  *     { // ConnectivityInfo
- *       id: "STRING_VALUE",
- *       hostAddress: "STRING_VALUE",
- *       portNumber: Number("int"),
- *       metadata: "STRING_VALUE",
+ *       id: 'STRING_VALUE',
+ *       hostAddress: 'STRING_VALUE',
+ *       portNumber: Number('int'),
+ *       metadata: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new UpdateConnectivityInfoCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateConnectivityInfoResponse
+ *   version: 'STRING_VALUE',
+ *   message: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateConnectivityInfoCommandInput - {@link UpdateConnectivityInfoCommandInput}
@@ -73,6 +79,8 @@ export interface UpdateConnectivityInfoCommandOutput extends UpdateConnectivityI
  *  <p>The request isn't valid. This can occur if your request contains malformed JSON or
  *       unsupported characters.</p>
  *
+ * @throws {@link GreengrassV2ServiceException}
+ * <p>Base exception class for all service exceptions from GreengrassV2 service.</p>
  *
  */
 export class UpdateConnectivityInfoCommand extends $Command<

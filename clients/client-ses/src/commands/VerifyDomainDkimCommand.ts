@@ -74,14 +74,21 @@ export interface VerifyDomainDkimCommandOutput extends VerifyDomainDkimResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SESClient, VerifyDomainDkimCommand } from "@aws-sdk/client-ses"; // ES Modules import
- * // const { SESClient, VerifyDomainDkimCommand } = require("@aws-sdk/client-ses"); // CommonJS import
+ * import { SESClient, VerifyDomainDkimCommand } from '@aws-sdk/client-ses'; // ES Modules import
+ * // const { SESClient, VerifyDomainDkimCommand } = require('@aws-sdk/client-ses'); // CommonJS import
  * const client = new SESClient(config);
  * const input = { // VerifyDomainDkimRequest
- *   Domain: "STRING_VALUE", // required
+ *   Domain: 'STRING_VALUE', // required
  * };
  * const command = new VerifyDomainDkimCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // VerifyDomainDkimResponse
+ *   DkimTokens: [ // VerificationTokenList // required
+ *     'STRING_VALUE',
+ *   ],
+ * };
+ *
  * ```
  *
  * @param VerifyDomainDkimCommandInput - {@link VerifyDomainDkimCommandInput}
@@ -90,6 +97,8 @@ export interface VerifyDomainDkimCommandOutput extends VerifyDomainDkimResponse,
  * @see {@link VerifyDomainDkimCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
+ * @throws {@link SESServiceException}
+ * <p>Base exception class for all service exceptions from SES service.</p>
  *
  * @example VerifyDomainDkim
  * ```javascript

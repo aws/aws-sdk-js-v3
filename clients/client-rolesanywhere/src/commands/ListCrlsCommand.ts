@@ -40,15 +40,32 @@ export interface ListCrlsCommandOutput extends ListCrlsResponse, __MetadataBeare
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RolesAnywhereClient, ListCrlsCommand } from "@aws-sdk/client-rolesanywhere"; // ES Modules import
- * // const { RolesAnywhereClient, ListCrlsCommand } = require("@aws-sdk/client-rolesanywhere"); // CommonJS import
+ * import { RolesAnywhereClient, ListCrlsCommand } from '@aws-sdk/client-rolesanywhere'; // ES Modules import
+ * // const { RolesAnywhereClient, ListCrlsCommand } = require('@aws-sdk/client-rolesanywhere'); // CommonJS import
  * const client = new RolesAnywhereClient(config);
  * const input = { // ListRequest
- *   nextToken: "STRING_VALUE",
- *   pageSize: Number("int"),
+ *   nextToken: 'STRING_VALUE',
+ *   pageSize: Number('int'),
  * };
  * const command = new ListCrlsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListCrlsResponse
+ *   nextToken: 'STRING_VALUE',
+ *   crls: [ // CrlDetails
+ *     { // CrlDetail
+ *       crlId: 'STRING_VALUE',
+ *       crlArn: 'STRING_VALUE',
+ *       name: 'STRING_VALUE',
+ *       enabled: true || false,
+ *       crlData: 'BLOB_VALUE',
+ *       trustAnchorArn: 'STRING_VALUE',
+ *       createdAt: new Date('TIMESTAMP'),
+ *       updatedAt: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListCrlsCommandInput - {@link ListCrlsCommandInput}
@@ -63,6 +80,8 @@ export interface ListCrlsCommandOutput extends ListCrlsResponse, __MetadataBeare
  * @throws {@link ValidationException} (client fault)
  *  <p>Validation exception error.</p>
  *
+ * @throws {@link RolesAnywhereServiceException}
+ * <p>Base exception class for all service exceptions from RolesAnywhere service.</p>
  *
  */
 export class ListCrlsCommand extends $Command<

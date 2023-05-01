@@ -47,14 +47,17 @@ export interface CancelDetectMitigationActionsTaskCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTClient, CancelDetectMitigationActionsTaskCommand } from "@aws-sdk/client-iot"; // ES Modules import
- * // const { IoTClient, CancelDetectMitigationActionsTaskCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * import { IoTClient, CancelDetectMitigationActionsTaskCommand } from '@aws-sdk/client-iot'; // ES Modules import
+ * // const { IoTClient, CancelDetectMitigationActionsTaskCommand } = require('@aws-sdk/client-iot'); // CommonJS import
  * const client = new IoTClient(config);
  * const input = { // CancelDetectMitigationActionsTaskRequest
- *   taskId: "STRING_VALUE", // required
+ *   taskId: 'STRING_VALUE', // required
  * };
  * const command = new CancelDetectMitigationActionsTaskCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param CancelDetectMitigationActionsTaskCommandInput - {@link CancelDetectMitigationActionsTaskCommandInput}
@@ -75,6 +78,8 @@ export interface CancelDetectMitigationActionsTaskCommandOutput
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The rate exceeds the limit.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class CancelDetectMitigationActionsTaskCommand extends $Command<

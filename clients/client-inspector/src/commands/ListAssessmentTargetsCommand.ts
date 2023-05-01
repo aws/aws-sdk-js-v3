@@ -38,18 +38,26 @@ export interface ListAssessmentTargetsCommandOutput extends ListAssessmentTarget
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { InspectorClient, ListAssessmentTargetsCommand } from "@aws-sdk/client-inspector"; // ES Modules import
- * // const { InspectorClient, ListAssessmentTargetsCommand } = require("@aws-sdk/client-inspector"); // CommonJS import
+ * import { InspectorClient, ListAssessmentTargetsCommand } from '@aws-sdk/client-inspector'; // ES Modules import
+ * // const { InspectorClient, ListAssessmentTargetsCommand } = require('@aws-sdk/client-inspector'); // CommonJS import
  * const client = new InspectorClient(config);
  * const input = { // ListAssessmentTargetsRequest
  *   filter: { // AssessmentTargetFilter
- *     assessmentTargetNamePattern: "STRING_VALUE",
+ *     assessmentTargetNamePattern: 'STRING_VALUE',
  *   },
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new ListAssessmentTargetsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListAssessmentTargetsResponse
+ *   assessmentTargetArns: [ // ListReturnedArnList // required
+ *     'STRING_VALUE',
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListAssessmentTargetsCommandInput - {@link ListAssessmentTargetsCommandInput}
@@ -68,6 +76,8 @@ export interface ListAssessmentTargetsCommandOutput extends ListAssessmentTarget
  *  <p>The request was rejected because an invalid or out-of-range value was supplied for an
  *          input parameter.</p>
  *
+ * @throws {@link InspectorServiceException}
+ * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
  * @example List assessment targets
  * ```javascript

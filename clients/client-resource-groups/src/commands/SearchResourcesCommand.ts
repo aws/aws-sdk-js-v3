@@ -64,19 +64,36 @@ export interface SearchResourcesCommandOutput extends SearchResourcesOutput, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ResourceGroupsClient, SearchResourcesCommand } from "@aws-sdk/client-resource-groups"; // ES Modules import
- * // const { ResourceGroupsClient, SearchResourcesCommand } = require("@aws-sdk/client-resource-groups"); // CommonJS import
+ * import { ResourceGroupsClient, SearchResourcesCommand } from '@aws-sdk/client-resource-groups'; // ES Modules import
+ * // const { ResourceGroupsClient, SearchResourcesCommand } = require('@aws-sdk/client-resource-groups'); // CommonJS import
  * const client = new ResourceGroupsClient(config);
  * const input = { // SearchResourcesInput
  *   ResourceQuery: { // ResourceQuery
- *     Type: "TAG_FILTERS_1_0" || "CLOUDFORMATION_STACK_1_0", // required
- *     Query: "STRING_VALUE", // required
+ *     Type: 'TAG_FILTERS_1_0' || 'CLOUDFORMATION_STACK_1_0', // required
+ *     Query: 'STRING_VALUE', // required
  *   },
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new SearchResourcesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SearchResourcesOutput
+ *   ResourceIdentifiers: [ // ResourceIdentifierList
+ *     { // ResourceIdentifier
+ *       ResourceArn: 'STRING_VALUE',
+ *       ResourceType: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ *   QueryErrors: [ // QueryErrorList
+ *     { // QueryError
+ *       ErrorCode: 'CLOUDFORMATION_STACK_INACTIVE' || 'CLOUDFORMATION_STACK_NOT_EXISTING' || 'CLOUDFORMATION_STACK_UNASSUMABLE_ROLE',
+ *       Message: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param SearchResourcesCommandInput - {@link SearchResourcesCommandInput}
@@ -105,6 +122,8 @@ export interface SearchResourcesCommandOutput extends SearchResourcesOutput, __M
  *  <p>The request was rejected because it doesn't have valid credentials for the target
  *             resource.</p>
  *
+ * @throws {@link ResourceGroupsServiceException}
+ * <p>Base exception class for all service exceptions from ResourceGroups service.</p>
  *
  */
 export class SearchResourcesCommand extends $Command<

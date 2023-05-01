@@ -46,16 +46,27 @@ export interface ListApplicationVersionsCommandOutput extends ListApplicationVer
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KinesisAnalyticsV2Client, ListApplicationVersionsCommand } from "@aws-sdk/client-kinesis-analytics-v2"; // ES Modules import
- * // const { KinesisAnalyticsV2Client, ListApplicationVersionsCommand } = require("@aws-sdk/client-kinesis-analytics-v2"); // CommonJS import
+ * import { KinesisAnalyticsV2Client, ListApplicationVersionsCommand } from '@aws-sdk/client-kinesis-analytics-v2'; // ES Modules import
+ * // const { KinesisAnalyticsV2Client, ListApplicationVersionsCommand } = require('@aws-sdk/client-kinesis-analytics-v2'); // CommonJS import
  * const client = new KinesisAnalyticsV2Client(config);
  * const input = { // ListApplicationVersionsRequest
- *   ApplicationName: "STRING_VALUE", // required
- *   Limit: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   ApplicationName: 'STRING_VALUE', // required
+ *   Limit: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListApplicationVersionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListApplicationVersionsResponse
+ *   ApplicationVersionSummaries: [ // ApplicationVersionSummaries
+ *     { // ApplicationVersionSummary
+ *       ApplicationVersionId: Number('long'), // required
+ *       ApplicationStatus: 'DELETING' || 'STARTING' || 'STOPPING' || 'READY' || 'RUNNING' || 'UPDATING' || 'AUTOSCALING' || 'FORCE_STOPPING' || 'ROLLING_BACK' || 'MAINTENANCE' || 'ROLLED_BACK', // required
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListApplicationVersionsCommandInput - {@link ListApplicationVersionsCommandInput}
@@ -74,6 +85,8 @@ export interface ListApplicationVersionsCommandOutput extends ListApplicationVer
  *  <p>The request was rejected because a specified parameter is not supported or a specified resource is not valid for this
  *       operation. </p>
  *
+ * @throws {@link KinesisAnalyticsV2ServiceException}
+ * <p>Base exception class for all service exceptions from KinesisAnalyticsV2 service.</p>
  *
  */
 export class ListApplicationVersionsCommand extends $Command<

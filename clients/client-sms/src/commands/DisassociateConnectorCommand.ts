@@ -38,14 +38,17 @@ export interface DisassociateConnectorCommandOutput extends DisassociateConnecto
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SMSClient, DisassociateConnectorCommand } from "@aws-sdk/client-sms"; // ES Modules import
- * // const { SMSClient, DisassociateConnectorCommand } = require("@aws-sdk/client-sms"); // CommonJS import
+ * import { SMSClient, DisassociateConnectorCommand } from '@aws-sdk/client-sms'; // ES Modules import
+ * // const { SMSClient, DisassociateConnectorCommand } = require('@aws-sdk/client-sms'); // CommonJS import
  * const client = new SMSClient(config);
  * const input = { // DisassociateConnectorRequest
- *   connectorId: "STRING_VALUE", // required
+ *   connectorId: 'STRING_VALUE', // required
  * };
  * const command = new DisassociateConnectorCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DisassociateConnectorCommandInput - {@link DisassociateConnectorCommandInput}
@@ -67,6 +70,8 @@ export interface DisassociateConnectorCommandOutput extends DisassociateConnecto
  *  <p>You lack permissions needed to perform this operation. Check your IAM policies,
  *             and ensure that you are using the correct access keys.</p>
  *
+ * @throws {@link SMSServiceException}
+ * <p>Base exception class for all service exceptions from SMS service.</p>
  *
  */
 export class DisassociateConnectorCommand extends $Command<

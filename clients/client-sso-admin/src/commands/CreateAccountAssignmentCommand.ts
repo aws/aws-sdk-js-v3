@@ -55,19 +55,34 @@ export interface CreateAccountAssignmentCommandOutput extends CreateAccountAssig
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSOAdminClient, CreateAccountAssignmentCommand } from "@aws-sdk/client-sso-admin"; // ES Modules import
- * // const { SSOAdminClient, CreateAccountAssignmentCommand } = require("@aws-sdk/client-sso-admin"); // CommonJS import
+ * import { SSOAdminClient, CreateAccountAssignmentCommand } from '@aws-sdk/client-sso-admin'; // ES Modules import
+ * // const { SSOAdminClient, CreateAccountAssignmentCommand } = require('@aws-sdk/client-sso-admin'); // CommonJS import
  * const client = new SSOAdminClient(config);
  * const input = { // CreateAccountAssignmentRequest
- *   InstanceArn: "STRING_VALUE", // required
- *   TargetId: "STRING_VALUE", // required
- *   TargetType: "AWS_ACCOUNT", // required
- *   PermissionSetArn: "STRING_VALUE", // required
- *   PrincipalType: "USER" || "GROUP", // required
- *   PrincipalId: "STRING_VALUE", // required
+ *   InstanceArn: 'STRING_VALUE', // required
+ *   TargetId: 'STRING_VALUE', // required
+ *   TargetType: 'AWS_ACCOUNT', // required
+ *   PermissionSetArn: 'STRING_VALUE', // required
+ *   PrincipalType: 'USER' || 'GROUP', // required
+ *   PrincipalId: 'STRING_VALUE', // required
  * };
  * const command = new CreateAccountAssignmentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateAccountAssignmentResponse
+ *   AccountAssignmentCreationStatus: { // AccountAssignmentOperationStatus
+ *     Status: 'IN_PROGRESS' || 'FAILED' || 'SUCCEEDED',
+ *     RequestId: 'STRING_VALUE',
+ *     FailureReason: 'STRING_VALUE',
+ *     TargetId: 'STRING_VALUE',
+ *     TargetType: 'AWS_ACCOUNT',
+ *     PermissionSetArn: 'STRING_VALUE',
+ *     PrincipalType: 'USER' || 'GROUP',
+ *     PrincipalId: 'STRING_VALUE',
+ *     CreatedDate: new Date('TIMESTAMP'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateAccountAssignmentCommandInput - {@link CreateAccountAssignmentCommandInput}
@@ -103,6 +118,8 @@ export interface CreateAccountAssignmentCommandOutput extends CreateAccountAssig
  * @throws {@link ValidationException} (client fault)
  *  <p>The request failed because it contains a syntax error.</p>
  *
+ * @throws {@link SSOAdminServiceException}
+ * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
  */
 export class CreateAccountAssignmentCommand extends $Command<

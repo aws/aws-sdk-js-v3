@@ -94,17 +94,34 @@ export interface ListDatasetsCommandOutput extends ListDatasetsResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CognitoSyncClient, ListDatasetsCommand } from "@aws-sdk/client-cognito-sync"; // ES Modules import
- * // const { CognitoSyncClient, ListDatasetsCommand } = require("@aws-sdk/client-cognito-sync"); // CommonJS import
+ * import { CognitoSyncClient, ListDatasetsCommand } from '@aws-sdk/client-cognito-sync'; // ES Modules import
+ * // const { CognitoSyncClient, ListDatasetsCommand } = require('@aws-sdk/client-cognito-sync'); // CommonJS import
  * const client = new CognitoSyncClient(config);
  * const input = { // ListDatasetsRequest
- *   IdentityPoolId: "STRING_VALUE", // required
- *   IdentityId: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   IdentityPoolId: 'STRING_VALUE', // required
+ *   IdentityId: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListDatasetsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListDatasetsResponse
+ *   Datasets: [ // DatasetList
+ *     { // Dataset
+ *       IdentityId: 'STRING_VALUE',
+ *       DatasetName: 'STRING_VALUE',
+ *       CreationDate: new Date('TIMESTAMP'),
+ *       LastModifiedDate: new Date('TIMESTAMP'),
+ *       LastModifiedBy: 'STRING_VALUE',
+ *       DataStorage: Number('long'),
+ *       NumRecords: Number('long'),
+ *     },
+ *   ],
+ *   Count: Number('int'),
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListDatasetsCommandInput - {@link ListDatasetsCommandInput}
@@ -129,6 +146,8 @@ export interface ListDatasetsCommandOutput extends ListDatasetsResponse, __Metad
  *  Thrown if the request is
  *       throttled.
  *
+ * @throws {@link CognitoSyncServiceException}
+ * <p>Base exception class for all service exceptions from CognitoSync service.</p>
  *
  */
 export class ListDatasetsCommand extends $Command<

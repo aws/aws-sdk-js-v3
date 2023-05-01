@@ -42,15 +42,27 @@ export interface DescribePublishingDestinationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GuardDutyClient, DescribePublishingDestinationCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
- * // const { GuardDutyClient, DescribePublishingDestinationCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
+ * import { GuardDutyClient, DescribePublishingDestinationCommand } from '@aws-sdk/client-guardduty'; // ES Modules import
+ * // const { GuardDutyClient, DescribePublishingDestinationCommand } = require('@aws-sdk/client-guardduty'); // CommonJS import
  * const client = new GuardDutyClient(config);
  * const input = { // DescribePublishingDestinationRequest
- *   DetectorId: "STRING_VALUE", // required
- *   DestinationId: "STRING_VALUE", // required
+ *   DetectorId: 'STRING_VALUE', // required
+ *   DestinationId: 'STRING_VALUE', // required
  * };
  * const command = new DescribePublishingDestinationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribePublishingDestinationResponse
+ *   DestinationId: 'STRING_VALUE', // required
+ *   DestinationType: 'S3', // required
+ *   Status: 'PENDING_VERIFICATION' || 'PUBLISHING' || 'UNABLE_TO_PUBLISH_FIX_DESTINATION_PROPERTY' || 'STOPPED', // required
+ *   PublishingFailureStartTimestamp: Number('long'), // required
+ *   DestinationProperties: { // DestinationProperties
+ *     DestinationArn: 'STRING_VALUE',
+ *     KmsKeyArn: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribePublishingDestinationCommandInput - {@link DescribePublishingDestinationCommandInput}
@@ -65,6 +77,8 @@ export interface DescribePublishingDestinationCommandOutput
  * @throws {@link InternalServerErrorException} (server fault)
  *  <p>An internal server error exception object.</p>
  *
+ * @throws {@link GuardDutyServiceException}
+ * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
  */
 export class DescribePublishingDestinationCommand extends $Command<

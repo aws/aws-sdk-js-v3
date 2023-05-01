@@ -39,18 +39,33 @@ export interface ListNotebookExecutionsCommandOutput extends ListNotebookExecuti
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EMRClient, ListNotebookExecutionsCommand } from "@aws-sdk/client-emr"; // ES Modules import
- * // const { EMRClient, ListNotebookExecutionsCommand } = require("@aws-sdk/client-emr"); // CommonJS import
+ * import { EMRClient, ListNotebookExecutionsCommand } from '@aws-sdk/client-emr'; // ES Modules import
+ * // const { EMRClient, ListNotebookExecutionsCommand } = require('@aws-sdk/client-emr'); // CommonJS import
  * const client = new EMRClient(config);
  * const input = { // ListNotebookExecutionsInput
- *   EditorId: "STRING_VALUE",
- *   Status: "START_PENDING" || "STARTING" || "RUNNING" || "FINISHING" || "FINISHED" || "FAILING" || "FAILED" || "STOP_PENDING" || "STOPPING" || "STOPPED",
- *   From: new Date("TIMESTAMP"),
- *   To: new Date("TIMESTAMP"),
- *   Marker: "STRING_VALUE",
+ *   EditorId: 'STRING_VALUE',
+ *   Status: 'START_PENDING' || 'STARTING' || 'RUNNING' || 'FINISHING' || 'FINISHED' || 'FAILING' || 'FAILED' || 'STOP_PENDING' || 'STOPPING' || 'STOPPED',
+ *   From: new Date('TIMESTAMP'),
+ *   To: new Date('TIMESTAMP'),
+ *   Marker: 'STRING_VALUE',
  * };
  * const command = new ListNotebookExecutionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListNotebookExecutionsOutput
+ *   NotebookExecutions: [ // NotebookExecutionSummaryList
+ *     { // NotebookExecutionSummary
+ *       NotebookExecutionId: 'STRING_VALUE',
+ *       EditorId: 'STRING_VALUE',
+ *       NotebookExecutionName: 'STRING_VALUE',
+ *       Status: 'START_PENDING' || 'STARTING' || 'RUNNING' || 'FINISHING' || 'FINISHED' || 'FAILING' || 'FAILED' || 'STOP_PENDING' || 'STOPPING' || 'STOPPED',
+ *       StartTime: new Date('TIMESTAMP'),
+ *       EndTime: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   Marker: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListNotebookExecutionsCommandInput - {@link ListNotebookExecutionsCommandInput}
@@ -66,6 +81,8 @@ export interface ListNotebookExecutionsCommandOutput extends ListNotebookExecuti
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception occurs when there is something wrong with user input.</p>
  *
+ * @throws {@link EMRServiceException}
+ * <p>Base exception class for all service exceptions from EMR service.</p>
  *
  */
 export class ListNotebookExecutionsCommand extends $Command<

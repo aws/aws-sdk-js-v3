@@ -36,18 +36,26 @@ export interface UpdateApiMappingCommandOutput extends UpdateApiMappingResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ApiGatewayV2Client, UpdateApiMappingCommand } from "@aws-sdk/client-apigatewayv2"; // ES Modules import
- * // const { ApiGatewayV2Client, UpdateApiMappingCommand } = require("@aws-sdk/client-apigatewayv2"); // CommonJS import
+ * import { ApiGatewayV2Client, UpdateApiMappingCommand } from '@aws-sdk/client-apigatewayv2'; // ES Modules import
+ * // const { ApiGatewayV2Client, UpdateApiMappingCommand } = require('@aws-sdk/client-apigatewayv2'); // CommonJS import
  * const client = new ApiGatewayV2Client(config);
  * const input = { // UpdateApiMappingRequest
- *   ApiId: "STRING_VALUE", // required
- *   ApiMappingId: "STRING_VALUE", // required
- *   ApiMappingKey: "STRING_VALUE",
- *   DomainName: "STRING_VALUE", // required
- *   Stage: "STRING_VALUE",
+ *   ApiId: 'STRING_VALUE', // required
+ *   ApiMappingId: 'STRING_VALUE', // required
+ *   ApiMappingKey: 'STRING_VALUE',
+ *   DomainName: 'STRING_VALUE', // required
+ *   Stage: 'STRING_VALUE',
  * };
  * const command = new UpdateApiMappingCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateApiMappingResponse
+ *   ApiId: 'STRING_VALUE',
+ *   ApiMappingId: 'STRING_VALUE',
+ *   ApiMappingKey: 'STRING_VALUE',
+ *   Stage: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateApiMappingCommandInput - {@link UpdateApiMappingCommandInput}
@@ -68,6 +76,8 @@ export interface UpdateApiMappingCommandOutput extends UpdateApiMappingResponse,
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>A limit has been exceeded. See the accompanying error message for details.</p>
  *
+ * @throws {@link ApiGatewayV2ServiceException}
+ * <p>Base exception class for all service exceptions from ApiGatewayV2 service.</p>
  *
  */
 export class UpdateApiMappingCommand extends $Command<

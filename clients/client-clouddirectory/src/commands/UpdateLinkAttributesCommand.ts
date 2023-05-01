@@ -36,31 +36,31 @@ export interface UpdateLinkAttributesCommandOutput extends UpdateLinkAttributesR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudDirectoryClient, UpdateLinkAttributesCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
- * // const { CloudDirectoryClient, UpdateLinkAttributesCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
+ * import { CloudDirectoryClient, UpdateLinkAttributesCommand } from '@aws-sdk/client-clouddirectory'; // ES Modules import
+ * // const { CloudDirectoryClient, UpdateLinkAttributesCommand } = require('@aws-sdk/client-clouddirectory'); // CommonJS import
  * const client = new CloudDirectoryClient(config);
  * const input = { // UpdateLinkAttributesRequest
- *   DirectoryArn: "STRING_VALUE", // required
+ *   DirectoryArn: 'STRING_VALUE', // required
  *   TypedLinkSpecifier: { // TypedLinkSpecifier
  *     TypedLinkFacet: { // TypedLinkSchemaAndFacetName
- *       SchemaArn: "STRING_VALUE", // required
- *       TypedLinkName: "STRING_VALUE", // required
+ *       SchemaArn: 'STRING_VALUE', // required
+ *       TypedLinkName: 'STRING_VALUE', // required
  *     },
  *     SourceObjectReference: { // ObjectReference
- *       Selector: "STRING_VALUE",
+ *       Selector: 'STRING_VALUE',
  *     },
  *     TargetObjectReference: {
- *       Selector: "STRING_VALUE",
+ *       Selector: 'STRING_VALUE',
  *     },
  *     IdentityAttributeValues: [ // AttributeNameAndValueList // required
  *       { // AttributeNameAndValue
- *         AttributeName: "STRING_VALUE", // required
+ *         AttributeName: 'STRING_VALUE', // required
  *         Value: { // TypedAttributeValue Union: only one key present
- *           StringValue: "STRING_VALUE",
- *           BinaryValue: "BLOB_VALUE",
+ *           StringValue: 'STRING_VALUE',
+ *           BinaryValue: 'BLOB_VALUE',
  *           BooleanValue: true || false,
- *           NumberValue: "STRING_VALUE",
- *           DatetimeValue: new Date("TIMESTAMP"),
+ *           NumberValue: 'STRING_VALUE',
+ *           DatetimeValue: new Date('TIMESTAMP'),
  *         },
  *       },
  *     ],
@@ -68,18 +68,18 @@ export interface UpdateLinkAttributesCommandOutput extends UpdateLinkAttributesR
  *   AttributeUpdates: [ // LinkAttributeUpdateList // required
  *     { // LinkAttributeUpdate
  *       AttributeKey: { // AttributeKey
- *         SchemaArn: "STRING_VALUE", // required
- *         FacetName: "STRING_VALUE", // required
- *         Name: "STRING_VALUE", // required
+ *         SchemaArn: 'STRING_VALUE', // required
+ *         FacetName: 'STRING_VALUE', // required
+ *         Name: 'STRING_VALUE', // required
  *       },
  *       AttributeAction: { // LinkAttributeAction
- *         AttributeActionType: "CREATE_OR_UPDATE" || "DELETE",
+ *         AttributeActionType: 'CREATE_OR_UPDATE' || 'DELETE',
  *         AttributeUpdateValue: {//  Union: only one key present
- *           StringValue: "STRING_VALUE",
- *           BinaryValue: "BLOB_VALUE",
+ *           StringValue: 'STRING_VALUE',
+ *           BinaryValue: 'BLOB_VALUE',
  *           BooleanValue: true || false,
- *           NumberValue: "STRING_VALUE",
- *           DatetimeValue: new Date("TIMESTAMP"),
+ *           NumberValue: 'STRING_VALUE',
+ *           DatetimeValue: new Date('TIMESTAMP'),
  *         },
  *       },
  *     },
@@ -87,6 +87,9 @@ export interface UpdateLinkAttributesCommandOutput extends UpdateLinkAttributesR
  * };
  * const command = new UpdateLinkAttributesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateLinkAttributesCommandInput - {@link UpdateLinkAttributesCommandInput}
@@ -124,6 +127,8 @@ export interface UpdateLinkAttributesCommandOutput extends UpdateLinkAttributesR
  *  <p>Indicates that your request is malformed in some manner. See the exception
  *       message.</p>
  *
+ * @throws {@link CloudDirectoryServiceException}
+ * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
  */
 export class UpdateLinkAttributesCommand extends $Command<

@@ -42,18 +42,40 @@ export interface DescribeDirectoryConfigsCommandOutput extends DescribeDirectory
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppStreamClient, DescribeDirectoryConfigsCommand } from "@aws-sdk/client-appstream"; // ES Modules import
- * // const { AppStreamClient, DescribeDirectoryConfigsCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
+ * import { AppStreamClient, DescribeDirectoryConfigsCommand } from '@aws-sdk/client-appstream'; // ES Modules import
+ * // const { AppStreamClient, DescribeDirectoryConfigsCommand } = require('@aws-sdk/client-appstream'); // CommonJS import
  * const client = new AppStreamClient(config);
  * const input = { // DescribeDirectoryConfigsRequest
  *   DirectoryNames: [ // DirectoryNameList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new DescribeDirectoryConfigsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeDirectoryConfigsResult
+ *   DirectoryConfigs: [ // DirectoryConfigList
+ *     { // DirectoryConfig
+ *       DirectoryName: 'STRING_VALUE', // required
+ *       OrganizationalUnitDistinguishedNames: [ // OrganizationalUnitDistinguishedNamesList
+ *         'STRING_VALUE',
+ *       ],
+ *       ServiceAccountCredentials: { // ServiceAccountCredentials
+ *         AccountName: 'STRING_VALUE', // required
+ *         AccountPassword: 'STRING_VALUE', // required
+ *       },
+ *       CreatedTime: new Date('TIMESTAMP'),
+ *       CertificateBasedAuthProperties: { // CertificateBasedAuthProperties
+ *         Status: 'DISABLED' || 'ENABLED' || 'ENABLED_NO_DIRECTORY_LOGIN_FALLBACK',
+ *         CertificateAuthorityArn: 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeDirectoryConfigsCommandInput - {@link DescribeDirectoryConfigsCommandInput}
@@ -65,6 +87,8 @@ export interface DescribeDirectoryConfigsCommandOutput extends DescribeDirectory
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link AppStreamServiceException}
+ * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
  */
 export class DescribeDirectoryConfigsCommand extends $Command<

@@ -36,14 +36,20 @@ export interface DeleteEventsByEventTypeCommandOutput extends DeleteEventsByEven
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FraudDetectorClient, DeleteEventsByEventTypeCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
- * // const { FraudDetectorClient, DeleteEventsByEventTypeCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
+ * import { FraudDetectorClient, DeleteEventsByEventTypeCommand } from '@aws-sdk/client-frauddetector'; // ES Modules import
+ * // const { FraudDetectorClient, DeleteEventsByEventTypeCommand } = require('@aws-sdk/client-frauddetector'); // CommonJS import
  * const client = new FraudDetectorClient(config);
  * const input = { // DeleteEventsByEventTypeRequest
- *   eventTypeName: "STRING_VALUE", // required
+ *   eventTypeName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteEventsByEventTypeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteEventsByEventTypeResult
+ *   eventTypeName: 'STRING_VALUE',
+ *   eventsDeletionStatus: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DeleteEventsByEventTypeCommandInput - {@link DeleteEventsByEventTypeCommandInput}
@@ -70,6 +76,8 @@ export interface DeleteEventsByEventTypeCommandOutput extends DeleteEventsByEven
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception indicating a specified value is not allowed.</p>
  *
+ * @throws {@link FraudDetectorServiceException}
+ * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
  */
 export class DeleteEventsByEventTypeCommand extends $Command<

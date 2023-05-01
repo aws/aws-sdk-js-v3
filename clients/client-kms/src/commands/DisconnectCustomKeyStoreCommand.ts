@@ -87,14 +87,17 @@ export interface DisconnectCustomKeyStoreCommandOutput extends DisconnectCustomK
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KMSClient, DisconnectCustomKeyStoreCommand } from "@aws-sdk/client-kms"; // ES Modules import
- * // const { KMSClient, DisconnectCustomKeyStoreCommand } = require("@aws-sdk/client-kms"); // CommonJS import
+ * import { KMSClient, DisconnectCustomKeyStoreCommand } from '@aws-sdk/client-kms'; // ES Modules import
+ * // const { KMSClient, DisconnectCustomKeyStoreCommand } = require('@aws-sdk/client-kms'); // CommonJS import
  * const client = new KMSClient(config);
  * const input = { // DisconnectCustomKeyStoreRequest
- *   CustomKeyStoreId: "STRING_VALUE", // required
+ *   CustomKeyStoreId: 'STRING_VALUE', // required
  * };
  * const command = new DisconnectCustomKeyStoreCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DisconnectCustomKeyStoreCommandInput - {@link DisconnectCustomKeyStoreCommandInput}
@@ -147,6 +150,8 @@ export interface DisconnectCustomKeyStoreCommandOutput extends DisconnectCustomK
  *  <p>The request was rejected because an internal exception occurred. The request can be
  *       retried.</p>
  *
+ * @throws {@link KMSServiceException}
+ * <p>Base exception class for all service exceptions from KMS service.</p>
  *
  * @example To disconnect a custom key store from its CloudHSM cluster
  * ```javascript

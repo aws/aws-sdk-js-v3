@@ -54,19 +54,24 @@ export interface AddCommunicationToCaseCommandOutput extends AddCommunicationToC
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SupportClient, AddCommunicationToCaseCommand } from "@aws-sdk/client-support"; // ES Modules import
- * // const { SupportClient, AddCommunicationToCaseCommand } = require("@aws-sdk/client-support"); // CommonJS import
+ * import { SupportClient, AddCommunicationToCaseCommand } from '@aws-sdk/client-support'; // ES Modules import
+ * // const { SupportClient, AddCommunicationToCaseCommand } = require('@aws-sdk/client-support'); // CommonJS import
  * const client = new SupportClient(config);
  * const input = { // AddCommunicationToCaseRequest
- *   caseId: "STRING_VALUE",
- *   communicationBody: "STRING_VALUE", // required
+ *   caseId: 'STRING_VALUE',
+ *   communicationBody: 'STRING_VALUE', // required
  *   ccEmailAddresses: [ // CcEmailAddressList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   attachmentSetId: "STRING_VALUE",
+ *   attachmentSetId: 'STRING_VALUE',
  * };
  * const command = new AddCommunicationToCaseCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AddCommunicationToCaseResponse
+ *   result: true || false,
+ * };
+ *
  * ```
  *
  * @param AddCommunicationToCaseCommandInput - {@link AddCommunicationToCaseCommandInput}
@@ -88,6 +93,8 @@ export interface AddCommunicationToCaseCommandOutput extends AddCommunicationToC
  * @throws {@link InternalServerError} (server fault)
  *  <p>An internal server error occurred.</p>
  *
+ * @throws {@link SupportServiceException}
+ * <p>Base exception class for all service exceptions from Support service.</p>
  *
  */
 export class AddCommunicationToCaseCommand extends $Command<

@@ -42,15 +42,27 @@ export interface ResolveRoomCommandOutput extends ResolveRoomResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AlexaForBusinessClient, ResolveRoomCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
- * // const { AlexaForBusinessClient, ResolveRoomCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
+ * import { AlexaForBusinessClient, ResolveRoomCommand } from '@aws-sdk/client-alexa-for-business'; // ES Modules import
+ * // const { AlexaForBusinessClient, ResolveRoomCommand } = require('@aws-sdk/client-alexa-for-business'); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
  * const input = { // ResolveRoomRequest
- *   UserId: "STRING_VALUE", // required
- *   SkillId: "STRING_VALUE", // required
+ *   UserId: 'STRING_VALUE', // required
+ *   SkillId: 'STRING_VALUE', // required
  * };
  * const command = new ResolveRoomCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ResolveRoomResponse
+ *   RoomArn: 'STRING_VALUE',
+ *   RoomName: 'STRING_VALUE',
+ *   RoomSkillParameters: [ // RoomSkillParameters
+ *     { // RoomSkillParameter
+ *       ParameterKey: 'STRING_VALUE', // required
+ *       ParameterValue: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ResolveRoomCommandInput - {@link ResolveRoomCommandInput}
@@ -62,6 +74,8 @@ export interface ResolveRoomCommandOutput extends ResolveRoomResponse, __Metadat
  * @throws {@link NotFoundException} (client fault)
  *  <p>The resource is not found.</p>
  *
+ * @throws {@link AlexaForBusinessServiceException}
+ * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  */
 export class ResolveRoomCommand extends $Command<

@@ -39,14 +39,19 @@ export interface DeleteDataflowEndpointGroupCommandOutput extends DataflowEndpoi
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GroundStationClient, DeleteDataflowEndpointGroupCommand } from "@aws-sdk/client-groundstation"; // ES Modules import
- * // const { GroundStationClient, DeleteDataflowEndpointGroupCommand } = require("@aws-sdk/client-groundstation"); // CommonJS import
+ * import { GroundStationClient, DeleteDataflowEndpointGroupCommand } from '@aws-sdk/client-groundstation'; // ES Modules import
+ * // const { GroundStationClient, DeleteDataflowEndpointGroupCommand } = require('@aws-sdk/client-groundstation'); // CommonJS import
  * const client = new GroundStationClient(config);
  * const input = { // DeleteDataflowEndpointGroupRequest
- *   dataflowEndpointGroupId: "STRING_VALUE", // required
+ *   dataflowEndpointGroupId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteDataflowEndpointGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DataflowEndpointGroupIdResponse
+ *   dataflowEndpointGroupId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DeleteDataflowEndpointGroupCommandInput - {@link DeleteDataflowEndpointGroupCommandInput}
@@ -64,6 +69,8 @@ export interface DeleteDataflowEndpointGroupCommandOutput extends DataflowEndpoi
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Resource was not found.</p>
  *
+ * @throws {@link GroundStationServiceException}
+ * <p>Base exception class for all service exceptions from GroundStation service.</p>
  *
  */
 export class DeleteDataflowEndpointGroupCommand extends $Command<

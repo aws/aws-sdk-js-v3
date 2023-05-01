@@ -36,14 +36,17 @@ export interface DeleteAssistantCommandOutput extends DeleteAssistantResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WisdomClient, DeleteAssistantCommand } from "@aws-sdk/client-wisdom"; // ES Modules import
- * // const { WisdomClient, DeleteAssistantCommand } = require("@aws-sdk/client-wisdom"); // CommonJS import
+ * import { WisdomClient, DeleteAssistantCommand } from '@aws-sdk/client-wisdom'; // ES Modules import
+ * // const { WisdomClient, DeleteAssistantCommand } = require('@aws-sdk/client-wisdom'); // CommonJS import
  * const client = new WisdomClient(config);
  * const input = { // DeleteAssistantRequest
- *   assistantId: "STRING_VALUE", // required
+ *   assistantId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteAssistantCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteAssistantCommandInput - {@link DeleteAssistantCommandInput}
@@ -61,6 +64,8 @@ export interface DeleteAssistantCommandOutput extends DeleteAssistantResponse, _
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by a service.</p>
  *
+ * @throws {@link WisdomServiceException}
+ * <p>Base exception class for all service exceptions from Wisdom service.</p>
  *
  */
 export class DeleteAssistantCommand extends $Command<

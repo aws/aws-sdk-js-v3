@@ -45,20 +45,31 @@ export interface CreateHostedConfigurationVersionCommandOutput extends HostedCon
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppConfigClient, CreateHostedConfigurationVersionCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
- * // const { AppConfigClient, CreateHostedConfigurationVersionCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import
+ * import { AppConfigClient, CreateHostedConfigurationVersionCommand } from '@aws-sdk/client-appconfig'; // ES Modules import
+ * // const { AppConfigClient, CreateHostedConfigurationVersionCommand } = require('@aws-sdk/client-appconfig'); // CommonJS import
  * const client = new AppConfigClient(config);
  * const input = { // CreateHostedConfigurationVersionRequest
- *   ApplicationId: "STRING_VALUE", // required
- *   ConfigurationProfileId: "STRING_VALUE", // required
- *   Description: "STRING_VALUE",
- *   Content: "BLOB_VALUE", // required
- *   ContentType: "STRING_VALUE", // required
- *   LatestVersionNumber: Number("int"),
- *   VersionLabel: "STRING_VALUE",
+ *   ApplicationId: 'STRING_VALUE', // required
+ *   ConfigurationProfileId: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE',
+ *   Content: 'BLOB_VALUE', // required
+ *   ContentType: 'STRING_VALUE', // required
+ *   LatestVersionNumber: Number('int'),
+ *   VersionLabel: 'STRING_VALUE',
  * };
  * const command = new CreateHostedConfigurationVersionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // HostedConfigurationVersion
+ *   ApplicationId: 'STRING_VALUE',
+ *   ConfigurationProfileId: 'STRING_VALUE',
+ *   VersionNumber: Number('int'),
+ *   Description: 'STRING_VALUE',
+ *   Content: 'BLOB_VALUE',
+ *   ContentType: 'STRING_VALUE',
+ *   VersionLabel: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateHostedConfigurationVersionCommandInput - {@link CreateHostedConfigurationVersionCommandInput}
@@ -86,6 +97,8 @@ export interface CreateHostedConfigurationVersionCommandOutput extends HostedCon
  * @throws {@link ServiceQuotaExceededException} (client fault)
  *  <p>The number of hosted configuration versions exceeds the limit for the AppConfig hosted configuration store. Delete one or more versions and try again.</p>
  *
+ * @throws {@link AppConfigServiceException}
+ * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
  * @example To create a hosted configuration version
  * ```javascript

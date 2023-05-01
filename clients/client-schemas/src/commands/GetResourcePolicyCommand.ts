@@ -36,14 +36,20 @@ export interface GetResourcePolicyCommandOutput extends GetResourcePolicyRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SchemasClient, GetResourcePolicyCommand } from "@aws-sdk/client-schemas"; // ES Modules import
- * // const { SchemasClient, GetResourcePolicyCommand } = require("@aws-sdk/client-schemas"); // CommonJS import
+ * import { SchemasClient, GetResourcePolicyCommand } from '@aws-sdk/client-schemas'; // ES Modules import
+ * // const { SchemasClient, GetResourcePolicyCommand } = require('@aws-sdk/client-schemas'); // CommonJS import
  * const client = new SchemasClient(config);
  * const input = { // GetResourcePolicyRequest
- *   RegistryName: "STRING_VALUE",
+ *   RegistryName: 'STRING_VALUE',
  * };
  * const command = new GetResourcePolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetResourcePolicyResponse
+ *   Policy: 'STRING_VALUE',
+ *   RevisionId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetResourcePolicyCommandInput - {@link GetResourcePolicyCommandInput}
@@ -64,6 +70,8 @@ export interface GetResourcePolicyCommandOutput extends GetResourcePolicyRespons
  *
  * @throws {@link UnauthorizedException} (client fault)
  *
+ * @throws {@link SchemasServiceException}
+ * <p>Base exception class for all service exceptions from Schemas service.</p>
  *
  */
 export class GetResourcePolicyCommand extends $Command<

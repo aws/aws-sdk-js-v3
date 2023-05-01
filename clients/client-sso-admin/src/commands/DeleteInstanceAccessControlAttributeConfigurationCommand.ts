@@ -48,14 +48,17 @@ export interface DeleteInstanceAccessControlAttributeConfigurationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSOAdminClient, DeleteInstanceAccessControlAttributeConfigurationCommand } from "@aws-sdk/client-sso-admin"; // ES Modules import
- * // const { SSOAdminClient, DeleteInstanceAccessControlAttributeConfigurationCommand } = require("@aws-sdk/client-sso-admin"); // CommonJS import
+ * import { SSOAdminClient, DeleteInstanceAccessControlAttributeConfigurationCommand } from '@aws-sdk/client-sso-admin'; // ES Modules import
+ * // const { SSOAdminClient, DeleteInstanceAccessControlAttributeConfigurationCommand } = require('@aws-sdk/client-sso-admin'); // CommonJS import
  * const client = new SSOAdminClient(config);
  * const input = { // DeleteInstanceAccessControlAttributeConfigurationRequest
- *   InstanceArn: "STRING_VALUE", // required
+ *   InstanceArn: 'STRING_VALUE', // required
  * };
  * const command = new DeleteInstanceAccessControlAttributeConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteInstanceAccessControlAttributeConfigurationCommandInput - {@link DeleteInstanceAccessControlAttributeConfigurationCommandInput}
@@ -87,6 +90,8 @@ export interface DeleteInstanceAccessControlAttributeConfigurationCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The request failed because it contains a syntax error.</p>
  *
+ * @throws {@link SSOAdminServiceException}
+ * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
  */
 export class DeleteInstanceAccessControlAttributeConfigurationCommand extends $Command<

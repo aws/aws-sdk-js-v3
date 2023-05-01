@@ -59,17 +59,56 @@ export interface DescribeStreamCommandOutput extends DescribeStreamOutput, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KinesisClient, DescribeStreamCommand } from "@aws-sdk/client-kinesis"; // ES Modules import
- * // const { KinesisClient, DescribeStreamCommand } = require("@aws-sdk/client-kinesis"); // CommonJS import
+ * import { KinesisClient, DescribeStreamCommand } from '@aws-sdk/client-kinesis'; // ES Modules import
+ * // const { KinesisClient, DescribeStreamCommand } = require('@aws-sdk/client-kinesis'); // CommonJS import
  * const client = new KinesisClient(config);
  * const input = { // DescribeStreamInput
- *   StreamName: "STRING_VALUE",
- *   Limit: Number("int"),
- *   ExclusiveStartShardId: "STRING_VALUE",
- *   StreamARN: "STRING_VALUE",
+ *   StreamName: 'STRING_VALUE',
+ *   Limit: Number('int'),
+ *   ExclusiveStartShardId: 'STRING_VALUE',
+ *   StreamARN: 'STRING_VALUE',
  * };
  * const command = new DescribeStreamCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeStreamOutput
+ *   StreamDescription: { // StreamDescription
+ *     StreamName: 'STRING_VALUE', // required
+ *     StreamARN: 'STRING_VALUE', // required
+ *     StreamStatus: 'CREATING' || 'DELETING' || 'ACTIVE' || 'UPDATING', // required
+ *     StreamModeDetails: { // StreamModeDetails
+ *       StreamMode: 'PROVISIONED' || 'ON_DEMAND', // required
+ *     },
+ *     Shards: [ // ShardList // required
+ *       { // Shard
+ *         ShardId: 'STRING_VALUE', // required
+ *         ParentShardId: 'STRING_VALUE',
+ *         AdjacentParentShardId: 'STRING_VALUE',
+ *         HashKeyRange: { // HashKeyRange
+ *           StartingHashKey: 'STRING_VALUE', // required
+ *           EndingHashKey: 'STRING_VALUE', // required
+ *         },
+ *         SequenceNumberRange: { // SequenceNumberRange
+ *           StartingSequenceNumber: 'STRING_VALUE', // required
+ *           EndingSequenceNumber: 'STRING_VALUE',
+ *         },
+ *       },
+ *     ],
+ *     HasMoreShards: true || false, // required
+ *     RetentionPeriodHours: Number('int'), // required
+ *     StreamCreationTimestamp: new Date('TIMESTAMP'), // required
+ *     EnhancedMonitoring: [ // EnhancedMonitoringList // required
+ *       { // EnhancedMetrics
+ *         ShardLevelMetrics: [ // MetricsNameList
+ *           'IncomingBytes' || 'IncomingRecords' || 'OutgoingBytes' || 'OutgoingRecords' || 'WriteProvisionedThroughputExceeded' || 'ReadProvisionedThroughputExceeded' || 'IteratorAgeMilliseconds' || 'ALL',
+ *         ],
+ *       },
+ *     ],
+ *     EncryptionType: 'NONE' || 'KMS',
+ *     KeyId: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeStreamCommandInput - {@link DescribeStreamCommandInput}
@@ -94,6 +133,8 @@ export interface DescribeStreamCommandOutput extends DescribeStreamOutput, __Met
  *  <p>The requested resource could not be found. The stream might not be specified
  *             correctly.</p>
  *
+ * @throws {@link KinesisServiceException}
+ * <p>Base exception class for all service exceptions from Kinesis service.</p>
  *
  */
 export class DescribeStreamCommand extends $Command<

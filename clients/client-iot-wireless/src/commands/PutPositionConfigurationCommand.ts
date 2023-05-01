@@ -42,22 +42,25 @@ export interface PutPositionConfigurationCommandOutput extends PutPositionConfig
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTWirelessClient, PutPositionConfigurationCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
- * // const { IoTWirelessClient, PutPositionConfigurationCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
+ * import { IoTWirelessClient, PutPositionConfigurationCommand } from '@aws-sdk/client-iot-wireless'; // ES Modules import
+ * // const { IoTWirelessClient, PutPositionConfigurationCommand } = require('@aws-sdk/client-iot-wireless'); // CommonJS import
  * const client = new IoTWirelessClient(config);
  * const input = { // PutPositionConfigurationRequest
- *   ResourceIdentifier: "STRING_VALUE", // required
- *   ResourceType: "WirelessDevice" || "WirelessGateway", // required
+ *   ResourceIdentifier: 'STRING_VALUE', // required
+ *   ResourceType: 'WirelessDevice' || 'WirelessGateway', // required
  *   Solvers: { // PositionSolverConfigurations
  *     SemtechGnss: { // SemtechGnssConfiguration
- *       Status: "Enabled" || "Disabled", // required
- *       Fec: "ROSE" || "NONE", // required
+ *       Status: 'Enabled' || 'Disabled', // required
+ *       Fec: 'ROSE' || 'NONE', // required
  *     },
  *   },
- *   Destination: "STRING_VALUE",
+ *   Destination: 'STRING_VALUE',
  * };
  * const command = new PutPositionConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutPositionConfigurationCommandInput - {@link PutPositionConfigurationCommandInput}
@@ -81,6 +84,8 @@ export interface PutPositionConfigurationCommandOutput extends PutPositionConfig
  * @throws {@link ValidationException} (client fault)
  *  <p>The input did not meet the specified constraints.</p>
  *
+ * @throws {@link IoTWirelessServiceException}
+ * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
  */
 export class PutPositionConfigurationCommand extends $Command<

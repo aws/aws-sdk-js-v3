@@ -40,20 +40,25 @@ export interface CreateIdentityProviderCommandOutput extends CreateIdentityProvi
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkSpacesWebClient, CreateIdentityProviderCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
- * // const { WorkSpacesWebClient, CreateIdentityProviderCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
+ * import { WorkSpacesWebClient, CreateIdentityProviderCommand } from '@aws-sdk/client-workspaces-web'; // ES Modules import
+ * // const { WorkSpacesWebClient, CreateIdentityProviderCommand } = require('@aws-sdk/client-workspaces-web'); // CommonJS import
  * const client = new WorkSpacesWebClient(config);
  * const input = { // CreateIdentityProviderRequest
- *   portalArn: "STRING_VALUE", // required
- *   identityProviderName: "STRING_VALUE", // required
- *   identityProviderType: "STRING_VALUE", // required
+ *   portalArn: 'STRING_VALUE', // required
+ *   identityProviderName: 'STRING_VALUE', // required
+ *   identityProviderType: 'STRING_VALUE', // required
  *   identityProviderDetails: { // IdentityProviderDetails // required
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
- *   clientToken: "STRING_VALUE",
+ *   clientToken: 'STRING_VALUE',
  * };
  * const command = new CreateIdentityProviderCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateIdentityProviderResponse
+ *   identityProviderArn: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param CreateIdentityProviderCommandInput - {@link CreateIdentityProviderCommandInput}
@@ -83,6 +88,8 @@ export interface CreateIdentityProviderCommandOutput extends CreateIdentityProvi
  * @throws {@link ValidationException} (client fault)
  *  <p>There is a validation error.</p>
  *
+ * @throws {@link WorkSpacesWebServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
  */
 export class CreateIdentityProviderCommand extends $Command<

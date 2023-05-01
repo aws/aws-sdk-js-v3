@@ -36,14 +36,19 @@ export interface CancelContactCommandOutput extends ContactIdResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GroundStationClient, CancelContactCommand } from "@aws-sdk/client-groundstation"; // ES Modules import
- * // const { GroundStationClient, CancelContactCommand } = require("@aws-sdk/client-groundstation"); // CommonJS import
+ * import { GroundStationClient, CancelContactCommand } from '@aws-sdk/client-groundstation'; // ES Modules import
+ * // const { GroundStationClient, CancelContactCommand } = require('@aws-sdk/client-groundstation'); // CommonJS import
  * const client = new GroundStationClient(config);
  * const input = { // CancelContactRequest
- *   contactId: "STRING_VALUE", // required
+ *   contactId: 'STRING_VALUE', // required
  * };
  * const command = new CancelContactCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ContactIdResponse
+ *   contactId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CancelContactCommandInput - {@link CancelContactCommandInput}
@@ -61,6 +66,8 @@ export interface CancelContactCommandOutput extends ContactIdResponse, __Metadat
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Resource was not found.</p>
  *
+ * @throws {@link GroundStationServiceException}
+ * <p>Base exception class for all service exceptions from GroundStation service.</p>
  *
  */
 export class CancelContactCommand extends $Command<

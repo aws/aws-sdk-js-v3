@@ -42,14 +42,17 @@ export interface DeletePhoneNumberCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeSDKVoiceClient, DeletePhoneNumberCommand } from "@aws-sdk/client-chime-sdk-voice"; // ES Modules import
- * // const { ChimeSDKVoiceClient, DeletePhoneNumberCommand } = require("@aws-sdk/client-chime-sdk-voice"); // CommonJS import
+ * import { ChimeSDKVoiceClient, DeletePhoneNumberCommand } from '@aws-sdk/client-chime-sdk-voice'; // ES Modules import
+ * // const { ChimeSDKVoiceClient, DeletePhoneNumberCommand } = require('@aws-sdk/client-chime-sdk-voice'); // CommonJS import
  * const client = new ChimeSDKVoiceClient(config);
  * const input = { // DeletePhoneNumberRequest
- *   PhoneNumberId: "STRING_VALUE", // required
+ *   PhoneNumberId: 'STRING_VALUE', // required
  * };
  * const command = new DeletePhoneNumberCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeletePhoneNumberCommandInput - {@link DeletePhoneNumberCommandInput}
@@ -79,6 +82,8 @@ export interface DeletePhoneNumberCommandOutput extends __MetadataBearer {}
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client isn't authorized to request a resource.</p>
  *
+ * @throws {@link ChimeSDKVoiceServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
  */
 export class DeletePhoneNumberCommand extends $Command<

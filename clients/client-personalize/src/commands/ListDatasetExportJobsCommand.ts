@@ -41,16 +41,31 @@ export interface ListDatasetExportJobsCommandOutput extends ListDatasetExportJob
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PersonalizeClient, ListDatasetExportJobsCommand } from "@aws-sdk/client-personalize"; // ES Modules import
- * // const { PersonalizeClient, ListDatasetExportJobsCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
+ * import { PersonalizeClient, ListDatasetExportJobsCommand } from '@aws-sdk/client-personalize'; // ES Modules import
+ * // const { PersonalizeClient, ListDatasetExportJobsCommand } = require('@aws-sdk/client-personalize'); // CommonJS import
  * const client = new PersonalizeClient(config);
  * const input = { // ListDatasetExportJobsRequest
- *   datasetArn: "STRING_VALUE",
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   datasetArn: 'STRING_VALUE',
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new ListDatasetExportJobsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListDatasetExportJobsResponse
+ *   datasetExportJobs: [ // DatasetExportJobs
+ *     { // DatasetExportJobSummary
+ *       datasetExportJobArn: 'STRING_VALUE',
+ *       jobName: 'STRING_VALUE',
+ *       status: 'STRING_VALUE',
+ *       creationDateTime: new Date('TIMESTAMP'),
+ *       lastUpdatedDateTime: new Date('TIMESTAMP'),
+ *       failureReason: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListDatasetExportJobsCommandInput - {@link ListDatasetExportJobsCommandInput}
@@ -65,6 +80,8 @@ export interface ListDatasetExportJobsCommandOutput extends ListDatasetExportJob
  * @throws {@link InvalidNextTokenException} (client fault)
  *  <p>The token is not valid.</p>
  *
+ * @throws {@link PersonalizeServiceException}
+ * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
  */
 export class ListDatasetExportJobsCommand extends $Command<

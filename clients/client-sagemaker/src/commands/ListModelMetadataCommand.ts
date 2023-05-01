@@ -37,23 +37,37 @@ export interface ListModelMetadataCommandOutput extends ListModelMetadataRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, ListModelMetadataCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, ListModelMetadataCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, ListModelMetadataCommand } from '@aws-sdk/client-sagemaker'; // ES Modules import
+ * // const { SageMakerClient, ListModelMetadataCommand } = require('@aws-sdk/client-sagemaker'); // CommonJS import
  * const client = new SageMakerClient(config);
  * const input = { // ListModelMetadataRequest
  *   SearchExpression: { // ModelMetadataSearchExpression
  *     Filters: [ // ModelMetadataFilters
  *       { // ModelMetadataFilter
- *         Name: "Domain" || "Framework" || "Task" || "FrameworkVersion", // required
- *         Value: "STRING_VALUE", // required
+ *         Name: 'Domain' || 'Framework' || 'Task' || 'FrameworkVersion', // required
+ *         Value: 'STRING_VALUE', // required
  *       },
  *     ],
  *   },
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListModelMetadataCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListModelMetadataResponse
+ *   ModelMetadataSummaries: [ // ModelMetadataSummaries // required
+ *     { // ModelMetadataSummary
+ *       Domain: 'STRING_VALUE', // required
+ *       Framework: 'STRING_VALUE', // required
+ *       Task: 'STRING_VALUE', // required
+ *       Model: 'STRING_VALUE', // required
+ *       FrameworkVersion: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListModelMetadataCommandInput - {@link ListModelMetadataCommandInput}
@@ -62,6 +76,8 @@ export interface ListModelMetadataCommandOutput extends ListModelMetadataRespons
  * @see {@link ListModelMetadataCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class ListModelMetadataCommand extends $Command<

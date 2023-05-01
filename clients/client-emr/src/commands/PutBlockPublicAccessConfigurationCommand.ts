@@ -44,41 +44,44 @@ export interface PutBlockPublicAccessConfigurationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EMRClient, PutBlockPublicAccessConfigurationCommand } from "@aws-sdk/client-emr"; // ES Modules import
- * // const { EMRClient, PutBlockPublicAccessConfigurationCommand } = require("@aws-sdk/client-emr"); // CommonJS import
+ * import { EMRClient, PutBlockPublicAccessConfigurationCommand } from '@aws-sdk/client-emr'; // ES Modules import
+ * // const { EMRClient, PutBlockPublicAccessConfigurationCommand } = require('@aws-sdk/client-emr'); // CommonJS import
  * const client = new EMRClient(config);
  * const input = { // PutBlockPublicAccessConfigurationInput
  *   BlockPublicAccessConfiguration: { // BlockPublicAccessConfiguration
  *     BlockPublicSecurityGroupRules: true || false, // required
  *     PermittedPublicSecurityGroupRuleRanges: [ // PortRanges
  *       { // PortRange
- *         MinRange: Number("int"), // required
- *         MaxRange: Number("int"),
+ *         MinRange: Number('int'), // required
+ *         MaxRange: Number('int'),
  *       },
  *     ],
- *     Classification: "STRING_VALUE",
+ *     Classification: 'STRING_VALUE',
  *     Configurations: [ // ConfigurationList
  *       { // Configuration
- *         Classification: "STRING_VALUE",
+ *         Classification: 'STRING_VALUE',
  *         Configurations: [
  *           {
- *             Classification: "STRING_VALUE",
- *             Configurations: "<ConfigurationList>",
+ *             Classification: 'STRING_VALUE',
+ *             Configurations: '<ConfigurationList>',
  *             Properties: { // StringMap
- *               "<keys>": "STRING_VALUE",
+ *               '<keys>': 'STRING_VALUE',
  *             },
  *           },
  *         ],
  *         Properties: {
- *           "<keys>": "STRING_VALUE",
+ *           '<keys>': 'STRING_VALUE',
  *         },
  *       },
  *     ],
- *     Properties: "<StringMap>",
+ *     Properties: '<StringMap>',
  *   },
  * };
  * const command = new PutBlockPublicAccessConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutBlockPublicAccessConfigurationCommandInput - {@link PutBlockPublicAccessConfigurationCommandInput}
@@ -94,6 +97,8 @@ export interface PutBlockPublicAccessConfigurationCommandOutput
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception occurs when there is something wrong with user input.</p>
  *
+ * @throws {@link EMRServiceException}
+ * <p>Base exception class for all service exceptions from EMR service.</p>
  *
  */
 export class PutBlockPublicAccessConfigurationCommand extends $Command<

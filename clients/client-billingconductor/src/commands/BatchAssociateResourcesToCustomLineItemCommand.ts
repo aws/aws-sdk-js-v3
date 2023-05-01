@@ -47,21 +47,43 @@ export interface BatchAssociateResourcesToCustomLineItemCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BillingconductorClient, BatchAssociateResourcesToCustomLineItemCommand } from "@aws-sdk/client-billingconductor"; // ES Modules import
- * // const { BillingconductorClient, BatchAssociateResourcesToCustomLineItemCommand } = require("@aws-sdk/client-billingconductor"); // CommonJS import
+ * import { BillingconductorClient, BatchAssociateResourcesToCustomLineItemCommand } from '@aws-sdk/client-billingconductor'; // ES Modules import
+ * // const { BillingconductorClient, BatchAssociateResourcesToCustomLineItemCommand } = require('@aws-sdk/client-billingconductor'); // CommonJS import
  * const client = new BillingconductorClient(config);
  * const input = { // BatchAssociateResourcesToCustomLineItemInput
- *   TargetArn: "STRING_VALUE", // required
+ *   TargetArn: 'STRING_VALUE', // required
  *   ResourceArns: [ // CustomLineItemBatchAssociationsList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   BillingPeriodRange: { // CustomLineItemBillingPeriodRange
- *     InclusiveStartBillingPeriod: "STRING_VALUE", // required
- *     ExclusiveEndBillingPeriod: "STRING_VALUE",
+ *     InclusiveStartBillingPeriod: 'STRING_VALUE', // required
+ *     ExclusiveEndBillingPeriod: 'STRING_VALUE',
  *   },
  * };
  * const command = new BatchAssociateResourcesToCustomLineItemCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BatchAssociateResourcesToCustomLineItemOutput
+ *   SuccessfullyAssociatedResources: [ // AssociateResourcesResponseList
+ *     { // AssociateResourceResponseElement
+ *       Arn: 'STRING_VALUE',
+ *       Error: { // AssociateResourceError
+ *         Message: 'STRING_VALUE',
+ *         Reason: 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ *   FailedAssociatedResources: [
+ *     {
+ *       Arn: 'STRING_VALUE',
+ *       Error: {
+ *         Message: 'STRING_VALUE',
+ *         Reason: 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param BatchAssociateResourcesToCustomLineItemCommandInput - {@link BatchAssociateResourcesToCustomLineItemCommandInput}
@@ -97,6 +119,8 @@ export interface BatchAssociateResourcesToCustomLineItemCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The input doesn't match with the constraints specified by Amazon Web Services services.</p>
  *
+ * @throws {@link BillingconductorServiceException}
+ * <p>Base exception class for all service exceptions from Billingconductor service.</p>
  *
  */
 export class BatchAssociateResourcesToCustomLineItemCommand extends $Command<

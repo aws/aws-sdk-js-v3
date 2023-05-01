@@ -38,22 +38,27 @@ export interface CreateStudioLifecycleConfigCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, CreateStudioLifecycleConfigCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, CreateStudioLifecycleConfigCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, CreateStudioLifecycleConfigCommand } from '@aws-sdk/client-sagemaker'; // ES Modules import
+ * // const { SageMakerClient, CreateStudioLifecycleConfigCommand } = require('@aws-sdk/client-sagemaker'); // CommonJS import
  * const client = new SageMakerClient(config);
  * const input = { // CreateStudioLifecycleConfigRequest
- *   StudioLifecycleConfigName: "STRING_VALUE", // required
- *   StudioLifecycleConfigContent: "STRING_VALUE", // required
- *   StudioLifecycleConfigAppType: "JupyterServer" || "KernelGateway", // required
+ *   StudioLifecycleConfigName: 'STRING_VALUE', // required
+ *   StudioLifecycleConfigContent: 'STRING_VALUE', // required
+ *   StudioLifecycleConfigAppType: 'JupyterServer' || 'KernelGateway', // required
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreateStudioLifecycleConfigCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateStudioLifecycleConfigResponse
+ *   StudioLifecycleConfigArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateStudioLifecycleConfigCommandInput - {@link CreateStudioLifecycleConfigCommandInput}
@@ -65,6 +70,8 @@ export interface CreateStudioLifecycleConfigCommandOutput
  * @throws {@link ResourceInUse} (client fault)
  *  <p>Resource being accessed is in use.</p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class CreateStudioLifecycleConfigCommand extends $Command<

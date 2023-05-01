@@ -38,28 +38,42 @@ export interface UpdateRecordsCommandOutput extends UpdateRecordsResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CognitoSyncClient, UpdateRecordsCommand } from "@aws-sdk/client-cognito-sync"; // ES Modules import
- * // const { CognitoSyncClient, UpdateRecordsCommand } = require("@aws-sdk/client-cognito-sync"); // CommonJS import
+ * import { CognitoSyncClient, UpdateRecordsCommand } from '@aws-sdk/client-cognito-sync'; // ES Modules import
+ * // const { CognitoSyncClient, UpdateRecordsCommand } = require('@aws-sdk/client-cognito-sync'); // CommonJS import
  * const client = new CognitoSyncClient(config);
  * const input = { // UpdateRecordsRequest
- *   IdentityPoolId: "STRING_VALUE", // required
- *   IdentityId: "STRING_VALUE", // required
- *   DatasetName: "STRING_VALUE", // required
- *   DeviceId: "STRING_VALUE",
+ *   IdentityPoolId: 'STRING_VALUE', // required
+ *   IdentityId: 'STRING_VALUE', // required
+ *   DatasetName: 'STRING_VALUE', // required
+ *   DeviceId: 'STRING_VALUE',
  *   RecordPatches: [ // RecordPatchList
  *     { // RecordPatch
- *       Op: "STRING_VALUE", // required
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE",
- *       SyncCount: Number("long"), // required
- *       DeviceLastModifiedDate: new Date("TIMESTAMP"),
+ *       Op: 'STRING_VALUE', // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE',
+ *       SyncCount: Number('long'), // required
+ *       DeviceLastModifiedDate: new Date('TIMESTAMP'),
  *     },
  *   ],
- *   SyncSessionToken: "STRING_VALUE", // required
- *   ClientContext: "STRING_VALUE",
+ *   SyncSessionToken: 'STRING_VALUE', // required
+ *   ClientContext: 'STRING_VALUE',
  * };
  * const command = new UpdateRecordsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateRecordsResponse
+ *   Records: [ // RecordList
+ *     { // Record
+ *       Key: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
+ *       SyncCount: Number('long'),
+ *       LastModifiedDate: new Date('TIMESTAMP'),
+ *       LastModifiedBy: 'STRING_VALUE',
+ *       DeviceLastModifiedDate: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param UpdateRecordsCommandInput - {@link UpdateRecordsCommandInput}
@@ -102,6 +116,8 @@ export interface UpdateRecordsCommandOutput extends UpdateRecordsResponse, __Met
  *  Thrown if the request is
  *       throttled.
  *
+ * @throws {@link CognitoSyncServiceException}
+ * <p>Base exception class for all service exceptions from CognitoSync service.</p>
  *
  */
 export class UpdateRecordsCommand extends $Command<

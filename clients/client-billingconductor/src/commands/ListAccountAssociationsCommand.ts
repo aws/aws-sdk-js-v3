@@ -43,22 +43,35 @@ export interface ListAccountAssociationsCommandOutput extends ListAccountAssocia
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BillingconductorClient, ListAccountAssociationsCommand } from "@aws-sdk/client-billingconductor"; // ES Modules import
- * // const { BillingconductorClient, ListAccountAssociationsCommand } = require("@aws-sdk/client-billingconductor"); // CommonJS import
+ * import { BillingconductorClient, ListAccountAssociationsCommand } from '@aws-sdk/client-billingconductor'; // ES Modules import
+ * // const { BillingconductorClient, ListAccountAssociationsCommand } = require('@aws-sdk/client-billingconductor'); // CommonJS import
  * const client = new BillingconductorClient(config);
  * const input = { // ListAccountAssociationsInput
- *   BillingPeriod: "STRING_VALUE",
+ *   BillingPeriod: 'STRING_VALUE',
  *   Filters: { // ListAccountAssociationsFilter
- *     Association: "STRING_VALUE",
- *     AccountId: "STRING_VALUE",
+ *     Association: 'STRING_VALUE',
+ *     AccountId: 'STRING_VALUE',
  *     AccountIds: [ // AccountIdFilterList
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *   },
- *   NextToken: "STRING_VALUE",
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListAccountAssociationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListAccountAssociationsOutput
+ *   LinkedAccounts: [ // AccountAssociationsList
+ *     { // AccountAssociationsListElement
+ *       AccountId: 'STRING_VALUE',
+ *       BillingGroupArn: 'STRING_VALUE',
+ *       AccountName: 'STRING_VALUE',
+ *       AccountEmail: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListAccountAssociationsCommandInput - {@link ListAccountAssociationsCommandInput}
@@ -86,6 +99,8 @@ export interface ListAccountAssociationsCommandOutput extends ListAccountAssocia
  * @throws {@link ValidationException} (client fault)
  *  <p>The input doesn't match with the constraints specified by Amazon Web Services services.</p>
  *
+ * @throws {@link BillingconductorServiceException}
+ * <p>Base exception class for all service exceptions from Billingconductor service.</p>
  *
  */
 export class ListAccountAssociationsCommand extends $Command<

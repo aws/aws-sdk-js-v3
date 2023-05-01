@@ -42,12 +42,19 @@ export interface DescribeCrossAccountAccessRoleCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { InspectorClient, DescribeCrossAccountAccessRoleCommand } from "@aws-sdk/client-inspector"; // ES Modules import
- * // const { InspectorClient, DescribeCrossAccountAccessRoleCommand } = require("@aws-sdk/client-inspector"); // CommonJS import
+ * import { InspectorClient, DescribeCrossAccountAccessRoleCommand } from '@aws-sdk/client-inspector'; // ES Modules import
+ * // const { InspectorClient, DescribeCrossAccountAccessRoleCommand } = require('@aws-sdk/client-inspector'); // CommonJS import
  * const client = new InspectorClient(config);
  * const input = {};
  * const command = new DescribeCrossAccountAccessRoleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeCrossAccountAccessRoleResponse
+ *   roleArn: 'STRING_VALUE', // required
+ *   valid: true || false, // required
+ *   registeredAt: new Date('TIMESTAMP'), // required
+ * };
+ *
  * ```
  *
  * @param DescribeCrossAccountAccessRoleCommandInput - {@link DescribeCrossAccountAccessRoleCommandInput}
@@ -59,6 +66,8 @@ export interface DescribeCrossAccountAccessRoleCommandOutput
  * @throws {@link InternalException} (server fault)
  *  <p>Internal server error.</p>
  *
+ * @throws {@link InspectorServiceException}
+ * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
  * @example Describte cross account access role
  * ```javascript

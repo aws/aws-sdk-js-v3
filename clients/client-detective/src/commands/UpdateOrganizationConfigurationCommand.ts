@@ -41,15 +41,18 @@ export interface UpdateOrganizationConfigurationCommandOutput extends __Metadata
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DetectiveClient, UpdateOrganizationConfigurationCommand } from "@aws-sdk/client-detective"; // ES Modules import
- * // const { DetectiveClient, UpdateOrganizationConfigurationCommand } = require("@aws-sdk/client-detective"); // CommonJS import
+ * import { DetectiveClient, UpdateOrganizationConfigurationCommand } from '@aws-sdk/client-detective'; // ES Modules import
+ * // const { DetectiveClient, UpdateOrganizationConfigurationCommand } = require('@aws-sdk/client-detective'); // CommonJS import
  * const client = new DetectiveClient(config);
  * const input = { // UpdateOrganizationConfigurationRequest
- *   GraphArn: "STRING_VALUE", // required
+ *   GraphArn: 'STRING_VALUE', // required
  *   AutoEnable: true || false,
  * };
  * const command = new UpdateOrganizationConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateOrganizationConfigurationCommandInput - {@link UpdateOrganizationConfigurationCommandInput}
@@ -72,6 +75,8 @@ export interface UpdateOrganizationConfigurationCommandOutput extends __Metadata
  * @throws {@link ValidationException} (client fault)
  *  <p>The request parameters are invalid.</p>
  *
+ * @throws {@link DetectiveServiceException}
+ * <p>Base exception class for all service exceptions from Detective service.</p>
  *
  */
 export class UpdateOrganizationConfigurationCommand extends $Command<

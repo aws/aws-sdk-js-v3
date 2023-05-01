@@ -61,17 +61,40 @@ export interface ListLaunchPathsCommandOutput extends ListLaunchPathsOutput, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ServiceCatalogClient, ListLaunchPathsCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
- * // const { ServiceCatalogClient, ListLaunchPathsCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
+ * import { ServiceCatalogClient, ListLaunchPathsCommand } from '@aws-sdk/client-service-catalog'; // ES Modules import
+ * // const { ServiceCatalogClient, ListLaunchPathsCommand } = require('@aws-sdk/client-service-catalog'); // CommonJS import
  * const client = new ServiceCatalogClient(config);
  * const input = { // ListLaunchPathsInput
- *   AcceptLanguage: "STRING_VALUE",
- *   ProductId: "STRING_VALUE", // required
- *   PageSize: Number("int"),
- *   PageToken: "STRING_VALUE",
+ *   AcceptLanguage: 'STRING_VALUE',
+ *   ProductId: 'STRING_VALUE', // required
+ *   PageSize: Number('int'),
+ *   PageToken: 'STRING_VALUE',
  * };
  * const command = new ListLaunchPathsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListLaunchPathsOutput
+ *   LaunchPathSummaries: [ // LaunchPathSummaries
+ *     { // LaunchPathSummary
+ *       Id: 'STRING_VALUE',
+ *       ConstraintSummaries: [ // ConstraintSummaries
+ *         { // ConstraintSummary
+ *           Type: 'STRING_VALUE',
+ *           Description: 'STRING_VALUE',
+ *         },
+ *       ],
+ *       Tags: [ // Tags
+ *         { // Tag
+ *           Key: 'STRING_VALUE', // required
+ *           Value: 'STRING_VALUE', // required
+ *         },
+ *       ],
+ *       Name: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextPageToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListLaunchPathsCommandInput - {@link ListLaunchPathsCommandInput}
@@ -86,6 +109,8 @@ export interface ListLaunchPathsCommandOutput extends ListLaunchPathsOutput, __M
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link ServiceCatalogServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
  */
 export class ListLaunchPathsCommand extends $Command<

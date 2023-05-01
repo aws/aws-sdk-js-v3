@@ -40,15 +40,18 @@ export interface DeleteTableCommandOutput extends DeleteTableResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KeyspacesClient, DeleteTableCommand } from "@aws-sdk/client-keyspaces"; // ES Modules import
- * // const { KeyspacesClient, DeleteTableCommand } = require("@aws-sdk/client-keyspaces"); // CommonJS import
+ * import { KeyspacesClient, DeleteTableCommand } from '@aws-sdk/client-keyspaces'; // ES Modules import
+ * // const { KeyspacesClient, DeleteTableCommand } = require('@aws-sdk/client-keyspaces'); // CommonJS import
  * const client = new KeyspacesClient(config);
  * const input = { // DeleteTableRequest
- *   keyspaceName: "STRING_VALUE", // required
- *   tableName: "STRING_VALUE", // required
+ *   keyspaceName: 'STRING_VALUE', // required
+ *   tableName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteTableCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteTableCommandInput - {@link DeleteTableCommandInput}
@@ -78,6 +81,8 @@ export interface DeleteTableCommandOutput extends DeleteTableResponse, __Metadat
  * @throws {@link ValidationException} (client fault)
  *  <p>The operation failed due to an invalid or malformed request.</p>
  *
+ * @throws {@link KeyspacesServiceException}
+ * <p>Base exception class for all service exceptions from Keyspaces service.</p>
  *
  */
 export class DeleteTableCommand extends $Command<

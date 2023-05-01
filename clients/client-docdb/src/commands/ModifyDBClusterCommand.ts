@@ -38,35 +38,96 @@ export interface ModifyDBClusterCommandOutput extends ModifyDBClusterResult, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DocDBClient, ModifyDBClusterCommand } from "@aws-sdk/client-docdb"; // ES Modules import
- * // const { DocDBClient, ModifyDBClusterCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
+ * import { DocDBClient, ModifyDBClusterCommand } from '@aws-sdk/client-docdb'; // ES Modules import
+ * // const { DocDBClient, ModifyDBClusterCommand } = require('@aws-sdk/client-docdb'); // CommonJS import
  * const client = new DocDBClient(config);
  * const input = { // ModifyDBClusterMessage
- *   DBClusterIdentifier: "STRING_VALUE", // required
- *   NewDBClusterIdentifier: "STRING_VALUE",
+ *   DBClusterIdentifier: 'STRING_VALUE', // required
+ *   NewDBClusterIdentifier: 'STRING_VALUE',
  *   ApplyImmediately: true || false,
- *   BackupRetentionPeriod: Number("int"),
- *   DBClusterParameterGroupName: "STRING_VALUE",
+ *   BackupRetentionPeriod: Number('int'),
+ *   DBClusterParameterGroupName: 'STRING_VALUE',
  *   VpcSecurityGroupIds: [ // VpcSecurityGroupIdList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   Port: Number("int"),
- *   MasterUserPassword: "STRING_VALUE",
- *   PreferredBackupWindow: "STRING_VALUE",
- *   PreferredMaintenanceWindow: "STRING_VALUE",
+ *   Port: Number('int'),
+ *   MasterUserPassword: 'STRING_VALUE',
+ *   PreferredBackupWindow: 'STRING_VALUE',
+ *   PreferredMaintenanceWindow: 'STRING_VALUE',
  *   CloudwatchLogsExportConfiguration: { // CloudwatchLogsExportConfiguration
  *     EnableLogTypes: [ // LogTypeList
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     DisableLogTypes: [
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *   },
- *   EngineVersion: "STRING_VALUE",
+ *   EngineVersion: 'STRING_VALUE',
  *   DeletionProtection: true || false,
  * };
  * const command = new ModifyDBClusterCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ModifyDBClusterResult
+ *   DBCluster: { // DBCluster
+ *     AvailabilityZones: [ // AvailabilityZones
+ *       'STRING_VALUE',
+ *     ],
+ *     BackupRetentionPeriod: Number('int'),
+ *     DBClusterIdentifier: 'STRING_VALUE',
+ *     DBClusterParameterGroup: 'STRING_VALUE',
+ *     DBSubnetGroup: 'STRING_VALUE',
+ *     Status: 'STRING_VALUE',
+ *     PercentProgress: 'STRING_VALUE',
+ *     EarliestRestorableTime: new Date('TIMESTAMP'),
+ *     Endpoint: 'STRING_VALUE',
+ *     ReaderEndpoint: 'STRING_VALUE',
+ *     MultiAZ: true || false,
+ *     Engine: 'STRING_VALUE',
+ *     EngineVersion: 'STRING_VALUE',
+ *     LatestRestorableTime: new Date('TIMESTAMP'),
+ *     Port: Number('int'),
+ *     MasterUsername: 'STRING_VALUE',
+ *     PreferredBackupWindow: 'STRING_VALUE',
+ *     PreferredMaintenanceWindow: 'STRING_VALUE',
+ *     ReplicationSourceIdentifier: 'STRING_VALUE',
+ *     ReadReplicaIdentifiers: [ // ReadReplicaIdentifierList
+ *       'STRING_VALUE',
+ *     ],
+ *     DBClusterMembers: [ // DBClusterMemberList
+ *       { // DBClusterMember
+ *         DBInstanceIdentifier: 'STRING_VALUE',
+ *         IsClusterWriter: true || false,
+ *         DBClusterParameterGroupStatus: 'STRING_VALUE',
+ *         PromotionTier: Number('int'),
+ *       },
+ *     ],
+ *     VpcSecurityGroups: [ // VpcSecurityGroupMembershipList
+ *       { // VpcSecurityGroupMembership
+ *         VpcSecurityGroupId: 'STRING_VALUE',
+ *         Status: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     HostedZoneId: 'STRING_VALUE',
+ *     StorageEncrypted: true || false,
+ *     KmsKeyId: 'STRING_VALUE',
+ *     DbClusterResourceId: 'STRING_VALUE',
+ *     DBClusterArn: 'STRING_VALUE',
+ *     AssociatedRoles: [ // DBClusterRoles
+ *       { // DBClusterRole
+ *         RoleArn: 'STRING_VALUE',
+ *         Status: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     CloneGroupId: 'STRING_VALUE',
+ *     ClusterCreateTime: new Date('TIMESTAMP'),
+ *     EnabledCloudwatchLogsExports: [ // LogTypeList
+ *       'STRING_VALUE',
+ *     ],
+ *     DeletionProtection: true || false,
+ *   },
+ * };
+ *
  * ```
  *
  * @param ModifyDBClusterCommandInput - {@link ModifyDBClusterCommandInput}
@@ -115,6 +176,8 @@ export interface ModifyDBClusterCommandOutput extends ModifyDBClusterResult, __M
  *  <p>The request would cause you to exceed the allowed amount of storage available across
  *             all instances.</p>
  *
+ * @throws {@link DocDBServiceException}
+ * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
  */
 export class ModifyDBClusterCommand extends $Command<

@@ -47,14 +47,19 @@ export interface SetVoiceMessageSpendLimitOverrideCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PinpointSMSVoiceV2Client, SetVoiceMessageSpendLimitOverrideCommand } from "@aws-sdk/client-pinpoint-sms-voice-v2"; // ES Modules import
- * // const { PinpointSMSVoiceV2Client, SetVoiceMessageSpendLimitOverrideCommand } = require("@aws-sdk/client-pinpoint-sms-voice-v2"); // CommonJS import
+ * import { PinpointSMSVoiceV2Client, SetVoiceMessageSpendLimitOverrideCommand } from '@aws-sdk/client-pinpoint-sms-voice-v2'; // ES Modules import
+ * // const { PinpointSMSVoiceV2Client, SetVoiceMessageSpendLimitOverrideCommand } = require('@aws-sdk/client-pinpoint-sms-voice-v2'); // CommonJS import
  * const client = new PinpointSMSVoiceV2Client(config);
  * const input = { // SetVoiceMessageSpendLimitOverrideRequest
- *   MonthlyLimit: Number("long"), // required
+ *   MonthlyLimit: Number('long'), // required
  * };
  * const command = new SetVoiceMessageSpendLimitOverrideCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SetVoiceMessageSpendLimitOverrideResult
+ *   MonthlyLimit: Number('long'),
+ * };
+ *
  * ```
  *
  * @param SetVoiceMessageSpendLimitOverrideCommandInput - {@link SetVoiceMessageSpendLimitOverrideCommandInput}
@@ -78,6 +83,8 @@ export interface SetVoiceMessageSpendLimitOverrideCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>A validation exception for a field.</p>
  *
+ * @throws {@link PinpointSMSVoiceV2ServiceException}
+ * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
  *
  */
 export class SetVoiceMessageSpendLimitOverrideCommand extends $Command<

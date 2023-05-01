@@ -37,18 +37,21 @@ export interface UpdateDocumentCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkDocsClient, UpdateDocumentCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
- * // const { WorkDocsClient, UpdateDocumentCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import
+ * import { WorkDocsClient, UpdateDocumentCommand } from '@aws-sdk/client-workdocs'; // ES Modules import
+ * // const { WorkDocsClient, UpdateDocumentCommand } = require('@aws-sdk/client-workdocs'); // CommonJS import
  * const client = new WorkDocsClient(config);
  * const input = { // UpdateDocumentRequest
- *   AuthenticationToken: "STRING_VALUE",
- *   DocumentId: "STRING_VALUE", // required
- *   Name: "STRING_VALUE",
- *   ParentFolderId: "STRING_VALUE",
- *   ResourceState: "ACTIVE" || "RESTORING" || "RECYCLING" || "RECYCLED",
+ *   AuthenticationToken: 'STRING_VALUE',
+ *   DocumentId: 'STRING_VALUE', // required
+ *   Name: 'STRING_VALUE',
+ *   ParentFolderId: 'STRING_VALUE',
+ *   ResourceState: 'ACTIVE' || 'RESTORING' || 'RECYCLING' || 'RECYCLED',
  * };
  * const command = new UpdateDocumentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateDocumentCommandInput - {@link UpdateDocumentCommandInput}
@@ -89,6 +92,8 @@ export interface UpdateDocumentCommandOutput extends __MetadataBearer {}
  * @throws {@link UnauthorizedResourceAccessException} (client fault)
  *  <p>The caller does not have access to perform the action on the resource.</p>
  *
+ * @throws {@link WorkDocsServiceException}
+ * <p>Base exception class for all service exceptions from WorkDocs service.</p>
  *
  */
 export class UpdateDocumentCommand extends $Command<

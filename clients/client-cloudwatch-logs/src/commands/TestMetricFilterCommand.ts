@@ -37,17 +37,30 @@ export interface TestMetricFilterCommandOutput extends TestMetricFilterResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudWatchLogsClient, TestMetricFilterCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
- * // const { CloudWatchLogsClient, TestMetricFilterCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
+ * import { CloudWatchLogsClient, TestMetricFilterCommand } from '@aws-sdk/client-cloudwatch-logs'; // ES Modules import
+ * // const { CloudWatchLogsClient, TestMetricFilterCommand } = require('@aws-sdk/client-cloudwatch-logs'); // CommonJS import
  * const client = new CloudWatchLogsClient(config);
  * const input = { // TestMetricFilterRequest
- *   filterPattern: "STRING_VALUE", // required
+ *   filterPattern: 'STRING_VALUE', // required
  *   logEventMessages: [ // TestEventMessages // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new TestMetricFilterCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // TestMetricFilterResponse
+ *   matches: [ // MetricFilterMatches
+ *     { // MetricFilterMatchRecord
+ *       eventNumber: Number('long'),
+ *       eventMessage: 'STRING_VALUE',
+ *       extractedValues: { // ExtractedValues
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param TestMetricFilterCommandInput - {@link TestMetricFilterCommandInput}
@@ -62,6 +75,8 @@ export interface TestMetricFilterCommandOutput extends TestMetricFilterResponse,
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service cannot complete the request.</p>
  *
+ * @throws {@link CloudWatchLogsServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
  */
 export class TestMetricFilterCommand extends $Command<

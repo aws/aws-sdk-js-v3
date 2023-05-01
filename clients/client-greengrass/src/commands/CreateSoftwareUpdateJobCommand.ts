@@ -36,22 +36,29 @@ export interface CreateSoftwareUpdateJobCommandOutput extends CreateSoftwareUpda
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GreengrassClient, CreateSoftwareUpdateJobCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
- * // const { GreengrassClient, CreateSoftwareUpdateJobCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
+ * import { GreengrassClient, CreateSoftwareUpdateJobCommand } from '@aws-sdk/client-greengrass'; // ES Modules import
+ * // const { GreengrassClient, CreateSoftwareUpdateJobCommand } = require('@aws-sdk/client-greengrass'); // CommonJS import
  * const client = new GreengrassClient(config);
  * const input = { // CreateSoftwareUpdateJobRequest
- *   AmznClientToken: "STRING_VALUE",
- *   S3UrlSignerRole: "STRING_VALUE", // required
- *   SoftwareToUpdate: "core" || "ota_agent", // required
- *   UpdateAgentLogLevel: "NONE" || "TRACE" || "DEBUG" || "VERBOSE" || "INFO" || "WARN" || "ERROR" || "FATAL",
+ *   AmznClientToken: 'STRING_VALUE',
+ *   S3UrlSignerRole: 'STRING_VALUE', // required
+ *   SoftwareToUpdate: 'core' || 'ota_agent', // required
+ *   UpdateAgentLogLevel: 'NONE' || 'TRACE' || 'DEBUG' || 'VERBOSE' || 'INFO' || 'WARN' || 'ERROR' || 'FATAL',
  *   UpdateTargets: [ // UpdateTargets // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   UpdateTargetsArchitecture: "armv6l" || "armv7l" || "x86_64" || "aarch64", // required
- *   UpdateTargetsOperatingSystem: "ubuntu" || "raspbian" || "amazon_linux" || "openwrt", // required
+ *   UpdateTargetsArchitecture: 'armv6l' || 'armv7l' || 'x86_64' || 'aarch64', // required
+ *   UpdateTargetsOperatingSystem: 'ubuntu' || 'raspbian' || 'amazon_linux' || 'openwrt', // required
  * };
  * const command = new CreateSoftwareUpdateJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateSoftwareUpdateJobResponse
+ *   IotJobArn: 'STRING_VALUE',
+ *   IotJobId: 'STRING_VALUE',
+ *   PlatformSoftwareVersion: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateSoftwareUpdateJobCommandInput - {@link CreateSoftwareUpdateJobCommandInput}
@@ -66,6 +73,8 @@ export interface CreateSoftwareUpdateJobCommandOutput extends CreateSoftwareUpda
  * @throws {@link InternalServerErrorException} (server fault)
  *  General error information.
  *
+ * @throws {@link GreengrassServiceException}
+ * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
  */
 export class CreateSoftwareUpdateJobCommand extends $Command<

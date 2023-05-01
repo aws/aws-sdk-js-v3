@@ -47,17 +47,22 @@ export interface GetVpnConnectionDeviceSampleConfigurationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, GetVpnConnectionDeviceSampleConfigurationCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, GetVpnConnectionDeviceSampleConfigurationCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, GetVpnConnectionDeviceSampleConfigurationCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, GetVpnConnectionDeviceSampleConfigurationCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // GetVpnConnectionDeviceSampleConfigurationRequest
- *   VpnConnectionId: "STRING_VALUE", // required
- *   VpnConnectionDeviceTypeId: "STRING_VALUE", // required
- *   InternetKeyExchangeVersion: "STRING_VALUE",
+ *   VpnConnectionId: 'STRING_VALUE', // required
+ *   VpnConnectionDeviceTypeId: 'STRING_VALUE', // required
+ *   InternetKeyExchangeVersion: 'STRING_VALUE',
  *   DryRun: true || false,
  * };
  * const command = new GetVpnConnectionDeviceSampleConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetVpnConnectionDeviceSampleConfigurationResult
+ *   VpnConnectionDeviceSampleConfiguration: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetVpnConnectionDeviceSampleConfigurationCommandInput - {@link GetVpnConnectionDeviceSampleConfigurationCommandInput}
@@ -66,6 +71,8 @@ export interface GetVpnConnectionDeviceSampleConfigurationCommandOutput
  * @see {@link GetVpnConnectionDeviceSampleConfigurationCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class GetVpnConnectionDeviceSampleConfigurationCommand extends $Command<

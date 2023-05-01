@@ -40,16 +40,34 @@ export interface ListUsersByPermissionGroupCommandOutput extends ListUsersByPerm
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FinspaceDataClient, ListUsersByPermissionGroupCommand } from "@aws-sdk/client-finspace-data"; // ES Modules import
- * // const { FinspaceDataClient, ListUsersByPermissionGroupCommand } = require("@aws-sdk/client-finspace-data"); // CommonJS import
+ * import { FinspaceDataClient, ListUsersByPermissionGroupCommand } from '@aws-sdk/client-finspace-data'; // ES Modules import
+ * // const { FinspaceDataClient, ListUsersByPermissionGroupCommand } = require('@aws-sdk/client-finspace-data'); // CommonJS import
  * const client = new FinspaceDataClient(config);
  * const input = { // ListUsersByPermissionGroupRequest
- *   permissionGroupId: "STRING_VALUE", // required
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"), // required
+ *   permissionGroupId: 'STRING_VALUE', // required
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'), // required
  * };
  * const command = new ListUsersByPermissionGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListUsersByPermissionGroupResponse
+ *   users: [ // UserByPermissionGroupList
+ *     { // UserByPermissionGroup
+ *       userId: 'STRING_VALUE',
+ *       status: 'STRING_VALUE',
+ *       firstName: 'STRING_VALUE',
+ *       lastName: 'STRING_VALUE',
+ *       emailAddress: 'STRING_VALUE',
+ *       type: 'STRING_VALUE',
+ *       apiAccess: 'STRING_VALUE',
+ *       apiAccessPrincipalArn: 'STRING_VALUE',
+ *       membershipStatus: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListUsersByPermissionGroupCommandInput - {@link ListUsersByPermissionGroupCommandInput}
@@ -74,6 +92,8 @@ export interface ListUsersByPermissionGroupCommandOutput extends ListUsersByPerm
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link FinspaceDataServiceException}
+ * <p>Base exception class for all service exceptions from FinspaceData service.</p>
  *
  */
 export class ListUsersByPermissionGroupCommand extends $Command<

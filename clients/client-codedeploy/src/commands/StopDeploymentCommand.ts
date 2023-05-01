@@ -36,15 +36,21 @@ export interface StopDeploymentCommandOutput extends StopDeploymentOutput, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeDeployClient, StopDeploymentCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
- * // const { CodeDeployClient, StopDeploymentCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
+ * import { CodeDeployClient, StopDeploymentCommand } from '@aws-sdk/client-codedeploy'; // ES Modules import
+ * // const { CodeDeployClient, StopDeploymentCommand } = require('@aws-sdk/client-codedeploy'); // CommonJS import
  * const client = new CodeDeployClient(config);
  * const input = { // StopDeploymentInput
- *   deploymentId: "STRING_VALUE", // required
+ *   deploymentId: 'STRING_VALUE', // required
  *   autoRollbackEnabled: true || false,
  * };
  * const command = new StopDeploymentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StopDeploymentOutput
+ *   status: 'Pending' || 'Succeeded',
+ *   statusMessage: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param StopDeploymentCommandInput - {@link StopDeploymentCommandInput}
@@ -72,6 +78,8 @@ export interface StopDeploymentCommandOutput extends StopDeploymentOutput, __Met
  * @throws {@link UnsupportedActionForDeploymentTypeException} (client fault)
  *  <p>A call was submitted that is not supported for the specified deployment type.</p>
  *
+ * @throws {@link CodeDeployServiceException}
+ * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
  */
 export class StopDeploymentCommand extends $Command<

@@ -36,15 +36,20 @@ export interface StopSessionCommandOutput extends StopSessionResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlueClient, StopSessionCommand } from "@aws-sdk/client-glue"; // ES Modules import
- * // const { GlueClient, StopSessionCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * import { GlueClient, StopSessionCommand } from '@aws-sdk/client-glue'; // ES Modules import
+ * // const { GlueClient, StopSessionCommand } = require('@aws-sdk/client-glue'); // CommonJS import
  * const client = new GlueClient(config);
  * const input = { // StopSessionRequest
- *   Id: "STRING_VALUE", // required
- *   RequestOrigin: "STRING_VALUE",
+ *   Id: 'STRING_VALUE', // required
+ *   RequestOrigin: 'STRING_VALUE',
  * };
  * const command = new StopSessionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StopSessionResponse
+ *   Id: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param StopSessionCommandInput - {@link StopSessionCommandInput}
@@ -71,6 +76,8 @@ export interface StopSessionCommandOutput extends StopSessionResponse, __Metadat
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class StopSessionCommand extends $Command<

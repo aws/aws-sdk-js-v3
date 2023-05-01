@@ -42,18 +42,21 @@ export interface StartRecommendationsCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DatabaseMigrationServiceClient, StartRecommendationsCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
- * // const { DatabaseMigrationServiceClient, StartRecommendationsCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
+ * import { DatabaseMigrationServiceClient, StartRecommendationsCommand } from '@aws-sdk/client-database-migration-service'; // ES Modules import
+ * // const { DatabaseMigrationServiceClient, StartRecommendationsCommand } = require('@aws-sdk/client-database-migration-service'); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
  * const input = { // StartRecommendationsRequest
- *   DatabaseId: "STRING_VALUE", // required
+ *   DatabaseId: 'STRING_VALUE', // required
  *   Settings: { // RecommendationSettings
- *     InstanceSizingType: "STRING_VALUE", // required
- *     WorkloadType: "STRING_VALUE", // required
+ *     InstanceSizingType: 'STRING_VALUE', // required
+ *     WorkloadType: 'STRING_VALUE', // required
  *   },
  * };
  * const command = new StartRecommendationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param StartRecommendationsCommandInput - {@link StartRecommendationsCommandInput}
@@ -72,6 +75,8 @@ export interface StartRecommendationsCommandOutput extends __MetadataBearer {}
  * @throws {@link ResourceNotFoundFault} (client fault)
  *  <p>The resource could not be found.</p>
  *
+ * @throws {@link DatabaseMigrationServiceServiceException}
+ * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
  */
 export class StartRecommendationsCommand extends $Command<

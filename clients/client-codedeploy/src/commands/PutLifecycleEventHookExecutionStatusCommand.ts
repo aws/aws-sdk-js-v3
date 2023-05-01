@@ -52,16 +52,21 @@ export interface PutLifecycleEventHookExecutionStatusCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeDeployClient, PutLifecycleEventHookExecutionStatusCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
- * // const { CodeDeployClient, PutLifecycleEventHookExecutionStatusCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
+ * import { CodeDeployClient, PutLifecycleEventHookExecutionStatusCommand } from '@aws-sdk/client-codedeploy'; // ES Modules import
+ * // const { CodeDeployClient, PutLifecycleEventHookExecutionStatusCommand } = require('@aws-sdk/client-codedeploy'); // CommonJS import
  * const client = new CodeDeployClient(config);
  * const input = { // PutLifecycleEventHookExecutionStatusInput
- *   deploymentId: "STRING_VALUE",
- *   lifecycleEventHookExecutionId: "STRING_VALUE",
- *   status: "Pending" || "InProgress" || "Succeeded" || "Failed" || "Skipped" || "Unknown",
+ *   deploymentId: 'STRING_VALUE',
+ *   lifecycleEventHookExecutionId: 'STRING_VALUE',
+ *   status: 'Pending' || 'InProgress' || 'Succeeded' || 'Failed' || 'Skipped' || 'Unknown',
  * };
  * const command = new PutLifecycleEventHookExecutionStatusCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutLifecycleEventHookExecutionStatusOutput
+ *   lifecycleEventHookExecutionId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param PutLifecycleEventHookExecutionStatusCommandInput - {@link PutLifecycleEventHookExecutionStatusCommandInput}
@@ -96,6 +101,8 @@ export interface PutLifecycleEventHookExecutionStatusCommandOutput
  * @throws {@link UnsupportedActionForDeploymentTypeException} (client fault)
  *  <p>A call was submitted that is not supported for the specified deployment type.</p>
  *
+ * @throws {@link CodeDeployServiceException}
+ * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
  */
 export class PutLifecycleEventHookExecutionStatusCommand extends $Command<

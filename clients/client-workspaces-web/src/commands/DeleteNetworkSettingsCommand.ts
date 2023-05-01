@@ -36,14 +36,17 @@ export interface DeleteNetworkSettingsCommandOutput extends DeleteNetworkSetting
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkSpacesWebClient, DeleteNetworkSettingsCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
- * // const { WorkSpacesWebClient, DeleteNetworkSettingsCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
+ * import { WorkSpacesWebClient, DeleteNetworkSettingsCommand } from '@aws-sdk/client-workspaces-web'; // ES Modules import
+ * // const { WorkSpacesWebClient, DeleteNetworkSettingsCommand } = require('@aws-sdk/client-workspaces-web'); // CommonJS import
  * const client = new WorkSpacesWebClient(config);
  * const input = { // DeleteNetworkSettingsRequest
- *   networkSettingsArn: "STRING_VALUE", // required
+ *   networkSettingsArn: 'STRING_VALUE', // required
  * };
  * const command = new DeleteNetworkSettingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteNetworkSettingsCommandInput - {@link DeleteNetworkSettingsCommandInput}
@@ -67,6 +70,8 @@ export interface DeleteNetworkSettingsCommandOutput extends DeleteNetworkSetting
  * @throws {@link ValidationException} (client fault)
  *  <p>There is a validation error.</p>
  *
+ * @throws {@link WorkSpacesWebServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
  */
 export class DeleteNetworkSettingsCommand extends $Command<

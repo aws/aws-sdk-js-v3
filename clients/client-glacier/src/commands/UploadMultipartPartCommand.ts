@@ -99,19 +99,24 @@ export interface UploadMultipartPartCommandOutput extends UploadMultipartPartOut
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlacierClient, UploadMultipartPartCommand } from "@aws-sdk/client-glacier"; // ES Modules import
- * // const { GlacierClient, UploadMultipartPartCommand } = require("@aws-sdk/client-glacier"); // CommonJS import
+ * import { GlacierClient, UploadMultipartPartCommand } from '@aws-sdk/client-glacier'; // ES Modules import
+ * // const { GlacierClient, UploadMultipartPartCommand } = require('@aws-sdk/client-glacier'); // CommonJS import
  * const client = new GlacierClient(config);
  * const input = { // UploadMultipartPartInput
- *   accountId: "STRING_VALUE", // required
- *   vaultName: "STRING_VALUE", // required
- *   uploadId: "STRING_VALUE", // required
- *   checksum: "STRING_VALUE",
- *   range: "STRING_VALUE",
- *   body: "STREAMING_BLOB_VALUE",
+ *   accountId: 'STRING_VALUE', // required
+ *   vaultName: 'STRING_VALUE', // required
+ *   uploadId: 'STRING_VALUE', // required
+ *   checksum: 'STRING_VALUE',
+ *   range: 'STRING_VALUE',
+ *   body: 'STREAMING_BLOB_VALUE',
  * };
  * const command = new UploadMultipartPartCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UploadMultipartPartOutput
+ *   checksum: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UploadMultipartPartCommandInput - {@link UploadMultipartPartCommandInput}
@@ -137,6 +142,8 @@ export interface UploadMultipartPartCommandOutput extends UploadMultipartPartOut
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>Returned if the service cannot complete the request.</p>
  *
+ * @throws {@link GlacierServiceException}
+ * <p>Base exception class for all service exceptions from Glacier service.</p>
  *
  * @example To upload the first part of an archive
  * ```javascript

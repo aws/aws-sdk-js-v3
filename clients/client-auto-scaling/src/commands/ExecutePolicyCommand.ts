@@ -37,18 +37,21 @@ export interface ExecutePolicyCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AutoScalingClient, ExecutePolicyCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
- * // const { AutoScalingClient, ExecutePolicyCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
+ * import { AutoScalingClient, ExecutePolicyCommand } from '@aws-sdk/client-auto-scaling'; // ES Modules import
+ * // const { AutoScalingClient, ExecutePolicyCommand } = require('@aws-sdk/client-auto-scaling'); // CommonJS import
  * const client = new AutoScalingClient(config);
  * const input = { // ExecutePolicyType
- *   AutoScalingGroupName: "STRING_VALUE",
- *   PolicyName: "STRING_VALUE", // required
+ *   AutoScalingGroupName: 'STRING_VALUE',
+ *   PolicyName: 'STRING_VALUE', // required
  *   HonorCooldown: true || false,
- *   MetricValue: Number("double"),
- *   BreachThreshold: Number("double"),
+ *   MetricValue: Number('double'),
+ *   BreachThreshold: Number('double'),
  * };
  * const command = new ExecutePolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param ExecutePolicyCommandInput - {@link ExecutePolicyCommandInput}
@@ -65,6 +68,8 @@ export interface ExecutePolicyCommandOutput extends __MetadataBearer {}
  *  <p>The operation can't be performed because there are scaling activities in
  *             progress.</p>
  *
+ * @throws {@link AutoScalingServiceException}
+ * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
  * @example To execute a scaling policy
  * ```javascript

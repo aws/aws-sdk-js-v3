@@ -37,12 +37,19 @@ export interface GetV2LoggingOptionsCommandOutput extends GetV2LoggingOptionsRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTClient, GetV2LoggingOptionsCommand } from "@aws-sdk/client-iot"; // ES Modules import
- * // const { IoTClient, GetV2LoggingOptionsCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * import { IoTClient, GetV2LoggingOptionsCommand } from '@aws-sdk/client-iot'; // ES Modules import
+ * // const { IoTClient, GetV2LoggingOptionsCommand } = require('@aws-sdk/client-iot'); // CommonJS import
  * const client = new IoTClient(config);
  * const input = {};
  * const command = new GetV2LoggingOptionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetV2LoggingOptionsResponse
+ *   roleArn: 'STRING_VALUE',
+ *   defaultLogLevel: 'DEBUG' || 'INFO' || 'ERROR' || 'WARN' || 'DISABLED',
+ *   disableAllLogs: true || false,
+ * };
+ *
  * ```
  *
  * @param GetV2LoggingOptionsCommandInput - {@link GetV2LoggingOptionsCommandInput}
@@ -60,6 +67,8 @@ export interface GetV2LoggingOptionsCommandOutput extends GetV2LoggingOptionsRes
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service is temporarily unavailable.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class GetV2LoggingOptionsCommand extends $Command<

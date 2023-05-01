@@ -38,14 +38,25 @@ export interface GetPolicyCommandOutput extends GetPolicyResponse, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTClient, GetPolicyCommand } from "@aws-sdk/client-iot"; // ES Modules import
- * // const { IoTClient, GetPolicyCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * import { IoTClient, GetPolicyCommand } from '@aws-sdk/client-iot'; // ES Modules import
+ * // const { IoTClient, GetPolicyCommand } = require('@aws-sdk/client-iot'); // CommonJS import
  * const client = new IoTClient(config);
  * const input = { // GetPolicyRequest
- *   policyName: "STRING_VALUE", // required
+ *   policyName: 'STRING_VALUE', // required
  * };
  * const command = new GetPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetPolicyResponse
+ *   policyName: 'STRING_VALUE',
+ *   policyArn: 'STRING_VALUE',
+ *   policyDocument: 'STRING_VALUE',
+ *   defaultVersionId: 'STRING_VALUE',
+ *   creationDate: new Date('TIMESTAMP'),
+ *   lastModifiedDate: new Date('TIMESTAMP'),
+ *   generationId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetPolicyCommandInput - {@link GetPolicyCommandInput}
@@ -72,6 +83,8 @@ export interface GetPolicyCommandOutput extends GetPolicyResponse, __MetadataBea
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this operation.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class GetPolicyCommand extends $Command<GetPolicyCommandInput, GetPolicyCommandOutput, IoTClientResolvedConfig> {

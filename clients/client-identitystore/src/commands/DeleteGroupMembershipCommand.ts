@@ -36,15 +36,18 @@ export interface DeleteGroupMembershipCommandOutput extends DeleteGroupMembershi
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IdentitystoreClient, DeleteGroupMembershipCommand } from "@aws-sdk/client-identitystore"; // ES Modules import
- * // const { IdentitystoreClient, DeleteGroupMembershipCommand } = require("@aws-sdk/client-identitystore"); // CommonJS import
+ * import { IdentitystoreClient, DeleteGroupMembershipCommand } from '@aws-sdk/client-identitystore'; // ES Modules import
+ * // const { IdentitystoreClient, DeleteGroupMembershipCommand } = require('@aws-sdk/client-identitystore'); // CommonJS import
  * const client = new IdentitystoreClient(config);
  * const input = { // DeleteGroupMembershipRequest
- *   IdentityStoreId: "STRING_VALUE", // required
- *   MembershipId: "STRING_VALUE", // required
+ *   IdentityStoreId: 'STRING_VALUE', // required
+ *   MembershipId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteGroupMembershipCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteGroupMembershipCommandInput - {@link DeleteGroupMembershipCommandInput}
@@ -79,6 +82,8 @@ export interface DeleteGroupMembershipCommandOutput extends DeleteGroupMembershi
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Indicates that the principal has crossed the throttling limits of the API operations.</p>
  *
+ * @throws {@link IdentitystoreServiceException}
+ * <p>Base exception class for all service exceptions from Identitystore service.</p>
  *
  */
 export class DeleteGroupMembershipCommand extends $Command<

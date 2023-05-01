@@ -47,72 +47,72 @@ export interface CreateAssociationBatchCommandOutput extends CreateAssociationBa
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMClient, CreateAssociationBatchCommand } from "@aws-sdk/client-ssm"; // ES Modules import
- * // const { SSMClient, CreateAssociationBatchCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * import { SSMClient, CreateAssociationBatchCommand } from '@aws-sdk/client-ssm'; // ES Modules import
+ * // const { SSMClient, CreateAssociationBatchCommand } = require('@aws-sdk/client-ssm'); // CommonJS import
  * const client = new SSMClient(config);
  * const input = { // CreateAssociationBatchRequest
  *   Entries: [ // CreateAssociationBatchRequestEntries // required
  *     { // CreateAssociationBatchRequestEntry
- *       Name: "STRING_VALUE", // required
- *       InstanceId: "STRING_VALUE",
+ *       Name: 'STRING_VALUE', // required
+ *       InstanceId: 'STRING_VALUE',
  *       Parameters: { // Parameters
- *         "<keys>": [ // ParameterValueList
- *           "STRING_VALUE",
+ *         '<keys>': [ // ParameterValueList
+ *           'STRING_VALUE',
  *         ],
  *       },
- *       AutomationTargetParameterName: "STRING_VALUE",
- *       DocumentVersion: "STRING_VALUE",
+ *       AutomationTargetParameterName: 'STRING_VALUE',
+ *       DocumentVersion: 'STRING_VALUE',
  *       Targets: [ // Targets
  *         { // Target
- *           Key: "STRING_VALUE",
+ *           Key: 'STRING_VALUE',
  *           Values: [ // TargetValues
- *             "STRING_VALUE",
+ *             'STRING_VALUE',
  *           ],
  *         },
  *       ],
- *       ScheduleExpression: "STRING_VALUE",
+ *       ScheduleExpression: 'STRING_VALUE',
  *       OutputLocation: { // InstanceAssociationOutputLocation
  *         S3Location: { // S3OutputLocation
- *           OutputS3Region: "STRING_VALUE",
- *           OutputS3BucketName: "STRING_VALUE",
- *           OutputS3KeyPrefix: "STRING_VALUE",
+ *           OutputS3Region: 'STRING_VALUE',
+ *           OutputS3BucketName: 'STRING_VALUE',
+ *           OutputS3KeyPrefix: 'STRING_VALUE',
  *         },
  *       },
- *       AssociationName: "STRING_VALUE",
- *       MaxErrors: "STRING_VALUE",
- *       MaxConcurrency: "STRING_VALUE",
- *       ComplianceSeverity: "CRITICAL" || "HIGH" || "MEDIUM" || "LOW" || "UNSPECIFIED",
- *       SyncCompliance: "AUTO" || "MANUAL",
+ *       AssociationName: 'STRING_VALUE',
+ *       MaxErrors: 'STRING_VALUE',
+ *       MaxConcurrency: 'STRING_VALUE',
+ *       ComplianceSeverity: 'CRITICAL' || 'HIGH' || 'MEDIUM' || 'LOW' || 'UNSPECIFIED',
+ *       SyncCompliance: 'AUTO' || 'MANUAL',
  *       ApplyOnlyAtCronInterval: true || false,
  *       CalendarNames: [ // CalendarNameOrARNList
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *       TargetLocations: [ // TargetLocations
  *         { // TargetLocation
  *           Accounts: [ // Accounts
- *             "STRING_VALUE",
+ *             'STRING_VALUE',
  *           ],
  *           Regions: [ // Regions
- *             "STRING_VALUE",
+ *             'STRING_VALUE',
  *           ],
- *           TargetLocationMaxConcurrency: "STRING_VALUE",
- *           TargetLocationMaxErrors: "STRING_VALUE",
- *           ExecutionRoleName: "STRING_VALUE",
+ *           TargetLocationMaxConcurrency: 'STRING_VALUE',
+ *           TargetLocationMaxErrors: 'STRING_VALUE',
+ *           ExecutionRoleName: 'STRING_VALUE',
  *           TargetLocationAlarmConfiguration: { // AlarmConfiguration
  *             IgnorePollAlarmFailure: true || false,
  *             Alarms: [ // AlarmList // required
  *               { // Alarm
- *                 Name: "STRING_VALUE", // required
+ *                 Name: 'STRING_VALUE', // required
  *               },
  *             ],
  *           },
  *         },
  *       ],
- *       ScheduleOffset: Number("int"),
+ *       ScheduleOffset: Number('int'),
  *       TargetMaps: [ // TargetMaps
  *         { // TargetMap
- *           "<keys>": [ // TargetMapValueList
- *             "STRING_VALUE",
+ *           '<keys>': [ // TargetMapValueList
+ *             'STRING_VALUE',
  *           ],
  *         },
  *       ],
@@ -120,7 +120,7 @@ export interface CreateAssociationBatchCommandOutput extends CreateAssociationBa
  *         IgnorePollAlarmFailure: true || false,
  *         Alarms: [ // required
  *           {
- *             Name: "STRING_VALUE", // required
+ *             Name: 'STRING_VALUE', // required
  *           },
  *         ],
  *       },
@@ -129,6 +129,175 @@ export interface CreateAssociationBatchCommandOutput extends CreateAssociationBa
  * };
  * const command = new CreateAssociationBatchCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateAssociationBatchResult
+ *   Successful: [ // AssociationDescriptionList
+ *     { // AssociationDescription
+ *       Name: 'STRING_VALUE',
+ *       InstanceId: 'STRING_VALUE',
+ *       AssociationVersion: 'STRING_VALUE',
+ *       Date: new Date('TIMESTAMP'),
+ *       LastUpdateAssociationDate: new Date('TIMESTAMP'),
+ *       Status: { // AssociationStatus
+ *         Date: new Date('TIMESTAMP'), // required
+ *         Name: 'Pending' || 'Success' || 'Failed', // required
+ *         Message: 'STRING_VALUE', // required
+ *         AdditionalInfo: 'STRING_VALUE',
+ *       },
+ *       Overview: { // AssociationOverview
+ *         Status: 'STRING_VALUE',
+ *         DetailedStatus: 'STRING_VALUE',
+ *         AssociationStatusAggregatedCount: { // AssociationStatusAggregatedCount
+ *           '<keys>': Number('int'),
+ *         },
+ *       },
+ *       DocumentVersion: 'STRING_VALUE',
+ *       AutomationTargetParameterName: 'STRING_VALUE',
+ *       Parameters: { // Parameters
+ *         '<keys>': [ // ParameterValueList
+ *           'STRING_VALUE',
+ *         ],
+ *       },
+ *       AssociationId: 'STRING_VALUE',
+ *       Targets: [ // Targets
+ *         { // Target
+ *           Key: 'STRING_VALUE',
+ *           Values: [ // TargetValues
+ *             'STRING_VALUE',
+ *           ],
+ *         },
+ *       ],
+ *       ScheduleExpression: 'STRING_VALUE',
+ *       OutputLocation: { // InstanceAssociationOutputLocation
+ *         S3Location: { // S3OutputLocation
+ *           OutputS3Region: 'STRING_VALUE',
+ *           OutputS3BucketName: 'STRING_VALUE',
+ *           OutputS3KeyPrefix: 'STRING_VALUE',
+ *         },
+ *       },
+ *       LastExecutionDate: new Date('TIMESTAMP'),
+ *       LastSuccessfulExecutionDate: new Date('TIMESTAMP'),
+ *       AssociationName: 'STRING_VALUE',
+ *       MaxErrors: 'STRING_VALUE',
+ *       MaxConcurrency: 'STRING_VALUE',
+ *       ComplianceSeverity: 'CRITICAL' || 'HIGH' || 'MEDIUM' || 'LOW' || 'UNSPECIFIED',
+ *       SyncCompliance: 'AUTO' || 'MANUAL',
+ *       ApplyOnlyAtCronInterval: true || false,
+ *       CalendarNames: [ // CalendarNameOrARNList
+ *         'STRING_VALUE',
+ *       ],
+ *       TargetLocations: [ // TargetLocations
+ *         { // TargetLocation
+ *           Accounts: [ // Accounts
+ *             'STRING_VALUE',
+ *           ],
+ *           Regions: [ // Regions
+ *             'STRING_VALUE',
+ *           ],
+ *           TargetLocationMaxConcurrency: 'STRING_VALUE',
+ *           TargetLocationMaxErrors: 'STRING_VALUE',
+ *           ExecutionRoleName: 'STRING_VALUE',
+ *           TargetLocationAlarmConfiguration: { // AlarmConfiguration
+ *             IgnorePollAlarmFailure: true || false,
+ *             Alarms: [ // AlarmList // required
+ *               { // Alarm
+ *                 Name: 'STRING_VALUE', // required
+ *               },
+ *             ],
+ *           },
+ *         },
+ *       ],
+ *       ScheduleOffset: Number('int'),
+ *       TargetMaps: [ // TargetMaps
+ *         { // TargetMap
+ *           '<keys>': [ // TargetMapValueList
+ *             'STRING_VALUE',
+ *           ],
+ *         },
+ *       ],
+ *       AlarmConfiguration: {
+ *         IgnorePollAlarmFailure: true || false,
+ *         Alarms: [ // required
+ *           {
+ *             Name: 'STRING_VALUE', // required
+ *           },
+ *         ],
+ *       },
+ *       TriggeredAlarms: [ // AlarmStateInformationList
+ *         { // AlarmStateInformation
+ *           Name: 'STRING_VALUE', // required
+ *           State: 'UNKNOWN' || 'ALARM', // required
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   Failed: [ // FailedCreateAssociationList
+ *     { // FailedCreateAssociation
+ *       Entry: { // CreateAssociationBatchRequestEntry
+ *         Name: 'STRING_VALUE', // required
+ *         InstanceId: 'STRING_VALUE',
+ *         Parameters: {
+ *           '<keys>': [
+ *             'STRING_VALUE',
+ *           ],
+ *         },
+ *         AutomationTargetParameterName: 'STRING_VALUE',
+ *         DocumentVersion: 'STRING_VALUE',
+ *         Targets: [
+ *           {
+ *             Key: 'STRING_VALUE',
+ *             Values: [
+ *               'STRING_VALUE',
+ *             ],
+ *           },
+ *         ],
+ *         ScheduleExpression: 'STRING_VALUE',
+ *         OutputLocation: {
+ *           S3Location: {
+ *             OutputS3Region: 'STRING_VALUE',
+ *             OutputS3BucketName: 'STRING_VALUE',
+ *             OutputS3KeyPrefix: 'STRING_VALUE',
+ *           },
+ *         },
+ *         AssociationName: 'STRING_VALUE',
+ *         MaxErrors: 'STRING_VALUE',
+ *         MaxConcurrency: 'STRING_VALUE',
+ *         ComplianceSeverity: 'CRITICAL' || 'HIGH' || 'MEDIUM' || 'LOW' || 'UNSPECIFIED',
+ *         SyncCompliance: 'AUTO' || 'MANUAL',
+ *         ApplyOnlyAtCronInterval: true || false,
+ *         CalendarNames: [
+ *           'STRING_VALUE',
+ *         ],
+ *         TargetLocations: [
+ *           {
+ *             Accounts: [
+ *               'STRING_VALUE',
+ *             ],
+ *             Regions: [
+ *               'STRING_VALUE',
+ *             ],
+ *             TargetLocationMaxConcurrency: 'STRING_VALUE',
+ *             TargetLocationMaxErrors: 'STRING_VALUE',
+ *             ExecutionRoleName: 'STRING_VALUE',
+ *             TargetLocationAlarmConfiguration: '<AlarmConfiguration>',
+ *           },
+ *         ],
+ *         ScheduleOffset: Number('int'),
+ *         TargetMaps: [
+ *           {
+ *             '<keys>': [
+ *               'STRING_VALUE',
+ *             ],
+ *           },
+ *         ],
+ *         AlarmConfiguration: '<AlarmConfiguration>',
+ *       },
+ *       Message: 'STRING_VALUE',
+ *       Fault: 'Client' || 'Server' || 'Unknown',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param CreateAssociationBatchCommandInput - {@link CreateAssociationBatchCommandInput}
@@ -193,6 +362,8 @@ export interface CreateAssociationBatchCommandOutput extends CreateAssociationBa
  *  <p>The document doesn't support the platform type of the given managed node ID(s). For example,
  *    you sent an document for a Windows managed node to a Linux node.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class CreateAssociationBatchCommand extends $Command<

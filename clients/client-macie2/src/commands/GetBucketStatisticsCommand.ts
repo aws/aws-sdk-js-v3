@@ -36,14 +36,84 @@ export interface GetBucketStatisticsCommandOutput extends GetBucketStatisticsRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Macie2Client, GetBucketStatisticsCommand } from "@aws-sdk/client-macie2"; // ES Modules import
- * // const { Macie2Client, GetBucketStatisticsCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
+ * import { Macie2Client, GetBucketStatisticsCommand } from '@aws-sdk/client-macie2'; // ES Modules import
+ * // const { Macie2Client, GetBucketStatisticsCommand } = require('@aws-sdk/client-macie2'); // CommonJS import
  * const client = new Macie2Client(config);
  * const input = { // GetBucketStatisticsRequest
- *   accountId: "STRING_VALUE",
+ *   accountId: 'STRING_VALUE',
  * };
  * const command = new GetBucketStatisticsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetBucketStatisticsResponse
+ *   bucketCount: Number('long'),
+ *   bucketCountByEffectivePermission: { // BucketCountByEffectivePermission
+ *     publiclyAccessible: Number('long'),
+ *     publiclyReadable: Number('long'),
+ *     publiclyWritable: Number('long'),
+ *     unknown: Number('long'),
+ *   },
+ *   bucketCountByEncryptionType: { // BucketCountByEncryptionType
+ *     kmsManaged: Number('long'),
+ *     s3Managed: Number('long'),
+ *     unencrypted: Number('long'),
+ *     unknown: Number('long'),
+ *   },
+ *   bucketCountByObjectEncryptionRequirement: { // BucketCountPolicyAllowsUnencryptedObjectUploads
+ *     allowsUnencryptedObjectUploads: Number('long'),
+ *     deniesUnencryptedObjectUploads: Number('long'),
+ *     unknown: Number('long'),
+ *   },
+ *   bucketCountBySharedAccessType: { // BucketCountBySharedAccessType
+ *     external: Number('long'),
+ *     internal: Number('long'),
+ *     notShared: Number('long'),
+ *     unknown: Number('long'),
+ *   },
+ *   bucketStatisticsBySensitivity: { // BucketStatisticsBySensitivity
+ *     classificationError: { // SensitivityAggregations
+ *       classifiableSizeInBytes: Number('long'),
+ *       publiclyAccessibleCount: Number('long'),
+ *       totalCount: Number('long'),
+ *       totalSizeInBytes: Number('long'),
+ *     },
+ *     notClassified: {
+ *       classifiableSizeInBytes: Number('long'),
+ *       publiclyAccessibleCount: Number('long'),
+ *       totalCount: Number('long'),
+ *       totalSizeInBytes: Number('long'),
+ *     },
+ *     notSensitive: {
+ *       classifiableSizeInBytes: Number('long'),
+ *       publiclyAccessibleCount: Number('long'),
+ *       totalCount: Number('long'),
+ *       totalSizeInBytes: Number('long'),
+ *     },
+ *     sensitive: {
+ *       classifiableSizeInBytes: Number('long'),
+ *       publiclyAccessibleCount: Number('long'),
+ *       totalCount: Number('long'),
+ *       totalSizeInBytes: Number('long'),
+ *     },
+ *   },
+ *   classifiableObjectCount: Number('long'),
+ *   classifiableSizeInBytes: Number('long'),
+ *   lastUpdated: new Date('TIMESTAMP'),
+ *   objectCount: Number('long'),
+ *   sizeInBytes: Number('long'),
+ *   sizeInBytesCompressed: Number('long'),
+ *   unclassifiableObjectCount: { // ObjectLevelStatistics
+ *     fileType: Number('long'),
+ *     storageClass: Number('long'),
+ *     total: Number('long'),
+ *   },
+ *   unclassifiableObjectSizeInBytes: {
+ *     fileType: Number('long'),
+ *     storageClass: Number('long'),
+ *     total: Number('long'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetBucketStatisticsCommandInput - {@link GetBucketStatisticsCommandInput}
@@ -73,6 +143,8 @@ export interface GetBucketStatisticsCommandOutput extends GetBucketStatisticsRes
  * @throws {@link ValidationException} (client fault)
  *  <p>Provides information about an error that occurred due to a syntax error in a request.</p>
  *
+ * @throws {@link Macie2ServiceException}
+ * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
  */
 export class GetBucketStatisticsCommand extends $Command<

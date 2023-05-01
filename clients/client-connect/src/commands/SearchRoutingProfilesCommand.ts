@@ -37,60 +37,90 @@ export interface SearchRoutingProfilesCommandOutput extends SearchRoutingProfile
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, SearchRoutingProfilesCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, SearchRoutingProfilesCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, SearchRoutingProfilesCommand } from '@aws-sdk/client-connect'; // ES Modules import
+ * // const { ConnectClient, SearchRoutingProfilesCommand } = require('@aws-sdk/client-connect'); // CommonJS import
  * const client = new ConnectClient(config);
  * const input = { // SearchRoutingProfilesRequest
- *   InstanceId: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   InstanceId: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  *   SearchFilter: { // RoutingProfileSearchFilter
  *     TagFilter: { // ControlPlaneTagFilter
  *       OrConditions: [ // TagOrConditionList
  *         [ // TagAndConditionList
  *           { // TagCondition
- *             TagKey: "STRING_VALUE",
- *             TagValue: "STRING_VALUE",
+ *             TagKey: 'STRING_VALUE',
+ *             TagValue: 'STRING_VALUE',
  *           },
  *         ],
  *       ],
  *       AndConditions: [
  *         {
- *           TagKey: "STRING_VALUE",
- *           TagValue: "STRING_VALUE",
+ *           TagKey: 'STRING_VALUE',
+ *           TagValue: 'STRING_VALUE',
  *         },
  *       ],
- *       TagCondition: "<TagCondition>",
+ *       TagCondition: '<TagCondition>',
  *     },
  *   },
  *   SearchCriteria: { // RoutingProfileSearchCriteria
  *     OrConditions: [ // RoutingProfileSearchConditionList
  *       {
  *         OrConditions: [
- *           "<RoutingProfileSearchCriteria>",
+ *           '<RoutingProfileSearchCriteria>',
  *         ],
  *         AndConditions: [
- *           "<RoutingProfileSearchCriteria>",
+ *           '<RoutingProfileSearchCriteria>',
  *         ],
  *         StringCondition: { // StringCondition
- *           FieldName: "STRING_VALUE",
- *           Value: "STRING_VALUE",
- *           ComparisonType: "STARTS_WITH" || "CONTAINS" || "EXACT",
+ *           FieldName: 'STRING_VALUE',
+ *           Value: 'STRING_VALUE',
+ *           ComparisonType: 'STARTS_WITH' || 'CONTAINS' || 'EXACT',
  *         },
  *       },
  *     ],
  *     AndConditions: [
- *       "<RoutingProfileSearchCriteria>",
+ *       '<RoutingProfileSearchCriteria>',
  *     ],
  *     StringCondition: {
- *       FieldName: "STRING_VALUE",
- *       Value: "STRING_VALUE",
- *       ComparisonType: "STARTS_WITH" || "CONTAINS" || "EXACT",
+ *       FieldName: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
+ *       ComparisonType: 'STARTS_WITH' || 'CONTAINS' || 'EXACT',
  *     },
  *   },
  * };
  * const command = new SearchRoutingProfilesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SearchRoutingProfilesResponse
+ *   RoutingProfiles: [ // RoutingProfileList
+ *     { // RoutingProfile
+ *       InstanceId: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *       RoutingProfileArn: 'STRING_VALUE',
+ *       RoutingProfileId: 'STRING_VALUE',
+ *       Description: 'STRING_VALUE',
+ *       MediaConcurrencies: [ // MediaConcurrencies
+ *         { // MediaConcurrency
+ *           Channel: 'VOICE' || 'CHAT' || 'TASK', // required
+ *           Concurrency: Number('int'), // required
+ *           CrossChannelBehavior: { // CrossChannelBehavior
+ *             BehaviorType: 'ROUTE_CURRENT_CHANNEL_ONLY' || 'ROUTE_ANY_CHANNEL', // required
+ *           },
+ *         },
+ *       ],
+ *       DefaultOutboundQueueId: 'STRING_VALUE',
+ *       Tags: { // TagMap
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *       NumberOfAssociatedQueues: Number('long'),
+ *       NumberOfAssociatedUsers: Number('long'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ *   ApproximateTotalCount: Number('long'),
+ * };
+ *
  * ```
  *
  * @param SearchRoutingProfilesCommandInput - {@link SearchRoutingProfilesCommandInput}
@@ -114,6 +144,8 @@ export interface SearchRoutingProfilesCommandOutput extends SearchRoutingProfile
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class SearchRoutingProfilesCommand extends $Command<

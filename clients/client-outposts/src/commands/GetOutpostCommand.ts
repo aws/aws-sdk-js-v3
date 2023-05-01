@@ -36,14 +36,34 @@ export interface GetOutpostCommandOutput extends GetOutpostOutput, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OutpostsClient, GetOutpostCommand } from "@aws-sdk/client-outposts"; // ES Modules import
- * // const { OutpostsClient, GetOutpostCommand } = require("@aws-sdk/client-outposts"); // CommonJS import
+ * import { OutpostsClient, GetOutpostCommand } from '@aws-sdk/client-outposts'; // ES Modules import
+ * // const { OutpostsClient, GetOutpostCommand } = require('@aws-sdk/client-outposts'); // CommonJS import
  * const client = new OutpostsClient(config);
  * const input = { // GetOutpostInput
- *   OutpostId: "STRING_VALUE", // required
+ *   OutpostId: 'STRING_VALUE', // required
  * };
  * const command = new GetOutpostCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetOutpostOutput
+ *   Outpost: { // Outpost
+ *     OutpostId: 'STRING_VALUE',
+ *     OwnerId: 'STRING_VALUE',
+ *     OutpostArn: 'STRING_VALUE',
+ *     SiteId: 'STRING_VALUE',
+ *     Name: 'STRING_VALUE',
+ *     Description: 'STRING_VALUE',
+ *     LifeCycleStatus: 'STRING_VALUE',
+ *     AvailabilityZone: 'STRING_VALUE',
+ *     AvailabilityZoneId: 'STRING_VALUE',
+ *     Tags: { // TagMap
+ *       '<keys>': 'STRING_VALUE',
+ *     },
+ *     SiteArn: 'STRING_VALUE',
+ *     SupportedHardwareType: 'RACK' || 'SERVER',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetOutpostCommandInput - {@link GetOutpostCommandInput}
@@ -64,6 +84,8 @@ export interface GetOutpostCommandOutput extends GetOutpostOutput, __MetadataBea
  * @throws {@link ValidationException} (client fault)
  *  <p>A parameter is not valid.</p>
  *
+ * @throws {@link OutpostsServiceException}
+ * <p>Base exception class for all service exceptions from Outposts service.</p>
  *
  */
 export class GetOutpostCommand extends $Command<

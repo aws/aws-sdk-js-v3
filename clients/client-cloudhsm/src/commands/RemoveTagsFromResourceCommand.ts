@@ -48,17 +48,22 @@ export interface RemoveTagsFromResourceCommandOutput extends RemoveTagsFromResou
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudHSMClient, RemoveTagsFromResourceCommand } from "@aws-sdk/client-cloudhsm"; // ES Modules import
- * // const { CloudHSMClient, RemoveTagsFromResourceCommand } = require("@aws-sdk/client-cloudhsm"); // CommonJS import
+ * import { CloudHSMClient, RemoveTagsFromResourceCommand } from '@aws-sdk/client-cloudhsm'; // ES Modules import
+ * // const { CloudHSMClient, RemoveTagsFromResourceCommand } = require('@aws-sdk/client-cloudhsm'); // CommonJS import
  * const client = new CloudHSMClient(config);
  * const input = { // RemoveTagsFromResourceRequest
- *   ResourceArn: "STRING_VALUE", // required
+ *   ResourceArn: 'STRING_VALUE', // required
  *   TagKeyList: [ // TagKeyList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new RemoveTagsFromResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // RemoveTagsFromResourceResponse
+ *   Status: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param RemoveTagsFromResourceCommandInput - {@link RemoveTagsFromResourceCommandInput}
@@ -76,6 +81,8 @@ export interface RemoveTagsFromResourceCommandOutput extends RemoveTagsFromResou
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>Indicates that one or more of the request parameters are not valid.</p>
  *
+ * @throws {@link CloudHSMServiceException}
+ * <p>Base exception class for all service exceptions from CloudHSM service.</p>
  *
  */
 export class RemoveTagsFromResourceCommand extends $Command<

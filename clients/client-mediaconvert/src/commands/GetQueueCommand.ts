@@ -36,14 +36,38 @@ export interface GetQueueCommandOutput extends GetQueueResponse, __MetadataBeare
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MediaConvertClient, GetQueueCommand } from "@aws-sdk/client-mediaconvert"; // ES Modules import
- * // const { MediaConvertClient, GetQueueCommand } = require("@aws-sdk/client-mediaconvert"); // CommonJS import
+ * import { MediaConvertClient, GetQueueCommand } from '@aws-sdk/client-mediaconvert'; // ES Modules import
+ * // const { MediaConvertClient, GetQueueCommand } = require('@aws-sdk/client-mediaconvert'); // CommonJS import
  * const client = new MediaConvertClient(config);
  * const input = { // GetQueueRequest
- *   Name: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
  * };
  * const command = new GetQueueCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetQueueResponse
+ *   Queue: { // Queue
+ *     Arn: 'STRING_VALUE',
+ *     CreatedAt: new Date('TIMESTAMP'),
+ *     Description: 'STRING_VALUE',
+ *     LastUpdated: new Date('TIMESTAMP'),
+ *     Name: 'STRING_VALUE', // required
+ *     PricingPlan: 'ON_DEMAND' || 'RESERVED',
+ *     ProgressingJobsCount: Number('int'),
+ *     ReservationPlan: { // ReservationPlan
+ *       Commitment: 'ONE_YEAR',
+ *       ExpiresAt: new Date('TIMESTAMP'),
+ *       PurchasedAt: new Date('TIMESTAMP'),
+ *       RenewalType: 'AUTO_RENEW' || 'EXPIRE',
+ *       ReservedSlots: Number('int'),
+ *       Status: 'ACTIVE' || 'EXPIRED',
+ *     },
+ *     Status: 'ACTIVE' || 'PAUSED',
+ *     SubmittedJobsCount: Number('int'),
+ *     Type: 'SYSTEM' || 'CUSTOM',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetQueueCommandInput - {@link GetQueueCommandInput}
@@ -70,6 +94,8 @@ export interface GetQueueCommandOutput extends GetQueueResponse, __MetadataBeare
  * @throws {@link TooManyRequestsException} (client fault)
  *  Too many requests have been sent in too short of a time. The service limits the rate at which it will accept requests.
  *
+ * @throws {@link MediaConvertServiceException}
+ * <p>Base exception class for all service exceptions from MediaConvert service.</p>
  *
  */
 export class GetQueueCommand extends $Command<

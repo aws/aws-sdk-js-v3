@@ -42,34 +42,103 @@ export interface DescribeImagesCommandOutput extends DescribeImagesResult, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, DescribeImagesCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, DescribeImagesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, DescribeImagesCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, DescribeImagesCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // DescribeImagesRequest
  *   ExecutableUsers: [ // ExecutableByStringList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   Filters: [ // FilterList
  *     { // Filter
- *       Name: "STRING_VALUE",
+ *       Name: 'STRING_VALUE',
  *       Values: [ // ValueStringList
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
  *   ImageIds: [ // ImageIdStringList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   Owners: [ // OwnerStringList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   IncludeDeprecated: true || false,
  *   DryRun: true || false,
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new DescribeImagesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeImagesResult
+ *   Images: [ // ImageList
+ *     { // Image
+ *       Architecture: 'i386' || 'x86_64' || 'arm64' || 'x86_64_mac' || 'arm64_mac',
+ *       CreationDate: 'STRING_VALUE',
+ *       ImageId: 'STRING_VALUE',
+ *       ImageLocation: 'STRING_VALUE',
+ *       ImageType: 'machine' || 'kernel' || 'ramdisk',
+ *       Public: true || false,
+ *       KernelId: 'STRING_VALUE',
+ *       OwnerId: 'STRING_VALUE',
+ *       Platform: 'Windows',
+ *       PlatformDetails: 'STRING_VALUE',
+ *       UsageOperation: 'STRING_VALUE',
+ *       ProductCodes: [ // ProductCodeList
+ *         { // ProductCode
+ *           ProductCodeId: 'STRING_VALUE',
+ *           ProductCodeType: 'devpay' || 'marketplace',
+ *         },
+ *       ],
+ *       RamdiskId: 'STRING_VALUE',
+ *       State: 'pending' || 'available' || 'invalid' || 'deregistered' || 'transient' || 'failed' || 'error',
+ *       BlockDeviceMappings: [ // BlockDeviceMappingList
+ *         { // BlockDeviceMapping
+ *           DeviceName: 'STRING_VALUE',
+ *           VirtualName: 'STRING_VALUE',
+ *           Ebs: { // EbsBlockDevice
+ *             DeleteOnTermination: true || false,
+ *             Iops: Number('int'),
+ *             SnapshotId: 'STRING_VALUE',
+ *             VolumeSize: Number('int'),
+ *             VolumeType: 'standard' || 'io1' || 'io2' || 'gp2' || 'sc1' || 'st1' || 'gp3',
+ *             KmsKeyId: 'STRING_VALUE',
+ *             Throughput: Number('int'),
+ *             OutpostArn: 'STRING_VALUE',
+ *             Encrypted: true || false,
+ *           },
+ *           NoDevice: 'STRING_VALUE',
+ *         },
+ *       ],
+ *       Description: 'STRING_VALUE',
+ *       EnaSupport: true || false,
+ *       Hypervisor: 'ovm' || 'xen',
+ *       ImageOwnerAlias: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *       RootDeviceName: 'STRING_VALUE',
+ *       RootDeviceType: 'ebs' || 'instance-store',
+ *       SriovNetSupport: 'STRING_VALUE',
+ *       StateReason: { // StateReason
+ *         Code: 'STRING_VALUE',
+ *         Message: 'STRING_VALUE',
+ *       },
+ *       Tags: [ // TagList
+ *         { // Tag
+ *           Key: 'STRING_VALUE',
+ *           Value: 'STRING_VALUE',
+ *         },
+ *       ],
+ *       VirtualizationType: 'hvm' || 'paravirtual',
+ *       BootMode: 'legacy-bios' || 'uefi' || 'uefi-preferred',
+ *       TpmSupport: 'v2.0',
+ *       DeprecationTime: 'STRING_VALUE',
+ *       ImdsSupport: 'v2.0',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeImagesCommandInput - {@link DescribeImagesCommandInput}
@@ -78,6 +147,8 @@ export interface DescribeImagesCommandOutput extends DescribeImagesResult, __Met
  * @see {@link DescribeImagesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @example To describe an AMI
  * ```javascript

@@ -52,12 +52,15 @@ export interface DisableHealthServiceAccessForOrganizationCommandOutput extends 
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { HealthClient, DisableHealthServiceAccessForOrganizationCommand } from "@aws-sdk/client-health"; // ES Modules import
- * // const { HealthClient, DisableHealthServiceAccessForOrganizationCommand } = require("@aws-sdk/client-health"); // CommonJS import
+ * import { HealthClient, DisableHealthServiceAccessForOrganizationCommand } from '@aws-sdk/client-health'; // ES Modules import
+ * // const { HealthClient, DisableHealthServiceAccessForOrganizationCommand } = require('@aws-sdk/client-health'); // CommonJS import
  * const client = new HealthClient(config);
  * const input = {};
  * const command = new DisableHealthServiceAccessForOrganizationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DisableHealthServiceAccessForOrganizationCommandInput - {@link DisableHealthServiceAccessForOrganizationCommandInput}
@@ -71,6 +74,8 @@ export interface DisableHealthServiceAccessForOrganizationCommandOutput extends 
  *             <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_EnableHealthServiceAccessForOrganization.html">EnableHealthServiceAccessForOrganization</a> is already in progress. Wait for the
  *          action to complete before trying again. To get the current status, use the <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeHealthServiceStatusForOrganization.html">DescribeHealthServiceStatusForOrganization</a> operation.</p>
  *
+ * @throws {@link HealthServiceException}
+ * <p>Base exception class for all service exceptions from Health service.</p>
  *
  */
 export class DisableHealthServiceAccessForOrganizationCommand extends $Command<

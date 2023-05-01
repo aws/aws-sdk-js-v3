@@ -37,16 +37,37 @@ export interface DescribeJobExecutionCommandOutput extends DescribeJobExecutionR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTClient, DescribeJobExecutionCommand } from "@aws-sdk/client-iot"; // ES Modules import
- * // const { IoTClient, DescribeJobExecutionCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * import { IoTClient, DescribeJobExecutionCommand } from '@aws-sdk/client-iot'; // ES Modules import
+ * // const { IoTClient, DescribeJobExecutionCommand } = require('@aws-sdk/client-iot'); // CommonJS import
  * const client = new IoTClient(config);
  * const input = { // DescribeJobExecutionRequest
- *   jobId: "STRING_VALUE", // required
- *   thingName: "STRING_VALUE", // required
- *   executionNumber: Number("long"),
+ *   jobId: 'STRING_VALUE', // required
+ *   thingName: 'STRING_VALUE', // required
+ *   executionNumber: Number('long'),
  * };
  * const command = new DescribeJobExecutionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeJobExecutionResponse
+ *   execution: { // JobExecution
+ *     jobId: 'STRING_VALUE',
+ *     status: 'QUEUED' || 'IN_PROGRESS' || 'SUCCEEDED' || 'FAILED' || 'TIMED_OUT' || 'REJECTED' || 'REMOVED' || 'CANCELED',
+ *     forceCanceled: true || false,
+ *     statusDetails: { // JobExecutionStatusDetails
+ *       detailsMap: { // DetailsMap
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *     },
+ *     thingArn: 'STRING_VALUE',
+ *     queuedAt: new Date('TIMESTAMP'),
+ *     startedAt: new Date('TIMESTAMP'),
+ *     lastUpdatedAt: new Date('TIMESTAMP'),
+ *     executionNumber: Number('long'),
+ *     versionNumber: Number('long'),
+ *     approximateSecondsBeforeTimedOut: Number('long'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeJobExecutionCommandInput - {@link DescribeJobExecutionCommandInput}
@@ -67,6 +88,8 @@ export interface DescribeJobExecutionCommandOutput extends DescribeJobExecutionR
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The rate exceeds the limit.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class DescribeJobExecutionCommand extends $Command<

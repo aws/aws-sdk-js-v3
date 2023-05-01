@@ -36,17 +36,20 @@ export interface RemoveTagsFromResourceCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DocDBClient, RemoveTagsFromResourceCommand } from "@aws-sdk/client-docdb"; // ES Modules import
- * // const { DocDBClient, RemoveTagsFromResourceCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
+ * import { DocDBClient, RemoveTagsFromResourceCommand } from '@aws-sdk/client-docdb'; // ES Modules import
+ * // const { DocDBClient, RemoveTagsFromResourceCommand } = require('@aws-sdk/client-docdb'); // CommonJS import
  * const client = new DocDBClient(config);
  * const input = { // RemoveTagsFromResourceMessage
- *   ResourceName: "STRING_VALUE", // required
+ *   ResourceName: 'STRING_VALUE', // required
  *   TagKeys: [ // KeyList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new RemoveTagsFromResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param RemoveTagsFromResourceCommandInput - {@link RemoveTagsFromResourceCommandInput}
@@ -67,6 +70,8 @@ export interface RemoveTagsFromResourceCommandOutput extends __MetadataBearer {}
  *  <p>
  *             <code>DBSnapshotIdentifier</code> doesn't refer to an existing snapshot. </p>
  *
+ * @throws {@link DocDBServiceException}
+ * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
  */
 export class RemoveTagsFromResourceCommand extends $Command<

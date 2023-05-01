@@ -41,22 +41,22 @@ export interface ModifyNetworkInterfaceAttributeCommandOutput extends __Metadata
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, ModifyNetworkInterfaceAttributeCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, ModifyNetworkInterfaceAttributeCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, ModifyNetworkInterfaceAttributeCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, ModifyNetworkInterfaceAttributeCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // ModifyNetworkInterfaceAttributeRequest
  *   Attachment: { // NetworkInterfaceAttachmentChanges
- *     AttachmentId: "STRING_VALUE",
+ *     AttachmentId: 'STRING_VALUE',
  *     DeleteOnTermination: true || false,
  *   },
  *   Description: { // AttributeValue
- *     Value: "STRING_VALUE",
+ *     Value: 'STRING_VALUE',
  *   },
  *   DryRun: true || false,
  *   Groups: [ // SecurityGroupIdStringList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   NetworkInterfaceId: "STRING_VALUE", // required
+ *   NetworkInterfaceId: 'STRING_VALUE', // required
  *   SourceDestCheck: { // AttributeBooleanValue
  *     Value: true || false,
  *   },
@@ -69,6 +69,9 @@ export interface ModifyNetworkInterfaceAttributeCommandOutput extends __Metadata
  * };
  * const command = new ModifyNetworkInterfaceAttributeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param ModifyNetworkInterfaceAttributeCommandInput - {@link ModifyNetworkInterfaceAttributeCommandInput}
@@ -77,6 +80,8 @@ export interface ModifyNetworkInterfaceAttributeCommandOutput extends __Metadata
  * @see {@link ModifyNetworkInterfaceAttributeCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @example To modify the attachment attribute of a network interface
  * ```javascript

@@ -43,30 +43,35 @@ export interface UpdateProjectCommandOutput extends UpdateProjectOutput, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, UpdateProjectCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, UpdateProjectCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, UpdateProjectCommand } from '@aws-sdk/client-sagemaker'; // ES Modules import
+ * // const { SageMakerClient, UpdateProjectCommand } = require('@aws-sdk/client-sagemaker'); // CommonJS import
  * const client = new SageMakerClient(config);
  * const input = { // UpdateProjectInput
- *   ProjectName: "STRING_VALUE", // required
- *   ProjectDescription: "STRING_VALUE",
+ *   ProjectName: 'STRING_VALUE', // required
+ *   ProjectDescription: 'STRING_VALUE',
  *   ServiceCatalogProvisioningUpdateDetails: { // ServiceCatalogProvisioningUpdateDetails
- *     ProvisioningArtifactId: "STRING_VALUE",
+ *     ProvisioningArtifactId: 'STRING_VALUE',
  *     ProvisioningParameters: [ // ProvisioningParameters
  *       { // ProvisioningParameter
- *         Key: "STRING_VALUE",
- *         Value: "STRING_VALUE",
+ *         Key: 'STRING_VALUE',
+ *         Value: 'STRING_VALUE',
  *       },
  *     ],
  *   },
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new UpdateProjectCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateProjectOutput
+ *   ProjectArn: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param UpdateProjectCommandInput - {@link UpdateProjectCommandInput}
@@ -75,6 +80,8 @@ export interface UpdateProjectCommandOutput extends UpdateProjectOutput, __Metad
  * @see {@link UpdateProjectCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class UpdateProjectCommand extends $Command<

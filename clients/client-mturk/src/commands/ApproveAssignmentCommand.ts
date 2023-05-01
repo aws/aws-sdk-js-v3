@@ -65,16 +65,19 @@ export interface ApproveAssignmentCommandOutput extends ApproveAssignmentRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MTurkClient, ApproveAssignmentCommand } from "@aws-sdk/client-mturk"; // ES Modules import
- * // const { MTurkClient, ApproveAssignmentCommand } = require("@aws-sdk/client-mturk"); // CommonJS import
+ * import { MTurkClient, ApproveAssignmentCommand } from '@aws-sdk/client-mturk'; // ES Modules import
+ * // const { MTurkClient, ApproveAssignmentCommand } = require('@aws-sdk/client-mturk'); // CommonJS import
  * const client = new MTurkClient(config);
  * const input = { // ApproveAssignmentRequest
- *   AssignmentId: "STRING_VALUE", // required
- *   RequesterFeedback: "STRING_VALUE",
+ *   AssignmentId: 'STRING_VALUE', // required
+ *   RequesterFeedback: 'STRING_VALUE',
  *   OverrideRejection: true || false,
  * };
  * const command = new ApproveAssignmentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param ApproveAssignmentCommandInput - {@link ApproveAssignmentCommandInput}
@@ -89,6 +92,8 @@ export interface ApproveAssignmentCommandOutput extends ApproveAssignmentRespons
  * @throws {@link ServiceFault} (server fault)
  *  <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
  *
+ * @throws {@link MTurkServiceException}
+ * <p>Base exception class for all service exceptions from MTurk service.</p>
  *
  */
 export class ApproveAssignmentCommand extends $Command<

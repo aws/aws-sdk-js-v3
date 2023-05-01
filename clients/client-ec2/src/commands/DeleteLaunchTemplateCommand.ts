@@ -37,16 +37,34 @@ export interface DeleteLaunchTemplateCommandOutput extends DeleteLaunchTemplateR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, DeleteLaunchTemplateCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, DeleteLaunchTemplateCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, DeleteLaunchTemplateCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, DeleteLaunchTemplateCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // DeleteLaunchTemplateRequest
  *   DryRun: true || false,
- *   LaunchTemplateId: "STRING_VALUE",
- *   LaunchTemplateName: "STRING_VALUE",
+ *   LaunchTemplateId: 'STRING_VALUE',
+ *   LaunchTemplateName: 'STRING_VALUE',
  * };
  * const command = new DeleteLaunchTemplateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteLaunchTemplateResult
+ *   LaunchTemplate: { // LaunchTemplate
+ *     LaunchTemplateId: 'STRING_VALUE',
+ *     LaunchTemplateName: 'STRING_VALUE',
+ *     CreateTime: new Date('TIMESTAMP'),
+ *     CreatedBy: 'STRING_VALUE',
+ *     DefaultVersionNumber: Number('long'),
+ *     LatestVersionNumber: Number('long'),
+ *     Tags: [ // TagList
+ *       { // Tag
+ *         Key: 'STRING_VALUE',
+ *         Value: 'STRING_VALUE',
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param DeleteLaunchTemplateCommandInput - {@link DeleteLaunchTemplateCommandInput}
@@ -55,6 +73,8 @@ export interface DeleteLaunchTemplateCommandOutput extends DeleteLaunchTemplateR
  * @see {@link DeleteLaunchTemplateCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @example To delete a launch template
  * ```javascript

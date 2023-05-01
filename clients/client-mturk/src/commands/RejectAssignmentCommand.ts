@@ -48,15 +48,18 @@ export interface RejectAssignmentCommandOutput extends RejectAssignmentResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MTurkClient, RejectAssignmentCommand } from "@aws-sdk/client-mturk"; // ES Modules import
- * // const { MTurkClient, RejectAssignmentCommand } = require("@aws-sdk/client-mturk"); // CommonJS import
+ * import { MTurkClient, RejectAssignmentCommand } from '@aws-sdk/client-mturk'; // ES Modules import
+ * // const { MTurkClient, RejectAssignmentCommand } = require('@aws-sdk/client-mturk'); // CommonJS import
  * const client = new MTurkClient(config);
  * const input = { // RejectAssignmentRequest
- *   AssignmentId: "STRING_VALUE", // required
- *   RequesterFeedback: "STRING_VALUE", // required
+ *   AssignmentId: 'STRING_VALUE', // required
+ *   RequesterFeedback: 'STRING_VALUE', // required
  * };
  * const command = new RejectAssignmentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param RejectAssignmentCommandInput - {@link RejectAssignmentCommandInput}
@@ -71,6 +74,8 @@ export interface RejectAssignmentCommandOutput extends RejectAssignmentResponse,
  * @throws {@link ServiceFault} (server fault)
  *  <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
  *
+ * @throws {@link MTurkServiceException}
+ * <p>Base exception class for all service exceptions from MTurk service.</p>
  *
  */
 export class RejectAssignmentCommand extends $Command<

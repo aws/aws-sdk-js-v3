@@ -36,15 +36,33 @@ export interface GetAppsCommandOutput extends GetAppsResponse, __MetadataBearer 
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PinpointClient, GetAppsCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
- * // const { PinpointClient, GetAppsCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
+ * import { PinpointClient, GetAppsCommand } from '@aws-sdk/client-pinpoint'; // ES Modules import
+ * // const { PinpointClient, GetAppsCommand } = require('@aws-sdk/client-pinpoint'); // CommonJS import
  * const client = new PinpointClient(config);
  * const input = { // GetAppsRequest
- *   PageSize: "STRING_VALUE",
- *   Token: "STRING_VALUE",
+ *   PageSize: 'STRING_VALUE',
+ *   Token: 'STRING_VALUE',
  * };
  * const command = new GetAppsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetAppsResponse
+ *   ApplicationsResponse: { // ApplicationsResponse
+ *     Item: [ // ListOfApplicationResponse
+ *       { // ApplicationResponse
+ *         Arn: 'STRING_VALUE', // required
+ *         Id: 'STRING_VALUE', // required
+ *         Name: 'STRING_VALUE', // required
+ *         tags: { // MapOf__string
+ *           '<keys>': 'STRING_VALUE',
+ *         },
+ *         CreationDate: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     NextToken: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetAppsCommandInput - {@link GetAppsCommandInput}
@@ -74,6 +92,8 @@ export interface GetAppsCommandOutput extends GetAppsResponse, __MetadataBearer 
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Provides information about an API request or response.</p>
  *
+ * @throws {@link PinpointServiceException}
+ * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
  */
 export class GetAppsCommand extends $Command<GetAppsCommandInput, GetAppsCommandOutput, PinpointClientResolvedConfig> {

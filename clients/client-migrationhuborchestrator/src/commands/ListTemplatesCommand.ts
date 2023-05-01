@@ -40,16 +40,29 @@ export interface ListTemplatesCommandOutput extends ListMigrationWorkflowTemplat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MigrationHubOrchestratorClient, ListTemplatesCommand } from "@aws-sdk/client-migrationhuborchestrator"; // ES Modules import
- * // const { MigrationHubOrchestratorClient, ListTemplatesCommand } = require("@aws-sdk/client-migrationhuborchestrator"); // CommonJS import
+ * import { MigrationHubOrchestratorClient, ListTemplatesCommand } from '@aws-sdk/client-migrationhuborchestrator'; // ES Modules import
+ * // const { MigrationHubOrchestratorClient, ListTemplatesCommand } = require('@aws-sdk/client-migrationhuborchestrator'); // CommonJS import
  * const client = new MigrationHubOrchestratorClient(config);
  * const input = { // ListMigrationWorkflowTemplatesRequest
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
- *   name: "STRING_VALUE",
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
+ *   name: 'STRING_VALUE',
  * };
  * const command = new ListTemplatesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListMigrationWorkflowTemplatesResponse
+ *   nextToken: 'STRING_VALUE',
+ *   templateSummary: [ // TemplateSummaryList // required
+ *     { // TemplateSummary
+ *       id: 'STRING_VALUE',
+ *       name: 'STRING_VALUE',
+ *       arn: 'STRING_VALUE',
+ *       description: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListTemplatesCommandInput - {@link ListTemplatesCommandInput}
@@ -67,6 +80,8 @@ export interface ListTemplatesCommandOutput extends ListMigrationWorkflowTemplat
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
  *
+ * @throws {@link MigrationHubOrchestratorServiceException}
+ * <p>Base exception class for all service exceptions from MigrationHubOrchestrator service.</p>
  *
  */
 export class ListTemplatesCommand extends $Command<

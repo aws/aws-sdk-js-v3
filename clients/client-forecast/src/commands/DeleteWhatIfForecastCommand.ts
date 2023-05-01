@@ -38,14 +38,17 @@ export interface DeleteWhatIfForecastCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ForecastClient, DeleteWhatIfForecastCommand } from "@aws-sdk/client-forecast"; // ES Modules import
- * // const { ForecastClient, DeleteWhatIfForecastCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
+ * import { ForecastClient, DeleteWhatIfForecastCommand } from '@aws-sdk/client-forecast'; // ES Modules import
+ * // const { ForecastClient, DeleteWhatIfForecastCommand } = require('@aws-sdk/client-forecast'); // CommonJS import
  * const client = new ForecastClient(config);
  * const input = { // DeleteWhatIfForecastRequest
- *   WhatIfForecastArn: "STRING_VALUE", // required
+ *   WhatIfForecastArn: 'STRING_VALUE', // required
  * };
  * const command = new DeleteWhatIfForecastCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteWhatIfForecastCommandInput - {@link DeleteWhatIfForecastCommandInput}
@@ -65,6 +68,8 @@ export interface DeleteWhatIfForecastCommandOutput extends __MetadataBearer {}
  *  <p>We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try
  *       again.</p>
  *
+ * @throws {@link ForecastServiceException}
+ * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
  */
 export class DeleteWhatIfForecastCommand extends $Command<

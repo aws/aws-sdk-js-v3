@@ -46,20 +46,25 @@ export interface UpdateSubscriptionNotificationConfigurationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SecurityLakeClient, UpdateSubscriptionNotificationConfigurationCommand } from "@aws-sdk/client-securitylake"; // ES Modules import
- * // const { SecurityLakeClient, UpdateSubscriptionNotificationConfigurationCommand } = require("@aws-sdk/client-securitylake"); // CommonJS import
+ * import { SecurityLakeClient, UpdateSubscriptionNotificationConfigurationCommand } from '@aws-sdk/client-securitylake'; // ES Modules import
+ * // const { SecurityLakeClient, UpdateSubscriptionNotificationConfigurationCommand } = require('@aws-sdk/client-securitylake'); // CommonJS import
  * const client = new SecurityLakeClient(config);
  * const input = { // UpdateSubscriptionNotificationConfigurationRequest
- *   subscriptionId: "STRING_VALUE", // required
- *   subscriptionEndpoint: "STRING_VALUE",
- *   httpsApiKeyName: "STRING_VALUE",
- *   httpsApiKeyValue: "STRING_VALUE",
- *   httpsMethod: "STRING_VALUE",
+ *   subscriptionId: 'STRING_VALUE', // required
+ *   subscriptionEndpoint: 'STRING_VALUE',
+ *   httpsApiKeyName: 'STRING_VALUE',
+ *   httpsApiKeyValue: 'STRING_VALUE',
+ *   httpsMethod: 'STRING_VALUE',
  *   createSqs: true || false,
- *   roleArn: "STRING_VALUE",
+ *   roleArn: 'STRING_VALUE',
  * };
  * const command = new UpdateSubscriptionNotificationConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateSubscriptionNotificationConfigurationResponse
+ *   queueArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateSubscriptionNotificationConfigurationCommandInput - {@link UpdateSubscriptionNotificationConfigurationCommandInput}
@@ -96,6 +101,8 @@ export interface UpdateSubscriptionNotificationConfigurationCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>Your signing certificate could not be validated. </p>
  *
+ * @throws {@link SecurityLakeServiceException}
+ * <p>Base exception class for all service exceptions from SecurityLake service.</p>
  *
  */
 export class UpdateSubscriptionNotificationConfigurationCommand extends $Command<

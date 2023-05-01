@@ -41,14 +41,47 @@ export interface GetStreamingDistributionConfigCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudFrontClient, GetStreamingDistributionConfigCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
- * // const { CloudFrontClient, GetStreamingDistributionConfigCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
+ * import { CloudFrontClient, GetStreamingDistributionConfigCommand } from '@aws-sdk/client-cloudfront'; // ES Modules import
+ * // const { CloudFrontClient, GetStreamingDistributionConfigCommand } = require('@aws-sdk/client-cloudfront'); // CommonJS import
  * const client = new CloudFrontClient(config);
  * const input = { // GetStreamingDistributionConfigRequest
- *   Id: "STRING_VALUE", // required
+ *   Id: 'STRING_VALUE', // required
  * };
  * const command = new GetStreamingDistributionConfigCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetStreamingDistributionConfigResult
+ *   StreamingDistributionConfig: { // StreamingDistributionConfig
+ *     CallerReference: 'STRING_VALUE', // required
+ *     S3Origin: { // S3Origin
+ *       DomainName: 'STRING_VALUE', // required
+ *       OriginAccessIdentity: 'STRING_VALUE', // required
+ *     },
+ *     Aliases: { // Aliases
+ *       Quantity: Number('int'), // required
+ *       Items: [ // AliasList
+ *         'STRING_VALUE',
+ *       ],
+ *     },
+ *     Comment: 'STRING_VALUE', // required
+ *     Logging: { // StreamingLoggingConfig
+ *       Enabled: true || false, // required
+ *       Bucket: 'STRING_VALUE', // required
+ *       Prefix: 'STRING_VALUE', // required
+ *     },
+ *     TrustedSigners: { // TrustedSigners
+ *       Enabled: true || false, // required
+ *       Quantity: Number('int'), // required
+ *       Items: [ // AwsAccountNumberList
+ *         'STRING_VALUE',
+ *       ],
+ *     },
+ *     PriceClass: 'PriceClass_100' || 'PriceClass_200' || 'PriceClass_All',
+ *     Enabled: true || false, // required
+ *   },
+ *   ETag: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetStreamingDistributionConfigCommandInput - {@link GetStreamingDistributionConfigCommandInput}
@@ -63,6 +96,8 @@ export interface GetStreamingDistributionConfigCommandOutput
  * @throws {@link NoSuchStreamingDistribution} (client fault)
  *  <p>The specified streaming distribution does not exist.</p>
  *
+ * @throws {@link CloudFrontServiceException}
+ * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
  */
 export class GetStreamingDistributionConfigCommand extends $Command<

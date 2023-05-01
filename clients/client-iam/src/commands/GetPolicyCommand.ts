@@ -45,14 +45,37 @@ export interface GetPolicyCommandOutput extends GetPolicyResponse, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IAMClient, GetPolicyCommand } from "@aws-sdk/client-iam"; // ES Modules import
- * // const { IAMClient, GetPolicyCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * import { IAMClient, GetPolicyCommand } from '@aws-sdk/client-iam'; // ES Modules import
+ * // const { IAMClient, GetPolicyCommand } = require('@aws-sdk/client-iam'); // CommonJS import
  * const client = new IAMClient(config);
  * const input = { // GetPolicyRequest
- *   PolicyArn: "STRING_VALUE", // required
+ *   PolicyArn: 'STRING_VALUE', // required
  * };
  * const command = new GetPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetPolicyResponse
+ *   Policy: { // Policy
+ *     PolicyName: 'STRING_VALUE',
+ *     PolicyId: 'STRING_VALUE',
+ *     Arn: 'STRING_VALUE',
+ *     Path: 'STRING_VALUE',
+ *     DefaultVersionId: 'STRING_VALUE',
+ *     AttachmentCount: Number('int'),
+ *     PermissionsBoundaryUsageCount: Number('int'),
+ *     IsAttachable: true || false,
+ *     Description: 'STRING_VALUE',
+ *     CreateDate: new Date('TIMESTAMP'),
+ *     UpdateDate: new Date('TIMESTAMP'),
+ *     Tags: [ // tagListType
+ *       { // Tag
+ *         Key: 'STRING_VALUE', // required
+ *         Value: 'STRING_VALUE', // required
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetPolicyCommandInput - {@link GetPolicyCommandInput}
@@ -73,6 +96,8 @@ export interface GetPolicyCommandOutput extends GetPolicyResponse, __MetadataBea
  *  <p>The request processing has failed because of an unknown error, exception or
  *       failure.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  */
 export class GetPolicyCommand extends $Command<GetPolicyCommandInput, GetPolicyCommandOutput, IAMClientResolvedConfig> {

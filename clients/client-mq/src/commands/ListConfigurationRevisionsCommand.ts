@@ -36,16 +36,30 @@ export interface ListConfigurationRevisionsCommandOutput extends ListConfigurati
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MqClient, ListConfigurationRevisionsCommand } from "@aws-sdk/client-mq"; // ES Modules import
- * // const { MqClient, ListConfigurationRevisionsCommand } = require("@aws-sdk/client-mq"); // CommonJS import
+ * import { MqClient, ListConfigurationRevisionsCommand } from '@aws-sdk/client-mq'; // ES Modules import
+ * // const { MqClient, ListConfigurationRevisionsCommand } = require('@aws-sdk/client-mq'); // CommonJS import
  * const client = new MqClient(config);
  * const input = { // ListConfigurationRevisionsRequest
- *   ConfigurationId: "STRING_VALUE", // required
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   ConfigurationId: 'STRING_VALUE', // required
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListConfigurationRevisionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListConfigurationRevisionsResponse
+ *   ConfigurationId: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
+ *   Revisions: [ // __listOfConfigurationRevision
+ *     { // ConfigurationRevision
+ *       Created: new Date('TIMESTAMP'), // required
+ *       Description: 'STRING_VALUE',
+ *       Revision: Number('int'), // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListConfigurationRevisionsCommandInput - {@link ListConfigurationRevisionsCommandInput}
@@ -66,6 +80,8 @@ export interface ListConfigurationRevisionsCommandOutput extends ListConfigurati
  * @throws {@link NotFoundException} (client fault)
  *  <p>Returns information about an error.</p>
  *
+ * @throws {@link MqServiceException}
+ * <p>Base exception class for all service exceptions from Mq service.</p>
  *
  */
 export class ListConfigurationRevisionsCommand extends $Command<

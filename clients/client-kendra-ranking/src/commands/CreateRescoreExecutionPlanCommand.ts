@@ -45,25 +45,31 @@ export interface CreateRescoreExecutionPlanCommandOutput extends CreateRescoreEx
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KendraRankingClient, CreateRescoreExecutionPlanCommand } from "@aws-sdk/client-kendra-ranking"; // ES Modules import
- * // const { KendraRankingClient, CreateRescoreExecutionPlanCommand } = require("@aws-sdk/client-kendra-ranking"); // CommonJS import
+ * import { KendraRankingClient, CreateRescoreExecutionPlanCommand } from '@aws-sdk/client-kendra-ranking'; // ES Modules import
+ * // const { KendraRankingClient, CreateRescoreExecutionPlanCommand } = require('@aws-sdk/client-kendra-ranking'); // CommonJS import
  * const client = new KendraRankingClient(config);
  * const input = { // CreateRescoreExecutionPlanRequest
- *   Name: "STRING_VALUE", // required
- *   Description: "STRING_VALUE",
+ *   Name: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE',
  *   CapacityUnits: { // CapacityUnitsConfiguration
- *     RescoreCapacityUnits: Number("int"), // required
+ *     RescoreCapacityUnits: Number('int'), // required
  *   },
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
- *   ClientToken: "STRING_VALUE",
+ *   ClientToken: 'STRING_VALUE',
  * };
  * const command = new CreateRescoreExecutionPlanCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateRescoreExecutionPlanResponse
+ *   Id: 'STRING_VALUE', // required
+ *   Arn: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param CreateRescoreExecutionPlanCommandInput - {@link CreateRescoreExecutionPlanCommandInput}
@@ -104,6 +110,8 @@ export interface CreateRescoreExecutionPlanCommandOutput extends CreateRescoreEx
  *             the Amazon Kendra Intelligent Ranking service.
  *             Please provide the correct input and try again.</p>
  *
+ * @throws {@link KendraRankingServiceException}
+ * <p>Base exception class for all service exceptions from KendraRanking service.</p>
  *
  */
 export class CreateRescoreExecutionPlanCommand extends $Command<

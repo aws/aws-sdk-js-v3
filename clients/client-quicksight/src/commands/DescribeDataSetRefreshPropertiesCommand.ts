@@ -41,15 +41,32 @@ export interface DescribeDataSetRefreshPropertiesCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { QuickSightClient, DescribeDataSetRefreshPropertiesCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
- * // const { QuickSightClient, DescribeDataSetRefreshPropertiesCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * import { QuickSightClient, DescribeDataSetRefreshPropertiesCommand } from '@aws-sdk/client-quicksight'; // ES Modules import
+ * // const { QuickSightClient, DescribeDataSetRefreshPropertiesCommand } = require('@aws-sdk/client-quicksight'); // CommonJS import
  * const client = new QuickSightClient(config);
  * const input = { // DescribeDataSetRefreshPropertiesRequest
- *   AwsAccountId: "STRING_VALUE", // required
- *   DataSetId: "STRING_VALUE", // required
+ *   AwsAccountId: 'STRING_VALUE', // required
+ *   DataSetId: 'STRING_VALUE', // required
  * };
  * const command = new DescribeDataSetRefreshPropertiesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeDataSetRefreshPropertiesResponse
+ *   RequestId: 'STRING_VALUE',
+ *   Status: Number('int'),
+ *   DataSetRefreshProperties: { // DataSetRefreshProperties
+ *     RefreshConfiguration: { // RefreshConfiguration
+ *       IncrementalRefresh: { // IncrementalRefresh
+ *         LookbackWindow: { // LookbackWindow
+ *           ColumnName: 'STRING_VALUE', // required
+ *           Size: Number('long'), // required
+ *           SizeUnit: 'HOUR' || 'DAY' || 'WEEK', // required
+ *         },
+ *       },
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeDataSetRefreshPropertiesCommandInput - {@link DescribeDataSetRefreshPropertiesCommandInput}
@@ -82,6 +99,8 @@ export interface DescribeDataSetRefreshPropertiesCommandOutput
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Access is throttled.</p>
  *
+ * @throws {@link QuickSightServiceException}
+ * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
 export class DescribeDataSetRefreshPropertiesCommand extends $Command<

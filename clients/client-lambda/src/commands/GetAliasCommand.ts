@@ -36,15 +36,29 @@ export interface GetAliasCommandOutput extends AliasConfiguration, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LambdaClient, GetAliasCommand } from "@aws-sdk/client-lambda"; // ES Modules import
- * // const { LambdaClient, GetAliasCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
+ * import { LambdaClient, GetAliasCommand } from '@aws-sdk/client-lambda'; // ES Modules import
+ * // const { LambdaClient, GetAliasCommand } = require('@aws-sdk/client-lambda'); // CommonJS import
  * const client = new LambdaClient(config);
  * const input = { // GetAliasRequest
- *   FunctionName: "STRING_VALUE", // required
- *   Name: "STRING_VALUE", // required
+ *   FunctionName: 'STRING_VALUE', // required
+ *   Name: 'STRING_VALUE', // required
  * };
  * const command = new GetAliasCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AliasConfiguration
+ *   AliasArn: 'STRING_VALUE',
+ *   Name: 'STRING_VALUE',
+ *   FunctionVersion: 'STRING_VALUE',
+ *   Description: 'STRING_VALUE',
+ *   RoutingConfig: { // AliasRoutingConfiguration
+ *     AdditionalVersionWeights: { // AdditionalVersionWeights
+ *       '<keys>': Number('double'),
+ *     },
+ *   },
+ *   RevisionId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetAliasCommandInput - {@link GetAliasCommandInput}
@@ -65,6 +79,8 @@ export interface GetAliasCommandOutput extends AliasConfiguration, __MetadataBea
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>The request throughput limit was exceeded. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests">Lambda quotas</a>.</p>
  *
+ * @throws {@link LambdaServiceException}
+ * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
  */
 export class GetAliasCommand extends $Command<GetAliasCommandInput, GetAliasCommandOutput, LambdaClientResolvedConfig> {

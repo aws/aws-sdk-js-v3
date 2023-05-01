@@ -79,18 +79,21 @@ export interface CreateStreamCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KinesisClient, CreateStreamCommand } from "@aws-sdk/client-kinesis"; // ES Modules import
- * // const { KinesisClient, CreateStreamCommand } = require("@aws-sdk/client-kinesis"); // CommonJS import
+ * import { KinesisClient, CreateStreamCommand } from '@aws-sdk/client-kinesis'; // ES Modules import
+ * // const { KinesisClient, CreateStreamCommand } = require('@aws-sdk/client-kinesis'); // CommonJS import
  * const client = new KinesisClient(config);
  * const input = { // CreateStreamInput
- *   StreamName: "STRING_VALUE", // required
- *   ShardCount: Number("int"),
+ *   StreamName: 'STRING_VALUE', // required
+ *   ShardCount: Number('int'),
  *   StreamModeDetails: { // StreamModeDetails
- *     StreamMode: "PROVISIONED" || "ON_DEMAND", // required
+ *     StreamMode: 'PROVISIONED' || 'ON_DEMAND', // required
  *   },
  * };
  * const command = new CreateStreamCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param CreateStreamCommandInput - {@link CreateStreamCommandInput}
@@ -111,6 +114,8 @@ export interface CreateStreamCommandOutput extends __MetadataBearer {}
  *  <p>The resource is not available for this operation. For successful operation, the
  *             resource must be in the <code>ACTIVE</code> state.</p>
  *
+ * @throws {@link KinesisServiceException}
+ * <p>Base exception class for all service exceptions from Kinesis service.</p>
  *
  */
 export class CreateStreamCommand extends $Command<

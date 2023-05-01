@@ -38,43 +38,46 @@ export interface UpdateClassifierCommandOutput extends UpdateClassifierResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlueClient, UpdateClassifierCommand } from "@aws-sdk/client-glue"; // ES Modules import
- * // const { GlueClient, UpdateClassifierCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * import { GlueClient, UpdateClassifierCommand } from '@aws-sdk/client-glue'; // ES Modules import
+ * // const { GlueClient, UpdateClassifierCommand } = require('@aws-sdk/client-glue'); // CommonJS import
  * const client = new GlueClient(config);
  * const input = { // UpdateClassifierRequest
  *   GrokClassifier: { // UpdateGrokClassifierRequest
- *     Name: "STRING_VALUE", // required
- *     Classification: "STRING_VALUE",
- *     GrokPattern: "STRING_VALUE",
- *     CustomPatterns: "STRING_VALUE",
+ *     Name: 'STRING_VALUE', // required
+ *     Classification: 'STRING_VALUE',
+ *     GrokPattern: 'STRING_VALUE',
+ *     CustomPatterns: 'STRING_VALUE',
  *   },
  *   XMLClassifier: { // UpdateXMLClassifierRequest
- *     Name: "STRING_VALUE", // required
- *     Classification: "STRING_VALUE",
- *     RowTag: "STRING_VALUE",
+ *     Name: 'STRING_VALUE', // required
+ *     Classification: 'STRING_VALUE',
+ *     RowTag: 'STRING_VALUE',
  *   },
  *   JsonClassifier: { // UpdateJsonClassifierRequest
- *     Name: "STRING_VALUE", // required
- *     JsonPath: "STRING_VALUE",
+ *     Name: 'STRING_VALUE', // required
+ *     JsonPath: 'STRING_VALUE',
  *   },
  *   CsvClassifier: { // UpdateCsvClassifierRequest
- *     Name: "STRING_VALUE", // required
- *     Delimiter: "STRING_VALUE",
- *     QuoteSymbol: "STRING_VALUE",
- *     ContainsHeader: "UNKNOWN" || "PRESENT" || "ABSENT",
+ *     Name: 'STRING_VALUE', // required
+ *     Delimiter: 'STRING_VALUE',
+ *     QuoteSymbol: 'STRING_VALUE',
+ *     ContainsHeader: 'UNKNOWN' || 'PRESENT' || 'ABSENT',
  *     Header: [ // CsvHeader
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     DisableValueTrimming: true || false,
  *     AllowSingleColumn: true || false,
  *     CustomDatatypeConfigured: true || false,
  *     CustomDatatypes: [ // CustomDatatypes
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *   },
  * };
  * const command = new UpdateClassifierCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateClassifierCommandInput - {@link UpdateClassifierCommandInput}
@@ -95,6 +98,8 @@ export interface UpdateClassifierCommandOutput extends UpdateClassifierResponse,
  * @throws {@link VersionMismatchException} (client fault)
  *  <p>There was a version conflict.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class UpdateClassifierCommand extends $Command<

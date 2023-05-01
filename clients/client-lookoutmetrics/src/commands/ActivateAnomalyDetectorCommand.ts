@@ -36,14 +36,17 @@ export interface ActivateAnomalyDetectorCommandOutput extends ActivateAnomalyDet
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LookoutMetricsClient, ActivateAnomalyDetectorCommand } from "@aws-sdk/client-lookoutmetrics"; // ES Modules import
- * // const { LookoutMetricsClient, ActivateAnomalyDetectorCommand } = require("@aws-sdk/client-lookoutmetrics"); // CommonJS import
+ * import { LookoutMetricsClient, ActivateAnomalyDetectorCommand } from '@aws-sdk/client-lookoutmetrics'; // ES Modules import
+ * // const { LookoutMetricsClient, ActivateAnomalyDetectorCommand } = require('@aws-sdk/client-lookoutmetrics'); // CommonJS import
  * const client = new LookoutMetricsClient(config);
  * const input = { // ActivateAnomalyDetectorRequest
- *   AnomalyDetectorArn: "STRING_VALUE", // required
+ *   AnomalyDetectorArn: 'STRING_VALUE', // required
  * };
  * const command = new ActivateAnomalyDetectorCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param ActivateAnomalyDetectorCommandInput - {@link ActivateAnomalyDetectorCommandInput}
@@ -71,6 +74,8 @@ export interface ActivateAnomalyDetectorCommandOutput extends ActivateAnomalyDet
  *  <p>The input fails to satisfy the constraints specified by the AWS service. Check your input values and try
  *       again.</p>
  *
+ * @throws {@link LookoutMetricsServiceException}
+ * <p>Base exception class for all service exceptions from LookoutMetrics service.</p>
  *
  */
 export class ActivateAnomalyDetectorCommand extends $Command<

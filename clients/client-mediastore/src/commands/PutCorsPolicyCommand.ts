@@ -46,31 +46,34 @@ export interface PutCorsPolicyCommandOutput extends PutCorsPolicyOutput, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MediaStoreClient, PutCorsPolicyCommand } from "@aws-sdk/client-mediastore"; // ES Modules import
- * // const { MediaStoreClient, PutCorsPolicyCommand } = require("@aws-sdk/client-mediastore"); // CommonJS import
+ * import { MediaStoreClient, PutCorsPolicyCommand } from '@aws-sdk/client-mediastore'; // ES Modules import
+ * // const { MediaStoreClient, PutCorsPolicyCommand } = require('@aws-sdk/client-mediastore'); // CommonJS import
  * const client = new MediaStoreClient(config);
  * const input = { // PutCorsPolicyInput
- *   ContainerName: "STRING_VALUE", // required
+ *   ContainerName: 'STRING_VALUE', // required
  *   CorsPolicy: [ // CorsPolicy // required
  *     { // CorsRule
  *       AllowedOrigins: [ // AllowedOrigins // required
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *       AllowedMethods: [ // AllowedMethods
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *       AllowedHeaders: [ // AllowedHeaders // required
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
- *       MaxAgeSeconds: Number("int"),
+ *       MaxAgeSeconds: Number('int'),
  *       ExposeHeaders: [ // ExposeHeaders
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
  * };
  * const command = new PutCorsPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutCorsPolicyCommandInput - {@link PutCorsPolicyCommandInput}
@@ -89,6 +92,8 @@ export interface PutCorsPolicyCommandOutput extends PutCorsPolicyOutput, __Metad
  * @throws {@link InternalServerError} (server fault)
  *  <p>The service is temporarily unavailable.</p>
  *
+ * @throws {@link MediaStoreServiceException}
+ * <p>Base exception class for all service exceptions from MediaStore service.</p>
  *
  */
 export class PutCorsPolicyCommand extends $Command<

@@ -40,15 +40,18 @@ export interface RegisterEventTopicCommandOutput extends RegisterEventTopicResul
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DirectoryServiceClient, RegisterEventTopicCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
- * // const { DirectoryServiceClient, RegisterEventTopicCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
+ * import { DirectoryServiceClient, RegisterEventTopicCommand } from '@aws-sdk/client-directory-service'; // ES Modules import
+ * // const { DirectoryServiceClient, RegisterEventTopicCommand } = require('@aws-sdk/client-directory-service'); // CommonJS import
  * const client = new DirectoryServiceClient(config);
  * const input = { // RegisterEventTopicRequest
- *   DirectoryId: "STRING_VALUE", // required
- *   TopicName: "STRING_VALUE", // required
+ *   DirectoryId: 'STRING_VALUE', // required
+ *   TopicName: 'STRING_VALUE', // required
  * };
  * const command = new RegisterEventTopicCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param RegisterEventTopicCommandInput - {@link RegisterEventTopicCommandInput}
@@ -69,6 +72,8 @@ export interface RegisterEventTopicCommandOutput extends RegisterEventTopicResul
  * @throws {@link ServiceException} (server fault)
  *  <p>An exception has occurred in Directory Service.</p>
  *
+ * @throws {@link DirectoryServiceServiceException}
+ * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
  */
 export class RegisterEventTopicCommand extends $Command<

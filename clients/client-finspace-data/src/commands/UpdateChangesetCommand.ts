@@ -36,22 +36,28 @@ export interface UpdateChangesetCommandOutput extends UpdateChangesetResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FinspaceDataClient, UpdateChangesetCommand } from "@aws-sdk/client-finspace-data"; // ES Modules import
- * // const { FinspaceDataClient, UpdateChangesetCommand } = require("@aws-sdk/client-finspace-data"); // CommonJS import
+ * import { FinspaceDataClient, UpdateChangesetCommand } from '@aws-sdk/client-finspace-data'; // ES Modules import
+ * // const { FinspaceDataClient, UpdateChangesetCommand } = require('@aws-sdk/client-finspace-data'); // CommonJS import
  * const client = new FinspaceDataClient(config);
  * const input = { // UpdateChangesetRequest
- *   clientToken: "STRING_VALUE",
- *   datasetId: "STRING_VALUE", // required
- *   changesetId: "STRING_VALUE", // required
+ *   clientToken: 'STRING_VALUE',
+ *   datasetId: 'STRING_VALUE', // required
+ *   changesetId: 'STRING_VALUE', // required
  *   sourceParams: { // SourceParams // required
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  *   formatParams: { // FormatParams // required
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new UpdateChangesetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateChangesetResponse
+ *   changesetId: 'STRING_VALUE',
+ *   datasetId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateChangesetCommandInput - {@link UpdateChangesetCommandInput}
@@ -79,6 +85,8 @@ export interface UpdateChangesetCommandOutput extends UpdateChangesetResponse, _
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link FinspaceDataServiceException}
+ * <p>Base exception class for all service exceptions from FinspaceData service.</p>
  *
  */
 export class UpdateChangesetCommand extends $Command<

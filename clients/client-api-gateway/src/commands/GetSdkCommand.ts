@@ -36,19 +36,26 @@ export interface GetSdkCommandOutput extends SdkResponse, __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { APIGatewayClient, GetSdkCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
- * // const { APIGatewayClient, GetSdkCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
+ * import { APIGatewayClient, GetSdkCommand } from '@aws-sdk/client-api-gateway'; // ES Modules import
+ * // const { APIGatewayClient, GetSdkCommand } = require('@aws-sdk/client-api-gateway'); // CommonJS import
  * const client = new APIGatewayClient(config);
  * const input = { // GetSdkRequest
- *   restApiId: "STRING_VALUE", // required
- *   stageName: "STRING_VALUE", // required
- *   sdkType: "STRING_VALUE", // required
+ *   restApiId: 'STRING_VALUE', // required
+ *   stageName: 'STRING_VALUE', // required
+ *   sdkType: 'STRING_VALUE', // required
  *   parameters: { // MapOfStringToString
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new GetSdkCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SdkResponse
+ *   contentType: 'STRING_VALUE',
+ *   contentDisposition: 'STRING_VALUE',
+ *   body: 'BLOB_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetSdkCommandInput - {@link GetSdkCommandInput}
@@ -75,6 +82,8 @@ export interface GetSdkCommandOutput extends SdkResponse, __MetadataBearer {}
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The request is denied because the caller has insufficient permissions.</p>
  *
+ * @throws {@link APIGatewayServiceException}
+ * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
  */
 export class GetSdkCommand extends $Command<GetSdkCommandInput, GetSdkCommandOutput, APIGatewayClientResolvedConfig> {

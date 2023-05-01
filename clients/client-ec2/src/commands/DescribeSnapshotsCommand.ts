@@ -78,33 +78,64 @@ export interface DescribeSnapshotsCommandOutput extends DescribeSnapshotsResult,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, DescribeSnapshotsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, DescribeSnapshotsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, DescribeSnapshotsCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, DescribeSnapshotsCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // DescribeSnapshotsRequest
  *   Filters: [ // FilterList
  *     { // Filter
- *       Name: "STRING_VALUE",
+ *       Name: 'STRING_VALUE',
  *       Values: [ // ValueStringList
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  *   OwnerIds: [ // OwnerStringList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   RestorableByUserIds: [ // RestorableByStringList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   SnapshotIds: [ // SnapshotIdStringList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   DryRun: true || false,
  * };
  * const command = new DescribeSnapshotsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeSnapshotsResult
+ *   Snapshots: [ // SnapshotList
+ *     { // Snapshot
+ *       DataEncryptionKeyId: 'STRING_VALUE',
+ *       Description: 'STRING_VALUE',
+ *       Encrypted: true || false,
+ *       KmsKeyId: 'STRING_VALUE',
+ *       OwnerId: 'STRING_VALUE',
+ *       Progress: 'STRING_VALUE',
+ *       SnapshotId: 'STRING_VALUE',
+ *       StartTime: new Date('TIMESTAMP'),
+ *       State: 'pending' || 'completed' || 'error' || 'recoverable' || 'recovering',
+ *       StateMessage: 'STRING_VALUE',
+ *       VolumeId: 'STRING_VALUE',
+ *       VolumeSize: Number('int'),
+ *       OwnerAlias: 'STRING_VALUE',
+ *       OutpostArn: 'STRING_VALUE',
+ *       Tags: [ // TagList
+ *         { // Tag
+ *           Key: 'STRING_VALUE',
+ *           Value: 'STRING_VALUE',
+ *         },
+ *       ],
+ *       StorageTier: 'archive' || 'standard',
+ *       RestoreExpiryTime: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeSnapshotsCommandInput - {@link DescribeSnapshotsCommandInput}
@@ -113,6 +144,8 @@ export interface DescribeSnapshotsCommandOutput extends DescribeSnapshotsResult,
  * @see {@link DescribeSnapshotsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @example To describe a snapshot
  * ```javascript

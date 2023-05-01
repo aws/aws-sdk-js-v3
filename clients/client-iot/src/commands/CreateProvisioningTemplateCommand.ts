@@ -37,29 +37,36 @@ export interface CreateProvisioningTemplateCommandOutput extends CreateProvision
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTClient, CreateProvisioningTemplateCommand } from "@aws-sdk/client-iot"; // ES Modules import
- * // const { IoTClient, CreateProvisioningTemplateCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * import { IoTClient, CreateProvisioningTemplateCommand } from '@aws-sdk/client-iot'; // ES Modules import
+ * // const { IoTClient, CreateProvisioningTemplateCommand } = require('@aws-sdk/client-iot'); // CommonJS import
  * const client = new IoTClient(config);
  * const input = { // CreateProvisioningTemplateRequest
- *   templateName: "STRING_VALUE", // required
- *   description: "STRING_VALUE",
- *   templateBody: "STRING_VALUE", // required
+ *   templateName: 'STRING_VALUE', // required
+ *   description: 'STRING_VALUE',
+ *   templateBody: 'STRING_VALUE', // required
  *   enabled: true || false,
- *   provisioningRoleArn: "STRING_VALUE", // required
+ *   provisioningRoleArn: 'STRING_VALUE', // required
  *   preProvisioningHook: { // ProvisioningHook
- *     payloadVersion: "STRING_VALUE",
- *     targetArn: "STRING_VALUE", // required
+ *     payloadVersion: 'STRING_VALUE',
+ *     targetArn: 'STRING_VALUE', // required
  *   },
  *   tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
- *   type: "FLEET_PROVISIONING" || "JITP",
+ *   type: 'FLEET_PROVISIONING' || 'JITP',
  * };
  * const command = new CreateProvisioningTemplateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateProvisioningTemplateResponse
+ *   templateArn: 'STRING_VALUE',
+ *   templateName: 'STRING_VALUE',
+ *   defaultVersionId: Number('int'),
+ * };
+ *
  * ```
  *
  * @param CreateProvisioningTemplateCommandInput - {@link CreateProvisioningTemplateCommandInput}
@@ -86,6 +93,8 @@ export interface CreateProvisioningTemplateCommandOutput extends CreateProvision
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this operation.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class CreateProvisioningTemplateCommand extends $Command<

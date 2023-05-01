@@ -36,23 +36,42 @@ export interface UpdateUserCommandOutput extends UpdateUserResponse, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { QuickSightClient, UpdateUserCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
- * // const { QuickSightClient, UpdateUserCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * import { QuickSightClient, UpdateUserCommand } from '@aws-sdk/client-quicksight'; // ES Modules import
+ * // const { QuickSightClient, UpdateUserCommand } = require('@aws-sdk/client-quicksight'); // CommonJS import
  * const client = new QuickSightClient(config);
  * const input = { // UpdateUserRequest
- *   UserName: "STRING_VALUE", // required
- *   AwsAccountId: "STRING_VALUE", // required
- *   Namespace: "STRING_VALUE", // required
- *   Email: "STRING_VALUE", // required
- *   Role: "ADMIN" || "AUTHOR" || "READER" || "RESTRICTED_AUTHOR" || "RESTRICTED_READER", // required
- *   CustomPermissionsName: "STRING_VALUE",
+ *   UserName: 'STRING_VALUE', // required
+ *   AwsAccountId: 'STRING_VALUE', // required
+ *   Namespace: 'STRING_VALUE', // required
+ *   Email: 'STRING_VALUE', // required
+ *   Role: 'ADMIN' || 'AUTHOR' || 'READER' || 'RESTRICTED_AUTHOR' || 'RESTRICTED_READER', // required
+ *   CustomPermissionsName: 'STRING_VALUE',
  *   UnapplyCustomPermissions: true || false,
- *   ExternalLoginFederationProviderType: "STRING_VALUE",
- *   CustomFederationProviderUrl: "STRING_VALUE",
- *   ExternalLoginId: "STRING_VALUE",
+ *   ExternalLoginFederationProviderType: 'STRING_VALUE',
+ *   CustomFederationProviderUrl: 'STRING_VALUE',
+ *   ExternalLoginId: 'STRING_VALUE',
  * };
  * const command = new UpdateUserCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateUserResponse
+ *   User: { // User
+ *     Arn: 'STRING_VALUE',
+ *     UserName: 'STRING_VALUE',
+ *     Email: 'STRING_VALUE',
+ *     Role: 'ADMIN' || 'AUTHOR' || 'READER' || 'RESTRICTED_AUTHOR' || 'RESTRICTED_READER',
+ *     IdentityType: 'IAM' || 'QUICKSIGHT',
+ *     Active: true || false,
+ *     PrincipalId: 'STRING_VALUE',
+ *     CustomPermissionsName: 'STRING_VALUE',
+ *     ExternalLoginFederationProviderType: 'STRING_VALUE',
+ *     ExternalLoginFederationProviderUrl: 'STRING_VALUE',
+ *     ExternalLoginId: 'STRING_VALUE',
+ *   },
+ *   RequestId: 'STRING_VALUE',
+ *   Status: Number('int'),
+ * };
+ *
  * ```
  *
  * @param UpdateUserCommandInput - {@link UpdateUserCommandInput}
@@ -85,6 +104,8 @@ export interface UpdateUserCommandOutput extends UpdateUserResponse, __MetadataB
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Access is throttled.</p>
  *
+ * @throws {@link QuickSightServiceException}
+ * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
 export class UpdateUserCommand extends $Command<

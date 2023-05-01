@@ -36,12 +36,21 @@ export interface GetEncryptionConfigCommandOutput extends GetEncryptionConfigRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { XRayClient, GetEncryptionConfigCommand } from "@aws-sdk/client-xray"; // ES Modules import
- * // const { XRayClient, GetEncryptionConfigCommand } = require("@aws-sdk/client-xray"); // CommonJS import
+ * import { XRayClient, GetEncryptionConfigCommand } from '@aws-sdk/client-xray'; // ES Modules import
+ * // const { XRayClient, GetEncryptionConfigCommand } = require('@aws-sdk/client-xray'); // CommonJS import
  * const client = new XRayClient(config);
  * const input = {};
  * const command = new GetEncryptionConfigCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetEncryptionConfigResult
+ *   EncryptionConfig: { // EncryptionConfig
+ *     KeyId: 'STRING_VALUE',
+ *     Status: 'UPDATING' || 'ACTIVE',
+ *     Type: 'NONE' || 'KMS',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetEncryptionConfigCommandInput - {@link GetEncryptionConfigCommandInput}
@@ -56,6 +65,8 @@ export interface GetEncryptionConfigCommandOutput extends GetEncryptionConfigRes
  * @throws {@link ThrottledException} (client fault)
  *  <p>The request exceeds the maximum number of requests per second.</p>
  *
+ * @throws {@link XRayServiceException}
+ * <p>Base exception class for all service exceptions from XRay service.</p>
  *
  */
 export class GetEncryptionConfigCommand extends $Command<

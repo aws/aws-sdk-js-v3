@@ -41,16 +41,48 @@ export interface GetExternalModelsCommandOutput extends GetExternalModelsResult,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FraudDetectorClient, GetExternalModelsCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
- * // const { FraudDetectorClient, GetExternalModelsCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
+ * import { FraudDetectorClient, GetExternalModelsCommand } from '@aws-sdk/client-frauddetector'; // ES Modules import
+ * // const { FraudDetectorClient, GetExternalModelsCommand } = require('@aws-sdk/client-frauddetector'); // CommonJS import
  * const client = new FraudDetectorClient(config);
  * const input = { // GetExternalModelsRequest
- *   modelEndpoint: "STRING_VALUE",
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   modelEndpoint: 'STRING_VALUE',
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new GetExternalModelsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetExternalModelsResult
+ *   externalModels: [ // ExternalModelList
+ *     { // ExternalModel
+ *       modelEndpoint: 'STRING_VALUE',
+ *       modelSource: 'SAGEMAKER',
+ *       invokeModelEndpointRoleArn: 'STRING_VALUE',
+ *       inputConfiguration: { // ModelInputConfiguration
+ *         eventTypeName: 'STRING_VALUE',
+ *         format: 'TEXT_CSV' || 'APPLICATION_JSON',
+ *         useEventVariables: true || false, // required
+ *         jsonInputTemplate: 'STRING_VALUE',
+ *         csvInputTemplate: 'STRING_VALUE',
+ *       },
+ *       outputConfiguration: { // ModelOutputConfiguration
+ *         format: 'TEXT_CSV' || 'APPLICATION_JSONLINES', // required
+ *         jsonKeyToVariableMap: { // JsonKeyToVariableMap
+ *           '<keys>': 'STRING_VALUE',
+ *         },
+ *         csvIndexToVariableMap: { // CsvIndexToVariableMap
+ *           '<keys>': 'STRING_VALUE',
+ *         },
+ *       },
+ *       modelEndpointStatus: 'ASSOCIATED' || 'DISSOCIATED',
+ *       lastUpdatedTime: 'STRING_VALUE',
+ *       createdTime: 'STRING_VALUE',
+ *       arn: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetExternalModelsCommandInput - {@link GetExternalModelsCommandInput}
@@ -74,6 +106,8 @@ export interface GetExternalModelsCommandOutput extends GetExternalModelsResult,
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception indicating a specified value is not allowed.</p>
  *
+ * @throws {@link FraudDetectorServiceException}
+ * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
  */
 export class GetExternalModelsCommand extends $Command<

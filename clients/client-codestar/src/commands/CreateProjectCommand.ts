@@ -38,34 +38,34 @@ export interface CreateProjectCommandOutput extends CreateProjectResult, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeStarClient, CreateProjectCommand } from "@aws-sdk/client-codestar"; // ES Modules import
- * // const { CodeStarClient, CreateProjectCommand } = require("@aws-sdk/client-codestar"); // CommonJS import
+ * import { CodeStarClient, CreateProjectCommand } from '@aws-sdk/client-codestar'; // ES Modules import
+ * // const { CodeStarClient, CreateProjectCommand } = require('@aws-sdk/client-codestar'); // CommonJS import
  * const client = new CodeStarClient(config);
  * const input = { // CreateProjectRequest
- *   name: "STRING_VALUE", // required
- *   id: "STRING_VALUE", // required
- *   description: "STRING_VALUE",
- *   clientRequestToken: "STRING_VALUE",
+ *   name: 'STRING_VALUE', // required
+ *   id: 'STRING_VALUE', // required
+ *   description: 'STRING_VALUE',
+ *   clientRequestToken: 'STRING_VALUE',
  *   sourceCode: [ // SourceCode
  *     { // Code
  *       source: { // CodeSource
  *         s3: { // S3Location
- *           bucketName: "STRING_VALUE",
- *           bucketKey: "STRING_VALUE",
+ *           bucketName: 'STRING_VALUE',
+ *           bucketKey: 'STRING_VALUE',
  *         },
  *       },
  *       destination: { // CodeDestination
  *         codeCommit: { // CodeCommitCodeDestination
- *           name: "STRING_VALUE", // required
+ *           name: 'STRING_VALUE', // required
  *         },
  *         gitHub: { // GitHubCodeDestination
- *           name: "STRING_VALUE", // required
- *           description: "STRING_VALUE",
- *           type: "STRING_VALUE", // required
- *           owner: "STRING_VALUE", // required
+ *           name: 'STRING_VALUE', // required
+ *           description: 'STRING_VALUE',
+ *           type: 'STRING_VALUE', // required
+ *           owner: 'STRING_VALUE', // required
  *           privateRepository: true || false, // required
  *           issuesEnabled: true || false, // required
- *           token: "STRING_VALUE", // required
+ *           token: 'STRING_VALUE', // required
  *         },
  *       },
  *     },
@@ -73,21 +73,29 @@ export interface CreateProjectCommandOutput extends CreateProjectResult, __Metad
  *   toolchain: { // Toolchain
  *     source: { // ToolchainSource
  *       s3: {
- *         bucketName: "STRING_VALUE",
- *         bucketKey: "STRING_VALUE",
+ *         bucketName: 'STRING_VALUE',
+ *         bucketKey: 'STRING_VALUE',
  *       },
  *     },
- *     roleArn: "STRING_VALUE",
+ *     roleArn: 'STRING_VALUE',
  *     stackParameters: { // TemplateParameterMap
- *       "<keys>": "STRING_VALUE",
+ *       '<keys>': 'STRING_VALUE',
  *     },
  *   },
  *   tags: { // Tags
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateProjectCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateProjectResult
+ *   id: 'STRING_VALUE', // required
+ *   arn: 'STRING_VALUE', // required
+ *   clientRequestToken: 'STRING_VALUE',
+ *   projectTemplateId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateProjectCommandInput - {@link CreateProjectCommandInput}
@@ -120,6 +128,8 @@ export interface CreateProjectCommandOutput extends CreateProjectResult, __Metad
  * @throws {@link ValidationException} (client fault)
  *  <p>The specified input is either not valid, or it could not be validated.</p>
  *
+ * @throws {@link CodeStarServiceException}
+ * <p>Base exception class for all service exceptions from CodeStar service.</p>
  *
  */
 export class CreateProjectCommand extends $Command<

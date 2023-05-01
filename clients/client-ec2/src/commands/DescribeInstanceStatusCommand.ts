@@ -64,28 +64,74 @@ export interface DescribeInstanceStatusCommandOutput extends DescribeInstanceSta
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, DescribeInstanceStatusCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, DescribeInstanceStatusCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, DescribeInstanceStatusCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, DescribeInstanceStatusCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // DescribeInstanceStatusRequest
  *   Filters: [ // FilterList
  *     { // Filter
- *       Name: "STRING_VALUE",
+ *       Name: 'STRING_VALUE',
  *       Values: [ // ValueStringList
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
  *   InstanceIds: [ // InstanceIdStringList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  *   DryRun: true || false,
  *   IncludeAllInstances: true || false,
  * };
  * const command = new DescribeInstanceStatusCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeInstanceStatusResult
+ *   InstanceStatuses: [ // InstanceStatusList
+ *     { // InstanceStatus
+ *       AvailabilityZone: 'STRING_VALUE',
+ *       OutpostArn: 'STRING_VALUE',
+ *       Events: [ // InstanceStatusEventList
+ *         { // InstanceStatusEvent
+ *           InstanceEventId: 'STRING_VALUE',
+ *           Code: 'instance-reboot' || 'system-reboot' || 'system-maintenance' || 'instance-retirement' || 'instance-stop',
+ *           Description: 'STRING_VALUE',
+ *           NotAfter: new Date('TIMESTAMP'),
+ *           NotBefore: new Date('TIMESTAMP'),
+ *           NotBeforeDeadline: new Date('TIMESTAMP'),
+ *         },
+ *       ],
+ *       InstanceId: 'STRING_VALUE',
+ *       InstanceState: { // InstanceState
+ *         Code: Number('int'),
+ *         Name: 'pending' || 'running' || 'shutting-down' || 'terminated' || 'stopping' || 'stopped',
+ *       },
+ *       InstanceStatus: { // InstanceStatusSummary
+ *         Details: [ // InstanceStatusDetailsList
+ *           { // InstanceStatusDetails
+ *             ImpairedSince: new Date('TIMESTAMP'),
+ *             Name: 'reachability',
+ *             Status: 'passed' || 'failed' || 'insufficient-data' || 'initializing',
+ *           },
+ *         ],
+ *         Status: 'ok' || 'impaired' || 'insufficient-data' || 'not-applicable' || 'initializing',
+ *       },
+ *       SystemStatus: {
+ *         Details: [
+ *           {
+ *             ImpairedSince: new Date('TIMESTAMP'),
+ *             Name: 'reachability',
+ *             Status: 'passed' || 'failed' || 'insufficient-data' || 'initializing',
+ *           },
+ *         ],
+ *         Status: 'ok' || 'impaired' || 'insufficient-data' || 'not-applicable' || 'initializing',
+ *       },
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeInstanceStatusCommandInput - {@link DescribeInstanceStatusCommandInput}
@@ -94,6 +140,8 @@ export interface DescribeInstanceStatusCommandOutput extends DescribeInstanceSta
  * @see {@link DescribeInstanceStatusCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @example To describe the status of an instance
  * ```javascript

@@ -46,33 +46,54 @@ export interface CreateResolverEndpointCommandOutput extends CreateResolverEndpo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Route53ResolverClient, CreateResolverEndpointCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
- * // const { Route53ResolverClient, CreateResolverEndpointCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
+ * import { Route53ResolverClient, CreateResolverEndpointCommand } from '@aws-sdk/client-route53resolver'; // ES Modules import
+ * // const { Route53ResolverClient, CreateResolverEndpointCommand } = require('@aws-sdk/client-route53resolver'); // CommonJS import
  * const client = new Route53ResolverClient(config);
  * const input = { // CreateResolverEndpointRequest
- *   CreatorRequestId: "STRING_VALUE", // required
- *   Name: "STRING_VALUE",
+ *   CreatorRequestId: 'STRING_VALUE', // required
+ *   Name: 'STRING_VALUE',
  *   SecurityGroupIds: [ // SecurityGroupIds // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   Direction: "INBOUND" || "OUTBOUND", // required
+ *   Direction: 'INBOUND' || 'OUTBOUND', // required
  *   IpAddresses: [ // IpAddressesRequest // required
  *     { // IpAddressRequest
- *       SubnetId: "STRING_VALUE", // required
- *       Ip: "STRING_VALUE",
- *       Ipv6: "STRING_VALUE",
+ *       SubnetId: 'STRING_VALUE', // required
+ *       Ip: 'STRING_VALUE',
+ *       Ipv6: 'STRING_VALUE',
  *     },
  *   ],
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
- *   ResolverEndpointType: "IPV6" || "IPV4" || "DUALSTACK",
+ *   ResolverEndpointType: 'IPV6' || 'IPV4' || 'DUALSTACK',
  * };
  * const command = new CreateResolverEndpointCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateResolverEndpointResponse
+ *   ResolverEndpoint: { // ResolverEndpoint
+ *     Id: 'STRING_VALUE',
+ *     CreatorRequestId: 'STRING_VALUE',
+ *     Arn: 'STRING_VALUE',
+ *     Name: 'STRING_VALUE',
+ *     SecurityGroupIds: [ // SecurityGroupIds
+ *       'STRING_VALUE',
+ *     ],
+ *     Direction: 'INBOUND' || 'OUTBOUND',
+ *     IpAddressCount: Number('int'),
+ *     HostVPCId: 'STRING_VALUE',
+ *     Status: 'CREATING' || 'OPERATIONAL' || 'UPDATING' || 'AUTO_RECOVERING' || 'ACTION_NEEDED' || 'DELETING',
+ *     StatusMessage: 'STRING_VALUE',
+ *     CreationTime: 'STRING_VALUE',
+ *     ModificationTime: 'STRING_VALUE',
+ *     ResolverEndpointType: 'IPV6' || 'IPV4' || 'DUALSTACK',
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateResolverEndpointCommandInput - {@link CreateResolverEndpointCommandInput}
@@ -102,6 +123,8 @@ export interface CreateResolverEndpointCommandOutput extends CreateResolverEndpo
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was throttled. Try again in a few minutes.</p>
  *
+ * @throws {@link Route53ResolverServiceException}
+ * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
  */
 export class CreateResolverEndpointCommand extends $Command<

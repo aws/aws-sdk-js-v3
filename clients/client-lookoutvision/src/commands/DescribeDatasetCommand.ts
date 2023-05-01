@@ -38,15 +38,33 @@ export interface DescribeDatasetCommandOutput extends DescribeDatasetResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LookoutVisionClient, DescribeDatasetCommand } from "@aws-sdk/client-lookoutvision"; // ES Modules import
- * // const { LookoutVisionClient, DescribeDatasetCommand } = require("@aws-sdk/client-lookoutvision"); // CommonJS import
+ * import { LookoutVisionClient, DescribeDatasetCommand } from '@aws-sdk/client-lookoutvision'; // ES Modules import
+ * // const { LookoutVisionClient, DescribeDatasetCommand } = require('@aws-sdk/client-lookoutvision'); // CommonJS import
  * const client = new LookoutVisionClient(config);
  * const input = { // DescribeDatasetRequest
- *   ProjectName: "STRING_VALUE", // required
- *   DatasetType: "STRING_VALUE", // required
+ *   ProjectName: 'STRING_VALUE', // required
+ *   DatasetType: 'STRING_VALUE', // required
  * };
  * const command = new DescribeDatasetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeDatasetResponse
+ *   DatasetDescription: { // DatasetDescription
+ *     ProjectName: 'STRING_VALUE',
+ *     DatasetType: 'STRING_VALUE',
+ *     CreationTimestamp: new Date('TIMESTAMP'),
+ *     LastUpdatedTimestamp: new Date('TIMESTAMP'),
+ *     Status: 'CREATE_IN_PROGRESS' || 'CREATE_COMPLETE' || 'CREATE_FAILED' || 'UPDATE_IN_PROGRESS' || 'UPDATE_COMPLETE' || 'UPDATE_FAILED_ROLLBACK_IN_PROGRESS' || 'UPDATE_FAILED_ROLLBACK_COMPLETE' || 'DELETE_IN_PROGRESS' || 'DELETE_COMPLETE' || 'DELETE_FAILED',
+ *     StatusMessage: 'STRING_VALUE',
+ *     ImageStats: { // DatasetImageStats
+ *       Total: Number('int'),
+ *       Labeled: Number('int'),
+ *       Normal: Number('int'),
+ *       Anomaly: Number('int'),
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeDatasetCommandInput - {@link DescribeDatasetCommandInput}
@@ -74,6 +92,8 @@ export interface DescribeDatasetCommandOutput extends DescribeDatasetResponse, _
  *  <p>An input validation error occured. For example, invalid characters in a project name,
  *       or if a pagination token is invalid.</p>
  *
+ * @throws {@link LookoutVisionServiceException}
+ * <p>Base exception class for all service exceptions from LookoutVision service.</p>
  *
  */
 export class DescribeDatasetCommand extends $Command<

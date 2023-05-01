@@ -37,31 +37,39 @@ export interface UpdateDataSetPermissionsCommandOutput extends UpdateDataSetPerm
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { QuickSightClient, UpdateDataSetPermissionsCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
- * // const { QuickSightClient, UpdateDataSetPermissionsCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * import { QuickSightClient, UpdateDataSetPermissionsCommand } from '@aws-sdk/client-quicksight'; // ES Modules import
+ * // const { QuickSightClient, UpdateDataSetPermissionsCommand } = require('@aws-sdk/client-quicksight'); // CommonJS import
  * const client = new QuickSightClient(config);
  * const input = { // UpdateDataSetPermissionsRequest
- *   AwsAccountId: "STRING_VALUE", // required
- *   DataSetId: "STRING_VALUE", // required
+ *   AwsAccountId: 'STRING_VALUE', // required
+ *   DataSetId: 'STRING_VALUE', // required
  *   GrantPermissions: [ // ResourcePermissionList
  *     { // ResourcePermission
- *       Principal: "STRING_VALUE", // required
+ *       Principal: 'STRING_VALUE', // required
  *       Actions: [ // ActionList // required
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
  *   RevokePermissions: [
  *     {
- *       Principal: "STRING_VALUE", // required
+ *       Principal: 'STRING_VALUE', // required
  *       Actions: [ // required
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
  * };
  * const command = new UpdateDataSetPermissionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateDataSetPermissionsResponse
+ *   DataSetArn: 'STRING_VALUE',
+ *   DataSetId: 'STRING_VALUE',
+ *   RequestId: 'STRING_VALUE',
+ *   Status: Number('int'),
+ * };
+ *
  * ```
  *
  * @param UpdateDataSetPermissionsCommandInput - {@link UpdateDataSetPermissionsCommandInput}
@@ -91,6 +99,8 @@ export interface UpdateDataSetPermissionsCommandOutput extends UpdateDataSetPerm
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Access is throttled.</p>
  *
+ * @throws {@link QuickSightServiceException}
+ * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
 export class UpdateDataSetPermissionsCommand extends $Command<

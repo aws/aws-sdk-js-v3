@@ -36,17 +36,25 @@ export interface UpdateArchiveCommandOutput extends UpdateArchiveResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudWatchEventsClient, UpdateArchiveCommand } from "@aws-sdk/client-cloudwatch-events"; // ES Modules import
- * // const { CloudWatchEventsClient, UpdateArchiveCommand } = require("@aws-sdk/client-cloudwatch-events"); // CommonJS import
+ * import { CloudWatchEventsClient, UpdateArchiveCommand } from '@aws-sdk/client-cloudwatch-events'; // ES Modules import
+ * // const { CloudWatchEventsClient, UpdateArchiveCommand } = require('@aws-sdk/client-cloudwatch-events'); // CommonJS import
  * const client = new CloudWatchEventsClient(config);
  * const input = { // UpdateArchiveRequest
- *   ArchiveName: "STRING_VALUE", // required
- *   Description: "STRING_VALUE",
- *   EventPattern: "STRING_VALUE",
- *   RetentionDays: Number("int"),
+ *   ArchiveName: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE',
+ *   EventPattern: 'STRING_VALUE',
+ *   RetentionDays: Number('int'),
  * };
  * const command = new UpdateArchiveCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateArchiveResponse
+ *   ArchiveArn: 'STRING_VALUE',
+ *   State: 'STRING_VALUE',
+ *   StateReason: 'STRING_VALUE',
+ *   CreationTime: new Date('TIMESTAMP'),
+ * };
+ *
  * ```
  *
  * @param UpdateArchiveCommandInput - {@link UpdateArchiveCommandInput}
@@ -71,6 +79,8 @@ export interface UpdateArchiveCommandOutput extends UpdateArchiveResponse, __Met
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>An entity that you specified does not exist.</p>
  *
+ * @throws {@link CloudWatchEventsServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatchEvents service.</p>
  *
  */
 export class UpdateArchiveCommand extends $Command<

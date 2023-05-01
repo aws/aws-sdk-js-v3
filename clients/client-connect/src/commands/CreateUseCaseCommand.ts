@@ -36,19 +36,25 @@ export interface CreateUseCaseCommandOutput extends CreateUseCaseResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, CreateUseCaseCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, CreateUseCaseCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, CreateUseCaseCommand } from '@aws-sdk/client-connect'; // ES Modules import
+ * // const { ConnectClient, CreateUseCaseCommand } = require('@aws-sdk/client-connect'); // CommonJS import
  * const client = new ConnectClient(config);
  * const input = { // CreateUseCaseRequest
- *   InstanceId: "STRING_VALUE", // required
- *   IntegrationAssociationId: "STRING_VALUE", // required
- *   UseCaseType: "RULES_EVALUATION" || "CONNECT_CAMPAIGNS", // required
+ *   InstanceId: 'STRING_VALUE', // required
+ *   IntegrationAssociationId: 'STRING_VALUE', // required
+ *   UseCaseType: 'RULES_EVALUATION' || 'CONNECT_CAMPAIGNS', // required
  *   Tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateUseCaseCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateUseCaseResponse
+ *   UseCaseId: 'STRING_VALUE',
+ *   UseCaseArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateUseCaseCommandInput - {@link CreateUseCaseCommandInput}
@@ -72,6 +78,8 @@ export interface CreateUseCaseCommandOutput extends CreateUseCaseResponse, __Met
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class CreateUseCaseCommand extends $Command<

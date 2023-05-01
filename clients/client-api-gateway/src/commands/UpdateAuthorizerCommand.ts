@@ -36,23 +36,39 @@ export interface UpdateAuthorizerCommandOutput extends Authorizer, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { APIGatewayClient, UpdateAuthorizerCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
- * // const { APIGatewayClient, UpdateAuthorizerCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
+ * import { APIGatewayClient, UpdateAuthorizerCommand } from '@aws-sdk/client-api-gateway'; // ES Modules import
+ * // const { APIGatewayClient, UpdateAuthorizerCommand } = require('@aws-sdk/client-api-gateway'); // CommonJS import
  * const client = new APIGatewayClient(config);
  * const input = { // UpdateAuthorizerRequest
- *   restApiId: "STRING_VALUE", // required
- *   authorizerId: "STRING_VALUE", // required
+ *   restApiId: 'STRING_VALUE', // required
+ *   authorizerId: 'STRING_VALUE', // required
  *   patchOperations: [ // ListOfPatchOperation
  *     { // PatchOperation
- *       op: "add" || "remove" || "replace" || "move" || "copy" || "test",
- *       path: "STRING_VALUE",
- *       value: "STRING_VALUE",
- *       from: "STRING_VALUE",
+ *       op: 'add' || 'remove' || 'replace' || 'move' || 'copy' || 'test',
+ *       path: 'STRING_VALUE',
+ *       value: 'STRING_VALUE',
+ *       from: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new UpdateAuthorizerCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // Authorizer
+ *   id: 'STRING_VALUE',
+ *   name: 'STRING_VALUE',
+ *   type: 'TOKEN' || 'REQUEST' || 'COGNITO_USER_POOLS',
+ *   providerARNs: [ // ListOfARNs
+ *     'STRING_VALUE',
+ *   ],
+ *   authType: 'STRING_VALUE',
+ *   authorizerUri: 'STRING_VALUE',
+ *   authorizerCredentials: 'STRING_VALUE',
+ *   identitySource: 'STRING_VALUE',
+ *   identityValidationExpression: 'STRING_VALUE',
+ *   authorizerResultTtlInSeconds: Number('int'),
+ * };
+ *
  * ```
  *
  * @param UpdateAuthorizerCommandInput - {@link UpdateAuthorizerCommandInput}
@@ -79,6 +95,8 @@ export interface UpdateAuthorizerCommandOutput extends Authorizer, __MetadataBea
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The request is denied because the caller has insufficient permissions.</p>
  *
+ * @throws {@link APIGatewayServiceException}
+ * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
  */
 export class UpdateAuthorizerCommand extends $Command<

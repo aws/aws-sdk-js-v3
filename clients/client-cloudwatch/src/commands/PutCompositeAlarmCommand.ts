@@ -74,35 +74,38 @@ export interface PutCompositeAlarmCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudWatchClient, PutCompositeAlarmCommand } from "@aws-sdk/client-cloudwatch"; // ES Modules import
- * // const { CloudWatchClient, PutCompositeAlarmCommand } = require("@aws-sdk/client-cloudwatch"); // CommonJS import
+ * import { CloudWatchClient, PutCompositeAlarmCommand } from '@aws-sdk/client-cloudwatch'; // ES Modules import
+ * // const { CloudWatchClient, PutCompositeAlarmCommand } = require('@aws-sdk/client-cloudwatch'); // CommonJS import
  * const client = new CloudWatchClient(config);
  * const input = { // PutCompositeAlarmInput
  *   ActionsEnabled: true || false,
  *   AlarmActions: [ // ResourceList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   AlarmDescription: "STRING_VALUE",
- *   AlarmName: "STRING_VALUE", // required
- *   AlarmRule: "STRING_VALUE", // required
+ *   AlarmDescription: 'STRING_VALUE',
+ *   AlarmName: 'STRING_VALUE', // required
+ *   AlarmRule: 'STRING_VALUE', // required
  *   InsufficientDataActions: [
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   OKActions: [
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
- *   ActionsSuppressor: "STRING_VALUE",
- *   ActionsSuppressorWaitPeriod: Number("int"),
- *   ActionsSuppressorExtensionPeriod: Number("int"),
+ *   ActionsSuppressor: 'STRING_VALUE',
+ *   ActionsSuppressorWaitPeriod: Number('int'),
+ *   ActionsSuppressorExtensionPeriod: Number('int'),
  * };
  * const command = new PutCompositeAlarmCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutCompositeAlarmCommandInput - {@link PutCompositeAlarmCommandInput}
@@ -114,6 +117,8 @@ export interface PutCompositeAlarmCommandOutput extends __MetadataBearer {}
  * @throws {@link LimitExceededFault} (client fault)
  *  <p>The quota for alarms for this customer has already been reached.</p>
  *
+ * @throws {@link CloudWatchServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatch service.</p>
  *
  */
 export class PutCompositeAlarmCommand extends $Command<

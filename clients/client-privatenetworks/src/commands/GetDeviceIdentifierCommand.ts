@@ -40,14 +40,32 @@ export interface GetDeviceIdentifierCommandOutput extends GetDeviceIdentifierRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PrivateNetworksClient, GetDeviceIdentifierCommand } from "@aws-sdk/client-privatenetworks"; // ES Modules import
- * // const { PrivateNetworksClient, GetDeviceIdentifierCommand } = require("@aws-sdk/client-privatenetworks"); // CommonJS import
+ * import { PrivateNetworksClient, GetDeviceIdentifierCommand } from '@aws-sdk/client-privatenetworks'; // ES Modules import
+ * // const { PrivateNetworksClient, GetDeviceIdentifierCommand } = require('@aws-sdk/client-privatenetworks'); // CommonJS import
  * const client = new PrivateNetworksClient(config);
  * const input = { // GetDeviceIdentifierRequest
- *   deviceIdentifierArn: "STRING_VALUE", // required
+ *   deviceIdentifierArn: 'STRING_VALUE', // required
  * };
  * const command = new GetDeviceIdentifierCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetDeviceIdentifierResponse
+ *   deviceIdentifier: { // DeviceIdentifier
+ *     deviceIdentifierArn: 'STRING_VALUE',
+ *     trafficGroupArn: 'STRING_VALUE',
+ *     networkArn: 'STRING_VALUE',
+ *     imsi: 'STRING_VALUE',
+ *     iccid: 'STRING_VALUE',
+ *     vendor: 'STRING_VALUE',
+ *     status: 'STRING_VALUE',
+ *     orderArn: 'STRING_VALUE',
+ *     createdAt: new Date('TIMESTAMP'),
+ *   },
+ *   tags: { // TagMap
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetDeviceIdentifierCommandInput - {@link GetDeviceIdentifierCommandInput}
@@ -65,6 +83,8 @@ export interface GetDeviceIdentifierCommandOutput extends GetDeviceIdentifierRes
  * @throws {@link ValidationException} (client fault)
  *  <p>The request failed validation.</p>
  *
+ * @throws {@link PrivateNetworksServiceException}
+ * <p>Base exception class for all service exceptions from PrivateNetworks service.</p>
  *
  */
 export class GetDeviceIdentifierCommand extends $Command<

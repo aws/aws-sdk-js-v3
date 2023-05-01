@@ -36,27 +36,30 @@ export interface RegisterDevicesCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, RegisterDevicesCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, RegisterDevicesCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, RegisterDevicesCommand } from '@aws-sdk/client-sagemaker'; // ES Modules import
+ * // const { SageMakerClient, RegisterDevicesCommand } = require('@aws-sdk/client-sagemaker'); // CommonJS import
  * const client = new SageMakerClient(config);
  * const input = { // RegisterDevicesRequest
- *   DeviceFleetName: "STRING_VALUE", // required
+ *   DeviceFleetName: 'STRING_VALUE', // required
  *   Devices: [ // Devices // required
  *     { // Device
- *       DeviceName: "STRING_VALUE", // required
- *       Description: "STRING_VALUE",
- *       IotThingName: "STRING_VALUE",
+ *       DeviceName: 'STRING_VALUE', // required
+ *       Description: 'STRING_VALUE',
+ *       IotThingName: 'STRING_VALUE',
  *     },
  *   ],
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new RegisterDevicesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param RegisterDevicesCommandInput - {@link RegisterDevicesCommandInput}
@@ -69,6 +72,8 @@ export interface RegisterDevicesCommandOutput extends __MetadataBearer {}
  *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many
  *             training jobs created. </p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class RegisterDevicesCommand extends $Command<

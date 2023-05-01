@@ -42,16 +42,24 @@ export interface GetTemplateCommandOutput extends GetTemplateOutput, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudFormationClient, GetTemplateCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
- * // const { CloudFormationClient, GetTemplateCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
+ * import { CloudFormationClient, GetTemplateCommand } from '@aws-sdk/client-cloudformation'; // ES Modules import
+ * // const { CloudFormationClient, GetTemplateCommand } = require('@aws-sdk/client-cloudformation'); // CommonJS import
  * const client = new CloudFormationClient(config);
  * const input = { // GetTemplateInput
- *   StackName: "STRING_VALUE",
- *   ChangeSetName: "STRING_VALUE",
- *   TemplateStage: "Original" || "Processed",
+ *   StackName: 'STRING_VALUE',
+ *   ChangeSetName: 'STRING_VALUE',
+ *   TemplateStage: 'Original' || 'Processed',
  * };
  * const command = new GetTemplateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetTemplateOutput
+ *   TemplateBody: 'STRING_VALUE',
+ *   StagesAvailable: [ // StageList
+ *     'Original' || 'Processed',
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetTemplateCommandInput - {@link GetTemplateCommandInput}
@@ -64,6 +72,8 @@ export interface GetTemplateCommandOutput extends GetTemplateOutput, __MetadataB
  *  <p>The specified change set name or ID doesn't exit. To view valid change sets for a stack,
  *          use the <code>ListChangeSets</code> operation.</p>
  *
+ * @throws {@link CloudFormationServiceException}
+ * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
  */
 export class GetTemplateCommand extends $Command<

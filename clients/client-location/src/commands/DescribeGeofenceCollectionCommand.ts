@@ -36,14 +36,29 @@ export interface DescribeGeofenceCollectionCommandOutput extends DescribeGeofenc
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LocationClient, DescribeGeofenceCollectionCommand } from "@aws-sdk/client-location"; // ES Modules import
- * // const { LocationClient, DescribeGeofenceCollectionCommand } = require("@aws-sdk/client-location"); // CommonJS import
+ * import { LocationClient, DescribeGeofenceCollectionCommand } from '@aws-sdk/client-location'; // ES Modules import
+ * // const { LocationClient, DescribeGeofenceCollectionCommand } = require('@aws-sdk/client-location'); // CommonJS import
  * const client = new LocationClient(config);
  * const input = { // DescribeGeofenceCollectionRequest
- *   CollectionName: "STRING_VALUE", // required
+ *   CollectionName: 'STRING_VALUE', // required
  * };
  * const command = new DescribeGeofenceCollectionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeGeofenceCollectionResponse
+ *   CollectionName: 'STRING_VALUE', // required
+ *   CollectionArn: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE', // required
+ *   PricingPlan: 'STRING_VALUE',
+ *   PricingPlanDataSource: 'STRING_VALUE',
+ *   KmsKeyId: 'STRING_VALUE',
+ *   Tags: { // TagMap
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ *   CreateTime: new Date('TIMESTAMP'), // required
+ *   UpdateTime: new Date('TIMESTAMP'), // required
+ * };
+ *
  * ```
  *
  * @param DescribeGeofenceCollectionCommandInput - {@link DescribeGeofenceCollectionCommandInput}
@@ -68,6 +83,8 @@ export interface DescribeGeofenceCollectionCommandOutput extends DescribeGeofenc
  * @throws {@link ValidationException} (client fault)
  *  <p>The input failed to meet the constraints specified by the AWS service. </p>
  *
+ * @throws {@link LocationServiceException}
+ * <p>Base exception class for all service exceptions from Location service.</p>
  *
  */
 export class DescribeGeofenceCollectionCommand extends $Command<

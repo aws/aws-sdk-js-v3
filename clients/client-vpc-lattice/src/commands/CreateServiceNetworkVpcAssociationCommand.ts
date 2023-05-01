@@ -54,22 +54,33 @@ export interface CreateServiceNetworkVpcAssociationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { VPCLatticeClient, CreateServiceNetworkVpcAssociationCommand } from "@aws-sdk/client-vpc-lattice"; // ES Modules import
- * // const { VPCLatticeClient, CreateServiceNetworkVpcAssociationCommand } = require("@aws-sdk/client-vpc-lattice"); // CommonJS import
+ * import { VPCLatticeClient, CreateServiceNetworkVpcAssociationCommand } from '@aws-sdk/client-vpc-lattice'; // ES Modules import
+ * // const { VPCLatticeClient, CreateServiceNetworkVpcAssociationCommand } = require('@aws-sdk/client-vpc-lattice'); // CommonJS import
  * const client = new VPCLatticeClient(config);
  * const input = { // CreateServiceNetworkVpcAssociationRequest
- *   clientToken: "STRING_VALUE",
- *   serviceNetworkIdentifier: "STRING_VALUE", // required
- *   vpcIdentifier: "STRING_VALUE", // required
+ *   clientToken: 'STRING_VALUE',
+ *   serviceNetworkIdentifier: 'STRING_VALUE', // required
+ *   vpcIdentifier: 'STRING_VALUE', // required
  *   securityGroupIds: [ // SecurityGroupList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateServiceNetworkVpcAssociationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateServiceNetworkVpcAssociationResponse
+ *   id: 'STRING_VALUE',
+ *   status: 'STRING_VALUE',
+ *   arn: 'STRING_VALUE',
+ *   createdBy: 'STRING_VALUE',
+ *   securityGroupIds: [ // SecurityGroupList
+ *     'STRING_VALUE',
+ *   ],
+ * };
+ *
  * ```
  *
  * @param CreateServiceNetworkVpcAssociationCommandInput - {@link CreateServiceNetworkVpcAssociationCommandInput}
@@ -101,6 +112,8 @@ export interface CreateServiceNetworkVpcAssociationCommandOutput
  *  <p>The input does not satisfy the constraints specified by an Amazon Web Services
  *    service.</p>
  *
+ * @throws {@link VPCLatticeServiceException}
+ * <p>Base exception class for all service exceptions from VPCLattice service.</p>
  *
  */
 export class CreateServiceNetworkVpcAssociationCommand extends $Command<

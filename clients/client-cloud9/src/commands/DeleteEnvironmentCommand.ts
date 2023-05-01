@@ -37,14 +37,17 @@ export interface DeleteEnvironmentCommandOutput extends DeleteEnvironmentResult,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Cloud9Client, DeleteEnvironmentCommand } from "@aws-sdk/client-cloud9"; // ES Modules import
- * // const { Cloud9Client, DeleteEnvironmentCommand } = require("@aws-sdk/client-cloud9"); // CommonJS import
+ * import { Cloud9Client, DeleteEnvironmentCommand } from '@aws-sdk/client-cloud9'; // ES Modules import
+ * // const { Cloud9Client, DeleteEnvironmentCommand } = require('@aws-sdk/client-cloud9'); // CommonJS import
  * const client = new Cloud9Client(config);
  * const input = { // DeleteEnvironmentRequest
- *   environmentId: "STRING_VALUE", // required
+ *   environmentId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteEnvironmentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteEnvironmentCommandInput - {@link DeleteEnvironmentCommandInput}
@@ -74,6 +77,8 @@ export interface DeleteEnvironmentCommandOutput extends DeleteEnvironmentResult,
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Too many service requests were made over the given time period.</p>
  *
+ * @throws {@link Cloud9ServiceException}
+ * <p>Base exception class for all service exceptions from Cloud9 service.</p>
  *
  * @example DeleteEnvironment
  * ```javascript

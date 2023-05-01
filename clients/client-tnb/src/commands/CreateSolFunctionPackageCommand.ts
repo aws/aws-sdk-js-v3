@@ -44,16 +44,28 @@ export interface CreateSolFunctionPackageCommandOutput extends CreateSolFunction
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { TnbClient, CreateSolFunctionPackageCommand } from "@aws-sdk/client-tnb"; // ES Modules import
- * // const { TnbClient, CreateSolFunctionPackageCommand } = require("@aws-sdk/client-tnb"); // CommonJS import
+ * import { TnbClient, CreateSolFunctionPackageCommand } from '@aws-sdk/client-tnb'; // ES Modules import
+ * // const { TnbClient, CreateSolFunctionPackageCommand } = require('@aws-sdk/client-tnb'); // CommonJS import
  * const client = new TnbClient(config);
  * const input = { // CreateSolFunctionPackageInput
  *   tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateSolFunctionPackageCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateSolFunctionPackageOutput
+ *   id: 'STRING_VALUE', // required
+ *   arn: 'STRING_VALUE', // required
+ *   onboardingState: 'CREATED' || 'ONBOARDED' || 'ERROR', // required
+ *   operationalState: 'ENABLED' || 'DISABLED', // required
+ *   usageState: 'IN_USE' || 'NOT_IN_USE', // required
+ *   tags: { // TagMap
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateSolFunctionPackageCommandInput - {@link CreateSolFunctionPackageCommandInput}
@@ -77,6 +89,8 @@ export interface CreateSolFunctionPackageCommandOutput extends CreateSolFunction
  * @throws {@link ValidationException} (client fault)
  *  <p>Unable to process the request because the client provided input failed to satisfy request constraints.</p>
  *
+ * @throws {@link TnbServiceException}
+ * <p>Base exception class for all service exceptions from Tnb service.</p>
  *
  */
 export class CreateSolFunctionPackageCommand extends $Command<

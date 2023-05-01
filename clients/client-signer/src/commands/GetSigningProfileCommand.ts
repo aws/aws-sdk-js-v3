@@ -36,15 +36,52 @@ export interface GetSigningProfileCommandOutput extends GetSigningProfileRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SignerClient, GetSigningProfileCommand } from "@aws-sdk/client-signer"; // ES Modules import
- * // const { SignerClient, GetSigningProfileCommand } = require("@aws-sdk/client-signer"); // CommonJS import
+ * import { SignerClient, GetSigningProfileCommand } from '@aws-sdk/client-signer'; // ES Modules import
+ * // const { SignerClient, GetSigningProfileCommand } = require('@aws-sdk/client-signer'); // CommonJS import
  * const client = new SignerClient(config);
  * const input = { // GetSigningProfileRequest
- *   profileName: "STRING_VALUE", // required
- *   profileOwner: "STRING_VALUE",
+ *   profileName: 'STRING_VALUE', // required
+ *   profileOwner: 'STRING_VALUE',
  * };
  * const command = new GetSigningProfileCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetSigningProfileResponse
+ *   profileName: 'STRING_VALUE',
+ *   profileVersion: 'STRING_VALUE',
+ *   profileVersionArn: 'STRING_VALUE',
+ *   revocationRecord: { // SigningProfileRevocationRecord
+ *     revocationEffectiveFrom: new Date('TIMESTAMP'),
+ *     revokedAt: new Date('TIMESTAMP'),
+ *     revokedBy: 'STRING_VALUE',
+ *   },
+ *   signingMaterial: { // SigningMaterial
+ *     certificateArn: 'STRING_VALUE', // required
+ *   },
+ *   platformId: 'STRING_VALUE',
+ *   platformDisplayName: 'STRING_VALUE',
+ *   signatureValidityPeriod: { // SignatureValidityPeriod
+ *     value: Number('int'),
+ *     type: 'STRING_VALUE',
+ *   },
+ *   overrides: { // SigningPlatformOverrides
+ *     signingConfiguration: { // SigningConfigurationOverrides
+ *       encryptionAlgorithm: 'STRING_VALUE',
+ *       hashAlgorithm: 'STRING_VALUE',
+ *     },
+ *     signingImageFormat: 'STRING_VALUE',
+ *   },
+ *   signingParameters: { // SigningParameters
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ *   status: 'STRING_VALUE',
+ *   statusReason: 'STRING_VALUE',
+ *   arn: 'STRING_VALUE',
+ *   tags: { // TagMap
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetSigningProfileCommandInput - {@link GetSigningProfileCommandInput}
@@ -66,6 +103,8 @@ export interface GetSigningProfileCommandOutput extends GetSigningProfileRespons
  *  <p>The allowed number of job-signing requests has been exceeded.</p>
  * 		       <p>This error supersedes the error <code>ThrottlingException</code>.</p>
  *
+ * @throws {@link SignerServiceException}
+ * <p>Base exception class for all service exceptions from Signer service.</p>
  *
  */
 export class GetSigningProfileCommand extends $Command<

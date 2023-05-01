@@ -36,21 +36,35 @@ export interface ListReadSetActivationJobsCommandOutput extends ListReadSetActiv
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OmicsClient, ListReadSetActivationJobsCommand } from "@aws-sdk/client-omics"; // ES Modules import
- * // const { OmicsClient, ListReadSetActivationJobsCommand } = require("@aws-sdk/client-omics"); // CommonJS import
+ * import { OmicsClient, ListReadSetActivationJobsCommand } from '@aws-sdk/client-omics'; // ES Modules import
+ * // const { OmicsClient, ListReadSetActivationJobsCommand } = require('@aws-sdk/client-omics'); // CommonJS import
  * const client = new OmicsClient(config);
  * const input = { // ListReadSetActivationJobsRequest
- *   sequenceStoreId: "STRING_VALUE", // required
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   sequenceStoreId: 'STRING_VALUE', // required
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  *   filter: { // ActivateReadSetFilter
- *     status: "STRING_VALUE",
- *     createdAfter: new Date("TIMESTAMP"),
- *     createdBefore: new Date("TIMESTAMP"),
+ *     status: 'STRING_VALUE',
+ *     createdAfter: new Date('TIMESTAMP'),
+ *     createdBefore: new Date('TIMESTAMP'),
  *   },
  * };
  * const command = new ListReadSetActivationJobsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListReadSetActivationJobsResponse
+ *   nextToken: 'STRING_VALUE',
+ *   activationJobs: [ // ActivateReadSetJobList
+ *     { // ActivateReadSetJobItem
+ *       id: 'STRING_VALUE', // required
+ *       sequenceStoreId: 'STRING_VALUE', // required
+ *       status: 'STRING_VALUE', // required
+ *       creationTime: new Date('TIMESTAMP'), // required
+ *       completionTime: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListReadSetActivationJobsCommandInput - {@link ListReadSetActivationJobsCommandInput}
@@ -77,6 +91,8 @@ export interface ListReadSetActivationJobsCommandOutput extends ListReadSetActiv
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link OmicsServiceException}
+ * <p>Base exception class for all service exceptions from Omics service.</p>
  *
  */
 export class ListReadSetActivationJobsCommand extends $Command<

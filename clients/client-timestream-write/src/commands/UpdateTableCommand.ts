@@ -42,30 +42,57 @@ export interface UpdateTableCommandOutput extends UpdateTableResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { TimestreamWriteClient, UpdateTableCommand } from "@aws-sdk/client-timestream-write"; // ES Modules import
- * // const { TimestreamWriteClient, UpdateTableCommand } = require("@aws-sdk/client-timestream-write"); // CommonJS import
+ * import { TimestreamWriteClient, UpdateTableCommand } from '@aws-sdk/client-timestream-write'; // ES Modules import
+ * // const { TimestreamWriteClient, UpdateTableCommand } = require('@aws-sdk/client-timestream-write'); // CommonJS import
  * const client = new TimestreamWriteClient(config);
  * const input = { // UpdateTableRequest
- *   DatabaseName: "STRING_VALUE", // required
- *   TableName: "STRING_VALUE", // required
+ *   DatabaseName: 'STRING_VALUE', // required
+ *   TableName: 'STRING_VALUE', // required
  *   RetentionProperties: { // RetentionProperties
- *     MemoryStoreRetentionPeriodInHours: Number("long"), // required
- *     MagneticStoreRetentionPeriodInDays: Number("long"), // required
+ *     MemoryStoreRetentionPeriodInHours: Number('long'), // required
+ *     MagneticStoreRetentionPeriodInDays: Number('long'), // required
  *   },
  *   MagneticStoreWriteProperties: { // MagneticStoreWriteProperties
  *     EnableMagneticStoreWrites: true || false, // required
  *     MagneticStoreRejectedDataLocation: { // MagneticStoreRejectedDataLocation
  *       S3Configuration: { // S3Configuration
- *         BucketName: "STRING_VALUE",
- *         ObjectKeyPrefix: "STRING_VALUE",
- *         EncryptionOption: "SSE_S3" || "SSE_KMS",
- *         KmsKeyId: "STRING_VALUE",
+ *         BucketName: 'STRING_VALUE',
+ *         ObjectKeyPrefix: 'STRING_VALUE',
+ *         EncryptionOption: 'SSE_S3' || 'SSE_KMS',
+ *         KmsKeyId: 'STRING_VALUE',
  *       },
  *     },
  *   },
  * };
  * const command = new UpdateTableCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateTableResponse
+ *   Table: { // Table
+ *     Arn: 'STRING_VALUE',
+ *     TableName: 'STRING_VALUE',
+ *     DatabaseName: 'STRING_VALUE',
+ *     TableStatus: 'ACTIVE' || 'DELETING' || 'RESTORING',
+ *     RetentionProperties: { // RetentionProperties
+ *       MemoryStoreRetentionPeriodInHours: Number('long'), // required
+ *       MagneticStoreRetentionPeriodInDays: Number('long'), // required
+ *     },
+ *     CreationTime: new Date('TIMESTAMP'),
+ *     LastUpdatedTime: new Date('TIMESTAMP'),
+ *     MagneticStoreWriteProperties: { // MagneticStoreWriteProperties
+ *       EnableMagneticStoreWrites: true || false, // required
+ *       MagneticStoreRejectedDataLocation: { // MagneticStoreRejectedDataLocation
+ *         S3Configuration: { // S3Configuration
+ *           BucketName: 'STRING_VALUE',
+ *           ObjectKeyPrefix: 'STRING_VALUE',
+ *           EncryptionOption: 'SSE_S3' || 'SSE_KMS',
+ *           KmsKeyId: 'STRING_VALUE',
+ *         },
+ *       },
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateTableCommandInput - {@link UpdateTableCommandInput}
@@ -96,6 +123,8 @@ export interface UpdateTableCommandOutput extends UpdateTableResponse, __Metadat
  * @throws {@link ValidationException} (client fault)
  *  <p> An invalid or malformed request.</p>
  *
+ * @throws {@link TimestreamWriteServiceException}
+ * <p>Base exception class for all service exceptions from TimestreamWrite service.</p>
  *
  */
 export class UpdateTableCommand extends $Command<

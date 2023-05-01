@@ -46,17 +46,20 @@ export interface DeleteTableCommandOutput extends DeleteTableResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlueClient, DeleteTableCommand } from "@aws-sdk/client-glue"; // ES Modules import
- * // const { GlueClient, DeleteTableCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * import { GlueClient, DeleteTableCommand } from '@aws-sdk/client-glue'; // ES Modules import
+ * // const { GlueClient, DeleteTableCommand } = require('@aws-sdk/client-glue'); // CommonJS import
  * const client = new GlueClient(config);
  * const input = { // DeleteTableRequest
- *   CatalogId: "STRING_VALUE",
- *   DatabaseName: "STRING_VALUE", // required
- *   Name: "STRING_VALUE", // required
- *   TransactionId: "STRING_VALUE",
+ *   CatalogId: 'STRING_VALUE',
+ *   DatabaseName: 'STRING_VALUE', // required
+ *   Name: 'STRING_VALUE', // required
+ *   TransactionId: 'STRING_VALUE',
  * };
  * const command = new DeleteTableCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteTableCommandInput - {@link DeleteTableCommandInput}
@@ -83,6 +86,8 @@ export interface DeleteTableCommandOutput extends DeleteTableResponse, __Metadat
  * @throws {@link ResourceNotReadyException} (client fault)
  *  <p>A resource was not ready for a transaction.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class DeleteTableCommand extends $Command<

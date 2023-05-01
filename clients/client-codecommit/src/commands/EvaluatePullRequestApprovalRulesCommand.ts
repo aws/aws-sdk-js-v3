@@ -41,15 +41,29 @@ export interface EvaluatePullRequestApprovalRulesCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeCommitClient, EvaluatePullRequestApprovalRulesCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
- * // const { CodeCommitClient, EvaluatePullRequestApprovalRulesCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
+ * import { CodeCommitClient, EvaluatePullRequestApprovalRulesCommand } from '@aws-sdk/client-codecommit'; // ES Modules import
+ * // const { CodeCommitClient, EvaluatePullRequestApprovalRulesCommand } = require('@aws-sdk/client-codecommit'); // CommonJS import
  * const client = new CodeCommitClient(config);
  * const input = { // EvaluatePullRequestApprovalRulesInput
- *   pullRequestId: "STRING_VALUE", // required
- *   revisionId: "STRING_VALUE", // required
+ *   pullRequestId: 'STRING_VALUE', // required
+ *   revisionId: 'STRING_VALUE', // required
  * };
  * const command = new EvaluatePullRequestApprovalRulesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // EvaluatePullRequestApprovalRulesOutput
+ *   evaluation: { // Evaluation
+ *     approved: true || false,
+ *     overridden: true || false,
+ *     approvalRulesSatisfied: [ // ApprovalRulesSatisfiedList
+ *       'STRING_VALUE',
+ *     ],
+ *     approvalRulesNotSatisfied: [ // ApprovalRulesNotSatisfiedList
+ *       'STRING_VALUE',
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param EvaluatePullRequestApprovalRulesCommandInput - {@link EvaluatePullRequestApprovalRulesCommandInput}
@@ -91,6 +105,8 @@ export interface EvaluatePullRequestApprovalRulesCommandOutput
  * @throws {@link RevisionNotCurrentException} (client fault)
  *  <p>The revision ID provided in the request does not match the current revision ID. Use GetPullRequest to retrieve the current revision ID.</p>
  *
+ * @throws {@link CodeCommitServiceException}
+ * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
  */
 export class EvaluatePullRequestApprovalRulesCommand extends $Command<

@@ -36,16 +36,28 @@ export interface GetImpersonationRoleEffectCommandOutput extends GetImpersonatio
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkMailClient, GetImpersonationRoleEffectCommand } from "@aws-sdk/client-workmail"; // ES Modules import
- * // const { WorkMailClient, GetImpersonationRoleEffectCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
+ * import { WorkMailClient, GetImpersonationRoleEffectCommand } from '@aws-sdk/client-workmail'; // ES Modules import
+ * // const { WorkMailClient, GetImpersonationRoleEffectCommand } = require('@aws-sdk/client-workmail'); // CommonJS import
  * const client = new WorkMailClient(config);
  * const input = { // GetImpersonationRoleEffectRequest
- *   OrganizationId: "STRING_VALUE", // required
- *   ImpersonationRoleId: "STRING_VALUE", // required
- *   TargetUser: "STRING_VALUE", // required
+ *   OrganizationId: 'STRING_VALUE', // required
+ *   ImpersonationRoleId: 'STRING_VALUE', // required
+ *   TargetUser: 'STRING_VALUE', // required
  * };
  * const command = new GetImpersonationRoleEffectCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetImpersonationRoleEffectResponse
+ *   Type: 'FULL_ACCESS' || 'READ_ONLY',
+ *   Effect: 'ALLOW' || 'DENY',
+ *   MatchedRules: [ // ImpersonationMatchedRuleList
+ *     { // ImpersonationMatchedRule
+ *       ImpersonationRuleId: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetImpersonationRoleEffectCommandInput - {@link GetImpersonationRoleEffectCommandInput}
@@ -76,6 +88,8 @@ export interface GetImpersonationRoleEffectCommandOutput extends GetImpersonatio
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource cannot be found.</p>
  *
+ * @throws {@link WorkMailServiceException}
+ * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
  */
 export class GetImpersonationRoleEffectCommand extends $Command<

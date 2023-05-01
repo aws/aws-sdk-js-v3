@@ -37,40 +37,45 @@ export interface CreateRulesetCommandOutput extends CreateRulesetResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DataBrewClient, CreateRulesetCommand } from "@aws-sdk/client-databrew"; // ES Modules import
- * // const { DataBrewClient, CreateRulesetCommand } = require("@aws-sdk/client-databrew"); // CommonJS import
+ * import { DataBrewClient, CreateRulesetCommand } from '@aws-sdk/client-databrew'; // ES Modules import
+ * // const { DataBrewClient, CreateRulesetCommand } = require('@aws-sdk/client-databrew'); // CommonJS import
  * const client = new DataBrewClient(config);
  * const input = { // CreateRulesetRequest
- *   Name: "STRING_VALUE", // required
- *   Description: "STRING_VALUE",
- *   TargetArn: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE',
+ *   TargetArn: 'STRING_VALUE', // required
  *   Rules: [ // RuleList // required
  *     { // Rule
- *       Name: "STRING_VALUE", // required
+ *       Name: 'STRING_VALUE', // required
  *       Disabled: true || false,
- *       CheckExpression: "STRING_VALUE", // required
+ *       CheckExpression: 'STRING_VALUE', // required
  *       SubstitutionMap: { // ValuesMap
- *         "<keys>": "STRING_VALUE",
+ *         '<keys>': 'STRING_VALUE',
  *       },
  *       Threshold: { // Threshold
- *         Value: Number("double"), // required
- *         Type: "GREATER_THAN_OR_EQUAL" || "LESS_THAN_OR_EQUAL" || "GREATER_THAN" || "LESS_THAN",
- *         Unit: "COUNT" || "PERCENTAGE",
+ *         Value: Number('double'), // required
+ *         Type: 'GREATER_THAN_OR_EQUAL' || 'LESS_THAN_OR_EQUAL' || 'GREATER_THAN' || 'LESS_THAN',
+ *         Unit: 'COUNT' || 'PERCENTAGE',
  *       },
  *       ColumnSelectors: [ // ColumnSelectorList
  *         { // ColumnSelector
- *           Regex: "STRING_VALUE",
- *           Name: "STRING_VALUE",
+ *           Regex: 'STRING_VALUE',
+ *           Name: 'STRING_VALUE',
  *         },
  *       ],
  *     },
  *   ],
  *   Tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateRulesetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateRulesetResponse
+ *   Name: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param CreateRulesetCommandInput - {@link CreateRulesetCommandInput}
@@ -88,6 +93,8 @@ export interface CreateRulesetCommandOutput extends CreateRulesetResponse, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>The input parameters for this request failed validation.</p>
  *
+ * @throws {@link DataBrewServiceException}
+ * <p>Base exception class for all service exceptions from DataBrew service.</p>
  *
  */
 export class CreateRulesetCommand extends $Command<

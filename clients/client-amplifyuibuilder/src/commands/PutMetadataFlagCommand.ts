@@ -36,19 +36,22 @@ export interface PutMetadataFlagCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AmplifyUIBuilderClient, PutMetadataFlagCommand } from "@aws-sdk/client-amplifyuibuilder"; // ES Modules import
- * // const { AmplifyUIBuilderClient, PutMetadataFlagCommand } = require("@aws-sdk/client-amplifyuibuilder"); // CommonJS import
+ * import { AmplifyUIBuilderClient, PutMetadataFlagCommand } from '@aws-sdk/client-amplifyuibuilder'; // ES Modules import
+ * // const { AmplifyUIBuilderClient, PutMetadataFlagCommand } = require('@aws-sdk/client-amplifyuibuilder'); // CommonJS import
  * const client = new AmplifyUIBuilderClient(config);
  * const input = { // PutMetadataFlagRequest
- *   appId: "STRING_VALUE", // required
- *   environmentName: "STRING_VALUE", // required
- *   featureName: "STRING_VALUE", // required
+ *   appId: 'STRING_VALUE', // required
+ *   environmentName: 'STRING_VALUE', // required
+ *   featureName: 'STRING_VALUE', // required
  *   body: { // PutMetadataFlagBody
- *     newValue: "STRING_VALUE", // required
+ *     newValue: 'STRING_VALUE', // required
  *   },
  * };
  * const command = new PutMetadataFlagCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutMetadataFlagCommandInput - {@link PutMetadataFlagCommandInput}
@@ -63,6 +66,8 @@ export interface PutMetadataFlagCommandOutput extends __MetadataBearer {}
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You don't have permission to perform this operation.</p>
  *
+ * @throws {@link AmplifyUIBuilderServiceException}
+ * <p>Base exception class for all service exceptions from AmplifyUIBuilder service.</p>
  *
  */
 export class PutMetadataFlagCommand extends $Command<

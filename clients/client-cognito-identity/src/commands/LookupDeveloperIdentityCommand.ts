@@ -53,18 +53,27 @@ export interface LookupDeveloperIdentityCommandOutput extends LookupDeveloperIde
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CognitoIdentityClient, LookupDeveloperIdentityCommand } from "@aws-sdk/client-cognito-identity"; // ES Modules import
- * // const { CognitoIdentityClient, LookupDeveloperIdentityCommand } = require("@aws-sdk/client-cognito-identity"); // CommonJS import
+ * import { CognitoIdentityClient, LookupDeveloperIdentityCommand } from '@aws-sdk/client-cognito-identity'; // ES Modules import
+ * // const { CognitoIdentityClient, LookupDeveloperIdentityCommand } = require('@aws-sdk/client-cognito-identity'); // CommonJS import
  * const client = new CognitoIdentityClient(config);
  * const input = { // LookupDeveloperIdentityInput
- *   IdentityPoolId: "STRING_VALUE", // required
- *   IdentityId: "STRING_VALUE",
- *   DeveloperUserIdentifier: "STRING_VALUE",
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   IdentityPoolId: 'STRING_VALUE', // required
+ *   IdentityId: 'STRING_VALUE',
+ *   DeveloperUserIdentifier: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new LookupDeveloperIdentityCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // LookupDeveloperIdentityResponse
+ *   IdentityId: 'STRING_VALUE',
+ *   DeveloperUserIdentifierList: [ // DeveloperUserIdentifierList
+ *     'STRING_VALUE',
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param LookupDeveloperIdentityCommandInput - {@link LookupDeveloperIdentityCommandInput}
@@ -93,6 +102,8 @@ export interface LookupDeveloperIdentityCommandOutput extends LookupDeveloperIde
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Thrown when a request is throttled.</p>
  *
+ * @throws {@link CognitoIdentityServiceException}
+ * <p>Base exception class for all service exceptions from CognitoIdentity service.</p>
  *
  */
 export class LookupDeveloperIdentityCommand extends $Command<

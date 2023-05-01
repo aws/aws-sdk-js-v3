@@ -40,16 +40,38 @@ export interface PutSolNetworkPackageContentCommandOutput extends PutSolNetworkP
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { TnbClient, PutSolNetworkPackageContentCommand } from "@aws-sdk/client-tnb"; // ES Modules import
- * // const { TnbClient, PutSolNetworkPackageContentCommand } = require("@aws-sdk/client-tnb"); // CommonJS import
+ * import { TnbClient, PutSolNetworkPackageContentCommand } from '@aws-sdk/client-tnb'; // ES Modules import
+ * // const { TnbClient, PutSolNetworkPackageContentCommand } = require('@aws-sdk/client-tnb'); // CommonJS import
  * const client = new TnbClient(config);
  * const input = { // PutSolNetworkPackageContentInput
- *   nsdInfoId: "STRING_VALUE", // required
- *   contentType: "application/zip",
- *   file: "BLOB_VALUE", // required
+ *   nsdInfoId: 'STRING_VALUE', // required
+ *   contentType: 'application/zip',
+ *   file: 'BLOB_VALUE', // required
  * };
  * const command = new PutSolNetworkPackageContentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutSolNetworkPackageContentOutput
+ *   id: 'STRING_VALUE', // required
+ *   arn: 'STRING_VALUE', // required
+ *   nsdId: 'STRING_VALUE', // required
+ *   nsdName: 'STRING_VALUE', // required
+ *   nsdVersion: 'STRING_VALUE', // required
+ *   vnfPkgIds: [ // VnfPkgIdList // required
+ *     'STRING_VALUE',
+ *   ],
+ *   metadata: { // PutSolNetworkPackageContentMetadata
+ *     nsd: { // NetworkArtifactMeta
+ *       overrides: [ // OverrideList
+ *         { // ToscaOverride
+ *           name: 'STRING_VALUE',
+ *           defaultValue: 'STRING_VALUE',
+ *         },
+ *       ],
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param PutSolNetworkPackageContentCommandInput - {@link PutSolNetworkPackageContentCommandInput}
@@ -73,6 +95,8 @@ export interface PutSolNetworkPackageContentCommandOutput extends PutSolNetworkP
  * @throws {@link ValidationException} (client fault)
  *  <p>Unable to process the request because the client provided input failed to satisfy request constraints.</p>
  *
+ * @throws {@link TnbServiceException}
+ * <p>Base exception class for all service exceptions from Tnb service.</p>
  *
  */
 export class PutSolNetworkPackageContentCommand extends $Command<

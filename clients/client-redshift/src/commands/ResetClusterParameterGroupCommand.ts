@@ -40,28 +40,34 @@ export interface ResetClusterParameterGroupCommandOutput extends ClusterParamete
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RedshiftClient, ResetClusterParameterGroupCommand } from "@aws-sdk/client-redshift"; // ES Modules import
- * // const { RedshiftClient, ResetClusterParameterGroupCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * import { RedshiftClient, ResetClusterParameterGroupCommand } from '@aws-sdk/client-redshift'; // ES Modules import
+ * // const { RedshiftClient, ResetClusterParameterGroupCommand } = require('@aws-sdk/client-redshift'); // CommonJS import
  * const client = new RedshiftClient(config);
  * const input = { // ResetClusterParameterGroupMessage
- *   ParameterGroupName: "STRING_VALUE", // required
+ *   ParameterGroupName: 'STRING_VALUE', // required
  *   ResetAllParameters: true || false,
  *   Parameters: [ // ParametersList
  *     { // Parameter
- *       ParameterName: "STRING_VALUE",
- *       ParameterValue: "STRING_VALUE",
- *       Description: "STRING_VALUE",
- *       Source: "STRING_VALUE",
- *       DataType: "STRING_VALUE",
- *       AllowedValues: "STRING_VALUE",
- *       ApplyType: "static" || "dynamic",
+ *       ParameterName: 'STRING_VALUE',
+ *       ParameterValue: 'STRING_VALUE',
+ *       Description: 'STRING_VALUE',
+ *       Source: 'STRING_VALUE',
+ *       DataType: 'STRING_VALUE',
+ *       AllowedValues: 'STRING_VALUE',
+ *       ApplyType: 'static' || 'dynamic',
  *       IsModifiable: true || false,
- *       MinimumEngineVersion: "STRING_VALUE",
+ *       MinimumEngineVersion: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new ResetClusterParameterGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ClusterParameterGroupNameMessage
+ *   ParameterGroupName: 'STRING_VALUE',
+ *   ParameterGroupStatus: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ResetClusterParameterGroupCommandInput - {@link ResetClusterParameterGroupCommandInput}
@@ -78,6 +84,8 @@ export interface ResetClusterParameterGroupCommandOutput extends ClusterParamete
  *             progress that involves the parameter group. Wait a few moments and try the operation
  *             again.</p>
  *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class ResetClusterParameterGroupCommand extends $Command<

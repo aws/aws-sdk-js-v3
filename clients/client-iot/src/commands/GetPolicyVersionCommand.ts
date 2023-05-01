@@ -37,15 +37,27 @@ export interface GetPolicyVersionCommandOutput extends GetPolicyVersionResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTClient, GetPolicyVersionCommand } from "@aws-sdk/client-iot"; // ES Modules import
- * // const { IoTClient, GetPolicyVersionCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * import { IoTClient, GetPolicyVersionCommand } from '@aws-sdk/client-iot'; // ES Modules import
+ * // const { IoTClient, GetPolicyVersionCommand } = require('@aws-sdk/client-iot'); // CommonJS import
  * const client = new IoTClient(config);
  * const input = { // GetPolicyVersionRequest
- *   policyName: "STRING_VALUE", // required
- *   policyVersionId: "STRING_VALUE", // required
+ *   policyName: 'STRING_VALUE', // required
+ *   policyVersionId: 'STRING_VALUE', // required
  * };
  * const command = new GetPolicyVersionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetPolicyVersionResponse
+ *   policyArn: 'STRING_VALUE',
+ *   policyName: 'STRING_VALUE',
+ *   policyDocument: 'STRING_VALUE',
+ *   policyVersionId: 'STRING_VALUE',
+ *   isDefaultVersion: true || false,
+ *   creationDate: new Date('TIMESTAMP'),
+ *   lastModifiedDate: new Date('TIMESTAMP'),
+ *   generationId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetPolicyVersionCommandInput - {@link GetPolicyVersionCommandInput}
@@ -72,6 +84,8 @@ export interface GetPolicyVersionCommandOutput extends GetPolicyVersionResponse,
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this operation.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class GetPolicyVersionCommand extends $Command<

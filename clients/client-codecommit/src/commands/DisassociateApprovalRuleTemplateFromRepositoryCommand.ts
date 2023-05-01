@@ -43,15 +43,18 @@ export interface DisassociateApprovalRuleTemplateFromRepositoryCommandOutput ext
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeCommitClient, DisassociateApprovalRuleTemplateFromRepositoryCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
- * // const { CodeCommitClient, DisassociateApprovalRuleTemplateFromRepositoryCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
+ * import { CodeCommitClient, DisassociateApprovalRuleTemplateFromRepositoryCommand } from '@aws-sdk/client-codecommit'; // ES Modules import
+ * // const { CodeCommitClient, DisassociateApprovalRuleTemplateFromRepositoryCommand } = require('@aws-sdk/client-codecommit'); // CommonJS import
  * const client = new CodeCommitClient(config);
  * const input = { // DisassociateApprovalRuleTemplateFromRepositoryInput
- *   approvalRuleTemplateName: "STRING_VALUE", // required
- *   repositoryName: "STRING_VALUE", // required
+ *   approvalRuleTemplateName: 'STRING_VALUE', // required
+ *   repositoryName: 'STRING_VALUE', // required
  * };
  * const command = new DisassociateApprovalRuleTemplateFromRepositoryCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DisassociateApprovalRuleTemplateFromRepositoryCommandInput - {@link DisassociateApprovalRuleTemplateFromRepositoryCommandInput}
@@ -103,6 +106,8 @@ export interface DisassociateApprovalRuleTemplateFromRepositoryCommandOutput ext
  * @throws {@link RepositoryNameRequiredException} (client fault)
  *  <p>A repository name is required, but was not specified.</p>
  *
+ * @throws {@link CodeCommitServiceException}
+ * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
  */
 export class DisassociateApprovalRuleTemplateFromRepositoryCommand extends $Command<

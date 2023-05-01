@@ -46,14 +46,32 @@ export interface GetRateBasedRuleCommandOutput extends GetRateBasedRuleResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WAFClient, GetRateBasedRuleCommand } from "@aws-sdk/client-waf"; // ES Modules import
- * // const { WAFClient, GetRateBasedRuleCommand } = require("@aws-sdk/client-waf"); // CommonJS import
+ * import { WAFClient, GetRateBasedRuleCommand } from '@aws-sdk/client-waf'; // ES Modules import
+ * // const { WAFClient, GetRateBasedRuleCommand } = require('@aws-sdk/client-waf'); // CommonJS import
  * const client = new WAFClient(config);
  * const input = { // GetRateBasedRuleRequest
- *   RuleId: "STRING_VALUE", // required
+ *   RuleId: 'STRING_VALUE', // required
  * };
  * const command = new GetRateBasedRuleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetRateBasedRuleResponse
+ *   Rule: { // RateBasedRule
+ *     RuleId: 'STRING_VALUE', // required
+ *     Name: 'STRING_VALUE',
+ *     MetricName: 'STRING_VALUE',
+ *     MatchPredicates: [ // Predicates // required
+ *       { // Predicate
+ *         Negated: true || false, // required
+ *         Type: 'STRING_VALUE', // required
+ *         DataId: 'STRING_VALUE', // required
+ *       },
+ *     ],
+ *     RateKey: 'STRING_VALUE', // required
+ *     RateLimit: Number('long'), // required
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetRateBasedRuleCommandInput - {@link GetRateBasedRuleCommandInput}
@@ -71,6 +89,8 @@ export interface GetRateBasedRuleCommandOutput extends GetRateBasedRuleResponse,
  * @throws {@link WAFNonexistentItemException} (client fault)
  *  <p>The operation failed because the referenced object doesn't exist.</p>
  *
+ * @throws {@link WAFServiceException}
+ * <p>Base exception class for all service exceptions from WAF service.</p>
  *
  */
 export class GetRateBasedRuleCommand extends $Command<

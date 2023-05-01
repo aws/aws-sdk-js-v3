@@ -46,31 +46,65 @@ export interface StartFraudsterRegistrationJobCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { VoiceIDClient, StartFraudsterRegistrationJobCommand } from "@aws-sdk/client-voice-id"; // ES Modules import
- * // const { VoiceIDClient, StartFraudsterRegistrationJobCommand } = require("@aws-sdk/client-voice-id"); // CommonJS import
+ * import { VoiceIDClient, StartFraudsterRegistrationJobCommand } from '@aws-sdk/client-voice-id'; // ES Modules import
+ * // const { VoiceIDClient, StartFraudsterRegistrationJobCommand } = require('@aws-sdk/client-voice-id'); // CommonJS import
  * const client = new VoiceIDClient(config);
  * const input = { // StartFraudsterRegistrationJobRequest
- *   ClientToken: "STRING_VALUE",
- *   JobName: "STRING_VALUE",
- *   DomainId: "STRING_VALUE", // required
- *   DataAccessRoleArn: "STRING_VALUE", // required
+ *   ClientToken: 'STRING_VALUE',
+ *   JobName: 'STRING_VALUE',
+ *   DomainId: 'STRING_VALUE', // required
+ *   DataAccessRoleArn: 'STRING_VALUE', // required
  *   RegistrationConfig: { // RegistrationConfig
- *     DuplicateRegistrationAction: "STRING_VALUE",
- *     FraudsterSimilarityThreshold: Number("int"),
+ *     DuplicateRegistrationAction: 'STRING_VALUE',
+ *     FraudsterSimilarityThreshold: Number('int'),
  *     WatchlistIds: [ // RegistrationConfigWatchlistIds
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *   },
  *   InputDataConfig: { // InputDataConfig
- *     S3Uri: "STRING_VALUE", // required
+ *     S3Uri: 'STRING_VALUE', // required
  *   },
  *   OutputDataConfig: { // OutputDataConfig
- *     S3Uri: "STRING_VALUE", // required
- *     KmsKeyId: "STRING_VALUE",
+ *     S3Uri: 'STRING_VALUE', // required
+ *     KmsKeyId: 'STRING_VALUE',
  *   },
  * };
  * const command = new StartFraudsterRegistrationJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartFraudsterRegistrationJobResponse
+ *   Job: { // FraudsterRegistrationJob
+ *     JobName: 'STRING_VALUE',
+ *     JobId: 'STRING_VALUE',
+ *     JobStatus: 'STRING_VALUE',
+ *     DomainId: 'STRING_VALUE',
+ *     DataAccessRoleArn: 'STRING_VALUE',
+ *     RegistrationConfig: { // RegistrationConfig
+ *       DuplicateRegistrationAction: 'STRING_VALUE',
+ *       FraudsterSimilarityThreshold: Number('int'),
+ *       WatchlistIds: [ // RegistrationConfigWatchlistIds
+ *         'STRING_VALUE',
+ *       ],
+ *     },
+ *     InputDataConfig: { // InputDataConfig
+ *       S3Uri: 'STRING_VALUE', // required
+ *     },
+ *     OutputDataConfig: { // OutputDataConfig
+ *       S3Uri: 'STRING_VALUE', // required
+ *       KmsKeyId: 'STRING_VALUE',
+ *     },
+ *     CreatedAt: new Date('TIMESTAMP'),
+ *     EndedAt: new Date('TIMESTAMP'),
+ *     FailureDetails: { // FailureDetails
+ *       StatusCode: Number('int'),
+ *       Message: 'STRING_VALUE',
+ *     },
+ *     JobProgress: { // JobProgress
+ *       PercentComplete: Number('int'),
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param StartFraudsterRegistrationJobCommandInput - {@link StartFraudsterRegistrationJobCommandInput}
@@ -107,6 +141,8 @@ export interface StartFraudsterRegistrationJobCommandOutput
  *  <p>The request failed one or more validations; check the error message for more
  *             details.</p>
  *
+ * @throws {@link VoiceIDServiceException}
+ * <p>Base exception class for all service exceptions from VoiceID service.</p>
  *
  */
 export class StartFraudsterRegistrationJobCommand extends $Command<

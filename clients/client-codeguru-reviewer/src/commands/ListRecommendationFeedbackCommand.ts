@@ -37,22 +37,36 @@ export interface ListRecommendationFeedbackCommandOutput extends ListRecommendat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeGuruReviewerClient, ListRecommendationFeedbackCommand } from "@aws-sdk/client-codeguru-reviewer"; // ES Modules import
- * // const { CodeGuruReviewerClient, ListRecommendationFeedbackCommand } = require("@aws-sdk/client-codeguru-reviewer"); // CommonJS import
+ * import { CodeGuruReviewerClient, ListRecommendationFeedbackCommand } from '@aws-sdk/client-codeguru-reviewer'; // ES Modules import
+ * // const { CodeGuruReviewerClient, ListRecommendationFeedbackCommand } = require('@aws-sdk/client-codeguru-reviewer'); // CommonJS import
  * const client = new CodeGuruReviewerClient(config);
  * const input = { // ListRecommendationFeedbackRequest
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
- *   CodeReviewArn: "STRING_VALUE", // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
+ *   CodeReviewArn: 'STRING_VALUE', // required
  *   UserIds: [ // UserIds
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   RecommendationIds: [ // RecommendationIds
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new ListRecommendationFeedbackCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListRecommendationFeedbackResponse
+ *   RecommendationFeedbackSummaries: [ // RecommendationFeedbackSummaries
+ *     { // RecommendationFeedbackSummary
+ *       RecommendationId: 'STRING_VALUE',
+ *       Reactions: [ // Reactions
+ *         'ThumbsUp' || 'ThumbsDown',
+ *       ],
+ *       UserId: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListRecommendationFeedbackCommandInput - {@link ListRecommendationFeedbackCommandInput}
@@ -76,6 +90,8 @@ export interface ListRecommendationFeedbackCommandOutput extends ListRecommendat
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the specified constraints.</p>
  *
+ * @throws {@link CodeGuruReviewerServiceException}
+ * <p>Base exception class for all service exceptions from CodeGuruReviewer service.</p>
  *
  */
 export class ListRecommendationFeedbackCommand extends $Command<

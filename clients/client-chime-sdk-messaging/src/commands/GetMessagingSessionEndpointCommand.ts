@@ -45,12 +45,19 @@ export interface GetMessagingSessionEndpointCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeSDKMessagingClient, GetMessagingSessionEndpointCommand } from "@aws-sdk/client-chime-sdk-messaging"; // ES Modules import
- * // const { ChimeSDKMessagingClient, GetMessagingSessionEndpointCommand } = require("@aws-sdk/client-chime-sdk-messaging"); // CommonJS import
+ * import { ChimeSDKMessagingClient, GetMessagingSessionEndpointCommand } from '@aws-sdk/client-chime-sdk-messaging'; // ES Modules import
+ * // const { ChimeSDKMessagingClient, GetMessagingSessionEndpointCommand } = require('@aws-sdk/client-chime-sdk-messaging'); // CommonJS import
  * const client = new ChimeSDKMessagingClient(config);
  * const input = {};
  * const command = new GetMessagingSessionEndpointCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetMessagingSessionEndpointResponse
+ *   Endpoint: { // MessagingSessionEndpoint
+ *     Url: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetMessagingSessionEndpointCommandInput - {@link GetMessagingSessionEndpointCommandInput}
@@ -74,6 +81,8 @@ export interface GetMessagingSessionEndpointCommandOutput
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeSDKMessagingServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKMessaging service.</p>
  *
  */
 export class GetMessagingSessionEndpointCommand extends $Command<

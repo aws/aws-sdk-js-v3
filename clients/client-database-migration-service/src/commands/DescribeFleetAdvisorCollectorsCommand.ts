@@ -45,23 +45,53 @@ export interface DescribeFleetAdvisorCollectorsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DatabaseMigrationServiceClient, DescribeFleetAdvisorCollectorsCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
- * // const { DatabaseMigrationServiceClient, DescribeFleetAdvisorCollectorsCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
+ * import { DatabaseMigrationServiceClient, DescribeFleetAdvisorCollectorsCommand } from '@aws-sdk/client-database-migration-service'; // ES Modules import
+ * // const { DatabaseMigrationServiceClient, DescribeFleetAdvisorCollectorsCommand } = require('@aws-sdk/client-database-migration-service'); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
  * const input = { // DescribeFleetAdvisorCollectorsRequest
  *   Filters: [ // FilterList
  *     { // Filter
- *       Name: "STRING_VALUE", // required
+ *       Name: 'STRING_VALUE', // required
  *       Values: [ // FilterValueList // required
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
- *   MaxRecords: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxRecords: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new DescribeFleetAdvisorCollectorsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeFleetAdvisorCollectorsResponse
+ *   Collectors: [ // CollectorResponses
+ *     { // CollectorResponse
+ *       CollectorReferencedId: 'STRING_VALUE',
+ *       CollectorName: 'STRING_VALUE',
+ *       CollectorVersion: 'STRING_VALUE',
+ *       VersionStatus: 'UP_TO_DATE' || 'OUTDATED' || 'UNSUPPORTED',
+ *       Description: 'STRING_VALUE',
+ *       S3BucketName: 'STRING_VALUE',
+ *       ServiceAccessRoleArn: 'STRING_VALUE',
+ *       CollectorHealthCheck: { // CollectorHealthCheck
+ *         CollectorStatus: 'UNREGISTERED' || 'ACTIVE',
+ *         LocalCollectorS3Access: true || false,
+ *         WebCollectorS3Access: true || false,
+ *         WebCollectorGrantedRoleBasedAccess: true || false,
+ *       },
+ *       LastDataReceived: 'STRING_VALUE',
+ *       RegisteredDate: 'STRING_VALUE',
+ *       CreatedDate: 'STRING_VALUE',
+ *       ModifiedDate: 'STRING_VALUE',
+ *       InventoryData: { // InventoryData
+ *         NumberOfDatabases: Number('int'),
+ *         NumberOfSchemas: Number('int'),
+ *       },
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeFleetAdvisorCollectorsCommandInput - {@link DescribeFleetAdvisorCollectorsCommandInput}
@@ -73,6 +103,8 @@ export interface DescribeFleetAdvisorCollectorsCommandOutput
  * @throws {@link InvalidResourceStateFault} (client fault)
  *  <p>The resource is in a state that prevents it from being used for database migration.</p>
  *
+ * @throws {@link DatabaseMigrationServiceServiceException}
+ * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
  */
 export class DescribeFleetAdvisorCollectorsCommand extends $Command<

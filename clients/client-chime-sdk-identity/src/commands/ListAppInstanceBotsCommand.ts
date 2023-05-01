@@ -41,16 +41,29 @@ export interface ListAppInstanceBotsCommandOutput extends ListAppInstanceBotsRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeSDKIdentityClient, ListAppInstanceBotsCommand } from "@aws-sdk/client-chime-sdk-identity"; // ES Modules import
- * // const { ChimeSDKIdentityClient, ListAppInstanceBotsCommand } = require("@aws-sdk/client-chime-sdk-identity"); // CommonJS import
+ * import { ChimeSDKIdentityClient, ListAppInstanceBotsCommand } from '@aws-sdk/client-chime-sdk-identity'; // ES Modules import
+ * // const { ChimeSDKIdentityClient, ListAppInstanceBotsCommand } = require('@aws-sdk/client-chime-sdk-identity'); // CommonJS import
  * const client = new ChimeSDKIdentityClient(config);
  * const input = { // ListAppInstanceBotsRequest
- *   AppInstanceArn: "STRING_VALUE", // required
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   AppInstanceArn: 'STRING_VALUE', // required
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListAppInstanceBotsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListAppInstanceBotsResponse
+ *   AppInstanceArn: 'STRING_VALUE',
+ *   AppInstanceBots: [ // AppInstanceBotList
+ *     { // AppInstanceBotSummary
+ *       AppInstanceBotArn: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *       Metadata: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListAppInstanceBotsCommandInput - {@link ListAppInstanceBotsCommandInput}
@@ -80,6 +93,8 @@ export interface ListAppInstanceBotsCommandOutput extends ListAppInstanceBotsRes
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeSDKIdentityServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKIdentity service.</p>
  *
  */
 export class ListAppInstanceBotsCommand extends $Command<

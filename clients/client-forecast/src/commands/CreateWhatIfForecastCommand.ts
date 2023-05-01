@@ -41,54 +41,59 @@ export interface CreateWhatIfForecastCommandOutput extends CreateWhatIfForecastR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ForecastClient, CreateWhatIfForecastCommand } from "@aws-sdk/client-forecast"; // ES Modules import
- * // const { ForecastClient, CreateWhatIfForecastCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
+ * import { ForecastClient, CreateWhatIfForecastCommand } from '@aws-sdk/client-forecast'; // ES Modules import
+ * // const { ForecastClient, CreateWhatIfForecastCommand } = require('@aws-sdk/client-forecast'); // CommonJS import
  * const client = new ForecastClient(config);
  * const input = { // CreateWhatIfForecastRequest
- *   WhatIfForecastName: "STRING_VALUE", // required
- *   WhatIfAnalysisArn: "STRING_VALUE", // required
+ *   WhatIfForecastName: 'STRING_VALUE', // required
+ *   WhatIfAnalysisArn: 'STRING_VALUE', // required
  *   TimeSeriesTransformations: [ // TimeSeriesTransformations
  *     { // TimeSeriesTransformation
  *       Action: { // Action
- *         AttributeName: "STRING_VALUE", // required
- *         Operation: "ADD" || "SUBTRACT" || "MULTIPLY" || "DIVIDE", // required
- *         Value: Number("double"), // required
+ *         AttributeName: 'STRING_VALUE', // required
+ *         Operation: 'ADD' || 'SUBTRACT' || 'MULTIPLY' || 'DIVIDE', // required
+ *         Value: Number('double'), // required
  *       },
  *       TimeSeriesConditions: [ // TimeSeriesConditions
  *         { // TimeSeriesCondition
- *           AttributeName: "STRING_VALUE", // required
- *           AttributeValue: "STRING_VALUE", // required
- *           Condition: "EQUALS" || "NOT_EQUALS" || "LESS_THAN" || "GREATER_THAN", // required
+ *           AttributeName: 'STRING_VALUE', // required
+ *           AttributeValue: 'STRING_VALUE', // required
+ *           Condition: 'EQUALS' || 'NOT_EQUALS' || 'LESS_THAN' || 'GREATER_THAN', // required
  *         },
  *       ],
  *     },
  *   ],
  *   TimeSeriesReplacementsDataSource: { // TimeSeriesReplacementsDataSource
  *     S3Config: { // S3Config
- *       Path: "STRING_VALUE", // required
- *       RoleArn: "STRING_VALUE", // required
- *       KMSKeyArn: "STRING_VALUE",
+ *       Path: 'STRING_VALUE', // required
+ *       RoleArn: 'STRING_VALUE', // required
+ *       KMSKeyArn: 'STRING_VALUE',
  *     },
  *     Schema: { // Schema
  *       Attributes: [ // SchemaAttributes
  *         { // SchemaAttribute
- *           AttributeName: "STRING_VALUE",
- *           AttributeType: "string" || "integer" || "float" || "timestamp" || "geolocation",
+ *           AttributeName: 'STRING_VALUE',
+ *           AttributeType: 'string' || 'integer' || 'float' || 'timestamp' || 'geolocation',
  *         },
  *       ],
  *     },
- *     Format: "STRING_VALUE",
- *     TimestampFormat: "STRING_VALUE",
+ *     Format: 'STRING_VALUE',
+ *     TimestampFormat: 'STRING_VALUE',
  *   },
  *   Tags: [ // Tags
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreateWhatIfForecastCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateWhatIfForecastResponse
+ *   WhatIfForecastArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateWhatIfForecastCommandInput - {@link CreateWhatIfForecastCommandInput}
@@ -114,6 +119,8 @@ export interface CreateWhatIfForecastCommandOutput extends CreateWhatIfForecastR
  *  <p>We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try
  *       again.</p>
  *
+ * @throws {@link ForecastServiceException}
+ * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
  */
 export class CreateWhatIfForecastCommand extends $Command<

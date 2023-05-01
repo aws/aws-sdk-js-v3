@@ -36,17 +36,28 @@ export interface UpdateTypeCommandOutput extends UpdateTypeResponse, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppSyncClient, UpdateTypeCommand } from "@aws-sdk/client-appsync"; // ES Modules import
- * // const { AppSyncClient, UpdateTypeCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
+ * import { AppSyncClient, UpdateTypeCommand } from '@aws-sdk/client-appsync'; // ES Modules import
+ * // const { AppSyncClient, UpdateTypeCommand } = require('@aws-sdk/client-appsync'); // CommonJS import
  * const client = new AppSyncClient(config);
  * const input = { // UpdateTypeRequest
- *   apiId: "STRING_VALUE", // required
- *   typeName: "STRING_VALUE", // required
- *   definition: "STRING_VALUE",
- *   format: "SDL" || "JSON", // required
+ *   apiId: 'STRING_VALUE', // required
+ *   typeName: 'STRING_VALUE', // required
+ *   definition: 'STRING_VALUE',
+ *   format: 'SDL' || 'JSON', // required
  * };
  * const command = new UpdateTypeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateTypeResponse
+ *   type: { // Type
+ *     name: 'STRING_VALUE',
+ *     description: 'STRING_VALUE',
+ *     arn: 'STRING_VALUE',
+ *     definition: 'STRING_VALUE',
+ *     format: 'SDL' || 'JSON',
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateTypeCommandInput - {@link UpdateTypeCommandInput}
@@ -72,6 +83,8 @@ export interface UpdateTypeCommandOutput extends UpdateTypeResponse, __MetadataB
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You aren't authorized to perform this operation.</p>
  *
+ * @throws {@link AppSyncServiceException}
+ * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
  */
 export class UpdateTypeCommand extends $Command<

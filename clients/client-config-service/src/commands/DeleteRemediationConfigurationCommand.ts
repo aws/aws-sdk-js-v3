@@ -41,15 +41,18 @@ export interface DeleteRemediationConfigurationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConfigServiceClient, DeleteRemediationConfigurationCommand } from "@aws-sdk/client-config-service"; // ES Modules import
- * // const { ConfigServiceClient, DeleteRemediationConfigurationCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
+ * import { ConfigServiceClient, DeleteRemediationConfigurationCommand } from '@aws-sdk/client-config-service'; // ES Modules import
+ * // const { ConfigServiceClient, DeleteRemediationConfigurationCommand } = require('@aws-sdk/client-config-service'); // CommonJS import
  * const client = new ConfigServiceClient(config);
  * const input = { // DeleteRemediationConfigurationRequest
- *   ConfigRuleName: "STRING_VALUE", // required
- *   ResourceType: "STRING_VALUE",
+ *   ConfigRuleName: 'STRING_VALUE', // required
+ *   ResourceType: 'STRING_VALUE',
  * };
  * const command = new DeleteRemediationConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteRemediationConfigurationCommandInput - {@link DeleteRemediationConfigurationCommandInput}
@@ -93,6 +96,8 @@ export interface DeleteRemediationConfigurationCommandOutput
  * @throws {@link RemediationInProgressException} (client fault)
  *  <p>Remediation action is in progress. You can either cancel execution in Amazon Web Services Systems Manager or wait and try again later. </p>
  *
+ * @throws {@link ConfigServiceServiceException}
+ * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
  */
 export class DeleteRemediationConfigurationCommand extends $Command<

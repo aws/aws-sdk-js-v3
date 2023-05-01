@@ -41,22 +41,31 @@ export interface CreateVpcEndpointCommandOutput extends CreateVpcEndpointRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OpenSearchServerlessClient, CreateVpcEndpointCommand } from "@aws-sdk/client-opensearchserverless"; // ES Modules import
- * // const { OpenSearchServerlessClient, CreateVpcEndpointCommand } = require("@aws-sdk/client-opensearchserverless"); // CommonJS import
+ * import { OpenSearchServerlessClient, CreateVpcEndpointCommand } from '@aws-sdk/client-opensearchserverless'; // ES Modules import
+ * // const { OpenSearchServerlessClient, CreateVpcEndpointCommand } = require('@aws-sdk/client-opensearchserverless'); // CommonJS import
  * const client = new OpenSearchServerlessClient(config);
  * const input = { // CreateVpcEndpointRequest
- *   name: "STRING_VALUE", // required
- *   vpcId: "STRING_VALUE", // required
+ *   name: 'STRING_VALUE', // required
+ *   vpcId: 'STRING_VALUE', // required
  *   subnetIds: [ // SubnetIds // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   securityGroupIds: [ // SecurityGroupIds
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   clientToken: "STRING_VALUE",
+ *   clientToken: 'STRING_VALUE',
  * };
  * const command = new CreateVpcEndpointCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateVpcEndpointResponse
+ *   createVpcEndpointDetail: { // CreateVpcEndpointDetail
+ *     id: 'STRING_VALUE',
+ *     name: 'STRING_VALUE',
+ *     status: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateVpcEndpointCommandInput - {@link CreateVpcEndpointCommandInput}
@@ -80,6 +89,8 @@ export interface CreateVpcEndpointCommandOutput extends CreateVpcEndpointRespons
  *  <p>Thrown when the HTTP request contains invalid input or is missing required
  *             input.</p>
  *
+ * @throws {@link OpenSearchServerlessServiceException}
+ * <p>Base exception class for all service exceptions from OpenSearchServerless service.</p>
  *
  */
 export class CreateVpcEndpointCommand extends $Command<

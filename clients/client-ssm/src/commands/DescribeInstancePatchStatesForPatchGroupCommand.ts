@@ -47,25 +47,56 @@ export interface DescribeInstancePatchStatesForPatchGroupCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMClient, DescribeInstancePatchStatesForPatchGroupCommand } from "@aws-sdk/client-ssm"; // ES Modules import
- * // const { SSMClient, DescribeInstancePatchStatesForPatchGroupCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * import { SSMClient, DescribeInstancePatchStatesForPatchGroupCommand } from '@aws-sdk/client-ssm'; // ES Modules import
+ * // const { SSMClient, DescribeInstancePatchStatesForPatchGroupCommand } = require('@aws-sdk/client-ssm'); // CommonJS import
  * const client = new SSMClient(config);
  * const input = { // DescribeInstancePatchStatesForPatchGroupRequest
- *   PatchGroup: "STRING_VALUE", // required
+ *   PatchGroup: 'STRING_VALUE', // required
  *   Filters: [ // InstancePatchStateFilterList
  *     { // InstancePatchStateFilter
- *       Key: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
  *       Values: [ // InstancePatchStateFilterValues // required
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
- *       Type: "Equal" || "NotEqual" || "LessThan" || "GreaterThan", // required
+ *       Type: 'Equal' || 'NotEqual' || 'LessThan' || 'GreaterThan', // required
  *     },
  *   ],
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new DescribeInstancePatchStatesForPatchGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeInstancePatchStatesForPatchGroupResult
+ *   InstancePatchStates: [ // InstancePatchStatesList
+ *     { // InstancePatchState
+ *       InstanceId: 'STRING_VALUE', // required
+ *       PatchGroup: 'STRING_VALUE', // required
+ *       BaselineId: 'STRING_VALUE', // required
+ *       SnapshotId: 'STRING_VALUE',
+ *       InstallOverrideList: 'STRING_VALUE',
+ *       OwnerInformation: 'STRING_VALUE',
+ *       InstalledCount: Number('int'),
+ *       InstalledOtherCount: Number('int'),
+ *       InstalledPendingRebootCount: Number('int'),
+ *       InstalledRejectedCount: Number('int'),
+ *       MissingCount: Number('int'),
+ *       FailedCount: Number('int'),
+ *       UnreportedNotApplicableCount: Number('int'),
+ *       NotApplicableCount: Number('int'),
+ *       OperationStartTime: new Date('TIMESTAMP'), // required
+ *       OperationEndTime: new Date('TIMESTAMP'), // required
+ *       Operation: 'Scan' || 'Install', // required
+ *       LastNoRebootInstallOperationTime: new Date('TIMESTAMP'),
+ *       RebootOption: 'RebootIfNeeded' || 'NoReboot',
+ *       CriticalNonCompliantCount: Number('int'),
+ *       SecurityNonCompliantCount: Number('int'),
+ *       OtherNonCompliantCount: Number('int'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeInstancePatchStatesForPatchGroupCommandInput - {@link DescribeInstancePatchStatesForPatchGroupCommandInput}
@@ -83,6 +114,8 @@ export interface DescribeInstancePatchStatesForPatchGroupCommandOutput
  * @throws {@link InvalidNextToken} (client fault)
  *  <p>The specified token isn't valid.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class DescribeInstancePatchStatesForPatchGroupCommand extends $Command<

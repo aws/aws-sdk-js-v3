@@ -36,19 +36,40 @@ export interface DescribeServiceUpdatesCommandOutput extends ServiceUpdatesMessa
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElastiCacheClient, DescribeServiceUpdatesCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
- * // const { ElastiCacheClient, DescribeServiceUpdatesCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
+ * import { ElastiCacheClient, DescribeServiceUpdatesCommand } from '@aws-sdk/client-elasticache'; // ES Modules import
+ * // const { ElastiCacheClient, DescribeServiceUpdatesCommand } = require('@aws-sdk/client-elasticache'); // CommonJS import
  * const client = new ElastiCacheClient(config);
  * const input = { // DescribeServiceUpdatesMessage
- *   ServiceUpdateName: "STRING_VALUE",
+ *   ServiceUpdateName: 'STRING_VALUE',
  *   ServiceUpdateStatus: [ // ServiceUpdateStatusList
- *     "available" || "cancelled" || "expired",
+ *     'available' || 'cancelled' || 'expired',
  *   ],
- *   MaxRecords: Number("int"),
- *   Marker: "STRING_VALUE",
+ *   MaxRecords: Number('int'),
+ *   Marker: 'STRING_VALUE',
  * };
  * const command = new DescribeServiceUpdatesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ServiceUpdatesMessage
+ *   Marker: 'STRING_VALUE',
+ *   ServiceUpdates: [ // ServiceUpdateList
+ *     { // ServiceUpdate
+ *       ServiceUpdateName: 'STRING_VALUE',
+ *       ServiceUpdateReleaseDate: new Date('TIMESTAMP'),
+ *       ServiceUpdateEndDate: new Date('TIMESTAMP'),
+ *       ServiceUpdateSeverity: 'critical' || 'important' || 'medium' || 'low',
+ *       ServiceUpdateRecommendedApplyByDate: new Date('TIMESTAMP'),
+ *       ServiceUpdateStatus: 'available' || 'cancelled' || 'expired',
+ *       ServiceUpdateDescription: 'STRING_VALUE',
+ *       ServiceUpdateType: 'security-update',
+ *       Engine: 'STRING_VALUE',
+ *       EngineVersion: 'STRING_VALUE',
+ *       AutoUpdateAfterRecommendedApplyByDate: true || false,
+ *       EstimatedUpdateTime: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeServiceUpdatesCommandInput - {@link DescribeServiceUpdatesCommandInput}
@@ -66,6 +87,8 @@ export interface DescribeServiceUpdatesCommandOutput extends ServiceUpdatesMessa
  * @throws {@link ServiceUpdateNotFoundFault} (client fault)
  *  <p>The service update doesn't exist</p>
  *
+ * @throws {@link ElastiCacheServiceException}
+ * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
  */
 export class DescribeServiceUpdatesCommand extends $Command<

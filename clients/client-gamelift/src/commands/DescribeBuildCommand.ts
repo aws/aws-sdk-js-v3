@@ -47,14 +47,29 @@ export interface DescribeBuildCommandOutput extends DescribeBuildOutput, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GameLiftClient, DescribeBuildCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
- * // const { GameLiftClient, DescribeBuildCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
+ * import { GameLiftClient, DescribeBuildCommand } from '@aws-sdk/client-gamelift'; // ES Modules import
+ * // const { GameLiftClient, DescribeBuildCommand } = require('@aws-sdk/client-gamelift'); // CommonJS import
  * const client = new GameLiftClient(config);
  * const input = { // DescribeBuildInput
- *   BuildId: "STRING_VALUE", // required
+ *   BuildId: 'STRING_VALUE', // required
  * };
  * const command = new DescribeBuildCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeBuildOutput
+ *   Build: { // Build
+ *     BuildId: 'STRING_VALUE',
+ *     BuildArn: 'STRING_VALUE',
+ *     Name: 'STRING_VALUE',
+ *     Version: 'STRING_VALUE',
+ *     Status: 'INITIALIZED' || 'READY' || 'FAILED',
+ *     SizeOnDisk: Number('long'),
+ *     OperatingSystem: 'WINDOWS_2012' || 'AMAZON_LINUX' || 'AMAZON_LINUX_2' || 'WINDOWS_2016',
+ *     CreationTime: new Date('TIMESTAMP'),
+ *     ServerSdkVersion: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeBuildCommandInput - {@link DescribeBuildCommandInput}
@@ -77,6 +92,8 @@ export interface DescribeBuildCommandOutput extends DescribeBuildOutput, __Metad
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client failed authentication. Clients should not retry such requests.</p>
  *
+ * @throws {@link GameLiftServiceException}
+ * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
  */
 export class DescribeBuildCommand extends $Command<

@@ -43,15 +43,61 @@ export interface GetBotCommandOutput extends GetBotResponse, __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LexModelBuildingServiceClient, GetBotCommand } from "@aws-sdk/client-lex-model-building-service"; // ES Modules import
- * // const { LexModelBuildingServiceClient, GetBotCommand } = require("@aws-sdk/client-lex-model-building-service"); // CommonJS import
+ * import { LexModelBuildingServiceClient, GetBotCommand } from '@aws-sdk/client-lex-model-building-service'; // ES Modules import
+ * // const { LexModelBuildingServiceClient, GetBotCommand } = require('@aws-sdk/client-lex-model-building-service'); // CommonJS import
  * const client = new LexModelBuildingServiceClient(config);
  * const input = { // GetBotRequest
- *   name: "STRING_VALUE", // required
- *   versionOrAlias: "STRING_VALUE", // required
+ *   name: 'STRING_VALUE', // required
+ *   versionOrAlias: 'STRING_VALUE', // required
  * };
  * const command = new GetBotCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetBotResponse
+ *   name: 'STRING_VALUE',
+ *   description: 'STRING_VALUE',
+ *   intents: [ // IntentList
+ *     { // Intent
+ *       intentName: 'STRING_VALUE', // required
+ *       intentVersion: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ *   enableModelImprovements: true || false,
+ *   nluIntentConfidenceThreshold: Number('double'),
+ *   clarificationPrompt: { // Prompt
+ *     messages: [ // MessageList // required
+ *       { // Message
+ *         contentType: 'STRING_VALUE', // required
+ *         content: 'STRING_VALUE', // required
+ *         groupNumber: Number('int'),
+ *       },
+ *     ],
+ *     maxAttempts: Number('int'), // required
+ *     responseCard: 'STRING_VALUE',
+ *   },
+ *   abortStatement: { // Statement
+ *     messages: [ // required
+ *       {
+ *         contentType: 'STRING_VALUE', // required
+ *         content: 'STRING_VALUE', // required
+ *         groupNumber: Number('int'),
+ *       },
+ *     ],
+ *     responseCard: 'STRING_VALUE',
+ *   },
+ *   status: 'STRING_VALUE',
+ *   failureReason: 'STRING_VALUE',
+ *   lastUpdatedDate: new Date('TIMESTAMP'),
+ *   createdDate: new Date('TIMESTAMP'),
+ *   idleSessionTTLInSeconds: Number('int'),
+ *   voiceId: 'STRING_VALUE',
+ *   checksum: 'STRING_VALUE',
+ *   version: 'STRING_VALUE',
+ *   locale: 'STRING_VALUE',
+ *   childDirected: true || false,
+ *   detectSentiment: true || false,
+ * };
+ *
  * ```
  *
  * @param GetBotCommandInput - {@link GetBotCommandInput}
@@ -75,6 +121,8 @@ export interface GetBotCommandOutput extends GetBotResponse, __MetadataBearer {}
  *  <p>The resource specified in the request was not found. Check the
  *       resource and try again.</p>
  *
+ * @throws {@link LexModelBuildingServiceServiceException}
+ * <p>Base exception class for all service exceptions from LexModelBuildingService service.</p>
  *
  * @example To get information about a bot
  * ```javascript

@@ -36,19 +36,32 @@ export interface CreateAppCommandOutput extends CreateAppResponse, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PinpointClient, CreateAppCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
- * // const { PinpointClient, CreateAppCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
+ * import { PinpointClient, CreateAppCommand } from '@aws-sdk/client-pinpoint'; // ES Modules import
+ * // const { PinpointClient, CreateAppCommand } = require('@aws-sdk/client-pinpoint'); // CommonJS import
  * const client = new PinpointClient(config);
  * const input = { // CreateAppRequest
  *   CreateApplicationRequest: { // CreateApplicationRequest
- *     Name: "STRING_VALUE", // required
+ *     Name: 'STRING_VALUE', // required
  *     tags: { // MapOf__string
- *       "<keys>": "STRING_VALUE",
+ *       '<keys>': 'STRING_VALUE',
  *     },
  *   },
  * };
  * const command = new CreateAppCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateAppResponse
+ *   ApplicationResponse: { // ApplicationResponse
+ *     Arn: 'STRING_VALUE', // required
+ *     Id: 'STRING_VALUE', // required
+ *     Name: 'STRING_VALUE', // required
+ *     tags: { // MapOf__string
+ *       '<keys>': 'STRING_VALUE',
+ *     },
+ *     CreationDate: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateAppCommandInput - {@link CreateAppCommandInput}
@@ -78,6 +91,8 @@ export interface CreateAppCommandOutput extends CreateAppResponse, __MetadataBea
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Provides information about an API request or response.</p>
  *
+ * @throws {@link PinpointServiceException}
+ * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
  */
 export class CreateAppCommand extends $Command<

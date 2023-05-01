@@ -47,22 +47,29 @@ export interface CreateChatTokenCommandOutput extends CreateChatTokenResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IvschatClient, CreateChatTokenCommand } from "@aws-sdk/client-ivschat"; // ES Modules import
- * // const { IvschatClient, CreateChatTokenCommand } = require("@aws-sdk/client-ivschat"); // CommonJS import
+ * import { IvschatClient, CreateChatTokenCommand } from '@aws-sdk/client-ivschat'; // ES Modules import
+ * // const { IvschatClient, CreateChatTokenCommand } = require('@aws-sdk/client-ivschat'); // CommonJS import
  * const client = new IvschatClient(config);
  * const input = { // CreateChatTokenRequest
- *   roomIdentifier: "STRING_VALUE", // required
- *   userId: "STRING_VALUE", // required
+ *   roomIdentifier: 'STRING_VALUE', // required
+ *   userId: 'STRING_VALUE', // required
  *   capabilities: [ // ChatTokenCapabilities
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   sessionDurationInMinutes: Number("int"),
+ *   sessionDurationInMinutes: Number('int'),
  *   attributes: { // ChatTokenAttributes
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateChatTokenCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateChatTokenResponse
+ *   token: 'STRING_VALUE',
+ *   tokenExpirationTime: new Date('TIMESTAMP'),
+ *   sessionExpirationTime: new Date('TIMESTAMP'),
+ * };
+ *
  * ```
  *
  * @param CreateChatTokenCommandInput - {@link CreateChatTokenCommandInput}
@@ -83,6 +90,8 @@ export interface CreateChatTokenCommandOutput extends CreateChatTokenResponse, _
  * @throws {@link ValidationException} (client fault)
  *  <p/>
  *
+ * @throws {@link IvschatServiceException}
+ * <p>Base exception class for all service exceptions from Ivschat service.</p>
  *
  */
 export class CreateChatTokenCommand extends $Command<

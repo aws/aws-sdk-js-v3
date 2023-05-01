@@ -45,23 +45,51 @@ export interface GetScreenDataCommandOutput extends GetScreenDataResult, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { HoneycodeClient, GetScreenDataCommand } from "@aws-sdk/client-honeycode"; // ES Modules import
- * // const { HoneycodeClient, GetScreenDataCommand } = require("@aws-sdk/client-honeycode"); // CommonJS import
+ * import { HoneycodeClient, GetScreenDataCommand } from '@aws-sdk/client-honeycode'; // ES Modules import
+ * // const { HoneycodeClient, GetScreenDataCommand } = require('@aws-sdk/client-honeycode'); // CommonJS import
  * const client = new HoneycodeClient(config);
  * const input = { // GetScreenDataRequest
- *   workbookId: "STRING_VALUE", // required
- *   appId: "STRING_VALUE", // required
- *   screenId: "STRING_VALUE", // required
+ *   workbookId: 'STRING_VALUE', // required
+ *   appId: 'STRING_VALUE', // required
+ *   screenId: 'STRING_VALUE', // required
  *   variables: { // VariableValueMap
- *     "<keys>": { // VariableValue
- *       rawValue: "STRING_VALUE", // required
+ *     '<keys>': { // VariableValue
+ *       rawValue: 'STRING_VALUE', // required
  *     },
  *   },
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new GetScreenDataCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetScreenDataResult
+ *   results: { // ResultSetMap // required
+ *     '<keys>': { // ResultSet
+ *       headers: [ // ResultHeader // required
+ *         { // ColumnMetadata
+ *           name: 'STRING_VALUE', // required
+ *           format: 'STRING_VALUE', // required
+ *         },
+ *       ],
+ *       rows: [ // ResultRows // required
+ *         { // ResultRow
+ *           rowId: 'STRING_VALUE',
+ *           dataItems: [ // DataItems // required
+ *             { // DataItem
+ *               overrideFormat: 'STRING_VALUE',
+ *               rawValue: 'STRING_VALUE',
+ *               formattedValue: 'STRING_VALUE',
+ *             },
+ *           ],
+ *         },
+ *       ],
+ *     },
+ *   },
+ *   workbookCursor: Number('long'), // required
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetScreenDataCommandInput - {@link GetScreenDataCommandInput}
@@ -96,6 +124,8 @@ export interface GetScreenDataCommandOutput extends GetScreenDataResult, __Metad
  *             Request is invalid. The message in the response contains details on why the request is invalid.
  *         </p>
  *
+ * @throws {@link HoneycodeServiceException}
+ * <p>Base exception class for all service exceptions from Honeycode service.</p>
  *
  */
 export class GetScreenDataCommand extends $Command<

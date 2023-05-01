@@ -36,18 +36,21 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTSiteWiseClient, UpdateDashboardCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
- * // const { IoTSiteWiseClient, UpdateDashboardCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
+ * import { IoTSiteWiseClient, UpdateDashboardCommand } from '@aws-sdk/client-iotsitewise'; // ES Modules import
+ * // const { IoTSiteWiseClient, UpdateDashboardCommand } = require('@aws-sdk/client-iotsitewise'); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
  * const input = { // UpdateDashboardRequest
- *   dashboardId: "STRING_VALUE", // required
- *   dashboardName: "STRING_VALUE", // required
- *   dashboardDescription: "STRING_VALUE",
- *   dashboardDefinition: "STRING_VALUE", // required
- *   clientToken: "STRING_VALUE",
+ *   dashboardId: 'STRING_VALUE', // required
+ *   dashboardName: 'STRING_VALUE', // required
+ *   dashboardDescription: 'STRING_VALUE',
+ *   dashboardDefinition: 'STRING_VALUE', // required
+ *   clientToken: 'STRING_VALUE',
  * };
  * const command = new UpdateDashboardCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateDashboardCommandInput - {@link UpdateDashboardCommandInput}
@@ -72,6 +75,8 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  *       on.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
  *
+ * @throws {@link IoTSiteWiseServiceException}
+ * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
  */
 export class UpdateDashboardCommand extends $Command<

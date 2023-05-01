@@ -66,16 +66,19 @@ export interface CreateAdditionalAssignmentsForHITCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MTurkClient, CreateAdditionalAssignmentsForHITCommand } from "@aws-sdk/client-mturk"; // ES Modules import
- * // const { MTurkClient, CreateAdditionalAssignmentsForHITCommand } = require("@aws-sdk/client-mturk"); // CommonJS import
+ * import { MTurkClient, CreateAdditionalAssignmentsForHITCommand } from '@aws-sdk/client-mturk'; // ES Modules import
+ * // const { MTurkClient, CreateAdditionalAssignmentsForHITCommand } = require('@aws-sdk/client-mturk'); // CommonJS import
  * const client = new MTurkClient(config);
  * const input = { // CreateAdditionalAssignmentsForHITRequest
- *   HITId: "STRING_VALUE", // required
- *   NumberOfAdditionalAssignments: Number("int"), // required
- *   UniqueRequestToken: "STRING_VALUE",
+ *   HITId: 'STRING_VALUE', // required
+ *   NumberOfAdditionalAssignments: Number('int'), // required
+ *   UniqueRequestToken: 'STRING_VALUE',
  * };
  * const command = new CreateAdditionalAssignmentsForHITCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param CreateAdditionalAssignmentsForHITCommandInput - {@link CreateAdditionalAssignmentsForHITCommandInput}
@@ -90,6 +93,8 @@ export interface CreateAdditionalAssignmentsForHITCommandOutput
  * @throws {@link ServiceFault} (server fault)
  *  <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
  *
+ * @throws {@link MTurkServiceException}
+ * <p>Base exception class for all service exceptions from MTurk service.</p>
  *
  */
 export class CreateAdditionalAssignmentsForHITCommand extends $Command<

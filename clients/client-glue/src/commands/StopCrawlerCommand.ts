@@ -36,14 +36,17 @@ export interface StopCrawlerCommandOutput extends StopCrawlerResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlueClient, StopCrawlerCommand } from "@aws-sdk/client-glue"; // ES Modules import
- * // const { GlueClient, StopCrawlerCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * import { GlueClient, StopCrawlerCommand } from '@aws-sdk/client-glue'; // ES Modules import
+ * // const { GlueClient, StopCrawlerCommand } = require('@aws-sdk/client-glue'); // CommonJS import
  * const client = new GlueClient(config);
  * const input = { // StopCrawlerRequest
- *   Name: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
  * };
  * const command = new StopCrawlerCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param StopCrawlerCommandInput - {@link StopCrawlerCommandInput}
@@ -64,6 +67,8 @@ export interface StopCrawlerCommandOutput extends StopCrawlerResponse, __Metadat
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class StopCrawlerCommand extends $Command<

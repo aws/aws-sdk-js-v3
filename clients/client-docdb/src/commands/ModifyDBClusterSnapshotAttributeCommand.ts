@@ -42,21 +42,36 @@ export interface ModifyDBClusterSnapshotAttributeCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DocDBClient, ModifyDBClusterSnapshotAttributeCommand } from "@aws-sdk/client-docdb"; // ES Modules import
- * // const { DocDBClient, ModifyDBClusterSnapshotAttributeCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
+ * import { DocDBClient, ModifyDBClusterSnapshotAttributeCommand } from '@aws-sdk/client-docdb'; // ES Modules import
+ * // const { DocDBClient, ModifyDBClusterSnapshotAttributeCommand } = require('@aws-sdk/client-docdb'); // CommonJS import
  * const client = new DocDBClient(config);
  * const input = { // ModifyDBClusterSnapshotAttributeMessage
- *   DBClusterSnapshotIdentifier: "STRING_VALUE", // required
- *   AttributeName: "STRING_VALUE", // required
+ *   DBClusterSnapshotIdentifier: 'STRING_VALUE', // required
+ *   AttributeName: 'STRING_VALUE', // required
  *   ValuesToAdd: [ // AttributeValueList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   ValuesToRemove: [
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new ModifyDBClusterSnapshotAttributeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ModifyDBClusterSnapshotAttributeResult
+ *   DBClusterSnapshotAttributesResult: { // DBClusterSnapshotAttributesResult
+ *     DBClusterSnapshotIdentifier: 'STRING_VALUE',
+ *     DBClusterSnapshotAttributes: [ // DBClusterSnapshotAttributeList
+ *       { // DBClusterSnapshotAttribute
+ *         AttributeName: 'STRING_VALUE',
+ *         AttributeValues: [ // AttributeValueList
+ *           'STRING_VALUE',
+ *         ],
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param ModifyDBClusterSnapshotAttributeCommandInput - {@link ModifyDBClusterSnapshotAttributeCommandInput}
@@ -76,6 +91,8 @@ export interface ModifyDBClusterSnapshotAttributeCommandOutput
  *  <p>You have exceeded the maximum number of accounts that you can share a manual DB
  *             snapshot with. </p>
  *
+ * @throws {@link DocDBServiceException}
+ * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
  */
 export class ModifyDBClusterSnapshotAttributeCommand extends $Command<

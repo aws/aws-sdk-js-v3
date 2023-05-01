@@ -59,30 +59,30 @@ export interface UpdateAccessControlConfigurationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KendraClient, UpdateAccessControlConfigurationCommand } from "@aws-sdk/client-kendra"; // ES Modules import
- * // const { KendraClient, UpdateAccessControlConfigurationCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
+ * import { KendraClient, UpdateAccessControlConfigurationCommand } from '@aws-sdk/client-kendra'; // ES Modules import
+ * // const { KendraClient, UpdateAccessControlConfigurationCommand } = require('@aws-sdk/client-kendra'); // CommonJS import
  * const client = new KendraClient(config);
  * const input = { // UpdateAccessControlConfigurationRequest
- *   IndexId: "STRING_VALUE", // required
- *   Id: "STRING_VALUE", // required
- *   Name: "STRING_VALUE",
- *   Description: "STRING_VALUE",
+ *   IndexId: 'STRING_VALUE', // required
+ *   Id: 'STRING_VALUE', // required
+ *   Name: 'STRING_VALUE',
+ *   Description: 'STRING_VALUE',
  *   AccessControlList: [ // PrincipalList
  *     { // Principal
- *       Name: "STRING_VALUE", // required
- *       Type: "USER" || "GROUP", // required
- *       Access: "ALLOW" || "DENY", // required
- *       DataSourceId: "STRING_VALUE",
+ *       Name: 'STRING_VALUE', // required
+ *       Type: 'USER' || 'GROUP', // required
+ *       Access: 'ALLOW' || 'DENY', // required
+ *       DataSourceId: 'STRING_VALUE',
  *     },
  *   ],
  *   HierarchicalAccessControlList: [ // HierarchicalPrincipalList
  *     { // HierarchicalPrincipal
  *       PrincipalList: [ // required
  *         {
- *           Name: "STRING_VALUE", // required
- *           Type: "USER" || "GROUP", // required
- *           Access: "ALLOW" || "DENY", // required
- *           DataSourceId: "STRING_VALUE",
+ *           Name: 'STRING_VALUE', // required
+ *           Type: 'USER' || 'GROUP', // required
+ *           Access: 'ALLOW' || 'DENY', // required
+ *           DataSourceId: 'STRING_VALUE',
  *         },
  *       ],
  *     },
@@ -90,6 +90,9 @@ export interface UpdateAccessControlConfigurationCommandOutput
  * };
  * const command = new UpdateAccessControlConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateAccessControlConfigurationCommandInput - {@link UpdateAccessControlConfigurationCommandInput}
@@ -128,6 +131,8 @@ export interface UpdateAccessControlConfigurationCommandOutput
  *  <p>The input fails to satisfy the constraints set by the Amazon Kendra service.
  *             Please provide the correct input and try again.</p>
  *
+ * @throws {@link KendraServiceException}
+ * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
  */
 export class UpdateAccessControlConfigurationCommand extends $Command<

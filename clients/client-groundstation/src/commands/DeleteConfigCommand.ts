@@ -36,15 +36,22 @@ export interface DeleteConfigCommandOutput extends ConfigIdResponse, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GroundStationClient, DeleteConfigCommand } from "@aws-sdk/client-groundstation"; // ES Modules import
- * // const { GroundStationClient, DeleteConfigCommand } = require("@aws-sdk/client-groundstation"); // CommonJS import
+ * import { GroundStationClient, DeleteConfigCommand } from '@aws-sdk/client-groundstation'; // ES Modules import
+ * // const { GroundStationClient, DeleteConfigCommand } = require('@aws-sdk/client-groundstation'); // CommonJS import
  * const client = new GroundStationClient(config);
  * const input = { // DeleteConfigRequest
- *   configId: "STRING_VALUE", // required
- *   configType: "STRING_VALUE", // required
+ *   configId: 'STRING_VALUE', // required
+ *   configType: 'STRING_VALUE', // required
  * };
  * const command = new DeleteConfigCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ConfigIdResponse
+ *   configId: 'STRING_VALUE',
+ *   configType: 'STRING_VALUE',
+ *   configArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DeleteConfigCommandInput - {@link DeleteConfigCommandInput}
@@ -62,6 +69,8 @@ export interface DeleteConfigCommandOutput extends ConfigIdResponse, __MetadataB
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Resource was not found.</p>
  *
+ * @throws {@link GroundStationServiceException}
+ * <p>Base exception class for all service exceptions from GroundStation service.</p>
  *
  */
 export class DeleteConfigCommand extends $Command<

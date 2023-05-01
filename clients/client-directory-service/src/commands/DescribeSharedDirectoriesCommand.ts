@@ -40,19 +40,37 @@ export interface DescribeSharedDirectoriesCommandOutput extends DescribeSharedDi
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DirectoryServiceClient, DescribeSharedDirectoriesCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
- * // const { DirectoryServiceClient, DescribeSharedDirectoriesCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
+ * import { DirectoryServiceClient, DescribeSharedDirectoriesCommand } from '@aws-sdk/client-directory-service'; // ES Modules import
+ * // const { DirectoryServiceClient, DescribeSharedDirectoriesCommand } = require('@aws-sdk/client-directory-service'); // CommonJS import
  * const client = new DirectoryServiceClient(config);
  * const input = { // DescribeSharedDirectoriesRequest
- *   OwnerDirectoryId: "STRING_VALUE", // required
+ *   OwnerDirectoryId: 'STRING_VALUE', // required
  *   SharedDirectoryIds: [ // DirectoryIds
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   NextToken: "STRING_VALUE",
- *   Limit: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   Limit: Number('int'),
  * };
  * const command = new DescribeSharedDirectoriesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeSharedDirectoriesResult
+ *   SharedDirectories: [ // SharedDirectories
+ *     { // SharedDirectory
+ *       OwnerAccountId: 'STRING_VALUE',
+ *       OwnerDirectoryId: 'STRING_VALUE',
+ *       ShareMethod: 'ORGANIZATIONS' || 'HANDSHAKE',
+ *       SharedAccountId: 'STRING_VALUE',
+ *       SharedDirectoryId: 'STRING_VALUE',
+ *       ShareStatus: 'Shared' || 'PendingAcceptance' || 'Rejected' || 'Rejecting' || 'RejectFailed' || 'Sharing' || 'ShareFailed' || 'Deleted' || 'Deleting',
+ *       ShareNotes: 'STRING_VALUE',
+ *       CreatedDateTime: new Date('TIMESTAMP'),
+ *       LastUpdatedDateTime: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeSharedDirectoriesCommandInput - {@link DescribeSharedDirectoriesCommandInput}
@@ -79,6 +97,8 @@ export interface DescribeSharedDirectoriesCommandOutput extends DescribeSharedDi
  * @throws {@link UnsupportedOperationException} (client fault)
  *  <p>The operation is not supported.</p>
  *
+ * @throws {@link DirectoryServiceServiceException}
+ * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
  */
 export class DescribeSharedDirectoriesCommand extends $Command<

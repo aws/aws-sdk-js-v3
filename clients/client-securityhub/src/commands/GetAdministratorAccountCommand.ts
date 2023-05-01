@@ -38,12 +38,22 @@ export interface GetAdministratorAccountCommandOutput extends GetAdministratorAc
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SecurityHubClient, GetAdministratorAccountCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
- * // const { SecurityHubClient, GetAdministratorAccountCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
+ * import { SecurityHubClient, GetAdministratorAccountCommand } from '@aws-sdk/client-securityhub'; // ES Modules import
+ * // const { SecurityHubClient, GetAdministratorAccountCommand } = require('@aws-sdk/client-securityhub'); // CommonJS import
  * const client = new SecurityHubClient(config);
  * const input = {};
  * const command = new GetAdministratorAccountCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetAdministratorAccountResponse
+ *   Administrator: { // Invitation
+ *     AccountId: 'STRING_VALUE',
+ *     InvitationId: 'STRING_VALUE',
+ *     InvitedAt: new Date('TIMESTAMP'),
+ *     MemberStatus: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetAdministratorAccountCommandInput - {@link GetAdministratorAccountCommandInput}
@@ -69,6 +79,8 @@ export interface GetAdministratorAccountCommandOutput extends GetAdministratorAc
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The request was rejected because we can't find the specified resource.</p>
  *
+ * @throws {@link SecurityHubServiceException}
+ * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
  * @example To get details about the Security Hub administrator account
  * ```javascript

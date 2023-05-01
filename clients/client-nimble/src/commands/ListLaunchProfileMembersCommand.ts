@@ -36,17 +36,30 @@ export interface ListLaunchProfileMembersCommandOutput extends ListLaunchProfile
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { NimbleClient, ListLaunchProfileMembersCommand } from "@aws-sdk/client-nimble"; // ES Modules import
- * // const { NimbleClient, ListLaunchProfileMembersCommand } = require("@aws-sdk/client-nimble"); // CommonJS import
+ * import { NimbleClient, ListLaunchProfileMembersCommand } from '@aws-sdk/client-nimble'; // ES Modules import
+ * // const { NimbleClient, ListLaunchProfileMembersCommand } = require('@aws-sdk/client-nimble'); // CommonJS import
  * const client = new NimbleClient(config);
  * const input = { // ListLaunchProfileMembersRequest
- *   launchProfileId: "STRING_VALUE", // required
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
- *   studioId: "STRING_VALUE", // required
+ *   launchProfileId: 'STRING_VALUE', // required
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
+ *   studioId: 'STRING_VALUE', // required
  * };
  * const command = new ListLaunchProfileMembersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListLaunchProfileMembersResponse
+ *   members: [ // LaunchProfileMembershipList
+ *     { // LaunchProfileMembership
+ *       identityStoreId: 'STRING_VALUE',
+ *       persona: 'USER',
+ *       principalId: 'STRING_VALUE',
+ *       sid: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListLaunchProfileMembersCommandInput - {@link ListLaunchProfileMembersCommandInput}
@@ -79,6 +92,8 @@ export interface ListLaunchProfileMembersCommandOutput extends ListLaunchProfile
  * @throws {@link ValidationException} (client fault)
  *  <p>One of the parameters in the request is invalid.</p>
  *
+ * @throws {@link NimbleServiceException}
+ * <p>Base exception class for all service exceptions from Nimble service.</p>
  *
  */
 export class ListLaunchProfileMembersCommand extends $Command<

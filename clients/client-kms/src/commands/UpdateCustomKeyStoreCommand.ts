@@ -132,25 +132,28 @@ export interface UpdateCustomKeyStoreCommandOutput extends UpdateCustomKeyStoreR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KMSClient, UpdateCustomKeyStoreCommand } from "@aws-sdk/client-kms"; // ES Modules import
- * // const { KMSClient, UpdateCustomKeyStoreCommand } = require("@aws-sdk/client-kms"); // CommonJS import
+ * import { KMSClient, UpdateCustomKeyStoreCommand } from '@aws-sdk/client-kms'; // ES Modules import
+ * // const { KMSClient, UpdateCustomKeyStoreCommand } = require('@aws-sdk/client-kms'); // CommonJS import
  * const client = new KMSClient(config);
  * const input = { // UpdateCustomKeyStoreRequest
- *   CustomKeyStoreId: "STRING_VALUE", // required
- *   NewCustomKeyStoreName: "STRING_VALUE",
- *   KeyStorePassword: "STRING_VALUE",
- *   CloudHsmClusterId: "STRING_VALUE",
- *   XksProxyUriEndpoint: "STRING_VALUE",
- *   XksProxyUriPath: "STRING_VALUE",
- *   XksProxyVpcEndpointServiceName: "STRING_VALUE",
+ *   CustomKeyStoreId: 'STRING_VALUE', // required
+ *   NewCustomKeyStoreName: 'STRING_VALUE',
+ *   KeyStorePassword: 'STRING_VALUE',
+ *   CloudHsmClusterId: 'STRING_VALUE',
+ *   XksProxyUriEndpoint: 'STRING_VALUE',
+ *   XksProxyUriPath: 'STRING_VALUE',
+ *   XksProxyVpcEndpointServiceName: 'STRING_VALUE',
  *   XksProxyAuthenticationCredential: { // XksProxyAuthenticationCredentialType
- *     AccessKeyId: "STRING_VALUE", // required
- *     RawSecretAccessKey: "STRING_VALUE", // required
+ *     AccessKeyId: 'STRING_VALUE', // required
+ *     RawSecretAccessKey: 'STRING_VALUE', // required
  *   },
- *   XksProxyConnectivity: "PUBLIC_ENDPOINT" || "VPC_ENDPOINT_SERVICE",
+ *   XksProxyConnectivity: 'PUBLIC_ENDPOINT' || 'VPC_ENDPOINT_SERVICE',
  * };
  * const command = new UpdateCustomKeyStoreCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateCustomKeyStoreCommandInput - {@link UpdateCustomKeyStoreCommandInput}
@@ -315,6 +318,8 @@ export interface UpdateCustomKeyStoreCommandOutput extends UpdateCustomKeyStoreR
  *       endpoint service includes the KMS service principal for the Region, such as
  *         <code>cks.kms.us-east-1.amazonaws.com</code>.</p>
  *
+ * @throws {@link KMSServiceException}
+ * <p>Base exception class for all service exceptions from KMS service.</p>
  *
  * @example To edit the friendly name of a custom key store
  * ```javascript

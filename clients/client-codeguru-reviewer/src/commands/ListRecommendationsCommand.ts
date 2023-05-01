@@ -36,16 +36,41 @@ export interface ListRecommendationsCommandOutput extends ListRecommendationsRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeGuruReviewerClient, ListRecommendationsCommand } from "@aws-sdk/client-codeguru-reviewer"; // ES Modules import
- * // const { CodeGuruReviewerClient, ListRecommendationsCommand } = require("@aws-sdk/client-codeguru-reviewer"); // CommonJS import
+ * import { CodeGuruReviewerClient, ListRecommendationsCommand } from '@aws-sdk/client-codeguru-reviewer'; // ES Modules import
+ * // const { CodeGuruReviewerClient, ListRecommendationsCommand } = require('@aws-sdk/client-codeguru-reviewer'); // CommonJS import
  * const client = new CodeGuruReviewerClient(config);
  * const input = { // ListRecommendationsRequest
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
- *   CodeReviewArn: "STRING_VALUE", // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
+ *   CodeReviewArn: 'STRING_VALUE', // required
  * };
  * const command = new ListRecommendationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListRecommendationsResponse
+ *   RecommendationSummaries: [ // RecommendationSummaries
+ *     { // RecommendationSummary
+ *       FilePath: 'STRING_VALUE',
+ *       RecommendationId: 'STRING_VALUE',
+ *       StartLine: Number('int'),
+ *       EndLine: Number('int'),
+ *       Description: 'STRING_VALUE',
+ *       RecommendationCategory: 'AWSBestPractices' || 'AWSCloudFormationIssues' || 'DuplicateCode' || 'CodeMaintenanceIssues' || 'ConcurrencyIssues' || 'InputValidations' || 'PythonBestPractices' || 'JavaBestPractices' || 'ResourceLeaks' || 'SecurityIssues' || 'CodeInconsistencies',
+ *       RuleMetadata: { // RuleMetadata
+ *         RuleId: 'STRING_VALUE',
+ *         RuleName: 'STRING_VALUE',
+ *         ShortDescription: 'STRING_VALUE',
+ *         LongDescription: 'STRING_VALUE',
+ *         RuleTags: [ // RuleTags
+ *           'STRING_VALUE',
+ *         ],
+ *       },
+ *       Severity: 'Info' || 'Low' || 'Medium' || 'High' || 'Critical',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListRecommendationsCommandInput - {@link ListRecommendationsCommandInput}
@@ -69,6 +94,8 @@ export interface ListRecommendationsCommandOutput extends ListRecommendationsRes
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the specified constraints.</p>
  *
+ * @throws {@link CodeGuruReviewerServiceException}
+ * <p>Base exception class for all service exceptions from CodeGuruReviewer service.</p>
  *
  */
 export class ListRecommendationsCommand extends $Command<

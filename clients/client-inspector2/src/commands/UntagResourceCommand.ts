@@ -36,17 +36,20 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Inspector2Client, UntagResourceCommand } from "@aws-sdk/client-inspector2"; // ES Modules import
- * // const { Inspector2Client, UntagResourceCommand } = require("@aws-sdk/client-inspector2"); // CommonJS import
+ * import { Inspector2Client, UntagResourceCommand } from '@aws-sdk/client-inspector2'; // ES Modules import
+ * // const { Inspector2Client, UntagResourceCommand } = require('@aws-sdk/client-inspector2'); // CommonJS import
  * const client = new Inspector2Client(config);
  * const input = { // UntagResourceRequest
- *   resourceArn: "STRING_VALUE", // required
+ *   resourceArn: 'STRING_VALUE', // required
  *   tagKeys: [ // TagKeyList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new UntagResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UntagResourceCommandInput - {@link UntagResourceCommandInput}
@@ -68,6 +71,8 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  *  <p>The request has failed validation due to missing required fields or having invalid
  *          inputs.</p>
  *
+ * @throws {@link Inspector2ServiceException}
+ * <p>Base exception class for all service exceptions from Inspector2 service.</p>
  *
  */
 export class UntagResourceCommand extends $Command<

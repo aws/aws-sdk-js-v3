@@ -36,37 +36,37 @@ export interface CreateDeploymentGroupCommandOutput extends CreateDeploymentGrou
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeDeployClient, CreateDeploymentGroupCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
- * // const { CodeDeployClient, CreateDeploymentGroupCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
+ * import { CodeDeployClient, CreateDeploymentGroupCommand } from '@aws-sdk/client-codedeploy'; // ES Modules import
+ * // const { CodeDeployClient, CreateDeploymentGroupCommand } = require('@aws-sdk/client-codedeploy'); // CommonJS import
  * const client = new CodeDeployClient(config);
  * const input = { // CreateDeploymentGroupInput
- *   applicationName: "STRING_VALUE", // required
- *   deploymentGroupName: "STRING_VALUE", // required
- *   deploymentConfigName: "STRING_VALUE",
+ *   applicationName: 'STRING_VALUE', // required
+ *   deploymentGroupName: 'STRING_VALUE', // required
+ *   deploymentConfigName: 'STRING_VALUE',
  *   ec2TagFilters: [ // EC2TagFilterList
  *     { // EC2TagFilter
- *       Key: "STRING_VALUE",
- *       Value: "STRING_VALUE",
- *       Type: "KEY_ONLY" || "VALUE_ONLY" || "KEY_AND_VALUE",
+ *       Key: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
+ *       Type: 'KEY_ONLY' || 'VALUE_ONLY' || 'KEY_AND_VALUE',
  *     },
  *   ],
  *   onPremisesInstanceTagFilters: [ // TagFilterList
  *     { // TagFilter
- *       Key: "STRING_VALUE",
- *       Value: "STRING_VALUE",
- *       Type: "KEY_ONLY" || "VALUE_ONLY" || "KEY_AND_VALUE",
+ *       Key: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
+ *       Type: 'KEY_ONLY' || 'VALUE_ONLY' || 'KEY_AND_VALUE',
  *     },
  *   ],
  *   autoScalingGroups: [ // AutoScalingGroupNameList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   serviceRoleArn: "STRING_VALUE", // required
+ *   serviceRoleArn: 'STRING_VALUE', // required
  *   triggerConfigurations: [ // TriggerConfigList
  *     { // TriggerConfig
- *       triggerName: "STRING_VALUE",
- *       triggerTargetArn: "STRING_VALUE",
+ *       triggerName: 'STRING_VALUE',
+ *       triggerTargetArn: 'STRING_VALUE',
  *       triggerEvents: [ // TriggerEventTypeList
- *         "DeploymentStart" || "DeploymentSuccess" || "DeploymentFailure" || "DeploymentStop" || "DeploymentRollback" || "DeploymentReady" || "InstanceStart" || "InstanceSuccess" || "InstanceFailure" || "InstanceReady",
+ *         'DeploymentStart' || 'DeploymentSuccess' || 'DeploymentFailure' || 'DeploymentStop' || 'DeploymentRollback' || 'DeploymentReady' || 'InstanceStart' || 'InstanceSuccess' || 'InstanceFailure' || 'InstanceReady',
  *       ],
  *     },
  *   ],
@@ -75,60 +75,60 @@ export interface CreateDeploymentGroupCommandOutput extends CreateDeploymentGrou
  *     ignorePollAlarmFailure: true || false,
  *     alarms: [ // AlarmList
  *       { // Alarm
- *         name: "STRING_VALUE",
+ *         name: 'STRING_VALUE',
  *       },
  *     ],
  *   },
  *   autoRollbackConfiguration: { // AutoRollbackConfiguration
  *     enabled: true || false,
  *     events: [ // AutoRollbackEventsList
- *       "DEPLOYMENT_FAILURE" || "DEPLOYMENT_STOP_ON_ALARM" || "DEPLOYMENT_STOP_ON_REQUEST",
+ *       'DEPLOYMENT_FAILURE' || 'DEPLOYMENT_STOP_ON_ALARM' || 'DEPLOYMENT_STOP_ON_REQUEST',
  *     ],
  *   },
- *   outdatedInstancesStrategy: "UPDATE" || "IGNORE",
+ *   outdatedInstancesStrategy: 'UPDATE' || 'IGNORE',
  *   deploymentStyle: { // DeploymentStyle
- *     deploymentType: "IN_PLACE" || "BLUE_GREEN",
- *     deploymentOption: "WITH_TRAFFIC_CONTROL" || "WITHOUT_TRAFFIC_CONTROL",
+ *     deploymentType: 'IN_PLACE' || 'BLUE_GREEN',
+ *     deploymentOption: 'WITH_TRAFFIC_CONTROL' || 'WITHOUT_TRAFFIC_CONTROL',
  *   },
  *   blueGreenDeploymentConfiguration: { // BlueGreenDeploymentConfiguration
  *     terminateBlueInstancesOnDeploymentSuccess: { // BlueInstanceTerminationOption
- *       action: "TERMINATE" || "KEEP_ALIVE",
- *       terminationWaitTimeInMinutes: Number("int"),
+ *       action: 'TERMINATE' || 'KEEP_ALIVE',
+ *       terminationWaitTimeInMinutes: Number('int'),
  *     },
  *     deploymentReadyOption: { // DeploymentReadyOption
- *       actionOnTimeout: "CONTINUE_DEPLOYMENT" || "STOP_DEPLOYMENT",
- *       waitTimeInMinutes: Number("int"),
+ *       actionOnTimeout: 'CONTINUE_DEPLOYMENT' || 'STOP_DEPLOYMENT',
+ *       waitTimeInMinutes: Number('int'),
  *     },
  *     greenFleetProvisioningOption: { // GreenFleetProvisioningOption
- *       action: "DISCOVER_EXISTING" || "COPY_AUTO_SCALING_GROUP",
+ *       action: 'DISCOVER_EXISTING' || 'COPY_AUTO_SCALING_GROUP',
  *     },
  *   },
  *   loadBalancerInfo: { // LoadBalancerInfo
  *     elbInfoList: [ // ELBInfoList
  *       { // ELBInfo
- *         name: "STRING_VALUE",
+ *         name: 'STRING_VALUE',
  *       },
  *     ],
  *     targetGroupInfoList: [ // TargetGroupInfoList
  *       { // TargetGroupInfo
- *         name: "STRING_VALUE",
+ *         name: 'STRING_VALUE',
  *       },
  *     ],
  *     targetGroupPairInfoList: [ // TargetGroupPairInfoList
  *       { // TargetGroupPairInfo
  *         targetGroups: [
  *           {
- *             name: "STRING_VALUE",
+ *             name: 'STRING_VALUE',
  *           },
  *         ],
  *         prodTrafficRoute: { // TrafficRoute
  *           listenerArns: [ // ListenerArnList
- *             "STRING_VALUE",
+ *             'STRING_VALUE',
  *           ],
  *         },
  *         testTrafficRoute: {
  *           listenerArns: [
- *             "STRING_VALUE",
+ *             'STRING_VALUE',
  *           ],
  *         },
  *       },
@@ -138,39 +138,44 @@ export interface CreateDeploymentGroupCommandOutput extends CreateDeploymentGrou
  *     ec2TagSetList: [ // EC2TagSetList
  *       [
  *         {
- *           Key: "STRING_VALUE",
- *           Value: "STRING_VALUE",
- *           Type: "KEY_ONLY" || "VALUE_ONLY" || "KEY_AND_VALUE",
+ *           Key: 'STRING_VALUE',
+ *           Value: 'STRING_VALUE',
+ *           Type: 'KEY_ONLY' || 'VALUE_ONLY' || 'KEY_AND_VALUE',
  *         },
  *       ],
  *     ],
  *   },
  *   ecsServices: [ // ECSServiceList
  *     { // ECSService
- *       serviceName: "STRING_VALUE",
- *       clusterName: "STRING_VALUE",
+ *       serviceName: 'STRING_VALUE',
+ *       clusterName: 'STRING_VALUE',
  *     },
  *   ],
  *   onPremisesTagSet: { // OnPremisesTagSet
  *     onPremisesTagSetList: [ // OnPremisesTagSetList
  *       [
  *         {
- *           Key: "STRING_VALUE",
- *           Value: "STRING_VALUE",
- *           Type: "KEY_ONLY" || "VALUE_ONLY" || "KEY_AND_VALUE",
+ *           Key: 'STRING_VALUE',
+ *           Value: 'STRING_VALUE',
+ *           Type: 'KEY_ONLY' || 'VALUE_ONLY' || 'KEY_AND_VALUE',
  *         },
  *       ],
  *     ],
  *   },
  *   tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE",
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new CreateDeploymentGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateDeploymentGroupOutput
+ *   deploymentGroupId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateDeploymentGroupCommandInput - {@link CreateDeploymentGroupCommandInput}
@@ -309,6 +314,8 @@ export interface CreateDeploymentGroupCommandOutput extends CreateDeploymentGrou
  * @throws {@link TriggerTargetsLimitExceededException} (client fault)
  *  <p>The maximum allowed number of triggers was exceeded.</p>
  *
+ * @throws {@link CodeDeployServiceException}
+ * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
  */
 export class CreateDeploymentGroupCommand extends $Command<

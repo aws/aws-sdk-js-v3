@@ -37,16 +37,31 @@ export interface ListStudioSessionMappingsCommandOutput extends ListStudioSessio
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EMRClient, ListStudioSessionMappingsCommand } from "@aws-sdk/client-emr"; // ES Modules import
- * // const { EMRClient, ListStudioSessionMappingsCommand } = require("@aws-sdk/client-emr"); // CommonJS import
+ * import { EMRClient, ListStudioSessionMappingsCommand } from '@aws-sdk/client-emr'; // ES Modules import
+ * // const { EMRClient, ListStudioSessionMappingsCommand } = require('@aws-sdk/client-emr'); // CommonJS import
  * const client = new EMRClient(config);
  * const input = { // ListStudioSessionMappingsInput
- *   StudioId: "STRING_VALUE",
- *   IdentityType: "USER" || "GROUP",
- *   Marker: "STRING_VALUE",
+ *   StudioId: 'STRING_VALUE',
+ *   IdentityType: 'USER' || 'GROUP',
+ *   Marker: 'STRING_VALUE',
  * };
  * const command = new ListStudioSessionMappingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListStudioSessionMappingsOutput
+ *   SessionMappings: [ // SessionMappingSummaryList
+ *     { // SessionMappingSummary
+ *       StudioId: 'STRING_VALUE',
+ *       IdentityId: 'STRING_VALUE',
+ *       IdentityName: 'STRING_VALUE',
+ *       IdentityType: 'USER' || 'GROUP',
+ *       SessionPolicyArn: 'STRING_VALUE',
+ *       CreationTime: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   Marker: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListStudioSessionMappingsCommandInput - {@link ListStudioSessionMappingsCommandInput}
@@ -62,6 +77,8 @@ export interface ListStudioSessionMappingsCommandOutput extends ListStudioSessio
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception occurs when there is something wrong with user input.</p>
  *
+ * @throws {@link EMRServiceException}
+ * <p>Base exception class for all service exceptions from EMR service.</p>
  *
  */
 export class ListStudioSessionMappingsCommand extends $Command<

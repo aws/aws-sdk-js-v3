@@ -43,16 +43,24 @@ export interface ApplyEnvironmentManagedActionCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElasticBeanstalkClient, ApplyEnvironmentManagedActionCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
- * // const { ElasticBeanstalkClient, ApplyEnvironmentManagedActionCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
+ * import { ElasticBeanstalkClient, ApplyEnvironmentManagedActionCommand } from '@aws-sdk/client-elastic-beanstalk'; // ES Modules import
+ * // const { ElasticBeanstalkClient, ApplyEnvironmentManagedActionCommand } = require('@aws-sdk/client-elastic-beanstalk'); // CommonJS import
  * const client = new ElasticBeanstalkClient(config);
  * const input = { // ApplyEnvironmentManagedActionRequest
- *   EnvironmentName: "STRING_VALUE",
- *   EnvironmentId: "STRING_VALUE",
- *   ActionId: "STRING_VALUE", // required
+ *   EnvironmentName: 'STRING_VALUE',
+ *   EnvironmentId: 'STRING_VALUE',
+ *   ActionId: 'STRING_VALUE', // required
  * };
  * const command = new ApplyEnvironmentManagedActionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ApplyEnvironmentManagedActionResult
+ *   ActionId: 'STRING_VALUE',
+ *   ActionDescription: 'STRING_VALUE',
+ *   ActionType: 'InstanceRefresh' || 'PlatformUpdate' || 'Unknown',
+ *   Status: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ApplyEnvironmentManagedActionCommandInput - {@link ApplyEnvironmentManagedActionCommandInput}
@@ -67,6 +75,8 @@ export interface ApplyEnvironmentManagedActionCommandOutput
  * @throws {@link ManagedActionInvalidStateException} (client fault)
  *  <p>Cannot modify the managed action in its current state.</p>
  *
+ * @throws {@link ElasticBeanstalkServiceException}
+ * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
  */
 export class ApplyEnvironmentManagedActionCommand extends $Command<

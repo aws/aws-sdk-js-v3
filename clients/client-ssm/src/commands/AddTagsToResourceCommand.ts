@@ -82,21 +82,24 @@ export interface AddTagsToResourceCommandOutput extends AddTagsToResourceResult,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMClient, AddTagsToResourceCommand } from "@aws-sdk/client-ssm"; // ES Modules import
- * // const { SSMClient, AddTagsToResourceCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * import { SSMClient, AddTagsToResourceCommand } from '@aws-sdk/client-ssm'; // ES Modules import
+ * // const { SSMClient, AddTagsToResourceCommand } = require('@aws-sdk/client-ssm'); // CommonJS import
  * const client = new SSMClient(config);
  * const input = { // AddTagsToResourceRequest
- *   ResourceType: "Document" || "ManagedInstance" || "MaintenanceWindow" || "Parameter" || "PatchBaseline" || "OpsItem" || "OpsMetadata" || "Automation" || "Association", // required
- *   ResourceId: "STRING_VALUE", // required
+ *   ResourceType: 'Document' || 'ManagedInstance' || 'MaintenanceWindow' || 'Parameter' || 'PatchBaseline' || 'OpsItem' || 'OpsMetadata' || 'Automation' || 'Association', // required
+ *   ResourceId: 'STRING_VALUE', // required
  *   Tags: [ // TagList // required
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new AddTagsToResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param AddTagsToResourceCommandInput - {@link AddTagsToResourceCommandInput}
@@ -122,6 +125,8 @@ export interface AddTagsToResourceCommandOutput extends AddTagsToResourceResult,
  * @throws {@link TooManyUpdates} (client fault)
  *  <p>There are concurrent updates for a resource that supports one update at a time.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class AddTagsToResourceCommand extends $Command<

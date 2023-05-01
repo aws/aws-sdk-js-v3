@@ -38,14 +38,17 @@ export interface DeleteSolNetworkInstanceCommandOutput extends __MetadataBearer 
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { TnbClient, DeleteSolNetworkInstanceCommand } from "@aws-sdk/client-tnb"; // ES Modules import
- * // const { TnbClient, DeleteSolNetworkInstanceCommand } = require("@aws-sdk/client-tnb"); // CommonJS import
+ * import { TnbClient, DeleteSolNetworkInstanceCommand } from '@aws-sdk/client-tnb'; // ES Modules import
+ * // const { TnbClient, DeleteSolNetworkInstanceCommand } = require('@aws-sdk/client-tnb'); // CommonJS import
  * const client = new TnbClient(config);
  * const input = { // DeleteSolNetworkInstanceInput
- *   nsInstanceId: "STRING_VALUE", // required
+ *   nsInstanceId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteSolNetworkInstanceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteSolNetworkInstanceCommandInput - {@link DeleteSolNetworkInstanceCommandInput}
@@ -69,6 +72,8 @@ export interface DeleteSolNetworkInstanceCommandOutput extends __MetadataBearer 
  * @throws {@link ValidationException} (client fault)
  *  <p>Unable to process the request because the client provided input failed to satisfy request constraints.</p>
  *
+ * @throws {@link TnbServiceException}
+ * <p>Base exception class for all service exceptions from Tnb service.</p>
  *
  */
 export class DeleteSolNetworkInstanceCommand extends $Command<

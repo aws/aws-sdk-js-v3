@@ -43,14 +43,21 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElasticInferenceClient, ListTagsForResourceCommand } from "@aws-sdk/client-elastic-inference"; // ES Modules import
- * // const { ElasticInferenceClient, ListTagsForResourceCommand } = require("@aws-sdk/client-elastic-inference"); // CommonJS import
+ * import { ElasticInferenceClient, ListTagsForResourceCommand } from '@aws-sdk/client-elastic-inference'; // ES Modules import
+ * // const { ElasticInferenceClient, ListTagsForResourceCommand } = require('@aws-sdk/client-elastic-inference'); // CommonJS import
  * const client = new ElasticInferenceClient(config);
  * const input = { // ListTagsForResourceRequest
- *   resourceArn: "STRING_VALUE", // required
+ *   resourceArn: 'STRING_VALUE', // required
  * };
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTagsForResourceResult
+ *   tags: { // TagMap
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param ListTagsForResourceCommandInput - {@link ListTagsForResourceCommandInput}
@@ -74,6 +81,8 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  *             Raised when the requested resource cannot be found.
  *         </p>
  *
+ * @throws {@link ElasticInferenceServiceException}
+ * <p>Base exception class for all service exceptions from ElasticInference service.</p>
  *
  */
 export class ListTagsForResourceCommand extends $Command<

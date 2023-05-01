@@ -40,22 +40,38 @@ export interface GetDistributionMetricDataCommandOutput extends GetDistributionM
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LightsailClient, GetDistributionMetricDataCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
- * // const { LightsailClient, GetDistributionMetricDataCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
+ * import { LightsailClient, GetDistributionMetricDataCommand } from '@aws-sdk/client-lightsail'; // ES Modules import
+ * // const { LightsailClient, GetDistributionMetricDataCommand } = require('@aws-sdk/client-lightsail'); // CommonJS import
  * const client = new LightsailClient(config);
  * const input = { // GetDistributionMetricDataRequest
- *   distributionName: "STRING_VALUE", // required
- *   metricName: "Requests" || "BytesDownloaded" || "BytesUploaded" || "TotalErrorRate" || "Http4xxErrorRate" || "Http5xxErrorRate", // required
- *   startTime: new Date("TIMESTAMP"), // required
- *   endTime: new Date("TIMESTAMP"), // required
- *   period: Number("int"), // required
- *   unit: "Seconds" || "Microseconds" || "Milliseconds" || "Bytes" || "Kilobytes" || "Megabytes" || "Gigabytes" || "Terabytes" || "Bits" || "Kilobits" || "Megabits" || "Gigabits" || "Terabits" || "Percent" || "Count" || "Bytes/Second" || "Kilobytes/Second" || "Megabytes/Second" || "Gigabytes/Second" || "Terabytes/Second" || "Bits/Second" || "Kilobits/Second" || "Megabits/Second" || "Gigabits/Second" || "Terabits/Second" || "Count/Second" || "None", // required
+ *   distributionName: 'STRING_VALUE', // required
+ *   metricName: 'Requests' || 'BytesDownloaded' || 'BytesUploaded' || 'TotalErrorRate' || 'Http4xxErrorRate' || 'Http5xxErrorRate', // required
+ *   startTime: new Date('TIMESTAMP'), // required
+ *   endTime: new Date('TIMESTAMP'), // required
+ *   period: Number('int'), // required
+ *   unit: 'Seconds' || 'Microseconds' || 'Milliseconds' || 'Bytes' || 'Kilobytes' || 'Megabytes' || 'Gigabytes' || 'Terabytes' || 'Bits' || 'Kilobits' || 'Megabits' || 'Gigabits' || 'Terabits' || 'Percent' || 'Count' || 'Bytes/Second' || 'Kilobytes/Second' || 'Megabytes/Second' || 'Gigabytes/Second' || 'Terabytes/Second' || 'Bits/Second' || 'Kilobits/Second' || 'Megabits/Second' || 'Gigabits/Second' || 'Terabits/Second' || 'Count/Second' || 'None', // required
  *   statistics: [ // MetricStatisticList // required
- *     "Minimum" || "Maximum" || "Sum" || "Average" || "SampleCount",
+ *     'Minimum' || 'Maximum' || 'Sum' || 'Average' || 'SampleCount',
  *   ],
  * };
  * const command = new GetDistributionMetricDataCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetDistributionMetricDataResult
+ *   metricName: 'Requests' || 'BytesDownloaded' || 'BytesUploaded' || 'TotalErrorRate' || 'Http4xxErrorRate' || 'Http5xxErrorRate',
+ *   metricData: [ // MetricDatapointList
+ *     { // MetricDatapoint
+ *       average: Number('double'),
+ *       maximum: Number('double'),
+ *       minimum: Number('double'),
+ *       sampleCount: Number('double'),
+ *       sum: Number('double'),
+ *       timestamp: new Date('TIMESTAMP'),
+ *       unit: 'Seconds' || 'Microseconds' || 'Milliseconds' || 'Bytes' || 'Kilobytes' || 'Megabytes' || 'Gigabytes' || 'Terabytes' || 'Bits' || 'Kilobits' || 'Megabits' || 'Gigabits' || 'Terabits' || 'Percent' || 'Count' || 'Bytes/Second' || 'Kilobytes/Second' || 'Megabytes/Second' || 'Gigabytes/Second' || 'Terabytes/Second' || 'Bits/Second' || 'Kilobits/Second' || 'Megabits/Second' || 'Gigabits/Second' || 'Terabits/Second' || 'Count/Second' || 'None',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetDistributionMetricDataCommandInput - {@link GetDistributionMetricDataCommandInput}
@@ -90,6 +106,8 @@ export interface GetDistributionMetricDataCommandOutput extends GetDistributionM
  * @throws {@link UnauthenticatedException} (client fault)
  *  <p>Lightsail throws this exception when the user has not been authenticated.</p>
  *
+ * @throws {@link LightsailServiceException}
+ * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
  */
 export class GetDistributionMetricDataCommand extends $Command<

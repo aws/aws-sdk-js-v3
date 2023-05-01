@@ -43,16 +43,24 @@ export interface ListDeliveryStreamsCommandOutput extends ListDeliveryStreamsOut
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FirehoseClient, ListDeliveryStreamsCommand } from "@aws-sdk/client-firehose"; // ES Modules import
- * // const { FirehoseClient, ListDeliveryStreamsCommand } = require("@aws-sdk/client-firehose"); // CommonJS import
+ * import { FirehoseClient, ListDeliveryStreamsCommand } from '@aws-sdk/client-firehose'; // ES Modules import
+ * // const { FirehoseClient, ListDeliveryStreamsCommand } = require('@aws-sdk/client-firehose'); // CommonJS import
  * const client = new FirehoseClient(config);
  * const input = { // ListDeliveryStreamsInput
- *   Limit: Number("int"),
- *   DeliveryStreamType: "DirectPut" || "KinesisStreamAsSource",
- *   ExclusiveStartDeliveryStreamName: "STRING_VALUE",
+ *   Limit: Number('int'),
+ *   DeliveryStreamType: 'DirectPut' || 'KinesisStreamAsSource',
+ *   ExclusiveStartDeliveryStreamName: 'STRING_VALUE',
  * };
  * const command = new ListDeliveryStreamsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListDeliveryStreamsOutput
+ *   DeliveryStreamNames: [ // DeliveryStreamNameList // required
+ *     'STRING_VALUE',
+ *   ],
+ *   HasMoreDeliveryStreams: true || false, // required
+ * };
+ *
  * ```
  *
  * @param ListDeliveryStreamsCommandInput - {@link ListDeliveryStreamsCommandInput}
@@ -61,6 +69,8 @@ export interface ListDeliveryStreamsCommandOutput extends ListDeliveryStreamsOut
  * @see {@link ListDeliveryStreamsCommandOutput} for command's `response` shape.
  * @see {@link FirehoseClientResolvedConfig | config} for FirehoseClient's `config` shape.
  *
+ * @throws {@link FirehoseServiceException}
+ * <p>Base exception class for all service exceptions from Firehose service.</p>
  *
  */
 export class ListDeliveryStreamsCommand extends $Command<

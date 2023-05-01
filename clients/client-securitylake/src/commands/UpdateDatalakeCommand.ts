@@ -37,31 +37,34 @@ export interface UpdateDatalakeCommandOutput extends UpdateDatalakeResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SecurityLakeClient, UpdateDatalakeCommand } from "@aws-sdk/client-securitylake"; // ES Modules import
- * // const { SecurityLakeClient, UpdateDatalakeCommand } = require("@aws-sdk/client-securitylake"); // CommonJS import
+ * import { SecurityLakeClient, UpdateDatalakeCommand } from '@aws-sdk/client-securitylake'; // ES Modules import
+ * // const { SecurityLakeClient, UpdateDatalakeCommand } = require('@aws-sdk/client-securitylake'); // CommonJS import
  * const client = new SecurityLakeClient(config);
  * const input = { // UpdateDatalakeRequest
  *   configurations: { // LakeConfigurationRequestMap // required
- *     "<keys>": { // LakeConfigurationRequest
- *       encryptionKey: "STRING_VALUE",
+ *     '<keys>': { // LakeConfigurationRequest
+ *       encryptionKey: 'STRING_VALUE',
  *       retentionSettings: [ // RetentionSettingList
  *         { // RetentionSetting
- *           storageClass: "STRING_VALUE",
- *           retentionPeriod: Number("int"),
+ *           storageClass: 'STRING_VALUE',
+ *           retentionPeriod: Number('int'),
  *         },
  *       ],
  *       tagsMap: { // TagsMap
- *         "<keys>": "STRING_VALUE",
+ *         '<keys>': 'STRING_VALUE',
  *       },
  *       replicationDestinationRegions: [ // RegionSet
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
- *       replicationRoleArn: "STRING_VALUE",
+ *       replicationRoleArn: 'STRING_VALUE',
  *     },
  *   },
  * };
  * const command = new UpdateDatalakeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateDatalakeCommandInput - {@link UpdateDatalakeCommandInput}
@@ -89,6 +92,8 @@ export interface UpdateDatalakeCommandOutput extends UpdateDatalakeResponse, __M
  * @throws {@link ValidationException} (client fault)
  *  <p>Your signing certificate could not be validated. </p>
  *
+ * @throws {@link SecurityLakeServiceException}
+ * <p>Base exception class for all service exceptions from SecurityLake service.</p>
  *
  */
 export class UpdateDatalakeCommand extends $Command<

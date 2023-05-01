@@ -37,17 +37,43 @@ export interface ListPermissionsCommandOutput extends ListPermissionsResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RAMClient, ListPermissionsCommand } from "@aws-sdk/client-ram"; // ES Modules import
- * // const { RAMClient, ListPermissionsCommand } = require("@aws-sdk/client-ram"); // CommonJS import
+ * import { RAMClient, ListPermissionsCommand } from '@aws-sdk/client-ram'; // ES Modules import
+ * // const { RAMClient, ListPermissionsCommand } = require('@aws-sdk/client-ram'); // CommonJS import
  * const client = new RAMClient(config);
  * const input = { // ListPermissionsRequest
- *   resourceType: "STRING_VALUE",
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
- *   permissionType: "ALL" || "AWS_MANAGED" || "CUSTOMER_MANAGED",
+ *   resourceType: 'STRING_VALUE',
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
+ *   permissionType: 'ALL' || 'AWS_MANAGED' || 'CUSTOMER_MANAGED',
  * };
  * const command = new ListPermissionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListPermissionsResponse
+ *   permissions: [ // ResourceSharePermissionList
+ *     { // ResourceSharePermissionSummary
+ *       arn: 'STRING_VALUE',
+ *       version: 'STRING_VALUE',
+ *       defaultVersion: true || false,
+ *       name: 'STRING_VALUE',
+ *       resourceType: 'STRING_VALUE',
+ *       status: 'STRING_VALUE',
+ *       creationTime: new Date('TIMESTAMP'),
+ *       lastUpdatedTime: new Date('TIMESTAMP'),
+ *       isResourceTypeDefault: true || false,
+ *       permissionType: 'CUSTOMER_MANAGED' || 'AWS_MANAGED',
+ *       featureSet: 'CREATED_FROM_POLICY' || 'PROMOTING_TO_STANDARD' || 'STANDARD',
+ *       tags: [ // TagList
+ *         { // Tag
+ *           key: 'STRING_VALUE',
+ *           value: 'STRING_VALUE',
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListPermissionsCommandInput - {@link ListPermissionsCommandInput}
@@ -74,6 +100,8 @@ export interface ListPermissionsCommandOutput extends ListPermissionsResponse, _
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The operation failed because the service isn't available. Try again later.</p>
  *
+ * @throws {@link RAMServiceException}
+ * <p>Base exception class for all service exceptions from RAM service.</p>
  *
  */
 export class ListPermissionsCommand extends $Command<

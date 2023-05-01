@@ -44,44 +44,53 @@ export interface SendMessageCommandOutput extends SendMessageResult, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SQSClient, SendMessageCommand } from "@aws-sdk/client-sqs"; // ES Modules import
- * // const { SQSClient, SendMessageCommand } = require("@aws-sdk/client-sqs"); // CommonJS import
+ * import { SQSClient, SendMessageCommand } from '@aws-sdk/client-sqs'; // ES Modules import
+ * // const { SQSClient, SendMessageCommand } = require('@aws-sdk/client-sqs'); // CommonJS import
  * const client = new SQSClient(config);
  * const input = { // SendMessageRequest
- *   QueueUrl: "STRING_VALUE", // required
- *   MessageBody: "STRING_VALUE", // required
- *   DelaySeconds: Number("int"),
+ *   QueueUrl: 'STRING_VALUE', // required
+ *   MessageBody: 'STRING_VALUE', // required
+ *   DelaySeconds: Number('int'),
  *   MessageAttributes: { // MessageBodyAttributeMap
- *     "<keys>": { // MessageAttributeValue
- *       StringValue: "STRING_VALUE",
- *       BinaryValue: "BLOB_VALUE",
+ *     '<keys>': { // MessageAttributeValue
+ *       StringValue: 'STRING_VALUE',
+ *       BinaryValue: 'BLOB_VALUE',
  *       StringListValues: [ // StringList
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *       BinaryListValues: [ // BinaryList
- *         "BLOB_VALUE",
+ *         'BLOB_VALUE',
  *       ],
- *       DataType: "STRING_VALUE", // required
+ *       DataType: 'STRING_VALUE', // required
  *     },
  *   },
  *   MessageSystemAttributes: { // MessageBodySystemAttributeMap
- *     "<keys>": { // MessageSystemAttributeValue
- *       StringValue: "STRING_VALUE",
- *       BinaryValue: "BLOB_VALUE",
+ *     '<keys>': { // MessageSystemAttributeValue
+ *       StringValue: 'STRING_VALUE',
+ *       BinaryValue: 'BLOB_VALUE',
  *       StringListValues: [
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *       BinaryListValues: [
- *         "BLOB_VALUE",
+ *         'BLOB_VALUE',
  *       ],
- *       DataType: "STRING_VALUE", // required
+ *       DataType: 'STRING_VALUE', // required
  *     },
  *   },
- *   MessageDeduplicationId: "STRING_VALUE",
- *   MessageGroupId: "STRING_VALUE",
+ *   MessageDeduplicationId: 'STRING_VALUE',
+ *   MessageGroupId: 'STRING_VALUE',
  * };
  * const command = new SendMessageCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SendMessageResult
+ *   MD5OfMessageBody: 'STRING_VALUE',
+ *   MD5OfMessageAttributes: 'STRING_VALUE',
+ *   MD5OfMessageSystemAttributes: 'STRING_VALUE',
+ *   MessageId: 'STRING_VALUE',
+ *   SequenceNumber: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param SendMessageCommandInput - {@link SendMessageCommandInput}
@@ -96,6 +105,8 @@ export interface SendMessageCommandOutput extends SendMessageResult, __MetadataB
  * @throws {@link UnsupportedOperation} (client fault)
  *  <p>Error code 400. Unsupported operation.</p>
  *
+ * @throws {@link SQSServiceException}
+ * <p>Base exception class for all service exceptions from SQS service.</p>
  *
  */
 export class SendMessageCommand extends $Command<

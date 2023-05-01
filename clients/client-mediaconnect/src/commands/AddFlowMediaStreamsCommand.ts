@@ -36,36 +36,64 @@ export interface AddFlowMediaStreamsCommandOutput extends AddFlowMediaStreamsRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MediaConnectClient, AddFlowMediaStreamsCommand } from "@aws-sdk/client-mediaconnect"; // ES Modules import
- * // const { MediaConnectClient, AddFlowMediaStreamsCommand } = require("@aws-sdk/client-mediaconnect"); // CommonJS import
+ * import { MediaConnectClient, AddFlowMediaStreamsCommand } from '@aws-sdk/client-mediaconnect'; // ES Modules import
+ * // const { MediaConnectClient, AddFlowMediaStreamsCommand } = require('@aws-sdk/client-mediaconnect'); // CommonJS import
  * const client = new MediaConnectClient(config);
  * const input = { // AddFlowMediaStreamsRequest
- *   FlowArn: "STRING_VALUE", // required
+ *   FlowArn: 'STRING_VALUE', // required
  *   MediaStreams: [ // __listOfAddMediaStreamRequest // required
  *     { // AddMediaStreamRequest
  *       Attributes: { // MediaStreamAttributesRequest
  *         Fmtp: { // FmtpRequest
- *           ChannelOrder: "STRING_VALUE",
- *           Colorimetry: "BT601" || "BT709" || "BT2020" || "BT2100" || "ST2065-1" || "ST2065-3" || "XYZ",
- *           ExactFramerate: "STRING_VALUE",
- *           Par: "STRING_VALUE",
- *           Range: "NARROW" || "FULL" || "FULLPROTECT",
- *           ScanMode: "progressive" || "interlace" || "progressive-segmented-frame",
- *           Tcs: "SDR" || "PQ" || "HLG" || "LINEAR" || "BT2100LINPQ" || "BT2100LINHLG" || "ST2065-1" || "ST428-1" || "DENSITY",
+ *           ChannelOrder: 'STRING_VALUE',
+ *           Colorimetry: 'BT601' || 'BT709' || 'BT2020' || 'BT2100' || 'ST2065-1' || 'ST2065-3' || 'XYZ',
+ *           ExactFramerate: 'STRING_VALUE',
+ *           Par: 'STRING_VALUE',
+ *           Range: 'NARROW' || 'FULL' || 'FULLPROTECT',
+ *           ScanMode: 'progressive' || 'interlace' || 'progressive-segmented-frame',
+ *           Tcs: 'SDR' || 'PQ' || 'HLG' || 'LINEAR' || 'BT2100LINPQ' || 'BT2100LINHLG' || 'ST2065-1' || 'ST428-1' || 'DENSITY',
  *         },
- *         Lang: "STRING_VALUE",
+ *         Lang: 'STRING_VALUE',
  *       },
- *       ClockRate: Number("int"),
- *       Description: "STRING_VALUE",
- *       MediaStreamId: Number("int"), // required
- *       MediaStreamName: "STRING_VALUE", // required
- *       MediaStreamType: "video" || "audio" || "ancillary-data", // required
- *       VideoFormat: "STRING_VALUE",
+ *       ClockRate: Number('int'),
+ *       Description: 'STRING_VALUE',
+ *       MediaStreamId: Number('int'), // required
+ *       MediaStreamName: 'STRING_VALUE', // required
+ *       MediaStreamType: 'video' || 'audio' || 'ancillary-data', // required
+ *       VideoFormat: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new AddFlowMediaStreamsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AddFlowMediaStreamsResponse
+ *   FlowArn: 'STRING_VALUE',
+ *   MediaStreams: [ // __listOfMediaStream
+ *     { // MediaStream
+ *       Attributes: { // MediaStreamAttributes
+ *         Fmtp: { // Fmtp
+ *           ChannelOrder: 'STRING_VALUE',
+ *           Colorimetry: 'BT601' || 'BT709' || 'BT2020' || 'BT2100' || 'ST2065-1' || 'ST2065-3' || 'XYZ',
+ *           ExactFramerate: 'STRING_VALUE',
+ *           Par: 'STRING_VALUE',
+ *           Range: 'NARROW' || 'FULL' || 'FULLPROTECT',
+ *           ScanMode: 'progressive' || 'interlace' || 'progressive-segmented-frame',
+ *           Tcs: 'SDR' || 'PQ' || 'HLG' || 'LINEAR' || 'BT2100LINPQ' || 'BT2100LINHLG' || 'ST2065-1' || 'ST428-1' || 'DENSITY',
+ *         },
+ *         Lang: 'STRING_VALUE',
+ *       },
+ *       ClockRate: Number('int'),
+ *       Description: 'STRING_VALUE',
+ *       Fmt: Number('int'), // required
+ *       MediaStreamId: Number('int'), // required
+ *       MediaStreamName: 'STRING_VALUE', // required
+ *       MediaStreamType: 'video' || 'audio' || 'ancillary-data', // required
+ *       VideoFormat: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param AddFlowMediaStreamsCommandInput - {@link AddFlowMediaStreamsCommandInput}
@@ -92,6 +120,8 @@ export interface AddFlowMediaStreamsCommandOutput extends AddFlowMediaStreamsRes
  * @throws {@link TooManyRequestsException} (client fault)
  *  Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
  *
+ * @throws {@link MediaConnectServiceException}
+ * <p>Base exception class for all service exceptions from MediaConnect service.</p>
  *
  */
 export class AddFlowMediaStreamsCommand extends $Command<

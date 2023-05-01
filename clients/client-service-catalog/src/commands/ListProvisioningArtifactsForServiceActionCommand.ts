@@ -45,17 +45,46 @@ export interface ListProvisioningArtifactsForServiceActionCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ServiceCatalogClient, ListProvisioningArtifactsForServiceActionCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
- * // const { ServiceCatalogClient, ListProvisioningArtifactsForServiceActionCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
+ * import { ServiceCatalogClient, ListProvisioningArtifactsForServiceActionCommand } from '@aws-sdk/client-service-catalog'; // ES Modules import
+ * // const { ServiceCatalogClient, ListProvisioningArtifactsForServiceActionCommand } = require('@aws-sdk/client-service-catalog'); // CommonJS import
  * const client = new ServiceCatalogClient(config);
  * const input = { // ListProvisioningArtifactsForServiceActionInput
- *   ServiceActionId: "STRING_VALUE", // required
- *   PageSize: Number("int"),
- *   PageToken: "STRING_VALUE",
- *   AcceptLanguage: "STRING_VALUE",
+ *   ServiceActionId: 'STRING_VALUE', // required
+ *   PageSize: Number('int'),
+ *   PageToken: 'STRING_VALUE',
+ *   AcceptLanguage: 'STRING_VALUE',
  * };
  * const command = new ListProvisioningArtifactsForServiceActionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListProvisioningArtifactsForServiceActionOutput
+ *   ProvisioningArtifactViews: [ // ProvisioningArtifactViews
+ *     { // ProvisioningArtifactView
+ *       ProductViewSummary: { // ProductViewSummary
+ *         Id: 'STRING_VALUE',
+ *         ProductId: 'STRING_VALUE',
+ *         Name: 'STRING_VALUE',
+ *         Owner: 'STRING_VALUE',
+ *         ShortDescription: 'STRING_VALUE',
+ *         Type: 'CLOUD_FORMATION_TEMPLATE' || 'MARKETPLACE' || 'TERRAFORM_OPEN_SOURCE',
+ *         Distributor: 'STRING_VALUE',
+ *         HasDefaultPath: true || false,
+ *         SupportEmail: 'STRING_VALUE',
+ *         SupportDescription: 'STRING_VALUE',
+ *         SupportUrl: 'STRING_VALUE',
+ *       },
+ *       ProvisioningArtifact: { // ProvisioningArtifact
+ *         Id: 'STRING_VALUE',
+ *         Name: 'STRING_VALUE',
+ *         Description: 'STRING_VALUE',
+ *         CreatedTime: new Date('TIMESTAMP'),
+ *         Guidance: 'DEFAULT' || 'DEPRECATED',
+ *       },
+ *     },
+ *   ],
+ *   NextPageToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListProvisioningArtifactsForServiceActionCommandInput - {@link ListProvisioningArtifactsForServiceActionCommandInput}
@@ -70,6 +99,8 @@ export interface ListProvisioningArtifactsForServiceActionCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link ServiceCatalogServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
  */
 export class ListProvisioningArtifactsForServiceActionCommand extends $Command<

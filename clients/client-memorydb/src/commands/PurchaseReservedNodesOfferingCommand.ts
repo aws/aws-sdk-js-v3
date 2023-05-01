@@ -41,22 +41,44 @@ export interface PurchaseReservedNodesOfferingCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MemoryDBClient, PurchaseReservedNodesOfferingCommand } from "@aws-sdk/client-memorydb"; // ES Modules import
- * // const { MemoryDBClient, PurchaseReservedNodesOfferingCommand } = require("@aws-sdk/client-memorydb"); // CommonJS import
+ * import { MemoryDBClient, PurchaseReservedNodesOfferingCommand } from '@aws-sdk/client-memorydb'; // ES Modules import
+ * // const { MemoryDBClient, PurchaseReservedNodesOfferingCommand } = require('@aws-sdk/client-memorydb'); // CommonJS import
  * const client = new MemoryDBClient(config);
  * const input = { // PurchaseReservedNodesOfferingRequest
- *   ReservedNodesOfferingId: "STRING_VALUE", // required
- *   ReservationId: "STRING_VALUE",
- *   NodeCount: Number("int"),
+ *   ReservedNodesOfferingId: 'STRING_VALUE', // required
+ *   ReservationId: 'STRING_VALUE',
+ *   NodeCount: Number('int'),
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE",
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new PurchaseReservedNodesOfferingCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PurchaseReservedNodesOfferingResponse
+ *   ReservedNode: { // ReservedNode
+ *     ReservationId: 'STRING_VALUE',
+ *     ReservedNodesOfferingId: 'STRING_VALUE',
+ *     NodeType: 'STRING_VALUE',
+ *     StartTime: new Date('TIMESTAMP'),
+ *     Duration: Number('int'),
+ *     FixedPrice: Number('double'),
+ *     NodeCount: Number('int'),
+ *     OfferingType: 'STRING_VALUE',
+ *     State: 'STRING_VALUE',
+ *     RecurringCharges: [ // RecurringChargeList
+ *       { // RecurringCharge
+ *         RecurringChargeAmount: Number('double'),
+ *         RecurringChargeFrequency: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     ARN: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param PurchaseReservedNodesOfferingCommandInput - {@link PurchaseReservedNodesOfferingCommandInput}
@@ -88,6 +110,8 @@ export interface PurchaseReservedNodesOfferingCommandOutput
  * @throws {@link TagQuotaPerResourceExceeded} (client fault)
  *  <p></p>
  *
+ * @throws {@link MemoryDBServiceException}
+ * <p>Base exception class for all service exceptions from MemoryDB service.</p>
  *
  */
 export class PurchaseReservedNodesOfferingCommand extends $Command<

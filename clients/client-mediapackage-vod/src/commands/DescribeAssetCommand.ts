@@ -36,14 +36,35 @@ export interface DescribeAssetCommandOutput extends DescribeAssetResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MediaPackageVodClient, DescribeAssetCommand } from "@aws-sdk/client-mediapackage-vod"; // ES Modules import
- * // const { MediaPackageVodClient, DescribeAssetCommand } = require("@aws-sdk/client-mediapackage-vod"); // CommonJS import
+ * import { MediaPackageVodClient, DescribeAssetCommand } from '@aws-sdk/client-mediapackage-vod'; // ES Modules import
+ * // const { MediaPackageVodClient, DescribeAssetCommand } = require('@aws-sdk/client-mediapackage-vod'); // CommonJS import
  * const client = new MediaPackageVodClient(config);
  * const input = { // DescribeAssetRequest
- *   Id: "STRING_VALUE", // required
+ *   Id: 'STRING_VALUE', // required
  * };
  * const command = new DescribeAssetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeAssetResponse
+ *   Arn: 'STRING_VALUE',
+ *   CreatedAt: 'STRING_VALUE',
+ *   EgressEndpoints: [ // __listOfEgressEndpoint
+ *     { // EgressEndpoint
+ *       PackagingConfigurationId: 'STRING_VALUE',
+ *       Status: 'STRING_VALUE',
+ *       Url: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   Id: 'STRING_VALUE',
+ *   PackagingGroupId: 'STRING_VALUE',
+ *   ResourceId: 'STRING_VALUE',
+ *   SourceArn: 'STRING_VALUE',
+ *   SourceRoleArn: 'STRING_VALUE',
+ *   Tags: { // Tags
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeAssetCommandInput - {@link DescribeAssetCommandInput}
@@ -70,6 +91,8 @@ export interface DescribeAssetCommandOutput extends DescribeAssetResponse, __Met
  * @throws {@link UnprocessableEntityException} (client fault)
  *  The parameters sent in the request are not valid.
  *
+ * @throws {@link MediaPackageVodServiceException}
+ * <p>Base exception class for all service exceptions from MediaPackageVod service.</p>
  *
  */
 export class DescribeAssetCommand extends $Command<

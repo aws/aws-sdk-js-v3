@@ -56,14 +56,24 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GameLiftClient, ListTagsForResourceCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
- * // const { GameLiftClient, ListTagsForResourceCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
+ * import { GameLiftClient, ListTagsForResourceCommand } from '@aws-sdk/client-gamelift'; // ES Modules import
+ * // const { GameLiftClient, ListTagsForResourceCommand } = require('@aws-sdk/client-gamelift'); // CommonJS import
  * const client = new GameLiftClient(config);
  * const input = { // ListTagsForResourceRequest
- *   ResourceARN: "STRING_VALUE", // required
+ *   ResourceARN: 'STRING_VALUE', // required
  * };
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTagsForResourceResponse
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListTagsForResourceCommandInput - {@link ListTagsForResourceCommandInput}
@@ -88,6 +98,8 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  *             or the maximum tag limit may have been exceeded. Resolve the issue before
  *             retrying.</p>
  *
+ * @throws {@link GameLiftServiceException}
+ * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
  */
 export class ListTagsForResourceCommand extends $Command<

@@ -37,16 +37,23 @@ export interface DeactivateEvaluationFormCommandOutput extends DeactivateEvaluat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, DeactivateEvaluationFormCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, DeactivateEvaluationFormCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, DeactivateEvaluationFormCommand } from '@aws-sdk/client-connect'; // ES Modules import
+ * // const { ConnectClient, DeactivateEvaluationFormCommand } = require('@aws-sdk/client-connect'); // CommonJS import
  * const client = new ConnectClient(config);
  * const input = { // DeactivateEvaluationFormRequest
- *   InstanceId: "STRING_VALUE", // required
- *   EvaluationFormId: "STRING_VALUE", // required
- *   EvaluationFormVersion: Number("int"), // required
+ *   InstanceId: 'STRING_VALUE', // required
+ *   EvaluationFormId: 'STRING_VALUE', // required
+ *   EvaluationFormVersion: Number('int'), // required
  * };
  * const command = new DeactivateEvaluationFormCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeactivateEvaluationFormResponse
+ *   EvaluationFormId: 'STRING_VALUE', // required
+ *   EvaluationFormArn: 'STRING_VALUE', // required
+ *   EvaluationFormVersion: Number('int'), // required
+ * };
+ *
  * ```
  *
  * @param DeactivateEvaluationFormCommandInput - {@link DeactivateEvaluationFormCommandInput}
@@ -70,6 +77,8 @@ export interface DeactivateEvaluationFormCommandOutput extends DeactivateEvaluat
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class DeactivateEvaluationFormCommand extends $Command<

@@ -38,15 +38,25 @@ export interface DeactivateKeySigningKeyCommandOutput extends DeactivateKeySigni
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Route53Client, DeactivateKeySigningKeyCommand } from "@aws-sdk/client-route-53"; // ES Modules import
- * // const { Route53Client, DeactivateKeySigningKeyCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
+ * import { Route53Client, DeactivateKeySigningKeyCommand } from '@aws-sdk/client-route-53'; // ES Modules import
+ * // const { Route53Client, DeactivateKeySigningKeyCommand } = require('@aws-sdk/client-route-53'); // CommonJS import
  * const client = new Route53Client(config);
  * const input = { // DeactivateKeySigningKeyRequest
- *   HostedZoneId: "STRING_VALUE", // required
- *   Name: "STRING_VALUE", // required
+ *   HostedZoneId: 'STRING_VALUE', // required
+ *   Name: 'STRING_VALUE', // required
  * };
  * const command = new DeactivateKeySigningKeyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeactivateKeySigningKeyResponse
+ *   ChangeInfo: { // ChangeInfo
+ *     Id: 'STRING_VALUE', // required
+ *     Status: 'PENDING' || 'INSYNC', // required
+ *     SubmittedAt: new Date('TIMESTAMP'), // required
+ *     Comment: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param DeactivateKeySigningKeyCommandInput - {@link DeactivateKeySigningKeyCommandInput}
@@ -81,6 +91,8 @@ export interface DeactivateKeySigningKeyCommandOutput extends DeactivateKeySigni
  * @throws {@link NoSuchKeySigningKey} (client fault)
  *  <p>The specified key-signing key (KSK) doesn't exist.</p>
  *
+ * @throws {@link Route53ServiceException}
+ * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
  */
 export class DeactivateKeySigningKeyCommand extends $Command<

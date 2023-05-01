@@ -40,17 +40,40 @@ export interface ListStacksCommandOutput extends ListStacksOutput, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudFormationClient, ListStacksCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
- * // const { CloudFormationClient, ListStacksCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
+ * import { CloudFormationClient, ListStacksCommand } from '@aws-sdk/client-cloudformation'; // ES Modules import
+ * // const { CloudFormationClient, ListStacksCommand } = require('@aws-sdk/client-cloudformation'); // CommonJS import
  * const client = new CloudFormationClient(config);
  * const input = { // ListStacksInput
- *   NextToken: "STRING_VALUE",
+ *   NextToken: 'STRING_VALUE',
  *   StackStatusFilter: [ // StackStatusFilter
- *     "CREATE_IN_PROGRESS" || "CREATE_FAILED" || "CREATE_COMPLETE" || "ROLLBACK_IN_PROGRESS" || "ROLLBACK_FAILED" || "ROLLBACK_COMPLETE" || "DELETE_IN_PROGRESS" || "DELETE_FAILED" || "DELETE_COMPLETE" || "UPDATE_IN_PROGRESS" || "UPDATE_COMPLETE_CLEANUP_IN_PROGRESS" || "UPDATE_COMPLETE" || "UPDATE_FAILED" || "UPDATE_ROLLBACK_IN_PROGRESS" || "UPDATE_ROLLBACK_FAILED" || "UPDATE_ROLLBACK_COMPLETE_CLEANUP_IN_PROGRESS" || "UPDATE_ROLLBACK_COMPLETE" || "REVIEW_IN_PROGRESS" || "IMPORT_IN_PROGRESS" || "IMPORT_COMPLETE" || "IMPORT_ROLLBACK_IN_PROGRESS" || "IMPORT_ROLLBACK_FAILED" || "IMPORT_ROLLBACK_COMPLETE",
+ *     'CREATE_IN_PROGRESS' || 'CREATE_FAILED' || 'CREATE_COMPLETE' || 'ROLLBACK_IN_PROGRESS' || 'ROLLBACK_FAILED' || 'ROLLBACK_COMPLETE' || 'DELETE_IN_PROGRESS' || 'DELETE_FAILED' || 'DELETE_COMPLETE' || 'UPDATE_IN_PROGRESS' || 'UPDATE_COMPLETE_CLEANUP_IN_PROGRESS' || 'UPDATE_COMPLETE' || 'UPDATE_FAILED' || 'UPDATE_ROLLBACK_IN_PROGRESS' || 'UPDATE_ROLLBACK_FAILED' || 'UPDATE_ROLLBACK_COMPLETE_CLEANUP_IN_PROGRESS' || 'UPDATE_ROLLBACK_COMPLETE' || 'REVIEW_IN_PROGRESS' || 'IMPORT_IN_PROGRESS' || 'IMPORT_COMPLETE' || 'IMPORT_ROLLBACK_IN_PROGRESS' || 'IMPORT_ROLLBACK_FAILED' || 'IMPORT_ROLLBACK_COMPLETE',
  *   ],
  * };
  * const command = new ListStacksCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListStacksOutput
+ *   StackSummaries: [ // StackSummaries
+ *     { // StackSummary
+ *       StackId: 'STRING_VALUE',
+ *       StackName: 'STRING_VALUE', // required
+ *       TemplateDescription: 'STRING_VALUE',
+ *       CreationTime: new Date('TIMESTAMP'), // required
+ *       LastUpdatedTime: new Date('TIMESTAMP'),
+ *       DeletionTime: new Date('TIMESTAMP'),
+ *       StackStatus: 'CREATE_IN_PROGRESS' || 'CREATE_FAILED' || 'CREATE_COMPLETE' || 'ROLLBACK_IN_PROGRESS' || 'ROLLBACK_FAILED' || 'ROLLBACK_COMPLETE' || 'DELETE_IN_PROGRESS' || 'DELETE_FAILED' || 'DELETE_COMPLETE' || 'UPDATE_IN_PROGRESS' || 'UPDATE_COMPLETE_CLEANUP_IN_PROGRESS' || 'UPDATE_COMPLETE' || 'UPDATE_FAILED' || 'UPDATE_ROLLBACK_IN_PROGRESS' || 'UPDATE_ROLLBACK_FAILED' || 'UPDATE_ROLLBACK_COMPLETE_CLEANUP_IN_PROGRESS' || 'UPDATE_ROLLBACK_COMPLETE' || 'REVIEW_IN_PROGRESS' || 'IMPORT_IN_PROGRESS' || 'IMPORT_COMPLETE' || 'IMPORT_ROLLBACK_IN_PROGRESS' || 'IMPORT_ROLLBACK_FAILED' || 'IMPORT_ROLLBACK_COMPLETE', // required
+ *       StackStatusReason: 'STRING_VALUE',
+ *       ParentId: 'STRING_VALUE',
+ *       RootId: 'STRING_VALUE',
+ *       DriftInformation: { // StackDriftInformationSummary
+ *         StackDriftStatus: 'DRIFTED' || 'IN_SYNC' || 'UNKNOWN' || 'NOT_CHECKED', // required
+ *         LastCheckTimestamp: new Date('TIMESTAMP'),
+ *       },
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListStacksCommandInput - {@link ListStacksCommandInput}
@@ -59,6 +82,8 @@ export interface ListStacksCommandOutput extends ListStacksOutput, __MetadataBea
  * @see {@link ListStacksCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
+ * @throws {@link CloudFormationServiceException}
+ * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
  */
 export class ListStacksCommand extends $Command<

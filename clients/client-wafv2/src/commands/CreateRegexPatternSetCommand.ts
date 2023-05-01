@@ -37,27 +37,38 @@ export interface CreateRegexPatternSetCommandOutput extends CreateRegexPatternSe
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WAFV2Client, CreateRegexPatternSetCommand } from "@aws-sdk/client-wafv2"; // ES Modules import
- * // const { WAFV2Client, CreateRegexPatternSetCommand } = require("@aws-sdk/client-wafv2"); // CommonJS import
+ * import { WAFV2Client, CreateRegexPatternSetCommand } from '@aws-sdk/client-wafv2'; // ES Modules import
+ * // const { WAFV2Client, CreateRegexPatternSetCommand } = require('@aws-sdk/client-wafv2'); // CommonJS import
  * const client = new WAFV2Client(config);
  * const input = { // CreateRegexPatternSetRequest
- *   Name: "STRING_VALUE", // required
- *   Scope: "CLOUDFRONT" || "REGIONAL", // required
- *   Description: "STRING_VALUE",
+ *   Name: 'STRING_VALUE', // required
+ *   Scope: 'CLOUDFRONT' || 'REGIONAL', // required
+ *   Description: 'STRING_VALUE',
  *   RegularExpressionList: [ // RegularExpressionList // required
  *     { // Regex
- *       RegexString: "STRING_VALUE",
+ *       RegexString: 'STRING_VALUE',
  *     },
  *   ],
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreateRegexPatternSetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateRegexPatternSetResponse
+ *   Summary: { // RegexPatternSetSummary
+ *     Name: 'STRING_VALUE',
+ *     Id: 'STRING_VALUE',
+ *     Description: 'STRING_VALUE',
+ *     LockToken: 'STRING_VALUE',
+ *     ARN: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateRegexPatternSetCommandInput - {@link CreateRegexPatternSetCommandInput}
@@ -116,6 +127,8 @@ export interface CreateRegexPatternSetCommandOutput extends CreateRegexPatternSe
  *  <p>WAF couldn’t perform your tagging operation because of an internal error. Retry
  *          your request.</p>
  *
+ * @throws {@link WAFV2ServiceException}
+ * <p>Base exception class for all service exceptions from WAFV2 service.</p>
  *
  */
 export class CreateRegexPatternSetCommand extends $Command<

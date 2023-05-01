@@ -46,19 +46,25 @@ export interface CreateInstanceCommandOutput extends CreateInstanceResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, CreateInstanceCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, CreateInstanceCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, CreateInstanceCommand } from '@aws-sdk/client-connect'; // ES Modules import
+ * // const { ConnectClient, CreateInstanceCommand } = require('@aws-sdk/client-connect'); // CommonJS import
  * const client = new ConnectClient(config);
  * const input = { // CreateInstanceRequest
- *   ClientToken: "STRING_VALUE",
- *   IdentityManagementType: "SAML" || "CONNECT_MANAGED" || "EXISTING_DIRECTORY", // required
- *   InstanceAlias: "STRING_VALUE",
- *   DirectoryId: "STRING_VALUE",
+ *   ClientToken: 'STRING_VALUE',
+ *   IdentityManagementType: 'SAML' || 'CONNECT_MANAGED' || 'EXISTING_DIRECTORY', // required
+ *   InstanceAlias: 'STRING_VALUE',
+ *   DirectoryId: 'STRING_VALUE',
  *   InboundCallsEnabled: true || false, // required
  *   OutboundCallsEnabled: true || false, // required
  * };
  * const command = new CreateInstanceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateInstanceResponse
+ *   Id: 'STRING_VALUE',
+ *   Arn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateInstanceCommandInput - {@link CreateInstanceCommandInput}
@@ -82,6 +88,8 @@ export interface CreateInstanceCommandOutput extends CreateInstanceResponse, __M
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class CreateInstanceCommand extends $Command<

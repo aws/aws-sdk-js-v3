@@ -38,21 +38,24 @@ export interface UpdateServiceIntegrationCommandOutput extends UpdateServiceInte
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DevOpsGuruClient, UpdateServiceIntegrationCommand } from "@aws-sdk/client-devops-guru"; // ES Modules import
- * // const { DevOpsGuruClient, UpdateServiceIntegrationCommand } = require("@aws-sdk/client-devops-guru"); // CommonJS import
+ * import { DevOpsGuruClient, UpdateServiceIntegrationCommand } from '@aws-sdk/client-devops-guru'; // ES Modules import
+ * // const { DevOpsGuruClient, UpdateServiceIntegrationCommand } = require('@aws-sdk/client-devops-guru'); // CommonJS import
  * const client = new DevOpsGuruClient(config);
  * const input = { // UpdateServiceIntegrationRequest
  *   ServiceIntegration: { // UpdateServiceIntegrationConfig
  *     OpsCenter: { // OpsCenterIntegrationConfig
- *       OptInStatus: "ENABLED" || "DISABLED",
+ *       OptInStatus: 'ENABLED' || 'DISABLED',
  *     },
  *     LogsAnomalyDetection: { // LogsAnomalyDetectionIntegrationConfig
- *       OptInStatus: "ENABLED" || "DISABLED",
+ *       OptInStatus: 'ENABLED' || 'DISABLED',
  *     },
  *   },
  * };
  * const command = new UpdateServiceIntegrationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateServiceIntegrationCommandInput - {@link UpdateServiceIntegrationCommandInput}
@@ -80,6 +83,8 @@ export interface UpdateServiceIntegrationCommandOutput extends UpdateServiceInte
  *  <p> Contains information about data passed in to a field during a request that is not
  * 			valid. </p>
  *
+ * @throws {@link DevOpsGuruServiceException}
+ * <p>Base exception class for all service exceptions from DevOpsGuru service.</p>
  *
  */
 export class UpdateServiceIntegrationCommand extends $Command<

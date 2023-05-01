@@ -36,14 +36,32 @@ export interface GetOnPremisesInstanceCommandOutput extends GetOnPremisesInstanc
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeDeployClient, GetOnPremisesInstanceCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
- * // const { CodeDeployClient, GetOnPremisesInstanceCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
+ * import { CodeDeployClient, GetOnPremisesInstanceCommand } from '@aws-sdk/client-codedeploy'; // ES Modules import
+ * // const { CodeDeployClient, GetOnPremisesInstanceCommand } = require('@aws-sdk/client-codedeploy'); // CommonJS import
  * const client = new CodeDeployClient(config);
  * const input = { // GetOnPremisesInstanceInput
- *   instanceName: "STRING_VALUE", // required
+ *   instanceName: 'STRING_VALUE', // required
  * };
  * const command = new GetOnPremisesInstanceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetOnPremisesInstanceOutput
+ *   instanceInfo: { // InstanceInfo
+ *     instanceName: 'STRING_VALUE',
+ *     iamSessionArn: 'STRING_VALUE',
+ *     iamUserArn: 'STRING_VALUE',
+ *     instanceArn: 'STRING_VALUE',
+ *     registerTime: new Date('TIMESTAMP'),
+ *     deregisterTime: new Date('TIMESTAMP'),
+ *     tags: [ // TagList
+ *       { // Tag
+ *         Key: 'STRING_VALUE',
+ *         Value: 'STRING_VALUE',
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetOnPremisesInstanceCommandInput - {@link GetOnPremisesInstanceCommandInput}
@@ -61,6 +79,8 @@ export interface GetOnPremisesInstanceCommandOutput extends GetOnPremisesInstanc
  * @throws {@link InvalidInstanceNameException} (client fault)
  *  <p>The on-premises instance name was specified in an invalid format.</p>
  *
+ * @throws {@link CodeDeployServiceException}
+ * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
  */
 export class GetOnPremisesInstanceCommand extends $Command<

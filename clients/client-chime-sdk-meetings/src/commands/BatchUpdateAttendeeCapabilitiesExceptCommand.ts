@@ -60,24 +60,27 @@ export interface BatchUpdateAttendeeCapabilitiesExceptCommandOutput extends __Me
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeSDKMeetingsClient, BatchUpdateAttendeeCapabilitiesExceptCommand } from "@aws-sdk/client-chime-sdk-meetings"; // ES Modules import
- * // const { ChimeSDKMeetingsClient, BatchUpdateAttendeeCapabilitiesExceptCommand } = require("@aws-sdk/client-chime-sdk-meetings"); // CommonJS import
+ * import { ChimeSDKMeetingsClient, BatchUpdateAttendeeCapabilitiesExceptCommand } from '@aws-sdk/client-chime-sdk-meetings'; // ES Modules import
+ * // const { ChimeSDKMeetingsClient, BatchUpdateAttendeeCapabilitiesExceptCommand } = require('@aws-sdk/client-chime-sdk-meetings'); // CommonJS import
  * const client = new ChimeSDKMeetingsClient(config);
  * const input = { // BatchUpdateAttendeeCapabilitiesExceptRequest
- *   MeetingId: "STRING_VALUE", // required
+ *   MeetingId: 'STRING_VALUE', // required
  *   ExcludedAttendeeIds: [ // AttendeeIdsList // required
  *     { // AttendeeIdItem
- *       AttendeeId: "STRING_VALUE", // required
+ *       AttendeeId: 'STRING_VALUE', // required
  *     },
  *   ],
  *   Capabilities: { // AttendeeCapabilities
- *     Audio: "SendReceive" || "Send" || "Receive" || "None", // required
- *     Video: "SendReceive" || "Send" || "Receive" || "None", // required
- *     Content: "SendReceive" || "Send" || "Receive" || "None", // required
+ *     Audio: 'SendReceive' || 'Send' || 'Receive' || 'None', // required
+ *     Video: 'SendReceive' || 'Send' || 'Receive' || 'None', // required
+ *     Content: 'SendReceive' || 'Send' || 'Receive' || 'None', // required
  *   },
  * };
  * const command = new BatchUpdateAttendeeCapabilitiesExceptCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param BatchUpdateAttendeeCapabilitiesExceptCommandInput - {@link BatchUpdateAttendeeCapabilitiesExceptCommandInput}
@@ -104,6 +107,8 @@ export interface BatchUpdateAttendeeCapabilitiesExceptCommandOutput extends __Me
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The user isn't authorized to request a resource.</p>
  *
+ * @throws {@link ChimeSDKMeetingsServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKMeetings service.</p>
  *
  */
 export class BatchUpdateAttendeeCapabilitiesExceptCommand extends $Command<

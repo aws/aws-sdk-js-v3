@@ -40,15 +40,38 @@ export interface GetTemplateStepGroupCommandOutput extends GetTemplateStepGroupR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MigrationHubOrchestratorClient, GetTemplateStepGroupCommand } from "@aws-sdk/client-migrationhuborchestrator"; // ES Modules import
- * // const { MigrationHubOrchestratorClient, GetTemplateStepGroupCommand } = require("@aws-sdk/client-migrationhuborchestrator"); // CommonJS import
+ * import { MigrationHubOrchestratorClient, GetTemplateStepGroupCommand } from '@aws-sdk/client-migrationhuborchestrator'; // ES Modules import
+ * // const { MigrationHubOrchestratorClient, GetTemplateStepGroupCommand } = require('@aws-sdk/client-migrationhuborchestrator'); // CommonJS import
  * const client = new MigrationHubOrchestratorClient(config);
  * const input = { // GetTemplateStepGroupRequest
- *   templateId: "STRING_VALUE", // required
- *   id: "STRING_VALUE", // required
+ *   templateId: 'STRING_VALUE', // required
+ *   id: 'STRING_VALUE', // required
  * };
  * const command = new GetTemplateStepGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetTemplateStepGroupResponse
+ *   templateId: 'STRING_VALUE',
+ *   id: 'STRING_VALUE',
+ *   name: 'STRING_VALUE',
+ *   description: 'STRING_VALUE',
+ *   status: 'STRING_VALUE',
+ *   creationTime: new Date('TIMESTAMP'),
+ *   lastModifiedTime: new Date('TIMESTAMP'),
+ *   tools: [ // ToolsList
+ *     { // Tool
+ *       name: 'STRING_VALUE',
+ *       url: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   previous: [ // StringList
+ *     'STRING_VALUE',
+ *   ],
+ *   next: [
+ *     'STRING_VALUE',
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetTemplateStepGroupCommandInput - {@link GetTemplateStepGroupCommandInput}
@@ -72,6 +95,8 @@ export interface GetTemplateStepGroupCommandOutput extends GetTemplateStepGroupR
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link MigrationHubOrchestratorServiceException}
+ * <p>Base exception class for all service exceptions from MigrationHubOrchestrator service.</p>
  *
  */
 export class GetTemplateStepGroupCommand extends $Command<

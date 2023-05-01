@@ -41,33 +41,36 @@ export interface PutEventsCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PersonalizeEventsClient, PutEventsCommand } from "@aws-sdk/client-personalize-events"; // ES Modules import
- * // const { PersonalizeEventsClient, PutEventsCommand } = require("@aws-sdk/client-personalize-events"); // CommonJS import
+ * import { PersonalizeEventsClient, PutEventsCommand } from '@aws-sdk/client-personalize-events'; // ES Modules import
+ * // const { PersonalizeEventsClient, PutEventsCommand } = require('@aws-sdk/client-personalize-events'); // CommonJS import
  * const client = new PersonalizeEventsClient(config);
  * const input = { // PutEventsRequest
- *   trackingId: "STRING_VALUE", // required
- *   userId: "STRING_VALUE",
- *   sessionId: "STRING_VALUE", // required
+ *   trackingId: 'STRING_VALUE', // required
+ *   userId: 'STRING_VALUE',
+ *   sessionId: 'STRING_VALUE', // required
  *   eventList: [ // EventList // required
  *     { // Event
- *       eventId: "STRING_VALUE",
- *       eventType: "STRING_VALUE", // required
- *       eventValue: Number("float"),
- *       itemId: "STRING_VALUE",
- *       properties: "STRING_VALUE",
- *       sentAt: new Date("TIMESTAMP"), // required
- *       recommendationId: "STRING_VALUE",
+ *       eventId: 'STRING_VALUE',
+ *       eventType: 'STRING_VALUE', // required
+ *       eventValue: Number('float'),
+ *       itemId: 'STRING_VALUE',
+ *       properties: 'STRING_VALUE',
+ *       sentAt: new Date('TIMESTAMP'), // required
+ *       recommendationId: 'STRING_VALUE',
  *       impression: [ // Impression
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *       metricAttribution: { // MetricAttribution
- *         eventAttributionSource: "STRING_VALUE", // required
+ *         eventAttributionSource: 'STRING_VALUE', // required
  *       },
  *     },
  *   ],
  * };
  * const command = new PutEventsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutEventsCommandInput - {@link PutEventsCommandInput}
@@ -79,6 +82,8 @@ export interface PutEventsCommandOutput extends __MetadataBearer {}
  * @throws {@link InvalidInputException} (client fault)
  *  <p>Provide a valid value for the field or parameter.</p>
  *
+ * @throws {@link PersonalizeEventsServiceException}
+ * <p>Base exception class for all service exceptions from PersonalizeEvents service.</p>
  *
  */
 export class PutEventsCommand extends $Command<

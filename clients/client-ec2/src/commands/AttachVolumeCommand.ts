@@ -60,17 +60,27 @@ export interface AttachVolumeCommandOutput extends VolumeAttachment, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, AttachVolumeCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, AttachVolumeCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, AttachVolumeCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, AttachVolumeCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // AttachVolumeRequest
- *   Device: "STRING_VALUE", // required
- *   InstanceId: "STRING_VALUE", // required
- *   VolumeId: "STRING_VALUE", // required
+ *   Device: 'STRING_VALUE', // required
+ *   InstanceId: 'STRING_VALUE', // required
+ *   VolumeId: 'STRING_VALUE', // required
  *   DryRun: true || false,
  * };
  * const command = new AttachVolumeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // VolumeAttachment
+ *   AttachTime: new Date('TIMESTAMP'),
+ *   Device: 'STRING_VALUE',
+ *   InstanceId: 'STRING_VALUE',
+ *   State: 'attaching' || 'attached' || 'detaching' || 'detached' || 'busy',
+ *   VolumeId: 'STRING_VALUE',
+ *   DeleteOnTermination: true || false,
+ * };
+ *
  * ```
  *
  * @param AttachVolumeCommandInput - {@link AttachVolumeCommandInput}
@@ -79,6 +89,8 @@ export interface AttachVolumeCommandOutput extends VolumeAttachment, __MetadataB
  * @see {@link AttachVolumeCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @example To attach a volume to an instance
  * ```javascript

@@ -36,12 +36,19 @@ export interface ListDomainNamesCommandOutput extends ListDomainNamesResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudSearchClient, ListDomainNamesCommand } from "@aws-sdk/client-cloudsearch"; // ES Modules import
- * // const { CloudSearchClient, ListDomainNamesCommand } = require("@aws-sdk/client-cloudsearch"); // CommonJS import
+ * import { CloudSearchClient, ListDomainNamesCommand } from '@aws-sdk/client-cloudsearch'; // ES Modules import
+ * // const { CloudSearchClient, ListDomainNamesCommand } = require('@aws-sdk/client-cloudsearch'); // CommonJS import
  * const client = new CloudSearchClient(config);
  * const input = {};
  * const command = new ListDomainNamesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListDomainNamesResponse
+ *   DomainNames: { // DomainNameMap
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param ListDomainNamesCommandInput - {@link ListDomainNamesCommandInput}
@@ -53,6 +60,8 @@ export interface ListDomainNamesCommandOutput extends ListDomainNamesResponse, _
  * @throws {@link BaseException} (client fault)
  *  <p>An error occurred while processing the request.</p>
  *
+ * @throws {@link CloudSearchServiceException}
+ * <p>Base exception class for all service exceptions from CloudSearch service.</p>
  *
  */
 export class ListDomainNamesCommand extends $Command<

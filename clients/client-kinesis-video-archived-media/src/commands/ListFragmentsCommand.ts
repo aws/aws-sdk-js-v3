@@ -76,24 +76,38 @@ export interface ListFragmentsCommandOutput extends ListFragmentsOutput, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KinesisVideoArchivedMediaClient, ListFragmentsCommand } from "@aws-sdk/client-kinesis-video-archived-media"; // ES Modules import
- * // const { KinesisVideoArchivedMediaClient, ListFragmentsCommand } = require("@aws-sdk/client-kinesis-video-archived-media"); // CommonJS import
+ * import { KinesisVideoArchivedMediaClient, ListFragmentsCommand } from '@aws-sdk/client-kinesis-video-archived-media'; // ES Modules import
+ * // const { KinesisVideoArchivedMediaClient, ListFragmentsCommand } = require('@aws-sdk/client-kinesis-video-archived-media'); // CommonJS import
  * const client = new KinesisVideoArchivedMediaClient(config);
  * const input = { // ListFragmentsInput
- *   StreamName: "STRING_VALUE",
- *   StreamARN: "STRING_VALUE",
- *   MaxResults: Number("long"),
- *   NextToken: "STRING_VALUE",
+ *   StreamName: 'STRING_VALUE',
+ *   StreamARN: 'STRING_VALUE',
+ *   MaxResults: Number('long'),
+ *   NextToken: 'STRING_VALUE',
  *   FragmentSelector: { // FragmentSelector
- *     FragmentSelectorType: "STRING_VALUE", // required
+ *     FragmentSelectorType: 'STRING_VALUE', // required
  *     TimestampRange: { // TimestampRange
- *       StartTimestamp: new Date("TIMESTAMP"), // required
- *       EndTimestamp: new Date("TIMESTAMP"), // required
+ *       StartTimestamp: new Date('TIMESTAMP'), // required
+ *       EndTimestamp: new Date('TIMESTAMP'), // required
  *     },
  *   },
  * };
  * const command = new ListFragmentsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListFragmentsOutput
+ *   Fragments: [ // FragmentList
+ *     { // Fragment
+ *       FragmentNumber: 'STRING_VALUE',
+ *       FragmentSizeInBytes: Number('long'),
+ *       ProducerTimestamp: new Date('TIMESTAMP'),
+ *       ServerTimestamp: new Date('TIMESTAMP'),
+ *       FragmentLengthInMilliseconds: Number('long'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListFragmentsCommandInput - {@link ListFragmentsCommandInput}
@@ -125,6 +139,8 @@ export interface ListFragmentsCommandOutput extends ListFragmentsOutput, __Metad
  *                 <code>LIVE</code> is requested for a stream that has no fragments within the last 30
  *             seconds.</p>
  *
+ * @throws {@link KinesisVideoArchivedMediaServiceException}
+ * <p>Base exception class for all service exceptions from KinesisVideoArchivedMedia service.</p>
  *
  */
 export class ListFragmentsCommand extends $Command<

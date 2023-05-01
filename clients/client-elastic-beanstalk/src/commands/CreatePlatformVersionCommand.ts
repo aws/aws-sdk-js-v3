@@ -36,34 +36,59 @@ export interface CreatePlatformVersionCommandOutput extends CreatePlatformVersio
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElasticBeanstalkClient, CreatePlatformVersionCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
- * // const { ElasticBeanstalkClient, CreatePlatformVersionCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
+ * import { ElasticBeanstalkClient, CreatePlatformVersionCommand } from '@aws-sdk/client-elastic-beanstalk'; // ES Modules import
+ * // const { ElasticBeanstalkClient, CreatePlatformVersionCommand } = require('@aws-sdk/client-elastic-beanstalk'); // CommonJS import
  * const client = new ElasticBeanstalkClient(config);
  * const input = { // CreatePlatformVersionRequest
- *   PlatformName: "STRING_VALUE", // required
- *   PlatformVersion: "STRING_VALUE", // required
+ *   PlatformName: 'STRING_VALUE', // required
+ *   PlatformVersion: 'STRING_VALUE', // required
  *   PlatformDefinitionBundle: { // S3Location
- *     S3Bucket: "STRING_VALUE",
- *     S3Key: "STRING_VALUE",
+ *     S3Bucket: 'STRING_VALUE',
+ *     S3Key: 'STRING_VALUE',
  *   },
- *   EnvironmentName: "STRING_VALUE",
+ *   EnvironmentName: 'STRING_VALUE',
  *   OptionSettings: [ // ConfigurationOptionSettingsList
  *     { // ConfigurationOptionSetting
- *       ResourceName: "STRING_VALUE",
- *       Namespace: "STRING_VALUE",
- *       OptionName: "STRING_VALUE",
- *       Value: "STRING_VALUE",
+ *       ResourceName: 'STRING_VALUE',
+ *       Namespace: 'STRING_VALUE',
+ *       OptionName: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
  *   Tags: [ // Tags
  *     { // Tag
- *       Key: "STRING_VALUE",
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new CreatePlatformVersionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreatePlatformVersionResult
+ *   PlatformSummary: { // PlatformSummary
+ *     PlatformArn: 'STRING_VALUE',
+ *     PlatformOwner: 'STRING_VALUE',
+ *     PlatformStatus: 'Creating' || 'Failed' || 'Ready' || 'Deleting' || 'Deleted',
+ *     PlatformCategory: 'STRING_VALUE',
+ *     OperatingSystemName: 'STRING_VALUE',
+ *     OperatingSystemVersion: 'STRING_VALUE',
+ *     SupportedTierList: [ // SupportedTierList
+ *       'STRING_VALUE',
+ *     ],
+ *     SupportedAddonList: [ // SupportedAddonList
+ *       'STRING_VALUE',
+ *     ],
+ *     PlatformLifecycleState: 'STRING_VALUE',
+ *     PlatformVersion: 'STRING_VALUE',
+ *     PlatformBranchName: 'STRING_VALUE',
+ *     PlatformBranchLifecycleState: 'STRING_VALUE',
+ *   },
+ *   Builder: { // Builder
+ *     ARN: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreatePlatformVersionCommandInput - {@link CreatePlatformVersionCommandInput}
@@ -82,6 +107,8 @@ export interface CreatePlatformVersionCommandOutput extends CreatePlatformVersio
  * @throws {@link TooManyPlatformsException} (client fault)
  *  <p>You have exceeded the maximum number of allowed platforms associated with the account.</p>
  *
+ * @throws {@link ElasticBeanstalkServiceException}
+ * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
  */
 export class CreatePlatformVersionCommand extends $Command<

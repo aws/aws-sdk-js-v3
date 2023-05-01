@@ -37,102 +37,102 @@ export interface CreateLifecyclePolicyCommandOutput extends CreateLifecyclePolic
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DLMClient, CreateLifecyclePolicyCommand } from "@aws-sdk/client-dlm"; // ES Modules import
- * // const { DLMClient, CreateLifecyclePolicyCommand } = require("@aws-sdk/client-dlm"); // CommonJS import
+ * import { DLMClient, CreateLifecyclePolicyCommand } from '@aws-sdk/client-dlm'; // ES Modules import
+ * // const { DLMClient, CreateLifecyclePolicyCommand } = require('@aws-sdk/client-dlm'); // CommonJS import
  * const client = new DLMClient(config);
  * const input = { // CreateLifecyclePolicyRequest
- *   ExecutionRoleArn: "STRING_VALUE", // required
- *   Description: "STRING_VALUE", // required
- *   State: "ENABLED" || "DISABLED", // required
+ *   ExecutionRoleArn: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE', // required
+ *   State: 'ENABLED' || 'DISABLED', // required
  *   PolicyDetails: { // PolicyDetails
- *     PolicyType: "EBS_SNAPSHOT_MANAGEMENT" || "IMAGE_MANAGEMENT" || "EVENT_BASED_POLICY",
+ *     PolicyType: 'EBS_SNAPSHOT_MANAGEMENT' || 'IMAGE_MANAGEMENT' || 'EVENT_BASED_POLICY',
  *     ResourceTypes: [ // ResourceTypeValuesList
- *       "VOLUME" || "INSTANCE",
+ *       'VOLUME' || 'INSTANCE',
  *     ],
  *     ResourceLocations: [ // ResourceLocationList
- *       "CLOUD" || "OUTPOST",
+ *       'CLOUD' || 'OUTPOST',
  *     ],
  *     TargetTags: [ // TargetTagList
  *       { // Tag
- *         Key: "STRING_VALUE", // required
- *         Value: "STRING_VALUE", // required
+ *         Key: 'STRING_VALUE', // required
+ *         Value: 'STRING_VALUE', // required
  *       },
  *     ],
  *     Schedules: [ // ScheduleList
  *       { // Schedule
- *         Name: "STRING_VALUE",
+ *         Name: 'STRING_VALUE',
  *         CopyTags: true || false,
  *         TagsToAdd: [ // TagsToAddList
  *           {
- *             Key: "STRING_VALUE", // required
- *             Value: "STRING_VALUE", // required
+ *             Key: 'STRING_VALUE', // required
+ *             Value: 'STRING_VALUE', // required
  *           },
  *         ],
  *         VariableTags: [ // VariableTagsList
  *           {
- *             Key: "STRING_VALUE", // required
- *             Value: "STRING_VALUE", // required
+ *             Key: 'STRING_VALUE', // required
+ *             Value: 'STRING_VALUE', // required
  *           },
  *         ],
  *         CreateRule: { // CreateRule
- *           Location: "CLOUD" || "OUTPOST_LOCAL",
- *           Interval: Number("int"),
- *           IntervalUnit: "HOURS",
+ *           Location: 'CLOUD' || 'OUTPOST_LOCAL',
+ *           Interval: Number('int'),
+ *           IntervalUnit: 'HOURS',
  *           Times: [ // TimesList
- *             "STRING_VALUE",
+ *             'STRING_VALUE',
  *           ],
- *           CronExpression: "STRING_VALUE",
+ *           CronExpression: 'STRING_VALUE',
  *         },
  *         RetainRule: { // RetainRule
- *           Count: Number("int"),
- *           Interval: Number("int"),
- *           IntervalUnit: "DAYS" || "WEEKS" || "MONTHS" || "YEARS",
+ *           Count: Number('int'),
+ *           Interval: Number('int'),
+ *           IntervalUnit: 'DAYS' || 'WEEKS' || 'MONTHS' || 'YEARS',
  *         },
  *         FastRestoreRule: { // FastRestoreRule
- *           Count: Number("int"),
- *           Interval: Number("int"),
- *           IntervalUnit: "DAYS" || "WEEKS" || "MONTHS" || "YEARS",
+ *           Count: Number('int'),
+ *           Interval: Number('int'),
+ *           IntervalUnit: 'DAYS' || 'WEEKS' || 'MONTHS' || 'YEARS',
  *           AvailabilityZones: [ // AvailabilityZoneList // required
- *             "STRING_VALUE",
+ *             'STRING_VALUE',
  *           ],
  *         },
  *         CrossRegionCopyRules: [ // CrossRegionCopyRules
  *           { // CrossRegionCopyRule
- *             TargetRegion: "STRING_VALUE",
- *             Target: "STRING_VALUE",
+ *             TargetRegion: 'STRING_VALUE',
+ *             Target: 'STRING_VALUE',
  *             Encrypted: true || false, // required
- *             CmkArn: "STRING_VALUE",
+ *             CmkArn: 'STRING_VALUE',
  *             CopyTags: true || false,
  *             RetainRule: { // CrossRegionCopyRetainRule
- *               Interval: Number("int"),
- *               IntervalUnit: "DAYS" || "WEEKS" || "MONTHS" || "YEARS",
+ *               Interval: Number('int'),
+ *               IntervalUnit: 'DAYS' || 'WEEKS' || 'MONTHS' || 'YEARS',
  *             },
  *             DeprecateRule: { // CrossRegionCopyDeprecateRule
- *               Interval: Number("int"),
- *               IntervalUnit: "DAYS" || "WEEKS" || "MONTHS" || "YEARS",
+ *               Interval: Number('int'),
+ *               IntervalUnit: 'DAYS' || 'WEEKS' || 'MONTHS' || 'YEARS',
  *             },
  *           },
  *         ],
  *         ShareRules: [ // ShareRules
  *           { // ShareRule
  *             TargetAccounts: [ // ShareTargetAccountList // required
- *               "STRING_VALUE",
+ *               'STRING_VALUE',
  *             ],
- *             UnshareInterval: Number("int"),
- *             UnshareIntervalUnit: "DAYS" || "WEEKS" || "MONTHS" || "YEARS",
+ *             UnshareInterval: Number('int'),
+ *             UnshareIntervalUnit: 'DAYS' || 'WEEKS' || 'MONTHS' || 'YEARS',
  *           },
  *         ],
  *         DeprecateRule: { // DeprecateRule
- *           Count: Number("int"),
- *           Interval: Number("int"),
- *           IntervalUnit: "DAYS" || "WEEKS" || "MONTHS" || "YEARS",
+ *           Count: Number('int'),
+ *           Interval: Number('int'),
+ *           IntervalUnit: 'DAYS' || 'WEEKS' || 'MONTHS' || 'YEARS',
  *         },
  *         ArchiveRule: { // ArchiveRule
  *           RetainRule: { // ArchiveRetainRule
  *             RetentionArchiveTier: { // RetentionArchiveTier
- *               Count: Number("int"),
- *               Interval: Number("int"),
- *               IntervalUnit: "DAYS" || "WEEKS" || "MONTHS" || "YEARS",
+ *               Count: Number('int'),
+ *               Interval: Number('int'),
+ *               IntervalUnit: 'DAYS' || 'WEEKS' || 'MONTHS' || 'YEARS',
  *             },
  *           },
  *         },
@@ -142,32 +142,32 @@ export interface CreateLifecyclePolicyCommandOutput extends CreateLifecyclePolic
  *       ExcludeBootVolume: true || false,
  *       NoReboot: true || false,
  *       ExcludeDataVolumeTags: [ // ExcludeDataVolumeTagList
- *         "<Tag>",
+ *         '<Tag>',
  *       ],
  *     },
  *     EventSource: { // EventSource
- *       Type: "MANAGED_CWE", // required
+ *       Type: 'MANAGED_CWE', // required
  *       Parameters: { // EventParameters
- *         EventType: "shareSnapshot", // required
+ *         EventType: 'shareSnapshot', // required
  *         SnapshotOwner: [ // SnapshotOwnerList // required
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
- *         DescriptionRegex: "STRING_VALUE", // required
+ *         DescriptionRegex: 'STRING_VALUE', // required
  *       },
  *     },
  *     Actions: [ // ActionList
  *       { // Action
- *         Name: "STRING_VALUE", // required
+ *         Name: 'STRING_VALUE', // required
  *         CrossRegionCopy: [ // CrossRegionCopyActionList // required
  *           { // CrossRegionCopyAction
- *             Target: "STRING_VALUE", // required
+ *             Target: 'STRING_VALUE', // required
  *             EncryptionConfiguration: { // EncryptionConfiguration
  *               Encrypted: true || false, // required
- *               CmkArn: "STRING_VALUE",
+ *               CmkArn: 'STRING_VALUE',
  *             },
  *             RetainRule: {
- *               Interval: Number("int"),
- *               IntervalUnit: "DAYS" || "WEEKS" || "MONTHS" || "YEARS",
+ *               Interval: Number('int'),
+ *               IntervalUnit: 'DAYS' || 'WEEKS' || 'MONTHS' || 'YEARS',
  *             },
  *           },
  *         ],
@@ -175,11 +175,16 @@ export interface CreateLifecyclePolicyCommandOutput extends CreateLifecyclePolic
  *     ],
  *   },
  *   Tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateLifecyclePolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateLifecyclePolicyResponse
+ *   PolicyId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateLifecyclePolicyCommandInput - {@link CreateLifecyclePolicyCommandInput}
@@ -198,6 +203,8 @@ export interface CreateLifecyclePolicyCommandOutput extends CreateLifecyclePolic
  * @throws {@link LimitExceededException} (client fault)
  *  <p>The request failed because a limit was exceeded.</p>
  *
+ * @throws {@link DLMServiceException}
+ * <p>Base exception class for all service exceptions from DLM service.</p>
  *
  */
 export class CreateLifecyclePolicyCommand extends $Command<

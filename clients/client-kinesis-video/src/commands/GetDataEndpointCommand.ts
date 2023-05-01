@@ -46,16 +46,21 @@ export interface GetDataEndpointCommandOutput extends GetDataEndpointOutput, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KinesisVideoClient, GetDataEndpointCommand } from "@aws-sdk/client-kinesis-video"; // ES Modules import
- * // const { KinesisVideoClient, GetDataEndpointCommand } = require("@aws-sdk/client-kinesis-video"); // CommonJS import
+ * import { KinesisVideoClient, GetDataEndpointCommand } from '@aws-sdk/client-kinesis-video'; // ES Modules import
+ * // const { KinesisVideoClient, GetDataEndpointCommand } = require('@aws-sdk/client-kinesis-video'); // CommonJS import
  * const client = new KinesisVideoClient(config);
  * const input = { // GetDataEndpointInput
- *   StreamName: "STRING_VALUE",
- *   StreamARN: "STRING_VALUE",
- *   APIName: "PUT_MEDIA" || "GET_MEDIA" || "LIST_FRAGMENTS" || "GET_MEDIA_FOR_FRAGMENT_LIST" || "GET_HLS_STREAMING_SESSION_URL" || "GET_DASH_STREAMING_SESSION_URL" || "GET_CLIP" || "GET_IMAGES", // required
+ *   StreamName: 'STRING_VALUE',
+ *   StreamARN: 'STRING_VALUE',
+ *   APIName: 'PUT_MEDIA' || 'GET_MEDIA' || 'LIST_FRAGMENTS' || 'GET_MEDIA_FOR_FRAGMENT_LIST' || 'GET_HLS_STREAMING_SESSION_URL' || 'GET_DASH_STREAMING_SESSION_URL' || 'GET_CLIP' || 'GET_IMAGES', // required
  * };
  * const command = new GetDataEndpointCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetDataEndpointOutput
+ *   DataEndpoint: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetDataEndpointCommandInput - {@link GetDataEndpointCommandInput}
@@ -77,6 +82,8 @@ export interface GetDataEndpointCommandOutput extends GetDataEndpointOutput, __M
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Amazon Kinesis Video Streams can't find the stream that you specified.</p>
  *
+ * @throws {@link KinesisVideoServiceException}
+ * <p>Base exception class for all service exceptions from KinesisVideo service.</p>
  *
  */
 export class GetDataEndpointCommand extends $Command<

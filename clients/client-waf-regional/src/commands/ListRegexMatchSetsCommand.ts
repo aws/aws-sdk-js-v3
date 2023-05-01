@@ -44,15 +44,26 @@ export interface ListRegexMatchSetsCommandOutput extends ListRegexMatchSetsRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WAFRegionalClient, ListRegexMatchSetsCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
- * // const { WAFRegionalClient, ListRegexMatchSetsCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import
+ * import { WAFRegionalClient, ListRegexMatchSetsCommand } from '@aws-sdk/client-waf-regional'; // ES Modules import
+ * // const { WAFRegionalClient, ListRegexMatchSetsCommand } = require('@aws-sdk/client-waf-regional'); // CommonJS import
  * const client = new WAFRegionalClient(config);
  * const input = { // ListRegexMatchSetsRequest
- *   NextMarker: "STRING_VALUE",
- *   Limit: Number("int"),
+ *   NextMarker: 'STRING_VALUE',
+ *   Limit: Number('int'),
  * };
  * const command = new ListRegexMatchSetsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListRegexMatchSetsResponse
+ *   NextMarker: 'STRING_VALUE',
+ *   RegexMatchSets: [ // RegexMatchSetSummaries
+ *     { // RegexMatchSetSummary
+ *       RegexMatchSetId: 'STRING_VALUE', // required
+ *       Name: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListRegexMatchSetsCommandInput - {@link ListRegexMatchSetsCommandInput}
@@ -67,6 +78,8 @@ export interface ListRegexMatchSetsCommandOutput extends ListRegexMatchSetsRespo
  * @throws {@link WAFInvalidAccountException} (client fault)
  *  <p>The operation failed because you tried to create, update, or delete an object by using an invalid account identifier.</p>
  *
+ * @throws {@link WAFRegionalServiceException}
+ * <p>Base exception class for all service exceptions from WAFRegional service.</p>
  *
  */
 export class ListRegexMatchSetsCommand extends $Command<

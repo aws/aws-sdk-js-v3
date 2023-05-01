@@ -42,16 +42,21 @@ export interface GetSourceRepositoryCloneUrlsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeCatalystClient, GetSourceRepositoryCloneUrlsCommand } from "@aws-sdk/client-codecatalyst"; // ES Modules import
- * // const { CodeCatalystClient, GetSourceRepositoryCloneUrlsCommand } = require("@aws-sdk/client-codecatalyst"); // CommonJS import
+ * import { CodeCatalystClient, GetSourceRepositoryCloneUrlsCommand } from '@aws-sdk/client-codecatalyst'; // ES Modules import
+ * // const { CodeCatalystClient, GetSourceRepositoryCloneUrlsCommand } = require('@aws-sdk/client-codecatalyst'); // CommonJS import
  * const client = new CodeCatalystClient(config);
  * const input = { // GetSourceRepositoryCloneUrlsRequest
- *   spaceName: "STRING_VALUE", // required
- *   projectName: "STRING_VALUE", // required
- *   sourceRepositoryName: "STRING_VALUE", // required
+ *   spaceName: 'STRING_VALUE', // required
+ *   projectName: 'STRING_VALUE', // required
+ *   sourceRepositoryName: 'STRING_VALUE', // required
  * };
  * const command = new GetSourceRepositoryCloneUrlsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetSourceRepositoryCloneUrlsResponse
+ *   https: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param GetSourceRepositoryCloneUrlsCommandInput - {@link GetSourceRepositoryCloneUrlsCommandInput}
@@ -80,6 +85,8 @@ export interface GetSourceRepositoryCloneUrlsCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The request was denied because an input failed to satisfy the constraints specified by the service. Check the spelling and input requirements, and then try again.</p>
  *
+ * @throws {@link CodeCatalystServiceException}
+ * <p>Base exception class for all service exceptions from CodeCatalyst service.</p>
  *
  */
 export class GetSourceRepositoryCloneUrlsCommand extends $Command<

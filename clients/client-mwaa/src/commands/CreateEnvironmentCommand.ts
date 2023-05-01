@@ -40,67 +40,72 @@ export interface CreateEnvironmentCommandOutput extends CreateEnvironmentOutput,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MWAAClient, CreateEnvironmentCommand } from "@aws-sdk/client-mwaa"; // ES Modules import
- * // const { MWAAClient, CreateEnvironmentCommand } = require("@aws-sdk/client-mwaa"); // CommonJS import
+ * import { MWAAClient, CreateEnvironmentCommand } from '@aws-sdk/client-mwaa'; // ES Modules import
+ * // const { MWAAClient, CreateEnvironmentCommand } = require('@aws-sdk/client-mwaa'); // CommonJS import
  * const client = new MWAAClient(config);
  * const input = { // CreateEnvironmentInput
- *   Name: "STRING_VALUE", // required
- *   ExecutionRoleArn: "STRING_VALUE", // required
- *   SourceBucketArn: "STRING_VALUE", // required
- *   DagS3Path: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
+ *   ExecutionRoleArn: 'STRING_VALUE', // required
+ *   SourceBucketArn: 'STRING_VALUE', // required
+ *   DagS3Path: 'STRING_VALUE', // required
  *   NetworkConfiguration: { // NetworkConfiguration
  *     SubnetIds: [ // SubnetList
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     SecurityGroupIds: [ // SecurityGroupList
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *   },
- *   PluginsS3Path: "STRING_VALUE",
- *   PluginsS3ObjectVersion: "STRING_VALUE",
- *   RequirementsS3Path: "STRING_VALUE",
- *   RequirementsS3ObjectVersion: "STRING_VALUE",
- *   StartupScriptS3Path: "STRING_VALUE",
- *   StartupScriptS3ObjectVersion: "STRING_VALUE",
+ *   PluginsS3Path: 'STRING_VALUE',
+ *   PluginsS3ObjectVersion: 'STRING_VALUE',
+ *   RequirementsS3Path: 'STRING_VALUE',
+ *   RequirementsS3ObjectVersion: 'STRING_VALUE',
+ *   StartupScriptS3Path: 'STRING_VALUE',
+ *   StartupScriptS3ObjectVersion: 'STRING_VALUE',
  *   AirflowConfigurationOptions: { // AirflowConfigurationOptions
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
- *   EnvironmentClass: "STRING_VALUE",
- *   MaxWorkers: Number("int"),
- *   KmsKey: "STRING_VALUE",
- *   AirflowVersion: "STRING_VALUE",
+ *   EnvironmentClass: 'STRING_VALUE',
+ *   MaxWorkers: Number('int'),
+ *   KmsKey: 'STRING_VALUE',
+ *   AirflowVersion: 'STRING_VALUE',
  *   LoggingConfiguration: { // LoggingConfigurationInput
  *     DagProcessingLogs: { // ModuleLoggingConfigurationInput
  *       Enabled: true || false, // required
- *       LogLevel: "STRING_VALUE", // required
+ *       LogLevel: 'STRING_VALUE', // required
  *     },
  *     SchedulerLogs: {
  *       Enabled: true || false, // required
- *       LogLevel: "STRING_VALUE", // required
+ *       LogLevel: 'STRING_VALUE', // required
  *     },
  *     WebserverLogs: {
  *       Enabled: true || false, // required
- *       LogLevel: "STRING_VALUE", // required
+ *       LogLevel: 'STRING_VALUE', // required
  *     },
  *     WorkerLogs: {
  *       Enabled: true || false, // required
- *       LogLevel: "STRING_VALUE", // required
+ *       LogLevel: 'STRING_VALUE', // required
  *     },
  *     TaskLogs: {
  *       Enabled: true || false, // required
- *       LogLevel: "STRING_VALUE", // required
+ *       LogLevel: 'STRING_VALUE', // required
  *     },
  *   },
- *   WeeklyMaintenanceWindowStart: "STRING_VALUE",
+ *   WeeklyMaintenanceWindowStart: 'STRING_VALUE',
  *   Tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
- *   WebserverAccessMode: "STRING_VALUE",
- *   MinWorkers: Number("int"),
- *   Schedulers: Number("int"),
+ *   WebserverAccessMode: 'STRING_VALUE',
+ *   MinWorkers: Number('int'),
+ *   Schedulers: Number('int'),
  * };
  * const command = new CreateEnvironmentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateEnvironmentOutput
+ *   Arn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateEnvironmentCommandInput - {@link CreateEnvironmentCommandInput}
@@ -115,6 +120,8 @@ export interface CreateEnvironmentCommandOutput extends CreateEnvironmentOutput,
  * @throws {@link ValidationException} (client fault)
  *  <p>ValidationException: The provided input is not valid.</p>
  *
+ * @throws {@link MWAAServiceException}
+ * <p>Base exception class for all service exceptions from MWAA service.</p>
  *
  */
 export class CreateEnvironmentCommand extends $Command<

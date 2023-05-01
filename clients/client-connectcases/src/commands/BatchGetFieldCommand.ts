@@ -36,19 +36,43 @@ export interface BatchGetFieldCommandOutput extends BatchGetFieldResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectCasesClient, BatchGetFieldCommand } from "@aws-sdk/client-connectcases"; // ES Modules import
- * // const { ConnectCasesClient, BatchGetFieldCommand } = require("@aws-sdk/client-connectcases"); // CommonJS import
+ * import { ConnectCasesClient, BatchGetFieldCommand } from '@aws-sdk/client-connectcases'; // ES Modules import
+ * // const { ConnectCasesClient, BatchGetFieldCommand } = require('@aws-sdk/client-connectcases'); // CommonJS import
  * const client = new ConnectCasesClient(config);
  * const input = { // BatchGetFieldRequest
- *   domainId: "STRING_VALUE", // required
+ *   domainId: 'STRING_VALUE', // required
  *   fields: [ // BatchGetFieldIdentifierList // required
  *     { // FieldIdentifier
- *       id: "STRING_VALUE", // required
+ *       id: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new BatchGetFieldCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BatchGetFieldResponse
+ *   fields: [ // BatchGetFieldList // required
+ *     { // GetFieldResponse
+ *       fieldId: 'STRING_VALUE', // required
+ *       name: 'STRING_VALUE', // required
+ *       fieldArn: 'STRING_VALUE', // required
+ *       description: 'STRING_VALUE',
+ *       type: 'STRING_VALUE', // required
+ *       namespace: 'STRING_VALUE', // required
+ *       tags: { // Tags
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ *   errors: [ // BatchGetFieldErrorList // required
+ *     { // FieldError
+ *       id: 'STRING_VALUE', // required
+ *       errorCode: 'STRING_VALUE', // required
+ *       message: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param BatchGetFieldCommandInput - {@link BatchGetFieldCommandInput}
@@ -74,6 +98,8 @@ export interface BatchGetFieldCommandOutput extends BatchGetFieldResponse, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>The request isn't valid. Check the syntax and try again.</p>
  *
+ * @throws {@link ConnectCasesServiceException}
+ * <p>Base exception class for all service exceptions from ConnectCases service.</p>
  *
  */
 export class BatchGetFieldCommand extends $Command<

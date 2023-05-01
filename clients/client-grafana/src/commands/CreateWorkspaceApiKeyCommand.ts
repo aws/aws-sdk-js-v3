@@ -42,17 +42,24 @@ export interface CreateWorkspaceApiKeyCommandOutput extends CreateWorkspaceApiKe
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GrafanaClient, CreateWorkspaceApiKeyCommand } from "@aws-sdk/client-grafana"; // ES Modules import
- * // const { GrafanaClient, CreateWorkspaceApiKeyCommand } = require("@aws-sdk/client-grafana"); // CommonJS import
+ * import { GrafanaClient, CreateWorkspaceApiKeyCommand } from '@aws-sdk/client-grafana'; // ES Modules import
+ * // const { GrafanaClient, CreateWorkspaceApiKeyCommand } = require('@aws-sdk/client-grafana'); // CommonJS import
  * const client = new GrafanaClient(config);
  * const input = { // CreateWorkspaceApiKeyRequest
- *   keyName: "STRING_VALUE", // required
- *   keyRole: "STRING_VALUE", // required
- *   secondsToLive: Number("int"), // required
- *   workspaceId: "STRING_VALUE", // required
+ *   keyName: 'STRING_VALUE', // required
+ *   keyRole: 'STRING_VALUE', // required
+ *   secondsToLive: Number('int'), // required
+ *   workspaceId: 'STRING_VALUE', // required
  * };
  * const command = new CreateWorkspaceApiKeyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateWorkspaceApiKeyResponse
+ *   keyName: 'STRING_VALUE', // required
+ *   key: 'STRING_VALUE', // required
+ *   workspaceId: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param CreateWorkspaceApiKeyCommandInput - {@link CreateWorkspaceApiKeyCommandInput}
@@ -82,6 +89,8 @@ export interface CreateWorkspaceApiKeyCommandOutput extends CreateWorkspaceApiKe
  * @throws {@link ValidationException} (client fault)
  *  <p>The value of a parameter in the request caused an error.</p>
  *
+ * @throws {@link GrafanaServiceException}
+ * <p>Base exception class for all service exceptions from Grafana service.</p>
  *
  */
 export class CreateWorkspaceApiKeyCommand extends $Command<

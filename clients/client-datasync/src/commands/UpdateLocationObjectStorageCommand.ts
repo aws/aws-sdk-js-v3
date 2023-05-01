@@ -45,23 +45,26 @@ export interface UpdateLocationObjectStorageCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DataSyncClient, UpdateLocationObjectStorageCommand } from "@aws-sdk/client-datasync"; // ES Modules import
- * // const { DataSyncClient, UpdateLocationObjectStorageCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
+ * import { DataSyncClient, UpdateLocationObjectStorageCommand } from '@aws-sdk/client-datasync'; // ES Modules import
+ * // const { DataSyncClient, UpdateLocationObjectStorageCommand } = require('@aws-sdk/client-datasync'); // CommonJS import
  * const client = new DataSyncClient(config);
  * const input = { // UpdateLocationObjectStorageRequest
- *   LocationArn: "STRING_VALUE", // required
- *   ServerPort: Number("int"),
- *   ServerProtocol: "HTTPS" || "HTTP",
- *   Subdirectory: "STRING_VALUE",
- *   AccessKey: "STRING_VALUE",
- *   SecretKey: "STRING_VALUE",
+ *   LocationArn: 'STRING_VALUE', // required
+ *   ServerPort: Number('int'),
+ *   ServerProtocol: 'HTTPS' || 'HTTP',
+ *   Subdirectory: 'STRING_VALUE',
+ *   AccessKey: 'STRING_VALUE',
+ *   SecretKey: 'STRING_VALUE',
  *   AgentArns: [ // AgentArnList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   ServerCertificate: "BLOB_VALUE",
+ *   ServerCertificate: 'BLOB_VALUE',
  * };
  * const command = new UpdateLocationObjectStorageCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateLocationObjectStorageCommandInput - {@link UpdateLocationObjectStorageCommandInput}
@@ -77,6 +80,8 @@ export interface UpdateLocationObjectStorageCommandOutput
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception is thrown when the client submits a malformed request.</p>
  *
+ * @throws {@link DataSyncServiceException}
+ * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
  */
 export class UpdateLocationObjectStorageCommand extends $Command<

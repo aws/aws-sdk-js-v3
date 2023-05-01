@@ -45,16 +45,40 @@ export interface ListChannelFlowsCommandOutput extends ListChannelFlowsResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeSDKMessagingClient, ListChannelFlowsCommand } from "@aws-sdk/client-chime-sdk-messaging"; // ES Modules import
- * // const { ChimeSDKMessagingClient, ListChannelFlowsCommand } = require("@aws-sdk/client-chime-sdk-messaging"); // CommonJS import
+ * import { ChimeSDKMessagingClient, ListChannelFlowsCommand } from '@aws-sdk/client-chime-sdk-messaging'; // ES Modules import
+ * // const { ChimeSDKMessagingClient, ListChannelFlowsCommand } = require('@aws-sdk/client-chime-sdk-messaging'); // CommonJS import
  * const client = new ChimeSDKMessagingClient(config);
  * const input = { // ListChannelFlowsRequest
- *   AppInstanceArn: "STRING_VALUE", // required
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   AppInstanceArn: 'STRING_VALUE', // required
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListChannelFlowsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListChannelFlowsResponse
+ *   ChannelFlows: [ // ChannelFlowSummaryList
+ *     { // ChannelFlowSummary
+ *       ChannelFlowArn: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *       Processors: [ // ProcessorList
+ *         { // Processor
+ *           Name: 'STRING_VALUE', // required
+ *           Configuration: { // ProcessorConfiguration
+ *             Lambda: { // LambdaConfiguration
+ *               ResourceArn: 'STRING_VALUE', // required
+ *               InvocationType: 'ASYNC', // required
+ *             },
+ *           },
+ *           ExecutionOrder: Number('int'), // required
+ *           FallbackAction: 'CONTINUE' || 'ABORT', // required
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListChannelFlowsCommandInput - {@link ListChannelFlowsCommandInput}
@@ -81,6 +105,8 @@ export interface ListChannelFlowsCommandOutput extends ListChannelFlowsResponse,
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeSDKMessagingServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKMessaging service.</p>
  *
  */
 export class ListChannelFlowsCommand extends $Command<

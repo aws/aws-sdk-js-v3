@@ -44,15 +44,26 @@ export interface ListByteMatchSetsCommandOutput extends ListByteMatchSetsRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WAFRegionalClient, ListByteMatchSetsCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
- * // const { WAFRegionalClient, ListByteMatchSetsCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import
+ * import { WAFRegionalClient, ListByteMatchSetsCommand } from '@aws-sdk/client-waf-regional'; // ES Modules import
+ * // const { WAFRegionalClient, ListByteMatchSetsCommand } = require('@aws-sdk/client-waf-regional'); // CommonJS import
  * const client = new WAFRegionalClient(config);
  * const input = { // ListByteMatchSetsRequest
- *   NextMarker: "STRING_VALUE",
- *   Limit: Number("int"),
+ *   NextMarker: 'STRING_VALUE',
+ *   Limit: Number('int'),
  * };
  * const command = new ListByteMatchSetsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListByteMatchSetsResponse
+ *   NextMarker: 'STRING_VALUE',
+ *   ByteMatchSets: [ // ByteMatchSetSummaries
+ *     { // ByteMatchSetSummary
+ *       ByteMatchSetId: 'STRING_VALUE', // required
+ *       Name: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListByteMatchSetsCommandInput - {@link ListByteMatchSetsCommandInput}
@@ -67,6 +78,8 @@ export interface ListByteMatchSetsCommandOutput extends ListByteMatchSetsRespons
  * @throws {@link WAFInvalidAccountException} (client fault)
  *  <p>The operation failed because you tried to create, update, or delete an object by using an invalid account identifier.</p>
  *
+ * @throws {@link WAFRegionalServiceException}
+ * <p>Base exception class for all service exceptions from WAFRegional service.</p>
  *
  */
 export class ListByteMatchSetsCommand extends $Command<

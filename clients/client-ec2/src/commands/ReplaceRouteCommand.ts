@@ -41,30 +41,33 @@ export interface ReplaceRouteCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, ReplaceRouteCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, ReplaceRouteCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, ReplaceRouteCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, ReplaceRouteCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // ReplaceRouteRequest
- *   DestinationCidrBlock: "STRING_VALUE",
- *   DestinationIpv6CidrBlock: "STRING_VALUE",
- *   DestinationPrefixListId: "STRING_VALUE",
+ *   DestinationCidrBlock: 'STRING_VALUE',
+ *   DestinationIpv6CidrBlock: 'STRING_VALUE',
+ *   DestinationPrefixListId: 'STRING_VALUE',
  *   DryRun: true || false,
- *   VpcEndpointId: "STRING_VALUE",
- *   EgressOnlyInternetGatewayId: "STRING_VALUE",
- *   GatewayId: "STRING_VALUE",
- *   InstanceId: "STRING_VALUE",
+ *   VpcEndpointId: 'STRING_VALUE',
+ *   EgressOnlyInternetGatewayId: 'STRING_VALUE',
+ *   GatewayId: 'STRING_VALUE',
+ *   InstanceId: 'STRING_VALUE',
  *   LocalTarget: true || false,
- *   NatGatewayId: "STRING_VALUE",
- *   TransitGatewayId: "STRING_VALUE",
- *   LocalGatewayId: "STRING_VALUE",
- *   CarrierGatewayId: "STRING_VALUE",
- *   NetworkInterfaceId: "STRING_VALUE",
- *   RouteTableId: "STRING_VALUE", // required
- *   VpcPeeringConnectionId: "STRING_VALUE",
- *   CoreNetworkArn: "STRING_VALUE",
+ *   NatGatewayId: 'STRING_VALUE',
+ *   TransitGatewayId: 'STRING_VALUE',
+ *   LocalGatewayId: 'STRING_VALUE',
+ *   CarrierGatewayId: 'STRING_VALUE',
+ *   NetworkInterfaceId: 'STRING_VALUE',
+ *   RouteTableId: 'STRING_VALUE', // required
+ *   VpcPeeringConnectionId: 'STRING_VALUE',
+ *   CoreNetworkArn: 'STRING_VALUE',
  * };
  * const command = new ReplaceRouteCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param ReplaceRouteCommandInput - {@link ReplaceRouteCommandInput}
@@ -73,6 +76,8 @@ export interface ReplaceRouteCommandOutput extends __MetadataBearer {}
  * @see {@link ReplaceRouteCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @example To replace a route
  * ```javascript

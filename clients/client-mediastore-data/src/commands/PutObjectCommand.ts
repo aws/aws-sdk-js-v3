@@ -45,19 +45,26 @@ export interface PutObjectCommandOutput extends PutObjectResponse, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MediaStoreDataClient, PutObjectCommand } from "@aws-sdk/client-mediastore-data"; // ES Modules import
- * // const { MediaStoreDataClient, PutObjectCommand } = require("@aws-sdk/client-mediastore-data"); // CommonJS import
+ * import { MediaStoreDataClient, PutObjectCommand } from '@aws-sdk/client-mediastore-data'; // ES Modules import
+ * // const { MediaStoreDataClient, PutObjectCommand } = require('@aws-sdk/client-mediastore-data'); // CommonJS import
  * const client = new MediaStoreDataClient(config);
  * const input = { // PutObjectRequest
- *   Body: "STREAMING_BLOB_VALUE", // required
- *   Path: "STRING_VALUE", // required
- *   ContentType: "STRING_VALUE",
- *   CacheControl: "STRING_VALUE",
- *   StorageClass: "STRING_VALUE",
- *   UploadAvailability: "STRING_VALUE",
+ *   Body: 'STREAMING_BLOB_VALUE', // required
+ *   Path: 'STRING_VALUE', // required
+ *   ContentType: 'STRING_VALUE',
+ *   CacheControl: 'STRING_VALUE',
+ *   StorageClass: 'STRING_VALUE',
+ *   UploadAvailability: 'STRING_VALUE',
  * };
  * const command = new PutObjectCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutObjectResponse
+ *   ContentSHA256: 'STRING_VALUE',
+ *   ETag: 'STRING_VALUE',
+ *   StorageClass: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param PutObjectCommandInput - {@link PutObjectCommandInput}
@@ -72,6 +79,8 @@ export interface PutObjectCommandOutput extends PutObjectResponse, __MetadataBea
  * @throws {@link InternalServerError} (server fault)
  *  <p>The service is temporarily unavailable.</p>
  *
+ * @throws {@link MediaStoreDataServiceException}
+ * <p>Base exception class for all service exceptions from MediaStoreData service.</p>
  *
  */
 export class PutObjectCommand extends $Command<

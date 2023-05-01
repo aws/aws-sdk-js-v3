@@ -39,19 +39,39 @@ export interface DescribeVTLDevicesCommandOutput extends DescribeVTLDevicesOutpu
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { StorageGatewayClient, DescribeVTLDevicesCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
- * // const { StorageGatewayClient, DescribeVTLDevicesCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
+ * import { StorageGatewayClient, DescribeVTLDevicesCommand } from '@aws-sdk/client-storage-gateway'; // ES Modules import
+ * // const { StorageGatewayClient, DescribeVTLDevicesCommand } = require('@aws-sdk/client-storage-gateway'); // CommonJS import
  * const client = new StorageGatewayClient(config);
  * const input = { // DescribeVTLDevicesInput
- *   GatewayARN: "STRING_VALUE", // required
+ *   GatewayARN: 'STRING_VALUE', // required
  *   VTLDeviceARNs: [ // VTLDeviceARNs
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   Marker: "STRING_VALUE",
- *   Limit: Number("int"),
+ *   Marker: 'STRING_VALUE',
+ *   Limit: Number('int'),
  * };
  * const command = new DescribeVTLDevicesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeVTLDevicesOutput
+ *   GatewayARN: 'STRING_VALUE',
+ *   VTLDevices: [ // VTLDevices
+ *     { // VTLDevice
+ *       VTLDeviceARN: 'STRING_VALUE',
+ *       VTLDeviceType: 'STRING_VALUE',
+ *       VTLDeviceVendor: 'STRING_VALUE',
+ *       VTLDeviceProductIdentifier: 'STRING_VALUE',
+ *       DeviceiSCSIAttributes: { // DeviceiSCSIAttributes
+ *         TargetARN: 'STRING_VALUE',
+ *         NetworkInterfaceId: 'STRING_VALUE',
+ *         NetworkInterfacePort: Number('int'),
+ *         ChapEnabled: true || false,
+ *       },
+ *     },
+ *   ],
+ *   Marker: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeVTLDevicesCommandInput - {@link DescribeVTLDevicesCommandInput}
@@ -68,6 +88,8 @@ export interface DescribeVTLDevicesCommandOutput extends DescribeVTLDevicesOutpu
  *  <p>An exception occurred because an invalid gateway request was issued to the service. For
  *          more information, see the error and message fields.</p>
  *
+ * @throws {@link StorageGatewayServiceException}
+ * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
  * @example To describe virtual tape library (VTL) devices of a single gateway
  * ```javascript

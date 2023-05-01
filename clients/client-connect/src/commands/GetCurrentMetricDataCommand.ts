@@ -38,42 +38,73 @@ export interface GetCurrentMetricDataCommandOutput extends GetCurrentMetricDataR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, GetCurrentMetricDataCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, GetCurrentMetricDataCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, GetCurrentMetricDataCommand } from '@aws-sdk/client-connect'; // ES Modules import
+ * // const { ConnectClient, GetCurrentMetricDataCommand } = require('@aws-sdk/client-connect'); // CommonJS import
  * const client = new ConnectClient(config);
  * const input = { // GetCurrentMetricDataRequest
- *   InstanceId: "STRING_VALUE", // required
+ *   InstanceId: 'STRING_VALUE', // required
  *   Filters: { // Filters
  *     Queues: [ // Queues
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     Channels: [ // Channels
- *       "VOICE" || "CHAT" || "TASK",
+ *       'VOICE' || 'CHAT' || 'TASK',
  *     ],
  *     RoutingProfiles: [ // RoutingProfiles
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *   },
  *   Groupings: [ // Groupings
- *     "QUEUE" || "CHANNEL" || "ROUTING_PROFILE",
+ *     'QUEUE' || 'CHANNEL' || 'ROUTING_PROFILE',
  *   ],
  *   CurrentMetrics: [ // CurrentMetrics // required
  *     { // CurrentMetric
- *       Name: "AGENTS_ONLINE" || "AGENTS_AVAILABLE" || "AGENTS_ON_CALL" || "AGENTS_NON_PRODUCTIVE" || "AGENTS_AFTER_CONTACT_WORK" || "AGENTS_ERROR" || "AGENTS_STAFFED" || "CONTACTS_IN_QUEUE" || "OLDEST_CONTACT_AGE" || "CONTACTS_SCHEDULED" || "AGENTS_ON_CONTACT" || "SLOTS_ACTIVE" || "SLOTS_AVAILABLE",
- *       Unit: "SECONDS" || "COUNT" || "PERCENT",
+ *       Name: 'AGENTS_ONLINE' || 'AGENTS_AVAILABLE' || 'AGENTS_ON_CALL' || 'AGENTS_NON_PRODUCTIVE' || 'AGENTS_AFTER_CONTACT_WORK' || 'AGENTS_ERROR' || 'AGENTS_STAFFED' || 'CONTACTS_IN_QUEUE' || 'OLDEST_CONTACT_AGE' || 'CONTACTS_SCHEDULED' || 'AGENTS_ON_CONTACT' || 'SLOTS_ACTIVE' || 'SLOTS_AVAILABLE',
+ *       Unit: 'SECONDS' || 'COUNT' || 'PERCENT',
  *     },
  *   ],
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  *   SortCriteria: [ // CurrentMetricSortCriteriaMaxOne
  *     { // CurrentMetricSortCriteria
- *       SortByMetric: "AGENTS_ONLINE" || "AGENTS_AVAILABLE" || "AGENTS_ON_CALL" || "AGENTS_NON_PRODUCTIVE" || "AGENTS_AFTER_CONTACT_WORK" || "AGENTS_ERROR" || "AGENTS_STAFFED" || "CONTACTS_IN_QUEUE" || "OLDEST_CONTACT_AGE" || "CONTACTS_SCHEDULED" || "AGENTS_ON_CONTACT" || "SLOTS_ACTIVE" || "SLOTS_AVAILABLE",
- *       SortOrder: "ASCENDING" || "DESCENDING",
+ *       SortByMetric: 'AGENTS_ONLINE' || 'AGENTS_AVAILABLE' || 'AGENTS_ON_CALL' || 'AGENTS_NON_PRODUCTIVE' || 'AGENTS_AFTER_CONTACT_WORK' || 'AGENTS_ERROR' || 'AGENTS_STAFFED' || 'CONTACTS_IN_QUEUE' || 'OLDEST_CONTACT_AGE' || 'CONTACTS_SCHEDULED' || 'AGENTS_ON_CONTACT' || 'SLOTS_ACTIVE' || 'SLOTS_AVAILABLE',
+ *       SortOrder: 'ASCENDING' || 'DESCENDING',
  *     },
  *   ],
  * };
  * const command = new GetCurrentMetricDataCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetCurrentMetricDataResponse
+ *   NextToken: 'STRING_VALUE',
+ *   MetricResults: [ // CurrentMetricResults
+ *     { // CurrentMetricResult
+ *       Dimensions: { // Dimensions
+ *         Queue: { // QueueReference
+ *           Id: 'STRING_VALUE',
+ *           Arn: 'STRING_VALUE',
+ *         },
+ *         Channel: 'VOICE' || 'CHAT' || 'TASK',
+ *         RoutingProfile: { // RoutingProfileReference
+ *           Id: 'STRING_VALUE',
+ *           Arn: 'STRING_VALUE',
+ *         },
+ *       },
+ *       Collections: [ // CurrentMetricDataCollections
+ *         { // CurrentMetricData
+ *           Metric: { // CurrentMetric
+ *             Name: 'AGENTS_ONLINE' || 'AGENTS_AVAILABLE' || 'AGENTS_ON_CALL' || 'AGENTS_NON_PRODUCTIVE' || 'AGENTS_AFTER_CONTACT_WORK' || 'AGENTS_ERROR' || 'AGENTS_STAFFED' || 'CONTACTS_IN_QUEUE' || 'OLDEST_CONTACT_AGE' || 'CONTACTS_SCHEDULED' || 'AGENTS_ON_CONTACT' || 'SLOTS_ACTIVE' || 'SLOTS_AVAILABLE',
+ *             Unit: 'SECONDS' || 'COUNT' || 'PERCENT',
+ *           },
+ *           Value: Number('double'),
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   DataSnapshotTime: new Date('TIMESTAMP'),
+ *   ApproximateTotalCount: Number('long'),
+ * };
+ *
  * ```
  *
  * @param GetCurrentMetricDataCommandInput - {@link GetCurrentMetricDataCommandInput}
@@ -97,6 +128,8 @@ export interface GetCurrentMetricDataCommandOutput extends GetCurrentMetricDataR
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class GetCurrentMetricDataCommand extends $Command<

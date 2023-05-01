@@ -36,14 +36,26 @@ export interface GetDomainCommandOutput extends GetDomainResponse, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectCasesClient, GetDomainCommand } from "@aws-sdk/client-connectcases"; // ES Modules import
- * // const { ConnectCasesClient, GetDomainCommand } = require("@aws-sdk/client-connectcases"); // CommonJS import
+ * import { ConnectCasesClient, GetDomainCommand } from '@aws-sdk/client-connectcases'; // ES Modules import
+ * // const { ConnectCasesClient, GetDomainCommand } = require('@aws-sdk/client-connectcases'); // CommonJS import
  * const client = new ConnectCasesClient(config);
  * const input = { // GetDomainRequest
- *   domainId: "STRING_VALUE", // required
+ *   domainId: 'STRING_VALUE', // required
  * };
  * const command = new GetDomainCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetDomainResponse
+ *   domainId: 'STRING_VALUE', // required
+ *   domainArn: 'STRING_VALUE', // required
+ *   name: 'STRING_VALUE', // required
+ *   createdTime: new Date('TIMESTAMP'), // required
+ *   domainStatus: 'STRING_VALUE', // required
+ *   tags: { // Tags
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetDomainCommandInput - {@link GetDomainCommandInput}
@@ -69,6 +81,8 @@ export interface GetDomainCommandOutput extends GetDomainResponse, __MetadataBea
  * @throws {@link ValidationException} (client fault)
  *  <p>The request isn't valid. Check the syntax and try again.</p>
  *
+ * @throws {@link ConnectCasesServiceException}
+ * <p>Base exception class for all service exceptions from ConnectCases service.</p>
  *
  */
 export class GetDomainCommand extends $Command<

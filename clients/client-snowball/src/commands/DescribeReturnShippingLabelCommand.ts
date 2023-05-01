@@ -36,14 +36,21 @@ export interface DescribeReturnShippingLabelCommandOutput extends DescribeReturn
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SnowballClient, DescribeReturnShippingLabelCommand } from "@aws-sdk/client-snowball"; // ES Modules import
- * // const { SnowballClient, DescribeReturnShippingLabelCommand } = require("@aws-sdk/client-snowball"); // CommonJS import
+ * import { SnowballClient, DescribeReturnShippingLabelCommand } from '@aws-sdk/client-snowball'; // ES Modules import
+ * // const { SnowballClient, DescribeReturnShippingLabelCommand } = require('@aws-sdk/client-snowball'); // CommonJS import
  * const client = new SnowballClient(config);
  * const input = { // DescribeReturnShippingLabelRequest
- *   JobId: "STRING_VALUE", // required
+ *   JobId: 'STRING_VALUE', // required
  * };
  * const command = new DescribeReturnShippingLabelCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeReturnShippingLabelResult
+ *   Status: 'InProgress' || 'TimedOut' || 'Succeeded' || 'Failed',
+ *   ExpirationDate: new Date('TIMESTAMP'),
+ *   ReturnShippingLabelURI: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeReturnShippingLabelCommandInput - {@link DescribeReturnShippingLabelCommandInput}
@@ -64,6 +71,8 @@ export interface DescribeReturnShippingLabelCommandOutput extends DescribeReturn
  *  <p>The specified resource can't be found. Check the information you provided in your last
  *       request, and try again.</p>
  *
+ * @throws {@link SnowballServiceException}
+ * <p>Base exception class for all service exceptions from Snowball service.</p>
  *
  */
 export class DescribeReturnShippingLabelCommand extends $Command<

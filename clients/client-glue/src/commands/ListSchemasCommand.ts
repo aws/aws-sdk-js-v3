@@ -37,19 +37,35 @@ export interface ListSchemasCommandOutput extends ListSchemasResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlueClient, ListSchemasCommand } from "@aws-sdk/client-glue"; // ES Modules import
- * // const { GlueClient, ListSchemasCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * import { GlueClient, ListSchemasCommand } from '@aws-sdk/client-glue'; // ES Modules import
+ * // const { GlueClient, ListSchemasCommand } = require('@aws-sdk/client-glue'); // CommonJS import
  * const client = new GlueClient(config);
  * const input = { // ListSchemasInput
  *   RegistryId: { // RegistryId
- *     RegistryName: "STRING_VALUE",
- *     RegistryArn: "STRING_VALUE",
+ *     RegistryName: 'STRING_VALUE',
+ *     RegistryArn: 'STRING_VALUE',
  *   },
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListSchemasCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListSchemasResponse
+ *   Schemas: [ // SchemaListDefinition
+ *     { // SchemaListItem
+ *       RegistryName: 'STRING_VALUE',
+ *       SchemaName: 'STRING_VALUE',
+ *       SchemaArn: 'STRING_VALUE',
+ *       Description: 'STRING_VALUE',
+ *       SchemaStatus: 'AVAILABLE' || 'PENDING' || 'DELETING',
+ *       CreatedTime: 'STRING_VALUE',
+ *       UpdatedTime: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListSchemasCommandInput - {@link ListSchemasCommandInput}
@@ -70,6 +86,8 @@ export interface ListSchemasCommandOutput extends ListSchemasResponse, __Metadat
  * @throws {@link InvalidInputException} (client fault)
  *  <p>The input provided was not valid.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class ListSchemasCommand extends $Command<

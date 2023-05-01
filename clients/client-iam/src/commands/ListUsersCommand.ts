@@ -44,16 +44,42 @@ export interface ListUsersCommandOutput extends ListUsersResponse, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IAMClient, ListUsersCommand } from "@aws-sdk/client-iam"; // ES Modules import
- * // const { IAMClient, ListUsersCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * import { IAMClient, ListUsersCommand } from '@aws-sdk/client-iam'; // ES Modules import
+ * // const { IAMClient, ListUsersCommand } = require('@aws-sdk/client-iam'); // CommonJS import
  * const client = new IAMClient(config);
  * const input = { // ListUsersRequest
- *   PathPrefix: "STRING_VALUE",
- *   Marker: "STRING_VALUE",
- *   MaxItems: Number("int"),
+ *   PathPrefix: 'STRING_VALUE',
+ *   Marker: 'STRING_VALUE',
+ *   MaxItems: Number('int'),
  * };
  * const command = new ListUsersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListUsersResponse
+ *   Users: [ // userListType // required
+ *     { // User
+ *       Path: 'STRING_VALUE', // required
+ *       UserName: 'STRING_VALUE', // required
+ *       UserId: 'STRING_VALUE', // required
+ *       Arn: 'STRING_VALUE', // required
+ *       CreateDate: new Date('TIMESTAMP'), // required
+ *       PasswordLastUsed: new Date('TIMESTAMP'),
+ *       PermissionsBoundary: { // AttachedPermissionsBoundary
+ *         PermissionsBoundaryType: 'PermissionsBoundaryPolicy',
+ *         PermissionsBoundaryArn: 'STRING_VALUE',
+ *       },
+ *       Tags: [ // tagListType
+ *         { // Tag
+ *           Key: 'STRING_VALUE', // required
+ *           Value: 'STRING_VALUE', // required
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   IsTruncated: true || false,
+ *   Marker: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListUsersCommandInput - {@link ListUsersCommandInput}
@@ -66,6 +92,8 @@ export interface ListUsersCommandOutput extends ListUsersResponse, __MetadataBea
  *  <p>The request processing has failed because of an unknown error, exception or
  *       failure.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  * @example To list IAM users
  * ```javascript

@@ -37,14 +37,21 @@ export interface DescribeResourcePolicyCommandOutput extends DescribeResourcePol
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LexModelsV2Client, DescribeResourcePolicyCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
- * // const { LexModelsV2Client, DescribeResourcePolicyCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
+ * import { LexModelsV2Client, DescribeResourcePolicyCommand } from '@aws-sdk/client-lex-models-v2'; // ES Modules import
+ * // const { LexModelsV2Client, DescribeResourcePolicyCommand } = require('@aws-sdk/client-lex-models-v2'); // CommonJS import
  * const client = new LexModelsV2Client(config);
  * const input = { // DescribeResourcePolicyRequest
- *   resourceArn: "STRING_VALUE", // required
+ *   resourceArn: 'STRING_VALUE', // required
  * };
  * const command = new DescribeResourcePolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeResourcePolicyResponse
+ *   resourceArn: 'STRING_VALUE',
+ *   policy: 'STRING_VALUE',
+ *   revisionId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeResourcePolicyCommandInput - {@link DescribeResourcePolicyCommandInput}
@@ -65,6 +72,8 @@ export interface DescribeResourcePolicyCommandOutput extends DescribeResourcePol
  *  <p>Your request rate is too high. Reduce the frequency of
  *          requests.</p>
  *
+ * @throws {@link LexModelsV2ServiceException}
+ * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
  */
 export class DescribeResourcePolicyCommand extends $Command<

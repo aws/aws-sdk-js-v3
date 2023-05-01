@@ -66,15 +66,18 @@ export interface DeleteProgressUpdateStreamCommandOutput extends DeleteProgressU
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MigrationHubClient, DeleteProgressUpdateStreamCommand } from "@aws-sdk/client-migration-hub"; // ES Modules import
- * // const { MigrationHubClient, DeleteProgressUpdateStreamCommand } = require("@aws-sdk/client-migration-hub"); // CommonJS import
+ * import { MigrationHubClient, DeleteProgressUpdateStreamCommand } from '@aws-sdk/client-migration-hub'; // ES Modules import
+ * // const { MigrationHubClient, DeleteProgressUpdateStreamCommand } = require('@aws-sdk/client-migration-hub'); // CommonJS import
  * const client = new MigrationHubClient(config);
  * const input = { // DeleteProgressUpdateStreamRequest
- *   ProgressUpdateStreamName: "STRING_VALUE", // required
+ *   ProgressUpdateStreamName: 'STRING_VALUE', // required
  *   DryRun: true || false,
  * };
  * const command = new DeleteProgressUpdateStreamCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteProgressUpdateStreamCommandInput - {@link DeleteProgressUpdateStreamCommandInput}
@@ -117,6 +120,8 @@ export interface DeleteProgressUpdateStreamCommandOutput extends DeleteProgressU
  *  <p>Exception raised to indicate a request was not authorized when the <code>DryRun</code>
  *          flag is set to "true".</p>
  *
+ * @throws {@link MigrationHubServiceException}
+ * <p>Base exception class for all service exceptions from MigrationHub service.</p>
  *
  */
 export class DeleteProgressUpdateStreamCommand extends $Command<

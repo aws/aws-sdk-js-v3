@@ -40,15 +40,18 @@ export interface DeleteFunctionEventInvokeConfigCommandOutput extends __Metadata
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LambdaClient, DeleteFunctionEventInvokeConfigCommand } from "@aws-sdk/client-lambda"; // ES Modules import
- * // const { LambdaClient, DeleteFunctionEventInvokeConfigCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
+ * import { LambdaClient, DeleteFunctionEventInvokeConfigCommand } from '@aws-sdk/client-lambda'; // ES Modules import
+ * // const { LambdaClient, DeleteFunctionEventInvokeConfigCommand } = require('@aws-sdk/client-lambda'); // CommonJS import
  * const client = new LambdaClient(config);
  * const input = { // DeleteFunctionEventInvokeConfigRequest
- *   FunctionName: "STRING_VALUE", // required
- *   Qualifier: "STRING_VALUE",
+ *   FunctionName: 'STRING_VALUE', // required
+ *   Qualifier: 'STRING_VALUE',
  * };
  * const command = new DeleteFunctionEventInvokeConfigCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteFunctionEventInvokeConfigCommandInput - {@link DeleteFunctionEventInvokeConfigCommandInput}
@@ -72,6 +75,8 @@ export interface DeleteFunctionEventInvokeConfigCommandOutput extends __Metadata
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>The request throughput limit was exceeded. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests">Lambda quotas</a>.</p>
  *
+ * @throws {@link LambdaServiceException}
+ * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
  */
 export class DeleteFunctionEventInvokeConfigCommand extends $Command<

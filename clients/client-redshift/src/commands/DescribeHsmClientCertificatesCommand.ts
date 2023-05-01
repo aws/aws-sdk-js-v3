@@ -48,22 +48,39 @@ export interface DescribeHsmClientCertificatesCommandOutput extends HsmClientCer
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RedshiftClient, DescribeHsmClientCertificatesCommand } from "@aws-sdk/client-redshift"; // ES Modules import
- * // const { RedshiftClient, DescribeHsmClientCertificatesCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * import { RedshiftClient, DescribeHsmClientCertificatesCommand } from '@aws-sdk/client-redshift'; // ES Modules import
+ * // const { RedshiftClient, DescribeHsmClientCertificatesCommand } = require('@aws-sdk/client-redshift'); // CommonJS import
  * const client = new RedshiftClient(config);
  * const input = { // DescribeHsmClientCertificatesMessage
- *   HsmClientCertificateIdentifier: "STRING_VALUE",
- *   MaxRecords: Number("int"),
- *   Marker: "STRING_VALUE",
+ *   HsmClientCertificateIdentifier: 'STRING_VALUE',
+ *   MaxRecords: Number('int'),
+ *   Marker: 'STRING_VALUE',
  *   TagKeys: [ // TagKeyList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   TagValues: [ // TagValueList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new DescribeHsmClientCertificatesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // HsmClientCertificateMessage
+ *   Marker: 'STRING_VALUE',
+ *   HsmClientCertificates: [ // HsmClientCertificateList
+ *     { // HsmClientCertificate
+ *       HsmClientCertificateIdentifier: 'STRING_VALUE',
+ *       HsmClientCertificatePublicKey: 'STRING_VALUE',
+ *       Tags: [ // TagList
+ *         { // Tag
+ *           Key: 'STRING_VALUE',
+ *           Value: 'STRING_VALUE',
+ *         },
+ *       ],
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeHsmClientCertificatesCommandInput - {@link DescribeHsmClientCertificatesCommandInput}
@@ -79,6 +96,8 @@ export interface DescribeHsmClientCertificatesCommandOutput extends HsmClientCer
  * @throws {@link InvalidTagFault} (client fault)
  *  <p>The tag is invalid.</p>
  *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class DescribeHsmClientCertificatesCommand extends $Command<

@@ -36,15 +36,29 @@ export interface UpdateAvailabilityOptionsCommandOutput extends UpdateAvailabili
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudSearchClient, UpdateAvailabilityOptionsCommand } from "@aws-sdk/client-cloudsearch"; // ES Modules import
- * // const { CloudSearchClient, UpdateAvailabilityOptionsCommand } = require("@aws-sdk/client-cloudsearch"); // CommonJS import
+ * import { CloudSearchClient, UpdateAvailabilityOptionsCommand } from '@aws-sdk/client-cloudsearch'; // ES Modules import
+ * // const { CloudSearchClient, UpdateAvailabilityOptionsCommand } = require('@aws-sdk/client-cloudsearch'); // CommonJS import
  * const client = new CloudSearchClient(config);
  * const input = { // UpdateAvailabilityOptionsRequest
- *   DomainName: "STRING_VALUE", // required
+ *   DomainName: 'STRING_VALUE', // required
  *   MultiAZ: true || false, // required
  * };
  * const command = new UpdateAvailabilityOptionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateAvailabilityOptionsResponse
+ *   AvailabilityOptions: { // AvailabilityOptionsStatus
+ *     Options: true || false, // required
+ *     Status: { // OptionStatus
+ *       CreationDate: new Date('TIMESTAMP'), // required
+ *       UpdateDate: new Date('TIMESTAMP'), // required
+ *       UpdateVersion: Number('int'),
+ *       State: 'STRING_VALUE', // required
+ *       PendingDeletion: true || false,
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateAvailabilityOptionsCommandInput - {@link UpdateAvailabilityOptionsCommandInput}
@@ -75,6 +89,8 @@ export interface UpdateAvailabilityOptionsCommandOutput extends UpdateAvailabili
  * @throws {@link ValidationException} (client fault)
  *  <p>The request was rejected because it has invalid parameters.</p>
  *
+ * @throws {@link CloudSearchServiceException}
+ * <p>Base exception class for all service exceptions from CloudSearch service.</p>
  *
  */
 export class UpdateAvailabilityOptionsCommand extends $Command<

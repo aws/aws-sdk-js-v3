@@ -36,15 +36,44 @@ export interface GetDataViewCommandOutput extends GetDataViewResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FinspaceDataClient, GetDataViewCommand } from "@aws-sdk/client-finspace-data"; // ES Modules import
- * // const { FinspaceDataClient, GetDataViewCommand } = require("@aws-sdk/client-finspace-data"); // CommonJS import
+ * import { FinspaceDataClient, GetDataViewCommand } from '@aws-sdk/client-finspace-data'; // ES Modules import
+ * // const { FinspaceDataClient, GetDataViewCommand } = require('@aws-sdk/client-finspace-data'); // CommonJS import
  * const client = new FinspaceDataClient(config);
  * const input = { // GetDataViewRequest
- *   dataViewId: "STRING_VALUE", // required
- *   datasetId: "STRING_VALUE", // required
+ *   dataViewId: 'STRING_VALUE', // required
+ *   datasetId: 'STRING_VALUE', // required
  * };
  * const command = new GetDataViewCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetDataViewResponse
+ *   autoUpdate: true || false,
+ *   partitionColumns: [ // PartitionColumnList
+ *     'STRING_VALUE',
+ *   ],
+ *   datasetId: 'STRING_VALUE',
+ *   asOfTimestamp: Number('long'),
+ *   errorInfo: { // DataViewErrorInfo
+ *     errorMessage: 'STRING_VALUE',
+ *     errorCategory: 'STRING_VALUE',
+ *   },
+ *   lastModifiedTime: Number('long'),
+ *   createTime: Number('long'),
+ *   sortColumns: [ // SortColumnList
+ *     'STRING_VALUE',
+ *   ],
+ *   dataViewId: 'STRING_VALUE',
+ *   dataViewArn: 'STRING_VALUE',
+ *   destinationTypeParams: { // DataViewDestinationTypeParams
+ *     destinationType: 'STRING_VALUE', // required
+ *     s3DestinationExportFileFormat: 'STRING_VALUE',
+ *     s3DestinationExportFileFormatOptions: { // S3DestinationFormatOptions
+ *       '<keys>': 'STRING_VALUE',
+ *     },
+ *   },
+ *   status: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetDataViewCommandInput - {@link GetDataViewCommandInput}
@@ -69,6 +98,8 @@ export interface GetDataViewCommandOutput extends GetDataViewResponse, __Metadat
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link FinspaceDataServiceException}
+ * <p>Base exception class for all service exceptions from FinspaceData service.</p>
  *
  */
 export class GetDataViewCommand extends $Command<

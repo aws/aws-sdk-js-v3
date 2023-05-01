@@ -36,15 +36,18 @@ export interface DeleteEdgeDeploymentStageCommandOutput extends __MetadataBearer
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, DeleteEdgeDeploymentStageCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, DeleteEdgeDeploymentStageCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, DeleteEdgeDeploymentStageCommand } from '@aws-sdk/client-sagemaker'; // ES Modules import
+ * // const { SageMakerClient, DeleteEdgeDeploymentStageCommand } = require('@aws-sdk/client-sagemaker'); // CommonJS import
  * const client = new SageMakerClient(config);
  * const input = { // DeleteEdgeDeploymentStageRequest
- *   EdgeDeploymentPlanName: "STRING_VALUE", // required
- *   StageName: "STRING_VALUE", // required
+ *   EdgeDeploymentPlanName: 'STRING_VALUE', // required
+ *   StageName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteEdgeDeploymentStageCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteEdgeDeploymentStageCommandInput - {@link DeleteEdgeDeploymentStageCommandInput}
@@ -56,6 +59,8 @@ export interface DeleteEdgeDeploymentStageCommandOutput extends __MetadataBearer
  * @throws {@link ResourceInUse} (client fault)
  *  <p>Resource being accessed is in use.</p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class DeleteEdgeDeploymentStageCommand extends $Command<

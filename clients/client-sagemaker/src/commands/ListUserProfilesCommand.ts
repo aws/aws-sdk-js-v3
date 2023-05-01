@@ -36,19 +36,33 @@ export interface ListUserProfilesCommandOutput extends ListUserProfilesResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, ListUserProfilesCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, ListUserProfilesCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, ListUserProfilesCommand } from '@aws-sdk/client-sagemaker'; // ES Modules import
+ * // const { SageMakerClient, ListUserProfilesCommand } = require('@aws-sdk/client-sagemaker'); // CommonJS import
  * const client = new SageMakerClient(config);
  * const input = { // ListUserProfilesRequest
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
- *   SortOrder: "Ascending" || "Descending",
- *   SortBy: "CreationTime" || "LastModifiedTime",
- *   DomainIdEquals: "STRING_VALUE",
- *   UserProfileNameContains: "STRING_VALUE",
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
+ *   SortOrder: 'Ascending' || 'Descending',
+ *   SortBy: 'CreationTime' || 'LastModifiedTime',
+ *   DomainIdEquals: 'STRING_VALUE',
+ *   UserProfileNameContains: 'STRING_VALUE',
  * };
  * const command = new ListUserProfilesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListUserProfilesResponse
+ *   UserProfiles: [ // UserProfileList
+ *     { // UserProfileDetails
+ *       DomainId: 'STRING_VALUE',
+ *       UserProfileName: 'STRING_VALUE',
+ *       Status: 'Deleting' || 'Failed' || 'InService' || 'Pending' || 'Updating' || 'Update_Failed' || 'Delete_Failed',
+ *       CreationTime: new Date('TIMESTAMP'),
+ *       LastModifiedTime: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListUserProfilesCommandInput - {@link ListUserProfilesCommandInput}
@@ -57,6 +71,8 @@ export interface ListUserProfilesCommandOutput extends ListUserProfilesResponse,
  * @see {@link ListUserProfilesCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class ListUserProfilesCommand extends $Command<

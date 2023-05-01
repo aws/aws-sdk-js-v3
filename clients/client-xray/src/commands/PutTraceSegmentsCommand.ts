@@ -98,16 +98,27 @@ export interface PutTraceSegmentsCommandOutput extends PutTraceSegmentsResult, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { XRayClient, PutTraceSegmentsCommand } from "@aws-sdk/client-xray"; // ES Modules import
- * // const { XRayClient, PutTraceSegmentsCommand } = require("@aws-sdk/client-xray"); // CommonJS import
+ * import { XRayClient, PutTraceSegmentsCommand } from '@aws-sdk/client-xray'; // ES Modules import
+ * // const { XRayClient, PutTraceSegmentsCommand } = require('@aws-sdk/client-xray'); // CommonJS import
  * const client = new XRayClient(config);
  * const input = { // PutTraceSegmentsRequest
  *   TraceSegmentDocuments: [ // TraceSegmentDocumentList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new PutTraceSegmentsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutTraceSegmentsResult
+ *   UnprocessedTraceSegments: [ // UnprocessedTraceSegmentList
+ *     { // UnprocessedTraceSegment
+ *       Id: 'STRING_VALUE',
+ *       ErrorCode: 'STRING_VALUE',
+ *       Message: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param PutTraceSegmentsCommandInput - {@link PutTraceSegmentsCommandInput}
@@ -122,6 +133,8 @@ export interface PutTraceSegmentsCommandOutput extends PutTraceSegmentsResult, _
  * @throws {@link ThrottledException} (client fault)
  *  <p>The request exceeds the maximum number of requests per second.</p>
  *
+ * @throws {@link XRayServiceException}
+ * <p>Base exception class for all service exceptions from XRay service.</p>
  *
  */
 export class PutTraceSegmentsCommand extends $Command<

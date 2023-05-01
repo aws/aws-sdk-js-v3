@@ -144,30 +144,35 @@ export interface SendRawEmailCommandOutput extends SendRawEmailResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SESClient, SendRawEmailCommand } from "@aws-sdk/client-ses"; // ES Modules import
- * // const { SESClient, SendRawEmailCommand } = require("@aws-sdk/client-ses"); // CommonJS import
+ * import { SESClient, SendRawEmailCommand } from '@aws-sdk/client-ses'; // ES Modules import
+ * // const { SESClient, SendRawEmailCommand } = require('@aws-sdk/client-ses'); // CommonJS import
  * const client = new SESClient(config);
  * const input = { // SendRawEmailRequest
- *   Source: "STRING_VALUE",
+ *   Source: 'STRING_VALUE',
  *   Destinations: [ // AddressList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   RawMessage: { // RawMessage
- *     Data: "BLOB_VALUE", // required
+ *     Data: 'BLOB_VALUE', // required
  *   },
- *   FromArn: "STRING_VALUE",
- *   SourceArn: "STRING_VALUE",
- *   ReturnPathArn: "STRING_VALUE",
+ *   FromArn: 'STRING_VALUE',
+ *   SourceArn: 'STRING_VALUE',
+ *   ReturnPathArn: 'STRING_VALUE',
  *   Tags: [ // MessageTagList
  *     { // MessageTag
- *       Name: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Name: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
- *   ConfigurationSetName: "STRING_VALUE",
+ *   ConfigurationSetName: 'STRING_VALUE',
  * };
  * const command = new SendRawEmailCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SendRawEmailResponse
+ *   MessageId: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param SendRawEmailCommandInput - {@link SendRawEmailCommandInput}
@@ -197,6 +202,8 @@ export interface SendRawEmailCommandOutput extends SendRawEmailResponse, __Metad
  *  <p>Indicates that the action failed, and the message could not be sent. Check the error
  *             stack for more information about what caused the error.</p>
  *
+ * @throws {@link SESServiceException}
+ * <p>Base exception class for all service exceptions from SES service.</p>
  *
  * @example SendRawEmail
  * ```javascript

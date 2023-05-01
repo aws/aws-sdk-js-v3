@@ -40,85 +40,92 @@ export interface CreateConnectorCommandOutput extends CreateConnectorResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KafkaConnectClient, CreateConnectorCommand } from "@aws-sdk/client-kafkaconnect"; // ES Modules import
- * // const { KafkaConnectClient, CreateConnectorCommand } = require("@aws-sdk/client-kafkaconnect"); // CommonJS import
+ * import { KafkaConnectClient, CreateConnectorCommand } from '@aws-sdk/client-kafkaconnect'; // ES Modules import
+ * // const { KafkaConnectClient, CreateConnectorCommand } = require('@aws-sdk/client-kafkaconnect'); // CommonJS import
  * const client = new KafkaConnectClient(config);
  * const input = { // CreateConnectorRequest
  *   capacity: { // Capacity
  *     autoScaling: { // AutoScaling
- *       maxWorkerCount: Number("int"), // required
- *       mcuCount: Number("int"), // required
- *       minWorkerCount: Number("int"), // required
+ *       maxWorkerCount: Number('int'), // required
+ *       mcuCount: Number('int'), // required
+ *       minWorkerCount: Number('int'), // required
  *       scaleInPolicy: { // ScaleInPolicy
- *         cpuUtilizationPercentage: Number("int"), // required
+ *         cpuUtilizationPercentage: Number('int'), // required
  *       },
  *       scaleOutPolicy: { // ScaleOutPolicy
- *         cpuUtilizationPercentage: Number("int"), // required
+ *         cpuUtilizationPercentage: Number('int'), // required
  *       },
  *     },
  *     provisionedCapacity: { // ProvisionedCapacity
- *       mcuCount: Number("int"), // required
- *       workerCount: Number("int"), // required
+ *       mcuCount: Number('int'), // required
+ *       workerCount: Number('int'), // required
  *     },
  *   },
  *   connectorConfiguration: { // __sensitive__mapOf__string // required
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
- *   connectorDescription: "STRING_VALUE",
- *   connectorName: "STRING_VALUE", // required
+ *   connectorDescription: 'STRING_VALUE',
+ *   connectorName: 'STRING_VALUE', // required
  *   kafkaCluster: { // KafkaCluster
  *     apacheKafkaCluster: { // ApacheKafkaCluster
- *       bootstrapServers: "STRING_VALUE", // required
+ *       bootstrapServers: 'STRING_VALUE', // required
  *       vpc: { // Vpc
  *         securityGroups: [ // __listOf__string
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
  *         subnets: [ // required
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
  *       },
  *     },
  *   },
  *   kafkaClusterClientAuthentication: { // KafkaClusterClientAuthentication
- *     authenticationType: "STRING_VALUE", // required
+ *     authenticationType: 'STRING_VALUE', // required
  *   },
  *   kafkaClusterEncryptionInTransit: { // KafkaClusterEncryptionInTransit
- *     encryptionType: "STRING_VALUE", // required
+ *     encryptionType: 'STRING_VALUE', // required
  *   },
- *   kafkaConnectVersion: "STRING_VALUE", // required
+ *   kafkaConnectVersion: 'STRING_VALUE', // required
  *   logDelivery: { // LogDelivery
  *     workerLogDelivery: { // WorkerLogDelivery
  *       cloudWatchLogs: { // CloudWatchLogsLogDelivery
  *         enabled: true || false, // required
- *         logGroup: "STRING_VALUE",
+ *         logGroup: 'STRING_VALUE',
  *       },
  *       firehose: { // FirehoseLogDelivery
- *         deliveryStream: "STRING_VALUE",
+ *         deliveryStream: 'STRING_VALUE',
  *         enabled: true || false, // required
  *       },
  *       s3: { // S3LogDelivery
- *         bucket: "STRING_VALUE",
+ *         bucket: 'STRING_VALUE',
  *         enabled: true || false, // required
- *         prefix: "STRING_VALUE",
+ *         prefix: 'STRING_VALUE',
  *       },
  *     },
  *   },
  *   plugins: [ // __listOfPlugin // required
  *     { // Plugin
  *       customPlugin: { // CustomPlugin
- *         customPluginArn: "STRING_VALUE", // required
- *         revision: Number("long"), // required
+ *         customPluginArn: 'STRING_VALUE', // required
+ *         revision: Number('long'), // required
  *       },
  *     },
  *   ],
- *   serviceExecutionRoleArn: "STRING_VALUE", // required
+ *   serviceExecutionRoleArn: 'STRING_VALUE', // required
  *   workerConfiguration: { // WorkerConfiguration
- *     revision: Number("long"), // required
- *     workerConfigurationArn: "STRING_VALUE", // required
+ *     revision: Number('long'), // required
+ *     workerConfigurationArn: 'STRING_VALUE', // required
  *   },
  * };
  * const command = new CreateConnectorCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateConnectorResponse
+ *   connectorArn: 'STRING_VALUE',
+ *   connectorName: 'STRING_VALUE',
+ *   connectorState: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateConnectorCommandInput - {@link CreateConnectorCommandInput}
@@ -158,6 +165,8 @@ export interface CreateConnectorCommandOutput extends CreateConnectorResponse, _
  *  <p>HTTP Status Code 401: Unauthorized request. The provided credentials couldn't be
  *          validated.</p>
  *
+ * @throws {@link KafkaConnectServiceException}
+ * <p>Base exception class for all service exceptions from KafkaConnect service.</p>
  *
  */
 export class CreateConnectorCommand extends $Command<

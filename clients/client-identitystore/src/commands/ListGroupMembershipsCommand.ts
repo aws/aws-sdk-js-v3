@@ -36,17 +36,32 @@ export interface ListGroupMembershipsCommandOutput extends ListGroupMembershipsR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IdentitystoreClient, ListGroupMembershipsCommand } from "@aws-sdk/client-identitystore"; // ES Modules import
- * // const { IdentitystoreClient, ListGroupMembershipsCommand } = require("@aws-sdk/client-identitystore"); // CommonJS import
+ * import { IdentitystoreClient, ListGroupMembershipsCommand } from '@aws-sdk/client-identitystore'; // ES Modules import
+ * // const { IdentitystoreClient, ListGroupMembershipsCommand } = require('@aws-sdk/client-identitystore'); // CommonJS import
  * const client = new IdentitystoreClient(config);
  * const input = { // ListGroupMembershipsRequest
- *   IdentityStoreId: "STRING_VALUE", // required
- *   GroupId: "STRING_VALUE", // required
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   IdentityStoreId: 'STRING_VALUE', // required
+ *   GroupId: 'STRING_VALUE', // required
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListGroupMembershipsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListGroupMembershipsResponse
+ *   GroupMemberships: [ // GroupMemberships // required
+ *     { // GroupMembership
+ *       IdentityStoreId: 'STRING_VALUE', // required
+ *       MembershipId: 'STRING_VALUE',
+ *       GroupId: 'STRING_VALUE',
+ *       MemberId: { // MemberId Union: only one key present
+ *         UserId: 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListGroupMembershipsCommandInput - {@link ListGroupMembershipsCommandInput}
@@ -70,6 +85,8 @@ export interface ListGroupMembershipsCommandOutput extends ListGroupMembershipsR
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Indicates that the principal has crossed the throttling limits of the API operations.</p>
  *
+ * @throws {@link IdentitystoreServiceException}
+ * <p>Base exception class for all service exceptions from Identitystore service.</p>
  *
  */
 export class ListGroupMembershipsCommand extends $Command<

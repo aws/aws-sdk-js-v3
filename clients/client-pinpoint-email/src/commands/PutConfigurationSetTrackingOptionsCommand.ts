@@ -45,15 +45,18 @@ export interface PutConfigurationSetTrackingOptionsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PinpointEmailClient, PutConfigurationSetTrackingOptionsCommand } from "@aws-sdk/client-pinpoint-email"; // ES Modules import
- * // const { PinpointEmailClient, PutConfigurationSetTrackingOptionsCommand } = require("@aws-sdk/client-pinpoint-email"); // CommonJS import
+ * import { PinpointEmailClient, PutConfigurationSetTrackingOptionsCommand } from '@aws-sdk/client-pinpoint-email'; // ES Modules import
+ * // const { PinpointEmailClient, PutConfigurationSetTrackingOptionsCommand } = require('@aws-sdk/client-pinpoint-email'); // CommonJS import
  * const client = new PinpointEmailClient(config);
  * const input = { // PutConfigurationSetTrackingOptionsRequest
- *   ConfigurationSetName: "STRING_VALUE", // required
- *   CustomRedirectDomain: "STRING_VALUE",
+ *   ConfigurationSetName: 'STRING_VALUE', // required
+ *   CustomRedirectDomain: 'STRING_VALUE',
  * };
  * const command = new PutConfigurationSetTrackingOptionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutConfigurationSetTrackingOptionsCommandInput - {@link PutConfigurationSetTrackingOptionsCommandInput}
@@ -71,6 +74,8 @@ export interface PutConfigurationSetTrackingOptionsCommandOutput
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Too many requests have been made to the operation.</p>
  *
+ * @throws {@link PinpointEmailServiceException}
+ * <p>Base exception class for all service exceptions from PinpointEmail service.</p>
  *
  */
 export class PutConfigurationSetTrackingOptionsCommand extends $Command<

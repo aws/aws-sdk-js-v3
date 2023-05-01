@@ -43,15 +43,20 @@ export interface DeleteProjectCommandOutput extends DeleteProjectResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LookoutVisionClient, DeleteProjectCommand } from "@aws-sdk/client-lookoutvision"; // ES Modules import
- * // const { LookoutVisionClient, DeleteProjectCommand } = require("@aws-sdk/client-lookoutvision"); // CommonJS import
+ * import { LookoutVisionClient, DeleteProjectCommand } from '@aws-sdk/client-lookoutvision'; // ES Modules import
+ * // const { LookoutVisionClient, DeleteProjectCommand } = require('@aws-sdk/client-lookoutvision'); // CommonJS import
  * const client = new LookoutVisionClient(config);
  * const input = { // DeleteProjectRequest
- *   ProjectName: "STRING_VALUE", // required
- *   ClientToken: "STRING_VALUE",
+ *   ProjectName: 'STRING_VALUE', // required
+ *   ClientToken: 'STRING_VALUE',
  * };
  * const command = new DeleteProjectCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteProjectResponse
+ *   ProjectArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DeleteProjectCommandInput - {@link DeleteProjectCommandInput}
@@ -79,6 +84,8 @@ export interface DeleteProjectCommandOutput extends DeleteProjectResponse, __Met
  *  <p>An input validation error occured. For example, invalid characters in a project name,
  *       or if a pagination token is invalid.</p>
  *
+ * @throws {@link LookoutVisionServiceException}
+ * <p>Base exception class for all service exceptions from LookoutVision service.</p>
  *
  */
 export class DeleteProjectCommand extends $Command<

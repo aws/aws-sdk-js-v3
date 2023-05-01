@@ -42,14 +42,20 @@ export interface ResolveAliasCommandOutput extends ResolveAliasOutput, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GameLiftClient, ResolveAliasCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
- * // const { GameLiftClient, ResolveAliasCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
+ * import { GameLiftClient, ResolveAliasCommand } from '@aws-sdk/client-gamelift'; // ES Modules import
+ * // const { GameLiftClient, ResolveAliasCommand } = require('@aws-sdk/client-gamelift'); // CommonJS import
  * const client = new GameLiftClient(config);
  * const input = { // ResolveAliasInput
- *   AliasId: "STRING_VALUE", // required
+ *   AliasId: 'STRING_VALUE', // required
  * };
  * const command = new ResolveAliasCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ResolveAliasOutput
+ *   FleetId: 'STRING_VALUE',
+ *   FleetArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ResolveAliasCommandInput - {@link ResolveAliasCommandInput}
@@ -78,6 +84,8 @@ export interface ResolveAliasCommandOutput extends ResolveAliasOutput, __Metadat
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client failed authentication. Clients should not retry such requests.</p>
  *
+ * @throws {@link GameLiftServiceException}
+ * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
  */
 export class ResolveAliasCommand extends $Command<

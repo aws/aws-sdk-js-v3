@@ -38,15 +38,18 @@ export interface DeleteModelCommandOutput extends DeleteModelResult, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FraudDetectorClient, DeleteModelCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
- * // const { FraudDetectorClient, DeleteModelCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
+ * import { FraudDetectorClient, DeleteModelCommand } from '@aws-sdk/client-frauddetector'; // ES Modules import
+ * // const { FraudDetectorClient, DeleteModelCommand } = require('@aws-sdk/client-frauddetector'); // CommonJS import
  * const client = new FraudDetectorClient(config);
  * const input = { // DeleteModelRequest
- *   modelId: "STRING_VALUE", // required
- *   modelType: "ONLINE_FRAUD_INSIGHTS" || "TRANSACTION_FRAUD_INSIGHTS" || "ACCOUNT_TAKEOVER_INSIGHTS", // required
+ *   modelId: 'STRING_VALUE', // required
+ *   modelType: 'ONLINE_FRAUD_INSIGHTS' || 'TRANSACTION_FRAUD_INSIGHTS' || 'ACCOUNT_TAKEOVER_INSIGHTS', // required
  * };
  * const command = new DeleteModelCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteModelCommandInput - {@link DeleteModelCommandInput}
@@ -70,6 +73,8 @@ export interface DeleteModelCommandOutput extends DeleteModelResult, __MetadataB
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception indicating a specified value is not allowed.</p>
  *
+ * @throws {@link FraudDetectorServiceException}
+ * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
  */
 export class DeleteModelCommand extends $Command<

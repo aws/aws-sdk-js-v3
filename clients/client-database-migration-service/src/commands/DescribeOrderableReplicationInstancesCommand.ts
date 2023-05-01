@@ -50,15 +50,35 @@ export interface DescribeOrderableReplicationInstancesCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DatabaseMigrationServiceClient, DescribeOrderableReplicationInstancesCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
- * // const { DatabaseMigrationServiceClient, DescribeOrderableReplicationInstancesCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
+ * import { DatabaseMigrationServiceClient, DescribeOrderableReplicationInstancesCommand } from '@aws-sdk/client-database-migration-service'; // ES Modules import
+ * // const { DatabaseMigrationServiceClient, DescribeOrderableReplicationInstancesCommand } = require('@aws-sdk/client-database-migration-service'); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
  * const input = { // DescribeOrderableReplicationInstancesMessage
- *   MaxRecords: Number("int"),
- *   Marker: "STRING_VALUE",
+ *   MaxRecords: Number('int'),
+ *   Marker: 'STRING_VALUE',
  * };
  * const command = new DescribeOrderableReplicationInstancesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeOrderableReplicationInstancesResponse
+ *   OrderableReplicationInstances: [ // OrderableReplicationInstanceList
+ *     { // OrderableReplicationInstance
+ *       EngineVersion: 'STRING_VALUE',
+ *       ReplicationInstanceClass: 'STRING_VALUE',
+ *       StorageType: 'STRING_VALUE',
+ *       MinAllocatedStorage: Number('int'),
+ *       MaxAllocatedStorage: Number('int'),
+ *       DefaultAllocatedStorage: Number('int'),
+ *       IncludedAllocatedStorage: Number('int'),
+ *       AvailabilityZones: [ // AvailabilityZonesList
+ *         'STRING_VALUE',
+ *       ],
+ *       ReleaseStatus: 'beta' || 'prod',
+ *     },
+ *   ],
+ *   Marker: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeOrderableReplicationInstancesCommandInput - {@link DescribeOrderableReplicationInstancesCommandInput}
@@ -67,6 +87,8 @@ export interface DescribeOrderableReplicationInstancesCommandOutput
  * @see {@link DescribeOrderableReplicationInstancesCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
+ * @throws {@link DatabaseMigrationServiceServiceException}
+ * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
  * @example Describe orderable replication instances
  * ```javascript

@@ -87,22 +87,39 @@ export interface CreateRuleCommandOutput extends CreateRuleResponse, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WAFClient, CreateRuleCommand } from "@aws-sdk/client-waf"; // ES Modules import
- * // const { WAFClient, CreateRuleCommand } = require("@aws-sdk/client-waf"); // CommonJS import
+ * import { WAFClient, CreateRuleCommand } from '@aws-sdk/client-waf'; // ES Modules import
+ * // const { WAFClient, CreateRuleCommand } = require('@aws-sdk/client-waf'); // CommonJS import
  * const client = new WAFClient(config);
  * const input = { // CreateRuleRequest
- *   Name: "STRING_VALUE", // required
- *   MetricName: "STRING_VALUE", // required
- *   ChangeToken: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
+ *   MetricName: 'STRING_VALUE', // required
+ *   ChangeToken: 'STRING_VALUE', // required
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreateRuleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateRuleResponse
+ *   Rule: { // Rule
+ *     RuleId: 'STRING_VALUE', // required
+ *     Name: 'STRING_VALUE',
+ *     MetricName: 'STRING_VALUE',
+ *     Predicates: [ // Predicates // required
+ *       { // Predicate
+ *         Negated: true || false, // required
+ *         Type: 'STRING_VALUE', // required
+ *         DataId: 'STRING_VALUE', // required
+ *       },
+ *     ],
+ *   },
+ *   ChangeToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateRuleCommandInput - {@link CreateRuleCommandInput}
@@ -174,6 +191,8 @@ export interface CreateRuleCommandOutput extends CreateRuleResponse, __MetadataB
  * @throws {@link WAFTagOperationInternalErrorException} (server fault)
  *  <p></p>
  *
+ * @throws {@link WAFServiceException}
+ * <p>Base exception class for all service exceptions from WAF service.</p>
  *
  * @example To create a rule
  * ```javascript

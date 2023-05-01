@@ -48,15 +48,24 @@ export interface DescribeInputDeviceThumbnailCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MediaLiveClient, DescribeInputDeviceThumbnailCommand } from "@aws-sdk/client-medialive"; // ES Modules import
- * // const { MediaLiveClient, DescribeInputDeviceThumbnailCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
+ * import { MediaLiveClient, DescribeInputDeviceThumbnailCommand } from '@aws-sdk/client-medialive'; // ES Modules import
+ * // const { MediaLiveClient, DescribeInputDeviceThumbnailCommand } = require('@aws-sdk/client-medialive'); // CommonJS import
  * const client = new MediaLiveClient(config);
  * const input = { // DescribeInputDeviceThumbnailRequest
- *   InputDeviceId: "STRING_VALUE", // required
- *   Accept: "image/jpeg", // required
+ *   InputDeviceId: 'STRING_VALUE', // required
+ *   Accept: 'image/jpeg', // required
  * };
  * const command = new DescribeInputDeviceThumbnailCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeInputDeviceThumbnailResponse
+ *   Body: 'STREAMING_BLOB_VALUE',
+ *   ContentType: 'image/jpeg',
+ *   ContentLength: Number('long'),
+ *   ETag: 'STRING_VALUE',
+ *   LastModified: new Date('TIMESTAMP'),
+ * };
+ *
  * ```
  *
  * @param DescribeInputDeviceThumbnailCommandInput - {@link DescribeInputDeviceThumbnailCommandInput}
@@ -86,6 +95,8 @@ export interface DescribeInputDeviceThumbnailCommandOutput
  * @throws {@link TooManyRequestsException} (client fault)
  *  Placeholder documentation for TooManyRequestsException
  *
+ * @throws {@link MediaLiveServiceException}
+ * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
  */
 export class DescribeInputDeviceThumbnailCommand extends $Command<

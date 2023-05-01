@@ -36,30 +36,53 @@ export interface CheckoutBorrowLicenseCommandOutput extends CheckoutBorrowLicens
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LicenseManagerClient, CheckoutBorrowLicenseCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
- * // const { LicenseManagerClient, CheckoutBorrowLicenseCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
+ * import { LicenseManagerClient, CheckoutBorrowLicenseCommand } from '@aws-sdk/client-license-manager'; // ES Modules import
+ * // const { LicenseManagerClient, CheckoutBorrowLicenseCommand } = require('@aws-sdk/client-license-manager'); // CommonJS import
  * const client = new LicenseManagerClient(config);
  * const input = { // CheckoutBorrowLicenseRequest
- *   LicenseArn: "STRING_VALUE", // required
+ *   LicenseArn: 'STRING_VALUE', // required
  *   Entitlements: [ // EntitlementDataList // required
  *     { // EntitlementData
- *       Name: "STRING_VALUE", // required
- *       Value: "STRING_VALUE",
- *       Unit: "Count" || "None" || "Seconds" || "Microseconds" || "Milliseconds" || "Bytes" || "Kilobytes" || "Megabytes" || "Gigabytes" || "Terabytes" || "Bits" || "Kilobits" || "Megabits" || "Gigabits" || "Terabits" || "Percent" || "Bytes/Second" || "Kilobytes/Second" || "Megabytes/Second" || "Gigabytes/Second" || "Terabytes/Second" || "Bits/Second" || "Kilobits/Second" || "Megabits/Second" || "Gigabits/Second" || "Terabits/Second" || "Count/Second", // required
+ *       Name: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE',
+ *       Unit: 'Count' || 'None' || 'Seconds' || 'Microseconds' || 'Milliseconds' || 'Bytes' || 'Kilobytes' || 'Megabytes' || 'Gigabytes' || 'Terabytes' || 'Bits' || 'Kilobits' || 'Megabits' || 'Gigabits' || 'Terabits' || 'Percent' || 'Bytes/Second' || 'Kilobytes/Second' || 'Megabytes/Second' || 'Gigabytes/Second' || 'Terabytes/Second' || 'Bits/Second' || 'Kilobits/Second' || 'Megabits/Second' || 'Gigabits/Second' || 'Terabits/Second' || 'Count/Second', // required
  *     },
  *   ],
- *   DigitalSignatureMethod: "JWT_PS384", // required
- *   NodeId: "STRING_VALUE",
+ *   DigitalSignatureMethod: 'JWT_PS384', // required
+ *   NodeId: 'STRING_VALUE',
  *   CheckoutMetadata: [ // MetadataList
  *     { // Metadata
- *       Name: "STRING_VALUE",
- *       Value: "STRING_VALUE",
+ *       Name: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
- *   ClientToken: "STRING_VALUE", // required
+ *   ClientToken: 'STRING_VALUE', // required
  * };
  * const command = new CheckoutBorrowLicenseCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CheckoutBorrowLicenseResponse
+ *   LicenseArn: 'STRING_VALUE',
+ *   LicenseConsumptionToken: 'STRING_VALUE',
+ *   EntitlementsAllowed: [ // EntitlementDataList
+ *     { // EntitlementData
+ *       Name: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE',
+ *       Unit: 'Count' || 'None' || 'Seconds' || 'Microseconds' || 'Milliseconds' || 'Bytes' || 'Kilobytes' || 'Megabytes' || 'Gigabytes' || 'Terabytes' || 'Bits' || 'Kilobits' || 'Megabits' || 'Gigabits' || 'Terabits' || 'Percent' || 'Bytes/Second' || 'Kilobytes/Second' || 'Megabytes/Second' || 'Gigabytes/Second' || 'Terabytes/Second' || 'Bits/Second' || 'Kilobits/Second' || 'Megabits/Second' || 'Gigabits/Second' || 'Terabits/Second' || 'Count/Second', // required
+ *     },
+ *   ],
+ *   NodeId: 'STRING_VALUE',
+ *   SignedToken: 'STRING_VALUE',
+ *   IssuedAt: 'STRING_VALUE',
+ *   Expiration: 'STRING_VALUE',
+ *   CheckoutMetadata: [ // MetadataList
+ *     { // Metadata
+ *       Name: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param CheckoutBorrowLicenseCommandInput - {@link CheckoutBorrowLicenseCommandInput}
@@ -102,6 +125,8 @@ export interface CheckoutBorrowLicenseCommandOutput extends CheckoutBorrowLicens
  * @throws {@link ValidationException} (client fault)
  *  <p>The provided input is not valid. Try your request again.</p>
  *
+ * @throws {@link LicenseManagerServiceException}
+ * <p>Base exception class for all service exceptions from LicenseManager service.</p>
  *
  */
 export class CheckoutBorrowLicenseCommand extends $Command<

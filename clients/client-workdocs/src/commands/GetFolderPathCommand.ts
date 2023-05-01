@@ -46,18 +46,30 @@ export interface GetFolderPathCommandOutput extends GetFolderPathResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkDocsClient, GetFolderPathCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
- * // const { WorkDocsClient, GetFolderPathCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import
+ * import { WorkDocsClient, GetFolderPathCommand } from '@aws-sdk/client-workdocs'; // ES Modules import
+ * // const { WorkDocsClient, GetFolderPathCommand } = require('@aws-sdk/client-workdocs'); // CommonJS import
  * const client = new WorkDocsClient(config);
  * const input = { // GetFolderPathRequest
- *   AuthenticationToken: "STRING_VALUE",
- *   FolderId: "STRING_VALUE", // required
- *   Limit: Number("int"),
- *   Fields: "STRING_VALUE",
- *   Marker: "STRING_VALUE",
+ *   AuthenticationToken: 'STRING_VALUE',
+ *   FolderId: 'STRING_VALUE', // required
+ *   Limit: Number('int'),
+ *   Fields: 'STRING_VALUE',
+ *   Marker: 'STRING_VALUE',
  * };
  * const command = new GetFolderPathCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetFolderPathResponse
+ *   Path: { // ResourcePath
+ *     Components: [ // ResourcePathComponentList
+ *       { // ResourcePathComponent
+ *         Id: 'STRING_VALUE',
+ *         Name: 'STRING_VALUE',
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetFolderPathCommandInput - {@link GetFolderPathCommandInput}
@@ -83,6 +95,8 @@ export interface GetFolderPathCommandOutput extends GetFolderPathResponse, __Met
  * @throws {@link UnauthorizedResourceAccessException} (client fault)
  *  <p>The caller does not have access to perform the action on the resource.</p>
  *
+ * @throws {@link WorkDocsServiceException}
+ * <p>Base exception class for all service exceptions from WorkDocs service.</p>
  *
  */
 export class GetFolderPathCommand extends $Command<

@@ -41,22 +41,64 @@ export interface ListRecoveryPointsByBackupVaultCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BackupClient, ListRecoveryPointsByBackupVaultCommand } from "@aws-sdk/client-backup"; // ES Modules import
- * // const { BackupClient, ListRecoveryPointsByBackupVaultCommand } = require("@aws-sdk/client-backup"); // CommonJS import
+ * import { BackupClient, ListRecoveryPointsByBackupVaultCommand } from '@aws-sdk/client-backup'; // ES Modules import
+ * // const { BackupClient, ListRecoveryPointsByBackupVaultCommand } = require('@aws-sdk/client-backup'); // CommonJS import
  * const client = new BackupClient(config);
  * const input = { // ListRecoveryPointsByBackupVaultInput
- *   BackupVaultName: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
- *   ByResourceArn: "STRING_VALUE",
- *   ByResourceType: "STRING_VALUE",
- *   ByBackupPlanId: "STRING_VALUE",
- *   ByCreatedBefore: new Date("TIMESTAMP"),
- *   ByCreatedAfter: new Date("TIMESTAMP"),
- *   ByParentRecoveryPointArn: "STRING_VALUE",
+ *   BackupVaultName: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
+ *   ByResourceArn: 'STRING_VALUE',
+ *   ByResourceType: 'STRING_VALUE',
+ *   ByBackupPlanId: 'STRING_VALUE',
+ *   ByCreatedBefore: new Date('TIMESTAMP'),
+ *   ByCreatedAfter: new Date('TIMESTAMP'),
+ *   ByParentRecoveryPointArn: 'STRING_VALUE',
  * };
  * const command = new ListRecoveryPointsByBackupVaultCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListRecoveryPointsByBackupVaultOutput
+ *   NextToken: 'STRING_VALUE',
+ *   RecoveryPoints: [ // RecoveryPointByBackupVaultList
+ *     { // RecoveryPointByBackupVault
+ *       RecoveryPointArn: 'STRING_VALUE',
+ *       BackupVaultName: 'STRING_VALUE',
+ *       BackupVaultArn: 'STRING_VALUE',
+ *       SourceBackupVaultArn: 'STRING_VALUE',
+ *       ResourceArn: 'STRING_VALUE',
+ *       ResourceType: 'STRING_VALUE',
+ *       CreatedBy: { // RecoveryPointCreator
+ *         BackupPlanId: 'STRING_VALUE',
+ *         BackupPlanArn: 'STRING_VALUE',
+ *         BackupPlanVersion: 'STRING_VALUE',
+ *         BackupRuleId: 'STRING_VALUE',
+ *       },
+ *       IamRoleArn: 'STRING_VALUE',
+ *       Status: 'COMPLETED' || 'PARTIAL' || 'DELETING' || 'EXPIRED',
+ *       StatusMessage: 'STRING_VALUE',
+ *       CreationDate: new Date('TIMESTAMP'),
+ *       CompletionDate: new Date('TIMESTAMP'),
+ *       BackupSizeInBytes: Number('long'),
+ *       CalculatedLifecycle: { // CalculatedLifecycle
+ *         MoveToColdStorageAt: new Date('TIMESTAMP'),
+ *         DeleteAt: new Date('TIMESTAMP'),
+ *       },
+ *       Lifecycle: { // Lifecycle
+ *         MoveToColdStorageAfterDays: Number('long'),
+ *         DeleteAfterDays: Number('long'),
+ *       },
+ *       EncryptionKeyArn: 'STRING_VALUE',
+ *       IsEncrypted: true || false,
+ *       LastRestoreTime: new Date('TIMESTAMP'),
+ *       ParentRecoveryPointArn: 'STRING_VALUE',
+ *       CompositeMemberIdentifier: 'STRING_VALUE',
+ *       IsParent: true || false,
+ *       ResourceName: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListRecoveryPointsByBackupVaultCommandInput - {@link ListRecoveryPointsByBackupVaultCommandInput}
@@ -78,6 +120,8 @@ export interface ListRecoveryPointsByBackupVaultCommandOutput
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request failed due to a temporary failure of the server.</p>
  *
+ * @throws {@link BackupServiceException}
+ * <p>Base exception class for all service exceptions from Backup service.</p>
  *
  */
 export class ListRecoveryPointsByBackupVaultCommand extends $Command<

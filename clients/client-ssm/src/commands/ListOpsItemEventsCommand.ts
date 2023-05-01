@@ -37,24 +37,42 @@ export interface ListOpsItemEventsCommandOutput extends ListOpsItemEventsRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMClient, ListOpsItemEventsCommand } from "@aws-sdk/client-ssm"; // ES Modules import
- * // const { SSMClient, ListOpsItemEventsCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * import { SSMClient, ListOpsItemEventsCommand } from '@aws-sdk/client-ssm'; // ES Modules import
+ * // const { SSMClient, ListOpsItemEventsCommand } = require('@aws-sdk/client-ssm'); // CommonJS import
  * const client = new SSMClient(config);
  * const input = { // ListOpsItemEventsRequest
  *   Filters: [ // OpsItemEventFilters
  *     { // OpsItemEventFilter
- *       Key: "OpsItemId", // required
+ *       Key: 'OpsItemId', // required
  *       Values: [ // OpsItemEventFilterValues // required
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
- *       Operator: "Equal", // required
+ *       Operator: 'Equal', // required
  *     },
  *   ],
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListOpsItemEventsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListOpsItemEventsResponse
+ *   NextToken: 'STRING_VALUE',
+ *   Summaries: [ // OpsItemEventSummaries
+ *     { // OpsItemEventSummary
+ *       OpsItemId: 'STRING_VALUE',
+ *       EventId: 'STRING_VALUE',
+ *       Source: 'STRING_VALUE',
+ *       DetailType: 'STRING_VALUE',
+ *       Detail: 'STRING_VALUE',
+ *       CreatedBy: { // OpsItemIdentity
+ *         Arn: 'STRING_VALUE',
+ *       },
+ *       CreatedTime: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListOpsItemEventsCommandInput - {@link ListOpsItemEventsCommandInput}
@@ -77,6 +95,8 @@ export interface ListOpsItemEventsCommandOutput extends ListOpsItemEventsRespons
  * @throws {@link OpsItemNotFoundException} (client fault)
  *  <p>The specified OpsItem ID doesn't exist. Verify the ID and try again.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class ListOpsItemEventsCommand extends $Command<

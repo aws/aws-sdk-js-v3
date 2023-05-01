@@ -38,17 +38,24 @@ export interface SetRepositoryPolicyCommandOutput extends SetRepositoryPolicyRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ECRPUBLICClient, SetRepositoryPolicyCommand } from "@aws-sdk/client-ecr-public"; // ES Modules import
- * // const { ECRPUBLICClient, SetRepositoryPolicyCommand } = require("@aws-sdk/client-ecr-public"); // CommonJS import
+ * import { ECRPUBLICClient, SetRepositoryPolicyCommand } from '@aws-sdk/client-ecr-public'; // ES Modules import
+ * // const { ECRPUBLICClient, SetRepositoryPolicyCommand } = require('@aws-sdk/client-ecr-public'); // CommonJS import
  * const client = new ECRPUBLICClient(config);
  * const input = { // SetRepositoryPolicyRequest
- *   registryId: "STRING_VALUE",
- *   repositoryName: "STRING_VALUE", // required
- *   policyText: "STRING_VALUE", // required
+ *   registryId: 'STRING_VALUE',
+ *   repositoryName: 'STRING_VALUE', // required
+ *   policyText: 'STRING_VALUE', // required
  *   force: true || false,
  * };
  * const command = new SetRepositoryPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SetRepositoryPolicyResponse
+ *   registryId: 'STRING_VALUE',
+ *   repositoryName: 'STRING_VALUE',
+ *   policyText: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param SetRepositoryPolicyCommandInput - {@link SetRepositoryPolicyCommandInput}
@@ -71,6 +78,8 @@ export interface SetRepositoryPolicyCommandOutput extends SetRepositoryPolicyRes
  * @throws {@link UnsupportedCommandException} (client fault)
  *  <p>The action isn't supported in this Region.</p>
  *
+ * @throws {@link ECRPUBLICServiceException}
+ * <p>Base exception class for all service exceptions from ECRPUBLIC service.</p>
  *
  */
 export class SetRepositoryPolicyCommand extends $Command<

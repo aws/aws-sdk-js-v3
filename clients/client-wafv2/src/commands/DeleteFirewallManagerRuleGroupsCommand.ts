@@ -43,15 +43,20 @@ export interface DeleteFirewallManagerRuleGroupsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WAFV2Client, DeleteFirewallManagerRuleGroupsCommand } from "@aws-sdk/client-wafv2"; // ES Modules import
- * // const { WAFV2Client, DeleteFirewallManagerRuleGroupsCommand } = require("@aws-sdk/client-wafv2"); // CommonJS import
+ * import { WAFV2Client, DeleteFirewallManagerRuleGroupsCommand } from '@aws-sdk/client-wafv2'; // ES Modules import
+ * // const { WAFV2Client, DeleteFirewallManagerRuleGroupsCommand } = require('@aws-sdk/client-wafv2'); // CommonJS import
  * const client = new WAFV2Client(config);
  * const input = { // DeleteFirewallManagerRuleGroupsRequest
- *   WebACLArn: "STRING_VALUE", // required
- *   WebACLLockToken: "STRING_VALUE", // required
+ *   WebACLArn: 'STRING_VALUE', // required
+ *   WebACLLockToken: 'STRING_VALUE', // required
  * };
  * const command = new DeleteFirewallManagerRuleGroupsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteFirewallManagerRuleGroupsResponse
+ *   NextWebACLLockToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DeleteFirewallManagerRuleGroupsCommandInput - {@link DeleteFirewallManagerRuleGroupsCommandInput}
@@ -99,6 +104,8 @@ export interface DeleteFirewallManagerRuleGroupsCommandOutput
  *          that has changed since you last retrieved it. Get the resource again, make any changes you
  *          need to make to the new copy, and retry your operation. </p>
  *
+ * @throws {@link WAFV2ServiceException}
+ * <p>Base exception class for all service exceptions from WAFV2 service.</p>
  *
  */
 export class DeleteFirewallManagerRuleGroupsCommand extends $Command<

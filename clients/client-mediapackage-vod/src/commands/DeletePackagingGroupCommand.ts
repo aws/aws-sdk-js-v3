@@ -36,14 +36,17 @@ export interface DeletePackagingGroupCommandOutput extends DeletePackagingGroupR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MediaPackageVodClient, DeletePackagingGroupCommand } from "@aws-sdk/client-mediapackage-vod"; // ES Modules import
- * // const { MediaPackageVodClient, DeletePackagingGroupCommand } = require("@aws-sdk/client-mediapackage-vod"); // CommonJS import
+ * import { MediaPackageVodClient, DeletePackagingGroupCommand } from '@aws-sdk/client-mediapackage-vod'; // ES Modules import
+ * // const { MediaPackageVodClient, DeletePackagingGroupCommand } = require('@aws-sdk/client-mediapackage-vod'); // CommonJS import
  * const client = new MediaPackageVodClient(config);
  * const input = { // DeletePackagingGroupRequest
- *   Id: "STRING_VALUE", // required
+ *   Id: 'STRING_VALUE', // required
  * };
  * const command = new DeletePackagingGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeletePackagingGroupCommandInput - {@link DeletePackagingGroupCommandInput}
@@ -70,6 +73,8 @@ export interface DeletePackagingGroupCommandOutput extends DeletePackagingGroupR
  * @throws {@link UnprocessableEntityException} (client fault)
  *  The parameters sent in the request are not valid.
  *
+ * @throws {@link MediaPackageVodServiceException}
+ * <p>Base exception class for all service exceptions from MediaPackageVod service.</p>
  *
  */
 export class DeletePackagingGroupCommand extends $Command<

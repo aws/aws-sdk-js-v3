@@ -36,15 +36,26 @@ export interface ListDataflowEndpointGroupsCommandOutput extends ListDataflowEnd
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GroundStationClient, ListDataflowEndpointGroupsCommand } from "@aws-sdk/client-groundstation"; // ES Modules import
- * // const { GroundStationClient, ListDataflowEndpointGroupsCommand } = require("@aws-sdk/client-groundstation"); // CommonJS import
+ * import { GroundStationClient, ListDataflowEndpointGroupsCommand } from '@aws-sdk/client-groundstation'; // ES Modules import
+ * // const { GroundStationClient, ListDataflowEndpointGroupsCommand } = require('@aws-sdk/client-groundstation'); // CommonJS import
  * const client = new GroundStationClient(config);
  * const input = { // ListDataflowEndpointGroupsRequest
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new ListDataflowEndpointGroupsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListDataflowEndpointGroupsResponse
+ *   nextToken: 'STRING_VALUE',
+ *   dataflowEndpointGroupList: [ // DataflowEndpointGroupList
+ *     { // DataflowEndpointListItem
+ *       dataflowEndpointGroupId: 'STRING_VALUE',
+ *       dataflowEndpointGroupArn: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListDataflowEndpointGroupsCommandInput - {@link ListDataflowEndpointGroupsCommandInput}
@@ -62,6 +73,8 @@ export interface ListDataflowEndpointGroupsCommandOutput extends ListDataflowEnd
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Resource was not found.</p>
  *
+ * @throws {@link GroundStationServiceException}
+ * <p>Base exception class for all service exceptions from GroundStation service.</p>
  *
  */
 export class ListDataflowEndpointGroupsCommand extends $Command<

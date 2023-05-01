@@ -40,25 +40,31 @@ export interface CreateTaskCommandOutput extends CreateTaskOutput, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SnowDeviceManagementClient, CreateTaskCommand } from "@aws-sdk/client-snow-device-management"; // ES Modules import
- * // const { SnowDeviceManagementClient, CreateTaskCommand } = require("@aws-sdk/client-snow-device-management"); // CommonJS import
+ * import { SnowDeviceManagementClient, CreateTaskCommand } from '@aws-sdk/client-snow-device-management'; // ES Modules import
+ * // const { SnowDeviceManagementClient, CreateTaskCommand } = require('@aws-sdk/client-snow-device-management'); // CommonJS import
  * const client = new SnowDeviceManagementClient(config);
  * const input = { // CreateTaskInput
  *   targets: [ // TargetList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   command: { // Command Union: only one key present
  *     unlock: {},
  *     reboot: {},
  *   },
- *   description: "STRING_VALUE",
+ *   description: 'STRING_VALUE',
  *   tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
- *   clientToken: "STRING_VALUE",
+ *   clientToken: 'STRING_VALUE',
  * };
  * const command = new CreateTaskCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateTaskOutput
+ *   taskId: 'STRING_VALUE',
+ *   taskArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateTaskCommandInput - {@link CreateTaskCommandInput}
@@ -85,6 +91,8 @@ export interface CreateTaskCommandOutput extends CreateTaskOutput, __MetadataBea
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
  *
+ * @throws {@link SnowDeviceManagementServiceException}
+ * <p>Base exception class for all service exceptions from SnowDeviceManagement service.</p>
  *
  */
 export class CreateTaskCommand extends $Command<

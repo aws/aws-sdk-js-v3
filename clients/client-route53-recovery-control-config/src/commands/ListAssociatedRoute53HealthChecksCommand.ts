@@ -48,16 +48,24 @@ export interface ListAssociatedRoute53HealthChecksCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Route53RecoveryControlConfigClient, ListAssociatedRoute53HealthChecksCommand } from "@aws-sdk/client-route53-recovery-control-config"; // ES Modules import
- * // const { Route53RecoveryControlConfigClient, ListAssociatedRoute53HealthChecksCommand } = require("@aws-sdk/client-route53-recovery-control-config"); // CommonJS import
+ * import { Route53RecoveryControlConfigClient, ListAssociatedRoute53HealthChecksCommand } from '@aws-sdk/client-route53-recovery-control-config'; // ES Modules import
+ * // const { Route53RecoveryControlConfigClient, ListAssociatedRoute53HealthChecksCommand } = require('@aws-sdk/client-route53-recovery-control-config'); // CommonJS import
  * const client = new Route53RecoveryControlConfigClient(config);
  * const input = { // ListAssociatedRoute53HealthChecksRequest
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
- *   RoutingControlArn: "STRING_VALUE", // required
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
+ *   RoutingControlArn: 'STRING_VALUE', // required
  * };
  * const command = new ListAssociatedRoute53HealthChecksCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListAssociatedRoute53HealthChecksResponse
+ *   HealthCheckIds: [ // __listOf__stringMax36PatternS
+ *     'STRING_VALUE',
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListAssociatedRoute53HealthChecksCommandInput - {@link ListAssociatedRoute53HealthChecksCommandInput}
@@ -75,6 +83,8 @@ export interface ListAssociatedRoute53HealthChecksCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>400 response - Multiple causes. For example, you might have a malformed query string and input parameter might be out of range, or you might have used parameters together incorrectly.</p>
  *
+ * @throws {@link Route53RecoveryControlConfigServiceException}
+ * <p>Base exception class for all service exceptions from Route53RecoveryControlConfig service.</p>
  *
  */
 export class ListAssociatedRoute53HealthChecksCommand extends $Command<

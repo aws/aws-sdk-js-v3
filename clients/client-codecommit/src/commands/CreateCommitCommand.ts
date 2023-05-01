@@ -36,42 +36,69 @@ export interface CreateCommitCommandOutput extends CreateCommitOutput, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeCommitClient, CreateCommitCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
- * // const { CodeCommitClient, CreateCommitCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
+ * import { CodeCommitClient, CreateCommitCommand } from '@aws-sdk/client-codecommit'; // ES Modules import
+ * // const { CodeCommitClient, CreateCommitCommand } = require('@aws-sdk/client-codecommit'); // CommonJS import
  * const client = new CodeCommitClient(config);
  * const input = { // CreateCommitInput
- *   repositoryName: "STRING_VALUE", // required
- *   branchName: "STRING_VALUE", // required
- *   parentCommitId: "STRING_VALUE",
- *   authorName: "STRING_VALUE",
- *   email: "STRING_VALUE",
- *   commitMessage: "STRING_VALUE",
+ *   repositoryName: 'STRING_VALUE', // required
+ *   branchName: 'STRING_VALUE', // required
+ *   parentCommitId: 'STRING_VALUE',
+ *   authorName: 'STRING_VALUE',
+ *   email: 'STRING_VALUE',
+ *   commitMessage: 'STRING_VALUE',
  *   keepEmptyFolders: true || false,
  *   putFiles: [ // PutFileEntries
  *     { // PutFileEntry
- *       filePath: "STRING_VALUE", // required
- *       fileMode: "STRING_VALUE",
- *       fileContent: "BLOB_VALUE",
+ *       filePath: 'STRING_VALUE', // required
+ *       fileMode: 'STRING_VALUE',
+ *       fileContent: 'BLOB_VALUE',
  *       sourceFile: { // SourceFileSpecifier
- *         filePath: "STRING_VALUE", // required
+ *         filePath: 'STRING_VALUE', // required
  *         isMove: true || false,
  *       },
  *     },
  *   ],
  *   deleteFiles: [ // DeleteFileEntries
  *     { // DeleteFileEntry
- *       filePath: "STRING_VALUE", // required
+ *       filePath: 'STRING_VALUE', // required
  *     },
  *   ],
  *   setFileModes: [ // SetFileModeEntries
  *     { // SetFileModeEntry
- *       filePath: "STRING_VALUE", // required
- *       fileMode: "STRING_VALUE", // required
+ *       filePath: 'STRING_VALUE', // required
+ *       fileMode: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreateCommitCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateCommitOutput
+ *   commitId: 'STRING_VALUE',
+ *   treeId: 'STRING_VALUE',
+ *   filesAdded: [ // FilesMetadata
+ *     { // FileMetadata
+ *       absolutePath: 'STRING_VALUE',
+ *       blobId: 'STRING_VALUE',
+ *       fileMode: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   filesUpdated: [
+ *     {
+ *       absolutePath: 'STRING_VALUE',
+ *       blobId: 'STRING_VALUE',
+ *       fileMode: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   filesDeleted: [
+ *     {
+ *       absolutePath: 'STRING_VALUE',
+ *       blobId: 'STRING_VALUE',
+ *       fileMode: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param CreateCommitCommandInput - {@link CreateCommitCommandInput}
@@ -219,6 +246,8 @@ export interface CreateCommitCommandOutput extends CreateCommitOutput, __Metadat
  * @throws {@link SourceFileOrContentRequiredException} (client fault)
  *  <p>The commit cannot be created because no source files or file content have been specified for the commit.</p>
  *
+ * @throws {@link CodeCommitServiceException}
+ * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
  */
 export class CreateCommitCommand extends $Command<

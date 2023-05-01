@@ -36,14 +36,32 @@ export interface GetChannelCommandOutput extends GetChannelResponse, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IvsClient, GetChannelCommand } from "@aws-sdk/client-ivs"; // ES Modules import
- * // const { IvsClient, GetChannelCommand } = require("@aws-sdk/client-ivs"); // CommonJS import
+ * import { IvsClient, GetChannelCommand } from '@aws-sdk/client-ivs'; // ES Modules import
+ * // const { IvsClient, GetChannelCommand } = require('@aws-sdk/client-ivs'); // CommonJS import
  * const client = new IvsClient(config);
  * const input = { // GetChannelRequest
- *   arn: "STRING_VALUE", // required
+ *   arn: 'STRING_VALUE', // required
  * };
  * const command = new GetChannelCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetChannelResponse
+ *   channel: { // Channel
+ *     arn: 'STRING_VALUE',
+ *     name: 'STRING_VALUE',
+ *     latencyMode: 'STRING_VALUE',
+ *     type: 'BASIC' || 'STANDARD',
+ *     recordingConfigurationArn: 'STRING_VALUE',
+ *     ingestEndpoint: 'STRING_VALUE',
+ *     playbackUrl: 'STRING_VALUE',
+ *     authorized: true || false,
+ *     tags: { // Tags
+ *       '<keys>': 'STRING_VALUE',
+ *     },
+ *     insecureIngest: true || false,
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetChannelCommandInput - {@link GetChannelCommandInput}
@@ -61,6 +79,8 @@ export interface GetChannelCommandOutput extends GetChannelResponse, __MetadataB
  * @throws {@link ValidationException} (client fault)
  *  <p/>
  *
+ * @throws {@link IvsServiceException}
+ * <p>Base exception class for all service exceptions from Ivs service.</p>
  *
  */
 export class GetChannelCommand extends $Command<

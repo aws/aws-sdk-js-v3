@@ -38,14 +38,41 @@ export interface DeleteMeshCommandOutput extends DeleteMeshOutput, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppMeshClient, DeleteMeshCommand } from "@aws-sdk/client-app-mesh"; // ES Modules import
- * // const { AppMeshClient, DeleteMeshCommand } = require("@aws-sdk/client-app-mesh"); // CommonJS import
+ * import { AppMeshClient, DeleteMeshCommand } from '@aws-sdk/client-app-mesh'; // ES Modules import
+ * // const { AppMeshClient, DeleteMeshCommand } = require('@aws-sdk/client-app-mesh'); // CommonJS import
  * const client = new AppMeshClient(config);
  * const input = { // DeleteMeshInput
- *   meshName: "STRING_VALUE", // required
+ *   meshName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteMeshCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteMeshOutput
+ *   mesh: { // MeshData
+ *     meshName: 'STRING_VALUE', // required
+ *     spec: { // MeshSpec
+ *       egressFilter: { // EgressFilter
+ *         type: 'STRING_VALUE', // required
+ *       },
+ *       serviceDiscovery: { // MeshServiceDiscovery
+ *         ipPreference: 'STRING_VALUE',
+ *       },
+ *     },
+ *     metadata: { // ResourceMetadata
+ *       arn: 'STRING_VALUE', // required
+ *       version: Number('long'), // required
+ *       uid: 'STRING_VALUE', // required
+ *       createdAt: new Date('TIMESTAMP'), // required
+ *       lastUpdatedAt: new Date('TIMESTAMP'), // required
+ *       meshOwner: 'STRING_VALUE', // required
+ *       resourceOwner: 'STRING_VALUE', // required
+ *     },
+ *     status: { // MeshStatus
+ *       status: 'STRING_VALUE',
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param DeleteMeshCommandInput - {@link DeleteMeshCommandInput}
@@ -79,6 +106,8 @@ export interface DeleteMeshCommandOutput extends DeleteMeshOutput, __MetadataBea
  *          your account. For best results, use an increasing or variable sleep interval between
  *          requests.</p>
  *
+ * @throws {@link AppMeshServiceException}
+ * <p>Base exception class for all service exceptions from AppMesh service.</p>
  *
  */
 export class DeleteMeshCommand extends $Command<

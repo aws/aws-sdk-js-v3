@@ -44,15 +44,31 @@ export interface DescribeFolderResolvedPermissionsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { QuickSightClient, DescribeFolderResolvedPermissionsCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
- * // const { QuickSightClient, DescribeFolderResolvedPermissionsCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * import { QuickSightClient, DescribeFolderResolvedPermissionsCommand } from '@aws-sdk/client-quicksight'; // ES Modules import
+ * // const { QuickSightClient, DescribeFolderResolvedPermissionsCommand } = require('@aws-sdk/client-quicksight'); // CommonJS import
  * const client = new QuickSightClient(config);
  * const input = { // DescribeFolderResolvedPermissionsRequest
- *   AwsAccountId: "STRING_VALUE", // required
- *   FolderId: "STRING_VALUE", // required
+ *   AwsAccountId: 'STRING_VALUE', // required
+ *   FolderId: 'STRING_VALUE', // required
  * };
  * const command = new DescribeFolderResolvedPermissionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeFolderResolvedPermissionsResponse
+ *   Status: Number('int'),
+ *   FolderId: 'STRING_VALUE',
+ *   Arn: 'STRING_VALUE',
+ *   Permissions: [ // ResourcePermissionList
+ *     { // ResourcePermission
+ *       Principal: 'STRING_VALUE', // required
+ *       Actions: [ // ActionList // required
+ *         'STRING_VALUE',
+ *       ],
+ *     },
+ *   ],
+ *   RequestId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeFolderResolvedPermissionsCommandInput - {@link DescribeFolderResolvedPermissionsCommandInput}
@@ -85,6 +101,8 @@ export interface DescribeFolderResolvedPermissionsCommandOutput
  * 			Amazon QuickSight currently has Standard Edition and Enterprise Edition. Not every operation and
  * 			capability is available in every edition.</p>
  *
+ * @throws {@link QuickSightServiceException}
+ * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
 export class DescribeFolderResolvedPermissionsCommand extends $Command<

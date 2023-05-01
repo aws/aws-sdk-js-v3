@@ -44,22 +44,29 @@ export interface CreateThingCommandOutput extends CreateThingResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTClient, CreateThingCommand } from "@aws-sdk/client-iot"; // ES Modules import
- * // const { IoTClient, CreateThingCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * import { IoTClient, CreateThingCommand } from '@aws-sdk/client-iot'; // ES Modules import
+ * // const { IoTClient, CreateThingCommand } = require('@aws-sdk/client-iot'); // CommonJS import
  * const client = new IoTClient(config);
  * const input = { // CreateThingRequest
- *   thingName: "STRING_VALUE", // required
- *   thingTypeName: "STRING_VALUE",
+ *   thingName: 'STRING_VALUE', // required
+ *   thingTypeName: 'STRING_VALUE',
  *   attributePayload: { // AttributePayload
  *     attributes: { // Attributes
- *       "<keys>": "STRING_VALUE",
+ *       '<keys>': 'STRING_VALUE',
  *     },
  *     merge: true || false,
  *   },
- *   billingGroupName: "STRING_VALUE",
+ *   billingGroupName: 'STRING_VALUE',
  * };
  * const command = new CreateThingCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateThingResponse
+ *   thingName: 'STRING_VALUE',
+ *   thingArn: 'STRING_VALUE',
+ *   thingId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateThingCommandInput - {@link CreateThingCommandInput}
@@ -89,6 +96,8 @@ export interface CreateThingCommandOutput extends CreateThingResponse, __Metadat
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this operation.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class CreateThingCommand extends $Command<

@@ -36,15 +36,32 @@ export interface DescribeUserCommandOutput extends DescribeUserResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MqClient, DescribeUserCommand } from "@aws-sdk/client-mq"; // ES Modules import
- * // const { MqClient, DescribeUserCommand } = require("@aws-sdk/client-mq"); // CommonJS import
+ * import { MqClient, DescribeUserCommand } from '@aws-sdk/client-mq'; // ES Modules import
+ * // const { MqClient, DescribeUserCommand } = require('@aws-sdk/client-mq'); // CommonJS import
  * const client = new MqClient(config);
  * const input = { // DescribeUserRequest
- *   BrokerId: "STRING_VALUE", // required
- *   Username: "STRING_VALUE", // required
+ *   BrokerId: 'STRING_VALUE', // required
+ *   Username: 'STRING_VALUE', // required
  * };
  * const command = new DescribeUserCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeUserResponse
+ *   BrokerId: 'STRING_VALUE',
+ *   ConsoleAccess: true || false,
+ *   Groups: [ // __listOf__string
+ *     'STRING_VALUE',
+ *   ],
+ *   Pending: { // UserPendingChanges
+ *     ConsoleAccess: true || false,
+ *     Groups: [
+ *       'STRING_VALUE',
+ *     ],
+ *     PendingChange: 'STRING_VALUE', // required
+ *   },
+ *   Username: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeUserCommandInput - {@link DescribeUserCommandInput}
@@ -65,6 +82,8 @@ export interface DescribeUserCommandOutput extends DescribeUserResponse, __Metad
  * @throws {@link NotFoundException} (client fault)
  *  <p>Returns information about an error.</p>
  *
+ * @throws {@link MqServiceException}
+ * <p>Base exception class for all service exceptions from Mq service.</p>
  *
  */
 export class DescribeUserCommand extends $Command<

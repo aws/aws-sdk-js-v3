@@ -40,46 +40,83 @@ export interface CreateSafetyRuleCommandOutput extends CreateSafetyRuleResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Route53RecoveryControlConfigClient, CreateSafetyRuleCommand } from "@aws-sdk/client-route53-recovery-control-config"; // ES Modules import
- * // const { Route53RecoveryControlConfigClient, CreateSafetyRuleCommand } = require("@aws-sdk/client-route53-recovery-control-config"); // CommonJS import
+ * import { Route53RecoveryControlConfigClient, CreateSafetyRuleCommand } from '@aws-sdk/client-route53-recovery-control-config'; // ES Modules import
+ * // const { Route53RecoveryControlConfigClient, CreateSafetyRuleCommand } = require('@aws-sdk/client-route53-recovery-control-config'); // CommonJS import
  * const client = new Route53RecoveryControlConfigClient(config);
  * const input = { // CreateSafetyRuleRequest
  *   AssertionRule: { // NewAssertionRule
  *     AssertedControls: [ // __listOf__stringMin1Max256PatternAZaZ09 // required
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
- *     ControlPanelArn: "STRING_VALUE", // required
- *     Name: "STRING_VALUE", // required
+ *     ControlPanelArn: 'STRING_VALUE', // required
+ *     Name: 'STRING_VALUE', // required
  *     RuleConfig: { // RuleConfig
  *       Inverted: true || false, // required
- *       Threshold: Number("int"), // required
- *       Type: "ATLEAST" || "AND" || "OR", // required
+ *       Threshold: Number('int'), // required
+ *       Type: 'ATLEAST' || 'AND' || 'OR', // required
  *     },
- *     WaitPeriodMs: Number("int"), // required
+ *     WaitPeriodMs: Number('int'), // required
  *   },
- *   ClientToken: "STRING_VALUE",
+ *   ClientToken: 'STRING_VALUE',
  *   GatingRule: { // NewGatingRule
- *     ControlPanelArn: "STRING_VALUE", // required
+ *     ControlPanelArn: 'STRING_VALUE', // required
  *     GatingControls: [ // required
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
- *     Name: "STRING_VALUE", // required
+ *     Name: 'STRING_VALUE', // required
  *     RuleConfig: {
  *       Inverted: true || false, // required
- *       Threshold: Number("int"), // required
- *       Type: "ATLEAST" || "AND" || "OR", // required
+ *       Threshold: Number('int'), // required
+ *       Type: 'ATLEAST' || 'AND' || 'OR', // required
  *     },
  *     TargetControls: [ // required
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
- *     WaitPeriodMs: Number("int"), // required
+ *     WaitPeriodMs: Number('int'), // required
  *   },
  *   Tags: { // __mapOf__stringMin0Max256PatternS
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateSafetyRuleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateSafetyRuleResponse
+ *   AssertionRule: { // AssertionRule
+ *     AssertedControls: [ // __listOf__stringMin1Max256PatternAZaZ09 // required
+ *       'STRING_VALUE',
+ *     ],
+ *     ControlPanelArn: 'STRING_VALUE', // required
+ *     Name: 'STRING_VALUE', // required
+ *     RuleConfig: { // RuleConfig
+ *       Inverted: true || false, // required
+ *       Threshold: Number('int'), // required
+ *       Type: 'ATLEAST' || 'AND' || 'OR', // required
+ *     },
+ *     SafetyRuleArn: 'STRING_VALUE', // required
+ *     Status: 'PENDING' || 'DEPLOYED' || 'PENDING_DELETION', // required
+ *     WaitPeriodMs: Number('int'), // required
+ *   },
+ *   GatingRule: { // GatingRule
+ *     ControlPanelArn: 'STRING_VALUE', // required
+ *     GatingControls: [ // required
+ *       'STRING_VALUE',
+ *     ],
+ *     Name: 'STRING_VALUE', // required
+ *     RuleConfig: {
+ *       Inverted: true || false, // required
+ *       Threshold: Number('int'), // required
+ *       Type: 'ATLEAST' || 'AND' || 'OR', // required
+ *     },
+ *     SafetyRuleArn: 'STRING_VALUE', // required
+ *     Status: 'PENDING' || 'DEPLOYED' || 'PENDING_DELETION', // required
+ *     TargetControls: [ // required
+ *       'STRING_VALUE',
+ *     ],
+ *     WaitPeriodMs: Number('int'), // required
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateSafetyRuleCommandInput - {@link CreateSafetyRuleCommandInput}
@@ -94,6 +131,8 @@ export interface CreateSafetyRuleCommandOutput extends CreateSafetyRuleResponse,
  * @throws {@link ValidationException} (client fault)
  *  <p>400 response - Multiple causes. For example, you might have a malformed query string and input parameter might be out of range, or you might have used parameters together incorrectly.</p>
  *
+ * @throws {@link Route53RecoveryControlConfigServiceException}
+ * <p>Base exception class for all service exceptions from Route53RecoveryControlConfig service.</p>
  *
  */
 export class CreateSafetyRuleCommand extends $Command<

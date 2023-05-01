@@ -38,40 +38,45 @@ export interface UpdateTableCommandOutput extends UpdateTableResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KeyspacesClient, UpdateTableCommand } from "@aws-sdk/client-keyspaces"; // ES Modules import
- * // const { KeyspacesClient, UpdateTableCommand } = require("@aws-sdk/client-keyspaces"); // CommonJS import
+ * import { KeyspacesClient, UpdateTableCommand } from '@aws-sdk/client-keyspaces'; // ES Modules import
+ * // const { KeyspacesClient, UpdateTableCommand } = require('@aws-sdk/client-keyspaces'); // CommonJS import
  * const client = new KeyspacesClient(config);
  * const input = { // UpdateTableRequest
- *   keyspaceName: "STRING_VALUE", // required
- *   tableName: "STRING_VALUE", // required
+ *   keyspaceName: 'STRING_VALUE', // required
+ *   tableName: 'STRING_VALUE', // required
  *   addColumns: [ // ColumnDefinitionList
  *     { // ColumnDefinition
- *       name: "STRING_VALUE", // required
- *       type: "STRING_VALUE", // required
+ *       name: 'STRING_VALUE', // required
+ *       type: 'STRING_VALUE', // required
  *     },
  *   ],
  *   capacitySpecification: { // CapacitySpecification
- *     throughputMode: "STRING_VALUE", // required
- *     readCapacityUnits: Number("long"),
- *     writeCapacityUnits: Number("long"),
+ *     throughputMode: 'STRING_VALUE', // required
+ *     readCapacityUnits: Number('long'),
+ *     writeCapacityUnits: Number('long'),
  *   },
  *   encryptionSpecification: { // EncryptionSpecification
- *     type: "STRING_VALUE", // required
- *     kmsKeyIdentifier: "STRING_VALUE",
+ *     type: 'STRING_VALUE', // required
+ *     kmsKeyIdentifier: 'STRING_VALUE',
  *   },
  *   pointInTimeRecovery: { // PointInTimeRecovery
- *     status: "STRING_VALUE", // required
+ *     status: 'STRING_VALUE', // required
  *   },
  *   ttl: { // TimeToLive
- *     status: "STRING_VALUE", // required
+ *     status: 'STRING_VALUE', // required
  *   },
- *   defaultTimeToLive: Number("int"),
+ *   defaultTimeToLive: Number('int'),
  *   clientSideTimestamps: { // ClientSideTimestamps
- *     status: "STRING_VALUE", // required
+ *     status: 'STRING_VALUE', // required
  *   },
  * };
  * const command = new UpdateTableCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateTableResponse
+ *   resourceArn: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param UpdateTableCommandInput - {@link UpdateTableCommandInput}
@@ -101,6 +106,8 @@ export interface UpdateTableCommandOutput extends UpdateTableResponse, __Metadat
  * @throws {@link ValidationException} (client fault)
  *  <p>The operation failed due to an invalid or malformed request.</p>
  *
+ * @throws {@link KeyspacesServiceException}
+ * <p>Base exception class for all service exceptions from Keyspaces service.</p>
  *
  */
 export class UpdateTableCommand extends $Command<

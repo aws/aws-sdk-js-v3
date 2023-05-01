@@ -36,19 +36,22 @@ export interface PutFeedbackCommandOutput extends PutFeedbackResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LookoutMetricsClient, PutFeedbackCommand } from "@aws-sdk/client-lookoutmetrics"; // ES Modules import
- * // const { LookoutMetricsClient, PutFeedbackCommand } = require("@aws-sdk/client-lookoutmetrics"); // CommonJS import
+ * import { LookoutMetricsClient, PutFeedbackCommand } from '@aws-sdk/client-lookoutmetrics'; // ES Modules import
+ * // const { LookoutMetricsClient, PutFeedbackCommand } = require('@aws-sdk/client-lookoutmetrics'); // CommonJS import
  * const client = new LookoutMetricsClient(config);
  * const input = { // PutFeedbackRequest
- *   AnomalyDetectorArn: "STRING_VALUE", // required
+ *   AnomalyDetectorArn: 'STRING_VALUE', // required
  *   AnomalyGroupTimeSeriesFeedback: { // AnomalyGroupTimeSeriesFeedback
- *     AnomalyGroupId: "STRING_VALUE", // required
- *     TimeSeriesId: "STRING_VALUE", // required
+ *     AnomalyGroupId: 'STRING_VALUE', // required
+ *     TimeSeriesId: 'STRING_VALUE', // required
  *     IsAnomaly: true || false, // required
  *   },
  * };
  * const command = new PutFeedbackCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutFeedbackCommandInput - {@link PutFeedbackCommandInput}
@@ -73,6 +76,8 @@ export interface PutFeedbackCommandOutput extends PutFeedbackResponse, __Metadat
  *  <p>The input fails to satisfy the constraints specified by the AWS service. Check your input values and try
  *       again.</p>
  *
+ * @throws {@link LookoutMetricsServiceException}
+ * <p>Base exception class for all service exceptions from LookoutMetrics service.</p>
  *
  */
 export class PutFeedbackCommand extends $Command<

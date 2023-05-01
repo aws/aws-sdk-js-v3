@@ -39,16 +39,21 @@ export interface AssignTapePoolCommandOutput extends AssignTapePoolOutput, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { StorageGatewayClient, AssignTapePoolCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
- * // const { StorageGatewayClient, AssignTapePoolCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
+ * import { StorageGatewayClient, AssignTapePoolCommand } from '@aws-sdk/client-storage-gateway'; // ES Modules import
+ * // const { StorageGatewayClient, AssignTapePoolCommand } = require('@aws-sdk/client-storage-gateway'); // CommonJS import
  * const client = new StorageGatewayClient(config);
  * const input = { // AssignTapePoolInput
- *   TapeARN: "STRING_VALUE", // required
- *   PoolId: "STRING_VALUE", // required
+ *   TapeARN: 'STRING_VALUE', // required
+ *   PoolId: 'STRING_VALUE', // required
  *   BypassGovernanceRetention: true || false,
  * };
  * const command = new AssignTapePoolCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AssignTapePoolOutput
+ *   TapeARN: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param AssignTapePoolCommandInput - {@link AssignTapePoolCommandInput}
@@ -65,6 +70,8 @@ export interface AssignTapePoolCommandOutput extends AssignTapePoolOutput, __Met
  *  <p>An exception occurred because an invalid gateway request was issued to the service. For
  *          more information, see the error and message fields.</p>
  *
+ * @throws {@link StorageGatewayServiceException}
+ * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
  */
 export class AssignTapePoolCommand extends $Command<

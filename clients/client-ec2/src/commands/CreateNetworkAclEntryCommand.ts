@@ -43,29 +43,32 @@ export interface CreateNetworkAclEntryCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, CreateNetworkAclEntryCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, CreateNetworkAclEntryCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, CreateNetworkAclEntryCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, CreateNetworkAclEntryCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // CreateNetworkAclEntryRequest
- *   CidrBlock: "STRING_VALUE",
+ *   CidrBlock: 'STRING_VALUE',
  *   DryRun: true || false,
  *   Egress: true || false, // required
  *   IcmpTypeCode: { // IcmpTypeCode
- *     Code: Number("int"),
- *     Type: Number("int"),
+ *     Code: Number('int'),
+ *     Type: Number('int'),
  *   },
- *   Ipv6CidrBlock: "STRING_VALUE",
- *   NetworkAclId: "STRING_VALUE", // required
+ *   Ipv6CidrBlock: 'STRING_VALUE',
+ *   NetworkAclId: 'STRING_VALUE', // required
  *   PortRange: { // PortRange
- *     From: Number("int"),
- *     To: Number("int"),
+ *     From: Number('int'),
+ *     To: Number('int'),
  *   },
- *   Protocol: "STRING_VALUE", // required
- *   RuleAction: "allow" || "deny", // required
- *   RuleNumber: Number("int"), // required
+ *   Protocol: 'STRING_VALUE', // required
+ *   RuleAction: 'allow' || 'deny', // required
+ *   RuleNumber: Number('int'), // required
  * };
  * const command = new CreateNetworkAclEntryCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param CreateNetworkAclEntryCommandInput - {@link CreateNetworkAclEntryCommandInput}
@@ -74,6 +77,8 @@ export interface CreateNetworkAclEntryCommandOutput extends __MetadataBearer {}
  * @see {@link CreateNetworkAclEntryCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @example To create a network ACL entry
  * ```javascript

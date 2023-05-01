@@ -38,21 +38,27 @@ export interface CreateContactFlowCommandOutput extends CreateContactFlowRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, CreateContactFlowCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, CreateContactFlowCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, CreateContactFlowCommand } from '@aws-sdk/client-connect'; // ES Modules import
+ * // const { ConnectClient, CreateContactFlowCommand } = require('@aws-sdk/client-connect'); // CommonJS import
  * const client = new ConnectClient(config);
  * const input = { // CreateContactFlowRequest
- *   InstanceId: "STRING_VALUE", // required
- *   Name: "STRING_VALUE", // required
- *   Type: "CONTACT_FLOW" || "CUSTOMER_QUEUE" || "CUSTOMER_HOLD" || "CUSTOMER_WHISPER" || "AGENT_HOLD" || "AGENT_WHISPER" || "OUTBOUND_WHISPER" || "AGENT_TRANSFER" || "QUEUE_TRANSFER", // required
- *   Description: "STRING_VALUE",
- *   Content: "STRING_VALUE", // required
+ *   InstanceId: 'STRING_VALUE', // required
+ *   Name: 'STRING_VALUE', // required
+ *   Type: 'CONTACT_FLOW' || 'CUSTOMER_QUEUE' || 'CUSTOMER_HOLD' || 'CUSTOMER_WHISPER' || 'AGENT_HOLD' || 'AGENT_WHISPER' || 'OUTBOUND_WHISPER' || 'AGENT_TRANSFER' || 'QUEUE_TRANSFER', // required
+ *   Description: 'STRING_VALUE',
+ *   Content: 'STRING_VALUE', // required
  *   Tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateContactFlowCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateContactFlowResponse
+ *   ContactFlowId: 'STRING_VALUE',
+ *   ContactFlowArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateContactFlowCommandInput - {@link CreateContactFlowCommandInput}
@@ -85,6 +91,8 @@ export interface CreateContactFlowCommandOutput extends CreateContactFlowRespons
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class CreateContactFlowCommand extends $Command<

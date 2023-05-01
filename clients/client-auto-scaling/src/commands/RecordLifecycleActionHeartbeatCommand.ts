@@ -77,17 +77,20 @@ export interface RecordLifecycleActionHeartbeatCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AutoScalingClient, RecordLifecycleActionHeartbeatCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
- * // const { AutoScalingClient, RecordLifecycleActionHeartbeatCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
+ * import { AutoScalingClient, RecordLifecycleActionHeartbeatCommand } from '@aws-sdk/client-auto-scaling'; // ES Modules import
+ * // const { AutoScalingClient, RecordLifecycleActionHeartbeatCommand } = require('@aws-sdk/client-auto-scaling'); // CommonJS import
  * const client = new AutoScalingClient(config);
  * const input = { // RecordLifecycleActionHeartbeatType
- *   LifecycleHookName: "STRING_VALUE", // required
- *   AutoScalingGroupName: "STRING_VALUE", // required
- *   LifecycleActionToken: "STRING_VALUE",
- *   InstanceId: "STRING_VALUE",
+ *   LifecycleHookName: 'STRING_VALUE', // required
+ *   AutoScalingGroupName: 'STRING_VALUE', // required
+ *   LifecycleActionToken: 'STRING_VALUE',
+ *   InstanceId: 'STRING_VALUE',
  * };
  * const command = new RecordLifecycleActionHeartbeatCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param RecordLifecycleActionHeartbeatCommandInput - {@link RecordLifecycleActionHeartbeatCommandInput}
@@ -100,6 +103,8 @@ export interface RecordLifecycleActionHeartbeatCommandOutput
  *  <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group,
  *             instance, or load balancer).</p>
  *
+ * @throws {@link AutoScalingServiceException}
+ * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
  * @example To record a lifecycle action heartbeat
  * ```javascript

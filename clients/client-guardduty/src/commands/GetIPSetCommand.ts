@@ -36,15 +36,26 @@ export interface GetIPSetCommandOutput extends GetIPSetResponse, __MetadataBeare
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GuardDutyClient, GetIPSetCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
- * // const { GuardDutyClient, GetIPSetCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
+ * import { GuardDutyClient, GetIPSetCommand } from '@aws-sdk/client-guardduty'; // ES Modules import
+ * // const { GuardDutyClient, GetIPSetCommand } = require('@aws-sdk/client-guardduty'); // CommonJS import
  * const client = new GuardDutyClient(config);
  * const input = { // GetIPSetRequest
- *   DetectorId: "STRING_VALUE", // required
- *   IpSetId: "STRING_VALUE", // required
+ *   DetectorId: 'STRING_VALUE', // required
+ *   IpSetId: 'STRING_VALUE', // required
  * };
  * const command = new GetIPSetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetIPSetResponse
+ *   Name: 'STRING_VALUE', // required
+ *   Format: 'TXT' || 'STIX' || 'OTX_CSV' || 'ALIEN_VAULT' || 'PROOF_POINT' || 'FIRE_EYE', // required
+ *   Location: 'STRING_VALUE', // required
+ *   Status: 'INACTIVE' || 'ACTIVATING' || 'ACTIVE' || 'DEACTIVATING' || 'ERROR' || 'DELETE_PENDING' || 'DELETED', // required
+ *   Tags: { // TagMap
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetIPSetCommandInput - {@link GetIPSetCommandInput}
@@ -59,6 +70,8 @@ export interface GetIPSetCommandOutput extends GetIPSetResponse, __MetadataBeare
  * @throws {@link InternalServerErrorException} (server fault)
  *  <p>An internal server error exception object.</p>
  *
+ * @throws {@link GuardDutyServiceException}
+ * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
  */
 export class GetIPSetCommand extends $Command<

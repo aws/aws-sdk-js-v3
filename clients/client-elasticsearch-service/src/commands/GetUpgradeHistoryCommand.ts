@@ -40,16 +40,38 @@ export interface GetUpgradeHistoryCommandOutput extends GetUpgradeHistoryRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElasticsearchServiceClient, GetUpgradeHistoryCommand } from "@aws-sdk/client-elasticsearch-service"; // ES Modules import
- * // const { ElasticsearchServiceClient, GetUpgradeHistoryCommand } = require("@aws-sdk/client-elasticsearch-service"); // CommonJS import
+ * import { ElasticsearchServiceClient, GetUpgradeHistoryCommand } from '@aws-sdk/client-elasticsearch-service'; // ES Modules import
+ * // const { ElasticsearchServiceClient, GetUpgradeHistoryCommand } = require('@aws-sdk/client-elasticsearch-service'); // CommonJS import
  * const client = new ElasticsearchServiceClient(config);
  * const input = { // GetUpgradeHistoryRequest
- *   DomainName: "STRING_VALUE", // required
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   DomainName: 'STRING_VALUE', // required
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new GetUpgradeHistoryCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetUpgradeHistoryResponse
+ *   UpgradeHistories: [ // UpgradeHistoryList
+ *     { // UpgradeHistory
+ *       UpgradeName: 'STRING_VALUE',
+ *       StartTimestamp: new Date('TIMESTAMP'),
+ *       UpgradeStatus: 'IN_PROGRESS' || 'SUCCEEDED' || 'SUCCEEDED_WITH_ISSUES' || 'FAILED',
+ *       StepsList: [ // UpgradeStepsList
+ *         { // UpgradeStepItem
+ *           UpgradeStep: 'PRE_UPGRADE_CHECK' || 'SNAPSHOT' || 'UPGRADE',
+ *           UpgradeStepStatus: 'IN_PROGRESS' || 'SUCCEEDED' || 'SUCCEEDED_WITH_ISSUES' || 'FAILED',
+ *           Issues: [ // Issues
+ *             'STRING_VALUE',
+ *           ],
+ *           ProgressPercent: Number('double'),
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetUpgradeHistoryCommandInput - {@link GetUpgradeHistoryCommandInput}
@@ -73,6 +95,8 @@ export interface GetUpgradeHistoryCommandOutput extends GetUpgradeHistoryRespons
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception for missing / invalid input fields. Gives http status code of 400.</p>
  *
+ * @throws {@link ElasticsearchServiceServiceException}
+ * <p>Base exception class for all service exceptions from ElasticsearchService service.</p>
  *
  */
 export class GetUpgradeHistoryCommand extends $Command<

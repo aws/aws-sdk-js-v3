@@ -41,15 +41,18 @@ export interface CancelUpdateStackCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudFormationClient, CancelUpdateStackCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
- * // const { CloudFormationClient, CancelUpdateStackCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
+ * import { CloudFormationClient, CancelUpdateStackCommand } from '@aws-sdk/client-cloudformation'; // ES Modules import
+ * // const { CloudFormationClient, CancelUpdateStackCommand } = require('@aws-sdk/client-cloudformation'); // CommonJS import
  * const client = new CloudFormationClient(config);
  * const input = { // CancelUpdateStackInput
- *   StackName: "STRING_VALUE", // required
- *   ClientRequestToken: "STRING_VALUE",
+ *   StackName: 'STRING_VALUE', // required
+ *   ClientRequestToken: 'STRING_VALUE',
  * };
  * const command = new CancelUpdateStackCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param CancelUpdateStackCommandInput - {@link CancelUpdateStackCommandInput}
@@ -61,6 +64,8 @@ export interface CancelUpdateStackCommandOutput extends __MetadataBearer {}
  * @throws {@link TokenAlreadyExistsException} (client fault)
  *  <p>A client request token already exists.</p>
  *
+ * @throws {@link CloudFormationServiceException}
+ * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
  */
 export class CancelUpdateStackCommand extends $Command<

@@ -36,12 +36,20 @@ export interface GetRevealConfigurationCommandOutput extends GetRevealConfigurat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Macie2Client, GetRevealConfigurationCommand } from "@aws-sdk/client-macie2"; // ES Modules import
- * // const { Macie2Client, GetRevealConfigurationCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
+ * import { Macie2Client, GetRevealConfigurationCommand } from '@aws-sdk/client-macie2'; // ES Modules import
+ * // const { Macie2Client, GetRevealConfigurationCommand } = require('@aws-sdk/client-macie2'); // CommonJS import
  * const client = new Macie2Client(config);
  * const input = {};
  * const command = new GetRevealConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetRevealConfigurationResponse
+ *   configuration: { // RevealConfiguration
+ *     kmsKeyId: 'STRING_VALUE',
+ *     status: 'ENABLED' || 'DISABLED', // required
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetRevealConfigurationCommandInput - {@link GetRevealConfigurationCommandInput}
@@ -62,6 +70,8 @@ export interface GetRevealConfigurationCommandOutput extends GetRevealConfigurat
  * @throws {@link ValidationException} (client fault)
  *  <p>Provides information about an error that occurred due to a syntax error in a request.</p>
  *
+ * @throws {@link Macie2ServiceException}
+ * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
  */
 export class GetRevealConfigurationCommand extends $Command<

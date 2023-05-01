@@ -42,19 +42,32 @@ export interface ListQueuesCommandOutput extends ListQueuesResponse, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, ListQueuesCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, ListQueuesCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, ListQueuesCommand } from '@aws-sdk/client-connect'; // ES Modules import
+ * // const { ConnectClient, ListQueuesCommand } = require('@aws-sdk/client-connect'); // CommonJS import
  * const client = new ConnectClient(config);
  * const input = { // ListQueuesRequest
- *   InstanceId: "STRING_VALUE", // required
+ *   InstanceId: 'STRING_VALUE', // required
  *   QueueTypes: [ // QueueTypes
- *     "STANDARD" || "AGENT",
+ *     'STANDARD' || 'AGENT',
  *   ],
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListQueuesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListQueuesResponse
+ *   QueueSummaryList: [ // QueueSummaryList
+ *     { // QueueSummary
+ *       Id: 'STRING_VALUE',
+ *       Arn: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *       QueueType: 'STANDARD' || 'AGENT',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListQueuesCommandInput - {@link ListQueuesCommandInput}
@@ -78,6 +91,8 @@ export interface ListQueuesCommandOutput extends ListQueuesResponse, __MetadataB
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class ListQueuesCommand extends $Command<

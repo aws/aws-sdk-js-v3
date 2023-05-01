@@ -43,24 +43,65 @@ export interface ListResourceComplianceSummariesCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMClient, ListResourceComplianceSummariesCommand } from "@aws-sdk/client-ssm"; // ES Modules import
- * // const { SSMClient, ListResourceComplianceSummariesCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * import { SSMClient, ListResourceComplianceSummariesCommand } from '@aws-sdk/client-ssm'; // ES Modules import
+ * // const { SSMClient, ListResourceComplianceSummariesCommand } = require('@aws-sdk/client-ssm'); // CommonJS import
  * const client = new SSMClient(config);
  * const input = { // ListResourceComplianceSummariesRequest
  *   Filters: [ // ComplianceStringFilterList
  *     { // ComplianceStringFilter
- *       Key: "STRING_VALUE",
+ *       Key: 'STRING_VALUE',
  *       Values: [ // ComplianceStringFilterValueList
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
- *       Type: "EQUAL" || "NOT_EQUAL" || "BEGIN_WITH" || "LESS_THAN" || "GREATER_THAN",
+ *       Type: 'EQUAL' || 'NOT_EQUAL' || 'BEGIN_WITH' || 'LESS_THAN' || 'GREATER_THAN',
  *     },
  *   ],
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListResourceComplianceSummariesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListResourceComplianceSummariesResult
+ *   ResourceComplianceSummaryItems: [ // ResourceComplianceSummaryItemList
+ *     { // ResourceComplianceSummaryItem
+ *       ComplianceType: 'STRING_VALUE',
+ *       ResourceType: 'STRING_VALUE',
+ *       ResourceId: 'STRING_VALUE',
+ *       Status: 'COMPLIANT' || 'NON_COMPLIANT',
+ *       OverallSeverity: 'CRITICAL' || 'HIGH' || 'MEDIUM' || 'LOW' || 'INFORMATIONAL' || 'UNSPECIFIED',
+ *       ExecutionSummary: { // ComplianceExecutionSummary
+ *         ExecutionTime: new Date('TIMESTAMP'), // required
+ *         ExecutionId: 'STRING_VALUE',
+ *         ExecutionType: 'STRING_VALUE',
+ *       },
+ *       CompliantSummary: { // CompliantSummary
+ *         CompliantCount: Number('int'),
+ *         SeveritySummary: { // SeveritySummary
+ *           CriticalCount: Number('int'),
+ *           HighCount: Number('int'),
+ *           MediumCount: Number('int'),
+ *           LowCount: Number('int'),
+ *           InformationalCount: Number('int'),
+ *           UnspecifiedCount: Number('int'),
+ *         },
+ *       },
+ *       NonCompliantSummary: { // NonCompliantSummary
+ *         NonCompliantCount: Number('int'),
+ *         SeveritySummary: {
+ *           CriticalCount: Number('int'),
+ *           HighCount: Number('int'),
+ *           MediumCount: Number('int'),
+ *           LowCount: Number('int'),
+ *           InformationalCount: Number('int'),
+ *           UnspecifiedCount: Number('int'),
+ *         },
+ *       },
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListResourceComplianceSummariesCommandInput - {@link ListResourceComplianceSummariesCommandInput}
@@ -78,6 +119,8 @@ export interface ListResourceComplianceSummariesCommandOutput
  * @throws {@link InvalidNextToken} (client fault)
  *  <p>The specified token isn't valid.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class ListResourceComplianceSummariesCommand extends $Command<

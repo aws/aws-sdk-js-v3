@@ -36,14 +36,42 @@ export interface GetSamplingRulesCommandOutput extends GetSamplingRulesResult, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { XRayClient, GetSamplingRulesCommand } from "@aws-sdk/client-xray"; // ES Modules import
- * // const { XRayClient, GetSamplingRulesCommand } = require("@aws-sdk/client-xray"); // CommonJS import
+ * import { XRayClient, GetSamplingRulesCommand } from '@aws-sdk/client-xray'; // ES Modules import
+ * // const { XRayClient, GetSamplingRulesCommand } = require('@aws-sdk/client-xray'); // CommonJS import
  * const client = new XRayClient(config);
  * const input = { // GetSamplingRulesRequest
- *   NextToken: "STRING_VALUE",
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new GetSamplingRulesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetSamplingRulesResult
+ *   SamplingRuleRecords: [ // SamplingRuleRecordList
+ *     { // SamplingRuleRecord
+ *       SamplingRule: { // SamplingRule
+ *         RuleName: 'STRING_VALUE',
+ *         RuleARN: 'STRING_VALUE',
+ *         ResourceARN: 'STRING_VALUE', // required
+ *         Priority: Number('int'), // required
+ *         FixedRate: Number('double'), // required
+ *         ReservoirSize: Number('int'), // required
+ *         ServiceName: 'STRING_VALUE', // required
+ *         ServiceType: 'STRING_VALUE', // required
+ *         Host: 'STRING_VALUE', // required
+ *         HTTPMethod: 'STRING_VALUE', // required
+ *         URLPath: 'STRING_VALUE', // required
+ *         Version: Number('int'), // required
+ *         Attributes: { // AttributeMap
+ *           '<keys>': 'STRING_VALUE',
+ *         },
+ *       },
+ *       CreatedAt: new Date('TIMESTAMP'),
+ *       ModifiedAt: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetSamplingRulesCommandInput - {@link GetSamplingRulesCommandInput}
@@ -58,6 +86,8 @@ export interface GetSamplingRulesCommandOutput extends GetSamplingRulesResult, _
  * @throws {@link ThrottledException} (client fault)
  *  <p>The request exceeds the maximum number of requests per second.</p>
  *
+ * @throws {@link XRayServiceException}
+ * <p>Base exception class for all service exceptions from XRay service.</p>
  *
  */
 export class GetSamplingRulesCommand extends $Command<

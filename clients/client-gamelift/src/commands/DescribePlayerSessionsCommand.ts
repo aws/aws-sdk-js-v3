@@ -62,19 +62,40 @@ export interface DescribePlayerSessionsCommandOutput extends DescribePlayerSessi
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GameLiftClient, DescribePlayerSessionsCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
- * // const { GameLiftClient, DescribePlayerSessionsCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
+ * import { GameLiftClient, DescribePlayerSessionsCommand } from '@aws-sdk/client-gamelift'; // ES Modules import
+ * // const { GameLiftClient, DescribePlayerSessionsCommand } = require('@aws-sdk/client-gamelift'); // CommonJS import
  * const client = new GameLiftClient(config);
  * const input = { // DescribePlayerSessionsInput
- *   GameSessionId: "STRING_VALUE",
- *   PlayerId: "STRING_VALUE",
- *   PlayerSessionId: "STRING_VALUE",
- *   PlayerSessionStatusFilter: "STRING_VALUE",
- *   Limit: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   GameSessionId: 'STRING_VALUE',
+ *   PlayerId: 'STRING_VALUE',
+ *   PlayerSessionId: 'STRING_VALUE',
+ *   PlayerSessionStatusFilter: 'STRING_VALUE',
+ *   Limit: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new DescribePlayerSessionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribePlayerSessionsOutput
+ *   PlayerSessions: [ // PlayerSessionList
+ *     { // PlayerSession
+ *       PlayerSessionId: 'STRING_VALUE',
+ *       PlayerId: 'STRING_VALUE',
+ *       GameSessionId: 'STRING_VALUE',
+ *       FleetId: 'STRING_VALUE',
+ *       FleetArn: 'STRING_VALUE',
+ *       CreationTime: new Date('TIMESTAMP'),
+ *       TerminationTime: new Date('TIMESTAMP'),
+ *       Status: 'RESERVED' || 'ACTIVE' || 'COMPLETED' || 'TIMEDOUT',
+ *       IpAddress: 'STRING_VALUE',
+ *       DnsName: 'STRING_VALUE',
+ *       Port: Number('int'),
+ *       PlayerData: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribePlayerSessionsCommandInput - {@link DescribePlayerSessionsCommandInput}
@@ -97,6 +118,8 @@ export interface DescribePlayerSessionsCommandOutput extends DescribePlayerSessi
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client failed authentication. Clients should not retry such requests.</p>
  *
+ * @throws {@link GameLiftServiceException}
+ * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
  */
 export class DescribePlayerSessionsCommand extends $Command<

@@ -40,16 +40,29 @@ export interface GetPackageVersionHistoryCommandOutput extends GetPackageVersion
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElasticsearchServiceClient, GetPackageVersionHistoryCommand } from "@aws-sdk/client-elasticsearch-service"; // ES Modules import
- * // const { ElasticsearchServiceClient, GetPackageVersionHistoryCommand } = require("@aws-sdk/client-elasticsearch-service"); // CommonJS import
+ * import { ElasticsearchServiceClient, GetPackageVersionHistoryCommand } from '@aws-sdk/client-elasticsearch-service'; // ES Modules import
+ * // const { ElasticsearchServiceClient, GetPackageVersionHistoryCommand } = require('@aws-sdk/client-elasticsearch-service'); // CommonJS import
  * const client = new ElasticsearchServiceClient(config);
  * const input = { // GetPackageVersionHistoryRequest
- *   PackageID: "STRING_VALUE", // required
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   PackageID: 'STRING_VALUE', // required
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new GetPackageVersionHistoryCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetPackageVersionHistoryResponse
+ *   PackageID: 'STRING_VALUE',
+ *   PackageVersionHistoryList: [ // PackageVersionHistoryList
+ *     { // PackageVersionHistory
+ *       PackageVersion: 'STRING_VALUE',
+ *       CommitMessage: 'STRING_VALUE',
+ *       CreatedAt: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetPackageVersionHistoryCommandInput - {@link GetPackageVersionHistoryCommandInput}
@@ -73,6 +86,8 @@ export interface GetPackageVersionHistoryCommandOutput extends GetPackageVersion
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception for missing / invalid input fields. Gives http status code of 400.</p>
  *
+ * @throws {@link ElasticsearchServiceServiceException}
+ * <p>Base exception class for all service exceptions from ElasticsearchService service.</p>
  *
  */
 export class GetPackageVersionHistoryCommand extends $Command<

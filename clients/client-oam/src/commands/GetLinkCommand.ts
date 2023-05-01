@@ -37,14 +37,29 @@ export interface GetLinkCommandOutput extends GetLinkOutput, __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OAMClient, GetLinkCommand } from "@aws-sdk/client-oam"; // ES Modules import
- * // const { OAMClient, GetLinkCommand } = require("@aws-sdk/client-oam"); // CommonJS import
+ * import { OAMClient, GetLinkCommand } from '@aws-sdk/client-oam'; // ES Modules import
+ * // const { OAMClient, GetLinkCommand } = require('@aws-sdk/client-oam'); // CommonJS import
  * const client = new OAMClient(config);
  * const input = { // GetLinkInput
- *   Identifier: "STRING_VALUE", // required
+ *   Identifier: 'STRING_VALUE', // required
  * };
  * const command = new GetLinkCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetLinkOutput
+ *   Arn: 'STRING_VALUE',
+ *   Id: 'STRING_VALUE',
+ *   Label: 'STRING_VALUE',
+ *   LabelTemplate: 'STRING_VALUE',
+ *   ResourceTypes: [ // ResourceTypesOutput
+ *     'STRING_VALUE',
+ *   ],
+ *   SinkArn: 'STRING_VALUE',
+ *   Tags: { // TagMapOutput
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetLinkCommandInput - {@link GetLinkCommandInput}
@@ -65,6 +80,8 @@ export interface GetLinkCommandOutput extends GetLinkOutput, __MetadataBearer {}
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The request references a resource that does not exist.</p>
  *
+ * @throws {@link OAMServiceException}
+ * <p>Base exception class for all service exceptions from OAM service.</p>
  *
  */
 export class GetLinkCommand extends $Command<GetLinkCommandInput, GetLinkCommandOutput, OAMClientResolvedConfig> {

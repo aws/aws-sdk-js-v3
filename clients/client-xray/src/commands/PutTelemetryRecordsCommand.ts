@@ -36,33 +36,36 @@ export interface PutTelemetryRecordsCommandOutput extends PutTelemetryRecordsRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { XRayClient, PutTelemetryRecordsCommand } from "@aws-sdk/client-xray"; // ES Modules import
- * // const { XRayClient, PutTelemetryRecordsCommand } = require("@aws-sdk/client-xray"); // CommonJS import
+ * import { XRayClient, PutTelemetryRecordsCommand } from '@aws-sdk/client-xray'; // ES Modules import
+ * // const { XRayClient, PutTelemetryRecordsCommand } = require('@aws-sdk/client-xray'); // CommonJS import
  * const client = new XRayClient(config);
  * const input = { // PutTelemetryRecordsRequest
  *   TelemetryRecords: [ // TelemetryRecordList // required
  *     { // TelemetryRecord
- *       Timestamp: new Date("TIMESTAMP"), // required
- *       SegmentsReceivedCount: Number("int"),
- *       SegmentsSentCount: Number("int"),
- *       SegmentsSpilloverCount: Number("int"),
- *       SegmentsRejectedCount: Number("int"),
+ *       Timestamp: new Date('TIMESTAMP'), // required
+ *       SegmentsReceivedCount: Number('int'),
+ *       SegmentsSentCount: Number('int'),
+ *       SegmentsSpilloverCount: Number('int'),
+ *       SegmentsRejectedCount: Number('int'),
  *       BackendConnectionErrors: { // BackendConnectionErrors
- *         TimeoutCount: Number("int"),
- *         ConnectionRefusedCount: Number("int"),
- *         HTTPCode4XXCount: Number("int"),
- *         HTTPCode5XXCount: Number("int"),
- *         UnknownHostCount: Number("int"),
- *         OtherCount: Number("int"),
+ *         TimeoutCount: Number('int'),
+ *         ConnectionRefusedCount: Number('int'),
+ *         HTTPCode4XXCount: Number('int'),
+ *         HTTPCode5XXCount: Number('int'),
+ *         UnknownHostCount: Number('int'),
+ *         OtherCount: Number('int'),
  *       },
  *     },
  *   ],
- *   EC2InstanceId: "STRING_VALUE",
- *   Hostname: "STRING_VALUE",
- *   ResourceARN: "STRING_VALUE",
+ *   EC2InstanceId: 'STRING_VALUE',
+ *   Hostname: 'STRING_VALUE',
+ *   ResourceARN: 'STRING_VALUE',
  * };
  * const command = new PutTelemetryRecordsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutTelemetryRecordsCommandInput - {@link PutTelemetryRecordsCommandInput}
@@ -77,6 +80,8 @@ export interface PutTelemetryRecordsCommandOutput extends PutTelemetryRecordsRes
  * @throws {@link ThrottledException} (client fault)
  *  <p>The request exceeds the maximum number of requests per second.</p>
  *
+ * @throws {@link XRayServiceException}
+ * <p>Base exception class for all service exceptions from XRay service.</p>
  *
  */
 export class PutTelemetryRecordsCommand extends $Command<

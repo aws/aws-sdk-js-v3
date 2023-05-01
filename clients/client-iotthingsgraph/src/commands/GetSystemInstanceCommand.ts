@@ -38,14 +38,48 @@ export interface GetSystemInstanceCommandOutput extends GetSystemInstanceRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTThingsGraphClient, GetSystemInstanceCommand } from "@aws-sdk/client-iotthingsgraph"; // ES Modules import
- * // const { IoTThingsGraphClient, GetSystemInstanceCommand } = require("@aws-sdk/client-iotthingsgraph"); // CommonJS import
+ * import { IoTThingsGraphClient, GetSystemInstanceCommand } from '@aws-sdk/client-iotthingsgraph'; // ES Modules import
+ * // const { IoTThingsGraphClient, GetSystemInstanceCommand } = require('@aws-sdk/client-iotthingsgraph'); // CommonJS import
  * const client = new IoTThingsGraphClient(config);
  * const input = { // GetSystemInstanceRequest
- *   id: "STRING_VALUE", // required
+ *   id: 'STRING_VALUE', // required
  * };
  * const command = new GetSystemInstanceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetSystemInstanceResponse
+ *   description: { // SystemInstanceDescription
+ *     summary: { // SystemInstanceSummary
+ *       id: 'STRING_VALUE',
+ *       arn: 'STRING_VALUE',
+ *       status: 'STRING_VALUE',
+ *       target: 'STRING_VALUE',
+ *       greengrassGroupName: 'STRING_VALUE',
+ *       createdAt: new Date('TIMESTAMP'),
+ *       updatedAt: new Date('TIMESTAMP'),
+ *       greengrassGroupId: 'STRING_VALUE',
+ *       greengrassGroupVersionId: 'STRING_VALUE',
+ *     },
+ *     definition: { // DefinitionDocument
+ *       language: 'STRING_VALUE', // required
+ *       text: 'STRING_VALUE', // required
+ *     },
+ *     s3BucketName: 'STRING_VALUE',
+ *     metricsConfiguration: { // MetricsConfiguration
+ *       cloudMetricEnabled: true || false,
+ *       metricRuleRoleArn: 'STRING_VALUE',
+ *     },
+ *     validatedNamespaceVersion: Number('long'),
+ *     validatedDependencyRevisions: [ // DependencyRevisions
+ *       { // DependencyRevision
+ *         id: 'STRING_VALUE',
+ *         revisionNumber: Number('long'),
+ *       },
+ *     ],
+ *     flowActionsRoleArn: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetSystemInstanceCommandInput - {@link GetSystemInstanceCommandInput}
@@ -66,6 +100,8 @@ export interface GetSystemInstanceCommandOutput extends GetSystemInstanceRespons
  * @throws {@link ThrottlingException} (client fault)
  *  <p></p>
  *
+ * @throws {@link IoTThingsGraphServiceException}
+ * <p>Base exception class for all service exceptions from IoTThingsGraph service.</p>
  *
  */
 export class GetSystemInstanceCommand extends $Command<

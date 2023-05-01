@@ -76,28 +76,58 @@ export interface CreateGameSessionCommandOutput extends CreateGameSessionOutput,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GameLiftClient, CreateGameSessionCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
- * // const { GameLiftClient, CreateGameSessionCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
+ * import { GameLiftClient, CreateGameSessionCommand } from '@aws-sdk/client-gamelift'; // ES Modules import
+ * // const { GameLiftClient, CreateGameSessionCommand } = require('@aws-sdk/client-gamelift'); // CommonJS import
  * const client = new GameLiftClient(config);
  * const input = { // CreateGameSessionInput
- *   FleetId: "STRING_VALUE",
- *   AliasId: "STRING_VALUE",
- *   MaximumPlayerSessionCount: Number("int"), // required
- *   Name: "STRING_VALUE",
+ *   FleetId: 'STRING_VALUE',
+ *   AliasId: 'STRING_VALUE',
+ *   MaximumPlayerSessionCount: Number('int'), // required
+ *   Name: 'STRING_VALUE',
  *   GameProperties: [ // GamePropertyList
  *     { // GameProperty
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
- *   CreatorId: "STRING_VALUE",
- *   GameSessionId: "STRING_VALUE",
- *   IdempotencyToken: "STRING_VALUE",
- *   GameSessionData: "STRING_VALUE",
- *   Location: "STRING_VALUE",
+ *   CreatorId: 'STRING_VALUE',
+ *   GameSessionId: 'STRING_VALUE',
+ *   IdempotencyToken: 'STRING_VALUE',
+ *   GameSessionData: 'STRING_VALUE',
+ *   Location: 'STRING_VALUE',
  * };
  * const command = new CreateGameSessionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateGameSessionOutput
+ *   GameSession: { // GameSession
+ *     GameSessionId: 'STRING_VALUE',
+ *     Name: 'STRING_VALUE',
+ *     FleetId: 'STRING_VALUE',
+ *     FleetArn: 'STRING_VALUE',
+ *     CreationTime: new Date('TIMESTAMP'),
+ *     TerminationTime: new Date('TIMESTAMP'),
+ *     CurrentPlayerSessionCount: Number('int'),
+ *     MaximumPlayerSessionCount: Number('int'),
+ *     Status: 'ACTIVE' || 'ACTIVATING' || 'TERMINATED' || 'TERMINATING' || 'ERROR',
+ *     StatusReason: 'INTERRUPTED',
+ *     GameProperties: [ // GamePropertyList
+ *       { // GameProperty
+ *         Key: 'STRING_VALUE', // required
+ *         Value: 'STRING_VALUE', // required
+ *       },
+ *     ],
+ *     IpAddress: 'STRING_VALUE',
+ *     DnsName: 'STRING_VALUE',
+ *     Port: Number('int'),
+ *     PlayerSessionCreationPolicy: 'ACCEPT_ALL' || 'DENY_ALL',
+ *     CreatorId: 'STRING_VALUE',
+ *     GameSessionData: 'STRING_VALUE',
+ *     MatchmakerData: 'STRING_VALUE',
+ *     Location: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateGameSessionCommandInput - {@link CreateGameSessionCommandInput}
@@ -153,6 +183,8 @@ export interface CreateGameSessionCommandOutput extends CreateGameSessionOutput,
  * @throws {@link UnsupportedRegionException} (client fault)
  *  <p>The requested operation is not supported in the Region specified.</p>
  *
+ * @throws {@link GameLiftServiceException}
+ * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
  */
 export class CreateGameSessionCommand extends $Command<

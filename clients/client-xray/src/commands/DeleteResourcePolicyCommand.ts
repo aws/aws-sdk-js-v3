@@ -36,15 +36,18 @@ export interface DeleteResourcePolicyCommandOutput extends DeleteResourcePolicyR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { XRayClient, DeleteResourcePolicyCommand } from "@aws-sdk/client-xray"; // ES Modules import
- * // const { XRayClient, DeleteResourcePolicyCommand } = require("@aws-sdk/client-xray"); // CommonJS import
+ * import { XRayClient, DeleteResourcePolicyCommand } from '@aws-sdk/client-xray'; // ES Modules import
+ * // const { XRayClient, DeleteResourcePolicyCommand } = require('@aws-sdk/client-xray'); // CommonJS import
  * const client = new XRayClient(config);
  * const input = { // DeleteResourcePolicyRequest
- *   PolicyName: "STRING_VALUE", // required
- *   PolicyRevisionId: "STRING_VALUE",
+ *   PolicyName: 'STRING_VALUE', // required
+ *   PolicyRevisionId: 'STRING_VALUE',
  * };
  * const command = new DeleteResourcePolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteResourcePolicyCommandInput - {@link DeleteResourcePolicyCommandInput}
@@ -63,6 +66,8 @@ export interface DeleteResourcePolicyCommandOutput extends DeleteResourcePolicyR
  * @throws {@link ThrottledException} (client fault)
  *  <p>The request exceeds the maximum number of requests per second.</p>
  *
+ * @throws {@link XRayServiceException}
+ * <p>Base exception class for all service exceptions from XRay service.</p>
  *
  */
 export class DeleteResourcePolicyCommand extends $Command<

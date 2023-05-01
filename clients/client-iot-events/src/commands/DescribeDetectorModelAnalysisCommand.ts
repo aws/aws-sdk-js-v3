@@ -44,14 +44,19 @@ export interface DescribeDetectorModelAnalysisCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTEventsClient, DescribeDetectorModelAnalysisCommand } from "@aws-sdk/client-iot-events"; // ES Modules import
- * // const { IoTEventsClient, DescribeDetectorModelAnalysisCommand } = require("@aws-sdk/client-iot-events"); // CommonJS import
+ * import { IoTEventsClient, DescribeDetectorModelAnalysisCommand } from '@aws-sdk/client-iot-events'; // ES Modules import
+ * // const { IoTEventsClient, DescribeDetectorModelAnalysisCommand } = require('@aws-sdk/client-iot-events'); // CommonJS import
  * const client = new IoTEventsClient(config);
  * const input = { // DescribeDetectorModelAnalysisRequest
- *   analysisId: "STRING_VALUE", // required
+ *   analysisId: 'STRING_VALUE', // required
  * };
  * const command = new DescribeDetectorModelAnalysisCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeDetectorModelAnalysisResponse
+ *   status: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeDetectorModelAnalysisCommandInput - {@link DescribeDetectorModelAnalysisCommandInput}
@@ -75,6 +80,8 @@ export interface DescribeDetectorModelAnalysisCommandOutput
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request could not be completed due to throttling.</p>
  *
+ * @throws {@link IoTEventsServiceException}
+ * <p>Base exception class for all service exceptions from IoTEvents service.</p>
  *
  */
 export class DescribeDetectorModelAnalysisCommand extends $Command<

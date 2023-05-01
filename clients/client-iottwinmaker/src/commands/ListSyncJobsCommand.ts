@@ -36,16 +36,37 @@ export interface ListSyncJobsCommandOutput extends ListSyncJobsResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTTwinMakerClient, ListSyncJobsCommand } from "@aws-sdk/client-iottwinmaker"; // ES Modules import
- * // const { IoTTwinMakerClient, ListSyncJobsCommand } = require("@aws-sdk/client-iottwinmaker"); // CommonJS import
+ * import { IoTTwinMakerClient, ListSyncJobsCommand } from '@aws-sdk/client-iottwinmaker'; // ES Modules import
+ * // const { IoTTwinMakerClient, ListSyncJobsCommand } = require('@aws-sdk/client-iottwinmaker'); // CommonJS import
  * const client = new IoTTwinMakerClient(config);
  * const input = { // ListSyncJobsRequest
- *   workspaceId: "STRING_VALUE", // required
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   workspaceId: 'STRING_VALUE', // required
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new ListSyncJobsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListSyncJobsResponse
+ *   syncJobSummaries: [ // SyncJobSummaries
+ *     { // SyncJobSummary
+ *       arn: 'STRING_VALUE',
+ *       workspaceId: 'STRING_VALUE',
+ *       syncSource: 'STRING_VALUE',
+ *       status: { // SyncJobStatus
+ *         state: 'STRING_VALUE',
+ *         error: { // ErrorDetails
+ *           code: 'STRING_VALUE',
+ *           message: 'STRING_VALUE',
+ *         },
+ *       },
+ *       creationDateTime: new Date('TIMESTAMP'),
+ *       updateDateTime: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListSyncJobsCommandInput - {@link ListSyncJobsCommandInput}
@@ -69,6 +90,8 @@ export interface ListSyncJobsCommandOutput extends ListSyncJobsResponse, __Metad
  * @throws {@link ValidationException} (client fault)
  *  <p>Failed</p>
  *
+ * @throws {@link IoTTwinMakerServiceException}
+ * <p>Base exception class for all service exceptions from IoTTwinMaker service.</p>
  *
  */
 export class ListSyncJobsCommand extends $Command<

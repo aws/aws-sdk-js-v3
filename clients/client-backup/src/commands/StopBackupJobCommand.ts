@@ -40,14 +40,17 @@ export interface StopBackupJobCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BackupClient, StopBackupJobCommand } from "@aws-sdk/client-backup"; // ES Modules import
- * // const { BackupClient, StopBackupJobCommand } = require("@aws-sdk/client-backup"); // CommonJS import
+ * import { BackupClient, StopBackupJobCommand } from '@aws-sdk/client-backup'; // ES Modules import
+ * // const { BackupClient, StopBackupJobCommand } = require('@aws-sdk/client-backup'); // CommonJS import
  * const client = new BackupClient(config);
  * const input = { // StopBackupJobInput
- *   BackupJobId: "STRING_VALUE", // required
+ *   BackupJobId: 'STRING_VALUE', // required
  * };
  * const command = new StopBackupJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param StopBackupJobCommandInput - {@link StopBackupJobCommandInput}
@@ -73,6 +76,8 @@ export interface StopBackupJobCommandOutput extends __MetadataBearer {}
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request failed due to a temporary failure of the server.</p>
  *
+ * @throws {@link BackupServiceException}
+ * <p>Base exception class for all service exceptions from Backup service.</p>
  *
  */
 export class StopBackupJobCommand extends $Command<

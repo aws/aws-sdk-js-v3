@@ -36,16 +36,24 @@ export interface CreateUsagePlanKeyCommandOutput extends UsagePlanKey, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { APIGatewayClient, CreateUsagePlanKeyCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
- * // const { APIGatewayClient, CreateUsagePlanKeyCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
+ * import { APIGatewayClient, CreateUsagePlanKeyCommand } from '@aws-sdk/client-api-gateway'; // ES Modules import
+ * // const { APIGatewayClient, CreateUsagePlanKeyCommand } = require('@aws-sdk/client-api-gateway'); // CommonJS import
  * const client = new APIGatewayClient(config);
  * const input = { // CreateUsagePlanKeyRequest
- *   usagePlanId: "STRING_VALUE", // required
- *   keyId: "STRING_VALUE", // required
- *   keyType: "STRING_VALUE", // required
+ *   usagePlanId: 'STRING_VALUE', // required
+ *   keyId: 'STRING_VALUE', // required
+ *   keyType: 'STRING_VALUE', // required
  * };
  * const command = new CreateUsagePlanKeyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UsagePlanKey
+ *   id: 'STRING_VALUE',
+ *   type: 'STRING_VALUE',
+ *   value: 'STRING_VALUE',
+ *   name: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateUsagePlanKeyCommandInput - {@link CreateUsagePlanKeyCommandInput}
@@ -72,6 +80,8 @@ export interface CreateUsagePlanKeyCommandOutput extends UsagePlanKey, __Metadat
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The request is denied because the caller has insufficient permissions.</p>
  *
+ * @throws {@link APIGatewayServiceException}
+ * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
  */
 export class CreateUsagePlanKeyCommand extends $Command<

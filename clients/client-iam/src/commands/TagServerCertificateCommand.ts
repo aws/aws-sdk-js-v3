@@ -83,20 +83,23 @@ export interface TagServerCertificateCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IAMClient, TagServerCertificateCommand } from "@aws-sdk/client-iam"; // ES Modules import
- * // const { IAMClient, TagServerCertificateCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * import { IAMClient, TagServerCertificateCommand } from '@aws-sdk/client-iam'; // ES Modules import
+ * // const { IAMClient, TagServerCertificateCommand } = require('@aws-sdk/client-iam'); // CommonJS import
  * const client = new IAMClient(config);
  * const input = { // TagServerCertificateRequest
- *   ServerCertificateName: "STRING_VALUE", // required
+ *   ServerCertificateName: 'STRING_VALUE', // required
  *   Tags: [ // tagListType // required
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new TagServerCertificateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param TagServerCertificateCommandInput - {@link TagServerCertificateCommandInput}
@@ -125,6 +128,8 @@ export interface TagServerCertificateCommandOutput extends __MetadataBearer {}
  *  <p>The request processing has failed because of an unknown error, exception or
  *       failure.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  */
 export class TagServerCertificateCommand extends $Command<

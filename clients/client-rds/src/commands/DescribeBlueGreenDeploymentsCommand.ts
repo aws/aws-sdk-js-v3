@@ -43,24 +43,60 @@ export interface DescribeBlueGreenDeploymentsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RDSClient, DescribeBlueGreenDeploymentsCommand } from "@aws-sdk/client-rds"; // ES Modules import
- * // const { RDSClient, DescribeBlueGreenDeploymentsCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * import { RDSClient, DescribeBlueGreenDeploymentsCommand } from '@aws-sdk/client-rds'; // ES Modules import
+ * // const { RDSClient, DescribeBlueGreenDeploymentsCommand } = require('@aws-sdk/client-rds'); // CommonJS import
  * const client = new RDSClient(config);
  * const input = { // DescribeBlueGreenDeploymentsRequest
- *   BlueGreenDeploymentIdentifier: "STRING_VALUE",
+ *   BlueGreenDeploymentIdentifier: 'STRING_VALUE',
  *   Filters: [ // FilterList
  *     { // Filter
- *       Name: "STRING_VALUE", // required
+ *       Name: 'STRING_VALUE', // required
  *       Values: [ // FilterValueList // required
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
- *   Marker: "STRING_VALUE",
- *   MaxRecords: Number("int"),
+ *   Marker: 'STRING_VALUE',
+ *   MaxRecords: Number('int'),
  * };
  * const command = new DescribeBlueGreenDeploymentsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeBlueGreenDeploymentsResponse
+ *   BlueGreenDeployments: [ // BlueGreenDeploymentList
+ *     { // BlueGreenDeployment
+ *       BlueGreenDeploymentIdentifier: 'STRING_VALUE',
+ *       BlueGreenDeploymentName: 'STRING_VALUE',
+ *       Source: 'STRING_VALUE',
+ *       Target: 'STRING_VALUE',
+ *       SwitchoverDetails: [ // SwitchoverDetailList
+ *         { // SwitchoverDetail
+ *           SourceMember: 'STRING_VALUE',
+ *           TargetMember: 'STRING_VALUE',
+ *           Status: 'STRING_VALUE',
+ *         },
+ *       ],
+ *       Tasks: [ // BlueGreenDeploymentTaskList
+ *         { // BlueGreenDeploymentTask
+ *           Name: 'STRING_VALUE',
+ *           Status: 'STRING_VALUE',
+ *         },
+ *       ],
+ *       Status: 'STRING_VALUE',
+ *       StatusDetails: 'STRING_VALUE',
+ *       CreateTime: new Date('TIMESTAMP'),
+ *       DeleteTime: new Date('TIMESTAMP'),
+ *       TagList: [ // TagList
+ *         { // Tag
+ *           Key: 'STRING_VALUE',
+ *           Value: 'STRING_VALUE',
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   Marker: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeBlueGreenDeploymentsCommandInput - {@link DescribeBlueGreenDeploymentsCommandInput}
@@ -73,6 +109,8 @@ export interface DescribeBlueGreenDeploymentsCommandOutput
  *  <p>
  *             <code>BlueGreenDeploymentIdentifier</code> doesn't refer to an existing blue/green deployment.</p>
  *
+ * @throws {@link RDSServiceException}
+ * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  * @example To describe a blue/green deployment of an RDS DB instance after creation completes
  * ```javascript

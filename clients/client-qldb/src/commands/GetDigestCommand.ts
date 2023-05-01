@@ -37,14 +37,22 @@ export interface GetDigestCommandOutput extends GetDigestResponse, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { QLDBClient, GetDigestCommand } from "@aws-sdk/client-qldb"; // ES Modules import
- * // const { QLDBClient, GetDigestCommand } = require("@aws-sdk/client-qldb"); // CommonJS import
+ * import { QLDBClient, GetDigestCommand } from '@aws-sdk/client-qldb'; // ES Modules import
+ * // const { QLDBClient, GetDigestCommand } = require('@aws-sdk/client-qldb'); // CommonJS import
  * const client = new QLDBClient(config);
  * const input = { // GetDigestRequest
- *   Name: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
  * };
  * const command = new GetDigestCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetDigestResponse
+ *   Digest: 'BLOB_VALUE', // required
+ *   DigestTipAddress: { // ValueHolder
+ *     IonText: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetDigestCommandInput - {@link GetDigestCommandInput}
@@ -62,6 +70,8 @@ export interface GetDigestCommandOutput extends GetDigestResponse, __MetadataBea
  * @throws {@link ResourcePreconditionNotMetException} (client fault)
  *  <p>The operation failed because a condition wasn't satisfied in advance.</p>
  *
+ * @throws {@link QLDBServiceException}
+ * <p>Base exception class for all service exceptions from QLDB service.</p>
  *
  */
 export class GetDigestCommand extends $Command<

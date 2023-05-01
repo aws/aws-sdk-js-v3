@@ -48,22 +48,34 @@ export interface CreateExtensionAssociationCommandOutput extends ExtensionAssoci
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppConfigClient, CreateExtensionAssociationCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
- * // const { AppConfigClient, CreateExtensionAssociationCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import
+ * import { AppConfigClient, CreateExtensionAssociationCommand } from '@aws-sdk/client-appconfig'; // ES Modules import
+ * // const { AppConfigClient, CreateExtensionAssociationCommand } = require('@aws-sdk/client-appconfig'); // CommonJS import
  * const client = new AppConfigClient(config);
  * const input = { // CreateExtensionAssociationRequest
- *   ExtensionIdentifier: "STRING_VALUE", // required
- *   ExtensionVersionNumber: Number("int"),
- *   ResourceIdentifier: "STRING_VALUE", // required
+ *   ExtensionIdentifier: 'STRING_VALUE', // required
+ *   ExtensionVersionNumber: Number('int'),
+ *   ResourceIdentifier: 'STRING_VALUE', // required
  *   Parameters: { // ParameterValueMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  *   Tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateExtensionAssociationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ExtensionAssociation
+ *   Id: 'STRING_VALUE',
+ *   ExtensionArn: 'STRING_VALUE',
+ *   ResourceArn: 'STRING_VALUE',
+ *   Arn: 'STRING_VALUE',
+ *   Parameters: { // ParameterValueMap
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ *   ExtensionVersionNumber: Number('int'),
+ * };
+ *
  * ```
  *
  * @param CreateExtensionAssociationCommandInput - {@link CreateExtensionAssociationCommandInput}
@@ -84,6 +96,8 @@ export interface CreateExtensionAssociationCommandOutput extends ExtensionAssoci
  * @throws {@link ServiceQuotaExceededException} (client fault)
  *  <p>The number of hosted configuration versions exceeds the limit for the AppConfig hosted configuration store. Delete one or more versions and try again.</p>
  *
+ * @throws {@link AppConfigServiceException}
+ * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
  */
 export class CreateExtensionAssociationCommand extends $Command<

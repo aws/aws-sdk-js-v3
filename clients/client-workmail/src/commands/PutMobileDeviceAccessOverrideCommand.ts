@@ -41,18 +41,21 @@ export interface PutMobileDeviceAccessOverrideCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkMailClient, PutMobileDeviceAccessOverrideCommand } from "@aws-sdk/client-workmail"; // ES Modules import
- * // const { WorkMailClient, PutMobileDeviceAccessOverrideCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
+ * import { WorkMailClient, PutMobileDeviceAccessOverrideCommand } from '@aws-sdk/client-workmail'; // ES Modules import
+ * // const { WorkMailClient, PutMobileDeviceAccessOverrideCommand } = require('@aws-sdk/client-workmail'); // CommonJS import
  * const client = new WorkMailClient(config);
  * const input = { // PutMobileDeviceAccessOverrideRequest
- *   OrganizationId: "STRING_VALUE", // required
- *   UserId: "STRING_VALUE", // required
- *   DeviceId: "STRING_VALUE", // required
- *   Effect: "ALLOW" || "DENY", // required
- *   Description: "STRING_VALUE",
+ *   OrganizationId: 'STRING_VALUE', // required
+ *   UserId: 'STRING_VALUE', // required
+ *   DeviceId: 'STRING_VALUE', // required
+ *   Effect: 'ALLOW' || 'DENY', // required
+ *   Description: 'STRING_VALUE',
  * };
  * const command = new PutMobileDeviceAccessOverrideCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutMobileDeviceAccessOverrideCommandInput - {@link PutMobileDeviceAccessOverrideCommandInput}
@@ -80,6 +83,8 @@ export interface PutMobileDeviceAccessOverrideCommandOutput
  *  <p>The organization must have a valid state to perform certain
  *          operations on the organization or its members.</p>
  *
+ * @throws {@link WorkMailServiceException}
+ * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
  */
 export class PutMobileDeviceAccessOverrideCommand extends $Command<

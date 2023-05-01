@@ -41,24 +41,45 @@ export interface ListServiceInstancesCommandOutput extends ListServiceInstancesO
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ProtonClient, ListServiceInstancesCommand } from "@aws-sdk/client-proton"; // ES Modules import
- * // const { ProtonClient, ListServiceInstancesCommand } = require("@aws-sdk/client-proton"); // CommonJS import
+ * import { ProtonClient, ListServiceInstancesCommand } from '@aws-sdk/client-proton'; // ES Modules import
+ * // const { ProtonClient, ListServiceInstancesCommand } = require('@aws-sdk/client-proton'); // CommonJS import
  * const client = new ProtonClient(config);
  * const input = { // ListServiceInstancesInput
- *   serviceName: "STRING_VALUE",
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   serviceName: 'STRING_VALUE',
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  *   filters: [ // ListServiceInstancesFilterList
  *     { // ListServiceInstancesFilter
- *       key: "STRING_VALUE",
- *       value: "STRING_VALUE",
+ *       key: 'STRING_VALUE',
+ *       value: 'STRING_VALUE',
  *     },
  *   ],
- *   sortBy: "STRING_VALUE",
- *   sortOrder: "STRING_VALUE",
+ *   sortBy: 'STRING_VALUE',
+ *   sortOrder: 'STRING_VALUE',
  * };
  * const command = new ListServiceInstancesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListServiceInstancesOutput
+ *   nextToken: 'STRING_VALUE',
+ *   serviceInstances: [ // ServiceInstanceSummaryList // required
+ *     { // ServiceInstanceSummary
+ *       name: 'STRING_VALUE', // required
+ *       arn: 'STRING_VALUE', // required
+ *       createdAt: new Date('TIMESTAMP'), // required
+ *       lastDeploymentAttemptedAt: new Date('TIMESTAMP'), // required
+ *       lastDeploymentSucceededAt: new Date('TIMESTAMP'), // required
+ *       serviceName: 'STRING_VALUE', // required
+ *       environmentName: 'STRING_VALUE', // required
+ *       templateName: 'STRING_VALUE', // required
+ *       templateMajorVersion: 'STRING_VALUE', // required
+ *       templateMinorVersion: 'STRING_VALUE', // required
+ *       deploymentStatus: 'STRING_VALUE', // required
+ *       deploymentStatusMessage: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListServiceInstancesCommandInput - {@link ListServiceInstancesCommandInput}
@@ -82,6 +103,8 @@ export interface ListServiceInstancesCommandOutput extends ListServiceInstancesO
  * @throws {@link ValidationException} (client fault)
  *  <p>The input is invalid or an out-of-range value was supplied for the input parameter.</p>
  *
+ * @throws {@link ProtonServiceException}
+ * <p>Base exception class for all service exceptions from Proton service.</p>
  *
  */
 export class ListServiceInstancesCommand extends $Command<

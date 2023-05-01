@@ -44,34 +44,39 @@ export interface ConnectDirectoryCommandOutput extends ConnectDirectoryResult, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DirectoryServiceClient, ConnectDirectoryCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
- * // const { DirectoryServiceClient, ConnectDirectoryCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
+ * import { DirectoryServiceClient, ConnectDirectoryCommand } from '@aws-sdk/client-directory-service'; // ES Modules import
+ * // const { DirectoryServiceClient, ConnectDirectoryCommand } = require('@aws-sdk/client-directory-service'); // CommonJS import
  * const client = new DirectoryServiceClient(config);
  * const input = { // ConnectDirectoryRequest
- *   Name: "STRING_VALUE", // required
- *   ShortName: "STRING_VALUE",
- *   Password: "STRING_VALUE", // required
- *   Description: "STRING_VALUE",
- *   Size: "Small" || "Large", // required
+ *   Name: 'STRING_VALUE', // required
+ *   ShortName: 'STRING_VALUE',
+ *   Password: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE',
+ *   Size: 'Small' || 'Large', // required
  *   ConnectSettings: { // DirectoryConnectSettings
- *     VpcId: "STRING_VALUE", // required
+ *     VpcId: 'STRING_VALUE', // required
  *     SubnetIds: [ // SubnetIds // required
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     CustomerDnsIps: [ // DnsIpAddrs // required
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
- *     CustomerUserName: "STRING_VALUE", // required
+ *     CustomerUserName: 'STRING_VALUE', // required
  *   },
  *   Tags: [ // Tags
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new ConnectDirectoryCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ConnectDirectoryResult
+ *   DirectoryId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ConnectDirectoryCommandInput - {@link ConnectDirectoryCommandInput}
@@ -94,6 +99,8 @@ export interface ConnectDirectoryCommandOutput extends ConnectDirectoryResult, _
  * @throws {@link ServiceException} (server fault)
  *  <p>An exception has occurred in Directory Service.</p>
  *
+ * @throws {@link DirectoryServiceServiceException}
+ * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
  */
 export class ConnectDirectoryCommand extends $Command<

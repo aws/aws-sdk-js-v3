@@ -36,17 +36,20 @@ export interface UpdateProjectCommandOutput extends UpdateProjectResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTSiteWiseClient, UpdateProjectCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
- * // const { IoTSiteWiseClient, UpdateProjectCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
+ * import { IoTSiteWiseClient, UpdateProjectCommand } from '@aws-sdk/client-iotsitewise'; // ES Modules import
+ * // const { IoTSiteWiseClient, UpdateProjectCommand } = require('@aws-sdk/client-iotsitewise'); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
  * const input = { // UpdateProjectRequest
- *   projectId: "STRING_VALUE", // required
- *   projectName: "STRING_VALUE", // required
- *   projectDescription: "STRING_VALUE",
- *   clientToken: "STRING_VALUE",
+ *   projectId: 'STRING_VALUE', // required
+ *   projectName: 'STRING_VALUE', // required
+ *   projectDescription: 'STRING_VALUE',
+ *   clientToken: 'STRING_VALUE',
  * };
  * const command = new UpdateProjectCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateProjectCommandInput - {@link UpdateProjectCommandInput}
@@ -71,6 +74,8 @@ export interface UpdateProjectCommandOutput extends UpdateProjectResponse, __Met
  *       on.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
  *
+ * @throws {@link IoTSiteWiseServiceException}
+ * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
  */
 export class UpdateProjectCommand extends $Command<

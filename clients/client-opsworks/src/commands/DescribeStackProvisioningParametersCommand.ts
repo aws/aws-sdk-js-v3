@@ -49,14 +49,22 @@ export interface DescribeStackProvisioningParametersCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OpsWorksClient, DescribeStackProvisioningParametersCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
- * // const { OpsWorksClient, DescribeStackProvisioningParametersCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
+ * import { OpsWorksClient, DescribeStackProvisioningParametersCommand } from '@aws-sdk/client-opsworks'; // ES Modules import
+ * // const { OpsWorksClient, DescribeStackProvisioningParametersCommand } = require('@aws-sdk/client-opsworks'); // CommonJS import
  * const client = new OpsWorksClient(config);
  * const input = { // DescribeStackProvisioningParametersRequest
- *   StackId: "STRING_VALUE", // required
+ *   StackId: 'STRING_VALUE', // required
  * };
  * const command = new DescribeStackProvisioningParametersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeStackProvisioningParametersResult
+ *   AgentInstallerUrl: 'STRING_VALUE',
+ *   Parameters: { // Parameters
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeStackProvisioningParametersCommandInput - {@link DescribeStackProvisioningParametersCommandInput}
@@ -71,6 +79,8 @@ export interface DescribeStackProvisioningParametersCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>Indicates that a request was not valid.</p>
  *
+ * @throws {@link OpsWorksServiceException}
+ * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
  */
 export class DescribeStackProvisioningParametersCommand extends $Command<

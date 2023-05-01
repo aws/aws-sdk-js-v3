@@ -44,14 +44,31 @@ export interface GetXssMatchSetCommandOutput extends GetXssMatchSetResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WAFRegionalClient, GetXssMatchSetCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
- * // const { WAFRegionalClient, GetXssMatchSetCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import
+ * import { WAFRegionalClient, GetXssMatchSetCommand } from '@aws-sdk/client-waf-regional'; // ES Modules import
+ * // const { WAFRegionalClient, GetXssMatchSetCommand } = require('@aws-sdk/client-waf-regional'); // CommonJS import
  * const client = new WAFRegionalClient(config);
  * const input = { // GetXssMatchSetRequest
- *   XssMatchSetId: "STRING_VALUE", // required
+ *   XssMatchSetId: 'STRING_VALUE', // required
  * };
  * const command = new GetXssMatchSetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetXssMatchSetResponse
+ *   XssMatchSet: { // XssMatchSet
+ *     XssMatchSetId: 'STRING_VALUE', // required
+ *     Name: 'STRING_VALUE',
+ *     XssMatchTuples: [ // XssMatchTuples // required
+ *       { // XssMatchTuple
+ *         FieldToMatch: { // FieldToMatch
+ *           Type: 'STRING_VALUE', // required
+ *           Data: 'STRING_VALUE',
+ *         },
+ *         TextTransformation: 'STRING_VALUE', // required
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetXssMatchSetCommandInput - {@link GetXssMatchSetCommandInput}
@@ -69,6 +86,8 @@ export interface GetXssMatchSetCommandOutput extends GetXssMatchSetResponse, __M
  * @throws {@link WAFNonexistentItemException} (client fault)
  *  <p>The operation failed because the referenced object doesn't exist.</p>
  *
+ * @throws {@link WAFRegionalServiceException}
+ * <p>Base exception class for all service exceptions from WAFRegional service.</p>
  *
  * @example To get an XSS match set
  * ```javascript

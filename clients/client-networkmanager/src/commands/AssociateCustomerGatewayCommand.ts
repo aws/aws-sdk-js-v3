@@ -44,17 +44,28 @@ export interface AssociateCustomerGatewayCommandOutput extends AssociateCustomer
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { NetworkManagerClient, AssociateCustomerGatewayCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
- * // const { NetworkManagerClient, AssociateCustomerGatewayCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
+ * import { NetworkManagerClient, AssociateCustomerGatewayCommand } from '@aws-sdk/client-networkmanager'; // ES Modules import
+ * // const { NetworkManagerClient, AssociateCustomerGatewayCommand } = require('@aws-sdk/client-networkmanager'); // CommonJS import
  * const client = new NetworkManagerClient(config);
  * const input = { // AssociateCustomerGatewayRequest
- *   CustomerGatewayArn: "STRING_VALUE", // required
- *   GlobalNetworkId: "STRING_VALUE", // required
- *   DeviceId: "STRING_VALUE", // required
- *   LinkId: "STRING_VALUE",
+ *   CustomerGatewayArn: 'STRING_VALUE', // required
+ *   GlobalNetworkId: 'STRING_VALUE', // required
+ *   DeviceId: 'STRING_VALUE', // required
+ *   LinkId: 'STRING_VALUE',
  * };
  * const command = new AssociateCustomerGatewayCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AssociateCustomerGatewayResponse
+ *   CustomerGatewayAssociation: { // CustomerGatewayAssociation
+ *     CustomerGatewayArn: 'STRING_VALUE',
+ *     GlobalNetworkId: 'STRING_VALUE',
+ *     DeviceId: 'STRING_VALUE',
+ *     LinkId: 'STRING_VALUE',
+ *     State: 'PENDING' || 'AVAILABLE' || 'DELETING' || 'DELETED',
+ *   },
+ * };
+ *
  * ```
  *
  * @param AssociateCustomerGatewayCommandInput - {@link AssociateCustomerGatewayCommandInput}
@@ -85,6 +96,8 @@ export interface AssociateCustomerGatewayCommandOutput extends AssociateCustomer
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints.</p>
  *
+ * @throws {@link NetworkManagerServiceException}
+ * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
  */
 export class AssociateCustomerGatewayCommand extends $Command<

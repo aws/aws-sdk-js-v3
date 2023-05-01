@@ -36,22 +36,32 @@ export interface CopyDBClusterParameterGroupCommandOutput extends CopyDBClusterP
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RDSClient, CopyDBClusterParameterGroupCommand } from "@aws-sdk/client-rds"; // ES Modules import
- * // const { RDSClient, CopyDBClusterParameterGroupCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * import { RDSClient, CopyDBClusterParameterGroupCommand } from '@aws-sdk/client-rds'; // ES Modules import
+ * // const { RDSClient, CopyDBClusterParameterGroupCommand } = require('@aws-sdk/client-rds'); // CommonJS import
  * const client = new RDSClient(config);
  * const input = { // CopyDBClusterParameterGroupMessage
- *   SourceDBClusterParameterGroupIdentifier: "STRING_VALUE", // required
- *   TargetDBClusterParameterGroupIdentifier: "STRING_VALUE", // required
- *   TargetDBClusterParameterGroupDescription: "STRING_VALUE", // required
+ *   SourceDBClusterParameterGroupIdentifier: 'STRING_VALUE', // required
+ *   TargetDBClusterParameterGroupIdentifier: 'STRING_VALUE', // required
+ *   TargetDBClusterParameterGroupDescription: 'STRING_VALUE', // required
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE",
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new CopyDBClusterParameterGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CopyDBClusterParameterGroupResult
+ *   DBClusterParameterGroup: { // DBClusterParameterGroup
+ *     DBClusterParameterGroupName: 'STRING_VALUE',
+ *     DBParameterGroupFamily: 'STRING_VALUE',
+ *     Description: 'STRING_VALUE',
+ *     DBClusterParameterGroupArn: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param CopyDBClusterParameterGroupCommandInput - {@link CopyDBClusterParameterGroupCommandInput}
@@ -72,6 +82,8 @@ export interface CopyDBClusterParameterGroupCommandOutput extends CopyDBClusterP
  *  <p>The request would result in the user exceeding the allowed number of DB parameter
  *             groups.</p>
  *
+ * @throws {@link RDSServiceException}
+ * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  * @example To copy a DB cluster parameter group
  * ```javascript

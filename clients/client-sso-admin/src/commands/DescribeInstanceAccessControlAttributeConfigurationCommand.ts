@@ -47,14 +47,32 @@ export interface DescribeInstanceAccessControlAttributeConfigurationCommandOutpu
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSOAdminClient, DescribeInstanceAccessControlAttributeConfigurationCommand } from "@aws-sdk/client-sso-admin"; // ES Modules import
- * // const { SSOAdminClient, DescribeInstanceAccessControlAttributeConfigurationCommand } = require("@aws-sdk/client-sso-admin"); // CommonJS import
+ * import { SSOAdminClient, DescribeInstanceAccessControlAttributeConfigurationCommand } from '@aws-sdk/client-sso-admin'; // ES Modules import
+ * // const { SSOAdminClient, DescribeInstanceAccessControlAttributeConfigurationCommand } = require('@aws-sdk/client-sso-admin'); // CommonJS import
  * const client = new SSOAdminClient(config);
  * const input = { // DescribeInstanceAccessControlAttributeConfigurationRequest
- *   InstanceArn: "STRING_VALUE", // required
+ *   InstanceArn: 'STRING_VALUE', // required
  * };
  * const command = new DescribeInstanceAccessControlAttributeConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeInstanceAccessControlAttributeConfigurationResponse
+ *   Status: 'ENABLED' || 'CREATION_IN_PROGRESS' || 'CREATION_FAILED',
+ *   StatusReason: 'STRING_VALUE',
+ *   InstanceAccessControlAttributeConfiguration: { // InstanceAccessControlAttributeConfiguration
+ *     AccessControlAttributes: [ // AccessControlAttributeList // required
+ *       { // AccessControlAttribute
+ *         Key: 'STRING_VALUE', // required
+ *         Value: { // AccessControlAttributeValue
+ *           Source: [ // AccessControlAttributeValueSourceList // required
+ *             'STRING_VALUE',
+ *           ],
+ *         },
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeInstanceAccessControlAttributeConfigurationCommandInput - {@link DescribeInstanceAccessControlAttributeConfigurationCommandInput}
@@ -80,6 +98,8 @@ export interface DescribeInstanceAccessControlAttributeConfigurationCommandOutpu
  * @throws {@link ValidationException} (client fault)
  *  <p>The request failed because it contains a syntax error.</p>
  *
+ * @throws {@link SSOAdminServiceException}
+ * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
  */
 export class DescribeInstanceAccessControlAttributeConfigurationCommand extends $Command<

@@ -36,15 +36,35 @@ export interface GetAssistantAssociationCommandOutput extends GetAssistantAssoci
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WisdomClient, GetAssistantAssociationCommand } from "@aws-sdk/client-wisdom"; // ES Modules import
- * // const { WisdomClient, GetAssistantAssociationCommand } = require("@aws-sdk/client-wisdom"); // CommonJS import
+ * import { WisdomClient, GetAssistantAssociationCommand } from '@aws-sdk/client-wisdom'; // ES Modules import
+ * // const { WisdomClient, GetAssistantAssociationCommand } = require('@aws-sdk/client-wisdom'); // CommonJS import
  * const client = new WisdomClient(config);
  * const input = { // GetAssistantAssociationRequest
- *   assistantAssociationId: "STRING_VALUE", // required
- *   assistantId: "STRING_VALUE", // required
+ *   assistantAssociationId: 'STRING_VALUE', // required
+ *   assistantId: 'STRING_VALUE', // required
  * };
  * const command = new GetAssistantAssociationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetAssistantAssociationResponse
+ *   assistantAssociation: { // AssistantAssociationData
+ *     assistantAssociationId: 'STRING_VALUE', // required
+ *     assistantAssociationArn: 'STRING_VALUE', // required
+ *     assistantId: 'STRING_VALUE', // required
+ *     assistantArn: 'STRING_VALUE', // required
+ *     associationType: 'STRING_VALUE', // required
+ *     associationData: { // AssistantAssociationOutputData Union: only one key present
+ *       knowledgeBaseAssociation: { // KnowledgeBaseAssociationData
+ *         knowledgeBaseId: 'STRING_VALUE',
+ *         knowledgeBaseArn: 'STRING_VALUE',
+ *       },
+ *     },
+ *     tags: { // Tags
+ *       '<keys>': 'STRING_VALUE',
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetAssistantAssociationCommandInput - {@link GetAssistantAssociationCommandInput}
@@ -62,6 +82,8 @@ export interface GetAssistantAssociationCommandOutput extends GetAssistantAssoci
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by a service.</p>
  *
+ * @throws {@link WisdomServiceException}
+ * <p>Base exception class for all service exceptions from Wisdom service.</p>
  *
  */
 export class GetAssistantAssociationCommand extends $Command<

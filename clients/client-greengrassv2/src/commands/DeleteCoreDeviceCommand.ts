@@ -39,14 +39,17 @@ export interface DeleteCoreDeviceCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GreengrassV2Client, DeleteCoreDeviceCommand } from "@aws-sdk/client-greengrassv2"; // ES Modules import
- * // const { GreengrassV2Client, DeleteCoreDeviceCommand } = require("@aws-sdk/client-greengrassv2"); // CommonJS import
+ * import { GreengrassV2Client, DeleteCoreDeviceCommand } from '@aws-sdk/client-greengrassv2'; // ES Modules import
+ * // const { GreengrassV2Client, DeleteCoreDeviceCommand } = require('@aws-sdk/client-greengrassv2'); // CommonJS import
  * const client = new GreengrassV2Client(config);
  * const input = { // DeleteCoreDeviceRequest
- *   coreDeviceThingName: "STRING_VALUE", // required
+ *   coreDeviceThingName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteCoreDeviceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteCoreDeviceCommandInput - {@link DeleteCoreDeviceCommandInput}
@@ -76,6 +79,8 @@ export interface DeleteCoreDeviceCommandOutput extends __MetadataBearer {}
  *  <p>The request isn't valid. This can occur if your request contains malformed JSON or
  *       unsupported characters.</p>
  *
+ * @throws {@link GreengrassV2ServiceException}
+ * <p>Base exception class for all service exceptions from GreengrassV2 service.</p>
  *
  */
 export class DeleteCoreDeviceCommand extends $Command<

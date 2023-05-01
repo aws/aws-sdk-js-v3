@@ -44,24 +44,32 @@ export interface StartReplayCommandOutput extends StartReplayResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EventBridgeClient, StartReplayCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
- * // const { EventBridgeClient, StartReplayCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
+ * import { EventBridgeClient, StartReplayCommand } from '@aws-sdk/client-eventbridge'; // ES Modules import
+ * // const { EventBridgeClient, StartReplayCommand } = require('@aws-sdk/client-eventbridge'); // CommonJS import
  * const client = new EventBridgeClient(config);
  * const input = { // StartReplayRequest
- *   ReplayName: "STRING_VALUE", // required
- *   Description: "STRING_VALUE",
- *   EventSourceArn: "STRING_VALUE", // required
- *   EventStartTime: new Date("TIMESTAMP"), // required
- *   EventEndTime: new Date("TIMESTAMP"), // required
+ *   ReplayName: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE',
+ *   EventSourceArn: 'STRING_VALUE', // required
+ *   EventStartTime: new Date('TIMESTAMP'), // required
+ *   EventEndTime: new Date('TIMESTAMP'), // required
  *   Destination: { // ReplayDestination
- *     Arn: "STRING_VALUE", // required
+ *     Arn: 'STRING_VALUE', // required
  *     FilterArns: [ // ReplayDestinationFilters
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *   },
  * };
  * const command = new StartReplayCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartReplayResponse
+ *   ReplayArn: 'STRING_VALUE',
+ *   State: 'STARTING' || 'RUNNING' || 'CANCELLING' || 'COMPLETED' || 'CANCELLED' || 'FAILED',
+ *   StateReason: 'STRING_VALUE',
+ *   ReplayStartTime: new Date('TIMESTAMP'),
+ * };
+ *
  * ```
  *
  * @param StartReplayCommandInput - {@link StartReplayCommandInput}
@@ -86,6 +94,8 @@ export interface StartReplayCommandOutput extends StartReplayResponse, __Metadat
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>An entity that you specified does not exist.</p>
  *
+ * @throws {@link EventBridgeServiceException}
+ * <p>Base exception class for all service exceptions from EventBridge service.</p>
  *
  */
 export class StartReplayCommand extends $Command<

@@ -36,52 +36,57 @@ export interface CreateTriggerCommandOutput extends CreateTriggerResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlueClient, CreateTriggerCommand } from "@aws-sdk/client-glue"; // ES Modules import
- * // const { GlueClient, CreateTriggerCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * import { GlueClient, CreateTriggerCommand } from '@aws-sdk/client-glue'; // ES Modules import
+ * // const { GlueClient, CreateTriggerCommand } = require('@aws-sdk/client-glue'); // CommonJS import
  * const client = new GlueClient(config);
  * const input = { // CreateTriggerRequest
- *   Name: "STRING_VALUE", // required
- *   WorkflowName: "STRING_VALUE",
- *   Type: "SCHEDULED" || "CONDITIONAL" || "ON_DEMAND" || "EVENT", // required
- *   Schedule: "STRING_VALUE",
+ *   Name: 'STRING_VALUE', // required
+ *   WorkflowName: 'STRING_VALUE',
+ *   Type: 'SCHEDULED' || 'CONDITIONAL' || 'ON_DEMAND' || 'EVENT', // required
+ *   Schedule: 'STRING_VALUE',
  *   Predicate: { // Predicate
- *     Logical: "AND" || "ANY",
+ *     Logical: 'AND' || 'ANY',
  *     Conditions: [ // ConditionList
  *       { // Condition
- *         LogicalOperator: "EQUALS",
- *         JobName: "STRING_VALUE",
- *         State: "STARTING" || "RUNNING" || "STOPPING" || "STOPPED" || "SUCCEEDED" || "FAILED" || "TIMEOUT" || "ERROR" || "WAITING",
- *         CrawlerName: "STRING_VALUE",
- *         CrawlState: "RUNNING" || "CANCELLING" || "CANCELLED" || "SUCCEEDED" || "FAILED" || "ERROR",
+ *         LogicalOperator: 'EQUALS',
+ *         JobName: 'STRING_VALUE',
+ *         State: 'STARTING' || 'RUNNING' || 'STOPPING' || 'STOPPED' || 'SUCCEEDED' || 'FAILED' || 'TIMEOUT' || 'ERROR' || 'WAITING',
+ *         CrawlerName: 'STRING_VALUE',
+ *         CrawlState: 'RUNNING' || 'CANCELLING' || 'CANCELLED' || 'SUCCEEDED' || 'FAILED' || 'ERROR',
  *       },
  *     ],
  *   },
  *   Actions: [ // ActionList // required
  *     { // Action
- *       JobName: "STRING_VALUE",
+ *       JobName: 'STRING_VALUE',
  *       Arguments: { // GenericMap
- *         "<keys>": "STRING_VALUE",
+ *         '<keys>': 'STRING_VALUE',
  *       },
- *       Timeout: Number("int"),
- *       SecurityConfiguration: "STRING_VALUE",
+ *       Timeout: Number('int'),
+ *       SecurityConfiguration: 'STRING_VALUE',
  *       NotificationProperty: { // NotificationProperty
- *         NotifyDelayAfter: Number("int"),
+ *         NotifyDelayAfter: Number('int'),
  *       },
- *       CrawlerName: "STRING_VALUE",
+ *       CrawlerName: 'STRING_VALUE',
  *     },
  *   ],
- *   Description: "STRING_VALUE",
+ *   Description: 'STRING_VALUE',
  *   StartOnCreation: true || false,
  *   Tags: { // TagsMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  *   EventBatchingCondition: { // EventBatchingCondition
- *     BatchSize: Number("int"), // required
- *     BatchWindow: Number("int"),
+ *     BatchSize: Number('int'), // required
+ *     BatchWindow: Number('int'),
  *   },
  * };
  * const command = new CreateTriggerCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateTriggerResponse
+ *   Name: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateTriggerCommandInput - {@link CreateTriggerCommandInput}
@@ -114,6 +119,8 @@ export interface CreateTriggerCommandOutput extends CreateTriggerResponse, __Met
  * @throws {@link ResourceNumberLimitExceededException} (client fault)
  *  <p>A resource numerical limit was exceeded.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class CreateTriggerCommand extends $Command<

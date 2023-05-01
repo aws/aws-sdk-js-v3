@@ -38,18 +38,29 @@ export interface ListRuleGroupsCommandOutput extends ListRuleGroupsResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { NetworkFirewallClient, ListRuleGroupsCommand } from "@aws-sdk/client-network-firewall"; // ES Modules import
- * // const { NetworkFirewallClient, ListRuleGroupsCommand } = require("@aws-sdk/client-network-firewall"); // CommonJS import
+ * import { NetworkFirewallClient, ListRuleGroupsCommand } from '@aws-sdk/client-network-firewall'; // ES Modules import
+ * // const { NetworkFirewallClient, ListRuleGroupsCommand } = require('@aws-sdk/client-network-firewall'); // CommonJS import
  * const client = new NetworkFirewallClient(config);
  * const input = { // ListRuleGroupsRequest
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
- *   Scope: "MANAGED" || "ACCOUNT",
- *   ManagedType: "AWS_MANAGED_THREAT_SIGNATURES" || "AWS_MANAGED_DOMAIN_LISTS",
- *   Type: "STATELESS" || "STATEFUL",
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
+ *   Scope: 'MANAGED' || 'ACCOUNT',
+ *   ManagedType: 'AWS_MANAGED_THREAT_SIGNATURES' || 'AWS_MANAGED_DOMAIN_LISTS',
+ *   Type: 'STATELESS' || 'STATEFUL',
  * };
  * const command = new ListRuleGroupsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListRuleGroupsResponse
+ *   NextToken: 'STRING_VALUE',
+ *   RuleGroups: [ // RuleGroups
+ *     { // RuleGroupMetadata
+ *       Name: 'STRING_VALUE',
+ *       Arn: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListRuleGroupsCommandInput - {@link ListRuleGroupsCommandInput}
@@ -81,6 +92,8 @@ export interface ListRuleGroupsCommandOutput extends ListRuleGroupsResponse, __M
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Unable to process the request due to throttling limitations.</p>
  *
+ * @throws {@link NetworkFirewallServiceException}
+ * <p>Base exception class for all service exceptions from NetworkFirewall service.</p>
  *
  */
 export class ListRuleGroupsCommand extends $Command<

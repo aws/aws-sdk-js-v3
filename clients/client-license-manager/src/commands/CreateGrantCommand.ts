@@ -38,23 +38,30 @@ export interface CreateGrantCommandOutput extends CreateGrantResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LicenseManagerClient, CreateGrantCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
- * // const { LicenseManagerClient, CreateGrantCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
+ * import { LicenseManagerClient, CreateGrantCommand } from '@aws-sdk/client-license-manager'; // ES Modules import
+ * // const { LicenseManagerClient, CreateGrantCommand } = require('@aws-sdk/client-license-manager'); // CommonJS import
  * const client = new LicenseManagerClient(config);
  * const input = { // CreateGrantRequest
- *   ClientToken: "STRING_VALUE", // required
- *   GrantName: "STRING_VALUE", // required
- *   LicenseArn: "STRING_VALUE", // required
+ *   ClientToken: 'STRING_VALUE', // required
+ *   GrantName: 'STRING_VALUE', // required
+ *   LicenseArn: 'STRING_VALUE', // required
  *   Principals: [ // PrincipalArnList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   HomeRegion: "STRING_VALUE", // required
+ *   HomeRegion: 'STRING_VALUE', // required
  *   AllowedOperations: [ // AllowedOperationList // required
- *     "CreateGrant" || "CheckoutLicense" || "CheckoutBorrowLicense" || "CheckInLicense" || "ExtendConsumptionLicense" || "ListPurchasedLicenses" || "CreateToken",
+ *     'CreateGrant' || 'CheckoutLicense' || 'CheckoutBorrowLicense' || 'CheckInLicense' || 'ExtendConsumptionLicense' || 'ListPurchasedLicenses' || 'CreateToken',
  *   ],
  * };
  * const command = new CreateGrantCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateGrantResponse
+ *   GrantArn: 'STRING_VALUE',
+ *   Status: 'PENDING_WORKFLOW' || 'PENDING_ACCEPT' || 'REJECTED' || 'ACTIVE' || 'FAILED_WORKFLOW' || 'DELETED' || 'PENDING_DELETE' || 'DISABLED' || 'WORKFLOW_COMPLETED',
+ *   Version: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateGrantCommandInput - {@link CreateGrantCommandInput}
@@ -85,6 +92,8 @@ export interface CreateGrantCommandOutput extends CreateGrantResponse, __Metadat
  * @throws {@link ValidationException} (client fault)
  *  <p>The provided input is not valid. Try your request again.</p>
  *
+ * @throws {@link LicenseManagerServiceException}
+ * <p>Base exception class for all service exceptions from LicenseManager service.</p>
  *
  */
 export class CreateGrantCommand extends $Command<

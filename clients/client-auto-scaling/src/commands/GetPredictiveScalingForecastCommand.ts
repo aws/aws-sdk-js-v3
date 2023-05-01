@@ -46,17 +46,127 @@ export interface GetPredictiveScalingForecastCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AutoScalingClient, GetPredictiveScalingForecastCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
- * // const { AutoScalingClient, GetPredictiveScalingForecastCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
+ * import { AutoScalingClient, GetPredictiveScalingForecastCommand } from '@aws-sdk/client-auto-scaling'; // ES Modules import
+ * // const { AutoScalingClient, GetPredictiveScalingForecastCommand } = require('@aws-sdk/client-auto-scaling'); // CommonJS import
  * const client = new AutoScalingClient(config);
  * const input = { // GetPredictiveScalingForecastType
- *   AutoScalingGroupName: "STRING_VALUE", // required
- *   PolicyName: "STRING_VALUE", // required
- *   StartTime: new Date("TIMESTAMP"), // required
- *   EndTime: new Date("TIMESTAMP"), // required
+ *   AutoScalingGroupName: 'STRING_VALUE', // required
+ *   PolicyName: 'STRING_VALUE', // required
+ *   StartTime: new Date('TIMESTAMP'), // required
+ *   EndTime: new Date('TIMESTAMP'), // required
  * };
  * const command = new GetPredictiveScalingForecastCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetPredictiveScalingForecastAnswer
+ *   LoadForecast: [ // LoadForecasts // required
+ *     { // LoadForecast
+ *       Timestamps: [ // PredictiveScalingForecastTimestamps // required
+ *         new Date('TIMESTAMP'),
+ *       ],
+ *       Values: [ // PredictiveScalingForecastValues // required
+ *         Number('double'),
+ *       ],
+ *       MetricSpecification: { // PredictiveScalingMetricSpecification
+ *         TargetValue: Number('double'), // required
+ *         PredefinedMetricPairSpecification: { // PredictiveScalingPredefinedMetricPair
+ *           PredefinedMetricType: 'ASGCPUUtilization' || 'ASGNetworkIn' || 'ASGNetworkOut' || 'ALBRequestCount', // required
+ *           ResourceLabel: 'STRING_VALUE',
+ *         },
+ *         PredefinedScalingMetricSpecification: { // PredictiveScalingPredefinedScalingMetric
+ *           PredefinedMetricType: 'ASGAverageCPUUtilization' || 'ASGAverageNetworkIn' || 'ASGAverageNetworkOut' || 'ALBRequestCountPerTarget', // required
+ *           ResourceLabel: 'STRING_VALUE',
+ *         },
+ *         PredefinedLoadMetricSpecification: { // PredictiveScalingPredefinedLoadMetric
+ *           PredefinedMetricType: 'ASGTotalCPUUtilization' || 'ASGTotalNetworkIn' || 'ASGTotalNetworkOut' || 'ALBTargetGroupRequestCount', // required
+ *           ResourceLabel: 'STRING_VALUE',
+ *         },
+ *         CustomizedScalingMetricSpecification: { // PredictiveScalingCustomizedScalingMetric
+ *           MetricDataQueries: [ // MetricDataQueries // required
+ *             { // MetricDataQuery
+ *               Id: 'STRING_VALUE', // required
+ *               Expression: 'STRING_VALUE',
+ *               MetricStat: { // MetricStat
+ *                 Metric: { // Metric
+ *                   Namespace: 'STRING_VALUE', // required
+ *                   MetricName: 'STRING_VALUE', // required
+ *                   Dimensions: [ // MetricDimensions
+ *                     { // MetricDimension
+ *                       Name: 'STRING_VALUE', // required
+ *                       Value: 'STRING_VALUE', // required
+ *                     },
+ *                   ],
+ *                 },
+ *                 Stat: 'STRING_VALUE', // required
+ *                 Unit: 'STRING_VALUE',
+ *               },
+ *               Label: 'STRING_VALUE',
+ *               ReturnData: true || false,
+ *             },
+ *           ],
+ *         },
+ *         CustomizedLoadMetricSpecification: { // PredictiveScalingCustomizedLoadMetric
+ *           MetricDataQueries: [ // required
+ *             {
+ *               Id: 'STRING_VALUE', // required
+ *               Expression: 'STRING_VALUE',
+ *               MetricStat: {
+ *                 Metric: {
+ *                   Namespace: 'STRING_VALUE', // required
+ *                   MetricName: 'STRING_VALUE', // required
+ *                   Dimensions: [
+ *                     {
+ *                       Name: 'STRING_VALUE', // required
+ *                       Value: 'STRING_VALUE', // required
+ *                     },
+ *                   ],
+ *                 },
+ *                 Stat: 'STRING_VALUE', // required
+ *                 Unit: 'STRING_VALUE',
+ *               },
+ *               Label: 'STRING_VALUE',
+ *               ReturnData: true || false,
+ *             },
+ *           ],
+ *         },
+ *         CustomizedCapacityMetricSpecification: { // PredictiveScalingCustomizedCapacityMetric
+ *           MetricDataQueries: [ // required
+ *             {
+ *               Id: 'STRING_VALUE', // required
+ *               Expression: 'STRING_VALUE',
+ *               MetricStat: {
+ *                 Metric: {
+ *                   Namespace: 'STRING_VALUE', // required
+ *                   MetricName: 'STRING_VALUE', // required
+ *                   Dimensions: [
+ *                     {
+ *                       Name: 'STRING_VALUE', // required
+ *                       Value: 'STRING_VALUE', // required
+ *                     },
+ *                   ],
+ *                 },
+ *                 Stat: 'STRING_VALUE', // required
+ *                 Unit: 'STRING_VALUE',
+ *               },
+ *               Label: 'STRING_VALUE',
+ *               ReturnData: true || false,
+ *             },
+ *           ],
+ *         },
+ *       },
+ *     },
+ *   ],
+ *   CapacityForecast: { // CapacityForecast
+ *     Timestamps: [ // required
+ *       new Date('TIMESTAMP'),
+ *     ],
+ *     Values: [ // required
+ *       Number('double'),
+ *     ],
+ *   },
+ *   UpdateTime: new Date('TIMESTAMP'), // required
+ * };
+ *
  * ```
  *
  * @param GetPredictiveScalingForecastCommandInput - {@link GetPredictiveScalingForecastCommandInput}
@@ -69,6 +179,8 @@ export interface GetPredictiveScalingForecastCommandOutput
  *  <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group,
  *             instance, or load balancer).</p>
  *
+ * @throws {@link AutoScalingServiceException}
+ * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
  */
 export class GetPredictiveScalingForecastCommand extends $Command<

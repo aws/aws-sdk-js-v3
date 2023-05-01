@@ -40,61 +40,64 @@ export interface PutPortfolioPreferencesCommandOutput extends PutPortfolioPrefer
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MigrationHubStrategyClient, PutPortfolioPreferencesCommand } from "@aws-sdk/client-migrationhubstrategy"; // ES Modules import
- * // const { MigrationHubStrategyClient, PutPortfolioPreferencesCommand } = require("@aws-sdk/client-migrationhubstrategy"); // CommonJS import
+ * import { MigrationHubStrategyClient, PutPortfolioPreferencesCommand } from '@aws-sdk/client-migrationhubstrategy'; // ES Modules import
+ * // const { MigrationHubStrategyClient, PutPortfolioPreferencesCommand } = require('@aws-sdk/client-migrationhubstrategy'); // CommonJS import
  * const client = new MigrationHubStrategyClient(config);
  * const input = { // PutPortfolioPreferencesRequest
  *   prioritizeBusinessGoals: { // PrioritizeBusinessGoals
  *     businessGoals: { // BusinessGoals
- *       speedOfMigration: Number("int"),
- *       reduceOperationalOverheadWithManagedServices: Number("int"),
- *       modernizeInfrastructureWithCloudNativeTechnologies: Number("int"),
- *       licenseCostReduction: Number("int"),
+ *       speedOfMigration: Number('int'),
+ *       reduceOperationalOverheadWithManagedServices: Number('int'),
+ *       modernizeInfrastructureWithCloudNativeTechnologies: Number('int'),
+ *       licenseCostReduction: Number('int'),
  *     },
  *   },
  *   applicationPreferences: { // ApplicationPreferences
  *     managementPreference: { // ManagementPreference Union: only one key present
  *       awsManagedResources: { // AwsManagedResources
  *         targetDestination: [ // AwsManagedTargetDestinations // required
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
  *       },
  *       selfManageResources: { // SelfManageResources
  *         targetDestination: [ // SelfManageTargetDestinations // required
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
  *       },
  *       noPreference: { // NoManagementPreference
  *         targetDestination: [ // NoPreferenceTargetDestinations // required
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
  *       },
  *     },
  *   },
  *   databasePreferences: { // DatabasePreferences
- *     databaseManagementPreference: "STRING_VALUE",
+ *     databaseManagementPreference: 'STRING_VALUE',
  *     databaseMigrationPreference: { // DatabaseMigrationPreference Union: only one key present
  *       heterogeneous: { // Heterogeneous
  *         targetDatabaseEngine: [ // HeterogeneousTargetDatabaseEngines // required
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
  *       },
  *       homogeneous: { // Homogeneous
  *         targetDatabaseEngine: [ // HomogeneousTargetDatabaseEngines
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
  *       },
  *       noPreference: { // NoDatabaseMigrationPreference
  *         targetDatabaseEngine: [ // TargetDatabaseEngines // required
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
  *       },
  *     },
  *   },
- *   applicationMode: "STRING_VALUE",
+ *   applicationMode: 'STRING_VALUE',
  * };
  * const command = new PutPortfolioPreferencesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutPortfolioPreferencesCommandInput - {@link PutPortfolioPreferencesCommandInput}
@@ -120,6 +123,8 @@ export interface PutPortfolioPreferencesCommandOutput extends PutPortfolioPrefer
  * @throws {@link ValidationException} (client fault)
  *  <p> The request body isn't valid. </p>
  *
+ * @throws {@link MigrationHubStrategyServiceException}
+ * <p>Base exception class for all service exceptions from MigrationHubStrategy service.</p>
  *
  */
 export class PutPortfolioPreferencesCommand extends $Command<

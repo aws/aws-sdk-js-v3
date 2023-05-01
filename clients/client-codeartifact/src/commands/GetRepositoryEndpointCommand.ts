@@ -61,17 +61,22 @@ export interface GetRepositoryEndpointCommandOutput extends GetRepositoryEndpoin
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeartifactClient, GetRepositoryEndpointCommand } from "@aws-sdk/client-codeartifact"; // ES Modules import
- * // const { CodeartifactClient, GetRepositoryEndpointCommand } = require("@aws-sdk/client-codeartifact"); // CommonJS import
+ * import { CodeartifactClient, GetRepositoryEndpointCommand } from '@aws-sdk/client-codeartifact'; // ES Modules import
+ * // const { CodeartifactClient, GetRepositoryEndpointCommand } = require('@aws-sdk/client-codeartifact'); // CommonJS import
  * const client = new CodeartifactClient(config);
  * const input = { // GetRepositoryEndpointRequest
- *   domain: "STRING_VALUE", // required
- *   domainOwner: "STRING_VALUE",
- *   repository: "STRING_VALUE", // required
- *   format: "npm" || "pypi" || "maven" || "nuget" || "generic", // required
+ *   domain: 'STRING_VALUE', // required
+ *   domainOwner: 'STRING_VALUE',
+ *   repository: 'STRING_VALUE', // required
+ *   format: 'npm' || 'pypi' || 'maven' || 'nuget' || 'generic', // required
  * };
  * const command = new GetRepositoryEndpointCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetRepositoryEndpointResult
+ *   repositoryEndpoint: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetRepositoryEndpointCommandInput - {@link GetRepositoryEndpointCommandInput}
@@ -103,6 +108,8 @@ export interface GetRepositoryEndpointCommandOutput extends GetRepositoryEndpoin
  *       The operation did not succeed because a parameter in the request was sent with an invalid value.
  *     </p>
  *
+ * @throws {@link CodeartifactServiceException}
+ * <p>Base exception class for all service exceptions from Codeartifact service.</p>
  *
  */
 export class GetRepositoryEndpointCommand extends $Command<

@@ -36,14 +36,17 @@ export interface DeleteScheduleCommandOutput extends DeleteScheduleResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MediaLiveClient, DeleteScheduleCommand } from "@aws-sdk/client-medialive"; // ES Modules import
- * // const { MediaLiveClient, DeleteScheduleCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
+ * import { MediaLiveClient, DeleteScheduleCommand } from '@aws-sdk/client-medialive'; // ES Modules import
+ * // const { MediaLiveClient, DeleteScheduleCommand } = require('@aws-sdk/client-medialive'); // CommonJS import
  * const client = new MediaLiveClient(config);
  * const input = { // DeleteScheduleRequest
- *   ChannelId: "STRING_VALUE", // required
+ *   ChannelId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteScheduleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteScheduleCommandInput - {@link DeleteScheduleCommandInput}
@@ -73,6 +76,8 @@ export interface DeleteScheduleCommandOutput extends DeleteScheduleResponse, __M
  * @throws {@link TooManyRequestsException} (client fault)
  *  Placeholder documentation for TooManyRequestsException
  *
+ * @throws {@link MediaLiveServiceException}
+ * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
  */
 export class DeleteScheduleCommand extends $Command<

@@ -40,15 +40,21 @@ export interface GetSolNetworkPackageContentCommandOutput extends GetSolNetworkP
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { TnbClient, GetSolNetworkPackageContentCommand } from "@aws-sdk/client-tnb"; // ES Modules import
- * // const { TnbClient, GetSolNetworkPackageContentCommand } = require("@aws-sdk/client-tnb"); // CommonJS import
+ * import { TnbClient, GetSolNetworkPackageContentCommand } from '@aws-sdk/client-tnb'; // ES Modules import
+ * // const { TnbClient, GetSolNetworkPackageContentCommand } = require('@aws-sdk/client-tnb'); // CommonJS import
  * const client = new TnbClient(config);
  * const input = { // GetSolNetworkPackageContentInput
- *   nsdInfoId: "STRING_VALUE", // required
- *   accept: "application/zip", // required
+ *   nsdInfoId: 'STRING_VALUE', // required
+ *   accept: 'application/zip', // required
  * };
  * const command = new GetSolNetworkPackageContentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetSolNetworkPackageContentOutput
+ *   contentType: 'application/zip',
+ *   nsdContent: 'BLOB_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetSolNetworkPackageContentCommandInput - {@link GetSolNetworkPackageContentCommandInput}
@@ -72,6 +78,8 @@ export interface GetSolNetworkPackageContentCommandOutput extends GetSolNetworkP
  * @throws {@link ValidationException} (client fault)
  *  <p>Unable to process the request because the client provided input failed to satisfy request constraints.</p>
  *
+ * @throws {@link TnbServiceException}
+ * <p>Base exception class for all service exceptions from Tnb service.</p>
  *
  */
 export class GetSolNetworkPackageContentCommand extends $Command<

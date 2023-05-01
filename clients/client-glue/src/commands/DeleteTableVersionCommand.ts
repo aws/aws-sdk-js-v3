@@ -36,17 +36,20 @@ export interface DeleteTableVersionCommandOutput extends DeleteTableVersionRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlueClient, DeleteTableVersionCommand } from "@aws-sdk/client-glue"; // ES Modules import
- * // const { GlueClient, DeleteTableVersionCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * import { GlueClient, DeleteTableVersionCommand } from '@aws-sdk/client-glue'; // ES Modules import
+ * // const { GlueClient, DeleteTableVersionCommand } = require('@aws-sdk/client-glue'); // CommonJS import
  * const client = new GlueClient(config);
  * const input = { // DeleteTableVersionRequest
- *   CatalogId: "STRING_VALUE",
- *   DatabaseName: "STRING_VALUE", // required
- *   TableName: "STRING_VALUE", // required
- *   VersionId: "STRING_VALUE", // required
+ *   CatalogId: 'STRING_VALUE',
+ *   DatabaseName: 'STRING_VALUE', // required
+ *   TableName: 'STRING_VALUE', // required
+ *   VersionId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteTableVersionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteTableVersionCommandInput - {@link DeleteTableVersionCommandInput}
@@ -67,6 +70,8 @@ export interface DeleteTableVersionCommandOutput extends DeleteTableVersionRespo
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class DeleteTableVersionCommand extends $Command<

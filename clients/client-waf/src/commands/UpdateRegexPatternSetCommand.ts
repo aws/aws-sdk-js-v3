@@ -83,21 +83,26 @@ export interface UpdateRegexPatternSetCommandOutput extends UpdateRegexPatternSe
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WAFClient, UpdateRegexPatternSetCommand } from "@aws-sdk/client-waf"; // ES Modules import
- * // const { WAFClient, UpdateRegexPatternSetCommand } = require("@aws-sdk/client-waf"); // CommonJS import
+ * import { WAFClient, UpdateRegexPatternSetCommand } from '@aws-sdk/client-waf'; // ES Modules import
+ * // const { WAFClient, UpdateRegexPatternSetCommand } = require('@aws-sdk/client-waf'); // CommonJS import
  * const client = new WAFClient(config);
  * const input = { // UpdateRegexPatternSetRequest
- *   RegexPatternSetId: "STRING_VALUE", // required
+ *   RegexPatternSetId: 'STRING_VALUE', // required
  *   Updates: [ // RegexPatternSetUpdates // required
  *     { // RegexPatternSetUpdate
- *       Action: "STRING_VALUE", // required
- *       RegexPatternString: "STRING_VALUE", // required
+ *       Action: 'STRING_VALUE', // required
+ *       RegexPatternString: 'STRING_VALUE', // required
  *     },
  *   ],
- *   ChangeToken: "STRING_VALUE", // required
+ *   ChangeToken: 'STRING_VALUE', // required
  * };
  * const command = new UpdateRegexPatternSetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateRegexPatternSetResponse
+ *   ChangeToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateRegexPatternSetCommandInput - {@link UpdateRegexPatternSetCommandInput}
@@ -167,6 +172,8 @@ export interface UpdateRegexPatternSetCommandOutput extends UpdateRegexPatternSe
  * @throws {@link WAFStaleDataException} (client fault)
  *  <p>The operation failed because you tried to create, update, or delete an object by using a change token that has already been used.</p>
  *
+ * @throws {@link WAFServiceException}
+ * <p>Base exception class for all service exceptions from WAF service.</p>
  *
  */
 export class UpdateRegexPatternSetCommand extends $Command<

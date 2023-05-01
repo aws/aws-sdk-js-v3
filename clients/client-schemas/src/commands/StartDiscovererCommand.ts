@@ -36,14 +36,20 @@ export interface StartDiscovererCommandOutput extends StartDiscovererResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SchemasClient, StartDiscovererCommand } from "@aws-sdk/client-schemas"; // ES Modules import
- * // const { SchemasClient, StartDiscovererCommand } = require("@aws-sdk/client-schemas"); // CommonJS import
+ * import { SchemasClient, StartDiscovererCommand } from '@aws-sdk/client-schemas'; // ES Modules import
+ * // const { SchemasClient, StartDiscovererCommand } = require('@aws-sdk/client-schemas'); // CommonJS import
  * const client = new SchemasClient(config);
  * const input = { // StartDiscovererRequest
- *   DiscovererId: "STRING_VALUE", // required
+ *   DiscovererId: 'STRING_VALUE', // required
  * };
  * const command = new StartDiscovererCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartDiscovererResponse
+ *   DiscovererId: 'STRING_VALUE',
+ *   State: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param StartDiscovererCommandInput - {@link StartDiscovererCommandInput}
@@ -64,6 +70,8 @@ export interface StartDiscovererCommandOutput extends StartDiscovererResponse, _
  *
  * @throws {@link UnauthorizedException} (client fault)
  *
+ * @throws {@link SchemasServiceException}
+ * <p>Base exception class for all service exceptions from Schemas service.</p>
  *
  */
 export class StartDiscovererCommand extends $Command<

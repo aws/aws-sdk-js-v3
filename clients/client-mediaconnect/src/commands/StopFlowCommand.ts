@@ -36,14 +36,20 @@ export interface StopFlowCommandOutput extends StopFlowResponse, __MetadataBeare
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MediaConnectClient, StopFlowCommand } from "@aws-sdk/client-mediaconnect"; // ES Modules import
- * // const { MediaConnectClient, StopFlowCommand } = require("@aws-sdk/client-mediaconnect"); // CommonJS import
+ * import { MediaConnectClient, StopFlowCommand } from '@aws-sdk/client-mediaconnect'; // ES Modules import
+ * // const { MediaConnectClient, StopFlowCommand } = require('@aws-sdk/client-mediaconnect'); // CommonJS import
  * const client = new MediaConnectClient(config);
  * const input = { // StopFlowRequest
- *   FlowArn: "STRING_VALUE", // required
+ *   FlowArn: 'STRING_VALUE', // required
  * };
  * const command = new StopFlowCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StopFlowResponse
+ *   FlowArn: 'STRING_VALUE',
+ *   Status: 'STANDBY' || 'ACTIVE' || 'UPDATING' || 'DELETING' || 'STARTING' || 'STOPPING' || 'ERROR',
+ * };
+ *
  * ```
  *
  * @param StopFlowCommandInput - {@link StopFlowCommandInput}
@@ -70,6 +76,8 @@ export interface StopFlowCommandOutput extends StopFlowResponse, __MetadataBeare
  * @throws {@link TooManyRequestsException} (client fault)
  *  Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
  *
+ * @throws {@link MediaConnectServiceException}
+ * <p>Base exception class for all service exceptions from MediaConnect service.</p>
  *
  */
 export class StopFlowCommand extends $Command<

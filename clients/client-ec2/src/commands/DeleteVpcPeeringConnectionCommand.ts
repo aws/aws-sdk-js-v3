@@ -40,15 +40,20 @@ export interface DeleteVpcPeeringConnectionCommandOutput extends DeleteVpcPeerin
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, DeleteVpcPeeringConnectionCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, DeleteVpcPeeringConnectionCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, DeleteVpcPeeringConnectionCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, DeleteVpcPeeringConnectionCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // DeleteVpcPeeringConnectionRequest
  *   DryRun: true || false,
- *   VpcPeeringConnectionId: "STRING_VALUE", // required
+ *   VpcPeeringConnectionId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteVpcPeeringConnectionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteVpcPeeringConnectionResult
+ *   Return: true || false,
+ * };
+ *
  * ```
  *
  * @param DeleteVpcPeeringConnectionCommandInput - {@link DeleteVpcPeeringConnectionCommandInput}
@@ -57,6 +62,8 @@ export interface DeleteVpcPeeringConnectionCommandOutput extends DeleteVpcPeerin
  * @see {@link DeleteVpcPeeringConnectionCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class DeleteVpcPeeringConnectionCommand extends $Command<

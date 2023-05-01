@@ -53,25 +53,47 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MigrationHubRefactorSpacesClient, CreateApplicationCommand } from "@aws-sdk/client-migration-hub-refactor-spaces"; // ES Modules import
- * // const { MigrationHubRefactorSpacesClient, CreateApplicationCommand } = require("@aws-sdk/client-migration-hub-refactor-spaces"); // CommonJS import
+ * import { MigrationHubRefactorSpacesClient, CreateApplicationCommand } from '@aws-sdk/client-migration-hub-refactor-spaces'; // ES Modules import
+ * // const { MigrationHubRefactorSpacesClient, CreateApplicationCommand } = require('@aws-sdk/client-migration-hub-refactor-spaces'); // CommonJS import
  * const client = new MigrationHubRefactorSpacesClient(config);
  * const input = { // CreateApplicationRequest
- *   Name: "STRING_VALUE", // required
- *   EnvironmentIdentifier: "STRING_VALUE", // required
- *   VpcId: "STRING_VALUE", // required
- *   ProxyType: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
+ *   EnvironmentIdentifier: 'STRING_VALUE', // required
+ *   VpcId: 'STRING_VALUE', // required
+ *   ProxyType: 'STRING_VALUE', // required
  *   ApiGatewayProxy: { // ApiGatewayProxyInput
- *     EndpointType: "STRING_VALUE",
- *     StageName: "STRING_VALUE",
+ *     EndpointType: 'STRING_VALUE',
+ *     StageName: 'STRING_VALUE',
  *   },
  *   Tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
- *   ClientToken: "STRING_VALUE",
+ *   ClientToken: 'STRING_VALUE',
  * };
  * const command = new CreateApplicationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateApplicationResponse
+ *   Name: 'STRING_VALUE',
+ *   Arn: 'STRING_VALUE',
+ *   OwnerAccountId: 'STRING_VALUE',
+ *   CreatedByAccountId: 'STRING_VALUE',
+ *   ApplicationId: 'STRING_VALUE',
+ *   EnvironmentId: 'STRING_VALUE',
+ *   VpcId: 'STRING_VALUE',
+ *   ProxyType: 'STRING_VALUE',
+ *   ApiGatewayProxy: { // ApiGatewayProxyInput
+ *     EndpointType: 'STRING_VALUE',
+ *     StageName: 'STRING_VALUE',
+ *   },
+ *   State: 'STRING_VALUE',
+ *   Tags: { // TagMap
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ *   LastUpdatedTime: new Date('TIMESTAMP'),
+ *   CreatedTime: new Date('TIMESTAMP'),
+ * };
+ *
  * ```
  *
  * @param CreateApplicationCommandInput - {@link CreateApplicationCommandInput}
@@ -102,6 +124,8 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  *  <p>The input does not satisfy the constraints specified by an Amazon Web Service.
  *     </p>
  *
+ * @throws {@link MigrationHubRefactorSpacesServiceException}
+ * <p>Base exception class for all service exceptions from MigrationHubRefactorSpaces service.</p>
  *
  */
 export class CreateApplicationCommand extends $Command<

@@ -36,18 +36,38 @@ export interface PutCoreNetworkPolicyCommandOutput extends PutCoreNetworkPolicyR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { NetworkManagerClient, PutCoreNetworkPolicyCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
- * // const { NetworkManagerClient, PutCoreNetworkPolicyCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
+ * import { NetworkManagerClient, PutCoreNetworkPolicyCommand } from '@aws-sdk/client-networkmanager'; // ES Modules import
+ * // const { NetworkManagerClient, PutCoreNetworkPolicyCommand } = require('@aws-sdk/client-networkmanager'); // CommonJS import
  * const client = new NetworkManagerClient(config);
  * const input = { // PutCoreNetworkPolicyRequest
- *   CoreNetworkId: "STRING_VALUE", // required
- *   PolicyDocument: "STRING_VALUE", // required
- *   Description: "STRING_VALUE",
- *   LatestVersionId: Number("int"),
- *   ClientToken: "STRING_VALUE",
+ *   CoreNetworkId: 'STRING_VALUE', // required
+ *   PolicyDocument: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE',
+ *   LatestVersionId: Number('int'),
+ *   ClientToken: 'STRING_VALUE',
  * };
  * const command = new PutCoreNetworkPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutCoreNetworkPolicyResponse
+ *   CoreNetworkPolicy: { // CoreNetworkPolicy
+ *     CoreNetworkId: 'STRING_VALUE',
+ *     PolicyVersionId: Number('int'),
+ *     Alias: 'LIVE' || 'LATEST',
+ *     Description: 'STRING_VALUE',
+ *     CreatedAt: new Date('TIMESTAMP'),
+ *     ChangeSetState: 'PENDING_GENERATION' || 'FAILED_GENERATION' || 'READY_TO_EXECUTE' || 'EXECUTING' || 'EXECUTION_SUCCEEDED' || 'OUT_OF_DATE',
+ *     PolicyErrors: [ // CoreNetworkPolicyErrorList
+ *       { // CoreNetworkPolicyError
+ *         ErrorCode: 'STRING_VALUE', // required
+ *         Message: 'STRING_VALUE', // required
+ *         Path: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     PolicyDocument: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param PutCoreNetworkPolicyCommandInput - {@link PutCoreNetworkPolicyCommandInput}
@@ -78,6 +98,8 @@ export interface PutCoreNetworkPolicyCommandOutput extends PutCoreNetworkPolicyR
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints.</p>
  *
+ * @throws {@link NetworkManagerServiceException}
+ * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
  */
 export class PutCoreNetworkPolicyCommand extends $Command<

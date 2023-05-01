@@ -36,14 +36,38 @@ export interface GetApplicationSettingsCommandOutput extends GetApplicationSetti
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PinpointClient, GetApplicationSettingsCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
- * // const { PinpointClient, GetApplicationSettingsCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
+ * import { PinpointClient, GetApplicationSettingsCommand } from '@aws-sdk/client-pinpoint'; // ES Modules import
+ * // const { PinpointClient, GetApplicationSettingsCommand } = require('@aws-sdk/client-pinpoint'); // CommonJS import
  * const client = new PinpointClient(config);
  * const input = { // GetApplicationSettingsRequest
- *   ApplicationId: "STRING_VALUE", // required
+ *   ApplicationId: 'STRING_VALUE', // required
  * };
  * const command = new GetApplicationSettingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetApplicationSettingsResponse
+ *   ApplicationSettingsResource: { // ApplicationSettingsResource
+ *     ApplicationId: 'STRING_VALUE', // required
+ *     CampaignHook: { // CampaignHook
+ *       LambdaFunctionName: 'STRING_VALUE',
+ *       Mode: 'DELIVERY' || 'FILTER',
+ *       WebUrl: 'STRING_VALUE',
+ *     },
+ *     LastModifiedDate: 'STRING_VALUE',
+ *     Limits: { // CampaignLimits
+ *       Daily: Number('int'),
+ *       MaximumDuration: Number('int'),
+ *       MessagesPerSecond: Number('int'),
+ *       Total: Number('int'),
+ *       Session: Number('int'),
+ *     },
+ *     QuietTime: { // QuietTime
+ *       End: 'STRING_VALUE',
+ *       Start: 'STRING_VALUE',
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetApplicationSettingsCommandInput - {@link GetApplicationSettingsCommandInput}
@@ -73,6 +97,8 @@ export interface GetApplicationSettingsCommandOutput extends GetApplicationSetti
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Provides information about an API request or response.</p>
  *
+ * @throws {@link PinpointServiceException}
+ * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
  */
 export class GetApplicationSettingsCommand extends $Command<

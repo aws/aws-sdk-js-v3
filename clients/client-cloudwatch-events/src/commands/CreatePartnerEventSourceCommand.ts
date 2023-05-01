@@ -59,15 +59,20 @@ export interface CreatePartnerEventSourceCommandOutput extends CreatePartnerEven
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudWatchEventsClient, CreatePartnerEventSourceCommand } from "@aws-sdk/client-cloudwatch-events"; // ES Modules import
- * // const { CloudWatchEventsClient, CreatePartnerEventSourceCommand } = require("@aws-sdk/client-cloudwatch-events"); // CommonJS import
+ * import { CloudWatchEventsClient, CreatePartnerEventSourceCommand } from '@aws-sdk/client-cloudwatch-events'; // ES Modules import
+ * // const { CloudWatchEventsClient, CreatePartnerEventSourceCommand } = require('@aws-sdk/client-cloudwatch-events'); // CommonJS import
  * const client = new CloudWatchEventsClient(config);
  * const input = { // CreatePartnerEventSourceRequest
- *   Name: "STRING_VALUE", // required
- *   Account: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
+ *   Account: 'STRING_VALUE', // required
  * };
  * const command = new CreatePartnerEventSourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreatePartnerEventSourceResponse
+ *   EventSourceArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreatePartnerEventSourceCommandInput - {@link CreatePartnerEventSourceCommandInput}
@@ -92,6 +97,8 @@ export interface CreatePartnerEventSourceCommandOutput extends CreatePartnerEven
  * @throws {@link ResourceAlreadyExistsException} (client fault)
  *  <p>The resource you are trying to create already exists.</p>
  *
+ * @throws {@link CloudWatchEventsServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatchEvents service.</p>
  *
  */
 export class CreatePartnerEventSourceCommand extends $Command<

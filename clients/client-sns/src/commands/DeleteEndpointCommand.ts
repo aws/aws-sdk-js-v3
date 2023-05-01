@@ -40,14 +40,17 @@ export interface DeleteEndpointCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SNSClient, DeleteEndpointCommand } from "@aws-sdk/client-sns"; // ES Modules import
- * // const { SNSClient, DeleteEndpointCommand } = require("@aws-sdk/client-sns"); // CommonJS import
+ * import { SNSClient, DeleteEndpointCommand } from '@aws-sdk/client-sns'; // ES Modules import
+ * // const { SNSClient, DeleteEndpointCommand } = require('@aws-sdk/client-sns'); // CommonJS import
  * const client = new SNSClient(config);
  * const input = { // DeleteEndpointInput
- *   EndpointArn: "STRING_VALUE", // required
+ *   EndpointArn: 'STRING_VALUE', // required
  * };
  * const command = new DeleteEndpointCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteEndpointCommandInput - {@link DeleteEndpointCommandInput}
@@ -66,6 +69,8 @@ export interface DeleteEndpointCommandOutput extends __MetadataBearer {}
  *  <p>Indicates that a request parameter does not comply with the associated
  *             constraints.</p>
  *
+ * @throws {@link SNSServiceException}
+ * <p>Base exception class for all service exceptions from SNS service.</p>
  *
  */
 export class DeleteEndpointCommand extends $Command<

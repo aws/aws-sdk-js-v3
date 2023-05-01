@@ -36,14 +36,34 @@ export interface DescribeGatewayInstanceCommandOutput extends DescribeGatewayIns
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MediaConnectClient, DescribeGatewayInstanceCommand } from "@aws-sdk/client-mediaconnect"; // ES Modules import
- * // const { MediaConnectClient, DescribeGatewayInstanceCommand } = require("@aws-sdk/client-mediaconnect"); // CommonJS import
+ * import { MediaConnectClient, DescribeGatewayInstanceCommand } from '@aws-sdk/client-mediaconnect'; // ES Modules import
+ * // const { MediaConnectClient, DescribeGatewayInstanceCommand } = require('@aws-sdk/client-mediaconnect'); // CommonJS import
  * const client = new MediaConnectClient(config);
  * const input = { // DescribeGatewayInstanceRequest
- *   GatewayInstanceArn: "STRING_VALUE", // required
+ *   GatewayInstanceArn: 'STRING_VALUE', // required
  * };
  * const command = new DescribeGatewayInstanceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeGatewayInstanceResponse
+ *   GatewayInstance: { // GatewayInstance
+ *     BridgePlacement: 'AVAILABLE' || 'LOCKED', // required
+ *     ConnectionStatus: 'CONNECTED' || 'DISCONNECTED', // required
+ *     GatewayArn: 'STRING_VALUE', // required
+ *     GatewayInstanceArn: 'STRING_VALUE', // required
+ *     InstanceId: 'STRING_VALUE', // required
+ *     InstanceMessages: [ // __listOfMessageDetail
+ *       { // MessageDetail
+ *         Code: 'STRING_VALUE', // required
+ *         Message: 'STRING_VALUE', // required
+ *         ResourceName: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     InstanceState: 'REGISTERING' || 'ACTIVE' || 'DEREGISTERING' || 'DEREGISTERED' || 'REGISTRATION_ERROR' || 'DEREGISTRATION_ERROR', // required
+ *     RunningBridgeCount: Number('int'), // required
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeGatewayInstanceCommandInput - {@link DescribeGatewayInstanceCommandInput}
@@ -73,6 +93,8 @@ export interface DescribeGatewayInstanceCommandOutput extends DescribeGatewayIns
  * @throws {@link TooManyRequestsException} (client fault)
  *  Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
  *
+ * @throws {@link MediaConnectServiceException}
+ * <p>Base exception class for all service exceptions from MediaConnect service.</p>
  *
  */
 export class DescribeGatewayInstanceCommand extends $Command<

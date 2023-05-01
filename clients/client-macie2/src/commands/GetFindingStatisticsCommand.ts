@@ -36,38 +36,48 @@ export interface GetFindingStatisticsCommandOutput extends GetFindingStatisticsR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Macie2Client, GetFindingStatisticsCommand } from "@aws-sdk/client-macie2"; // ES Modules import
- * // const { Macie2Client, GetFindingStatisticsCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
+ * import { Macie2Client, GetFindingStatisticsCommand } from '@aws-sdk/client-macie2'; // ES Modules import
+ * // const { Macie2Client, GetFindingStatisticsCommand } = require('@aws-sdk/client-macie2'); // CommonJS import
  * const client = new Macie2Client(config);
  * const input = { // GetFindingStatisticsRequest
  *   findingCriteria: { // FindingCriteria
  *     criterion: { // Criterion
- *       "<keys>": { // CriterionAdditionalProperties
+ *       '<keys>': { // CriterionAdditionalProperties
  *         eq: [ // __listOf__string
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
  *         eqExactMatch: [
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
- *         gt: Number("long"),
- *         gte: Number("long"),
- *         lt: Number("long"),
- *         lte: Number("long"),
+ *         gt: Number('long'),
+ *         gte: Number('long'),
+ *         lt: Number('long'),
+ *         lte: Number('long'),
  *         neq: [
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
  *       },
  *     },
  *   },
- *   groupBy: "resourcesAffected.s3Bucket.name" || "type" || "classificationDetails.jobId" || "severity.description", // required
- *   size: Number("int"),
+ *   groupBy: 'resourcesAffected.s3Bucket.name' || 'type' || 'classificationDetails.jobId' || 'severity.description', // required
+ *   size: Number('int'),
  *   sortCriteria: { // FindingStatisticsSortCriteria
- *     attributeName: "groupKey" || "count",
- *     orderBy: "ASC" || "DESC",
+ *     attributeName: 'groupKey' || 'count',
+ *     orderBy: 'ASC' || 'DESC',
  *   },
  * };
  * const command = new GetFindingStatisticsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetFindingStatisticsResponse
+ *   countsByGroup: [ // __listOfGroupCount
+ *     { // GroupCount
+ *       count: Number('long'),
+ *       groupKey: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetFindingStatisticsCommandInput - {@link GetFindingStatisticsCommandInput}
@@ -97,6 +107,8 @@ export interface GetFindingStatisticsCommandOutput extends GetFindingStatisticsR
  * @throws {@link ValidationException} (client fault)
  *  <p>Provides information about an error that occurred due to a syntax error in a request.</p>
  *
+ * @throws {@link Macie2ServiceException}
+ * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
  */
 export class GetFindingStatisticsCommand extends $Command<

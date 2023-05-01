@@ -36,15 +36,48 @@ export interface GetTerminologyCommandOutput extends GetTerminologyResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { TranslateClient, GetTerminologyCommand } from "@aws-sdk/client-translate"; // ES Modules import
- * // const { TranslateClient, GetTerminologyCommand } = require("@aws-sdk/client-translate"); // CommonJS import
+ * import { TranslateClient, GetTerminologyCommand } from '@aws-sdk/client-translate'; // ES Modules import
+ * // const { TranslateClient, GetTerminologyCommand } = require('@aws-sdk/client-translate'); // CommonJS import
  * const client = new TranslateClient(config);
  * const input = { // GetTerminologyRequest
- *   Name: "STRING_VALUE", // required
- *   TerminologyDataFormat: "CSV" || "TMX" || "TSV",
+ *   Name: 'STRING_VALUE', // required
+ *   TerminologyDataFormat: 'CSV' || 'TMX' || 'TSV',
  * };
  * const command = new GetTerminologyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetTerminologyResponse
+ *   TerminologyProperties: { // TerminologyProperties
+ *     Name: 'STRING_VALUE',
+ *     Description: 'STRING_VALUE',
+ *     Arn: 'STRING_VALUE',
+ *     SourceLanguageCode: 'STRING_VALUE',
+ *     TargetLanguageCodes: [ // LanguageCodeStringList
+ *       'STRING_VALUE',
+ *     ],
+ *     EncryptionKey: { // EncryptionKey
+ *       Type: 'KMS', // required
+ *       Id: 'STRING_VALUE', // required
+ *     },
+ *     SizeBytes: Number('int'),
+ *     TermCount: Number('int'),
+ *     CreatedAt: new Date('TIMESTAMP'),
+ *     LastUpdatedAt: new Date('TIMESTAMP'),
+ *     Directionality: 'UNI' || 'MULTI',
+ *     Message: 'STRING_VALUE',
+ *     SkippedTermCount: Number('int'),
+ *     Format: 'CSV' || 'TMX' || 'TSV',
+ *   },
+ *   TerminologyDataLocation: { // TerminologyDataLocation
+ *     RepositoryType: 'STRING_VALUE', // required
+ *     Location: 'STRING_VALUE', // required
+ *   },
+ *   AuxiliaryDataLocation: {
+ *     RepositoryType: 'STRING_VALUE', // required
+ *     Location: 'STRING_VALUE', // required
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetTerminologyCommandInput - {@link GetTerminologyCommandInput}
@@ -69,6 +102,8 @@ export interface GetTerminologyCommandOutput extends GetTerminologyResponse, __M
  *  <p> You have made too many requests within a short period of time. Wait for a short time and
  *       then try your request again.</p>
  *
+ * @throws {@link TranslateServiceException}
+ * <p>Base exception class for all service exceptions from Translate service.</p>
  *
  */
 export class GetTerminologyCommand extends $Command<

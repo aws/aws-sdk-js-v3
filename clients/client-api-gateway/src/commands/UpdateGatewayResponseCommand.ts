@@ -36,23 +36,36 @@ export interface UpdateGatewayResponseCommandOutput extends GatewayResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { APIGatewayClient, UpdateGatewayResponseCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
- * // const { APIGatewayClient, UpdateGatewayResponseCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
+ * import { APIGatewayClient, UpdateGatewayResponseCommand } from '@aws-sdk/client-api-gateway'; // ES Modules import
+ * // const { APIGatewayClient, UpdateGatewayResponseCommand } = require('@aws-sdk/client-api-gateway'); // CommonJS import
  * const client = new APIGatewayClient(config);
  * const input = { // UpdateGatewayResponseRequest
- *   restApiId: "STRING_VALUE", // required
- *   responseType: "DEFAULT_4XX" || "DEFAULT_5XX" || "RESOURCE_NOT_FOUND" || "UNAUTHORIZED" || "INVALID_API_KEY" || "ACCESS_DENIED" || "AUTHORIZER_FAILURE" || "AUTHORIZER_CONFIGURATION_ERROR" || "INVALID_SIGNATURE" || "EXPIRED_TOKEN" || "MISSING_AUTHENTICATION_TOKEN" || "INTEGRATION_FAILURE" || "INTEGRATION_TIMEOUT" || "API_CONFIGURATION_ERROR" || "UNSUPPORTED_MEDIA_TYPE" || "BAD_REQUEST_PARAMETERS" || "BAD_REQUEST_BODY" || "REQUEST_TOO_LARGE" || "THROTTLED" || "QUOTA_EXCEEDED" || "WAF_FILTERED", // required
+ *   restApiId: 'STRING_VALUE', // required
+ *   responseType: 'DEFAULT_4XX' || 'DEFAULT_5XX' || 'RESOURCE_NOT_FOUND' || 'UNAUTHORIZED' || 'INVALID_API_KEY' || 'ACCESS_DENIED' || 'AUTHORIZER_FAILURE' || 'AUTHORIZER_CONFIGURATION_ERROR' || 'INVALID_SIGNATURE' || 'EXPIRED_TOKEN' || 'MISSING_AUTHENTICATION_TOKEN' || 'INTEGRATION_FAILURE' || 'INTEGRATION_TIMEOUT' || 'API_CONFIGURATION_ERROR' || 'UNSUPPORTED_MEDIA_TYPE' || 'BAD_REQUEST_PARAMETERS' || 'BAD_REQUEST_BODY' || 'REQUEST_TOO_LARGE' || 'THROTTLED' || 'QUOTA_EXCEEDED' || 'WAF_FILTERED', // required
  *   patchOperations: [ // ListOfPatchOperation
  *     { // PatchOperation
- *       op: "add" || "remove" || "replace" || "move" || "copy" || "test",
- *       path: "STRING_VALUE",
- *       value: "STRING_VALUE",
- *       from: "STRING_VALUE",
+ *       op: 'add' || 'remove' || 'replace' || 'move' || 'copy' || 'test',
+ *       path: 'STRING_VALUE',
+ *       value: 'STRING_VALUE',
+ *       from: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new UpdateGatewayResponseCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GatewayResponse
+ *   responseType: 'DEFAULT_4XX' || 'DEFAULT_5XX' || 'RESOURCE_NOT_FOUND' || 'UNAUTHORIZED' || 'INVALID_API_KEY' || 'ACCESS_DENIED' || 'AUTHORIZER_FAILURE' || 'AUTHORIZER_CONFIGURATION_ERROR' || 'INVALID_SIGNATURE' || 'EXPIRED_TOKEN' || 'MISSING_AUTHENTICATION_TOKEN' || 'INTEGRATION_FAILURE' || 'INTEGRATION_TIMEOUT' || 'API_CONFIGURATION_ERROR' || 'UNSUPPORTED_MEDIA_TYPE' || 'BAD_REQUEST_PARAMETERS' || 'BAD_REQUEST_BODY' || 'REQUEST_TOO_LARGE' || 'THROTTLED' || 'QUOTA_EXCEEDED' || 'WAF_FILTERED',
+ *   statusCode: 'STRING_VALUE',
+ *   responseParameters: { // MapOfStringToString
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ *   responseTemplates: {
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ *   defaultResponse: true || false,
+ * };
+ *
  * ```
  *
  * @param UpdateGatewayResponseCommandInput - {@link UpdateGatewayResponseCommandInput}
@@ -79,6 +92,8 @@ export interface UpdateGatewayResponseCommandOutput extends GatewayResponse, __M
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The request is denied because the caller has insufficient permissions.</p>
  *
+ * @throws {@link APIGatewayServiceException}
+ * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
  */
 export class UpdateGatewayResponseCommand extends $Command<

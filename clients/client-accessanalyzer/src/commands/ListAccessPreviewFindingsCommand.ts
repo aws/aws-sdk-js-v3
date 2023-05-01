@@ -37,31 +37,69 @@ export interface ListAccessPreviewFindingsCommandOutput extends ListAccessPrevie
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AccessAnalyzerClient, ListAccessPreviewFindingsCommand } from "@aws-sdk/client-accessanalyzer"; // ES Modules import
- * // const { AccessAnalyzerClient, ListAccessPreviewFindingsCommand } = require("@aws-sdk/client-accessanalyzer"); // CommonJS import
+ * import { AccessAnalyzerClient, ListAccessPreviewFindingsCommand } from '@aws-sdk/client-accessanalyzer'; // ES Modules import
+ * // const { AccessAnalyzerClient, ListAccessPreviewFindingsCommand } = require('@aws-sdk/client-accessanalyzer'); // CommonJS import
  * const client = new AccessAnalyzerClient(config);
  * const input = { // ListAccessPreviewFindingsRequest
- *   accessPreviewId: "STRING_VALUE", // required
- *   analyzerArn: "STRING_VALUE", // required
+ *   accessPreviewId: 'STRING_VALUE', // required
+ *   analyzerArn: 'STRING_VALUE', // required
  *   filter: { // FilterCriteriaMap
- *     "<keys>": { // Criterion
+ *     '<keys>': { // Criterion
  *       eq: [ // ValueList
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *       neq: [
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *       contains: [
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *       exists: true || false,
  *     },
  *   },
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new ListAccessPreviewFindingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListAccessPreviewFindingsResponse
+ *   findings: [ // AccessPreviewFindingsList // required
+ *     { // AccessPreviewFinding
+ *       id: 'STRING_VALUE', // required
+ *       existingFindingId: 'STRING_VALUE',
+ *       existingFindingStatus: 'STRING_VALUE',
+ *       principal: { // PrincipalMap
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *       action: [ // ActionList
+ *         'STRING_VALUE',
+ *       ],
+ *       condition: { // ConditionKeyMap
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *       resource: 'STRING_VALUE',
+ *       isPublic: true || false,
+ *       resourceType: 'STRING_VALUE', // required
+ *       createdAt: new Date('TIMESTAMP'), // required
+ *       changeType: 'STRING_VALUE', // required
+ *       status: 'STRING_VALUE', // required
+ *       resourceOwnerAccount: 'STRING_VALUE', // required
+ *       error: 'STRING_VALUE',
+ *       sources: [ // FindingSourceList
+ *         { // FindingSource
+ *           type: 'STRING_VALUE', // required
+ *           detail: { // FindingSourceDetail
+ *             accessPointArn: 'STRING_VALUE',
+ *             accessPointAccount: 'STRING_VALUE',
+ *           },
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListAccessPreviewFindingsCommandInput - {@link ListAccessPreviewFindingsCommandInput}
@@ -88,6 +126,8 @@ export interface ListAccessPreviewFindingsCommandOutput extends ListAccessPrevie
  * @throws {@link ValidationException} (client fault)
  *  <p>Validation exception error.</p>
  *
+ * @throws {@link AccessAnalyzerServiceException}
+ * <p>Base exception class for all service exceptions from AccessAnalyzer service.</p>
  *
  */
 export class ListAccessPreviewFindingsCommand extends $Command<

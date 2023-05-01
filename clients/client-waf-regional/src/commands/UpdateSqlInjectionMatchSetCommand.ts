@@ -85,27 +85,32 @@ export interface UpdateSqlInjectionMatchSetCommandOutput extends UpdateSqlInject
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WAFRegionalClient, UpdateSqlInjectionMatchSetCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
- * // const { WAFRegionalClient, UpdateSqlInjectionMatchSetCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import
+ * import { WAFRegionalClient, UpdateSqlInjectionMatchSetCommand } from '@aws-sdk/client-waf-regional'; // ES Modules import
+ * // const { WAFRegionalClient, UpdateSqlInjectionMatchSetCommand } = require('@aws-sdk/client-waf-regional'); // CommonJS import
  * const client = new WAFRegionalClient(config);
  * const input = { // UpdateSqlInjectionMatchSetRequest
- *   SqlInjectionMatchSetId: "STRING_VALUE", // required
- *   ChangeToken: "STRING_VALUE", // required
+ *   SqlInjectionMatchSetId: 'STRING_VALUE', // required
+ *   ChangeToken: 'STRING_VALUE', // required
  *   Updates: [ // SqlInjectionMatchSetUpdates // required
  *     { // SqlInjectionMatchSetUpdate
- *       Action: "STRING_VALUE", // required
+ *       Action: 'STRING_VALUE', // required
  *       SqlInjectionMatchTuple: { // SqlInjectionMatchTuple
  *         FieldToMatch: { // FieldToMatch
- *           Type: "STRING_VALUE", // required
- *           Data: "STRING_VALUE",
+ *           Type: 'STRING_VALUE', // required
+ *           Data: 'STRING_VALUE',
  *         },
- *         TextTransformation: "STRING_VALUE", // required
+ *         TextTransformation: 'STRING_VALUE', // required
  *       },
  *     },
  *   ],
  * };
  * const command = new UpdateSqlInjectionMatchSetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateSqlInjectionMatchSetResponse
+ *   ChangeToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateSqlInjectionMatchSetCommandInput - {@link UpdateSqlInjectionMatchSetCommandInput}
@@ -212,6 +217,8 @@ export interface UpdateSqlInjectionMatchSetCommandOutput extends UpdateSqlInject
  * @throws {@link WAFStaleDataException} (client fault)
  *  <p>The operation failed because you tried to create, update, or delete an object by using a change token that has already been used.</p>
  *
+ * @throws {@link WAFRegionalServiceException}
+ * <p>Base exception class for all service exceptions from WAFRegional service.</p>
  *
  * @example To update a SQL injection match set
  * ```javascript

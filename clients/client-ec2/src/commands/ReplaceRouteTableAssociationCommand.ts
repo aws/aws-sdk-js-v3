@@ -42,16 +42,25 @@ export interface ReplaceRouteTableAssociationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, ReplaceRouteTableAssociationCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, ReplaceRouteTableAssociationCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, ReplaceRouteTableAssociationCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, ReplaceRouteTableAssociationCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // ReplaceRouteTableAssociationRequest
- *   AssociationId: "STRING_VALUE", // required
+ *   AssociationId: 'STRING_VALUE', // required
  *   DryRun: true || false,
- *   RouteTableId: "STRING_VALUE", // required
+ *   RouteTableId: 'STRING_VALUE', // required
  * };
  * const command = new ReplaceRouteTableAssociationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ReplaceRouteTableAssociationResult
+ *   NewAssociationId: 'STRING_VALUE',
+ *   AssociationState: { // RouteTableAssociationState
+ *     State: 'associating' || 'associated' || 'disassociating' || 'disassociated' || 'failed',
+ *     StatusMessage: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param ReplaceRouteTableAssociationCommandInput - {@link ReplaceRouteTableAssociationCommandInput}
@@ -60,6 +69,8 @@ export interface ReplaceRouteTableAssociationCommandOutput
  * @see {@link ReplaceRouteTableAssociationCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @example To replace the route table associated with a subnet
  * ```javascript

@@ -36,15 +36,20 @@ export interface GetModelTemplateCommandOutput extends Template, __MetadataBeare
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { APIGatewayClient, GetModelTemplateCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
- * // const { APIGatewayClient, GetModelTemplateCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
+ * import { APIGatewayClient, GetModelTemplateCommand } from '@aws-sdk/client-api-gateway'; // ES Modules import
+ * // const { APIGatewayClient, GetModelTemplateCommand } = require('@aws-sdk/client-api-gateway'); // CommonJS import
  * const client = new APIGatewayClient(config);
  * const input = { // GetModelTemplateRequest
- *   restApiId: "STRING_VALUE", // required
- *   modelName: "STRING_VALUE", // required
+ *   restApiId: 'STRING_VALUE', // required
+ *   modelName: 'STRING_VALUE', // required
  * };
  * const command = new GetModelTemplateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // Template
+ *   value: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetModelTemplateCommandInput - {@link GetModelTemplateCommandInput}
@@ -65,6 +70,8 @@ export interface GetModelTemplateCommandOutput extends Template, __MetadataBeare
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The request is denied because the caller has insufficient permissions.</p>
  *
+ * @throws {@link APIGatewayServiceException}
+ * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
  */
 export class GetModelTemplateCommand extends $Command<

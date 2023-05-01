@@ -41,15 +41,18 @@ export interface AssociateWebACLCommandOutput extends AssociateWebACLResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WAFV2Client, AssociateWebACLCommand } from "@aws-sdk/client-wafv2"; // ES Modules import
- * // const { WAFV2Client, AssociateWebACLCommand } = require("@aws-sdk/client-wafv2"); // CommonJS import
+ * import { WAFV2Client, AssociateWebACLCommand } from '@aws-sdk/client-wafv2'; // ES Modules import
+ * // const { WAFV2Client, AssociateWebACLCommand } = require('@aws-sdk/client-wafv2'); // CommonJS import
  * const client = new WAFV2Client(config);
  * const input = { // AssociateWebACLRequest
- *   WebACLArn: "STRING_VALUE", // required
- *   ResourceArn: "STRING_VALUE", // required
+ *   WebACLArn: 'STRING_VALUE', // required
+ *   ResourceArn: 'STRING_VALUE', // required
  * };
  * const command = new AssociateWebACLCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param AssociateWebACLCommandInput - {@link AssociateWebACLCommandInput}
@@ -99,6 +102,8 @@ export interface AssociateWebACLCommandOutput extends AssociateWebACLResponse, _
  *        for changes to propagate. Verify the resources that you are specifying in your request
  *        parameters and then retry the operation.</p>
  *
+ * @throws {@link WAFV2ServiceException}
+ * <p>Base exception class for all service exceptions from WAFV2 service.</p>
  *
  */
 export class AssociateWebACLCommand extends $Command<

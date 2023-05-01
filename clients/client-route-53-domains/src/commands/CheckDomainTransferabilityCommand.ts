@@ -40,15 +40,22 @@ export interface CheckDomainTransferabilityCommandOutput extends CheckDomainTran
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Route53DomainsClient, CheckDomainTransferabilityCommand } from "@aws-sdk/client-route-53-domains"; // ES Modules import
- * // const { Route53DomainsClient, CheckDomainTransferabilityCommand } = require("@aws-sdk/client-route-53-domains"); // CommonJS import
+ * import { Route53DomainsClient, CheckDomainTransferabilityCommand } from '@aws-sdk/client-route-53-domains'; // ES Modules import
+ * // const { Route53DomainsClient, CheckDomainTransferabilityCommand } = require('@aws-sdk/client-route-53-domains'); // CommonJS import
  * const client = new Route53DomainsClient(config);
  * const input = { // CheckDomainTransferabilityRequest
- *   DomainName: "STRING_VALUE", // required
- *   AuthCode: "STRING_VALUE",
+ *   DomainName: 'STRING_VALUE', // required
+ *   AuthCode: 'STRING_VALUE',
  * };
  * const command = new CheckDomainTransferabilityCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CheckDomainTransferabilityResponse
+ *   Transferability: { // DomainTransferability
+ *     Transferable: 'TRANSFERABLE' || 'UNTRANSFERABLE' || 'DONT_KNOW' || 'DOMAIN_IN_OWN_ACCOUNT' || 'DOMAIN_IN_ANOTHER_ACCOUNT' || 'PREMIUM_DOMAIN',
+ *   },
+ * };
+ *
  * ```
  *
  * @param CheckDomainTransferabilityCommandInput - {@link CheckDomainTransferabilityCommandInput}
@@ -66,6 +73,8 @@ export interface CheckDomainTransferabilityCommandOutput extends CheckDomainTran
  * @throws {@link UnsupportedTLD} (client fault)
  *  <p>Amazon Route 53 does not support this top-level domain (TLD).</p>
  *
+ * @throws {@link Route53DomainsServiceException}
+ * <p>Base exception class for all service exceptions from Route53Domains service.</p>
  *
  */
 export class CheckDomainTransferabilityCommand extends $Command<

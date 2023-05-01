@@ -38,30 +38,33 @@ export interface CreateArchiveRuleCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AccessAnalyzerClient, CreateArchiveRuleCommand } from "@aws-sdk/client-accessanalyzer"; // ES Modules import
- * // const { AccessAnalyzerClient, CreateArchiveRuleCommand } = require("@aws-sdk/client-accessanalyzer"); // CommonJS import
+ * import { AccessAnalyzerClient, CreateArchiveRuleCommand } from '@aws-sdk/client-accessanalyzer'; // ES Modules import
+ * // const { AccessAnalyzerClient, CreateArchiveRuleCommand } = require('@aws-sdk/client-accessanalyzer'); // CommonJS import
  * const client = new AccessAnalyzerClient(config);
  * const input = { // CreateArchiveRuleRequest
- *   analyzerName: "STRING_VALUE", // required
- *   ruleName: "STRING_VALUE", // required
+ *   analyzerName: 'STRING_VALUE', // required
+ *   ruleName: 'STRING_VALUE', // required
  *   filter: { // FilterCriteriaMap // required
- *     "<keys>": { // Criterion
+ *     '<keys>': { // Criterion
  *       eq: [ // ValueList
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *       neq: [
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *       contains: [
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *       exists: true || false,
  *     },
  *   },
- *   clientToken: "STRING_VALUE",
+ *   clientToken: 'STRING_VALUE',
  * };
  * const command = new CreateArchiveRuleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param CreateArchiveRuleCommandInput - {@link CreateArchiveRuleCommandInput}
@@ -91,6 +94,8 @@ export interface CreateArchiveRuleCommandOutput extends __MetadataBearer {}
  * @throws {@link ValidationException} (client fault)
  *  <p>Validation exception error.</p>
  *
+ * @throws {@link AccessAnalyzerServiceException}
+ * <p>Base exception class for all service exceptions from AccessAnalyzer service.</p>
  *
  */
 export class CreateArchiveRuleCommand extends $Command<

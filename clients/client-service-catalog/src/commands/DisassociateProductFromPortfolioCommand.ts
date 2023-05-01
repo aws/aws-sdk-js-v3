@@ -42,16 +42,19 @@ export interface DisassociateProductFromPortfolioCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ServiceCatalogClient, DisassociateProductFromPortfolioCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
- * // const { ServiceCatalogClient, DisassociateProductFromPortfolioCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
+ * import { ServiceCatalogClient, DisassociateProductFromPortfolioCommand } from '@aws-sdk/client-service-catalog'; // ES Modules import
+ * // const { ServiceCatalogClient, DisassociateProductFromPortfolioCommand } = require('@aws-sdk/client-service-catalog'); // CommonJS import
  * const client = new ServiceCatalogClient(config);
  * const input = { // DisassociateProductFromPortfolioInput
- *   AcceptLanguage: "STRING_VALUE",
- *   ProductId: "STRING_VALUE", // required
- *   PortfolioId: "STRING_VALUE", // required
+ *   AcceptLanguage: 'STRING_VALUE',
+ *   ProductId: 'STRING_VALUE', // required
+ *   PortfolioId: 'STRING_VALUE', // required
  * };
  * const command = new DisassociateProductFromPortfolioCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DisassociateProductFromPortfolioCommandInput - {@link DisassociateProductFromPortfolioCommandInput}
@@ -69,6 +72,8 @@ export interface DisassociateProductFromPortfolioCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link ServiceCatalogServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
  */
 export class DisassociateProductFromPortfolioCommand extends $Command<

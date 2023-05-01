@@ -36,17 +36,34 @@ export interface ListDiscoverersCommandOutput extends ListDiscoverersResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SchemasClient, ListDiscoverersCommand } from "@aws-sdk/client-schemas"; // ES Modules import
- * // const { SchemasClient, ListDiscoverersCommand } = require("@aws-sdk/client-schemas"); // CommonJS import
+ * import { SchemasClient, ListDiscoverersCommand } from '@aws-sdk/client-schemas'; // ES Modules import
+ * // const { SchemasClient, ListDiscoverersCommand } = require('@aws-sdk/client-schemas'); // CommonJS import
  * const client = new SchemasClient(config);
  * const input = { // ListDiscoverersRequest
- *   DiscovererIdPrefix: "STRING_VALUE",
- *   Limit: Number("int"),
- *   NextToken: "STRING_VALUE",
- *   SourceArnPrefix: "STRING_VALUE",
+ *   DiscovererIdPrefix: 'STRING_VALUE',
+ *   Limit: Number('int'),
+ *   NextToken: 'STRING_VALUE',
+ *   SourceArnPrefix: 'STRING_VALUE',
  * };
  * const command = new ListDiscoverersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListDiscoverersResponse
+ *   Discoverers: [ // __listOfDiscovererSummary
+ *     { // DiscovererSummary
+ *       DiscovererArn: 'STRING_VALUE',
+ *       DiscovererId: 'STRING_VALUE',
+ *       SourceArn: 'STRING_VALUE',
+ *       State: 'STRING_VALUE',
+ *       CrossAccount: true || false,
+ *       Tags: { // Tags
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListDiscoverersCommandInput - {@link ListDiscoverersCommandInput}
@@ -65,6 +82,8 @@ export interface ListDiscoverersCommandOutput extends ListDiscoverersResponse, _
  *
  * @throws {@link UnauthorizedException} (client fault)
  *
+ * @throws {@link SchemasServiceException}
+ * <p>Base exception class for all service exceptions from Schemas service.</p>
  *
  */
 export class ListDiscoverersCommand extends $Command<

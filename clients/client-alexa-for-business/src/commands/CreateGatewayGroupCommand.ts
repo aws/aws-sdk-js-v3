@@ -36,22 +36,27 @@ export interface CreateGatewayGroupCommandOutput extends CreateGatewayGroupRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AlexaForBusinessClient, CreateGatewayGroupCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
- * // const { AlexaForBusinessClient, CreateGatewayGroupCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
+ * import { AlexaForBusinessClient, CreateGatewayGroupCommand } from '@aws-sdk/client-alexa-for-business'; // ES Modules import
+ * // const { AlexaForBusinessClient, CreateGatewayGroupCommand } = require('@aws-sdk/client-alexa-for-business'); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
  * const input = { // CreateGatewayGroupRequest
- *   Name: "STRING_VALUE", // required
- *   Description: "STRING_VALUE",
- *   ClientRequestToken: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE',
+ *   ClientRequestToken: 'STRING_VALUE', // required
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreateGatewayGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateGatewayGroupResponse
+ *   GatewayGroupArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateGatewayGroupCommandInput - {@link CreateGatewayGroupCommandInput}
@@ -66,6 +71,8 @@ export interface CreateGatewayGroupCommandOutput extends CreateGatewayGroupRespo
  * @throws {@link LimitExceededException} (client fault)
  *  <p>You are performing an action that would put you beyond your account's limits.</p>
  *
+ * @throws {@link AlexaForBusinessServiceException}
+ * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  */
 export class CreateGatewayGroupCommand extends $Command<

@@ -36,30 +36,33 @@ export interface UpdateArchiveRuleCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AccessAnalyzerClient, UpdateArchiveRuleCommand } from "@aws-sdk/client-accessanalyzer"; // ES Modules import
- * // const { AccessAnalyzerClient, UpdateArchiveRuleCommand } = require("@aws-sdk/client-accessanalyzer"); // CommonJS import
+ * import { AccessAnalyzerClient, UpdateArchiveRuleCommand } from '@aws-sdk/client-accessanalyzer'; // ES Modules import
+ * // const { AccessAnalyzerClient, UpdateArchiveRuleCommand } = require('@aws-sdk/client-accessanalyzer'); // CommonJS import
  * const client = new AccessAnalyzerClient(config);
  * const input = { // UpdateArchiveRuleRequest
- *   analyzerName: "STRING_VALUE", // required
- *   ruleName: "STRING_VALUE", // required
+ *   analyzerName: 'STRING_VALUE', // required
+ *   ruleName: 'STRING_VALUE', // required
  *   filter: { // FilterCriteriaMap // required
- *     "<keys>": { // Criterion
+ *     '<keys>': { // Criterion
  *       eq: [ // ValueList
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *       neq: [
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *       contains: [
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *       exists: true || false,
  *     },
  *   },
- *   clientToken: "STRING_VALUE",
+ *   clientToken: 'STRING_VALUE',
  * };
  * const command = new UpdateArchiveRuleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateArchiveRuleCommandInput - {@link UpdateArchiveRuleCommandInput}
@@ -83,6 +86,8 @@ export interface UpdateArchiveRuleCommandOutput extends __MetadataBearer {}
  * @throws {@link ValidationException} (client fault)
  *  <p>Validation exception error.</p>
  *
+ * @throws {@link AccessAnalyzerServiceException}
+ * <p>Base exception class for all service exceptions from AccessAnalyzer service.</p>
  *
  */
 export class UpdateArchiveRuleCommand extends $Command<

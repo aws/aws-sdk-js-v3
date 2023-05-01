@@ -41,14 +41,17 @@ export interface UpdatePhoneNumberSettingsCommandOutput extends __MetadataBearer
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeClient, UpdatePhoneNumberSettingsCommand } from "@aws-sdk/client-chime"; // ES Modules import
- * // const { ChimeClient, UpdatePhoneNumberSettingsCommand } = require("@aws-sdk/client-chime"); // CommonJS import
+ * import { ChimeClient, UpdatePhoneNumberSettingsCommand } from '@aws-sdk/client-chime'; // ES Modules import
+ * // const { ChimeClient, UpdatePhoneNumberSettingsCommand } = require('@aws-sdk/client-chime'); // CommonJS import
  * const client = new ChimeClient(config);
  * const input = { // UpdatePhoneNumberSettingsRequest
- *   CallingName: "STRING_VALUE", // required
+ *   CallingName: 'STRING_VALUE', // required
  * };
  * const command = new UpdatePhoneNumberSettingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdatePhoneNumberSettingsCommandInput - {@link UpdatePhoneNumberSettingsCommandInput}
@@ -75,6 +78,8 @@ export interface UpdatePhoneNumberSettingsCommandOutput extends __MetadataBearer
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeServiceException}
+ * <p>Base exception class for all service exceptions from Chime service.</p>
  *
  */
 export class UpdatePhoneNumberSettingsCommand extends $Command<

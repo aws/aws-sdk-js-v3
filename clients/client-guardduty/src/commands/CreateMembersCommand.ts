@@ -44,20 +44,30 @@ export interface CreateMembersCommandOutput extends CreateMembersResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GuardDutyClient, CreateMembersCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
- * // const { GuardDutyClient, CreateMembersCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
+ * import { GuardDutyClient, CreateMembersCommand } from '@aws-sdk/client-guardduty'; // ES Modules import
+ * // const { GuardDutyClient, CreateMembersCommand } = require('@aws-sdk/client-guardduty'); // CommonJS import
  * const client = new GuardDutyClient(config);
  * const input = { // CreateMembersRequest
- *   DetectorId: "STRING_VALUE", // required
+ *   DetectorId: 'STRING_VALUE', // required
  *   AccountDetails: [ // AccountDetails // required
  *     { // AccountDetail
- *       AccountId: "STRING_VALUE", // required
- *       Email: "STRING_VALUE", // required
+ *       AccountId: 'STRING_VALUE', // required
+ *       Email: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreateMembersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateMembersResponse
+ *   UnprocessedAccounts: [ // UnprocessedAccounts // required
+ *     { // UnprocessedAccount
+ *       AccountId: 'STRING_VALUE', // required
+ *       Result: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param CreateMembersCommandInput - {@link CreateMembersCommandInput}
@@ -72,6 +82,8 @@ export interface CreateMembersCommandOutput extends CreateMembersResponse, __Met
  * @throws {@link InternalServerErrorException} (server fault)
  *  <p>An internal server error exception object.</p>
  *
+ * @throws {@link GuardDutyServiceException}
+ * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
  */
 export class CreateMembersCommand extends $Command<

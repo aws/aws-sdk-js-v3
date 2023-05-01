@@ -36,18 +36,25 @@ export interface UpdateTrackerCommandOutput extends UpdateTrackerResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LocationClient, UpdateTrackerCommand } from "@aws-sdk/client-location"; // ES Modules import
- * // const { LocationClient, UpdateTrackerCommand } = require("@aws-sdk/client-location"); // CommonJS import
+ * import { LocationClient, UpdateTrackerCommand } from '@aws-sdk/client-location'; // ES Modules import
+ * // const { LocationClient, UpdateTrackerCommand } = require('@aws-sdk/client-location'); // CommonJS import
  * const client = new LocationClient(config);
  * const input = { // UpdateTrackerRequest
- *   TrackerName: "STRING_VALUE", // required
- *   PricingPlan: "STRING_VALUE",
- *   PricingPlanDataSource: "STRING_VALUE",
- *   Description: "STRING_VALUE",
- *   PositionFiltering: "STRING_VALUE",
+ *   TrackerName: 'STRING_VALUE', // required
+ *   PricingPlan: 'STRING_VALUE',
+ *   PricingPlanDataSource: 'STRING_VALUE',
+ *   Description: 'STRING_VALUE',
+ *   PositionFiltering: 'STRING_VALUE',
  * };
  * const command = new UpdateTrackerCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateTrackerResponse
+ *   TrackerName: 'STRING_VALUE', // required
+ *   TrackerArn: 'STRING_VALUE', // required
+ *   UpdateTime: new Date('TIMESTAMP'), // required
+ * };
+ *
  * ```
  *
  * @param UpdateTrackerCommandInput - {@link UpdateTrackerCommandInput}
@@ -72,6 +79,8 @@ export interface UpdateTrackerCommandOutput extends UpdateTrackerResponse, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>The input failed to meet the constraints specified by the AWS service. </p>
  *
+ * @throws {@link LocationServiceException}
+ * <p>Base exception class for all service exceptions from Location service.</p>
  *
  */
 export class UpdateTrackerCommand extends $Command<

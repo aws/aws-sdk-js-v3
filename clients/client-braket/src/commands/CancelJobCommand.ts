@@ -36,14 +36,20 @@ export interface CancelJobCommandOutput extends CancelJobResponse, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BraketClient, CancelJobCommand } from "@aws-sdk/client-braket"; // ES Modules import
- * // const { BraketClient, CancelJobCommand } = require("@aws-sdk/client-braket"); // CommonJS import
+ * import { BraketClient, CancelJobCommand } from '@aws-sdk/client-braket'; // ES Modules import
+ * // const { BraketClient, CancelJobCommand } = require('@aws-sdk/client-braket'); // CommonJS import
  * const client = new BraketClient(config);
  * const input = { // CancelJobRequest
- *   jobArn: "STRING_VALUE", // required
+ *   jobArn: 'STRING_VALUE', // required
  * };
  * const command = new CancelJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CancelJobResponse
+ *   jobArn: 'STRING_VALUE', // required
+ *   cancellationStatus: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param CancelJobCommandInput - {@link CancelJobCommandInput}
@@ -71,6 +77,8 @@ export interface CancelJobCommandOutput extends CancelJobResponse, __MetadataBea
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link BraketServiceException}
+ * <p>Base exception class for all service exceptions from Braket service.</p>
  *
  */
 export class CancelJobCommand extends $Command<

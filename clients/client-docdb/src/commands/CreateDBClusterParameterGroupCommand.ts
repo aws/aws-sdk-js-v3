@@ -59,22 +59,32 @@ export interface CreateDBClusterParameterGroupCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DocDBClient, CreateDBClusterParameterGroupCommand } from "@aws-sdk/client-docdb"; // ES Modules import
- * // const { DocDBClient, CreateDBClusterParameterGroupCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
+ * import { DocDBClient, CreateDBClusterParameterGroupCommand } from '@aws-sdk/client-docdb'; // ES Modules import
+ * // const { DocDBClient, CreateDBClusterParameterGroupCommand } = require('@aws-sdk/client-docdb'); // CommonJS import
  * const client = new DocDBClient(config);
  * const input = { // CreateDBClusterParameterGroupMessage
- *   DBClusterParameterGroupName: "STRING_VALUE", // required
- *   DBParameterGroupFamily: "STRING_VALUE", // required
- *   Description: "STRING_VALUE", // required
+ *   DBClusterParameterGroupName: 'STRING_VALUE', // required
+ *   DBParameterGroupFamily: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE', // required
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE",
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new CreateDBClusterParameterGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateDBClusterParameterGroupResult
+ *   DBClusterParameterGroup: { // DBClusterParameterGroup
+ *     DBClusterParameterGroupName: 'STRING_VALUE',
+ *     DBParameterGroupFamily: 'STRING_VALUE',
+ *     Description: 'STRING_VALUE',
+ *     DBClusterParameterGroupArn: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateDBClusterParameterGroupCommandInput - {@link CreateDBClusterParameterGroupCommandInput}
@@ -89,6 +99,8 @@ export interface CreateDBClusterParameterGroupCommandOutput
  * @throws {@link DBParameterGroupQuotaExceededFault} (client fault)
  *  <p>This request would cause you to exceed the allowed number of parameter groups.</p>
  *
+ * @throws {@link DocDBServiceException}
+ * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
  */
 export class CreateDBClusterParameterGroupCommand extends $Command<

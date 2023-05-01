@@ -48,14 +48,17 @@ export interface DeletePolicyCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTClient, DeletePolicyCommand } from "@aws-sdk/client-iot"; // ES Modules import
- * // const { IoTClient, DeletePolicyCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * import { IoTClient, DeletePolicyCommand } from '@aws-sdk/client-iot'; // ES Modules import
+ * // const { IoTClient, DeletePolicyCommand } = require('@aws-sdk/client-iot'); // CommonJS import
  * const client = new IoTClient(config);
  * const input = { // DeletePolicyRequest
- *   policyName: "STRING_VALUE", // required
+ *   policyName: 'STRING_VALUE', // required
  * };
  * const command = new DeletePolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeletePolicyCommandInput - {@link DeletePolicyCommandInput}
@@ -86,6 +89,8 @@ export interface DeletePolicyCommandOutput extends __MetadataBearer {}
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this operation.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class DeletePolicyCommand extends $Command<

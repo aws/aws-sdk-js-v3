@@ -85,35 +85,41 @@ export interface CountClosedWorkflowExecutionsCommandOutput extends WorkflowExec
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SWFClient, CountClosedWorkflowExecutionsCommand } from "@aws-sdk/client-swf"; // ES Modules import
- * // const { SWFClient, CountClosedWorkflowExecutionsCommand } = require("@aws-sdk/client-swf"); // CommonJS import
+ * import { SWFClient, CountClosedWorkflowExecutionsCommand } from '@aws-sdk/client-swf'; // ES Modules import
+ * // const { SWFClient, CountClosedWorkflowExecutionsCommand } = require('@aws-sdk/client-swf'); // CommonJS import
  * const client = new SWFClient(config);
  * const input = { // CountClosedWorkflowExecutionsInput
- *   domain: "STRING_VALUE", // required
+ *   domain: 'STRING_VALUE', // required
  *   startTimeFilter: { // ExecutionTimeFilter
- *     oldestDate: new Date("TIMESTAMP"), // required
- *     latestDate: new Date("TIMESTAMP"),
+ *     oldestDate: new Date('TIMESTAMP'), // required
+ *     latestDate: new Date('TIMESTAMP'),
  *   },
  *   closeTimeFilter: {
- *     oldestDate: new Date("TIMESTAMP"), // required
- *     latestDate: new Date("TIMESTAMP"),
+ *     oldestDate: new Date('TIMESTAMP'), // required
+ *     latestDate: new Date('TIMESTAMP'),
  *   },
  *   executionFilter: { // WorkflowExecutionFilter
- *     workflowId: "STRING_VALUE", // required
+ *     workflowId: 'STRING_VALUE', // required
  *   },
  *   typeFilter: { // WorkflowTypeFilter
- *     name: "STRING_VALUE", // required
- *     version: "STRING_VALUE",
+ *     name: 'STRING_VALUE', // required
+ *     version: 'STRING_VALUE',
  *   },
  *   tagFilter: { // TagFilter
- *     tag: "STRING_VALUE", // required
+ *     tag: 'STRING_VALUE', // required
  *   },
  *   closeStatusFilter: { // CloseStatusFilter
- *     status: "COMPLETED" || "FAILED" || "CANCELED" || "TERMINATED" || "CONTINUED_AS_NEW" || "TIMED_OUT", // required
+ *     status: 'COMPLETED' || 'FAILED' || 'CANCELED' || 'TERMINATED' || 'CONTINUED_AS_NEW' || 'TIMED_OUT', // required
  *   },
  * };
  * const command = new CountClosedWorkflowExecutionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // WorkflowExecutionCount
+ *   count: Number('int'), // required
+ *   truncated: true || false,
+ * };
+ *
  * ```
  *
  * @param CountClosedWorkflowExecutionsCommandInput - {@link CountClosedWorkflowExecutionsCommandInput}
@@ -128,6 +134,8 @@ export interface CountClosedWorkflowExecutionsCommandOutput extends WorkflowExec
  * @throws {@link UnknownResourceFault} (client fault)
  *  <p>Returned when the named resource cannot be found with in the scope of this operation (region or domain). This could happen if the named resource was never created or is no longer available for this operation.</p>
  *
+ * @throws {@link SWFServiceException}
+ * <p>Base exception class for all service exceptions from SWF service.</p>
  *
  */
 export class CountClosedWorkflowExecutionsCommand extends $Command<

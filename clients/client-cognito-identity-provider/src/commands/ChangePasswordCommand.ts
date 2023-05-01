@@ -44,16 +44,19 @@ export interface ChangePasswordCommandOutput extends ChangePasswordResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CognitoIdentityProviderClient, ChangePasswordCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
- * // const { CognitoIdentityProviderClient, ChangePasswordCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
+ * import { CognitoIdentityProviderClient, ChangePasswordCommand } from '@aws-sdk/client-cognito-identity-provider'; // ES Modules import
+ * // const { CognitoIdentityProviderClient, ChangePasswordCommand } = require('@aws-sdk/client-cognito-identity-provider'); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
  * const input = { // ChangePasswordRequest
- *   PreviousPassword: "STRING_VALUE", // required
- *   ProposedPassword: "STRING_VALUE", // required
- *   AccessToken: "STRING_VALUE", // required
+ *   PreviousPassword: 'STRING_VALUE', // required
+ *   ProposedPassword: 'STRING_VALUE', // required
+ *   AccessToken: 'STRING_VALUE', // required
  * };
  * const command = new ChangePasswordCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param ChangePasswordCommandInput - {@link ChangePasswordCommandInput}
@@ -99,6 +102,8 @@ export interface ChangePasswordCommandOutput extends ChangePasswordResponse, __M
  * @throws {@link UserNotFoundException} (client fault)
  *  <p>This exception is thrown when a user isn't found.</p>
  *
+ * @throws {@link CognitoIdentityProviderServiceException}
+ * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
  */
 export class ChangePasswordCommand extends $Command<

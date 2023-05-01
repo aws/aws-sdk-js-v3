@@ -40,16 +40,39 @@ export interface UpdateApplicationVersionCommandOutput extends ApplicationVersio
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElasticBeanstalkClient, UpdateApplicationVersionCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
- * // const { ElasticBeanstalkClient, UpdateApplicationVersionCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
+ * import { ElasticBeanstalkClient, UpdateApplicationVersionCommand } from '@aws-sdk/client-elastic-beanstalk'; // ES Modules import
+ * // const { ElasticBeanstalkClient, UpdateApplicationVersionCommand } = require('@aws-sdk/client-elastic-beanstalk'); // CommonJS import
  * const client = new ElasticBeanstalkClient(config);
  * const input = { // UpdateApplicationVersionMessage
- *   ApplicationName: "STRING_VALUE", // required
- *   VersionLabel: "STRING_VALUE", // required
- *   Description: "STRING_VALUE",
+ *   ApplicationName: 'STRING_VALUE', // required
+ *   VersionLabel: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE',
  * };
  * const command = new UpdateApplicationVersionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ApplicationVersionDescriptionMessage
+ *   ApplicationVersion: { // ApplicationVersionDescription
+ *     ApplicationVersionArn: 'STRING_VALUE',
+ *     ApplicationName: 'STRING_VALUE',
+ *     Description: 'STRING_VALUE',
+ *     VersionLabel: 'STRING_VALUE',
+ *     SourceBuildInformation: { // SourceBuildInformation
+ *       SourceType: 'Git' || 'Zip', // required
+ *       SourceRepository: 'CodeCommit' || 'S3', // required
+ *       SourceLocation: 'STRING_VALUE', // required
+ *     },
+ *     BuildArn: 'STRING_VALUE',
+ *     SourceBundle: { // S3Location
+ *       S3Bucket: 'STRING_VALUE',
+ *       S3Key: 'STRING_VALUE',
+ *     },
+ *     DateCreated: new Date('TIMESTAMP'),
+ *     DateUpdated: new Date('TIMESTAMP'),
+ *     Status: 'Processed' || 'Unprocessed' || 'Failed' || 'Processing' || 'Building',
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateApplicationVersionCommandInput - {@link UpdateApplicationVersionCommandInput}
@@ -58,6 +81,8 @@ export interface UpdateApplicationVersionCommandOutput extends ApplicationVersio
  * @see {@link UpdateApplicationVersionCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
+ * @throws {@link ElasticBeanstalkServiceException}
+ * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
  * @example To change an application version's description
  * ```javascript

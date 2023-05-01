@@ -40,14 +40,19 @@ export interface GetResourcePolicyCommandOutput extends GetResourcePolicyRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MigrationHubRefactorSpacesClient, GetResourcePolicyCommand } from "@aws-sdk/client-migration-hub-refactor-spaces"; // ES Modules import
- * // const { MigrationHubRefactorSpacesClient, GetResourcePolicyCommand } = require("@aws-sdk/client-migration-hub-refactor-spaces"); // CommonJS import
+ * import { MigrationHubRefactorSpacesClient, GetResourcePolicyCommand } from '@aws-sdk/client-migration-hub-refactor-spaces'; // ES Modules import
+ * // const { MigrationHubRefactorSpacesClient, GetResourcePolicyCommand } = require('@aws-sdk/client-migration-hub-refactor-spaces'); // CommonJS import
  * const client = new MigrationHubRefactorSpacesClient(config);
  * const input = { // GetResourcePolicyRequest
- *   Identifier: "STRING_VALUE", // required
+ *   Identifier: 'STRING_VALUE', // required
  * };
  * const command = new GetResourcePolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetResourcePolicyResponse
+ *   Policy: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetResourcePolicyCommandInput - {@link GetResourcePolicyCommandInput}
@@ -72,6 +77,8 @@ export interface GetResourcePolicyCommandOutput extends GetResourcePolicyRespons
  *  <p>The input does not satisfy the constraints specified by an Amazon Web Service.
  *     </p>
  *
+ * @throws {@link MigrationHubRefactorSpacesServiceException}
+ * <p>Base exception class for all service exceptions from MigrationHubRefactorSpaces service.</p>
  *
  */
 export class GetResourcePolicyCommand extends $Command<

@@ -49,18 +49,21 @@ export interface SendBonusCommandOutput extends SendBonusResponse, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MTurkClient, SendBonusCommand } from "@aws-sdk/client-mturk"; // ES Modules import
- * // const { MTurkClient, SendBonusCommand } = require("@aws-sdk/client-mturk"); // CommonJS import
+ * import { MTurkClient, SendBonusCommand } from '@aws-sdk/client-mturk'; // ES Modules import
+ * // const { MTurkClient, SendBonusCommand } = require('@aws-sdk/client-mturk'); // CommonJS import
  * const client = new MTurkClient(config);
  * const input = { // SendBonusRequest
- *   WorkerId: "STRING_VALUE", // required
- *   BonusAmount: "STRING_VALUE", // required
- *   AssignmentId: "STRING_VALUE", // required
- *   Reason: "STRING_VALUE", // required
- *   UniqueRequestToken: "STRING_VALUE",
+ *   WorkerId: 'STRING_VALUE', // required
+ *   BonusAmount: 'STRING_VALUE', // required
+ *   AssignmentId: 'STRING_VALUE', // required
+ *   Reason: 'STRING_VALUE', // required
+ *   UniqueRequestToken: 'STRING_VALUE',
  * };
  * const command = new SendBonusCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param SendBonusCommandInput - {@link SendBonusCommandInput}
@@ -75,6 +78,8 @@ export interface SendBonusCommandOutput extends SendBonusResponse, __MetadataBea
  * @throws {@link ServiceFault} (server fault)
  *  <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
  *
+ * @throws {@link MTurkServiceException}
+ * <p>Base exception class for all service exceptions from MTurk service.</p>
  *
  */
 export class SendBonusCommand extends $Command<

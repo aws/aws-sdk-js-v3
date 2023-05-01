@@ -36,14 +36,19 @@ export interface StartTransactionCommandOutput extends StartTransactionResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LakeFormationClient, StartTransactionCommand } from "@aws-sdk/client-lakeformation"; // ES Modules import
- * // const { LakeFormationClient, StartTransactionCommand } = require("@aws-sdk/client-lakeformation"); // CommonJS import
+ * import { LakeFormationClient, StartTransactionCommand } from '@aws-sdk/client-lakeformation'; // ES Modules import
+ * // const { LakeFormationClient, StartTransactionCommand } = require('@aws-sdk/client-lakeformation'); // CommonJS import
  * const client = new LakeFormationClient(config);
  * const input = { // StartTransactionRequest
- *   TransactionType: "READ_AND_WRITE" || "READ_ONLY",
+ *   TransactionType: 'READ_AND_WRITE' || 'READ_ONLY',
  * };
  * const command = new StartTransactionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartTransactionResponse
+ *   TransactionId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param StartTransactionCommandInput - {@link StartTransactionCommandInput}
@@ -58,6 +63,8 @@ export interface StartTransactionCommandOutput extends StartTransactionResponse,
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link LakeFormationServiceException}
+ * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
  */
 export class StartTransactionCommand extends $Command<

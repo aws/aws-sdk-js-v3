@@ -48,15 +48,21 @@ export interface GetAttachmentCommandOutput extends GetAttachmentResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectParticipantClient, GetAttachmentCommand } from "@aws-sdk/client-connectparticipant"; // ES Modules import
- * // const { ConnectParticipantClient, GetAttachmentCommand } = require("@aws-sdk/client-connectparticipant"); // CommonJS import
+ * import { ConnectParticipantClient, GetAttachmentCommand } from '@aws-sdk/client-connectparticipant'; // ES Modules import
+ * // const { ConnectParticipantClient, GetAttachmentCommand } = require('@aws-sdk/client-connectparticipant'); // CommonJS import
  * const client = new ConnectParticipantClient(config);
  * const input = { // GetAttachmentRequest
- *   AttachmentId: "STRING_VALUE", // required
- *   ConnectionToken: "STRING_VALUE", // required
+ *   AttachmentId: 'STRING_VALUE', // required
+ *   ConnectionToken: 'STRING_VALUE', // required
  * };
  * const command = new GetAttachmentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetAttachmentResponse
+ *   Url: 'STRING_VALUE',
+ *   UrlExpiry: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetAttachmentCommandInput - {@link GetAttachmentCommandInput}
@@ -77,6 +83,8 @@ export interface GetAttachmentCommandOutput extends GetAttachmentResponse, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by Amazon Connect.</p>
  *
+ * @throws {@link ConnectParticipantServiceException}
+ * <p>Base exception class for all service exceptions from ConnectParticipant service.</p>
  *
  */
 export class GetAttachmentCommand extends $Command<

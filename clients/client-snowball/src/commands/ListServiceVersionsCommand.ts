@@ -37,24 +37,43 @@ export interface ListServiceVersionsCommandOutput extends ListServiceVersionsRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SnowballClient, ListServiceVersionsCommand } from "@aws-sdk/client-snowball"; // ES Modules import
- * // const { SnowballClient, ListServiceVersionsCommand } = require("@aws-sdk/client-snowball"); // CommonJS import
+ * import { SnowballClient, ListServiceVersionsCommand } from '@aws-sdk/client-snowball'; // ES Modules import
+ * // const { SnowballClient, ListServiceVersionsCommand } = require('@aws-sdk/client-snowball'); // CommonJS import
  * const client = new SnowballClient(config);
  * const input = { // ListServiceVersionsRequest
- *   ServiceName: "KUBERNETES" || "EKS_ANYWHERE", // required
+ *   ServiceName: 'KUBERNETES' || 'EKS_ANYWHERE', // required
  *   DependentServices: [ // DependentServiceList
  *     { // DependentService
- *       ServiceName: "KUBERNETES" || "EKS_ANYWHERE",
+ *       ServiceName: 'KUBERNETES' || 'EKS_ANYWHERE',
  *       ServiceVersion: { // ServiceVersion
- *         Version: "STRING_VALUE",
+ *         Version: 'STRING_VALUE',
  *       },
  *     },
  *   ],
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListServiceVersionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListServiceVersionsResult
+ *   ServiceVersions: [ // ServiceVersionList // required
+ *     { // ServiceVersion
+ *       Version: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   ServiceName: 'KUBERNETES' || 'EKS_ANYWHERE', // required
+ *   DependentServices: [ // DependentServiceList
+ *     { // DependentService
+ *       ServiceName: 'KUBERNETES' || 'EKS_ANYWHERE',
+ *       ServiceVersion: {
+ *         Version: 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListServiceVersionsCommandInput - {@link ListServiceVersionsCommandInput}
@@ -72,6 +91,8 @@ export interface ListServiceVersionsCommandOutput extends ListServiceVersionsRes
  *  <p>The specified resource can't be found. Check the information you provided in your last
  *       request, and try again.</p>
  *
+ * @throws {@link SnowballServiceException}
+ * <p>Base exception class for all service exceptions from Snowball service.</p>
  *
  */
 export class ListServiceVersionsCommand extends $Command<

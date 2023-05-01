@@ -54,15 +54,28 @@ export interface GetJobBookmarkCommandOutput extends GetJobBookmarkResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlueClient, GetJobBookmarkCommand } from "@aws-sdk/client-glue"; // ES Modules import
- * // const { GlueClient, GetJobBookmarkCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * import { GlueClient, GetJobBookmarkCommand } from '@aws-sdk/client-glue'; // ES Modules import
+ * // const { GlueClient, GetJobBookmarkCommand } = require('@aws-sdk/client-glue'); // CommonJS import
  * const client = new GlueClient(config);
  * const input = { // GetJobBookmarkRequest
- *   JobName: "STRING_VALUE", // required
- *   RunId: "STRING_VALUE",
+ *   JobName: 'STRING_VALUE', // required
+ *   RunId: 'STRING_VALUE',
  * };
  * const command = new GetJobBookmarkCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetJobBookmarkResponse
+ *   JobBookmarkEntry: { // JobBookmarkEntry
+ *     JobName: 'STRING_VALUE',
+ *     Version: Number('int'),
+ *     Run: Number('int'),
+ *     Attempt: Number('int'),
+ *     PreviousRunId: 'STRING_VALUE',
+ *     RunId: 'STRING_VALUE',
+ *     JobBookmark: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetJobBookmarkCommandInput - {@link GetJobBookmarkCommandInput}
@@ -86,6 +99,8 @@ export interface GetJobBookmarkCommandOutput extends GetJobBookmarkResponse, __M
  * @throws {@link ValidationException} (client fault)
  *  <p>A value could not be validated.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class GetJobBookmarkCommand extends $Command<

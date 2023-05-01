@@ -38,15 +38,18 @@ export interface TerminateJobCommandOutput extends TerminateJobResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BatchClient, TerminateJobCommand } from "@aws-sdk/client-batch"; // ES Modules import
- * // const { BatchClient, TerminateJobCommand } = require("@aws-sdk/client-batch"); // CommonJS import
+ * import { BatchClient, TerminateJobCommand } from '@aws-sdk/client-batch'; // ES Modules import
+ * // const { BatchClient, TerminateJobCommand } = require('@aws-sdk/client-batch'); // CommonJS import
  * const client = new BatchClient(config);
  * const input = { // TerminateJobRequest
- *   jobId: "STRING_VALUE", // required
- *   reason: "STRING_VALUE", // required
+ *   jobId: 'STRING_VALUE', // required
+ *   reason: 'STRING_VALUE', // required
  * };
  * const command = new TerminateJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param TerminateJobCommandInput - {@link TerminateJobCommandInput}
@@ -63,6 +66,8 @@ export interface TerminateJobCommandOutput extends TerminateJobResponse, __Metad
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server issue.</p>
  *
+ * @throws {@link BatchServiceException}
+ * <p>Base exception class for all service exceptions from Batch service.</p>
  *
  * @example To terminate a job
  * ```javascript

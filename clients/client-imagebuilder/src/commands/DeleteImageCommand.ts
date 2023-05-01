@@ -57,14 +57,20 @@ export interface DeleteImageCommandOutput extends DeleteImageResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ImagebuilderClient, DeleteImageCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
- * // const { ImagebuilderClient, DeleteImageCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
+ * import { ImagebuilderClient, DeleteImageCommand } from '@aws-sdk/client-imagebuilder'; // ES Modules import
+ * // const { ImagebuilderClient, DeleteImageCommand } = require('@aws-sdk/client-imagebuilder'); // CommonJS import
  * const client = new ImagebuilderClient(config);
  * const input = { // DeleteImageRequest
- *   imageBuildVersionArn: "STRING_VALUE", // required
+ *   imageBuildVersionArn: 'STRING_VALUE', // required
  * };
  * const command = new DeleteImageCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteImageResponse
+ *   requestId: 'STRING_VALUE',
+ *   imageBuildVersionArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DeleteImageCommandInput - {@link DeleteImageCommandInput}
@@ -98,6 +104,8 @@ export interface DeleteImageCommandOutput extends DeleteImageResponse, __Metadat
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service is unable to process your request at this time.</p>
  *
+ * @throws {@link ImagebuilderServiceException}
+ * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
  */
 export class DeleteImageCommand extends $Command<

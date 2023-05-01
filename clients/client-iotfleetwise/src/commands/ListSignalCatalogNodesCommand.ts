@@ -39,16 +39,65 @@ export interface ListSignalCatalogNodesCommandOutput extends ListSignalCatalogNo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTFleetWiseClient, ListSignalCatalogNodesCommand } from "@aws-sdk/client-iotfleetwise"; // ES Modules import
- * // const { IoTFleetWiseClient, ListSignalCatalogNodesCommand } = require("@aws-sdk/client-iotfleetwise"); // CommonJS import
+ * import { IoTFleetWiseClient, ListSignalCatalogNodesCommand } from '@aws-sdk/client-iotfleetwise'; // ES Modules import
+ * // const { IoTFleetWiseClient, ListSignalCatalogNodesCommand } = require('@aws-sdk/client-iotfleetwise'); // CommonJS import
  * const client = new IoTFleetWiseClient(config);
  * const input = { // ListSignalCatalogNodesRequest
- *   name: "STRING_VALUE", // required
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   name: 'STRING_VALUE', // required
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new ListSignalCatalogNodesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListSignalCatalogNodesResponse
+ *   nodes: [ // Nodes
+ *     { // Node Union: only one key present
+ *       branch: { // Branch
+ *         fullyQualifiedName: 'STRING_VALUE', // required
+ *         description: 'STRING_VALUE',
+ *       },
+ *       sensor: { // Sensor
+ *         fullyQualifiedName: 'STRING_VALUE', // required
+ *         dataType: 'STRING_VALUE', // required
+ *         description: 'STRING_VALUE',
+ *         unit: 'STRING_VALUE',
+ *         allowedValues: [ // listOfStrings
+ *           'STRING_VALUE',
+ *         ],
+ *         min: Number('double'),
+ *         max: Number('double'),
+ *       },
+ *       actuator: { // Actuator
+ *         fullyQualifiedName: 'STRING_VALUE', // required
+ *         dataType: 'STRING_VALUE', // required
+ *         description: 'STRING_VALUE',
+ *         unit: 'STRING_VALUE',
+ *         allowedValues: [
+ *           'STRING_VALUE',
+ *         ],
+ *         min: Number('double'),
+ *         max: Number('double'),
+ *         assignedValue: 'STRING_VALUE',
+ *       },
+ *       attribute: { // Attribute
+ *         fullyQualifiedName: 'STRING_VALUE', // required
+ *         dataType: 'STRING_VALUE', // required
+ *         description: 'STRING_VALUE',
+ *         unit: 'STRING_VALUE',
+ *         allowedValues: [
+ *           'STRING_VALUE',
+ *         ],
+ *         min: Number('double'),
+ *         max: Number('double'),
+ *         assignedValue: 'STRING_VALUE',
+ *         defaultValue: 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListSignalCatalogNodesCommandInput - {@link ListSignalCatalogNodesCommandInput}
@@ -75,6 +124,8 @@ export interface ListSignalCatalogNodesCommandOutput extends ListSignalCatalogNo
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
  *
+ * @throws {@link IoTFleetWiseServiceException}
+ * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
  */
 export class ListSignalCatalogNodesCommand extends $Command<

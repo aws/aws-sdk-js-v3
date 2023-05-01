@@ -41,32 +41,38 @@ export interface CreateAccessCommandOutput extends CreateAccessResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { TransferClient, CreateAccessCommand } from "@aws-sdk/client-transfer"; // ES Modules import
- * // const { TransferClient, CreateAccessCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
+ * import { TransferClient, CreateAccessCommand } from '@aws-sdk/client-transfer'; // ES Modules import
+ * // const { TransferClient, CreateAccessCommand } = require('@aws-sdk/client-transfer'); // CommonJS import
  * const client = new TransferClient(config);
  * const input = { // CreateAccessRequest
- *   HomeDirectory: "STRING_VALUE",
- *   HomeDirectoryType: "PATH" || "LOGICAL",
+ *   HomeDirectory: 'STRING_VALUE',
+ *   HomeDirectoryType: 'PATH' || 'LOGICAL',
  *   HomeDirectoryMappings: [ // HomeDirectoryMappings
  *     { // HomeDirectoryMapEntry
- *       Entry: "STRING_VALUE", // required
- *       Target: "STRING_VALUE", // required
+ *       Entry: 'STRING_VALUE', // required
+ *       Target: 'STRING_VALUE', // required
  *     },
  *   ],
- *   Policy: "STRING_VALUE",
+ *   Policy: 'STRING_VALUE',
  *   PosixProfile: { // PosixProfile
- *     Uid: Number("long"), // required
- *     Gid: Number("long"), // required
+ *     Uid: Number('long'), // required
+ *     Gid: Number('long'), // required
  *     SecondaryGids: [ // SecondaryGids
- *       Number("long"),
+ *       Number('long'),
  *     ],
  *   },
- *   Role: "STRING_VALUE", // required
- *   ServerId: "STRING_VALUE", // required
- *   ExternalId: "STRING_VALUE", // required
+ *   Role: 'STRING_VALUE', // required
+ *   ServerId: 'STRING_VALUE', // required
+ *   ExternalId: 'STRING_VALUE', // required
  * };
  * const command = new CreateAccessCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateAccessResponse
+ *   ServerId: 'STRING_VALUE', // required
+ *   ExternalId: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param CreateAccessCommandInput - {@link CreateAccessCommandInput}
@@ -91,6 +97,8 @@ export interface CreateAccessCommandOutput extends CreateAccessResponse, __Metad
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request has failed because the Amazon Web ServicesTransfer Family service is not available.</p>
  *
+ * @throws {@link TransferServiceException}
+ * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
  */
 export class CreateAccessCommand extends $Command<

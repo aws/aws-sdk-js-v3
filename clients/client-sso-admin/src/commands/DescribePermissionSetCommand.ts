@@ -36,15 +36,27 @@ export interface DescribePermissionSetCommandOutput extends DescribePermissionSe
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSOAdminClient, DescribePermissionSetCommand } from "@aws-sdk/client-sso-admin"; // ES Modules import
- * // const { SSOAdminClient, DescribePermissionSetCommand } = require("@aws-sdk/client-sso-admin"); // CommonJS import
+ * import { SSOAdminClient, DescribePermissionSetCommand } from '@aws-sdk/client-sso-admin'; // ES Modules import
+ * // const { SSOAdminClient, DescribePermissionSetCommand } = require('@aws-sdk/client-sso-admin'); // CommonJS import
  * const client = new SSOAdminClient(config);
  * const input = { // DescribePermissionSetRequest
- *   InstanceArn: "STRING_VALUE", // required
- *   PermissionSetArn: "STRING_VALUE", // required
+ *   InstanceArn: 'STRING_VALUE', // required
+ *   PermissionSetArn: 'STRING_VALUE', // required
  * };
  * const command = new DescribePermissionSetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribePermissionSetResponse
+ *   PermissionSet: { // PermissionSet
+ *     Name: 'STRING_VALUE',
+ *     PermissionSetArn: 'STRING_VALUE',
+ *     Description: 'STRING_VALUE',
+ *     CreatedDate: new Date('TIMESTAMP'),
+ *     SessionDuration: 'STRING_VALUE',
+ *     RelayState: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribePermissionSetCommandInput - {@link DescribePermissionSetCommandInput}
@@ -70,6 +82,8 @@ export interface DescribePermissionSetCommandOutput extends DescribePermissionSe
  * @throws {@link ValidationException} (client fault)
  *  <p>The request failed because it contains a syntax error.</p>
  *
+ * @throws {@link SSOAdminServiceException}
+ * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
  */
 export class DescribePermissionSetCommand extends $Command<

@@ -36,22 +36,37 @@ export interface UpdateGameConfigurationCommandOutput extends UpdateGameConfigur
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GameSparksClient, UpdateGameConfigurationCommand } from "@aws-sdk/client-gamesparks"; // ES Modules import
- * // const { GameSparksClient, UpdateGameConfigurationCommand } = require("@aws-sdk/client-gamesparks"); // CommonJS import
+ * import { GameSparksClient, UpdateGameConfigurationCommand } from '@aws-sdk/client-gamesparks'; // ES Modules import
+ * // const { GameSparksClient, UpdateGameConfigurationCommand } = require('@aws-sdk/client-gamesparks'); // CommonJS import
  * const client = new GameSparksClient(config);
  * const input = { // UpdateGameConfigurationRequest
- *   GameName: "STRING_VALUE", // required
+ *   GameName: 'STRING_VALUE', // required
  *   Modifications: [ // SectionModificationList // required
  *     { // SectionModification
- *       Section: "STRING_VALUE", // required
- *       Path: "STRING_VALUE", // required
- *       Operation: "STRING_VALUE", // required
- *       Value: "DOCUMENT_VALUE",
+ *       Section: 'STRING_VALUE', // required
+ *       Path: 'STRING_VALUE', // required
+ *       Operation: 'STRING_VALUE', // required
+ *       Value: 'DOCUMENT_VALUE',
  *     },
  *   ],
  * };
  * const command = new UpdateGameConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateGameConfigurationResult
+ *   GameConfiguration: { // GameConfigurationDetails
+ *     Sections: { // Sections
+ *       '<keys>': { // Section
+ *         Name: 'STRING_VALUE',
+ *         Size: Number('int'),
+ *         Attributes: 'DOCUMENT_VALUE',
+ *       },
+ *     },
+ *     Created: new Date('TIMESTAMP'),
+ *     LastUpdated: new Date('TIMESTAMP'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateGameConfigurationCommandInput - {@link UpdateGameConfigurationCommandInput}
@@ -78,6 +93,8 @@ export interface UpdateGameConfigurationCommandOutput extends UpdateGameConfigur
  * @throws {@link ValidationException} (client fault)
  *  <p>One of the parameters in the request is invalid.</p>
  *
+ * @throws {@link GameSparksServiceException}
+ * <p>Base exception class for all service exceptions from GameSparks service.</p>
  *
  */
 export class UpdateGameConfigurationCommand extends $Command<

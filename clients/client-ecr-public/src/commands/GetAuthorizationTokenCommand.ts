@@ -40,12 +40,20 @@ export interface GetAuthorizationTokenCommandOutput extends GetAuthorizationToke
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ECRPUBLICClient, GetAuthorizationTokenCommand } from "@aws-sdk/client-ecr-public"; // ES Modules import
- * // const { ECRPUBLICClient, GetAuthorizationTokenCommand } = require("@aws-sdk/client-ecr-public"); // CommonJS import
+ * import { ECRPUBLICClient, GetAuthorizationTokenCommand } from '@aws-sdk/client-ecr-public'; // ES Modules import
+ * // const { ECRPUBLICClient, GetAuthorizationTokenCommand } = require('@aws-sdk/client-ecr-public'); // CommonJS import
  * const client = new ECRPUBLICClient(config);
  * const input = {};
  * const command = new GetAuthorizationTokenCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetAuthorizationTokenResponse
+ *   authorizationData: { // AuthorizationData
+ *     authorizationToken: 'STRING_VALUE',
+ *     expiresAt: new Date('TIMESTAMP'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetAuthorizationTokenCommandInput - {@link GetAuthorizationTokenCommandInput}
@@ -64,6 +72,8 @@ export interface GetAuthorizationTokenCommandOutput extends GetAuthorizationToke
  * @throws {@link UnsupportedCommandException} (client fault)
  *  <p>The action isn't supported in this Region.</p>
  *
+ * @throws {@link ECRPUBLICServiceException}
+ * <p>Base exception class for all service exceptions from ECRPUBLIC service.</p>
  *
  */
 export class GetAuthorizationTokenCommand extends $Command<

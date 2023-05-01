@@ -39,12 +39,18 @@ export interface GetLoggingOptionsCommandOutput extends GetLoggingOptionsRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTClient, GetLoggingOptionsCommand } from "@aws-sdk/client-iot"; // ES Modules import
- * // const { IoTClient, GetLoggingOptionsCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * import { IoTClient, GetLoggingOptionsCommand } from '@aws-sdk/client-iot'; // ES Modules import
+ * // const { IoTClient, GetLoggingOptionsCommand } = require('@aws-sdk/client-iot'); // CommonJS import
  * const client = new IoTClient(config);
  * const input = {};
  * const command = new GetLoggingOptionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetLoggingOptionsResponse
+ *   roleArn: 'STRING_VALUE',
+ *   logLevel: 'DEBUG' || 'INFO' || 'ERROR' || 'WARN' || 'DISABLED',
+ * };
+ *
  * ```
  *
  * @param GetLoggingOptionsCommandInput - {@link GetLoggingOptionsCommandInput}
@@ -62,6 +68,8 @@ export interface GetLoggingOptionsCommandOutput extends GetLoggingOptionsRespons
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service is temporarily unavailable.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class GetLoggingOptionsCommand extends $Command<

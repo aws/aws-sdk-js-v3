@@ -37,14 +37,30 @@ export interface GetResolverQueryLogConfigCommandOutput extends GetResolverQuery
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Route53ResolverClient, GetResolverQueryLogConfigCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
- * // const { Route53ResolverClient, GetResolverQueryLogConfigCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
+ * import { Route53ResolverClient, GetResolverQueryLogConfigCommand } from '@aws-sdk/client-route53resolver'; // ES Modules import
+ * // const { Route53ResolverClient, GetResolverQueryLogConfigCommand } = require('@aws-sdk/client-route53resolver'); // CommonJS import
  * const client = new Route53ResolverClient(config);
  * const input = { // GetResolverQueryLogConfigRequest
- *   ResolverQueryLogConfigId: "STRING_VALUE", // required
+ *   ResolverQueryLogConfigId: 'STRING_VALUE', // required
  * };
  * const command = new GetResolverQueryLogConfigCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetResolverQueryLogConfigResponse
+ *   ResolverQueryLogConfig: { // ResolverQueryLogConfig
+ *     Id: 'STRING_VALUE',
+ *     OwnerId: 'STRING_VALUE',
+ *     Status: 'CREATING' || 'CREATED' || 'DELETING' || 'FAILED',
+ *     ShareStatus: 'NOT_SHARED' || 'SHARED_WITH_ME' || 'SHARED_BY_ME',
+ *     AssociationCount: Number('int'),
+ *     Arn: 'STRING_VALUE',
+ *     Name: 'STRING_VALUE',
+ *     DestinationArn: 'STRING_VALUE',
+ *     CreatorRequestId: 'STRING_VALUE',
+ *     CreationTime: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetResolverQueryLogConfigCommandInput - {@link GetResolverQueryLogConfigCommandInput}
@@ -71,6 +87,8 @@ export interface GetResolverQueryLogConfigCommandOutput extends GetResolverQuery
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was throttled. Try again in a few minutes.</p>
  *
+ * @throws {@link Route53ResolverServiceException}
+ * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
  */
 export class GetResolverQueryLogConfigCommand extends $Command<

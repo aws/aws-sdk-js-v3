@@ -36,55 +36,55 @@ export interface CreateDeploymentCommandOutput extends CreateDeploymentOutput, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeDeployClient, CreateDeploymentCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
- * // const { CodeDeployClient, CreateDeploymentCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
+ * import { CodeDeployClient, CreateDeploymentCommand } from '@aws-sdk/client-codedeploy'; // ES Modules import
+ * // const { CodeDeployClient, CreateDeploymentCommand } = require('@aws-sdk/client-codedeploy'); // CommonJS import
  * const client = new CodeDeployClient(config);
  * const input = { // CreateDeploymentInput
- *   applicationName: "STRING_VALUE", // required
- *   deploymentGroupName: "STRING_VALUE",
+ *   applicationName: 'STRING_VALUE', // required
+ *   deploymentGroupName: 'STRING_VALUE',
  *   revision: { // RevisionLocation
- *     revisionType: "S3" || "GitHub" || "String" || "AppSpecContent",
+ *     revisionType: 'S3' || 'GitHub' || 'String' || 'AppSpecContent',
  *     s3Location: { // S3Location
- *       bucket: "STRING_VALUE",
- *       key: "STRING_VALUE",
- *       bundleType: "tar" || "tgz" || "zip" || "YAML" || "JSON",
- *       version: "STRING_VALUE",
- *       eTag: "STRING_VALUE",
+ *       bucket: 'STRING_VALUE',
+ *       key: 'STRING_VALUE',
+ *       bundleType: 'tar' || 'tgz' || 'zip' || 'YAML' || 'JSON',
+ *       version: 'STRING_VALUE',
+ *       eTag: 'STRING_VALUE',
  *     },
  *     gitHubLocation: { // GitHubLocation
- *       repository: "STRING_VALUE",
- *       commitId: "STRING_VALUE",
+ *       repository: 'STRING_VALUE',
+ *       commitId: 'STRING_VALUE',
  *     },
  *     string: { // RawString
- *       content: "STRING_VALUE",
- *       sha256: "STRING_VALUE",
+ *       content: 'STRING_VALUE',
+ *       sha256: 'STRING_VALUE',
  *     },
  *     appSpecContent: { // AppSpecContent
- *       content: "STRING_VALUE",
- *       sha256: "STRING_VALUE",
+ *       content: 'STRING_VALUE',
+ *       sha256: 'STRING_VALUE',
  *     },
  *   },
- *   deploymentConfigName: "STRING_VALUE",
- *   description: "STRING_VALUE",
+ *   deploymentConfigName: 'STRING_VALUE',
+ *   description: 'STRING_VALUE',
  *   ignoreApplicationStopFailures: true || false,
  *   targetInstances: { // TargetInstances
  *     tagFilters: [ // EC2TagFilterList
  *       { // EC2TagFilter
- *         Key: "STRING_VALUE",
- *         Value: "STRING_VALUE",
- *         Type: "KEY_ONLY" || "VALUE_ONLY" || "KEY_AND_VALUE",
+ *         Key: 'STRING_VALUE',
+ *         Value: 'STRING_VALUE',
+ *         Type: 'KEY_ONLY' || 'VALUE_ONLY' || 'KEY_AND_VALUE',
  *       },
  *     ],
  *     autoScalingGroups: [ // AutoScalingGroupNameList
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     ec2TagSet: { // EC2TagSet
  *       ec2TagSetList: [ // EC2TagSetList
  *         [
  *           {
- *             Key: "STRING_VALUE",
- *             Value: "STRING_VALUE",
- *             Type: "KEY_ONLY" || "VALUE_ONLY" || "KEY_AND_VALUE",
+ *             Key: 'STRING_VALUE',
+ *             Value: 'STRING_VALUE',
+ *             Type: 'KEY_ONLY' || 'VALUE_ONLY' || 'KEY_AND_VALUE',
  *           },
  *         ],
  *       ],
@@ -93,23 +93,28 @@ export interface CreateDeploymentCommandOutput extends CreateDeploymentOutput, _
  *   autoRollbackConfiguration: { // AutoRollbackConfiguration
  *     enabled: true || false,
  *     events: [ // AutoRollbackEventsList
- *       "DEPLOYMENT_FAILURE" || "DEPLOYMENT_STOP_ON_ALARM" || "DEPLOYMENT_STOP_ON_REQUEST",
+ *       'DEPLOYMENT_FAILURE' || 'DEPLOYMENT_STOP_ON_ALARM' || 'DEPLOYMENT_STOP_ON_REQUEST',
  *     ],
  *   },
  *   updateOutdatedInstancesOnly: true || false,
- *   fileExistsBehavior: "DISALLOW" || "OVERWRITE" || "RETAIN",
+ *   fileExistsBehavior: 'DISALLOW' || 'OVERWRITE' || 'RETAIN',
  *   overrideAlarmConfiguration: { // AlarmConfiguration
  *     enabled: true || false,
  *     ignorePollAlarmFailure: true || false,
  *     alarms: [ // AlarmList
  *       { // Alarm
- *         name: "STRING_VALUE",
+ *         name: 'STRING_VALUE',
  *       },
  *     ],
  *   },
  * };
  * const command = new CreateDeploymentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateDeploymentOutput
+ *   deploymentId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateDeploymentCommandInput - {@link CreateDeploymentCommandInput}
@@ -241,6 +246,8 @@ export interface CreateDeploymentCommandOutput extends CreateDeploymentOutput, _
  * @throws {@link ThrottlingException} (client fault)
  *  <p>An API function was called too frequently.</p>
  *
+ * @throws {@link CodeDeployServiceException}
+ * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
  */
 export class CreateDeploymentCommand extends $Command<

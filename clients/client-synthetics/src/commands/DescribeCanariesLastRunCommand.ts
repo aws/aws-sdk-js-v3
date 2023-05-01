@@ -45,18 +45,42 @@ export interface DescribeCanariesLastRunCommandOutput extends DescribeCanariesLa
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SyntheticsClient, DescribeCanariesLastRunCommand } from "@aws-sdk/client-synthetics"; // ES Modules import
- * // const { SyntheticsClient, DescribeCanariesLastRunCommand } = require("@aws-sdk/client-synthetics"); // CommonJS import
+ * import { SyntheticsClient, DescribeCanariesLastRunCommand } from '@aws-sdk/client-synthetics'; // ES Modules import
+ * // const { SyntheticsClient, DescribeCanariesLastRunCommand } = require('@aws-sdk/client-synthetics'); // CommonJS import
  * const client = new SyntheticsClient(config);
  * const input = { // DescribeCanariesLastRunRequest
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  *   Names: [ // DescribeCanariesLastRunNameFilter
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new DescribeCanariesLastRunCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeCanariesLastRunResponse
+ *   CanariesLastRun: [ // CanariesLastRun
+ *     { // CanaryLastRun
+ *       CanaryName: 'STRING_VALUE',
+ *       LastRun: { // CanaryRun
+ *         Id: 'STRING_VALUE',
+ *         Name: 'STRING_VALUE',
+ *         Status: { // CanaryRunStatus
+ *           State: 'STRING_VALUE',
+ *           StateReason: 'STRING_VALUE',
+ *           StateReasonCode: 'STRING_VALUE',
+ *         },
+ *         Timeline: { // CanaryRunTimeline
+ *           Started: new Date('TIMESTAMP'),
+ *           Completed: new Date('TIMESTAMP'),
+ *         },
+ *         ArtifactS3Location: 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeCanariesLastRunCommandInput - {@link DescribeCanariesLastRunCommandInput}
@@ -71,6 +95,8 @@ export interface DescribeCanariesLastRunCommandOutput extends DescribeCanariesLa
  * @throws {@link ValidationException} (client fault)
  *  <p>A parameter could not be validated.</p>
  *
+ * @throws {@link SyntheticsServiceException}
+ * <p>Base exception class for all service exceptions from Synthetics service.</p>
  *
  */
 export class DescribeCanariesLastRunCommand extends $Command<

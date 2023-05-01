@@ -45,16 +45,19 @@ export interface SetIdentityMailFromDomainCommandOutput extends SetIdentityMailF
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SESClient, SetIdentityMailFromDomainCommand } from "@aws-sdk/client-ses"; // ES Modules import
- * // const { SESClient, SetIdentityMailFromDomainCommand } = require("@aws-sdk/client-ses"); // CommonJS import
+ * import { SESClient, SetIdentityMailFromDomainCommand } from '@aws-sdk/client-ses'; // ES Modules import
+ * // const { SESClient, SetIdentityMailFromDomainCommand } = require('@aws-sdk/client-ses'); // CommonJS import
  * const client = new SESClient(config);
  * const input = { // SetIdentityMailFromDomainRequest
- *   Identity: "STRING_VALUE", // required
- *   MailFromDomain: "STRING_VALUE",
- *   BehaviorOnMXFailure: "STRING_VALUE",
+ *   Identity: 'STRING_VALUE', // required
+ *   MailFromDomain: 'STRING_VALUE',
+ *   BehaviorOnMXFailure: 'STRING_VALUE',
  * };
  * const command = new SetIdentityMailFromDomainCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param SetIdentityMailFromDomainCommandInput - {@link SetIdentityMailFromDomainCommandInput}
@@ -63,6 +66,8 @@ export interface SetIdentityMailFromDomainCommandOutput extends SetIdentityMailF
  * @see {@link SetIdentityMailFromDomainCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
+ * @throws {@link SESServiceException}
+ * <p>Base exception class for all service exceptions from SES service.</p>
  *
  * @example SetIdentityMailFromDomain
  * ```javascript

@@ -51,16 +51,49 @@ export interface GetQueryResultsCommandOutput extends GetQueryResultsOutput, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AthenaClient, GetQueryResultsCommand } from "@aws-sdk/client-athena"; // ES Modules import
- * // const { AthenaClient, GetQueryResultsCommand } = require("@aws-sdk/client-athena"); // CommonJS import
+ * import { AthenaClient, GetQueryResultsCommand } from '@aws-sdk/client-athena'; // ES Modules import
+ * // const { AthenaClient, GetQueryResultsCommand } = require('@aws-sdk/client-athena'); // CommonJS import
  * const client = new AthenaClient(config);
  * const input = { // GetQueryResultsInput
- *   QueryExecutionId: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   QueryExecutionId: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new GetQueryResultsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetQueryResultsOutput
+ *   UpdateCount: Number('long'),
+ *   ResultSet: { // ResultSet
+ *     Rows: [ // RowList
+ *       { // Row
+ *         Data: [ // datumList
+ *           { // Datum
+ *             VarCharValue: 'STRING_VALUE',
+ *           },
+ *         ],
+ *       },
+ *     ],
+ *     ResultSetMetadata: { // ResultSetMetadata
+ *       ColumnInfo: [ // ColumnInfoList
+ *         { // ColumnInfo
+ *           CatalogName: 'STRING_VALUE',
+ *           SchemaName: 'STRING_VALUE',
+ *           TableName: 'STRING_VALUE',
+ *           Name: 'STRING_VALUE', // required
+ *           Label: 'STRING_VALUE',
+ *           Type: 'STRING_VALUE', // required
+ *           Precision: Number('int'),
+ *           Scale: Number('int'),
+ *           Nullable: 'NOT_NULL' || 'NULLABLE' || 'UNKNOWN',
+ *           CaseSensitive: true || false,
+ *         },
+ *       ],
+ *     },
+ *   },
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetQueryResultsCommandInput - {@link GetQueryResultsCommandInput}
@@ -80,6 +113,8 @@ export interface GetQueryResultsCommandOutput extends GetQueryResultsOutput, __M
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Indicates that the request was throttled.</p>
  *
+ * @throws {@link AthenaServiceException}
+ * <p>Base exception class for all service exceptions from Athena service.</p>
  *
  */
 export class GetQueryResultsCommand extends $Command<

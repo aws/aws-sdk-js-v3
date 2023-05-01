@@ -36,15 +36,25 @@ export interface ListProgressUpdateStreamsCommandOutput extends ListProgressUpda
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MigrationHubClient, ListProgressUpdateStreamsCommand } from "@aws-sdk/client-migration-hub"; // ES Modules import
- * // const { MigrationHubClient, ListProgressUpdateStreamsCommand } = require("@aws-sdk/client-migration-hub"); // CommonJS import
+ * import { MigrationHubClient, ListProgressUpdateStreamsCommand } from '@aws-sdk/client-migration-hub'; // ES Modules import
+ * // const { MigrationHubClient, ListProgressUpdateStreamsCommand } = require('@aws-sdk/client-migration-hub'); // CommonJS import
  * const client = new MigrationHubClient(config);
  * const input = { // ListProgressUpdateStreamsRequest
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListProgressUpdateStreamsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListProgressUpdateStreamsResult
+ *   ProgressUpdateStreamSummaryList: [ // ProgressUpdateStreamSummaryList
+ *     { // ProgressUpdateStreamSummary
+ *       ProgressUpdateStreamName: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListProgressUpdateStreamsCommandInput - {@link ListProgressUpdateStreamsCommandInput}
@@ -74,6 +84,8 @@ export interface ListProgressUpdateStreamsCommandOutput extends ListProgressUpda
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
  *
+ * @throws {@link MigrationHubServiceException}
+ * <p>Base exception class for all service exceptions from MigrationHub service.</p>
  *
  */
 export class ListProgressUpdateStreamsCommand extends $Command<

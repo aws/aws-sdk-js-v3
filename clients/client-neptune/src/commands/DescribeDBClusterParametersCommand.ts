@@ -36,25 +36,44 @@ export interface DescribeDBClusterParametersCommandOutput extends DBClusterParam
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { NeptuneClient, DescribeDBClusterParametersCommand } from "@aws-sdk/client-neptune"; // ES Modules import
- * // const { NeptuneClient, DescribeDBClusterParametersCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
+ * import { NeptuneClient, DescribeDBClusterParametersCommand } from '@aws-sdk/client-neptune'; // ES Modules import
+ * // const { NeptuneClient, DescribeDBClusterParametersCommand } = require('@aws-sdk/client-neptune'); // CommonJS import
  * const client = new NeptuneClient(config);
  * const input = { // DescribeDBClusterParametersMessage
- *   DBClusterParameterGroupName: "STRING_VALUE", // required
- *   Source: "STRING_VALUE",
+ *   DBClusterParameterGroupName: 'STRING_VALUE', // required
+ *   Source: 'STRING_VALUE',
  *   Filters: [ // FilterList
  *     { // Filter
- *       Name: "STRING_VALUE", // required
+ *       Name: 'STRING_VALUE', // required
  *       Values: [ // FilterValueList // required
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
- *   MaxRecords: Number("int"),
- *   Marker: "STRING_VALUE",
+ *   MaxRecords: Number('int'),
+ *   Marker: 'STRING_VALUE',
  * };
  * const command = new DescribeDBClusterParametersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DBClusterParameterGroupDetails
+ *   Parameters: [ // ParametersList
+ *     { // Parameter
+ *       ParameterName: 'STRING_VALUE',
+ *       ParameterValue: 'STRING_VALUE',
+ *       Description: 'STRING_VALUE',
+ *       Source: 'STRING_VALUE',
+ *       ApplyType: 'STRING_VALUE',
+ *       DataType: 'STRING_VALUE',
+ *       AllowedValues: 'STRING_VALUE',
+ *       IsModifiable: true || false,
+ *       MinimumEngineVersion: 'STRING_VALUE',
+ *       ApplyMethod: 'immediate' || 'pending-reboot',
+ *     },
+ *   ],
+ *   Marker: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeDBClusterParametersCommandInput - {@link DescribeDBClusterParametersCommandInput}
@@ -68,6 +87,8 @@ export interface DescribeDBClusterParametersCommandOutput extends DBClusterParam
  *             <i>DBParameterGroupName</i> does not refer to an
  *       existing DB parameter group.</p>
  *
+ * @throws {@link NeptuneServiceException}
+ * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
  */
 export class DescribeDBClusterParametersCommand extends $Command<

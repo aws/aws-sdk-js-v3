@@ -42,17 +42,62 @@ export interface DescribeDeviceEc2InstancesCommandOutput extends DescribeDeviceE
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SnowDeviceManagementClient, DescribeDeviceEc2InstancesCommand } from "@aws-sdk/client-snow-device-management"; // ES Modules import
- * // const { SnowDeviceManagementClient, DescribeDeviceEc2InstancesCommand } = require("@aws-sdk/client-snow-device-management"); // CommonJS import
+ * import { SnowDeviceManagementClient, DescribeDeviceEc2InstancesCommand } from '@aws-sdk/client-snow-device-management'; // ES Modules import
+ * // const { SnowDeviceManagementClient, DescribeDeviceEc2InstancesCommand } = require('@aws-sdk/client-snow-device-management'); // CommonJS import
  * const client = new SnowDeviceManagementClient(config);
  * const input = { // DescribeDeviceEc2Input
- *   managedDeviceId: "STRING_VALUE", // required
+ *   managedDeviceId: 'STRING_VALUE', // required
  *   instanceIds: [ // InstanceIdsList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new DescribeDeviceEc2InstancesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeDeviceEc2Output
+ *   instances: [ // InstanceSummaryList
+ *     { // InstanceSummary
+ *       instance: { // Instance
+ *         imageId: 'STRING_VALUE',
+ *         amiLaunchIndex: Number('int'),
+ *         instanceId: 'STRING_VALUE',
+ *         state: { // InstanceState
+ *           code: Number('int'),
+ *           name: 'STRING_VALUE',
+ *         },
+ *         instanceType: 'STRING_VALUE',
+ *         privateIpAddress: 'STRING_VALUE',
+ *         publicIpAddress: 'STRING_VALUE',
+ *         createdAt: new Date('TIMESTAMP'),
+ *         updatedAt: new Date('TIMESTAMP'),
+ *         blockDeviceMappings: [ // InstanceBlockDeviceMappingList
+ *           { // InstanceBlockDeviceMapping
+ *             deviceName: 'STRING_VALUE',
+ *             ebs: { // EbsInstanceBlockDevice
+ *               attachTime: new Date('TIMESTAMP'),
+ *               deleteOnTermination: true || false,
+ *               status: 'STRING_VALUE',
+ *               volumeId: 'STRING_VALUE',
+ *             },
+ *           },
+ *         ],
+ *         securityGroups: [ // SecurityGroupIdentifierList
+ *           { // SecurityGroupIdentifier
+ *             groupId: 'STRING_VALUE',
+ *             groupName: 'STRING_VALUE',
+ *           },
+ *         ],
+ *         cpuOptions: { // CpuOptions
+ *           coreCount: Number('int'),
+ *           threadsPerCore: Number('int'),
+ *         },
+ *         rootDeviceName: 'STRING_VALUE',
+ *       },
+ *       lastUpdatedAt: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeDeviceEc2InstancesCommandInput - {@link DescribeDeviceEc2InstancesCommandInput}
@@ -76,6 +121,8 @@ export interface DescribeDeviceEc2InstancesCommandOutput extends DescribeDeviceE
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
  *
+ * @throws {@link SnowDeviceManagementServiceException}
+ * <p>Base exception class for all service exceptions from SnowDeviceManagement service.</p>
  *
  */
 export class DescribeDeviceEc2InstancesCommand extends $Command<

@@ -36,14 +36,17 @@ export interface DeleteSinkCommandOutput extends DeleteSinkOutput, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OAMClient, DeleteSinkCommand } from "@aws-sdk/client-oam"; // ES Modules import
- * // const { OAMClient, DeleteSinkCommand } = require("@aws-sdk/client-oam"); // CommonJS import
+ * import { OAMClient, DeleteSinkCommand } from '@aws-sdk/client-oam'; // ES Modules import
+ * // const { OAMClient, DeleteSinkCommand } = require('@aws-sdk/client-oam'); // CommonJS import
  * const client = new OAMClient(config);
  * const input = { // DeleteSinkInput
- *   Identifier: "STRING_VALUE", // required
+ *   Identifier: 'STRING_VALUE', // required
  * };
  * const command = new DeleteSinkCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteSinkCommandInput - {@link DeleteSinkCommandInput}
@@ -67,6 +70,8 @@ export interface DeleteSinkCommandOutput extends DeleteSinkOutput, __MetadataBea
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The request references a resource that does not exist.</p>
  *
+ * @throws {@link OAMServiceException}
+ * <p>Base exception class for all service exceptions from OAM service.</p>
  *
  */
 export class DeleteSinkCommand extends $Command<

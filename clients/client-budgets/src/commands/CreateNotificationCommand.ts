@@ -40,28 +40,31 @@ export interface CreateNotificationCommandOutput extends CreateNotificationRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BudgetsClient, CreateNotificationCommand } from "@aws-sdk/client-budgets"; // ES Modules import
- * // const { BudgetsClient, CreateNotificationCommand } = require("@aws-sdk/client-budgets"); // CommonJS import
+ * import { BudgetsClient, CreateNotificationCommand } from '@aws-sdk/client-budgets'; // ES Modules import
+ * // const { BudgetsClient, CreateNotificationCommand } = require('@aws-sdk/client-budgets'); // CommonJS import
  * const client = new BudgetsClient(config);
  * const input = { // CreateNotificationRequest
- *   AccountId: "STRING_VALUE", // required
- *   BudgetName: "STRING_VALUE", // required
+ *   AccountId: 'STRING_VALUE', // required
+ *   BudgetName: 'STRING_VALUE', // required
  *   Notification: { // Notification
- *     NotificationType: "STRING_VALUE", // required
- *     ComparisonOperator: "STRING_VALUE", // required
- *     Threshold: Number("double"), // required
- *     ThresholdType: "STRING_VALUE",
- *     NotificationState: "STRING_VALUE",
+ *     NotificationType: 'STRING_VALUE', // required
+ *     ComparisonOperator: 'STRING_VALUE', // required
+ *     Threshold: Number('double'), // required
+ *     ThresholdType: 'STRING_VALUE',
+ *     NotificationState: 'STRING_VALUE',
  *   },
  *   Subscribers: [ // Subscribers // required
  *     { // Subscriber
- *       SubscriptionType: "STRING_VALUE", // required
- *       Address: "STRING_VALUE", // required
+ *       SubscriptionType: 'STRING_VALUE', // required
+ *       Address: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreateNotificationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param CreateNotificationCommandInput - {@link CreateNotificationCommandInput}
@@ -93,6 +96,8 @@ export interface CreateNotificationCommandOutput extends CreateNotificationRespo
  *       The number of API requests has exceeded the maximum allowed API request throttling limit for the account.
  *     </p>
  *
+ * @throws {@link BudgetsServiceException}
+ * <p>Base exception class for all service exceptions from Budgets service.</p>
  *
  */
 export class CreateNotificationCommand extends $Command<

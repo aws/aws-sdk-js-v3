@@ -36,42 +36,42 @@ export interface UpdateDatasetCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTAnalyticsClient, UpdateDatasetCommand } from "@aws-sdk/client-iotanalytics"; // ES Modules import
- * // const { IoTAnalyticsClient, UpdateDatasetCommand } = require("@aws-sdk/client-iotanalytics"); // CommonJS import
+ * import { IoTAnalyticsClient, UpdateDatasetCommand } from '@aws-sdk/client-iotanalytics'; // ES Modules import
+ * // const { IoTAnalyticsClient, UpdateDatasetCommand } = require('@aws-sdk/client-iotanalytics'); // CommonJS import
  * const client = new IoTAnalyticsClient(config);
  * const input = { // UpdateDatasetRequest
- *   datasetName: "STRING_VALUE", // required
+ *   datasetName: 'STRING_VALUE', // required
  *   actions: [ // DatasetActions // required
  *     { // DatasetAction
- *       actionName: "STRING_VALUE",
+ *       actionName: 'STRING_VALUE',
  *       queryAction: { // SqlQueryDatasetAction
- *         sqlQuery: "STRING_VALUE", // required
+ *         sqlQuery: 'STRING_VALUE', // required
  *         filters: [ // QueryFilters
  *           { // QueryFilter
  *             deltaTime: { // DeltaTime
- *               offsetSeconds: Number("int"), // required
- *               timeExpression: "STRING_VALUE", // required
+ *               offsetSeconds: Number('int'), // required
+ *               timeExpression: 'STRING_VALUE', // required
  *             },
  *           },
  *         ],
  *       },
  *       containerAction: { // ContainerDatasetAction
- *         image: "STRING_VALUE", // required
- *         executionRoleArn: "STRING_VALUE", // required
+ *         image: 'STRING_VALUE', // required
+ *         executionRoleArn: 'STRING_VALUE', // required
  *         resourceConfiguration: { // ResourceConfiguration
- *           computeType: "STRING_VALUE", // required
- *           volumeSizeInGB: Number("int"), // required
+ *           computeType: 'STRING_VALUE', // required
+ *           volumeSizeInGB: Number('int'), // required
  *         },
  *         variables: [ // Variables
  *           { // Variable
- *             name: "STRING_VALUE", // required
- *             stringValue: "STRING_VALUE",
- *             doubleValue: Number("double"),
+ *             name: 'STRING_VALUE', // required
+ *             stringValue: 'STRING_VALUE',
+ *             doubleValue: Number('double'),
  *             datasetContentVersionValue: { // DatasetContentVersionValue
- *               datasetName: "STRING_VALUE", // required
+ *               datasetName: 'STRING_VALUE', // required
  *             },
  *             outputFileUriValue: { // OutputFileUriValue
- *               fileName: "STRING_VALUE", // required
+ *               fileName: 'STRING_VALUE', // required
  *             },
  *           },
  *         ],
@@ -81,47 +81,47 @@ export interface UpdateDatasetCommandOutput extends __MetadataBearer {}
  *   triggers: [ // DatasetTriggers
  *     { // DatasetTrigger
  *       schedule: { // Schedule
- *         expression: "STRING_VALUE",
+ *         expression: 'STRING_VALUE',
  *       },
  *       dataset: { // TriggeringDataset
- *         name: "STRING_VALUE", // required
+ *         name: 'STRING_VALUE', // required
  *       },
  *     },
  *   ],
  *   contentDeliveryRules: [ // DatasetContentDeliveryRules
  *     { // DatasetContentDeliveryRule
- *       entryName: "STRING_VALUE",
+ *       entryName: 'STRING_VALUE',
  *       destination: { // DatasetContentDeliveryDestination
  *         iotEventsDestinationConfiguration: { // IotEventsDestinationConfiguration
- *           inputName: "STRING_VALUE", // required
- *           roleArn: "STRING_VALUE", // required
+ *           inputName: 'STRING_VALUE', // required
+ *           roleArn: 'STRING_VALUE', // required
  *         },
  *         s3DestinationConfiguration: { // S3DestinationConfiguration
- *           bucket: "STRING_VALUE", // required
- *           key: "STRING_VALUE", // required
+ *           bucket: 'STRING_VALUE', // required
+ *           key: 'STRING_VALUE', // required
  *           glueConfiguration: { // GlueConfiguration
- *             tableName: "STRING_VALUE", // required
- *             databaseName: "STRING_VALUE", // required
+ *             tableName: 'STRING_VALUE', // required
+ *             databaseName: 'STRING_VALUE', // required
  *           },
- *           roleArn: "STRING_VALUE", // required
+ *           roleArn: 'STRING_VALUE', // required
  *         },
  *       },
  *     },
  *   ],
  *   retentionPeriod: { // RetentionPeriod
  *     unlimited: true || false,
- *     numberOfDays: Number("int"),
+ *     numberOfDays: Number('int'),
  *   },
  *   versioningConfiguration: { // VersioningConfiguration
  *     unlimited: true || false,
- *     maxVersions: Number("int"),
+ *     maxVersions: Number('int'),
  *   },
  *   lateDataRules: [ // LateDataRules
  *     { // LateDataRule
- *       ruleName: "STRING_VALUE",
+ *       ruleName: 'STRING_VALUE',
  *       ruleConfiguration: { // LateDataRuleConfiguration
  *         deltaTimeSessionWindowConfiguration: { // DeltaTimeSessionWindowConfiguration
- *           timeoutInMinutes: Number("int"), // required
+ *           timeoutInMinutes: Number('int'), // required
  *         },
  *       },
  *     },
@@ -129,6 +129,9 @@ export interface UpdateDatasetCommandOutput extends __MetadataBearer {}
  * };
  * const command = new UpdateDatasetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateDatasetCommandInput - {@link UpdateDatasetCommandInput}
@@ -152,6 +155,8 @@ export interface UpdateDatasetCommandOutput extends __MetadataBearer {}
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
  *
+ * @throws {@link IoTAnalyticsServiceException}
+ * <p>Base exception class for all service exceptions from IoTAnalytics service.</p>
  *
  */
 export class UpdateDatasetCommand extends $Command<

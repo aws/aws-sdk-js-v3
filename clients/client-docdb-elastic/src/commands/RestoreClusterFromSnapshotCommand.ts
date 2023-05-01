@@ -36,25 +36,48 @@ export interface RestoreClusterFromSnapshotCommandOutput extends RestoreClusterF
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DocDBElasticClient, RestoreClusterFromSnapshotCommand } from "@aws-sdk/client-docdb-elastic"; // ES Modules import
- * // const { DocDBElasticClient, RestoreClusterFromSnapshotCommand } = require("@aws-sdk/client-docdb-elastic"); // CommonJS import
+ * import { DocDBElasticClient, RestoreClusterFromSnapshotCommand } from '@aws-sdk/client-docdb-elastic'; // ES Modules import
+ * // const { DocDBElasticClient, RestoreClusterFromSnapshotCommand } = require('@aws-sdk/client-docdb-elastic'); // CommonJS import
  * const client = new DocDBElasticClient(config);
  * const input = { // RestoreClusterFromSnapshotInput
- *   clusterName: "STRING_VALUE", // required
- *   snapshotArn: "STRING_VALUE", // required
+ *   clusterName: 'STRING_VALUE', // required
+ *   snapshotArn: 'STRING_VALUE', // required
  *   vpcSecurityGroupIds: [ // StringList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   subnetIds: [
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   kmsKeyId: "STRING_VALUE",
+ *   kmsKeyId: 'STRING_VALUE',
  *   tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new RestoreClusterFromSnapshotCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // RestoreClusterFromSnapshotOutput
+ *   cluster: { // Cluster
+ *     clusterName: 'STRING_VALUE', // required
+ *     clusterArn: 'STRING_VALUE', // required
+ *     status: 'STRING_VALUE', // required
+ *     clusterEndpoint: 'STRING_VALUE', // required
+ *     createTime: 'STRING_VALUE', // required
+ *     adminUserName: 'STRING_VALUE', // required
+ *     authType: 'STRING_VALUE', // required
+ *     shardCapacity: Number('int'), // required
+ *     shardCount: Number('int'), // required
+ *     vpcSecurityGroupIds: [ // StringList // required
+ *       'STRING_VALUE',
+ *     ],
+ *     subnetIds: [ // required
+ *       'STRING_VALUE',
+ *     ],
+ *     preferredMaintenanceWindow: 'STRING_VALUE', // required
+ *     kmsKeyId: 'STRING_VALUE', // required
+ *   },
+ * };
+ *
  * ```
  *
  * @param RestoreClusterFromSnapshotCommandInput - {@link RestoreClusterFromSnapshotCommandInput}
@@ -84,6 +107,8 @@ export interface RestoreClusterFromSnapshotCommandOutput extends RestoreClusterF
  * @throws {@link ValidationException} (client fault)
  *  <p>A structure defining a validation exception.</p>
  *
+ * @throws {@link DocDBElasticServiceException}
+ * <p>Base exception class for all service exceptions from DocDBElastic service.</p>
  *
  */
 export class RestoreClusterFromSnapshotCommand extends $Command<

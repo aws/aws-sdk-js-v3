@@ -45,121 +45,232 @@ export interface CreateRuleCommandOutput extends CreateRuleOutput, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElasticLoadBalancingV2Client, CreateRuleCommand } from "@aws-sdk/client-elastic-load-balancing-v2"; // ES Modules import
- * // const { ElasticLoadBalancingV2Client, CreateRuleCommand } = require("@aws-sdk/client-elastic-load-balancing-v2"); // CommonJS import
+ * import { ElasticLoadBalancingV2Client, CreateRuleCommand } from '@aws-sdk/client-elastic-load-balancing-v2'; // ES Modules import
+ * // const { ElasticLoadBalancingV2Client, CreateRuleCommand } = require('@aws-sdk/client-elastic-load-balancing-v2'); // CommonJS import
  * const client = new ElasticLoadBalancingV2Client(config);
  * const input = { // CreateRuleInput
- *   ListenerArn: "STRING_VALUE", // required
+ *   ListenerArn: 'STRING_VALUE', // required
  *   Conditions: [ // RuleConditionList // required
  *     { // RuleCondition
- *       Field: "STRING_VALUE",
+ *       Field: 'STRING_VALUE',
  *       Values: [ // ListOfString
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *       HostHeaderConfig: { // HostHeaderConditionConfig
  *         Values: [
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
  *       },
  *       PathPatternConfig: { // PathPatternConditionConfig
  *         Values: [
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
  *       },
  *       HttpHeaderConfig: { // HttpHeaderConditionConfig
- *         HttpHeaderName: "STRING_VALUE",
+ *         HttpHeaderName: 'STRING_VALUE',
  *         Values: [
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
  *       },
  *       QueryStringConfig: { // QueryStringConditionConfig
  *         Values: [ // QueryStringKeyValuePairList
  *           { // QueryStringKeyValuePair
- *             Key: "STRING_VALUE",
- *             Value: "STRING_VALUE",
+ *             Key: 'STRING_VALUE',
+ *             Value: 'STRING_VALUE',
  *           },
  *         ],
  *       },
  *       HttpRequestMethodConfig: { // HttpRequestMethodConditionConfig
  *         Values: [
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
  *       },
  *       SourceIpConfig: { // SourceIpConditionConfig
- *         Values: "<ListOfString>",
+ *         Values: '<ListOfString>',
  *       },
  *     },
  *   ],
- *   Priority: Number("int"), // required
+ *   Priority: Number('int'), // required
  *   Actions: [ // Actions // required
  *     { // Action
- *       Type: "forward" || "authenticate-oidc" || "authenticate-cognito" || "redirect" || "fixed-response", // required
- *       TargetGroupArn: "STRING_VALUE",
+ *       Type: 'forward' || 'authenticate-oidc' || 'authenticate-cognito' || 'redirect' || 'fixed-response', // required
+ *       TargetGroupArn: 'STRING_VALUE',
  *       AuthenticateOidcConfig: { // AuthenticateOidcActionConfig
- *         Issuer: "STRING_VALUE", // required
- *         AuthorizationEndpoint: "STRING_VALUE", // required
- *         TokenEndpoint: "STRING_VALUE", // required
- *         UserInfoEndpoint: "STRING_VALUE", // required
- *         ClientId: "STRING_VALUE", // required
- *         ClientSecret: "STRING_VALUE",
- *         SessionCookieName: "STRING_VALUE",
- *         Scope: "STRING_VALUE",
- *         SessionTimeout: Number("long"),
+ *         Issuer: 'STRING_VALUE', // required
+ *         AuthorizationEndpoint: 'STRING_VALUE', // required
+ *         TokenEndpoint: 'STRING_VALUE', // required
+ *         UserInfoEndpoint: 'STRING_VALUE', // required
+ *         ClientId: 'STRING_VALUE', // required
+ *         ClientSecret: 'STRING_VALUE',
+ *         SessionCookieName: 'STRING_VALUE',
+ *         Scope: 'STRING_VALUE',
+ *         SessionTimeout: Number('long'),
  *         AuthenticationRequestExtraParams: { // AuthenticateOidcActionAuthenticationRequestExtraParams
- *           "<keys>": "STRING_VALUE",
+ *           '<keys>': 'STRING_VALUE',
  *         },
- *         OnUnauthenticatedRequest: "deny" || "allow" || "authenticate",
+ *         OnUnauthenticatedRequest: 'deny' || 'allow' || 'authenticate',
  *         UseExistingClientSecret: true || false,
  *       },
  *       AuthenticateCognitoConfig: { // AuthenticateCognitoActionConfig
- *         UserPoolArn: "STRING_VALUE", // required
- *         UserPoolClientId: "STRING_VALUE", // required
- *         UserPoolDomain: "STRING_VALUE", // required
- *         SessionCookieName: "STRING_VALUE",
- *         Scope: "STRING_VALUE",
- *         SessionTimeout: Number("long"),
+ *         UserPoolArn: 'STRING_VALUE', // required
+ *         UserPoolClientId: 'STRING_VALUE', // required
+ *         UserPoolDomain: 'STRING_VALUE', // required
+ *         SessionCookieName: 'STRING_VALUE',
+ *         Scope: 'STRING_VALUE',
+ *         SessionTimeout: Number('long'),
  *         AuthenticationRequestExtraParams: { // AuthenticateCognitoActionAuthenticationRequestExtraParams
- *           "<keys>": "STRING_VALUE",
+ *           '<keys>': 'STRING_VALUE',
  *         },
- *         OnUnauthenticatedRequest: "deny" || "allow" || "authenticate",
+ *         OnUnauthenticatedRequest: 'deny' || 'allow' || 'authenticate',
  *       },
- *       Order: Number("int"),
+ *       Order: Number('int'),
  *       RedirectConfig: { // RedirectActionConfig
- *         Protocol: "STRING_VALUE",
- *         Port: "STRING_VALUE",
- *         Host: "STRING_VALUE",
- *         Path: "STRING_VALUE",
- *         Query: "STRING_VALUE",
- *         StatusCode: "HTTP_301" || "HTTP_302", // required
+ *         Protocol: 'STRING_VALUE',
+ *         Port: 'STRING_VALUE',
+ *         Host: 'STRING_VALUE',
+ *         Path: 'STRING_VALUE',
+ *         Query: 'STRING_VALUE',
+ *         StatusCode: 'HTTP_301' || 'HTTP_302', // required
  *       },
  *       FixedResponseConfig: { // FixedResponseActionConfig
- *         MessageBody: "STRING_VALUE",
- *         StatusCode: "STRING_VALUE", // required
- *         ContentType: "STRING_VALUE",
+ *         MessageBody: 'STRING_VALUE',
+ *         StatusCode: 'STRING_VALUE', // required
+ *         ContentType: 'STRING_VALUE',
  *       },
  *       ForwardConfig: { // ForwardActionConfig
  *         TargetGroups: [ // TargetGroupList
  *           { // TargetGroupTuple
- *             TargetGroupArn: "STRING_VALUE",
- *             Weight: Number("int"),
+ *             TargetGroupArn: 'STRING_VALUE',
+ *             Weight: Number('int'),
  *           },
  *         ],
  *         TargetGroupStickinessConfig: { // TargetGroupStickinessConfig
  *           Enabled: true || false,
- *           DurationSeconds: Number("int"),
+ *           DurationSeconds: Number('int'),
  *         },
  *       },
  *     },
  *   ],
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new CreateRuleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateRuleOutput
+ *   Rules: [ // Rules
+ *     { // Rule
+ *       RuleArn: 'STRING_VALUE',
+ *       Priority: 'STRING_VALUE',
+ *       Conditions: [ // RuleConditionList
+ *         { // RuleCondition
+ *           Field: 'STRING_VALUE',
+ *           Values: [ // ListOfString
+ *             'STRING_VALUE',
+ *           ],
+ *           HostHeaderConfig: { // HostHeaderConditionConfig
+ *             Values: [
+ *               'STRING_VALUE',
+ *             ],
+ *           },
+ *           PathPatternConfig: { // PathPatternConditionConfig
+ *             Values: [
+ *               'STRING_VALUE',
+ *             ],
+ *           },
+ *           HttpHeaderConfig: { // HttpHeaderConditionConfig
+ *             HttpHeaderName: 'STRING_VALUE',
+ *             Values: [
+ *               'STRING_VALUE',
+ *             ],
+ *           },
+ *           QueryStringConfig: { // QueryStringConditionConfig
+ *             Values: [ // QueryStringKeyValuePairList
+ *               { // QueryStringKeyValuePair
+ *                 Key: 'STRING_VALUE',
+ *                 Value: 'STRING_VALUE',
+ *               },
+ *             ],
+ *           },
+ *           HttpRequestMethodConfig: { // HttpRequestMethodConditionConfig
+ *             Values: [
+ *               'STRING_VALUE',
+ *             ],
+ *           },
+ *           SourceIpConfig: { // SourceIpConditionConfig
+ *             Values: '<ListOfString>',
+ *           },
+ *         },
+ *       ],
+ *       Actions: [ // Actions
+ *         { // Action
+ *           Type: 'forward' || 'authenticate-oidc' || 'authenticate-cognito' || 'redirect' || 'fixed-response', // required
+ *           TargetGroupArn: 'STRING_VALUE',
+ *           AuthenticateOidcConfig: { // AuthenticateOidcActionConfig
+ *             Issuer: 'STRING_VALUE', // required
+ *             AuthorizationEndpoint: 'STRING_VALUE', // required
+ *             TokenEndpoint: 'STRING_VALUE', // required
+ *             UserInfoEndpoint: 'STRING_VALUE', // required
+ *             ClientId: 'STRING_VALUE', // required
+ *             ClientSecret: 'STRING_VALUE',
+ *             SessionCookieName: 'STRING_VALUE',
+ *             Scope: 'STRING_VALUE',
+ *             SessionTimeout: Number('long'),
+ *             AuthenticationRequestExtraParams: { // AuthenticateOidcActionAuthenticationRequestExtraParams
+ *               '<keys>': 'STRING_VALUE',
+ *             },
+ *             OnUnauthenticatedRequest: 'deny' || 'allow' || 'authenticate',
+ *             UseExistingClientSecret: true || false,
+ *           },
+ *           AuthenticateCognitoConfig: { // AuthenticateCognitoActionConfig
+ *             UserPoolArn: 'STRING_VALUE', // required
+ *             UserPoolClientId: 'STRING_VALUE', // required
+ *             UserPoolDomain: 'STRING_VALUE', // required
+ *             SessionCookieName: 'STRING_VALUE',
+ *             Scope: 'STRING_VALUE',
+ *             SessionTimeout: Number('long'),
+ *             AuthenticationRequestExtraParams: { // AuthenticateCognitoActionAuthenticationRequestExtraParams
+ *               '<keys>': 'STRING_VALUE',
+ *             },
+ *             OnUnauthenticatedRequest: 'deny' || 'allow' || 'authenticate',
+ *           },
+ *           Order: Number('int'),
+ *           RedirectConfig: { // RedirectActionConfig
+ *             Protocol: 'STRING_VALUE',
+ *             Port: 'STRING_VALUE',
+ *             Host: 'STRING_VALUE',
+ *             Path: 'STRING_VALUE',
+ *             Query: 'STRING_VALUE',
+ *             StatusCode: 'HTTP_301' || 'HTTP_302', // required
+ *           },
+ *           FixedResponseConfig: { // FixedResponseActionConfig
+ *             MessageBody: 'STRING_VALUE',
+ *             StatusCode: 'STRING_VALUE', // required
+ *             ContentType: 'STRING_VALUE',
+ *           },
+ *           ForwardConfig: { // ForwardActionConfig
+ *             TargetGroups: [ // TargetGroupList
+ *               { // TargetGroupTuple
+ *                 TargetGroupArn: 'STRING_VALUE',
+ *                 Weight: Number('int'),
+ *               },
+ *             ],
+ *             TargetGroupStickinessConfig: { // TargetGroupStickinessConfig
+ *               Enabled: true || false,
+ *               DurationSeconds: Number('int'),
+ *             },
+ *           },
+ *         },
+ *       ],
+ *       IsDefault: true || false,
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param CreateRuleCommandInput - {@link CreateRuleCommandInput}
@@ -217,6 +328,8 @@ export interface CreateRuleCommandOutput extends CreateRuleOutput, __MetadataBea
  * @throws {@link UnsupportedProtocolException} (client fault)
  *  <p>The specified protocol is not supported.</p>
  *
+ * @throws {@link ElasticLoadBalancingV2ServiceException}
+ * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
  * @example To create a rule
  * ```javascript

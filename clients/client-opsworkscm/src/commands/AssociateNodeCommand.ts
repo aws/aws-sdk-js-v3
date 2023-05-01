@@ -56,21 +56,26 @@ export interface AssociateNodeCommandOutput extends AssociateNodeResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OpsWorksCMClient, AssociateNodeCommand } from "@aws-sdk/client-opsworkscm"; // ES Modules import
- * // const { OpsWorksCMClient, AssociateNodeCommand } = require("@aws-sdk/client-opsworkscm"); // CommonJS import
+ * import { OpsWorksCMClient, AssociateNodeCommand } from '@aws-sdk/client-opsworkscm'; // ES Modules import
+ * // const { OpsWorksCMClient, AssociateNodeCommand } = require('@aws-sdk/client-opsworkscm'); // CommonJS import
  * const client = new OpsWorksCMClient(config);
  * const input = { // AssociateNodeRequest
- *   ServerName: "STRING_VALUE", // required
- *   NodeName: "STRING_VALUE", // required
+ *   ServerName: 'STRING_VALUE', // required
+ *   NodeName: 'STRING_VALUE', // required
  *   EngineAttributes: [ // EngineAttributes // required
  *     { // EngineAttribute
- *       Name: "STRING_VALUE",
- *       Value: "STRING_VALUE",
+ *       Name: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new AssociateNodeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AssociateNodeResponse
+ *   NodeAssociationStatusToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param AssociateNodeCommandInput - {@link AssociateNodeCommandInput}
@@ -91,6 +96,8 @@ export interface AssociateNodeCommandOutput extends AssociateNodeResponse, __Met
  *  <p>One or more of the provided request parameters are not valid.
  *     </p>
  *
+ * @throws {@link OpsWorksCMServiceException}
+ * <p>Base exception class for all service exceptions from OpsWorksCM service.</p>
  *
  */
 export class AssociateNodeCommand extends $Command<

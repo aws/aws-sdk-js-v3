@@ -37,24 +37,29 @@ export interface CreateDataQualityRulesetCommandOutput extends CreateDataQuality
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlueClient, CreateDataQualityRulesetCommand } from "@aws-sdk/client-glue"; // ES Modules import
- * // const { GlueClient, CreateDataQualityRulesetCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * import { GlueClient, CreateDataQualityRulesetCommand } from '@aws-sdk/client-glue'; // ES Modules import
+ * // const { GlueClient, CreateDataQualityRulesetCommand } = require('@aws-sdk/client-glue'); // CommonJS import
  * const client = new GlueClient(config);
  * const input = { // CreateDataQualityRulesetRequest
- *   Name: "STRING_VALUE", // required
- *   Description: "STRING_VALUE",
- *   Ruleset: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE',
+ *   Ruleset: 'STRING_VALUE', // required
  *   Tags: { // TagsMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  *   TargetTable: { // DataQualityTargetTable
- *     TableName: "STRING_VALUE", // required
- *     DatabaseName: "STRING_VALUE", // required
+ *     TableName: 'STRING_VALUE', // required
+ *     DatabaseName: 'STRING_VALUE', // required
  *   },
- *   ClientToken: "STRING_VALUE",
+ *   ClientToken: 'STRING_VALUE',
  * };
  * const command = new CreateDataQualityRulesetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateDataQualityRulesetResponse
+ *   Name: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateDataQualityRulesetCommandInput - {@link CreateDataQualityRulesetCommandInput}
@@ -78,6 +83,8 @@ export interface CreateDataQualityRulesetCommandOutput extends CreateDataQuality
  * @throws {@link ResourceNumberLimitExceededException} (client fault)
  *  <p>A resource numerical limit was exceeded.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class CreateDataQualityRulesetCommand extends $Command<

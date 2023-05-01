@@ -50,83 +50,233 @@ export interface CreateDBClusterCommandOutput extends CreateDBClusterResult, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RDSClient, CreateDBClusterCommand } from "@aws-sdk/client-rds"; // ES Modules import
- * // const { RDSClient, CreateDBClusterCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * import { RDSClient, CreateDBClusterCommand } from '@aws-sdk/client-rds'; // ES Modules import
+ * // const { RDSClient, CreateDBClusterCommand } = require('@aws-sdk/client-rds'); // CommonJS import
  * const client = new RDSClient(config);
  * const input = { // CreateDBClusterMessage
  *   AvailabilityZones: [ // AvailabilityZones
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   BackupRetentionPeriod: Number("int"),
- *   CharacterSetName: "STRING_VALUE",
- *   DatabaseName: "STRING_VALUE",
- *   DBClusterIdentifier: "STRING_VALUE", // required
- *   DBClusterParameterGroupName: "STRING_VALUE",
+ *   BackupRetentionPeriod: Number('int'),
+ *   CharacterSetName: 'STRING_VALUE',
+ *   DatabaseName: 'STRING_VALUE',
+ *   DBClusterIdentifier: 'STRING_VALUE', // required
+ *   DBClusterParameterGroupName: 'STRING_VALUE',
  *   VpcSecurityGroupIds: [ // VpcSecurityGroupIdList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   DBSubnetGroupName: "STRING_VALUE",
- *   Engine: "STRING_VALUE", // required
- *   EngineVersion: "STRING_VALUE",
- *   Port: Number("int"),
- *   MasterUsername: "STRING_VALUE",
- *   MasterUserPassword: "STRING_VALUE",
- *   OptionGroupName: "STRING_VALUE",
- *   PreferredBackupWindow: "STRING_VALUE",
- *   PreferredMaintenanceWindow: "STRING_VALUE",
- *   ReplicationSourceIdentifier: "STRING_VALUE",
+ *   DBSubnetGroupName: 'STRING_VALUE',
+ *   Engine: 'STRING_VALUE', // required
+ *   EngineVersion: 'STRING_VALUE',
+ *   Port: Number('int'),
+ *   MasterUsername: 'STRING_VALUE',
+ *   MasterUserPassword: 'STRING_VALUE',
+ *   OptionGroupName: 'STRING_VALUE',
+ *   PreferredBackupWindow: 'STRING_VALUE',
+ *   PreferredMaintenanceWindow: 'STRING_VALUE',
+ *   ReplicationSourceIdentifier: 'STRING_VALUE',
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE",
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
  *   StorageEncrypted: true || false,
- *   KmsKeyId: "STRING_VALUE",
- *   PreSignedUrl: "STRING_VALUE",
+ *   KmsKeyId: 'STRING_VALUE',
+ *   PreSignedUrl: 'STRING_VALUE',
  *   EnableIAMDatabaseAuthentication: true || false,
- *   BacktrackWindow: Number("long"),
+ *   BacktrackWindow: Number('long'),
  *   EnableCloudwatchLogsExports: [ // LogTypeList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   EngineMode: "STRING_VALUE",
+ *   EngineMode: 'STRING_VALUE',
  *   ScalingConfiguration: { // ScalingConfiguration
- *     MinCapacity: Number("int"),
- *     MaxCapacity: Number("int"),
+ *     MinCapacity: Number('int'),
+ *     MaxCapacity: Number('int'),
  *     AutoPause: true || false,
- *     SecondsUntilAutoPause: Number("int"),
- *     TimeoutAction: "STRING_VALUE",
- *     SecondsBeforeTimeout: Number("int"),
+ *     SecondsUntilAutoPause: Number('int'),
+ *     TimeoutAction: 'STRING_VALUE',
+ *     SecondsBeforeTimeout: Number('int'),
  *   },
  *   DeletionProtection: true || false,
- *   GlobalClusterIdentifier: "STRING_VALUE",
+ *   GlobalClusterIdentifier: 'STRING_VALUE',
  *   EnableHttpEndpoint: true || false,
  *   CopyTagsToSnapshot: true || false,
- *   Domain: "STRING_VALUE",
- *   DomainIAMRoleName: "STRING_VALUE",
+ *   Domain: 'STRING_VALUE',
+ *   DomainIAMRoleName: 'STRING_VALUE',
  *   EnableGlobalWriteForwarding: true || false,
- *   DBClusterInstanceClass: "STRING_VALUE",
- *   AllocatedStorage: Number("int"),
- *   StorageType: "STRING_VALUE",
- *   Iops: Number("int"),
+ *   DBClusterInstanceClass: 'STRING_VALUE',
+ *   AllocatedStorage: Number('int'),
+ *   StorageType: 'STRING_VALUE',
+ *   Iops: Number('int'),
  *   PubliclyAccessible: true || false,
  *   AutoMinorVersionUpgrade: true || false,
- *   MonitoringInterval: Number("int"),
- *   MonitoringRoleArn: "STRING_VALUE",
+ *   MonitoringInterval: Number('int'),
+ *   MonitoringRoleArn: 'STRING_VALUE',
  *   EnablePerformanceInsights: true || false,
- *   PerformanceInsightsKMSKeyId: "STRING_VALUE",
- *   PerformanceInsightsRetentionPeriod: Number("int"),
+ *   PerformanceInsightsKMSKeyId: 'STRING_VALUE',
+ *   PerformanceInsightsRetentionPeriod: Number('int'),
  *   ServerlessV2ScalingConfiguration: { // ServerlessV2ScalingConfiguration
- *     MinCapacity: Number("double"),
- *     MaxCapacity: Number("double"),
+ *     MinCapacity: Number('double'),
+ *     MaxCapacity: Number('double'),
  *   },
- *   NetworkType: "STRING_VALUE",
- *   DBSystemId: "STRING_VALUE",
+ *   NetworkType: 'STRING_VALUE',
+ *   DBSystemId: 'STRING_VALUE',
  *   ManageMasterUserPassword: true || false,
- *   MasterUserSecretKmsKeyId: "STRING_VALUE",
+ *   MasterUserSecretKmsKeyId: 'STRING_VALUE',
  * };
  * const command = new CreateDBClusterCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateDBClusterResult
+ *   DBCluster: { // DBCluster
+ *     AllocatedStorage: Number('int'),
+ *     AvailabilityZones: [ // AvailabilityZones
+ *       'STRING_VALUE',
+ *     ],
+ *     BackupRetentionPeriod: Number('int'),
+ *     CharacterSetName: 'STRING_VALUE',
+ *     DatabaseName: 'STRING_VALUE',
+ *     DBClusterIdentifier: 'STRING_VALUE',
+ *     DBClusterParameterGroup: 'STRING_VALUE',
+ *     DBSubnetGroup: 'STRING_VALUE',
+ *     Status: 'STRING_VALUE',
+ *     AutomaticRestartTime: new Date('TIMESTAMP'),
+ *     PercentProgress: 'STRING_VALUE',
+ *     EarliestRestorableTime: new Date('TIMESTAMP'),
+ *     Endpoint: 'STRING_VALUE',
+ *     ReaderEndpoint: 'STRING_VALUE',
+ *     CustomEndpoints: [ // StringList
+ *       'STRING_VALUE',
+ *     ],
+ *     MultiAZ: true || false,
+ *     Engine: 'STRING_VALUE',
+ *     EngineVersion: 'STRING_VALUE',
+ *     LatestRestorableTime: new Date('TIMESTAMP'),
+ *     Port: Number('int'),
+ *     MasterUsername: 'STRING_VALUE',
+ *     DBClusterOptionGroupMemberships: [ // DBClusterOptionGroupMemberships
+ *       { // DBClusterOptionGroupStatus
+ *         DBClusterOptionGroupName: 'STRING_VALUE',
+ *         Status: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     PreferredBackupWindow: 'STRING_VALUE',
+ *     PreferredMaintenanceWindow: 'STRING_VALUE',
+ *     ReplicationSourceIdentifier: 'STRING_VALUE',
+ *     ReadReplicaIdentifiers: [ // ReadReplicaIdentifierList
+ *       'STRING_VALUE',
+ *     ],
+ *     DBClusterMembers: [ // DBClusterMemberList
+ *       { // DBClusterMember
+ *         DBInstanceIdentifier: 'STRING_VALUE',
+ *         IsClusterWriter: true || false,
+ *         DBClusterParameterGroupStatus: 'STRING_VALUE',
+ *         PromotionTier: Number('int'),
+ *       },
+ *     ],
+ *     VpcSecurityGroups: [ // VpcSecurityGroupMembershipList
+ *       { // VpcSecurityGroupMembership
+ *         VpcSecurityGroupId: 'STRING_VALUE',
+ *         Status: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     HostedZoneId: 'STRING_VALUE',
+ *     StorageEncrypted: true || false,
+ *     KmsKeyId: 'STRING_VALUE',
+ *     DbClusterResourceId: 'STRING_VALUE',
+ *     DBClusterArn: 'STRING_VALUE',
+ *     AssociatedRoles: [ // DBClusterRoles
+ *       { // DBClusterRole
+ *         RoleArn: 'STRING_VALUE',
+ *         Status: 'STRING_VALUE',
+ *         FeatureName: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     IAMDatabaseAuthenticationEnabled: true || false,
+ *     CloneGroupId: 'STRING_VALUE',
+ *     ClusterCreateTime: new Date('TIMESTAMP'),
+ *     EarliestBacktrackTime: new Date('TIMESTAMP'),
+ *     BacktrackWindow: Number('long'),
+ *     BacktrackConsumedChangeRecords: Number('long'),
+ *     EnabledCloudwatchLogsExports: [ // LogTypeList
+ *       'STRING_VALUE',
+ *     ],
+ *     Capacity: Number('int'),
+ *     EngineMode: 'STRING_VALUE',
+ *     ScalingConfigurationInfo: { // ScalingConfigurationInfo
+ *       MinCapacity: Number('int'),
+ *       MaxCapacity: Number('int'),
+ *       AutoPause: true || false,
+ *       SecondsUntilAutoPause: Number('int'),
+ *       TimeoutAction: 'STRING_VALUE',
+ *       SecondsBeforeTimeout: Number('int'),
+ *     },
+ *     DeletionProtection: true || false,
+ *     HttpEndpointEnabled: true || false,
+ *     ActivityStreamMode: 'sync' || 'async',
+ *     ActivityStreamStatus: 'stopped' || 'starting' || 'started' || 'stopping',
+ *     ActivityStreamKmsKeyId: 'STRING_VALUE',
+ *     ActivityStreamKinesisStreamName: 'STRING_VALUE',
+ *     CopyTagsToSnapshot: true || false,
+ *     CrossAccountClone: true || false,
+ *     DomainMemberships: [ // DomainMembershipList
+ *       { // DomainMembership
+ *         Domain: 'STRING_VALUE',
+ *         Status: 'STRING_VALUE',
+ *         FQDN: 'STRING_VALUE',
+ *         IAMRoleName: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     TagList: [ // TagList
+ *       { // Tag
+ *         Key: 'STRING_VALUE',
+ *         Value: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     GlobalWriteForwardingStatus: 'enabled' || 'disabled' || 'enabling' || 'disabling' || 'unknown',
+ *     GlobalWriteForwardingRequested: true || false,
+ *     PendingModifiedValues: { // ClusterPendingModifiedValues
+ *       PendingCloudwatchLogsExports: { // PendingCloudwatchLogsExports
+ *         LogTypesToEnable: [
+ *           'STRING_VALUE',
+ *         ],
+ *         LogTypesToDisable: [
+ *           'STRING_VALUE',
+ *         ],
+ *       },
+ *       DBClusterIdentifier: 'STRING_VALUE',
+ *       MasterUserPassword: 'STRING_VALUE',
+ *       IAMDatabaseAuthenticationEnabled: true || false,
+ *       EngineVersion: 'STRING_VALUE',
+ *       BackupRetentionPeriod: Number('int'),
+ *       AllocatedStorage: Number('int'),
+ *       Iops: Number('int'),
+ *     },
+ *     DBClusterInstanceClass: 'STRING_VALUE',
+ *     StorageType: 'STRING_VALUE',
+ *     Iops: Number('int'),
+ *     PubliclyAccessible: true || false,
+ *     AutoMinorVersionUpgrade: true || false,
+ *     MonitoringInterval: Number('int'),
+ *     MonitoringRoleArn: 'STRING_VALUE',
+ *     PerformanceInsightsEnabled: true || false,
+ *     PerformanceInsightsKMSKeyId: 'STRING_VALUE',
+ *     PerformanceInsightsRetentionPeriod: Number('int'),
+ *     ServerlessV2ScalingConfiguration: { // ServerlessV2ScalingConfigurationInfo
+ *       MinCapacity: Number('double'),
+ *       MaxCapacity: Number('double'),
+ *     },
+ *     NetworkType: 'STRING_VALUE',
+ *     DBSystemId: 'STRING_VALUE',
+ *     MasterUserSecret: { // MasterUserSecret
+ *       SecretArn: 'STRING_VALUE',
+ *       SecretStatus: 'STRING_VALUE',
+ *       KmsKeyId: 'STRING_VALUE',
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateDBClusterCommandInput - {@link CreateDBClusterCommandInput}
@@ -200,133 +350,8 @@ export interface CreateDBClusterCommandOutput extends CreateDBClusterResult, __M
  *  <p>The request would result in the user exceeding the allowed amount of storage
  *             available across all DB instances.</p>
  *
- *
- * @example To create a MySQL 5.7--compatible DB cluster
- * ```javascript
- * // The following example create a MySQL 5.7-compatible DB cluster.
- * const input = {
- *   "DBClusterIdentifier": "sample-cluster",
- *   "DBSubnetGroupName": "default",
- *   "Engine": "aurora-mysql",
- *   "EngineVersion": "5.7.12",
- *   "MasterUserPassword": "mypassword",
- *   "MasterUsername": "admin",
- *   "VpcSecurityGroupIds": [
- *     "sg-0b91305example"
- *   ]
- * };
- * const command = new CreateDBClusterCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "DBCluster": {
- *     "AllocatedStorage": 1,
- *     "AssociatedRoles": [],
- *     "AvailabilityZones": [
- *       "us-east-1a",
- *       "us-east-1b",
- *       "us-east-1e"
- *     ],
- *     "BackupRetentionPeriod": 1,
- *     "ClusterCreateTime": "2019-06-07T23:21:33.048Z",
- *     "CopyTagsToSnapshot": false,
- *     "DBClusterArn": "arn:aws:rds:us-east-1:123456789012:cluster:sample-cluster",
- *     "DBClusterIdentifier": "sample-cluster",
- *     "DBClusterMembers": [],
- *     "DBClusterParameterGroup": "default.aurora-mysql5.7",
- *     "DBSubnetGroup": "default",
- *     "DbClusterResourceId": "cluster-ANPAJ4AE5446DAEXAMPLE",
- *     "DeletionProtection": false,
- *     "Endpoint": "sample-cluster.cluster-cnpexample.us-east-1.rds.amazonaws.com",
- *     "Engine": "aurora-mysql",
- *     "EngineMode": "provisioned",
- *     "EngineVersion": "5.7.12",
- *     "HostedZoneId": "Z2R2ITUGPM61AM",
- *     "HttpEndpointEnabled": false,
- *     "IAMDatabaseAuthenticationEnabled": false,
- *     "MasterUsername": "master",
- *     "MultiAZ": false,
- *     "Port": 3306,
- *     "PreferredBackupWindow": "09:12-09:42",
- *     "PreferredMaintenanceWindow": "mon:04:31-mon:05:01",
- *     "ReadReplicaIdentifiers": [],
- *     "ReaderEndpoint": "sample-cluster.cluster-ro-cnpexample.us-east-1.rds.amazonaws.com",
- *     "Status": "creating",
- *     "StorageEncrypted": false,
- *     "VpcSecurityGroups": [
- *       {
- *         "Status": "active",
- *         "VpcSecurityGroupId": "sg-0b91305example"
- *       }
- *     ]
- *   }
- * }
- * *\/
- * // example id: to-create-a-mysql-57--compatible-db-cluster-1679699416154
- * ```
- *
- * @example To create a PostgreSQL--compatible DB cluster
- * ```javascript
- * // The following creates a PostgreSQL-compatible DB cluster.
- * const input = {
- *   "DBClusterIdentifier": "sample-pg-cluster",
- *   "DBSubnetGroupName": "default",
- *   "Engine": "aurora-postgresql",
- *   "MasterUserPassword": "mypassword",
- *   "MasterUsername": "admin",
- *   "VpcSecurityGroupIds": [
- *     "sg-0b91305example"
- *   ]
- * };
- * const command = new CreateDBClusterCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "DBCluster": {
- *     "AllocatedStorage": 1,
- *     "AssociatedRoles": [],
- *     "AvailabilityZones": [
- *       "us-east-1a",
- *       "us-east-1b",
- *       "us-east-1c"
- *     ],
- *     "BackupRetentionPeriod": 1,
- *     "ClusterCreateTime": "2019-06-07T23:26:08.371Z",
- *     "CopyTagsToSnapshot": false,
- *     "DBClusterArn": "arn:aws:rds:us-east-1:123456789012:cluster:sample-pg-cluster",
- *     "DBClusterIdentifier": "sample-pg-cluster",
- *     "DBClusterMembers": [],
- *     "DBClusterParameterGroup": "default.aurora-postgresql9.6",
- *     "DBSubnetGroup": "default",
- *     "DbClusterResourceId": "cluster-ANPAJ4AE5446DAEXAMPLE",
- *     "DeletionProtection": false,
- *     "Endpoint": "sample-pg-cluster.cluster-cnpexample.us-east-1.rds.amazonaws.com",
- *     "Engine": "aurora-postgresql",
- *     "EngineMode": "provisioned",
- *     "EngineVersion": "9.6.9",
- *     "HostedZoneId": "Z2R2ITUGPM61AM",
- *     "HttpEndpointEnabled": false,
- *     "IAMDatabaseAuthenticationEnabled": false,
- *     "MasterUsername": "master",
- *     "MultiAZ": false,
- *     "Port": 5432,
- *     "PreferredBackupWindow": "09:56-10:26",
- *     "PreferredMaintenanceWindow": "wed:03:33-wed:04:03",
- *     "ReadReplicaIdentifiers": [],
- *     "ReaderEndpoint": "sample-pg-cluster.cluster-ro-cnpexample.us-east-1.rds.amazonaws.com",
- *     "Status": "creating",
- *     "StorageEncrypted": false,
- *     "VpcSecurityGroups": [
- *       {
- *         "Status": "active",
- *         "VpcSecurityGroupId": "sg-0b91305example"
- *       }
- *     ]
- *   }
- * }
- * *\/
- * // example id: to-create-a-postgresql--compatible-db-cluster-1679700161087
- * ```
+ * @throws {@link RDSServiceException}
+ * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  * @example To create a MySQL 5.7-compatible DB cluster
  * ```javascript

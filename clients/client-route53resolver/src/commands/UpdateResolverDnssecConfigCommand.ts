@@ -36,15 +36,25 @@ export interface UpdateResolverDnssecConfigCommandOutput extends UpdateResolverD
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Route53ResolverClient, UpdateResolverDnssecConfigCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
- * // const { Route53ResolverClient, UpdateResolverDnssecConfigCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
+ * import { Route53ResolverClient, UpdateResolverDnssecConfigCommand } from '@aws-sdk/client-route53resolver'; // ES Modules import
+ * // const { Route53ResolverClient, UpdateResolverDnssecConfigCommand } = require('@aws-sdk/client-route53resolver'); // CommonJS import
  * const client = new Route53ResolverClient(config);
  * const input = { // UpdateResolverDnssecConfigRequest
- *   ResourceId: "STRING_VALUE", // required
- *   Validation: "ENABLE" || "DISABLE" || "USE_LOCAL_RESOURCE_SETTING", // required
+ *   ResourceId: 'STRING_VALUE', // required
+ *   Validation: 'ENABLE' || 'DISABLE' || 'USE_LOCAL_RESOURCE_SETTING', // required
  * };
  * const command = new UpdateResolverDnssecConfigCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateResolverDnssecConfigResponse
+ *   ResolverDNSSECConfig: { // ResolverDnssecConfig
+ *     Id: 'STRING_VALUE',
+ *     OwnerId: 'STRING_VALUE',
+ *     ResourceId: 'STRING_VALUE',
+ *     ValidationStatus: 'ENABLING' || 'ENABLED' || 'DISABLING' || 'DISABLED' || 'UPDATING_TO_USE_LOCAL_RESOURCE_SETTING' || 'USE_LOCAL_RESOURCE_SETTING',
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateResolverDnssecConfigCommandInput - {@link UpdateResolverDnssecConfigCommandInput}
@@ -71,6 +81,8 @@ export interface UpdateResolverDnssecConfigCommandOutput extends UpdateResolverD
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was throttled. Try again in a few minutes.</p>
  *
+ * @throws {@link Route53ResolverServiceException}
+ * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
  */
 export class UpdateResolverDnssecConfigCommand extends $Command<

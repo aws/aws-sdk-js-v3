@@ -40,22 +40,41 @@ export interface ListPackageVersionAssetsCommandOutput extends ListPackageVersio
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeartifactClient, ListPackageVersionAssetsCommand } from "@aws-sdk/client-codeartifact"; // ES Modules import
- * // const { CodeartifactClient, ListPackageVersionAssetsCommand } = require("@aws-sdk/client-codeartifact"); // CommonJS import
+ * import { CodeartifactClient, ListPackageVersionAssetsCommand } from '@aws-sdk/client-codeartifact'; // ES Modules import
+ * // const { CodeartifactClient, ListPackageVersionAssetsCommand } = require('@aws-sdk/client-codeartifact'); // CommonJS import
  * const client = new CodeartifactClient(config);
  * const input = { // ListPackageVersionAssetsRequest
- *   domain: "STRING_VALUE", // required
- *   domainOwner: "STRING_VALUE",
- *   repository: "STRING_VALUE", // required
- *   format: "npm" || "pypi" || "maven" || "nuget" || "generic", // required
- *   namespace: "STRING_VALUE",
- *   package: "STRING_VALUE", // required
- *   packageVersion: "STRING_VALUE", // required
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   domain: 'STRING_VALUE', // required
+ *   domainOwner: 'STRING_VALUE',
+ *   repository: 'STRING_VALUE', // required
+ *   format: 'npm' || 'pypi' || 'maven' || 'nuget' || 'generic', // required
+ *   namespace: 'STRING_VALUE',
+ *   package: 'STRING_VALUE', // required
+ *   packageVersion: 'STRING_VALUE', // required
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new ListPackageVersionAssetsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListPackageVersionAssetsResult
+ *   format: 'npm' || 'pypi' || 'maven' || 'nuget' || 'generic',
+ *   namespace: 'STRING_VALUE',
+ *   package: 'STRING_VALUE',
+ *   version: 'STRING_VALUE',
+ *   versionRevision: 'STRING_VALUE',
+ *   nextToken: 'STRING_VALUE',
+ *   assets: [ // AssetSummaryList
+ *     { // AssetSummary
+ *       name: 'STRING_VALUE', // required
+ *       size: Number('long'),
+ *       hashes: { // AssetHashes
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListPackageVersionAssetsCommandInput - {@link ListPackageVersionAssetsCommandInput}
@@ -87,6 +106,8 @@ export interface ListPackageVersionAssetsCommandOutput extends ListPackageVersio
  *       The operation did not succeed because a parameter in the request was sent with an invalid value.
  *     </p>
  *
+ * @throws {@link CodeartifactServiceException}
+ * <p>Base exception class for all service exceptions from Codeartifact service.</p>
  *
  */
 export class ListPackageVersionAssetsCommand extends $Command<

@@ -81,35 +81,40 @@ export interface CreateDatasetCommandOutput extends CreateDatasetResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ForecastClient, CreateDatasetCommand } from "@aws-sdk/client-forecast"; // ES Modules import
- * // const { ForecastClient, CreateDatasetCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
+ * import { ForecastClient, CreateDatasetCommand } from '@aws-sdk/client-forecast'; // ES Modules import
+ * // const { ForecastClient, CreateDatasetCommand } = require('@aws-sdk/client-forecast'); // CommonJS import
  * const client = new ForecastClient(config);
  * const input = { // CreateDatasetRequest
- *   DatasetName: "STRING_VALUE", // required
- *   Domain: "RETAIL" || "CUSTOM" || "INVENTORY_PLANNING" || "EC2_CAPACITY" || "WORK_FORCE" || "WEB_TRAFFIC" || "METRICS", // required
- *   DatasetType: "TARGET_TIME_SERIES" || "RELATED_TIME_SERIES" || "ITEM_METADATA", // required
- *   DataFrequency: "STRING_VALUE",
+ *   DatasetName: 'STRING_VALUE', // required
+ *   Domain: 'RETAIL' || 'CUSTOM' || 'INVENTORY_PLANNING' || 'EC2_CAPACITY' || 'WORK_FORCE' || 'WEB_TRAFFIC' || 'METRICS', // required
+ *   DatasetType: 'TARGET_TIME_SERIES' || 'RELATED_TIME_SERIES' || 'ITEM_METADATA', // required
+ *   DataFrequency: 'STRING_VALUE',
  *   Schema: { // Schema
  *     Attributes: [ // SchemaAttributes
  *       { // SchemaAttribute
- *         AttributeName: "STRING_VALUE",
- *         AttributeType: "string" || "integer" || "float" || "timestamp" || "geolocation",
+ *         AttributeName: 'STRING_VALUE',
+ *         AttributeType: 'string' || 'integer' || 'float' || 'timestamp' || 'geolocation',
  *       },
  *     ],
  *   },
  *   EncryptionConfig: { // EncryptionConfig
- *     RoleArn: "STRING_VALUE", // required
- *     KMSKeyArn: "STRING_VALUE", // required
+ *     RoleArn: 'STRING_VALUE', // required
+ *     KMSKeyArn: 'STRING_VALUE', // required
  *   },
  *   Tags: [ // Tags
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreateDatasetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateDatasetResponse
+ *   DatasetArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateDatasetCommandInput - {@link CreateDatasetCommandInput}
@@ -128,6 +133,8 @@ export interface CreateDatasetCommandOutput extends CreateDatasetResponse, __Met
  * @throws {@link ResourceAlreadyExistsException} (client fault)
  *  <p>There is already a resource with this name. Try again with a different name.</p>
  *
+ * @throws {@link ForecastServiceException}
+ * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
  */
 export class CreateDatasetCommand extends $Command<

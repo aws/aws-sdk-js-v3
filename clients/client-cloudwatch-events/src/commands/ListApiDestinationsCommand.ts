@@ -36,17 +36,35 @@ export interface ListApiDestinationsCommandOutput extends ListApiDestinationsRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudWatchEventsClient, ListApiDestinationsCommand } from "@aws-sdk/client-cloudwatch-events"; // ES Modules import
- * // const { CloudWatchEventsClient, ListApiDestinationsCommand } = require("@aws-sdk/client-cloudwatch-events"); // CommonJS import
+ * import { CloudWatchEventsClient, ListApiDestinationsCommand } from '@aws-sdk/client-cloudwatch-events'; // ES Modules import
+ * // const { CloudWatchEventsClient, ListApiDestinationsCommand } = require('@aws-sdk/client-cloudwatch-events'); // CommonJS import
  * const client = new CloudWatchEventsClient(config);
  * const input = { // ListApiDestinationsRequest
- *   NamePrefix: "STRING_VALUE",
- *   ConnectionArn: "STRING_VALUE",
- *   NextToken: "STRING_VALUE",
- *   Limit: Number("int"),
+ *   NamePrefix: 'STRING_VALUE',
+ *   ConnectionArn: 'STRING_VALUE',
+ *   NextToken: 'STRING_VALUE',
+ *   Limit: Number('int'),
  * };
  * const command = new ListApiDestinationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListApiDestinationsResponse
+ *   ApiDestinations: [ // ApiDestinationResponseList
+ *     { // ApiDestination
+ *       ApiDestinationArn: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *       ApiDestinationState: 'STRING_VALUE',
+ *       ConnectionArn: 'STRING_VALUE',
+ *       InvocationEndpoint: 'STRING_VALUE',
+ *       HttpMethod: 'STRING_VALUE',
+ *       InvocationRateLimitPerSecond: Number('int'),
+ *       CreationTime: new Date('TIMESTAMP'),
+ *       LastModifiedTime: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListApiDestinationsCommandInput - {@link ListApiDestinationsCommandInput}
@@ -58,6 +76,8 @@ export interface ListApiDestinationsCommandOutput extends ListApiDestinationsRes
  * @throws {@link InternalException} (server fault)
  *  <p>This exception occurs due to unexpected causes.</p>
  *
+ * @throws {@link CloudWatchEventsServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatchEvents service.</p>
  *
  */
 export class ListApiDestinationsCommand extends $Command<

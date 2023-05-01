@@ -50,29 +50,49 @@ export interface CreateEventSubscriptionCommandOutput extends CreateEventSubscri
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { NeptuneClient, CreateEventSubscriptionCommand } from "@aws-sdk/client-neptune"; // ES Modules import
- * // const { NeptuneClient, CreateEventSubscriptionCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
+ * import { NeptuneClient, CreateEventSubscriptionCommand } from '@aws-sdk/client-neptune'; // ES Modules import
+ * // const { NeptuneClient, CreateEventSubscriptionCommand } = require('@aws-sdk/client-neptune'); // CommonJS import
  * const client = new NeptuneClient(config);
  * const input = { // CreateEventSubscriptionMessage
- *   SubscriptionName: "STRING_VALUE", // required
- *   SnsTopicArn: "STRING_VALUE", // required
- *   SourceType: "STRING_VALUE",
+ *   SubscriptionName: 'STRING_VALUE', // required
+ *   SnsTopicArn: 'STRING_VALUE', // required
+ *   SourceType: 'STRING_VALUE',
  *   EventCategories: [ // EventCategoriesList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   SourceIds: [ // SourceIdsList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   Enabled: true || false,
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE",
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new CreateEventSubscriptionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateEventSubscriptionResult
+ *   EventSubscription: { // EventSubscription
+ *     CustomerAwsId: 'STRING_VALUE',
+ *     CustSubscriptionId: 'STRING_VALUE',
+ *     SnsTopicArn: 'STRING_VALUE',
+ *     Status: 'STRING_VALUE',
+ *     SubscriptionCreationTime: 'STRING_VALUE',
+ *     SourceType: 'STRING_VALUE',
+ *     SourceIdsList: [ // SourceIdsList
+ *       'STRING_VALUE',
+ *     ],
+ *     EventCategoriesList: [ // EventCategoriesList
+ *       'STRING_VALUE',
+ *     ],
+ *     Enabled: true || false,
+ *     EventSubscriptionArn: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateEventSubscriptionCommandInput - {@link CreateEventSubscriptionCommandInput}
@@ -102,6 +122,8 @@ export interface CreateEventSubscriptionCommandOutput extends CreateEventSubscri
  * @throws {@link SubscriptionCategoryNotFoundFault} (client fault)
  *  <p>The designated subscription category could not be found.</p>
  *
+ * @throws {@link NeptuneServiceException}
+ * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
  */
 export class CreateEventSubscriptionCommand extends $Command<

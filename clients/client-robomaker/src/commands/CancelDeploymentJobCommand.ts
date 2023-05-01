@@ -41,14 +41,17 @@ export interface CancelDeploymentJobCommandOutput extends CancelDeploymentJobRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RoboMakerClient, CancelDeploymentJobCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
- * // const { RoboMakerClient, CancelDeploymentJobCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
+ * import { RoboMakerClient, CancelDeploymentJobCommand } from '@aws-sdk/client-robomaker'; // ES Modules import
+ * // const { RoboMakerClient, CancelDeploymentJobCommand } = require('@aws-sdk/client-robomaker'); // CommonJS import
  * const client = new RoboMakerClient(config);
  * const input = { // CancelDeploymentJobRequest
- *   job: "STRING_VALUE", // required
+ *   job: 'STRING_VALUE', // required
  * };
  * const command = new CancelDeploymentJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param CancelDeploymentJobCommandInput - {@link CancelDeploymentJobCommandInput}
@@ -70,6 +73,8 @@ export interface CancelDeploymentJobCommandOutput extends CancelDeploymentJobRes
  * @throws {@link ThrottlingException} (client fault)
  *  <p>AWS RoboMaker is temporarily unable to process the request. Try your call again.</p>
  *
+ * @throws {@link RoboMakerServiceException}
+ * <p>Base exception class for all service exceptions from RoboMaker service.</p>
  *
  */
 export class CancelDeploymentJobCommand extends $Command<

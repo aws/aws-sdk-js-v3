@@ -40,56 +40,64 @@ export interface UpdateWorkflowStepCommandOutput extends UpdateWorkflowStepRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MigrationHubOrchestratorClient, UpdateWorkflowStepCommand } from "@aws-sdk/client-migrationhuborchestrator"; // ES Modules import
- * // const { MigrationHubOrchestratorClient, UpdateWorkflowStepCommand } = require("@aws-sdk/client-migrationhuborchestrator"); // CommonJS import
+ * import { MigrationHubOrchestratorClient, UpdateWorkflowStepCommand } from '@aws-sdk/client-migrationhuborchestrator'; // ES Modules import
+ * // const { MigrationHubOrchestratorClient, UpdateWorkflowStepCommand } = require('@aws-sdk/client-migrationhuborchestrator'); // CommonJS import
  * const client = new MigrationHubOrchestratorClient(config);
  * const input = { // UpdateWorkflowStepRequest
- *   id: "STRING_VALUE", // required
- *   stepGroupId: "STRING_VALUE", // required
- *   workflowId: "STRING_VALUE", // required
- *   name: "STRING_VALUE",
- *   description: "STRING_VALUE",
- *   stepActionType: "STRING_VALUE",
+ *   id: 'STRING_VALUE', // required
+ *   stepGroupId: 'STRING_VALUE', // required
+ *   workflowId: 'STRING_VALUE', // required
+ *   name: 'STRING_VALUE',
+ *   description: 'STRING_VALUE',
+ *   stepActionType: 'STRING_VALUE',
  *   workflowStepAutomationConfiguration: { // WorkflowStepAutomationConfiguration
- *     scriptLocationS3Bucket: "STRING_VALUE",
+ *     scriptLocationS3Bucket: 'STRING_VALUE',
  *     scriptLocationS3Key: { // PlatformScriptKey
- *       linux: "STRING_VALUE",
- *       windows: "STRING_VALUE",
+ *       linux: 'STRING_VALUE',
+ *       windows: 'STRING_VALUE',
  *     },
  *     command: { // PlatformCommand
- *       linux: "STRING_VALUE",
- *       windows: "STRING_VALUE",
+ *       linux: 'STRING_VALUE',
+ *       windows: 'STRING_VALUE',
  *     },
- *     runEnvironment: "STRING_VALUE",
- *     targetType: "STRING_VALUE",
+ *     runEnvironment: 'STRING_VALUE',
+ *     targetType: 'STRING_VALUE',
  *   },
  *   stepTarget: [ // StringList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   outputs: [ // WorkflowStepOutputList
  *     { // WorkflowStepOutput
- *       name: "STRING_VALUE",
- *       dataType: "STRING_VALUE",
+ *       name: 'STRING_VALUE',
+ *       dataType: 'STRING_VALUE',
  *       required: true || false,
  *       value: { // WorkflowStepOutputUnion Union: only one key present
- *         integerValue: Number("int"),
- *         stringValue: "STRING_VALUE",
+ *         integerValue: Number('int'),
+ *         stringValue: 'STRING_VALUE',
  *         listOfStringValue: [
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
  *       },
  *     },
  *   ],
  *   previous: [
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   next: [
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   status: "STRING_VALUE",
+ *   status: 'STRING_VALUE',
  * };
  * const command = new UpdateWorkflowStepCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateWorkflowStepResponse
+ *   id: 'STRING_VALUE',
+ *   stepGroupId: 'STRING_VALUE',
+ *   workflowId: 'STRING_VALUE',
+ *   name: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateWorkflowStepCommandInput - {@link UpdateWorkflowStepCommandInput}
@@ -110,6 +118,8 @@ export interface UpdateWorkflowStepCommandOutput extends UpdateWorkflowStepRespo
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link MigrationHubOrchestratorServiceException}
+ * <p>Base exception class for all service exceptions from MigrationHubOrchestrator service.</p>
  *
  */
 export class UpdateWorkflowStepCommand extends $Command<

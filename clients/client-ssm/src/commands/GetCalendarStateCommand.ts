@@ -44,17 +44,24 @@ export interface GetCalendarStateCommandOutput extends GetCalendarStateResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMClient, GetCalendarStateCommand } from "@aws-sdk/client-ssm"; // ES Modules import
- * // const { SSMClient, GetCalendarStateCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * import { SSMClient, GetCalendarStateCommand } from '@aws-sdk/client-ssm'; // ES Modules import
+ * // const { SSMClient, GetCalendarStateCommand } = require('@aws-sdk/client-ssm'); // CommonJS import
  * const client = new SSMClient(config);
  * const input = { // GetCalendarStateRequest
  *   CalendarNames: [ // CalendarNameOrARNList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   AtTime: "STRING_VALUE",
+ *   AtTime: 'STRING_VALUE',
  * };
  * const command = new GetCalendarStateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetCalendarStateResponse
+ *   State: 'OPEN' || 'CLOSED',
+ *   AtTime: 'STRING_VALUE',
+ *   NextTransitionTime: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetCalendarStateCommandInput - {@link GetCalendarStateCommandInput}
@@ -76,6 +83,8 @@ export interface GetCalendarStateCommandOutput extends GetCalendarStateResponse,
  * @throws {@link UnsupportedCalendarException} (client fault)
  *  <p>The calendar entry contained in the specified SSM document isn't supported.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class GetCalendarStateCommand extends $Command<

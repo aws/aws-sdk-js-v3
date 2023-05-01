@@ -46,14 +46,28 @@ export interface DeprovisionByoipCidrCommandOutput extends DeprovisionByoipCidrR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlobalAcceleratorClient, DeprovisionByoipCidrCommand } from "@aws-sdk/client-global-accelerator"; // ES Modules import
- * // const { GlobalAcceleratorClient, DeprovisionByoipCidrCommand } = require("@aws-sdk/client-global-accelerator"); // CommonJS import
+ * import { GlobalAcceleratorClient, DeprovisionByoipCidrCommand } from '@aws-sdk/client-global-accelerator'; // ES Modules import
+ * // const { GlobalAcceleratorClient, DeprovisionByoipCidrCommand } = require('@aws-sdk/client-global-accelerator'); // CommonJS import
  * const client = new GlobalAcceleratorClient(config);
  * const input = { // DeprovisionByoipCidrRequest
- *   Cidr: "STRING_VALUE", // required
+ *   Cidr: 'STRING_VALUE', // required
  * };
  * const command = new DeprovisionByoipCidrCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeprovisionByoipCidrResponse
+ *   ByoipCidr: { // ByoipCidr
+ *     Cidr: 'STRING_VALUE',
+ *     State: 'PENDING_PROVISIONING' || 'READY' || 'PENDING_ADVERTISING' || 'ADVERTISING' || 'PENDING_WITHDRAWING' || 'PENDING_DEPROVISIONING' || 'DEPROVISIONED' || 'FAILED_PROVISION' || 'FAILED_ADVERTISING' || 'FAILED_WITHDRAW' || 'FAILED_DEPROVISION',
+ *     Events: [ // ByoipCidrEvents
+ *       { // ByoipCidrEvent
+ *         Message: 'STRING_VALUE',
+ *         Timestamp: new Date('TIMESTAMP'),
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param DeprovisionByoipCidrCommandInput - {@link DeprovisionByoipCidrCommandInput}
@@ -78,6 +92,8 @@ export interface DeprovisionByoipCidrCommandOutput extends DeprovisionByoipCidrR
  * @throws {@link InvalidArgumentException} (client fault)
  *  <p>An argument that you specified is invalid.</p>
  *
+ * @throws {@link GlobalAcceleratorServiceException}
+ * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
  */
 export class DeprovisionByoipCidrCommand extends $Command<

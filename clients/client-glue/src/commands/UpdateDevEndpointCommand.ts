@@ -36,32 +36,35 @@ export interface UpdateDevEndpointCommandOutput extends UpdateDevEndpointRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlueClient, UpdateDevEndpointCommand } from "@aws-sdk/client-glue"; // ES Modules import
- * // const { GlueClient, UpdateDevEndpointCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * import { GlueClient, UpdateDevEndpointCommand } from '@aws-sdk/client-glue'; // ES Modules import
+ * // const { GlueClient, UpdateDevEndpointCommand } = require('@aws-sdk/client-glue'); // CommonJS import
  * const client = new GlueClient(config);
  * const input = { // UpdateDevEndpointRequest
- *   EndpointName: "STRING_VALUE", // required
- *   PublicKey: "STRING_VALUE",
+ *   EndpointName: 'STRING_VALUE', // required
+ *   PublicKey: 'STRING_VALUE',
  *   AddPublicKeys: [ // PublicKeysList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   DeletePublicKeys: [
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   CustomLibraries: { // DevEndpointCustomLibraries
- *     ExtraPythonLibsS3Path: "STRING_VALUE",
- *     ExtraJarsS3Path: "STRING_VALUE",
+ *     ExtraPythonLibsS3Path: 'STRING_VALUE',
+ *     ExtraJarsS3Path: 'STRING_VALUE',
  *   },
  *   UpdateEtlLibraries: true || false,
  *   DeleteArguments: [ // StringList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   AddArguments: { // MapValue
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new UpdateDevEndpointCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateDevEndpointCommandInput - {@link UpdateDevEndpointCommandInput}
@@ -85,6 +88,8 @@ export interface UpdateDevEndpointCommandOutput extends UpdateDevEndpointRespons
  * @throws {@link ValidationException} (client fault)
  *  <p>A value could not be validated.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class UpdateDevEndpointCommand extends $Command<

@@ -56,14 +56,17 @@ export interface DeleteCustomRoutingAcceleratorCommandOutput extends __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlobalAcceleratorClient, DeleteCustomRoutingAcceleratorCommand } from "@aws-sdk/client-global-accelerator"; // ES Modules import
- * // const { GlobalAcceleratorClient, DeleteCustomRoutingAcceleratorCommand } = require("@aws-sdk/client-global-accelerator"); // CommonJS import
+ * import { GlobalAcceleratorClient, DeleteCustomRoutingAcceleratorCommand } from '@aws-sdk/client-global-accelerator'; // ES Modules import
+ * // const { GlobalAcceleratorClient, DeleteCustomRoutingAcceleratorCommand } = require('@aws-sdk/client-global-accelerator'); // CommonJS import
  * const client = new GlobalAcceleratorClient(config);
  * const input = { // DeleteCustomRoutingAcceleratorRequest
- *   AcceleratorArn: "STRING_VALUE", // required
+ *   AcceleratorArn: 'STRING_VALUE', // required
  * };
  * const command = new DeleteCustomRoutingAcceleratorCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteCustomRoutingAcceleratorCommandInput - {@link DeleteCustomRoutingAcceleratorCommandInput}
@@ -88,6 +91,8 @@ export interface DeleteCustomRoutingAcceleratorCommandOutput extends __MetadataB
  * @throws {@link InvalidArgumentException} (client fault)
  *  <p>An argument that you specified is invalid.</p>
  *
+ * @throws {@link GlobalAcceleratorServiceException}
+ * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
  */
 export class DeleteCustomRoutingAcceleratorCommand extends $Command<

@@ -40,14 +40,28 @@ export interface GetBucketBundlesCommandOutput extends GetBucketBundlesResult, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LightsailClient, GetBucketBundlesCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
- * // const { LightsailClient, GetBucketBundlesCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
+ * import { LightsailClient, GetBucketBundlesCommand } from '@aws-sdk/client-lightsail'; // ES Modules import
+ * // const { LightsailClient, GetBucketBundlesCommand } = require('@aws-sdk/client-lightsail'); // CommonJS import
  * const client = new LightsailClient(config);
  * const input = { // GetBucketBundlesRequest
  *   includeInactive: true || false,
  * };
  * const command = new GetBucketBundlesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetBucketBundlesResult
+ *   bundles: [ // BucketBundleList
+ *     { // BucketBundle
+ *       bundleId: 'STRING_VALUE',
+ *       name: 'STRING_VALUE',
+ *       price: Number('float'),
+ *       storagePerMonthInGb: Number('int'),
+ *       transferPerMonthInGb: Number('int'),
+ *       isActive: true || false,
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetBucketBundlesCommandInput - {@link GetBucketBundlesCommandInput}
@@ -76,6 +90,8 @@ export interface GetBucketBundlesCommandOutput extends GetBucketBundlesResult, _
  * @throws {@link UnauthenticatedException} (client fault)
  *  <p>Lightsail throws this exception when the user has not been authenticated.</p>
  *
+ * @throws {@link LightsailServiceException}
+ * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
  */
 export class GetBucketBundlesCommand extends $Command<

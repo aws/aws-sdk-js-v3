@@ -40,16 +40,31 @@ export interface ListVoiceProfilesCommandOutput extends ListVoiceProfilesRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeSDKVoiceClient, ListVoiceProfilesCommand } from "@aws-sdk/client-chime-sdk-voice"; // ES Modules import
- * // const { ChimeSDKVoiceClient, ListVoiceProfilesCommand } = require("@aws-sdk/client-chime-sdk-voice"); // CommonJS import
+ * import { ChimeSDKVoiceClient, ListVoiceProfilesCommand } from '@aws-sdk/client-chime-sdk-voice'; // ES Modules import
+ * // const { ChimeSDKVoiceClient, ListVoiceProfilesCommand } = require('@aws-sdk/client-chime-sdk-voice'); // CommonJS import
  * const client = new ChimeSDKVoiceClient(config);
  * const input = { // ListVoiceProfilesRequest
- *   VoiceProfileDomainId: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   VoiceProfileDomainId: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListVoiceProfilesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListVoiceProfilesResponse
+ *   VoiceProfiles: [ // VoiceProfileSummaryList
+ *     { // VoiceProfileSummary
+ *       VoiceProfileId: 'STRING_VALUE',
+ *       VoiceProfileArn: 'STRING_VALUE',
+ *       VoiceProfileDomainId: 'STRING_VALUE',
+ *       CreatedTimestamp: new Date('TIMESTAMP'),
+ *       UpdatedTimestamp: new Date('TIMESTAMP'),
+ *       ExpirationTimestamp: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListVoiceProfilesCommandInput - {@link ListVoiceProfilesCommandInput}
@@ -79,6 +94,8 @@ export interface ListVoiceProfilesCommandOutput extends ListVoiceProfilesRespons
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client isn't authorized to request a resource.</p>
  *
+ * @throws {@link ChimeSDKVoiceServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
  */
 export class ListVoiceProfilesCommand extends $Command<

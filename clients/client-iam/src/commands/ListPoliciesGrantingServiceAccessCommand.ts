@@ -83,18 +83,38 @@ export interface ListPoliciesGrantingServiceAccessCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IAMClient, ListPoliciesGrantingServiceAccessCommand } from "@aws-sdk/client-iam"; // ES Modules import
- * // const { IAMClient, ListPoliciesGrantingServiceAccessCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * import { IAMClient, ListPoliciesGrantingServiceAccessCommand } from '@aws-sdk/client-iam'; // ES Modules import
+ * // const { IAMClient, ListPoliciesGrantingServiceAccessCommand } = require('@aws-sdk/client-iam'); // CommonJS import
  * const client = new IAMClient(config);
  * const input = { // ListPoliciesGrantingServiceAccessRequest
- *   Marker: "STRING_VALUE",
- *   Arn: "STRING_VALUE", // required
+ *   Marker: 'STRING_VALUE',
+ *   Arn: 'STRING_VALUE', // required
  *   ServiceNamespaces: [ // serviceNamespaceListType // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new ListPoliciesGrantingServiceAccessCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListPoliciesGrantingServiceAccessResponse
+ *   PoliciesGrantingServiceAccess: [ // listPolicyGrantingServiceAccessResponseListType // required
+ *     { // ListPoliciesGrantingServiceAccessEntry
+ *       ServiceNamespace: 'STRING_VALUE',
+ *       Policies: [ // policyGrantingServiceAccessListType
+ *         { // PolicyGrantingServiceAccess
+ *           PolicyName: 'STRING_VALUE', // required
+ *           PolicyType: 'INLINE' || 'MANAGED', // required
+ *           PolicyArn: 'STRING_VALUE',
+ *           EntityType: 'USER' || 'ROLE' || 'GROUP',
+ *           EntityName: 'STRING_VALUE',
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   IsTruncated: true || false,
+ *   Marker: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListPoliciesGrantingServiceAccessCommandInput - {@link ListPoliciesGrantingServiceAccessCommandInput}
@@ -111,6 +131,8 @@ export interface ListPoliciesGrantingServiceAccessCommandOutput
  *  <p>The request was rejected because it referenced a resource entity that does not exist. The
  *       error message describes the resource.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  * @example To list policies that allow access to a service
  * ```javascript

@@ -39,15 +39,27 @@ export interface DeleteNetworkCommandOutput extends DeleteNetworkResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PrivateNetworksClient, DeleteNetworkCommand } from "@aws-sdk/client-privatenetworks"; // ES Modules import
- * // const { PrivateNetworksClient, DeleteNetworkCommand } = require("@aws-sdk/client-privatenetworks"); // CommonJS import
+ * import { PrivateNetworksClient, DeleteNetworkCommand } from '@aws-sdk/client-privatenetworks'; // ES Modules import
+ * // const { PrivateNetworksClient, DeleteNetworkCommand } = require('@aws-sdk/client-privatenetworks'); // CommonJS import
  * const client = new PrivateNetworksClient(config);
  * const input = { // DeleteNetworkRequest
- *   networkArn: "STRING_VALUE", // required
- *   clientToken: "STRING_VALUE",
+ *   networkArn: 'STRING_VALUE', // required
+ *   clientToken: 'STRING_VALUE',
  * };
  * const command = new DeleteNetworkCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteNetworkResponse
+ *   network: { // Network
+ *     networkArn: 'STRING_VALUE', // required
+ *     networkName: 'STRING_VALUE', // required
+ *     description: 'STRING_VALUE',
+ *     status: 'STRING_VALUE', // required
+ *     statusReason: 'STRING_VALUE',
+ *     createdAt: new Date('TIMESTAMP'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param DeleteNetworkCommandInput - {@link DeleteNetworkCommandInput}
@@ -68,6 +80,8 @@ export interface DeleteNetworkCommandOutput extends DeleteNetworkResponse, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>The request failed validation.</p>
  *
+ * @throws {@link PrivateNetworksServiceException}
+ * <p>Base exception class for all service exceptions from PrivateNetworks service.</p>
  *
  */
 export class DeleteNetworkCommand extends $Command<

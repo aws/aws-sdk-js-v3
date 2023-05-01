@@ -37,14 +37,21 @@ export interface GetSinkPolicyCommandOutput extends GetSinkPolicyOutput, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OAMClient, GetSinkPolicyCommand } from "@aws-sdk/client-oam"; // ES Modules import
- * // const { OAMClient, GetSinkPolicyCommand } = require("@aws-sdk/client-oam"); // CommonJS import
+ * import { OAMClient, GetSinkPolicyCommand } from '@aws-sdk/client-oam'; // ES Modules import
+ * // const { OAMClient, GetSinkPolicyCommand } = require('@aws-sdk/client-oam'); // CommonJS import
  * const client = new OAMClient(config);
  * const input = { // GetSinkPolicyInput
- *   SinkIdentifier: "STRING_VALUE", // required
+ *   SinkIdentifier: 'STRING_VALUE', // required
  * };
  * const command = new GetSinkPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetSinkPolicyOutput
+ *   SinkArn: 'STRING_VALUE',
+ *   SinkId: 'STRING_VALUE',
+ *   Policy: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetSinkPolicyCommandInput - {@link GetSinkPolicyCommandInput}
@@ -65,6 +72,8 @@ export interface GetSinkPolicyCommandOutput extends GetSinkPolicyOutput, __Metad
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The request references a resource that does not exist.</p>
  *
+ * @throws {@link OAMServiceException}
+ * <p>Base exception class for all service exceptions from OAM service.</p>
  *
  */
 export class GetSinkPolicyCommand extends $Command<

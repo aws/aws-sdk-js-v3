@@ -48,15 +48,18 @@ export interface DeleteDatabaseCommandOutput extends DeleteDatabaseResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlueClient, DeleteDatabaseCommand } from "@aws-sdk/client-glue"; // ES Modules import
- * // const { GlueClient, DeleteDatabaseCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * import { GlueClient, DeleteDatabaseCommand } from '@aws-sdk/client-glue'; // ES Modules import
+ * // const { GlueClient, DeleteDatabaseCommand } = require('@aws-sdk/client-glue'); // CommonJS import
  * const client = new GlueClient(config);
  * const input = { // DeleteDatabaseRequest
- *   CatalogId: "STRING_VALUE",
- *   Name: "STRING_VALUE", // required
+ *   CatalogId: 'STRING_VALUE',
+ *   Name: 'STRING_VALUE', // required
  * };
  * const command = new DeleteDatabaseCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteDatabaseCommandInput - {@link DeleteDatabaseCommandInput}
@@ -80,6 +83,8 @@ export interface DeleteDatabaseCommandOutput extends DeleteDatabaseResponse, __M
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class DeleteDatabaseCommand extends $Command<

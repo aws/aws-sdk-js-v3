@@ -51,36 +51,39 @@ export interface CreateDatalakeCommandOutput extends CreateDatalakeResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SecurityLakeClient, CreateDatalakeCommand } from "@aws-sdk/client-securitylake"; // ES Modules import
- * // const { SecurityLakeClient, CreateDatalakeCommand } = require("@aws-sdk/client-securitylake"); // CommonJS import
+ * import { SecurityLakeClient, CreateDatalakeCommand } from '@aws-sdk/client-securitylake'; // ES Modules import
+ * // const { SecurityLakeClient, CreateDatalakeCommand } = require('@aws-sdk/client-securitylake'); // CommonJS import
  * const client = new SecurityLakeClient(config);
  * const input = { // CreateDatalakeRequest
  *   regions: [ // RegionSet
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   configurations: { // LakeConfigurationRequestMap
- *     "<keys>": { // LakeConfigurationRequest
- *       encryptionKey: "STRING_VALUE",
+ *     '<keys>': { // LakeConfigurationRequest
+ *       encryptionKey: 'STRING_VALUE',
  *       retentionSettings: [ // RetentionSettingList
  *         { // RetentionSetting
- *           storageClass: "STRING_VALUE",
- *           retentionPeriod: Number("int"),
+ *           storageClass: 'STRING_VALUE',
+ *           retentionPeriod: Number('int'),
  *         },
  *       ],
  *       tagsMap: { // TagsMap
- *         "<keys>": "STRING_VALUE",
+ *         '<keys>': 'STRING_VALUE',
  *       },
  *       replicationDestinationRegions: [
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
- *       replicationRoleArn: "STRING_VALUE",
+ *       replicationRoleArn: 'STRING_VALUE',
  *     },
  *   },
  *   enableAll: true || false,
- *   metaStoreManagerRoleArn: "STRING_VALUE",
+ *   metaStoreManagerRoleArn: 'STRING_VALUE',
  * };
  * const command = new CreateDatalakeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param CreateDatalakeCommandInput - {@link CreateDatalakeCommandInput}
@@ -118,6 +121,8 @@ export interface CreateDatalakeCommandOutput extends CreateDatalakeResponse, __M
  * @throws {@link ValidationException} (client fault)
  *  <p>Your signing certificate could not be validated. </p>
  *
+ * @throws {@link SecurityLakeServiceException}
+ * <p>Base exception class for all service exceptions from SecurityLake service.</p>
  *
  */
 export class CreateDatalakeCommand extends $Command<

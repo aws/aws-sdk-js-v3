@@ -41,14 +41,19 @@ export interface GetResourcePolicyCommandOutput extends GetResourcePolicyRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MarketplaceCatalogClient, GetResourcePolicyCommand } from "@aws-sdk/client-marketplace-catalog"; // ES Modules import
- * // const { MarketplaceCatalogClient, GetResourcePolicyCommand } = require("@aws-sdk/client-marketplace-catalog"); // CommonJS import
+ * import { MarketplaceCatalogClient, GetResourcePolicyCommand } from '@aws-sdk/client-marketplace-catalog'; // ES Modules import
+ * // const { MarketplaceCatalogClient, GetResourcePolicyCommand } = require('@aws-sdk/client-marketplace-catalog'); // CommonJS import
  * const client = new MarketplaceCatalogClient(config);
  * const input = { // GetResourcePolicyRequest
- *   ResourceArn: "STRING_VALUE", // required
+ *   ResourceArn: 'STRING_VALUE', // required
  * };
  * const command = new GetResourcePolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetResourcePolicyResponse
+ *   Policy: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetResourcePolicyCommandInput - {@link GetResourcePolicyCommandInput}
@@ -77,6 +82,8 @@ export interface GetResourcePolicyCommandOutput extends GetResourcePolicyRespons
  *  <p>An error occurred during validation.</p>
  *          <p>HTTP status code: 422</p>
  *
+ * @throws {@link MarketplaceCatalogServiceException}
+ * <p>Base exception class for all service exceptions from MarketplaceCatalog service.</p>
  *
  */
 export class GetResourcePolicyCommand extends $Command<

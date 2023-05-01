@@ -42,27 +42,54 @@ export interface DescribeTransitGatewayAttachmentsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, DescribeTransitGatewayAttachmentsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, DescribeTransitGatewayAttachmentsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, DescribeTransitGatewayAttachmentsCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, DescribeTransitGatewayAttachmentsCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // DescribeTransitGatewayAttachmentsRequest
  *   TransitGatewayAttachmentIds: [ // TransitGatewayAttachmentIdStringList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   Filters: [ // FilterList
  *     { // Filter
- *       Name: "STRING_VALUE",
+ *       Name: 'STRING_VALUE',
  *       Values: [ // ValueStringList
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  *   DryRun: true || false,
  * };
  * const command = new DescribeTransitGatewayAttachmentsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeTransitGatewayAttachmentsResult
+ *   TransitGatewayAttachments: [ // TransitGatewayAttachmentList
+ *     { // TransitGatewayAttachment
+ *       TransitGatewayAttachmentId: 'STRING_VALUE',
+ *       TransitGatewayId: 'STRING_VALUE',
+ *       TransitGatewayOwnerId: 'STRING_VALUE',
+ *       ResourceOwnerId: 'STRING_VALUE',
+ *       ResourceType: 'vpc' || 'vpn' || 'direct-connect-gateway' || 'connect' || 'peering' || 'tgw-peering',
+ *       ResourceId: 'STRING_VALUE',
+ *       State: 'initiating' || 'initiatingRequest' || 'pendingAcceptance' || 'rollingBack' || 'pending' || 'available' || 'modifying' || 'deleting' || 'deleted' || 'failed' || 'rejected' || 'rejecting' || 'failing',
+ *       Association: { // TransitGatewayAttachmentAssociation
+ *         TransitGatewayRouteTableId: 'STRING_VALUE',
+ *         State: 'associating' || 'associated' || 'disassociating' || 'disassociated',
+ *       },
+ *       CreationTime: new Date('TIMESTAMP'),
+ *       Tags: [ // TagList
+ *         { // Tag
+ *           Key: 'STRING_VALUE',
+ *           Value: 'STRING_VALUE',
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeTransitGatewayAttachmentsCommandInput - {@link DescribeTransitGatewayAttachmentsCommandInput}
@@ -71,6 +98,8 @@ export interface DescribeTransitGatewayAttachmentsCommandOutput
  * @see {@link DescribeTransitGatewayAttachmentsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class DescribeTransitGatewayAttachmentsCommand extends $Command<

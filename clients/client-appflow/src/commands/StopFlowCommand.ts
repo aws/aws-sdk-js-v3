@@ -38,14 +38,20 @@ export interface StopFlowCommandOutput extends StopFlowResponse, __MetadataBeare
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppflowClient, StopFlowCommand } from "@aws-sdk/client-appflow"; // ES Modules import
- * // const { AppflowClient, StopFlowCommand } = require("@aws-sdk/client-appflow"); // CommonJS import
+ * import { AppflowClient, StopFlowCommand } from '@aws-sdk/client-appflow'; // ES Modules import
+ * // const { AppflowClient, StopFlowCommand } = require('@aws-sdk/client-appflow'); // CommonJS import
  * const client = new AppflowClient(config);
  * const input = { // StopFlowRequest
- *   flowName: "STRING_VALUE", // required
+ *   flowName: 'STRING_VALUE', // required
  * };
  * const command = new StopFlowCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StopFlowResponse
+ *   flowArn: 'STRING_VALUE',
+ *   flowStatus: 'Active' || 'Deprecated' || 'Deleted' || 'Draft' || 'Errored' || 'Suspended',
+ * };
+ *
  * ```
  *
  * @param StopFlowCommandInput - {@link StopFlowCommandInput}
@@ -69,6 +75,8 @@ export interface StopFlowCommandOutput extends StopFlowResponse, __MetadataBeare
  * @throws {@link UnsupportedOperationException} (client fault)
  *  <p> The requested operation is not supported for the current flow. </p>
  *
+ * @throws {@link AppflowServiceException}
+ * <p>Base exception class for all service exceptions from Appflow service.</p>
  *
  */
 export class StopFlowCommand extends $Command<

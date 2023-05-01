@@ -36,23 +36,38 @@ export interface BatchDeletePartitionCommandOutput extends BatchDeletePartitionR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlueClient, BatchDeletePartitionCommand } from "@aws-sdk/client-glue"; // ES Modules import
- * // const { GlueClient, BatchDeletePartitionCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * import { GlueClient, BatchDeletePartitionCommand } from '@aws-sdk/client-glue'; // ES Modules import
+ * // const { GlueClient, BatchDeletePartitionCommand } = require('@aws-sdk/client-glue'); // CommonJS import
  * const client = new GlueClient(config);
  * const input = { // BatchDeletePartitionRequest
- *   CatalogId: "STRING_VALUE",
- *   DatabaseName: "STRING_VALUE", // required
- *   TableName: "STRING_VALUE", // required
+ *   CatalogId: 'STRING_VALUE',
+ *   DatabaseName: 'STRING_VALUE', // required
+ *   TableName: 'STRING_VALUE', // required
  *   PartitionsToDelete: [ // BatchDeletePartitionValueList // required
  *     { // PartitionValueList
  *       Values: [ // ValueStringList // required
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
  * };
  * const command = new BatchDeletePartitionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BatchDeletePartitionResponse
+ *   Errors: [ // PartitionErrors
+ *     { // PartitionError
+ *       PartitionValues: [ // ValueStringList
+ *         'STRING_VALUE',
+ *       ],
+ *       ErrorDetail: { // ErrorDetail
+ *         ErrorCode: 'STRING_VALUE',
+ *         ErrorMessage: 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param BatchDeletePartitionCommandInput - {@link BatchDeletePartitionCommandInput}
@@ -73,6 +88,8 @@ export interface BatchDeletePartitionCommandOutput extends BatchDeletePartitionR
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class BatchDeletePartitionCommand extends $Command<

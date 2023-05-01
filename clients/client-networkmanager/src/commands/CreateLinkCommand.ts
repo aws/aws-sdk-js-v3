@@ -36,28 +36,53 @@ export interface CreateLinkCommandOutput extends CreateLinkResponse, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { NetworkManagerClient, CreateLinkCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
- * // const { NetworkManagerClient, CreateLinkCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
+ * import { NetworkManagerClient, CreateLinkCommand } from '@aws-sdk/client-networkmanager'; // ES Modules import
+ * // const { NetworkManagerClient, CreateLinkCommand } = require('@aws-sdk/client-networkmanager'); // CommonJS import
  * const client = new NetworkManagerClient(config);
  * const input = { // CreateLinkRequest
- *   GlobalNetworkId: "STRING_VALUE", // required
- *   Description: "STRING_VALUE",
- *   Type: "STRING_VALUE",
+ *   GlobalNetworkId: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE',
+ *   Type: 'STRING_VALUE',
  *   Bandwidth: { // Bandwidth
- *     UploadSpeed: Number("int"),
- *     DownloadSpeed: Number("int"),
+ *     UploadSpeed: Number('int'),
+ *     DownloadSpeed: Number('int'),
  *   },
- *   Provider: "STRING_VALUE",
- *   SiteId: "STRING_VALUE", // required
+ *   Provider: 'STRING_VALUE',
+ *   SiteId: 'STRING_VALUE', // required
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE",
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new CreateLinkCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateLinkResponse
+ *   Link: { // Link
+ *     LinkId: 'STRING_VALUE',
+ *     LinkArn: 'STRING_VALUE',
+ *     GlobalNetworkId: 'STRING_VALUE',
+ *     SiteId: 'STRING_VALUE',
+ *     Description: 'STRING_VALUE',
+ *     Type: 'STRING_VALUE',
+ *     Bandwidth: { // Bandwidth
+ *       UploadSpeed: Number('int'),
+ *       DownloadSpeed: Number('int'),
+ *     },
+ *     Provider: 'STRING_VALUE',
+ *     CreatedAt: new Date('TIMESTAMP'),
+ *     State: 'PENDING' || 'AVAILABLE' || 'DELETING' || 'UPDATING',
+ *     Tags: [ // TagList
+ *       { // Tag
+ *         Key: 'STRING_VALUE',
+ *         Value: 'STRING_VALUE',
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateLinkCommandInput - {@link CreateLinkCommandInput}
@@ -88,6 +113,8 @@ export interface CreateLinkCommandOutput extends CreateLinkResponse, __MetadataB
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints.</p>
  *
+ * @throws {@link NetworkManagerServiceException}
+ * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
  */
 export class CreateLinkCommand extends $Command<

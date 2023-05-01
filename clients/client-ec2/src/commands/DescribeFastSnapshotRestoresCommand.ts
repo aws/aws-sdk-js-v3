@@ -38,24 +38,44 @@ export interface DescribeFastSnapshotRestoresCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, DescribeFastSnapshotRestoresCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, DescribeFastSnapshotRestoresCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, DescribeFastSnapshotRestoresCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, DescribeFastSnapshotRestoresCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // DescribeFastSnapshotRestoresRequest
  *   Filters: [ // FilterList
  *     { // Filter
- *       Name: "STRING_VALUE",
+ *       Name: 'STRING_VALUE',
  *       Values: [ // ValueStringList
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  *   DryRun: true || false,
  * };
  * const command = new DescribeFastSnapshotRestoresCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeFastSnapshotRestoresResult
+ *   FastSnapshotRestores: [ // DescribeFastSnapshotRestoreSuccessSet
+ *     { // DescribeFastSnapshotRestoreSuccessItem
+ *       SnapshotId: 'STRING_VALUE',
+ *       AvailabilityZone: 'STRING_VALUE',
+ *       State: 'enabling' || 'optimizing' || 'enabled' || 'disabling' || 'disabled',
+ *       StateTransitionReason: 'STRING_VALUE',
+ *       OwnerId: 'STRING_VALUE',
+ *       OwnerAlias: 'STRING_VALUE',
+ *       EnablingTime: new Date('TIMESTAMP'),
+ *       OptimizingTime: new Date('TIMESTAMP'),
+ *       EnabledTime: new Date('TIMESTAMP'),
+ *       DisablingTime: new Date('TIMESTAMP'),
+ *       DisabledTime: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeFastSnapshotRestoresCommandInput - {@link DescribeFastSnapshotRestoresCommandInput}
@@ -64,6 +84,8 @@ export interface DescribeFastSnapshotRestoresCommandOutput
  * @see {@link DescribeFastSnapshotRestoresCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class DescribeFastSnapshotRestoresCommand extends $Command<

@@ -45,18 +45,21 @@ export interface RemoveTagsFromStreamCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KinesisClient, RemoveTagsFromStreamCommand } from "@aws-sdk/client-kinesis"; // ES Modules import
- * // const { KinesisClient, RemoveTagsFromStreamCommand } = require("@aws-sdk/client-kinesis"); // CommonJS import
+ * import { KinesisClient, RemoveTagsFromStreamCommand } from '@aws-sdk/client-kinesis'; // ES Modules import
+ * // const { KinesisClient, RemoveTagsFromStreamCommand } = require('@aws-sdk/client-kinesis'); // CommonJS import
  * const client = new KinesisClient(config);
  * const input = { // RemoveTagsFromStreamInput
- *   StreamName: "STRING_VALUE",
+ *   StreamName: 'STRING_VALUE',
  *   TagKeys: [ // TagKeyList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   StreamARN: "STRING_VALUE",
+ *   StreamARN: 'STRING_VALUE',
  * };
  * const command = new RemoveTagsFromStreamCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param RemoveTagsFromStreamCommandInput - {@link RemoveTagsFromStreamCommandInput}
@@ -85,6 +88,8 @@ export interface RemoveTagsFromStreamCommandOutput extends __MetadataBearer {}
  *  <p>The requested resource could not be found. The stream might not be specified
  *             correctly.</p>
  *
+ * @throws {@link KinesisServiceException}
+ * <p>Base exception class for all service exceptions from Kinesis service.</p>
  *
  */
 export class RemoveTagsFromStreamCommand extends $Command<

@@ -36,14 +36,27 @@ export interface GetSessionStatusCommandOutput extends GetSessionStatusResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AthenaClient, GetSessionStatusCommand } from "@aws-sdk/client-athena"; // ES Modules import
- * // const { AthenaClient, GetSessionStatusCommand } = require("@aws-sdk/client-athena"); // CommonJS import
+ * import { AthenaClient, GetSessionStatusCommand } from '@aws-sdk/client-athena'; // ES Modules import
+ * // const { AthenaClient, GetSessionStatusCommand } = require('@aws-sdk/client-athena'); // CommonJS import
  * const client = new AthenaClient(config);
  * const input = { // GetSessionStatusRequest
- *   SessionId: "STRING_VALUE", // required
+ *   SessionId: 'STRING_VALUE', // required
  * };
  * const command = new GetSessionStatusCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetSessionStatusResponse
+ *   SessionId: 'STRING_VALUE',
+ *   Status: { // SessionStatus
+ *     StartDateTime: new Date('TIMESTAMP'),
+ *     LastModifiedDateTime: new Date('TIMESTAMP'),
+ *     EndDateTime: new Date('TIMESTAMP'),
+ *     IdleSinceDateTime: new Date('TIMESTAMP'),
+ *     State: 'CREATING' || 'CREATED' || 'IDLE' || 'BUSY' || 'TERMINATING' || 'TERMINATED' || 'DEGRADED' || 'FAILED',
+ *     StateChangeReason: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetSessionStatusCommandInput - {@link GetSessionStatusCommandInput}
@@ -63,6 +76,8 @@ export interface GetSessionStatusCommandOutput extends GetSessionStatusResponse,
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>A resource, such as a workgroup, was not found.</p>
  *
+ * @throws {@link AthenaServiceException}
+ * <p>Base exception class for all service exceptions from Athena service.</p>
  *
  */
 export class GetSessionStatusCommand extends $Command<

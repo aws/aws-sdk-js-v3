@@ -36,14 +36,38 @@ export interface DescribeOfferingCommandOutput extends DescribeOfferingResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MediaLiveClient, DescribeOfferingCommand } from "@aws-sdk/client-medialive"; // ES Modules import
- * // const { MediaLiveClient, DescribeOfferingCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
+ * import { MediaLiveClient, DescribeOfferingCommand } from '@aws-sdk/client-medialive'; // ES Modules import
+ * // const { MediaLiveClient, DescribeOfferingCommand } = require('@aws-sdk/client-medialive'); // CommonJS import
  * const client = new MediaLiveClient(config);
  * const input = { // DescribeOfferingRequest
- *   OfferingId: "STRING_VALUE", // required
+ *   OfferingId: 'STRING_VALUE', // required
  * };
  * const command = new DescribeOfferingCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeOfferingResponse
+ *   Arn: 'STRING_VALUE',
+ *   CurrencyCode: 'STRING_VALUE',
+ *   Duration: Number('int'),
+ *   DurationUnits: 'MONTHS',
+ *   FixedPrice: Number('double'),
+ *   OfferingDescription: 'STRING_VALUE',
+ *   OfferingId: 'STRING_VALUE',
+ *   OfferingType: 'NO_UPFRONT',
+ *   Region: 'STRING_VALUE',
+ *   ResourceSpecification: { // ReservationResourceSpecification
+ *     ChannelClass: 'STANDARD' || 'SINGLE_PIPELINE',
+ *     Codec: 'MPEG2' || 'AVC' || 'HEVC' || 'AUDIO' || 'LINK',
+ *     MaximumBitrate: 'MAX_10_MBPS' || 'MAX_20_MBPS' || 'MAX_50_MBPS',
+ *     MaximumFramerate: 'MAX_30_FPS' || 'MAX_60_FPS',
+ *     Resolution: 'SD' || 'HD' || 'FHD' || 'UHD',
+ *     ResourceType: 'INPUT' || 'OUTPUT' || 'MULTIPLEX' || 'CHANNEL',
+ *     SpecialFeature: 'ADVANCED_AUDIO' || 'AUDIO_NORMALIZATION' || 'MGHD' || 'MGUHD',
+ *     VideoQuality: 'STANDARD' || 'ENHANCED' || 'PREMIUM',
+ *   },
+ *   UsagePrice: Number('double'),
+ * };
+ *
  * ```
  *
  * @param DescribeOfferingCommandInput - {@link DescribeOfferingCommandInput}
@@ -73,6 +97,8 @@ export interface DescribeOfferingCommandOutput extends DescribeOfferingResponse,
  * @throws {@link TooManyRequestsException} (client fault)
  *  Placeholder documentation for TooManyRequestsException
  *
+ * @throws {@link MediaLiveServiceException}
+ * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
  */
 export class DescribeOfferingCommand extends $Command<

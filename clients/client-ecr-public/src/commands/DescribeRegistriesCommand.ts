@@ -36,15 +36,36 @@ export interface DescribeRegistriesCommandOutput extends DescribeRegistriesRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ECRPUBLICClient, DescribeRegistriesCommand } from "@aws-sdk/client-ecr-public"; // ES Modules import
- * // const { ECRPUBLICClient, DescribeRegistriesCommand } = require("@aws-sdk/client-ecr-public"); // CommonJS import
+ * import { ECRPUBLICClient, DescribeRegistriesCommand } from '@aws-sdk/client-ecr-public'; // ES Modules import
+ * // const { ECRPUBLICClient, DescribeRegistriesCommand } = require('@aws-sdk/client-ecr-public'); // CommonJS import
  * const client = new ECRPUBLICClient(config);
  * const input = { // DescribeRegistriesRequest
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new DescribeRegistriesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeRegistriesResponse
+ *   registries: [ // RegistryList // required
+ *     { // Registry
+ *       registryId: 'STRING_VALUE', // required
+ *       registryArn: 'STRING_VALUE', // required
+ *       registryUri: 'STRING_VALUE', // required
+ *       verified: true || false, // required
+ *       aliases: [ // RegistryAliasList // required
+ *         { // RegistryAlias
+ *           name: 'STRING_VALUE', // required
+ *           status: 'ACTIVE' || 'PENDING' || 'REJECTED', // required
+ *           primaryRegistryAlias: true || false, // required
+ *           defaultRegistryAlias: true || false, // required
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeRegistriesCommandInput - {@link DescribeRegistriesCommandInput}
@@ -63,6 +84,8 @@ export interface DescribeRegistriesCommandOutput extends DescribeRegistriesRespo
  * @throws {@link UnsupportedCommandException} (client fault)
  *  <p>The action isn't supported in this Region.</p>
  *
+ * @throws {@link ECRPUBLICServiceException}
+ * <p>Base exception class for all service exceptions from ECRPUBLIC service.</p>
  *
  */
 export class DescribeRegistriesCommand extends $Command<

@@ -36,26 +36,43 @@ export interface GetIpamDiscoveredAccountsCommandOutput extends GetIpamDiscovere
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, GetIpamDiscoveredAccountsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, GetIpamDiscoveredAccountsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, GetIpamDiscoveredAccountsCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, GetIpamDiscoveredAccountsCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // GetIpamDiscoveredAccountsRequest
  *   DryRun: true || false,
- *   IpamResourceDiscoveryId: "STRING_VALUE", // required
- *   DiscoveryRegion: "STRING_VALUE", // required
+ *   IpamResourceDiscoveryId: 'STRING_VALUE', // required
+ *   DiscoveryRegion: 'STRING_VALUE', // required
  *   Filters: [ // FilterList
  *     { // Filter
- *       Name: "STRING_VALUE",
+ *       Name: 'STRING_VALUE',
  *       Values: [ // ValueStringList
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new GetIpamDiscoveredAccountsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetIpamDiscoveredAccountsResult
+ *   IpamDiscoveredAccounts: [ // IpamDiscoveredAccountSet
+ *     { // IpamDiscoveredAccount
+ *       AccountId: 'STRING_VALUE',
+ *       DiscoveryRegion: 'STRING_VALUE',
+ *       FailureReason: { // IpamDiscoveryFailureReason
+ *         Code: 'assume-role-failure' || 'throttling-failure' || 'unauthorized-failure',
+ *         Message: 'STRING_VALUE',
+ *       },
+ *       LastAttemptedDiscoveryTime: new Date('TIMESTAMP'),
+ *       LastSuccessfulDiscoveryTime: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetIpamDiscoveredAccountsCommandInput - {@link GetIpamDiscoveredAccountsCommandInput}
@@ -64,6 +81,8 @@ export interface GetIpamDiscoveredAccountsCommandOutput extends GetIpamDiscovere
  * @see {@link GetIpamDiscoveredAccountsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class GetIpamDiscoveredAccountsCommand extends $Command<

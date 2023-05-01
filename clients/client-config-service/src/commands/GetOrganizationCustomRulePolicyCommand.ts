@@ -41,14 +41,19 @@ export interface GetOrganizationCustomRulePolicyCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConfigServiceClient, GetOrganizationCustomRulePolicyCommand } from "@aws-sdk/client-config-service"; // ES Modules import
- * // const { ConfigServiceClient, GetOrganizationCustomRulePolicyCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
+ * import { ConfigServiceClient, GetOrganizationCustomRulePolicyCommand } from '@aws-sdk/client-config-service'; // ES Modules import
+ * // const { ConfigServiceClient, GetOrganizationCustomRulePolicyCommand } = require('@aws-sdk/client-config-service'); // CommonJS import
  * const client = new ConfigServiceClient(config);
  * const input = { // GetOrganizationCustomRulePolicyRequest
- *   OrganizationConfigRuleName: "STRING_VALUE", // required
+ *   OrganizationConfigRuleName: 'STRING_VALUE', // required
  * };
  * const command = new GetOrganizationCustomRulePolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetOrganizationCustomRulePolicyResponse
+ *   PolicyText: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetOrganizationCustomRulePolicyCommandInput - {@link GetOrganizationCustomRulePolicyCommandInput}
@@ -81,6 +86,8 @@ export interface GetOrganizationCustomRulePolicyCommandOutput
  *          </ul>
  *          <p>For all <code>OrganizationConfigRule</code> and <code>OrganizationConformancePack</code> APIs, Config throws an exception if APIs are called from member accounts. All APIs must be called from organization management account.</p>
  *
+ * @throws {@link ConfigServiceServiceException}
+ * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
  */
 export class GetOrganizationCustomRulePolicyCommand extends $Command<

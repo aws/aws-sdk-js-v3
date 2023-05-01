@@ -42,19 +42,34 @@ export interface GetTransitGatewayRegistrationsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { NetworkManagerClient, GetTransitGatewayRegistrationsCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
- * // const { NetworkManagerClient, GetTransitGatewayRegistrationsCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
+ * import { NetworkManagerClient, GetTransitGatewayRegistrationsCommand } from '@aws-sdk/client-networkmanager'; // ES Modules import
+ * // const { NetworkManagerClient, GetTransitGatewayRegistrationsCommand } = require('@aws-sdk/client-networkmanager'); // CommonJS import
  * const client = new NetworkManagerClient(config);
  * const input = { // GetTransitGatewayRegistrationsRequest
- *   GlobalNetworkId: "STRING_VALUE", // required
+ *   GlobalNetworkId: 'STRING_VALUE', // required
  *   TransitGatewayArns: [ // TransitGatewayArnList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new GetTransitGatewayRegistrationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetTransitGatewayRegistrationsResponse
+ *   TransitGatewayRegistrations: [ // TransitGatewayRegistrationList
+ *     { // TransitGatewayRegistration
+ *       GlobalNetworkId: 'STRING_VALUE',
+ *       TransitGatewayArn: 'STRING_VALUE',
+ *       State: { // TransitGatewayRegistrationStateReason
+ *         Code: 'PENDING' || 'AVAILABLE' || 'DELETING' || 'DELETED' || 'FAILED',
+ *         Message: 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetTransitGatewayRegistrationsCommandInput - {@link GetTransitGatewayRegistrationsCommandInput}
@@ -78,6 +93,8 @@ export interface GetTransitGatewayRegistrationsCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints.</p>
  *
+ * @throws {@link NetworkManagerServiceException}
+ * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
  */
 export class GetTransitGatewayRegistrationsCommand extends $Command<

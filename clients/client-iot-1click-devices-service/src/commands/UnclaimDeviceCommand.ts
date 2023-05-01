@@ -40,14 +40,19 @@ export interface UnclaimDeviceCommandOutput extends UnclaimDeviceResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoT1ClickDevicesServiceClient, UnclaimDeviceCommand } from "@aws-sdk/client-iot-1click-devices-service"; // ES Modules import
- * // const { IoT1ClickDevicesServiceClient, UnclaimDeviceCommand } = require("@aws-sdk/client-iot-1click-devices-service"); // CommonJS import
+ * import { IoT1ClickDevicesServiceClient, UnclaimDeviceCommand } from '@aws-sdk/client-iot-1click-devices-service'; // ES Modules import
+ * // const { IoT1ClickDevicesServiceClient, UnclaimDeviceCommand } = require('@aws-sdk/client-iot-1click-devices-service'); // CommonJS import
  * const client = new IoT1ClickDevicesServiceClient(config);
  * const input = { // UnclaimDeviceRequest
- *   DeviceId: "STRING_VALUE", // required
+ *   DeviceId: 'STRING_VALUE', // required
  * };
  * const command = new UnclaimDeviceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UnclaimDeviceResponse
+ *   State: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UnclaimDeviceCommandInput - {@link UnclaimDeviceCommandInput}
@@ -62,6 +67,8 @@ export interface UnclaimDeviceCommandOutput extends UnclaimDeviceResponse, __Met
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *
+ * @throws {@link IoT1ClickDevicesServiceServiceException}
+ * <p>Base exception class for all service exceptions from IoT1ClickDevicesService service.</p>
  *
  */
 export class UnclaimDeviceCommand extends $Command<

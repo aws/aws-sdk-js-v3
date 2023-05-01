@@ -36,17 +36,34 @@ export interface ListConnectionsCommandOutput extends ListConnectionsResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudWatchEventsClient, ListConnectionsCommand } from "@aws-sdk/client-cloudwatch-events"; // ES Modules import
- * // const { CloudWatchEventsClient, ListConnectionsCommand } = require("@aws-sdk/client-cloudwatch-events"); // CommonJS import
+ * import { CloudWatchEventsClient, ListConnectionsCommand } from '@aws-sdk/client-cloudwatch-events'; // ES Modules import
+ * // const { CloudWatchEventsClient, ListConnectionsCommand } = require('@aws-sdk/client-cloudwatch-events'); // CommonJS import
  * const client = new CloudWatchEventsClient(config);
  * const input = { // ListConnectionsRequest
- *   NamePrefix: "STRING_VALUE",
- *   ConnectionState: "STRING_VALUE",
- *   NextToken: "STRING_VALUE",
- *   Limit: Number("int"),
+ *   NamePrefix: 'STRING_VALUE',
+ *   ConnectionState: 'STRING_VALUE',
+ *   NextToken: 'STRING_VALUE',
+ *   Limit: Number('int'),
  * };
  * const command = new ListConnectionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListConnectionsResponse
+ *   Connections: [ // ConnectionResponseList
+ *     { // Connection
+ *       ConnectionArn: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *       ConnectionState: 'STRING_VALUE',
+ *       StateReason: 'STRING_VALUE',
+ *       AuthorizationType: 'STRING_VALUE',
+ *       CreationTime: new Date('TIMESTAMP'),
+ *       LastModifiedTime: new Date('TIMESTAMP'),
+ *       LastAuthorizedTime: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListConnectionsCommandInput - {@link ListConnectionsCommandInput}
@@ -58,6 +75,8 @@ export interface ListConnectionsCommandOutput extends ListConnectionsResponse, _
  * @throws {@link InternalException} (server fault)
  *  <p>This exception occurs due to unexpected causes.</p>
  *
+ * @throws {@link CloudWatchEventsServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatchEvents service.</p>
  *
  */
 export class ListConnectionsCommand extends $Command<

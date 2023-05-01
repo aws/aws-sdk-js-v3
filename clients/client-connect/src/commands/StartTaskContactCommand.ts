@@ -36,32 +36,37 @@ export interface StartTaskContactCommandOutput extends StartTaskContactResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, StartTaskContactCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, StartTaskContactCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, StartTaskContactCommand } from '@aws-sdk/client-connect'; // ES Modules import
+ * // const { ConnectClient, StartTaskContactCommand } = require('@aws-sdk/client-connect'); // CommonJS import
  * const client = new ConnectClient(config);
  * const input = { // StartTaskContactRequest
- *   InstanceId: "STRING_VALUE", // required
- *   PreviousContactId: "STRING_VALUE",
- *   ContactFlowId: "STRING_VALUE",
+ *   InstanceId: 'STRING_VALUE', // required
+ *   PreviousContactId: 'STRING_VALUE',
+ *   ContactFlowId: 'STRING_VALUE',
  *   Attributes: { // Attributes
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
- *   Name: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
  *   References: { // ContactReferences
- *     "<keys>": { // Reference
- *       Value: "STRING_VALUE", // required
- *       Type: "URL" || "ATTACHMENT" || "NUMBER" || "STRING" || "DATE" || "EMAIL", // required
+ *     '<keys>': { // Reference
+ *       Value: 'STRING_VALUE', // required
+ *       Type: 'URL' || 'ATTACHMENT' || 'NUMBER' || 'STRING' || 'DATE' || 'EMAIL', // required
  *     },
  *   },
- *   Description: "STRING_VALUE",
- *   ClientToken: "STRING_VALUE",
- *   ScheduledTime: new Date("TIMESTAMP"),
- *   TaskTemplateId: "STRING_VALUE",
- *   QuickConnectId: "STRING_VALUE",
- *   RelatedContactId: "STRING_VALUE",
+ *   Description: 'STRING_VALUE',
+ *   ClientToken: 'STRING_VALUE',
+ *   ScheduledTime: new Date('TIMESTAMP'),
+ *   TaskTemplateId: 'STRING_VALUE',
+ *   QuickConnectId: 'STRING_VALUE',
+ *   RelatedContactId: 'STRING_VALUE',
  * };
  * const command = new StartTaskContactCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartTaskContactResponse
+ *   ContactId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param StartTaskContactCommandInput - {@link StartTaskContactCommandInput}
@@ -88,6 +93,8 @@ export interface StartTaskContactCommandOutput extends StartTaskContactResponse,
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class StartTaskContactCommand extends $Command<

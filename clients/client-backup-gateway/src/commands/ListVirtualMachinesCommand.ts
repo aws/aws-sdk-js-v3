@@ -36,16 +36,31 @@ export interface ListVirtualMachinesCommandOutput extends ListVirtualMachinesOut
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BackupGatewayClient, ListVirtualMachinesCommand } from "@aws-sdk/client-backup-gateway"; // ES Modules import
- * // const { BackupGatewayClient, ListVirtualMachinesCommand } = require("@aws-sdk/client-backup-gateway"); // CommonJS import
+ * import { BackupGatewayClient, ListVirtualMachinesCommand } from '@aws-sdk/client-backup-gateway'; // ES Modules import
+ * // const { BackupGatewayClient, ListVirtualMachinesCommand } = require('@aws-sdk/client-backup-gateway'); // CommonJS import
  * const client = new BackupGatewayClient(config);
  * const input = { // ListVirtualMachinesInput
- *   HypervisorArn: "STRING_VALUE",
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   HypervisorArn: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListVirtualMachinesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListVirtualMachinesOutput
+ *   VirtualMachines: [ // VirtualMachines
+ *     { // VirtualMachine
+ *       HostName: 'STRING_VALUE',
+ *       HypervisorId: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *       Path: 'STRING_VALUE',
+ *       ResourceArn: 'STRING_VALUE',
+ *       LastBackupDate: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListVirtualMachinesCommandInput - {@link ListVirtualMachinesCommandInput}
@@ -64,6 +79,8 @@ export interface ListVirtualMachinesCommandOutput extends ListVirtualMachinesOut
  * @throws {@link ValidationException} (client fault)
  *  <p>The operation did not succeed because a validation error occurred.</p>
  *
+ * @throws {@link BackupGatewayServiceException}
+ * <p>Base exception class for all service exceptions from BackupGateway service.</p>
  *
  */
 export class ListVirtualMachinesCommand extends $Command<

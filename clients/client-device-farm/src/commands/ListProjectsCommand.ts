@@ -36,15 +36,37 @@ export interface ListProjectsCommandOutput extends ListProjectsResult, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DeviceFarmClient, ListProjectsCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
- * // const { DeviceFarmClient, ListProjectsCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
+ * import { DeviceFarmClient, ListProjectsCommand } from '@aws-sdk/client-device-farm'; // ES Modules import
+ * // const { DeviceFarmClient, ListProjectsCommand } = require('@aws-sdk/client-device-farm'); // CommonJS import
  * const client = new DeviceFarmClient(config);
  * const input = { // ListProjectsRequest
- *   arn: "STRING_VALUE",
- *   nextToken: "STRING_VALUE",
+ *   arn: 'STRING_VALUE',
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new ListProjectsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListProjectsResult
+ *   projects: [ // Projects
+ *     { // Project
+ *       arn: 'STRING_VALUE',
+ *       name: 'STRING_VALUE',
+ *       defaultJobTimeoutMinutes: Number('int'),
+ *       created: new Date('TIMESTAMP'),
+ *       vpcConfig: { // VpcConfig
+ *         securityGroupIds: [ // VpcSecurityGroupIds // required
+ *           'STRING_VALUE',
+ *         ],
+ *         subnetIds: [ // VpcSubnetIds // required
+ *           'STRING_VALUE',
+ *         ],
+ *         vpcId: 'STRING_VALUE', // required
+ *       },
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListProjectsCommandInput - {@link ListProjectsCommandInput}
@@ -65,6 +87,8 @@ export interface ListProjectsCommandOutput extends ListProjectsResult, __Metadat
  * @throws {@link ServiceAccountException} (client fault)
  *  <p>There was a problem with the service account.</p>
  *
+ * @throws {@link DeviceFarmServiceException}
+ * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
  * @example To get information about a Device Farm project
  * ```javascript

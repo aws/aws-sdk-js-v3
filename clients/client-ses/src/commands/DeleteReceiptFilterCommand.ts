@@ -39,14 +39,17 @@ export interface DeleteReceiptFilterCommandOutput extends DeleteReceiptFilterRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SESClient, DeleteReceiptFilterCommand } from "@aws-sdk/client-ses"; // ES Modules import
- * // const { SESClient, DeleteReceiptFilterCommand } = require("@aws-sdk/client-ses"); // CommonJS import
+ * import { SESClient, DeleteReceiptFilterCommand } from '@aws-sdk/client-ses'; // ES Modules import
+ * // const { SESClient, DeleteReceiptFilterCommand } = require('@aws-sdk/client-ses'); // CommonJS import
  * const client = new SESClient(config);
  * const input = { // DeleteReceiptFilterRequest
- *   FilterName: "STRING_VALUE", // required
+ *   FilterName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteReceiptFilterCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteReceiptFilterCommandInput - {@link DeleteReceiptFilterCommandInput}
@@ -55,6 +58,8 @@ export interface DeleteReceiptFilterCommandOutput extends DeleteReceiptFilterRes
  * @see {@link DeleteReceiptFilterCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
+ * @throws {@link SESServiceException}
+ * <p>Base exception class for all service exceptions from SES service.</p>
  *
  * @example DeleteReceiptFilter
  * ```javascript

@@ -44,15 +44,18 @@ export interface DeleteEnvironmentConfigurationCommandOutput extends __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElasticBeanstalkClient, DeleteEnvironmentConfigurationCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
- * // const { ElasticBeanstalkClient, DeleteEnvironmentConfigurationCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
+ * import { ElasticBeanstalkClient, DeleteEnvironmentConfigurationCommand } from '@aws-sdk/client-elastic-beanstalk'; // ES Modules import
+ * // const { ElasticBeanstalkClient, DeleteEnvironmentConfigurationCommand } = require('@aws-sdk/client-elastic-beanstalk'); // CommonJS import
  * const client = new ElasticBeanstalkClient(config);
  * const input = { // DeleteEnvironmentConfigurationMessage
- *   ApplicationName: "STRING_VALUE", // required
- *   EnvironmentName: "STRING_VALUE", // required
+ *   ApplicationName: 'STRING_VALUE', // required
+ *   EnvironmentName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteEnvironmentConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteEnvironmentConfigurationCommandInput - {@link DeleteEnvironmentConfigurationCommandInput}
@@ -61,6 +64,8 @@ export interface DeleteEnvironmentConfigurationCommandOutput extends __MetadataB
  * @see {@link DeleteEnvironmentConfigurationCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
+ * @throws {@link ElasticBeanstalkServiceException}
+ * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
  * @example To delete a draft configuration
  * ```javascript

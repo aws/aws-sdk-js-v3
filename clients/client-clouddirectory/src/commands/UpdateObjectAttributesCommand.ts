@@ -36,29 +36,29 @@ export interface UpdateObjectAttributesCommandOutput extends UpdateObjectAttribu
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudDirectoryClient, UpdateObjectAttributesCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
- * // const { CloudDirectoryClient, UpdateObjectAttributesCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
+ * import { CloudDirectoryClient, UpdateObjectAttributesCommand } from '@aws-sdk/client-clouddirectory'; // ES Modules import
+ * // const { CloudDirectoryClient, UpdateObjectAttributesCommand } = require('@aws-sdk/client-clouddirectory'); // CommonJS import
  * const client = new CloudDirectoryClient(config);
  * const input = { // UpdateObjectAttributesRequest
- *   DirectoryArn: "STRING_VALUE", // required
+ *   DirectoryArn: 'STRING_VALUE', // required
  *   ObjectReference: { // ObjectReference
- *     Selector: "STRING_VALUE",
+ *     Selector: 'STRING_VALUE',
  *   },
  *   AttributeUpdates: [ // ObjectAttributeUpdateList // required
  *     { // ObjectAttributeUpdate
  *       ObjectAttributeKey: { // AttributeKey
- *         SchemaArn: "STRING_VALUE", // required
- *         FacetName: "STRING_VALUE", // required
- *         Name: "STRING_VALUE", // required
+ *         SchemaArn: 'STRING_VALUE', // required
+ *         FacetName: 'STRING_VALUE', // required
+ *         Name: 'STRING_VALUE', // required
  *       },
  *       ObjectAttributeAction: { // ObjectAttributeAction
- *         ObjectAttributeActionType: "CREATE_OR_UPDATE" || "DELETE",
+ *         ObjectAttributeActionType: 'CREATE_OR_UPDATE' || 'DELETE',
  *         ObjectAttributeUpdateValue: { // TypedAttributeValue Union: only one key present
- *           StringValue: "STRING_VALUE",
- *           BinaryValue: "BLOB_VALUE",
+ *           StringValue: 'STRING_VALUE',
+ *           BinaryValue: 'BLOB_VALUE',
  *           BooleanValue: true || false,
- *           NumberValue: "STRING_VALUE",
- *           DatetimeValue: new Date("TIMESTAMP"),
+ *           NumberValue: 'STRING_VALUE',
+ *           DatetimeValue: new Date('TIMESTAMP'),
  *         },
  *       },
  *     },
@@ -66,6 +66,11 @@ export interface UpdateObjectAttributesCommandOutput extends UpdateObjectAttribu
  * };
  * const command = new UpdateObjectAttributesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateObjectAttributesResponse
+ *   ObjectIdentifier: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateObjectAttributesCommandInput - {@link UpdateObjectAttributesCommandInput}
@@ -107,6 +112,8 @@ export interface UpdateObjectAttributesCommandOutput extends UpdateObjectAttribu
  *  <p>Indicates that your request is malformed in some manner. See the exception
  *       message.</p>
  *
+ * @throws {@link CloudDirectoryServiceException}
+ * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
  */
 export class UpdateObjectAttributesCommand extends $Command<

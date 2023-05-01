@@ -37,16 +37,38 @@ export interface DescribeDataSharesCommandOutput extends DescribeDataSharesResul
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RedshiftClient, DescribeDataSharesCommand } from "@aws-sdk/client-redshift"; // ES Modules import
- * // const { RedshiftClient, DescribeDataSharesCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * import { RedshiftClient, DescribeDataSharesCommand } from '@aws-sdk/client-redshift'; // ES Modules import
+ * // const { RedshiftClient, DescribeDataSharesCommand } = require('@aws-sdk/client-redshift'); // CommonJS import
  * const client = new RedshiftClient(config);
  * const input = { // DescribeDataSharesMessage
- *   DataShareArn: "STRING_VALUE",
- *   MaxRecords: Number("int"),
- *   Marker: "STRING_VALUE",
+ *   DataShareArn: 'STRING_VALUE',
+ *   MaxRecords: Number('int'),
+ *   Marker: 'STRING_VALUE',
  * };
  * const command = new DescribeDataSharesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeDataSharesResult
+ *   DataShares: [ // DataShareList
+ *     { // DataShare
+ *       DataShareArn: 'STRING_VALUE',
+ *       ProducerArn: 'STRING_VALUE',
+ *       AllowPubliclyAccessibleConsumers: true || false,
+ *       DataShareAssociations: [ // DataShareAssociationList
+ *         { // DataShareAssociation
+ *           ConsumerIdentifier: 'STRING_VALUE',
+ *           Status: 'ACTIVE' || 'PENDING_AUTHORIZATION' || 'AUTHORIZED' || 'DEAUTHORIZED' || 'REJECTED' || 'AVAILABLE',
+ *           ConsumerRegion: 'STRING_VALUE',
+ *           CreatedDate: new Date('TIMESTAMP'),
+ *           StatusChangeDate: new Date('TIMESTAMP'),
+ *         },
+ *       ],
+ *       ManagedBy: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   Marker: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeDataSharesCommandInput - {@link DescribeDataSharesCommandInput}
@@ -58,6 +80,8 @@ export interface DescribeDataSharesCommandOutput extends DescribeDataSharesResul
  * @throws {@link InvalidDataShareFault} (client fault)
  *  <p>There is an error with the datashare.</p>
  *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class DescribeDataSharesCommand extends $Command<

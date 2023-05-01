@@ -37,15 +37,18 @@ export interface ModifyAccountCommandOutput extends ModifyAccountResult, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkSpacesClient, ModifyAccountCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
- * // const { WorkSpacesClient, ModifyAccountCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
+ * import { WorkSpacesClient, ModifyAccountCommand } from '@aws-sdk/client-workspaces'; // ES Modules import
+ * // const { WorkSpacesClient, ModifyAccountCommand } = require('@aws-sdk/client-workspaces'); // CommonJS import
  * const client = new WorkSpacesClient(config);
  * const input = { // ModifyAccountRequest
- *   DedicatedTenancySupport: "ENABLED",
- *   DedicatedTenancyManagementCidrRange: "STRING_VALUE",
+ *   DedicatedTenancySupport: 'ENABLED',
+ *   DedicatedTenancyManagementCidrRange: 'STRING_VALUE',
  * };
  * const command = new ModifyAccountCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param ModifyAccountCommandInput - {@link ModifyAccountCommandInput}
@@ -69,6 +72,8 @@ export interface ModifyAccountCommandOutput extends ModifyAccountResult, __Metad
  * @throws {@link ResourceUnavailableException} (client fault)
  *  <p>The specified resource is not available.</p>
  *
+ * @throws {@link WorkSpacesServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
  */
 export class ModifyAccountCommand extends $Command<

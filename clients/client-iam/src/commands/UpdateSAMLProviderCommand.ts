@@ -39,15 +39,20 @@ export interface UpdateSAMLProviderCommandOutput extends UpdateSAMLProviderRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IAMClient, UpdateSAMLProviderCommand } from "@aws-sdk/client-iam"; // ES Modules import
- * // const { IAMClient, UpdateSAMLProviderCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * import { IAMClient, UpdateSAMLProviderCommand } from '@aws-sdk/client-iam'; // ES Modules import
+ * // const { IAMClient, UpdateSAMLProviderCommand } = require('@aws-sdk/client-iam'); // CommonJS import
  * const client = new IAMClient(config);
  * const input = { // UpdateSAMLProviderRequest
- *   SAMLMetadataDocument: "STRING_VALUE", // required
- *   SAMLProviderArn: "STRING_VALUE", // required
+ *   SAMLMetadataDocument: 'STRING_VALUE', // required
+ *   SAMLProviderArn: 'STRING_VALUE', // required
  * };
  * const command = new UpdateSAMLProviderCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateSAMLProviderResponse
+ *   SAMLProviderArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateSAMLProviderCommandInput - {@link UpdateSAMLProviderCommandInput}
@@ -72,6 +77,8 @@ export interface UpdateSAMLProviderCommandOutput extends UpdateSAMLProviderRespo
  *  <p>The request processing has failed because of an unknown error, exception or
  *       failure.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  */
 export class UpdateSAMLProviderCommand extends $Command<

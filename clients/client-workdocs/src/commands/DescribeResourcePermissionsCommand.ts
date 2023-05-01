@@ -45,18 +45,35 @@ export interface DescribeResourcePermissionsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkDocsClient, DescribeResourcePermissionsCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
- * // const { WorkDocsClient, DescribeResourcePermissionsCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import
+ * import { WorkDocsClient, DescribeResourcePermissionsCommand } from '@aws-sdk/client-workdocs'; // ES Modules import
+ * // const { WorkDocsClient, DescribeResourcePermissionsCommand } = require('@aws-sdk/client-workdocs'); // CommonJS import
  * const client = new WorkDocsClient(config);
  * const input = { // DescribeResourcePermissionsRequest
- *   AuthenticationToken: "STRING_VALUE",
- *   ResourceId: "STRING_VALUE", // required
- *   PrincipalId: "STRING_VALUE",
- *   Limit: Number("int"),
- *   Marker: "STRING_VALUE",
+ *   AuthenticationToken: 'STRING_VALUE',
+ *   ResourceId: 'STRING_VALUE', // required
+ *   PrincipalId: 'STRING_VALUE',
+ *   Limit: Number('int'),
+ *   Marker: 'STRING_VALUE',
  * };
  * const command = new DescribeResourcePermissionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeResourcePermissionsResponse
+ *   Principals: [ // PrincipalList
+ *     { // Principal
+ *       Id: 'STRING_VALUE',
+ *       Type: 'USER' || 'GROUP' || 'INVITE' || 'ANONYMOUS' || 'ORGANIZATION',
+ *       Roles: [ // PermissionInfoList
+ *         { // PermissionInfo
+ *           Role: 'VIEWER' || 'CONTRIBUTOR' || 'OWNER' || 'COOWNER',
+ *           Type: 'DIRECT' || 'INHERITED',
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   Marker: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeResourcePermissionsCommandInput - {@link DescribeResourcePermissionsCommandInput}
@@ -82,6 +99,8 @@ export interface DescribeResourcePermissionsCommandOutput
  * @throws {@link UnauthorizedResourceAccessException} (client fault)
  *  <p>The caller does not have access to perform the action on the resource.</p>
  *
+ * @throws {@link WorkDocsServiceException}
+ * <p>Base exception class for all service exceptions from WorkDocs service.</p>
  *
  */
 export class DescribeResourcePermissionsCommand extends $Command<

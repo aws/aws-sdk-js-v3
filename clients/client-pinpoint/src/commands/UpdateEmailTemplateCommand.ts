@@ -36,27 +36,35 @@ export interface UpdateEmailTemplateCommandOutput extends UpdateEmailTemplateRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PinpointClient, UpdateEmailTemplateCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
- * // const { PinpointClient, UpdateEmailTemplateCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
+ * import { PinpointClient, UpdateEmailTemplateCommand } from '@aws-sdk/client-pinpoint'; // ES Modules import
+ * // const { PinpointClient, UpdateEmailTemplateCommand } = require('@aws-sdk/client-pinpoint'); // CommonJS import
  * const client = new PinpointClient(config);
  * const input = { // UpdateEmailTemplateRequest
  *   CreateNewVersion: true || false,
  *   EmailTemplateRequest: { // EmailTemplateRequest
- *     DefaultSubstitutions: "STRING_VALUE",
- *     HtmlPart: "STRING_VALUE",
- *     RecommenderId: "STRING_VALUE",
- *     Subject: "STRING_VALUE",
+ *     DefaultSubstitutions: 'STRING_VALUE',
+ *     HtmlPart: 'STRING_VALUE',
+ *     RecommenderId: 'STRING_VALUE',
+ *     Subject: 'STRING_VALUE',
  *     tags: { // MapOf__string
- *       "<keys>": "STRING_VALUE",
+ *       '<keys>': 'STRING_VALUE',
  *     },
- *     TemplateDescription: "STRING_VALUE",
- *     TextPart: "STRING_VALUE",
+ *     TemplateDescription: 'STRING_VALUE',
+ *     TextPart: 'STRING_VALUE',
  *   },
- *   TemplateName: "STRING_VALUE", // required
- *   Version: "STRING_VALUE",
+ *   TemplateName: 'STRING_VALUE', // required
+ *   Version: 'STRING_VALUE',
  * };
  * const command = new UpdateEmailTemplateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateEmailTemplateResponse
+ *   MessageBody: { // MessageBody
+ *     Message: 'STRING_VALUE',
+ *     RequestID: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateEmailTemplateCommandInput - {@link UpdateEmailTemplateCommandInput}
@@ -86,6 +94,8 @@ export interface UpdateEmailTemplateCommandOutput extends UpdateEmailTemplateRes
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Provides information about an API request or response.</p>
  *
+ * @throws {@link PinpointServiceException}
+ * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
  */
 export class UpdateEmailTemplateCommand extends $Command<

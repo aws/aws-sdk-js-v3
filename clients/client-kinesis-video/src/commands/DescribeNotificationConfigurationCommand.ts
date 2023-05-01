@@ -41,15 +41,25 @@ export interface DescribeNotificationConfigurationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KinesisVideoClient, DescribeNotificationConfigurationCommand } from "@aws-sdk/client-kinesis-video"; // ES Modules import
- * // const { KinesisVideoClient, DescribeNotificationConfigurationCommand } = require("@aws-sdk/client-kinesis-video"); // CommonJS import
+ * import { KinesisVideoClient, DescribeNotificationConfigurationCommand } from '@aws-sdk/client-kinesis-video'; // ES Modules import
+ * // const { KinesisVideoClient, DescribeNotificationConfigurationCommand } = require('@aws-sdk/client-kinesis-video'); // CommonJS import
  * const client = new KinesisVideoClient(config);
  * const input = { // DescribeNotificationConfigurationInput
- *   StreamName: "STRING_VALUE",
- *   StreamARN: "STRING_VALUE",
+ *   StreamName: 'STRING_VALUE',
+ *   StreamARN: 'STRING_VALUE',
  * };
  * const command = new DescribeNotificationConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeNotificationConfigurationOutput
+ *   NotificationConfiguration: { // NotificationConfiguration
+ *     Status: 'ENABLED' || 'DISABLED', // required
+ *     DestinationConfig: { // NotificationDestinationConfig
+ *       Uri: 'STRING_VALUE', // required
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeNotificationConfigurationCommandInput - {@link DescribeNotificationConfigurationCommandInput}
@@ -71,6 +81,8 @@ export interface DescribeNotificationConfigurationCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Amazon Kinesis Video Streams can't find the stream that you specified.</p>
  *
+ * @throws {@link KinesisVideoServiceException}
+ * <p>Base exception class for all service exceptions from KinesisVideo service.</p>
  *
  */
 export class DescribeNotificationConfigurationCommand extends $Command<

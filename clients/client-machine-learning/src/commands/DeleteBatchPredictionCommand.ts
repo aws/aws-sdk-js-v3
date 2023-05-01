@@ -41,14 +41,19 @@ export interface DeleteBatchPredictionCommandOutput extends DeleteBatchPredictio
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MachineLearningClient, DeleteBatchPredictionCommand } from "@aws-sdk/client-machine-learning"; // ES Modules import
- * // const { MachineLearningClient, DeleteBatchPredictionCommand } = require("@aws-sdk/client-machine-learning"); // CommonJS import
+ * import { MachineLearningClient, DeleteBatchPredictionCommand } from '@aws-sdk/client-machine-learning'; // ES Modules import
+ * // const { MachineLearningClient, DeleteBatchPredictionCommand } = require('@aws-sdk/client-machine-learning'); // CommonJS import
  * const client = new MachineLearningClient(config);
  * const input = { // DeleteBatchPredictionInput
- *   BatchPredictionId: "STRING_VALUE", // required
+ *   BatchPredictionId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteBatchPredictionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteBatchPredictionOutput
+ *   BatchPredictionId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DeleteBatchPredictionCommandInput - {@link DeleteBatchPredictionCommandInput}
@@ -66,6 +71,8 @@ export interface DeleteBatchPredictionCommandOutput extends DeleteBatchPredictio
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>A specified resource cannot be located.</p>
  *
+ * @throws {@link MachineLearningServiceException}
+ * <p>Base exception class for all service exceptions from MachineLearning service.</p>
  *
  */
 export class DeleteBatchPredictionCommand extends $Command<

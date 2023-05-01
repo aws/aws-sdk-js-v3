@@ -36,14 +36,33 @@ export interface GetChannelsCommandOutput extends GetChannelsResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PinpointClient, GetChannelsCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
- * // const { PinpointClient, GetChannelsCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
+ * import { PinpointClient, GetChannelsCommand } from '@aws-sdk/client-pinpoint'; // ES Modules import
+ * // const { PinpointClient, GetChannelsCommand } = require('@aws-sdk/client-pinpoint'); // CommonJS import
  * const client = new PinpointClient(config);
  * const input = { // GetChannelsRequest
- *   ApplicationId: "STRING_VALUE", // required
+ *   ApplicationId: 'STRING_VALUE', // required
  * };
  * const command = new GetChannelsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetChannelsResponse
+ *   ChannelsResponse: { // ChannelsResponse
+ *     Channels: { // MapOfChannelResponse // required
+ *       '<keys>': { // ChannelResponse
+ *         ApplicationId: 'STRING_VALUE',
+ *         CreationDate: 'STRING_VALUE',
+ *         Enabled: true || false,
+ *         HasCredential: true || false,
+ *         Id: 'STRING_VALUE',
+ *         IsArchived: true || false,
+ *         LastModifiedBy: 'STRING_VALUE',
+ *         LastModifiedDate: 'STRING_VALUE',
+ *         Version: Number('int'),
+ *       },
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetChannelsCommandInput - {@link GetChannelsCommandInput}
@@ -73,6 +92,8 @@ export interface GetChannelsCommandOutput extends GetChannelsResponse, __Metadat
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Provides information about an API request or response.</p>
  *
+ * @throws {@link PinpointServiceException}
+ * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
  */
 export class GetChannelsCommand extends $Command<

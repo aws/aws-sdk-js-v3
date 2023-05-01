@@ -36,14 +36,17 @@ export interface DeleteAssessmentCommandOutput extends DeleteAssessmentResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AuditManagerClient, DeleteAssessmentCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
- * // const { AuditManagerClient, DeleteAssessmentCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import
+ * import { AuditManagerClient, DeleteAssessmentCommand } from '@aws-sdk/client-auditmanager'; // ES Modules import
+ * // const { AuditManagerClient, DeleteAssessmentCommand } = require('@aws-sdk/client-auditmanager'); // CommonJS import
  * const client = new AuditManagerClient(config);
  * const input = { // DeleteAssessmentRequest
- *   assessmentId: "STRING_VALUE", // required
+ *   assessmentId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteAssessmentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteAssessmentCommandInput - {@link DeleteAssessmentCommandInput}
@@ -66,6 +69,8 @@ export interface DeleteAssessmentCommandOutput extends DeleteAssessmentResponse,
  * @throws {@link ValidationException} (client fault)
  *  <p> The request has invalid or missing parameters. </p>
  *
+ * @throws {@link AuditManagerServiceException}
+ * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
  */
 export class DeleteAssessmentCommand extends $Command<

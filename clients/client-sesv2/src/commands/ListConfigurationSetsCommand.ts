@@ -42,15 +42,23 @@ export interface ListConfigurationSetsCommandOutput extends ListConfigurationSet
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SESv2Client, ListConfigurationSetsCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
- * // const { SESv2Client, ListConfigurationSetsCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
+ * import { SESv2Client, ListConfigurationSetsCommand } from '@aws-sdk/client-sesv2'; // ES Modules import
+ * // const { SESv2Client, ListConfigurationSetsCommand } = require('@aws-sdk/client-sesv2'); // CommonJS import
  * const client = new SESv2Client(config);
  * const input = { // ListConfigurationSetsRequest
- *   NextToken: "STRING_VALUE",
- *   PageSize: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   PageSize: Number('int'),
  * };
  * const command = new ListConfigurationSetsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListConfigurationSetsResponse
+ *   ConfigurationSets: [ // ConfigurationSetNameList
+ *     'STRING_VALUE',
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListConfigurationSetsCommandInput - {@link ListConfigurationSetsCommandInput}
@@ -65,6 +73,8 @@ export interface ListConfigurationSetsCommandOutput extends ListConfigurationSet
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Too many requests have been made to the operation.</p>
  *
+ * @throws {@link SESv2ServiceException}
+ * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
  */
 export class ListConfigurationSetsCommand extends $Command<

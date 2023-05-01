@@ -36,14 +36,17 @@ export interface DeleteClassifierCommandOutput extends DeleteClassifierResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlueClient, DeleteClassifierCommand } from "@aws-sdk/client-glue"; // ES Modules import
- * // const { GlueClient, DeleteClassifierCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * import { GlueClient, DeleteClassifierCommand } from '@aws-sdk/client-glue'; // ES Modules import
+ * // const { GlueClient, DeleteClassifierCommand } = require('@aws-sdk/client-glue'); // CommonJS import
  * const client = new GlueClient(config);
  * const input = { // DeleteClassifierRequest
- *   Name: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
  * };
  * const command = new DeleteClassifierCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteClassifierCommandInput - {@link DeleteClassifierCommandInput}
@@ -58,6 +61,8 @@ export interface DeleteClassifierCommandOutput extends DeleteClassifierResponse,
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class DeleteClassifierCommand extends $Command<

@@ -36,23 +36,47 @@ export interface ListContactsCommandOutput extends ListContactsResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SESv2Client, ListContactsCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
- * // const { SESv2Client, ListContactsCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
+ * import { SESv2Client, ListContactsCommand } from '@aws-sdk/client-sesv2'; // ES Modules import
+ * // const { SESv2Client, ListContactsCommand } = require('@aws-sdk/client-sesv2'); // CommonJS import
  * const client = new SESv2Client(config);
  * const input = { // ListContactsRequest
- *   ContactListName: "STRING_VALUE", // required
+ *   ContactListName: 'STRING_VALUE', // required
  *   Filter: { // ListContactsFilter
- *     FilteredStatus: "OPT_IN" || "OPT_OUT",
+ *     FilteredStatus: 'OPT_IN' || 'OPT_OUT',
  *     TopicFilter: { // TopicFilter
- *       TopicName: "STRING_VALUE",
+ *       TopicName: 'STRING_VALUE',
  *       UseDefaultIfPreferenceUnavailable: true || false,
  *     },
  *   },
- *   PageSize: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   PageSize: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListContactsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListContactsResponse
+ *   Contacts: [ // ListOfContacts
+ *     { // Contact
+ *       EmailAddress: 'STRING_VALUE',
+ *       TopicPreferences: [ // TopicPreferenceList
+ *         { // TopicPreference
+ *           TopicName: 'STRING_VALUE', // required
+ *           SubscriptionStatus: 'OPT_IN' || 'OPT_OUT', // required
+ *         },
+ *       ],
+ *       TopicDefaultPreferences: [
+ *         {
+ *           TopicName: 'STRING_VALUE', // required
+ *           SubscriptionStatus: 'OPT_IN' || 'OPT_OUT', // required
+ *         },
+ *       ],
+ *       UnsubscribeAll: true || false,
+ *       LastUpdatedTimestamp: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListContactsCommandInput - {@link ListContactsCommandInput}
@@ -70,6 +94,8 @@ export interface ListContactsCommandOutput extends ListContactsResponse, __Metad
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Too many requests have been made to the operation.</p>
  *
+ * @throws {@link SESv2ServiceException}
+ * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
  */
 export class ListContactsCommand extends $Command<

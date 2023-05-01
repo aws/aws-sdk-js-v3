@@ -38,15 +38,28 @@ export interface DescribeDeviceCommandOutput extends DescribeDeviceResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkLinkClient, DescribeDeviceCommand } from "@aws-sdk/client-worklink"; // ES Modules import
- * // const { WorkLinkClient, DescribeDeviceCommand } = require("@aws-sdk/client-worklink"); // CommonJS import
+ * import { WorkLinkClient, DescribeDeviceCommand } from '@aws-sdk/client-worklink'; // ES Modules import
+ * // const { WorkLinkClient, DescribeDeviceCommand } = require('@aws-sdk/client-worklink'); // CommonJS import
  * const client = new WorkLinkClient(config);
  * const input = { // DescribeDeviceRequest
- *   FleetArn: "STRING_VALUE", // required
- *   DeviceId: "STRING_VALUE", // required
+ *   FleetArn: 'STRING_VALUE', // required
+ *   DeviceId: 'STRING_VALUE', // required
  * };
  * const command = new DescribeDeviceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeDeviceResponse
+ *   Status: 'STRING_VALUE',
+ *   Model: 'STRING_VALUE',
+ *   Manufacturer: 'STRING_VALUE',
+ *   OperatingSystem: 'STRING_VALUE',
+ *   OperatingSystemVersion: 'STRING_VALUE',
+ *   PatchLevel: 'STRING_VALUE',
+ *   FirstAccessedTime: new Date('TIMESTAMP'),
+ *   LastAccessedTime: new Date('TIMESTAMP'),
+ *   Username: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeDeviceCommandInput - {@link DescribeDeviceCommandInput}
@@ -70,6 +83,8 @@ export interface DescribeDeviceCommandOutput extends DescribeDeviceResponse, __M
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this action.</p>
  *
+ * @throws {@link WorkLinkServiceException}
+ * <p>Base exception class for all service exceptions from WorkLink service.</p>
  *
  */
 export class DescribeDeviceCommand extends $Command<

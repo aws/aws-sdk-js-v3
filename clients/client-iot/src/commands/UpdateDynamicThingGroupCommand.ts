@@ -37,27 +37,32 @@ export interface UpdateDynamicThingGroupCommandOutput extends UpdateDynamicThing
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTClient, UpdateDynamicThingGroupCommand } from "@aws-sdk/client-iot"; // ES Modules import
- * // const { IoTClient, UpdateDynamicThingGroupCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * import { IoTClient, UpdateDynamicThingGroupCommand } from '@aws-sdk/client-iot'; // ES Modules import
+ * // const { IoTClient, UpdateDynamicThingGroupCommand } = require('@aws-sdk/client-iot'); // CommonJS import
  * const client = new IoTClient(config);
  * const input = { // UpdateDynamicThingGroupRequest
- *   thingGroupName: "STRING_VALUE", // required
+ *   thingGroupName: 'STRING_VALUE', // required
  *   thingGroupProperties: { // ThingGroupProperties
- *     thingGroupDescription: "STRING_VALUE",
+ *     thingGroupDescription: 'STRING_VALUE',
  *     attributePayload: { // AttributePayload
  *       attributes: { // Attributes
- *         "<keys>": "STRING_VALUE",
+ *         '<keys>': 'STRING_VALUE',
  *       },
  *       merge: true || false,
  *     },
  *   },
- *   expectedVersion: Number("long"),
- *   indexName: "STRING_VALUE",
- *   queryString: "STRING_VALUE",
- *   queryVersion: "STRING_VALUE",
+ *   expectedVersion: Number('long'),
+ *   indexName: 'STRING_VALUE',
+ *   queryString: 'STRING_VALUE',
+ *   queryVersion: 'STRING_VALUE',
  * };
  * const command = new UpdateDynamicThingGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateDynamicThingGroupResponse
+ *   version: Number('long'),
+ * };
+ *
  * ```
  *
  * @param UpdateDynamicThingGroupCommandInput - {@link UpdateDynamicThingGroupCommandInput}
@@ -86,6 +91,8 @@ export interface UpdateDynamicThingGroupCommandOutput extends UpdateDynamicThing
  *             <code>expectedVersion</code> parameter does not match the latest version in the
  *          system.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class UpdateDynamicThingGroupCommand extends $Command<

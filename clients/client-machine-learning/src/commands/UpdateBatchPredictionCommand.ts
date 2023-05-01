@@ -37,15 +37,20 @@ export interface UpdateBatchPredictionCommandOutput extends UpdateBatchPredictio
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MachineLearningClient, UpdateBatchPredictionCommand } from "@aws-sdk/client-machine-learning"; // ES Modules import
- * // const { MachineLearningClient, UpdateBatchPredictionCommand } = require("@aws-sdk/client-machine-learning"); // CommonJS import
+ * import { MachineLearningClient, UpdateBatchPredictionCommand } from '@aws-sdk/client-machine-learning'; // ES Modules import
+ * // const { MachineLearningClient, UpdateBatchPredictionCommand } = require('@aws-sdk/client-machine-learning'); // CommonJS import
  * const client = new MachineLearningClient(config);
  * const input = { // UpdateBatchPredictionInput
- *   BatchPredictionId: "STRING_VALUE", // required
- *   BatchPredictionName: "STRING_VALUE", // required
+ *   BatchPredictionId: 'STRING_VALUE', // required
+ *   BatchPredictionName: 'STRING_VALUE', // required
  * };
  * const command = new UpdateBatchPredictionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateBatchPredictionOutput
+ *   BatchPredictionId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateBatchPredictionCommandInput - {@link UpdateBatchPredictionCommandInput}
@@ -63,6 +68,8 @@ export interface UpdateBatchPredictionCommandOutput extends UpdateBatchPredictio
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>A specified resource cannot be located.</p>
  *
+ * @throws {@link MachineLearningServiceException}
+ * <p>Base exception class for all service exceptions from MachineLearning service.</p>
  *
  */
 export class UpdateBatchPredictionCommand extends $Command<

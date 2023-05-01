@@ -36,18 +36,27 @@ export interface CreateModelCommandOutput extends Model, __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { APIGatewayClient, CreateModelCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
- * // const { APIGatewayClient, CreateModelCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
+ * import { APIGatewayClient, CreateModelCommand } from '@aws-sdk/client-api-gateway'; // ES Modules import
+ * // const { APIGatewayClient, CreateModelCommand } = require('@aws-sdk/client-api-gateway'); // CommonJS import
  * const client = new APIGatewayClient(config);
  * const input = { // CreateModelRequest
- *   restApiId: "STRING_VALUE", // required
- *   name: "STRING_VALUE", // required
- *   description: "STRING_VALUE",
- *   schema: "STRING_VALUE",
- *   contentType: "STRING_VALUE", // required
+ *   restApiId: 'STRING_VALUE', // required
+ *   name: 'STRING_VALUE', // required
+ *   description: 'STRING_VALUE',
+ *   schema: 'STRING_VALUE',
+ *   contentType: 'STRING_VALUE', // required
  * };
  * const command = new CreateModelCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // Model
+ *   id: 'STRING_VALUE',
+ *   name: 'STRING_VALUE',
+ *   description: 'STRING_VALUE',
+ *   schema: 'STRING_VALUE',
+ *   contentType: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateModelCommandInput - {@link CreateModelCommandInput}
@@ -74,6 +83,8 @@ export interface CreateModelCommandOutput extends Model, __MetadataBearer {}
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The request is denied because the caller has insufficient permissions.</p>
  *
+ * @throws {@link APIGatewayServiceException}
+ * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
  */
 export class CreateModelCommand extends $Command<

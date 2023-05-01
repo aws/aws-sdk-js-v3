@@ -38,15 +38,28 @@ export interface ListClustersCommandOutput extends ListClustersResult, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SnowballClient, ListClustersCommand } from "@aws-sdk/client-snowball"; // ES Modules import
- * // const { SnowballClient, ListClustersCommand } = require("@aws-sdk/client-snowball"); // CommonJS import
+ * import { SnowballClient, ListClustersCommand } from '@aws-sdk/client-snowball'; // ES Modules import
+ * // const { SnowballClient, ListClustersCommand } = require('@aws-sdk/client-snowball'); // CommonJS import
  * const client = new SnowballClient(config);
  * const input = { // ListClustersRequest
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListClustersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListClustersResult
+ *   ClusterListEntries: [ // ClusterListEntryList
+ *     { // ClusterListEntry
+ *       ClusterId: 'STRING_VALUE',
+ *       ClusterState: 'AwaitingQuorum' || 'Pending' || 'InUse' || 'Complete' || 'Cancelled',
+ *       CreationDate: new Date('TIMESTAMP'),
+ *       Description: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListClustersCommandInput - {@link ListClustersCommandInput}
@@ -60,6 +73,8 @@ export interface ListClustersCommandOutput extends ListClustersResult, __Metadat
  *       stopped. Run the operation without changing the <code>NextToken</code> string, and try
  *       again.</p>
  *
+ * @throws {@link SnowballServiceException}
+ * <p>Base exception class for all service exceptions from Snowball service.</p>
  *
  * @example To get a list of clusters that you've created for AWS Snowball
  * ```javascript

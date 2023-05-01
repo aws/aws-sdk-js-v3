@@ -107,19 +107,26 @@ export interface GetProfileCommandOutput extends GetProfileResponse, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeGuruProfilerClient, GetProfileCommand } from "@aws-sdk/client-codeguruprofiler"; // ES Modules import
- * // const { CodeGuruProfilerClient, GetProfileCommand } = require("@aws-sdk/client-codeguruprofiler"); // CommonJS import
+ * import { CodeGuruProfilerClient, GetProfileCommand } from '@aws-sdk/client-codeguruprofiler'; // ES Modules import
+ * // const { CodeGuruProfilerClient, GetProfileCommand } = require('@aws-sdk/client-codeguruprofiler'); // CommonJS import
  * const client = new CodeGuruProfilerClient(config);
  * const input = { // GetProfileRequest
- *   profilingGroupName: "STRING_VALUE", // required
- *   startTime: new Date("TIMESTAMP"),
- *   period: "STRING_VALUE",
- *   endTime: new Date("TIMESTAMP"),
- *   maxDepth: Number("int"),
- *   accept: "STRING_VALUE",
+ *   profilingGroupName: 'STRING_VALUE', // required
+ *   startTime: new Date('TIMESTAMP'),
+ *   period: 'STRING_VALUE',
+ *   endTime: new Date('TIMESTAMP'),
+ *   maxDepth: Number('int'),
+ *   accept: 'STRING_VALUE',
  * };
  * const command = new GetProfileCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetProfileResponse
+ *   profile: 'BLOB_VALUE', // required
+ *   contentType: 'STRING_VALUE', // required
+ *   contentEncoding: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetProfileCommandInput - {@link GetProfileCommandInput}
@@ -140,6 +147,8 @@ export interface GetProfileCommandOutput extends GetProfileResponse, __MetadataB
  * @throws {@link ValidationException} (client fault)
  *  <p>The parameter is not valid.</p>
  *
+ * @throws {@link CodeGuruProfilerServiceException}
+ * <p>Base exception class for all service exceptions from CodeGuruProfiler service.</p>
  *
  */
 export class GetProfileCommand extends $Command<

@@ -36,16 +36,55 @@ export interface GetJobRunCommandOutput extends GetJobRunResponse, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlueClient, GetJobRunCommand } from "@aws-sdk/client-glue"; // ES Modules import
- * // const { GlueClient, GetJobRunCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * import { GlueClient, GetJobRunCommand } from '@aws-sdk/client-glue'; // ES Modules import
+ * // const { GlueClient, GetJobRunCommand } = require('@aws-sdk/client-glue'); // CommonJS import
  * const client = new GlueClient(config);
  * const input = { // GetJobRunRequest
- *   JobName: "STRING_VALUE", // required
- *   RunId: "STRING_VALUE", // required
+ *   JobName: 'STRING_VALUE', // required
+ *   RunId: 'STRING_VALUE', // required
  *   PredecessorsIncluded: true || false,
  * };
  * const command = new GetJobRunCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetJobRunResponse
+ *   JobRun: { // JobRun
+ *     Id: 'STRING_VALUE',
+ *     Attempt: Number('int'),
+ *     PreviousRunId: 'STRING_VALUE',
+ *     TriggerName: 'STRING_VALUE',
+ *     JobName: 'STRING_VALUE',
+ *     StartedOn: new Date('TIMESTAMP'),
+ *     LastModifiedOn: new Date('TIMESTAMP'),
+ *     CompletedOn: new Date('TIMESTAMP'),
+ *     JobRunState: 'STARTING' || 'RUNNING' || 'STOPPING' || 'STOPPED' || 'SUCCEEDED' || 'FAILED' || 'TIMEOUT' || 'ERROR' || 'WAITING',
+ *     Arguments: { // GenericMap
+ *       '<keys>': 'STRING_VALUE',
+ *     },
+ *     ErrorMessage: 'STRING_VALUE',
+ *     PredecessorRuns: [ // PredecessorList
+ *       { // Predecessor
+ *         JobName: 'STRING_VALUE',
+ *         RunId: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     AllocatedCapacity: Number('int'),
+ *     ExecutionTime: Number('int'),
+ *     Timeout: Number('int'),
+ *     MaxCapacity: Number('double'),
+ *     WorkerType: 'Standard' || 'G.1X' || 'G.2X' || 'G.025X',
+ *     NumberOfWorkers: Number('int'),
+ *     SecurityConfiguration: 'STRING_VALUE',
+ *     LogGroupName: 'STRING_VALUE',
+ *     NotificationProperty: { // NotificationProperty
+ *       NotifyDelayAfter: Number('int'),
+ *     },
+ *     GlueVersion: 'STRING_VALUE',
+ *     DPUSeconds: Number('double'),
+ *     ExecutionClass: 'FLEX' || 'STANDARD',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetJobRunCommandInput - {@link GetJobRunCommandInput}
@@ -66,6 +105,8 @@ export interface GetJobRunCommandOutput extends GetJobRunResponse, __MetadataBea
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class GetJobRunCommand extends $Command<

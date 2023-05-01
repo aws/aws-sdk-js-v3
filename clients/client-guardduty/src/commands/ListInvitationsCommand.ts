@@ -37,15 +37,28 @@ export interface ListInvitationsCommandOutput extends ListInvitationsResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GuardDutyClient, ListInvitationsCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
- * // const { GuardDutyClient, ListInvitationsCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
+ * import { GuardDutyClient, ListInvitationsCommand } from '@aws-sdk/client-guardduty'; // ES Modules import
+ * // const { GuardDutyClient, ListInvitationsCommand } = require('@aws-sdk/client-guardduty'); // CommonJS import
  * const client = new GuardDutyClient(config);
  * const input = { // ListInvitationsRequest
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListInvitationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListInvitationsResponse
+ *   Invitations: [ // Invitations
+ *     { // Invitation
+ *       AccountId: 'STRING_VALUE',
+ *       InvitationId: 'STRING_VALUE',
+ *       RelationshipStatus: 'STRING_VALUE',
+ *       InvitedAt: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListInvitationsCommandInput - {@link ListInvitationsCommandInput}
@@ -60,6 +73,8 @@ export interface ListInvitationsCommandOutput extends ListInvitationsResponse, _
  * @throws {@link InternalServerErrorException} (server fault)
  *  <p>An internal server error exception object.</p>
  *
+ * @throws {@link GuardDutyServiceException}
+ * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
  */
 export class ListInvitationsCommand extends $Command<

@@ -42,90 +42,97 @@ export interface CreateDistributionConfigurationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ImagebuilderClient, CreateDistributionConfigurationCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
- * // const { ImagebuilderClient, CreateDistributionConfigurationCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
+ * import { ImagebuilderClient, CreateDistributionConfigurationCommand } from '@aws-sdk/client-imagebuilder'; // ES Modules import
+ * // const { ImagebuilderClient, CreateDistributionConfigurationCommand } = require('@aws-sdk/client-imagebuilder'); // CommonJS import
  * const client = new ImagebuilderClient(config);
  * const input = { // CreateDistributionConfigurationRequest
- *   name: "STRING_VALUE", // required
- *   description: "STRING_VALUE",
+ *   name: 'STRING_VALUE', // required
+ *   description: 'STRING_VALUE',
  *   distributions: [ // DistributionList // required
  *     { // Distribution
- *       region: "STRING_VALUE", // required
+ *       region: 'STRING_VALUE', // required
  *       amiDistributionConfiguration: { // AmiDistributionConfiguration
- *         name: "STRING_VALUE",
- *         description: "STRING_VALUE",
+ *         name: 'STRING_VALUE',
+ *         description: 'STRING_VALUE',
  *         targetAccountIds: [ // AccountList
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
  *         amiTags: { // TagMap
- *           "<keys>": "STRING_VALUE",
+ *           '<keys>': 'STRING_VALUE',
  *         },
- *         kmsKeyId: "STRING_VALUE",
+ *         kmsKeyId: 'STRING_VALUE',
  *         launchPermission: { // LaunchPermissionConfiguration
  *           userIds: [
- *             "STRING_VALUE",
+ *             'STRING_VALUE',
  *           ],
  *           userGroups: [ // StringList
- *             "STRING_VALUE",
+ *             'STRING_VALUE',
  *           ],
  *           organizationArns: [ // OrganizationArnList
- *             "STRING_VALUE",
+ *             'STRING_VALUE',
  *           ],
  *           organizationalUnitArns: [ // OrganizationalUnitArnList
- *             "STRING_VALUE",
+ *             'STRING_VALUE',
  *           ],
  *         },
  *       },
  *       containerDistributionConfiguration: { // ContainerDistributionConfiguration
- *         description: "STRING_VALUE",
+ *         description: 'STRING_VALUE',
  *         containerTags: [
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
  *         targetRepository: { // TargetContainerRepository
- *           service: "ECR", // required
- *           repositoryName: "STRING_VALUE", // required
+ *           service: 'ECR', // required
+ *           repositoryName: 'STRING_VALUE', // required
  *         },
  *       },
  *       licenseConfigurationArns: [ // LicenseConfigurationArnList
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *       launchTemplateConfigurations: [ // LaunchTemplateConfigurationList
  *         { // LaunchTemplateConfiguration
- *           launchTemplateId: "STRING_VALUE", // required
- *           accountId: "STRING_VALUE",
+ *           launchTemplateId: 'STRING_VALUE', // required
+ *           accountId: 'STRING_VALUE',
  *           setDefaultVersion: true || false,
  *         },
  *       ],
  *       s3ExportConfiguration: { // S3ExportConfiguration
- *         roleName: "STRING_VALUE", // required
- *         diskImageFormat: "VMDK" || "RAW" || "VHD", // required
- *         s3Bucket: "STRING_VALUE", // required
- *         s3Prefix: "STRING_VALUE",
+ *         roleName: 'STRING_VALUE', // required
+ *         diskImageFormat: 'VMDK' || 'RAW' || 'VHD', // required
+ *         s3Bucket: 'STRING_VALUE', // required
+ *         s3Prefix: 'STRING_VALUE',
  *       },
  *       fastLaunchConfigurations: [ // FastLaunchConfigurationList
  *         { // FastLaunchConfiguration
  *           enabled: true || false, // required
  *           snapshotConfiguration: { // FastLaunchSnapshotConfiguration
- *             targetResourceCount: Number("int"),
+ *             targetResourceCount: Number('int'),
  *           },
- *           maxParallelLaunches: Number("int"),
+ *           maxParallelLaunches: Number('int'),
  *           launchTemplate: { // FastLaunchLaunchTemplateSpecification
- *             launchTemplateId: "STRING_VALUE",
- *             launchTemplateName: "STRING_VALUE",
- *             launchTemplateVersion: "STRING_VALUE",
+ *             launchTemplateId: 'STRING_VALUE',
+ *             launchTemplateName: 'STRING_VALUE',
+ *             launchTemplateVersion: 'STRING_VALUE',
  *           },
- *           accountId: "STRING_VALUE",
+ *           accountId: 'STRING_VALUE',
  *         },
  *       ],
  *     },
  *   ],
  *   tags: {
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
- *   clientToken: "STRING_VALUE", // required
+ *   clientToken: 'STRING_VALUE', // required
  * };
  * const command = new CreateDistributionConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateDistributionConfigurationResponse
+ *   requestId: 'STRING_VALUE',
+ *   clientToken: 'STRING_VALUE',
+ *   distributionConfigurationArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateDistributionConfigurationCommandInput - {@link CreateDistributionConfigurationCommandInput}
@@ -175,6 +182,8 @@ export interface CreateDistributionConfigurationCommandOutput
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service is unable to process your request at this time.</p>
  *
+ * @throws {@link ImagebuilderServiceException}
+ * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
  */
 export class CreateDistributionConfigurationCommand extends $Command<

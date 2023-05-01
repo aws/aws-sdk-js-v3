@@ -39,14 +39,17 @@ export interface DeleteBackupVaultNotificationsCommandOutput extends __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BackupClient, DeleteBackupVaultNotificationsCommand } from "@aws-sdk/client-backup"; // ES Modules import
- * // const { BackupClient, DeleteBackupVaultNotificationsCommand } = require("@aws-sdk/client-backup"); // CommonJS import
+ * import { BackupClient, DeleteBackupVaultNotificationsCommand } from '@aws-sdk/client-backup'; // ES Modules import
+ * // const { BackupClient, DeleteBackupVaultNotificationsCommand } = require('@aws-sdk/client-backup'); // CommonJS import
  * const client = new BackupClient(config);
  * const input = { // DeleteBackupVaultNotificationsInput
- *   BackupVaultName: "STRING_VALUE", // required
+ *   BackupVaultName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteBackupVaultNotificationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteBackupVaultNotificationsCommandInput - {@link DeleteBackupVaultNotificationsCommandInput}
@@ -68,6 +71,8 @@ export interface DeleteBackupVaultNotificationsCommandOutput extends __MetadataB
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request failed due to a temporary failure of the server.</p>
  *
+ * @throws {@link BackupServiceException}
+ * <p>Base exception class for all service exceptions from Backup service.</p>
  *
  */
 export class DeleteBackupVaultNotificationsCommand extends $Command<

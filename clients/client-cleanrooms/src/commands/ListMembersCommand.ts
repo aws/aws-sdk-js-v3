@@ -36,16 +36,35 @@ export interface ListMembersCommandOutput extends ListMembersOutput, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CleanRoomsClient, ListMembersCommand } from "@aws-sdk/client-cleanrooms"; // ES Modules import
- * // const { CleanRoomsClient, ListMembersCommand } = require("@aws-sdk/client-cleanrooms"); // CommonJS import
+ * import { CleanRoomsClient, ListMembersCommand } from '@aws-sdk/client-cleanrooms'; // ES Modules import
+ * // const { CleanRoomsClient, ListMembersCommand } = require('@aws-sdk/client-cleanrooms'); // CommonJS import
  * const client = new CleanRoomsClient(config);
  * const input = { // ListMembersInput
- *   collaborationIdentifier: "STRING_VALUE", // required
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   collaborationIdentifier: 'STRING_VALUE', // required
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new ListMembersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListMembersOutput
+ *   nextToken: 'STRING_VALUE',
+ *   memberSummaries: [ // MemberSummaryList // required
+ *     { // MemberSummary
+ *       accountId: 'STRING_VALUE', // required
+ *       status: 'STRING_VALUE', // required
+ *       displayName: 'STRING_VALUE', // required
+ *       abilities: [ // MemberAbilities // required
+ *         'STRING_VALUE',
+ *       ],
+ *       createTime: new Date('TIMESTAMP'), // required
+ *       updateTime: new Date('TIMESTAMP'), // required
+ *       membershipId: 'STRING_VALUE',
+ *       membershipArn: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListMembersCommandInput - {@link ListMembersCommandInput}
@@ -69,6 +88,8 @@ export interface ListMembersCommandOutput extends ListMembersOutput, __MetadataB
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the specified constraints.</p>
  *
+ * @throws {@link CleanRoomsServiceException}
+ * <p>Base exception class for all service exceptions from CleanRooms service.</p>
  *
  */
 export class ListMembersCommand extends $Command<

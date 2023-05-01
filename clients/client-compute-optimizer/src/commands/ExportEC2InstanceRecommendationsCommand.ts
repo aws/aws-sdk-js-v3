@@ -46,38 +46,48 @@ export interface ExportEC2InstanceRecommendationsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ComputeOptimizerClient, ExportEC2InstanceRecommendationsCommand } from "@aws-sdk/client-compute-optimizer"; // ES Modules import
- * // const { ComputeOptimizerClient, ExportEC2InstanceRecommendationsCommand } = require("@aws-sdk/client-compute-optimizer"); // CommonJS import
+ * import { ComputeOptimizerClient, ExportEC2InstanceRecommendationsCommand } from '@aws-sdk/client-compute-optimizer'; // ES Modules import
+ * // const { ComputeOptimizerClient, ExportEC2InstanceRecommendationsCommand } = require('@aws-sdk/client-compute-optimizer'); // CommonJS import
  * const client = new ComputeOptimizerClient(config);
  * const input = { // ExportEC2InstanceRecommendationsRequest
  *   accountIds: [ // AccountIds
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   filters: [ // Filters
  *     { // Filter
- *       name: "Finding" || "FindingReasonCodes" || "RecommendationSourceType",
+ *       name: 'Finding' || 'FindingReasonCodes' || 'RecommendationSourceType',
  *       values: [ // FilterValues
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
  *   fieldsToExport: [ // ExportableInstanceFields
- *     "AccountId" || "InstanceArn" || "InstanceName" || "Finding" || "FindingReasonCodes" || "LookbackPeriodInDays" || "CurrentInstanceType" || "UtilizationMetricsCpuMaximum" || "UtilizationMetricsMemoryMaximum" || "UtilizationMetricsEbsReadOpsPerSecondMaximum" || "UtilizationMetricsEbsWriteOpsPerSecondMaximum" || "UtilizationMetricsEbsReadBytesPerSecondMaximum" || "UtilizationMetricsEbsWriteBytesPerSecondMaximum" || "UtilizationMetricsDiskReadOpsPerSecondMaximum" || "UtilizationMetricsDiskWriteOpsPerSecondMaximum" || "UtilizationMetricsDiskReadBytesPerSecondMaximum" || "UtilizationMetricsDiskWriteBytesPerSecondMaximum" || "UtilizationMetricsNetworkInBytesPerSecondMaximum" || "UtilizationMetricsNetworkOutBytesPerSecondMaximum" || "UtilizationMetricsNetworkPacketsInPerSecondMaximum" || "UtilizationMetricsNetworkPacketsOutPerSecondMaximum" || "CurrentOnDemandPrice" || "CurrentStandardOneYearNoUpfrontReservedPrice" || "CurrentStandardThreeYearNoUpfrontReservedPrice" || "CurrentVCpus" || "CurrentMemory" || "CurrentStorage" || "CurrentNetwork" || "RecommendationOptionsInstanceType" || "RecommendationOptionsProjectedUtilizationMetricsCpuMaximum" || "RecommendationOptionsProjectedUtilizationMetricsMemoryMaximum" || "RecommendationOptionsPlatformDifferences" || "RecommendationOptionsPerformanceRisk" || "RecommendationOptionsVcpus" || "RecommendationOptionsMemory" || "RecommendationOptionsStorage" || "RecommendationOptionsNetwork" || "RecommendationOptionsOnDemandPrice" || "RecommendationOptionsStandardOneYearNoUpfrontReservedPrice" || "RecommendationOptionsStandardThreeYearNoUpfrontReservedPrice" || "RecommendationsSourcesRecommendationSourceArn" || "RecommendationsSourcesRecommendationSourceType" || "LastRefreshTimestamp" || "CurrentPerformanceRisk" || "RecommendationOptionsSavingsOpportunityPercentage" || "RecommendationOptionsEstimatedMonthlySavingsCurrency" || "RecommendationOptionsEstimatedMonthlySavingsValue" || "EffectiveRecommendationPreferencesCpuVendorArchitectures" || "EffectiveRecommendationPreferencesEnhancedInfrastructureMetrics" || "EffectiveRecommendationPreferencesInferredWorkloadTypes" || "InferredWorkloadTypes" || "RecommendationOptionsMigrationEffort" || "EffectiveRecommendationPreferencesExternalMetricsSource" || "InstanceState",
+ *     'AccountId' || 'InstanceArn' || 'InstanceName' || 'Finding' || 'FindingReasonCodes' || 'LookbackPeriodInDays' || 'CurrentInstanceType' || 'UtilizationMetricsCpuMaximum' || 'UtilizationMetricsMemoryMaximum' || 'UtilizationMetricsEbsReadOpsPerSecondMaximum' || 'UtilizationMetricsEbsWriteOpsPerSecondMaximum' || 'UtilizationMetricsEbsReadBytesPerSecondMaximum' || 'UtilizationMetricsEbsWriteBytesPerSecondMaximum' || 'UtilizationMetricsDiskReadOpsPerSecondMaximum' || 'UtilizationMetricsDiskWriteOpsPerSecondMaximum' || 'UtilizationMetricsDiskReadBytesPerSecondMaximum' || 'UtilizationMetricsDiskWriteBytesPerSecondMaximum' || 'UtilizationMetricsNetworkInBytesPerSecondMaximum' || 'UtilizationMetricsNetworkOutBytesPerSecondMaximum' || 'UtilizationMetricsNetworkPacketsInPerSecondMaximum' || 'UtilizationMetricsNetworkPacketsOutPerSecondMaximum' || 'CurrentOnDemandPrice' || 'CurrentStandardOneYearNoUpfrontReservedPrice' || 'CurrentStandardThreeYearNoUpfrontReservedPrice' || 'CurrentVCpus' || 'CurrentMemory' || 'CurrentStorage' || 'CurrentNetwork' || 'RecommendationOptionsInstanceType' || 'RecommendationOptionsProjectedUtilizationMetricsCpuMaximum' || 'RecommendationOptionsProjectedUtilizationMetricsMemoryMaximum' || 'RecommendationOptionsPlatformDifferences' || 'RecommendationOptionsPerformanceRisk' || 'RecommendationOptionsVcpus' || 'RecommendationOptionsMemory' || 'RecommendationOptionsStorage' || 'RecommendationOptionsNetwork' || 'RecommendationOptionsOnDemandPrice' || 'RecommendationOptionsStandardOneYearNoUpfrontReservedPrice' || 'RecommendationOptionsStandardThreeYearNoUpfrontReservedPrice' || 'RecommendationsSourcesRecommendationSourceArn' || 'RecommendationsSourcesRecommendationSourceType' || 'LastRefreshTimestamp' || 'CurrentPerformanceRisk' || 'RecommendationOptionsSavingsOpportunityPercentage' || 'RecommendationOptionsEstimatedMonthlySavingsCurrency' || 'RecommendationOptionsEstimatedMonthlySavingsValue' || 'EffectiveRecommendationPreferencesCpuVendorArchitectures' || 'EffectiveRecommendationPreferencesEnhancedInfrastructureMetrics' || 'EffectiveRecommendationPreferencesInferredWorkloadTypes' || 'InferredWorkloadTypes' || 'RecommendationOptionsMigrationEffort' || 'EffectiveRecommendationPreferencesExternalMetricsSource' || 'InstanceState',
  *   ],
  *   s3DestinationConfig: { // S3DestinationConfig
- *     bucket: "STRING_VALUE",
- *     keyPrefix: "STRING_VALUE",
+ *     bucket: 'STRING_VALUE',
+ *     keyPrefix: 'STRING_VALUE',
  *   },
- *   fileFormat: "Csv",
+ *   fileFormat: 'Csv',
  *   includeMemberAccounts: true || false,
  *   recommendationPreferences: { // RecommendationPreferences
  *     cpuVendorArchitectures: [ // CpuVendorArchitectures
- *       "AWS_ARM64" || "CURRENT",
+ *       'AWS_ARM64' || 'CURRENT',
  *     ],
  *   },
  * };
  * const command = new ExportEC2InstanceRecommendationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ExportEC2InstanceRecommendationsResponse
+ *   jobId: 'STRING_VALUE',
+ *   s3Destination: { // S3Destination
+ *     bucket: 'STRING_VALUE',
+ *     key: 'STRING_VALUE',
+ *     metadataKey: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param ExportEC2InstanceRecommendationsCommandInput - {@link ExportEC2InstanceRecommendationsCommandInput}
@@ -111,6 +121,8 @@ export interface ExportEC2InstanceRecommendationsCommandOutput
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
  *
+ * @throws {@link ComputeOptimizerServiceException}
+ * <p>Base exception class for all service exceptions from ComputeOptimizer service.</p>
  *
  */
 export class ExportEC2InstanceRecommendationsCommand extends $Command<

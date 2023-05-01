@@ -36,14 +36,23 @@ export interface GetBulkPublishDetailsCommandOutput extends GetBulkPublishDetail
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CognitoSyncClient, GetBulkPublishDetailsCommand } from "@aws-sdk/client-cognito-sync"; // ES Modules import
- * // const { CognitoSyncClient, GetBulkPublishDetailsCommand } = require("@aws-sdk/client-cognito-sync"); // CommonJS import
+ * import { CognitoSyncClient, GetBulkPublishDetailsCommand } from '@aws-sdk/client-cognito-sync'; // ES Modules import
+ * // const { CognitoSyncClient, GetBulkPublishDetailsCommand } = require('@aws-sdk/client-cognito-sync'); // CommonJS import
  * const client = new CognitoSyncClient(config);
  * const input = { // GetBulkPublishDetailsRequest
- *   IdentityPoolId: "STRING_VALUE", // required
+ *   IdentityPoolId: 'STRING_VALUE', // required
  * };
  * const command = new GetBulkPublishDetailsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetBulkPublishDetailsResponse
+ *   IdentityPoolId: 'STRING_VALUE',
+ *   BulkPublishStartTime: new Date('TIMESTAMP'),
+ *   BulkPublishCompleteTime: new Date('TIMESTAMP'),
+ *   BulkPublishStatus: 'STRING_VALUE',
+ *   FailureMessage: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetBulkPublishDetailsCommandInput - {@link GetBulkPublishDetailsCommandInput}
@@ -68,6 +77,8 @@ export interface GetBulkPublishDetailsCommandOutput extends GetBulkPublishDetail
  *  Thrown if the resource doesn't
  *       exist.
  *
+ * @throws {@link CognitoSyncServiceException}
+ * <p>Base exception class for all service exceptions from CognitoSync service.</p>
  *
  */
 export class GetBulkPublishDetailsCommand extends $Command<

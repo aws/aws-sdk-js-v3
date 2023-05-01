@@ -36,14 +36,17 @@ export interface DeleteTerminologyCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { TranslateClient, DeleteTerminologyCommand } from "@aws-sdk/client-translate"; // ES Modules import
- * // const { TranslateClient, DeleteTerminologyCommand } = require("@aws-sdk/client-translate"); // CommonJS import
+ * import { TranslateClient, DeleteTerminologyCommand } from '@aws-sdk/client-translate'; // ES Modules import
+ * // const { TranslateClient, DeleteTerminologyCommand } = require('@aws-sdk/client-translate'); // CommonJS import
  * const client = new TranslateClient(config);
  * const input = { // DeleteTerminologyRequest
- *   Name: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
  * };
  * const command = new DeleteTerminologyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteTerminologyCommandInput - {@link DeleteTerminologyCommandInput}
@@ -68,6 +71,8 @@ export interface DeleteTerminologyCommandOutput extends __MetadataBearer {}
  *  <p> You have made too many requests within a short period of time. Wait for a short time and
  *       then try your request again.</p>
  *
+ * @throws {@link TranslateServiceException}
+ * <p>Base exception class for all service exceptions from Translate service.</p>
  *
  */
 export class DeleteTerminologyCommand extends $Command<

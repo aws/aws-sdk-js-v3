@@ -52,21 +52,55 @@ export interface CreateVirtualMFADeviceCommandOutput extends CreateVirtualMFADev
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IAMClient, CreateVirtualMFADeviceCommand } from "@aws-sdk/client-iam"; // ES Modules import
- * // const { IAMClient, CreateVirtualMFADeviceCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * import { IAMClient, CreateVirtualMFADeviceCommand } from '@aws-sdk/client-iam'; // ES Modules import
+ * // const { IAMClient, CreateVirtualMFADeviceCommand } = require('@aws-sdk/client-iam'); // CommonJS import
  * const client = new IAMClient(config);
  * const input = { // CreateVirtualMFADeviceRequest
- *   Path: "STRING_VALUE",
- *   VirtualMFADeviceName: "STRING_VALUE", // required
+ *   Path: 'STRING_VALUE',
+ *   VirtualMFADeviceName: 'STRING_VALUE', // required
  *   Tags: [ // tagListType
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreateVirtualMFADeviceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateVirtualMFADeviceResponse
+ *   VirtualMFADevice: { // VirtualMFADevice
+ *     SerialNumber: 'STRING_VALUE', // required
+ *     Base32StringSeed: 'BLOB_VALUE',
+ *     QRCodePNG: 'BLOB_VALUE',
+ *     User: { // User
+ *       Path: 'STRING_VALUE', // required
+ *       UserName: 'STRING_VALUE', // required
+ *       UserId: 'STRING_VALUE', // required
+ *       Arn: 'STRING_VALUE', // required
+ *       CreateDate: new Date('TIMESTAMP'), // required
+ *       PasswordLastUsed: new Date('TIMESTAMP'),
+ *       PermissionsBoundary: { // AttachedPermissionsBoundary
+ *         PermissionsBoundaryType: 'PermissionsBoundaryPolicy',
+ *         PermissionsBoundaryArn: 'STRING_VALUE',
+ *       },
+ *       Tags: [ // tagListType
+ *         { // Tag
+ *           Key: 'STRING_VALUE', // required
+ *           Value: 'STRING_VALUE', // required
+ *         },
+ *       ],
+ *     },
+ *     EnableDate: new Date('TIMESTAMP'),
+ *     Tags: [
+ *       {
+ *         Key: 'STRING_VALUE', // required
+ *         Value: 'STRING_VALUE', // required
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateVirtualMFADeviceCommandInput - {@link CreateVirtualMFADeviceCommandInput}
@@ -95,6 +129,8 @@ export interface CreateVirtualMFADeviceCommandOutput extends CreateVirtualMFADev
  *  <p>The request processing has failed because of an unknown error, exception or
  *       failure.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  */
 export class CreateVirtualMFADeviceCommand extends $Command<

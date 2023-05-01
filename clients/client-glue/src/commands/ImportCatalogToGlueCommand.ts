@@ -36,14 +36,17 @@ export interface ImportCatalogToGlueCommandOutput extends ImportCatalogToGlueRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlueClient, ImportCatalogToGlueCommand } from "@aws-sdk/client-glue"; // ES Modules import
- * // const { GlueClient, ImportCatalogToGlueCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * import { GlueClient, ImportCatalogToGlueCommand } from '@aws-sdk/client-glue'; // ES Modules import
+ * // const { GlueClient, ImportCatalogToGlueCommand } = require('@aws-sdk/client-glue'); // CommonJS import
  * const client = new GlueClient(config);
  * const input = { // ImportCatalogToGlueRequest
- *   CatalogId: "STRING_VALUE",
+ *   CatalogId: 'STRING_VALUE',
  * };
  * const command = new ImportCatalogToGlueCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param ImportCatalogToGlueCommandInput - {@link ImportCatalogToGlueCommandInput}
@@ -58,6 +61,8 @@ export interface ImportCatalogToGlueCommandOutput extends ImportCatalogToGlueRes
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class ImportCatalogToGlueCommand extends $Command<

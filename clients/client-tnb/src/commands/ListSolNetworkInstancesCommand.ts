@@ -37,15 +37,35 @@ export interface ListSolNetworkInstancesCommandOutput extends ListSolNetworkInst
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { TnbClient, ListSolNetworkInstancesCommand } from "@aws-sdk/client-tnb"; // ES Modules import
- * // const { TnbClient, ListSolNetworkInstancesCommand } = require("@aws-sdk/client-tnb"); // CommonJS import
+ * import { TnbClient, ListSolNetworkInstancesCommand } from '@aws-sdk/client-tnb'; // ES Modules import
+ * // const { TnbClient, ListSolNetworkInstancesCommand } = require('@aws-sdk/client-tnb'); // CommonJS import
  * const client = new TnbClient(config);
  * const input = { // ListSolNetworkInstancesInput
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new ListSolNetworkInstancesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListSolNetworkInstancesOutput
+ *   nextToken: 'STRING_VALUE',
+ *   networkInstances: [ // ListSolNetworkInstanceResources
+ *     { // ListSolNetworkInstanceInfo
+ *       id: 'STRING_VALUE', // required
+ *       arn: 'STRING_VALUE', // required
+ *       nsInstanceName: 'STRING_VALUE', // required
+ *       nsInstanceDescription: 'STRING_VALUE', // required
+ *       nsdId: 'STRING_VALUE', // required
+ *       nsdInfoId: 'STRING_VALUE', // required
+ *       nsState: 'INSTANTIATED' || 'NOT_INSTANTIATED' || 'IMPAIRED' || 'STOPPED' || 'DELETED' || 'INSTANTIATE_IN_PROGRESS' || 'UPDATE_IN_PROGRESS' || 'TERMINATE_IN_PROGRESS', // required
+ *       metadata: { // ListSolNetworkInstanceMetadata
+ *         createdAt: new Date('TIMESTAMP'), // required
+ *         lastModified: new Date('TIMESTAMP'), // required
+ *       },
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListSolNetworkInstancesCommandInput - {@link ListSolNetworkInstancesCommandInput}
@@ -66,6 +86,8 @@ export interface ListSolNetworkInstancesCommandOutput extends ListSolNetworkInst
  * @throws {@link ValidationException} (client fault)
  *  <p>Unable to process the request because the client provided input failed to satisfy request constraints.</p>
  *
+ * @throws {@link TnbServiceException}
+ * <p>Base exception class for all service exceptions from Tnb service.</p>
  *
  */
 export class ListSolNetworkInstancesCommand extends $Command<

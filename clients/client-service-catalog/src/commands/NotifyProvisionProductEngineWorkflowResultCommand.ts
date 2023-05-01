@@ -48,31 +48,34 @@ export interface NotifyProvisionProductEngineWorkflowResultCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ServiceCatalogClient, NotifyProvisionProductEngineWorkflowResultCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
- * // const { ServiceCatalogClient, NotifyProvisionProductEngineWorkflowResultCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
+ * import { ServiceCatalogClient, NotifyProvisionProductEngineWorkflowResultCommand } from '@aws-sdk/client-service-catalog'; // ES Modules import
+ * // const { ServiceCatalogClient, NotifyProvisionProductEngineWorkflowResultCommand } = require('@aws-sdk/client-service-catalog'); // CommonJS import
  * const client = new ServiceCatalogClient(config);
  * const input = { // NotifyProvisionProductEngineWorkflowResultInput
- *   WorkflowToken: "STRING_VALUE", // required
- *   RecordId: "STRING_VALUE", // required
- *   Status: "SUCCEEDED" || "FAILED", // required
- *   FailureReason: "STRING_VALUE",
+ *   WorkflowToken: 'STRING_VALUE', // required
+ *   RecordId: 'STRING_VALUE', // required
+ *   Status: 'SUCCEEDED' || 'FAILED', // required
+ *   FailureReason: 'STRING_VALUE',
  *   ResourceIdentifier: { // EngineWorkflowResourceIdentifier
  *     UniqueTag: { // UniqueTagResourceIdentifier
- *       Key: "STRING_VALUE",
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
  *     },
  *   },
  *   Outputs: [ // RecordOutputs
  *     { // RecordOutput
- *       OutputKey: "STRING_VALUE",
- *       OutputValue: "STRING_VALUE",
- *       Description: "STRING_VALUE",
+ *       OutputKey: 'STRING_VALUE',
+ *       OutputValue: 'STRING_VALUE',
+ *       Description: 'STRING_VALUE',
  *     },
  *   ],
- *   IdempotencyToken: "STRING_VALUE", // required
+ *   IdempotencyToken: 'STRING_VALUE', // required
  * };
  * const command = new NotifyProvisionProductEngineWorkflowResultCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param NotifyProvisionProductEngineWorkflowResultCommandInput - {@link NotifyProvisionProductEngineWorkflowResultCommandInput}
@@ -87,6 +90,8 @@ export interface NotifyProvisionProductEngineWorkflowResultCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link ServiceCatalogServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
  */
 export class NotifyProvisionProductEngineWorkflowResultCommand extends $Command<

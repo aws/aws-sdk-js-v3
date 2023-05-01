@@ -38,20 +38,28 @@ export interface ListReportsForReportGroupCommandOutput extends ListReportsForRe
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeBuildClient, ListReportsForReportGroupCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
- * // const { CodeBuildClient, ListReportsForReportGroupCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import
+ * import { CodeBuildClient, ListReportsForReportGroupCommand } from '@aws-sdk/client-codebuild'; // ES Modules import
+ * // const { CodeBuildClient, ListReportsForReportGroupCommand } = require('@aws-sdk/client-codebuild'); // CommonJS import
  * const client = new CodeBuildClient(config);
  * const input = { // ListReportsForReportGroupInput
- *   reportGroupArn: "STRING_VALUE", // required
- *   nextToken: "STRING_VALUE",
- *   sortOrder: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   reportGroupArn: 'STRING_VALUE', // required
+ *   nextToken: 'STRING_VALUE',
+ *   sortOrder: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  *   filter: { // ReportFilter
- *     status: "STRING_VALUE",
+ *     status: 'STRING_VALUE',
  *   },
  * };
  * const command = new ListReportsForReportGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListReportsForReportGroupOutput
+ *   nextToken: 'STRING_VALUE',
+ *   reports: [ // ReportArns
+ *     'STRING_VALUE',
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListReportsForReportGroupCommandInput - {@link ListReportsForReportGroupCommandInput}
@@ -66,6 +74,8 @@ export interface ListReportsForReportGroupCommandOutput extends ListReportsForRe
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified Amazon Web Services resource cannot be found.</p>
  *
+ * @throws {@link CodeBuildServiceException}
+ * <p>Base exception class for all service exceptions from CodeBuild service.</p>
  *
  */
 export class ListReportsForReportGroupCommand extends $Command<

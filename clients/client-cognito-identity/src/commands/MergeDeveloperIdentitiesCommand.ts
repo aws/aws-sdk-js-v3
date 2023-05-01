@@ -49,17 +49,22 @@ export interface MergeDeveloperIdentitiesCommandOutput extends MergeDeveloperIde
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CognitoIdentityClient, MergeDeveloperIdentitiesCommand } from "@aws-sdk/client-cognito-identity"; // ES Modules import
- * // const { CognitoIdentityClient, MergeDeveloperIdentitiesCommand } = require("@aws-sdk/client-cognito-identity"); // CommonJS import
+ * import { CognitoIdentityClient, MergeDeveloperIdentitiesCommand } from '@aws-sdk/client-cognito-identity'; // ES Modules import
+ * // const { CognitoIdentityClient, MergeDeveloperIdentitiesCommand } = require('@aws-sdk/client-cognito-identity'); // CommonJS import
  * const client = new CognitoIdentityClient(config);
  * const input = { // MergeDeveloperIdentitiesInput
- *   SourceUserIdentifier: "STRING_VALUE", // required
- *   DestinationUserIdentifier: "STRING_VALUE", // required
- *   DeveloperProviderName: "STRING_VALUE", // required
- *   IdentityPoolId: "STRING_VALUE", // required
+ *   SourceUserIdentifier: 'STRING_VALUE', // required
+ *   DestinationUserIdentifier: 'STRING_VALUE', // required
+ *   DeveloperProviderName: 'STRING_VALUE', // required
+ *   IdentityPoolId: 'STRING_VALUE', // required
  * };
  * const command = new MergeDeveloperIdentitiesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // MergeDeveloperIdentitiesResponse
+ *   IdentityId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param MergeDeveloperIdentitiesCommandInput - {@link MergeDeveloperIdentitiesCommandInput}
@@ -88,6 +93,8 @@ export interface MergeDeveloperIdentitiesCommandOutput extends MergeDeveloperIde
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Thrown when a request is throttled.</p>
  *
+ * @throws {@link CognitoIdentityServiceException}
+ * <p>Base exception class for all service exceptions from CognitoIdentity service.</p>
  *
  */
 export class MergeDeveloperIdentitiesCommand extends $Command<

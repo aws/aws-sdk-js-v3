@@ -41,17 +41,75 @@ export interface DescribeProvisionedProductPlanCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ServiceCatalogClient, DescribeProvisionedProductPlanCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
- * // const { ServiceCatalogClient, DescribeProvisionedProductPlanCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
+ * import { ServiceCatalogClient, DescribeProvisionedProductPlanCommand } from '@aws-sdk/client-service-catalog'; // ES Modules import
+ * // const { ServiceCatalogClient, DescribeProvisionedProductPlanCommand } = require('@aws-sdk/client-service-catalog'); // CommonJS import
  * const client = new ServiceCatalogClient(config);
  * const input = { // DescribeProvisionedProductPlanInput
- *   AcceptLanguage: "STRING_VALUE",
- *   PlanId: "STRING_VALUE", // required
- *   PageSize: Number("int"),
- *   PageToken: "STRING_VALUE",
+ *   AcceptLanguage: 'STRING_VALUE',
+ *   PlanId: 'STRING_VALUE', // required
+ *   PageSize: Number('int'),
+ *   PageToken: 'STRING_VALUE',
  * };
  * const command = new DescribeProvisionedProductPlanCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeProvisionedProductPlanOutput
+ *   ProvisionedProductPlanDetails: { // ProvisionedProductPlanDetails
+ *     CreatedTime: new Date('TIMESTAMP'),
+ *     PathId: 'STRING_VALUE',
+ *     ProductId: 'STRING_VALUE',
+ *     PlanName: 'STRING_VALUE',
+ *     PlanId: 'STRING_VALUE',
+ *     ProvisionProductId: 'STRING_VALUE',
+ *     ProvisionProductName: 'STRING_VALUE',
+ *     PlanType: 'CLOUDFORMATION',
+ *     ProvisioningArtifactId: 'STRING_VALUE',
+ *     Status: 'CREATE_IN_PROGRESS' || 'CREATE_SUCCESS' || 'CREATE_FAILED' || 'EXECUTE_IN_PROGRESS' || 'EXECUTE_SUCCESS' || 'EXECUTE_FAILED',
+ *     UpdatedTime: new Date('TIMESTAMP'),
+ *     NotificationArns: [ // NotificationArns
+ *       'STRING_VALUE',
+ *     ],
+ *     ProvisioningParameters: [ // UpdateProvisioningParameters
+ *       { // UpdateProvisioningParameter
+ *         Key: 'STRING_VALUE',
+ *         Value: 'STRING_VALUE',
+ *         UsePreviousValue: true || false,
+ *       },
+ *     ],
+ *     Tags: [ // Tags
+ *       { // Tag
+ *         Key: 'STRING_VALUE', // required
+ *         Value: 'STRING_VALUE', // required
+ *       },
+ *     ],
+ *     StatusMessage: 'STRING_VALUE',
+ *   },
+ *   ResourceChanges: [ // ResourceChanges
+ *     { // ResourceChange
+ *       Action: 'ADD' || 'MODIFY' || 'REMOVE',
+ *       LogicalResourceId: 'STRING_VALUE',
+ *       PhysicalResourceId: 'STRING_VALUE',
+ *       ResourceType: 'STRING_VALUE',
+ *       Replacement: 'TRUE' || 'FALSE' || 'CONDITIONAL',
+ *       Scope: [ // Scope
+ *         'PROPERTIES' || 'METADATA' || 'CREATIONPOLICY' || 'UPDATEPOLICY' || 'DELETIONPOLICY' || 'TAGS',
+ *       ],
+ *       Details: [ // ResourceChangeDetails
+ *         { // ResourceChangeDetail
+ *           Target: { // ResourceTargetDefinition
+ *             Attribute: 'PROPERTIES' || 'METADATA' || 'CREATIONPOLICY' || 'UPDATEPOLICY' || 'DELETIONPOLICY' || 'TAGS',
+ *             Name: 'STRING_VALUE',
+ *             RequiresRecreation: 'NEVER' || 'CONDITIONALLY' || 'ALWAYS',
+ *           },
+ *           Evaluation: 'STATIC' || 'DYNAMIC',
+ *           CausingEntity: 'STRING_VALUE',
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   NextPageToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeProvisionedProductPlanCommandInput - {@link DescribeProvisionedProductPlanCommandInput}
@@ -66,6 +124,8 @@ export interface DescribeProvisionedProductPlanCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link ServiceCatalogServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
  */
 export class DescribeProvisionedProductPlanCommand extends $Command<

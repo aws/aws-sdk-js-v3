@@ -37,14 +37,17 @@ export interface SendInvitationCommandOutput extends SendInvitationResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AlexaForBusinessClient, SendInvitationCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
- * // const { AlexaForBusinessClient, SendInvitationCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
+ * import { AlexaForBusinessClient, SendInvitationCommand } from '@aws-sdk/client-alexa-for-business'; // ES Modules import
+ * // const { AlexaForBusinessClient, SendInvitationCommand } = require('@aws-sdk/client-alexa-for-business'); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
  * const input = { // SendInvitationRequest
- *   UserArn: "STRING_VALUE",
+ *   UserArn: 'STRING_VALUE',
  * };
  * const command = new SendInvitationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param SendInvitationCommandInput - {@link SendInvitationCommandInput}
@@ -62,6 +65,8 @@ export interface SendInvitationCommandOutput extends SendInvitationResponse, __M
  * @throws {@link NotFoundException} (client fault)
  *  <p>The resource is not found.</p>
  *
+ * @throws {@link AlexaForBusinessServiceException}
+ * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  */
 export class SendInvitationCommand extends $Command<

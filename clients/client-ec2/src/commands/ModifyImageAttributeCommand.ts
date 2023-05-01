@@ -41,57 +41,60 @@ export interface ModifyImageAttributeCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, ModifyImageAttributeCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, ModifyImageAttributeCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, ModifyImageAttributeCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, ModifyImageAttributeCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // ModifyImageAttributeRequest
- *   Attribute: "STRING_VALUE",
+ *   Attribute: 'STRING_VALUE',
  *   Description: { // AttributeValue
- *     Value: "STRING_VALUE",
+ *     Value: 'STRING_VALUE',
  *   },
- *   ImageId: "STRING_VALUE", // required
+ *   ImageId: 'STRING_VALUE', // required
  *   LaunchPermission: { // LaunchPermissionModifications
  *     Add: [ // LaunchPermissionList
  *       { // LaunchPermission
- *         Group: "all",
- *         UserId: "STRING_VALUE",
- *         OrganizationArn: "STRING_VALUE",
- *         OrganizationalUnitArn: "STRING_VALUE",
+ *         Group: 'all',
+ *         UserId: 'STRING_VALUE',
+ *         OrganizationArn: 'STRING_VALUE',
+ *         OrganizationalUnitArn: 'STRING_VALUE',
  *       },
  *     ],
  *     Remove: [
  *       {
- *         Group: "all",
- *         UserId: "STRING_VALUE",
- *         OrganizationArn: "STRING_VALUE",
- *         OrganizationalUnitArn: "STRING_VALUE",
+ *         Group: 'all',
+ *         UserId: 'STRING_VALUE',
+ *         OrganizationArn: 'STRING_VALUE',
+ *         OrganizationalUnitArn: 'STRING_VALUE',
  *       },
  *     ],
  *   },
- *   OperationType: "add" || "remove",
+ *   OperationType: 'add' || 'remove',
  *   ProductCodes: [ // ProductCodeStringList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   UserGroups: [ // UserGroupStringList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   UserIds: [ // UserIdStringList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   Value: "STRING_VALUE",
+ *   Value: 'STRING_VALUE',
  *   DryRun: true || false,
  *   OrganizationArns: [ // OrganizationArnStringList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   OrganizationalUnitArns: [ // OrganizationalUnitArnStringList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   ImdsSupport: {
- *     Value: "STRING_VALUE",
+ *     Value: 'STRING_VALUE',
  *   },
  * };
  * const command = new ModifyImageAttributeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param ModifyImageAttributeCommandInput - {@link ModifyImageAttributeCommandInput}
@@ -100,6 +103,8 @@ export interface ModifyImageAttributeCommandOutput extends __MetadataBearer {}
  * @see {@link ModifyImageAttributeCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @example To make an AMI public
  * ```javascript

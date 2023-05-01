@@ -37,15 +37,29 @@ export interface ListScheduledAuditsCommandOutput extends ListScheduledAuditsRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTClient, ListScheduledAuditsCommand } from "@aws-sdk/client-iot"; // ES Modules import
- * // const { IoTClient, ListScheduledAuditsCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * import { IoTClient, ListScheduledAuditsCommand } from '@aws-sdk/client-iot'; // ES Modules import
+ * // const { IoTClient, ListScheduledAuditsCommand } = require('@aws-sdk/client-iot'); // CommonJS import
  * const client = new IoTClient(config);
  * const input = { // ListScheduledAuditsRequest
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new ListScheduledAuditsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListScheduledAuditsResponse
+ *   scheduledAudits: [ // ScheduledAuditMetadataList
+ *     { // ScheduledAuditMetadata
+ *       scheduledAuditName: 'STRING_VALUE',
+ *       scheduledAuditArn: 'STRING_VALUE',
+ *       frequency: 'DAILY' || 'WEEKLY' || 'BIWEEKLY' || 'MONTHLY',
+ *       dayOfMonth: 'STRING_VALUE',
+ *       dayOfWeek: 'SUN' || 'MON' || 'TUE' || 'WED' || 'THU' || 'FRI' || 'SAT',
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListScheduledAuditsCommandInput - {@link ListScheduledAuditsCommandInput}
@@ -63,6 +77,8 @@ export interface ListScheduledAuditsCommandOutput extends ListScheduledAuditsRes
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The rate exceeds the limit.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class ListScheduledAuditsCommand extends $Command<

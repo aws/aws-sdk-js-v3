@@ -83,27 +83,32 @@ export interface CreateDatasetImportJobCommandOutput extends CreateDatasetImport
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PersonalizeClient, CreateDatasetImportJobCommand } from "@aws-sdk/client-personalize"; // ES Modules import
- * // const { PersonalizeClient, CreateDatasetImportJobCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
+ * import { PersonalizeClient, CreateDatasetImportJobCommand } from '@aws-sdk/client-personalize'; // ES Modules import
+ * // const { PersonalizeClient, CreateDatasetImportJobCommand } = require('@aws-sdk/client-personalize'); // CommonJS import
  * const client = new PersonalizeClient(config);
  * const input = { // CreateDatasetImportJobRequest
- *   jobName: "STRING_VALUE", // required
- *   datasetArn: "STRING_VALUE", // required
+ *   jobName: 'STRING_VALUE', // required
+ *   datasetArn: 'STRING_VALUE', // required
  *   dataSource: { // DataSource
- *     dataLocation: "STRING_VALUE",
+ *     dataLocation: 'STRING_VALUE',
  *   },
- *   roleArn: "STRING_VALUE", // required
+ *   roleArn: 'STRING_VALUE', // required
  *   tags: [ // Tags
  *     { // Tag
- *       tagKey: "STRING_VALUE", // required
- *       tagValue: "STRING_VALUE", // required
+ *       tagKey: 'STRING_VALUE', // required
+ *       tagValue: 'STRING_VALUE', // required
  *     },
  *   ],
- *   importMode: "FULL" || "INCREMENTAL",
+ *   importMode: 'FULL' || 'INCREMENTAL',
  *   publishAttributionMetricsToS3: true || false,
  * };
  * const command = new CreateDatasetImportJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateDatasetImportJobResponse
+ *   datasetImportJobArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateDatasetImportJobCommandInput - {@link CreateDatasetImportJobCommandInput}
@@ -130,6 +135,8 @@ export interface CreateDatasetImportJobCommandOutput extends CreateDatasetImport
  * @throws {@link TooManyTagsException} (client fault)
  *  <p>You have exceeded the maximum number of tags you can apply to this resource. </p>
  *
+ * @throws {@link PersonalizeServiceException}
+ * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
  */
 export class CreateDatasetImportJobCommand extends $Command<

@@ -40,18 +40,33 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Route53RecoveryControlConfigClient, CreateClusterCommand } from "@aws-sdk/client-route53-recovery-control-config"; // ES Modules import
- * // const { Route53RecoveryControlConfigClient, CreateClusterCommand } = require("@aws-sdk/client-route53-recovery-control-config"); // CommonJS import
+ * import { Route53RecoveryControlConfigClient, CreateClusterCommand } from '@aws-sdk/client-route53-recovery-control-config'; // ES Modules import
+ * // const { Route53RecoveryControlConfigClient, CreateClusterCommand } = require('@aws-sdk/client-route53-recovery-control-config'); // CommonJS import
  * const client = new Route53RecoveryControlConfigClient(config);
  * const input = { // CreateClusterRequest
- *   ClientToken: "STRING_VALUE",
- *   ClusterName: "STRING_VALUE", // required
+ *   ClientToken: 'STRING_VALUE',
+ *   ClusterName: 'STRING_VALUE', // required
  *   Tags: { // __mapOf__stringMin0Max256PatternS
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateClusterCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateClusterResponse
+ *   Cluster: { // Cluster
+ *     ClusterArn: 'STRING_VALUE',
+ *     ClusterEndpoints: [ // __listOfClusterEndpoint
+ *       { // ClusterEndpoint
+ *         Endpoint: 'STRING_VALUE',
+ *         Region: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     Name: 'STRING_VALUE',
+ *     Status: 'PENDING' || 'DEPLOYED' || 'PENDING_DELETION',
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateClusterCommandInput - {@link CreateClusterCommandInput}
@@ -81,6 +96,8 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>400 response - Multiple causes. For example, you might have a malformed query string and input parameter might be out of range, or you might have used parameters together incorrectly.</p>
  *
+ * @throws {@link Route53RecoveryControlConfigServiceException}
+ * <p>Base exception class for all service exceptions from Route53RecoveryControlConfig service.</p>
  *
  */
 export class CreateClusterCommand extends $Command<

@@ -36,14 +36,19 @@ export interface StopRecommenderCommandOutput extends StopRecommenderResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PersonalizeClient, StopRecommenderCommand } from "@aws-sdk/client-personalize"; // ES Modules import
- * // const { PersonalizeClient, StopRecommenderCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
+ * import { PersonalizeClient, StopRecommenderCommand } from '@aws-sdk/client-personalize'; // ES Modules import
+ * // const { PersonalizeClient, StopRecommenderCommand } = require('@aws-sdk/client-personalize'); // CommonJS import
  * const client = new PersonalizeClient(config);
  * const input = { // StopRecommenderRequest
- *   recommenderArn: "STRING_VALUE", // required
+ *   recommenderArn: 'STRING_VALUE', // required
  * };
  * const command = new StopRecommenderCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StopRecommenderResponse
+ *   recommenderArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param StopRecommenderCommandInput - {@link StopRecommenderCommandInput}
@@ -61,6 +66,8 @@ export interface StopRecommenderCommandOutput extends StopRecommenderResponse, _
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Could not find the specified resource.</p>
  *
+ * @throws {@link PersonalizeServiceException}
+ * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
  */
 export class StopRecommenderCommand extends $Command<

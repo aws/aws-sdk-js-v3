@@ -36,16 +36,19 @@ export interface DeleteComponentCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AmplifyUIBuilderClient, DeleteComponentCommand } from "@aws-sdk/client-amplifyuibuilder"; // ES Modules import
- * // const { AmplifyUIBuilderClient, DeleteComponentCommand } = require("@aws-sdk/client-amplifyuibuilder"); // CommonJS import
+ * import { AmplifyUIBuilderClient, DeleteComponentCommand } from '@aws-sdk/client-amplifyuibuilder'; // ES Modules import
+ * // const { AmplifyUIBuilderClient, DeleteComponentCommand } = require('@aws-sdk/client-amplifyuibuilder'); // CommonJS import
  * const client = new AmplifyUIBuilderClient(config);
  * const input = { // DeleteComponentRequest
- *   appId: "STRING_VALUE", // required
- *   environmentName: "STRING_VALUE", // required
- *   id: "STRING_VALUE", // required
+ *   appId: 'STRING_VALUE', // required
+ *   environmentName: 'STRING_VALUE', // required
+ *   id: 'STRING_VALUE', // required
  * };
  * const command = new DeleteComponentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteComponentCommandInput - {@link DeleteComponentCommandInput}
@@ -63,6 +66,8 @@ export interface DeleteComponentCommandOutput extends __MetadataBearer {}
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The requested resource does not exist, or access was denied.</p>
  *
+ * @throws {@link AmplifyUIBuilderServiceException}
+ * <p>Base exception class for all service exceptions from AmplifyUIBuilder service.</p>
  *
  */
 export class DeleteComponentCommand extends $Command<

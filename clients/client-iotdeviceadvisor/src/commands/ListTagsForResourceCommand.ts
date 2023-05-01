@@ -37,14 +37,21 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IotDeviceAdvisorClient, ListTagsForResourceCommand } from "@aws-sdk/client-iotdeviceadvisor"; // ES Modules import
- * // const { IotDeviceAdvisorClient, ListTagsForResourceCommand } = require("@aws-sdk/client-iotdeviceadvisor"); // CommonJS import
+ * import { IotDeviceAdvisorClient, ListTagsForResourceCommand } from '@aws-sdk/client-iotdeviceadvisor'; // ES Modules import
+ * // const { IotDeviceAdvisorClient, ListTagsForResourceCommand } = require('@aws-sdk/client-iotdeviceadvisor'); // CommonJS import
  * const client = new IotDeviceAdvisorClient(config);
  * const input = { // ListTagsForResourceRequest
- *   resourceArn: "STRING_VALUE", // required
+ *   resourceArn: 'STRING_VALUE', // required
  * };
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTagsForResourceResponse
+ *   tags: { // TagMap
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param ListTagsForResourceCommandInput - {@link ListTagsForResourceCommandInput}
@@ -62,6 +69,8 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @throws {@link ValidationException} (client fault)
  *  <p>Sends a validation exception.</p>
  *
+ * @throws {@link IotDeviceAdvisorServiceException}
+ * <p>Base exception class for all service exceptions from IotDeviceAdvisor service.</p>
  *
  */
 export class ListTagsForResourceCommand extends $Command<

@@ -37,16 +37,24 @@ export interface DeleteCustomVocabularyCommandOutput extends DeleteCustomVocabul
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LexModelsV2Client, DeleteCustomVocabularyCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
- * // const { LexModelsV2Client, DeleteCustomVocabularyCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
+ * import { LexModelsV2Client, DeleteCustomVocabularyCommand } from '@aws-sdk/client-lex-models-v2'; // ES Modules import
+ * // const { LexModelsV2Client, DeleteCustomVocabularyCommand } = require('@aws-sdk/client-lex-models-v2'); // CommonJS import
  * const client = new LexModelsV2Client(config);
  * const input = { // DeleteCustomVocabularyRequest
- *   botId: "STRING_VALUE", // required
- *   botVersion: "STRING_VALUE", // required
- *   localeId: "STRING_VALUE", // required
+ *   botId: 'STRING_VALUE', // required
+ *   botVersion: 'STRING_VALUE', // required
+ *   localeId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteCustomVocabularyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteCustomVocabularyResponse
+ *   botId: 'STRING_VALUE',
+ *   botVersion: 'STRING_VALUE',
+ *   localeId: 'STRING_VALUE',
+ *   customVocabularyStatus: 'Ready' || 'Deleting' || 'Exporting' || 'Importing' || 'Creating',
+ * };
+ *
  * ```
  *
  * @param DeleteCustomVocabularyCommandInput - {@link DeleteCustomVocabularyCommandInput}
@@ -80,6 +88,8 @@ export interface DeleteCustomVocabularyCommandOutput extends DeleteCustomVocabul
  *  <p>One of the input parameters in your request isn't valid. Check the
  *          parameters and try your request again.</p>
  *
+ * @throws {@link LexModelsV2ServiceException}
+ * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
  */
 export class DeleteCustomVocabularyCommand extends $Command<

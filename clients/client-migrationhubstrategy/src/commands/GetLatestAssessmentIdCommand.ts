@@ -40,12 +40,17 @@ export interface GetLatestAssessmentIdCommandOutput extends GetLatestAssessmentI
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MigrationHubStrategyClient, GetLatestAssessmentIdCommand } from "@aws-sdk/client-migrationhubstrategy"; // ES Modules import
- * // const { MigrationHubStrategyClient, GetLatestAssessmentIdCommand } = require("@aws-sdk/client-migrationhubstrategy"); // CommonJS import
+ * import { MigrationHubStrategyClient, GetLatestAssessmentIdCommand } from '@aws-sdk/client-migrationhubstrategy'; // ES Modules import
+ * // const { MigrationHubStrategyClient, GetLatestAssessmentIdCommand } = require('@aws-sdk/client-migrationhubstrategy'); // CommonJS import
  * const client = new MigrationHubStrategyClient(config);
  * const input = {};
  * const command = new GetLatestAssessmentIdCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetLatestAssessmentIdResponse
+ *   id: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetLatestAssessmentIdCommandInput - {@link GetLatestAssessmentIdCommandInput}
@@ -67,6 +72,8 @@ export interface GetLatestAssessmentIdCommandOutput extends GetLatestAssessmentI
  * @throws {@link ValidationException} (client fault)
  *  <p> The request body isn't valid. </p>
  *
+ * @throws {@link MigrationHubStrategyServiceException}
+ * <p>Base exception class for all service exceptions from MigrationHubStrategy service.</p>
  *
  */
 export class GetLatestAssessmentIdCommand extends $Command<

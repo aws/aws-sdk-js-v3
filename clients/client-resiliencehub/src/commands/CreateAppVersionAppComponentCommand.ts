@@ -44,23 +44,39 @@ export interface CreateAppVersionAppComponentCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ResiliencehubClient, CreateAppVersionAppComponentCommand } from "@aws-sdk/client-resiliencehub"; // ES Modules import
- * // const { ResiliencehubClient, CreateAppVersionAppComponentCommand } = require("@aws-sdk/client-resiliencehub"); // CommonJS import
+ * import { ResiliencehubClient, CreateAppVersionAppComponentCommand } from '@aws-sdk/client-resiliencehub'; // ES Modules import
+ * // const { ResiliencehubClient, CreateAppVersionAppComponentCommand } = require('@aws-sdk/client-resiliencehub'); // CommonJS import
  * const client = new ResiliencehubClient(config);
  * const input = { // CreateAppVersionAppComponentRequest
- *   appArn: "STRING_VALUE", // required
- *   id: "STRING_VALUE",
- *   name: "STRING_VALUE", // required
- *   type: "STRING_VALUE", // required
+ *   appArn: 'STRING_VALUE', // required
+ *   id: 'STRING_VALUE',
+ *   name: 'STRING_VALUE', // required
+ *   type: 'STRING_VALUE', // required
  *   additionalInfo: { // AdditionalInfoMap
- *     "<keys>": [ // AdditionalInfoValueList
- *       "STRING_VALUE",
+ *     '<keys>': [ // AdditionalInfoValueList
+ *       'STRING_VALUE',
  *     ],
  *   },
- *   clientToken: "STRING_VALUE",
+ *   clientToken: 'STRING_VALUE',
  * };
  * const command = new CreateAppVersionAppComponentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateAppVersionAppComponentResponse
+ *   appArn: 'STRING_VALUE', // required
+ *   appVersion: 'STRING_VALUE', // required
+ *   appComponent: { // AppComponent
+ *     name: 'STRING_VALUE', // required
+ *     type: 'STRING_VALUE', // required
+ *     id: 'STRING_VALUE',
+ *     additionalInfo: { // AdditionalInfoMap
+ *       '<keys>': [ // AdditionalInfoValueList
+ *         'STRING_VALUE',
+ *       ],
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateAppVersionAppComponentCommandInput - {@link CreateAppVersionAppComponentCommandInput}
@@ -97,6 +113,8 @@ export interface CreateAppVersionAppComponentCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>This exception occurs when a request is not valid.</p>
  *
+ * @throws {@link ResiliencehubServiceException}
+ * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
  */
 export class CreateAppVersionAppComponentCommand extends $Command<

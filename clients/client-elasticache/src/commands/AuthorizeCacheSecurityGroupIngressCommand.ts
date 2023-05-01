@@ -50,16 +50,33 @@ export interface AuthorizeCacheSecurityGroupIngressCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElastiCacheClient, AuthorizeCacheSecurityGroupIngressCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
- * // const { ElastiCacheClient, AuthorizeCacheSecurityGroupIngressCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
+ * import { ElastiCacheClient, AuthorizeCacheSecurityGroupIngressCommand } from '@aws-sdk/client-elasticache'; // ES Modules import
+ * // const { ElastiCacheClient, AuthorizeCacheSecurityGroupIngressCommand } = require('@aws-sdk/client-elasticache'); // CommonJS import
  * const client = new ElastiCacheClient(config);
  * const input = { // AuthorizeCacheSecurityGroupIngressMessage
- *   CacheSecurityGroupName: "STRING_VALUE", // required
- *   EC2SecurityGroupName: "STRING_VALUE", // required
- *   EC2SecurityGroupOwnerId: "STRING_VALUE", // required
+ *   CacheSecurityGroupName: 'STRING_VALUE', // required
+ *   EC2SecurityGroupName: 'STRING_VALUE', // required
+ *   EC2SecurityGroupOwnerId: 'STRING_VALUE', // required
  * };
  * const command = new AuthorizeCacheSecurityGroupIngressCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AuthorizeCacheSecurityGroupIngressResult
+ *   CacheSecurityGroup: { // CacheSecurityGroup
+ *     OwnerId: 'STRING_VALUE',
+ *     CacheSecurityGroupName: 'STRING_VALUE',
+ *     Description: 'STRING_VALUE',
+ *     EC2SecurityGroups: [ // EC2SecurityGroupList
+ *       { // EC2SecurityGroup
+ *         Status: 'STRING_VALUE',
+ *         EC2SecurityGroupName: 'STRING_VALUE',
+ *         EC2SecurityGroupOwnerId: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     ARN: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param AuthorizeCacheSecurityGroupIngressCommandInput - {@link AuthorizeCacheSecurityGroupIngressCommandInput}
@@ -83,6 +100,8 @@ export interface AuthorizeCacheSecurityGroupIngressCommandOutput
  * @throws {@link InvalidParameterValueException} (client fault)
  *  <p>The value for a parameter is invalid.</p>
  *
+ * @throws {@link ElastiCacheServiceException}
+ * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
  * @example AuthorizeCacheCacheSecurityGroupIngress
  * ```javascript

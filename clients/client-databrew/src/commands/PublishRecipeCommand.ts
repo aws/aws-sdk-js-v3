@@ -36,15 +36,20 @@ export interface PublishRecipeCommandOutput extends PublishRecipeResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DataBrewClient, PublishRecipeCommand } from "@aws-sdk/client-databrew"; // ES Modules import
- * // const { DataBrewClient, PublishRecipeCommand } = require("@aws-sdk/client-databrew"); // CommonJS import
+ * import { DataBrewClient, PublishRecipeCommand } from '@aws-sdk/client-databrew'; // ES Modules import
+ * // const { DataBrewClient, PublishRecipeCommand } = require('@aws-sdk/client-databrew'); // CommonJS import
  * const client = new DataBrewClient(config);
  * const input = { // PublishRecipeRequest
- *   Description: "STRING_VALUE",
- *   Name: "STRING_VALUE", // required
+ *   Description: 'STRING_VALUE',
+ *   Name: 'STRING_VALUE', // required
  * };
  * const command = new PublishRecipeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PublishRecipeResponse
+ *   Name: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param PublishRecipeCommandInput - {@link PublishRecipeCommandInput}
@@ -62,6 +67,8 @@ export interface PublishRecipeCommandOutput extends PublishRecipeResponse, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>The input parameters for this request failed validation.</p>
  *
+ * @throws {@link DataBrewServiceException}
+ * <p>Base exception class for all service exceptions from DataBrew service.</p>
  *
  */
 export class PublishRecipeCommand extends $Command<

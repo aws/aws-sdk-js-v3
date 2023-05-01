@@ -41,20 +41,23 @@ export interface PutUsersCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PersonalizeEventsClient, PutUsersCommand } from "@aws-sdk/client-personalize-events"; // ES Modules import
- * // const { PersonalizeEventsClient, PutUsersCommand } = require("@aws-sdk/client-personalize-events"); // CommonJS import
+ * import { PersonalizeEventsClient, PutUsersCommand } from '@aws-sdk/client-personalize-events'; // ES Modules import
+ * // const { PersonalizeEventsClient, PutUsersCommand } = require('@aws-sdk/client-personalize-events'); // CommonJS import
  * const client = new PersonalizeEventsClient(config);
  * const input = { // PutUsersRequest
- *   datasetArn: "STRING_VALUE", // required
+ *   datasetArn: 'STRING_VALUE', // required
  *   users: [ // UserList // required
  *     { // User
- *       userId: "STRING_VALUE", // required
- *       properties: "STRING_VALUE",
+ *       userId: 'STRING_VALUE', // required
+ *       properties: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new PutUsersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutUsersCommandInput - {@link PutUsersCommandInput}
@@ -72,6 +75,8 @@ export interface PutUsersCommandOutput extends __MetadataBearer {}
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Could not find the specified resource.</p>
  *
+ * @throws {@link PersonalizeEventsServiceException}
+ * <p>Base exception class for all service exceptions from PersonalizeEvents service.</p>
  *
  */
 export class PutUsersCommand extends $Command<

@@ -54,25 +54,30 @@ export interface CreateDatasetCommandOutput extends CreateDatasetResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RekognitionClient, CreateDatasetCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
- * // const { RekognitionClient, CreateDatasetCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
+ * import { RekognitionClient, CreateDatasetCommand } from '@aws-sdk/client-rekognition'; // ES Modules import
+ * // const { RekognitionClient, CreateDatasetCommand } = require('@aws-sdk/client-rekognition'); // CommonJS import
  * const client = new RekognitionClient(config);
  * const input = { // CreateDatasetRequest
  *   DatasetSource: { // DatasetSource
  *     GroundTruthManifest: { // GroundTruthManifest
  *       S3Object: { // S3Object
- *         Bucket: "STRING_VALUE",
- *         Name: "STRING_VALUE",
- *         Version: "STRING_VALUE",
+ *         Bucket: 'STRING_VALUE',
+ *         Name: 'STRING_VALUE',
+ *         Version: 'STRING_VALUE',
  *       },
  *     },
- *     DatasetArn: "STRING_VALUE",
+ *     DatasetArn: 'STRING_VALUE',
  *   },
- *   DatasetType: "TRAIN" || "TEST", // required
- *   ProjectArn: "STRING_VALUE", // required
+ *   DatasetType: 'TRAIN' || 'TEST', // required
+ *   ProjectArn: 'STRING_VALUE', // required
  * };
  * const command = new CreateDatasetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateDatasetResponse
+ *   DatasetArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateDatasetCommandInput - {@link CreateDatasetCommandInput}
@@ -112,6 +117,8 @@ export interface CreateDatasetCommandOutput extends CreateDatasetResponse, __Met
  * @throws {@link ThrottlingException} (server fault)
  *  <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
  *
+ * @throws {@link RekognitionServiceException}
+ * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
  */
 export class CreateDatasetCommand extends $Command<

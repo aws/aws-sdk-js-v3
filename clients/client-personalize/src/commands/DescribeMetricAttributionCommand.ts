@@ -36,14 +36,34 @@ export interface DescribeMetricAttributionCommandOutput extends DescribeMetricAt
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PersonalizeClient, DescribeMetricAttributionCommand } from "@aws-sdk/client-personalize"; // ES Modules import
- * // const { PersonalizeClient, DescribeMetricAttributionCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
+ * import { PersonalizeClient, DescribeMetricAttributionCommand } from '@aws-sdk/client-personalize'; // ES Modules import
+ * // const { PersonalizeClient, DescribeMetricAttributionCommand } = require('@aws-sdk/client-personalize'); // CommonJS import
  * const client = new PersonalizeClient(config);
  * const input = { // DescribeMetricAttributionRequest
- *   metricAttributionArn: "STRING_VALUE", // required
+ *   metricAttributionArn: 'STRING_VALUE', // required
  * };
  * const command = new DescribeMetricAttributionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeMetricAttributionResponse
+ *   metricAttribution: { // MetricAttribution
+ *     name: 'STRING_VALUE',
+ *     metricAttributionArn: 'STRING_VALUE',
+ *     datasetGroupArn: 'STRING_VALUE',
+ *     metricsOutputConfig: { // MetricAttributionOutput
+ *       s3DataDestination: { // S3DataConfig
+ *         path: 'STRING_VALUE', // required
+ *         kmsKeyArn: 'STRING_VALUE',
+ *       },
+ *       roleArn: 'STRING_VALUE', // required
+ *     },
+ *     status: 'STRING_VALUE',
+ *     creationDateTime: new Date('TIMESTAMP'),
+ *     lastUpdatedDateTime: new Date('TIMESTAMP'),
+ *     failureReason: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeMetricAttributionCommandInput - {@link DescribeMetricAttributionCommandInput}
@@ -58,6 +78,8 @@ export interface DescribeMetricAttributionCommandOutput extends DescribeMetricAt
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Could not find the specified resource.</p>
  *
+ * @throws {@link PersonalizeServiceException}
+ * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
  */
 export class DescribeMetricAttributionCommand extends $Command<

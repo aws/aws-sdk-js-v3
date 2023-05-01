@@ -36,15 +36,29 @@ export interface ListBootstrapActionsCommandOutput extends ListBootstrapActionsO
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EMRClient, ListBootstrapActionsCommand } from "@aws-sdk/client-emr"; // ES Modules import
- * // const { EMRClient, ListBootstrapActionsCommand } = require("@aws-sdk/client-emr"); // CommonJS import
+ * import { EMRClient, ListBootstrapActionsCommand } from '@aws-sdk/client-emr'; // ES Modules import
+ * // const { EMRClient, ListBootstrapActionsCommand } = require('@aws-sdk/client-emr'); // CommonJS import
  * const client = new EMRClient(config);
  * const input = { // ListBootstrapActionsInput
- *   ClusterId: "STRING_VALUE", // required
- *   Marker: "STRING_VALUE",
+ *   ClusterId: 'STRING_VALUE', // required
+ *   Marker: 'STRING_VALUE',
  * };
  * const command = new ListBootstrapActionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListBootstrapActionsOutput
+ *   BootstrapActions: [ // CommandList
+ *     { // Command
+ *       Name: 'STRING_VALUE',
+ *       ScriptPath: 'STRING_VALUE',
+ *       Args: [ // StringList
+ *         'STRING_VALUE',
+ *       ],
+ *     },
+ *   ],
+ *   Marker: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListBootstrapActionsCommandInput - {@link ListBootstrapActionsCommandInput}
@@ -60,6 +74,8 @@ export interface ListBootstrapActionsCommandOutput extends ListBootstrapActionsO
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception occurs when there is something wrong with user input.</p>
  *
+ * @throws {@link EMRServiceException}
+ * <p>Base exception class for all service exceptions from EMR service.</p>
  *
  */
 export class ListBootstrapActionsCommand extends $Command<

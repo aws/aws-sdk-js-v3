@@ -36,14 +36,42 @@ export interface GetSettingsCommandOutput extends GetSettingsResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AuditManagerClient, GetSettingsCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
- * // const { AuditManagerClient, GetSettingsCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import
+ * import { AuditManagerClient, GetSettingsCommand } from '@aws-sdk/client-auditmanager'; // ES Modules import
+ * // const { AuditManagerClient, GetSettingsCommand } = require('@aws-sdk/client-auditmanager'); // CommonJS import
  * const client = new AuditManagerClient(config);
  * const input = { // GetSettingsRequest
- *   attribute: "ALL" || "IS_AWS_ORG_ENABLED" || "SNS_TOPIC" || "DEFAULT_ASSESSMENT_REPORTS_DESTINATION" || "DEFAULT_PROCESS_OWNERS" || "EVIDENCE_FINDER_ENABLEMENT" || "DEREGISTRATION_POLICY", // required
+ *   attribute: 'ALL' || 'IS_AWS_ORG_ENABLED' || 'SNS_TOPIC' || 'DEFAULT_ASSESSMENT_REPORTS_DESTINATION' || 'DEFAULT_PROCESS_OWNERS' || 'EVIDENCE_FINDER_ENABLEMENT' || 'DEREGISTRATION_POLICY', // required
  * };
  * const command = new GetSettingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetSettingsResponse
+ *   settings: { // Settings
+ *     isAwsOrgEnabled: true || false,
+ *     snsTopic: 'STRING_VALUE',
+ *     defaultAssessmentReportsDestination: { // AssessmentReportsDestination
+ *       destinationType: 'S3',
+ *       destination: 'STRING_VALUE',
+ *     },
+ *     defaultProcessOwners: [ // Roles
+ *       { // Role
+ *         roleType: 'PROCESS_OWNER' || 'RESOURCE_OWNER', // required
+ *         roleArn: 'STRING_VALUE', // required
+ *       },
+ *     ],
+ *     kmsKey: 'STRING_VALUE',
+ *     evidenceFinderEnablement: { // EvidenceFinderEnablement
+ *       eventDataStoreArn: 'STRING_VALUE',
+ *       enablementStatus: 'ENABLED' || 'DISABLED' || 'ENABLE_IN_PROGRESS' || 'DISABLE_IN_PROGRESS',
+ *       backfillStatus: 'NOT_STARTED' || 'IN_PROGRESS' || 'COMPLETED',
+ *       error: 'STRING_VALUE',
+ *     },
+ *     deregistrationPolicy: { // DeregistrationPolicy
+ *       deleteResources: 'ALL' || 'DEFAULT',
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetSettingsCommandInput - {@link GetSettingsCommandInput}
@@ -60,6 +88,8 @@ export interface GetSettingsCommandOutput extends GetSettingsResponse, __Metadat
  *  <p> An internal service error occurred during the processing of your request. Try again
  *          later. </p>
  *
+ * @throws {@link AuditManagerServiceException}
+ * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
  */
 export class GetSettingsCommand extends $Command<

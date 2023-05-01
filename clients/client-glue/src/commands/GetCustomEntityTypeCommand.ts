@@ -36,14 +36,23 @@ export interface GetCustomEntityTypeCommandOutput extends GetCustomEntityTypeRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlueClient, GetCustomEntityTypeCommand } from "@aws-sdk/client-glue"; // ES Modules import
- * // const { GlueClient, GetCustomEntityTypeCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * import { GlueClient, GetCustomEntityTypeCommand } from '@aws-sdk/client-glue'; // ES Modules import
+ * // const { GlueClient, GetCustomEntityTypeCommand } = require('@aws-sdk/client-glue'); // CommonJS import
  * const client = new GlueClient(config);
  * const input = { // GetCustomEntityTypeRequest
- *   Name: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
  * };
  * const command = new GetCustomEntityTypeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetCustomEntityTypeResponse
+ *   Name: 'STRING_VALUE',
+ *   RegexString: 'STRING_VALUE',
+ *   ContextWords: [ // ContextWords
+ *     'STRING_VALUE',
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetCustomEntityTypeCommandInput - {@link GetCustomEntityTypeCommandInput}
@@ -67,6 +76,8 @@ export interface GetCustomEntityTypeCommandOutput extends GetCustomEntityTypeRes
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class GetCustomEntityTypeCommand extends $Command<

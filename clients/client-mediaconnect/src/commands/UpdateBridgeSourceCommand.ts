@@ -36,27 +36,49 @@ export interface UpdateBridgeSourceCommandOutput extends UpdateBridgeSourceRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MediaConnectClient, UpdateBridgeSourceCommand } from "@aws-sdk/client-mediaconnect"; // ES Modules import
- * // const { MediaConnectClient, UpdateBridgeSourceCommand } = require("@aws-sdk/client-mediaconnect"); // CommonJS import
+ * import { MediaConnectClient, UpdateBridgeSourceCommand } from '@aws-sdk/client-mediaconnect'; // ES Modules import
+ * // const { MediaConnectClient, UpdateBridgeSourceCommand } = require('@aws-sdk/client-mediaconnect'); // CommonJS import
  * const client = new MediaConnectClient(config);
  * const input = { // UpdateBridgeSourceRequest
- *   BridgeArn: "STRING_VALUE", // required
+ *   BridgeArn: 'STRING_VALUE', // required
  *   FlowSource: { // UpdateBridgeFlowSourceRequest
- *     FlowArn: "STRING_VALUE",
+ *     FlowArn: 'STRING_VALUE',
  *     FlowVpcInterfaceAttachment: { // VpcInterfaceAttachment
- *       VpcInterfaceName: "STRING_VALUE",
+ *       VpcInterfaceName: 'STRING_VALUE',
  *     },
  *   },
  *   NetworkSource: { // UpdateBridgeNetworkSourceRequest
- *     MulticastIp: "STRING_VALUE",
- *     NetworkName: "STRING_VALUE",
- *     Port: Number("int"),
- *     Protocol: "zixi-push" || "rtp-fec" || "rtp" || "zixi-pull" || "rist" || "st2110-jpegxs" || "cdi" || "srt-listener" || "srt-caller" || "fujitsu-qos" || "udp",
+ *     MulticastIp: 'STRING_VALUE',
+ *     NetworkName: 'STRING_VALUE',
+ *     Port: Number('int'),
+ *     Protocol: 'zixi-push' || 'rtp-fec' || 'rtp' || 'zixi-pull' || 'rist' || 'st2110-jpegxs' || 'cdi' || 'srt-listener' || 'srt-caller' || 'fujitsu-qos' || 'udp',
  *   },
- *   SourceName: "STRING_VALUE", // required
+ *   SourceName: 'STRING_VALUE', // required
  * };
  * const command = new UpdateBridgeSourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateBridgeSourceResponse
+ *   BridgeArn: 'STRING_VALUE',
+ *   Source: { // BridgeSource
+ *     FlowSource: { // BridgeFlowSource
+ *       FlowArn: 'STRING_VALUE', // required
+ *       FlowVpcInterfaceAttachment: { // VpcInterfaceAttachment
+ *         VpcInterfaceName: 'STRING_VALUE',
+ *       },
+ *       Name: 'STRING_VALUE', // required
+ *       OutputArn: 'STRING_VALUE',
+ *     },
+ *     NetworkSource: { // BridgeNetworkSource
+ *       MulticastIp: 'STRING_VALUE', // required
+ *       Name: 'STRING_VALUE', // required
+ *       NetworkName: 'STRING_VALUE', // required
+ *       Port: Number('int'), // required
+ *       Protocol: 'zixi-push' || 'rtp-fec' || 'rtp' || 'zixi-pull' || 'rist' || 'st2110-jpegxs' || 'cdi' || 'srt-listener' || 'srt-caller' || 'fujitsu-qos' || 'udp', // required
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateBridgeSourceCommandInput - {@link UpdateBridgeSourceCommandInput}
@@ -86,6 +108,8 @@ export interface UpdateBridgeSourceCommandOutput extends UpdateBridgeSourceRespo
  * @throws {@link TooManyRequestsException} (client fault)
  *  Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
  *
+ * @throws {@link MediaConnectServiceException}
+ * <p>Base exception class for all service exceptions from MediaConnect service.</p>
  *
  */
 export class UpdateBridgeSourceCommand extends $Command<

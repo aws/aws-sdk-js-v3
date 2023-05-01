@@ -36,15 +36,18 @@ export interface RevokeInvitationCommandOutput extends RevokeInvitationResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AlexaForBusinessClient, RevokeInvitationCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
- * // const { AlexaForBusinessClient, RevokeInvitationCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
+ * import { AlexaForBusinessClient, RevokeInvitationCommand } from '@aws-sdk/client-alexa-for-business'; // ES Modules import
+ * // const { AlexaForBusinessClient, RevokeInvitationCommand } = require('@aws-sdk/client-alexa-for-business'); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
  * const input = { // RevokeInvitationRequest
- *   UserArn: "STRING_VALUE",
- *   EnrollmentId: "STRING_VALUE",
+ *   UserArn: 'STRING_VALUE',
+ *   EnrollmentId: 'STRING_VALUE',
  * };
  * const command = new RevokeInvitationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param RevokeInvitationCommandInput - {@link RevokeInvitationCommandInput}
@@ -59,6 +62,8 @@ export interface RevokeInvitationCommandOutput extends RevokeInvitationResponse,
  * @throws {@link NotFoundException} (client fault)
  *  <p>The resource is not found.</p>
  *
+ * @throws {@link AlexaForBusinessServiceException}
+ * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  */
 export class RevokeInvitationCommand extends $Command<

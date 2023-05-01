@@ -37,14 +37,22 @@ export interface DescribeFeedbackCommandOutput extends DescribeFeedbackResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DevOpsGuruClient, DescribeFeedbackCommand } from "@aws-sdk/client-devops-guru"; // ES Modules import
- * // const { DevOpsGuruClient, DescribeFeedbackCommand } = require("@aws-sdk/client-devops-guru"); // CommonJS import
+ * import { DevOpsGuruClient, DescribeFeedbackCommand } from '@aws-sdk/client-devops-guru'; // ES Modules import
+ * // const { DevOpsGuruClient, DescribeFeedbackCommand } = require('@aws-sdk/client-devops-guru'); // CommonJS import
  * const client = new DevOpsGuruClient(config);
  * const input = { // DescribeFeedbackRequest
- *   InsightId: "STRING_VALUE",
+ *   InsightId: 'STRING_VALUE',
  * };
  * const command = new DescribeFeedbackCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeFeedbackResponse
+ *   InsightFeedback: { // InsightFeedback
+ *     Id: 'STRING_VALUE',
+ *     Feedback: 'VALID_COLLECTION' || 'RECOMMENDATION_USEFUL' || 'ALERT_TOO_SENSITIVE' || 'DATA_NOISY_ANOMALY' || 'DATA_INCORRECT',
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeFeedbackCommandInput - {@link DescribeFeedbackCommandInput}
@@ -72,6 +80,8 @@ export interface DescribeFeedbackCommandOutput extends DescribeFeedbackResponse,
  *  <p> Contains information about data passed in to a field during a request that is not
  * 			valid. </p>
  *
+ * @throws {@link DevOpsGuruServiceException}
+ * <p>Base exception class for all service exceptions from DevOpsGuru service.</p>
  *
  */
 export class DescribeFeedbackCommand extends $Command<

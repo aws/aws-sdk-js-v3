@@ -41,26 +41,62 @@ export interface GetMLTaskRunsCommandOutput extends GetMLTaskRunsResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlueClient, GetMLTaskRunsCommand } from "@aws-sdk/client-glue"; // ES Modules import
- * // const { GlueClient, GetMLTaskRunsCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * import { GlueClient, GetMLTaskRunsCommand } from '@aws-sdk/client-glue'; // ES Modules import
+ * // const { GlueClient, GetMLTaskRunsCommand } = require('@aws-sdk/client-glue'); // CommonJS import
  * const client = new GlueClient(config);
  * const input = { // GetMLTaskRunsRequest
- *   TransformId: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   TransformId: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  *   Filter: { // TaskRunFilterCriteria
- *     TaskRunType: "EVALUATION" || "LABELING_SET_GENERATION" || "IMPORT_LABELS" || "EXPORT_LABELS" || "FIND_MATCHES",
- *     Status: "STARTING" || "RUNNING" || "STOPPING" || "STOPPED" || "SUCCEEDED" || "FAILED" || "TIMEOUT",
- *     StartedBefore: new Date("TIMESTAMP"),
- *     StartedAfter: new Date("TIMESTAMP"),
+ *     TaskRunType: 'EVALUATION' || 'LABELING_SET_GENERATION' || 'IMPORT_LABELS' || 'EXPORT_LABELS' || 'FIND_MATCHES',
+ *     Status: 'STARTING' || 'RUNNING' || 'STOPPING' || 'STOPPED' || 'SUCCEEDED' || 'FAILED' || 'TIMEOUT',
+ *     StartedBefore: new Date('TIMESTAMP'),
+ *     StartedAfter: new Date('TIMESTAMP'),
  *   },
  *   Sort: { // TaskRunSortCriteria
- *     Column: "TASK_RUN_TYPE" || "STATUS" || "STARTED", // required
- *     SortDirection: "DESCENDING" || "ASCENDING", // required
+ *     Column: 'TASK_RUN_TYPE' || 'STATUS' || 'STARTED', // required
+ *     SortDirection: 'DESCENDING' || 'ASCENDING', // required
  *   },
  * };
  * const command = new GetMLTaskRunsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetMLTaskRunsResponse
+ *   TaskRuns: [ // TaskRunList
+ *     { // TaskRun
+ *       TransformId: 'STRING_VALUE',
+ *       TaskRunId: 'STRING_VALUE',
+ *       Status: 'STARTING' || 'RUNNING' || 'STOPPING' || 'STOPPED' || 'SUCCEEDED' || 'FAILED' || 'TIMEOUT',
+ *       LogGroupName: 'STRING_VALUE',
+ *       Properties: { // TaskRunProperties
+ *         TaskType: 'EVALUATION' || 'LABELING_SET_GENERATION' || 'IMPORT_LABELS' || 'EXPORT_LABELS' || 'FIND_MATCHES',
+ *         ImportLabelsTaskRunProperties: { // ImportLabelsTaskRunProperties
+ *           InputS3Path: 'STRING_VALUE',
+ *           Replace: true || false,
+ *         },
+ *         ExportLabelsTaskRunProperties: { // ExportLabelsTaskRunProperties
+ *           OutputS3Path: 'STRING_VALUE',
+ *         },
+ *         LabelingSetGenerationTaskRunProperties: { // LabelingSetGenerationTaskRunProperties
+ *           OutputS3Path: 'STRING_VALUE',
+ *         },
+ *         FindMatchesTaskRunProperties: { // FindMatchesTaskRunProperties
+ *           JobId: 'STRING_VALUE',
+ *           JobName: 'STRING_VALUE',
+ *           JobRunId: 'STRING_VALUE',
+ *         },
+ *       },
+ *       ErrorString: 'STRING_VALUE',
+ *       StartedOn: new Date('TIMESTAMP'),
+ *       LastModifiedOn: new Date('TIMESTAMP'),
+ *       CompletedOn: new Date('TIMESTAMP'),
+ *       ExecutionTime: Number('int'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetMLTaskRunsCommandInput - {@link GetMLTaskRunsCommandInput}
@@ -81,6 +117,8 @@ export interface GetMLTaskRunsCommandOutput extends GetMLTaskRunsResponse, __Met
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class GetMLTaskRunsCommand extends $Command<

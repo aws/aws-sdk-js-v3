@@ -60,14 +60,17 @@ export interface StopDeliveryStreamEncryptionCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FirehoseClient, StopDeliveryStreamEncryptionCommand } from "@aws-sdk/client-firehose"; // ES Modules import
- * // const { FirehoseClient, StopDeliveryStreamEncryptionCommand } = require("@aws-sdk/client-firehose"); // CommonJS import
+ * import { FirehoseClient, StopDeliveryStreamEncryptionCommand } from '@aws-sdk/client-firehose'; // ES Modules import
+ * // const { FirehoseClient, StopDeliveryStreamEncryptionCommand } = require('@aws-sdk/client-firehose'); // CommonJS import
  * const client = new FirehoseClient(config);
  * const input = { // StopDeliveryStreamEncryptionInput
- *   DeliveryStreamName: "STRING_VALUE", // required
+ *   DeliveryStreamName: 'STRING_VALUE', // required
  * };
  * const command = new StopDeliveryStreamEncryptionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param StopDeliveryStreamEncryptionCommandInput - {@link StopDeliveryStreamEncryptionCommandInput}
@@ -88,6 +91,8 @@ export interface StopDeliveryStreamEncryptionCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource could not be found.</p>
  *
+ * @throws {@link FirehoseServiceException}
+ * <p>Base exception class for all service exceptions from Firehose service.</p>
  *
  */
 export class StopDeliveryStreamEncryptionCommand extends $Command<

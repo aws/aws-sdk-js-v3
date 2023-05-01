@@ -36,15 +36,21 @@ export interface RevokeFlowEntitlementCommandOutput extends RevokeFlowEntitlemen
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MediaConnectClient, RevokeFlowEntitlementCommand } from "@aws-sdk/client-mediaconnect"; // ES Modules import
- * // const { MediaConnectClient, RevokeFlowEntitlementCommand } = require("@aws-sdk/client-mediaconnect"); // CommonJS import
+ * import { MediaConnectClient, RevokeFlowEntitlementCommand } from '@aws-sdk/client-mediaconnect'; // ES Modules import
+ * // const { MediaConnectClient, RevokeFlowEntitlementCommand } = require('@aws-sdk/client-mediaconnect'); // CommonJS import
  * const client = new MediaConnectClient(config);
  * const input = { // RevokeFlowEntitlementRequest
- *   EntitlementArn: "STRING_VALUE", // required
- *   FlowArn: "STRING_VALUE", // required
+ *   EntitlementArn: 'STRING_VALUE', // required
+ *   FlowArn: 'STRING_VALUE', // required
  * };
  * const command = new RevokeFlowEntitlementCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // RevokeFlowEntitlementResponse
+ *   EntitlementArn: 'STRING_VALUE',
+ *   FlowArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param RevokeFlowEntitlementCommandInput - {@link RevokeFlowEntitlementCommandInput}
@@ -71,6 +77,8 @@ export interface RevokeFlowEntitlementCommandOutput extends RevokeFlowEntitlemen
  * @throws {@link TooManyRequestsException} (client fault)
  *  Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
  *
+ * @throws {@link MediaConnectServiceException}
+ * <p>Base exception class for all service exceptions from MediaConnect service.</p>
  *
  */
 export class RevokeFlowEntitlementCommand extends $Command<

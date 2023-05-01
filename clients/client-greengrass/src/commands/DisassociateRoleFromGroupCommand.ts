@@ -36,14 +36,19 @@ export interface DisassociateRoleFromGroupCommandOutput extends DisassociateRole
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GreengrassClient, DisassociateRoleFromGroupCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
- * // const { GreengrassClient, DisassociateRoleFromGroupCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
+ * import { GreengrassClient, DisassociateRoleFromGroupCommand } from '@aws-sdk/client-greengrass'; // ES Modules import
+ * // const { GreengrassClient, DisassociateRoleFromGroupCommand } = require('@aws-sdk/client-greengrass'); // CommonJS import
  * const client = new GreengrassClient(config);
  * const input = { // DisassociateRoleFromGroupRequest
- *   GroupId: "STRING_VALUE", // required
+ *   GroupId: 'STRING_VALUE', // required
  * };
  * const command = new DisassociateRoleFromGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DisassociateRoleFromGroupResponse
+ *   DisassociatedAt: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DisassociateRoleFromGroupCommandInput - {@link DisassociateRoleFromGroupCommandInput}
@@ -58,6 +63,8 @@ export interface DisassociateRoleFromGroupCommandOutput extends DisassociateRole
  * @throws {@link InternalServerErrorException} (server fault)
  *  General error information.
  *
+ * @throws {@link GreengrassServiceException}
+ * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
  */
 export class DisassociateRoleFromGroupCommand extends $Command<

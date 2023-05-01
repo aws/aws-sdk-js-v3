@@ -42,19 +42,32 @@ export interface ListAttributesCommandOutput extends ListAttributesResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ECSClient, ListAttributesCommand } from "@aws-sdk/client-ecs"; // ES Modules import
- * // const { ECSClient, ListAttributesCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
+ * import { ECSClient, ListAttributesCommand } from '@aws-sdk/client-ecs'; // ES Modules import
+ * // const { ECSClient, ListAttributesCommand } = require('@aws-sdk/client-ecs'); // CommonJS import
  * const client = new ECSClient(config);
  * const input = { // ListAttributesRequest
- *   cluster: "STRING_VALUE",
- *   targetType: "container-instance", // required
- *   attributeName: "STRING_VALUE",
- *   attributeValue: "STRING_VALUE",
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   cluster: 'STRING_VALUE',
+ *   targetType: 'container-instance', // required
+ *   attributeName: 'STRING_VALUE',
+ *   attributeValue: 'STRING_VALUE',
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new ListAttributesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListAttributesResponse
+ *   attributes: [ // Attributes
+ *     { // Attribute
+ *       name: 'STRING_VALUE', // required
+ *       value: 'STRING_VALUE',
+ *       targetType: 'container-instance',
+ *       targetId: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListAttributesCommandInput - {@link ListAttributesCommandInput}
@@ -70,6 +83,8 @@ export interface ListAttributesCommandOutput extends ListAttributesResponse, __M
  *  <p>The specified parameter isn't valid. Review the available parameters for the API
  * 			request.</p>
  *
+ * @throws {@link ECSServiceException}
+ * <p>Base exception class for all service exceptions from ECS service.</p>
  *
  */
 export class ListAttributesCommand extends $Command<

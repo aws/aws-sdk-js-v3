@@ -46,14 +46,17 @@ export interface DeleteLoadBalancerCommandOutput extends DeleteLoadBalancerOutpu
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElasticLoadBalancingV2Client, DeleteLoadBalancerCommand } from "@aws-sdk/client-elastic-load-balancing-v2"; // ES Modules import
- * // const { ElasticLoadBalancingV2Client, DeleteLoadBalancerCommand } = require("@aws-sdk/client-elastic-load-balancing-v2"); // CommonJS import
+ * import { ElasticLoadBalancingV2Client, DeleteLoadBalancerCommand } from '@aws-sdk/client-elastic-load-balancing-v2'; // ES Modules import
+ * // const { ElasticLoadBalancingV2Client, DeleteLoadBalancerCommand } = require('@aws-sdk/client-elastic-load-balancing-v2'); // CommonJS import
  * const client = new ElasticLoadBalancingV2Client(config);
  * const input = { // DeleteLoadBalancerInput
- *   LoadBalancerArn: "STRING_VALUE", // required
+ *   LoadBalancerArn: 'STRING_VALUE', // required
  * };
  * const command = new DeleteLoadBalancerCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteLoadBalancerCommandInput - {@link DeleteLoadBalancerCommandInput}
@@ -71,6 +74,8 @@ export interface DeleteLoadBalancerCommandOutput extends DeleteLoadBalancerOutpu
  * @throws {@link ResourceInUseException} (client fault)
  *  <p>A specified resource is in use.</p>
  *
+ * @throws {@link ElasticLoadBalancingV2ServiceException}
+ * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
  * @example To delete a load balancer
  * ```javascript

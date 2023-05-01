@@ -51,17 +51,20 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ApplicationAutoScalingClient, TagResourceCommand } from "@aws-sdk/client-application-auto-scaling"; // ES Modules import
- * // const { ApplicationAutoScalingClient, TagResourceCommand } = require("@aws-sdk/client-application-auto-scaling"); // CommonJS import
+ * import { ApplicationAutoScalingClient, TagResourceCommand } from '@aws-sdk/client-application-auto-scaling'; // ES Modules import
+ * // const { ApplicationAutoScalingClient, TagResourceCommand } = require('@aws-sdk/client-application-auto-scaling'); // CommonJS import
  * const client = new ApplicationAutoScalingClient(config);
  * const input = { // TagResourceRequest
- *   ResourceARN: "STRING_VALUE", // required
+ *   ResourceARN: 'STRING_VALUE', // required
  *   Tags: { // TagMap // required
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param TagResourceCommandInput - {@link TagResourceCommandInput}
@@ -80,6 +83,8 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  *  <p>An exception was thrown for a validation issue. Review the available parameters for the
  *          API request.</p>
  *
+ * @throws {@link ApplicationAutoScalingServiceException}
+ * <p>Base exception class for all service exceptions from ApplicationAutoScaling service.</p>
  *
  * @example To add a tag to a scalable target
  * ```javascript

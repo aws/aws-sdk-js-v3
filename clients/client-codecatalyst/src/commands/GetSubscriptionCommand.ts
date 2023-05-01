@@ -37,14 +37,20 @@ export interface GetSubscriptionCommandOutput extends GetSubscriptionResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeCatalystClient, GetSubscriptionCommand } from "@aws-sdk/client-codecatalyst"; // ES Modules import
- * // const { CodeCatalystClient, GetSubscriptionCommand } = require("@aws-sdk/client-codecatalyst"); // CommonJS import
+ * import { CodeCatalystClient, GetSubscriptionCommand } from '@aws-sdk/client-codecatalyst'; // ES Modules import
+ * // const { CodeCatalystClient, GetSubscriptionCommand } = require('@aws-sdk/client-codecatalyst'); // CommonJS import
  * const client = new CodeCatalystClient(config);
  * const input = { // GetSubscriptionRequest
- *   spaceName: "STRING_VALUE", // required
+ *   spaceName: 'STRING_VALUE', // required
  * };
  * const command = new GetSubscriptionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetSubscriptionResponse
+ *   subscriptionType: 'STRING_VALUE',
+ *   awsAccountName: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetSubscriptionCommandInput - {@link GetSubscriptionCommandInput}
@@ -73,6 +79,8 @@ export interface GetSubscriptionCommandOutput extends GetSubscriptionResponse, _
  * @throws {@link ValidationException} (client fault)
  *  <p>The request was denied because an input failed to satisfy the constraints specified by the service. Check the spelling and input requirements, and then try again.</p>
  *
+ * @throws {@link CodeCatalystServiceException}
+ * <p>Base exception class for all service exceptions from CodeCatalyst service.</p>
  *
  */
 export class GetSubscriptionCommand extends $Command<

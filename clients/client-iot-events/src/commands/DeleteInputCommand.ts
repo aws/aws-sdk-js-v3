@@ -36,14 +36,17 @@ export interface DeleteInputCommandOutput extends DeleteInputResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTEventsClient, DeleteInputCommand } from "@aws-sdk/client-iot-events"; // ES Modules import
- * // const { IoTEventsClient, DeleteInputCommand } = require("@aws-sdk/client-iot-events"); // CommonJS import
+ * import { IoTEventsClient, DeleteInputCommand } from '@aws-sdk/client-iot-events'; // ES Modules import
+ * // const { IoTEventsClient, DeleteInputCommand } = require('@aws-sdk/client-iot-events'); // CommonJS import
  * const client = new IoTEventsClient(config);
  * const input = { // DeleteInputRequest
- *   inputName: "STRING_VALUE", // required
+ *   inputName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteInputCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteInputCommandInput - {@link DeleteInputCommandInput}
@@ -70,6 +73,8 @@ export interface DeleteInputCommandOutput extends DeleteInputResponse, __Metadat
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request could not be completed due to throttling.</p>
  *
+ * @throws {@link IoTEventsServiceException}
+ * <p>Base exception class for all service exceptions from IoTEvents service.</p>
  *
  */
 export class DeleteInputCommand extends $Command<

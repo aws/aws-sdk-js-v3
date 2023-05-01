@@ -43,12 +43,30 @@ export interface DescribeAcceleratorTypesCommandOutput extends DescribeAccelerat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElasticInferenceClient, DescribeAcceleratorTypesCommand } from "@aws-sdk/client-elastic-inference"; // ES Modules import
- * // const { ElasticInferenceClient, DescribeAcceleratorTypesCommand } = require("@aws-sdk/client-elastic-inference"); // CommonJS import
+ * import { ElasticInferenceClient, DescribeAcceleratorTypesCommand } from '@aws-sdk/client-elastic-inference'; // ES Modules import
+ * // const { ElasticInferenceClient, DescribeAcceleratorTypesCommand } = require('@aws-sdk/client-elastic-inference'); // CommonJS import
  * const client = new ElasticInferenceClient(config);
  * const input = {};
  * const command = new DescribeAcceleratorTypesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeAcceleratorTypesResponse
+ *   acceleratorTypes: [ // AcceleratorTypeList
+ *     { // AcceleratorType
+ *       acceleratorTypeName: 'STRING_VALUE',
+ *       memoryInfo: { // MemoryInfo
+ *         sizeInMiB: Number('int'),
+ *       },
+ *       throughputInfo: [ // ThroughputInfoList
+ *         { // KeyValuePair
+ *           key: 'STRING_VALUE',
+ *           value: Number('int'),
+ *         },
+ *       ],
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeAcceleratorTypesCommandInput - {@link DescribeAcceleratorTypesCommandInput}
@@ -62,6 +80,8 @@ export interface DescribeAcceleratorTypesCommandOutput extends DescribeAccelerat
  *             Raised when an unexpected error occurred during request processing.
  *         </p>
  *
+ * @throws {@link ElasticInferenceServiceException}
+ * <p>Base exception class for all service exceptions from ElasticInference service.</p>
  *
  */
 export class DescribeAcceleratorTypesCommand extends $Command<

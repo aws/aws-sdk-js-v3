@@ -47,14 +47,19 @@ export interface DeleteHsmCommandOutput extends DeleteHsmResponse, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudHSMClient, DeleteHsmCommand } from "@aws-sdk/client-cloudhsm"; // ES Modules import
- * // const { CloudHSMClient, DeleteHsmCommand } = require("@aws-sdk/client-cloudhsm"); // CommonJS import
+ * import { CloudHSMClient, DeleteHsmCommand } from '@aws-sdk/client-cloudhsm'; // ES Modules import
+ * // const { CloudHSMClient, DeleteHsmCommand } = require('@aws-sdk/client-cloudhsm'); // CommonJS import
  * const client = new CloudHSMClient(config);
  * const input = { // DeleteHsmRequest
- *   HsmArn: "STRING_VALUE", // required
+ *   HsmArn: 'STRING_VALUE', // required
  * };
  * const command = new DeleteHsmCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteHsmResponse
+ *   Status: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param DeleteHsmCommandInput - {@link DeleteHsmCommandInput}
@@ -72,6 +77,8 @@ export interface DeleteHsmCommandOutput extends DeleteHsmResponse, __MetadataBea
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>Indicates that one or more of the request parameters are not valid.</p>
  *
+ * @throws {@link CloudHSMServiceException}
+ * <p>Base exception class for all service exceptions from CloudHSM service.</p>
  *
  */
 export class DeleteHsmCommand extends $Command<

@@ -66,17 +66,37 @@ export interface ListInstalledComponentsCommandOutput extends ListInstalledCompo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GreengrassV2Client, ListInstalledComponentsCommand } from "@aws-sdk/client-greengrassv2"; // ES Modules import
- * // const { GreengrassV2Client, ListInstalledComponentsCommand } = require("@aws-sdk/client-greengrassv2"); // CommonJS import
+ * import { GreengrassV2Client, ListInstalledComponentsCommand } from '@aws-sdk/client-greengrassv2'; // ES Modules import
+ * // const { GreengrassV2Client, ListInstalledComponentsCommand } = require('@aws-sdk/client-greengrassv2'); // CommonJS import
  * const client = new GreengrassV2Client(config);
  * const input = { // ListInstalledComponentsRequest
- *   coreDeviceThingName: "STRING_VALUE", // required
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
- *   topologyFilter: "ALL" || "ROOT",
+ *   coreDeviceThingName: 'STRING_VALUE', // required
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
+ *   topologyFilter: 'ALL' || 'ROOT',
  * };
  * const command = new ListInstalledComponentsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListInstalledComponentsResponse
+ *   installedComponents: [ // InstalledComponentList
+ *     { // InstalledComponent
+ *       componentName: 'STRING_VALUE',
+ *       componentVersion: 'STRING_VALUE',
+ *       lifecycleState: 'NEW' || 'INSTALLED' || 'STARTING' || 'RUNNING' || 'STOPPING' || 'ERRORED' || 'BROKEN' || 'FINISHED',
+ *       lifecycleStateDetails: 'STRING_VALUE',
+ *       isRoot: true || false,
+ *       lastStatusChangeTimestamp: new Date('TIMESTAMP'),
+ *       lastReportedTimestamp: new Date('TIMESTAMP'),
+ *       lastInstallationSource: 'STRING_VALUE',
+ *       lifecycleStatusCodes: [ // InstalledComponentLifecycleStatusCodeList
+ *         'STRING_VALUE',
+ *       ],
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListInstalledComponentsCommandInput - {@link ListInstalledComponentsCommandInput}
@@ -102,6 +122,8 @@ export interface ListInstalledComponentsCommandOutput extends ListInstalledCompo
  *  <p>The request isn't valid. This can occur if your request contains malformed JSON or
  *       unsupported characters.</p>
  *
+ * @throws {@link GreengrassV2ServiceException}
+ * <p>Base exception class for all service exceptions from GreengrassV2 service.</p>
  *
  */
 export class ListInstalledComponentsCommand extends $Command<

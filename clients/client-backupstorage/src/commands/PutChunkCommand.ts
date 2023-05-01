@@ -45,20 +45,26 @@ export interface PutChunkCommandOutput extends PutChunkOutput, __MetadataBearer 
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BackupStorageClient, PutChunkCommand } from "@aws-sdk/client-backupstorage"; // ES Modules import
- * // const { BackupStorageClient, PutChunkCommand } = require("@aws-sdk/client-backupstorage"); // CommonJS import
+ * import { BackupStorageClient, PutChunkCommand } from '@aws-sdk/client-backupstorage'; // ES Modules import
+ * // const { BackupStorageClient, PutChunkCommand } = require('@aws-sdk/client-backupstorage'); // CommonJS import
  * const client = new BackupStorageClient(config);
  * const input = { // PutChunkInput
- *   BackupJobId: "STRING_VALUE", // required
- *   UploadId: "STRING_VALUE", // required
- *   ChunkIndex: Number("long"), // required
- *   Data: "STREAMING_BLOB_VALUE", // required
- *   Length: Number("long"), // required
- *   Checksum: "STRING_VALUE", // required
- *   ChecksumAlgorithm: "STRING_VALUE", // required
+ *   BackupJobId: 'STRING_VALUE', // required
+ *   UploadId: 'STRING_VALUE', // required
+ *   ChunkIndex: Number('long'), // required
+ *   Data: 'STREAMING_BLOB_VALUE', // required
+ *   Length: Number('long'), // required
+ *   Checksum: 'STRING_VALUE', // required
+ *   ChecksumAlgorithm: 'STRING_VALUE', // required
  * };
  * const command = new PutChunkCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutChunkOutput
+ *   ChunkChecksum: 'STRING_VALUE', // required
+ *   ChunkChecksumAlgorithm: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param PutChunkCommandInput - {@link PutChunkCommandInput}
@@ -91,6 +97,8 @@ export interface PutChunkCommandOutput extends PutChunkOutput, __MetadataBearer 
  * @throws {@link ThrottlingException} (client fault)
  *  Increased rate over throttling limits. Can be retried with exponential backoff.
  *
+ * @throws {@link BackupStorageServiceException}
+ * <p>Base exception class for all service exceptions from BackupStorage service.</p>
  *
  */
 export class PutChunkCommand extends $Command<

@@ -39,22 +39,41 @@ export interface ListHubsCommandOutput extends ListHubsResponse, __MetadataBeare
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, ListHubsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, ListHubsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, ListHubsCommand } from '@aws-sdk/client-sagemaker'; // ES Modules import
+ * // const { SageMakerClient, ListHubsCommand } = require('@aws-sdk/client-sagemaker'); // CommonJS import
  * const client = new SageMakerClient(config);
  * const input = { // ListHubsRequest
- *   NameContains: "STRING_VALUE",
- *   CreationTimeBefore: new Date("TIMESTAMP"),
- *   CreationTimeAfter: new Date("TIMESTAMP"),
- *   LastModifiedTimeBefore: new Date("TIMESTAMP"),
- *   LastModifiedTimeAfter: new Date("TIMESTAMP"),
- *   SortBy: "HubName" || "CreationTime" || "HubStatus" || "AccountIdOwner",
- *   SortOrder: "Ascending" || "Descending",
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   NameContains: 'STRING_VALUE',
+ *   CreationTimeBefore: new Date('TIMESTAMP'),
+ *   CreationTimeAfter: new Date('TIMESTAMP'),
+ *   LastModifiedTimeBefore: new Date('TIMESTAMP'),
+ *   LastModifiedTimeAfter: new Date('TIMESTAMP'),
+ *   SortBy: 'HubName' || 'CreationTime' || 'HubStatus' || 'AccountIdOwner',
+ *   SortOrder: 'Ascending' || 'Descending',
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListHubsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListHubsResponse
+ *   HubSummaries: [ // HubInfoList // required
+ *     { // HubInfo
+ *       HubName: 'STRING_VALUE', // required
+ *       HubArn: 'STRING_VALUE', // required
+ *       HubDisplayName: 'STRING_VALUE',
+ *       HubDescription: 'STRING_VALUE',
+ *       HubSearchKeywords: [ // HubSearchKeywordList
+ *         'STRING_VALUE',
+ *       ],
+ *       HubStatus: 'InService' || 'Creating' || 'Updating' || 'Deleting' || 'CreateFailed' || 'UpdateFailed' || 'DeleteFailed', // required
+ *       CreationTime: new Date('TIMESTAMP'), // required
+ *       LastModifiedTime: new Date('TIMESTAMP'), // required
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListHubsCommandInput - {@link ListHubsCommandInput}
@@ -63,6 +82,8 @@ export interface ListHubsCommandOutput extends ListHubsResponse, __MetadataBeare
  * @see {@link ListHubsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class ListHubsCommand extends $Command<

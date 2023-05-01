@@ -320,99 +320,105 @@ export interface RestoreObjectCommandOutput extends RestoreObjectOutput, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { S3Client, RestoreObjectCommand } from "@aws-sdk/client-s3"; // ES Modules import
- * // const { S3Client, RestoreObjectCommand } = require("@aws-sdk/client-s3"); // CommonJS import
+ * import { S3Client, RestoreObjectCommand } from '@aws-sdk/client-s3'; // ES Modules import
+ * // const { S3Client, RestoreObjectCommand } = require('@aws-sdk/client-s3'); // CommonJS import
  * const client = new S3Client(config);
  * const input = { // RestoreObjectRequest
- *   Bucket: "STRING_VALUE", // required
- *   Key: "STRING_VALUE", // required
- *   VersionId: "STRING_VALUE",
+ *   Bucket: 'STRING_VALUE', // required
+ *   Key: 'STRING_VALUE', // required
+ *   VersionId: 'STRING_VALUE',
  *   RestoreRequest: { // RestoreRequest
- *     Days: Number("int"),
+ *     Days: Number('int'),
  *     GlacierJobParameters: { // GlacierJobParameters
- *       Tier: "Standard" || "Bulk" || "Expedited", // required
+ *       Tier: 'Standard' || 'Bulk' || 'Expedited', // required
  *     },
- *     Type: "SELECT",
- *     Tier: "Standard" || "Bulk" || "Expedited",
- *     Description: "STRING_VALUE",
+ *     Type: 'SELECT',
+ *     Tier: 'Standard' || 'Bulk' || 'Expedited',
+ *     Description: 'STRING_VALUE',
  *     SelectParameters: { // SelectParameters
  *       InputSerialization: { // InputSerialization
  *         CSV: { // CSVInput
- *           FileHeaderInfo: "USE" || "IGNORE" || "NONE",
- *           Comments: "STRING_VALUE",
- *           QuoteEscapeCharacter: "STRING_VALUE",
- *           RecordDelimiter: "STRING_VALUE",
- *           FieldDelimiter: "STRING_VALUE",
- *           QuoteCharacter: "STRING_VALUE",
+ *           FileHeaderInfo: 'USE' || 'IGNORE' || 'NONE',
+ *           Comments: 'STRING_VALUE',
+ *           QuoteEscapeCharacter: 'STRING_VALUE',
+ *           RecordDelimiter: 'STRING_VALUE',
+ *           FieldDelimiter: 'STRING_VALUE',
+ *           QuoteCharacter: 'STRING_VALUE',
  *           AllowQuotedRecordDelimiter: true || false,
  *         },
- *         CompressionType: "NONE" || "GZIP" || "BZIP2",
+ *         CompressionType: 'NONE' || 'GZIP' || 'BZIP2',
  *         JSON: { // JSONInput
- *           Type: "DOCUMENT" || "LINES",
+ *           Type: 'DOCUMENT' || 'LINES',
  *         },
  *         Parquet: {},
  *       },
- *       ExpressionType: "SQL", // required
- *       Expression: "STRING_VALUE", // required
+ *       ExpressionType: 'SQL', // required
+ *       Expression: 'STRING_VALUE', // required
  *       OutputSerialization: { // OutputSerialization
  *         CSV: { // CSVOutput
- *           QuoteFields: "ALWAYS" || "ASNEEDED",
- *           QuoteEscapeCharacter: "STRING_VALUE",
- *           RecordDelimiter: "STRING_VALUE",
- *           FieldDelimiter: "STRING_VALUE",
- *           QuoteCharacter: "STRING_VALUE",
+ *           QuoteFields: 'ALWAYS' || 'ASNEEDED',
+ *           QuoteEscapeCharacter: 'STRING_VALUE',
+ *           RecordDelimiter: 'STRING_VALUE',
+ *           FieldDelimiter: 'STRING_VALUE',
+ *           QuoteCharacter: 'STRING_VALUE',
  *         },
  *         JSON: { // JSONOutput
- *           RecordDelimiter: "STRING_VALUE",
+ *           RecordDelimiter: 'STRING_VALUE',
  *         },
  *       },
  *     },
  *     OutputLocation: { // OutputLocation
  *       S3: { // S3Location
- *         BucketName: "STRING_VALUE", // required
- *         Prefix: "STRING_VALUE", // required
+ *         BucketName: 'STRING_VALUE', // required
+ *         Prefix: 'STRING_VALUE', // required
  *         Encryption: { // Encryption
- *           EncryptionType: "AES256" || "aws:kms", // required
- *           KMSKeyId: "STRING_VALUE",
- *           KMSContext: "STRING_VALUE",
+ *           EncryptionType: 'AES256' || 'aws:kms', // required
+ *           KMSKeyId: 'STRING_VALUE',
+ *           KMSContext: 'STRING_VALUE',
  *         },
- *         CannedACL: "private" || "public-read" || "public-read-write" || "authenticated-read" || "aws-exec-read" || "bucket-owner-read" || "bucket-owner-full-control",
+ *         CannedACL: 'private' || 'public-read' || 'public-read-write' || 'authenticated-read' || 'aws-exec-read' || 'bucket-owner-read' || 'bucket-owner-full-control',
  *         AccessControlList: [ // Grants
  *           { // Grant
  *             Grantee: { // Grantee
- *               DisplayName: "STRING_VALUE",
- *               EmailAddress: "STRING_VALUE",
- *               ID: "STRING_VALUE",
- *               URI: "STRING_VALUE",
- *               Type: "CanonicalUser" || "AmazonCustomerByEmail" || "Group", // required
+ *               DisplayName: 'STRING_VALUE',
+ *               EmailAddress: 'STRING_VALUE',
+ *               ID: 'STRING_VALUE',
+ *               URI: 'STRING_VALUE',
+ *               Type: 'CanonicalUser' || 'AmazonCustomerByEmail' || 'Group', // required
  *             },
- *             Permission: "FULL_CONTROL" || "WRITE" || "WRITE_ACP" || "READ" || "READ_ACP",
+ *             Permission: 'FULL_CONTROL' || 'WRITE' || 'WRITE_ACP' || 'READ' || 'READ_ACP',
  *           },
  *         ],
  *         Tagging: { // Tagging
  *           TagSet: [ // TagSet // required
  *             { // Tag
- *               Key: "STRING_VALUE", // required
- *               Value: "STRING_VALUE", // required
+ *               Key: 'STRING_VALUE', // required
+ *               Value: 'STRING_VALUE', // required
  *             },
  *           ],
  *         },
  *         UserMetadata: [ // UserMetadata
  *           { // MetadataEntry
- *             Name: "STRING_VALUE",
- *             Value: "STRING_VALUE",
+ *             Name: 'STRING_VALUE',
+ *             Value: 'STRING_VALUE',
  *           },
  *         ],
- *         StorageClass: "STANDARD" || "REDUCED_REDUNDANCY" || "STANDARD_IA" || "ONEZONE_IA" || "INTELLIGENT_TIERING" || "GLACIER" || "DEEP_ARCHIVE" || "OUTPOSTS" || "GLACIER_IR" || "SNOW",
+ *         StorageClass: 'STANDARD' || 'REDUCED_REDUNDANCY' || 'STANDARD_IA' || 'ONEZONE_IA' || 'INTELLIGENT_TIERING' || 'GLACIER' || 'DEEP_ARCHIVE' || 'OUTPOSTS' || 'GLACIER_IR' || 'SNOW',
  *       },
  *     },
  *   },
- *   RequestPayer: "requester",
- *   ChecksumAlgorithm: "CRC32" || "CRC32C" || "SHA1" || "SHA256",
- *   ExpectedBucketOwner: "STRING_VALUE",
+ *   RequestPayer: 'requester',
+ *   ChecksumAlgorithm: 'CRC32' || 'CRC32C' || 'SHA1' || 'SHA256',
+ *   ExpectedBucketOwner: 'STRING_VALUE',
  * };
  * const command = new RestoreObjectCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // RestoreObjectOutput
+ *   RequestCharged: 'requester',
+ *   RestoreOutputPath: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param RestoreObjectCommandInput - {@link RestoreObjectCommandInput}
@@ -424,6 +430,8 @@ export interface RestoreObjectCommandOutput extends RestoreObjectOutput, __Metad
  * @throws {@link ObjectAlreadyInActiveTierError} (client fault)
  *  <p>This action is not allowed against this storage tier.</p>
  *
+ * @throws {@link S3ServiceException}
+ * <p>Base exception class for all service exceptions from S3 service.</p>
  *
  * @example To restore an archived object
  * ```javascript

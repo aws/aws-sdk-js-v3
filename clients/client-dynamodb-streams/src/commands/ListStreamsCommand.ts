@@ -41,16 +41,28 @@ export interface ListStreamsCommandOutput extends ListStreamsOutput, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DynamoDBStreamsClient, ListStreamsCommand } from "@aws-sdk/client-dynamodb-streams"; // ES Modules import
- * // const { DynamoDBStreamsClient, ListStreamsCommand } = require("@aws-sdk/client-dynamodb-streams"); // CommonJS import
+ * import { DynamoDBStreamsClient, ListStreamsCommand } from '@aws-sdk/client-dynamodb-streams'; // ES Modules import
+ * // const { DynamoDBStreamsClient, ListStreamsCommand } = require('@aws-sdk/client-dynamodb-streams'); // CommonJS import
  * const client = new DynamoDBStreamsClient(config);
  * const input = { // ListStreamsInput
- *   TableName: "STRING_VALUE",
- *   Limit: Number("int"),
- *   ExclusiveStartStreamArn: "STRING_VALUE",
+ *   TableName: 'STRING_VALUE',
+ *   Limit: Number('int'),
+ *   ExclusiveStartStreamArn: 'STRING_VALUE',
  * };
  * const command = new ListStreamsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListStreamsOutput
+ *   Streams: [ // StreamList
+ *     { // Stream
+ *       StreamArn: 'STRING_VALUE',
+ *       TableName: 'STRING_VALUE',
+ *       StreamLabel: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   LastEvaluatedStreamArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListStreamsCommandInput - {@link ListStreamsCommandInput}
@@ -67,6 +79,8 @@ export interface ListStreamsCommandOutput extends ListStreamsOutput, __MetadataB
  *             might not be specified correctly, or its status might not be
  *             <code>ACTIVE</code>.</p>
  *
+ * @throws {@link DynamoDBStreamsServiceException}
+ * <p>Base exception class for all service exceptions from DynamoDBStreams service.</p>
  *
  * @example To list all of the stream ARNs
  * ```javascript

@@ -43,17 +43,24 @@ export interface AttachLoadBalancerToSubnetsCommandOutput extends AttachLoadBala
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElasticLoadBalancingClient, AttachLoadBalancerToSubnetsCommand } from "@aws-sdk/client-elastic-load-balancing"; // ES Modules import
- * // const { ElasticLoadBalancingClient, AttachLoadBalancerToSubnetsCommand } = require("@aws-sdk/client-elastic-load-balancing"); // CommonJS import
+ * import { ElasticLoadBalancingClient, AttachLoadBalancerToSubnetsCommand } from '@aws-sdk/client-elastic-load-balancing'; // ES Modules import
+ * // const { ElasticLoadBalancingClient, AttachLoadBalancerToSubnetsCommand } = require('@aws-sdk/client-elastic-load-balancing'); // CommonJS import
  * const client = new ElasticLoadBalancingClient(config);
  * const input = { // AttachLoadBalancerToSubnetsInput
- *   LoadBalancerName: "STRING_VALUE", // required
+ *   LoadBalancerName: 'STRING_VALUE', // required
  *   Subnets: [ // Subnets // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new AttachLoadBalancerToSubnetsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AttachLoadBalancerToSubnetsOutput
+ *   Subnets: [ // Subnets
+ *     'STRING_VALUE',
+ *   ],
+ * };
+ *
  * ```
  *
  * @param AttachLoadBalancerToSubnetsCommandInput - {@link AttachLoadBalancerToSubnetsCommandInput}
@@ -74,6 +81,8 @@ export interface AttachLoadBalancerToSubnetsCommandOutput extends AttachLoadBala
  * @throws {@link SubnetNotFoundException} (client fault)
  *  <p>One or more of the specified subnets do not exist.</p>
  *
+ * @throws {@link ElasticLoadBalancingServiceException}
+ * <p>Base exception class for all service exceptions from ElasticLoadBalancing service.</p>
  *
  * @example To attach subnets to a load balancer
  * ```javascript

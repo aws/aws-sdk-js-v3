@@ -46,18 +46,56 @@ export interface DescribeGameSessionQueuesCommandOutput extends DescribeGameSess
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GameLiftClient, DescribeGameSessionQueuesCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
- * // const { GameLiftClient, DescribeGameSessionQueuesCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
+ * import { GameLiftClient, DescribeGameSessionQueuesCommand } from '@aws-sdk/client-gamelift'; // ES Modules import
+ * // const { GameLiftClient, DescribeGameSessionQueuesCommand } = require('@aws-sdk/client-gamelift'); // CommonJS import
  * const client = new GameLiftClient(config);
  * const input = { // DescribeGameSessionQueuesInput
  *   Names: [ // GameSessionQueueNameOrArnList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   Limit: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   Limit: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new DescribeGameSessionQueuesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeGameSessionQueuesOutput
+ *   GameSessionQueues: [ // GameSessionQueueList
+ *     { // GameSessionQueue
+ *       Name: 'STRING_VALUE',
+ *       GameSessionQueueArn: 'STRING_VALUE',
+ *       TimeoutInSeconds: Number('int'),
+ *       PlayerLatencyPolicies: [ // PlayerLatencyPolicyList
+ *         { // PlayerLatencyPolicy
+ *           MaximumIndividualPlayerLatencyMilliseconds: Number('int'),
+ *           PolicyDurationSeconds: Number('int'),
+ *         },
+ *       ],
+ *       Destinations: [ // GameSessionQueueDestinationList
+ *         { // GameSessionQueueDestination
+ *           DestinationArn: 'STRING_VALUE',
+ *         },
+ *       ],
+ *       FilterConfiguration: { // FilterConfiguration
+ *         AllowedLocations: [ // LocationList
+ *           'STRING_VALUE',
+ *         ],
+ *       },
+ *       PriorityConfiguration: { // PriorityConfiguration
+ *         PriorityOrder: [ // PriorityTypeList
+ *           'LATENCY' || 'COST' || 'DESTINATION' || 'LOCATION',
+ *         ],
+ *         LocationOrder: [
+ *           'STRING_VALUE',
+ *         ],
+ *       },
+ *       CustomEventData: 'STRING_VALUE',
+ *       NotificationTarget: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeGameSessionQueuesCommandInput - {@link DescribeGameSessionQueuesCommandInput}
@@ -80,6 +118,8 @@ export interface DescribeGameSessionQueuesCommandOutput extends DescribeGameSess
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client failed authentication. Clients should not retry such requests.</p>
  *
+ * @throws {@link GameLiftServiceException}
+ * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
  */
 export class DescribeGameSessionQueuesCommand extends $Command<

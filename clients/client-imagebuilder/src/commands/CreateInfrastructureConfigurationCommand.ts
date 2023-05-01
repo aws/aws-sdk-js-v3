@@ -45,43 +45,50 @@ export interface CreateInfrastructureConfigurationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ImagebuilderClient, CreateInfrastructureConfigurationCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
- * // const { ImagebuilderClient, CreateInfrastructureConfigurationCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
+ * import { ImagebuilderClient, CreateInfrastructureConfigurationCommand } from '@aws-sdk/client-imagebuilder'; // ES Modules import
+ * // const { ImagebuilderClient, CreateInfrastructureConfigurationCommand } = require('@aws-sdk/client-imagebuilder'); // CommonJS import
  * const client = new ImagebuilderClient(config);
  * const input = { // CreateInfrastructureConfigurationRequest
- *   name: "STRING_VALUE", // required
- *   description: "STRING_VALUE",
+ *   name: 'STRING_VALUE', // required
+ *   description: 'STRING_VALUE',
  *   instanceTypes: [ // InstanceTypeList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   instanceProfileName: "STRING_VALUE", // required
+ *   instanceProfileName: 'STRING_VALUE', // required
  *   securityGroupIds: [ // SecurityGroupIds
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   subnetId: "STRING_VALUE",
+ *   subnetId: 'STRING_VALUE',
  *   logging: { // Logging
  *     s3Logs: { // S3Logs
- *       s3BucketName: "STRING_VALUE",
- *       s3KeyPrefix: "STRING_VALUE",
+ *       s3BucketName: 'STRING_VALUE',
+ *       s3KeyPrefix: 'STRING_VALUE',
  *     },
  *   },
- *   keyPair: "STRING_VALUE",
+ *   keyPair: 'STRING_VALUE',
  *   terminateInstanceOnFailure: true || false,
- *   snsTopicArn: "STRING_VALUE",
+ *   snsTopicArn: 'STRING_VALUE',
  *   resourceTags: { // ResourceTagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  *   instanceMetadataOptions: { // InstanceMetadataOptions
- *     httpTokens: "STRING_VALUE",
- *     httpPutResponseHopLimit: Number("int"),
+ *     httpTokens: 'STRING_VALUE',
+ *     httpPutResponseHopLimit: Number('int'),
  *   },
  *   tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
- *   clientToken: "STRING_VALUE", // required
+ *   clientToken: 'STRING_VALUE', // required
  * };
  * const command = new CreateInfrastructureConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateInfrastructureConfigurationResponse
+ *   requestId: 'STRING_VALUE',
+ *   clientToken: 'STRING_VALUE',
+ *   infrastructureConfigurationArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateInfrastructureConfigurationCommandInput - {@link CreateInfrastructureConfigurationCommandInput}
@@ -127,6 +134,8 @@ export interface CreateInfrastructureConfigurationCommandOutput
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service is unable to process your request at this time.</p>
  *
+ * @throws {@link ImagebuilderServiceException}
+ * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
  */
 export class CreateInfrastructureConfigurationCommand extends $Command<

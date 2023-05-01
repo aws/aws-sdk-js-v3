@@ -43,31 +43,53 @@ export interface CreateLegalHoldCommandOutput extends CreateLegalHoldOutput, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BackupClient, CreateLegalHoldCommand } from "@aws-sdk/client-backup"; // ES Modules import
- * // const { BackupClient, CreateLegalHoldCommand } = require("@aws-sdk/client-backup"); // CommonJS import
+ * import { BackupClient, CreateLegalHoldCommand } from '@aws-sdk/client-backup'; // ES Modules import
+ * // const { BackupClient, CreateLegalHoldCommand } = require('@aws-sdk/client-backup'); // CommonJS import
  * const client = new BackupClient(config);
  * const input = { // CreateLegalHoldInput
- *   Title: "STRING_VALUE", // required
- *   Description: "STRING_VALUE", // required
- *   IdempotencyToken: "STRING_VALUE",
+ *   Title: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE', // required
+ *   IdempotencyToken: 'STRING_VALUE',
  *   RecoveryPointSelection: { // RecoveryPointSelection
  *     VaultNames: [ // VaultNames
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     ResourceIdentifiers: [ // ResourceIdentifiers
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     DateRange: { // DateRange
- *       FromDate: new Date("TIMESTAMP"), // required
- *       ToDate: new Date("TIMESTAMP"), // required
+ *       FromDate: new Date('TIMESTAMP'), // required
+ *       ToDate: new Date('TIMESTAMP'), // required
  *     },
  *   },
  *   Tags: { // Tags
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateLegalHoldCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateLegalHoldOutput
+ *   Title: 'STRING_VALUE',
+ *   Status: 'CREATING' || 'ACTIVE' || 'CANCELING' || 'CANCELED',
+ *   Description: 'STRING_VALUE',
+ *   LegalHoldId: 'STRING_VALUE',
+ *   LegalHoldArn: 'STRING_VALUE',
+ *   CreationDate: new Date('TIMESTAMP'),
+ *   RecoveryPointSelection: { // RecoveryPointSelection
+ *     VaultNames: [ // VaultNames
+ *       'STRING_VALUE',
+ *     ],
+ *     ResourceIdentifiers: [ // ResourceIdentifiers
+ *       'STRING_VALUE',
+ *     ],
+ *     DateRange: { // DateRange
+ *       FromDate: new Date('TIMESTAMP'), // required
+ *       ToDate: new Date('TIMESTAMP'), // required
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateLegalHoldCommandInput - {@link CreateLegalHoldCommandInput}
@@ -90,6 +112,8 @@ export interface CreateLegalHoldCommandOutput extends CreateLegalHoldOutput, __M
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request failed due to a temporary failure of the server.</p>
  *
+ * @throws {@link BackupServiceException}
+ * <p>Base exception class for all service exceptions from Backup service.</p>
  *
  */
 export class CreateLegalHoldCommand extends $Command<

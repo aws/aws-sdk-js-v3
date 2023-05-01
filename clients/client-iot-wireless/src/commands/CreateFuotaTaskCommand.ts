@@ -36,30 +36,36 @@ export interface CreateFuotaTaskCommandOutput extends CreateFuotaTaskResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTWirelessClient, CreateFuotaTaskCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
- * // const { IoTWirelessClient, CreateFuotaTaskCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
+ * import { IoTWirelessClient, CreateFuotaTaskCommand } from '@aws-sdk/client-iot-wireless'; // ES Modules import
+ * // const { IoTWirelessClient, CreateFuotaTaskCommand } = require('@aws-sdk/client-iot-wireless'); // CommonJS import
  * const client = new IoTWirelessClient(config);
  * const input = { // CreateFuotaTaskRequest
- *   Name: "STRING_VALUE",
- *   Description: "STRING_VALUE",
- *   ClientRequestToken: "STRING_VALUE",
+ *   Name: 'STRING_VALUE',
+ *   Description: 'STRING_VALUE',
+ *   ClientRequestToken: 'STRING_VALUE',
  *   LoRaWAN: { // LoRaWANFuotaTask
- *     RfRegion: "EU868" || "US915" || "AU915" || "AS923-1" || "AS923-2" || "AS923-3" || "AS923-4" || "EU433" || "CN470" || "CN779" || "RU864" || "KR920" || "IN865",
+ *     RfRegion: 'EU868' || 'US915' || 'AU915' || 'AS923-1' || 'AS923-2' || 'AS923-3' || 'AS923-4' || 'EU433' || 'CN470' || 'CN779' || 'RU864' || 'KR920' || 'IN865',
  *   },
- *   FirmwareUpdateImage: "STRING_VALUE", // required
- *   FirmwareUpdateRole: "STRING_VALUE", // required
+ *   FirmwareUpdateImage: 'STRING_VALUE', // required
+ *   FirmwareUpdateRole: 'STRING_VALUE', // required
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
- *   RedundancyPercent: Number("int"),
- *   FragmentSizeBytes: Number("int"),
- *   FragmentIntervalMS: Number("int"),
+ *   RedundancyPercent: Number('int'),
+ *   FragmentSizeBytes: Number('int'),
+ *   FragmentIntervalMS: Number('int'),
  * };
  * const command = new CreateFuotaTaskCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateFuotaTaskResponse
+ *   Arn: 'STRING_VALUE',
+ *   Id: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateFuotaTaskCommandInput - {@link CreateFuotaTaskCommandInput}
@@ -86,6 +92,8 @@ export interface CreateFuotaTaskCommandOutput extends CreateFuotaTaskResponse, _
  * @throws {@link ValidationException} (client fault)
  *  <p>The input did not meet the specified constraints.</p>
  *
+ * @throws {@link IoTWirelessServiceException}
+ * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
  */
 export class CreateFuotaTaskCommand extends $Command<

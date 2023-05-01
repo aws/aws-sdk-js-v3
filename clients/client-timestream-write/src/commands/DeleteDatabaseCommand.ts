@@ -48,14 +48,17 @@ export interface DeleteDatabaseCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { TimestreamWriteClient, DeleteDatabaseCommand } from "@aws-sdk/client-timestream-write"; // ES Modules import
- * // const { TimestreamWriteClient, DeleteDatabaseCommand } = require("@aws-sdk/client-timestream-write"); // CommonJS import
+ * import { TimestreamWriteClient, DeleteDatabaseCommand } from '@aws-sdk/client-timestream-write'; // ES Modules import
+ * // const { TimestreamWriteClient, DeleteDatabaseCommand } = require('@aws-sdk/client-timestream-write'); // CommonJS import
  * const client = new TimestreamWriteClient(config);
  * const input = { // DeleteDatabaseRequest
- *   DatabaseName: "STRING_VALUE", // required
+ *   DatabaseName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteDatabaseCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteDatabaseCommandInput - {@link DeleteDatabaseCommandInput}
@@ -86,6 +89,8 @@ export interface DeleteDatabaseCommandOutput extends __MetadataBearer {}
  * @throws {@link ValidationException} (client fault)
  *  <p> An invalid or malformed request.</p>
  *
+ * @throws {@link TimestreamWriteServiceException}
+ * <p>Base exception class for all service exceptions from TimestreamWrite service.</p>
  *
  */
 export class DeleteDatabaseCommand extends $Command<

@@ -53,61 +53,66 @@ export interface SendEmailCommandOutput extends SendEmailResponse, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PinpointEmailClient, SendEmailCommand } from "@aws-sdk/client-pinpoint-email"; // ES Modules import
- * // const { PinpointEmailClient, SendEmailCommand } = require("@aws-sdk/client-pinpoint-email"); // CommonJS import
+ * import { PinpointEmailClient, SendEmailCommand } from '@aws-sdk/client-pinpoint-email'; // ES Modules import
+ * // const { PinpointEmailClient, SendEmailCommand } = require('@aws-sdk/client-pinpoint-email'); // CommonJS import
  * const client = new PinpointEmailClient(config);
  * const input = { // SendEmailRequest
- *   FromEmailAddress: "STRING_VALUE",
+ *   FromEmailAddress: 'STRING_VALUE',
  *   Destination: { // Destination
  *     ToAddresses: [ // EmailAddressList
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     CcAddresses: [
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     BccAddresses: [
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *   },
  *   ReplyToAddresses: [
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   FeedbackForwardingEmailAddress: "STRING_VALUE",
+ *   FeedbackForwardingEmailAddress: 'STRING_VALUE',
  *   Content: { // EmailContent
  *     Simple: { // Message
  *       Subject: { // Content
- *         Data: "STRING_VALUE", // required
- *         Charset: "STRING_VALUE",
+ *         Data: 'STRING_VALUE', // required
+ *         Charset: 'STRING_VALUE',
  *       },
  *       Body: { // Body
  *         Text: {
- *           Data: "STRING_VALUE", // required
- *           Charset: "STRING_VALUE",
+ *           Data: 'STRING_VALUE', // required
+ *           Charset: 'STRING_VALUE',
  *         },
  *         Html: {
- *           Data: "STRING_VALUE", // required
- *           Charset: "STRING_VALUE",
+ *           Data: 'STRING_VALUE', // required
+ *           Charset: 'STRING_VALUE',
  *         },
  *       },
  *     },
  *     Raw: { // RawMessage
- *       Data: "BLOB_VALUE", // required
+ *       Data: 'BLOB_VALUE', // required
  *     },
  *     Template: { // Template
- *       TemplateArn: "STRING_VALUE",
- *       TemplateData: "STRING_VALUE",
+ *       TemplateArn: 'STRING_VALUE',
+ *       TemplateData: 'STRING_VALUE',
  *     },
  *   },
  *   EmailTags: [ // MessageTagList
  *     { // MessageTag
- *       Name: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Name: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
- *   ConfigurationSetName: "STRING_VALUE",
+ *   ConfigurationSetName: 'STRING_VALUE',
  * };
  * const command = new SendEmailCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SendEmailResponse
+ *   MessageId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param SendEmailCommandInput - {@link SendEmailCommandInput}
@@ -142,6 +147,8 @@ export interface SendEmailCommandOutput extends SendEmailResponse, __MetadataBea
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Too many requests have been made to the operation.</p>
  *
+ * @throws {@link PinpointEmailServiceException}
+ * <p>Base exception class for all service exceptions from PinpointEmail service.</p>
  *
  */
 export class SendEmailCommand extends $Command<

@@ -40,19 +40,31 @@ export interface TestDNSAnswerCommandOutput extends TestDNSAnswerResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Route53Client, TestDNSAnswerCommand } from "@aws-sdk/client-route-53"; // ES Modules import
- * // const { Route53Client, TestDNSAnswerCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
+ * import { Route53Client, TestDNSAnswerCommand } from '@aws-sdk/client-route-53'; // ES Modules import
+ * // const { Route53Client, TestDNSAnswerCommand } = require('@aws-sdk/client-route-53'); // CommonJS import
  * const client = new Route53Client(config);
  * const input = { // TestDNSAnswerRequest
- *   HostedZoneId: "STRING_VALUE", // required
- *   RecordName: "STRING_VALUE", // required
- *   RecordType: "SOA" || "A" || "TXT" || "NS" || "CNAME" || "MX" || "NAPTR" || "PTR" || "SRV" || "SPF" || "AAAA" || "CAA" || "DS", // required
- *   ResolverIP: "STRING_VALUE",
- *   EDNS0ClientSubnetIP: "STRING_VALUE",
- *   EDNS0ClientSubnetMask: "STRING_VALUE",
+ *   HostedZoneId: 'STRING_VALUE', // required
+ *   RecordName: 'STRING_VALUE', // required
+ *   RecordType: 'SOA' || 'A' || 'TXT' || 'NS' || 'CNAME' || 'MX' || 'NAPTR' || 'PTR' || 'SRV' || 'SPF' || 'AAAA' || 'CAA' || 'DS', // required
+ *   ResolverIP: 'STRING_VALUE',
+ *   EDNS0ClientSubnetIP: 'STRING_VALUE',
+ *   EDNS0ClientSubnetMask: 'STRING_VALUE',
  * };
  * const command = new TestDNSAnswerCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // TestDNSAnswerResponse
+ *   Nameserver: 'STRING_VALUE', // required
+ *   RecordName: 'STRING_VALUE', // required
+ *   RecordType: 'SOA' || 'A' || 'TXT' || 'NS' || 'CNAME' || 'MX' || 'NAPTR' || 'PTR' || 'SRV' || 'SPF' || 'AAAA' || 'CAA' || 'DS', // required
+ *   RecordData: [ // RecordData // required
+ *     'STRING_VALUE',
+ *   ],
+ *   ResponseCode: 'STRING_VALUE', // required
+ *   Protocol: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param TestDNSAnswerCommandInput - {@link TestDNSAnswerCommandInput}
@@ -67,6 +79,8 @@ export interface TestDNSAnswerCommandOutput extends TestDNSAnswerResponse, __Met
  * @throws {@link NoSuchHostedZone} (client fault)
  *  <p>No hosted zone exists with the ID that you specified.</p>
  *
+ * @throws {@link Route53ServiceException}
+ * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
  */
 export class TestDNSAnswerCommand extends $Command<

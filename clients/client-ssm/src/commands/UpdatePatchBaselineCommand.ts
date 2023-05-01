@@ -46,18 +46,18 @@ export interface UpdatePatchBaselineCommandOutput extends UpdatePatchBaselineRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMClient, UpdatePatchBaselineCommand } from "@aws-sdk/client-ssm"; // ES Modules import
- * // const { SSMClient, UpdatePatchBaselineCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * import { SSMClient, UpdatePatchBaselineCommand } from '@aws-sdk/client-ssm'; // ES Modules import
+ * // const { SSMClient, UpdatePatchBaselineCommand } = require('@aws-sdk/client-ssm'); // CommonJS import
  * const client = new SSMClient(config);
  * const input = { // UpdatePatchBaselineRequest
- *   BaselineId: "STRING_VALUE", // required
- *   Name: "STRING_VALUE",
+ *   BaselineId: 'STRING_VALUE', // required
+ *   Name: 'STRING_VALUE',
  *   GlobalFilters: { // PatchFilterGroup
  *     PatchFilters: [ // PatchFilterList // required
  *       { // PatchFilter
- *         Key: "ARCH" || "ADVISORY_ID" || "BUGZILLA_ID" || "PATCH_SET" || "PRODUCT" || "PRODUCT_FAMILY" || "CLASSIFICATION" || "CVE_ID" || "EPOCH" || "MSRC_SEVERITY" || "NAME" || "PATCH_ID" || "SECTION" || "PRIORITY" || "REPOSITORY" || "RELEASE" || "SEVERITY" || "SECURITY" || "VERSION", // required
+ *         Key: 'ARCH' || 'ADVISORY_ID' || 'BUGZILLA_ID' || 'PATCH_SET' || 'PRODUCT' || 'PRODUCT_FAMILY' || 'CLASSIFICATION' || 'CVE_ID' || 'EPOCH' || 'MSRC_SEVERITY' || 'NAME' || 'PATCH_ID' || 'SECTION' || 'PRIORITY' || 'REPOSITORY' || 'RELEASE' || 'SEVERITY' || 'SECURITY' || 'VERSION', // required
  *         Values: [ // PatchFilterValueList // required
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
  *       },
  *     ],
@@ -68,43 +68,101 @@ export interface UpdatePatchBaselineCommandOutput extends UpdatePatchBaselineRes
  *         PatchFilterGroup: {
  *           PatchFilters: [ // required
  *             {
- *               Key: "ARCH" || "ADVISORY_ID" || "BUGZILLA_ID" || "PATCH_SET" || "PRODUCT" || "PRODUCT_FAMILY" || "CLASSIFICATION" || "CVE_ID" || "EPOCH" || "MSRC_SEVERITY" || "NAME" || "PATCH_ID" || "SECTION" || "PRIORITY" || "REPOSITORY" || "RELEASE" || "SEVERITY" || "SECURITY" || "VERSION", // required
+ *               Key: 'ARCH' || 'ADVISORY_ID' || 'BUGZILLA_ID' || 'PATCH_SET' || 'PRODUCT' || 'PRODUCT_FAMILY' || 'CLASSIFICATION' || 'CVE_ID' || 'EPOCH' || 'MSRC_SEVERITY' || 'NAME' || 'PATCH_ID' || 'SECTION' || 'PRIORITY' || 'REPOSITORY' || 'RELEASE' || 'SEVERITY' || 'SECURITY' || 'VERSION', // required
  *               Values: [ // required
- *                 "STRING_VALUE",
+ *                 'STRING_VALUE',
  *               ],
  *             },
  *           ],
  *         },
- *         ComplianceLevel: "CRITICAL" || "HIGH" || "MEDIUM" || "LOW" || "INFORMATIONAL" || "UNSPECIFIED",
- *         ApproveAfterDays: Number("int"),
- *         ApproveUntilDate: "STRING_VALUE",
+ *         ComplianceLevel: 'CRITICAL' || 'HIGH' || 'MEDIUM' || 'LOW' || 'INFORMATIONAL' || 'UNSPECIFIED',
+ *         ApproveAfterDays: Number('int'),
+ *         ApproveUntilDate: 'STRING_VALUE',
  *         EnableNonSecurity: true || false,
  *       },
  *     ],
  *   },
  *   ApprovedPatches: [ // PatchIdList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   ApprovedPatchesComplianceLevel: "CRITICAL" || "HIGH" || "MEDIUM" || "LOW" || "INFORMATIONAL" || "UNSPECIFIED",
+ *   ApprovedPatchesComplianceLevel: 'CRITICAL' || 'HIGH' || 'MEDIUM' || 'LOW' || 'INFORMATIONAL' || 'UNSPECIFIED',
  *   ApprovedPatchesEnableNonSecurity: true || false,
  *   RejectedPatches: [
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   RejectedPatchesAction: "ALLOW_AS_DEPENDENCY" || "BLOCK",
- *   Description: "STRING_VALUE",
+ *   RejectedPatchesAction: 'ALLOW_AS_DEPENDENCY' || 'BLOCK',
+ *   Description: 'STRING_VALUE',
  *   Sources: [ // PatchSourceList
  *     { // PatchSource
- *       Name: "STRING_VALUE", // required
+ *       Name: 'STRING_VALUE', // required
  *       Products: [ // PatchSourceProductList // required
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
- *       Configuration: "STRING_VALUE", // required
+ *       Configuration: 'STRING_VALUE', // required
  *     },
  *   ],
  *   Replace: true || false,
  * };
  * const command = new UpdatePatchBaselineCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdatePatchBaselineResult
+ *   BaselineId: 'STRING_VALUE',
+ *   Name: 'STRING_VALUE',
+ *   OperatingSystem: 'WINDOWS' || 'AMAZON_LINUX' || 'AMAZON_LINUX_2' || 'AMAZON_LINUX_2022' || 'UBUNTU' || 'REDHAT_ENTERPRISE_LINUX' || 'SUSE' || 'CENTOS' || 'ORACLE_LINUX' || 'DEBIAN' || 'MACOS' || 'RASPBIAN' || 'ROCKY_LINUX' || 'ALMA_LINUX' || 'AMAZON_LINUX_2023',
+ *   GlobalFilters: { // PatchFilterGroup
+ *     PatchFilters: [ // PatchFilterList // required
+ *       { // PatchFilter
+ *         Key: 'ARCH' || 'ADVISORY_ID' || 'BUGZILLA_ID' || 'PATCH_SET' || 'PRODUCT' || 'PRODUCT_FAMILY' || 'CLASSIFICATION' || 'CVE_ID' || 'EPOCH' || 'MSRC_SEVERITY' || 'NAME' || 'PATCH_ID' || 'SECTION' || 'PRIORITY' || 'REPOSITORY' || 'RELEASE' || 'SEVERITY' || 'SECURITY' || 'VERSION', // required
+ *         Values: [ // PatchFilterValueList // required
+ *           'STRING_VALUE',
+ *         ],
+ *       },
+ *     ],
+ *   },
+ *   ApprovalRules: { // PatchRuleGroup
+ *     PatchRules: [ // PatchRuleList // required
+ *       { // PatchRule
+ *         PatchFilterGroup: {
+ *           PatchFilters: [ // required
+ *             {
+ *               Key: 'ARCH' || 'ADVISORY_ID' || 'BUGZILLA_ID' || 'PATCH_SET' || 'PRODUCT' || 'PRODUCT_FAMILY' || 'CLASSIFICATION' || 'CVE_ID' || 'EPOCH' || 'MSRC_SEVERITY' || 'NAME' || 'PATCH_ID' || 'SECTION' || 'PRIORITY' || 'REPOSITORY' || 'RELEASE' || 'SEVERITY' || 'SECURITY' || 'VERSION', // required
+ *               Values: [ // required
+ *                 'STRING_VALUE',
+ *               ],
+ *             },
+ *           ],
+ *         },
+ *         ComplianceLevel: 'CRITICAL' || 'HIGH' || 'MEDIUM' || 'LOW' || 'INFORMATIONAL' || 'UNSPECIFIED',
+ *         ApproveAfterDays: Number('int'),
+ *         ApproveUntilDate: 'STRING_VALUE',
+ *         EnableNonSecurity: true || false,
+ *       },
+ *     ],
+ *   },
+ *   ApprovedPatches: [ // PatchIdList
+ *     'STRING_VALUE',
+ *   ],
+ *   ApprovedPatchesComplianceLevel: 'CRITICAL' || 'HIGH' || 'MEDIUM' || 'LOW' || 'INFORMATIONAL' || 'UNSPECIFIED',
+ *   ApprovedPatchesEnableNonSecurity: true || false,
+ *   RejectedPatches: [
+ *     'STRING_VALUE',
+ *   ],
+ *   RejectedPatchesAction: 'ALLOW_AS_DEPENDENCY' || 'BLOCK',
+ *   CreatedDate: new Date('TIMESTAMP'),
+ *   ModifiedDate: new Date('TIMESTAMP'),
+ *   Description: 'STRING_VALUE',
+ *   Sources: [ // PatchSourceList
+ *     { // PatchSource
+ *       Name: 'STRING_VALUE', // required
+ *       Products: [ // PatchSourceProductList // required
+ *         'STRING_VALUE',
+ *       ],
+ *       Configuration: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param UpdatePatchBaselineCommandInput - {@link UpdatePatchBaselineCommandInput}
@@ -122,6 +180,8 @@ export interface UpdatePatchBaselineCommandOutput extends UpdatePatchBaselineRes
  * @throws {@link InternalServerError} (server fault)
  *  <p>An error occurred on the server side.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class UpdatePatchBaselineCommand extends $Command<

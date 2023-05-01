@@ -36,17 +36,22 @@ export interface UpdateCodeRepositoryCommandOutput extends UpdateCodeRepositoryO
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, UpdateCodeRepositoryCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, UpdateCodeRepositoryCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, UpdateCodeRepositoryCommand } from '@aws-sdk/client-sagemaker'; // ES Modules import
+ * // const { SageMakerClient, UpdateCodeRepositoryCommand } = require('@aws-sdk/client-sagemaker'); // CommonJS import
  * const client = new SageMakerClient(config);
  * const input = { // UpdateCodeRepositoryInput
- *   CodeRepositoryName: "STRING_VALUE", // required
+ *   CodeRepositoryName: 'STRING_VALUE', // required
  *   GitConfig: { // GitConfigForUpdate
- *     SecretArn: "STRING_VALUE",
+ *     SecretArn: 'STRING_VALUE',
  *   },
  * };
  * const command = new UpdateCodeRepositoryCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateCodeRepositoryOutput
+ *   CodeRepositoryArn: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param UpdateCodeRepositoryCommandInput - {@link UpdateCodeRepositoryCommandInput}
@@ -55,6 +60,8 @@ export interface UpdateCodeRepositoryCommandOutput extends UpdateCodeRepositoryO
  * @see {@link UpdateCodeRepositoryCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class UpdateCodeRepositoryCommand extends $Command<

@@ -45,27 +45,52 @@ export interface DescribeIpamResourceDiscoveryAssociationsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, DescribeIpamResourceDiscoveryAssociationsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, DescribeIpamResourceDiscoveryAssociationsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, DescribeIpamResourceDiscoveryAssociationsCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, DescribeIpamResourceDiscoveryAssociationsCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // DescribeIpamResourceDiscoveryAssociationsRequest
  *   DryRun: true || false,
  *   IpamResourceDiscoveryAssociationIds: [ // ValueStringList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  *   Filters: [ // FilterList
  *     { // Filter
- *       Name: "STRING_VALUE",
+ *       Name: 'STRING_VALUE',
  *       Values: [
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
  * };
  * const command = new DescribeIpamResourceDiscoveryAssociationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeIpamResourceDiscoveryAssociationsResult
+ *   IpamResourceDiscoveryAssociations: [ // IpamResourceDiscoveryAssociationSet
+ *     { // IpamResourceDiscoveryAssociation
+ *       OwnerId: 'STRING_VALUE',
+ *       IpamResourceDiscoveryAssociationId: 'STRING_VALUE',
+ *       IpamResourceDiscoveryAssociationArn: 'STRING_VALUE',
+ *       IpamResourceDiscoveryId: 'STRING_VALUE',
+ *       IpamId: 'STRING_VALUE',
+ *       IpamArn: 'STRING_VALUE',
+ *       IpamRegion: 'STRING_VALUE',
+ *       IsDefault: true || false,
+ *       ResourceDiscoveryStatus: 'active' || 'not-found',
+ *       State: 'associate-in-progress' || 'associate-complete' || 'associate-failed' || 'disassociate-in-progress' || 'disassociate-complete' || 'disassociate-failed' || 'isolate-in-progress' || 'isolate-complete' || 'restore-in-progress',
+ *       Tags: [ // TagList
+ *         { // Tag
+ *           Key: 'STRING_VALUE',
+ *           Value: 'STRING_VALUE',
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeIpamResourceDiscoveryAssociationsCommandInput - {@link DescribeIpamResourceDiscoveryAssociationsCommandInput}
@@ -74,6 +99,8 @@ export interface DescribeIpamResourceDiscoveryAssociationsCommandOutput
  * @see {@link DescribeIpamResourceDiscoveryAssociationsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class DescribeIpamResourceDiscoveryAssociationsCommand extends $Command<

@@ -37,18 +37,21 @@ export interface PutInvitationConfigurationCommandOutput extends PutInvitationCo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AlexaForBusinessClient, PutInvitationConfigurationCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
- * // const { AlexaForBusinessClient, PutInvitationConfigurationCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
+ * import { AlexaForBusinessClient, PutInvitationConfigurationCommand } from '@aws-sdk/client-alexa-for-business'; // ES Modules import
+ * // const { AlexaForBusinessClient, PutInvitationConfigurationCommand } = require('@aws-sdk/client-alexa-for-business'); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
  * const input = { // PutInvitationConfigurationRequest
- *   OrganizationName: "STRING_VALUE", // required
- *   ContactEmail: "STRING_VALUE",
+ *   OrganizationName: 'STRING_VALUE', // required
+ *   ContactEmail: 'STRING_VALUE',
  *   PrivateSkillIds: [ // ShortSkillIdList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new PutInvitationConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutInvitationConfigurationCommandInput - {@link PutInvitationConfigurationCommandInput}
@@ -63,6 +66,8 @@ export interface PutInvitationConfigurationCommandOutput extends PutInvitationCo
  * @throws {@link NotFoundException} (client fault)
  *  <p>The resource is not found.</p>
  *
+ * @throws {@link AlexaForBusinessServiceException}
+ * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  */
 export class PutInvitationConfigurationCommand extends $Command<

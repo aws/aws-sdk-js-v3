@@ -63,17 +63,38 @@ export interface DetectAnomaliesCommandOutput extends DetectAnomaliesResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LookoutVisionClient, DetectAnomaliesCommand } from "@aws-sdk/client-lookoutvision"; // ES Modules import
- * // const { LookoutVisionClient, DetectAnomaliesCommand } = require("@aws-sdk/client-lookoutvision"); // CommonJS import
+ * import { LookoutVisionClient, DetectAnomaliesCommand } from '@aws-sdk/client-lookoutvision'; // ES Modules import
+ * // const { LookoutVisionClient, DetectAnomaliesCommand } = require('@aws-sdk/client-lookoutvision'); // CommonJS import
  * const client = new LookoutVisionClient(config);
  * const input = { // DetectAnomaliesRequest
- *   ProjectName: "STRING_VALUE", // required
- *   ModelVersion: "STRING_VALUE", // required
- *   Body: "STREAMING_BLOB_VALUE", // required
- *   ContentType: "STRING_VALUE", // required
+ *   ProjectName: 'STRING_VALUE', // required
+ *   ModelVersion: 'STRING_VALUE', // required
+ *   Body: 'STREAMING_BLOB_VALUE', // required
+ *   ContentType: 'STRING_VALUE', // required
  * };
  * const command = new DetectAnomaliesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DetectAnomaliesResponse
+ *   DetectAnomalyResult: { // DetectAnomalyResult
+ *     Source: { // ImageSource
+ *       Type: 'STRING_VALUE',
+ *     },
+ *     IsAnomalous: true || false,
+ *     Confidence: Number('float'),
+ *     Anomalies: [ // AnomalyList
+ *       { // Anomaly
+ *         Name: 'STRING_VALUE',
+ *         PixelAnomaly: { // PixelAnomaly
+ *           TotalPercentageArea: Number('float'),
+ *           Color: 'STRING_VALUE',
+ *         },
+ *       },
+ *     ],
+ *     AnomalyMask: 'BLOB_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param DetectAnomaliesCommandInput - {@link DetectAnomaliesCommandInput}
@@ -101,6 +122,8 @@ export interface DetectAnomaliesCommandOutput extends DetectAnomaliesResponse, _
  *  <p>An input validation error occured. For example, invalid characters in a project name,
  *       or if a pagination token is invalid.</p>
  *
+ * @throws {@link LookoutVisionServiceException}
+ * <p>Base exception class for all service exceptions from LookoutVision service.</p>
  *
  */
 export class DetectAnomaliesCommand extends $Command<

@@ -58,17 +58,20 @@ export interface ModifyMountTargetSecurityGroupsCommandOutput extends __Metadata
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EFSClient, ModifyMountTargetSecurityGroupsCommand } from "@aws-sdk/client-efs"; // ES Modules import
- * // const { EFSClient, ModifyMountTargetSecurityGroupsCommand } = require("@aws-sdk/client-efs"); // CommonJS import
+ * import { EFSClient, ModifyMountTargetSecurityGroupsCommand } from '@aws-sdk/client-efs'; // ES Modules import
+ * // const { EFSClient, ModifyMountTargetSecurityGroupsCommand } = require('@aws-sdk/client-efs'); // CommonJS import
  * const client = new EFSClient(config);
  * const input = { // ModifyMountTargetSecurityGroupsRequest
- *   MountTargetId: "STRING_VALUE", // required
+ *   MountTargetId: 'STRING_VALUE', // required
  *   SecurityGroups: [ // SecurityGroups
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new ModifyMountTargetSecurityGroupsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param ModifyMountTargetSecurityGroupsCommandInput - {@link ModifyMountTargetSecurityGroupsCommandInput}
@@ -100,6 +103,8 @@ export interface ModifyMountTargetSecurityGroupsCommandOutput extends __Metadata
  *  <p>Returned if one of the specified security groups doesn't exist in the subnet's
  *             virtual private cloud (VPC).</p>
  *
+ * @throws {@link EFSServiceException}
+ * <p>Base exception class for all service exceptions from EFS service.</p>
  *
  * @example To modify the security groups associated with a mount target for a file system
  * ```javascript

@@ -36,29 +36,57 @@ export interface UpdateSettingsCommandOutput extends UpdateSettingsResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AuditManagerClient, UpdateSettingsCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
- * // const { AuditManagerClient, UpdateSettingsCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import
+ * import { AuditManagerClient, UpdateSettingsCommand } from '@aws-sdk/client-auditmanager'; // ES Modules import
+ * // const { AuditManagerClient, UpdateSettingsCommand } = require('@aws-sdk/client-auditmanager'); // CommonJS import
  * const client = new AuditManagerClient(config);
  * const input = { // UpdateSettingsRequest
- *   snsTopic: "STRING_VALUE",
+ *   snsTopic: 'STRING_VALUE',
  *   defaultAssessmentReportsDestination: { // AssessmentReportsDestination
- *     destinationType: "S3",
- *     destination: "STRING_VALUE",
+ *     destinationType: 'S3',
+ *     destination: 'STRING_VALUE',
  *   },
  *   defaultProcessOwners: [ // Roles
  *     { // Role
- *       roleType: "PROCESS_OWNER" || "RESOURCE_OWNER", // required
- *       roleArn: "STRING_VALUE", // required
+ *       roleType: 'PROCESS_OWNER' || 'RESOURCE_OWNER', // required
+ *       roleArn: 'STRING_VALUE', // required
  *     },
  *   ],
- *   kmsKey: "STRING_VALUE",
+ *   kmsKey: 'STRING_VALUE',
  *   evidenceFinderEnabled: true || false,
  *   deregistrationPolicy: { // DeregistrationPolicy
- *     deleteResources: "ALL" || "DEFAULT",
+ *     deleteResources: 'ALL' || 'DEFAULT',
  *   },
  * };
  * const command = new UpdateSettingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateSettingsResponse
+ *   settings: { // Settings
+ *     isAwsOrgEnabled: true || false,
+ *     snsTopic: 'STRING_VALUE',
+ *     defaultAssessmentReportsDestination: { // AssessmentReportsDestination
+ *       destinationType: 'S3',
+ *       destination: 'STRING_VALUE',
+ *     },
+ *     defaultProcessOwners: [ // Roles
+ *       { // Role
+ *         roleType: 'PROCESS_OWNER' || 'RESOURCE_OWNER', // required
+ *         roleArn: 'STRING_VALUE', // required
+ *       },
+ *     ],
+ *     kmsKey: 'STRING_VALUE',
+ *     evidenceFinderEnablement: { // EvidenceFinderEnablement
+ *       eventDataStoreArn: 'STRING_VALUE',
+ *       enablementStatus: 'ENABLED' || 'DISABLED' || 'ENABLE_IN_PROGRESS' || 'DISABLE_IN_PROGRESS',
+ *       backfillStatus: 'NOT_STARTED' || 'IN_PROGRESS' || 'COMPLETED',
+ *       error: 'STRING_VALUE',
+ *     },
+ *     deregistrationPolicy: { // DeregistrationPolicy
+ *       deleteResources: 'ALL' || 'DEFAULT',
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateSettingsCommandInput - {@link UpdateSettingsCommandInput}
@@ -78,6 +106,8 @@ export interface UpdateSettingsCommandOutput extends UpdateSettingsResponse, __M
  * @throws {@link ValidationException} (client fault)
  *  <p> The request has invalid or missing parameters. </p>
  *
+ * @throws {@link AuditManagerServiceException}
+ * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
  */
 export class UpdateSettingsCommand extends $Command<

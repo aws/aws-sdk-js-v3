@@ -56,19 +56,30 @@ export interface BatchAssociateClientDeviceWithCoreDeviceCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GreengrassV2Client, BatchAssociateClientDeviceWithCoreDeviceCommand } from "@aws-sdk/client-greengrassv2"; // ES Modules import
- * // const { GreengrassV2Client, BatchAssociateClientDeviceWithCoreDeviceCommand } = require("@aws-sdk/client-greengrassv2"); // CommonJS import
+ * import { GreengrassV2Client, BatchAssociateClientDeviceWithCoreDeviceCommand } from '@aws-sdk/client-greengrassv2'; // ES Modules import
+ * // const { GreengrassV2Client, BatchAssociateClientDeviceWithCoreDeviceCommand } = require('@aws-sdk/client-greengrassv2'); // CommonJS import
  * const client = new GreengrassV2Client(config);
  * const input = { // BatchAssociateClientDeviceWithCoreDeviceRequest
  *   entries: [ // AssociateClientDeviceWithCoreDeviceEntryList
  *     { // AssociateClientDeviceWithCoreDeviceEntry
- *       thingName: "STRING_VALUE", // required
+ *       thingName: 'STRING_VALUE', // required
  *     },
  *   ],
- *   coreDeviceThingName: "STRING_VALUE", // required
+ *   coreDeviceThingName: 'STRING_VALUE', // required
  * };
  * const command = new BatchAssociateClientDeviceWithCoreDeviceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BatchAssociateClientDeviceWithCoreDeviceResponse
+ *   errorEntries: [ // AssociateClientDeviceWithCoreDeviceErrorList
+ *     { // AssociateClientDeviceWithCoreDeviceErrorEntry
+ *       thingName: 'STRING_VALUE',
+ *       code: 'STRING_VALUE',
+ *       message: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param BatchAssociateClientDeviceWithCoreDeviceCommandInput - {@link BatchAssociateClientDeviceWithCoreDeviceCommandInput}
@@ -94,6 +105,8 @@ export interface BatchAssociateClientDeviceWithCoreDeviceCommandOutput
  *  <p>The request isn't valid. This can occur if your request contains malformed JSON or
  *       unsupported characters.</p>
  *
+ * @throws {@link GreengrassV2ServiceException}
+ * <p>Base exception class for all service exceptions from GreengrassV2 service.</p>
  *
  */
 export class BatchAssociateClientDeviceWithCoreDeviceCommand extends $Command<

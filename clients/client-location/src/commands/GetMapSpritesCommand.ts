@@ -42,16 +42,23 @@ export interface GetMapSpritesCommandOutput extends GetMapSpritesResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LocationClient, GetMapSpritesCommand } from "@aws-sdk/client-location"; // ES Modules import
- * // const { LocationClient, GetMapSpritesCommand } = require("@aws-sdk/client-location"); // CommonJS import
+ * import { LocationClient, GetMapSpritesCommand } from '@aws-sdk/client-location'; // ES Modules import
+ * // const { LocationClient, GetMapSpritesCommand } = require('@aws-sdk/client-location'); // CommonJS import
  * const client = new LocationClient(config);
  * const input = { // GetMapSpritesRequest
- *   MapName: "STRING_VALUE", // required
- *   FileName: "STRING_VALUE", // required
- *   Key: "STRING_VALUE",
+ *   MapName: 'STRING_VALUE', // required
+ *   FileName: 'STRING_VALUE', // required
+ *   Key: 'STRING_VALUE',
  * };
  * const command = new GetMapSpritesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetMapSpritesResponse
+ *   Blob: 'BLOB_VALUE',
+ *   ContentType: 'STRING_VALUE',
+ *   CacheControl: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetMapSpritesCommandInput - {@link GetMapSpritesCommandInput}
@@ -76,6 +83,8 @@ export interface GetMapSpritesCommandOutput extends GetMapSpritesResponse, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>The input failed to meet the constraints specified by the AWS service. </p>
  *
+ * @throws {@link LocationServiceException}
+ * <p>Base exception class for all service exceptions from Location service.</p>
  *
  */
 export class GetMapSpritesCommand extends $Command<

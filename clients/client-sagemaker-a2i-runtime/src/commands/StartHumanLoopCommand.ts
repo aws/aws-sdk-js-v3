@@ -40,23 +40,28 @@ export interface StartHumanLoopCommandOutput extends StartHumanLoopResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerA2IRuntimeClient, StartHumanLoopCommand } from "@aws-sdk/client-sagemaker-a2i-runtime"; // ES Modules import
- * // const { SageMakerA2IRuntimeClient, StartHumanLoopCommand } = require("@aws-sdk/client-sagemaker-a2i-runtime"); // CommonJS import
+ * import { SageMakerA2IRuntimeClient, StartHumanLoopCommand } from '@aws-sdk/client-sagemaker-a2i-runtime'; // ES Modules import
+ * // const { SageMakerA2IRuntimeClient, StartHumanLoopCommand } = require('@aws-sdk/client-sagemaker-a2i-runtime'); // CommonJS import
  * const client = new SageMakerA2IRuntimeClient(config);
  * const input = { // StartHumanLoopRequest
- *   HumanLoopName: "STRING_VALUE", // required
- *   FlowDefinitionArn: "STRING_VALUE", // required
+ *   HumanLoopName: 'STRING_VALUE', // required
+ *   FlowDefinitionArn: 'STRING_VALUE', // required
  *   HumanLoopInput: { // HumanLoopInput
- *     InputContent: "STRING_VALUE", // required
+ *     InputContent: 'STRING_VALUE', // required
  *   },
  *   DataAttributes: { // HumanLoopDataAttributes
  *     ContentClassifiers: [ // ContentClassifiers // required
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *   },
  * };
  * const command = new StartHumanLoopCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartHumanLoopResponse
+ *   HumanLoopArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param StartHumanLoopCommandInput - {@link StartHumanLoopCommandInput}
@@ -90,6 +95,8 @@ export interface StartHumanLoopCommandOutput extends StartHumanLoopResponse, __M
  *  <p>The
  *       request isn't valid. Check the syntax and try again.</p>
  *
+ * @throws {@link SageMakerA2IRuntimeServiceException}
+ * <p>Base exception class for all service exceptions from SageMakerA2IRuntime service.</p>
  *
  */
 export class StartHumanLoopCommand extends $Command<

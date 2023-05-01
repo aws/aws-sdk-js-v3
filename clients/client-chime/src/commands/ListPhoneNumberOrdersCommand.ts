@@ -40,15 +40,35 @@ export interface ListPhoneNumberOrdersCommandOutput extends ListPhoneNumberOrder
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeClient, ListPhoneNumberOrdersCommand } from "@aws-sdk/client-chime"; // ES Modules import
- * // const { ChimeClient, ListPhoneNumberOrdersCommand } = require("@aws-sdk/client-chime"); // CommonJS import
+ * import { ChimeClient, ListPhoneNumberOrdersCommand } from '@aws-sdk/client-chime'; // ES Modules import
+ * // const { ChimeClient, ListPhoneNumberOrdersCommand } = require('@aws-sdk/client-chime'); // CommonJS import
  * const client = new ChimeClient(config);
  * const input = { // ListPhoneNumberOrdersRequest
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListPhoneNumberOrdersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListPhoneNumberOrdersResponse
+ *   PhoneNumberOrders: [ // PhoneNumberOrderList
+ *     { // PhoneNumberOrder
+ *       PhoneNumberOrderId: 'STRING_VALUE',
+ *       ProductType: 'BusinessCalling' || 'VoiceConnector' || 'SipMediaApplicationDialIn',
+ *       Status: 'Processing' || 'Successful' || 'Failed' || 'Partial',
+ *       OrderedPhoneNumbers: [ // OrderedPhoneNumberList
+ *         { // OrderedPhoneNumber
+ *           E164PhoneNumber: 'STRING_VALUE',
+ *           Status: 'Processing' || 'Acquired' || 'Failed',
+ *         },
+ *       ],
+ *       CreatedTimestamp: new Date('TIMESTAMP'),
+ *       UpdatedTimestamp: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListPhoneNumberOrdersCommandInput - {@link ListPhoneNumberOrdersCommandInput}
@@ -75,6 +95,8 @@ export interface ListPhoneNumberOrdersCommandOutput extends ListPhoneNumberOrder
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeServiceException}
+ * <p>Base exception class for all service exceptions from Chime service.</p>
  *
  */
 export class ListPhoneNumberOrdersCommand extends $Command<

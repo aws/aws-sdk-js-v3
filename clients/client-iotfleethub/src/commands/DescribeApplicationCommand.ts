@@ -39,14 +39,32 @@ export interface DescribeApplicationCommandOutput extends DescribeApplicationRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTFleetHubClient, DescribeApplicationCommand } from "@aws-sdk/client-iotfleethub"; // ES Modules import
- * // const { IoTFleetHubClient, DescribeApplicationCommand } = require("@aws-sdk/client-iotfleethub"); // CommonJS import
+ * import { IoTFleetHubClient, DescribeApplicationCommand } from '@aws-sdk/client-iotfleethub'; // ES Modules import
+ * // const { IoTFleetHubClient, DescribeApplicationCommand } = require('@aws-sdk/client-iotfleethub'); // CommonJS import
  * const client = new IoTFleetHubClient(config);
  * const input = { // DescribeApplicationRequest
- *   applicationId: "STRING_VALUE", // required
+ *   applicationId: 'STRING_VALUE', // required
  * };
  * const command = new DescribeApplicationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeApplicationResponse
+ *   applicationId: 'STRING_VALUE', // required
+ *   applicationArn: 'STRING_VALUE', // required
+ *   applicationName: 'STRING_VALUE', // required
+ *   applicationDescription: 'STRING_VALUE',
+ *   applicationUrl: 'STRING_VALUE', // required
+ *   applicationState: 'STRING_VALUE', // required
+ *   applicationCreationDate: Number('long'), // required
+ *   applicationLastUpdateDate: Number('long'), // required
+ *   roleArn: 'STRING_VALUE', // required
+ *   ssoClientId: 'STRING_VALUE',
+ *   errorMessage: 'STRING_VALUE',
+ *   tags: { // TagMap
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeApplicationCommandInput - {@link DescribeApplicationCommandInput}
@@ -67,6 +85,8 @@ export interface DescribeApplicationCommandOutput extends DescribeApplicationRes
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The rate exceeds the limit.</p>
  *
+ * @throws {@link IoTFleetHubServiceException}
+ * <p>Base exception class for all service exceptions from IoTFleetHub service.</p>
  *
  */
 export class DescribeApplicationCommand extends $Command<

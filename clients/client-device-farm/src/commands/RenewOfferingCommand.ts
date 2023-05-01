@@ -38,15 +38,48 @@ export interface RenewOfferingCommandOutput extends RenewOfferingResult, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DeviceFarmClient, RenewOfferingCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
- * // const { DeviceFarmClient, RenewOfferingCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
+ * import { DeviceFarmClient, RenewOfferingCommand } from '@aws-sdk/client-device-farm'; // ES Modules import
+ * // const { DeviceFarmClient, RenewOfferingCommand } = require('@aws-sdk/client-device-farm'); // CommonJS import
  * const client = new DeviceFarmClient(config);
  * const input = { // RenewOfferingRequest
- *   offeringId: "STRING_VALUE", // required
- *   quantity: Number("int"), // required
+ *   offeringId: 'STRING_VALUE', // required
+ *   quantity: Number('int'), // required
  * };
  * const command = new RenewOfferingCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // RenewOfferingResult
+ *   offeringTransaction: { // OfferingTransaction
+ *     offeringStatus: { // OfferingStatus
+ *       type: 'PURCHASE' || 'RENEW' || 'SYSTEM',
+ *       offering: { // Offering
+ *         id: 'STRING_VALUE',
+ *         description: 'STRING_VALUE',
+ *         type: 'RECURRING',
+ *         platform: 'ANDROID' || 'IOS',
+ *         recurringCharges: [ // RecurringCharges
+ *           { // RecurringCharge
+ *             cost: { // MonetaryAmount
+ *               amount: Number('double'),
+ *               currencyCode: 'USD',
+ *             },
+ *             frequency: 'MONTHLY',
+ *           },
+ *         ],
+ *       },
+ *       quantity: Number('int'),
+ *       effectiveOn: new Date('TIMESTAMP'),
+ *     },
+ *     transactionId: 'STRING_VALUE',
+ *     offeringPromotionId: 'STRING_VALUE',
+ *     createdOn: new Date('TIMESTAMP'),
+ *     cost: {
+ *       amount: Number('double'),
+ *       currencyCode: 'USD',
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param RenewOfferingCommandInput - {@link RenewOfferingCommandInput}
@@ -71,6 +104,8 @@ export interface RenewOfferingCommandOutput extends RenewOfferingResult, __Metad
  * @throws {@link ServiceAccountException} (client fault)
  *  <p>There was a problem with the service account.</p>
  *
+ * @throws {@link DeviceFarmServiceException}
+ * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
  * @example To renew a device slot offering
  * ```javascript

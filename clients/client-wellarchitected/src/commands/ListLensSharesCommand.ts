@@ -36,18 +36,31 @@ export interface ListLensSharesCommandOutput extends ListLensSharesOutput, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WellArchitectedClient, ListLensSharesCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
- * // const { WellArchitectedClient, ListLensSharesCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
+ * import { WellArchitectedClient, ListLensSharesCommand } from '@aws-sdk/client-wellarchitected'; // ES Modules import
+ * // const { WellArchitectedClient, ListLensSharesCommand } = require('@aws-sdk/client-wellarchitected'); // CommonJS import
  * const client = new WellArchitectedClient(config);
  * const input = { // ListLensSharesInput
- *   LensAlias: "STRING_VALUE", // required
- *   SharedWithPrefix: "STRING_VALUE",
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
- *   Status: "ACCEPTED" || "REJECTED" || "PENDING" || "REVOKED" || "EXPIRED" || "ASSOCIATING" || "ASSOCIATED" || "FAILED",
+ *   LensAlias: 'STRING_VALUE', // required
+ *   SharedWithPrefix: 'STRING_VALUE',
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
+ *   Status: 'ACCEPTED' || 'REJECTED' || 'PENDING' || 'REVOKED' || 'EXPIRED' || 'ASSOCIATING' || 'ASSOCIATED' || 'FAILED',
  * };
  * const command = new ListLensSharesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListLensSharesOutput
+ *   LensShareSummaries: [ // LensShareSummaries
+ *     { // LensShareSummary
+ *       ShareId: 'STRING_VALUE',
+ *       SharedWith: 'STRING_VALUE',
+ *       Status: 'ACCEPTED' || 'REJECTED' || 'PENDING' || 'REVOKED' || 'EXPIRED' || 'ASSOCIATING' || 'ASSOCIATED' || 'FAILED',
+ *       StatusMessage: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListLensSharesCommandInput - {@link ListLensSharesCommandInput}
@@ -71,6 +84,8 @@ export interface ListLensSharesCommandOutput extends ListLensSharesOutput, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>The user input is not valid.</p>
  *
+ * @throws {@link WellArchitectedServiceException}
+ * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
  */
 export class ListLensSharesCommand extends $Command<

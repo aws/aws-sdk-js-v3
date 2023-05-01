@@ -45,15 +45,33 @@ export interface PublishFunctionCommandOutput extends PublishFunctionResult, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudFrontClient, PublishFunctionCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
- * // const { CloudFrontClient, PublishFunctionCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
+ * import { CloudFrontClient, PublishFunctionCommand } from '@aws-sdk/client-cloudfront'; // ES Modules import
+ * // const { CloudFrontClient, PublishFunctionCommand } = require('@aws-sdk/client-cloudfront'); // CommonJS import
  * const client = new CloudFrontClient(config);
  * const input = { // PublishFunctionRequest
- *   Name: "STRING_VALUE", // required
- *   IfMatch: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
+ *   IfMatch: 'STRING_VALUE', // required
  * };
  * const command = new PublishFunctionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PublishFunctionResult
+ *   FunctionSummary: { // FunctionSummary
+ *     Name: 'STRING_VALUE', // required
+ *     Status: 'STRING_VALUE',
+ *     FunctionConfig: { // FunctionConfig
+ *       Comment: 'STRING_VALUE', // required
+ *       Runtime: 'cloudfront-js-1.0', // required
+ *     },
+ *     FunctionMetadata: { // FunctionMetadata
+ *       FunctionARN: 'STRING_VALUE', // required
+ *       Stage: 'DEVELOPMENT' || 'LIVE',
+ *       CreatedTime: new Date('TIMESTAMP'),
+ *       LastModifiedTime: new Date('TIMESTAMP'), // required
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param PublishFunctionCommandInput - {@link PublishFunctionCommandInput}
@@ -78,6 +96,8 @@ export interface PublishFunctionCommandOutput extends PublishFunctionResult, __M
  * @throws {@link UnsupportedOperation} (client fault)
  *  <p>This operation is not supported in this region.</p>
  *
+ * @throws {@link CloudFrontServiceException}
+ * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
  */
 export class PublishFunctionCommand extends $Command<

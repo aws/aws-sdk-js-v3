@@ -39,14 +39,17 @@ export interface DeleteDBSubnetGroupCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { NeptuneClient, DeleteDBSubnetGroupCommand } from "@aws-sdk/client-neptune"; // ES Modules import
- * // const { NeptuneClient, DeleteDBSubnetGroupCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
+ * import { NeptuneClient, DeleteDBSubnetGroupCommand } from '@aws-sdk/client-neptune'; // ES Modules import
+ * // const { NeptuneClient, DeleteDBSubnetGroupCommand } = require('@aws-sdk/client-neptune'); // CommonJS import
  * const client = new NeptuneClient(config);
  * const input = { // DeleteDBSubnetGroupMessage
- *   DBSubnetGroupName: "STRING_VALUE", // required
+ *   DBSubnetGroupName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteDBSubnetGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteDBSubnetGroupCommandInput - {@link DeleteDBSubnetGroupCommandInput}
@@ -66,6 +69,8 @@ export interface DeleteDBSubnetGroupCommandOutput extends __MetadataBearer {}
  * @throws {@link InvalidDBSubnetStateFault} (client fault)
  *  <p>The DB subnet is not in the <i>available</i> state.</p>
  *
+ * @throws {@link NeptuneServiceException}
+ * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
  */
 export class DeleteDBSubnetGroupCommand extends $Command<

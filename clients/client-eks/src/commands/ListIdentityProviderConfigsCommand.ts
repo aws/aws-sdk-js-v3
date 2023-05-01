@@ -41,16 +41,27 @@ export interface ListIdentityProviderConfigsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EKSClient, ListIdentityProviderConfigsCommand } from "@aws-sdk/client-eks"; // ES Modules import
- * // const { EKSClient, ListIdentityProviderConfigsCommand } = require("@aws-sdk/client-eks"); // CommonJS import
+ * import { EKSClient, ListIdentityProviderConfigsCommand } from '@aws-sdk/client-eks'; // ES Modules import
+ * // const { EKSClient, ListIdentityProviderConfigsCommand } = require('@aws-sdk/client-eks'); // CommonJS import
  * const client = new EKSClient(config);
  * const input = { // ListIdentityProviderConfigsRequest
- *   clusterName: "STRING_VALUE", // required
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   clusterName: 'STRING_VALUE', // required
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new ListIdentityProviderConfigsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListIdentityProviderConfigsResponse
+ *   identityProviderConfigs: [ // IdentityProviderConfigs
+ *     { // IdentityProviderConfig
+ *       type: 'STRING_VALUE', // required
+ *       name: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListIdentityProviderConfigsCommandInput - {@link ListIdentityProviderConfigsCommandInput}
@@ -80,6 +91,8 @@ export interface ListIdentityProviderConfigsCommandOutput
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service is unavailable. Back off and retry the operation.</p>
  *
+ * @throws {@link EKSServiceException}
+ * <p>Base exception class for all service exceptions from EKS service.</p>
  *
  */
 export class ListIdentityProviderConfigsCommand extends $Command<

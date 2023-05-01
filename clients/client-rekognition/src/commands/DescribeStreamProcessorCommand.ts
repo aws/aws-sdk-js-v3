@@ -37,14 +37,74 @@ export interface DescribeStreamProcessorCommandOutput extends DescribeStreamProc
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RekognitionClient, DescribeStreamProcessorCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
- * // const { RekognitionClient, DescribeStreamProcessorCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
+ * import { RekognitionClient, DescribeStreamProcessorCommand } from '@aws-sdk/client-rekognition'; // ES Modules import
+ * // const { RekognitionClient, DescribeStreamProcessorCommand } = require('@aws-sdk/client-rekognition'); // CommonJS import
  * const client = new RekognitionClient(config);
  * const input = { // DescribeStreamProcessorRequest
- *   Name: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
  * };
  * const command = new DescribeStreamProcessorCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeStreamProcessorResponse
+ *   Name: 'STRING_VALUE',
+ *   StreamProcessorArn: 'STRING_VALUE',
+ *   Status: 'STOPPED' || 'STARTING' || 'RUNNING' || 'FAILED' || 'STOPPING' || 'UPDATING',
+ *   StatusMessage: 'STRING_VALUE',
+ *   CreationTimestamp: new Date('TIMESTAMP'),
+ *   LastUpdateTimestamp: new Date('TIMESTAMP'),
+ *   Input: { // StreamProcessorInput
+ *     KinesisVideoStream: { // KinesisVideoStream
+ *       Arn: 'STRING_VALUE',
+ *     },
+ *   },
+ *   Output: { // StreamProcessorOutput
+ *     KinesisDataStream: { // KinesisDataStream
+ *       Arn: 'STRING_VALUE',
+ *     },
+ *     S3Destination: { // S3Destination
+ *       Bucket: 'STRING_VALUE',
+ *       KeyPrefix: 'STRING_VALUE',
+ *     },
+ *   },
+ *   RoleArn: 'STRING_VALUE',
+ *   Settings: { // StreamProcessorSettings
+ *     FaceSearch: { // FaceSearchSettings
+ *       CollectionId: 'STRING_VALUE',
+ *       FaceMatchThreshold: Number('float'),
+ *     },
+ *     ConnectedHome: { // ConnectedHomeSettings
+ *       Labels: [ // ConnectedHomeLabels // required
+ *         'STRING_VALUE',
+ *       ],
+ *       MinConfidence: Number('float'),
+ *     },
+ *   },
+ *   NotificationChannel: { // StreamProcessorNotificationChannel
+ *     SNSTopicArn: 'STRING_VALUE', // required
+ *   },
+ *   KmsKeyId: 'STRING_VALUE',
+ *   RegionsOfInterest: [ // RegionsOfInterest
+ *     { // RegionOfInterest
+ *       BoundingBox: { // BoundingBox
+ *         Width: Number('float'),
+ *         Height: Number('float'),
+ *         Left: Number('float'),
+ *         Top: Number('float'),
+ *       },
+ *       Polygon: [ // Polygon
+ *         { // Point
+ *           X: Number('float'),
+ *           Y: Number('float'),
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   DataSharingPreference: { // StreamProcessorDataSharingPreference
+ *     OptIn: true || false, // required
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeStreamProcessorCommandInput - {@link DescribeStreamProcessorCommandInput}
@@ -73,6 +133,8 @@ export interface DescribeStreamProcessorCommandOutput extends DescribeStreamProc
  * @throws {@link ThrottlingException} (server fault)
  *  <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
  *
+ * @throws {@link RekognitionServiceException}
+ * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
  */
 export class DescribeStreamProcessorCommand extends $Command<

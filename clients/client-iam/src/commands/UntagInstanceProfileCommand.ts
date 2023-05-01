@@ -37,17 +37,20 @@ export interface UntagInstanceProfileCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IAMClient, UntagInstanceProfileCommand } from "@aws-sdk/client-iam"; // ES Modules import
- * // const { IAMClient, UntagInstanceProfileCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * import { IAMClient, UntagInstanceProfileCommand } from '@aws-sdk/client-iam'; // ES Modules import
+ * // const { IAMClient, UntagInstanceProfileCommand } = require('@aws-sdk/client-iam'); // CommonJS import
  * const client = new IAMClient(config);
  * const input = { // UntagInstanceProfileRequest
- *   InstanceProfileName: "STRING_VALUE", // required
+ *   InstanceProfileName: 'STRING_VALUE', // required
  *   TagKeys: [ // tagKeyListType // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new UntagInstanceProfileCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UntagInstanceProfileCommandInput - {@link UntagInstanceProfileCommandInput}
@@ -72,6 +75,8 @@ export interface UntagInstanceProfileCommandOutput extends __MetadataBearer {}
  *  <p>The request processing has failed because of an unknown error, exception or
  *       failure.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  */
 export class UntagInstanceProfileCommand extends $Command<

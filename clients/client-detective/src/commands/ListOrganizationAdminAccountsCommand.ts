@@ -42,15 +42,27 @@ export interface ListOrganizationAdminAccountsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DetectiveClient, ListOrganizationAdminAccountsCommand } from "@aws-sdk/client-detective"; // ES Modules import
- * // const { DetectiveClient, ListOrganizationAdminAccountsCommand } = require("@aws-sdk/client-detective"); // CommonJS import
+ * import { DetectiveClient, ListOrganizationAdminAccountsCommand } from '@aws-sdk/client-detective'; // ES Modules import
+ * // const { DetectiveClient, ListOrganizationAdminAccountsCommand } = require('@aws-sdk/client-detective'); // CommonJS import
  * const client = new DetectiveClient(config);
  * const input = { // ListOrganizationAdminAccountsRequest
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListOrganizationAdminAccountsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListOrganizationAdminAccountsResponse
+ *   Administrators: [ // AdministratorList
+ *     { // Administrator
+ *       AccountId: 'STRING_VALUE',
+ *       GraphArn: 'STRING_VALUE',
+ *       DelegationTime: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListOrganizationAdminAccountsCommandInput - {@link ListOrganizationAdminAccountsCommandInput}
@@ -73,6 +85,8 @@ export interface ListOrganizationAdminAccountsCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The request parameters are invalid.</p>
  *
+ * @throws {@link DetectiveServiceException}
+ * <p>Base exception class for all service exceptions from Detective service.</p>
  *
  */
 export class ListOrganizationAdminAccountsCommand extends $Command<

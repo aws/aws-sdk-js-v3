@@ -45,26 +45,31 @@ export interface ExportJournalToS3CommandOutput extends ExportJournalToS3Respons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { QLDBClient, ExportJournalToS3Command } from "@aws-sdk/client-qldb"; // ES Modules import
- * // const { QLDBClient, ExportJournalToS3Command } = require("@aws-sdk/client-qldb"); // CommonJS import
+ * import { QLDBClient, ExportJournalToS3Command } from '@aws-sdk/client-qldb'; // ES Modules import
+ * // const { QLDBClient, ExportJournalToS3Command } = require('@aws-sdk/client-qldb'); // CommonJS import
  * const client = new QLDBClient(config);
  * const input = { // ExportJournalToS3Request
- *   Name: "STRING_VALUE", // required
- *   InclusiveStartTime: new Date("TIMESTAMP"), // required
- *   ExclusiveEndTime: new Date("TIMESTAMP"), // required
+ *   Name: 'STRING_VALUE', // required
+ *   InclusiveStartTime: new Date('TIMESTAMP'), // required
+ *   ExclusiveEndTime: new Date('TIMESTAMP'), // required
  *   S3ExportConfiguration: { // S3ExportConfiguration
- *     Bucket: "STRING_VALUE", // required
- *     Prefix: "STRING_VALUE", // required
+ *     Bucket: 'STRING_VALUE', // required
+ *     Prefix: 'STRING_VALUE', // required
  *     EncryptionConfiguration: { // S3EncryptionConfiguration
- *       ObjectEncryptionType: "SSE_KMS" || "SSE_S3" || "NO_ENCRYPTION", // required
- *       KmsKeyArn: "STRING_VALUE",
+ *       ObjectEncryptionType: 'SSE_KMS' || 'SSE_S3' || 'NO_ENCRYPTION', // required
+ *       KmsKeyArn: 'STRING_VALUE',
  *     },
  *   },
- *   RoleArn: "STRING_VALUE", // required
- *   OutputFormat: "ION_BINARY" || "ION_TEXT" || "JSON",
+ *   RoleArn: 'STRING_VALUE', // required
+ *   OutputFormat: 'ION_BINARY' || 'ION_TEXT' || 'JSON',
  * };
  * const command = new ExportJournalToS3Command(input);
  * const response = await client.send(command);
+ * /**
+ * { // ExportJournalToS3Response
+ *   ExportId: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param ExportJournalToS3CommandInput - {@link ExportJournalToS3CommandInput}
@@ -79,6 +84,8 @@ export interface ExportJournalToS3CommandOutput extends ExportJournalToS3Respons
  * @throws {@link ResourcePreconditionNotMetException} (client fault)
  *  <p>The operation failed because a condition wasn't satisfied in advance.</p>
  *
+ * @throws {@link QLDBServiceException}
+ * <p>Base exception class for all service exceptions from QLDB service.</p>
  *
  */
 export class ExportJournalToS3Command extends $Command<

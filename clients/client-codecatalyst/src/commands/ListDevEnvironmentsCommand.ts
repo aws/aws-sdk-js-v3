@@ -36,26 +36,60 @@ export interface ListDevEnvironmentsCommandOutput extends ListDevEnvironmentsRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeCatalystClient, ListDevEnvironmentsCommand } from "@aws-sdk/client-codecatalyst"; // ES Modules import
- * // const { CodeCatalystClient, ListDevEnvironmentsCommand } = require("@aws-sdk/client-codecatalyst"); // CommonJS import
+ * import { CodeCatalystClient, ListDevEnvironmentsCommand } from '@aws-sdk/client-codecatalyst'; // ES Modules import
+ * // const { CodeCatalystClient, ListDevEnvironmentsCommand } = require('@aws-sdk/client-codecatalyst'); // CommonJS import
  * const client = new CodeCatalystClient(config);
  * const input = { // ListDevEnvironmentsRequest
- *   spaceName: "STRING_VALUE", // required
- *   projectName: "STRING_VALUE", // required
+ *   spaceName: 'STRING_VALUE', // required
+ *   projectName: 'STRING_VALUE', // required
  *   filters: [ // Filters
  *     { // Filter
- *       key: "STRING_VALUE", // required
+ *       key: 'STRING_VALUE', // required
  *       values: [ // StringList // required
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
- *       comparisonOperator: "STRING_VALUE",
+ *       comparisonOperator: 'STRING_VALUE',
  *     },
  *   ],
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new ListDevEnvironmentsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListDevEnvironmentsResponse
+ *   items: [ // DevEnvironmentSummaryList // required
+ *     { // DevEnvironmentSummary
+ *       spaceName: 'STRING_VALUE',
+ *       projectName: 'STRING_VALUE',
+ *       id: 'STRING_VALUE', // required
+ *       lastUpdatedTime: new Date('TIMESTAMP'), // required
+ *       creatorId: 'STRING_VALUE', // required
+ *       status: 'STRING_VALUE', // required
+ *       statusReason: 'STRING_VALUE',
+ *       repositories: [ // DevEnvironmentRepositorySummaries // required
+ *         { // DevEnvironmentRepositorySummary
+ *           repositoryName: 'STRING_VALUE', // required
+ *           branchName: 'STRING_VALUE',
+ *         },
+ *       ],
+ *       alias: 'STRING_VALUE',
+ *       ides: [ // Ides
+ *         { // Ide
+ *           runtime: 'STRING_VALUE',
+ *           name: 'STRING_VALUE',
+ *         },
+ *       ],
+ *       instanceType: 'STRING_VALUE', // required
+ *       inactivityTimeoutMinutes: Number('int'), // required
+ *       persistentStorage: { // PersistentStorage
+ *         sizeInGiB: Number('int'), // required
+ *       },
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListDevEnvironmentsCommandInput - {@link ListDevEnvironmentsCommandInput}
@@ -84,6 +118,8 @@ export interface ListDevEnvironmentsCommandOutput extends ListDevEnvironmentsRes
  * @throws {@link ValidationException} (client fault)
  *  <p>The request was denied because an input failed to satisfy the constraints specified by the service. Check the spelling and input requirements, and then try again.</p>
  *
+ * @throws {@link CodeCatalystServiceException}
+ * <p>Base exception class for all service exceptions from CodeCatalyst service.</p>
  *
  */
 export class ListDevEnvironmentsCommand extends $Command<

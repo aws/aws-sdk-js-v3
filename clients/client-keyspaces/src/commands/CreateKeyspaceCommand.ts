@@ -42,20 +42,25 @@ export interface CreateKeyspaceCommandOutput extends CreateKeyspaceResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KeyspacesClient, CreateKeyspaceCommand } from "@aws-sdk/client-keyspaces"; // ES Modules import
- * // const { KeyspacesClient, CreateKeyspaceCommand } = require("@aws-sdk/client-keyspaces"); // CommonJS import
+ * import { KeyspacesClient, CreateKeyspaceCommand } from '@aws-sdk/client-keyspaces'; // ES Modules import
+ * // const { KeyspacesClient, CreateKeyspaceCommand } = require('@aws-sdk/client-keyspaces'); // CommonJS import
  * const client = new KeyspacesClient(config);
  * const input = { // CreateKeyspaceRequest
- *   keyspaceName: "STRING_VALUE", // required
+ *   keyspaceName: 'STRING_VALUE', // required
  *   tags: [ // TagList
  *     { // Tag
- *       key: "STRING_VALUE", // required
- *       value: "STRING_VALUE", // required
+ *       key: 'STRING_VALUE', // required
+ *       value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreateKeyspaceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateKeyspaceResponse
+ *   resourceArn: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param CreateKeyspaceCommandInput - {@link CreateKeyspaceCommandInput}
@@ -82,6 +87,8 @@ export interface CreateKeyspaceCommandOutput extends CreateKeyspaceResponse, __M
  * @throws {@link ValidationException} (client fault)
  *  <p>The operation failed due to an invalid or malformed request.</p>
  *
+ * @throws {@link KeyspacesServiceException}
+ * <p>Base exception class for all service exceptions from Keyspaces service.</p>
  *
  */
 export class CreateKeyspaceCommand extends $Command<

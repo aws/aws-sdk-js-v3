@@ -36,12 +36,15 @@ export interface ResetAllResourceLogLevelsCommandOutput extends ResetAllResource
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTWirelessClient, ResetAllResourceLogLevelsCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
- * // const { IoTWirelessClient, ResetAllResourceLogLevelsCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
+ * import { IoTWirelessClient, ResetAllResourceLogLevelsCommand } from '@aws-sdk/client-iot-wireless'; // ES Modules import
+ * // const { IoTWirelessClient, ResetAllResourceLogLevelsCommand } = require('@aws-sdk/client-iot-wireless'); // CommonJS import
  * const client = new IoTWirelessClient(config);
  * const input = {};
  * const command = new ResetAllResourceLogLevelsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param ResetAllResourceLogLevelsCommandInput - {@link ResetAllResourceLogLevelsCommandInput}
@@ -65,6 +68,8 @@ export interface ResetAllResourceLogLevelsCommandOutput extends ResetAllResource
  * @throws {@link ValidationException} (client fault)
  *  <p>The input did not meet the specified constraints.</p>
  *
+ * @throws {@link IoTWirelessServiceException}
+ * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
  */
 export class ResetAllResourceLogLevelsCommand extends $Command<

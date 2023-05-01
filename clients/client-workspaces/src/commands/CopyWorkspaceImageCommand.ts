@@ -45,23 +45,28 @@ export interface CopyWorkspaceImageCommandOutput extends CopyWorkspaceImageResul
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkSpacesClient, CopyWorkspaceImageCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
- * // const { WorkSpacesClient, CopyWorkspaceImageCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
+ * import { WorkSpacesClient, CopyWorkspaceImageCommand } from '@aws-sdk/client-workspaces'; // ES Modules import
+ * // const { WorkSpacesClient, CopyWorkspaceImageCommand } = require('@aws-sdk/client-workspaces'); // CommonJS import
  * const client = new WorkSpacesClient(config);
  * const input = { // CopyWorkspaceImageRequest
- *   Name: "STRING_VALUE", // required
- *   Description: "STRING_VALUE",
- *   SourceImageId: "STRING_VALUE", // required
- *   SourceRegion: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE',
+ *   SourceImageId: 'STRING_VALUE', // required
+ *   SourceRegion: 'STRING_VALUE', // required
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new CopyWorkspaceImageCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CopyWorkspaceImageResult
+ *   ImageId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CopyWorkspaceImageCommandInput - {@link CopyWorkspaceImageCommandInput}
@@ -91,6 +96,8 @@ export interface CopyWorkspaceImageCommandOutput extends CopyWorkspaceImageResul
  * @throws {@link ResourceUnavailableException} (client fault)
  *  <p>The specified resource is not available.</p>
  *
+ * @throws {@link WorkSpacesServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
  */
 export class CopyWorkspaceImageCommand extends $Command<

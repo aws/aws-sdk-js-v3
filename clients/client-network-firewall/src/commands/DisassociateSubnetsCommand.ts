@@ -39,19 +39,32 @@ export interface DisassociateSubnetsCommandOutput extends DisassociateSubnetsRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { NetworkFirewallClient, DisassociateSubnetsCommand } from "@aws-sdk/client-network-firewall"; // ES Modules import
- * // const { NetworkFirewallClient, DisassociateSubnetsCommand } = require("@aws-sdk/client-network-firewall"); // CommonJS import
+ * import { NetworkFirewallClient, DisassociateSubnetsCommand } from '@aws-sdk/client-network-firewall'; // ES Modules import
+ * // const { NetworkFirewallClient, DisassociateSubnetsCommand } = require('@aws-sdk/client-network-firewall'); // CommonJS import
  * const client = new NetworkFirewallClient(config);
  * const input = { // DisassociateSubnetsRequest
- *   UpdateToken: "STRING_VALUE",
- *   FirewallArn: "STRING_VALUE",
- *   FirewallName: "STRING_VALUE",
+ *   UpdateToken: 'STRING_VALUE',
+ *   FirewallArn: 'STRING_VALUE',
+ *   FirewallName: 'STRING_VALUE',
  *   SubnetIds: [ // AzSubnets // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new DisassociateSubnetsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DisassociateSubnetsResponse
+ *   FirewallArn: 'STRING_VALUE',
+ *   FirewallName: 'STRING_VALUE',
+ *   SubnetMappings: [ // SubnetMappings
+ *     { // SubnetMapping
+ *       SubnetId: 'STRING_VALUE', // required
+ *       IPAddressType: 'DUALSTACK' || 'IPV4' || 'IPV6',
+ *     },
+ *   ],
+ *   UpdateToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DisassociateSubnetsCommandInput - {@link DisassociateSubnetsCommandInput}
@@ -93,6 +106,8 @@ export interface DisassociateSubnetsCommandOutput extends DisassociateSubnetsRes
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Unable to process the request due to throttling limitations.</p>
  *
+ * @throws {@link NetworkFirewallServiceException}
+ * <p>Base exception class for all service exceptions from NetworkFirewall service.</p>
  *
  */
 export class DisassociateSubnetsCommand extends $Command<

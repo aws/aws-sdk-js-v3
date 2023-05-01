@@ -36,18 +36,30 @@ export interface DescribeActionTargetsCommandOutput extends DescribeActionTarget
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SecurityHubClient, DescribeActionTargetsCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
- * // const { SecurityHubClient, DescribeActionTargetsCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
+ * import { SecurityHubClient, DescribeActionTargetsCommand } from '@aws-sdk/client-securityhub'; // ES Modules import
+ * // const { SecurityHubClient, DescribeActionTargetsCommand } = require('@aws-sdk/client-securityhub'); // CommonJS import
  * const client = new SecurityHubClient(config);
  * const input = { // DescribeActionTargetsRequest
  *   ActionTargetArns: [ // ArnList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new DescribeActionTargetsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeActionTargetsResponse
+ *   ActionTargets: [ // ActionTargetList // required
+ *     { // ActionTarget
+ *       ActionTargetArn: 'STRING_VALUE', // required
+ *       Name: 'STRING_VALUE', // required
+ *       Description: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeActionTargetsCommandInput - {@link DescribeActionTargetsCommandInput}
@@ -69,6 +81,8 @@ export interface DescribeActionTargetsCommandOutput extends DescribeActionTarget
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The request was rejected because we can't find the specified resource.</p>
  *
+ * @throws {@link SecurityHubServiceException}
+ * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
  * @example To return custom action targets
  * ```javascript

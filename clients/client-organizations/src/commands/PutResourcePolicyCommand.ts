@@ -37,20 +37,31 @@ export interface PutResourcePolicyCommandOutput extends PutResourcePolicyRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OrganizationsClient, PutResourcePolicyCommand } from "@aws-sdk/client-organizations"; // ES Modules import
- * // const { OrganizationsClient, PutResourcePolicyCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
+ * import { OrganizationsClient, PutResourcePolicyCommand } from '@aws-sdk/client-organizations'; // ES Modules import
+ * // const { OrganizationsClient, PutResourcePolicyCommand } = require('@aws-sdk/client-organizations'); // CommonJS import
  * const client = new OrganizationsClient(config);
  * const input = { // PutResourcePolicyRequest
- *   Content: "STRING_VALUE", // required
+ *   Content: 'STRING_VALUE', // required
  *   Tags: [ // Tags
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new PutResourcePolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutResourcePolicyResponse
+ *   ResourcePolicy: { // ResourcePolicy
+ *     ResourcePolicySummary: { // ResourcePolicySummary
+ *       Id: 'STRING_VALUE',
+ *       Arn: 'STRING_VALUE',
+ *     },
+ *     Content: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param PutResourcePolicyCommandInput - {@link PutResourcePolicyCommandInput}
@@ -389,6 +400,8 @@ export interface PutResourcePolicyCommandOutput extends PutResourcePolicyRespons
  * @throws {@link UnsupportedAPIEndpointException} (client fault)
  *  <p>This action isn't available in the current Amazon Web Services Region.</p>
  *
+ * @throws {@link OrganizationsServiceException}
+ * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
  */
 export class PutResourcePolicyCommand extends $Command<

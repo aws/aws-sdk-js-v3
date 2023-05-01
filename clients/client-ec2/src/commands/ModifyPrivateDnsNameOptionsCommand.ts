@@ -36,18 +36,23 @@ export interface ModifyPrivateDnsNameOptionsCommandOutput extends ModifyPrivateD
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, ModifyPrivateDnsNameOptionsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, ModifyPrivateDnsNameOptionsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, ModifyPrivateDnsNameOptionsCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, ModifyPrivateDnsNameOptionsCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // ModifyPrivateDnsNameOptionsRequest
  *   DryRun: true || false,
- *   InstanceId: "STRING_VALUE", // required
- *   PrivateDnsHostnameType: "ip-name" || "resource-name",
+ *   InstanceId: 'STRING_VALUE', // required
+ *   PrivateDnsHostnameType: 'ip-name' || 'resource-name',
  *   EnableResourceNameDnsARecord: true || false,
  *   EnableResourceNameDnsAAAARecord: true || false,
  * };
  * const command = new ModifyPrivateDnsNameOptionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ModifyPrivateDnsNameOptionsResult
+ *   Return: true || false,
+ * };
+ *
  * ```
  *
  * @param ModifyPrivateDnsNameOptionsCommandInput - {@link ModifyPrivateDnsNameOptionsCommandInput}
@@ -56,6 +61,8 @@ export interface ModifyPrivateDnsNameOptionsCommandOutput extends ModifyPrivateD
  * @see {@link ModifyPrivateDnsNameOptionsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class ModifyPrivateDnsNameOptionsCommand extends $Command<

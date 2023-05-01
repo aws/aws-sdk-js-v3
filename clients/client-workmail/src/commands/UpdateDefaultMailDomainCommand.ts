@@ -36,15 +36,18 @@ export interface UpdateDefaultMailDomainCommandOutput extends UpdateDefaultMailD
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkMailClient, UpdateDefaultMailDomainCommand } from "@aws-sdk/client-workmail"; // ES Modules import
- * // const { WorkMailClient, UpdateDefaultMailDomainCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
+ * import { WorkMailClient, UpdateDefaultMailDomainCommand } from '@aws-sdk/client-workmail'; // ES Modules import
+ * // const { WorkMailClient, UpdateDefaultMailDomainCommand } = require('@aws-sdk/client-workmail'); // CommonJS import
  * const client = new WorkMailClient(config);
  * const input = { // UpdateDefaultMailDomainRequest
- *   OrganizationId: "STRING_VALUE", // required
- *   DomainName: "STRING_VALUE", // required
+ *   OrganizationId: 'STRING_VALUE', // required
+ *   DomainName: 'STRING_VALUE', // required
  * };
  * const command = new UpdateDefaultMailDomainCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateDefaultMailDomainCommandInput - {@link UpdateDefaultMailDomainCommandInput}
@@ -71,6 +74,8 @@ export interface UpdateDefaultMailDomainCommandOutput extends UpdateDefaultMailD
  *  <p>The organization must have a valid state to perform certain
  *          operations on the organization or its members.</p>
  *
+ * @throws {@link WorkMailServiceException}
+ * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
  */
 export class UpdateDefaultMailDomainCommand extends $Command<

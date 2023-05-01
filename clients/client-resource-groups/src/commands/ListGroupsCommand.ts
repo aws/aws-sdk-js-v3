@@ -47,23 +47,41 @@ export interface ListGroupsCommandOutput extends ListGroupsOutput, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ResourceGroupsClient, ListGroupsCommand } from "@aws-sdk/client-resource-groups"; // ES Modules import
- * // const { ResourceGroupsClient, ListGroupsCommand } = require("@aws-sdk/client-resource-groups"); // CommonJS import
+ * import { ResourceGroupsClient, ListGroupsCommand } from '@aws-sdk/client-resource-groups'; // ES Modules import
+ * // const { ResourceGroupsClient, ListGroupsCommand } = require('@aws-sdk/client-resource-groups'); // CommonJS import
  * const client = new ResourceGroupsClient(config);
  * const input = { // ListGroupsInput
  *   Filters: [ // GroupFilterList
  *     { // GroupFilter
- *       Name: "resource-type" || "configuration-type", // required
+ *       Name: 'resource-type' || 'configuration-type', // required
  *       Values: [ // GroupFilterValues // required
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListGroupsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListGroupsOutput
+ *   GroupIdentifiers: [ // GroupIdentifierList
+ *     { // GroupIdentifier
+ *       GroupName: 'STRING_VALUE',
+ *       GroupArn: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   Groups: [ // GroupList
+ *     { // Group
+ *       GroupArn: 'STRING_VALUE', // required
+ *       Name: 'STRING_VALUE', // required
+ *       Description: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListGroupsCommandInput - {@link ListGroupsCommandInput}
@@ -88,6 +106,8 @@ export interface ListGroupsCommandOutput extends ListGroupsOutput, __MetadataBea
  *  <p>You've exceeded throttling limits by making too many requests in a period of
  *             time.</p>
  *
+ * @throws {@link ResourceGroupsServiceException}
+ * <p>Base exception class for all service exceptions from ResourceGroups service.</p>
  *
  */
 export class ListGroupsCommand extends $Command<

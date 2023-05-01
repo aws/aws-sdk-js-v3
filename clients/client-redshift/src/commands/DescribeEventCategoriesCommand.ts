@@ -38,14 +38,33 @@ export interface DescribeEventCategoriesCommandOutput extends EventCategoriesMes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RedshiftClient, DescribeEventCategoriesCommand } from "@aws-sdk/client-redshift"; // ES Modules import
- * // const { RedshiftClient, DescribeEventCategoriesCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * import { RedshiftClient, DescribeEventCategoriesCommand } from '@aws-sdk/client-redshift'; // ES Modules import
+ * // const { RedshiftClient, DescribeEventCategoriesCommand } = require('@aws-sdk/client-redshift'); // CommonJS import
  * const client = new RedshiftClient(config);
  * const input = { // DescribeEventCategoriesMessage
- *   SourceType: "STRING_VALUE",
+ *   SourceType: 'STRING_VALUE',
  * };
  * const command = new DescribeEventCategoriesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // EventCategoriesMessage
+ *   EventCategoriesMapList: [ // EventCategoriesMapList
+ *     { // EventCategoriesMap
+ *       SourceType: 'STRING_VALUE',
+ *       Events: [ // EventInfoMapList
+ *         { // EventInfoMap
+ *           EventId: 'STRING_VALUE',
+ *           EventCategories: [ // EventCategoriesList
+ *             'STRING_VALUE',
+ *           ],
+ *           EventDescription: 'STRING_VALUE',
+ *           Severity: 'STRING_VALUE',
+ *         },
+ *       ],
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeEventCategoriesCommandInput - {@link DescribeEventCategoriesCommandInput}
@@ -54,6 +73,8 @@ export interface DescribeEventCategoriesCommandOutput extends EventCategoriesMes
  * @see {@link DescribeEventCategoriesCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class DescribeEventCategoriesCommand extends $Command<

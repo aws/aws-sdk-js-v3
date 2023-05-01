@@ -38,14 +38,48 @@ export interface GetEmailIdentityCommandOutput extends GetEmailIdentityResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SESv2Client, GetEmailIdentityCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
- * // const { SESv2Client, GetEmailIdentityCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
+ * import { SESv2Client, GetEmailIdentityCommand } from '@aws-sdk/client-sesv2'; // ES Modules import
+ * // const { SESv2Client, GetEmailIdentityCommand } = require('@aws-sdk/client-sesv2'); // CommonJS import
  * const client = new SESv2Client(config);
  * const input = { // GetEmailIdentityRequest
- *   EmailIdentity: "STRING_VALUE", // required
+ *   EmailIdentity: 'STRING_VALUE', // required
  * };
  * const command = new GetEmailIdentityCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetEmailIdentityResponse
+ *   IdentityType: 'EMAIL_ADDRESS' || 'DOMAIN' || 'MANAGED_DOMAIN',
+ *   FeedbackForwardingStatus: true || false,
+ *   VerifiedForSendingStatus: true || false,
+ *   DkimAttributes: { // DkimAttributes
+ *     SigningEnabled: true || false,
+ *     Status: 'PENDING' || 'SUCCESS' || 'FAILED' || 'TEMPORARY_FAILURE' || 'NOT_STARTED',
+ *     Tokens: [ // DnsTokenList
+ *       'STRING_VALUE',
+ *     ],
+ *     SigningAttributesOrigin: 'AWS_SES' || 'EXTERNAL',
+ *     NextSigningKeyLength: 'RSA_1024_BIT' || 'RSA_2048_BIT',
+ *     CurrentSigningKeyLength: 'RSA_1024_BIT' || 'RSA_2048_BIT',
+ *     LastKeyGenerationTimestamp: new Date('TIMESTAMP'),
+ *   },
+ *   MailFromAttributes: { // MailFromAttributes
+ *     MailFromDomain: 'STRING_VALUE', // required
+ *     MailFromDomainStatus: 'PENDING' || 'SUCCESS' || 'FAILED' || 'TEMPORARY_FAILURE', // required
+ *     BehaviorOnMxFailure: 'USE_DEFAULT_VALUE' || 'REJECT_MESSAGE', // required
+ *   },
+ *   Policies: { // PolicyMap
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ *   ConfigurationSetName: 'STRING_VALUE',
+ *   VerificationStatus: 'PENDING' || 'SUCCESS' || 'FAILED' || 'TEMPORARY_FAILURE' || 'NOT_STARTED',
+ * };
+ *
  * ```
  *
  * @param GetEmailIdentityCommandInput - {@link GetEmailIdentityCommandInput}
@@ -63,6 +97,8 @@ export interface GetEmailIdentityCommandOutput extends GetEmailIdentityResponse,
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Too many requests have been made to the operation.</p>
  *
+ * @throws {@link SESv2ServiceException}
+ * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
  */
 export class GetEmailIdentityCommand extends $Command<

@@ -36,23 +36,38 @@ export interface AddNotificationChannelsCommandOutput extends AddNotificationCha
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeGuruProfilerClient, AddNotificationChannelsCommand } from "@aws-sdk/client-codeguruprofiler"; // ES Modules import
- * // const { CodeGuruProfilerClient, AddNotificationChannelsCommand } = require("@aws-sdk/client-codeguruprofiler"); // CommonJS import
+ * import { CodeGuruProfilerClient, AddNotificationChannelsCommand } from '@aws-sdk/client-codeguruprofiler'; // ES Modules import
+ * // const { CodeGuruProfilerClient, AddNotificationChannelsCommand } = require('@aws-sdk/client-codeguruprofiler'); // CommonJS import
  * const client = new CodeGuruProfilerClient(config);
  * const input = { // AddNotificationChannelsRequest
- *   profilingGroupName: "STRING_VALUE", // required
+ *   profilingGroupName: 'STRING_VALUE', // required
  *   channels: [ // Channels // required
  *     { // Channel
- *       id: "STRING_VALUE",
- *       uri: "STRING_VALUE", // required
+ *       id: 'STRING_VALUE',
+ *       uri: 'STRING_VALUE', // required
  *       eventPublishers: [ // EventPublishers // required
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
  * };
  * const command = new AddNotificationChannelsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AddNotificationChannelsResponse
+ *   notificationConfiguration: { // NotificationConfiguration
+ *     channels: [ // Channels
+ *       { // Channel
+ *         id: 'STRING_VALUE',
+ *         uri: 'STRING_VALUE', // required
+ *         eventPublishers: [ // EventPublishers // required
+ *           'STRING_VALUE',
+ *         ],
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param AddNotificationChannelsCommandInput - {@link AddNotificationChannelsCommandInput}
@@ -85,6 +100,8 @@ export interface AddNotificationChannelsCommandOutput extends AddNotificationCha
  * @throws {@link ValidationException} (client fault)
  *  <p>The parameter is not valid.</p>
  *
+ * @throws {@link CodeGuruProfilerServiceException}
+ * <p>Base exception class for all service exceptions from CodeGuruProfiler service.</p>
  *
  */
 export class AddNotificationChannelsCommand extends $Command<

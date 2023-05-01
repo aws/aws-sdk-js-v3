@@ -36,25 +36,82 @@ export interface ListCodeReviewsCommandOutput extends ListCodeReviewsResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeGuruReviewerClient, ListCodeReviewsCommand } from "@aws-sdk/client-codeguru-reviewer"; // ES Modules import
- * // const { CodeGuruReviewerClient, ListCodeReviewsCommand } = require("@aws-sdk/client-codeguru-reviewer"); // CommonJS import
+ * import { CodeGuruReviewerClient, ListCodeReviewsCommand } from '@aws-sdk/client-codeguru-reviewer'; // ES Modules import
+ * // const { CodeGuruReviewerClient, ListCodeReviewsCommand } = require('@aws-sdk/client-codeguru-reviewer'); // CommonJS import
  * const client = new CodeGuruReviewerClient(config);
  * const input = { // ListCodeReviewsRequest
  *   ProviderTypes: [ // ProviderTypes
- *     "CodeCommit" || "GitHub" || "Bitbucket" || "GitHubEnterpriseServer" || "S3Bucket",
+ *     'CodeCommit' || 'GitHub' || 'Bitbucket' || 'GitHubEnterpriseServer' || 'S3Bucket',
  *   ],
  *   States: [ // JobStates
- *     "Completed" || "Pending" || "Failed" || "Deleting",
+ *     'Completed' || 'Pending' || 'Failed' || 'Deleting',
  *   ],
  *   RepositoryNames: [ // RepositoryNames
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   Type: "PullRequest" || "RepositoryAnalysis", // required
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   Type: 'PullRequest' || 'RepositoryAnalysis', // required
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListCodeReviewsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListCodeReviewsResponse
+ *   CodeReviewSummaries: [ // CodeReviewSummaries
+ *     { // CodeReviewSummary
+ *       Name: 'STRING_VALUE',
+ *       CodeReviewArn: 'STRING_VALUE',
+ *       RepositoryName: 'STRING_VALUE',
+ *       Owner: 'STRING_VALUE',
+ *       ProviderType: 'CodeCommit' || 'GitHub' || 'Bitbucket' || 'GitHubEnterpriseServer' || 'S3Bucket',
+ *       State: 'Completed' || 'Pending' || 'Failed' || 'Deleting',
+ *       CreatedTimeStamp: new Date('TIMESTAMP'),
+ *       LastUpdatedTimeStamp: new Date('TIMESTAMP'),
+ *       Type: 'PullRequest' || 'RepositoryAnalysis',
+ *       PullRequestId: 'STRING_VALUE',
+ *       MetricsSummary: { // MetricsSummary
+ *         MeteredLinesOfCodeCount: Number('long'),
+ *         SuppressedLinesOfCodeCount: Number('long'),
+ *         FindingsCount: Number('long'),
+ *       },
+ *       SourceCodeType: { // SourceCodeType
+ *         CommitDiff: { // CommitDiffSourceCodeType
+ *           SourceCommit: 'STRING_VALUE',
+ *           DestinationCommit: 'STRING_VALUE',
+ *           MergeBaseCommit: 'STRING_VALUE',
+ *         },
+ *         RepositoryHead: { // RepositoryHeadSourceCodeType
+ *           BranchName: 'STRING_VALUE', // required
+ *         },
+ *         BranchDiff: { // BranchDiffSourceCodeType
+ *           SourceBranchName: 'STRING_VALUE', // required
+ *           DestinationBranchName: 'STRING_VALUE', // required
+ *         },
+ *         S3BucketRepository: { // S3BucketRepository
+ *           Name: 'STRING_VALUE', // required
+ *           Details: { // S3RepositoryDetails
+ *             BucketName: 'STRING_VALUE',
+ *             CodeArtifacts: { // CodeArtifacts
+ *               SourceCodeArtifactsObjectKey: 'STRING_VALUE', // required
+ *               BuildArtifactsObjectKey: 'STRING_VALUE',
+ *             },
+ *           },
+ *         },
+ *         RequestMetadata: { // RequestMetadata
+ *           RequestId: 'STRING_VALUE',
+ *           Requester: 'STRING_VALUE',
+ *           EventInfo: { // EventInfo
+ *             Name: 'STRING_VALUE',
+ *             State: 'STRING_VALUE',
+ *           },
+ *           VendorName: 'GitHub' || 'GitLab' || 'NativeS3',
+ *         },
+ *       },
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListCodeReviewsCommandInput - {@link ListCodeReviewsCommandInput}
@@ -75,6 +132,8 @@ export interface ListCodeReviewsCommandOutput extends ListCodeReviewsResponse, _
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the specified constraints.</p>
  *
+ * @throws {@link CodeGuruReviewerServiceException}
+ * <p>Base exception class for all service exceptions from CodeGuruReviewer service.</p>
  *
  */
 export class ListCodeReviewsCommand extends $Command<

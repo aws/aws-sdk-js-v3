@@ -42,15 +42,26 @@ export interface RefreshSchemasCommandOutput extends RefreshSchemasResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DatabaseMigrationServiceClient, RefreshSchemasCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
- * // const { DatabaseMigrationServiceClient, RefreshSchemasCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
+ * import { DatabaseMigrationServiceClient, RefreshSchemasCommand } from '@aws-sdk/client-database-migration-service'; // ES Modules import
+ * // const { DatabaseMigrationServiceClient, RefreshSchemasCommand } = require('@aws-sdk/client-database-migration-service'); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
  * const input = { // RefreshSchemasMessage
- *   EndpointArn: "STRING_VALUE", // required
- *   ReplicationInstanceArn: "STRING_VALUE", // required
+ *   EndpointArn: 'STRING_VALUE', // required
+ *   ReplicationInstanceArn: 'STRING_VALUE', // required
  * };
  * const command = new RefreshSchemasCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // RefreshSchemasResponse
+ *   RefreshSchemasStatus: { // RefreshSchemasStatus
+ *     EndpointArn: 'STRING_VALUE',
+ *     ReplicationInstanceArn: 'STRING_VALUE',
+ *     Status: 'successful' || 'failed' || 'refreshing',
+ *     LastRefreshDate: new Date('TIMESTAMP'),
+ *     LastFailureMessage: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param RefreshSchemasCommandInput - {@link RefreshSchemasCommandInput}
@@ -71,6 +82,8 @@ export interface RefreshSchemasCommandOutput extends RefreshSchemasResponse, __M
  * @throws {@link ResourceQuotaExceededFault} (client fault)
  *  <p>The quota for this resource quota has been exceeded.</p>
  *
+ * @throws {@link DatabaseMigrationServiceServiceException}
+ * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
  * @example Refresh schema
  * ```javascript

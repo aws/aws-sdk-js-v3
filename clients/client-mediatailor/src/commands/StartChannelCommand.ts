@@ -36,14 +36,17 @@ export interface StartChannelCommandOutput extends StartChannelResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MediaTailorClient, StartChannelCommand } from "@aws-sdk/client-mediatailor"; // ES Modules import
- * // const { MediaTailorClient, StartChannelCommand } = require("@aws-sdk/client-mediatailor"); // CommonJS import
+ * import { MediaTailorClient, StartChannelCommand } from '@aws-sdk/client-mediatailor'; // ES Modules import
+ * // const { MediaTailorClient, StartChannelCommand } = require('@aws-sdk/client-mediatailor'); // CommonJS import
  * const client = new MediaTailorClient(config);
  * const input = { // StartChannelRequest
- *   ChannelName: "STRING_VALUE", // required
+ *   ChannelName: 'STRING_VALUE', // required
  * };
  * const command = new StartChannelCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param StartChannelCommandInput - {@link StartChannelCommandInput}
@@ -52,6 +55,8 @@ export interface StartChannelCommandOutput extends StartChannelResponse, __Metad
  * @see {@link StartChannelCommandOutput} for command's `response` shape.
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.
  *
+ * @throws {@link MediaTailorServiceException}
+ * <p>Base exception class for all service exceptions from MediaTailor service.</p>
  *
  */
 export class StartChannelCommand extends $Command<

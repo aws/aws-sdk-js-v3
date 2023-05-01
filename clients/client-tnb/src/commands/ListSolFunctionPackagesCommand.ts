@@ -37,15 +37,37 @@ export interface ListSolFunctionPackagesCommandOutput extends ListSolFunctionPac
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { TnbClient, ListSolFunctionPackagesCommand } from "@aws-sdk/client-tnb"; // ES Modules import
- * // const { TnbClient, ListSolFunctionPackagesCommand } = require("@aws-sdk/client-tnb"); // CommonJS import
+ * import { TnbClient, ListSolFunctionPackagesCommand } from '@aws-sdk/client-tnb'; // ES Modules import
+ * // const { TnbClient, ListSolFunctionPackagesCommand } = require('@aws-sdk/client-tnb'); // CommonJS import
  * const client = new TnbClient(config);
  * const input = { // ListSolFunctionPackagesInput
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new ListSolFunctionPackagesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListSolFunctionPackagesOutput
+ *   nextToken: 'STRING_VALUE',
+ *   functionPackages: [ // ListSolFunctionPackageResources // required
+ *     { // ListSolFunctionPackageInfo
+ *       id: 'STRING_VALUE', // required
+ *       arn: 'STRING_VALUE', // required
+ *       onboardingState: 'CREATED' || 'ONBOARDED' || 'ERROR', // required
+ *       operationalState: 'ENABLED' || 'DISABLED', // required
+ *       usageState: 'IN_USE' || 'NOT_IN_USE', // required
+ *       vnfdId: 'STRING_VALUE',
+ *       vnfProvider: 'STRING_VALUE',
+ *       vnfProductName: 'STRING_VALUE',
+ *       vnfdVersion: 'STRING_VALUE',
+ *       metadata: { // ListSolFunctionPackageMetadata
+ *         createdAt: new Date('TIMESTAMP'), // required
+ *         lastModified: new Date('TIMESTAMP'), // required
+ *       },
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListSolFunctionPackagesCommandInput - {@link ListSolFunctionPackagesCommandInput}
@@ -66,6 +88,8 @@ export interface ListSolFunctionPackagesCommandOutput extends ListSolFunctionPac
  * @throws {@link ValidationException} (client fault)
  *  <p>Unable to process the request because the client provided input failed to satisfy request constraints.</p>
  *
+ * @throws {@link TnbServiceException}
+ * <p>Base exception class for all service exceptions from Tnb service.</p>
  *
  */
 export class ListSolFunctionPackagesCommand extends $Command<

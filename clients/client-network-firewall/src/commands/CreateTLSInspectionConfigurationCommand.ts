@@ -49,65 +49,97 @@ export interface CreateTLSInspectionConfigurationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { NetworkFirewallClient, CreateTLSInspectionConfigurationCommand } from "@aws-sdk/client-network-firewall"; // ES Modules import
- * // const { NetworkFirewallClient, CreateTLSInspectionConfigurationCommand } = require("@aws-sdk/client-network-firewall"); // CommonJS import
+ * import { NetworkFirewallClient, CreateTLSInspectionConfigurationCommand } from '@aws-sdk/client-network-firewall'; // ES Modules import
+ * // const { NetworkFirewallClient, CreateTLSInspectionConfigurationCommand } = require('@aws-sdk/client-network-firewall'); // CommonJS import
  * const client = new NetworkFirewallClient(config);
  * const input = { // CreateTLSInspectionConfigurationRequest
- *   TLSInspectionConfigurationName: "STRING_VALUE", // required
+ *   TLSInspectionConfigurationName: 'STRING_VALUE', // required
  *   TLSInspectionConfiguration: { // TLSInspectionConfiguration
  *     ServerCertificateConfigurations: [ // ServerCertificateConfigurations
  *       { // ServerCertificateConfiguration
  *         ServerCertificates: [ // ServerCertificates
  *           { // ServerCertificate
- *             ResourceArn: "STRING_VALUE",
+ *             ResourceArn: 'STRING_VALUE',
  *           },
  *         ],
  *         Scopes: [ // ServerCertificateScopes
  *           { // ServerCertificateScope
  *             Sources: [ // Addresses
  *               { // Address
- *                 AddressDefinition: "STRING_VALUE", // required
+ *                 AddressDefinition: 'STRING_VALUE', // required
  *               },
  *             ],
  *             Destinations: [
  *               {
- *                 AddressDefinition: "STRING_VALUE", // required
+ *                 AddressDefinition: 'STRING_VALUE', // required
  *               },
  *             ],
  *             SourcePorts: [ // PortRanges
  *               { // PortRange
- *                 FromPort: Number("int"), // required
- *                 ToPort: Number("int"), // required
+ *                 FromPort: Number('int'), // required
+ *                 ToPort: Number('int'), // required
  *               },
  *             ],
  *             DestinationPorts: [
  *               {
- *                 FromPort: Number("int"), // required
- *                 ToPort: Number("int"), // required
+ *                 FromPort: Number('int'), // required
+ *                 ToPort: Number('int'), // required
  *               },
  *             ],
  *             Protocols: [ // ProtocolNumbers
- *               Number("int"),
+ *               Number('int'),
  *             ],
  *           },
  *         ],
  *       },
  *     ],
  *   },
- *   Description: "STRING_VALUE",
+ *   Description: 'STRING_VALUE',
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  *   EncryptionConfiguration: { // EncryptionConfiguration
- *     KeyId: "STRING_VALUE",
- *     Type: "CUSTOMER_KMS" || "AWS_OWNED_KMS_KEY", // required
+ *     KeyId: 'STRING_VALUE',
+ *     Type: 'CUSTOMER_KMS' || 'AWS_OWNED_KMS_KEY', // required
  *   },
  * };
  * const command = new CreateTLSInspectionConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateTLSInspectionConfigurationResponse
+ *   UpdateToken: 'STRING_VALUE', // required
+ *   TLSInspectionConfigurationResponse: { // TLSInspectionConfigurationResponse
+ *     TLSInspectionConfigurationArn: 'STRING_VALUE', // required
+ *     TLSInspectionConfigurationName: 'STRING_VALUE', // required
+ *     TLSInspectionConfigurationId: 'STRING_VALUE', // required
+ *     TLSInspectionConfigurationStatus: 'ACTIVE' || 'DELETING',
+ *     Description: 'STRING_VALUE',
+ *     Tags: [ // TagList
+ *       { // Tag
+ *         Key: 'STRING_VALUE', // required
+ *         Value: 'STRING_VALUE', // required
+ *       },
+ *     ],
+ *     LastModifiedTime: new Date('TIMESTAMP'),
+ *     NumberOfAssociations: Number('int'),
+ *     EncryptionConfiguration: { // EncryptionConfiguration
+ *       KeyId: 'STRING_VALUE',
+ *       Type: 'CUSTOMER_KMS' || 'AWS_OWNED_KMS_KEY', // required
+ *     },
+ *     Certificates: [ // Certificates
+ *       { // TlsCertificateData
+ *         CertificateArn: 'STRING_VALUE',
+ *         CertificateSerial: 'STRING_VALUE',
+ *         Status: 'STRING_VALUE',
+ *         StatusMessage: 'STRING_VALUE',
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateTLSInspectionConfigurationCommandInput - {@link CreateTLSInspectionConfigurationCommandInput}
@@ -139,6 +171,8 @@ export interface CreateTLSInspectionConfigurationCommandOutput
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Unable to process the request due to throttling limitations.</p>
  *
+ * @throws {@link NetworkFirewallServiceException}
+ * <p>Base exception class for all service exceptions from NetworkFirewall service.</p>
  *
  */
 export class CreateTLSInspectionConfigurationCommand extends $Command<

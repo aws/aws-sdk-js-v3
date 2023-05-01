@@ -36,15 +36,18 @@ export interface DeleteSkillAuthorizationCommandOutput extends DeleteSkillAuthor
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AlexaForBusinessClient, DeleteSkillAuthorizationCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
- * // const { AlexaForBusinessClient, DeleteSkillAuthorizationCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
+ * import { AlexaForBusinessClient, DeleteSkillAuthorizationCommand } from '@aws-sdk/client-alexa-for-business'; // ES Modules import
+ * // const { AlexaForBusinessClient, DeleteSkillAuthorizationCommand } = require('@aws-sdk/client-alexa-for-business'); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
  * const input = { // DeleteSkillAuthorizationRequest
- *   SkillId: "STRING_VALUE", // required
- *   RoomArn: "STRING_VALUE",
+ *   SkillId: 'STRING_VALUE', // required
+ *   RoomArn: 'STRING_VALUE',
  * };
  * const command = new DeleteSkillAuthorizationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteSkillAuthorizationCommandInput - {@link DeleteSkillAuthorizationCommandInput}
@@ -59,6 +62,8 @@ export interface DeleteSkillAuthorizationCommandOutput extends DeleteSkillAuthor
  * @throws {@link NotFoundException} (client fault)
  *  <p>The resource is not found.</p>
  *
+ * @throws {@link AlexaForBusinessServiceException}
+ * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  */
 export class DeleteSkillAuthorizationCommand extends $Command<

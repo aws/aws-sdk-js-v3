@@ -38,15 +38,22 @@ export interface ListTagsForVaultCommandOutput extends ListTagsForVaultOutput, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlacierClient, ListTagsForVaultCommand } from "@aws-sdk/client-glacier"; // ES Modules import
- * // const { GlacierClient, ListTagsForVaultCommand } = require("@aws-sdk/client-glacier"); // CommonJS import
+ * import { GlacierClient, ListTagsForVaultCommand } from '@aws-sdk/client-glacier'; // ES Modules import
+ * // const { GlacierClient, ListTagsForVaultCommand } = require('@aws-sdk/client-glacier'); // CommonJS import
  * const client = new GlacierClient(config);
  * const input = { // ListTagsForVaultInput
- *   accountId: "STRING_VALUE", // required
- *   vaultName: "STRING_VALUE", // required
+ *   accountId: 'STRING_VALUE', // required
+ *   vaultName: 'STRING_VALUE', // required
  * };
  * const command = new ListTagsForVaultCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTagsForVaultOutput
+ *   Tags: { // TagMap
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param ListTagsForVaultCommandInput - {@link ListTagsForVaultCommandInput}
@@ -68,6 +75,8 @@ export interface ListTagsForVaultCommandOutput extends ListTagsForVaultOutput, _
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>Returned if the service cannot complete the request.</p>
  *
+ * @throws {@link GlacierServiceException}
+ * <p>Base exception class for all service exceptions from Glacier service.</p>
  *
  * @example To list the tags for a vault
  * ```javascript

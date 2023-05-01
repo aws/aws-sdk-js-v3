@@ -36,24 +36,46 @@ export interface SearchDatabasesByLFTagsCommandOutput extends SearchDatabasesByL
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LakeFormationClient, SearchDatabasesByLFTagsCommand } from "@aws-sdk/client-lakeformation"; // ES Modules import
- * // const { LakeFormationClient, SearchDatabasesByLFTagsCommand } = require("@aws-sdk/client-lakeformation"); // CommonJS import
+ * import { LakeFormationClient, SearchDatabasesByLFTagsCommand } from '@aws-sdk/client-lakeformation'; // ES Modules import
+ * // const { LakeFormationClient, SearchDatabasesByLFTagsCommand } = require('@aws-sdk/client-lakeformation'); // CommonJS import
  * const client = new LakeFormationClient(config);
  * const input = { // SearchDatabasesByLFTagsRequest
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
- *   CatalogId: "STRING_VALUE",
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
+ *   CatalogId: 'STRING_VALUE',
  *   Expression: [ // Expression // required
  *     { // LFTag
- *       TagKey: "STRING_VALUE", // required
+ *       TagKey: 'STRING_VALUE', // required
  *       TagValues: [ // TagValueList // required
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
  * };
  * const command = new SearchDatabasesByLFTagsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SearchDatabasesByLFTagsResponse
+ *   NextToken: 'STRING_VALUE',
+ *   DatabaseList: [ // DatabaseLFTagsList
+ *     { // TaggedDatabase
+ *       Database: { // DatabaseResource
+ *         CatalogId: 'STRING_VALUE',
+ *         Name: 'STRING_VALUE', // required
+ *       },
+ *       LFTags: [ // LFTagsList
+ *         { // LFTagPair
+ *           CatalogId: 'STRING_VALUE',
+ *           TagKey: 'STRING_VALUE', // required
+ *           TagValues: [ // TagValueList // required
+ *             'STRING_VALUE',
+ *           ],
+ *         },
+ *       ],
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param SearchDatabasesByLFTagsCommandInput - {@link SearchDatabasesByLFTagsCommandInput}
@@ -80,6 +102,8 @@ export interface SearchDatabasesByLFTagsCommandOutput extends SearchDatabasesByL
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link LakeFormationServiceException}
+ * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
  */
 export class SearchDatabasesByLFTagsCommand extends $Command<

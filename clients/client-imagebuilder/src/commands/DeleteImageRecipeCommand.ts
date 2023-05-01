@@ -36,14 +36,20 @@ export interface DeleteImageRecipeCommandOutput extends DeleteImageRecipeRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ImagebuilderClient, DeleteImageRecipeCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
- * // const { ImagebuilderClient, DeleteImageRecipeCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
+ * import { ImagebuilderClient, DeleteImageRecipeCommand } from '@aws-sdk/client-imagebuilder'; // ES Modules import
+ * // const { ImagebuilderClient, DeleteImageRecipeCommand } = require('@aws-sdk/client-imagebuilder'); // CommonJS import
  * const client = new ImagebuilderClient(config);
  * const input = { // DeleteImageRecipeRequest
- *   imageRecipeArn: "STRING_VALUE", // required
+ *   imageRecipeArn: 'STRING_VALUE', // required
  * };
  * const command = new DeleteImageRecipeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteImageRecipeResponse
+ *   requestId: 'STRING_VALUE',
+ *   imageRecipeArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DeleteImageRecipeCommandInput - {@link DeleteImageRecipeCommandInput}
@@ -77,6 +83,8 @@ export interface DeleteImageRecipeCommandOutput extends DeleteImageRecipeRespons
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service is unable to process your request at this time.</p>
  *
+ * @throws {@link ImagebuilderServiceException}
+ * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
  */
 export class DeleteImageRecipeCommand extends $Command<

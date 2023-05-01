@@ -36,14 +36,28 @@ export interface DeleteBuildBatchCommandOutput extends DeleteBuildBatchOutput, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeBuildClient, DeleteBuildBatchCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
- * // const { CodeBuildClient, DeleteBuildBatchCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import
+ * import { CodeBuildClient, DeleteBuildBatchCommand } from '@aws-sdk/client-codebuild'; // ES Modules import
+ * // const { CodeBuildClient, DeleteBuildBatchCommand } = require('@aws-sdk/client-codebuild'); // CommonJS import
  * const client = new CodeBuildClient(config);
  * const input = { // DeleteBuildBatchInput
- *   id: "STRING_VALUE", // required
+ *   id: 'STRING_VALUE', // required
  * };
  * const command = new DeleteBuildBatchCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteBuildBatchOutput
+ *   statusCode: 'STRING_VALUE',
+ *   buildsDeleted: [ // BuildIds
+ *     'STRING_VALUE',
+ *   ],
+ *   buildsNotDeleted: [ // BuildsNotDeleted
+ *     { // BuildNotDeleted
+ *       id: 'STRING_VALUE',
+ *       statusCode: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DeleteBuildBatchCommandInput - {@link DeleteBuildBatchCommandInput}
@@ -55,6 +69,8 @@ export interface DeleteBuildBatchCommandOutput extends DeleteBuildBatchOutput, _
  * @throws {@link InvalidInputException} (client fault)
  *  <p>The input value that was provided is not valid.</p>
  *
+ * @throws {@link CodeBuildServiceException}
+ * <p>Base exception class for all service exceptions from CodeBuild service.</p>
  *
  */
 export class DeleteBuildBatchCommand extends $Command<

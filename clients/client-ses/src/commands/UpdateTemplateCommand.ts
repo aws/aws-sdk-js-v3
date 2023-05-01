@@ -39,19 +39,22 @@ export interface UpdateTemplateCommandOutput extends UpdateTemplateResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SESClient, UpdateTemplateCommand } from "@aws-sdk/client-ses"; // ES Modules import
- * // const { SESClient, UpdateTemplateCommand } = require("@aws-sdk/client-ses"); // CommonJS import
+ * import { SESClient, UpdateTemplateCommand } from '@aws-sdk/client-ses'; // ES Modules import
+ * // const { SESClient, UpdateTemplateCommand } = require('@aws-sdk/client-ses'); // CommonJS import
  * const client = new SESClient(config);
  * const input = { // UpdateTemplateRequest
  *   Template: { // Template
- *     TemplateName: "STRING_VALUE", // required
- *     SubjectPart: "STRING_VALUE",
- *     TextPart: "STRING_VALUE",
- *     HtmlPart: "STRING_VALUE",
+ *     TemplateName: 'STRING_VALUE', // required
+ *     SubjectPart: 'STRING_VALUE',
+ *     TextPart: 'STRING_VALUE',
+ *     HtmlPart: 'STRING_VALUE',
  *   },
  * };
  * const command = new UpdateTemplateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateTemplateCommandInput - {@link UpdateTemplateCommandInput}
@@ -68,6 +71,8 @@ export interface UpdateTemplateCommandOutput extends UpdateTemplateResponse, __M
  *  <p>Indicates that the Template object you specified does not exist in your Amazon SES
  *             account.</p>
  *
+ * @throws {@link SESServiceException}
+ * <p>Base exception class for all service exceptions from SES service.</p>
  *
  */
 export class UpdateTemplateCommand extends $Command<

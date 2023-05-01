@@ -69,17 +69,33 @@ export interface GetEntitiesCommandOutput extends GetEntitiesResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTThingsGraphClient, GetEntitiesCommand } from "@aws-sdk/client-iotthingsgraph"; // ES Modules import
- * // const { IoTThingsGraphClient, GetEntitiesCommand } = require("@aws-sdk/client-iotthingsgraph"); // CommonJS import
+ * import { IoTThingsGraphClient, GetEntitiesCommand } from '@aws-sdk/client-iotthingsgraph'; // ES Modules import
+ * // const { IoTThingsGraphClient, GetEntitiesCommand } = require('@aws-sdk/client-iotthingsgraph'); // CommonJS import
  * const client = new IoTThingsGraphClient(config);
  * const input = { // GetEntitiesRequest
  *   ids: [ // Urns // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   namespaceVersion: Number("long"),
+ *   namespaceVersion: Number('long'),
  * };
  * const command = new GetEntitiesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetEntitiesResponse
+ *   descriptions: [ // EntityDescriptions
+ *     { // EntityDescription
+ *       id: 'STRING_VALUE',
+ *       arn: 'STRING_VALUE',
+ *       type: 'STRING_VALUE',
+ *       createdAt: new Date('TIMESTAMP'),
+ *       definition: { // DefinitionDocument
+ *         language: 'STRING_VALUE', // required
+ *         text: 'STRING_VALUE', // required
+ *       },
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetEntitiesCommandInput - {@link GetEntitiesCommandInput}
@@ -100,6 +116,8 @@ export interface GetEntitiesCommandOutput extends GetEntitiesResponse, __Metadat
  * @throws {@link ThrottlingException} (client fault)
  *  <p></p>
  *
+ * @throws {@link IoTThingsGraphServiceException}
+ * <p>Base exception class for all service exceptions from IoTThingsGraph service.</p>
  *
  */
 export class GetEntitiesCommand extends $Command<

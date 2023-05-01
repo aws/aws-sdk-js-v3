@@ -36,15 +36,18 @@ export interface DeleteEntitlementCommandOutput extends DeleteEntitlementResult,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppStreamClient, DeleteEntitlementCommand } from "@aws-sdk/client-appstream"; // ES Modules import
- * // const { AppStreamClient, DeleteEntitlementCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
+ * import { AppStreamClient, DeleteEntitlementCommand } from '@aws-sdk/client-appstream'; // ES Modules import
+ * // const { AppStreamClient, DeleteEntitlementCommand } = require('@aws-sdk/client-appstream'); // CommonJS import
  * const client = new AppStreamClient(config);
  * const input = { // DeleteEntitlementRequest
- *   Name: "STRING_VALUE", // required
- *   StackName: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
+ *   StackName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteEntitlementCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteEntitlementCommandInput - {@link DeleteEntitlementCommandInput}
@@ -65,6 +68,8 @@ export interface DeleteEntitlementCommandOutput extends DeleteEntitlementResult,
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link AppStreamServiceException}
+ * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
  */
 export class DeleteEntitlementCommand extends $Command<

@@ -40,24 +40,29 @@ export interface StartImportFileTaskCommandOutput extends StartImportFileTaskRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MigrationHubStrategyClient, StartImportFileTaskCommand } from "@aws-sdk/client-migrationhubstrategy"; // ES Modules import
- * // const { MigrationHubStrategyClient, StartImportFileTaskCommand } = require("@aws-sdk/client-migrationhubstrategy"); // CommonJS import
+ * import { MigrationHubStrategyClient, StartImportFileTaskCommand } from '@aws-sdk/client-migrationhubstrategy'; // ES Modules import
+ * // const { MigrationHubStrategyClient, StartImportFileTaskCommand } = require('@aws-sdk/client-migrationhubstrategy'); // CommonJS import
  * const client = new MigrationHubStrategyClient(config);
  * const input = { // StartImportFileTaskRequest
- *   name: "STRING_VALUE", // required
- *   S3Bucket: "STRING_VALUE", // required
- *   s3key: "STRING_VALUE", // required
- *   dataSourceType: "STRING_VALUE",
+ *   name: 'STRING_VALUE', // required
+ *   S3Bucket: 'STRING_VALUE', // required
+ *   s3key: 'STRING_VALUE', // required
+ *   dataSourceType: 'STRING_VALUE',
  *   groupId: [ // GroupIds
  *     { // Group
- *       name: "STRING_VALUE",
- *       value: "STRING_VALUE",
+ *       name: 'STRING_VALUE',
+ *       value: 'STRING_VALUE',
  *     },
  *   ],
- *   s3bucketForReportData: "STRING_VALUE",
+ *   s3bucketForReportData: 'STRING_VALUE',
  * };
  * const command = new StartImportFileTaskCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartImportFileTaskResponse
+ *   id: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param StartImportFileTaskCommandInput - {@link StartImportFileTaskCommandInput}
@@ -83,6 +88,8 @@ export interface StartImportFileTaskCommandOutput extends StartImportFileTaskRes
  * @throws {@link ValidationException} (client fault)
  *  <p> The request body isn't valid. </p>
  *
+ * @throws {@link MigrationHubStrategyServiceException}
+ * <p>Base exception class for all service exceptions from MigrationHubStrategy service.</p>
  *
  */
 export class StartImportFileTaskCommand extends $Command<

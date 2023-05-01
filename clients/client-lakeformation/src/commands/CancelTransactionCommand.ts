@@ -36,14 +36,17 @@ export interface CancelTransactionCommandOutput extends CancelTransactionRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LakeFormationClient, CancelTransactionCommand } from "@aws-sdk/client-lakeformation"; // ES Modules import
- * // const { LakeFormationClient, CancelTransactionCommand } = require("@aws-sdk/client-lakeformation"); // CommonJS import
+ * import { LakeFormationClient, CancelTransactionCommand } from '@aws-sdk/client-lakeformation'; // ES Modules import
+ * // const { LakeFormationClient, CancelTransactionCommand } = require('@aws-sdk/client-lakeformation'); // CommonJS import
  * const client = new LakeFormationClient(config);
  * const input = { // CancelTransactionRequest
- *   TransactionId: "STRING_VALUE", // required
+ *   TransactionId: 'STRING_VALUE', // required
  * };
  * const command = new CancelTransactionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param CancelTransactionCommandInput - {@link CancelTransactionCommandInput}
@@ -73,6 +76,8 @@ export interface CancelTransactionCommandOutput extends CancelTransactionRespons
  * @throws {@link TransactionCommittedException} (client fault)
  *  <p>Contains details about an error where the specified transaction has already been committed and cannot be used for <code>UpdateTableObjects</code>.</p>
  *
+ * @throws {@link LakeFormationServiceException}
+ * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
  */
 export class CancelTransactionCommand extends $Command<

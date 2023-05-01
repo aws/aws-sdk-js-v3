@@ -39,14 +39,17 @@ export interface DeletePlatformApplicationCommandOutput extends __MetadataBearer
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SNSClient, DeletePlatformApplicationCommand } from "@aws-sdk/client-sns"; // ES Modules import
- * // const { SNSClient, DeletePlatformApplicationCommand } = require("@aws-sdk/client-sns"); // CommonJS import
+ * import { SNSClient, DeletePlatformApplicationCommand } from '@aws-sdk/client-sns'; // ES Modules import
+ * // const { SNSClient, DeletePlatformApplicationCommand } = require('@aws-sdk/client-sns'); // CommonJS import
  * const client = new SNSClient(config);
  * const input = { // DeletePlatformApplicationInput
- *   PlatformApplicationArn: "STRING_VALUE", // required
+ *   PlatformApplicationArn: 'STRING_VALUE', // required
  * };
  * const command = new DeletePlatformApplicationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeletePlatformApplicationCommandInput - {@link DeletePlatformApplicationCommandInput}
@@ -65,6 +68,8 @@ export interface DeletePlatformApplicationCommandOutput extends __MetadataBearer
  *  <p>Indicates that a request parameter does not comply with the associated
  *             constraints.</p>
  *
+ * @throws {@link SNSServiceException}
+ * <p>Base exception class for all service exceptions from SNS service.</p>
  *
  */
 export class DeletePlatformApplicationCommand extends $Command<

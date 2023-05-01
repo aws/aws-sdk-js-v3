@@ -37,29 +37,42 @@ export interface SearchAddressBooksCommandOutput extends SearchAddressBooksRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AlexaForBusinessClient, SearchAddressBooksCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
- * // const { AlexaForBusinessClient, SearchAddressBooksCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
+ * import { AlexaForBusinessClient, SearchAddressBooksCommand } from '@aws-sdk/client-alexa-for-business'; // ES Modules import
+ * // const { AlexaForBusinessClient, SearchAddressBooksCommand } = require('@aws-sdk/client-alexa-for-business'); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
  * const input = { // SearchAddressBooksRequest
  *   Filters: [ // FilterList
  *     { // Filter
- *       Key: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
  *       Values: [ // FilterValueList // required
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
  *   SortCriteria: [ // SortList
  *     { // Sort
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new SearchAddressBooksCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SearchAddressBooksResponse
+ *   AddressBooks: [ // AddressBookDataList
+ *     { // AddressBookData
+ *       AddressBookArn: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *       Description: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ *   TotalCount: Number('int'),
+ * };
+ *
  * ```
  *
  * @param SearchAddressBooksCommandInput - {@link SearchAddressBooksCommandInput}
@@ -68,6 +81,8 @@ export interface SearchAddressBooksCommandOutput extends SearchAddressBooksRespo
  * @see {@link SearchAddressBooksCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
  *
+ * @throws {@link AlexaForBusinessServiceException}
+ * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  */
 export class SearchAddressBooksCommand extends $Command<

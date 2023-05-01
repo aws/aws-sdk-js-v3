@@ -36,15 +36,59 @@ export interface ListChannelsCommandOutput extends ListChannelsResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MediaTailorClient, ListChannelsCommand } from "@aws-sdk/client-mediatailor"; // ES Modules import
- * // const { MediaTailorClient, ListChannelsCommand } = require("@aws-sdk/client-mediatailor"); // CommonJS import
+ * import { MediaTailorClient, ListChannelsCommand } from '@aws-sdk/client-mediatailor'; // ES Modules import
+ * // const { MediaTailorClient, ListChannelsCommand } = require('@aws-sdk/client-mediatailor'); // CommonJS import
  * const client = new MediaTailorClient(config);
  * const input = { // ListChannelsRequest
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListChannelsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListChannelsResponse
+ *   Items: [ // __listOfChannel
+ *     { // Channel
+ *       Arn: 'STRING_VALUE', // required
+ *       ChannelName: 'STRING_VALUE', // required
+ *       ChannelState: 'STRING_VALUE', // required
+ *       CreationTime: new Date('TIMESTAMP'),
+ *       FillerSlate: { // SlateSource
+ *         SourceLocationName: 'STRING_VALUE',
+ *         VodSourceName: 'STRING_VALUE',
+ *       },
+ *       LastModifiedTime: new Date('TIMESTAMP'),
+ *       Outputs: [ // ResponseOutputs // required
+ *         { // ResponseOutputItem
+ *           DashPlaylistSettings: { // DashPlaylistSettings
+ *             ManifestWindowSeconds: Number('int'),
+ *             MinBufferTimeSeconds: Number('int'),
+ *             MinUpdatePeriodSeconds: Number('int'),
+ *             SuggestedPresentationDelaySeconds: Number('int'),
+ *           },
+ *           HlsPlaylistSettings: { // HlsPlaylistSettings
+ *             ManifestWindowSeconds: Number('int'),
+ *           },
+ *           ManifestName: 'STRING_VALUE', // required
+ *           PlaybackUrl: 'STRING_VALUE', // required
+ *           SourceGroup: 'STRING_VALUE', // required
+ *         },
+ *       ],
+ *       PlaybackMode: 'STRING_VALUE', // required
+ *       Tags: { // __mapOf__string
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *       Tier: 'STRING_VALUE', // required
+ *       LogConfiguration: { // LogConfigurationForChannel
+ *         LogTypes: [ // LogTypes
+ *           'AS_RUN',
+ *         ],
+ *       },
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListChannelsCommandInput - {@link ListChannelsCommandInput}
@@ -53,6 +97,8 @@ export interface ListChannelsCommandOutput extends ListChannelsResponse, __Metad
  * @see {@link ListChannelsCommandOutput} for command's `response` shape.
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.
  *
+ * @throws {@link MediaTailorServiceException}
+ * <p>Base exception class for all service exceptions from MediaTailor service.</p>
  *
  */
 export class ListChannelsCommand extends $Command<

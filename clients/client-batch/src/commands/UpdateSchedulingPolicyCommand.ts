@@ -36,24 +36,27 @@ export interface UpdateSchedulingPolicyCommandOutput extends UpdateSchedulingPol
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BatchClient, UpdateSchedulingPolicyCommand } from "@aws-sdk/client-batch"; // ES Modules import
- * // const { BatchClient, UpdateSchedulingPolicyCommand } = require("@aws-sdk/client-batch"); // CommonJS import
+ * import { BatchClient, UpdateSchedulingPolicyCommand } from '@aws-sdk/client-batch'; // ES Modules import
+ * // const { BatchClient, UpdateSchedulingPolicyCommand } = require('@aws-sdk/client-batch'); // CommonJS import
  * const client = new BatchClient(config);
  * const input = { // UpdateSchedulingPolicyRequest
- *   arn: "STRING_VALUE", // required
+ *   arn: 'STRING_VALUE', // required
  *   fairsharePolicy: { // FairsharePolicy
- *     shareDecaySeconds: Number("int"),
- *     computeReservation: Number("int"),
+ *     shareDecaySeconds: Number('int'),
+ *     computeReservation: Number('int'),
  *     shareDistribution: [ // ShareAttributesList
  *       { // ShareAttributes
- *         shareIdentifier: "STRING_VALUE", // required
- *         weightFactor: Number("float"),
+ *         shareIdentifier: 'STRING_VALUE', // required
+ *         weightFactor: Number('float'),
  *       },
  *     ],
  *   },
  * };
  * const command = new UpdateSchedulingPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateSchedulingPolicyCommandInput - {@link UpdateSchedulingPolicyCommandInput}
@@ -70,6 +73,8 @@ export interface UpdateSchedulingPolicyCommandOutput extends UpdateSchedulingPol
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server issue.</p>
  *
+ * @throws {@link BatchServiceException}
+ * <p>Base exception class for all service exceptions from Batch service.</p>
  *
  */
 export class UpdateSchedulingPolicyCommand extends $Command<

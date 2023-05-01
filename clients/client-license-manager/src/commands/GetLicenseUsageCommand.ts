@@ -36,14 +36,28 @@ export interface GetLicenseUsageCommandOutput extends GetLicenseUsageResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LicenseManagerClient, GetLicenseUsageCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
- * // const { LicenseManagerClient, GetLicenseUsageCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
+ * import { LicenseManagerClient, GetLicenseUsageCommand } from '@aws-sdk/client-license-manager'; // ES Modules import
+ * // const { LicenseManagerClient, GetLicenseUsageCommand } = require('@aws-sdk/client-license-manager'); // CommonJS import
  * const client = new LicenseManagerClient(config);
  * const input = { // GetLicenseUsageRequest
- *   LicenseArn: "STRING_VALUE", // required
+ *   LicenseArn: 'STRING_VALUE', // required
  * };
  * const command = new GetLicenseUsageCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetLicenseUsageResponse
+ *   LicenseUsage: { // LicenseUsage
+ *     EntitlementUsages: [ // EntitlementUsageList
+ *       { // EntitlementUsage
+ *         Name: 'STRING_VALUE', // required
+ *         ConsumedValue: 'STRING_VALUE', // required
+ *         MaxCount: 'STRING_VALUE',
+ *         Unit: 'Count' || 'None' || 'Seconds' || 'Microseconds' || 'Milliseconds' || 'Bytes' || 'Kilobytes' || 'Megabytes' || 'Gigabytes' || 'Terabytes' || 'Bits' || 'Kilobits' || 'Megabits' || 'Gigabits' || 'Terabits' || 'Percent' || 'Bytes/Second' || 'Kilobytes/Second' || 'Megabytes/Second' || 'Gigabytes/Second' || 'Terabytes/Second' || 'Bits/Second' || 'Kilobits/Second' || 'Megabits/Second' || 'Gigabits/Second' || 'Terabits/Second' || 'Count/Second', // required
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetLicenseUsageCommandInput - {@link GetLicenseUsageCommandInput}
@@ -71,6 +85,8 @@ export interface GetLicenseUsageCommandOutput extends GetLicenseUsageResponse, _
  * @throws {@link ValidationException} (client fault)
  *  <p>The provided input is not valid. Try your request again.</p>
  *
+ * @throws {@link LicenseManagerServiceException}
+ * <p>Base exception class for all service exceptions from LicenseManager service.</p>
  *
  */
 export class GetLicenseUsageCommand extends $Command<

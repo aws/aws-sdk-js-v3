@@ -38,25 +38,45 @@ export interface CreateSchemaCommandOutput extends CreateSchemaResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlueClient, CreateSchemaCommand } from "@aws-sdk/client-glue"; // ES Modules import
- * // const { GlueClient, CreateSchemaCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * import { GlueClient, CreateSchemaCommand } from '@aws-sdk/client-glue'; // ES Modules import
+ * // const { GlueClient, CreateSchemaCommand } = require('@aws-sdk/client-glue'); // CommonJS import
  * const client = new GlueClient(config);
  * const input = { // CreateSchemaInput
  *   RegistryId: { // RegistryId
- *     RegistryName: "STRING_VALUE",
- *     RegistryArn: "STRING_VALUE",
+ *     RegistryName: 'STRING_VALUE',
+ *     RegistryArn: 'STRING_VALUE',
  *   },
- *   SchemaName: "STRING_VALUE", // required
- *   DataFormat: "AVRO" || "JSON" || "PROTOBUF", // required
- *   Compatibility: "NONE" || "DISABLED" || "BACKWARD" || "BACKWARD_ALL" || "FORWARD" || "FORWARD_ALL" || "FULL" || "FULL_ALL",
- *   Description: "STRING_VALUE",
+ *   SchemaName: 'STRING_VALUE', // required
+ *   DataFormat: 'AVRO' || 'JSON' || 'PROTOBUF', // required
+ *   Compatibility: 'NONE' || 'DISABLED' || 'BACKWARD' || 'BACKWARD_ALL' || 'FORWARD' || 'FORWARD_ALL' || 'FULL' || 'FULL_ALL',
+ *   Description: 'STRING_VALUE',
  *   Tags: { // TagsMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
- *   SchemaDefinition: "STRING_VALUE",
+ *   SchemaDefinition: 'STRING_VALUE',
  * };
  * const command = new CreateSchemaCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateSchemaResponse
+ *   RegistryName: 'STRING_VALUE',
+ *   RegistryArn: 'STRING_VALUE',
+ *   SchemaName: 'STRING_VALUE',
+ *   SchemaArn: 'STRING_VALUE',
+ *   Description: 'STRING_VALUE',
+ *   DataFormat: 'AVRO' || 'JSON' || 'PROTOBUF',
+ *   Compatibility: 'NONE' || 'DISABLED' || 'BACKWARD' || 'BACKWARD_ALL' || 'FORWARD' || 'FORWARD_ALL' || 'FULL' || 'FULL_ALL',
+ *   SchemaCheckpoint: Number('long'),
+ *   LatestSchemaVersion: Number('long'),
+ *   NextSchemaVersion: Number('long'),
+ *   SchemaStatus: 'AVAILABLE' || 'PENDING' || 'DELETING',
+ *   Tags: { // TagsMap
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ *   SchemaVersionId: 'STRING_VALUE',
+ *   SchemaVersionStatus: 'AVAILABLE' || 'PENDING' || 'FAILURE' || 'DELETING',
+ * };
+ *
  * ```
  *
  * @param CreateSchemaCommandInput - {@link CreateSchemaCommandInput}
@@ -86,6 +106,8 @@ export interface CreateSchemaCommandOutput extends CreateSchemaResponse, __Metad
  * @throws {@link ResourceNumberLimitExceededException} (client fault)
  *  <p>A resource numerical limit was exceeded.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class CreateSchemaCommand extends $Command<

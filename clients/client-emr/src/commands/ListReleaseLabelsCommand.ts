@@ -36,19 +36,27 @@ export interface ListReleaseLabelsCommandOutput extends ListReleaseLabelsOutput,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EMRClient, ListReleaseLabelsCommand } from "@aws-sdk/client-emr"; // ES Modules import
- * // const { EMRClient, ListReleaseLabelsCommand } = require("@aws-sdk/client-emr"); // CommonJS import
+ * import { EMRClient, ListReleaseLabelsCommand } from '@aws-sdk/client-emr'; // ES Modules import
+ * // const { EMRClient, ListReleaseLabelsCommand } = require('@aws-sdk/client-emr'); // CommonJS import
  * const client = new EMRClient(config);
  * const input = { // ListReleaseLabelsInput
  *   Filters: { // ReleaseLabelFilter
- *     Prefix: "STRING_VALUE",
- *     Application: "STRING_VALUE",
+ *     Prefix: 'STRING_VALUE',
+ *     Application: 'STRING_VALUE',
  *   },
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListReleaseLabelsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListReleaseLabelsOutput
+ *   ReleaseLabels: [ // StringList
+ *     'STRING_VALUE',
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListReleaseLabelsCommandInput - {@link ListReleaseLabelsCommandInput}
@@ -64,6 +72,8 @@ export interface ListReleaseLabelsCommandOutput extends ListReleaseLabelsOutput,
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception occurs when there is something wrong with user input.</p>
  *
+ * @throws {@link EMRServiceException}
+ * <p>Base exception class for all service exceptions from EMR service.</p>
  *
  */
 export class ListReleaseLabelsCommand extends $Command<

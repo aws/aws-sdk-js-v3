@@ -37,19 +37,27 @@ export interface CreateApiDestinationCommandOutput extends CreateApiDestinationR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudWatchEventsClient, CreateApiDestinationCommand } from "@aws-sdk/client-cloudwatch-events"; // ES Modules import
- * // const { CloudWatchEventsClient, CreateApiDestinationCommand } = require("@aws-sdk/client-cloudwatch-events"); // CommonJS import
+ * import { CloudWatchEventsClient, CreateApiDestinationCommand } from '@aws-sdk/client-cloudwatch-events'; // ES Modules import
+ * // const { CloudWatchEventsClient, CreateApiDestinationCommand } = require('@aws-sdk/client-cloudwatch-events'); // CommonJS import
  * const client = new CloudWatchEventsClient(config);
  * const input = { // CreateApiDestinationRequest
- *   Name: "STRING_VALUE", // required
- *   Description: "STRING_VALUE",
- *   ConnectionArn: "STRING_VALUE", // required
- *   InvocationEndpoint: "STRING_VALUE", // required
- *   HttpMethod: "STRING_VALUE", // required
- *   InvocationRateLimitPerSecond: Number("int"),
+ *   Name: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE',
+ *   ConnectionArn: 'STRING_VALUE', // required
+ *   InvocationEndpoint: 'STRING_VALUE', // required
+ *   HttpMethod: 'STRING_VALUE', // required
+ *   InvocationRateLimitPerSecond: Number('int'),
  * };
  * const command = new CreateApiDestinationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateApiDestinationResponse
+ *   ApiDestinationArn: 'STRING_VALUE',
+ *   ApiDestinationState: 'STRING_VALUE',
+ *   CreationTime: new Date('TIMESTAMP'),
+ *   LastModifiedTime: new Date('TIMESTAMP'),
+ * };
+ *
  * ```
  *
  * @param CreateApiDestinationCommandInput - {@link CreateApiDestinationCommandInput}
@@ -71,6 +79,8 @@ export interface CreateApiDestinationCommandOutput extends CreateApiDestinationR
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>An entity that you specified does not exist.</p>
  *
+ * @throws {@link CloudWatchEventsServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatchEvents service.</p>
  *
  */
 export class CreateApiDestinationCommand extends $Command<

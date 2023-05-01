@@ -43,16 +43,29 @@ export interface ListAvailableManagedRuleGroupsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WAFV2Client, ListAvailableManagedRuleGroupsCommand } from "@aws-sdk/client-wafv2"; // ES Modules import
- * // const { WAFV2Client, ListAvailableManagedRuleGroupsCommand } = require("@aws-sdk/client-wafv2"); // CommonJS import
+ * import { WAFV2Client, ListAvailableManagedRuleGroupsCommand } from '@aws-sdk/client-wafv2'; // ES Modules import
+ * // const { WAFV2Client, ListAvailableManagedRuleGroupsCommand } = require('@aws-sdk/client-wafv2'); // CommonJS import
  * const client = new WAFV2Client(config);
  * const input = { // ListAvailableManagedRuleGroupsRequest
- *   Scope: "CLOUDFRONT" || "REGIONAL", // required
- *   NextMarker: "STRING_VALUE",
- *   Limit: Number("int"),
+ *   Scope: 'CLOUDFRONT' || 'REGIONAL', // required
+ *   NextMarker: 'STRING_VALUE',
+ *   Limit: Number('int'),
  * };
  * const command = new ListAvailableManagedRuleGroupsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListAvailableManagedRuleGroupsResponse
+ *   NextMarker: 'STRING_VALUE',
+ *   ManagedRuleGroups: [ // ManagedRuleGroupSummaries
+ *     { // ManagedRuleGroupSummary
+ *       VendorName: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *       VersioningSupported: true || false,
+ *       Description: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListAvailableManagedRuleGroupsCommandInput - {@link ListAvailableManagedRuleGroupsCommandInput}
@@ -89,6 +102,8 @@ export interface ListAvailableManagedRuleGroupsCommandOutput
  *             </li>
  *          </ul>
  *
+ * @throws {@link WAFV2ServiceException}
+ * <p>Base exception class for all service exceptions from WAFV2 service.</p>
  *
  */
 export class ListAvailableManagedRuleGroupsCommand extends $Command<

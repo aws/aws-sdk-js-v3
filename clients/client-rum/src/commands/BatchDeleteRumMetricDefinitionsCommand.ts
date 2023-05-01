@@ -46,19 +46,33 @@ export interface BatchDeleteRumMetricDefinitionsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RUMClient, BatchDeleteRumMetricDefinitionsCommand } from "@aws-sdk/client-rum"; // ES Modules import
- * // const { RUMClient, BatchDeleteRumMetricDefinitionsCommand } = require("@aws-sdk/client-rum"); // CommonJS import
+ * import { RUMClient, BatchDeleteRumMetricDefinitionsCommand } from '@aws-sdk/client-rum'; // ES Modules import
+ * // const { RUMClient, BatchDeleteRumMetricDefinitionsCommand } = require('@aws-sdk/client-rum'); // CommonJS import
  * const client = new RUMClient(config);
  * const input = { // BatchDeleteRumMetricDefinitionsRequest
- *   AppMonitorName: "STRING_VALUE", // required
- *   Destination: "STRING_VALUE", // required
- *   DestinationArn: "STRING_VALUE",
+ *   AppMonitorName: 'STRING_VALUE', // required
+ *   Destination: 'STRING_VALUE', // required
+ *   DestinationArn: 'STRING_VALUE',
  *   MetricDefinitionIds: [ // MetricDefinitionIds // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new BatchDeleteRumMetricDefinitionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BatchDeleteRumMetricDefinitionsResponse
+ *   Errors: [ // BatchDeleteRumMetricDefinitionsErrors // required
+ *     { // BatchDeleteRumMetricDefinitionsError
+ *       MetricDefinitionId: 'STRING_VALUE', // required
+ *       ErrorCode: 'STRING_VALUE', // required
+ *       ErrorMessage: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ *   MetricDefinitionIds: [ // MetricDefinitionIds
+ *     'STRING_VALUE',
+ *   ],
+ * };
+ *
  * ```
  *
  * @param BatchDeleteRumMetricDefinitionsCommandInput - {@link BatchDeleteRumMetricDefinitionsCommandInput}
@@ -85,6 +99,8 @@ export interface BatchDeleteRumMetricDefinitionsCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>One of the arguments for the request is not valid.</p>
  *
+ * @throws {@link RUMServiceException}
+ * <p>Base exception class for all service exceptions from RUM service.</p>
  *
  */
 export class BatchDeleteRumMetricDefinitionsCommand extends $Command<

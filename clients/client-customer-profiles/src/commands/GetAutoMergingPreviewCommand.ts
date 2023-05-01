@@ -48,26 +48,34 @@ export interface GetAutoMergingPreviewCommandOutput extends GetAutoMergingPrevie
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CustomerProfilesClient, GetAutoMergingPreviewCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
- * // const { CustomerProfilesClient, GetAutoMergingPreviewCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
+ * import { CustomerProfilesClient, GetAutoMergingPreviewCommand } from '@aws-sdk/client-customer-profiles'; // ES Modules import
+ * // const { CustomerProfilesClient, GetAutoMergingPreviewCommand } = require('@aws-sdk/client-customer-profiles'); // CommonJS import
  * const client = new CustomerProfilesClient(config);
  * const input = { // GetAutoMergingPreviewRequest
- *   DomainName: "STRING_VALUE", // required
+ *   DomainName: 'STRING_VALUE', // required
  *   Consolidation: { // Consolidation
  *     MatchingAttributesList: [ // MatchingAttributesList // required
  *       [ // MatchingAttributes
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     ],
  *   },
  *   ConflictResolution: { // ConflictResolution
- *     ConflictResolvingModel: "RECENCY" || "SOURCE", // required
- *     SourceName: "STRING_VALUE",
+ *     ConflictResolvingModel: 'RECENCY' || 'SOURCE', // required
+ *     SourceName: 'STRING_VALUE',
  *   },
- *   MinAllowedConfidenceScoreForMerging: Number("double"),
+ *   MinAllowedConfidenceScoreForMerging: Number('double'),
  * };
  * const command = new GetAutoMergingPreviewCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetAutoMergingPreviewResponse
+ *   DomainName: 'STRING_VALUE', // required
+ *   NumberOfMatchesInSample: Number('long'),
+ *   NumberOfProfilesInSample: Number('long'),
+ *   NumberOfProfilesWillBeMerged: Number('long'),
+ * };
+ *
  * ```
  *
  * @param GetAutoMergingPreviewCommandInput - {@link GetAutoMergingPreviewCommandInput}
@@ -91,6 +99,8 @@ export interface GetAutoMergingPreviewCommandOutput extends GetAutoMergingPrevie
  * @throws {@link ThrottlingException} (client fault)
  *  <p>You exceeded the maximum number of requests.</p>
  *
+ * @throws {@link CustomerProfilesServiceException}
+ * <p>Base exception class for all service exceptions from CustomerProfiles service.</p>
  *
  */
 export class GetAutoMergingPreviewCommand extends $Command<

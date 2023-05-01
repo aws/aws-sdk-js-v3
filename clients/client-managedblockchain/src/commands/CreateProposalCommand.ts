@@ -41,32 +41,37 @@ export interface CreateProposalCommandOutput extends CreateProposalOutput, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ManagedBlockchainClient, CreateProposalCommand } from "@aws-sdk/client-managedblockchain"; // ES Modules import
- * // const { ManagedBlockchainClient, CreateProposalCommand } = require("@aws-sdk/client-managedblockchain"); // CommonJS import
+ * import { ManagedBlockchainClient, CreateProposalCommand } from '@aws-sdk/client-managedblockchain'; // ES Modules import
+ * // const { ManagedBlockchainClient, CreateProposalCommand } = require('@aws-sdk/client-managedblockchain'); // CommonJS import
  * const client = new ManagedBlockchainClient(config);
  * const input = { // CreateProposalInput
- *   ClientRequestToken: "STRING_VALUE", // required
- *   NetworkId: "STRING_VALUE", // required
- *   MemberId: "STRING_VALUE", // required
+ *   ClientRequestToken: 'STRING_VALUE', // required
+ *   NetworkId: 'STRING_VALUE', // required
+ *   MemberId: 'STRING_VALUE', // required
  *   Actions: { // ProposalActions
  *     Invitations: [ // InviteActionList
  *       { // InviteAction
- *         Principal: "STRING_VALUE", // required
+ *         Principal: 'STRING_VALUE', // required
  *       },
  *     ],
  *     Removals: [ // RemoveActionList
  *       { // RemoveAction
- *         MemberId: "STRING_VALUE", // required
+ *         MemberId: 'STRING_VALUE', // required
  *       },
  *     ],
  *   },
- *   Description: "STRING_VALUE",
+ *   Description: 'STRING_VALUE',
  *   Tags: { // InputTagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateProposalCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateProposalOutput
+ *   ProposalId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateProposalCommandInput - {@link CreateProposalCommandInput}
@@ -99,6 +104,8 @@ export interface CreateProposalCommandOutput extends CreateProposalOutput, __Met
  * @throws {@link TooManyTagsException} (client fault)
  *  <p></p>
  *
+ * @throws {@link ManagedBlockchainServiceException}
+ * <p>Base exception class for all service exceptions from ManagedBlockchain service.</p>
  *
  */
 export class CreateProposalCommand extends $Command<

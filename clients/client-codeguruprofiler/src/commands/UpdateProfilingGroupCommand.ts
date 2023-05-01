@@ -36,17 +36,42 @@ export interface UpdateProfilingGroupCommandOutput extends UpdateProfilingGroupR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeGuruProfilerClient, UpdateProfilingGroupCommand } from "@aws-sdk/client-codeguruprofiler"; // ES Modules import
- * // const { CodeGuruProfilerClient, UpdateProfilingGroupCommand } = require("@aws-sdk/client-codeguruprofiler"); // CommonJS import
+ * import { CodeGuruProfilerClient, UpdateProfilingGroupCommand } from '@aws-sdk/client-codeguruprofiler'; // ES Modules import
+ * // const { CodeGuruProfilerClient, UpdateProfilingGroupCommand } = require('@aws-sdk/client-codeguruprofiler'); // CommonJS import
  * const client = new CodeGuruProfilerClient(config);
  * const input = { // UpdateProfilingGroupRequest
- *   profilingGroupName: "STRING_VALUE", // required
+ *   profilingGroupName: 'STRING_VALUE', // required
  *   agentOrchestrationConfig: { // AgentOrchestrationConfig
  *     profilingEnabled: true || false, // required
  *   },
  * };
  * const command = new UpdateProfilingGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateProfilingGroupResponse
+ *   profilingGroup: { // ProfilingGroupDescription
+ *     name: 'STRING_VALUE',
+ *     agentOrchestrationConfig: { // AgentOrchestrationConfig
+ *       profilingEnabled: true || false, // required
+ *     },
+ *     arn: 'STRING_VALUE',
+ *     createdAt: new Date('TIMESTAMP'),
+ *     updatedAt: new Date('TIMESTAMP'),
+ *     profilingStatus: { // ProfilingStatus
+ *       latestAgentProfileReportedAt: new Date('TIMESTAMP'),
+ *       latestAggregatedProfile: { // AggregatedProfileTime
+ *         start: new Date('TIMESTAMP'),
+ *         period: 'STRING_VALUE',
+ *       },
+ *       latestAgentOrchestratedAt: new Date('TIMESTAMP'),
+ *     },
+ *     computePlatform: 'STRING_VALUE',
+ *     tags: { // TagsMap
+ *       '<keys>': 'STRING_VALUE',
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateProfilingGroupCommandInput - {@link UpdateProfilingGroupCommandInput}
@@ -73,6 +98,8 @@ export interface UpdateProfilingGroupCommandOutput extends UpdateProfilingGroupR
  * @throws {@link ValidationException} (client fault)
  *  <p>The parameter is not valid.</p>
  *
+ * @throws {@link CodeGuruProfilerServiceException}
+ * <p>Base exception class for all service exceptions from CodeGuruProfiler service.</p>
  *
  */
 export class UpdateProfilingGroupCommand extends $Command<

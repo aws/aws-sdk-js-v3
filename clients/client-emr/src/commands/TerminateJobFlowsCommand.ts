@@ -43,16 +43,19 @@ export interface TerminateJobFlowsCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EMRClient, TerminateJobFlowsCommand } from "@aws-sdk/client-emr"; // ES Modules import
- * // const { EMRClient, TerminateJobFlowsCommand } = require("@aws-sdk/client-emr"); // CommonJS import
+ * import { EMRClient, TerminateJobFlowsCommand } from '@aws-sdk/client-emr'; // ES Modules import
+ * // const { EMRClient, TerminateJobFlowsCommand } = require('@aws-sdk/client-emr'); // CommonJS import
  * const client = new EMRClient(config);
  * const input = { // TerminateJobFlowsInput
  *   JobFlowIds: [ // XmlStringList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new TerminateJobFlowsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param TerminateJobFlowsCommandInput - {@link TerminateJobFlowsCommandInput}
@@ -65,6 +68,8 @@ export interface TerminateJobFlowsCommandOutput extends __MetadataBearer {}
  *  <p>Indicates that an error occurred while processing the request and that the request was
  *          not completed.</p>
  *
+ * @throws {@link EMRServiceException}
+ * <p>Base exception class for all service exceptions from EMR service.</p>
  *
  */
 export class TerminateJobFlowsCommand extends $Command<

@@ -36,18 +36,39 @@ export interface ModifyDBProxyEndpointCommandOutput extends ModifyDBProxyEndpoin
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RDSClient, ModifyDBProxyEndpointCommand } from "@aws-sdk/client-rds"; // ES Modules import
- * // const { RDSClient, ModifyDBProxyEndpointCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * import { RDSClient, ModifyDBProxyEndpointCommand } from '@aws-sdk/client-rds'; // ES Modules import
+ * // const { RDSClient, ModifyDBProxyEndpointCommand } = require('@aws-sdk/client-rds'); // CommonJS import
  * const client = new RDSClient(config);
  * const input = { // ModifyDBProxyEndpointRequest
- *   DBProxyEndpointName: "STRING_VALUE", // required
- *   NewDBProxyEndpointName: "STRING_VALUE",
+ *   DBProxyEndpointName: 'STRING_VALUE', // required
+ *   NewDBProxyEndpointName: 'STRING_VALUE',
  *   VpcSecurityGroupIds: [ // StringList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new ModifyDBProxyEndpointCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ModifyDBProxyEndpointResponse
+ *   DBProxyEndpoint: { // DBProxyEndpoint
+ *     DBProxyEndpointName: 'STRING_VALUE',
+ *     DBProxyEndpointArn: 'STRING_VALUE',
+ *     DBProxyName: 'STRING_VALUE',
+ *     Status: 'available' || 'modifying' || 'incompatible-network' || 'insufficient-resource-limits' || 'creating' || 'deleting',
+ *     VpcId: 'STRING_VALUE',
+ *     VpcSecurityGroupIds: [ // StringList
+ *       'STRING_VALUE',
+ *     ],
+ *     VpcSubnetIds: [
+ *       'STRING_VALUE',
+ *     ],
+ *     Endpoint: 'STRING_VALUE',
+ *     CreatedDate: new Date('TIMESTAMP'),
+ *     TargetRole: 'READ_WRITE' || 'READ_ONLY',
+ *     IsDefault: true || false,
+ *   },
+ * };
+ *
  * ```
  *
  * @param ModifyDBProxyEndpointCommandInput - {@link ModifyDBProxyEndpointCommandInput}
@@ -68,6 +89,8 @@ export interface ModifyDBProxyEndpointCommandOutput extends ModifyDBProxyEndpoin
  * @throws {@link InvalidDBProxyStateFault} (client fault)
  *  <p>The requested operation can't be performed while the proxy is in this state.</p>
  *
+ * @throws {@link RDSServiceException}
+ * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  */
 export class ModifyDBProxyEndpointCommand extends $Command<

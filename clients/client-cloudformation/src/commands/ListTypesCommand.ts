@@ -36,24 +36,46 @@ export interface ListTypesCommandOutput extends ListTypesOutput, __MetadataBeare
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudFormationClient, ListTypesCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
- * // const { CloudFormationClient, ListTypesCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
+ * import { CloudFormationClient, ListTypesCommand } from '@aws-sdk/client-cloudformation'; // ES Modules import
+ * // const { CloudFormationClient, ListTypesCommand } = require('@aws-sdk/client-cloudformation'); // CommonJS import
  * const client = new CloudFormationClient(config);
  * const input = { // ListTypesInput
- *   Visibility: "PUBLIC" || "PRIVATE",
- *   ProvisioningType: "NON_PROVISIONABLE" || "IMMUTABLE" || "FULLY_MUTABLE",
- *   DeprecatedStatus: "LIVE" || "DEPRECATED",
- *   Type: "RESOURCE" || "MODULE" || "HOOK",
+ *   Visibility: 'PUBLIC' || 'PRIVATE',
+ *   ProvisioningType: 'NON_PROVISIONABLE' || 'IMMUTABLE' || 'FULLY_MUTABLE',
+ *   DeprecatedStatus: 'LIVE' || 'DEPRECATED',
+ *   Type: 'RESOURCE' || 'MODULE' || 'HOOK',
  *   Filters: { // TypeFilters
- *     Category: "REGISTERED" || "ACTIVATED" || "THIRD_PARTY" || "AWS_TYPES",
- *     PublisherId: "STRING_VALUE",
- *     TypeNamePrefix: "STRING_VALUE",
+ *     Category: 'REGISTERED' || 'ACTIVATED' || 'THIRD_PARTY' || 'AWS_TYPES',
+ *     PublisherId: 'STRING_VALUE',
+ *     TypeNamePrefix: 'STRING_VALUE',
  *   },
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListTypesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTypesOutput
+ *   TypeSummaries: [ // TypeSummaries
+ *     { // TypeSummary
+ *       Type: 'RESOURCE' || 'MODULE' || 'HOOK',
+ *       TypeName: 'STRING_VALUE',
+ *       DefaultVersionId: 'STRING_VALUE',
+ *       TypeArn: 'STRING_VALUE',
+ *       LastUpdated: new Date('TIMESTAMP'),
+ *       Description: 'STRING_VALUE',
+ *       PublisherId: 'STRING_VALUE',
+ *       OriginalTypeName: 'STRING_VALUE',
+ *       PublicVersionNumber: 'STRING_VALUE',
+ *       LatestPublicVersion: 'STRING_VALUE',
+ *       PublisherIdentity: 'AWS_Marketplace' || 'GitHub' || 'Bitbucket',
+ *       PublisherName: 'STRING_VALUE',
+ *       IsActivated: true || false,
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListTypesCommandInput - {@link ListTypesCommandInput}
@@ -65,6 +87,8 @@ export interface ListTypesCommandOutput extends ListTypesOutput, __MetadataBeare
  * @throws {@link CFNRegistryException} (client fault)
  *  <p>An error occurred during a CloudFormation registry operation.</p>
  *
+ * @throws {@link CloudFormationServiceException}
+ * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
  */
 export class ListTypesCommand extends $Command<

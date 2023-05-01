@@ -38,15 +38,32 @@ export interface GetFlowTemplateCommandOutput extends GetFlowTemplateResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTThingsGraphClient, GetFlowTemplateCommand } from "@aws-sdk/client-iotthingsgraph"; // ES Modules import
- * // const { IoTThingsGraphClient, GetFlowTemplateCommand } = require("@aws-sdk/client-iotthingsgraph"); // CommonJS import
+ * import { IoTThingsGraphClient, GetFlowTemplateCommand } from '@aws-sdk/client-iotthingsgraph'; // ES Modules import
+ * // const { IoTThingsGraphClient, GetFlowTemplateCommand } = require('@aws-sdk/client-iotthingsgraph'); // CommonJS import
  * const client = new IoTThingsGraphClient(config);
  * const input = { // GetFlowTemplateRequest
- *   id: "STRING_VALUE", // required
- *   revisionNumber: Number("long"),
+ *   id: 'STRING_VALUE', // required
+ *   revisionNumber: Number('long'),
  * };
  * const command = new GetFlowTemplateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetFlowTemplateResponse
+ *   description: { // FlowTemplateDescription
+ *     summary: { // FlowTemplateSummary
+ *       id: 'STRING_VALUE',
+ *       arn: 'STRING_VALUE',
+ *       revisionNumber: Number('long'),
+ *       createdAt: new Date('TIMESTAMP'),
+ *     },
+ *     definition: { // DefinitionDocument
+ *       language: 'STRING_VALUE', // required
+ *       text: 'STRING_VALUE', // required
+ *     },
+ *     validatedNamespaceVersion: Number('long'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetFlowTemplateCommandInput - {@link GetFlowTemplateCommandInput}
@@ -67,6 +84,8 @@ export interface GetFlowTemplateCommandOutput extends GetFlowTemplateResponse, _
  * @throws {@link ThrottlingException} (client fault)
  *  <p></p>
  *
+ * @throws {@link IoTThingsGraphServiceException}
+ * <p>Base exception class for all service exceptions from IoTThingsGraph service.</p>
  *
  */
 export class GetFlowTemplateCommand extends $Command<

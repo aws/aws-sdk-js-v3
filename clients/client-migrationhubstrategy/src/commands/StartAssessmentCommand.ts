@@ -40,24 +40,29 @@ export interface StartAssessmentCommandOutput extends StartAssessmentResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MigrationHubStrategyClient, StartAssessmentCommand } from "@aws-sdk/client-migrationhubstrategy"; // ES Modules import
- * // const { MigrationHubStrategyClient, StartAssessmentCommand } = require("@aws-sdk/client-migrationhubstrategy"); // CommonJS import
+ * import { MigrationHubStrategyClient, StartAssessmentCommand } from '@aws-sdk/client-migrationhubstrategy'; // ES Modules import
+ * // const { MigrationHubStrategyClient, StartAssessmentCommand } = require('@aws-sdk/client-migrationhubstrategy'); // CommonJS import
  * const client = new MigrationHubStrategyClient(config);
  * const input = { // StartAssessmentRequest
- *   s3bucketForAnalysisData: "STRING_VALUE",
- *   s3bucketForReportData: "STRING_VALUE",
+ *   s3bucketForAnalysisData: 'STRING_VALUE',
+ *   s3bucketForReportData: 'STRING_VALUE',
  *   assessmentTargets: [ // AssessmentTargets
  *     { // AssessmentTarget
- *       condition: "STRING_VALUE", // required
- *       name: "STRING_VALUE", // required
+ *       condition: 'STRING_VALUE', // required
+ *       name: 'STRING_VALUE', // required
  *       values: [ // AssessmentTargetValues // required
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
  * };
  * const command = new StartAssessmentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartAssessmentResponse
+ *   assessmentId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param StartAssessmentCommandInput - {@link StartAssessmentCommandInput}
@@ -80,6 +85,8 @@ export interface StartAssessmentCommandOutput extends StartAssessmentResponse, _
  * @throws {@link ThrottlingException} (client fault)
  *  <p> The request was denied due to request throttling. </p>
  *
+ * @throws {@link MigrationHubStrategyServiceException}
+ * <p>Base exception class for all service exceptions from MigrationHubStrategy service.</p>
  *
  */
 export class StartAssessmentCommand extends $Command<

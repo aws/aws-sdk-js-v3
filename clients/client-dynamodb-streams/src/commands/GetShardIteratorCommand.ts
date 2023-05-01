@@ -43,17 +43,22 @@ export interface GetShardIteratorCommandOutput extends GetShardIteratorOutput, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DynamoDBStreamsClient, GetShardIteratorCommand } from "@aws-sdk/client-dynamodb-streams"; // ES Modules import
- * // const { DynamoDBStreamsClient, GetShardIteratorCommand } = require("@aws-sdk/client-dynamodb-streams"); // CommonJS import
+ * import { DynamoDBStreamsClient, GetShardIteratorCommand } from '@aws-sdk/client-dynamodb-streams'; // ES Modules import
+ * // const { DynamoDBStreamsClient, GetShardIteratorCommand } = require('@aws-sdk/client-dynamodb-streams'); // CommonJS import
  * const client = new DynamoDBStreamsClient(config);
  * const input = { // GetShardIteratorInput
- *   StreamArn: "STRING_VALUE", // required
- *   ShardId: "STRING_VALUE", // required
- *   ShardIteratorType: "TRIM_HORIZON" || "LATEST" || "AT_SEQUENCE_NUMBER" || "AFTER_SEQUENCE_NUMBER", // required
- *   SequenceNumber: "STRING_VALUE",
+ *   StreamArn: 'STRING_VALUE', // required
+ *   ShardId: 'STRING_VALUE', // required
+ *   ShardIteratorType: 'TRIM_HORIZON' || 'LATEST' || 'AT_SEQUENCE_NUMBER' || 'AFTER_SEQUENCE_NUMBER', // required
+ *   SequenceNumber: 'STRING_VALUE',
  * };
  * const command = new GetShardIteratorCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetShardIteratorOutput
+ *   ShardIterator: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetShardIteratorCommandInput - {@link GetShardIteratorCommandInput}
@@ -84,6 +89,8 @@ export interface GetShardIteratorCommandOutput extends GetShardIteratorOutput, _
  *             </li>
  *          </ul>
  *
+ * @throws {@link DynamoDBStreamsServiceException}
+ * <p>Base exception class for all service exceptions from DynamoDBStreams service.</p>
  *
  * @example To obtain a shard iterator for the provided stream ARN and shard ID
  * ```javascript

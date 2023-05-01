@@ -41,18 +41,35 @@ export interface ListNetworksCommandOutput extends ListNetworksOutput, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ManagedBlockchainClient, ListNetworksCommand } from "@aws-sdk/client-managedblockchain"; // ES Modules import
- * // const { ManagedBlockchainClient, ListNetworksCommand } = require("@aws-sdk/client-managedblockchain"); // CommonJS import
+ * import { ManagedBlockchainClient, ListNetworksCommand } from '@aws-sdk/client-managedblockchain'; // ES Modules import
+ * // const { ManagedBlockchainClient, ListNetworksCommand } = require('@aws-sdk/client-managedblockchain'); // CommonJS import
  * const client = new ManagedBlockchainClient(config);
  * const input = { // ListNetworksInput
- *   Name: "STRING_VALUE",
- *   Framework: "HYPERLEDGER_FABRIC" || "ETHEREUM",
- *   Status: "CREATING" || "AVAILABLE" || "CREATE_FAILED" || "DELETING" || "DELETED",
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   Name: 'STRING_VALUE',
+ *   Framework: 'HYPERLEDGER_FABRIC' || 'ETHEREUM',
+ *   Status: 'CREATING' || 'AVAILABLE' || 'CREATE_FAILED' || 'DELETING' || 'DELETED',
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListNetworksCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListNetworksOutput
+ *   Networks: [ // NetworkSummaryList
+ *     { // NetworkSummary
+ *       Id: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *       Description: 'STRING_VALUE',
+ *       Framework: 'HYPERLEDGER_FABRIC' || 'ETHEREUM',
+ *       FrameworkVersion: 'STRING_VALUE',
+ *       Status: 'CREATING' || 'AVAILABLE' || 'CREATE_FAILED' || 'DELETING' || 'DELETED',
+ *       CreationDate: new Date('TIMESTAMP'),
+ *       Arn: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListNetworksCommandInput - {@link ListNetworksCommandInput}
@@ -76,6 +93,8 @@ export interface ListNetworksCommandOutput extends ListNetworksOutput, __Metadat
  *          creating resources that exceed your service limit for this resource type.
  *          Request a limit increase or delete unused resources if possible.</p>
  *
+ * @throws {@link ManagedBlockchainServiceException}
+ * <p>Base exception class for all service exceptions from ManagedBlockchain service.</p>
  *
  */
 export class ListNetworksCommand extends $Command<

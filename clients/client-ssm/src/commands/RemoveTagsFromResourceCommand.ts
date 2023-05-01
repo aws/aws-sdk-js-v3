@@ -36,18 +36,21 @@ export interface RemoveTagsFromResourceCommandOutput extends RemoveTagsFromResou
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMClient, RemoveTagsFromResourceCommand } from "@aws-sdk/client-ssm"; // ES Modules import
- * // const { SSMClient, RemoveTagsFromResourceCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * import { SSMClient, RemoveTagsFromResourceCommand } from '@aws-sdk/client-ssm'; // ES Modules import
+ * // const { SSMClient, RemoveTagsFromResourceCommand } = require('@aws-sdk/client-ssm'); // CommonJS import
  * const client = new SSMClient(config);
  * const input = { // RemoveTagsFromResourceRequest
- *   ResourceType: "Document" || "ManagedInstance" || "MaintenanceWindow" || "Parameter" || "PatchBaseline" || "OpsItem" || "OpsMetadata" || "Automation" || "Association", // required
- *   ResourceId: "STRING_VALUE", // required
+ *   ResourceType: 'Document' || 'ManagedInstance' || 'MaintenanceWindow' || 'Parameter' || 'PatchBaseline' || 'OpsItem' || 'OpsMetadata' || 'Automation' || 'Association', // required
+ *   ResourceId: 'STRING_VALUE', // required
  *   TagKeys: [ // KeyList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new RemoveTagsFromResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param RemoveTagsFromResourceCommandInput - {@link RemoveTagsFromResourceCommandInput}
@@ -69,6 +72,8 @@ export interface RemoveTagsFromResourceCommandOutput extends RemoveTagsFromResou
  * @throws {@link TooManyUpdates} (client fault)
  *  <p>There are concurrent updates for a resource that supports one update at a time.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class RemoveTagsFromResourceCommand extends $Command<

@@ -50,16 +50,25 @@ export interface CreateChannelBanCommandOutput extends CreateChannelBanResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeClient, CreateChannelBanCommand } from "@aws-sdk/client-chime"; // ES Modules import
- * // const { ChimeClient, CreateChannelBanCommand } = require("@aws-sdk/client-chime"); // CommonJS import
+ * import { ChimeClient, CreateChannelBanCommand } from '@aws-sdk/client-chime'; // ES Modules import
+ * // const { ChimeClient, CreateChannelBanCommand } = require('@aws-sdk/client-chime'); // CommonJS import
  * const client = new ChimeClient(config);
  * const input = { // CreateChannelBanRequest
- *   ChannelArn: "STRING_VALUE", // required
- *   MemberArn: "STRING_VALUE", // required
- *   ChimeBearer: "STRING_VALUE",
+ *   ChannelArn: 'STRING_VALUE', // required
+ *   MemberArn: 'STRING_VALUE', // required
+ *   ChimeBearer: 'STRING_VALUE',
  * };
  * const command = new CreateChannelBanCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateChannelBanResponse
+ *   ChannelArn: 'STRING_VALUE',
+ *   Member: { // Identity
+ *     Arn: 'STRING_VALUE',
+ *     Name: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateChannelBanCommandInput - {@link CreateChannelBanCommandInput}
@@ -93,6 +102,8 @@ export interface CreateChannelBanCommandOutput extends CreateChannelBanResponse,
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeServiceException}
+ * <p>Base exception class for all service exceptions from Chime service.</p>
  *
  */
 export class CreateChannelBanCommand extends $Command<

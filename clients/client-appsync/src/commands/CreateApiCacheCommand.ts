@@ -36,19 +36,31 @@ export interface CreateApiCacheCommandOutput extends CreateApiCacheResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppSyncClient, CreateApiCacheCommand } from "@aws-sdk/client-appsync"; // ES Modules import
- * // const { AppSyncClient, CreateApiCacheCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
+ * import { AppSyncClient, CreateApiCacheCommand } from '@aws-sdk/client-appsync'; // ES Modules import
+ * // const { AppSyncClient, CreateApiCacheCommand } = require('@aws-sdk/client-appsync'); // CommonJS import
  * const client = new AppSyncClient(config);
  * const input = { // CreateApiCacheRequest
- *   apiId: "STRING_VALUE", // required
- *   ttl: Number("long"), // required
+ *   apiId: 'STRING_VALUE', // required
+ *   ttl: Number('long'), // required
  *   transitEncryptionEnabled: true || false,
  *   atRestEncryptionEnabled: true || false,
- *   apiCachingBehavior: "FULL_REQUEST_CACHING" || "PER_RESOLVER_CACHING", // required
- *   type: "T2_SMALL" || "T2_MEDIUM" || "R4_LARGE" || "R4_XLARGE" || "R4_2XLARGE" || "R4_4XLARGE" || "R4_8XLARGE" || "SMALL" || "MEDIUM" || "LARGE" || "XLARGE" || "LARGE_2X" || "LARGE_4X" || "LARGE_8X" || "LARGE_12X", // required
+ *   apiCachingBehavior: 'FULL_REQUEST_CACHING' || 'PER_RESOLVER_CACHING', // required
+ *   type: 'T2_SMALL' || 'T2_MEDIUM' || 'R4_LARGE' || 'R4_XLARGE' || 'R4_2XLARGE' || 'R4_4XLARGE' || 'R4_8XLARGE' || 'SMALL' || 'MEDIUM' || 'LARGE' || 'XLARGE' || 'LARGE_2X' || 'LARGE_4X' || 'LARGE_8X' || 'LARGE_12X', // required
  * };
  * const command = new CreateApiCacheCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateApiCacheResponse
+ *   apiCache: { // ApiCache
+ *     ttl: Number('long'),
+ *     apiCachingBehavior: 'FULL_REQUEST_CACHING' || 'PER_RESOLVER_CACHING',
+ *     transitEncryptionEnabled: true || false,
+ *     atRestEncryptionEnabled: true || false,
+ *     type: 'T2_SMALL' || 'T2_MEDIUM' || 'R4_LARGE' || 'R4_XLARGE' || 'R4_2XLARGE' || 'R4_4XLARGE' || 'R4_8XLARGE' || 'SMALL' || 'MEDIUM' || 'LARGE' || 'XLARGE' || 'LARGE_2X' || 'LARGE_4X' || 'LARGE_8X' || 'LARGE_12X',
+ *     status: 'AVAILABLE' || 'CREATING' || 'DELETING' || 'MODIFYING' || 'FAILED',
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateApiCacheCommandInput - {@link CreateApiCacheCommandInput}
@@ -74,6 +86,8 @@ export interface CreateApiCacheCommandOutput extends CreateApiCacheResponse, __M
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You aren't authorized to perform this operation.</p>
  *
+ * @throws {@link AppSyncServiceException}
+ * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
  */
 export class CreateApiCacheCommand extends $Command<

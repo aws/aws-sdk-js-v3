@@ -36,19 +36,22 @@ export interface UpdateRuleMetadataCommandOutput extends UpdateRuleMetadataResul
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FraudDetectorClient, UpdateRuleMetadataCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
- * // const { FraudDetectorClient, UpdateRuleMetadataCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
+ * import { FraudDetectorClient, UpdateRuleMetadataCommand } from '@aws-sdk/client-frauddetector'; // ES Modules import
+ * // const { FraudDetectorClient, UpdateRuleMetadataCommand } = require('@aws-sdk/client-frauddetector'); // CommonJS import
  * const client = new FraudDetectorClient(config);
  * const input = { // UpdateRuleMetadataRequest
  *   rule: { // Rule
- *     detectorId: "STRING_VALUE", // required
- *     ruleId: "STRING_VALUE", // required
- *     ruleVersion: "STRING_VALUE", // required
+ *     detectorId: 'STRING_VALUE', // required
+ *     ruleId: 'STRING_VALUE', // required
+ *     ruleVersion: 'STRING_VALUE', // required
  *   },
- *   description: "STRING_VALUE", // required
+ *   description: 'STRING_VALUE', // required
  * };
  * const command = new UpdateRuleMetadataCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateRuleMetadataCommandInput - {@link UpdateRuleMetadataCommandInput}
@@ -75,6 +78,8 @@ export interface UpdateRuleMetadataCommandOutput extends UpdateRuleMetadataResul
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception indicating a specified value is not allowed.</p>
  *
+ * @throws {@link FraudDetectorServiceException}
+ * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
  */
 export class UpdateRuleMetadataCommand extends $Command<

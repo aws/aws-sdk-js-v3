@@ -43,14 +43,17 @@ export interface RestoreWorkspaceCommandOutput extends RestoreWorkspaceResult, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkSpacesClient, RestoreWorkspaceCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
- * // const { WorkSpacesClient, RestoreWorkspaceCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
+ * import { WorkSpacesClient, RestoreWorkspaceCommand } from '@aws-sdk/client-workspaces'; // ES Modules import
+ * // const { WorkSpacesClient, RestoreWorkspaceCommand } = require('@aws-sdk/client-workspaces'); // CommonJS import
  * const client = new WorkSpacesClient(config);
  * const input = { // RestoreWorkspaceRequest
- *   WorkspaceId: "STRING_VALUE", // required
+ *   WorkspaceId: 'STRING_VALUE', // required
  * };
  * const command = new RestoreWorkspaceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param RestoreWorkspaceCommandInput - {@link RestoreWorkspaceCommandInput}
@@ -71,6 +74,8 @@ export interface RestoreWorkspaceCommandOutput extends RestoreWorkspaceResult, _
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource could not be found.</p>
  *
+ * @throws {@link WorkSpacesServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
  */
 export class RestoreWorkspaceCommand extends $Command<

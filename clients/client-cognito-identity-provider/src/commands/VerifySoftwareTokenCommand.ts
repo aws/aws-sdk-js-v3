@@ -47,17 +47,23 @@ export interface VerifySoftwareTokenCommandOutput extends VerifySoftwareTokenRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CognitoIdentityProviderClient, VerifySoftwareTokenCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
- * // const { CognitoIdentityProviderClient, VerifySoftwareTokenCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
+ * import { CognitoIdentityProviderClient, VerifySoftwareTokenCommand } from '@aws-sdk/client-cognito-identity-provider'; // ES Modules import
+ * // const { CognitoIdentityProviderClient, VerifySoftwareTokenCommand } = require('@aws-sdk/client-cognito-identity-provider'); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
  * const input = { // VerifySoftwareTokenRequest
- *   AccessToken: "STRING_VALUE",
- *   Session: "STRING_VALUE",
- *   UserCode: "STRING_VALUE", // required
- *   FriendlyDeviceName: "STRING_VALUE",
+ *   AccessToken: 'STRING_VALUE',
+ *   Session: 'STRING_VALUE',
+ *   UserCode: 'STRING_VALUE', // required
+ *   FriendlyDeviceName: 'STRING_VALUE',
  * };
  * const command = new VerifySoftwareTokenCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // VerifySoftwareTokenResponse
+ *   Status: 'SUCCESS' || 'ERROR',
+ *   Session: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param VerifySoftwareTokenCommandInput - {@link VerifySoftwareTokenCommandInput}
@@ -111,6 +117,8 @@ export interface VerifySoftwareTokenCommandOutput extends VerifySoftwareTokenRes
  * @throws {@link UserNotFoundException} (client fault)
  *  <p>This exception is thrown when a user isn't found.</p>
  *
+ * @throws {@link CognitoIdentityProviderServiceException}
+ * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
  */
 export class VerifySoftwareTokenCommand extends $Command<

@@ -44,19 +44,27 @@ export interface CompleteLayerUploadCommandOutput extends CompleteLayerUploadRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ECRClient, CompleteLayerUploadCommand } from "@aws-sdk/client-ecr"; // ES Modules import
- * // const { ECRClient, CompleteLayerUploadCommand } = require("@aws-sdk/client-ecr"); // CommonJS import
+ * import { ECRClient, CompleteLayerUploadCommand } from '@aws-sdk/client-ecr'; // ES Modules import
+ * // const { ECRClient, CompleteLayerUploadCommand } = require('@aws-sdk/client-ecr'); // CommonJS import
  * const client = new ECRClient(config);
  * const input = { // CompleteLayerUploadRequest
- *   registryId: "STRING_VALUE",
- *   repositoryName: "STRING_VALUE", // required
- *   uploadId: "STRING_VALUE", // required
+ *   registryId: 'STRING_VALUE',
+ *   repositoryName: 'STRING_VALUE', // required
+ *   uploadId: 'STRING_VALUE', // required
  *   layerDigests: [ // LayerDigestList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new CompleteLayerUploadCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CompleteLayerUploadResponse
+ *   registryId: 'STRING_VALUE',
+ *   repositoryName: 'STRING_VALUE',
+ *   uploadId: 'STRING_VALUE',
+ *   layerDigest: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CompleteLayerUploadCommandInput - {@link CompleteLayerUploadCommandInput}
@@ -96,6 +104,8 @@ export interface CompleteLayerUploadCommandOutput extends CompleteLayerUploadRes
  *  <p>The upload could not be found, or the specified upload ID is not valid for this
  *             repository.</p>
  *
+ * @throws {@link ECRServiceException}
+ * <p>Base exception class for all service exceptions from ECR service.</p>
  *
  */
 export class CompleteLayerUploadCommand extends $Command<

@@ -53,22 +53,38 @@ export interface UpdateKeyGroupCommandOutput extends UpdateKeyGroupResult, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudFrontClient, UpdateKeyGroupCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
- * // const { CloudFrontClient, UpdateKeyGroupCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
+ * import { CloudFrontClient, UpdateKeyGroupCommand } from '@aws-sdk/client-cloudfront'; // ES Modules import
+ * // const { CloudFrontClient, UpdateKeyGroupCommand } = require('@aws-sdk/client-cloudfront'); // CommonJS import
  * const client = new CloudFrontClient(config);
  * const input = { // UpdateKeyGroupRequest
  *   KeyGroupConfig: { // KeyGroupConfig
- *     Name: "STRING_VALUE", // required
+ *     Name: 'STRING_VALUE', // required
  *     Items: [ // PublicKeyIdList // required
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
- *     Comment: "STRING_VALUE",
+ *     Comment: 'STRING_VALUE',
  *   },
- *   Id: "STRING_VALUE", // required
- *   IfMatch: "STRING_VALUE",
+ *   Id: 'STRING_VALUE', // required
+ *   IfMatch: 'STRING_VALUE',
  * };
  * const command = new UpdateKeyGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateKeyGroupResult
+ *   KeyGroup: { // KeyGroup
+ *     Id: 'STRING_VALUE', // required
+ *     LastModifiedTime: new Date('TIMESTAMP'), // required
+ *     KeyGroupConfig: { // KeyGroupConfig
+ *       Name: 'STRING_VALUE', // required
+ *       Items: [ // PublicKeyIdList // required
+ *         'STRING_VALUE',
+ *       ],
+ *       Comment: 'STRING_VALUE',
+ *     },
+ *   },
+ *   ETag: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateKeyGroupCommandInput - {@link UpdateKeyGroupCommandInput}
@@ -99,6 +115,8 @@ export interface UpdateKeyGroupCommandOutput extends UpdateKeyGroupResult, __Met
  * 			information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
  * 				<i>Amazon CloudFront Developer Guide</i>.</p>
  *
+ * @throws {@link CloudFrontServiceException}
+ * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
  */
 export class UpdateKeyGroupCommand extends $Command<

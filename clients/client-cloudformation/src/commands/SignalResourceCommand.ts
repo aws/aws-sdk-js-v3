@@ -41,17 +41,20 @@ export interface SignalResourceCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudFormationClient, SignalResourceCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
- * // const { CloudFormationClient, SignalResourceCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
+ * import { CloudFormationClient, SignalResourceCommand } from '@aws-sdk/client-cloudformation'; // ES Modules import
+ * // const { CloudFormationClient, SignalResourceCommand } = require('@aws-sdk/client-cloudformation'); // CommonJS import
  * const client = new CloudFormationClient(config);
  * const input = { // SignalResourceInput
- *   StackName: "STRING_VALUE", // required
- *   LogicalResourceId: "STRING_VALUE", // required
- *   UniqueId: "STRING_VALUE", // required
- *   Status: "SUCCESS" || "FAILURE", // required
+ *   StackName: 'STRING_VALUE', // required
+ *   LogicalResourceId: 'STRING_VALUE', // required
+ *   UniqueId: 'STRING_VALUE', // required
+ *   Status: 'SUCCESS' || 'FAILURE', // required
  * };
  * const command = new SignalResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param SignalResourceCommandInput - {@link SignalResourceCommandInput}
@@ -60,6 +63,8 @@ export interface SignalResourceCommandOutput extends __MetadataBearer {}
  * @see {@link SignalResourceCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
+ * @throws {@link CloudFormationServiceException}
+ * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
  */
 export class SignalResourceCommand extends $Command<

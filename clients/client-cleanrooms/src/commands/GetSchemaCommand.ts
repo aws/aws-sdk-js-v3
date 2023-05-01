@@ -36,15 +36,45 @@ export interface GetSchemaCommandOutput extends GetSchemaOutput, __MetadataBeare
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CleanRoomsClient, GetSchemaCommand } from "@aws-sdk/client-cleanrooms"; // ES Modules import
- * // const { CleanRoomsClient, GetSchemaCommand } = require("@aws-sdk/client-cleanrooms"); // CommonJS import
+ * import { CleanRoomsClient, GetSchemaCommand } from '@aws-sdk/client-cleanrooms'; // ES Modules import
+ * // const { CleanRoomsClient, GetSchemaCommand } = require('@aws-sdk/client-cleanrooms'); // CommonJS import
  * const client = new CleanRoomsClient(config);
  * const input = { // GetSchemaInput
- *   collaborationIdentifier: "STRING_VALUE", // required
- *   name: "STRING_VALUE", // required
+ *   collaborationIdentifier: 'STRING_VALUE', // required
+ *   name: 'STRING_VALUE', // required
  * };
  * const command = new GetSchemaCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetSchemaOutput
+ *   schema: { // Schema
+ *     columns: [ // ColumnList // required
+ *       { // Column
+ *         name: 'STRING_VALUE', // required
+ *         type: 'STRING_VALUE', // required
+ *       },
+ *     ],
+ *     partitionKeys: [ // required
+ *       {
+ *         name: 'STRING_VALUE', // required
+ *         type: 'STRING_VALUE', // required
+ *       },
+ *     ],
+ *     analysisRuleTypes: [ // AnalysisRuleTypeList // required
+ *       'AGGREGATION' || 'LIST',
+ *     ],
+ *     analysisMethod: 'STRING_VALUE',
+ *     creatorAccountId: 'STRING_VALUE', // required
+ *     name: 'STRING_VALUE', // required
+ *     collaborationId: 'STRING_VALUE', // required
+ *     collaborationArn: 'STRING_VALUE', // required
+ *     description: 'STRING_VALUE', // required
+ *     createTime: new Date('TIMESTAMP'), // required
+ *     updateTime: new Date('TIMESTAMP'), // required
+ *     type: 'STRING_VALUE', // required
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetSchemaCommandInput - {@link GetSchemaCommandInput}
@@ -68,6 +98,8 @@ export interface GetSchemaCommandOutput extends GetSchemaOutput, __MetadataBeare
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the specified constraints.</p>
  *
+ * @throws {@link CleanRoomsServiceException}
+ * <p>Base exception class for all service exceptions from CleanRooms service.</p>
  *
  */
 export class GetSchemaCommand extends $Command<

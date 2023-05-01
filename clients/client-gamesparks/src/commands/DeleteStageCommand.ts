@@ -36,15 +36,18 @@ export interface DeleteStageCommandOutput extends DeleteStageResult, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GameSparksClient, DeleteStageCommand } from "@aws-sdk/client-gamesparks"; // ES Modules import
- * // const { GameSparksClient, DeleteStageCommand } = require("@aws-sdk/client-gamesparks"); // CommonJS import
+ * import { GameSparksClient, DeleteStageCommand } from '@aws-sdk/client-gamesparks'; // ES Modules import
+ * // const { GameSparksClient, DeleteStageCommand } = require('@aws-sdk/client-gamesparks'); // CommonJS import
  * const client = new GameSparksClient(config);
  * const input = { // DeleteStageRequest
- *   GameName: "STRING_VALUE", // required
- *   StageName: "STRING_VALUE", // required
+ *   GameName: 'STRING_VALUE', // required
+ *   StageName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteStageCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteStageCommandInput - {@link DeleteStageCommandInput}
@@ -71,6 +74,8 @@ export interface DeleteStageCommandOutput extends DeleteStageResult, __MetadataB
  * @throws {@link ValidationException} (client fault)
  *  <p>One of the parameters in the request is invalid.</p>
  *
+ * @throws {@link GameSparksServiceException}
+ * <p>Base exception class for all service exceptions from GameSparks service.</p>
  *
  */
 export class DeleteStageCommand extends $Command<

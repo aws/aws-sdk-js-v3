@@ -44,25 +44,31 @@ export interface StartSingleWirelessDeviceImportTaskCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTWirelessClient, StartSingleWirelessDeviceImportTaskCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
- * // const { IoTWirelessClient, StartSingleWirelessDeviceImportTaskCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
+ * import { IoTWirelessClient, StartSingleWirelessDeviceImportTaskCommand } from '@aws-sdk/client-iot-wireless'; // ES Modules import
+ * // const { IoTWirelessClient, StartSingleWirelessDeviceImportTaskCommand } = require('@aws-sdk/client-iot-wireless'); // CommonJS import
  * const client = new IoTWirelessClient(config);
  * const input = { // StartSingleWirelessDeviceImportTaskRequest
- *   DestinationName: "STRING_VALUE", // required
- *   ClientRequestToken: "STRING_VALUE",
- *   DeviceName: "STRING_VALUE",
+ *   DestinationName: 'STRING_VALUE', // required
+ *   ClientRequestToken: 'STRING_VALUE',
+ *   DeviceName: 'STRING_VALUE',
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  *   Sidewalk: { // SidewalkSingleStartImportInfo
- *     SidewalkManufacturingSn: "STRING_VALUE",
+ *     SidewalkManufacturingSn: 'STRING_VALUE',
  *   },
  * };
  * const command = new StartSingleWirelessDeviceImportTaskCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartSingleWirelessDeviceImportTaskResponse
+ *   Id: 'STRING_VALUE',
+ *   Arn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param StartSingleWirelessDeviceImportTaskCommandInput - {@link StartSingleWirelessDeviceImportTaskCommandInput}
@@ -89,6 +95,8 @@ export interface StartSingleWirelessDeviceImportTaskCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The input did not meet the specified constraints.</p>
  *
+ * @throws {@link IoTWirelessServiceException}
+ * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
  */
 export class StartSingleWirelessDeviceImportTaskCommand extends $Command<

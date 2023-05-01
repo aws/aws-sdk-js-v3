@@ -36,20 +36,40 @@ export interface ListNodesCommandOutput extends ListNodesResponse, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PanoramaClient, ListNodesCommand } from "@aws-sdk/client-panorama"; // ES Modules import
- * // const { PanoramaClient, ListNodesCommand } = require("@aws-sdk/client-panorama"); // CommonJS import
+ * import { PanoramaClient, ListNodesCommand } from '@aws-sdk/client-panorama'; // ES Modules import
+ * // const { PanoramaClient, ListNodesCommand } = require('@aws-sdk/client-panorama'); // CommonJS import
  * const client = new PanoramaClient(config);
  * const input = { // ListNodesRequest
- *   Category: "STRING_VALUE",
- *   OwnerAccount: "STRING_VALUE",
- *   PackageName: "STRING_VALUE",
- *   PackageVersion: "STRING_VALUE",
- *   PatchVersion: "STRING_VALUE",
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   Category: 'STRING_VALUE',
+ *   OwnerAccount: 'STRING_VALUE',
+ *   PackageName: 'STRING_VALUE',
+ *   PackageVersion: 'STRING_VALUE',
+ *   PatchVersion: 'STRING_VALUE',
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListNodesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListNodesResponse
+ *   Nodes: [ // NodesList
+ *     { // Node
+ *       NodeId: 'STRING_VALUE', // required
+ *       Name: 'STRING_VALUE', // required
+ *       Category: 'STRING_VALUE', // required
+ *       OwnerAccount: 'STRING_VALUE',
+ *       PackageName: 'STRING_VALUE', // required
+ *       PackageId: 'STRING_VALUE', // required
+ *       PackageArn: 'STRING_VALUE',
+ *       PackageVersion: 'STRING_VALUE', // required
+ *       PatchVersion: 'STRING_VALUE', // required
+ *       Description: 'STRING_VALUE',
+ *       CreatedTime: new Date('TIMESTAMP'), // required
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListNodesCommandInput - {@link ListNodesCommandInput}
@@ -67,6 +87,8 @@ export interface ListNodesCommandOutput extends ListNodesResponse, __MetadataBea
  * @throws {@link ValidationException} (client fault)
  *  <p>The request contains an invalid parameter value.</p>
  *
+ * @throws {@link PanoramaServiceException}
+ * <p>Base exception class for all service exceptions from Panorama service.</p>
  *
  */
 export class ListNodesCommand extends $Command<

@@ -36,17 +36,20 @@ export interface DeleteRuleGroupCommandOutput extends DeleteRuleGroupResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WAFV2Client, DeleteRuleGroupCommand } from "@aws-sdk/client-wafv2"; // ES Modules import
- * // const { WAFV2Client, DeleteRuleGroupCommand } = require("@aws-sdk/client-wafv2"); // CommonJS import
+ * import { WAFV2Client, DeleteRuleGroupCommand } from '@aws-sdk/client-wafv2'; // ES Modules import
+ * // const { WAFV2Client, DeleteRuleGroupCommand } = require('@aws-sdk/client-wafv2'); // CommonJS import
  * const client = new WAFV2Client(config);
  * const input = { // DeleteRuleGroupRequest
- *   Name: "STRING_VALUE", // required
- *   Scope: "CLOUDFRONT" || "REGIONAL", // required
- *   Id: "STRING_VALUE", // required
- *   LockToken: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
+ *   Scope: 'CLOUDFRONT' || 'REGIONAL', // required
+ *   Id: 'STRING_VALUE', // required
+ *   LockToken: 'STRING_VALUE', // required
  * };
  * const command = new DeleteRuleGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteRuleGroupCommandInput - {@link DeleteRuleGroupCommandInput}
@@ -105,6 +108,8 @@ export interface DeleteRuleGroupCommandOutput extends DeleteRuleGroupResponse, _
  *  <p>WAF couldn’t perform your tagging operation because of an internal error. Retry
  *          your request.</p>
  *
+ * @throws {@link WAFV2ServiceException}
+ * <p>Base exception class for all service exceptions from WAFV2 service.</p>
  *
  */
 export class DeleteRuleGroupCommand extends $Command<

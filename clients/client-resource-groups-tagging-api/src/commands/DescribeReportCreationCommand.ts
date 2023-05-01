@@ -42,12 +42,20 @@ export interface DescribeReportCreationCommandOutput extends DescribeReportCreat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ResourceGroupsTaggingAPIClient, DescribeReportCreationCommand } from "@aws-sdk/client-resource-groups-tagging-api"; // ES Modules import
- * // const { ResourceGroupsTaggingAPIClient, DescribeReportCreationCommand } = require("@aws-sdk/client-resource-groups-tagging-api"); // CommonJS import
+ * import { ResourceGroupsTaggingAPIClient, DescribeReportCreationCommand } from '@aws-sdk/client-resource-groups-tagging-api'; // ES Modules import
+ * // const { ResourceGroupsTaggingAPIClient, DescribeReportCreationCommand } = require('@aws-sdk/client-resource-groups-tagging-api'); // CommonJS import
  * const client = new ResourceGroupsTaggingAPIClient(config);
  * const input = {};
  * const command = new DescribeReportCreationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeReportCreationOutput
+ *   Status: 'STRING_VALUE',
+ *   S3Location: 'STRING_VALUE',
+ *   StartDate: 'STRING_VALUE',
+ *   ErrorMessage: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeReportCreationCommandInput - {@link DescribeReportCreationCommandInput}
@@ -108,6 +116,8 @@ export interface DescribeReportCreationCommandOutput extends DescribeReportCreat
  * @throws {@link ThrottledException} (client fault)
  *  <p>The request was denied to limit the frequency of submitted requests.</p>
  *
+ * @throws {@link ResourceGroupsTaggingAPIServiceException}
+ * <p>Base exception class for all service exceptions from ResourceGroupsTaggingAPI service.</p>
  *
  */
 export class DescribeReportCreationCommand extends $Command<

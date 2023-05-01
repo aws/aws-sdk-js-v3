@@ -40,44 +40,51 @@ export interface CreateInferenceSchedulerCommandOutput extends CreateInferenceSc
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LookoutEquipmentClient, CreateInferenceSchedulerCommand } from "@aws-sdk/client-lookoutequipment"; // ES Modules import
- * // const { LookoutEquipmentClient, CreateInferenceSchedulerCommand } = require("@aws-sdk/client-lookoutequipment"); // CommonJS import
+ * import { LookoutEquipmentClient, CreateInferenceSchedulerCommand } from '@aws-sdk/client-lookoutequipment'; // ES Modules import
+ * // const { LookoutEquipmentClient, CreateInferenceSchedulerCommand } = require('@aws-sdk/client-lookoutequipment'); // CommonJS import
  * const client = new LookoutEquipmentClient(config);
  * const input = { // CreateInferenceSchedulerRequest
- *   ModelName: "STRING_VALUE", // required
- *   InferenceSchedulerName: "STRING_VALUE", // required
- *   DataDelayOffsetInMinutes: Number("long"),
- *   DataUploadFrequency: "PT5M" || "PT10M" || "PT15M" || "PT30M" || "PT1H", // required
+ *   ModelName: 'STRING_VALUE', // required
+ *   InferenceSchedulerName: 'STRING_VALUE', // required
+ *   DataDelayOffsetInMinutes: Number('long'),
+ *   DataUploadFrequency: 'PT5M' || 'PT10M' || 'PT15M' || 'PT30M' || 'PT1H', // required
  *   DataInputConfiguration: { // InferenceInputConfiguration
  *     S3InputConfiguration: { // InferenceS3InputConfiguration
- *       Bucket: "STRING_VALUE", // required
- *       Prefix: "STRING_VALUE",
+ *       Bucket: 'STRING_VALUE', // required
+ *       Prefix: 'STRING_VALUE',
  *     },
- *     InputTimeZoneOffset: "STRING_VALUE",
+ *     InputTimeZoneOffset: 'STRING_VALUE',
  *     InferenceInputNameConfiguration: { // InferenceInputNameConfiguration
- *       TimestampFormat: "STRING_VALUE",
- *       ComponentTimestampDelimiter: "STRING_VALUE",
+ *       TimestampFormat: 'STRING_VALUE',
+ *       ComponentTimestampDelimiter: 'STRING_VALUE',
  *     },
  *   },
  *   DataOutputConfiguration: { // InferenceOutputConfiguration
  *     S3OutputConfiguration: { // InferenceS3OutputConfiguration
- *       Bucket: "STRING_VALUE", // required
- *       Prefix: "STRING_VALUE",
+ *       Bucket: 'STRING_VALUE', // required
+ *       Prefix: 'STRING_VALUE',
  *     },
- *     KmsKeyId: "STRING_VALUE",
+ *     KmsKeyId: 'STRING_VALUE',
  *   },
- *   RoleArn: "STRING_VALUE", // required
- *   ServerSideKmsKeyId: "STRING_VALUE",
- *   ClientToken: "STRING_VALUE", // required
+ *   RoleArn: 'STRING_VALUE', // required
+ *   ServerSideKmsKeyId: 'STRING_VALUE',
+ *   ClientToken: 'STRING_VALUE', // required
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreateInferenceSchedulerCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateInferenceSchedulerResponse
+ *   InferenceSchedulerArn: 'STRING_VALUE',
+ *   InferenceSchedulerName: 'STRING_VALUE',
+ *   Status: 'PENDING' || 'RUNNING' || 'STOPPING' || 'STOPPED',
+ * };
+ *
  * ```
  *
  * @param CreateInferenceSchedulerCommandInput - {@link CreateInferenceSchedulerCommandInput}
@@ -112,6 +119,8 @@ export interface CreateInferenceSchedulerCommandOutput extends CreateInferenceSc
  *  <p> The input fails to satisfy constraints specified by Amazon Lookout for Equipment or a
  *          related AWS service that's being utilized. </p>
  *
+ * @throws {@link LookoutEquipmentServiceException}
+ * <p>Base exception class for all service exceptions from LookoutEquipment service.</p>
  *
  */
 export class CreateInferenceSchedulerCommand extends $Command<

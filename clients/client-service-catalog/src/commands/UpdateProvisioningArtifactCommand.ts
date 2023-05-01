@@ -37,20 +37,38 @@ export interface UpdateProvisioningArtifactCommandOutput extends UpdateProvision
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ServiceCatalogClient, UpdateProvisioningArtifactCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
- * // const { ServiceCatalogClient, UpdateProvisioningArtifactCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
+ * import { ServiceCatalogClient, UpdateProvisioningArtifactCommand } from '@aws-sdk/client-service-catalog'; // ES Modules import
+ * // const { ServiceCatalogClient, UpdateProvisioningArtifactCommand } = require('@aws-sdk/client-service-catalog'); // CommonJS import
  * const client = new ServiceCatalogClient(config);
  * const input = { // UpdateProvisioningArtifactInput
- *   AcceptLanguage: "STRING_VALUE",
- *   ProductId: "STRING_VALUE", // required
- *   ProvisioningArtifactId: "STRING_VALUE", // required
- *   Name: "STRING_VALUE",
- *   Description: "STRING_VALUE",
+ *   AcceptLanguage: 'STRING_VALUE',
+ *   ProductId: 'STRING_VALUE', // required
+ *   ProvisioningArtifactId: 'STRING_VALUE', // required
+ *   Name: 'STRING_VALUE',
+ *   Description: 'STRING_VALUE',
  *   Active: true || false,
- *   Guidance: "DEFAULT" || "DEPRECATED",
+ *   Guidance: 'DEFAULT' || 'DEPRECATED',
  * };
  * const command = new UpdateProvisioningArtifactCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateProvisioningArtifactOutput
+ *   ProvisioningArtifactDetail: { // ProvisioningArtifactDetail
+ *     Id: 'STRING_VALUE',
+ *     Name: 'STRING_VALUE',
+ *     Description: 'STRING_VALUE',
+ *     Type: 'CLOUD_FORMATION_TEMPLATE' || 'MARKETPLACE_AMI' || 'MARKETPLACE_CAR' || 'TERRAFORM_OPEN_SOURCE',
+ *     CreatedTime: new Date('TIMESTAMP'),
+ *     Active: true || false,
+ *     Guidance: 'DEFAULT' || 'DEPRECATED',
+ *     SourceRevision: 'STRING_VALUE',
+ *   },
+ *   Info: { // ProvisioningArtifactInfo
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ *   Status: 'AVAILABLE' || 'CREATING' || 'FAILED',
+ * };
+ *
  * ```
  *
  * @param UpdateProvisioningArtifactCommandInput - {@link UpdateProvisioningArtifactCommandInput}
@@ -65,6 +83,8 @@ export interface UpdateProvisioningArtifactCommandOutput extends UpdateProvision
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link ServiceCatalogServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
  */
 export class UpdateProvisioningArtifactCommand extends $Command<

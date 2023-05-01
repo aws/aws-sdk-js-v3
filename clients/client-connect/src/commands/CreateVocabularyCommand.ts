@@ -38,21 +38,28 @@ export interface CreateVocabularyCommandOutput extends CreateVocabularyResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, CreateVocabularyCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, CreateVocabularyCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, CreateVocabularyCommand } from '@aws-sdk/client-connect'; // ES Modules import
+ * // const { ConnectClient, CreateVocabularyCommand } = require('@aws-sdk/client-connect'); // CommonJS import
  * const client = new ConnectClient(config);
  * const input = { // CreateVocabularyRequest
- *   ClientToken: "STRING_VALUE",
- *   InstanceId: "STRING_VALUE", // required
- *   VocabularyName: "STRING_VALUE", // required
- *   LanguageCode: "ar-AE" || "de-CH" || "de-DE" || "en-AB" || "en-AU" || "en-GB" || "en-IE" || "en-IN" || "en-US" || "en-WL" || "es-ES" || "es-US" || "fr-CA" || "fr-FR" || "hi-IN" || "it-IT" || "ja-JP" || "ko-KR" || "pt-BR" || "pt-PT" || "zh-CN" || "en-NZ" || "en-ZA", // required
- *   Content: "STRING_VALUE", // required
+ *   ClientToken: 'STRING_VALUE',
+ *   InstanceId: 'STRING_VALUE', // required
+ *   VocabularyName: 'STRING_VALUE', // required
+ *   LanguageCode: 'ar-AE' || 'de-CH' || 'de-DE' || 'en-AB' || 'en-AU' || 'en-GB' || 'en-IE' || 'en-IN' || 'en-US' || 'en-WL' || 'es-ES' || 'es-US' || 'fr-CA' || 'fr-FR' || 'hi-IN' || 'it-IT' || 'ja-JP' || 'ko-KR' || 'pt-BR' || 'pt-PT' || 'zh-CN' || 'en-NZ' || 'en-ZA', // required
+ *   Content: 'STRING_VALUE', // required
  *   Tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateVocabularyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateVocabularyResponse
+ *   VocabularyArn: 'STRING_VALUE', // required
+ *   VocabularyId: 'STRING_VALUE', // required
+ *   State: 'CREATION_IN_PROGRESS' || 'ACTIVE' || 'CREATION_FAILED' || 'DELETE_IN_PROGRESS', // required
+ * };
+ *
  * ```
  *
  * @param CreateVocabularyCommandInput - {@link CreateVocabularyCommandInput}
@@ -82,6 +89,8 @@ export interface CreateVocabularyCommandOutput extends CreateVocabularyResponse,
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class CreateVocabularyCommand extends $Command<

@@ -46,27 +46,45 @@ export interface GetParametersByPathCommandOutput extends GetParametersByPathRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMClient, GetParametersByPathCommand } from "@aws-sdk/client-ssm"; // ES Modules import
- * // const { SSMClient, GetParametersByPathCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * import { SSMClient, GetParametersByPathCommand } from '@aws-sdk/client-ssm'; // ES Modules import
+ * // const { SSMClient, GetParametersByPathCommand } = require('@aws-sdk/client-ssm'); // CommonJS import
  * const client = new SSMClient(config);
  * const input = { // GetParametersByPathRequest
- *   Path: "STRING_VALUE", // required
+ *   Path: 'STRING_VALUE', // required
  *   Recursive: true || false,
  *   ParameterFilters: [ // ParameterStringFilterList
  *     { // ParameterStringFilter
- *       Key: "STRING_VALUE", // required
- *       Option: "STRING_VALUE",
+ *       Key: 'STRING_VALUE', // required
+ *       Option: 'STRING_VALUE',
  *       Values: [ // ParameterStringFilterValueList
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
  *   WithDecryption: true || false,
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new GetParametersByPathCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetParametersByPathResult
+ *   Parameters: [ // ParameterList
+ *     { // Parameter
+ *       Name: 'STRING_VALUE',
+ *       Type: 'String' || 'StringList' || 'SecureString',
+ *       Value: 'STRING_VALUE',
+ *       Version: Number('long'),
+ *       Selector: 'STRING_VALUE',
+ *       SourceResult: 'STRING_VALUE',
+ *       LastModifiedDate: new Date('TIMESTAMP'),
+ *       ARN: 'STRING_VALUE',
+ *       DataType: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetParametersByPathCommandInput - {@link GetParametersByPathCommandInput}
@@ -94,6 +112,8 @@ export interface GetParametersByPathCommandOutput extends GetParametersByPathRes
  * @throws {@link InvalidNextToken} (client fault)
  *  <p>The specified token isn't valid.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class GetParametersByPathCommand extends $Command<

@@ -60,14 +60,33 @@ export interface DescribeForecastExportJobCommandOutput extends DescribeForecast
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ForecastClient, DescribeForecastExportJobCommand } from "@aws-sdk/client-forecast"; // ES Modules import
- * // const { ForecastClient, DescribeForecastExportJobCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
+ * import { ForecastClient, DescribeForecastExportJobCommand } from '@aws-sdk/client-forecast'; // ES Modules import
+ * // const { ForecastClient, DescribeForecastExportJobCommand } = require('@aws-sdk/client-forecast'); // CommonJS import
  * const client = new ForecastClient(config);
  * const input = { // DescribeForecastExportJobRequest
- *   ForecastExportJobArn: "STRING_VALUE", // required
+ *   ForecastExportJobArn: 'STRING_VALUE', // required
  * };
  * const command = new DescribeForecastExportJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeForecastExportJobResponse
+ *   ForecastExportJobArn: 'STRING_VALUE',
+ *   ForecastExportJobName: 'STRING_VALUE',
+ *   ForecastArn: 'STRING_VALUE',
+ *   Destination: { // DataDestination
+ *     S3Config: { // S3Config
+ *       Path: 'STRING_VALUE', // required
+ *       RoleArn: 'STRING_VALUE', // required
+ *       KMSKeyArn: 'STRING_VALUE',
+ *     },
+ *   },
+ *   Message: 'STRING_VALUE',
+ *   Status: 'STRING_VALUE',
+ *   CreationTime: new Date('TIMESTAMP'),
+ *   LastModificationTime: new Date('TIMESTAMP'),
+ *   Format: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeForecastExportJobCommandInput - {@link DescribeForecastExportJobCommandInput}
@@ -84,6 +103,8 @@ export interface DescribeForecastExportJobCommandOutput extends DescribeForecast
  *  <p>We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try
  *       again.</p>
  *
+ * @throws {@link ForecastServiceException}
+ * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
  */
 export class DescribeForecastExportJobCommand extends $Command<

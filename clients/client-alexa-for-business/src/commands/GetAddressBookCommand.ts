@@ -36,14 +36,23 @@ export interface GetAddressBookCommandOutput extends GetAddressBookResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AlexaForBusinessClient, GetAddressBookCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
- * // const { AlexaForBusinessClient, GetAddressBookCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
+ * import { AlexaForBusinessClient, GetAddressBookCommand } from '@aws-sdk/client-alexa-for-business'; // ES Modules import
+ * // const { AlexaForBusinessClient, GetAddressBookCommand } = require('@aws-sdk/client-alexa-for-business'); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
  * const input = { // GetAddressBookRequest
- *   AddressBookArn: "STRING_VALUE", // required
+ *   AddressBookArn: 'STRING_VALUE', // required
  * };
  * const command = new GetAddressBookCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetAddressBookResponse
+ *   AddressBook: { // AddressBook
+ *     AddressBookArn: 'STRING_VALUE',
+ *     Name: 'STRING_VALUE',
+ *     Description: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetAddressBookCommandInput - {@link GetAddressBookCommandInput}
@@ -55,6 +64,8 @@ export interface GetAddressBookCommandOutput extends GetAddressBookResponse, __M
  * @throws {@link NotFoundException} (client fault)
  *  <p>The resource is not found.</p>
  *
+ * @throws {@link AlexaForBusinessServiceException}
+ * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  */
 export class GetAddressBookCommand extends $Command<

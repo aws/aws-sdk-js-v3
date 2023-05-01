@@ -36,38 +36,46 @@ export interface ListFindingsCommandOutput extends ListFindingsResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Macie2Client, ListFindingsCommand } from "@aws-sdk/client-macie2"; // ES Modules import
- * // const { Macie2Client, ListFindingsCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
+ * import { Macie2Client, ListFindingsCommand } from '@aws-sdk/client-macie2'; // ES Modules import
+ * // const { Macie2Client, ListFindingsCommand } = require('@aws-sdk/client-macie2'); // CommonJS import
  * const client = new Macie2Client(config);
  * const input = { // ListFindingsRequest
  *   findingCriteria: { // FindingCriteria
  *     criterion: { // Criterion
- *       "<keys>": { // CriterionAdditionalProperties
+ *       '<keys>': { // CriterionAdditionalProperties
  *         eq: [ // __listOf__string
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
  *         eqExactMatch: [
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
- *         gt: Number("long"),
- *         gte: Number("long"),
- *         lt: Number("long"),
- *         lte: Number("long"),
+ *         gt: Number('long'),
+ *         gte: Number('long'),
+ *         lt: Number('long'),
+ *         lte: Number('long'),
  *         neq: [
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
  *       },
  *     },
  *   },
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  *   sortCriteria: { // SortCriteria
- *     attributeName: "STRING_VALUE",
- *     orderBy: "ASC" || "DESC",
+ *     attributeName: 'STRING_VALUE',
+ *     orderBy: 'ASC' || 'DESC',
  *   },
  * };
  * const command = new ListFindingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListFindingsResponse
+ *   findingIds: [ // __listOf__string
+ *     'STRING_VALUE',
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListFindingsCommandInput - {@link ListFindingsCommandInput}
@@ -97,6 +105,8 @@ export interface ListFindingsCommandOutput extends ListFindingsResponse, __Metad
  * @throws {@link ValidationException} (client fault)
  *  <p>Provides information about an error that occurred due to a syntax error in a request.</p>
  *
+ * @throws {@link Macie2ServiceException}
+ * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
  */
 export class ListFindingsCommand extends $Command<

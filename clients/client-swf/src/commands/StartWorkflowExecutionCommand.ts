@@ -101,31 +101,36 @@ export interface StartWorkflowExecutionCommandOutput extends Run, __MetadataBear
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SWFClient, StartWorkflowExecutionCommand } from "@aws-sdk/client-swf"; // ES Modules import
- * // const { SWFClient, StartWorkflowExecutionCommand } = require("@aws-sdk/client-swf"); // CommonJS import
+ * import { SWFClient, StartWorkflowExecutionCommand } from '@aws-sdk/client-swf'; // ES Modules import
+ * // const { SWFClient, StartWorkflowExecutionCommand } = require('@aws-sdk/client-swf'); // CommonJS import
  * const client = new SWFClient(config);
  * const input = { // StartWorkflowExecutionInput
- *   domain: "STRING_VALUE", // required
- *   workflowId: "STRING_VALUE", // required
+ *   domain: 'STRING_VALUE', // required
+ *   workflowId: 'STRING_VALUE', // required
  *   workflowType: { // WorkflowType
- *     name: "STRING_VALUE", // required
- *     version: "STRING_VALUE", // required
+ *     name: 'STRING_VALUE', // required
+ *     version: 'STRING_VALUE', // required
  *   },
  *   taskList: { // TaskList
- *     name: "STRING_VALUE", // required
+ *     name: 'STRING_VALUE', // required
  *   },
- *   taskPriority: "STRING_VALUE",
- *   input: "STRING_VALUE",
- *   executionStartToCloseTimeout: "STRING_VALUE",
+ *   taskPriority: 'STRING_VALUE',
+ *   input: 'STRING_VALUE',
+ *   executionStartToCloseTimeout: 'STRING_VALUE',
  *   tagList: [ // TagList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   taskStartToCloseTimeout: "STRING_VALUE",
- *   childPolicy: "TERMINATE" || "REQUEST_CANCEL" || "ABANDON",
- *   lambdaRole: "STRING_VALUE",
+ *   taskStartToCloseTimeout: 'STRING_VALUE',
+ *   childPolicy: 'TERMINATE' || 'REQUEST_CANCEL' || 'ABANDON',
+ *   lambdaRole: 'STRING_VALUE',
  * };
  * const command = new StartWorkflowExecutionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // Run
+ *   runId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param StartWorkflowExecutionCommandInput - {@link StartWorkflowExecutionCommandInput}
@@ -163,6 +168,8 @@ export interface StartWorkflowExecutionCommandOutput extends Run, __MetadataBear
  *  <p>Returned by <a>StartWorkflowExecution</a> when an open execution with the same workflowId is already running in
  *       the specified domain.</p>
  *
+ * @throws {@link SWFServiceException}
+ * <p>Base exception class for all service exceptions from SWF service.</p>
  *
  */
 export class StartWorkflowExecutionCommand extends $Command<

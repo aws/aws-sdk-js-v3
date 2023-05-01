@@ -36,17 +36,20 @@ export interface CreatePreparedStatementCommandOutput extends CreatePreparedStat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AthenaClient, CreatePreparedStatementCommand } from "@aws-sdk/client-athena"; // ES Modules import
- * // const { AthenaClient, CreatePreparedStatementCommand } = require("@aws-sdk/client-athena"); // CommonJS import
+ * import { AthenaClient, CreatePreparedStatementCommand } from '@aws-sdk/client-athena'; // ES Modules import
+ * // const { AthenaClient, CreatePreparedStatementCommand } = require('@aws-sdk/client-athena'); // CommonJS import
  * const client = new AthenaClient(config);
  * const input = { // CreatePreparedStatementInput
- *   StatementName: "STRING_VALUE", // required
- *   WorkGroup: "STRING_VALUE", // required
- *   QueryStatement: "STRING_VALUE", // required
- *   Description: "STRING_VALUE",
+ *   StatementName: 'STRING_VALUE', // required
+ *   WorkGroup: 'STRING_VALUE', // required
+ *   QueryStatement: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE',
  * };
  * const command = new CreatePreparedStatementCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param CreatePreparedStatementCommandInput - {@link CreatePreparedStatementCommandInput}
@@ -63,6 +66,8 @@ export interface CreatePreparedStatementCommandOutput extends CreatePreparedStat
  *  <p>Indicates that something is wrong with the input to the request. For example, a
  *             required parameter may be missing or out of range.</p>
  *
+ * @throws {@link AthenaServiceException}
+ * <p>Base exception class for all service exceptions from Athena service.</p>
  *
  */
 export class CreatePreparedStatementCommand extends $Command<

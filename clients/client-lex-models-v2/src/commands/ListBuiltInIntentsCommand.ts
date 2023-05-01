@@ -41,20 +41,32 @@ export interface ListBuiltInIntentsCommandOutput extends ListBuiltInIntentsRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LexModelsV2Client, ListBuiltInIntentsCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
- * // const { LexModelsV2Client, ListBuiltInIntentsCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
+ * import { LexModelsV2Client, ListBuiltInIntentsCommand } from '@aws-sdk/client-lex-models-v2'; // ES Modules import
+ * // const { LexModelsV2Client, ListBuiltInIntentsCommand } = require('@aws-sdk/client-lex-models-v2'); // CommonJS import
  * const client = new LexModelsV2Client(config);
  * const input = { // ListBuiltInIntentsRequest
- *   localeId: "STRING_VALUE", // required
+ *   localeId: 'STRING_VALUE', // required
  *   sortBy: { // BuiltInIntentSortBy
- *     attribute: "IntentSignature", // required
- *     order: "Ascending" || "Descending", // required
+ *     attribute: 'IntentSignature', // required
+ *     order: 'Ascending' || 'Descending', // required
  *   },
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new ListBuiltInIntentsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListBuiltInIntentsResponse
+ *   builtInIntentSummaries: [ // BuiltInIntentSummaryList
+ *     { // BuiltInIntentSummary
+ *       intentSignature: 'STRING_VALUE',
+ *       description: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ *   localeId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListBuiltInIntentsCommandInput - {@link ListBuiltInIntentsCommandInput}
@@ -78,6 +90,8 @@ export interface ListBuiltInIntentsCommandOutput extends ListBuiltInIntentsRespo
  *  <p>One of the input parameters in your request isn't valid. Check the
  *          parameters and try your request again.</p>
  *
+ * @throws {@link LexModelsV2ServiceException}
+ * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
  */
 export class ListBuiltInIntentsCommand extends $Command<

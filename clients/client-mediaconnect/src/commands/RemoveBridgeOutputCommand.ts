@@ -36,15 +36,21 @@ export interface RemoveBridgeOutputCommandOutput extends RemoveBridgeOutputRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MediaConnectClient, RemoveBridgeOutputCommand } from "@aws-sdk/client-mediaconnect"; // ES Modules import
- * // const { MediaConnectClient, RemoveBridgeOutputCommand } = require("@aws-sdk/client-mediaconnect"); // CommonJS import
+ * import { MediaConnectClient, RemoveBridgeOutputCommand } from '@aws-sdk/client-mediaconnect'; // ES Modules import
+ * // const { MediaConnectClient, RemoveBridgeOutputCommand } = require('@aws-sdk/client-mediaconnect'); // CommonJS import
  * const client = new MediaConnectClient(config);
  * const input = { // RemoveBridgeOutputRequest
- *   BridgeArn: "STRING_VALUE", // required
- *   OutputName: "STRING_VALUE", // required
+ *   BridgeArn: 'STRING_VALUE', // required
+ *   OutputName: 'STRING_VALUE', // required
  * };
  * const command = new RemoveBridgeOutputCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // RemoveBridgeOutputResponse
+ *   BridgeArn: 'STRING_VALUE',
+ *   OutputName: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param RemoveBridgeOutputCommandInput - {@link RemoveBridgeOutputCommandInput}
@@ -74,6 +80,8 @@ export interface RemoveBridgeOutputCommandOutput extends RemoveBridgeOutputRespo
  * @throws {@link TooManyRequestsException} (client fault)
  *  Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
  *
+ * @throws {@link MediaConnectServiceException}
+ * <p>Base exception class for all service exceptions from MediaConnect service.</p>
  *
  */
 export class RemoveBridgeOutputCommand extends $Command<

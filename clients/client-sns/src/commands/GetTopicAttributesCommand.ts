@@ -37,14 +37,21 @@ export interface GetTopicAttributesCommandOutput extends GetTopicAttributesRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SNSClient, GetTopicAttributesCommand } from "@aws-sdk/client-sns"; // ES Modules import
- * // const { SNSClient, GetTopicAttributesCommand } = require("@aws-sdk/client-sns"); // CommonJS import
+ * import { SNSClient, GetTopicAttributesCommand } from '@aws-sdk/client-sns'; // ES Modules import
+ * // const { SNSClient, GetTopicAttributesCommand } = require('@aws-sdk/client-sns'); // CommonJS import
  * const client = new SNSClient(config);
  * const input = { // GetTopicAttributesInput
- *   TopicArn: "STRING_VALUE", // required
+ *   TopicArn: 'STRING_VALUE', // required
  * };
  * const command = new GetTopicAttributesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetTopicAttributesResponse
+ *   Attributes: { // TopicAttributesMap
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetTopicAttributesCommandInput - {@link GetTopicAttributesCommandInput}
@@ -70,6 +77,8 @@ export interface GetTopicAttributesCommandOutput extends GetTopicAttributesRespo
  * @throws {@link NotFoundException} (client fault)
  *  <p>Indicates that the requested resource does not exist.</p>
  *
+ * @throws {@link SNSServiceException}
+ * <p>Base exception class for all service exceptions from SNS service.</p>
  *
  */
 export class GetTopicAttributesCommand extends $Command<

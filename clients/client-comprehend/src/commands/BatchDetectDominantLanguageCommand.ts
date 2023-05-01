@@ -45,16 +45,38 @@ export interface BatchDetectDominantLanguageCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ComprehendClient, BatchDetectDominantLanguageCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
- * // const { ComprehendClient, BatchDetectDominantLanguageCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
+ * import { ComprehendClient, BatchDetectDominantLanguageCommand } from '@aws-sdk/client-comprehend'; // ES Modules import
+ * // const { ComprehendClient, BatchDetectDominantLanguageCommand } = require('@aws-sdk/client-comprehend'); // CommonJS import
  * const client = new ComprehendClient(config);
  * const input = { // BatchDetectDominantLanguageRequest
  *   TextList: [ // CustomerInputStringList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new BatchDetectDominantLanguageCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BatchDetectDominantLanguageResponse
+ *   ResultList: [ // ListOfDetectDominantLanguageResult // required
+ *     { // BatchDetectDominantLanguageItemResult
+ *       Index: Number('int'),
+ *       Languages: [ // ListOfDominantLanguages
+ *         { // DominantLanguage
+ *           LanguageCode: 'STRING_VALUE',
+ *           Score: Number('float'),
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   ErrorList: [ // BatchItemErrorList // required
+ *     { // BatchItemError
+ *       Index: Number('int'),
+ *       ErrorCode: 'STRING_VALUE',
+ *       ErrorMessage: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param BatchDetectDominantLanguageCommandInput - {@link BatchDetectDominantLanguageCommandInput}
@@ -76,6 +98,8 @@ export interface BatchDetectDominantLanguageCommandOutput
  * @throws {@link TextSizeLimitExceededException} (client fault)
  *  <p>The size of the input text exceeds the limit. Use a smaller document.</p>
  *
+ * @throws {@link ComprehendServiceException}
+ * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
  */
 export class BatchDetectDominantLanguageCommand extends $Command<

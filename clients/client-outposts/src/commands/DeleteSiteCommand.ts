@@ -36,14 +36,17 @@ export interface DeleteSiteCommandOutput extends DeleteSiteOutput, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OutpostsClient, DeleteSiteCommand } from "@aws-sdk/client-outposts"; // ES Modules import
- * // const { OutpostsClient, DeleteSiteCommand } = require("@aws-sdk/client-outposts"); // CommonJS import
+ * import { OutpostsClient, DeleteSiteCommand } from '@aws-sdk/client-outposts'; // ES Modules import
+ * // const { OutpostsClient, DeleteSiteCommand } = require('@aws-sdk/client-outposts'); // CommonJS import
  * const client = new OutpostsClient(config);
  * const input = { // DeleteSiteInput
- *   SiteId: "STRING_VALUE", // required
+ *   SiteId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteSiteCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteSiteCommandInput - {@link DeleteSiteCommandInput}
@@ -67,6 +70,8 @@ export interface DeleteSiteCommandOutput extends DeleteSiteOutput, __MetadataBea
  * @throws {@link ValidationException} (client fault)
  *  <p>A parameter is not valid.</p>
  *
+ * @throws {@link OutpostsServiceException}
+ * <p>Base exception class for all service exceptions from Outposts service.</p>
  *
  */
 export class DeleteSiteCommand extends $Command<

@@ -59,14 +59,51 @@ export interface StartReplicationTaskAssessmentCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DatabaseMigrationServiceClient, StartReplicationTaskAssessmentCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
- * // const { DatabaseMigrationServiceClient, StartReplicationTaskAssessmentCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
+ * import { DatabaseMigrationServiceClient, StartReplicationTaskAssessmentCommand } from '@aws-sdk/client-database-migration-service'; // ES Modules import
+ * // const { DatabaseMigrationServiceClient, StartReplicationTaskAssessmentCommand } = require('@aws-sdk/client-database-migration-service'); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
  * const input = { // StartReplicationTaskAssessmentMessage
- *   ReplicationTaskArn: "STRING_VALUE", // required
+ *   ReplicationTaskArn: 'STRING_VALUE', // required
  * };
  * const command = new StartReplicationTaskAssessmentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartReplicationTaskAssessmentResponse
+ *   ReplicationTask: { // ReplicationTask
+ *     ReplicationTaskIdentifier: 'STRING_VALUE',
+ *     SourceEndpointArn: 'STRING_VALUE',
+ *     TargetEndpointArn: 'STRING_VALUE',
+ *     ReplicationInstanceArn: 'STRING_VALUE',
+ *     MigrationType: 'full-load' || 'cdc' || 'full-load-and-cdc',
+ *     TableMappings: 'STRING_VALUE',
+ *     ReplicationTaskSettings: 'STRING_VALUE',
+ *     Status: 'STRING_VALUE',
+ *     LastFailureMessage: 'STRING_VALUE',
+ *     StopReason: 'STRING_VALUE',
+ *     ReplicationTaskCreationDate: new Date('TIMESTAMP'),
+ *     ReplicationTaskStartDate: new Date('TIMESTAMP'),
+ *     CdcStartPosition: 'STRING_VALUE',
+ *     CdcStopPosition: 'STRING_VALUE',
+ *     RecoveryCheckpoint: 'STRING_VALUE',
+ *     ReplicationTaskArn: 'STRING_VALUE',
+ *     ReplicationTaskStats: { // ReplicationTaskStats
+ *       FullLoadProgressPercent: Number('int'),
+ *       ElapsedTimeMillis: Number('long'),
+ *       TablesLoaded: Number('int'),
+ *       TablesLoading: Number('int'),
+ *       TablesQueued: Number('int'),
+ *       TablesErrored: Number('int'),
+ *       FreshStartDate: new Date('TIMESTAMP'),
+ *       StartDate: new Date('TIMESTAMP'),
+ *       StopDate: new Date('TIMESTAMP'),
+ *       FullLoadStartDate: new Date('TIMESTAMP'),
+ *       FullLoadFinishDate: new Date('TIMESTAMP'),
+ *     },
+ *     TaskData: 'STRING_VALUE',
+ *     TargetReplicationInstanceArn: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param StartReplicationTaskAssessmentCommandInput - {@link StartReplicationTaskAssessmentCommandInput}
@@ -81,6 +118,8 @@ export interface StartReplicationTaskAssessmentCommandOutput
  * @throws {@link ResourceNotFoundFault} (client fault)
  *  <p>The resource could not be found.</p>
  *
+ * @throws {@link DatabaseMigrationServiceServiceException}
+ * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
  */
 export class StartReplicationTaskAssessmentCommand extends $Command<

@@ -41,14 +41,26 @@ export interface ListSlackWorkspaceConfigurationsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SupportAppClient, ListSlackWorkspaceConfigurationsCommand } from "@aws-sdk/client-support-app"; // ES Modules import
- * // const { SupportAppClient, ListSlackWorkspaceConfigurationsCommand } = require("@aws-sdk/client-support-app"); // CommonJS import
+ * import { SupportAppClient, ListSlackWorkspaceConfigurationsCommand } from '@aws-sdk/client-support-app'; // ES Modules import
+ * // const { SupportAppClient, ListSlackWorkspaceConfigurationsCommand } = require('@aws-sdk/client-support-app'); // CommonJS import
  * const client = new SupportAppClient(config);
  * const input = { // ListSlackWorkspaceConfigurationsRequest
- *   nextToken: "STRING_VALUE",
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new ListSlackWorkspaceConfigurationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListSlackWorkspaceConfigurationsResult
+ *   nextToken: 'STRING_VALUE',
+ *   slackWorkspaceConfigurations: [ // SlackWorkspaceConfigurationList
+ *     { // SlackWorkspaceConfiguration
+ *       teamId: 'STRING_VALUE', // required
+ *       teamName: 'STRING_VALUE',
+ *       allowOrganizationMemberAccount: true || false,
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListSlackWorkspaceConfigurationsCommandInput - {@link ListSlackWorkspaceConfigurationsCommandInput}
@@ -63,6 +75,8 @@ export interface ListSlackWorkspaceConfigurationsCommandOutput
  * @throws {@link InternalServerException} (server fault)
  *  <p>We can’t process your request right now because of a server issue. Try again later.</p>
  *
+ * @throws {@link SupportAppServiceException}
+ * <p>Base exception class for all service exceptions from SupportApp service.</p>
  *
  */
 export class ListSlackWorkspaceConfigurationsCommand extends $Command<

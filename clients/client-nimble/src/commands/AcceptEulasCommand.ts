@@ -36,18 +36,31 @@ export interface AcceptEulasCommandOutput extends AcceptEulasResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { NimbleClient, AcceptEulasCommand } from "@aws-sdk/client-nimble"; // ES Modules import
- * // const { NimbleClient, AcceptEulasCommand } = require("@aws-sdk/client-nimble"); // CommonJS import
+ * import { NimbleClient, AcceptEulasCommand } from '@aws-sdk/client-nimble'; // ES Modules import
+ * // const { NimbleClient, AcceptEulasCommand } = require('@aws-sdk/client-nimble'); // CommonJS import
  * const client = new NimbleClient(config);
  * const input = { // AcceptEulasRequest
- *   clientToken: "STRING_VALUE",
+ *   clientToken: 'STRING_VALUE',
  *   eulaIds: [ // EulaIdList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   studioId: "STRING_VALUE", // required
+ *   studioId: 'STRING_VALUE', // required
  * };
  * const command = new AcceptEulasCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AcceptEulasResponse
+ *   eulaAcceptances: [ // EulaAcceptanceList
+ *     { // EulaAcceptance
+ *       acceptedAt: new Date('TIMESTAMP'),
+ *       acceptedBy: 'STRING_VALUE',
+ *       accepteeId: 'STRING_VALUE',
+ *       eulaAcceptanceId: 'STRING_VALUE',
+ *       eulaId: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param AcceptEulasCommandInput - {@link AcceptEulasCommandInput}
@@ -80,6 +93,8 @@ export interface AcceptEulasCommandOutput extends AcceptEulasResponse, __Metadat
  * @throws {@link ValidationException} (client fault)
  *  <p>One of the parameters in the request is invalid.</p>
  *
+ * @throws {@link NimbleServiceException}
+ * <p>Base exception class for all service exceptions from Nimble service.</p>
  *
  */
 export class AcceptEulasCommand extends $Command<

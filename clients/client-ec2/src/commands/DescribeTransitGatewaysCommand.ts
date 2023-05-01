@@ -37,27 +37,62 @@ export interface DescribeTransitGatewaysCommandOutput extends DescribeTransitGat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, DescribeTransitGatewaysCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, DescribeTransitGatewaysCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, DescribeTransitGatewaysCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, DescribeTransitGatewaysCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // DescribeTransitGatewaysRequest
  *   TransitGatewayIds: [ // TransitGatewayIdStringList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   Filters: [ // FilterList
  *     { // Filter
- *       Name: "STRING_VALUE",
+ *       Name: 'STRING_VALUE',
  *       Values: [ // ValueStringList
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  *   DryRun: true || false,
  * };
  * const command = new DescribeTransitGatewaysCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeTransitGatewaysResult
+ *   TransitGateways: [ // TransitGatewayList
+ *     { // TransitGateway
+ *       TransitGatewayId: 'STRING_VALUE',
+ *       TransitGatewayArn: 'STRING_VALUE',
+ *       State: 'pending' || 'available' || 'modifying' || 'deleting' || 'deleted',
+ *       OwnerId: 'STRING_VALUE',
+ *       Description: 'STRING_VALUE',
+ *       CreationTime: new Date('TIMESTAMP'),
+ *       Options: { // TransitGatewayOptions
+ *         AmazonSideAsn: Number('long'),
+ *         TransitGatewayCidrBlocks: [ // ValueStringList
+ *           'STRING_VALUE',
+ *         ],
+ *         AutoAcceptSharedAttachments: 'enable' || 'disable',
+ *         DefaultRouteTableAssociation: 'enable' || 'disable',
+ *         AssociationDefaultRouteTableId: 'STRING_VALUE',
+ *         DefaultRouteTablePropagation: 'enable' || 'disable',
+ *         PropagationDefaultRouteTableId: 'STRING_VALUE',
+ *         VpnEcmpSupport: 'enable' || 'disable',
+ *         DnsSupport: 'enable' || 'disable',
+ *         MulticastSupport: 'enable' || 'disable',
+ *       },
+ *       Tags: [ // TagList
+ *         { // Tag
+ *           Key: 'STRING_VALUE',
+ *           Value: 'STRING_VALUE',
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeTransitGatewaysCommandInput - {@link DescribeTransitGatewaysCommandInput}
@@ -66,6 +101,8 @@ export interface DescribeTransitGatewaysCommandOutput extends DescribeTransitGat
  * @see {@link DescribeTransitGatewaysCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class DescribeTransitGatewaysCommand extends $Command<

@@ -36,16 +36,42 @@ export interface ListFeaturesCommandOutput extends ListFeaturesResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EvidentlyClient, ListFeaturesCommand } from "@aws-sdk/client-evidently"; // ES Modules import
- * // const { EvidentlyClient, ListFeaturesCommand } = require("@aws-sdk/client-evidently"); // CommonJS import
+ * import { EvidentlyClient, ListFeaturesCommand } from '@aws-sdk/client-evidently'; // ES Modules import
+ * // const { EvidentlyClient, ListFeaturesCommand } = require('@aws-sdk/client-evidently'); // CommonJS import
  * const client = new EvidentlyClient(config);
  * const input = { // ListFeaturesRequest
- *   project: "STRING_VALUE", // required
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   project: 'STRING_VALUE', // required
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new ListFeaturesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListFeaturesResponse
+ *   features: [ // FeatureSummariesList
+ *     { // FeatureSummary
+ *       arn: 'STRING_VALUE', // required
+ *       name: 'STRING_VALUE', // required
+ *       project: 'STRING_VALUE',
+ *       status: 'STRING_VALUE', // required
+ *       createdTime: new Date('TIMESTAMP'), // required
+ *       lastUpdatedTime: new Date('TIMESTAMP'), // required
+ *       evaluationStrategy: 'STRING_VALUE', // required
+ *       evaluationRules: [ // EvaluationRulesList
+ *         { // EvaluationRule
+ *           name: 'STRING_VALUE',
+ *           type: 'STRING_VALUE', // required
+ *         },
+ *       ],
+ *       defaultVariation: 'STRING_VALUE',
+ *       tags: { // TagMap
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListFeaturesCommandInput - {@link ListFeaturesCommandInput}
@@ -66,6 +92,8 @@ export interface ListFeaturesCommandOutput extends ListFeaturesResponse, __Metad
  * @throws {@link ValidationException} (client fault)
  *  <p>The value of a parameter in the request caused an error.</p>
  *
+ * @throws {@link EvidentlyServiceException}
+ * <p>Base exception class for all service exceptions from Evidently service.</p>
  *
  */
 export class ListFeaturesCommand extends $Command<

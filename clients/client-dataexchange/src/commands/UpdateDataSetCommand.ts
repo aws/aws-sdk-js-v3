@@ -36,16 +36,32 @@ export interface UpdateDataSetCommandOutput extends UpdateDataSetResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DataExchangeClient, UpdateDataSetCommand } from "@aws-sdk/client-dataexchange"; // ES Modules import
- * // const { DataExchangeClient, UpdateDataSetCommand } = require("@aws-sdk/client-dataexchange"); // CommonJS import
+ * import { DataExchangeClient, UpdateDataSetCommand } from '@aws-sdk/client-dataexchange'; // ES Modules import
+ * // const { DataExchangeClient, UpdateDataSetCommand } = require('@aws-sdk/client-dataexchange'); // CommonJS import
  * const client = new DataExchangeClient(config);
  * const input = { // UpdateDataSetRequest
- *   DataSetId: "STRING_VALUE", // required
- *   Description: "STRING_VALUE",
- *   Name: "STRING_VALUE",
+ *   DataSetId: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE',
+ *   Name: 'STRING_VALUE',
  * };
  * const command = new UpdateDataSetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateDataSetResponse
+ *   Arn: 'STRING_VALUE',
+ *   AssetType: 'STRING_VALUE',
+ *   CreatedAt: new Date('TIMESTAMP'),
+ *   Description: 'STRING_VALUE',
+ *   Id: 'STRING_VALUE',
+ *   Name: 'STRING_VALUE',
+ *   Origin: 'STRING_VALUE',
+ *   OriginDetails: { // OriginDetails
+ *     ProductId: 'STRING_VALUE', // required
+ *   },
+ *   SourceId: 'STRING_VALUE',
+ *   UpdatedAt: new Date('TIMESTAMP'),
+ * };
+ *
  * ```
  *
  * @param UpdateDataSetCommandInput - {@link UpdateDataSetCommandInput}
@@ -69,6 +85,8 @@ export interface UpdateDataSetCommandOutput extends UpdateDataSetResponse, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>The request was invalid.</p>
  *
+ * @throws {@link DataExchangeServiceException}
+ * <p>Base exception class for all service exceptions from DataExchange service.</p>
  *
  */
 export class UpdateDataSetCommand extends $Command<

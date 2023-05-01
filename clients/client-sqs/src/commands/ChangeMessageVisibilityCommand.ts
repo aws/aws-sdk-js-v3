@@ -69,16 +69,19 @@ export interface ChangeMessageVisibilityCommandOutput extends __MetadataBearer {
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SQSClient, ChangeMessageVisibilityCommand } from "@aws-sdk/client-sqs"; // ES Modules import
- * // const { SQSClient, ChangeMessageVisibilityCommand } = require("@aws-sdk/client-sqs"); // CommonJS import
+ * import { SQSClient, ChangeMessageVisibilityCommand } from '@aws-sdk/client-sqs'; // ES Modules import
+ * // const { SQSClient, ChangeMessageVisibilityCommand } = require('@aws-sdk/client-sqs'); // CommonJS import
  * const client = new SQSClient(config);
  * const input = { // ChangeMessageVisibilityRequest
- *   QueueUrl: "STRING_VALUE", // required
- *   ReceiptHandle: "STRING_VALUE", // required
- *   VisibilityTimeout: Number("int"), // required
+ *   QueueUrl: 'STRING_VALUE', // required
+ *   ReceiptHandle: 'STRING_VALUE', // required
+ *   VisibilityTimeout: Number('int'), // required
  * };
  * const command = new ChangeMessageVisibilityCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param ChangeMessageVisibilityCommandInput - {@link ChangeMessageVisibilityCommandInput}
@@ -93,6 +96,8 @@ export interface ChangeMessageVisibilityCommandOutput extends __MetadataBearer {
  * @throws {@link ReceiptHandleIsInvalid} (client fault)
  *  <p>The specified receipt handle isn't valid.</p>
  *
+ * @throws {@link SQSServiceException}
+ * <p>Base exception class for all service exceptions from SQS service.</p>
  *
  */
 export class ChangeMessageVisibilityCommand extends $Command<

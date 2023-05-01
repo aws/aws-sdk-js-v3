@@ -47,16 +47,27 @@ export interface GetIdentityMailFromDomainAttributesCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SESClient, GetIdentityMailFromDomainAttributesCommand } from "@aws-sdk/client-ses"; // ES Modules import
- * // const { SESClient, GetIdentityMailFromDomainAttributesCommand } = require("@aws-sdk/client-ses"); // CommonJS import
+ * import { SESClient, GetIdentityMailFromDomainAttributesCommand } from '@aws-sdk/client-ses'; // ES Modules import
+ * // const { SESClient, GetIdentityMailFromDomainAttributesCommand } = require('@aws-sdk/client-ses'); // CommonJS import
  * const client = new SESClient(config);
  * const input = { // GetIdentityMailFromDomainAttributesRequest
  *   Identities: [ // IdentityList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new GetIdentityMailFromDomainAttributesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetIdentityMailFromDomainAttributesResponse
+ *   MailFromDomainAttributes: { // MailFromDomainAttributes // required
+ *     '<keys>': { // IdentityMailFromDomainAttributes
+ *       MailFromDomain: 'STRING_VALUE', // required
+ *       MailFromDomainStatus: 'STRING_VALUE', // required
+ *       BehaviorOnMXFailure: 'STRING_VALUE', // required
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetIdentityMailFromDomainAttributesCommandInput - {@link GetIdentityMailFromDomainAttributesCommandInput}
@@ -65,6 +76,8 @@ export interface GetIdentityMailFromDomainAttributesCommandOutput
  * @see {@link GetIdentityMailFromDomainAttributesCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
+ * @throws {@link SESServiceException}
+ * <p>Base exception class for all service exceptions from SES service.</p>
  *
  * @example GetIdentityMailFromDomainAttributes
  * ```javascript

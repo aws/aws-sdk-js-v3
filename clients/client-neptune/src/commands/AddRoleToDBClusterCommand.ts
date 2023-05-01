@@ -37,16 +37,19 @@ export interface AddRoleToDBClusterCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { NeptuneClient, AddRoleToDBClusterCommand } from "@aws-sdk/client-neptune"; // ES Modules import
- * // const { NeptuneClient, AddRoleToDBClusterCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
+ * import { NeptuneClient, AddRoleToDBClusterCommand } from '@aws-sdk/client-neptune'; // ES Modules import
+ * // const { NeptuneClient, AddRoleToDBClusterCommand } = require('@aws-sdk/client-neptune'); // CommonJS import
  * const client = new NeptuneClient(config);
  * const input = { // AddRoleToDBClusterMessage
- *   DBClusterIdentifier: "STRING_VALUE", // required
- *   RoleArn: "STRING_VALUE", // required
- *   FeatureName: "STRING_VALUE",
+ *   DBClusterIdentifier: 'STRING_VALUE', // required
+ *   RoleArn: 'STRING_VALUE', // required
+ *   FeatureName: 'STRING_VALUE',
  * };
  * const command = new AddRoleToDBClusterCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param AddRoleToDBClusterCommandInput - {@link AddRoleToDBClusterCommandInput}
@@ -68,6 +71,8 @@ export interface AddRoleToDBClusterCommandOutput extends __MetadataBearer {}
  * @throws {@link InvalidDBClusterStateFault} (client fault)
  *  <p>The DB cluster is not in a valid state.</p>
  *
+ * @throws {@link NeptuneServiceException}
+ * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
  */
 export class AddRoleToDBClusterCommand extends $Command<

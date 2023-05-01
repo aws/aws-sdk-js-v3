@@ -42,14 +42,17 @@ export interface CancelTaskExecutionCommandOutput extends CancelTaskExecutionRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DataSyncClient, CancelTaskExecutionCommand } from "@aws-sdk/client-datasync"; // ES Modules import
- * // const { DataSyncClient, CancelTaskExecutionCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
+ * import { DataSyncClient, CancelTaskExecutionCommand } from '@aws-sdk/client-datasync'; // ES Modules import
+ * // const { DataSyncClient, CancelTaskExecutionCommand } = require('@aws-sdk/client-datasync'); // CommonJS import
  * const client = new DataSyncClient(config);
  * const input = { // CancelTaskExecutionRequest
- *   TaskExecutionArn: "STRING_VALUE", // required
+ *   TaskExecutionArn: 'STRING_VALUE', // required
  * };
  * const command = new CancelTaskExecutionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param CancelTaskExecutionCommandInput - {@link CancelTaskExecutionCommandInput}
@@ -65,6 +68,8 @@ export interface CancelTaskExecutionCommandOutput extends CancelTaskExecutionRes
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception is thrown when the client submits a malformed request.</p>
  *
+ * @throws {@link DataSyncServiceException}
+ * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
  */
 export class CancelTaskExecutionCommand extends $Command<

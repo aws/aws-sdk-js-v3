@@ -37,12 +37,18 @@ export interface GetPhoneNumberSettingsCommandOutput extends GetPhoneNumberSetti
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeSDKVoiceClient, GetPhoneNumberSettingsCommand } from "@aws-sdk/client-chime-sdk-voice"; // ES Modules import
- * // const { ChimeSDKVoiceClient, GetPhoneNumberSettingsCommand } = require("@aws-sdk/client-chime-sdk-voice"); // CommonJS import
+ * import { ChimeSDKVoiceClient, GetPhoneNumberSettingsCommand } from '@aws-sdk/client-chime-sdk-voice'; // ES Modules import
+ * // const { ChimeSDKVoiceClient, GetPhoneNumberSettingsCommand } = require('@aws-sdk/client-chime-sdk-voice'); // CommonJS import
  * const client = new ChimeSDKVoiceClient(config);
  * const input = {};
  * const command = new GetPhoneNumberSettingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetPhoneNumberSettingsResponse
+ *   CallingName: 'STRING_VALUE',
+ *   CallingNameUpdatedTimestamp: new Date('TIMESTAMP'),
+ * };
+ *
  * ```
  *
  * @param GetPhoneNumberSettingsCommandInput - {@link GetPhoneNumberSettingsCommandInput}
@@ -69,6 +75,8 @@ export interface GetPhoneNumberSettingsCommandOutput extends GetPhoneNumberSetti
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client isn't authorized to request a resource.</p>
  *
+ * @throws {@link ChimeSDKVoiceServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
  */
 export class GetPhoneNumberSettingsCommand extends $Command<

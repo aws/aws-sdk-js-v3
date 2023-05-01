@@ -50,16 +50,26 @@ export interface GetLogGroupFieldsCommandOutput extends GetLogGroupFieldsRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudWatchLogsClient, GetLogGroupFieldsCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
- * // const { CloudWatchLogsClient, GetLogGroupFieldsCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
+ * import { CloudWatchLogsClient, GetLogGroupFieldsCommand } from '@aws-sdk/client-cloudwatch-logs'; // ES Modules import
+ * // const { CloudWatchLogsClient, GetLogGroupFieldsCommand } = require('@aws-sdk/client-cloudwatch-logs'); // CommonJS import
  * const client = new CloudWatchLogsClient(config);
  * const input = { // GetLogGroupFieldsRequest
- *   logGroupName: "STRING_VALUE",
- *   time: Number("long"),
- *   logGroupIdentifier: "STRING_VALUE",
+ *   logGroupName: 'STRING_VALUE',
+ *   time: Number('long'),
+ *   logGroupIdentifier: 'STRING_VALUE',
  * };
  * const command = new GetLogGroupFieldsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetLogGroupFieldsResponse
+ *   logGroupFields: [ // LogGroupFieldList
+ *     { // LogGroupField
+ *       name: 'STRING_VALUE',
+ *       percent: Number('int'),
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetLogGroupFieldsCommandInput - {@link GetLogGroupFieldsCommandInput}
@@ -80,6 +90,8 @@ export interface GetLogGroupFieldsCommandOutput extends GetLogGroupFieldsRespons
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service cannot complete the request.</p>
  *
+ * @throws {@link CloudWatchLogsServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
  */
 export class GetLogGroupFieldsCommand extends $Command<

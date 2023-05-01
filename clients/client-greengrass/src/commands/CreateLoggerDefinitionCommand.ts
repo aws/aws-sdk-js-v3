@@ -36,29 +36,40 @@ export interface CreateLoggerDefinitionCommandOutput extends CreateLoggerDefinit
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GreengrassClient, CreateLoggerDefinitionCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
- * // const { GreengrassClient, CreateLoggerDefinitionCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
+ * import { GreengrassClient, CreateLoggerDefinitionCommand } from '@aws-sdk/client-greengrass'; // ES Modules import
+ * // const { GreengrassClient, CreateLoggerDefinitionCommand } = require('@aws-sdk/client-greengrass'); // CommonJS import
  * const client = new GreengrassClient(config);
  * const input = { // CreateLoggerDefinitionRequest
- *   AmznClientToken: "STRING_VALUE",
+ *   AmznClientToken: 'STRING_VALUE',
  *   InitialVersion: { // LoggerDefinitionVersion
  *     Loggers: [ // __listOfLogger
  *       { // Logger
- *         Component: "GreengrassSystem" || "Lambda", // required
- *         Id: "STRING_VALUE", // required
- *         Level: "DEBUG" || "INFO" || "WARN" || "ERROR" || "FATAL", // required
- *         Space: Number("int"),
- *         Type: "FileSystem" || "AWSCloudWatch", // required
+ *         Component: 'GreengrassSystem' || 'Lambda', // required
+ *         Id: 'STRING_VALUE', // required
+ *         Level: 'DEBUG' || 'INFO' || 'WARN' || 'ERROR' || 'FATAL', // required
+ *         Space: Number('int'),
+ *         Type: 'FileSystem' || 'AWSCloudWatch', // required
  *       },
  *     ],
  *   },
- *   Name: "STRING_VALUE",
+ *   Name: 'STRING_VALUE',
  *   tags: { // Tags
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateLoggerDefinitionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateLoggerDefinitionResponse
+ *   Arn: 'STRING_VALUE',
+ *   CreationTimestamp: 'STRING_VALUE',
+ *   Id: 'STRING_VALUE',
+ *   LastUpdatedTimestamp: 'STRING_VALUE',
+ *   LatestVersion: 'STRING_VALUE',
+ *   LatestVersionArn: 'STRING_VALUE',
+ *   Name: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateLoggerDefinitionCommandInput - {@link CreateLoggerDefinitionCommandInput}
@@ -70,6 +81,8 @@ export interface CreateLoggerDefinitionCommandOutput extends CreateLoggerDefinit
  * @throws {@link BadRequestException} (client fault)
  *  General error information.
  *
+ * @throws {@link GreengrassServiceException}
+ * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
  */
 export class CreateLoggerDefinitionCommand extends $Command<

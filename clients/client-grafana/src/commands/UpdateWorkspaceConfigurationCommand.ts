@@ -41,15 +41,18 @@ export interface UpdateWorkspaceConfigurationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GrafanaClient, UpdateWorkspaceConfigurationCommand } from "@aws-sdk/client-grafana"; // ES Modules import
- * // const { GrafanaClient, UpdateWorkspaceConfigurationCommand } = require("@aws-sdk/client-grafana"); // CommonJS import
+ * import { GrafanaClient, UpdateWorkspaceConfigurationCommand } from '@aws-sdk/client-grafana'; // ES Modules import
+ * // const { GrafanaClient, UpdateWorkspaceConfigurationCommand } = require('@aws-sdk/client-grafana'); // CommonJS import
  * const client = new GrafanaClient(config);
  * const input = { // UpdateWorkspaceConfigurationRequest
- *   configuration: "STRING_VALUE", // required
- *   workspaceId: "STRING_VALUE", // required
+ *   configuration: 'STRING_VALUE', // required
+ *   workspaceId: 'STRING_VALUE', // required
  * };
  * const command = new UpdateWorkspaceConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateWorkspaceConfigurationCommandInput - {@link UpdateWorkspaceConfigurationCommandInput}
@@ -76,6 +79,8 @@ export interface UpdateWorkspaceConfigurationCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The value of a parameter in the request caused an error.</p>
  *
+ * @throws {@link GrafanaServiceException}
+ * <p>Base exception class for all service exceptions from Grafana service.</p>
  *
  */
 export class UpdateWorkspaceConfigurationCommand extends $Command<

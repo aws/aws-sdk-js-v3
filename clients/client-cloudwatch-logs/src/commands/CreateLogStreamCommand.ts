@@ -52,15 +52,18 @@ export interface CreateLogStreamCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudWatchLogsClient, CreateLogStreamCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
- * // const { CloudWatchLogsClient, CreateLogStreamCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
+ * import { CloudWatchLogsClient, CreateLogStreamCommand } from '@aws-sdk/client-cloudwatch-logs'; // ES Modules import
+ * // const { CloudWatchLogsClient, CreateLogStreamCommand } = require('@aws-sdk/client-cloudwatch-logs'); // CommonJS import
  * const client = new CloudWatchLogsClient(config);
  * const input = { // CreateLogStreamRequest
- *   logGroupName: "STRING_VALUE", // required
- *   logStreamName: "STRING_VALUE", // required
+ *   logGroupName: 'STRING_VALUE', // required
+ *   logStreamName: 'STRING_VALUE', // required
  * };
  * const command = new CreateLogStreamCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param CreateLogStreamCommandInput - {@link CreateLogStreamCommandInput}
@@ -81,6 +84,8 @@ export interface CreateLogStreamCommandOutput extends __MetadataBearer {}
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service cannot complete the request.</p>
  *
+ * @throws {@link CloudWatchLogsServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
  */
 export class CreateLogStreamCommand extends $Command<

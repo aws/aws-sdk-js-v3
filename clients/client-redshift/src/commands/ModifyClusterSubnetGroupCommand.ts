@@ -37,18 +37,48 @@ export interface ModifyClusterSubnetGroupCommandOutput extends ModifyClusterSubn
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RedshiftClient, ModifyClusterSubnetGroupCommand } from "@aws-sdk/client-redshift"; // ES Modules import
- * // const { RedshiftClient, ModifyClusterSubnetGroupCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * import { RedshiftClient, ModifyClusterSubnetGroupCommand } from '@aws-sdk/client-redshift'; // ES Modules import
+ * // const { RedshiftClient, ModifyClusterSubnetGroupCommand } = require('@aws-sdk/client-redshift'); // CommonJS import
  * const client = new RedshiftClient(config);
  * const input = { // ModifyClusterSubnetGroupMessage
- *   ClusterSubnetGroupName: "STRING_VALUE", // required
- *   Description: "STRING_VALUE",
+ *   ClusterSubnetGroupName: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE',
  *   SubnetIds: [ // SubnetIdentifierList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new ModifyClusterSubnetGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ModifyClusterSubnetGroupResult
+ *   ClusterSubnetGroup: { // ClusterSubnetGroup
+ *     ClusterSubnetGroupName: 'STRING_VALUE',
+ *     Description: 'STRING_VALUE',
+ *     VpcId: 'STRING_VALUE',
+ *     SubnetGroupStatus: 'STRING_VALUE',
+ *     Subnets: [ // SubnetList
+ *       { // Subnet
+ *         SubnetIdentifier: 'STRING_VALUE',
+ *         SubnetAvailabilityZone: { // AvailabilityZone
+ *           Name: 'STRING_VALUE',
+ *           SupportedPlatforms: [ // SupportedPlatformsList
+ *             { // SupportedPlatform
+ *               Name: 'STRING_VALUE',
+ *             },
+ *           ],
+ *         },
+ *         SubnetStatus: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     Tags: [ // TagList
+ *       { // Tag
+ *         Key: 'STRING_VALUE',
+ *         Value: 'STRING_VALUE',
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param ModifyClusterSubnetGroupCommandInput - {@link ModifyClusterSubnetGroupCommandInput}
@@ -82,6 +112,8 @@ export interface ModifyClusterSubnetGroupCommandOutput extends ModifyClusterSubn
  * @throws {@link UnauthorizedOperation} (client fault)
  *  <p>Your account is not authorized to perform the requested operation.</p>
  *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class ModifyClusterSubnetGroupCommand extends $Command<

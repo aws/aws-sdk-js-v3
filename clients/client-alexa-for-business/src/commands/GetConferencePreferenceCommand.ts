@@ -36,12 +36,19 @@ export interface GetConferencePreferenceCommandOutput extends GetConferencePrefe
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AlexaForBusinessClient, GetConferencePreferenceCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
- * // const { AlexaForBusinessClient, GetConferencePreferenceCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
+ * import { AlexaForBusinessClient, GetConferencePreferenceCommand } from '@aws-sdk/client-alexa-for-business'; // ES Modules import
+ * // const { AlexaForBusinessClient, GetConferencePreferenceCommand } = require('@aws-sdk/client-alexa-for-business'); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
  * const input = {};
  * const command = new GetConferencePreferenceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetConferencePreferenceResponse
+ *   Preference: { // ConferencePreference
+ *     DefaultConferenceProviderArn: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetConferencePreferenceCommandInput - {@link GetConferencePreferenceCommandInput}
@@ -53,6 +60,8 @@ export interface GetConferencePreferenceCommandOutput extends GetConferencePrefe
  * @throws {@link NotFoundException} (client fault)
  *  <p>The resource is not found.</p>
  *
+ * @throws {@link AlexaForBusinessServiceException}
+ * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  */
 export class GetConferencePreferenceCommand extends $Command<

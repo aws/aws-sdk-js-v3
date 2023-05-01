@@ -48,24 +48,45 @@ export interface CreatePoolCommandOutput extends CreatePoolResult, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PinpointSMSVoiceV2Client, CreatePoolCommand } from "@aws-sdk/client-pinpoint-sms-voice-v2"; // ES Modules import
- * // const { PinpointSMSVoiceV2Client, CreatePoolCommand } = require("@aws-sdk/client-pinpoint-sms-voice-v2"); // CommonJS import
+ * import { PinpointSMSVoiceV2Client, CreatePoolCommand } from '@aws-sdk/client-pinpoint-sms-voice-v2'; // ES Modules import
+ * // const { PinpointSMSVoiceV2Client, CreatePoolCommand } = require('@aws-sdk/client-pinpoint-sms-voice-v2'); // CommonJS import
  * const client = new PinpointSMSVoiceV2Client(config);
  * const input = { // CreatePoolRequest
- *   OriginationIdentity: "STRING_VALUE", // required
- *   IsoCountryCode: "STRING_VALUE", // required
- *   MessageType: "STRING_VALUE", // required
+ *   OriginationIdentity: 'STRING_VALUE', // required
+ *   IsoCountryCode: 'STRING_VALUE', // required
+ *   MessageType: 'STRING_VALUE', // required
  *   DeletionProtectionEnabled: true || false,
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
- *   ClientToken: "STRING_VALUE",
+ *   ClientToken: 'STRING_VALUE',
  * };
  * const command = new CreatePoolCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreatePoolResult
+ *   PoolArn: 'STRING_VALUE',
+ *   PoolId: 'STRING_VALUE',
+ *   Status: 'STRING_VALUE',
+ *   MessageType: 'STRING_VALUE',
+ *   TwoWayEnabled: true || false,
+ *   TwoWayChannelArn: 'STRING_VALUE',
+ *   SelfManagedOptOutsEnabled: true || false,
+ *   OptOutListName: 'STRING_VALUE',
+ *   SharedRoutesEnabled: true || false,
+ *   DeletionProtectionEnabled: true || false,
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ *   CreatedTimestamp: new Date('TIMESTAMP'),
+ * };
+ *
  * ```
  *
  * @param CreatePoolCommandInput - {@link CreatePoolCommandInput}
@@ -101,6 +122,8 @@ export interface CreatePoolCommandOutput extends CreatePoolResult, __MetadataBea
  * @throws {@link ValidationException} (client fault)
  *  <p>A validation exception for a field.</p>
  *
+ * @throws {@link PinpointSMSVoiceV2ServiceException}
+ * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
  *
  */
 export class CreatePoolCommand extends $Command<

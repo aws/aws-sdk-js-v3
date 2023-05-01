@@ -36,14 +36,25 @@ export interface GetWorkspaceCommandOutput extends GetWorkspaceResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTTwinMakerClient, GetWorkspaceCommand } from "@aws-sdk/client-iottwinmaker"; // ES Modules import
- * // const { IoTTwinMakerClient, GetWorkspaceCommand } = require("@aws-sdk/client-iottwinmaker"); // CommonJS import
+ * import { IoTTwinMakerClient, GetWorkspaceCommand } from '@aws-sdk/client-iottwinmaker'; // ES Modules import
+ * // const { IoTTwinMakerClient, GetWorkspaceCommand } = require('@aws-sdk/client-iottwinmaker'); // CommonJS import
  * const client = new IoTTwinMakerClient(config);
  * const input = { // GetWorkspaceRequest
- *   workspaceId: "STRING_VALUE", // required
+ *   workspaceId: 'STRING_VALUE', // required
  * };
  * const command = new GetWorkspaceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetWorkspaceResponse
+ *   workspaceId: 'STRING_VALUE', // required
+ *   arn: 'STRING_VALUE', // required
+ *   description: 'STRING_VALUE',
+ *   s3Location: 'STRING_VALUE', // required
+ *   role: 'STRING_VALUE', // required
+ *   creationDateTime: new Date('TIMESTAMP'), // required
+ *   updateDateTime: new Date('TIMESTAMP'), // required
+ * };
+ *
  * ```
  *
  * @param GetWorkspaceCommandInput - {@link GetWorkspaceCommandInput}
@@ -67,6 +78,8 @@ export interface GetWorkspaceCommandOutput extends GetWorkspaceResponse, __Metad
  * @throws {@link ValidationException} (client fault)
  *  <p>Failed</p>
  *
+ * @throws {@link IoTTwinMakerServiceException}
+ * <p>Base exception class for all service exceptions from IoTTwinMaker service.</p>
  *
  */
 export class GetWorkspaceCommand extends $Command<

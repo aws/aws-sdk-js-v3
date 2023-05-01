@@ -40,15 +40,104 @@ export interface ListCallAnalyticsCategoriesCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { TranscribeClient, ListCallAnalyticsCategoriesCommand } from "@aws-sdk/client-transcribe"; // ES Modules import
- * // const { TranscribeClient, ListCallAnalyticsCategoriesCommand } = require("@aws-sdk/client-transcribe"); // CommonJS import
+ * import { TranscribeClient, ListCallAnalyticsCategoriesCommand } from '@aws-sdk/client-transcribe'; // ES Modules import
+ * // const { TranscribeClient, ListCallAnalyticsCategoriesCommand } = require('@aws-sdk/client-transcribe'); // CommonJS import
  * const client = new TranscribeClient(config);
  * const input = { // ListCallAnalyticsCategoriesRequest
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListCallAnalyticsCategoriesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListCallAnalyticsCategoriesResponse
+ *   NextToken: 'STRING_VALUE',
+ *   Categories: [ // CategoryPropertiesList
+ *     { // CategoryProperties
+ *       CategoryName: 'STRING_VALUE',
+ *       Rules: [ // RuleList
+ *         { // Rule Union: only one key present
+ *           NonTalkTimeFilter: { // NonTalkTimeFilter
+ *             Threshold: Number('long'),
+ *             AbsoluteTimeRange: { // AbsoluteTimeRange
+ *               StartTime: Number('long'),
+ *               EndTime: Number('long'),
+ *               First: Number('long'),
+ *               Last: Number('long'),
+ *             },
+ *             RelativeTimeRange: { // RelativeTimeRange
+ *               StartPercentage: Number('int'),
+ *               EndPercentage: Number('int'),
+ *               First: Number('int'),
+ *               Last: Number('int'),
+ *             },
+ *             Negate: true || false,
+ *           },
+ *           InterruptionFilter: { // InterruptionFilter
+ *             Threshold: Number('long'),
+ *             ParticipantRole: 'AGENT' || 'CUSTOMER',
+ *             AbsoluteTimeRange: {
+ *               StartTime: Number('long'),
+ *               EndTime: Number('long'),
+ *               First: Number('long'),
+ *               Last: Number('long'),
+ *             },
+ *             RelativeTimeRange: {
+ *               StartPercentage: Number('int'),
+ *               EndPercentage: Number('int'),
+ *               First: Number('int'),
+ *               Last: Number('int'),
+ *             },
+ *             Negate: true || false,
+ *           },
+ *           TranscriptFilter: { // TranscriptFilter
+ *             TranscriptFilterType: 'EXACT', // required
+ *             AbsoluteTimeRange: {
+ *               StartTime: Number('long'),
+ *               EndTime: Number('long'),
+ *               First: Number('long'),
+ *               Last: Number('long'),
+ *             },
+ *             RelativeTimeRange: {
+ *               StartPercentage: Number('int'),
+ *               EndPercentage: Number('int'),
+ *               First: Number('int'),
+ *               Last: Number('int'),
+ *             },
+ *             ParticipantRole: 'AGENT' || 'CUSTOMER',
+ *             Negate: true || false,
+ *             Targets: [ // StringTargetList // required
+ *               'STRING_VALUE',
+ *             ],
+ *           },
+ *           SentimentFilter: { // SentimentFilter
+ *             Sentiments: [ // SentimentValueList // required
+ *               'POSITIVE' || 'NEGATIVE' || 'NEUTRAL' || 'MIXED',
+ *             ],
+ *             AbsoluteTimeRange: {
+ *               StartTime: Number('long'),
+ *               EndTime: Number('long'),
+ *               First: Number('long'),
+ *               Last: Number('long'),
+ *             },
+ *             RelativeTimeRange: {
+ *               StartPercentage: Number('int'),
+ *               EndPercentage: Number('int'),
+ *               First: Number('int'),
+ *               Last: Number('int'),
+ *             },
+ *             ParticipantRole: 'AGENT' || 'CUSTOMER',
+ *             Negate: true || false,
+ *           },
+ *         },
+ *       ],
+ *       CreateTime: new Date('TIMESTAMP'),
+ *       LastUpdateTime: new Date('TIMESTAMP'),
+ *       InputType: 'REAL_TIME' || 'POST_CALL',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListCallAnalyticsCategoriesCommandInput - {@link ListCallAnalyticsCategoriesCommandInput}
@@ -71,6 +160,8 @@ export interface ListCallAnalyticsCategoriesCommandOutput
  *  <p>You've either sent too many requests or your input file is too long. Wait before
  *             retrying your request, or use a smaller file and try your request again.</p>
  *
+ * @throws {@link TranscribeServiceException}
+ * <p>Base exception class for all service exceptions from Transcribe service.</p>
  *
  */
 export class ListCallAnalyticsCategoriesCommand extends $Command<

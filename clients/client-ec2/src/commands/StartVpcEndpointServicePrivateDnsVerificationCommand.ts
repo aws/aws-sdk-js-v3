@@ -48,15 +48,20 @@ export interface StartVpcEndpointServicePrivateDnsVerificationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, StartVpcEndpointServicePrivateDnsVerificationCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, StartVpcEndpointServicePrivateDnsVerificationCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, StartVpcEndpointServicePrivateDnsVerificationCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, StartVpcEndpointServicePrivateDnsVerificationCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // StartVpcEndpointServicePrivateDnsVerificationRequest
  *   DryRun: true || false,
- *   ServiceId: "STRING_VALUE", // required
+ *   ServiceId: 'STRING_VALUE', // required
  * };
  * const command = new StartVpcEndpointServicePrivateDnsVerificationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartVpcEndpointServicePrivateDnsVerificationResult
+ *   ReturnValue: true || false,
+ * };
+ *
  * ```
  *
  * @param StartVpcEndpointServicePrivateDnsVerificationCommandInput - {@link StartVpcEndpointServicePrivateDnsVerificationCommandInput}
@@ -65,6 +70,8 @@ export interface StartVpcEndpointServicePrivateDnsVerificationCommandOutput
  * @see {@link StartVpcEndpointServicePrivateDnsVerificationCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class StartVpcEndpointServicePrivateDnsVerificationCommand extends $Command<

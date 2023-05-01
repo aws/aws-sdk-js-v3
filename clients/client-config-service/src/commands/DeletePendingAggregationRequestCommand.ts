@@ -40,15 +40,18 @@ export interface DeletePendingAggregationRequestCommandOutput extends __Metadata
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConfigServiceClient, DeletePendingAggregationRequestCommand } from "@aws-sdk/client-config-service"; // ES Modules import
- * // const { ConfigServiceClient, DeletePendingAggregationRequestCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
+ * import { ConfigServiceClient, DeletePendingAggregationRequestCommand } from '@aws-sdk/client-config-service'; // ES Modules import
+ * // const { ConfigServiceClient, DeletePendingAggregationRequestCommand } = require('@aws-sdk/client-config-service'); // CommonJS import
  * const client = new ConfigServiceClient(config);
  * const input = { // DeletePendingAggregationRequestRequest
- *   RequesterAccountId: "STRING_VALUE", // required
- *   RequesterAwsRegion: "STRING_VALUE", // required
+ *   RequesterAccountId: 'STRING_VALUE', // required
+ *   RequesterAwsRegion: 'STRING_VALUE', // required
  * };
  * const command = new DeletePendingAggregationRequestCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeletePendingAggregationRequestCommandInput - {@link DeletePendingAggregationRequestCommandInput}
@@ -61,6 +64,8 @@ export interface DeletePendingAggregationRequestCommandOutput extends __Metadata
  *  <p>One or more of the specified parameters are not valid. Verify
  * 			that your parameters are valid and try again.</p>
  *
+ * @throws {@link ConfigServiceServiceException}
+ * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
  */
 export class DeletePendingAggregationRequestCommand extends $Command<

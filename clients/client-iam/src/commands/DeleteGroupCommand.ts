@@ -37,14 +37,17 @@ export interface DeleteGroupCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IAMClient, DeleteGroupCommand } from "@aws-sdk/client-iam"; // ES Modules import
- * // const { IAMClient, DeleteGroupCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * import { IAMClient, DeleteGroupCommand } from '@aws-sdk/client-iam'; // ES Modules import
+ * // const { IAMClient, DeleteGroupCommand } = require('@aws-sdk/client-iam'); // CommonJS import
  * const client = new IAMClient(config);
  * const input = { // DeleteGroupRequest
- *   GroupName: "STRING_VALUE", // required
+ *   GroupName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteGroupCommandInput - {@link DeleteGroupCommandInput}
@@ -69,6 +72,8 @@ export interface DeleteGroupCommandOutput extends __MetadataBearer {}
  *  <p>The request processing has failed because of an unknown error, exception or
  *       failure.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  */
 export class DeleteGroupCommand extends $Command<

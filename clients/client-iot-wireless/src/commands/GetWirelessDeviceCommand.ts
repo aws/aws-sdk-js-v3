@@ -36,15 +36,98 @@ export interface GetWirelessDeviceCommandOutput extends GetWirelessDeviceRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTWirelessClient, GetWirelessDeviceCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
- * // const { IoTWirelessClient, GetWirelessDeviceCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
+ * import { IoTWirelessClient, GetWirelessDeviceCommand } from '@aws-sdk/client-iot-wireless'; // ES Modules import
+ * // const { IoTWirelessClient, GetWirelessDeviceCommand } = require('@aws-sdk/client-iot-wireless'); // CommonJS import
  * const client = new IoTWirelessClient(config);
  * const input = { // GetWirelessDeviceRequest
- *   Identifier: "STRING_VALUE", // required
- *   IdentifierType: "WirelessDeviceId" || "DevEui" || "ThingName" || "SidewalkManufacturingSn", // required
+ *   Identifier: 'STRING_VALUE', // required
+ *   IdentifierType: 'WirelessDeviceId' || 'DevEui' || 'ThingName' || 'SidewalkManufacturingSn', // required
  * };
  * const command = new GetWirelessDeviceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetWirelessDeviceResponse
+ *   Type: 'Sidewalk' || 'LoRaWAN',
+ *   Name: 'STRING_VALUE',
+ *   Description: 'STRING_VALUE',
+ *   DestinationName: 'STRING_VALUE',
+ *   Id: 'STRING_VALUE',
+ *   Arn: 'STRING_VALUE',
+ *   ThingName: 'STRING_VALUE',
+ *   ThingArn: 'STRING_VALUE',
+ *   LoRaWAN: { // LoRaWANDevice
+ *     DevEui: 'STRING_VALUE',
+ *     DeviceProfileId: 'STRING_VALUE',
+ *     ServiceProfileId: 'STRING_VALUE',
+ *     OtaaV1_1: { // OtaaV1_1
+ *       AppKey: 'STRING_VALUE',
+ *       NwkKey: 'STRING_VALUE',
+ *       JoinEui: 'STRING_VALUE',
+ *     },
+ *     OtaaV1_0_x: { // OtaaV1_0_x
+ *       AppKey: 'STRING_VALUE',
+ *       AppEui: 'STRING_VALUE',
+ *       GenAppKey: 'STRING_VALUE',
+ *     },
+ *     AbpV1_1: { // AbpV1_1
+ *       DevAddr: 'STRING_VALUE',
+ *       SessionKeys: { // SessionKeysAbpV1_1
+ *         FNwkSIntKey: 'STRING_VALUE',
+ *         SNwkSIntKey: 'STRING_VALUE',
+ *         NwkSEncKey: 'STRING_VALUE',
+ *         AppSKey: 'STRING_VALUE',
+ *       },
+ *       FCntStart: Number('int'),
+ *     },
+ *     AbpV1_0_x: { // AbpV1_0_x
+ *       DevAddr: 'STRING_VALUE',
+ *       SessionKeys: { // SessionKeysAbpV1_0_x
+ *         NwkSKey: 'STRING_VALUE',
+ *         AppSKey: 'STRING_VALUE',
+ *       },
+ *       FCntStart: Number('int'),
+ *     },
+ *     FPorts: { // FPorts
+ *       Fuota: Number('int'),
+ *       Multicast: Number('int'),
+ *       ClockSync: Number('int'),
+ *       Positioning: { // Positioning
+ *         ClockSync: Number('int'),
+ *         Stream: Number('int'),
+ *         Gnss: Number('int'),
+ *       },
+ *       Applications: [ // Applications
+ *         { // ApplicationConfig
+ *           FPort: Number('int'),
+ *           Type: 'SemtechGeolocation',
+ *           DestinationName: 'STRING_VALUE',
+ *         },
+ *       ],
+ *     },
+ *   },
+ *   Sidewalk: { // SidewalkDevice
+ *     AmazonId: 'STRING_VALUE',
+ *     SidewalkId: 'STRING_VALUE',
+ *     SidewalkManufacturingSn: 'STRING_VALUE',
+ *     DeviceCertificates: [ // DeviceCertificateList
+ *       { // CertificateList
+ *         SigningAlg: 'Ed25519' || 'P256r1', // required
+ *         Value: 'STRING_VALUE', // required
+ *       },
+ *     ],
+ *     PrivateKeys: [ // PrivateKeysList
+ *       {
+ *         SigningAlg: 'Ed25519' || 'P256r1', // required
+ *         Value: 'STRING_VALUE', // required
+ *       },
+ *     ],
+ *     DeviceProfileId: 'STRING_VALUE',
+ *     CertificateId: 'STRING_VALUE',
+ *     Status: 'PROVISIONED' || 'REGISTERED' || 'ACTIVATED' || 'UNKNOWN',
+ *   },
+ *   Positioning: 'Enabled' || 'Disabled',
+ * };
+ *
  * ```
  *
  * @param GetWirelessDeviceCommandInput - {@link GetWirelessDeviceCommandInput}
@@ -68,6 +151,8 @@ export interface GetWirelessDeviceCommandOutput extends GetWirelessDeviceRespons
  * @throws {@link ValidationException} (client fault)
  *  <p>The input did not meet the specified constraints.</p>
  *
+ * @throws {@link IoTWirelessServiceException}
+ * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
  */
 export class GetWirelessDeviceCommand extends $Command<

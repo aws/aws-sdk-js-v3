@@ -36,24 +36,39 @@ export interface SearchGroupsCommandOutput extends SearchGroupsResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { QuickSightClient, SearchGroupsCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
- * // const { QuickSightClient, SearchGroupsCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * import { QuickSightClient, SearchGroupsCommand } from '@aws-sdk/client-quicksight'; // ES Modules import
+ * // const { QuickSightClient, SearchGroupsCommand } = require('@aws-sdk/client-quicksight'); // CommonJS import
  * const client = new QuickSightClient(config);
  * const input = { // SearchGroupsRequest
- *   AwsAccountId: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
- *   Namespace: "STRING_VALUE", // required
+ *   AwsAccountId: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
+ *   Namespace: 'STRING_VALUE', // required
  *   Filters: [ // GroupSearchFilterList // required
  *     { // GroupSearchFilter
- *       Operator: "StartsWith", // required
- *       Name: "GROUP_NAME", // required
- *       Value: "STRING_VALUE", // required
+ *       Operator: 'StartsWith', // required
+ *       Name: 'GROUP_NAME', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new SearchGroupsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SearchGroupsResponse
+ *   GroupList: [ // GroupList
+ *     { // Group
+ *       Arn: 'STRING_VALUE',
+ *       GroupName: 'STRING_VALUE',
+ *       Description: 'STRING_VALUE',
+ *       PrincipalId: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ *   RequestId: 'STRING_VALUE',
+ *   Status: Number('int'),
+ * };
+ *
  * ```
  *
  * @param SearchGroupsCommandInput - {@link SearchGroupsCommandInput}
@@ -89,6 +104,8 @@ export interface SearchGroupsCommandOutput extends SearchGroupsResponse, __Metad
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Access is throttled.</p>
  *
+ * @throws {@link QuickSightServiceException}
+ * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
 export class SearchGroupsCommand extends $Command<

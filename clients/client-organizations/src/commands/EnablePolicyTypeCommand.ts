@@ -46,15 +46,30 @@ export interface EnablePolicyTypeCommandOutput extends EnablePolicyTypeResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OrganizationsClient, EnablePolicyTypeCommand } from "@aws-sdk/client-organizations"; // ES Modules import
- * // const { OrganizationsClient, EnablePolicyTypeCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
+ * import { OrganizationsClient, EnablePolicyTypeCommand } from '@aws-sdk/client-organizations'; // ES Modules import
+ * // const { OrganizationsClient, EnablePolicyTypeCommand } = require('@aws-sdk/client-organizations'); // CommonJS import
  * const client = new OrganizationsClient(config);
  * const input = { // EnablePolicyTypeRequest
- *   RootId: "STRING_VALUE", // required
- *   PolicyType: "SERVICE_CONTROL_POLICY" || "TAG_POLICY" || "BACKUP_POLICY" || "AISERVICES_OPT_OUT_POLICY", // required
+ *   RootId: 'STRING_VALUE', // required
+ *   PolicyType: 'SERVICE_CONTROL_POLICY' || 'TAG_POLICY' || 'BACKUP_POLICY' || 'AISERVICES_OPT_OUT_POLICY', // required
  * };
  * const command = new EnablePolicyTypeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // EnablePolicyTypeResponse
+ *   Root: { // Root
+ *     Id: 'STRING_VALUE',
+ *     Arn: 'STRING_VALUE',
+ *     Name: 'STRING_VALUE',
+ *     PolicyTypes: [ // PolicyTypes
+ *       { // PolicyTypeSummary
+ *         Type: 'SERVICE_CONTROL_POLICY' || 'TAG_POLICY' || 'BACKUP_POLICY' || 'AISERVICES_OPT_OUT_POLICY',
+ *         Status: 'ENABLED' || 'PENDING_ENABLE' || 'PENDING_DISABLE',
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param EnablePolicyTypeCommandInput - {@link EnablePolicyTypeCommandInput}
@@ -410,6 +425,8 @@ export interface EnablePolicyTypeCommandOutput extends EnablePolicyTypeResponse,
  * @throws {@link UnsupportedAPIEndpointException} (client fault)
  *  <p>This action isn't available in the current Amazon Web Services Region.</p>
  *
+ * @throws {@link OrganizationsServiceException}
+ * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
  * @example To enable a policy type in a root
  * ```javascript

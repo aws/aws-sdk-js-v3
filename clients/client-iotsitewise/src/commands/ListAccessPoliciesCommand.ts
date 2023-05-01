@@ -37,20 +37,55 @@ export interface ListAccessPoliciesCommandOutput extends ListAccessPoliciesRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTSiteWiseClient, ListAccessPoliciesCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
- * // const { IoTSiteWiseClient, ListAccessPoliciesCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
+ * import { IoTSiteWiseClient, ListAccessPoliciesCommand } from '@aws-sdk/client-iotsitewise'; // ES Modules import
+ * // const { IoTSiteWiseClient, ListAccessPoliciesCommand } = require('@aws-sdk/client-iotsitewise'); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
  * const input = { // ListAccessPoliciesRequest
- *   identityType: "USER" || "GROUP" || "IAM",
- *   identityId: "STRING_VALUE",
- *   resourceType: "PORTAL" || "PROJECT",
- *   resourceId: "STRING_VALUE",
- *   iamArn: "STRING_VALUE",
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   identityType: 'USER' || 'GROUP' || 'IAM',
+ *   identityId: 'STRING_VALUE',
+ *   resourceType: 'PORTAL' || 'PROJECT',
+ *   resourceId: 'STRING_VALUE',
+ *   iamArn: 'STRING_VALUE',
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new ListAccessPoliciesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListAccessPoliciesResponse
+ *   accessPolicySummaries: [ // AccessPolicySummaries // required
+ *     { // AccessPolicySummary
+ *       id: 'STRING_VALUE', // required
+ *       identity: { // Identity
+ *         user: { // UserIdentity
+ *           id: 'STRING_VALUE', // required
+ *         },
+ *         group: { // GroupIdentity
+ *           id: 'STRING_VALUE', // required
+ *         },
+ *         iamUser: { // IAMUserIdentity
+ *           arn: 'STRING_VALUE', // required
+ *         },
+ *         iamRole: { // IAMRoleIdentity
+ *           arn: 'STRING_VALUE', // required
+ *         },
+ *       },
+ *       resource: { // Resource
+ *         portal: { // PortalResource
+ *           id: 'STRING_VALUE', // required
+ *         },
+ *         project: { // ProjectResource
+ *           id: 'STRING_VALUE', // required
+ *         },
+ *       },
+ *       permission: 'ADMINISTRATOR' || 'VIEWER', // required
+ *       creationDate: new Date('TIMESTAMP'),
+ *       lastUpdateDate: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListAccessPoliciesCommandInput - {@link ListAccessPoliciesCommandInput}
@@ -72,6 +107,8 @@ export interface ListAccessPoliciesCommandOutput extends ListAccessPoliciesRespo
  *       on.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
  *
+ * @throws {@link IoTSiteWiseServiceException}
+ * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
  */
 export class ListAccessPoliciesCommand extends $Command<

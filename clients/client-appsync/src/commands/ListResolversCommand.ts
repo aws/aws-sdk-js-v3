@@ -36,17 +36,57 @@ export interface ListResolversCommandOutput extends ListResolversResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppSyncClient, ListResolversCommand } from "@aws-sdk/client-appsync"; // ES Modules import
- * // const { AppSyncClient, ListResolversCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
+ * import { AppSyncClient, ListResolversCommand } from '@aws-sdk/client-appsync'; // ES Modules import
+ * // const { AppSyncClient, ListResolversCommand } = require('@aws-sdk/client-appsync'); // CommonJS import
  * const client = new AppSyncClient(config);
  * const input = { // ListResolversRequest
- *   apiId: "STRING_VALUE", // required
- *   typeName: "STRING_VALUE", // required
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   apiId: 'STRING_VALUE', // required
+ *   typeName: 'STRING_VALUE', // required
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new ListResolversCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListResolversResponse
+ *   resolvers: [ // Resolvers
+ *     { // Resolver
+ *       typeName: 'STRING_VALUE',
+ *       fieldName: 'STRING_VALUE',
+ *       dataSourceName: 'STRING_VALUE',
+ *       resolverArn: 'STRING_VALUE',
+ *       requestMappingTemplate: 'STRING_VALUE',
+ *       responseMappingTemplate: 'STRING_VALUE',
+ *       kind: 'UNIT' || 'PIPELINE',
+ *       pipelineConfig: { // PipelineConfig
+ *         functions: [ // FunctionsIds
+ *           'STRING_VALUE',
+ *         ],
+ *       },
+ *       syncConfig: { // SyncConfig
+ *         conflictHandler: 'OPTIMISTIC_CONCURRENCY' || 'LAMBDA' || 'AUTOMERGE' || 'NONE',
+ *         conflictDetection: 'VERSION' || 'NONE',
+ *         lambdaConflictHandlerConfig: { // LambdaConflictHandlerConfig
+ *           lambdaConflictHandlerArn: 'STRING_VALUE',
+ *         },
+ *       },
+ *       cachingConfig: { // CachingConfig
+ *         ttl: Number('long'), // required
+ *         cachingKeys: [ // CachingKeys
+ *           'STRING_VALUE',
+ *         ],
+ *       },
+ *       maxBatchSize: Number('int'),
+ *       runtime: { // AppSyncRuntime
+ *         name: 'APPSYNC_JS', // required
+ *         runtimeVersion: 'STRING_VALUE', // required
+ *       },
+ *       code: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListResolversCommandInput - {@link ListResolversCommandInput}
@@ -68,6 +108,8 @@ export interface ListResolversCommandOutput extends ListResolversResponse, __Met
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You aren't authorized to perform this operation.</p>
  *
+ * @throws {@link AppSyncServiceException}
+ * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
  */
 export class ListResolversCommand extends $Command<

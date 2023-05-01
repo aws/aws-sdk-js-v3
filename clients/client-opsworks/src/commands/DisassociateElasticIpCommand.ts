@@ -42,14 +42,17 @@ export interface DisassociateElasticIpCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OpsWorksClient, DisassociateElasticIpCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
- * // const { OpsWorksClient, DisassociateElasticIpCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
+ * import { OpsWorksClient, DisassociateElasticIpCommand } from '@aws-sdk/client-opsworks'; // ES Modules import
+ * // const { OpsWorksClient, DisassociateElasticIpCommand } = require('@aws-sdk/client-opsworks'); // CommonJS import
  * const client = new OpsWorksClient(config);
  * const input = { // DisassociateElasticIpRequest
- *   ElasticIp: "STRING_VALUE", // required
+ *   ElasticIp: 'STRING_VALUE', // required
  * };
  * const command = new DisassociateElasticIpCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DisassociateElasticIpCommandInput - {@link DisassociateElasticIpCommandInput}
@@ -64,6 +67,8 @@ export interface DisassociateElasticIpCommandOutput extends __MetadataBearer {}
  * @throws {@link ValidationException} (client fault)
  *  <p>Indicates that a request was not valid.</p>
  *
+ * @throws {@link OpsWorksServiceException}
+ * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
  */
 export class DisassociateElasticIpCommand extends $Command<

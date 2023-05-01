@@ -43,16 +43,29 @@ export interface ListAppInstanceUsersCommandOutput extends ListAppInstanceUsersR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeClient, ListAppInstanceUsersCommand } from "@aws-sdk/client-chime"; // ES Modules import
- * // const { ChimeClient, ListAppInstanceUsersCommand } = require("@aws-sdk/client-chime"); // CommonJS import
+ * import { ChimeClient, ListAppInstanceUsersCommand } from '@aws-sdk/client-chime'; // ES Modules import
+ * // const { ChimeClient, ListAppInstanceUsersCommand } = require('@aws-sdk/client-chime'); // CommonJS import
  * const client = new ChimeClient(config);
  * const input = { // ListAppInstanceUsersRequest
- *   AppInstanceArn: "STRING_VALUE", // required
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   AppInstanceArn: 'STRING_VALUE', // required
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListAppInstanceUsersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListAppInstanceUsersResponse
+ *   AppInstanceArn: 'STRING_VALUE',
+ *   AppInstanceUsers: [ // AppInstanceUserList
+ *     { // AppInstanceUserSummary
+ *       AppInstanceUserArn: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *       Metadata: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListAppInstanceUsersCommandInput - {@link ListAppInstanceUsersCommandInput}
@@ -79,6 +92,8 @@ export interface ListAppInstanceUsersCommandOutput extends ListAppInstanceUsersR
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeServiceException}
+ * <p>Base exception class for all service exceptions from Chime service.</p>
  *
  */
 export class ListAppInstanceUsersCommand extends $Command<

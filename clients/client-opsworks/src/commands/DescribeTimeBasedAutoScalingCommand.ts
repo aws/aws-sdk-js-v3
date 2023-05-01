@@ -49,16 +49,44 @@ export interface DescribeTimeBasedAutoScalingCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OpsWorksClient, DescribeTimeBasedAutoScalingCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
- * // const { OpsWorksClient, DescribeTimeBasedAutoScalingCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
+ * import { OpsWorksClient, DescribeTimeBasedAutoScalingCommand } from '@aws-sdk/client-opsworks'; // ES Modules import
+ * // const { OpsWorksClient, DescribeTimeBasedAutoScalingCommand } = require('@aws-sdk/client-opsworks'); // CommonJS import
  * const client = new OpsWorksClient(config);
  * const input = { // DescribeTimeBasedAutoScalingRequest
  *   InstanceIds: [ // Strings // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new DescribeTimeBasedAutoScalingCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeTimeBasedAutoScalingResult
+ *   TimeBasedAutoScalingConfigurations: [ // TimeBasedAutoScalingConfigurations
+ *     { // TimeBasedAutoScalingConfiguration
+ *       InstanceId: 'STRING_VALUE',
+ *       AutoScalingSchedule: { // WeeklyAutoScalingSchedule
+ *         Monday: { // DailyAutoScalingSchedule
+ *           '<keys>': 'STRING_VALUE',
+ *         },
+ *         Tuesday: {
+ *           '<keys>': 'STRING_VALUE',
+ *         },
+ *         Wednesday: {
+ *           '<keys>': 'STRING_VALUE',
+ *         },
+ *         Thursday: {
+ *           '<keys>': 'STRING_VALUE',
+ *         },
+ *         Friday: {
+ *           '<keys>': 'STRING_VALUE',
+ *         },
+ *         Saturday: '<DailyAutoScalingSchedule>',
+ *         Sunday: '<DailyAutoScalingSchedule>',
+ *       },
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeTimeBasedAutoScalingCommandInput - {@link DescribeTimeBasedAutoScalingCommandInput}
@@ -73,6 +101,8 @@ export interface DescribeTimeBasedAutoScalingCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>Indicates that a request was not valid.</p>
  *
+ * @throws {@link OpsWorksServiceException}
+ * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
  */
 export class DescribeTimeBasedAutoScalingCommand extends $Command<

@@ -40,17 +40,43 @@ export interface StartSpeakerSearchTaskCommandOutput extends StartSpeakerSearchT
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeSDKVoiceClient, StartSpeakerSearchTaskCommand } from "@aws-sdk/client-chime-sdk-voice"; // ES Modules import
- * // const { ChimeSDKVoiceClient, StartSpeakerSearchTaskCommand } = require("@aws-sdk/client-chime-sdk-voice"); // CommonJS import
+ * import { ChimeSDKVoiceClient, StartSpeakerSearchTaskCommand } from '@aws-sdk/client-chime-sdk-voice'; // ES Modules import
+ * // const { ChimeSDKVoiceClient, StartSpeakerSearchTaskCommand } = require('@aws-sdk/client-chime-sdk-voice'); // CommonJS import
  * const client = new ChimeSDKVoiceClient(config);
  * const input = { // StartSpeakerSearchTaskRequest
- *   VoiceConnectorId: "STRING_VALUE", // required
- *   TransactionId: "STRING_VALUE", // required
- *   VoiceProfileDomainId: "STRING_VALUE", // required
- *   ClientRequestToken: "STRING_VALUE",
+ *   VoiceConnectorId: 'STRING_VALUE', // required
+ *   TransactionId: 'STRING_VALUE', // required
+ *   VoiceProfileDomainId: 'STRING_VALUE', // required
+ *   ClientRequestToken: 'STRING_VALUE',
  * };
  * const command = new StartSpeakerSearchTaskCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartSpeakerSearchTaskResponse
+ *   SpeakerSearchTask: { // SpeakerSearchTask
+ *     SpeakerSearchTaskId: 'STRING_VALUE',
+ *     SpeakerSearchTaskStatus: 'STRING_VALUE',
+ *     CallDetails: { // CallDetails
+ *       VoiceConnectorId: 'STRING_VALUE',
+ *       TransactionId: 'STRING_VALUE',
+ *       IsCaller: true || false,
+ *     },
+ *     SpeakerSearchDetails: { // SpeakerSearchDetails
+ *       Results: [ // SpeakerSearchResultList
+ *         { // SpeakerSearchResult
+ *           ConfidenceScore: Number('float'),
+ *           VoiceProfileId: 'STRING_VALUE',
+ *         },
+ *       ],
+ *       VoiceprintGenerationStatus: 'STRING_VALUE',
+ *     },
+ *     CreatedTimestamp: new Date('TIMESTAMP'),
+ *     UpdatedTimestamp: new Date('TIMESTAMP'),
+ *     StartedTimestamp: new Date('TIMESTAMP'),
+ *     StatusMessage: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param StartSpeakerSearchTaskCommandInput - {@link StartSpeakerSearchTaskCommandInput}
@@ -95,6 +121,8 @@ export interface StartSpeakerSearchTaskCommandOutput extends StartSpeakerSearchT
  * @throws {@link UnprocessableEntityException} (client fault)
  *  <p>A well-formed request couldn't be followed due to semantic errors.</p>
  *
+ * @throws {@link ChimeSDKVoiceServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
  */
 export class StartSpeakerSearchTaskCommand extends $Command<

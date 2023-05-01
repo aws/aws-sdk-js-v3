@@ -44,24 +44,57 @@ export interface DescribeTableStatisticsCommandOutput extends DescribeTableStati
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DatabaseMigrationServiceClient, DescribeTableStatisticsCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
- * // const { DatabaseMigrationServiceClient, DescribeTableStatisticsCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
+ * import { DatabaseMigrationServiceClient, DescribeTableStatisticsCommand } from '@aws-sdk/client-database-migration-service'; // ES Modules import
+ * // const { DatabaseMigrationServiceClient, DescribeTableStatisticsCommand } = require('@aws-sdk/client-database-migration-service'); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
  * const input = { // DescribeTableStatisticsMessage
- *   ReplicationTaskArn: "STRING_VALUE", // required
- *   MaxRecords: Number("int"),
- *   Marker: "STRING_VALUE",
+ *   ReplicationTaskArn: 'STRING_VALUE', // required
+ *   MaxRecords: Number('int'),
+ *   Marker: 'STRING_VALUE',
  *   Filters: [ // FilterList
  *     { // Filter
- *       Name: "STRING_VALUE", // required
+ *       Name: 'STRING_VALUE', // required
  *       Values: [ // FilterValueList // required
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
  * };
  * const command = new DescribeTableStatisticsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeTableStatisticsResponse
+ *   ReplicationTaskArn: 'STRING_VALUE',
+ *   TableStatistics: [ // TableStatisticsList
+ *     { // TableStatistics
+ *       SchemaName: 'STRING_VALUE',
+ *       TableName: 'STRING_VALUE',
+ *       Inserts: Number('long'),
+ *       Deletes: Number('long'),
+ *       Updates: Number('long'),
+ *       Ddls: Number('long'),
+ *       AppliedInserts: Number('long'),
+ *       AppliedDeletes: Number('long'),
+ *       AppliedUpdates: Number('long'),
+ *       AppliedDdls: Number('long'),
+ *       FullLoadRows: Number('long'),
+ *       FullLoadCondtnlChkFailedRows: Number('long'),
+ *       FullLoadErrorRows: Number('long'),
+ *       FullLoadStartTime: new Date('TIMESTAMP'),
+ *       FullLoadEndTime: new Date('TIMESTAMP'),
+ *       FullLoadReloaded: true || false,
+ *       LastUpdateTime: new Date('TIMESTAMP'),
+ *       TableState: 'STRING_VALUE',
+ *       ValidationPendingRecords: Number('long'),
+ *       ValidationFailedRecords: Number('long'),
+ *       ValidationSuspendedRecords: Number('long'),
+ *       ValidationState: 'STRING_VALUE',
+ *       ValidationStateDetails: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   Marker: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeTableStatisticsCommandInput - {@link DescribeTableStatisticsCommandInput}
@@ -76,6 +109,8 @@ export interface DescribeTableStatisticsCommandOutput extends DescribeTableStati
  * @throws {@link ResourceNotFoundFault} (client fault)
  *  <p>The resource could not be found.</p>
  *
+ * @throws {@link DatabaseMigrationServiceServiceException}
+ * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
  * @example Describe table statistics
  * ```javascript

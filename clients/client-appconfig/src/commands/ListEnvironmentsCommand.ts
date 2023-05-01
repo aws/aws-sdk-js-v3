@@ -36,16 +36,36 @@ export interface ListEnvironmentsCommandOutput extends Environments, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppConfigClient, ListEnvironmentsCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
- * // const { AppConfigClient, ListEnvironmentsCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import
+ * import { AppConfigClient, ListEnvironmentsCommand } from '@aws-sdk/client-appconfig'; // ES Modules import
+ * // const { AppConfigClient, ListEnvironmentsCommand } = require('@aws-sdk/client-appconfig'); // CommonJS import
  * const client = new AppConfigClient(config);
  * const input = { // ListEnvironmentsRequest
- *   ApplicationId: "STRING_VALUE", // required
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   ApplicationId: 'STRING_VALUE', // required
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListEnvironmentsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // Environments
+ *   Items: [ // EnvironmentList
+ *     { // Environment
+ *       ApplicationId: 'STRING_VALUE',
+ *       Id: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *       Description: 'STRING_VALUE',
+ *       State: 'READY_FOR_DEPLOYMENT' || 'DEPLOYING' || 'ROLLING_BACK' || 'ROLLED_BACK',
+ *       Monitors: [ // MonitorList
+ *         { // Monitor
+ *           AlarmArn: 'STRING_VALUE', // required
+ *           AlarmRoleArn: 'STRING_VALUE',
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListEnvironmentsCommandInput - {@link ListEnvironmentsCommandInput}
@@ -63,6 +83,8 @@ export interface ListEnvironmentsCommandOutput extends Environments, __MetadataB
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The requested resource could not be found.</p>
  *
+ * @throws {@link AppConfigServiceException}
+ * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
  * @example To list the available environments
  * ```javascript

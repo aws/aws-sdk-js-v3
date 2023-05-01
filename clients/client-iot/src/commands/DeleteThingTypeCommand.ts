@@ -39,14 +39,17 @@ export interface DeleteThingTypeCommandOutput extends DeleteThingTypeResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTClient, DeleteThingTypeCommand } from "@aws-sdk/client-iot"; // ES Modules import
- * // const { IoTClient, DeleteThingTypeCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * import { IoTClient, DeleteThingTypeCommand } from '@aws-sdk/client-iot'; // ES Modules import
+ * // const { IoTClient, DeleteThingTypeCommand } = require('@aws-sdk/client-iot'); // CommonJS import
  * const client = new IoTClient(config);
  * const input = { // DeleteThingTypeRequest
- *   thingTypeName: "STRING_VALUE", // required
+ *   thingTypeName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteThingTypeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteThingTypeCommandInput - {@link DeleteThingTypeCommandInput}
@@ -73,6 +76,8 @@ export interface DeleteThingTypeCommandOutput extends DeleteThingTypeResponse, _
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this operation.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class DeleteThingTypeCommand extends $Command<

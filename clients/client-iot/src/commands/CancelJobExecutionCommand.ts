@@ -37,20 +37,23 @@ export interface CancelJobExecutionCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTClient, CancelJobExecutionCommand } from "@aws-sdk/client-iot"; // ES Modules import
- * // const { IoTClient, CancelJobExecutionCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * import { IoTClient, CancelJobExecutionCommand } from '@aws-sdk/client-iot'; // ES Modules import
+ * // const { IoTClient, CancelJobExecutionCommand } = require('@aws-sdk/client-iot'); // CommonJS import
  * const client = new IoTClient(config);
  * const input = { // CancelJobExecutionRequest
- *   jobId: "STRING_VALUE", // required
- *   thingName: "STRING_VALUE", // required
+ *   jobId: 'STRING_VALUE', // required
+ *   thingName: 'STRING_VALUE', // required
  *   force: true || false,
- *   expectedVersion: Number("long"),
+ *   expectedVersion: Number('long'),
  *   statusDetails: { // DetailsMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new CancelJobExecutionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param CancelJobExecutionCommandInput - {@link CancelJobExecutionCommandInput}
@@ -81,6 +84,8 @@ export interface CancelJobExecutionCommandOutput extends __MetadataBearer {}
  *             <code>expectedVersion</code> parameter does not match the latest version in the
  *          system.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class CancelJobExecutionCommand extends $Command<

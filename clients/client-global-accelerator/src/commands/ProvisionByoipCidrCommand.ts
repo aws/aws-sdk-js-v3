@@ -45,18 +45,32 @@ export interface ProvisionByoipCidrCommandOutput extends ProvisionByoipCidrRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlobalAcceleratorClient, ProvisionByoipCidrCommand } from "@aws-sdk/client-global-accelerator"; // ES Modules import
- * // const { GlobalAcceleratorClient, ProvisionByoipCidrCommand } = require("@aws-sdk/client-global-accelerator"); // CommonJS import
+ * import { GlobalAcceleratorClient, ProvisionByoipCidrCommand } from '@aws-sdk/client-global-accelerator'; // ES Modules import
+ * // const { GlobalAcceleratorClient, ProvisionByoipCidrCommand } = require('@aws-sdk/client-global-accelerator'); // CommonJS import
  * const client = new GlobalAcceleratorClient(config);
  * const input = { // ProvisionByoipCidrRequest
- *   Cidr: "STRING_VALUE", // required
+ *   Cidr: 'STRING_VALUE', // required
  *   CidrAuthorizationContext: { // CidrAuthorizationContext
- *     Message: "STRING_VALUE", // required
- *     Signature: "STRING_VALUE", // required
+ *     Message: 'STRING_VALUE', // required
+ *     Signature: 'STRING_VALUE', // required
  *   },
  * };
  * const command = new ProvisionByoipCidrCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ProvisionByoipCidrResponse
+ *   ByoipCidr: { // ByoipCidr
+ *     Cidr: 'STRING_VALUE',
+ *     State: 'PENDING_PROVISIONING' || 'READY' || 'PENDING_ADVERTISING' || 'ADVERTISING' || 'PENDING_WITHDRAWING' || 'PENDING_DEPROVISIONING' || 'DEPROVISIONED' || 'FAILED_PROVISION' || 'FAILED_ADVERTISING' || 'FAILED_WITHDRAW' || 'FAILED_DEPROVISION',
+ *     Events: [ // ByoipCidrEvents
+ *       { // ByoipCidrEvent
+ *         Message: 'STRING_VALUE',
+ *         Timestamp: new Date('TIMESTAMP'),
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param ProvisionByoipCidrCommandInput - {@link ProvisionByoipCidrCommandInput}
@@ -81,6 +95,8 @@ export interface ProvisionByoipCidrCommandOutput extends ProvisionByoipCidrRespo
  * @throws {@link LimitExceededException} (client fault)
  *  <p>Processing your request would cause you to exceed an Global Accelerator limit.</p>
  *
+ * @throws {@link GlobalAcceleratorServiceException}
+ * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
  */
 export class ProvisionByoipCidrCommand extends $Command<

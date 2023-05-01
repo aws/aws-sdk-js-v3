@@ -36,14 +36,33 @@ export interface DescribeModelPackageGroupCommandOutput extends DescribeModelPac
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, DescribeModelPackageGroupCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, DescribeModelPackageGroupCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, DescribeModelPackageGroupCommand } from '@aws-sdk/client-sagemaker'; // ES Modules import
+ * // const { SageMakerClient, DescribeModelPackageGroupCommand } = require('@aws-sdk/client-sagemaker'); // CommonJS import
  * const client = new SageMakerClient(config);
  * const input = { // DescribeModelPackageGroupInput
- *   ModelPackageGroupName: "STRING_VALUE", // required
+ *   ModelPackageGroupName: 'STRING_VALUE', // required
  * };
  * const command = new DescribeModelPackageGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeModelPackageGroupOutput
+ *   ModelPackageGroupName: 'STRING_VALUE', // required
+ *   ModelPackageGroupArn: 'STRING_VALUE', // required
+ *   ModelPackageGroupDescription: 'STRING_VALUE',
+ *   CreationTime: new Date('TIMESTAMP'), // required
+ *   CreatedBy: { // UserContext
+ *     UserProfileArn: 'STRING_VALUE',
+ *     UserProfileName: 'STRING_VALUE',
+ *     DomainId: 'STRING_VALUE',
+ *     IamIdentity: { // IamIdentity
+ *       Arn: 'STRING_VALUE',
+ *       PrincipalId: 'STRING_VALUE',
+ *       SourceIdentity: 'STRING_VALUE',
+ *     },
+ *   },
+ *   ModelPackageGroupStatus: 'Pending' || 'InProgress' || 'Completed' || 'Failed' || 'Deleting' || 'DeleteFailed', // required
+ * };
+ *
  * ```
  *
  * @param DescribeModelPackageGroupCommandInput - {@link DescribeModelPackageGroupCommandInput}
@@ -52,6 +71,8 @@ export interface DescribeModelPackageGroupCommandOutput extends DescribeModelPac
  * @see {@link DescribeModelPackageGroupCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class DescribeModelPackageGroupCommand extends $Command<

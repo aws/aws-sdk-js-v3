@@ -36,16 +36,30 @@ export interface ListStreamKeysCommandOutput extends ListStreamKeysResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IvsClient, ListStreamKeysCommand } from "@aws-sdk/client-ivs"; // ES Modules import
- * // const { IvsClient, ListStreamKeysCommand } = require("@aws-sdk/client-ivs"); // CommonJS import
+ * import { IvsClient, ListStreamKeysCommand } from '@aws-sdk/client-ivs'; // ES Modules import
+ * // const { IvsClient, ListStreamKeysCommand } = require('@aws-sdk/client-ivs'); // CommonJS import
  * const client = new IvsClient(config);
  * const input = { // ListStreamKeysRequest
- *   channelArn: "STRING_VALUE", // required
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   channelArn: 'STRING_VALUE', // required
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new ListStreamKeysCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListStreamKeysResponse
+ *   streamKeys: [ // StreamKeyList // required
+ *     { // StreamKeySummary
+ *       arn: 'STRING_VALUE',
+ *       channelArn: 'STRING_VALUE',
+ *       tags: { // Tags
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListStreamKeysCommandInput - {@link ListStreamKeysCommandInput}
@@ -63,6 +77,8 @@ export interface ListStreamKeysCommandOutput extends ListStreamKeysResponse, __M
  * @throws {@link ValidationException} (client fault)
  *  <p/>
  *
+ * @throws {@link IvsServiceException}
+ * <p>Base exception class for all service exceptions from Ivs service.</p>
  *
  */
 export class ListStreamKeysCommand extends $Command<

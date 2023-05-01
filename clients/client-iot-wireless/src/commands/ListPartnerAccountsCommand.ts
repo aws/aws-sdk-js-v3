@@ -40,15 +40,27 @@ export interface ListPartnerAccountsCommandOutput extends ListPartnerAccountsRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTWirelessClient, ListPartnerAccountsCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
- * // const { IoTWirelessClient, ListPartnerAccountsCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
+ * import { IoTWirelessClient, ListPartnerAccountsCommand } from '@aws-sdk/client-iot-wireless'; // ES Modules import
+ * // const { IoTWirelessClient, ListPartnerAccountsCommand } = require('@aws-sdk/client-iot-wireless'); // CommonJS import
  * const client = new IoTWirelessClient(config);
  * const input = { // ListPartnerAccountsRequest
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListPartnerAccountsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListPartnerAccountsResponse
+ *   NextToken: 'STRING_VALUE',
+ *   Sidewalk: [ // SidewalkAccountList
+ *     { // SidewalkAccountInfoWithFingerprint
+ *       AmazonId: 'STRING_VALUE',
+ *       Fingerprint: 'STRING_VALUE',
+ *       Arn: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListPartnerAccountsCommandInput - {@link ListPartnerAccountsCommandInput}
@@ -69,6 +81,8 @@ export interface ListPartnerAccountsCommandOutput extends ListPartnerAccountsRes
  * @throws {@link ValidationException} (client fault)
  *  <p>The input did not meet the specified constraints.</p>
  *
+ * @throws {@link IoTWirelessServiceException}
+ * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
  */
 export class ListPartnerAccountsCommand extends $Command<

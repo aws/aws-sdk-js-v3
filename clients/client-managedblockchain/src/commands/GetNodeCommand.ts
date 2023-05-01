@@ -41,16 +41,59 @@ export interface GetNodeCommandOutput extends GetNodeOutput, __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ManagedBlockchainClient, GetNodeCommand } from "@aws-sdk/client-managedblockchain"; // ES Modules import
- * // const { ManagedBlockchainClient, GetNodeCommand } = require("@aws-sdk/client-managedblockchain"); // CommonJS import
+ * import { ManagedBlockchainClient, GetNodeCommand } from '@aws-sdk/client-managedblockchain'; // ES Modules import
+ * // const { ManagedBlockchainClient, GetNodeCommand } = require('@aws-sdk/client-managedblockchain'); // CommonJS import
  * const client = new ManagedBlockchainClient(config);
  * const input = { // GetNodeInput
- *   NetworkId: "STRING_VALUE", // required
- *   MemberId: "STRING_VALUE",
- *   NodeId: "STRING_VALUE", // required
+ *   NetworkId: 'STRING_VALUE', // required
+ *   MemberId: 'STRING_VALUE',
+ *   NodeId: 'STRING_VALUE', // required
  * };
  * const command = new GetNodeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetNodeOutput
+ *   Node: { // Node
+ *     NetworkId: 'STRING_VALUE',
+ *     MemberId: 'STRING_VALUE',
+ *     Id: 'STRING_VALUE',
+ *     InstanceType: 'STRING_VALUE',
+ *     AvailabilityZone: 'STRING_VALUE',
+ *     FrameworkAttributes: { // NodeFrameworkAttributes
+ *       Fabric: { // NodeFabricAttributes
+ *         PeerEndpoint: 'STRING_VALUE',
+ *         PeerEventEndpoint: 'STRING_VALUE',
+ *       },
+ *       Ethereum: { // NodeEthereumAttributes
+ *         HttpEndpoint: 'STRING_VALUE',
+ *         WebSocketEndpoint: 'STRING_VALUE',
+ *       },
+ *     },
+ *     LogPublishingConfiguration: { // NodeLogPublishingConfiguration
+ *       Fabric: { // NodeFabricLogPublishingConfiguration
+ *         ChaincodeLogs: { // LogConfigurations
+ *           Cloudwatch: { // LogConfiguration
+ *             Enabled: true || false,
+ *           },
+ *         },
+ *         PeerLogs: {
+ *           Cloudwatch: {
+ *             Enabled: true || false,
+ *           },
+ *         },
+ *       },
+ *     },
+ *     StateDB: 'LevelDB' || 'CouchDB',
+ *     Status: 'CREATING' || 'AVAILABLE' || 'UNHEALTHY' || 'CREATE_FAILED' || 'UPDATING' || 'DELETING' || 'DELETED' || 'FAILED' || 'INACCESSIBLE_ENCRYPTION_KEY',
+ *     CreationDate: new Date('TIMESTAMP'),
+ *     Tags: { // OutputTagMap
+ *       '<keys>': 'STRING_VALUE',
+ *     },
+ *     Arn: 'STRING_VALUE',
+ *     KmsKeyArn: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetNodeCommandInput - {@link GetNodeCommandInput}
@@ -77,6 +120,8 @@ export interface GetNodeCommandOutput extends GetNodeOutput, __MetadataBearer {}
  *          creating resources that exceed your service limit for this resource type.
  *          Request a limit increase or delete unused resources if possible.</p>
  *
+ * @throws {@link ManagedBlockchainServiceException}
+ * <p>Base exception class for all service exceptions from ManagedBlockchain service.</p>
  *
  */
 export class GetNodeCommand extends $Command<

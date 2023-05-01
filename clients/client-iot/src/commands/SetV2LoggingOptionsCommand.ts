@@ -37,16 +37,19 @@ export interface SetV2LoggingOptionsCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTClient, SetV2LoggingOptionsCommand } from "@aws-sdk/client-iot"; // ES Modules import
- * // const { IoTClient, SetV2LoggingOptionsCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * import { IoTClient, SetV2LoggingOptionsCommand } from '@aws-sdk/client-iot'; // ES Modules import
+ * // const { IoTClient, SetV2LoggingOptionsCommand } = require('@aws-sdk/client-iot'); // CommonJS import
  * const client = new IoTClient(config);
  * const input = { // SetV2LoggingOptionsRequest
- *   roleArn: "STRING_VALUE",
- *   defaultLogLevel: "DEBUG" || "INFO" || "ERROR" || "WARN" || "DISABLED",
+ *   roleArn: 'STRING_VALUE',
+ *   defaultLogLevel: 'DEBUG' || 'INFO' || 'ERROR' || 'WARN' || 'DISABLED',
  *   disableAllLogs: true || false,
  * };
  * const command = new SetV2LoggingOptionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param SetV2LoggingOptionsCommandInput - {@link SetV2LoggingOptionsCommandInput}
@@ -64,6 +67,8 @@ export interface SetV2LoggingOptionsCommandOutput extends __MetadataBearer {}
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service is temporarily unavailable.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class SetV2LoggingOptionsCommand extends $Command<

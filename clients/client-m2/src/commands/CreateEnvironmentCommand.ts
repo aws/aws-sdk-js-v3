@@ -36,46 +36,51 @@ export interface CreateEnvironmentCommandOutput extends CreateEnvironmentRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { M2Client, CreateEnvironmentCommand } from "@aws-sdk/client-m2"; // ES Modules import
- * // const { M2Client, CreateEnvironmentCommand } = require("@aws-sdk/client-m2"); // CommonJS import
+ * import { M2Client, CreateEnvironmentCommand } from '@aws-sdk/client-m2'; // ES Modules import
+ * // const { M2Client, CreateEnvironmentCommand } = require('@aws-sdk/client-m2'); // CommonJS import
  * const client = new M2Client(config);
  * const input = { // CreateEnvironmentRequest
- *   name: "STRING_VALUE", // required
- *   instanceType: "STRING_VALUE", // required
- *   description: "STRING_VALUE",
- *   engineType: "STRING_VALUE", // required
- *   engineVersion: "STRING_VALUE",
+ *   name: 'STRING_VALUE', // required
+ *   instanceType: 'STRING_VALUE', // required
+ *   description: 'STRING_VALUE',
+ *   engineType: 'STRING_VALUE', // required
+ *   engineVersion: 'STRING_VALUE',
  *   subnetIds: [ // String50List
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   securityGroupIds: [
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   storageConfigurations: [ // StorageConfigurationList
  *     { // StorageConfiguration Union: only one key present
  *       efs: { // EfsStorageConfiguration
- *         fileSystemId: "STRING_VALUE", // required
- *         mountPoint: "STRING_VALUE", // required
+ *         fileSystemId: 'STRING_VALUE', // required
+ *         mountPoint: 'STRING_VALUE', // required
  *       },
  *       fsx: { // FsxStorageConfiguration
- *         fileSystemId: "STRING_VALUE", // required
- *         mountPoint: "STRING_VALUE", // required
+ *         fileSystemId: 'STRING_VALUE', // required
+ *         mountPoint: 'STRING_VALUE', // required
  *       },
  *     },
  *   ],
  *   publiclyAccessible: true || false,
  *   highAvailabilityConfig: { // HighAvailabilityConfig
- *     desiredCapacity: Number("int"), // required
+ *     desiredCapacity: Number('int'), // required
  *   },
  *   tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
- *   preferredMaintenanceWindow: "STRING_VALUE",
- *   clientToken: "STRING_VALUE",
- *   kmsKeyId: "STRING_VALUE",
+ *   preferredMaintenanceWindow: 'STRING_VALUE',
+ *   clientToken: 'STRING_VALUE',
+ *   kmsKeyId: 'STRING_VALUE',
  * };
  * const command = new CreateEnvironmentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateEnvironmentResponse
+ *   environmentId: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param CreateEnvironmentCommandInput - {@link CreateEnvironmentCommandInput}
@@ -102,6 +107,8 @@ export interface CreateEnvironmentCommandOutput extends CreateEnvironmentRespons
  * @throws {@link ValidationException} (client fault)
  *  <p>One or more parameters provided in the request is not valid.</p>
  *
+ * @throws {@link M2ServiceException}
+ * <p>Base exception class for all service exceptions from M2 service.</p>
  *
  */
 export class CreateEnvironmentCommand extends $Command<

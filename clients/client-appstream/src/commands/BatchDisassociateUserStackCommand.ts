@@ -41,21 +41,37 @@ export interface BatchDisassociateUserStackCommandOutput extends BatchDisassocia
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppStreamClient, BatchDisassociateUserStackCommand } from "@aws-sdk/client-appstream"; // ES Modules import
- * // const { AppStreamClient, BatchDisassociateUserStackCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
+ * import { AppStreamClient, BatchDisassociateUserStackCommand } from '@aws-sdk/client-appstream'; // ES Modules import
+ * // const { AppStreamClient, BatchDisassociateUserStackCommand } = require('@aws-sdk/client-appstream'); // CommonJS import
  * const client = new AppStreamClient(config);
  * const input = { // BatchDisassociateUserStackRequest
  *   UserStackAssociations: [ // UserStackAssociationList // required
  *     { // UserStackAssociation
- *       StackName: "STRING_VALUE", // required
- *       UserName: "STRING_VALUE", // required
- *       AuthenticationType: "API" || "SAML" || "USERPOOL" || "AWS_AD", // required
+ *       StackName: 'STRING_VALUE', // required
+ *       UserName: 'STRING_VALUE', // required
+ *       AuthenticationType: 'API' || 'SAML' || 'USERPOOL' || 'AWS_AD', // required
  *       SendEmailNotification: true || false,
  *     },
  *   ],
  * };
  * const command = new BatchDisassociateUserStackCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BatchDisassociateUserStackResult
+ *   errors: [ // UserStackAssociationErrorList
+ *     { // UserStackAssociationError
+ *       UserStackAssociation: { // UserStackAssociation
+ *         StackName: 'STRING_VALUE', // required
+ *         UserName: 'STRING_VALUE', // required
+ *         AuthenticationType: 'API' || 'SAML' || 'USERPOOL' || 'AWS_AD', // required
+ *         SendEmailNotification: true || false,
+ *       },
+ *       ErrorCode: 'STACK_NOT_FOUND' || 'USER_NAME_NOT_FOUND' || 'DIRECTORY_NOT_FOUND' || 'INTERNAL_ERROR',
+ *       ErrorMessage: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param BatchDisassociateUserStackCommandInput - {@link BatchDisassociateUserStackCommandInput}
@@ -70,6 +86,8 @@ export interface BatchDisassociateUserStackCommandOutput extends BatchDisassocia
  * @throws {@link OperationNotPermittedException} (client fault)
  *  <p>The attempted operation is not permitted.</p>
  *
+ * @throws {@link AppStreamServiceException}
+ * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
  */
 export class BatchDisassociateUserStackCommand extends $Command<

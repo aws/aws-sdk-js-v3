@@ -36,19 +36,28 @@ export interface GetSchemaByDefinitionCommandOutput extends GetSchemaByDefinitio
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlueClient, GetSchemaByDefinitionCommand } from "@aws-sdk/client-glue"; // ES Modules import
- * // const { GlueClient, GetSchemaByDefinitionCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * import { GlueClient, GetSchemaByDefinitionCommand } from '@aws-sdk/client-glue'; // ES Modules import
+ * // const { GlueClient, GetSchemaByDefinitionCommand } = require('@aws-sdk/client-glue'); // CommonJS import
  * const client = new GlueClient(config);
  * const input = { // GetSchemaByDefinitionInput
  *   SchemaId: { // SchemaId
- *     SchemaArn: "STRING_VALUE",
- *     SchemaName: "STRING_VALUE",
- *     RegistryName: "STRING_VALUE",
+ *     SchemaArn: 'STRING_VALUE',
+ *     SchemaName: 'STRING_VALUE',
+ *     RegistryName: 'STRING_VALUE',
  *   },
- *   SchemaDefinition: "STRING_VALUE", // required
+ *   SchemaDefinition: 'STRING_VALUE', // required
  * };
  * const command = new GetSchemaByDefinitionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetSchemaByDefinitionResponse
+ *   SchemaVersionId: 'STRING_VALUE',
+ *   SchemaArn: 'STRING_VALUE',
+ *   DataFormat: 'AVRO' || 'JSON' || 'PROTOBUF',
+ *   Status: 'AVAILABLE' || 'PENDING' || 'FAILURE' || 'DELETING',
+ *   CreatedTime: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetSchemaByDefinitionCommandInput - {@link GetSchemaByDefinitionCommandInput}
@@ -69,6 +78,8 @@ export interface GetSchemaByDefinitionCommandOutput extends GetSchemaByDefinitio
  * @throws {@link InvalidInputException} (client fault)
  *  <p>The input provided was not valid.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class GetSchemaByDefinitionCommand extends $Command<

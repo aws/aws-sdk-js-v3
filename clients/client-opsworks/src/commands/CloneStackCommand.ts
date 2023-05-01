@@ -41,52 +41,57 @@ export interface CloneStackCommandOutput extends CloneStackResult, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OpsWorksClient, CloneStackCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
- * // const { OpsWorksClient, CloneStackCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
+ * import { OpsWorksClient, CloneStackCommand } from '@aws-sdk/client-opsworks'; // ES Modules import
+ * // const { OpsWorksClient, CloneStackCommand } = require('@aws-sdk/client-opsworks'); // CommonJS import
  * const client = new OpsWorksClient(config);
  * const input = { // CloneStackRequest
- *   SourceStackId: "STRING_VALUE", // required
- *   Name: "STRING_VALUE",
- *   Region: "STRING_VALUE",
- *   VpcId: "STRING_VALUE",
+ *   SourceStackId: 'STRING_VALUE', // required
+ *   Name: 'STRING_VALUE',
+ *   Region: 'STRING_VALUE',
+ *   VpcId: 'STRING_VALUE',
  *   Attributes: { // StackAttributes
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
- *   ServiceRoleArn: "STRING_VALUE", // required
- *   DefaultInstanceProfileArn: "STRING_VALUE",
- *   DefaultOs: "STRING_VALUE",
- *   HostnameTheme: "STRING_VALUE",
- *   DefaultAvailabilityZone: "STRING_VALUE",
- *   DefaultSubnetId: "STRING_VALUE",
- *   CustomJson: "STRING_VALUE",
+ *   ServiceRoleArn: 'STRING_VALUE', // required
+ *   DefaultInstanceProfileArn: 'STRING_VALUE',
+ *   DefaultOs: 'STRING_VALUE',
+ *   HostnameTheme: 'STRING_VALUE',
+ *   DefaultAvailabilityZone: 'STRING_VALUE',
+ *   DefaultSubnetId: 'STRING_VALUE',
+ *   CustomJson: 'STRING_VALUE',
  *   ConfigurationManager: { // StackConfigurationManager
- *     Name: "STRING_VALUE",
- *     Version: "STRING_VALUE",
+ *     Name: 'STRING_VALUE',
+ *     Version: 'STRING_VALUE',
  *   },
  *   ChefConfiguration: { // ChefConfiguration
  *     ManageBerkshelf: true || false,
- *     BerkshelfVersion: "STRING_VALUE",
+ *     BerkshelfVersion: 'STRING_VALUE',
  *   },
  *   UseCustomCookbooks: true || false,
  *   UseOpsworksSecurityGroups: true || false,
  *   CustomCookbooksSource: { // Source
- *     Type: "STRING_VALUE",
- *     Url: "STRING_VALUE",
- *     Username: "STRING_VALUE",
- *     Password: "STRING_VALUE",
- *     SshKey: "STRING_VALUE",
- *     Revision: "STRING_VALUE",
+ *     Type: 'STRING_VALUE',
+ *     Url: 'STRING_VALUE',
+ *     Username: 'STRING_VALUE',
+ *     Password: 'STRING_VALUE',
+ *     SshKey: 'STRING_VALUE',
+ *     Revision: 'STRING_VALUE',
  *   },
- *   DefaultSshKeyName: "STRING_VALUE",
+ *   DefaultSshKeyName: 'STRING_VALUE',
  *   ClonePermissions: true || false,
  *   CloneAppIds: [ // Strings
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   DefaultRootDeviceType: "STRING_VALUE",
- *   AgentVersion: "STRING_VALUE",
+ *   DefaultRootDeviceType: 'STRING_VALUE',
+ *   AgentVersion: 'STRING_VALUE',
  * };
  * const command = new CloneStackCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CloneStackResult
+ *   StackId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CloneStackCommandInput - {@link CloneStackCommandInput}
@@ -101,6 +106,8 @@ export interface CloneStackCommandOutput extends CloneStackResult, __MetadataBea
  * @throws {@link ValidationException} (client fault)
  *  <p>Indicates that a request was not valid.</p>
  *
+ * @throws {@link OpsWorksServiceException}
+ * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
  */
 export class CloneStackCommand extends $Command<

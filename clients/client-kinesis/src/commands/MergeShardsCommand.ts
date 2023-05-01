@@ -76,17 +76,20 @@ export interface MergeShardsCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KinesisClient, MergeShardsCommand } from "@aws-sdk/client-kinesis"; // ES Modules import
- * // const { KinesisClient, MergeShardsCommand } = require("@aws-sdk/client-kinesis"); // CommonJS import
+ * import { KinesisClient, MergeShardsCommand } from '@aws-sdk/client-kinesis'; // ES Modules import
+ * // const { KinesisClient, MergeShardsCommand } = require('@aws-sdk/client-kinesis'); // CommonJS import
  * const client = new KinesisClient(config);
  * const input = { // MergeShardsInput
- *   StreamName: "STRING_VALUE",
- *   ShardToMerge: "STRING_VALUE", // required
- *   AdjacentShardToMerge: "STRING_VALUE", // required
- *   StreamARN: "STRING_VALUE",
+ *   StreamName: 'STRING_VALUE',
+ *   ShardToMerge: 'STRING_VALUE', // required
+ *   AdjacentShardToMerge: 'STRING_VALUE', // required
+ *   StreamARN: 'STRING_VALUE',
  * };
  * const command = new MergeShardsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param MergeShardsCommandInput - {@link MergeShardsCommandInput}
@@ -120,6 +123,8 @@ export interface MergeShardsCommandOutput extends __MetadataBearer {}
  *             capacity mode. This API is only supported for data streams with the provisioned capacity
  *             mode. </p>
  *
+ * @throws {@link KinesisServiceException}
+ * <p>Base exception class for all service exceptions from Kinesis service.</p>
  *
  */
 export class MergeShardsCommand extends $Command<

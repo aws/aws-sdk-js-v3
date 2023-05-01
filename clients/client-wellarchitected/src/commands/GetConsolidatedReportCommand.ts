@@ -37,17 +37,62 @@ export interface GetConsolidatedReportCommandOutput extends GetConsolidatedRepor
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WellArchitectedClient, GetConsolidatedReportCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
- * // const { WellArchitectedClient, GetConsolidatedReportCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
+ * import { WellArchitectedClient, GetConsolidatedReportCommand } from '@aws-sdk/client-wellarchitected'; // ES Modules import
+ * // const { WellArchitectedClient, GetConsolidatedReportCommand } = require('@aws-sdk/client-wellarchitected'); // CommonJS import
  * const client = new WellArchitectedClient(config);
  * const input = { // GetConsolidatedReportInput
- *   Format: "PDF" || "JSON", // required
+ *   Format: 'PDF' || 'JSON', // required
  *   IncludeSharedResources: true || false,
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new GetConsolidatedReportCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetConsolidatedReportOutput
+ *   Metrics: [ // ConsolidatedReportMetrics
+ *     { // ConsolidatedReportMetric
+ *       MetricType: 'WORKLOAD',
+ *       RiskCounts: { // RiskCounts
+ *         '<keys>': Number('int'),
+ *       },
+ *       WorkloadId: 'STRING_VALUE',
+ *       WorkloadName: 'STRING_VALUE',
+ *       WorkloadArn: 'STRING_VALUE',
+ *       UpdatedAt: new Date('TIMESTAMP'),
+ *       Lenses: [ // LensMetrics
+ *         { // LensMetric
+ *           LensArn: 'STRING_VALUE',
+ *           Pillars: [ // PillarMetrics
+ *             { // PillarMetric
+ *               PillarId: 'STRING_VALUE',
+ *               RiskCounts: {
+ *                 '<keys>': Number('int'),
+ *               },
+ *               Questions: [ // QuestionMetrics
+ *                 { // QuestionMetric
+ *                   QuestionId: 'STRING_VALUE',
+ *                   Risk: 'UNANSWERED' || 'HIGH' || 'MEDIUM' || 'NONE' || 'NOT_APPLICABLE',
+ *                   BestPractices: [ // BestPractices
+ *                     { // BestPractice
+ *                       ChoiceId: 'STRING_VALUE',
+ *                       ChoiceTitle: 'STRING_VALUE',
+ *                     },
+ *                   ],
+ *                 },
+ *               ],
+ *             },
+ *           ],
+ *           RiskCounts: '<RiskCounts>',
+ *         },
+ *       ],
+ *       LensesAppliedCount: Number('int'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ *   Base64String: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetConsolidatedReportCommandInput - {@link GetConsolidatedReportCommandInput}
@@ -71,6 +116,8 @@ export interface GetConsolidatedReportCommandOutput extends GetConsolidatedRepor
  * @throws {@link ValidationException} (client fault)
  *  <p>The user input is not valid.</p>
  *
+ * @throws {@link WellArchitectedServiceException}
+ * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
  */
 export class GetConsolidatedReportCommand extends $Command<

@@ -41,8 +41,8 @@ export interface UpdateOrganizationConfigurationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Inspector2Client, UpdateOrganizationConfigurationCommand } from "@aws-sdk/client-inspector2"; // ES Modules import
- * // const { Inspector2Client, UpdateOrganizationConfigurationCommand } = require("@aws-sdk/client-inspector2"); // CommonJS import
+ * import { Inspector2Client, UpdateOrganizationConfigurationCommand } from '@aws-sdk/client-inspector2'; // ES Modules import
+ * // const { Inspector2Client, UpdateOrganizationConfigurationCommand } = require('@aws-sdk/client-inspector2'); // CommonJS import
  * const client = new Inspector2Client(config);
  * const input = { // UpdateOrganizationConfigurationRequest
  *   autoEnable: { // AutoEnable
@@ -53,6 +53,15 @@ export interface UpdateOrganizationConfigurationCommandOutput
  * };
  * const command = new UpdateOrganizationConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateOrganizationConfigurationResponse
+ *   autoEnable: { // AutoEnable
+ *     ec2: true || false, // required
+ *     ecr: true || false, // required
+ *     lambda: true || false,
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateOrganizationConfigurationCommandInput - {@link UpdateOrganizationConfigurationCommandInput}
@@ -74,6 +83,8 @@ export interface UpdateOrganizationConfigurationCommandOutput
  *  <p>The request has failed validation due to missing required fields or having invalid
  *          inputs.</p>
  *
+ * @throws {@link Inspector2ServiceException}
+ * <p>Base exception class for all service exceptions from Inspector2 service.</p>
  *
  */
 export class UpdateOrganizationConfigurationCommand extends $Command<

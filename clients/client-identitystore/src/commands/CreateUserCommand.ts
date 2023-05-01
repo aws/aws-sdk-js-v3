@@ -36,57 +36,63 @@ export interface CreateUserCommandOutput extends CreateUserResponse, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IdentitystoreClient, CreateUserCommand } from "@aws-sdk/client-identitystore"; // ES Modules import
- * // const { IdentitystoreClient, CreateUserCommand } = require("@aws-sdk/client-identitystore"); // CommonJS import
+ * import { IdentitystoreClient, CreateUserCommand } from '@aws-sdk/client-identitystore'; // ES Modules import
+ * // const { IdentitystoreClient, CreateUserCommand } = require('@aws-sdk/client-identitystore'); // CommonJS import
  * const client = new IdentitystoreClient(config);
  * const input = { // CreateUserRequest
- *   IdentityStoreId: "STRING_VALUE", // required
- *   UserName: "STRING_VALUE",
+ *   IdentityStoreId: 'STRING_VALUE', // required
+ *   UserName: 'STRING_VALUE',
  *   Name: { // Name
- *     Formatted: "STRING_VALUE",
- *     FamilyName: "STRING_VALUE",
- *     GivenName: "STRING_VALUE",
- *     MiddleName: "STRING_VALUE",
- *     HonorificPrefix: "STRING_VALUE",
- *     HonorificSuffix: "STRING_VALUE",
+ *     Formatted: 'STRING_VALUE',
+ *     FamilyName: 'STRING_VALUE',
+ *     GivenName: 'STRING_VALUE',
+ *     MiddleName: 'STRING_VALUE',
+ *     HonorificPrefix: 'STRING_VALUE',
+ *     HonorificSuffix: 'STRING_VALUE',
  *   },
- *   DisplayName: "STRING_VALUE",
- *   NickName: "STRING_VALUE",
- *   ProfileUrl: "STRING_VALUE",
+ *   DisplayName: 'STRING_VALUE',
+ *   NickName: 'STRING_VALUE',
+ *   ProfileUrl: 'STRING_VALUE',
  *   Emails: [ // Emails
  *     { // Email
- *       Value: "STRING_VALUE",
- *       Type: "STRING_VALUE",
+ *       Value: 'STRING_VALUE',
+ *       Type: 'STRING_VALUE',
  *       Primary: true || false,
  *     },
  *   ],
  *   Addresses: [ // Addresses
  *     { // Address
- *       StreetAddress: "STRING_VALUE",
- *       Locality: "STRING_VALUE",
- *       Region: "STRING_VALUE",
- *       PostalCode: "STRING_VALUE",
- *       Country: "STRING_VALUE",
- *       Formatted: "STRING_VALUE",
- *       Type: "STRING_VALUE",
+ *       StreetAddress: 'STRING_VALUE',
+ *       Locality: 'STRING_VALUE',
+ *       Region: 'STRING_VALUE',
+ *       PostalCode: 'STRING_VALUE',
+ *       Country: 'STRING_VALUE',
+ *       Formatted: 'STRING_VALUE',
+ *       Type: 'STRING_VALUE',
  *       Primary: true || false,
  *     },
  *   ],
  *   PhoneNumbers: [ // PhoneNumbers
  *     { // PhoneNumber
- *       Value: "STRING_VALUE",
- *       Type: "STRING_VALUE",
+ *       Value: 'STRING_VALUE',
+ *       Type: 'STRING_VALUE',
  *       Primary: true || false,
  *     },
  *   ],
- *   UserType: "STRING_VALUE",
- *   Title: "STRING_VALUE",
- *   PreferredLanguage: "STRING_VALUE",
- *   Locale: "STRING_VALUE",
- *   Timezone: "STRING_VALUE",
+ *   UserType: 'STRING_VALUE',
+ *   Title: 'STRING_VALUE',
+ *   PreferredLanguage: 'STRING_VALUE',
+ *   Locale: 'STRING_VALUE',
+ *   Timezone: 'STRING_VALUE',
  * };
  * const command = new CreateUserCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateUserResponse
+ *   UserId: 'STRING_VALUE', // required
+ *   IdentityStoreId: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param CreateUserCommandInput - {@link CreateUserCommandInput}
@@ -124,6 +130,8 @@ export interface CreateUserCommandOutput extends CreateUserResponse, __MetadataB
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Indicates that the principal has crossed the throttling limits of the API operations.</p>
  *
+ * @throws {@link IdentitystoreServiceException}
+ * <p>Base exception class for all service exceptions from Identitystore service.</p>
  *
  */
 export class CreateUserCommand extends $Command<

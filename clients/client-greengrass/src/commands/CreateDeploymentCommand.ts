@@ -36,18 +36,24 @@ export interface CreateDeploymentCommandOutput extends CreateDeploymentResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GreengrassClient, CreateDeploymentCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
- * // const { GreengrassClient, CreateDeploymentCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
+ * import { GreengrassClient, CreateDeploymentCommand } from '@aws-sdk/client-greengrass'; // ES Modules import
+ * // const { GreengrassClient, CreateDeploymentCommand } = require('@aws-sdk/client-greengrass'); // CommonJS import
  * const client = new GreengrassClient(config);
  * const input = { // CreateDeploymentRequest
- *   AmznClientToken: "STRING_VALUE",
- *   DeploymentId: "STRING_VALUE",
- *   DeploymentType: "NewDeployment" || "Redeployment" || "ResetDeployment" || "ForceResetDeployment", // required
- *   GroupId: "STRING_VALUE", // required
- *   GroupVersionId: "STRING_VALUE",
+ *   AmznClientToken: 'STRING_VALUE',
+ *   DeploymentId: 'STRING_VALUE',
+ *   DeploymentType: 'NewDeployment' || 'Redeployment' || 'ResetDeployment' || 'ForceResetDeployment', // required
+ *   GroupId: 'STRING_VALUE', // required
+ *   GroupVersionId: 'STRING_VALUE',
  * };
  * const command = new CreateDeploymentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateDeploymentResponse
+ *   DeploymentArn: 'STRING_VALUE',
+ *   DeploymentId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateDeploymentCommandInput - {@link CreateDeploymentCommandInput}
@@ -59,6 +65,8 @@ export interface CreateDeploymentCommandOutput extends CreateDeploymentResponse,
  * @throws {@link BadRequestException} (client fault)
  *  General error information.
  *
+ * @throws {@link GreengrassServiceException}
+ * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
  */
 export class CreateDeploymentCommand extends $Command<

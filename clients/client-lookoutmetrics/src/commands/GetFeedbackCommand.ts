@@ -36,20 +36,31 @@ export interface GetFeedbackCommandOutput extends GetFeedbackResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LookoutMetricsClient, GetFeedbackCommand } from "@aws-sdk/client-lookoutmetrics"; // ES Modules import
- * // const { LookoutMetricsClient, GetFeedbackCommand } = require("@aws-sdk/client-lookoutmetrics"); // CommonJS import
+ * import { LookoutMetricsClient, GetFeedbackCommand } from '@aws-sdk/client-lookoutmetrics'; // ES Modules import
+ * // const { LookoutMetricsClient, GetFeedbackCommand } = require('@aws-sdk/client-lookoutmetrics'); // CommonJS import
  * const client = new LookoutMetricsClient(config);
  * const input = { // GetFeedbackRequest
- *   AnomalyDetectorArn: "STRING_VALUE", // required
+ *   AnomalyDetectorArn: 'STRING_VALUE', // required
  *   AnomalyGroupTimeSeriesFeedback: { // AnomalyGroupTimeSeries
- *     AnomalyGroupId: "STRING_VALUE", // required
- *     TimeSeriesId: "STRING_VALUE",
+ *     AnomalyGroupId: 'STRING_VALUE', // required
+ *     TimeSeriesId: 'STRING_VALUE',
  *   },
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new GetFeedbackCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetFeedbackResponse
+ *   AnomalyGroupTimeSeriesFeedback: [ // TimeSeriesFeedbackList
+ *     { // TimeSeriesFeedback
+ *       TimeSeriesId: 'STRING_VALUE',
+ *       IsAnomaly: true || false,
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetFeedbackCommandInput - {@link GetFeedbackCommandInput}
@@ -74,6 +85,8 @@ export interface GetFeedbackCommandOutput extends GetFeedbackResponse, __Metadat
  *  <p>The input fails to satisfy the constraints specified by the AWS service. Check your input values and try
  *       again.</p>
  *
+ * @throws {@link LookoutMetricsServiceException}
+ * <p>Base exception class for all service exceptions from LookoutMetrics service.</p>
  *
  */
 export class GetFeedbackCommand extends $Command<

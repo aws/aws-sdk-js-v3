@@ -36,16 +36,22 @@ export interface DeleteOrganizationCommandOutput extends DeleteOrganizationRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkMailClient, DeleteOrganizationCommand } from "@aws-sdk/client-workmail"; // ES Modules import
- * // const { WorkMailClient, DeleteOrganizationCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
+ * import { WorkMailClient, DeleteOrganizationCommand } from '@aws-sdk/client-workmail'; // ES Modules import
+ * // const { WorkMailClient, DeleteOrganizationCommand } = require('@aws-sdk/client-workmail'); // CommonJS import
  * const client = new WorkMailClient(config);
  * const input = { // DeleteOrganizationRequest
- *   ClientToken: "STRING_VALUE",
- *   OrganizationId: "STRING_VALUE", // required
+ *   ClientToken: 'STRING_VALUE',
+ *   OrganizationId: 'STRING_VALUE', // required
  *   DeleteDirectory: true || false, // required
  * };
  * const command = new DeleteOrganizationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteOrganizationResponse
+ *   OrganizationId: 'STRING_VALUE',
+ *   State: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DeleteOrganizationCommandInput - {@link DeleteOrganizationCommandInput}
@@ -65,6 +71,8 @@ export interface DeleteOrganizationCommandOutput extends DeleteOrganizationRespo
  *  <p>The organization must have a valid state to perform certain
  *          operations on the organization or its members.</p>
  *
+ * @throws {@link WorkMailServiceException}
+ * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
  */
 export class DeleteOrganizationCommand extends $Command<

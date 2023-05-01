@@ -37,17 +37,32 @@ export interface ListGroupMembersCommandOutput extends ListGroupMembersResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkMailClient, ListGroupMembersCommand } from "@aws-sdk/client-workmail"; // ES Modules import
- * // const { WorkMailClient, ListGroupMembersCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
+ * import { WorkMailClient, ListGroupMembersCommand } from '@aws-sdk/client-workmail'; // ES Modules import
+ * // const { WorkMailClient, ListGroupMembersCommand } = require('@aws-sdk/client-workmail'); // CommonJS import
  * const client = new WorkMailClient(config);
  * const input = { // ListGroupMembersRequest
- *   OrganizationId: "STRING_VALUE", // required
- *   GroupId: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   OrganizationId: 'STRING_VALUE', // required
+ *   GroupId: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListGroupMembersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListGroupMembersResponse
+ *   Members: [ // Members
+ *     { // Member
+ *       Id: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *       Type: 'GROUP' || 'USER',
+ *       State: 'ENABLED' || 'DISABLED' || 'DELETED',
+ *       EnabledDate: new Date('TIMESTAMP'),
+ *       DisabledDate: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListGroupMembersCommandInput - {@link ListGroupMembersCommandInput}
@@ -75,6 +90,8 @@ export interface ListGroupMembersCommandOutput extends ListGroupMembersResponse,
  *  <p>The organization must have a valid state to perform certain
  *          operations on the organization or its members.</p>
  *
+ * @throws {@link WorkMailServiceException}
+ * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
  */
 export class ListGroupMembersCommand extends $Command<

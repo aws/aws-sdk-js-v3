@@ -40,20 +40,30 @@ export interface ModifyTargetGroupAttributesCommandOutput extends ModifyTargetGr
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElasticLoadBalancingV2Client, ModifyTargetGroupAttributesCommand } from "@aws-sdk/client-elastic-load-balancing-v2"; // ES Modules import
- * // const { ElasticLoadBalancingV2Client, ModifyTargetGroupAttributesCommand } = require("@aws-sdk/client-elastic-load-balancing-v2"); // CommonJS import
+ * import { ElasticLoadBalancingV2Client, ModifyTargetGroupAttributesCommand } from '@aws-sdk/client-elastic-load-balancing-v2'; // ES Modules import
+ * // const { ElasticLoadBalancingV2Client, ModifyTargetGroupAttributesCommand } = require('@aws-sdk/client-elastic-load-balancing-v2'); // CommonJS import
  * const client = new ElasticLoadBalancingV2Client(config);
  * const input = { // ModifyTargetGroupAttributesInput
- *   TargetGroupArn: "STRING_VALUE", // required
+ *   TargetGroupArn: 'STRING_VALUE', // required
  *   Attributes: [ // TargetGroupAttributes // required
  *     { // TargetGroupAttribute
- *       Key: "STRING_VALUE",
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new ModifyTargetGroupAttributesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ModifyTargetGroupAttributesOutput
+ *   Attributes: [ // TargetGroupAttributes
+ *     { // TargetGroupAttribute
+ *       Key: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ModifyTargetGroupAttributesCommandInput - {@link ModifyTargetGroupAttributesCommandInput}
@@ -68,6 +78,8 @@ export interface ModifyTargetGroupAttributesCommandOutput extends ModifyTargetGr
  * @throws {@link TargetGroupNotFoundException} (client fault)
  *  <p>The specified target group does not exist.</p>
  *
+ * @throws {@link ElasticLoadBalancingV2ServiceException}
+ * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
  * @example To modify the deregistration delay timeout
  * ```javascript

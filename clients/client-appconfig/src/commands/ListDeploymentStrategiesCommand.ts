@@ -36,15 +36,32 @@ export interface ListDeploymentStrategiesCommandOutput extends DeploymentStrateg
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppConfigClient, ListDeploymentStrategiesCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
- * // const { AppConfigClient, ListDeploymentStrategiesCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import
+ * import { AppConfigClient, ListDeploymentStrategiesCommand } from '@aws-sdk/client-appconfig'; // ES Modules import
+ * // const { AppConfigClient, ListDeploymentStrategiesCommand } = require('@aws-sdk/client-appconfig'); // CommonJS import
  * const client = new AppConfigClient(config);
  * const input = { // ListDeploymentStrategiesRequest
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListDeploymentStrategiesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeploymentStrategies
+ *   Items: [ // DeploymentStrategyList
+ *     { // DeploymentStrategy
+ *       Id: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *       Description: 'STRING_VALUE',
+ *       DeploymentDurationInMinutes: Number('int'),
+ *       GrowthType: 'LINEAR' || 'EXPONENTIAL',
+ *       GrowthFactor: Number('float'),
+ *       FinalBakeTimeInMinutes: Number('int'),
+ *       ReplicateTo: 'NONE' || 'SSM_DOCUMENT',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListDeploymentStrategiesCommandInput - {@link ListDeploymentStrategiesCommandInput}
@@ -59,6 +76,8 @@ export interface ListDeploymentStrategiesCommandOutput extends DeploymentStrateg
  * @throws {@link InternalServerException} (server fault)
  *  <p>There was an internal failure in the AppConfig service.</p>
  *
+ * @throws {@link AppConfigServiceException}
+ * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
  * @example To list the available deployment strategies
  * ```javascript

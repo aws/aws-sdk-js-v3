@@ -41,14 +41,30 @@ export interface DescribeAutoScalingConfigurationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppRunnerClient, DescribeAutoScalingConfigurationCommand } from "@aws-sdk/client-apprunner"; // ES Modules import
- * // const { AppRunnerClient, DescribeAutoScalingConfigurationCommand } = require("@aws-sdk/client-apprunner"); // CommonJS import
+ * import { AppRunnerClient, DescribeAutoScalingConfigurationCommand } from '@aws-sdk/client-apprunner'; // ES Modules import
+ * // const { AppRunnerClient, DescribeAutoScalingConfigurationCommand } = require('@aws-sdk/client-apprunner'); // CommonJS import
  * const client = new AppRunnerClient(config);
  * const input = { // DescribeAutoScalingConfigurationRequest
- *   AutoScalingConfigurationArn: "STRING_VALUE", // required
+ *   AutoScalingConfigurationArn: 'STRING_VALUE', // required
  * };
  * const command = new DescribeAutoScalingConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeAutoScalingConfigurationResponse
+ *   AutoScalingConfiguration: { // AutoScalingConfiguration
+ *     AutoScalingConfigurationArn: 'STRING_VALUE',
+ *     AutoScalingConfigurationName: 'STRING_VALUE',
+ *     AutoScalingConfigurationRevision: Number('int'),
+ *     Latest: true || false,
+ *     Status: 'ACTIVE' || 'INACTIVE',
+ *     MaxConcurrency: Number('int'),
+ *     MinSize: Number('int'),
+ *     MaxSize: Number('int'),
+ *     CreatedAt: new Date('TIMESTAMP'),
+ *     DeletedAt: new Date('TIMESTAMP'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeAutoScalingConfigurationCommandInput - {@link DescribeAutoScalingConfigurationCommandInput}
@@ -66,6 +82,8 @@ export interface DescribeAutoScalingConfigurationCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>A resource doesn't exist for the specified Amazon Resource Name (ARN) in your Amazon Web Services account.</p>
  *
+ * @throws {@link AppRunnerServiceException}
+ * <p>Base exception class for all service exceptions from AppRunner service.</p>
  *
  */
 export class DescribeAutoScalingConfigurationCommand extends $Command<

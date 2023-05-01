@@ -46,17 +46,20 @@ export interface ExecuteChangeSetCommandOutput extends ExecuteChangeSetOutput, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudFormationClient, ExecuteChangeSetCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
- * // const { CloudFormationClient, ExecuteChangeSetCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
+ * import { CloudFormationClient, ExecuteChangeSetCommand } from '@aws-sdk/client-cloudformation'; // ES Modules import
+ * // const { CloudFormationClient, ExecuteChangeSetCommand } = require('@aws-sdk/client-cloudformation'); // CommonJS import
  * const client = new CloudFormationClient(config);
  * const input = { // ExecuteChangeSetInput
- *   ChangeSetName: "STRING_VALUE", // required
- *   StackName: "STRING_VALUE",
- *   ClientRequestToken: "STRING_VALUE",
+ *   ChangeSetName: 'STRING_VALUE', // required
+ *   StackName: 'STRING_VALUE',
+ *   ClientRequestToken: 'STRING_VALUE',
  *   DisableRollback: true || false,
  * };
  * const command = new ExecuteChangeSetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param ExecuteChangeSetCommandInput - {@link ExecuteChangeSetCommandInput}
@@ -81,6 +84,8 @@ export interface ExecuteChangeSetCommandOutput extends ExecuteChangeSetOutput, _
  * @throws {@link TokenAlreadyExistsException} (client fault)
  *  <p>A client request token already exists.</p>
  *
+ * @throws {@link CloudFormationServiceException}
+ * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
  */
 export class ExecuteChangeSetCommand extends $Command<

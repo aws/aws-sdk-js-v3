@@ -45,32 +45,73 @@ export interface CreateDataRepositoryTaskCommandOutput extends CreateDataReposit
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FSxClient, CreateDataRepositoryTaskCommand } from "@aws-sdk/client-fsx"; // ES Modules import
- * // const { FSxClient, CreateDataRepositoryTaskCommand } = require("@aws-sdk/client-fsx"); // CommonJS import
+ * import { FSxClient, CreateDataRepositoryTaskCommand } from '@aws-sdk/client-fsx'; // ES Modules import
+ * // const { FSxClient, CreateDataRepositoryTaskCommand } = require('@aws-sdk/client-fsx'); // CommonJS import
  * const client = new FSxClient(config);
  * const input = { // CreateDataRepositoryTaskRequest
- *   Type: "EXPORT_TO_REPOSITORY" || "IMPORT_METADATA_FROM_REPOSITORY" || "RELEASE_DATA_FROM_FILESYSTEM" || "AUTO_RELEASE_DATA", // required
+ *   Type: 'EXPORT_TO_REPOSITORY' || 'IMPORT_METADATA_FROM_REPOSITORY' || 'RELEASE_DATA_FROM_FILESYSTEM' || 'AUTO_RELEASE_DATA', // required
  *   Paths: [ // DataRepositoryTaskPaths
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   FileSystemId: "STRING_VALUE", // required
+ *   FileSystemId: 'STRING_VALUE', // required
  *   Report: { // CompletionReport
  *     Enabled: true || false, // required
- *     Path: "STRING_VALUE",
- *     Format: "REPORT_CSV_20191124",
- *     Scope: "FAILED_FILES_ONLY",
+ *     Path: 'STRING_VALUE',
+ *     Format: 'REPORT_CSV_20191124',
+ *     Scope: 'FAILED_FILES_ONLY',
  *   },
- *   ClientRequestToken: "STRING_VALUE",
+ *   ClientRequestToken: 'STRING_VALUE',
  *   Tags: [ // Tags
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
- *   CapacityToRelease: Number("long"),
+ *   CapacityToRelease: Number('long'),
  * };
  * const command = new CreateDataRepositoryTaskCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateDataRepositoryTaskResponse
+ *   DataRepositoryTask: { // DataRepositoryTask
+ *     TaskId: 'STRING_VALUE', // required
+ *     Lifecycle: 'PENDING' || 'EXECUTING' || 'FAILED' || 'SUCCEEDED' || 'CANCELED' || 'CANCELING', // required
+ *     Type: 'EXPORT_TO_REPOSITORY' || 'IMPORT_METADATA_FROM_REPOSITORY' || 'RELEASE_DATA_FROM_FILESYSTEM' || 'AUTO_RELEASE_DATA', // required
+ *     CreationTime: new Date('TIMESTAMP'), // required
+ *     StartTime: new Date('TIMESTAMP'),
+ *     EndTime: new Date('TIMESTAMP'),
+ *     ResourceARN: 'STRING_VALUE',
+ *     Tags: [ // Tags
+ *       { // Tag
+ *         Key: 'STRING_VALUE', // required
+ *         Value: 'STRING_VALUE', // required
+ *       },
+ *     ],
+ *     FileSystemId: 'STRING_VALUE',
+ *     Paths: [ // DataRepositoryTaskPaths
+ *       'STRING_VALUE',
+ *     ],
+ *     FailureDetails: { // DataRepositoryTaskFailureDetails
+ *       Message: 'STRING_VALUE',
+ *     },
+ *     Status: { // DataRepositoryTaskStatus
+ *       TotalCount: Number('long'),
+ *       SucceededCount: Number('long'),
+ *       FailedCount: Number('long'),
+ *       LastUpdatedTime: new Date('TIMESTAMP'),
+ *       ReleasedCapacity: Number('long'),
+ *     },
+ *     Report: { // CompletionReport
+ *       Enabled: true || false, // required
+ *       Path: 'STRING_VALUE',
+ *       Format: 'REPORT_CSV_20191124',
+ *       Scope: 'FAILED_FILES_ONLY',
+ *     },
+ *     CapacityToRelease: Number('long'),
+ *     FileCacheId: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateDataRepositoryTaskCommandInput - {@link CreateDataRepositoryTaskCommandInput}
@@ -104,6 +145,8 @@ export interface CreateDataRepositoryTaskCommandOutput extends CreateDataReposit
  * @throws {@link UnsupportedOperation} (client fault)
  *  <p>The requested operation is not supported for this resource or API.</p>
  *
+ * @throws {@link FSxServiceException}
+ * <p>Base exception class for all service exceptions from FSx service.</p>
  *
  */
 export class CreateDataRepositoryTaskCommand extends $Command<

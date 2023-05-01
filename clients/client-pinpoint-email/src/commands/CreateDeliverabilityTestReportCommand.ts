@@ -47,46 +47,52 @@ export interface CreateDeliverabilityTestReportCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PinpointEmailClient, CreateDeliverabilityTestReportCommand } from "@aws-sdk/client-pinpoint-email"; // ES Modules import
- * // const { PinpointEmailClient, CreateDeliverabilityTestReportCommand } = require("@aws-sdk/client-pinpoint-email"); // CommonJS import
+ * import { PinpointEmailClient, CreateDeliverabilityTestReportCommand } from '@aws-sdk/client-pinpoint-email'; // ES Modules import
+ * // const { PinpointEmailClient, CreateDeliverabilityTestReportCommand } = require('@aws-sdk/client-pinpoint-email'); // CommonJS import
  * const client = new PinpointEmailClient(config);
  * const input = { // CreateDeliverabilityTestReportRequest
- *   ReportName: "STRING_VALUE",
- *   FromEmailAddress: "STRING_VALUE", // required
+ *   ReportName: 'STRING_VALUE',
+ *   FromEmailAddress: 'STRING_VALUE', // required
  *   Content: { // EmailContent
  *     Simple: { // Message
  *       Subject: { // Content
- *         Data: "STRING_VALUE", // required
- *         Charset: "STRING_VALUE",
+ *         Data: 'STRING_VALUE', // required
+ *         Charset: 'STRING_VALUE',
  *       },
  *       Body: { // Body
  *         Text: {
- *           Data: "STRING_VALUE", // required
- *           Charset: "STRING_VALUE",
+ *           Data: 'STRING_VALUE', // required
+ *           Charset: 'STRING_VALUE',
  *         },
  *         Html: {
- *           Data: "STRING_VALUE", // required
- *           Charset: "STRING_VALUE",
+ *           Data: 'STRING_VALUE', // required
+ *           Charset: 'STRING_VALUE',
  *         },
  *       },
  *     },
  *     Raw: { // RawMessage
- *       Data: "BLOB_VALUE", // required
+ *       Data: 'BLOB_VALUE', // required
  *     },
  *     Template: { // Template
- *       TemplateArn: "STRING_VALUE",
- *       TemplateData: "STRING_VALUE",
+ *       TemplateArn: 'STRING_VALUE',
+ *       TemplateData: 'STRING_VALUE',
  *     },
  *   },
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreateDeliverabilityTestReportCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateDeliverabilityTestReportResponse
+ *   ReportId: 'STRING_VALUE', // required
+ *   DeliverabilityTestStatus: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param CreateDeliverabilityTestReportCommandInput - {@link CreateDeliverabilityTestReportCommandInput}
@@ -124,6 +130,8 @@ export interface CreateDeliverabilityTestReportCommandOutput
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Too many requests have been made to the operation.</p>
  *
+ * @throws {@link PinpointEmailServiceException}
+ * <p>Base exception class for all service exceptions from PinpointEmail service.</p>
  *
  */
 export class CreateDeliverabilityTestReportCommand extends $Command<

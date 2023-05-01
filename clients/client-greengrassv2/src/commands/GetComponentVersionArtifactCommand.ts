@@ -43,15 +43,20 @@ export interface GetComponentVersionArtifactCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GreengrassV2Client, GetComponentVersionArtifactCommand } from "@aws-sdk/client-greengrassv2"; // ES Modules import
- * // const { GreengrassV2Client, GetComponentVersionArtifactCommand } = require("@aws-sdk/client-greengrassv2"); // CommonJS import
+ * import { GreengrassV2Client, GetComponentVersionArtifactCommand } from '@aws-sdk/client-greengrassv2'; // ES Modules import
+ * // const { GreengrassV2Client, GetComponentVersionArtifactCommand } = require('@aws-sdk/client-greengrassv2'); // CommonJS import
  * const client = new GreengrassV2Client(config);
  * const input = { // GetComponentVersionArtifactRequest
- *   arn: "STRING_VALUE", // required
- *   artifactName: "STRING_VALUE", // required
+ *   arn: 'STRING_VALUE', // required
+ *   artifactName: 'STRING_VALUE', // required
  * };
  * const command = new GetComponentVersionArtifactCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetComponentVersionArtifactResponse
+ *   preSignedUrl: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param GetComponentVersionArtifactCommandInput - {@link GetComponentVersionArtifactCommandInput}
@@ -77,6 +82,8 @@ export interface GetComponentVersionArtifactCommandOutput
  *  <p>The request isn't valid. This can occur if your request contains malformed JSON or
  *       unsupported characters.</p>
  *
+ * @throws {@link GreengrassV2ServiceException}
+ * <p>Base exception class for all service exceptions from GreengrassV2 service.</p>
  *
  */
 export class GetComponentVersionArtifactCommand extends $Command<

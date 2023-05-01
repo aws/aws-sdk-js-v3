@@ -36,22 +36,28 @@ export interface UpdateConnectivityInfoCommandOutput extends UpdateConnectivityI
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GreengrassClient, UpdateConnectivityInfoCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
- * // const { GreengrassClient, UpdateConnectivityInfoCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
+ * import { GreengrassClient, UpdateConnectivityInfoCommand } from '@aws-sdk/client-greengrass'; // ES Modules import
+ * // const { GreengrassClient, UpdateConnectivityInfoCommand } = require('@aws-sdk/client-greengrass'); // CommonJS import
  * const client = new GreengrassClient(config);
  * const input = { // UpdateConnectivityInfoRequest
  *   ConnectivityInfo: [ // __listOfConnectivityInfo
  *     { // ConnectivityInfo
- *       HostAddress: "STRING_VALUE",
- *       Id: "STRING_VALUE",
- *       Metadata: "STRING_VALUE",
- *       PortNumber: Number("int"),
+ *       HostAddress: 'STRING_VALUE',
+ *       Id: 'STRING_VALUE',
+ *       Metadata: 'STRING_VALUE',
+ *       PortNumber: Number('int'),
  *     },
  *   ],
- *   ThingName: "STRING_VALUE", // required
+ *   ThingName: 'STRING_VALUE', // required
  * };
  * const command = new UpdateConnectivityInfoCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateConnectivityInfoResponse
+ *   Message: 'STRING_VALUE',
+ *   Version: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateConnectivityInfoCommandInput - {@link UpdateConnectivityInfoCommandInput}
@@ -66,6 +72,8 @@ export interface UpdateConnectivityInfoCommandOutput extends UpdateConnectivityI
  * @throws {@link InternalServerErrorException} (server fault)
  *  General error information.
  *
+ * @throws {@link GreengrassServiceException}
+ * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
  */
 export class UpdateConnectivityInfoCommand extends $Command<

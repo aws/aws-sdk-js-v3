@@ -42,24 +42,41 @@ export interface BatchUpdateVehicleCommandOutput extends BatchUpdateVehicleRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTFleetWiseClient, BatchUpdateVehicleCommand } from "@aws-sdk/client-iotfleetwise"; // ES Modules import
- * // const { IoTFleetWiseClient, BatchUpdateVehicleCommand } = require("@aws-sdk/client-iotfleetwise"); // CommonJS import
+ * import { IoTFleetWiseClient, BatchUpdateVehicleCommand } from '@aws-sdk/client-iotfleetwise'; // ES Modules import
+ * // const { IoTFleetWiseClient, BatchUpdateVehicleCommand } = require('@aws-sdk/client-iotfleetwise'); // CommonJS import
  * const client = new IoTFleetWiseClient(config);
  * const input = { // BatchUpdateVehicleRequest
  *   vehicles: [ // updateVehicleRequestItems // required
  *     { // UpdateVehicleRequestItem
- *       vehicleName: "STRING_VALUE", // required
- *       modelManifestArn: "STRING_VALUE",
- *       decoderManifestArn: "STRING_VALUE",
+ *       vehicleName: 'STRING_VALUE', // required
+ *       modelManifestArn: 'STRING_VALUE',
+ *       decoderManifestArn: 'STRING_VALUE',
  *       attributes: { // attributesMap
- *         "<keys>": "STRING_VALUE",
+ *         '<keys>': 'STRING_VALUE',
  *       },
- *       attributeUpdateMode: "STRING_VALUE",
+ *       attributeUpdateMode: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new BatchUpdateVehicleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BatchUpdateVehicleResponse
+ *   vehicles: [ // updateVehicleResponseItems
+ *     { // UpdateVehicleResponseItem
+ *       vehicleName: 'STRING_VALUE',
+ *       arn: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   errors: [ // updateVehicleErrors
+ *     { // UpdateVehicleError
+ *       vehicleName: 'STRING_VALUE',
+ *       code: Number('int'),
+ *       message: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param BatchUpdateVehicleCommandInput - {@link BatchUpdateVehicleCommandInput}
@@ -80,6 +97,8 @@ export interface BatchUpdateVehicleCommandOutput extends BatchUpdateVehicleRespo
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
  *
+ * @throws {@link IoTFleetWiseServiceException}
+ * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
  */
 export class BatchUpdateVehicleCommand extends $Command<

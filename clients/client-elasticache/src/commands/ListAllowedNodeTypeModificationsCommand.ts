@@ -45,15 +45,25 @@ export interface ListAllowedNodeTypeModificationsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElastiCacheClient, ListAllowedNodeTypeModificationsCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
- * // const { ElastiCacheClient, ListAllowedNodeTypeModificationsCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
+ * import { ElastiCacheClient, ListAllowedNodeTypeModificationsCommand } from '@aws-sdk/client-elasticache'; // ES Modules import
+ * // const { ElastiCacheClient, ListAllowedNodeTypeModificationsCommand } = require('@aws-sdk/client-elasticache'); // CommonJS import
  * const client = new ElastiCacheClient(config);
  * const input = { // ListAllowedNodeTypeModificationsMessage
- *   CacheClusterId: "STRING_VALUE",
- *   ReplicationGroupId: "STRING_VALUE",
+ *   CacheClusterId: 'STRING_VALUE',
+ *   ReplicationGroupId: 'STRING_VALUE',
  * };
  * const command = new ListAllowedNodeTypeModificationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AllowedNodeTypeModificationsMessage
+ *   ScaleUpModifications: [ // NodeTypeList
+ *     'STRING_VALUE',
+ *   ],
+ *   ScaleDownModifications: [
+ *     'STRING_VALUE',
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListAllowedNodeTypeModificationsCommandInput - {@link ListAllowedNodeTypeModificationsCommandInput}
@@ -74,6 +84,8 @@ export interface ListAllowedNodeTypeModificationsCommandOutput
  * @throws {@link ReplicationGroupNotFoundFault} (client fault)
  *  <p>The specified replication group does not exist.</p>
  *
+ * @throws {@link ElastiCacheServiceException}
+ * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
  * @example ListAllowedNodeTypeModifications
  * ```javascript

@@ -40,14 +40,57 @@ export interface GetDeviceProfileCommandOutput extends GetDeviceProfileResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTWirelessClient, GetDeviceProfileCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
- * // const { IoTWirelessClient, GetDeviceProfileCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
+ * import { IoTWirelessClient, GetDeviceProfileCommand } from '@aws-sdk/client-iot-wireless'; // ES Modules import
+ * // const { IoTWirelessClient, GetDeviceProfileCommand } = require('@aws-sdk/client-iot-wireless'); // CommonJS import
  * const client = new IoTWirelessClient(config);
  * const input = { // GetDeviceProfileRequest
- *   Id: "STRING_VALUE", // required
+ *   Id: 'STRING_VALUE', // required
  * };
  * const command = new GetDeviceProfileCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetDeviceProfileResponse
+ *   Arn: 'STRING_VALUE',
+ *   Name: 'STRING_VALUE',
+ *   Id: 'STRING_VALUE',
+ *   LoRaWAN: { // LoRaWANDeviceProfile
+ *     SupportsClassB: true || false,
+ *     ClassBTimeout: Number('int'),
+ *     PingSlotPeriod: Number('int'),
+ *     PingSlotDr: Number('int'),
+ *     PingSlotFreq: Number('int'),
+ *     SupportsClassC: true || false,
+ *     ClassCTimeout: Number('int'),
+ *     MacVersion: 'STRING_VALUE',
+ *     RegParamsRevision: 'STRING_VALUE',
+ *     RxDelay1: Number('int'),
+ *     RxDrOffset1: Number('int'),
+ *     RxDataRate2: Number('int'),
+ *     RxFreq2: Number('int'),
+ *     FactoryPresetFreqsList: [ // FactoryPresetFreqsList
+ *       Number('int'),
+ *     ],
+ *     MaxEirp: Number('int'),
+ *     MaxDutyCycle: Number('int'),
+ *     RfRegion: 'STRING_VALUE',
+ *     SupportsJoin: true || false,
+ *     Supports32BitFCnt: true || false,
+ *   },
+ *   Sidewalk: { // SidewalkGetDeviceProfile
+ *     ApplicationServerPublicKey: 'STRING_VALUE',
+ *     QualificationStatus: true || false,
+ *     DakCertificateMetadata: [ // DakCertificateMetadataList
+ *       { // DakCertificateMetadata
+ *         CertificateId: 'STRING_VALUE', // required
+ *         MaxAllowedSignature: Number('int'),
+ *         FactorySupport: true || false,
+ *         ApId: 'STRING_VALUE',
+ *         DeviceTypeId: 'STRING_VALUE',
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetDeviceProfileCommandInput - {@link GetDeviceProfileCommandInput}
@@ -71,6 +114,8 @@ export interface GetDeviceProfileCommandOutput extends GetDeviceProfileResponse,
  * @throws {@link ValidationException} (client fault)
  *  <p>The input did not meet the specified constraints.</p>
  *
+ * @throws {@link IoTWirelessServiceException}
+ * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
  */
 export class GetDeviceProfileCommand extends $Command<

@@ -39,19 +39,27 @@ export interface AddProfileKeyCommandOutput extends AddProfileKeyResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CustomerProfilesClient, AddProfileKeyCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
- * // const { CustomerProfilesClient, AddProfileKeyCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
+ * import { CustomerProfilesClient, AddProfileKeyCommand } from '@aws-sdk/client-customer-profiles'; // ES Modules import
+ * // const { CustomerProfilesClient, AddProfileKeyCommand } = require('@aws-sdk/client-customer-profiles'); // CommonJS import
  * const client = new CustomerProfilesClient(config);
  * const input = { // AddProfileKeyRequest
- *   ProfileId: "STRING_VALUE", // required
- *   KeyName: "STRING_VALUE", // required
+ *   ProfileId: 'STRING_VALUE', // required
+ *   KeyName: 'STRING_VALUE', // required
  *   Values: [ // requestValueList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   DomainName: "STRING_VALUE", // required
+ *   DomainName: 'STRING_VALUE', // required
  * };
  * const command = new AddProfileKeyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AddProfileKeyResponse
+ *   KeyName: 'STRING_VALUE',
+ *   Values: [ // requestValueList
+ *     'STRING_VALUE',
+ *   ],
+ * };
+ *
  * ```
  *
  * @param AddProfileKeyCommandInput - {@link AddProfileKeyCommandInput}
@@ -75,6 +83,8 @@ export interface AddProfileKeyCommandOutput extends AddProfileKeyResponse, __Met
  * @throws {@link ThrottlingException} (client fault)
  *  <p>You exceeded the maximum number of requests.</p>
  *
+ * @throws {@link CustomerProfilesServiceException}
+ * <p>Base exception class for all service exceptions from CustomerProfiles service.</p>
  *
  */
 export class AddProfileKeyCommand extends $Command<

@@ -52,39 +52,39 @@ export interface UpdateEndpointCommandOutput extends UpdateEndpointOutput, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, UpdateEndpointCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, UpdateEndpointCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, UpdateEndpointCommand } from '@aws-sdk/client-sagemaker'; // ES Modules import
+ * // const { SageMakerClient, UpdateEndpointCommand } = require('@aws-sdk/client-sagemaker'); // CommonJS import
  * const client = new SageMakerClient(config);
  * const input = { // UpdateEndpointInput
- *   EndpointName: "STRING_VALUE", // required
- *   EndpointConfigName: "STRING_VALUE", // required
+ *   EndpointName: 'STRING_VALUE', // required
+ *   EndpointConfigName: 'STRING_VALUE', // required
  *   RetainAllVariantProperties: true || false,
  *   ExcludeRetainedVariantProperties: [ // VariantPropertyList
  *     { // VariantProperty
- *       VariantPropertyType: "DesiredInstanceCount" || "DesiredWeight" || "DataCaptureConfig", // required
+ *       VariantPropertyType: 'DesiredInstanceCount' || 'DesiredWeight' || 'DataCaptureConfig', // required
  *     },
  *   ],
  *   DeploymentConfig: { // DeploymentConfig
  *     BlueGreenUpdatePolicy: { // BlueGreenUpdatePolicy
  *       TrafficRoutingConfiguration: { // TrafficRoutingConfig
- *         Type: "ALL_AT_ONCE" || "CANARY" || "LINEAR", // required
- *         WaitIntervalInSeconds: Number("int"), // required
+ *         Type: 'ALL_AT_ONCE' || 'CANARY' || 'LINEAR', // required
+ *         WaitIntervalInSeconds: Number('int'), // required
  *         CanarySize: { // CapacitySize
- *           Type: "INSTANCE_COUNT" || "CAPACITY_PERCENT", // required
- *           Value: Number("int"), // required
+ *           Type: 'INSTANCE_COUNT' || 'CAPACITY_PERCENT', // required
+ *           Value: Number('int'), // required
  *         },
  *         LinearStepSize: {
- *           Type: "INSTANCE_COUNT" || "CAPACITY_PERCENT", // required
- *           Value: Number("int"), // required
+ *           Type: 'INSTANCE_COUNT' || 'CAPACITY_PERCENT', // required
+ *           Value: Number('int'), // required
  *         },
  *       },
- *       TerminationWaitInSeconds: Number("int"),
- *       MaximumExecutionTimeoutInSeconds: Number("int"),
+ *       TerminationWaitInSeconds: Number('int'),
+ *       MaximumExecutionTimeoutInSeconds: Number('int'),
  *     },
  *     AutoRollbackConfiguration: { // AutoRollbackConfig
  *       Alarms: [ // AlarmList
  *         { // Alarm
- *           AlarmName: "STRING_VALUE",
+ *           AlarmName: 'STRING_VALUE',
  *         },
  *       ],
  *     },
@@ -93,6 +93,11 @@ export interface UpdateEndpointCommandOutput extends UpdateEndpointOutput, __Met
  * };
  * const command = new UpdateEndpointCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateEndpointOutput
+ *   EndpointArn: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param UpdateEndpointCommandInput - {@link UpdateEndpointCommandInput}
@@ -105,6 +110,8 @@ export interface UpdateEndpointCommandOutput extends UpdateEndpointOutput, __Met
  *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many
  *             training jobs created. </p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class UpdateEndpointCommand extends $Command<

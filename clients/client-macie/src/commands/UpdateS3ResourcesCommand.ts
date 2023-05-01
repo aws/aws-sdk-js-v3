@@ -40,24 +40,38 @@ export interface UpdateS3ResourcesCommandOutput extends UpdateS3ResourcesResult,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MacieClient, UpdateS3ResourcesCommand } from "@aws-sdk/client-macie"; // ES Modules import
- * // const { MacieClient, UpdateS3ResourcesCommand } = require("@aws-sdk/client-macie"); // CommonJS import
+ * import { MacieClient, UpdateS3ResourcesCommand } from '@aws-sdk/client-macie'; // ES Modules import
+ * // const { MacieClient, UpdateS3ResourcesCommand } = require('@aws-sdk/client-macie'); // CommonJS import
  * const client = new MacieClient(config);
  * const input = { // UpdateS3ResourcesRequest
- *   memberAccountId: "STRING_VALUE",
+ *   memberAccountId: 'STRING_VALUE',
  *   s3ResourcesUpdate: [ // S3ResourcesClassificationUpdate // required
  *     { // S3ResourceClassificationUpdate
- *       bucketName: "STRING_VALUE", // required
- *       prefix: "STRING_VALUE",
+ *       bucketName: 'STRING_VALUE', // required
+ *       prefix: 'STRING_VALUE',
  *       classificationTypeUpdate: { // ClassificationTypeUpdate
- *         oneTime: "STRING_VALUE",
- *         continuous: "STRING_VALUE",
+ *         oneTime: 'STRING_VALUE',
+ *         continuous: 'STRING_VALUE',
  *       },
  *     },
  *   ],
  * };
  * const command = new UpdateS3ResourcesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateS3ResourcesResult
+ *   failedS3Resources: [ // FailedS3Resources
+ *     { // FailedS3Resource
+ *       failedItem: { // S3Resource
+ *         bucketName: 'STRING_VALUE', // required
+ *         prefix: 'STRING_VALUE',
+ *       },
+ *       errorCode: 'STRING_VALUE',
+ *       errorMessage: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param UpdateS3ResourcesCommandInput - {@link UpdateS3ResourcesCommandInput}
@@ -76,6 +90,8 @@ export interface UpdateS3ResourcesCommandOutput extends UpdateS3ResourcesResult,
  *  <p>(Discontinued) The request was rejected because an invalid or out-of-range value was supplied for an
  *       input parameter.</p>
  *
+ * @throws {@link MacieServiceException}
+ * <p>Base exception class for all service exceptions from Macie service.</p>
  *
  */
 export class UpdateS3ResourcesCommand extends $Command<

@@ -40,24 +40,29 @@ export interface CreateTopicCommandOutput extends CreateTopicResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SNSClient, CreateTopicCommand } from "@aws-sdk/client-sns"; // ES Modules import
- * // const { SNSClient, CreateTopicCommand } = require("@aws-sdk/client-sns"); // CommonJS import
+ * import { SNSClient, CreateTopicCommand } from '@aws-sdk/client-sns'; // ES Modules import
+ * // const { SNSClient, CreateTopicCommand } = require('@aws-sdk/client-sns'); // CommonJS import
  * const client = new SNSClient(config);
  * const input = { // CreateTopicInput
- *   Name: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
  *   Attributes: { // TopicAttributesMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
- *   DataProtectionPolicy: "STRING_VALUE",
+ *   DataProtectionPolicy: 'STRING_VALUE',
  * };
  * const command = new CreateTopicCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateTopicResponse
+ *   TopicArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateTopicCommandInput - {@link CreateTopicCommandInput}
@@ -98,6 +103,8 @@ export interface CreateTopicCommandOutput extends CreateTopicResponse, __Metadat
  * @throws {@link TopicLimitExceededException} (client fault)
  *  <p>Indicates that the customer already owns the maximum allowed number of topics.</p>
  *
+ * @throws {@link SNSServiceException}
+ * <p>Base exception class for all service exceptions from SNS service.</p>
  *
  */
 export class CreateTopicCommand extends $Command<

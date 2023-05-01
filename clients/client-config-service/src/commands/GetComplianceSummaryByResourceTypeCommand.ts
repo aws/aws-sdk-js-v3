@@ -47,16 +47,36 @@ export interface GetComplianceSummaryByResourceTypeCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConfigServiceClient, GetComplianceSummaryByResourceTypeCommand } from "@aws-sdk/client-config-service"; // ES Modules import
- * // const { ConfigServiceClient, GetComplianceSummaryByResourceTypeCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
+ * import { ConfigServiceClient, GetComplianceSummaryByResourceTypeCommand } from '@aws-sdk/client-config-service'; // ES Modules import
+ * // const { ConfigServiceClient, GetComplianceSummaryByResourceTypeCommand } = require('@aws-sdk/client-config-service'); // CommonJS import
  * const client = new ConfigServiceClient(config);
  * const input = { // GetComplianceSummaryByResourceTypeRequest
  *   ResourceTypes: [ // ResourceTypes
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new GetComplianceSummaryByResourceTypeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetComplianceSummaryByResourceTypeResponse
+ *   ComplianceSummariesByResourceType: [ // ComplianceSummariesByResourceType
+ *     { // ComplianceSummaryByResourceType
+ *       ResourceType: 'STRING_VALUE',
+ *       ComplianceSummary: { // ComplianceSummary
+ *         CompliantResourceCount: { // ComplianceContributorCount
+ *           CappedCount: Number('int'),
+ *           CapExceeded: true || false,
+ *         },
+ *         NonCompliantResourceCount: {
+ *           CappedCount: Number('int'),
+ *           CapExceeded: true || false,
+ *         },
+ *         ComplianceSummaryTimestamp: new Date('TIMESTAMP'),
+ *       },
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetComplianceSummaryByResourceTypeCommandInput - {@link GetComplianceSummaryByResourceTypeCommandInput}
@@ -69,6 +89,8 @@ export interface GetComplianceSummaryByResourceTypeCommandOutput
  *  <p>One or more of the specified parameters are not valid. Verify
  * 			that your parameters are valid and try again.</p>
  *
+ * @throws {@link ConfigServiceServiceException}
+ * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
  */
 export class GetComplianceSummaryByResourceTypeCommand extends $Command<

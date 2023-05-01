@@ -41,16 +41,32 @@ export interface DescribeAppVersionAppComponentCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ResiliencehubClient, DescribeAppVersionAppComponentCommand } from "@aws-sdk/client-resiliencehub"; // ES Modules import
- * // const { ResiliencehubClient, DescribeAppVersionAppComponentCommand } = require("@aws-sdk/client-resiliencehub"); // CommonJS import
+ * import { ResiliencehubClient, DescribeAppVersionAppComponentCommand } from '@aws-sdk/client-resiliencehub'; // ES Modules import
+ * // const { ResiliencehubClient, DescribeAppVersionAppComponentCommand } = require('@aws-sdk/client-resiliencehub'); // CommonJS import
  * const client = new ResiliencehubClient(config);
  * const input = { // DescribeAppVersionAppComponentRequest
- *   appArn: "STRING_VALUE", // required
- *   appVersion: "STRING_VALUE", // required
- *   id: "STRING_VALUE", // required
+ *   appArn: 'STRING_VALUE', // required
+ *   appVersion: 'STRING_VALUE', // required
+ *   id: 'STRING_VALUE', // required
  * };
  * const command = new DescribeAppVersionAppComponentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeAppVersionAppComponentResponse
+ *   appArn: 'STRING_VALUE', // required
+ *   appVersion: 'STRING_VALUE', // required
+ *   appComponent: { // AppComponent
+ *     name: 'STRING_VALUE', // required
+ *     type: 'STRING_VALUE', // required
+ *     id: 'STRING_VALUE',
+ *     additionalInfo: { // AdditionalInfoMap
+ *       '<keys>': [ // AdditionalInfoValueList
+ *         'STRING_VALUE',
+ *       ],
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeAppVersionAppComponentCommandInput - {@link DescribeAppVersionAppComponentCommandInput}
@@ -83,6 +99,8 @@ export interface DescribeAppVersionAppComponentCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>This exception occurs when a request is not valid.</p>
  *
+ * @throws {@link ResiliencehubServiceException}
+ * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
  */
 export class DescribeAppVersionAppComponentCommand extends $Command<

@@ -46,16 +46,32 @@ export interface GetMaintenanceWindowExecutionTaskInvocationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMClient, GetMaintenanceWindowExecutionTaskInvocationCommand } from "@aws-sdk/client-ssm"; // ES Modules import
- * // const { SSMClient, GetMaintenanceWindowExecutionTaskInvocationCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * import { SSMClient, GetMaintenanceWindowExecutionTaskInvocationCommand } from '@aws-sdk/client-ssm'; // ES Modules import
+ * // const { SSMClient, GetMaintenanceWindowExecutionTaskInvocationCommand } = require('@aws-sdk/client-ssm'); // CommonJS import
  * const client = new SSMClient(config);
  * const input = { // GetMaintenanceWindowExecutionTaskInvocationRequest
- *   WindowExecutionId: "STRING_VALUE", // required
- *   TaskId: "STRING_VALUE", // required
- *   InvocationId: "STRING_VALUE", // required
+ *   WindowExecutionId: 'STRING_VALUE', // required
+ *   TaskId: 'STRING_VALUE', // required
+ *   InvocationId: 'STRING_VALUE', // required
  * };
  * const command = new GetMaintenanceWindowExecutionTaskInvocationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetMaintenanceWindowExecutionTaskInvocationResult
+ *   WindowExecutionId: 'STRING_VALUE',
+ *   TaskExecutionId: 'STRING_VALUE',
+ *   InvocationId: 'STRING_VALUE',
+ *   ExecutionId: 'STRING_VALUE',
+ *   TaskType: 'RUN_COMMAND' || 'AUTOMATION' || 'STEP_FUNCTIONS' || 'LAMBDA',
+ *   Parameters: 'STRING_VALUE',
+ *   Status: 'PENDING' || 'IN_PROGRESS' || 'SUCCESS' || 'FAILED' || 'TIMED_OUT' || 'CANCELLING' || 'CANCELLED' || 'SKIPPED_OVERLAPPING',
+ *   StatusDetails: 'STRING_VALUE',
+ *   StartTime: new Date('TIMESTAMP'),
+ *   EndTime: new Date('TIMESTAMP'),
+ *   OwnerInformation: 'STRING_VALUE',
+ *   WindowTargetId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetMaintenanceWindowExecutionTaskInvocationCommandInput - {@link GetMaintenanceWindowExecutionTaskInvocationCommandInput}
@@ -73,6 +89,8 @@ export interface GetMaintenanceWindowExecutionTaskInvocationCommandOutput
  * @throws {@link InternalServerError} (server fault)
  *  <p>An error occurred on the server side.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class GetMaintenanceWindowExecutionTaskInvocationCommand extends $Command<

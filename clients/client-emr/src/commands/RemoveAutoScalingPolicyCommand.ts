@@ -37,15 +37,18 @@ export interface RemoveAutoScalingPolicyCommandOutput extends RemoveAutoScalingP
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EMRClient, RemoveAutoScalingPolicyCommand } from "@aws-sdk/client-emr"; // ES Modules import
- * // const { EMRClient, RemoveAutoScalingPolicyCommand } = require("@aws-sdk/client-emr"); // CommonJS import
+ * import { EMRClient, RemoveAutoScalingPolicyCommand } from '@aws-sdk/client-emr'; // ES Modules import
+ * // const { EMRClient, RemoveAutoScalingPolicyCommand } = require('@aws-sdk/client-emr'); // CommonJS import
  * const client = new EMRClient(config);
  * const input = { // RemoveAutoScalingPolicyInput
- *   ClusterId: "STRING_VALUE", // required
- *   InstanceGroupId: "STRING_VALUE", // required
+ *   ClusterId: 'STRING_VALUE', // required
+ *   InstanceGroupId: 'STRING_VALUE', // required
  * };
  * const command = new RemoveAutoScalingPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param RemoveAutoScalingPolicyCommandInput - {@link RemoveAutoScalingPolicyCommandInput}
@@ -54,6 +57,8 @@ export interface RemoveAutoScalingPolicyCommandOutput extends RemoveAutoScalingP
  * @see {@link RemoveAutoScalingPolicyCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
  *
+ * @throws {@link EMRServiceException}
+ * <p>Base exception class for all service exceptions from EMR service.</p>
  *
  */
 export class RemoveAutoScalingPolicyCommand extends $Command<

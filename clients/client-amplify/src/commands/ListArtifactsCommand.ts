@@ -36,18 +36,29 @@ export interface ListArtifactsCommandOutput extends ListArtifactsResult, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AmplifyClient, ListArtifactsCommand } from "@aws-sdk/client-amplify"; // ES Modules import
- * // const { AmplifyClient, ListArtifactsCommand } = require("@aws-sdk/client-amplify"); // CommonJS import
+ * import { AmplifyClient, ListArtifactsCommand } from '@aws-sdk/client-amplify'; // ES Modules import
+ * // const { AmplifyClient, ListArtifactsCommand } = require('@aws-sdk/client-amplify'); // CommonJS import
  * const client = new AmplifyClient(config);
  * const input = { // ListArtifactsRequest
- *   appId: "STRING_VALUE", // required
- *   branchName: "STRING_VALUE", // required
- *   jobId: "STRING_VALUE", // required
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   appId: 'STRING_VALUE', // required
+ *   branchName: 'STRING_VALUE', // required
+ *   jobId: 'STRING_VALUE', // required
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new ListArtifactsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListArtifactsResult
+ *   artifacts: [ // Artifacts // required
+ *     { // Artifact
+ *       artifactFileName: 'STRING_VALUE', // required
+ *       artifactId: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListArtifactsCommandInput - {@link ListArtifactsCommandInput}
@@ -68,6 +79,8 @@ export interface ListArtifactsCommandOutput extends ListArtifactsResult, __Metad
  * @throws {@link UnauthorizedException} (client fault)
  *  <p> An operation failed due to a lack of access. </p>
  *
+ * @throws {@link AmplifyServiceException}
+ * <p>Base exception class for all service exceptions from Amplify service.</p>
  *
  */
 export class ListArtifactsCommand extends $Command<

@@ -38,15 +38,18 @@ export interface DeprecateThingTypeCommandOutput extends DeprecateThingTypeRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTClient, DeprecateThingTypeCommand } from "@aws-sdk/client-iot"; // ES Modules import
- * // const { IoTClient, DeprecateThingTypeCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * import { IoTClient, DeprecateThingTypeCommand } from '@aws-sdk/client-iot'; // ES Modules import
+ * // const { IoTClient, DeprecateThingTypeCommand } = require('@aws-sdk/client-iot'); // CommonJS import
  * const client = new IoTClient(config);
  * const input = { // DeprecateThingTypeRequest
- *   thingTypeName: "STRING_VALUE", // required
+ *   thingTypeName: 'STRING_VALUE', // required
  *   undoDeprecate: true || false,
  * };
  * const command = new DeprecateThingTypeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeprecateThingTypeCommandInput - {@link DeprecateThingTypeCommandInput}
@@ -73,6 +76,8 @@ export interface DeprecateThingTypeCommandOutput extends DeprecateThingTypeRespo
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this operation.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class DeprecateThingTypeCommand extends $Command<

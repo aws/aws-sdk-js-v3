@@ -47,32 +47,43 @@ export interface CreateHostCommandOutput extends CreateHostOutput, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeStarConnectionsClient, CreateHostCommand } from "@aws-sdk/client-codestar-connections"; // ES Modules import
- * // const { CodeStarConnectionsClient, CreateHostCommand } = require("@aws-sdk/client-codestar-connections"); // CommonJS import
+ * import { CodeStarConnectionsClient, CreateHostCommand } from '@aws-sdk/client-codestar-connections'; // ES Modules import
+ * // const { CodeStarConnectionsClient, CreateHostCommand } = require('@aws-sdk/client-codestar-connections'); // CommonJS import
  * const client = new CodeStarConnectionsClient(config);
  * const input = { // CreateHostInput
- *   Name: "STRING_VALUE", // required
- *   ProviderType: "STRING_VALUE", // required
- *   ProviderEndpoint: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
+ *   ProviderType: 'STRING_VALUE', // required
+ *   ProviderEndpoint: 'STRING_VALUE', // required
  *   VpcConfiguration: { // VpcConfiguration
- *     VpcId: "STRING_VALUE", // required
+ *     VpcId: 'STRING_VALUE', // required
  *     SubnetIds: [ // SubnetIds // required
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     SecurityGroupIds: [ // SecurityGroupIds // required
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
- *     TlsCertificate: "STRING_VALUE",
+ *     TlsCertificate: 'STRING_VALUE',
  *   },
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreateHostCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateHostOutput
+ *   HostArn: 'STRING_VALUE',
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param CreateHostCommandInput - {@link CreateHostCommandInput}
@@ -84,6 +95,8 @@ export interface CreateHostCommandOutput extends CreateHostOutput, __MetadataBea
  * @throws {@link LimitExceededException} (client fault)
  *  <p>Exceeded the maximum limit for connections.</p>
  *
+ * @throws {@link CodeStarConnectionsServiceException}
+ * <p>Base exception class for all service exceptions from CodeStarConnections service.</p>
  *
  */
 export class CreateHostCommand extends $Command<

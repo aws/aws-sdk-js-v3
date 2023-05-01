@@ -38,15 +38,20 @@ export interface PutFirewallRuleGroupPolicyCommandOutput extends PutFirewallRule
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Route53ResolverClient, PutFirewallRuleGroupPolicyCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
- * // const { Route53ResolverClient, PutFirewallRuleGroupPolicyCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
+ * import { Route53ResolverClient, PutFirewallRuleGroupPolicyCommand } from '@aws-sdk/client-route53resolver'; // ES Modules import
+ * // const { Route53ResolverClient, PutFirewallRuleGroupPolicyCommand } = require('@aws-sdk/client-route53resolver'); // CommonJS import
  * const client = new Route53ResolverClient(config);
  * const input = { // PutFirewallRuleGroupPolicyRequest
- *   Arn: "STRING_VALUE", // required
- *   FirewallRuleGroupPolicy: "STRING_VALUE", // required
+ *   Arn: 'STRING_VALUE', // required
+ *   FirewallRuleGroupPolicy: 'STRING_VALUE', // required
  * };
  * const command = new PutFirewallRuleGroupPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutFirewallRuleGroupPolicyResponse
+ *   ReturnValue: true || false,
+ * };
+ *
  * ```
  *
  * @param PutFirewallRuleGroupPolicyCommandInput - {@link PutFirewallRuleGroupPolicyCommandInput}
@@ -71,6 +76,8 @@ export interface PutFirewallRuleGroupPolicyCommandOutput extends PutFirewallRule
  *  <p>You have provided an invalid command. Supported values are <code>ADD</code>,
  * 			<code>REMOVE</code>, or <code>REPLACE</code> a domain.</p>
  *
+ * @throws {@link Route53ResolverServiceException}
+ * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
  */
 export class PutFirewallRuleGroupPolicyCommand extends $Command<

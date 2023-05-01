@@ -37,16 +37,34 @@ export interface ListMailboxExportJobsCommandOutput extends ListMailboxExportJob
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkMailClient, ListMailboxExportJobsCommand } from "@aws-sdk/client-workmail"; // ES Modules import
- * // const { WorkMailClient, ListMailboxExportJobsCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
+ * import { WorkMailClient, ListMailboxExportJobsCommand } from '@aws-sdk/client-workmail'; // ES Modules import
+ * // const { WorkMailClient, ListMailboxExportJobsCommand } = require('@aws-sdk/client-workmail'); // CommonJS import
  * const client = new WorkMailClient(config);
  * const input = { // ListMailboxExportJobsRequest
- *   OrganizationId: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   OrganizationId: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListMailboxExportJobsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListMailboxExportJobsResponse
+ *   Jobs: [ // Jobs
+ *     { // MailboxExportJob
+ *       JobId: 'STRING_VALUE',
+ *       EntityId: 'STRING_VALUE',
+ *       Description: 'STRING_VALUE',
+ *       S3BucketName: 'STRING_VALUE',
+ *       S3Path: 'STRING_VALUE',
+ *       EstimatedProgress: Number('int'),
+ *       State: 'RUNNING' || 'COMPLETED' || 'FAILED' || 'CANCELLED',
+ *       StartTime: new Date('TIMESTAMP'),
+ *       EndTime: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListMailboxExportJobsCommandInput - {@link ListMailboxExportJobsCommandInput}
@@ -66,6 +84,8 @@ export interface ListMailboxExportJobsCommandOutput extends ListMailboxExportJob
  *  <p>The organization must have a valid state to perform certain
  *          operations on the organization or its members.</p>
  *
+ * @throws {@link WorkMailServiceException}
+ * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
  */
 export class ListMailboxExportJobsCommand extends $Command<

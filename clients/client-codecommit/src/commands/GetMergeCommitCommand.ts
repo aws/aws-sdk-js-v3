@@ -36,18 +36,26 @@ export interface GetMergeCommitCommandOutput extends GetMergeCommitOutput, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeCommitClient, GetMergeCommitCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
- * // const { CodeCommitClient, GetMergeCommitCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
+ * import { CodeCommitClient, GetMergeCommitCommand } from '@aws-sdk/client-codecommit'; // ES Modules import
+ * // const { CodeCommitClient, GetMergeCommitCommand } = require('@aws-sdk/client-codecommit'); // CommonJS import
  * const client = new CodeCommitClient(config);
  * const input = { // GetMergeCommitInput
- *   repositoryName: "STRING_VALUE", // required
- *   sourceCommitSpecifier: "STRING_VALUE", // required
- *   destinationCommitSpecifier: "STRING_VALUE", // required
- *   conflictDetailLevel: "STRING_VALUE",
- *   conflictResolutionStrategy: "STRING_VALUE",
+ *   repositoryName: 'STRING_VALUE', // required
+ *   sourceCommitSpecifier: 'STRING_VALUE', // required
+ *   destinationCommitSpecifier: 'STRING_VALUE', // required
+ *   conflictDetailLevel: 'STRING_VALUE',
+ *   conflictResolutionStrategy: 'STRING_VALUE',
  * };
  * const command = new GetMergeCommitCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetMergeCommitOutput
+ *   sourceCommitId: 'STRING_VALUE',
+ *   destinationCommitId: 'STRING_VALUE',
+ *   baseCommitId: 'STRING_VALUE',
+ *   mergedCommitId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetMergeCommitCommandInput - {@link GetMergeCommitCommandInput}
@@ -101,6 +109,8 @@ export interface GetMergeCommitCommandOutput extends GetMergeCommitOutput, __Met
  * @throws {@link RepositoryNameRequiredException} (client fault)
  *  <p>A repository name is required, but was not specified.</p>
  *
+ * @throws {@link CodeCommitServiceException}
+ * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
  */
 export class GetMergeCommitCommand extends $Command<

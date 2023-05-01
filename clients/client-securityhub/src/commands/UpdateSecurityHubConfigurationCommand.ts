@@ -41,15 +41,18 @@ export interface UpdateSecurityHubConfigurationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SecurityHubClient, UpdateSecurityHubConfigurationCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
- * // const { SecurityHubClient, UpdateSecurityHubConfigurationCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
+ * import { SecurityHubClient, UpdateSecurityHubConfigurationCommand } from '@aws-sdk/client-securityhub'; // ES Modules import
+ * // const { SecurityHubClient, UpdateSecurityHubConfigurationCommand } = require('@aws-sdk/client-securityhub'); // CommonJS import
  * const client = new SecurityHubClient(config);
  * const input = { // UpdateSecurityHubConfigurationRequest
  *   AutoEnableControls: true || false,
- *   ControlFindingGenerator: "STANDARD_CONTROL" || "SECURITY_CONTROL",
+ *   ControlFindingGenerator: 'STANDARD_CONTROL' || 'SECURITY_CONTROL',
  * };
  * const command = new UpdateSecurityHubConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateSecurityHubConfigurationCommandInput - {@link UpdateSecurityHubConfigurationCommandInput}
@@ -75,6 +78,8 @@ export interface UpdateSecurityHubConfigurationCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The request was rejected because we can't find the specified resource.</p>
  *
+ * @throws {@link SecurityHubServiceException}
+ * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
  * @example To update Security Hub settings
  * ```javascript

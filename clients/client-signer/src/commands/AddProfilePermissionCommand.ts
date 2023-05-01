@@ -36,19 +36,24 @@ export interface AddProfilePermissionCommandOutput extends AddProfilePermissionR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SignerClient, AddProfilePermissionCommand } from "@aws-sdk/client-signer"; // ES Modules import
- * // const { SignerClient, AddProfilePermissionCommand } = require("@aws-sdk/client-signer"); // CommonJS import
+ * import { SignerClient, AddProfilePermissionCommand } from '@aws-sdk/client-signer'; // ES Modules import
+ * // const { SignerClient, AddProfilePermissionCommand } = require('@aws-sdk/client-signer'); // CommonJS import
  * const client = new SignerClient(config);
  * const input = { // AddProfilePermissionRequest
- *   profileName: "STRING_VALUE", // required
- *   profileVersion: "STRING_VALUE",
- *   action: "STRING_VALUE", // required
- *   principal: "STRING_VALUE", // required
- *   revisionId: "STRING_VALUE",
- *   statementId: "STRING_VALUE", // required
+ *   profileName: 'STRING_VALUE', // required
+ *   profileVersion: 'STRING_VALUE',
+ *   action: 'STRING_VALUE', // required
+ *   principal: 'STRING_VALUE', // required
+ *   revisionId: 'STRING_VALUE',
+ *   statementId: 'STRING_VALUE', // required
  * };
  * const command = new AddProfilePermissionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AddProfilePermissionResponse
+ *   revisionId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param AddProfilePermissionCommandInput - {@link AddProfilePermissionCommandInput}
@@ -79,6 +84,8 @@ export interface AddProfilePermissionCommandOutput extends AddProfilePermissionR
  * @throws {@link ValidationException} (client fault)
  *  <p>You signing certificate could not be validated.</p>
  *
+ * @throws {@link SignerServiceException}
+ * <p>Base exception class for all service exceptions from Signer service.</p>
  *
  */
 export class AddProfilePermissionCommand extends $Command<

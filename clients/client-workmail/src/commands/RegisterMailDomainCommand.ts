@@ -37,16 +37,19 @@ export interface RegisterMailDomainCommandOutput extends RegisterMailDomainRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkMailClient, RegisterMailDomainCommand } from "@aws-sdk/client-workmail"; // ES Modules import
- * // const { WorkMailClient, RegisterMailDomainCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
+ * import { WorkMailClient, RegisterMailDomainCommand } from '@aws-sdk/client-workmail'; // ES Modules import
+ * // const { WorkMailClient, RegisterMailDomainCommand } = require('@aws-sdk/client-workmail'); // CommonJS import
  * const client = new WorkMailClient(config);
  * const input = { // RegisterMailDomainRequest
- *   ClientToken: "STRING_VALUE",
- *   OrganizationId: "STRING_VALUE", // required
- *   DomainName: "STRING_VALUE", // required
+ *   ClientToken: 'STRING_VALUE',
+ *   OrganizationId: 'STRING_VALUE', // required
+ *   DomainName: 'STRING_VALUE', // required
  * };
  * const command = new RegisterMailDomainCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param RegisterMailDomainCommandInput - {@link RegisterMailDomainCommandInput}
@@ -72,6 +75,8 @@ export interface RegisterMailDomainCommandOutput extends RegisterMailDomainRespo
  *  <p>The organization must have a valid state to perform certain
  *          operations on the organization or its members.</p>
  *
+ * @throws {@link WorkMailServiceException}
+ * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
  */
 export class RegisterMailDomainCommand extends $Command<

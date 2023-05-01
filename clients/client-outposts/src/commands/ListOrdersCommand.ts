@@ -36,16 +36,34 @@ export interface ListOrdersCommandOutput extends ListOrdersOutput, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OutpostsClient, ListOrdersCommand } from "@aws-sdk/client-outposts"; // ES Modules import
- * // const { OutpostsClient, ListOrdersCommand } = require("@aws-sdk/client-outposts"); // CommonJS import
+ * import { OutpostsClient, ListOrdersCommand } from '@aws-sdk/client-outposts'; // ES Modules import
+ * // const { OutpostsClient, ListOrdersCommand } = require('@aws-sdk/client-outposts'); // CommonJS import
  * const client = new OutpostsClient(config);
  * const input = { // ListOrdersInput
- *   OutpostIdentifierFilter: "STRING_VALUE",
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   OutpostIdentifierFilter: 'STRING_VALUE',
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListOrdersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListOrdersOutput
+ *   Orders: [ // OrderSummaryListDefinition
+ *     { // OrderSummary
+ *       OutpostId: 'STRING_VALUE',
+ *       OrderId: 'STRING_VALUE',
+ *       OrderType: 'OUTPOST' || 'REPLACEMENT',
+ *       Status: 'RECEIVED' || 'PENDING' || 'PROCESSING' || 'INSTALLING' || 'FULFILLED' || 'CANCELLED' || 'PREPARING' || 'IN_PROGRESS' || 'COMPLETED' || 'ERROR',
+ *       LineItemCountsByStatus: { // LineItemStatusCounts
+ *         '<keys>': Number('int'),
+ *       },
+ *       OrderSubmissionDate: new Date('TIMESTAMP'),
+ *       OrderFulfilledDate: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListOrdersCommandInput - {@link ListOrdersCommandInput}
@@ -66,6 +84,8 @@ export interface ListOrdersCommandOutput extends ListOrdersOutput, __MetadataBea
  * @throws {@link ValidationException} (client fault)
  *  <p>A parameter is not valid.</p>
  *
+ * @throws {@link OutpostsServiceException}
+ * <p>Base exception class for all service exceptions from Outposts service.</p>
  *
  */
 export class ListOrdersCommand extends $Command<

@@ -40,21 +40,40 @@ export interface DescribeTargetHealthCommandOutput extends DescribeTargetHealthO
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElasticLoadBalancingV2Client, DescribeTargetHealthCommand } from "@aws-sdk/client-elastic-load-balancing-v2"; // ES Modules import
- * // const { ElasticLoadBalancingV2Client, DescribeTargetHealthCommand } = require("@aws-sdk/client-elastic-load-balancing-v2"); // CommonJS import
+ * import { ElasticLoadBalancingV2Client, DescribeTargetHealthCommand } from '@aws-sdk/client-elastic-load-balancing-v2'; // ES Modules import
+ * // const { ElasticLoadBalancingV2Client, DescribeTargetHealthCommand } = require('@aws-sdk/client-elastic-load-balancing-v2'); // CommonJS import
  * const client = new ElasticLoadBalancingV2Client(config);
  * const input = { // DescribeTargetHealthInput
- *   TargetGroupArn: "STRING_VALUE", // required
+ *   TargetGroupArn: 'STRING_VALUE', // required
  *   Targets: [ // TargetDescriptions
  *     { // TargetDescription
- *       Id: "STRING_VALUE", // required
- *       Port: Number("int"),
- *       AvailabilityZone: "STRING_VALUE",
+ *       Id: 'STRING_VALUE', // required
+ *       Port: Number('int'),
+ *       AvailabilityZone: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new DescribeTargetHealthCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeTargetHealthOutput
+ *   TargetHealthDescriptions: [ // TargetHealthDescriptions
+ *     { // TargetHealthDescription
+ *       Target: { // TargetDescription
+ *         Id: 'STRING_VALUE', // required
+ *         Port: Number('int'),
+ *         AvailabilityZone: 'STRING_VALUE',
+ *       },
+ *       HealthCheckPort: 'STRING_VALUE',
+ *       TargetHealth: { // TargetHealth
+ *         State: 'initial' || 'healthy' || 'unhealthy' || 'unused' || 'draining' || 'unavailable',
+ *         Reason: 'Elb.RegistrationInProgress' || 'Elb.InitialHealthChecking' || 'Target.ResponseCodeMismatch' || 'Target.Timeout' || 'Target.FailedHealthChecks' || 'Target.NotRegistered' || 'Target.NotInUse' || 'Target.DeregistrationInProgress' || 'Target.InvalidState' || 'Target.IpUnusable' || 'Target.HealthCheckDisabled' || 'Elb.InternalError',
+ *         Description: 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeTargetHealthCommandInput - {@link DescribeTargetHealthCommandInput}
@@ -74,6 +93,8 @@ export interface DescribeTargetHealthCommandOutput extends DescribeTargetHealthO
  * @throws {@link TargetGroupNotFoundException} (client fault)
  *  <p>The specified target group does not exist.</p>
  *
+ * @throws {@link ElasticLoadBalancingV2ServiceException}
+ * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
  * @example To describe the health of the targets for a target group
  * ```javascript

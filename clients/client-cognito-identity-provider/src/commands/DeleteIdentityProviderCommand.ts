@@ -41,15 +41,18 @@ export interface DeleteIdentityProviderCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CognitoIdentityProviderClient, DeleteIdentityProviderCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
- * // const { CognitoIdentityProviderClient, DeleteIdentityProviderCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
+ * import { CognitoIdentityProviderClient, DeleteIdentityProviderCommand } from '@aws-sdk/client-cognito-identity-provider'; // ES Modules import
+ * // const { CognitoIdentityProviderClient, DeleteIdentityProviderCommand } = require('@aws-sdk/client-cognito-identity-provider'); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
  * const input = { // DeleteIdentityProviderRequest
- *   UserPoolId: "STRING_VALUE", // required
- *   ProviderName: "STRING_VALUE", // required
+ *   UserPoolId: 'STRING_VALUE', // required
+ *   ProviderName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteIdentityProviderCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteIdentityProviderCommandInput - {@link DeleteIdentityProviderCommandInput}
@@ -83,6 +86,8 @@ export interface DeleteIdentityProviderCommandOutput extends __MetadataBearer {}
  * @throws {@link UnsupportedIdentityProviderException} (client fault)
  *  <p>This exception is thrown when the specified identifier isn't supported.</p>
  *
+ * @throws {@link CognitoIdentityProviderServiceException}
+ * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
  */
 export class DeleteIdentityProviderCommand extends $Command<

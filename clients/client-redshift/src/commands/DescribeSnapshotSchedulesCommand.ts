@@ -38,23 +38,53 @@ export interface DescribeSnapshotSchedulesCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RedshiftClient, DescribeSnapshotSchedulesCommand } from "@aws-sdk/client-redshift"; // ES Modules import
- * // const { RedshiftClient, DescribeSnapshotSchedulesCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * import { RedshiftClient, DescribeSnapshotSchedulesCommand } from '@aws-sdk/client-redshift'; // ES Modules import
+ * // const { RedshiftClient, DescribeSnapshotSchedulesCommand } = require('@aws-sdk/client-redshift'); // CommonJS import
  * const client = new RedshiftClient(config);
  * const input = { // DescribeSnapshotSchedulesMessage
- *   ClusterIdentifier: "STRING_VALUE",
- *   ScheduleIdentifier: "STRING_VALUE",
+ *   ClusterIdentifier: 'STRING_VALUE',
+ *   ScheduleIdentifier: 'STRING_VALUE',
  *   TagKeys: [ // TagKeyList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   TagValues: [ // TagValueList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   Marker: "STRING_VALUE",
- *   MaxRecords: Number("int"),
+ *   Marker: 'STRING_VALUE',
+ *   MaxRecords: Number('int'),
  * };
  * const command = new DescribeSnapshotSchedulesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeSnapshotSchedulesOutputMessage
+ *   SnapshotSchedules: [ // SnapshotScheduleList
+ *     { // SnapshotSchedule
+ *       ScheduleDefinitions: [ // ScheduleDefinitionList
+ *         'STRING_VALUE',
+ *       ],
+ *       ScheduleIdentifier: 'STRING_VALUE',
+ *       ScheduleDescription: 'STRING_VALUE',
+ *       Tags: [ // TagList
+ *         { // Tag
+ *           Key: 'STRING_VALUE',
+ *           Value: 'STRING_VALUE',
+ *         },
+ *       ],
+ *       NextInvocations: [ // ScheduledSnapshotTimeList
+ *         new Date('TIMESTAMP'),
+ *       ],
+ *       AssociatedClusterCount: Number('int'),
+ *       AssociatedClusters: [ // AssociatedClusterList
+ *         { // ClusterAssociatedToSchedule
+ *           ClusterIdentifier: 'STRING_VALUE',
+ *           ScheduleAssociationState: 'MODIFYING' || 'ACTIVE' || 'FAILED',
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   Marker: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeSnapshotSchedulesCommandInput - {@link DescribeSnapshotSchedulesCommandInput}
@@ -63,6 +93,8 @@ export interface DescribeSnapshotSchedulesCommandOutput
  * @see {@link DescribeSnapshotSchedulesCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class DescribeSnapshotSchedulesCommand extends $Command<

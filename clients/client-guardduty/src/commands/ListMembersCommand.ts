@@ -37,17 +37,34 @@ export interface ListMembersCommandOutput extends ListMembersResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GuardDutyClient, ListMembersCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
- * // const { GuardDutyClient, ListMembersCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
+ * import { GuardDutyClient, ListMembersCommand } from '@aws-sdk/client-guardduty'; // ES Modules import
+ * // const { GuardDutyClient, ListMembersCommand } = require('@aws-sdk/client-guardduty'); // CommonJS import
  * const client = new GuardDutyClient(config);
  * const input = { // ListMembersRequest
- *   DetectorId: "STRING_VALUE", // required
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
- *   OnlyAssociated: "STRING_VALUE",
+ *   DetectorId: 'STRING_VALUE', // required
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
+ *   OnlyAssociated: 'STRING_VALUE',
  * };
  * const command = new ListMembersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListMembersResponse
+ *   Members: [ // Members
+ *     { // Member
+ *       AccountId: 'STRING_VALUE', // required
+ *       DetectorId: 'STRING_VALUE',
+ *       MasterId: 'STRING_VALUE', // required
+ *       Email: 'STRING_VALUE', // required
+ *       RelationshipStatus: 'STRING_VALUE', // required
+ *       InvitedAt: 'STRING_VALUE',
+ *       UpdatedAt: 'STRING_VALUE', // required
+ *       AdministratorId: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListMembersCommandInput - {@link ListMembersCommandInput}
@@ -62,6 +79,8 @@ export interface ListMembersCommandOutput extends ListMembersResponse, __Metadat
  * @throws {@link InternalServerErrorException} (server fault)
  *  <p>An internal server error exception object.</p>
  *
+ * @throws {@link GuardDutyServiceException}
+ * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
  */
 export class ListMembersCommand extends $Command<

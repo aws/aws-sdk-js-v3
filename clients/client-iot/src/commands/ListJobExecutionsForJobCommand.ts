@@ -37,17 +37,35 @@ export interface ListJobExecutionsForJobCommandOutput extends ListJobExecutionsF
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTClient, ListJobExecutionsForJobCommand } from "@aws-sdk/client-iot"; // ES Modules import
- * // const { IoTClient, ListJobExecutionsForJobCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * import { IoTClient, ListJobExecutionsForJobCommand } from '@aws-sdk/client-iot'; // ES Modules import
+ * // const { IoTClient, ListJobExecutionsForJobCommand } = require('@aws-sdk/client-iot'); // CommonJS import
  * const client = new IoTClient(config);
  * const input = { // ListJobExecutionsForJobRequest
- *   jobId: "STRING_VALUE", // required
- *   status: "QUEUED" || "IN_PROGRESS" || "SUCCEEDED" || "FAILED" || "TIMED_OUT" || "REJECTED" || "REMOVED" || "CANCELED",
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   jobId: 'STRING_VALUE', // required
+ *   status: 'QUEUED' || 'IN_PROGRESS' || 'SUCCEEDED' || 'FAILED' || 'TIMED_OUT' || 'REJECTED' || 'REMOVED' || 'CANCELED',
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new ListJobExecutionsForJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListJobExecutionsForJobResponse
+ *   executionSummaries: [ // JobExecutionSummaryForJobList
+ *     { // JobExecutionSummaryForJob
+ *       thingArn: 'STRING_VALUE',
+ *       jobExecutionSummary: { // JobExecutionSummary
+ *         status: 'QUEUED' || 'IN_PROGRESS' || 'SUCCEEDED' || 'FAILED' || 'TIMED_OUT' || 'REJECTED' || 'REMOVED' || 'CANCELED',
+ *         queuedAt: new Date('TIMESTAMP'),
+ *         startedAt: new Date('TIMESTAMP'),
+ *         lastUpdatedAt: new Date('TIMESTAMP'),
+ *         executionNumber: Number('long'),
+ *         retryAttempt: Number('int'),
+ *       },
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListJobExecutionsForJobCommandInput - {@link ListJobExecutionsForJobCommandInput}
@@ -68,6 +86,8 @@ export interface ListJobExecutionsForJobCommandOutput extends ListJobExecutionsF
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The rate exceeds the limit.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class ListJobExecutionsForJobCommand extends $Command<

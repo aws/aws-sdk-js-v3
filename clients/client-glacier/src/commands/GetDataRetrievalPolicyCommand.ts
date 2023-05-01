@@ -38,14 +38,26 @@ export interface GetDataRetrievalPolicyCommandOutput extends GetDataRetrievalPol
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlacierClient, GetDataRetrievalPolicyCommand } from "@aws-sdk/client-glacier"; // ES Modules import
- * // const { GlacierClient, GetDataRetrievalPolicyCommand } = require("@aws-sdk/client-glacier"); // CommonJS import
+ * import { GlacierClient, GetDataRetrievalPolicyCommand } from '@aws-sdk/client-glacier'; // ES Modules import
+ * // const { GlacierClient, GetDataRetrievalPolicyCommand } = require('@aws-sdk/client-glacier'); // CommonJS import
  * const client = new GlacierClient(config);
  * const input = { // GetDataRetrievalPolicyInput
- *   accountId: "STRING_VALUE", // required
+ *   accountId: 'STRING_VALUE', // required
  * };
  * const command = new GetDataRetrievalPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetDataRetrievalPolicyOutput
+ *   Policy: { // DataRetrievalPolicy
+ *     Rules: [ // DataRetrievalRulesList
+ *       { // DataRetrievalRule
+ *         Strategy: 'STRING_VALUE',
+ *         BytesPerHour: Number('long'),
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetDataRetrievalPolicyCommandInput - {@link GetDataRetrievalPolicyCommandInput}
@@ -63,6 +75,8 @@ export interface GetDataRetrievalPolicyCommandOutput extends GetDataRetrievalPol
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>Returned if the service cannot complete the request.</p>
  *
+ * @throws {@link GlacierServiceException}
+ * <p>Base exception class for all service exceptions from Glacier service.</p>
  *
  * @example To get the current data retrieval policy for an account
  * ```javascript

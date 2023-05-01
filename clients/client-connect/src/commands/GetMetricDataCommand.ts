@@ -38,43 +38,77 @@ export interface GetMetricDataCommandOutput extends GetMetricDataResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, GetMetricDataCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, GetMetricDataCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, GetMetricDataCommand } from '@aws-sdk/client-connect'; // ES Modules import
+ * // const { ConnectClient, GetMetricDataCommand } = require('@aws-sdk/client-connect'); // CommonJS import
  * const client = new ConnectClient(config);
  * const input = { // GetMetricDataRequest
- *   InstanceId: "STRING_VALUE", // required
- *   StartTime: new Date("TIMESTAMP"), // required
- *   EndTime: new Date("TIMESTAMP"), // required
+ *   InstanceId: 'STRING_VALUE', // required
+ *   StartTime: new Date('TIMESTAMP'), // required
+ *   EndTime: new Date('TIMESTAMP'), // required
  *   Filters: { // Filters
  *     Queues: [ // Queues
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     Channels: [ // Channels
- *       "VOICE" || "CHAT" || "TASK",
+ *       'VOICE' || 'CHAT' || 'TASK',
  *     ],
  *     RoutingProfiles: [ // RoutingProfiles
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *   },
  *   Groupings: [ // Groupings
- *     "QUEUE" || "CHANNEL" || "ROUTING_PROFILE",
+ *     'QUEUE' || 'CHANNEL' || 'ROUTING_PROFILE',
  *   ],
  *   HistoricalMetrics: [ // HistoricalMetrics // required
  *     { // HistoricalMetric
- *       Name: "CONTACTS_QUEUED" || "CONTACTS_HANDLED" || "CONTACTS_ABANDONED" || "CONTACTS_CONSULTED" || "CONTACTS_AGENT_HUNG_UP_FIRST" || "CONTACTS_HANDLED_INCOMING" || "CONTACTS_HANDLED_OUTBOUND" || "CONTACTS_HOLD_ABANDONS" || "CONTACTS_TRANSFERRED_IN" || "CONTACTS_TRANSFERRED_OUT" || "CONTACTS_TRANSFERRED_IN_FROM_QUEUE" || "CONTACTS_TRANSFERRED_OUT_FROM_QUEUE" || "CONTACTS_MISSED" || "CALLBACK_CONTACTS_HANDLED" || "API_CONTACTS_HANDLED" || "OCCUPANCY" || "HANDLE_TIME" || "AFTER_CONTACT_WORK_TIME" || "QUEUED_TIME" || "ABANDON_TIME" || "QUEUE_ANSWER_TIME" || "HOLD_TIME" || "INTERACTION_TIME" || "INTERACTION_AND_HOLD_TIME" || "SERVICE_LEVEL",
+ *       Name: 'CONTACTS_QUEUED' || 'CONTACTS_HANDLED' || 'CONTACTS_ABANDONED' || 'CONTACTS_CONSULTED' || 'CONTACTS_AGENT_HUNG_UP_FIRST' || 'CONTACTS_HANDLED_INCOMING' || 'CONTACTS_HANDLED_OUTBOUND' || 'CONTACTS_HOLD_ABANDONS' || 'CONTACTS_TRANSFERRED_IN' || 'CONTACTS_TRANSFERRED_OUT' || 'CONTACTS_TRANSFERRED_IN_FROM_QUEUE' || 'CONTACTS_TRANSFERRED_OUT_FROM_QUEUE' || 'CONTACTS_MISSED' || 'CALLBACK_CONTACTS_HANDLED' || 'API_CONTACTS_HANDLED' || 'OCCUPANCY' || 'HANDLE_TIME' || 'AFTER_CONTACT_WORK_TIME' || 'QUEUED_TIME' || 'ABANDON_TIME' || 'QUEUE_ANSWER_TIME' || 'HOLD_TIME' || 'INTERACTION_TIME' || 'INTERACTION_AND_HOLD_TIME' || 'SERVICE_LEVEL',
  *       Threshold: { // Threshold
- *         Comparison: "LT",
- *         ThresholdValue: Number("double"),
+ *         Comparison: 'LT',
+ *         ThresholdValue: Number('double'),
  *       },
- *       Statistic: "SUM" || "MAX" || "AVG",
- *       Unit: "SECONDS" || "COUNT" || "PERCENT",
+ *       Statistic: 'SUM' || 'MAX' || 'AVG',
+ *       Unit: 'SECONDS' || 'COUNT' || 'PERCENT',
  *     },
  *   ],
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new GetMetricDataCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetMetricDataResponse
+ *   NextToken: 'STRING_VALUE',
+ *   MetricResults: [ // HistoricalMetricResults
+ *     { // HistoricalMetricResult
+ *       Dimensions: { // Dimensions
+ *         Queue: { // QueueReference
+ *           Id: 'STRING_VALUE',
+ *           Arn: 'STRING_VALUE',
+ *         },
+ *         Channel: 'VOICE' || 'CHAT' || 'TASK',
+ *         RoutingProfile: { // RoutingProfileReference
+ *           Id: 'STRING_VALUE',
+ *           Arn: 'STRING_VALUE',
+ *         },
+ *       },
+ *       Collections: [ // HistoricalMetricDataCollections
+ *         { // HistoricalMetricData
+ *           Metric: { // HistoricalMetric
+ *             Name: 'CONTACTS_QUEUED' || 'CONTACTS_HANDLED' || 'CONTACTS_ABANDONED' || 'CONTACTS_CONSULTED' || 'CONTACTS_AGENT_HUNG_UP_FIRST' || 'CONTACTS_HANDLED_INCOMING' || 'CONTACTS_HANDLED_OUTBOUND' || 'CONTACTS_HOLD_ABANDONS' || 'CONTACTS_TRANSFERRED_IN' || 'CONTACTS_TRANSFERRED_OUT' || 'CONTACTS_TRANSFERRED_IN_FROM_QUEUE' || 'CONTACTS_TRANSFERRED_OUT_FROM_QUEUE' || 'CONTACTS_MISSED' || 'CALLBACK_CONTACTS_HANDLED' || 'API_CONTACTS_HANDLED' || 'OCCUPANCY' || 'HANDLE_TIME' || 'AFTER_CONTACT_WORK_TIME' || 'QUEUED_TIME' || 'ABANDON_TIME' || 'QUEUE_ANSWER_TIME' || 'HOLD_TIME' || 'INTERACTION_TIME' || 'INTERACTION_AND_HOLD_TIME' || 'SERVICE_LEVEL',
+ *             Threshold: { // Threshold
+ *               Comparison: 'LT',
+ *               ThresholdValue: Number('double'),
+ *             },
+ *             Statistic: 'SUM' || 'MAX' || 'AVG',
+ *             Unit: 'SECONDS' || 'COUNT' || 'PERCENT',
+ *           },
+ *           Value: Number('double'),
+ *         },
+ *       ],
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetMetricDataCommandInput - {@link GetMetricDataCommandInput}
@@ -98,6 +132,8 @@ export interface GetMetricDataCommandOutput extends GetMetricDataResponse, __Met
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class GetMetricDataCommand extends $Command<

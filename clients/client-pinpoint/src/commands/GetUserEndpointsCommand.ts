@@ -36,15 +36,69 @@ export interface GetUserEndpointsCommandOutput extends GetUserEndpointsResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PinpointClient, GetUserEndpointsCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
- * // const { PinpointClient, GetUserEndpointsCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
+ * import { PinpointClient, GetUserEndpointsCommand } from '@aws-sdk/client-pinpoint'; // ES Modules import
+ * // const { PinpointClient, GetUserEndpointsCommand } = require('@aws-sdk/client-pinpoint'); // CommonJS import
  * const client = new PinpointClient(config);
  * const input = { // GetUserEndpointsRequest
- *   ApplicationId: "STRING_VALUE", // required
- *   UserId: "STRING_VALUE", // required
+ *   ApplicationId: 'STRING_VALUE', // required
+ *   UserId: 'STRING_VALUE', // required
  * };
  * const command = new GetUserEndpointsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetUserEndpointsResponse
+ *   EndpointsResponse: { // EndpointsResponse
+ *     Item: [ // ListOfEndpointResponse // required
+ *       { // EndpointResponse
+ *         Address: 'STRING_VALUE',
+ *         ApplicationId: 'STRING_VALUE',
+ *         Attributes: { // MapOfListOf__string
+ *           '<keys>': [ // ListOf__string
+ *             'STRING_VALUE',
+ *           ],
+ *         },
+ *         ChannelType: 'PUSH' || 'GCM' || 'APNS' || 'APNS_SANDBOX' || 'APNS_VOIP' || 'APNS_VOIP_SANDBOX' || 'ADM' || 'SMS' || 'VOICE' || 'EMAIL' || 'BAIDU' || 'CUSTOM' || 'IN_APP',
+ *         CohortId: 'STRING_VALUE',
+ *         CreationDate: 'STRING_VALUE',
+ *         Demographic: { // EndpointDemographic
+ *           AppVersion: 'STRING_VALUE',
+ *           Locale: 'STRING_VALUE',
+ *           Make: 'STRING_VALUE',
+ *           Model: 'STRING_VALUE',
+ *           ModelVersion: 'STRING_VALUE',
+ *           Platform: 'STRING_VALUE',
+ *           PlatformVersion: 'STRING_VALUE',
+ *           Timezone: 'STRING_VALUE',
+ *         },
+ *         EffectiveDate: 'STRING_VALUE',
+ *         EndpointStatus: 'STRING_VALUE',
+ *         Id: 'STRING_VALUE',
+ *         Location: { // EndpointLocation
+ *           City: 'STRING_VALUE',
+ *           Country: 'STRING_VALUE',
+ *           Latitude: Number('double'),
+ *           Longitude: Number('double'),
+ *           PostalCode: 'STRING_VALUE',
+ *           Region: 'STRING_VALUE',
+ *         },
+ *         Metrics: { // MapOf__double
+ *           '<keys>': Number('double'),
+ *         },
+ *         OptOut: 'STRING_VALUE',
+ *         RequestId: 'STRING_VALUE',
+ *         User: { // EndpointUser
+ *           UserAttributes: {
+ *             '<keys>': [
+ *               'STRING_VALUE',
+ *             ],
+ *           },
+ *           UserId: 'STRING_VALUE',
+ *         },
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetUserEndpointsCommandInput - {@link GetUserEndpointsCommandInput}
@@ -74,6 +128,8 @@ export interface GetUserEndpointsCommandOutput extends GetUserEndpointsResponse,
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Provides information about an API request or response.</p>
  *
+ * @throws {@link PinpointServiceException}
+ * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
  */
 export class GetUserEndpointsCommand extends $Command<

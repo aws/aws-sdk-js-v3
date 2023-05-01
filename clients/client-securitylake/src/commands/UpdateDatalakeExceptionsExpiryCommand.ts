@@ -43,14 +43,17 @@ export interface UpdateDatalakeExceptionsExpiryCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SecurityLakeClient, UpdateDatalakeExceptionsExpiryCommand } from "@aws-sdk/client-securitylake"; // ES Modules import
- * // const { SecurityLakeClient, UpdateDatalakeExceptionsExpiryCommand } = require("@aws-sdk/client-securitylake"); // CommonJS import
+ * import { SecurityLakeClient, UpdateDatalakeExceptionsExpiryCommand } from '@aws-sdk/client-securitylake'; // ES Modules import
+ * // const { SecurityLakeClient, UpdateDatalakeExceptionsExpiryCommand } = require('@aws-sdk/client-securitylake'); // CommonJS import
  * const client = new SecurityLakeClient(config);
  * const input = { // UpdateDatalakeExceptionsExpiryRequest
- *   exceptionMessageExpiry: Number("long"), // required
+ *   exceptionMessageExpiry: Number('long'), // required
  * };
  * const command = new UpdateDatalakeExceptionsExpiryCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateDatalakeExceptionsExpiryCommandInput - {@link UpdateDatalakeExceptionsExpiryCommandInput}
@@ -77,6 +80,8 @@ export interface UpdateDatalakeExceptionsExpiryCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>Your signing certificate could not be validated. </p>
  *
+ * @throws {@link SecurityLakeServiceException}
+ * <p>Base exception class for all service exceptions from SecurityLake service.</p>
  *
  */
 export class UpdateDatalakeExceptionsExpiryCommand extends $Command<

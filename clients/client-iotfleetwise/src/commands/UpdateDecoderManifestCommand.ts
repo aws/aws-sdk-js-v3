@@ -38,86 +38,86 @@ export interface UpdateDecoderManifestCommandOutput extends UpdateDecoderManifes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTFleetWiseClient, UpdateDecoderManifestCommand } from "@aws-sdk/client-iotfleetwise"; // ES Modules import
- * // const { IoTFleetWiseClient, UpdateDecoderManifestCommand } = require("@aws-sdk/client-iotfleetwise"); // CommonJS import
+ * import { IoTFleetWiseClient, UpdateDecoderManifestCommand } from '@aws-sdk/client-iotfleetwise'; // ES Modules import
+ * // const { IoTFleetWiseClient, UpdateDecoderManifestCommand } = require('@aws-sdk/client-iotfleetwise'); // CommonJS import
  * const client = new IoTFleetWiseClient(config);
  * const input = { // UpdateDecoderManifestRequest
- *   name: "STRING_VALUE", // required
- *   description: "STRING_VALUE",
+ *   name: 'STRING_VALUE', // required
+ *   description: 'STRING_VALUE',
  *   signalDecodersToAdd: [ // SignalDecoders
  *     { // SignalDecoder
- *       fullyQualifiedName: "STRING_VALUE", // required
- *       type: "STRING_VALUE", // required
- *       interfaceId: "STRING_VALUE", // required
+ *       fullyQualifiedName: 'STRING_VALUE', // required
+ *       type: 'STRING_VALUE', // required
+ *       interfaceId: 'STRING_VALUE', // required
  *       canSignal: { // CanSignal
- *         messageId: Number("int"), // required
+ *         messageId: Number('int'), // required
  *         isBigEndian: true || false, // required
  *         isSigned: true || false, // required
- *         startBit: Number("int"), // required
- *         offset: Number("double"), // required
- *         factor: Number("double"), // required
- *         length: Number("int"), // required
- *         name: "STRING_VALUE",
+ *         startBit: Number('int'), // required
+ *         offset: Number('double'), // required
+ *         factor: Number('double'), // required
+ *         length: Number('int'), // required
+ *         name: 'STRING_VALUE',
  *       },
  *       obdSignal: { // ObdSignal
- *         pidResponseLength: Number("int"), // required
- *         serviceMode: Number("int"), // required
- *         pid: Number("int"), // required
- *         scaling: Number("double"), // required
- *         offset: Number("double"), // required
- *         startByte: Number("int"), // required
- *         byteLength: Number("int"), // required
- *         bitRightShift: Number("int"),
- *         bitMaskLength: Number("int"),
+ *         pidResponseLength: Number('int'), // required
+ *         serviceMode: Number('int'), // required
+ *         pid: Number('int'), // required
+ *         scaling: Number('double'), // required
+ *         offset: Number('double'), // required
+ *         startByte: Number('int'), // required
+ *         byteLength: Number('int'), // required
+ *         bitRightShift: Number('int'),
+ *         bitMaskLength: Number('int'),
  *       },
  *     },
  *   ],
  *   signalDecodersToUpdate: [
  *     {
- *       fullyQualifiedName: "STRING_VALUE", // required
- *       type: "STRING_VALUE", // required
- *       interfaceId: "STRING_VALUE", // required
+ *       fullyQualifiedName: 'STRING_VALUE', // required
+ *       type: 'STRING_VALUE', // required
+ *       interfaceId: 'STRING_VALUE', // required
  *       canSignal: {
- *         messageId: Number("int"), // required
+ *         messageId: Number('int'), // required
  *         isBigEndian: true || false, // required
  *         isSigned: true || false, // required
- *         startBit: Number("int"), // required
- *         offset: Number("double"), // required
- *         factor: Number("double"), // required
- *         length: Number("int"), // required
- *         name: "STRING_VALUE",
+ *         startBit: Number('int'), // required
+ *         offset: Number('double'), // required
+ *         factor: Number('double'), // required
+ *         length: Number('int'), // required
+ *         name: 'STRING_VALUE',
  *       },
  *       obdSignal: {
- *         pidResponseLength: Number("int"), // required
- *         serviceMode: Number("int"), // required
- *         pid: Number("int"), // required
- *         scaling: Number("double"), // required
- *         offset: Number("double"), // required
- *         startByte: Number("int"), // required
- *         byteLength: Number("int"), // required
- *         bitRightShift: Number("int"),
- *         bitMaskLength: Number("int"),
+ *         pidResponseLength: Number('int'), // required
+ *         serviceMode: Number('int'), // required
+ *         pid: Number('int'), // required
+ *         scaling: Number('double'), // required
+ *         offset: Number('double'), // required
+ *         startByte: Number('int'), // required
+ *         byteLength: Number('int'), // required
+ *         bitRightShift: Number('int'),
+ *         bitMaskLength: Number('int'),
  *       },
  *     },
  *   ],
  *   signalDecodersToRemove: [ // Fqns
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   networkInterfacesToAdd: [ // NetworkInterfaces
  *     { // NetworkInterface
- *       interfaceId: "STRING_VALUE", // required
- *       type: "STRING_VALUE", // required
+ *       interfaceId: 'STRING_VALUE', // required
+ *       type: 'STRING_VALUE', // required
  *       canInterface: { // CanInterface
- *         name: "STRING_VALUE", // required
- *         protocolName: "STRING_VALUE",
- *         protocolVersion: "STRING_VALUE",
+ *         name: 'STRING_VALUE', // required
+ *         protocolName: 'STRING_VALUE',
+ *         protocolVersion: 'STRING_VALUE',
  *       },
  *       obdInterface: { // ObdInterface
- *         name: "STRING_VALUE", // required
- *         requestMessageId: Number("int"), // required
- *         obdStandard: "STRING_VALUE",
- *         pidRequestIntervalSeconds: Number("int"),
- *         dtcRequestIntervalSeconds: Number("int"),
+ *         name: 'STRING_VALUE', // required
+ *         requestMessageId: Number('int'), // required
+ *         obdStandard: 'STRING_VALUE',
+ *         pidRequestIntervalSeconds: Number('int'),
+ *         dtcRequestIntervalSeconds: Number('int'),
  *         useExtendedIds: true || false,
  *         hasTransmissionEcu: true || false,
  *       },
@@ -125,31 +125,37 @@ export interface UpdateDecoderManifestCommandOutput extends UpdateDecoderManifes
  *   ],
  *   networkInterfacesToUpdate: [
  *     {
- *       interfaceId: "STRING_VALUE", // required
- *       type: "STRING_VALUE", // required
+ *       interfaceId: 'STRING_VALUE', // required
+ *       type: 'STRING_VALUE', // required
  *       canInterface: {
- *         name: "STRING_VALUE", // required
- *         protocolName: "STRING_VALUE",
- *         protocolVersion: "STRING_VALUE",
+ *         name: 'STRING_VALUE', // required
+ *         protocolName: 'STRING_VALUE',
+ *         protocolVersion: 'STRING_VALUE',
  *       },
  *       obdInterface: {
- *         name: "STRING_VALUE", // required
- *         requestMessageId: Number("int"), // required
- *         obdStandard: "STRING_VALUE",
- *         pidRequestIntervalSeconds: Number("int"),
- *         dtcRequestIntervalSeconds: Number("int"),
+ *         name: 'STRING_VALUE', // required
+ *         requestMessageId: Number('int'), // required
+ *         obdStandard: 'STRING_VALUE',
+ *         pidRequestIntervalSeconds: Number('int'),
+ *         dtcRequestIntervalSeconds: Number('int'),
  *         useExtendedIds: true || false,
  *         hasTransmissionEcu: true || false,
  *       },
  *     },
  *   ],
  *   networkInterfacesToRemove: [ // InterfaceIds
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   status: "STRING_VALUE",
+ *   status: 'STRING_VALUE',
  * };
  * const command = new UpdateDecoderManifestCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateDecoderManifestResponse
+ *   name: 'STRING_VALUE', // required
+ *   arn: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param UpdateDecoderManifestCommandInput - {@link UpdateDecoderManifestCommandInput}
@@ -183,6 +189,8 @@ export interface UpdateDecoderManifestCommandOutput extends UpdateDecoderManifes
  * @throws {@link InternalServerException} (server fault)
  *  <p>The request couldn't be completed because the server temporarily failed.</p>
  *
+ * @throws {@link IoTFleetWiseServiceException}
+ * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
  */
 export class UpdateDecoderManifestCommand extends $Command<

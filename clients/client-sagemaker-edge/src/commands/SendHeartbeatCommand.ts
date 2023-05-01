@@ -36,59 +36,62 @@ export interface SendHeartbeatCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SagemakerEdgeClient, SendHeartbeatCommand } from "@aws-sdk/client-sagemaker-edge"; // ES Modules import
- * // const { SagemakerEdgeClient, SendHeartbeatCommand } = require("@aws-sdk/client-sagemaker-edge"); // CommonJS import
+ * import { SagemakerEdgeClient, SendHeartbeatCommand } from '@aws-sdk/client-sagemaker-edge'; // ES Modules import
+ * // const { SagemakerEdgeClient, SendHeartbeatCommand } = require('@aws-sdk/client-sagemaker-edge'); // CommonJS import
  * const client = new SagemakerEdgeClient(config);
  * const input = { // SendHeartbeatRequest
  *   AgentMetrics: [ // EdgeMetrics
  *     { // EdgeMetric
- *       Dimension: "STRING_VALUE",
- *       MetricName: "STRING_VALUE",
- *       Value: Number("double"),
- *       Timestamp: new Date("TIMESTAMP"),
+ *       Dimension: 'STRING_VALUE',
+ *       MetricName: 'STRING_VALUE',
+ *       Value: Number('double'),
+ *       Timestamp: new Date('TIMESTAMP'),
  *     },
  *   ],
  *   Models: [ // Models
  *     { // Model
- *       ModelName: "STRING_VALUE",
- *       ModelVersion: "STRING_VALUE",
- *       LatestSampleTime: new Date("TIMESTAMP"),
- *       LatestInference: new Date("TIMESTAMP"),
+ *       ModelName: 'STRING_VALUE',
+ *       ModelVersion: 'STRING_VALUE',
+ *       LatestSampleTime: new Date('TIMESTAMP'),
+ *       LatestInference: new Date('TIMESTAMP'),
  *       ModelMetrics: [
  *         {
- *           Dimension: "STRING_VALUE",
- *           MetricName: "STRING_VALUE",
- *           Value: Number("double"),
- *           Timestamp: new Date("TIMESTAMP"),
+ *           Dimension: 'STRING_VALUE',
+ *           MetricName: 'STRING_VALUE',
+ *           Value: Number('double'),
+ *           Timestamp: new Date('TIMESTAMP'),
  *         },
  *       ],
  *     },
  *   ],
- *   AgentVersion: "STRING_VALUE", // required
- *   DeviceName: "STRING_VALUE", // required
- *   DeviceFleetName: "STRING_VALUE", // required
+ *   AgentVersion: 'STRING_VALUE', // required
+ *   DeviceName: 'STRING_VALUE', // required
+ *   DeviceFleetName: 'STRING_VALUE', // required
  *   DeploymentResult: { // DeploymentResult
- *     DeploymentName: "STRING_VALUE",
- *     DeploymentStatus: "STRING_VALUE",
- *     DeploymentStatusMessage: "STRING_VALUE",
- *     DeploymentStartTime: new Date("TIMESTAMP"),
- *     DeploymentEndTime: new Date("TIMESTAMP"),
+ *     DeploymentName: 'STRING_VALUE',
+ *     DeploymentStatus: 'STRING_VALUE',
+ *     DeploymentStatusMessage: 'STRING_VALUE',
+ *     DeploymentStartTime: new Date('TIMESTAMP'),
+ *     DeploymentEndTime: new Date('TIMESTAMP'),
  *     DeploymentModels: [ // DeploymentModels
  *       { // DeploymentModel
- *         ModelHandle: "STRING_VALUE",
- *         ModelName: "STRING_VALUE",
- *         ModelVersion: "STRING_VALUE",
- *         DesiredState: "STRING_VALUE",
- *         State: "STRING_VALUE",
- *         Status: "STRING_VALUE",
- *         StatusReason: "STRING_VALUE",
- *         RollbackFailureReason: "STRING_VALUE",
+ *         ModelHandle: 'STRING_VALUE',
+ *         ModelName: 'STRING_VALUE',
+ *         ModelVersion: 'STRING_VALUE',
+ *         DesiredState: 'STRING_VALUE',
+ *         State: 'STRING_VALUE',
+ *         Status: 'STRING_VALUE',
+ *         StatusReason: 'STRING_VALUE',
+ *         RollbackFailureReason: 'STRING_VALUE',
  *       },
  *     ],
  *   },
  * };
  * const command = new SendHeartbeatCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param SendHeartbeatCommandInput - {@link SendHeartbeatCommandInput}
@@ -101,6 +104,8 @@ export interface SendHeartbeatCommandOutput extends __MetadataBearer {}
  *  <p>An internal failure occurred. Try your request again. If the problem
  *       persists, contact Amazon Web Services customer support.</p>
  *
+ * @throws {@link SagemakerEdgeServiceException}
+ * <p>Base exception class for all service exceptions from SagemakerEdge service.</p>
  *
  */
 export class SendHeartbeatCommand extends $Command<

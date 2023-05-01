@@ -37,20 +37,38 @@ export interface ListJobsCommandOutput extends ListJobsResponse, __MetadataBeare
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTClient, ListJobsCommand } from "@aws-sdk/client-iot"; // ES Modules import
- * // const { IoTClient, ListJobsCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * import { IoTClient, ListJobsCommand } from '@aws-sdk/client-iot'; // ES Modules import
+ * // const { IoTClient, ListJobsCommand } = require('@aws-sdk/client-iot'); // CommonJS import
  * const client = new IoTClient(config);
  * const input = { // ListJobsRequest
- *   status: "IN_PROGRESS" || "CANCELED" || "COMPLETED" || "DELETION_IN_PROGRESS" || "SCHEDULED",
- *   targetSelection: "CONTINUOUS" || "SNAPSHOT",
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
- *   thingGroupName: "STRING_VALUE",
- *   thingGroupId: "STRING_VALUE",
- *   namespaceId: "STRING_VALUE",
+ *   status: 'IN_PROGRESS' || 'CANCELED' || 'COMPLETED' || 'DELETION_IN_PROGRESS' || 'SCHEDULED',
+ *   targetSelection: 'CONTINUOUS' || 'SNAPSHOT',
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
+ *   thingGroupName: 'STRING_VALUE',
+ *   thingGroupId: 'STRING_VALUE',
+ *   namespaceId: 'STRING_VALUE',
  * };
  * const command = new ListJobsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListJobsResponse
+ *   jobs: [ // JobSummaryList
+ *     { // JobSummary
+ *       jobArn: 'STRING_VALUE',
+ *       jobId: 'STRING_VALUE',
+ *       thingGroupId: 'STRING_VALUE',
+ *       targetSelection: 'CONTINUOUS' || 'SNAPSHOT',
+ *       status: 'IN_PROGRESS' || 'CANCELED' || 'COMPLETED' || 'DELETION_IN_PROGRESS' || 'SCHEDULED',
+ *       createdAt: new Date('TIMESTAMP'),
+ *       lastUpdatedAt: new Date('TIMESTAMP'),
+ *       completedAt: new Date('TIMESTAMP'),
+ *       isConcurrent: true || false,
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListJobsCommandInput - {@link ListJobsCommandInput}
@@ -71,6 +89,8 @@ export interface ListJobsCommandOutput extends ListJobsResponse, __MetadataBeare
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The rate exceeds the limit.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class ListJobsCommand extends $Command<ListJobsCommandInput, ListJobsCommandOutput, IoTClientResolvedConfig> {

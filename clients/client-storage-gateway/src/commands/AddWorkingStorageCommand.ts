@@ -48,17 +48,22 @@ export interface AddWorkingStorageCommandOutput extends AddWorkingStorageOutput,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { StorageGatewayClient, AddWorkingStorageCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
- * // const { StorageGatewayClient, AddWorkingStorageCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
+ * import { StorageGatewayClient, AddWorkingStorageCommand } from '@aws-sdk/client-storage-gateway'; // ES Modules import
+ * // const { StorageGatewayClient, AddWorkingStorageCommand } = require('@aws-sdk/client-storage-gateway'); // CommonJS import
  * const client = new StorageGatewayClient(config);
  * const input = { // AddWorkingStorageInput
- *   GatewayARN: "STRING_VALUE", // required
+ *   GatewayARN: 'STRING_VALUE', // required
  *   DiskIds: [ // DiskIds // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new AddWorkingStorageCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AddWorkingStorageOutput
+ *   GatewayARN: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param AddWorkingStorageCommandInput - {@link AddWorkingStorageCommandInput}
@@ -75,6 +80,8 @@ export interface AddWorkingStorageCommandOutput extends AddWorkingStorageOutput,
  *  <p>An exception occurred because an invalid gateway request was issued to the service. For
  *          more information, see the error and message fields.</p>
  *
+ * @throws {@link StorageGatewayServiceException}
+ * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
  * @example To add storage on local disk
  * ```javascript

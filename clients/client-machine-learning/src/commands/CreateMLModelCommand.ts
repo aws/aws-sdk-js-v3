@@ -55,22 +55,27 @@ export interface CreateMLModelCommandOutput extends CreateMLModelOutput, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MachineLearningClient, CreateMLModelCommand } from "@aws-sdk/client-machine-learning"; // ES Modules import
- * // const { MachineLearningClient, CreateMLModelCommand } = require("@aws-sdk/client-machine-learning"); // CommonJS import
+ * import { MachineLearningClient, CreateMLModelCommand } from '@aws-sdk/client-machine-learning'; // ES Modules import
+ * // const { MachineLearningClient, CreateMLModelCommand } = require('@aws-sdk/client-machine-learning'); // CommonJS import
  * const client = new MachineLearningClient(config);
  * const input = { // CreateMLModelInput
- *   MLModelId: "STRING_VALUE", // required
- *   MLModelName: "STRING_VALUE",
- *   MLModelType: "STRING_VALUE", // required
+ *   MLModelId: 'STRING_VALUE', // required
+ *   MLModelName: 'STRING_VALUE',
+ *   MLModelType: 'STRING_VALUE', // required
  *   Parameters: { // TrainingParameters
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
- *   TrainingDataSourceId: "STRING_VALUE", // required
- *   Recipe: "STRING_VALUE",
- *   RecipeUri: "STRING_VALUE",
+ *   TrainingDataSourceId: 'STRING_VALUE', // required
+ *   Recipe: 'STRING_VALUE',
+ *   RecipeUri: 'STRING_VALUE',
  * };
  * const command = new CreateMLModelCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateMLModelOutput
+ *   MLModelId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateMLModelCommandInput - {@link CreateMLModelCommandInput}
@@ -88,6 +93,8 @@ export interface CreateMLModelCommandOutput extends CreateMLModelOutput, __Metad
  * @throws {@link InvalidInputException} (client fault)
  *  <p>An error on the client occurred. Typically, the cause is an invalid input value.</p>
  *
+ * @throws {@link MachineLearningServiceException}
+ * <p>Base exception class for all service exceptions from MachineLearning service.</p>
  *
  */
 export class CreateMLModelCommand extends $Command<

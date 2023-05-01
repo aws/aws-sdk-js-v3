@@ -41,14 +41,26 @@ export interface GetOriginAccessControlConfigCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudFrontClient, GetOriginAccessControlConfigCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
- * // const { CloudFrontClient, GetOriginAccessControlConfigCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
+ * import { CloudFrontClient, GetOriginAccessControlConfigCommand } from '@aws-sdk/client-cloudfront'; // ES Modules import
+ * // const { CloudFrontClient, GetOriginAccessControlConfigCommand } = require('@aws-sdk/client-cloudfront'); // CommonJS import
  * const client = new CloudFrontClient(config);
  * const input = { // GetOriginAccessControlConfigRequest
- *   Id: "STRING_VALUE", // required
+ *   Id: 'STRING_VALUE', // required
  * };
  * const command = new GetOriginAccessControlConfigCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetOriginAccessControlConfigResult
+ *   OriginAccessControlConfig: { // OriginAccessControlConfig
+ *     Name: 'STRING_VALUE', // required
+ *     Description: 'STRING_VALUE',
+ *     SigningProtocol: 'sigv4', // required
+ *     SigningBehavior: 'never' || 'always' || 'no-override', // required
+ *     OriginAccessControlOriginType: 's3' || 'mediastore', // required
+ *   },
+ *   ETag: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetOriginAccessControlConfigCommandInput - {@link GetOriginAccessControlConfigCommandInput}
@@ -63,6 +75,8 @@ export interface GetOriginAccessControlConfigCommandOutput
  * @throws {@link NoSuchOriginAccessControl} (client fault)
  *  <p>The origin access control does not exist.</p>
  *
+ * @throws {@link CloudFrontServiceException}
+ * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
  */
 export class GetOriginAccessControlConfigCommand extends $Command<

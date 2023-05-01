@@ -36,14 +36,17 @@ export interface DeleteMetricAttributionCommandOutput extends __MetadataBearer {
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PersonalizeClient, DeleteMetricAttributionCommand } from "@aws-sdk/client-personalize"; // ES Modules import
- * // const { PersonalizeClient, DeleteMetricAttributionCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
+ * import { PersonalizeClient, DeleteMetricAttributionCommand } from '@aws-sdk/client-personalize'; // ES Modules import
+ * // const { PersonalizeClient, DeleteMetricAttributionCommand } = require('@aws-sdk/client-personalize'); // CommonJS import
  * const client = new PersonalizeClient(config);
  * const input = { // DeleteMetricAttributionRequest
- *   metricAttributionArn: "STRING_VALUE", // required
+ *   metricAttributionArn: 'STRING_VALUE', // required
  * };
  * const command = new DeleteMetricAttributionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteMetricAttributionCommandInput - {@link DeleteMetricAttributionCommandInput}
@@ -61,6 +64,8 @@ export interface DeleteMetricAttributionCommandOutput extends __MetadataBearer {
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Could not find the specified resource.</p>
  *
+ * @throws {@link PersonalizeServiceException}
+ * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
  */
 export class DeleteMetricAttributionCommand extends $Command<

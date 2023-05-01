@@ -36,15 +36,61 @@ export interface UpdatePullRequestTitleCommandOutput extends UpdatePullRequestTi
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeCommitClient, UpdatePullRequestTitleCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
- * // const { CodeCommitClient, UpdatePullRequestTitleCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
+ * import { CodeCommitClient, UpdatePullRequestTitleCommand } from '@aws-sdk/client-codecommit'; // ES Modules import
+ * // const { CodeCommitClient, UpdatePullRequestTitleCommand } = require('@aws-sdk/client-codecommit'); // CommonJS import
  * const client = new CodeCommitClient(config);
  * const input = { // UpdatePullRequestTitleInput
- *   pullRequestId: "STRING_VALUE", // required
- *   title: "STRING_VALUE", // required
+ *   pullRequestId: 'STRING_VALUE', // required
+ *   title: 'STRING_VALUE', // required
  * };
  * const command = new UpdatePullRequestTitleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdatePullRequestTitleOutput
+ *   pullRequest: { // PullRequest
+ *     pullRequestId: 'STRING_VALUE',
+ *     title: 'STRING_VALUE',
+ *     description: 'STRING_VALUE',
+ *     lastActivityDate: new Date('TIMESTAMP'),
+ *     creationDate: new Date('TIMESTAMP'),
+ *     pullRequestStatus: 'STRING_VALUE',
+ *     authorArn: 'STRING_VALUE',
+ *     pullRequestTargets: [ // PullRequestTargetList
+ *       { // PullRequestTarget
+ *         repositoryName: 'STRING_VALUE',
+ *         sourceReference: 'STRING_VALUE',
+ *         destinationReference: 'STRING_VALUE',
+ *         destinationCommit: 'STRING_VALUE',
+ *         sourceCommit: 'STRING_VALUE',
+ *         mergeBase: 'STRING_VALUE',
+ *         mergeMetadata: { // MergeMetadata
+ *           isMerged: true || false,
+ *           mergedBy: 'STRING_VALUE',
+ *           mergeCommitId: 'STRING_VALUE',
+ *           mergeOption: 'STRING_VALUE',
+ *         },
+ *       },
+ *     ],
+ *     clientRequestToken: 'STRING_VALUE',
+ *     revisionId: 'STRING_VALUE',
+ *     approvalRules: [ // ApprovalRulesList
+ *       { // ApprovalRule
+ *         approvalRuleId: 'STRING_VALUE',
+ *         approvalRuleName: 'STRING_VALUE',
+ *         approvalRuleContent: 'STRING_VALUE',
+ *         ruleContentSha256: 'STRING_VALUE',
+ *         lastModifiedDate: new Date('TIMESTAMP'),
+ *         creationDate: new Date('TIMESTAMP'),
+ *         lastModifiedUser: 'STRING_VALUE',
+ *         originApprovalRuleTemplate: { // OriginApprovalRuleTemplate
+ *           approvalRuleTemplateId: 'STRING_VALUE',
+ *           approvalRuleTemplateName: 'STRING_VALUE',
+ *         },
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdatePullRequestTitleCommandInput - {@link UpdatePullRequestTitleCommandInput}
@@ -71,6 +117,8 @@ export interface UpdatePullRequestTitleCommandOutput extends UpdatePullRequestTi
  * @throws {@link TitleRequiredException} (client fault)
  *  <p>A pull request title is required. It cannot be empty or null.</p>
  *
+ * @throws {@link CodeCommitServiceException}
+ * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
  */
 export class UpdatePullRequestTitleCommand extends $Command<

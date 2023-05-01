@@ -41,23 +41,38 @@ export interface CreateListenerCommandOutput extends CreateListenerResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlobalAcceleratorClient, CreateListenerCommand } from "@aws-sdk/client-global-accelerator"; // ES Modules import
- * // const { GlobalAcceleratorClient, CreateListenerCommand } = require("@aws-sdk/client-global-accelerator"); // CommonJS import
+ * import { GlobalAcceleratorClient, CreateListenerCommand } from '@aws-sdk/client-global-accelerator'; // ES Modules import
+ * // const { GlobalAcceleratorClient, CreateListenerCommand } = require('@aws-sdk/client-global-accelerator'); // CommonJS import
  * const client = new GlobalAcceleratorClient(config);
  * const input = { // CreateListenerRequest
- *   AcceleratorArn: "STRING_VALUE", // required
+ *   AcceleratorArn: 'STRING_VALUE', // required
  *   PortRanges: [ // PortRanges // required
  *     { // PortRange
- *       FromPort: Number("int"),
- *       ToPort: Number("int"),
+ *       FromPort: Number('int'),
+ *       ToPort: Number('int'),
  *     },
  *   ],
- *   Protocol: "TCP" || "UDP", // required
- *   ClientAffinity: "NONE" || "SOURCE_IP",
- *   IdempotencyToken: "STRING_VALUE", // required
+ *   Protocol: 'TCP' || 'UDP', // required
+ *   ClientAffinity: 'NONE' || 'SOURCE_IP',
+ *   IdempotencyToken: 'STRING_VALUE', // required
  * };
  * const command = new CreateListenerCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateListenerResponse
+ *   Listener: { // Listener
+ *     ListenerArn: 'STRING_VALUE',
+ *     PortRanges: [ // PortRanges
+ *       { // PortRange
+ *         FromPort: Number('int'),
+ *         ToPort: Number('int'),
+ *       },
+ *     ],
+ *     Protocol: 'TCP' || 'UDP',
+ *     ClientAffinity: 'NONE' || 'SOURCE_IP',
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateListenerCommandInput - {@link CreateListenerCommandInput}
@@ -81,6 +96,8 @@ export interface CreateListenerCommandOutput extends CreateListenerResponse, __M
  * @throws {@link LimitExceededException} (client fault)
  *  <p>Processing your request would cause you to exceed an Global Accelerator limit.</p>
  *
+ * @throws {@link GlobalAcceleratorServiceException}
+ * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
  */
 export class CreateListenerCommand extends $Command<

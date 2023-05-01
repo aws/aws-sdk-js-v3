@@ -50,25 +50,64 @@ export interface ListSecretsCommandOutput extends ListSecretsResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SecretsManagerClient, ListSecretsCommand } from "@aws-sdk/client-secrets-manager"; // ES Modules import
- * // const { SecretsManagerClient, ListSecretsCommand } = require("@aws-sdk/client-secrets-manager"); // CommonJS import
+ * import { SecretsManagerClient, ListSecretsCommand } from '@aws-sdk/client-secrets-manager'; // ES Modules import
+ * // const { SecretsManagerClient, ListSecretsCommand } = require('@aws-sdk/client-secrets-manager'); // CommonJS import
  * const client = new SecretsManagerClient(config);
  * const input = { // ListSecretsRequest
  *   IncludePlannedDeletion: true || false,
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  *   Filters: [ // FiltersListType
  *     { // Filter
- *       Key: "description" || "name" || "tag-key" || "tag-value" || "primary-region" || "owning-service" || "all",
+ *       Key: 'description' || 'name' || 'tag-key' || 'tag-value' || 'primary-region' || 'owning-service' || 'all',
  *       Values: [ // FilterValuesStringList
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
- *   SortOrder: "asc" || "desc",
+ *   SortOrder: 'asc' || 'desc',
  * };
  * const command = new ListSecretsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListSecretsResponse
+ *   SecretList: [ // SecretListType
+ *     { // SecretListEntry
+ *       ARN: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *       Description: 'STRING_VALUE',
+ *       KmsKeyId: 'STRING_VALUE',
+ *       RotationEnabled: true || false,
+ *       RotationLambdaARN: 'STRING_VALUE',
+ *       RotationRules: { // RotationRulesType
+ *         AutomaticallyAfterDays: Number('long'),
+ *         Duration: 'STRING_VALUE',
+ *         ScheduleExpression: 'STRING_VALUE',
+ *       },
+ *       LastRotatedDate: new Date('TIMESTAMP'),
+ *       LastChangedDate: new Date('TIMESTAMP'),
+ *       LastAccessedDate: new Date('TIMESTAMP'),
+ *       DeletedDate: new Date('TIMESTAMP'),
+ *       NextRotationDate: new Date('TIMESTAMP'),
+ *       Tags: [ // TagListType
+ *         { // Tag
+ *           Key: 'STRING_VALUE',
+ *           Value: 'STRING_VALUE',
+ *         },
+ *       ],
+ *       SecretVersionsToStages: { // SecretVersionsToStagesMapType
+ *         '<keys>': [ // SecretVersionStagesType
+ *           'STRING_VALUE',
+ *         ],
+ *       },
+ *       OwningService: 'STRING_VALUE',
+ *       CreatedDate: new Date('TIMESTAMP'),
+ *       PrimaryRegion: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListSecretsCommandInput - {@link ListSecretsCommandInput}
@@ -86,6 +125,8 @@ export interface ListSecretsCommandOutput extends ListSecretsResponse, __Metadat
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>The parameter name or value is invalid.</p>
  *
+ * @throws {@link SecretsManagerServiceException}
+ * <p>Base exception class for all service exceptions from SecretsManager service.</p>
  *
  * @example To list the secrets in your account
  * ```javascript

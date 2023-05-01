@@ -42,25 +42,30 @@ export interface CreateCodeRepositoryCommandOutput extends CreateCodeRepositoryO
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, CreateCodeRepositoryCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, CreateCodeRepositoryCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, CreateCodeRepositoryCommand } from '@aws-sdk/client-sagemaker'; // ES Modules import
+ * // const { SageMakerClient, CreateCodeRepositoryCommand } = require('@aws-sdk/client-sagemaker'); // CommonJS import
  * const client = new SageMakerClient(config);
  * const input = { // CreateCodeRepositoryInput
- *   CodeRepositoryName: "STRING_VALUE", // required
+ *   CodeRepositoryName: 'STRING_VALUE', // required
  *   GitConfig: { // GitConfig
- *     RepositoryUrl: "STRING_VALUE", // required
- *     Branch: "STRING_VALUE",
- *     SecretArn: "STRING_VALUE",
+ *     RepositoryUrl: 'STRING_VALUE', // required
+ *     Branch: 'STRING_VALUE',
+ *     SecretArn: 'STRING_VALUE',
  *   },
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreateCodeRepositoryCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateCodeRepositoryOutput
+ *   CodeRepositoryArn: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param CreateCodeRepositoryCommandInput - {@link CreateCodeRepositoryCommandInput}
@@ -69,6 +74,8 @@ export interface CreateCodeRepositoryCommandOutput extends CreateCodeRepositoryO
  * @see {@link CreateCodeRepositoryCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class CreateCodeRepositoryCommand extends $Command<

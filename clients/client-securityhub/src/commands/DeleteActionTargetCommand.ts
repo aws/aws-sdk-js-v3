@@ -38,14 +38,19 @@ export interface DeleteActionTargetCommandOutput extends DeleteActionTargetRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SecurityHubClient, DeleteActionTargetCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
- * // const { SecurityHubClient, DeleteActionTargetCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
+ * import { SecurityHubClient, DeleteActionTargetCommand } from '@aws-sdk/client-securityhub'; // ES Modules import
+ * // const { SecurityHubClient, DeleteActionTargetCommand } = require('@aws-sdk/client-securityhub'); // CommonJS import
  * const client = new SecurityHubClient(config);
  * const input = { // DeleteActionTargetRequest
- *   ActionTargetArn: "STRING_VALUE", // required
+ *   ActionTargetArn: 'STRING_VALUE', // required
  * };
  * const command = new DeleteActionTargetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteActionTargetResponse
+ *   ActionTargetArn: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param DeleteActionTargetCommandInput - {@link DeleteActionTargetCommandInput}
@@ -67,6 +72,8 @@ export interface DeleteActionTargetCommandOutput extends DeleteActionTargetRespo
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The request was rejected because we can't find the specified resource.</p>
  *
+ * @throws {@link SecurityHubServiceException}
+ * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
  * @example To delete a custom action target
  * ```javascript

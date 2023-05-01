@@ -61,17 +61,20 @@ export interface AssociateQualificationWithWorkerCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MTurkClient, AssociateQualificationWithWorkerCommand } from "@aws-sdk/client-mturk"; // ES Modules import
- * // const { MTurkClient, AssociateQualificationWithWorkerCommand } = require("@aws-sdk/client-mturk"); // CommonJS import
+ * import { MTurkClient, AssociateQualificationWithWorkerCommand } from '@aws-sdk/client-mturk'; // ES Modules import
+ * // const { MTurkClient, AssociateQualificationWithWorkerCommand } = require('@aws-sdk/client-mturk'); // CommonJS import
  * const client = new MTurkClient(config);
  * const input = { // AssociateQualificationWithWorkerRequest
- *   QualificationTypeId: "STRING_VALUE", // required
- *   WorkerId: "STRING_VALUE", // required
- *   IntegerValue: Number("int"),
+ *   QualificationTypeId: 'STRING_VALUE', // required
+ *   WorkerId: 'STRING_VALUE', // required
+ *   IntegerValue: Number('int'),
  *   SendNotification: true || false,
  * };
  * const command = new AssociateQualificationWithWorkerCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param AssociateQualificationWithWorkerCommandInput - {@link AssociateQualificationWithWorkerCommandInput}
@@ -86,6 +89,8 @@ export interface AssociateQualificationWithWorkerCommandOutput
  * @throws {@link ServiceFault} (server fault)
  *  <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
  *
+ * @throws {@link MTurkServiceException}
+ * <p>Base exception class for all service exceptions from MTurk service.</p>
  *
  */
 export class AssociateQualificationWithWorkerCommand extends $Command<

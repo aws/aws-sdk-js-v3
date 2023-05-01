@@ -41,20 +41,37 @@ export interface UpdateSipMediaApplicationCommandOutput extends UpdateSipMediaAp
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeSDKVoiceClient, UpdateSipMediaApplicationCommand } from "@aws-sdk/client-chime-sdk-voice"; // ES Modules import
- * // const { ChimeSDKVoiceClient, UpdateSipMediaApplicationCommand } = require("@aws-sdk/client-chime-sdk-voice"); // CommonJS import
+ * import { ChimeSDKVoiceClient, UpdateSipMediaApplicationCommand } from '@aws-sdk/client-chime-sdk-voice'; // ES Modules import
+ * // const { ChimeSDKVoiceClient, UpdateSipMediaApplicationCommand } = require('@aws-sdk/client-chime-sdk-voice'); // CommonJS import
  * const client = new ChimeSDKVoiceClient(config);
  * const input = { // UpdateSipMediaApplicationRequest
- *   SipMediaApplicationId: "STRING_VALUE", // required
- *   Name: "STRING_VALUE",
+ *   SipMediaApplicationId: 'STRING_VALUE', // required
+ *   Name: 'STRING_VALUE',
  *   Endpoints: [ // SipMediaApplicationEndpointList
  *     { // SipMediaApplicationEndpoint
- *       LambdaArn: "STRING_VALUE",
+ *       LambdaArn: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new UpdateSipMediaApplicationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateSipMediaApplicationResponse
+ *   SipMediaApplication: { // SipMediaApplication
+ *     SipMediaApplicationId: 'STRING_VALUE',
+ *     AwsRegion: 'STRING_VALUE',
+ *     Name: 'STRING_VALUE',
+ *     Endpoints: [ // SipMediaApplicationEndpointList
+ *       { // SipMediaApplicationEndpoint
+ *         LambdaArn: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     CreatedTimestamp: new Date('TIMESTAMP'),
+ *     UpdatedTimestamp: new Date('TIMESTAMP'),
+ *     SipMediaApplicationArn: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateSipMediaApplicationCommandInput - {@link UpdateSipMediaApplicationCommandInput}
@@ -87,6 +104,8 @@ export interface UpdateSipMediaApplicationCommandOutput extends UpdateSipMediaAp
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client isn't authorized to request a resource.</p>
  *
+ * @throws {@link ChimeSDKVoiceServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
  */
 export class UpdateSipMediaApplicationCommand extends $Command<

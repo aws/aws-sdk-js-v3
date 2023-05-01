@@ -41,25 +41,31 @@ export interface StartWirelessDeviceImportTaskCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTWirelessClient, StartWirelessDeviceImportTaskCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
- * // const { IoTWirelessClient, StartWirelessDeviceImportTaskCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
+ * import { IoTWirelessClient, StartWirelessDeviceImportTaskCommand } from '@aws-sdk/client-iot-wireless'; // ES Modules import
+ * // const { IoTWirelessClient, StartWirelessDeviceImportTaskCommand } = require('@aws-sdk/client-iot-wireless'); // CommonJS import
  * const client = new IoTWirelessClient(config);
  * const input = { // StartWirelessDeviceImportTaskRequest
- *   DestinationName: "STRING_VALUE", // required
- *   ClientRequestToken: "STRING_VALUE",
+ *   DestinationName: 'STRING_VALUE', // required
+ *   ClientRequestToken: 'STRING_VALUE',
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  *   Sidewalk: { // SidewalkStartImportInfo
- *     DeviceCreationFile: "STRING_VALUE",
- *     Role: "STRING_VALUE",
+ *     DeviceCreationFile: 'STRING_VALUE',
+ *     Role: 'STRING_VALUE',
  *   },
  * };
  * const command = new StartWirelessDeviceImportTaskCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartWirelessDeviceImportTaskResponse
+ *   Id: 'STRING_VALUE',
+ *   Arn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param StartWirelessDeviceImportTaskCommandInput - {@link StartWirelessDeviceImportTaskCommandInput}
@@ -86,6 +92,8 @@ export interface StartWirelessDeviceImportTaskCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The input did not meet the specified constraints.</p>
  *
+ * @throws {@link IoTWirelessServiceException}
+ * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
  */
 export class StartWirelessDeviceImportTaskCommand extends $Command<

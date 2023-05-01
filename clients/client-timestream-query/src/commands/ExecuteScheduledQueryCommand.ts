@@ -37,16 +37,19 @@ export interface ExecuteScheduledQueryCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { TimestreamQueryClient, ExecuteScheduledQueryCommand } from "@aws-sdk/client-timestream-query"; // ES Modules import
- * // const { TimestreamQueryClient, ExecuteScheduledQueryCommand } = require("@aws-sdk/client-timestream-query"); // CommonJS import
+ * import { TimestreamQueryClient, ExecuteScheduledQueryCommand } from '@aws-sdk/client-timestream-query'; // ES Modules import
+ * // const { TimestreamQueryClient, ExecuteScheduledQueryCommand } = require('@aws-sdk/client-timestream-query'); // CommonJS import
  * const client = new TimestreamQueryClient(config);
  * const input = { // ExecuteScheduledQueryRequest
- *   ScheduledQueryArn: "STRING_VALUE", // required
- *   InvocationTime: new Date("TIMESTAMP"), // required
- *   ClientToken: "STRING_VALUE",
+ *   ScheduledQueryArn: 'STRING_VALUE', // required
+ *   InvocationTime: new Date('TIMESTAMP'), // required
+ *   ClientToken: 'STRING_VALUE',
  * };
  * const command = new ExecuteScheduledQueryCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param ExecuteScheduledQueryCommandInput - {@link ExecuteScheduledQueryCommandInput}
@@ -75,6 +78,8 @@ export interface ExecuteScheduledQueryCommandOutput extends __MetadataBearer {}
  * @throws {@link ValidationException} (client fault)
  *  <p> Invalid or malformed request. </p>
  *
+ * @throws {@link TimestreamQueryServiceException}
+ * <p>Base exception class for all service exceptions from TimestreamQuery service.</p>
  *
  */
 export class ExecuteScheduledQueryCommand extends $Command<

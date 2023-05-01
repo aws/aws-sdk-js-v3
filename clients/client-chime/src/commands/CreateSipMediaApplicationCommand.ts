@@ -41,20 +41,36 @@ export interface CreateSipMediaApplicationCommandOutput extends CreateSipMediaAp
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeClient, CreateSipMediaApplicationCommand } from "@aws-sdk/client-chime"; // ES Modules import
- * // const { ChimeClient, CreateSipMediaApplicationCommand } = require("@aws-sdk/client-chime"); // CommonJS import
+ * import { ChimeClient, CreateSipMediaApplicationCommand } from '@aws-sdk/client-chime'; // ES Modules import
+ * // const { ChimeClient, CreateSipMediaApplicationCommand } = require('@aws-sdk/client-chime'); // CommonJS import
  * const client = new ChimeClient(config);
  * const input = { // CreateSipMediaApplicationRequest
- *   AwsRegion: "STRING_VALUE", // required
- *   Name: "STRING_VALUE", // required
+ *   AwsRegion: 'STRING_VALUE', // required
+ *   Name: 'STRING_VALUE', // required
  *   Endpoints: [ // SipMediaApplicationEndpointList // required
  *     { // SipMediaApplicationEndpoint
- *       LambdaArn: "STRING_VALUE",
+ *       LambdaArn: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new CreateSipMediaApplicationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateSipMediaApplicationResponse
+ *   SipMediaApplication: { // SipMediaApplication
+ *     SipMediaApplicationId: 'STRING_VALUE',
+ *     AwsRegion: 'STRING_VALUE',
+ *     Name: 'STRING_VALUE',
+ *     Endpoints: [ // SipMediaApplicationEndpointList
+ *       { // SipMediaApplicationEndpoint
+ *         LambdaArn: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     CreatedTimestamp: new Date('TIMESTAMP'),
+ *     UpdatedTimestamp: new Date('TIMESTAMP'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateSipMediaApplicationCommandInput - {@link CreateSipMediaApplicationCommandInput}
@@ -91,6 +107,8 @@ export interface CreateSipMediaApplicationCommandOutput extends CreateSipMediaAp
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeServiceException}
+ * <p>Base exception class for all service exceptions from Chime service.</p>
  *
  */
 export class CreateSipMediaApplicationCommand extends $Command<

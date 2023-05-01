@@ -40,18 +40,32 @@ export interface PredictCommandOutput extends PredictOutput, __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MachineLearningClient, PredictCommand } from "@aws-sdk/client-machine-learning"; // ES Modules import
- * // const { MachineLearningClient, PredictCommand } = require("@aws-sdk/client-machine-learning"); // CommonJS import
+ * import { MachineLearningClient, PredictCommand } from '@aws-sdk/client-machine-learning'; // ES Modules import
+ * // const { MachineLearningClient, PredictCommand } = require('@aws-sdk/client-machine-learning'); // CommonJS import
  * const client = new MachineLearningClient(config);
  * const input = { // PredictInput
- *   MLModelId: "STRING_VALUE", // required
+ *   MLModelId: 'STRING_VALUE', // required
  *   Record: { // Record // required
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
- *   PredictEndpoint: "STRING_VALUE", // required
+ *   PredictEndpoint: 'STRING_VALUE', // required
  * };
  * const command = new PredictCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PredictOutput
+ *   Prediction: { // Prediction
+ *     predictedLabel: 'STRING_VALUE',
+ *     predictedValue: Number('float'),
+ *     predictedScores: { // ScoreValuePerLabelMap
+ *       '<keys>': Number('float'),
+ *     },
+ *     details: { // DetailsMap
+ *       '<keys>': 'STRING_VALUE',
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param PredictCommandInput - {@link PredictCommandInput}
@@ -75,6 +89,8 @@ export interface PredictCommandOutput extends PredictOutput, __MetadataBearer {}
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>A specified resource cannot be located.</p>
  *
+ * @throws {@link MachineLearningServiceException}
+ * <p>Base exception class for all service exceptions from MachineLearning service.</p>
  *
  */
 export class PredictCommand extends $Command<

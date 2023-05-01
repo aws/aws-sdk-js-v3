@@ -44,16 +44,33 @@ export interface ListAttendeesCommandOutput extends ListAttendeesResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeSDKMeetingsClient, ListAttendeesCommand } from "@aws-sdk/client-chime-sdk-meetings"; // ES Modules import
- * // const { ChimeSDKMeetingsClient, ListAttendeesCommand } = require("@aws-sdk/client-chime-sdk-meetings"); // CommonJS import
+ * import { ChimeSDKMeetingsClient, ListAttendeesCommand } from '@aws-sdk/client-chime-sdk-meetings'; // ES Modules import
+ * // const { ChimeSDKMeetingsClient, ListAttendeesCommand } = require('@aws-sdk/client-chime-sdk-meetings'); // CommonJS import
  * const client = new ChimeSDKMeetingsClient(config);
  * const input = { // ListAttendeesRequest
- *   MeetingId: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   MeetingId: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListAttendeesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListAttendeesResponse
+ *   Attendees: [ // AttendeeList
+ *     { // Attendee
+ *       ExternalUserId: 'STRING_VALUE',
+ *       AttendeeId: 'STRING_VALUE',
+ *       JoinToken: 'STRING_VALUE',
+ *       Capabilities: { // AttendeeCapabilities
+ *         Audio: 'SendReceive' || 'Send' || 'Receive' || 'None', // required
+ *         Video: 'SendReceive' || 'Send' || 'Receive' || 'None', // required
+ *         Content: 'SendReceive' || 'Send' || 'Receive' || 'None', // required
+ *       },
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListAttendeesCommandInput - {@link ListAttendeesCommandInput}
@@ -83,6 +100,8 @@ export interface ListAttendeesCommandOutput extends ListAttendeesResponse, __Met
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The user isn't authorized to request a resource.</p>
  *
+ * @throws {@link ChimeSDKMeetingsServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKMeetings service.</p>
  *
  */
 export class ListAttendeesCommand extends $Command<

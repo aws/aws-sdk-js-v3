@@ -37,16 +37,58 @@ export interface GetDomainStatisticsReportCommandOutput extends GetDomainStatist
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PinpointEmailClient, GetDomainStatisticsReportCommand } from "@aws-sdk/client-pinpoint-email"; // ES Modules import
- * // const { PinpointEmailClient, GetDomainStatisticsReportCommand } = require("@aws-sdk/client-pinpoint-email"); // CommonJS import
+ * import { PinpointEmailClient, GetDomainStatisticsReportCommand } from '@aws-sdk/client-pinpoint-email'; // ES Modules import
+ * // const { PinpointEmailClient, GetDomainStatisticsReportCommand } = require('@aws-sdk/client-pinpoint-email'); // CommonJS import
  * const client = new PinpointEmailClient(config);
  * const input = { // GetDomainStatisticsReportRequest
- *   Domain: "STRING_VALUE", // required
- *   StartDate: new Date("TIMESTAMP"), // required
- *   EndDate: new Date("TIMESTAMP"), // required
+ *   Domain: 'STRING_VALUE', // required
+ *   StartDate: new Date('TIMESTAMP'), // required
+ *   EndDate: new Date('TIMESTAMP'), // required
  * };
  * const command = new GetDomainStatisticsReportCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetDomainStatisticsReportResponse
+ *   OverallVolume: { // OverallVolume
+ *     VolumeStatistics: { // VolumeStatistics
+ *       InboxRawCount: Number('long'),
+ *       SpamRawCount: Number('long'),
+ *       ProjectedInbox: Number('long'),
+ *       ProjectedSpam: Number('long'),
+ *     },
+ *     ReadRatePercent: Number('double'),
+ *     DomainIspPlacements: [ // DomainIspPlacements
+ *       { // DomainIspPlacement
+ *         IspName: 'STRING_VALUE',
+ *         InboxRawCount: Number('long'),
+ *         SpamRawCount: Number('long'),
+ *         InboxPercentage: Number('double'),
+ *         SpamPercentage: Number('double'),
+ *       },
+ *     ],
+ *   },
+ *   DailyVolumes: [ // DailyVolumes // required
+ *     { // DailyVolume
+ *       StartDate: new Date('TIMESTAMP'),
+ *       VolumeStatistics: {
+ *         InboxRawCount: Number('long'),
+ *         SpamRawCount: Number('long'),
+ *         ProjectedInbox: Number('long'),
+ *         ProjectedSpam: Number('long'),
+ *       },
+ *       DomainIspPlacements: [
+ *         {
+ *           IspName: 'STRING_VALUE',
+ *           InboxRawCount: Number('long'),
+ *           SpamRawCount: Number('long'),
+ *           InboxPercentage: Number('double'),
+ *           SpamPercentage: Number('double'),
+ *         },
+ *       ],
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetDomainStatisticsReportCommandInput - {@link GetDomainStatisticsReportCommandInput}
@@ -64,6 +106,8 @@ export interface GetDomainStatisticsReportCommandOutput extends GetDomainStatist
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Too many requests have been made to the operation.</p>
  *
+ * @throws {@link PinpointEmailServiceException}
+ * <p>Base exception class for all service exceptions from PinpointEmail service.</p>
  *
  */
 export class GetDomainStatisticsReportCommand extends $Command<

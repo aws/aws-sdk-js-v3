@@ -37,16 +37,40 @@ export interface GetEvidenceFolderCommandOutput extends GetEvidenceFolderRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AuditManagerClient, GetEvidenceFolderCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
- * // const { AuditManagerClient, GetEvidenceFolderCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import
+ * import { AuditManagerClient, GetEvidenceFolderCommand } from '@aws-sdk/client-auditmanager'; // ES Modules import
+ * // const { AuditManagerClient, GetEvidenceFolderCommand } = require('@aws-sdk/client-auditmanager'); // CommonJS import
  * const client = new AuditManagerClient(config);
  * const input = { // GetEvidenceFolderRequest
- *   assessmentId: "STRING_VALUE", // required
- *   controlSetId: "STRING_VALUE", // required
- *   evidenceFolderId: "STRING_VALUE", // required
+ *   assessmentId: 'STRING_VALUE', // required
+ *   controlSetId: 'STRING_VALUE', // required
+ *   evidenceFolderId: 'STRING_VALUE', // required
  * };
  * const command = new GetEvidenceFolderCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetEvidenceFolderResponse
+ *   evidenceFolder: { // AssessmentEvidenceFolder
+ *     name: 'STRING_VALUE',
+ *     date: new Date('TIMESTAMP'),
+ *     assessmentId: 'STRING_VALUE',
+ *     controlSetId: 'STRING_VALUE',
+ *     controlId: 'STRING_VALUE',
+ *     id: 'STRING_VALUE',
+ *     dataSource: 'STRING_VALUE',
+ *     author: 'STRING_VALUE',
+ *     totalEvidence: Number('int'),
+ *     assessmentReportSelectionCount: Number('int'),
+ *     controlName: 'STRING_VALUE',
+ *     evidenceResourcesIncludedCount: Number('int'),
+ *     evidenceByTypeConfigurationDataCount: Number('int'),
+ *     evidenceByTypeManualCount: Number('int'),
+ *     evidenceByTypeComplianceCheckCount: Number('int'),
+ *     evidenceByTypeComplianceCheckIssuesCount: Number('int'),
+ *     evidenceByTypeUserActivityCount: Number('int'),
+ *     evidenceAwsServiceSourceCount: Number('int'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetEvidenceFolderCommandInput - {@link GetEvidenceFolderCommandInput}
@@ -69,6 +93,8 @@ export interface GetEvidenceFolderCommandOutput extends GetEvidenceFolderRespons
  * @throws {@link ValidationException} (client fault)
  *  <p> The request has invalid or missing parameters. </p>
  *
+ * @throws {@link AuditManagerServiceException}
+ * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
  */
 export class GetEvidenceFolderCommand extends $Command<

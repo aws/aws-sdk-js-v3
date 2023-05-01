@@ -40,15 +40,23 @@ export interface AuthorizeVpcEndpointAccessCommandOutput extends AuthorizeVpcEnd
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElasticsearchServiceClient, AuthorizeVpcEndpointAccessCommand } from "@aws-sdk/client-elasticsearch-service"; // ES Modules import
- * // const { ElasticsearchServiceClient, AuthorizeVpcEndpointAccessCommand } = require("@aws-sdk/client-elasticsearch-service"); // CommonJS import
+ * import { ElasticsearchServiceClient, AuthorizeVpcEndpointAccessCommand } from '@aws-sdk/client-elasticsearch-service'; // ES Modules import
+ * // const { ElasticsearchServiceClient, AuthorizeVpcEndpointAccessCommand } = require('@aws-sdk/client-elasticsearch-service'); // CommonJS import
  * const client = new ElasticsearchServiceClient(config);
  * const input = { // AuthorizeVpcEndpointAccessRequest
- *   DomainName: "STRING_VALUE", // required
- *   Account: "STRING_VALUE", // required
+ *   DomainName: 'STRING_VALUE', // required
+ *   Account: 'STRING_VALUE', // required
  * };
  * const command = new AuthorizeVpcEndpointAccessCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AuthorizeVpcEndpointAccessResponse
+ *   AuthorizedPrincipal: { // AuthorizedPrincipal
+ *     PrincipalType: 'AWS_ACCOUNT' || 'AWS_SERVICE',
+ *     Principal: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param AuthorizeVpcEndpointAccessCommandInput - {@link AuthorizeVpcEndpointAccessCommandInput}
@@ -75,6 +83,8 @@ export interface AuthorizeVpcEndpointAccessCommandOutput extends AuthorizeVpcEnd
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception for missing / invalid input fields. Gives http status code of 400.</p>
  *
+ * @throws {@link ElasticsearchServiceServiceException}
+ * <p>Base exception class for all service exceptions from ElasticsearchService service.</p>
  *
  */
 export class AuthorizeVpcEndpointAccessCommand extends $Command<

@@ -40,21 +40,39 @@ export interface ListTrialsCommandOutput extends ListTrialsResponse, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, ListTrialsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, ListTrialsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, ListTrialsCommand } from '@aws-sdk/client-sagemaker'; // ES Modules import
+ * // const { SageMakerClient, ListTrialsCommand } = require('@aws-sdk/client-sagemaker'); // CommonJS import
  * const client = new SageMakerClient(config);
  * const input = { // ListTrialsRequest
- *   ExperimentName: "STRING_VALUE",
- *   TrialComponentName: "STRING_VALUE",
- *   CreatedAfter: new Date("TIMESTAMP"),
- *   CreatedBefore: new Date("TIMESTAMP"),
- *   SortBy: "Name" || "CreationTime",
- *   SortOrder: "Ascending" || "Descending",
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   ExperimentName: 'STRING_VALUE',
+ *   TrialComponentName: 'STRING_VALUE',
+ *   CreatedAfter: new Date('TIMESTAMP'),
+ *   CreatedBefore: new Date('TIMESTAMP'),
+ *   SortBy: 'Name' || 'CreationTime',
+ *   SortOrder: 'Ascending' || 'Descending',
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListTrialsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTrialsResponse
+ *   TrialSummaries: [ // TrialSummaries
+ *     { // TrialSummary
+ *       TrialArn: 'STRING_VALUE',
+ *       TrialName: 'STRING_VALUE',
+ *       DisplayName: 'STRING_VALUE',
+ *       TrialSource: { // TrialSource
+ *         SourceArn: 'STRING_VALUE', // required
+ *         SourceType: 'STRING_VALUE',
+ *       },
+ *       CreationTime: new Date('TIMESTAMP'),
+ *       LastModifiedTime: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListTrialsCommandInput - {@link ListTrialsCommandInput}
@@ -66,6 +84,8 @@ export interface ListTrialsCommandOutput extends ListTrialsResponse, __MetadataB
  * @throws {@link ResourceNotFound} (client fault)
  *  <p>Resource being access is not found.</p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class ListTrialsCommand extends $Command<

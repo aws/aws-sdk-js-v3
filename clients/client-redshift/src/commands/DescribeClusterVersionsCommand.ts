@@ -41,17 +41,29 @@ export interface DescribeClusterVersionsCommandOutput extends ClusterVersionsMes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RedshiftClient, DescribeClusterVersionsCommand } from "@aws-sdk/client-redshift"; // ES Modules import
- * // const { RedshiftClient, DescribeClusterVersionsCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * import { RedshiftClient, DescribeClusterVersionsCommand } from '@aws-sdk/client-redshift'; // ES Modules import
+ * // const { RedshiftClient, DescribeClusterVersionsCommand } = require('@aws-sdk/client-redshift'); // CommonJS import
  * const client = new RedshiftClient(config);
  * const input = { // DescribeClusterVersionsMessage
- *   ClusterVersion: "STRING_VALUE",
- *   ClusterParameterGroupFamily: "STRING_VALUE",
- *   MaxRecords: Number("int"),
- *   Marker: "STRING_VALUE",
+ *   ClusterVersion: 'STRING_VALUE',
+ *   ClusterParameterGroupFamily: 'STRING_VALUE',
+ *   MaxRecords: Number('int'),
+ *   Marker: 'STRING_VALUE',
  * };
  * const command = new DescribeClusterVersionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ClusterVersionsMessage
+ *   Marker: 'STRING_VALUE',
+ *   ClusterVersions: [ // ClusterVersionList
+ *     { // ClusterVersion
+ *       ClusterVersion: 'STRING_VALUE',
+ *       ClusterParameterGroupFamily: 'STRING_VALUE',
+ *       Description: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeClusterVersionsCommandInput - {@link DescribeClusterVersionsCommandInput}
@@ -60,6 +72,8 @@ export interface DescribeClusterVersionsCommandOutput extends ClusterVersionsMes
  * @see {@link DescribeClusterVersionsCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class DescribeClusterVersionsCommand extends $Command<

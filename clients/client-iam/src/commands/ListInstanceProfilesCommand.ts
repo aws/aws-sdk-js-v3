@@ -45,16 +45,63 @@ export interface ListInstanceProfilesCommandOutput extends ListInstanceProfilesR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IAMClient, ListInstanceProfilesCommand } from "@aws-sdk/client-iam"; // ES Modules import
- * // const { IAMClient, ListInstanceProfilesCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * import { IAMClient, ListInstanceProfilesCommand } from '@aws-sdk/client-iam'; // ES Modules import
+ * // const { IAMClient, ListInstanceProfilesCommand } = require('@aws-sdk/client-iam'); // CommonJS import
  * const client = new IAMClient(config);
  * const input = { // ListInstanceProfilesRequest
- *   PathPrefix: "STRING_VALUE",
- *   Marker: "STRING_VALUE",
- *   MaxItems: Number("int"),
+ *   PathPrefix: 'STRING_VALUE',
+ *   Marker: 'STRING_VALUE',
+ *   MaxItems: Number('int'),
  * };
  * const command = new ListInstanceProfilesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListInstanceProfilesResponse
+ *   InstanceProfiles: [ // instanceProfileListType // required
+ *     { // InstanceProfile
+ *       Path: 'STRING_VALUE', // required
+ *       InstanceProfileName: 'STRING_VALUE', // required
+ *       InstanceProfileId: 'STRING_VALUE', // required
+ *       Arn: 'STRING_VALUE', // required
+ *       CreateDate: new Date('TIMESTAMP'), // required
+ *       Roles: [ // roleListType // required
+ *         { // Role
+ *           Path: 'STRING_VALUE', // required
+ *           RoleName: 'STRING_VALUE', // required
+ *           RoleId: 'STRING_VALUE', // required
+ *           Arn: 'STRING_VALUE', // required
+ *           CreateDate: new Date('TIMESTAMP'), // required
+ *           AssumeRolePolicyDocument: 'STRING_VALUE',
+ *           Description: 'STRING_VALUE',
+ *           MaxSessionDuration: Number('int'),
+ *           PermissionsBoundary: { // AttachedPermissionsBoundary
+ *             PermissionsBoundaryType: 'PermissionsBoundaryPolicy',
+ *             PermissionsBoundaryArn: 'STRING_VALUE',
+ *           },
+ *           Tags: [ // tagListType
+ *             { // Tag
+ *               Key: 'STRING_VALUE', // required
+ *               Value: 'STRING_VALUE', // required
+ *             },
+ *           ],
+ *           RoleLastUsed: { // RoleLastUsed
+ *             LastUsedDate: new Date('TIMESTAMP'),
+ *             Region: 'STRING_VALUE',
+ *           },
+ *         },
+ *       ],
+ *       Tags: [
+ *         {
+ *           Key: 'STRING_VALUE', // required
+ *           Value: 'STRING_VALUE', // required
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   IsTruncated: true || false,
+ *   Marker: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListInstanceProfilesCommandInput - {@link ListInstanceProfilesCommandInput}
@@ -67,6 +114,8 @@ export interface ListInstanceProfilesCommandOutput extends ListInstanceProfilesR
  *  <p>The request processing has failed because of an unknown error, exception or
  *       failure.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  */
 export class ListInstanceProfilesCommand extends $Command<

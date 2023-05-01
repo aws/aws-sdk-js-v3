@@ -37,14 +37,19 @@ export interface TerminateSessionCommandOutput extends TerminateSessionResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMClient, TerminateSessionCommand } from "@aws-sdk/client-ssm"; // ES Modules import
- * // const { SSMClient, TerminateSessionCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * import { SSMClient, TerminateSessionCommand } from '@aws-sdk/client-ssm'; // ES Modules import
+ * // const { SSMClient, TerminateSessionCommand } = require('@aws-sdk/client-ssm'); // CommonJS import
  * const client = new SSMClient(config);
  * const input = { // TerminateSessionRequest
- *   SessionId: "STRING_VALUE", // required
+ *   SessionId: 'STRING_VALUE', // required
  * };
  * const command = new TerminateSessionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // TerminateSessionResponse
+ *   SessionId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param TerminateSessionCommandInput - {@link TerminateSessionCommandInput}
@@ -56,6 +61,8 @@ export interface TerminateSessionCommandOutput extends TerminateSessionResponse,
  * @throws {@link InternalServerError} (server fault)
  *  <p>An error occurred on the server side.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class TerminateSessionCommand extends $Command<

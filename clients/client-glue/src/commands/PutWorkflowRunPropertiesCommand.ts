@@ -36,18 +36,21 @@ export interface PutWorkflowRunPropertiesCommandOutput extends PutWorkflowRunPro
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlueClient, PutWorkflowRunPropertiesCommand } from "@aws-sdk/client-glue"; // ES Modules import
- * // const { GlueClient, PutWorkflowRunPropertiesCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * import { GlueClient, PutWorkflowRunPropertiesCommand } from '@aws-sdk/client-glue'; // ES Modules import
+ * // const { GlueClient, PutWorkflowRunPropertiesCommand } = require('@aws-sdk/client-glue'); // CommonJS import
  * const client = new GlueClient(config);
  * const input = { // PutWorkflowRunPropertiesRequest
- *   Name: "STRING_VALUE", // required
- *   RunId: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
+ *   RunId: 'STRING_VALUE', // required
  *   RunProperties: { // WorkflowRunProperties // required
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new PutWorkflowRunPropertiesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutWorkflowRunPropertiesCommandInput - {@link PutWorkflowRunPropertiesCommandInput}
@@ -77,6 +80,8 @@ export interface PutWorkflowRunPropertiesCommandOutput extends PutWorkflowRunPro
  * @throws {@link ResourceNumberLimitExceededException} (client fault)
  *  <p>A resource numerical limit was exceeded.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class PutWorkflowRunPropertiesCommand extends $Command<

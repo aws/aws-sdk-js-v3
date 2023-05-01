@@ -44,30 +44,35 @@ export interface CreateLocationObjectStorageCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DataSyncClient, CreateLocationObjectStorageCommand } from "@aws-sdk/client-datasync"; // ES Modules import
- * // const { DataSyncClient, CreateLocationObjectStorageCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
+ * import { DataSyncClient, CreateLocationObjectStorageCommand } from '@aws-sdk/client-datasync'; // ES Modules import
+ * // const { DataSyncClient, CreateLocationObjectStorageCommand } = require('@aws-sdk/client-datasync'); // CommonJS import
  * const client = new DataSyncClient(config);
  * const input = { // CreateLocationObjectStorageRequest
- *   ServerHostname: "STRING_VALUE", // required
- *   ServerPort: Number("int"),
- *   ServerProtocol: "HTTPS" || "HTTP",
- *   Subdirectory: "STRING_VALUE",
- *   BucketName: "STRING_VALUE", // required
- *   AccessKey: "STRING_VALUE",
- *   SecretKey: "STRING_VALUE",
+ *   ServerHostname: 'STRING_VALUE', // required
+ *   ServerPort: Number('int'),
+ *   ServerProtocol: 'HTTPS' || 'HTTP',
+ *   Subdirectory: 'STRING_VALUE',
+ *   BucketName: 'STRING_VALUE', // required
+ *   AccessKey: 'STRING_VALUE',
+ *   SecretKey: 'STRING_VALUE',
  *   AgentArns: [ // AgentArnList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   Tags: [ // InputTagList
  *     { // TagListEntry
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
- *   ServerCertificate: "BLOB_VALUE",
+ *   ServerCertificate: 'BLOB_VALUE',
  * };
  * const command = new CreateLocationObjectStorageCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateLocationObjectStorageResponse
+ *   LocationArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateLocationObjectStorageCommandInput - {@link CreateLocationObjectStorageCommandInput}
@@ -83,6 +88,8 @@ export interface CreateLocationObjectStorageCommandOutput
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception is thrown when the client submits a malformed request.</p>
  *
+ * @throws {@link DataSyncServiceException}
+ * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
  */
 export class CreateLocationObjectStorageCommand extends $Command<

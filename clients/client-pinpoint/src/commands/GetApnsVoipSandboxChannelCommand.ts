@@ -36,14 +36,32 @@ export interface GetApnsVoipSandboxChannelCommandOutput extends GetApnsVoipSandb
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PinpointClient, GetApnsVoipSandboxChannelCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
- * // const { PinpointClient, GetApnsVoipSandboxChannelCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
+ * import { PinpointClient, GetApnsVoipSandboxChannelCommand } from '@aws-sdk/client-pinpoint'; // ES Modules import
+ * // const { PinpointClient, GetApnsVoipSandboxChannelCommand } = require('@aws-sdk/client-pinpoint'); // CommonJS import
  * const client = new PinpointClient(config);
  * const input = { // GetApnsVoipSandboxChannelRequest
- *   ApplicationId: "STRING_VALUE", // required
+ *   ApplicationId: 'STRING_VALUE', // required
  * };
  * const command = new GetApnsVoipSandboxChannelCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetApnsVoipSandboxChannelResponse
+ *   APNSVoipSandboxChannelResponse: { // APNSVoipSandboxChannelResponse
+ *     ApplicationId: 'STRING_VALUE',
+ *     CreationDate: 'STRING_VALUE',
+ *     DefaultAuthenticationMethod: 'STRING_VALUE',
+ *     Enabled: true || false,
+ *     HasCredential: true || false,
+ *     HasTokenKey: true || false,
+ *     Id: 'STRING_VALUE',
+ *     IsArchived: true || false,
+ *     LastModifiedBy: 'STRING_VALUE',
+ *     LastModifiedDate: 'STRING_VALUE',
+ *     Platform: 'STRING_VALUE', // required
+ *     Version: Number('int'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetApnsVoipSandboxChannelCommandInput - {@link GetApnsVoipSandboxChannelCommandInput}
@@ -73,6 +91,8 @@ export interface GetApnsVoipSandboxChannelCommandOutput extends GetApnsVoipSandb
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Provides information about an API request or response.</p>
  *
+ * @throws {@link PinpointServiceException}
+ * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
  */
 export class GetApnsVoipSandboxChannelCommand extends $Command<

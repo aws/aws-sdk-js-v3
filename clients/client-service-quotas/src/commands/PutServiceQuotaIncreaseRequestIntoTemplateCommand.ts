@@ -45,17 +45,31 @@ export interface PutServiceQuotaIncreaseRequestIntoTemplateCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ServiceQuotasClient, PutServiceQuotaIncreaseRequestIntoTemplateCommand } from "@aws-sdk/client-service-quotas"; // ES Modules import
- * // const { ServiceQuotasClient, PutServiceQuotaIncreaseRequestIntoTemplateCommand } = require("@aws-sdk/client-service-quotas"); // CommonJS import
+ * import { ServiceQuotasClient, PutServiceQuotaIncreaseRequestIntoTemplateCommand } from '@aws-sdk/client-service-quotas'; // ES Modules import
+ * // const { ServiceQuotasClient, PutServiceQuotaIncreaseRequestIntoTemplateCommand } = require('@aws-sdk/client-service-quotas'); // CommonJS import
  * const client = new ServiceQuotasClient(config);
  * const input = { // PutServiceQuotaIncreaseRequestIntoTemplateRequest
- *   QuotaCode: "STRING_VALUE", // required
- *   ServiceCode: "STRING_VALUE", // required
- *   AwsRegion: "STRING_VALUE", // required
- *   DesiredValue: Number("double"), // required
+ *   QuotaCode: 'STRING_VALUE', // required
+ *   ServiceCode: 'STRING_VALUE', // required
+ *   AwsRegion: 'STRING_VALUE', // required
+ *   DesiredValue: Number('double'), // required
  * };
  * const command = new PutServiceQuotaIncreaseRequestIntoTemplateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutServiceQuotaIncreaseRequestIntoTemplateResponse
+ *   ServiceQuotaIncreaseRequestInTemplate: { // ServiceQuotaIncreaseRequestInTemplate
+ *     ServiceCode: 'STRING_VALUE',
+ *     ServiceName: 'STRING_VALUE',
+ *     QuotaCode: 'STRING_VALUE',
+ *     QuotaName: 'STRING_VALUE',
+ *     DesiredValue: Number('double'),
+ *     AwsRegion: 'STRING_VALUE',
+ *     Unit: 'STRING_VALUE',
+ *     GlobalQuota: true || false,
+ *   },
+ * };
+ *
  * ```
  *
  * @param PutServiceQuotaIncreaseRequestIntoTemplateCommandInput - {@link PutServiceQuotaIncreaseRequestIntoTemplateCommandInput}
@@ -97,6 +111,8 @@ export interface PutServiceQuotaIncreaseRequestIntoTemplateCommandOutput
  *  <p>Due to throttling, the request was denied. Slow down the rate of request calls, or request
  *       an increase for this quota.</p>
  *
+ * @throws {@link ServiceQuotasServiceException}
+ * <p>Base exception class for all service exceptions from ServiceQuotas service.</p>
  *
  */
 export class PutServiceQuotaIncreaseRequestIntoTemplateCommand extends $Command<

@@ -37,16 +37,19 @@ export interface ApplyArchiveRuleCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AccessAnalyzerClient, ApplyArchiveRuleCommand } from "@aws-sdk/client-accessanalyzer"; // ES Modules import
- * // const { AccessAnalyzerClient, ApplyArchiveRuleCommand } = require("@aws-sdk/client-accessanalyzer"); // CommonJS import
+ * import { AccessAnalyzerClient, ApplyArchiveRuleCommand } from '@aws-sdk/client-accessanalyzer'; // ES Modules import
+ * // const { AccessAnalyzerClient, ApplyArchiveRuleCommand } = require('@aws-sdk/client-accessanalyzer'); // CommonJS import
  * const client = new AccessAnalyzerClient(config);
  * const input = { // ApplyArchiveRuleRequest
- *   analyzerArn: "STRING_VALUE", // required
- *   ruleName: "STRING_VALUE", // required
- *   clientToken: "STRING_VALUE",
+ *   analyzerArn: 'STRING_VALUE', // required
+ *   ruleName: 'STRING_VALUE', // required
+ *   clientToken: 'STRING_VALUE',
  * };
  * const command = new ApplyArchiveRuleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param ApplyArchiveRuleCommandInput - {@link ApplyArchiveRuleCommandInput}
@@ -70,6 +73,8 @@ export interface ApplyArchiveRuleCommandOutput extends __MetadataBearer {}
  * @throws {@link ValidationException} (client fault)
  *  <p>Validation exception error.</p>
  *
+ * @throws {@link AccessAnalyzerServiceException}
+ * <p>Base exception class for all service exceptions from AccessAnalyzer service.</p>
  *
  */
 export class ApplyArchiveRuleCommand extends $Command<

@@ -36,15 +36,18 @@ export interface DeleteApiKeyCommandOutput extends DeleteApiKeyResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppSyncClient, DeleteApiKeyCommand } from "@aws-sdk/client-appsync"; // ES Modules import
- * // const { AppSyncClient, DeleteApiKeyCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
+ * import { AppSyncClient, DeleteApiKeyCommand } from '@aws-sdk/client-appsync'; // ES Modules import
+ * // const { AppSyncClient, DeleteApiKeyCommand } = require('@aws-sdk/client-appsync'); // CommonJS import
  * const client = new AppSyncClient(config);
  * const input = { // DeleteApiKeyRequest
- *   apiId: "STRING_VALUE", // required
- *   id: "STRING_VALUE", // required
+ *   apiId: 'STRING_VALUE', // required
+ *   id: 'STRING_VALUE', // required
  * };
  * const command = new DeleteApiKeyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteApiKeyCommandInput - {@link DeleteApiKeyCommandInput}
@@ -66,6 +69,8 @@ export interface DeleteApiKeyCommandOutput extends DeleteApiKeyResponse, __Metad
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You aren't authorized to perform this operation.</p>
  *
+ * @throws {@link AppSyncServiceException}
+ * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
  */
 export class DeleteApiKeyCommand extends $Command<

@@ -38,16 +38,24 @@ export interface ListIdentitiesCommandOutput extends ListIdentitiesResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SESClient, ListIdentitiesCommand } from "@aws-sdk/client-ses"; // ES Modules import
- * // const { SESClient, ListIdentitiesCommand } = require("@aws-sdk/client-ses"); // CommonJS import
+ * import { SESClient, ListIdentitiesCommand } from '@aws-sdk/client-ses'; // ES Modules import
+ * // const { SESClient, ListIdentitiesCommand } = require('@aws-sdk/client-ses'); // CommonJS import
  * const client = new SESClient(config);
  * const input = { // ListIdentitiesRequest
- *   IdentityType: "STRING_VALUE",
- *   NextToken: "STRING_VALUE",
- *   MaxItems: Number("int"),
+ *   IdentityType: 'STRING_VALUE',
+ *   NextToken: 'STRING_VALUE',
+ *   MaxItems: Number('int'),
  * };
  * const command = new ListIdentitiesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListIdentitiesResponse
+ *   Identities: [ // IdentityList // required
+ *     'STRING_VALUE',
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListIdentitiesCommandInput - {@link ListIdentitiesCommandInput}
@@ -56,6 +64,8 @@ export interface ListIdentitiesCommandOutput extends ListIdentitiesResponse, __M
  * @see {@link ListIdentitiesCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
+ * @throws {@link SESServiceException}
+ * <p>Base exception class for all service exceptions from SES service.</p>
  *
  * @example ListIdentities
  * ```javascript

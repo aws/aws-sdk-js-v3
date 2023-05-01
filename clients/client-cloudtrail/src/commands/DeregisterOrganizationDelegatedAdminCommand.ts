@@ -45,14 +45,17 @@ export interface DeregisterOrganizationDelegatedAdminCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudTrailClient, DeregisterOrganizationDelegatedAdminCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
- * // const { CloudTrailClient, DeregisterOrganizationDelegatedAdminCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
+ * import { CloudTrailClient, DeregisterOrganizationDelegatedAdminCommand } from '@aws-sdk/client-cloudtrail'; // ES Modules import
+ * // const { CloudTrailClient, DeregisterOrganizationDelegatedAdminCommand } = require('@aws-sdk/client-cloudtrail'); // CommonJS import
  * const client = new CloudTrailClient(config);
  * const input = { // DeregisterOrganizationDelegatedAdminRequest
- *   DelegatedAdminAccountId: "STRING_VALUE", // required
+ *   DelegatedAdminAccountId: 'STRING_VALUE', // required
  * };
  * const command = new DeregisterOrganizationDelegatedAdminCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeregisterOrganizationDelegatedAdminCommandInput - {@link DeregisterOrganizationDelegatedAdminCommandInput}
@@ -105,6 +108,8 @@ export interface DeregisterOrganizationDelegatedAdminCommandOutput
  * @throws {@link UnsupportedOperationException} (client fault)
  *  <p>This exception is thrown when the requested operation is not supported.</p>
  *
+ * @throws {@link CloudTrailServiceException}
+ * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
  */
 export class DeregisterOrganizationDelegatedAdminCommand extends $Command<

@@ -40,20 +40,20 @@ export interface CreateBotAliasCommandOutput extends CreateBotAliasResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LexModelsV2Client, CreateBotAliasCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
- * // const { LexModelsV2Client, CreateBotAliasCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
+ * import { LexModelsV2Client, CreateBotAliasCommand } from '@aws-sdk/client-lex-models-v2'; // ES Modules import
+ * // const { LexModelsV2Client, CreateBotAliasCommand } = require('@aws-sdk/client-lex-models-v2'); // CommonJS import
  * const client = new LexModelsV2Client(config);
  * const input = { // CreateBotAliasRequest
- *   botAliasName: "STRING_VALUE", // required
- *   description: "STRING_VALUE",
- *   botVersion: "STRING_VALUE",
+ *   botAliasName: 'STRING_VALUE', // required
+ *   description: 'STRING_VALUE',
+ *   botVersion: 'STRING_VALUE',
  *   botAliasLocaleSettings: { // BotAliasLocaleSettingsMap
- *     "<keys>": { // BotAliasLocaleSettings
+ *     '<keys>': { // BotAliasLocaleSettings
  *       enabled: true || false, // required
  *       codeHookSpecification: { // CodeHookSpecification
  *         lambdaCodeHook: { // LambdaCodeHook
- *           lambdaARN: "STRING_VALUE", // required
- *           codeHookInterfaceVersion: "STRING_VALUE", // required
+ *           lambdaARN: 'STRING_VALUE', // required
+ *           codeHookInterfaceVersion: 'STRING_VALUE', // required
  *         },
  *       },
  *     },
@@ -64,8 +64,8 @@ export interface CreateBotAliasCommandOutput extends CreateBotAliasResponse, __M
  *         enabled: true || false, // required
  *         destination: { // TextLogDestination
  *           cloudWatch: { // CloudWatchLogGroupLogDestination
- *             cloudWatchLogGroupArn: "STRING_VALUE", // required
- *             logPrefix: "STRING_VALUE", // required
+ *             cloudWatchLogGroupArn: 'STRING_VALUE', // required
+ *             logPrefix: 'STRING_VALUE', // required
  *           },
  *         },
  *       },
@@ -75,9 +75,9 @@ export interface CreateBotAliasCommandOutput extends CreateBotAliasResponse, __M
  *         enabled: true || false, // required
  *         destination: { // AudioLogDestination
  *           s3Bucket: { // S3BucketLogDestination
- *             kmsKeyArn: "STRING_VALUE",
- *             s3BucketArn: "STRING_VALUE", // required
- *             logPrefix: "STRING_VALUE", // required
+ *             kmsKeyArn: 'STRING_VALUE',
+ *             s3BucketArn: 'STRING_VALUE', // required
+ *             logPrefix: 'STRING_VALUE', // required
  *           },
  *         },
  *       },
@@ -86,13 +86,66 @@ export interface CreateBotAliasCommandOutput extends CreateBotAliasResponse, __M
  *   sentimentAnalysisSettings: { // SentimentAnalysisSettings
  *     detectSentiment: true || false, // required
  *   },
- *   botId: "STRING_VALUE", // required
+ *   botId: 'STRING_VALUE', // required
  *   tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateBotAliasCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateBotAliasResponse
+ *   botAliasId: 'STRING_VALUE',
+ *   botAliasName: 'STRING_VALUE',
+ *   description: 'STRING_VALUE',
+ *   botVersion: 'STRING_VALUE',
+ *   botAliasLocaleSettings: { // BotAliasLocaleSettingsMap
+ *     '<keys>': { // BotAliasLocaleSettings
+ *       enabled: true || false, // required
+ *       codeHookSpecification: { // CodeHookSpecification
+ *         lambdaCodeHook: { // LambdaCodeHook
+ *           lambdaARN: 'STRING_VALUE', // required
+ *           codeHookInterfaceVersion: 'STRING_VALUE', // required
+ *         },
+ *       },
+ *     },
+ *   },
+ *   conversationLogSettings: { // ConversationLogSettings
+ *     textLogSettings: [ // TextLogSettingsList
+ *       { // TextLogSetting
+ *         enabled: true || false, // required
+ *         destination: { // TextLogDestination
+ *           cloudWatch: { // CloudWatchLogGroupLogDestination
+ *             cloudWatchLogGroupArn: 'STRING_VALUE', // required
+ *             logPrefix: 'STRING_VALUE', // required
+ *           },
+ *         },
+ *       },
+ *     ],
+ *     audioLogSettings: [ // AudioLogSettingsList
+ *       { // AudioLogSetting
+ *         enabled: true || false, // required
+ *         destination: { // AudioLogDestination
+ *           s3Bucket: { // S3BucketLogDestination
+ *             kmsKeyArn: 'STRING_VALUE',
+ *             s3BucketArn: 'STRING_VALUE', // required
+ *             logPrefix: 'STRING_VALUE', // required
+ *           },
+ *         },
+ *       },
+ *     ],
+ *   },
+ *   sentimentAnalysisSettings: { // SentimentAnalysisSettings
+ *     detectSentiment: true || false, // required
+ *   },
+ *   botAliasStatus: 'Creating' || 'Available' || 'Deleting' || 'Failed',
+ *   botId: 'STRING_VALUE',
+ *   creationDateTime: new Date('TIMESTAMP'),
+ *   tags: { // TagMap
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateBotAliasCommandInput - {@link CreateBotAliasCommandInput}
@@ -126,6 +179,8 @@ export interface CreateBotAliasCommandOutput extends CreateBotAliasResponse, __M
  *  <p>One of the input parameters in your request isn't valid. Check the
  *          parameters and try your request again.</p>
  *
+ * @throws {@link LexModelsV2ServiceException}
+ * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
  */
 export class CreateBotAliasCommand extends $Command<

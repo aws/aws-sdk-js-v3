@@ -57,15 +57,26 @@ export interface ValidateResourcePolicyCommandOutput extends ValidateResourcePol
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SecretsManagerClient, ValidateResourcePolicyCommand } from "@aws-sdk/client-secrets-manager"; // ES Modules import
- * // const { SecretsManagerClient, ValidateResourcePolicyCommand } = require("@aws-sdk/client-secrets-manager"); // CommonJS import
+ * import { SecretsManagerClient, ValidateResourcePolicyCommand } from '@aws-sdk/client-secrets-manager'; // ES Modules import
+ * // const { SecretsManagerClient, ValidateResourcePolicyCommand } = require('@aws-sdk/client-secrets-manager'); // CommonJS import
  * const client = new SecretsManagerClient(config);
  * const input = { // ValidateResourcePolicyRequest
- *   SecretId: "STRING_VALUE",
- *   ResourcePolicy: "STRING_VALUE", // required
+ *   SecretId: 'STRING_VALUE',
+ *   ResourcePolicy: 'STRING_VALUE', // required
  * };
  * const command = new ValidateResourcePolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ValidateResourcePolicyResponse
+ *   PolicyValidationPassed: true || false,
+ *   ValidationErrors: [ // ValidationErrorsType
+ *     { // ValidationErrorsEntry
+ *       CheckName: 'STRING_VALUE',
+ *       ErrorMessage: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ValidateResourcePolicyCommandInput - {@link ValidateResourcePolicyCommandInput}
@@ -104,6 +115,8 @@ export interface ValidateResourcePolicyCommandOutput extends ValidateResourcePol
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Secrets Manager can't find the resource that you asked for.</p>
  *
+ * @throws {@link SecretsManagerServiceException}
+ * <p>Base exception class for all service exceptions from SecretsManager service.</p>
  *
  * @example To validate a resource-based policy to a secret
  * ```javascript

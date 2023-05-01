@@ -38,39 +38,109 @@ export interface ListAuditFindingsCommandOutput extends ListAuditFindingsRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTClient, ListAuditFindingsCommand } from "@aws-sdk/client-iot"; // ES Modules import
- * // const { IoTClient, ListAuditFindingsCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * import { IoTClient, ListAuditFindingsCommand } from '@aws-sdk/client-iot'; // ES Modules import
+ * // const { IoTClient, ListAuditFindingsCommand } = require('@aws-sdk/client-iot'); // CommonJS import
  * const client = new IoTClient(config);
  * const input = { // ListAuditFindingsRequest
- *   taskId: "STRING_VALUE",
- *   checkName: "STRING_VALUE",
+ *   taskId: 'STRING_VALUE',
+ *   checkName: 'STRING_VALUE',
  *   resourceIdentifier: { // ResourceIdentifier
- *     deviceCertificateId: "STRING_VALUE",
- *     caCertificateId: "STRING_VALUE",
- *     cognitoIdentityPoolId: "STRING_VALUE",
- *     clientId: "STRING_VALUE",
+ *     deviceCertificateId: 'STRING_VALUE',
+ *     caCertificateId: 'STRING_VALUE',
+ *     cognitoIdentityPoolId: 'STRING_VALUE',
+ *     clientId: 'STRING_VALUE',
  *     policyVersionIdentifier: { // PolicyVersionIdentifier
- *       policyName: "STRING_VALUE",
- *       policyVersionId: "STRING_VALUE",
+ *       policyName: 'STRING_VALUE',
+ *       policyVersionId: 'STRING_VALUE',
  *     },
- *     account: "STRING_VALUE",
- *     iamRoleArn: "STRING_VALUE",
- *     roleAliasArn: "STRING_VALUE",
+ *     account: 'STRING_VALUE',
+ *     iamRoleArn: 'STRING_VALUE',
+ *     roleAliasArn: 'STRING_VALUE',
  *     issuerCertificateIdentifier: { // IssuerCertificateIdentifier
- *       issuerCertificateSubject: "STRING_VALUE",
- *       issuerId: "STRING_VALUE",
- *       issuerCertificateSerialNumber: "STRING_VALUE",
+ *       issuerCertificateSubject: 'STRING_VALUE',
+ *       issuerId: 'STRING_VALUE',
+ *       issuerCertificateSerialNumber: 'STRING_VALUE',
  *     },
- *     deviceCertificateArn: "STRING_VALUE",
+ *     deviceCertificateArn: 'STRING_VALUE',
  *   },
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
- *   startTime: new Date("TIMESTAMP"),
- *   endTime: new Date("TIMESTAMP"),
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
+ *   startTime: new Date('TIMESTAMP'),
+ *   endTime: new Date('TIMESTAMP'),
  *   listSuppressedFindings: true || false,
  * };
  * const command = new ListAuditFindingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListAuditFindingsResponse
+ *   findings: [ // AuditFindings
+ *     { // AuditFinding
+ *       findingId: 'STRING_VALUE',
+ *       taskId: 'STRING_VALUE',
+ *       checkName: 'STRING_VALUE',
+ *       taskStartTime: new Date('TIMESTAMP'),
+ *       findingTime: new Date('TIMESTAMP'),
+ *       severity: 'CRITICAL' || 'HIGH' || 'MEDIUM' || 'LOW',
+ *       nonCompliantResource: { // NonCompliantResource
+ *         resourceType: 'DEVICE_CERTIFICATE' || 'CA_CERTIFICATE' || 'IOT_POLICY' || 'COGNITO_IDENTITY_POOL' || 'CLIENT_ID' || 'ACCOUNT_SETTINGS' || 'ROLE_ALIAS' || 'IAM_ROLE' || 'ISSUER_CERTIFICATE',
+ *         resourceIdentifier: { // ResourceIdentifier
+ *           deviceCertificateId: 'STRING_VALUE',
+ *           caCertificateId: 'STRING_VALUE',
+ *           cognitoIdentityPoolId: 'STRING_VALUE',
+ *           clientId: 'STRING_VALUE',
+ *           policyVersionIdentifier: { // PolicyVersionIdentifier
+ *             policyName: 'STRING_VALUE',
+ *             policyVersionId: 'STRING_VALUE',
+ *           },
+ *           account: 'STRING_VALUE',
+ *           iamRoleArn: 'STRING_VALUE',
+ *           roleAliasArn: 'STRING_VALUE',
+ *           issuerCertificateIdentifier: { // IssuerCertificateIdentifier
+ *             issuerCertificateSubject: 'STRING_VALUE',
+ *             issuerId: 'STRING_VALUE',
+ *             issuerCertificateSerialNumber: 'STRING_VALUE',
+ *           },
+ *           deviceCertificateArn: 'STRING_VALUE',
+ *         },
+ *         additionalInfo: { // StringMap
+ *           '<keys>': 'STRING_VALUE',
+ *         },
+ *       },
+ *       relatedResources: [ // RelatedResources
+ *         { // RelatedResource
+ *           resourceType: 'DEVICE_CERTIFICATE' || 'CA_CERTIFICATE' || 'IOT_POLICY' || 'COGNITO_IDENTITY_POOL' || 'CLIENT_ID' || 'ACCOUNT_SETTINGS' || 'ROLE_ALIAS' || 'IAM_ROLE' || 'ISSUER_CERTIFICATE',
+ *           resourceIdentifier: {
+ *             deviceCertificateId: 'STRING_VALUE',
+ *             caCertificateId: 'STRING_VALUE',
+ *             cognitoIdentityPoolId: 'STRING_VALUE',
+ *             clientId: 'STRING_VALUE',
+ *             policyVersionIdentifier: {
+ *               policyName: 'STRING_VALUE',
+ *               policyVersionId: 'STRING_VALUE',
+ *             },
+ *             account: 'STRING_VALUE',
+ *             iamRoleArn: 'STRING_VALUE',
+ *             roleAliasArn: 'STRING_VALUE',
+ *             issuerCertificateIdentifier: {
+ *               issuerCertificateSubject: 'STRING_VALUE',
+ *               issuerId: 'STRING_VALUE',
+ *               issuerCertificateSerialNumber: 'STRING_VALUE',
+ *             },
+ *             deviceCertificateArn: 'STRING_VALUE',
+ *           },
+ *           additionalInfo: {
+ *             '<keys>': 'STRING_VALUE',
+ *           },
+ *         },
+ *       ],
+ *       reasonForNonCompliance: 'STRING_VALUE',
+ *       reasonForNonComplianceCode: 'STRING_VALUE',
+ *       isSuppressed: true || false,
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListAuditFindingsCommandInput - {@link ListAuditFindingsCommandInput}
@@ -88,6 +158,8 @@ export interface ListAuditFindingsCommandOutput extends ListAuditFindingsRespons
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The rate exceeds the limit.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class ListAuditFindingsCommand extends $Command<

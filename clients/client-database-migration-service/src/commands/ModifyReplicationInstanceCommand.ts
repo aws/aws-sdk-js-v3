@@ -43,27 +43,92 @@ export interface ModifyReplicationInstanceCommandOutput extends ModifyReplicatio
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DatabaseMigrationServiceClient, ModifyReplicationInstanceCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
- * // const { DatabaseMigrationServiceClient, ModifyReplicationInstanceCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
+ * import { DatabaseMigrationServiceClient, ModifyReplicationInstanceCommand } from '@aws-sdk/client-database-migration-service'; // ES Modules import
+ * // const { DatabaseMigrationServiceClient, ModifyReplicationInstanceCommand } = require('@aws-sdk/client-database-migration-service'); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
  * const input = { // ModifyReplicationInstanceMessage
- *   ReplicationInstanceArn: "STRING_VALUE", // required
- *   AllocatedStorage: Number("int"),
+ *   ReplicationInstanceArn: 'STRING_VALUE', // required
+ *   AllocatedStorage: Number('int'),
  *   ApplyImmediately: true || false,
- *   ReplicationInstanceClass: "STRING_VALUE",
+ *   ReplicationInstanceClass: 'STRING_VALUE',
  *   VpcSecurityGroupIds: [ // VpcSecurityGroupIdList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   PreferredMaintenanceWindow: "STRING_VALUE",
+ *   PreferredMaintenanceWindow: 'STRING_VALUE',
  *   MultiAZ: true || false,
- *   EngineVersion: "STRING_VALUE",
+ *   EngineVersion: 'STRING_VALUE',
  *   AllowMajorVersionUpgrade: true || false,
  *   AutoMinorVersionUpgrade: true || false,
- *   ReplicationInstanceIdentifier: "STRING_VALUE",
- *   NetworkType: "STRING_VALUE",
+ *   ReplicationInstanceIdentifier: 'STRING_VALUE',
+ *   NetworkType: 'STRING_VALUE',
  * };
  * const command = new ModifyReplicationInstanceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ModifyReplicationInstanceResponse
+ *   ReplicationInstance: { // ReplicationInstance
+ *     ReplicationInstanceIdentifier: 'STRING_VALUE',
+ *     ReplicationInstanceClass: 'STRING_VALUE',
+ *     ReplicationInstanceStatus: 'STRING_VALUE',
+ *     AllocatedStorage: Number('int'),
+ *     InstanceCreateTime: new Date('TIMESTAMP'),
+ *     VpcSecurityGroups: [ // VpcSecurityGroupMembershipList
+ *       { // VpcSecurityGroupMembership
+ *         VpcSecurityGroupId: 'STRING_VALUE',
+ *         Status: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     AvailabilityZone: 'STRING_VALUE',
+ *     ReplicationSubnetGroup: { // ReplicationSubnetGroup
+ *       ReplicationSubnetGroupIdentifier: 'STRING_VALUE',
+ *       ReplicationSubnetGroupDescription: 'STRING_VALUE',
+ *       VpcId: 'STRING_VALUE',
+ *       SubnetGroupStatus: 'STRING_VALUE',
+ *       Subnets: [ // SubnetList
+ *         { // Subnet
+ *           SubnetIdentifier: 'STRING_VALUE',
+ *           SubnetAvailabilityZone: { // AvailabilityZone
+ *             Name: 'STRING_VALUE',
+ *           },
+ *           SubnetStatus: 'STRING_VALUE',
+ *         },
+ *       ],
+ *       SupportedNetworkTypes: [ // StringList
+ *         'STRING_VALUE',
+ *       ],
+ *     },
+ *     PreferredMaintenanceWindow: 'STRING_VALUE',
+ *     PendingModifiedValues: { // ReplicationPendingModifiedValues
+ *       ReplicationInstanceClass: 'STRING_VALUE',
+ *       AllocatedStorage: Number('int'),
+ *       MultiAZ: true || false,
+ *       EngineVersion: 'STRING_VALUE',
+ *       NetworkType: 'STRING_VALUE',
+ *     },
+ *     MultiAZ: true || false,
+ *     EngineVersion: 'STRING_VALUE',
+ *     AutoMinorVersionUpgrade: true || false,
+ *     KmsKeyId: 'STRING_VALUE',
+ *     ReplicationInstanceArn: 'STRING_VALUE',
+ *     ReplicationInstancePublicIpAddress: 'STRING_VALUE',
+ *     ReplicationInstancePrivateIpAddress: 'STRING_VALUE',
+ *     ReplicationInstancePublicIpAddresses: [ // ReplicationInstancePublicIpAddressList
+ *       'STRING_VALUE',
+ *     ],
+ *     ReplicationInstancePrivateIpAddresses: [ // ReplicationInstancePrivateIpAddressList
+ *       'STRING_VALUE',
+ *     ],
+ *     ReplicationInstanceIpv6Addresses: [ // ReplicationInstanceIpv6AddressList
+ *       'STRING_VALUE',
+ *     ],
+ *     PubliclyAccessible: true || false,
+ *     SecondaryAvailabilityZone: 'STRING_VALUE',
+ *     FreeUntil: new Date('TIMESTAMP'),
+ *     DnsNameServers: 'STRING_VALUE',
+ *     NetworkType: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param ModifyReplicationInstanceCommandInput - {@link ModifyReplicationInstanceCommandInput}
@@ -94,6 +159,8 @@ export interface ModifyReplicationInstanceCommandOutput extends ModifyReplicatio
  * @throws {@link UpgradeDependencyFailureFault} (client fault)
  *  <p>An upgrade dependency is preventing the database migration.</p>
  *
+ * @throws {@link DatabaseMigrationServiceServiceException}
+ * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
  * @example Modify replication instance
  * ```javascript

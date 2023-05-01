@@ -37,52 +37,55 @@ export interface UpdateJobCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTClient, UpdateJobCommand } from "@aws-sdk/client-iot"; // ES Modules import
- * // const { IoTClient, UpdateJobCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * import { IoTClient, UpdateJobCommand } from '@aws-sdk/client-iot'; // ES Modules import
+ * // const { IoTClient, UpdateJobCommand } = require('@aws-sdk/client-iot'); // CommonJS import
  * const client = new IoTClient(config);
  * const input = { // UpdateJobRequest
- *   jobId: "STRING_VALUE", // required
- *   description: "STRING_VALUE",
+ *   jobId: 'STRING_VALUE', // required
+ *   description: 'STRING_VALUE',
  *   presignedUrlConfig: { // PresignedUrlConfig
- *     roleArn: "STRING_VALUE",
- *     expiresInSec: Number("long"),
+ *     roleArn: 'STRING_VALUE',
+ *     expiresInSec: Number('long'),
  *   },
  *   jobExecutionsRolloutConfig: { // JobExecutionsRolloutConfig
- *     maximumPerMinute: Number("int"),
+ *     maximumPerMinute: Number('int'),
  *     exponentialRate: { // ExponentialRolloutRate
- *       baseRatePerMinute: Number("int"), // required
- *       incrementFactor: Number("double"), // required
+ *       baseRatePerMinute: Number('int'), // required
+ *       incrementFactor: Number('double'), // required
  *       rateIncreaseCriteria: { // RateIncreaseCriteria
- *         numberOfNotifiedThings: Number("int"),
- *         numberOfSucceededThings: Number("int"),
+ *         numberOfNotifiedThings: Number('int'),
+ *         numberOfSucceededThings: Number('int'),
  *       },
  *     },
  *   },
  *   abortConfig: { // AbortConfig
  *     criteriaList: [ // AbortCriteriaList // required
  *       { // AbortCriteria
- *         failureType: "FAILED" || "REJECTED" || "TIMED_OUT" || "ALL", // required
- *         action: "CANCEL", // required
- *         thresholdPercentage: Number("double"), // required
- *         minNumberOfExecutedThings: Number("int"), // required
+ *         failureType: 'FAILED' || 'REJECTED' || 'TIMED_OUT' || 'ALL', // required
+ *         action: 'CANCEL', // required
+ *         thresholdPercentage: Number('double'), // required
+ *         minNumberOfExecutedThings: Number('int'), // required
  *       },
  *     ],
  *   },
  *   timeoutConfig: { // TimeoutConfig
- *     inProgressTimeoutInMinutes: Number("long"),
+ *     inProgressTimeoutInMinutes: Number('long'),
  *   },
- *   namespaceId: "STRING_VALUE",
+ *   namespaceId: 'STRING_VALUE',
  *   jobExecutionsRetryConfig: { // JobExecutionsRetryConfig
  *     criteriaList: [ // RetryCriteriaList // required
  *       { // RetryCriteria
- *         failureType: "FAILED" || "TIMED_OUT" || "ALL", // required
- *         numberOfRetries: Number("int"), // required
+ *         failureType: 'FAILED' || 'TIMED_OUT' || 'ALL', // required
+ *         numberOfRetries: Number('int'), // required
  *       },
  *     ],
  *   },
  * };
  * const command = new UpdateJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateJobCommandInput - {@link UpdateJobCommandInput}
@@ -103,6 +106,8 @@ export interface UpdateJobCommandOutput extends __MetadataBearer {}
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The rate exceeds the limit.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class UpdateJobCommand extends $Command<UpdateJobCommandInput, UpdateJobCommandOutput, IoTClientResolvedConfig> {

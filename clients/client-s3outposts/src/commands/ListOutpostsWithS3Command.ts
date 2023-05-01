@@ -38,15 +38,28 @@ export interface ListOutpostsWithS3CommandOutput extends ListOutpostsWithS3Resul
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { S3OutpostsClient, ListOutpostsWithS3Command } from "@aws-sdk/client-s3outposts"; // ES Modules import
- * // const { S3OutpostsClient, ListOutpostsWithS3Command } = require("@aws-sdk/client-s3outposts"); // CommonJS import
+ * import { S3OutpostsClient, ListOutpostsWithS3Command } from '@aws-sdk/client-s3outposts'; // ES Modules import
+ * // const { S3OutpostsClient, ListOutpostsWithS3Command } = require('@aws-sdk/client-s3outposts'); // CommonJS import
  * const client = new S3OutpostsClient(config);
  * const input = { // ListOutpostsWithS3Request
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListOutpostsWithS3Command(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListOutpostsWithS3Result
+ *   Outposts: [ // Outposts
+ *     { // Outpost
+ *       OutpostArn: 'STRING_VALUE',
+ *       OutpostId: 'STRING_VALUE',
+ *       OwnerId: 'STRING_VALUE',
+ *       CapacityInBytes: Number('long'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListOutpostsWithS3CommandInput - {@link ListOutpostsWithS3CommandInput}
@@ -67,6 +80,8 @@ export interface ListOutpostsWithS3CommandOutput extends ListOutpostsWithS3Resul
  * @throws {@link ValidationException} (client fault)
  *  <p>There was an exception validating this data.</p>
  *
+ * @throws {@link S3OutpostsServiceException}
+ * <p>Base exception class for all service exceptions from S3Outposts service.</p>
  *
  */
 export class ListOutpostsWithS3Command extends $Command<

@@ -48,15 +48,18 @@ export interface AddRoleToInstanceProfileCommandOutput extends __MetadataBearer 
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IAMClient, AddRoleToInstanceProfileCommand } from "@aws-sdk/client-iam"; // ES Modules import
- * // const { IAMClient, AddRoleToInstanceProfileCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * import { IAMClient, AddRoleToInstanceProfileCommand } from '@aws-sdk/client-iam'; // ES Modules import
+ * // const { IAMClient, AddRoleToInstanceProfileCommand } = require('@aws-sdk/client-iam'); // CommonJS import
  * const client = new IAMClient(config);
  * const input = { // AddRoleToInstanceProfileRequest
- *   InstanceProfileName: "STRING_VALUE", // required
- *   RoleName: "STRING_VALUE", // required
+ *   InstanceProfileName: 'STRING_VALUE', // required
+ *   RoleName: 'STRING_VALUE', // required
  * };
  * const command = new AddRoleToInstanceProfileCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param AddRoleToInstanceProfileCommandInput - {@link AddRoleToInstanceProfileCommandInput}
@@ -87,6 +90,8 @@ export interface AddRoleToInstanceProfileCommandOutput extends __MetadataBearer 
  *       behalf. The error message includes the name of the service that depends on this service-linked
  *       role. You must request the change through that service.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  * @example To add a role to an instance profile
  * ```javascript

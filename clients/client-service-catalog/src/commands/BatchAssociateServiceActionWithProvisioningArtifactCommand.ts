@@ -45,21 +45,34 @@ export interface BatchAssociateServiceActionWithProvisioningArtifactCommandOutpu
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ServiceCatalogClient, BatchAssociateServiceActionWithProvisioningArtifactCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
- * // const { ServiceCatalogClient, BatchAssociateServiceActionWithProvisioningArtifactCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
+ * import { ServiceCatalogClient, BatchAssociateServiceActionWithProvisioningArtifactCommand } from '@aws-sdk/client-service-catalog'; // ES Modules import
+ * // const { ServiceCatalogClient, BatchAssociateServiceActionWithProvisioningArtifactCommand } = require('@aws-sdk/client-service-catalog'); // CommonJS import
  * const client = new ServiceCatalogClient(config);
  * const input = { // BatchAssociateServiceActionWithProvisioningArtifactInput
  *   ServiceActionAssociations: [ // ServiceActionAssociations // required
  *     { // ServiceActionAssociation
- *       ServiceActionId: "STRING_VALUE", // required
- *       ProductId: "STRING_VALUE", // required
- *       ProvisioningArtifactId: "STRING_VALUE", // required
+ *       ServiceActionId: 'STRING_VALUE', // required
+ *       ProductId: 'STRING_VALUE', // required
+ *       ProvisioningArtifactId: 'STRING_VALUE', // required
  *     },
  *   ],
- *   AcceptLanguage: "STRING_VALUE",
+ *   AcceptLanguage: 'STRING_VALUE',
  * };
  * const command = new BatchAssociateServiceActionWithProvisioningArtifactCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BatchAssociateServiceActionWithProvisioningArtifactOutput
+ *   FailedServiceActionAssociations: [ // FailedServiceActionAssociations
+ *     { // FailedServiceActionAssociation
+ *       ServiceActionId: 'STRING_VALUE',
+ *       ProductId: 'STRING_VALUE',
+ *       ProvisioningArtifactId: 'STRING_VALUE',
+ *       ErrorCode: 'DUPLICATE_RESOURCE' || 'INTERNAL_FAILURE' || 'LIMIT_EXCEEDED' || 'RESOURCE_NOT_FOUND' || 'THROTTLING' || 'INVALID_PARAMETER',
+ *       ErrorMessage: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param BatchAssociateServiceActionWithProvisioningArtifactCommandInput - {@link BatchAssociateServiceActionWithProvisioningArtifactCommandInput}
@@ -71,6 +84,8 @@ export interface BatchAssociateServiceActionWithProvisioningArtifactCommandOutpu
  * @throws {@link InvalidParametersException} (client fault)
  *  <p>One or more parameters provided to the operation are not valid.</p>
  *
+ * @throws {@link ServiceCatalogServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
  */
 export class BatchAssociateServiceActionWithProvisioningArtifactCommand extends $Command<

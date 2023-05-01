@@ -41,14 +41,43 @@ export interface GetRelationalDatabaseSnapshotCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LightsailClient, GetRelationalDatabaseSnapshotCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
- * // const { LightsailClient, GetRelationalDatabaseSnapshotCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
+ * import { LightsailClient, GetRelationalDatabaseSnapshotCommand } from '@aws-sdk/client-lightsail'; // ES Modules import
+ * // const { LightsailClient, GetRelationalDatabaseSnapshotCommand } = require('@aws-sdk/client-lightsail'); // CommonJS import
  * const client = new LightsailClient(config);
  * const input = { // GetRelationalDatabaseSnapshotRequest
- *   relationalDatabaseSnapshotName: "STRING_VALUE", // required
+ *   relationalDatabaseSnapshotName: 'STRING_VALUE', // required
  * };
  * const command = new GetRelationalDatabaseSnapshotCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetRelationalDatabaseSnapshotResult
+ *   relationalDatabaseSnapshot: { // RelationalDatabaseSnapshot
+ *     name: 'STRING_VALUE',
+ *     arn: 'STRING_VALUE',
+ *     supportCode: 'STRING_VALUE',
+ *     createdAt: new Date('TIMESTAMP'),
+ *     location: { // ResourceLocation
+ *       availabilityZone: 'STRING_VALUE',
+ *       regionName: 'us-east-1' || 'us-east-2' || 'us-west-1' || 'us-west-2' || 'eu-west-1' || 'eu-west-2' || 'eu-west-3' || 'eu-central-1' || 'ca-central-1' || 'ap-south-1' || 'ap-southeast-1' || 'ap-southeast-2' || 'ap-northeast-1' || 'ap-northeast-2' || 'eu-north-1',
+ *     },
+ *     resourceType: 'ContainerService' || 'Instance' || 'StaticIp' || 'KeyPair' || 'InstanceSnapshot' || 'Domain' || 'PeeredVpc' || 'LoadBalancer' || 'LoadBalancerTlsCertificate' || 'Disk' || 'DiskSnapshot' || 'RelationalDatabase' || 'RelationalDatabaseSnapshot' || 'ExportSnapshotRecord' || 'CloudFormationStackRecord' || 'Alarm' || 'ContactMethod' || 'Distribution' || 'Certificate' || 'Bucket',
+ *     tags: [ // TagList
+ *       { // Tag
+ *         key: 'STRING_VALUE',
+ *         value: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     engine: 'STRING_VALUE',
+ *     engineVersion: 'STRING_VALUE',
+ *     sizeInGb: Number('int'),
+ *     state: 'STRING_VALUE',
+ *     fromRelationalDatabaseName: 'STRING_VALUE',
+ *     fromRelationalDatabaseArn: 'STRING_VALUE',
+ *     fromRelationalDatabaseBundleId: 'STRING_VALUE',
+ *     fromRelationalDatabaseBlueprintId: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetRelationalDatabaseSnapshotCommandInput - {@link GetRelationalDatabaseSnapshotCommandInput}
@@ -87,6 +116,8 @@ export interface GetRelationalDatabaseSnapshotCommandOutput
  * @throws {@link UnauthenticatedException} (client fault)
  *  <p>Lightsail throws this exception when the user has not been authenticated.</p>
  *
+ * @throws {@link LightsailServiceException}
+ * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
  */
 export class GetRelationalDatabaseSnapshotCommand extends $Command<

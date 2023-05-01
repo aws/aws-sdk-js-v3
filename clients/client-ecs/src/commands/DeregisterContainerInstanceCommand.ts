@@ -51,16 +51,100 @@ export interface DeregisterContainerInstanceCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ECSClient, DeregisterContainerInstanceCommand } from "@aws-sdk/client-ecs"; // ES Modules import
- * // const { ECSClient, DeregisterContainerInstanceCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
+ * import { ECSClient, DeregisterContainerInstanceCommand } from '@aws-sdk/client-ecs'; // ES Modules import
+ * // const { ECSClient, DeregisterContainerInstanceCommand } = require('@aws-sdk/client-ecs'); // CommonJS import
  * const client = new ECSClient(config);
  * const input = { // DeregisterContainerInstanceRequest
- *   cluster: "STRING_VALUE",
- *   containerInstance: "STRING_VALUE", // required
+ *   cluster: 'STRING_VALUE',
+ *   containerInstance: 'STRING_VALUE', // required
  *   force: true || false,
  * };
  * const command = new DeregisterContainerInstanceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeregisterContainerInstanceResponse
+ *   containerInstance: { // ContainerInstance
+ *     containerInstanceArn: 'STRING_VALUE',
+ *     ec2InstanceId: 'STRING_VALUE',
+ *     capacityProviderName: 'STRING_VALUE',
+ *     version: Number('long'),
+ *     versionInfo: { // VersionInfo
+ *       agentVersion: 'STRING_VALUE',
+ *       agentHash: 'STRING_VALUE',
+ *       dockerVersion: 'STRING_VALUE',
+ *     },
+ *     remainingResources: [ // Resources
+ *       { // Resource
+ *         name: 'STRING_VALUE',
+ *         type: 'STRING_VALUE',
+ *         doubleValue: Number('double'),
+ *         longValue: Number('long'),
+ *         integerValue: Number('int'),
+ *         stringSetValue: [ // StringList
+ *           'STRING_VALUE',
+ *         ],
+ *       },
+ *     ],
+ *     registeredResources: [
+ *       {
+ *         name: 'STRING_VALUE',
+ *         type: 'STRING_VALUE',
+ *         doubleValue: Number('double'),
+ *         longValue: Number('long'),
+ *         integerValue: Number('int'),
+ *         stringSetValue: [
+ *           'STRING_VALUE',
+ *         ],
+ *       },
+ *     ],
+ *     status: 'STRING_VALUE',
+ *     statusReason: 'STRING_VALUE',
+ *     agentConnected: true || false,
+ *     runningTasksCount: Number('int'),
+ *     pendingTasksCount: Number('int'),
+ *     agentUpdateStatus: 'PENDING' || 'STAGING' || 'STAGED' || 'UPDATING' || 'UPDATED' || 'FAILED',
+ *     attributes: [ // Attributes
+ *       { // Attribute
+ *         name: 'STRING_VALUE', // required
+ *         value: 'STRING_VALUE',
+ *         targetType: 'container-instance',
+ *         targetId: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     registeredAt: new Date('TIMESTAMP'),
+ *     attachments: [ // Attachments
+ *       { // Attachment
+ *         id: 'STRING_VALUE',
+ *         type: 'STRING_VALUE',
+ *         status: 'STRING_VALUE',
+ *         details: [ // AttachmentDetails
+ *           { // KeyValuePair
+ *             name: 'STRING_VALUE',
+ *             value: 'STRING_VALUE',
+ *           },
+ *         ],
+ *       },
+ *     ],
+ *     tags: [ // Tags
+ *       { // Tag
+ *         key: 'STRING_VALUE',
+ *         value: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     healthStatus: { // ContainerInstanceHealthStatus
+ *       overallStatus: 'OK' || 'IMPAIRED' || 'INSUFFICIENT_DATA' || 'INITIALIZING',
+ *       details: [ // InstanceHealthCheckResultList
+ *         { // InstanceHealthCheckResult
+ *           type: 'CONTAINER_RUNTIME',
+ *           status: 'OK' || 'IMPAIRED' || 'INSUFFICIENT_DATA' || 'INITIALIZING',
+ *           lastUpdated: new Date('TIMESTAMP'),
+ *           lastStatusChange: new Date('TIMESTAMP'),
+ *         },
+ *       ],
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param DeregisterContainerInstanceCommandInput - {@link DeregisterContainerInstanceCommandInput}
@@ -84,6 +168,8 @@ export interface DeregisterContainerInstanceCommandOutput
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server issue.</p>
  *
+ * @throws {@link ECSServiceException}
+ * <p>Base exception class for all service exceptions from ECS service.</p>
  *
  * @example To deregister a container instance from a cluster
  * ```javascript

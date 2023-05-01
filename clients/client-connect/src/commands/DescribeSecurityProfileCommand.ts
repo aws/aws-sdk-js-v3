@@ -37,15 +37,35 @@ export interface DescribeSecurityProfileCommandOutput extends DescribeSecurityPr
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, DescribeSecurityProfileCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, DescribeSecurityProfileCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, DescribeSecurityProfileCommand } from '@aws-sdk/client-connect'; // ES Modules import
+ * // const { ConnectClient, DescribeSecurityProfileCommand } = require('@aws-sdk/client-connect'); // CommonJS import
  * const client = new ConnectClient(config);
  * const input = { // DescribeSecurityProfileRequest
- *   SecurityProfileId: "STRING_VALUE", // required
- *   InstanceId: "STRING_VALUE", // required
+ *   SecurityProfileId: 'STRING_VALUE', // required
+ *   InstanceId: 'STRING_VALUE', // required
  * };
  * const command = new DescribeSecurityProfileCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeSecurityProfileResponse
+ *   SecurityProfile: { // SecurityProfile
+ *     Id: 'STRING_VALUE',
+ *     OrganizationResourceId: 'STRING_VALUE',
+ *     Arn: 'STRING_VALUE',
+ *     SecurityProfileName: 'STRING_VALUE',
+ *     Description: 'STRING_VALUE',
+ *     Tags: { // TagMap
+ *       '<keys>': 'STRING_VALUE',
+ *     },
+ *     AllowedAccessControlTags: { // AllowedAccessControlTags
+ *       '<keys>': 'STRING_VALUE',
+ *     },
+ *     TagRestrictedResources: [ // TagRestrictedResourceList
+ *       'STRING_VALUE',
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeSecurityProfileCommandInput - {@link DescribeSecurityProfileCommandInput}
@@ -69,6 +89,8 @@ export interface DescribeSecurityProfileCommandOutput extends DescribeSecurityPr
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class DescribeSecurityProfileCommand extends $Command<

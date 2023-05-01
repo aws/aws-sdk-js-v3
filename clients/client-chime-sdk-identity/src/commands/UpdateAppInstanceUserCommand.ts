@@ -41,16 +41,21 @@ export interface UpdateAppInstanceUserCommandOutput extends UpdateAppInstanceUse
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeSDKIdentityClient, UpdateAppInstanceUserCommand } from "@aws-sdk/client-chime-sdk-identity"; // ES Modules import
- * // const { ChimeSDKIdentityClient, UpdateAppInstanceUserCommand } = require("@aws-sdk/client-chime-sdk-identity"); // CommonJS import
+ * import { ChimeSDKIdentityClient, UpdateAppInstanceUserCommand } from '@aws-sdk/client-chime-sdk-identity'; // ES Modules import
+ * // const { ChimeSDKIdentityClient, UpdateAppInstanceUserCommand } = require('@aws-sdk/client-chime-sdk-identity'); // CommonJS import
  * const client = new ChimeSDKIdentityClient(config);
  * const input = { // UpdateAppInstanceUserRequest
- *   AppInstanceUserArn: "STRING_VALUE", // required
- *   Name: "STRING_VALUE", // required
- *   Metadata: "STRING_VALUE", // required
+ *   AppInstanceUserArn: 'STRING_VALUE', // required
+ *   Name: 'STRING_VALUE', // required
+ *   Metadata: 'STRING_VALUE', // required
  * };
  * const command = new UpdateAppInstanceUserCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateAppInstanceUserResponse
+ *   AppInstanceUserArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateAppInstanceUserCommandInput - {@link UpdateAppInstanceUserCommandInput}
@@ -84,6 +89,8 @@ export interface UpdateAppInstanceUserCommandOutput extends UpdateAppInstanceUse
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeSDKIdentityServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKIdentity service.</p>
  *
  */
 export class UpdateAppInstanceUserCommand extends $Command<

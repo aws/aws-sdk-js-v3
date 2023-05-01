@@ -36,24 +36,43 @@ export interface ListImageRecipesCommandOutput extends ListImageRecipesResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ImagebuilderClient, ListImageRecipesCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
- * // const { ImagebuilderClient, ListImageRecipesCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
+ * import { ImagebuilderClient, ListImageRecipesCommand } from '@aws-sdk/client-imagebuilder'; // ES Modules import
+ * // const { ImagebuilderClient, ListImageRecipesCommand } = require('@aws-sdk/client-imagebuilder'); // CommonJS import
  * const client = new ImagebuilderClient(config);
  * const input = { // ListImageRecipesRequest
- *   owner: "Self" || "Shared" || "Amazon" || "ThirdParty",
+ *   owner: 'Self' || 'Shared' || 'Amazon' || 'ThirdParty',
  *   filters: [ // FilterList
  *     { // Filter
- *       name: "STRING_VALUE",
+ *       name: 'STRING_VALUE',
  *       values: [ // FilterValues
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new ListImageRecipesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListImageRecipesResponse
+ *   requestId: 'STRING_VALUE',
+ *   imageRecipeSummaryList: [ // ImageRecipeSummaryList
+ *     { // ImageRecipeSummary
+ *       arn: 'STRING_VALUE',
+ *       name: 'STRING_VALUE',
+ *       platform: 'Windows' || 'Linux',
+ *       owner: 'STRING_VALUE',
+ *       parentImage: 'STRING_VALUE',
+ *       dateCreated: 'STRING_VALUE',
+ *       tags: { // TagMap
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListImageRecipesCommandInput - {@link ListImageRecipesCommandInput}
@@ -86,6 +105,8 @@ export interface ListImageRecipesCommandOutput extends ListImageRecipesResponse,
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service is unable to process your request at this time.</p>
  *
+ * @throws {@link ImagebuilderServiceException}
+ * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
  */
 export class ListImageRecipesCommand extends $Command<

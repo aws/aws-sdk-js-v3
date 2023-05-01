@@ -36,15 +36,32 @@ export interface ListProvisioningArtifactsCommandOutput extends ListProvisioning
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ServiceCatalogClient, ListProvisioningArtifactsCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
- * // const { ServiceCatalogClient, ListProvisioningArtifactsCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
+ * import { ServiceCatalogClient, ListProvisioningArtifactsCommand } from '@aws-sdk/client-service-catalog'; // ES Modules import
+ * // const { ServiceCatalogClient, ListProvisioningArtifactsCommand } = require('@aws-sdk/client-service-catalog'); // CommonJS import
  * const client = new ServiceCatalogClient(config);
  * const input = { // ListProvisioningArtifactsInput
- *   AcceptLanguage: "STRING_VALUE",
- *   ProductId: "STRING_VALUE", // required
+ *   AcceptLanguage: 'STRING_VALUE',
+ *   ProductId: 'STRING_VALUE', // required
  * };
  * const command = new ListProvisioningArtifactsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListProvisioningArtifactsOutput
+ *   ProvisioningArtifactDetails: [ // ProvisioningArtifactDetails
+ *     { // ProvisioningArtifactDetail
+ *       Id: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *       Description: 'STRING_VALUE',
+ *       Type: 'CLOUD_FORMATION_TEMPLATE' || 'MARKETPLACE_AMI' || 'MARKETPLACE_CAR' || 'TERRAFORM_OPEN_SOURCE',
+ *       CreatedTime: new Date('TIMESTAMP'),
+ *       Active: true || false,
+ *       Guidance: 'DEFAULT' || 'DEPRECATED',
+ *       SourceRevision: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextPageToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListProvisioningArtifactsCommandInput - {@link ListProvisioningArtifactsCommandInput}
@@ -59,6 +76,8 @@ export interface ListProvisioningArtifactsCommandOutput extends ListProvisioning
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link ServiceCatalogServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
  */
 export class ListProvisioningArtifactsCommand extends $Command<

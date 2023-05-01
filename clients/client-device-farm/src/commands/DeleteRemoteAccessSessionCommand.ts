@@ -36,14 +36,17 @@ export interface DeleteRemoteAccessSessionCommandOutput extends DeleteRemoteAcce
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DeviceFarmClient, DeleteRemoteAccessSessionCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
- * // const { DeviceFarmClient, DeleteRemoteAccessSessionCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
+ * import { DeviceFarmClient, DeleteRemoteAccessSessionCommand } from '@aws-sdk/client-device-farm'; // ES Modules import
+ * // const { DeviceFarmClient, DeleteRemoteAccessSessionCommand } = require('@aws-sdk/client-device-farm'); // CommonJS import
  * const client = new DeviceFarmClient(config);
  * const input = { // DeleteRemoteAccessSessionRequest
- *   arn: "STRING_VALUE", // required
+ *   arn: 'STRING_VALUE', // required
  * };
  * const command = new DeleteRemoteAccessSessionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteRemoteAccessSessionCommandInput - {@link DeleteRemoteAccessSessionCommandInput}
@@ -64,6 +67,8 @@ export interface DeleteRemoteAccessSessionCommandOutput extends DeleteRemoteAcce
  * @throws {@link ServiceAccountException} (client fault)
  *  <p>There was a problem with the service account.</p>
  *
+ * @throws {@link DeviceFarmServiceException}
+ * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
  * @example To delete a specific remote access session
  * ```javascript

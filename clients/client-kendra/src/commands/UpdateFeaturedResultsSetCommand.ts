@@ -40,26 +40,46 @@ export interface UpdateFeaturedResultsSetCommandOutput extends UpdateFeaturedRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KendraClient, UpdateFeaturedResultsSetCommand } from "@aws-sdk/client-kendra"; // ES Modules import
- * // const { KendraClient, UpdateFeaturedResultsSetCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
+ * import { KendraClient, UpdateFeaturedResultsSetCommand } from '@aws-sdk/client-kendra'; // ES Modules import
+ * // const { KendraClient, UpdateFeaturedResultsSetCommand } = require('@aws-sdk/client-kendra'); // CommonJS import
  * const client = new KendraClient(config);
  * const input = { // UpdateFeaturedResultsSetRequest
- *   IndexId: "STRING_VALUE", // required
- *   FeaturedResultsSetId: "STRING_VALUE", // required
- *   FeaturedResultsSetName: "STRING_VALUE",
- *   Description: "STRING_VALUE",
- *   Status: "ACTIVE" || "INACTIVE",
+ *   IndexId: 'STRING_VALUE', // required
+ *   FeaturedResultsSetId: 'STRING_VALUE', // required
+ *   FeaturedResultsSetName: 'STRING_VALUE',
+ *   Description: 'STRING_VALUE',
+ *   Status: 'ACTIVE' || 'INACTIVE',
  *   QueryTexts: [ // QueryTextList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   FeaturedDocuments: [ // FeaturedDocumentList
  *     { // FeaturedDocument
- *       Id: "STRING_VALUE",
+ *       Id: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new UpdateFeaturedResultsSetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateFeaturedResultsSetResponse
+ *   FeaturedResultsSet: { // FeaturedResultsSet
+ *     FeaturedResultsSetId: 'STRING_VALUE',
+ *     FeaturedResultsSetName: 'STRING_VALUE',
+ *     Description: 'STRING_VALUE',
+ *     Status: 'ACTIVE' || 'INACTIVE',
+ *     QueryTexts: [ // QueryTextList
+ *       'STRING_VALUE',
+ *     ],
+ *     FeaturedDocuments: [ // FeaturedDocumentList
+ *       { // FeaturedDocument
+ *         Id: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     LastUpdatedTimestamp: Number('long'),
+ *     CreationTimestamp: Number('long'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateFeaturedResultsSetCommandInput - {@link UpdateFeaturedResultsSetCommandInput}
@@ -94,6 +114,8 @@ export interface UpdateFeaturedResultsSetCommandOutput extends UpdateFeaturedRes
  *  <p>The input fails to satisfy the constraints set by the Amazon Kendra service.
  *             Please provide the correct input and try again.</p>
  *
+ * @throws {@link KendraServiceException}
+ * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
  */
 export class UpdateFeaturedResultsSetCommand extends $Command<

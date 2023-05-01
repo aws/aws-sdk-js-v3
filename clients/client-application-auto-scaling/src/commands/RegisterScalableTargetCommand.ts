@@ -71,27 +71,32 @@ export interface RegisterScalableTargetCommandOutput extends RegisterScalableTar
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ApplicationAutoScalingClient, RegisterScalableTargetCommand } from "@aws-sdk/client-application-auto-scaling"; // ES Modules import
- * // const { ApplicationAutoScalingClient, RegisterScalableTargetCommand } = require("@aws-sdk/client-application-auto-scaling"); // CommonJS import
+ * import { ApplicationAutoScalingClient, RegisterScalableTargetCommand } from '@aws-sdk/client-application-auto-scaling'; // ES Modules import
+ * // const { ApplicationAutoScalingClient, RegisterScalableTargetCommand } = require('@aws-sdk/client-application-auto-scaling'); // CommonJS import
  * const client = new ApplicationAutoScalingClient(config);
  * const input = { // RegisterScalableTargetRequest
- *   ServiceNamespace: "ecs" || "elasticmapreduce" || "ec2" || "appstream" || "dynamodb" || "rds" || "sagemaker" || "custom-resource" || "comprehend" || "lambda" || "cassandra" || "kafka" || "elasticache" || "neptune", // required
- *   ResourceId: "STRING_VALUE", // required
- *   ScalableDimension: "ecs:service:DesiredCount" || "ec2:spot-fleet-request:TargetCapacity" || "elasticmapreduce:instancegroup:InstanceCount" || "appstream:fleet:DesiredCapacity" || "dynamodb:table:ReadCapacityUnits" || "dynamodb:table:WriteCapacityUnits" || "dynamodb:index:ReadCapacityUnits" || "dynamodb:index:WriteCapacityUnits" || "rds:cluster:ReadReplicaCount" || "sagemaker:variant:DesiredInstanceCount" || "custom-resource:ResourceType:Property" || "comprehend:document-classifier-endpoint:DesiredInferenceUnits" || "comprehend:entity-recognizer-endpoint:DesiredInferenceUnits" || "lambda:function:ProvisionedConcurrency" || "cassandra:table:ReadCapacityUnits" || "cassandra:table:WriteCapacityUnits" || "kafka:broker-storage:VolumeSize" || "elasticache:replication-group:NodeGroups" || "elasticache:replication-group:Replicas" || "neptune:cluster:ReadReplicaCount", // required
- *   MinCapacity: Number("int"),
- *   MaxCapacity: Number("int"),
- *   RoleARN: "STRING_VALUE",
+ *   ServiceNamespace: 'ecs' || 'elasticmapreduce' || 'ec2' || 'appstream' || 'dynamodb' || 'rds' || 'sagemaker' || 'custom-resource' || 'comprehend' || 'lambda' || 'cassandra' || 'kafka' || 'elasticache' || 'neptune', // required
+ *   ResourceId: 'STRING_VALUE', // required
+ *   ScalableDimension: 'ecs:service:DesiredCount' || 'ec2:spot-fleet-request:TargetCapacity' || 'elasticmapreduce:instancegroup:InstanceCount' || 'appstream:fleet:DesiredCapacity' || 'dynamodb:table:ReadCapacityUnits' || 'dynamodb:table:WriteCapacityUnits' || 'dynamodb:index:ReadCapacityUnits' || 'dynamodb:index:WriteCapacityUnits' || 'rds:cluster:ReadReplicaCount' || 'sagemaker:variant:DesiredInstanceCount' || 'custom-resource:ResourceType:Property' || 'comprehend:document-classifier-endpoint:DesiredInferenceUnits' || 'comprehend:entity-recognizer-endpoint:DesiredInferenceUnits' || 'lambda:function:ProvisionedConcurrency' || 'cassandra:table:ReadCapacityUnits' || 'cassandra:table:WriteCapacityUnits' || 'kafka:broker-storage:VolumeSize' || 'elasticache:replication-group:NodeGroups' || 'elasticache:replication-group:Replicas' || 'neptune:cluster:ReadReplicaCount', // required
+ *   MinCapacity: Number('int'),
+ *   MaxCapacity: Number('int'),
+ *   RoleARN: 'STRING_VALUE',
  *   SuspendedState: { // SuspendedState
  *     DynamicScalingInSuspended: true || false,
  *     DynamicScalingOutSuspended: true || false,
  *     ScheduledScalingSuspended: true || false,
  *   },
  *   Tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new RegisterScalableTargetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // RegisterScalableTargetResponse
+ *   ScalableTargetARN: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param RegisterScalableTargetCommandInput - {@link RegisterScalableTargetCommandInput}
@@ -114,6 +119,8 @@ export interface RegisterScalableTargetCommandOutput extends RegisterScalableTar
  *  <p>An exception was thrown for a validation issue. Review the available parameters for the
  *          API request.</p>
  *
+ * @throws {@link ApplicationAutoScalingServiceException}
+ * <p>Base exception class for all service exceptions from ApplicationAutoScaling service.</p>
  *
  * @example To register an ECS service as a scalable target
  * ```javascript

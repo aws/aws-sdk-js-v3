@@ -82,36 +82,41 @@ export interface RestoreTableCommandOutput extends RestoreTableResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KeyspacesClient, RestoreTableCommand } from "@aws-sdk/client-keyspaces"; // ES Modules import
- * // const { KeyspacesClient, RestoreTableCommand } = require("@aws-sdk/client-keyspaces"); // CommonJS import
+ * import { KeyspacesClient, RestoreTableCommand } from '@aws-sdk/client-keyspaces'; // ES Modules import
+ * // const { KeyspacesClient, RestoreTableCommand } = require('@aws-sdk/client-keyspaces'); // CommonJS import
  * const client = new KeyspacesClient(config);
  * const input = { // RestoreTableRequest
- *   sourceKeyspaceName: "STRING_VALUE", // required
- *   sourceTableName: "STRING_VALUE", // required
- *   targetKeyspaceName: "STRING_VALUE", // required
- *   targetTableName: "STRING_VALUE", // required
- *   restoreTimestamp: new Date("TIMESTAMP"),
+ *   sourceKeyspaceName: 'STRING_VALUE', // required
+ *   sourceTableName: 'STRING_VALUE', // required
+ *   targetKeyspaceName: 'STRING_VALUE', // required
+ *   targetTableName: 'STRING_VALUE', // required
+ *   restoreTimestamp: new Date('TIMESTAMP'),
  *   capacitySpecificationOverride: { // CapacitySpecification
- *     throughputMode: "STRING_VALUE", // required
- *     readCapacityUnits: Number("long"),
- *     writeCapacityUnits: Number("long"),
+ *     throughputMode: 'STRING_VALUE', // required
+ *     readCapacityUnits: Number('long'),
+ *     writeCapacityUnits: Number('long'),
  *   },
  *   encryptionSpecificationOverride: { // EncryptionSpecification
- *     type: "STRING_VALUE", // required
- *     kmsKeyIdentifier: "STRING_VALUE",
+ *     type: 'STRING_VALUE', // required
+ *     kmsKeyIdentifier: 'STRING_VALUE',
  *   },
  *   pointInTimeRecoveryOverride: { // PointInTimeRecovery
- *     status: "STRING_VALUE", // required
+ *     status: 'STRING_VALUE', // required
  *   },
  *   tagsOverride: [ // TagList
  *     { // Tag
- *       key: "STRING_VALUE", // required
- *       value: "STRING_VALUE", // required
+ *       key: 'STRING_VALUE', // required
+ *       value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new RestoreTableCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // RestoreTableResponse
+ *   restoredTableARN: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param RestoreTableCommandInput - {@link RestoreTableCommandInput}
@@ -141,6 +146,8 @@ export interface RestoreTableCommandOutput extends RestoreTableResponse, __Metad
  * @throws {@link ValidationException} (client fault)
  *  <p>The operation failed due to an invalid or malformed request.</p>
  *
+ * @throws {@link KeyspacesServiceException}
+ * <p>Base exception class for all service exceptions from Keyspaces service.</p>
  *
  */
 export class RestoreTableCommand extends $Command<

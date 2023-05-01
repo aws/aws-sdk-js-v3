@@ -38,17 +38,33 @@ export interface ListExecutorsCommandOutput extends ListExecutorsResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AthenaClient, ListExecutorsCommand } from "@aws-sdk/client-athena"; // ES Modules import
- * // const { AthenaClient, ListExecutorsCommand } = require("@aws-sdk/client-athena"); // CommonJS import
+ * import { AthenaClient, ListExecutorsCommand } from '@aws-sdk/client-athena'; // ES Modules import
+ * // const { AthenaClient, ListExecutorsCommand } = require('@aws-sdk/client-athena'); // CommonJS import
  * const client = new AthenaClient(config);
  * const input = { // ListExecutorsRequest
- *   SessionId: "STRING_VALUE", // required
- *   ExecutorStateFilter: "CREATING" || "CREATED" || "REGISTERED" || "TERMINATING" || "TERMINATED" || "FAILED",
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   SessionId: 'STRING_VALUE', // required
+ *   ExecutorStateFilter: 'CREATING' || 'CREATED' || 'REGISTERED' || 'TERMINATING' || 'TERMINATED' || 'FAILED',
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListExecutorsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListExecutorsResponse
+ *   SessionId: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
+ *   ExecutorsSummary: [ // ExecutorsSummaryList
+ *     { // ExecutorsSummary
+ *       ExecutorId: 'STRING_VALUE', // required
+ *       ExecutorType: 'COORDINATOR' || 'GATEWAY' || 'WORKER',
+ *       StartDateTime: Number('long'),
+ *       TerminationDateTime: Number('long'),
+ *       ExecutorState: 'CREATING' || 'CREATED' || 'REGISTERED' || 'TERMINATING' || 'TERMINATED' || 'FAILED',
+ *       ExecutorSize: Number('long'),
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListExecutorsCommandInput - {@link ListExecutorsCommandInput}
@@ -68,6 +84,8 @@ export interface ListExecutorsCommandOutput extends ListExecutorsResponse, __Met
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>A resource, such as a workgroup, was not found.</p>
  *
+ * @throws {@link AthenaServiceException}
+ * <p>Base exception class for all service exceptions from Athena service.</p>
  *
  */
 export class ListExecutorsCommand extends $Command<

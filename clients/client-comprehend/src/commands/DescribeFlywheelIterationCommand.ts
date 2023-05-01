@@ -38,15 +38,42 @@ export interface DescribeFlywheelIterationCommandOutput extends DescribeFlywheel
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ComprehendClient, DescribeFlywheelIterationCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
- * // const { ComprehendClient, DescribeFlywheelIterationCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
+ * import { ComprehendClient, DescribeFlywheelIterationCommand } from '@aws-sdk/client-comprehend'; // ES Modules import
+ * // const { ComprehendClient, DescribeFlywheelIterationCommand } = require('@aws-sdk/client-comprehend'); // CommonJS import
  * const client = new ComprehendClient(config);
  * const input = { // DescribeFlywheelIterationRequest
- *   FlywheelArn: "STRING_VALUE", // required
- *   FlywheelIterationId: "STRING_VALUE", // required
+ *   FlywheelArn: 'STRING_VALUE', // required
+ *   FlywheelIterationId: 'STRING_VALUE', // required
  * };
  * const command = new DescribeFlywheelIterationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeFlywheelIterationResponse
+ *   FlywheelIterationProperties: { // FlywheelIterationProperties
+ *     FlywheelArn: 'STRING_VALUE',
+ *     FlywheelIterationId: 'STRING_VALUE',
+ *     CreationTime: new Date('TIMESTAMP'),
+ *     EndTime: new Date('TIMESTAMP'),
+ *     Status: 'TRAINING' || 'EVALUATING' || 'COMPLETED' || 'FAILED' || 'STOP_REQUESTED' || 'STOPPED',
+ *     Message: 'STRING_VALUE',
+ *     EvaluatedModelArn: 'STRING_VALUE',
+ *     EvaluatedModelMetrics: { // FlywheelModelEvaluationMetrics
+ *       AverageF1Score: Number('double'),
+ *       AveragePrecision: Number('double'),
+ *       AverageRecall: Number('double'),
+ *       AverageAccuracy: Number('double'),
+ *     },
+ *     TrainedModelArn: 'STRING_VALUE',
+ *     TrainedModelMetrics: {
+ *       AverageF1Score: Number('double'),
+ *       AveragePrecision: Number('double'),
+ *       AverageRecall: Number('double'),
+ *       AverageAccuracy: Number('double'),
+ *     },
+ *     EvaluationManifestS3Prefix: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeFlywheelIterationCommandInput - {@link DescribeFlywheelIterationCommandInput}
@@ -67,6 +94,8 @@ export interface DescribeFlywheelIterationCommandOutput extends DescribeFlywheel
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>The number of requests exceeds the limit. Resubmit your request later.</p>
  *
+ * @throws {@link ComprehendServiceException}
+ * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
  */
 export class DescribeFlywheelIterationCommand extends $Command<

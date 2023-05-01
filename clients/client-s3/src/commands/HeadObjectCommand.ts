@@ -151,28 +151,68 @@ export interface HeadObjectCommandOutput extends HeadObjectOutput, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { S3Client, HeadObjectCommand } from "@aws-sdk/client-s3"; // ES Modules import
- * // const { S3Client, HeadObjectCommand } = require("@aws-sdk/client-s3"); // CommonJS import
+ * import { S3Client, HeadObjectCommand } from '@aws-sdk/client-s3'; // ES Modules import
+ * // const { S3Client, HeadObjectCommand } = require('@aws-sdk/client-s3'); // CommonJS import
  * const client = new S3Client(config);
  * const input = { // HeadObjectRequest
- *   Bucket: "STRING_VALUE", // required
- *   IfMatch: "STRING_VALUE",
- *   IfModifiedSince: new Date("TIMESTAMP"),
- *   IfNoneMatch: "STRING_VALUE",
- *   IfUnmodifiedSince: new Date("TIMESTAMP"),
- *   Key: "STRING_VALUE", // required
- *   Range: "STRING_VALUE",
- *   VersionId: "STRING_VALUE",
- *   SSECustomerAlgorithm: "STRING_VALUE",
- *   SSECustomerKey: "STRING_VALUE",
- *   SSECustomerKeyMD5: "STRING_VALUE",
- *   RequestPayer: "requester",
- *   PartNumber: Number("int"),
- *   ExpectedBucketOwner: "STRING_VALUE",
- *   ChecksumMode: "ENABLED",
+ *   Bucket: 'STRING_VALUE', // required
+ *   IfMatch: 'STRING_VALUE',
+ *   IfModifiedSince: new Date('TIMESTAMP'),
+ *   IfNoneMatch: 'STRING_VALUE',
+ *   IfUnmodifiedSince: new Date('TIMESTAMP'),
+ *   Key: 'STRING_VALUE', // required
+ *   Range: 'STRING_VALUE',
+ *   VersionId: 'STRING_VALUE',
+ *   SSECustomerAlgorithm: 'STRING_VALUE',
+ *   SSECustomerKey: 'STRING_VALUE',
+ *   SSECustomerKeyMD5: 'STRING_VALUE',
+ *   RequestPayer: 'requester',
+ *   PartNumber: Number('int'),
+ *   ExpectedBucketOwner: 'STRING_VALUE',
+ *   ChecksumMode: 'ENABLED',
  * };
  * const command = new HeadObjectCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // HeadObjectOutput
+ *   DeleteMarker: true || false,
+ *   AcceptRanges: 'STRING_VALUE',
+ *   Expiration: 'STRING_VALUE',
+ *   Restore: 'STRING_VALUE',
+ *   ArchiveStatus: 'ARCHIVE_ACCESS' || 'DEEP_ARCHIVE_ACCESS',
+ *   LastModified: new Date('TIMESTAMP'),
+ *   ContentLength: Number('long'),
+ *   ChecksumCRC32: 'STRING_VALUE',
+ *   ChecksumCRC32C: 'STRING_VALUE',
+ *   ChecksumSHA1: 'STRING_VALUE',
+ *   ChecksumSHA256: 'STRING_VALUE',
+ *   ETag: 'STRING_VALUE',
+ *   MissingMeta: Number('int'),
+ *   VersionId: 'STRING_VALUE',
+ *   CacheControl: 'STRING_VALUE',
+ *   ContentDisposition: 'STRING_VALUE',
+ *   ContentEncoding: 'STRING_VALUE',
+ *   ContentLanguage: 'STRING_VALUE',
+ *   ContentType: 'STRING_VALUE',
+ *   Expires: new Date('TIMESTAMP'),
+ *   WebsiteRedirectLocation: 'STRING_VALUE',
+ *   ServerSideEncryption: 'AES256' || 'aws:kms',
+ *   Metadata: { // Metadata
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ *   SSECustomerAlgorithm: 'STRING_VALUE',
+ *   SSECustomerKeyMD5: 'STRING_VALUE',
+ *   SSEKMSKeyId: 'STRING_VALUE',
+ *   BucketKeyEnabled: true || false,
+ *   StorageClass: 'STANDARD' || 'REDUCED_REDUNDANCY' || 'STANDARD_IA' || 'ONEZONE_IA' || 'INTELLIGENT_TIERING' || 'GLACIER' || 'DEEP_ARCHIVE' || 'OUTPOSTS' || 'GLACIER_IR' || 'SNOW',
+ *   RequestCharged: 'requester',
+ *   ReplicationStatus: 'COMPLETE' || 'PENDING' || 'FAILED' || 'REPLICA',
+ *   PartsCount: Number('int'),
+ *   ObjectLockMode: 'GOVERNANCE' || 'COMPLIANCE',
+ *   ObjectLockRetainUntilDate: new Date('TIMESTAMP'),
+ *   ObjectLockLegalHoldStatus: 'ON' || 'OFF',
+ * };
+ *
  * ```
  *
  * @param HeadObjectCommandInput - {@link HeadObjectCommandInput}
@@ -184,6 +224,8 @@ export interface HeadObjectCommandOutput extends HeadObjectOutput, __MetadataBea
  * @throws {@link NotFound} (client fault)
  *  <p>The specified content does not exist.</p>
  *
+ * @throws {@link S3ServiceException}
+ * <p>Base exception class for all service exceptions from S3 service.</p>
  *
  * @example To retrieve metadata of an object without returning the object itself
  * ```javascript

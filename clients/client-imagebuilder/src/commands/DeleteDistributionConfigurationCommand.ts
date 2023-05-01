@@ -41,14 +41,20 @@ export interface DeleteDistributionConfigurationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ImagebuilderClient, DeleteDistributionConfigurationCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
- * // const { ImagebuilderClient, DeleteDistributionConfigurationCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
+ * import { ImagebuilderClient, DeleteDistributionConfigurationCommand } from '@aws-sdk/client-imagebuilder'; // ES Modules import
+ * // const { ImagebuilderClient, DeleteDistributionConfigurationCommand } = require('@aws-sdk/client-imagebuilder'); // CommonJS import
  * const client = new ImagebuilderClient(config);
  * const input = { // DeleteDistributionConfigurationRequest
- *   distributionConfigurationArn: "STRING_VALUE", // required
+ *   distributionConfigurationArn: 'STRING_VALUE', // required
  * };
  * const command = new DeleteDistributionConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteDistributionConfigurationResponse
+ *   requestId: 'STRING_VALUE',
+ *   distributionConfigurationArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DeleteDistributionConfigurationCommandInput - {@link DeleteDistributionConfigurationCommandInput}
@@ -82,6 +88,8 @@ export interface DeleteDistributionConfigurationCommandOutput
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service is unable to process your request at this time.</p>
  *
+ * @throws {@link ImagebuilderServiceException}
+ * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
  */
 export class DeleteDistributionConfigurationCommand extends $Command<

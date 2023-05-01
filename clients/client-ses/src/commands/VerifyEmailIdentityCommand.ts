@@ -39,14 +39,17 @@ export interface VerifyEmailIdentityCommandOutput extends VerifyEmailIdentityRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SESClient, VerifyEmailIdentityCommand } from "@aws-sdk/client-ses"; // ES Modules import
- * // const { SESClient, VerifyEmailIdentityCommand } = require("@aws-sdk/client-ses"); // CommonJS import
+ * import { SESClient, VerifyEmailIdentityCommand } from '@aws-sdk/client-ses'; // ES Modules import
+ * // const { SESClient, VerifyEmailIdentityCommand } = require('@aws-sdk/client-ses'); // CommonJS import
  * const client = new SESClient(config);
  * const input = { // VerifyEmailIdentityRequest
- *   EmailAddress: "STRING_VALUE", // required
+ *   EmailAddress: 'STRING_VALUE', // required
  * };
  * const command = new VerifyEmailIdentityCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param VerifyEmailIdentityCommandInput - {@link VerifyEmailIdentityCommandInput}
@@ -55,6 +58,8 @@ export interface VerifyEmailIdentityCommandOutput extends VerifyEmailIdentityRes
  * @see {@link VerifyEmailIdentityCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
+ * @throws {@link SESServiceException}
+ * <p>Base exception class for all service exceptions from SES service.</p>
  *
  * @example VerifyEmailIdentity
  * ```javascript

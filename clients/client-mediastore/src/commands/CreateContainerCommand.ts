@@ -37,20 +37,32 @@ export interface CreateContainerCommandOutput extends CreateContainerOutput, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MediaStoreClient, CreateContainerCommand } from "@aws-sdk/client-mediastore"; // ES Modules import
- * // const { MediaStoreClient, CreateContainerCommand } = require("@aws-sdk/client-mediastore"); // CommonJS import
+ * import { MediaStoreClient, CreateContainerCommand } from '@aws-sdk/client-mediastore'; // ES Modules import
+ * // const { MediaStoreClient, CreateContainerCommand } = require('@aws-sdk/client-mediastore'); // CommonJS import
  * const client = new MediaStoreClient(config);
  * const input = { // CreateContainerInput
- *   ContainerName: "STRING_VALUE", // required
+ *   ContainerName: 'STRING_VALUE', // required
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new CreateContainerCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateContainerOutput
+ *   Container: { // Container
+ *     Endpoint: 'STRING_VALUE',
+ *     CreationTime: new Date('TIMESTAMP'),
+ *     ARN: 'STRING_VALUE',
+ *     Name: 'STRING_VALUE',
+ *     Status: 'STRING_VALUE',
+ *     AccessLoggingEnabled: true || false,
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateContainerCommandInput - {@link CreateContainerCommandInput}
@@ -69,6 +81,8 @@ export interface CreateContainerCommandOutput extends CreateContainerOutput, __M
  * @throws {@link LimitExceededException} (client fault)
  *  <p>A service limit has been exceeded.</p>
  *
+ * @throws {@link MediaStoreServiceException}
+ * <p>Base exception class for all service exceptions from MediaStore service.</p>
  *
  */
 export class CreateContainerCommand extends $Command<

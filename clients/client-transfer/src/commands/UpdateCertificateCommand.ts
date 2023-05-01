@@ -36,17 +36,22 @@ export interface UpdateCertificateCommandOutput extends UpdateCertificateRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { TransferClient, UpdateCertificateCommand } from "@aws-sdk/client-transfer"; // ES Modules import
- * // const { TransferClient, UpdateCertificateCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
+ * import { TransferClient, UpdateCertificateCommand } from '@aws-sdk/client-transfer'; // ES Modules import
+ * // const { TransferClient, UpdateCertificateCommand } = require('@aws-sdk/client-transfer'); // CommonJS import
  * const client = new TransferClient(config);
  * const input = { // UpdateCertificateRequest
- *   CertificateId: "STRING_VALUE", // required
- *   ActiveDate: new Date("TIMESTAMP"),
- *   InactiveDate: new Date("TIMESTAMP"),
- *   Description: "STRING_VALUE",
+ *   CertificateId: 'STRING_VALUE', // required
+ *   ActiveDate: new Date('TIMESTAMP'),
+ *   InactiveDate: new Date('TIMESTAMP'),
+ *   Description: 'STRING_VALUE',
  * };
  * const command = new UpdateCertificateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateCertificateResponse
+ *   CertificateId: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param UpdateCertificateCommandInput - {@link UpdateCertificateCommandInput}
@@ -71,6 +76,8 @@ export interface UpdateCertificateCommandOutput extends UpdateCertificateRespons
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
  *
+ * @throws {@link TransferServiceException}
+ * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
  */
 export class UpdateCertificateCommand extends $Command<

@@ -36,18 +36,36 @@ export interface ListShareInvitationsCommandOutput extends ListShareInvitationsO
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WellArchitectedClient, ListShareInvitationsCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
- * // const { WellArchitectedClient, ListShareInvitationsCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
+ * import { WellArchitectedClient, ListShareInvitationsCommand } from '@aws-sdk/client-wellarchitected'; // ES Modules import
+ * // const { WellArchitectedClient, ListShareInvitationsCommand } = require('@aws-sdk/client-wellarchitected'); // CommonJS import
  * const client = new WellArchitectedClient(config);
  * const input = { // ListShareInvitationsInput
- *   WorkloadNamePrefix: "STRING_VALUE",
- *   LensNamePrefix: "STRING_VALUE",
- *   ShareResourceType: "WORKLOAD" || "LENS",
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   WorkloadNamePrefix: 'STRING_VALUE',
+ *   LensNamePrefix: 'STRING_VALUE',
+ *   ShareResourceType: 'WORKLOAD' || 'LENS',
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListShareInvitationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListShareInvitationsOutput
+ *   ShareInvitationSummaries: [ // ShareInvitationSummaries
+ *     { // ShareInvitationSummary
+ *       ShareInvitationId: 'STRING_VALUE',
+ *       SharedBy: 'STRING_VALUE',
+ *       SharedWith: 'STRING_VALUE',
+ *       PermissionType: 'READONLY' || 'CONTRIBUTOR',
+ *       ShareResourceType: 'WORKLOAD' || 'LENS',
+ *       WorkloadName: 'STRING_VALUE',
+ *       WorkloadId: 'STRING_VALUE',
+ *       LensName: 'STRING_VALUE',
+ *       LensArn: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListShareInvitationsCommandInput - {@link ListShareInvitationsCommandInput}
@@ -68,6 +86,8 @@ export interface ListShareInvitationsCommandOutput extends ListShareInvitationsO
  * @throws {@link ValidationException} (client fault)
  *  <p>The user input is not valid.</p>
  *
+ * @throws {@link WellArchitectedServiceException}
+ * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
  */
 export class ListShareInvitationsCommand extends $Command<

@@ -36,15 +36,29 @@ export interface ListOrganizationsCommandOutput extends ListOrganizationsRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkMailClient, ListOrganizationsCommand } from "@aws-sdk/client-workmail"; // ES Modules import
- * // const { WorkMailClient, ListOrganizationsCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
+ * import { WorkMailClient, ListOrganizationsCommand } from '@aws-sdk/client-workmail'; // ES Modules import
+ * // const { WorkMailClient, ListOrganizationsCommand } = require('@aws-sdk/client-workmail'); // CommonJS import
  * const client = new WorkMailClient(config);
  * const input = { // ListOrganizationsRequest
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListOrganizationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListOrganizationsResponse
+ *   OrganizationSummaries: [ // OrganizationSummaries
+ *     { // OrganizationSummary
+ *       OrganizationId: 'STRING_VALUE',
+ *       Alias: 'STRING_VALUE',
+ *       DefaultMailDomain: 'STRING_VALUE',
+ *       ErrorMessage: 'STRING_VALUE',
+ *       State: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListOrganizationsCommandInput - {@link ListOrganizationsCommandInput}
@@ -56,6 +70,8 @@ export interface ListOrganizationsCommandOutput extends ListOrganizationsRespons
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>One or more of the input parameters don't match the service's restrictions.</p>
  *
+ * @throws {@link WorkMailServiceException}
+ * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
  */
 export class ListOrganizationsCommand extends $Command<

@@ -38,16 +38,19 @@ export interface StopStackSetOperationCommandOutput extends StopStackSetOperatio
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudFormationClient, StopStackSetOperationCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
- * // const { CloudFormationClient, StopStackSetOperationCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
+ * import { CloudFormationClient, StopStackSetOperationCommand } from '@aws-sdk/client-cloudformation'; // ES Modules import
+ * // const { CloudFormationClient, StopStackSetOperationCommand } = require('@aws-sdk/client-cloudformation'); // CommonJS import
  * const client = new CloudFormationClient(config);
  * const input = { // StopStackSetOperationInput
- *   StackSetName: "STRING_VALUE", // required
- *   OperationId: "STRING_VALUE", // required
- *   CallAs: "SELF" || "DELEGATED_ADMIN",
+ *   StackSetName: 'STRING_VALUE', // required
+ *   OperationId: 'STRING_VALUE', // required
+ *   CallAs: 'SELF' || 'DELEGATED_ADMIN',
  * };
  * const command = new StopStackSetOperationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param StopStackSetOperationCommandInput - {@link StopStackSetOperationCommandInput}
@@ -65,6 +68,8 @@ export interface StopStackSetOperationCommandOutput extends StopStackSetOperatio
  * @throws {@link StackSetNotFoundException} (client fault)
  *  <p>The specified stack set doesn't exist.</p>
  *
+ * @throws {@link CloudFormationServiceException}
+ * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
  */
 export class StopStackSetOperationCommand extends $Command<

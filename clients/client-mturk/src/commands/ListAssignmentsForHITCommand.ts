@@ -62,19 +62,41 @@ export interface ListAssignmentsForHITCommandOutput extends ListAssignmentsForHI
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MTurkClient, ListAssignmentsForHITCommand } from "@aws-sdk/client-mturk"; // ES Modules import
- * // const { MTurkClient, ListAssignmentsForHITCommand } = require("@aws-sdk/client-mturk"); // CommonJS import
+ * import { MTurkClient, ListAssignmentsForHITCommand } from '@aws-sdk/client-mturk'; // ES Modules import
+ * // const { MTurkClient, ListAssignmentsForHITCommand } = require('@aws-sdk/client-mturk'); // CommonJS import
  * const client = new MTurkClient(config);
  * const input = { // ListAssignmentsForHITRequest
- *   HITId: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   HITId: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  *   AssignmentStatuses: [ // AssignmentStatusList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new ListAssignmentsForHITCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListAssignmentsForHITResponse
+ *   NextToken: 'STRING_VALUE',
+ *   NumResults: Number('int'),
+ *   Assignments: [ // AssignmentList
+ *     { // Assignment
+ *       AssignmentId: 'STRING_VALUE',
+ *       WorkerId: 'STRING_VALUE',
+ *       HITId: 'STRING_VALUE',
+ *       AssignmentStatus: 'STRING_VALUE',
+ *       AutoApprovalTime: new Date('TIMESTAMP'),
+ *       AcceptTime: new Date('TIMESTAMP'),
+ *       SubmitTime: new Date('TIMESTAMP'),
+ *       ApprovalTime: new Date('TIMESTAMP'),
+ *       RejectionTime: new Date('TIMESTAMP'),
+ *       Deadline: new Date('TIMESTAMP'),
+ *       Answer: 'STRING_VALUE',
+ *       RequesterFeedback: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListAssignmentsForHITCommandInput - {@link ListAssignmentsForHITCommandInput}
@@ -89,6 +111,8 @@ export interface ListAssignmentsForHITCommandOutput extends ListAssignmentsForHI
  * @throws {@link ServiceFault} (server fault)
  *  <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
  *
+ * @throws {@link MTurkServiceException}
+ * <p>Base exception class for all service exceptions from MTurk service.</p>
  *
  */
 export class ListAssignmentsForHITCommand extends $Command<

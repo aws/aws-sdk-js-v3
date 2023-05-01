@@ -37,14 +37,20 @@ export interface DeleteImportCommandOutput extends DeleteImportResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LexModelsV2Client, DeleteImportCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
- * // const { LexModelsV2Client, DeleteImportCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
+ * import { LexModelsV2Client, DeleteImportCommand } from '@aws-sdk/client-lex-models-v2'; // ES Modules import
+ * // const { LexModelsV2Client, DeleteImportCommand } = require('@aws-sdk/client-lex-models-v2'); // CommonJS import
  * const client = new LexModelsV2Client(config);
  * const input = { // DeleteImportRequest
- *   importId: "STRING_VALUE", // required
+ *   importId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteImportCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteImportResponse
+ *   importId: 'STRING_VALUE',
+ *   importStatus: 'InProgress' || 'Completed' || 'Failed' || 'Deleting',
+ * };
+ *
  * ```
  *
  * @param DeleteImportCommandInput - {@link DeleteImportCommandInput}
@@ -73,6 +79,8 @@ export interface DeleteImportCommandOutput extends DeleteImportResponse, __Metad
  *  <p>One of the input parameters in your request isn't valid. Check the
  *          parameters and try your request again.</p>
  *
+ * @throws {@link LexModelsV2ServiceException}
+ * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
  */
 export class DeleteImportCommand extends $Command<

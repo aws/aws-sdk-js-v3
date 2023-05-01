@@ -44,14 +44,19 @@ export interface DeleteProjectCommandOutput extends DeleteProjectResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RekognitionClient, DeleteProjectCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
- * // const { RekognitionClient, DeleteProjectCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
+ * import { RekognitionClient, DeleteProjectCommand } from '@aws-sdk/client-rekognition'; // ES Modules import
+ * // const { RekognitionClient, DeleteProjectCommand } = require('@aws-sdk/client-rekognition'); // CommonJS import
  * const client = new RekognitionClient(config);
  * const input = { // DeleteProjectRequest
- *   ProjectArn: "STRING_VALUE", // required
+ *   ProjectArn: 'STRING_VALUE', // required
  * };
  * const command = new DeleteProjectCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteProjectResponse
+ *   Status: 'CREATING' || 'CREATED' || 'DELETING',
+ * };
+ *
  * ```
  *
  * @param DeleteProjectCommandInput - {@link DeleteProjectCommandInput}
@@ -83,6 +88,8 @@ export interface DeleteProjectCommandOutput extends DeleteProjectResponse, __Met
  * @throws {@link ThrottlingException} (server fault)
  *  <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
  *
+ * @throws {@link RekognitionServiceException}
+ * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
  */
 export class DeleteProjectCommand extends $Command<

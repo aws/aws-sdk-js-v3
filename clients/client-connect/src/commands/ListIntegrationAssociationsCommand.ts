@@ -42,17 +42,34 @@ export interface ListIntegrationAssociationsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, ListIntegrationAssociationsCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, ListIntegrationAssociationsCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, ListIntegrationAssociationsCommand } from '@aws-sdk/client-connect'; // ES Modules import
+ * // const { ConnectClient, ListIntegrationAssociationsCommand } = require('@aws-sdk/client-connect'); // CommonJS import
  * const client = new ConnectClient(config);
  * const input = { // ListIntegrationAssociationsRequest
- *   InstanceId: "STRING_VALUE", // required
- *   IntegrationType: "EVENT" || "VOICE_ID" || "PINPOINT_APP" || "WISDOM_ASSISTANT" || "WISDOM_KNOWLEDGE_BASE" || "CASES_DOMAIN",
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   InstanceId: 'STRING_VALUE', // required
+ *   IntegrationType: 'EVENT' || 'VOICE_ID' || 'PINPOINT_APP' || 'WISDOM_ASSISTANT' || 'WISDOM_KNOWLEDGE_BASE' || 'CASES_DOMAIN',
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListIntegrationAssociationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListIntegrationAssociationsResponse
+ *   IntegrationAssociationSummaryList: [ // IntegrationAssociationSummaryList
+ *     { // IntegrationAssociationSummary
+ *       IntegrationAssociationId: 'STRING_VALUE',
+ *       IntegrationAssociationArn: 'STRING_VALUE',
+ *       InstanceId: 'STRING_VALUE',
+ *       IntegrationType: 'EVENT' || 'VOICE_ID' || 'PINPOINT_APP' || 'WISDOM_ASSISTANT' || 'WISDOM_KNOWLEDGE_BASE' || 'CASES_DOMAIN',
+ *       IntegrationArn: 'STRING_VALUE',
+ *       SourceApplicationUrl: 'STRING_VALUE',
+ *       SourceApplicationName: 'STRING_VALUE',
+ *       SourceType: 'SALESFORCE' || 'ZENDESK',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListIntegrationAssociationsCommandInput - {@link ListIntegrationAssociationsCommandInput}
@@ -73,6 +90,8 @@ export interface ListIntegrationAssociationsCommandOutput
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class ListIntegrationAssociationsCommand extends $Command<

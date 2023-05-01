@@ -38,16 +38,29 @@ export interface ListFlowExecutionMessagesCommandOutput extends ListFlowExecutio
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTThingsGraphClient, ListFlowExecutionMessagesCommand } from "@aws-sdk/client-iotthingsgraph"; // ES Modules import
- * // const { IoTThingsGraphClient, ListFlowExecutionMessagesCommand } = require("@aws-sdk/client-iotthingsgraph"); // CommonJS import
+ * import { IoTThingsGraphClient, ListFlowExecutionMessagesCommand } from '@aws-sdk/client-iotthingsgraph'; // ES Modules import
+ * // const { IoTThingsGraphClient, ListFlowExecutionMessagesCommand } = require('@aws-sdk/client-iotthingsgraph'); // CommonJS import
  * const client = new IoTThingsGraphClient(config);
  * const input = { // ListFlowExecutionMessagesRequest
- *   flowExecutionId: "STRING_VALUE", // required
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   flowExecutionId: 'STRING_VALUE', // required
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new ListFlowExecutionMessagesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListFlowExecutionMessagesResponse
+ *   messages: [ // FlowExecutionMessages
+ *     { // FlowExecutionMessage
+ *       messageId: 'STRING_VALUE',
+ *       eventType: 'STRING_VALUE',
+ *       timestamp: new Date('TIMESTAMP'),
+ *       payload: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListFlowExecutionMessagesCommandInput - {@link ListFlowExecutionMessagesCommandInput}
@@ -68,6 +81,8 @@ export interface ListFlowExecutionMessagesCommandOutput extends ListFlowExecutio
  * @throws {@link ThrottlingException} (client fault)
  *  <p></p>
  *
+ * @throws {@link IoTThingsGraphServiceException}
+ * <p>Base exception class for all service exceptions from IoTThingsGraph service.</p>
  *
  */
 export class ListFlowExecutionMessagesCommand extends $Command<

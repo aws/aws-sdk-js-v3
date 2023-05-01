@@ -71,16 +71,30 @@ export interface ListRoutingControlsCommandOutput extends ListRoutingControlsRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Route53RecoveryClusterClient, ListRoutingControlsCommand } from "@aws-sdk/client-route53-recovery-cluster"; // ES Modules import
- * // const { Route53RecoveryClusterClient, ListRoutingControlsCommand } = require("@aws-sdk/client-route53-recovery-cluster"); // CommonJS import
+ * import { Route53RecoveryClusterClient, ListRoutingControlsCommand } from '@aws-sdk/client-route53-recovery-cluster'; // ES Modules import
+ * // const { Route53RecoveryClusterClient, ListRoutingControlsCommand } = require('@aws-sdk/client-route53-recovery-cluster'); // CommonJS import
  * const client = new Route53RecoveryClusterClient(config);
  * const input = { // ListRoutingControlsRequest
- *   ControlPanelArn: "STRING_VALUE",
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   ControlPanelArn: 'STRING_VALUE',
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListRoutingControlsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListRoutingControlsResponse
+ *   RoutingControls: [ // RoutingControls // required
+ *     { // RoutingControl
+ *       ControlPanelArn: 'STRING_VALUE',
+ *       ControlPanelName: 'STRING_VALUE',
+ *       RoutingControlArn: 'STRING_VALUE',
+ *       RoutingControlName: 'STRING_VALUE',
+ *       RoutingControlState: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListRoutingControlsCommandInput - {@link ListRoutingControlsCommandInput}
@@ -107,6 +121,8 @@ export interface ListRoutingControlsCommandOutput extends ListRoutingControlsRes
  * @throws {@link ValidationException} (client fault)
  *  <p>There was a validation error on the request.</p>
  *
+ * @throws {@link Route53RecoveryClusterServiceException}
+ * <p>Base exception class for all service exceptions from Route53RecoveryCluster service.</p>
  *
  */
 export class ListRoutingControlsCommand extends $Command<

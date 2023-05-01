@@ -39,13 +39,13 @@ export interface UpdateMemberDetectorsCommandOutput extends UpdateMemberDetector
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GuardDutyClient, UpdateMemberDetectorsCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
- * // const { GuardDutyClient, UpdateMemberDetectorsCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
+ * import { GuardDutyClient, UpdateMemberDetectorsCommand } from '@aws-sdk/client-guardduty'; // ES Modules import
+ * // const { GuardDutyClient, UpdateMemberDetectorsCommand } = require('@aws-sdk/client-guardduty'); // CommonJS import
  * const client = new GuardDutyClient(config);
  * const input = { // UpdateMemberDetectorsRequest
- *   DetectorId: "STRING_VALUE", // required
+ *   DetectorId: 'STRING_VALUE', // required
  *   AccountIds: [ // AccountIds // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   DataSources: { // DataSourceConfigurations
  *     S3Logs: { // S3LogsConfiguration
@@ -64,12 +64,12 @@ export interface UpdateMemberDetectorsCommandOutput extends UpdateMemberDetector
  *   },
  *   Features: [ // MemberFeaturesConfigurations
  *     { // MemberFeaturesConfiguration
- *       Name: "S3_DATA_EVENTS" || "EKS_AUDIT_LOGS" || "EBS_MALWARE_PROTECTION" || "RDS_LOGIN_EVENTS" || "EKS_RUNTIME_MONITORING" || "LAMBDA_NETWORK_LOGS",
- *       Status: "ENABLED" || "DISABLED",
+ *       Name: 'S3_DATA_EVENTS' || 'EKS_AUDIT_LOGS' || 'EBS_MALWARE_PROTECTION' || 'RDS_LOGIN_EVENTS' || 'EKS_RUNTIME_MONITORING' || 'LAMBDA_NETWORK_LOGS',
+ *       Status: 'ENABLED' || 'DISABLED',
  *       AdditionalConfiguration: [ // MemberAdditionalConfigurations
  *         { // MemberAdditionalConfiguration
- *           Name: "EKS_ADDON_MANAGEMENT",
- *           Status: "ENABLED" || "DISABLED",
+ *           Name: 'EKS_ADDON_MANAGEMENT',
+ *           Status: 'ENABLED' || 'DISABLED',
  *         },
  *       ],
  *     },
@@ -77,6 +77,16 @@ export interface UpdateMemberDetectorsCommandOutput extends UpdateMemberDetector
  * };
  * const command = new UpdateMemberDetectorsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateMemberDetectorsResponse
+ *   UnprocessedAccounts: [ // UnprocessedAccounts // required
+ *     { // UnprocessedAccount
+ *       AccountId: 'STRING_VALUE', // required
+ *       Result: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param UpdateMemberDetectorsCommandInput - {@link UpdateMemberDetectorsCommandInput}
@@ -91,6 +101,8 @@ export interface UpdateMemberDetectorsCommandOutput extends UpdateMemberDetector
  * @throws {@link InternalServerErrorException} (server fault)
  *  <p>An internal server error exception object.</p>
  *
+ * @throws {@link GuardDutyServiceException}
+ * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
  */
 export class UpdateMemberDetectorsCommand extends $Command<

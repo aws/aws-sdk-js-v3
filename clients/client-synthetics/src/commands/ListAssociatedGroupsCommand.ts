@@ -37,16 +37,28 @@ export interface ListAssociatedGroupsCommandOutput extends ListAssociatedGroupsR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SyntheticsClient, ListAssociatedGroupsCommand } from "@aws-sdk/client-synthetics"; // ES Modules import
- * // const { SyntheticsClient, ListAssociatedGroupsCommand } = require("@aws-sdk/client-synthetics"); // CommonJS import
+ * import { SyntheticsClient, ListAssociatedGroupsCommand } from '@aws-sdk/client-synthetics'; // ES Modules import
+ * // const { SyntheticsClient, ListAssociatedGroupsCommand } = require('@aws-sdk/client-synthetics'); // CommonJS import
  * const client = new SyntheticsClient(config);
  * const input = { // ListAssociatedGroupsRequest
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
- *   ResourceArn: "STRING_VALUE", // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
+ *   ResourceArn: 'STRING_VALUE', // required
  * };
  * const command = new ListAssociatedGroupsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListAssociatedGroupsResponse
+ *   Groups: [ // GroupSummaryList
+ *     { // GroupSummary
+ *       Id: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *       Arn: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListAssociatedGroupsCommandInput - {@link ListAssociatedGroupsCommandInput}
@@ -64,6 +76,8 @@ export interface ListAssociatedGroupsCommandOutput extends ListAssociatedGroupsR
  * @throws {@link ValidationException} (client fault)
  *  <p>A parameter could not be validated.</p>
  *
+ * @throws {@link SyntheticsServiceException}
+ * <p>Base exception class for all service exceptions from Synthetics service.</p>
  *
  */
 export class ListAssociatedGroupsCommand extends $Command<

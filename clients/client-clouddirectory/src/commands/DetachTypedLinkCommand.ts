@@ -36,31 +36,31 @@ export interface DetachTypedLinkCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudDirectoryClient, DetachTypedLinkCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
- * // const { CloudDirectoryClient, DetachTypedLinkCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
+ * import { CloudDirectoryClient, DetachTypedLinkCommand } from '@aws-sdk/client-clouddirectory'; // ES Modules import
+ * // const { CloudDirectoryClient, DetachTypedLinkCommand } = require('@aws-sdk/client-clouddirectory'); // CommonJS import
  * const client = new CloudDirectoryClient(config);
  * const input = { // DetachTypedLinkRequest
- *   DirectoryArn: "STRING_VALUE", // required
+ *   DirectoryArn: 'STRING_VALUE', // required
  *   TypedLinkSpecifier: { // TypedLinkSpecifier
  *     TypedLinkFacet: { // TypedLinkSchemaAndFacetName
- *       SchemaArn: "STRING_VALUE", // required
- *       TypedLinkName: "STRING_VALUE", // required
+ *       SchemaArn: 'STRING_VALUE', // required
+ *       TypedLinkName: 'STRING_VALUE', // required
  *     },
  *     SourceObjectReference: { // ObjectReference
- *       Selector: "STRING_VALUE",
+ *       Selector: 'STRING_VALUE',
  *     },
  *     TargetObjectReference: {
- *       Selector: "STRING_VALUE",
+ *       Selector: 'STRING_VALUE',
  *     },
  *     IdentityAttributeValues: [ // AttributeNameAndValueList // required
  *       { // AttributeNameAndValue
- *         AttributeName: "STRING_VALUE", // required
+ *         AttributeName: 'STRING_VALUE', // required
  *         Value: { // TypedAttributeValue Union: only one key present
- *           StringValue: "STRING_VALUE",
- *           BinaryValue: "BLOB_VALUE",
+ *           StringValue: 'STRING_VALUE',
+ *           BinaryValue: 'BLOB_VALUE',
  *           BooleanValue: true || false,
- *           NumberValue: "STRING_VALUE",
- *           DatetimeValue: new Date("TIMESTAMP"),
+ *           NumberValue: 'STRING_VALUE',
+ *           DatetimeValue: new Date('TIMESTAMP'),
  *         },
  *       },
  *     ],
@@ -68,6 +68,9 @@ export interface DetachTypedLinkCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DetachTypedLinkCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DetachTypedLinkCommandInput - {@link DetachTypedLinkCommandInput}
@@ -105,6 +108,8 @@ export interface DetachTypedLinkCommandOutput extends __MetadataBearer {}
  *  <p>Indicates that your request is malformed in some manner. See the exception
  *       message.</p>
  *
+ * @throws {@link CloudDirectoryServiceException}
+ * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
  */
 export class DetachTypedLinkCommand extends $Command<

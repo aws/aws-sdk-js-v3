@@ -44,18 +44,37 @@ export interface BatchCheckLayerAvailabilityCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ECRPUBLICClient, BatchCheckLayerAvailabilityCommand } from "@aws-sdk/client-ecr-public"; // ES Modules import
- * // const { ECRPUBLICClient, BatchCheckLayerAvailabilityCommand } = require("@aws-sdk/client-ecr-public"); // CommonJS import
+ * import { ECRPUBLICClient, BatchCheckLayerAvailabilityCommand } from '@aws-sdk/client-ecr-public'; // ES Modules import
+ * // const { ECRPUBLICClient, BatchCheckLayerAvailabilityCommand } = require('@aws-sdk/client-ecr-public'); // CommonJS import
  * const client = new ECRPUBLICClient(config);
  * const input = { // BatchCheckLayerAvailabilityRequest
- *   registryId: "STRING_VALUE",
- *   repositoryName: "STRING_VALUE", // required
+ *   registryId: 'STRING_VALUE',
+ *   repositoryName: 'STRING_VALUE', // required
  *   layerDigests: [ // BatchedOperationLayerDigestList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new BatchCheckLayerAvailabilityCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BatchCheckLayerAvailabilityResponse
+ *   layers: [ // LayerList
+ *     { // Layer
+ *       layerDigest: 'STRING_VALUE',
+ *       layerAvailability: 'AVAILABLE' || 'UNAVAILABLE',
+ *       layerSize: Number('long'),
+ *       mediaType: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   failures: [ // LayerFailureList
+ *     { // LayerFailure
+ *       layerDigest: 'STRING_VALUE',
+ *       failureCode: 'InvalidLayerDigest' || 'MissingLayerDigest',
+ *       failureReason: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param BatchCheckLayerAvailabilityCommandInput - {@link BatchCheckLayerAvailabilityCommandInput}
@@ -81,6 +100,8 @@ export interface BatchCheckLayerAvailabilityCommandOutput
  * @throws {@link UnsupportedCommandException} (client fault)
  *  <p>The action isn't supported in this Region.</p>
  *
+ * @throws {@link ECRPUBLICServiceException}
+ * <p>Base exception class for all service exceptions from ECRPUBLIC service.</p>
  *
  */
 export class BatchCheckLayerAvailabilityCommand extends $Command<

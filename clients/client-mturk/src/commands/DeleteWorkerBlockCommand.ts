@@ -36,15 +36,18 @@ export interface DeleteWorkerBlockCommandOutput extends DeleteWorkerBlockRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MTurkClient, DeleteWorkerBlockCommand } from "@aws-sdk/client-mturk"; // ES Modules import
- * // const { MTurkClient, DeleteWorkerBlockCommand } = require("@aws-sdk/client-mturk"); // CommonJS import
+ * import { MTurkClient, DeleteWorkerBlockCommand } from '@aws-sdk/client-mturk'; // ES Modules import
+ * // const { MTurkClient, DeleteWorkerBlockCommand } = require('@aws-sdk/client-mturk'); // CommonJS import
  * const client = new MTurkClient(config);
  * const input = { // DeleteWorkerBlockRequest
- *   WorkerId: "STRING_VALUE", // required
- *   Reason: "STRING_VALUE",
+ *   WorkerId: 'STRING_VALUE', // required
+ *   Reason: 'STRING_VALUE',
  * };
  * const command = new DeleteWorkerBlockCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteWorkerBlockCommandInput - {@link DeleteWorkerBlockCommandInput}
@@ -59,6 +62,8 @@ export interface DeleteWorkerBlockCommandOutput extends DeleteWorkerBlockRespons
  * @throws {@link ServiceFault} (server fault)
  *  <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
  *
+ * @throws {@link MTurkServiceException}
+ * <p>Base exception class for all service exceptions from MTurk service.</p>
  *
  */
 export class DeleteWorkerBlockCommand extends $Command<

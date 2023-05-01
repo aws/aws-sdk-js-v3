@@ -36,15 +36,36 @@ export interface ListCoreNetworksCommandOutput extends ListCoreNetworksResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { NetworkManagerClient, ListCoreNetworksCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
- * // const { NetworkManagerClient, ListCoreNetworksCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
+ * import { NetworkManagerClient, ListCoreNetworksCommand } from '@aws-sdk/client-networkmanager'; // ES Modules import
+ * // const { NetworkManagerClient, ListCoreNetworksCommand } = require('@aws-sdk/client-networkmanager'); // CommonJS import
  * const client = new NetworkManagerClient(config);
  * const input = { // ListCoreNetworksRequest
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListCoreNetworksCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListCoreNetworksResponse
+ *   CoreNetworks: [ // CoreNetworkSummaryList
+ *     { // CoreNetworkSummary
+ *       CoreNetworkId: 'STRING_VALUE',
+ *       CoreNetworkArn: 'STRING_VALUE',
+ *       GlobalNetworkId: 'STRING_VALUE',
+ *       OwnerAccountId: 'STRING_VALUE',
+ *       State: 'CREATING' || 'UPDATING' || 'AVAILABLE' || 'DELETING',
+ *       Description: 'STRING_VALUE',
+ *       Tags: [ // TagList
+ *         { // Tag
+ *           Key: 'STRING_VALUE',
+ *           Value: 'STRING_VALUE',
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListCoreNetworksCommandInput - {@link ListCoreNetworksCommandInput}
@@ -65,6 +86,8 @@ export interface ListCoreNetworksCommandOutput extends ListCoreNetworksResponse,
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints.</p>
  *
+ * @throws {@link NetworkManagerServiceException}
+ * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
  */
 export class ListCoreNetworksCommand extends $Command<

@@ -36,16 +36,19 @@ export interface EnableMacieCommandOutput extends EnableMacieResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Macie2Client, EnableMacieCommand } from "@aws-sdk/client-macie2"; // ES Modules import
- * // const { Macie2Client, EnableMacieCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
+ * import { Macie2Client, EnableMacieCommand } from '@aws-sdk/client-macie2'; // ES Modules import
+ * // const { Macie2Client, EnableMacieCommand } = require('@aws-sdk/client-macie2'); // CommonJS import
  * const client = new Macie2Client(config);
  * const input = { // EnableMacieRequest
- *   clientToken: "STRING_VALUE",
- *   findingPublishingFrequency: "FIFTEEN_MINUTES" || "ONE_HOUR" || "SIX_HOURS",
- *   status: "PAUSED" || "ENABLED",
+ *   clientToken: 'STRING_VALUE',
+ *   findingPublishingFrequency: 'FIFTEEN_MINUTES' || 'ONE_HOUR' || 'SIX_HOURS',
+ *   status: 'PAUSED' || 'ENABLED',
  * };
  * const command = new EnableMacieCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param EnableMacieCommandInput - {@link EnableMacieCommandInput}
@@ -75,6 +78,8 @@ export interface EnableMacieCommandOutput extends EnableMacieResponse, __Metadat
  * @throws {@link ValidationException} (client fault)
  *  <p>Provides information about an error that occurred due to a syntax error in a request.</p>
  *
+ * @throws {@link Macie2ServiceException}
+ * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
  */
 export class EnableMacieCommand extends $Command<

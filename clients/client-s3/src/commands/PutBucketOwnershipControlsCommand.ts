@@ -53,23 +53,26 @@ export interface PutBucketOwnershipControlsCommandOutput extends __MetadataBeare
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { S3Client, PutBucketOwnershipControlsCommand } from "@aws-sdk/client-s3"; // ES Modules import
- * // const { S3Client, PutBucketOwnershipControlsCommand } = require("@aws-sdk/client-s3"); // CommonJS import
+ * import { S3Client, PutBucketOwnershipControlsCommand } from '@aws-sdk/client-s3'; // ES Modules import
+ * // const { S3Client, PutBucketOwnershipControlsCommand } = require('@aws-sdk/client-s3'); // CommonJS import
  * const client = new S3Client(config);
  * const input = { // PutBucketOwnershipControlsRequest
- *   Bucket: "STRING_VALUE", // required
- *   ContentMD5: "STRING_VALUE",
- *   ExpectedBucketOwner: "STRING_VALUE",
+ *   Bucket: 'STRING_VALUE', // required
+ *   ContentMD5: 'STRING_VALUE',
+ *   ExpectedBucketOwner: 'STRING_VALUE',
  *   OwnershipControls: { // OwnershipControls
  *     Rules: [ // OwnershipControlsRules // required
  *       { // OwnershipControlsRule
- *         ObjectOwnership: "BucketOwnerPreferred" || "ObjectWriter" || "BucketOwnerEnforced", // required
+ *         ObjectOwnership: 'BucketOwnerPreferred' || 'ObjectWriter' || 'BucketOwnerEnforced', // required
  *       },
  *     ],
  *   },
  * };
  * const command = new PutBucketOwnershipControlsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutBucketOwnershipControlsCommandInput - {@link PutBucketOwnershipControlsCommandInput}
@@ -78,6 +81,8 @@ export interface PutBucketOwnershipControlsCommandOutput extends __MetadataBeare
  * @see {@link PutBucketOwnershipControlsCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
+ * @throws {@link S3ServiceException}
+ * <p>Base exception class for all service exceptions from S3 service.</p>
  *
  */
 export class PutBucketOwnershipControlsCommand extends $Command<

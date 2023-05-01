@@ -41,24 +41,57 @@ export interface DescribeGlobalClustersCommandOutput extends GlobalClustersMessa
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RDSClient, DescribeGlobalClustersCommand } from "@aws-sdk/client-rds"; // ES Modules import
- * // const { RDSClient, DescribeGlobalClustersCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * import { RDSClient, DescribeGlobalClustersCommand } from '@aws-sdk/client-rds'; // ES Modules import
+ * // const { RDSClient, DescribeGlobalClustersCommand } = require('@aws-sdk/client-rds'); // CommonJS import
  * const client = new RDSClient(config);
  * const input = { // DescribeGlobalClustersMessage
- *   GlobalClusterIdentifier: "STRING_VALUE",
+ *   GlobalClusterIdentifier: 'STRING_VALUE',
  *   Filters: [ // FilterList
  *     { // Filter
- *       Name: "STRING_VALUE", // required
+ *       Name: 'STRING_VALUE', // required
  *       Values: [ // FilterValueList // required
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
- *   MaxRecords: Number("int"),
- *   Marker: "STRING_VALUE",
+ *   MaxRecords: Number('int'),
+ *   Marker: 'STRING_VALUE',
  * };
  * const command = new DescribeGlobalClustersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GlobalClustersMessage
+ *   Marker: 'STRING_VALUE',
+ *   GlobalClusters: [ // GlobalClusterList
+ *     { // GlobalCluster
+ *       GlobalClusterIdentifier: 'STRING_VALUE',
+ *       GlobalClusterResourceId: 'STRING_VALUE',
+ *       GlobalClusterArn: 'STRING_VALUE',
+ *       Status: 'STRING_VALUE',
+ *       Engine: 'STRING_VALUE',
+ *       EngineVersion: 'STRING_VALUE',
+ *       DatabaseName: 'STRING_VALUE',
+ *       StorageEncrypted: true || false,
+ *       DeletionProtection: true || false,
+ *       GlobalClusterMembers: [ // GlobalClusterMemberList
+ *         { // GlobalClusterMember
+ *           DBClusterArn: 'STRING_VALUE',
+ *           Readers: [ // ReadersArnList
+ *             'STRING_VALUE',
+ *           ],
+ *           IsWriter: true || false,
+ *           GlobalWriteForwardingStatus: 'enabled' || 'disabled' || 'enabling' || 'disabling' || 'unknown',
+ *         },
+ *       ],
+ *       FailoverState: { // FailoverState
+ *         Status: 'pending' || 'failing-over' || 'cancelling',
+ *         FromDbClusterArn: 'STRING_VALUE',
+ *         ToDbClusterArn: 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeGlobalClustersCommandInput - {@link DescribeGlobalClustersCommandInput}
@@ -70,6 +103,8 @@ export interface DescribeGlobalClustersCommandOutput extends GlobalClustersMessa
  * @throws {@link GlobalClusterNotFoundFault} (client fault)
  *  <p>The <code>GlobalClusterIdentifier</code> doesn't refer to an existing global database cluster.</p>
  *
+ * @throws {@link RDSServiceException}
+ * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  * @example To describe global DB clusters
  * ```javascript

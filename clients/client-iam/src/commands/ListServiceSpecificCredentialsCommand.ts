@@ -46,15 +46,29 @@ export interface ListServiceSpecificCredentialsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IAMClient, ListServiceSpecificCredentialsCommand } from "@aws-sdk/client-iam"; // ES Modules import
- * // const { IAMClient, ListServiceSpecificCredentialsCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * import { IAMClient, ListServiceSpecificCredentialsCommand } from '@aws-sdk/client-iam'; // ES Modules import
+ * // const { IAMClient, ListServiceSpecificCredentialsCommand } = require('@aws-sdk/client-iam'); // CommonJS import
  * const client = new IAMClient(config);
  * const input = { // ListServiceSpecificCredentialsRequest
- *   UserName: "STRING_VALUE",
- *   ServiceName: "STRING_VALUE",
+ *   UserName: 'STRING_VALUE',
+ *   ServiceName: 'STRING_VALUE',
  * };
  * const command = new ListServiceSpecificCredentialsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListServiceSpecificCredentialsResponse
+ *   ServiceSpecificCredentials: [ // ServiceSpecificCredentialsListType
+ *     { // ServiceSpecificCredentialMetadata
+ *       UserName: 'STRING_VALUE', // required
+ *       Status: 'Active' || 'Inactive', // required
+ *       ServiceUserName: 'STRING_VALUE', // required
+ *       CreateDate: new Date('TIMESTAMP'), // required
+ *       ServiceSpecificCredentialId: 'STRING_VALUE', // required
+ *       ServiceName: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListServiceSpecificCredentialsCommandInput - {@link ListServiceSpecificCredentialsCommandInput}
@@ -70,6 +84,8 @@ export interface ListServiceSpecificCredentialsCommandOutput
  * @throws {@link ServiceNotSupportedException} (client fault)
  *  <p>The specified service does not support service-specific credentials.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  */
 export class ListServiceSpecificCredentialsCommand extends $Command<

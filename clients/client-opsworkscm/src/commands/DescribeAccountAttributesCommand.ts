@@ -41,12 +41,23 @@ export interface DescribeAccountAttributesCommandOutput extends DescribeAccountA
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OpsWorksCMClient, DescribeAccountAttributesCommand } from "@aws-sdk/client-opsworkscm"; // ES Modules import
- * // const { OpsWorksCMClient, DescribeAccountAttributesCommand } = require("@aws-sdk/client-opsworkscm"); // CommonJS import
+ * import { OpsWorksCMClient, DescribeAccountAttributesCommand } from '@aws-sdk/client-opsworkscm'; // ES Modules import
+ * // const { OpsWorksCMClient, DescribeAccountAttributesCommand } = require('@aws-sdk/client-opsworkscm'); // CommonJS import
  * const client = new OpsWorksCMClient(config);
  * const input = {};
  * const command = new DescribeAccountAttributesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeAccountAttributesResponse
+ *   Attributes: [ // AccountAttributes
+ *     { // AccountAttribute
+ *       Name: 'STRING_VALUE',
+ *       Maximum: Number('int'),
+ *       Used: Number('int'),
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeAccountAttributesCommandInput - {@link DescribeAccountAttributesCommandInput}
@@ -55,6 +66,8 @@ export interface DescribeAccountAttributesCommandOutput extends DescribeAccountA
  * @see {@link DescribeAccountAttributesCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksCMClientResolvedConfig | config} for OpsWorksCMClient's `config` shape.
  *
+ * @throws {@link OpsWorksCMServiceException}
+ * <p>Base exception class for all service exceptions from OpsWorksCM service.</p>
  *
  */
 export class DescribeAccountAttributesCommand extends $Command<

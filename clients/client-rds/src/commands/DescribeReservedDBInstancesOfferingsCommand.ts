@@ -41,29 +41,53 @@ export interface DescribeReservedDBInstancesOfferingsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RDSClient, DescribeReservedDBInstancesOfferingsCommand } from "@aws-sdk/client-rds"; // ES Modules import
- * // const { RDSClient, DescribeReservedDBInstancesOfferingsCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * import { RDSClient, DescribeReservedDBInstancesOfferingsCommand } from '@aws-sdk/client-rds'; // ES Modules import
+ * // const { RDSClient, DescribeReservedDBInstancesOfferingsCommand } = require('@aws-sdk/client-rds'); // CommonJS import
  * const client = new RDSClient(config);
  * const input = { // DescribeReservedDBInstancesOfferingsMessage
- *   ReservedDBInstancesOfferingId: "STRING_VALUE",
- *   DBInstanceClass: "STRING_VALUE",
- *   Duration: "STRING_VALUE",
- *   ProductDescription: "STRING_VALUE",
- *   OfferingType: "STRING_VALUE",
+ *   ReservedDBInstancesOfferingId: 'STRING_VALUE',
+ *   DBInstanceClass: 'STRING_VALUE',
+ *   Duration: 'STRING_VALUE',
+ *   ProductDescription: 'STRING_VALUE',
+ *   OfferingType: 'STRING_VALUE',
  *   MultiAZ: true || false,
  *   Filters: [ // FilterList
  *     { // Filter
- *       Name: "STRING_VALUE", // required
+ *       Name: 'STRING_VALUE', // required
  *       Values: [ // FilterValueList // required
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
- *   MaxRecords: Number("int"),
- *   Marker: "STRING_VALUE",
+ *   MaxRecords: Number('int'),
+ *   Marker: 'STRING_VALUE',
  * };
  * const command = new DescribeReservedDBInstancesOfferingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ReservedDBInstancesOfferingMessage
+ *   Marker: 'STRING_VALUE',
+ *   ReservedDBInstancesOfferings: [ // ReservedDBInstancesOfferingList
+ *     { // ReservedDBInstancesOffering
+ *       ReservedDBInstancesOfferingId: 'STRING_VALUE',
+ *       DBInstanceClass: 'STRING_VALUE',
+ *       Duration: Number('int'),
+ *       FixedPrice: Number('double'),
+ *       UsagePrice: Number('double'),
+ *       CurrencyCode: 'STRING_VALUE',
+ *       ProductDescription: 'STRING_VALUE',
+ *       OfferingType: 'STRING_VALUE',
+ *       MultiAZ: true || false,
+ *       RecurringCharges: [ // RecurringChargeList
+ *         { // RecurringCharge
+ *           RecurringChargeAmount: Number('double'),
+ *           RecurringChargeFrequency: 'STRING_VALUE',
+ *         },
+ *       ],
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeReservedDBInstancesOfferingsCommandInput - {@link DescribeReservedDBInstancesOfferingsCommandInput}
@@ -75,6 +99,8 @@ export interface DescribeReservedDBInstancesOfferingsCommandOutput
  * @throws {@link ReservedDBInstancesOfferingNotFoundFault} (client fault)
  *  <p>Specified offering does not exist.</p>
  *
+ * @throws {@link RDSServiceException}
+ * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  * @example To describe reserved DB instance offerings
  * ```javascript

@@ -56,34 +56,34 @@ export interface CreateResourceDataSyncCommandOutput extends CreateResourceDataS
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMClient, CreateResourceDataSyncCommand } from "@aws-sdk/client-ssm"; // ES Modules import
- * // const { SSMClient, CreateResourceDataSyncCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * import { SSMClient, CreateResourceDataSyncCommand } from '@aws-sdk/client-ssm'; // ES Modules import
+ * // const { SSMClient, CreateResourceDataSyncCommand } = require('@aws-sdk/client-ssm'); // CommonJS import
  * const client = new SSMClient(config);
  * const input = { // CreateResourceDataSyncRequest
- *   SyncName: "STRING_VALUE", // required
+ *   SyncName: 'STRING_VALUE', // required
  *   S3Destination: { // ResourceDataSyncS3Destination
- *     BucketName: "STRING_VALUE", // required
- *     Prefix: "STRING_VALUE",
- *     SyncFormat: "JsonSerDe", // required
- *     Region: "STRING_VALUE", // required
- *     AWSKMSKeyARN: "STRING_VALUE",
+ *     BucketName: 'STRING_VALUE', // required
+ *     Prefix: 'STRING_VALUE',
+ *     SyncFormat: 'JsonSerDe', // required
+ *     Region: 'STRING_VALUE', // required
+ *     AWSKMSKeyARN: 'STRING_VALUE',
  *     DestinationDataSharing: { // ResourceDataSyncDestinationDataSharing
- *       DestinationDataSharingType: "STRING_VALUE",
+ *       DestinationDataSharingType: 'STRING_VALUE',
  *     },
  *   },
- *   SyncType: "STRING_VALUE",
+ *   SyncType: 'STRING_VALUE',
  *   SyncSource: { // ResourceDataSyncSource
- *     SourceType: "STRING_VALUE", // required
+ *     SourceType: 'STRING_VALUE', // required
  *     AwsOrganizationsSource: { // ResourceDataSyncAwsOrganizationsSource
- *       OrganizationSourceType: "STRING_VALUE", // required
+ *       OrganizationSourceType: 'STRING_VALUE', // required
  *       OrganizationalUnits: [ // ResourceDataSyncOrganizationalUnitList
  *         { // ResourceDataSyncOrganizationalUnit
- *           OrganizationalUnitId: "STRING_VALUE",
+ *           OrganizationalUnitId: 'STRING_VALUE',
  *         },
  *       ],
  *     },
  *     SourceRegions: [ // ResourceDataSyncSourceRegionList // required
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     IncludeFutureRegions: true || false,
  *     EnableAllOpsDataSources: true || false,
@@ -91,6 +91,9 @@ export interface CreateResourceDataSyncCommandOutput extends CreateResourceDataS
  * };
  * const command = new CreateResourceDataSyncCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param CreateResourceDataSyncCommandInput - {@link CreateResourceDataSyncCommandInput}
@@ -111,6 +114,8 @@ export interface CreateResourceDataSyncCommandOutput extends CreateResourceDataS
  * @throws {@link ResourceDataSyncInvalidConfigurationException} (client fault)
  *  <p>The specified sync configuration is invalid.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class CreateResourceDataSyncCommand extends $Command<

@@ -36,16 +36,32 @@ export interface ListProfileObjectTypesCommandOutput extends ListProfileObjectTy
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CustomerProfilesClient, ListProfileObjectTypesCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
- * // const { CustomerProfilesClient, ListProfileObjectTypesCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
+ * import { CustomerProfilesClient, ListProfileObjectTypesCommand } from '@aws-sdk/client-customer-profiles'; // ES Modules import
+ * // const { CustomerProfilesClient, ListProfileObjectTypesCommand } = require('@aws-sdk/client-customer-profiles'); // CommonJS import
  * const client = new CustomerProfilesClient(config);
  * const input = { // ListProfileObjectTypesRequest
- *   DomainName: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   DomainName: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListProfileObjectTypesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListProfileObjectTypesResponse
+ *   Items: [ // ProfileObjectTypeList
+ *     { // ListProfileObjectTypeItem
+ *       ObjectTypeName: 'STRING_VALUE', // required
+ *       Description: 'STRING_VALUE', // required
+ *       CreatedAt: new Date('TIMESTAMP'),
+ *       LastUpdatedAt: new Date('TIMESTAMP'),
+ *       Tags: { // TagMap
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListProfileObjectTypesCommandInput - {@link ListProfileObjectTypesCommandInput}
@@ -69,6 +85,8 @@ export interface ListProfileObjectTypesCommandOutput extends ListProfileObjectTy
  * @throws {@link ThrottlingException} (client fault)
  *  <p>You exceeded the maximum number of requests.</p>
  *
+ * @throws {@link CustomerProfilesServiceException}
+ * <p>Base exception class for all service exceptions from CustomerProfiles service.</p>
  *
  */
 export class ListProfileObjectTypesCommand extends $Command<

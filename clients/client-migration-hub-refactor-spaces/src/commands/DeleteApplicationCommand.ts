@@ -41,15 +41,25 @@ export interface DeleteApplicationCommandOutput extends DeleteApplicationRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MigrationHubRefactorSpacesClient, DeleteApplicationCommand } from "@aws-sdk/client-migration-hub-refactor-spaces"; // ES Modules import
- * // const { MigrationHubRefactorSpacesClient, DeleteApplicationCommand } = require("@aws-sdk/client-migration-hub-refactor-spaces"); // CommonJS import
+ * import { MigrationHubRefactorSpacesClient, DeleteApplicationCommand } from '@aws-sdk/client-migration-hub-refactor-spaces'; // ES Modules import
+ * // const { MigrationHubRefactorSpacesClient, DeleteApplicationCommand } = require('@aws-sdk/client-migration-hub-refactor-spaces'); // CommonJS import
  * const client = new MigrationHubRefactorSpacesClient(config);
  * const input = { // DeleteApplicationRequest
- *   EnvironmentIdentifier: "STRING_VALUE", // required
- *   ApplicationIdentifier: "STRING_VALUE", // required
+ *   EnvironmentIdentifier: 'STRING_VALUE', // required
+ *   ApplicationIdentifier: 'STRING_VALUE', // required
  * };
  * const command = new DeleteApplicationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteApplicationResponse
+ *   Name: 'STRING_VALUE',
+ *   Arn: 'STRING_VALUE',
+ *   ApplicationId: 'STRING_VALUE',
+ *   EnvironmentId: 'STRING_VALUE',
+ *   State: 'STRING_VALUE',
+ *   LastUpdatedTime: new Date('TIMESTAMP'),
+ * };
+ *
  * ```
  *
  * @param DeleteApplicationCommandInput - {@link DeleteApplicationCommandInput}
@@ -77,6 +87,8 @@ export interface DeleteApplicationCommandOutput extends DeleteApplicationRespons
  *  <p>The input does not satisfy the constraints specified by an Amazon Web Service.
  *     </p>
  *
+ * @throws {@link MigrationHubRefactorSpacesServiceException}
+ * <p>Base exception class for all service exceptions from MigrationHubRefactorSpaces service.</p>
  *
  */
 export class DeleteApplicationCommand extends $Command<

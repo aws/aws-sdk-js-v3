@@ -37,21 +37,32 @@ export interface BatchEnableAlarmCommandOutput extends BatchEnableAlarmResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTEventsDataClient, BatchEnableAlarmCommand } from "@aws-sdk/client-iot-events-data"; // ES Modules import
- * // const { IoTEventsDataClient, BatchEnableAlarmCommand } = require("@aws-sdk/client-iot-events-data"); // CommonJS import
+ * import { IoTEventsDataClient, BatchEnableAlarmCommand } from '@aws-sdk/client-iot-events-data'; // ES Modules import
+ * // const { IoTEventsDataClient, BatchEnableAlarmCommand } = require('@aws-sdk/client-iot-events-data'); // CommonJS import
  * const client = new IoTEventsDataClient(config);
  * const input = { // BatchEnableAlarmRequest
  *   enableActionRequests: [ // EnableAlarmActionRequests // required
  *     { // EnableAlarmActionRequest
- *       requestId: "STRING_VALUE", // required
- *       alarmModelName: "STRING_VALUE", // required
- *       keyValue: "STRING_VALUE",
- *       note: "STRING_VALUE",
+ *       requestId: 'STRING_VALUE', // required
+ *       alarmModelName: 'STRING_VALUE', // required
+ *       keyValue: 'STRING_VALUE',
+ *       note: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new BatchEnableAlarmCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BatchEnableAlarmResponse
+ *   errorEntries: [ // BatchAlarmActionErrorEntries
+ *     { // BatchAlarmActionErrorEntry
+ *       requestId: 'STRING_VALUE',
+ *       errorCode: 'STRING_VALUE',
+ *       errorMessage: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param BatchEnableAlarmCommandInput - {@link BatchEnableAlarmCommandInput}
@@ -72,6 +83,8 @@ export interface BatchEnableAlarmCommandOutput extends BatchEnableAlarmResponse,
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request could not be completed due to throttling.</p>
  *
+ * @throws {@link IoTEventsDataServiceException}
+ * <p>Base exception class for all service exceptions from IoTEventsData service.</p>
  *
  */
 export class BatchEnableAlarmCommand extends $Command<

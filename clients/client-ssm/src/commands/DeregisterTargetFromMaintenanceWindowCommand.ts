@@ -45,16 +45,22 @@ export interface DeregisterTargetFromMaintenanceWindowCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMClient, DeregisterTargetFromMaintenanceWindowCommand } from "@aws-sdk/client-ssm"; // ES Modules import
- * // const { SSMClient, DeregisterTargetFromMaintenanceWindowCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * import { SSMClient, DeregisterTargetFromMaintenanceWindowCommand } from '@aws-sdk/client-ssm'; // ES Modules import
+ * // const { SSMClient, DeregisterTargetFromMaintenanceWindowCommand } = require('@aws-sdk/client-ssm'); // CommonJS import
  * const client = new SSMClient(config);
  * const input = { // DeregisterTargetFromMaintenanceWindowRequest
- *   WindowId: "STRING_VALUE", // required
- *   WindowTargetId: "STRING_VALUE", // required
+ *   WindowId: 'STRING_VALUE', // required
+ *   WindowTargetId: 'STRING_VALUE', // required
  *   Safe: true || false,
  * };
  * const command = new DeregisterTargetFromMaintenanceWindowCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeregisterTargetFromMaintenanceWindowResult
+ *   WindowId: 'STRING_VALUE',
+ *   WindowTargetId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DeregisterTargetFromMaintenanceWindowCommandInput - {@link DeregisterTargetFromMaintenanceWindowCommandInput}
@@ -76,6 +82,8 @@ export interface DeregisterTargetFromMaintenanceWindowCommandOutput
  *  <p>You specified the <code>Safe</code> option for the DeregisterTargetFromMaintenanceWindow
  *    operation, but the target is still referenced in a task.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class DeregisterTargetFromMaintenanceWindowCommand extends $Command<

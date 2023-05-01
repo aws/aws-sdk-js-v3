@@ -36,16 +36,29 @@ export interface ListExportErrorsCommandOutput extends ListExportErrorsResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MgnClient, ListExportErrorsCommand } from "@aws-sdk/client-mgn"; // ES Modules import
- * // const { MgnClient, ListExportErrorsCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
+ * import { MgnClient, ListExportErrorsCommand } from '@aws-sdk/client-mgn'; // ES Modules import
+ * // const { MgnClient, ListExportErrorsCommand } = require('@aws-sdk/client-mgn'); // CommonJS import
  * const client = new MgnClient(config);
  * const input = { // ListExportErrorsRequest
- *   exportID: "STRING_VALUE", // required
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   exportID: 'STRING_VALUE', // required
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new ListExportErrorsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListExportErrorsResponse
+ *   items: [ // ExportErrors
+ *     { // ExportTaskError
+ *       errorDateTime: 'STRING_VALUE',
+ *       errorData: { // ExportErrorData
+ *         rawError: 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListExportErrorsCommandInput - {@link ListExportErrorsCommandInput}
@@ -60,6 +73,8 @@ export interface ListExportErrorsCommandOutput extends ListExportErrorsResponse,
  * @throws {@link ValidationException} (client fault)
  *  <p>Validate exception.</p>
  *
+ * @throws {@link MgnServiceException}
+ * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
  */
 export class ListExportErrorsCommand extends $Command<

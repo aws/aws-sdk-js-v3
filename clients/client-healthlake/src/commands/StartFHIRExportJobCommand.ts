@@ -36,23 +36,30 @@ export interface StartFHIRExportJobCommandOutput extends StartFHIRExportJobRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { HealthLakeClient, StartFHIRExportJobCommand } from "@aws-sdk/client-healthlake"; // ES Modules import
- * // const { HealthLakeClient, StartFHIRExportJobCommand } = require("@aws-sdk/client-healthlake"); // CommonJS import
+ * import { HealthLakeClient, StartFHIRExportJobCommand } from '@aws-sdk/client-healthlake'; // ES Modules import
+ * // const { HealthLakeClient, StartFHIRExportJobCommand } = require('@aws-sdk/client-healthlake'); // CommonJS import
  * const client = new HealthLakeClient(config);
  * const input = { // StartFHIRExportJobRequest
- *   JobName: "STRING_VALUE",
+ *   JobName: 'STRING_VALUE',
  *   OutputDataConfig: { // OutputDataConfig Union: only one key present
  *     S3Configuration: { // S3Configuration
- *       S3Uri: "STRING_VALUE", // required
- *       KmsKeyId: "STRING_VALUE", // required
+ *       S3Uri: 'STRING_VALUE', // required
+ *       KmsKeyId: 'STRING_VALUE', // required
  *     },
  *   },
- *   DatastoreId: "STRING_VALUE", // required
- *   DataAccessRoleArn: "STRING_VALUE", // required
- *   ClientToken: "STRING_VALUE", // required
+ *   DatastoreId: 'STRING_VALUE', // required
+ *   DataAccessRoleArn: 'STRING_VALUE', // required
+ *   ClientToken: 'STRING_VALUE', // required
  * };
  * const command = new StartFHIRExportJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartFHIRExportJobResponse
+ *   JobId: 'STRING_VALUE', // required
+ *   JobStatus: 'STRING_VALUE', // required
+ *   DatastoreId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param StartFHIRExportJobCommandInput - {@link StartFHIRExportJobCommandInput}
@@ -76,6 +83,8 @@ export interface StartFHIRExportJobCommandOutput extends StartFHIRExportJobRespo
  * @throws {@link ValidationException} (client fault)
  *  <p>The user input parameter was invalid.</p>
  *
+ * @throws {@link HealthLakeServiceException}
+ * <p>Base exception class for all service exceptions from HealthLake service.</p>
  *
  */
 export class StartFHIRExportJobCommand extends $Command<

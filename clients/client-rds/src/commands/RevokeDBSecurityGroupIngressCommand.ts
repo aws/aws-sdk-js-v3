@@ -47,18 +47,43 @@ export interface RevokeDBSecurityGroupIngressCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RDSClient, RevokeDBSecurityGroupIngressCommand } from "@aws-sdk/client-rds"; // ES Modules import
- * // const { RDSClient, RevokeDBSecurityGroupIngressCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * import { RDSClient, RevokeDBSecurityGroupIngressCommand } from '@aws-sdk/client-rds'; // ES Modules import
+ * // const { RDSClient, RevokeDBSecurityGroupIngressCommand } = require('@aws-sdk/client-rds'); // CommonJS import
  * const client = new RDSClient(config);
  * const input = { // RevokeDBSecurityGroupIngressMessage
- *   DBSecurityGroupName: "STRING_VALUE", // required
- *   CIDRIP: "STRING_VALUE",
- *   EC2SecurityGroupName: "STRING_VALUE",
- *   EC2SecurityGroupId: "STRING_VALUE",
- *   EC2SecurityGroupOwnerId: "STRING_VALUE",
+ *   DBSecurityGroupName: 'STRING_VALUE', // required
+ *   CIDRIP: 'STRING_VALUE',
+ *   EC2SecurityGroupName: 'STRING_VALUE',
+ *   EC2SecurityGroupId: 'STRING_VALUE',
+ *   EC2SecurityGroupOwnerId: 'STRING_VALUE',
  * };
  * const command = new RevokeDBSecurityGroupIngressCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // RevokeDBSecurityGroupIngressResult
+ *   DBSecurityGroup: { // DBSecurityGroup
+ *     OwnerId: 'STRING_VALUE',
+ *     DBSecurityGroupName: 'STRING_VALUE',
+ *     DBSecurityGroupDescription: 'STRING_VALUE',
+ *     VpcId: 'STRING_VALUE',
+ *     EC2SecurityGroups: [ // EC2SecurityGroupList
+ *       { // EC2SecurityGroup
+ *         Status: 'STRING_VALUE',
+ *         EC2SecurityGroupName: 'STRING_VALUE',
+ *         EC2SecurityGroupId: 'STRING_VALUE',
+ *         EC2SecurityGroupOwnerId: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     IPRanges: [ // IPRangeList
+ *       { // IPRange
+ *         Status: 'STRING_VALUE',
+ *         CIDRIP: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     DBSecurityGroupArn: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param RevokeDBSecurityGroupIngressCommandInput - {@link RevokeDBSecurityGroupIngressCommandInput}
@@ -80,6 +105,8 @@ export interface RevokeDBSecurityGroupIngressCommandOutput
  * @throws {@link InvalidDBSecurityGroupStateFault} (client fault)
  *  <p>The state of the DB security group doesn't allow deletion.</p>
  *
+ * @throws {@link RDSServiceException}
+ * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  * @example To revoke ingress for a DB security group
  * ```javascript

@@ -36,28 +36,33 @@ export interface StartJobRunCommandOutput extends StartJobRunResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlueClient, StartJobRunCommand } from "@aws-sdk/client-glue"; // ES Modules import
- * // const { GlueClient, StartJobRunCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * import { GlueClient, StartJobRunCommand } from '@aws-sdk/client-glue'; // ES Modules import
+ * // const { GlueClient, StartJobRunCommand } = require('@aws-sdk/client-glue'); // CommonJS import
  * const client = new GlueClient(config);
  * const input = { // StartJobRunRequest
- *   JobName: "STRING_VALUE", // required
- *   JobRunId: "STRING_VALUE",
+ *   JobName: 'STRING_VALUE', // required
+ *   JobRunId: 'STRING_VALUE',
  *   Arguments: { // GenericMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
- *   AllocatedCapacity: Number("int"),
- *   Timeout: Number("int"),
- *   MaxCapacity: Number("double"),
- *   SecurityConfiguration: "STRING_VALUE",
+ *   AllocatedCapacity: Number('int'),
+ *   Timeout: Number('int'),
+ *   MaxCapacity: Number('double'),
+ *   SecurityConfiguration: 'STRING_VALUE',
  *   NotificationProperty: { // NotificationProperty
- *     NotifyDelayAfter: Number("int"),
+ *     NotifyDelayAfter: Number('int'),
  *   },
- *   WorkerType: "Standard" || "G.1X" || "G.2X" || "G.025X",
- *   NumberOfWorkers: Number("int"),
- *   ExecutionClass: "FLEX" || "STANDARD",
+ *   WorkerType: 'Standard' || 'G.1X' || 'G.2X' || 'G.025X',
+ *   NumberOfWorkers: Number('int'),
+ *   ExecutionClass: 'FLEX' || 'STANDARD',
  * };
  * const command = new StartJobRunCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartJobRunResponse
+ *   JobRunId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param StartJobRunCommandInput - {@link StartJobRunCommandInput}
@@ -84,6 +89,8 @@ export interface StartJobRunCommandOutput extends StartJobRunResponse, __Metadat
  * @throws {@link ResourceNumberLimitExceededException} (client fault)
  *  <p>A resource numerical limit was exceeded.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class StartJobRunCommand extends $Command<

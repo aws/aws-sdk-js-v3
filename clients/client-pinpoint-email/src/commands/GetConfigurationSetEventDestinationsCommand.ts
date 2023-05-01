@@ -50,14 +50,46 @@ export interface GetConfigurationSetEventDestinationsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PinpointEmailClient, GetConfigurationSetEventDestinationsCommand } from "@aws-sdk/client-pinpoint-email"; // ES Modules import
- * // const { PinpointEmailClient, GetConfigurationSetEventDestinationsCommand } = require("@aws-sdk/client-pinpoint-email"); // CommonJS import
+ * import { PinpointEmailClient, GetConfigurationSetEventDestinationsCommand } from '@aws-sdk/client-pinpoint-email'; // ES Modules import
+ * // const { PinpointEmailClient, GetConfigurationSetEventDestinationsCommand } = require('@aws-sdk/client-pinpoint-email'); // CommonJS import
  * const client = new PinpointEmailClient(config);
  * const input = { // GetConfigurationSetEventDestinationsRequest
- *   ConfigurationSetName: "STRING_VALUE", // required
+ *   ConfigurationSetName: 'STRING_VALUE', // required
  * };
  * const command = new GetConfigurationSetEventDestinationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetConfigurationSetEventDestinationsResponse
+ *   EventDestinations: [ // EventDestinations
+ *     { // EventDestination
+ *       Name: 'STRING_VALUE', // required
+ *       Enabled: true || false,
+ *       MatchingEventTypes: [ // EventTypes // required
+ *         'STRING_VALUE',
+ *       ],
+ *       KinesisFirehoseDestination: { // KinesisFirehoseDestination
+ *         IamRoleArn: 'STRING_VALUE', // required
+ *         DeliveryStreamArn: 'STRING_VALUE', // required
+ *       },
+ *       CloudWatchDestination: { // CloudWatchDestination
+ *         DimensionConfigurations: [ // CloudWatchDimensionConfigurations // required
+ *           { // CloudWatchDimensionConfiguration
+ *             DimensionName: 'STRING_VALUE', // required
+ *             DimensionValueSource: 'STRING_VALUE', // required
+ *             DefaultDimensionValue: 'STRING_VALUE', // required
+ *           },
+ *         ],
+ *       },
+ *       SnsDestination: { // SnsDestination
+ *         TopicArn: 'STRING_VALUE', // required
+ *       },
+ *       PinpointDestination: { // PinpointDestination
+ *         ApplicationArn: 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetConfigurationSetEventDestinationsCommandInput - {@link GetConfigurationSetEventDestinationsCommandInput}
@@ -75,6 +107,8 @@ export interface GetConfigurationSetEventDestinationsCommandOutput
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Too many requests have been made to the operation.</p>
  *
+ * @throws {@link PinpointEmailServiceException}
+ * <p>Base exception class for all service exceptions from PinpointEmail service.</p>
  *
  */
 export class GetConfigurationSetEventDestinationsCommand extends $Command<

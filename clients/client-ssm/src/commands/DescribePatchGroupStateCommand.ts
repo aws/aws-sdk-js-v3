@@ -36,14 +36,30 @@ export interface DescribePatchGroupStateCommandOutput extends DescribePatchGroup
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMClient, DescribePatchGroupStateCommand } from "@aws-sdk/client-ssm"; // ES Modules import
- * // const { SSMClient, DescribePatchGroupStateCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * import { SSMClient, DescribePatchGroupStateCommand } from '@aws-sdk/client-ssm'; // ES Modules import
+ * // const { SSMClient, DescribePatchGroupStateCommand } = require('@aws-sdk/client-ssm'); // CommonJS import
  * const client = new SSMClient(config);
  * const input = { // DescribePatchGroupStateRequest
- *   PatchGroup: "STRING_VALUE", // required
+ *   PatchGroup: 'STRING_VALUE', // required
  * };
  * const command = new DescribePatchGroupStateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribePatchGroupStateResult
+ *   Instances: Number('int'),
+ *   InstancesWithInstalledPatches: Number('int'),
+ *   InstancesWithInstalledOtherPatches: Number('int'),
+ *   InstancesWithInstalledPendingRebootPatches: Number('int'),
+ *   InstancesWithInstalledRejectedPatches: Number('int'),
+ *   InstancesWithMissingPatches: Number('int'),
+ *   InstancesWithFailedPatches: Number('int'),
+ *   InstancesWithNotApplicablePatches: Number('int'),
+ *   InstancesWithUnreportedNotApplicablePatches: Number('int'),
+ *   InstancesWithCriticalNonCompliantPatches: Number('int'),
+ *   InstancesWithSecurityNonCompliantPatches: Number('int'),
+ *   InstancesWithOtherNonCompliantPatches: Number('int'),
+ * };
+ *
  * ```
  *
  * @param DescribePatchGroupStateCommandInput - {@link DescribePatchGroupStateCommandInput}
@@ -58,6 +74,8 @@ export interface DescribePatchGroupStateCommandOutput extends DescribePatchGroup
  * @throws {@link InvalidNextToken} (client fault)
  *  <p>The specified token isn't valid.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class DescribePatchGroupStateCommand extends $Command<

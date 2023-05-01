@@ -38,14 +38,24 @@ export interface DisableHostedZoneDNSSECCommandOutput extends DisableHostedZoneD
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Route53Client, DisableHostedZoneDNSSECCommand } from "@aws-sdk/client-route-53"; // ES Modules import
- * // const { Route53Client, DisableHostedZoneDNSSECCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
+ * import { Route53Client, DisableHostedZoneDNSSECCommand } from '@aws-sdk/client-route-53'; // ES Modules import
+ * // const { Route53Client, DisableHostedZoneDNSSECCommand } = require('@aws-sdk/client-route-53'); // CommonJS import
  * const client = new Route53Client(config);
  * const input = { // DisableHostedZoneDNSSECRequest
- *   HostedZoneId: "STRING_VALUE", // required
+ *   HostedZoneId: 'STRING_VALUE', // required
  * };
  * const command = new DisableHostedZoneDNSSECCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DisableHostedZoneDNSSECResponse
+ *   ChangeInfo: { // ChangeInfo
+ *     Id: 'STRING_VALUE', // required
+ *     Status: 'PENDING' || 'INSYNC', // required
+ *     SubmittedAt: new Date('TIMESTAMP'), // required
+ *     Comment: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param DisableHostedZoneDNSSECCommandInput - {@link DisableHostedZoneDNSSECCommandInput}
@@ -81,6 +91,8 @@ export interface DisableHostedZoneDNSSECCommandOutput extends DisableHostedZoneD
  * @throws {@link NoSuchHostedZone} (client fault)
  *  <p>No hosted zone exists with the ID that you specified.</p>
  *
+ * @throws {@link Route53ServiceException}
+ * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
  */
 export class DisableHostedZoneDNSSECCommand extends $Command<

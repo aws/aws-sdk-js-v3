@@ -36,17 +36,35 @@ export interface GetCommentReactionsCommandOutput extends GetCommentReactionsOut
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeCommitClient, GetCommentReactionsCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
- * // const { CodeCommitClient, GetCommentReactionsCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
+ * import { CodeCommitClient, GetCommentReactionsCommand } from '@aws-sdk/client-codecommit'; // ES Modules import
+ * // const { CodeCommitClient, GetCommentReactionsCommand } = require('@aws-sdk/client-codecommit'); // CommonJS import
  * const client = new CodeCommitClient(config);
  * const input = { // GetCommentReactionsInput
- *   commentId: "STRING_VALUE", // required
- *   reactionUserArn: "STRING_VALUE",
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   commentId: 'STRING_VALUE', // required
+ *   reactionUserArn: 'STRING_VALUE',
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new GetCommentReactionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetCommentReactionsOutput
+ *   reactionsForComment: [ // ReactionsForCommentList // required
+ *     { // ReactionForComment
+ *       reaction: { // ReactionValueFormats
+ *         emoji: 'STRING_VALUE',
+ *         shortCode: 'STRING_VALUE',
+ *         unicode: 'STRING_VALUE',
+ *       },
+ *       reactionUsers: [ // ReactionUsersList
+ *         'STRING_VALUE',
+ *       ],
+ *       reactionsFromDeletedUsersCount: Number('int'),
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetCommentReactionsCommandInput - {@link GetCommentReactionsCommandInput}
@@ -77,6 +95,8 @@ export interface GetCommentReactionsCommandOutput extends GetCommentReactionsOut
  * @throws {@link InvalidReactionUserArnException} (client fault)
  *  <p>The Amazon Resource Name (ARN) of the user or identity is not valid.</p>
  *
+ * @throws {@link CodeCommitServiceException}
+ * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
  */
 export class GetCommentReactionsCommand extends $Command<

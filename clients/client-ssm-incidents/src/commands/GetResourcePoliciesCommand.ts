@@ -36,16 +36,28 @@ export interface GetResourcePoliciesCommandOutput extends GetResourcePoliciesOut
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMIncidentsClient, GetResourcePoliciesCommand } from "@aws-sdk/client-ssm-incidents"; // ES Modules import
- * // const { SSMIncidentsClient, GetResourcePoliciesCommand } = require("@aws-sdk/client-ssm-incidents"); // CommonJS import
+ * import { SSMIncidentsClient, GetResourcePoliciesCommand } from '@aws-sdk/client-ssm-incidents'; // ES Modules import
+ * // const { SSMIncidentsClient, GetResourcePoliciesCommand } = require('@aws-sdk/client-ssm-incidents'); // CommonJS import
  * const client = new SSMIncidentsClient(config);
  * const input = { // GetResourcePoliciesInput
- *   resourceArn: "STRING_VALUE", // required
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   resourceArn: 'STRING_VALUE', // required
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new GetResourcePoliciesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetResourcePoliciesOutput
+ *   resourcePolicies: [ // ResourcePolicyList // required
+ *     { // ResourcePolicy
+ *       policyDocument: 'STRING_VALUE', // required
+ *       policyId: 'STRING_VALUE', // required
+ *       ramResourceShareRegion: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetResourcePoliciesCommandInput - {@link GetResourcePoliciesCommandInput}
@@ -71,6 +83,8 @@ export interface GetResourcePoliciesCommandOutput extends GetResourcePoliciesOut
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
  *       service.</p>
  *
+ * @throws {@link SSMIncidentsServiceException}
+ * <p>Base exception class for all service exceptions from SSMIncidents service.</p>
  *
  */
 export class GetResourcePoliciesCommand extends $Command<

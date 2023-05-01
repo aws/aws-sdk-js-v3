@@ -38,16 +38,31 @@ export interface ListGroupsCommandOutput extends ListGroupsResponse, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IAMClient, ListGroupsCommand } from "@aws-sdk/client-iam"; // ES Modules import
- * // const { IAMClient, ListGroupsCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * import { IAMClient, ListGroupsCommand } from '@aws-sdk/client-iam'; // ES Modules import
+ * // const { IAMClient, ListGroupsCommand } = require('@aws-sdk/client-iam'); // CommonJS import
  * const client = new IAMClient(config);
  * const input = { // ListGroupsRequest
- *   PathPrefix: "STRING_VALUE",
- *   Marker: "STRING_VALUE",
- *   MaxItems: Number("int"),
+ *   PathPrefix: 'STRING_VALUE',
+ *   Marker: 'STRING_VALUE',
+ *   MaxItems: Number('int'),
  * };
  * const command = new ListGroupsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListGroupsResponse
+ *   Groups: [ // groupListType // required
+ *     { // Group
+ *       Path: 'STRING_VALUE', // required
+ *       GroupName: 'STRING_VALUE', // required
+ *       GroupId: 'STRING_VALUE', // required
+ *       Arn: 'STRING_VALUE', // required
+ *       CreateDate: new Date('TIMESTAMP'), // required
+ *     },
+ *   ],
+ *   IsTruncated: true || false,
+ *   Marker: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListGroupsCommandInput - {@link ListGroupsCommandInput}
@@ -60,6 +75,8 @@ export interface ListGroupsCommandOutput extends ListGroupsResponse, __MetadataB
  *  <p>The request processing has failed because of an unknown error, exception or
  *       failure.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  * @example To list the IAM groups for the current account
  * ```javascript

@@ -36,43 +36,46 @@ export interface CreateTypedLinkFacetCommandOutput extends CreateTypedLinkFacetR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudDirectoryClient, CreateTypedLinkFacetCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
- * // const { CloudDirectoryClient, CreateTypedLinkFacetCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
+ * import { CloudDirectoryClient, CreateTypedLinkFacetCommand } from '@aws-sdk/client-clouddirectory'; // ES Modules import
+ * // const { CloudDirectoryClient, CreateTypedLinkFacetCommand } = require('@aws-sdk/client-clouddirectory'); // CommonJS import
  * const client = new CloudDirectoryClient(config);
  * const input = { // CreateTypedLinkFacetRequest
- *   SchemaArn: "STRING_VALUE", // required
+ *   SchemaArn: 'STRING_VALUE', // required
  *   Facet: { // TypedLinkFacet
- *     Name: "STRING_VALUE", // required
+ *     Name: 'STRING_VALUE', // required
  *     Attributes: [ // TypedLinkAttributeDefinitionList // required
  *       { // TypedLinkAttributeDefinition
- *         Name: "STRING_VALUE", // required
- *         Type: "STRING" || "BINARY" || "BOOLEAN" || "NUMBER" || "DATETIME" || "VARIANT", // required
+ *         Name: 'STRING_VALUE', // required
+ *         Type: 'STRING' || 'BINARY' || 'BOOLEAN' || 'NUMBER' || 'DATETIME' || 'VARIANT', // required
  *         DefaultValue: { // TypedAttributeValue Union: only one key present
- *           StringValue: "STRING_VALUE",
- *           BinaryValue: "BLOB_VALUE",
+ *           StringValue: 'STRING_VALUE',
+ *           BinaryValue: 'BLOB_VALUE',
  *           BooleanValue: true || false,
- *           NumberValue: "STRING_VALUE",
- *           DatetimeValue: new Date("TIMESTAMP"),
+ *           NumberValue: 'STRING_VALUE',
+ *           DatetimeValue: new Date('TIMESTAMP'),
  *         },
  *         IsImmutable: true || false,
  *         Rules: { // RuleMap
- *           "<keys>": { // Rule
- *             Type: "BINARY_LENGTH" || "NUMBER_COMPARISON" || "STRING_FROM_SET" || "STRING_LENGTH",
+ *           '<keys>': { // Rule
+ *             Type: 'BINARY_LENGTH' || 'NUMBER_COMPARISON' || 'STRING_FROM_SET' || 'STRING_LENGTH',
  *             Parameters: { // RuleParameterMap
- *               "<keys>": "STRING_VALUE",
+ *               '<keys>': 'STRING_VALUE',
  *             },
  *           },
  *         },
- *         RequiredBehavior: "REQUIRED_ALWAYS" || "NOT_REQUIRED", // required
+ *         RequiredBehavior: 'REQUIRED_ALWAYS' || 'NOT_REQUIRED', // required
  *       },
  *     ],
  *     IdentityAttributeOrder: [ // AttributeNameList // required
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *   },
  * };
  * const command = new CreateTypedLinkFacetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param CreateTypedLinkFacetCommandInput - {@link CreateTypedLinkFacetCommandInput}
@@ -113,6 +116,8 @@ export interface CreateTypedLinkFacetCommandOutput extends CreateTypedLinkFacetR
  *  <p>Indicates that your request is malformed in some manner. See the exception
  *       message.</p>
  *
+ * @throws {@link CloudDirectoryServiceException}
+ * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
  */
 export class CreateTypedLinkFacetCommand extends $Command<

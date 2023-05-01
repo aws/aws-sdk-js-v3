@@ -37,14 +37,59 @@ export interface DescribeFlywheelCommandOutput extends DescribeFlywheelResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ComprehendClient, DescribeFlywheelCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
- * // const { ComprehendClient, DescribeFlywheelCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
+ * import { ComprehendClient, DescribeFlywheelCommand } from '@aws-sdk/client-comprehend'; // ES Modules import
+ * // const { ComprehendClient, DescribeFlywheelCommand } = require('@aws-sdk/client-comprehend'); // CommonJS import
  * const client = new ComprehendClient(config);
  * const input = { // DescribeFlywheelRequest
- *   FlywheelArn: "STRING_VALUE", // required
+ *   FlywheelArn: 'STRING_VALUE', // required
  * };
  * const command = new DescribeFlywheelCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeFlywheelResponse
+ *   FlywheelProperties: { // FlywheelProperties
+ *     FlywheelArn: 'STRING_VALUE',
+ *     ActiveModelArn: 'STRING_VALUE',
+ *     DataAccessRoleArn: 'STRING_VALUE',
+ *     TaskConfig: { // TaskConfig
+ *       LanguageCode: 'en' || 'es' || 'fr' || 'de' || 'it' || 'pt' || 'ar' || 'hi' || 'ja' || 'ko' || 'zh' || 'zh-TW', // required
+ *       DocumentClassificationConfig: { // DocumentClassificationConfig
+ *         Mode: 'MULTI_CLASS' || 'MULTI_LABEL', // required
+ *         Labels: [ // LabelsList
+ *           'STRING_VALUE',
+ *         ],
+ *       },
+ *       EntityRecognitionConfig: { // EntityRecognitionConfig
+ *         EntityTypes: [ // EntityTypesList // required
+ *           { // EntityTypesListItem
+ *             Type: 'STRING_VALUE', // required
+ *           },
+ *         ],
+ *       },
+ *     },
+ *     DataLakeS3Uri: 'STRING_VALUE',
+ *     DataSecurityConfig: { // DataSecurityConfig
+ *       ModelKmsKeyId: 'STRING_VALUE',
+ *       VolumeKmsKeyId: 'STRING_VALUE',
+ *       DataLakeKmsKeyId: 'STRING_VALUE',
+ *       VpcConfig: { // VpcConfig
+ *         SecurityGroupIds: [ // SecurityGroupIds // required
+ *           'STRING_VALUE',
+ *         ],
+ *         Subnets: [ // Subnets // required
+ *           'STRING_VALUE',
+ *         ],
+ *       },
+ *     },
+ *     Status: 'CREATING' || 'ACTIVE' || 'UPDATING' || 'DELETING' || 'FAILED',
+ *     ModelType: 'DOCUMENT_CLASSIFIER' || 'ENTITY_RECOGNIZER',
+ *     Message: 'STRING_VALUE',
+ *     CreationTime: new Date('TIMESTAMP'),
+ *     LastModifiedTime: new Date('TIMESTAMP'),
+ *     LatestFlywheelIteration: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeFlywheelCommandInput - {@link DescribeFlywheelCommandInput}
@@ -65,6 +110,8 @@ export interface DescribeFlywheelCommandOutput extends DescribeFlywheelResponse,
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>The number of requests exceeds the limit. Resubmit your request later.</p>
  *
+ * @throws {@link ComprehendServiceException}
+ * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
  */
 export class DescribeFlywheelCommand extends $Command<

@@ -65,19 +65,28 @@ export interface InvokeCommandOutput extends InvocationResponse, __MetadataBeare
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LambdaClient, InvokeCommand } from "@aws-sdk/client-lambda"; // ES Modules import
- * // const { LambdaClient, InvokeCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
+ * import { LambdaClient, InvokeCommand } from '@aws-sdk/client-lambda'; // ES Modules import
+ * // const { LambdaClient, InvokeCommand } = require('@aws-sdk/client-lambda'); // CommonJS import
  * const client = new LambdaClient(config);
  * const input = { // InvocationRequest
- *   FunctionName: "STRING_VALUE", // required
- *   InvocationType: "Event" || "RequestResponse" || "DryRun",
- *   LogType: "None" || "Tail",
- *   ClientContext: "STRING_VALUE",
- *   Payload: "BLOB_VALUE",
- *   Qualifier: "STRING_VALUE",
+ *   FunctionName: 'STRING_VALUE', // required
+ *   InvocationType: 'Event' || 'RequestResponse' || 'DryRun',
+ *   LogType: 'None' || 'Tail',
+ *   ClientContext: 'STRING_VALUE',
+ *   Payload: 'BLOB_VALUE',
+ *   Qualifier: 'STRING_VALUE',
  * };
  * const command = new InvokeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // InvocationResponse
+ *   StatusCode: Number('int'),
+ *   FunctionError: 'STRING_VALUE',
+ *   LogResult: 'STRING_VALUE',
+ *   Payload: 'BLOB_VALUE',
+ *   ExecutedVersion: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param InvokeCommandInput - {@link InvokeCommandInput}
@@ -186,6 +195,8 @@ export interface InvokeCommandOutput extends InvocationResponse, __MetadataBeare
  * @throws {@link UnsupportedMediaTypeException} (client fault)
  *  <p>The content type of the <code>Invoke</code> request body is not JSON.</p>
  *
+ * @throws {@link LambdaServiceException}
+ * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
  */
 export class InvokeCommand extends $Command<InvokeCommandInput, InvokeCommandOutput, LambdaClientResolvedConfig> {

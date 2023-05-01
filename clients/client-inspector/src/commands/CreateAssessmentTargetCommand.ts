@@ -43,15 +43,20 @@ export interface CreateAssessmentTargetCommandOutput extends CreateAssessmentTar
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { InspectorClient, CreateAssessmentTargetCommand } from "@aws-sdk/client-inspector"; // ES Modules import
- * // const { InspectorClient, CreateAssessmentTargetCommand } = require("@aws-sdk/client-inspector"); // CommonJS import
+ * import { InspectorClient, CreateAssessmentTargetCommand } from '@aws-sdk/client-inspector'; // ES Modules import
+ * // const { InspectorClient, CreateAssessmentTargetCommand } = require('@aws-sdk/client-inspector'); // CommonJS import
  * const client = new InspectorClient(config);
  * const input = { // CreateAssessmentTargetRequest
- *   assessmentTargetName: "STRING_VALUE", // required
- *   resourceGroupArn: "STRING_VALUE",
+ *   assessmentTargetName: 'STRING_VALUE', // required
+ *   resourceGroupArn: 'STRING_VALUE',
  * };
  * const command = new CreateAssessmentTargetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateAssessmentTargetResponse
+ *   assessmentTargetArn: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param CreateAssessmentTargetCommandInput - {@link CreateAssessmentTargetCommandInput}
@@ -85,6 +90,8 @@ export interface CreateAssessmentTargetCommandOutput extends CreateAssessmentTar
  * @throws {@link ServiceTemporarilyUnavailableException} (server fault)
  *  <p>The serice is temporary unavailable.</p>
  *
+ * @throws {@link InspectorServiceException}
+ * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
  * @example Create assessment target
  * ```javascript

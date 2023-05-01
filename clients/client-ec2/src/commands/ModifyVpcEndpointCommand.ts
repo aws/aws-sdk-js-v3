@@ -39,41 +39,46 @@ export interface ModifyVpcEndpointCommandOutput extends ModifyVpcEndpointResult,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, ModifyVpcEndpointCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, ModifyVpcEndpointCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, ModifyVpcEndpointCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, ModifyVpcEndpointCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // ModifyVpcEndpointRequest
  *   DryRun: true || false,
- *   VpcEndpointId: "STRING_VALUE", // required
+ *   VpcEndpointId: 'STRING_VALUE', // required
  *   ResetPolicy: true || false,
- *   PolicyDocument: "STRING_VALUE",
+ *   PolicyDocument: 'STRING_VALUE',
  *   AddRouteTableIds: [ // VpcEndpointRouteTableIdList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   RemoveRouteTableIds: [
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   AddSubnetIds: [ // VpcEndpointSubnetIdList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   RemoveSubnetIds: [
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   AddSecurityGroupIds: [ // VpcEndpointSecurityGroupIdList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   RemoveSecurityGroupIds: [
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   IpAddressType: "ipv4" || "dualstack" || "ipv6",
+ *   IpAddressType: 'ipv4' || 'dualstack' || 'ipv6',
  *   DnsOptions: { // DnsOptionsSpecification
- *     DnsRecordIpType: "ipv4" || "dualstack" || "ipv6" || "service-defined",
+ *     DnsRecordIpType: 'ipv4' || 'dualstack' || 'ipv6' || 'service-defined',
  *     PrivateDnsOnlyForInboundResolverEndpoint: true || false,
  *   },
  *   PrivateDnsEnabled: true || false,
  * };
  * const command = new ModifyVpcEndpointCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ModifyVpcEndpointResult
+ *   Return: true || false,
+ * };
+ *
  * ```
  *
  * @param ModifyVpcEndpointCommandInput - {@link ModifyVpcEndpointCommandInput}
@@ -82,6 +87,8 @@ export interface ModifyVpcEndpointCommandOutput extends ModifyVpcEndpointResult,
  * @see {@link ModifyVpcEndpointCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class ModifyVpcEndpointCommand extends $Command<

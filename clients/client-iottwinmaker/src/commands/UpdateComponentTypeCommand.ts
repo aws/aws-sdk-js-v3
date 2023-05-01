@@ -36,109 +36,117 @@ export interface UpdateComponentTypeCommandOutput extends UpdateComponentTypeRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTTwinMakerClient, UpdateComponentTypeCommand } from "@aws-sdk/client-iottwinmaker"; // ES Modules import
- * // const { IoTTwinMakerClient, UpdateComponentTypeCommand } = require("@aws-sdk/client-iottwinmaker"); // CommonJS import
+ * import { IoTTwinMakerClient, UpdateComponentTypeCommand } from '@aws-sdk/client-iottwinmaker'; // ES Modules import
+ * // const { IoTTwinMakerClient, UpdateComponentTypeCommand } = require('@aws-sdk/client-iottwinmaker'); // CommonJS import
  * const client = new IoTTwinMakerClient(config);
  * const input = { // UpdateComponentTypeRequest
- *   workspaceId: "STRING_VALUE", // required
+ *   workspaceId: 'STRING_VALUE', // required
  *   isSingleton: true || false,
- *   componentTypeId: "STRING_VALUE", // required
- *   description: "STRING_VALUE",
+ *   componentTypeId: 'STRING_VALUE', // required
+ *   description: 'STRING_VALUE',
  *   propertyDefinitions: { // PropertyDefinitionsRequest
- *     "<keys>": { // PropertyDefinitionRequest
+ *     '<keys>': { // PropertyDefinitionRequest
  *       dataType: { // DataType
- *         type: "STRING_VALUE", // required
+ *         type: 'STRING_VALUE', // required
  *         nestedType: {
- *           type: "STRING_VALUE", // required
- *           nestedType: "<DataType>",
+ *           type: 'STRING_VALUE', // required
+ *           nestedType: '<DataType>',
  *           allowedValues: [ // DataValueList
  *             { // DataValue
  *               booleanValue: true || false,
- *               doubleValue: Number("double"),
- *               integerValue: Number("int"),
- *               longValue: Number("long"),
- *               stringValue: "STRING_VALUE",
+ *               doubleValue: Number('double'),
+ *               integerValue: Number('int'),
+ *               longValue: Number('long'),
+ *               stringValue: 'STRING_VALUE',
  *               listValue: [
  *                 {
  *                   booleanValue: true || false,
- *                   doubleValue: Number("double"),
- *                   integerValue: Number("int"),
- *                   longValue: Number("long"),
- *                   stringValue: "STRING_VALUE",
- *                   listValue: "<DataValueList>",
+ *                   doubleValue: Number('double'),
+ *                   integerValue: Number('int'),
+ *                   longValue: Number('long'),
+ *                   stringValue: 'STRING_VALUE',
+ *                   listValue: '<DataValueList>',
  *                   mapValue: { // DataValueMap
- *                     "<keys>": "<DataValue>",
+ *                     '<keys>': '<DataValue>',
  *                   },
  *                   relationshipValue: { // RelationshipValue
- *                     targetEntityId: "STRING_VALUE",
- *                     targetComponentName: "STRING_VALUE",
+ *                     targetEntityId: 'STRING_VALUE',
+ *                     targetComponentName: 'STRING_VALUE',
  *                   },
- *                   expression: "STRING_VALUE",
+ *                   expression: 'STRING_VALUE',
  *                 },
  *               ],
  *               mapValue: {
- *                 "<keys>": "<DataValue>",
+ *                 '<keys>': '<DataValue>',
  *               },
  *               relationshipValue: {
- *                 targetEntityId: "STRING_VALUE",
- *                 targetComponentName: "STRING_VALUE",
+ *                 targetEntityId: 'STRING_VALUE',
+ *                 targetComponentName: 'STRING_VALUE',
  *               },
- *               expression: "STRING_VALUE",
+ *               expression: 'STRING_VALUE',
  *             },
  *           ],
- *           unitOfMeasure: "STRING_VALUE",
+ *           unitOfMeasure: 'STRING_VALUE',
  *           relationship: { // Relationship
- *             targetComponentTypeId: "STRING_VALUE",
- *             relationshipType: "STRING_VALUE",
+ *             targetComponentTypeId: 'STRING_VALUE',
+ *             relationshipType: 'STRING_VALUE',
  *           },
  *         },
- *         allowedValues: "<DataValueList>",
- *         unitOfMeasure: "STRING_VALUE",
+ *         allowedValues: '<DataValueList>',
+ *         unitOfMeasure: 'STRING_VALUE',
  *         relationship: {
- *           targetComponentTypeId: "STRING_VALUE",
- *           relationshipType: "STRING_VALUE",
+ *           targetComponentTypeId: 'STRING_VALUE',
+ *           relationshipType: 'STRING_VALUE',
  *         },
  *       },
  *       isRequiredInEntity: true || false,
  *       isExternalId: true || false,
  *       isStoredExternally: true || false,
  *       isTimeSeries: true || false,
- *       defaultValue: "<DataValue>",
+ *       defaultValue: '<DataValue>',
  *       configuration: { // Configuration
- *         "<keys>": "STRING_VALUE",
+ *         '<keys>': 'STRING_VALUE',
  *       },
- *       displayName: "STRING_VALUE",
+ *       displayName: 'STRING_VALUE',
  *     },
  *   },
  *   extendsFrom: [ // ExtendsFrom
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   functions: { // FunctionsRequest
- *     "<keys>": { // FunctionRequest
+ *     '<keys>': { // FunctionRequest
  *       requiredProperties: [ // RequiredProperties
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
- *       scope: "STRING_VALUE",
+ *       scope: 'STRING_VALUE',
  *       implementedBy: { // DataConnector
  *         lambda: { // LambdaFunction
- *           arn: "STRING_VALUE", // required
+ *           arn: 'STRING_VALUE', // required
  *         },
  *         isNative: true || false,
  *       },
  *     },
  *   },
  *   propertyGroups: { // PropertyGroupsRequest
- *     "<keys>": { // PropertyGroupRequest
- *       groupType: "STRING_VALUE",
+ *     '<keys>': { // PropertyGroupRequest
+ *       groupType: 'STRING_VALUE',
  *       propertyNames: [ // PropertyNames
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   },
- *   componentTypeName: "STRING_VALUE",
+ *   componentTypeName: 'STRING_VALUE',
  * };
  * const command = new UpdateComponentTypeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateComponentTypeResponse
+ *   workspaceId: 'STRING_VALUE', // required
+ *   arn: 'STRING_VALUE', // required
+ *   componentTypeId: 'STRING_VALUE', // required
+ *   state: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param UpdateComponentTypeCommandInput - {@link UpdateComponentTypeCommandInput}
@@ -165,6 +173,8 @@ export interface UpdateComponentTypeCommandOutput extends UpdateComponentTypeRes
  * @throws {@link ValidationException} (client fault)
  *  <p>Failed</p>
  *
+ * @throws {@link IoTTwinMakerServiceException}
+ * <p>Base exception class for all service exceptions from IoTTwinMaker service.</p>
  *
  */
 export class UpdateComponentTypeCommand extends $Command<

@@ -39,24 +39,31 @@ export interface UpdateSchemaCommandOutput extends UpdateSchemaResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlueClient, UpdateSchemaCommand } from "@aws-sdk/client-glue"; // ES Modules import
- * // const { GlueClient, UpdateSchemaCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * import { GlueClient, UpdateSchemaCommand } from '@aws-sdk/client-glue'; // ES Modules import
+ * // const { GlueClient, UpdateSchemaCommand } = require('@aws-sdk/client-glue'); // CommonJS import
  * const client = new GlueClient(config);
  * const input = { // UpdateSchemaInput
  *   SchemaId: { // SchemaId
- *     SchemaArn: "STRING_VALUE",
- *     SchemaName: "STRING_VALUE",
- *     RegistryName: "STRING_VALUE",
+ *     SchemaArn: 'STRING_VALUE',
+ *     SchemaName: 'STRING_VALUE',
+ *     RegistryName: 'STRING_VALUE',
  *   },
  *   SchemaVersionNumber: { // SchemaVersionNumber
  *     LatestVersion: true || false,
- *     VersionNumber: Number("long"),
+ *     VersionNumber: Number('long'),
  *   },
- *   Compatibility: "NONE" || "DISABLED" || "BACKWARD" || "BACKWARD_ALL" || "FORWARD" || "FORWARD_ALL" || "FULL" || "FULL_ALL",
- *   Description: "STRING_VALUE",
+ *   Compatibility: 'NONE' || 'DISABLED' || 'BACKWARD' || 'BACKWARD_ALL' || 'FORWARD' || 'FORWARD_ALL' || 'FULL' || 'FULL_ALL',
+ *   Description: 'STRING_VALUE',
  * };
  * const command = new UpdateSchemaCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateSchemaResponse
+ *   SchemaArn: 'STRING_VALUE',
+ *   SchemaName: 'STRING_VALUE',
+ *   RegistryName: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateSchemaCommandInput - {@link UpdateSchemaCommandInput}
@@ -80,6 +87,8 @@ export interface UpdateSchemaCommandOutput extends UpdateSchemaResponse, __Metad
  * @throws {@link InvalidInputException} (client fault)
  *  <p>The input provided was not valid.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class UpdateSchemaCommand extends $Command<

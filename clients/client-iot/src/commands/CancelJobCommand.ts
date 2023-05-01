@@ -37,17 +37,24 @@ export interface CancelJobCommandOutput extends CancelJobResponse, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTClient, CancelJobCommand } from "@aws-sdk/client-iot"; // ES Modules import
- * // const { IoTClient, CancelJobCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * import { IoTClient, CancelJobCommand } from '@aws-sdk/client-iot'; // ES Modules import
+ * // const { IoTClient, CancelJobCommand } = require('@aws-sdk/client-iot'); // CommonJS import
  * const client = new IoTClient(config);
  * const input = { // CancelJobRequest
- *   jobId: "STRING_VALUE", // required
- *   reasonCode: "STRING_VALUE",
- *   comment: "STRING_VALUE",
+ *   jobId: 'STRING_VALUE', // required
+ *   reasonCode: 'STRING_VALUE',
+ *   comment: 'STRING_VALUE',
  *   force: true || false,
  * };
  * const command = new CancelJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CancelJobResponse
+ *   jobArn: 'STRING_VALUE',
+ *   jobId: 'STRING_VALUE',
+ *   description: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CancelJobCommandInput - {@link CancelJobCommandInput}
@@ -71,6 +78,8 @@ export interface CancelJobCommandOutput extends CancelJobResponse, __MetadataBea
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The rate exceeds the limit.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class CancelJobCommand extends $Command<CancelJobCommandInput, CancelJobCommandOutput, IoTClientResolvedConfig> {

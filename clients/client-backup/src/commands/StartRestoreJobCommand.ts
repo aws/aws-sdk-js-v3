@@ -40,20 +40,25 @@ export interface StartRestoreJobCommandOutput extends StartRestoreJobOutput, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BackupClient, StartRestoreJobCommand } from "@aws-sdk/client-backup"; // ES Modules import
- * // const { BackupClient, StartRestoreJobCommand } = require("@aws-sdk/client-backup"); // CommonJS import
+ * import { BackupClient, StartRestoreJobCommand } from '@aws-sdk/client-backup'; // ES Modules import
+ * // const { BackupClient, StartRestoreJobCommand } = require('@aws-sdk/client-backup'); // CommonJS import
  * const client = new BackupClient(config);
  * const input = { // StartRestoreJobInput
- *   RecoveryPointArn: "STRING_VALUE", // required
+ *   RecoveryPointArn: 'STRING_VALUE', // required
  *   Metadata: { // Metadata // required
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
- *   IamRoleArn: "STRING_VALUE",
- *   IdempotencyToken: "STRING_VALUE",
- *   ResourceType: "STRING_VALUE",
+ *   IamRoleArn: 'STRING_VALUE',
+ *   IdempotencyToken: 'STRING_VALUE',
+ *   ResourceType: 'STRING_VALUE',
  * };
  * const command = new StartRestoreJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartRestoreJobOutput
+ *   RestoreJobId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param StartRestoreJobCommandInput - {@link StartRestoreJobCommandInput}
@@ -75,6 +80,8 @@ export interface StartRestoreJobCommandOutput extends StartRestoreJobOutput, __M
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request failed due to a temporary failure of the server.</p>
  *
+ * @throws {@link BackupServiceException}
+ * <p>Base exception class for all service exceptions from Backup service.</p>
  *
  */
 export class StartRestoreJobCommand extends $Command<

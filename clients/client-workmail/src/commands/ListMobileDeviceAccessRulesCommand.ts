@@ -38,14 +38,52 @@ export interface ListMobileDeviceAccessRulesCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkMailClient, ListMobileDeviceAccessRulesCommand } from "@aws-sdk/client-workmail"; // ES Modules import
- * // const { WorkMailClient, ListMobileDeviceAccessRulesCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
+ * import { WorkMailClient, ListMobileDeviceAccessRulesCommand } from '@aws-sdk/client-workmail'; // ES Modules import
+ * // const { WorkMailClient, ListMobileDeviceAccessRulesCommand } = require('@aws-sdk/client-workmail'); // CommonJS import
  * const client = new WorkMailClient(config);
  * const input = { // ListMobileDeviceAccessRulesRequest
- *   OrganizationId: "STRING_VALUE", // required
+ *   OrganizationId: 'STRING_VALUE', // required
  * };
  * const command = new ListMobileDeviceAccessRulesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListMobileDeviceAccessRulesResponse
+ *   Rules: [ // MobileDeviceAccessRulesList
+ *     { // MobileDeviceAccessRule
+ *       MobileDeviceAccessRuleId: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *       Description: 'STRING_VALUE',
+ *       Effect: 'ALLOW' || 'DENY',
+ *       DeviceTypes: [ // DeviceTypeList
+ *         'STRING_VALUE',
+ *       ],
+ *       NotDeviceTypes: [
+ *         'STRING_VALUE',
+ *       ],
+ *       DeviceModels: [ // DeviceModelList
+ *         'STRING_VALUE',
+ *       ],
+ *       NotDeviceModels: [
+ *         'STRING_VALUE',
+ *       ],
+ *       DeviceOperatingSystems: [ // DeviceOperatingSystemList
+ *         'STRING_VALUE',
+ *       ],
+ *       NotDeviceOperatingSystems: [
+ *         'STRING_VALUE',
+ *       ],
+ *       DeviceUserAgents: [ // DeviceUserAgentList
+ *         'STRING_VALUE',
+ *       ],
+ *       NotDeviceUserAgents: [
+ *         'STRING_VALUE',
+ *       ],
+ *       DateCreated: new Date('TIMESTAMP'),
+ *       DateModified: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListMobileDeviceAccessRulesCommandInput - {@link ListMobileDeviceAccessRulesCommandInput}
@@ -65,6 +103,8 @@ export interface ListMobileDeviceAccessRulesCommandOutput
  *  <p>The organization must have a valid state to perform certain
  *          operations on the organization or its members.</p>
  *
+ * @throws {@link WorkMailServiceException}
+ * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
  */
 export class ListMobileDeviceAccessRulesCommand extends $Command<

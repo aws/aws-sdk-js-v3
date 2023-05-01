@@ -36,16 +36,37 @@ export interface DescribeSubnetGroupsCommandOutput extends DescribeSubnetGroupsR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MemoryDBClient, DescribeSubnetGroupsCommand } from "@aws-sdk/client-memorydb"; // ES Modules import
- * // const { MemoryDBClient, DescribeSubnetGroupsCommand } = require("@aws-sdk/client-memorydb"); // CommonJS import
+ * import { MemoryDBClient, DescribeSubnetGroupsCommand } from '@aws-sdk/client-memorydb'; // ES Modules import
+ * // const { MemoryDBClient, DescribeSubnetGroupsCommand } = require('@aws-sdk/client-memorydb'); // CommonJS import
  * const client = new MemoryDBClient(config);
  * const input = { // DescribeSubnetGroupsRequest
- *   SubnetGroupName: "STRING_VALUE",
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   SubnetGroupName: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new DescribeSubnetGroupsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeSubnetGroupsResponse
+ *   NextToken: 'STRING_VALUE',
+ *   SubnetGroups: [ // SubnetGroupList
+ *     { // SubnetGroup
+ *       Name: 'STRING_VALUE',
+ *       Description: 'STRING_VALUE',
+ *       VpcId: 'STRING_VALUE',
+ *       Subnets: [ // SubnetList
+ *         { // Subnet
+ *           Identifier: 'STRING_VALUE',
+ *           AvailabilityZone: { // AvailabilityZone
+ *             Name: 'STRING_VALUE',
+ *           },
+ *         },
+ *       ],
+ *       ARN: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeSubnetGroupsCommandInput - {@link DescribeSubnetGroupsCommandInput}
@@ -60,6 +81,8 @@ export interface DescribeSubnetGroupsCommandOutput extends DescribeSubnetGroupsR
  * @throws {@link SubnetGroupNotFoundFault} (client fault)
  *  <p></p>
  *
+ * @throws {@link MemoryDBServiceException}
+ * <p>Base exception class for all service exceptions from MemoryDB service.</p>
  *
  */
 export class DescribeSubnetGroupsCommand extends $Command<

@@ -36,18 +36,21 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RAMClient, UntagResourceCommand } from "@aws-sdk/client-ram"; // ES Modules import
- * // const { RAMClient, UntagResourceCommand } = require("@aws-sdk/client-ram"); // CommonJS import
+ * import { RAMClient, UntagResourceCommand } from '@aws-sdk/client-ram'; // ES Modules import
+ * // const { RAMClient, UntagResourceCommand } = require('@aws-sdk/client-ram'); // CommonJS import
  * const client = new RAMClient(config);
  * const input = { // UntagResourceRequest
- *   resourceShareArn: "STRING_VALUE",
+ *   resourceShareArn: 'STRING_VALUE',
  *   tagKeys: [ // TagKeyList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   resourceArn: "STRING_VALUE",
+ *   resourceArn: 'STRING_VALUE',
  * };
  * const command = new UntagResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UntagResourceCommandInput - {@link UntagResourceCommandInput}
@@ -73,6 +76,8 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * @throws {@link UnknownResourceException} (client fault)
  *  <p>The operation failed because a specified resource couldn't be found.</p>
  *
+ * @throws {@link RAMServiceException}
+ * <p>Base exception class for all service exceptions from RAM service.</p>
  *
  */
 export class UntagResourceCommand extends $Command<

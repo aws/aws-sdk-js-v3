@@ -38,15 +38,26 @@ export interface ListIdentityPoolsCommandOutput extends ListIdentityPoolsRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CognitoIdentityClient, ListIdentityPoolsCommand } from "@aws-sdk/client-cognito-identity"; // ES Modules import
- * // const { CognitoIdentityClient, ListIdentityPoolsCommand } = require("@aws-sdk/client-cognito-identity"); // CommonJS import
+ * import { CognitoIdentityClient, ListIdentityPoolsCommand } from '@aws-sdk/client-cognito-identity'; // ES Modules import
+ * // const { CognitoIdentityClient, ListIdentityPoolsCommand } = require('@aws-sdk/client-cognito-identity'); // CommonJS import
  * const client = new CognitoIdentityClient(config);
  * const input = { // ListIdentityPoolsInput
- *   MaxResults: Number("int"), // required
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'), // required
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListIdentityPoolsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListIdentityPoolsResponse
+ *   IdentityPools: [ // IdentityPoolsList
+ *     { // IdentityPoolShortDescription
+ *       IdentityPoolId: 'STRING_VALUE',
+ *       IdentityPoolName: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListIdentityPoolsCommandInput - {@link ListIdentityPoolsCommandInput}
@@ -71,6 +82,8 @@ export interface ListIdentityPoolsCommandOutput extends ListIdentityPoolsRespons
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Thrown when a request is throttled.</p>
  *
+ * @throws {@link CognitoIdentityServiceException}
+ * <p>Base exception class for all service exceptions from CognitoIdentity service.</p>
  *
  */
 export class ListIdentityPoolsCommand extends $Command<

@@ -37,21 +37,46 @@ export interface GetServersCommandOutput extends GetServersResponse, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SMSClient, GetServersCommand } from "@aws-sdk/client-sms"; // ES Modules import
- * // const { SMSClient, GetServersCommand } = require("@aws-sdk/client-sms"); // CommonJS import
+ * import { SMSClient, GetServersCommand } from '@aws-sdk/client-sms'; // ES Modules import
+ * // const { SMSClient, GetServersCommand } = require('@aws-sdk/client-sms'); // CommonJS import
  * const client = new SMSClient(config);
  * const input = { // GetServersRequest
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  *   vmServerAddressList: [ // VmServerAddressList
  *     { // VmServerAddress
- *       vmManagerId: "STRING_VALUE",
- *       vmId: "STRING_VALUE",
+ *       vmManagerId: 'STRING_VALUE',
+ *       vmId: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new GetServersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetServersResponse
+ *   lastModifiedOn: new Date('TIMESTAMP'),
+ *   serverCatalogStatus: 'NOT_IMPORTED' || 'IMPORTING' || 'AVAILABLE' || 'DELETED' || 'EXPIRED',
+ *   serverList: [ // ServerList
+ *     { // Server
+ *       serverId: 'STRING_VALUE',
+ *       serverType: 'VIRTUAL_MACHINE',
+ *       vmServer: { // VmServer
+ *         vmServerAddress: { // VmServerAddress
+ *           vmManagerId: 'STRING_VALUE',
+ *           vmId: 'STRING_VALUE',
+ *         },
+ *         vmName: 'STRING_VALUE',
+ *         vmManagerName: 'STRING_VALUE',
+ *         vmManagerType: 'VSPHERE' || 'SCVMM' || 'HYPERV-MANAGER',
+ *         vmPath: 'STRING_VALUE',
+ *       },
+ *       replicationJobId: 'STRING_VALUE',
+ *       replicationJobTerminated: true || false,
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetServersCommandInput - {@link GetServersCommandInput}
@@ -73,6 +98,8 @@ export interface GetServersCommandOutput extends GetServersResponse, __MetadataB
  *  <p>You lack permissions needed to perform this operation. Check your IAM policies,
  *             and ensure that you are using the correct access keys.</p>
  *
+ * @throws {@link SMSServiceException}
+ * <p>Base exception class for all service exceptions from SMS service.</p>
  *
  */
 export class GetServersCommand extends $Command<

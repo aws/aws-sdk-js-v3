@@ -51,15 +51,26 @@ export interface DescribeNodeAssociationStatusCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OpsWorksCMClient, DescribeNodeAssociationStatusCommand } from "@aws-sdk/client-opsworkscm"; // ES Modules import
- * // const { OpsWorksCMClient, DescribeNodeAssociationStatusCommand } = require("@aws-sdk/client-opsworkscm"); // CommonJS import
+ * import { OpsWorksCMClient, DescribeNodeAssociationStatusCommand } from '@aws-sdk/client-opsworkscm'; // ES Modules import
+ * // const { OpsWorksCMClient, DescribeNodeAssociationStatusCommand } = require('@aws-sdk/client-opsworkscm'); // CommonJS import
  * const client = new OpsWorksCMClient(config);
  * const input = { // DescribeNodeAssociationStatusRequest
- *   NodeAssociationStatusToken: "STRING_VALUE", // required
- *   ServerName: "STRING_VALUE", // required
+ *   NodeAssociationStatusToken: 'STRING_VALUE', // required
+ *   ServerName: 'STRING_VALUE', // required
  * };
  * const command = new DescribeNodeAssociationStatusCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeNodeAssociationStatusResponse
+ *   NodeAssociationStatus: 'STRING_VALUE',
+ *   EngineAttributes: [ // EngineAttributes
+ *     { // EngineAttribute
+ *       Name: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeNodeAssociationStatusCommandInput - {@link DescribeNodeAssociationStatusCommandInput}
@@ -76,6 +87,8 @@ export interface DescribeNodeAssociationStatusCommandOutput
  *  <p>One or more of the provided request parameters are not valid.
  *     </p>
  *
+ * @throws {@link OpsWorksCMServiceException}
+ * <p>Base exception class for all service exceptions from OpsWorksCM service.</p>
  *
  */
 export class DescribeNodeAssociationStatusCommand extends $Command<

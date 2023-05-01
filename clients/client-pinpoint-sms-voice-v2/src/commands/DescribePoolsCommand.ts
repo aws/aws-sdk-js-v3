@@ -49,26 +49,46 @@ export interface DescribePoolsCommandOutput extends DescribePoolsResult, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PinpointSMSVoiceV2Client, DescribePoolsCommand } from "@aws-sdk/client-pinpoint-sms-voice-v2"; // ES Modules import
- * // const { PinpointSMSVoiceV2Client, DescribePoolsCommand } = require("@aws-sdk/client-pinpoint-sms-voice-v2"); // CommonJS import
+ * import { PinpointSMSVoiceV2Client, DescribePoolsCommand } from '@aws-sdk/client-pinpoint-sms-voice-v2'; // ES Modules import
+ * // const { PinpointSMSVoiceV2Client, DescribePoolsCommand } = require('@aws-sdk/client-pinpoint-sms-voice-v2'); // CommonJS import
  * const client = new PinpointSMSVoiceV2Client(config);
  * const input = { // DescribePoolsRequest
  *   PoolIds: [ // PoolIdList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   Filters: [ // PoolFilterList
  *     { // PoolFilter
- *       Name: "STRING_VALUE", // required
+ *       Name: 'STRING_VALUE', // required
  *       Values: [ // FilterValueList // required
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new DescribePoolsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribePoolsResult
+ *   Pools: [ // PoolInformationList
+ *     { // PoolInformation
+ *       PoolArn: 'STRING_VALUE', // required
+ *       PoolId: 'STRING_VALUE', // required
+ *       Status: 'STRING_VALUE', // required
+ *       MessageType: 'STRING_VALUE', // required
+ *       TwoWayEnabled: true || false, // required
+ *       TwoWayChannelArn: 'STRING_VALUE',
+ *       SelfManagedOptOutsEnabled: true || false, // required
+ *       OptOutListName: 'STRING_VALUE', // required
+ *       SharedRoutesEnabled: true || false, // required
+ *       DeletionProtectionEnabled: true || false, // required
+ *       CreatedTimestamp: new Date('TIMESTAMP'), // required
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribePoolsCommandInput - {@link DescribePoolsCommandInput}
@@ -95,6 +115,8 @@ export interface DescribePoolsCommandOutput extends DescribePoolsResult, __Metad
  * @throws {@link ValidationException} (client fault)
  *  <p>A validation exception for a field.</p>
  *
+ * @throws {@link PinpointSMSVoiceV2ServiceException}
+ * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
  *
  */
 export class DescribePoolsCommand extends $Command<

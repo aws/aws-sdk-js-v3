@@ -45,14 +45,20 @@ export interface GetThirdPartyFirewallAssociationStatusCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FMSClient, GetThirdPartyFirewallAssociationStatusCommand } from "@aws-sdk/client-fms"; // ES Modules import
- * // const { FMSClient, GetThirdPartyFirewallAssociationStatusCommand } = require("@aws-sdk/client-fms"); // CommonJS import
+ * import { FMSClient, GetThirdPartyFirewallAssociationStatusCommand } from '@aws-sdk/client-fms'; // ES Modules import
+ * // const { FMSClient, GetThirdPartyFirewallAssociationStatusCommand } = require('@aws-sdk/client-fms'); // CommonJS import
  * const client = new FMSClient(config);
  * const input = { // GetThirdPartyFirewallAssociationStatusRequest
- *   ThirdPartyFirewall: "PALO_ALTO_NETWORKS_CLOUD_NGFW" || "FORTIGATE_CLOUD_NATIVE_FIREWALL", // required
+ *   ThirdPartyFirewall: 'PALO_ALTO_NETWORKS_CLOUD_NGFW' || 'FORTIGATE_CLOUD_NATIVE_FIREWALL', // required
  * };
  * const command = new GetThirdPartyFirewallAssociationStatusCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetThirdPartyFirewallAssociationStatusResponse
+ *   ThirdPartyFirewallStatus: 'ONBOARDING' || 'ONBOARD_COMPLETE' || 'OFFBOARDING' || 'OFFBOARD_COMPLETE' || 'NOT_EXIST',
+ *   MarketplaceOnboardingStatus: 'NO_SUBSCRIPTION' || 'NOT_COMPLETE' || 'COMPLETE',
+ * };
+ *
  * ```
  *
  * @param GetThirdPartyFirewallAssociationStatusCommandInput - {@link GetThirdPartyFirewallAssociationStatusCommandInput}
@@ -78,6 +84,8 @@ export interface GetThirdPartyFirewallAssociationStatusCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link FMSServiceException}
+ * <p>Base exception class for all service exceptions from FMS service.</p>
  *
  */
 export class GetThirdPartyFirewallAssociationStatusCommand extends $Command<

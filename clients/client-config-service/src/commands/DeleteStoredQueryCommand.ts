@@ -36,14 +36,17 @@ export interface DeleteStoredQueryCommandOutput extends DeleteStoredQueryRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConfigServiceClient, DeleteStoredQueryCommand } from "@aws-sdk/client-config-service"; // ES Modules import
- * // const { ConfigServiceClient, DeleteStoredQueryCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
+ * import { ConfigServiceClient, DeleteStoredQueryCommand } from '@aws-sdk/client-config-service'; // ES Modules import
+ * // const { ConfigServiceClient, DeleteStoredQueryCommand } = require('@aws-sdk/client-config-service'); // CommonJS import
  * const client = new ConfigServiceClient(config);
  * const input = { // DeleteStoredQueryRequest
- *   QueryName: "STRING_VALUE", // required
+ *   QueryName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteStoredQueryCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteStoredQueryCommandInput - {@link DeleteStoredQueryCommandInput}
@@ -60,6 +63,8 @@ export interface DeleteStoredQueryCommandOutput extends DeleteStoredQueryRespons
  *          <p>For PutStoredQuery, you will see this exception if there are missing required fields or if the input value fails the validation, or if you are trying to create more than 300 queries.</p>
  *          <p>For GetStoredQuery, ListStoredQuery, and DeleteStoredQuery you will see this exception if there are missing required fields or if the input value fails the validation.</p>
  *
+ * @throws {@link ConfigServiceServiceException}
+ * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
  */
 export class DeleteStoredQueryCommand extends $Command<

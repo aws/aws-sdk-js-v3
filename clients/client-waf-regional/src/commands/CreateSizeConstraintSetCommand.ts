@@ -67,15 +67,35 @@ export interface CreateSizeConstraintSetCommandOutput extends CreateSizeConstrai
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WAFRegionalClient, CreateSizeConstraintSetCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
- * // const { WAFRegionalClient, CreateSizeConstraintSetCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import
+ * import { WAFRegionalClient, CreateSizeConstraintSetCommand } from '@aws-sdk/client-waf-regional'; // ES Modules import
+ * // const { WAFRegionalClient, CreateSizeConstraintSetCommand } = require('@aws-sdk/client-waf-regional'); // CommonJS import
  * const client = new WAFRegionalClient(config);
  * const input = { // CreateSizeConstraintSetRequest
- *   Name: "STRING_VALUE", // required
- *   ChangeToken: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
+ *   ChangeToken: 'STRING_VALUE', // required
  * };
  * const command = new CreateSizeConstraintSetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateSizeConstraintSetResponse
+ *   SizeConstraintSet: { // SizeConstraintSet
+ *     SizeConstraintSetId: 'STRING_VALUE', // required
+ *     Name: 'STRING_VALUE',
+ *     SizeConstraints: [ // SizeConstraints // required
+ *       { // SizeConstraint
+ *         FieldToMatch: { // FieldToMatch
+ *           Type: 'STRING_VALUE', // required
+ *           Data: 'STRING_VALUE',
+ *         },
+ *         TextTransformation: 'STRING_VALUE', // required
+ *         ComparisonOperator: 'STRING_VALUE', // required
+ *         Size: Number('long'), // required
+ *       },
+ *     ],
+ *   },
+ *   ChangeToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateSizeConstraintSetCommandInput - {@link CreateSizeConstraintSetCommandInput}
@@ -141,6 +161,8 @@ export interface CreateSizeConstraintSetCommandOutput extends CreateSizeConstrai
  * @throws {@link WAFStaleDataException} (client fault)
  *  <p>The operation failed because you tried to create, update, or delete an object by using a change token that has already been used.</p>
  *
+ * @throws {@link WAFRegionalServiceException}
+ * <p>Base exception class for all service exceptions from WAFRegional service.</p>
  *
  * @example To create a size constraint
  * ```javascript

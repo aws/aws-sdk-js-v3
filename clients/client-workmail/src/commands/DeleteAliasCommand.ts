@@ -37,16 +37,19 @@ export interface DeleteAliasCommandOutput extends DeleteAliasResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkMailClient, DeleteAliasCommand } from "@aws-sdk/client-workmail"; // ES Modules import
- * // const { WorkMailClient, DeleteAliasCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
+ * import { WorkMailClient, DeleteAliasCommand } from '@aws-sdk/client-workmail'; // ES Modules import
+ * // const { WorkMailClient, DeleteAliasCommand } = require('@aws-sdk/client-workmail'); // CommonJS import
  * const client = new WorkMailClient(config);
  * const input = { // DeleteAliasRequest
- *   OrganizationId: "STRING_VALUE", // required
- *   EntityId: "STRING_VALUE", // required
- *   Alias: "STRING_VALUE", // required
+ *   OrganizationId: 'STRING_VALUE', // required
+ *   EntityId: 'STRING_VALUE', // required
+ *   Alias: 'STRING_VALUE', // required
  * };
  * const command = new DeleteAliasCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteAliasCommandInput - {@link DeleteAliasCommandInput}
@@ -74,6 +77,8 @@ export interface DeleteAliasCommandOutput extends DeleteAliasResponse, __Metadat
  *  <p>The organization must have a valid state to perform certain
  *          operations on the organization or its members.</p>
  *
+ * @throws {@link WorkMailServiceException}
+ * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
  */
 export class DeleteAliasCommand extends $Command<

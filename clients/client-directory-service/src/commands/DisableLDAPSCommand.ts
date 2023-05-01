@@ -36,15 +36,18 @@ export interface DisableLDAPSCommandOutput extends DisableLDAPSResult, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DirectoryServiceClient, DisableLDAPSCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
- * // const { DirectoryServiceClient, DisableLDAPSCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
+ * import { DirectoryServiceClient, DisableLDAPSCommand } from '@aws-sdk/client-directory-service'; // ES Modules import
+ * // const { DirectoryServiceClient, DisableLDAPSCommand } = require('@aws-sdk/client-directory-service'); // CommonJS import
  * const client = new DirectoryServiceClient(config);
  * const input = { // DisableLDAPSRequest
- *   DirectoryId: "STRING_VALUE", // required
- *   Type: "Client", // required
+ *   DirectoryId: 'STRING_VALUE', // required
+ *   Type: 'Client', // required
  * };
  * const command = new DisableLDAPSCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DisableLDAPSCommandInput - {@link DisableLDAPSCommandInput}
@@ -75,6 +78,8 @@ export interface DisableLDAPSCommandOutput extends DisableLDAPSResult, __Metadat
  * @throws {@link UnsupportedOperationException} (client fault)
  *  <p>The operation is not supported.</p>
  *
+ * @throws {@link DirectoryServiceServiceException}
+ * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
  */
 export class DisableLDAPSCommand extends $Command<

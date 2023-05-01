@@ -36,17 +36,33 @@ export interface ListSegmentReferencesCommandOutput extends ListSegmentReference
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EvidentlyClient, ListSegmentReferencesCommand } from "@aws-sdk/client-evidently"; // ES Modules import
- * // const { EvidentlyClient, ListSegmentReferencesCommand } = require("@aws-sdk/client-evidently"); // CommonJS import
+ * import { EvidentlyClient, ListSegmentReferencesCommand } from '@aws-sdk/client-evidently'; // ES Modules import
+ * // const { EvidentlyClient, ListSegmentReferencesCommand } = require('@aws-sdk/client-evidently'); // CommonJS import
  * const client = new EvidentlyClient(config);
  * const input = { // ListSegmentReferencesRequest
- *   segment: "STRING_VALUE", // required
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
- *   type: "STRING_VALUE", // required
+ *   segment: 'STRING_VALUE', // required
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
+ *   type: 'STRING_VALUE', // required
  * };
  * const command = new ListSegmentReferencesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListSegmentReferencesResponse
+ *   referencedBy: [ // RefResourceList
+ *     { // RefResource
+ *       name: 'STRING_VALUE', // required
+ *       type: 'STRING_VALUE', // required
+ *       arn: 'STRING_VALUE',
+ *       status: 'STRING_VALUE',
+ *       startTime: 'STRING_VALUE',
+ *       endTime: 'STRING_VALUE',
+ *       lastUpdatedOn: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListSegmentReferencesCommandInput - {@link ListSegmentReferencesCommandInput}
@@ -67,6 +83,8 @@ export interface ListSegmentReferencesCommandOutput extends ListSegmentReference
  * @throws {@link ValidationException} (client fault)
  *  <p>The value of a parameter in the request caused an error.</p>
  *
+ * @throws {@link EvidentlyServiceException}
+ * <p>Base exception class for all service exceptions from Evidently service.</p>
  *
  */
 export class ListSegmentReferencesCommand extends $Command<

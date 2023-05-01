@@ -37,14 +37,21 @@ export interface DescribeIndexCommandOutput extends DescribeIndexResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTClient, DescribeIndexCommand } from "@aws-sdk/client-iot"; // ES Modules import
- * // const { IoTClient, DescribeIndexCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * import { IoTClient, DescribeIndexCommand } from '@aws-sdk/client-iot'; // ES Modules import
+ * // const { IoTClient, DescribeIndexCommand } = require('@aws-sdk/client-iot'); // CommonJS import
  * const client = new IoTClient(config);
  * const input = { // DescribeIndexRequest
- *   indexName: "STRING_VALUE", // required
+ *   indexName: 'STRING_VALUE', // required
  * };
  * const command = new DescribeIndexCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeIndexResponse
+ *   indexName: 'STRING_VALUE',
+ *   indexStatus: 'ACTIVE' || 'BUILDING' || 'REBUILDING',
+ *   schema: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeIndexCommandInput - {@link DescribeIndexCommandInput}
@@ -71,6 +78,8 @@ export interface DescribeIndexCommandOutput extends DescribeIndexResponse, __Met
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this operation.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class DescribeIndexCommand extends $Command<

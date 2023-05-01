@@ -44,19 +44,40 @@ export interface GetDevicePositionHistoryCommandOutput extends GetDevicePosition
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LocationClient, GetDevicePositionHistoryCommand } from "@aws-sdk/client-location"; // ES Modules import
- * // const { LocationClient, GetDevicePositionHistoryCommand } = require("@aws-sdk/client-location"); // CommonJS import
+ * import { LocationClient, GetDevicePositionHistoryCommand } from '@aws-sdk/client-location'; // ES Modules import
+ * // const { LocationClient, GetDevicePositionHistoryCommand } = require('@aws-sdk/client-location'); // CommonJS import
  * const client = new LocationClient(config);
  * const input = { // GetDevicePositionHistoryRequest
- *   TrackerName: "STRING_VALUE", // required
- *   DeviceId: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   StartTimeInclusive: new Date("TIMESTAMP"),
- *   EndTimeExclusive: new Date("TIMESTAMP"),
- *   MaxResults: Number("int"),
+ *   TrackerName: 'STRING_VALUE', // required
+ *   DeviceId: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
+ *   StartTimeInclusive: new Date('TIMESTAMP'),
+ *   EndTimeExclusive: new Date('TIMESTAMP'),
+ *   MaxResults: Number('int'),
  * };
  * const command = new GetDevicePositionHistoryCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetDevicePositionHistoryResponse
+ *   DevicePositions: [ // DevicePositionList // required
+ *     { // DevicePosition
+ *       DeviceId: 'STRING_VALUE',
+ *       SampleTime: new Date('TIMESTAMP'), // required
+ *       ReceivedTime: new Date('TIMESTAMP'), // required
+ *       Position: [ // Position // required
+ *         Number('double'),
+ *       ],
+ *       Accuracy: { // PositionalAccuracy
+ *         Horizontal: Number('double'), // required
+ *       },
+ *       PositionProperties: { // PropertyMap
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetDevicePositionHistoryCommandInput - {@link GetDevicePositionHistoryCommandInput}
@@ -81,6 +102,8 @@ export interface GetDevicePositionHistoryCommandOutput extends GetDevicePosition
  * @throws {@link ValidationException} (client fault)
  *  <p>The input failed to meet the constraints specified by the AWS service. </p>
  *
+ * @throws {@link LocationServiceException}
+ * <p>Base exception class for all service exceptions from Location service.</p>
  *
  */
 export class GetDevicePositionHistoryCommand extends $Command<

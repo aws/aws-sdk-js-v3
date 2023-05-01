@@ -36,83 +36,91 @@ export interface UpdateInAppTemplateCommandOutput extends UpdateInAppTemplateRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PinpointClient, UpdateInAppTemplateCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
- * // const { PinpointClient, UpdateInAppTemplateCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
+ * import { PinpointClient, UpdateInAppTemplateCommand } from '@aws-sdk/client-pinpoint'; // ES Modules import
+ * // const { PinpointClient, UpdateInAppTemplateCommand } = require('@aws-sdk/client-pinpoint'); // CommonJS import
  * const client = new PinpointClient(config);
  * const input = { // UpdateInAppTemplateRequest
  *   CreateNewVersion: true || false,
  *   InAppTemplateRequest: { // InAppTemplateRequest
  *     Content: [ // ListOfInAppMessageContent
  *       { // InAppMessageContent
- *         BackgroundColor: "STRING_VALUE",
+ *         BackgroundColor: 'STRING_VALUE',
  *         BodyConfig: { // InAppMessageBodyConfig
- *           Alignment: "LEFT" || "CENTER" || "RIGHT", // required
- *           Body: "STRING_VALUE", // required
- *           TextColor: "STRING_VALUE", // required
+ *           Alignment: 'LEFT' || 'CENTER' || 'RIGHT', // required
+ *           Body: 'STRING_VALUE', // required
+ *           TextColor: 'STRING_VALUE', // required
  *         },
  *         HeaderConfig: { // InAppMessageHeaderConfig
- *           Alignment: "LEFT" || "CENTER" || "RIGHT", // required
- *           Header: "STRING_VALUE", // required
- *           TextColor: "STRING_VALUE", // required
+ *           Alignment: 'LEFT' || 'CENTER' || 'RIGHT', // required
+ *           Header: 'STRING_VALUE', // required
+ *           TextColor: 'STRING_VALUE', // required
  *         },
- *         ImageUrl: "STRING_VALUE",
+ *         ImageUrl: 'STRING_VALUE',
  *         PrimaryBtn: { // InAppMessageButton
  *           Android: { // OverrideButtonConfiguration
- *             ButtonAction: "LINK" || "DEEP_LINK" || "CLOSE", // required
- *             Link: "STRING_VALUE",
+ *             ButtonAction: 'LINK' || 'DEEP_LINK' || 'CLOSE', // required
+ *             Link: 'STRING_VALUE',
  *           },
  *           DefaultConfig: { // DefaultButtonConfiguration
- *             BackgroundColor: "STRING_VALUE",
- *             BorderRadius: Number("int"),
- *             ButtonAction: "LINK" || "DEEP_LINK" || "CLOSE", // required
- *             Link: "STRING_VALUE",
- *             Text: "STRING_VALUE", // required
- *             TextColor: "STRING_VALUE",
+ *             BackgroundColor: 'STRING_VALUE',
+ *             BorderRadius: Number('int'),
+ *             ButtonAction: 'LINK' || 'DEEP_LINK' || 'CLOSE', // required
+ *             Link: 'STRING_VALUE',
+ *             Text: 'STRING_VALUE', // required
+ *             TextColor: 'STRING_VALUE',
  *           },
  *           IOS: {
- *             ButtonAction: "LINK" || "DEEP_LINK" || "CLOSE", // required
- *             Link: "STRING_VALUE",
+ *             ButtonAction: 'LINK' || 'DEEP_LINK' || 'CLOSE', // required
+ *             Link: 'STRING_VALUE',
  *           },
  *           Web: {
- *             ButtonAction: "LINK" || "DEEP_LINK" || "CLOSE", // required
- *             Link: "STRING_VALUE",
+ *             ButtonAction: 'LINK' || 'DEEP_LINK' || 'CLOSE', // required
+ *             Link: 'STRING_VALUE',
  *           },
  *         },
  *         SecondaryBtn: {
  *           Android: {
- *             ButtonAction: "LINK" || "DEEP_LINK" || "CLOSE", // required
- *             Link: "STRING_VALUE",
+ *             ButtonAction: 'LINK' || 'DEEP_LINK' || 'CLOSE', // required
+ *             Link: 'STRING_VALUE',
  *           },
  *           DefaultConfig: {
- *             BackgroundColor: "STRING_VALUE",
- *             BorderRadius: Number("int"),
- *             ButtonAction: "LINK" || "DEEP_LINK" || "CLOSE", // required
- *             Link: "STRING_VALUE",
- *             Text: "STRING_VALUE", // required
- *             TextColor: "STRING_VALUE",
+ *             BackgroundColor: 'STRING_VALUE',
+ *             BorderRadius: Number('int'),
+ *             ButtonAction: 'LINK' || 'DEEP_LINK' || 'CLOSE', // required
+ *             Link: 'STRING_VALUE',
+ *             Text: 'STRING_VALUE', // required
+ *             TextColor: 'STRING_VALUE',
  *           },
  *           IOS: {
- *             ButtonAction: "LINK" || "DEEP_LINK" || "CLOSE", // required
- *             Link: "STRING_VALUE",
+ *             ButtonAction: 'LINK' || 'DEEP_LINK' || 'CLOSE', // required
+ *             Link: 'STRING_VALUE',
  *           },
- *           Web: "<OverrideButtonConfiguration>",
+ *           Web: '<OverrideButtonConfiguration>',
  *         },
  *       },
  *     ],
  *     CustomConfig: { // MapOf__string
- *       "<keys>": "STRING_VALUE",
+ *       '<keys>': 'STRING_VALUE',
  *     },
- *     Layout: "BOTTOM_BANNER" || "TOP_BANNER" || "OVERLAYS" || "MOBILE_FEED" || "MIDDLE_BANNER" || "CAROUSEL",
+ *     Layout: 'BOTTOM_BANNER' || 'TOP_BANNER' || 'OVERLAYS' || 'MOBILE_FEED' || 'MIDDLE_BANNER' || 'CAROUSEL',
  *     tags: {
- *       "<keys>": "STRING_VALUE",
+ *       '<keys>': 'STRING_VALUE',
  *     },
- *     TemplateDescription: "STRING_VALUE",
+ *     TemplateDescription: 'STRING_VALUE',
  *   },
- *   TemplateName: "STRING_VALUE", // required
- *   Version: "STRING_VALUE",
+ *   TemplateName: 'STRING_VALUE', // required
+ *   Version: 'STRING_VALUE',
  * };
  * const command = new UpdateInAppTemplateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateInAppTemplateResponse
+ *   MessageBody: { // MessageBody
+ *     Message: 'STRING_VALUE',
+ *     RequestID: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateInAppTemplateCommandInput - {@link UpdateInAppTemplateCommandInput}
@@ -142,6 +150,8 @@ export interface UpdateInAppTemplateCommandOutput extends UpdateInAppTemplateRes
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Provides information about an API request or response.</p>
  *
+ * @throws {@link PinpointServiceException}
+ * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
  */
 export class UpdateInAppTemplateCommand extends $Command<

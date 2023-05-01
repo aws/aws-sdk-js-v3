@@ -36,25 +36,49 @@ export interface CreateQueueCommandOutput extends CreateQueueResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MediaConvertClient, CreateQueueCommand } from "@aws-sdk/client-mediaconvert"; // ES Modules import
- * // const { MediaConvertClient, CreateQueueCommand } = require("@aws-sdk/client-mediaconvert"); // CommonJS import
+ * import { MediaConvertClient, CreateQueueCommand } from '@aws-sdk/client-mediaconvert'; // ES Modules import
+ * // const { MediaConvertClient, CreateQueueCommand } = require('@aws-sdk/client-mediaconvert'); // CommonJS import
  * const client = new MediaConvertClient(config);
  * const input = { // CreateQueueRequest
- *   Description: "STRING_VALUE",
- *   Name: "STRING_VALUE", // required
- *   PricingPlan: "ON_DEMAND" || "RESERVED",
+ *   Description: 'STRING_VALUE',
+ *   Name: 'STRING_VALUE', // required
+ *   PricingPlan: 'ON_DEMAND' || 'RESERVED',
  *   ReservationPlanSettings: { // ReservationPlanSettings
- *     Commitment: "ONE_YEAR", // required
- *     RenewalType: "AUTO_RENEW" || "EXPIRE", // required
- *     ReservedSlots: Number("int"), // required
+ *     Commitment: 'ONE_YEAR', // required
+ *     RenewalType: 'AUTO_RENEW' || 'EXPIRE', // required
+ *     ReservedSlots: Number('int'), // required
  *   },
- *   Status: "ACTIVE" || "PAUSED",
+ *   Status: 'ACTIVE' || 'PAUSED',
  *   Tags: { // __mapOf__string
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateQueueCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateQueueResponse
+ *   Queue: { // Queue
+ *     Arn: 'STRING_VALUE',
+ *     CreatedAt: new Date('TIMESTAMP'),
+ *     Description: 'STRING_VALUE',
+ *     LastUpdated: new Date('TIMESTAMP'),
+ *     Name: 'STRING_VALUE', // required
+ *     PricingPlan: 'ON_DEMAND' || 'RESERVED',
+ *     ProgressingJobsCount: Number('int'),
+ *     ReservationPlan: { // ReservationPlan
+ *       Commitment: 'ONE_YEAR',
+ *       ExpiresAt: new Date('TIMESTAMP'),
+ *       PurchasedAt: new Date('TIMESTAMP'),
+ *       RenewalType: 'AUTO_RENEW' || 'EXPIRE',
+ *       ReservedSlots: Number('int'),
+ *       Status: 'ACTIVE' || 'EXPIRED',
+ *     },
+ *     Status: 'ACTIVE' || 'PAUSED',
+ *     SubmittedJobsCount: Number('int'),
+ *     Type: 'SYSTEM' || 'CUSTOM',
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateQueueCommandInput - {@link CreateQueueCommandInput}
@@ -81,6 +105,8 @@ export interface CreateQueueCommandOutput extends CreateQueueResponse, __Metadat
  * @throws {@link TooManyRequestsException} (client fault)
  *  Too many requests have been sent in too short of a time. The service limits the rate at which it will accept requests.
  *
+ * @throws {@link MediaConvertServiceException}
+ * <p>Base exception class for all service exceptions from MediaConvert service.</p>
  *
  */
 export class CreateQueueCommand extends $Command<

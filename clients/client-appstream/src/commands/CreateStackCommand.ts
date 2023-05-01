@@ -36,52 +36,103 @@ export interface CreateStackCommandOutput extends CreateStackResult, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppStreamClient, CreateStackCommand } from "@aws-sdk/client-appstream"; // ES Modules import
- * // const { AppStreamClient, CreateStackCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
+ * import { AppStreamClient, CreateStackCommand } from '@aws-sdk/client-appstream'; // ES Modules import
+ * // const { AppStreamClient, CreateStackCommand } = require('@aws-sdk/client-appstream'); // CommonJS import
  * const client = new AppStreamClient(config);
  * const input = { // CreateStackRequest
- *   Name: "STRING_VALUE", // required
- *   Description: "STRING_VALUE",
- *   DisplayName: "STRING_VALUE",
+ *   Name: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE',
+ *   DisplayName: 'STRING_VALUE',
  *   StorageConnectors: [ // StorageConnectorList
  *     { // StorageConnector
- *       ConnectorType: "HOMEFOLDERS" || "GOOGLE_DRIVE" || "ONE_DRIVE", // required
- *       ResourceIdentifier: "STRING_VALUE",
+ *       ConnectorType: 'HOMEFOLDERS' || 'GOOGLE_DRIVE' || 'ONE_DRIVE', // required
+ *       ResourceIdentifier: 'STRING_VALUE',
  *       Domains: [ // DomainList
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
- *   RedirectURL: "STRING_VALUE",
- *   FeedbackURL: "STRING_VALUE",
+ *   RedirectURL: 'STRING_VALUE',
+ *   FeedbackURL: 'STRING_VALUE',
  *   UserSettings: [ // UserSettingList
  *     { // UserSetting
- *       Action: "CLIPBOARD_COPY_FROM_LOCAL_DEVICE" || "CLIPBOARD_COPY_TO_LOCAL_DEVICE" || "FILE_UPLOAD" || "FILE_DOWNLOAD" || "PRINTING_TO_LOCAL_DEVICE" || "DOMAIN_PASSWORD_SIGNIN" || "DOMAIN_SMART_CARD_SIGNIN", // required
- *       Permission: "ENABLED" || "DISABLED", // required
+ *       Action: 'CLIPBOARD_COPY_FROM_LOCAL_DEVICE' || 'CLIPBOARD_COPY_TO_LOCAL_DEVICE' || 'FILE_UPLOAD' || 'FILE_DOWNLOAD' || 'PRINTING_TO_LOCAL_DEVICE' || 'DOMAIN_PASSWORD_SIGNIN' || 'DOMAIN_SMART_CARD_SIGNIN', // required
+ *       Permission: 'ENABLED' || 'DISABLED', // required
  *     },
  *   ],
  *   ApplicationSettings: { // ApplicationSettings
  *     Enabled: true || false, // required
- *     SettingsGroup: "STRING_VALUE",
+ *     SettingsGroup: 'STRING_VALUE',
  *   },
  *   Tags: { // Tags
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  *   AccessEndpoints: [ // AccessEndpointList
  *     { // AccessEndpoint
- *       EndpointType: "STREAMING", // required
- *       VpceId: "STRING_VALUE",
+ *       EndpointType: 'STREAMING', // required
+ *       VpceId: 'STRING_VALUE',
  *     },
  *   ],
  *   EmbedHostDomains: [ // EmbedHostDomains
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   StreamingExperienceSettings: { // StreamingExperienceSettings
- *     PreferredProtocol: "TCP" || "UDP",
+ *     PreferredProtocol: 'TCP' || 'UDP',
  *   },
  * };
  * const command = new CreateStackCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateStackResult
+ *   Stack: { // Stack
+ *     Arn: 'STRING_VALUE',
+ *     Name: 'STRING_VALUE', // required
+ *     Description: 'STRING_VALUE',
+ *     DisplayName: 'STRING_VALUE',
+ *     CreatedTime: new Date('TIMESTAMP'),
+ *     StorageConnectors: [ // StorageConnectorList
+ *       { // StorageConnector
+ *         ConnectorType: 'HOMEFOLDERS' || 'GOOGLE_DRIVE' || 'ONE_DRIVE', // required
+ *         ResourceIdentifier: 'STRING_VALUE',
+ *         Domains: [ // DomainList
+ *           'STRING_VALUE',
+ *         ],
+ *       },
+ *     ],
+ *     RedirectURL: 'STRING_VALUE',
+ *     FeedbackURL: 'STRING_VALUE',
+ *     StackErrors: [ // StackErrors
+ *       { // StackError
+ *         ErrorCode: 'STORAGE_CONNECTOR_ERROR' || 'INTERNAL_SERVICE_ERROR',
+ *         ErrorMessage: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     UserSettings: [ // UserSettingList
+ *       { // UserSetting
+ *         Action: 'CLIPBOARD_COPY_FROM_LOCAL_DEVICE' || 'CLIPBOARD_COPY_TO_LOCAL_DEVICE' || 'FILE_UPLOAD' || 'FILE_DOWNLOAD' || 'PRINTING_TO_LOCAL_DEVICE' || 'DOMAIN_PASSWORD_SIGNIN' || 'DOMAIN_SMART_CARD_SIGNIN', // required
+ *         Permission: 'ENABLED' || 'DISABLED', // required
+ *       },
+ *     ],
+ *     ApplicationSettings: { // ApplicationSettingsResponse
+ *       Enabled: true || false,
+ *       SettingsGroup: 'STRING_VALUE',
+ *       S3BucketName: 'STRING_VALUE',
+ *     },
+ *     AccessEndpoints: [ // AccessEndpointList
+ *       { // AccessEndpoint
+ *         EndpointType: 'STREAMING', // required
+ *         VpceId: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     EmbedHostDomains: [ // EmbedHostDomains
+ *       'STRING_VALUE',
+ *     ],
+ *     StreamingExperienceSettings: { // StreamingExperienceSettings
+ *       PreferredProtocol: 'TCP' || 'UDP',
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateStackCommandInput - {@link CreateStackCommandInput}
@@ -111,6 +162,8 @@ export interface CreateStackCommandOutput extends CreateStackResult, __MetadataB
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link AppStreamServiceException}
+ * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
  */
 export class CreateStackCommand extends $Command<

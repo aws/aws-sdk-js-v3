@@ -36,27 +36,32 @@ export interface UpdateAppImageConfigCommandOutput extends UpdateAppImageConfigR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, UpdateAppImageConfigCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, UpdateAppImageConfigCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, UpdateAppImageConfigCommand } from '@aws-sdk/client-sagemaker'; // ES Modules import
+ * // const { SageMakerClient, UpdateAppImageConfigCommand } = require('@aws-sdk/client-sagemaker'); // CommonJS import
  * const client = new SageMakerClient(config);
  * const input = { // UpdateAppImageConfigRequest
- *   AppImageConfigName: "STRING_VALUE", // required
+ *   AppImageConfigName: 'STRING_VALUE', // required
  *   KernelGatewayImageConfig: { // KernelGatewayImageConfig
  *     KernelSpecs: [ // KernelSpecs // required
  *       { // KernelSpec
- *         Name: "STRING_VALUE", // required
- *         DisplayName: "STRING_VALUE",
+ *         Name: 'STRING_VALUE', // required
+ *         DisplayName: 'STRING_VALUE',
  *       },
  *     ],
  *     FileSystemConfig: { // FileSystemConfig
- *       MountPath: "STRING_VALUE",
- *       DefaultUid: Number("int"),
- *       DefaultGid: Number("int"),
+ *       MountPath: 'STRING_VALUE',
+ *       DefaultUid: Number('int'),
+ *       DefaultGid: Number('int'),
  *     },
  *   },
  * };
  * const command = new UpdateAppImageConfigCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateAppImageConfigResponse
+ *   AppImageConfigArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateAppImageConfigCommandInput - {@link UpdateAppImageConfigCommandInput}
@@ -68,6 +73,8 @@ export interface UpdateAppImageConfigCommandOutput extends UpdateAppImageConfigR
  * @throws {@link ResourceNotFound} (client fault)
  *  <p>Resource being access is not found.</p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class UpdateAppImageConfigCommand extends $Command<

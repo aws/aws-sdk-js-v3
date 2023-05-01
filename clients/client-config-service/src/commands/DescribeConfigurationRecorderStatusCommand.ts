@@ -51,16 +51,32 @@ export interface DescribeConfigurationRecorderStatusCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConfigServiceClient, DescribeConfigurationRecorderStatusCommand } from "@aws-sdk/client-config-service"; // ES Modules import
- * // const { ConfigServiceClient, DescribeConfigurationRecorderStatusCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
+ * import { ConfigServiceClient, DescribeConfigurationRecorderStatusCommand } from '@aws-sdk/client-config-service'; // ES Modules import
+ * // const { ConfigServiceClient, DescribeConfigurationRecorderStatusCommand } = require('@aws-sdk/client-config-service'); // CommonJS import
  * const client = new ConfigServiceClient(config);
  * const input = { // DescribeConfigurationRecorderStatusRequest
  *   ConfigurationRecorderNames: [ // ConfigurationRecorderNameList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new DescribeConfigurationRecorderStatusCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeConfigurationRecorderStatusResponse
+ *   ConfigurationRecordersStatus: [ // ConfigurationRecorderStatusList
+ *     { // ConfigurationRecorderStatus
+ *       name: 'STRING_VALUE',
+ *       lastStartTime: new Date('TIMESTAMP'),
+ *       lastStopTime: new Date('TIMESTAMP'),
+ *       recording: true || false,
+ *       lastStatus: 'Pending' || 'Success' || 'Failure',
+ *       lastErrorCode: 'STRING_VALUE',
+ *       lastErrorMessage: 'STRING_VALUE',
+ *       lastStatusChangeTime: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeConfigurationRecorderStatusCommandInput - {@link DescribeConfigurationRecorderStatusCommandInput}
@@ -73,6 +89,8 @@ export interface DescribeConfigurationRecorderStatusCommandOutput
  *  <p>You have specified a configuration recorder that does not
  * 			exist.</p>
  *
+ * @throws {@link ConfigServiceServiceException}
+ * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
  */
 export class DescribeConfigurationRecorderStatusCommand extends $Command<

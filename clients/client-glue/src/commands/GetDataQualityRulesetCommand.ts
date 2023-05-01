@@ -36,14 +36,28 @@ export interface GetDataQualityRulesetCommandOutput extends GetDataQualityRulese
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlueClient, GetDataQualityRulesetCommand } from "@aws-sdk/client-glue"; // ES Modules import
- * // const { GlueClient, GetDataQualityRulesetCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * import { GlueClient, GetDataQualityRulesetCommand } from '@aws-sdk/client-glue'; // ES Modules import
+ * // const { GlueClient, GetDataQualityRulesetCommand } = require('@aws-sdk/client-glue'); // CommonJS import
  * const client = new GlueClient(config);
  * const input = { // GetDataQualityRulesetRequest
- *   Name: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
  * };
  * const command = new GetDataQualityRulesetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetDataQualityRulesetResponse
+ *   Name: 'STRING_VALUE',
+ *   Description: 'STRING_VALUE',
+ *   Ruleset: 'STRING_VALUE',
+ *   TargetTable: { // DataQualityTargetTable
+ *     TableName: 'STRING_VALUE', // required
+ *     DatabaseName: 'STRING_VALUE', // required
+ *   },
+ *   CreatedOn: new Date('TIMESTAMP'),
+ *   LastModifiedOn: new Date('TIMESTAMP'),
+ *   RecommendationRunId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetDataQualityRulesetCommandInput - {@link GetDataQualityRulesetCommandInput}
@@ -64,6 +78,8 @@ export interface GetDataQualityRulesetCommandOutput extends GetDataQualityRulese
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class GetDataQualityRulesetCommand extends $Command<

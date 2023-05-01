@@ -40,14 +40,19 @@ export interface DeleteDirectoryCommandOutput extends DeleteDirectoryResult, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DirectoryServiceClient, DeleteDirectoryCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
- * // const { DirectoryServiceClient, DeleteDirectoryCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
+ * import { DirectoryServiceClient, DeleteDirectoryCommand } from '@aws-sdk/client-directory-service'; // ES Modules import
+ * // const { DirectoryServiceClient, DeleteDirectoryCommand } = require('@aws-sdk/client-directory-service'); // CommonJS import
  * const client = new DirectoryServiceClient(config);
  * const input = { // DeleteDirectoryRequest
- *   DirectoryId: "STRING_VALUE", // required
+ *   DirectoryId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteDirectoryCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteDirectoryResult
+ *   DirectoryId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DeleteDirectoryCommandInput - {@link DeleteDirectoryCommandInput}
@@ -65,6 +70,8 @@ export interface DeleteDirectoryCommandOutput extends DeleteDirectoryResult, __M
  * @throws {@link ServiceException} (server fault)
  *  <p>An exception has occurred in Directory Service.</p>
  *
+ * @throws {@link DirectoryServiceServiceException}
+ * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
  */
 export class DeleteDirectoryCommand extends $Command<

@@ -36,17 +36,39 @@ export interface ListTemplatesCommandOutput extends ListTemplatesResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PinpointClient, ListTemplatesCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
- * // const { PinpointClient, ListTemplatesCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
+ * import { PinpointClient, ListTemplatesCommand } from '@aws-sdk/client-pinpoint'; // ES Modules import
+ * // const { PinpointClient, ListTemplatesCommand } = require('@aws-sdk/client-pinpoint'); // CommonJS import
  * const client = new PinpointClient(config);
  * const input = { // ListTemplatesRequest
- *   NextToken: "STRING_VALUE",
- *   PageSize: "STRING_VALUE",
- *   Prefix: "STRING_VALUE",
- *   TemplateType: "STRING_VALUE",
+ *   NextToken: 'STRING_VALUE',
+ *   PageSize: 'STRING_VALUE',
+ *   Prefix: 'STRING_VALUE',
+ *   TemplateType: 'STRING_VALUE',
  * };
  * const command = new ListTemplatesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTemplatesResponse
+ *   TemplatesResponse: { // TemplatesResponse
+ *     Item: [ // ListOfTemplateResponse // required
+ *       { // TemplateResponse
+ *         Arn: 'STRING_VALUE',
+ *         CreationDate: 'STRING_VALUE', // required
+ *         DefaultSubstitutions: 'STRING_VALUE',
+ *         LastModifiedDate: 'STRING_VALUE', // required
+ *         tags: { // MapOf__string
+ *           '<keys>': 'STRING_VALUE',
+ *         },
+ *         TemplateDescription: 'STRING_VALUE',
+ *         TemplateName: 'STRING_VALUE', // required
+ *         TemplateType: 'EMAIL' || 'SMS' || 'VOICE' || 'PUSH' || 'INAPP', // required
+ *         Version: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     NextToken: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param ListTemplatesCommandInput - {@link ListTemplatesCommandInput}
@@ -70,6 +92,8 @@ export interface ListTemplatesCommandOutput extends ListTemplatesResponse, __Met
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Provides information about an API request or response.</p>
  *
+ * @throws {@link PinpointServiceException}
+ * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
  */
 export class ListTemplatesCommand extends $Command<

@@ -49,17 +49,29 @@ export interface DeleteFleetLocationsCommandOutput extends DeleteFleetLocationsO
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GameLiftClient, DeleteFleetLocationsCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
- * // const { GameLiftClient, DeleteFleetLocationsCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
+ * import { GameLiftClient, DeleteFleetLocationsCommand } from '@aws-sdk/client-gamelift'; // ES Modules import
+ * // const { GameLiftClient, DeleteFleetLocationsCommand } = require('@aws-sdk/client-gamelift'); // CommonJS import
  * const client = new GameLiftClient(config);
  * const input = { // DeleteFleetLocationsInput
- *   FleetId: "STRING_VALUE", // required
+ *   FleetId: 'STRING_VALUE', // required
  *   Locations: [ // LocationList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new DeleteFleetLocationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteFleetLocationsOutput
+ *   FleetId: 'STRING_VALUE',
+ *   FleetArn: 'STRING_VALUE',
+ *   LocationStates: [ // LocationStateList
+ *     { // LocationState
+ *       Location: 'STRING_VALUE',
+ *       Status: 'NEW' || 'DOWNLOADING' || 'VALIDATING' || 'BUILDING' || 'ACTIVATING' || 'ACTIVE' || 'DELETING' || 'ERROR' || 'TERMINATED' || 'NOT_FOUND',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DeleteFleetLocationsCommandInput - {@link DeleteFleetLocationsCommandInput}
@@ -85,6 +97,8 @@ export interface DeleteFleetLocationsCommandOutput extends DeleteFleetLocationsO
  * @throws {@link UnsupportedRegionException} (client fault)
  *  <p>The requested operation is not supported in the Region specified.</p>
  *
+ * @throws {@link GameLiftServiceException}
+ * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
  */
 export class DeleteFleetLocationsCommand extends $Command<

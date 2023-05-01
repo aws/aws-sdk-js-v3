@@ -36,19 +36,33 @@ export interface GetConnectPeerAssociationsCommandOutput extends GetConnectPeerA
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { NetworkManagerClient, GetConnectPeerAssociationsCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
- * // const { NetworkManagerClient, GetConnectPeerAssociationsCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
+ * import { NetworkManagerClient, GetConnectPeerAssociationsCommand } from '@aws-sdk/client-networkmanager'; // ES Modules import
+ * // const { NetworkManagerClient, GetConnectPeerAssociationsCommand } = require('@aws-sdk/client-networkmanager'); // CommonJS import
  * const client = new NetworkManagerClient(config);
  * const input = { // GetConnectPeerAssociationsRequest
- *   GlobalNetworkId: "STRING_VALUE", // required
+ *   GlobalNetworkId: 'STRING_VALUE', // required
  *   ConnectPeerIds: [ // ConnectPeerIdList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new GetConnectPeerAssociationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetConnectPeerAssociationsResponse
+ *   ConnectPeerAssociations: [ // ConnectPeerAssociationList
+ *     { // ConnectPeerAssociation
+ *       ConnectPeerId: 'STRING_VALUE',
+ *       GlobalNetworkId: 'STRING_VALUE',
+ *       DeviceId: 'STRING_VALUE',
+ *       LinkId: 'STRING_VALUE',
+ *       State: 'PENDING' || 'AVAILABLE' || 'DELETING' || 'DELETED',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetConnectPeerAssociationsCommandInput - {@link GetConnectPeerAssociationsCommandInput}
@@ -76,6 +90,8 @@ export interface GetConnectPeerAssociationsCommandOutput extends GetConnectPeerA
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints.</p>
  *
+ * @throws {@link NetworkManagerServiceException}
+ * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
  */
 export class GetConnectPeerAssociationsCommand extends $Command<

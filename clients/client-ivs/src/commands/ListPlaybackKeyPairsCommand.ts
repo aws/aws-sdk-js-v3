@@ -37,15 +37,29 @@ export interface ListPlaybackKeyPairsCommandOutput extends ListPlaybackKeyPairsR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IvsClient, ListPlaybackKeyPairsCommand } from "@aws-sdk/client-ivs"; // ES Modules import
- * // const { IvsClient, ListPlaybackKeyPairsCommand } = require("@aws-sdk/client-ivs"); // CommonJS import
+ * import { IvsClient, ListPlaybackKeyPairsCommand } from '@aws-sdk/client-ivs'; // ES Modules import
+ * // const { IvsClient, ListPlaybackKeyPairsCommand } = require('@aws-sdk/client-ivs'); // CommonJS import
  * const client = new IvsClient(config);
  * const input = { // ListPlaybackKeyPairsRequest
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new ListPlaybackKeyPairsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListPlaybackKeyPairsResponse
+ *   keyPairs: [ // PlaybackKeyPairList // required
+ *     { // PlaybackKeyPairSummary
+ *       arn: 'STRING_VALUE',
+ *       name: 'STRING_VALUE',
+ *       tags: { // Tags
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListPlaybackKeyPairsCommandInput - {@link ListPlaybackKeyPairsCommandInput}
@@ -60,6 +74,8 @@ export interface ListPlaybackKeyPairsCommandOutput extends ListPlaybackKeyPairsR
  * @throws {@link ValidationException} (client fault)
  *  <p/>
  *
+ * @throws {@link IvsServiceException}
+ * <p>Base exception class for all service exceptions from Ivs service.</p>
  *
  */
 export class ListPlaybackKeyPairsCommand extends $Command<

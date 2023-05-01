@@ -37,22 +37,28 @@ export interface JoinDomainCommandOutput extends JoinDomainOutput, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { StorageGatewayClient, JoinDomainCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
- * // const { StorageGatewayClient, JoinDomainCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
+ * import { StorageGatewayClient, JoinDomainCommand } from '@aws-sdk/client-storage-gateway'; // ES Modules import
+ * // const { StorageGatewayClient, JoinDomainCommand } = require('@aws-sdk/client-storage-gateway'); // CommonJS import
  * const client = new StorageGatewayClient(config);
  * const input = { // JoinDomainInput
- *   GatewayARN: "STRING_VALUE", // required
- *   DomainName: "STRING_VALUE", // required
- *   OrganizationalUnit: "STRING_VALUE",
+ *   GatewayARN: 'STRING_VALUE', // required
+ *   DomainName: 'STRING_VALUE', // required
+ *   OrganizationalUnit: 'STRING_VALUE',
  *   DomainControllers: [ // Hosts
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   TimeoutInSeconds: Number("int"),
- *   UserName: "STRING_VALUE", // required
- *   Password: "STRING_VALUE", // required
+ *   TimeoutInSeconds: Number('int'),
+ *   UserName: 'STRING_VALUE', // required
+ *   Password: 'STRING_VALUE', // required
  * };
  * const command = new JoinDomainCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // JoinDomainOutput
+ *   GatewayARN: 'STRING_VALUE',
+ *   ActiveDirectoryStatus: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param JoinDomainCommandInput - {@link JoinDomainCommandInput}
@@ -69,6 +75,8 @@ export interface JoinDomainCommandOutput extends JoinDomainOutput, __MetadataBea
  *  <p>An exception occurred because an invalid gateway request was issued to the service. For
  *          more information, see the error and message fields.</p>
  *
+ * @throws {@link StorageGatewayServiceException}
+ * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
  */
 export class JoinDomainCommand extends $Command<

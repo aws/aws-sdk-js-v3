@@ -36,14 +36,24 @@ export interface StopPipeCommandOutput extends StopPipeResponse, __MetadataBeare
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PipesClient, StopPipeCommand } from "@aws-sdk/client-pipes"; // ES Modules import
- * // const { PipesClient, StopPipeCommand } = require("@aws-sdk/client-pipes"); // CommonJS import
+ * import { PipesClient, StopPipeCommand } from '@aws-sdk/client-pipes'; // ES Modules import
+ * // const { PipesClient, StopPipeCommand } = require('@aws-sdk/client-pipes'); // CommonJS import
  * const client = new PipesClient(config);
  * const input = { // StopPipeRequest
- *   Name: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
  * };
  * const command = new StopPipeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StopPipeResponse
+ *   Arn: 'STRING_VALUE',
+ *   Name: 'STRING_VALUE',
+ *   DesiredState: 'STRING_VALUE',
+ *   CurrentState: 'STRING_VALUE',
+ *   CreationTime: new Date('TIMESTAMP'),
+ *   LastModifiedTime: new Date('TIMESTAMP'),
+ * };
+ *
  * ```
  *
  * @param StopPipeCommandInput - {@link StopPipeCommandInput}
@@ -67,6 +77,8 @@ export interface StopPipeCommandOutput extends StopPipeResponse, __MetadataBeare
  * @throws {@link ValidationException} (client fault)
  *  <p>Indicates that an error has occurred while performing a validate operation.</p>
  *
+ * @throws {@link PipesServiceException}
+ * <p>Base exception class for all service exceptions from Pipes service.</p>
  *
  */
 export class StopPipeCommand extends $Command<StopPipeCommandInput, StopPipeCommandOutput, PipesClientResolvedConfig> {

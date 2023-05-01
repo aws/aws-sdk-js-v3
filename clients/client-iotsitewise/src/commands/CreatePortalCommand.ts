@@ -42,31 +42,46 @@ export interface CreatePortalCommandOutput extends CreatePortalResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTSiteWiseClient, CreatePortalCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
- * // const { IoTSiteWiseClient, CreatePortalCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
+ * import { IoTSiteWiseClient, CreatePortalCommand } from '@aws-sdk/client-iotsitewise'; // ES Modules import
+ * // const { IoTSiteWiseClient, CreatePortalCommand } = require('@aws-sdk/client-iotsitewise'); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
  * const input = { // CreatePortalRequest
- *   portalName: "STRING_VALUE", // required
- *   portalDescription: "STRING_VALUE",
- *   portalContactEmail: "STRING_VALUE", // required
- *   clientToken: "STRING_VALUE",
+ *   portalName: 'STRING_VALUE', // required
+ *   portalDescription: 'STRING_VALUE',
+ *   portalContactEmail: 'STRING_VALUE', // required
+ *   clientToken: 'STRING_VALUE',
  *   portalLogoImageFile: { // ImageFile
- *     data: "BLOB_VALUE", // required
- *     type: "PNG", // required
+ *     data: 'BLOB_VALUE', // required
+ *     type: 'PNG', // required
  *   },
- *   roleArn: "STRING_VALUE", // required
+ *   roleArn: 'STRING_VALUE', // required
  *   tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
- *   portalAuthMode: "IAM" || "SSO",
- *   notificationSenderEmail: "STRING_VALUE",
+ *   portalAuthMode: 'IAM' || 'SSO',
+ *   notificationSenderEmail: 'STRING_VALUE',
  *   alarms: { // Alarms
- *     alarmRoleArn: "STRING_VALUE", // required
- *     notificationLambdaArn: "STRING_VALUE",
+ *     alarmRoleArn: 'STRING_VALUE', // required
+ *     notificationLambdaArn: 'STRING_VALUE',
  *   },
  * };
  * const command = new CreatePortalCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreatePortalResponse
+ *   portalId: 'STRING_VALUE', // required
+ *   portalArn: 'STRING_VALUE', // required
+ *   portalStartUrl: 'STRING_VALUE', // required
+ *   portalStatus: { // PortalStatus
+ *     state: 'CREATING' || 'UPDATING' || 'DELETING' || 'ACTIVE' || 'FAILED', // required
+ *     error: { // MonitorErrorDetails
+ *       code: 'INTERNAL_FAILURE' || 'VALIDATION_ERROR' || 'LIMIT_EXCEEDED',
+ *       message: 'STRING_VALUE',
+ *     },
+ *   },
+ *   ssoApplicationId: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param CreatePortalCommandInput - {@link CreatePortalCommandInput}
@@ -97,6 +112,8 @@ export interface CreatePortalCommandOutput extends CreatePortalResponse, __Metad
  *       on.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
  *
+ * @throws {@link IoTSiteWiseServiceException}
+ * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
  */
 export class CreatePortalCommand extends $Command<

@@ -39,23 +39,40 @@ export interface SearchAnalysesCommandOutput extends SearchAnalysesResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { QuickSightClient, SearchAnalysesCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
- * // const { QuickSightClient, SearchAnalysesCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * import { QuickSightClient, SearchAnalysesCommand } from '@aws-sdk/client-quicksight'; // ES Modules import
+ * // const { QuickSightClient, SearchAnalysesCommand } = require('@aws-sdk/client-quicksight'); // CommonJS import
  * const client = new QuickSightClient(config);
  * const input = { // SearchAnalysesRequest
- *   AwsAccountId: "STRING_VALUE", // required
+ *   AwsAccountId: 'STRING_VALUE', // required
  *   Filters: [ // AnalysisSearchFilterList // required
  *     { // AnalysisSearchFilter
- *       Operator: "StringEquals" || "StringLike",
- *       Name: "QUICKSIGHT_USER" || "QUICKSIGHT_VIEWER_OR_OWNER" || "DIRECT_QUICKSIGHT_VIEWER_OR_OWNER" || "QUICKSIGHT_OWNER" || "DIRECT_QUICKSIGHT_OWNER" || "DIRECT_QUICKSIGHT_SOLE_OWNER" || "ANALYSIS_NAME",
- *       Value: "STRING_VALUE",
+ *       Operator: 'StringEquals' || 'StringLike',
+ *       Name: 'QUICKSIGHT_USER' || 'QUICKSIGHT_VIEWER_OR_OWNER' || 'DIRECT_QUICKSIGHT_VIEWER_OR_OWNER' || 'QUICKSIGHT_OWNER' || 'DIRECT_QUICKSIGHT_OWNER' || 'DIRECT_QUICKSIGHT_SOLE_OWNER' || 'ANALYSIS_NAME',
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new SearchAnalysesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SearchAnalysesResponse
+ *   AnalysisSummaryList: [ // AnalysisSummaryList
+ *     { // AnalysisSummary
+ *       Arn: 'STRING_VALUE',
+ *       AnalysisId: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *       Status: 'CREATION_IN_PROGRESS' || 'CREATION_SUCCESSFUL' || 'CREATION_FAILED' || 'UPDATE_IN_PROGRESS' || 'UPDATE_SUCCESSFUL' || 'UPDATE_FAILED' || 'DELETED',
+ *       CreatedTime: new Date('TIMESTAMP'),
+ *       LastUpdatedTime: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ *   Status: Number('int'),
+ *   RequestId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param SearchAnalysesCommandInput - {@link SearchAnalysesCommandInput}
@@ -85,6 +102,8 @@ export interface SearchAnalysesCommandOutput extends SearchAnalysesResponse, __M
  * 			Amazon QuickSight currently has Standard Edition and Enterprise Edition. Not every operation and
  * 			capability is available in every edition.</p>
  *
+ * @throws {@link QuickSightServiceException}
+ * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
 export class SearchAnalysesCommand extends $Command<

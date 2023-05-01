@@ -41,30 +41,37 @@ export interface CreateThingGroupCommandOutput extends CreateThingGroupResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTClient, CreateThingGroupCommand } from "@aws-sdk/client-iot"; // ES Modules import
- * // const { IoTClient, CreateThingGroupCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * import { IoTClient, CreateThingGroupCommand } from '@aws-sdk/client-iot'; // ES Modules import
+ * // const { IoTClient, CreateThingGroupCommand } = require('@aws-sdk/client-iot'); // CommonJS import
  * const client = new IoTClient(config);
  * const input = { // CreateThingGroupRequest
- *   thingGroupName: "STRING_VALUE", // required
- *   parentGroupName: "STRING_VALUE",
+ *   thingGroupName: 'STRING_VALUE', // required
+ *   parentGroupName: 'STRING_VALUE',
  *   thingGroupProperties: { // ThingGroupProperties
- *     thingGroupDescription: "STRING_VALUE",
+ *     thingGroupDescription: 'STRING_VALUE',
  *     attributePayload: { // AttributePayload
  *       attributes: { // Attributes
- *         "<keys>": "STRING_VALUE",
+ *         '<keys>': 'STRING_VALUE',
  *       },
  *       merge: true || false,
  *     },
  *   },
  *   tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new CreateThingGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateThingGroupResponse
+ *   thingGroupName: 'STRING_VALUE',
+ *   thingGroupArn: 'STRING_VALUE',
+ *   thingGroupId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateThingGroupCommandInput - {@link CreateThingGroupCommandInput}
@@ -85,6 +92,8 @@ export interface CreateThingGroupCommandOutput extends CreateThingGroupResponse,
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The rate exceeds the limit.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class CreateThingGroupCommand extends $Command<

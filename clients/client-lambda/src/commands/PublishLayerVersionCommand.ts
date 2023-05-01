@@ -43,28 +43,51 @@ export interface PublishLayerVersionCommandOutput extends PublishLayerVersionRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LambdaClient, PublishLayerVersionCommand } from "@aws-sdk/client-lambda"; // ES Modules import
- * // const { LambdaClient, PublishLayerVersionCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
+ * import { LambdaClient, PublishLayerVersionCommand } from '@aws-sdk/client-lambda'; // ES Modules import
+ * // const { LambdaClient, PublishLayerVersionCommand } = require('@aws-sdk/client-lambda'); // CommonJS import
  * const client = new LambdaClient(config);
  * const input = { // PublishLayerVersionRequest
- *   LayerName: "STRING_VALUE", // required
- *   Description: "STRING_VALUE",
+ *   LayerName: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE',
  *   Content: { // LayerVersionContentInput
- *     S3Bucket: "STRING_VALUE",
- *     S3Key: "STRING_VALUE",
- *     S3ObjectVersion: "STRING_VALUE",
- *     ZipFile: "BLOB_VALUE",
+ *     S3Bucket: 'STRING_VALUE',
+ *     S3Key: 'STRING_VALUE',
+ *     S3ObjectVersion: 'STRING_VALUE',
+ *     ZipFile: 'BLOB_VALUE',
  *   },
  *   CompatibleRuntimes: [ // CompatibleRuntimes
- *     "nodejs" || "nodejs4.3" || "nodejs6.10" || "nodejs8.10" || "nodejs10.x" || "nodejs12.x" || "nodejs14.x" || "nodejs16.x" || "java8" || "java8.al2" || "java11" || "python2.7" || "python3.6" || "python3.7" || "python3.8" || "python3.9" || "dotnetcore1.0" || "dotnetcore2.0" || "dotnetcore2.1" || "dotnetcore3.1" || "dotnet6" || "nodejs4.3-edge" || "go1.x" || "ruby2.5" || "ruby2.7" || "provided" || "provided.al2" || "nodejs18.x" || "python3.10" || "java17",
+ *     'nodejs' || 'nodejs4.3' || 'nodejs6.10' || 'nodejs8.10' || 'nodejs10.x' || 'nodejs12.x' || 'nodejs14.x' || 'nodejs16.x' || 'java8' || 'java8.al2' || 'java11' || 'python2.7' || 'python3.6' || 'python3.7' || 'python3.8' || 'python3.9' || 'dotnetcore1.0' || 'dotnetcore2.0' || 'dotnetcore2.1' || 'dotnetcore3.1' || 'dotnet6' || 'nodejs4.3-edge' || 'go1.x' || 'ruby2.5' || 'ruby2.7' || 'provided' || 'provided.al2' || 'nodejs18.x' || 'python3.10' || 'java17',
  *   ],
- *   LicenseInfo: "STRING_VALUE",
+ *   LicenseInfo: 'STRING_VALUE',
  *   CompatibleArchitectures: [ // CompatibleArchitectures
- *     "x86_64" || "arm64",
+ *     'x86_64' || 'arm64',
  *   ],
  * };
  * const command = new PublishLayerVersionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PublishLayerVersionResponse
+ *   Content: { // LayerVersionContentOutput
+ *     Location: 'STRING_VALUE',
+ *     CodeSha256: 'STRING_VALUE',
+ *     CodeSize: Number('long'),
+ *     SigningProfileVersionArn: 'STRING_VALUE',
+ *     SigningJobArn: 'STRING_VALUE',
+ *   },
+ *   LayerArn: 'STRING_VALUE',
+ *   LayerVersionArn: 'STRING_VALUE',
+ *   Description: 'STRING_VALUE',
+ *   CreatedDate: 'STRING_VALUE',
+ *   Version: Number('long'),
+ *   CompatibleRuntimes: [ // CompatibleRuntimes
+ *     'nodejs' || 'nodejs4.3' || 'nodejs6.10' || 'nodejs8.10' || 'nodejs10.x' || 'nodejs12.x' || 'nodejs14.x' || 'nodejs16.x' || 'java8' || 'java8.al2' || 'java11' || 'python2.7' || 'python3.6' || 'python3.7' || 'python3.8' || 'python3.9' || 'dotnetcore1.0' || 'dotnetcore2.0' || 'dotnetcore2.1' || 'dotnetcore3.1' || 'dotnet6' || 'nodejs4.3-edge' || 'go1.x' || 'ruby2.5' || 'ruby2.7' || 'provided' || 'provided.al2' || 'nodejs18.x' || 'python3.10' || 'java17',
+ *   ],
+ *   LicenseInfo: 'STRING_VALUE',
+ *   CompatibleArchitectures: [ // CompatibleArchitectures
+ *     'x86_64' || 'arm64',
+ *   ],
+ * };
+ *
  * ```
  *
  * @param PublishLayerVersionCommandInput - {@link PublishLayerVersionCommandInput}
@@ -88,6 +111,8 @@ export interface PublishLayerVersionCommandOutput extends PublishLayerVersionRes
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>The request throughput limit was exceeded. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests">Lambda quotas</a>.</p>
  *
+ * @throws {@link LambdaServiceException}
+ * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
  */
 export class PublishLayerVersionCommand extends $Command<

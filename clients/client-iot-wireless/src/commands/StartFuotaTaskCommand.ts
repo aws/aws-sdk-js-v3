@@ -36,17 +36,20 @@ export interface StartFuotaTaskCommandOutput extends StartFuotaTaskResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTWirelessClient, StartFuotaTaskCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
- * // const { IoTWirelessClient, StartFuotaTaskCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
+ * import { IoTWirelessClient, StartFuotaTaskCommand } from '@aws-sdk/client-iot-wireless'; // ES Modules import
+ * // const { IoTWirelessClient, StartFuotaTaskCommand } = require('@aws-sdk/client-iot-wireless'); // CommonJS import
  * const client = new IoTWirelessClient(config);
  * const input = { // StartFuotaTaskRequest
- *   Id: "STRING_VALUE", // required
+ *   Id: 'STRING_VALUE', // required
  *   LoRaWAN: { // LoRaWANStartFuotaTask
- *     StartTime: new Date("TIMESTAMP"),
+ *     StartTime: new Date('TIMESTAMP'),
  *   },
  * };
  * const command = new StartFuotaTaskCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param StartFuotaTaskCommandInput - {@link StartFuotaTaskCommandInput}
@@ -73,6 +76,8 @@ export interface StartFuotaTaskCommandOutput extends StartFuotaTaskResponse, __M
  * @throws {@link ValidationException} (client fault)
  *  <p>The input did not meet the specified constraints.</p>
  *
+ * @throws {@link IoTWirelessServiceException}
+ * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
  */
 export class StartFuotaTaskCommand extends $Command<

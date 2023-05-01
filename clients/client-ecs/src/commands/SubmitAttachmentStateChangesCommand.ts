@@ -44,20 +44,25 @@ export interface SubmitAttachmentStateChangesCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ECSClient, SubmitAttachmentStateChangesCommand } from "@aws-sdk/client-ecs"; // ES Modules import
- * // const { ECSClient, SubmitAttachmentStateChangesCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
+ * import { ECSClient, SubmitAttachmentStateChangesCommand } from '@aws-sdk/client-ecs'; // ES Modules import
+ * // const { ECSClient, SubmitAttachmentStateChangesCommand } = require('@aws-sdk/client-ecs'); // CommonJS import
  * const client = new ECSClient(config);
  * const input = { // SubmitAttachmentStateChangesRequest
- *   cluster: "STRING_VALUE",
+ *   cluster: 'STRING_VALUE',
  *   attachments: [ // AttachmentStateChanges // required
  *     { // AttachmentStateChange
- *       attachmentArn: "STRING_VALUE", // required
- *       status: "STRING_VALUE", // required
+ *       attachmentArn: 'STRING_VALUE', // required
+ *       status: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new SubmitAttachmentStateChangesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SubmitAttachmentStateChangesResponse
+ *   acknowledgment: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param SubmitAttachmentStateChangesCommandInput - {@link SubmitAttachmentStateChangesCommandInput}
@@ -81,6 +86,8 @@ export interface SubmitAttachmentStateChangesCommandOutput
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server issue.</p>
  *
+ * @throws {@link ECSServiceException}
+ * <p>Base exception class for all service exceptions from ECS service.</p>
  *
  */
 export class SubmitAttachmentStateChangesCommand extends $Command<

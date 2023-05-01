@@ -44,24 +44,36 @@ export interface ValidateConfigurationSettingsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElasticBeanstalkClient, ValidateConfigurationSettingsCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
- * // const { ElasticBeanstalkClient, ValidateConfigurationSettingsCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
+ * import { ElasticBeanstalkClient, ValidateConfigurationSettingsCommand } from '@aws-sdk/client-elastic-beanstalk'; // ES Modules import
+ * // const { ElasticBeanstalkClient, ValidateConfigurationSettingsCommand } = require('@aws-sdk/client-elastic-beanstalk'); // CommonJS import
  * const client = new ElasticBeanstalkClient(config);
  * const input = { // ValidateConfigurationSettingsMessage
- *   ApplicationName: "STRING_VALUE", // required
- *   TemplateName: "STRING_VALUE",
- *   EnvironmentName: "STRING_VALUE",
+ *   ApplicationName: 'STRING_VALUE', // required
+ *   TemplateName: 'STRING_VALUE',
+ *   EnvironmentName: 'STRING_VALUE',
  *   OptionSettings: [ // ConfigurationOptionSettingsList // required
  *     { // ConfigurationOptionSetting
- *       ResourceName: "STRING_VALUE",
- *       Namespace: "STRING_VALUE",
- *       OptionName: "STRING_VALUE",
- *       Value: "STRING_VALUE",
+ *       ResourceName: 'STRING_VALUE',
+ *       Namespace: 'STRING_VALUE',
+ *       OptionName: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new ValidateConfigurationSettingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ConfigurationSettingsValidationMessages
+ *   Messages: [ // ValidationMessagesList
+ *     { // ValidationMessage
+ *       Message: 'STRING_VALUE',
+ *       Severity: 'error' || 'warning',
+ *       Namespace: 'STRING_VALUE',
+ *       OptionName: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ValidateConfigurationSettingsCommandInput - {@link ValidateConfigurationSettingsCommandInput}
@@ -77,6 +89,8 @@ export interface ValidateConfigurationSettingsCommandOutput
  * @throws {@link TooManyBucketsException} (client fault)
  *  <p>The specified account has reached its limit of Amazon S3 buckets.</p>
  *
+ * @throws {@link ElasticBeanstalkServiceException}
+ * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
  * @example To validate configuration settings
  * ```javascript

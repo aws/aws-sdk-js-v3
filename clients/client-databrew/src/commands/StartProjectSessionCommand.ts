@@ -41,15 +41,21 @@ export interface StartProjectSessionCommandOutput extends StartProjectSessionRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DataBrewClient, StartProjectSessionCommand } from "@aws-sdk/client-databrew"; // ES Modules import
- * // const { DataBrewClient, StartProjectSessionCommand } = require("@aws-sdk/client-databrew"); // CommonJS import
+ * import { DataBrewClient, StartProjectSessionCommand } from '@aws-sdk/client-databrew'; // ES Modules import
+ * // const { DataBrewClient, StartProjectSessionCommand } = require('@aws-sdk/client-databrew'); // CommonJS import
  * const client = new DataBrewClient(config);
  * const input = { // StartProjectSessionRequest
- *   Name: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
  *   AssumeControl: true || false,
  * };
  * const command = new StartProjectSessionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartProjectSessionResponse
+ *   Name: 'STRING_VALUE', // required
+ *   ClientSessionId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param StartProjectSessionCommandInput - {@link StartProjectSessionCommandInput}
@@ -70,6 +76,8 @@ export interface StartProjectSessionCommandOutput extends StartProjectSessionRes
  * @throws {@link ValidationException} (client fault)
  *  <p>The input parameters for this request failed validation.</p>
  *
+ * @throws {@link DataBrewServiceException}
+ * <p>Base exception class for all service exceptions from DataBrew service.</p>
  *
  */
 export class StartProjectSessionCommand extends $Command<

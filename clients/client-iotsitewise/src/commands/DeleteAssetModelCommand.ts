@@ -40,15 +40,32 @@ export interface DeleteAssetModelCommandOutput extends DeleteAssetModelResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTSiteWiseClient, DeleteAssetModelCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
- * // const { IoTSiteWiseClient, DeleteAssetModelCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
+ * import { IoTSiteWiseClient, DeleteAssetModelCommand } from '@aws-sdk/client-iotsitewise'; // ES Modules import
+ * // const { IoTSiteWiseClient, DeleteAssetModelCommand } = require('@aws-sdk/client-iotsitewise'); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
  * const input = { // DeleteAssetModelRequest
- *   assetModelId: "STRING_VALUE", // required
- *   clientToken: "STRING_VALUE",
+ *   assetModelId: 'STRING_VALUE', // required
+ *   clientToken: 'STRING_VALUE',
  * };
  * const command = new DeleteAssetModelCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteAssetModelResponse
+ *   assetModelStatus: { // AssetModelStatus
+ *     state: 'CREATING' || 'ACTIVE' || 'UPDATING' || 'PROPAGATING' || 'DELETING' || 'FAILED', // required
+ *     error: { // ErrorDetails
+ *       code: 'VALIDATION_ERROR' || 'INTERNAL_FAILURE', // required
+ *       message: 'STRING_VALUE', // required
+ *       details: [ // DetailedErrors
+ *         { // DetailedError
+ *           code: 'INCOMPATIBLE_COMPUTE_LOCATION' || 'INCOMPATIBLE_FORWARDING_CONFIGURATION', // required
+ *           message: 'STRING_VALUE', // required
+ *         },
+ *       ],
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param DeleteAssetModelCommandInput - {@link DeleteAssetModelCommandInput}
@@ -77,6 +94,8 @@ export interface DeleteAssetModelCommandOutput extends DeleteAssetModelResponse,
  *       on.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
  *
+ * @throws {@link IoTSiteWiseServiceException}
+ * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
  */
 export class DeleteAssetModelCommand extends $Command<

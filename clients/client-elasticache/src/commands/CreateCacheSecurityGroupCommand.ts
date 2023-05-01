@@ -41,21 +41,38 @@ export interface CreateCacheSecurityGroupCommandOutput extends CreateCacheSecuri
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElastiCacheClient, CreateCacheSecurityGroupCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
- * // const { ElastiCacheClient, CreateCacheSecurityGroupCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
+ * import { ElastiCacheClient, CreateCacheSecurityGroupCommand } from '@aws-sdk/client-elasticache'; // ES Modules import
+ * // const { ElastiCacheClient, CreateCacheSecurityGroupCommand } = require('@aws-sdk/client-elasticache'); // CommonJS import
  * const client = new ElastiCacheClient(config);
  * const input = { // CreateCacheSecurityGroupMessage
- *   CacheSecurityGroupName: "STRING_VALUE", // required
- *   Description: "STRING_VALUE", // required
+ *   CacheSecurityGroupName: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE', // required
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE",
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new CreateCacheSecurityGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateCacheSecurityGroupResult
+ *   CacheSecurityGroup: { // CacheSecurityGroup
+ *     OwnerId: 'STRING_VALUE',
+ *     CacheSecurityGroupName: 'STRING_VALUE',
+ *     Description: 'STRING_VALUE',
+ *     EC2SecurityGroups: [ // EC2SecurityGroupList
+ *       { // EC2SecurityGroup
+ *         Status: 'STRING_VALUE',
+ *         EC2SecurityGroupName: 'STRING_VALUE',
+ *         EC2SecurityGroupOwnerId: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     ARN: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateCacheSecurityGroupCommandInput - {@link CreateCacheSecurityGroupCommandInput}
@@ -79,6 +96,8 @@ export interface CreateCacheSecurityGroupCommandOutput extends CreateCacheSecuri
  * @throws {@link TagQuotaPerResourceExceeded} (client fault)
  *  <p>The request cannot be processed because it would cause the resource to have more than the allowed number of tags. The maximum number of tags permitted on a resource is 50.</p>
  *
+ * @throws {@link ElastiCacheServiceException}
+ * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
  * @example CreateCacheSecurityGroup
  * ```javascript

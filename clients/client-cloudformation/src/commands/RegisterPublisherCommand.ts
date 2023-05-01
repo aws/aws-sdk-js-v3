@@ -42,15 +42,20 @@ export interface RegisterPublisherCommandOutput extends RegisterPublisherOutput,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudFormationClient, RegisterPublisherCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
- * // const { CloudFormationClient, RegisterPublisherCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
+ * import { CloudFormationClient, RegisterPublisherCommand } from '@aws-sdk/client-cloudformation'; // ES Modules import
+ * // const { CloudFormationClient, RegisterPublisherCommand } = require('@aws-sdk/client-cloudformation'); // CommonJS import
  * const client = new CloudFormationClient(config);
  * const input = { // RegisterPublisherInput
  *   AcceptTermsAndConditions: true || false,
- *   ConnectionArn: "STRING_VALUE",
+ *   ConnectionArn: 'STRING_VALUE',
  * };
  * const command = new RegisterPublisherCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // RegisterPublisherOutput
+ *   PublisherId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param RegisterPublisherCommandInput - {@link RegisterPublisherCommandInput}
@@ -62,6 +67,8 @@ export interface RegisterPublisherCommandOutput extends RegisterPublisherOutput,
  * @throws {@link CFNRegistryException} (client fault)
  *  <p>An error occurred during a CloudFormation registry operation.</p>
  *
+ * @throws {@link CloudFormationServiceException}
+ * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
  */
 export class RegisterPublisherCommand extends $Command<

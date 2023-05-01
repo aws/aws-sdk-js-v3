@@ -42,17 +42,25 @@ export interface ListSecurityProfilePermissionsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, ListSecurityProfilePermissionsCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, ListSecurityProfilePermissionsCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, ListSecurityProfilePermissionsCommand } from '@aws-sdk/client-connect'; // ES Modules import
+ * // const { ConnectClient, ListSecurityProfilePermissionsCommand } = require('@aws-sdk/client-connect'); // CommonJS import
  * const client = new ConnectClient(config);
  * const input = { // ListSecurityProfilePermissionsRequest
- *   SecurityProfileId: "STRING_VALUE", // required
- *   InstanceId: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   SecurityProfileId: 'STRING_VALUE', // required
+ *   InstanceId: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListSecurityProfilePermissionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListSecurityProfilePermissionsResponse
+ *   Permissions: [ // PermissionsList
+ *     'STRING_VALUE',
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListSecurityProfilePermissionsCommandInput - {@link ListSecurityProfilePermissionsCommandInput}
@@ -76,6 +84,8 @@ export interface ListSecurityProfilePermissionsCommandOutput
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class ListSecurityProfilePermissionsCommand extends $Command<

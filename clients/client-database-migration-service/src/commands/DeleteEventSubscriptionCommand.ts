@@ -40,14 +40,33 @@ export interface DeleteEventSubscriptionCommandOutput extends DeleteEventSubscri
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DatabaseMigrationServiceClient, DeleteEventSubscriptionCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
- * // const { DatabaseMigrationServiceClient, DeleteEventSubscriptionCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
+ * import { DatabaseMigrationServiceClient, DeleteEventSubscriptionCommand } from '@aws-sdk/client-database-migration-service'; // ES Modules import
+ * // const { DatabaseMigrationServiceClient, DeleteEventSubscriptionCommand } = require('@aws-sdk/client-database-migration-service'); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
  * const input = { // DeleteEventSubscriptionMessage
- *   SubscriptionName: "STRING_VALUE", // required
+ *   SubscriptionName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteEventSubscriptionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteEventSubscriptionResponse
+ *   EventSubscription: { // EventSubscription
+ *     CustomerAwsId: 'STRING_VALUE',
+ *     CustSubscriptionId: 'STRING_VALUE',
+ *     SnsTopicArn: 'STRING_VALUE',
+ *     Status: 'STRING_VALUE',
+ *     SubscriptionCreationTime: 'STRING_VALUE',
+ *     SourceType: 'STRING_VALUE',
+ *     SourceIdsList: [ // SourceIdsList
+ *       'STRING_VALUE',
+ *     ],
+ *     EventCategoriesList: [ // EventCategoriesList
+ *       'STRING_VALUE',
+ *     ],
+ *     Enabled: true || false,
+ *   },
+ * };
+ *
  * ```
  *
  * @param DeleteEventSubscriptionCommandInput - {@link DeleteEventSubscriptionCommandInput}
@@ -62,6 +81,8 @@ export interface DeleteEventSubscriptionCommandOutput extends DeleteEventSubscri
  * @throws {@link ResourceNotFoundFault} (client fault)
  *  <p>The resource could not be found.</p>
  *
+ * @throws {@link DatabaseMigrationServiceServiceException}
+ * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
  */
 export class DeleteEventSubscriptionCommand extends $Command<

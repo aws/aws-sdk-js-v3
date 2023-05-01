@@ -41,16 +41,26 @@ export interface DescribeCustomVocabularyMetadataCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LexModelsV2Client, DescribeCustomVocabularyMetadataCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
- * // const { LexModelsV2Client, DescribeCustomVocabularyMetadataCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
+ * import { LexModelsV2Client, DescribeCustomVocabularyMetadataCommand } from '@aws-sdk/client-lex-models-v2'; // ES Modules import
+ * // const { LexModelsV2Client, DescribeCustomVocabularyMetadataCommand } = require('@aws-sdk/client-lex-models-v2'); // CommonJS import
  * const client = new LexModelsV2Client(config);
  * const input = { // DescribeCustomVocabularyMetadataRequest
- *   botId: "STRING_VALUE", // required
- *   botVersion: "STRING_VALUE", // required
- *   localeId: "STRING_VALUE", // required
+ *   botId: 'STRING_VALUE', // required
+ *   botVersion: 'STRING_VALUE', // required
+ *   localeId: 'STRING_VALUE', // required
  * };
  * const command = new DescribeCustomVocabularyMetadataCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeCustomVocabularyMetadataResponse
+ *   botId: 'STRING_VALUE',
+ *   botVersion: 'STRING_VALUE',
+ *   localeId: 'STRING_VALUE',
+ *   customVocabularyStatus: 'Ready' || 'Deleting' || 'Exporting' || 'Importing' || 'Creating',
+ *   creationDateTime: new Date('TIMESTAMP'),
+ *   lastUpdatedDateTime: new Date('TIMESTAMP'),
+ * };
+ *
  * ```
  *
  * @param DescribeCustomVocabularyMetadataCommandInput - {@link DescribeCustomVocabularyMetadataCommandInput}
@@ -78,6 +88,8 @@ export interface DescribeCustomVocabularyMetadataCommandOutput
  *  <p>One of the input parameters in your request isn't valid. Check the
  *          parameters and try your request again.</p>
  *
+ * @throws {@link LexModelsV2ServiceException}
+ * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
  */
 export class DescribeCustomVocabularyMetadataCommand extends $Command<

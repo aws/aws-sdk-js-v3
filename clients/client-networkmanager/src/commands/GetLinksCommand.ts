@@ -37,22 +37,50 @@ export interface GetLinksCommandOutput extends GetLinksResponse, __MetadataBeare
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { NetworkManagerClient, GetLinksCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
- * // const { NetworkManagerClient, GetLinksCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
+ * import { NetworkManagerClient, GetLinksCommand } from '@aws-sdk/client-networkmanager'; // ES Modules import
+ * // const { NetworkManagerClient, GetLinksCommand } = require('@aws-sdk/client-networkmanager'); // CommonJS import
  * const client = new NetworkManagerClient(config);
  * const input = { // GetLinksRequest
- *   GlobalNetworkId: "STRING_VALUE", // required
+ *   GlobalNetworkId: 'STRING_VALUE', // required
  *   LinkIds: [ // LinkIdList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   SiteId: "STRING_VALUE",
- *   Type: "STRING_VALUE",
- *   Provider: "STRING_VALUE",
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   SiteId: 'STRING_VALUE',
+ *   Type: 'STRING_VALUE',
+ *   Provider: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new GetLinksCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetLinksResponse
+ *   Links: [ // LinkList
+ *     { // Link
+ *       LinkId: 'STRING_VALUE',
+ *       LinkArn: 'STRING_VALUE',
+ *       GlobalNetworkId: 'STRING_VALUE',
+ *       SiteId: 'STRING_VALUE',
+ *       Description: 'STRING_VALUE',
+ *       Type: 'STRING_VALUE',
+ *       Bandwidth: { // Bandwidth
+ *         UploadSpeed: Number('int'),
+ *         DownloadSpeed: Number('int'),
+ *       },
+ *       Provider: 'STRING_VALUE',
+ *       CreatedAt: new Date('TIMESTAMP'),
+ *       State: 'PENDING' || 'AVAILABLE' || 'DELETING' || 'UPDATING',
+ *       Tags: [ // TagList
+ *         { // Tag
+ *           Key: 'STRING_VALUE',
+ *           Value: 'STRING_VALUE',
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetLinksCommandInput - {@link GetLinksCommandInput}
@@ -76,6 +104,8 @@ export interface GetLinksCommandOutput extends GetLinksResponse, __MetadataBeare
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints.</p>
  *
+ * @throws {@link NetworkManagerServiceException}
+ * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
  */
 export class GetLinksCommand extends $Command<

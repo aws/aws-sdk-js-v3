@@ -36,15 +36,20 @@ export interface GetWorldTemplateBodyCommandOutput extends GetWorldTemplateBodyR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RoboMakerClient, GetWorldTemplateBodyCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
- * // const { RoboMakerClient, GetWorldTemplateBodyCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
+ * import { RoboMakerClient, GetWorldTemplateBodyCommand } from '@aws-sdk/client-robomaker'; // ES Modules import
+ * // const { RoboMakerClient, GetWorldTemplateBodyCommand } = require('@aws-sdk/client-robomaker'); // CommonJS import
  * const client = new RoboMakerClient(config);
  * const input = { // GetWorldTemplateBodyRequest
- *   template: "STRING_VALUE",
- *   generationJob: "STRING_VALUE",
+ *   template: 'STRING_VALUE',
+ *   generationJob: 'STRING_VALUE',
  * };
  * const command = new GetWorldTemplateBodyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetWorldTemplateBodyResponse
+ *   templateBody: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetWorldTemplateBodyCommandInput - {@link GetWorldTemplateBodyCommandInput}
@@ -66,6 +71,8 @@ export interface GetWorldTemplateBodyCommandOutput extends GetWorldTemplateBodyR
  * @throws {@link ThrottlingException} (client fault)
  *  <p>AWS RoboMaker is temporarily unable to process the request. Try your call again.</p>
  *
+ * @throws {@link RoboMakerServiceException}
+ * <p>Base exception class for all service exceptions from RoboMaker service.</p>
  *
  */
 export class GetWorldTemplateBodyCommand extends $Command<

@@ -66,33 +66,79 @@ export interface BatchMeterUsageCommandOutput extends BatchMeterUsageResult, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MarketplaceMeteringClient, BatchMeterUsageCommand } from "@aws-sdk/client-marketplace-metering"; // ES Modules import
- * // const { MarketplaceMeteringClient, BatchMeterUsageCommand } = require("@aws-sdk/client-marketplace-metering"); // CommonJS import
+ * import { MarketplaceMeteringClient, BatchMeterUsageCommand } from '@aws-sdk/client-marketplace-metering'; // ES Modules import
+ * // const { MarketplaceMeteringClient, BatchMeterUsageCommand } = require('@aws-sdk/client-marketplace-metering'); // CommonJS import
  * const client = new MarketplaceMeteringClient(config);
  * const input = { // BatchMeterUsageRequest
  *   UsageRecords: [ // UsageRecordList // required
  *     { // UsageRecord
- *       Timestamp: new Date("TIMESTAMP"), // required
- *       CustomerIdentifier: "STRING_VALUE", // required
- *       Dimension: "STRING_VALUE", // required
- *       Quantity: Number("int"),
+ *       Timestamp: new Date('TIMESTAMP'), // required
+ *       CustomerIdentifier: 'STRING_VALUE', // required
+ *       Dimension: 'STRING_VALUE', // required
+ *       Quantity: Number('int'),
  *       UsageAllocations: [ // UsageAllocations
  *         { // UsageAllocation
- *           AllocatedUsageQuantity: Number("int"), // required
+ *           AllocatedUsageQuantity: Number('int'), // required
  *           Tags: [ // TagList
  *             { // Tag
- *               Key: "STRING_VALUE", // required
- *               Value: "STRING_VALUE", // required
+ *               Key: 'STRING_VALUE', // required
+ *               Value: 'STRING_VALUE', // required
  *             },
  *           ],
  *         },
  *       ],
  *     },
  *   ],
- *   ProductCode: "STRING_VALUE", // required
+ *   ProductCode: 'STRING_VALUE', // required
  * };
  * const command = new BatchMeterUsageCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BatchMeterUsageResult
+ *   Results: [ // UsageRecordResultList
+ *     { // UsageRecordResult
+ *       UsageRecord: { // UsageRecord
+ *         Timestamp: new Date('TIMESTAMP'), // required
+ *         CustomerIdentifier: 'STRING_VALUE', // required
+ *         Dimension: 'STRING_VALUE', // required
+ *         Quantity: Number('int'),
+ *         UsageAllocations: [ // UsageAllocations
+ *           { // UsageAllocation
+ *             AllocatedUsageQuantity: Number('int'), // required
+ *             Tags: [ // TagList
+ *               { // Tag
+ *                 Key: 'STRING_VALUE', // required
+ *                 Value: 'STRING_VALUE', // required
+ *               },
+ *             ],
+ *           },
+ *         ],
+ *       },
+ *       MeteringRecordId: 'STRING_VALUE',
+ *       Status: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   UnprocessedRecords: [ // UsageRecordList
+ *     {
+ *       Timestamp: new Date('TIMESTAMP'), // required
+ *       CustomerIdentifier: 'STRING_VALUE', // required
+ *       Dimension: 'STRING_VALUE', // required
+ *       Quantity: Number('int'),
+ *       UsageAllocations: [
+ *         {
+ *           AllocatedUsageQuantity: Number('int'), // required
+ *           Tags: [
+ *             {
+ *               Key: 'STRING_VALUE', // required
+ *               Value: 'STRING_VALUE', // required
+ *             },
+ *           ],
+ *         },
+ *       ],
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param BatchMeterUsageCommandInput - {@link BatchMeterUsageCommandInput}
@@ -137,6 +183,8 @@ export interface BatchMeterUsageCommandOutput extends BatchMeterUsageResult, __M
  *             range, the entire batch is not processed. You must remove invalid records and try
  *             again.</p>
  *
+ * @throws {@link MarketplaceMeteringServiceException}
+ * <p>Base exception class for all service exceptions from MarketplaceMetering service.</p>
  *
  */
 export class BatchMeterUsageCommand extends $Command<

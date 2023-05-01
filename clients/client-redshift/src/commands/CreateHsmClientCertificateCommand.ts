@@ -43,20 +43,34 @@ export interface CreateHsmClientCertificateCommandOutput extends CreateHsmClient
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RedshiftClient, CreateHsmClientCertificateCommand } from "@aws-sdk/client-redshift"; // ES Modules import
- * // const { RedshiftClient, CreateHsmClientCertificateCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * import { RedshiftClient, CreateHsmClientCertificateCommand } from '@aws-sdk/client-redshift'; // ES Modules import
+ * // const { RedshiftClient, CreateHsmClientCertificateCommand } = require('@aws-sdk/client-redshift'); // CommonJS import
  * const client = new RedshiftClient(config);
  * const input = { // CreateHsmClientCertificateMessage
- *   HsmClientCertificateIdentifier: "STRING_VALUE", // required
+ *   HsmClientCertificateIdentifier: 'STRING_VALUE', // required
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE",
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new CreateHsmClientCertificateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateHsmClientCertificateResult
+ *   HsmClientCertificate: { // HsmClientCertificate
+ *     HsmClientCertificateIdentifier: 'STRING_VALUE',
+ *     HsmClientCertificatePublicKey: 'STRING_VALUE',
+ *     Tags: [ // TagList
+ *       { // Tag
+ *         Key: 'STRING_VALUE',
+ *         Value: 'STRING_VALUE',
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateHsmClientCertificateCommandInput - {@link CreateHsmClientCertificateCommandInput}
@@ -81,6 +95,8 @@ export interface CreateHsmClientCertificateCommandOutput extends CreateHsmClient
  * @throws {@link TagLimitExceededFault} (client fault)
  *  <p>You have exceeded the number of tags allowed.</p>
  *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class CreateHsmClientCertificateCommand extends $Command<

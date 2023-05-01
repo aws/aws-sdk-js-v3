@@ -41,14 +41,19 @@ export interface StartMLEvaluationTaskRunCommandOutput extends StartMLEvaluation
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlueClient, StartMLEvaluationTaskRunCommand } from "@aws-sdk/client-glue"; // ES Modules import
- * // const { GlueClient, StartMLEvaluationTaskRunCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * import { GlueClient, StartMLEvaluationTaskRunCommand } from '@aws-sdk/client-glue'; // ES Modules import
+ * // const { GlueClient, StartMLEvaluationTaskRunCommand } = require('@aws-sdk/client-glue'); // CommonJS import
  * const client = new GlueClient(config);
  * const input = { // StartMLEvaluationTaskRunRequest
- *   TransformId: "STRING_VALUE", // required
+ *   TransformId: 'STRING_VALUE', // required
  * };
  * const command = new StartMLEvaluationTaskRunCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartMLEvaluationTaskRunResponse
+ *   TaskRunId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param StartMLEvaluationTaskRunCommandInput - {@link StartMLEvaluationTaskRunCommandInput}
@@ -75,6 +80,8 @@ export interface StartMLEvaluationTaskRunCommandOutput extends StartMLEvaluation
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class StartMLEvaluationTaskRunCommand extends $Command<

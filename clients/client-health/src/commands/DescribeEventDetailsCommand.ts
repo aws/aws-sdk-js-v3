@@ -45,17 +45,51 @@ export interface DescribeEventDetailsCommandOutput extends DescribeEventDetailsR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { HealthClient, DescribeEventDetailsCommand } from "@aws-sdk/client-health"; // ES Modules import
- * // const { HealthClient, DescribeEventDetailsCommand } = require("@aws-sdk/client-health"); // CommonJS import
+ * import { HealthClient, DescribeEventDetailsCommand } from '@aws-sdk/client-health'; // ES Modules import
+ * // const { HealthClient, DescribeEventDetailsCommand } = require('@aws-sdk/client-health'); // CommonJS import
  * const client = new HealthClient(config);
  * const input = { // DescribeEventDetailsRequest
  *   eventArns: [ // eventArnList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   locale: "STRING_VALUE",
+ *   locale: 'STRING_VALUE',
  * };
  * const command = new DescribeEventDetailsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeEventDetailsResponse
+ *   successfulSet: [ // DescribeEventDetailsSuccessfulSet
+ *     { // EventDetails
+ *       event: { // Event
+ *         arn: 'STRING_VALUE',
+ *         service: 'STRING_VALUE',
+ *         eventTypeCode: 'STRING_VALUE',
+ *         eventTypeCategory: 'STRING_VALUE',
+ *         region: 'STRING_VALUE',
+ *         availabilityZone: 'STRING_VALUE',
+ *         startTime: new Date('TIMESTAMP'),
+ *         endTime: new Date('TIMESTAMP'),
+ *         lastUpdatedTime: new Date('TIMESTAMP'),
+ *         statusCode: 'STRING_VALUE',
+ *         eventScopeCode: 'STRING_VALUE',
+ *       },
+ *       eventDescription: { // EventDescription
+ *         latestDescription: 'STRING_VALUE',
+ *       },
+ *       eventMetadata: { // eventMetadata
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ *   failedSet: [ // DescribeEventDetailsFailedSet
+ *     { // EventDetailsErrorItem
+ *       eventArn: 'STRING_VALUE',
+ *       errorName: 'STRING_VALUE',
+ *       errorMessage: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeEventDetailsCommandInput - {@link DescribeEventDetailsCommandInput}
@@ -67,6 +101,8 @@ export interface DescribeEventDetailsCommandOutput extends DescribeEventDetailsR
  * @throws {@link UnsupportedLocale} (client fault)
  *  <p>The specified locale is not supported.</p>
  *
+ * @throws {@link HealthServiceException}
+ * <p>Base exception class for all service exceptions from Health service.</p>
  *
  */
 export class DescribeEventDetailsCommand extends $Command<

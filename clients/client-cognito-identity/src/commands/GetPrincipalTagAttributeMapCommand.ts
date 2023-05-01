@@ -39,15 +39,25 @@ export interface GetPrincipalTagAttributeMapCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CognitoIdentityClient, GetPrincipalTagAttributeMapCommand } from "@aws-sdk/client-cognito-identity"; // ES Modules import
- * // const { CognitoIdentityClient, GetPrincipalTagAttributeMapCommand } = require("@aws-sdk/client-cognito-identity"); // CommonJS import
+ * import { CognitoIdentityClient, GetPrincipalTagAttributeMapCommand } from '@aws-sdk/client-cognito-identity'; // ES Modules import
+ * // const { CognitoIdentityClient, GetPrincipalTagAttributeMapCommand } = require('@aws-sdk/client-cognito-identity'); // CommonJS import
  * const client = new CognitoIdentityClient(config);
  * const input = { // GetPrincipalTagAttributeMapInput
- *   IdentityPoolId: "STRING_VALUE", // required
- *   IdentityProviderName: "STRING_VALUE", // required
+ *   IdentityPoolId: 'STRING_VALUE', // required
+ *   IdentityProviderName: 'STRING_VALUE', // required
  * };
  * const command = new GetPrincipalTagAttributeMapCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetPrincipalTagAttributeMapResponse
+ *   IdentityPoolId: 'STRING_VALUE',
+ *   IdentityProviderName: 'STRING_VALUE',
+ *   UseDefaults: true || false,
+ *   PrincipalTags: { // PrincipalTags
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetPrincipalTagAttributeMapCommandInput - {@link GetPrincipalTagAttributeMapCommandInput}
@@ -72,6 +82,8 @@ export interface GetPrincipalTagAttributeMapCommandOutput
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Thrown when a request is throttled.</p>
  *
+ * @throws {@link CognitoIdentityServiceException}
+ * <p>Base exception class for all service exceptions from CognitoIdentity service.</p>
  *
  */
 export class GetPrincipalTagAttributeMapCommand extends $Command<

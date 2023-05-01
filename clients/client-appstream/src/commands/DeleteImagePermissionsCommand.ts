@@ -36,15 +36,18 @@ export interface DeleteImagePermissionsCommandOutput extends DeleteImagePermissi
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppStreamClient, DeleteImagePermissionsCommand } from "@aws-sdk/client-appstream"; // ES Modules import
- * // const { AppStreamClient, DeleteImagePermissionsCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
+ * import { AppStreamClient, DeleteImagePermissionsCommand } from '@aws-sdk/client-appstream'; // ES Modules import
+ * // const { AppStreamClient, DeleteImagePermissionsCommand } = require('@aws-sdk/client-appstream'); // CommonJS import
  * const client = new AppStreamClient(config);
  * const input = { // DeleteImagePermissionsRequest
- *   Name: "STRING_VALUE", // required
- *   SharedAccountId: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
+ *   SharedAccountId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteImagePermissionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteImagePermissionsCommandInput - {@link DeleteImagePermissionsCommandInput}
@@ -59,6 +62,8 @@ export interface DeleteImagePermissionsCommandOutput extends DeleteImagePermissi
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link AppStreamServiceException}
+ * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
  */
 export class DeleteImagePermissionsCommand extends $Command<

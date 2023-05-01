@@ -36,16 +36,28 @@ export interface ListLanguagesCommandOutput extends ListLanguagesResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { TranslateClient, ListLanguagesCommand } from "@aws-sdk/client-translate"; // ES Modules import
- * // const { TranslateClient, ListLanguagesCommand } = require("@aws-sdk/client-translate"); // CommonJS import
+ * import { TranslateClient, ListLanguagesCommand } from '@aws-sdk/client-translate'; // ES Modules import
+ * // const { TranslateClient, ListLanguagesCommand } = require('@aws-sdk/client-translate'); // CommonJS import
  * const client = new TranslateClient(config);
  * const input = { // ListLanguagesRequest
- *   DisplayLanguageCode: "de" || "en" || "es" || "fr" || "it" || "ja" || "ko" || "pt" || "zh" || "zh-TW",
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   DisplayLanguageCode: 'de' || 'en' || 'es' || 'fr' || 'it' || 'ja' || 'ko' || 'pt' || 'zh' || 'zh-TW',
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListLanguagesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListLanguagesResponse
+ *   Languages: [ // LanguagesList
+ *     { // Language
+ *       LanguageName: 'STRING_VALUE', // required
+ *       LanguageCode: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ *   DisplayLanguageCode: 'de' || 'en' || 'es' || 'fr' || 'it' || 'ja' || 'ko' || 'pt' || 'zh' || 'zh-TW',
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListLanguagesCommandInput - {@link ListLanguagesCommandInput}
@@ -68,6 +80,8 @@ export interface ListLanguagesCommandOutput extends ListLanguagesResponse, __Met
  * @throws {@link UnsupportedDisplayLanguageCodeException} (client fault)
  *  <p>Requested display language code is not supported.</p>
  *
+ * @throws {@link TranslateServiceException}
+ * <p>Base exception class for all service exceptions from Translate service.</p>
  *
  */
 export class ListLanguagesCommand extends $Command<

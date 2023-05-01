@@ -46,18 +46,28 @@ export interface AssociateFileSystemAliasesCommandOutput extends AssociateFileSy
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FSxClient, AssociateFileSystemAliasesCommand } from "@aws-sdk/client-fsx"; // ES Modules import
- * // const { FSxClient, AssociateFileSystemAliasesCommand } = require("@aws-sdk/client-fsx"); // CommonJS import
+ * import { FSxClient, AssociateFileSystemAliasesCommand } from '@aws-sdk/client-fsx'; // ES Modules import
+ * // const { FSxClient, AssociateFileSystemAliasesCommand } = require('@aws-sdk/client-fsx'); // CommonJS import
  * const client = new FSxClient(config);
  * const input = { // AssociateFileSystemAliasesRequest
- *   ClientRequestToken: "STRING_VALUE",
- *   FileSystemId: "STRING_VALUE", // required
+ *   ClientRequestToken: 'STRING_VALUE',
+ *   FileSystemId: 'STRING_VALUE', // required
  *   Aliases: [ // AlternateDNSNames // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new AssociateFileSystemAliasesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AssociateFileSystemAliasesResponse
+ *   Aliases: [ // Aliases
+ *     { // Alias
+ *       Name: 'STRING_VALUE',
+ *       Lifecycle: 'AVAILABLE' || 'CREATING' || 'DELETING' || 'CREATE_FAILED' || 'DELETE_FAILED',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param AssociateFileSystemAliasesCommandInput - {@link AssociateFileSystemAliasesCommandInput}
@@ -75,6 +85,8 @@ export interface AssociateFileSystemAliasesCommandOutput extends AssociateFileSy
  * @throws {@link InternalServerError} (server fault)
  *  <p>A generic error indicating a server-side failure.</p>
  *
+ * @throws {@link FSxServiceException}
+ * <p>Base exception class for all service exceptions from FSx service.</p>
  *
  */
 export class AssociateFileSystemAliasesCommand extends $Command<

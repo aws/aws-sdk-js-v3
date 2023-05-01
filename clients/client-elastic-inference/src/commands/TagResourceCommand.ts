@@ -43,17 +43,20 @@ export interface TagResourceCommandOutput extends TagResourceResult, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElasticInferenceClient, TagResourceCommand } from "@aws-sdk/client-elastic-inference"; // ES Modules import
- * // const { ElasticInferenceClient, TagResourceCommand } = require("@aws-sdk/client-elastic-inference"); // CommonJS import
+ * import { ElasticInferenceClient, TagResourceCommand } from '@aws-sdk/client-elastic-inference'; // ES Modules import
+ * // const { ElasticInferenceClient, TagResourceCommand } = require('@aws-sdk/client-elastic-inference'); // CommonJS import
  * const client = new ElasticInferenceClient(config);
  * const input = { // TagResourceRequest
- *   resourceArn: "STRING_VALUE", // required
+ *   resourceArn: 'STRING_VALUE', // required
  *   tags: { // TagMap // required
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param TagResourceCommandInput - {@link TagResourceCommandInput}
@@ -77,6 +80,8 @@ export interface TagResourceCommandOutput extends TagResourceResult, __MetadataB
  *             Raised when the requested resource cannot be found.
  *         </p>
  *
+ * @throws {@link ElasticInferenceServiceException}
+ * <p>Base exception class for all service exceptions from ElasticInference service.</p>
  *
  */
 export class TagResourceCommand extends $Command<

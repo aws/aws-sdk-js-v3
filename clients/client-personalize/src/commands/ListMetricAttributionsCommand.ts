@@ -36,16 +36,31 @@ export interface ListMetricAttributionsCommandOutput extends ListMetricAttributi
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PersonalizeClient, ListMetricAttributionsCommand } from "@aws-sdk/client-personalize"; // ES Modules import
- * // const { PersonalizeClient, ListMetricAttributionsCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
+ * import { PersonalizeClient, ListMetricAttributionsCommand } from '@aws-sdk/client-personalize'; // ES Modules import
+ * // const { PersonalizeClient, ListMetricAttributionsCommand } = require('@aws-sdk/client-personalize'); // CommonJS import
  * const client = new PersonalizeClient(config);
  * const input = { // ListMetricAttributionsRequest
- *   datasetGroupArn: "STRING_VALUE",
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   datasetGroupArn: 'STRING_VALUE',
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new ListMetricAttributionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListMetricAttributionsResponse
+ *   metricAttributions: [ // MetricAttributions
+ *     { // MetricAttributionSummary
+ *       name: 'STRING_VALUE',
+ *       metricAttributionArn: 'STRING_VALUE',
+ *       status: 'STRING_VALUE',
+ *       creationDateTime: new Date('TIMESTAMP'),
+ *       lastUpdatedDateTime: new Date('TIMESTAMP'),
+ *       failureReason: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListMetricAttributionsCommandInput - {@link ListMetricAttributionsCommandInput}
@@ -60,6 +75,8 @@ export interface ListMetricAttributionsCommandOutput extends ListMetricAttributi
  * @throws {@link InvalidNextTokenException} (client fault)
  *  <p>The token is not valid.</p>
  *
+ * @throws {@link PersonalizeServiceException}
+ * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
  */
 export class ListMetricAttributionsCommand extends $Command<

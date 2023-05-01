@@ -56,28 +56,49 @@ export interface UpdateRealtimeLogConfigCommandOutput extends UpdateRealtimeLogC
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudFrontClient, UpdateRealtimeLogConfigCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
- * // const { CloudFrontClient, UpdateRealtimeLogConfigCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
+ * import { CloudFrontClient, UpdateRealtimeLogConfigCommand } from '@aws-sdk/client-cloudfront'; // ES Modules import
+ * // const { CloudFrontClient, UpdateRealtimeLogConfigCommand } = require('@aws-sdk/client-cloudfront'); // CommonJS import
  * const client = new CloudFrontClient(config);
  * const input = { // UpdateRealtimeLogConfigRequest
  *   EndPoints: [ // EndPointList
  *     { // EndPoint
- *       StreamType: "STRING_VALUE", // required
+ *       StreamType: 'STRING_VALUE', // required
  *       KinesisStreamConfig: { // KinesisStreamConfig
- *         RoleARN: "STRING_VALUE", // required
- *         StreamARN: "STRING_VALUE", // required
+ *         RoleARN: 'STRING_VALUE', // required
+ *         StreamARN: 'STRING_VALUE', // required
  *       },
  *     },
  *   ],
  *   Fields: [ // FieldList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   Name: "STRING_VALUE",
- *   ARN: "STRING_VALUE",
- *   SamplingRate: Number("long"),
+ *   Name: 'STRING_VALUE',
+ *   ARN: 'STRING_VALUE',
+ *   SamplingRate: Number('long'),
  * };
  * const command = new UpdateRealtimeLogConfigCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateRealtimeLogConfigResult
+ *   RealtimeLogConfig: { // RealtimeLogConfig
+ *     ARN: 'STRING_VALUE', // required
+ *     Name: 'STRING_VALUE', // required
+ *     SamplingRate: Number('long'), // required
+ *     EndPoints: [ // EndPointList // required
+ *       { // EndPoint
+ *         StreamType: 'STRING_VALUE', // required
+ *         KinesisStreamConfig: { // KinesisStreamConfig
+ *           RoleARN: 'STRING_VALUE', // required
+ *           StreamARN: 'STRING_VALUE', // required
+ *         },
+ *       },
+ *     ],
+ *     Fields: [ // FieldList // required
+ *       'STRING_VALUE',
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateRealtimeLogConfigCommandInput - {@link UpdateRealtimeLogConfigCommandInput}
@@ -95,6 +116,8 @@ export interface UpdateRealtimeLogConfigCommandOutput extends UpdateRealtimeLogC
  * @throws {@link NoSuchRealtimeLogConfig} (client fault)
  *  <p>The real-time log configuration does not exist.</p>
  *
+ * @throws {@link CloudFrontServiceException}
+ * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
  */
 export class UpdateRealtimeLogConfigCommand extends $Command<

@@ -40,14 +40,17 @@ export interface DeleteConfigurationAggregatorCommandOutput extends __MetadataBe
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConfigServiceClient, DeleteConfigurationAggregatorCommand } from "@aws-sdk/client-config-service"; // ES Modules import
- * // const { ConfigServiceClient, DeleteConfigurationAggregatorCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
+ * import { ConfigServiceClient, DeleteConfigurationAggregatorCommand } from '@aws-sdk/client-config-service'; // ES Modules import
+ * // const { ConfigServiceClient, DeleteConfigurationAggregatorCommand } = require('@aws-sdk/client-config-service'); // CommonJS import
  * const client = new ConfigServiceClient(config);
  * const input = { // DeleteConfigurationAggregatorRequest
- *   ConfigurationAggregatorName: "STRING_VALUE", // required
+ *   ConfigurationAggregatorName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteConfigurationAggregatorCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteConfigurationAggregatorCommandInput - {@link DeleteConfigurationAggregatorCommandInput}
@@ -59,6 +62,8 @@ export interface DeleteConfigurationAggregatorCommandOutput extends __MetadataBe
  * @throws {@link NoSuchConfigurationAggregatorException} (client fault)
  *  <p>You have specified a configuration aggregator that does not exist.</p>
  *
+ * @throws {@link ConfigServiceServiceException}
+ * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
  */
 export class DeleteConfigurationAggregatorCommand extends $Command<

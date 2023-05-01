@@ -44,23 +44,39 @@ export interface ImportCertificateCommandOutput extends ImportCertificateRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DatabaseMigrationServiceClient, ImportCertificateCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
- * // const { DatabaseMigrationServiceClient, ImportCertificateCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
+ * import { DatabaseMigrationServiceClient, ImportCertificateCommand } from '@aws-sdk/client-database-migration-service'; // ES Modules import
+ * // const { DatabaseMigrationServiceClient, ImportCertificateCommand } = require('@aws-sdk/client-database-migration-service'); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
  * const input = { // ImportCertificateMessage
- *   CertificateIdentifier: "STRING_VALUE", // required
- *   CertificatePem: "STRING_VALUE",
- *   CertificateWallet: "BLOB_VALUE",
+ *   CertificateIdentifier: 'STRING_VALUE', // required
+ *   CertificatePem: 'STRING_VALUE',
+ *   CertificateWallet: 'BLOB_VALUE',
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE",
- *       Value: "STRING_VALUE",
- *       ResourceArn: "STRING_VALUE",
+ *       Key: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
+ *       ResourceArn: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new ImportCertificateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ImportCertificateResponse
+ *   Certificate: { // Certificate
+ *     CertificateIdentifier: 'STRING_VALUE',
+ *     CertificateCreationDate: new Date('TIMESTAMP'),
+ *     CertificatePem: 'STRING_VALUE',
+ *     CertificateWallet: 'BLOB_VALUE',
+ *     CertificateArn: 'STRING_VALUE',
+ *     CertificateOwner: 'STRING_VALUE',
+ *     ValidFromDate: new Date('TIMESTAMP'),
+ *     ValidToDate: new Date('TIMESTAMP'),
+ *     SigningAlgorithm: 'STRING_VALUE',
+ *     KeyLength: Number('int'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param ImportCertificateCommandInput - {@link ImportCertificateCommandInput}
@@ -78,6 +94,8 @@ export interface ImportCertificateCommandOutput extends ImportCertificateRespons
  * @throws {@link ResourceQuotaExceededFault} (client fault)
  *  <p>The quota for this resource quota has been exceeded.</p>
  *
+ * @throws {@link DatabaseMigrationServiceServiceException}
+ * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
  * @example Import certificate
  * ```javascript

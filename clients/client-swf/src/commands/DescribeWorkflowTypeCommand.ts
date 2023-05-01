@@ -74,18 +74,42 @@ export interface DescribeWorkflowTypeCommandOutput extends WorkflowTypeDetail, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SWFClient, DescribeWorkflowTypeCommand } from "@aws-sdk/client-swf"; // ES Modules import
- * // const { SWFClient, DescribeWorkflowTypeCommand } = require("@aws-sdk/client-swf"); // CommonJS import
+ * import { SWFClient, DescribeWorkflowTypeCommand } from '@aws-sdk/client-swf'; // ES Modules import
+ * // const { SWFClient, DescribeWorkflowTypeCommand } = require('@aws-sdk/client-swf'); // CommonJS import
  * const client = new SWFClient(config);
  * const input = { // DescribeWorkflowTypeInput
- *   domain: "STRING_VALUE", // required
+ *   domain: 'STRING_VALUE', // required
  *   workflowType: { // WorkflowType
- *     name: "STRING_VALUE", // required
- *     version: "STRING_VALUE", // required
+ *     name: 'STRING_VALUE', // required
+ *     version: 'STRING_VALUE', // required
  *   },
  * };
  * const command = new DescribeWorkflowTypeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // WorkflowTypeDetail
+ *   typeInfo: { // WorkflowTypeInfo
+ *     workflowType: { // WorkflowType
+ *       name: 'STRING_VALUE', // required
+ *       version: 'STRING_VALUE', // required
+ *     },
+ *     status: 'REGISTERED' || 'DEPRECATED', // required
+ *     description: 'STRING_VALUE',
+ *     creationDate: new Date('TIMESTAMP'), // required
+ *     deprecationDate: new Date('TIMESTAMP'),
+ *   },
+ *   configuration: { // WorkflowTypeConfiguration
+ *     defaultTaskStartToCloseTimeout: 'STRING_VALUE',
+ *     defaultExecutionStartToCloseTimeout: 'STRING_VALUE',
+ *     defaultTaskList: { // TaskList
+ *       name: 'STRING_VALUE', // required
+ *     },
+ *     defaultTaskPriority: 'STRING_VALUE',
+ *     defaultChildPolicy: 'TERMINATE' || 'REQUEST_CANCEL' || 'ABANDON',
+ *     defaultLambdaRole: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeWorkflowTypeCommandInput - {@link DescribeWorkflowTypeCommandInput}
@@ -100,6 +124,8 @@ export interface DescribeWorkflowTypeCommandOutput extends WorkflowTypeDetail, _
  * @throws {@link UnknownResourceFault} (client fault)
  *  <p>Returned when the named resource cannot be found with in the scope of this operation (region or domain). This could happen if the named resource was never created or is no longer available for this operation.</p>
  *
+ * @throws {@link SWFServiceException}
+ * <p>Base exception class for all service exceptions from SWF service.</p>
  *
  */
 export class DescribeWorkflowTypeCommand extends $Command<

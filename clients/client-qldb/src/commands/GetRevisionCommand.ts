@@ -43,21 +43,31 @@ export interface GetRevisionCommandOutput extends GetRevisionResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { QLDBClient, GetRevisionCommand } from "@aws-sdk/client-qldb"; // ES Modules import
- * // const { QLDBClient, GetRevisionCommand } = require("@aws-sdk/client-qldb"); // CommonJS import
+ * import { QLDBClient, GetRevisionCommand } from '@aws-sdk/client-qldb'; // ES Modules import
+ * // const { QLDBClient, GetRevisionCommand } = require('@aws-sdk/client-qldb'); // CommonJS import
  * const client = new QLDBClient(config);
  * const input = { // GetRevisionRequest
- *   Name: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
  *   BlockAddress: { // ValueHolder
- *     IonText: "STRING_VALUE",
+ *     IonText: 'STRING_VALUE',
  *   },
- *   DocumentId: "STRING_VALUE", // required
+ *   DocumentId: 'STRING_VALUE', // required
  *   DigestTipAddress: {
- *     IonText: "STRING_VALUE",
+ *     IonText: 'STRING_VALUE',
  *   },
  * };
  * const command = new GetRevisionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetRevisionResponse
+ *   Proof: { // ValueHolder
+ *     IonText: 'STRING_VALUE',
+ *   },
+ *   Revision: {
+ *     IonText: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetRevisionCommandInput - {@link GetRevisionCommandInput}
@@ -75,6 +85,8 @@ export interface GetRevisionCommandOutput extends GetRevisionResponse, __Metadat
  * @throws {@link ResourcePreconditionNotMetException} (client fault)
  *  <p>The operation failed because a condition wasn't satisfied in advance.</p>
  *
+ * @throws {@link QLDBServiceException}
+ * <p>Base exception class for all service exceptions from QLDB service.</p>
  *
  */
 export class GetRevisionCommand extends $Command<

@@ -41,15 +41,18 @@ export interface UpdateSubscriptionDefinitionCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GreengrassClient, UpdateSubscriptionDefinitionCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
- * // const { GreengrassClient, UpdateSubscriptionDefinitionCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
+ * import { GreengrassClient, UpdateSubscriptionDefinitionCommand } from '@aws-sdk/client-greengrass'; // ES Modules import
+ * // const { GreengrassClient, UpdateSubscriptionDefinitionCommand } = require('@aws-sdk/client-greengrass'); // CommonJS import
  * const client = new GreengrassClient(config);
  * const input = { // UpdateSubscriptionDefinitionRequest
- *   Name: "STRING_VALUE",
- *   SubscriptionDefinitionId: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE',
+ *   SubscriptionDefinitionId: 'STRING_VALUE', // required
  * };
  * const command = new UpdateSubscriptionDefinitionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateSubscriptionDefinitionCommandInput - {@link UpdateSubscriptionDefinitionCommandInput}
@@ -61,6 +64,8 @@ export interface UpdateSubscriptionDefinitionCommandOutput
  * @throws {@link BadRequestException} (client fault)
  *  General error information.
  *
+ * @throws {@link GreengrassServiceException}
+ * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
  */
 export class UpdateSubscriptionDefinitionCommand extends $Command<

@@ -36,52 +36,96 @@ export interface GetBackendAPICommandOutput extends GetBackendAPIResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AmplifyBackendClient, GetBackendAPICommand } from "@aws-sdk/client-amplifybackend"; // ES Modules import
- * // const { AmplifyBackendClient, GetBackendAPICommand } = require("@aws-sdk/client-amplifybackend"); // CommonJS import
+ * import { AmplifyBackendClient, GetBackendAPICommand } from '@aws-sdk/client-amplifybackend'; // ES Modules import
+ * // const { AmplifyBackendClient, GetBackendAPICommand } = require('@aws-sdk/client-amplifybackend'); // CommonJS import
  * const client = new AmplifyBackendClient(config);
  * const input = { // GetBackendAPIRequest
- *   AppId: "STRING_VALUE", // required
- *   BackendEnvironmentName: "STRING_VALUE", // required
+ *   AppId: 'STRING_VALUE', // required
+ *   BackendEnvironmentName: 'STRING_VALUE', // required
  *   ResourceConfig: { // BackendAPIResourceConfig
  *     AdditionalAuthTypes: [ // ListOfBackendAPIAuthType
  *       { // BackendAPIAuthType
- *         Mode: "API_KEY" || "AWS_IAM" || "AMAZON_COGNITO_USER_POOLS" || "OPENID_CONNECT",
+ *         Mode: 'API_KEY' || 'AWS_IAM' || 'AMAZON_COGNITO_USER_POOLS' || 'OPENID_CONNECT',
  *         Settings: { // BackendAPIAppSyncAuthSettings
- *           CognitoUserPoolId: "STRING_VALUE",
- *           Description: "STRING_VALUE",
- *           ExpirationTime: Number("double"),
- *           OpenIDAuthTTL: "STRING_VALUE",
- *           OpenIDClientId: "STRING_VALUE",
- *           OpenIDIatTTL: "STRING_VALUE",
- *           OpenIDIssueURL: "STRING_VALUE",
- *           OpenIDProviderName: "STRING_VALUE",
+ *           CognitoUserPoolId: 'STRING_VALUE',
+ *           Description: 'STRING_VALUE',
+ *           ExpirationTime: Number('double'),
+ *           OpenIDAuthTTL: 'STRING_VALUE',
+ *           OpenIDClientId: 'STRING_VALUE',
+ *           OpenIDIatTTL: 'STRING_VALUE',
+ *           OpenIDIssueURL: 'STRING_VALUE',
+ *           OpenIDProviderName: 'STRING_VALUE',
  *         },
  *       },
  *     ],
- *     ApiName: "STRING_VALUE",
+ *     ApiName: 'STRING_VALUE',
  *     ConflictResolution: { // BackendAPIConflictResolution
- *       ResolutionStrategy: "OPTIMISTIC_CONCURRENCY" || "LAMBDA" || "AUTOMERGE" || "NONE",
+ *       ResolutionStrategy: 'OPTIMISTIC_CONCURRENCY' || 'LAMBDA' || 'AUTOMERGE' || 'NONE',
  *     },
  *     DefaultAuthType: {
- *       Mode: "API_KEY" || "AWS_IAM" || "AMAZON_COGNITO_USER_POOLS" || "OPENID_CONNECT",
+ *       Mode: 'API_KEY' || 'AWS_IAM' || 'AMAZON_COGNITO_USER_POOLS' || 'OPENID_CONNECT',
  *       Settings: {
- *         CognitoUserPoolId: "STRING_VALUE",
- *         Description: "STRING_VALUE",
- *         ExpirationTime: Number("double"),
- *         OpenIDAuthTTL: "STRING_VALUE",
- *         OpenIDClientId: "STRING_VALUE",
- *         OpenIDIatTTL: "STRING_VALUE",
- *         OpenIDIssueURL: "STRING_VALUE",
- *         OpenIDProviderName: "STRING_VALUE",
+ *         CognitoUserPoolId: 'STRING_VALUE',
+ *         Description: 'STRING_VALUE',
+ *         ExpirationTime: Number('double'),
+ *         OpenIDAuthTTL: 'STRING_VALUE',
+ *         OpenIDClientId: 'STRING_VALUE',
+ *         OpenIDIatTTL: 'STRING_VALUE',
+ *         OpenIDIssueURL: 'STRING_VALUE',
+ *         OpenIDProviderName: 'STRING_VALUE',
  *       },
  *     },
- *     Service: "STRING_VALUE",
- *     TransformSchema: "STRING_VALUE",
+ *     Service: 'STRING_VALUE',
+ *     TransformSchema: 'STRING_VALUE',
  *   },
- *   ResourceName: "STRING_VALUE", // required
+ *   ResourceName: 'STRING_VALUE', // required
  * };
  * const command = new GetBackendAPICommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetBackendAPIResponse
+ *   AppId: 'STRING_VALUE',
+ *   BackendEnvironmentName: 'STRING_VALUE',
+ *   Error: 'STRING_VALUE',
+ *   ResourceConfig: { // BackendAPIResourceConfig
+ *     AdditionalAuthTypes: [ // ListOfBackendAPIAuthType
+ *       { // BackendAPIAuthType
+ *         Mode: 'API_KEY' || 'AWS_IAM' || 'AMAZON_COGNITO_USER_POOLS' || 'OPENID_CONNECT',
+ *         Settings: { // BackendAPIAppSyncAuthSettings
+ *           CognitoUserPoolId: 'STRING_VALUE',
+ *           Description: 'STRING_VALUE',
+ *           ExpirationTime: Number('double'),
+ *           OpenIDAuthTTL: 'STRING_VALUE',
+ *           OpenIDClientId: 'STRING_VALUE',
+ *           OpenIDIatTTL: 'STRING_VALUE',
+ *           OpenIDIssueURL: 'STRING_VALUE',
+ *           OpenIDProviderName: 'STRING_VALUE',
+ *         },
+ *       },
+ *     ],
+ *     ApiName: 'STRING_VALUE',
+ *     ConflictResolution: { // BackendAPIConflictResolution
+ *       ResolutionStrategy: 'OPTIMISTIC_CONCURRENCY' || 'LAMBDA' || 'AUTOMERGE' || 'NONE',
+ *     },
+ *     DefaultAuthType: {
+ *       Mode: 'API_KEY' || 'AWS_IAM' || 'AMAZON_COGNITO_USER_POOLS' || 'OPENID_CONNECT',
+ *       Settings: {
+ *         CognitoUserPoolId: 'STRING_VALUE',
+ *         Description: 'STRING_VALUE',
+ *         ExpirationTime: Number('double'),
+ *         OpenIDAuthTTL: 'STRING_VALUE',
+ *         OpenIDClientId: 'STRING_VALUE',
+ *         OpenIDIatTTL: 'STRING_VALUE',
+ *         OpenIDIssueURL: 'STRING_VALUE',
+ *         OpenIDProviderName: 'STRING_VALUE',
+ *       },
+ *     },
+ *     Service: 'STRING_VALUE',
+ *     TransformSchema: 'STRING_VALUE',
+ *   },
+ *   ResourceName: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetBackendAPICommandInput - {@link GetBackendAPICommandInput}
@@ -102,6 +146,8 @@ export interface GetBackendAPICommandOutput extends GetBackendAPIResponse, __Met
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>An error that is returned when a limit of a specific type has been exceeded.</p>
  *
+ * @throws {@link AmplifyBackendServiceException}
+ * <p>Base exception class for all service exceptions from AmplifyBackend service.</p>
  *
  */
 export class GetBackendAPICommand extends $Command<

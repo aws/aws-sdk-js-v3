@@ -37,16 +37,27 @@ export interface ListDiscoveryJobsCommandOutput extends ListDiscoveryJobsRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DataSyncClient, ListDiscoveryJobsCommand } from "@aws-sdk/client-datasync"; // ES Modules import
- * // const { DataSyncClient, ListDiscoveryJobsCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
+ * import { DataSyncClient, ListDiscoveryJobsCommand } from '@aws-sdk/client-datasync'; // ES Modules import
+ * // const { DataSyncClient, ListDiscoveryJobsCommand } = require('@aws-sdk/client-datasync'); // CommonJS import
  * const client = new DataSyncClient(config);
  * const input = { // ListDiscoveryJobsRequest
- *   StorageSystemArn: "STRING_VALUE",
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   StorageSystemArn: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListDiscoveryJobsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListDiscoveryJobsResponse
+ *   DiscoveryJobs: [ // DiscoveryJobList
+ *     { // DiscoveryJobListEntry
+ *       DiscoveryJobArn: 'STRING_VALUE',
+ *       Status: 'RUNNING' || 'WARNING' || 'TERMINATED' || 'FAILED' || 'STOPPED' || 'COMPLETED' || 'COMPLETED_WITH_ISSUES',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListDiscoveryJobsCommandInput - {@link ListDiscoveryJobsCommandInput}
@@ -62,6 +73,8 @@ export interface ListDiscoveryJobsCommandOutput extends ListDiscoveryJobsRespons
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception is thrown when the client submits a malformed request.</p>
  *
+ * @throws {@link DataSyncServiceException}
+ * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
  */
 export class ListDiscoveryJobsCommand extends $Command<

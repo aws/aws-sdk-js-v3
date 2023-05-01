@@ -51,14 +51,17 @@ export interface DeleteConnectionAliasCommandOutput extends DeleteConnectionAlia
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkSpacesClient, DeleteConnectionAliasCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
- * // const { WorkSpacesClient, DeleteConnectionAliasCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
+ * import { WorkSpacesClient, DeleteConnectionAliasCommand } from '@aws-sdk/client-workspaces'; // ES Modules import
+ * // const { WorkSpacesClient, DeleteConnectionAliasCommand } = require('@aws-sdk/client-workspaces'); // CommonJS import
  * const client = new WorkSpacesClient(config);
  * const input = { // DeleteConnectionAliasRequest
- *   AliasId: "STRING_VALUE", // required
+ *   AliasId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteConnectionAliasCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteConnectionAliasCommandInput - {@link DeleteConnectionAliasCommandInput}
@@ -85,6 +88,8 @@ export interface DeleteConnectionAliasCommandOutput extends DeleteConnectionAlia
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource could not be found.</p>
  *
+ * @throws {@link WorkSpacesServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
  */
 export class DeleteConnectionAliasCommand extends $Command<

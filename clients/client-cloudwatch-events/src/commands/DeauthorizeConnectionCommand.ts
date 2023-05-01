@@ -37,14 +37,23 @@ export interface DeauthorizeConnectionCommandOutput extends DeauthorizeConnectio
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudWatchEventsClient, DeauthorizeConnectionCommand } from "@aws-sdk/client-cloudwatch-events"; // ES Modules import
- * // const { CloudWatchEventsClient, DeauthorizeConnectionCommand } = require("@aws-sdk/client-cloudwatch-events"); // CommonJS import
+ * import { CloudWatchEventsClient, DeauthorizeConnectionCommand } from '@aws-sdk/client-cloudwatch-events'; // ES Modules import
+ * // const { CloudWatchEventsClient, DeauthorizeConnectionCommand } = require('@aws-sdk/client-cloudwatch-events'); // CommonJS import
  * const client = new CloudWatchEventsClient(config);
  * const input = { // DeauthorizeConnectionRequest
- *   Name: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
  * };
  * const command = new DeauthorizeConnectionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeauthorizeConnectionResponse
+ *   ConnectionArn: 'STRING_VALUE',
+ *   ConnectionState: 'STRING_VALUE',
+ *   CreationTime: new Date('TIMESTAMP'),
+ *   LastModifiedTime: new Date('TIMESTAMP'),
+ *   LastAuthorizedTime: new Date('TIMESTAMP'),
+ * };
+ *
  * ```
  *
  * @param DeauthorizeConnectionCommandInput - {@link DeauthorizeConnectionCommandInput}
@@ -62,6 +71,8 @@ export interface DeauthorizeConnectionCommandOutput extends DeauthorizeConnectio
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>An entity that you specified does not exist.</p>
  *
+ * @throws {@link CloudWatchEventsServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatchEvents service.</p>
  *
  */
 export class DeauthorizeConnectionCommand extends $Command<

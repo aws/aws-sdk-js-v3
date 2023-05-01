@@ -48,15 +48,18 @@ export interface StartMonitoringMemberCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DetectiveClient, StartMonitoringMemberCommand } from "@aws-sdk/client-detective"; // ES Modules import
- * // const { DetectiveClient, StartMonitoringMemberCommand } = require("@aws-sdk/client-detective"); // CommonJS import
+ * import { DetectiveClient, StartMonitoringMemberCommand } from '@aws-sdk/client-detective'; // ES Modules import
+ * // const { DetectiveClient, StartMonitoringMemberCommand } = require('@aws-sdk/client-detective'); // CommonJS import
  * const client = new DetectiveClient(config);
  * const input = { // StartMonitoringMemberRequest
- *   GraphArn: "STRING_VALUE", // required
- *   AccountId: "STRING_VALUE", // required
+ *   GraphArn: 'STRING_VALUE', // required
+ *   AccountId: 'STRING_VALUE', // required
  * };
  * const command = new StartMonitoringMemberCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param StartMonitoringMemberCommandInput - {@link StartMonitoringMemberCommandInput}
@@ -99,6 +102,8 @@ export interface StartMonitoringMemberCommandOutput extends __MetadataBearer {}
  * @throws {@link ValidationException} (client fault)
  *  <p>The request parameters are invalid.</p>
  *
+ * @throws {@link DetectiveServiceException}
+ * <p>Base exception class for all service exceptions from Detective service.</p>
  *
  */
 export class StartMonitoringMemberCommand extends $Command<

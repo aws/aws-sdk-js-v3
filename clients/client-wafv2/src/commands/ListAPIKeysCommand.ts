@@ -39,16 +39,32 @@ export interface ListAPIKeysCommandOutput extends ListAPIKeysResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WAFV2Client, ListAPIKeysCommand } from "@aws-sdk/client-wafv2"; // ES Modules import
- * // const { WAFV2Client, ListAPIKeysCommand } = require("@aws-sdk/client-wafv2"); // CommonJS import
+ * import { WAFV2Client, ListAPIKeysCommand } from '@aws-sdk/client-wafv2'; // ES Modules import
+ * // const { WAFV2Client, ListAPIKeysCommand } = require('@aws-sdk/client-wafv2'); // CommonJS import
  * const client = new WAFV2Client(config);
  * const input = { // ListAPIKeysRequest
- *   Scope: "CLOUDFRONT" || "REGIONAL", // required
- *   NextMarker: "STRING_VALUE",
- *   Limit: Number("int"),
+ *   Scope: 'CLOUDFRONT' || 'REGIONAL', // required
+ *   NextMarker: 'STRING_VALUE',
+ *   Limit: Number('int'),
  * };
  * const command = new ListAPIKeysCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListAPIKeysResponse
+ *   NextMarker: 'STRING_VALUE',
+ *   APIKeySummaries: [ // APIKeySummaries
+ *     { // APIKeySummary
+ *       TokenDomains: [ // TokenDomains
+ *         'STRING_VALUE',
+ *       ],
+ *       APIKey: 'STRING_VALUE',
+ *       CreationTimestamp: new Date('TIMESTAMP'),
+ *       Version: Number('int'),
+ *     },
+ *   ],
+ *   ApplicationIntegrationURL: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListAPIKeysCommandInput - {@link ListAPIKeysCommandInput}
@@ -89,6 +105,8 @@ export interface ListAPIKeysCommandOutput extends ListAPIKeysResponse, __Metadat
  *  <p>WAF couldn’t perform the operation because the resource that you requested isn’t
  *          valid. Check the resource, and try again.</p>
  *
+ * @throws {@link WAFV2ServiceException}
+ * <p>Base exception class for all service exceptions from WAFV2 service.</p>
  *
  */
 export class ListAPIKeysCommand extends $Command<

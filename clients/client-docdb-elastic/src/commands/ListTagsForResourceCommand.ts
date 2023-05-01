@@ -36,14 +36,21 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DocDBElasticClient, ListTagsForResourceCommand } from "@aws-sdk/client-docdb-elastic"; // ES Modules import
- * // const { DocDBElasticClient, ListTagsForResourceCommand } = require("@aws-sdk/client-docdb-elastic"); // CommonJS import
+ * import { DocDBElasticClient, ListTagsForResourceCommand } from '@aws-sdk/client-docdb-elastic'; // ES Modules import
+ * // const { DocDBElasticClient, ListTagsForResourceCommand } = require('@aws-sdk/client-docdb-elastic'); // CommonJS import
  * const client = new DocDBElasticClient(config);
  * const input = { // ListTagsForResourceRequest
- *   resourceArn: "STRING_VALUE", // required
+ *   resourceArn: 'STRING_VALUE', // required
  * };
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTagsForResourceResponse
+ *   tags: { // TagMap
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param ListTagsForResourceCommandInput - {@link ListTagsForResourceCommandInput}
@@ -64,6 +71,8 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @throws {@link ValidationException} (client fault)
  *  <p>A structure defining a validation exception.</p>
  *
+ * @throws {@link DocDBElasticServiceException}
+ * <p>Base exception class for all service exceptions from DocDBElastic service.</p>
  *
  */
 export class ListTagsForResourceCommand extends $Command<

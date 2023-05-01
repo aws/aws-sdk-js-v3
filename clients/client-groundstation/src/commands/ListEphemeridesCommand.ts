@@ -36,21 +36,41 @@ export interface ListEphemeridesCommandOutput extends ListEphemeridesResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GroundStationClient, ListEphemeridesCommand } from "@aws-sdk/client-groundstation"; // ES Modules import
- * // const { GroundStationClient, ListEphemeridesCommand } = require("@aws-sdk/client-groundstation"); // CommonJS import
+ * import { GroundStationClient, ListEphemeridesCommand } from '@aws-sdk/client-groundstation'; // ES Modules import
+ * // const { GroundStationClient, ListEphemeridesCommand } = require('@aws-sdk/client-groundstation'); // CommonJS import
  * const client = new GroundStationClient(config);
  * const input = { // ListEphemeridesRequest
- *   satelliteId: "STRING_VALUE", // required
- *   startTime: new Date("TIMESTAMP"), // required
- *   endTime: new Date("TIMESTAMP"), // required
+ *   satelliteId: 'STRING_VALUE', // required
+ *   startTime: new Date('TIMESTAMP'), // required
+ *   endTime: new Date('TIMESTAMP'), // required
  *   statusList: [ // EphemerisStatusList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new ListEphemeridesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListEphemeridesResponse
+ *   nextToken: 'STRING_VALUE',
+ *   ephemerides: [ // EphemeridesList
+ *     { // EphemerisItem
+ *       ephemerisId: 'STRING_VALUE',
+ *       status: 'STRING_VALUE',
+ *       priority: Number('int'),
+ *       enabled: true || false,
+ *       creationTime: new Date('TIMESTAMP'),
+ *       name: 'STRING_VALUE',
+ *       sourceS3Object: { // S3Object
+ *         bucket: 'STRING_VALUE',
+ *         key: 'STRING_VALUE',
+ *         version: 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListEphemeridesCommandInput - {@link ListEphemeridesCommandInput}
@@ -68,6 +88,8 @@ export interface ListEphemeridesCommandOutput extends ListEphemeridesResponse, _
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Resource was not found.</p>
  *
+ * @throws {@link GroundStationServiceException}
+ * <p>Base exception class for all service exceptions from GroundStation service.</p>
  *
  */
 export class ListEphemeridesCommand extends $Command<

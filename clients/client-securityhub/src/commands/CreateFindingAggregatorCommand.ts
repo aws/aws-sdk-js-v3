@@ -38,17 +38,27 @@ export interface CreateFindingAggregatorCommandOutput extends CreateFindingAggre
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SecurityHubClient, CreateFindingAggregatorCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
- * // const { SecurityHubClient, CreateFindingAggregatorCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
+ * import { SecurityHubClient, CreateFindingAggregatorCommand } from '@aws-sdk/client-securityhub'; // ES Modules import
+ * // const { SecurityHubClient, CreateFindingAggregatorCommand } = require('@aws-sdk/client-securityhub'); // CommonJS import
  * const client = new SecurityHubClient(config);
  * const input = { // CreateFindingAggregatorRequest
- *   RegionLinkingMode: "STRING_VALUE", // required
+ *   RegionLinkingMode: 'STRING_VALUE', // required
  *   Regions: [ // StringList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new CreateFindingAggregatorCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateFindingAggregatorResponse
+ *   FindingAggregatorArn: 'STRING_VALUE',
+ *   FindingAggregationRegion: 'STRING_VALUE',
+ *   RegionLinkingMode: 'STRING_VALUE',
+ *   Regions: [ // StringList
+ *     'STRING_VALUE',
+ *   ],
+ * };
+ *
  * ```
  *
  * @param CreateFindingAggregatorCommandInput - {@link CreateFindingAggregatorCommandInput}
@@ -74,6 +84,8 @@ export interface CreateFindingAggregatorCommandOutput extends CreateFindingAggre
  *  <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services
  *          account or throttling limits. The error code describes the limit exceeded.</p>
  *
+ * @throws {@link SecurityHubServiceException}
+ * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
  * @example To enable cross-Region aggregation
  * ```javascript

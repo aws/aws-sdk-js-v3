@@ -36,14 +36,22 @@ export interface GetActiveNamesCommandOutput extends GetActiveNamesResult, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LightsailClient, GetActiveNamesCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
- * // const { LightsailClient, GetActiveNamesCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
+ * import { LightsailClient, GetActiveNamesCommand } from '@aws-sdk/client-lightsail'; // ES Modules import
+ * // const { LightsailClient, GetActiveNamesCommand } = require('@aws-sdk/client-lightsail'); // CommonJS import
  * const client = new LightsailClient(config);
  * const input = { // GetActiveNamesRequest
- *   pageToken: "STRING_VALUE",
+ *   pageToken: 'STRING_VALUE',
  * };
  * const command = new GetActiveNamesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetActiveNamesResult
+ *   activeNames: [ // StringList
+ *     'STRING_VALUE',
+ *   ],
+ *   nextPageToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetActiveNamesCommandInput - {@link GetActiveNamesCommandInput}
@@ -82,6 +90,8 @@ export interface GetActiveNamesCommandOutput extends GetActiveNamesResult, __Met
  * @throws {@link UnauthenticatedException} (client fault)
  *  <p>Lightsail throws this exception when the user has not been authenticated.</p>
  *
+ * @throws {@link LightsailServiceException}
+ * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
  */
 export class GetActiveNamesCommand extends $Command<

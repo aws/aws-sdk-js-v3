@@ -36,15 +36,18 @@ export interface UpdateLoggerDefinitionCommandOutput extends UpdateLoggerDefinit
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GreengrassClient, UpdateLoggerDefinitionCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
- * // const { GreengrassClient, UpdateLoggerDefinitionCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
+ * import { GreengrassClient, UpdateLoggerDefinitionCommand } from '@aws-sdk/client-greengrass'; // ES Modules import
+ * // const { GreengrassClient, UpdateLoggerDefinitionCommand } = require('@aws-sdk/client-greengrass'); // CommonJS import
  * const client = new GreengrassClient(config);
  * const input = { // UpdateLoggerDefinitionRequest
- *   LoggerDefinitionId: "STRING_VALUE", // required
- *   Name: "STRING_VALUE",
+ *   LoggerDefinitionId: 'STRING_VALUE', // required
+ *   Name: 'STRING_VALUE',
  * };
  * const command = new UpdateLoggerDefinitionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateLoggerDefinitionCommandInput - {@link UpdateLoggerDefinitionCommandInput}
@@ -56,6 +59,8 @@ export interface UpdateLoggerDefinitionCommandOutput extends UpdateLoggerDefinit
  * @throws {@link BadRequestException} (client fault)
  *  General error information.
  *
+ * @throws {@link GreengrassServiceException}
+ * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
  */
 export class UpdateLoggerDefinitionCommand extends $Command<

@@ -41,40 +41,45 @@ export interface StartQueryExecutionCommandOutput extends StartQueryExecutionOut
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AthenaClient, StartQueryExecutionCommand } from "@aws-sdk/client-athena"; // ES Modules import
- * // const { AthenaClient, StartQueryExecutionCommand } = require("@aws-sdk/client-athena"); // CommonJS import
+ * import { AthenaClient, StartQueryExecutionCommand } from '@aws-sdk/client-athena'; // ES Modules import
+ * // const { AthenaClient, StartQueryExecutionCommand } = require('@aws-sdk/client-athena'); // CommonJS import
  * const client = new AthenaClient(config);
  * const input = { // StartQueryExecutionInput
- *   QueryString: "STRING_VALUE", // required
- *   ClientRequestToken: "STRING_VALUE",
+ *   QueryString: 'STRING_VALUE', // required
+ *   ClientRequestToken: 'STRING_VALUE',
  *   QueryExecutionContext: { // QueryExecutionContext
- *     Database: "STRING_VALUE",
- *     Catalog: "STRING_VALUE",
+ *     Database: 'STRING_VALUE',
+ *     Catalog: 'STRING_VALUE',
  *   },
  *   ResultConfiguration: { // ResultConfiguration
- *     OutputLocation: "STRING_VALUE",
+ *     OutputLocation: 'STRING_VALUE',
  *     EncryptionConfiguration: { // EncryptionConfiguration
- *       EncryptionOption: "SSE_S3" || "SSE_KMS" || "CSE_KMS", // required
- *       KmsKey: "STRING_VALUE",
+ *       EncryptionOption: 'SSE_S3' || 'SSE_KMS' || 'CSE_KMS', // required
+ *       KmsKey: 'STRING_VALUE',
  *     },
- *     ExpectedBucketOwner: "STRING_VALUE",
+ *     ExpectedBucketOwner: 'STRING_VALUE',
  *     AclConfiguration: { // AclConfiguration
- *       S3AclOption: "BUCKET_OWNER_FULL_CONTROL", // required
+ *       S3AclOption: 'BUCKET_OWNER_FULL_CONTROL', // required
  *     },
  *   },
- *   WorkGroup: "STRING_VALUE",
+ *   WorkGroup: 'STRING_VALUE',
  *   ExecutionParameters: [ // ExecutionParameters
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   ResultReuseConfiguration: { // ResultReuseConfiguration
  *     ResultReuseByAgeConfiguration: { // ResultReuseByAgeConfiguration
  *       Enabled: true || false, // required
- *       MaxAgeInMinutes: Number("int"),
+ *       MaxAgeInMinutes: Number('int'),
  *     },
  *   },
  * };
  * const command = new StartQueryExecutionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartQueryExecutionOutput
+ *   QueryExecutionId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param StartQueryExecutionCommandInput - {@link StartQueryExecutionCommandInput}
@@ -94,6 +99,8 @@ export interface StartQueryExecutionCommandOutput extends StartQueryExecutionOut
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Indicates that the request was throttled.</p>
  *
+ * @throws {@link AthenaServiceException}
+ * <p>Base exception class for all service exceptions from Athena service.</p>
  *
  */
 export class StartQueryExecutionCommand extends $Command<

@@ -38,18 +38,26 @@ export interface ListTaskDefinitionsCommandOutput extends ListTaskDefinitionsRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ECSClient, ListTaskDefinitionsCommand } from "@aws-sdk/client-ecs"; // ES Modules import
- * // const { ECSClient, ListTaskDefinitionsCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
+ * import { ECSClient, ListTaskDefinitionsCommand } from '@aws-sdk/client-ecs'; // ES Modules import
+ * // const { ECSClient, ListTaskDefinitionsCommand } = require('@aws-sdk/client-ecs'); // CommonJS import
  * const client = new ECSClient(config);
  * const input = { // ListTaskDefinitionsRequest
- *   familyPrefix: "STRING_VALUE",
- *   status: "ACTIVE" || "INACTIVE" || "DELETE_IN_PROGRESS",
- *   sort: "ASC" || "DESC",
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   familyPrefix: 'STRING_VALUE',
+ *   status: 'ACTIVE' || 'INACTIVE' || 'DELETE_IN_PROGRESS',
+ *   sort: 'ASC' || 'DESC',
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new ListTaskDefinitionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTaskDefinitionsResponse
+ *   taskDefinitionArns: [ // StringList
+ *     'STRING_VALUE',
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListTaskDefinitionsCommandInput - {@link ListTaskDefinitionsCommandInput}
@@ -70,6 +78,8 @@ export interface ListTaskDefinitionsCommandOutput extends ListTaskDefinitionsRes
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server issue.</p>
  *
+ * @throws {@link ECSServiceException}
+ * <p>Base exception class for all service exceptions from ECS service.</p>
  *
  * @example To list your registered task definitions
  * ```javascript

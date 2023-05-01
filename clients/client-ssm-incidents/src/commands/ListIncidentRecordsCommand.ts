@@ -37,32 +37,53 @@ export interface ListIncidentRecordsCommandOutput extends ListIncidentRecordsOut
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMIncidentsClient, ListIncidentRecordsCommand } from "@aws-sdk/client-ssm-incidents"; // ES Modules import
- * // const { SSMIncidentsClient, ListIncidentRecordsCommand } = require("@aws-sdk/client-ssm-incidents"); // CommonJS import
+ * import { SSMIncidentsClient, ListIncidentRecordsCommand } from '@aws-sdk/client-ssm-incidents'; // ES Modules import
+ * // const { SSMIncidentsClient, ListIncidentRecordsCommand } = require('@aws-sdk/client-ssm-incidents'); // CommonJS import
  * const client = new SSMIncidentsClient(config);
  * const input = { // ListIncidentRecordsInput
  *   filters: [ // FilterList
  *     { // Filter
- *       key: "STRING_VALUE", // required
+ *       key: 'STRING_VALUE', // required
  *       condition: { // Condition Union: only one key present
- *         before: new Date("TIMESTAMP"),
- *         after: new Date("TIMESTAMP"),
+ *         before: new Date('TIMESTAMP'),
+ *         after: new Date('TIMESTAMP'),
  *         equals: { // AttributeValueList Union: only one key present
  *           stringValues: [ // StringList
- *             "STRING_VALUE",
+ *             'STRING_VALUE',
  *           ],
  *           integerValues: [ // IntegerList
- *             Number("int"),
+ *             Number('int'),
  *           ],
  *         },
  *       },
  *     },
  *   ],
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new ListIncidentRecordsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListIncidentRecordsOutput
+ *   incidentRecordSummaries: [ // IncidentRecordSummaryList // required
+ *     { // IncidentRecordSummary
+ *       arn: 'STRING_VALUE', // required
+ *       title: 'STRING_VALUE', // required
+ *       status: 'STRING_VALUE', // required
+ *       impact: Number('int'), // required
+ *       creationTime: new Date('TIMESTAMP'), // required
+ *       resolvedTime: new Date('TIMESTAMP'),
+ *       incidentRecordSource: { // IncidentRecordSource
+ *         createdBy: 'STRING_VALUE', // required
+ *         invokedBy: 'STRING_VALUE',
+ *         resourceArn: 'STRING_VALUE',
+ *         source: 'STRING_VALUE', // required
+ *       },
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListIncidentRecordsCommandInput - {@link ListIncidentRecordsCommandInput}
@@ -85,6 +106,8 @@ export interface ListIncidentRecordsCommandOutput extends ListIncidentRecordsOut
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
  *       service.</p>
  *
+ * @throws {@link SSMIncidentsServiceException}
+ * <p>Base exception class for all service exceptions from SSMIncidents service.</p>
  *
  */
 export class ListIncidentRecordsCommand extends $Command<

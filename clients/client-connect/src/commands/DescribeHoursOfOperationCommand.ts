@@ -37,15 +37,42 @@ export interface DescribeHoursOfOperationCommandOutput extends DescribeHoursOfOp
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, DescribeHoursOfOperationCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, DescribeHoursOfOperationCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, DescribeHoursOfOperationCommand } from '@aws-sdk/client-connect'; // ES Modules import
+ * // const { ConnectClient, DescribeHoursOfOperationCommand } = require('@aws-sdk/client-connect'); // CommonJS import
  * const client = new ConnectClient(config);
  * const input = { // DescribeHoursOfOperationRequest
- *   InstanceId: "STRING_VALUE", // required
- *   HoursOfOperationId: "STRING_VALUE", // required
+ *   InstanceId: 'STRING_VALUE', // required
+ *   HoursOfOperationId: 'STRING_VALUE', // required
  * };
  * const command = new DescribeHoursOfOperationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeHoursOfOperationResponse
+ *   HoursOfOperation: { // HoursOfOperation
+ *     HoursOfOperationId: 'STRING_VALUE',
+ *     HoursOfOperationArn: 'STRING_VALUE',
+ *     Name: 'STRING_VALUE',
+ *     Description: 'STRING_VALUE',
+ *     TimeZone: 'STRING_VALUE',
+ *     Config: [ // HoursOfOperationConfigList
+ *       { // HoursOfOperationConfig
+ *         Day: 'SUNDAY' || 'MONDAY' || 'TUESDAY' || 'WEDNESDAY' || 'THURSDAY' || 'FRIDAY' || 'SATURDAY', // required
+ *         StartTime: { // HoursOfOperationTimeSlice
+ *           Hours: Number('int'), // required
+ *           Minutes: Number('int'), // required
+ *         },
+ *         EndTime: {
+ *           Hours: Number('int'), // required
+ *           Minutes: Number('int'), // required
+ *         },
+ *       },
+ *     ],
+ *     Tags: { // TagMap
+ *       '<keys>': 'STRING_VALUE',
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeHoursOfOperationCommandInput - {@link DescribeHoursOfOperationCommandInput}
@@ -69,6 +96,8 @@ export interface DescribeHoursOfOperationCommandOutput extends DescribeHoursOfOp
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class DescribeHoursOfOperationCommand extends $Command<

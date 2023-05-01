@@ -46,14 +46,50 @@ export interface DeleteDBClusterSnapshotCommandOutput extends DeleteDBClusterSna
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RDSClient, DeleteDBClusterSnapshotCommand } from "@aws-sdk/client-rds"; // ES Modules import
- * // const { RDSClient, DeleteDBClusterSnapshotCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * import { RDSClient, DeleteDBClusterSnapshotCommand } from '@aws-sdk/client-rds'; // ES Modules import
+ * // const { RDSClient, DeleteDBClusterSnapshotCommand } = require('@aws-sdk/client-rds'); // CommonJS import
  * const client = new RDSClient(config);
  * const input = { // DeleteDBClusterSnapshotMessage
- *   DBClusterSnapshotIdentifier: "STRING_VALUE", // required
+ *   DBClusterSnapshotIdentifier: 'STRING_VALUE', // required
  * };
  * const command = new DeleteDBClusterSnapshotCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteDBClusterSnapshotResult
+ *   DBClusterSnapshot: { // DBClusterSnapshot
+ *     AvailabilityZones: [ // AvailabilityZones
+ *       'STRING_VALUE',
+ *     ],
+ *     DBClusterSnapshotIdentifier: 'STRING_VALUE',
+ *     DBClusterIdentifier: 'STRING_VALUE',
+ *     SnapshotCreateTime: new Date('TIMESTAMP'),
+ *     Engine: 'STRING_VALUE',
+ *     EngineMode: 'STRING_VALUE',
+ *     AllocatedStorage: Number('int'),
+ *     Status: 'STRING_VALUE',
+ *     Port: Number('int'),
+ *     VpcId: 'STRING_VALUE',
+ *     ClusterCreateTime: new Date('TIMESTAMP'),
+ *     MasterUsername: 'STRING_VALUE',
+ *     EngineVersion: 'STRING_VALUE',
+ *     LicenseModel: 'STRING_VALUE',
+ *     SnapshotType: 'STRING_VALUE',
+ *     PercentProgress: Number('int'),
+ *     StorageEncrypted: true || false,
+ *     KmsKeyId: 'STRING_VALUE',
+ *     DBClusterSnapshotArn: 'STRING_VALUE',
+ *     SourceDBClusterSnapshotArn: 'STRING_VALUE',
+ *     IAMDatabaseAuthenticationEnabled: true || false,
+ *     TagList: [ // TagList
+ *       { // Tag
+ *         Key: 'STRING_VALUE',
+ *         Value: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     DBSystemId: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param DeleteDBClusterSnapshotCommandInput - {@link DeleteDBClusterSnapshotCommandInput}
@@ -69,6 +105,8 @@ export interface DeleteDBClusterSnapshotCommandOutput extends DeleteDBClusterSna
  * @throws {@link InvalidDBClusterSnapshotStateFault} (client fault)
  *  <p>The supplied value isn't a valid DB cluster snapshot state.</p>
  *
+ * @throws {@link RDSServiceException}
+ * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  * @example To delete a DB cluster snapshot
  * ```javascript

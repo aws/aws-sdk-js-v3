@@ -45,15 +45,52 @@ export interface DescribeSpeakerEnrollmentJobCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { VoiceIDClient, DescribeSpeakerEnrollmentJobCommand } from "@aws-sdk/client-voice-id"; // ES Modules import
- * // const { VoiceIDClient, DescribeSpeakerEnrollmentJobCommand } = require("@aws-sdk/client-voice-id"); // CommonJS import
+ * import { VoiceIDClient, DescribeSpeakerEnrollmentJobCommand } from '@aws-sdk/client-voice-id'; // ES Modules import
+ * // const { VoiceIDClient, DescribeSpeakerEnrollmentJobCommand } = require('@aws-sdk/client-voice-id'); // CommonJS import
  * const client = new VoiceIDClient(config);
  * const input = { // DescribeSpeakerEnrollmentJobRequest
- *   DomainId: "STRING_VALUE", // required
- *   JobId: "STRING_VALUE", // required
+ *   DomainId: 'STRING_VALUE', // required
+ *   JobId: 'STRING_VALUE', // required
  * };
  * const command = new DescribeSpeakerEnrollmentJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeSpeakerEnrollmentJobResponse
+ *   Job: { // SpeakerEnrollmentJob
+ *     JobName: 'STRING_VALUE',
+ *     JobId: 'STRING_VALUE',
+ *     JobStatus: 'STRING_VALUE',
+ *     DomainId: 'STRING_VALUE',
+ *     DataAccessRoleArn: 'STRING_VALUE',
+ *     EnrollmentConfig: { // EnrollmentConfig
+ *       ExistingEnrollmentAction: 'STRING_VALUE',
+ *       FraudDetectionConfig: { // EnrollmentJobFraudDetectionConfig
+ *         FraudDetectionAction: 'STRING_VALUE',
+ *         RiskThreshold: Number('int'),
+ *         WatchlistIds: [ // EnrollmentJobFraudDetectionConfigWatchlistIds
+ *           'STRING_VALUE',
+ *         ],
+ *       },
+ *     },
+ *     InputDataConfig: { // InputDataConfig
+ *       S3Uri: 'STRING_VALUE', // required
+ *     },
+ *     OutputDataConfig: { // OutputDataConfig
+ *       S3Uri: 'STRING_VALUE', // required
+ *       KmsKeyId: 'STRING_VALUE',
+ *     },
+ *     CreatedAt: new Date('TIMESTAMP'),
+ *     EndedAt: new Date('TIMESTAMP'),
+ *     FailureDetails: { // FailureDetails
+ *       StatusCode: Number('int'),
+ *       Message: 'STRING_VALUE',
+ *     },
+ *     JobProgress: { // JobProgress
+ *       PercentComplete: Number('int'),
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeSpeakerEnrollmentJobCommandInput - {@link DescribeSpeakerEnrollmentJobCommandInput}
@@ -83,6 +120,8 @@ export interface DescribeSpeakerEnrollmentJobCommandOutput
  *  <p>The request failed one or more validations; check the error message for more
  *             details.</p>
  *
+ * @throws {@link VoiceIDServiceException}
+ * <p>Base exception class for all service exceptions from VoiceID service.</p>
  *
  */
 export class DescribeSpeakerEnrollmentJobCommand extends $Command<

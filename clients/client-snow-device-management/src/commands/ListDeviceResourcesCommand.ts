@@ -40,17 +40,29 @@ export interface ListDeviceResourcesCommandOutput extends ListDeviceResourcesOut
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SnowDeviceManagementClient, ListDeviceResourcesCommand } from "@aws-sdk/client-snow-device-management"; // ES Modules import
- * // const { SnowDeviceManagementClient, ListDeviceResourcesCommand } = require("@aws-sdk/client-snow-device-management"); // CommonJS import
+ * import { SnowDeviceManagementClient, ListDeviceResourcesCommand } from '@aws-sdk/client-snow-device-management'; // ES Modules import
+ * // const { SnowDeviceManagementClient, ListDeviceResourcesCommand } = require('@aws-sdk/client-snow-device-management'); // CommonJS import
  * const client = new SnowDeviceManagementClient(config);
  * const input = { // ListDeviceResourcesInput
- *   managedDeviceId: "STRING_VALUE", // required
- *   type: "STRING_VALUE",
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   managedDeviceId: 'STRING_VALUE', // required
+ *   type: 'STRING_VALUE',
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new ListDeviceResourcesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListDeviceResourcesOutput
+ *   resources: [ // ResourceSummaryList
+ *     { // ResourceSummary
+ *       resourceType: 'STRING_VALUE', // required
+ *       arn: 'STRING_VALUE',
+ *       id: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListDeviceResourcesCommandInput - {@link ListDeviceResourcesCommandInput}
@@ -74,6 +86,8 @@ export interface ListDeviceResourcesCommandOutput extends ListDeviceResourcesOut
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
  *
+ * @throws {@link SnowDeviceManagementServiceException}
+ * <p>Base exception class for all service exceptions from SnowDeviceManagement service.</p>
  *
  */
 export class ListDeviceResourcesCommand extends $Command<

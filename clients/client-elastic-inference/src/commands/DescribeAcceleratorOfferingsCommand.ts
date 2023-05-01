@@ -48,17 +48,28 @@ export interface DescribeAcceleratorOfferingsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElasticInferenceClient, DescribeAcceleratorOfferingsCommand } from "@aws-sdk/client-elastic-inference"; // ES Modules import
- * // const { ElasticInferenceClient, DescribeAcceleratorOfferingsCommand } = require("@aws-sdk/client-elastic-inference"); // CommonJS import
+ * import { ElasticInferenceClient, DescribeAcceleratorOfferingsCommand } from '@aws-sdk/client-elastic-inference'; // ES Modules import
+ * // const { ElasticInferenceClient, DescribeAcceleratorOfferingsCommand } = require('@aws-sdk/client-elastic-inference'); // CommonJS import
  * const client = new ElasticInferenceClient(config);
  * const input = { // DescribeAcceleratorOfferingsRequest
- *   locationType: "region" || "availability-zone" || "availability-zone-id", // required
+ *   locationType: 'region' || 'availability-zone' || 'availability-zone-id', // required
  *   acceleratorTypes: [ // AcceleratorTypeNameList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new DescribeAcceleratorOfferingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeAcceleratorOfferingsResponse
+ *   acceleratorTypeOfferings: [ // AcceleratorTypeOfferingList
+ *     { // AcceleratorTypeOffering
+ *       acceleratorType: 'STRING_VALUE',
+ *       locationType: 'region' || 'availability-zone' || 'availability-zone-id',
+ *       location: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeAcceleratorOfferingsCommandInput - {@link DescribeAcceleratorOfferingsCommandInput}
@@ -82,6 +93,8 @@ export interface DescribeAcceleratorOfferingsCommandOutput
  *             Raised when the requested resource cannot be found.
  *         </p>
  *
+ * @throws {@link ElasticInferenceServiceException}
+ * <p>Base exception class for all service exceptions from ElasticInference service.</p>
  *
  */
 export class DescribeAcceleratorOfferingsCommand extends $Command<

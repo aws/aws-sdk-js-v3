@@ -36,14 +36,19 @@ export interface DeleteMissionProfileCommandOutput extends MissionProfileIdRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GroundStationClient, DeleteMissionProfileCommand } from "@aws-sdk/client-groundstation"; // ES Modules import
- * // const { GroundStationClient, DeleteMissionProfileCommand } = require("@aws-sdk/client-groundstation"); // CommonJS import
+ * import { GroundStationClient, DeleteMissionProfileCommand } from '@aws-sdk/client-groundstation'; // ES Modules import
+ * // const { GroundStationClient, DeleteMissionProfileCommand } = require('@aws-sdk/client-groundstation'); // CommonJS import
  * const client = new GroundStationClient(config);
  * const input = { // DeleteMissionProfileRequest
- *   missionProfileId: "STRING_VALUE", // required
+ *   missionProfileId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteMissionProfileCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // MissionProfileIdResponse
+ *   missionProfileId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DeleteMissionProfileCommandInput - {@link DeleteMissionProfileCommandInput}
@@ -61,6 +66,8 @@ export interface DeleteMissionProfileCommandOutput extends MissionProfileIdRespo
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Resource was not found.</p>
  *
+ * @throws {@link GroundStationServiceException}
+ * <p>Base exception class for all service exceptions from GroundStation service.</p>
  *
  */
 export class DeleteMissionProfileCommand extends $Command<

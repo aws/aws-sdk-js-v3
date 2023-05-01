@@ -45,17 +45,20 @@ export interface DisassociateSigninDelegateGroupsFromAccountCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeClient, DisassociateSigninDelegateGroupsFromAccountCommand } from "@aws-sdk/client-chime"; // ES Modules import
- * // const { ChimeClient, DisassociateSigninDelegateGroupsFromAccountCommand } = require("@aws-sdk/client-chime"); // CommonJS import
+ * import { ChimeClient, DisassociateSigninDelegateGroupsFromAccountCommand } from '@aws-sdk/client-chime'; // ES Modules import
+ * // const { ChimeClient, DisassociateSigninDelegateGroupsFromAccountCommand } = require('@aws-sdk/client-chime'); // CommonJS import
  * const client = new ChimeClient(config);
  * const input = { // DisassociateSigninDelegateGroupsFromAccountRequest
- *   AccountId: "STRING_VALUE", // required
+ *   AccountId: 'STRING_VALUE', // required
  *   GroupNames: [ // NonEmptyStringList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new DisassociateSigninDelegateGroupsFromAccountCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DisassociateSigninDelegateGroupsFromAccountCommandInput - {@link DisassociateSigninDelegateGroupsFromAccountCommandInput}
@@ -85,6 +88,8 @@ export interface DisassociateSigninDelegateGroupsFromAccountCommandOutput
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeServiceException}
+ * <p>Base exception class for all service exceptions from Chime service.</p>
  *
  */
 export class DisassociateSigninDelegateGroupsFromAccountCommand extends $Command<

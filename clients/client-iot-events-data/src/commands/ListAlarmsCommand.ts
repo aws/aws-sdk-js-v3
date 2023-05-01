@@ -37,16 +37,31 @@ export interface ListAlarmsCommandOutput extends ListAlarmsResponse, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTEventsDataClient, ListAlarmsCommand } from "@aws-sdk/client-iot-events-data"; // ES Modules import
- * // const { IoTEventsDataClient, ListAlarmsCommand } = require("@aws-sdk/client-iot-events-data"); // CommonJS import
+ * import { IoTEventsDataClient, ListAlarmsCommand } from '@aws-sdk/client-iot-events-data'; // ES Modules import
+ * // const { IoTEventsDataClient, ListAlarmsCommand } = require('@aws-sdk/client-iot-events-data'); // CommonJS import
  * const client = new IoTEventsDataClient(config);
  * const input = { // ListAlarmsRequest
- *   alarmModelName: "STRING_VALUE", // required
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   alarmModelName: 'STRING_VALUE', // required
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new ListAlarmsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListAlarmsResponse
+ *   alarmSummaries: [ // AlarmSummaries
+ *     { // AlarmSummary
+ *       alarmModelName: 'STRING_VALUE',
+ *       alarmModelVersion: 'STRING_VALUE',
+ *       keyValue: 'STRING_VALUE',
+ *       stateName: 'STRING_VALUE',
+ *       creationTime: new Date('TIMESTAMP'),
+ *       lastUpdateTime: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListAlarmsCommandInput - {@link ListAlarmsCommandInput}
@@ -70,6 +85,8 @@ export interface ListAlarmsCommandOutput extends ListAlarmsResponse, __MetadataB
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request could not be completed due to throttling.</p>
  *
+ * @throws {@link IoTEventsDataServiceException}
+ * <p>Base exception class for all service exceptions from IoTEventsData service.</p>
  *
  */
 export class ListAlarmsCommand extends $Command<

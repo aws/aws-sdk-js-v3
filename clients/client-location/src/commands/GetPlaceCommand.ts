@@ -52,16 +52,43 @@ export interface GetPlaceCommandOutput extends GetPlaceResponse, __MetadataBeare
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LocationClient, GetPlaceCommand } from "@aws-sdk/client-location"; // ES Modules import
- * // const { LocationClient, GetPlaceCommand } = require("@aws-sdk/client-location"); // CommonJS import
+ * import { LocationClient, GetPlaceCommand } from '@aws-sdk/client-location'; // ES Modules import
+ * // const { LocationClient, GetPlaceCommand } = require('@aws-sdk/client-location'); // CommonJS import
  * const client = new LocationClient(config);
  * const input = { // GetPlaceRequest
- *   IndexName: "STRING_VALUE", // required
- *   PlaceId: "STRING_VALUE", // required
- *   Language: "STRING_VALUE",
+ *   IndexName: 'STRING_VALUE', // required
+ *   PlaceId: 'STRING_VALUE', // required
+ *   Language: 'STRING_VALUE',
  * };
  * const command = new GetPlaceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetPlaceResponse
+ *   Place: { // Place
+ *     Label: 'STRING_VALUE',
+ *     Geometry: { // PlaceGeometry
+ *       Point: [ // Position
+ *         Number('double'),
+ *       ],
+ *     },
+ *     AddressNumber: 'STRING_VALUE',
+ *     Street: 'STRING_VALUE',
+ *     Neighborhood: 'STRING_VALUE',
+ *     Municipality: 'STRING_VALUE',
+ *     SubRegion: 'STRING_VALUE',
+ *     Region: 'STRING_VALUE',
+ *     Country: 'STRING_VALUE',
+ *     PostalCode: 'STRING_VALUE',
+ *     Interpolated: true || false,
+ *     TimeZone: { // TimeZone
+ *       Name: 'STRING_VALUE', // required
+ *       Offset: Number('int'),
+ *     },
+ *     UnitType: 'STRING_VALUE',
+ *     UnitNumber: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetPlaceCommandInput - {@link GetPlaceCommandInput}
@@ -86,6 +113,8 @@ export interface GetPlaceCommandOutput extends GetPlaceResponse, __MetadataBeare
  * @throws {@link ValidationException} (client fault)
  *  <p>The input failed to meet the constraints specified by the AWS service. </p>
  *
+ * @throws {@link LocationServiceException}
+ * <p>Base exception class for all service exceptions from Location service.</p>
  *
  */
 export class GetPlaceCommand extends $Command<

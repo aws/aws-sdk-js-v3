@@ -36,15 +36,23 @@ export interface UpdateServiceNetworkCommandOutput extends UpdateServiceNetworkR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { VPCLatticeClient, UpdateServiceNetworkCommand } from "@aws-sdk/client-vpc-lattice"; // ES Modules import
- * // const { VPCLatticeClient, UpdateServiceNetworkCommand } = require("@aws-sdk/client-vpc-lattice"); // CommonJS import
+ * import { VPCLatticeClient, UpdateServiceNetworkCommand } from '@aws-sdk/client-vpc-lattice'; // ES Modules import
+ * // const { VPCLatticeClient, UpdateServiceNetworkCommand } = require('@aws-sdk/client-vpc-lattice'); // CommonJS import
  * const client = new VPCLatticeClient(config);
  * const input = { // UpdateServiceNetworkRequest
- *   serviceNetworkIdentifier: "STRING_VALUE", // required
- *   authType: "STRING_VALUE", // required
+ *   serviceNetworkIdentifier: 'STRING_VALUE', // required
+ *   authType: 'STRING_VALUE', // required
  * };
  * const command = new UpdateServiceNetworkCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateServiceNetworkResponse
+ *   id: 'STRING_VALUE',
+ *   name: 'STRING_VALUE',
+ *   arn: 'STRING_VALUE',
+ *   authType: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateServiceNetworkCommandInput - {@link UpdateServiceNetworkCommandInput}
@@ -73,6 +81,8 @@ export interface UpdateServiceNetworkCommandOutput extends UpdateServiceNetworkR
  *  <p>The input does not satisfy the constraints specified by an Amazon Web Services
  *    service.</p>
  *
+ * @throws {@link VPCLatticeServiceException}
+ * <p>Base exception class for all service exceptions from VPCLattice service.</p>
  *
  */
 export class UpdateServiceNetworkCommand extends $Command<

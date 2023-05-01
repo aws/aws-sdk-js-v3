@@ -57,15 +57,18 @@ export interface UpdateKeyDescriptionCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KMSClient, UpdateKeyDescriptionCommand } from "@aws-sdk/client-kms"; // ES Modules import
- * // const { KMSClient, UpdateKeyDescriptionCommand } = require("@aws-sdk/client-kms"); // CommonJS import
+ * import { KMSClient, UpdateKeyDescriptionCommand } from '@aws-sdk/client-kms'; // ES Modules import
+ * // const { KMSClient, UpdateKeyDescriptionCommand } = require('@aws-sdk/client-kms'); // CommonJS import
  * const client = new KMSClient(config);
  * const input = { // UpdateKeyDescriptionRequest
- *   KeyId: "STRING_VALUE", // required
- *   Description: "STRING_VALUE", // required
+ *   KeyId: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE', // required
  * };
  * const command = new UpdateKeyDescriptionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateKeyDescriptionCommandInput - {@link UpdateKeyDescriptionCommandInput}
@@ -108,6 +111,8 @@ export interface UpdateKeyDescriptionCommandOutput extends __MetadataBearer {}
  *  <p>The request was rejected because the specified entity or resource could not be
  *       found.</p>
  *
+ * @throws {@link KMSServiceException}
+ * <p>Base exception class for all service exceptions from KMS service.</p>
  *
  * @example To update the description of a KMS key
  * ```javascript

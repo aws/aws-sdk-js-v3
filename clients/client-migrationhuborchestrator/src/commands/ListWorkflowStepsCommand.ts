@@ -40,17 +40,43 @@ export interface ListWorkflowStepsCommandOutput extends ListWorkflowStepsRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MigrationHubOrchestratorClient, ListWorkflowStepsCommand } from "@aws-sdk/client-migrationhuborchestrator"; // ES Modules import
- * // const { MigrationHubOrchestratorClient, ListWorkflowStepsCommand } = require("@aws-sdk/client-migrationhuborchestrator"); // CommonJS import
+ * import { MigrationHubOrchestratorClient, ListWorkflowStepsCommand } from '@aws-sdk/client-migrationhuborchestrator'; // ES Modules import
+ * // const { MigrationHubOrchestratorClient, ListWorkflowStepsCommand } = require('@aws-sdk/client-migrationhuborchestrator'); // CommonJS import
  * const client = new MigrationHubOrchestratorClient(config);
  * const input = { // ListWorkflowStepsRequest
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
- *   workflowId: "STRING_VALUE", // required
- *   stepGroupId: "STRING_VALUE", // required
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
+ *   workflowId: 'STRING_VALUE', // required
+ *   stepGroupId: 'STRING_VALUE', // required
  * };
  * const command = new ListWorkflowStepsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListWorkflowStepsResponse
+ *   nextToken: 'STRING_VALUE',
+ *   workflowStepsSummary: [ // WorkflowStepsSummaryList // required
+ *     { // WorkflowStepSummary
+ *       stepId: 'STRING_VALUE',
+ *       name: 'STRING_VALUE',
+ *       stepActionType: 'STRING_VALUE',
+ *       owner: 'STRING_VALUE',
+ *       previous: [ // StringList
+ *         'STRING_VALUE',
+ *       ],
+ *       next: [
+ *         'STRING_VALUE',
+ *       ],
+ *       status: 'STRING_VALUE',
+ *       statusMessage: 'STRING_VALUE',
+ *       noOfSrvCompleted: Number('int'),
+ *       noOfSrvFailed: Number('int'),
+ *       totalNoOfSrv: Number('int'),
+ *       description: 'STRING_VALUE',
+ *       scriptLocation: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListWorkflowStepsCommandInput - {@link ListWorkflowStepsCommandInput}
@@ -71,6 +97,8 @@ export interface ListWorkflowStepsCommandOutput extends ListWorkflowStepsRespons
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link MigrationHubOrchestratorServiceException}
+ * <p>Base exception class for all service exceptions from MigrationHubOrchestrator service.</p>
  *
  */
 export class ListWorkflowStepsCommand extends $Command<

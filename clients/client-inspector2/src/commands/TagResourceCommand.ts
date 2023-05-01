@@ -36,17 +36,20 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Inspector2Client, TagResourceCommand } from "@aws-sdk/client-inspector2"; // ES Modules import
- * // const { Inspector2Client, TagResourceCommand } = require("@aws-sdk/client-inspector2"); // CommonJS import
+ * import { Inspector2Client, TagResourceCommand } from '@aws-sdk/client-inspector2'; // ES Modules import
+ * // const { Inspector2Client, TagResourceCommand } = require('@aws-sdk/client-inspector2'); // CommonJS import
  * const client = new Inspector2Client(config);
  * const input = { // TagResourceRequest
- *   resourceArn: "STRING_VALUE", // required
+ *   resourceArn: 'STRING_VALUE', // required
  *   tags: { // TagMap // required
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param TagResourceCommandInput - {@link TagResourceCommandInput}
@@ -71,6 +74,8 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  *  <p>The request has failed validation due to missing required fields or having invalid
  *          inputs.</p>
  *
+ * @throws {@link Inspector2ServiceException}
+ * <p>Base exception class for all service exceptions from Inspector2 service.</p>
  *
  */
 export class TagResourceCommand extends $Command<

@@ -48,19 +48,27 @@ export interface InstantiateSolNetworkInstanceCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { TnbClient, InstantiateSolNetworkInstanceCommand } from "@aws-sdk/client-tnb"; // ES Modules import
- * // const { TnbClient, InstantiateSolNetworkInstanceCommand } = require("@aws-sdk/client-tnb"); // CommonJS import
+ * import { TnbClient, InstantiateSolNetworkInstanceCommand } from '@aws-sdk/client-tnb'; // ES Modules import
+ * // const { TnbClient, InstantiateSolNetworkInstanceCommand } = require('@aws-sdk/client-tnb'); // CommonJS import
  * const client = new TnbClient(config);
  * const input = { // InstantiateSolNetworkInstanceInput
- *   nsInstanceId: "STRING_VALUE", // required
+ *   nsInstanceId: 'STRING_VALUE', // required
  *   dryRun: true || false,
- *   additionalParamsForNs: "DOCUMENT_VALUE",
+ *   additionalParamsForNs: 'DOCUMENT_VALUE',
  *   tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new InstantiateSolNetworkInstanceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // InstantiateSolNetworkInstanceOutput
+ *   nsLcmOpOccId: 'STRING_VALUE', // required
+ *   tags: { // TagMap
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param InstantiateSolNetworkInstanceCommandInput - {@link InstantiateSolNetworkInstanceCommandInput}
@@ -87,6 +95,8 @@ export interface InstantiateSolNetworkInstanceCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>Unable to process the request because the client provided input failed to satisfy request constraints.</p>
  *
+ * @throws {@link TnbServiceException}
+ * <p>Base exception class for all service exceptions from Tnb service.</p>
  *
  */
 export class InstantiateSolNetworkInstanceCommand extends $Command<

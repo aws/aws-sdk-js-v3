@@ -41,14 +41,19 @@ export interface DisassociateThirdPartyFirewallCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FMSClient, DisassociateThirdPartyFirewallCommand } from "@aws-sdk/client-fms"; // ES Modules import
- * // const { FMSClient, DisassociateThirdPartyFirewallCommand } = require("@aws-sdk/client-fms"); // CommonJS import
+ * import { FMSClient, DisassociateThirdPartyFirewallCommand } from '@aws-sdk/client-fms'; // ES Modules import
+ * // const { FMSClient, DisassociateThirdPartyFirewallCommand } = require('@aws-sdk/client-fms'); // CommonJS import
  * const client = new FMSClient(config);
  * const input = { // DisassociateThirdPartyFirewallRequest
- *   ThirdPartyFirewall: "PALO_ALTO_NETWORKS_CLOUD_NGFW" || "FORTIGATE_CLOUD_NATIVE_FIREWALL", // required
+ *   ThirdPartyFirewall: 'PALO_ALTO_NETWORKS_CLOUD_NGFW' || 'FORTIGATE_CLOUD_NATIVE_FIREWALL', // required
  * };
  * const command = new DisassociateThirdPartyFirewallCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DisassociateThirdPartyFirewallResponse
+ *   ThirdPartyFirewallStatus: 'ONBOARDING' || 'ONBOARD_COMPLETE' || 'OFFBOARDING' || 'OFFBOARD_COMPLETE' || 'NOT_EXIST',
+ * };
+ *
  * ```
  *
  * @param DisassociateThirdPartyFirewallCommandInput - {@link DisassociateThirdPartyFirewallCommandInput}
@@ -74,6 +79,8 @@ export interface DisassociateThirdPartyFirewallCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link FMSServiceException}
+ * <p>Base exception class for all service exceptions from FMS service.</p>
  *
  */
 export class DisassociateThirdPartyFirewallCommand extends $Command<

@@ -41,15 +41,70 @@ export interface GetResourceDefinitionVersionCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GreengrassClient, GetResourceDefinitionVersionCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
- * // const { GreengrassClient, GetResourceDefinitionVersionCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
+ * import { GreengrassClient, GetResourceDefinitionVersionCommand } from '@aws-sdk/client-greengrass'; // ES Modules import
+ * // const { GreengrassClient, GetResourceDefinitionVersionCommand } = require('@aws-sdk/client-greengrass'); // CommonJS import
  * const client = new GreengrassClient(config);
  * const input = { // GetResourceDefinitionVersionRequest
- *   ResourceDefinitionId: "STRING_VALUE", // required
- *   ResourceDefinitionVersionId: "STRING_VALUE", // required
+ *   ResourceDefinitionId: 'STRING_VALUE', // required
+ *   ResourceDefinitionVersionId: 'STRING_VALUE', // required
  * };
  * const command = new GetResourceDefinitionVersionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetResourceDefinitionVersionResponse
+ *   Arn: 'STRING_VALUE',
+ *   CreationTimestamp: 'STRING_VALUE',
+ *   Definition: { // ResourceDefinitionVersion
+ *     Resources: [ // __listOfResource
+ *       { // Resource
+ *         Id: 'STRING_VALUE', // required
+ *         Name: 'STRING_VALUE', // required
+ *         ResourceDataContainer: { // ResourceDataContainer
+ *           LocalDeviceResourceData: { // LocalDeviceResourceData
+ *             GroupOwnerSetting: { // GroupOwnerSetting
+ *               AutoAddGroupOwner: true || false,
+ *               GroupOwner: 'STRING_VALUE',
+ *             },
+ *             SourcePath: 'STRING_VALUE',
+ *           },
+ *           LocalVolumeResourceData: { // LocalVolumeResourceData
+ *             DestinationPath: 'STRING_VALUE',
+ *             GroupOwnerSetting: {
+ *               AutoAddGroupOwner: true || false,
+ *               GroupOwner: 'STRING_VALUE',
+ *             },
+ *             SourcePath: 'STRING_VALUE',
+ *           },
+ *           S3MachineLearningModelResourceData: { // S3MachineLearningModelResourceData
+ *             DestinationPath: 'STRING_VALUE',
+ *             OwnerSetting: { // ResourceDownloadOwnerSetting
+ *               GroupOwner: 'STRING_VALUE', // required
+ *               GroupPermission: 'ro' || 'rw', // required
+ *             },
+ *             S3Uri: 'STRING_VALUE',
+ *           },
+ *           SageMakerMachineLearningModelResourceData: { // SageMakerMachineLearningModelResourceData
+ *             DestinationPath: 'STRING_VALUE',
+ *             OwnerSetting: {
+ *               GroupOwner: 'STRING_VALUE', // required
+ *               GroupPermission: 'ro' || 'rw', // required
+ *             },
+ *             SageMakerJobArn: 'STRING_VALUE',
+ *           },
+ *           SecretsManagerSecretResourceData: { // SecretsManagerSecretResourceData
+ *             ARN: 'STRING_VALUE',
+ *             AdditionalStagingLabelsToDownload: [ // __listOf__string
+ *               'STRING_VALUE',
+ *             ],
+ *           },
+ *         },
+ *       },
+ *     ],
+ *   },
+ *   Id: 'STRING_VALUE',
+ *   Version: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetResourceDefinitionVersionCommandInput - {@link GetResourceDefinitionVersionCommandInput}
@@ -61,6 +116,8 @@ export interface GetResourceDefinitionVersionCommandOutput
  * @throws {@link BadRequestException} (client fault)
  *  General error information.
  *
+ * @throws {@link GreengrassServiceException}
+ * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
  */
 export class GetResourceDefinitionVersionCommand extends $Command<

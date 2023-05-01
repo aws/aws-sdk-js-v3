@@ -36,16 +36,23 @@ export interface UpdateDataQualityRulesetCommandOutput extends UpdateDataQuality
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlueClient, UpdateDataQualityRulesetCommand } from "@aws-sdk/client-glue"; // ES Modules import
- * // const { GlueClient, UpdateDataQualityRulesetCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * import { GlueClient, UpdateDataQualityRulesetCommand } from '@aws-sdk/client-glue'; // ES Modules import
+ * // const { GlueClient, UpdateDataQualityRulesetCommand } = require('@aws-sdk/client-glue'); // CommonJS import
  * const client = new GlueClient(config);
  * const input = { // UpdateDataQualityRulesetRequest
- *   Name: "STRING_VALUE", // required
- *   Description: "STRING_VALUE",
- *   Ruleset: "STRING_VALUE",
+ *   Name: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE',
+ *   Ruleset: 'STRING_VALUE',
  * };
  * const command = new UpdateDataQualityRulesetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateDataQualityRulesetResponse
+ *   Name: 'STRING_VALUE',
+ *   Description: 'STRING_VALUE',
+ *   Ruleset: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateDataQualityRulesetCommandInput - {@link UpdateDataQualityRulesetCommandInput}
@@ -75,6 +82,8 @@ export interface UpdateDataQualityRulesetCommandOutput extends UpdateDataQuality
  * @throws {@link ResourceNumberLimitExceededException} (client fault)
  *  <p>A resource numerical limit was exceeded.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class UpdateDataQualityRulesetCommand extends $Command<

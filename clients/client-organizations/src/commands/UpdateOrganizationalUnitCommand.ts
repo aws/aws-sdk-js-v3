@@ -39,15 +39,24 @@ export interface UpdateOrganizationalUnitCommandOutput extends UpdateOrganizatio
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OrganizationsClient, UpdateOrganizationalUnitCommand } from "@aws-sdk/client-organizations"; // ES Modules import
- * // const { OrganizationsClient, UpdateOrganizationalUnitCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
+ * import { OrganizationsClient, UpdateOrganizationalUnitCommand } from '@aws-sdk/client-organizations'; // ES Modules import
+ * // const { OrganizationsClient, UpdateOrganizationalUnitCommand } = require('@aws-sdk/client-organizations'); // CommonJS import
  * const client = new OrganizationsClient(config);
  * const input = { // UpdateOrganizationalUnitRequest
- *   OrganizationalUnitId: "STRING_VALUE", // required
- *   Name: "STRING_VALUE",
+ *   OrganizationalUnitId: 'STRING_VALUE', // required
+ *   Name: 'STRING_VALUE',
  * };
  * const command = new UpdateOrganizationalUnitCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateOrganizationalUnitResponse
+ *   OrganizationalUnit: { // OrganizationalUnit
+ *     Id: 'STRING_VALUE',
+ *     Arn: 'STRING_VALUE',
+ *     Name: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateOrganizationalUnitCommandInput - {@link UpdateOrganizationalUnitCommandInput}
@@ -193,6 +202,8 @@ export interface UpdateOrganizationalUnitCommandOutput extends UpdateOrganizatio
  *                 <i>Organizations User Guide.</i>
  *          </p>
  *
+ * @throws {@link OrganizationsServiceException}
+ * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
  * @example To rename an organizational unit
  * ```javascript

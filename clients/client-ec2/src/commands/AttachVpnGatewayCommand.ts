@@ -39,16 +39,24 @@ export interface AttachVpnGatewayCommandOutput extends AttachVpnGatewayResult, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, AttachVpnGatewayCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, AttachVpnGatewayCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, AttachVpnGatewayCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, AttachVpnGatewayCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // AttachVpnGatewayRequest
- *   VpcId: "STRING_VALUE", // required
- *   VpnGatewayId: "STRING_VALUE", // required
+ *   VpcId: 'STRING_VALUE', // required
+ *   VpnGatewayId: 'STRING_VALUE', // required
  *   DryRun: true || false,
  * };
  * const command = new AttachVpnGatewayCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AttachVpnGatewayResult
+ *   VpcAttachment: { // VpcAttachment
+ *     State: 'attaching' || 'attached' || 'detaching' || 'detached',
+ *     VpcId: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param AttachVpnGatewayCommandInput - {@link AttachVpnGatewayCommandInput}
@@ -57,6 +65,8 @@ export interface AttachVpnGatewayCommandOutput extends AttachVpnGatewayResult, _
  * @see {@link AttachVpnGatewayCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class AttachVpnGatewayCommand extends $Command<

@@ -36,14 +36,20 @@ export interface GetComponentPolicyCommandOutput extends GetComponentPolicyRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ImagebuilderClient, GetComponentPolicyCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
- * // const { ImagebuilderClient, GetComponentPolicyCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
+ * import { ImagebuilderClient, GetComponentPolicyCommand } from '@aws-sdk/client-imagebuilder'; // ES Modules import
+ * // const { ImagebuilderClient, GetComponentPolicyCommand } = require('@aws-sdk/client-imagebuilder'); // CommonJS import
  * const client = new ImagebuilderClient(config);
  * const input = { // GetComponentPolicyRequest
- *   componentArn: "STRING_VALUE", // required
+ *   componentArn: 'STRING_VALUE', // required
  * };
  * const command = new GetComponentPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetComponentPolicyResponse
+ *   requestId: 'STRING_VALUE',
+ *   policy: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetComponentPolicyCommandInput - {@link GetComponentPolicyCommandInput}
@@ -71,6 +77,8 @@ export interface GetComponentPolicyCommandOutput extends GetComponentPolicyRespo
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service is unable to process your request at this time.</p>
  *
+ * @throws {@link ImagebuilderServiceException}
+ * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
  */
 export class GetComponentPolicyCommand extends $Command<

@@ -40,20 +40,34 @@ export interface DisassociateS3ResourcesCommandOutput extends DisassociateS3Reso
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MacieClient, DisassociateS3ResourcesCommand } from "@aws-sdk/client-macie"; // ES Modules import
- * // const { MacieClient, DisassociateS3ResourcesCommand } = require("@aws-sdk/client-macie"); // CommonJS import
+ * import { MacieClient, DisassociateS3ResourcesCommand } from '@aws-sdk/client-macie'; // ES Modules import
+ * // const { MacieClient, DisassociateS3ResourcesCommand } = require('@aws-sdk/client-macie'); // CommonJS import
  * const client = new MacieClient(config);
  * const input = { // DisassociateS3ResourcesRequest
- *   memberAccountId: "STRING_VALUE",
+ *   memberAccountId: 'STRING_VALUE',
  *   associatedS3Resources: [ // S3Resources // required
  *     { // S3Resource
- *       bucketName: "STRING_VALUE", // required
- *       prefix: "STRING_VALUE",
+ *       bucketName: 'STRING_VALUE', // required
+ *       prefix: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new DisassociateS3ResourcesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DisassociateS3ResourcesResult
+ *   failedS3Resources: [ // FailedS3Resources
+ *     { // FailedS3Resource
+ *       failedItem: { // S3Resource
+ *         bucketName: 'STRING_VALUE', // required
+ *         prefix: 'STRING_VALUE',
+ *       },
+ *       errorCode: 'STRING_VALUE',
+ *       errorMessage: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DisassociateS3ResourcesCommandInput - {@link DisassociateS3ResourcesCommandInput}
@@ -72,6 +86,8 @@ export interface DisassociateS3ResourcesCommandOutput extends DisassociateS3Reso
  *  <p>(Discontinued) The request was rejected because an invalid or out-of-range value was supplied for an
  *       input parameter.</p>
  *
+ * @throws {@link MacieServiceException}
+ * <p>Base exception class for all service exceptions from Macie service.</p>
  *
  */
 export class DisassociateS3ResourcesCommand extends $Command<

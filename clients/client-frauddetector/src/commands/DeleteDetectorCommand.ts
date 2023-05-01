@@ -37,14 +37,17 @@ export interface DeleteDetectorCommandOutput extends DeleteDetectorResult, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FraudDetectorClient, DeleteDetectorCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
- * // const { FraudDetectorClient, DeleteDetectorCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
+ * import { FraudDetectorClient, DeleteDetectorCommand } from '@aws-sdk/client-frauddetector'; // ES Modules import
+ * // const { FraudDetectorClient, DeleteDetectorCommand } = require('@aws-sdk/client-frauddetector'); // CommonJS import
  * const client = new FraudDetectorClient(config);
  * const input = { // DeleteDetectorRequest
- *   detectorId: "STRING_VALUE", // required
+ *   detectorId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteDetectorCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteDetectorCommandInput - {@link DeleteDetectorCommandInput}
@@ -68,6 +71,8 @@ export interface DeleteDetectorCommandOutput extends DeleteDetectorResult, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception indicating a specified value is not allowed.</p>
  *
+ * @throws {@link FraudDetectorServiceException}
+ * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
  */
 export class DeleteDetectorCommand extends $Command<

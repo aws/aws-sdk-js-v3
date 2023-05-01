@@ -64,14 +64,17 @@ export interface DeleteImportedKeyMaterialCommandOutput extends __MetadataBearer
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KMSClient, DeleteImportedKeyMaterialCommand } from "@aws-sdk/client-kms"; // ES Modules import
- * // const { KMSClient, DeleteImportedKeyMaterialCommand } = require("@aws-sdk/client-kms"); // CommonJS import
+ * import { KMSClient, DeleteImportedKeyMaterialCommand } from '@aws-sdk/client-kms'; // ES Modules import
+ * // const { KMSClient, DeleteImportedKeyMaterialCommand } = require('@aws-sdk/client-kms'); // CommonJS import
  * const client = new KMSClient(config);
  * const input = { // DeleteImportedKeyMaterialRequest
- *   KeyId: "STRING_VALUE", // required
+ *   KeyId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteImportedKeyMaterialCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteImportedKeyMaterialCommandInput - {@link DeleteImportedKeyMaterialCommandInput}
@@ -118,6 +121,8 @@ export interface DeleteImportedKeyMaterialCommandOutput extends __MetadataBearer
  *  <p>The request was rejected because a specified parameter is not supported or a specified
  *       resource is not valid for this operation.</p>
  *
+ * @throws {@link KMSServiceException}
+ * <p>Base exception class for all service exceptions from KMS service.</p>
  *
  * @example To delete imported key material
  * ```javascript

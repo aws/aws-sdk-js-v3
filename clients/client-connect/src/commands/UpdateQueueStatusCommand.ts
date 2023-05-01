@@ -37,16 +37,19 @@ export interface UpdateQueueStatusCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, UpdateQueueStatusCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, UpdateQueueStatusCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, UpdateQueueStatusCommand } from '@aws-sdk/client-connect'; // ES Modules import
+ * // const { ConnectClient, UpdateQueueStatusCommand } = require('@aws-sdk/client-connect'); // CommonJS import
  * const client = new ConnectClient(config);
  * const input = { // UpdateQueueStatusRequest
- *   InstanceId: "STRING_VALUE", // required
- *   QueueId: "STRING_VALUE", // required
- *   Status: "ENABLED" || "DISABLED", // required
+ *   InstanceId: 'STRING_VALUE', // required
+ *   QueueId: 'STRING_VALUE', // required
+ *   Status: 'ENABLED' || 'DISABLED', // required
  * };
  * const command = new UpdateQueueStatusCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateQueueStatusCommandInput - {@link UpdateQueueStatusCommandInput}
@@ -70,6 +73,8 @@ export interface UpdateQueueStatusCommandOutput extends __MetadataBearer {}
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class UpdateQueueStatusCommand extends $Command<

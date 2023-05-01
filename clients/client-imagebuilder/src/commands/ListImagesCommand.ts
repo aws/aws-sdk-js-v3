@@ -37,26 +37,46 @@ export interface ListImagesCommandOutput extends ListImagesResponse, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ImagebuilderClient, ListImagesCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
- * // const { ImagebuilderClient, ListImagesCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
+ * import { ImagebuilderClient, ListImagesCommand } from '@aws-sdk/client-imagebuilder'; // ES Modules import
+ * // const { ImagebuilderClient, ListImagesCommand } = require('@aws-sdk/client-imagebuilder'); // CommonJS import
  * const client = new ImagebuilderClient(config);
  * const input = { // ListImagesRequest
- *   owner: "Self" || "Shared" || "Amazon" || "ThirdParty",
+ *   owner: 'Self' || 'Shared' || 'Amazon' || 'ThirdParty',
  *   filters: [ // FilterList
  *     { // Filter
- *       name: "STRING_VALUE",
+ *       name: 'STRING_VALUE',
  *       values: [ // FilterValues
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
  *   byName: true || false,
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  *   includeDeprecated: true || false,
  * };
  * const command = new ListImagesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListImagesResponse
+ *   requestId: 'STRING_VALUE',
+ *   imageVersionList: [ // ImageVersionList
+ *     { // ImageVersion
+ *       arn: 'STRING_VALUE',
+ *       name: 'STRING_VALUE',
+ *       type: 'AMI' || 'DOCKER',
+ *       version: 'STRING_VALUE',
+ *       platform: 'Windows' || 'Linux',
+ *       osVersion: 'STRING_VALUE',
+ *       owner: 'STRING_VALUE',
+ *       dateCreated: 'STRING_VALUE',
+ *       buildType: 'USER_INITIATED' || 'SCHEDULED' || 'IMPORT',
+ *       imageSource: 'AMAZON_MANAGED' || 'AWS_MARKETPLACE' || 'IMPORTED' || 'CUSTOM',
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListImagesCommandInput - {@link ListImagesCommandInput}
@@ -89,6 +109,8 @@ export interface ListImagesCommandOutput extends ListImagesResponse, __MetadataB
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service is unable to process your request at this time.</p>
  *
+ * @throws {@link ImagebuilderServiceException}
+ * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
  */
 export class ListImagesCommand extends $Command<

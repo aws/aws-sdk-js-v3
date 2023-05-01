@@ -49,22 +49,40 @@ export interface DescribeAggregateComplianceByConformancePacksCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConfigServiceClient, DescribeAggregateComplianceByConformancePacksCommand } from "@aws-sdk/client-config-service"; // ES Modules import
- * // const { ConfigServiceClient, DescribeAggregateComplianceByConformancePacksCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
+ * import { ConfigServiceClient, DescribeAggregateComplianceByConformancePacksCommand } from '@aws-sdk/client-config-service'; // ES Modules import
+ * // const { ConfigServiceClient, DescribeAggregateComplianceByConformancePacksCommand } = require('@aws-sdk/client-config-service'); // CommonJS import
  * const client = new ConfigServiceClient(config);
  * const input = { // DescribeAggregateComplianceByConformancePacksRequest
- *   ConfigurationAggregatorName: "STRING_VALUE", // required
+ *   ConfigurationAggregatorName: 'STRING_VALUE', // required
  *   Filters: { // AggregateConformancePackComplianceFilters
- *     ConformancePackName: "STRING_VALUE",
- *     ComplianceType: "COMPLIANT" || "NON_COMPLIANT" || "INSUFFICIENT_DATA",
- *     AccountId: "STRING_VALUE",
- *     AwsRegion: "STRING_VALUE",
+ *     ConformancePackName: 'STRING_VALUE',
+ *     ComplianceType: 'COMPLIANT' || 'NON_COMPLIANT' || 'INSUFFICIENT_DATA',
+ *     AccountId: 'STRING_VALUE',
+ *     AwsRegion: 'STRING_VALUE',
  *   },
- *   Limit: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   Limit: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new DescribeAggregateComplianceByConformancePacksCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeAggregateComplianceByConformancePacksResponse
+ *   AggregateComplianceByConformancePacks: [ // AggregateComplianceByConformancePackList
+ *     { // AggregateComplianceByConformancePack
+ *       ConformancePackName: 'STRING_VALUE',
+ *       Compliance: { // AggregateConformancePackCompliance
+ *         ComplianceType: 'COMPLIANT' || 'NON_COMPLIANT' || 'INSUFFICIENT_DATA',
+ *         CompliantRuleCount: Number('int'),
+ *         NonCompliantRuleCount: Number('int'),
+ *         TotalRuleCount: Number('int'),
+ *       },
+ *       AccountId: 'STRING_VALUE',
+ *       AwsRegion: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeAggregateComplianceByConformancePacksCommandInput - {@link DescribeAggregateComplianceByConformancePacksCommandInput}
@@ -89,6 +107,8 @@ export interface DescribeAggregateComplianceByConformancePacksCommandOutput
  *          <p>For PutStoredQuery, you will see this exception if there are missing required fields or if the input value fails the validation, or if you are trying to create more than 300 queries.</p>
  *          <p>For GetStoredQuery, ListStoredQuery, and DeleteStoredQuery you will see this exception if there are missing required fields or if the input value fails the validation.</p>
  *
+ * @throws {@link ConfigServiceServiceException}
+ * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
  */
 export class DescribeAggregateComplianceByConformancePacksCommand extends $Command<

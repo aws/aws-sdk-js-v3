@@ -40,39 +40,44 @@ export interface CreateLocationFsxOntapCommandOutput extends CreateLocationFsxOn
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DataSyncClient, CreateLocationFsxOntapCommand } from "@aws-sdk/client-datasync"; // ES Modules import
- * // const { DataSyncClient, CreateLocationFsxOntapCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
+ * import { DataSyncClient, CreateLocationFsxOntapCommand } from '@aws-sdk/client-datasync'; // ES Modules import
+ * // const { DataSyncClient, CreateLocationFsxOntapCommand } = require('@aws-sdk/client-datasync'); // CommonJS import
  * const client = new DataSyncClient(config);
  * const input = { // CreateLocationFsxOntapRequest
  *   Protocol: { // FsxProtocol
  *     NFS: { // FsxProtocolNfs
  *       MountOptions: { // NfsMountOptions
- *         Version: "AUTOMATIC" || "NFS3" || "NFS4_0" || "NFS4_1",
+ *         Version: 'AUTOMATIC' || 'NFS3' || 'NFS4_0' || 'NFS4_1',
  *       },
  *     },
  *     SMB: { // FsxProtocolSmb
- *       Domain: "STRING_VALUE",
+ *       Domain: 'STRING_VALUE',
  *       MountOptions: { // SmbMountOptions
- *         Version: "AUTOMATIC" || "SMB2" || "SMB3" || "SMB1" || "SMB2_0",
+ *         Version: 'AUTOMATIC' || 'SMB2' || 'SMB3' || 'SMB1' || 'SMB2_0',
  *       },
- *       Password: "STRING_VALUE", // required
- *       User: "STRING_VALUE", // required
+ *       Password: 'STRING_VALUE', // required
+ *       User: 'STRING_VALUE', // required
  *     },
  *   },
  *   SecurityGroupArns: [ // Ec2SecurityGroupArnList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   StorageVirtualMachineArn: "STRING_VALUE", // required
- *   Subdirectory: "STRING_VALUE",
+ *   StorageVirtualMachineArn: 'STRING_VALUE', // required
+ *   Subdirectory: 'STRING_VALUE',
  *   Tags: [ // InputTagList
  *     { // TagListEntry
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new CreateLocationFsxOntapCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateLocationFsxOntapResponse
+ *   LocationArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateLocationFsxOntapCommandInput - {@link CreateLocationFsxOntapCommandInput}
@@ -88,6 +93,8 @@ export interface CreateLocationFsxOntapCommandOutput extends CreateLocationFsxOn
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception is thrown when the client submits a malformed request.</p>
  *
+ * @throws {@link DataSyncServiceException}
+ * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
  */
 export class CreateLocationFsxOntapCommand extends $Command<

@@ -39,16 +39,21 @@ export interface DeleteMessageCommandOutput extends DeleteMessageResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IvschatClient, DeleteMessageCommand } from "@aws-sdk/client-ivschat"; // ES Modules import
- * // const { IvschatClient, DeleteMessageCommand } = require("@aws-sdk/client-ivschat"); // CommonJS import
+ * import { IvschatClient, DeleteMessageCommand } from '@aws-sdk/client-ivschat'; // ES Modules import
+ * // const { IvschatClient, DeleteMessageCommand } = require('@aws-sdk/client-ivschat'); // CommonJS import
  * const client = new IvschatClient(config);
  * const input = { // DeleteMessageRequest
- *   roomIdentifier: "STRING_VALUE", // required
- *   id: "STRING_VALUE", // required
- *   reason: "STRING_VALUE",
+ *   roomIdentifier: 'STRING_VALUE', // required
+ *   id: 'STRING_VALUE', // required
+ *   reason: 'STRING_VALUE',
  * };
  * const command = new DeleteMessageCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteMessageResponse
+ *   id: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DeleteMessageCommandInput - {@link DeleteMessageCommandInput}
@@ -72,6 +77,8 @@ export interface DeleteMessageCommandOutput extends DeleteMessageResponse, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p/>
  *
+ * @throws {@link IvschatServiceException}
+ * <p>Base exception class for all service exceptions from Ivschat service.</p>
  *
  */
 export class DeleteMessageCommand extends $Command<

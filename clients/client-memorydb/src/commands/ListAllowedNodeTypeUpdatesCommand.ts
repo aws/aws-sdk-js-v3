@@ -38,14 +38,24 @@ export interface ListAllowedNodeTypeUpdatesCommandOutput extends ListAllowedNode
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MemoryDBClient, ListAllowedNodeTypeUpdatesCommand } from "@aws-sdk/client-memorydb"; // ES Modules import
- * // const { MemoryDBClient, ListAllowedNodeTypeUpdatesCommand } = require("@aws-sdk/client-memorydb"); // CommonJS import
+ * import { MemoryDBClient, ListAllowedNodeTypeUpdatesCommand } from '@aws-sdk/client-memorydb'; // ES Modules import
+ * // const { MemoryDBClient, ListAllowedNodeTypeUpdatesCommand } = require('@aws-sdk/client-memorydb'); // CommonJS import
  * const client = new MemoryDBClient(config);
  * const input = { // ListAllowedNodeTypeUpdatesRequest
- *   ClusterName: "STRING_VALUE", // required
+ *   ClusterName: 'STRING_VALUE', // required
  * };
  * const command = new ListAllowedNodeTypeUpdatesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListAllowedNodeTypeUpdatesResponse
+ *   ScaleUpNodeTypes: [ // NodeTypeList
+ *     'STRING_VALUE',
+ *   ],
+ *   ScaleDownNodeTypes: [
+ *     'STRING_VALUE',
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListAllowedNodeTypeUpdatesCommandInput - {@link ListAllowedNodeTypeUpdatesCommandInput}
@@ -66,6 +76,8 @@ export interface ListAllowedNodeTypeUpdatesCommandOutput extends ListAllowedNode
  * @throws {@link ServiceLinkedRoleNotFoundFault} (client fault)
  *  <p></p>
  *
+ * @throws {@link MemoryDBServiceException}
+ * <p>Base exception class for all service exceptions from MemoryDB service.</p>
  *
  */
 export class ListAllowedNodeTypeUpdatesCommand extends $Command<

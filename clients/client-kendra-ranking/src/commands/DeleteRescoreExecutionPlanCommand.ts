@@ -38,14 +38,17 @@ export interface DeleteRescoreExecutionPlanCommandOutput extends __MetadataBeare
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KendraRankingClient, DeleteRescoreExecutionPlanCommand } from "@aws-sdk/client-kendra-ranking"; // ES Modules import
- * // const { KendraRankingClient, DeleteRescoreExecutionPlanCommand } = require("@aws-sdk/client-kendra-ranking"); // CommonJS import
+ * import { KendraRankingClient, DeleteRescoreExecutionPlanCommand } from '@aws-sdk/client-kendra-ranking'; // ES Modules import
+ * // const { KendraRankingClient, DeleteRescoreExecutionPlanCommand } = require('@aws-sdk/client-kendra-ranking'); // CommonJS import
  * const client = new KendraRankingClient(config);
  * const input = { // DeleteRescoreExecutionPlanRequest
- *   Id: "STRING_VALUE", // required
+ *   Id: 'STRING_VALUE', // required
  * };
  * const command = new DeleteRescoreExecutionPlanCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteRescoreExecutionPlanCommandInput - {@link DeleteRescoreExecutionPlanCommandInput}
@@ -84,6 +87,8 @@ export interface DeleteRescoreExecutionPlanCommandOutput extends __MetadataBeare
  *             the Amazon Kendra Intelligent Ranking service.
  *             Please provide the correct input and try again.</p>
  *
+ * @throws {@link KendraRankingServiceException}
+ * <p>Base exception class for all service exceptions from KendraRanking service.</p>
  *
  */
 export class DeleteRescoreExecutionPlanCommand extends $Command<

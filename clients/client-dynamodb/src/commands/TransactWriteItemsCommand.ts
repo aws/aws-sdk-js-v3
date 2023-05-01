@@ -108,119 +108,204 @@ export interface TransactWriteItemsCommandOutput extends TransactWriteItemsOutpu
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DynamoDBClient, TransactWriteItemsCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
- * // const { DynamoDBClient, TransactWriteItemsCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
+ * import { DynamoDBClient, TransactWriteItemsCommand } from '@aws-sdk/client-dynamodb'; // ES Modules import
+ * // const { DynamoDBClient, TransactWriteItemsCommand } = require('@aws-sdk/client-dynamodb'); // CommonJS import
  * const client = new DynamoDBClient(config);
  * const input = { // TransactWriteItemsInput
  *   TransactItems: [ // TransactWriteItemList // required
  *     { // TransactWriteItem
  *       ConditionCheck: { // ConditionCheck
  *         Key: { // Key // required
- *           "<keys>": { // AttributeValue Union: only one key present
- *             S: "STRING_VALUE",
- *             N: "STRING_VALUE",
- *             B: "BLOB_VALUE",
+ *           '<keys>': { // AttributeValue Union: only one key present
+ *             S: 'STRING_VALUE',
+ *             N: 'STRING_VALUE',
+ *             B: 'BLOB_VALUE',
  *             SS: [ // StringSetAttributeValue
- *               "STRING_VALUE",
+ *               'STRING_VALUE',
  *             ],
  *             NS: [ // NumberSetAttributeValue
- *               "STRING_VALUE",
+ *               'STRING_VALUE',
  *             ],
  *             BS: [ // BinarySetAttributeValue
- *               "BLOB_VALUE",
+ *               'BLOB_VALUE',
  *             ],
  *             M: { // MapAttributeValue
- *               "<keys>": {//  Union: only one key present
- *                 S: "STRING_VALUE",
- *                 N: "STRING_VALUE",
- *                 B: "BLOB_VALUE",
+ *               '<keys>': {//  Union: only one key present
+ *                 S: 'STRING_VALUE',
+ *                 N: 'STRING_VALUE',
+ *                 B: 'BLOB_VALUE',
  *                 SS: [
- *                   "STRING_VALUE",
+ *                   'STRING_VALUE',
  *                 ],
  *                 NS: [
- *                   "STRING_VALUE",
+ *                   'STRING_VALUE',
  *                 ],
  *                 BS: [
- *                   "BLOB_VALUE",
+ *                   'BLOB_VALUE',
  *                 ],
  *                 M: {
- *                   "<keys>": "<AttributeValue>",
+ *                   '<keys>': '<AttributeValue>',
  *                 },
  *                 L: [ // ListAttributeValue
- *                   "<AttributeValue>",
+ *                   '<AttributeValue>',
  *                 ],
  *                 NULL: true || false,
  *                 BOOL: true || false,
  *               },
  *             },
  *             L: [
- *               "<AttributeValue>",
+ *               '<AttributeValue>',
  *             ],
  *             NULL: true || false,
  *             BOOL: true || false,
  *           },
  *         },
- *         TableName: "STRING_VALUE", // required
- *         ConditionExpression: "STRING_VALUE", // required
+ *         TableName: 'STRING_VALUE', // required
+ *         ConditionExpression: 'STRING_VALUE', // required
  *         ExpressionAttributeNames: { // ExpressionAttributeNameMap
- *           "<keys>": "STRING_VALUE",
+ *           '<keys>': 'STRING_VALUE',
  *         },
  *         ExpressionAttributeValues: { // ExpressionAttributeValueMap
- *           "<keys>": "<AttributeValue>",
+ *           '<keys>': '<AttributeValue>',
  *         },
- *         ReturnValuesOnConditionCheckFailure: "ALL_OLD" || "NONE",
+ *         ReturnValuesOnConditionCheckFailure: 'ALL_OLD' || 'NONE',
  *       },
  *       Put: { // Put
  *         Item: { // PutItemInputAttributeMap // required
- *           "<keys>": "<AttributeValue>",
+ *           '<keys>': '<AttributeValue>',
  *         },
- *         TableName: "STRING_VALUE", // required
- *         ConditionExpression: "STRING_VALUE",
+ *         TableName: 'STRING_VALUE', // required
+ *         ConditionExpression: 'STRING_VALUE',
  *         ExpressionAttributeNames: {
- *           "<keys>": "STRING_VALUE",
+ *           '<keys>': 'STRING_VALUE',
  *         },
  *         ExpressionAttributeValues: {
- *           "<keys>": "<AttributeValue>",
+ *           '<keys>': '<AttributeValue>',
  *         },
- *         ReturnValuesOnConditionCheckFailure: "ALL_OLD" || "NONE",
+ *         ReturnValuesOnConditionCheckFailure: 'ALL_OLD' || 'NONE',
  *       },
  *       Delete: { // Delete
  *         Key: { // required
- *           "<keys>": "<AttributeValue>",
+ *           '<keys>': '<AttributeValue>',
  *         },
- *         TableName: "STRING_VALUE", // required
- *         ConditionExpression: "STRING_VALUE",
+ *         TableName: 'STRING_VALUE', // required
+ *         ConditionExpression: 'STRING_VALUE',
  *         ExpressionAttributeNames: {
- *           "<keys>": "STRING_VALUE",
+ *           '<keys>': 'STRING_VALUE',
  *         },
  *         ExpressionAttributeValues: {
- *           "<keys>": "<AttributeValue>",
+ *           '<keys>': '<AttributeValue>',
  *         },
- *         ReturnValuesOnConditionCheckFailure: "ALL_OLD" || "NONE",
+ *         ReturnValuesOnConditionCheckFailure: 'ALL_OLD' || 'NONE',
  *       },
  *       Update: { // Update
  *         Key: { // required
- *           "<keys>": "<AttributeValue>",
+ *           '<keys>': '<AttributeValue>',
  *         },
- *         UpdateExpression: "STRING_VALUE", // required
- *         TableName: "STRING_VALUE", // required
- *         ConditionExpression: "STRING_VALUE",
+ *         UpdateExpression: 'STRING_VALUE', // required
+ *         TableName: 'STRING_VALUE', // required
+ *         ConditionExpression: 'STRING_VALUE',
  *         ExpressionAttributeNames: {
- *           "<keys>": "STRING_VALUE",
+ *           '<keys>': 'STRING_VALUE',
  *         },
  *         ExpressionAttributeValues: {
- *           "<keys>": "<AttributeValue>",
+ *           '<keys>': '<AttributeValue>',
  *         },
- *         ReturnValuesOnConditionCheckFailure: "ALL_OLD" || "NONE",
+ *         ReturnValuesOnConditionCheckFailure: 'ALL_OLD' || 'NONE',
  *       },
  *     },
  *   ],
- *   ReturnConsumedCapacity: "INDEXES" || "TOTAL" || "NONE",
- *   ReturnItemCollectionMetrics: "SIZE" || "NONE",
- *   ClientRequestToken: "STRING_VALUE",
+ *   ReturnConsumedCapacity: 'INDEXES' || 'TOTAL' || 'NONE',
+ *   ReturnItemCollectionMetrics: 'SIZE' || 'NONE',
+ *   ClientRequestToken: 'STRING_VALUE',
  * };
  * const command = new TransactWriteItemsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // TransactWriteItemsOutput
+ *   ConsumedCapacity: [ // ConsumedCapacityMultiple
+ *     { // ConsumedCapacity
+ *       TableName: 'STRING_VALUE',
+ *       CapacityUnits: Number('double'),
+ *       ReadCapacityUnits: Number('double'),
+ *       WriteCapacityUnits: Number('double'),
+ *       Table: { // Capacity
+ *         ReadCapacityUnits: Number('double'),
+ *         WriteCapacityUnits: Number('double'),
+ *         CapacityUnits: Number('double'),
+ *       },
+ *       LocalSecondaryIndexes: { // SecondaryIndexesCapacityMap
+ *         '<keys>': {
+ *           ReadCapacityUnits: Number('double'),
+ *           WriteCapacityUnits: Number('double'),
+ *           CapacityUnits: Number('double'),
+ *         },
+ *       },
+ *       GlobalSecondaryIndexes: {
+ *         '<keys>': {
+ *           ReadCapacityUnits: Number('double'),
+ *           WriteCapacityUnits: Number('double'),
+ *           CapacityUnits: Number('double'),
+ *         },
+ *       },
+ *     },
+ *   ],
+ *   ItemCollectionMetrics: { // ItemCollectionMetricsPerTable
+ *     '<keys>': [ // ItemCollectionMetricsMultiple
+ *       { // ItemCollectionMetrics
+ *         ItemCollectionKey: { // ItemCollectionKeyAttributeMap
+ *           '<keys>': { // AttributeValue Union: only one key present
+ *             S: 'STRING_VALUE',
+ *             N: 'STRING_VALUE',
+ *             B: 'BLOB_VALUE',
+ *             SS: [ // StringSetAttributeValue
+ *               'STRING_VALUE',
+ *             ],
+ *             NS: [ // NumberSetAttributeValue
+ *               'STRING_VALUE',
+ *             ],
+ *             BS: [ // BinarySetAttributeValue
+ *               'BLOB_VALUE',
+ *             ],
+ *             M: { // MapAttributeValue
+ *               '<keys>': {//  Union: only one key present
+ *                 S: 'STRING_VALUE',
+ *                 N: 'STRING_VALUE',
+ *                 B: 'BLOB_VALUE',
+ *                 SS: [
+ *                   'STRING_VALUE',
+ *                 ],
+ *                 NS: [
+ *                   'STRING_VALUE',
+ *                 ],
+ *                 BS: [
+ *                   'BLOB_VALUE',
+ *                 ],
+ *                 M: {
+ *                   '<keys>': '<AttributeValue>',
+ *                 },
+ *                 L: [ // ListAttributeValue
+ *                   '<AttributeValue>',
+ *                 ],
+ *                 NULL: true || false,
+ *                 BOOL: true || false,
+ *               },
+ *             },
+ *             L: [
+ *               '<AttributeValue>',
+ *             ],
+ *             NULL: true || false,
+ *             BOOL: true || false,
+ *           },
+ *         },
+ *         SizeEstimateRangeGB: [ // ItemCollectionSizeEstimateRange
+ *           Number('double'),
+ *         ],
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param TransactWriteItemsCommandInput - {@link TransactWriteItemsCommandInput}
@@ -551,6 +636,8 @@ export interface TransactWriteItemsCommandOutput extends TransactWriteItemsOutpu
  *             </li>
  *          </ul>
  *
+ * @throws {@link DynamoDBServiceException}
+ * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
  */
 export class TransactWriteItemsCommand extends $Command<

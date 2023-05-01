@@ -43,78 +43,83 @@ export interface CreateAutoMLJobV2CommandOutput extends CreateAutoMLJobV2Respons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, CreateAutoMLJobV2Command } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, CreateAutoMLJobV2Command } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, CreateAutoMLJobV2Command } from '@aws-sdk/client-sagemaker'; // ES Modules import
+ * // const { SageMakerClient, CreateAutoMLJobV2Command } = require('@aws-sdk/client-sagemaker'); // CommonJS import
  * const client = new SageMakerClient(config);
  * const input = { // CreateAutoMLJobV2Request
- *   AutoMLJobName: "STRING_VALUE", // required
+ *   AutoMLJobName: 'STRING_VALUE', // required
  *   AutoMLJobInputDataConfig: [ // AutoMLJobInputDataConfig // required
  *     { // AutoMLJobChannel
- *       ChannelType: "training" || "validation",
- *       ContentType: "STRING_VALUE",
- *       CompressionType: "None" || "Gzip",
+ *       ChannelType: 'training' || 'validation',
+ *       ContentType: 'STRING_VALUE',
+ *       CompressionType: 'None' || 'Gzip',
  *       DataSource: { // AutoMLDataSource
  *         S3DataSource: { // AutoMLS3DataSource
- *           S3DataType: "ManifestFile" || "S3Prefix" || "AugmentedManifestFile", // required
- *           S3Uri: "STRING_VALUE", // required
+ *           S3DataType: 'ManifestFile' || 'S3Prefix' || 'AugmentedManifestFile', // required
+ *           S3Uri: 'STRING_VALUE', // required
  *         },
  *       },
  *     },
  *   ],
  *   OutputDataConfig: { // AutoMLOutputDataConfig
- *     KmsKeyId: "STRING_VALUE",
- *     S3OutputPath: "STRING_VALUE", // required
+ *     KmsKeyId: 'STRING_VALUE',
+ *     S3OutputPath: 'STRING_VALUE', // required
  *   },
  *   AutoMLProblemTypeConfig: { // AutoMLProblemTypeConfig Union: only one key present
  *     ImageClassificationJobConfig: { // ImageClassificationJobConfig
  *       CompletionCriteria: { // AutoMLJobCompletionCriteria
- *         MaxCandidates: Number("int"),
- *         MaxRuntimePerTrainingJobInSeconds: Number("int"),
- *         MaxAutoMLJobRuntimeInSeconds: Number("int"),
+ *         MaxCandidates: Number('int'),
+ *         MaxRuntimePerTrainingJobInSeconds: Number('int'),
+ *         MaxAutoMLJobRuntimeInSeconds: Number('int'),
  *       },
  *     },
  *     TextClassificationJobConfig: { // TextClassificationJobConfig
  *       CompletionCriteria: {
- *         MaxCandidates: Number("int"),
- *         MaxRuntimePerTrainingJobInSeconds: Number("int"),
- *         MaxAutoMLJobRuntimeInSeconds: Number("int"),
+ *         MaxCandidates: Number('int'),
+ *         MaxRuntimePerTrainingJobInSeconds: Number('int'),
+ *         MaxAutoMLJobRuntimeInSeconds: Number('int'),
  *       },
- *       ContentColumn: "STRING_VALUE",
- *       TargetLabelColumn: "STRING_VALUE",
+ *       ContentColumn: 'STRING_VALUE',
+ *       TargetLabelColumn: 'STRING_VALUE',
  *     },
  *   },
- *   RoleArn: "STRING_VALUE", // required
+ *   RoleArn: 'STRING_VALUE', // required
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  *   SecurityConfig: { // AutoMLSecurityConfig
- *     VolumeKmsKeyId: "STRING_VALUE",
+ *     VolumeKmsKeyId: 'STRING_VALUE',
  *     EnableInterContainerTrafficEncryption: true || false,
  *     VpcConfig: { // VpcConfig
  *       SecurityGroupIds: [ // VpcSecurityGroupIds // required
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *       Subnets: [ // Subnets // required
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   },
  *   AutoMLJobObjective: { // AutoMLJobObjective
- *     MetricName: "Accuracy" || "MSE" || "F1" || "F1macro" || "AUC" || "RMSE" || "MAE" || "R2" || "BalancedAccuracy" || "Precision" || "PrecisionMacro" || "Recall" || "RecallMacro", // required
+ *     MetricName: 'Accuracy' || 'MSE' || 'F1' || 'F1macro' || 'AUC' || 'RMSE' || 'MAE' || 'R2' || 'BalancedAccuracy' || 'Precision' || 'PrecisionMacro' || 'Recall' || 'RecallMacro', // required
  *   },
  *   ModelDeployConfig: { // ModelDeployConfig
  *     AutoGenerateEndpointName: true || false,
- *     EndpointName: "STRING_VALUE",
+ *     EndpointName: 'STRING_VALUE',
  *   },
  *   DataSplitConfig: { // AutoMLDataSplitConfig
- *     ValidationFraction: Number("float"),
+ *     ValidationFraction: Number('float'),
  *   },
  * };
  * const command = new CreateAutoMLJobV2Command(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateAutoMLJobV2Response
+ *   AutoMLJobArn: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param CreateAutoMLJobV2CommandInput - {@link CreateAutoMLJobV2CommandInput}
@@ -130,6 +135,8 @@ export interface CreateAutoMLJobV2CommandOutput extends CreateAutoMLJobV2Respons
  *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many
  *             training jobs created. </p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class CreateAutoMLJobV2Command extends $Command<

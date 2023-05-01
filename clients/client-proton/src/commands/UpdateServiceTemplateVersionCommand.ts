@@ -46,27 +46,53 @@ export interface UpdateServiceTemplateVersionCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ProtonClient, UpdateServiceTemplateVersionCommand } from "@aws-sdk/client-proton"; // ES Modules import
- * // const { ProtonClient, UpdateServiceTemplateVersionCommand } = require("@aws-sdk/client-proton"); // CommonJS import
+ * import { ProtonClient, UpdateServiceTemplateVersionCommand } from '@aws-sdk/client-proton'; // ES Modules import
+ * // const { ProtonClient, UpdateServiceTemplateVersionCommand } = require('@aws-sdk/client-proton'); // CommonJS import
  * const client = new ProtonClient(config);
  * const input = { // UpdateServiceTemplateVersionInput
- *   templateName: "STRING_VALUE", // required
- *   majorVersion: "STRING_VALUE", // required
- *   minorVersion: "STRING_VALUE", // required
- *   description: "STRING_VALUE",
- *   status: "STRING_VALUE",
+ *   templateName: 'STRING_VALUE', // required
+ *   majorVersion: 'STRING_VALUE', // required
+ *   minorVersion: 'STRING_VALUE', // required
+ *   description: 'STRING_VALUE',
+ *   status: 'STRING_VALUE',
  *   compatibleEnvironmentTemplates: [ // CompatibleEnvironmentTemplateInputList
  *     { // CompatibleEnvironmentTemplateInput
- *       templateName: "STRING_VALUE", // required
- *       majorVersion: "STRING_VALUE", // required
+ *       templateName: 'STRING_VALUE', // required
+ *       majorVersion: 'STRING_VALUE', // required
  *     },
  *   ],
  *   supportedComponentSources: [ // ServiceTemplateSupportedComponentSourceInputList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new UpdateServiceTemplateVersionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateServiceTemplateVersionOutput
+ *   serviceTemplateVersion: { // ServiceTemplateVersion
+ *     templateName: 'STRING_VALUE', // required
+ *     majorVersion: 'STRING_VALUE', // required
+ *     minorVersion: 'STRING_VALUE', // required
+ *     recommendedMinorVersion: 'STRING_VALUE',
+ *     status: 'STRING_VALUE', // required
+ *     statusMessage: 'STRING_VALUE',
+ *     description: 'STRING_VALUE',
+ *     arn: 'STRING_VALUE', // required
+ *     createdAt: new Date('TIMESTAMP'), // required
+ *     lastModifiedAt: new Date('TIMESTAMP'), // required
+ *     compatibleEnvironmentTemplates: [ // CompatibleEnvironmentTemplateList // required
+ *       { // CompatibleEnvironmentTemplate
+ *         templateName: 'STRING_VALUE', // required
+ *         majorVersion: 'STRING_VALUE', // required
+ *       },
+ *     ],
+ *     schema: 'STRING_VALUE',
+ *     supportedComponentSources: [ // ServiceTemplateSupportedComponentSourceInputList
+ *       'STRING_VALUE',
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateServiceTemplateVersionCommandInput - {@link UpdateServiceTemplateVersionCommandInput}
@@ -93,6 +119,8 @@ export interface UpdateServiceTemplateVersionCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The input is invalid or an out-of-range value was supplied for the input parameter.</p>
  *
+ * @throws {@link ProtonServiceException}
+ * <p>Base exception class for all service exceptions from Proton service.</p>
  *
  */
 export class UpdateServiceTemplateVersionCommand extends $Command<

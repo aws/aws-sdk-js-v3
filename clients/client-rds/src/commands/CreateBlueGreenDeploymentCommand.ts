@@ -50,24 +50,57 @@ export interface CreateBlueGreenDeploymentCommandOutput extends CreateBlueGreenD
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RDSClient, CreateBlueGreenDeploymentCommand } from "@aws-sdk/client-rds"; // ES Modules import
- * // const { RDSClient, CreateBlueGreenDeploymentCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * import { RDSClient, CreateBlueGreenDeploymentCommand } from '@aws-sdk/client-rds'; // ES Modules import
+ * // const { RDSClient, CreateBlueGreenDeploymentCommand } = require('@aws-sdk/client-rds'); // CommonJS import
  * const client = new RDSClient(config);
  * const input = { // CreateBlueGreenDeploymentRequest
- *   BlueGreenDeploymentName: "STRING_VALUE", // required
- *   Source: "STRING_VALUE", // required
- *   TargetEngineVersion: "STRING_VALUE",
- *   TargetDBParameterGroupName: "STRING_VALUE",
- *   TargetDBClusterParameterGroupName: "STRING_VALUE",
+ *   BlueGreenDeploymentName: 'STRING_VALUE', // required
+ *   Source: 'STRING_VALUE', // required
+ *   TargetEngineVersion: 'STRING_VALUE',
+ *   TargetDBParameterGroupName: 'STRING_VALUE',
+ *   TargetDBClusterParameterGroupName: 'STRING_VALUE',
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE",
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new CreateBlueGreenDeploymentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateBlueGreenDeploymentResponse
+ *   BlueGreenDeployment: { // BlueGreenDeployment
+ *     BlueGreenDeploymentIdentifier: 'STRING_VALUE',
+ *     BlueGreenDeploymentName: 'STRING_VALUE',
+ *     Source: 'STRING_VALUE',
+ *     Target: 'STRING_VALUE',
+ *     SwitchoverDetails: [ // SwitchoverDetailList
+ *       { // SwitchoverDetail
+ *         SourceMember: 'STRING_VALUE',
+ *         TargetMember: 'STRING_VALUE',
+ *         Status: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     Tasks: [ // BlueGreenDeploymentTaskList
+ *       { // BlueGreenDeploymentTask
+ *         Name: 'STRING_VALUE',
+ *         Status: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     Status: 'STRING_VALUE',
+ *     StatusDetails: 'STRING_VALUE',
+ *     CreateTime: new Date('TIMESTAMP'),
+ *     DeleteTime: new Date('TIMESTAMP'),
+ *     TagList: [ // TagList
+ *       { // Tag
+ *         Key: 'STRING_VALUE',
+ *         Value: 'STRING_VALUE',
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateBlueGreenDeploymentCommandInput - {@link CreateBlueGreenDeploymentCommandInput}
@@ -117,6 +150,8 @@ export interface CreateBlueGreenDeploymentCommandOutput extends CreateBlueGreenD
  * @throws {@link SourceDatabaseNotSupportedFault} (client fault)
  *  <p>The source DB instance isn't supported for a blue/green deployment.</p>
  *
+ * @throws {@link RDSServiceException}
+ * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  * @example To create a blue/green deployment for an RDS for MySQL DB instance
  * ```javascript

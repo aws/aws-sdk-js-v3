@@ -37,14 +37,51 @@ export interface GetSessionCommandOutput extends GetSessionResponse, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AthenaClient, GetSessionCommand } from "@aws-sdk/client-athena"; // ES Modules import
- * // const { AthenaClient, GetSessionCommand } = require("@aws-sdk/client-athena"); // CommonJS import
+ * import { AthenaClient, GetSessionCommand } from '@aws-sdk/client-athena'; // ES Modules import
+ * // const { AthenaClient, GetSessionCommand } = require('@aws-sdk/client-athena'); // CommonJS import
  * const client = new AthenaClient(config);
  * const input = { // GetSessionRequest
- *   SessionId: "STRING_VALUE", // required
+ *   SessionId: 'STRING_VALUE', // required
  * };
  * const command = new GetSessionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetSessionResponse
+ *   SessionId: 'STRING_VALUE',
+ *   Description: 'STRING_VALUE',
+ *   WorkGroup: 'STRING_VALUE',
+ *   EngineVersion: 'STRING_VALUE',
+ *   EngineConfiguration: { // EngineConfiguration
+ *     CoordinatorDpuSize: Number('int'),
+ *     MaxConcurrentDpus: Number('int'), // required
+ *     DefaultExecutorDpuSize: Number('int'),
+ *     AdditionalConfigs: { // ParametersMap
+ *       '<keys>': 'STRING_VALUE',
+ *     },
+ *   },
+ *   NotebookVersion: 'STRING_VALUE',
+ *   SessionConfiguration: { // SessionConfiguration
+ *     ExecutionRole: 'STRING_VALUE',
+ *     WorkingDirectory: 'STRING_VALUE',
+ *     IdleTimeoutSeconds: Number('long'),
+ *     EncryptionConfiguration: { // EncryptionConfiguration
+ *       EncryptionOption: 'SSE_S3' || 'SSE_KMS' || 'CSE_KMS', // required
+ *       KmsKey: 'STRING_VALUE',
+ *     },
+ *   },
+ *   Status: { // SessionStatus
+ *     StartDateTime: new Date('TIMESTAMP'),
+ *     LastModifiedDateTime: new Date('TIMESTAMP'),
+ *     EndDateTime: new Date('TIMESTAMP'),
+ *     IdleSinceDateTime: new Date('TIMESTAMP'),
+ *     State: 'CREATING' || 'CREATED' || 'IDLE' || 'BUSY' || 'TERMINATING' || 'TERMINATED' || 'DEGRADED' || 'FAILED',
+ *     StateChangeReason: 'STRING_VALUE',
+ *   },
+ *   Statistics: { // SessionStatistics
+ *     DpuExecutionInMillis: Number('long'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetSessionCommandInput - {@link GetSessionCommandInput}
@@ -64,6 +101,8 @@ export interface GetSessionCommandOutput extends GetSessionResponse, __MetadataB
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>A resource, such as a workgroup, was not found.</p>
  *
+ * @throws {@link AthenaServiceException}
+ * <p>Base exception class for all service exceptions from Athena service.</p>
  *
  */
 export class GetSessionCommand extends $Command<

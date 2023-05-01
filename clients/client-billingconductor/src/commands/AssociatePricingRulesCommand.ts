@@ -37,17 +37,22 @@ export interface AssociatePricingRulesCommandOutput extends AssociatePricingRule
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BillingconductorClient, AssociatePricingRulesCommand } from "@aws-sdk/client-billingconductor"; // ES Modules import
- * // const { BillingconductorClient, AssociatePricingRulesCommand } = require("@aws-sdk/client-billingconductor"); // CommonJS import
+ * import { BillingconductorClient, AssociatePricingRulesCommand } from '@aws-sdk/client-billingconductor'; // ES Modules import
+ * // const { BillingconductorClient, AssociatePricingRulesCommand } = require('@aws-sdk/client-billingconductor'); // CommonJS import
  * const client = new BillingconductorClient(config);
  * const input = { // AssociatePricingRulesInput
- *   Arn: "STRING_VALUE", // required
+ *   Arn: 'STRING_VALUE', // required
  *   PricingRuleArns: [ // PricingRuleArnsNonEmptyInput // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new AssociatePricingRulesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AssociatePricingRulesOutput
+ *   Arn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param AssociatePricingRulesCommandInput - {@link AssociatePricingRulesCommandInput}
@@ -83,6 +88,8 @@ export interface AssociatePricingRulesCommandOutput extends AssociatePricingRule
  * @throws {@link ValidationException} (client fault)
  *  <p>The input doesn't match with the constraints specified by Amazon Web Services services.</p>
  *
+ * @throws {@link BillingconductorServiceException}
+ * <p>Base exception class for all service exceptions from Billingconductor service.</p>
  *
  */
 export class AssociatePricingRulesCommand extends $Command<

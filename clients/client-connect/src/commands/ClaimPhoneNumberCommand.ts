@@ -46,20 +46,26 @@ export interface ClaimPhoneNumberCommandOutput extends ClaimPhoneNumberResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, ClaimPhoneNumberCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, ClaimPhoneNumberCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, ClaimPhoneNumberCommand } from '@aws-sdk/client-connect'; // ES Modules import
+ * // const { ConnectClient, ClaimPhoneNumberCommand } = require('@aws-sdk/client-connect'); // CommonJS import
  * const client = new ConnectClient(config);
  * const input = { // ClaimPhoneNumberRequest
- *   TargetArn: "STRING_VALUE", // required
- *   PhoneNumber: "STRING_VALUE", // required
- *   PhoneNumberDescription: "STRING_VALUE",
+ *   TargetArn: 'STRING_VALUE', // required
+ *   PhoneNumber: 'STRING_VALUE', // required
+ *   PhoneNumberDescription: 'STRING_VALUE',
  *   Tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
- *   ClientToken: "STRING_VALUE",
+ *   ClientToken: 'STRING_VALUE',
  * };
  * const command = new ClaimPhoneNumberCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ClaimPhoneNumberResponse
+ *   PhoneNumberId: 'STRING_VALUE',
+ *   PhoneNumberArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ClaimPhoneNumberCommandInput - {@link ClaimPhoneNumberCommandInput}
@@ -86,6 +92,8 @@ export interface ClaimPhoneNumberCommandOutput extends ClaimPhoneNumberResponse,
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class ClaimPhoneNumberCommand extends $Command<

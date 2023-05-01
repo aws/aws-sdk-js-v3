@@ -36,42 +36,91 @@ export interface UpdateWorkloadCommandOutput extends UpdateWorkloadOutput, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WellArchitectedClient, UpdateWorkloadCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
- * // const { WellArchitectedClient, UpdateWorkloadCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
+ * import { WellArchitectedClient, UpdateWorkloadCommand } from '@aws-sdk/client-wellarchitected'; // ES Modules import
+ * // const { WellArchitectedClient, UpdateWorkloadCommand } = require('@aws-sdk/client-wellarchitected'); // CommonJS import
  * const client = new WellArchitectedClient(config);
  * const input = { // UpdateWorkloadInput
- *   WorkloadId: "STRING_VALUE", // required
- *   WorkloadName: "STRING_VALUE",
- *   Description: "STRING_VALUE",
- *   Environment: "PRODUCTION" || "PREPRODUCTION",
+ *   WorkloadId: 'STRING_VALUE', // required
+ *   WorkloadName: 'STRING_VALUE',
+ *   Description: 'STRING_VALUE',
+ *   Environment: 'PRODUCTION' || 'PREPRODUCTION',
  *   AccountIds: [ // WorkloadAccountIds
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   AwsRegions: [ // WorkloadAwsRegions
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   NonAwsRegions: [ // WorkloadNonAwsRegions
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   PillarPriorities: [ // WorkloadPillarPriorities
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   ArchitecturalDesign: "STRING_VALUE",
- *   ReviewOwner: "STRING_VALUE",
+ *   ArchitecturalDesign: 'STRING_VALUE',
+ *   ReviewOwner: 'STRING_VALUE',
  *   IsReviewOwnerUpdateAcknowledged: true || false,
- *   IndustryType: "STRING_VALUE",
- *   Industry: "STRING_VALUE",
- *   Notes: "STRING_VALUE",
- *   ImprovementStatus: "NOT_APPLICABLE" || "NOT_STARTED" || "IN_PROGRESS" || "COMPLETE" || "RISK_ACKNOWLEDGED",
+ *   IndustryType: 'STRING_VALUE',
+ *   Industry: 'STRING_VALUE',
+ *   Notes: 'STRING_VALUE',
+ *   ImprovementStatus: 'NOT_APPLICABLE' || 'NOT_STARTED' || 'IN_PROGRESS' || 'COMPLETE' || 'RISK_ACKNOWLEDGED',
  *   DiscoveryConfig: { // WorkloadDiscoveryConfig
- *     TrustedAdvisorIntegrationStatus: "ENABLED" || "DISABLED",
+ *     TrustedAdvisorIntegrationStatus: 'ENABLED' || 'DISABLED',
  *   },
  *   Applications: [ // WorkloadApplications
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new UpdateWorkloadCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateWorkloadOutput
+ *   Workload: { // Workload
+ *     WorkloadId: 'STRING_VALUE',
+ *     WorkloadArn: 'STRING_VALUE',
+ *     WorkloadName: 'STRING_VALUE',
+ *     Description: 'STRING_VALUE',
+ *     Environment: 'PRODUCTION' || 'PREPRODUCTION',
+ *     UpdatedAt: new Date('TIMESTAMP'),
+ *     AccountIds: [ // WorkloadAccountIds
+ *       'STRING_VALUE',
+ *     ],
+ *     AwsRegions: [ // WorkloadAwsRegions
+ *       'STRING_VALUE',
+ *     ],
+ *     NonAwsRegions: [ // WorkloadNonAwsRegions
+ *       'STRING_VALUE',
+ *     ],
+ *     ArchitecturalDesign: 'STRING_VALUE',
+ *     ReviewOwner: 'STRING_VALUE',
+ *     ReviewRestrictionDate: new Date('TIMESTAMP'),
+ *     IsReviewOwnerUpdateAcknowledged: true || false,
+ *     IndustryType: 'STRING_VALUE',
+ *     Industry: 'STRING_VALUE',
+ *     Notes: 'STRING_VALUE',
+ *     ImprovementStatus: 'NOT_APPLICABLE' || 'NOT_STARTED' || 'IN_PROGRESS' || 'COMPLETE' || 'RISK_ACKNOWLEDGED',
+ *     RiskCounts: { // RiskCounts
+ *       '<keys>': Number('int'),
+ *     },
+ *     PillarPriorities: [ // WorkloadPillarPriorities
+ *       'STRING_VALUE',
+ *     ],
+ *     Lenses: [ // WorkloadLenses
+ *       'STRING_VALUE',
+ *     ],
+ *     Owner: 'STRING_VALUE',
+ *     ShareInvitationId: 'STRING_VALUE',
+ *     Tags: { // TagMap
+ *       '<keys>': 'STRING_VALUE',
+ *     },
+ *     DiscoveryConfig: { // WorkloadDiscoveryConfig
+ *       TrustedAdvisorIntegrationStatus: 'ENABLED' || 'DISABLED',
+ *     },
+ *     Applications: [ // WorkloadApplications
+ *       'STRING_VALUE',
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateWorkloadCommandInput - {@link UpdateWorkloadCommandInput}
@@ -98,6 +147,8 @@ export interface UpdateWorkloadCommandOutput extends UpdateWorkloadOutput, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>The user input is not valid.</p>
  *
+ * @throws {@link WellArchitectedServiceException}
+ * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
  */
 export class UpdateWorkloadCommand extends $Command<

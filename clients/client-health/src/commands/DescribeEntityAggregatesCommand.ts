@@ -36,16 +36,26 @@ export interface DescribeEntityAggregatesCommandOutput extends DescribeEntityAgg
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { HealthClient, DescribeEntityAggregatesCommand } from "@aws-sdk/client-health"; // ES Modules import
- * // const { HealthClient, DescribeEntityAggregatesCommand } = require("@aws-sdk/client-health"); // CommonJS import
+ * import { HealthClient, DescribeEntityAggregatesCommand } from '@aws-sdk/client-health'; // ES Modules import
+ * // const { HealthClient, DescribeEntityAggregatesCommand } = require('@aws-sdk/client-health'); // CommonJS import
  * const client = new HealthClient(config);
  * const input = { // DescribeEntityAggregatesRequest
  *   eventArns: [ // EventArnsList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new DescribeEntityAggregatesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeEntityAggregatesResponse
+ *   entityAggregates: [ // EntityAggregateList
+ *     { // EntityAggregate
+ *       eventArn: 'STRING_VALUE',
+ *       count: Number('int'),
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeEntityAggregatesCommandInput - {@link DescribeEntityAggregatesCommandInput}
@@ -54,6 +64,8 @@ export interface DescribeEntityAggregatesCommandOutput extends DescribeEntityAgg
  * @see {@link DescribeEntityAggregatesCommandOutput} for command's `response` shape.
  * @see {@link HealthClientResolvedConfig | config} for HealthClient's `config` shape.
  *
+ * @throws {@link HealthServiceException}
+ * <p>Base exception class for all service exceptions from Health service.</p>
  *
  */
 export class DescribeEntityAggregatesCommand extends $Command<

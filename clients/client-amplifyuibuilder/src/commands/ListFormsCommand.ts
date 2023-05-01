@@ -36,17 +36,35 @@ export interface ListFormsCommandOutput extends ListFormsResponse, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AmplifyUIBuilderClient, ListFormsCommand } from "@aws-sdk/client-amplifyuibuilder"; // ES Modules import
- * // const { AmplifyUIBuilderClient, ListFormsCommand } = require("@aws-sdk/client-amplifyuibuilder"); // CommonJS import
+ * import { AmplifyUIBuilderClient, ListFormsCommand } from '@aws-sdk/client-amplifyuibuilder'; // ES Modules import
+ * // const { AmplifyUIBuilderClient, ListFormsCommand } = require('@aws-sdk/client-amplifyuibuilder'); // CommonJS import
  * const client = new AmplifyUIBuilderClient(config);
  * const input = { // ListFormsRequest
- *   appId: "STRING_VALUE", // required
- *   environmentName: "STRING_VALUE", // required
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   appId: 'STRING_VALUE', // required
+ *   environmentName: 'STRING_VALUE', // required
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new ListFormsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListFormsResponse
+ *   entities: [ // FormSummaryList // required
+ *     { // FormSummary
+ *       appId: 'STRING_VALUE', // required
+ *       dataType: { // FormDataTypeConfig
+ *         dataSourceType: 'STRING_VALUE', // required
+ *         dataTypeName: 'STRING_VALUE', // required
+ *       },
+ *       environmentName: 'STRING_VALUE', // required
+ *       formActionType: 'STRING_VALUE', // required
+ *       id: 'STRING_VALUE', // required
+ *       name: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListFormsCommandInput - {@link ListFormsCommandInput}
@@ -61,6 +79,8 @@ export interface ListFormsCommandOutput extends ListFormsResponse, __MetadataBea
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>An invalid or out-of-range value was supplied for the input parameter.</p>
  *
+ * @throws {@link AmplifyUIBuilderServiceException}
+ * <p>Base exception class for all service exceptions from AmplifyUIBuilder service.</p>
  *
  */
 export class ListFormsCommand extends $Command<

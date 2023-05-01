@@ -48,16 +48,19 @@ export interface DecreaseStreamRetentionPeriodCommandOutput extends __MetadataBe
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KinesisClient, DecreaseStreamRetentionPeriodCommand } from "@aws-sdk/client-kinesis"; // ES Modules import
- * // const { KinesisClient, DecreaseStreamRetentionPeriodCommand } = require("@aws-sdk/client-kinesis"); // CommonJS import
+ * import { KinesisClient, DecreaseStreamRetentionPeriodCommand } from '@aws-sdk/client-kinesis'; // ES Modules import
+ * // const { KinesisClient, DecreaseStreamRetentionPeriodCommand } = require('@aws-sdk/client-kinesis'); // CommonJS import
  * const client = new KinesisClient(config);
  * const input = { // DecreaseStreamRetentionPeriodInput
- *   StreamName: "STRING_VALUE",
- *   RetentionPeriodHours: Number("int"), // required
- *   StreamARN: "STRING_VALUE",
+ *   StreamName: 'STRING_VALUE',
+ *   RetentionPeriodHours: Number('int'), // required
+ *   StreamARN: 'STRING_VALUE',
  * };
  * const command = new DecreaseStreamRetentionPeriodCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DecreaseStreamRetentionPeriodCommandInput - {@link DecreaseStreamRetentionPeriodCommandInput}
@@ -86,6 +89,8 @@ export interface DecreaseStreamRetentionPeriodCommandOutput extends __MetadataBe
  *  <p>The requested resource could not be found. The stream might not be specified
  *             correctly.</p>
  *
+ * @throws {@link KinesisServiceException}
+ * <p>Base exception class for all service exceptions from Kinesis service.</p>
  *
  */
 export class DecreaseStreamRetentionPeriodCommand extends $Command<

@@ -38,21 +38,21 @@ export interface DescribeVerifiedAccessGroupsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, DescribeVerifiedAccessGroupsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, DescribeVerifiedAccessGroupsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, DescribeVerifiedAccessGroupsCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, DescribeVerifiedAccessGroupsCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // DescribeVerifiedAccessGroupsRequest
  *   VerifiedAccessGroupIds: [ // VerifiedAccessGroupIdList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   VerifiedAccessInstanceId: "STRING_VALUE",
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   VerifiedAccessInstanceId: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  *   Filters: [ // FilterList
  *     { // Filter
- *       Name: "STRING_VALUE",
+ *       Name: 'STRING_VALUE',
  *       Values: [ // ValueStringList
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
@@ -60,6 +60,29 @@ export interface DescribeVerifiedAccessGroupsCommandOutput
  * };
  * const command = new DescribeVerifiedAccessGroupsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeVerifiedAccessGroupsResult
+ *   VerifiedAccessGroups: [ // VerifiedAccessGroupList
+ *     { // VerifiedAccessGroup
+ *       VerifiedAccessGroupId: 'STRING_VALUE',
+ *       VerifiedAccessInstanceId: 'STRING_VALUE',
+ *       Description: 'STRING_VALUE',
+ *       Owner: 'STRING_VALUE',
+ *       VerifiedAccessGroupArn: 'STRING_VALUE',
+ *       CreationTime: 'STRING_VALUE',
+ *       LastUpdatedTime: 'STRING_VALUE',
+ *       DeletionTime: 'STRING_VALUE',
+ *       Tags: [ // TagList
+ *         { // Tag
+ *           Key: 'STRING_VALUE',
+ *           Value: 'STRING_VALUE',
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeVerifiedAccessGroupsCommandInput - {@link DescribeVerifiedAccessGroupsCommandInput}
@@ -68,6 +91,8 @@ export interface DescribeVerifiedAccessGroupsCommandOutput
  * @see {@link DescribeVerifiedAccessGroupsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class DescribeVerifiedAccessGroupsCommand extends $Command<

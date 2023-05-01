@@ -36,37 +36,77 @@ export interface CreatePipelineCommandOutput extends CreatePipelineResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OSISClient, CreatePipelineCommand } from "@aws-sdk/client-osis"; // ES Modules import
- * // const { OSISClient, CreatePipelineCommand } = require("@aws-sdk/client-osis"); // CommonJS import
+ * import { OSISClient, CreatePipelineCommand } from '@aws-sdk/client-osis'; // ES Modules import
+ * // const { OSISClient, CreatePipelineCommand } = require('@aws-sdk/client-osis'); // CommonJS import
  * const client = new OSISClient(config);
  * const input = { // CreatePipelineRequest
- *   PipelineName: "STRING_VALUE", // required
- *   MinUnits: Number("int"), // required
- *   MaxUnits: Number("int"), // required
- *   PipelineConfigurationBody: "STRING_VALUE", // required
+ *   PipelineName: 'STRING_VALUE', // required
+ *   MinUnits: Number('int'), // required
+ *   MaxUnits: Number('int'), // required
+ *   PipelineConfigurationBody: 'STRING_VALUE', // required
  *   LogPublishingOptions: { // LogPublishingOptions
  *     IsLoggingEnabled: true || false,
  *     CloudWatchLogDestination: { // CloudWatchLogDestination
- *       LogGroup: "STRING_VALUE", // required
+ *       LogGroup: 'STRING_VALUE', // required
  *     },
  *   },
  *   VpcOptions: { // VpcOptions
  *     SubnetIds: [ // SubnetIds // required
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     SecurityGroupIds: [ // SecurityGroupIds
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *   },
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreatePipelineCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreatePipelineResponse
+ *   Pipeline: { // Pipeline
+ *     PipelineName: 'STRING_VALUE',
+ *     PipelineArn: 'STRING_VALUE',
+ *     MinUnits: Number('int'),
+ *     MaxUnits: Number('int'),
+ *     Status: 'CREATING' || 'ACTIVE' || 'UPDATING' || 'DELETING' || 'CREATE_FAILED' || 'UPDATE_FAILED' || 'STARTING' || 'START_FAILED' || 'STOPPING' || 'STOPPED',
+ *     StatusReason: { // PipelineStatusReason
+ *       Description: 'STRING_VALUE',
+ *     },
+ *     PipelineConfigurationBody: 'STRING_VALUE',
+ *     CreatedAt: new Date('TIMESTAMP'),
+ *     LastUpdatedAt: new Date('TIMESTAMP'),
+ *     IngestEndpointUrls: [ // IngestEndpointUrlsList
+ *       'STRING_VALUE',
+ *     ],
+ *     LogPublishingOptions: { // LogPublishingOptions
+ *       IsLoggingEnabled: true || false,
+ *       CloudWatchLogDestination: { // CloudWatchLogDestination
+ *         LogGroup: 'STRING_VALUE', // required
+ *       },
+ *     },
+ *     VpcEndpoints: [ // VpcEndpointsList
+ *       { // VpcEndpoint
+ *         VpcEndpointId: 'STRING_VALUE',
+ *         VpcId: 'STRING_VALUE',
+ *         VpcOptions: { // VpcOptions
+ *           SubnetIds: [ // SubnetIds // required
+ *             'STRING_VALUE',
+ *           ],
+ *           SecurityGroupIds: [ // SecurityGroupIds
+ *             'STRING_VALUE',
+ *           ],
+ *         },
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreatePipelineCommandInput - {@link CreatePipelineCommandInput}
@@ -91,6 +131,8 @@ export interface CreatePipelineCommandOutput extends CreatePipelineResponse, __M
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception for missing or invalid input fields.</p>
  *
+ * @throws {@link OSISServiceException}
+ * <p>Base exception class for all service exceptions from OSIS service.</p>
  *
  */
 export class CreatePipelineCommand extends $Command<

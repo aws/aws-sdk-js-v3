@@ -36,16 +36,25 @@ export interface UpdateWorkerFleetCommandOutput extends UpdateWorkerFleetRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTRoboRunnerClient, UpdateWorkerFleetCommand } from "@aws-sdk/client-iot-roborunner"; // ES Modules import
- * // const { IoTRoboRunnerClient, UpdateWorkerFleetCommand } = require("@aws-sdk/client-iot-roborunner"); // CommonJS import
+ * import { IoTRoboRunnerClient, UpdateWorkerFleetCommand } from '@aws-sdk/client-iot-roborunner'; // ES Modules import
+ * // const { IoTRoboRunnerClient, UpdateWorkerFleetCommand } = require('@aws-sdk/client-iot-roborunner'); // CommonJS import
  * const client = new IoTRoboRunnerClient(config);
  * const input = { // UpdateWorkerFleetRequest
- *   id: "STRING_VALUE", // required
- *   name: "STRING_VALUE",
- *   additionalFixedProperties: "STRING_VALUE",
+ *   id: 'STRING_VALUE', // required
+ *   name: 'STRING_VALUE',
+ *   additionalFixedProperties: 'STRING_VALUE',
  * };
  * const command = new UpdateWorkerFleetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateWorkerFleetResponse
+ *   arn: 'STRING_VALUE', // required
+ *   id: 'STRING_VALUE', // required
+ *   name: 'STRING_VALUE', // required
+ *   updatedAt: new Date('TIMESTAMP'), // required
+ *   additionalFixedProperties: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateWorkerFleetCommandInput - {@link UpdateWorkerFleetCommandInput}
@@ -69,6 +78,8 @@ export interface UpdateWorkerFleetCommandOutput extends UpdateWorkerFleetRespons
  * @throws {@link ValidationException} (client fault)
  *  Exception thrown if an invalid parameter is provided to an API.
  *
+ * @throws {@link IoTRoboRunnerServiceException}
+ * <p>Base exception class for all service exceptions from IoTRoboRunner service.</p>
  *
  */
 export class UpdateWorkerFleetCommand extends $Command<

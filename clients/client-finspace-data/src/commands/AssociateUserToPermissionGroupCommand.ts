@@ -41,16 +41,21 @@ export interface AssociateUserToPermissionGroupCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FinspaceDataClient, AssociateUserToPermissionGroupCommand } from "@aws-sdk/client-finspace-data"; // ES Modules import
- * // const { FinspaceDataClient, AssociateUserToPermissionGroupCommand } = require("@aws-sdk/client-finspace-data"); // CommonJS import
+ * import { FinspaceDataClient, AssociateUserToPermissionGroupCommand } from '@aws-sdk/client-finspace-data'; // ES Modules import
+ * // const { FinspaceDataClient, AssociateUserToPermissionGroupCommand } = require('@aws-sdk/client-finspace-data'); // CommonJS import
  * const client = new FinspaceDataClient(config);
  * const input = { // AssociateUserToPermissionGroupRequest
- *   permissionGroupId: "STRING_VALUE", // required
- *   userId: "STRING_VALUE", // required
- *   clientToken: "STRING_VALUE",
+ *   permissionGroupId: 'STRING_VALUE', // required
+ *   userId: 'STRING_VALUE', // required
+ *   clientToken: 'STRING_VALUE',
  * };
  * const command = new AssociateUserToPermissionGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AssociateUserToPermissionGroupResponse
+ *   statusCode: Number('int'),
+ * };
+ *
  * ```
  *
  * @param AssociateUserToPermissionGroupCommandInput - {@link AssociateUserToPermissionGroupCommandInput}
@@ -78,6 +83,8 @@ export interface AssociateUserToPermissionGroupCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link FinspaceDataServiceException}
+ * <p>Base exception class for all service exceptions from FinspaceData service.</p>
  *
  */
 export class AssociateUserToPermissionGroupCommand extends $Command<

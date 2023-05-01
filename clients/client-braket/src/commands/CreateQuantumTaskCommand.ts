@@ -36,24 +36,29 @@ export interface CreateQuantumTaskCommandOutput extends CreateQuantumTaskRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BraketClient, CreateQuantumTaskCommand } from "@aws-sdk/client-braket"; // ES Modules import
- * // const { BraketClient, CreateQuantumTaskCommand } = require("@aws-sdk/client-braket"); // CommonJS import
+ * import { BraketClient, CreateQuantumTaskCommand } from '@aws-sdk/client-braket'; // ES Modules import
+ * // const { BraketClient, CreateQuantumTaskCommand } = require('@aws-sdk/client-braket'); // CommonJS import
  * const client = new BraketClient(config);
  * const input = { // CreateQuantumTaskRequest
- *   clientToken: "STRING_VALUE", // required
- *   deviceArn: "STRING_VALUE", // required
- *   deviceParameters: "STRING_VALUE",
- *   shots: Number("long"), // required
- *   outputS3Bucket: "STRING_VALUE", // required
- *   outputS3KeyPrefix: "STRING_VALUE", // required
- *   action: "STRING_VALUE", // required
+ *   clientToken: 'STRING_VALUE', // required
+ *   deviceArn: 'STRING_VALUE', // required
+ *   deviceParameters: 'STRING_VALUE',
+ *   shots: Number('long'), // required
+ *   outputS3Bucket: 'STRING_VALUE', // required
+ *   outputS3KeyPrefix: 'STRING_VALUE', // required
+ *   action: 'STRING_VALUE', // required
  *   tags: { // TagsMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
- *   jobToken: "STRING_VALUE",
+ *   jobToken: 'STRING_VALUE',
  * };
  * const command = new CreateQuantumTaskCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateQuantumTaskResponse
+ *   quantumTaskArn: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param CreateQuantumTaskCommandInput - {@link CreateQuantumTaskCommandInput}
@@ -84,6 +89,8 @@ export interface CreateQuantumTaskCommandOutput extends CreateQuantumTaskRespons
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link BraketServiceException}
+ * <p>Base exception class for all service exceptions from Braket service.</p>
  *
  */
 export class CreateQuantumTaskCommand extends $Command<

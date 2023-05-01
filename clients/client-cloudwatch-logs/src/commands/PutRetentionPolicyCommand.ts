@@ -50,15 +50,18 @@ export interface PutRetentionPolicyCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudWatchLogsClient, PutRetentionPolicyCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
- * // const { CloudWatchLogsClient, PutRetentionPolicyCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
+ * import { CloudWatchLogsClient, PutRetentionPolicyCommand } from '@aws-sdk/client-cloudwatch-logs'; // ES Modules import
+ * // const { CloudWatchLogsClient, PutRetentionPolicyCommand } = require('@aws-sdk/client-cloudwatch-logs'); // CommonJS import
  * const client = new CloudWatchLogsClient(config);
  * const input = { // PutRetentionPolicyRequest
- *   logGroupName: "STRING_VALUE", // required
- *   retentionInDays: Number("int"), // required
+ *   logGroupName: 'STRING_VALUE', // required
+ *   retentionInDays: Number('int'), // required
  * };
  * const command = new PutRetentionPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutRetentionPolicyCommandInput - {@link PutRetentionPolicyCommandInput}
@@ -79,6 +82,8 @@ export interface PutRetentionPolicyCommandOutput extends __MetadataBearer {}
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service cannot complete the request.</p>
  *
+ * @throws {@link CloudWatchLogsServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
  */
 export class PutRetentionPolicyCommand extends $Command<

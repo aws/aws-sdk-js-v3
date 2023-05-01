@@ -58,36 +58,36 @@ export interface DetectTextCommandOutput extends DetectTextResponse, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RekognitionClient, DetectTextCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
- * // const { RekognitionClient, DetectTextCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
+ * import { RekognitionClient, DetectTextCommand } from '@aws-sdk/client-rekognition'; // ES Modules import
+ * // const { RekognitionClient, DetectTextCommand } = require('@aws-sdk/client-rekognition'); // CommonJS import
  * const client = new RekognitionClient(config);
  * const input = { // DetectTextRequest
  *   Image: { // Image
- *     Bytes: "BLOB_VALUE",
+ *     Bytes: 'BLOB_VALUE',
  *     S3Object: { // S3Object
- *       Bucket: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *       Version: "STRING_VALUE",
+ *       Bucket: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *       Version: 'STRING_VALUE',
  *     },
  *   },
  *   Filters: { // DetectTextFilters
  *     WordFilter: { // DetectionFilter
- *       MinConfidence: Number("float"),
- *       MinBoundingBoxHeight: Number("float"),
- *       MinBoundingBoxWidth: Number("float"),
+ *       MinConfidence: Number('float'),
+ *       MinBoundingBoxHeight: Number('float'),
+ *       MinBoundingBoxWidth: Number('float'),
  *     },
  *     RegionsOfInterest: [ // RegionsOfInterest
  *       { // RegionOfInterest
  *         BoundingBox: { // BoundingBox
- *           Width: Number("float"),
- *           Height: Number("float"),
- *           Left: Number("float"),
- *           Top: Number("float"),
+ *           Width: Number('float'),
+ *           Height: Number('float'),
+ *           Left: Number('float'),
+ *           Top: Number('float'),
  *         },
  *         Polygon: [ // Polygon
  *           { // Point
- *             X: Number("float"),
- *             Y: Number("float"),
+ *             X: Number('float'),
+ *             Y: Number('float'),
  *           },
  *         ],
  *       },
@@ -96,6 +96,34 @@ export interface DetectTextCommandOutput extends DetectTextResponse, __MetadataB
  * };
  * const command = new DetectTextCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DetectTextResponse
+ *   TextDetections: [ // TextDetectionList
+ *     { // TextDetection
+ *       DetectedText: 'STRING_VALUE',
+ *       Type: 'LINE' || 'WORD',
+ *       Id: Number('int'),
+ *       ParentId: Number('int'),
+ *       Confidence: Number('float'),
+ *       Geometry: { // Geometry
+ *         BoundingBox: { // BoundingBox
+ *           Width: Number('float'),
+ *           Height: Number('float'),
+ *           Left: Number('float'),
+ *           Top: Number('float'),
+ *         },
+ *         Polygon: [ // Polygon
+ *           { // Point
+ *             X: Number('float'),
+ *             Y: Number('float'),
+ *           },
+ *         ],
+ *       },
+ *     },
+ *   ],
+ *   TextModelVersion: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DetectTextCommandInput - {@link DetectTextCommandInput}
@@ -133,6 +161,8 @@ export interface DetectTextCommandOutput extends DetectTextResponse, __MetadataB
  * @throws {@link ThrottlingException} (server fault)
  *  <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
  *
+ * @throws {@link RekognitionServiceException}
+ * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
  */
 export class DetectTextCommand extends $Command<

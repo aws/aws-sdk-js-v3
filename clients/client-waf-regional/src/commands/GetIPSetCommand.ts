@@ -44,14 +44,28 @@ export interface GetIPSetCommandOutput extends GetIPSetResponse, __MetadataBeare
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WAFRegionalClient, GetIPSetCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
- * // const { WAFRegionalClient, GetIPSetCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import
+ * import { WAFRegionalClient, GetIPSetCommand } from '@aws-sdk/client-waf-regional'; // ES Modules import
+ * // const { WAFRegionalClient, GetIPSetCommand } = require('@aws-sdk/client-waf-regional'); // CommonJS import
  * const client = new WAFRegionalClient(config);
  * const input = { // GetIPSetRequest
- *   IPSetId: "STRING_VALUE", // required
+ *   IPSetId: 'STRING_VALUE', // required
  * };
  * const command = new GetIPSetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetIPSetResponse
+ *   IPSet: { // IPSet
+ *     IPSetId: 'STRING_VALUE', // required
+ *     Name: 'STRING_VALUE',
+ *     IPSetDescriptors: [ // IPSetDescriptors // required
+ *       { // IPSetDescriptor
+ *         Type: 'STRING_VALUE', // required
+ *         Value: 'STRING_VALUE', // required
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetIPSetCommandInput - {@link GetIPSetCommandInput}
@@ -69,6 +83,8 @@ export interface GetIPSetCommandOutput extends GetIPSetResponse, __MetadataBeare
  * @throws {@link WAFNonexistentItemException} (client fault)
  *  <p>The operation failed because the referenced object doesn't exist.</p>
  *
+ * @throws {@link WAFRegionalServiceException}
+ * <p>Base exception class for all service exceptions from WAFRegional service.</p>
  *
  * @example To get an IP set
  * ```javascript

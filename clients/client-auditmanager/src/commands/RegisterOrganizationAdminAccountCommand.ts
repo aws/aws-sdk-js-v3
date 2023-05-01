@@ -42,14 +42,20 @@ export interface RegisterOrganizationAdminAccountCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AuditManagerClient, RegisterOrganizationAdminAccountCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
- * // const { AuditManagerClient, RegisterOrganizationAdminAccountCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import
+ * import { AuditManagerClient, RegisterOrganizationAdminAccountCommand } from '@aws-sdk/client-auditmanager'; // ES Modules import
+ * // const { AuditManagerClient, RegisterOrganizationAdminAccountCommand } = require('@aws-sdk/client-auditmanager'); // CommonJS import
  * const client = new AuditManagerClient(config);
  * const input = { // RegisterOrganizationAdminAccountRequest
- *   adminAccountId: "STRING_VALUE", // required
+ *   adminAccountId: 'STRING_VALUE', // required
  * };
  * const command = new RegisterOrganizationAdminAccountCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // RegisterOrganizationAdminAccountResponse
+ *   adminAccountId: 'STRING_VALUE',
+ *   organizationId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param RegisterOrganizationAdminAccountCommandInput - {@link RegisterOrganizationAdminAccountCommandInput}
@@ -72,6 +78,8 @@ export interface RegisterOrganizationAdminAccountCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p> The request has invalid or missing parameters. </p>
  *
+ * @throws {@link AuditManagerServiceException}
+ * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
  */
 export class RegisterOrganizationAdminAccountCommand extends $Command<

@@ -37,17 +37,63 @@ export interface ListRecommendationsCommandOutput extends ListRecommendationsRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DevOpsGuruClient, ListRecommendationsCommand } from "@aws-sdk/client-devops-guru"; // ES Modules import
- * // const { DevOpsGuruClient, ListRecommendationsCommand } = require("@aws-sdk/client-devops-guru"); // CommonJS import
+ * import { DevOpsGuruClient, ListRecommendationsCommand } from '@aws-sdk/client-devops-guru'; // ES Modules import
+ * // const { DevOpsGuruClient, ListRecommendationsCommand } = require('@aws-sdk/client-devops-guru'); // CommonJS import
  * const client = new DevOpsGuruClient(config);
  * const input = { // ListRecommendationsRequest
- *   InsightId: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   Locale: "DE_DE" || "EN_US" || "EN_GB" || "ES_ES" || "FR_FR" || "IT_IT" || "JA_JP" || "KO_KR" || "PT_BR" || "ZH_CN" || "ZH_TW",
- *   AccountId: "STRING_VALUE",
+ *   InsightId: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
+ *   Locale: 'DE_DE' || 'EN_US' || 'EN_GB' || 'ES_ES' || 'FR_FR' || 'IT_IT' || 'JA_JP' || 'KO_KR' || 'PT_BR' || 'ZH_CN' || 'ZH_TW',
+ *   AccountId: 'STRING_VALUE',
  * };
  * const command = new ListRecommendationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListRecommendationsResponse
+ *   Recommendations: [ // Recommendations
+ *     { // Recommendation
+ *       Description: 'STRING_VALUE',
+ *       Link: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *       Reason: 'STRING_VALUE',
+ *       RelatedEvents: [ // RecommendationRelatedEvents
+ *         { // RecommendationRelatedEvent
+ *           Name: 'STRING_VALUE',
+ *           Resources: [ // RecommendationRelatedEventResources
+ *             { // RecommendationRelatedEventResource
+ *               Name: 'STRING_VALUE',
+ *               Type: 'STRING_VALUE',
+ *             },
+ *           ],
+ *         },
+ *       ],
+ *       RelatedAnomalies: [ // RecommendationRelatedAnomalies
+ *         { // RecommendationRelatedAnomaly
+ *           Resources: [ // RecommendationRelatedAnomalyResources
+ *             { // RecommendationRelatedAnomalyResource
+ *               Name: 'STRING_VALUE',
+ *               Type: 'STRING_VALUE',
+ *             },
+ *           ],
+ *           SourceDetails: [ // RelatedAnomalySourceDetails
+ *             { // RecommendationRelatedAnomalySourceDetail
+ *               CloudWatchMetrics: [ // RecommendationRelatedCloudWatchMetricsSourceDetails
+ *                 { // RecommendationRelatedCloudWatchMetricsSourceDetail
+ *                   MetricName: 'STRING_VALUE',
+ *                   Namespace: 'STRING_VALUE',
+ *                 },
+ *               ],
+ *             },
+ *           ],
+ *           AnomalyId: 'STRING_VALUE',
+ *         },
+ *       ],
+ *       Category: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListRecommendationsCommandInput - {@link ListRecommendationsCommandInput}
@@ -75,6 +121,8 @@ export interface ListRecommendationsCommandOutput extends ListRecommendationsRes
  *  <p> Contains information about data passed in to a field during a request that is not
  * 			valid. </p>
  *
+ * @throws {@link DevOpsGuruServiceException}
+ * <p>Base exception class for all service exceptions from DevOpsGuru service.</p>
  *
  */
 export class ListRecommendationsCommand extends $Command<

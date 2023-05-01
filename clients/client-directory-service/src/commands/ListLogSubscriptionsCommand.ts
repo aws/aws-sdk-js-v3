@@ -36,16 +36,28 @@ export interface ListLogSubscriptionsCommandOutput extends ListLogSubscriptionsR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DirectoryServiceClient, ListLogSubscriptionsCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
- * // const { DirectoryServiceClient, ListLogSubscriptionsCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
+ * import { DirectoryServiceClient, ListLogSubscriptionsCommand } from '@aws-sdk/client-directory-service'; // ES Modules import
+ * // const { DirectoryServiceClient, ListLogSubscriptionsCommand } = require('@aws-sdk/client-directory-service'); // CommonJS import
  * const client = new DirectoryServiceClient(config);
  * const input = { // ListLogSubscriptionsRequest
- *   DirectoryId: "STRING_VALUE",
- *   NextToken: "STRING_VALUE",
- *   Limit: Number("int"),
+ *   DirectoryId: 'STRING_VALUE',
+ *   NextToken: 'STRING_VALUE',
+ *   Limit: Number('int'),
  * };
  * const command = new ListLogSubscriptionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListLogSubscriptionsResult
+ *   LogSubscriptions: [ // LogSubscriptions
+ *     { // LogSubscription
+ *       DirectoryId: 'STRING_VALUE',
+ *       LogGroupName: 'STRING_VALUE',
+ *       SubscriptionCreatedDateTime: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListLogSubscriptionsCommandInput - {@link ListLogSubscriptionsCommandInput}
@@ -66,6 +78,8 @@ export interface ListLogSubscriptionsCommandOutput extends ListLogSubscriptionsR
  * @throws {@link ServiceException} (server fault)
  *  <p>An exception has occurred in Directory Service.</p>
  *
+ * @throws {@link DirectoryServiceServiceException}
+ * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
  */
 export class ListLogSubscriptionsCommand extends $Command<

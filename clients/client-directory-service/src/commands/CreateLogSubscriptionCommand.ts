@@ -37,15 +37,18 @@ export interface CreateLogSubscriptionCommandOutput extends CreateLogSubscriptio
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DirectoryServiceClient, CreateLogSubscriptionCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
- * // const { DirectoryServiceClient, CreateLogSubscriptionCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
+ * import { DirectoryServiceClient, CreateLogSubscriptionCommand } from '@aws-sdk/client-directory-service'; // ES Modules import
+ * // const { DirectoryServiceClient, CreateLogSubscriptionCommand } = require('@aws-sdk/client-directory-service'); // CommonJS import
  * const client = new DirectoryServiceClient(config);
  * const input = { // CreateLogSubscriptionRequest
- *   DirectoryId: "STRING_VALUE", // required
- *   LogGroupName: "STRING_VALUE", // required
+ *   DirectoryId: 'STRING_VALUE', // required
+ *   LogGroupName: 'STRING_VALUE', // required
  * };
  * const command = new CreateLogSubscriptionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param CreateLogSubscriptionCommandInput - {@link CreateLogSubscriptionCommandInput}
@@ -72,6 +75,8 @@ export interface CreateLogSubscriptionCommandOutput extends CreateLogSubscriptio
  * @throws {@link UnsupportedOperationException} (client fault)
  *  <p>The operation is not supported.</p>
  *
+ * @throws {@link DirectoryServiceServiceException}
+ * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
  */
 export class CreateLogSubscriptionCommand extends $Command<

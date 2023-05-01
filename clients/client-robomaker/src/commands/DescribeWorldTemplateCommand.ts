@@ -36,14 +36,27 @@ export interface DescribeWorldTemplateCommandOutput extends DescribeWorldTemplat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RoboMakerClient, DescribeWorldTemplateCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
- * // const { RoboMakerClient, DescribeWorldTemplateCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
+ * import { RoboMakerClient, DescribeWorldTemplateCommand } from '@aws-sdk/client-robomaker'; // ES Modules import
+ * // const { RoboMakerClient, DescribeWorldTemplateCommand } = require('@aws-sdk/client-robomaker'); // CommonJS import
  * const client = new RoboMakerClient(config);
  * const input = { // DescribeWorldTemplateRequest
- *   template: "STRING_VALUE", // required
+ *   template: 'STRING_VALUE', // required
  * };
  * const command = new DescribeWorldTemplateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeWorldTemplateResponse
+ *   arn: 'STRING_VALUE',
+ *   clientRequestToken: 'STRING_VALUE',
+ *   name: 'STRING_VALUE',
+ *   createdAt: new Date('TIMESTAMP'),
+ *   lastUpdatedAt: new Date('TIMESTAMP'),
+ *   tags: { // TagMap
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ *   version: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeWorldTemplateCommandInput - {@link DescribeWorldTemplateCommandInput}
@@ -65,6 +78,8 @@ export interface DescribeWorldTemplateCommandOutput extends DescribeWorldTemplat
  * @throws {@link ThrottlingException} (client fault)
  *  <p>AWS RoboMaker is temporarily unable to process the request. Try your call again.</p>
  *
+ * @throws {@link RoboMakerServiceException}
+ * <p>Base exception class for all service exceptions from RoboMaker service.</p>
  *
  */
 export class DescribeWorldTemplateCommand extends $Command<

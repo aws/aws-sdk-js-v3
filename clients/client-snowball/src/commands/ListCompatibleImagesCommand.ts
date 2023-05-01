@@ -39,15 +39,26 @@ export interface ListCompatibleImagesCommandOutput extends ListCompatibleImagesR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SnowballClient, ListCompatibleImagesCommand } from "@aws-sdk/client-snowball"; // ES Modules import
- * // const { SnowballClient, ListCompatibleImagesCommand } = require("@aws-sdk/client-snowball"); // CommonJS import
+ * import { SnowballClient, ListCompatibleImagesCommand } from '@aws-sdk/client-snowball'; // ES Modules import
+ * // const { SnowballClient, ListCompatibleImagesCommand } = require('@aws-sdk/client-snowball'); // CommonJS import
  * const client = new SnowballClient(config);
  * const input = { // ListCompatibleImagesRequest
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListCompatibleImagesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListCompatibleImagesResult
+ *   CompatibleImages: [ // CompatibleImageList
+ *     { // CompatibleImage
+ *       AmiId: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListCompatibleImagesCommandInput - {@link ListCompatibleImagesCommandInput}
@@ -65,6 +76,8 @@ export interface ListCompatibleImagesCommandOutput extends ListCompatibleImagesR
  *       stopped. Run the operation without changing the <code>NextToken</code> string, and try
  *       again.</p>
  *
+ * @throws {@link SnowballServiceException}
+ * <p>Base exception class for all service exceptions from Snowball service.</p>
  *
  */
 export class ListCompatibleImagesCommand extends $Command<

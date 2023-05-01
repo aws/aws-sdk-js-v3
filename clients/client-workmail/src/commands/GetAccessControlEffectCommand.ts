@@ -37,18 +37,26 @@ export interface GetAccessControlEffectCommandOutput extends GetAccessControlEff
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkMailClient, GetAccessControlEffectCommand } from "@aws-sdk/client-workmail"; // ES Modules import
- * // const { WorkMailClient, GetAccessControlEffectCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
+ * import { WorkMailClient, GetAccessControlEffectCommand } from '@aws-sdk/client-workmail'; // ES Modules import
+ * // const { WorkMailClient, GetAccessControlEffectCommand } = require('@aws-sdk/client-workmail'); // CommonJS import
  * const client = new WorkMailClient(config);
  * const input = { // GetAccessControlEffectRequest
- *   OrganizationId: "STRING_VALUE", // required
- *   IpAddress: "STRING_VALUE", // required
- *   Action: "STRING_VALUE", // required
- *   UserId: "STRING_VALUE",
- *   ImpersonationRoleId: "STRING_VALUE",
+ *   OrganizationId: 'STRING_VALUE', // required
+ *   IpAddress: 'STRING_VALUE', // required
+ *   Action: 'STRING_VALUE', // required
+ *   UserId: 'STRING_VALUE',
+ *   ImpersonationRoleId: 'STRING_VALUE',
  * };
  * const command = new GetAccessControlEffectCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetAccessControlEffectResponse
+ *   Effect: 'ALLOW' || 'DENY',
+ *   MatchedRules: [ // AccessControlRuleNameList
+ *     'STRING_VALUE',
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetAccessControlEffectCommandInput - {@link GetAccessControlEffectCommandInput}
@@ -75,6 +83,8 @@ export interface GetAccessControlEffectCommandOutput extends GetAccessControlEff
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource cannot be found.</p>
  *
+ * @throws {@link WorkMailServiceException}
+ * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
  */
 export class GetAccessControlEffectCommand extends $Command<

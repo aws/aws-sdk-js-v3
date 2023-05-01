@@ -36,26 +36,43 @@ export interface UpdateDevEnvironmentCommandOutput extends UpdateDevEnvironmentR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeCatalystClient, UpdateDevEnvironmentCommand } from "@aws-sdk/client-codecatalyst"; // ES Modules import
- * // const { CodeCatalystClient, UpdateDevEnvironmentCommand } = require("@aws-sdk/client-codecatalyst"); // CommonJS import
+ * import { CodeCatalystClient, UpdateDevEnvironmentCommand } from '@aws-sdk/client-codecatalyst'; // ES Modules import
+ * // const { CodeCatalystClient, UpdateDevEnvironmentCommand } = require('@aws-sdk/client-codecatalyst'); // CommonJS import
  * const client = new CodeCatalystClient(config);
  * const input = { // UpdateDevEnvironmentRequest
- *   spaceName: "STRING_VALUE", // required
- *   projectName: "STRING_VALUE", // required
- *   id: "STRING_VALUE", // required
- *   alias: "STRING_VALUE",
+ *   spaceName: 'STRING_VALUE', // required
+ *   projectName: 'STRING_VALUE', // required
+ *   id: 'STRING_VALUE', // required
+ *   alias: 'STRING_VALUE',
  *   ides: [ // IdeConfigurationList
  *     { // IdeConfiguration
- *       runtime: "STRING_VALUE",
- *       name: "STRING_VALUE",
+ *       runtime: 'STRING_VALUE',
+ *       name: 'STRING_VALUE',
  *     },
  *   ],
- *   instanceType: "STRING_VALUE",
- *   inactivityTimeoutMinutes: Number("int"),
- *   clientToken: "STRING_VALUE",
+ *   instanceType: 'STRING_VALUE',
+ *   inactivityTimeoutMinutes: Number('int'),
+ *   clientToken: 'STRING_VALUE',
  * };
  * const command = new UpdateDevEnvironmentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateDevEnvironmentResponse
+ *   id: 'STRING_VALUE', // required
+ *   spaceName: 'STRING_VALUE', // required
+ *   projectName: 'STRING_VALUE', // required
+ *   alias: 'STRING_VALUE',
+ *   ides: [ // IdeConfigurationList
+ *     { // IdeConfiguration
+ *       runtime: 'STRING_VALUE',
+ *       name: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   instanceType: 'STRING_VALUE',
+ *   inactivityTimeoutMinutes: Number('int'),
+ *   clientToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateDevEnvironmentCommandInput - {@link UpdateDevEnvironmentCommandInput}
@@ -84,6 +101,8 @@ export interface UpdateDevEnvironmentCommandOutput extends UpdateDevEnvironmentR
  * @throws {@link ValidationException} (client fault)
  *  <p>The request was denied because an input failed to satisfy the constraints specified by the service. Check the spelling and input requirements, and then try again.</p>
  *
+ * @throws {@link CodeCatalystServiceException}
+ * <p>Base exception class for all service exceptions from CodeCatalyst service.</p>
  *
  */
 export class UpdateDevEnvironmentCommand extends $Command<

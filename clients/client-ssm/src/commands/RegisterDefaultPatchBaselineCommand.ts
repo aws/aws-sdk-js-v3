@@ -45,14 +45,19 @@ export interface RegisterDefaultPatchBaselineCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMClient, RegisterDefaultPatchBaselineCommand } from "@aws-sdk/client-ssm"; // ES Modules import
- * // const { SSMClient, RegisterDefaultPatchBaselineCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * import { SSMClient, RegisterDefaultPatchBaselineCommand } from '@aws-sdk/client-ssm'; // ES Modules import
+ * // const { SSMClient, RegisterDefaultPatchBaselineCommand } = require('@aws-sdk/client-ssm'); // CommonJS import
  * const client = new SSMClient(config);
  * const input = { // RegisterDefaultPatchBaselineRequest
- *   BaselineId: "STRING_VALUE", // required
+ *   BaselineId: 'STRING_VALUE', // required
  * };
  * const command = new RegisterDefaultPatchBaselineCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // RegisterDefaultPatchBaselineResult
+ *   BaselineId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param RegisterDefaultPatchBaselineCommandInput - {@link RegisterDefaultPatchBaselineCommandInput}
@@ -73,6 +78,8 @@ export interface RegisterDefaultPatchBaselineCommandOutput
  * @throws {@link InvalidResourceId} (client fault)
  *  <p>The resource ID isn't valid. Verify that you entered the correct ID and try again.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class RegisterDefaultPatchBaselineCommand extends $Command<

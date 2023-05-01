@@ -41,34 +41,71 @@ export interface StartSpeakerEnrollmentJobCommandOutput extends StartSpeakerEnro
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { VoiceIDClient, StartSpeakerEnrollmentJobCommand } from "@aws-sdk/client-voice-id"; // ES Modules import
- * // const { VoiceIDClient, StartSpeakerEnrollmentJobCommand } = require("@aws-sdk/client-voice-id"); // CommonJS import
+ * import { VoiceIDClient, StartSpeakerEnrollmentJobCommand } from '@aws-sdk/client-voice-id'; // ES Modules import
+ * // const { VoiceIDClient, StartSpeakerEnrollmentJobCommand } = require('@aws-sdk/client-voice-id'); // CommonJS import
  * const client = new VoiceIDClient(config);
  * const input = { // StartSpeakerEnrollmentJobRequest
- *   ClientToken: "STRING_VALUE",
- *   JobName: "STRING_VALUE",
- *   DomainId: "STRING_VALUE", // required
- *   DataAccessRoleArn: "STRING_VALUE", // required
+ *   ClientToken: 'STRING_VALUE',
+ *   JobName: 'STRING_VALUE',
+ *   DomainId: 'STRING_VALUE', // required
+ *   DataAccessRoleArn: 'STRING_VALUE', // required
  *   EnrollmentConfig: { // EnrollmentConfig
- *     ExistingEnrollmentAction: "STRING_VALUE",
+ *     ExistingEnrollmentAction: 'STRING_VALUE',
  *     FraudDetectionConfig: { // EnrollmentJobFraudDetectionConfig
- *       FraudDetectionAction: "STRING_VALUE",
- *       RiskThreshold: Number("int"),
+ *       FraudDetectionAction: 'STRING_VALUE',
+ *       RiskThreshold: Number('int'),
  *       WatchlistIds: [ // EnrollmentJobFraudDetectionConfigWatchlistIds
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   },
  *   InputDataConfig: { // InputDataConfig
- *     S3Uri: "STRING_VALUE", // required
+ *     S3Uri: 'STRING_VALUE', // required
  *   },
  *   OutputDataConfig: { // OutputDataConfig
- *     S3Uri: "STRING_VALUE", // required
- *     KmsKeyId: "STRING_VALUE",
+ *     S3Uri: 'STRING_VALUE', // required
+ *     KmsKeyId: 'STRING_VALUE',
  *   },
  * };
  * const command = new StartSpeakerEnrollmentJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartSpeakerEnrollmentJobResponse
+ *   Job: { // SpeakerEnrollmentJob
+ *     JobName: 'STRING_VALUE',
+ *     JobId: 'STRING_VALUE',
+ *     JobStatus: 'STRING_VALUE',
+ *     DomainId: 'STRING_VALUE',
+ *     DataAccessRoleArn: 'STRING_VALUE',
+ *     EnrollmentConfig: { // EnrollmentConfig
+ *       ExistingEnrollmentAction: 'STRING_VALUE',
+ *       FraudDetectionConfig: { // EnrollmentJobFraudDetectionConfig
+ *         FraudDetectionAction: 'STRING_VALUE',
+ *         RiskThreshold: Number('int'),
+ *         WatchlistIds: [ // EnrollmentJobFraudDetectionConfigWatchlistIds
+ *           'STRING_VALUE',
+ *         ],
+ *       },
+ *     },
+ *     InputDataConfig: { // InputDataConfig
+ *       S3Uri: 'STRING_VALUE', // required
+ *     },
+ *     OutputDataConfig: { // OutputDataConfig
+ *       S3Uri: 'STRING_VALUE', // required
+ *       KmsKeyId: 'STRING_VALUE',
+ *     },
+ *     CreatedAt: new Date('TIMESTAMP'),
+ *     EndedAt: new Date('TIMESTAMP'),
+ *     FailureDetails: { // FailureDetails
+ *       StatusCode: Number('int'),
+ *       Message: 'STRING_VALUE',
+ *     },
+ *     JobProgress: { // JobProgress
+ *       PercentComplete: Number('int'),
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param StartSpeakerEnrollmentJobCommandInput - {@link StartSpeakerEnrollmentJobCommandInput}
@@ -105,6 +142,8 @@ export interface StartSpeakerEnrollmentJobCommandOutput extends StartSpeakerEnro
  *  <p>The request failed one or more validations; check the error message for more
  *             details.</p>
  *
+ * @throws {@link VoiceIDServiceException}
+ * <p>Base exception class for all service exceptions from VoiceID service.</p>
  *
  */
 export class StartSpeakerEnrollmentJobCommand extends $Command<

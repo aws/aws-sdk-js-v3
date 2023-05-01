@@ -39,19 +39,22 @@ export interface UpdateCampaignOutboundCallConfigCommandOutput extends __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectCampaignsClient, UpdateCampaignOutboundCallConfigCommand } from "@aws-sdk/client-connectcampaigns"; // ES Modules import
- * // const { ConnectCampaignsClient, UpdateCampaignOutboundCallConfigCommand } = require("@aws-sdk/client-connectcampaigns"); // CommonJS import
+ * import { ConnectCampaignsClient, UpdateCampaignOutboundCallConfigCommand } from '@aws-sdk/client-connectcampaigns'; // ES Modules import
+ * // const { ConnectCampaignsClient, UpdateCampaignOutboundCallConfigCommand } = require('@aws-sdk/client-connectcampaigns'); // CommonJS import
  * const client = new ConnectCampaignsClient(config);
  * const input = { // UpdateCampaignOutboundCallConfigRequest
- *   id: "STRING_VALUE", // required
- *   connectContactFlowId: "STRING_VALUE",
- *   connectSourcePhoneNumber: "STRING_VALUE",
+ *   id: 'STRING_VALUE', // required
+ *   connectContactFlowId: 'STRING_VALUE',
+ *   connectSourcePhoneNumber: 'STRING_VALUE',
  *   answerMachineDetectionConfig: { // AnswerMachineDetectionConfig
  *     enableAnswerMachineDetection: true || false, // required
  *   },
  * };
  * const command = new UpdateCampaignOutboundCallConfigCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateCampaignOutboundCallConfigCommandInput - {@link UpdateCampaignOutboundCallConfigCommandInput}
@@ -78,6 +81,8 @@ export interface UpdateCampaignOutboundCallConfigCommandOutput extends __Metadat
  * @throws {@link ValidationException} (client fault)
  *  The input fails to satisfy the constraints specified by an AWS service.
  *
+ * @throws {@link ConnectCampaignsServiceException}
+ * <p>Base exception class for all service exceptions from ConnectCampaigns service.</p>
  *
  */
 export class UpdateCampaignOutboundCallConfigCommand extends $Command<

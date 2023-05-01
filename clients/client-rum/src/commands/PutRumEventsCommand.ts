@@ -39,33 +39,36 @@ export interface PutRumEventsCommandOutput extends PutRumEventsResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RUMClient, PutRumEventsCommand } from "@aws-sdk/client-rum"; // ES Modules import
- * // const { RUMClient, PutRumEventsCommand } = require("@aws-sdk/client-rum"); // CommonJS import
+ * import { RUMClient, PutRumEventsCommand } from '@aws-sdk/client-rum'; // ES Modules import
+ * // const { RUMClient, PutRumEventsCommand } = require('@aws-sdk/client-rum'); // CommonJS import
  * const client = new RUMClient(config);
  * const input = { // PutRumEventsRequest
- *   Id: "STRING_VALUE", // required
- *   BatchId: "STRING_VALUE", // required
+ *   Id: 'STRING_VALUE', // required
+ *   BatchId: 'STRING_VALUE', // required
  *   AppMonitorDetails: { // AppMonitorDetails
- *     name: "STRING_VALUE",
- *     id: "STRING_VALUE",
- *     version: "STRING_VALUE",
+ *     name: 'STRING_VALUE',
+ *     id: 'STRING_VALUE',
+ *     version: 'STRING_VALUE',
  *   },
  *   UserDetails: { // UserDetails
- *     userId: "STRING_VALUE",
- *     sessionId: "STRING_VALUE",
+ *     userId: 'STRING_VALUE',
+ *     sessionId: 'STRING_VALUE',
  *   },
  *   RumEvents: [ // RumEventList // required
  *     { // RumEvent
- *       id: "STRING_VALUE", // required
- *       timestamp: new Date("TIMESTAMP"), // required
- *       type: "STRING_VALUE", // required
- *       metadata: "STRING_VALUE",
- *       details: "STRING_VALUE", // required
+ *       id: 'STRING_VALUE', // required
+ *       timestamp: new Date('TIMESTAMP'), // required
+ *       type: 'STRING_VALUE', // required
+ *       metadata: 'STRING_VALUE',
+ *       details: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new PutRumEventsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutRumEventsCommandInput - {@link PutRumEventsCommandInput}
@@ -89,6 +92,8 @@ export interface PutRumEventsCommandOutput extends PutRumEventsResponse, __Metad
  * @throws {@link ValidationException} (client fault)
  *  <p>One of the arguments for the request is not valid.</p>
  *
+ * @throws {@link RUMServiceException}
+ * <p>Base exception class for all service exceptions from RUM service.</p>
  *
  */
 export class PutRumEventsCommand extends $Command<

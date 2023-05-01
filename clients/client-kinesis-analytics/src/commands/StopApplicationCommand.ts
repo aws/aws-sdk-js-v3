@@ -46,14 +46,17 @@ export interface StopApplicationCommandOutput extends StopApplicationResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KinesisAnalyticsClient, StopApplicationCommand } from "@aws-sdk/client-kinesis-analytics"; // ES Modules import
- * // const { KinesisAnalyticsClient, StopApplicationCommand } = require("@aws-sdk/client-kinesis-analytics"); // CommonJS import
+ * import { KinesisAnalyticsClient, StopApplicationCommand } from '@aws-sdk/client-kinesis-analytics'; // ES Modules import
+ * // const { KinesisAnalyticsClient, StopApplicationCommand } = require('@aws-sdk/client-kinesis-analytics'); // CommonJS import
  * const client = new KinesisAnalyticsClient(config);
  * const input = { // StopApplicationRequest
- *   ApplicationName: "STRING_VALUE", // required
+ *   ApplicationName: 'STRING_VALUE', // required
  * };
  * const command = new StopApplicationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param StopApplicationCommandInput - {@link StopApplicationCommandInput}
@@ -71,6 +74,8 @@ export interface StopApplicationCommandOutput extends StopApplicationResponse, _
  * @throws {@link UnsupportedOperationException} (client fault)
  *  <p>The request was rejected because a specified parameter is not supported or a specified resource is not valid for this operation. </p>
  *
+ * @throws {@link KinesisAnalyticsServiceException}
+ * <p>Base exception class for all service exceptions from KinesisAnalytics service.</p>
  *
  */
 export class StopApplicationCommand extends $Command<

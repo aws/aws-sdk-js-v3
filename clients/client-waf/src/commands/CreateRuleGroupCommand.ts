@@ -58,22 +58,32 @@ export interface CreateRuleGroupCommandOutput extends CreateRuleGroupResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WAFClient, CreateRuleGroupCommand } from "@aws-sdk/client-waf"; // ES Modules import
- * // const { WAFClient, CreateRuleGroupCommand } = require("@aws-sdk/client-waf"); // CommonJS import
+ * import { WAFClient, CreateRuleGroupCommand } from '@aws-sdk/client-waf'; // ES Modules import
+ * // const { WAFClient, CreateRuleGroupCommand } = require('@aws-sdk/client-waf'); // CommonJS import
  * const client = new WAFClient(config);
  * const input = { // CreateRuleGroupRequest
- *   Name: "STRING_VALUE", // required
- *   MetricName: "STRING_VALUE", // required
- *   ChangeToken: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
+ *   MetricName: 'STRING_VALUE', // required
+ *   ChangeToken: 'STRING_VALUE', // required
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreateRuleGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateRuleGroupResponse
+ *   RuleGroup: { // RuleGroup
+ *     RuleGroupId: 'STRING_VALUE', // required
+ *     Name: 'STRING_VALUE',
+ *     MetricName: 'STRING_VALUE',
+ *   },
+ *   ChangeToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateRuleGroupCommandInput - {@link CreateRuleGroupCommandInput}
@@ -105,6 +115,8 @@ export interface CreateRuleGroupCommandOutput extends CreateRuleGroupResponse, _
  * @throws {@link WAFTagOperationInternalErrorException} (server fault)
  *  <p></p>
  *
+ * @throws {@link WAFServiceException}
+ * <p>Base exception class for all service exceptions from WAF service.</p>
  *
  */
 export class CreateRuleGroupCommand extends $Command<

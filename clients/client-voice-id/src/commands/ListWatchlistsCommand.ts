@@ -40,16 +40,32 @@ export interface ListWatchlistsCommandOutput extends ListWatchlistsResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { VoiceIDClient, ListWatchlistsCommand } from "@aws-sdk/client-voice-id"; // ES Modules import
- * // const { VoiceIDClient, ListWatchlistsCommand } = require("@aws-sdk/client-voice-id"); // CommonJS import
+ * import { VoiceIDClient, ListWatchlistsCommand } from '@aws-sdk/client-voice-id'; // ES Modules import
+ * // const { VoiceIDClient, ListWatchlistsCommand } = require('@aws-sdk/client-voice-id'); // CommonJS import
  * const client = new VoiceIDClient(config);
  * const input = { // ListWatchlistsRequest
- *   DomainId: "STRING_VALUE", // required
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   DomainId: 'STRING_VALUE', // required
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListWatchlistsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListWatchlistsResponse
+ *   WatchlistSummaries: [ // WatchlistSummaries
+ *     { // WatchlistSummary
+ *       DomainId: 'STRING_VALUE',
+ *       WatchlistId: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *       Description: 'STRING_VALUE',
+ *       DefaultWatchlist: true || false,
+ *       CreatedAt: new Date('TIMESTAMP'),
+ *       UpdatedAt: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListWatchlistsCommandInput - {@link ListWatchlistsCommandInput}
@@ -79,6 +95,8 @@ export interface ListWatchlistsCommandOutput extends ListWatchlistsResponse, __M
  *  <p>The request failed one or more validations; check the error message for more
  *             details.</p>
  *
+ * @throws {@link VoiceIDServiceException}
+ * <p>Base exception class for all service exceptions from VoiceID service.</p>
  *
  */
 export class ListWatchlistsCommand extends $Command<

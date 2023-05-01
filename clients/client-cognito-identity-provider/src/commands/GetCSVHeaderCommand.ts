@@ -42,14 +42,22 @@ export interface GetCSVHeaderCommandOutput extends GetCSVHeaderResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CognitoIdentityProviderClient, GetCSVHeaderCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
- * // const { CognitoIdentityProviderClient, GetCSVHeaderCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
+ * import { CognitoIdentityProviderClient, GetCSVHeaderCommand } from '@aws-sdk/client-cognito-identity-provider'; // ES Modules import
+ * // const { CognitoIdentityProviderClient, GetCSVHeaderCommand } = require('@aws-sdk/client-cognito-identity-provider'); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
  * const input = { // GetCSVHeaderRequest
- *   UserPoolId: "STRING_VALUE", // required
+ *   UserPoolId: 'STRING_VALUE', // required
  * };
  * const command = new GetCSVHeaderCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetCSVHeaderResponse
+ *   UserPoolId: 'STRING_VALUE',
+ *   CSVHeader: [ // ListOfStringTypes
+ *     'STRING_VALUE',
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetCSVHeaderCommandInput - {@link GetCSVHeaderCommandInput}
@@ -76,6 +84,8 @@ export interface GetCSVHeaderCommandOutput extends GetCSVHeaderResponse, __Metad
  *  <p>This exception is thrown when the user has made too many requests for a given
  *             operation.</p>
  *
+ * @throws {@link CognitoIdentityProviderServiceException}
+ * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
  */
 export class GetCSVHeaderCommand extends $Command<

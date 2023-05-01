@@ -40,20 +40,23 @@ export interface AddTagsCommandOutput extends AddTagsOutput, __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EMRClient, AddTagsCommand } from "@aws-sdk/client-emr"; // ES Modules import
- * // const { EMRClient, AddTagsCommand } = require("@aws-sdk/client-emr"); // CommonJS import
+ * import { EMRClient, AddTagsCommand } from '@aws-sdk/client-emr'; // ES Modules import
+ * // const { EMRClient, AddTagsCommand } = require('@aws-sdk/client-emr'); // CommonJS import
  * const client = new EMRClient(config);
  * const input = { // AddTagsInput
- *   ResourceId: "STRING_VALUE", // required
+ *   ResourceId: 'STRING_VALUE', // required
  *   Tags: [ // TagList // required
  *     { // Tag
- *       Key: "STRING_VALUE",
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new AddTagsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param AddTagsCommandInput - {@link AddTagsCommandInput}
@@ -69,6 +72,8 @@ export interface AddTagsCommandOutput extends AddTagsOutput, __MetadataBearer {}
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception occurs when there is something wrong with user input.</p>
  *
+ * @throws {@link EMRServiceException}
+ * <p>Base exception class for all service exceptions from EMR service.</p>
  *
  */
 export class AddTagsCommand extends $Command<AddTagsCommandInput, AddTagsCommandOutput, EMRClientResolvedConfig> {

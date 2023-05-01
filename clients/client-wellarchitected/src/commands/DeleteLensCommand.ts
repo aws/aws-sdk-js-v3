@@ -50,16 +50,19 @@ export interface DeleteLensCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WellArchitectedClient, DeleteLensCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
- * // const { WellArchitectedClient, DeleteLensCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
+ * import { WellArchitectedClient, DeleteLensCommand } from '@aws-sdk/client-wellarchitected'; // ES Modules import
+ * // const { WellArchitectedClient, DeleteLensCommand } = require('@aws-sdk/client-wellarchitected'); // CommonJS import
  * const client = new WellArchitectedClient(config);
  * const input = { // DeleteLensInput
- *   LensAlias: "STRING_VALUE", // required
- *   ClientRequestToken: "STRING_VALUE", // required
- *   LensStatus: "ALL" || "DRAFT" || "PUBLISHED", // required
+ *   LensAlias: 'STRING_VALUE', // required
+ *   ClientRequestToken: 'STRING_VALUE', // required
+ *   LensStatus: 'ALL' || 'DRAFT' || 'PUBLISHED', // required
  * };
  * const command = new DeleteLensCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteLensCommandInput - {@link DeleteLensCommandInput}
@@ -86,6 +89,8 @@ export interface DeleteLensCommandOutput extends __MetadataBearer {}
  * @throws {@link ValidationException} (client fault)
  *  <p>The user input is not valid.</p>
  *
+ * @throws {@link WellArchitectedServiceException}
+ * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
  */
 export class DeleteLensCommand extends $Command<

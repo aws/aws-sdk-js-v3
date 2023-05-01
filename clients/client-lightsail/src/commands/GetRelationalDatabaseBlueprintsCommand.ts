@@ -44,14 +44,29 @@ export interface GetRelationalDatabaseBlueprintsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LightsailClient, GetRelationalDatabaseBlueprintsCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
- * // const { LightsailClient, GetRelationalDatabaseBlueprintsCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
+ * import { LightsailClient, GetRelationalDatabaseBlueprintsCommand } from '@aws-sdk/client-lightsail'; // ES Modules import
+ * // const { LightsailClient, GetRelationalDatabaseBlueprintsCommand } = require('@aws-sdk/client-lightsail'); // CommonJS import
  * const client = new LightsailClient(config);
  * const input = { // GetRelationalDatabaseBlueprintsRequest
- *   pageToken: "STRING_VALUE",
+ *   pageToken: 'STRING_VALUE',
  * };
  * const command = new GetRelationalDatabaseBlueprintsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetRelationalDatabaseBlueprintsResult
+ *   blueprints: [ // RelationalDatabaseBlueprintList
+ *     { // RelationalDatabaseBlueprint
+ *       blueprintId: 'STRING_VALUE',
+ *       engine: 'mysql',
+ *       engineVersion: 'STRING_VALUE',
+ *       engineDescription: 'STRING_VALUE',
+ *       engineVersionDescription: 'STRING_VALUE',
+ *       isEngineDefault: true || false,
+ *     },
+ *   ],
+ *   nextPageToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetRelationalDatabaseBlueprintsCommandInput - {@link GetRelationalDatabaseBlueprintsCommandInput}
@@ -90,6 +105,8 @@ export interface GetRelationalDatabaseBlueprintsCommandOutput
  * @throws {@link UnauthenticatedException} (client fault)
  *  <p>Lightsail throws this exception when the user has not been authenticated.</p>
  *
+ * @throws {@link LightsailServiceException}
+ * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
  */
 export class GetRelationalDatabaseBlueprintsCommand extends $Command<

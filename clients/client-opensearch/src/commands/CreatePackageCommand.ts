@@ -37,20 +37,38 @@ export interface CreatePackageCommandOutput extends CreatePackageResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OpenSearchClient, CreatePackageCommand } from "@aws-sdk/client-opensearch"; // ES Modules import
- * // const { OpenSearchClient, CreatePackageCommand } = require("@aws-sdk/client-opensearch"); // CommonJS import
+ * import { OpenSearchClient, CreatePackageCommand } from '@aws-sdk/client-opensearch'; // ES Modules import
+ * // const { OpenSearchClient, CreatePackageCommand } = require('@aws-sdk/client-opensearch'); // CommonJS import
  * const client = new OpenSearchClient(config);
  * const input = { // CreatePackageRequest
- *   PackageName: "STRING_VALUE", // required
- *   PackageType: "TXT-DICTIONARY", // required
- *   PackageDescription: "STRING_VALUE",
+ *   PackageName: 'STRING_VALUE', // required
+ *   PackageType: 'TXT-DICTIONARY', // required
+ *   PackageDescription: 'STRING_VALUE',
  *   PackageSource: { // PackageSource
- *     S3BucketName: "STRING_VALUE",
- *     S3Key: "STRING_VALUE",
+ *     S3BucketName: 'STRING_VALUE',
+ *     S3Key: 'STRING_VALUE',
  *   },
  * };
  * const command = new CreatePackageCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreatePackageResponse
+ *   PackageDetails: { // PackageDetails
+ *     PackageID: 'STRING_VALUE',
+ *     PackageName: 'STRING_VALUE',
+ *     PackageType: 'TXT-DICTIONARY',
+ *     PackageDescription: 'STRING_VALUE',
+ *     PackageStatus: 'COPYING' || 'COPY_FAILED' || 'VALIDATING' || 'VALIDATION_FAILED' || 'AVAILABLE' || 'DELETING' || 'DELETED' || 'DELETE_FAILED',
+ *     CreatedAt: new Date('TIMESTAMP'),
+ *     LastUpdatedAt: new Date('TIMESTAMP'),
+ *     AvailablePackageVersion: 'STRING_VALUE',
+ *     ErrorDetails: { // ErrorDetails
+ *       ErrorType: 'STRING_VALUE',
+ *       ErrorMessage: 'STRING_VALUE',
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreatePackageCommandInput - {@link CreatePackageCommandInput}
@@ -80,6 +98,8 @@ export interface CreatePackageCommandOutput extends CreatePackageResponse, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception for accessing or deleting a resource that doesn't exist.</p>
  *
+ * @throws {@link OpenSearchServiceException}
+ * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
  */
 export class CreatePackageCommand extends $Command<

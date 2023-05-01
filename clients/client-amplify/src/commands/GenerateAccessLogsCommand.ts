@@ -37,17 +37,22 @@ export interface GenerateAccessLogsCommandOutput extends GenerateAccessLogsResul
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AmplifyClient, GenerateAccessLogsCommand } from "@aws-sdk/client-amplify"; // ES Modules import
- * // const { AmplifyClient, GenerateAccessLogsCommand } = require("@aws-sdk/client-amplify"); // CommonJS import
+ * import { AmplifyClient, GenerateAccessLogsCommand } from '@aws-sdk/client-amplify'; // ES Modules import
+ * // const { AmplifyClient, GenerateAccessLogsCommand } = require('@aws-sdk/client-amplify'); // CommonJS import
  * const client = new AmplifyClient(config);
  * const input = { // GenerateAccessLogsRequest
- *   startTime: new Date("TIMESTAMP"),
- *   endTime: new Date("TIMESTAMP"),
- *   domainName: "STRING_VALUE", // required
- *   appId: "STRING_VALUE", // required
+ *   startTime: new Date('TIMESTAMP'),
+ *   endTime: new Date('TIMESTAMP'),
+ *   domainName: 'STRING_VALUE', // required
+ *   appId: 'STRING_VALUE', // required
  * };
  * const command = new GenerateAccessLogsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GenerateAccessLogsResult
+ *   logUrl: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GenerateAccessLogsCommandInput - {@link GenerateAccessLogsCommandInput}
@@ -68,6 +73,8 @@ export interface GenerateAccessLogsCommandOutput extends GenerateAccessLogsResul
  * @throws {@link UnauthorizedException} (client fault)
  *  <p> An operation failed due to a lack of access. </p>
  *
+ * @throws {@link AmplifyServiceException}
+ * <p>Base exception class for all service exceptions from Amplify service.</p>
  *
  */
 export class GenerateAccessLogsCommand extends $Command<

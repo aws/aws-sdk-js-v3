@@ -36,18 +36,32 @@ export interface GetChangeLogsCommandOutput extends GetChangeLogsResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AuditManagerClient, GetChangeLogsCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
- * // const { AuditManagerClient, GetChangeLogsCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import
+ * import { AuditManagerClient, GetChangeLogsCommand } from '@aws-sdk/client-auditmanager'; // ES Modules import
+ * // const { AuditManagerClient, GetChangeLogsCommand } = require('@aws-sdk/client-auditmanager'); // CommonJS import
  * const client = new AuditManagerClient(config);
  * const input = { // GetChangeLogsRequest
- *   assessmentId: "STRING_VALUE", // required
- *   controlSetId: "STRING_VALUE",
- *   controlId: "STRING_VALUE",
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   assessmentId: 'STRING_VALUE', // required
+ *   controlSetId: 'STRING_VALUE',
+ *   controlId: 'STRING_VALUE',
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new GetChangeLogsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetChangeLogsResponse
+ *   changeLogs: [ // ChangeLogs
+ *     { // ChangeLog
+ *       objectType: 'ASSESSMENT' || 'CONTROL_SET' || 'CONTROL' || 'DELEGATION' || 'ASSESSMENT_REPORT',
+ *       objectName: 'STRING_VALUE',
+ *       action: 'CREATE' || 'UPDATE_METADATA' || 'ACTIVE' || 'INACTIVE' || 'DELETE' || 'UNDER_REVIEW' || 'REVIEWED' || 'IMPORT_EVIDENCE',
+ *       createdAt: new Date('TIMESTAMP'),
+ *       createdBy: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetChangeLogsCommandInput - {@link GetChangeLogsCommandInput}
@@ -70,6 +84,8 @@ export interface GetChangeLogsCommandOutput extends GetChangeLogsResponse, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p> The request has invalid or missing parameters. </p>
  *
+ * @throws {@link AuditManagerServiceException}
+ * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
  */
 export class GetChangeLogsCommand extends $Command<

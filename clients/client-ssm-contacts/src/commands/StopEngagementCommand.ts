@@ -37,15 +37,18 @@ export interface StopEngagementCommandOutput extends StopEngagementResult, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMContactsClient, StopEngagementCommand } from "@aws-sdk/client-ssm-contacts"; // ES Modules import
- * // const { SSMContactsClient, StopEngagementCommand } = require("@aws-sdk/client-ssm-contacts"); // CommonJS import
+ * import { SSMContactsClient, StopEngagementCommand } from '@aws-sdk/client-ssm-contacts'; // ES Modules import
+ * // const { SSMContactsClient, StopEngagementCommand } = require('@aws-sdk/client-ssm-contacts'); // CommonJS import
  * const client = new SSMContactsClient(config);
  * const input = { // StopEngagementRequest
- *   EngagementId: "STRING_VALUE", // required
- *   Reason: "STRING_VALUE",
+ *   EngagementId: 'STRING_VALUE', // required
+ *   Reason: 'STRING_VALUE',
  * };
  * const command = new StopEngagementCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param StopEngagementCommandInput - {@link StopEngagementCommandInput}
@@ -70,6 +73,8 @@ export interface StopEngagementCommandOutput extends StopEngagementResult, __Met
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
  *          service.</p>
  *
+ * @throws {@link SSMContactsServiceException}
+ * <p>Base exception class for all service exceptions from SSMContacts service.</p>
  *
  */
 export class StopEngagementCommand extends $Command<

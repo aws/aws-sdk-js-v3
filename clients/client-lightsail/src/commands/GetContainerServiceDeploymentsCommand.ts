@@ -51,14 +51,51 @@ export interface GetContainerServiceDeploymentsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LightsailClient, GetContainerServiceDeploymentsCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
- * // const { LightsailClient, GetContainerServiceDeploymentsCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
+ * import { LightsailClient, GetContainerServiceDeploymentsCommand } from '@aws-sdk/client-lightsail'; // ES Modules import
+ * // const { LightsailClient, GetContainerServiceDeploymentsCommand } = require('@aws-sdk/client-lightsail'); // CommonJS import
  * const client = new LightsailClient(config);
  * const input = { // GetContainerServiceDeploymentsRequest
- *   serviceName: "STRING_VALUE", // required
+ *   serviceName: 'STRING_VALUE', // required
  * };
  * const command = new GetContainerServiceDeploymentsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetContainerServiceDeploymentsResult
+ *   deployments: [ // ContainerServiceDeploymentList
+ *     { // ContainerServiceDeployment
+ *       version: Number('int'),
+ *       state: 'ACTIVATING' || 'ACTIVE' || 'INACTIVE' || 'FAILED',
+ *       containers: { // ContainerMap
+ *         '<keys>': { // Container
+ *           image: 'STRING_VALUE',
+ *           command: [ // StringList
+ *             'STRING_VALUE',
+ *           ],
+ *           environment: { // Environment
+ *             '<keys>': 'STRING_VALUE',
+ *           },
+ *           ports: { // PortMap
+ *             '<keys>': 'HTTP' || 'HTTPS' || 'TCP' || 'UDP',
+ *           },
+ *         },
+ *       },
+ *       publicEndpoint: { // ContainerServiceEndpoint
+ *         containerName: 'STRING_VALUE',
+ *         containerPort: Number('int'),
+ *         healthCheck: { // ContainerServiceHealthCheckConfig
+ *           healthyThreshold: Number('int'),
+ *           unhealthyThreshold: Number('int'),
+ *           timeoutSeconds: Number('int'),
+ *           intervalSeconds: Number('int'),
+ *           path: 'STRING_VALUE',
+ *           successCodes: 'STRING_VALUE',
+ *         },
+ *       },
+ *       createdAt: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetContainerServiceDeploymentsCommandInput - {@link GetContainerServiceDeploymentsCommandInput}
@@ -90,6 +127,8 @@ export interface GetContainerServiceDeploymentsCommandOutput
  * @throws {@link UnauthenticatedException} (client fault)
  *  <p>Lightsail throws this exception when the user has not been authenticated.</p>
  *
+ * @throws {@link LightsailServiceException}
+ * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
  */
 export class GetContainerServiceDeploymentsCommand extends $Command<

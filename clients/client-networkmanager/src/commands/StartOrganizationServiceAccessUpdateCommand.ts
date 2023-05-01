@@ -44,14 +44,29 @@ export interface StartOrganizationServiceAccessUpdateCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { NetworkManagerClient, StartOrganizationServiceAccessUpdateCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
- * // const { NetworkManagerClient, StartOrganizationServiceAccessUpdateCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
+ * import { NetworkManagerClient, StartOrganizationServiceAccessUpdateCommand } from '@aws-sdk/client-networkmanager'; // ES Modules import
+ * // const { NetworkManagerClient, StartOrganizationServiceAccessUpdateCommand } = require('@aws-sdk/client-networkmanager'); // CommonJS import
  * const client = new NetworkManagerClient(config);
  * const input = { // StartOrganizationServiceAccessUpdateRequest
- *   Action: "STRING_VALUE", // required
+ *   Action: 'STRING_VALUE', // required
  * };
  * const command = new StartOrganizationServiceAccessUpdateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartOrganizationServiceAccessUpdateResponse
+ *   OrganizationStatus: { // OrganizationStatus
+ *     OrganizationId: 'STRING_VALUE',
+ *     OrganizationAwsServiceAccessStatus: 'STRING_VALUE',
+ *     SLRDeploymentStatus: 'STRING_VALUE',
+ *     AccountStatusList: [ // AccountStatusList
+ *       { // AccountStatus
+ *         AccountId: 'STRING_VALUE',
+ *         SLRDeploymentStatus: 'STRING_VALUE',
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param StartOrganizationServiceAccessUpdateCommandInput - {@link StartOrganizationServiceAccessUpdateCommandInput}
@@ -79,6 +94,8 @@ export interface StartOrganizationServiceAccessUpdateCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints.</p>
  *
+ * @throws {@link NetworkManagerServiceException}
+ * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
  */
 export class StartOrganizationServiceAccessUpdateCommand extends $Command<

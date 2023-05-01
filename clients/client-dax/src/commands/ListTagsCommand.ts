@@ -37,15 +37,26 @@ export interface ListTagsCommandOutput extends ListTagsResponse, __MetadataBeare
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DAXClient, ListTagsCommand } from "@aws-sdk/client-dax"; // ES Modules import
- * // const { DAXClient, ListTagsCommand } = require("@aws-sdk/client-dax"); // CommonJS import
+ * import { DAXClient, ListTagsCommand } from '@aws-sdk/client-dax'; // ES Modules import
+ * // const { DAXClient, ListTagsCommand } = require('@aws-sdk/client-dax'); // CommonJS import
  * const client = new DAXClient(config);
  * const input = { // ListTagsRequest
- *   ResourceName: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
+ *   ResourceName: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListTagsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTagsResponse
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListTagsCommandInput - {@link ListTagsCommandInput}
@@ -73,6 +84,8 @@ export interface ListTagsCommandOutput extends ListTagsResponse, __MetadataBeare
  * @throws {@link ServiceLinkedRoleNotFoundFault} (client fault)
  *  <p>The specified service linked role (SLR) was not found.</p>
  *
+ * @throws {@link DAXServiceException}
+ * <p>Base exception class for all service exceptions from DAX service.</p>
  *
  */
 export class ListTagsCommand extends $Command<ListTagsCommandInput, ListTagsCommandOutput, DAXClientResolvedConfig> {

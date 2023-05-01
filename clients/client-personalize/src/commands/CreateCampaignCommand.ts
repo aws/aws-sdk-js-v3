@@ -105,27 +105,32 @@ export interface CreateCampaignCommandOutput extends CreateCampaignResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PersonalizeClient, CreateCampaignCommand } from "@aws-sdk/client-personalize"; // ES Modules import
- * // const { PersonalizeClient, CreateCampaignCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
+ * import { PersonalizeClient, CreateCampaignCommand } from '@aws-sdk/client-personalize'; // ES Modules import
+ * // const { PersonalizeClient, CreateCampaignCommand } = require('@aws-sdk/client-personalize'); // CommonJS import
  * const client = new PersonalizeClient(config);
  * const input = { // CreateCampaignRequest
- *   name: "STRING_VALUE", // required
- *   solutionVersionArn: "STRING_VALUE", // required
- *   minProvisionedTPS: Number("int"),
+ *   name: 'STRING_VALUE', // required
+ *   solutionVersionArn: 'STRING_VALUE', // required
+ *   minProvisionedTPS: Number('int'),
  *   campaignConfig: { // CampaignConfig
  *     itemExplorationConfig: { // HyperParameters
- *       "<keys>": "STRING_VALUE",
+ *       '<keys>': 'STRING_VALUE',
  *     },
  *   },
  *   tags: [ // Tags
  *     { // Tag
- *       tagKey: "STRING_VALUE", // required
- *       tagValue: "STRING_VALUE", // required
+ *       tagKey: 'STRING_VALUE', // required
+ *       tagValue: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreateCampaignCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateCampaignResponse
+ *   campaignArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateCampaignCommandInput - {@link CreateCampaignCommandInput}
@@ -152,6 +157,8 @@ export interface CreateCampaignCommandOutput extends CreateCampaignResponse, __M
  * @throws {@link TooManyTagsException} (client fault)
  *  <p>You have exceeded the maximum number of tags you can apply to this resource. </p>
  *
+ * @throws {@link PersonalizeServiceException}
+ * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
  */
 export class CreateCampaignCommand extends $Command<

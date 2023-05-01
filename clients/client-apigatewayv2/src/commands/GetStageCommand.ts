@@ -36,15 +36,54 @@ export interface GetStageCommandOutput extends GetStageResponse, __MetadataBeare
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ApiGatewayV2Client, GetStageCommand } from "@aws-sdk/client-apigatewayv2"; // ES Modules import
- * // const { ApiGatewayV2Client, GetStageCommand } = require("@aws-sdk/client-apigatewayv2"); // CommonJS import
+ * import { ApiGatewayV2Client, GetStageCommand } from '@aws-sdk/client-apigatewayv2'; // ES Modules import
+ * // const { ApiGatewayV2Client, GetStageCommand } = require('@aws-sdk/client-apigatewayv2'); // CommonJS import
  * const client = new ApiGatewayV2Client(config);
  * const input = { // GetStageRequest
- *   ApiId: "STRING_VALUE", // required
- *   StageName: "STRING_VALUE", // required
+ *   ApiId: 'STRING_VALUE', // required
+ *   StageName: 'STRING_VALUE', // required
  * };
  * const command = new GetStageCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetStageResponse
+ *   AccessLogSettings: { // AccessLogSettings
+ *     DestinationArn: 'STRING_VALUE',
+ *     Format: 'STRING_VALUE',
+ *   },
+ *   ApiGatewayManaged: true || false,
+ *   AutoDeploy: true || false,
+ *   ClientCertificateId: 'STRING_VALUE',
+ *   CreatedDate: new Date('TIMESTAMP'),
+ *   DefaultRouteSettings: { // RouteSettings
+ *     DataTraceEnabled: true || false,
+ *     DetailedMetricsEnabled: true || false,
+ *     LoggingLevel: 'STRING_VALUE',
+ *     ThrottlingBurstLimit: Number('int'),
+ *     ThrottlingRateLimit: Number('double'),
+ *   },
+ *   DeploymentId: 'STRING_VALUE',
+ *   Description: 'STRING_VALUE',
+ *   LastDeploymentStatusMessage: 'STRING_VALUE',
+ *   LastUpdatedDate: new Date('TIMESTAMP'),
+ *   RouteSettings: { // RouteSettingsMap
+ *     '<keys>': {
+ *       DataTraceEnabled: true || false,
+ *       DetailedMetricsEnabled: true || false,
+ *       LoggingLevel: 'STRING_VALUE',
+ *       ThrottlingBurstLimit: Number('int'),
+ *       ThrottlingRateLimit: Number('double'),
+ *     },
+ *   },
+ *   StageName: 'STRING_VALUE',
+ *   StageVariables: { // StageVariablesMap
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ *   Tags: { // Tags
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetStageCommandInput - {@link GetStageCommandInput}
@@ -59,6 +98,8 @@ export interface GetStageCommandOutput extends GetStageResponse, __MetadataBeare
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>A limit has been exceeded. See the accompanying error message for details.</p>
  *
+ * @throws {@link ApiGatewayV2ServiceException}
+ * <p>Base exception class for all service exceptions from ApiGatewayV2 service.</p>
  *
  */
 export class GetStageCommand extends $Command<

@@ -68,20 +68,28 @@ export interface PutEmailIdentityDkimSigningAttributesCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SESv2Client, PutEmailIdentityDkimSigningAttributesCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
- * // const { SESv2Client, PutEmailIdentityDkimSigningAttributesCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
+ * import { SESv2Client, PutEmailIdentityDkimSigningAttributesCommand } from '@aws-sdk/client-sesv2'; // ES Modules import
+ * // const { SESv2Client, PutEmailIdentityDkimSigningAttributesCommand } = require('@aws-sdk/client-sesv2'); // CommonJS import
  * const client = new SESv2Client(config);
  * const input = { // PutEmailIdentityDkimSigningAttributesRequest
- *   EmailIdentity: "STRING_VALUE", // required
- *   SigningAttributesOrigin: "AWS_SES" || "EXTERNAL", // required
+ *   EmailIdentity: 'STRING_VALUE', // required
+ *   SigningAttributesOrigin: 'AWS_SES' || 'EXTERNAL', // required
  *   SigningAttributes: { // DkimSigningAttributes
- *     DomainSigningSelector: "STRING_VALUE",
- *     DomainSigningPrivateKey: "STRING_VALUE",
- *     NextSigningKeyLength: "RSA_1024_BIT" || "RSA_2048_BIT",
+ *     DomainSigningSelector: 'STRING_VALUE',
+ *     DomainSigningPrivateKey: 'STRING_VALUE',
+ *     NextSigningKeyLength: 'RSA_1024_BIT' || 'RSA_2048_BIT',
  *   },
  * };
  * const command = new PutEmailIdentityDkimSigningAttributesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutEmailIdentityDkimSigningAttributesResponse
+ *   DkimStatus: 'PENDING' || 'SUCCESS' || 'FAILED' || 'TEMPORARY_FAILURE' || 'NOT_STARTED',
+ *   DkimTokens: [ // DnsTokenList
+ *     'STRING_VALUE',
+ *   ],
+ * };
+ *
  * ```
  *
  * @param PutEmailIdentityDkimSigningAttributesCommandInput - {@link PutEmailIdentityDkimSigningAttributesCommandInput}
@@ -99,6 +107,8 @@ export interface PutEmailIdentityDkimSigningAttributesCommandOutput
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Too many requests have been made to the operation.</p>
  *
+ * @throws {@link SESv2ServiceException}
+ * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
  */
 export class PutEmailIdentityDkimSigningAttributesCommand extends $Command<

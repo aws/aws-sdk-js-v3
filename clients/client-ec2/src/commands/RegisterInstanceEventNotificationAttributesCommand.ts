@@ -47,20 +47,30 @@ export interface RegisterInstanceEventNotificationAttributesCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, RegisterInstanceEventNotificationAttributesCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, RegisterInstanceEventNotificationAttributesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, RegisterInstanceEventNotificationAttributesCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, RegisterInstanceEventNotificationAttributesCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // RegisterInstanceEventNotificationAttributesRequest
  *   DryRun: true || false,
  *   InstanceTagAttribute: { // RegisterInstanceTagAttributeRequest
  *     IncludeAllTagsOfInstance: true || false,
  *     InstanceTagKeys: [ // InstanceTagKeySet
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *   },
  * };
  * const command = new RegisterInstanceEventNotificationAttributesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // RegisterInstanceEventNotificationAttributesResult
+ *   InstanceTagAttribute: { // InstanceTagNotificationAttribute
+ *     InstanceTagKeys: [ // InstanceTagKeySet
+ *       'STRING_VALUE',
+ *     ],
+ *     IncludeAllTagsOfInstance: true || false,
+ *   },
+ * };
+ *
  * ```
  *
  * @param RegisterInstanceEventNotificationAttributesCommandInput - {@link RegisterInstanceEventNotificationAttributesCommandInput}
@@ -69,6 +79,8 @@ export interface RegisterInstanceEventNotificationAttributesCommandOutput
  * @see {@link RegisterInstanceEventNotificationAttributesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class RegisterInstanceEventNotificationAttributesCommand extends $Command<

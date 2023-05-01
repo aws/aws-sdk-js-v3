@@ -39,15 +39,30 @@ export interface GetParameterCommandOutput extends GetParameterResult, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMClient, GetParameterCommand } from "@aws-sdk/client-ssm"; // ES Modules import
- * // const { SSMClient, GetParameterCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * import { SSMClient, GetParameterCommand } from '@aws-sdk/client-ssm'; // ES Modules import
+ * // const { SSMClient, GetParameterCommand } = require('@aws-sdk/client-ssm'); // CommonJS import
  * const client = new SSMClient(config);
  * const input = { // GetParameterRequest
- *   Name: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
  *   WithDecryption: true || false,
  * };
  * const command = new GetParameterCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetParameterResult
+ *   Parameter: { // Parameter
+ *     Name: 'STRING_VALUE',
+ *     Type: 'String' || 'StringList' || 'SecureString',
+ *     Value: 'STRING_VALUE',
+ *     Version: Number('long'),
+ *     Selector: 'STRING_VALUE',
+ *     SourceResult: 'STRING_VALUE',
+ *     LastModifiedDate: new Date('TIMESTAMP'),
+ *     ARN: 'STRING_VALUE',
+ *     DataType: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetParameterCommandInput - {@link GetParameterCommandInput}
@@ -69,6 +84,8 @@ export interface GetParameterCommandOutput extends GetParameterResult, __Metadat
  *  <p>The specified parameter version wasn't found. Verify the parameter name and version, and try
  *    again.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class GetParameterCommand extends $Command<

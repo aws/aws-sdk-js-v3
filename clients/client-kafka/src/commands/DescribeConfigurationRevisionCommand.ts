@@ -41,15 +41,24 @@ export interface DescribeConfigurationRevisionCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KafkaClient, DescribeConfigurationRevisionCommand } from "@aws-sdk/client-kafka"; // ES Modules import
- * // const { KafkaClient, DescribeConfigurationRevisionCommand } = require("@aws-sdk/client-kafka"); // CommonJS import
+ * import { KafkaClient, DescribeConfigurationRevisionCommand } from '@aws-sdk/client-kafka'; // ES Modules import
+ * // const { KafkaClient, DescribeConfigurationRevisionCommand } = require('@aws-sdk/client-kafka'); // CommonJS import
  * const client = new KafkaClient(config);
  * const input = { // DescribeConfigurationRevisionRequest
- *   Arn: "STRING_VALUE", // required
- *   Revision: Number("long"), // required
+ *   Arn: 'STRING_VALUE', // required
+ *   Revision: Number('long'), // required
  * };
  * const command = new DescribeConfigurationRevisionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeConfigurationRevisionResponse
+ *   Arn: 'STRING_VALUE',
+ *   CreationTime: new Date('TIMESTAMP'),
+ *   Description: 'STRING_VALUE',
+ *   Revision: Number('long'),
+ *   ServerProperties: 'BLOB_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeConfigurationRevisionCommandInput - {@link DescribeConfigurationRevisionCommandInput}
@@ -76,6 +85,8 @@ export interface DescribeConfigurationRevisionCommandOutput
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>Returns information about an error.</p>
  *
+ * @throws {@link KafkaServiceException}
+ * <p>Base exception class for all service exceptions from Kafka service.</p>
  *
  */
 export class DescribeConfigurationRevisionCommand extends $Command<

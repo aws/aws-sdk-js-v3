@@ -40,14 +40,51 @@ export interface DescribeSafetyRuleCommandOutput extends DescribeSafetyRuleRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Route53RecoveryControlConfigClient, DescribeSafetyRuleCommand } from "@aws-sdk/client-route53-recovery-control-config"; // ES Modules import
- * // const { Route53RecoveryControlConfigClient, DescribeSafetyRuleCommand } = require("@aws-sdk/client-route53-recovery-control-config"); // CommonJS import
+ * import { Route53RecoveryControlConfigClient, DescribeSafetyRuleCommand } from '@aws-sdk/client-route53-recovery-control-config'; // ES Modules import
+ * // const { Route53RecoveryControlConfigClient, DescribeSafetyRuleCommand } = require('@aws-sdk/client-route53-recovery-control-config'); // CommonJS import
  * const client = new Route53RecoveryControlConfigClient(config);
  * const input = { // DescribeSafetyRuleRequest
- *   SafetyRuleArn: "STRING_VALUE", // required
+ *   SafetyRuleArn: 'STRING_VALUE', // required
  * };
  * const command = new DescribeSafetyRuleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeSafetyRuleResponse
+ *   AssertionRule: { // AssertionRule
+ *     AssertedControls: [ // __listOf__stringMin1Max256PatternAZaZ09 // required
+ *       'STRING_VALUE',
+ *     ],
+ *     ControlPanelArn: 'STRING_VALUE', // required
+ *     Name: 'STRING_VALUE', // required
+ *     RuleConfig: { // RuleConfig
+ *       Inverted: true || false, // required
+ *       Threshold: Number('int'), // required
+ *       Type: 'ATLEAST' || 'AND' || 'OR', // required
+ *     },
+ *     SafetyRuleArn: 'STRING_VALUE', // required
+ *     Status: 'PENDING' || 'DEPLOYED' || 'PENDING_DELETION', // required
+ *     WaitPeriodMs: Number('int'), // required
+ *   },
+ *   GatingRule: { // GatingRule
+ *     ControlPanelArn: 'STRING_VALUE', // required
+ *     GatingControls: [ // required
+ *       'STRING_VALUE',
+ *     ],
+ *     Name: 'STRING_VALUE', // required
+ *     RuleConfig: {
+ *       Inverted: true || false, // required
+ *       Threshold: Number('int'), // required
+ *       Type: 'ATLEAST' || 'AND' || 'OR', // required
+ *     },
+ *     SafetyRuleArn: 'STRING_VALUE', // required
+ *     Status: 'PENDING' || 'DEPLOYED' || 'PENDING_DELETION', // required
+ *     TargetControls: [ // required
+ *       'STRING_VALUE',
+ *     ],
+ *     WaitPeriodMs: Number('int'), // required
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeSafetyRuleCommandInput - {@link DescribeSafetyRuleCommandInput}
@@ -62,6 +99,8 @@ export interface DescribeSafetyRuleCommandOutput extends DescribeSafetyRuleRespo
  * @throws {@link ValidationException} (client fault)
  *  <p>400 response - Multiple causes. For example, you might have a malformed query string and input parameter might be out of range, or you might have used parameters together incorrectly.</p>
  *
+ * @throws {@link Route53RecoveryControlConfigServiceException}
+ * <p>Base exception class for all service exceptions from Route53RecoveryControlConfig service.</p>
  *
  */
 export class DescribeSafetyRuleCommand extends $Command<

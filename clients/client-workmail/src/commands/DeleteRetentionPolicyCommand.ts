@@ -36,15 +36,18 @@ export interface DeleteRetentionPolicyCommandOutput extends DeleteRetentionPolic
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkMailClient, DeleteRetentionPolicyCommand } from "@aws-sdk/client-workmail"; // ES Modules import
- * // const { WorkMailClient, DeleteRetentionPolicyCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
+ * import { WorkMailClient, DeleteRetentionPolicyCommand } from '@aws-sdk/client-workmail'; // ES Modules import
+ * // const { WorkMailClient, DeleteRetentionPolicyCommand } = require('@aws-sdk/client-workmail'); // CommonJS import
  * const client = new WorkMailClient(config);
  * const input = { // DeleteRetentionPolicyRequest
- *   OrganizationId: "STRING_VALUE", // required
- *   Id: "STRING_VALUE", // required
+ *   OrganizationId: 'STRING_VALUE', // required
+ *   Id: 'STRING_VALUE', // required
  * };
  * const command = new DeleteRetentionPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteRetentionPolicyCommandInput - {@link DeleteRetentionPolicyCommandInput}
@@ -64,6 +67,8 @@ export interface DeleteRetentionPolicyCommandOutput extends DeleteRetentionPolic
  *  <p>The organization must have a valid state to perform certain
  *          operations on the organization or its members.</p>
  *
+ * @throws {@link WorkMailServiceException}
+ * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
  */
 export class DeleteRetentionPolicyCommand extends $Command<

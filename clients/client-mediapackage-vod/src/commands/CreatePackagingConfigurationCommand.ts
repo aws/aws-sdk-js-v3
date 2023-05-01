@@ -41,146 +41,285 @@ export interface CreatePackagingConfigurationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MediaPackageVodClient, CreatePackagingConfigurationCommand } from "@aws-sdk/client-mediapackage-vod"; // ES Modules import
- * // const { MediaPackageVodClient, CreatePackagingConfigurationCommand } = require("@aws-sdk/client-mediapackage-vod"); // CommonJS import
+ * import { MediaPackageVodClient, CreatePackagingConfigurationCommand } from '@aws-sdk/client-mediapackage-vod'; // ES Modules import
+ * // const { MediaPackageVodClient, CreatePackagingConfigurationCommand } = require('@aws-sdk/client-mediapackage-vod'); // CommonJS import
  * const client = new MediaPackageVodClient(config);
  * const input = { // CreatePackagingConfigurationRequest
  *   CmafPackage: { // CmafPackage
  *     Encryption: { // CmafEncryption
- *       ConstantInitializationVector: "STRING_VALUE",
+ *       ConstantInitializationVector: 'STRING_VALUE',
  *       SpekeKeyProvider: { // SpekeKeyProvider
  *         EncryptionContractConfiguration: { // EncryptionContractConfiguration
- *           PresetSpeke20Audio: "PRESET-AUDIO-1" || "PRESET-AUDIO-2" || "PRESET-AUDIO-3" || "SHARED" || "UNENCRYPTED", // required
- *           PresetSpeke20Video: "PRESET-VIDEO-1" || "PRESET-VIDEO-2" || "PRESET-VIDEO-3" || "PRESET-VIDEO-4" || "PRESET-VIDEO-5" || "PRESET-VIDEO-6" || "PRESET-VIDEO-7" || "PRESET-VIDEO-8" || "SHARED" || "UNENCRYPTED", // required
+ *           PresetSpeke20Audio: 'PRESET-AUDIO-1' || 'PRESET-AUDIO-2' || 'PRESET-AUDIO-3' || 'SHARED' || 'UNENCRYPTED', // required
+ *           PresetSpeke20Video: 'PRESET-VIDEO-1' || 'PRESET-VIDEO-2' || 'PRESET-VIDEO-3' || 'PRESET-VIDEO-4' || 'PRESET-VIDEO-5' || 'PRESET-VIDEO-6' || 'PRESET-VIDEO-7' || 'PRESET-VIDEO-8' || 'SHARED' || 'UNENCRYPTED', // required
  *         },
- *         RoleArn: "STRING_VALUE", // required
+ *         RoleArn: 'STRING_VALUE', // required
  *         SystemIds: [ // __listOf__string // required
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
- *         Url: "STRING_VALUE", // required
+ *         Url: 'STRING_VALUE', // required
  *       },
  *     },
  *     HlsManifests: [ // __listOfHlsManifest // required
  *       { // HlsManifest
- *         AdMarkers: "NONE" || "SCTE35_ENHANCED" || "PASSTHROUGH",
+ *         AdMarkers: 'NONE' || 'SCTE35_ENHANCED' || 'PASSTHROUGH',
  *         IncludeIframeOnlyStream: true || false,
- *         ManifestName: "STRING_VALUE",
- *         ProgramDateTimeIntervalSeconds: Number("int"),
+ *         ManifestName: 'STRING_VALUE',
+ *         ProgramDateTimeIntervalSeconds: Number('int'),
  *         RepeatExtXKey: true || false,
  *         StreamSelection: { // StreamSelection
- *           MaxVideoBitsPerSecond: Number("int"),
- *           MinVideoBitsPerSecond: Number("int"),
- *           StreamOrder: "ORIGINAL" || "VIDEO_BITRATE_ASCENDING" || "VIDEO_BITRATE_DESCENDING",
+ *           MaxVideoBitsPerSecond: Number('int'),
+ *           MinVideoBitsPerSecond: Number('int'),
+ *           StreamOrder: 'ORIGINAL' || 'VIDEO_BITRATE_ASCENDING' || 'VIDEO_BITRATE_DESCENDING',
  *         },
  *       },
  *     ],
  *     IncludeEncoderConfigurationInSegments: true || false,
- *     SegmentDurationSeconds: Number("int"),
+ *     SegmentDurationSeconds: Number('int'),
  *   },
  *   DashPackage: { // DashPackage
  *     DashManifests: [ // __listOfDashManifest // required
  *       { // DashManifest
- *         ManifestLayout: "FULL" || "COMPACT",
- *         ManifestName: "STRING_VALUE",
- *         MinBufferTimeSeconds: Number("int"),
- *         Profile: "NONE" || "HBBTV_1_5",
- *         ScteMarkersSource: "SEGMENTS" || "MANIFEST",
+ *         ManifestLayout: 'FULL' || 'COMPACT',
+ *         ManifestName: 'STRING_VALUE',
+ *         MinBufferTimeSeconds: Number('int'),
+ *         Profile: 'NONE' || 'HBBTV_1_5',
+ *         ScteMarkersSource: 'SEGMENTS' || 'MANIFEST',
  *         StreamSelection: {
- *           MaxVideoBitsPerSecond: Number("int"),
- *           MinVideoBitsPerSecond: Number("int"),
- *           StreamOrder: "ORIGINAL" || "VIDEO_BITRATE_ASCENDING" || "VIDEO_BITRATE_DESCENDING",
+ *           MaxVideoBitsPerSecond: Number('int'),
+ *           MinVideoBitsPerSecond: Number('int'),
+ *           StreamOrder: 'ORIGINAL' || 'VIDEO_BITRATE_ASCENDING' || 'VIDEO_BITRATE_DESCENDING',
  *         },
  *       },
  *     ],
  *     Encryption: { // DashEncryption
  *       SpekeKeyProvider: {
  *         EncryptionContractConfiguration: {
- *           PresetSpeke20Audio: "PRESET-AUDIO-1" || "PRESET-AUDIO-2" || "PRESET-AUDIO-3" || "SHARED" || "UNENCRYPTED", // required
- *           PresetSpeke20Video: "PRESET-VIDEO-1" || "PRESET-VIDEO-2" || "PRESET-VIDEO-3" || "PRESET-VIDEO-4" || "PRESET-VIDEO-5" || "PRESET-VIDEO-6" || "PRESET-VIDEO-7" || "PRESET-VIDEO-8" || "SHARED" || "UNENCRYPTED", // required
+ *           PresetSpeke20Audio: 'PRESET-AUDIO-1' || 'PRESET-AUDIO-2' || 'PRESET-AUDIO-3' || 'SHARED' || 'UNENCRYPTED', // required
+ *           PresetSpeke20Video: 'PRESET-VIDEO-1' || 'PRESET-VIDEO-2' || 'PRESET-VIDEO-3' || 'PRESET-VIDEO-4' || 'PRESET-VIDEO-5' || 'PRESET-VIDEO-6' || 'PRESET-VIDEO-7' || 'PRESET-VIDEO-8' || 'SHARED' || 'UNENCRYPTED', // required
  *         },
- *         RoleArn: "STRING_VALUE", // required
+ *         RoleArn: 'STRING_VALUE', // required
  *         SystemIds: [ // required
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
- *         Url: "STRING_VALUE", // required
+ *         Url: 'STRING_VALUE', // required
  *       },
  *     },
  *     IncludeEncoderConfigurationInSegments: true || false,
  *     IncludeIframeOnlyStream: true || false,
  *     PeriodTriggers: [ // __listOf__PeriodTriggersElement
- *       "ADS",
+ *       'ADS',
  *     ],
- *     SegmentDurationSeconds: Number("int"),
- *     SegmentTemplateFormat: "NUMBER_WITH_TIMELINE" || "TIME_WITH_TIMELINE" || "NUMBER_WITH_DURATION",
+ *     SegmentDurationSeconds: Number('int'),
+ *     SegmentTemplateFormat: 'NUMBER_WITH_TIMELINE' || 'TIME_WITH_TIMELINE' || 'NUMBER_WITH_DURATION',
  *   },
  *   HlsPackage: { // HlsPackage
  *     Encryption: { // HlsEncryption
- *       ConstantInitializationVector: "STRING_VALUE",
- *       EncryptionMethod: "AES_128" || "SAMPLE_AES",
+ *       ConstantInitializationVector: 'STRING_VALUE',
+ *       EncryptionMethod: 'AES_128' || 'SAMPLE_AES',
  *       SpekeKeyProvider: {
  *         EncryptionContractConfiguration: {
- *           PresetSpeke20Audio: "PRESET-AUDIO-1" || "PRESET-AUDIO-2" || "PRESET-AUDIO-3" || "SHARED" || "UNENCRYPTED", // required
- *           PresetSpeke20Video: "PRESET-VIDEO-1" || "PRESET-VIDEO-2" || "PRESET-VIDEO-3" || "PRESET-VIDEO-4" || "PRESET-VIDEO-5" || "PRESET-VIDEO-6" || "PRESET-VIDEO-7" || "PRESET-VIDEO-8" || "SHARED" || "UNENCRYPTED", // required
+ *           PresetSpeke20Audio: 'PRESET-AUDIO-1' || 'PRESET-AUDIO-2' || 'PRESET-AUDIO-3' || 'SHARED' || 'UNENCRYPTED', // required
+ *           PresetSpeke20Video: 'PRESET-VIDEO-1' || 'PRESET-VIDEO-2' || 'PRESET-VIDEO-3' || 'PRESET-VIDEO-4' || 'PRESET-VIDEO-5' || 'PRESET-VIDEO-6' || 'PRESET-VIDEO-7' || 'PRESET-VIDEO-8' || 'SHARED' || 'UNENCRYPTED', // required
  *         },
- *         RoleArn: "STRING_VALUE", // required
+ *         RoleArn: 'STRING_VALUE', // required
  *         SystemIds: [ // required
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
- *         Url: "STRING_VALUE", // required
+ *         Url: 'STRING_VALUE', // required
  *       },
  *     },
  *     HlsManifests: [ // required
  *       {
- *         AdMarkers: "NONE" || "SCTE35_ENHANCED" || "PASSTHROUGH",
+ *         AdMarkers: 'NONE' || 'SCTE35_ENHANCED' || 'PASSTHROUGH',
  *         IncludeIframeOnlyStream: true || false,
- *         ManifestName: "STRING_VALUE",
- *         ProgramDateTimeIntervalSeconds: Number("int"),
+ *         ManifestName: 'STRING_VALUE',
+ *         ProgramDateTimeIntervalSeconds: Number('int'),
  *         RepeatExtXKey: true || false,
  *         StreamSelection: {
- *           MaxVideoBitsPerSecond: Number("int"),
- *           MinVideoBitsPerSecond: Number("int"),
- *           StreamOrder: "ORIGINAL" || "VIDEO_BITRATE_ASCENDING" || "VIDEO_BITRATE_DESCENDING",
+ *           MaxVideoBitsPerSecond: Number('int'),
+ *           MinVideoBitsPerSecond: Number('int'),
+ *           StreamOrder: 'ORIGINAL' || 'VIDEO_BITRATE_ASCENDING' || 'VIDEO_BITRATE_DESCENDING',
  *         },
  *       },
  *     ],
  *     IncludeDvbSubtitles: true || false,
- *     SegmentDurationSeconds: Number("int"),
+ *     SegmentDurationSeconds: Number('int'),
  *     UseAudioRenditionGroup: true || false,
  *   },
- *   Id: "STRING_VALUE", // required
+ *   Id: 'STRING_VALUE', // required
  *   MssPackage: { // MssPackage
  *     Encryption: { // MssEncryption
  *       SpekeKeyProvider: {
  *         EncryptionContractConfiguration: {
- *           PresetSpeke20Audio: "PRESET-AUDIO-1" || "PRESET-AUDIO-2" || "PRESET-AUDIO-3" || "SHARED" || "UNENCRYPTED", // required
- *           PresetSpeke20Video: "PRESET-VIDEO-1" || "PRESET-VIDEO-2" || "PRESET-VIDEO-3" || "PRESET-VIDEO-4" || "PRESET-VIDEO-5" || "PRESET-VIDEO-6" || "PRESET-VIDEO-7" || "PRESET-VIDEO-8" || "SHARED" || "UNENCRYPTED", // required
+ *           PresetSpeke20Audio: 'PRESET-AUDIO-1' || 'PRESET-AUDIO-2' || 'PRESET-AUDIO-3' || 'SHARED' || 'UNENCRYPTED', // required
+ *           PresetSpeke20Video: 'PRESET-VIDEO-1' || 'PRESET-VIDEO-2' || 'PRESET-VIDEO-3' || 'PRESET-VIDEO-4' || 'PRESET-VIDEO-5' || 'PRESET-VIDEO-6' || 'PRESET-VIDEO-7' || 'PRESET-VIDEO-8' || 'SHARED' || 'UNENCRYPTED', // required
  *         },
- *         RoleArn: "STRING_VALUE", // required
+ *         RoleArn: 'STRING_VALUE', // required
  *         SystemIds: [ // required
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
- *         Url: "STRING_VALUE", // required
+ *         Url: 'STRING_VALUE', // required
  *       },
  *     },
  *     MssManifests: [ // __listOfMssManifest // required
  *       { // MssManifest
- *         ManifestName: "STRING_VALUE",
+ *         ManifestName: 'STRING_VALUE',
  *         StreamSelection: {
- *           MaxVideoBitsPerSecond: Number("int"),
- *           MinVideoBitsPerSecond: Number("int"),
- *           StreamOrder: "ORIGINAL" || "VIDEO_BITRATE_ASCENDING" || "VIDEO_BITRATE_DESCENDING",
+ *           MaxVideoBitsPerSecond: Number('int'),
+ *           MinVideoBitsPerSecond: Number('int'),
+ *           StreamOrder: 'ORIGINAL' || 'VIDEO_BITRATE_ASCENDING' || 'VIDEO_BITRATE_DESCENDING',
  *         },
  *       },
  *     ],
- *     SegmentDurationSeconds: Number("int"),
+ *     SegmentDurationSeconds: Number('int'),
  *   },
- *   PackagingGroupId: "STRING_VALUE", // required
+ *   PackagingGroupId: 'STRING_VALUE', // required
  *   Tags: { // Tags
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new CreatePackagingConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreatePackagingConfigurationResponse
+ *   Arn: 'STRING_VALUE',
+ *   CmafPackage: { // CmafPackage
+ *     Encryption: { // CmafEncryption
+ *       ConstantInitializationVector: 'STRING_VALUE',
+ *       SpekeKeyProvider: { // SpekeKeyProvider
+ *         EncryptionContractConfiguration: { // EncryptionContractConfiguration
+ *           PresetSpeke20Audio: 'PRESET-AUDIO-1' || 'PRESET-AUDIO-2' || 'PRESET-AUDIO-3' || 'SHARED' || 'UNENCRYPTED', // required
+ *           PresetSpeke20Video: 'PRESET-VIDEO-1' || 'PRESET-VIDEO-2' || 'PRESET-VIDEO-3' || 'PRESET-VIDEO-4' || 'PRESET-VIDEO-5' || 'PRESET-VIDEO-6' || 'PRESET-VIDEO-7' || 'PRESET-VIDEO-8' || 'SHARED' || 'UNENCRYPTED', // required
+ *         },
+ *         RoleArn: 'STRING_VALUE', // required
+ *         SystemIds: [ // __listOf__string // required
+ *           'STRING_VALUE',
+ *         ],
+ *         Url: 'STRING_VALUE', // required
+ *       },
+ *     },
+ *     HlsManifests: [ // __listOfHlsManifest // required
+ *       { // HlsManifest
+ *         AdMarkers: 'NONE' || 'SCTE35_ENHANCED' || 'PASSTHROUGH',
+ *         IncludeIframeOnlyStream: true || false,
+ *         ManifestName: 'STRING_VALUE',
+ *         ProgramDateTimeIntervalSeconds: Number('int'),
+ *         RepeatExtXKey: true || false,
+ *         StreamSelection: { // StreamSelection
+ *           MaxVideoBitsPerSecond: Number('int'),
+ *           MinVideoBitsPerSecond: Number('int'),
+ *           StreamOrder: 'ORIGINAL' || 'VIDEO_BITRATE_ASCENDING' || 'VIDEO_BITRATE_DESCENDING',
+ *         },
+ *       },
+ *     ],
+ *     IncludeEncoderConfigurationInSegments: true || false,
+ *     SegmentDurationSeconds: Number('int'),
+ *   },
+ *   CreatedAt: 'STRING_VALUE',
+ *   DashPackage: { // DashPackage
+ *     DashManifests: [ // __listOfDashManifest // required
+ *       { // DashManifest
+ *         ManifestLayout: 'FULL' || 'COMPACT',
+ *         ManifestName: 'STRING_VALUE',
+ *         MinBufferTimeSeconds: Number('int'),
+ *         Profile: 'NONE' || 'HBBTV_1_5',
+ *         ScteMarkersSource: 'SEGMENTS' || 'MANIFEST',
+ *         StreamSelection: {
+ *           MaxVideoBitsPerSecond: Number('int'),
+ *           MinVideoBitsPerSecond: Number('int'),
+ *           StreamOrder: 'ORIGINAL' || 'VIDEO_BITRATE_ASCENDING' || 'VIDEO_BITRATE_DESCENDING',
+ *         },
+ *       },
+ *     ],
+ *     Encryption: { // DashEncryption
+ *       SpekeKeyProvider: {
+ *         EncryptionContractConfiguration: {
+ *           PresetSpeke20Audio: 'PRESET-AUDIO-1' || 'PRESET-AUDIO-2' || 'PRESET-AUDIO-3' || 'SHARED' || 'UNENCRYPTED', // required
+ *           PresetSpeke20Video: 'PRESET-VIDEO-1' || 'PRESET-VIDEO-2' || 'PRESET-VIDEO-3' || 'PRESET-VIDEO-4' || 'PRESET-VIDEO-5' || 'PRESET-VIDEO-6' || 'PRESET-VIDEO-7' || 'PRESET-VIDEO-8' || 'SHARED' || 'UNENCRYPTED', // required
+ *         },
+ *         RoleArn: 'STRING_VALUE', // required
+ *         SystemIds: [ // required
+ *           'STRING_VALUE',
+ *         ],
+ *         Url: 'STRING_VALUE', // required
+ *       },
+ *     },
+ *     IncludeEncoderConfigurationInSegments: true || false,
+ *     IncludeIframeOnlyStream: true || false,
+ *     PeriodTriggers: [ // __listOf__PeriodTriggersElement
+ *       'ADS',
+ *     ],
+ *     SegmentDurationSeconds: Number('int'),
+ *     SegmentTemplateFormat: 'NUMBER_WITH_TIMELINE' || 'TIME_WITH_TIMELINE' || 'NUMBER_WITH_DURATION',
+ *   },
+ *   HlsPackage: { // HlsPackage
+ *     Encryption: { // HlsEncryption
+ *       ConstantInitializationVector: 'STRING_VALUE',
+ *       EncryptionMethod: 'AES_128' || 'SAMPLE_AES',
+ *       SpekeKeyProvider: {
+ *         EncryptionContractConfiguration: {
+ *           PresetSpeke20Audio: 'PRESET-AUDIO-1' || 'PRESET-AUDIO-2' || 'PRESET-AUDIO-3' || 'SHARED' || 'UNENCRYPTED', // required
+ *           PresetSpeke20Video: 'PRESET-VIDEO-1' || 'PRESET-VIDEO-2' || 'PRESET-VIDEO-3' || 'PRESET-VIDEO-4' || 'PRESET-VIDEO-5' || 'PRESET-VIDEO-6' || 'PRESET-VIDEO-7' || 'PRESET-VIDEO-8' || 'SHARED' || 'UNENCRYPTED', // required
+ *         },
+ *         RoleArn: 'STRING_VALUE', // required
+ *         SystemIds: [ // required
+ *           'STRING_VALUE',
+ *         ],
+ *         Url: 'STRING_VALUE', // required
+ *       },
+ *     },
+ *     HlsManifests: [ // required
+ *       {
+ *         AdMarkers: 'NONE' || 'SCTE35_ENHANCED' || 'PASSTHROUGH',
+ *         IncludeIframeOnlyStream: true || false,
+ *         ManifestName: 'STRING_VALUE',
+ *         ProgramDateTimeIntervalSeconds: Number('int'),
+ *         RepeatExtXKey: true || false,
+ *         StreamSelection: {
+ *           MaxVideoBitsPerSecond: Number('int'),
+ *           MinVideoBitsPerSecond: Number('int'),
+ *           StreamOrder: 'ORIGINAL' || 'VIDEO_BITRATE_ASCENDING' || 'VIDEO_BITRATE_DESCENDING',
+ *         },
+ *       },
+ *     ],
+ *     IncludeDvbSubtitles: true || false,
+ *     SegmentDurationSeconds: Number('int'),
+ *     UseAudioRenditionGroup: true || false,
+ *   },
+ *   Id: 'STRING_VALUE',
+ *   MssPackage: { // MssPackage
+ *     Encryption: { // MssEncryption
+ *       SpekeKeyProvider: {
+ *         EncryptionContractConfiguration: {
+ *           PresetSpeke20Audio: 'PRESET-AUDIO-1' || 'PRESET-AUDIO-2' || 'PRESET-AUDIO-3' || 'SHARED' || 'UNENCRYPTED', // required
+ *           PresetSpeke20Video: 'PRESET-VIDEO-1' || 'PRESET-VIDEO-2' || 'PRESET-VIDEO-3' || 'PRESET-VIDEO-4' || 'PRESET-VIDEO-5' || 'PRESET-VIDEO-6' || 'PRESET-VIDEO-7' || 'PRESET-VIDEO-8' || 'SHARED' || 'UNENCRYPTED', // required
+ *         },
+ *         RoleArn: 'STRING_VALUE', // required
+ *         SystemIds: [ // required
+ *           'STRING_VALUE',
+ *         ],
+ *         Url: 'STRING_VALUE', // required
+ *       },
+ *     },
+ *     MssManifests: [ // __listOfMssManifest // required
+ *       { // MssManifest
+ *         ManifestName: 'STRING_VALUE',
+ *         StreamSelection: {
+ *           MaxVideoBitsPerSecond: Number('int'),
+ *           MinVideoBitsPerSecond: Number('int'),
+ *           StreamOrder: 'ORIGINAL' || 'VIDEO_BITRATE_ASCENDING' || 'VIDEO_BITRATE_DESCENDING',
+ *         },
+ *       },
+ *     ],
+ *     SegmentDurationSeconds: Number('int'),
+ *   },
+ *   PackagingGroupId: 'STRING_VALUE',
+ *   Tags: { // Tags
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreatePackagingConfigurationCommandInput - {@link CreatePackagingConfigurationCommandInput}
@@ -207,6 +346,8 @@ export interface CreatePackagingConfigurationCommandOutput
  * @throws {@link UnprocessableEntityException} (client fault)
  *  The parameters sent in the request are not valid.
  *
+ * @throws {@link MediaPackageVodServiceException}
+ * <p>Base exception class for all service exceptions from MediaPackageVod service.</p>
  *
  */
 export class CreatePackagingConfigurationCommand extends $Command<

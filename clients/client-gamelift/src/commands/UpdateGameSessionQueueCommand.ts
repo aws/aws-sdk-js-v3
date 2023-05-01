@@ -46,41 +46,76 @@ export interface UpdateGameSessionQueueCommandOutput extends UpdateGameSessionQu
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GameLiftClient, UpdateGameSessionQueueCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
- * // const { GameLiftClient, UpdateGameSessionQueueCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
+ * import { GameLiftClient, UpdateGameSessionQueueCommand } from '@aws-sdk/client-gamelift'; // ES Modules import
+ * // const { GameLiftClient, UpdateGameSessionQueueCommand } = require('@aws-sdk/client-gamelift'); // CommonJS import
  * const client = new GameLiftClient(config);
  * const input = { // UpdateGameSessionQueueInput
- *   Name: "STRING_VALUE", // required
- *   TimeoutInSeconds: Number("int"),
+ *   Name: 'STRING_VALUE', // required
+ *   TimeoutInSeconds: Number('int'),
  *   PlayerLatencyPolicies: [ // PlayerLatencyPolicyList
  *     { // PlayerLatencyPolicy
- *       MaximumIndividualPlayerLatencyMilliseconds: Number("int"),
- *       PolicyDurationSeconds: Number("int"),
+ *       MaximumIndividualPlayerLatencyMilliseconds: Number('int'),
+ *       PolicyDurationSeconds: Number('int'),
  *     },
  *   ],
  *   Destinations: [ // GameSessionQueueDestinationList
  *     { // GameSessionQueueDestination
- *       DestinationArn: "STRING_VALUE",
+ *       DestinationArn: 'STRING_VALUE',
  *     },
  *   ],
  *   FilterConfiguration: { // FilterConfiguration
  *     AllowedLocations: [ // LocationList
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *   },
  *   PriorityConfiguration: { // PriorityConfiguration
  *     PriorityOrder: [ // PriorityTypeList
- *       "LATENCY" || "COST" || "DESTINATION" || "LOCATION",
+ *       'LATENCY' || 'COST' || 'DESTINATION' || 'LOCATION',
  *     ],
  *     LocationOrder: [
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *   },
- *   CustomEventData: "STRING_VALUE",
- *   NotificationTarget: "STRING_VALUE",
+ *   CustomEventData: 'STRING_VALUE',
+ *   NotificationTarget: 'STRING_VALUE',
  * };
  * const command = new UpdateGameSessionQueueCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateGameSessionQueueOutput
+ *   GameSessionQueue: { // GameSessionQueue
+ *     Name: 'STRING_VALUE',
+ *     GameSessionQueueArn: 'STRING_VALUE',
+ *     TimeoutInSeconds: Number('int'),
+ *     PlayerLatencyPolicies: [ // PlayerLatencyPolicyList
+ *       { // PlayerLatencyPolicy
+ *         MaximumIndividualPlayerLatencyMilliseconds: Number('int'),
+ *         PolicyDurationSeconds: Number('int'),
+ *       },
+ *     ],
+ *     Destinations: [ // GameSessionQueueDestinationList
+ *       { // GameSessionQueueDestination
+ *         DestinationArn: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     FilterConfiguration: { // FilterConfiguration
+ *       AllowedLocations: [ // LocationList
+ *         'STRING_VALUE',
+ *       ],
+ *     },
+ *     PriorityConfiguration: { // PriorityConfiguration
+ *       PriorityOrder: [ // PriorityTypeList
+ *         'LATENCY' || 'COST' || 'DESTINATION' || 'LOCATION',
+ *       ],
+ *       LocationOrder: [
+ *         'STRING_VALUE',
+ *       ],
+ *     },
+ *     CustomEventData: 'STRING_VALUE',
+ *     NotificationTarget: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateGameSessionQueueCommandInput - {@link UpdateGameSessionQueueCommandInput}
@@ -103,6 +138,8 @@ export interface UpdateGameSessionQueueCommandOutput extends UpdateGameSessionQu
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client failed authentication. Clients should not retry such requests.</p>
  *
+ * @throws {@link GameLiftServiceException}
+ * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
  */
 export class UpdateGameSessionQueueCommand extends $Command<

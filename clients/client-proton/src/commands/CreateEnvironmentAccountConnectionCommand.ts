@@ -45,25 +45,42 @@ export interface CreateEnvironmentAccountConnectionCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ProtonClient, CreateEnvironmentAccountConnectionCommand } from "@aws-sdk/client-proton"; // ES Modules import
- * // const { ProtonClient, CreateEnvironmentAccountConnectionCommand } = require("@aws-sdk/client-proton"); // CommonJS import
+ * import { ProtonClient, CreateEnvironmentAccountConnectionCommand } from '@aws-sdk/client-proton'; // ES Modules import
+ * // const { ProtonClient, CreateEnvironmentAccountConnectionCommand } = require('@aws-sdk/client-proton'); // CommonJS import
  * const client = new ProtonClient(config);
  * const input = { // CreateEnvironmentAccountConnectionInput
- *   clientToken: "STRING_VALUE",
- *   managementAccountId: "STRING_VALUE", // required
- *   roleArn: "STRING_VALUE",
- *   environmentName: "STRING_VALUE", // required
+ *   clientToken: 'STRING_VALUE',
+ *   managementAccountId: 'STRING_VALUE', // required
+ *   roleArn: 'STRING_VALUE',
+ *   environmentName: 'STRING_VALUE', // required
  *   tags: [ // TagList
  *     { // Tag
- *       key: "STRING_VALUE", // required
- *       value: "STRING_VALUE", // required
+ *       key: 'STRING_VALUE', // required
+ *       value: 'STRING_VALUE', // required
  *     },
  *   ],
- *   componentRoleArn: "STRING_VALUE",
- *   codebuildRoleArn: "STRING_VALUE",
+ *   componentRoleArn: 'STRING_VALUE',
+ *   codebuildRoleArn: 'STRING_VALUE',
  * };
  * const command = new CreateEnvironmentAccountConnectionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateEnvironmentAccountConnectionOutput
+ *   environmentAccountConnection: { // EnvironmentAccountConnection
+ *     id: 'STRING_VALUE', // required
+ *     arn: 'STRING_VALUE', // required
+ *     managementAccountId: 'STRING_VALUE', // required
+ *     environmentAccountId: 'STRING_VALUE', // required
+ *     roleArn: 'STRING_VALUE', // required
+ *     environmentName: 'STRING_VALUE', // required
+ *     requestedAt: new Date('TIMESTAMP'), // required
+ *     lastModifiedAt: new Date('TIMESTAMP'), // required
+ *     status: 'STRING_VALUE', // required
+ *     componentRoleArn: 'STRING_VALUE',
+ *     codebuildRoleArn: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateEnvironmentAccountConnectionCommandInput - {@link CreateEnvironmentAccountConnectionCommandInput}
@@ -91,6 +108,8 @@ export interface CreateEnvironmentAccountConnectionCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The input is invalid or an out-of-range value was supplied for the input parameter.</p>
  *
+ * @throws {@link ProtonServiceException}
+ * <p>Base exception class for all service exceptions from Proton service.</p>
  *
  */
 export class CreateEnvironmentAccountConnectionCommand extends $Command<

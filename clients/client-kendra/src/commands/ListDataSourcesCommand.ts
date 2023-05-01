@@ -36,16 +36,32 @@ export interface ListDataSourcesCommandOutput extends ListDataSourcesResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KendraClient, ListDataSourcesCommand } from "@aws-sdk/client-kendra"; // ES Modules import
- * // const { KendraClient, ListDataSourcesCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
+ * import { KendraClient, ListDataSourcesCommand } from '@aws-sdk/client-kendra'; // ES Modules import
+ * // const { KendraClient, ListDataSourcesCommand } = require('@aws-sdk/client-kendra'); // CommonJS import
  * const client = new KendraClient(config);
  * const input = { // ListDataSourcesRequest
- *   IndexId: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   IndexId: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListDataSourcesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListDataSourcesResponse
+ *   SummaryItems: [ // DataSourceSummaryList
+ *     { // DataSourceSummary
+ *       Name: 'STRING_VALUE',
+ *       Id: 'STRING_VALUE',
+ *       Type: 'S3' || 'SHAREPOINT' || 'DATABASE' || 'SALESFORCE' || 'ONEDRIVE' || 'SERVICENOW' || 'CUSTOM' || 'CONFLUENCE' || 'GOOGLEDRIVE' || 'WEBCRAWLER' || 'WORKDOCS' || 'FSX' || 'SLACK' || 'BOX' || 'QUIP' || 'JIRA' || 'GITHUB' || 'ALFRESCO' || 'TEMPLATE',
+ *       CreatedAt: new Date('TIMESTAMP'),
+ *       UpdatedAt: new Date('TIMESTAMP'),
+ *       Status: 'CREATING' || 'DELETING' || 'FAILED' || 'UPDATING' || 'ACTIVE',
+ *       LanguageCode: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListDataSourcesCommandInput - {@link ListDataSourcesCommandInput}
@@ -74,6 +90,8 @@ export interface ListDataSourcesCommandOutput extends ListDataSourcesResponse, _
  *  <p>The input fails to satisfy the constraints set by the Amazon Kendra service.
  *             Please provide the correct input and try again.</p>
  *
+ * @throws {@link KendraServiceException}
+ * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
  */
 export class ListDataSourcesCommand extends $Command<

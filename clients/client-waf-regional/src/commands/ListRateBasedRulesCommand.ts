@@ -44,15 +44,26 @@ export interface ListRateBasedRulesCommandOutput extends ListRateBasedRulesRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WAFRegionalClient, ListRateBasedRulesCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
- * // const { WAFRegionalClient, ListRateBasedRulesCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import
+ * import { WAFRegionalClient, ListRateBasedRulesCommand } from '@aws-sdk/client-waf-regional'; // ES Modules import
+ * // const { WAFRegionalClient, ListRateBasedRulesCommand } = require('@aws-sdk/client-waf-regional'); // CommonJS import
  * const client = new WAFRegionalClient(config);
  * const input = { // ListRateBasedRulesRequest
- *   NextMarker: "STRING_VALUE",
- *   Limit: Number("int"),
+ *   NextMarker: 'STRING_VALUE',
+ *   Limit: Number('int'),
  * };
  * const command = new ListRateBasedRulesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListRateBasedRulesResponse
+ *   NextMarker: 'STRING_VALUE',
+ *   Rules: [ // RuleSummaries
+ *     { // RuleSummary
+ *       RuleId: 'STRING_VALUE', // required
+ *       Name: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListRateBasedRulesCommandInput - {@link ListRateBasedRulesCommandInput}
@@ -67,6 +78,8 @@ export interface ListRateBasedRulesCommandOutput extends ListRateBasedRulesRespo
  * @throws {@link WAFInvalidAccountException} (client fault)
  *  <p>The operation failed because you tried to create, update, or delete an object by using an invalid account identifier.</p>
  *
+ * @throws {@link WAFRegionalServiceException}
+ * <p>Base exception class for all service exceptions from WAFRegional service.</p>
  *
  */
 export class ListRateBasedRulesCommand extends $Command<

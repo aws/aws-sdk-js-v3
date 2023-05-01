@@ -41,14 +41,17 @@ export interface RestoreFromSnapshotCommandOutput extends RestoreFromSnapshotRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DirectoryServiceClient, RestoreFromSnapshotCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
- * // const { DirectoryServiceClient, RestoreFromSnapshotCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
+ * import { DirectoryServiceClient, RestoreFromSnapshotCommand } from '@aws-sdk/client-directory-service'; // ES Modules import
+ * // const { DirectoryServiceClient, RestoreFromSnapshotCommand } = require('@aws-sdk/client-directory-service'); // CommonJS import
  * const client = new DirectoryServiceClient(config);
  * const input = { // RestoreFromSnapshotRequest
- *   SnapshotId: "STRING_VALUE", // required
+ *   SnapshotId: 'STRING_VALUE', // required
  * };
  * const command = new RestoreFromSnapshotCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param RestoreFromSnapshotCommandInput - {@link RestoreFromSnapshotCommandInput}
@@ -69,6 +72,8 @@ export interface RestoreFromSnapshotCommandOutput extends RestoreFromSnapshotRes
  * @throws {@link ServiceException} (server fault)
  *  <p>An exception has occurred in Directory Service.</p>
  *
+ * @throws {@link DirectoryServiceServiceException}
+ * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
  */
 export class RestoreFromSnapshotCommand extends $Command<

@@ -37,14 +37,24 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOut
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SFNClient, ListTagsForResourceCommand } from "@aws-sdk/client-sfn"; // ES Modules import
- * // const { SFNClient, ListTagsForResourceCommand } = require("@aws-sdk/client-sfn"); // CommonJS import
+ * import { SFNClient, ListTagsForResourceCommand } from '@aws-sdk/client-sfn'; // ES Modules import
+ * // const { SFNClient, ListTagsForResourceCommand } = require('@aws-sdk/client-sfn'); // CommonJS import
  * const client = new SFNClient(config);
  * const input = { // ListTagsForResourceInput
- *   resourceArn: "STRING_VALUE", // required
+ *   resourceArn: 'STRING_VALUE', // required
  * };
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTagsForResourceOutput
+ *   tags: [ // TagList
+ *     { // Tag
+ *       key: 'STRING_VALUE',
+ *       value: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListTagsForResourceCommandInput - {@link ListTagsForResourceCommandInput}
@@ -60,6 +70,8 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOut
  *  <p>Could not find the referenced resource. Only state machine and activity ARNs are
  *       supported.</p>
  *
+ * @throws {@link SFNServiceException}
+ * <p>Base exception class for all service exceptions from SFN service.</p>
  *
  */
 export class ListTagsForResourceCommand extends $Command<

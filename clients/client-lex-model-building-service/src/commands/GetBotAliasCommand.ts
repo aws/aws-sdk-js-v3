@@ -43,15 +43,38 @@ export interface GetBotAliasCommandOutput extends GetBotAliasResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LexModelBuildingServiceClient, GetBotAliasCommand } from "@aws-sdk/client-lex-model-building-service"; // ES Modules import
- * // const { LexModelBuildingServiceClient, GetBotAliasCommand } = require("@aws-sdk/client-lex-model-building-service"); // CommonJS import
+ * import { LexModelBuildingServiceClient, GetBotAliasCommand } from '@aws-sdk/client-lex-model-building-service'; // ES Modules import
+ * // const { LexModelBuildingServiceClient, GetBotAliasCommand } = require('@aws-sdk/client-lex-model-building-service'); // CommonJS import
  * const client = new LexModelBuildingServiceClient(config);
  * const input = { // GetBotAliasRequest
- *   name: "STRING_VALUE", // required
- *   botName: "STRING_VALUE", // required
+ *   name: 'STRING_VALUE', // required
+ *   botName: 'STRING_VALUE', // required
  * };
  * const command = new GetBotAliasCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetBotAliasResponse
+ *   name: 'STRING_VALUE',
+ *   description: 'STRING_VALUE',
+ *   botVersion: 'STRING_VALUE',
+ *   botName: 'STRING_VALUE',
+ *   lastUpdatedDate: new Date('TIMESTAMP'),
+ *   createdDate: new Date('TIMESTAMP'),
+ *   checksum: 'STRING_VALUE',
+ *   conversationLogs: { // ConversationLogsResponse
+ *     logSettings: [ // LogSettingsResponseList
+ *       { // LogSettingsResponse
+ *         logType: 'STRING_VALUE',
+ *         destination: 'STRING_VALUE',
+ *         kmsKeyArn: 'STRING_VALUE',
+ *         resourceArn: 'STRING_VALUE',
+ *         resourcePrefix: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     iamRoleArn: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetBotAliasCommandInput - {@link GetBotAliasCommandInput}
@@ -75,6 +98,8 @@ export interface GetBotAliasCommandOutput extends GetBotAliasResponse, __Metadat
  *  <p>The resource specified in the request was not found. Check the
  *       resource and try again.</p>
  *
+ * @throws {@link LexModelBuildingServiceServiceException}
+ * <p>Base exception class for all service exceptions from LexModelBuildingService service.</p>
  *
  */
 export class GetBotAliasCommand extends $Command<

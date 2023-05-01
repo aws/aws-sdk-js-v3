@@ -41,15 +41,22 @@ export interface GetTypedLinkFacetInformationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudDirectoryClient, GetTypedLinkFacetInformationCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
- * // const { CloudDirectoryClient, GetTypedLinkFacetInformationCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
+ * import { CloudDirectoryClient, GetTypedLinkFacetInformationCommand } from '@aws-sdk/client-clouddirectory'; // ES Modules import
+ * // const { CloudDirectoryClient, GetTypedLinkFacetInformationCommand } = require('@aws-sdk/client-clouddirectory'); // CommonJS import
  * const client = new CloudDirectoryClient(config);
  * const input = { // GetTypedLinkFacetInformationRequest
- *   SchemaArn: "STRING_VALUE", // required
- *   Name: "STRING_VALUE", // required
+ *   SchemaArn: 'STRING_VALUE', // required
+ *   Name: 'STRING_VALUE', // required
  * };
  * const command = new GetTypedLinkFacetInformationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetTypedLinkFacetInformationResponse
+ *   IdentityAttributeOrder: [ // AttributeNameList
+ *     'STRING_VALUE',
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetTypedLinkFacetInformationCommandInput - {@link GetTypedLinkFacetInformationCommandInput}
@@ -86,6 +93,8 @@ export interface GetTypedLinkFacetInformationCommandOutput
  *  <p>Indicates that your request is malformed in some manner. See the exception
  *       message.</p>
  *
+ * @throws {@link CloudDirectoryServiceException}
+ * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
  */
 export class GetTypedLinkFacetInformationCommand extends $Command<

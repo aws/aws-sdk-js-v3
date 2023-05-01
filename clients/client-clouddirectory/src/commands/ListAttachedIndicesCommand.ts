@@ -36,20 +36,46 @@ export interface ListAttachedIndicesCommandOutput extends ListAttachedIndicesRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudDirectoryClient, ListAttachedIndicesCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
- * // const { CloudDirectoryClient, ListAttachedIndicesCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
+ * import { CloudDirectoryClient, ListAttachedIndicesCommand } from '@aws-sdk/client-clouddirectory'; // ES Modules import
+ * // const { CloudDirectoryClient, ListAttachedIndicesCommand } = require('@aws-sdk/client-clouddirectory'); // CommonJS import
  * const client = new CloudDirectoryClient(config);
  * const input = { // ListAttachedIndicesRequest
- *   DirectoryArn: "STRING_VALUE", // required
+ *   DirectoryArn: 'STRING_VALUE', // required
  *   TargetReference: { // ObjectReference
- *     Selector: "STRING_VALUE",
+ *     Selector: 'STRING_VALUE',
  *   },
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
- *   ConsistencyLevel: "SERIALIZABLE" || "EVENTUAL",
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
+ *   ConsistencyLevel: 'SERIALIZABLE' || 'EVENTUAL',
  * };
  * const command = new ListAttachedIndicesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListAttachedIndicesResponse
+ *   IndexAttachments: [ // IndexAttachmentList
+ *     { // IndexAttachment
+ *       IndexedAttributes: [ // AttributeKeyAndValueList
+ *         { // AttributeKeyAndValue
+ *           Key: { // AttributeKey
+ *             SchemaArn: 'STRING_VALUE', // required
+ *             FacetName: 'STRING_VALUE', // required
+ *             Name: 'STRING_VALUE', // required
+ *           },
+ *           Value: { // TypedAttributeValue Union: only one key present
+ *             StringValue: 'STRING_VALUE',
+ *             BinaryValue: 'BLOB_VALUE',
+ *             BooleanValue: true || false,
+ *             NumberValue: 'STRING_VALUE',
+ *             DatetimeValue: new Date('TIMESTAMP'),
+ *           },
+ *         },
+ *       ],
+ *       ObjectIdentifier: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListAttachedIndicesCommandInput - {@link ListAttachedIndicesCommandInput}
@@ -83,6 +109,8 @@ export interface ListAttachedIndicesCommandOutput extends ListAttachedIndicesRes
  *  <p>Indicates that your request is malformed in some manner. See the exception
  *       message.</p>
  *
+ * @throws {@link CloudDirectoryServiceException}
+ * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
  */
 export class ListAttachedIndicesCommand extends $Command<

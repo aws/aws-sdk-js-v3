@@ -44,14 +44,39 @@ export interface GetFieldLevelEncryptionProfileConfigCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudFrontClient, GetFieldLevelEncryptionProfileConfigCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
- * // const { CloudFrontClient, GetFieldLevelEncryptionProfileConfigCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
+ * import { CloudFrontClient, GetFieldLevelEncryptionProfileConfigCommand } from '@aws-sdk/client-cloudfront'; // ES Modules import
+ * // const { CloudFrontClient, GetFieldLevelEncryptionProfileConfigCommand } = require('@aws-sdk/client-cloudfront'); // CommonJS import
  * const client = new CloudFrontClient(config);
  * const input = { // GetFieldLevelEncryptionProfileConfigRequest
- *   Id: "STRING_VALUE", // required
+ *   Id: 'STRING_VALUE', // required
  * };
  * const command = new GetFieldLevelEncryptionProfileConfigCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetFieldLevelEncryptionProfileConfigResult
+ *   FieldLevelEncryptionProfileConfig: { // FieldLevelEncryptionProfileConfig
+ *     Name: 'STRING_VALUE', // required
+ *     CallerReference: 'STRING_VALUE', // required
+ *     Comment: 'STRING_VALUE',
+ *     EncryptionEntities: { // EncryptionEntities
+ *       Quantity: Number('int'), // required
+ *       Items: [ // EncryptionEntityList
+ *         { // EncryptionEntity
+ *           PublicKeyId: 'STRING_VALUE', // required
+ *           ProviderId: 'STRING_VALUE', // required
+ *           FieldPatterns: { // FieldPatterns
+ *             Quantity: Number('int'), // required
+ *             Items: [ // FieldPatternList
+ *               'STRING_VALUE',
+ *             ],
+ *           },
+ *         },
+ *       ],
+ *     },
+ *   },
+ *   ETag: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetFieldLevelEncryptionProfileConfigCommandInput - {@link GetFieldLevelEncryptionProfileConfigCommandInput}
@@ -66,6 +91,8 @@ export interface GetFieldLevelEncryptionProfileConfigCommandOutput
  * @throws {@link NoSuchFieldLevelEncryptionProfile} (client fault)
  *  <p>The specified profile for field-level encryption doesn't exist.</p>
  *
+ * @throws {@link CloudFrontServiceException}
+ * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
  */
 export class GetFieldLevelEncryptionProfileConfigCommand extends $Command<

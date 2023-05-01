@@ -45,16 +45,27 @@ export interface DisassociateTransitGatewayPolicyTableCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, DisassociateTransitGatewayPolicyTableCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, DisassociateTransitGatewayPolicyTableCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, DisassociateTransitGatewayPolicyTableCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, DisassociateTransitGatewayPolicyTableCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // DisassociateTransitGatewayPolicyTableRequest
- *   TransitGatewayPolicyTableId: "STRING_VALUE", // required
- *   TransitGatewayAttachmentId: "STRING_VALUE", // required
+ *   TransitGatewayPolicyTableId: 'STRING_VALUE', // required
+ *   TransitGatewayAttachmentId: 'STRING_VALUE', // required
  *   DryRun: true || false,
  * };
  * const command = new DisassociateTransitGatewayPolicyTableCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DisassociateTransitGatewayPolicyTableResult
+ *   Association: { // TransitGatewayPolicyTableAssociation
+ *     TransitGatewayPolicyTableId: 'STRING_VALUE',
+ *     TransitGatewayAttachmentId: 'STRING_VALUE',
+ *     ResourceId: 'STRING_VALUE',
+ *     ResourceType: 'vpc' || 'vpn' || 'direct-connect-gateway' || 'connect' || 'peering' || 'tgw-peering',
+ *     State: 'associating' || 'associated' || 'disassociating' || 'disassociated',
+ *   },
+ * };
+ *
  * ```
  *
  * @param DisassociateTransitGatewayPolicyTableCommandInput - {@link DisassociateTransitGatewayPolicyTableCommandInput}
@@ -63,6 +74,8 @@ export interface DisassociateTransitGatewayPolicyTableCommandOutput
  * @see {@link DisassociateTransitGatewayPolicyTableCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class DisassociateTransitGatewayPolicyTableCommand extends $Command<

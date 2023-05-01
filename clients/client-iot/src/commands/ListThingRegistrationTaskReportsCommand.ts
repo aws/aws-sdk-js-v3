@@ -41,17 +41,26 @@ export interface ListThingRegistrationTaskReportsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTClient, ListThingRegistrationTaskReportsCommand } from "@aws-sdk/client-iot"; // ES Modules import
- * // const { IoTClient, ListThingRegistrationTaskReportsCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * import { IoTClient, ListThingRegistrationTaskReportsCommand } from '@aws-sdk/client-iot'; // ES Modules import
+ * // const { IoTClient, ListThingRegistrationTaskReportsCommand } = require('@aws-sdk/client-iot'); // CommonJS import
  * const client = new IoTClient(config);
  * const input = { // ListThingRegistrationTaskReportsRequest
- *   taskId: "STRING_VALUE", // required
- *   reportType: "ERRORS" || "RESULTS", // required
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   taskId: 'STRING_VALUE', // required
+ *   reportType: 'ERRORS' || 'RESULTS', // required
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new ListThingRegistrationTaskReportsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListThingRegistrationTaskReportsResponse
+ *   resourceLinks: [ // S3FileUrlList
+ *     'STRING_VALUE',
+ *   ],
+ *   reportType: 'ERRORS' || 'RESULTS',
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListThingRegistrationTaskReportsCommandInput - {@link ListThingRegistrationTaskReportsCommandInput}
@@ -72,6 +81,8 @@ export interface ListThingRegistrationTaskReportsCommandOutput
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this operation.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class ListThingRegistrationTaskReportsCommand extends $Command<

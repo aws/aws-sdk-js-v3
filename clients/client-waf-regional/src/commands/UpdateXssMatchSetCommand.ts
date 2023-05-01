@@ -87,27 +87,32 @@ export interface UpdateXssMatchSetCommandOutput extends UpdateXssMatchSetRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WAFRegionalClient, UpdateXssMatchSetCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
- * // const { WAFRegionalClient, UpdateXssMatchSetCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import
+ * import { WAFRegionalClient, UpdateXssMatchSetCommand } from '@aws-sdk/client-waf-regional'; // ES Modules import
+ * // const { WAFRegionalClient, UpdateXssMatchSetCommand } = require('@aws-sdk/client-waf-regional'); // CommonJS import
  * const client = new WAFRegionalClient(config);
  * const input = { // UpdateXssMatchSetRequest
- *   XssMatchSetId: "STRING_VALUE", // required
- *   ChangeToken: "STRING_VALUE", // required
+ *   XssMatchSetId: 'STRING_VALUE', // required
+ *   ChangeToken: 'STRING_VALUE', // required
  *   Updates: [ // XssMatchSetUpdates // required
  *     { // XssMatchSetUpdate
- *       Action: "STRING_VALUE", // required
+ *       Action: 'STRING_VALUE', // required
  *       XssMatchTuple: { // XssMatchTuple
  *         FieldToMatch: { // FieldToMatch
- *           Type: "STRING_VALUE", // required
- *           Data: "STRING_VALUE",
+ *           Type: 'STRING_VALUE', // required
+ *           Data: 'STRING_VALUE',
  *         },
- *         TextTransformation: "STRING_VALUE", // required
+ *         TextTransformation: 'STRING_VALUE', // required
  *       },
  *     },
  *   ],
  * };
  * const command = new UpdateXssMatchSetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateXssMatchSetResponse
+ *   ChangeToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateXssMatchSetCommandInput - {@link UpdateXssMatchSetCommandInput}
@@ -214,6 +219,8 @@ export interface UpdateXssMatchSetCommandOutput extends UpdateXssMatchSetRespons
  * @throws {@link WAFStaleDataException} (client fault)
  *  <p>The operation failed because you tried to create, update, or delete an object by using a change token that has already been used.</p>
  *
+ * @throws {@link WAFRegionalServiceException}
+ * <p>Base exception class for all service exceptions from WAFRegional service.</p>
  *
  * @example To update an XSS match set
  * ```javascript

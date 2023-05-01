@@ -43,18 +43,23 @@ export interface ImportApplicationUsageCommandOutput extends ImportApplicationUs
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ApplicationCostProfilerClient, ImportApplicationUsageCommand } from "@aws-sdk/client-applicationcostprofiler"; // ES Modules import
- * // const { ApplicationCostProfilerClient, ImportApplicationUsageCommand } = require("@aws-sdk/client-applicationcostprofiler"); // CommonJS import
+ * import { ApplicationCostProfilerClient, ImportApplicationUsageCommand } from '@aws-sdk/client-applicationcostprofiler'; // ES Modules import
+ * // const { ApplicationCostProfilerClient, ImportApplicationUsageCommand } = require('@aws-sdk/client-applicationcostprofiler'); // CommonJS import
  * const client = new ApplicationCostProfilerClient(config);
  * const input = { // ImportApplicationUsageRequest
  *   sourceS3Location: { // SourceS3Location
- *     bucket: "STRING_VALUE", // required
- *     key: "STRING_VALUE", // required
- *     region: "STRING_VALUE",
+ *     bucket: 'STRING_VALUE', // required
+ *     key: 'STRING_VALUE', // required
+ *     region: 'STRING_VALUE',
  *   },
  * };
  * const command = new ImportApplicationUsageCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ImportApplicationUsageResult
+ *   importId: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param ImportApplicationUsageCommandInput - {@link ImportApplicationUsageCommandInput}
@@ -75,6 +80,8 @@ export interface ImportApplicationUsageCommandOutput extends ImportApplicationUs
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints for the API.</p>
  *
+ * @throws {@link ApplicationCostProfilerServiceException}
+ * <p>Base exception class for all service exceptions from ApplicationCostProfiler service.</p>
  *
  */
 export class ImportApplicationUsageCommand extends $Command<

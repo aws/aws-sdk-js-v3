@@ -38,15 +38,22 @@ export interface GetRuntimeManagementConfigCommandOutput extends GetRuntimeManag
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LambdaClient, GetRuntimeManagementConfigCommand } from "@aws-sdk/client-lambda"; // ES Modules import
- * // const { LambdaClient, GetRuntimeManagementConfigCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
+ * import { LambdaClient, GetRuntimeManagementConfigCommand } from '@aws-sdk/client-lambda'; // ES Modules import
+ * // const { LambdaClient, GetRuntimeManagementConfigCommand } = require('@aws-sdk/client-lambda'); // CommonJS import
  * const client = new LambdaClient(config);
  * const input = { // GetRuntimeManagementConfigRequest
- *   FunctionName: "STRING_VALUE", // required
- *   Qualifier: "STRING_VALUE",
+ *   FunctionName: 'STRING_VALUE', // required
+ *   Qualifier: 'STRING_VALUE',
  * };
  * const command = new GetRuntimeManagementConfigCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetRuntimeManagementConfigResponse
+ *   UpdateRuntimeOn: 'Auto' || 'Manual' || 'FunctionUpdate',
+ *   RuntimeVersionArn: 'STRING_VALUE',
+ *   FunctionArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetRuntimeManagementConfigCommandInput - {@link GetRuntimeManagementConfigCommandInput}
@@ -67,6 +74,8 @@ export interface GetRuntimeManagementConfigCommandOutput extends GetRuntimeManag
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>The request throughput limit was exceeded. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests">Lambda quotas</a>.</p>
  *
+ * @throws {@link LambdaServiceException}
+ * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
  */
 export class GetRuntimeManagementConfigCommand extends $Command<

@@ -57,22 +57,28 @@ export interface GetOpenIdTokenForDeveloperIdentityCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CognitoIdentityClient, GetOpenIdTokenForDeveloperIdentityCommand } from "@aws-sdk/client-cognito-identity"; // ES Modules import
- * // const { CognitoIdentityClient, GetOpenIdTokenForDeveloperIdentityCommand } = require("@aws-sdk/client-cognito-identity"); // CommonJS import
+ * import { CognitoIdentityClient, GetOpenIdTokenForDeveloperIdentityCommand } from '@aws-sdk/client-cognito-identity'; // ES Modules import
+ * // const { CognitoIdentityClient, GetOpenIdTokenForDeveloperIdentityCommand } = require('@aws-sdk/client-cognito-identity'); // CommonJS import
  * const client = new CognitoIdentityClient(config);
  * const input = { // GetOpenIdTokenForDeveloperIdentityInput
- *   IdentityPoolId: "STRING_VALUE", // required
- *   IdentityId: "STRING_VALUE",
+ *   IdentityPoolId: 'STRING_VALUE', // required
+ *   IdentityId: 'STRING_VALUE',
  *   Logins: { // LoginsMap // required
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  *   PrincipalTags: { // PrincipalTags
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
- *   TokenDuration: Number("long"),
+ *   TokenDuration: Number('long'),
  * };
  * const command = new GetOpenIdTokenForDeveloperIdentityCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetOpenIdTokenForDeveloperIdentityResponse
+ *   IdentityId: 'STRING_VALUE',
+ *   Token: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetOpenIdTokenForDeveloperIdentityCommandInput - {@link GetOpenIdTokenForDeveloperIdentityCommandInput}
@@ -105,6 +111,8 @@ export interface GetOpenIdTokenForDeveloperIdentityCommandOutput
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Thrown when a request is throttled.</p>
  *
+ * @throws {@link CognitoIdentityServiceException}
+ * <p>Base exception class for all service exceptions from CognitoIdentity service.</p>
  *
  */
 export class GetOpenIdTokenForDeveloperIdentityCommand extends $Command<

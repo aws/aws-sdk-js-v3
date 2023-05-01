@@ -39,22 +39,25 @@ export interface ModifyDocumentPermissionCommandOutput extends ModifyDocumentPer
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMClient, ModifyDocumentPermissionCommand } from "@aws-sdk/client-ssm"; // ES Modules import
- * // const { SSMClient, ModifyDocumentPermissionCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * import { SSMClient, ModifyDocumentPermissionCommand } from '@aws-sdk/client-ssm'; // ES Modules import
+ * // const { SSMClient, ModifyDocumentPermissionCommand } = require('@aws-sdk/client-ssm'); // CommonJS import
  * const client = new SSMClient(config);
  * const input = { // ModifyDocumentPermissionRequest
- *   Name: "STRING_VALUE", // required
- *   PermissionType: "Share", // required
+ *   Name: 'STRING_VALUE', // required
+ *   PermissionType: 'Share', // required
  *   AccountIdsToAdd: [ // AccountIdList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   AccountIdsToRemove: [
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   SharedDocumentVersion: "STRING_VALUE",
+ *   SharedDocumentVersion: 'STRING_VALUE',
  * };
  * const command = new ModifyDocumentPermissionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param ModifyDocumentPermissionCommandInput - {@link ModifyDocumentPermissionCommandInput}
@@ -84,6 +87,8 @@ export interface ModifyDocumentPermissionCommandOutput extends ModifyDocumentPer
  *  <p>The permission type isn't supported. <i>Share</i> is the only supported
  *    permission type.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class ModifyDocumentPermissionCommand extends $Command<

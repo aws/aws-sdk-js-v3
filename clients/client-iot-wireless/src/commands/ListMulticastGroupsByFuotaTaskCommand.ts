@@ -41,16 +41,26 @@ export interface ListMulticastGroupsByFuotaTaskCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTWirelessClient, ListMulticastGroupsByFuotaTaskCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
- * // const { IoTWirelessClient, ListMulticastGroupsByFuotaTaskCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
+ * import { IoTWirelessClient, ListMulticastGroupsByFuotaTaskCommand } from '@aws-sdk/client-iot-wireless'; // ES Modules import
+ * // const { IoTWirelessClient, ListMulticastGroupsByFuotaTaskCommand } = require('@aws-sdk/client-iot-wireless'); // CommonJS import
  * const client = new IoTWirelessClient(config);
  * const input = { // ListMulticastGroupsByFuotaTaskRequest
- *   Id: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   Id: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListMulticastGroupsByFuotaTaskCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListMulticastGroupsByFuotaTaskResponse
+ *   NextToken: 'STRING_VALUE',
+ *   MulticastGroupList: [ // MulticastGroupListByFuotaTask
+ *     { // MulticastGroupByFuotaTask
+ *       Id: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListMulticastGroupsByFuotaTaskCommandInput - {@link ListMulticastGroupsByFuotaTaskCommandInput}
@@ -74,6 +84,8 @@ export interface ListMulticastGroupsByFuotaTaskCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The input did not meet the specified constraints.</p>
  *
+ * @throws {@link IoTWirelessServiceException}
+ * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
  */
 export class ListMulticastGroupsByFuotaTaskCommand extends $Command<

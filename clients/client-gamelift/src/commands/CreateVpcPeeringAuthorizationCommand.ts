@@ -67,15 +67,26 @@ export interface CreateVpcPeeringAuthorizationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GameLiftClient, CreateVpcPeeringAuthorizationCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
- * // const { GameLiftClient, CreateVpcPeeringAuthorizationCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
+ * import { GameLiftClient, CreateVpcPeeringAuthorizationCommand } from '@aws-sdk/client-gamelift'; // ES Modules import
+ * // const { GameLiftClient, CreateVpcPeeringAuthorizationCommand } = require('@aws-sdk/client-gamelift'); // CommonJS import
  * const client = new GameLiftClient(config);
  * const input = { // CreateVpcPeeringAuthorizationInput
- *   GameLiftAwsAccountId: "STRING_VALUE", // required
- *   PeerVpcId: "STRING_VALUE", // required
+ *   GameLiftAwsAccountId: 'STRING_VALUE', // required
+ *   PeerVpcId: 'STRING_VALUE', // required
  * };
  * const command = new CreateVpcPeeringAuthorizationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateVpcPeeringAuthorizationOutput
+ *   VpcPeeringAuthorization: { // VpcPeeringAuthorization
+ *     GameLiftAwsAccountId: 'STRING_VALUE',
+ *     PeerVpcAwsAccountId: 'STRING_VALUE',
+ *     PeerVpcId: 'STRING_VALUE',
+ *     CreationTime: new Date('TIMESTAMP'),
+ *     ExpirationTime: new Date('TIMESTAMP'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateVpcPeeringAuthorizationCommandInput - {@link CreateVpcPeeringAuthorizationCommandInput}
@@ -98,6 +109,8 @@ export interface CreateVpcPeeringAuthorizationCommandOutput
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client failed authentication. Clients should not retry such requests.</p>
  *
+ * @throws {@link GameLiftServiceException}
+ * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
  */
 export class CreateVpcPeeringAuthorizationCommand extends $Command<

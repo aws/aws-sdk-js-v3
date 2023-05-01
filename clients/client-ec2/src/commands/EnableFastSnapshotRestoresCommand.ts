@@ -41,20 +41,53 @@ export interface EnableFastSnapshotRestoresCommandOutput extends EnableFastSnaps
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, EnableFastSnapshotRestoresCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, EnableFastSnapshotRestoresCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, EnableFastSnapshotRestoresCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, EnableFastSnapshotRestoresCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // EnableFastSnapshotRestoresRequest
  *   AvailabilityZones: [ // AvailabilityZoneStringList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   SourceSnapshotIds: [ // SnapshotIdStringList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   DryRun: true || false,
  * };
  * const command = new EnableFastSnapshotRestoresCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // EnableFastSnapshotRestoresResult
+ *   Successful: [ // EnableFastSnapshotRestoreSuccessSet
+ *     { // EnableFastSnapshotRestoreSuccessItem
+ *       SnapshotId: 'STRING_VALUE',
+ *       AvailabilityZone: 'STRING_VALUE',
+ *       State: 'enabling' || 'optimizing' || 'enabled' || 'disabling' || 'disabled',
+ *       StateTransitionReason: 'STRING_VALUE',
+ *       OwnerId: 'STRING_VALUE',
+ *       OwnerAlias: 'STRING_VALUE',
+ *       EnablingTime: new Date('TIMESTAMP'),
+ *       OptimizingTime: new Date('TIMESTAMP'),
+ *       EnabledTime: new Date('TIMESTAMP'),
+ *       DisablingTime: new Date('TIMESTAMP'),
+ *       DisabledTime: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   Unsuccessful: [ // EnableFastSnapshotRestoreErrorSet
+ *     { // EnableFastSnapshotRestoreErrorItem
+ *       SnapshotId: 'STRING_VALUE',
+ *       FastSnapshotRestoreStateErrors: [ // EnableFastSnapshotRestoreStateErrorSet
+ *         { // EnableFastSnapshotRestoreStateErrorItem
+ *           AvailabilityZone: 'STRING_VALUE',
+ *           Error: { // EnableFastSnapshotRestoreStateError
+ *             Code: 'STRING_VALUE',
+ *             Message: 'STRING_VALUE',
+ *           },
+ *         },
+ *       ],
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param EnableFastSnapshotRestoresCommandInput - {@link EnableFastSnapshotRestoresCommandInput}
@@ -63,6 +96,8 @@ export interface EnableFastSnapshotRestoresCommandOutput extends EnableFastSnaps
  * @see {@link EnableFastSnapshotRestoresCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class EnableFastSnapshotRestoresCommand extends $Command<

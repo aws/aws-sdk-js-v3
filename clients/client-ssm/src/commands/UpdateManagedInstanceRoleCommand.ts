@@ -38,15 +38,18 @@ export interface UpdateManagedInstanceRoleCommandOutput extends UpdateManagedIns
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMClient, UpdateManagedInstanceRoleCommand } from "@aws-sdk/client-ssm"; // ES Modules import
- * // const { SSMClient, UpdateManagedInstanceRoleCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * import { SSMClient, UpdateManagedInstanceRoleCommand } from '@aws-sdk/client-ssm'; // ES Modules import
+ * // const { SSMClient, UpdateManagedInstanceRoleCommand } = require('@aws-sdk/client-ssm'); // CommonJS import
  * const client = new SSMClient(config);
  * const input = { // UpdateManagedInstanceRoleRequest
- *   InstanceId: "STRING_VALUE", // required
- *   IamRole: "STRING_VALUE", // required
+ *   InstanceId: 'STRING_VALUE', // required
+ *   IamRole: 'STRING_VALUE', // required
  * };
  * const command = new UpdateManagedInstanceRoleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateManagedInstanceRoleCommandInput - {@link UpdateManagedInstanceRoleCommandInput}
@@ -78,6 +81,8 @@ export interface UpdateManagedInstanceRoleCommandOutput extends UpdateManagedIns
  *             </li>
  *          </ul>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class UpdateManagedInstanceRoleCommand extends $Command<

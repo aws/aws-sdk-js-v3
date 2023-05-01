@@ -42,16 +42,22 @@ export interface DeleteApplicationOutputCommandOutput extends DeleteApplicationO
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KinesisAnalyticsV2Client, DeleteApplicationOutputCommand } from "@aws-sdk/client-kinesis-analytics-v2"; // ES Modules import
- * // const { KinesisAnalyticsV2Client, DeleteApplicationOutputCommand } = require("@aws-sdk/client-kinesis-analytics-v2"); // CommonJS import
+ * import { KinesisAnalyticsV2Client, DeleteApplicationOutputCommand } from '@aws-sdk/client-kinesis-analytics-v2'; // ES Modules import
+ * // const { KinesisAnalyticsV2Client, DeleteApplicationOutputCommand } = require('@aws-sdk/client-kinesis-analytics-v2'); // CommonJS import
  * const client = new KinesisAnalyticsV2Client(config);
  * const input = { // DeleteApplicationOutputRequest
- *   ApplicationName: "STRING_VALUE", // required
- *   CurrentApplicationVersionId: Number("long"), // required
- *   OutputId: "STRING_VALUE", // required
+ *   ApplicationName: 'STRING_VALUE', // required
+ *   CurrentApplicationVersionId: Number('long'), // required
+ *   OutputId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteApplicationOutputCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteApplicationOutputResponse
+ *   ApplicationARN: 'STRING_VALUE',
+ *   ApplicationVersionId: Number('long'),
+ * };
+ *
  * ```
  *
  * @param DeleteApplicationOutputCommandInput - {@link DeleteApplicationOutputCommandInput}
@@ -77,6 +83,8 @@ export interface DeleteApplicationOutputCommandOutput extends DeleteApplicationO
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Specified application can't be found.</p>
  *
+ * @throws {@link KinesisAnalyticsV2ServiceException}
+ * <p>Base exception class for all service exceptions from KinesisAnalyticsV2 service.</p>
  *
  */
 export class DeleteApplicationOutputCommand extends $Command<

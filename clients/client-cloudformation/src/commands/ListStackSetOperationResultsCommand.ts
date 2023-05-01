@@ -38,24 +38,42 @@ export interface ListStackSetOperationResultsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudFormationClient, ListStackSetOperationResultsCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
- * // const { CloudFormationClient, ListStackSetOperationResultsCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
+ * import { CloudFormationClient, ListStackSetOperationResultsCommand } from '@aws-sdk/client-cloudformation'; // ES Modules import
+ * // const { CloudFormationClient, ListStackSetOperationResultsCommand } = require('@aws-sdk/client-cloudformation'); // CommonJS import
  * const client = new CloudFormationClient(config);
  * const input = { // ListStackSetOperationResultsInput
- *   StackSetName: "STRING_VALUE", // required
- *   OperationId: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
- *   CallAs: "SELF" || "DELEGATED_ADMIN",
+ *   StackSetName: 'STRING_VALUE', // required
+ *   OperationId: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
+ *   CallAs: 'SELF' || 'DELEGATED_ADMIN',
  *   Filters: [ // OperationResultFilters
  *     { // OperationResultFilter
- *       Name: "OPERATION_RESULT_STATUS",
- *       Values: "STRING_VALUE",
+ *       Name: 'OPERATION_RESULT_STATUS',
+ *       Values: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new ListStackSetOperationResultsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListStackSetOperationResultsOutput
+ *   Summaries: [ // StackSetOperationResultSummaries
+ *     { // StackSetOperationResultSummary
+ *       Account: 'STRING_VALUE',
+ *       Region: 'STRING_VALUE',
+ *       Status: 'PENDING' || 'RUNNING' || 'SUCCEEDED' || 'FAILED' || 'CANCELLED',
+ *       StatusReason: 'STRING_VALUE',
+ *       AccountGateResult: { // AccountGateResult
+ *         Status: 'SUCCEEDED' || 'FAILED' || 'SKIPPED',
+ *         StatusReason: 'STRING_VALUE',
+ *       },
+ *       OrganizationalUnitId: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListStackSetOperationResultsCommandInput - {@link ListStackSetOperationResultsCommandInput}
@@ -70,6 +88,8 @@ export interface ListStackSetOperationResultsCommandOutput
  * @throws {@link StackSetNotFoundException} (client fault)
  *  <p>The specified stack set doesn't exist.</p>
  *
+ * @throws {@link CloudFormationServiceException}
+ * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
  */
 export class ListStackSetOperationResultsCommand extends $Command<

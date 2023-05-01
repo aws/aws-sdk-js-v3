@@ -37,14 +37,20 @@ export interface DescribeFileSystemPolicyCommandOutput extends FileSystemPolicyD
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EFSClient, DescribeFileSystemPolicyCommand } from "@aws-sdk/client-efs"; // ES Modules import
- * // const { EFSClient, DescribeFileSystemPolicyCommand } = require("@aws-sdk/client-efs"); // CommonJS import
+ * import { EFSClient, DescribeFileSystemPolicyCommand } from '@aws-sdk/client-efs'; // ES Modules import
+ * // const { EFSClient, DescribeFileSystemPolicyCommand } = require('@aws-sdk/client-efs'); // CommonJS import
  * const client = new EFSClient(config);
  * const input = { // DescribeFileSystemPolicyRequest
- *   FileSystemId: "STRING_VALUE", // required
+ *   FileSystemId: 'STRING_VALUE', // required
  * };
  * const command = new DescribeFileSystemPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // FileSystemPolicyDescription
+ *   FileSystemId: 'STRING_VALUE',
+ *   Policy: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeFileSystemPolicyCommandInput - {@link DescribeFileSystemPolicyCommandInput}
@@ -67,6 +73,8 @@ export interface DescribeFileSystemPolicyCommandOutput extends FileSystemPolicyD
  * @throws {@link PolicyNotFound} (client fault)
  *  <p>Returned if the default file system policy is in effect for the EFS file system specified.</p>
  *
+ * @throws {@link EFSServiceException}
+ * <p>Base exception class for all service exceptions from EFS service.</p>
  *
  */
 export class DescribeFileSystemPolicyCommand extends $Command<

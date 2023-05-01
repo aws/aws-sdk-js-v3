@@ -42,14 +42,19 @@ export interface VerifyDomainIdentityCommandOutput extends VerifyDomainIdentityR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SESClient, VerifyDomainIdentityCommand } from "@aws-sdk/client-ses"; // ES Modules import
- * // const { SESClient, VerifyDomainIdentityCommand } = require("@aws-sdk/client-ses"); // CommonJS import
+ * import { SESClient, VerifyDomainIdentityCommand } from '@aws-sdk/client-ses'; // ES Modules import
+ * // const { SESClient, VerifyDomainIdentityCommand } = require('@aws-sdk/client-ses'); // CommonJS import
  * const client = new SESClient(config);
  * const input = { // VerifyDomainIdentityRequest
- *   Domain: "STRING_VALUE", // required
+ *   Domain: 'STRING_VALUE', // required
  * };
  * const command = new VerifyDomainIdentityCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // VerifyDomainIdentityResponse
+ *   VerificationToken: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param VerifyDomainIdentityCommandInput - {@link VerifyDomainIdentityCommandInput}
@@ -58,6 +63,8 @@ export interface VerifyDomainIdentityCommandOutput extends VerifyDomainIdentityR
  * @see {@link VerifyDomainIdentityCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
+ * @throws {@link SESServiceException}
+ * <p>Base exception class for all service exceptions from SES service.</p>
  *
  * @example VerifyDomainIdentity
  * ```javascript

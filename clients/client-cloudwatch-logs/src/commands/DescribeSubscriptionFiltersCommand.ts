@@ -39,17 +39,33 @@ export interface DescribeSubscriptionFiltersCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudWatchLogsClient, DescribeSubscriptionFiltersCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
- * // const { CloudWatchLogsClient, DescribeSubscriptionFiltersCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
+ * import { CloudWatchLogsClient, DescribeSubscriptionFiltersCommand } from '@aws-sdk/client-cloudwatch-logs'; // ES Modules import
+ * // const { CloudWatchLogsClient, DescribeSubscriptionFiltersCommand } = require('@aws-sdk/client-cloudwatch-logs'); // CommonJS import
  * const client = new CloudWatchLogsClient(config);
  * const input = { // DescribeSubscriptionFiltersRequest
- *   logGroupName: "STRING_VALUE", // required
- *   filterNamePrefix: "STRING_VALUE",
- *   nextToken: "STRING_VALUE",
- *   limit: Number("int"),
+ *   logGroupName: 'STRING_VALUE', // required
+ *   filterNamePrefix: 'STRING_VALUE',
+ *   nextToken: 'STRING_VALUE',
+ *   limit: Number('int'),
  * };
  * const command = new DescribeSubscriptionFiltersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeSubscriptionFiltersResponse
+ *   subscriptionFilters: [ // SubscriptionFilters
+ *     { // SubscriptionFilter
+ *       filterName: 'STRING_VALUE',
+ *       logGroupName: 'STRING_VALUE',
+ *       filterPattern: 'STRING_VALUE',
+ *       destinationArn: 'STRING_VALUE',
+ *       roleArn: 'STRING_VALUE',
+ *       distribution: 'Random' || 'ByLogStream',
+ *       creationTime: Number('long'),
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeSubscriptionFiltersCommandInput - {@link DescribeSubscriptionFiltersCommandInput}
@@ -67,6 +83,8 @@ export interface DescribeSubscriptionFiltersCommandOutput
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service cannot complete the request.</p>
  *
+ * @throws {@link CloudWatchLogsServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
  */
 export class DescribeSubscriptionFiltersCommand extends $Command<

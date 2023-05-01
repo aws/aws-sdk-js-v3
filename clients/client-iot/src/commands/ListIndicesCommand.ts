@@ -37,15 +37,23 @@ export interface ListIndicesCommandOutput extends ListIndicesResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTClient, ListIndicesCommand } from "@aws-sdk/client-iot"; // ES Modules import
- * // const { IoTClient, ListIndicesCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * import { IoTClient, ListIndicesCommand } from '@aws-sdk/client-iot'; // ES Modules import
+ * // const { IoTClient, ListIndicesCommand } = require('@aws-sdk/client-iot'); // CommonJS import
  * const client = new IoTClient(config);
  * const input = { // ListIndicesRequest
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new ListIndicesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListIndicesResponse
+ *   indexNames: [ // IndexNamesList
+ *     'STRING_VALUE',
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListIndicesCommandInput - {@link ListIndicesCommandInput}
@@ -69,6 +77,8 @@ export interface ListIndicesCommandOutput extends ListIndicesResponse, __Metadat
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this operation.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class ListIndicesCommand extends $Command<

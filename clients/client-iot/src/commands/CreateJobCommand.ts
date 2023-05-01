@@ -37,79 +37,86 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTClient, CreateJobCommand } from "@aws-sdk/client-iot"; // ES Modules import
- * // const { IoTClient, CreateJobCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * import { IoTClient, CreateJobCommand } from '@aws-sdk/client-iot'; // ES Modules import
+ * // const { IoTClient, CreateJobCommand } = require('@aws-sdk/client-iot'); // CommonJS import
  * const client = new IoTClient(config);
  * const input = { // CreateJobRequest
- *   jobId: "STRING_VALUE", // required
+ *   jobId: 'STRING_VALUE', // required
  *   targets: [ // JobTargets // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   documentSource: "STRING_VALUE",
- *   document: "STRING_VALUE",
- *   description: "STRING_VALUE",
+ *   documentSource: 'STRING_VALUE',
+ *   document: 'STRING_VALUE',
+ *   description: 'STRING_VALUE',
  *   presignedUrlConfig: { // PresignedUrlConfig
- *     roleArn: "STRING_VALUE",
- *     expiresInSec: Number("long"),
+ *     roleArn: 'STRING_VALUE',
+ *     expiresInSec: Number('long'),
  *   },
- *   targetSelection: "CONTINUOUS" || "SNAPSHOT",
+ *   targetSelection: 'CONTINUOUS' || 'SNAPSHOT',
  *   jobExecutionsRolloutConfig: { // JobExecutionsRolloutConfig
- *     maximumPerMinute: Number("int"),
+ *     maximumPerMinute: Number('int'),
  *     exponentialRate: { // ExponentialRolloutRate
- *       baseRatePerMinute: Number("int"), // required
- *       incrementFactor: Number("double"), // required
+ *       baseRatePerMinute: Number('int'), // required
+ *       incrementFactor: Number('double'), // required
  *       rateIncreaseCriteria: { // RateIncreaseCriteria
- *         numberOfNotifiedThings: Number("int"),
- *         numberOfSucceededThings: Number("int"),
+ *         numberOfNotifiedThings: Number('int'),
+ *         numberOfSucceededThings: Number('int'),
  *       },
  *     },
  *   },
  *   abortConfig: { // AbortConfig
  *     criteriaList: [ // AbortCriteriaList // required
  *       { // AbortCriteria
- *         failureType: "FAILED" || "REJECTED" || "TIMED_OUT" || "ALL", // required
- *         action: "CANCEL", // required
- *         thresholdPercentage: Number("double"), // required
- *         minNumberOfExecutedThings: Number("int"), // required
+ *         failureType: 'FAILED' || 'REJECTED' || 'TIMED_OUT' || 'ALL', // required
+ *         action: 'CANCEL', // required
+ *         thresholdPercentage: Number('double'), // required
+ *         minNumberOfExecutedThings: Number('int'), // required
  *       },
  *     ],
  *   },
  *   timeoutConfig: { // TimeoutConfig
- *     inProgressTimeoutInMinutes: Number("long"),
+ *     inProgressTimeoutInMinutes: Number('long'),
  *   },
  *   tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
- *   namespaceId: "STRING_VALUE",
- *   jobTemplateArn: "STRING_VALUE",
+ *   namespaceId: 'STRING_VALUE',
+ *   jobTemplateArn: 'STRING_VALUE',
  *   jobExecutionsRetryConfig: { // JobExecutionsRetryConfig
  *     criteriaList: [ // RetryCriteriaList // required
  *       { // RetryCriteria
- *         failureType: "FAILED" || "TIMED_OUT" || "ALL", // required
- *         numberOfRetries: Number("int"), // required
+ *         failureType: 'FAILED' || 'TIMED_OUT' || 'ALL', // required
+ *         numberOfRetries: Number('int'), // required
  *       },
  *     ],
  *   },
  *   documentParameters: { // ParameterMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  *   schedulingConfig: { // SchedulingConfig
- *     startTime: "STRING_VALUE",
- *     endTime: "STRING_VALUE",
- *     endBehavior: "STOP_ROLLOUT" || "CANCEL" || "FORCE_CANCEL",
+ *     startTime: 'STRING_VALUE',
+ *     endTime: 'STRING_VALUE',
+ *     endBehavior: 'STOP_ROLLOUT' || 'CANCEL' || 'FORCE_CANCEL',
  *     maintenanceWindows: [ // MaintenanceWindows
  *       { // MaintenanceWindow
- *         startTime: "STRING_VALUE", // required
- *         durationInMinutes: Number("int"), // required
+ *         startTime: 'STRING_VALUE', // required
+ *         durationInMinutes: Number('int'), // required
  *       },
  *     ],
  *   },
  * };
  * const command = new CreateJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateJobResponse
+ *   jobArn: 'STRING_VALUE',
+ *   jobId: 'STRING_VALUE',
+ *   description: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateJobCommandInput - {@link CreateJobCommandInput}
@@ -136,6 +143,8 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The rate exceeds the limit.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class CreateJobCommand extends $Command<CreateJobCommandInput, CreateJobCommandOutput, IoTClientResolvedConfig> {

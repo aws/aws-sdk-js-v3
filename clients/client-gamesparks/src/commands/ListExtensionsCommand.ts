@@ -39,15 +39,27 @@ export interface ListExtensionsCommandOutput extends ListExtensionsResult, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GameSparksClient, ListExtensionsCommand } from "@aws-sdk/client-gamesparks"; // ES Modules import
- * // const { GameSparksClient, ListExtensionsCommand } = require("@aws-sdk/client-gamesparks"); // CommonJS import
+ * import { GameSparksClient, ListExtensionsCommand } from '@aws-sdk/client-gamesparks'; // ES Modules import
+ * // const { GameSparksClient, ListExtensionsCommand } = require('@aws-sdk/client-gamesparks'); // CommonJS import
  * const client = new GameSparksClient(config);
  * const input = { // ListExtensionsRequest
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListExtensionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListExtensionsResult
+ *   Extensions: [ // ExtensionDetailsList
+ *     { // ExtensionDetails
+ *       Namespace: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *       Description: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListExtensionsCommandInput - {@link ListExtensionsCommandInput}
@@ -68,6 +80,8 @@ export interface ListExtensionsCommandOutput extends ListExtensionsResult, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>One of the parameters in the request is invalid.</p>
  *
+ * @throws {@link GameSparksServiceException}
+ * <p>Base exception class for all service exceptions from GameSparks service.</p>
  *
  */
 export class ListExtensionsCommand extends $Command<

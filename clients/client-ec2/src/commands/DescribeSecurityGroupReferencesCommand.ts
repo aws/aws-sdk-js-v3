@@ -41,17 +41,28 @@ export interface DescribeSecurityGroupReferencesCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, DescribeSecurityGroupReferencesCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, DescribeSecurityGroupReferencesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, DescribeSecurityGroupReferencesCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, DescribeSecurityGroupReferencesCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // DescribeSecurityGroupReferencesRequest
  *   DryRun: true || false,
  *   GroupId: [ // GroupIds // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new DescribeSecurityGroupReferencesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeSecurityGroupReferencesResult
+ *   SecurityGroupReferenceSet: [ // SecurityGroupReferences
+ *     { // SecurityGroupReference
+ *       GroupId: 'STRING_VALUE',
+ *       ReferencingVpcId: 'STRING_VALUE',
+ *       VpcPeeringConnectionId: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeSecurityGroupReferencesCommandInput - {@link DescribeSecurityGroupReferencesCommandInput}
@@ -60,6 +71,8 @@ export interface DescribeSecurityGroupReferencesCommandOutput
  * @see {@link DescribeSecurityGroupReferencesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @example To describe security group references
  * ```javascript

@@ -36,14 +36,25 @@ export interface DeleteServiceSyncConfigCommandOutput extends DeleteServiceSyncC
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ProtonClient, DeleteServiceSyncConfigCommand } from "@aws-sdk/client-proton"; // ES Modules import
- * // const { ProtonClient, DeleteServiceSyncConfigCommand } = require("@aws-sdk/client-proton"); // CommonJS import
+ * import { ProtonClient, DeleteServiceSyncConfigCommand } from '@aws-sdk/client-proton'; // ES Modules import
+ * // const { ProtonClient, DeleteServiceSyncConfigCommand } = require('@aws-sdk/client-proton'); // CommonJS import
  * const client = new ProtonClient(config);
  * const input = { // DeleteServiceSyncConfigInput
- *   serviceName: "STRING_VALUE", // required
+ *   serviceName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteServiceSyncConfigCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteServiceSyncConfigOutput
+ *   serviceSyncConfig: { // ServiceSyncConfig
+ *     serviceName: 'STRING_VALUE', // required
+ *     repositoryProvider: 'STRING_VALUE', // required
+ *     repositoryName: 'STRING_VALUE', // required
+ *     branch: 'STRING_VALUE', // required
+ *     filePath: 'STRING_VALUE', // required
+ *   },
+ * };
+ *
  * ```
  *
  * @param DeleteServiceSyncConfigCommandInput - {@link DeleteServiceSyncConfigCommandInput}
@@ -70,6 +81,8 @@ export interface DeleteServiceSyncConfigCommandOutput extends DeleteServiceSyncC
  * @throws {@link ValidationException} (client fault)
  *  <p>The input is invalid or an out-of-range value was supplied for the input parameter.</p>
  *
+ * @throws {@link ProtonServiceException}
+ * <p>Base exception class for all service exceptions from Proton service.</p>
  *
  */
 export class DeleteServiceSyncConfigCommand extends $Command<

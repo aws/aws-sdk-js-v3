@@ -42,17 +42,26 @@ export interface UpdateAcceleratorAttributesCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlobalAcceleratorClient, UpdateAcceleratorAttributesCommand } from "@aws-sdk/client-global-accelerator"; // ES Modules import
- * // const { GlobalAcceleratorClient, UpdateAcceleratorAttributesCommand } = require("@aws-sdk/client-global-accelerator"); // CommonJS import
+ * import { GlobalAcceleratorClient, UpdateAcceleratorAttributesCommand } from '@aws-sdk/client-global-accelerator'; // ES Modules import
+ * // const { GlobalAcceleratorClient, UpdateAcceleratorAttributesCommand } = require('@aws-sdk/client-global-accelerator'); // CommonJS import
  * const client = new GlobalAcceleratorClient(config);
  * const input = { // UpdateAcceleratorAttributesRequest
- *   AcceleratorArn: "STRING_VALUE", // required
+ *   AcceleratorArn: 'STRING_VALUE', // required
  *   FlowLogsEnabled: true || false,
- *   FlowLogsS3Bucket: "STRING_VALUE",
- *   FlowLogsS3Prefix: "STRING_VALUE",
+ *   FlowLogsS3Bucket: 'STRING_VALUE',
+ *   FlowLogsS3Prefix: 'STRING_VALUE',
  * };
  * const command = new UpdateAcceleratorAttributesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateAcceleratorAttributesResponse
+ *   AcceleratorAttributes: { // AcceleratorAttributes
+ *     FlowLogsEnabled: true || false,
+ *     FlowLogsS3Bucket: 'STRING_VALUE',
+ *     FlowLogsS3Prefix: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateAcceleratorAttributesCommandInput - {@link UpdateAcceleratorAttributesCommandInput}
@@ -73,6 +82,8 @@ export interface UpdateAcceleratorAttributesCommandOutput
  * @throws {@link InvalidArgumentException} (client fault)
  *  <p>An argument that you specified is invalid.</p>
  *
+ * @throws {@link GlobalAcceleratorServiceException}
+ * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
  */
 export class UpdateAcceleratorAttributesCommand extends $Command<

@@ -88,21 +88,27 @@ export interface GetMediaCommandOutput extends __WithSdkStreamMixin<GetMediaOutp
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KinesisVideoMediaClient, GetMediaCommand } from "@aws-sdk/client-kinesis-video-media"; // ES Modules import
- * // const { KinesisVideoMediaClient, GetMediaCommand } = require("@aws-sdk/client-kinesis-video-media"); // CommonJS import
+ * import { KinesisVideoMediaClient, GetMediaCommand } from '@aws-sdk/client-kinesis-video-media'; // ES Modules import
+ * // const { KinesisVideoMediaClient, GetMediaCommand } = require('@aws-sdk/client-kinesis-video-media'); // CommonJS import
  * const client = new KinesisVideoMediaClient(config);
  * const input = { // GetMediaInput
- *   StreamName: "STRING_VALUE",
- *   StreamARN: "STRING_VALUE",
+ *   StreamName: 'STRING_VALUE',
+ *   StreamARN: 'STRING_VALUE',
  *   StartSelector: { // StartSelector
- *     StartSelectorType: "STRING_VALUE", // required
- *     AfterFragmentNumber: "STRING_VALUE",
- *     StartTimestamp: new Date("TIMESTAMP"),
- *     ContinuationToken: "STRING_VALUE",
+ *     StartSelectorType: 'STRING_VALUE', // required
+ *     AfterFragmentNumber: 'STRING_VALUE',
+ *     StartTimestamp: new Date('TIMESTAMP'),
+ *     ContinuationToken: 'STRING_VALUE',
  *   },
  * };
  * const command = new GetMediaCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetMediaOutput
+ *   ContentType: 'STRING_VALUE',
+ *   Payload: 'STREAMING_BLOB_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetMediaCommandInput - {@link GetMediaCommandInput}
@@ -135,6 +141,8 @@ export interface GetMediaCommandOutput extends __WithSdkStreamMixin<GetMediaOutp
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Status Code: 404, The stream with the given name does not exist.</p>
  *
+ * @throws {@link KinesisVideoMediaServiceException}
+ * <p>Base exception class for all service exceptions from KinesisVideoMedia service.</p>
  *
  */
 export class GetMediaCommand extends $Command<

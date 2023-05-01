@@ -41,31 +41,34 @@ export interface StartApplicationCommandOutput extends StartApplicationResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KinesisAnalyticsV2Client, StartApplicationCommand } from "@aws-sdk/client-kinesis-analytics-v2"; // ES Modules import
- * // const { KinesisAnalyticsV2Client, StartApplicationCommand } = require("@aws-sdk/client-kinesis-analytics-v2"); // CommonJS import
+ * import { KinesisAnalyticsV2Client, StartApplicationCommand } from '@aws-sdk/client-kinesis-analytics-v2'; // ES Modules import
+ * // const { KinesisAnalyticsV2Client, StartApplicationCommand } = require('@aws-sdk/client-kinesis-analytics-v2'); // CommonJS import
  * const client = new KinesisAnalyticsV2Client(config);
  * const input = { // StartApplicationRequest
- *   ApplicationName: "STRING_VALUE", // required
+ *   ApplicationName: 'STRING_VALUE', // required
  *   RunConfiguration: { // RunConfiguration
  *     FlinkRunConfiguration: { // FlinkRunConfiguration
  *       AllowNonRestoredState: true || false,
  *     },
  *     SqlRunConfigurations: [ // SqlRunConfigurations
  *       { // SqlRunConfiguration
- *         InputId: "STRING_VALUE", // required
+ *         InputId: 'STRING_VALUE', // required
  *         InputStartingPositionConfiguration: { // InputStartingPositionConfiguration
- *           InputStartingPosition: "NOW" || "TRIM_HORIZON" || "LAST_STOPPED_POINT",
+ *           InputStartingPosition: 'NOW' || 'TRIM_HORIZON' || 'LAST_STOPPED_POINT',
  *         },
  *       },
  *     ],
  *     ApplicationRestoreConfiguration: { // ApplicationRestoreConfiguration
- *       ApplicationRestoreType: "SKIP_RESTORE_FROM_SNAPSHOT" || "RESTORE_FROM_LATEST_SNAPSHOT" || "RESTORE_FROM_CUSTOM_SNAPSHOT", // required
- *       SnapshotName: "STRING_VALUE",
+ *       ApplicationRestoreType: 'SKIP_RESTORE_FROM_SNAPSHOT' || 'RESTORE_FROM_LATEST_SNAPSHOT' || 'RESTORE_FROM_CUSTOM_SNAPSHOT', // required
+ *       SnapshotName: 'STRING_VALUE',
  *     },
  *   },
  * };
  * const command = new StartApplicationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param StartApplicationCommandInput - {@link StartApplicationCommandInput}
@@ -89,6 +92,8 @@ export interface StartApplicationCommandOutput extends StartApplicationResponse,
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Specified application can't be found.</p>
  *
+ * @throws {@link KinesisAnalyticsV2ServiceException}
+ * <p>Base exception class for all service exceptions from KinesisAnalyticsV2 service.</p>
  *
  */
 export class StartApplicationCommand extends $Command<

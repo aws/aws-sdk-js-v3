@@ -38,15 +38,20 @@ export interface UpdateSolNetworkPackageCommandOutput extends UpdateSolNetworkPa
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { TnbClient, UpdateSolNetworkPackageCommand } from "@aws-sdk/client-tnb"; // ES Modules import
- * // const { TnbClient, UpdateSolNetworkPackageCommand } = require("@aws-sdk/client-tnb"); // CommonJS import
+ * import { TnbClient, UpdateSolNetworkPackageCommand } from '@aws-sdk/client-tnb'; // ES Modules import
+ * // const { TnbClient, UpdateSolNetworkPackageCommand } = require('@aws-sdk/client-tnb'); // CommonJS import
  * const client = new TnbClient(config);
  * const input = { // UpdateSolNetworkPackageInput
- *   nsdInfoId: "STRING_VALUE", // required
- *   nsdOperationalState: "ENABLED" || "DISABLED", // required
+ *   nsdInfoId: 'STRING_VALUE', // required
+ *   nsdOperationalState: 'ENABLED' || 'DISABLED', // required
  * };
  * const command = new UpdateSolNetworkPackageCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateSolNetworkPackageOutput
+ *   nsdOperationalState: 'ENABLED' || 'DISABLED', // required
+ * };
+ *
  * ```
  *
  * @param UpdateSolNetworkPackageCommandInput - {@link UpdateSolNetworkPackageCommandInput}
@@ -70,6 +75,8 @@ export interface UpdateSolNetworkPackageCommandOutput extends UpdateSolNetworkPa
  * @throws {@link ValidationException} (client fault)
  *  <p>Unable to process the request because the client provided input failed to satisfy request constraints.</p>
  *
+ * @throws {@link TnbServiceException}
+ * <p>Base exception class for all service exceptions from Tnb service.</p>
  *
  */
 export class UpdateSolNetworkPackageCommand extends $Command<

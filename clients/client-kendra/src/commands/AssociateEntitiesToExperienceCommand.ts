@@ -45,21 +45,31 @@ export interface AssociateEntitiesToExperienceCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KendraClient, AssociateEntitiesToExperienceCommand } from "@aws-sdk/client-kendra"; // ES Modules import
- * // const { KendraClient, AssociateEntitiesToExperienceCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
+ * import { KendraClient, AssociateEntitiesToExperienceCommand } from '@aws-sdk/client-kendra'; // ES Modules import
+ * // const { KendraClient, AssociateEntitiesToExperienceCommand } = require('@aws-sdk/client-kendra'); // CommonJS import
  * const client = new KendraClient(config);
  * const input = { // AssociateEntitiesToExperienceRequest
- *   Id: "STRING_VALUE", // required
- *   IndexId: "STRING_VALUE", // required
+ *   Id: 'STRING_VALUE', // required
+ *   IndexId: 'STRING_VALUE', // required
  *   EntityList: [ // AssociateEntityList // required
  *     { // EntityConfiguration
- *       EntityId: "STRING_VALUE", // required
- *       EntityType: "USER" || "GROUP", // required
+ *       EntityId: 'STRING_VALUE', // required
+ *       EntityType: 'USER' || 'GROUP', // required
  *     },
  *   ],
  * };
  * const command = new AssociateEntitiesToExperienceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AssociateEntitiesToExperienceResponse
+ *   FailedEntityList: [ // AssociateEntitiesToExperienceFailedEntityList
+ *     { // FailedEntity
+ *       EntityId: 'STRING_VALUE',
+ *       ErrorMessage: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param AssociateEntitiesToExperienceCommandInput - {@link AssociateEntitiesToExperienceCommandInput}
@@ -92,6 +102,8 @@ export interface AssociateEntitiesToExperienceCommandOutput
  *  <p>The input fails to satisfy the constraints set by the Amazon Kendra service.
  *             Please provide the correct input and try again.</p>
  *
+ * @throws {@link KendraServiceException}
+ * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
  */
 export class AssociateEntitiesToExperienceCommand extends $Command<

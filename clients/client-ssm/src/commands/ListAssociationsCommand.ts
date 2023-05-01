@@ -38,21 +38,61 @@ export interface ListAssociationsCommandOutput extends ListAssociationsResult, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMClient, ListAssociationsCommand } from "@aws-sdk/client-ssm"; // ES Modules import
- * // const { SSMClient, ListAssociationsCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * import { SSMClient, ListAssociationsCommand } from '@aws-sdk/client-ssm'; // ES Modules import
+ * // const { SSMClient, ListAssociationsCommand } = require('@aws-sdk/client-ssm'); // CommonJS import
  * const client = new SSMClient(config);
  * const input = { // ListAssociationsRequest
  *   AssociationFilterList: [ // AssociationFilterList
  *     { // AssociationFilter
- *       key: "InstanceId" || "Name" || "AssociationId" || "AssociationStatusName" || "LastExecutedBefore" || "LastExecutedAfter" || "AssociationName" || "ResourceGroupName", // required
- *       value: "STRING_VALUE", // required
+ *       key: 'InstanceId' || 'Name' || 'AssociationId' || 'AssociationStatusName' || 'LastExecutedBefore' || 'LastExecutedAfter' || 'AssociationName' || 'ResourceGroupName', // required
+ *       value: 'STRING_VALUE', // required
  *     },
  *   ],
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListAssociationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListAssociationsResult
+ *   Associations: [ // AssociationList
+ *     { // Association
+ *       Name: 'STRING_VALUE',
+ *       InstanceId: 'STRING_VALUE',
+ *       AssociationId: 'STRING_VALUE',
+ *       AssociationVersion: 'STRING_VALUE',
+ *       DocumentVersion: 'STRING_VALUE',
+ *       Targets: [ // Targets
+ *         { // Target
+ *           Key: 'STRING_VALUE',
+ *           Values: [ // TargetValues
+ *             'STRING_VALUE',
+ *           ],
+ *         },
+ *       ],
+ *       LastExecutionDate: new Date('TIMESTAMP'),
+ *       Overview: { // AssociationOverview
+ *         Status: 'STRING_VALUE',
+ *         DetailedStatus: 'STRING_VALUE',
+ *         AssociationStatusAggregatedCount: { // AssociationStatusAggregatedCount
+ *           '<keys>': Number('int'),
+ *         },
+ *       },
+ *       ScheduleExpression: 'STRING_VALUE',
+ *       AssociationName: 'STRING_VALUE',
+ *       ScheduleOffset: Number('int'),
+ *       TargetMaps: [ // TargetMaps
+ *         { // TargetMap
+ *           '<keys>': [ // TargetMapValueList
+ *             'STRING_VALUE',
+ *           ],
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListAssociationsCommandInput - {@link ListAssociationsCommandInput}
@@ -67,6 +107,8 @@ export interface ListAssociationsCommandOutput extends ListAssociationsResult, _
  * @throws {@link InvalidNextToken} (client fault)
  *  <p>The specified token isn't valid.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class ListAssociationsCommand extends $Command<

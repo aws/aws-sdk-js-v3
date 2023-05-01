@@ -40,14 +40,17 @@ export interface StopQueryExecutionCommandOutput extends StopQueryExecutionOutpu
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AthenaClient, StopQueryExecutionCommand } from "@aws-sdk/client-athena"; // ES Modules import
- * // const { AthenaClient, StopQueryExecutionCommand } = require("@aws-sdk/client-athena"); // CommonJS import
+ * import { AthenaClient, StopQueryExecutionCommand } from '@aws-sdk/client-athena'; // ES Modules import
+ * // const { AthenaClient, StopQueryExecutionCommand } = require('@aws-sdk/client-athena'); // CommonJS import
  * const client = new AthenaClient(config);
  * const input = { // StopQueryExecutionInput
- *   QueryExecutionId: "STRING_VALUE", // required
+ *   QueryExecutionId: 'STRING_VALUE', // required
  * };
  * const command = new StopQueryExecutionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param StopQueryExecutionCommandInput - {@link StopQueryExecutionCommandInput}
@@ -64,6 +67,8 @@ export interface StopQueryExecutionCommandOutput extends StopQueryExecutionOutpu
  *  <p>Indicates that something is wrong with the input to the request. For example, a
  *             required parameter may be missing or out of range.</p>
  *
+ * @throws {@link AthenaServiceException}
+ * <p>Base exception class for all service exceptions from Athena service.</p>
  *
  */
 export class StopQueryExecutionCommand extends $Command<

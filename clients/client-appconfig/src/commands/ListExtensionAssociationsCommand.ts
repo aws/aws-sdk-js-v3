@@ -39,18 +39,30 @@ export interface ListExtensionAssociationsCommandOutput extends ExtensionAssocia
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppConfigClient, ListExtensionAssociationsCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
- * // const { AppConfigClient, ListExtensionAssociationsCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import
+ * import { AppConfigClient, ListExtensionAssociationsCommand } from '@aws-sdk/client-appconfig'; // ES Modules import
+ * // const { AppConfigClient, ListExtensionAssociationsCommand } = require('@aws-sdk/client-appconfig'); // CommonJS import
  * const client = new AppConfigClient(config);
  * const input = { // ListExtensionAssociationsRequest
- *   ResourceIdentifier: "STRING_VALUE",
- *   ExtensionIdentifier: "STRING_VALUE",
- *   ExtensionVersionNumber: Number("int"),
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   ResourceIdentifier: 'STRING_VALUE',
+ *   ExtensionIdentifier: 'STRING_VALUE',
+ *   ExtensionVersionNumber: Number('int'),
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListExtensionAssociationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ExtensionAssociations
+ *   Items: [ // ExtensionAssociationSummaries
+ *     { // ExtensionAssociationSummary
+ *       Id: 'STRING_VALUE',
+ *       ExtensionArn: 'STRING_VALUE',
+ *       ResourceArn: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListExtensionAssociationsCommandInput - {@link ListExtensionAssociationsCommandInput}
@@ -65,6 +77,8 @@ export interface ListExtensionAssociationsCommandOutput extends ExtensionAssocia
  * @throws {@link InternalServerException} (server fault)
  *  <p>There was an internal failure in the AppConfig service.</p>
  *
+ * @throws {@link AppConfigServiceException}
+ * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
  */
 export class ListExtensionAssociationsCommand extends $Command<

@@ -39,15 +39,22 @@ export interface GetLogRecordCommandOutput extends GetLogRecordResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudWatchLogsClient, GetLogRecordCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
- * // const { CloudWatchLogsClient, GetLogRecordCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
+ * import { CloudWatchLogsClient, GetLogRecordCommand } from '@aws-sdk/client-cloudwatch-logs'; // ES Modules import
+ * // const { CloudWatchLogsClient, GetLogRecordCommand } = require('@aws-sdk/client-cloudwatch-logs'); // CommonJS import
  * const client = new CloudWatchLogsClient(config);
  * const input = { // GetLogRecordRequest
- *   logRecordPointer: "STRING_VALUE", // required
+ *   logRecordPointer: 'STRING_VALUE', // required
  *   unmask: true || false,
  * };
  * const command = new GetLogRecordCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetLogRecordResponse
+ *   logRecord: { // LogRecord
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetLogRecordCommandInput - {@link GetLogRecordCommandInput}
@@ -68,6 +75,8 @@ export interface GetLogRecordCommandOutput extends GetLogRecordResponse, __Metad
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service cannot complete the request.</p>
  *
+ * @throws {@link CloudWatchLogsServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
  */
 export class GetLogRecordCommand extends $Command<

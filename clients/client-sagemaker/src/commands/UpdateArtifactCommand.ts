@@ -36,21 +36,26 @@ export interface UpdateArtifactCommandOutput extends UpdateArtifactResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, UpdateArtifactCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, UpdateArtifactCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, UpdateArtifactCommand } from '@aws-sdk/client-sagemaker'; // ES Modules import
+ * // const { SageMakerClient, UpdateArtifactCommand } = require('@aws-sdk/client-sagemaker'); // CommonJS import
  * const client = new SageMakerClient(config);
  * const input = { // UpdateArtifactRequest
- *   ArtifactArn: "STRING_VALUE", // required
- *   ArtifactName: "STRING_VALUE",
+ *   ArtifactArn: 'STRING_VALUE', // required
+ *   ArtifactName: 'STRING_VALUE',
  *   Properties: { // LineageEntityParameters
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  *   PropertiesToRemove: [ // ListLineageEntityParameterKey
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new UpdateArtifactCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateArtifactResponse
+ *   ArtifactArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateArtifactCommandInput - {@link UpdateArtifactCommandInput}
@@ -66,6 +71,8 @@ export interface UpdateArtifactCommandOutput extends UpdateArtifactResponse, __M
  * @throws {@link ResourceNotFound} (client fault)
  *  <p>Resource being access is not found.</p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class UpdateArtifactCommand extends $Command<

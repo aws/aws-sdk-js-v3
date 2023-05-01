@@ -36,14 +36,17 @@ export interface DeleteProtectionCommandOutput extends DeleteProtectionResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ShieldClient, DeleteProtectionCommand } from "@aws-sdk/client-shield"; // ES Modules import
- * // const { ShieldClient, DeleteProtectionCommand } = require("@aws-sdk/client-shield"); // CommonJS import
+ * import { ShieldClient, DeleteProtectionCommand } from '@aws-sdk/client-shield'; // ES Modules import
+ * // const { ShieldClient, DeleteProtectionCommand } = require('@aws-sdk/client-shield'); // CommonJS import
  * const client = new ShieldClient(config);
  * const input = { // DeleteProtectionRequest
- *   ProtectionId: "STRING_VALUE", // required
+ *   ProtectionId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteProtectionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteProtectionCommandInput - {@link DeleteProtectionCommandInput}
@@ -62,6 +65,8 @@ export interface DeleteProtectionCommandOutput extends DeleteProtectionResponse,
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Exception indicating the specified resource does not exist. If available, this exception includes details in additional properties. </p>
  *
+ * @throws {@link ShieldServiceException}
+ * <p>Base exception class for all service exceptions from Shield service.</p>
  *
  */
 export class DeleteProtectionCommand extends $Command<

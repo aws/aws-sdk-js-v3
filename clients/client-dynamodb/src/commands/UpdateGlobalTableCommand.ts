@@ -78,24 +78,59 @@ export interface UpdateGlobalTableCommandOutput extends UpdateGlobalTableOutput,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DynamoDBClient, UpdateGlobalTableCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
- * // const { DynamoDBClient, UpdateGlobalTableCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
+ * import { DynamoDBClient, UpdateGlobalTableCommand } from '@aws-sdk/client-dynamodb'; // ES Modules import
+ * // const { DynamoDBClient, UpdateGlobalTableCommand } = require('@aws-sdk/client-dynamodb'); // CommonJS import
  * const client = new DynamoDBClient(config);
  * const input = { // UpdateGlobalTableInput
- *   GlobalTableName: "STRING_VALUE", // required
+ *   GlobalTableName: 'STRING_VALUE', // required
  *   ReplicaUpdates: [ // ReplicaUpdateList // required
  *     { // ReplicaUpdate
  *       Create: { // CreateReplicaAction
- *         RegionName: "STRING_VALUE", // required
+ *         RegionName: 'STRING_VALUE', // required
  *       },
  *       Delete: { // DeleteReplicaAction
- *         RegionName: "STRING_VALUE", // required
+ *         RegionName: 'STRING_VALUE', // required
  *       },
  *     },
  *   ],
  * };
  * const command = new UpdateGlobalTableCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateGlobalTableOutput
+ *   GlobalTableDescription: { // GlobalTableDescription
+ *     ReplicationGroup: [ // ReplicaDescriptionList
+ *       { // ReplicaDescription
+ *         RegionName: 'STRING_VALUE',
+ *         ReplicaStatus: 'CREATING' || 'CREATION_FAILED' || 'UPDATING' || 'DELETING' || 'ACTIVE' || 'REGION_DISABLED' || 'INACCESSIBLE_ENCRYPTION_CREDENTIALS',
+ *         ReplicaStatusDescription: 'STRING_VALUE',
+ *         ReplicaStatusPercentProgress: 'STRING_VALUE',
+ *         KMSMasterKeyId: 'STRING_VALUE',
+ *         ProvisionedThroughputOverride: { // ProvisionedThroughputOverride
+ *           ReadCapacityUnits: Number('long'),
+ *         },
+ *         GlobalSecondaryIndexes: [ // ReplicaGlobalSecondaryIndexDescriptionList
+ *           { // ReplicaGlobalSecondaryIndexDescription
+ *             IndexName: 'STRING_VALUE',
+ *             ProvisionedThroughputOverride: {
+ *               ReadCapacityUnits: Number('long'),
+ *             },
+ *           },
+ *         ],
+ *         ReplicaInaccessibleDateTime: new Date('TIMESTAMP'),
+ *         ReplicaTableClassSummary: { // TableClassSummary
+ *           TableClass: 'STANDARD' || 'STANDARD_INFREQUENT_ACCESS',
+ *           LastUpdateDateTime: new Date('TIMESTAMP'),
+ *         },
+ *       },
+ *     ],
+ *     GlobalTableArn: 'STRING_VALUE',
+ *     CreationDateTime: new Date('TIMESTAMP'),
+ *     GlobalTableStatus: 'CREATING' || 'ACTIVE' || 'DELETING' || 'UPDATING',
+ *     GlobalTableName: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateGlobalTableCommandInput - {@link UpdateGlobalTableCommandInput}
@@ -122,6 +157,8 @@ export interface UpdateGlobalTableCommandOutput extends UpdateGlobalTableOutput,
  *  <p>A source table with the name <code>TableName</code> does not currently exist within
  *             the subscriber's account or the subscriber is operating in the wrong Amazon Web Services Region.</p>
  *
+ * @throws {@link DynamoDBServiceException}
+ * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
  */
 export class UpdateGlobalTableCommand extends $Command<

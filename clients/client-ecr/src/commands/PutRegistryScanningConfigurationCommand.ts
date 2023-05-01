@@ -41,18 +41,18 @@ export interface PutRegistryScanningConfigurationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ECRClient, PutRegistryScanningConfigurationCommand } from "@aws-sdk/client-ecr"; // ES Modules import
- * // const { ECRClient, PutRegistryScanningConfigurationCommand } = require("@aws-sdk/client-ecr"); // CommonJS import
+ * import { ECRClient, PutRegistryScanningConfigurationCommand } from '@aws-sdk/client-ecr'; // ES Modules import
+ * // const { ECRClient, PutRegistryScanningConfigurationCommand } = require('@aws-sdk/client-ecr'); // CommonJS import
  * const client = new ECRClient(config);
  * const input = { // PutRegistryScanningConfigurationRequest
- *   scanType: "STRING_VALUE",
+ *   scanType: 'STRING_VALUE',
  *   rules: [ // RegistryScanningRuleList
  *     { // RegistryScanningRule
- *       scanFrequency: "STRING_VALUE", // required
+ *       scanFrequency: 'STRING_VALUE', // required
  *       repositoryFilters: [ // ScanningRepositoryFilterList // required
  *         { // ScanningRepositoryFilter
- *           filter: "STRING_VALUE", // required
- *           filterType: "STRING_VALUE", // required
+ *           filter: 'STRING_VALUE', // required
+ *           filterType: 'STRING_VALUE', // required
  *         },
  *       ],
  *     },
@@ -60,6 +60,24 @@ export interface PutRegistryScanningConfigurationCommandOutput
  * };
  * const command = new PutRegistryScanningConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutRegistryScanningConfigurationResponse
+ *   registryScanningConfiguration: { // RegistryScanningConfiguration
+ *     scanType: 'STRING_VALUE',
+ *     rules: [ // RegistryScanningRuleList
+ *       { // RegistryScanningRule
+ *         scanFrequency: 'STRING_VALUE', // required
+ *         repositoryFilters: [ // ScanningRepositoryFilterList // required
+ *           { // ScanningRepositoryFilter
+ *             filter: 'STRING_VALUE', // required
+ *             filterType: 'STRING_VALUE', // required
+ *           },
+ *         ],
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param PutRegistryScanningConfigurationCommandInput - {@link PutRegistryScanningConfigurationCommandInput}
@@ -78,6 +96,8 @@ export interface PutRegistryScanningConfigurationCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>There was an exception validating this request.</p>
  *
+ * @throws {@link ECRServiceException}
+ * <p>Base exception class for all service exceptions from ECR service.</p>
  *
  */
 export class PutRegistryScanningConfigurationCommand extends $Command<

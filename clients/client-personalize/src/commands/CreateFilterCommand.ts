@@ -36,22 +36,27 @@ export interface CreateFilterCommandOutput extends CreateFilterResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PersonalizeClient, CreateFilterCommand } from "@aws-sdk/client-personalize"; // ES Modules import
- * // const { PersonalizeClient, CreateFilterCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
+ * import { PersonalizeClient, CreateFilterCommand } from '@aws-sdk/client-personalize'; // ES Modules import
+ * // const { PersonalizeClient, CreateFilterCommand } = require('@aws-sdk/client-personalize'); // CommonJS import
  * const client = new PersonalizeClient(config);
  * const input = { // CreateFilterRequest
- *   name: "STRING_VALUE", // required
- *   datasetGroupArn: "STRING_VALUE", // required
- *   filterExpression: "STRING_VALUE", // required
+ *   name: 'STRING_VALUE', // required
+ *   datasetGroupArn: 'STRING_VALUE', // required
+ *   filterExpression: 'STRING_VALUE', // required
  *   tags: [ // Tags
  *     { // Tag
- *       tagKey: "STRING_VALUE", // required
- *       tagValue: "STRING_VALUE", // required
+ *       tagKey: 'STRING_VALUE', // required
+ *       tagValue: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreateFilterCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateFilterResponse
+ *   filterArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateFilterCommandInput - {@link CreateFilterCommandInput}
@@ -75,6 +80,8 @@ export interface CreateFilterCommandOutput extends CreateFilterResponse, __Metad
  * @throws {@link TooManyTagsException} (client fault)
  *  <p>You have exceeded the maximum number of tags you can apply to this resource. </p>
  *
+ * @throws {@link PersonalizeServiceException}
+ * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
  */
 export class CreateFilterCommand extends $Command<

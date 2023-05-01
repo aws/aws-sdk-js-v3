@@ -44,16 +44,45 @@ export interface DescribeStreamCommandOutput extends DescribeStreamOutput, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DynamoDBStreamsClient, DescribeStreamCommand } from "@aws-sdk/client-dynamodb-streams"; // ES Modules import
- * // const { DynamoDBStreamsClient, DescribeStreamCommand } = require("@aws-sdk/client-dynamodb-streams"); // CommonJS import
+ * import { DynamoDBStreamsClient, DescribeStreamCommand } from '@aws-sdk/client-dynamodb-streams'; // ES Modules import
+ * // const { DynamoDBStreamsClient, DescribeStreamCommand } = require('@aws-sdk/client-dynamodb-streams'); // CommonJS import
  * const client = new DynamoDBStreamsClient(config);
  * const input = { // DescribeStreamInput
- *   StreamArn: "STRING_VALUE", // required
- *   Limit: Number("int"),
- *   ExclusiveStartShardId: "STRING_VALUE",
+ *   StreamArn: 'STRING_VALUE', // required
+ *   Limit: Number('int'),
+ *   ExclusiveStartShardId: 'STRING_VALUE',
  * };
  * const command = new DescribeStreamCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeStreamOutput
+ *   StreamDescription: { // StreamDescription
+ *     StreamArn: 'STRING_VALUE',
+ *     StreamLabel: 'STRING_VALUE',
+ *     StreamStatus: 'ENABLING' || 'ENABLED' || 'DISABLING' || 'DISABLED',
+ *     StreamViewType: 'NEW_IMAGE' || 'OLD_IMAGE' || 'NEW_AND_OLD_IMAGES' || 'KEYS_ONLY',
+ *     CreationRequestDateTime: new Date('TIMESTAMP'),
+ *     TableName: 'STRING_VALUE',
+ *     KeySchema: [ // KeySchema
+ *       { // KeySchemaElement
+ *         AttributeName: 'STRING_VALUE', // required
+ *         KeyType: 'HASH' || 'RANGE', // required
+ *       },
+ *     ],
+ *     Shards: [ // ShardDescriptionList
+ *       { // Shard
+ *         ShardId: 'STRING_VALUE',
+ *         SequenceNumberRange: { // SequenceNumberRange
+ *           StartingSequenceNumber: 'STRING_VALUE',
+ *           EndingSequenceNumber: 'STRING_VALUE',
+ *         },
+ *         ParentShardId: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     LastEvaluatedShardId: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeStreamCommandInput - {@link DescribeStreamCommandInput}
@@ -70,6 +99,8 @@ export interface DescribeStreamCommandOutput extends DescribeStreamOutput, __Met
  *             might not be specified correctly, or its status might not be
  *             <code>ACTIVE</code>.</p>
  *
+ * @throws {@link DynamoDBStreamsServiceException}
+ * <p>Base exception class for all service exceptions from DynamoDBStreams service.</p>
  *
  * @example To describe a stream with a given stream ARN
  * ```javascript

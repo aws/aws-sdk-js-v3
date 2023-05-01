@@ -36,18 +36,38 @@ export interface ListRotationShiftsCommandOutput extends ListRotationShiftsResul
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMContactsClient, ListRotationShiftsCommand } from "@aws-sdk/client-ssm-contacts"; // ES Modules import
- * // const { SSMContactsClient, ListRotationShiftsCommand } = require("@aws-sdk/client-ssm-contacts"); // CommonJS import
+ * import { SSMContactsClient, ListRotationShiftsCommand } from '@aws-sdk/client-ssm-contacts'; // ES Modules import
+ * // const { SSMContactsClient, ListRotationShiftsCommand } = require('@aws-sdk/client-ssm-contacts'); // CommonJS import
  * const client = new SSMContactsClient(config);
  * const input = { // ListRotationShiftsRequest
- *   RotationId: "STRING_VALUE", // required
- *   StartTime: new Date("TIMESTAMP"),
- *   EndTime: new Date("TIMESTAMP"), // required
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   RotationId: 'STRING_VALUE', // required
+ *   StartTime: new Date('TIMESTAMP'),
+ *   EndTime: new Date('TIMESTAMP'), // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListRotationShiftsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListRotationShiftsResult
+ *   RotationShifts: [ // RotationShifts
+ *     { // RotationShift
+ *       ContactIds: [ // SsmContactsArnList
+ *         'STRING_VALUE',
+ *       ],
+ *       StartTime: new Date('TIMESTAMP'), // required
+ *       EndTime: new Date('TIMESTAMP'), // required
+ *       Type: 'REGULAR' || 'OVERRIDDEN',
+ *       ShiftDetails: { // ShiftDetails
+ *         OverriddenContactIds: [ // required
+ *           'STRING_VALUE',
+ *         ],
+ *       },
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListRotationShiftsCommandInput - {@link ListRotationShiftsCommandInput}
@@ -75,6 +95,8 @@ export interface ListRotationShiftsCommandOutput extends ListRotationShiftsResul
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
  *          service.</p>
  *
+ * @throws {@link SSMContactsServiceException}
+ * <p>Base exception class for all service exceptions from SSMContacts service.</p>
  *
  */
 export class ListRotationShiftsCommand extends $Command<

@@ -36,18 +36,44 @@ export interface DescribeConformancePacksCommandOutput extends DescribeConforman
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConfigServiceClient, DescribeConformancePacksCommand } from "@aws-sdk/client-config-service"; // ES Modules import
- * // const { ConfigServiceClient, DescribeConformancePacksCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
+ * import { ConfigServiceClient, DescribeConformancePacksCommand } from '@aws-sdk/client-config-service'; // ES Modules import
+ * // const { ConfigServiceClient, DescribeConformancePacksCommand } = require('@aws-sdk/client-config-service'); // CommonJS import
  * const client = new ConfigServiceClient(config);
  * const input = { // DescribeConformancePacksRequest
  *   ConformancePackNames: [ // ConformancePackNamesList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   Limit: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   Limit: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new DescribeConformancePacksCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeConformancePacksResponse
+ *   ConformancePackDetails: [ // ConformancePackDetailList
+ *     { // ConformancePackDetail
+ *       ConformancePackName: 'STRING_VALUE', // required
+ *       ConformancePackArn: 'STRING_VALUE', // required
+ *       ConformancePackId: 'STRING_VALUE', // required
+ *       DeliveryS3Bucket: 'STRING_VALUE',
+ *       DeliveryS3KeyPrefix: 'STRING_VALUE',
+ *       ConformancePackInputParameters: [ // ConformancePackInputParameters
+ *         { // ConformancePackInputParameter
+ *           ParameterName: 'STRING_VALUE', // required
+ *           ParameterValue: 'STRING_VALUE', // required
+ *         },
+ *       ],
+ *       LastUpdateRequestedTime: new Date('TIMESTAMP'),
+ *       CreatedBy: 'STRING_VALUE',
+ *       TemplateSSMDocumentDetails: { // TemplateSSMDocumentDetails
+ *         DocumentName: 'STRING_VALUE', // required
+ *         DocumentVersion: 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeConformancePacksCommandInput - {@link DescribeConformancePacksCommandInput}
@@ -71,6 +97,8 @@ export interface DescribeConformancePacksCommandOutput extends DescribeConforman
  * @throws {@link NoSuchConformancePackException} (client fault)
  *  <p>You specified one or more conformance packs that do not exist.</p>
  *
+ * @throws {@link ConfigServiceServiceException}
+ * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
  */
 export class DescribeConformancePacksCommand extends $Command<

@@ -94,46 +94,66 @@ export interface BatchUpdateFindingsCommandOutput extends BatchUpdateFindingsRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SecurityHubClient, BatchUpdateFindingsCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
- * // const { SecurityHubClient, BatchUpdateFindingsCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
+ * import { SecurityHubClient, BatchUpdateFindingsCommand } from '@aws-sdk/client-securityhub'; // ES Modules import
+ * // const { SecurityHubClient, BatchUpdateFindingsCommand } = require('@aws-sdk/client-securityhub'); // CommonJS import
  * const client = new SecurityHubClient(config);
  * const input = { // BatchUpdateFindingsRequest
  *   FindingIdentifiers: [ // AwsSecurityFindingIdentifierList // required
  *     { // AwsSecurityFindingIdentifier
- *       Id: "STRING_VALUE", // required
- *       ProductArn: "STRING_VALUE", // required
+ *       Id: 'STRING_VALUE', // required
+ *       ProductArn: 'STRING_VALUE', // required
  *     },
  *   ],
  *   Note: { // NoteUpdate
- *     Text: "STRING_VALUE", // required
- *     UpdatedBy: "STRING_VALUE", // required
+ *     Text: 'STRING_VALUE', // required
+ *     UpdatedBy: 'STRING_VALUE', // required
  *   },
  *   Severity: { // SeverityUpdate
- *     Normalized: Number("int"),
- *     Product: Number("double"),
- *     Label: "INFORMATIONAL" || "LOW" || "MEDIUM" || "HIGH" || "CRITICAL",
+ *     Normalized: Number('int'),
+ *     Product: Number('double'),
+ *     Label: 'INFORMATIONAL' || 'LOW' || 'MEDIUM' || 'HIGH' || 'CRITICAL',
  *   },
- *   VerificationState: "UNKNOWN" || "TRUE_POSITIVE" || "FALSE_POSITIVE" || "BENIGN_POSITIVE",
- *   Confidence: Number("int"),
- *   Criticality: Number("int"),
+ *   VerificationState: 'UNKNOWN' || 'TRUE_POSITIVE' || 'FALSE_POSITIVE' || 'BENIGN_POSITIVE',
+ *   Confidence: Number('int'),
+ *   Criticality: Number('int'),
  *   Types: [ // TypeList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   UserDefinedFields: { // FieldMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  *   Workflow: { // WorkflowUpdate
- *     Status: "NEW" || "NOTIFIED" || "RESOLVED" || "SUPPRESSED",
+ *     Status: 'NEW' || 'NOTIFIED' || 'RESOLVED' || 'SUPPRESSED',
  *   },
  *   RelatedFindings: [ // RelatedFindingList
  *     { // RelatedFinding
- *       ProductArn: "STRING_VALUE", // required
- *       Id: "STRING_VALUE", // required
+ *       ProductArn: 'STRING_VALUE', // required
+ *       Id: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new BatchUpdateFindingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BatchUpdateFindingsResponse
+ *   ProcessedFindings: [ // AwsSecurityFindingIdentifierList // required
+ *     { // AwsSecurityFindingIdentifier
+ *       Id: 'STRING_VALUE', // required
+ *       ProductArn: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ *   UnprocessedFindings: [ // BatchUpdateFindingsUnprocessedFindingsList // required
+ *     { // BatchUpdateFindingsUnprocessedFinding
+ *       FindingIdentifier: {
+ *         Id: 'STRING_VALUE', // required
+ *         ProductArn: 'STRING_VALUE', // required
+ *       },
+ *       ErrorCode: 'STRING_VALUE', // required
+ *       ErrorMessage: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param BatchUpdateFindingsCommandInput - {@link BatchUpdateFindingsCommandInput}
@@ -156,6 +176,8 @@ export interface BatchUpdateFindingsCommandOutput extends BatchUpdateFindingsRes
  *  <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services
  *          account or throttling limits. The error code describes the limit exceeded.</p>
  *
+ * @throws {@link SecurityHubServiceException}
+ * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
  * @example To update Security Hub findings
  * ```javascript

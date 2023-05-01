@@ -36,16 +36,26 @@ export interface CreateApiKeyCommandOutput extends CreateApiKeyResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppSyncClient, CreateApiKeyCommand } from "@aws-sdk/client-appsync"; // ES Modules import
- * // const { AppSyncClient, CreateApiKeyCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
+ * import { AppSyncClient, CreateApiKeyCommand } from '@aws-sdk/client-appsync'; // ES Modules import
+ * // const { AppSyncClient, CreateApiKeyCommand } = require('@aws-sdk/client-appsync'); // CommonJS import
  * const client = new AppSyncClient(config);
  * const input = { // CreateApiKeyRequest
- *   apiId: "STRING_VALUE", // required
- *   description: "STRING_VALUE",
- *   expires: Number("long"),
+ *   apiId: 'STRING_VALUE', // required
+ *   description: 'STRING_VALUE',
+ *   expires: Number('long'),
  * };
  * const command = new CreateApiKeyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateApiKeyResponse
+ *   apiKey: { // ApiKey
+ *     id: 'STRING_VALUE',
+ *     description: 'STRING_VALUE',
+ *     expires: Number('long'),
+ *     deletes: Number('long'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateApiKeyCommandInput - {@link CreateApiKeyCommandInput}
@@ -77,6 +87,8 @@ export interface CreateApiKeyCommandOutput extends CreateApiKeyResponse, __Metad
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You aren't authorized to perform this operation.</p>
  *
+ * @throws {@link AppSyncServiceException}
+ * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
  */
 export class CreateApiKeyCommand extends $Command<

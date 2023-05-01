@@ -54,14 +54,17 @@ export interface DeleteConfigurationSetTrackingOptionsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SESClient, DeleteConfigurationSetTrackingOptionsCommand } from "@aws-sdk/client-ses"; // ES Modules import
- * // const { SESClient, DeleteConfigurationSetTrackingOptionsCommand } = require("@aws-sdk/client-ses"); // CommonJS import
+ * import { SESClient, DeleteConfigurationSetTrackingOptionsCommand } from '@aws-sdk/client-ses'; // ES Modules import
+ * // const { SESClient, DeleteConfigurationSetTrackingOptionsCommand } = require('@aws-sdk/client-ses'); // CommonJS import
  * const client = new SESClient(config);
  * const input = { // DeleteConfigurationSetTrackingOptionsRequest
- *   ConfigurationSetName: "STRING_VALUE", // required
+ *   ConfigurationSetName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteConfigurationSetTrackingOptionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteConfigurationSetTrackingOptionsCommandInput - {@link DeleteConfigurationSetTrackingOptionsCommandInput}
@@ -76,6 +79,8 @@ export interface DeleteConfigurationSetTrackingOptionsCommandOutput
  * @throws {@link TrackingOptionsDoesNotExistException} (client fault)
  *  <p>Indicates that the TrackingOptions object you specified does not exist.</p>
  *
+ * @throws {@link SESServiceException}
+ * <p>Base exception class for all service exceptions from SES service.</p>
  *
  */
 export class DeleteConfigurationSetTrackingOptionsCommand extends $Command<

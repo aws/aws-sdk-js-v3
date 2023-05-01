@@ -36,14 +36,43 @@ export interface DeleteMultiplexCommandOutput extends DeleteMultiplexResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MediaLiveClient, DeleteMultiplexCommand } from "@aws-sdk/client-medialive"; // ES Modules import
- * // const { MediaLiveClient, DeleteMultiplexCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
+ * import { MediaLiveClient, DeleteMultiplexCommand } from '@aws-sdk/client-medialive'; // ES Modules import
+ * // const { MediaLiveClient, DeleteMultiplexCommand } = require('@aws-sdk/client-medialive'); // CommonJS import
  * const client = new MediaLiveClient(config);
  * const input = { // DeleteMultiplexRequest
- *   MultiplexId: "STRING_VALUE", // required
+ *   MultiplexId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteMultiplexCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteMultiplexResponse
+ *   Arn: 'STRING_VALUE',
+ *   AvailabilityZones: [ // __listOf__string
+ *     'STRING_VALUE',
+ *   ],
+ *   Destinations: [ // __listOfMultiplexOutputDestination
+ *     { // MultiplexOutputDestination
+ *       MediaConnectSettings: { // MultiplexMediaConnectOutputDestinationSettings
+ *         EntitlementArn: 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ *   Id: 'STRING_VALUE',
+ *   MultiplexSettings: { // MultiplexSettings
+ *     MaximumVideoBufferDelayMilliseconds: Number('int'),
+ *     TransportStreamBitrate: Number('int'), // required
+ *     TransportStreamId: Number('int'), // required
+ *     TransportStreamReservedBitrate: Number('int'),
+ *   },
+ *   Name: 'STRING_VALUE',
+ *   PipelinesRunningCount: Number('int'),
+ *   ProgramCount: Number('int'),
+ *   State: 'CREATING' || 'CREATE_FAILED' || 'IDLE' || 'STARTING' || 'RUNNING' || 'RECOVERING' || 'STOPPING' || 'DELETING' || 'DELETED',
+ *   Tags: { // Tags
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param DeleteMultiplexCommandInput - {@link DeleteMultiplexCommandInput}
@@ -76,6 +105,8 @@ export interface DeleteMultiplexCommandOutput extends DeleteMultiplexResponse, _
  * @throws {@link TooManyRequestsException} (client fault)
  *  Placeholder documentation for TooManyRequestsException
  *
+ * @throws {@link MediaLiveServiceException}
+ * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
  */
 export class DeleteMultiplexCommand extends $Command<

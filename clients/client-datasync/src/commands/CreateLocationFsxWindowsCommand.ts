@@ -40,27 +40,32 @@ export interface CreateLocationFsxWindowsCommandOutput extends CreateLocationFsx
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DataSyncClient, CreateLocationFsxWindowsCommand } from "@aws-sdk/client-datasync"; // ES Modules import
- * // const { DataSyncClient, CreateLocationFsxWindowsCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
+ * import { DataSyncClient, CreateLocationFsxWindowsCommand } from '@aws-sdk/client-datasync'; // ES Modules import
+ * // const { DataSyncClient, CreateLocationFsxWindowsCommand } = require('@aws-sdk/client-datasync'); // CommonJS import
  * const client = new DataSyncClient(config);
  * const input = { // CreateLocationFsxWindowsRequest
- *   Subdirectory: "STRING_VALUE",
- *   FsxFilesystemArn: "STRING_VALUE", // required
+ *   Subdirectory: 'STRING_VALUE',
+ *   FsxFilesystemArn: 'STRING_VALUE', // required
  *   SecurityGroupArns: [ // Ec2SecurityGroupArnList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   Tags: [ // InputTagList
  *     { // TagListEntry
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
- *   User: "STRING_VALUE", // required
- *   Domain: "STRING_VALUE",
- *   Password: "STRING_VALUE", // required
+ *   User: 'STRING_VALUE', // required
+ *   Domain: 'STRING_VALUE',
+ *   Password: 'STRING_VALUE', // required
  * };
  * const command = new CreateLocationFsxWindowsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateLocationFsxWindowsResponse
+ *   LocationArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateLocationFsxWindowsCommandInput - {@link CreateLocationFsxWindowsCommandInput}
@@ -76,6 +81,8 @@ export interface CreateLocationFsxWindowsCommandOutput extends CreateLocationFsx
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception is thrown when the client submits a malformed request.</p>
  *
+ * @throws {@link DataSyncServiceException}
+ * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
  */
 export class CreateLocationFsxWindowsCommand extends $Command<

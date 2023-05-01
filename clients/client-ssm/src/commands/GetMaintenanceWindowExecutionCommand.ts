@@ -41,14 +41,26 @@ export interface GetMaintenanceWindowExecutionCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMClient, GetMaintenanceWindowExecutionCommand } from "@aws-sdk/client-ssm"; // ES Modules import
- * // const { SSMClient, GetMaintenanceWindowExecutionCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * import { SSMClient, GetMaintenanceWindowExecutionCommand } from '@aws-sdk/client-ssm'; // ES Modules import
+ * // const { SSMClient, GetMaintenanceWindowExecutionCommand } = require('@aws-sdk/client-ssm'); // CommonJS import
  * const client = new SSMClient(config);
  * const input = { // GetMaintenanceWindowExecutionRequest
- *   WindowExecutionId: "STRING_VALUE", // required
+ *   WindowExecutionId: 'STRING_VALUE', // required
  * };
  * const command = new GetMaintenanceWindowExecutionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetMaintenanceWindowExecutionResult
+ *   WindowExecutionId: 'STRING_VALUE',
+ *   TaskIds: [ // MaintenanceWindowExecutionTaskIdList
+ *     'STRING_VALUE',
+ *   ],
+ *   Status: 'PENDING' || 'IN_PROGRESS' || 'SUCCESS' || 'FAILED' || 'TIMED_OUT' || 'CANCELLING' || 'CANCELLED' || 'SKIPPED_OVERLAPPING',
+ *   StatusDetails: 'STRING_VALUE',
+ *   StartTime: new Date('TIMESTAMP'),
+ *   EndTime: new Date('TIMESTAMP'),
+ * };
+ *
  * ```
  *
  * @param GetMaintenanceWindowExecutionCommandInput - {@link GetMaintenanceWindowExecutionCommandInput}
@@ -66,6 +78,8 @@ export interface GetMaintenanceWindowExecutionCommandOutput
  * @throws {@link InternalServerError} (server fault)
  *  <p>An error occurred on the server side.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class GetMaintenanceWindowExecutionCommand extends $Command<

@@ -39,16 +39,28 @@ export interface ListRoutingProfilesCommandOutput extends ListRoutingProfilesRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, ListRoutingProfilesCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, ListRoutingProfilesCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, ListRoutingProfilesCommand } from '@aws-sdk/client-connect'; // ES Modules import
+ * // const { ConnectClient, ListRoutingProfilesCommand } = require('@aws-sdk/client-connect'); // CommonJS import
  * const client = new ConnectClient(config);
  * const input = { // ListRoutingProfilesRequest
- *   InstanceId: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   InstanceId: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListRoutingProfilesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListRoutingProfilesResponse
+ *   RoutingProfileSummaryList: [ // RoutingProfileSummaryList
+ *     { // RoutingProfileSummary
+ *       Id: 'STRING_VALUE',
+ *       Arn: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListRoutingProfilesCommandInput - {@link ListRoutingProfilesCommandInput}
@@ -72,6 +84,8 @@ export interface ListRoutingProfilesCommandOutput extends ListRoutingProfilesRes
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class ListRoutingProfilesCommand extends $Command<

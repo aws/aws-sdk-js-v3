@@ -45,21 +45,39 @@ export interface ModifyInstanceCreditSpecificationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, ModifyInstanceCreditSpecificationCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, ModifyInstanceCreditSpecificationCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, ModifyInstanceCreditSpecificationCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, ModifyInstanceCreditSpecificationCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // ModifyInstanceCreditSpecificationRequest
  *   DryRun: true || false,
- *   ClientToken: "STRING_VALUE",
+ *   ClientToken: 'STRING_VALUE',
  *   InstanceCreditSpecifications: [ // InstanceCreditSpecificationListRequest // required
  *     { // InstanceCreditSpecificationRequest
- *       InstanceId: "STRING_VALUE", // required
- *       CpuCredits: "STRING_VALUE",
+ *       InstanceId: 'STRING_VALUE', // required
+ *       CpuCredits: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new ModifyInstanceCreditSpecificationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ModifyInstanceCreditSpecificationResult
+ *   SuccessfulInstanceCreditSpecifications: [ // SuccessfulInstanceCreditSpecificationSet
+ *     { // SuccessfulInstanceCreditSpecificationItem
+ *       InstanceId: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   UnsuccessfulInstanceCreditSpecifications: [ // UnsuccessfulInstanceCreditSpecificationSet
+ *     { // UnsuccessfulInstanceCreditSpecificationItem
+ *       InstanceId: 'STRING_VALUE',
+ *       Error: { // UnsuccessfulInstanceCreditSpecificationItemError
+ *         Code: 'InvalidInstanceID.Malformed' || 'InvalidInstanceID.NotFound' || 'IncorrectInstanceState' || 'InstanceCreditSpecification.NotSupported',
+ *         Message: 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ModifyInstanceCreditSpecificationCommandInput - {@link ModifyInstanceCreditSpecificationCommandInput}
@@ -68,6 +86,8 @@ export interface ModifyInstanceCreditSpecificationCommandOutput
  * @see {@link ModifyInstanceCreditSpecificationCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class ModifyInstanceCreditSpecificationCommand extends $Command<

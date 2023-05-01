@@ -36,17 +36,22 @@ export interface GetEndpointCommandOutput extends GetEndpointResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IotDeviceAdvisorClient, GetEndpointCommand } from "@aws-sdk/client-iotdeviceadvisor"; // ES Modules import
- * // const { IotDeviceAdvisorClient, GetEndpointCommand } = require("@aws-sdk/client-iotdeviceadvisor"); // CommonJS import
+ * import { IotDeviceAdvisorClient, GetEndpointCommand } from '@aws-sdk/client-iotdeviceadvisor'; // ES Modules import
+ * // const { IotDeviceAdvisorClient, GetEndpointCommand } = require('@aws-sdk/client-iotdeviceadvisor'); // CommonJS import
  * const client = new IotDeviceAdvisorClient(config);
  * const input = { // GetEndpointRequest
- *   thingArn: "STRING_VALUE",
- *   certificateArn: "STRING_VALUE",
- *   deviceRoleArn: "STRING_VALUE",
- *   authenticationMethod: "X509ClientCertificate" || "SignatureVersion4",
+ *   thingArn: 'STRING_VALUE',
+ *   certificateArn: 'STRING_VALUE',
+ *   deviceRoleArn: 'STRING_VALUE',
+ *   authenticationMethod: 'X509ClientCertificate' || 'SignatureVersion4',
  * };
  * const command = new GetEndpointCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetEndpointResponse
+ *   endpoint: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetEndpointCommandInput - {@link GetEndpointCommandInput}
@@ -64,6 +69,8 @@ export interface GetEndpointCommandOutput extends GetEndpointResponse, __Metadat
  * @throws {@link ValidationException} (client fault)
  *  <p>Sends a validation exception.</p>
  *
+ * @throws {@link IotDeviceAdvisorServiceException}
+ * <p>Base exception class for all service exceptions from IotDeviceAdvisor service.</p>
  *
  */
 export class GetEndpointCommand extends $Command<

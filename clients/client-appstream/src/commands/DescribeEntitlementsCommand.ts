@@ -36,17 +36,38 @@ export interface DescribeEntitlementsCommandOutput extends DescribeEntitlementsR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppStreamClient, DescribeEntitlementsCommand } from "@aws-sdk/client-appstream"; // ES Modules import
- * // const { AppStreamClient, DescribeEntitlementsCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
+ * import { AppStreamClient, DescribeEntitlementsCommand } from '@aws-sdk/client-appstream'; // ES Modules import
+ * // const { AppStreamClient, DescribeEntitlementsCommand } = require('@aws-sdk/client-appstream'); // CommonJS import
  * const client = new AppStreamClient(config);
  * const input = { // DescribeEntitlementsRequest
- *   Name: "STRING_VALUE",
- *   StackName: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   Name: 'STRING_VALUE',
+ *   StackName: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new DescribeEntitlementsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeEntitlementsResult
+ *   Entitlements: [ // EntitlementList
+ *     { // Entitlement
+ *       Name: 'STRING_VALUE', // required
+ *       StackName: 'STRING_VALUE', // required
+ *       Description: 'STRING_VALUE',
+ *       AppVisibility: 'ALL' || 'ASSOCIATED', // required
+ *       Attributes: [ // EntitlementAttributeList // required
+ *         { // EntitlementAttribute
+ *           Name: 'STRING_VALUE', // required
+ *           Value: 'STRING_VALUE', // required
+ *         },
+ *       ],
+ *       CreatedTime: new Date('TIMESTAMP'),
+ *       LastModifiedTime: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeEntitlementsCommandInput - {@link DescribeEntitlementsCommandInput}
@@ -64,6 +85,8 @@ export interface DescribeEntitlementsCommandOutput extends DescribeEntitlementsR
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link AppStreamServiceException}
+ * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
  */
 export class DescribeEntitlementsCommand extends $Command<

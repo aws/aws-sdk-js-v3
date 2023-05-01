@@ -86,42 +86,47 @@ export interface StartModelPackagingJobCommandOutput extends StartModelPackaging
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LookoutVisionClient, StartModelPackagingJobCommand } from "@aws-sdk/client-lookoutvision"; // ES Modules import
- * // const { LookoutVisionClient, StartModelPackagingJobCommand } = require("@aws-sdk/client-lookoutvision"); // CommonJS import
+ * import { LookoutVisionClient, StartModelPackagingJobCommand } from '@aws-sdk/client-lookoutvision'; // ES Modules import
+ * // const { LookoutVisionClient, StartModelPackagingJobCommand } = require('@aws-sdk/client-lookoutvision'); // CommonJS import
  * const client = new LookoutVisionClient(config);
  * const input = { // StartModelPackagingJobRequest
- *   ProjectName: "STRING_VALUE", // required
- *   ModelVersion: "STRING_VALUE", // required
- *   JobName: "STRING_VALUE",
+ *   ProjectName: 'STRING_VALUE', // required
+ *   ModelVersion: 'STRING_VALUE', // required
+ *   JobName: 'STRING_VALUE',
  *   Configuration: { // ModelPackagingConfiguration
  *     Greengrass: { // GreengrassConfiguration
- *       CompilerOptions: "STRING_VALUE",
- *       TargetDevice: "jetson_xavier",
+ *       CompilerOptions: 'STRING_VALUE',
+ *       TargetDevice: 'jetson_xavier',
  *       TargetPlatform: { // TargetPlatform
- *         Os: "LINUX", // required
- *         Arch: "ARM64" || "X86_64", // required
- *         Accelerator: "NVIDIA",
+ *         Os: 'LINUX', // required
+ *         Arch: 'ARM64' || 'X86_64', // required
+ *         Accelerator: 'NVIDIA',
  *       },
  *       S3OutputLocation: { // S3Location
- *         Bucket: "STRING_VALUE", // required
- *         Prefix: "STRING_VALUE",
+ *         Bucket: 'STRING_VALUE', // required
+ *         Prefix: 'STRING_VALUE',
  *       },
- *       ComponentName: "STRING_VALUE", // required
- *       ComponentVersion: "STRING_VALUE",
- *       ComponentDescription: "STRING_VALUE",
+ *       ComponentName: 'STRING_VALUE', // required
+ *       ComponentVersion: 'STRING_VALUE',
+ *       ComponentDescription: 'STRING_VALUE',
  *       Tags: [ // TagList
  *         { // Tag
- *           Key: "STRING_VALUE", // required
- *           Value: "STRING_VALUE", // required
+ *           Key: 'STRING_VALUE', // required
+ *           Value: 'STRING_VALUE', // required
  *         },
  *       ],
  *     },
  *   },
- *   Description: "STRING_VALUE",
- *   ClientToken: "STRING_VALUE",
+ *   Description: 'STRING_VALUE',
+ *   ClientToken: 'STRING_VALUE',
  * };
  * const command = new StartModelPackagingJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartModelPackagingJobResponse
+ *   JobName: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param StartModelPackagingJobCommandInput - {@link StartModelPackagingJobCommandInput}
@@ -153,6 +158,8 @@ export interface StartModelPackagingJobCommandOutput extends StartModelPackaging
  *  <p>An input validation error occured. For example, invalid characters in a project name,
  *       or if a pagination token is invalid.</p>
  *
+ * @throws {@link LookoutVisionServiceException}
+ * <p>Base exception class for all service exceptions from LookoutVision service.</p>
  *
  */
 export class StartModelPackagingJobCommand extends $Command<

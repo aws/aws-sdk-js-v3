@@ -45,21 +45,24 @@ export interface StartBulkDisassociateWirelessDeviceFromMulticastGroupCommandOut
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTWirelessClient, StartBulkDisassociateWirelessDeviceFromMulticastGroupCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
- * // const { IoTWirelessClient, StartBulkDisassociateWirelessDeviceFromMulticastGroupCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
+ * import { IoTWirelessClient, StartBulkDisassociateWirelessDeviceFromMulticastGroupCommand } from '@aws-sdk/client-iot-wireless'; // ES Modules import
+ * // const { IoTWirelessClient, StartBulkDisassociateWirelessDeviceFromMulticastGroupCommand } = require('@aws-sdk/client-iot-wireless'); // CommonJS import
  * const client = new IoTWirelessClient(config);
  * const input = { // StartBulkDisassociateWirelessDeviceFromMulticastGroupRequest
- *   Id: "STRING_VALUE", // required
- *   QueryString: "STRING_VALUE",
+ *   Id: 'STRING_VALUE', // required
+ *   QueryString: 'STRING_VALUE',
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new StartBulkDisassociateWirelessDeviceFromMulticastGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param StartBulkDisassociateWirelessDeviceFromMulticastGroupCommandInput - {@link StartBulkDisassociateWirelessDeviceFromMulticastGroupCommandInput}
@@ -83,6 +86,8 @@ export interface StartBulkDisassociateWirelessDeviceFromMulticastGroupCommandOut
  * @throws {@link ValidationException} (client fault)
  *  <p>The input did not meet the specified constraints.</p>
  *
+ * @throws {@link IoTWirelessServiceException}
+ * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
  */
 export class StartBulkDisassociateWirelessDeviceFromMulticastGroupCommand extends $Command<

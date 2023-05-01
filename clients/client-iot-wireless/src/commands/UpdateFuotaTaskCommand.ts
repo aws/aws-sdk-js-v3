@@ -36,24 +36,27 @@ export interface UpdateFuotaTaskCommandOutput extends UpdateFuotaTaskResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTWirelessClient, UpdateFuotaTaskCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
- * // const { IoTWirelessClient, UpdateFuotaTaskCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
+ * import { IoTWirelessClient, UpdateFuotaTaskCommand } from '@aws-sdk/client-iot-wireless'; // ES Modules import
+ * // const { IoTWirelessClient, UpdateFuotaTaskCommand } = require('@aws-sdk/client-iot-wireless'); // CommonJS import
  * const client = new IoTWirelessClient(config);
  * const input = { // UpdateFuotaTaskRequest
- *   Id: "STRING_VALUE", // required
- *   Name: "STRING_VALUE",
- *   Description: "STRING_VALUE",
+ *   Id: 'STRING_VALUE', // required
+ *   Name: 'STRING_VALUE',
+ *   Description: 'STRING_VALUE',
  *   LoRaWAN: { // LoRaWANFuotaTask
- *     RfRegion: "EU868" || "US915" || "AU915" || "AS923-1" || "AS923-2" || "AS923-3" || "AS923-4" || "EU433" || "CN470" || "CN779" || "RU864" || "KR920" || "IN865",
+ *     RfRegion: 'EU868' || 'US915' || 'AU915' || 'AS923-1' || 'AS923-2' || 'AS923-3' || 'AS923-4' || 'EU433' || 'CN470' || 'CN779' || 'RU864' || 'KR920' || 'IN865',
  *   },
- *   FirmwareUpdateImage: "STRING_VALUE",
- *   FirmwareUpdateRole: "STRING_VALUE",
- *   RedundancyPercent: Number("int"),
- *   FragmentSizeBytes: Number("int"),
- *   FragmentIntervalMS: Number("int"),
+ *   FirmwareUpdateImage: 'STRING_VALUE',
+ *   FirmwareUpdateRole: 'STRING_VALUE',
+ *   RedundancyPercent: Number('int'),
+ *   FragmentSizeBytes: Number('int'),
+ *   FragmentIntervalMS: Number('int'),
  * };
  * const command = new UpdateFuotaTaskCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateFuotaTaskCommandInput - {@link UpdateFuotaTaskCommandInput}
@@ -80,6 +83,8 @@ export interface UpdateFuotaTaskCommandOutput extends UpdateFuotaTaskResponse, _
  * @throws {@link ValidationException} (client fault)
  *  <p>The input did not meet the specified constraints.</p>
  *
+ * @throws {@link IoTWirelessServiceException}
+ * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
  */
 export class UpdateFuotaTaskCommand extends $Command<

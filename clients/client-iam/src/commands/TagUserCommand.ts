@@ -79,20 +79,23 @@ export interface TagUserCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IAMClient, TagUserCommand } from "@aws-sdk/client-iam"; // ES Modules import
- * // const { IAMClient, TagUserCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * import { IAMClient, TagUserCommand } from '@aws-sdk/client-iam'; // ES Modules import
+ * // const { IAMClient, TagUserCommand } = require('@aws-sdk/client-iam'); // CommonJS import
  * const client = new IAMClient(config);
  * const input = { // TagUserRequest
- *   UserName: "STRING_VALUE", // required
+ *   UserName: 'STRING_VALUE', // required
  *   Tags: [ // tagListType // required
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new TagUserCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param TagUserCommandInput - {@link TagUserCommandInput}
@@ -121,6 +124,8 @@ export interface TagUserCommandOutput extends __MetadataBearer {}
  *  <p>The request processing has failed because of an unknown error, exception or
  *       failure.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  * @example To add a tag key and value to an IAM user
  * ```javascript

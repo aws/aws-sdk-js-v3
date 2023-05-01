@@ -36,23 +36,30 @@ export interface StartAppCommandOutput extends StartAppOutput, __MetadataBearer 
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SimSpaceWeaverClient, StartAppCommand } from "@aws-sdk/client-simspaceweaver"; // ES Modules import
- * // const { SimSpaceWeaverClient, StartAppCommand } = require("@aws-sdk/client-simspaceweaver"); // CommonJS import
+ * import { SimSpaceWeaverClient, StartAppCommand } from '@aws-sdk/client-simspaceweaver'; // ES Modules import
+ * // const { SimSpaceWeaverClient, StartAppCommand } = require('@aws-sdk/client-simspaceweaver'); // CommonJS import
  * const client = new SimSpaceWeaverClient(config);
  * const input = { // StartAppInput
- *   ClientToken: "STRING_VALUE",
- *   Simulation: "STRING_VALUE", // required
- *   Domain: "STRING_VALUE", // required
- *   Name: "STRING_VALUE", // required
- *   Description: "STRING_VALUE",
+ *   ClientToken: 'STRING_VALUE',
+ *   Simulation: 'STRING_VALUE', // required
+ *   Domain: 'STRING_VALUE', // required
+ *   Name: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE',
  *   LaunchOverrides: { // LaunchOverrides
  *     LaunchCommands: [ // LaunchCommandList
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *   },
  * };
  * const command = new StartAppCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartAppOutput
+ *   Name: 'STRING_VALUE',
+ *   Domain: 'STRING_VALUE',
+ *   Simulation: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param StartAppCommandInput - {@link StartAppCommandInput}
@@ -76,6 +83,8 @@ export interface StartAppCommandOutput extends StartAppOutput, __MetadataBearer 
  * @throws {@link ValidationException} (client fault)
  *  <p/>
  *
+ * @throws {@link SimSpaceWeaverServiceException}
+ * <p>Base exception class for all service exceptions from SimSpaceWeaver service.</p>
  *
  */
 export class StartAppCommand extends $Command<

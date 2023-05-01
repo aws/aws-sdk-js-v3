@@ -49,17 +49,40 @@ export interface DescribeElasticLoadBalancersCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OpsWorksClient, DescribeElasticLoadBalancersCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
- * // const { OpsWorksClient, DescribeElasticLoadBalancersCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
+ * import { OpsWorksClient, DescribeElasticLoadBalancersCommand } from '@aws-sdk/client-opsworks'; // ES Modules import
+ * // const { OpsWorksClient, DescribeElasticLoadBalancersCommand } = require('@aws-sdk/client-opsworks'); // CommonJS import
  * const client = new OpsWorksClient(config);
  * const input = { // DescribeElasticLoadBalancersRequest
- *   StackId: "STRING_VALUE",
+ *   StackId: 'STRING_VALUE',
  *   LayerIds: [ // Strings
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new DescribeElasticLoadBalancersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeElasticLoadBalancersResult
+ *   ElasticLoadBalancers: [ // ElasticLoadBalancers
+ *     { // ElasticLoadBalancer
+ *       ElasticLoadBalancerName: 'STRING_VALUE',
+ *       Region: 'STRING_VALUE',
+ *       DnsName: 'STRING_VALUE',
+ *       StackId: 'STRING_VALUE',
+ *       LayerId: 'STRING_VALUE',
+ *       VpcId: 'STRING_VALUE',
+ *       AvailabilityZones: [ // Strings
+ *         'STRING_VALUE',
+ *       ],
+ *       SubnetIds: [
+ *         'STRING_VALUE',
+ *       ],
+ *       Ec2InstanceIds: [
+ *         'STRING_VALUE',
+ *       ],
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeElasticLoadBalancersCommandInput - {@link DescribeElasticLoadBalancersCommandInput}
@@ -74,6 +97,8 @@ export interface DescribeElasticLoadBalancersCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>Indicates that a request was not valid.</p>
  *
+ * @throws {@link OpsWorksServiceException}
+ * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
  */
 export class DescribeElasticLoadBalancersCommand extends $Command<

@@ -44,14 +44,17 @@ export interface DeleteClusterSecurityGroupCommandOutput extends __MetadataBeare
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RedshiftClient, DeleteClusterSecurityGroupCommand } from "@aws-sdk/client-redshift"; // ES Modules import
- * // const { RedshiftClient, DeleteClusterSecurityGroupCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * import { RedshiftClient, DeleteClusterSecurityGroupCommand } from '@aws-sdk/client-redshift'; // ES Modules import
+ * // const { RedshiftClient, DeleteClusterSecurityGroupCommand } = require('@aws-sdk/client-redshift'); // CommonJS import
  * const client = new RedshiftClient(config);
  * const input = { // DeleteClusterSecurityGroupMessage
- *   ClusterSecurityGroupName: "STRING_VALUE", // required
+ *   ClusterSecurityGroupName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteClusterSecurityGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteClusterSecurityGroupCommandInput - {@link DeleteClusterSecurityGroupCommandInput}
@@ -67,6 +70,8 @@ export interface DeleteClusterSecurityGroupCommandOutput extends __MetadataBeare
  * @throws {@link InvalidClusterSecurityGroupStateFault} (client fault)
  *  <p>The state of the cluster security group is not <code>available</code>. </p>
  *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class DeleteClusterSecurityGroupCommand extends $Command<

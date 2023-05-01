@@ -43,15 +43,33 @@ export interface ListInstancesCommandOutput extends ListInstancesResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, ListInstancesCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, ListInstancesCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, ListInstancesCommand } from '@aws-sdk/client-connect'; // ES Modules import
+ * // const { ConnectClient, ListInstancesCommand } = require('@aws-sdk/client-connect'); // CommonJS import
  * const client = new ConnectClient(config);
  * const input = { // ListInstancesRequest
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListInstancesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListInstancesResponse
+ *   InstanceSummaryList: [ // InstanceSummaryList
+ *     { // InstanceSummary
+ *       Id: 'STRING_VALUE',
+ *       Arn: 'STRING_VALUE',
+ *       IdentityManagementType: 'SAML' || 'CONNECT_MANAGED' || 'EXISTING_DIRECTORY',
+ *       InstanceAlias: 'STRING_VALUE',
+ *       CreatedTime: new Date('TIMESTAMP'),
+ *       ServiceRole: 'STRING_VALUE',
+ *       InstanceStatus: 'CREATION_IN_PROGRESS' || 'ACTIVE' || 'CREATION_FAILED',
+ *       InboundCallsEnabled: true || false,
+ *       OutboundCallsEnabled: true || false,
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListInstancesCommandInput - {@link ListInstancesCommandInput}
@@ -66,6 +84,8 @@ export interface ListInstancesCommandOutput extends ListInstancesResponse, __Met
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>The request is not valid.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class ListInstancesCommand extends $Command<

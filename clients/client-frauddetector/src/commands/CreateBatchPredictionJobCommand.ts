@@ -36,26 +36,29 @@ export interface CreateBatchPredictionJobCommandOutput extends CreateBatchPredic
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FraudDetectorClient, CreateBatchPredictionJobCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
- * // const { FraudDetectorClient, CreateBatchPredictionJobCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
+ * import { FraudDetectorClient, CreateBatchPredictionJobCommand } from '@aws-sdk/client-frauddetector'; // ES Modules import
+ * // const { FraudDetectorClient, CreateBatchPredictionJobCommand } = require('@aws-sdk/client-frauddetector'); // CommonJS import
  * const client = new FraudDetectorClient(config);
  * const input = { // CreateBatchPredictionJobRequest
- *   jobId: "STRING_VALUE", // required
- *   inputPath: "STRING_VALUE", // required
- *   outputPath: "STRING_VALUE", // required
- *   eventTypeName: "STRING_VALUE", // required
- *   detectorName: "STRING_VALUE", // required
- *   detectorVersion: "STRING_VALUE",
- *   iamRoleArn: "STRING_VALUE", // required
+ *   jobId: 'STRING_VALUE', // required
+ *   inputPath: 'STRING_VALUE', // required
+ *   outputPath: 'STRING_VALUE', // required
+ *   eventTypeName: 'STRING_VALUE', // required
+ *   detectorName: 'STRING_VALUE', // required
+ *   detectorVersion: 'STRING_VALUE',
+ *   iamRoleArn: 'STRING_VALUE', // required
  *   tags: [ // tagList
  *     { // Tag
- *       key: "STRING_VALUE", // required
- *       value: "STRING_VALUE", // required
+ *       key: 'STRING_VALUE', // required
+ *       value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreateBatchPredictionJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param CreateBatchPredictionJobCommandInput - {@link CreateBatchPredictionJobCommandInput}
@@ -79,6 +82,8 @@ export interface CreateBatchPredictionJobCommandOutput extends CreateBatchPredic
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception indicating a specified value is not allowed.</p>
  *
+ * @throws {@link FraudDetectorServiceException}
+ * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
  */
 export class CreateBatchPredictionJobCommand extends $Command<

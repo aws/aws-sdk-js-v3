@@ -38,15 +38,24 @@ export interface PutAccountSettingDefaultCommandOutput extends PutAccountSetting
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ECSClient, PutAccountSettingDefaultCommand } from "@aws-sdk/client-ecs"; // ES Modules import
- * // const { ECSClient, PutAccountSettingDefaultCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
+ * import { ECSClient, PutAccountSettingDefaultCommand } from '@aws-sdk/client-ecs'; // ES Modules import
+ * // const { ECSClient, PutAccountSettingDefaultCommand } = require('@aws-sdk/client-ecs'); // CommonJS import
  * const client = new ECSClient(config);
  * const input = { // PutAccountSettingDefaultRequest
- *   name: "serviceLongArnFormat" || "taskLongArnFormat" || "containerInstanceLongArnFormat" || "awsvpcTrunking" || "containerInsights" || "fargateFIPSMode" || "tagResourceAuthorization", // required
- *   value: "STRING_VALUE", // required
+ *   name: 'serviceLongArnFormat' || 'taskLongArnFormat' || 'containerInstanceLongArnFormat' || 'awsvpcTrunking' || 'containerInsights' || 'fargateFIPSMode' || 'tagResourceAuthorization', // required
+ *   value: 'STRING_VALUE', // required
  * };
  * const command = new PutAccountSettingDefaultCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutAccountSettingDefaultResponse
+ *   setting: { // Setting
+ *     name: 'serviceLongArnFormat' || 'taskLongArnFormat' || 'containerInstanceLongArnFormat' || 'awsvpcTrunking' || 'containerInsights' || 'fargateFIPSMode' || 'tagResourceAuthorization',
+ *     value: 'STRING_VALUE',
+ *     principalArn: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param PutAccountSettingDefaultCommandInput - {@link PutAccountSettingDefaultCommandInput}
@@ -67,6 +76,8 @@ export interface PutAccountSettingDefaultCommandOutput extends PutAccountSetting
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server issue.</p>
  *
+ * @throws {@link ECSServiceException}
+ * <p>Base exception class for all service exceptions from ECS service.</p>
  *
  * @example To modify the default account settings for all IAM users or roles on an account
  * ```javascript

@@ -36,14 +36,17 @@ export interface DeleteFindingsFilterCommandOutput extends DeleteFindingsFilterR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Macie2Client, DeleteFindingsFilterCommand } from "@aws-sdk/client-macie2"; // ES Modules import
- * // const { Macie2Client, DeleteFindingsFilterCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
+ * import { Macie2Client, DeleteFindingsFilterCommand } from '@aws-sdk/client-macie2'; // ES Modules import
+ * // const { Macie2Client, DeleteFindingsFilterCommand } = require('@aws-sdk/client-macie2'); // CommonJS import
  * const client = new Macie2Client(config);
  * const input = { // DeleteFindingsFilterRequest
- *   id: "STRING_VALUE", // required
+ *   id: 'STRING_VALUE', // required
  * };
  * const command = new DeleteFindingsFilterCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteFindingsFilterCommandInput - {@link DeleteFindingsFilterCommandInput}
@@ -73,6 +76,8 @@ export interface DeleteFindingsFilterCommandOutput extends DeleteFindingsFilterR
  * @throws {@link ValidationException} (client fault)
  *  <p>Provides information about an error that occurred due to a syntax error in a request.</p>
  *
+ * @throws {@link Macie2ServiceException}
+ * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
  */
 export class DeleteFindingsFilterCommand extends $Command<

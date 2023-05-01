@@ -37,20 +37,23 @@ export interface SetTagsForResourceCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { InspectorClient, SetTagsForResourceCommand } from "@aws-sdk/client-inspector"; // ES Modules import
- * // const { InspectorClient, SetTagsForResourceCommand } = require("@aws-sdk/client-inspector"); // CommonJS import
+ * import { InspectorClient, SetTagsForResourceCommand } from '@aws-sdk/client-inspector'; // ES Modules import
+ * // const { InspectorClient, SetTagsForResourceCommand } = require('@aws-sdk/client-inspector'); // CommonJS import
  * const client = new InspectorClient(config);
  * const input = { // SetTagsForResourceRequest
- *   resourceArn: "STRING_VALUE", // required
+ *   resourceArn: 'STRING_VALUE', // required
  *   tags: [ // TagList
  *     { // Tag
- *       key: "STRING_VALUE", // required
- *       value: "STRING_VALUE",
+ *       key: 'STRING_VALUE', // required
+ *       value: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new SetTagsForResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param SetTagsForResourceCommandInput - {@link SetTagsForResourceCommandInput}
@@ -76,6 +79,8 @@ export interface SetTagsForResourceCommandOutput extends __MetadataBearer {}
  * @throws {@link ServiceTemporarilyUnavailableException} (server fault)
  *  <p>The serice is temporary unavailable.</p>
  *
+ * @throws {@link InspectorServiceException}
+ * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
  * @example Set tags for resource
  * ```javascript

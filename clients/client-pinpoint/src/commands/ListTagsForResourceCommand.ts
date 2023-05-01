@@ -36,14 +36,23 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PinpointClient, ListTagsForResourceCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
- * // const { PinpointClient, ListTagsForResourceCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
+ * import { PinpointClient, ListTagsForResourceCommand } from '@aws-sdk/client-pinpoint'; // ES Modules import
+ * // const { PinpointClient, ListTagsForResourceCommand } = require('@aws-sdk/client-pinpoint'); // CommonJS import
  * const client = new PinpointClient(config);
  * const input = { // ListTagsForResourceRequest
- *   ResourceArn: "STRING_VALUE", // required
+ *   ResourceArn: 'STRING_VALUE', // required
  * };
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTagsForResourceResponse
+ *   TagsModel: { // TagsModel
+ *     tags: { // MapOf__string // required
+ *       '<keys>': 'STRING_VALUE',
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param ListTagsForResourceCommandInput - {@link ListTagsForResourceCommandInput}
@@ -52,6 +61,8 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @see {@link ListTagsForResourceCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
  *
+ * @throws {@link PinpointServiceException}
+ * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
  */
 export class ListTagsForResourceCommand extends $Command<

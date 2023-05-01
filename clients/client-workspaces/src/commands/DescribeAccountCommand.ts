@@ -37,12 +37,18 @@ export interface DescribeAccountCommandOutput extends DescribeAccountResult, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkSpacesClient, DescribeAccountCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
- * // const { WorkSpacesClient, DescribeAccountCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
+ * import { WorkSpacesClient, DescribeAccountCommand } from '@aws-sdk/client-workspaces'; // ES Modules import
+ * // const { WorkSpacesClient, DescribeAccountCommand } = require('@aws-sdk/client-workspaces'); // CommonJS import
  * const client = new WorkSpacesClient(config);
  * const input = {};
  * const command = new DescribeAccountCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeAccountResult
+ *   DedicatedTenancySupport: 'ENABLED' || 'DISABLED',
+ *   DedicatedTenancyManagementCidrRange: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeAccountCommandInput - {@link DescribeAccountCommandInput}
@@ -54,6 +60,8 @@ export interface DescribeAccountCommandOutput extends DescribeAccountResult, __M
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>The user is not authorized to access a resource.</p>
  *
+ * @throws {@link WorkSpacesServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
  */
 export class DescribeAccountCommand extends $Command<

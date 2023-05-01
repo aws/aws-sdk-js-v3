@@ -44,19 +44,35 @@ export interface ListThingsCommandOutput extends ListThingsResponse, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTClient, ListThingsCommand } from "@aws-sdk/client-iot"; // ES Modules import
- * // const { IoTClient, ListThingsCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * import { IoTClient, ListThingsCommand } from '@aws-sdk/client-iot'; // ES Modules import
+ * // const { IoTClient, ListThingsCommand } = require('@aws-sdk/client-iot'); // CommonJS import
  * const client = new IoTClient(config);
  * const input = { // ListThingsRequest
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
- *   attributeName: "STRING_VALUE",
- *   attributeValue: "STRING_VALUE",
- *   thingTypeName: "STRING_VALUE",
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
+ *   attributeName: 'STRING_VALUE',
+ *   attributeValue: 'STRING_VALUE',
+ *   thingTypeName: 'STRING_VALUE',
  *   usePrefixAttributeValue: true || false,
  * };
  * const command = new ListThingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListThingsResponse
+ *   things: [ // ThingAttributeList
+ *     { // ThingAttribute
+ *       thingName: 'STRING_VALUE',
+ *       thingTypeName: 'STRING_VALUE',
+ *       thingArn: 'STRING_VALUE',
+ *       attributes: { // Attributes
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *       version: Number('long'),
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListThingsCommandInput - {@link ListThingsCommandInput}
@@ -80,6 +96,8 @@ export interface ListThingsCommandOutput extends ListThingsResponse, __MetadataB
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this operation.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class ListThingsCommand extends $Command<

@@ -37,14 +37,28 @@ export interface DescribeBillingGroupCommandOutput extends DescribeBillingGroupR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTClient, DescribeBillingGroupCommand } from "@aws-sdk/client-iot"; // ES Modules import
- * // const { IoTClient, DescribeBillingGroupCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * import { IoTClient, DescribeBillingGroupCommand } from '@aws-sdk/client-iot'; // ES Modules import
+ * // const { IoTClient, DescribeBillingGroupCommand } = require('@aws-sdk/client-iot'); // CommonJS import
  * const client = new IoTClient(config);
  * const input = { // DescribeBillingGroupRequest
- *   billingGroupName: "STRING_VALUE", // required
+ *   billingGroupName: 'STRING_VALUE', // required
  * };
  * const command = new DescribeBillingGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeBillingGroupResponse
+ *   billingGroupName: 'STRING_VALUE',
+ *   billingGroupId: 'STRING_VALUE',
+ *   billingGroupArn: 'STRING_VALUE',
+ *   version: Number('long'),
+ *   billingGroupProperties: { // BillingGroupProperties
+ *     billingGroupDescription: 'STRING_VALUE',
+ *   },
+ *   billingGroupMetadata: { // BillingGroupMetadata
+ *     creationDate: new Date('TIMESTAMP'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeBillingGroupCommandInput - {@link DescribeBillingGroupCommandInput}
@@ -65,6 +79,8 @@ export interface DescribeBillingGroupCommandOutput extends DescribeBillingGroupR
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The rate exceeds the limit.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class DescribeBillingGroupCommand extends $Command<

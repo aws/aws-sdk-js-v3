@@ -38,16 +38,24 @@ export interface DeleteBotLocaleCommandOutput extends DeleteBotLocaleResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LexModelsV2Client, DeleteBotLocaleCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
- * // const { LexModelsV2Client, DeleteBotLocaleCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
+ * import { LexModelsV2Client, DeleteBotLocaleCommand } from '@aws-sdk/client-lex-models-v2'; // ES Modules import
+ * // const { LexModelsV2Client, DeleteBotLocaleCommand } = require('@aws-sdk/client-lex-models-v2'); // CommonJS import
  * const client = new LexModelsV2Client(config);
  * const input = { // DeleteBotLocaleRequest
- *   botId: "STRING_VALUE", // required
- *   botVersion: "STRING_VALUE", // required
- *   localeId: "STRING_VALUE", // required
+ *   botId: 'STRING_VALUE', // required
+ *   botVersion: 'STRING_VALUE', // required
+ *   localeId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteBotLocaleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteBotLocaleResponse
+ *   botId: 'STRING_VALUE',
+ *   botVersion: 'STRING_VALUE',
+ *   localeId: 'STRING_VALUE',
+ *   botLocaleStatus: 'Creating' || 'Building' || 'Built' || 'ReadyExpressTesting' || 'Failed' || 'Deleting' || 'NotBuilt' || 'Importing' || 'Processing',
+ * };
+ *
  * ```
  *
  * @param DeleteBotLocaleCommandInput - {@link DeleteBotLocaleCommandInput}
@@ -81,6 +89,8 @@ export interface DeleteBotLocaleCommandOutput extends DeleteBotLocaleResponse, _
  *  <p>One of the input parameters in your request isn't valid. Check the
  *          parameters and try your request again.</p>
  *
+ * @throws {@link LexModelsV2ServiceException}
+ * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
  */
 export class DeleteBotLocaleCommand extends $Command<

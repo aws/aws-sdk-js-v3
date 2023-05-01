@@ -36,14 +36,34 @@ export interface DeleteClusterSnapshotCommandOutput extends DeleteClusterSnapsho
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DocDBElasticClient, DeleteClusterSnapshotCommand } from "@aws-sdk/client-docdb-elastic"; // ES Modules import
- * // const { DocDBElasticClient, DeleteClusterSnapshotCommand } = require("@aws-sdk/client-docdb-elastic"); // CommonJS import
+ * import { DocDBElasticClient, DeleteClusterSnapshotCommand } from '@aws-sdk/client-docdb-elastic'; // ES Modules import
+ * // const { DocDBElasticClient, DeleteClusterSnapshotCommand } = require('@aws-sdk/client-docdb-elastic'); // CommonJS import
  * const client = new DocDBElasticClient(config);
  * const input = { // DeleteClusterSnapshotInput
- *   snapshotArn: "STRING_VALUE", // required
+ *   snapshotArn: 'STRING_VALUE', // required
  * };
  * const command = new DeleteClusterSnapshotCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteClusterSnapshotOutput
+ *   snapshot: { // ClusterSnapshot
+ *     subnetIds: [ // StringList // required
+ *       'STRING_VALUE',
+ *     ],
+ *     snapshotName: 'STRING_VALUE', // required
+ *     snapshotArn: 'STRING_VALUE', // required
+ *     snapshotCreationTime: 'STRING_VALUE', // required
+ *     clusterArn: 'STRING_VALUE', // required
+ *     clusterCreationTime: 'STRING_VALUE', // required
+ *     status: 'STRING_VALUE', // required
+ *     vpcSecurityGroupIds: [ // required
+ *       'STRING_VALUE',
+ *     ],
+ *     adminUserName: 'STRING_VALUE', // required
+ *     kmsKeyId: 'STRING_VALUE', // required
+ *   },
+ * };
+ *
  * ```
  *
  * @param DeleteClusterSnapshotCommandInput - {@link DeleteClusterSnapshotCommandInput}
@@ -70,6 +90,8 @@ export interface DeleteClusterSnapshotCommandOutput extends DeleteClusterSnapsho
  * @throws {@link ValidationException} (client fault)
  *  <p>A structure defining a validation exception.</p>
  *
+ * @throws {@link DocDBElasticServiceException}
+ * <p>Base exception class for all service exceptions from DocDBElastic service.</p>
  *
  */
 export class DeleteClusterSnapshotCommand extends $Command<

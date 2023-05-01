@@ -36,20 +36,37 @@ export interface ListTypeVersionsCommandOutput extends ListTypeVersionsOutput, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudFormationClient, ListTypeVersionsCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
- * // const { CloudFormationClient, ListTypeVersionsCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
+ * import { CloudFormationClient, ListTypeVersionsCommand } from '@aws-sdk/client-cloudformation'; // ES Modules import
+ * // const { CloudFormationClient, ListTypeVersionsCommand } = require('@aws-sdk/client-cloudformation'); // CommonJS import
  * const client = new CloudFormationClient(config);
  * const input = { // ListTypeVersionsInput
- *   Type: "RESOURCE" || "MODULE" || "HOOK",
- *   TypeName: "STRING_VALUE",
- *   Arn: "STRING_VALUE",
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
- *   DeprecatedStatus: "LIVE" || "DEPRECATED",
- *   PublisherId: "STRING_VALUE",
+ *   Type: 'RESOURCE' || 'MODULE' || 'HOOK',
+ *   TypeName: 'STRING_VALUE',
+ *   Arn: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
+ *   DeprecatedStatus: 'LIVE' || 'DEPRECATED',
+ *   PublisherId: 'STRING_VALUE',
  * };
  * const command = new ListTypeVersionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTypeVersionsOutput
+ *   TypeVersionSummaries: [ // TypeVersionSummaries
+ *     { // TypeVersionSummary
+ *       Type: 'RESOURCE' || 'MODULE' || 'HOOK',
+ *       TypeName: 'STRING_VALUE',
+ *       VersionId: 'STRING_VALUE',
+ *       IsDefaultVersion: true || false,
+ *       Arn: 'STRING_VALUE',
+ *       TimeCreated: new Date('TIMESTAMP'),
+ *       Description: 'STRING_VALUE',
+ *       PublicVersionNumber: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListTypeVersionsCommandInput - {@link ListTypeVersionsCommandInput}
@@ -61,6 +78,8 @@ export interface ListTypeVersionsCommandOutput extends ListTypeVersionsOutput, _
  * @throws {@link CFNRegistryException} (client fault)
  *  <p>An error occurred during a CloudFormation registry operation.</p>
  *
+ * @throws {@link CloudFormationServiceException}
+ * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
  */
 export class ListTypeVersionsCommand extends $Command<

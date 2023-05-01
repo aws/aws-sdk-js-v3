@@ -37,12 +37,22 @@ export interface DescribeVirtualGatewaysCommandOutput extends VirtualGateways, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DirectConnectClient, DescribeVirtualGatewaysCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
- * // const { DirectConnectClient, DescribeVirtualGatewaysCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
+ * import { DirectConnectClient, DescribeVirtualGatewaysCommand } from '@aws-sdk/client-direct-connect'; // ES Modules import
+ * // const { DirectConnectClient, DescribeVirtualGatewaysCommand } = require('@aws-sdk/client-direct-connect'); // CommonJS import
  * const client = new DirectConnectClient(config);
  * const input = {};
  * const command = new DescribeVirtualGatewaysCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // VirtualGateways
+ *   virtualGateways: [ // VirtualGatewayList
+ *     { // VirtualGateway
+ *       virtualGatewayId: 'STRING_VALUE',
+ *       virtualGatewayState: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeVirtualGatewaysCommandInput - {@link DescribeVirtualGatewaysCommandInput}
@@ -57,6 +67,8 @@ export interface DescribeVirtualGatewaysCommandOutput extends VirtualGateways, _
  * @throws {@link DirectConnectServerException} (server fault)
  *  <p>A server-side error occurred.</p>
  *
+ * @throws {@link DirectConnectServiceException}
+ * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
  */
 export class DescribeVirtualGatewaysCommand extends $Command<

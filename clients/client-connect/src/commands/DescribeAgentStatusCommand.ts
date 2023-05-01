@@ -37,15 +37,31 @@ export interface DescribeAgentStatusCommandOutput extends DescribeAgentStatusRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, DescribeAgentStatusCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, DescribeAgentStatusCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, DescribeAgentStatusCommand } from '@aws-sdk/client-connect'; // ES Modules import
+ * // const { ConnectClient, DescribeAgentStatusCommand } = require('@aws-sdk/client-connect'); // CommonJS import
  * const client = new ConnectClient(config);
  * const input = { // DescribeAgentStatusRequest
- *   InstanceId: "STRING_VALUE", // required
- *   AgentStatusId: "STRING_VALUE", // required
+ *   InstanceId: 'STRING_VALUE', // required
+ *   AgentStatusId: 'STRING_VALUE', // required
  * };
  * const command = new DescribeAgentStatusCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeAgentStatusResponse
+ *   AgentStatus: { // AgentStatus
+ *     AgentStatusARN: 'STRING_VALUE',
+ *     AgentStatusId: 'STRING_VALUE',
+ *     Name: 'STRING_VALUE',
+ *     Description: 'STRING_VALUE',
+ *     Type: 'ROUTABLE' || 'CUSTOM' || 'OFFLINE',
+ *     DisplayOrder: Number('int'),
+ *     State: 'ENABLED' || 'DISABLED',
+ *     Tags: { // TagMap
+ *       '<keys>': 'STRING_VALUE',
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeAgentStatusCommandInput - {@link DescribeAgentStatusCommandInput}
@@ -69,6 +85,8 @@ export interface DescribeAgentStatusCommandOutput extends DescribeAgentStatusRes
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class DescribeAgentStatusCommand extends $Command<

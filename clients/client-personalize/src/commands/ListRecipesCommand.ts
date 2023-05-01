@@ -37,17 +37,32 @@ export interface ListRecipesCommandOutput extends ListRecipesResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PersonalizeClient, ListRecipesCommand } from "@aws-sdk/client-personalize"; // ES Modules import
- * // const { PersonalizeClient, ListRecipesCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
+ * import { PersonalizeClient, ListRecipesCommand } from '@aws-sdk/client-personalize'; // ES Modules import
+ * // const { PersonalizeClient, ListRecipesCommand } = require('@aws-sdk/client-personalize'); // CommonJS import
  * const client = new PersonalizeClient(config);
  * const input = { // ListRecipesRequest
- *   recipeProvider: "SERVICE",
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
- *   domain: "ECOMMERCE" || "VIDEO_ON_DEMAND",
+ *   recipeProvider: 'SERVICE',
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
+ *   domain: 'ECOMMERCE' || 'VIDEO_ON_DEMAND',
  * };
  * const command = new ListRecipesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListRecipesResponse
+ *   recipes: [ // Recipes
+ *     { // RecipeSummary
+ *       name: 'STRING_VALUE',
+ *       recipeArn: 'STRING_VALUE',
+ *       status: 'STRING_VALUE',
+ *       creationDateTime: new Date('TIMESTAMP'),
+ *       lastUpdatedDateTime: new Date('TIMESTAMP'),
+ *       domain: 'ECOMMERCE' || 'VIDEO_ON_DEMAND',
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListRecipesCommandInput - {@link ListRecipesCommandInput}
@@ -62,6 +77,8 @@ export interface ListRecipesCommandOutput extends ListRecipesResponse, __Metadat
  * @throws {@link InvalidNextTokenException} (client fault)
  *  <p>The token is not valid.</p>
  *
+ * @throws {@link PersonalizeServiceException}
+ * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
  */
 export class ListRecipesCommand extends $Command<

@@ -36,14 +36,17 @@ export interface DeleteLoggingConfigurationCommandOutput extends __MetadataBeare
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IvschatClient, DeleteLoggingConfigurationCommand } from "@aws-sdk/client-ivschat"; // ES Modules import
- * // const { IvschatClient, DeleteLoggingConfigurationCommand } = require("@aws-sdk/client-ivschat"); // CommonJS import
+ * import { IvschatClient, DeleteLoggingConfigurationCommand } from '@aws-sdk/client-ivschat'; // ES Modules import
+ * // const { IvschatClient, DeleteLoggingConfigurationCommand } = require('@aws-sdk/client-ivschat'); // CommonJS import
  * const client = new IvschatClient(config);
  * const input = { // DeleteLoggingConfigurationRequest
- *   identifier: "STRING_VALUE", // required
+ *   identifier: 'STRING_VALUE', // required
  * };
  * const command = new DeleteLoggingConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteLoggingConfigurationCommandInput - {@link DeleteLoggingConfigurationCommandInput}
@@ -67,6 +70,8 @@ export interface DeleteLoggingConfigurationCommandOutput extends __MetadataBeare
  * @throws {@link ValidationException} (client fault)
  *  <p/>
  *
+ * @throws {@link IvschatServiceException}
+ * <p>Base exception class for all service exceptions from Ivschat service.</p>
  *
  */
 export class DeleteLoggingConfigurationCommand extends $Command<

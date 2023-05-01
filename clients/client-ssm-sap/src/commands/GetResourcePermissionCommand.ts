@@ -36,15 +36,20 @@ export interface GetResourcePermissionCommandOutput extends GetResourcePermissio
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SsmSapClient, GetResourcePermissionCommand } from "@aws-sdk/client-ssm-sap"; // ES Modules import
- * // const { SsmSapClient, GetResourcePermissionCommand } = require("@aws-sdk/client-ssm-sap"); // CommonJS import
+ * import { SsmSapClient, GetResourcePermissionCommand } from '@aws-sdk/client-ssm-sap'; // ES Modules import
+ * // const { SsmSapClient, GetResourcePermissionCommand } = require('@aws-sdk/client-ssm-sap'); // CommonJS import
  * const client = new SsmSapClient(config);
  * const input = { // GetResourcePermissionInput
- *   ActionType: "STRING_VALUE",
- *   ResourceArn: "STRING_VALUE", // required
+ *   ActionType: 'STRING_VALUE',
+ *   ResourceArn: 'STRING_VALUE', // required
  * };
  * const command = new GetResourcePermissionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetResourcePermissionOutput
+ *   Policy: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetResourcePermissionCommandInput - {@link GetResourcePermissionCommandInput}
@@ -62,6 +67,8 @@ export interface GetResourcePermissionCommandOutput extends GetResourcePermissio
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service. </p>
  *
+ * @throws {@link SsmSapServiceException}
+ * <p>Base exception class for all service exceptions from SsmSap service.</p>
  *
  */
 export class GetResourcePermissionCommand extends $Command<

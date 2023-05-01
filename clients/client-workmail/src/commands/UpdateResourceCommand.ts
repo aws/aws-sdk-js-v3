@@ -38,13 +38,13 @@ export interface UpdateResourceCommandOutput extends UpdateResourceResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkMailClient, UpdateResourceCommand } from "@aws-sdk/client-workmail"; // ES Modules import
- * // const { WorkMailClient, UpdateResourceCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
+ * import { WorkMailClient, UpdateResourceCommand } from '@aws-sdk/client-workmail'; // ES Modules import
+ * // const { WorkMailClient, UpdateResourceCommand } = require('@aws-sdk/client-workmail'); // CommonJS import
  * const client = new WorkMailClient(config);
  * const input = { // UpdateResourceRequest
- *   OrganizationId: "STRING_VALUE", // required
- *   ResourceId: "STRING_VALUE", // required
- *   Name: "STRING_VALUE",
+ *   OrganizationId: 'STRING_VALUE', // required
+ *   ResourceId: 'STRING_VALUE', // required
+ *   Name: 'STRING_VALUE',
  *   BookingOptions: { // BookingOptions
  *     AutoAcceptRequests: true || false,
  *     AutoDeclineRecurringRequests: true || false,
@@ -53,6 +53,9 @@ export interface UpdateResourceCommandOutput extends UpdateResourceResponse, __M
  * };
  * const command = new UpdateResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateResourceCommandInput - {@link UpdateResourceCommandInput}
@@ -99,6 +102,8 @@ export interface UpdateResourceCommandOutput extends UpdateResourceResponse, __M
  *  <p>The organization must have a valid state to perform certain
  *          operations on the organization or its members.</p>
  *
+ * @throws {@link WorkMailServiceException}
+ * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
  */
 export class UpdateResourceCommand extends $Command<

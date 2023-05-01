@@ -49,8 +49,8 @@ export interface AdminSetUserMFAPreferenceCommandOutput extends AdminSetUserMFAP
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CognitoIdentityProviderClient, AdminSetUserMFAPreferenceCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
- * // const { CognitoIdentityProviderClient, AdminSetUserMFAPreferenceCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
+ * import { CognitoIdentityProviderClient, AdminSetUserMFAPreferenceCommand } from '@aws-sdk/client-cognito-identity-provider'; // ES Modules import
+ * // const { CognitoIdentityProviderClient, AdminSetUserMFAPreferenceCommand } = require('@aws-sdk/client-cognito-identity-provider'); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
  * const input = { // AdminSetUserMFAPreferenceRequest
  *   SMSMfaSettings: { // SMSMfaSettingsType
@@ -61,11 +61,14 @@ export interface AdminSetUserMFAPreferenceCommandOutput extends AdminSetUserMFAP
  *     Enabled: true || false,
  *     PreferredMfa: true || false,
  *   },
- *   Username: "STRING_VALUE", // required
- *   UserPoolId: "STRING_VALUE", // required
+ *   Username: 'STRING_VALUE', // required
+ *   UserPoolId: 'STRING_VALUE', // required
  * };
  * const command = new AdminSetUserMFAPreferenceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param AdminSetUserMFAPreferenceCommandInput - {@link AdminSetUserMFAPreferenceCommandInput}
@@ -97,6 +100,8 @@ export interface AdminSetUserMFAPreferenceCommandOutput extends AdminSetUserMFAP
  * @throws {@link UserNotFoundException} (client fault)
  *  <p>This exception is thrown when a user isn't found.</p>
  *
+ * @throws {@link CognitoIdentityProviderServiceException}
+ * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
  */
 export class AdminSetUserMFAPreferenceCommand extends $Command<

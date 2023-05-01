@@ -54,17 +54,20 @@ export interface StopStreamEncryptionCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KinesisClient, StopStreamEncryptionCommand } from "@aws-sdk/client-kinesis"; // ES Modules import
- * // const { KinesisClient, StopStreamEncryptionCommand } = require("@aws-sdk/client-kinesis"); // CommonJS import
+ * import { KinesisClient, StopStreamEncryptionCommand } from '@aws-sdk/client-kinesis'; // ES Modules import
+ * // const { KinesisClient, StopStreamEncryptionCommand } = require('@aws-sdk/client-kinesis'); // CommonJS import
  * const client = new KinesisClient(config);
  * const input = { // StopStreamEncryptionInput
- *   StreamName: "STRING_VALUE",
- *   EncryptionType: "NONE" || "KMS", // required
- *   KeyId: "STRING_VALUE", // required
- *   StreamARN: "STRING_VALUE",
+ *   StreamName: 'STRING_VALUE',
+ *   EncryptionType: 'NONE' || 'KMS', // required
+ *   KeyId: 'STRING_VALUE', // required
+ *   StreamARN: 'STRING_VALUE',
  * };
  * const command = new StopStreamEncryptionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param StopStreamEncryptionCommandInput - {@link StopStreamEncryptionCommandInput}
@@ -93,6 +96,8 @@ export interface StopStreamEncryptionCommandOutput extends __MetadataBearer {}
  *  <p>The requested resource could not be found. The stream might not be specified
  *             correctly.</p>
  *
+ * @throws {@link KinesisServiceException}
+ * <p>Base exception class for all service exceptions from Kinesis service.</p>
  *
  */
 export class StopStreamEncryptionCommand extends $Command<

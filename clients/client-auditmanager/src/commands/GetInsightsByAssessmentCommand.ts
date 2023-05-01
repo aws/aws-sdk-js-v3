@@ -36,14 +36,26 @@ export interface GetInsightsByAssessmentCommandOutput extends GetInsightsByAsses
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AuditManagerClient, GetInsightsByAssessmentCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
- * // const { AuditManagerClient, GetInsightsByAssessmentCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import
+ * import { AuditManagerClient, GetInsightsByAssessmentCommand } from '@aws-sdk/client-auditmanager'; // ES Modules import
+ * // const { AuditManagerClient, GetInsightsByAssessmentCommand } = require('@aws-sdk/client-auditmanager'); // CommonJS import
  * const client = new AuditManagerClient(config);
  * const input = { // GetInsightsByAssessmentRequest
- *   assessmentId: "STRING_VALUE", // required
+ *   assessmentId: 'STRING_VALUE', // required
  * };
  * const command = new GetInsightsByAssessmentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetInsightsByAssessmentResponse
+ *   insights: { // InsightsByAssessment
+ *     noncompliantEvidenceCount: Number('int'),
+ *     compliantEvidenceCount: Number('int'),
+ *     inconclusiveEvidenceCount: Number('int'),
+ *     assessmentControlsCountByNoncompliantEvidence: Number('int'),
+ *     totalAssessmentControlsCount: Number('int'),
+ *     lastUpdated: new Date('TIMESTAMP'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetInsightsByAssessmentCommandInput - {@link GetInsightsByAssessmentCommandInput}
@@ -66,6 +78,8 @@ export interface GetInsightsByAssessmentCommandOutput extends GetInsightsByAsses
  * @throws {@link ValidationException} (client fault)
  *  <p> The request has invalid or missing parameters. </p>
  *
+ * @throws {@link AuditManagerServiceException}
+ * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
  */
 export class GetInsightsByAssessmentCommand extends $Command<

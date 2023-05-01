@@ -36,14 +36,47 @@ export interface DescribeEphemerisCommandOutput extends DescribeEphemerisRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GroundStationClient, DescribeEphemerisCommand } from "@aws-sdk/client-groundstation"; // ES Modules import
- * // const { GroundStationClient, DescribeEphemerisCommand } = require("@aws-sdk/client-groundstation"); // CommonJS import
+ * import { GroundStationClient, DescribeEphemerisCommand } from '@aws-sdk/client-groundstation'; // ES Modules import
+ * // const { GroundStationClient, DescribeEphemerisCommand } = require('@aws-sdk/client-groundstation'); // CommonJS import
  * const client = new GroundStationClient(config);
  * const input = { // DescribeEphemerisRequest
- *   ephemerisId: "STRING_VALUE", // required
+ *   ephemerisId: 'STRING_VALUE', // required
  * };
  * const command = new DescribeEphemerisCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeEphemerisResponse
+ *   ephemerisId: 'STRING_VALUE',
+ *   satelliteId: 'STRING_VALUE',
+ *   status: 'STRING_VALUE',
+ *   priority: Number('int'),
+ *   creationTime: new Date('TIMESTAMP'),
+ *   enabled: true || false,
+ *   name: 'STRING_VALUE',
+ *   tags: { // TagsMap
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ *   suppliedData: { // EphemerisTypeDescription Union: only one key present
+ *     tle: { // EphemerisDescription
+ *       sourceS3Object: { // S3Object
+ *         bucket: 'STRING_VALUE',
+ *         key: 'STRING_VALUE',
+ *         version: 'STRING_VALUE',
+ *       },
+ *       ephemerisData: 'STRING_VALUE',
+ *     },
+ *     oem: {
+ *       sourceS3Object: {
+ *         bucket: 'STRING_VALUE',
+ *         key: 'STRING_VALUE',
+ *         version: 'STRING_VALUE',
+ *       },
+ *       ephemerisData: 'STRING_VALUE',
+ *     },
+ *   },
+ *   invalidReason: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeEphemerisCommandInput - {@link DescribeEphemerisCommandInput}
@@ -61,6 +94,8 @@ export interface DescribeEphemerisCommandOutput extends DescribeEphemerisRespons
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Resource was not found.</p>
  *
+ * @throws {@link GroundStationServiceException}
+ * <p>Base exception class for all service exceptions from GroundStation service.</p>
  *
  */
 export class DescribeEphemerisCommand extends $Command<

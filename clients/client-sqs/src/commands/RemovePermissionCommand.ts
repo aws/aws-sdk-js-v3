@@ -51,15 +51,18 @@ export interface RemovePermissionCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SQSClient, RemovePermissionCommand } from "@aws-sdk/client-sqs"; // ES Modules import
- * // const { SQSClient, RemovePermissionCommand } = require("@aws-sdk/client-sqs"); // CommonJS import
+ * import { SQSClient, RemovePermissionCommand } from '@aws-sdk/client-sqs'; // ES Modules import
+ * // const { SQSClient, RemovePermissionCommand } = require('@aws-sdk/client-sqs'); // CommonJS import
  * const client = new SQSClient(config);
  * const input = { // RemovePermissionRequest
- *   QueueUrl: "STRING_VALUE", // required
- *   Label: "STRING_VALUE", // required
+ *   QueueUrl: 'STRING_VALUE', // required
+ *   Label: 'STRING_VALUE', // required
  * };
  * const command = new RemovePermissionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param RemovePermissionCommandInput - {@link RemovePermissionCommandInput}
@@ -68,6 +71,8 @@ export interface RemovePermissionCommandOutput extends __MetadataBearer {}
  * @see {@link RemovePermissionCommandOutput} for command's `response` shape.
  * @see {@link SQSClientResolvedConfig | config} for SQSClient's `config` shape.
  *
+ * @throws {@link SQSServiceException}
+ * <p>Base exception class for all service exceptions from SQS service.</p>
  *
  */
 export class RemovePermissionCommand extends $Command<

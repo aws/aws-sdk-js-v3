@@ -37,16 +37,28 @@ export interface ListLayoutsCommandOutput extends ListLayoutsResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectCasesClient, ListLayoutsCommand } from "@aws-sdk/client-connectcases"; // ES Modules import
- * // const { ConnectCasesClient, ListLayoutsCommand } = require("@aws-sdk/client-connectcases"); // CommonJS import
+ * import { ConnectCasesClient, ListLayoutsCommand } from '@aws-sdk/client-connectcases'; // ES Modules import
+ * // const { ConnectCasesClient, ListLayoutsCommand } = require('@aws-sdk/client-connectcases'); // CommonJS import
  * const client = new ConnectCasesClient(config);
  * const input = { // ListLayoutsRequest
- *   domainId: "STRING_VALUE", // required
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   domainId: 'STRING_VALUE', // required
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new ListLayoutsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListLayoutsResponse
+ *   layouts: [ // LayoutSummaryList // required
+ *     { // LayoutSummary
+ *       layoutId: 'STRING_VALUE', // required
+ *       layoutArn: 'STRING_VALUE', // required
+ *       name: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListLayoutsCommandInput - {@link ListLayoutsCommandInput}
@@ -72,6 +84,8 @@ export interface ListLayoutsCommandOutput extends ListLayoutsResponse, __Metadat
  * @throws {@link ValidationException} (client fault)
  *  <p>The request isn't valid. Check the syntax and try again.</p>
  *
+ * @throws {@link ConnectCasesServiceException}
+ * <p>Base exception class for all service exceptions from ConnectCases service.</p>
  *
  */
 export class ListLayoutsCommand extends $Command<

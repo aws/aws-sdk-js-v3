@@ -38,12 +38,24 @@ export interface GetServicesInScopeCommandOutput extends GetServicesInScopeRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AuditManagerClient, GetServicesInScopeCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
- * // const { AuditManagerClient, GetServicesInScopeCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import
+ * import { AuditManagerClient, GetServicesInScopeCommand } from '@aws-sdk/client-auditmanager'; // ES Modules import
+ * // const { AuditManagerClient, GetServicesInScopeCommand } = require('@aws-sdk/client-auditmanager'); // CommonJS import
  * const client = new AuditManagerClient(config);
  * const input = {};
  * const command = new GetServicesInScopeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetServicesInScopeResponse
+ *   serviceMetadata: [ // ServiceMetadataList
+ *     { // ServiceMetadata
+ *       name: 'STRING_VALUE',
+ *       displayName: 'STRING_VALUE',
+ *       description: 'STRING_VALUE',
+ *       category: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetServicesInScopeCommandInput - {@link GetServicesInScopeCommandInput}
@@ -63,6 +75,8 @@ export interface GetServicesInScopeCommandOutput extends GetServicesInScopeRespo
  * @throws {@link ValidationException} (client fault)
  *  <p> The request has invalid or missing parameters. </p>
  *
+ * @throws {@link AuditManagerServiceException}
+ * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
  */
 export class GetServicesInScopeCommand extends $Command<

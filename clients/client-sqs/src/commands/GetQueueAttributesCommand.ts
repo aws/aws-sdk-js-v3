@@ -39,17 +39,24 @@ export interface GetQueueAttributesCommandOutput extends GetQueueAttributesResul
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SQSClient, GetQueueAttributesCommand } from "@aws-sdk/client-sqs"; // ES Modules import
- * // const { SQSClient, GetQueueAttributesCommand } = require("@aws-sdk/client-sqs"); // CommonJS import
+ * import { SQSClient, GetQueueAttributesCommand } from '@aws-sdk/client-sqs'; // ES Modules import
+ * // const { SQSClient, GetQueueAttributesCommand } = require('@aws-sdk/client-sqs'); // CommonJS import
  * const client = new SQSClient(config);
  * const input = { // GetQueueAttributesRequest
- *   QueueUrl: "STRING_VALUE", // required
+ *   QueueUrl: 'STRING_VALUE', // required
  *   AttributeNames: [ // AttributeNameList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new GetQueueAttributesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetQueueAttributesResult
+ *   Attributes: { // QueueAttributeMap
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetQueueAttributesCommandInput - {@link GetQueueAttributesCommandInput}
@@ -61,6 +68,8 @@ export interface GetQueueAttributesCommandOutput extends GetQueueAttributesResul
  * @throws {@link InvalidAttributeName} (client fault)
  *  <p>The specified attribute doesn't exist.</p>
  *
+ * @throws {@link SQSServiceException}
+ * <p>Base exception class for all service exceptions from SQS service.</p>
  *
  */
 export class GetQueueAttributesCommand extends $Command<

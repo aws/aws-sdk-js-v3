@@ -45,17 +45,20 @@ export interface DeregisterTypeCommandOutput extends DeregisterTypeOutput, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudFormationClient, DeregisterTypeCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
- * // const { CloudFormationClient, DeregisterTypeCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
+ * import { CloudFormationClient, DeregisterTypeCommand } from '@aws-sdk/client-cloudformation'; // ES Modules import
+ * // const { CloudFormationClient, DeregisterTypeCommand } = require('@aws-sdk/client-cloudformation'); // CommonJS import
  * const client = new CloudFormationClient(config);
  * const input = { // DeregisterTypeInput
- *   Arn: "STRING_VALUE",
- *   Type: "RESOURCE" || "MODULE" || "HOOK",
- *   TypeName: "STRING_VALUE",
- *   VersionId: "STRING_VALUE",
+ *   Arn: 'STRING_VALUE',
+ *   Type: 'RESOURCE' || 'MODULE' || 'HOOK',
+ *   TypeName: 'STRING_VALUE',
+ *   VersionId: 'STRING_VALUE',
  * };
  * const command = new DeregisterTypeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeregisterTypeCommandInput - {@link DeregisterTypeCommandInput}
@@ -70,6 +73,8 @@ export interface DeregisterTypeCommandOutput extends DeregisterTypeOutput, __Met
  * @throws {@link TypeNotFoundException} (client fault)
  *  <p>The specified extension doesn't exist in the CloudFormation registry.</p>
  *
+ * @throws {@link CloudFormationServiceException}
+ * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
  */
 export class DeregisterTypeCommand extends $Command<

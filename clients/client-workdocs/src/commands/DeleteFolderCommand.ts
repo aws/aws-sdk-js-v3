@@ -36,15 +36,18 @@ export interface DeleteFolderCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkDocsClient, DeleteFolderCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
- * // const { WorkDocsClient, DeleteFolderCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import
+ * import { WorkDocsClient, DeleteFolderCommand } from '@aws-sdk/client-workdocs'; // ES Modules import
+ * // const { WorkDocsClient, DeleteFolderCommand } = require('@aws-sdk/client-workdocs'); // CommonJS import
  * const client = new WorkDocsClient(config);
  * const input = { // DeleteFolderRequest
- *   AuthenticationToken: "STRING_VALUE",
- *   FolderId: "STRING_VALUE", // required
+ *   AuthenticationToken: 'STRING_VALUE',
+ *   FolderId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteFolderCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteFolderCommandInput - {@link DeleteFolderCommandInput}
@@ -82,6 +85,8 @@ export interface DeleteFolderCommandOutput extends __MetadataBearer {}
  * @throws {@link UnauthorizedResourceAccessException} (client fault)
  *  <p>The caller does not have access to perform the action on the resource.</p>
  *
+ * @throws {@link WorkDocsServiceException}
+ * <p>Base exception class for all service exceptions from WorkDocs service.</p>
  *
  */
 export class DeleteFolderCommand extends $Command<

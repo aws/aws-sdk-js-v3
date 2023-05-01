@@ -36,23 +36,40 @@ export interface ListModelPackagesCommandOutput extends ListModelPackagesOutput,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, ListModelPackagesCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, ListModelPackagesCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, ListModelPackagesCommand } from '@aws-sdk/client-sagemaker'; // ES Modules import
+ * // const { SageMakerClient, ListModelPackagesCommand } = require('@aws-sdk/client-sagemaker'); // CommonJS import
  * const client = new SageMakerClient(config);
  * const input = { // ListModelPackagesInput
- *   CreationTimeAfter: new Date("TIMESTAMP"),
- *   CreationTimeBefore: new Date("TIMESTAMP"),
- *   MaxResults: Number("int"),
- *   NameContains: "STRING_VALUE",
- *   ModelApprovalStatus: "Approved" || "Rejected" || "PendingManualApproval",
- *   ModelPackageGroupName: "STRING_VALUE",
- *   ModelPackageType: "Versioned" || "Unversioned" || "Both",
- *   NextToken: "STRING_VALUE",
- *   SortBy: "Name" || "CreationTime",
- *   SortOrder: "Ascending" || "Descending",
+ *   CreationTimeAfter: new Date('TIMESTAMP'),
+ *   CreationTimeBefore: new Date('TIMESTAMP'),
+ *   MaxResults: Number('int'),
+ *   NameContains: 'STRING_VALUE',
+ *   ModelApprovalStatus: 'Approved' || 'Rejected' || 'PendingManualApproval',
+ *   ModelPackageGroupName: 'STRING_VALUE',
+ *   ModelPackageType: 'Versioned' || 'Unversioned' || 'Both',
+ *   NextToken: 'STRING_VALUE',
+ *   SortBy: 'Name' || 'CreationTime',
+ *   SortOrder: 'Ascending' || 'Descending',
  * };
  * const command = new ListModelPackagesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListModelPackagesOutput
+ *   ModelPackageSummaryList: [ // ModelPackageSummaryList // required
+ *     { // ModelPackageSummary
+ *       ModelPackageName: 'STRING_VALUE', // required
+ *       ModelPackageGroupName: 'STRING_VALUE',
+ *       ModelPackageVersion: Number('int'),
+ *       ModelPackageArn: 'STRING_VALUE', // required
+ *       ModelPackageDescription: 'STRING_VALUE',
+ *       CreationTime: new Date('TIMESTAMP'), // required
+ *       ModelPackageStatus: 'Pending' || 'InProgress' || 'Completed' || 'Failed' || 'Deleting', // required
+ *       ModelApprovalStatus: 'Approved' || 'Rejected' || 'PendingManualApproval',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListModelPackagesCommandInput - {@link ListModelPackagesCommandInput}
@@ -61,6 +78,8 @@ export interface ListModelPackagesCommandOutput extends ListModelPackagesOutput,
  * @see {@link ListModelPackagesCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class ListModelPackagesCommand extends $Command<

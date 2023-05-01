@@ -36,49 +36,54 @@ export interface CreateProfileCommandOutput extends CreateProfileResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AlexaForBusinessClient, CreateProfileCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
- * // const { AlexaForBusinessClient, CreateProfileCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
+ * import { AlexaForBusinessClient, CreateProfileCommand } from '@aws-sdk/client-alexa-for-business'; // ES Modules import
+ * // const { AlexaForBusinessClient, CreateProfileCommand } = require('@aws-sdk/client-alexa-for-business'); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
  * const input = { // CreateProfileRequest
- *   ProfileName: "STRING_VALUE", // required
- *   Timezone: "STRING_VALUE", // required
- *   Address: "STRING_VALUE", // required
- *   DistanceUnit: "STRING_VALUE", // required
- *   TemperatureUnit: "STRING_VALUE", // required
- *   WakeWord: "STRING_VALUE", // required
- *   Locale: "STRING_VALUE",
- *   ClientRequestToken: "STRING_VALUE",
+ *   ProfileName: 'STRING_VALUE', // required
+ *   Timezone: 'STRING_VALUE', // required
+ *   Address: 'STRING_VALUE', // required
+ *   DistanceUnit: 'STRING_VALUE', // required
+ *   TemperatureUnit: 'STRING_VALUE', // required
+ *   WakeWord: 'STRING_VALUE', // required
+ *   Locale: 'STRING_VALUE',
+ *   ClientRequestToken: 'STRING_VALUE',
  *   SetupModeDisabled: true || false,
- *   MaxVolumeLimit: Number("int"),
+ *   MaxVolumeLimit: Number('int'),
  *   PSTNEnabled: true || false,
  *   DataRetentionOptIn: true || false,
  *   MeetingRoomConfiguration: { // CreateMeetingRoomConfiguration
  *     RoomUtilizationMetricsEnabled: true || false,
  *     EndOfMeetingReminder: { // CreateEndOfMeetingReminder
  *       ReminderAtMinutes: [ // EndOfMeetingReminderMinutesList // required
- *         Number("int"),
+ *         Number('int'),
  *       ],
- *       ReminderType: "STRING_VALUE", // required
+ *       ReminderType: 'STRING_VALUE', // required
  *       Enabled: true || false, // required
  *     },
  *     InstantBooking: { // CreateInstantBooking
- *       DurationInMinutes: Number("int"), // required
+ *       DurationInMinutes: Number('int'), // required
  *       Enabled: true || false, // required
  *     },
  *     RequireCheckIn: { // CreateRequireCheckIn
- *       ReleaseAfterMinutes: Number("int"), // required
+ *       ReleaseAfterMinutes: Number('int'), // required
  *       Enabled: true || false, // required
  *     },
  *   },
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreateProfileCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateProfileResponse
+ *   ProfileArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateProfileCommandInput - {@link CreateProfileCommandInput}
@@ -96,6 +101,8 @@ export interface CreateProfileCommandOutput extends CreateProfileResponse, __Met
  * @throws {@link LimitExceededException} (client fault)
  *  <p>You are performing an action that would put you beyond your account's limits.</p>
  *
+ * @throws {@link AlexaForBusinessServiceException}
+ * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  */
 export class CreateProfileCommand extends $Command<

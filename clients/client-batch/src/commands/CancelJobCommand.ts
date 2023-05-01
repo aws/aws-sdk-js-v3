@@ -48,15 +48,18 @@ export interface CancelJobCommandOutput extends CancelJobResponse, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BatchClient, CancelJobCommand } from "@aws-sdk/client-batch"; // ES Modules import
- * // const { BatchClient, CancelJobCommand } = require("@aws-sdk/client-batch"); // CommonJS import
+ * import { BatchClient, CancelJobCommand } from '@aws-sdk/client-batch'; // ES Modules import
+ * // const { BatchClient, CancelJobCommand } = require('@aws-sdk/client-batch'); // CommonJS import
  * const client = new BatchClient(config);
  * const input = { // CancelJobRequest
- *   jobId: "STRING_VALUE", // required
- *   reason: "STRING_VALUE", // required
+ *   jobId: 'STRING_VALUE', // required
+ *   reason: 'STRING_VALUE', // required
  * };
  * const command = new CancelJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param CancelJobCommandInput - {@link CancelJobCommandInput}
@@ -73,6 +76,8 @@ export interface CancelJobCommandOutput extends CancelJobResponse, __MetadataBea
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server issue.</p>
  *
+ * @throws {@link BatchServiceException}
+ * <p>Base exception class for all service exceptions from Batch service.</p>
  *
  * @example To cancel a job
  * ```javascript

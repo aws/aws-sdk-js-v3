@@ -42,22 +42,30 @@ export interface UpdateSolNetworkInstanceCommandOutput extends UpdateSolNetworkI
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { TnbClient, UpdateSolNetworkInstanceCommand } from "@aws-sdk/client-tnb"; // ES Modules import
- * // const { TnbClient, UpdateSolNetworkInstanceCommand } = require("@aws-sdk/client-tnb"); // CommonJS import
+ * import { TnbClient, UpdateSolNetworkInstanceCommand } from '@aws-sdk/client-tnb'; // ES Modules import
+ * // const { TnbClient, UpdateSolNetworkInstanceCommand } = require('@aws-sdk/client-tnb'); // CommonJS import
  * const client = new TnbClient(config);
  * const input = { // UpdateSolNetworkInstanceInput
- *   nsInstanceId: "STRING_VALUE", // required
- *   updateType: "MODIFY_VNF_INFORMATION", // required
+ *   nsInstanceId: 'STRING_VALUE', // required
+ *   updateType: 'MODIFY_VNF_INFORMATION', // required
  *   modifyVnfInfoData: { // UpdateSolNetworkModify
- *     vnfInstanceId: "STRING_VALUE", // required
- *     vnfConfigurableProperties: "DOCUMENT_VALUE", // required
+ *     vnfInstanceId: 'STRING_VALUE', // required
+ *     vnfConfigurableProperties: 'DOCUMENT_VALUE', // required
  *   },
  *   tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new UpdateSolNetworkInstanceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateSolNetworkInstanceOutput
+ *   nsLcmOpOccId: 'STRING_VALUE',
+ *   tags: { // TagMap
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateSolNetworkInstanceCommandInput - {@link UpdateSolNetworkInstanceCommandInput}
@@ -84,6 +92,8 @@ export interface UpdateSolNetworkInstanceCommandOutput extends UpdateSolNetworkI
  * @throws {@link ValidationException} (client fault)
  *  <p>Unable to process the request because the client provided input failed to satisfy request constraints.</p>
  *
+ * @throws {@link TnbServiceException}
+ * <p>Base exception class for all service exceptions from Tnb service.</p>
  *
  */
 export class UpdateSolNetworkInstanceCommand extends $Command<

@@ -36,30 +36,49 @@ export interface ListDataQualityRulesetsCommandOutput extends ListDataQualityRul
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlueClient, ListDataQualityRulesetsCommand } from "@aws-sdk/client-glue"; // ES Modules import
- * // const { GlueClient, ListDataQualityRulesetsCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * import { GlueClient, ListDataQualityRulesetsCommand } from '@aws-sdk/client-glue'; // ES Modules import
+ * // const { GlueClient, ListDataQualityRulesetsCommand } = require('@aws-sdk/client-glue'); // CommonJS import
  * const client = new GlueClient(config);
  * const input = { // ListDataQualityRulesetsRequest
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  *   Filter: { // DataQualityRulesetFilterCriteria
- *     Name: "STRING_VALUE",
- *     Description: "STRING_VALUE",
- *     CreatedBefore: new Date("TIMESTAMP"),
- *     CreatedAfter: new Date("TIMESTAMP"),
- *     LastModifiedBefore: new Date("TIMESTAMP"),
- *     LastModifiedAfter: new Date("TIMESTAMP"),
+ *     Name: 'STRING_VALUE',
+ *     Description: 'STRING_VALUE',
+ *     CreatedBefore: new Date('TIMESTAMP'),
+ *     CreatedAfter: new Date('TIMESTAMP'),
+ *     LastModifiedBefore: new Date('TIMESTAMP'),
+ *     LastModifiedAfter: new Date('TIMESTAMP'),
  *     TargetTable: { // DataQualityTargetTable
- *       TableName: "STRING_VALUE", // required
- *       DatabaseName: "STRING_VALUE", // required
+ *       TableName: 'STRING_VALUE', // required
+ *       DatabaseName: 'STRING_VALUE', // required
  *     },
  *   },
  *   Tags: { // TagsMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new ListDataQualityRulesetsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListDataQualityRulesetsResponse
+ *   Rulesets: [ // DataQualityRulesetList
+ *     { // DataQualityRulesetListDetails
+ *       Name: 'STRING_VALUE',
+ *       Description: 'STRING_VALUE',
+ *       CreatedOn: new Date('TIMESTAMP'),
+ *       LastModifiedOn: new Date('TIMESTAMP'),
+ *       TargetTable: { // DataQualityTargetTable
+ *         TableName: 'STRING_VALUE', // required
+ *         DatabaseName: 'STRING_VALUE', // required
+ *       },
+ *       RecommendationRunId: 'STRING_VALUE',
+ *       RuleCount: Number('int'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListDataQualityRulesetsCommandInput - {@link ListDataQualityRulesetsCommandInput}
@@ -80,6 +99,8 @@ export interface ListDataQualityRulesetsCommandOutput extends ListDataQualityRul
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class ListDataQualityRulesetsCommand extends $Command<

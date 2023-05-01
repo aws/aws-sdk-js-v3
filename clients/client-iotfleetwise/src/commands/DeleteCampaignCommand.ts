@@ -37,14 +37,20 @@ export interface DeleteCampaignCommandOutput extends DeleteCampaignResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTFleetWiseClient, DeleteCampaignCommand } from "@aws-sdk/client-iotfleetwise"; // ES Modules import
- * // const { IoTFleetWiseClient, DeleteCampaignCommand } = require("@aws-sdk/client-iotfleetwise"); // CommonJS import
+ * import { IoTFleetWiseClient, DeleteCampaignCommand } from '@aws-sdk/client-iotfleetwise'; // ES Modules import
+ * // const { IoTFleetWiseClient, DeleteCampaignCommand } = require('@aws-sdk/client-iotfleetwise'); // CommonJS import
  * const client = new IoTFleetWiseClient(config);
  * const input = { // DeleteCampaignRequest
- *   name: "STRING_VALUE", // required
+ *   name: 'STRING_VALUE', // required
  * };
  * const command = new DeleteCampaignCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteCampaignResponse
+ *   name: 'STRING_VALUE',
+ *   arn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DeleteCampaignCommandInput - {@link DeleteCampaignCommandInput}
@@ -68,6 +74,8 @@ export interface DeleteCampaignCommandOutput extends DeleteCampaignResponse, __M
  * @throws {@link InternalServerException} (server fault)
  *  <p>The request couldn't be completed because the server temporarily failed.</p>
  *
+ * @throws {@link IoTFleetWiseServiceException}
+ * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
  */
 export class DeleteCampaignCommand extends $Command<

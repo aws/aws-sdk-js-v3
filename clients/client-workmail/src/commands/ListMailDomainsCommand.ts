@@ -36,16 +36,27 @@ export interface ListMailDomainsCommandOutput extends ListMailDomainsResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkMailClient, ListMailDomainsCommand } from "@aws-sdk/client-workmail"; // ES Modules import
- * // const { WorkMailClient, ListMailDomainsCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
+ * import { WorkMailClient, ListMailDomainsCommand } from '@aws-sdk/client-workmail'; // ES Modules import
+ * // const { WorkMailClient, ListMailDomainsCommand } = require('@aws-sdk/client-workmail'); // CommonJS import
  * const client = new WorkMailClient(config);
  * const input = { // ListMailDomainsRequest
- *   OrganizationId: "STRING_VALUE", // required
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   OrganizationId: 'STRING_VALUE', // required
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListMailDomainsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListMailDomainsResponse
+ *   MailDomains: [ // MailDomains
+ *     { // MailDomainSummary
+ *       DomainName: 'STRING_VALUE',
+ *       DefaultDomain: true || false,
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListMailDomainsCommandInput - {@link ListMailDomainsCommandInput}
@@ -65,6 +76,8 @@ export interface ListMailDomainsCommandOutput extends ListMailDomainsResponse, _
  *  <p>The organization must have a valid state to perform certain
  *          operations on the organization or its members.</p>
  *
+ * @throws {@link WorkMailServiceException}
+ * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
  */
 export class ListMailDomainsCommand extends $Command<

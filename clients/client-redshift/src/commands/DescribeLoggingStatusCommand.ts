@@ -37,14 +37,28 @@ export interface DescribeLoggingStatusCommandOutput extends LoggingStatus, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RedshiftClient, DescribeLoggingStatusCommand } from "@aws-sdk/client-redshift"; // ES Modules import
- * // const { RedshiftClient, DescribeLoggingStatusCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * import { RedshiftClient, DescribeLoggingStatusCommand } from '@aws-sdk/client-redshift'; // ES Modules import
+ * // const { RedshiftClient, DescribeLoggingStatusCommand } = require('@aws-sdk/client-redshift'); // CommonJS import
  * const client = new RedshiftClient(config);
  * const input = { // DescribeLoggingStatusMessage
- *   ClusterIdentifier: "STRING_VALUE", // required
+ *   ClusterIdentifier: 'STRING_VALUE', // required
  * };
  * const command = new DescribeLoggingStatusCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // LoggingStatus
+ *   LoggingEnabled: true || false,
+ *   BucketName: 'STRING_VALUE',
+ *   S3KeyPrefix: 'STRING_VALUE',
+ *   LastSuccessfulDeliveryTime: new Date('TIMESTAMP'),
+ *   LastFailureTime: new Date('TIMESTAMP'),
+ *   LastFailureMessage: 'STRING_VALUE',
+ *   LogDestinationType: 's3' || 'cloudwatch',
+ *   LogExports: [ // LogTypeList
+ *     'STRING_VALUE',
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeLoggingStatusCommandInput - {@link DescribeLoggingStatusCommandInput}
@@ -57,6 +71,8 @@ export interface DescribeLoggingStatusCommandOutput extends LoggingStatus, __Met
  *  <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster.
  *         </p>
  *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class DescribeLoggingStatusCommand extends $Command<

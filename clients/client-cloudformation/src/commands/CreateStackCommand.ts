@@ -37,56 +37,61 @@ export interface CreateStackCommandOutput extends CreateStackOutput, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudFormationClient, CreateStackCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
- * // const { CloudFormationClient, CreateStackCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
+ * import { CloudFormationClient, CreateStackCommand } from '@aws-sdk/client-cloudformation'; // ES Modules import
+ * // const { CloudFormationClient, CreateStackCommand } = require('@aws-sdk/client-cloudformation'); // CommonJS import
  * const client = new CloudFormationClient(config);
  * const input = { // CreateStackInput
- *   StackName: "STRING_VALUE", // required
- *   TemplateBody: "STRING_VALUE",
- *   TemplateURL: "STRING_VALUE",
+ *   StackName: 'STRING_VALUE', // required
+ *   TemplateBody: 'STRING_VALUE',
+ *   TemplateURL: 'STRING_VALUE',
  *   Parameters: [ // Parameters
  *     { // Parameter
- *       ParameterKey: "STRING_VALUE",
- *       ParameterValue: "STRING_VALUE",
+ *       ParameterKey: 'STRING_VALUE',
+ *       ParameterValue: 'STRING_VALUE',
  *       UsePreviousValue: true || false,
- *       ResolvedValue: "STRING_VALUE",
+ *       ResolvedValue: 'STRING_VALUE',
  *     },
  *   ],
  *   DisableRollback: true || false,
  *   RollbackConfiguration: { // RollbackConfiguration
  *     RollbackTriggers: [ // RollbackTriggers
  *       { // RollbackTrigger
- *         Arn: "STRING_VALUE", // required
- *         Type: "STRING_VALUE", // required
+ *         Arn: 'STRING_VALUE', // required
+ *         Type: 'STRING_VALUE', // required
  *       },
  *     ],
- *     MonitoringTimeInMinutes: Number("int"),
+ *     MonitoringTimeInMinutes: Number('int'),
  *   },
- *   TimeoutInMinutes: Number("int"),
+ *   TimeoutInMinutes: Number('int'),
  *   NotificationARNs: [ // NotificationARNs
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   Capabilities: [ // Capabilities
- *     "CAPABILITY_IAM" || "CAPABILITY_NAMED_IAM" || "CAPABILITY_AUTO_EXPAND",
+ *     'CAPABILITY_IAM' || 'CAPABILITY_NAMED_IAM' || 'CAPABILITY_AUTO_EXPAND',
  *   ],
  *   ResourceTypes: [ // ResourceTypes
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   RoleARN: "STRING_VALUE",
- *   OnFailure: "DO_NOTHING" || "ROLLBACK" || "DELETE",
- *   StackPolicyBody: "STRING_VALUE",
- *   StackPolicyURL: "STRING_VALUE",
+ *   RoleARN: 'STRING_VALUE',
+ *   OnFailure: 'DO_NOTHING' || 'ROLLBACK' || 'DELETE',
+ *   StackPolicyBody: 'STRING_VALUE',
+ *   StackPolicyURL: 'STRING_VALUE',
  *   Tags: [ // Tags
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
- *   ClientRequestToken: "STRING_VALUE",
+ *   ClientRequestToken: 'STRING_VALUE',
  *   EnableTerminationProtection: true || false,
  * };
  * const command = new CreateStackCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateStackOutput
+ *   StackId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateStackCommandInput - {@link CreateStackCommandInput}
@@ -110,6 +115,8 @@ export interface CreateStackCommandOutput extends CreateStackOutput, __MetadataB
  * @throws {@link TokenAlreadyExistsException} (client fault)
  *  <p>A client request token already exists.</p>
  *
+ * @throws {@link CloudFormationServiceException}
+ * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
  */
 export class CreateStackCommand extends $Command<

@@ -40,22 +40,43 @@ export interface ListPredictorsCommandOutput extends ListPredictorsResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ForecastClient, ListPredictorsCommand } from "@aws-sdk/client-forecast"; // ES Modules import
- * // const { ForecastClient, ListPredictorsCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
+ * import { ForecastClient, ListPredictorsCommand } from '@aws-sdk/client-forecast'; // ES Modules import
+ * // const { ForecastClient, ListPredictorsCommand } = require('@aws-sdk/client-forecast'); // CommonJS import
  * const client = new ForecastClient(config);
  * const input = { // ListPredictorsRequest
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  *   Filters: [ // Filters
  *     { // Filter
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
- *       Condition: "IS" || "IS_NOT", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
+ *       Condition: 'IS' || 'IS_NOT', // required
  *     },
  *   ],
  * };
  * const command = new ListPredictorsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListPredictorsResponse
+ *   Predictors: [ // Predictors
+ *     { // PredictorSummary
+ *       PredictorArn: 'STRING_VALUE',
+ *       PredictorName: 'STRING_VALUE',
+ *       DatasetGroupArn: 'STRING_VALUE',
+ *       IsAutoPredictor: true || false,
+ *       ReferencePredictorSummary: { // ReferencePredictorSummary
+ *         Arn: 'STRING_VALUE',
+ *         State: 'Active' || 'Deleted',
+ *       },
+ *       Status: 'STRING_VALUE',
+ *       Message: 'STRING_VALUE',
+ *       CreationTime: new Date('TIMESTAMP'),
+ *       LastModificationTime: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListPredictorsCommandInput - {@link ListPredictorsCommandInput}
@@ -71,6 +92,8 @@ export interface ListPredictorsCommandOutput extends ListPredictorsResponse, __M
  * @throws {@link InvalidNextTokenException} (client fault)
  *  <p>The token is not valid. Tokens expire after 24 hours.</p>
  *
+ * @throws {@link ForecastServiceException}
+ * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
  */
 export class ListPredictorsCommand extends $Command<

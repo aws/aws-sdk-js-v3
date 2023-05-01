@@ -41,18 +41,29 @@ export interface BatchDisassociateProjectAssetsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTSiteWiseClient, BatchDisassociateProjectAssetsCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
- * // const { IoTSiteWiseClient, BatchDisassociateProjectAssetsCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
+ * import { IoTSiteWiseClient, BatchDisassociateProjectAssetsCommand } from '@aws-sdk/client-iotsitewise'; // ES Modules import
+ * // const { IoTSiteWiseClient, BatchDisassociateProjectAssetsCommand } = require('@aws-sdk/client-iotsitewise'); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
  * const input = { // BatchDisassociateProjectAssetsRequest
- *   projectId: "STRING_VALUE", // required
+ *   projectId: 'STRING_VALUE', // required
  *   assetIds: [ // IDs // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   clientToken: "STRING_VALUE",
+ *   clientToken: 'STRING_VALUE',
  * };
  * const command = new BatchDisassociateProjectAssetsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BatchDisassociateProjectAssetsResponse
+ *   errors: [ // BatchDisassociateProjectAssetsErrors
+ *     { // AssetErrorDetails
+ *       assetId: 'STRING_VALUE', // required
+ *       code: 'INTERNAL_FAILURE', // required
+ *       message: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param BatchDisassociateProjectAssetsCommandInput - {@link BatchDisassociateProjectAssetsCommandInput}
@@ -77,6 +88,8 @@ export interface BatchDisassociateProjectAssetsCommandOutput
  *       on.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
  *
+ * @throws {@link IoTSiteWiseServiceException}
+ * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
  */
 export class BatchDisassociateProjectAssetsCommand extends $Command<

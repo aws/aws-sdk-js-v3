@@ -36,47 +36,73 @@ export interface ListIndexCommandOutput extends ListIndexResponse, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudDirectoryClient, ListIndexCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
- * // const { CloudDirectoryClient, ListIndexCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
+ * import { CloudDirectoryClient, ListIndexCommand } from '@aws-sdk/client-clouddirectory'; // ES Modules import
+ * // const { CloudDirectoryClient, ListIndexCommand } = require('@aws-sdk/client-clouddirectory'); // CommonJS import
  * const client = new CloudDirectoryClient(config);
  * const input = { // ListIndexRequest
- *   DirectoryArn: "STRING_VALUE", // required
+ *   DirectoryArn: 'STRING_VALUE', // required
  *   RangesOnIndexedValues: [ // ObjectAttributeRangeList
  *     { // ObjectAttributeRange
  *       AttributeKey: { // AttributeKey
- *         SchemaArn: "STRING_VALUE", // required
- *         FacetName: "STRING_VALUE", // required
- *         Name: "STRING_VALUE", // required
+ *         SchemaArn: 'STRING_VALUE', // required
+ *         FacetName: 'STRING_VALUE', // required
+ *         Name: 'STRING_VALUE', // required
  *       },
  *       Range: { // TypedAttributeValueRange
- *         StartMode: "FIRST" || "LAST" || "LAST_BEFORE_MISSING_VALUES" || "INCLUSIVE" || "EXCLUSIVE", // required
+ *         StartMode: 'FIRST' || 'LAST' || 'LAST_BEFORE_MISSING_VALUES' || 'INCLUSIVE' || 'EXCLUSIVE', // required
  *         StartValue: { // TypedAttributeValue Union: only one key present
- *           StringValue: "STRING_VALUE",
- *           BinaryValue: "BLOB_VALUE",
+ *           StringValue: 'STRING_VALUE',
+ *           BinaryValue: 'BLOB_VALUE',
  *           BooleanValue: true || false,
- *           NumberValue: "STRING_VALUE",
- *           DatetimeValue: new Date("TIMESTAMP"),
+ *           NumberValue: 'STRING_VALUE',
+ *           DatetimeValue: new Date('TIMESTAMP'),
  *         },
- *         EndMode: "FIRST" || "LAST" || "LAST_BEFORE_MISSING_VALUES" || "INCLUSIVE" || "EXCLUSIVE", // required
+ *         EndMode: 'FIRST' || 'LAST' || 'LAST_BEFORE_MISSING_VALUES' || 'INCLUSIVE' || 'EXCLUSIVE', // required
  *         EndValue: {//  Union: only one key present
- *           StringValue: "STRING_VALUE",
- *           BinaryValue: "BLOB_VALUE",
+ *           StringValue: 'STRING_VALUE',
+ *           BinaryValue: 'BLOB_VALUE',
  *           BooleanValue: true || false,
- *           NumberValue: "STRING_VALUE",
- *           DatetimeValue: new Date("TIMESTAMP"),
+ *           NumberValue: 'STRING_VALUE',
+ *           DatetimeValue: new Date('TIMESTAMP'),
  *         },
  *       },
  *     },
  *   ],
  *   IndexReference: { // ObjectReference
- *     Selector: "STRING_VALUE",
+ *     Selector: 'STRING_VALUE',
  *   },
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
- *   ConsistencyLevel: "SERIALIZABLE" || "EVENTUAL",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
+ *   ConsistencyLevel: 'SERIALIZABLE' || 'EVENTUAL',
  * };
  * const command = new ListIndexCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListIndexResponse
+ *   IndexAttachments: [ // IndexAttachmentList
+ *     { // IndexAttachment
+ *       IndexedAttributes: [ // AttributeKeyAndValueList
+ *         { // AttributeKeyAndValue
+ *           Key: { // AttributeKey
+ *             SchemaArn: 'STRING_VALUE', // required
+ *             FacetName: 'STRING_VALUE', // required
+ *             Name: 'STRING_VALUE', // required
+ *           },
+ *           Value: { // TypedAttributeValue Union: only one key present
+ *             StringValue: 'STRING_VALUE',
+ *             BinaryValue: 'BLOB_VALUE',
+ *             BooleanValue: true || false,
+ *             NumberValue: 'STRING_VALUE',
+ *             DatetimeValue: new Date('TIMESTAMP'),
+ *           },
+ *         },
+ *       ],
+ *       ObjectIdentifier: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListIndexCommandInput - {@link ListIndexCommandInput}
@@ -120,6 +146,8 @@ export interface ListIndexCommandOutput extends ListIndexResponse, __MetadataBea
  *  <p>Indicates that your request is malformed in some manner. See the exception
  *       message.</p>
  *
+ * @throws {@link CloudDirectoryServiceException}
+ * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
  */
 export class ListIndexCommand extends $Command<

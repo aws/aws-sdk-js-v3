@@ -36,14 +36,17 @@ export interface StopBulkDeploymentCommandOutput extends StopBulkDeploymentRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GreengrassClient, StopBulkDeploymentCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
- * // const { GreengrassClient, StopBulkDeploymentCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
+ * import { GreengrassClient, StopBulkDeploymentCommand } from '@aws-sdk/client-greengrass'; // ES Modules import
+ * // const { GreengrassClient, StopBulkDeploymentCommand } = require('@aws-sdk/client-greengrass'); // CommonJS import
  * const client = new GreengrassClient(config);
  * const input = { // StopBulkDeploymentRequest
- *   BulkDeploymentId: "STRING_VALUE", // required
+ *   BulkDeploymentId: 'STRING_VALUE', // required
  * };
  * const command = new StopBulkDeploymentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param StopBulkDeploymentCommandInput - {@link StopBulkDeploymentCommandInput}
@@ -55,6 +58,8 @@ export interface StopBulkDeploymentCommandOutput extends StopBulkDeploymentRespo
  * @throws {@link BadRequestException} (client fault)
  *  General error information.
  *
+ * @throws {@link GreengrassServiceException}
+ * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
  */
 export class StopBulkDeploymentCommand extends $Command<

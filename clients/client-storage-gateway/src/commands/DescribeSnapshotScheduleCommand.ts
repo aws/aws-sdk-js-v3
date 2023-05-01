@@ -39,14 +39,29 @@ export interface DescribeSnapshotScheduleCommandOutput extends DescribeSnapshotS
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { StorageGatewayClient, DescribeSnapshotScheduleCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
- * // const { StorageGatewayClient, DescribeSnapshotScheduleCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
+ * import { StorageGatewayClient, DescribeSnapshotScheduleCommand } from '@aws-sdk/client-storage-gateway'; // ES Modules import
+ * // const { StorageGatewayClient, DescribeSnapshotScheduleCommand } = require('@aws-sdk/client-storage-gateway'); // CommonJS import
  * const client = new StorageGatewayClient(config);
  * const input = { // DescribeSnapshotScheduleInput
- *   VolumeARN: "STRING_VALUE", // required
+ *   VolumeARN: 'STRING_VALUE', // required
  * };
  * const command = new DescribeSnapshotScheduleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeSnapshotScheduleOutput
+ *   VolumeARN: 'STRING_VALUE',
+ *   StartAt: Number('int'),
+ *   RecurrenceInHours: Number('int'),
+ *   Description: 'STRING_VALUE',
+ *   Timezone: 'STRING_VALUE',
+ *   Tags: [ // Tags
+ *     { // Tag
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeSnapshotScheduleCommandInput - {@link DescribeSnapshotScheduleCommandInput}
@@ -63,6 +78,8 @@ export interface DescribeSnapshotScheduleCommandOutput extends DescribeSnapshotS
  *  <p>An exception occurred because an invalid gateway request was issued to the service. For
  *          more information, see the error and message fields.</p>
  *
+ * @throws {@link StorageGatewayServiceException}
+ * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
  * @example To describe snapshot schedule for gateway volume
  * ```javascript

@@ -36,21 +36,26 @@ export interface StartPipelineReprocessingCommandOutput extends StartPipelineRep
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTAnalyticsClient, StartPipelineReprocessingCommand } from "@aws-sdk/client-iotanalytics"; // ES Modules import
- * // const { IoTAnalyticsClient, StartPipelineReprocessingCommand } = require("@aws-sdk/client-iotanalytics"); // CommonJS import
+ * import { IoTAnalyticsClient, StartPipelineReprocessingCommand } from '@aws-sdk/client-iotanalytics'; // ES Modules import
+ * // const { IoTAnalyticsClient, StartPipelineReprocessingCommand } = require('@aws-sdk/client-iotanalytics'); // CommonJS import
  * const client = new IoTAnalyticsClient(config);
  * const input = { // StartPipelineReprocessingRequest
- *   pipelineName: "STRING_VALUE", // required
- *   startTime: new Date("TIMESTAMP"),
- *   endTime: new Date("TIMESTAMP"),
+ *   pipelineName: 'STRING_VALUE', // required
+ *   startTime: new Date('TIMESTAMP'),
+ *   endTime: new Date('TIMESTAMP'),
  *   channelMessages: { // ChannelMessages
  *     s3Paths: [ // S3PathChannelMessages
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *   },
  * };
  * const command = new StartPipelineReprocessingCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartPipelineReprocessingResponse
+ *   reprocessingId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param StartPipelineReprocessingCommandInput - {@link StartPipelineReprocessingCommandInput}
@@ -77,6 +82,8 @@ export interface StartPipelineReprocessingCommandOutput extends StartPipelineRep
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
  *
+ * @throws {@link IoTAnalyticsServiceException}
+ * <p>Base exception class for all service exceptions from IoTAnalytics service.</p>
  *
  */
 export class StartPipelineReprocessingCommand extends $Command<

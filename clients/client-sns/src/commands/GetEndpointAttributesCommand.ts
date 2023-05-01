@@ -38,14 +38,21 @@ export interface GetEndpointAttributesCommandOutput extends GetEndpointAttribute
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SNSClient, GetEndpointAttributesCommand } from "@aws-sdk/client-sns"; // ES Modules import
- * // const { SNSClient, GetEndpointAttributesCommand } = require("@aws-sdk/client-sns"); // CommonJS import
+ * import { SNSClient, GetEndpointAttributesCommand } from '@aws-sdk/client-sns'; // ES Modules import
+ * // const { SNSClient, GetEndpointAttributesCommand } = require('@aws-sdk/client-sns'); // CommonJS import
  * const client = new SNSClient(config);
  * const input = { // GetEndpointAttributesInput
- *   EndpointArn: "STRING_VALUE", // required
+ *   EndpointArn: 'STRING_VALUE', // required
  * };
  * const command = new GetEndpointAttributesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetEndpointAttributesResponse
+ *   Attributes: { // MapStringToString
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetEndpointAttributesCommandInput - {@link GetEndpointAttributesCommandInput}
@@ -67,6 +74,8 @@ export interface GetEndpointAttributesCommandOutput extends GetEndpointAttribute
  * @throws {@link NotFoundException} (client fault)
  *  <p>Indicates that the requested resource does not exist.</p>
  *
+ * @throws {@link SNSServiceException}
+ * <p>Base exception class for all service exceptions from SNS service.</p>
  *
  */
 export class GetEndpointAttributesCommand extends $Command<

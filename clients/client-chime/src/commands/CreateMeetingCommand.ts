@@ -51,27 +51,46 @@ export interface CreateMeetingCommandOutput extends CreateMeetingResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeClient, CreateMeetingCommand } from "@aws-sdk/client-chime"; // ES Modules import
- * // const { ChimeClient, CreateMeetingCommand } = require("@aws-sdk/client-chime"); // CommonJS import
+ * import { ChimeClient, CreateMeetingCommand } from '@aws-sdk/client-chime'; // ES Modules import
+ * // const { ChimeClient, CreateMeetingCommand } = require('@aws-sdk/client-chime'); // CommonJS import
  * const client = new ChimeClient(config);
  * const input = { // CreateMeetingRequest
- *   ClientRequestToken: "STRING_VALUE", // required
- *   ExternalMeetingId: "STRING_VALUE",
- *   MeetingHostId: "STRING_VALUE",
- *   MediaRegion: "STRING_VALUE",
+ *   ClientRequestToken: 'STRING_VALUE', // required
+ *   ExternalMeetingId: 'STRING_VALUE',
+ *   MeetingHostId: 'STRING_VALUE',
+ *   MediaRegion: 'STRING_VALUE',
  *   Tags: [ // MeetingTagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  *   NotificationsConfiguration: { // MeetingNotificationConfiguration
- *     SnsTopicArn: "STRING_VALUE",
- *     SqsQueueArn: "STRING_VALUE",
+ *     SnsTopicArn: 'STRING_VALUE',
+ *     SqsQueueArn: 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateMeetingCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateMeetingResponse
+ *   Meeting: { // Meeting
+ *     MeetingId: 'STRING_VALUE',
+ *     ExternalMeetingId: 'STRING_VALUE',
+ *     MediaPlacement: { // MediaPlacement
+ *       AudioHostUrl: 'STRING_VALUE',
+ *       AudioFallbackUrl: 'STRING_VALUE',
+ *       ScreenDataUrl: 'STRING_VALUE',
+ *       ScreenSharingUrl: 'STRING_VALUE',
+ *       ScreenViewingUrl: 'STRING_VALUE',
+ *       SignalingUrl: 'STRING_VALUE',
+ *       TurnControlUrl: 'STRING_VALUE',
+ *       EventIngestionUrl: 'STRING_VALUE',
+ *     },
+ *     MediaRegion: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateMeetingCommandInput - {@link CreateMeetingCommandInput}
@@ -101,6 +120,8 @@ export interface CreateMeetingCommandOutput extends CreateMeetingResponse, __Met
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeServiceException}
+ * <p>Base exception class for all service exceptions from Chime service.</p>
  *
  */
 export class CreateMeetingCommand extends $Command<

@@ -47,17 +47,27 @@ export interface ListPricingRulesAssociatedToPricingPlanCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BillingconductorClient, ListPricingRulesAssociatedToPricingPlanCommand } from "@aws-sdk/client-billingconductor"; // ES Modules import
- * // const { BillingconductorClient, ListPricingRulesAssociatedToPricingPlanCommand } = require("@aws-sdk/client-billingconductor"); // CommonJS import
+ * import { BillingconductorClient, ListPricingRulesAssociatedToPricingPlanCommand } from '@aws-sdk/client-billingconductor'; // ES Modules import
+ * // const { BillingconductorClient, ListPricingRulesAssociatedToPricingPlanCommand } = require('@aws-sdk/client-billingconductor'); // CommonJS import
  * const client = new BillingconductorClient(config);
  * const input = { // ListPricingRulesAssociatedToPricingPlanInput
- *   BillingPeriod: "STRING_VALUE",
- *   PricingPlanArn: "STRING_VALUE", // required
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   BillingPeriod: 'STRING_VALUE',
+ *   PricingPlanArn: 'STRING_VALUE', // required
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListPricingRulesAssociatedToPricingPlanCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListPricingRulesAssociatedToPricingPlanOutput
+ *   BillingPeriod: 'STRING_VALUE',
+ *   PricingPlanArn: 'STRING_VALUE',
+ *   PricingRuleArns: [ // PricingRuleArns
+ *     'STRING_VALUE',
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListPricingRulesAssociatedToPricingPlanCommandInput - {@link ListPricingRulesAssociatedToPricingPlanCommandInput}
@@ -85,6 +95,8 @@ export interface ListPricingRulesAssociatedToPricingPlanCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The input doesn't match with the constraints specified by Amazon Web Services services.</p>
  *
+ * @throws {@link BillingconductorServiceException}
+ * <p>Base exception class for all service exceptions from Billingconductor service.</p>
  *
  */
 export class ListPricingRulesAssociatedToPricingPlanCommand extends $Command<

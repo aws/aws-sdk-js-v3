@@ -44,20 +44,33 @@ export interface ModifyInstanceMetadataOptionsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, ModifyInstanceMetadataOptionsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, ModifyInstanceMetadataOptionsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, ModifyInstanceMetadataOptionsCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, ModifyInstanceMetadataOptionsCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // ModifyInstanceMetadataOptionsRequest
- *   InstanceId: "STRING_VALUE", // required
- *   HttpTokens: "optional" || "required",
- *   HttpPutResponseHopLimit: Number("int"),
- *   HttpEndpoint: "disabled" || "enabled",
+ *   InstanceId: 'STRING_VALUE', // required
+ *   HttpTokens: 'optional' || 'required',
+ *   HttpPutResponseHopLimit: Number('int'),
+ *   HttpEndpoint: 'disabled' || 'enabled',
  *   DryRun: true || false,
- *   HttpProtocolIpv6: "disabled" || "enabled",
- *   InstanceMetadataTags: "disabled" || "enabled",
+ *   HttpProtocolIpv6: 'disabled' || 'enabled',
+ *   InstanceMetadataTags: 'disabled' || 'enabled',
  * };
  * const command = new ModifyInstanceMetadataOptionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ModifyInstanceMetadataOptionsResult
+ *   InstanceId: 'STRING_VALUE',
+ *   InstanceMetadataOptions: { // InstanceMetadataOptionsResponse
+ *     State: 'pending' || 'applied',
+ *     HttpTokens: 'optional' || 'required',
+ *     HttpPutResponseHopLimit: Number('int'),
+ *     HttpEndpoint: 'disabled' || 'enabled',
+ *     HttpProtocolIpv6: 'disabled' || 'enabled',
+ *     InstanceMetadataTags: 'disabled' || 'enabled',
+ *   },
+ * };
+ *
  * ```
  *
  * @param ModifyInstanceMetadataOptionsCommandInput - {@link ModifyInstanceMetadataOptionsCommandInput}
@@ -66,6 +79,8 @@ export interface ModifyInstanceMetadataOptionsCommandOutput
  * @see {@link ModifyInstanceMetadataOptionsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class ModifyInstanceMetadataOptionsCommand extends $Command<

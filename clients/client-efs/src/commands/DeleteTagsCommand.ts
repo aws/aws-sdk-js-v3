@@ -47,17 +47,20 @@ export interface DeleteTagsCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EFSClient, DeleteTagsCommand } from "@aws-sdk/client-efs"; // ES Modules import
- * // const { EFSClient, DeleteTagsCommand } = require("@aws-sdk/client-efs"); // CommonJS import
+ * import { EFSClient, DeleteTagsCommand } from '@aws-sdk/client-efs'; // ES Modules import
+ * // const { EFSClient, DeleteTagsCommand } = require('@aws-sdk/client-efs'); // CommonJS import
  * const client = new EFSClient(config);
  * const input = { // DeleteTagsRequest
- *   FileSystemId: "STRING_VALUE", // required
+ *   FileSystemId: 'STRING_VALUE', // required
  *   TagKeys: [ // TagKeys // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new DeleteTagsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteTagsCommandInput - {@link DeleteTagsCommandInput}
@@ -77,6 +80,8 @@ export interface DeleteTagsCommandOutput extends __MetadataBearer {}
  * @throws {@link InternalServerError} (server fault)
  *  <p>Returned if an error occurred on the server side.</p>
  *
+ * @throws {@link EFSServiceException}
+ * <p>Base exception class for all service exceptions from EFS service.</p>
  *
  * @example To delete tags for an EFS file system
  * ```javascript

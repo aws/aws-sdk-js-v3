@@ -36,21 +36,27 @@ export interface CreateContactFlowModuleCommandOutput extends CreateContactFlowM
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, CreateContactFlowModuleCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, CreateContactFlowModuleCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, CreateContactFlowModuleCommand } from '@aws-sdk/client-connect'; // ES Modules import
+ * // const { ConnectClient, CreateContactFlowModuleCommand } = require('@aws-sdk/client-connect'); // CommonJS import
  * const client = new ConnectClient(config);
  * const input = { // CreateContactFlowModuleRequest
- *   InstanceId: "STRING_VALUE", // required
- *   Name: "STRING_VALUE", // required
- *   Description: "STRING_VALUE",
- *   Content: "STRING_VALUE", // required
+ *   InstanceId: 'STRING_VALUE', // required
+ *   Name: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE',
+ *   Content: 'STRING_VALUE', // required
  *   Tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
- *   ClientToken: "STRING_VALUE",
+ *   ClientToken: 'STRING_VALUE',
  * };
  * const command = new CreateContactFlowModuleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateContactFlowModuleResponse
+ *   Id: 'STRING_VALUE',
+ *   Arn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateContactFlowModuleCommandInput - {@link CreateContactFlowModuleCommandInput}
@@ -89,6 +95,8 @@ export interface CreateContactFlowModuleCommandOutput extends CreateContactFlowM
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class CreateContactFlowModuleCommand extends $Command<

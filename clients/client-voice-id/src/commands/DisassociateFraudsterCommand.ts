@@ -43,16 +43,28 @@ export interface DisassociateFraudsterCommandOutput extends DisassociateFraudste
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { VoiceIDClient, DisassociateFraudsterCommand } from "@aws-sdk/client-voice-id"; // ES Modules import
- * // const { VoiceIDClient, DisassociateFraudsterCommand } = require("@aws-sdk/client-voice-id"); // CommonJS import
+ * import { VoiceIDClient, DisassociateFraudsterCommand } from '@aws-sdk/client-voice-id'; // ES Modules import
+ * // const { VoiceIDClient, DisassociateFraudsterCommand } = require('@aws-sdk/client-voice-id'); // CommonJS import
  * const client = new VoiceIDClient(config);
  * const input = { // DisassociateFraudsterRequest
- *   DomainId: "STRING_VALUE", // required
- *   WatchlistId: "STRING_VALUE", // required
- *   FraudsterId: "STRING_VALUE", // required
+ *   DomainId: 'STRING_VALUE', // required
+ *   WatchlistId: 'STRING_VALUE', // required
+ *   FraudsterId: 'STRING_VALUE', // required
  * };
  * const command = new DisassociateFraudsterCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DisassociateFraudsterResponse
+ *   Fraudster: { // Fraudster
+ *     DomainId: 'STRING_VALUE',
+ *     GeneratedFraudsterId: 'STRING_VALUE',
+ *     CreatedAt: new Date('TIMESTAMP'),
+ *     WatchlistIds: [ // ResponseWatchlistIds
+ *       'STRING_VALUE',
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param DisassociateFraudsterCommandInput - {@link DisassociateFraudsterCommandInput}
@@ -86,6 +98,8 @@ export interface DisassociateFraudsterCommandOutput extends DisassociateFraudste
  *  <p>The request failed one or more validations; check the error message for more
  *             details.</p>
  *
+ * @throws {@link VoiceIDServiceException}
+ * <p>Base exception class for all service exceptions from VoiceID service.</p>
  *
  */
 export class DisassociateFraudsterCommand extends $Command<

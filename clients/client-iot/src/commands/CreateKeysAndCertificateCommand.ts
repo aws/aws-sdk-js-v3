@@ -46,14 +46,25 @@ export interface CreateKeysAndCertificateCommandOutput extends CreateKeysAndCert
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTClient, CreateKeysAndCertificateCommand } from "@aws-sdk/client-iot"; // ES Modules import
- * // const { IoTClient, CreateKeysAndCertificateCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * import { IoTClient, CreateKeysAndCertificateCommand } from '@aws-sdk/client-iot'; // ES Modules import
+ * // const { IoTClient, CreateKeysAndCertificateCommand } = require('@aws-sdk/client-iot'); // CommonJS import
  * const client = new IoTClient(config);
  * const input = { // CreateKeysAndCertificateRequest
  *   setAsActive: true || false,
  * };
  * const command = new CreateKeysAndCertificateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateKeysAndCertificateResponse
+ *   certificateArn: 'STRING_VALUE',
+ *   certificateId: 'STRING_VALUE',
+ *   certificatePem: 'STRING_VALUE',
+ *   keyPair: { // KeyPair
+ *     PublicKey: 'STRING_VALUE',
+ *     PrivateKey: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateKeysAndCertificateCommandInput - {@link CreateKeysAndCertificateCommandInput}
@@ -77,6 +88,8 @@ export interface CreateKeysAndCertificateCommandOutput extends CreateKeysAndCert
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this operation.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class CreateKeysAndCertificateCommand extends $Command<

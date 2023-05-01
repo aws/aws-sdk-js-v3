@@ -36,15 +36,23 @@ export interface ListWorkflowsCommandOutput extends ListWorkflowsResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlueClient, ListWorkflowsCommand } from "@aws-sdk/client-glue"; // ES Modules import
- * // const { GlueClient, ListWorkflowsCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * import { GlueClient, ListWorkflowsCommand } from '@aws-sdk/client-glue'; // ES Modules import
+ * // const { GlueClient, ListWorkflowsCommand } = require('@aws-sdk/client-glue'); // CommonJS import
  * const client = new GlueClient(config);
  * const input = { // ListWorkflowsRequest
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListWorkflowsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListWorkflowsResponse
+ *   Workflows: [ // WorkflowNames
+ *     'STRING_VALUE',
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListWorkflowsCommandInput - {@link ListWorkflowsCommandInput}
@@ -62,6 +70,8 @@ export interface ListWorkflowsCommandOutput extends ListWorkflowsResponse, __Met
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class ListWorkflowsCommand extends $Command<

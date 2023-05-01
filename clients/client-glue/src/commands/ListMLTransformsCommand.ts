@@ -40,38 +40,46 @@ export interface ListMLTransformsCommandOutput extends ListMLTransformsResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlueClient, ListMLTransformsCommand } from "@aws-sdk/client-glue"; // ES Modules import
- * // const { GlueClient, ListMLTransformsCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * import { GlueClient, ListMLTransformsCommand } from '@aws-sdk/client-glue'; // ES Modules import
+ * // const { GlueClient, ListMLTransformsCommand } = require('@aws-sdk/client-glue'); // CommonJS import
  * const client = new GlueClient(config);
  * const input = { // ListMLTransformsRequest
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  *   Filter: { // TransformFilterCriteria
- *     Name: "STRING_VALUE",
- *     TransformType: "FIND_MATCHES",
- *     Status: "NOT_READY" || "READY" || "DELETING",
- *     GlueVersion: "STRING_VALUE",
- *     CreatedBefore: new Date("TIMESTAMP"),
- *     CreatedAfter: new Date("TIMESTAMP"),
- *     LastModifiedBefore: new Date("TIMESTAMP"),
- *     LastModifiedAfter: new Date("TIMESTAMP"),
+ *     Name: 'STRING_VALUE',
+ *     TransformType: 'FIND_MATCHES',
+ *     Status: 'NOT_READY' || 'READY' || 'DELETING',
+ *     GlueVersion: 'STRING_VALUE',
+ *     CreatedBefore: new Date('TIMESTAMP'),
+ *     CreatedAfter: new Date('TIMESTAMP'),
+ *     LastModifiedBefore: new Date('TIMESTAMP'),
+ *     LastModifiedAfter: new Date('TIMESTAMP'),
  *     Schema: [ // TransformSchema
  *       { // SchemaColumn
- *         Name: "STRING_VALUE",
- *         DataType: "STRING_VALUE",
+ *         Name: 'STRING_VALUE',
+ *         DataType: 'STRING_VALUE',
  *       },
  *     ],
  *   },
  *   Sort: { // TransformSortCriteria
- *     Column: "NAME" || "TRANSFORM_TYPE" || "STATUS" || "CREATED" || "LAST_MODIFIED", // required
- *     SortDirection: "DESCENDING" || "ASCENDING", // required
+ *     Column: 'NAME' || 'TRANSFORM_TYPE' || 'STATUS' || 'CREATED' || 'LAST_MODIFIED', // required
+ *     SortDirection: 'DESCENDING' || 'ASCENDING', // required
  *   },
  *   Tags: { // TagsMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new ListMLTransformsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListMLTransformsResponse
+ *   TransformIds: [ // TransformIdList // required
+ *     'STRING_VALUE',
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListMLTransformsCommandInput - {@link ListMLTransformsCommandInput}
@@ -92,6 +100,8 @@ export interface ListMLTransformsCommandOutput extends ListMLTransformsResponse,
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class ListMLTransformsCommand extends $Command<

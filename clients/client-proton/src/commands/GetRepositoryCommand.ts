@@ -36,15 +36,26 @@ export interface GetRepositoryCommandOutput extends GetRepositoryOutput, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ProtonClient, GetRepositoryCommand } from "@aws-sdk/client-proton"; // ES Modules import
- * // const { ProtonClient, GetRepositoryCommand } = require("@aws-sdk/client-proton"); // CommonJS import
+ * import { ProtonClient, GetRepositoryCommand } from '@aws-sdk/client-proton'; // ES Modules import
+ * // const { ProtonClient, GetRepositoryCommand } = require('@aws-sdk/client-proton'); // CommonJS import
  * const client = new ProtonClient(config);
  * const input = { // GetRepositoryInput
- *   provider: "STRING_VALUE", // required
- *   name: "STRING_VALUE", // required
+ *   provider: 'STRING_VALUE', // required
+ *   name: 'STRING_VALUE', // required
  * };
  * const command = new GetRepositoryCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetRepositoryOutput
+ *   repository: { // Repository
+ *     arn: 'STRING_VALUE', // required
+ *     provider: 'STRING_VALUE', // required
+ *     name: 'STRING_VALUE', // required
+ *     connectionArn: 'STRING_VALUE', // required
+ *     encryptionKey: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetRepositoryCommandInput - {@link GetRepositoryCommandInput}
@@ -68,6 +79,8 @@ export interface GetRepositoryCommandOutput extends GetRepositoryOutput, __Metad
  * @throws {@link ValidationException} (client fault)
  *  <p>The input is invalid or an out-of-range value was supplied for the input parameter.</p>
  *
+ * @throws {@link ProtonServiceException}
+ * <p>Base exception class for all service exceptions from Proton service.</p>
  *
  */
 export class GetRepositoryCommand extends $Command<

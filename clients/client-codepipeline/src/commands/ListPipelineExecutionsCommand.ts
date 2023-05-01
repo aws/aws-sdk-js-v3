@@ -36,16 +36,44 @@ export interface ListPipelineExecutionsCommandOutput extends ListPipelineExecuti
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodePipelineClient, ListPipelineExecutionsCommand } from "@aws-sdk/client-codepipeline"; // ES Modules import
- * // const { CodePipelineClient, ListPipelineExecutionsCommand } = require("@aws-sdk/client-codepipeline"); // CommonJS import
+ * import { CodePipelineClient, ListPipelineExecutionsCommand } from '@aws-sdk/client-codepipeline'; // ES Modules import
+ * // const { CodePipelineClient, ListPipelineExecutionsCommand } = require('@aws-sdk/client-codepipeline'); // CommonJS import
  * const client = new CodePipelineClient(config);
  * const input = { // ListPipelineExecutionsInput
- *   pipelineName: "STRING_VALUE", // required
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   pipelineName: 'STRING_VALUE', // required
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new ListPipelineExecutionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListPipelineExecutionsOutput
+ *   pipelineExecutionSummaries: [ // PipelineExecutionSummaryList
+ *     { // PipelineExecutionSummary
+ *       pipelineExecutionId: 'STRING_VALUE',
+ *       status: 'STRING_VALUE',
+ *       startTime: new Date('TIMESTAMP'),
+ *       lastUpdateTime: new Date('TIMESTAMP'),
+ *       sourceRevisions: [ // SourceRevisionList
+ *         { // SourceRevision
+ *           actionName: 'STRING_VALUE', // required
+ *           revisionId: 'STRING_VALUE',
+ *           revisionSummary: 'STRING_VALUE',
+ *           revisionUrl: 'STRING_VALUE',
+ *         },
+ *       ],
+ *       trigger: { // ExecutionTrigger
+ *         triggerType: 'STRING_VALUE',
+ *         triggerDetail: 'STRING_VALUE',
+ *       },
+ *       stopTrigger: { // StopExecutionTrigger
+ *         reason: 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListPipelineExecutionsCommandInput - {@link ListPipelineExecutionsCommandInput}
@@ -64,6 +92,8 @@ export interface ListPipelineExecutionsCommandOutput extends ListPipelineExecuti
  * @throws {@link ValidationException} (client fault)
  *  <p>The validation was specified in an invalid format.</p>
  *
+ * @throws {@link CodePipelineServiceException}
+ * <p>Base exception class for all service exceptions from CodePipeline service.</p>
  *
  */
 export class ListPipelineExecutionsCommand extends $Command<

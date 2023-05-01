@@ -56,16 +56,22 @@ export interface GetAuthorizationTokenCommandOutput extends GetAuthorizationToke
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeartifactClient, GetAuthorizationTokenCommand } from "@aws-sdk/client-codeartifact"; // ES Modules import
- * // const { CodeartifactClient, GetAuthorizationTokenCommand } = require("@aws-sdk/client-codeartifact"); // CommonJS import
+ * import { CodeartifactClient, GetAuthorizationTokenCommand } from '@aws-sdk/client-codeartifact'; // ES Modules import
+ * // const { CodeartifactClient, GetAuthorizationTokenCommand } = require('@aws-sdk/client-codeartifact'); // CommonJS import
  * const client = new CodeartifactClient(config);
  * const input = { // GetAuthorizationTokenRequest
- *   domain: "STRING_VALUE", // required
- *   domainOwner: "STRING_VALUE",
- *   durationSeconds: Number("long"),
+ *   domain: 'STRING_VALUE', // required
+ *   domainOwner: 'STRING_VALUE',
+ *   durationSeconds: Number('long'),
  * };
  * const command = new GetAuthorizationTokenCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetAuthorizationTokenResult
+ *   authorizationToken: 'STRING_VALUE',
+ *   expiration: new Date('TIMESTAMP'),
+ * };
+ *
  * ```
  *
  * @param GetAuthorizationTokenCommandInput - {@link GetAuthorizationTokenCommandInput}
@@ -97,6 +103,8 @@ export interface GetAuthorizationTokenCommandOutput extends GetAuthorizationToke
  *       The operation did not succeed because a parameter in the request was sent with an invalid value.
  *     </p>
  *
+ * @throws {@link CodeartifactServiceException}
+ * <p>Base exception class for all service exceptions from Codeartifact service.</p>
  *
  */
 export class GetAuthorizationTokenCommand extends $Command<

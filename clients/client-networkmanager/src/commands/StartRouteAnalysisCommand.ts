@@ -37,24 +37,93 @@ export interface StartRouteAnalysisCommandOutput extends StartRouteAnalysisRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { NetworkManagerClient, StartRouteAnalysisCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
- * // const { NetworkManagerClient, StartRouteAnalysisCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
+ * import { NetworkManagerClient, StartRouteAnalysisCommand } from '@aws-sdk/client-networkmanager'; // ES Modules import
+ * // const { NetworkManagerClient, StartRouteAnalysisCommand } = require('@aws-sdk/client-networkmanager'); // CommonJS import
  * const client = new NetworkManagerClient(config);
  * const input = { // StartRouteAnalysisRequest
- *   GlobalNetworkId: "STRING_VALUE", // required
+ *   GlobalNetworkId: 'STRING_VALUE', // required
  *   Source: { // RouteAnalysisEndpointOptionsSpecification
- *     TransitGatewayAttachmentArn: "STRING_VALUE",
- *     IpAddress: "STRING_VALUE",
+ *     TransitGatewayAttachmentArn: 'STRING_VALUE',
+ *     IpAddress: 'STRING_VALUE',
  *   },
  *   Destination: {
- *     TransitGatewayAttachmentArn: "STRING_VALUE",
- *     IpAddress: "STRING_VALUE",
+ *     TransitGatewayAttachmentArn: 'STRING_VALUE',
+ *     IpAddress: 'STRING_VALUE',
  *   },
  *   IncludeReturnPath: true || false,
  *   UseMiddleboxes: true || false,
  * };
  * const command = new StartRouteAnalysisCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartRouteAnalysisResponse
+ *   RouteAnalysis: { // RouteAnalysis
+ *     GlobalNetworkId: 'STRING_VALUE',
+ *     OwnerAccountId: 'STRING_VALUE',
+ *     RouteAnalysisId: 'STRING_VALUE',
+ *     StartTimestamp: new Date('TIMESTAMP'),
+ *     Status: 'RUNNING' || 'COMPLETED' || 'FAILED',
+ *     Source: { // RouteAnalysisEndpointOptions
+ *       TransitGatewayAttachmentArn: 'STRING_VALUE',
+ *       TransitGatewayArn: 'STRING_VALUE',
+ *       IpAddress: 'STRING_VALUE',
+ *     },
+ *     Destination: {
+ *       TransitGatewayAttachmentArn: 'STRING_VALUE',
+ *       TransitGatewayArn: 'STRING_VALUE',
+ *       IpAddress: 'STRING_VALUE',
+ *     },
+ *     IncludeReturnPath: true || false,
+ *     UseMiddleboxes: true || false,
+ *     ForwardPath: { // RouteAnalysisPath
+ *       CompletionStatus: { // RouteAnalysisCompletion
+ *         ResultCode: 'CONNECTED' || 'NOT_CONNECTED',
+ *         ReasonCode: 'TRANSIT_GATEWAY_ATTACHMENT_NOT_FOUND' || 'TRANSIT_GATEWAY_ATTACHMENT_NOT_IN_TRANSIT_GATEWAY' || 'CYCLIC_PATH_DETECTED' || 'TRANSIT_GATEWAY_ATTACHMENT_STABLE_ROUTE_TABLE_NOT_FOUND' || 'ROUTE_NOT_FOUND' || 'BLACKHOLE_ROUTE_FOR_DESTINATION_FOUND' || 'INACTIVE_ROUTE_FOR_DESTINATION_FOUND' || 'TRANSIT_GATEWAY_ATTACHMENT_ATTACH_ARN_NO_MATCH' || 'MAX_HOPS_EXCEEDED' || 'POSSIBLE_MIDDLEBOX' || 'NO_DESTINATION_ARN_PROVIDED',
+ *         ReasonContext: { // ReasonContextMap
+ *           '<keys>': 'STRING_VALUE',
+ *         },
+ *       },
+ *       Path: [ // PathComponentList
+ *         { // PathComponent
+ *           Sequence: Number('int'),
+ *           Resource: { // NetworkResourceSummary
+ *             RegisteredGatewayArn: 'STRING_VALUE',
+ *             ResourceArn: 'STRING_VALUE',
+ *             ResourceType: 'STRING_VALUE',
+ *             Definition: 'STRING_VALUE',
+ *             NameTag: 'STRING_VALUE',
+ *             IsMiddlebox: true || false,
+ *           },
+ *           DestinationCidrBlock: 'STRING_VALUE',
+ *         },
+ *       ],
+ *     },
+ *     ReturnPath: {
+ *       CompletionStatus: {
+ *         ResultCode: 'CONNECTED' || 'NOT_CONNECTED',
+ *         ReasonCode: 'TRANSIT_GATEWAY_ATTACHMENT_NOT_FOUND' || 'TRANSIT_GATEWAY_ATTACHMENT_NOT_IN_TRANSIT_GATEWAY' || 'CYCLIC_PATH_DETECTED' || 'TRANSIT_GATEWAY_ATTACHMENT_STABLE_ROUTE_TABLE_NOT_FOUND' || 'ROUTE_NOT_FOUND' || 'BLACKHOLE_ROUTE_FOR_DESTINATION_FOUND' || 'INACTIVE_ROUTE_FOR_DESTINATION_FOUND' || 'TRANSIT_GATEWAY_ATTACHMENT_ATTACH_ARN_NO_MATCH' || 'MAX_HOPS_EXCEEDED' || 'POSSIBLE_MIDDLEBOX' || 'NO_DESTINATION_ARN_PROVIDED',
+ *         ReasonContext: {
+ *           '<keys>': 'STRING_VALUE',
+ *         },
+ *       },
+ *       Path: [
+ *         {
+ *           Sequence: Number('int'),
+ *           Resource: {
+ *             RegisteredGatewayArn: 'STRING_VALUE',
+ *             ResourceArn: 'STRING_VALUE',
+ *             ResourceType: 'STRING_VALUE',
+ *             Definition: 'STRING_VALUE',
+ *             NameTag: 'STRING_VALUE',
+ *             IsMiddlebox: true || false,
+ *           },
+ *           DestinationCidrBlock: 'STRING_VALUE',
+ *         },
+ *       ],
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param StartRouteAnalysisCommandInput - {@link StartRouteAnalysisCommandInput}
@@ -82,6 +151,8 @@ export interface StartRouteAnalysisCommandOutput extends StartRouteAnalysisRespo
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints.</p>
  *
+ * @throws {@link NetworkManagerServiceException}
+ * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
  */
 export class StartRouteAnalysisCommand extends $Command<

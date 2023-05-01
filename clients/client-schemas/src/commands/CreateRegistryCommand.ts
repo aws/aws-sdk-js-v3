@@ -36,18 +36,28 @@ export interface CreateRegistryCommandOutput extends CreateRegistryResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SchemasClient, CreateRegistryCommand } from "@aws-sdk/client-schemas"; // ES Modules import
- * // const { SchemasClient, CreateRegistryCommand } = require("@aws-sdk/client-schemas"); // CommonJS import
+ * import { SchemasClient, CreateRegistryCommand } from '@aws-sdk/client-schemas'; // ES Modules import
+ * // const { SchemasClient, CreateRegistryCommand } = require('@aws-sdk/client-schemas'); // CommonJS import
  * const client = new SchemasClient(config);
  * const input = { // CreateRegistryRequest
- *   Description: "STRING_VALUE",
- *   RegistryName: "STRING_VALUE", // required
+ *   Description: 'STRING_VALUE',
+ *   RegistryName: 'STRING_VALUE', // required
  *   Tags: { // Tags
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateRegistryCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateRegistryResponse
+ *   Description: 'STRING_VALUE',
+ *   RegistryArn: 'STRING_VALUE',
+ *   RegistryName: 'STRING_VALUE',
+ *   Tags: { // Tags
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateRegistryCommandInput - {@link CreateRegistryCommandInput}
@@ -68,6 +78,8 @@ export interface CreateRegistryCommandOutput extends CreateRegistryResponse, __M
  *
  * @throws {@link UnauthorizedException} (client fault)
  *
+ * @throws {@link SchemasServiceException}
+ * <p>Base exception class for all service exceptions from Schemas service.</p>
  *
  */
 export class CreateRegistryCommand extends $Command<

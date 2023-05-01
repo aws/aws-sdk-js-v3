@@ -60,19 +60,36 @@ export interface ListWorkflowTypesCommandOutput extends WorkflowTypeInfos, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SWFClient, ListWorkflowTypesCommand } from "@aws-sdk/client-swf"; // ES Modules import
- * // const { SWFClient, ListWorkflowTypesCommand } = require("@aws-sdk/client-swf"); // CommonJS import
+ * import { SWFClient, ListWorkflowTypesCommand } from '@aws-sdk/client-swf'; // ES Modules import
+ * // const { SWFClient, ListWorkflowTypesCommand } = require('@aws-sdk/client-swf'); // CommonJS import
  * const client = new SWFClient(config);
  * const input = { // ListWorkflowTypesInput
- *   domain: "STRING_VALUE", // required
- *   name: "STRING_VALUE",
- *   registrationStatus: "REGISTERED" || "DEPRECATED", // required
- *   nextPageToken: "STRING_VALUE",
- *   maximumPageSize: Number("int"),
+ *   domain: 'STRING_VALUE', // required
+ *   name: 'STRING_VALUE',
+ *   registrationStatus: 'REGISTERED' || 'DEPRECATED', // required
+ *   nextPageToken: 'STRING_VALUE',
+ *   maximumPageSize: Number('int'),
  *   reverseOrder: true || false,
  * };
  * const command = new ListWorkflowTypesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // WorkflowTypeInfos
+ *   typeInfos: [ // WorkflowTypeInfoList // required
+ *     { // WorkflowTypeInfo
+ *       workflowType: { // WorkflowType
+ *         name: 'STRING_VALUE', // required
+ *         version: 'STRING_VALUE', // required
+ *       },
+ *       status: 'REGISTERED' || 'DEPRECATED', // required
+ *       description: 'STRING_VALUE',
+ *       creationDate: new Date('TIMESTAMP'), // required
+ *       deprecationDate: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   nextPageToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListWorkflowTypesCommandInput - {@link ListWorkflowTypesCommandInput}
@@ -87,6 +104,8 @@ export interface ListWorkflowTypesCommandOutput extends WorkflowTypeInfos, __Met
  * @throws {@link UnknownResourceFault} (client fault)
  *  <p>Returned when the named resource cannot be found with in the scope of this operation (region or domain). This could happen if the named resource was never created or is no longer available for this operation.</p>
  *
+ * @throws {@link SWFServiceException}
+ * <p>Base exception class for all service exceptions from SWF service.</p>
  *
  */
 export class ListWorkflowTypesCommand extends $Command<

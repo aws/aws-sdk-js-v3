@@ -41,47 +41,47 @@ export interface CreateVirtualGatewayCommandOutput extends CreateVirtualGatewayO
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppMeshClient, CreateVirtualGatewayCommand } from "@aws-sdk/client-app-mesh"; // ES Modules import
- * // const { AppMeshClient, CreateVirtualGatewayCommand } = require("@aws-sdk/client-app-mesh"); // CommonJS import
+ * import { AppMeshClient, CreateVirtualGatewayCommand } from '@aws-sdk/client-app-mesh'; // ES Modules import
+ * // const { AppMeshClient, CreateVirtualGatewayCommand } = require('@aws-sdk/client-app-mesh'); // CommonJS import
  * const client = new AppMeshClient(config);
  * const input = { // CreateVirtualGatewayInput
- *   virtualGatewayName: "STRING_VALUE", // required
- *   meshName: "STRING_VALUE", // required
+ *   virtualGatewayName: 'STRING_VALUE', // required
+ *   meshName: 'STRING_VALUE', // required
  *   spec: { // VirtualGatewaySpec
  *     backendDefaults: { // VirtualGatewayBackendDefaults
  *       clientPolicy: { // VirtualGatewayClientPolicy
  *         tls: { // VirtualGatewayClientPolicyTls
  *           enforce: true || false,
  *           ports: [ // PortSet
- *             Number("int"),
+ *             Number('int'),
  *           ],
  *           certificate: { // VirtualGatewayClientTlsCertificate Union: only one key present
  *             file: { // VirtualGatewayListenerTlsFileCertificate
- *               certificateChain: "STRING_VALUE", // required
- *               privateKey: "STRING_VALUE", // required
+ *               certificateChain: 'STRING_VALUE', // required
+ *               privateKey: 'STRING_VALUE', // required
  *             },
  *             sds: { // VirtualGatewayListenerTlsSdsCertificate
- *               secretName: "STRING_VALUE", // required
+ *               secretName: 'STRING_VALUE', // required
  *             },
  *           },
  *           validation: { // VirtualGatewayTlsValidationContext
  *             trust: { // VirtualGatewayTlsValidationContextTrust Union: only one key present
  *               acm: { // VirtualGatewayTlsValidationContextAcmTrust
  *                 certificateAuthorityArns: [ // VirtualGatewayCertificateAuthorityArns // required
- *                   "STRING_VALUE",
+ *                   'STRING_VALUE',
  *                 ],
  *               },
  *               file: { // VirtualGatewayTlsValidationContextFileTrust
- *                 certificateChain: "STRING_VALUE", // required
+ *                 certificateChain: 'STRING_VALUE', // required
  *               },
  *               sds: { // VirtualGatewayTlsValidationContextSdsTrust
- *                 secretName: "STRING_VALUE", // required
+ *                 secretName: 'STRING_VALUE', // required
  *               },
  *             },
  *             subjectAlternativeNames: { // SubjectAlternativeNames
  *               match: { // SubjectAlternativeNameMatchers
  *                 exact: [ // SubjectAlternativeNameList // required
- *                   "STRING_VALUE",
+ *                   'STRING_VALUE',
  *                 ],
  *               },
  *             },
@@ -92,60 +92,60 @@ export interface CreateVirtualGatewayCommandOutput extends CreateVirtualGatewayO
  *     listeners: [ // VirtualGatewayListeners // required
  *       { // VirtualGatewayListener
  *         healthCheck: { // VirtualGatewayHealthCheckPolicy
- *           timeoutMillis: Number("long"), // required
- *           intervalMillis: Number("long"), // required
- *           protocol: "STRING_VALUE", // required
- *           port: Number("int"),
- *           path: "STRING_VALUE",
- *           healthyThreshold: Number("int"), // required
- *           unhealthyThreshold: Number("int"), // required
+ *           timeoutMillis: Number('long'), // required
+ *           intervalMillis: Number('long'), // required
+ *           protocol: 'STRING_VALUE', // required
+ *           port: Number('int'),
+ *           path: 'STRING_VALUE',
+ *           healthyThreshold: Number('int'), // required
+ *           unhealthyThreshold: Number('int'), // required
  *         },
  *         portMapping: { // VirtualGatewayPortMapping
- *           port: Number("int"), // required
- *           protocol: "STRING_VALUE", // required
+ *           port: Number('int'), // required
+ *           protocol: 'STRING_VALUE', // required
  *         },
  *         tls: { // VirtualGatewayListenerTls
- *           mode: "STRING_VALUE", // required
+ *           mode: 'STRING_VALUE', // required
  *           validation: { // VirtualGatewayListenerTlsValidationContext
  *             trust: { // VirtualGatewayListenerTlsValidationContextTrust Union: only one key present
  *               file: {
- *                 certificateChain: "STRING_VALUE", // required
+ *                 certificateChain: 'STRING_VALUE', // required
  *               },
  *               sds: {
- *                 secretName: "STRING_VALUE", // required
+ *                 secretName: 'STRING_VALUE', // required
  *               },
  *             },
  *             subjectAlternativeNames: {
  *               match: {
  *                 exact: [ // required
- *                   "STRING_VALUE",
+ *                   'STRING_VALUE',
  *                 ],
  *               },
  *             },
  *           },
  *           certificate: { // VirtualGatewayListenerTlsCertificate Union: only one key present
  *             acm: { // VirtualGatewayListenerTlsAcmCertificate
- *               certificateArn: "STRING_VALUE", // required
+ *               certificateArn: 'STRING_VALUE', // required
  *             },
  *             file: {
- *               certificateChain: "STRING_VALUE", // required
- *               privateKey: "STRING_VALUE", // required
+ *               certificateChain: 'STRING_VALUE', // required
+ *               privateKey: 'STRING_VALUE', // required
  *             },
  *             sds: {
- *               secretName: "STRING_VALUE", // required
+ *               secretName: 'STRING_VALUE', // required
  *             },
  *           },
  *         },
  *         connectionPool: { // VirtualGatewayConnectionPool Union: only one key present
  *           http: { // VirtualGatewayHttpConnectionPool
- *             maxConnections: Number("int"), // required
- *             maxPendingRequests: Number("int"),
+ *             maxConnections: Number('int'), // required
+ *             maxPendingRequests: Number('int'),
  *           },
  *           http2: { // VirtualGatewayHttp2ConnectionPool
- *             maxRequests: Number("int"), // required
+ *             maxRequests: Number('int'), // required
  *           },
  *           grpc: { // VirtualGatewayGrpcConnectionPool
- *             maxRequests: Number("int"), // required
+ *             maxRequests: Number('int'), // required
  *           },
  *         },
  *       },
@@ -153,13 +153,13 @@ export interface CreateVirtualGatewayCommandOutput extends CreateVirtualGatewayO
  *     logging: { // VirtualGatewayLogging
  *       accessLog: { // VirtualGatewayAccessLog Union: only one key present
  *         file: { // VirtualGatewayFileAccessLog
- *           path: "STRING_VALUE", // required
+ *           path: 'STRING_VALUE', // required
  *           format: { // LoggingFormat Union: only one key present
- *             text: "STRING_VALUE",
+ *             text: 'STRING_VALUE',
  *             json: [ // JsonFormat
  *               { // JsonFormatRef
- *                 key: "STRING_VALUE", // required
- *                 value: "STRING_VALUE", // required
+ *                 key: 'STRING_VALUE', // required
+ *                 value: 'STRING_VALUE', // required
  *               },
  *             ],
  *           },
@@ -169,15 +169,155 @@ export interface CreateVirtualGatewayCommandOutput extends CreateVirtualGatewayO
  *   },
  *   tags: [ // TagList
  *     { // TagRef
- *       key: "STRING_VALUE", // required
- *       value: "STRING_VALUE", // required
+ *       key: 'STRING_VALUE', // required
+ *       value: 'STRING_VALUE', // required
  *     },
  *   ],
- *   clientToken: "STRING_VALUE",
- *   meshOwner: "STRING_VALUE",
+ *   clientToken: 'STRING_VALUE',
+ *   meshOwner: 'STRING_VALUE',
  * };
  * const command = new CreateVirtualGatewayCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateVirtualGatewayOutput
+ *   virtualGateway: { // VirtualGatewayData
+ *     meshName: 'STRING_VALUE', // required
+ *     virtualGatewayName: 'STRING_VALUE', // required
+ *     spec: { // VirtualGatewaySpec
+ *       backendDefaults: { // VirtualGatewayBackendDefaults
+ *         clientPolicy: { // VirtualGatewayClientPolicy
+ *           tls: { // VirtualGatewayClientPolicyTls
+ *             enforce: true || false,
+ *             ports: [ // PortSet
+ *               Number('int'),
+ *             ],
+ *             certificate: { // VirtualGatewayClientTlsCertificate Union: only one key present
+ *               file: { // VirtualGatewayListenerTlsFileCertificate
+ *                 certificateChain: 'STRING_VALUE', // required
+ *                 privateKey: 'STRING_VALUE', // required
+ *               },
+ *               sds: { // VirtualGatewayListenerTlsSdsCertificate
+ *                 secretName: 'STRING_VALUE', // required
+ *               },
+ *             },
+ *             validation: { // VirtualGatewayTlsValidationContext
+ *               trust: { // VirtualGatewayTlsValidationContextTrust Union: only one key present
+ *                 acm: { // VirtualGatewayTlsValidationContextAcmTrust
+ *                   certificateAuthorityArns: [ // VirtualGatewayCertificateAuthorityArns // required
+ *                     'STRING_VALUE',
+ *                   ],
+ *                 },
+ *                 file: { // VirtualGatewayTlsValidationContextFileTrust
+ *                   certificateChain: 'STRING_VALUE', // required
+ *                 },
+ *                 sds: { // VirtualGatewayTlsValidationContextSdsTrust
+ *                   secretName: 'STRING_VALUE', // required
+ *                 },
+ *               },
+ *               subjectAlternativeNames: { // SubjectAlternativeNames
+ *                 match: { // SubjectAlternativeNameMatchers
+ *                   exact: [ // SubjectAlternativeNameList // required
+ *                     'STRING_VALUE',
+ *                   ],
+ *                 },
+ *               },
+ *             },
+ *           },
+ *         },
+ *       },
+ *       listeners: [ // VirtualGatewayListeners // required
+ *         { // VirtualGatewayListener
+ *           healthCheck: { // VirtualGatewayHealthCheckPolicy
+ *             timeoutMillis: Number('long'), // required
+ *             intervalMillis: Number('long'), // required
+ *             protocol: 'STRING_VALUE', // required
+ *             port: Number('int'),
+ *             path: 'STRING_VALUE',
+ *             healthyThreshold: Number('int'), // required
+ *             unhealthyThreshold: Number('int'), // required
+ *           },
+ *           portMapping: { // VirtualGatewayPortMapping
+ *             port: Number('int'), // required
+ *             protocol: 'STRING_VALUE', // required
+ *           },
+ *           tls: { // VirtualGatewayListenerTls
+ *             mode: 'STRING_VALUE', // required
+ *             validation: { // VirtualGatewayListenerTlsValidationContext
+ *               trust: { // VirtualGatewayListenerTlsValidationContextTrust Union: only one key present
+ *                 file: {
+ *                   certificateChain: 'STRING_VALUE', // required
+ *                 },
+ *                 sds: {
+ *                   secretName: 'STRING_VALUE', // required
+ *                 },
+ *               },
+ *               subjectAlternativeNames: {
+ *                 match: {
+ *                   exact: [ // required
+ *                     'STRING_VALUE',
+ *                   ],
+ *                 },
+ *               },
+ *             },
+ *             certificate: { // VirtualGatewayListenerTlsCertificate Union: only one key present
+ *               acm: { // VirtualGatewayListenerTlsAcmCertificate
+ *                 certificateArn: 'STRING_VALUE', // required
+ *               },
+ *               file: {
+ *                 certificateChain: 'STRING_VALUE', // required
+ *                 privateKey: 'STRING_VALUE', // required
+ *               },
+ *               sds: {
+ *                 secretName: 'STRING_VALUE', // required
+ *               },
+ *             },
+ *           },
+ *           connectionPool: { // VirtualGatewayConnectionPool Union: only one key present
+ *             http: { // VirtualGatewayHttpConnectionPool
+ *               maxConnections: Number('int'), // required
+ *               maxPendingRequests: Number('int'),
+ *             },
+ *             http2: { // VirtualGatewayHttp2ConnectionPool
+ *               maxRequests: Number('int'), // required
+ *             },
+ *             grpc: { // VirtualGatewayGrpcConnectionPool
+ *               maxRequests: Number('int'), // required
+ *             },
+ *           },
+ *         },
+ *       ],
+ *       logging: { // VirtualGatewayLogging
+ *         accessLog: { // VirtualGatewayAccessLog Union: only one key present
+ *           file: { // VirtualGatewayFileAccessLog
+ *             path: 'STRING_VALUE', // required
+ *             format: { // LoggingFormat Union: only one key present
+ *               text: 'STRING_VALUE',
+ *               json: [ // JsonFormat
+ *                 { // JsonFormatRef
+ *                   key: 'STRING_VALUE', // required
+ *                   value: 'STRING_VALUE', // required
+ *                 },
+ *               ],
+ *             },
+ *           },
+ *         },
+ *       },
+ *     },
+ *     metadata: { // ResourceMetadata
+ *       arn: 'STRING_VALUE', // required
+ *       version: Number('long'), // required
+ *       uid: 'STRING_VALUE', // required
+ *       createdAt: new Date('TIMESTAMP'), // required
+ *       lastUpdatedAt: new Date('TIMESTAMP'), // required
+ *       meshOwner: 'STRING_VALUE', // required
+ *       resourceOwner: 'STRING_VALUE', // required
+ *     },
+ *     status: { // VirtualGatewayStatus
+ *       status: 'STRING_VALUE', // required
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateVirtualGatewayCommandInput - {@link CreateVirtualGatewayCommandInput}
@@ -215,6 +355,8 @@ export interface CreateVirtualGatewayCommandOutput extends CreateVirtualGatewayO
  *          your account. For best results, use an increasing or variable sleep interval between
  *          requests.</p>
  *
+ * @throws {@link AppMeshServiceException}
+ * <p>Base exception class for all service exceptions from AppMesh service.</p>
  *
  */
 export class CreateVirtualGatewayCommand extends $Command<

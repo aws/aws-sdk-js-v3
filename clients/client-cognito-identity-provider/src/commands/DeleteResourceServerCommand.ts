@@ -41,15 +41,18 @@ export interface DeleteResourceServerCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CognitoIdentityProviderClient, DeleteResourceServerCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
- * // const { CognitoIdentityProviderClient, DeleteResourceServerCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
+ * import { CognitoIdentityProviderClient, DeleteResourceServerCommand } from '@aws-sdk/client-cognito-identity-provider'; // ES Modules import
+ * // const { CognitoIdentityProviderClient, DeleteResourceServerCommand } = require('@aws-sdk/client-cognito-identity-provider'); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
  * const input = { // DeleteResourceServerRequest
- *   UserPoolId: "STRING_VALUE", // required
- *   Identifier: "STRING_VALUE", // required
+ *   UserPoolId: 'STRING_VALUE', // required
+ *   Identifier: 'STRING_VALUE', // required
  * };
  * const command = new DeleteResourceServerCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteResourceServerCommandInput - {@link DeleteResourceServerCommandInput}
@@ -76,6 +79,8 @@ export interface DeleteResourceServerCommandOutput extends __MetadataBearer {}
  *  <p>This exception is thrown when the user has made too many requests for a given
  *             operation.</p>
  *
+ * @throws {@link CognitoIdentityProviderServiceException}
+ * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
  */
 export class DeleteResourceServerCommand extends $Command<

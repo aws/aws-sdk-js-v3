@@ -37,31 +37,57 @@ export interface CreateResolverRuleCommandOutput extends CreateResolverRuleRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Route53ResolverClient, CreateResolverRuleCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
- * // const { Route53ResolverClient, CreateResolverRuleCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
+ * import { Route53ResolverClient, CreateResolverRuleCommand } from '@aws-sdk/client-route53resolver'; // ES Modules import
+ * // const { Route53ResolverClient, CreateResolverRuleCommand } = require('@aws-sdk/client-route53resolver'); // CommonJS import
  * const client = new Route53ResolverClient(config);
  * const input = { // CreateResolverRuleRequest
- *   CreatorRequestId: "STRING_VALUE", // required
- *   Name: "STRING_VALUE",
- *   RuleType: "FORWARD" || "SYSTEM" || "RECURSIVE", // required
- *   DomainName: "STRING_VALUE", // required
+ *   CreatorRequestId: 'STRING_VALUE', // required
+ *   Name: 'STRING_VALUE',
+ *   RuleType: 'FORWARD' || 'SYSTEM' || 'RECURSIVE', // required
+ *   DomainName: 'STRING_VALUE', // required
  *   TargetIps: [ // TargetList
  *     { // TargetAddress
- *       Ip: "STRING_VALUE",
- *       Port: Number("int"),
- *       Ipv6: "STRING_VALUE",
+ *       Ip: 'STRING_VALUE',
+ *       Port: Number('int'),
+ *       Ipv6: 'STRING_VALUE',
  *     },
  *   ],
- *   ResolverEndpointId: "STRING_VALUE",
+ *   ResolverEndpointId: 'STRING_VALUE',
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreateResolverRuleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateResolverRuleResponse
+ *   ResolverRule: { // ResolverRule
+ *     Id: 'STRING_VALUE',
+ *     CreatorRequestId: 'STRING_VALUE',
+ *     Arn: 'STRING_VALUE',
+ *     DomainName: 'STRING_VALUE',
+ *     Status: 'COMPLETE' || 'DELETING' || 'UPDATING' || 'FAILED',
+ *     StatusMessage: 'STRING_VALUE',
+ *     RuleType: 'FORWARD' || 'SYSTEM' || 'RECURSIVE',
+ *     Name: 'STRING_VALUE',
+ *     TargetIps: [ // TargetList
+ *       { // TargetAddress
+ *         Ip: 'STRING_VALUE',
+ *         Port: Number('int'),
+ *         Ipv6: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     ResolverEndpointId: 'STRING_VALUE',
+ *     OwnerId: 'STRING_VALUE',
+ *     ShareStatus: 'NOT_SHARED' || 'SHARED_WITH_ME' || 'SHARED_BY_ME',
+ *     CreationTime: 'STRING_VALUE',
+ *     ModificationTime: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateResolverRuleCommandInput - {@link CreateResolverRuleCommandInput}
@@ -94,6 +120,8 @@ export interface CreateResolverRuleCommandOutput extends CreateResolverRuleRespo
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was throttled. Try again in a few minutes.</p>
  *
+ * @throws {@link Route53ResolverServiceException}
+ * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
  */
 export class CreateResolverRuleCommand extends $Command<

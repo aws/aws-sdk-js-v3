@@ -45,15 +45,18 @@ export interface DisassociateAssessmentReportEvidenceFolderCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AuditManagerClient, DisassociateAssessmentReportEvidenceFolderCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
- * // const { AuditManagerClient, DisassociateAssessmentReportEvidenceFolderCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import
+ * import { AuditManagerClient, DisassociateAssessmentReportEvidenceFolderCommand } from '@aws-sdk/client-auditmanager'; // ES Modules import
+ * // const { AuditManagerClient, DisassociateAssessmentReportEvidenceFolderCommand } = require('@aws-sdk/client-auditmanager'); // CommonJS import
  * const client = new AuditManagerClient(config);
  * const input = { // DisassociateAssessmentReportEvidenceFolderRequest
- *   assessmentId: "STRING_VALUE", // required
- *   evidenceFolderId: "STRING_VALUE", // required
+ *   assessmentId: 'STRING_VALUE', // required
+ *   evidenceFolderId: 'STRING_VALUE', // required
  * };
  * const command = new DisassociateAssessmentReportEvidenceFolderCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DisassociateAssessmentReportEvidenceFolderCommandInput - {@link DisassociateAssessmentReportEvidenceFolderCommandInput}
@@ -76,6 +79,8 @@ export interface DisassociateAssessmentReportEvidenceFolderCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p> The request has invalid or missing parameters. </p>
  *
+ * @throws {@link AuditManagerServiceException}
+ * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
  */
 export class DisassociateAssessmentReportEvidenceFolderCommand extends $Command<

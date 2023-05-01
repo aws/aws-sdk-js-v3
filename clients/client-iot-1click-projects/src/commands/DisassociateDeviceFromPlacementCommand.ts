@@ -45,16 +45,19 @@ export interface DisassociateDeviceFromPlacementCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoT1ClickProjectsClient, DisassociateDeviceFromPlacementCommand } from "@aws-sdk/client-iot-1click-projects"; // ES Modules import
- * // const { IoT1ClickProjectsClient, DisassociateDeviceFromPlacementCommand } = require("@aws-sdk/client-iot-1click-projects"); // CommonJS import
+ * import { IoT1ClickProjectsClient, DisassociateDeviceFromPlacementCommand } from '@aws-sdk/client-iot-1click-projects'; // ES Modules import
+ * // const { IoT1ClickProjectsClient, DisassociateDeviceFromPlacementCommand } = require('@aws-sdk/client-iot-1click-projects'); // CommonJS import
  * const client = new IoT1ClickProjectsClient(config);
  * const input = { // DisassociateDeviceFromPlacementRequest
- *   projectName: "STRING_VALUE", // required
- *   placementName: "STRING_VALUE", // required
- *   deviceTemplateName: "STRING_VALUE", // required
+ *   projectName: 'STRING_VALUE', // required
+ *   placementName: 'STRING_VALUE', // required
+ *   deviceTemplateName: 'STRING_VALUE', // required
  * };
  * const command = new DisassociateDeviceFromPlacementCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DisassociateDeviceFromPlacementCommandInput - {@link DisassociateDeviceFromPlacementCommandInput}
@@ -75,6 +78,8 @@ export interface DisassociateDeviceFromPlacementCommandOutput
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p></p>
  *
+ * @throws {@link IoT1ClickProjectsServiceException}
+ * <p>Base exception class for all service exceptions from IoT1ClickProjects service.</p>
  *
  */
 export class DisassociateDeviceFromPlacementCommand extends $Command<

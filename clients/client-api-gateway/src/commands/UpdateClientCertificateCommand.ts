@@ -36,22 +36,34 @@ export interface UpdateClientCertificateCommandOutput extends ClientCertificate,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { APIGatewayClient, UpdateClientCertificateCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
- * // const { APIGatewayClient, UpdateClientCertificateCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
+ * import { APIGatewayClient, UpdateClientCertificateCommand } from '@aws-sdk/client-api-gateway'; // ES Modules import
+ * // const { APIGatewayClient, UpdateClientCertificateCommand } = require('@aws-sdk/client-api-gateway'); // CommonJS import
  * const client = new APIGatewayClient(config);
  * const input = { // UpdateClientCertificateRequest
- *   clientCertificateId: "STRING_VALUE", // required
+ *   clientCertificateId: 'STRING_VALUE', // required
  *   patchOperations: [ // ListOfPatchOperation
  *     { // PatchOperation
- *       op: "add" || "remove" || "replace" || "move" || "copy" || "test",
- *       path: "STRING_VALUE",
- *       value: "STRING_VALUE",
- *       from: "STRING_VALUE",
+ *       op: 'add' || 'remove' || 'replace' || 'move' || 'copy' || 'test',
+ *       path: 'STRING_VALUE',
+ *       value: 'STRING_VALUE',
+ *       from: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new UpdateClientCertificateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ClientCertificate
+ *   clientCertificateId: 'STRING_VALUE',
+ *   description: 'STRING_VALUE',
+ *   pemEncodedCertificate: 'STRING_VALUE',
+ *   createdDate: new Date('TIMESTAMP'),
+ *   expirationDate: new Date('TIMESTAMP'),
+ *   tags: { // MapOfStringToString
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateClientCertificateCommandInput - {@link UpdateClientCertificateCommandInput}
@@ -78,6 +90,8 @@ export interface UpdateClientCertificateCommandOutput extends ClientCertificate,
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The request is denied because the caller has insufficient permissions.</p>
  *
+ * @throws {@link APIGatewayServiceException}
+ * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
  */
 export class UpdateClientCertificateCommand extends $Command<

@@ -41,18 +41,42 @@ export interface DescribeIdentityProviderConfigCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EKSClient, DescribeIdentityProviderConfigCommand } from "@aws-sdk/client-eks"; // ES Modules import
- * // const { EKSClient, DescribeIdentityProviderConfigCommand } = require("@aws-sdk/client-eks"); // CommonJS import
+ * import { EKSClient, DescribeIdentityProviderConfigCommand } from '@aws-sdk/client-eks'; // ES Modules import
+ * // const { EKSClient, DescribeIdentityProviderConfigCommand } = require('@aws-sdk/client-eks'); // CommonJS import
  * const client = new EKSClient(config);
  * const input = { // DescribeIdentityProviderConfigRequest
- *   clusterName: "STRING_VALUE", // required
+ *   clusterName: 'STRING_VALUE', // required
  *   identityProviderConfig: { // IdentityProviderConfig
- *     type: "STRING_VALUE", // required
- *     name: "STRING_VALUE", // required
+ *     type: 'STRING_VALUE', // required
+ *     name: 'STRING_VALUE', // required
  *   },
  * };
  * const command = new DescribeIdentityProviderConfigCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeIdentityProviderConfigResponse
+ *   identityProviderConfig: { // IdentityProviderConfigResponse
+ *     oidc: { // OidcIdentityProviderConfig
+ *       identityProviderConfigName: 'STRING_VALUE',
+ *       identityProviderConfigArn: 'STRING_VALUE',
+ *       clusterName: 'STRING_VALUE',
+ *       issuerUrl: 'STRING_VALUE',
+ *       clientId: 'STRING_VALUE',
+ *       usernameClaim: 'STRING_VALUE',
+ *       usernamePrefix: 'STRING_VALUE',
+ *       groupsClaim: 'STRING_VALUE',
+ *       groupsPrefix: 'STRING_VALUE',
+ *       requiredClaims: { // requiredClaimsMap
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *       tags: { // TagMap
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *       status: 'CREATING' || 'DELETING' || 'ACTIVE',
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeIdentityProviderConfigCommandInput - {@link DescribeIdentityProviderConfigCommandInput}
@@ -82,6 +106,8 @@ export interface DescribeIdentityProviderConfigCommandOutput
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service is unavailable. Back off and retry the operation.</p>
  *
+ * @throws {@link EKSServiceException}
+ * <p>Base exception class for all service exceptions from EKS service.</p>
  *
  */
 export class DescribeIdentityProviderConfigCommand extends $Command<

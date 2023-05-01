@@ -59,28 +59,33 @@ export interface ModifyDBClusterParameterGroupCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DocDBClient, ModifyDBClusterParameterGroupCommand } from "@aws-sdk/client-docdb"; // ES Modules import
- * // const { DocDBClient, ModifyDBClusterParameterGroupCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
+ * import { DocDBClient, ModifyDBClusterParameterGroupCommand } from '@aws-sdk/client-docdb'; // ES Modules import
+ * // const { DocDBClient, ModifyDBClusterParameterGroupCommand } = require('@aws-sdk/client-docdb'); // CommonJS import
  * const client = new DocDBClient(config);
  * const input = { // ModifyDBClusterParameterGroupMessage
- *   DBClusterParameterGroupName: "STRING_VALUE", // required
+ *   DBClusterParameterGroupName: 'STRING_VALUE', // required
  *   Parameters: [ // ParametersList // required
  *     { // Parameter
- *       ParameterName: "STRING_VALUE",
- *       ParameterValue: "STRING_VALUE",
- *       Description: "STRING_VALUE",
- *       Source: "STRING_VALUE",
- *       ApplyType: "STRING_VALUE",
- *       DataType: "STRING_VALUE",
- *       AllowedValues: "STRING_VALUE",
+ *       ParameterName: 'STRING_VALUE',
+ *       ParameterValue: 'STRING_VALUE',
+ *       Description: 'STRING_VALUE',
+ *       Source: 'STRING_VALUE',
+ *       ApplyType: 'STRING_VALUE',
+ *       DataType: 'STRING_VALUE',
+ *       AllowedValues: 'STRING_VALUE',
  *       IsModifiable: true || false,
- *       MinimumEngineVersion: "STRING_VALUE",
- *       ApplyMethod: "immediate" || "pending-reboot",
+ *       MinimumEngineVersion: 'STRING_VALUE',
+ *       ApplyMethod: 'immediate' || 'pending-reboot',
  *     },
  *   ],
  * };
  * const command = new ModifyDBClusterParameterGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DBClusterParameterGroupNameMessage
+ *   DBClusterParameterGroupName: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ModifyDBClusterParameterGroupCommandInput - {@link ModifyDBClusterParameterGroupCommandInput}
@@ -96,6 +101,8 @@ export interface ModifyDBClusterParameterGroupCommandOutput
  * @throws {@link InvalidDBParameterGroupStateFault} (client fault)
  *  <p>The parameter group is in use, or it is in a state that is not valid. If you are trying to delete the parameter group, you can't delete it when the parameter group is in this state.</p>
  *
+ * @throws {@link DocDBServiceException}
+ * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
  */
 export class ModifyDBClusterParameterGroupCommand extends $Command<

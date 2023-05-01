@@ -39,35 +39,42 @@ export interface CreateImageCommandOutput extends CreateImageResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ImagebuilderClient, CreateImageCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
- * // const { ImagebuilderClient, CreateImageCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
+ * import { ImagebuilderClient, CreateImageCommand } from '@aws-sdk/client-imagebuilder'; // ES Modules import
+ * // const { ImagebuilderClient, CreateImageCommand } = require('@aws-sdk/client-imagebuilder'); // CommonJS import
  * const client = new ImagebuilderClient(config);
  * const input = { // CreateImageRequest
- *   imageRecipeArn: "STRING_VALUE",
- *   containerRecipeArn: "STRING_VALUE",
- *   distributionConfigurationArn: "STRING_VALUE",
- *   infrastructureConfigurationArn: "STRING_VALUE", // required
+ *   imageRecipeArn: 'STRING_VALUE',
+ *   containerRecipeArn: 'STRING_VALUE',
+ *   distributionConfigurationArn: 'STRING_VALUE',
+ *   infrastructureConfigurationArn: 'STRING_VALUE', // required
  *   imageTestsConfiguration: { // ImageTestsConfiguration
  *     imageTestsEnabled: true || false,
- *     timeoutMinutes: Number("int"),
+ *     timeoutMinutes: Number('int'),
  *   },
  *   enhancedImageMetadataEnabled: true || false,
  *   tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
- *   clientToken: "STRING_VALUE", // required
+ *   clientToken: 'STRING_VALUE', // required
  *   imageScanningConfiguration: { // ImageScanningConfiguration
  *     imageScanningEnabled: true || false,
  *     ecrConfiguration: { // EcrConfiguration
- *       repositoryName: "STRING_VALUE",
+ *       repositoryName: 'STRING_VALUE',
  *       containerTags: [ // StringList
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   },
  * };
  * const command = new CreateImageCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateImageResponse
+ *   requestId: 'STRING_VALUE',
+ *   clientToken: 'STRING_VALUE',
+ *   imageBuildVersionArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateImageCommandInput - {@link CreateImageCommandInput}
@@ -110,6 +117,8 @@ export interface CreateImageCommandOutput extends CreateImageResponse, __Metadat
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service is unable to process your request at this time.</p>
  *
+ * @throws {@link ImagebuilderServiceException}
+ * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
  */
 export class CreateImageCommand extends $Command<

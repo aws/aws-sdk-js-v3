@@ -37,14 +37,40 @@ export interface UnlockRuleCommandOutput extends UnlockRuleResponse, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RbinClient, UnlockRuleCommand } from "@aws-sdk/client-rbin"; // ES Modules import
- * // const { RbinClient, UnlockRuleCommand } = require("@aws-sdk/client-rbin"); // CommonJS import
+ * import { RbinClient, UnlockRuleCommand } from '@aws-sdk/client-rbin'; // ES Modules import
+ * // const { RbinClient, UnlockRuleCommand } = require('@aws-sdk/client-rbin'); // CommonJS import
  * const client = new RbinClient(config);
  * const input = { // UnlockRuleRequest
- *   Identifier: "STRING_VALUE", // required
+ *   Identifier: 'STRING_VALUE', // required
  * };
  * const command = new UnlockRuleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UnlockRuleResponse
+ *   Identifier: 'STRING_VALUE',
+ *   Description: 'STRING_VALUE',
+ *   ResourceType: 'EBS_SNAPSHOT' || 'EC2_IMAGE',
+ *   RetentionPeriod: { // RetentionPeriod
+ *     RetentionPeriodValue: Number('int'), // required
+ *     RetentionPeriodUnit: 'DAYS', // required
+ *   },
+ *   ResourceTags: [ // ResourceTags
+ *     { // ResourceTag
+ *       ResourceTagKey: 'STRING_VALUE', // required
+ *       ResourceTagValue: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   Status: 'pending' || 'available',
+ *   LockConfiguration: { // LockConfiguration
+ *     UnlockDelay: { // UnlockDelay
+ *       UnlockDelayValue: Number('int'), // required
+ *       UnlockDelayUnit: 'DAYS', // required
+ *     },
+ *   },
+ *   LockState: 'locked' || 'pending_unlock' || 'unlocked',
+ *   LockEndTime: new Date('TIMESTAMP'),
+ * };
+ *
  * ```
  *
  * @param UnlockRuleCommandInput - {@link UnlockRuleCommandInput}
@@ -65,6 +91,8 @@ export interface UnlockRuleCommandOutput extends UnlockRuleResponse, __MetadataB
  * @throws {@link ValidationException} (client fault)
  *  <p>One or more of the parameters in the request is not valid.</p>
  *
+ * @throws {@link RbinServiceException}
+ * <p>Base exception class for all service exceptions from Rbin service.</p>
  *
  */
 export class UnlockRuleCommand extends $Command<

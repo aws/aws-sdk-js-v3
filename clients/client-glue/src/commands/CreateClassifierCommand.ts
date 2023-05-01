@@ -38,43 +38,46 @@ export interface CreateClassifierCommandOutput extends CreateClassifierResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlueClient, CreateClassifierCommand } from "@aws-sdk/client-glue"; // ES Modules import
- * // const { GlueClient, CreateClassifierCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * import { GlueClient, CreateClassifierCommand } from '@aws-sdk/client-glue'; // ES Modules import
+ * // const { GlueClient, CreateClassifierCommand } = require('@aws-sdk/client-glue'); // CommonJS import
  * const client = new GlueClient(config);
  * const input = { // CreateClassifierRequest
  *   GrokClassifier: { // CreateGrokClassifierRequest
- *     Classification: "STRING_VALUE", // required
- *     Name: "STRING_VALUE", // required
- *     GrokPattern: "STRING_VALUE", // required
- *     CustomPatterns: "STRING_VALUE",
+ *     Classification: 'STRING_VALUE', // required
+ *     Name: 'STRING_VALUE', // required
+ *     GrokPattern: 'STRING_VALUE', // required
+ *     CustomPatterns: 'STRING_VALUE',
  *   },
  *   XMLClassifier: { // CreateXMLClassifierRequest
- *     Classification: "STRING_VALUE", // required
- *     Name: "STRING_VALUE", // required
- *     RowTag: "STRING_VALUE",
+ *     Classification: 'STRING_VALUE', // required
+ *     Name: 'STRING_VALUE', // required
+ *     RowTag: 'STRING_VALUE',
  *   },
  *   JsonClassifier: { // CreateJsonClassifierRequest
- *     Name: "STRING_VALUE", // required
- *     JsonPath: "STRING_VALUE", // required
+ *     Name: 'STRING_VALUE', // required
+ *     JsonPath: 'STRING_VALUE', // required
  *   },
  *   CsvClassifier: { // CreateCsvClassifierRequest
- *     Name: "STRING_VALUE", // required
- *     Delimiter: "STRING_VALUE",
- *     QuoteSymbol: "STRING_VALUE",
- *     ContainsHeader: "UNKNOWN" || "PRESENT" || "ABSENT",
+ *     Name: 'STRING_VALUE', // required
+ *     Delimiter: 'STRING_VALUE',
+ *     QuoteSymbol: 'STRING_VALUE',
+ *     ContainsHeader: 'UNKNOWN' || 'PRESENT' || 'ABSENT',
  *     Header: [ // CsvHeader
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     DisableValueTrimming: true || false,
  *     AllowSingleColumn: true || false,
  *     CustomDatatypeConfigured: true || false,
  *     CustomDatatypes: [ // CustomDatatypes
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *   },
  * };
  * const command = new CreateClassifierCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param CreateClassifierCommandInput - {@link CreateClassifierCommandInput}
@@ -92,6 +95,8 @@ export interface CreateClassifierCommandOutput extends CreateClassifierResponse,
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class CreateClassifierCommand extends $Command<

@@ -38,17 +38,83 @@ export interface ListAssetModelPropertiesCommandOutput extends ListAssetModelPro
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTSiteWiseClient, ListAssetModelPropertiesCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
- * // const { IoTSiteWiseClient, ListAssetModelPropertiesCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
+ * import { IoTSiteWiseClient, ListAssetModelPropertiesCommand } from '@aws-sdk/client-iotsitewise'; // ES Modules import
+ * // const { IoTSiteWiseClient, ListAssetModelPropertiesCommand } = require('@aws-sdk/client-iotsitewise'); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
  * const input = { // ListAssetModelPropertiesRequest
- *   assetModelId: "STRING_VALUE", // required
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
- *   filter: "ALL" || "BASE",
+ *   assetModelId: 'STRING_VALUE', // required
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
+ *   filter: 'ALL' || 'BASE',
  * };
  * const command = new ListAssetModelPropertiesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListAssetModelPropertiesResponse
+ *   assetModelPropertySummaries: [ // AssetModelPropertySummaries // required
+ *     { // AssetModelPropertySummary
+ *       id: 'STRING_VALUE',
+ *       name: 'STRING_VALUE', // required
+ *       dataType: 'STRING' || 'INTEGER' || 'DOUBLE' || 'BOOLEAN' || 'STRUCT', // required
+ *       dataTypeSpec: 'STRING_VALUE',
+ *       unit: 'STRING_VALUE',
+ *       type: { // PropertyType
+ *         attribute: { // Attribute
+ *           defaultValue: 'STRING_VALUE',
+ *         },
+ *         measurement: { // Measurement
+ *           processingConfig: { // MeasurementProcessingConfig
+ *             forwardingConfig: { // ForwardingConfig
+ *               state: 'DISABLED' || 'ENABLED', // required
+ *             },
+ *           },
+ *         },
+ *         transform: { // Transform
+ *           expression: 'STRING_VALUE', // required
+ *           variables: [ // ExpressionVariables // required
+ *             { // ExpressionVariable
+ *               name: 'STRING_VALUE', // required
+ *               value: { // VariableValue
+ *                 propertyId: 'STRING_VALUE', // required
+ *                 hierarchyId: 'STRING_VALUE',
+ *               },
+ *             },
+ *           ],
+ *           processingConfig: { // TransformProcessingConfig
+ *             computeLocation: 'EDGE' || 'CLOUD', // required
+ *             forwardingConfig: {
+ *               state: 'DISABLED' || 'ENABLED', // required
+ *             },
+ *           },
+ *         },
+ *         metric: { // Metric
+ *           expression: 'STRING_VALUE', // required
+ *           variables: [ // required
+ *             {
+ *               name: 'STRING_VALUE', // required
+ *               value: {
+ *                 propertyId: 'STRING_VALUE', // required
+ *                 hierarchyId: 'STRING_VALUE',
+ *               },
+ *             },
+ *           ],
+ *           window: { // MetricWindow
+ *             tumbling: { // TumblingWindow
+ *               interval: 'STRING_VALUE', // required
+ *               offset: 'STRING_VALUE',
+ *             },
+ *           },
+ *           processingConfig: { // MetricProcessingConfig
+ *             computeLocation: 'EDGE' || 'CLOUD', // required
+ *           },
+ *         },
+ *       },
+ *       assetModelCompositeModelId: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListAssetModelPropertiesCommandInput - {@link ListAssetModelPropertiesCommandInput}
@@ -73,6 +139,8 @@ export interface ListAssetModelPropertiesCommandOutput extends ListAssetModelPro
  *       on.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
  *
+ * @throws {@link IoTSiteWiseServiceException}
+ * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
  */
 export class ListAssetModelPropertiesCommand extends $Command<

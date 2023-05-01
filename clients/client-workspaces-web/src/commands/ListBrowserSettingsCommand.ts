@@ -36,15 +36,25 @@ export interface ListBrowserSettingsCommandOutput extends ListBrowserSettingsRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkSpacesWebClient, ListBrowserSettingsCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
- * // const { WorkSpacesWebClient, ListBrowserSettingsCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
+ * import { WorkSpacesWebClient, ListBrowserSettingsCommand } from '@aws-sdk/client-workspaces-web'; // ES Modules import
+ * // const { WorkSpacesWebClient, ListBrowserSettingsCommand } = require('@aws-sdk/client-workspaces-web'); // CommonJS import
  * const client = new WorkSpacesWebClient(config);
  * const input = { // ListBrowserSettingsRequest
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new ListBrowserSettingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListBrowserSettingsResponse
+ *   browserSettings: [ // BrowserSettingsList
+ *     { // BrowserSettingsSummary
+ *       browserSettingsArn: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListBrowserSettingsCommandInput - {@link ListBrowserSettingsCommandInput}
@@ -65,6 +75,8 @@ export interface ListBrowserSettingsCommandOutput extends ListBrowserSettingsRes
  * @throws {@link ValidationException} (client fault)
  *  <p>There is a validation error.</p>
  *
+ * @throws {@link WorkSpacesWebServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
  */
 export class ListBrowserSettingsCommand extends $Command<

@@ -42,25 +42,107 @@ export interface DescribeAutomationStepExecutionsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMClient, DescribeAutomationStepExecutionsCommand } from "@aws-sdk/client-ssm"; // ES Modules import
- * // const { SSMClient, DescribeAutomationStepExecutionsCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * import { SSMClient, DescribeAutomationStepExecutionsCommand } from '@aws-sdk/client-ssm'; // ES Modules import
+ * // const { SSMClient, DescribeAutomationStepExecutionsCommand } = require('@aws-sdk/client-ssm'); // CommonJS import
  * const client = new SSMClient(config);
  * const input = { // DescribeAutomationStepExecutionsRequest
- *   AutomationExecutionId: "STRING_VALUE", // required
+ *   AutomationExecutionId: 'STRING_VALUE', // required
  *   Filters: [ // StepExecutionFilterList
  *     { // StepExecutionFilter
- *       Key: "StartTimeBefore" || "StartTimeAfter" || "StepExecutionStatus" || "StepExecutionId" || "StepName" || "Action", // required
+ *       Key: 'StartTimeBefore' || 'StartTimeAfter' || 'StepExecutionStatus' || 'StepExecutionId' || 'StepName' || 'Action', // required
  *       Values: [ // StepExecutionFilterValueList // required
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  *   ReverseOrder: true || false,
  * };
  * const command = new DescribeAutomationStepExecutionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeAutomationStepExecutionsResult
+ *   StepExecutions: [ // StepExecutionList
+ *     { // StepExecution
+ *       StepName: 'STRING_VALUE',
+ *       Action: 'STRING_VALUE',
+ *       TimeoutSeconds: Number('long'),
+ *       OnFailure: 'STRING_VALUE',
+ *       MaxAttempts: Number('int'),
+ *       ExecutionStartTime: new Date('TIMESTAMP'),
+ *       ExecutionEndTime: new Date('TIMESTAMP'),
+ *       StepStatus: 'Pending' || 'InProgress' || 'Waiting' || 'Success' || 'TimedOut' || 'Cancelling' || 'Cancelled' || 'Failed' || 'PendingApproval' || 'Approved' || 'Rejected' || 'Scheduled' || 'RunbookInProgress' || 'PendingChangeCalendarOverride' || 'ChangeCalendarOverrideApproved' || 'ChangeCalendarOverrideRejected' || 'CompletedWithSuccess' || 'CompletedWithFailure',
+ *       ResponseCode: 'STRING_VALUE',
+ *       Inputs: { // NormalStringMap
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *       Outputs: { // AutomationParameterMap
+ *         '<keys>': [ // AutomationParameterValueList
+ *           'STRING_VALUE',
+ *         ],
+ *       },
+ *       Response: 'STRING_VALUE',
+ *       FailureMessage: 'STRING_VALUE',
+ *       FailureDetails: { // FailureDetails
+ *         FailureStage: 'STRING_VALUE',
+ *         FailureType: 'STRING_VALUE',
+ *         Details: {
+ *           '<keys>': [
+ *             'STRING_VALUE',
+ *           ],
+ *         },
+ *       },
+ *       StepExecutionId: 'STRING_VALUE',
+ *       OverriddenParameters: {
+ *         '<keys>': [
+ *           'STRING_VALUE',
+ *         ],
+ *       },
+ *       IsEnd: true || false,
+ *       NextStep: 'STRING_VALUE',
+ *       IsCritical: true || false,
+ *       ValidNextSteps: [ // ValidNextStepList
+ *         'STRING_VALUE',
+ *       ],
+ *       Targets: [ // Targets
+ *         { // Target
+ *           Key: 'STRING_VALUE',
+ *           Values: [ // TargetValues
+ *             'STRING_VALUE',
+ *           ],
+ *         },
+ *       ],
+ *       TargetLocation: { // TargetLocation
+ *         Accounts: [ // Accounts
+ *           'STRING_VALUE',
+ *         ],
+ *         Regions: [ // Regions
+ *           'STRING_VALUE',
+ *         ],
+ *         TargetLocationMaxConcurrency: 'STRING_VALUE',
+ *         TargetLocationMaxErrors: 'STRING_VALUE',
+ *         ExecutionRoleName: 'STRING_VALUE',
+ *         TargetLocationAlarmConfiguration: { // AlarmConfiguration
+ *           IgnorePollAlarmFailure: true || false,
+ *           Alarms: [ // AlarmList // required
+ *             { // Alarm
+ *               Name: 'STRING_VALUE', // required
+ *             },
+ *           ],
+ *         },
+ *       },
+ *       TriggeredAlarms: [ // AlarmStateInformationList
+ *         { // AlarmStateInformation
+ *           Name: 'STRING_VALUE', // required
+ *           State: 'UNKNOWN' || 'ALARM', // required
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeAutomationStepExecutionsCommandInput - {@link DescribeAutomationStepExecutionsCommandInput}
@@ -85,6 +167,8 @@ export interface DescribeAutomationStepExecutionsCommandOutput
  * @throws {@link InvalidNextToken} (client fault)
  *  <p>The specified token isn't valid.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class DescribeAutomationStepExecutionsCommand extends $Command<

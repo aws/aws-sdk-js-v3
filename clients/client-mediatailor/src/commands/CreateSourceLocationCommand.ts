@@ -36,37 +36,68 @@ export interface CreateSourceLocationCommandOutput extends CreateSourceLocationR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MediaTailorClient, CreateSourceLocationCommand } from "@aws-sdk/client-mediatailor"; // ES Modules import
- * // const { MediaTailorClient, CreateSourceLocationCommand } = require("@aws-sdk/client-mediatailor"); // CommonJS import
+ * import { MediaTailorClient, CreateSourceLocationCommand } from '@aws-sdk/client-mediatailor'; // ES Modules import
+ * // const { MediaTailorClient, CreateSourceLocationCommand } = require('@aws-sdk/client-mediatailor'); // CommonJS import
  * const client = new MediaTailorClient(config);
  * const input = { // CreateSourceLocationRequest
  *   AccessConfiguration: { // AccessConfiguration
- *     AccessType: "S3_SIGV4" || "SECRETS_MANAGER_ACCESS_TOKEN",
+ *     AccessType: 'S3_SIGV4' || 'SECRETS_MANAGER_ACCESS_TOKEN',
  *     SecretsManagerAccessTokenConfiguration: { // SecretsManagerAccessTokenConfiguration
- *       HeaderName: "STRING_VALUE",
- *       SecretArn: "STRING_VALUE",
- *       SecretStringKey: "STRING_VALUE",
+ *       HeaderName: 'STRING_VALUE',
+ *       SecretArn: 'STRING_VALUE',
+ *       SecretStringKey: 'STRING_VALUE',
  *     },
  *   },
  *   DefaultSegmentDeliveryConfiguration: { // DefaultSegmentDeliveryConfiguration
- *     BaseUrl: "STRING_VALUE",
+ *     BaseUrl: 'STRING_VALUE',
  *   },
  *   HttpConfiguration: { // HttpConfiguration
- *     BaseUrl: "STRING_VALUE", // required
+ *     BaseUrl: 'STRING_VALUE', // required
  *   },
  *   SegmentDeliveryConfigurations: [ // __listOfSegmentDeliveryConfiguration
  *     { // SegmentDeliveryConfiguration
- *       BaseUrl: "STRING_VALUE",
- *       Name: "STRING_VALUE",
+ *       BaseUrl: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
  *     },
  *   ],
- *   SourceLocationName: "STRING_VALUE", // required
+ *   SourceLocationName: 'STRING_VALUE', // required
  *   Tags: { // __mapOf__string
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateSourceLocationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateSourceLocationResponse
+ *   AccessConfiguration: { // AccessConfiguration
+ *     AccessType: 'S3_SIGV4' || 'SECRETS_MANAGER_ACCESS_TOKEN',
+ *     SecretsManagerAccessTokenConfiguration: { // SecretsManagerAccessTokenConfiguration
+ *       HeaderName: 'STRING_VALUE',
+ *       SecretArn: 'STRING_VALUE',
+ *       SecretStringKey: 'STRING_VALUE',
+ *     },
+ *   },
+ *   Arn: 'STRING_VALUE',
+ *   CreationTime: new Date('TIMESTAMP'),
+ *   DefaultSegmentDeliveryConfiguration: { // DefaultSegmentDeliveryConfiguration
+ *     BaseUrl: 'STRING_VALUE',
+ *   },
+ *   HttpConfiguration: { // HttpConfiguration
+ *     BaseUrl: 'STRING_VALUE', // required
+ *   },
+ *   LastModifiedTime: new Date('TIMESTAMP'),
+ *   SegmentDeliveryConfigurations: [ // __listOfSegmentDeliveryConfiguration
+ *     { // SegmentDeliveryConfiguration
+ *       BaseUrl: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   SourceLocationName: 'STRING_VALUE',
+ *   Tags: { // __mapOf__string
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateSourceLocationCommandInput - {@link CreateSourceLocationCommandInput}
@@ -75,6 +106,8 @@ export interface CreateSourceLocationCommandOutput extends CreateSourceLocationR
  * @see {@link CreateSourceLocationCommandOutput} for command's `response` shape.
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.
  *
+ * @throws {@link MediaTailorServiceException}
+ * <p>Base exception class for all service exceptions from MediaTailor service.</p>
  *
  */
 export class CreateSourceLocationCommand extends $Command<

@@ -36,18 +36,36 @@ export interface ListRoutesCommandOutput extends ListRoutesOutput, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppMeshClient, ListRoutesCommand } from "@aws-sdk/client-app-mesh"; // ES Modules import
- * // const { AppMeshClient, ListRoutesCommand } = require("@aws-sdk/client-app-mesh"); // CommonJS import
+ * import { AppMeshClient, ListRoutesCommand } from '@aws-sdk/client-app-mesh'; // ES Modules import
+ * // const { AppMeshClient, ListRoutesCommand } = require('@aws-sdk/client-app-mesh'); // CommonJS import
  * const client = new AppMeshClient(config);
  * const input = { // ListRoutesInput
- *   meshName: "STRING_VALUE", // required
- *   virtualRouterName: "STRING_VALUE", // required
- *   nextToken: "STRING_VALUE",
- *   limit: Number("int"),
- *   meshOwner: "STRING_VALUE",
+ *   meshName: 'STRING_VALUE', // required
+ *   virtualRouterName: 'STRING_VALUE', // required
+ *   nextToken: 'STRING_VALUE',
+ *   limit: Number('int'),
+ *   meshOwner: 'STRING_VALUE',
  * };
  * const command = new ListRoutesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListRoutesOutput
+ *   routes: [ // RouteList // required
+ *     { // RouteRef
+ *       meshName: 'STRING_VALUE', // required
+ *       virtualRouterName: 'STRING_VALUE', // required
+ *       routeName: 'STRING_VALUE', // required
+ *       meshOwner: 'STRING_VALUE', // required
+ *       resourceOwner: 'STRING_VALUE', // required
+ *       arn: 'STRING_VALUE', // required
+ *       version: Number('long'), // required
+ *       createdAt: new Date('TIMESTAMP'), // required
+ *       lastUpdatedAt: new Date('TIMESTAMP'), // required
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListRoutesCommandInput - {@link ListRoutesCommandInput}
@@ -77,6 +95,8 @@ export interface ListRoutesCommandOutput extends ListRoutesOutput, __MetadataBea
  *          your account. For best results, use an increasing or variable sleep interval between
  *          requests.</p>
  *
+ * @throws {@link AppMeshServiceException}
+ * <p>Base exception class for all service exceptions from AppMesh service.</p>
  *
  */
 export class ListRoutesCommand extends $Command<

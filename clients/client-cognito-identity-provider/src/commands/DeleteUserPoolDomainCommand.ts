@@ -41,15 +41,18 @@ export interface DeleteUserPoolDomainCommandOutput extends DeleteUserPoolDomainR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CognitoIdentityProviderClient, DeleteUserPoolDomainCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
- * // const { CognitoIdentityProviderClient, DeleteUserPoolDomainCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
+ * import { CognitoIdentityProviderClient, DeleteUserPoolDomainCommand } from '@aws-sdk/client-cognito-identity-provider'; // ES Modules import
+ * // const { CognitoIdentityProviderClient, DeleteUserPoolDomainCommand } = require('@aws-sdk/client-cognito-identity-provider'); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
  * const input = { // DeleteUserPoolDomainRequest
- *   Domain: "STRING_VALUE", // required
- *   UserPoolId: "STRING_VALUE", // required
+ *   Domain: 'STRING_VALUE', // required
+ *   UserPoolId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteUserPoolDomainCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteUserPoolDomainCommandInput - {@link DeleteUserPoolDomainCommandInput}
@@ -72,6 +75,8 @@ export interface DeleteUserPoolDomainCommandOutput extends DeleteUserPoolDomainR
  *  <p>This exception is thrown when the Amazon Cognito service can't find the requested
  *             resource.</p>
  *
+ * @throws {@link CognitoIdentityProviderServiceException}
+ * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
  */
 export class DeleteUserPoolDomainCommand extends $Command<

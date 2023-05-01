@@ -36,18 +36,33 @@ export interface UpdateSubnetGroupCommandOutput extends UpdateSubnetGroupRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DAXClient, UpdateSubnetGroupCommand } from "@aws-sdk/client-dax"; // ES Modules import
- * // const { DAXClient, UpdateSubnetGroupCommand } = require("@aws-sdk/client-dax"); // CommonJS import
+ * import { DAXClient, UpdateSubnetGroupCommand } from '@aws-sdk/client-dax'; // ES Modules import
+ * // const { DAXClient, UpdateSubnetGroupCommand } = require('@aws-sdk/client-dax'); // CommonJS import
  * const client = new DAXClient(config);
  * const input = { // UpdateSubnetGroupRequest
- *   SubnetGroupName: "STRING_VALUE", // required
- *   Description: "STRING_VALUE",
+ *   SubnetGroupName: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE',
  *   SubnetIds: [ // SubnetIdentifierList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new UpdateSubnetGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateSubnetGroupResponse
+ *   SubnetGroup: { // SubnetGroup
+ *     SubnetGroupName: 'STRING_VALUE',
+ *     Description: 'STRING_VALUE',
+ *     VpcId: 'STRING_VALUE',
+ *     Subnets: [ // SubnetList
+ *       { // Subnet
+ *         SubnetIdentifier: 'STRING_VALUE',
+ *         SubnetAvailabilityZone: 'STRING_VALUE',
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateSubnetGroupCommandInput - {@link UpdateSubnetGroupCommandInput}
@@ -73,6 +88,8 @@ export interface UpdateSubnetGroupCommandOutput extends UpdateSubnetGroupRespons
  *  <p>The request cannot be processed because it would exceed the allowed number of
  *             subnets in a subnet group.</p>
  *
+ * @throws {@link DAXServiceException}
+ * <p>Base exception class for all service exceptions from DAX service.</p>
  *
  */
 export class UpdateSubnetGroupCommand extends $Command<

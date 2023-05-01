@@ -37,14 +37,17 @@ export interface DeleteProvisioningTemplateCommandOutput extends DeleteProvision
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTClient, DeleteProvisioningTemplateCommand } from "@aws-sdk/client-iot"; // ES Modules import
- * // const { IoTClient, DeleteProvisioningTemplateCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * import { IoTClient, DeleteProvisioningTemplateCommand } from '@aws-sdk/client-iot'; // ES Modules import
+ * // const { IoTClient, DeleteProvisioningTemplateCommand } = require('@aws-sdk/client-iot'); // CommonJS import
  * const client = new IoTClient(config);
  * const input = { // DeleteProvisioningTemplateRequest
- *   templateName: "STRING_VALUE", // required
+ *   templateName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteProvisioningTemplateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteProvisioningTemplateCommandInput - {@link DeleteProvisioningTemplateCommandInput}
@@ -76,6 +79,8 @@ export interface DeleteProvisioningTemplateCommandOutput extends DeleteProvision
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this operation.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class DeleteProvisioningTemplateCommand extends $Command<

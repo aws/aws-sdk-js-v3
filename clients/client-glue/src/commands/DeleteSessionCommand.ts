@@ -36,15 +36,20 @@ export interface DeleteSessionCommandOutput extends DeleteSessionResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlueClient, DeleteSessionCommand } from "@aws-sdk/client-glue"; // ES Modules import
- * // const { GlueClient, DeleteSessionCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * import { GlueClient, DeleteSessionCommand } from '@aws-sdk/client-glue'; // ES Modules import
+ * // const { GlueClient, DeleteSessionCommand } = require('@aws-sdk/client-glue'); // CommonJS import
  * const client = new GlueClient(config);
  * const input = { // DeleteSessionRequest
- *   Id: "STRING_VALUE", // required
- *   RequestOrigin: "STRING_VALUE",
+ *   Id: 'STRING_VALUE', // required
+ *   RequestOrigin: 'STRING_VALUE',
  * };
  * const command = new DeleteSessionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteSessionResponse
+ *   Id: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DeleteSessionCommandInput - {@link DeleteSessionCommandInput}
@@ -71,6 +76,8 @@ export interface DeleteSessionCommandOutput extends DeleteSessionResponse, __Met
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class DeleteSessionCommand extends $Command<

@@ -39,17 +39,78 @@ export interface DescribeStaleSecurityGroupsCommandOutput extends DescribeStaleS
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, DescribeStaleSecurityGroupsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, DescribeStaleSecurityGroupsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, DescribeStaleSecurityGroupsCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, DescribeStaleSecurityGroupsCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // DescribeStaleSecurityGroupsRequest
  *   DryRun: true || false,
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
- *   VpcId: "STRING_VALUE", // required
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
+ *   VpcId: 'STRING_VALUE', // required
  * };
  * const command = new DescribeStaleSecurityGroupsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeStaleSecurityGroupsResult
+ *   NextToken: 'STRING_VALUE',
+ *   StaleSecurityGroupSet: [ // StaleSecurityGroupSet
+ *     { // StaleSecurityGroup
+ *       Description: 'STRING_VALUE',
+ *       GroupId: 'STRING_VALUE',
+ *       GroupName: 'STRING_VALUE',
+ *       StaleIpPermissions: [ // StaleIpPermissionSet
+ *         { // StaleIpPermission
+ *           FromPort: Number('int'),
+ *           IpProtocol: 'STRING_VALUE',
+ *           IpRanges: [ // IpRanges
+ *             'STRING_VALUE',
+ *           ],
+ *           PrefixListIds: [ // PrefixListIdSet
+ *             'STRING_VALUE',
+ *           ],
+ *           ToPort: Number('int'),
+ *           UserIdGroupPairs: [ // UserIdGroupPairSet
+ *             { // UserIdGroupPair
+ *               Description: 'STRING_VALUE',
+ *               GroupId: 'STRING_VALUE',
+ *               GroupName: 'STRING_VALUE',
+ *               PeeringStatus: 'STRING_VALUE',
+ *               UserId: 'STRING_VALUE',
+ *               VpcId: 'STRING_VALUE',
+ *               VpcPeeringConnectionId: 'STRING_VALUE',
+ *             },
+ *           ],
+ *         },
+ *       ],
+ *       StaleIpPermissionsEgress: [
+ *         {
+ *           FromPort: Number('int'),
+ *           IpProtocol: 'STRING_VALUE',
+ *           IpRanges: [
+ *             'STRING_VALUE',
+ *           ],
+ *           PrefixListIds: [
+ *             'STRING_VALUE',
+ *           ],
+ *           ToPort: Number('int'),
+ *           UserIdGroupPairs: [
+ *             {
+ *               Description: 'STRING_VALUE',
+ *               GroupId: 'STRING_VALUE',
+ *               GroupName: 'STRING_VALUE',
+ *               PeeringStatus: 'STRING_VALUE',
+ *               UserId: 'STRING_VALUE',
+ *               VpcId: 'STRING_VALUE',
+ *               VpcPeeringConnectionId: 'STRING_VALUE',
+ *             },
+ *           ],
+ *         },
+ *       ],
+ *       VpcId: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeStaleSecurityGroupsCommandInput - {@link DescribeStaleSecurityGroupsCommandInput}
@@ -58,6 +119,8 @@ export interface DescribeStaleSecurityGroupsCommandOutput extends DescribeStaleS
  * @see {@link DescribeStaleSecurityGroupsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class DescribeStaleSecurityGroupsCommand extends $Command<

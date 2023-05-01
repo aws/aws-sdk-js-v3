@@ -51,14 +51,17 @@ export interface DeleteServerCommandOutput extends DeleteServerResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OpsWorksCMClient, DeleteServerCommand } from "@aws-sdk/client-opsworkscm"; // ES Modules import
- * // const { OpsWorksCMClient, DeleteServerCommand } = require("@aws-sdk/client-opsworkscm"); // CommonJS import
+ * import { OpsWorksCMClient, DeleteServerCommand } from '@aws-sdk/client-opsworkscm'; // ES Modules import
+ * // const { OpsWorksCMClient, DeleteServerCommand } = require('@aws-sdk/client-opsworkscm'); // CommonJS import
  * const client = new OpsWorksCMClient(config);
  * const input = { // DeleteServerRequest
- *   ServerName: "STRING_VALUE", // required
+ *   ServerName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteServerCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteServerCommandInput - {@link DeleteServerCommandInput}
@@ -79,6 +82,8 @@ export interface DeleteServerCommandOutput extends DeleteServerResponse, __Metad
  *  <p>One or more of the provided request parameters are not valid.
  *     </p>
  *
+ * @throws {@link OpsWorksCMServiceException}
+ * <p>Base exception class for all service exceptions from OpsWorksCM service.</p>
  *
  */
 export class DeleteServerCommand extends $Command<

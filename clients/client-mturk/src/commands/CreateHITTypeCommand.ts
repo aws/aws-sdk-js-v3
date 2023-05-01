@@ -41,36 +41,41 @@ export interface CreateHITTypeCommandOutput extends CreateHITTypeResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MTurkClient, CreateHITTypeCommand } from "@aws-sdk/client-mturk"; // ES Modules import
- * // const { MTurkClient, CreateHITTypeCommand } = require("@aws-sdk/client-mturk"); // CommonJS import
+ * import { MTurkClient, CreateHITTypeCommand } from '@aws-sdk/client-mturk'; // ES Modules import
+ * // const { MTurkClient, CreateHITTypeCommand } = require('@aws-sdk/client-mturk'); // CommonJS import
  * const client = new MTurkClient(config);
  * const input = { // CreateHITTypeRequest
- *   AutoApprovalDelayInSeconds: Number("long"),
- *   AssignmentDurationInSeconds: Number("long"), // required
- *   Reward: "STRING_VALUE", // required
- *   Title: "STRING_VALUE", // required
- *   Keywords: "STRING_VALUE",
- *   Description: "STRING_VALUE", // required
+ *   AutoApprovalDelayInSeconds: Number('long'),
+ *   AssignmentDurationInSeconds: Number('long'), // required
+ *   Reward: 'STRING_VALUE', // required
+ *   Title: 'STRING_VALUE', // required
+ *   Keywords: 'STRING_VALUE',
+ *   Description: 'STRING_VALUE', // required
  *   QualificationRequirements: [ // QualificationRequirementList
  *     { // QualificationRequirement
- *       QualificationTypeId: "STRING_VALUE", // required
- *       Comparator: "STRING_VALUE", // required
+ *       QualificationTypeId: 'STRING_VALUE', // required
+ *       Comparator: 'STRING_VALUE', // required
  *       IntegerValues: [ // IntegerList
- *         Number("int"),
+ *         Number('int'),
  *       ],
  *       LocaleValues: [ // LocaleList
  *         { // Locale
- *           Country: "STRING_VALUE", // required
- *           Subdivision: "STRING_VALUE",
+ *           Country: 'STRING_VALUE', // required
+ *           Subdivision: 'STRING_VALUE',
  *         },
  *       ],
  *       RequiredToPreview: true || false,
- *       ActionsGuarded: "STRING_VALUE",
+ *       ActionsGuarded: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new CreateHITTypeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateHITTypeResponse
+ *   HITTypeId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateHITTypeCommandInput - {@link CreateHITTypeCommandInput}
@@ -85,6 +90,8 @@ export interface CreateHITTypeCommandOutput extends CreateHITTypeResponse, __Met
  * @throws {@link ServiceFault} (server fault)
  *  <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
  *
+ * @throws {@link MTurkServiceException}
+ * <p>Base exception class for all service exceptions from MTurk service.</p>
  *
  */
 export class CreateHITTypeCommand extends $Command<

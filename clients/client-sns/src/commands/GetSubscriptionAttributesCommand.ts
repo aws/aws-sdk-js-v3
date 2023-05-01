@@ -36,14 +36,21 @@ export interface GetSubscriptionAttributesCommandOutput extends GetSubscriptionA
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SNSClient, GetSubscriptionAttributesCommand } from "@aws-sdk/client-sns"; // ES Modules import
- * // const { SNSClient, GetSubscriptionAttributesCommand } = require("@aws-sdk/client-sns"); // CommonJS import
+ * import { SNSClient, GetSubscriptionAttributesCommand } from '@aws-sdk/client-sns'; // ES Modules import
+ * // const { SNSClient, GetSubscriptionAttributesCommand } = require('@aws-sdk/client-sns'); // CommonJS import
  * const client = new SNSClient(config);
  * const input = { // GetSubscriptionAttributesInput
- *   SubscriptionArn: "STRING_VALUE", // required
+ *   SubscriptionArn: 'STRING_VALUE', // required
  * };
  * const command = new GetSubscriptionAttributesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetSubscriptionAttributesResponse
+ *   Attributes: { // SubscriptionAttributesMap
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetSubscriptionAttributesCommandInput - {@link GetSubscriptionAttributesCommandInput}
@@ -65,6 +72,8 @@ export interface GetSubscriptionAttributesCommandOutput extends GetSubscriptionA
  * @throws {@link NotFoundException} (client fault)
  *  <p>Indicates that the requested resource does not exist.</p>
  *
+ * @throws {@link SNSServiceException}
+ * <p>Base exception class for all service exceptions from SNS service.</p>
  *
  */
 export class GetSubscriptionAttributesCommand extends $Command<

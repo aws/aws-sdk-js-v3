@@ -36,14 +36,21 @@ export interface IndexDocumentsCommandOutput extends IndexDocumentsResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudSearchClient, IndexDocumentsCommand } from "@aws-sdk/client-cloudsearch"; // ES Modules import
- * // const { CloudSearchClient, IndexDocumentsCommand } = require("@aws-sdk/client-cloudsearch"); // CommonJS import
+ * import { CloudSearchClient, IndexDocumentsCommand } from '@aws-sdk/client-cloudsearch'; // ES Modules import
+ * // const { CloudSearchClient, IndexDocumentsCommand } = require('@aws-sdk/client-cloudsearch'); // CommonJS import
  * const client = new CloudSearchClient(config);
  * const input = { // IndexDocumentsRequest
- *   DomainName: "STRING_VALUE", // required
+ *   DomainName: 'STRING_VALUE', // required
  * };
  * const command = new IndexDocumentsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // IndexDocumentsResponse
+ *   FieldNames: [ // FieldNameList
+ *     'STRING_VALUE',
+ *   ],
+ * };
+ *
  * ```
  *
  * @param IndexDocumentsCommandInput - {@link IndexDocumentsCommandInput}
@@ -65,6 +72,8 @@ export interface IndexDocumentsCommandOutput extends IndexDocumentsResponse, __M
  * @throws {@link ValidationException} (client fault)
  *  <p>The request was rejected because it has invalid parameters.</p>
  *
+ * @throws {@link CloudSearchServiceException}
+ * <p>Base exception class for all service exceptions from CloudSearch service.</p>
  *
  */
 export class IndexDocumentsCommand extends $Command<

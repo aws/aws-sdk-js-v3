@@ -36,22 +36,39 @@ export interface ListFeatureGroupsCommandOutput extends ListFeatureGroupsRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, ListFeatureGroupsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, ListFeatureGroupsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, ListFeatureGroupsCommand } from '@aws-sdk/client-sagemaker'; // ES Modules import
+ * // const { SageMakerClient, ListFeatureGroupsCommand } = require('@aws-sdk/client-sagemaker'); // CommonJS import
  * const client = new SageMakerClient(config);
  * const input = { // ListFeatureGroupsRequest
- *   NameContains: "STRING_VALUE",
- *   FeatureGroupStatusEquals: "Creating" || "Created" || "CreateFailed" || "Deleting" || "DeleteFailed",
- *   OfflineStoreStatusEquals: "Active" || "Blocked" || "Disabled",
- *   CreationTimeAfter: new Date("TIMESTAMP"),
- *   CreationTimeBefore: new Date("TIMESTAMP"),
- *   SortOrder: "Ascending" || "Descending",
- *   SortBy: "Name" || "FeatureGroupStatus" || "OfflineStoreStatus" || "CreationTime",
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   NameContains: 'STRING_VALUE',
+ *   FeatureGroupStatusEquals: 'Creating' || 'Created' || 'CreateFailed' || 'Deleting' || 'DeleteFailed',
+ *   OfflineStoreStatusEquals: 'Active' || 'Blocked' || 'Disabled',
+ *   CreationTimeAfter: new Date('TIMESTAMP'),
+ *   CreationTimeBefore: new Date('TIMESTAMP'),
+ *   SortOrder: 'Ascending' || 'Descending',
+ *   SortBy: 'Name' || 'FeatureGroupStatus' || 'OfflineStoreStatus' || 'CreationTime',
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListFeatureGroupsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListFeatureGroupsResponse
+ *   FeatureGroupSummaries: [ // FeatureGroupSummaries // required
+ *     { // FeatureGroupSummary
+ *       FeatureGroupName: 'STRING_VALUE', // required
+ *       FeatureGroupArn: 'STRING_VALUE', // required
+ *       CreationTime: new Date('TIMESTAMP'), // required
+ *       FeatureGroupStatus: 'Creating' || 'Created' || 'CreateFailed' || 'Deleting' || 'DeleteFailed',
+ *       OfflineStoreStatus: { // OfflineStoreStatus
+ *         Status: 'Active' || 'Blocked' || 'Disabled', // required
+ *         BlockedReason: 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param ListFeatureGroupsCommandInput - {@link ListFeatureGroupsCommandInput}
@@ -60,6 +77,8 @@ export interface ListFeatureGroupsCommandOutput extends ListFeatureGroupsRespons
  * @see {@link ListFeatureGroupsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class ListFeatureGroupsCommand extends $Command<

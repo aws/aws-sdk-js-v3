@@ -36,16 +36,45 @@ export interface GetDevEnvironmentCommandOutput extends GetDevEnvironmentRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeCatalystClient, GetDevEnvironmentCommand } from "@aws-sdk/client-codecatalyst"; // ES Modules import
- * // const { CodeCatalystClient, GetDevEnvironmentCommand } = require("@aws-sdk/client-codecatalyst"); // CommonJS import
+ * import { CodeCatalystClient, GetDevEnvironmentCommand } from '@aws-sdk/client-codecatalyst'; // ES Modules import
+ * // const { CodeCatalystClient, GetDevEnvironmentCommand } = require('@aws-sdk/client-codecatalyst'); // CommonJS import
  * const client = new CodeCatalystClient(config);
  * const input = { // GetDevEnvironmentRequest
- *   spaceName: "STRING_VALUE", // required
- *   projectName: "STRING_VALUE", // required
- *   id: "STRING_VALUE", // required
+ *   spaceName: 'STRING_VALUE', // required
+ *   projectName: 'STRING_VALUE', // required
+ *   id: 'STRING_VALUE', // required
  * };
  * const command = new GetDevEnvironmentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetDevEnvironmentResponse
+ *   spaceName: 'STRING_VALUE', // required
+ *   projectName: 'STRING_VALUE', // required
+ *   id: 'STRING_VALUE', // required
+ *   lastUpdatedTime: new Date('TIMESTAMP'), // required
+ *   creatorId: 'STRING_VALUE', // required
+ *   status: 'STRING_VALUE', // required
+ *   statusReason: 'STRING_VALUE',
+ *   repositories: [ // DevEnvironmentRepositorySummaries // required
+ *     { // DevEnvironmentRepositorySummary
+ *       repositoryName: 'STRING_VALUE', // required
+ *       branchName: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   alias: 'STRING_VALUE',
+ *   ides: [ // Ides
+ *     { // Ide
+ *       runtime: 'STRING_VALUE',
+ *       name: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   instanceType: 'STRING_VALUE', // required
+ *   inactivityTimeoutMinutes: Number('int'), // required
+ *   persistentStorage: { // PersistentStorage
+ *     sizeInGiB: Number('int'), // required
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetDevEnvironmentCommandInput - {@link GetDevEnvironmentCommandInput}
@@ -74,6 +103,8 @@ export interface GetDevEnvironmentCommandOutput extends GetDevEnvironmentRespons
  * @throws {@link ValidationException} (client fault)
  *  <p>The request was denied because an input failed to satisfy the constraints specified by the service. Check the spelling and input requirements, and then try again.</p>
  *
+ * @throws {@link CodeCatalystServiceException}
+ * <p>Base exception class for all service exceptions from CodeCatalyst service.</p>
  *
  */
 export class GetDevEnvironmentCommand extends $Command<

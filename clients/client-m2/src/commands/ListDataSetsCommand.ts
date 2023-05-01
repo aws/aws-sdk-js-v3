@@ -38,17 +38,32 @@ export interface ListDataSetsCommandOutput extends ListDataSetsResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { M2Client, ListDataSetsCommand } from "@aws-sdk/client-m2"; // ES Modules import
- * // const { M2Client, ListDataSetsCommand } = require("@aws-sdk/client-m2"); // CommonJS import
+ * import { M2Client, ListDataSetsCommand } from '@aws-sdk/client-m2'; // ES Modules import
+ * // const { M2Client, ListDataSetsCommand } = require('@aws-sdk/client-m2'); // CommonJS import
  * const client = new M2Client(config);
  * const input = { // ListDataSetsRequest
- *   applicationId: "STRING_VALUE", // required
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
- *   prefix: "STRING_VALUE",
+ *   applicationId: 'STRING_VALUE', // required
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
+ *   prefix: 'STRING_VALUE',
  * };
  * const command = new ListDataSetsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListDataSetsResponse
+ *   dataSets: [ // DataSetsSummaryList // required
+ *     { // DataSetSummary
+ *       dataSetName: 'STRING_VALUE', // required
+ *       dataSetOrg: 'STRING_VALUE',
+ *       format: 'STRING_VALUE',
+ *       creationTime: new Date('TIMESTAMP'),
+ *       lastUpdatedTime: new Date('TIMESTAMP'),
+ *       lastReferencedTime: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListDataSetsCommandInput - {@link ListDataSetsCommandInput}
@@ -72,6 +87,8 @@ export interface ListDataSetsCommandOutput extends ListDataSetsResponse, __Metad
  * @throws {@link ValidationException} (client fault)
  *  <p>One or more parameters provided in the request is not valid.</p>
  *
+ * @throws {@link M2ServiceException}
+ * <p>Base exception class for all service exceptions from M2 service.</p>
  *
  */
 export class ListDataSetsCommand extends $Command<

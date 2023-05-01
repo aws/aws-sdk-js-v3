@@ -41,17 +41,29 @@ export interface ListProposalVotesCommandOutput extends ListProposalVotesOutput,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ManagedBlockchainClient, ListProposalVotesCommand } from "@aws-sdk/client-managedblockchain"; // ES Modules import
- * // const { ManagedBlockchainClient, ListProposalVotesCommand } = require("@aws-sdk/client-managedblockchain"); // CommonJS import
+ * import { ManagedBlockchainClient, ListProposalVotesCommand } from '@aws-sdk/client-managedblockchain'; // ES Modules import
+ * // const { ManagedBlockchainClient, ListProposalVotesCommand } = require('@aws-sdk/client-managedblockchain'); // CommonJS import
  * const client = new ManagedBlockchainClient(config);
  * const input = { // ListProposalVotesInput
- *   NetworkId: "STRING_VALUE", // required
- *   ProposalId: "STRING_VALUE", // required
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   NetworkId: 'STRING_VALUE', // required
+ *   ProposalId: 'STRING_VALUE', // required
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListProposalVotesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListProposalVotesOutput
+ *   ProposalVotes: [ // ProposalVoteList
+ *     { // VoteSummary
+ *       Vote: 'YES' || 'NO',
+ *       MemberName: 'STRING_VALUE',
+ *       MemberId: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListProposalVotesCommandInput - {@link ListProposalVotesCommandInput}
@@ -75,6 +87,8 @@ export interface ListProposalVotesCommandOutput extends ListProposalVotesOutput,
  *          creating resources that exceed your service limit for this resource type.
  *          Request a limit increase or delete unused resources if possible.</p>
  *
+ * @throws {@link ManagedBlockchainServiceException}
+ * <p>Base exception class for all service exceptions from ManagedBlockchain service.</p>
  *
  */
 export class ListProposalVotesCommand extends $Command<

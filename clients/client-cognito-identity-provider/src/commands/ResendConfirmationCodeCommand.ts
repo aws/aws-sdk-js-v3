@@ -63,26 +63,35 @@ export interface ResendConfirmationCodeCommandOutput extends ResendConfirmationC
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CognitoIdentityProviderClient, ResendConfirmationCodeCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
- * // const { CognitoIdentityProviderClient, ResendConfirmationCodeCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
+ * import { CognitoIdentityProviderClient, ResendConfirmationCodeCommand } from '@aws-sdk/client-cognito-identity-provider'; // ES Modules import
+ * // const { CognitoIdentityProviderClient, ResendConfirmationCodeCommand } = require('@aws-sdk/client-cognito-identity-provider'); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
  * const input = { // ResendConfirmationCodeRequest
- *   ClientId: "STRING_VALUE", // required
- *   SecretHash: "STRING_VALUE",
+ *   ClientId: 'STRING_VALUE', // required
+ *   SecretHash: 'STRING_VALUE',
  *   UserContextData: { // UserContextDataType
- *     IpAddress: "STRING_VALUE",
- *     EncodedData: "STRING_VALUE",
+ *     IpAddress: 'STRING_VALUE',
+ *     EncodedData: 'STRING_VALUE',
  *   },
- *   Username: "STRING_VALUE", // required
+ *   Username: 'STRING_VALUE', // required
  *   AnalyticsMetadata: { // AnalyticsMetadataType
- *     AnalyticsEndpointId: "STRING_VALUE",
+ *     AnalyticsEndpointId: 'STRING_VALUE',
  *   },
  *   ClientMetadata: { // ClientMetadataType
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new ResendConfirmationCodeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ResendConfirmationCodeResponse
+ *   CodeDeliveryDetails: { // CodeDeliveryDetailsType
+ *     Destination: 'STRING_VALUE',
+ *     DeliveryMedium: 'SMS' || 'EMAIL',
+ *     AttributeName: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param ResendConfirmationCodeCommandInput - {@link ResendConfirmationCodeCommandInput}
@@ -148,6 +157,8 @@ export interface ResendConfirmationCodeCommandOutput extends ResendConfirmationC
  * @throws {@link UserNotFoundException} (client fault)
  *  <p>This exception is thrown when a user isn't found.</p>
  *
+ * @throws {@link CognitoIdentityProviderServiceException}
+ * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
  */
 export class ResendConfirmationCodeCommand extends $Command<

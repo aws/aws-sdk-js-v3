@@ -41,51 +41,78 @@ export interface DescribeSavingsPlansOfferingsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SavingsplansClient, DescribeSavingsPlansOfferingsCommand } from "@aws-sdk/client-savingsplans"; // ES Modules import
- * // const { SavingsplansClient, DescribeSavingsPlansOfferingsCommand } = require("@aws-sdk/client-savingsplans"); // CommonJS import
+ * import { SavingsplansClient, DescribeSavingsPlansOfferingsCommand } from '@aws-sdk/client-savingsplans'; // ES Modules import
+ * // const { SavingsplansClient, DescribeSavingsPlansOfferingsCommand } = require('@aws-sdk/client-savingsplans'); // CommonJS import
  * const client = new SavingsplansClient(config);
  * const input = { // DescribeSavingsPlansOfferingsRequest
  *   offeringIds: [ // UUIDs
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   paymentOptions: [ // SavingsPlanPaymentOptionList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   productType: "STRING_VALUE",
+ *   productType: 'STRING_VALUE',
  *   planTypes: [ // SavingsPlanTypeList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   durations: [ // DurationsList
- *     Number("long"),
+ *     Number('long'),
  *   ],
  *   currencies: [ // CurrencyList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   descriptions: [ // SavingsPlanDescriptionsList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   serviceCodes: [ // SavingsPlanServiceCodeList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   usageTypes: [ // SavingsPlanUsageTypeList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   operations: [ // SavingsPlanOperationList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   filters: [ // SavingsPlanOfferingFiltersList
  *     { // SavingsPlanOfferingFilterElement
- *       name: "STRING_VALUE",
+ *       name: 'STRING_VALUE',
  *       values: [ // FilterValuesList
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new DescribeSavingsPlansOfferingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeSavingsPlansOfferingsResponse
+ *   searchResults: [ // SavingsPlanOfferingsList
+ *     { // SavingsPlanOffering
+ *       offeringId: 'STRING_VALUE',
+ *       productTypes: [ // SavingsPlanProductTypeList
+ *         'STRING_VALUE',
+ *       ],
+ *       planType: 'STRING_VALUE',
+ *       description: 'STRING_VALUE',
+ *       paymentOption: 'STRING_VALUE',
+ *       durationSeconds: Number('long'),
+ *       currency: 'STRING_VALUE',
+ *       serviceCode: 'STRING_VALUE',
+ *       usageType: 'STRING_VALUE',
+ *       operation: 'STRING_VALUE',
+ *       properties: [ // SavingsPlanOfferingPropertyList
+ *         { // SavingsPlanOfferingProperty
+ *           name: 'STRING_VALUE',
+ *           value: 'STRING_VALUE',
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeSavingsPlansOfferingsCommandInput - {@link DescribeSavingsPlansOfferingsCommandInput}
@@ -100,6 +127,8 @@ export interface DescribeSavingsPlansOfferingsCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>One of the input parameters is not valid.</p>
  *
+ * @throws {@link SavingsplansServiceException}
+ * <p>Base exception class for all service exceptions from Savingsplans service.</p>
  *
  */
 export class DescribeSavingsPlansOfferingsCommand extends $Command<

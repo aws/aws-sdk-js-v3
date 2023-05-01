@@ -44,26 +44,31 @@ export interface CreateTapeWithBarcodeCommandOutput extends CreateTapeWithBarcod
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { StorageGatewayClient, CreateTapeWithBarcodeCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
- * // const { StorageGatewayClient, CreateTapeWithBarcodeCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
+ * import { StorageGatewayClient, CreateTapeWithBarcodeCommand } from '@aws-sdk/client-storage-gateway'; // ES Modules import
+ * // const { StorageGatewayClient, CreateTapeWithBarcodeCommand } = require('@aws-sdk/client-storage-gateway'); // CommonJS import
  * const client = new StorageGatewayClient(config);
  * const input = { // CreateTapeWithBarcodeInput
- *   GatewayARN: "STRING_VALUE", // required
- *   TapeSizeInBytes: Number("long"), // required
- *   TapeBarcode: "STRING_VALUE", // required
+ *   GatewayARN: 'STRING_VALUE', // required
+ *   TapeSizeInBytes: Number('long'), // required
+ *   TapeBarcode: 'STRING_VALUE', // required
  *   KMSEncrypted: true || false,
- *   KMSKey: "STRING_VALUE",
- *   PoolId: "STRING_VALUE",
+ *   KMSKey: 'STRING_VALUE',
+ *   PoolId: 'STRING_VALUE',
  *   Worm: true || false,
  *   Tags: [ // Tags
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreateTapeWithBarcodeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateTapeWithBarcodeOutput
+ *   TapeARN: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateTapeWithBarcodeCommandInput - {@link CreateTapeWithBarcodeCommandInput}
@@ -80,6 +85,8 @@ export interface CreateTapeWithBarcodeCommandOutput extends CreateTapeWithBarcod
  *  <p>An exception occurred because an invalid gateway request was issued to the service. For
  *          more information, see the error and message fields.</p>
  *
+ * @throws {@link StorageGatewayServiceException}
+ * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
  * @example To create a virtual tape using a barcode
  * ```javascript

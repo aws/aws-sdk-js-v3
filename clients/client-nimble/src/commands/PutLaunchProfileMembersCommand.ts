@@ -36,23 +36,26 @@ export interface PutLaunchProfileMembersCommandOutput extends PutLaunchProfileMe
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { NimbleClient, PutLaunchProfileMembersCommand } from "@aws-sdk/client-nimble"; // ES Modules import
- * // const { NimbleClient, PutLaunchProfileMembersCommand } = require("@aws-sdk/client-nimble"); // CommonJS import
+ * import { NimbleClient, PutLaunchProfileMembersCommand } from '@aws-sdk/client-nimble'; // ES Modules import
+ * // const { NimbleClient, PutLaunchProfileMembersCommand } = require('@aws-sdk/client-nimble'); // CommonJS import
  * const client = new NimbleClient(config);
  * const input = { // PutLaunchProfileMembersRequest
- *   clientToken: "STRING_VALUE",
- *   identityStoreId: "STRING_VALUE", // required
- *   launchProfileId: "STRING_VALUE", // required
+ *   clientToken: 'STRING_VALUE',
+ *   identityStoreId: 'STRING_VALUE', // required
+ *   launchProfileId: 'STRING_VALUE', // required
  *   members: [ // NewLaunchProfileMemberList // required
  *     { // NewLaunchProfileMember
- *       persona: "USER", // required
- *       principalId: "STRING_VALUE", // required
+ *       persona: 'USER', // required
+ *       principalId: 'STRING_VALUE', // required
  *     },
  *   ],
- *   studioId: "STRING_VALUE", // required
+ *   studioId: 'STRING_VALUE', // required
  * };
  * const command = new PutLaunchProfileMembersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutLaunchProfileMembersCommandInput - {@link PutLaunchProfileMembersCommandInput}
@@ -85,6 +88,8 @@ export interface PutLaunchProfileMembersCommandOutput extends PutLaunchProfileMe
  * @throws {@link ValidationException} (client fault)
  *  <p>One of the parameters in the request is invalid.</p>
  *
+ * @throws {@link NimbleServiceException}
+ * <p>Base exception class for all service exceptions from Nimble service.</p>
  *
  */
 export class PutLaunchProfileMembersCommand extends $Command<

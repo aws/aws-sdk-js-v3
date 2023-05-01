@@ -59,18 +59,37 @@ export interface DescribeCommunicationsCommandOutput extends DescribeCommunicati
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SupportClient, DescribeCommunicationsCommand } from "@aws-sdk/client-support"; // ES Modules import
- * // const { SupportClient, DescribeCommunicationsCommand } = require("@aws-sdk/client-support"); // CommonJS import
+ * import { SupportClient, DescribeCommunicationsCommand } from '@aws-sdk/client-support'; // ES Modules import
+ * // const { SupportClient, DescribeCommunicationsCommand } = require('@aws-sdk/client-support'); // CommonJS import
  * const client = new SupportClient(config);
  * const input = { // DescribeCommunicationsRequest
- *   caseId: "STRING_VALUE", // required
- *   beforeTime: "STRING_VALUE",
- *   afterTime: "STRING_VALUE",
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   caseId: 'STRING_VALUE', // required
+ *   beforeTime: 'STRING_VALUE',
+ *   afterTime: 'STRING_VALUE',
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new DescribeCommunicationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeCommunicationsResponse
+ *   communications: [ // CommunicationList
+ *     { // Communication
+ *       caseId: 'STRING_VALUE',
+ *       body: 'STRING_VALUE',
+ *       submittedBy: 'STRING_VALUE',
+ *       timeCreated: 'STRING_VALUE',
+ *       attachmentSet: [ // AttachmentSet
+ *         { // AttachmentDetails
+ *           attachmentId: 'STRING_VALUE',
+ *           fileName: 'STRING_VALUE',
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeCommunicationsCommandInput - {@link DescribeCommunicationsCommandInput}
@@ -85,6 +104,8 @@ export interface DescribeCommunicationsCommandOutput extends DescribeCommunicati
  * @throws {@link InternalServerError} (server fault)
  *  <p>An internal server error occurred.</p>
  *
+ * @throws {@link SupportServiceException}
+ * <p>Base exception class for all service exceptions from Support service.</p>
  *
  */
 export class DescribeCommunicationsCommand extends $Command<

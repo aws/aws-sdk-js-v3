@@ -39,23 +39,35 @@ export interface CreateDeploymentStrategyCommandOutput extends DeploymentStrateg
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppConfigClient, CreateDeploymentStrategyCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
- * // const { AppConfigClient, CreateDeploymentStrategyCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import
+ * import { AppConfigClient, CreateDeploymentStrategyCommand } from '@aws-sdk/client-appconfig'; // ES Modules import
+ * // const { AppConfigClient, CreateDeploymentStrategyCommand } = require('@aws-sdk/client-appconfig'); // CommonJS import
  * const client = new AppConfigClient(config);
  * const input = { // CreateDeploymentStrategyRequest
- *   Name: "STRING_VALUE", // required
- *   Description: "STRING_VALUE",
- *   DeploymentDurationInMinutes: Number("int"), // required
- *   FinalBakeTimeInMinutes: Number("int"),
- *   GrowthFactor: Number("float"), // required
- *   GrowthType: "LINEAR" || "EXPONENTIAL",
- *   ReplicateTo: "NONE" || "SSM_DOCUMENT",
+ *   Name: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE',
+ *   DeploymentDurationInMinutes: Number('int'), // required
+ *   FinalBakeTimeInMinutes: Number('int'),
+ *   GrowthFactor: Number('float'), // required
+ *   GrowthType: 'LINEAR' || 'EXPONENTIAL',
+ *   ReplicateTo: 'NONE' || 'SSM_DOCUMENT',
  *   Tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateDeploymentStrategyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeploymentStrategy
+ *   Id: 'STRING_VALUE',
+ *   Name: 'STRING_VALUE',
+ *   Description: 'STRING_VALUE',
+ *   DeploymentDurationInMinutes: Number('int'),
+ *   GrowthType: 'LINEAR' || 'EXPONENTIAL',
+ *   GrowthFactor: Number('float'),
+ *   FinalBakeTimeInMinutes: Number('int'),
+ *   ReplicateTo: 'NONE' || 'SSM_DOCUMENT',
+ * };
+ *
  * ```
  *
  * @param CreateDeploymentStrategyCommandInput - {@link CreateDeploymentStrategyCommandInput}
@@ -70,6 +82,8 @@ export interface CreateDeploymentStrategyCommandOutput extends DeploymentStrateg
  * @throws {@link InternalServerException} (server fault)
  *  <p>There was an internal failure in the AppConfig service.</p>
  *
+ * @throws {@link AppConfigServiceException}
+ * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
  * @example To create a deployment strategy
  * ```javascript

@@ -43,14 +43,39 @@ export interface GetConfigurationSetCommandOutput extends GetConfigurationSetRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PinpointEmailClient, GetConfigurationSetCommand } from "@aws-sdk/client-pinpoint-email"; // ES Modules import
- * // const { PinpointEmailClient, GetConfigurationSetCommand } = require("@aws-sdk/client-pinpoint-email"); // CommonJS import
+ * import { PinpointEmailClient, GetConfigurationSetCommand } from '@aws-sdk/client-pinpoint-email'; // ES Modules import
+ * // const { PinpointEmailClient, GetConfigurationSetCommand } = require('@aws-sdk/client-pinpoint-email'); // CommonJS import
  * const client = new PinpointEmailClient(config);
  * const input = { // GetConfigurationSetRequest
- *   ConfigurationSetName: "STRING_VALUE", // required
+ *   ConfigurationSetName: 'STRING_VALUE', // required
  * };
  * const command = new GetConfigurationSetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetConfigurationSetResponse
+ *   ConfigurationSetName: 'STRING_VALUE',
+ *   TrackingOptions: { // TrackingOptions
+ *     CustomRedirectDomain: 'STRING_VALUE', // required
+ *   },
+ *   DeliveryOptions: { // DeliveryOptions
+ *     TlsPolicy: 'STRING_VALUE',
+ *     SendingPoolName: 'STRING_VALUE',
+ *   },
+ *   ReputationOptions: { // ReputationOptions
+ *     ReputationMetricsEnabled: true || false,
+ *     LastFreshStart: new Date('TIMESTAMP'),
+ *   },
+ *   SendingOptions: { // SendingOptions
+ *     SendingEnabled: true || false,
+ *   },
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetConfigurationSetCommandInput - {@link GetConfigurationSetCommandInput}
@@ -68,6 +93,8 @@ export interface GetConfigurationSetCommandOutput extends GetConfigurationSetRes
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Too many requests have been made to the operation.</p>
  *
+ * @throws {@link PinpointEmailServiceException}
+ * <p>Base exception class for all service exceptions from PinpointEmail service.</p>
  *
  */
 export class GetConfigurationSetCommand extends $Command<

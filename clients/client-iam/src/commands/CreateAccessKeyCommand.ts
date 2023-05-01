@@ -53,14 +53,25 @@ export interface CreateAccessKeyCommandOutput extends CreateAccessKeyResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IAMClient, CreateAccessKeyCommand } from "@aws-sdk/client-iam"; // ES Modules import
- * // const { IAMClient, CreateAccessKeyCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * import { IAMClient, CreateAccessKeyCommand } from '@aws-sdk/client-iam'; // ES Modules import
+ * // const { IAMClient, CreateAccessKeyCommand } = require('@aws-sdk/client-iam'); // CommonJS import
  * const client = new IAMClient(config);
  * const input = { // CreateAccessKeyRequest
- *   UserName: "STRING_VALUE",
+ *   UserName: 'STRING_VALUE',
  * };
  * const command = new CreateAccessKeyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateAccessKeyResponse
+ *   AccessKey: { // AccessKey
+ *     UserName: 'STRING_VALUE', // required
+ *     AccessKeyId: 'STRING_VALUE', // required
+ *     Status: 'Active' || 'Inactive', // required
+ *     SecretAccessKey: 'STRING_VALUE', // required
+ *     CreateDate: new Date('TIMESTAMP'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateAccessKeyCommandInput - {@link CreateAccessKeyCommandInput}
@@ -81,6 +92,8 @@ export interface CreateAccessKeyCommandOutput extends CreateAccessKeyResponse, _
  *  <p>The request processing has failed because of an unknown error, exception or
  *       failure.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  * @example To create an access key for an IAM user
  * ```javascript

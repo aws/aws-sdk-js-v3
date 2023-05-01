@@ -65,15 +65,83 @@ export interface GetBucketReplicationCommandOutput extends GetBucketReplicationO
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { S3Client, GetBucketReplicationCommand } from "@aws-sdk/client-s3"; // ES Modules import
- * // const { S3Client, GetBucketReplicationCommand } = require("@aws-sdk/client-s3"); // CommonJS import
+ * import { S3Client, GetBucketReplicationCommand } from '@aws-sdk/client-s3'; // ES Modules import
+ * // const { S3Client, GetBucketReplicationCommand } = require('@aws-sdk/client-s3'); // CommonJS import
  * const client = new S3Client(config);
  * const input = { // GetBucketReplicationRequest
- *   Bucket: "STRING_VALUE", // required
- *   ExpectedBucketOwner: "STRING_VALUE",
+ *   Bucket: 'STRING_VALUE', // required
+ *   ExpectedBucketOwner: 'STRING_VALUE',
  * };
  * const command = new GetBucketReplicationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetBucketReplicationOutput
+ *   ReplicationConfiguration: { // ReplicationConfiguration
+ *     Role: 'STRING_VALUE', // required
+ *     Rules: [ // ReplicationRules // required
+ *       { // ReplicationRule
+ *         ID: 'STRING_VALUE',
+ *         Priority: Number('int'),
+ *         Prefix: 'STRING_VALUE',
+ *         Filter: { // ReplicationRuleFilter Union: only one key present
+ *           Prefix: 'STRING_VALUE',
+ *           Tag: { // Tag
+ *             Key: 'STRING_VALUE', // required
+ *             Value: 'STRING_VALUE', // required
+ *           },
+ *           And: { // ReplicationRuleAndOperator
+ *             Prefix: 'STRING_VALUE',
+ *             Tags: [ // TagSet
+ *               {
+ *                 Key: 'STRING_VALUE', // required
+ *                 Value: 'STRING_VALUE', // required
+ *               },
+ *             ],
+ *           },
+ *         },
+ *         Status: 'Enabled' || 'Disabled', // required
+ *         SourceSelectionCriteria: { // SourceSelectionCriteria
+ *           SseKmsEncryptedObjects: { // SseKmsEncryptedObjects
+ *             Status: 'Enabled' || 'Disabled', // required
+ *           },
+ *           ReplicaModifications: { // ReplicaModifications
+ *             Status: 'Enabled' || 'Disabled', // required
+ *           },
+ *         },
+ *         ExistingObjectReplication: { // ExistingObjectReplication
+ *           Status: 'Enabled' || 'Disabled', // required
+ *         },
+ *         Destination: { // Destination
+ *           Bucket: 'STRING_VALUE', // required
+ *           Account: 'STRING_VALUE',
+ *           StorageClass: 'STANDARD' || 'REDUCED_REDUNDANCY' || 'STANDARD_IA' || 'ONEZONE_IA' || 'INTELLIGENT_TIERING' || 'GLACIER' || 'DEEP_ARCHIVE' || 'OUTPOSTS' || 'GLACIER_IR' || 'SNOW',
+ *           AccessControlTranslation: { // AccessControlTranslation
+ *             Owner: 'Destination', // required
+ *           },
+ *           EncryptionConfiguration: { // EncryptionConfiguration
+ *             ReplicaKmsKeyID: 'STRING_VALUE',
+ *           },
+ *           ReplicationTime: { // ReplicationTime
+ *             Status: 'Enabled' || 'Disabled', // required
+ *             Time: { // ReplicationTimeValue
+ *               Minutes: Number('int'),
+ *             },
+ *           },
+ *           Metrics: { // Metrics
+ *             Status: 'Enabled' || 'Disabled', // required
+ *             EventThreshold: {
+ *               Minutes: Number('int'),
+ *             },
+ *           },
+ *         },
+ *         DeleteMarkerReplication: { // DeleteMarkerReplication
+ *           Status: 'Enabled' || 'Disabled',
+ *         },
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetBucketReplicationCommandInput - {@link GetBucketReplicationCommandInput}
@@ -82,6 +150,8 @@ export interface GetBucketReplicationCommandOutput extends GetBucketReplicationO
  * @see {@link GetBucketReplicationCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
+ * @throws {@link S3ServiceException}
+ * <p>Base exception class for all service exceptions from S3 service.</p>
  *
  * @example To get replication configuration set on a bucket
  * ```javascript

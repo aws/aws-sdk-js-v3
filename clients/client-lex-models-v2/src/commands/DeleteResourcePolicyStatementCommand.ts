@@ -45,16 +45,22 @@ export interface DeleteResourcePolicyStatementCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LexModelsV2Client, DeleteResourcePolicyStatementCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
- * // const { LexModelsV2Client, DeleteResourcePolicyStatementCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
+ * import { LexModelsV2Client, DeleteResourcePolicyStatementCommand } from '@aws-sdk/client-lex-models-v2'; // ES Modules import
+ * // const { LexModelsV2Client, DeleteResourcePolicyStatementCommand } = require('@aws-sdk/client-lex-models-v2'); // CommonJS import
  * const client = new LexModelsV2Client(config);
  * const input = { // DeleteResourcePolicyStatementRequest
- *   resourceArn: "STRING_VALUE", // required
- *   statementId: "STRING_VALUE", // required
- *   expectedRevisionId: "STRING_VALUE",
+ *   resourceArn: 'STRING_VALUE', // required
+ *   statementId: 'STRING_VALUE', // required
+ *   expectedRevisionId: 'STRING_VALUE',
  * };
  * const command = new DeleteResourcePolicyStatementCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteResourcePolicyStatementResponse
+ *   resourceArn: 'STRING_VALUE',
+ *   revisionId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DeleteResourcePolicyStatementCommandInput - {@link DeleteResourcePolicyStatementCommandInput}
@@ -80,6 +86,8 @@ export interface DeleteResourcePolicyStatementCommandOutput
  *  <p>Your request rate is too high. Reduce the frequency of
  *          requests.</p>
  *
+ * @throws {@link LexModelsV2ServiceException}
+ * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
  */
 export class DeleteResourcePolicyStatementCommand extends $Command<

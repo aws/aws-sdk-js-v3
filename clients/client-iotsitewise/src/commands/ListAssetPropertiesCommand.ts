@@ -38,17 +38,34 @@ export interface ListAssetPropertiesCommandOutput extends ListAssetPropertiesRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTSiteWiseClient, ListAssetPropertiesCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
- * // const { IoTSiteWiseClient, ListAssetPropertiesCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
+ * import { IoTSiteWiseClient, ListAssetPropertiesCommand } from '@aws-sdk/client-iotsitewise'; // ES Modules import
+ * // const { IoTSiteWiseClient, ListAssetPropertiesCommand } = require('@aws-sdk/client-iotsitewise'); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
  * const input = { // ListAssetPropertiesRequest
- *   assetId: "STRING_VALUE", // required
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
- *   filter: "ALL" || "BASE",
+ *   assetId: 'STRING_VALUE', // required
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
+ *   filter: 'ALL' || 'BASE',
  * };
  * const command = new ListAssetPropertiesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListAssetPropertiesResponse
+ *   assetPropertySummaries: [ // AssetPropertySummaries // required
+ *     { // AssetPropertySummary
+ *       id: 'STRING_VALUE',
+ *       alias: 'STRING_VALUE',
+ *       unit: 'STRING_VALUE',
+ *       notification: { // PropertyNotification
+ *         topic: 'STRING_VALUE', // required
+ *         state: 'ENABLED' || 'DISABLED', // required
+ *       },
+ *       assetCompositeModelId: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListAssetPropertiesCommandInput - {@link ListAssetPropertiesCommandInput}
@@ -73,6 +90,8 @@ export interface ListAssetPropertiesCommandOutput extends ListAssetPropertiesRes
  *       on.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
  *
+ * @throws {@link IoTSiteWiseServiceException}
+ * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
  */
 export class ListAssetPropertiesCommand extends $Command<

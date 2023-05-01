@@ -36,15 +36,25 @@ export interface AssociateApiCommandOutput extends AssociateApiResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppSyncClient, AssociateApiCommand } from "@aws-sdk/client-appsync"; // ES Modules import
- * // const { AppSyncClient, AssociateApiCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
+ * import { AppSyncClient, AssociateApiCommand } from '@aws-sdk/client-appsync'; // ES Modules import
+ * // const { AppSyncClient, AssociateApiCommand } = require('@aws-sdk/client-appsync'); // CommonJS import
  * const client = new AppSyncClient(config);
  * const input = { // AssociateApiRequest
- *   domainName: "STRING_VALUE", // required
- *   apiId: "STRING_VALUE", // required
+ *   domainName: 'STRING_VALUE', // required
+ *   apiId: 'STRING_VALUE', // required
  * };
  * const command = new AssociateApiCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AssociateApiResponse
+ *   apiAssociation: { // ApiAssociation
+ *     domainName: 'STRING_VALUE',
+ *     apiId: 'STRING_VALUE',
+ *     associationStatus: 'PROCESSING' || 'FAILED' || 'SUCCESS',
+ *     deploymentDetail: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param AssociateApiCommandInput - {@link AssociateApiCommandInput}
@@ -66,6 +76,8 @@ export interface AssociateApiCommandOutput extends AssociateApiResponse, __Metad
  * @throws {@link NotFoundException} (client fault)
  *  <p>The resource specified in the request was not found. Check the resource, and then try again.</p>
  *
+ * @throws {@link AppSyncServiceException}
+ * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
  */
 export class AssociateApiCommand extends $Command<

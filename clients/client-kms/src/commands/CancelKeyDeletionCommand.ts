@@ -48,14 +48,19 @@ export interface CancelKeyDeletionCommandOutput extends CancelKeyDeletionRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KMSClient, CancelKeyDeletionCommand } from "@aws-sdk/client-kms"; // ES Modules import
- * // const { KMSClient, CancelKeyDeletionCommand } = require("@aws-sdk/client-kms"); // CommonJS import
+ * import { KMSClient, CancelKeyDeletionCommand } from '@aws-sdk/client-kms'; // ES Modules import
+ * // const { KMSClient, CancelKeyDeletionCommand } = require('@aws-sdk/client-kms'); // CommonJS import
  * const client = new KMSClient(config);
  * const input = { // CancelKeyDeletionRequest
- *   KeyId: "STRING_VALUE", // required
+ *   KeyId: 'STRING_VALUE', // required
  * };
  * const command = new CancelKeyDeletionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CancelKeyDeletionResponse
+ *   KeyId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CancelKeyDeletionCommandInput - {@link CancelKeyDeletionCommandInput}
@@ -98,6 +103,8 @@ export interface CancelKeyDeletionCommandOutput extends CancelKeyDeletionRespons
  *  <p>The request was rejected because the specified entity or resource could not be
  *       found.</p>
  *
+ * @throws {@link KMSServiceException}
+ * <p>Base exception class for all service exceptions from KMS service.</p>
  *
  * @example To cancel deletion of a KMS key
  * ```javascript

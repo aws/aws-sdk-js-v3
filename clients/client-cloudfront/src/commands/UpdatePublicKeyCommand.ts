@@ -37,21 +37,36 @@ export interface UpdatePublicKeyCommandOutput extends UpdatePublicKeyResult, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudFrontClient, UpdatePublicKeyCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
- * // const { CloudFrontClient, UpdatePublicKeyCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
+ * import { CloudFrontClient, UpdatePublicKeyCommand } from '@aws-sdk/client-cloudfront'; // ES Modules import
+ * // const { CloudFrontClient, UpdatePublicKeyCommand } = require('@aws-sdk/client-cloudfront'); // CommonJS import
  * const client = new CloudFrontClient(config);
  * const input = { // UpdatePublicKeyRequest
  *   PublicKeyConfig: { // PublicKeyConfig
- *     CallerReference: "STRING_VALUE", // required
- *     Name: "STRING_VALUE", // required
- *     EncodedKey: "STRING_VALUE", // required
- *     Comment: "STRING_VALUE",
+ *     CallerReference: 'STRING_VALUE', // required
+ *     Name: 'STRING_VALUE', // required
+ *     EncodedKey: 'STRING_VALUE', // required
+ *     Comment: 'STRING_VALUE',
  *   },
- *   Id: "STRING_VALUE", // required
- *   IfMatch: "STRING_VALUE",
+ *   Id: 'STRING_VALUE', // required
+ *   IfMatch: 'STRING_VALUE',
  * };
  * const command = new UpdatePublicKeyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdatePublicKeyResult
+ *   PublicKey: { // PublicKey
+ *     Id: 'STRING_VALUE', // required
+ *     CreatedTime: new Date('TIMESTAMP'), // required
+ *     PublicKeyConfig: { // PublicKeyConfig
+ *       CallerReference: 'STRING_VALUE', // required
+ *       Name: 'STRING_VALUE', // required
+ *       EncodedKey: 'STRING_VALUE', // required
+ *       Comment: 'STRING_VALUE',
+ *     },
+ *   },
+ *   ETag: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdatePublicKeyCommandInput - {@link UpdatePublicKeyCommandInput}
@@ -82,6 +97,8 @@ export interface UpdatePublicKeyCommandOutput extends UpdatePublicKeyResult, __M
  *  <p>The precondition in one or more of the request fields evaluated to
  * 			<code>false</code>.</p>
  *
+ * @throws {@link CloudFrontServiceException}
+ * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
  */
 export class UpdatePublicKeyCommand extends $Command<

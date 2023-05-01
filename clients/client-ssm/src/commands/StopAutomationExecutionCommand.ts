@@ -36,15 +36,18 @@ export interface StopAutomationExecutionCommandOutput extends StopAutomationExec
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMClient, StopAutomationExecutionCommand } from "@aws-sdk/client-ssm"; // ES Modules import
- * // const { SSMClient, StopAutomationExecutionCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * import { SSMClient, StopAutomationExecutionCommand } from '@aws-sdk/client-ssm'; // ES Modules import
+ * // const { SSMClient, StopAutomationExecutionCommand } = require('@aws-sdk/client-ssm'); // CommonJS import
  * const client = new SSMClient(config);
  * const input = { // StopAutomationExecutionRequest
- *   AutomationExecutionId: "STRING_VALUE", // required
- *   Type: "Complete" || "Cancel",
+ *   AutomationExecutionId: 'STRING_VALUE', // required
+ *   Type: 'Complete' || 'Cancel',
  * };
  * const command = new StopAutomationExecutionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param StopAutomationExecutionCommandInput - {@link StopAutomationExecutionCommandInput}
@@ -63,6 +66,8 @@ export interface StopAutomationExecutionCommandOutput extends StopAutomationExec
  * @throws {@link InvalidAutomationStatusUpdateException} (client fault)
  *  <p>The specified update status operation isn't valid.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class StopAutomationExecutionCommand extends $Command<

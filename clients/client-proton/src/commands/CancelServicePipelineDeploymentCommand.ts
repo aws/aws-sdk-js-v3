@@ -63,14 +63,30 @@ export interface CancelServicePipelineDeploymentCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ProtonClient, CancelServicePipelineDeploymentCommand } from "@aws-sdk/client-proton"; // ES Modules import
- * // const { ProtonClient, CancelServicePipelineDeploymentCommand } = require("@aws-sdk/client-proton"); // CommonJS import
+ * import { ProtonClient, CancelServicePipelineDeploymentCommand } from '@aws-sdk/client-proton'; // ES Modules import
+ * // const { ProtonClient, CancelServicePipelineDeploymentCommand } = require('@aws-sdk/client-proton'); // CommonJS import
  * const client = new ProtonClient(config);
  * const input = { // CancelServicePipelineDeploymentInput
- *   serviceName: "STRING_VALUE", // required
+ *   serviceName: 'STRING_VALUE', // required
  * };
  * const command = new CancelServicePipelineDeploymentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CancelServicePipelineDeploymentOutput
+ *   pipeline: { // ServicePipeline
+ *     arn: 'STRING_VALUE', // required
+ *     createdAt: new Date('TIMESTAMP'), // required
+ *     lastDeploymentAttemptedAt: new Date('TIMESTAMP'), // required
+ *     lastDeploymentSucceededAt: new Date('TIMESTAMP'), // required
+ *     templateName: 'STRING_VALUE', // required
+ *     templateMajorVersion: 'STRING_VALUE', // required
+ *     templateMinorVersion: 'STRING_VALUE', // required
+ *     deploymentStatus: 'STRING_VALUE', // required
+ *     deploymentStatusMessage: 'STRING_VALUE',
+ *     spec: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param CancelServicePipelineDeploymentCommandInput - {@link CancelServicePipelineDeploymentCommandInput}
@@ -97,6 +113,8 @@ export interface CancelServicePipelineDeploymentCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The input is invalid or an out-of-range value was supplied for the input parameter.</p>
  *
+ * @throws {@link ProtonServiceException}
+ * <p>Base exception class for all service exceptions from Proton service.</p>
  *
  */
 export class CancelServicePipelineDeploymentCommand extends $Command<

@@ -39,15 +39,18 @@ export interface DeletePortfolioCommandOutput extends DeletePortfolioOutput, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ServiceCatalogClient, DeletePortfolioCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
- * // const { ServiceCatalogClient, DeletePortfolioCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
+ * import { ServiceCatalogClient, DeletePortfolioCommand } from '@aws-sdk/client-service-catalog'; // ES Modules import
+ * // const { ServiceCatalogClient, DeletePortfolioCommand } = require('@aws-sdk/client-service-catalog'); // CommonJS import
  * const client = new ServiceCatalogClient(config);
  * const input = { // DeletePortfolioInput
- *   AcceptLanguage: "STRING_VALUE",
- *   Id: "STRING_VALUE", // required
+ *   AcceptLanguage: 'STRING_VALUE',
+ *   Id: 'STRING_VALUE', // required
  * };
  * const command = new DeletePortfolioCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeletePortfolioCommandInput - {@link DeletePortfolioCommandInput}
@@ -70,6 +73,8 @@ export interface DeletePortfolioCommandOutput extends DeletePortfolioOutput, __M
  *          not been performed for this account. Use the Amazon Web Services Management Console to perform the migration
  *          process before retrying the operation.</p>
  *
+ * @throws {@link ServiceCatalogServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
  */
 export class DeletePortfolioCommand extends $Command<

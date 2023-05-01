@@ -36,17 +36,28 @@ export interface CreateThemeAliasCommandOutput extends CreateThemeAliasResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { QuickSightClient, CreateThemeAliasCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
- * // const { QuickSightClient, CreateThemeAliasCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * import { QuickSightClient, CreateThemeAliasCommand } from '@aws-sdk/client-quicksight'; // ES Modules import
+ * // const { QuickSightClient, CreateThemeAliasCommand } = require('@aws-sdk/client-quicksight'); // CommonJS import
  * const client = new QuickSightClient(config);
  * const input = { // CreateThemeAliasRequest
- *   AwsAccountId: "STRING_VALUE", // required
- *   ThemeId: "STRING_VALUE", // required
- *   AliasName: "STRING_VALUE", // required
- *   ThemeVersionNumber: Number("long"), // required
+ *   AwsAccountId: 'STRING_VALUE', // required
+ *   ThemeId: 'STRING_VALUE', // required
+ *   AliasName: 'STRING_VALUE', // required
+ *   ThemeVersionNumber: Number('long'), // required
  * };
  * const command = new CreateThemeAliasCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateThemeAliasResponse
+ *   ThemeAlias: { // ThemeAlias
+ *     Arn: 'STRING_VALUE',
+ *     AliasName: 'STRING_VALUE',
+ *     ThemeVersionNumber: Number('long'),
+ *   },
+ *   Status: Number('int'),
+ *   RequestId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateThemeAliasCommandInput - {@link CreateThemeAliasCommandInput}
@@ -82,6 +93,8 @@ export interface CreateThemeAliasCommandOutput extends CreateThemeAliasResponse,
  * 			Amazon QuickSight currently has Standard Edition and Enterprise Edition. Not every operation and
  * 			capability is available in every edition.</p>
  *
+ * @throws {@link QuickSightServiceException}
+ * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
 export class CreateThemeAliasCommand extends $Command<

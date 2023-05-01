@@ -37,43 +37,48 @@ export interface SendAnnouncementCommandOutput extends SendAnnouncementResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AlexaForBusinessClient, SendAnnouncementCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
- * // const { AlexaForBusinessClient, SendAnnouncementCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
+ * import { AlexaForBusinessClient, SendAnnouncementCommand } from '@aws-sdk/client-alexa-for-business'; // ES Modules import
+ * // const { AlexaForBusinessClient, SendAnnouncementCommand } = require('@aws-sdk/client-alexa-for-business'); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
  * const input = { // SendAnnouncementRequest
  *   RoomFilters: [ // FilterList // required
  *     { // Filter
- *       Key: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
  *       Values: [ // FilterValueList // required
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
  *   Content: { // Content
  *     TextList: [ // TextList
  *       { // Text
- *         Locale: "STRING_VALUE", // required
- *         Value: "STRING_VALUE", // required
+ *         Locale: 'STRING_VALUE', // required
+ *         Value: 'STRING_VALUE', // required
  *       },
  *     ],
  *     SsmlList: [ // SsmlList
  *       { // Ssml
- *         Locale: "STRING_VALUE", // required
- *         Value: "STRING_VALUE", // required
+ *         Locale: 'STRING_VALUE', // required
+ *         Value: 'STRING_VALUE', // required
  *       },
  *     ],
  *     AudioList: [ // AudioList
  *       { // Audio
- *         Locale: "STRING_VALUE", // required
- *         Location: "STRING_VALUE", // required
+ *         Locale: 'STRING_VALUE', // required
+ *         Location: 'STRING_VALUE', // required
  *       },
  *     ],
  *   },
- *   TimeToLiveInSeconds: Number("int"),
- *   ClientRequestToken: "STRING_VALUE", // required
+ *   TimeToLiveInSeconds: Number('int'),
+ *   ClientRequestToken: 'STRING_VALUE', // required
  * };
  * const command = new SendAnnouncementCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SendAnnouncementResponse
+ *   AnnouncementArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param SendAnnouncementCommandInput - {@link SendAnnouncementCommandInput}
@@ -88,6 +93,8 @@ export interface SendAnnouncementCommandOutput extends SendAnnouncementResponse,
  * @throws {@link LimitExceededException} (client fault)
  *  <p>You are performing an action that would put you beyond your account's limits.</p>
  *
+ * @throws {@link AlexaForBusinessServiceException}
+ * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  */
 export class SendAnnouncementCommand extends $Command<

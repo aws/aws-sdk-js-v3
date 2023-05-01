@@ -41,16 +41,31 @@ export interface ListCoreNetworkPolicyVersionsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { NetworkManagerClient, ListCoreNetworkPolicyVersionsCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
- * // const { NetworkManagerClient, ListCoreNetworkPolicyVersionsCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
+ * import { NetworkManagerClient, ListCoreNetworkPolicyVersionsCommand } from '@aws-sdk/client-networkmanager'; // ES Modules import
+ * // const { NetworkManagerClient, ListCoreNetworkPolicyVersionsCommand } = require('@aws-sdk/client-networkmanager'); // CommonJS import
  * const client = new NetworkManagerClient(config);
  * const input = { // ListCoreNetworkPolicyVersionsRequest
- *   CoreNetworkId: "STRING_VALUE", // required
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   CoreNetworkId: 'STRING_VALUE', // required
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListCoreNetworkPolicyVersionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListCoreNetworkPolicyVersionsResponse
+ *   CoreNetworkPolicyVersions: [ // CoreNetworkPolicyVersionList
+ *     { // CoreNetworkPolicyVersion
+ *       CoreNetworkId: 'STRING_VALUE',
+ *       PolicyVersionId: Number('int'),
+ *       Alias: 'LIVE' || 'LATEST',
+ *       Description: 'STRING_VALUE',
+ *       CreatedAt: new Date('TIMESTAMP'),
+ *       ChangeSetState: 'PENDING_GENERATION' || 'FAILED_GENERATION' || 'READY_TO_EXECUTE' || 'EXECUTING' || 'EXECUTION_SUCCEEDED' || 'OUT_OF_DATE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListCoreNetworkPolicyVersionsCommandInput - {@link ListCoreNetworkPolicyVersionsCommandInput}
@@ -74,6 +89,8 @@ export interface ListCoreNetworkPolicyVersionsCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints.</p>
  *
+ * @throws {@link NetworkManagerServiceException}
+ * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
  */
 export class ListCoreNetworkPolicyVersionsCommand extends $Command<

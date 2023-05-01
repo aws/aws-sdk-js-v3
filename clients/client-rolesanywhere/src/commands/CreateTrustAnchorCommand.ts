@@ -44,28 +44,47 @@ export interface CreateTrustAnchorCommandOutput extends TrustAnchorDetailRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RolesAnywhereClient, CreateTrustAnchorCommand } from "@aws-sdk/client-rolesanywhere"; // ES Modules import
- * // const { RolesAnywhereClient, CreateTrustAnchorCommand } = require("@aws-sdk/client-rolesanywhere"); // CommonJS import
+ * import { RolesAnywhereClient, CreateTrustAnchorCommand } from '@aws-sdk/client-rolesanywhere'; // ES Modules import
+ * // const { RolesAnywhereClient, CreateTrustAnchorCommand } = require('@aws-sdk/client-rolesanywhere'); // CommonJS import
  * const client = new RolesAnywhereClient(config);
  * const input = { // CreateTrustAnchorRequest
- *   name: "STRING_VALUE", // required
+ *   name: 'STRING_VALUE', // required
  *   source: { // Source
- *     sourceType: "STRING_VALUE",
+ *     sourceType: 'STRING_VALUE',
  *     sourceData: { // SourceData Union: only one key present
- *       x509CertificateData: "STRING_VALUE",
- *       acmPcaArn: "STRING_VALUE",
+ *       x509CertificateData: 'STRING_VALUE',
+ *       acmPcaArn: 'STRING_VALUE',
  *     },
  *   },
  *   enabled: true || false,
  *   tags: [ // TagList
  *     { // Tag
- *       key: "STRING_VALUE", // required
- *       value: "STRING_VALUE", // required
+ *       key: 'STRING_VALUE', // required
+ *       value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreateTrustAnchorCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // TrustAnchorDetailResponse
+ *   trustAnchor: { // TrustAnchorDetail
+ *     trustAnchorId: 'STRING_VALUE',
+ *     trustAnchorArn: 'STRING_VALUE',
+ *     name: 'STRING_VALUE',
+ *     source: { // Source
+ *       sourceType: 'STRING_VALUE',
+ *       sourceData: { // SourceData Union: only one key present
+ *         x509CertificateData: 'STRING_VALUE',
+ *         acmPcaArn: 'STRING_VALUE',
+ *       },
+ *     },
+ *     enabled: true || false,
+ *     createdAt: new Date('TIMESTAMP'),
+ *     updatedAt: new Date('TIMESTAMP'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateTrustAnchorCommandInput - {@link CreateTrustAnchorCommandInput}
@@ -80,6 +99,8 @@ export interface CreateTrustAnchorCommandOutput extends TrustAnchorDetailRespons
  * @throws {@link ValidationException} (client fault)
  *  <p>Validation exception error.</p>
  *
+ * @throws {@link RolesAnywhereServiceException}
+ * <p>Base exception class for all service exceptions from RolesAnywhere service.</p>
  *
  */
 export class CreateTrustAnchorCommand extends $Command<

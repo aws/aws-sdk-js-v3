@@ -40,16 +40,46 @@ export interface GetSnapshotCommandOutput extends GetSnapshotResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RedshiftServerlessClient, GetSnapshotCommand } from "@aws-sdk/client-redshift-serverless"; // ES Modules import
- * // const { RedshiftServerlessClient, GetSnapshotCommand } = require("@aws-sdk/client-redshift-serverless"); // CommonJS import
+ * import { RedshiftServerlessClient, GetSnapshotCommand } from '@aws-sdk/client-redshift-serverless'; // ES Modules import
+ * // const { RedshiftServerlessClient, GetSnapshotCommand } = require('@aws-sdk/client-redshift-serverless'); // CommonJS import
  * const client = new RedshiftServerlessClient(config);
  * const input = { // GetSnapshotRequest
- *   snapshotName: "STRING_VALUE",
- *   ownerAccount: "STRING_VALUE",
- *   snapshotArn: "STRING_VALUE",
+ *   snapshotName: 'STRING_VALUE',
+ *   ownerAccount: 'STRING_VALUE',
+ *   snapshotArn: 'STRING_VALUE',
  * };
  * const command = new GetSnapshotCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetSnapshotResponse
+ *   snapshot: { // Snapshot
+ *     namespaceName: 'STRING_VALUE',
+ *     namespaceArn: 'STRING_VALUE',
+ *     snapshotName: 'STRING_VALUE',
+ *     snapshotCreateTime: new Date('TIMESTAMP'),
+ *     adminUsername: 'STRING_VALUE',
+ *     status: 'STRING_VALUE',
+ *     kmsKeyId: 'STRING_VALUE',
+ *     ownerAccount: 'STRING_VALUE',
+ *     totalBackupSizeInMegaBytes: Number('double'),
+ *     actualIncrementalBackupSizeInMegaBytes: Number('double'),
+ *     backupProgressInMegaBytes: Number('double'),
+ *     currentBackupRateInMegaBytesPerSecond: Number('double'),
+ *     estimatedSecondsToCompletion: Number('long'),
+ *     elapsedTimeInSeconds: Number('long'),
+ *     snapshotRetentionPeriod: Number('int'),
+ *     snapshotRemainingDays: Number('int'),
+ *     snapshotRetentionStartTime: new Date('TIMESTAMP'),
+ *     snapshotArn: 'STRING_VALUE',
+ *     accountsWithRestoreAccess: [ // AccountIdList
+ *       'STRING_VALUE',
+ *     ],
+ *     accountsWithProvisionedRestoreAccess: [
+ *       'STRING_VALUE',
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetSnapshotCommandInput - {@link GetSnapshotCommandInput}
@@ -67,6 +97,8 @@ export interface GetSnapshotCommandOutput extends GetSnapshotResponse, __Metadat
  * @throws {@link ValidationException} (client fault)
  *  <p>The input failed to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link RedshiftServerlessServiceException}
+ * <p>Base exception class for all service exceptions from RedshiftServerless service.</p>
  *
  */
 export class GetSnapshotCommand extends $Command<

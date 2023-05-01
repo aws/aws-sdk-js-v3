@@ -37,15 +37,20 @@ export interface StartPipelineExecutionCommandOutput extends StartPipelineExecut
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodePipelineClient, StartPipelineExecutionCommand } from "@aws-sdk/client-codepipeline"; // ES Modules import
- * // const { CodePipelineClient, StartPipelineExecutionCommand } = require("@aws-sdk/client-codepipeline"); // CommonJS import
+ * import { CodePipelineClient, StartPipelineExecutionCommand } from '@aws-sdk/client-codepipeline'; // ES Modules import
+ * // const { CodePipelineClient, StartPipelineExecutionCommand } = require('@aws-sdk/client-codepipeline'); // CommonJS import
  * const client = new CodePipelineClient(config);
  * const input = { // StartPipelineExecutionInput
- *   name: "STRING_VALUE", // required
- *   clientRequestToken: "STRING_VALUE",
+ *   name: 'STRING_VALUE', // required
+ *   clientRequestToken: 'STRING_VALUE',
  * };
  * const command = new StartPipelineExecutionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartPipelineExecutionOutput
+ *   pipelineExecutionId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param StartPipelineExecutionCommandInput - {@link StartPipelineExecutionCommandInput}
@@ -64,6 +69,8 @@ export interface StartPipelineExecutionCommandOutput extends StartPipelineExecut
  * @throws {@link ValidationException} (client fault)
  *  <p>The validation was specified in an invalid format.</p>
  *
+ * @throws {@link CodePipelineServiceException}
+ * <p>Base exception class for all service exceptions from CodePipeline service.</p>
  *
  */
 export class StartPipelineExecutionCommand extends $Command<

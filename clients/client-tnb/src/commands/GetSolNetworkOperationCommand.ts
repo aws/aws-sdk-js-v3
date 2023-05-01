@@ -41,14 +41,49 @@ export interface GetSolNetworkOperationCommandOutput extends GetSolNetworkOperat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { TnbClient, GetSolNetworkOperationCommand } from "@aws-sdk/client-tnb"; // ES Modules import
- * // const { TnbClient, GetSolNetworkOperationCommand } = require("@aws-sdk/client-tnb"); // CommonJS import
+ * import { TnbClient, GetSolNetworkOperationCommand } from '@aws-sdk/client-tnb'; // ES Modules import
+ * // const { TnbClient, GetSolNetworkOperationCommand } = require('@aws-sdk/client-tnb'); // CommonJS import
  * const client = new TnbClient(config);
  * const input = { // GetSolNetworkOperationInput
- *   nsLcmOpOccId: "STRING_VALUE", // required
+ *   nsLcmOpOccId: 'STRING_VALUE', // required
  * };
  * const command = new GetSolNetworkOperationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetSolNetworkOperationOutput
+ *   id: 'STRING_VALUE',
+ *   arn: 'STRING_VALUE', // required
+ *   operationState: 'PROCESSING' || 'COMPLETED' || 'FAILED' || 'CANCELLING' || 'CANCELLED',
+ *   nsInstanceId: 'STRING_VALUE',
+ *   lcmOperationType: 'INSTANTIATE' || 'UPDATE' || 'TERMINATE',
+ *   error: { // ProblemDetails
+ *     detail: 'STRING_VALUE', // required
+ *     title: 'STRING_VALUE',
+ *   },
+ *   metadata: { // GetSolNetworkOperationMetadata
+ *     createdAt: new Date('TIMESTAMP'), // required
+ *     lastModified: new Date('TIMESTAMP'), // required
+ *   },
+ *   tasks: [ // GetSolNetworkOperationTasksList
+ *     { // GetSolNetworkOperationTaskDetails
+ *       taskName: 'STRING_VALUE',
+ *       taskContext: { // StringMap
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *       taskErrorDetails: { // ErrorInfo
+ *         cause: 'STRING_VALUE',
+ *         details: 'STRING_VALUE',
+ *       },
+ *       taskStatus: 'SCHEDULED' || 'STARTED' || 'IN_PROGRESS' || 'COMPLETED' || 'ERROR' || 'SKIPPED' || 'CANCELLED',
+ *       taskStartTime: new Date('TIMESTAMP'),
+ *       taskEndTime: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   tags: { // TagMap
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetSolNetworkOperationCommandInput - {@link GetSolNetworkOperationCommandInput}
@@ -72,6 +107,8 @@ export interface GetSolNetworkOperationCommandOutput extends GetSolNetworkOperat
  * @throws {@link ValidationException} (client fault)
  *  <p>Unable to process the request because the client provided input failed to satisfy request constraints.</p>
  *
+ * @throws {@link TnbServiceException}
+ * <p>Base exception class for all service exceptions from Tnb service.</p>
  *
  */
 export class GetSolNetworkOperationCommand extends $Command<

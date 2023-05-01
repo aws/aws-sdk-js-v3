@@ -38,16 +38,27 @@ export interface GetEffectivePoliciesCommandOutput extends GetEffectivePoliciesR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTClient, GetEffectivePoliciesCommand } from "@aws-sdk/client-iot"; // ES Modules import
- * // const { IoTClient, GetEffectivePoliciesCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * import { IoTClient, GetEffectivePoliciesCommand } from '@aws-sdk/client-iot'; // ES Modules import
+ * // const { IoTClient, GetEffectivePoliciesCommand } = require('@aws-sdk/client-iot'); // CommonJS import
  * const client = new IoTClient(config);
  * const input = { // GetEffectivePoliciesRequest
- *   principal: "STRING_VALUE",
- *   cognitoIdentityPoolId: "STRING_VALUE",
- *   thingName: "STRING_VALUE",
+ *   principal: 'STRING_VALUE',
+ *   cognitoIdentityPoolId: 'STRING_VALUE',
+ *   thingName: 'STRING_VALUE',
  * };
  * const command = new GetEffectivePoliciesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetEffectivePoliciesResponse
+ *   effectivePolicies: [ // EffectivePolicies
+ *     { // EffectivePolicy
+ *       policyName: 'STRING_VALUE',
+ *       policyArn: 'STRING_VALUE',
+ *       policyDocument: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetEffectivePoliciesCommandInput - {@link GetEffectivePoliciesCommandInput}
@@ -77,6 +88,8 @@ export interface GetEffectivePoliciesCommandOutput extends GetEffectivePoliciesR
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this operation.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class GetEffectivePoliciesCommand extends $Command<

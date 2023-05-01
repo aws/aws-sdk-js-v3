@@ -47,14 +47,21 @@ export interface DescribeIdentityProviderConfigurationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkLinkClient, DescribeIdentityProviderConfigurationCommand } from "@aws-sdk/client-worklink"; // ES Modules import
- * // const { WorkLinkClient, DescribeIdentityProviderConfigurationCommand } = require("@aws-sdk/client-worklink"); // CommonJS import
+ * import { WorkLinkClient, DescribeIdentityProviderConfigurationCommand } from '@aws-sdk/client-worklink'; // ES Modules import
+ * // const { WorkLinkClient, DescribeIdentityProviderConfigurationCommand } = require('@aws-sdk/client-worklink'); // CommonJS import
  * const client = new WorkLinkClient(config);
  * const input = { // DescribeIdentityProviderConfigurationRequest
- *   FleetArn: "STRING_VALUE", // required
+ *   FleetArn: 'STRING_VALUE', // required
  * };
  * const command = new DescribeIdentityProviderConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeIdentityProviderConfigurationResponse
+ *   IdentityProviderType: 'STRING_VALUE',
+ *   ServiceProviderSamlMetadata: 'STRING_VALUE',
+ *   IdentityProviderSamlMetadata: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeIdentityProviderConfigurationCommandInput - {@link DescribeIdentityProviderConfigurationCommandInput}
@@ -78,6 +85,8 @@ export interface DescribeIdentityProviderConfigurationCommandOutput
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this action.</p>
  *
+ * @throws {@link WorkLinkServiceException}
+ * <p>Base exception class for all service exceptions from WorkLink service.</p>
  *
  */
 export class DescribeIdentityProviderConfigurationCommand extends $Command<

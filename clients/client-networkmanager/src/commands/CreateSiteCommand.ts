@@ -41,26 +41,49 @@ export interface CreateSiteCommandOutput extends CreateSiteResponse, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { NetworkManagerClient, CreateSiteCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
- * // const { NetworkManagerClient, CreateSiteCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
+ * import { NetworkManagerClient, CreateSiteCommand } from '@aws-sdk/client-networkmanager'; // ES Modules import
+ * // const { NetworkManagerClient, CreateSiteCommand } = require('@aws-sdk/client-networkmanager'); // CommonJS import
  * const client = new NetworkManagerClient(config);
  * const input = { // CreateSiteRequest
- *   GlobalNetworkId: "STRING_VALUE", // required
- *   Description: "STRING_VALUE",
+ *   GlobalNetworkId: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE',
  *   Location: { // Location
- *     Address: "STRING_VALUE",
- *     Latitude: "STRING_VALUE",
- *     Longitude: "STRING_VALUE",
+ *     Address: 'STRING_VALUE',
+ *     Latitude: 'STRING_VALUE',
+ *     Longitude: 'STRING_VALUE',
  *   },
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE",
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new CreateSiteCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateSiteResponse
+ *   Site: { // Site
+ *     SiteId: 'STRING_VALUE',
+ *     SiteArn: 'STRING_VALUE',
+ *     GlobalNetworkId: 'STRING_VALUE',
+ *     Description: 'STRING_VALUE',
+ *     Location: { // Location
+ *       Address: 'STRING_VALUE',
+ *       Latitude: 'STRING_VALUE',
+ *       Longitude: 'STRING_VALUE',
+ *     },
+ *     CreatedAt: new Date('TIMESTAMP'),
+ *     State: 'PENDING' || 'AVAILABLE' || 'DELETING' || 'UPDATING',
+ *     Tags: [ // TagList
+ *       { // Tag
+ *         Key: 'STRING_VALUE',
+ *         Value: 'STRING_VALUE',
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateSiteCommandInput - {@link CreateSiteCommandInput}
@@ -91,6 +114,8 @@ export interface CreateSiteCommandOutput extends CreateSiteResponse, __MetadataB
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints.</p>
  *
+ * @throws {@link NetworkManagerServiceException}
+ * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
  */
 export class CreateSiteCommand extends $Command<

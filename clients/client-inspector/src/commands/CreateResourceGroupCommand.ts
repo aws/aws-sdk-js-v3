@@ -39,19 +39,24 @@ export interface CreateResourceGroupCommandOutput extends CreateResourceGroupRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { InspectorClient, CreateResourceGroupCommand } from "@aws-sdk/client-inspector"; // ES Modules import
- * // const { InspectorClient, CreateResourceGroupCommand } = require("@aws-sdk/client-inspector"); // CommonJS import
+ * import { InspectorClient, CreateResourceGroupCommand } from '@aws-sdk/client-inspector'; // ES Modules import
+ * // const { InspectorClient, CreateResourceGroupCommand } = require('@aws-sdk/client-inspector'); // CommonJS import
  * const client = new InspectorClient(config);
  * const input = { // CreateResourceGroupRequest
  *   resourceGroupTags: [ // ResourceGroupTags // required
  *     { // ResourceGroupTag
- *       key: "STRING_VALUE", // required
- *       value: "STRING_VALUE",
+ *       key: 'STRING_VALUE', // required
+ *       value: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new CreateResourceGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateResourceGroupResponse
+ *   resourceGroupArn: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param CreateResourceGroupCommandInput - {@link CreateResourceGroupCommandInput}
@@ -77,6 +82,8 @@ export interface CreateResourceGroupCommandOutput extends CreateResourceGroupRes
  * @throws {@link ServiceTemporarilyUnavailableException} (server fault)
  *  <p>The serice is temporary unavailable.</p>
  *
+ * @throws {@link InspectorServiceException}
+ * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
  * @example Create resource group
  * ```javascript

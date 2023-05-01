@@ -36,19 +36,22 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PinpointClient, TagResourceCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
- * // const { PinpointClient, TagResourceCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
+ * import { PinpointClient, TagResourceCommand } from '@aws-sdk/client-pinpoint'; // ES Modules import
+ * // const { PinpointClient, TagResourceCommand } = require('@aws-sdk/client-pinpoint'); // CommonJS import
  * const client = new PinpointClient(config);
  * const input = { // TagResourceRequest
- *   ResourceArn: "STRING_VALUE", // required
+ *   ResourceArn: 'STRING_VALUE', // required
  *   TagsModel: { // TagsModel
  *     tags: { // MapOf__string // required
- *       "<keys>": "STRING_VALUE",
+ *       '<keys>': 'STRING_VALUE',
  *     },
  *   },
  * };
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param TagResourceCommandInput - {@link TagResourceCommandInput}
@@ -57,6 +60,8 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
  * @see {@link TagResourceCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
  *
+ * @throws {@link PinpointServiceException}
+ * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
  */
 export class TagResourceCommand extends $Command<

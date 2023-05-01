@@ -36,16 +36,41 @@ export interface DescribeProvisionedProductCommandOutput extends DescribeProvisi
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ServiceCatalogClient, DescribeProvisionedProductCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
- * // const { ServiceCatalogClient, DescribeProvisionedProductCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
+ * import { ServiceCatalogClient, DescribeProvisionedProductCommand } from '@aws-sdk/client-service-catalog'; // ES Modules import
+ * // const { ServiceCatalogClient, DescribeProvisionedProductCommand } = require('@aws-sdk/client-service-catalog'); // CommonJS import
  * const client = new ServiceCatalogClient(config);
  * const input = { // DescribeProvisionedProductInput
- *   AcceptLanguage: "STRING_VALUE",
- *   Id: "STRING_VALUE",
- *   Name: "STRING_VALUE",
+ *   AcceptLanguage: 'STRING_VALUE',
+ *   Id: 'STRING_VALUE',
+ *   Name: 'STRING_VALUE',
  * };
  * const command = new DescribeProvisionedProductCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeProvisionedProductOutput
+ *   ProvisionedProductDetail: { // ProvisionedProductDetail
+ *     Name: 'STRING_VALUE',
+ *     Arn: 'STRING_VALUE',
+ *     Type: 'STRING_VALUE',
+ *     Id: 'STRING_VALUE',
+ *     Status: 'AVAILABLE' || 'UNDER_CHANGE' || 'TAINTED' || 'ERROR' || 'PLAN_IN_PROGRESS',
+ *     StatusMessage: 'STRING_VALUE',
+ *     CreatedTime: new Date('TIMESTAMP'),
+ *     IdempotencyToken: 'STRING_VALUE',
+ *     LastRecordId: 'STRING_VALUE',
+ *     LastProvisioningRecordId: 'STRING_VALUE',
+ *     LastSuccessfulProvisioningRecordId: 'STRING_VALUE',
+ *     ProductId: 'STRING_VALUE',
+ *     ProvisioningArtifactId: 'STRING_VALUE',
+ *     LaunchRoleArn: 'STRING_VALUE',
+ *   },
+ *   CloudWatchDashboards: [ // CloudWatchDashboards
+ *     { // CloudWatchDashboard
+ *       Name: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeProvisionedProductCommandInput - {@link DescribeProvisionedProductCommandInput}
@@ -60,6 +85,8 @@ export interface DescribeProvisionedProductCommandOutput extends DescribeProvisi
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link ServiceCatalogServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
  */
 export class DescribeProvisionedProductCommand extends $Command<

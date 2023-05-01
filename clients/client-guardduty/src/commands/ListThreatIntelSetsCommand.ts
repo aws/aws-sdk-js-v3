@@ -38,16 +38,24 @@ export interface ListThreatIntelSetsCommandOutput extends ListThreatIntelSetsRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GuardDutyClient, ListThreatIntelSetsCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
- * // const { GuardDutyClient, ListThreatIntelSetsCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
+ * import { GuardDutyClient, ListThreatIntelSetsCommand } from '@aws-sdk/client-guardduty'; // ES Modules import
+ * // const { GuardDutyClient, ListThreatIntelSetsCommand } = require('@aws-sdk/client-guardduty'); // CommonJS import
  * const client = new GuardDutyClient(config);
  * const input = { // ListThreatIntelSetsRequest
- *   DetectorId: "STRING_VALUE", // required
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   DetectorId: 'STRING_VALUE', // required
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListThreatIntelSetsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListThreatIntelSetsResponse
+ *   ThreatIntelSetIds: [ // ThreatIntelSetIds // required
+ *     'STRING_VALUE',
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListThreatIntelSetsCommandInput - {@link ListThreatIntelSetsCommandInput}
@@ -62,6 +70,8 @@ export interface ListThreatIntelSetsCommandOutput extends ListThreatIntelSetsRes
  * @throws {@link InternalServerErrorException} (server fault)
  *  <p>An internal server error exception object.</p>
  *
+ * @throws {@link GuardDutyServiceException}
+ * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
  */
 export class ListThreatIntelSetsCommand extends $Command<

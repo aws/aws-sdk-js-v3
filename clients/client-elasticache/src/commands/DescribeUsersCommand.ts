@@ -36,25 +36,48 @@ export interface DescribeUsersCommandOutput extends DescribeUsersResult, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElastiCacheClient, DescribeUsersCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
- * // const { ElastiCacheClient, DescribeUsersCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
+ * import { ElastiCacheClient, DescribeUsersCommand } from '@aws-sdk/client-elasticache'; // ES Modules import
+ * // const { ElastiCacheClient, DescribeUsersCommand } = require('@aws-sdk/client-elasticache'); // CommonJS import
  * const client = new ElastiCacheClient(config);
  * const input = { // DescribeUsersMessage
- *   Engine: "STRING_VALUE",
- *   UserId: "STRING_VALUE",
+ *   Engine: 'STRING_VALUE',
+ *   UserId: 'STRING_VALUE',
  *   Filters: [ // FilterList
  *     { // Filter
- *       Name: "STRING_VALUE", // required
+ *       Name: 'STRING_VALUE', // required
  *       Values: [ // FilterValueList // required
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
- *   MaxRecords: Number("int"),
- *   Marker: "STRING_VALUE",
+ *   MaxRecords: Number('int'),
+ *   Marker: 'STRING_VALUE',
  * };
  * const command = new DescribeUsersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeUsersResult
+ *   Users: [ // UserList
+ *     { // User
+ *       UserId: 'STRING_VALUE',
+ *       UserName: 'STRING_VALUE',
+ *       Status: 'STRING_VALUE',
+ *       Engine: 'STRING_VALUE',
+ *       MinimumEngineVersion: 'STRING_VALUE',
+ *       AccessString: 'STRING_VALUE',
+ *       UserGroupIds: [ // UserGroupIdList
+ *         'STRING_VALUE',
+ *       ],
+ *       Authentication: { // Authentication
+ *         Type: 'password' || 'no-password' || 'iam',
+ *         PasswordCount: Number('int'),
+ *       },
+ *       ARN: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   Marker: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeUsersCommandInput - {@link DescribeUsersCommandInput}
@@ -72,6 +95,8 @@ export interface DescribeUsersCommandOutput extends DescribeUsersResult, __Metad
  * @throws {@link UserNotFoundFault} (client fault)
  *  <p>The user does not exist or could not be found.</p>
  *
+ * @throws {@link ElastiCacheServiceException}
+ * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
  */
 export class DescribeUsersCommand extends $Command<

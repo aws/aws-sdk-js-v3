@@ -44,14 +44,17 @@ export interface DeleteLaunchConfigurationTemplateCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MgnClient, DeleteLaunchConfigurationTemplateCommand } from "@aws-sdk/client-mgn"; // ES Modules import
- * // const { MgnClient, DeleteLaunchConfigurationTemplateCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
+ * import { MgnClient, DeleteLaunchConfigurationTemplateCommand } from '@aws-sdk/client-mgn'; // ES Modules import
+ * // const { MgnClient, DeleteLaunchConfigurationTemplateCommand } = require('@aws-sdk/client-mgn'); // CommonJS import
  * const client = new MgnClient(config);
  * const input = { // DeleteLaunchConfigurationTemplateRequest
- *   launchConfigurationTemplateID: "STRING_VALUE", // required
+ *   launchConfigurationTemplateID: 'STRING_VALUE', // required
  * };
  * const command = new DeleteLaunchConfigurationTemplateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteLaunchConfigurationTemplateCommandInput - {@link DeleteLaunchConfigurationTemplateCommandInput}
@@ -69,6 +72,8 @@ export interface DeleteLaunchConfigurationTemplateCommandOutput
  * @throws {@link UninitializedAccountException} (client fault)
  *  <p>Uninitialized account exception.</p>
  *
+ * @throws {@link MgnServiceException}
+ * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
  */
 export class DeleteLaunchConfigurationTemplateCommand extends $Command<

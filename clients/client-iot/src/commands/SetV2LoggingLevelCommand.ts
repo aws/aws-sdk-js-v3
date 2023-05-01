@@ -37,18 +37,21 @@ export interface SetV2LoggingLevelCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTClient, SetV2LoggingLevelCommand } from "@aws-sdk/client-iot"; // ES Modules import
- * // const { IoTClient, SetV2LoggingLevelCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * import { IoTClient, SetV2LoggingLevelCommand } from '@aws-sdk/client-iot'; // ES Modules import
+ * // const { IoTClient, SetV2LoggingLevelCommand } = require('@aws-sdk/client-iot'); // CommonJS import
  * const client = new IoTClient(config);
  * const input = { // SetV2LoggingLevelRequest
  *   logTarget: { // LogTarget
- *     targetType: "DEFAULT" || "THING_GROUP" || "CLIENT_ID" || "SOURCE_IP" || "PRINCIPAL_ID", // required
- *     targetName: "STRING_VALUE",
+ *     targetType: 'DEFAULT' || 'THING_GROUP' || 'CLIENT_ID' || 'SOURCE_IP' || 'PRINCIPAL_ID', // required
+ *     targetName: 'STRING_VALUE',
  *   },
- *   logLevel: "DEBUG" || "INFO" || "ERROR" || "WARN" || "DISABLED", // required
+ *   logLevel: 'DEBUG' || 'INFO' || 'ERROR' || 'WARN' || 'DISABLED', // required
  * };
  * const command = new SetV2LoggingLevelCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param SetV2LoggingLevelCommandInput - {@link SetV2LoggingLevelCommandInput}
@@ -72,6 +75,8 @@ export interface SetV2LoggingLevelCommandOutput extends __MetadataBearer {}
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service is temporarily unavailable.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class SetV2LoggingLevelCommand extends $Command<

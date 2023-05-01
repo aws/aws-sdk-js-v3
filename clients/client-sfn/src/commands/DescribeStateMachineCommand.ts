@@ -46,14 +46,40 @@ export interface DescribeStateMachineCommandOutput extends DescribeStateMachineO
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SFNClient, DescribeStateMachineCommand } from "@aws-sdk/client-sfn"; // ES Modules import
- * // const { SFNClient, DescribeStateMachineCommand } = require("@aws-sdk/client-sfn"); // CommonJS import
+ * import { SFNClient, DescribeStateMachineCommand } from '@aws-sdk/client-sfn'; // ES Modules import
+ * // const { SFNClient, DescribeStateMachineCommand } = require('@aws-sdk/client-sfn'); // CommonJS import
  * const client = new SFNClient(config);
  * const input = { // DescribeStateMachineInput
- *   stateMachineArn: "STRING_VALUE", // required
+ *   stateMachineArn: 'STRING_VALUE', // required
  * };
  * const command = new DescribeStateMachineCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeStateMachineOutput
+ *   stateMachineArn: 'STRING_VALUE', // required
+ *   name: 'STRING_VALUE', // required
+ *   status: 'ACTIVE' || 'DELETING',
+ *   definition: 'STRING_VALUE', // required
+ *   roleArn: 'STRING_VALUE', // required
+ *   type: 'STANDARD' || 'EXPRESS', // required
+ *   creationDate: new Date('TIMESTAMP'), // required
+ *   loggingConfiguration: { // LoggingConfiguration
+ *     level: 'ALL' || 'ERROR' || 'FATAL' || 'OFF',
+ *     includeExecutionData: true || false,
+ *     destinations: [ // LogDestinationList
+ *       { // LogDestination
+ *         cloudWatchLogsLogGroup: { // CloudWatchLogsLogGroup
+ *           logGroupArn: 'STRING_VALUE',
+ *         },
+ *       },
+ *     ],
+ *   },
+ *   tracingConfiguration: { // TracingConfiguration
+ *     enabled: true || false,
+ *   },
+ *   label: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeStateMachineCommandInput - {@link DescribeStateMachineCommandInput}
@@ -68,6 +94,8 @@ export interface DescribeStateMachineCommandOutput extends DescribeStateMachineO
  * @throws {@link StateMachineDoesNotExist} (client fault)
  *  <p>The specified state machine does not exist.</p>
  *
+ * @throws {@link SFNServiceException}
+ * <p>Base exception class for all service exceptions from SFN service.</p>
  *
  */
 export class DescribeStateMachineCommand extends $Command<

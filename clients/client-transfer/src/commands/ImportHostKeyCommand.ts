@@ -41,22 +41,28 @@ export interface ImportHostKeyCommandOutput extends ImportHostKeyResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { TransferClient, ImportHostKeyCommand } from "@aws-sdk/client-transfer"; // ES Modules import
- * // const { TransferClient, ImportHostKeyCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
+ * import { TransferClient, ImportHostKeyCommand } from '@aws-sdk/client-transfer'; // ES Modules import
+ * // const { TransferClient, ImportHostKeyCommand } = require('@aws-sdk/client-transfer'); // CommonJS import
  * const client = new TransferClient(config);
  * const input = { // ImportHostKeyRequest
- *   ServerId: "STRING_VALUE", // required
- *   HostKeyBody: "STRING_VALUE", // required
- *   Description: "STRING_VALUE",
+ *   ServerId: 'STRING_VALUE', // required
+ *   HostKeyBody: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE',
  *   Tags: [ // Tags
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new ImportHostKeyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ImportHostKeyResponse
+ *   ServerId: 'STRING_VALUE', // required
+ *   HostKeyId: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param ImportHostKeyCommandInput - {@link ImportHostKeyCommandInput}
@@ -84,6 +90,8 @@ export interface ImportHostKeyCommandOutput extends ImportHostKeyResponse, __Met
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
  *
+ * @throws {@link TransferServiceException}
+ * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
  */
 export class ImportHostKeyCommand extends $Command<

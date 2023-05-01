@@ -46,17 +46,25 @@ export interface UpdateFirewallPolicyChangeProtectionCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { NetworkFirewallClient, UpdateFirewallPolicyChangeProtectionCommand } from "@aws-sdk/client-network-firewall"; // ES Modules import
- * // const { NetworkFirewallClient, UpdateFirewallPolicyChangeProtectionCommand } = require("@aws-sdk/client-network-firewall"); // CommonJS import
+ * import { NetworkFirewallClient, UpdateFirewallPolicyChangeProtectionCommand } from '@aws-sdk/client-network-firewall'; // ES Modules import
+ * // const { NetworkFirewallClient, UpdateFirewallPolicyChangeProtectionCommand } = require('@aws-sdk/client-network-firewall'); // CommonJS import
  * const client = new NetworkFirewallClient(config);
  * const input = { // UpdateFirewallPolicyChangeProtectionRequest
- *   UpdateToken: "STRING_VALUE",
- *   FirewallArn: "STRING_VALUE",
- *   FirewallName: "STRING_VALUE",
+ *   UpdateToken: 'STRING_VALUE',
+ *   FirewallArn: 'STRING_VALUE',
+ *   FirewallName: 'STRING_VALUE',
  *   FirewallPolicyChangeProtection: true || false, // required
  * };
  * const command = new UpdateFirewallPolicyChangeProtectionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateFirewallPolicyChangeProtectionResponse
+ *   UpdateToken: 'STRING_VALUE',
+ *   FirewallArn: 'STRING_VALUE',
+ *   FirewallName: 'STRING_VALUE',
+ *   FirewallPolicyChangeProtection: true || false,
+ * };
+ *
  * ```
  *
  * @param UpdateFirewallPolicyChangeProtectionCommandInput - {@link UpdateFirewallPolicyChangeProtectionCommandInput}
@@ -97,6 +105,8 @@ export interface UpdateFirewallPolicyChangeProtectionCommandOutput
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Unable to process the request due to throttling limitations.</p>
  *
+ * @throws {@link NetworkFirewallServiceException}
+ * <p>Base exception class for all service exceptions from NetworkFirewall service.</p>
  *
  */
 export class UpdateFirewallPolicyChangeProtectionCommand extends $Command<

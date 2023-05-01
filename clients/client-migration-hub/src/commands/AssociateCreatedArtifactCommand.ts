@@ -53,20 +53,23 @@ export interface AssociateCreatedArtifactCommandOutput extends AssociateCreatedA
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MigrationHubClient, AssociateCreatedArtifactCommand } from "@aws-sdk/client-migration-hub"; // ES Modules import
- * // const { MigrationHubClient, AssociateCreatedArtifactCommand } = require("@aws-sdk/client-migration-hub"); // CommonJS import
+ * import { MigrationHubClient, AssociateCreatedArtifactCommand } from '@aws-sdk/client-migration-hub'; // ES Modules import
+ * // const { MigrationHubClient, AssociateCreatedArtifactCommand } = require('@aws-sdk/client-migration-hub'); // CommonJS import
  * const client = new MigrationHubClient(config);
  * const input = { // AssociateCreatedArtifactRequest
- *   ProgressUpdateStream: "STRING_VALUE", // required
- *   MigrationTaskName: "STRING_VALUE", // required
+ *   ProgressUpdateStream: 'STRING_VALUE', // required
+ *   MigrationTaskName: 'STRING_VALUE', // required
  *   CreatedArtifact: { // CreatedArtifact
- *     Name: "STRING_VALUE", // required
- *     Description: "STRING_VALUE",
+ *     Name: 'STRING_VALUE', // required
+ *     Description: 'STRING_VALUE',
  *   },
  *   DryRun: true || false,
  * };
  * const command = new AssociateCreatedArtifactCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param AssociateCreatedArtifactCommandInput - {@link AssociateCreatedArtifactCommandInput}
@@ -109,6 +112,8 @@ export interface AssociateCreatedArtifactCommandOutput extends AssociateCreatedA
  *  <p>Exception raised to indicate a request was not authorized when the <code>DryRun</code>
  *          flag is set to "true".</p>
  *
+ * @throws {@link MigrationHubServiceException}
+ * <p>Base exception class for all service exceptions from MigrationHub service.</p>
  *
  */
 export class AssociateCreatedArtifactCommand extends $Command<

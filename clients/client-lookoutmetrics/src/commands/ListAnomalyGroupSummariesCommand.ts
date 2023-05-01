@@ -36,17 +36,41 @@ export interface ListAnomalyGroupSummariesCommandOutput extends ListAnomalyGroup
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LookoutMetricsClient, ListAnomalyGroupSummariesCommand } from "@aws-sdk/client-lookoutmetrics"; // ES Modules import
- * // const { LookoutMetricsClient, ListAnomalyGroupSummariesCommand } = require("@aws-sdk/client-lookoutmetrics"); // CommonJS import
+ * import { LookoutMetricsClient, ListAnomalyGroupSummariesCommand } from '@aws-sdk/client-lookoutmetrics'; // ES Modules import
+ * // const { LookoutMetricsClient, ListAnomalyGroupSummariesCommand } = require('@aws-sdk/client-lookoutmetrics'); // CommonJS import
  * const client = new LookoutMetricsClient(config);
  * const input = { // ListAnomalyGroupSummariesRequest
- *   AnomalyDetectorArn: "STRING_VALUE", // required
- *   SensitivityThreshold: Number("int"), // required
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   AnomalyDetectorArn: 'STRING_VALUE', // required
+ *   SensitivityThreshold: Number('int'), // required
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListAnomalyGroupSummariesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListAnomalyGroupSummariesResponse
+ *   AnomalyGroupSummaryList: [ // AnomalyGroupSummaryList
+ *     { // AnomalyGroupSummary
+ *       StartTime: 'STRING_VALUE',
+ *       EndTime: 'STRING_VALUE',
+ *       AnomalyGroupId: 'STRING_VALUE',
+ *       AnomalyGroupScore: Number('double'),
+ *       PrimaryMetricName: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   AnomalyGroupStatistics: { // AnomalyGroupStatistics
+ *     EvaluationStartDate: 'STRING_VALUE',
+ *     TotalCount: Number('int'),
+ *     ItemizedMetricStatsList: [ // ItemizedMetricStatsList
+ *       { // ItemizedMetricStats
+ *         MetricName: 'STRING_VALUE',
+ *         OccurrenceCount: Number('int'),
+ *       },
+ *     ],
+ *   },
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListAnomalyGroupSummariesCommandInput - {@link ListAnomalyGroupSummariesCommandInput}
@@ -71,6 +95,8 @@ export interface ListAnomalyGroupSummariesCommandOutput extends ListAnomalyGroup
  *  <p>The input fails to satisfy the constraints specified by the AWS service. Check your input values and try
  *       again.</p>
  *
+ * @throws {@link LookoutMetricsServiceException}
+ * <p>Base exception class for all service exceptions from LookoutMetrics service.</p>
  *
  */
 export class ListAnomalyGroupSummariesCommand extends $Command<

@@ -40,15 +40,40 @@ export interface UpdateExportCommandOutput extends UpdateExportResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LexModelsV2Client, UpdateExportCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
- * // const { LexModelsV2Client, UpdateExportCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
+ * import { LexModelsV2Client, UpdateExportCommand } from '@aws-sdk/client-lex-models-v2'; // ES Modules import
+ * // const { LexModelsV2Client, UpdateExportCommand } = require('@aws-sdk/client-lex-models-v2'); // CommonJS import
  * const client = new LexModelsV2Client(config);
  * const input = { // UpdateExportRequest
- *   exportId: "STRING_VALUE", // required
- *   filePassword: "STRING_VALUE",
+ *   exportId: 'STRING_VALUE', // required
+ *   filePassword: 'STRING_VALUE',
  * };
  * const command = new UpdateExportCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateExportResponse
+ *   exportId: 'STRING_VALUE',
+ *   resourceSpecification: { // ExportResourceSpecification
+ *     botExportSpecification: { // BotExportSpecification
+ *       botId: 'STRING_VALUE', // required
+ *       botVersion: 'STRING_VALUE', // required
+ *     },
+ *     botLocaleExportSpecification: { // BotLocaleExportSpecification
+ *       botId: 'STRING_VALUE', // required
+ *       botVersion: 'STRING_VALUE', // required
+ *       localeId: 'STRING_VALUE', // required
+ *     },
+ *     customVocabularyExportSpecification: { // CustomVocabularyExportSpecification
+ *       botId: 'STRING_VALUE', // required
+ *       botVersion: 'STRING_VALUE', // required
+ *       localeId: 'STRING_VALUE', // required
+ *     },
+ *   },
+ *   fileFormat: 'LexJson' || 'TSV',
+ *   exportStatus: 'InProgress' || 'Completed' || 'Failed' || 'Deleting',
+ *   creationDateTime: new Date('TIMESTAMP'),
+ *   lastUpdatedDateTime: new Date('TIMESTAMP'),
+ * };
+ *
  * ```
  *
  * @param UpdateExportCommandInput - {@link UpdateExportCommandInput}
@@ -81,6 +106,8 @@ export interface UpdateExportCommandOutput extends UpdateExportResponse, __Metad
  *  <p>One of the input parameters in your request isn't valid. Check the
  *          parameters and try your request again.</p>
  *
+ * @throws {@link LexModelsV2ServiceException}
+ * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
  */
 export class UpdateExportCommand extends $Command<

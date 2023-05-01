@@ -36,23 +36,34 @@ export interface CreateWorldTemplateCommandOutput extends CreateWorldTemplateRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RoboMakerClient, CreateWorldTemplateCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
- * // const { RoboMakerClient, CreateWorldTemplateCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
+ * import { RoboMakerClient, CreateWorldTemplateCommand } from '@aws-sdk/client-robomaker'; // ES Modules import
+ * // const { RoboMakerClient, CreateWorldTemplateCommand } = require('@aws-sdk/client-robomaker'); // CommonJS import
  * const client = new RoboMakerClient(config);
  * const input = { // CreateWorldTemplateRequest
- *   clientRequestToken: "STRING_VALUE",
- *   name: "STRING_VALUE",
- *   templateBody: "STRING_VALUE",
+ *   clientRequestToken: 'STRING_VALUE',
+ *   name: 'STRING_VALUE',
+ *   templateBody: 'STRING_VALUE',
  *   templateLocation: { // TemplateLocation
- *     s3Bucket: "STRING_VALUE", // required
- *     s3Key: "STRING_VALUE", // required
+ *     s3Bucket: 'STRING_VALUE', // required
+ *     s3Key: 'STRING_VALUE', // required
  *   },
  *   tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateWorldTemplateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateWorldTemplateResponse
+ *   arn: 'STRING_VALUE',
+ *   clientRequestToken: 'STRING_VALUE',
+ *   createdAt: new Date('TIMESTAMP'),
+ *   name: 'STRING_VALUE',
+ *   tags: { // TagMap
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateWorldTemplateCommandInput - {@link CreateWorldTemplateCommandInput}
@@ -81,6 +92,8 @@ export interface CreateWorldTemplateCommandOutput extends CreateWorldTemplateRes
  * @throws {@link ThrottlingException} (client fault)
  *  <p>AWS RoboMaker is temporarily unable to process the request. Try your call again.</p>
  *
+ * @throws {@link RoboMakerServiceException}
+ * <p>Base exception class for all service exceptions from RoboMaker service.</p>
  *
  */
 export class CreateWorldTemplateCommand extends $Command<

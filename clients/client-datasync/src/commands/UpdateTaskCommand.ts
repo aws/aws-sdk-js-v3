@@ -36,48 +36,51 @@ export interface UpdateTaskCommandOutput extends UpdateTaskResponse, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DataSyncClient, UpdateTaskCommand } from "@aws-sdk/client-datasync"; // ES Modules import
- * // const { DataSyncClient, UpdateTaskCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
+ * import { DataSyncClient, UpdateTaskCommand } from '@aws-sdk/client-datasync'; // ES Modules import
+ * // const { DataSyncClient, UpdateTaskCommand } = require('@aws-sdk/client-datasync'); // CommonJS import
  * const client = new DataSyncClient(config);
  * const input = { // UpdateTaskRequest
- *   TaskArn: "STRING_VALUE", // required
+ *   TaskArn: 'STRING_VALUE', // required
  *   Options: { // Options
- *     VerifyMode: "POINT_IN_TIME_CONSISTENT" || "ONLY_FILES_TRANSFERRED" || "NONE",
- *     OverwriteMode: "ALWAYS" || "NEVER",
- *     Atime: "NONE" || "BEST_EFFORT",
- *     Mtime: "NONE" || "PRESERVE",
- *     Uid: "NONE" || "INT_VALUE" || "NAME" || "BOTH",
- *     Gid: "NONE" || "INT_VALUE" || "NAME" || "BOTH",
- *     PreserveDeletedFiles: "PRESERVE" || "REMOVE",
- *     PreserveDevices: "NONE" || "PRESERVE",
- *     PosixPermissions: "NONE" || "PRESERVE",
- *     BytesPerSecond: Number("long"),
- *     TaskQueueing: "ENABLED" || "DISABLED",
- *     LogLevel: "OFF" || "BASIC" || "TRANSFER",
- *     TransferMode: "CHANGED" || "ALL",
- *     SecurityDescriptorCopyFlags: "NONE" || "OWNER_DACL" || "OWNER_DACL_SACL",
- *     ObjectTags: "PRESERVE" || "NONE",
+ *     VerifyMode: 'POINT_IN_TIME_CONSISTENT' || 'ONLY_FILES_TRANSFERRED' || 'NONE',
+ *     OverwriteMode: 'ALWAYS' || 'NEVER',
+ *     Atime: 'NONE' || 'BEST_EFFORT',
+ *     Mtime: 'NONE' || 'PRESERVE',
+ *     Uid: 'NONE' || 'INT_VALUE' || 'NAME' || 'BOTH',
+ *     Gid: 'NONE' || 'INT_VALUE' || 'NAME' || 'BOTH',
+ *     PreserveDeletedFiles: 'PRESERVE' || 'REMOVE',
+ *     PreserveDevices: 'NONE' || 'PRESERVE',
+ *     PosixPermissions: 'NONE' || 'PRESERVE',
+ *     BytesPerSecond: Number('long'),
+ *     TaskQueueing: 'ENABLED' || 'DISABLED',
+ *     LogLevel: 'OFF' || 'BASIC' || 'TRANSFER',
+ *     TransferMode: 'CHANGED' || 'ALL',
+ *     SecurityDescriptorCopyFlags: 'NONE' || 'OWNER_DACL' || 'OWNER_DACL_SACL',
+ *     ObjectTags: 'PRESERVE' || 'NONE',
  *   },
  *   Excludes: [ // FilterList
  *     { // FilterRule
- *       FilterType: "SIMPLE_PATTERN",
- *       Value: "STRING_VALUE",
+ *       FilterType: 'SIMPLE_PATTERN',
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
  *   Schedule: { // TaskSchedule
- *     ScheduleExpression: "STRING_VALUE", // required
+ *     ScheduleExpression: 'STRING_VALUE', // required
  *   },
- *   Name: "STRING_VALUE",
- *   CloudWatchLogGroupArn: "STRING_VALUE",
+ *   Name: 'STRING_VALUE',
+ *   CloudWatchLogGroupArn: 'STRING_VALUE',
  *   Includes: [
  *     {
- *       FilterType: "SIMPLE_PATTERN",
- *       Value: "STRING_VALUE",
+ *       FilterType: 'SIMPLE_PATTERN',
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new UpdateTaskCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateTaskCommandInput - {@link UpdateTaskCommandInput}
@@ -93,6 +96,8 @@ export interface UpdateTaskCommandOutput extends UpdateTaskResponse, __MetadataB
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception is thrown when the client submits a malformed request.</p>
  *
+ * @throws {@link DataSyncServiceException}
+ * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
  */
 export class UpdateTaskCommand extends $Command<

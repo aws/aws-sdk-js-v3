@@ -36,15 +36,26 @@ export interface DeletePortalCommandOutput extends DeletePortalResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTSiteWiseClient, DeletePortalCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
- * // const { IoTSiteWiseClient, DeletePortalCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
+ * import { IoTSiteWiseClient, DeletePortalCommand } from '@aws-sdk/client-iotsitewise'; // ES Modules import
+ * // const { IoTSiteWiseClient, DeletePortalCommand } = require('@aws-sdk/client-iotsitewise'); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
  * const input = { // DeletePortalRequest
- *   portalId: "STRING_VALUE", // required
- *   clientToken: "STRING_VALUE",
+ *   portalId: 'STRING_VALUE', // required
+ *   clientToken: 'STRING_VALUE',
  * };
  * const command = new DeletePortalCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeletePortalResponse
+ *   portalStatus: { // PortalStatus
+ *     state: 'CREATING' || 'UPDATING' || 'DELETING' || 'ACTIVE' || 'FAILED', // required
+ *     error: { // MonitorErrorDetails
+ *       code: 'INTERNAL_FAILURE' || 'VALIDATION_ERROR' || 'LIMIT_EXCEEDED',
+ *       message: 'STRING_VALUE',
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param DeletePortalCommandInput - {@link DeletePortalCommandInput}
@@ -73,6 +84,8 @@ export interface DeletePortalCommandOutput extends DeletePortalResponse, __Metad
  *       on.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
  *
+ * @throws {@link IoTSiteWiseServiceException}
+ * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
  */
 export class DeletePortalCommand extends $Command<

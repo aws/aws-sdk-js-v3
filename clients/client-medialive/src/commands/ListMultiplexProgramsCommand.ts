@@ -36,16 +36,27 @@ export interface ListMultiplexProgramsCommandOutput extends ListMultiplexProgram
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MediaLiveClient, ListMultiplexProgramsCommand } from "@aws-sdk/client-medialive"; // ES Modules import
- * // const { MediaLiveClient, ListMultiplexProgramsCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
+ * import { MediaLiveClient, ListMultiplexProgramsCommand } from '@aws-sdk/client-medialive'; // ES Modules import
+ * // const { MediaLiveClient, ListMultiplexProgramsCommand } = require('@aws-sdk/client-medialive'); // CommonJS import
  * const client = new MediaLiveClient(config);
  * const input = { // ListMultiplexProgramsRequest
- *   MaxResults: Number("int"),
- *   MultiplexId: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   MultiplexId: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListMultiplexProgramsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListMultiplexProgramsResponse
+ *   MultiplexPrograms: [ // __listOfMultiplexProgramSummary
+ *     { // MultiplexProgramSummary
+ *       ChannelId: 'STRING_VALUE',
+ *       ProgramName: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListMultiplexProgramsCommandInput - {@link ListMultiplexProgramsCommandInput}
@@ -75,6 +86,8 @@ export interface ListMultiplexProgramsCommandOutput extends ListMultiplexProgram
  * @throws {@link TooManyRequestsException} (client fault)
  *  Placeholder documentation for TooManyRequestsException
  *
+ * @throws {@link MediaLiveServiceException}
+ * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
  */
 export class ListMultiplexProgramsCommand extends $Command<

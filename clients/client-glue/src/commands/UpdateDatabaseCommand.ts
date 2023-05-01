@@ -36,41 +36,44 @@ export interface UpdateDatabaseCommandOutput extends UpdateDatabaseResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlueClient, UpdateDatabaseCommand } from "@aws-sdk/client-glue"; // ES Modules import
- * // const { GlueClient, UpdateDatabaseCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * import { GlueClient, UpdateDatabaseCommand } from '@aws-sdk/client-glue'; // ES Modules import
+ * // const { GlueClient, UpdateDatabaseCommand } = require('@aws-sdk/client-glue'); // CommonJS import
  * const client = new GlueClient(config);
  * const input = { // UpdateDatabaseRequest
- *   CatalogId: "STRING_VALUE",
- *   Name: "STRING_VALUE", // required
+ *   CatalogId: 'STRING_VALUE',
+ *   Name: 'STRING_VALUE', // required
  *   DatabaseInput: { // DatabaseInput
- *     Name: "STRING_VALUE", // required
- *     Description: "STRING_VALUE",
- *     LocationUri: "STRING_VALUE",
+ *     Name: 'STRING_VALUE', // required
+ *     Description: 'STRING_VALUE',
+ *     LocationUri: 'STRING_VALUE',
  *     Parameters: { // ParametersMap
- *       "<keys>": "STRING_VALUE",
+ *       '<keys>': 'STRING_VALUE',
  *     },
  *     CreateTableDefaultPermissions: [ // PrincipalPermissionsList
  *       { // PrincipalPermissions
  *         Principal: { // DataLakePrincipal
- *           DataLakePrincipalIdentifier: "STRING_VALUE",
+ *           DataLakePrincipalIdentifier: 'STRING_VALUE',
  *         },
  *         Permissions: [ // PermissionList
- *           "ALL" || "SELECT" || "ALTER" || "DROP" || "DELETE" || "INSERT" || "CREATE_DATABASE" || "CREATE_TABLE" || "DATA_LOCATION_ACCESS",
+ *           'ALL' || 'SELECT' || 'ALTER' || 'DROP' || 'DELETE' || 'INSERT' || 'CREATE_DATABASE' || 'CREATE_TABLE' || 'DATA_LOCATION_ACCESS',
  *         ],
  *       },
  *     ],
  *     TargetDatabase: { // DatabaseIdentifier
- *       CatalogId: "STRING_VALUE",
- *       DatabaseName: "STRING_VALUE",
+ *       CatalogId: 'STRING_VALUE',
+ *       DatabaseName: 'STRING_VALUE',
  *     },
  *     FederatedDatabase: { // FederatedDatabase
- *       Identifier: "STRING_VALUE",
- *       ConnectionName: "STRING_VALUE",
+ *       Identifier: 'STRING_VALUE',
+ *       ConnectionName: 'STRING_VALUE',
  *     },
  *   },
  * };
  * const command = new UpdateDatabaseCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateDatabaseCommandInput - {@link UpdateDatabaseCommandInput}
@@ -97,6 +100,8 @@ export interface UpdateDatabaseCommandOutput extends UpdateDatabaseResponse, __M
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class UpdateDatabaseCommand extends $Command<

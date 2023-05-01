@@ -36,14 +36,63 @@ export interface GetWorkloadCommandOutput extends GetWorkloadOutput, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WellArchitectedClient, GetWorkloadCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
- * // const { WellArchitectedClient, GetWorkloadCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
+ * import { WellArchitectedClient, GetWorkloadCommand } from '@aws-sdk/client-wellarchitected'; // ES Modules import
+ * // const { WellArchitectedClient, GetWorkloadCommand } = require('@aws-sdk/client-wellarchitected'); // CommonJS import
  * const client = new WellArchitectedClient(config);
  * const input = { // GetWorkloadInput
- *   WorkloadId: "STRING_VALUE", // required
+ *   WorkloadId: 'STRING_VALUE', // required
  * };
  * const command = new GetWorkloadCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetWorkloadOutput
+ *   Workload: { // Workload
+ *     WorkloadId: 'STRING_VALUE',
+ *     WorkloadArn: 'STRING_VALUE',
+ *     WorkloadName: 'STRING_VALUE',
+ *     Description: 'STRING_VALUE',
+ *     Environment: 'PRODUCTION' || 'PREPRODUCTION',
+ *     UpdatedAt: new Date('TIMESTAMP'),
+ *     AccountIds: [ // WorkloadAccountIds
+ *       'STRING_VALUE',
+ *     ],
+ *     AwsRegions: [ // WorkloadAwsRegions
+ *       'STRING_VALUE',
+ *     ],
+ *     NonAwsRegions: [ // WorkloadNonAwsRegions
+ *       'STRING_VALUE',
+ *     ],
+ *     ArchitecturalDesign: 'STRING_VALUE',
+ *     ReviewOwner: 'STRING_VALUE',
+ *     ReviewRestrictionDate: new Date('TIMESTAMP'),
+ *     IsReviewOwnerUpdateAcknowledged: true || false,
+ *     IndustryType: 'STRING_VALUE',
+ *     Industry: 'STRING_VALUE',
+ *     Notes: 'STRING_VALUE',
+ *     ImprovementStatus: 'NOT_APPLICABLE' || 'NOT_STARTED' || 'IN_PROGRESS' || 'COMPLETE' || 'RISK_ACKNOWLEDGED',
+ *     RiskCounts: { // RiskCounts
+ *       '<keys>': Number('int'),
+ *     },
+ *     PillarPriorities: [ // WorkloadPillarPriorities
+ *       'STRING_VALUE',
+ *     ],
+ *     Lenses: [ // WorkloadLenses
+ *       'STRING_VALUE',
+ *     ],
+ *     Owner: 'STRING_VALUE',
+ *     ShareInvitationId: 'STRING_VALUE',
+ *     Tags: { // TagMap
+ *       '<keys>': 'STRING_VALUE',
+ *     },
+ *     DiscoveryConfig: { // WorkloadDiscoveryConfig
+ *       TrustedAdvisorIntegrationStatus: 'ENABLED' || 'DISABLED',
+ *     },
+ *     Applications: [ // WorkloadApplications
+ *       'STRING_VALUE',
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetWorkloadCommandInput - {@link GetWorkloadCommandInput}
@@ -67,6 +116,8 @@ export interface GetWorkloadCommandOutput extends GetWorkloadOutput, __MetadataB
  * @throws {@link ValidationException} (client fault)
  *  <p>The user input is not valid.</p>
  *
+ * @throws {@link WellArchitectedServiceException}
+ * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
  */
 export class GetWorkloadCommand extends $Command<

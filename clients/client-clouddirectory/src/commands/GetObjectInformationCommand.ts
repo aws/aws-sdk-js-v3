@@ -36,18 +36,29 @@ export interface GetObjectInformationCommandOutput extends GetObjectInformationR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudDirectoryClient, GetObjectInformationCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
- * // const { CloudDirectoryClient, GetObjectInformationCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
+ * import { CloudDirectoryClient, GetObjectInformationCommand } from '@aws-sdk/client-clouddirectory'; // ES Modules import
+ * // const { CloudDirectoryClient, GetObjectInformationCommand } = require('@aws-sdk/client-clouddirectory'); // CommonJS import
  * const client = new CloudDirectoryClient(config);
  * const input = { // GetObjectInformationRequest
- *   DirectoryArn: "STRING_VALUE", // required
+ *   DirectoryArn: 'STRING_VALUE', // required
  *   ObjectReference: { // ObjectReference
- *     Selector: "STRING_VALUE",
+ *     Selector: 'STRING_VALUE',
  *   },
- *   ConsistencyLevel: "SERIALIZABLE" || "EVENTUAL",
+ *   ConsistencyLevel: 'SERIALIZABLE' || 'EVENTUAL',
  * };
  * const command = new GetObjectInformationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetObjectInformationResponse
+ *   SchemaFacets: [ // SchemaFacetList
+ *     { // SchemaFacet
+ *       SchemaArn: 'STRING_VALUE',
+ *       FacetName: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   ObjectIdentifier: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetObjectInformationCommandInput - {@link GetObjectInformationCommandInput}
@@ -81,6 +92,8 @@ export interface GetObjectInformationCommandOutput extends GetObjectInformationR
  *  <p>Indicates that your request is malformed in some manner. See the exception
  *       message.</p>
  *
+ * @throws {@link CloudDirectoryServiceException}
+ * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
  */
 export class GetObjectInformationCommand extends $Command<

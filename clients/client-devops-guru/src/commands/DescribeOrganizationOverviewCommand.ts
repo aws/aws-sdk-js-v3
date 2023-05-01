@@ -42,21 +42,27 @@ export interface DescribeOrganizationOverviewCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DevOpsGuruClient, DescribeOrganizationOverviewCommand } from "@aws-sdk/client-devops-guru"; // ES Modules import
- * // const { DevOpsGuruClient, DescribeOrganizationOverviewCommand } = require("@aws-sdk/client-devops-guru"); // CommonJS import
+ * import { DevOpsGuruClient, DescribeOrganizationOverviewCommand } from '@aws-sdk/client-devops-guru'; // ES Modules import
+ * // const { DevOpsGuruClient, DescribeOrganizationOverviewCommand } = require('@aws-sdk/client-devops-guru'); // CommonJS import
  * const client = new DevOpsGuruClient(config);
  * const input = { // DescribeOrganizationOverviewRequest
- *   FromTime: new Date("TIMESTAMP"), // required
- *   ToTime: new Date("TIMESTAMP"),
+ *   FromTime: new Date('TIMESTAMP'), // required
+ *   ToTime: new Date('TIMESTAMP'),
  *   AccountIds: [ // AccountIdList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   OrganizationalUnitIds: [ // OrganizationalUnitIdList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new DescribeOrganizationOverviewCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeOrganizationOverviewResponse
+ *   ReactiveInsights: Number('int'), // required
+ *   ProactiveInsights: Number('int'), // required
+ * };
+ *
  * ```
  *
  * @param DescribeOrganizationOverviewCommandInput - {@link DescribeOrganizationOverviewCommandInput}
@@ -81,6 +87,8 @@ export interface DescribeOrganizationOverviewCommandOutput
  *  <p> Contains information about data passed in to a field during a request that is not
  * 			valid. </p>
  *
+ * @throws {@link DevOpsGuruServiceException}
+ * <p>Base exception class for all service exceptions from DevOpsGuru service.</p>
  *
  */
 export class DescribeOrganizationOverviewCommand extends $Command<

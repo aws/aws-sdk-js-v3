@@ -63,14 +63,27 @@ export interface GetCoreDeviceCommandOutput extends GetCoreDeviceResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GreengrassV2Client, GetCoreDeviceCommand } from "@aws-sdk/client-greengrassv2"; // ES Modules import
- * // const { GreengrassV2Client, GetCoreDeviceCommand } = require("@aws-sdk/client-greengrassv2"); // CommonJS import
+ * import { GreengrassV2Client, GetCoreDeviceCommand } from '@aws-sdk/client-greengrassv2'; // ES Modules import
+ * // const { GreengrassV2Client, GetCoreDeviceCommand } = require('@aws-sdk/client-greengrassv2'); // CommonJS import
  * const client = new GreengrassV2Client(config);
  * const input = { // GetCoreDeviceRequest
- *   coreDeviceThingName: "STRING_VALUE", // required
+ *   coreDeviceThingName: 'STRING_VALUE', // required
  * };
  * const command = new GetCoreDeviceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetCoreDeviceResponse
+ *   coreDeviceThingName: 'STRING_VALUE',
+ *   coreVersion: 'STRING_VALUE',
+ *   platform: 'STRING_VALUE',
+ *   architecture: 'STRING_VALUE',
+ *   status: 'HEALTHY' || 'UNHEALTHY',
+ *   lastStatusUpdateTimestamp: new Date('TIMESTAMP'),
+ *   tags: { // TagMap
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetCoreDeviceCommandInput - {@link GetCoreDeviceCommandInput}
@@ -96,6 +109,8 @@ export interface GetCoreDeviceCommandOutput extends GetCoreDeviceResponse, __Met
  *  <p>The request isn't valid. This can occur if your request contains malformed JSON or
  *       unsupported characters.</p>
  *
+ * @throws {@link GreengrassV2ServiceException}
+ * <p>Base exception class for all service exceptions from GreengrassV2 service.</p>
  *
  */
 export class GetCoreDeviceCommand extends $Command<

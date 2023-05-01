@@ -37,16 +37,29 @@ export interface ListMembersCommandOutput extends ListMembersResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Inspector2Client, ListMembersCommand } from "@aws-sdk/client-inspector2"; // ES Modules import
- * // const { Inspector2Client, ListMembersCommand } = require("@aws-sdk/client-inspector2"); // CommonJS import
+ * import { Inspector2Client, ListMembersCommand } from '@aws-sdk/client-inspector2'; // ES Modules import
+ * // const { Inspector2Client, ListMembersCommand } = require('@aws-sdk/client-inspector2'); // CommonJS import
  * const client = new Inspector2Client(config);
  * const input = { // ListMembersRequest
  *   onlyAssociated: true || false,
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new ListMembersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListMembersResponse
+ *   members: [ // MemberList
+ *     { // Member
+ *       accountId: 'STRING_VALUE',
+ *       relationshipStatus: 'STRING_VALUE',
+ *       delegatedAdminAccountId: 'STRING_VALUE',
+ *       updatedAt: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListMembersCommandInput - {@link ListMembersCommandInput}
@@ -68,6 +81,8 @@ export interface ListMembersCommandOutput extends ListMembersResponse, __Metadat
  *  <p>The request has failed validation due to missing required fields or having invalid
  *          inputs.</p>
  *
+ * @throws {@link Inspector2ServiceException}
+ * <p>Base exception class for all service exceptions from Inspector2 service.</p>
  *
  */
 export class ListMembersCommand extends $Command<

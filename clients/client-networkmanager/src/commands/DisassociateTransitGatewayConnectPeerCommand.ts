@@ -45,15 +45,26 @@ export interface DisassociateTransitGatewayConnectPeerCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { NetworkManagerClient, DisassociateTransitGatewayConnectPeerCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
- * // const { NetworkManagerClient, DisassociateTransitGatewayConnectPeerCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
+ * import { NetworkManagerClient, DisassociateTransitGatewayConnectPeerCommand } from '@aws-sdk/client-networkmanager'; // ES Modules import
+ * // const { NetworkManagerClient, DisassociateTransitGatewayConnectPeerCommand } = require('@aws-sdk/client-networkmanager'); // CommonJS import
  * const client = new NetworkManagerClient(config);
  * const input = { // DisassociateTransitGatewayConnectPeerRequest
- *   GlobalNetworkId: "STRING_VALUE", // required
- *   TransitGatewayConnectPeerArn: "STRING_VALUE", // required
+ *   GlobalNetworkId: 'STRING_VALUE', // required
+ *   TransitGatewayConnectPeerArn: 'STRING_VALUE', // required
  * };
  * const command = new DisassociateTransitGatewayConnectPeerCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DisassociateTransitGatewayConnectPeerResponse
+ *   TransitGatewayConnectPeerAssociation: { // TransitGatewayConnectPeerAssociation
+ *     TransitGatewayConnectPeerArn: 'STRING_VALUE',
+ *     GlobalNetworkId: 'STRING_VALUE',
+ *     DeviceId: 'STRING_VALUE',
+ *     LinkId: 'STRING_VALUE',
+ *     State: 'PENDING' || 'AVAILABLE' || 'DELETING' || 'DELETED',
+ *   },
+ * };
+ *
  * ```
  *
  * @param DisassociateTransitGatewayConnectPeerCommandInput - {@link DisassociateTransitGatewayConnectPeerCommandInput}
@@ -81,6 +92,8 @@ export interface DisassociateTransitGatewayConnectPeerCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints.</p>
  *
+ * @throws {@link NetworkManagerServiceException}
+ * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
  */
 export class DisassociateTransitGatewayConnectPeerCommand extends $Command<

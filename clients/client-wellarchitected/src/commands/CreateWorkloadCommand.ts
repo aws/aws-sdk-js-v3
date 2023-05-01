@@ -48,46 +48,52 @@ export interface CreateWorkloadCommandOutput extends CreateWorkloadOutput, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WellArchitectedClient, CreateWorkloadCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
- * // const { WellArchitectedClient, CreateWorkloadCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
+ * import { WellArchitectedClient, CreateWorkloadCommand } from '@aws-sdk/client-wellarchitected'; // ES Modules import
+ * // const { WellArchitectedClient, CreateWorkloadCommand } = require('@aws-sdk/client-wellarchitected'); // CommonJS import
  * const client = new WellArchitectedClient(config);
  * const input = { // CreateWorkloadInput
- *   WorkloadName: "STRING_VALUE", // required
- *   Description: "STRING_VALUE", // required
- *   Environment: "PRODUCTION" || "PREPRODUCTION", // required
+ *   WorkloadName: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE', // required
+ *   Environment: 'PRODUCTION' || 'PREPRODUCTION', // required
  *   AccountIds: [ // WorkloadAccountIds
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   AwsRegions: [ // WorkloadAwsRegions
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   NonAwsRegions: [ // WorkloadNonAwsRegions
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   PillarPriorities: [ // WorkloadPillarPriorities
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   ArchitecturalDesign: "STRING_VALUE",
- *   ReviewOwner: "STRING_VALUE",
- *   IndustryType: "STRING_VALUE",
- *   Industry: "STRING_VALUE",
+ *   ArchitecturalDesign: 'STRING_VALUE',
+ *   ReviewOwner: 'STRING_VALUE',
+ *   IndustryType: 'STRING_VALUE',
+ *   Industry: 'STRING_VALUE',
  *   Lenses: [ // WorkloadLenses // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   Notes: "STRING_VALUE",
- *   ClientRequestToken: "STRING_VALUE", // required
+ *   Notes: 'STRING_VALUE',
+ *   ClientRequestToken: 'STRING_VALUE', // required
  *   Tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  *   DiscoveryConfig: { // WorkloadDiscoveryConfig
- *     TrustedAdvisorIntegrationStatus: "ENABLED" || "DISABLED",
+ *     TrustedAdvisorIntegrationStatus: 'ENABLED' || 'DISABLED',
  *   },
  *   Applications: [ // WorkloadApplications
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new CreateWorkloadCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateWorkloadOutput
+ *   WorkloadId: 'STRING_VALUE',
+ *   WorkloadArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateWorkloadCommandInput - {@link CreateWorkloadCommandInput}
@@ -117,6 +123,8 @@ export interface CreateWorkloadCommandOutput extends CreateWorkloadOutput, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>The user input is not valid.</p>
  *
+ * @throws {@link WellArchitectedServiceException}
+ * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
  */
 export class CreateWorkloadCommand extends $Command<

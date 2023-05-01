@@ -38,15 +38,53 @@ export interface GetIdentityResolutionJobCommandOutput extends GetIdentityResolu
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CustomerProfilesClient, GetIdentityResolutionJobCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
- * // const { CustomerProfilesClient, GetIdentityResolutionJobCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
+ * import { CustomerProfilesClient, GetIdentityResolutionJobCommand } from '@aws-sdk/client-customer-profiles'; // ES Modules import
+ * // const { CustomerProfilesClient, GetIdentityResolutionJobCommand } = require('@aws-sdk/client-customer-profiles'); // CommonJS import
  * const client = new CustomerProfilesClient(config);
  * const input = { // GetIdentityResolutionJobRequest
- *   DomainName: "STRING_VALUE", // required
- *   JobId: "STRING_VALUE", // required
+ *   DomainName: 'STRING_VALUE', // required
+ *   JobId: 'STRING_VALUE', // required
  * };
  * const command = new GetIdentityResolutionJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetIdentityResolutionJobResponse
+ *   DomainName: 'STRING_VALUE',
+ *   JobId: 'STRING_VALUE',
+ *   Status: 'PENDING' || 'PREPROCESSING' || 'FIND_MATCHING' || 'MERGING' || 'COMPLETED' || 'PARTIAL_SUCCESS' || 'FAILED',
+ *   Message: 'STRING_VALUE',
+ *   JobStartTime: new Date('TIMESTAMP'),
+ *   JobEndTime: new Date('TIMESTAMP'),
+ *   LastUpdatedAt: new Date('TIMESTAMP'),
+ *   JobExpirationTime: new Date('TIMESTAMP'),
+ *   AutoMerging: { // AutoMerging
+ *     Enabled: true || false, // required
+ *     Consolidation: { // Consolidation
+ *       MatchingAttributesList: [ // MatchingAttributesList // required
+ *         [ // MatchingAttributes
+ *           'STRING_VALUE',
+ *         ],
+ *       ],
+ *     },
+ *     ConflictResolution: { // ConflictResolution
+ *       ConflictResolvingModel: 'RECENCY' || 'SOURCE', // required
+ *       SourceName: 'STRING_VALUE',
+ *     },
+ *     MinAllowedConfidenceScoreForMerging: Number('double'),
+ *   },
+ *   ExportingLocation: { // ExportingLocation
+ *     S3Exporting: { // S3ExportingLocation
+ *       S3BucketName: 'STRING_VALUE',
+ *       S3KeyName: 'STRING_VALUE',
+ *     },
+ *   },
+ *   JobStats: { // JobStats
+ *     NumberOfProfilesReviewed: Number('long'),
+ *     NumberOfMatchesFound: Number('long'),
+ *     NumberOfMergesDone: Number('long'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetIdentityResolutionJobCommandInput - {@link GetIdentityResolutionJobCommandInput}
@@ -70,6 +108,8 @@ export interface GetIdentityResolutionJobCommandOutput extends GetIdentityResolu
  * @throws {@link ThrottlingException} (client fault)
  *  <p>You exceeded the maximum number of requests.</p>
  *
+ * @throws {@link CustomerProfilesServiceException}
+ * <p>Base exception class for all service exceptions from CustomerProfiles service.</p>
  *
  */
 export class GetIdentityResolutionJobCommand extends $Command<

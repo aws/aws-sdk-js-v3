@@ -36,25 +36,45 @@ export interface RegisterUserCommandOutput extends RegisterUserResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { QuickSightClient, RegisterUserCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
- * // const { QuickSightClient, RegisterUserCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * import { QuickSightClient, RegisterUserCommand } from '@aws-sdk/client-quicksight'; // ES Modules import
+ * // const { QuickSightClient, RegisterUserCommand } = require('@aws-sdk/client-quicksight'); // CommonJS import
  * const client = new QuickSightClient(config);
  * const input = { // RegisterUserRequest
- *   IdentityType: "IAM" || "QUICKSIGHT", // required
- *   Email: "STRING_VALUE", // required
- *   UserRole: "ADMIN" || "AUTHOR" || "READER" || "RESTRICTED_AUTHOR" || "RESTRICTED_READER", // required
- *   IamArn: "STRING_VALUE",
- *   SessionName: "STRING_VALUE",
- *   AwsAccountId: "STRING_VALUE", // required
- *   Namespace: "STRING_VALUE", // required
- *   UserName: "STRING_VALUE",
- *   CustomPermissionsName: "STRING_VALUE",
- *   ExternalLoginFederationProviderType: "STRING_VALUE",
- *   CustomFederationProviderUrl: "STRING_VALUE",
- *   ExternalLoginId: "STRING_VALUE",
+ *   IdentityType: 'IAM' || 'QUICKSIGHT', // required
+ *   Email: 'STRING_VALUE', // required
+ *   UserRole: 'ADMIN' || 'AUTHOR' || 'READER' || 'RESTRICTED_AUTHOR' || 'RESTRICTED_READER', // required
+ *   IamArn: 'STRING_VALUE',
+ *   SessionName: 'STRING_VALUE',
+ *   AwsAccountId: 'STRING_VALUE', // required
+ *   Namespace: 'STRING_VALUE', // required
+ *   UserName: 'STRING_VALUE',
+ *   CustomPermissionsName: 'STRING_VALUE',
+ *   ExternalLoginFederationProviderType: 'STRING_VALUE',
+ *   CustomFederationProviderUrl: 'STRING_VALUE',
+ *   ExternalLoginId: 'STRING_VALUE',
  * };
  * const command = new RegisterUserCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // RegisterUserResponse
+ *   User: { // User
+ *     Arn: 'STRING_VALUE',
+ *     UserName: 'STRING_VALUE',
+ *     Email: 'STRING_VALUE',
+ *     Role: 'ADMIN' || 'AUTHOR' || 'READER' || 'RESTRICTED_AUTHOR' || 'RESTRICTED_READER',
+ *     IdentityType: 'IAM' || 'QUICKSIGHT',
+ *     Active: true || false,
+ *     PrincipalId: 'STRING_VALUE',
+ *     CustomPermissionsName: 'STRING_VALUE',
+ *     ExternalLoginFederationProviderType: 'STRING_VALUE',
+ *     ExternalLoginFederationProviderUrl: 'STRING_VALUE',
+ *     ExternalLoginId: 'STRING_VALUE',
+ *   },
+ *   UserInvitationUrl: 'STRING_VALUE',
+ *   RequestId: 'STRING_VALUE',
+ *   Status: Number('int'),
+ * };
+ *
  * ```
  *
  * @param RegisterUserCommandInput - {@link RegisterUserCommandInput}
@@ -93,6 +113,8 @@ export interface RegisterUserCommandOutput extends RegisterUserResponse, __Metad
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Access is throttled.</p>
  *
+ * @throws {@link QuickSightServiceException}
+ * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
 export class RegisterUserCommand extends $Command<

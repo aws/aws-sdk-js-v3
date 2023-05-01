@@ -36,19 +36,33 @@ export interface ListFindingsReportsCommandOutput extends ListFindingsReportsRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeGuruProfilerClient, ListFindingsReportsCommand } from "@aws-sdk/client-codeguruprofiler"; // ES Modules import
- * // const { CodeGuruProfilerClient, ListFindingsReportsCommand } = require("@aws-sdk/client-codeguruprofiler"); // CommonJS import
+ * import { CodeGuruProfilerClient, ListFindingsReportsCommand } from '@aws-sdk/client-codeguruprofiler'; // ES Modules import
+ * // const { CodeGuruProfilerClient, ListFindingsReportsCommand } = require('@aws-sdk/client-codeguruprofiler'); // CommonJS import
  * const client = new CodeGuruProfilerClient(config);
  * const input = { // ListFindingsReportsRequest
- *   profilingGroupName: "STRING_VALUE", // required
- *   startTime: new Date("TIMESTAMP"), // required
- *   endTime: new Date("TIMESTAMP"), // required
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   profilingGroupName: 'STRING_VALUE', // required
+ *   startTime: new Date('TIMESTAMP'), // required
+ *   endTime: new Date('TIMESTAMP'), // required
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  *   dailyReportsOnly: true || false,
  * };
  * const command = new ListFindingsReportsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListFindingsReportsResponse
+ *   findingsReportSummaries: [ // FindingsReportSummaries // required
+ *     { // FindingsReportSummary
+ *       id: 'STRING_VALUE',
+ *       profilingGroupName: 'STRING_VALUE',
+ *       profileStartTime: new Date('TIMESTAMP'),
+ *       profileEndTime: new Date('TIMESTAMP'),
+ *       totalNumberOfFindings: Number('int'),
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListFindingsReportsCommandInput - {@link ListFindingsReportsCommandInput}
@@ -69,6 +83,8 @@ export interface ListFindingsReportsCommandOutput extends ListFindingsReportsRes
  * @throws {@link ValidationException} (client fault)
  *  <p>The parameter is not valid.</p>
  *
+ * @throws {@link CodeGuruProfilerServiceException}
+ * <p>Base exception class for all service exceptions from CodeGuruProfiler service.</p>
  *
  */
 export class ListFindingsReportsCommand extends $Command<

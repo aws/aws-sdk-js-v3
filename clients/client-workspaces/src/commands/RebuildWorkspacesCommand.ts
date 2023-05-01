@@ -44,18 +44,29 @@ export interface RebuildWorkspacesCommandOutput extends RebuildWorkspacesResult,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkSpacesClient, RebuildWorkspacesCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
- * // const { WorkSpacesClient, RebuildWorkspacesCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
+ * import { WorkSpacesClient, RebuildWorkspacesCommand } from '@aws-sdk/client-workspaces'; // ES Modules import
+ * // const { WorkSpacesClient, RebuildWorkspacesCommand } = require('@aws-sdk/client-workspaces'); // CommonJS import
  * const client = new WorkSpacesClient(config);
  * const input = { // RebuildWorkspacesRequest
  *   RebuildWorkspaceRequests: [ // RebuildWorkspaceRequests // required
  *     { // RebuildRequest
- *       WorkspaceId: "STRING_VALUE", // required
+ *       WorkspaceId: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new RebuildWorkspacesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // RebuildWorkspacesResult
+ *   FailedRequests: [ // FailedRebuildWorkspaceRequests
+ *     { // FailedWorkspaceChangeRequest
+ *       WorkspaceId: 'STRING_VALUE',
+ *       ErrorCode: 'STRING_VALUE',
+ *       ErrorMessage: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param RebuildWorkspacesCommandInput - {@link RebuildWorkspacesCommandInput}
@@ -67,6 +78,8 @@ export interface RebuildWorkspacesCommandOutput extends RebuildWorkspacesResult,
  * @throws {@link OperationNotSupportedException} (client fault)
  *  <p>This operation is not supported.</p>
  *
+ * @throws {@link WorkSpacesServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
  */
 export class RebuildWorkspacesCommand extends $Command<

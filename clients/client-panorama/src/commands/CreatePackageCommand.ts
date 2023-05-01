@@ -36,17 +36,30 @@ export interface CreatePackageCommandOutput extends CreatePackageResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PanoramaClient, CreatePackageCommand } from "@aws-sdk/client-panorama"; // ES Modules import
- * // const { PanoramaClient, CreatePackageCommand } = require("@aws-sdk/client-panorama"); // CommonJS import
+ * import { PanoramaClient, CreatePackageCommand } from '@aws-sdk/client-panorama'; // ES Modules import
+ * // const { PanoramaClient, CreatePackageCommand } = require('@aws-sdk/client-panorama'); // CommonJS import
  * const client = new PanoramaClient(config);
  * const input = { // CreatePackageRequest
- *   PackageName: "STRING_VALUE", // required
+ *   PackageName: 'STRING_VALUE', // required
  *   Tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new CreatePackageCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreatePackageResponse
+ *   PackageId: 'STRING_VALUE',
+ *   Arn: 'STRING_VALUE',
+ *   StorageLocation: { // StorageLocation
+ *     Bucket: 'STRING_VALUE', // required
+ *     RepoPrefixLocation: 'STRING_VALUE', // required
+ *     GeneratedPrefixLocation: 'STRING_VALUE', // required
+ *     BinaryPrefixLocation: 'STRING_VALUE', // required
+ *     ManifestPrefixLocation: 'STRING_VALUE', // required
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreatePackageCommandInput - {@link CreatePackageCommandInput}
@@ -67,6 +80,8 @@ export interface CreatePackageCommandOutput extends CreatePackageResponse, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>The request contains an invalid parameter value.</p>
  *
+ * @throws {@link PanoramaServiceException}
+ * <p>Base exception class for all service exceptions from Panorama service.</p>
  *
  */
 export class CreatePackageCommand extends $Command<

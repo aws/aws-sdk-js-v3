@@ -40,17 +40,51 @@ export interface UpdateEndpointAccessCommandOutput extends UpdateEndpointAccessR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RedshiftServerlessClient, UpdateEndpointAccessCommand } from "@aws-sdk/client-redshift-serverless"; // ES Modules import
- * // const { RedshiftServerlessClient, UpdateEndpointAccessCommand } = require("@aws-sdk/client-redshift-serverless"); // CommonJS import
+ * import { RedshiftServerlessClient, UpdateEndpointAccessCommand } from '@aws-sdk/client-redshift-serverless'; // ES Modules import
+ * // const { RedshiftServerlessClient, UpdateEndpointAccessCommand } = require('@aws-sdk/client-redshift-serverless'); // CommonJS import
  * const client = new RedshiftServerlessClient(config);
  * const input = { // UpdateEndpointAccessRequest
- *   endpointName: "STRING_VALUE", // required
+ *   endpointName: 'STRING_VALUE', // required
  *   vpcSecurityGroupIds: [ // VpcSecurityGroupIdList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new UpdateEndpointAccessCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateEndpointAccessResponse
+ *   endpoint: { // EndpointAccess
+ *     endpointName: 'STRING_VALUE',
+ *     endpointStatus: 'STRING_VALUE',
+ *     workgroupName: 'STRING_VALUE',
+ *     endpointCreateTime: new Date('TIMESTAMP'),
+ *     port: Number('int'),
+ *     address: 'STRING_VALUE',
+ *     subnetIds: [ // SubnetIdList
+ *       'STRING_VALUE',
+ *     ],
+ *     vpcSecurityGroups: [ // VpcSecurityGroupMembershipList
+ *       { // VpcSecurityGroupMembership
+ *         vpcSecurityGroupId: 'STRING_VALUE',
+ *         status: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     vpcEndpoint: { // VpcEndpoint
+ *       vpcEndpointId: 'STRING_VALUE',
+ *       vpcId: 'STRING_VALUE',
+ *       networkInterfaces: [ // NetworkInterfaceList
+ *         { // NetworkInterface
+ *           networkInterfaceId: 'STRING_VALUE',
+ *           subnetId: 'STRING_VALUE',
+ *           privateIpAddress: 'STRING_VALUE',
+ *           availabilityZone: 'STRING_VALUE',
+ *         },
+ *       ],
+ *     },
+ *     endpointArn: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateEndpointAccessCommandInput - {@link UpdateEndpointAccessCommandInput}
@@ -74,6 +108,8 @@ export interface UpdateEndpointAccessCommandOutput extends UpdateEndpointAccessR
  * @throws {@link ValidationException} (client fault)
  *  <p>The input failed to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link RedshiftServerlessServiceException}
+ * <p>Base exception class for all service exceptions from RedshiftServerless service.</p>
  *
  */
 export class UpdateEndpointAccessCommand extends $Command<

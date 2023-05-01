@@ -54,14 +54,29 @@ export interface DescribeRecipeCommandOutput extends DescribeRecipeResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PersonalizeClient, DescribeRecipeCommand } from "@aws-sdk/client-personalize"; // ES Modules import
- * // const { PersonalizeClient, DescribeRecipeCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
+ * import { PersonalizeClient, DescribeRecipeCommand } from '@aws-sdk/client-personalize'; // ES Modules import
+ * // const { PersonalizeClient, DescribeRecipeCommand } = require('@aws-sdk/client-personalize'); // CommonJS import
  * const client = new PersonalizeClient(config);
  * const input = { // DescribeRecipeRequest
- *   recipeArn: "STRING_VALUE", // required
+ *   recipeArn: 'STRING_VALUE', // required
  * };
  * const command = new DescribeRecipeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeRecipeResponse
+ *   recipe: { // Recipe
+ *     name: 'STRING_VALUE',
+ *     recipeArn: 'STRING_VALUE',
+ *     algorithmArn: 'STRING_VALUE',
+ *     featureTransformationArn: 'STRING_VALUE',
+ *     status: 'STRING_VALUE',
+ *     description: 'STRING_VALUE',
+ *     creationDateTime: new Date('TIMESTAMP'),
+ *     recipeType: 'STRING_VALUE',
+ *     lastUpdatedDateTime: new Date('TIMESTAMP'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeRecipeCommandInput - {@link DescribeRecipeCommandInput}
@@ -76,6 +91,8 @@ export interface DescribeRecipeCommandOutput extends DescribeRecipeResponse, __M
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Could not find the specified resource.</p>
  *
+ * @throws {@link PersonalizeServiceException}
+ * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
  */
 export class DescribeRecipeCommand extends $Command<

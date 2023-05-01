@@ -40,14 +40,49 @@ export interface GetCostEstimationCommandOutput extends GetCostEstimationRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DevOpsGuruClient, GetCostEstimationCommand } from "@aws-sdk/client-devops-guru"; // ES Modules import
- * // const { DevOpsGuruClient, GetCostEstimationCommand } = require("@aws-sdk/client-devops-guru"); // CommonJS import
+ * import { DevOpsGuruClient, GetCostEstimationCommand } from '@aws-sdk/client-devops-guru'; // ES Modules import
+ * // const { DevOpsGuruClient, GetCostEstimationCommand } = require('@aws-sdk/client-devops-guru'); // CommonJS import
  * const client = new DevOpsGuruClient(config);
  * const input = { // GetCostEstimationRequest
- *   NextToken: "STRING_VALUE",
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new GetCostEstimationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetCostEstimationResponse
+ *   ResourceCollection: { // CostEstimationResourceCollectionFilter
+ *     CloudFormation: { // CloudFormationCostEstimationResourceCollectionFilter
+ *       StackNames: [ // CostEstimationStackNames
+ *         'STRING_VALUE',
+ *       ],
+ *     },
+ *     Tags: [ // TagCostEstimationResourceCollectionFilters
+ *       { // TagCostEstimationResourceCollectionFilter
+ *         AppBoundaryKey: 'STRING_VALUE', // required
+ *         TagValues: [ // CostEstimationTagValues // required
+ *           'STRING_VALUE',
+ *         ],
+ *       },
+ *     ],
+ *   },
+ *   Status: 'ONGOING' || 'COMPLETED',
+ *   Costs: [ // ServiceResourceCosts
+ *     { // ServiceResourceCost
+ *       Type: 'STRING_VALUE',
+ *       State: 'ACTIVE' || 'INACTIVE',
+ *       Count: Number('int'),
+ *       UnitCost: Number('double'),
+ *       Cost: Number('double'),
+ *     },
+ *   ],
+ *   TimeRange: { // CostEstimationTimeRange
+ *     StartTime: new Date('TIMESTAMP'),
+ *     EndTime: new Date('TIMESTAMP'),
+ *   },
+ *   TotalCost: Number('double'),
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetCostEstimationCommandInput - {@link GetCostEstimationCommandInput}
@@ -75,6 +110,8 @@ export interface GetCostEstimationCommandOutput extends GetCostEstimationRespons
  *  <p> Contains information about data passed in to a field during a request that is not
  * 			valid. </p>
  *
+ * @throws {@link DevOpsGuruServiceException}
+ * <p>Base exception class for all service exceptions from DevOpsGuru service.</p>
  *
  */
 export class GetCostEstimationCommand extends $Command<

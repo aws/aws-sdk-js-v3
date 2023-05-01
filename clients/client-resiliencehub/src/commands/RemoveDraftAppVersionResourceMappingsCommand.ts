@@ -45,32 +45,38 @@ export interface RemoveDraftAppVersionResourceMappingsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ResiliencehubClient, RemoveDraftAppVersionResourceMappingsCommand } from "@aws-sdk/client-resiliencehub"; // ES Modules import
- * // const { ResiliencehubClient, RemoveDraftAppVersionResourceMappingsCommand } = require("@aws-sdk/client-resiliencehub"); // CommonJS import
+ * import { ResiliencehubClient, RemoveDraftAppVersionResourceMappingsCommand } from '@aws-sdk/client-resiliencehub'; // ES Modules import
+ * // const { ResiliencehubClient, RemoveDraftAppVersionResourceMappingsCommand } = require('@aws-sdk/client-resiliencehub'); // CommonJS import
  * const client = new ResiliencehubClient(config);
  * const input = { // RemoveDraftAppVersionResourceMappingsRequest
- *   appArn: "STRING_VALUE", // required
+ *   appArn: 'STRING_VALUE', // required
  *   resourceNames: [ // EntityNameList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   logicalStackNames: [ // String255List
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   appRegistryAppNames: [
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   resourceGroupNames: [
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   terraformSourceNames: [
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   eksSourceNames: [
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new RemoveDraftAppVersionResourceMappingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // RemoveDraftAppVersionResourceMappingsResponse
+ *   appArn: 'STRING_VALUE',
+ *   appVersion: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param RemoveDraftAppVersionResourceMappingsCommandInput - {@link RemoveDraftAppVersionResourceMappingsCommandInput}
@@ -103,6 +109,8 @@ export interface RemoveDraftAppVersionResourceMappingsCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>This exception occurs when a request is not valid.</p>
  *
+ * @throws {@link ResiliencehubServiceException}
+ * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
  */
 export class RemoveDraftAppVersionResourceMappingsCommand extends $Command<

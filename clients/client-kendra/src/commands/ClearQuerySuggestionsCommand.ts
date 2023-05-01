@@ -45,14 +45,17 @@ export interface ClearQuerySuggestionsCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KendraClient, ClearQuerySuggestionsCommand } from "@aws-sdk/client-kendra"; // ES Modules import
- * // const { KendraClient, ClearQuerySuggestionsCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
+ * import { KendraClient, ClearQuerySuggestionsCommand } from '@aws-sdk/client-kendra'; // ES Modules import
+ * // const { KendraClient, ClearQuerySuggestionsCommand } = require('@aws-sdk/client-kendra'); // CommonJS import
  * const client = new KendraClient(config);
  * const input = { // ClearQuerySuggestionsRequest
- *   IndexId: "STRING_VALUE", // required
+ *   IndexId: 'STRING_VALUE', // required
  * };
  * const command = new ClearQuerySuggestionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param ClearQuerySuggestionsCommandInput - {@link ClearQuerySuggestionsCommandInput}
@@ -85,6 +88,8 @@ export interface ClearQuerySuggestionsCommandOutput extends __MetadataBearer {}
  *  <p>The input fails to satisfy the constraints set by the Amazon Kendra service.
  *             Please provide the correct input and try again.</p>
  *
+ * @throws {@link KendraServiceException}
+ * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
  */
 export class ClearQuerySuggestionsCommand extends $Command<

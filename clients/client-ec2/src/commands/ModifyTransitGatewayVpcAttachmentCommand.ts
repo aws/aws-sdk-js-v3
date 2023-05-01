@@ -41,26 +41,52 @@ export interface ModifyTransitGatewayVpcAttachmentCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, ModifyTransitGatewayVpcAttachmentCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, ModifyTransitGatewayVpcAttachmentCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, ModifyTransitGatewayVpcAttachmentCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, ModifyTransitGatewayVpcAttachmentCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // ModifyTransitGatewayVpcAttachmentRequest
- *   TransitGatewayAttachmentId: "STRING_VALUE", // required
+ *   TransitGatewayAttachmentId: 'STRING_VALUE', // required
  *   AddSubnetIds: [ // TransitGatewaySubnetIdList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   RemoveSubnetIds: [
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   Options: { // ModifyTransitGatewayVpcAttachmentRequestOptions
- *     DnsSupport: "enable" || "disable",
- *     Ipv6Support: "enable" || "disable",
- *     ApplianceModeSupport: "enable" || "disable",
+ *     DnsSupport: 'enable' || 'disable',
+ *     Ipv6Support: 'enable' || 'disable',
+ *     ApplianceModeSupport: 'enable' || 'disable',
  *   },
  *   DryRun: true || false,
  * };
  * const command = new ModifyTransitGatewayVpcAttachmentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ModifyTransitGatewayVpcAttachmentResult
+ *   TransitGatewayVpcAttachment: { // TransitGatewayVpcAttachment
+ *     TransitGatewayAttachmentId: 'STRING_VALUE',
+ *     TransitGatewayId: 'STRING_VALUE',
+ *     VpcId: 'STRING_VALUE',
+ *     VpcOwnerId: 'STRING_VALUE',
+ *     State: 'initiating' || 'initiatingRequest' || 'pendingAcceptance' || 'rollingBack' || 'pending' || 'available' || 'modifying' || 'deleting' || 'deleted' || 'failed' || 'rejected' || 'rejecting' || 'failing',
+ *     SubnetIds: [ // ValueStringList
+ *       'STRING_VALUE',
+ *     ],
+ *     CreationTime: new Date('TIMESTAMP'),
+ *     Options: { // TransitGatewayVpcAttachmentOptions
+ *       DnsSupport: 'enable' || 'disable',
+ *       Ipv6Support: 'enable' || 'disable',
+ *       ApplianceModeSupport: 'enable' || 'disable',
+ *     },
+ *     Tags: [ // TagList
+ *       { // Tag
+ *         Key: 'STRING_VALUE',
+ *         Value: 'STRING_VALUE',
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param ModifyTransitGatewayVpcAttachmentCommandInput - {@link ModifyTransitGatewayVpcAttachmentCommandInput}
@@ -69,6 +95,8 @@ export interface ModifyTransitGatewayVpcAttachmentCommandOutput
  * @see {@link ModifyTransitGatewayVpcAttachmentCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class ModifyTransitGatewayVpcAttachmentCommand extends $Command<

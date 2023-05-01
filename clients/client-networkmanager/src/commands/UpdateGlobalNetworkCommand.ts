@@ -37,15 +37,32 @@ export interface UpdateGlobalNetworkCommandOutput extends UpdateGlobalNetworkRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { NetworkManagerClient, UpdateGlobalNetworkCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
- * // const { NetworkManagerClient, UpdateGlobalNetworkCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
+ * import { NetworkManagerClient, UpdateGlobalNetworkCommand } from '@aws-sdk/client-networkmanager'; // ES Modules import
+ * // const { NetworkManagerClient, UpdateGlobalNetworkCommand } = require('@aws-sdk/client-networkmanager'); // CommonJS import
  * const client = new NetworkManagerClient(config);
  * const input = { // UpdateGlobalNetworkRequest
- *   GlobalNetworkId: "STRING_VALUE", // required
- *   Description: "STRING_VALUE",
+ *   GlobalNetworkId: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE',
  * };
  * const command = new UpdateGlobalNetworkCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateGlobalNetworkResponse
+ *   GlobalNetwork: { // GlobalNetwork
+ *     GlobalNetworkId: 'STRING_VALUE',
+ *     GlobalNetworkArn: 'STRING_VALUE',
+ *     Description: 'STRING_VALUE',
+ *     CreatedAt: new Date('TIMESTAMP'),
+ *     State: 'PENDING' || 'AVAILABLE' || 'DELETING' || 'UPDATING',
+ *     Tags: [ // TagList
+ *       { // Tag
+ *         Key: 'STRING_VALUE',
+ *         Value: 'STRING_VALUE',
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateGlobalNetworkCommandInput - {@link UpdateGlobalNetworkCommandInput}
@@ -73,6 +90,8 @@ export interface UpdateGlobalNetworkCommandOutput extends UpdateGlobalNetworkRes
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints.</p>
  *
+ * @throws {@link NetworkManagerServiceException}
+ * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
  */
 export class UpdateGlobalNetworkCommand extends $Command<

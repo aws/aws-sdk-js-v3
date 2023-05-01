@@ -37,18 +37,21 @@ export interface PutRecommendationFeedbackCommandOutput extends PutRecommendatio
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeGuruReviewerClient, PutRecommendationFeedbackCommand } from "@aws-sdk/client-codeguru-reviewer"; // ES Modules import
- * // const { CodeGuruReviewerClient, PutRecommendationFeedbackCommand } = require("@aws-sdk/client-codeguru-reviewer"); // CommonJS import
+ * import { CodeGuruReviewerClient, PutRecommendationFeedbackCommand } from '@aws-sdk/client-codeguru-reviewer'; // ES Modules import
+ * // const { CodeGuruReviewerClient, PutRecommendationFeedbackCommand } = require('@aws-sdk/client-codeguru-reviewer'); // CommonJS import
  * const client = new CodeGuruReviewerClient(config);
  * const input = { // PutRecommendationFeedbackRequest
- *   CodeReviewArn: "STRING_VALUE", // required
- *   RecommendationId: "STRING_VALUE", // required
+ *   CodeReviewArn: 'STRING_VALUE', // required
+ *   RecommendationId: 'STRING_VALUE', // required
  *   Reactions: [ // Reactions // required
- *     "ThumbsUp" || "ThumbsDown",
+ *     'ThumbsUp' || 'ThumbsDown',
  *   ],
  * };
  * const command = new PutRecommendationFeedbackCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutRecommendationFeedbackCommandInput - {@link PutRecommendationFeedbackCommandInput}
@@ -72,6 +75,8 @@ export interface PutRecommendationFeedbackCommandOutput extends PutRecommendatio
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the specified constraints.</p>
  *
+ * @throws {@link CodeGuruReviewerServiceException}
+ * <p>Base exception class for all service exceptions from CodeGuruReviewer service.</p>
  *
  */
 export class PutRecommendationFeedbackCommand extends $Command<

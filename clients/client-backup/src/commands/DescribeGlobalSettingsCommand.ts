@@ -39,12 +39,20 @@ export interface DescribeGlobalSettingsCommandOutput extends DescribeGlobalSetti
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BackupClient, DescribeGlobalSettingsCommand } from "@aws-sdk/client-backup"; // ES Modules import
- * // const { BackupClient, DescribeGlobalSettingsCommand } = require("@aws-sdk/client-backup"); // CommonJS import
+ * import { BackupClient, DescribeGlobalSettingsCommand } from '@aws-sdk/client-backup'; // ES Modules import
+ * // const { BackupClient, DescribeGlobalSettingsCommand } = require('@aws-sdk/client-backup'); // CommonJS import
  * const client = new BackupClient(config);
  * const input = {};
  * const command = new DescribeGlobalSettingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeGlobalSettingsOutput
+ *   GlobalSettings: { // GlobalSettings
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ *   LastUpdateTime: new Date('TIMESTAMP'),
+ * };
+ *
  * ```
  *
  * @param DescribeGlobalSettingsCommandInput - {@link DescribeGlobalSettingsCommandInput}
@@ -60,6 +68,8 @@ export interface DescribeGlobalSettingsCommandOutput extends DescribeGlobalSetti
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request failed due to a temporary failure of the server.</p>
  *
+ * @throws {@link BackupServiceException}
+ * <p>Base exception class for all service exceptions from Backup service.</p>
  *
  */
 export class DescribeGlobalSettingsCommand extends $Command<

@@ -38,31 +38,153 @@ export interface DecreaseReplicaCountCommandOutput extends DecreaseReplicaCountR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElastiCacheClient, DecreaseReplicaCountCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
- * // const { ElastiCacheClient, DecreaseReplicaCountCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
+ * import { ElastiCacheClient, DecreaseReplicaCountCommand } from '@aws-sdk/client-elasticache'; // ES Modules import
+ * // const { ElastiCacheClient, DecreaseReplicaCountCommand } = require('@aws-sdk/client-elasticache'); // CommonJS import
  * const client = new ElastiCacheClient(config);
  * const input = { // DecreaseReplicaCountMessage
- *   ReplicationGroupId: "STRING_VALUE", // required
- *   NewReplicaCount: Number("int"),
+ *   ReplicationGroupId: 'STRING_VALUE', // required
+ *   NewReplicaCount: Number('int'),
  *   ReplicaConfiguration: [ // ReplicaConfigurationList
  *     { // ConfigureShard
- *       NodeGroupId: "STRING_VALUE", // required
- *       NewReplicaCount: Number("int"), // required
+ *       NodeGroupId: 'STRING_VALUE', // required
+ *       NewReplicaCount: Number('int'), // required
  *       PreferredAvailabilityZones: [ // PreferredAvailabilityZoneList
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *       PreferredOutpostArns: [ // PreferredOutpostArnList
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
  *   ReplicasToRemove: [ // RemoveReplicasList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   ApplyImmediately: true || false, // required
  * };
  * const command = new DecreaseReplicaCountCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DecreaseReplicaCountResult
+ *   ReplicationGroup: { // ReplicationGroup
+ *     ReplicationGroupId: 'STRING_VALUE',
+ *     Description: 'STRING_VALUE',
+ *     GlobalReplicationGroupInfo: { // GlobalReplicationGroupInfo
+ *       GlobalReplicationGroupId: 'STRING_VALUE',
+ *       GlobalReplicationGroupMemberRole: 'STRING_VALUE',
+ *     },
+ *     Status: 'STRING_VALUE',
+ *     PendingModifiedValues: { // ReplicationGroupPendingModifiedValues
+ *       PrimaryClusterId: 'STRING_VALUE',
+ *       AutomaticFailoverStatus: 'enabled' || 'disabled',
+ *       Resharding: { // ReshardingStatus
+ *         SlotMigration: { // SlotMigration
+ *           ProgressPercentage: Number('double'),
+ *         },
+ *       },
+ *       AuthTokenStatus: 'SETTING' || 'ROTATING',
+ *       UserGroups: { // UserGroupsUpdateStatus
+ *         UserGroupIdsToAdd: [ // UserGroupIdList
+ *           'STRING_VALUE',
+ *         ],
+ *         UserGroupIdsToRemove: [
+ *           'STRING_VALUE',
+ *         ],
+ *       },
+ *       LogDeliveryConfigurations: [ // PendingLogDeliveryConfigurationList
+ *         { // PendingLogDeliveryConfiguration
+ *           LogType: 'slow-log' || 'engine-log',
+ *           DestinationType: 'cloudwatch-logs' || 'kinesis-firehose',
+ *           DestinationDetails: { // DestinationDetails
+ *             CloudWatchLogsDetails: { // CloudWatchLogsDestinationDetails
+ *               LogGroup: 'STRING_VALUE',
+ *             },
+ *             KinesisFirehoseDetails: { // KinesisFirehoseDestinationDetails
+ *               DeliveryStream: 'STRING_VALUE',
+ *             },
+ *           },
+ *           LogFormat: 'text' || 'json',
+ *         },
+ *       ],
+ *       TransitEncryptionEnabled: true || false,
+ *       TransitEncryptionMode: 'preferred' || 'required',
+ *     },
+ *     MemberClusters: [ // ClusterIdList
+ *       'STRING_VALUE',
+ *     ],
+ *     NodeGroups: [ // NodeGroupList
+ *       { // NodeGroup
+ *         NodeGroupId: 'STRING_VALUE',
+ *         Status: 'STRING_VALUE',
+ *         PrimaryEndpoint: { // Endpoint
+ *           Address: 'STRING_VALUE',
+ *           Port: Number('int'),
+ *         },
+ *         ReaderEndpoint: {
+ *           Address: 'STRING_VALUE',
+ *           Port: Number('int'),
+ *         },
+ *         Slots: 'STRING_VALUE',
+ *         NodeGroupMembers: [ // NodeGroupMemberList
+ *           { // NodeGroupMember
+ *             CacheClusterId: 'STRING_VALUE',
+ *             CacheNodeId: 'STRING_VALUE',
+ *             ReadEndpoint: {
+ *               Address: 'STRING_VALUE',
+ *               Port: Number('int'),
+ *             },
+ *             PreferredAvailabilityZone: 'STRING_VALUE',
+ *             PreferredOutpostArn: 'STRING_VALUE',
+ *             CurrentRole: 'STRING_VALUE',
+ *           },
+ *         ],
+ *       },
+ *     ],
+ *     SnapshottingClusterId: 'STRING_VALUE',
+ *     AutomaticFailover: 'enabled' || 'disabled' || 'enabling' || 'disabling',
+ *     MultiAZ: 'enabled' || 'disabled',
+ *     ConfigurationEndpoint: '<Endpoint>',
+ *     SnapshotRetentionLimit: Number('int'),
+ *     SnapshotWindow: 'STRING_VALUE',
+ *     ClusterEnabled: true || false,
+ *     CacheNodeType: 'STRING_VALUE',
+ *     AuthTokenEnabled: true || false,
+ *     AuthTokenLastModifiedDate: new Date('TIMESTAMP'),
+ *     TransitEncryptionEnabled: true || false,
+ *     AtRestEncryptionEnabled: true || false,
+ *     MemberClustersOutpostArns: [ // ReplicationGroupOutpostArnList
+ *       'STRING_VALUE',
+ *     ],
+ *     KmsKeyId: 'STRING_VALUE',
+ *     ARN: 'STRING_VALUE',
+ *     UserGroupIds: [
+ *       'STRING_VALUE',
+ *     ],
+ *     LogDeliveryConfigurations: [ // LogDeliveryConfigurationList
+ *       { // LogDeliveryConfiguration
+ *         LogType: 'slow-log' || 'engine-log',
+ *         DestinationType: 'cloudwatch-logs' || 'kinesis-firehose',
+ *         DestinationDetails: {
+ *           CloudWatchLogsDetails: {
+ *             LogGroup: 'STRING_VALUE',
+ *           },
+ *           KinesisFirehoseDetails: {
+ *             DeliveryStream: 'STRING_VALUE',
+ *           },
+ *         },
+ *         LogFormat: 'text' || 'json',
+ *         Status: 'active' || 'enabling' || 'modifying' || 'disabling' || 'error',
+ *         Message: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     ReplicationGroupCreateTime: new Date('TIMESTAMP'),
+ *     DataTiering: 'enabled' || 'disabled',
+ *     AutoMinorVersionUpgrade: true || false,
+ *     NetworkType: 'ipv4' || 'ipv6' || 'dual_stack',
+ *     IpDiscovery: 'ipv4' || 'ipv6',
+ *     TransitEncryptionMode: 'preferred' || 'required',
+ *   },
+ * };
+ *
  * ```
  *
  * @param DecreaseReplicaCountCommandInput - {@link DecreaseReplicaCountCommandInput}
@@ -109,6 +231,8 @@ export interface DecreaseReplicaCountCommandOutput extends DecreaseReplicaCountR
  * @throws {@link ServiceLinkedRoleNotFoundFault} (client fault)
  *  <p>The specified service linked role (SLR) was not found.</p>
  *
+ * @throws {@link ElastiCacheServiceException}
+ * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
  */
 export class DecreaseReplicaCountCommand extends $Command<

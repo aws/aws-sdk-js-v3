@@ -43,24 +43,37 @@ export interface DescribeSourceRegionsCommandOutput extends SourceRegionMessage,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RDSClient, DescribeSourceRegionsCommand } from "@aws-sdk/client-rds"; // ES Modules import
- * // const { RDSClient, DescribeSourceRegionsCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * import { RDSClient, DescribeSourceRegionsCommand } from '@aws-sdk/client-rds'; // ES Modules import
+ * // const { RDSClient, DescribeSourceRegionsCommand } = require('@aws-sdk/client-rds'); // CommonJS import
  * const client = new RDSClient(config);
  * const input = { // DescribeSourceRegionsMessage
- *   RegionName: "STRING_VALUE",
- *   MaxRecords: Number("int"),
- *   Marker: "STRING_VALUE",
+ *   RegionName: 'STRING_VALUE',
+ *   MaxRecords: Number('int'),
+ *   Marker: 'STRING_VALUE',
  *   Filters: [ // FilterList
  *     { // Filter
- *       Name: "STRING_VALUE", // required
+ *       Name: 'STRING_VALUE', // required
  *       Values: [ // FilterValueList // required
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
  * };
  * const command = new DescribeSourceRegionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SourceRegionMessage
+ *   Marker: 'STRING_VALUE',
+ *   SourceRegions: [ // SourceRegionList
+ *     { // SourceRegion
+ *       RegionName: 'STRING_VALUE',
+ *       Endpoint: 'STRING_VALUE',
+ *       Status: 'STRING_VALUE',
+ *       SupportsDBInstanceAutomatedBackupsReplication: true || false,
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeSourceRegionsCommandInput - {@link DescribeSourceRegionsCommandInput}
@@ -69,6 +82,8 @@ export interface DescribeSourceRegionsCommandOutput extends SourceRegionMessage,
  * @see {@link DescribeSourceRegionsCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
+ * @throws {@link RDSServiceException}
+ * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  * @example To describe source Regions
  * ```javascript

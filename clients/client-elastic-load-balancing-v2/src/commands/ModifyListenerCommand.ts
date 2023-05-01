@@ -47,86 +47,168 @@ export interface ModifyListenerCommandOutput extends ModifyListenerOutput, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElasticLoadBalancingV2Client, ModifyListenerCommand } from "@aws-sdk/client-elastic-load-balancing-v2"; // ES Modules import
- * // const { ElasticLoadBalancingV2Client, ModifyListenerCommand } = require("@aws-sdk/client-elastic-load-balancing-v2"); // CommonJS import
+ * import { ElasticLoadBalancingV2Client, ModifyListenerCommand } from '@aws-sdk/client-elastic-load-balancing-v2'; // ES Modules import
+ * // const { ElasticLoadBalancingV2Client, ModifyListenerCommand } = require('@aws-sdk/client-elastic-load-balancing-v2'); // CommonJS import
  * const client = new ElasticLoadBalancingV2Client(config);
  * const input = { // ModifyListenerInput
- *   ListenerArn: "STRING_VALUE", // required
- *   Port: Number("int"),
- *   Protocol: "HTTP" || "HTTPS" || "TCP" || "TLS" || "UDP" || "TCP_UDP" || "GENEVE",
- *   SslPolicy: "STRING_VALUE",
+ *   ListenerArn: 'STRING_VALUE', // required
+ *   Port: Number('int'),
+ *   Protocol: 'HTTP' || 'HTTPS' || 'TCP' || 'TLS' || 'UDP' || 'TCP_UDP' || 'GENEVE',
+ *   SslPolicy: 'STRING_VALUE',
  *   Certificates: [ // CertificateList
  *     { // Certificate
- *       CertificateArn: "STRING_VALUE",
+ *       CertificateArn: 'STRING_VALUE',
  *       IsDefault: true || false,
  *     },
  *   ],
  *   DefaultActions: [ // Actions
  *     { // Action
- *       Type: "forward" || "authenticate-oidc" || "authenticate-cognito" || "redirect" || "fixed-response", // required
- *       TargetGroupArn: "STRING_VALUE",
+ *       Type: 'forward' || 'authenticate-oidc' || 'authenticate-cognito' || 'redirect' || 'fixed-response', // required
+ *       TargetGroupArn: 'STRING_VALUE',
  *       AuthenticateOidcConfig: { // AuthenticateOidcActionConfig
- *         Issuer: "STRING_VALUE", // required
- *         AuthorizationEndpoint: "STRING_VALUE", // required
- *         TokenEndpoint: "STRING_VALUE", // required
- *         UserInfoEndpoint: "STRING_VALUE", // required
- *         ClientId: "STRING_VALUE", // required
- *         ClientSecret: "STRING_VALUE",
- *         SessionCookieName: "STRING_VALUE",
- *         Scope: "STRING_VALUE",
- *         SessionTimeout: Number("long"),
+ *         Issuer: 'STRING_VALUE', // required
+ *         AuthorizationEndpoint: 'STRING_VALUE', // required
+ *         TokenEndpoint: 'STRING_VALUE', // required
+ *         UserInfoEndpoint: 'STRING_VALUE', // required
+ *         ClientId: 'STRING_VALUE', // required
+ *         ClientSecret: 'STRING_VALUE',
+ *         SessionCookieName: 'STRING_VALUE',
+ *         Scope: 'STRING_VALUE',
+ *         SessionTimeout: Number('long'),
  *         AuthenticationRequestExtraParams: { // AuthenticateOidcActionAuthenticationRequestExtraParams
- *           "<keys>": "STRING_VALUE",
+ *           '<keys>': 'STRING_VALUE',
  *         },
- *         OnUnauthenticatedRequest: "deny" || "allow" || "authenticate",
+ *         OnUnauthenticatedRequest: 'deny' || 'allow' || 'authenticate',
  *         UseExistingClientSecret: true || false,
  *       },
  *       AuthenticateCognitoConfig: { // AuthenticateCognitoActionConfig
- *         UserPoolArn: "STRING_VALUE", // required
- *         UserPoolClientId: "STRING_VALUE", // required
- *         UserPoolDomain: "STRING_VALUE", // required
- *         SessionCookieName: "STRING_VALUE",
- *         Scope: "STRING_VALUE",
- *         SessionTimeout: Number("long"),
+ *         UserPoolArn: 'STRING_VALUE', // required
+ *         UserPoolClientId: 'STRING_VALUE', // required
+ *         UserPoolDomain: 'STRING_VALUE', // required
+ *         SessionCookieName: 'STRING_VALUE',
+ *         Scope: 'STRING_VALUE',
+ *         SessionTimeout: Number('long'),
  *         AuthenticationRequestExtraParams: { // AuthenticateCognitoActionAuthenticationRequestExtraParams
- *           "<keys>": "STRING_VALUE",
+ *           '<keys>': 'STRING_VALUE',
  *         },
- *         OnUnauthenticatedRequest: "deny" || "allow" || "authenticate",
+ *         OnUnauthenticatedRequest: 'deny' || 'allow' || 'authenticate',
  *       },
- *       Order: Number("int"),
+ *       Order: Number('int'),
  *       RedirectConfig: { // RedirectActionConfig
- *         Protocol: "STRING_VALUE",
- *         Port: "STRING_VALUE",
- *         Host: "STRING_VALUE",
- *         Path: "STRING_VALUE",
- *         Query: "STRING_VALUE",
- *         StatusCode: "HTTP_301" || "HTTP_302", // required
+ *         Protocol: 'STRING_VALUE',
+ *         Port: 'STRING_VALUE',
+ *         Host: 'STRING_VALUE',
+ *         Path: 'STRING_VALUE',
+ *         Query: 'STRING_VALUE',
+ *         StatusCode: 'HTTP_301' || 'HTTP_302', // required
  *       },
  *       FixedResponseConfig: { // FixedResponseActionConfig
- *         MessageBody: "STRING_VALUE",
- *         StatusCode: "STRING_VALUE", // required
- *         ContentType: "STRING_VALUE",
+ *         MessageBody: 'STRING_VALUE',
+ *         StatusCode: 'STRING_VALUE', // required
+ *         ContentType: 'STRING_VALUE',
  *       },
  *       ForwardConfig: { // ForwardActionConfig
  *         TargetGroups: [ // TargetGroupList
  *           { // TargetGroupTuple
- *             TargetGroupArn: "STRING_VALUE",
- *             Weight: Number("int"),
+ *             TargetGroupArn: 'STRING_VALUE',
+ *             Weight: Number('int'),
  *           },
  *         ],
  *         TargetGroupStickinessConfig: { // TargetGroupStickinessConfig
  *           Enabled: true || false,
- *           DurationSeconds: Number("int"),
+ *           DurationSeconds: Number('int'),
  *         },
  *       },
  *     },
  *   ],
  *   AlpnPolicy: [ // AlpnPolicyName
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new ModifyListenerCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ModifyListenerOutput
+ *   Listeners: [ // Listeners
+ *     { // Listener
+ *       ListenerArn: 'STRING_VALUE',
+ *       LoadBalancerArn: 'STRING_VALUE',
+ *       Port: Number('int'),
+ *       Protocol: 'HTTP' || 'HTTPS' || 'TCP' || 'TLS' || 'UDP' || 'TCP_UDP' || 'GENEVE',
+ *       Certificates: [ // CertificateList
+ *         { // Certificate
+ *           CertificateArn: 'STRING_VALUE',
+ *           IsDefault: true || false,
+ *         },
+ *       ],
+ *       SslPolicy: 'STRING_VALUE',
+ *       DefaultActions: [ // Actions
+ *         { // Action
+ *           Type: 'forward' || 'authenticate-oidc' || 'authenticate-cognito' || 'redirect' || 'fixed-response', // required
+ *           TargetGroupArn: 'STRING_VALUE',
+ *           AuthenticateOidcConfig: { // AuthenticateOidcActionConfig
+ *             Issuer: 'STRING_VALUE', // required
+ *             AuthorizationEndpoint: 'STRING_VALUE', // required
+ *             TokenEndpoint: 'STRING_VALUE', // required
+ *             UserInfoEndpoint: 'STRING_VALUE', // required
+ *             ClientId: 'STRING_VALUE', // required
+ *             ClientSecret: 'STRING_VALUE',
+ *             SessionCookieName: 'STRING_VALUE',
+ *             Scope: 'STRING_VALUE',
+ *             SessionTimeout: Number('long'),
+ *             AuthenticationRequestExtraParams: { // AuthenticateOidcActionAuthenticationRequestExtraParams
+ *               '<keys>': 'STRING_VALUE',
+ *             },
+ *             OnUnauthenticatedRequest: 'deny' || 'allow' || 'authenticate',
+ *             UseExistingClientSecret: true || false,
+ *           },
+ *           AuthenticateCognitoConfig: { // AuthenticateCognitoActionConfig
+ *             UserPoolArn: 'STRING_VALUE', // required
+ *             UserPoolClientId: 'STRING_VALUE', // required
+ *             UserPoolDomain: 'STRING_VALUE', // required
+ *             SessionCookieName: 'STRING_VALUE',
+ *             Scope: 'STRING_VALUE',
+ *             SessionTimeout: Number('long'),
+ *             AuthenticationRequestExtraParams: { // AuthenticateCognitoActionAuthenticationRequestExtraParams
+ *               '<keys>': 'STRING_VALUE',
+ *             },
+ *             OnUnauthenticatedRequest: 'deny' || 'allow' || 'authenticate',
+ *           },
+ *           Order: Number('int'),
+ *           RedirectConfig: { // RedirectActionConfig
+ *             Protocol: 'STRING_VALUE',
+ *             Port: 'STRING_VALUE',
+ *             Host: 'STRING_VALUE',
+ *             Path: 'STRING_VALUE',
+ *             Query: 'STRING_VALUE',
+ *             StatusCode: 'HTTP_301' || 'HTTP_302', // required
+ *           },
+ *           FixedResponseConfig: { // FixedResponseActionConfig
+ *             MessageBody: 'STRING_VALUE',
+ *             StatusCode: 'STRING_VALUE', // required
+ *             ContentType: 'STRING_VALUE',
+ *           },
+ *           ForwardConfig: { // ForwardActionConfig
+ *             TargetGroups: [ // TargetGroupList
+ *               { // TargetGroupTuple
+ *                 TargetGroupArn: 'STRING_VALUE',
+ *                 Weight: Number('int'),
+ *               },
+ *             ],
+ *             TargetGroupStickinessConfig: { // TargetGroupStickinessConfig
+ *               Enabled: true || false,
+ *               DurationSeconds: Number('int'),
+ *             },
+ *           },
+ *         },
+ *       ],
+ *       AlpnPolicy: [ // AlpnPolicyName
+ *         'STRING_VALUE',
+ *       ],
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ModifyListenerCommandInput - {@link ModifyListenerCommandInput}
@@ -189,6 +271,8 @@ export interface ModifyListenerCommandOutput extends ModifyListenerOutput, __Met
  * @throws {@link UnsupportedProtocolException} (client fault)
  *  <p>The specified protocol is not supported.</p>
  *
+ * @throws {@link ElasticLoadBalancingV2ServiceException}
+ * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
  * @example To change the default action for a listener
  * ```javascript

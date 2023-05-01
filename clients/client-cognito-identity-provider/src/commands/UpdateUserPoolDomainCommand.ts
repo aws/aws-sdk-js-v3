@@ -59,18 +59,23 @@ export interface UpdateUserPoolDomainCommandOutput extends UpdateUserPoolDomainR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CognitoIdentityProviderClient, UpdateUserPoolDomainCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
- * // const { CognitoIdentityProviderClient, UpdateUserPoolDomainCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
+ * import { CognitoIdentityProviderClient, UpdateUserPoolDomainCommand } from '@aws-sdk/client-cognito-identity-provider'; // ES Modules import
+ * // const { CognitoIdentityProviderClient, UpdateUserPoolDomainCommand } = require('@aws-sdk/client-cognito-identity-provider'); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
  * const input = { // UpdateUserPoolDomainRequest
- *   Domain: "STRING_VALUE", // required
- *   UserPoolId: "STRING_VALUE", // required
+ *   Domain: 'STRING_VALUE', // required
+ *   UserPoolId: 'STRING_VALUE', // required
  *   CustomDomainConfig: { // CustomDomainConfigType
- *     CertificateArn: "STRING_VALUE", // required
+ *     CertificateArn: 'STRING_VALUE', // required
  *   },
  * };
  * const command = new UpdateUserPoolDomainCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateUserPoolDomainResponse
+ *   CloudFrontDomain: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateUserPoolDomainCommandInput - {@link UpdateUserPoolDomainCommandInput}
@@ -97,6 +102,8 @@ export interface UpdateUserPoolDomainCommandOutput extends UpdateUserPoolDomainR
  *  <p>This exception is thrown when the user has made too many requests for a given
  *             operation.</p>
  *
+ * @throws {@link CognitoIdentityProviderServiceException}
+ * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
  */
 export class UpdateUserPoolDomainCommand extends $Command<

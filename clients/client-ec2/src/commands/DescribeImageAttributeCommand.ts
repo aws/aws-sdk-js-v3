@@ -36,16 +36,72 @@ export interface DescribeImageAttributeCommandOutput extends ImageAttribute, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, DescribeImageAttributeCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, DescribeImageAttributeCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, DescribeImageAttributeCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, DescribeImageAttributeCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // DescribeImageAttributeRequest
- *   Attribute: "description" || "kernel" || "ramdisk" || "launchPermission" || "productCodes" || "blockDeviceMapping" || "sriovNetSupport" || "bootMode" || "tpmSupport" || "uefiData" || "lastLaunchedTime" || "imdsSupport", // required
- *   ImageId: "STRING_VALUE", // required
+ *   Attribute: 'description' || 'kernel' || 'ramdisk' || 'launchPermission' || 'productCodes' || 'blockDeviceMapping' || 'sriovNetSupport' || 'bootMode' || 'tpmSupport' || 'uefiData' || 'lastLaunchedTime' || 'imdsSupport', // required
+ *   ImageId: 'STRING_VALUE', // required
  *   DryRun: true || false,
  * };
  * const command = new DescribeImageAttributeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ImageAttribute
+ *   BlockDeviceMappings: [ // BlockDeviceMappingList
+ *     { // BlockDeviceMapping
+ *       DeviceName: 'STRING_VALUE',
+ *       VirtualName: 'STRING_VALUE',
+ *       Ebs: { // EbsBlockDevice
+ *         DeleteOnTermination: true || false,
+ *         Iops: Number('int'),
+ *         SnapshotId: 'STRING_VALUE',
+ *         VolumeSize: Number('int'),
+ *         VolumeType: 'standard' || 'io1' || 'io2' || 'gp2' || 'sc1' || 'st1' || 'gp3',
+ *         KmsKeyId: 'STRING_VALUE',
+ *         Throughput: Number('int'),
+ *         OutpostArn: 'STRING_VALUE',
+ *         Encrypted: true || false,
+ *       },
+ *       NoDevice: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   ImageId: 'STRING_VALUE',
+ *   LaunchPermissions: [ // LaunchPermissionList
+ *     { // LaunchPermission
+ *       Group: 'all',
+ *       UserId: 'STRING_VALUE',
+ *       OrganizationArn: 'STRING_VALUE',
+ *       OrganizationalUnitArn: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   ProductCodes: [ // ProductCodeList
+ *     { // ProductCode
+ *       ProductCodeId: 'STRING_VALUE',
+ *       ProductCodeType: 'devpay' || 'marketplace',
+ *     },
+ *   ],
+ *   Description: { // AttributeValue
+ *     Value: 'STRING_VALUE',
+ *   },
+ *   KernelId: {
+ *     Value: 'STRING_VALUE',
+ *   },
+ *   RamdiskId: {
+ *     Value: 'STRING_VALUE',
+ *   },
+ *   SriovNetSupport: {
+ *     Value: 'STRING_VALUE',
+ *   },
+ *   BootMode: {
+ *     Value: 'STRING_VALUE',
+ *   },
+ *   TpmSupport: '<AttributeValue>',
+ *   UefiData: '<AttributeValue>',
+ *   LastLaunchedTime: '<AttributeValue>',
+ *   ImdsSupport: '<AttributeValue>',
+ * };
+ *
  * ```
  *
  * @param DescribeImageAttributeCommandInput - {@link DescribeImageAttributeCommandInput}
@@ -54,6 +110,8 @@ export interface DescribeImageAttributeCommandOutput extends ImageAttribute, __M
  * @see {@link DescribeImageAttributeCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @example To describe the launch permissions for an AMI
  * ```javascript

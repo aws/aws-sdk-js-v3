@@ -36,21 +36,26 @@ export interface CreateSavingsPlanCommandOutput extends CreateSavingsPlanRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SavingsplansClient, CreateSavingsPlanCommand } from "@aws-sdk/client-savingsplans"; // ES Modules import
- * // const { SavingsplansClient, CreateSavingsPlanCommand } = require("@aws-sdk/client-savingsplans"); // CommonJS import
+ * import { SavingsplansClient, CreateSavingsPlanCommand } from '@aws-sdk/client-savingsplans'; // ES Modules import
+ * // const { SavingsplansClient, CreateSavingsPlanCommand } = require('@aws-sdk/client-savingsplans'); // CommonJS import
  * const client = new SavingsplansClient(config);
  * const input = { // CreateSavingsPlanRequest
- *   savingsPlanOfferingId: "STRING_VALUE", // required
- *   commitment: "STRING_VALUE", // required
- *   upfrontPaymentAmount: "STRING_VALUE",
- *   purchaseTime: new Date("TIMESTAMP"),
- *   clientToken: "STRING_VALUE",
+ *   savingsPlanOfferingId: 'STRING_VALUE', // required
+ *   commitment: 'STRING_VALUE', // required
+ *   upfrontPaymentAmount: 'STRING_VALUE',
+ *   purchaseTime: new Date('TIMESTAMP'),
+ *   clientToken: 'STRING_VALUE',
  *   tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateSavingsPlanCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateSavingsPlanResponse
+ *   savingsPlanId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateSavingsPlanCommandInput - {@link CreateSavingsPlanCommandInput}
@@ -71,6 +76,8 @@ export interface CreateSavingsPlanCommandOutput extends CreateSavingsPlanRespons
  * @throws {@link ValidationException} (client fault)
  *  <p>One of the input parameters is not valid.</p>
  *
+ * @throws {@link SavingsplansServiceException}
+ * <p>Base exception class for all service exceptions from Savingsplans service.</p>
  *
  */
 export class CreateSavingsPlanCommand extends $Command<

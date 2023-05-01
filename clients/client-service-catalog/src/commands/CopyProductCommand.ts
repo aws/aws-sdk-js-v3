@@ -42,26 +42,31 @@ export interface CopyProductCommandOutput extends CopyProductOutput, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ServiceCatalogClient, CopyProductCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
- * // const { ServiceCatalogClient, CopyProductCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
+ * import { ServiceCatalogClient, CopyProductCommand } from '@aws-sdk/client-service-catalog'; // ES Modules import
+ * // const { ServiceCatalogClient, CopyProductCommand } = require('@aws-sdk/client-service-catalog'); // CommonJS import
  * const client = new ServiceCatalogClient(config);
  * const input = { // CopyProductInput
- *   AcceptLanguage: "STRING_VALUE",
- *   SourceProductArn: "STRING_VALUE", // required
- *   TargetProductId: "STRING_VALUE",
- *   TargetProductName: "STRING_VALUE",
+ *   AcceptLanguage: 'STRING_VALUE',
+ *   SourceProductArn: 'STRING_VALUE', // required
+ *   TargetProductId: 'STRING_VALUE',
+ *   TargetProductName: 'STRING_VALUE',
  *   SourceProvisioningArtifactIdentifiers: [ // SourceProvisioningArtifactProperties
  *     { // SourceProvisioningArtifactPropertiesMap
- *       "<keys>": "STRING_VALUE",
+ *       '<keys>': 'STRING_VALUE',
  *     },
  *   ],
  *   CopyOptions: [ // CopyOptions
- *     "CopyTags",
+ *     'CopyTags',
  *   ],
- *   IdempotencyToken: "STRING_VALUE", // required
+ *   IdempotencyToken: 'STRING_VALUE', // required
  * };
  * const command = new CopyProductCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CopyProductOutput
+ *   CopyProductToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CopyProductCommandInput - {@link CopyProductCommandInput}
@@ -76,6 +81,8 @@ export interface CopyProductCommandOutput extends CopyProductOutput, __MetadataB
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link ServiceCatalogServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
  */
 export class CopyProductCommand extends $Command<

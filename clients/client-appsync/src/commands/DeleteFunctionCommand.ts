@@ -36,15 +36,18 @@ export interface DeleteFunctionCommandOutput extends DeleteFunctionResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppSyncClient, DeleteFunctionCommand } from "@aws-sdk/client-appsync"; // ES Modules import
- * // const { AppSyncClient, DeleteFunctionCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
+ * import { AppSyncClient, DeleteFunctionCommand } from '@aws-sdk/client-appsync'; // ES Modules import
+ * // const { AppSyncClient, DeleteFunctionCommand } = require('@aws-sdk/client-appsync'); // CommonJS import
  * const client = new AppSyncClient(config);
  * const input = { // DeleteFunctionRequest
- *   apiId: "STRING_VALUE", // required
- *   functionId: "STRING_VALUE", // required
+ *   apiId: 'STRING_VALUE', // required
+ *   functionId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteFunctionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteFunctionCommandInput - {@link DeleteFunctionCommandInput}
@@ -66,6 +69,8 @@ export interface DeleteFunctionCommandOutput extends DeleteFunctionResponse, __M
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You aren't authorized to perform this operation.</p>
  *
+ * @throws {@link AppSyncServiceException}
+ * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
  */
 export class DeleteFunctionCommand extends $Command<

@@ -48,17 +48,28 @@ export interface DisassociatePhoneNumbersFromVoiceConnectorGroupCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeSDKVoiceClient, DisassociatePhoneNumbersFromVoiceConnectorGroupCommand } from "@aws-sdk/client-chime-sdk-voice"; // ES Modules import
- * // const { ChimeSDKVoiceClient, DisassociatePhoneNumbersFromVoiceConnectorGroupCommand } = require("@aws-sdk/client-chime-sdk-voice"); // CommonJS import
+ * import { ChimeSDKVoiceClient, DisassociatePhoneNumbersFromVoiceConnectorGroupCommand } from '@aws-sdk/client-chime-sdk-voice'; // ES Modules import
+ * // const { ChimeSDKVoiceClient, DisassociatePhoneNumbersFromVoiceConnectorGroupCommand } = require('@aws-sdk/client-chime-sdk-voice'); // CommonJS import
  * const client = new ChimeSDKVoiceClient(config);
  * const input = { // DisassociatePhoneNumbersFromVoiceConnectorGroupRequest
- *   VoiceConnectorGroupId: "STRING_VALUE", // required
+ *   VoiceConnectorGroupId: 'STRING_VALUE', // required
  *   E164PhoneNumbers: [ // E164PhoneNumberList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new DisassociatePhoneNumbersFromVoiceConnectorGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DisassociatePhoneNumbersFromVoiceConnectorGroupResponse
+ *   PhoneNumberErrors: [ // PhoneNumberErrorList
+ *     { // PhoneNumberError
+ *       PhoneNumberId: 'STRING_VALUE',
+ *       ErrorCode: 'BadRequest' || 'Conflict' || 'Forbidden' || 'NotFound' || 'PreconditionFailed' || 'ResourceLimitExceeded' || 'ServiceFailure' || 'AccessDenied' || 'ServiceUnavailable' || 'Throttled' || 'Throttling' || 'Unauthorized' || 'Unprocessable' || 'VoiceConnectorGroupAssociationsExist' || 'PhoneNumberAssociationsExist' || 'Gone',
+ *       ErrorMessage: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DisassociatePhoneNumbersFromVoiceConnectorGroupCommandInput - {@link DisassociatePhoneNumbersFromVoiceConnectorGroupCommandInput}
@@ -88,6 +99,8 @@ export interface DisassociatePhoneNumbersFromVoiceConnectorGroupCommandOutput
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client isn't authorized to request a resource.</p>
  *
+ * @throws {@link ChimeSDKVoiceServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
  */
 export class DisassociatePhoneNumbersFromVoiceConnectorGroupCommand extends $Command<

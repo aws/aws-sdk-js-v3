@@ -44,15 +44,23 @@ export interface CreateAccessTokenCommandOutput extends CreateAccessTokenRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeCatalystClient, CreateAccessTokenCommand } from "@aws-sdk/client-codecatalyst"; // ES Modules import
- * // const { CodeCatalystClient, CreateAccessTokenCommand } = require("@aws-sdk/client-codecatalyst"); // CommonJS import
+ * import { CodeCatalystClient, CreateAccessTokenCommand } from '@aws-sdk/client-codecatalyst'; // ES Modules import
+ * // const { CodeCatalystClient, CreateAccessTokenCommand } = require('@aws-sdk/client-codecatalyst'); // CommonJS import
  * const client = new CodeCatalystClient(config);
  * const input = { // CreateAccessTokenRequest
- *   name: "STRING_VALUE", // required
- *   expiresTime: new Date("TIMESTAMP"),
+ *   name: 'STRING_VALUE', // required
+ *   expiresTime: new Date('TIMESTAMP'),
  * };
  * const command = new CreateAccessTokenCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateAccessTokenResponse
+ *   secret: 'STRING_VALUE', // required
+ *   name: 'STRING_VALUE', // required
+ *   expiresTime: new Date('TIMESTAMP'), // required
+ *   accessTokenId: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param CreateAccessTokenCommandInput - {@link CreateAccessTokenCommandInput}
@@ -81,6 +89,8 @@ export interface CreateAccessTokenCommandOutput extends CreateAccessTokenRespons
  * @throws {@link ValidationException} (client fault)
  *  <p>The request was denied because an input failed to satisfy the constraints specified by the service. Check the spelling and input requirements, and then try again.</p>
  *
+ * @throws {@link CodeCatalystServiceException}
+ * <p>Base exception class for all service exceptions from CodeCatalyst service.</p>
  *
  */
 export class CreateAccessTokenCommand extends $Command<

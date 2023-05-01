@@ -53,23 +53,28 @@ export interface UpdateRegexPatternSetCommandOutput extends UpdateRegexPatternSe
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WAFV2Client, UpdateRegexPatternSetCommand } from "@aws-sdk/client-wafv2"; // ES Modules import
- * // const { WAFV2Client, UpdateRegexPatternSetCommand } = require("@aws-sdk/client-wafv2"); // CommonJS import
+ * import { WAFV2Client, UpdateRegexPatternSetCommand } from '@aws-sdk/client-wafv2'; // ES Modules import
+ * // const { WAFV2Client, UpdateRegexPatternSetCommand } = require('@aws-sdk/client-wafv2'); // CommonJS import
  * const client = new WAFV2Client(config);
  * const input = { // UpdateRegexPatternSetRequest
- *   Name: "STRING_VALUE", // required
- *   Scope: "CLOUDFRONT" || "REGIONAL", // required
- *   Id: "STRING_VALUE", // required
- *   Description: "STRING_VALUE",
+ *   Name: 'STRING_VALUE', // required
+ *   Scope: 'CLOUDFRONT' || 'REGIONAL', // required
+ *   Id: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE',
  *   RegularExpressionList: [ // RegularExpressionList // required
  *     { // Regex
- *       RegexString: "STRING_VALUE",
+ *       RegexString: 'STRING_VALUE',
  *     },
  *   ],
- *   LockToken: "STRING_VALUE", // required
+ *   LockToken: 'STRING_VALUE', // required
  * };
  * const command = new UpdateRegexPatternSetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateRegexPatternSetResponse
+ *   NextLockToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateRegexPatternSetCommandInput - {@link UpdateRegexPatternSetCommandInput}
@@ -127,6 +132,8 @@ export interface UpdateRegexPatternSetCommandOutput extends UpdateRegexPatternSe
  *          that has changed since you last retrieved it. Get the resource again, make any changes you
  *          need to make to the new copy, and retry your operation. </p>
  *
+ * @throws {@link WAFV2ServiceException}
+ * <p>Base exception class for all service exceptions from WAFV2 service.</p>
  *
  */
 export class UpdateRegexPatternSetCommand extends $Command<

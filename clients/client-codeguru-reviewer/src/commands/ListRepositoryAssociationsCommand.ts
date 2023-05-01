@@ -37,27 +37,44 @@ export interface ListRepositoryAssociationsCommandOutput extends ListRepositoryA
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeGuruReviewerClient, ListRepositoryAssociationsCommand } from "@aws-sdk/client-codeguru-reviewer"; // ES Modules import
- * // const { CodeGuruReviewerClient, ListRepositoryAssociationsCommand } = require("@aws-sdk/client-codeguru-reviewer"); // CommonJS import
+ * import { CodeGuruReviewerClient, ListRepositoryAssociationsCommand } from '@aws-sdk/client-codeguru-reviewer'; // ES Modules import
+ * // const { CodeGuruReviewerClient, ListRepositoryAssociationsCommand } = require('@aws-sdk/client-codeguru-reviewer'); // CommonJS import
  * const client = new CodeGuruReviewerClient(config);
  * const input = { // ListRepositoryAssociationsRequest
  *   ProviderTypes: [ // ProviderTypes
- *     "CodeCommit" || "GitHub" || "Bitbucket" || "GitHubEnterpriseServer" || "S3Bucket",
+ *     'CodeCommit' || 'GitHub' || 'Bitbucket' || 'GitHubEnterpriseServer' || 'S3Bucket',
  *   ],
  *   States: [ // RepositoryAssociationStates
- *     "Associated" || "Associating" || "Failed" || "Disassociating" || "Disassociated",
+ *     'Associated' || 'Associating' || 'Failed' || 'Disassociating' || 'Disassociated',
  *   ],
  *   Names: [ // Names
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   Owners: [ // Owners
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListRepositoryAssociationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListRepositoryAssociationsResponse
+ *   RepositoryAssociationSummaries: [ // RepositoryAssociationSummaries
+ *     { // RepositoryAssociationSummary
+ *       AssociationArn: 'STRING_VALUE',
+ *       ConnectionArn: 'STRING_VALUE',
+ *       LastUpdatedTimeStamp: new Date('TIMESTAMP'),
+ *       AssociationId: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *       Owner: 'STRING_VALUE',
+ *       ProviderType: 'CodeCommit' || 'GitHub' || 'Bitbucket' || 'GitHubEnterpriseServer' || 'S3Bucket',
+ *       State: 'Associated' || 'Associating' || 'Failed' || 'Disassociating' || 'Disassociated',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListRepositoryAssociationsCommandInput - {@link ListRepositoryAssociationsCommandInput}
@@ -75,6 +92,8 @@ export interface ListRepositoryAssociationsCommandOutput extends ListRepositoryA
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the specified constraints.</p>
  *
+ * @throws {@link CodeGuruReviewerServiceException}
+ * <p>Base exception class for all service exceptions from CodeGuruReviewer service.</p>
  *
  */
 export class ListRepositoryAssociationsCommand extends $Command<

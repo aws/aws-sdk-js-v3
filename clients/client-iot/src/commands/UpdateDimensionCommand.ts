@@ -42,17 +42,29 @@ export interface UpdateDimensionCommandOutput extends UpdateDimensionResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTClient, UpdateDimensionCommand } from "@aws-sdk/client-iot"; // ES Modules import
- * // const { IoTClient, UpdateDimensionCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * import { IoTClient, UpdateDimensionCommand } from '@aws-sdk/client-iot'; // ES Modules import
+ * // const { IoTClient, UpdateDimensionCommand } = require('@aws-sdk/client-iot'); // CommonJS import
  * const client = new IoTClient(config);
  * const input = { // UpdateDimensionRequest
- *   name: "STRING_VALUE", // required
+ *   name: 'STRING_VALUE', // required
  *   stringValues: [ // DimensionStringValues // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new UpdateDimensionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateDimensionResponse
+ *   name: 'STRING_VALUE',
+ *   arn: 'STRING_VALUE',
+ *   type: 'TOPIC_FILTER',
+ *   stringValues: [ // DimensionStringValues
+ *     'STRING_VALUE',
+ *   ],
+ *   creationDate: new Date('TIMESTAMP'),
+ *   lastModifiedDate: new Date('TIMESTAMP'),
+ * };
+ *
  * ```
  *
  * @param UpdateDimensionCommandInput - {@link UpdateDimensionCommandInput}
@@ -73,6 +85,8 @@ export interface UpdateDimensionCommandOutput extends UpdateDimensionResponse, _
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The rate exceeds the limit.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class UpdateDimensionCommand extends $Command<

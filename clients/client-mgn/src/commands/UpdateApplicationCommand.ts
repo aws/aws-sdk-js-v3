@@ -36,16 +36,37 @@ export interface UpdateApplicationCommandOutput extends Application, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MgnClient, UpdateApplicationCommand } from "@aws-sdk/client-mgn"; // ES Modules import
- * // const { MgnClient, UpdateApplicationCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
+ * import { MgnClient, UpdateApplicationCommand } from '@aws-sdk/client-mgn'; // ES Modules import
+ * // const { MgnClient, UpdateApplicationCommand } = require('@aws-sdk/client-mgn'); // CommonJS import
  * const client = new MgnClient(config);
  * const input = { // UpdateApplicationRequest
- *   applicationID: "STRING_VALUE", // required
- *   name: "STRING_VALUE",
- *   description: "STRING_VALUE",
+ *   applicationID: 'STRING_VALUE', // required
+ *   name: 'STRING_VALUE',
+ *   description: 'STRING_VALUE',
  * };
  * const command = new UpdateApplicationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // Application
+ *   applicationID: 'STRING_VALUE',
+ *   arn: 'STRING_VALUE',
+ *   name: 'STRING_VALUE',
+ *   description: 'STRING_VALUE',
+ *   isArchived: true || false,
+ *   applicationAggregatedStatus: { // ApplicationAggregatedStatus
+ *     lastUpdateDateTime: 'STRING_VALUE',
+ *     healthStatus: 'STRING_VALUE',
+ *     progressStatus: 'STRING_VALUE',
+ *     totalSourceServers: Number('long'),
+ *   },
+ *   creationDateTime: 'STRING_VALUE',
+ *   lastModifiedDateTime: 'STRING_VALUE',
+ *   tags: { // TagsMap
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ *   waveID: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateApplicationCommandInput - {@link UpdateApplicationCommandInput}
@@ -63,6 +84,8 @@ export interface UpdateApplicationCommandOutput extends Application, __MetadataB
  * @throws {@link UninitializedAccountException} (client fault)
  *  <p>Uninitialized account exception.</p>
  *
+ * @throws {@link MgnServiceException}
+ * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
  */
 export class UpdateApplicationCommand extends $Command<

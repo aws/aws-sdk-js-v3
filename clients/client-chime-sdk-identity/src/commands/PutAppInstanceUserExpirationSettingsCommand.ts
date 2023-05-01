@@ -50,18 +50,27 @@ export interface PutAppInstanceUserExpirationSettingsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeSDKIdentityClient, PutAppInstanceUserExpirationSettingsCommand } from "@aws-sdk/client-chime-sdk-identity"; // ES Modules import
- * // const { ChimeSDKIdentityClient, PutAppInstanceUserExpirationSettingsCommand } = require("@aws-sdk/client-chime-sdk-identity"); // CommonJS import
+ * import { ChimeSDKIdentityClient, PutAppInstanceUserExpirationSettingsCommand } from '@aws-sdk/client-chime-sdk-identity'; // ES Modules import
+ * // const { ChimeSDKIdentityClient, PutAppInstanceUserExpirationSettingsCommand } = require('@aws-sdk/client-chime-sdk-identity'); // CommonJS import
  * const client = new ChimeSDKIdentityClient(config);
  * const input = { // PutAppInstanceUserExpirationSettingsRequest
- *   AppInstanceUserArn: "STRING_VALUE", // required
+ *   AppInstanceUserArn: 'STRING_VALUE', // required
  *   ExpirationSettings: { // ExpirationSettings
- *     ExpirationDays: Number("int"), // required
- *     ExpirationCriterion: "CREATED_TIMESTAMP", // required
+ *     ExpirationDays: Number('int'), // required
+ *     ExpirationCriterion: 'CREATED_TIMESTAMP', // required
  *   },
  * };
  * const command = new PutAppInstanceUserExpirationSettingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutAppInstanceUserExpirationSettingsResponse
+ *   AppInstanceUserArn: 'STRING_VALUE',
+ *   ExpirationSettings: { // ExpirationSettings
+ *     ExpirationDays: Number('int'), // required
+ *     ExpirationCriterion: 'CREATED_TIMESTAMP', // required
+ *   },
+ * };
+ *
  * ```
  *
  * @param PutAppInstanceUserExpirationSettingsCommandInput - {@link PutAppInstanceUserExpirationSettingsCommandInput}
@@ -92,6 +101,8 @@ export interface PutAppInstanceUserExpirationSettingsCommandOutput
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeSDKIdentityServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKIdentity service.</p>
  *
  */
 export class PutAppInstanceUserExpirationSettingsCommand extends $Command<

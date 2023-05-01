@@ -45,16 +45,27 @@ export interface StopDataCollectionByAgentIdsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ApplicationDiscoveryServiceClient, StopDataCollectionByAgentIdsCommand } from "@aws-sdk/client-application-discovery-service"; // ES Modules import
- * // const { ApplicationDiscoveryServiceClient, StopDataCollectionByAgentIdsCommand } = require("@aws-sdk/client-application-discovery-service"); // CommonJS import
+ * import { ApplicationDiscoveryServiceClient, StopDataCollectionByAgentIdsCommand } from '@aws-sdk/client-application-discovery-service'; // ES Modules import
+ * // const { ApplicationDiscoveryServiceClient, StopDataCollectionByAgentIdsCommand } = require('@aws-sdk/client-application-discovery-service'); // CommonJS import
  * const client = new ApplicationDiscoveryServiceClient(config);
  * const input = { // StopDataCollectionByAgentIdsRequest
  *   agentIds: [ // AgentIds // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new StopDataCollectionByAgentIdsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StopDataCollectionByAgentIdsResponse
+ *   agentsConfigurationStatus: [ // AgentConfigurationStatusList
+ *     { // AgentConfigurationStatus
+ *       agentId: 'STRING_VALUE',
+ *       operationSucceeded: true || false,
+ *       description: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param StopDataCollectionByAgentIdsCommandInput - {@link StopDataCollectionByAgentIdsCommandInput}
@@ -80,6 +91,8 @@ export interface StopDataCollectionByAgentIdsCommandOutput
  * @throws {@link ServerInternalErrorException} (server fault)
  *  <p>The server experienced an internal error. Try again.</p>
  *
+ * @throws {@link ApplicationDiscoveryServiceServiceException}
+ * <p>Base exception class for all service exceptions from ApplicationDiscoveryService service.</p>
  *
  */
 export class StopDataCollectionByAgentIdsCommand extends $Command<

@@ -36,17 +36,20 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SavingsplansClient, TagResourceCommand } from "@aws-sdk/client-savingsplans"; // ES Modules import
- * // const { SavingsplansClient, TagResourceCommand } = require("@aws-sdk/client-savingsplans"); // CommonJS import
+ * import { SavingsplansClient, TagResourceCommand } from '@aws-sdk/client-savingsplans'; // ES Modules import
+ * // const { SavingsplansClient, TagResourceCommand } = require('@aws-sdk/client-savingsplans'); // CommonJS import
  * const client = new SavingsplansClient(config);
  * const input = { // TagResourceRequest
- *   resourceArn: "STRING_VALUE", // required
+ *   resourceArn: 'STRING_VALUE', // required
  *   tags: { // TagMap // required
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param TagResourceCommandInput - {@link TagResourceCommandInput}
@@ -67,6 +70,8 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @throws {@link ValidationException} (client fault)
  *  <p>One of the input parameters is not valid.</p>
  *
+ * @throws {@link SavingsplansServiceException}
+ * <p>Base exception class for all service exceptions from Savingsplans service.</p>
  *
  */
 export class TagResourceCommand extends $Command<

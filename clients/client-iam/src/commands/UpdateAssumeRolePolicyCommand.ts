@@ -39,15 +39,18 @@ export interface UpdateAssumeRolePolicyCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IAMClient, UpdateAssumeRolePolicyCommand } from "@aws-sdk/client-iam"; // ES Modules import
- * // const { IAMClient, UpdateAssumeRolePolicyCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * import { IAMClient, UpdateAssumeRolePolicyCommand } from '@aws-sdk/client-iam'; // ES Modules import
+ * // const { IAMClient, UpdateAssumeRolePolicyCommand } = require('@aws-sdk/client-iam'); // CommonJS import
  * const client = new IAMClient(config);
  * const input = { // UpdateAssumeRolePolicyRequest
- *   RoleName: "STRING_VALUE", // required
- *   PolicyDocument: "STRING_VALUE", // required
+ *   RoleName: 'STRING_VALUE', // required
+ *   PolicyDocument: 'STRING_VALUE', // required
  * };
  * const command = new UpdateAssumeRolePolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateAssumeRolePolicyCommandInput - {@link UpdateAssumeRolePolicyCommandInput}
@@ -78,6 +81,8 @@ export interface UpdateAssumeRolePolicyCommandOutput extends __MetadataBearer {}
  *       behalf. The error message includes the name of the service that depends on this service-linked
  *       role. You must request the change through that service.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  * @example To update the trust policy for an IAM role
  * ```javascript

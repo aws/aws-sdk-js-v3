@@ -41,17 +41,28 @@ export interface ListTagsForStreamCommandOutput extends ListTagsForStreamOutput,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KinesisClient, ListTagsForStreamCommand } from "@aws-sdk/client-kinesis"; // ES Modules import
- * // const { KinesisClient, ListTagsForStreamCommand } = require("@aws-sdk/client-kinesis"); // CommonJS import
+ * import { KinesisClient, ListTagsForStreamCommand } from '@aws-sdk/client-kinesis'; // ES Modules import
+ * // const { KinesisClient, ListTagsForStreamCommand } = require('@aws-sdk/client-kinesis'); // CommonJS import
  * const client = new KinesisClient(config);
  * const input = { // ListTagsForStreamInput
- *   StreamName: "STRING_VALUE",
- *   ExclusiveStartTagKey: "STRING_VALUE",
- *   Limit: Number("int"),
- *   StreamARN: "STRING_VALUE",
+ *   StreamName: 'STRING_VALUE',
+ *   ExclusiveStartTagKey: 'STRING_VALUE',
+ *   Limit: Number('int'),
+ *   StreamARN: 'STRING_VALUE',
  * };
  * const command = new ListTagsForStreamCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTagsForStreamOutput
+ *   Tags: [ // TagList // required
+ *     { // Tag
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   HasMoreTags: true || false, // required
+ * };
+ *
  * ```
  *
  * @param ListTagsForStreamCommandInput - {@link ListTagsForStreamCommandInput}
@@ -76,6 +87,8 @@ export interface ListTagsForStreamCommandOutput extends ListTagsForStreamOutput,
  *  <p>The requested resource could not be found. The stream might not be specified
  *             correctly.</p>
  *
+ * @throws {@link KinesisServiceException}
+ * <p>Base exception class for all service exceptions from Kinesis service.</p>
  *
  */
 export class ListTagsForStreamCommand extends $Command<

@@ -37,22 +37,38 @@ export interface ListImageVersionsCommandOutput extends ListImageVersionsRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, ListImageVersionsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, ListImageVersionsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, ListImageVersionsCommand } from '@aws-sdk/client-sagemaker'; // ES Modules import
+ * // const { SageMakerClient, ListImageVersionsCommand } = require('@aws-sdk/client-sagemaker'); // CommonJS import
  * const client = new SageMakerClient(config);
  * const input = { // ListImageVersionsRequest
- *   CreationTimeAfter: new Date("TIMESTAMP"),
- *   CreationTimeBefore: new Date("TIMESTAMP"),
- *   ImageName: "STRING_VALUE", // required
- *   LastModifiedTimeAfter: new Date("TIMESTAMP"),
- *   LastModifiedTimeBefore: new Date("TIMESTAMP"),
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
- *   SortBy: "CREATION_TIME" || "LAST_MODIFIED_TIME" || "VERSION",
- *   SortOrder: "ASCENDING" || "DESCENDING",
+ *   CreationTimeAfter: new Date('TIMESTAMP'),
+ *   CreationTimeBefore: new Date('TIMESTAMP'),
+ *   ImageName: 'STRING_VALUE', // required
+ *   LastModifiedTimeAfter: new Date('TIMESTAMP'),
+ *   LastModifiedTimeBefore: new Date('TIMESTAMP'),
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
+ *   SortBy: 'CREATION_TIME' || 'LAST_MODIFIED_TIME' || 'VERSION',
+ *   SortOrder: 'ASCENDING' || 'DESCENDING',
  * };
  * const command = new ListImageVersionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListImageVersionsResponse
+ *   ImageVersions: [ // ImageVersions
+ *     { // ImageVersion
+ *       CreationTime: new Date('TIMESTAMP'), // required
+ *       FailureReason: 'STRING_VALUE',
+ *       ImageArn: 'STRING_VALUE', // required
+ *       ImageVersionArn: 'STRING_VALUE', // required
+ *       ImageVersionStatus: 'CREATING' || 'CREATED' || 'CREATE_FAILED' || 'DELETING' || 'DELETE_FAILED', // required
+ *       LastModifiedTime: new Date('TIMESTAMP'), // required
+ *       Version: Number('int'), // required
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListImageVersionsCommandInput - {@link ListImageVersionsCommandInput}
@@ -64,6 +80,8 @@ export interface ListImageVersionsCommandOutput extends ListImageVersionsRespons
  * @throws {@link ResourceNotFound} (client fault)
  *  <p>Resource being access is not found.</p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class ListImageVersionsCommand extends $Command<

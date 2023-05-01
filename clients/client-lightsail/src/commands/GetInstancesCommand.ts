@@ -37,14 +37,139 @@ export interface GetInstancesCommandOutput extends GetInstancesResult, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LightsailClient, GetInstancesCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
- * // const { LightsailClient, GetInstancesCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
+ * import { LightsailClient, GetInstancesCommand } from '@aws-sdk/client-lightsail'; // ES Modules import
+ * // const { LightsailClient, GetInstancesCommand } = require('@aws-sdk/client-lightsail'); // CommonJS import
  * const client = new LightsailClient(config);
  * const input = { // GetInstancesRequest
- *   pageToken: "STRING_VALUE",
+ *   pageToken: 'STRING_VALUE',
  * };
  * const command = new GetInstancesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetInstancesResult
+ *   instances: [ // InstanceList
+ *     { // Instance
+ *       name: 'STRING_VALUE',
+ *       arn: 'STRING_VALUE',
+ *       supportCode: 'STRING_VALUE',
+ *       createdAt: new Date('TIMESTAMP'),
+ *       location: { // ResourceLocation
+ *         availabilityZone: 'STRING_VALUE',
+ *         regionName: 'us-east-1' || 'us-east-2' || 'us-west-1' || 'us-west-2' || 'eu-west-1' || 'eu-west-2' || 'eu-west-3' || 'eu-central-1' || 'ca-central-1' || 'ap-south-1' || 'ap-southeast-1' || 'ap-southeast-2' || 'ap-northeast-1' || 'ap-northeast-2' || 'eu-north-1',
+ *       },
+ *       resourceType: 'ContainerService' || 'Instance' || 'StaticIp' || 'KeyPair' || 'InstanceSnapshot' || 'Domain' || 'PeeredVpc' || 'LoadBalancer' || 'LoadBalancerTlsCertificate' || 'Disk' || 'DiskSnapshot' || 'RelationalDatabase' || 'RelationalDatabaseSnapshot' || 'ExportSnapshotRecord' || 'CloudFormationStackRecord' || 'Alarm' || 'ContactMethod' || 'Distribution' || 'Certificate' || 'Bucket',
+ *       tags: [ // TagList
+ *         { // Tag
+ *           key: 'STRING_VALUE',
+ *           value: 'STRING_VALUE',
+ *         },
+ *       ],
+ *       blueprintId: 'STRING_VALUE',
+ *       blueprintName: 'STRING_VALUE',
+ *       bundleId: 'STRING_VALUE',
+ *       addOns: [ // AddOnList
+ *         { // AddOn
+ *           name: 'STRING_VALUE',
+ *           status: 'STRING_VALUE',
+ *           snapshotTimeOfDay: 'STRING_VALUE',
+ *           nextSnapshotTimeOfDay: 'STRING_VALUE',
+ *           threshold: 'STRING_VALUE',
+ *           duration: 'STRING_VALUE',
+ *         },
+ *       ],
+ *       isStaticIp: true || false,
+ *       privateIpAddress: 'STRING_VALUE',
+ *       publicIpAddress: 'STRING_VALUE',
+ *       ipv6Addresses: [ // Ipv6AddressList
+ *         'STRING_VALUE',
+ *       ],
+ *       ipAddressType: 'dualstack' || 'ipv4',
+ *       hardware: { // InstanceHardware
+ *         cpuCount: Number('int'),
+ *         disks: [ // DiskList
+ *           { // Disk
+ *             name: 'STRING_VALUE',
+ *             arn: 'STRING_VALUE',
+ *             supportCode: 'STRING_VALUE',
+ *             createdAt: new Date('TIMESTAMP'),
+ *             location: {
+ *               availabilityZone: 'STRING_VALUE',
+ *               regionName: 'us-east-1' || 'us-east-2' || 'us-west-1' || 'us-west-2' || 'eu-west-1' || 'eu-west-2' || 'eu-west-3' || 'eu-central-1' || 'ca-central-1' || 'ap-south-1' || 'ap-southeast-1' || 'ap-southeast-2' || 'ap-northeast-1' || 'ap-northeast-2' || 'eu-north-1',
+ *             },
+ *             resourceType: 'ContainerService' || 'Instance' || 'StaticIp' || 'KeyPair' || 'InstanceSnapshot' || 'Domain' || 'PeeredVpc' || 'LoadBalancer' || 'LoadBalancerTlsCertificate' || 'Disk' || 'DiskSnapshot' || 'RelationalDatabase' || 'RelationalDatabaseSnapshot' || 'ExportSnapshotRecord' || 'CloudFormationStackRecord' || 'Alarm' || 'ContactMethod' || 'Distribution' || 'Certificate' || 'Bucket',
+ *             tags: [
+ *               {
+ *                 key: 'STRING_VALUE',
+ *                 value: 'STRING_VALUE',
+ *               },
+ *             ],
+ *             addOns: [
+ *               {
+ *                 name: 'STRING_VALUE',
+ *                 status: 'STRING_VALUE',
+ *                 snapshotTimeOfDay: 'STRING_VALUE',
+ *                 nextSnapshotTimeOfDay: 'STRING_VALUE',
+ *                 threshold: 'STRING_VALUE',
+ *                 duration: 'STRING_VALUE',
+ *               },
+ *             ],
+ *             sizeInGb: Number('int'),
+ *             isSystemDisk: true || false,
+ *             iops: Number('int'),
+ *             path: 'STRING_VALUE',
+ *             state: 'pending' || 'error' || 'available' || 'in-use' || 'unknown',
+ *             attachedTo: 'STRING_VALUE',
+ *             isAttached: true || false,
+ *             attachmentState: 'STRING_VALUE',
+ *             gbInUse: Number('int'),
+ *             autoMountStatus: 'Failed' || 'Pending' || 'Mounted' || 'NotMounted',
+ *           },
+ *         ],
+ *         ramSizeInGb: Number('float'),
+ *       },
+ *       networking: { // InstanceNetworking
+ *         monthlyTransfer: { // MonthlyTransfer
+ *           gbPerMonthAllocated: Number('int'),
+ *         },
+ *         ports: [ // InstancePortInfoList
+ *           { // InstancePortInfo
+ *             fromPort: Number('int'),
+ *             toPort: Number('int'),
+ *             protocol: 'tcp' || 'all' || 'udp' || 'icmp',
+ *             accessFrom: 'STRING_VALUE',
+ *             accessType: 'Public' || 'Private',
+ *             commonName: 'STRING_VALUE',
+ *             accessDirection: 'inbound' || 'outbound',
+ *             cidrs: [ // StringList
+ *               'STRING_VALUE',
+ *             ],
+ *             ipv6Cidrs: [
+ *               'STRING_VALUE',
+ *             ],
+ *             cidrListAliases: [
+ *               'STRING_VALUE',
+ *             ],
+ *           },
+ *         ],
+ *       },
+ *       state: { // InstanceState
+ *         code: Number('int'),
+ *         name: 'STRING_VALUE',
+ *       },
+ *       username: 'STRING_VALUE',
+ *       sshKeyName: 'STRING_VALUE',
+ *       metadataOptions: { // InstanceMetadataOptions
+ *         state: 'pending' || 'applied',
+ *         httpTokens: 'optional' || 'required',
+ *         httpEndpoint: 'disabled' || 'enabled',
+ *         httpPutResponseHopLimit: Number('int'),
+ *         httpProtocolIpv6: 'disabled' || 'enabled',
+ *       },
+ *     },
+ *   ],
+ *   nextPageToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetInstancesCommandInput - {@link GetInstancesCommandInput}
@@ -83,6 +208,8 @@ export interface GetInstancesCommandOutput extends GetInstancesResult, __Metadat
  * @throws {@link UnauthenticatedException} (client fault)
  *  <p>Lightsail throws this exception when the user has not been authenticated.</p>
  *
+ * @throws {@link LightsailServiceException}
+ * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
  */
 export class GetInstancesCommand extends $Command<

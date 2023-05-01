@@ -38,14 +38,35 @@ export interface CreateAccountCommandOutput extends CreateAccountResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeClient, CreateAccountCommand } from "@aws-sdk/client-chime"; // ES Modules import
- * // const { ChimeClient, CreateAccountCommand } = require("@aws-sdk/client-chime"); // CommonJS import
+ * import { ChimeClient, CreateAccountCommand } from '@aws-sdk/client-chime'; // ES Modules import
+ * // const { ChimeClient, CreateAccountCommand } = require('@aws-sdk/client-chime'); // CommonJS import
  * const client = new ChimeClient(config);
  * const input = { // CreateAccountRequest
- *   Name: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
  * };
  * const command = new CreateAccountCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateAccountResponse
+ *   Account: { // Account
+ *     AwsAccountId: 'STRING_VALUE', // required
+ *     AccountId: 'STRING_VALUE', // required
+ *     Name: 'STRING_VALUE', // required
+ *     AccountType: 'Team' || 'EnterpriseDirectory' || 'EnterpriseLWA' || 'EnterpriseOIDC',
+ *     CreatedTimestamp: new Date('TIMESTAMP'),
+ *     DefaultLicense: 'Basic' || 'Plus' || 'Pro' || 'ProTrial',
+ *     SupportedLicenses: [ // LicenseList
+ *       'Basic' || 'Plus' || 'Pro' || 'ProTrial',
+ *     ],
+ *     AccountStatus: 'Suspended' || 'Active',
+ *     SigninDelegateGroups: [ // SigninDelegateGroupList
+ *       { // SigninDelegateGroup
+ *         GroupName: 'STRING_VALUE',
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateAccountCommandInput - {@link CreateAccountCommandInput}
@@ -75,6 +96,8 @@ export interface CreateAccountCommandOutput extends CreateAccountResponse, __Met
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeServiceException}
+ * <p>Base exception class for all service exceptions from Chime service.</p>
  *
  */
 export class CreateAccountCommand extends $Command<

@@ -42,91 +42,177 @@ export interface UpdateCallAnalyticsCategoryCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { TranscribeClient, UpdateCallAnalyticsCategoryCommand } from "@aws-sdk/client-transcribe"; // ES Modules import
- * // const { TranscribeClient, UpdateCallAnalyticsCategoryCommand } = require("@aws-sdk/client-transcribe"); // CommonJS import
+ * import { TranscribeClient, UpdateCallAnalyticsCategoryCommand } from '@aws-sdk/client-transcribe'; // ES Modules import
+ * // const { TranscribeClient, UpdateCallAnalyticsCategoryCommand } = require('@aws-sdk/client-transcribe'); // CommonJS import
  * const client = new TranscribeClient(config);
  * const input = { // UpdateCallAnalyticsCategoryRequest
- *   CategoryName: "STRING_VALUE", // required
+ *   CategoryName: 'STRING_VALUE', // required
  *   Rules: [ // RuleList // required
  *     { // Rule Union: only one key present
  *       NonTalkTimeFilter: { // NonTalkTimeFilter
- *         Threshold: Number("long"),
+ *         Threshold: Number('long'),
  *         AbsoluteTimeRange: { // AbsoluteTimeRange
- *           StartTime: Number("long"),
- *           EndTime: Number("long"),
- *           First: Number("long"),
- *           Last: Number("long"),
+ *           StartTime: Number('long'),
+ *           EndTime: Number('long'),
+ *           First: Number('long'),
+ *           Last: Number('long'),
  *         },
  *         RelativeTimeRange: { // RelativeTimeRange
- *           StartPercentage: Number("int"),
- *           EndPercentage: Number("int"),
- *           First: Number("int"),
- *           Last: Number("int"),
+ *           StartPercentage: Number('int'),
+ *           EndPercentage: Number('int'),
+ *           First: Number('int'),
+ *           Last: Number('int'),
  *         },
  *         Negate: true || false,
  *       },
  *       InterruptionFilter: { // InterruptionFilter
- *         Threshold: Number("long"),
- *         ParticipantRole: "AGENT" || "CUSTOMER",
+ *         Threshold: Number('long'),
+ *         ParticipantRole: 'AGENT' || 'CUSTOMER',
  *         AbsoluteTimeRange: {
- *           StartTime: Number("long"),
- *           EndTime: Number("long"),
- *           First: Number("long"),
- *           Last: Number("long"),
+ *           StartTime: Number('long'),
+ *           EndTime: Number('long'),
+ *           First: Number('long'),
+ *           Last: Number('long'),
  *         },
  *         RelativeTimeRange: {
- *           StartPercentage: Number("int"),
- *           EndPercentage: Number("int"),
- *           First: Number("int"),
- *           Last: Number("int"),
+ *           StartPercentage: Number('int'),
+ *           EndPercentage: Number('int'),
+ *           First: Number('int'),
+ *           Last: Number('int'),
  *         },
  *         Negate: true || false,
  *       },
  *       TranscriptFilter: { // TranscriptFilter
- *         TranscriptFilterType: "EXACT", // required
+ *         TranscriptFilterType: 'EXACT', // required
  *         AbsoluteTimeRange: {
- *           StartTime: Number("long"),
- *           EndTime: Number("long"),
- *           First: Number("long"),
- *           Last: Number("long"),
+ *           StartTime: Number('long'),
+ *           EndTime: Number('long'),
+ *           First: Number('long'),
+ *           Last: Number('long'),
  *         },
  *         RelativeTimeRange: {
- *           StartPercentage: Number("int"),
- *           EndPercentage: Number("int"),
- *           First: Number("int"),
- *           Last: Number("int"),
+ *           StartPercentage: Number('int'),
+ *           EndPercentage: Number('int'),
+ *           First: Number('int'),
+ *           Last: Number('int'),
  *         },
- *         ParticipantRole: "AGENT" || "CUSTOMER",
+ *         ParticipantRole: 'AGENT' || 'CUSTOMER',
  *         Negate: true || false,
  *         Targets: [ // StringTargetList // required
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
  *       },
  *       SentimentFilter: { // SentimentFilter
  *         Sentiments: [ // SentimentValueList // required
- *           "POSITIVE" || "NEGATIVE" || "NEUTRAL" || "MIXED",
+ *           'POSITIVE' || 'NEGATIVE' || 'NEUTRAL' || 'MIXED',
  *         ],
  *         AbsoluteTimeRange: {
- *           StartTime: Number("long"),
- *           EndTime: Number("long"),
- *           First: Number("long"),
- *           Last: Number("long"),
+ *           StartTime: Number('long'),
+ *           EndTime: Number('long'),
+ *           First: Number('long'),
+ *           Last: Number('long'),
  *         },
  *         RelativeTimeRange: {
- *           StartPercentage: Number("int"),
- *           EndPercentage: Number("int"),
- *           First: Number("int"),
- *           Last: Number("int"),
+ *           StartPercentage: Number('int'),
+ *           EndPercentage: Number('int'),
+ *           First: Number('int'),
+ *           Last: Number('int'),
  *         },
- *         ParticipantRole: "AGENT" || "CUSTOMER",
+ *         ParticipantRole: 'AGENT' || 'CUSTOMER',
  *         Negate: true || false,
  *       },
  *     },
  *   ],
- *   InputType: "REAL_TIME" || "POST_CALL",
+ *   InputType: 'REAL_TIME' || 'POST_CALL',
  * };
  * const command = new UpdateCallAnalyticsCategoryCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateCallAnalyticsCategoryResponse
+ *   CategoryProperties: { // CategoryProperties
+ *     CategoryName: 'STRING_VALUE',
+ *     Rules: [ // RuleList
+ *       { // Rule Union: only one key present
+ *         NonTalkTimeFilter: { // NonTalkTimeFilter
+ *           Threshold: Number('long'),
+ *           AbsoluteTimeRange: { // AbsoluteTimeRange
+ *             StartTime: Number('long'),
+ *             EndTime: Number('long'),
+ *             First: Number('long'),
+ *             Last: Number('long'),
+ *           },
+ *           RelativeTimeRange: { // RelativeTimeRange
+ *             StartPercentage: Number('int'),
+ *             EndPercentage: Number('int'),
+ *             First: Number('int'),
+ *             Last: Number('int'),
+ *           },
+ *           Negate: true || false,
+ *         },
+ *         InterruptionFilter: { // InterruptionFilter
+ *           Threshold: Number('long'),
+ *           ParticipantRole: 'AGENT' || 'CUSTOMER',
+ *           AbsoluteTimeRange: {
+ *             StartTime: Number('long'),
+ *             EndTime: Number('long'),
+ *             First: Number('long'),
+ *             Last: Number('long'),
+ *           },
+ *           RelativeTimeRange: {
+ *             StartPercentage: Number('int'),
+ *             EndPercentage: Number('int'),
+ *             First: Number('int'),
+ *             Last: Number('int'),
+ *           },
+ *           Negate: true || false,
+ *         },
+ *         TranscriptFilter: { // TranscriptFilter
+ *           TranscriptFilterType: 'EXACT', // required
+ *           AbsoluteTimeRange: {
+ *             StartTime: Number('long'),
+ *             EndTime: Number('long'),
+ *             First: Number('long'),
+ *             Last: Number('long'),
+ *           },
+ *           RelativeTimeRange: {
+ *             StartPercentage: Number('int'),
+ *             EndPercentage: Number('int'),
+ *             First: Number('int'),
+ *             Last: Number('int'),
+ *           },
+ *           ParticipantRole: 'AGENT' || 'CUSTOMER',
+ *           Negate: true || false,
+ *           Targets: [ // StringTargetList // required
+ *             'STRING_VALUE',
+ *           ],
+ *         },
+ *         SentimentFilter: { // SentimentFilter
+ *           Sentiments: [ // SentimentValueList // required
+ *             'POSITIVE' || 'NEGATIVE' || 'NEUTRAL' || 'MIXED',
+ *           ],
+ *           AbsoluteTimeRange: {
+ *             StartTime: Number('long'),
+ *             EndTime: Number('long'),
+ *             First: Number('long'),
+ *             Last: Number('long'),
+ *           },
+ *           RelativeTimeRange: {
+ *             StartPercentage: Number('int'),
+ *             EndPercentage: Number('int'),
+ *             First: Number('int'),
+ *             Last: Number('int'),
+ *           },
+ *           ParticipantRole: 'AGENT' || 'CUSTOMER',
+ *           Negate: true || false,
+ *         },
+ *       },
+ *     ],
+ *     CreateTime: new Date('TIMESTAMP'),
+ *     LastUpdateTime: new Date('TIMESTAMP'),
+ *     InputType: 'REAL_TIME' || 'POST_CALL',
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateCallAnalyticsCategoryCommandInput - {@link UpdateCallAnalyticsCategoryCommandInput}
@@ -157,6 +243,8 @@ export interface UpdateCallAnalyticsCategoryCommandOutput
  *  <p>We can't find the requested resource. Check that the specified name is correct and try
  *             your request again.</p>
  *
+ * @throws {@link TranscribeServiceException}
+ * <p>Base exception class for all service exceptions from Transcribe service.</p>
  *
  */
 export class UpdateCallAnalyticsCategoryCommand extends $Command<

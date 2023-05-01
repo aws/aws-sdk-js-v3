@@ -36,24 +36,32 @@ export interface StartDevEnvironmentCommandOutput extends StartDevEnvironmentRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeCatalystClient, StartDevEnvironmentCommand } from "@aws-sdk/client-codecatalyst"; // ES Modules import
- * // const { CodeCatalystClient, StartDevEnvironmentCommand } = require("@aws-sdk/client-codecatalyst"); // CommonJS import
+ * import { CodeCatalystClient, StartDevEnvironmentCommand } from '@aws-sdk/client-codecatalyst'; // ES Modules import
+ * // const { CodeCatalystClient, StartDevEnvironmentCommand } = require('@aws-sdk/client-codecatalyst'); // CommonJS import
  * const client = new CodeCatalystClient(config);
  * const input = { // StartDevEnvironmentRequest
- *   spaceName: "STRING_VALUE", // required
- *   projectName: "STRING_VALUE", // required
- *   id: "STRING_VALUE", // required
+ *   spaceName: 'STRING_VALUE', // required
+ *   projectName: 'STRING_VALUE', // required
+ *   id: 'STRING_VALUE', // required
  *   ides: [ // IdeConfigurationList
  *     { // IdeConfiguration
- *       runtime: "STRING_VALUE",
- *       name: "STRING_VALUE",
+ *       runtime: 'STRING_VALUE',
+ *       name: 'STRING_VALUE',
  *     },
  *   ],
- *   instanceType: "STRING_VALUE",
- *   inactivityTimeoutMinutes: Number("int"),
+ *   instanceType: 'STRING_VALUE',
+ *   inactivityTimeoutMinutes: Number('int'),
  * };
  * const command = new StartDevEnvironmentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartDevEnvironmentResponse
+ *   spaceName: 'STRING_VALUE', // required
+ *   projectName: 'STRING_VALUE', // required
+ *   id: 'STRING_VALUE', // required
+ *   status: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param StartDevEnvironmentCommandInput - {@link StartDevEnvironmentCommandInput}
@@ -82,6 +90,8 @@ export interface StartDevEnvironmentCommandOutput extends StartDevEnvironmentRes
  * @throws {@link ValidationException} (client fault)
  *  <p>The request was denied because an input failed to satisfy the constraints specified by the service. Check the spelling and input requirements, and then try again.</p>
  *
+ * @throws {@link CodeCatalystServiceException}
+ * <p>Base exception class for all service exceptions from CodeCatalyst service.</p>
  *
  */
 export class StartDevEnvironmentCommand extends $Command<

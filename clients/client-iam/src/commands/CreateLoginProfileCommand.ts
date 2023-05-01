@@ -45,16 +45,25 @@ export interface CreateLoginProfileCommandOutput extends CreateLoginProfileRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IAMClient, CreateLoginProfileCommand } from "@aws-sdk/client-iam"; // ES Modules import
- * // const { IAMClient, CreateLoginProfileCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * import { IAMClient, CreateLoginProfileCommand } from '@aws-sdk/client-iam'; // ES Modules import
+ * // const { IAMClient, CreateLoginProfileCommand } = require('@aws-sdk/client-iam'); // CommonJS import
  * const client = new IAMClient(config);
  * const input = { // CreateLoginProfileRequest
- *   UserName: "STRING_VALUE", // required
- *   Password: "STRING_VALUE", // required
+ *   UserName: 'STRING_VALUE', // required
+ *   Password: 'STRING_VALUE', // required
  *   PasswordResetRequired: true || false,
  * };
  * const command = new CreateLoginProfileCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateLoginProfileResponse
+ *   LoginProfile: { // LoginProfile
+ *     UserName: 'STRING_VALUE', // required
+ *     CreateDate: new Date('TIMESTAMP'), // required
+ *     PasswordResetRequired: true || false,
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateLoginProfileCommandInput - {@link CreateLoginProfileCommandInput}
@@ -83,6 +92,8 @@ export interface CreateLoginProfileCommandOutput extends CreateLoginProfileRespo
  *  <p>The request processing has failed because of an unknown error, exception or
  *       failure.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  * @example To create an instance profile
  * ```javascript

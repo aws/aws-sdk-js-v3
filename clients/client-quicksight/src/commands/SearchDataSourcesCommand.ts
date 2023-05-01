@@ -36,23 +36,40 @@ export interface SearchDataSourcesCommandOutput extends SearchDataSourcesRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { QuickSightClient, SearchDataSourcesCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
- * // const { QuickSightClient, SearchDataSourcesCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * import { QuickSightClient, SearchDataSourcesCommand } from '@aws-sdk/client-quicksight'; // ES Modules import
+ * // const { QuickSightClient, SearchDataSourcesCommand } = require('@aws-sdk/client-quicksight'); // CommonJS import
  * const client = new QuickSightClient(config);
  * const input = { // SearchDataSourcesRequest
- *   AwsAccountId: "STRING_VALUE", // required
+ *   AwsAccountId: 'STRING_VALUE', // required
  *   Filters: [ // DataSourceSearchFilterList // required
  *     { // DataSourceSearchFilter
- *       Operator: "StringEquals" || "StringLike", // required
- *       Name: "DIRECT_QUICKSIGHT_VIEWER_OR_OWNER" || "DIRECT_QUICKSIGHT_OWNER" || "DIRECT_QUICKSIGHT_SOLE_OWNER" || "DATASOURCE_NAME", // required
- *       Value: "STRING_VALUE", // required
+ *       Operator: 'StringEquals' || 'StringLike', // required
+ *       Name: 'DIRECT_QUICKSIGHT_VIEWER_OR_OWNER' || 'DIRECT_QUICKSIGHT_OWNER' || 'DIRECT_QUICKSIGHT_SOLE_OWNER' || 'DATASOURCE_NAME', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new SearchDataSourcesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SearchDataSourcesResponse
+ *   DataSourceSummaries: [ // DataSourceSummaryList
+ *     { // DataSourceSummary
+ *       Arn: 'STRING_VALUE',
+ *       DataSourceId: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *       Type: 'ADOBE_ANALYTICS' || 'AMAZON_ELASTICSEARCH' || 'ATHENA' || 'AURORA' || 'AURORA_POSTGRESQL' || 'AWS_IOT_ANALYTICS' || 'GITHUB' || 'JIRA' || 'MARIADB' || 'MYSQL' || 'ORACLE' || 'POSTGRESQL' || 'PRESTO' || 'REDSHIFT' || 'S3' || 'SALESFORCE' || 'SERVICENOW' || 'SNOWFLAKE' || 'SPARK' || 'SQLSERVER' || 'TERADATA' || 'TWITTER' || 'TIMESTREAM' || 'AMAZON_OPENSEARCH' || 'EXASOL' || 'DATABRICKS',
+ *       CreatedTime: new Date('TIMESTAMP'),
+ *       LastUpdatedTime: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ *   Status: Number('int'),
+ *   RequestId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param SearchDataSourcesCommandInput - {@link SearchDataSourcesCommandInput}
@@ -82,6 +99,8 @@ export interface SearchDataSourcesCommandOutput extends SearchDataSourcesRespons
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Access is throttled.</p>
  *
+ * @throws {@link QuickSightServiceException}
+ * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
 export class SearchDataSourcesCommand extends $Command<

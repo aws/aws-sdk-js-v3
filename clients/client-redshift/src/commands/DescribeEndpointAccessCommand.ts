@@ -36,19 +36,54 @@ export interface DescribeEndpointAccessCommandOutput extends EndpointAccessList,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RedshiftClient, DescribeEndpointAccessCommand } from "@aws-sdk/client-redshift"; // ES Modules import
- * // const { RedshiftClient, DescribeEndpointAccessCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * import { RedshiftClient, DescribeEndpointAccessCommand } from '@aws-sdk/client-redshift'; // ES Modules import
+ * // const { RedshiftClient, DescribeEndpointAccessCommand } = require('@aws-sdk/client-redshift'); // CommonJS import
  * const client = new RedshiftClient(config);
  * const input = { // DescribeEndpointAccessMessage
- *   ClusterIdentifier: "STRING_VALUE",
- *   ResourceOwner: "STRING_VALUE",
- *   EndpointName: "STRING_VALUE",
- *   VpcId: "STRING_VALUE",
- *   MaxRecords: Number("int"),
- *   Marker: "STRING_VALUE",
+ *   ClusterIdentifier: 'STRING_VALUE',
+ *   ResourceOwner: 'STRING_VALUE',
+ *   EndpointName: 'STRING_VALUE',
+ *   VpcId: 'STRING_VALUE',
+ *   MaxRecords: Number('int'),
+ *   Marker: 'STRING_VALUE',
  * };
  * const command = new DescribeEndpointAccessCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // EndpointAccessList
+ *   EndpointAccessList: [ // EndpointAccesses
+ *     { // EndpointAccess
+ *       ClusterIdentifier: 'STRING_VALUE',
+ *       ResourceOwner: 'STRING_VALUE',
+ *       SubnetGroupName: 'STRING_VALUE',
+ *       EndpointStatus: 'STRING_VALUE',
+ *       EndpointName: 'STRING_VALUE',
+ *       EndpointCreateTime: new Date('TIMESTAMP'),
+ *       Port: Number('int'),
+ *       Address: 'STRING_VALUE',
+ *       VpcSecurityGroups: [ // VpcSecurityGroupMembershipList
+ *         { // VpcSecurityGroupMembership
+ *           VpcSecurityGroupId: 'STRING_VALUE',
+ *           Status: 'STRING_VALUE',
+ *         },
+ *       ],
+ *       VpcEndpoint: { // VpcEndpoint
+ *         VpcEndpointId: 'STRING_VALUE',
+ *         VpcId: 'STRING_VALUE',
+ *         NetworkInterfaces: [ // NetworkInterfaceList
+ *           { // NetworkInterface
+ *             NetworkInterfaceId: 'STRING_VALUE',
+ *             SubnetId: 'STRING_VALUE',
+ *             PrivateIpAddress: 'STRING_VALUE',
+ *             AvailabilityZone: 'STRING_VALUE',
+ *           },
+ *         ],
+ *       },
+ *     },
+ *   ],
+ *   Marker: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeEndpointAccessCommandInput - {@link DescribeEndpointAccessCommandInput}
@@ -67,6 +102,8 @@ export interface DescribeEndpointAccessCommandOutput extends EndpointAccessList,
  * @throws {@link InvalidClusterStateFault} (client fault)
  *  <p>The specified cluster is not in the <code>available</code> state. </p>
  *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class DescribeEndpointAccessCommand extends $Command<

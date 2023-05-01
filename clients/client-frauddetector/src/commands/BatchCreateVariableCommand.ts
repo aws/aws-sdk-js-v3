@@ -36,29 +36,40 @@ export interface BatchCreateVariableCommandOutput extends BatchCreateVariableRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FraudDetectorClient, BatchCreateVariableCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
- * // const { FraudDetectorClient, BatchCreateVariableCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
+ * import { FraudDetectorClient, BatchCreateVariableCommand } from '@aws-sdk/client-frauddetector'; // ES Modules import
+ * // const { FraudDetectorClient, BatchCreateVariableCommand } = require('@aws-sdk/client-frauddetector'); // CommonJS import
  * const client = new FraudDetectorClient(config);
  * const input = { // BatchCreateVariableRequest
  *   variableEntries: [ // VariableEntryList // required
  *     { // VariableEntry
- *       name: "STRING_VALUE",
- *       dataType: "STRING_VALUE",
- *       dataSource: "STRING_VALUE",
- *       defaultValue: "STRING_VALUE",
- *       description: "STRING_VALUE",
- *       variableType: "STRING_VALUE",
+ *       name: 'STRING_VALUE',
+ *       dataType: 'STRING_VALUE',
+ *       dataSource: 'STRING_VALUE',
+ *       defaultValue: 'STRING_VALUE',
+ *       description: 'STRING_VALUE',
+ *       variableType: 'STRING_VALUE',
  *     },
  *   ],
  *   tags: [ // tagList
  *     { // Tag
- *       key: "STRING_VALUE", // required
- *       value: "STRING_VALUE", // required
+ *       key: 'STRING_VALUE', // required
+ *       value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new BatchCreateVariableCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BatchCreateVariableResult
+ *   errors: [ // BatchCreateVariableErrorList
+ *     { // BatchCreateVariableError
+ *       name: 'STRING_VALUE',
+ *       code: Number('int'),
+ *       message: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param BatchCreateVariableCommandInput - {@link BatchCreateVariableCommandInput}
@@ -79,6 +90,8 @@ export interface BatchCreateVariableCommandOutput extends BatchCreateVariableRes
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception indicating a specified value is not allowed.</p>
  *
+ * @throws {@link FraudDetectorServiceException}
+ * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
  */
 export class BatchCreateVariableCommand extends $Command<

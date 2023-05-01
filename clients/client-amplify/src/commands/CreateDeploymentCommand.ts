@@ -37,18 +37,27 @@ export interface CreateDeploymentCommandOutput extends CreateDeploymentResult, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AmplifyClient, CreateDeploymentCommand } from "@aws-sdk/client-amplify"; // ES Modules import
- * // const { AmplifyClient, CreateDeploymentCommand } = require("@aws-sdk/client-amplify"); // CommonJS import
+ * import { AmplifyClient, CreateDeploymentCommand } from '@aws-sdk/client-amplify'; // ES Modules import
+ * // const { AmplifyClient, CreateDeploymentCommand } = require('@aws-sdk/client-amplify'); // CommonJS import
  * const client = new AmplifyClient(config);
  * const input = { // CreateDeploymentRequest
- *   appId: "STRING_VALUE", // required
- *   branchName: "STRING_VALUE", // required
+ *   appId: 'STRING_VALUE', // required
+ *   branchName: 'STRING_VALUE', // required
  *   fileMap: { // FileMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateDeploymentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateDeploymentResult
+ *   jobId: 'STRING_VALUE',
+ *   fileUploadUrls: { // FileUploadUrls // required
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ *   zipUploadUrl: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param CreateDeploymentCommandInput - {@link CreateDeploymentCommandInput}
@@ -69,6 +78,8 @@ export interface CreateDeploymentCommandOutput extends CreateDeploymentResult, _
  * @throws {@link UnauthorizedException} (client fault)
  *  <p> An operation failed due to a lack of access. </p>
  *
+ * @throws {@link AmplifyServiceException}
+ * <p>Base exception class for all service exceptions from Amplify service.</p>
  *
  */
 export class CreateDeploymentCommand extends $Command<

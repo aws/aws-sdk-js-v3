@@ -36,15 +36,18 @@ export interface DeleteLFTagCommandOutput extends DeleteLFTagResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LakeFormationClient, DeleteLFTagCommand } from "@aws-sdk/client-lakeformation"; // ES Modules import
- * // const { LakeFormationClient, DeleteLFTagCommand } = require("@aws-sdk/client-lakeformation"); // CommonJS import
+ * import { LakeFormationClient, DeleteLFTagCommand } from '@aws-sdk/client-lakeformation'; // ES Modules import
+ * // const { LakeFormationClient, DeleteLFTagCommand } = require('@aws-sdk/client-lakeformation'); // CommonJS import
  * const client = new LakeFormationClient(config);
  * const input = { // DeleteLFTagRequest
- *   CatalogId: "STRING_VALUE",
- *   TagKey: "STRING_VALUE", // required
+ *   CatalogId: 'STRING_VALUE',
+ *   TagKey: 'STRING_VALUE', // required
  * };
  * const command = new DeleteLFTagCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteLFTagCommandInput - {@link DeleteLFTagCommandInput}
@@ -68,6 +71,8 @@ export interface DeleteLFTagCommandOutput extends DeleteLFTagResponse, __Metadat
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link LakeFormationServiceException}
+ * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
  */
 export class DeleteLFTagCommand extends $Command<

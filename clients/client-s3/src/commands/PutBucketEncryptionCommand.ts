@@ -70,28 +70,31 @@ export interface PutBucketEncryptionCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { S3Client, PutBucketEncryptionCommand } from "@aws-sdk/client-s3"; // ES Modules import
- * // const { S3Client, PutBucketEncryptionCommand } = require("@aws-sdk/client-s3"); // CommonJS import
+ * import { S3Client, PutBucketEncryptionCommand } from '@aws-sdk/client-s3'; // ES Modules import
+ * // const { S3Client, PutBucketEncryptionCommand } = require('@aws-sdk/client-s3'); // CommonJS import
  * const client = new S3Client(config);
  * const input = { // PutBucketEncryptionRequest
- *   Bucket: "STRING_VALUE", // required
- *   ContentMD5: "STRING_VALUE",
- *   ChecksumAlgorithm: "CRC32" || "CRC32C" || "SHA1" || "SHA256",
+ *   Bucket: 'STRING_VALUE', // required
+ *   ContentMD5: 'STRING_VALUE',
+ *   ChecksumAlgorithm: 'CRC32' || 'CRC32C' || 'SHA1' || 'SHA256',
  *   ServerSideEncryptionConfiguration: { // ServerSideEncryptionConfiguration
  *     Rules: [ // ServerSideEncryptionRules // required
  *       { // ServerSideEncryptionRule
  *         ApplyServerSideEncryptionByDefault: { // ServerSideEncryptionByDefault
- *           SSEAlgorithm: "AES256" || "aws:kms", // required
- *           KMSMasterKeyID: "STRING_VALUE",
+ *           SSEAlgorithm: 'AES256' || 'aws:kms', // required
+ *           KMSMasterKeyID: 'STRING_VALUE',
  *         },
  *         BucketKeyEnabled: true || false,
  *       },
  *     ],
  *   },
- *   ExpectedBucketOwner: "STRING_VALUE",
+ *   ExpectedBucketOwner: 'STRING_VALUE',
  * };
  * const command = new PutBucketEncryptionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutBucketEncryptionCommandInput - {@link PutBucketEncryptionCommandInput}
@@ -100,6 +103,8 @@ export interface PutBucketEncryptionCommandOutput extends __MetadataBearer {}
  * @see {@link PutBucketEncryptionCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
+ * @throws {@link S3ServiceException}
+ * <p>Base exception class for all service exceptions from S3 service.</p>
  *
  */
 export class PutBucketEncryptionCommand extends $Command<

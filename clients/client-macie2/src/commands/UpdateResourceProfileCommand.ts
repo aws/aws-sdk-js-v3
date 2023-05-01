@@ -36,15 +36,18 @@ export interface UpdateResourceProfileCommandOutput extends UpdateResourceProfil
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Macie2Client, UpdateResourceProfileCommand } from "@aws-sdk/client-macie2"; // ES Modules import
- * // const { Macie2Client, UpdateResourceProfileCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
+ * import { Macie2Client, UpdateResourceProfileCommand } from '@aws-sdk/client-macie2'; // ES Modules import
+ * // const { Macie2Client, UpdateResourceProfileCommand } = require('@aws-sdk/client-macie2'); // CommonJS import
  * const client = new Macie2Client(config);
  * const input = { // UpdateResourceProfileRequest
- *   resourceArn: "STRING_VALUE", // required
- *   sensitivityScoreOverride: Number("int"),
+ *   resourceArn: 'STRING_VALUE', // required
+ *   sensitivityScoreOverride: Number('int'),
  * };
  * const command = new UpdateResourceProfileCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateResourceProfileCommandInput - {@link UpdateResourceProfileCommandInput}
@@ -71,6 +74,8 @@ export interface UpdateResourceProfileCommandOutput extends UpdateResourceProfil
  * @throws {@link ValidationException} (client fault)
  *  <p>Provides information about an error that occurred due to a syntax error in a request.</p>
  *
+ * @throws {@link Macie2ServiceException}
+ * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
  */
 export class UpdateResourceProfileCommand extends $Command<

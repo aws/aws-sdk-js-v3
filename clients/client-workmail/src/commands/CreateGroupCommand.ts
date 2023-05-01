@@ -36,15 +36,20 @@ export interface CreateGroupCommandOutput extends CreateGroupResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkMailClient, CreateGroupCommand } from "@aws-sdk/client-workmail"; // ES Modules import
- * // const { WorkMailClient, CreateGroupCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
+ * import { WorkMailClient, CreateGroupCommand } from '@aws-sdk/client-workmail'; // ES Modules import
+ * // const { WorkMailClient, CreateGroupCommand } = require('@aws-sdk/client-workmail'); // CommonJS import
  * const client = new WorkMailClient(config);
  * const input = { // CreateGroupRequest
- *   OrganizationId: "STRING_VALUE", // required
- *   Name: "STRING_VALUE", // required
+ *   OrganizationId: 'STRING_VALUE', // required
+ *   Name: 'STRING_VALUE', // required
  * };
  * const command = new CreateGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateGroupResponse
+ *   GroupId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateGroupCommandInput - {@link CreateGroupCommandInput}
@@ -79,6 +84,8 @@ export interface CreateGroupCommandOutput extends CreateGroupResponse, __Metadat
  * @throws {@link UnsupportedOperationException} (client fault)
  *  <p>You can't perform a write operation against a read-only directory.</p>
  *
+ * @throws {@link WorkMailServiceException}
+ * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
  */
 export class CreateGroupCommand extends $Command<

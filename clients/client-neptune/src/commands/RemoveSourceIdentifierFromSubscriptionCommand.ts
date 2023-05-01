@@ -45,15 +45,35 @@ export interface RemoveSourceIdentifierFromSubscriptionCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { NeptuneClient, RemoveSourceIdentifierFromSubscriptionCommand } from "@aws-sdk/client-neptune"; // ES Modules import
- * // const { NeptuneClient, RemoveSourceIdentifierFromSubscriptionCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
+ * import { NeptuneClient, RemoveSourceIdentifierFromSubscriptionCommand } from '@aws-sdk/client-neptune'; // ES Modules import
+ * // const { NeptuneClient, RemoveSourceIdentifierFromSubscriptionCommand } = require('@aws-sdk/client-neptune'); // CommonJS import
  * const client = new NeptuneClient(config);
  * const input = { // RemoveSourceIdentifierFromSubscriptionMessage
- *   SubscriptionName: "STRING_VALUE", // required
- *   SourceIdentifier: "STRING_VALUE", // required
+ *   SubscriptionName: 'STRING_VALUE', // required
+ *   SourceIdentifier: 'STRING_VALUE', // required
  * };
  * const command = new RemoveSourceIdentifierFromSubscriptionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // RemoveSourceIdentifierFromSubscriptionResult
+ *   EventSubscription: { // EventSubscription
+ *     CustomerAwsId: 'STRING_VALUE',
+ *     CustSubscriptionId: 'STRING_VALUE',
+ *     SnsTopicArn: 'STRING_VALUE',
+ *     Status: 'STRING_VALUE',
+ *     SubscriptionCreationTime: 'STRING_VALUE',
+ *     SourceType: 'STRING_VALUE',
+ *     SourceIdsList: [ // SourceIdsList
+ *       'STRING_VALUE',
+ *     ],
+ *     EventCategoriesList: [ // EventCategoriesList
+ *       'STRING_VALUE',
+ *     ],
+ *     Enabled: true || false,
+ *     EventSubscriptionArn: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param RemoveSourceIdentifierFromSubscriptionCommandInput - {@link RemoveSourceIdentifierFromSubscriptionCommandInput}
@@ -68,6 +88,8 @@ export interface RemoveSourceIdentifierFromSubscriptionCommandOutput
  * @throws {@link SubscriptionNotFoundFault} (client fault)
  *  <p>The designated subscription could not be found.</p>
  *
+ * @throws {@link NeptuneServiceException}
+ * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
  */
 export class RemoveSourceIdentifierFromSubscriptionCommand extends $Command<

@@ -42,17 +42,26 @@ export interface CreateIngestionCommandOutput extends CreateIngestionResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { QuickSightClient, CreateIngestionCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
- * // const { QuickSightClient, CreateIngestionCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * import { QuickSightClient, CreateIngestionCommand } from '@aws-sdk/client-quicksight'; // ES Modules import
+ * // const { QuickSightClient, CreateIngestionCommand } = require('@aws-sdk/client-quicksight'); // CommonJS import
  * const client = new QuickSightClient(config);
  * const input = { // CreateIngestionRequest
- *   DataSetId: "STRING_VALUE", // required
- *   IngestionId: "STRING_VALUE", // required
- *   AwsAccountId: "STRING_VALUE", // required
- *   IngestionType: "INCREMENTAL_REFRESH" || "FULL_REFRESH",
+ *   DataSetId: 'STRING_VALUE', // required
+ *   IngestionId: 'STRING_VALUE', // required
+ *   AwsAccountId: 'STRING_VALUE', // required
+ *   IngestionType: 'INCREMENTAL_REFRESH' || 'FULL_REFRESH',
  * };
  * const command = new CreateIngestionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateIngestionResponse
+ *   Arn: 'STRING_VALUE',
+ *   IngestionId: 'STRING_VALUE',
+ *   IngestionStatus: 'INITIALIZED' || 'QUEUED' || 'RUNNING' || 'FAILED' || 'COMPLETED' || 'CANCELLED',
+ *   RequestId: 'STRING_VALUE',
+ *   Status: Number('int'),
+ * };
+ *
  * ```
  *
  * @param CreateIngestionCommandInput - {@link CreateIngestionCommandInput}
@@ -85,6 +94,8 @@ export interface CreateIngestionCommandOutput extends CreateIngestionResponse, _
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Access is throttled.</p>
  *
+ * @throws {@link QuickSightServiceException}
+ * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
 export class CreateIngestionCommand extends $Command<

@@ -64,14 +64,50 @@ export interface DescribeForecastCommandOutput extends DescribeForecastResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ForecastClient, DescribeForecastCommand } from "@aws-sdk/client-forecast"; // ES Modules import
- * // const { ForecastClient, DescribeForecastCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
+ * import { ForecastClient, DescribeForecastCommand } from '@aws-sdk/client-forecast'; // ES Modules import
+ * // const { ForecastClient, DescribeForecastCommand } = require('@aws-sdk/client-forecast'); // CommonJS import
  * const client = new ForecastClient(config);
  * const input = { // DescribeForecastRequest
- *   ForecastArn: "STRING_VALUE", // required
+ *   ForecastArn: 'STRING_VALUE', // required
  * };
  * const command = new DescribeForecastCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeForecastResponse
+ *   ForecastArn: 'STRING_VALUE',
+ *   ForecastName: 'STRING_VALUE',
+ *   ForecastTypes: [ // ForecastTypes
+ *     'STRING_VALUE',
+ *   ],
+ *   PredictorArn: 'STRING_VALUE',
+ *   DatasetGroupArn: 'STRING_VALUE',
+ *   EstimatedTimeRemainingInMinutes: Number('long'),
+ *   Status: 'STRING_VALUE',
+ *   Message: 'STRING_VALUE',
+ *   CreationTime: new Date('TIMESTAMP'),
+ *   LastModificationTime: new Date('TIMESTAMP'),
+ *   TimeSeriesSelector: { // TimeSeriesSelector
+ *     TimeSeriesIdentifiers: { // TimeSeriesIdentifiers
+ *       DataSource: { // DataSource
+ *         S3Config: { // S3Config
+ *           Path: 'STRING_VALUE', // required
+ *           RoleArn: 'STRING_VALUE', // required
+ *           KMSKeyArn: 'STRING_VALUE',
+ *         },
+ *       },
+ *       Schema: { // Schema
+ *         Attributes: [ // SchemaAttributes
+ *           { // SchemaAttribute
+ *             AttributeName: 'STRING_VALUE',
+ *             AttributeType: 'string' || 'integer' || 'float' || 'timestamp' || 'geolocation',
+ *           },
+ *         ],
+ *       },
+ *       Format: 'STRING_VALUE',
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeForecastCommandInput - {@link DescribeForecastCommandInput}
@@ -88,6 +124,8 @@ export interface DescribeForecastCommandOutput extends DescribeForecastResponse,
  *  <p>We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try
  *       again.</p>
  *
+ * @throws {@link ForecastServiceException}
+ * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
  */
 export class DescribeForecastCommand extends $Command<

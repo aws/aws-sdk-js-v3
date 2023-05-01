@@ -37,15 +37,21 @@ export interface CreateSecurityConfigurationCommandOutput extends CreateSecurity
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EMRClient, CreateSecurityConfigurationCommand } from "@aws-sdk/client-emr"; // ES Modules import
- * // const { EMRClient, CreateSecurityConfigurationCommand } = require("@aws-sdk/client-emr"); // CommonJS import
+ * import { EMRClient, CreateSecurityConfigurationCommand } from '@aws-sdk/client-emr'; // ES Modules import
+ * // const { EMRClient, CreateSecurityConfigurationCommand } = require('@aws-sdk/client-emr'); // CommonJS import
  * const client = new EMRClient(config);
  * const input = { // CreateSecurityConfigurationInput
- *   Name: "STRING_VALUE", // required
- *   SecurityConfiguration: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
+ *   SecurityConfiguration: 'STRING_VALUE', // required
  * };
  * const command = new CreateSecurityConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateSecurityConfigurationOutput
+ *   Name: 'STRING_VALUE', // required
+ *   CreationDateTime: new Date('TIMESTAMP'), // required
+ * };
+ *
  * ```
  *
  * @param CreateSecurityConfigurationCommandInput - {@link CreateSecurityConfigurationCommandInput}
@@ -61,6 +67,8 @@ export interface CreateSecurityConfigurationCommandOutput extends CreateSecurity
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception occurs when there is something wrong with user input.</p>
  *
+ * @throws {@link EMRServiceException}
+ * <p>Base exception class for all service exceptions from EMR service.</p>
  *
  */
 export class CreateSecurityConfigurationCommand extends $Command<

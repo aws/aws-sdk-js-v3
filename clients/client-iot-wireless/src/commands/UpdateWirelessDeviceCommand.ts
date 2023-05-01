@@ -36,42 +36,45 @@ export interface UpdateWirelessDeviceCommandOutput extends UpdateWirelessDeviceR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTWirelessClient, UpdateWirelessDeviceCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
- * // const { IoTWirelessClient, UpdateWirelessDeviceCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
+ * import { IoTWirelessClient, UpdateWirelessDeviceCommand } from '@aws-sdk/client-iot-wireless'; // ES Modules import
+ * // const { IoTWirelessClient, UpdateWirelessDeviceCommand } = require('@aws-sdk/client-iot-wireless'); // CommonJS import
  * const client = new IoTWirelessClient(config);
  * const input = { // UpdateWirelessDeviceRequest
- *   Id: "STRING_VALUE", // required
- *   DestinationName: "STRING_VALUE",
- *   Name: "STRING_VALUE",
- *   Description: "STRING_VALUE",
+ *   Id: 'STRING_VALUE', // required
+ *   DestinationName: 'STRING_VALUE',
+ *   Name: 'STRING_VALUE',
+ *   Description: 'STRING_VALUE',
  *   LoRaWAN: { // LoRaWANUpdateDevice
- *     DeviceProfileId: "STRING_VALUE",
- *     ServiceProfileId: "STRING_VALUE",
+ *     DeviceProfileId: 'STRING_VALUE',
+ *     ServiceProfileId: 'STRING_VALUE',
  *     AbpV1_1: { // UpdateAbpV1_1
- *       FCntStart: Number("int"),
+ *       FCntStart: Number('int'),
  *     },
  *     AbpV1_0_x: { // UpdateAbpV1_0_x
- *       FCntStart: Number("int"),
+ *       FCntStart: Number('int'),
  *     },
  *     FPorts: { // UpdateFPorts
  *       Positioning: { // Positioning
- *         ClockSync: Number("int"),
- *         Stream: Number("int"),
- *         Gnss: Number("int"),
+ *         ClockSync: Number('int'),
+ *         Stream: Number('int'),
+ *         Gnss: Number('int'),
  *       },
  *       Applications: [ // Applications
  *         { // ApplicationConfig
- *           FPort: Number("int"),
- *           Type: "SemtechGeolocation",
- *           DestinationName: "STRING_VALUE",
+ *           FPort: Number('int'),
+ *           Type: 'SemtechGeolocation',
+ *           DestinationName: 'STRING_VALUE',
  *         },
  *       ],
  *     },
  *   },
- *   Positioning: "Enabled" || "Disabled",
+ *   Positioning: 'Enabled' || 'Disabled',
  * };
  * const command = new UpdateWirelessDeviceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateWirelessDeviceCommandInput - {@link UpdateWirelessDeviceCommandInput}
@@ -95,6 +98,8 @@ export interface UpdateWirelessDeviceCommandOutput extends UpdateWirelessDeviceR
  * @throws {@link ValidationException} (client fault)
  *  <p>The input did not meet the specified constraints.</p>
  *
+ * @throws {@link IoTWirelessServiceException}
+ * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
  */
 export class UpdateWirelessDeviceCommand extends $Command<

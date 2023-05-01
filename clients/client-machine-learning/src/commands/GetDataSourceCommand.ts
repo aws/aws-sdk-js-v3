@@ -39,15 +39,56 @@ export interface GetDataSourceCommandOutput extends GetDataSourceOutput, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MachineLearningClient, GetDataSourceCommand } from "@aws-sdk/client-machine-learning"; // ES Modules import
- * // const { MachineLearningClient, GetDataSourceCommand } = require("@aws-sdk/client-machine-learning"); // CommonJS import
+ * import { MachineLearningClient, GetDataSourceCommand } from '@aws-sdk/client-machine-learning'; // ES Modules import
+ * // const { MachineLearningClient, GetDataSourceCommand } = require('@aws-sdk/client-machine-learning'); // CommonJS import
  * const client = new MachineLearningClient(config);
  * const input = { // GetDataSourceInput
- *   DataSourceId: "STRING_VALUE", // required
+ *   DataSourceId: 'STRING_VALUE', // required
  *   Verbose: true || false,
  * };
  * const command = new GetDataSourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetDataSourceOutput
+ *   DataSourceId: 'STRING_VALUE',
+ *   DataLocationS3: 'STRING_VALUE',
+ *   DataRearrangement: 'STRING_VALUE',
+ *   CreatedByIamUser: 'STRING_VALUE',
+ *   CreatedAt: new Date('TIMESTAMP'),
+ *   LastUpdatedAt: new Date('TIMESTAMP'),
+ *   DataSizeInBytes: Number('long'),
+ *   NumberOfFiles: Number('long'),
+ *   Name: 'STRING_VALUE',
+ *   Status: 'STRING_VALUE',
+ *   LogUri: 'STRING_VALUE',
+ *   Message: 'STRING_VALUE',
+ *   RedshiftMetadata: { // RedshiftMetadata
+ *     RedshiftDatabase: { // RedshiftDatabase
+ *       DatabaseName: 'STRING_VALUE', // required
+ *       ClusterIdentifier: 'STRING_VALUE', // required
+ *     },
+ *     DatabaseUserName: 'STRING_VALUE',
+ *     SelectSqlQuery: 'STRING_VALUE',
+ *   },
+ *   RDSMetadata: { // RDSMetadata
+ *     Database: { // RDSDatabase
+ *       InstanceIdentifier: 'STRING_VALUE', // required
+ *       DatabaseName: 'STRING_VALUE', // required
+ *     },
+ *     DatabaseUserName: 'STRING_VALUE',
+ *     SelectSqlQuery: 'STRING_VALUE',
+ *     ResourceRole: 'STRING_VALUE',
+ *     ServiceRole: 'STRING_VALUE',
+ *     DataPipelineId: 'STRING_VALUE',
+ *   },
+ *   RoleARN: 'STRING_VALUE',
+ *   ComputeStatistics: true || false,
+ *   ComputeTime: Number('long'),
+ *   FinishedAt: new Date('TIMESTAMP'),
+ *   StartedAt: new Date('TIMESTAMP'),
+ *   DataSourceSchema: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetDataSourceCommandInput - {@link GetDataSourceCommandInput}
@@ -65,6 +106,8 @@ export interface GetDataSourceCommandOutput extends GetDataSourceOutput, __Metad
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>A specified resource cannot be located.</p>
  *
+ * @throws {@link MachineLearningServiceException}
+ * <p>Base exception class for all service exceptions from MachineLearning service.</p>
  *
  */
 export class GetDataSourceCommand extends $Command<

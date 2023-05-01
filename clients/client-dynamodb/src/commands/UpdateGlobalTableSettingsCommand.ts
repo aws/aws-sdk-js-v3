@@ -48,44 +48,44 @@ export interface UpdateGlobalTableSettingsCommandOutput extends UpdateGlobalTabl
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DynamoDBClient, UpdateGlobalTableSettingsCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
- * // const { DynamoDBClient, UpdateGlobalTableSettingsCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
+ * import { DynamoDBClient, UpdateGlobalTableSettingsCommand } from '@aws-sdk/client-dynamodb'; // ES Modules import
+ * // const { DynamoDBClient, UpdateGlobalTableSettingsCommand } = require('@aws-sdk/client-dynamodb'); // CommonJS import
  * const client = new DynamoDBClient(config);
  * const input = { // UpdateGlobalTableSettingsInput
- *   GlobalTableName: "STRING_VALUE", // required
- *   GlobalTableBillingMode: "PROVISIONED" || "PAY_PER_REQUEST",
- *   GlobalTableProvisionedWriteCapacityUnits: Number("long"),
+ *   GlobalTableName: 'STRING_VALUE', // required
+ *   GlobalTableBillingMode: 'PROVISIONED' || 'PAY_PER_REQUEST',
+ *   GlobalTableProvisionedWriteCapacityUnits: Number('long'),
  *   GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate: { // AutoScalingSettingsUpdate
- *     MinimumUnits: Number("long"),
- *     MaximumUnits: Number("long"),
+ *     MinimumUnits: Number('long'),
+ *     MaximumUnits: Number('long'),
  *     AutoScalingDisabled: true || false,
- *     AutoScalingRoleArn: "STRING_VALUE",
+ *     AutoScalingRoleArn: 'STRING_VALUE',
  *     ScalingPolicyUpdate: { // AutoScalingPolicyUpdate
- *       PolicyName: "STRING_VALUE",
+ *       PolicyName: 'STRING_VALUE',
  *       TargetTrackingScalingPolicyConfiguration: { // AutoScalingTargetTrackingScalingPolicyConfigurationUpdate
  *         DisableScaleIn: true || false,
- *         ScaleInCooldown: Number("int"),
- *         ScaleOutCooldown: Number("int"),
- *         TargetValue: Number("double"), // required
+ *         ScaleInCooldown: Number('int'),
+ *         ScaleOutCooldown: Number('int'),
+ *         TargetValue: Number('double'), // required
  *       },
  *     },
  *   },
  *   GlobalTableGlobalSecondaryIndexSettingsUpdate: [ // GlobalTableGlobalSecondaryIndexSettingsUpdateList
  *     { // GlobalTableGlobalSecondaryIndexSettingsUpdate
- *       IndexName: "STRING_VALUE", // required
- *       ProvisionedWriteCapacityUnits: Number("long"),
+ *       IndexName: 'STRING_VALUE', // required
+ *       ProvisionedWriteCapacityUnits: Number('long'),
  *       ProvisionedWriteCapacityAutoScalingSettingsUpdate: {
- *         MinimumUnits: Number("long"),
- *         MaximumUnits: Number("long"),
+ *         MinimumUnits: Number('long'),
+ *         MaximumUnits: Number('long'),
  *         AutoScalingDisabled: true || false,
- *         AutoScalingRoleArn: "STRING_VALUE",
+ *         AutoScalingRoleArn: 'STRING_VALUE',
  *         ScalingPolicyUpdate: {
- *           PolicyName: "STRING_VALUE",
+ *           PolicyName: 'STRING_VALUE',
  *           TargetTrackingScalingPolicyConfiguration: {
  *             DisableScaleIn: true || false,
- *             ScaleInCooldown: Number("int"),
- *             ScaleOutCooldown: Number("int"),
- *             TargetValue: Number("double"), // required
+ *             ScaleInCooldown: Number('int'),
+ *             ScaleOutCooldown: Number('int'),
+ *             TargetValue: Number('double'), // required
  *           },
  *         },
  *       },
@@ -93,36 +93,133 @@ export interface UpdateGlobalTableSettingsCommandOutput extends UpdateGlobalTabl
  *   ],
  *   ReplicaSettingsUpdate: [ // ReplicaSettingsUpdateList
  *     { // ReplicaSettingsUpdate
- *       RegionName: "STRING_VALUE", // required
- *       ReplicaProvisionedReadCapacityUnits: Number("long"),
+ *       RegionName: 'STRING_VALUE', // required
+ *       ReplicaProvisionedReadCapacityUnits: Number('long'),
  *       ReplicaProvisionedReadCapacityAutoScalingSettingsUpdate: {
- *         MinimumUnits: Number("long"),
- *         MaximumUnits: Number("long"),
+ *         MinimumUnits: Number('long'),
+ *         MaximumUnits: Number('long'),
  *         AutoScalingDisabled: true || false,
- *         AutoScalingRoleArn: "STRING_VALUE",
+ *         AutoScalingRoleArn: 'STRING_VALUE',
  *         ScalingPolicyUpdate: {
- *           PolicyName: "STRING_VALUE",
+ *           PolicyName: 'STRING_VALUE',
  *           TargetTrackingScalingPolicyConfiguration: {
  *             DisableScaleIn: true || false,
- *             ScaleInCooldown: Number("int"),
- *             ScaleOutCooldown: Number("int"),
- *             TargetValue: Number("double"), // required
+ *             ScaleInCooldown: Number('int'),
+ *             ScaleOutCooldown: Number('int'),
+ *             TargetValue: Number('double'), // required
  *           },
  *         },
  *       },
  *       ReplicaGlobalSecondaryIndexSettingsUpdate: [ // ReplicaGlobalSecondaryIndexSettingsUpdateList
  *         { // ReplicaGlobalSecondaryIndexSettingsUpdate
- *           IndexName: "STRING_VALUE", // required
- *           ProvisionedReadCapacityUnits: Number("long"),
- *           ProvisionedReadCapacityAutoScalingSettingsUpdate: "<AutoScalingSettingsUpdate>",
+ *           IndexName: 'STRING_VALUE', // required
+ *           ProvisionedReadCapacityUnits: Number('long'),
+ *           ProvisionedReadCapacityAutoScalingSettingsUpdate: '<AutoScalingSettingsUpdate>',
  *         },
  *       ],
- *       ReplicaTableClass: "STANDARD" || "STANDARD_INFREQUENT_ACCESS",
+ *       ReplicaTableClass: 'STANDARD' || 'STANDARD_INFREQUENT_ACCESS',
  *     },
  *   ],
  * };
  * const command = new UpdateGlobalTableSettingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateGlobalTableSettingsOutput
+ *   GlobalTableName: 'STRING_VALUE',
+ *   ReplicaSettings: [ // ReplicaSettingsDescriptionList
+ *     { // ReplicaSettingsDescription
+ *       RegionName: 'STRING_VALUE', // required
+ *       ReplicaStatus: 'CREATING' || 'CREATION_FAILED' || 'UPDATING' || 'DELETING' || 'ACTIVE' || 'REGION_DISABLED' || 'INACCESSIBLE_ENCRYPTION_CREDENTIALS',
+ *       ReplicaBillingModeSummary: { // BillingModeSummary
+ *         BillingMode: 'PROVISIONED' || 'PAY_PER_REQUEST',
+ *         LastUpdateToPayPerRequestDateTime: new Date('TIMESTAMP'),
+ *       },
+ *       ReplicaProvisionedReadCapacityUnits: Number('long'),
+ *       ReplicaProvisionedReadCapacityAutoScalingSettings: { // AutoScalingSettingsDescription
+ *         MinimumUnits: Number('long'),
+ *         MaximumUnits: Number('long'),
+ *         AutoScalingDisabled: true || false,
+ *         AutoScalingRoleArn: 'STRING_VALUE',
+ *         ScalingPolicies: [ // AutoScalingPolicyDescriptionList
+ *           { // AutoScalingPolicyDescription
+ *             PolicyName: 'STRING_VALUE',
+ *             TargetTrackingScalingPolicyConfiguration: { // AutoScalingTargetTrackingScalingPolicyConfigurationDescription
+ *               DisableScaleIn: true || false,
+ *               ScaleInCooldown: Number('int'),
+ *               ScaleOutCooldown: Number('int'),
+ *               TargetValue: Number('double'), // required
+ *             },
+ *           },
+ *         ],
+ *       },
+ *       ReplicaProvisionedWriteCapacityUnits: Number('long'),
+ *       ReplicaProvisionedWriteCapacityAutoScalingSettings: {
+ *         MinimumUnits: Number('long'),
+ *         MaximumUnits: Number('long'),
+ *         AutoScalingDisabled: true || false,
+ *         AutoScalingRoleArn: 'STRING_VALUE',
+ *         ScalingPolicies: [
+ *           {
+ *             PolicyName: 'STRING_VALUE',
+ *             TargetTrackingScalingPolicyConfiguration: {
+ *               DisableScaleIn: true || false,
+ *               ScaleInCooldown: Number('int'),
+ *               ScaleOutCooldown: Number('int'),
+ *               TargetValue: Number('double'), // required
+ *             },
+ *           },
+ *         ],
+ *       },
+ *       ReplicaGlobalSecondaryIndexSettings: [ // ReplicaGlobalSecondaryIndexSettingsDescriptionList
+ *         { // ReplicaGlobalSecondaryIndexSettingsDescription
+ *           IndexName: 'STRING_VALUE', // required
+ *           IndexStatus: 'CREATING' || 'UPDATING' || 'DELETING' || 'ACTIVE',
+ *           ProvisionedReadCapacityUnits: Number('long'),
+ *           ProvisionedReadCapacityAutoScalingSettings: {
+ *             MinimumUnits: Number('long'),
+ *             MaximumUnits: Number('long'),
+ *             AutoScalingDisabled: true || false,
+ *             AutoScalingRoleArn: 'STRING_VALUE',
+ *             ScalingPolicies: [
+ *               {
+ *                 PolicyName: 'STRING_VALUE',
+ *                 TargetTrackingScalingPolicyConfiguration: {
+ *                   DisableScaleIn: true || false,
+ *                   ScaleInCooldown: Number('int'),
+ *                   ScaleOutCooldown: Number('int'),
+ *                   TargetValue: Number('double'), // required
+ *                 },
+ *               },
+ *             ],
+ *           },
+ *           ProvisionedWriteCapacityUnits: Number('long'),
+ *           ProvisionedWriteCapacityAutoScalingSettings: {
+ *             MinimumUnits: Number('long'),
+ *             MaximumUnits: Number('long'),
+ *             AutoScalingDisabled: true || false,
+ *             AutoScalingRoleArn: 'STRING_VALUE',
+ *             ScalingPolicies: [
+ *               {
+ *                 PolicyName: 'STRING_VALUE',
+ *                 TargetTrackingScalingPolicyConfiguration: {
+ *                   DisableScaleIn: true || false,
+ *                   ScaleInCooldown: Number('int'),
+ *                   ScaleOutCooldown: Number('int'),
+ *                   TargetValue: Number('double'), // required
+ *                 },
+ *               },
+ *             ],
+ *           },
+ *         },
+ *       ],
+ *       ReplicaTableClassSummary: { // TableClassSummary
+ *         TableClass: 'STANDARD' || 'STANDARD_INFREQUENT_ACCESS',
+ *         LastUpdateDateTime: new Date('TIMESTAMP'),
+ *       },
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param UpdateGlobalTableSettingsCommandInput - {@link UpdateGlobalTableSettingsCommandInput}
@@ -163,6 +260,8 @@ export interface UpdateGlobalTableSettingsCommandOutput extends UpdateGlobalTabl
  *             attempted to recreate an existing table, or tried to delete a table currently in the
  *                 <code>CREATING</code> state.</p>
  *
+ * @throws {@link DynamoDBServiceException}
+ * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
  */
 export class UpdateGlobalTableSettingsCommand extends $Command<

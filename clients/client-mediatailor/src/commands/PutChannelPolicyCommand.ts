@@ -36,15 +36,18 @@ export interface PutChannelPolicyCommandOutput extends PutChannelPolicyResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MediaTailorClient, PutChannelPolicyCommand } from "@aws-sdk/client-mediatailor"; // ES Modules import
- * // const { MediaTailorClient, PutChannelPolicyCommand } = require("@aws-sdk/client-mediatailor"); // CommonJS import
+ * import { MediaTailorClient, PutChannelPolicyCommand } from '@aws-sdk/client-mediatailor'; // ES Modules import
+ * // const { MediaTailorClient, PutChannelPolicyCommand } = require('@aws-sdk/client-mediatailor'); // CommonJS import
  * const client = new MediaTailorClient(config);
  * const input = { // PutChannelPolicyRequest
- *   ChannelName: "STRING_VALUE", // required
- *   Policy: "STRING_VALUE", // required
+ *   ChannelName: 'STRING_VALUE', // required
+ *   Policy: 'STRING_VALUE', // required
  * };
  * const command = new PutChannelPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutChannelPolicyCommandInput - {@link PutChannelPolicyCommandInput}
@@ -53,6 +56,8 @@ export interface PutChannelPolicyCommandOutput extends PutChannelPolicyResponse,
  * @see {@link PutChannelPolicyCommandOutput} for command's `response` shape.
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.
  *
+ * @throws {@link MediaTailorServiceException}
+ * <p>Base exception class for all service exceptions from MediaTailor service.</p>
  *
  */
 export class PutChannelPolicyCommand extends $Command<

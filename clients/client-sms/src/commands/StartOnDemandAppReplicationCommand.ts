@@ -38,15 +38,18 @@ export interface StartOnDemandAppReplicationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SMSClient, StartOnDemandAppReplicationCommand } from "@aws-sdk/client-sms"; // ES Modules import
- * // const { SMSClient, StartOnDemandAppReplicationCommand } = require("@aws-sdk/client-sms"); // CommonJS import
+ * import { SMSClient, StartOnDemandAppReplicationCommand } from '@aws-sdk/client-sms'; // ES Modules import
+ * // const { SMSClient, StartOnDemandAppReplicationCommand } = require('@aws-sdk/client-sms'); // CommonJS import
  * const client = new SMSClient(config);
  * const input = { // StartOnDemandAppReplicationRequest
- *   appId: "STRING_VALUE", // required
- *   description: "STRING_VALUE",
+ *   appId: 'STRING_VALUE', // required
+ *   description: 'STRING_VALUE',
  * };
  * const command = new StartOnDemandAppReplicationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param StartOnDemandAppReplicationCommandInput - {@link StartOnDemandAppReplicationCommandInput}
@@ -71,6 +74,8 @@ export interface StartOnDemandAppReplicationCommandOutput
  *  <p>You lack permissions needed to perform this operation. Check your IAM policies,
  *             and ensure that you are using the correct access keys.</p>
  *
+ * @throws {@link SMSServiceException}
+ * <p>Base exception class for all service exceptions from SMS service.</p>
  *
  */
 export class StartOnDemandAppReplicationCommand extends $Command<

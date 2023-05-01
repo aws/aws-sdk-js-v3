@@ -37,16 +37,21 @@ export interface AcknowledgeThirdPartyJobCommandOutput extends AcknowledgeThirdP
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodePipelineClient, AcknowledgeThirdPartyJobCommand } from "@aws-sdk/client-codepipeline"; // ES Modules import
- * // const { CodePipelineClient, AcknowledgeThirdPartyJobCommand } = require("@aws-sdk/client-codepipeline"); // CommonJS import
+ * import { CodePipelineClient, AcknowledgeThirdPartyJobCommand } from '@aws-sdk/client-codepipeline'; // ES Modules import
+ * // const { CodePipelineClient, AcknowledgeThirdPartyJobCommand } = require('@aws-sdk/client-codepipeline'); // CommonJS import
  * const client = new CodePipelineClient(config);
  * const input = { // AcknowledgeThirdPartyJobInput
- *   jobId: "STRING_VALUE", // required
- *   nonce: "STRING_VALUE", // required
- *   clientToken: "STRING_VALUE", // required
+ *   jobId: 'STRING_VALUE', // required
+ *   nonce: 'STRING_VALUE', // required
+ *   clientToken: 'STRING_VALUE', // required
  * };
  * const command = new AcknowledgeThirdPartyJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AcknowledgeThirdPartyJobOutput
+ *   status: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param AcknowledgeThirdPartyJobCommandInput - {@link AcknowledgeThirdPartyJobCommandInput}
@@ -67,6 +72,8 @@ export interface AcknowledgeThirdPartyJobCommandOutput extends AcknowledgeThirdP
  * @throws {@link ValidationException} (client fault)
  *  <p>The validation was specified in an invalid format.</p>
  *
+ * @throws {@link CodePipelineServiceException}
+ * <p>Base exception class for all service exceptions from CodePipeline service.</p>
  *
  */
 export class AcknowledgeThirdPartyJobCommand extends $Command<

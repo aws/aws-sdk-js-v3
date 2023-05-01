@@ -36,16 +36,24 @@ export interface GetRoomSkillParameterCommandOutput extends GetRoomSkillParamete
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AlexaForBusinessClient, GetRoomSkillParameterCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
- * // const { AlexaForBusinessClient, GetRoomSkillParameterCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
+ * import { AlexaForBusinessClient, GetRoomSkillParameterCommand } from '@aws-sdk/client-alexa-for-business'; // ES Modules import
+ * // const { AlexaForBusinessClient, GetRoomSkillParameterCommand } = require('@aws-sdk/client-alexa-for-business'); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
  * const input = { // GetRoomSkillParameterRequest
- *   RoomArn: "STRING_VALUE",
- *   SkillId: "STRING_VALUE", // required
- *   ParameterKey: "STRING_VALUE", // required
+ *   RoomArn: 'STRING_VALUE',
+ *   SkillId: 'STRING_VALUE', // required
+ *   ParameterKey: 'STRING_VALUE', // required
  * };
  * const command = new GetRoomSkillParameterCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetRoomSkillParameterResponse
+ *   RoomSkillParameter: { // RoomSkillParameter
+ *     ParameterKey: 'STRING_VALUE', // required
+ *     ParameterValue: 'STRING_VALUE', // required
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetRoomSkillParameterCommandInput - {@link GetRoomSkillParameterCommandInput}
@@ -57,6 +65,8 @@ export interface GetRoomSkillParameterCommandOutput extends GetRoomSkillParamete
  * @throws {@link NotFoundException} (client fault)
  *  <p>The resource is not found.</p>
  *
+ * @throws {@link AlexaForBusinessServiceException}
+ * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  */
 export class GetRoomSkillParameterCommand extends $Command<

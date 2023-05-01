@@ -107,18 +107,60 @@ export interface ListResourceRecordSetsCommandOutput extends ListResourceRecordS
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Route53Client, ListResourceRecordSetsCommand } from "@aws-sdk/client-route-53"; // ES Modules import
- * // const { Route53Client, ListResourceRecordSetsCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
+ * import { Route53Client, ListResourceRecordSetsCommand } from '@aws-sdk/client-route-53'; // ES Modules import
+ * // const { Route53Client, ListResourceRecordSetsCommand } = require('@aws-sdk/client-route-53'); // CommonJS import
  * const client = new Route53Client(config);
  * const input = { // ListResourceRecordSetsRequest
- *   HostedZoneId: "STRING_VALUE", // required
- *   StartRecordName: "STRING_VALUE",
- *   StartRecordType: "SOA" || "A" || "TXT" || "NS" || "CNAME" || "MX" || "NAPTR" || "PTR" || "SRV" || "SPF" || "AAAA" || "CAA" || "DS",
- *   StartRecordIdentifier: "STRING_VALUE",
- *   MaxItems: Number("int"),
+ *   HostedZoneId: 'STRING_VALUE', // required
+ *   StartRecordName: 'STRING_VALUE',
+ *   StartRecordType: 'SOA' || 'A' || 'TXT' || 'NS' || 'CNAME' || 'MX' || 'NAPTR' || 'PTR' || 'SRV' || 'SPF' || 'AAAA' || 'CAA' || 'DS',
+ *   StartRecordIdentifier: 'STRING_VALUE',
+ *   MaxItems: Number('int'),
  * };
  * const command = new ListResourceRecordSetsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListResourceRecordSetsResponse
+ *   ResourceRecordSets: [ // ResourceRecordSets // required
+ *     { // ResourceRecordSet
+ *       Name: 'STRING_VALUE', // required
+ *       Type: 'SOA' || 'A' || 'TXT' || 'NS' || 'CNAME' || 'MX' || 'NAPTR' || 'PTR' || 'SRV' || 'SPF' || 'AAAA' || 'CAA' || 'DS', // required
+ *       SetIdentifier: 'STRING_VALUE',
+ *       Weight: Number('long'),
+ *       Region: 'us-east-1' || 'us-east-2' || 'us-west-1' || 'us-west-2' || 'ca-central-1' || 'eu-west-1' || 'eu-west-2' || 'eu-west-3' || 'eu-central-1' || 'eu-central-2' || 'ap-southeast-1' || 'ap-southeast-2' || 'ap-southeast-3' || 'ap-northeast-1' || 'ap-northeast-2' || 'ap-northeast-3' || 'eu-north-1' || 'sa-east-1' || 'cn-north-1' || 'cn-northwest-1' || 'ap-east-1' || 'me-south-1' || 'me-central-1' || 'ap-south-1' || 'ap-south-2' || 'af-south-1' || 'eu-south-1' || 'eu-south-2' || 'ap-southeast-4',
+ *       GeoLocation: { // GeoLocation
+ *         ContinentCode: 'STRING_VALUE',
+ *         CountryCode: 'STRING_VALUE',
+ *         SubdivisionCode: 'STRING_VALUE',
+ *       },
+ *       Failover: 'PRIMARY' || 'SECONDARY',
+ *       MultiValueAnswer: true || false,
+ *       TTL: Number('long'),
+ *       ResourceRecords: [ // ResourceRecords
+ *         { // ResourceRecord
+ *           Value: 'STRING_VALUE', // required
+ *         },
+ *       ],
+ *       AliasTarget: { // AliasTarget
+ *         HostedZoneId: 'STRING_VALUE', // required
+ *         DNSName: 'STRING_VALUE', // required
+ *         EvaluateTargetHealth: true || false, // required
+ *       },
+ *       HealthCheckId: 'STRING_VALUE',
+ *       TrafficPolicyInstanceId: 'STRING_VALUE',
+ *       CidrRoutingConfig: { // CidrRoutingConfig
+ *         CollectionId: 'STRING_VALUE', // required
+ *         LocationName: 'STRING_VALUE', // required
+ *       },
+ *     },
+ *   ],
+ *   IsTruncated: true || false, // required
+ *   NextRecordName: 'STRING_VALUE',
+ *   NextRecordType: 'SOA' || 'A' || 'TXT' || 'NS' || 'CNAME' || 'MX' || 'NAPTR' || 'PTR' || 'SRV' || 'SPF' || 'AAAA' || 'CAA' || 'DS',
+ *   NextRecordIdentifier: 'STRING_VALUE',
+ *   MaxItems: Number('int'), // required
+ * };
+ *
  * ```
  *
  * @param ListResourceRecordSetsCommandInput - {@link ListResourceRecordSetsCommandInput}
@@ -133,6 +175,8 @@ export interface ListResourceRecordSetsCommandOutput extends ListResourceRecordS
  * @throws {@link NoSuchHostedZone} (client fault)
  *  <p>No hosted zone exists with the ID that you specified.</p>
  *
+ * @throws {@link Route53ServiceException}
+ * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
  */
 export class ListResourceRecordSetsCommand extends $Command<

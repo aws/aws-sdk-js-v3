@@ -36,15 +36,51 @@ export interface ListSourceLocationsCommandOutput extends ListSourceLocationsRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MediaTailorClient, ListSourceLocationsCommand } from "@aws-sdk/client-mediatailor"; // ES Modules import
- * // const { MediaTailorClient, ListSourceLocationsCommand } = require("@aws-sdk/client-mediatailor"); // CommonJS import
+ * import { MediaTailorClient, ListSourceLocationsCommand } from '@aws-sdk/client-mediatailor'; // ES Modules import
+ * // const { MediaTailorClient, ListSourceLocationsCommand } = require('@aws-sdk/client-mediatailor'); // CommonJS import
  * const client = new MediaTailorClient(config);
  * const input = { // ListSourceLocationsRequest
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListSourceLocationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListSourceLocationsResponse
+ *   Items: [ // __listOfSourceLocation
+ *     { // SourceLocation
+ *       AccessConfiguration: { // AccessConfiguration
+ *         AccessType: 'S3_SIGV4' || 'SECRETS_MANAGER_ACCESS_TOKEN',
+ *         SecretsManagerAccessTokenConfiguration: { // SecretsManagerAccessTokenConfiguration
+ *           HeaderName: 'STRING_VALUE',
+ *           SecretArn: 'STRING_VALUE',
+ *           SecretStringKey: 'STRING_VALUE',
+ *         },
+ *       },
+ *       Arn: 'STRING_VALUE', // required
+ *       CreationTime: new Date('TIMESTAMP'),
+ *       DefaultSegmentDeliveryConfiguration: { // DefaultSegmentDeliveryConfiguration
+ *         BaseUrl: 'STRING_VALUE',
+ *       },
+ *       HttpConfiguration: { // HttpConfiguration
+ *         BaseUrl: 'STRING_VALUE', // required
+ *       },
+ *       LastModifiedTime: new Date('TIMESTAMP'),
+ *       SegmentDeliveryConfigurations: [ // __listOfSegmentDeliveryConfiguration
+ *         { // SegmentDeliveryConfiguration
+ *           BaseUrl: 'STRING_VALUE',
+ *           Name: 'STRING_VALUE',
+ *         },
+ *       ],
+ *       SourceLocationName: 'STRING_VALUE', // required
+ *       Tags: { // __mapOf__string
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListSourceLocationsCommandInput - {@link ListSourceLocationsCommandInput}
@@ -53,6 +89,8 @@ export interface ListSourceLocationsCommandOutput extends ListSourceLocationsRes
  * @see {@link ListSourceLocationsCommandOutput} for command's `response` shape.
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.
  *
+ * @throws {@link MediaTailorServiceException}
+ * <p>Base exception class for all service exceptions from MediaTailor service.</p>
  *
  */
 export class ListSourceLocationsCommand extends $Command<

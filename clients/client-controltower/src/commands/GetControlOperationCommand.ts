@@ -38,14 +38,25 @@ export interface GetControlOperationCommandOutput extends GetControlOperationOut
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ControlTowerClient, GetControlOperationCommand } from "@aws-sdk/client-controltower"; // ES Modules import
- * // const { ControlTowerClient, GetControlOperationCommand } = require("@aws-sdk/client-controltower"); // CommonJS import
+ * import { ControlTowerClient, GetControlOperationCommand } from '@aws-sdk/client-controltower'; // ES Modules import
+ * // const { ControlTowerClient, GetControlOperationCommand } = require('@aws-sdk/client-controltower'); // CommonJS import
  * const client = new ControlTowerClient(config);
  * const input = { // GetControlOperationInput
- *   operationIdentifier: "STRING_VALUE", // required
+ *   operationIdentifier: 'STRING_VALUE', // required
  * };
  * const command = new GetControlOperationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetControlOperationOutput
+ *   controlOperation: { // ControlOperation
+ *     operationType: 'STRING_VALUE',
+ *     startTime: new Date('TIMESTAMP'),
+ *     endTime: new Date('TIMESTAMP'),
+ *     status: 'STRING_VALUE',
+ *     statusMessage: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetControlOperationCommandInput - {@link GetControlOperationCommandInput}
@@ -70,6 +81,8 @@ export interface GetControlOperationCommandOutput extends GetControlOperationOut
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link ControlTowerServiceException}
+ * <p>Base exception class for all service exceptions from ControlTower service.</p>
  *
  */
 export class GetControlOperationCommand extends $Command<

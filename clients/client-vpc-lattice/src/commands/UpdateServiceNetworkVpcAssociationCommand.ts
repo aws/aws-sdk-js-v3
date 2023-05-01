@@ -47,17 +47,28 @@ export interface UpdateServiceNetworkVpcAssociationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { VPCLatticeClient, UpdateServiceNetworkVpcAssociationCommand } from "@aws-sdk/client-vpc-lattice"; // ES Modules import
- * // const { VPCLatticeClient, UpdateServiceNetworkVpcAssociationCommand } = require("@aws-sdk/client-vpc-lattice"); // CommonJS import
+ * import { VPCLatticeClient, UpdateServiceNetworkVpcAssociationCommand } from '@aws-sdk/client-vpc-lattice'; // ES Modules import
+ * // const { VPCLatticeClient, UpdateServiceNetworkVpcAssociationCommand } = require('@aws-sdk/client-vpc-lattice'); // CommonJS import
  * const client = new VPCLatticeClient(config);
  * const input = { // UpdateServiceNetworkVpcAssociationRequest
- *   serviceNetworkVpcAssociationIdentifier: "STRING_VALUE", // required
+ *   serviceNetworkVpcAssociationIdentifier: 'STRING_VALUE', // required
  *   securityGroupIds: [ // SecurityGroupList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new UpdateServiceNetworkVpcAssociationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateServiceNetworkVpcAssociationResponse
+ *   id: 'STRING_VALUE',
+ *   arn: 'STRING_VALUE',
+ *   status: 'STRING_VALUE',
+ *   createdBy: 'STRING_VALUE',
+ *   securityGroupIds: [ // SecurityGroupList
+ *     'STRING_VALUE',
+ *   ],
+ * };
+ *
  * ```
  *
  * @param UpdateServiceNetworkVpcAssociationCommandInput - {@link UpdateServiceNetworkVpcAssociationCommandInput}
@@ -86,6 +97,8 @@ export interface UpdateServiceNetworkVpcAssociationCommandOutput
  *  <p>The input does not satisfy the constraints specified by an Amazon Web Services
  *    service.</p>
  *
+ * @throws {@link VPCLatticeServiceException}
+ * <p>Base exception class for all service exceptions from VPCLattice service.</p>
  *
  */
 export class UpdateServiceNetworkVpcAssociationCommand extends $Command<

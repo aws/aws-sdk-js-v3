@@ -42,17 +42,26 @@ export interface CreateFleetAdvisorCollectorCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DatabaseMigrationServiceClient, CreateFleetAdvisorCollectorCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
- * // const { DatabaseMigrationServiceClient, CreateFleetAdvisorCollectorCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
+ * import { DatabaseMigrationServiceClient, CreateFleetAdvisorCollectorCommand } from '@aws-sdk/client-database-migration-service'; // ES Modules import
+ * // const { DatabaseMigrationServiceClient, CreateFleetAdvisorCollectorCommand } = require('@aws-sdk/client-database-migration-service'); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
  * const input = { // CreateFleetAdvisorCollectorRequest
- *   CollectorName: "STRING_VALUE", // required
- *   Description: "STRING_VALUE",
- *   ServiceAccessRoleArn: "STRING_VALUE", // required
- *   S3BucketName: "STRING_VALUE", // required
+ *   CollectorName: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE',
+ *   ServiceAccessRoleArn: 'STRING_VALUE', // required
+ *   S3BucketName: 'STRING_VALUE', // required
  * };
  * const command = new CreateFleetAdvisorCollectorCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateFleetAdvisorCollectorResponse
+ *   CollectorReferencedId: 'STRING_VALUE',
+ *   CollectorName: 'STRING_VALUE',
+ *   Description: 'STRING_VALUE',
+ *   ServiceAccessRoleArn: 'STRING_VALUE',
+ *   S3BucketName: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateFleetAdvisorCollectorCommandInput - {@link CreateFleetAdvisorCollectorCommandInput}
@@ -78,6 +87,8 @@ export interface CreateFleetAdvisorCollectorCommandOutput
  *  <p>A specified Amazon S3 bucket, bucket folder, or other object can't be
  *             found.</p>
  *
+ * @throws {@link DatabaseMigrationServiceServiceException}
+ * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
  */
 export class CreateFleetAdvisorCollectorCommand extends $Command<

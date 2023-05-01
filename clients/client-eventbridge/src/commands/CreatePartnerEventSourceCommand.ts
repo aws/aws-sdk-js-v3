@@ -59,15 +59,20 @@ export interface CreatePartnerEventSourceCommandOutput extends CreatePartnerEven
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EventBridgeClient, CreatePartnerEventSourceCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
- * // const { EventBridgeClient, CreatePartnerEventSourceCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
+ * import { EventBridgeClient, CreatePartnerEventSourceCommand } from '@aws-sdk/client-eventbridge'; // ES Modules import
+ * // const { EventBridgeClient, CreatePartnerEventSourceCommand } = require('@aws-sdk/client-eventbridge'); // CommonJS import
  * const client = new EventBridgeClient(config);
  * const input = { // CreatePartnerEventSourceRequest
- *   Name: "STRING_VALUE", // required
- *   Account: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
+ *   Account: 'STRING_VALUE', // required
  * };
  * const command = new CreatePartnerEventSourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreatePartnerEventSourceResponse
+ *   EventSourceArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreatePartnerEventSourceCommandInput - {@link CreatePartnerEventSourceCommandInput}
@@ -92,6 +97,8 @@ export interface CreatePartnerEventSourceCommandOutput extends CreatePartnerEven
  * @throws {@link ResourceAlreadyExistsException} (client fault)
  *  <p>The resource you are trying to create already exists.</p>
  *
+ * @throws {@link EventBridgeServiceException}
+ * <p>Base exception class for all service exceptions from EventBridge service.</p>
  *
  */
 export class CreatePartnerEventSourceCommand extends $Command<

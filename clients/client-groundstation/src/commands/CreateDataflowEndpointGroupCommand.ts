@@ -43,66 +43,71 @@ export interface CreateDataflowEndpointGroupCommandOutput extends DataflowEndpoi
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GroundStationClient, CreateDataflowEndpointGroupCommand } from "@aws-sdk/client-groundstation"; // ES Modules import
- * // const { GroundStationClient, CreateDataflowEndpointGroupCommand } = require("@aws-sdk/client-groundstation"); // CommonJS import
+ * import { GroundStationClient, CreateDataflowEndpointGroupCommand } from '@aws-sdk/client-groundstation'; // ES Modules import
+ * // const { GroundStationClient, CreateDataflowEndpointGroupCommand } = require('@aws-sdk/client-groundstation'); // CommonJS import
  * const client = new GroundStationClient(config);
  * const input = { // CreateDataflowEndpointGroupRequest
  *   endpointDetails: [ // EndpointDetailsList // required
  *     { // EndpointDetails
  *       securityDetails: { // SecurityDetails
  *         subnetIds: [ // SubnetList // required
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
  *         securityGroupIds: [ // SecurityGroupIdList // required
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
- *         roleArn: "STRING_VALUE", // required
+ *         roleArn: 'STRING_VALUE', // required
  *       },
  *       endpoint: { // DataflowEndpoint
- *         name: "STRING_VALUE",
+ *         name: 'STRING_VALUE',
  *         address: { // SocketAddress
- *           name: "STRING_VALUE", // required
- *           port: Number("int"), // required
+ *           name: 'STRING_VALUE', // required
+ *           port: Number('int'), // required
  *         },
- *         status: "STRING_VALUE",
- *         mtu: Number("int"),
+ *         status: 'STRING_VALUE',
+ *         mtu: Number('int'),
  *       },
  *       awsGroundStationAgentEndpoint: { // AwsGroundStationAgentEndpoint
- *         name: "STRING_VALUE", // required
+ *         name: 'STRING_VALUE', // required
  *         egressAddress: { // ConnectionDetails
  *           socketAddress: {
- *             name: "STRING_VALUE", // required
- *             port: Number("int"), // required
+ *             name: 'STRING_VALUE', // required
+ *             port: Number('int'), // required
  *           },
- *           mtu: Number("int"),
+ *           mtu: Number('int'),
  *         },
  *         ingressAddress: { // RangedConnectionDetails
  *           socketAddress: { // RangedSocketAddress
- *             name: "STRING_VALUE", // required
+ *             name: 'STRING_VALUE', // required
  *             portRange: { // IntegerRange
- *               minimum: Number("int"), // required
- *               maximum: Number("int"), // required
+ *               minimum: Number('int'), // required
+ *               maximum: Number('int'), // required
  *             },
  *           },
- *           mtu: Number("int"),
+ *           mtu: Number('int'),
  *         },
- *         agentStatus: "STRING_VALUE",
- *         auditResults: "STRING_VALUE",
+ *         agentStatus: 'STRING_VALUE',
+ *         auditResults: 'STRING_VALUE',
  *       },
- *       healthStatus: "STRING_VALUE",
+ *       healthStatus: 'STRING_VALUE',
  *       healthReasons: [ // CapabilityHealthReasonList
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
  *   tags: { // TagsMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
- *   contactPrePassDurationSeconds: Number("int"),
- *   contactPostPassDurationSeconds: Number("int"),
+ *   contactPrePassDurationSeconds: Number('int'),
+ *   contactPostPassDurationSeconds: Number('int'),
  * };
  * const command = new CreateDataflowEndpointGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DataflowEndpointGroupIdResponse
+ *   dataflowEndpointGroupId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateDataflowEndpointGroupCommandInput - {@link CreateDataflowEndpointGroupCommandInput}
@@ -120,6 +125,8 @@ export interface CreateDataflowEndpointGroupCommandOutput extends DataflowEndpoi
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Resource was not found.</p>
  *
+ * @throws {@link GroundStationServiceException}
+ * <p>Base exception class for all service exceptions from GroundStation service.</p>
  *
  */
 export class CreateDataflowEndpointGroupCommand extends $Command<

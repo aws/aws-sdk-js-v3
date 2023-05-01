@@ -42,14 +42,20 @@ export interface StopTextTranslationJobCommandOutput extends StopTextTranslation
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { TranslateClient, StopTextTranslationJobCommand } from "@aws-sdk/client-translate"; // ES Modules import
- * // const { TranslateClient, StopTextTranslationJobCommand } = require("@aws-sdk/client-translate"); // CommonJS import
+ * import { TranslateClient, StopTextTranslationJobCommand } from '@aws-sdk/client-translate'; // ES Modules import
+ * // const { TranslateClient, StopTextTranslationJobCommand } = require('@aws-sdk/client-translate'); // CommonJS import
  * const client = new TranslateClient(config);
  * const input = { // StopTextTranslationJobRequest
- *   JobId: "STRING_VALUE", // required
+ *   JobId: 'STRING_VALUE', // required
  * };
  * const command = new StopTextTranslationJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StopTextTranslationJobResponse
+ *   JobId: 'STRING_VALUE',
+ *   JobStatus: 'SUBMITTED' || 'IN_PROGRESS' || 'COMPLETED' || 'COMPLETED_WITH_ERROR' || 'FAILED' || 'STOP_REQUESTED' || 'STOPPED',
+ * };
+ *
  * ```
  *
  * @param StopTextTranslationJobCommandInput - {@link StopTextTranslationJobCommandInput}
@@ -70,6 +76,8 @@ export interface StopTextTranslationJobCommandOutput extends StopTextTranslation
  *  <p> You have made too many requests within a short period of time. Wait for a short time and
  *       then try your request again.</p>
  *
+ * @throws {@link TranslateServiceException}
+ * <p>Base exception class for all service exceptions from Translate service.</p>
  *
  */
 export class StopTextTranslationJobCommand extends $Command<

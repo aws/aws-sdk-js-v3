@@ -54,20 +54,23 @@ export interface PutBucketRequestPaymentCommandOutput extends __MetadataBearer {
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { S3Client, PutBucketRequestPaymentCommand } from "@aws-sdk/client-s3"; // ES Modules import
- * // const { S3Client, PutBucketRequestPaymentCommand } = require("@aws-sdk/client-s3"); // CommonJS import
+ * import { S3Client, PutBucketRequestPaymentCommand } from '@aws-sdk/client-s3'; // ES Modules import
+ * // const { S3Client, PutBucketRequestPaymentCommand } = require('@aws-sdk/client-s3'); // CommonJS import
  * const client = new S3Client(config);
  * const input = { // PutBucketRequestPaymentRequest
- *   Bucket: "STRING_VALUE", // required
- *   ContentMD5: "STRING_VALUE",
- *   ChecksumAlgorithm: "CRC32" || "CRC32C" || "SHA1" || "SHA256",
+ *   Bucket: 'STRING_VALUE', // required
+ *   ContentMD5: 'STRING_VALUE',
+ *   ChecksumAlgorithm: 'CRC32' || 'CRC32C' || 'SHA1' || 'SHA256',
  *   RequestPaymentConfiguration: { // RequestPaymentConfiguration
- *     Payer: "Requester" || "BucketOwner", // required
+ *     Payer: 'Requester' || 'BucketOwner', // required
  *   },
- *   ExpectedBucketOwner: "STRING_VALUE",
+ *   ExpectedBucketOwner: 'STRING_VALUE',
  * };
  * const command = new PutBucketRequestPaymentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutBucketRequestPaymentCommandInput - {@link PutBucketRequestPaymentCommandInput}
@@ -76,6 +79,8 @@ export interface PutBucketRequestPaymentCommandOutput extends __MetadataBearer {
  * @see {@link PutBucketRequestPaymentCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
+ * @throws {@link S3ServiceException}
+ * <p>Base exception class for all service exceptions from S3 service.</p>
  *
  * @example Set request payment configuration on a bucket.
  * ```javascript

@@ -60,18 +60,21 @@ export interface UpdateDataRetentionCommandOutput extends UpdateDataRetentionOut
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KinesisVideoClient, UpdateDataRetentionCommand } from "@aws-sdk/client-kinesis-video"; // ES Modules import
- * // const { KinesisVideoClient, UpdateDataRetentionCommand } = require("@aws-sdk/client-kinesis-video"); // CommonJS import
+ * import { KinesisVideoClient, UpdateDataRetentionCommand } from '@aws-sdk/client-kinesis-video'; // ES Modules import
+ * // const { KinesisVideoClient, UpdateDataRetentionCommand } = require('@aws-sdk/client-kinesis-video'); // CommonJS import
  * const client = new KinesisVideoClient(config);
  * const input = { // UpdateDataRetentionInput
- *   StreamName: "STRING_VALUE",
- *   StreamARN: "STRING_VALUE",
- *   CurrentVersion: "STRING_VALUE", // required
- *   Operation: "INCREASE_DATA_RETENTION" || "DECREASE_DATA_RETENTION", // required
- *   DataRetentionChangeInHours: Number("int"), // required
+ *   StreamName: 'STRING_VALUE',
+ *   StreamARN: 'STRING_VALUE',
+ *   CurrentVersion: 'STRING_VALUE', // required
+ *   Operation: 'INCREASE_DATA_RETENTION' || 'DECREASE_DATA_RETENTION', // required
+ *   DataRetentionChangeInHours: Number('int'), // required
  * };
  * const command = new UpdateDataRetentionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateDataRetentionCommandInput - {@link UpdateDataRetentionCommandInput}
@@ -118,6 +121,8 @@ export interface UpdateDataRetentionCommandOutput extends UpdateDataRetentionOut
  *             version, use the <a href="https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_DescribeStream.html">DescribeStream</a>
  *             API.</p>
  *
+ * @throws {@link KinesisVideoServiceException}
+ * <p>Base exception class for all service exceptions from KinesisVideo service.</p>
  *
  */
 export class UpdateDataRetentionCommand extends $Command<

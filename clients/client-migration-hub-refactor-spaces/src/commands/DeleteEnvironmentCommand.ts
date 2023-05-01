@@ -41,14 +41,23 @@ export interface DeleteEnvironmentCommandOutput extends DeleteEnvironmentRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MigrationHubRefactorSpacesClient, DeleteEnvironmentCommand } from "@aws-sdk/client-migration-hub-refactor-spaces"; // ES Modules import
- * // const { MigrationHubRefactorSpacesClient, DeleteEnvironmentCommand } = require("@aws-sdk/client-migration-hub-refactor-spaces"); // CommonJS import
+ * import { MigrationHubRefactorSpacesClient, DeleteEnvironmentCommand } from '@aws-sdk/client-migration-hub-refactor-spaces'; // ES Modules import
+ * // const { MigrationHubRefactorSpacesClient, DeleteEnvironmentCommand } = require('@aws-sdk/client-migration-hub-refactor-spaces'); // CommonJS import
  * const client = new MigrationHubRefactorSpacesClient(config);
  * const input = { // DeleteEnvironmentRequest
- *   EnvironmentIdentifier: "STRING_VALUE", // required
+ *   EnvironmentIdentifier: 'STRING_VALUE', // required
  * };
  * const command = new DeleteEnvironmentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteEnvironmentResponse
+ *   Name: 'STRING_VALUE',
+ *   Arn: 'STRING_VALUE',
+ *   EnvironmentId: 'STRING_VALUE',
+ *   State: 'STRING_VALUE',
+ *   LastUpdatedTime: new Date('TIMESTAMP'),
+ * };
+ *
  * ```
  *
  * @param DeleteEnvironmentCommandInput - {@link DeleteEnvironmentCommandInput}
@@ -76,6 +85,8 @@ export interface DeleteEnvironmentCommandOutput extends DeleteEnvironmentRespons
  *  <p>The input does not satisfy the constraints specified by an Amazon Web Service.
  *     </p>
  *
+ * @throws {@link MigrationHubRefactorSpacesServiceException}
+ * <p>Base exception class for all service exceptions from MigrationHubRefactorSpaces service.</p>
  *
  */
 export class DeleteEnvironmentCommand extends $Command<

@@ -36,15 +36,25 @@ export interface UpdateRegistryCommandOutput extends UpdateRegistryResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SchemasClient, UpdateRegistryCommand } from "@aws-sdk/client-schemas"; // ES Modules import
- * // const { SchemasClient, UpdateRegistryCommand } = require("@aws-sdk/client-schemas"); // CommonJS import
+ * import { SchemasClient, UpdateRegistryCommand } from '@aws-sdk/client-schemas'; // ES Modules import
+ * // const { SchemasClient, UpdateRegistryCommand } = require('@aws-sdk/client-schemas'); // CommonJS import
  * const client = new SchemasClient(config);
  * const input = { // UpdateRegistryRequest
- *   Description: "STRING_VALUE",
- *   RegistryName: "STRING_VALUE", // required
+ *   Description: 'STRING_VALUE',
+ *   RegistryName: 'STRING_VALUE', // required
  * };
  * const command = new UpdateRegistryCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateRegistryResponse
+ *   Description: 'STRING_VALUE',
+ *   RegistryArn: 'STRING_VALUE',
+ *   RegistryName: 'STRING_VALUE',
+ *   Tags: { // Tags
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateRegistryCommandInput - {@link UpdateRegistryCommandInput}
@@ -65,6 +75,8 @@ export interface UpdateRegistryCommandOutput extends UpdateRegistryResponse, __M
  *
  * @throws {@link UnauthorizedException} (client fault)
  *
+ * @throws {@link SchemasServiceException}
+ * <p>Base exception class for all service exceptions from Schemas service.</p>
  *
  */
 export class UpdateRegistryCommand extends $Command<

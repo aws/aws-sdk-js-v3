@@ -39,14 +39,24 @@ export interface DescribeIdentityCommandOutput extends IdentityDescription, __Me
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CognitoIdentityClient, DescribeIdentityCommand } from "@aws-sdk/client-cognito-identity"; // ES Modules import
- * // const { CognitoIdentityClient, DescribeIdentityCommand } = require("@aws-sdk/client-cognito-identity"); // CommonJS import
+ * import { CognitoIdentityClient, DescribeIdentityCommand } from '@aws-sdk/client-cognito-identity'; // ES Modules import
+ * // const { CognitoIdentityClient, DescribeIdentityCommand } = require('@aws-sdk/client-cognito-identity'); // CommonJS import
  * const client = new CognitoIdentityClient(config);
  * const input = { // DescribeIdentityInput
- *   IdentityId: "STRING_VALUE", // required
+ *   IdentityId: 'STRING_VALUE', // required
  * };
  * const command = new DescribeIdentityCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // IdentityDescription
+ *   IdentityId: 'STRING_VALUE',
+ *   Logins: [ // LoginsList
+ *     'STRING_VALUE',
+ *   ],
+ *   CreationDate: new Date('TIMESTAMP'),
+ *   LastModifiedDate: new Date('TIMESTAMP'),
+ * };
+ *
  * ```
  *
  * @param DescribeIdentityCommandInput - {@link DescribeIdentityCommandInput}
@@ -71,6 +81,8 @@ export interface DescribeIdentityCommandOutput extends IdentityDescription, __Me
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Thrown when a request is throttled.</p>
  *
+ * @throws {@link CognitoIdentityServiceException}
+ * <p>Base exception class for all service exceptions from CognitoIdentity service.</p>
  *
  */
 export class DescribeIdentityCommand extends $Command<

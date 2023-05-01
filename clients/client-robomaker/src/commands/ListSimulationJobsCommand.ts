@@ -37,23 +37,46 @@ export interface ListSimulationJobsCommandOutput extends ListSimulationJobsRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RoboMakerClient, ListSimulationJobsCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
- * // const { RoboMakerClient, ListSimulationJobsCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
+ * import { RoboMakerClient, ListSimulationJobsCommand } from '@aws-sdk/client-robomaker'; // ES Modules import
+ * // const { RoboMakerClient, ListSimulationJobsCommand } = require('@aws-sdk/client-robomaker'); // CommonJS import
  * const client = new RoboMakerClient(config);
  * const input = { // ListSimulationJobsRequest
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  *   filters: [ // Filters
  *     { // Filter
- *       name: "STRING_VALUE",
+ *       name: 'STRING_VALUE',
  *       values: [ // FilterValues
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
  * };
  * const command = new ListSimulationJobsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListSimulationJobsResponse
+ *   simulationJobSummaries: [ // SimulationJobSummaries // required
+ *     { // SimulationJobSummary
+ *       arn: 'STRING_VALUE',
+ *       lastUpdatedAt: new Date('TIMESTAMP'),
+ *       name: 'STRING_VALUE',
+ *       status: 'STRING_VALUE',
+ *       simulationApplicationNames: [ // SimulationApplicationNames
+ *         'STRING_VALUE',
+ *       ],
+ *       robotApplicationNames: [ // RobotApplicationNames
+ *         'STRING_VALUE',
+ *       ],
+ *       dataSourceNames: [ // DataSourceNames
+ *         'STRING_VALUE',
+ *       ],
+ *       computeType: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListSimulationJobsCommandInput - {@link ListSimulationJobsCommandInput}
@@ -72,6 +95,8 @@ export interface ListSimulationJobsCommandOutput extends ListSimulationJobsRespo
  * @throws {@link ThrottlingException} (client fault)
  *  <p>AWS RoboMaker is temporarily unable to process the request. Try your call again.</p>
  *
+ * @throws {@link RoboMakerServiceException}
+ * <p>Base exception class for all service exceptions from RoboMaker service.</p>
  *
  */
 export class ListSimulationJobsCommand extends $Command<

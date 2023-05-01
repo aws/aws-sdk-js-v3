@@ -36,21 +36,39 @@ export interface UpdateUserCommandOutput extends UpdateUserResponse, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MemoryDBClient, UpdateUserCommand } from "@aws-sdk/client-memorydb"; // ES Modules import
- * // const { MemoryDBClient, UpdateUserCommand } = require("@aws-sdk/client-memorydb"); // CommonJS import
+ * import { MemoryDBClient, UpdateUserCommand } from '@aws-sdk/client-memorydb'; // ES Modules import
+ * // const { MemoryDBClient, UpdateUserCommand } = require('@aws-sdk/client-memorydb'); // CommonJS import
  * const client = new MemoryDBClient(config);
  * const input = { // UpdateUserRequest
- *   UserName: "STRING_VALUE", // required
+ *   UserName: 'STRING_VALUE', // required
  *   AuthenticationMode: { // AuthenticationMode
- *     Type: "password",
+ *     Type: 'password',
  *     Passwords: [ // PasswordListInput
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *   },
- *   AccessString: "STRING_VALUE",
+ *   AccessString: 'STRING_VALUE',
  * };
  * const command = new UpdateUserCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateUserResponse
+ *   User: { // User
+ *     Name: 'STRING_VALUE',
+ *     Status: 'STRING_VALUE',
+ *     AccessString: 'STRING_VALUE',
+ *     ACLNames: [ // ACLNameList
+ *       'STRING_VALUE',
+ *     ],
+ *     MinimumEngineVersion: 'STRING_VALUE',
+ *     Authentication: { // Authentication
+ *       Type: 'password' || 'no-password',
+ *       PasswordCount: Number('int'),
+ *     },
+ *     ARN: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateUserCommandInput - {@link UpdateUserCommandInput}
@@ -71,6 +89,8 @@ export interface UpdateUserCommandOutput extends UpdateUserResponse, __MetadataB
  * @throws {@link UserNotFoundFault} (client fault)
  *  <p></p>
  *
+ * @throws {@link MemoryDBServiceException}
+ * <p>Base exception class for all service exceptions from MemoryDB service.</p>
  *
  */
 export class UpdateUserCommand extends $Command<

@@ -74,18 +74,23 @@ export interface AbortMultipartUploadCommandOutput extends AbortMultipartUploadO
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { S3Client, AbortMultipartUploadCommand } from "@aws-sdk/client-s3"; // ES Modules import
- * // const { S3Client, AbortMultipartUploadCommand } = require("@aws-sdk/client-s3"); // CommonJS import
+ * import { S3Client, AbortMultipartUploadCommand } from '@aws-sdk/client-s3'; // ES Modules import
+ * // const { S3Client, AbortMultipartUploadCommand } = require('@aws-sdk/client-s3'); // CommonJS import
  * const client = new S3Client(config);
  * const input = { // AbortMultipartUploadRequest
- *   Bucket: "STRING_VALUE", // required
- *   Key: "STRING_VALUE", // required
- *   UploadId: "STRING_VALUE", // required
- *   RequestPayer: "requester",
- *   ExpectedBucketOwner: "STRING_VALUE",
+ *   Bucket: 'STRING_VALUE', // required
+ *   Key: 'STRING_VALUE', // required
+ *   UploadId: 'STRING_VALUE', // required
+ *   RequestPayer: 'requester',
+ *   ExpectedBucketOwner: 'STRING_VALUE',
  * };
  * const command = new AbortMultipartUploadCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AbortMultipartUploadOutput
+ *   RequestCharged: 'requester',
+ * };
+ *
  * ```
  *
  * @param AbortMultipartUploadCommandInput - {@link AbortMultipartUploadCommandInput}
@@ -97,6 +102,8 @@ export interface AbortMultipartUploadCommandOutput extends AbortMultipartUploadO
  * @throws {@link NoSuchUpload} (client fault)
  *  <p>The specified multipart upload does not exist.</p>
  *
+ * @throws {@link S3ServiceException}
+ * <p>Base exception class for all service exceptions from S3 service.</p>
  *
  * @example To abort a multipart upload
  * ```javascript

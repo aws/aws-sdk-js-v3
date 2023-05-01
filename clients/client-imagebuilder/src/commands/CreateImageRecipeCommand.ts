@@ -37,58 +37,65 @@ export interface CreateImageRecipeCommandOutput extends CreateImageRecipeRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ImagebuilderClient, CreateImageRecipeCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
- * // const { ImagebuilderClient, CreateImageRecipeCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
+ * import { ImagebuilderClient, CreateImageRecipeCommand } from '@aws-sdk/client-imagebuilder'; // ES Modules import
+ * // const { ImagebuilderClient, CreateImageRecipeCommand } = require('@aws-sdk/client-imagebuilder'); // CommonJS import
  * const client = new ImagebuilderClient(config);
  * const input = { // CreateImageRecipeRequest
- *   name: "STRING_VALUE", // required
- *   description: "STRING_VALUE",
- *   semanticVersion: "STRING_VALUE", // required
+ *   name: 'STRING_VALUE', // required
+ *   description: 'STRING_VALUE',
+ *   semanticVersion: 'STRING_VALUE', // required
  *   components: [ // ComponentConfigurationList // required
  *     { // ComponentConfiguration
- *       componentArn: "STRING_VALUE", // required
+ *       componentArn: 'STRING_VALUE', // required
  *       parameters: [ // ComponentParameterList
  *         { // ComponentParameter
- *           name: "STRING_VALUE", // required
+ *           name: 'STRING_VALUE', // required
  *           value: [ // ComponentParameterValueList // required
- *             "STRING_VALUE",
+ *             'STRING_VALUE',
  *           ],
  *         },
  *       ],
  *     },
  *   ],
- *   parentImage: "STRING_VALUE", // required
+ *   parentImage: 'STRING_VALUE', // required
  *   blockDeviceMappings: [ // InstanceBlockDeviceMappings
  *     { // InstanceBlockDeviceMapping
- *       deviceName: "STRING_VALUE",
+ *       deviceName: 'STRING_VALUE',
  *       ebs: { // EbsInstanceBlockDeviceSpecification
  *         encrypted: true || false,
  *         deleteOnTermination: true || false,
- *         iops: Number("int"),
- *         kmsKeyId: "STRING_VALUE",
- *         snapshotId: "STRING_VALUE",
- *         volumeSize: Number("int"),
- *         volumeType: "standard" || "io1" || "io2" || "gp2" || "gp3" || "sc1" || "st1",
- *         throughput: Number("int"),
+ *         iops: Number('int'),
+ *         kmsKeyId: 'STRING_VALUE',
+ *         snapshotId: 'STRING_VALUE',
+ *         volumeSize: Number('int'),
+ *         volumeType: 'standard' || 'io1' || 'io2' || 'gp2' || 'gp3' || 'sc1' || 'st1',
+ *         throughput: Number('int'),
  *       },
- *       virtualName: "STRING_VALUE",
- *       noDevice: "STRING_VALUE",
+ *       virtualName: 'STRING_VALUE',
+ *       noDevice: 'STRING_VALUE',
  *     },
  *   ],
  *   tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
- *   workingDirectory: "STRING_VALUE",
+ *   workingDirectory: 'STRING_VALUE',
  *   additionalInstanceConfiguration: { // AdditionalInstanceConfiguration
  *     systemsManagerAgent: { // SystemsManagerAgent
  *       uninstallAfterBuild: true || false,
  *     },
- *     userDataOverride: "STRING_VALUE",
+ *     userDataOverride: 'STRING_VALUE',
  *   },
- *   clientToken: "STRING_VALUE", // required
+ *   clientToken: 'STRING_VALUE', // required
  * };
  * const command = new CreateImageRecipeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateImageRecipeResponse
+ *   requestId: 'STRING_VALUE',
+ *   clientToken: 'STRING_VALUE',
+ *   imageRecipeArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateImageRecipeCommandInput - {@link CreateImageRecipeCommandInput}
@@ -137,6 +144,8 @@ export interface CreateImageRecipeCommandOutput extends CreateImageRecipeRespons
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service is unable to process your request at this time.</p>
  *
+ * @throws {@link ImagebuilderServiceException}
+ * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
  */
 export class CreateImageRecipeCommand extends $Command<

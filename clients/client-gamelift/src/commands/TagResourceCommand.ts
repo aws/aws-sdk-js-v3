@@ -59,20 +59,23 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GameLiftClient, TagResourceCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
- * // const { GameLiftClient, TagResourceCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
+ * import { GameLiftClient, TagResourceCommand } from '@aws-sdk/client-gamelift'; // ES Modules import
+ * // const { GameLiftClient, TagResourceCommand } = require('@aws-sdk/client-gamelift'); // CommonJS import
  * const client = new GameLiftClient(config);
  * const input = { // TagResourceRequest
- *   ResourceARN: "STRING_VALUE", // required
+ *   ResourceARN: 'STRING_VALUE', // required
  *   Tags: [ // TagList // required
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param TagResourceCommandInput - {@link TagResourceCommandInput}
@@ -97,6 +100,8 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  *             or the maximum tag limit may have been exceeded. Resolve the issue before
  *             retrying.</p>
  *
+ * @throws {@link GameLiftServiceException}
+ * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
  */
 export class TagResourceCommand extends $Command<

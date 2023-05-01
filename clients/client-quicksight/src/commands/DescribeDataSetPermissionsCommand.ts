@@ -37,15 +37,31 @@ export interface DescribeDataSetPermissionsCommandOutput extends DescribeDataSet
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { QuickSightClient, DescribeDataSetPermissionsCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
- * // const { QuickSightClient, DescribeDataSetPermissionsCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * import { QuickSightClient, DescribeDataSetPermissionsCommand } from '@aws-sdk/client-quicksight'; // ES Modules import
+ * // const { QuickSightClient, DescribeDataSetPermissionsCommand } = require('@aws-sdk/client-quicksight'); // CommonJS import
  * const client = new QuickSightClient(config);
  * const input = { // DescribeDataSetPermissionsRequest
- *   AwsAccountId: "STRING_VALUE", // required
- *   DataSetId: "STRING_VALUE", // required
+ *   AwsAccountId: 'STRING_VALUE', // required
+ *   DataSetId: 'STRING_VALUE', // required
  * };
  * const command = new DescribeDataSetPermissionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeDataSetPermissionsResponse
+ *   DataSetArn: 'STRING_VALUE',
+ *   DataSetId: 'STRING_VALUE',
+ *   Permissions: [ // ResourcePermissionList
+ *     { // ResourcePermission
+ *       Principal: 'STRING_VALUE', // required
+ *       Actions: [ // ActionList // required
+ *         'STRING_VALUE',
+ *       ],
+ *     },
+ *   ],
+ *   RequestId: 'STRING_VALUE',
+ *   Status: Number('int'),
+ * };
+ *
  * ```
  *
  * @param DescribeDataSetPermissionsCommandInput - {@link DescribeDataSetPermissionsCommandInput}
@@ -72,6 +88,8 @@ export interface DescribeDataSetPermissionsCommandOutput extends DescribeDataSet
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Access is throttled.</p>
  *
+ * @throws {@link QuickSightServiceException}
+ * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
 export class DescribeDataSetPermissionsCommand extends $Command<

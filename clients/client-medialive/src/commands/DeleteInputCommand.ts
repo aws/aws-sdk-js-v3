@@ -36,14 +36,17 @@ export interface DeleteInputCommandOutput extends DeleteInputResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MediaLiveClient, DeleteInputCommand } from "@aws-sdk/client-medialive"; // ES Modules import
- * // const { MediaLiveClient, DeleteInputCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
+ * import { MediaLiveClient, DeleteInputCommand } from '@aws-sdk/client-medialive'; // ES Modules import
+ * // const { MediaLiveClient, DeleteInputCommand } = require('@aws-sdk/client-medialive'); // CommonJS import
  * const client = new MediaLiveClient(config);
  * const input = { // DeleteInputRequest
- *   InputId: "STRING_VALUE", // required
+ *   InputId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteInputCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteInputCommandInput - {@link DeleteInputCommandInput}
@@ -76,6 +79,8 @@ export interface DeleteInputCommandOutput extends DeleteInputResponse, __Metadat
  * @throws {@link TooManyRequestsException} (client fault)
  *  Placeholder documentation for TooManyRequestsException
  *
+ * @throws {@link MediaLiveServiceException}
+ * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
  */
 export class DeleteInputCommand extends $Command<

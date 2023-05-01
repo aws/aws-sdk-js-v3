@@ -36,16 +36,57 @@ export interface ImportApiCommandOutput extends ImportApiResponse, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ApiGatewayV2Client, ImportApiCommand } from "@aws-sdk/client-apigatewayv2"; // ES Modules import
- * // const { ApiGatewayV2Client, ImportApiCommand } = require("@aws-sdk/client-apigatewayv2"); // CommonJS import
+ * import { ApiGatewayV2Client, ImportApiCommand } from '@aws-sdk/client-apigatewayv2'; // ES Modules import
+ * // const { ApiGatewayV2Client, ImportApiCommand } = require('@aws-sdk/client-apigatewayv2'); // CommonJS import
  * const client = new ApiGatewayV2Client(config);
  * const input = { // ImportApiRequest
- *   Basepath: "STRING_VALUE",
- *   Body: "STRING_VALUE", // required
+ *   Basepath: 'STRING_VALUE',
+ *   Body: 'STRING_VALUE', // required
  *   FailOnWarnings: true || false,
  * };
  * const command = new ImportApiCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ImportApiResponse
+ *   ApiEndpoint: 'STRING_VALUE',
+ *   ApiGatewayManaged: true || false,
+ *   ApiId: 'STRING_VALUE',
+ *   ApiKeySelectionExpression: 'STRING_VALUE',
+ *   CorsConfiguration: { // Cors
+ *     AllowCredentials: true || false,
+ *     AllowHeaders: [ // CorsHeaderList
+ *       'STRING_VALUE',
+ *     ],
+ *     AllowMethods: [ // CorsMethodList
+ *       'STRING_VALUE',
+ *     ],
+ *     AllowOrigins: [ // CorsOriginList
+ *       'STRING_VALUE',
+ *     ],
+ *     ExposeHeaders: [
+ *       'STRING_VALUE',
+ *     ],
+ *     MaxAge: Number('int'),
+ *   },
+ *   CreatedDate: new Date('TIMESTAMP'),
+ *   Description: 'STRING_VALUE',
+ *   DisableSchemaValidation: true || false,
+ *   DisableExecuteApiEndpoint: true || false,
+ *   ImportInfo: [ // __listOf__string
+ *     'STRING_VALUE',
+ *   ],
+ *   Name: 'STRING_VALUE',
+ *   ProtocolType: 'STRING_VALUE',
+ *   RouteSelectionExpression: 'STRING_VALUE',
+ *   Tags: { // Tags
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ *   Version: 'STRING_VALUE',
+ *   Warnings: [
+ *     'STRING_VALUE',
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ImportApiCommandInput - {@link ImportApiCommandInput}
@@ -66,6 +107,8 @@ export interface ImportApiCommandOutput extends ImportApiResponse, __MetadataBea
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>A limit has been exceeded. See the accompanying error message for details.</p>
  *
+ * @throws {@link ApiGatewayV2ServiceException}
+ * <p>Base exception class for all service exceptions from ApiGatewayV2 service.</p>
  *
  */
 export class ImportApiCommand extends $Command<

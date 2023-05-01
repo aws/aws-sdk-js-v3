@@ -36,14 +36,54 @@ export interface DescribeTrialCommandOutput extends DescribeTrialResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, DescribeTrialCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, DescribeTrialCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, DescribeTrialCommand } from '@aws-sdk/client-sagemaker'; // ES Modules import
+ * // const { SageMakerClient, DescribeTrialCommand } = require('@aws-sdk/client-sagemaker'); // CommonJS import
  * const client = new SageMakerClient(config);
  * const input = { // DescribeTrialRequest
- *   TrialName: "STRING_VALUE", // required
+ *   TrialName: 'STRING_VALUE', // required
  * };
  * const command = new DescribeTrialCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeTrialResponse
+ *   TrialName: 'STRING_VALUE',
+ *   TrialArn: 'STRING_VALUE',
+ *   DisplayName: 'STRING_VALUE',
+ *   ExperimentName: 'STRING_VALUE',
+ *   Source: { // TrialSource
+ *     SourceArn: 'STRING_VALUE', // required
+ *     SourceType: 'STRING_VALUE',
+ *   },
+ *   CreationTime: new Date('TIMESTAMP'),
+ *   CreatedBy: { // UserContext
+ *     UserProfileArn: 'STRING_VALUE',
+ *     UserProfileName: 'STRING_VALUE',
+ *     DomainId: 'STRING_VALUE',
+ *     IamIdentity: { // IamIdentity
+ *       Arn: 'STRING_VALUE',
+ *       PrincipalId: 'STRING_VALUE',
+ *       SourceIdentity: 'STRING_VALUE',
+ *     },
+ *   },
+ *   LastModifiedTime: new Date('TIMESTAMP'),
+ *   LastModifiedBy: {
+ *     UserProfileArn: 'STRING_VALUE',
+ *     UserProfileName: 'STRING_VALUE',
+ *     DomainId: 'STRING_VALUE',
+ *     IamIdentity: {
+ *       Arn: 'STRING_VALUE',
+ *       PrincipalId: 'STRING_VALUE',
+ *       SourceIdentity: 'STRING_VALUE',
+ *     },
+ *   },
+ *   MetadataProperties: { // MetadataProperties
+ *     CommitId: 'STRING_VALUE',
+ *     Repository: 'STRING_VALUE',
+ *     GeneratedBy: 'STRING_VALUE',
+ *     ProjectId: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeTrialCommandInput - {@link DescribeTrialCommandInput}
@@ -55,6 +95,8 @@ export interface DescribeTrialCommandOutput extends DescribeTrialResponse, __Met
  * @throws {@link ResourceNotFound} (client fault)
  *  <p>Resource being access is not found.</p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class DescribeTrialCommand extends $Command<

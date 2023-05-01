@@ -42,15 +42,18 @@ export interface RejectQualificationRequestCommandOutput extends RejectQualifica
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MTurkClient, RejectQualificationRequestCommand } from "@aws-sdk/client-mturk"; // ES Modules import
- * // const { MTurkClient, RejectQualificationRequestCommand } = require("@aws-sdk/client-mturk"); // CommonJS import
+ * import { MTurkClient, RejectQualificationRequestCommand } from '@aws-sdk/client-mturk'; // ES Modules import
+ * // const { MTurkClient, RejectQualificationRequestCommand } = require('@aws-sdk/client-mturk'); // CommonJS import
  * const client = new MTurkClient(config);
  * const input = { // RejectQualificationRequestRequest
- *   QualificationRequestId: "STRING_VALUE", // required
- *   Reason: "STRING_VALUE",
+ *   QualificationRequestId: 'STRING_VALUE', // required
+ *   Reason: 'STRING_VALUE',
  * };
  * const command = new RejectQualificationRequestCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param RejectQualificationRequestCommandInput - {@link RejectQualificationRequestCommandInput}
@@ -65,6 +68,8 @@ export interface RejectQualificationRequestCommandOutput extends RejectQualifica
  * @throws {@link ServiceFault} (server fault)
  *  <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
  *
+ * @throws {@link MTurkServiceException}
+ * <p>Base exception class for all service exceptions from MTurk service.</p>
  *
  */
 export class RejectQualificationRequestCommand extends $Command<

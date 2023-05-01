@@ -37,15 +37,20 @@ export interface UpdateSchemaCommandOutput extends UpdateSchemaResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudDirectoryClient, UpdateSchemaCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
- * // const { CloudDirectoryClient, UpdateSchemaCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
+ * import { CloudDirectoryClient, UpdateSchemaCommand } from '@aws-sdk/client-clouddirectory'; // ES Modules import
+ * // const { CloudDirectoryClient, UpdateSchemaCommand } = require('@aws-sdk/client-clouddirectory'); // CommonJS import
  * const client = new CloudDirectoryClient(config);
  * const input = { // UpdateSchemaRequest
- *   SchemaArn: "STRING_VALUE", // required
- *   Name: "STRING_VALUE", // required
+ *   SchemaArn: 'STRING_VALUE', // required
+ *   Name: 'STRING_VALUE', // required
  * };
  * const command = new UpdateSchemaCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateSchemaResponse
+ *   SchemaArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateSchemaCommandInput - {@link UpdateSchemaCommandInput}
@@ -76,6 +81,8 @@ export interface UpdateSchemaCommandOutput extends UpdateSchemaResponse, __Metad
  *  <p>Indicates that your request is malformed in some manner. See the exception
  *       message.</p>
  *
+ * @throws {@link CloudDirectoryServiceException}
+ * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
  */
 export class UpdateSchemaCommand extends $Command<

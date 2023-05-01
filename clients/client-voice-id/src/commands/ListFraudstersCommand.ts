@@ -36,17 +36,32 @@ export interface ListFraudstersCommandOutput extends ListFraudstersResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { VoiceIDClient, ListFraudstersCommand } from "@aws-sdk/client-voice-id"; // ES Modules import
- * // const { VoiceIDClient, ListFraudstersCommand } = require("@aws-sdk/client-voice-id"); // CommonJS import
+ * import { VoiceIDClient, ListFraudstersCommand } from '@aws-sdk/client-voice-id'; // ES Modules import
+ * // const { VoiceIDClient, ListFraudstersCommand } = require('@aws-sdk/client-voice-id'); // CommonJS import
  * const client = new VoiceIDClient(config);
  * const input = { // ListFraudstersRequest
- *   DomainId: "STRING_VALUE", // required
- *   WatchlistId: "STRING_VALUE",
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   DomainId: 'STRING_VALUE', // required
+ *   WatchlistId: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListFraudstersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListFraudstersResponse
+ *   FraudsterSummaries: [ // FraudsterSummaries
+ *     { // FraudsterSummary
+ *       DomainId: 'STRING_VALUE',
+ *       GeneratedFraudsterId: 'STRING_VALUE',
+ *       CreatedAt: new Date('TIMESTAMP'),
+ *       WatchlistIds: [ // ResponseWatchlistIds
+ *         'STRING_VALUE',
+ *       ],
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListFraudstersCommandInput - {@link ListFraudstersCommandInput}
@@ -76,6 +91,8 @@ export interface ListFraudstersCommandOutput extends ListFraudstersResponse, __M
  *  <p>The request failed one or more validations; check the error message for more
  *             details.</p>
  *
+ * @throws {@link VoiceIDServiceException}
+ * <p>Base exception class for all service exceptions from VoiceID service.</p>
  *
  */
 export class ListFraudstersCommand extends $Command<

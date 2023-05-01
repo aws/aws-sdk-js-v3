@@ -36,23 +36,23 @@ export interface CreateDeploymentCommandOutput extends Deployment, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { APIGatewayClient, CreateDeploymentCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
- * // const { APIGatewayClient, CreateDeploymentCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
+ * import { APIGatewayClient, CreateDeploymentCommand } from '@aws-sdk/client-api-gateway'; // ES Modules import
+ * // const { APIGatewayClient, CreateDeploymentCommand } = require('@aws-sdk/client-api-gateway'); // CommonJS import
  * const client = new APIGatewayClient(config);
  * const input = { // CreateDeploymentRequest
- *   restApiId: "STRING_VALUE", // required
- *   stageName: "STRING_VALUE",
- *   stageDescription: "STRING_VALUE",
- *   description: "STRING_VALUE",
+ *   restApiId: 'STRING_VALUE', // required
+ *   stageName: 'STRING_VALUE',
+ *   stageDescription: 'STRING_VALUE',
+ *   description: 'STRING_VALUE',
  *   cacheClusterEnabled: true || false,
- *   cacheClusterSize: "0.5" || "1.6" || "6.1" || "13.5" || "28.4" || "58.2" || "118" || "237",
+ *   cacheClusterSize: '0.5' || '1.6' || '6.1' || '13.5' || '28.4' || '58.2' || '118' || '237',
  *   variables: { // MapOfStringToString
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  *   canarySettings: { // DeploymentCanarySettings
- *     percentTraffic: Number("double"),
+ *     percentTraffic: Number('double'),
  *     stageVariableOverrides: {
- *       "<keys>": "STRING_VALUE",
+ *       '<keys>': 'STRING_VALUE',
  *     },
  *     useStageCache: true || false,
  *   },
@@ -60,6 +60,21 @@ export interface CreateDeploymentCommandOutput extends Deployment, __MetadataBea
  * };
  * const command = new CreateDeploymentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // Deployment
+ *   id: 'STRING_VALUE',
+ *   description: 'STRING_VALUE',
+ *   createdDate: new Date('TIMESTAMP'),
+ *   apiSummary: { // PathToMapOfMethodSnapshot
+ *     '<keys>': { // MapOfMethodSnapshot
+ *       '<keys>': { // MethodSnapshot
+ *         authorizationType: 'STRING_VALUE',
+ *         apiKeyRequired: true || false,
+ *       },
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateDeploymentCommandInput - {@link CreateDeploymentCommandInput}
@@ -89,6 +104,8 @@ export interface CreateDeploymentCommandOutput extends Deployment, __MetadataBea
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The request is denied because the caller has insufficient permissions.</p>
  *
+ * @throws {@link APIGatewayServiceException}
+ * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
  */
 export class CreateDeploymentCommand extends $Command<

@@ -39,25 +39,51 @@ export interface DescribeConfigurationOptionsCommandOutput extends Configuration
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElasticBeanstalkClient, DescribeConfigurationOptionsCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
- * // const { ElasticBeanstalkClient, DescribeConfigurationOptionsCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
+ * import { ElasticBeanstalkClient, DescribeConfigurationOptionsCommand } from '@aws-sdk/client-elastic-beanstalk'; // ES Modules import
+ * // const { ElasticBeanstalkClient, DescribeConfigurationOptionsCommand } = require('@aws-sdk/client-elastic-beanstalk'); // CommonJS import
  * const client = new ElasticBeanstalkClient(config);
  * const input = { // DescribeConfigurationOptionsMessage
- *   ApplicationName: "STRING_VALUE",
- *   TemplateName: "STRING_VALUE",
- *   EnvironmentName: "STRING_VALUE",
- *   SolutionStackName: "STRING_VALUE",
- *   PlatformArn: "STRING_VALUE",
+ *   ApplicationName: 'STRING_VALUE',
+ *   TemplateName: 'STRING_VALUE',
+ *   EnvironmentName: 'STRING_VALUE',
+ *   SolutionStackName: 'STRING_VALUE',
+ *   PlatformArn: 'STRING_VALUE',
  *   Options: [ // OptionsSpecifierList
  *     { // OptionSpecification
- *       ResourceName: "STRING_VALUE",
- *       Namespace: "STRING_VALUE",
- *       OptionName: "STRING_VALUE",
+ *       ResourceName: 'STRING_VALUE',
+ *       Namespace: 'STRING_VALUE',
+ *       OptionName: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new DescribeConfigurationOptionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ConfigurationOptionsDescription
+ *   SolutionStackName: 'STRING_VALUE',
+ *   PlatformArn: 'STRING_VALUE',
+ *   Options: [ // ConfigurationOptionDescriptionsList
+ *     { // ConfigurationOptionDescription
+ *       Namespace: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *       DefaultValue: 'STRING_VALUE',
+ *       ChangeSeverity: 'STRING_VALUE',
+ *       UserDefined: true || false,
+ *       ValueType: 'Scalar' || 'List',
+ *       ValueOptions: [ // ConfigurationOptionPossibleValues
+ *         'STRING_VALUE',
+ *       ],
+ *       MinValue: Number('int'),
+ *       MaxValue: Number('int'),
+ *       MaxLength: Number('int'),
+ *       Regex: { // OptionRestrictionRegex
+ *         Pattern: 'STRING_VALUE',
+ *         Label: 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeConfigurationOptionsCommandInput - {@link DescribeConfigurationOptionsCommandInput}
@@ -69,6 +95,8 @@ export interface DescribeConfigurationOptionsCommandOutput extends Configuration
  * @throws {@link TooManyBucketsException} (client fault)
  *  <p>The specified account has reached its limit of Amazon S3 buckets.</p>
  *
+ * @throws {@link ElasticBeanstalkServiceException}
+ * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
  * @example To view configuration options for an environment
  * ```javascript

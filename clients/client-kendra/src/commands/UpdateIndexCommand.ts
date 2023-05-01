@@ -36,25 +36,25 @@ export interface UpdateIndexCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KendraClient, UpdateIndexCommand } from "@aws-sdk/client-kendra"; // ES Modules import
- * // const { KendraClient, UpdateIndexCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
+ * import { KendraClient, UpdateIndexCommand } from '@aws-sdk/client-kendra'; // ES Modules import
+ * // const { KendraClient, UpdateIndexCommand } = require('@aws-sdk/client-kendra'); // CommonJS import
  * const client = new KendraClient(config);
  * const input = { // UpdateIndexRequest
- *   Id: "STRING_VALUE", // required
- *   Name: "STRING_VALUE",
- *   RoleArn: "STRING_VALUE",
- *   Description: "STRING_VALUE",
+ *   Id: 'STRING_VALUE', // required
+ *   Name: 'STRING_VALUE',
+ *   RoleArn: 'STRING_VALUE',
+ *   Description: 'STRING_VALUE',
  *   DocumentMetadataConfigurationUpdates: [ // DocumentMetadataConfigurationList
  *     { // DocumentMetadataConfiguration
- *       Name: "STRING_VALUE", // required
- *       Type: "STRING_VALUE" || "STRING_LIST_VALUE" || "LONG_VALUE" || "DATE_VALUE", // required
+ *       Name: 'STRING_VALUE', // required
+ *       Type: 'STRING_VALUE' || 'STRING_LIST_VALUE' || 'LONG_VALUE' || 'DATE_VALUE', // required
  *       Relevance: { // Relevance
  *         Freshness: true || false,
- *         Importance: Number("int"),
- *         Duration: "STRING_VALUE",
- *         RankOrder: "ASCENDING" || "DESCENDING",
+ *         Importance: Number('int'),
+ *         Duration: 'STRING_VALUE',
+ *         RankOrder: 'ASCENDING' || 'DESCENDING',
  *         ValueImportanceMap: { // ValueImportanceMap
- *           "<keys>": Number("int"),
+ *           '<keys>': Number('int'),
  *         },
  *       },
  *       Search: { // Search
@@ -66,33 +66,36 @@ export interface UpdateIndexCommandOutput extends __MetadataBearer {}
  *     },
  *   ],
  *   CapacityUnits: { // CapacityUnitsConfiguration
- *     StorageCapacityUnits: Number("int"), // required
- *     QueryCapacityUnits: Number("int"), // required
+ *     StorageCapacityUnits: Number('int'), // required
+ *     QueryCapacityUnits: Number('int'), // required
  *   },
  *   UserTokenConfigurations: [ // UserTokenConfigurationList
  *     { // UserTokenConfiguration
  *       JwtTokenTypeConfiguration: { // JwtTokenTypeConfiguration
- *         KeyLocation: "URL" || "SECRET_MANAGER", // required
- *         URL: "STRING_VALUE",
- *         SecretManagerArn: "STRING_VALUE",
- *         UserNameAttributeField: "STRING_VALUE",
- *         GroupAttributeField: "STRING_VALUE",
- *         Issuer: "STRING_VALUE",
- *         ClaimRegex: "STRING_VALUE",
+ *         KeyLocation: 'URL' || 'SECRET_MANAGER', // required
+ *         URL: 'STRING_VALUE',
+ *         SecretManagerArn: 'STRING_VALUE',
+ *         UserNameAttributeField: 'STRING_VALUE',
+ *         GroupAttributeField: 'STRING_VALUE',
+ *         Issuer: 'STRING_VALUE',
+ *         ClaimRegex: 'STRING_VALUE',
  *       },
  *       JsonTokenTypeConfiguration: { // JsonTokenTypeConfiguration
- *         UserNameAttributeField: "STRING_VALUE", // required
- *         GroupAttributeField: "STRING_VALUE", // required
+ *         UserNameAttributeField: 'STRING_VALUE', // required
+ *         GroupAttributeField: 'STRING_VALUE', // required
  *       },
  *     },
  *   ],
- *   UserContextPolicy: "ATTRIBUTE_FILTER" || "USER_TOKEN",
+ *   UserContextPolicy: 'ATTRIBUTE_FILTER' || 'USER_TOKEN',
  *   UserGroupResolutionConfiguration: { // UserGroupResolutionConfiguration
- *     UserGroupResolutionMode: "AWS_SSO" || "NONE", // required
+ *     UserGroupResolutionMode: 'AWS_SSO' || 'NONE', // required
  *   },
  * };
  * const command = new UpdateIndexCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateIndexCommandInput - {@link UpdateIndexCommandInput}
@@ -131,6 +134,8 @@ export interface UpdateIndexCommandOutput extends __MetadataBearer {}
  *  <p>The input fails to satisfy the constraints set by the Amazon Kendra service.
  *             Please provide the correct input and try again.</p>
  *
+ * @throws {@link KendraServiceException}
+ * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
  */
 export class UpdateIndexCommand extends $Command<

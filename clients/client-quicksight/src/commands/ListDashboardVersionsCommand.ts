@@ -36,17 +36,34 @@ export interface ListDashboardVersionsCommandOutput extends ListDashboardVersion
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { QuickSightClient, ListDashboardVersionsCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
- * // const { QuickSightClient, ListDashboardVersionsCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * import { QuickSightClient, ListDashboardVersionsCommand } from '@aws-sdk/client-quicksight'; // ES Modules import
+ * // const { QuickSightClient, ListDashboardVersionsCommand } = require('@aws-sdk/client-quicksight'); // CommonJS import
  * const client = new QuickSightClient(config);
  * const input = { // ListDashboardVersionsRequest
- *   AwsAccountId: "STRING_VALUE", // required
- *   DashboardId: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   AwsAccountId: 'STRING_VALUE', // required
+ *   DashboardId: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListDashboardVersionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListDashboardVersionsResponse
+ *   DashboardVersionSummaryList: [ // DashboardVersionSummaryList
+ *     { // DashboardVersionSummary
+ *       Arn: 'STRING_VALUE',
+ *       CreatedTime: new Date('TIMESTAMP'),
+ *       VersionNumber: Number('long'),
+ *       Status: 'CREATION_IN_PROGRESS' || 'CREATION_SUCCESSFUL' || 'CREATION_FAILED' || 'UPDATE_IN_PROGRESS' || 'UPDATE_SUCCESSFUL' || 'UPDATE_FAILED' || 'DELETED',
+ *       SourceEntityArn: 'STRING_VALUE',
+ *       Description: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ *   Status: Number('int'),
+ *   RequestId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListDashboardVersionsCommandInput - {@link ListDashboardVersionsCommandInput}
@@ -76,6 +93,8 @@ export interface ListDashboardVersionsCommandOutput extends ListDashboardVersion
  * 			Amazon QuickSight currently has Standard Edition and Enterprise Edition. Not every operation and
  * 			capability is available in every edition.</p>
  *
+ * @throws {@link QuickSightServiceException}
+ * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
 export class ListDashboardVersionsCommand extends $Command<

@@ -51,14 +51,35 @@ export interface DeleteReplicationTaskAssessmentRunCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DatabaseMigrationServiceClient, DeleteReplicationTaskAssessmentRunCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
- * // const { DatabaseMigrationServiceClient, DeleteReplicationTaskAssessmentRunCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
+ * import { DatabaseMigrationServiceClient, DeleteReplicationTaskAssessmentRunCommand } from '@aws-sdk/client-database-migration-service'; // ES Modules import
+ * // const { DatabaseMigrationServiceClient, DeleteReplicationTaskAssessmentRunCommand } = require('@aws-sdk/client-database-migration-service'); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
  * const input = { // DeleteReplicationTaskAssessmentRunMessage
- *   ReplicationTaskAssessmentRunArn: "STRING_VALUE", // required
+ *   ReplicationTaskAssessmentRunArn: 'STRING_VALUE', // required
  * };
  * const command = new DeleteReplicationTaskAssessmentRunCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteReplicationTaskAssessmentRunResponse
+ *   ReplicationTaskAssessmentRun: { // ReplicationTaskAssessmentRun
+ *     ReplicationTaskAssessmentRunArn: 'STRING_VALUE',
+ *     ReplicationTaskArn: 'STRING_VALUE',
+ *     Status: 'STRING_VALUE',
+ *     ReplicationTaskAssessmentRunCreationDate: new Date('TIMESTAMP'),
+ *     AssessmentProgress: { // ReplicationTaskAssessmentRunProgress
+ *       IndividualAssessmentCount: Number('int'),
+ *       IndividualAssessmentCompletedCount: Number('int'),
+ *     },
+ *     LastFailureMessage: 'STRING_VALUE',
+ *     ServiceAccessRoleArn: 'STRING_VALUE',
+ *     ResultLocationBucket: 'STRING_VALUE',
+ *     ResultLocationFolder: 'STRING_VALUE',
+ *     ResultEncryptionMode: 'STRING_VALUE',
+ *     ResultKmsKeyArn: 'STRING_VALUE',
+ *     AssessmentRunName: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param DeleteReplicationTaskAssessmentRunCommandInput - {@link DeleteReplicationTaskAssessmentRunCommandInput}
@@ -77,6 +98,8 @@ export interface DeleteReplicationTaskAssessmentRunCommandOutput
  * @throws {@link ResourceNotFoundFault} (client fault)
  *  <p>The resource could not be found.</p>
  *
+ * @throws {@link DatabaseMigrationServiceServiceException}
+ * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
  */
 export class DeleteReplicationTaskAssessmentRunCommand extends $Command<

@@ -50,20 +50,23 @@ export interface TagCertificateAuthorityCommandOutput extends __MetadataBearer {
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ACMPCAClient, TagCertificateAuthorityCommand } from "@aws-sdk/client-acm-pca"; // ES Modules import
- * // const { ACMPCAClient, TagCertificateAuthorityCommand } = require("@aws-sdk/client-acm-pca"); // CommonJS import
+ * import { ACMPCAClient, TagCertificateAuthorityCommand } from '@aws-sdk/client-acm-pca'; // ES Modules import
+ * // const { ACMPCAClient, TagCertificateAuthorityCommand } = require('@aws-sdk/client-acm-pca'); // CommonJS import
  * const client = new ACMPCAClient(config);
  * const input = { // TagCertificateAuthorityRequest
- *   CertificateAuthorityArn: "STRING_VALUE", // required
+ *   CertificateAuthorityArn: 'STRING_VALUE', // required
  *   Tags: [ // TagList // required
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new TagCertificateAuthorityCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param TagCertificateAuthorityCommandInput - {@link TagCertificateAuthorityCommandInput}
@@ -91,6 +94,8 @@ export interface TagCertificateAuthorityCommandOutput extends __MetadataBearer {
  *  <p>You can associate up to 50 tags with a private CA. Exception information is contained
  * 			in the exception message field.</p>
  *
+ * @throws {@link ACMPCAServiceException}
+ * <p>Base exception class for all service exceptions from ACMPCA service.</p>
  *
  */
 export class TagCertificateAuthorityCommand extends $Command<

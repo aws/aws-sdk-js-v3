@@ -39,14 +39,17 @@ export interface DeleteDBClusterParameterGroupCommandOutput extends __MetadataBe
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DocDBClient, DeleteDBClusterParameterGroupCommand } from "@aws-sdk/client-docdb"; // ES Modules import
- * // const { DocDBClient, DeleteDBClusterParameterGroupCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
+ * import { DocDBClient, DeleteDBClusterParameterGroupCommand } from '@aws-sdk/client-docdb'; // ES Modules import
+ * // const { DocDBClient, DeleteDBClusterParameterGroupCommand } = require('@aws-sdk/client-docdb'); // CommonJS import
  * const client = new DocDBClient(config);
  * const input = { // DeleteDBClusterParameterGroupMessage
- *   DBClusterParameterGroupName: "STRING_VALUE", // required
+ *   DBClusterParameterGroupName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteDBClusterParameterGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteDBClusterParameterGroupCommandInput - {@link DeleteDBClusterParameterGroupCommandInput}
@@ -62,6 +65,8 @@ export interface DeleteDBClusterParameterGroupCommandOutput extends __MetadataBe
  * @throws {@link InvalidDBParameterGroupStateFault} (client fault)
  *  <p>The parameter group is in use, or it is in a state that is not valid. If you are trying to delete the parameter group, you can't delete it when the parameter group is in this state.</p>
  *
+ * @throws {@link DocDBServiceException}
+ * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
  */
 export class DeleteDBClusterParameterGroupCommand extends $Command<

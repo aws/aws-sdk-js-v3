@@ -46,19 +46,33 @@ export interface ListSavingsPlansPurchaseRecommendationGenerationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CostExplorerClient, ListSavingsPlansPurchaseRecommendationGenerationCommand } from "@aws-sdk/client-cost-explorer"; // ES Modules import
- * // const { CostExplorerClient, ListSavingsPlansPurchaseRecommendationGenerationCommand } = require("@aws-sdk/client-cost-explorer"); // CommonJS import
+ * import { CostExplorerClient, ListSavingsPlansPurchaseRecommendationGenerationCommand } from '@aws-sdk/client-cost-explorer'; // ES Modules import
+ * // const { CostExplorerClient, ListSavingsPlansPurchaseRecommendationGenerationCommand } = require('@aws-sdk/client-cost-explorer'); // CommonJS import
  * const client = new CostExplorerClient(config);
  * const input = { // ListSavingsPlansPurchaseRecommendationGenerationRequest
- *   GenerationStatus: "SUCCEEDED" || "PROCESSING" || "FAILED",
+ *   GenerationStatus: 'SUCCEEDED' || 'PROCESSING' || 'FAILED',
  *   RecommendationIds: [ // RecommendationIdList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   PageSize: Number("int"),
- *   NextPageToken: "STRING_VALUE",
+ *   PageSize: Number('int'),
+ *   NextPageToken: 'STRING_VALUE',
  * };
  * const command = new ListSavingsPlansPurchaseRecommendationGenerationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListSavingsPlansPurchaseRecommendationGenerationResponse
+ *   GenerationSummaryList: [ // GenerationSummaryList
+ *     { // GenerationSummary
+ *       RecommendationId: 'STRING_VALUE',
+ *       GenerationStatus: 'SUCCEEDED' || 'PROCESSING' || 'FAILED',
+ *       GenerationStartedTime: 'STRING_VALUE',
+ *       GenerationCompletionTime: 'STRING_VALUE',
+ *       EstimatedCompletionTime: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextPageToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListSavingsPlansPurchaseRecommendationGenerationCommandInput - {@link ListSavingsPlansPurchaseRecommendationGenerationCommandInput}
@@ -73,6 +87,8 @@ export interface ListSavingsPlansPurchaseRecommendationGenerationCommandOutput
  * @throws {@link LimitExceededException} (client fault)
  *  <p>You made too many calls in a short period of time. Try again later.</p>
  *
+ * @throws {@link CostExplorerServiceException}
+ * <p>Base exception class for all service exceptions from CostExplorer service.</p>
  *
  */
 export class ListSavingsPlansPurchaseRecommendationGenerationCommand extends $Command<

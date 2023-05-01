@@ -44,16 +44,29 @@ export interface ListSubscriptionDefinitionVersionsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GreengrassClient, ListSubscriptionDefinitionVersionsCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
- * // const { GreengrassClient, ListSubscriptionDefinitionVersionsCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
+ * import { GreengrassClient, ListSubscriptionDefinitionVersionsCommand } from '@aws-sdk/client-greengrass'; // ES Modules import
+ * // const { GreengrassClient, ListSubscriptionDefinitionVersionsCommand } = require('@aws-sdk/client-greengrass'); // CommonJS import
  * const client = new GreengrassClient(config);
  * const input = { // ListSubscriptionDefinitionVersionsRequest
- *   MaxResults: "STRING_VALUE",
- *   NextToken: "STRING_VALUE",
- *   SubscriptionDefinitionId: "STRING_VALUE", // required
+ *   MaxResults: 'STRING_VALUE',
+ *   NextToken: 'STRING_VALUE',
+ *   SubscriptionDefinitionId: 'STRING_VALUE', // required
  * };
  * const command = new ListSubscriptionDefinitionVersionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListSubscriptionDefinitionVersionsResponse
+ *   NextToken: 'STRING_VALUE',
+ *   Versions: [ // __listOfVersionInformation
+ *     { // VersionInformation
+ *       Arn: 'STRING_VALUE',
+ *       CreationTimestamp: 'STRING_VALUE',
+ *       Id: 'STRING_VALUE',
+ *       Version: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListSubscriptionDefinitionVersionsCommandInput - {@link ListSubscriptionDefinitionVersionsCommandInput}
@@ -65,6 +78,8 @@ export interface ListSubscriptionDefinitionVersionsCommandOutput
  * @throws {@link BadRequestException} (client fault)
  *  General error information.
  *
+ * @throws {@link GreengrassServiceException}
+ * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
  */
 export class ListSubscriptionDefinitionVersionsCommand extends $Command<

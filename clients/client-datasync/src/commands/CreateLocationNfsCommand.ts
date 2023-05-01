@@ -37,29 +37,34 @@ export interface CreateLocationNfsCommandOutput extends CreateLocationNfsRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DataSyncClient, CreateLocationNfsCommand } from "@aws-sdk/client-datasync"; // ES Modules import
- * // const { DataSyncClient, CreateLocationNfsCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
+ * import { DataSyncClient, CreateLocationNfsCommand } from '@aws-sdk/client-datasync'; // ES Modules import
+ * // const { DataSyncClient, CreateLocationNfsCommand } = require('@aws-sdk/client-datasync'); // CommonJS import
  * const client = new DataSyncClient(config);
  * const input = { // CreateLocationNfsRequest
- *   Subdirectory: "STRING_VALUE", // required
- *   ServerHostname: "STRING_VALUE", // required
+ *   Subdirectory: 'STRING_VALUE', // required
+ *   ServerHostname: 'STRING_VALUE', // required
  *   OnPremConfig: { // OnPremConfig
  *     AgentArns: [ // AgentArnList // required
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *   },
  *   MountOptions: { // NfsMountOptions
- *     Version: "AUTOMATIC" || "NFS3" || "NFS4_0" || "NFS4_1",
+ *     Version: 'AUTOMATIC' || 'NFS3' || 'NFS4_0' || 'NFS4_1',
  *   },
  *   Tags: [ // InputTagList
  *     { // TagListEntry
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new CreateLocationNfsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateLocationNfsResponse
+ *   LocationArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateLocationNfsCommandInput - {@link CreateLocationNfsCommandInput}
@@ -75,6 +80,8 @@ export interface CreateLocationNfsCommandOutput extends CreateLocationNfsRespons
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception is thrown when the client submits a malformed request.</p>
  *
+ * @throws {@link DataSyncServiceException}
+ * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
  */
 export class CreateLocationNfsCommand extends $Command<

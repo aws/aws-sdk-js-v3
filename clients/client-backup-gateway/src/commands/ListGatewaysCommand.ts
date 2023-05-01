@@ -36,15 +36,29 @@ export interface ListGatewaysCommandOutput extends ListGatewaysOutput, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BackupGatewayClient, ListGatewaysCommand } from "@aws-sdk/client-backup-gateway"; // ES Modules import
- * // const { BackupGatewayClient, ListGatewaysCommand } = require("@aws-sdk/client-backup-gateway"); // CommonJS import
+ * import { BackupGatewayClient, ListGatewaysCommand } from '@aws-sdk/client-backup-gateway'; // ES Modules import
+ * // const { BackupGatewayClient, ListGatewaysCommand } = require('@aws-sdk/client-backup-gateway'); // CommonJS import
  * const client = new BackupGatewayClient(config);
  * const input = { // ListGatewaysInput
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListGatewaysCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListGatewaysOutput
+ *   Gateways: [ // Gateways
+ *     { // Gateway
+ *       GatewayArn: 'STRING_VALUE',
+ *       GatewayDisplayName: 'STRING_VALUE',
+ *       GatewayType: 'STRING_VALUE',
+ *       HypervisorId: 'STRING_VALUE',
+ *       LastSeenTime: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListGatewaysCommandInput - {@link ListGatewaysCommandInput}
@@ -63,6 +77,8 @@ export interface ListGatewaysCommandOutput extends ListGatewaysOutput, __Metadat
  * @throws {@link ValidationException} (client fault)
  *  <p>The operation did not succeed because a validation error occurred.</p>
  *
+ * @throws {@link BackupGatewayServiceException}
+ * <p>Base exception class for all service exceptions from BackupGateway service.</p>
  *
  */
 export class ListGatewaysCommand extends $Command<

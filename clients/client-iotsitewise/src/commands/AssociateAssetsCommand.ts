@@ -38,17 +38,20 @@ export interface AssociateAssetsCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTSiteWiseClient, AssociateAssetsCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
- * // const { IoTSiteWiseClient, AssociateAssetsCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
+ * import { IoTSiteWiseClient, AssociateAssetsCommand } from '@aws-sdk/client-iotsitewise'; // ES Modules import
+ * // const { IoTSiteWiseClient, AssociateAssetsCommand } = require('@aws-sdk/client-iotsitewise'); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
  * const input = { // AssociateAssetsRequest
- *   assetId: "STRING_VALUE", // required
- *   hierarchyId: "STRING_VALUE", // required
- *   childAssetId: "STRING_VALUE", // required
- *   clientToken: "STRING_VALUE",
+ *   assetId: 'STRING_VALUE', // required
+ *   hierarchyId: 'STRING_VALUE', // required
+ *   childAssetId: 'STRING_VALUE', // required
+ *   clientToken: 'STRING_VALUE',
  * };
  * const command = new AssociateAssetsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param AssociateAssetsCommandInput - {@link AssociateAssetsCommandInput}
@@ -86,6 +89,8 @@ export interface AssociateAssetsCommandOutput extends __MetadataBearer {}
  *       on.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
  *
+ * @throws {@link IoTSiteWiseServiceException}
+ * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
  */
 export class AssociateAssetsCommand extends $Command<

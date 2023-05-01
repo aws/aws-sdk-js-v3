@@ -36,15 +36,18 @@ export interface DeleteHostKeyCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { TransferClient, DeleteHostKeyCommand } from "@aws-sdk/client-transfer"; // ES Modules import
- * // const { TransferClient, DeleteHostKeyCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
+ * import { TransferClient, DeleteHostKeyCommand } from '@aws-sdk/client-transfer'; // ES Modules import
+ * // const { TransferClient, DeleteHostKeyCommand } = require('@aws-sdk/client-transfer'); // CommonJS import
  * const client = new TransferClient(config);
  * const input = { // DeleteHostKeyRequest
- *   ServerId: "STRING_VALUE", // required
- *   HostKeyId: "STRING_VALUE", // required
+ *   ServerId: 'STRING_VALUE', // required
+ *   HostKeyId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteHostKeyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteHostKeyCommandInput - {@link DeleteHostKeyCommandInput}
@@ -69,6 +72,8 @@ export interface DeleteHostKeyCommandOutput extends __MetadataBearer {}
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
  *
+ * @throws {@link TransferServiceException}
+ * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
  */
 export class DeleteHostKeyCommand extends $Command<

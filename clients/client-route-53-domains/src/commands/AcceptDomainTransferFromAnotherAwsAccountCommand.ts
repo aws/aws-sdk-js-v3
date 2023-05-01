@@ -51,15 +51,20 @@ export interface AcceptDomainTransferFromAnotherAwsAccountCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Route53DomainsClient, AcceptDomainTransferFromAnotherAwsAccountCommand } from "@aws-sdk/client-route-53-domains"; // ES Modules import
- * // const { Route53DomainsClient, AcceptDomainTransferFromAnotherAwsAccountCommand } = require("@aws-sdk/client-route-53-domains"); // CommonJS import
+ * import { Route53DomainsClient, AcceptDomainTransferFromAnotherAwsAccountCommand } from '@aws-sdk/client-route-53-domains'; // ES Modules import
+ * // const { Route53DomainsClient, AcceptDomainTransferFromAnotherAwsAccountCommand } = require('@aws-sdk/client-route-53-domains'); // CommonJS import
  * const client = new Route53DomainsClient(config);
  * const input = { // AcceptDomainTransferFromAnotherAwsAccountRequest
- *   DomainName: "STRING_VALUE", // required
- *   Password: "STRING_VALUE", // required
+ *   DomainName: 'STRING_VALUE', // required
+ *   Password: 'STRING_VALUE', // required
  * };
  * const command = new AcceptDomainTransferFromAnotherAwsAccountCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AcceptDomainTransferFromAnotherAwsAccountResponse
+ *   OperationId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param AcceptDomainTransferFromAnotherAwsAccountCommandInput - {@link AcceptDomainTransferFromAnotherAwsAccountCommandInput}
@@ -84,6 +89,8 @@ export interface AcceptDomainTransferFromAnotherAwsAccountCommandOutput
  * @throws {@link UnsupportedTLD} (client fault)
  *  <p>Amazon Route 53 does not support this top-level domain (TLD).</p>
  *
+ * @throws {@link Route53DomainsServiceException}
+ * <p>Base exception class for all service exceptions from Route53Domains service.</p>
  *
  */
 export class AcceptDomainTransferFromAnotherAwsAccountCommand extends $Command<

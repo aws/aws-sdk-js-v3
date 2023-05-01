@@ -36,21 +36,24 @@ export interface RemoveFacetFromObjectCommandOutput extends RemoveFacetFromObjec
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudDirectoryClient, RemoveFacetFromObjectCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
- * // const { CloudDirectoryClient, RemoveFacetFromObjectCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
+ * import { CloudDirectoryClient, RemoveFacetFromObjectCommand } from '@aws-sdk/client-clouddirectory'; // ES Modules import
+ * // const { CloudDirectoryClient, RemoveFacetFromObjectCommand } = require('@aws-sdk/client-clouddirectory'); // CommonJS import
  * const client = new CloudDirectoryClient(config);
  * const input = { // RemoveFacetFromObjectRequest
- *   DirectoryArn: "STRING_VALUE", // required
+ *   DirectoryArn: 'STRING_VALUE', // required
  *   SchemaFacet: { // SchemaFacet
- *     SchemaArn: "STRING_VALUE",
- *     FacetName: "STRING_VALUE",
+ *     SchemaArn: 'STRING_VALUE',
+ *     FacetName: 'STRING_VALUE',
  *   },
  *   ObjectReference: { // ObjectReference
- *     Selector: "STRING_VALUE",
+ *     Selector: 'STRING_VALUE',
  *   },
  * };
  * const command = new RemoveFacetFromObjectCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param RemoveFacetFromObjectCommandInput - {@link RemoveFacetFromObjectCommandInput}
@@ -88,6 +91,8 @@ export interface RemoveFacetFromObjectCommandOutput extends RemoveFacetFromObjec
  *  <p>Indicates that your request is malformed in some manner. See the exception
  *       message.</p>
  *
+ * @throws {@link CloudDirectoryServiceException}
+ * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
  */
 export class RemoveFacetFromObjectCommand extends $Command<

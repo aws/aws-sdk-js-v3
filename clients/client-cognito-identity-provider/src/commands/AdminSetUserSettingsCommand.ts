@@ -48,21 +48,24 @@ export interface AdminSetUserSettingsCommandOutput extends AdminSetUserSettingsR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CognitoIdentityProviderClient, AdminSetUserSettingsCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
- * // const { CognitoIdentityProviderClient, AdminSetUserSettingsCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
+ * import { CognitoIdentityProviderClient, AdminSetUserSettingsCommand } from '@aws-sdk/client-cognito-identity-provider'; // ES Modules import
+ * // const { CognitoIdentityProviderClient, AdminSetUserSettingsCommand } = require('@aws-sdk/client-cognito-identity-provider'); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
  * const input = { // AdminSetUserSettingsRequest
- *   UserPoolId: "STRING_VALUE", // required
- *   Username: "STRING_VALUE", // required
+ *   UserPoolId: 'STRING_VALUE', // required
+ *   Username: 'STRING_VALUE', // required
  *   MFAOptions: [ // MFAOptionListType // required
  *     { // MFAOptionType
- *       DeliveryMedium: "SMS" || "EMAIL",
- *       AttributeName: "STRING_VALUE",
+ *       DeliveryMedium: 'SMS' || 'EMAIL',
+ *       AttributeName: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new AdminSetUserSettingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param AdminSetUserSettingsCommandInput - {@link AdminSetUserSettingsCommandInput}
@@ -88,6 +91,8 @@ export interface AdminSetUserSettingsCommandOutput extends AdminSetUserSettingsR
  * @throws {@link UserNotFoundException} (client fault)
  *  <p>This exception is thrown when a user isn't found.</p>
  *
+ * @throws {@link CognitoIdentityProviderServiceException}
+ * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
  */
 export class AdminSetUserSettingsCommand extends $Command<

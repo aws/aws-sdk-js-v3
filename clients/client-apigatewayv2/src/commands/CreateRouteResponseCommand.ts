@@ -36,25 +36,40 @@ export interface CreateRouteResponseCommandOutput extends CreateRouteResponseRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ApiGatewayV2Client, CreateRouteResponseCommand } from "@aws-sdk/client-apigatewayv2"; // ES Modules import
- * // const { ApiGatewayV2Client, CreateRouteResponseCommand } = require("@aws-sdk/client-apigatewayv2"); // CommonJS import
+ * import { ApiGatewayV2Client, CreateRouteResponseCommand } from '@aws-sdk/client-apigatewayv2'; // ES Modules import
+ * // const { ApiGatewayV2Client, CreateRouteResponseCommand } = require('@aws-sdk/client-apigatewayv2'); // CommonJS import
  * const client = new ApiGatewayV2Client(config);
  * const input = { // CreateRouteResponseRequest
- *   ApiId: "STRING_VALUE", // required
- *   ModelSelectionExpression: "STRING_VALUE",
+ *   ApiId: 'STRING_VALUE', // required
+ *   ModelSelectionExpression: 'STRING_VALUE',
  *   ResponseModels: { // RouteModels
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  *   ResponseParameters: { // RouteParameters
- *     "<keys>": { // ParameterConstraints
+ *     '<keys>': { // ParameterConstraints
  *       Required: true || false,
  *     },
  *   },
- *   RouteId: "STRING_VALUE", // required
- *   RouteResponseKey: "STRING_VALUE", // required
+ *   RouteId: 'STRING_VALUE', // required
+ *   RouteResponseKey: 'STRING_VALUE', // required
  * };
  * const command = new CreateRouteResponseCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateRouteResponseResponse
+ *   ModelSelectionExpression: 'STRING_VALUE',
+ *   ResponseModels: { // RouteModels
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ *   ResponseParameters: { // RouteParameters
+ *     '<keys>': { // ParameterConstraints
+ *       Required: true || false,
+ *     },
+ *   },
+ *   RouteResponseId: 'STRING_VALUE',
+ *   RouteResponseKey: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateRouteResponseCommandInput - {@link CreateRouteResponseCommandInput}
@@ -75,6 +90,8 @@ export interface CreateRouteResponseCommandOutput extends CreateRouteResponseRes
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>A limit has been exceeded. See the accompanying error message for details.</p>
  *
+ * @throws {@link ApiGatewayV2ServiceException}
+ * <p>Base exception class for all service exceptions from ApiGatewayV2 service.</p>
  *
  */
 export class CreateRouteResponseCommand extends $Command<

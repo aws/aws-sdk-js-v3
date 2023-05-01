@@ -38,18 +38,120 @@ export interface DescribeIndexFieldsCommandOutput extends DescribeIndexFieldsRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudSearchClient, DescribeIndexFieldsCommand } from "@aws-sdk/client-cloudsearch"; // ES Modules import
- * // const { CloudSearchClient, DescribeIndexFieldsCommand } = require("@aws-sdk/client-cloudsearch"); // CommonJS import
+ * import { CloudSearchClient, DescribeIndexFieldsCommand } from '@aws-sdk/client-cloudsearch'; // ES Modules import
+ * // const { CloudSearchClient, DescribeIndexFieldsCommand } = require('@aws-sdk/client-cloudsearch'); // CommonJS import
  * const client = new CloudSearchClient(config);
  * const input = { // DescribeIndexFieldsRequest
- *   DomainName: "STRING_VALUE", // required
+ *   DomainName: 'STRING_VALUE', // required
  *   FieldNames: [ // DynamicFieldNameList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   Deployed: true || false,
  * };
  * const command = new DescribeIndexFieldsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeIndexFieldsResponse
+ *   IndexFields: [ // IndexFieldStatusList // required
+ *     { // IndexFieldStatus
+ *       Options: { // IndexField
+ *         IndexFieldName: 'STRING_VALUE', // required
+ *         IndexFieldType: 'STRING_VALUE', // required
+ *         IntOptions: { // IntOptions
+ *           DefaultValue: Number('long'),
+ *           SourceField: 'STRING_VALUE',
+ *           FacetEnabled: true || false,
+ *           SearchEnabled: true || false,
+ *           ReturnEnabled: true || false,
+ *           SortEnabled: true || false,
+ *         },
+ *         DoubleOptions: { // DoubleOptions
+ *           DefaultValue: Number('double'),
+ *           SourceField: 'STRING_VALUE',
+ *           FacetEnabled: true || false,
+ *           SearchEnabled: true || false,
+ *           ReturnEnabled: true || false,
+ *           SortEnabled: true || false,
+ *         },
+ *         LiteralOptions: { // LiteralOptions
+ *           DefaultValue: 'STRING_VALUE',
+ *           SourceField: 'STRING_VALUE',
+ *           FacetEnabled: true || false,
+ *           SearchEnabled: true || false,
+ *           ReturnEnabled: true || false,
+ *           SortEnabled: true || false,
+ *         },
+ *         TextOptions: { // TextOptions
+ *           DefaultValue: 'STRING_VALUE',
+ *           SourceField: 'STRING_VALUE',
+ *           ReturnEnabled: true || false,
+ *           SortEnabled: true || false,
+ *           HighlightEnabled: true || false,
+ *           AnalysisScheme: 'STRING_VALUE',
+ *         },
+ *         DateOptions: { // DateOptions
+ *           DefaultValue: 'STRING_VALUE',
+ *           SourceField: 'STRING_VALUE',
+ *           FacetEnabled: true || false,
+ *           SearchEnabled: true || false,
+ *           ReturnEnabled: true || false,
+ *           SortEnabled: true || false,
+ *         },
+ *         LatLonOptions: { // LatLonOptions
+ *           DefaultValue: 'STRING_VALUE',
+ *           SourceField: 'STRING_VALUE',
+ *           FacetEnabled: true || false,
+ *           SearchEnabled: true || false,
+ *           ReturnEnabled: true || false,
+ *           SortEnabled: true || false,
+ *         },
+ *         IntArrayOptions: { // IntArrayOptions
+ *           DefaultValue: Number('long'),
+ *           SourceFields: 'STRING_VALUE',
+ *           FacetEnabled: true || false,
+ *           SearchEnabled: true || false,
+ *           ReturnEnabled: true || false,
+ *         },
+ *         DoubleArrayOptions: { // DoubleArrayOptions
+ *           DefaultValue: Number('double'),
+ *           SourceFields: 'STRING_VALUE',
+ *           FacetEnabled: true || false,
+ *           SearchEnabled: true || false,
+ *           ReturnEnabled: true || false,
+ *         },
+ *         LiteralArrayOptions: { // LiteralArrayOptions
+ *           DefaultValue: 'STRING_VALUE',
+ *           SourceFields: 'STRING_VALUE',
+ *           FacetEnabled: true || false,
+ *           SearchEnabled: true || false,
+ *           ReturnEnabled: true || false,
+ *         },
+ *         TextArrayOptions: { // TextArrayOptions
+ *           DefaultValue: 'STRING_VALUE',
+ *           SourceFields: 'STRING_VALUE',
+ *           ReturnEnabled: true || false,
+ *           HighlightEnabled: true || false,
+ *           AnalysisScheme: 'STRING_VALUE',
+ *         },
+ *         DateArrayOptions: { // DateArrayOptions
+ *           DefaultValue: 'STRING_VALUE',
+ *           SourceFields: 'STRING_VALUE',
+ *           FacetEnabled: true || false,
+ *           SearchEnabled: true || false,
+ *           ReturnEnabled: true || false,
+ *         },
+ *       },
+ *       Status: { // OptionStatus
+ *         CreationDate: new Date('TIMESTAMP'), // required
+ *         UpdateDate: new Date('TIMESTAMP'), // required
+ *         UpdateVersion: Number('int'),
+ *         State: 'STRING_VALUE', // required
+ *         PendingDeletion: true || false,
+ *       },
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeIndexFieldsCommandInput - {@link DescribeIndexFieldsCommandInput}
@@ -68,6 +170,8 @@ export interface DescribeIndexFieldsCommandOutput extends DescribeIndexFieldsRes
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The request was rejected because it attempted to reference a resource that does not exist.</p>
  *
+ * @throws {@link CloudSearchServiceException}
+ * <p>Base exception class for all service exceptions from CloudSearch service.</p>
  *
  */
 export class DescribeIndexFieldsCommand extends $Command<

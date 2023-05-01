@@ -43,17 +43,27 @@ export interface UpdateUserProfileCommandOutput extends UpdateUserProfileResult,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeStarClient, UpdateUserProfileCommand } from "@aws-sdk/client-codestar"; // ES Modules import
- * // const { CodeStarClient, UpdateUserProfileCommand } = require("@aws-sdk/client-codestar"); // CommonJS import
+ * import { CodeStarClient, UpdateUserProfileCommand } from '@aws-sdk/client-codestar'; // ES Modules import
+ * // const { CodeStarClient, UpdateUserProfileCommand } = require('@aws-sdk/client-codestar'); // CommonJS import
  * const client = new CodeStarClient(config);
  * const input = { // UpdateUserProfileRequest
- *   userArn: "STRING_VALUE", // required
- *   displayName: "STRING_VALUE",
- *   emailAddress: "STRING_VALUE",
- *   sshPublicKey: "STRING_VALUE",
+ *   userArn: 'STRING_VALUE', // required
+ *   displayName: 'STRING_VALUE',
+ *   emailAddress: 'STRING_VALUE',
+ *   sshPublicKey: 'STRING_VALUE',
  * };
  * const command = new UpdateUserProfileCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateUserProfileResult
+ *   userArn: 'STRING_VALUE', // required
+ *   displayName: 'STRING_VALUE',
+ *   emailAddress: 'STRING_VALUE',
+ *   sshPublicKey: 'STRING_VALUE',
+ *   createdTimestamp: new Date('TIMESTAMP'),
+ *   lastModifiedTimestamp: new Date('TIMESTAMP'),
+ * };
+ *
  * ```
  *
  * @param UpdateUserProfileCommandInput - {@link UpdateUserProfileCommandInput}
@@ -68,6 +78,8 @@ export interface UpdateUserProfileCommandOutput extends UpdateUserProfileResult,
  * @throws {@link ValidationException} (client fault)
  *  <p>The specified input is either not valid, or it could not be validated.</p>
  *
+ * @throws {@link CodeStarServiceException}
+ * <p>Base exception class for all service exceptions from CodeStar service.</p>
  *
  */
 export class UpdateUserProfileCommand extends $Command<

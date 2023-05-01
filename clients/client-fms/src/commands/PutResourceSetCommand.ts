@@ -37,30 +37,46 @@ export interface PutResourceSetCommandOutput extends PutResourceSetResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FMSClient, PutResourceSetCommand } from "@aws-sdk/client-fms"; // ES Modules import
- * // const { FMSClient, PutResourceSetCommand } = require("@aws-sdk/client-fms"); // CommonJS import
+ * import { FMSClient, PutResourceSetCommand } from '@aws-sdk/client-fms'; // ES Modules import
+ * // const { FMSClient, PutResourceSetCommand } = require('@aws-sdk/client-fms'); // CommonJS import
  * const client = new FMSClient(config);
  * const input = { // PutResourceSetRequest
  *   ResourceSet: { // ResourceSet
- *     Id: "STRING_VALUE",
- *     Name: "STRING_VALUE", // required
- *     Description: "STRING_VALUE",
- *     UpdateToken: "STRING_VALUE",
+ *     Id: 'STRING_VALUE',
+ *     Name: 'STRING_VALUE', // required
+ *     Description: 'STRING_VALUE',
+ *     UpdateToken: 'STRING_VALUE',
  *     ResourceTypeList: [ // ResourceTypeList // required
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
- *     LastUpdateTime: new Date("TIMESTAMP"),
- *     ResourceSetStatus: "ACTIVE" || "OUT_OF_ADMIN_SCOPE",
+ *     LastUpdateTime: new Date('TIMESTAMP'),
+ *     ResourceSetStatus: 'ACTIVE' || 'OUT_OF_ADMIN_SCOPE',
  *   },
  *   TagList: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new PutResourceSetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutResourceSetResponse
+ *   ResourceSet: { // ResourceSet
+ *     Id: 'STRING_VALUE',
+ *     Name: 'STRING_VALUE', // required
+ *     Description: 'STRING_VALUE',
+ *     UpdateToken: 'STRING_VALUE',
+ *     ResourceTypeList: [ // ResourceTypeList // required
+ *       'STRING_VALUE',
+ *     ],
+ *     LastUpdateTime: new Date('TIMESTAMP'),
+ *     ResourceSetStatus: 'ACTIVE' || 'OUT_OF_ADMIN_SCOPE',
+ *   },
+ *   ResourceSetArn: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param PutResourceSetCommandInput - {@link PutResourceSetCommandInput}
@@ -89,6 +105,8 @@ export interface PutResourceSetCommandOutput extends PutResourceSetResponse, __M
  *       see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/fms-limits.html">Firewall
  *         Manager Limits</a> in the <i>WAF Developer Guide</i>.</p>
  *
+ * @throws {@link FMSServiceException}
+ * <p>Base exception class for all service exceptions from FMS service.</p>
  *
  */
 export class PutResourceSetCommand extends $Command<

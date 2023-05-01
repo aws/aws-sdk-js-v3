@@ -37,16 +37,21 @@ export interface UpdateMLModelCommandOutput extends UpdateMLModelOutput, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MachineLearningClient, UpdateMLModelCommand } from "@aws-sdk/client-machine-learning"; // ES Modules import
- * // const { MachineLearningClient, UpdateMLModelCommand } = require("@aws-sdk/client-machine-learning"); // CommonJS import
+ * import { MachineLearningClient, UpdateMLModelCommand } from '@aws-sdk/client-machine-learning'; // ES Modules import
+ * // const { MachineLearningClient, UpdateMLModelCommand } = require('@aws-sdk/client-machine-learning'); // CommonJS import
  * const client = new MachineLearningClient(config);
  * const input = { // UpdateMLModelInput
- *   MLModelId: "STRING_VALUE", // required
- *   MLModelName: "STRING_VALUE",
- *   ScoreThreshold: Number("float"),
+ *   MLModelId: 'STRING_VALUE', // required
+ *   MLModelName: 'STRING_VALUE',
+ *   ScoreThreshold: Number('float'),
  * };
  * const command = new UpdateMLModelCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateMLModelOutput
+ *   MLModelId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateMLModelCommandInput - {@link UpdateMLModelCommandInput}
@@ -64,6 +69,8 @@ export interface UpdateMLModelCommandOutput extends UpdateMLModelOutput, __Metad
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>A specified resource cannot be located.</p>
  *
+ * @throws {@link MachineLearningServiceException}
+ * <p>Base exception class for all service exceptions from MachineLearning service.</p>
  *
  */
 export class UpdateMLModelCommand extends $Command<

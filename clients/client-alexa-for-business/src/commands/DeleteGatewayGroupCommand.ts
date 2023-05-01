@@ -36,14 +36,17 @@ export interface DeleteGatewayGroupCommandOutput extends DeleteGatewayGroupRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AlexaForBusinessClient, DeleteGatewayGroupCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
- * // const { AlexaForBusinessClient, DeleteGatewayGroupCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
+ * import { AlexaForBusinessClient, DeleteGatewayGroupCommand } from '@aws-sdk/client-alexa-for-business'; // ES Modules import
+ * // const { AlexaForBusinessClient, DeleteGatewayGroupCommand } = require('@aws-sdk/client-alexa-for-business'); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
  * const input = { // DeleteGatewayGroupRequest
- *   GatewayGroupArn: "STRING_VALUE", // required
+ *   GatewayGroupArn: 'STRING_VALUE', // required
  * };
  * const command = new DeleteGatewayGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteGatewayGroupCommandInput - {@link DeleteGatewayGroupCommandInput}
@@ -55,6 +58,8 @@ export interface DeleteGatewayGroupCommandOutput extends DeleteGatewayGroupRespo
  * @throws {@link ResourceAssociatedException} (client fault)
  *  <p>Another resource is associated with the resource in the request.</p>
  *
+ * @throws {@link AlexaForBusinessServiceException}
+ * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  */
 export class DeleteGatewayGroupCommand extends $Command<

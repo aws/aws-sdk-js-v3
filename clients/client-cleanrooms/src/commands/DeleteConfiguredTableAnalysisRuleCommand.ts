@@ -41,15 +41,18 @@ export interface DeleteConfiguredTableAnalysisRuleCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CleanRoomsClient, DeleteConfiguredTableAnalysisRuleCommand } from "@aws-sdk/client-cleanrooms"; // ES Modules import
- * // const { CleanRoomsClient, DeleteConfiguredTableAnalysisRuleCommand } = require("@aws-sdk/client-cleanrooms"); // CommonJS import
+ * import { CleanRoomsClient, DeleteConfiguredTableAnalysisRuleCommand } from '@aws-sdk/client-cleanrooms'; // ES Modules import
+ * // const { CleanRoomsClient, DeleteConfiguredTableAnalysisRuleCommand } = require('@aws-sdk/client-cleanrooms'); // CommonJS import
  * const client = new CleanRoomsClient(config);
  * const input = { // DeleteConfiguredTableAnalysisRuleInput
- *   configuredTableIdentifier: "STRING_VALUE", // required
- *   analysisRuleType: "AGGREGATION" || "LIST", // required
+ *   configuredTableIdentifier: 'STRING_VALUE', // required
+ *   analysisRuleType: 'AGGREGATION' || 'LIST', // required
  * };
  * const command = new DeleteConfiguredTableAnalysisRuleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteConfiguredTableAnalysisRuleCommandInput - {@link DeleteConfiguredTableAnalysisRuleCommandInput}
@@ -76,6 +79,8 @@ export interface DeleteConfiguredTableAnalysisRuleCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the specified constraints.</p>
  *
+ * @throws {@link CleanRoomsServiceException}
+ * <p>Base exception class for all service exceptions from CleanRooms service.</p>
  *
  */
 export class DeleteConfiguredTableAnalysisRuleCommand extends $Command<

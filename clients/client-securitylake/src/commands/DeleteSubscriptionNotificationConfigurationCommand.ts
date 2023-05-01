@@ -46,14 +46,17 @@ export interface DeleteSubscriptionNotificationConfigurationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SecurityLakeClient, DeleteSubscriptionNotificationConfigurationCommand } from "@aws-sdk/client-securitylake"; // ES Modules import
- * // const { SecurityLakeClient, DeleteSubscriptionNotificationConfigurationCommand } = require("@aws-sdk/client-securitylake"); // CommonJS import
+ * import { SecurityLakeClient, DeleteSubscriptionNotificationConfigurationCommand } from '@aws-sdk/client-securitylake'; // ES Modules import
+ * // const { SecurityLakeClient, DeleteSubscriptionNotificationConfigurationCommand } = require('@aws-sdk/client-securitylake'); // CommonJS import
  * const client = new SecurityLakeClient(config);
  * const input = { // DeleteSubscriptionNotificationConfigurationRequest
- *   subscriptionId: "STRING_VALUE", // required
+ *   subscriptionId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteSubscriptionNotificationConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteSubscriptionNotificationConfigurationCommandInput - {@link DeleteSubscriptionNotificationConfigurationCommandInput}
@@ -90,6 +93,8 @@ export interface DeleteSubscriptionNotificationConfigurationCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>Your signing certificate could not be validated. </p>
  *
+ * @throws {@link SecurityLakeServiceException}
+ * <p>Base exception class for all service exceptions from SecurityLake service.</p>
  *
  */
 export class DeleteSubscriptionNotificationConfigurationCommand extends $Command<

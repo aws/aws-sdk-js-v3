@@ -74,24 +74,29 @@ export interface UpdateGeoMatchSetCommandOutput extends UpdateGeoMatchSetRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WAFRegionalClient, UpdateGeoMatchSetCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
- * // const { WAFRegionalClient, UpdateGeoMatchSetCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import
+ * import { WAFRegionalClient, UpdateGeoMatchSetCommand } from '@aws-sdk/client-waf-regional'; // ES Modules import
+ * // const { WAFRegionalClient, UpdateGeoMatchSetCommand } = require('@aws-sdk/client-waf-regional'); // CommonJS import
  * const client = new WAFRegionalClient(config);
  * const input = { // UpdateGeoMatchSetRequest
- *   GeoMatchSetId: "STRING_VALUE", // required
- *   ChangeToken: "STRING_VALUE", // required
+ *   GeoMatchSetId: 'STRING_VALUE', // required
+ *   ChangeToken: 'STRING_VALUE', // required
  *   Updates: [ // GeoMatchSetUpdates // required
  *     { // GeoMatchSetUpdate
- *       Action: "STRING_VALUE", // required
+ *       Action: 'STRING_VALUE', // required
  *       GeoMatchConstraint: { // GeoMatchConstraint
- *         Type: "STRING_VALUE", // required
- *         Value: "STRING_VALUE", // required
+ *         Type: 'STRING_VALUE', // required
+ *         Value: 'STRING_VALUE', // required
  *       },
  *     },
  *   ],
  * };
  * const command = new UpdateGeoMatchSetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateGeoMatchSetResponse
+ *   ChangeToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateGeoMatchSetCommandInput - {@link UpdateGeoMatchSetCommandInput}
@@ -209,6 +214,8 @@ export interface UpdateGeoMatchSetCommandOutput extends UpdateGeoMatchSetRespons
  * @throws {@link WAFStaleDataException} (client fault)
  *  <p>The operation failed because you tried to create, update, or delete an object by using a change token that has already been used.</p>
  *
+ * @throws {@link WAFRegionalServiceException}
+ * <p>Base exception class for all service exceptions from WAFRegional service.</p>
  *
  */
 export class UpdateGeoMatchSetCommand extends $Command<

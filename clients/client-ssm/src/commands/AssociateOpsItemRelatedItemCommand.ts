@@ -40,17 +40,22 @@ export interface AssociateOpsItemRelatedItemCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMClient, AssociateOpsItemRelatedItemCommand } from "@aws-sdk/client-ssm"; // ES Modules import
- * // const { SSMClient, AssociateOpsItemRelatedItemCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * import { SSMClient, AssociateOpsItemRelatedItemCommand } from '@aws-sdk/client-ssm'; // ES Modules import
+ * // const { SSMClient, AssociateOpsItemRelatedItemCommand } = require('@aws-sdk/client-ssm'); // CommonJS import
  * const client = new SSMClient(config);
  * const input = { // AssociateOpsItemRelatedItemRequest
- *   OpsItemId: "STRING_VALUE", // required
- *   AssociationType: "STRING_VALUE", // required
- *   ResourceType: "STRING_VALUE", // required
- *   ResourceUri: "STRING_VALUE", // required
+ *   OpsItemId: 'STRING_VALUE', // required
+ *   AssociationType: 'STRING_VALUE', // required
+ *   ResourceType: 'STRING_VALUE', // required
+ *   ResourceUri: 'STRING_VALUE', // required
  * };
  * const command = new AssociateOpsItemRelatedItemCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AssociateOpsItemRelatedItemResponse
+ *   AssociationId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param AssociateOpsItemRelatedItemCommandInput - {@link AssociateOpsItemRelatedItemCommandInput}
@@ -76,6 +81,8 @@ export interface AssociateOpsItemRelatedItemCommandOutput
  * @throws {@link OpsItemRelatedItemAlreadyExistsException} (client fault)
  *  <p>The Amazon Resource Name (ARN) is already associated with the OpsItem.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class AssociateOpsItemRelatedItemCommand extends $Command<

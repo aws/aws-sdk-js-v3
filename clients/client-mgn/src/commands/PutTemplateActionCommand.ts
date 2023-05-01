@@ -36,38 +36,66 @@ export interface PutTemplateActionCommandOutput extends TemplateActionDocument, 
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MgnClient, PutTemplateActionCommand } from "@aws-sdk/client-mgn"; // ES Modules import
- * // const { MgnClient, PutTemplateActionCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
+ * import { MgnClient, PutTemplateActionCommand } from '@aws-sdk/client-mgn'; // ES Modules import
+ * // const { MgnClient, PutTemplateActionCommand } = require('@aws-sdk/client-mgn'); // CommonJS import
  * const client = new MgnClient(config);
  * const input = { // PutTemplateActionRequest
- *   launchConfigurationTemplateID: "STRING_VALUE", // required
- *   actionName: "STRING_VALUE", // required
- *   documentIdentifier: "STRING_VALUE", // required
- *   order: Number("int"), // required
- *   actionID: "STRING_VALUE", // required
- *   documentVersion: "STRING_VALUE",
+ *   launchConfigurationTemplateID: 'STRING_VALUE', // required
+ *   actionName: 'STRING_VALUE', // required
+ *   documentIdentifier: 'STRING_VALUE', // required
+ *   order: Number('int'), // required
+ *   actionID: 'STRING_VALUE', // required
+ *   documentVersion: 'STRING_VALUE',
  *   active: true || false,
- *   timeoutSeconds: Number("int"),
+ *   timeoutSeconds: Number('int'),
  *   mustSucceedForCutover: true || false,
  *   parameters: { // SsmDocumentParameters
- *     "<keys>": [ // SsmParameterStoreParameters
+ *     '<keys>': [ // SsmParameterStoreParameters
  *       { // SsmParameterStoreParameter
- *         parameterType: "STRING_VALUE", // required
- *         parameterName: "STRING_VALUE", // required
+ *         parameterType: 'STRING_VALUE', // required
+ *         parameterName: 'STRING_VALUE', // required
  *       },
  *     ],
  *   },
- *   operatingSystem: "STRING_VALUE",
+ *   operatingSystem: 'STRING_VALUE',
  *   externalParameters: { // SsmDocumentExternalParameters
- *     "<keys>": { // SsmExternalParameter Union: only one key present
- *       dynamicPath: "STRING_VALUE",
+ *     '<keys>': { // SsmExternalParameter Union: only one key present
+ *       dynamicPath: 'STRING_VALUE',
  *     },
  *   },
- *   description: "STRING_VALUE",
- *   category: "STRING_VALUE",
+ *   description: 'STRING_VALUE',
+ *   category: 'STRING_VALUE',
  * };
  * const command = new PutTemplateActionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // TemplateActionDocument
+ *   actionID: 'STRING_VALUE',
+ *   actionName: 'STRING_VALUE',
+ *   documentIdentifier: 'STRING_VALUE',
+ *   order: Number('int'),
+ *   documentVersion: 'STRING_VALUE',
+ *   active: true || false,
+ *   timeoutSeconds: Number('int'),
+ *   mustSucceedForCutover: true || false,
+ *   parameters: { // SsmDocumentParameters
+ *     '<keys>': [ // SsmParameterStoreParameters
+ *       { // SsmParameterStoreParameter
+ *         parameterType: 'STRING_VALUE', // required
+ *         parameterName: 'STRING_VALUE', // required
+ *       },
+ *     ],
+ *   },
+ *   operatingSystem: 'STRING_VALUE',
+ *   externalParameters: { // SsmDocumentExternalParameters
+ *     '<keys>': { // SsmExternalParameter Union: only one key present
+ *       dynamicPath: 'STRING_VALUE',
+ *     },
+ *   },
+ *   description: 'STRING_VALUE',
+ *   category: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param PutTemplateActionCommandInput - {@link PutTemplateActionCommandInput}
@@ -88,6 +116,8 @@ export interface PutTemplateActionCommandOutput extends TemplateActionDocument, 
  * @throws {@link ValidationException} (client fault)
  *  <p>Validate exception.</p>
  *
+ * @throws {@link MgnServiceException}
+ * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
  */
 export class PutTemplateActionCommand extends $Command<

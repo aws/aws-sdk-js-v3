@@ -39,19 +39,33 @@ export interface ListConnectorEntitiesCommandOutput extends ListConnectorEntitie
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppflowClient, ListConnectorEntitiesCommand } from "@aws-sdk/client-appflow"; // ES Modules import
- * // const { AppflowClient, ListConnectorEntitiesCommand } = require("@aws-sdk/client-appflow"); // CommonJS import
+ * import { AppflowClient, ListConnectorEntitiesCommand } from '@aws-sdk/client-appflow'; // ES Modules import
+ * // const { AppflowClient, ListConnectorEntitiesCommand } = require('@aws-sdk/client-appflow'); // CommonJS import
  * const client = new AppflowClient(config);
  * const input = { // ListConnectorEntitiesRequest
- *   connectorProfileName: "STRING_VALUE",
- *   connectorType: "Salesforce" || "Singular" || "Slack" || "Redshift" || "S3" || "Marketo" || "Googleanalytics" || "Zendesk" || "Servicenow" || "Datadog" || "Trendmicro" || "Snowflake" || "Dynatrace" || "Infornexus" || "Amplitude" || "Veeva" || "EventBridge" || "LookoutMetrics" || "Upsolver" || "Honeycode" || "CustomerProfiles" || "SAPOData" || "CustomConnector" || "Pardot",
- *   entitiesPath: "STRING_VALUE",
- *   apiVersion: "STRING_VALUE",
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   connectorProfileName: 'STRING_VALUE',
+ *   connectorType: 'Salesforce' || 'Singular' || 'Slack' || 'Redshift' || 'S3' || 'Marketo' || 'Googleanalytics' || 'Zendesk' || 'Servicenow' || 'Datadog' || 'Trendmicro' || 'Snowflake' || 'Dynatrace' || 'Infornexus' || 'Amplitude' || 'Veeva' || 'EventBridge' || 'LookoutMetrics' || 'Upsolver' || 'Honeycode' || 'CustomerProfiles' || 'SAPOData' || 'CustomConnector' || 'Pardot',
+ *   entitiesPath: 'STRING_VALUE',
+ *   apiVersion: 'STRING_VALUE',
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new ListConnectorEntitiesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListConnectorEntitiesResponse
+ *   connectorEntityMap: { // ConnectorEntityMap // required
+ *     '<keys>': [ // ConnectorEntityList
+ *       { // ConnectorEntity
+ *         name: 'STRING_VALUE', // required
+ *         label: 'STRING_VALUE',
+ *         hasNestedEntities: true || false,
+ *       },
+ *     ],
+ *   },
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListConnectorEntitiesCommandInput - {@link ListConnectorEntitiesCommandInput}
@@ -77,6 +91,8 @@ export interface ListConnectorEntitiesCommandOutput extends ListConnectorEntitie
  * @throws {@link ValidationException} (client fault)
  *  <p> The request has invalid or missing parameters. </p>
  *
+ * @throws {@link AppflowServiceException}
+ * <p>Base exception class for all service exceptions from Appflow service.</p>
  *
  */
 export class ListConnectorEntitiesCommand extends $Command<

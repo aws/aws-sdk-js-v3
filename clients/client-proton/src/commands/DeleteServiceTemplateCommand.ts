@@ -41,14 +41,29 @@ export interface DeleteServiceTemplateCommandOutput extends DeleteServiceTemplat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ProtonClient, DeleteServiceTemplateCommand } from "@aws-sdk/client-proton"; // ES Modules import
- * // const { ProtonClient, DeleteServiceTemplateCommand } = require("@aws-sdk/client-proton"); // CommonJS import
+ * import { ProtonClient, DeleteServiceTemplateCommand } from '@aws-sdk/client-proton'; // ES Modules import
+ * // const { ProtonClient, DeleteServiceTemplateCommand } = require('@aws-sdk/client-proton'); // CommonJS import
  * const client = new ProtonClient(config);
  * const input = { // DeleteServiceTemplateInput
- *   name: "STRING_VALUE", // required
+ *   name: 'STRING_VALUE', // required
  * };
  * const command = new DeleteServiceTemplateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteServiceTemplateOutput
+ *   serviceTemplate: { // ServiceTemplate
+ *     name: 'STRING_VALUE', // required
+ *     arn: 'STRING_VALUE', // required
+ *     createdAt: new Date('TIMESTAMP'), // required
+ *     lastModifiedAt: new Date('TIMESTAMP'), // required
+ *     displayName: 'STRING_VALUE',
+ *     description: 'STRING_VALUE',
+ *     recommendedVersion: 'STRING_VALUE',
+ *     encryptionKey: 'STRING_VALUE',
+ *     pipelineProvisioning: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param DeleteServiceTemplateCommandInput - {@link DeleteServiceTemplateCommandInput}
@@ -75,6 +90,8 @@ export interface DeleteServiceTemplateCommandOutput extends DeleteServiceTemplat
  * @throws {@link ValidationException} (client fault)
  *  <p>The input is invalid or an out-of-range value was supplied for the input parameter.</p>
  *
+ * @throws {@link ProtonServiceException}
+ * <p>Base exception class for all service exceptions from Proton service.</p>
  *
  */
 export class DeleteServiceTemplateCommand extends $Command<

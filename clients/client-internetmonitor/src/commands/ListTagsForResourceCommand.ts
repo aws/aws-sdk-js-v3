@@ -36,14 +36,21 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOut
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { InternetMonitorClient, ListTagsForResourceCommand } from "@aws-sdk/client-internetmonitor"; // ES Modules import
- * // const { InternetMonitorClient, ListTagsForResourceCommand } = require("@aws-sdk/client-internetmonitor"); // CommonJS import
+ * import { InternetMonitorClient, ListTagsForResourceCommand } from '@aws-sdk/client-internetmonitor'; // ES Modules import
+ * // const { InternetMonitorClient, ListTagsForResourceCommand } = require('@aws-sdk/client-internetmonitor'); // CommonJS import
  * const client = new InternetMonitorClient(config);
  * const input = { // ListTagsForResourceInput
- *   ResourceArn: "STRING_VALUE", // required
+ *   ResourceArn: 'STRING_VALUE', // required
  * };
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTagsForResourceOutput
+ *   Tags: { // TagMap
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param ListTagsForResourceCommandInput - {@link ListTagsForResourceCommandInput}
@@ -67,6 +74,8 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOut
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>There were too many requests.</p>
  *
+ * @throws {@link InternetMonitorServiceException}
+ * <p>Base exception class for all service exceptions from InternetMonitor service.</p>
  *
  */
 export class ListTagsForResourceCommand extends $Command<

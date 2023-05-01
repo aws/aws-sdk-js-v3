@@ -36,20 +36,28 @@ export interface UpdateWorldTemplateCommandOutput extends UpdateWorldTemplateRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RoboMakerClient, UpdateWorldTemplateCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
- * // const { RoboMakerClient, UpdateWorldTemplateCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
+ * import { RoboMakerClient, UpdateWorldTemplateCommand } from '@aws-sdk/client-robomaker'; // ES Modules import
+ * // const { RoboMakerClient, UpdateWorldTemplateCommand } = require('@aws-sdk/client-robomaker'); // CommonJS import
  * const client = new RoboMakerClient(config);
  * const input = { // UpdateWorldTemplateRequest
- *   template: "STRING_VALUE", // required
- *   name: "STRING_VALUE",
- *   templateBody: "STRING_VALUE",
+ *   template: 'STRING_VALUE', // required
+ *   name: 'STRING_VALUE',
+ *   templateBody: 'STRING_VALUE',
  *   templateLocation: { // TemplateLocation
- *     s3Bucket: "STRING_VALUE", // required
- *     s3Key: "STRING_VALUE", // required
+ *     s3Bucket: 'STRING_VALUE', // required
+ *     s3Key: 'STRING_VALUE', // required
  *   },
  * };
  * const command = new UpdateWorldTemplateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateWorldTemplateResponse
+ *   arn: 'STRING_VALUE',
+ *   name: 'STRING_VALUE',
+ *   createdAt: new Date('TIMESTAMP'),
+ *   lastUpdatedAt: new Date('TIMESTAMP'),
+ * };
+ *
  * ```
  *
  * @param UpdateWorldTemplateCommandInput - {@link UpdateWorldTemplateCommandInput}
@@ -71,6 +79,8 @@ export interface UpdateWorldTemplateCommandOutput extends UpdateWorldTemplateRes
  * @throws {@link ThrottlingException} (client fault)
  *  <p>AWS RoboMaker is temporarily unable to process the request. Try your call again.</p>
  *
+ * @throws {@link RoboMakerServiceException}
+ * <p>Base exception class for all service exceptions from RoboMaker service.</p>
  *
  */
 export class UpdateWorldTemplateCommand extends $Command<

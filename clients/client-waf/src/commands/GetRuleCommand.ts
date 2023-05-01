@@ -44,14 +44,30 @@ export interface GetRuleCommandOutput extends GetRuleResponse, __MetadataBearer 
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WAFClient, GetRuleCommand } from "@aws-sdk/client-waf"; // ES Modules import
- * // const { WAFClient, GetRuleCommand } = require("@aws-sdk/client-waf"); // CommonJS import
+ * import { WAFClient, GetRuleCommand } from '@aws-sdk/client-waf'; // ES Modules import
+ * // const { WAFClient, GetRuleCommand } = require('@aws-sdk/client-waf'); // CommonJS import
  * const client = new WAFClient(config);
  * const input = { // GetRuleRequest
- *   RuleId: "STRING_VALUE", // required
+ *   RuleId: 'STRING_VALUE', // required
  * };
  * const command = new GetRuleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetRuleResponse
+ *   Rule: { // Rule
+ *     RuleId: 'STRING_VALUE', // required
+ *     Name: 'STRING_VALUE',
+ *     MetricName: 'STRING_VALUE',
+ *     Predicates: [ // Predicates // required
+ *       { // Predicate
+ *         Negated: true || false, // required
+ *         Type: 'STRING_VALUE', // required
+ *         DataId: 'STRING_VALUE', // required
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetRuleCommandInput - {@link GetRuleCommandInput}
@@ -69,6 +85,8 @@ export interface GetRuleCommandOutput extends GetRuleResponse, __MetadataBearer 
  * @throws {@link WAFNonexistentItemException} (client fault)
  *  <p>The operation failed because the referenced object doesn't exist.</p>
  *
+ * @throws {@link WAFServiceException}
+ * <p>Base exception class for all service exceptions from WAF service.</p>
  *
  * @example To get a rule
  * ```javascript

@@ -100,15 +100,18 @@ export interface UpdatePrimaryRegionCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KMSClient, UpdatePrimaryRegionCommand } from "@aws-sdk/client-kms"; // ES Modules import
- * // const { KMSClient, UpdatePrimaryRegionCommand } = require("@aws-sdk/client-kms"); // CommonJS import
+ * import { KMSClient, UpdatePrimaryRegionCommand } from '@aws-sdk/client-kms'; // ES Modules import
+ * // const { KMSClient, UpdatePrimaryRegionCommand } = require('@aws-sdk/client-kms'); // CommonJS import
  * const client = new KMSClient(config);
  * const input = { // UpdatePrimaryRegionRequest
- *   KeyId: "STRING_VALUE", // required
- *   PrimaryRegion: "STRING_VALUE", // required
+ *   KeyId: 'STRING_VALUE', // required
+ *   PrimaryRegion: 'STRING_VALUE', // required
  * };
  * const command = new UpdatePrimaryRegionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdatePrimaryRegionCommandInput - {@link UpdatePrimaryRegionCommandInput}
@@ -154,6 +157,8 @@ export interface UpdatePrimaryRegionCommandOutput extends __MetadataBearer {}
  *  <p>The request was rejected because a specified parameter is not supported or a specified
  *       resource is not valid for this operation.</p>
  *
+ * @throws {@link KMSServiceException}
+ * <p>Base exception class for all service exceptions from KMS service.</p>
  *
  * @example To update the primary Region of a multi-Region KMS key
  * ```javascript

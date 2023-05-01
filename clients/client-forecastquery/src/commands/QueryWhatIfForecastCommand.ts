@@ -36,20 +36,34 @@ export interface QueryWhatIfForecastCommandOutput extends QueryWhatIfForecastRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ForecastqueryClient, QueryWhatIfForecastCommand } from "@aws-sdk/client-forecastquery"; // ES Modules import
- * // const { ForecastqueryClient, QueryWhatIfForecastCommand } = require("@aws-sdk/client-forecastquery"); // CommonJS import
+ * import { ForecastqueryClient, QueryWhatIfForecastCommand } from '@aws-sdk/client-forecastquery'; // ES Modules import
+ * // const { ForecastqueryClient, QueryWhatIfForecastCommand } = require('@aws-sdk/client-forecastquery'); // CommonJS import
  * const client = new ForecastqueryClient(config);
  * const input = { // QueryWhatIfForecastRequest
- *   WhatIfForecastArn: "STRING_VALUE", // required
- *   StartDate: "STRING_VALUE",
- *   EndDate: "STRING_VALUE",
+ *   WhatIfForecastArn: 'STRING_VALUE', // required
+ *   StartDate: 'STRING_VALUE',
+ *   EndDate: 'STRING_VALUE',
  *   Filters: { // Filters // required
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
- *   NextToken: "STRING_VALUE",
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new QueryWhatIfForecastCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // QueryWhatIfForecastResponse
+ *   Forecast: { // Forecast
+ *     Predictions: { // Predictions
+ *       '<keys>': [ // TimeSeries
+ *         { // DataPoint
+ *           Timestamp: 'STRING_VALUE',
+ *           Value: Number('double'),
+ *         },
+ *       ],
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param QueryWhatIfForecastCommandInput - {@link QueryWhatIfForecastCommandInput}
@@ -74,6 +88,8 @@ export interface QueryWhatIfForecastCommandOutput extends QueryWhatIfForecastRes
  *  <p>We can't find that resource. Check the information that you've provided and try
  *       again.</p>
  *
+ * @throws {@link ForecastqueryServiceException}
+ * <p>Base exception class for all service exceptions from Forecastquery service.</p>
  *
  */
 export class QueryWhatIfForecastCommand extends $Command<

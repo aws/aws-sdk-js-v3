@@ -36,15 +36,21 @@ export interface RemoveFlowOutputCommandOutput extends RemoveFlowOutputResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MediaConnectClient, RemoveFlowOutputCommand } from "@aws-sdk/client-mediaconnect"; // ES Modules import
- * // const { MediaConnectClient, RemoveFlowOutputCommand } = require("@aws-sdk/client-mediaconnect"); // CommonJS import
+ * import { MediaConnectClient, RemoveFlowOutputCommand } from '@aws-sdk/client-mediaconnect'; // ES Modules import
+ * // const { MediaConnectClient, RemoveFlowOutputCommand } = require('@aws-sdk/client-mediaconnect'); // CommonJS import
  * const client = new MediaConnectClient(config);
  * const input = { // RemoveFlowOutputRequest
- *   FlowArn: "STRING_VALUE", // required
- *   OutputArn: "STRING_VALUE", // required
+ *   FlowArn: 'STRING_VALUE', // required
+ *   OutputArn: 'STRING_VALUE', // required
  * };
  * const command = new RemoveFlowOutputCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // RemoveFlowOutputResponse
+ *   FlowArn: 'STRING_VALUE',
+ *   OutputArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param RemoveFlowOutputCommandInput - {@link RemoveFlowOutputCommandInput}
@@ -71,6 +77,8 @@ export interface RemoveFlowOutputCommandOutput extends RemoveFlowOutputResponse,
  * @throws {@link TooManyRequestsException} (client fault)
  *  Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
  *
+ * @throws {@link MediaConnectServiceException}
+ * <p>Base exception class for all service exceptions from MediaConnect service.</p>
  *
  */
 export class RemoveFlowOutputCommand extends $Command<

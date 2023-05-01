@@ -47,15 +47,22 @@ export interface UpdateLedgerPermissionsModeCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { QLDBClient, UpdateLedgerPermissionsModeCommand } from "@aws-sdk/client-qldb"; // ES Modules import
- * // const { QLDBClient, UpdateLedgerPermissionsModeCommand } = require("@aws-sdk/client-qldb"); // CommonJS import
+ * import { QLDBClient, UpdateLedgerPermissionsModeCommand } from '@aws-sdk/client-qldb'; // ES Modules import
+ * // const { QLDBClient, UpdateLedgerPermissionsModeCommand } = require('@aws-sdk/client-qldb'); // CommonJS import
  * const client = new QLDBClient(config);
  * const input = { // UpdateLedgerPermissionsModeRequest
- *   Name: "STRING_VALUE", // required
- *   PermissionsMode: "ALLOW_ALL" || "STANDARD", // required
+ *   Name: 'STRING_VALUE', // required
+ *   PermissionsMode: 'ALLOW_ALL' || 'STANDARD', // required
  * };
  * const command = new UpdateLedgerPermissionsModeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateLedgerPermissionsModeResponse
+ *   Name: 'STRING_VALUE',
+ *   Arn: 'STRING_VALUE',
+ *   PermissionsMode: 'ALLOW_ALL' || 'STANDARD',
+ * };
+ *
  * ```
  *
  * @param UpdateLedgerPermissionsModeCommandInput - {@link UpdateLedgerPermissionsModeCommandInput}
@@ -70,6 +77,8 @@ export interface UpdateLedgerPermissionsModeCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource doesn't exist.</p>
  *
+ * @throws {@link QLDBServiceException}
+ * <p>Base exception class for all service exceptions from QLDB service.</p>
  *
  */
 export class UpdateLedgerPermissionsModeCommand extends $Command<

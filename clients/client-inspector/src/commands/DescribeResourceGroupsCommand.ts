@@ -37,16 +37,38 @@ export interface DescribeResourceGroupsCommandOutput extends DescribeResourceGro
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { InspectorClient, DescribeResourceGroupsCommand } from "@aws-sdk/client-inspector"; // ES Modules import
- * // const { InspectorClient, DescribeResourceGroupsCommand } = require("@aws-sdk/client-inspector"); // CommonJS import
+ * import { InspectorClient, DescribeResourceGroupsCommand } from '@aws-sdk/client-inspector'; // ES Modules import
+ * // const { InspectorClient, DescribeResourceGroupsCommand } = require('@aws-sdk/client-inspector'); // CommonJS import
  * const client = new InspectorClient(config);
  * const input = { // DescribeResourceGroupsRequest
  *   resourceGroupArns: [ // BatchDescribeArnList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new DescribeResourceGroupsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeResourceGroupsResponse
+ *   resourceGroups: [ // ResourceGroupList // required
+ *     { // ResourceGroup
+ *       arn: 'STRING_VALUE', // required
+ *       tags: [ // ResourceGroupTags // required
+ *         { // ResourceGroupTag
+ *           key: 'STRING_VALUE', // required
+ *           value: 'STRING_VALUE',
+ *         },
+ *       ],
+ *       createdAt: new Date('TIMESTAMP'), // required
+ *     },
+ *   ],
+ *   failedItems: { // FailedItems // required
+ *     '<keys>': { // FailedItemDetails
+ *       failureCode: 'STRING_VALUE', // required
+ *       retryable: true || false, // required
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeResourceGroupsCommandInput - {@link DescribeResourceGroupsCommandInput}
@@ -62,6 +84,8 @@ export interface DescribeResourceGroupsCommandOutput extends DescribeResourceGro
  *  <p>The request was rejected because an invalid or out-of-range value was supplied for an
  *          input parameter.</p>
  *
+ * @throws {@link InspectorServiceException}
+ * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
  * @example Describe resource groups
  * ```javascript

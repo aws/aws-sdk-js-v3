@@ -36,15 +36,20 @@ export interface DeleteIntegrationCommandOutput extends DeleteIntegrationRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CustomerProfilesClient, DeleteIntegrationCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
- * // const { CustomerProfilesClient, DeleteIntegrationCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
+ * import { CustomerProfilesClient, DeleteIntegrationCommand } from '@aws-sdk/client-customer-profiles'; // ES Modules import
+ * // const { CustomerProfilesClient, DeleteIntegrationCommand } = require('@aws-sdk/client-customer-profiles'); // CommonJS import
  * const client = new CustomerProfilesClient(config);
  * const input = { // DeleteIntegrationRequest
- *   DomainName: "STRING_VALUE", // required
- *   Uri: "STRING_VALUE", // required
+ *   DomainName: 'STRING_VALUE', // required
+ *   Uri: 'STRING_VALUE', // required
  * };
  * const command = new DeleteIntegrationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteIntegrationResponse
+ *   Message: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param DeleteIntegrationCommandInput - {@link DeleteIntegrationCommandInput}
@@ -68,6 +73,8 @@ export interface DeleteIntegrationCommandOutput extends DeleteIntegrationRespons
  * @throws {@link ThrottlingException} (client fault)
  *  <p>You exceeded the maximum number of requests.</p>
  *
+ * @throws {@link CustomerProfilesServiceException}
+ * <p>Base exception class for all service exceptions from CustomerProfiles service.</p>
  *
  */
 export class DeleteIntegrationCommand extends $Command<

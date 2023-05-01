@@ -66,21 +66,31 @@ export interface CreateMatchmakingRuleSetCommandOutput extends CreateMatchmaking
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GameLiftClient, CreateMatchmakingRuleSetCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
- * // const { GameLiftClient, CreateMatchmakingRuleSetCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
+ * import { GameLiftClient, CreateMatchmakingRuleSetCommand } from '@aws-sdk/client-gamelift'; // ES Modules import
+ * // const { GameLiftClient, CreateMatchmakingRuleSetCommand } = require('@aws-sdk/client-gamelift'); // CommonJS import
  * const client = new GameLiftClient(config);
  * const input = { // CreateMatchmakingRuleSetInput
- *   Name: "STRING_VALUE", // required
- *   RuleSetBody: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
+ *   RuleSetBody: 'STRING_VALUE', // required
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreateMatchmakingRuleSetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateMatchmakingRuleSetOutput
+ *   RuleSet: { // MatchmakingRuleSet
+ *     RuleSetName: 'STRING_VALUE',
+ *     RuleSetArn: 'STRING_VALUE',
+ *     RuleSetBody: 'STRING_VALUE', // required
+ *     CreationTime: new Date('TIMESTAMP'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateMatchmakingRuleSetCommandInput - {@link CreateMatchmakingRuleSetCommandInput}
@@ -109,6 +119,8 @@ export interface CreateMatchmakingRuleSetCommandOutput extends CreateMatchmaking
  * @throws {@link UnsupportedRegionException} (client fault)
  *  <p>The requested operation is not supported in the Region specified.</p>
  *
+ * @throws {@link GameLiftServiceException}
+ * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
  */
 export class CreateMatchmakingRuleSetCommand extends $Command<

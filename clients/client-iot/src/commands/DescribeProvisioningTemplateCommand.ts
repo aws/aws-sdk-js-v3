@@ -42,14 +42,32 @@ export interface DescribeProvisioningTemplateCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTClient, DescribeProvisioningTemplateCommand } from "@aws-sdk/client-iot"; // ES Modules import
- * // const { IoTClient, DescribeProvisioningTemplateCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * import { IoTClient, DescribeProvisioningTemplateCommand } from '@aws-sdk/client-iot'; // ES Modules import
+ * // const { IoTClient, DescribeProvisioningTemplateCommand } = require('@aws-sdk/client-iot'); // CommonJS import
  * const client = new IoTClient(config);
  * const input = { // DescribeProvisioningTemplateRequest
- *   templateName: "STRING_VALUE", // required
+ *   templateName: 'STRING_VALUE', // required
  * };
  * const command = new DescribeProvisioningTemplateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeProvisioningTemplateResponse
+ *   templateArn: 'STRING_VALUE',
+ *   templateName: 'STRING_VALUE',
+ *   description: 'STRING_VALUE',
+ *   creationDate: new Date('TIMESTAMP'),
+ *   lastModifiedDate: new Date('TIMESTAMP'),
+ *   defaultVersionId: Number('int'),
+ *   templateBody: 'STRING_VALUE',
+ *   enabled: true || false,
+ *   provisioningRoleArn: 'STRING_VALUE',
+ *   preProvisioningHook: { // ProvisioningHook
+ *     payloadVersion: 'STRING_VALUE',
+ *     targetArn: 'STRING_VALUE', // required
+ *   },
+ *   type: 'FLEET_PROVISIONING' || 'JITP',
+ * };
+ *
  * ```
  *
  * @param DescribeProvisioningTemplateCommandInput - {@link DescribeProvisioningTemplateCommandInput}
@@ -73,6 +91,8 @@ export interface DescribeProvisioningTemplateCommandOutput
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this operation.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class DescribeProvisioningTemplateCommand extends $Command<

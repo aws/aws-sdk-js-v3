@@ -37,15 +37,20 @@ export interface CancelArchivalCommandOutput extends CancelArchivalOutput, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { StorageGatewayClient, CancelArchivalCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
- * // const { StorageGatewayClient, CancelArchivalCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
+ * import { StorageGatewayClient, CancelArchivalCommand } from '@aws-sdk/client-storage-gateway'; // ES Modules import
+ * // const { StorageGatewayClient, CancelArchivalCommand } = require('@aws-sdk/client-storage-gateway'); // CommonJS import
  * const client = new StorageGatewayClient(config);
  * const input = { // CancelArchivalInput
- *   GatewayARN: "STRING_VALUE", // required
- *   TapeARN: "STRING_VALUE", // required
+ *   GatewayARN: 'STRING_VALUE', // required
+ *   TapeARN: 'STRING_VALUE', // required
  * };
  * const command = new CancelArchivalCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CancelArchivalOutput
+ *   TapeARN: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CancelArchivalCommandInput - {@link CancelArchivalCommandInput}
@@ -62,6 +67,8 @@ export interface CancelArchivalCommandOutput extends CancelArchivalOutput, __Met
  *  <p>An exception occurred because an invalid gateway request was issued to the service. For
  *          more information, see the error and message fields.</p>
  *
+ * @throws {@link StorageGatewayServiceException}
+ * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
  * @example To cancel virtual tape archiving
  * ```javascript

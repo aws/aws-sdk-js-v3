@@ -36,14 +36,41 @@ export interface GetCustomDataIdentifierCommandOutput extends GetCustomDataIdent
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Macie2Client, GetCustomDataIdentifierCommand } from "@aws-sdk/client-macie2"; // ES Modules import
- * // const { Macie2Client, GetCustomDataIdentifierCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
+ * import { Macie2Client, GetCustomDataIdentifierCommand } from '@aws-sdk/client-macie2'; // ES Modules import
+ * // const { Macie2Client, GetCustomDataIdentifierCommand } = require('@aws-sdk/client-macie2'); // CommonJS import
  * const client = new Macie2Client(config);
  * const input = { // GetCustomDataIdentifierRequest
- *   id: "STRING_VALUE", // required
+ *   id: 'STRING_VALUE', // required
  * };
  * const command = new GetCustomDataIdentifierCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetCustomDataIdentifierResponse
+ *   arn: 'STRING_VALUE',
+ *   createdAt: new Date('TIMESTAMP'),
+ *   deleted: true || false,
+ *   description: 'STRING_VALUE',
+ *   id: 'STRING_VALUE',
+ *   ignoreWords: [ // __listOf__string
+ *     'STRING_VALUE',
+ *   ],
+ *   keywords: [
+ *     'STRING_VALUE',
+ *   ],
+ *   maximumMatchDistance: Number('int'),
+ *   name: 'STRING_VALUE',
+ *   regex: 'STRING_VALUE',
+ *   severityLevels: [ // SeverityLevelList
+ *     { // SeverityLevel
+ *       occurrencesThreshold: Number('long'), // required
+ *       severity: 'LOW' || 'MEDIUM' || 'HIGH', // required
+ *     },
+ *   ],
+ *   tags: { // TagMap
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetCustomDataIdentifierCommandInput - {@link GetCustomDataIdentifierCommandInput}
@@ -73,6 +100,8 @@ export interface GetCustomDataIdentifierCommandOutput extends GetCustomDataIdent
  * @throws {@link ValidationException} (client fault)
  *  <p>Provides information about an error that occurred due to a syntax error in a request.</p>
  *
+ * @throws {@link Macie2ServiceException}
+ * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
  */
 export class GetCustomDataIdentifierCommand extends $Command<

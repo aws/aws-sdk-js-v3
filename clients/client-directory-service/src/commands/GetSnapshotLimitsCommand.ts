@@ -36,14 +36,23 @@ export interface GetSnapshotLimitsCommandOutput extends GetSnapshotLimitsResult,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DirectoryServiceClient, GetSnapshotLimitsCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
- * // const { DirectoryServiceClient, GetSnapshotLimitsCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
+ * import { DirectoryServiceClient, GetSnapshotLimitsCommand } from '@aws-sdk/client-directory-service'; // ES Modules import
+ * // const { DirectoryServiceClient, GetSnapshotLimitsCommand } = require('@aws-sdk/client-directory-service'); // CommonJS import
  * const client = new DirectoryServiceClient(config);
  * const input = { // GetSnapshotLimitsRequest
- *   DirectoryId: "STRING_VALUE", // required
+ *   DirectoryId: 'STRING_VALUE', // required
  * };
  * const command = new GetSnapshotLimitsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetSnapshotLimitsResult
+ *   SnapshotLimits: { // SnapshotLimits
+ *     ManualSnapshotsLimit: Number('int'),
+ *     ManualSnapshotsCurrentCount: Number('int'),
+ *     ManualSnapshotsLimitReached: true || false,
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetSnapshotLimitsCommandInput - {@link GetSnapshotLimitsCommandInput}
@@ -61,6 +70,8 @@ export interface GetSnapshotLimitsCommandOutput extends GetSnapshotLimitsResult,
  * @throws {@link ServiceException} (server fault)
  *  <p>An exception has occurred in Directory Service.</p>
  *
+ * @throws {@link DirectoryServiceServiceException}
+ * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
  */
 export class GetSnapshotLimitsCommand extends $Command<

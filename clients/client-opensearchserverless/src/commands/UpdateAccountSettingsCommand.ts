@@ -41,17 +41,27 @@ export interface UpdateAccountSettingsCommandOutput extends UpdateAccountSetting
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OpenSearchServerlessClient, UpdateAccountSettingsCommand } from "@aws-sdk/client-opensearchserverless"; // ES Modules import
- * // const { OpenSearchServerlessClient, UpdateAccountSettingsCommand } = require("@aws-sdk/client-opensearchserverless"); // CommonJS import
+ * import { OpenSearchServerlessClient, UpdateAccountSettingsCommand } from '@aws-sdk/client-opensearchserverless'; // ES Modules import
+ * // const { OpenSearchServerlessClient, UpdateAccountSettingsCommand } = require('@aws-sdk/client-opensearchserverless'); // CommonJS import
  * const client = new OpenSearchServerlessClient(config);
  * const input = { // UpdateAccountSettingsRequest
  *   capacityLimits: { // CapacityLimits
- *     maxIndexingCapacityInOCU: Number("int"),
- *     maxSearchCapacityInOCU: Number("int"),
+ *     maxIndexingCapacityInOCU: Number('int'),
+ *     maxSearchCapacityInOCU: Number('int'),
  *   },
  * };
  * const command = new UpdateAccountSettingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateAccountSettingsResponse
+ *   accountSettingsDetail: { // AccountSettingsDetail
+ *     capacityLimits: { // CapacityLimits
+ *       maxIndexingCapacityInOCU: Number('int'),
+ *       maxSearchCapacityInOCU: Number('int'),
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateAccountSettingsCommandInput - {@link UpdateAccountSettingsCommandInput}
@@ -67,6 +77,8 @@ export interface UpdateAccountSettingsCommandOutput extends UpdateAccountSetting
  *  <p>Thrown when the HTTP request contains invalid input or is missing required
  *             input.</p>
  *
+ * @throws {@link OpenSearchServerlessServiceException}
+ * <p>Base exception class for all service exceptions from OpenSearchServerless service.</p>
  *
  */
 export class UpdateAccountSettingsCommand extends $Command<

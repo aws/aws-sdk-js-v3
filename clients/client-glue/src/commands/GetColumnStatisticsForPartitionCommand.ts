@@ -42,22 +42,91 @@ export interface GetColumnStatisticsForPartitionCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlueClient, GetColumnStatisticsForPartitionCommand } from "@aws-sdk/client-glue"; // ES Modules import
- * // const { GlueClient, GetColumnStatisticsForPartitionCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * import { GlueClient, GetColumnStatisticsForPartitionCommand } from '@aws-sdk/client-glue'; // ES Modules import
+ * // const { GlueClient, GetColumnStatisticsForPartitionCommand } = require('@aws-sdk/client-glue'); // CommonJS import
  * const client = new GlueClient(config);
  * const input = { // GetColumnStatisticsForPartitionRequest
- *   CatalogId: "STRING_VALUE",
- *   DatabaseName: "STRING_VALUE", // required
- *   TableName: "STRING_VALUE", // required
+ *   CatalogId: 'STRING_VALUE',
+ *   DatabaseName: 'STRING_VALUE', // required
+ *   TableName: 'STRING_VALUE', // required
  *   PartitionValues: [ // ValueStringList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   ColumnNames: [ // GetColumnNamesList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new GetColumnStatisticsForPartitionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetColumnStatisticsForPartitionResponse
+ *   ColumnStatisticsList: [ // ColumnStatisticsList
+ *     { // ColumnStatistics
+ *       ColumnName: 'STRING_VALUE', // required
+ *       ColumnType: 'STRING_VALUE', // required
+ *       AnalyzedTime: new Date('TIMESTAMP'), // required
+ *       StatisticsData: { // ColumnStatisticsData
+ *         Type: 'BOOLEAN' || 'DATE' || 'DECIMAL' || 'DOUBLE' || 'LONG' || 'STRING' || 'BINARY', // required
+ *         BooleanColumnStatisticsData: { // BooleanColumnStatisticsData
+ *           NumberOfTrues: Number('long'), // required
+ *           NumberOfFalses: Number('long'), // required
+ *           NumberOfNulls: Number('long'), // required
+ *         },
+ *         DateColumnStatisticsData: { // DateColumnStatisticsData
+ *           MinimumValue: new Date('TIMESTAMP'),
+ *           MaximumValue: new Date('TIMESTAMP'),
+ *           NumberOfNulls: Number('long'), // required
+ *           NumberOfDistinctValues: Number('long'), // required
+ *         },
+ *         DecimalColumnStatisticsData: { // DecimalColumnStatisticsData
+ *           MinimumValue: { // DecimalNumber
+ *             UnscaledValue: 'BLOB_VALUE', // required
+ *             Scale: Number('int'), // required
+ *           },
+ *           MaximumValue: {
+ *             UnscaledValue: 'BLOB_VALUE', // required
+ *             Scale: Number('int'), // required
+ *           },
+ *           NumberOfNulls: Number('long'), // required
+ *           NumberOfDistinctValues: Number('long'), // required
+ *         },
+ *         DoubleColumnStatisticsData: { // DoubleColumnStatisticsData
+ *           MinimumValue: Number('double'),
+ *           MaximumValue: Number('double'),
+ *           NumberOfNulls: Number('long'), // required
+ *           NumberOfDistinctValues: Number('long'), // required
+ *         },
+ *         LongColumnStatisticsData: { // LongColumnStatisticsData
+ *           MinimumValue: Number('long'),
+ *           MaximumValue: Number('long'),
+ *           NumberOfNulls: Number('long'), // required
+ *           NumberOfDistinctValues: Number('long'), // required
+ *         },
+ *         StringColumnStatisticsData: { // StringColumnStatisticsData
+ *           MaximumLength: Number('long'), // required
+ *           AverageLength: Number('double'), // required
+ *           NumberOfNulls: Number('long'), // required
+ *           NumberOfDistinctValues: Number('long'), // required
+ *         },
+ *         BinaryColumnStatisticsData: { // BinaryColumnStatisticsData
+ *           MaximumLength: Number('long'), // required
+ *           AverageLength: Number('double'), // required
+ *           NumberOfNulls: Number('long'), // required
+ *         },
+ *       },
+ *     },
+ *   ],
+ *   Errors: [ // ColumnErrors
+ *     { // ColumnError
+ *       ColumnName: 'STRING_VALUE',
+ *       Error: { // ErrorDetail
+ *         ErrorCode: 'STRING_VALUE',
+ *         ErrorMessage: 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetColumnStatisticsForPartitionCommandInput - {@link GetColumnStatisticsForPartitionCommandInput}
@@ -81,6 +150,8 @@ export interface GetColumnStatisticsForPartitionCommandOutput
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class GetColumnStatisticsForPartitionCommand extends $Command<

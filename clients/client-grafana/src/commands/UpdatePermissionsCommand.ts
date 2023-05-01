@@ -37,26 +37,46 @@ export interface UpdatePermissionsCommandOutput extends UpdatePermissionsRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GrafanaClient, UpdatePermissionsCommand } from "@aws-sdk/client-grafana"; // ES Modules import
- * // const { GrafanaClient, UpdatePermissionsCommand } = require("@aws-sdk/client-grafana"); // CommonJS import
+ * import { GrafanaClient, UpdatePermissionsCommand } from '@aws-sdk/client-grafana'; // ES Modules import
+ * // const { GrafanaClient, UpdatePermissionsCommand } = require('@aws-sdk/client-grafana'); // CommonJS import
  * const client = new GrafanaClient(config);
  * const input = { // UpdatePermissionsRequest
  *   updateInstructionBatch: [ // UpdateInstructionBatch // required
  *     { // UpdateInstruction
- *       action: "STRING_VALUE", // required
- *       role: "STRING_VALUE", // required
+ *       action: 'STRING_VALUE', // required
+ *       role: 'STRING_VALUE', // required
  *       users: [ // UserList // required
  *         { // User
- *           id: "STRING_VALUE", // required
- *           type: "STRING_VALUE", // required
+ *           id: 'STRING_VALUE', // required
+ *           type: 'STRING_VALUE', // required
  *         },
  *       ],
  *     },
  *   ],
- *   workspaceId: "STRING_VALUE", // required
+ *   workspaceId: 'STRING_VALUE', // required
  * };
  * const command = new UpdatePermissionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdatePermissionsResponse
+ *   errors: [ // UpdateErrorList // required
+ *     { // UpdateError
+ *       code: Number('int'), // required
+ *       message: 'STRING_VALUE', // required
+ *       causedBy: { // UpdateInstruction
+ *         action: 'STRING_VALUE', // required
+ *         role: 'STRING_VALUE', // required
+ *         users: [ // UserList // required
+ *           { // User
+ *             id: 'STRING_VALUE', // required
+ *             type: 'STRING_VALUE', // required
+ *           },
+ *         ],
+ *       },
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param UpdatePermissionsCommandInput - {@link UpdatePermissionsCommandInput}
@@ -80,6 +100,8 @@ export interface UpdatePermissionsCommandOutput extends UpdatePermissionsRespons
  * @throws {@link ValidationException} (client fault)
  *  <p>The value of a parameter in the request caused an error.</p>
  *
+ * @throws {@link GrafanaServiceException}
+ * <p>Base exception class for all service exceptions from Grafana service.</p>
  *
  */
 export class UpdatePermissionsCommand extends $Command<

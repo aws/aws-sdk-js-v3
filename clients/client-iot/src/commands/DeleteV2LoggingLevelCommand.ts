@@ -37,15 +37,18 @@ export interface DeleteV2LoggingLevelCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTClient, DeleteV2LoggingLevelCommand } from "@aws-sdk/client-iot"; // ES Modules import
- * // const { IoTClient, DeleteV2LoggingLevelCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * import { IoTClient, DeleteV2LoggingLevelCommand } from '@aws-sdk/client-iot'; // ES Modules import
+ * // const { IoTClient, DeleteV2LoggingLevelCommand } = require('@aws-sdk/client-iot'); // CommonJS import
  * const client = new IoTClient(config);
  * const input = { // DeleteV2LoggingLevelRequest
- *   targetType: "DEFAULT" || "THING_GROUP" || "CLIENT_ID" || "SOURCE_IP" || "PRINCIPAL_ID", // required
- *   targetName: "STRING_VALUE", // required
+ *   targetType: 'DEFAULT' || 'THING_GROUP' || 'CLIENT_ID' || 'SOURCE_IP' || 'PRINCIPAL_ID', // required
+ *   targetName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteV2LoggingLevelCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteV2LoggingLevelCommandInput - {@link DeleteV2LoggingLevelCommandInput}
@@ -63,6 +66,8 @@ export interface DeleteV2LoggingLevelCommandOutput extends __MetadataBearer {}
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service is temporarily unavailable.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class DeleteV2LoggingLevelCommand extends $Command<

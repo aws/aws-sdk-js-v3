@@ -40,14 +40,17 @@ export interface DeleteDeploymentConfigCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeDeployClient, DeleteDeploymentConfigCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
- * // const { CodeDeployClient, DeleteDeploymentConfigCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
+ * import { CodeDeployClient, DeleteDeploymentConfigCommand } from '@aws-sdk/client-codedeploy'; // ES Modules import
+ * // const { CodeDeployClient, DeleteDeploymentConfigCommand } = require('@aws-sdk/client-codedeploy'); // CommonJS import
  * const client = new CodeDeployClient(config);
  * const input = { // DeleteDeploymentConfigInput
- *   deploymentConfigName: "STRING_VALUE", // required
+ *   deploymentConfigName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteDeploymentConfigCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteDeploymentConfigCommandInput - {@link DeleteDeploymentConfigCommandInput}
@@ -68,6 +71,8 @@ export interface DeleteDeploymentConfigCommandOutput extends __MetadataBearer {}
  * @throws {@link InvalidOperationException} (client fault)
  *  <p>An invalid operation was detected.</p>
  *
+ * @throws {@link CodeDeployServiceException}
+ * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
  */
 export class DeleteDeploymentConfigCommand extends $Command<

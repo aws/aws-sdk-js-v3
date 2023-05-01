@@ -37,16 +37,24 @@ export interface ListFargateProfilesCommandOutput extends ListFargateProfilesRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EKSClient, ListFargateProfilesCommand } from "@aws-sdk/client-eks"; // ES Modules import
- * // const { EKSClient, ListFargateProfilesCommand } = require("@aws-sdk/client-eks"); // CommonJS import
+ * import { EKSClient, ListFargateProfilesCommand } from '@aws-sdk/client-eks'; // ES Modules import
+ * // const { EKSClient, ListFargateProfilesCommand } = require('@aws-sdk/client-eks'); // CommonJS import
  * const client = new EKSClient(config);
  * const input = { // ListFargateProfilesRequest
- *   clusterName: "STRING_VALUE", // required
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   clusterName: 'STRING_VALUE', // required
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new ListFargateProfilesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListFargateProfilesResponse
+ *   fargateProfileNames: [ // StringList
+ *     'STRING_VALUE',
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListFargateProfilesCommandInput - {@link ListFargateProfilesCommandInput}
@@ -73,6 +81,8 @@ export interface ListFargateProfilesCommandOutput extends ListFargateProfilesRes
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server-side issue.</p>
  *
+ * @throws {@link EKSServiceException}
+ * <p>Base exception class for all service exceptions from EKS service.</p>
  *
  */
 export class ListFargateProfilesCommand extends $Command<

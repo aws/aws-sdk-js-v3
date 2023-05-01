@@ -36,18 +36,43 @@ export interface DescribeJobQueuesCommandOutput extends DescribeJobQueuesRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BatchClient, DescribeJobQueuesCommand } from "@aws-sdk/client-batch"; // ES Modules import
- * // const { BatchClient, DescribeJobQueuesCommand } = require("@aws-sdk/client-batch"); // CommonJS import
+ * import { BatchClient, DescribeJobQueuesCommand } from '@aws-sdk/client-batch'; // ES Modules import
+ * // const { BatchClient, DescribeJobQueuesCommand } = require('@aws-sdk/client-batch'); // CommonJS import
  * const client = new BatchClient(config);
  * const input = { // DescribeJobQueuesRequest
  *   jobQueues: [ // StringList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new DescribeJobQueuesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeJobQueuesResponse
+ *   jobQueues: [ // JobQueueDetailList
+ *     { // JobQueueDetail
+ *       jobQueueName: 'STRING_VALUE', // required
+ *       jobQueueArn: 'STRING_VALUE', // required
+ *       state: 'ENABLED' || 'DISABLED', // required
+ *       schedulingPolicyArn: 'STRING_VALUE',
+ *       status: 'CREATING' || 'UPDATING' || 'DELETING' || 'DELETED' || 'VALID' || 'INVALID',
+ *       statusReason: 'STRING_VALUE',
+ *       priority: Number('int'), // required
+ *       computeEnvironmentOrder: [ // ComputeEnvironmentOrders // required
+ *         { // ComputeEnvironmentOrder
+ *           order: Number('int'), // required
+ *           computeEnvironment: 'STRING_VALUE', // required
+ *         },
+ *       ],
+ *       tags: { // TagrisTagsMap
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeJobQueuesCommandInput - {@link DescribeJobQueuesCommandInput}
@@ -64,6 +89,8 @@ export interface DescribeJobQueuesCommandOutput extends DescribeJobQueuesRespons
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server issue.</p>
  *
+ * @throws {@link BatchServiceException}
+ * <p>Base exception class for all service exceptions from Batch service.</p>
  *
  * @example To describe a job queue
  * ```javascript

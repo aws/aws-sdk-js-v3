@@ -38,16 +38,19 @@ export interface EnableSsoCommandOutput extends EnableSsoResult, __MetadataBeare
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DirectoryServiceClient, EnableSsoCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
- * // const { DirectoryServiceClient, EnableSsoCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
+ * import { DirectoryServiceClient, EnableSsoCommand } from '@aws-sdk/client-directory-service'; // ES Modules import
+ * // const { DirectoryServiceClient, EnableSsoCommand } = require('@aws-sdk/client-directory-service'); // CommonJS import
  * const client = new DirectoryServiceClient(config);
  * const input = { // EnableSsoRequest
- *   DirectoryId: "STRING_VALUE", // required
- *   UserName: "STRING_VALUE",
- *   Password: "STRING_VALUE",
+ *   DirectoryId: 'STRING_VALUE', // required
+ *   UserName: 'STRING_VALUE',
+ *   Password: 'STRING_VALUE',
  * };
  * const command = new EnableSsoCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param EnableSsoCommandInput - {@link EnableSsoCommandInput}
@@ -71,6 +74,8 @@ export interface EnableSsoCommandOutput extends EnableSsoResult, __MetadataBeare
  * @throws {@link ServiceException} (server fault)
  *  <p>An exception has occurred in Directory Service.</p>
  *
+ * @throws {@link DirectoryServiceServiceException}
+ * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
  */
 export class EnableSsoCommand extends $Command<

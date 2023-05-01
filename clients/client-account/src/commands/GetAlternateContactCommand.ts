@@ -48,15 +48,26 @@ export interface GetAlternateContactCommandOutput extends GetAlternateContactRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AccountClient, GetAlternateContactCommand } from "@aws-sdk/client-account"; // ES Modules import
- * // const { AccountClient, GetAlternateContactCommand } = require("@aws-sdk/client-account"); // CommonJS import
+ * import { AccountClient, GetAlternateContactCommand } from '@aws-sdk/client-account'; // ES Modules import
+ * // const { AccountClient, GetAlternateContactCommand } = require('@aws-sdk/client-account'); // CommonJS import
  * const client = new AccountClient(config);
  * const input = { // GetAlternateContactRequest
- *   AlternateContactType: "STRING_VALUE", // required
- *   AccountId: "STRING_VALUE",
+ *   AlternateContactType: 'STRING_VALUE', // required
+ *   AccountId: 'STRING_VALUE',
  * };
  * const command = new GetAlternateContactCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetAlternateContactResponse
+ *   AlternateContact: { // AlternateContact
+ *     Name: 'STRING_VALUE',
+ *     Title: 'STRING_VALUE',
+ *     EmailAddress: 'STRING_VALUE',
+ *     PhoneNumber: 'STRING_VALUE',
+ *     AlternateContactType: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetAlternateContactCommandInput - {@link GetAlternateContactCommandInput}
@@ -83,6 +94,8 @@ export interface GetAlternateContactCommandOutput extends GetAlternateContactRes
  * @throws {@link ValidationException} (client fault)
  *  <p>The operation failed because one of the input parameters was invalid.</p>
  *
+ * @throws {@link AccountServiceException}
+ * <p>Base exception class for all service exceptions from Account service.</p>
  *
  */
 export class GetAlternateContactCommand extends $Command<

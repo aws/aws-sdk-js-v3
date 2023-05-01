@@ -36,16 +36,32 @@ export interface ListStagesCommandOutput extends ListStagesResult, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GameSparksClient, ListStagesCommand } from "@aws-sdk/client-gamesparks"; // ES Modules import
- * // const { GameSparksClient, ListStagesCommand } = require("@aws-sdk/client-gamesparks"); // CommonJS import
+ * import { GameSparksClient, ListStagesCommand } from '@aws-sdk/client-gamesparks'; // ES Modules import
+ * // const { GameSparksClient, ListStagesCommand } = require('@aws-sdk/client-gamesparks'); // CommonJS import
  * const client = new GameSparksClient(config);
  * const input = { // ListStagesRequest
- *   GameName: "STRING_VALUE", // required
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   GameName: 'STRING_VALUE', // required
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListStagesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListStagesResult
+ *   Stages: [ // StageSummaryList
+ *     { // StageSummary
+ *       Name: 'STRING_VALUE',
+ *       GameKey: 'STRING_VALUE',
+ *       Description: 'STRING_VALUE',
+ *       State: 'STRING_VALUE',
+ *       Tags: { // TagMap
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListStagesCommandInput - {@link ListStagesCommandInput}
@@ -69,6 +85,8 @@ export interface ListStagesCommandOutput extends ListStagesResult, __MetadataBea
  * @throws {@link ValidationException} (client fault)
  *  <p>One of the parameters in the request is invalid.</p>
  *
+ * @throws {@link GameSparksServiceException}
+ * <p>Base exception class for all service exceptions from GameSparks service.</p>
  *
  */
 export class ListStagesCommand extends $Command<

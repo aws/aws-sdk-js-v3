@@ -36,17 +36,20 @@ export interface UpdateMapRunCommandOutput extends UpdateMapRunOutput, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SFNClient, UpdateMapRunCommand } from "@aws-sdk/client-sfn"; // ES Modules import
- * // const { SFNClient, UpdateMapRunCommand } = require("@aws-sdk/client-sfn"); // CommonJS import
+ * import { SFNClient, UpdateMapRunCommand } from '@aws-sdk/client-sfn'; // ES Modules import
+ * // const { SFNClient, UpdateMapRunCommand } = require('@aws-sdk/client-sfn'); // CommonJS import
  * const client = new SFNClient(config);
  * const input = { // UpdateMapRunInput
- *   mapRunArn: "STRING_VALUE", // required
- *   maxConcurrency: Number("int"),
- *   toleratedFailurePercentage: Number("float"),
- *   toleratedFailureCount: Number("long"),
+ *   mapRunArn: 'STRING_VALUE', // required
+ *   maxConcurrency: Number('int'),
+ *   toleratedFailurePercentage: Number('float'),
+ *   toleratedFailureCount: Number('long'),
  * };
  * const command = new UpdateMapRunCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateMapRunCommandInput - {@link UpdateMapRunCommandInput}
@@ -65,6 +68,8 @@ export interface UpdateMapRunCommandOutput extends UpdateMapRunOutput, __Metadat
  * @throws {@link ValidationException} (client fault)
  *  <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
  *
+ * @throws {@link SFNServiceException}
+ * <p>Base exception class for all service exceptions from SFN service.</p>
  *
  */
 export class UpdateMapRunCommand extends $Command<

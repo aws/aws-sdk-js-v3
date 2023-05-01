@@ -58,17 +58,22 @@ export interface UpdateDomainContactPrivacyCommandOutput extends UpdateDomainCon
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Route53DomainsClient, UpdateDomainContactPrivacyCommand } from "@aws-sdk/client-route-53-domains"; // ES Modules import
- * // const { Route53DomainsClient, UpdateDomainContactPrivacyCommand } = require("@aws-sdk/client-route-53-domains"); // CommonJS import
+ * import { Route53DomainsClient, UpdateDomainContactPrivacyCommand } from '@aws-sdk/client-route-53-domains'; // ES Modules import
+ * // const { Route53DomainsClient, UpdateDomainContactPrivacyCommand } = require('@aws-sdk/client-route-53-domains'); // CommonJS import
  * const client = new Route53DomainsClient(config);
  * const input = { // UpdateDomainContactPrivacyRequest
- *   DomainName: "STRING_VALUE", // required
+ *   DomainName: 'STRING_VALUE', // required
  *   AdminPrivacy: true || false,
  *   RegistrantPrivacy: true || false,
  *   TechPrivacy: true || false,
  * };
  * const command = new UpdateDomainContactPrivacyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateDomainContactPrivacyResponse
+ *   OperationId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateDomainContactPrivacyCommandInput - {@link UpdateDomainContactPrivacyCommandInput}
@@ -96,6 +101,8 @@ export interface UpdateDomainContactPrivacyCommandOutput extends UpdateDomainCon
  * @throws {@link UnsupportedTLD} (client fault)
  *  <p>Amazon Route 53 does not support this top-level domain (TLD).</p>
  *
+ * @throws {@link Route53DomainsServiceException}
+ * <p>Base exception class for all service exceptions from Route53Domains service.</p>
  *
  */
 export class UpdateDomainContactPrivacyCommand extends $Command<

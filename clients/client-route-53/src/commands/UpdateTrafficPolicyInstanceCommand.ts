@@ -61,17 +61,32 @@ export interface UpdateTrafficPolicyInstanceCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Route53Client, UpdateTrafficPolicyInstanceCommand } from "@aws-sdk/client-route-53"; // ES Modules import
- * // const { Route53Client, UpdateTrafficPolicyInstanceCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
+ * import { Route53Client, UpdateTrafficPolicyInstanceCommand } from '@aws-sdk/client-route-53'; // ES Modules import
+ * // const { Route53Client, UpdateTrafficPolicyInstanceCommand } = require('@aws-sdk/client-route-53'); // CommonJS import
  * const client = new Route53Client(config);
  * const input = { // UpdateTrafficPolicyInstanceRequest
- *   Id: "STRING_VALUE", // required
- *   TTL: Number("long"), // required
- *   TrafficPolicyId: "STRING_VALUE", // required
- *   TrafficPolicyVersion: Number("int"), // required
+ *   Id: 'STRING_VALUE', // required
+ *   TTL: Number('long'), // required
+ *   TrafficPolicyId: 'STRING_VALUE', // required
+ *   TrafficPolicyVersion: Number('int'), // required
  * };
  * const command = new UpdateTrafficPolicyInstanceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateTrafficPolicyInstanceResponse
+ *   TrafficPolicyInstance: { // TrafficPolicyInstance
+ *     Id: 'STRING_VALUE', // required
+ *     HostedZoneId: 'STRING_VALUE', // required
+ *     Name: 'STRING_VALUE', // required
+ *     TTL: Number('long'), // required
+ *     State: 'STRING_VALUE', // required
+ *     Message: 'STRING_VALUE', // required
+ *     TrafficPolicyId: 'STRING_VALUE', // required
+ *     TrafficPolicyVersion: Number('int'), // required
+ *     TrafficPolicyType: 'SOA' || 'A' || 'TXT' || 'NS' || 'CNAME' || 'MX' || 'NAPTR' || 'PTR' || 'SRV' || 'SPF' || 'AAAA' || 'CAA' || 'DS', // required
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateTrafficPolicyInstanceCommandInput - {@link UpdateTrafficPolicyInstanceCommandInput}
@@ -102,6 +117,8 @@ export interface UpdateTrafficPolicyInstanceCommandOutput
  * 			for the same request, we recommend that you wait, in intervals of increasing duration,
  * 			before you try the request again.</p>
  *
+ * @throws {@link Route53ServiceException}
+ * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
  */
 export class UpdateTrafficPolicyInstanceCommand extends $Command<

@@ -41,16 +41,19 @@ export interface PutEmailMonitoringConfigurationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkMailClient, PutEmailMonitoringConfigurationCommand } from "@aws-sdk/client-workmail"; // ES Modules import
- * // const { WorkMailClient, PutEmailMonitoringConfigurationCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
+ * import { WorkMailClient, PutEmailMonitoringConfigurationCommand } from '@aws-sdk/client-workmail'; // ES Modules import
+ * // const { WorkMailClient, PutEmailMonitoringConfigurationCommand } = require('@aws-sdk/client-workmail'); // CommonJS import
  * const client = new WorkMailClient(config);
  * const input = { // PutEmailMonitoringConfigurationRequest
- *   OrganizationId: "STRING_VALUE", // required
- *   RoleArn: "STRING_VALUE", // required
- *   LogGroupArn: "STRING_VALUE", // required
+ *   OrganizationId: 'STRING_VALUE', // required
+ *   RoleArn: 'STRING_VALUE', // required
+ *   LogGroupArn: 'STRING_VALUE', // required
  * };
  * const command = new PutEmailMonitoringConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutEmailMonitoringConfigurationCommandInput - {@link PutEmailMonitoringConfigurationCommandInput}
@@ -73,6 +76,8 @@ export interface PutEmailMonitoringConfigurationCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource cannot be found.</p>
  *
+ * @throws {@link WorkMailServiceException}
+ * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
  */
 export class PutEmailMonitoringConfigurationCommand extends $Command<

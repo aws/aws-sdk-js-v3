@@ -40,21 +40,33 @@ export interface ListTargetsCommandOutput extends ListTargetsResult, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodestarNotificationsClient, ListTargetsCommand } from "@aws-sdk/client-codestar-notifications"; // ES Modules import
- * // const { CodestarNotificationsClient, ListTargetsCommand } = require("@aws-sdk/client-codestar-notifications"); // CommonJS import
+ * import { CodestarNotificationsClient, ListTargetsCommand } from '@aws-sdk/client-codestar-notifications'; // ES Modules import
+ * // const { CodestarNotificationsClient, ListTargetsCommand } = require('@aws-sdk/client-codestar-notifications'); // CommonJS import
  * const client = new CodestarNotificationsClient(config);
  * const input = { // ListTargetsRequest
  *   Filters: [ // ListTargetsFilters
  *     { // ListTargetsFilter
- *       Name: "TARGET_TYPE" || "TARGET_ADDRESS" || "TARGET_STATUS", // required
- *       Value: "STRING_VALUE", // required
+ *       Name: 'TARGET_TYPE' || 'TARGET_ADDRESS' || 'TARGET_STATUS', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListTargetsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTargetsResult
+ *   Targets: [ // TargetsBatch
+ *     { // TargetSummary
+ *       TargetAddress: 'STRING_VALUE',
+ *       TargetType: 'STRING_VALUE',
+ *       TargetStatus: 'PENDING' || 'ACTIVE' || 'UNREACHABLE' || 'INACTIVE' || 'DEACTIVATED',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListTargetsCommandInput - {@link ListTargetsCommandInput}
@@ -69,6 +81,8 @@ export interface ListTargetsCommandOutput extends ListTargetsResult, __MetadataB
  * @throws {@link ValidationException} (client fault)
  *  <p>One or more parameter values are not valid.</p>
  *
+ * @throws {@link CodestarNotificationsServiceException}
+ * <p>Base exception class for all service exceptions from CodestarNotifications service.</p>
  *
  */
 export class ListTargetsCommand extends $Command<

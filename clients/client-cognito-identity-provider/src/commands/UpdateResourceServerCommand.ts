@@ -45,22 +45,37 @@ export interface UpdateResourceServerCommandOutput extends UpdateResourceServerR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CognitoIdentityProviderClient, UpdateResourceServerCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
- * // const { CognitoIdentityProviderClient, UpdateResourceServerCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
+ * import { CognitoIdentityProviderClient, UpdateResourceServerCommand } from '@aws-sdk/client-cognito-identity-provider'; // ES Modules import
+ * // const { CognitoIdentityProviderClient, UpdateResourceServerCommand } = require('@aws-sdk/client-cognito-identity-provider'); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
  * const input = { // UpdateResourceServerRequest
- *   UserPoolId: "STRING_VALUE", // required
- *   Identifier: "STRING_VALUE", // required
- *   Name: "STRING_VALUE", // required
+ *   UserPoolId: 'STRING_VALUE', // required
+ *   Identifier: 'STRING_VALUE', // required
+ *   Name: 'STRING_VALUE', // required
  *   Scopes: [ // ResourceServerScopeListType
  *     { // ResourceServerScopeType
- *       ScopeName: "STRING_VALUE", // required
- *       ScopeDescription: "STRING_VALUE", // required
+ *       ScopeName: 'STRING_VALUE', // required
+ *       ScopeDescription: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new UpdateResourceServerCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateResourceServerResponse
+ *   ResourceServer: { // ResourceServerType
+ *     UserPoolId: 'STRING_VALUE',
+ *     Identifier: 'STRING_VALUE',
+ *     Name: 'STRING_VALUE',
+ *     Scopes: [ // ResourceServerScopeListType
+ *       { // ResourceServerScopeType
+ *         ScopeName: 'STRING_VALUE', // required
+ *         ScopeDescription: 'STRING_VALUE', // required
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateResourceServerCommandInput - {@link UpdateResourceServerCommandInput}
@@ -87,6 +102,8 @@ export interface UpdateResourceServerCommandOutput extends UpdateResourceServerR
  *  <p>This exception is thrown when the user has made too many requests for a given
  *             operation.</p>
  *
+ * @throws {@link CognitoIdentityProviderServiceException}
+ * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
  */
 export class UpdateResourceServerCommand extends $Command<

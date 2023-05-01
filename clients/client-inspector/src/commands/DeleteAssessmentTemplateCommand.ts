@@ -37,14 +37,17 @@ export interface DeleteAssessmentTemplateCommandOutput extends __MetadataBearer 
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { InspectorClient, DeleteAssessmentTemplateCommand } from "@aws-sdk/client-inspector"; // ES Modules import
- * // const { InspectorClient, DeleteAssessmentTemplateCommand } = require("@aws-sdk/client-inspector"); // CommonJS import
+ * import { InspectorClient, DeleteAssessmentTemplateCommand } from '@aws-sdk/client-inspector'; // ES Modules import
+ * // const { InspectorClient, DeleteAssessmentTemplateCommand } = require('@aws-sdk/client-inspector'); // CommonJS import
  * const client = new InspectorClient(config);
  * const input = { // DeleteAssessmentTemplateRequest
- *   assessmentTemplateArn: "STRING_VALUE", // required
+ *   assessmentTemplateArn: 'STRING_VALUE', // required
  * };
  * const command = new DeleteAssessmentTemplateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteAssessmentTemplateCommandInput - {@link DeleteAssessmentTemplateCommandInput}
@@ -74,6 +77,8 @@ export interface DeleteAssessmentTemplateCommandOutput extends __MetadataBearer 
  * @throws {@link ServiceTemporarilyUnavailableException} (server fault)
  *  <p>The serice is temporary unavailable.</p>
  *
+ * @throws {@link InspectorServiceException}
+ * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
  * @example Delete assessment template
  * ```javascript

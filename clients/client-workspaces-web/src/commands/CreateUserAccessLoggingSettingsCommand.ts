@@ -45,21 +45,26 @@ export interface CreateUserAccessLoggingSettingsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkSpacesWebClient, CreateUserAccessLoggingSettingsCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
- * // const { WorkSpacesWebClient, CreateUserAccessLoggingSettingsCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
+ * import { WorkSpacesWebClient, CreateUserAccessLoggingSettingsCommand } from '@aws-sdk/client-workspaces-web'; // ES Modules import
+ * // const { WorkSpacesWebClient, CreateUserAccessLoggingSettingsCommand } = require('@aws-sdk/client-workspaces-web'); // CommonJS import
  * const client = new WorkSpacesWebClient(config);
  * const input = { // CreateUserAccessLoggingSettingsRequest
- *   kinesisStreamArn: "STRING_VALUE", // required
+ *   kinesisStreamArn: 'STRING_VALUE', // required
  *   tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
- *   clientToken: "STRING_VALUE",
+ *   clientToken: 'STRING_VALUE',
  * };
  * const command = new CreateUserAccessLoggingSettingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateUserAccessLoggingSettingsResponse
+ *   userAccessLoggingSettingsArn: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param CreateUserAccessLoggingSettingsCommandInput - {@link CreateUserAccessLoggingSettingsCommandInput}
@@ -86,6 +91,8 @@ export interface CreateUserAccessLoggingSettingsCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>There is a validation error.</p>
  *
+ * @throws {@link WorkSpacesWebServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
  */
 export class CreateUserAccessLoggingSettingsCommand extends $Command<

@@ -36,24 +36,112 @@ export interface ModifyDBInstanceCommandOutput extends ModifyDBInstanceResult, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DocDBClient, ModifyDBInstanceCommand } from "@aws-sdk/client-docdb"; // ES Modules import
- * // const { DocDBClient, ModifyDBInstanceCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
+ * import { DocDBClient, ModifyDBInstanceCommand } from '@aws-sdk/client-docdb'; // ES Modules import
+ * // const { DocDBClient, ModifyDBInstanceCommand } = require('@aws-sdk/client-docdb'); // CommonJS import
  * const client = new DocDBClient(config);
  * const input = { // ModifyDBInstanceMessage
- *   DBInstanceIdentifier: "STRING_VALUE", // required
- *   DBInstanceClass: "STRING_VALUE",
+ *   DBInstanceIdentifier: 'STRING_VALUE', // required
+ *   DBInstanceClass: 'STRING_VALUE',
  *   ApplyImmediately: true || false,
- *   PreferredMaintenanceWindow: "STRING_VALUE",
+ *   PreferredMaintenanceWindow: 'STRING_VALUE',
  *   AutoMinorVersionUpgrade: true || false,
- *   NewDBInstanceIdentifier: "STRING_VALUE",
- *   CACertificateIdentifier: "STRING_VALUE",
+ *   NewDBInstanceIdentifier: 'STRING_VALUE',
+ *   CACertificateIdentifier: 'STRING_VALUE',
  *   CopyTagsToSnapshot: true || false,
- *   PromotionTier: Number("int"),
+ *   PromotionTier: Number('int'),
  *   EnablePerformanceInsights: true || false,
- *   PerformanceInsightsKMSKeyId: "STRING_VALUE",
+ *   PerformanceInsightsKMSKeyId: 'STRING_VALUE',
  * };
  * const command = new ModifyDBInstanceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ModifyDBInstanceResult
+ *   DBInstance: { // DBInstance
+ *     DBInstanceIdentifier: 'STRING_VALUE',
+ *     DBInstanceClass: 'STRING_VALUE',
+ *     Engine: 'STRING_VALUE',
+ *     DBInstanceStatus: 'STRING_VALUE',
+ *     Endpoint: { // Endpoint
+ *       Address: 'STRING_VALUE',
+ *       Port: Number('int'),
+ *       HostedZoneId: 'STRING_VALUE',
+ *     },
+ *     InstanceCreateTime: new Date('TIMESTAMP'),
+ *     PreferredBackupWindow: 'STRING_VALUE',
+ *     BackupRetentionPeriod: Number('int'),
+ *     VpcSecurityGroups: [ // VpcSecurityGroupMembershipList
+ *       { // VpcSecurityGroupMembership
+ *         VpcSecurityGroupId: 'STRING_VALUE',
+ *         Status: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     AvailabilityZone: 'STRING_VALUE',
+ *     DBSubnetGroup: { // DBSubnetGroup
+ *       DBSubnetGroupName: 'STRING_VALUE',
+ *       DBSubnetGroupDescription: 'STRING_VALUE',
+ *       VpcId: 'STRING_VALUE',
+ *       SubnetGroupStatus: 'STRING_VALUE',
+ *       Subnets: [ // SubnetList
+ *         { // Subnet
+ *           SubnetIdentifier: 'STRING_VALUE',
+ *           SubnetAvailabilityZone: { // AvailabilityZone
+ *             Name: 'STRING_VALUE',
+ *           },
+ *           SubnetStatus: 'STRING_VALUE',
+ *         },
+ *       ],
+ *       DBSubnetGroupArn: 'STRING_VALUE',
+ *     },
+ *     PreferredMaintenanceWindow: 'STRING_VALUE',
+ *     PendingModifiedValues: { // PendingModifiedValues
+ *       DBInstanceClass: 'STRING_VALUE',
+ *       AllocatedStorage: Number('int'),
+ *       MasterUserPassword: 'STRING_VALUE',
+ *       Port: Number('int'),
+ *       BackupRetentionPeriod: Number('int'),
+ *       MultiAZ: true || false,
+ *       EngineVersion: 'STRING_VALUE',
+ *       LicenseModel: 'STRING_VALUE',
+ *       Iops: Number('int'),
+ *       DBInstanceIdentifier: 'STRING_VALUE',
+ *       StorageType: 'STRING_VALUE',
+ *       CACertificateIdentifier: 'STRING_VALUE',
+ *       DBSubnetGroupName: 'STRING_VALUE',
+ *       PendingCloudwatchLogsExports: { // PendingCloudwatchLogsExports
+ *         LogTypesToEnable: [ // LogTypeList
+ *           'STRING_VALUE',
+ *         ],
+ *         LogTypesToDisable: [
+ *           'STRING_VALUE',
+ *         ],
+ *       },
+ *     },
+ *     LatestRestorableTime: new Date('TIMESTAMP'),
+ *     EngineVersion: 'STRING_VALUE',
+ *     AutoMinorVersionUpgrade: true || false,
+ *     PubliclyAccessible: true || false,
+ *     StatusInfos: [ // DBInstanceStatusInfoList
+ *       { // DBInstanceStatusInfo
+ *         StatusType: 'STRING_VALUE',
+ *         Normal: true || false,
+ *         Status: 'STRING_VALUE',
+ *         Message: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     DBClusterIdentifier: 'STRING_VALUE',
+ *     StorageEncrypted: true || false,
+ *     KmsKeyId: 'STRING_VALUE',
+ *     DbiResourceId: 'STRING_VALUE',
+ *     CACertificateIdentifier: 'STRING_VALUE',
+ *     CopyTagsToSnapshot: true || false,
+ *     PromotionTier: Number('int'),
+ *     DBInstanceArn: 'STRING_VALUE',
+ *     EnabledCloudwatchLogsExports: [
+ *       'STRING_VALUE',
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param ModifyDBInstanceCommandInput - {@link ModifyDBInstanceCommandInput}
@@ -111,6 +199,8 @@ export interface ModifyDBInstanceCommandOutput extends ModifyDBInstanceResult, _
  *  <p>Storage of the specified <code>StorageType</code> can't be associated with the DB
  *             instance. </p>
  *
+ * @throws {@link DocDBServiceException}
+ * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
  */
 export class ModifyDBInstanceCommand extends $Command<

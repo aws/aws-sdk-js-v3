@@ -42,30 +42,36 @@ export interface CreateMonitorCommandOutput extends CreateMonitorOutput, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { InternetMonitorClient, CreateMonitorCommand } from "@aws-sdk/client-internetmonitor"; // ES Modules import
- * // const { InternetMonitorClient, CreateMonitorCommand } = require("@aws-sdk/client-internetmonitor"); // CommonJS import
+ * import { InternetMonitorClient, CreateMonitorCommand } from '@aws-sdk/client-internetmonitor'; // ES Modules import
+ * // const { InternetMonitorClient, CreateMonitorCommand } = require('@aws-sdk/client-internetmonitor'); // CommonJS import
  * const client = new InternetMonitorClient(config);
  * const input = { // CreateMonitorInput
- *   MonitorName: "STRING_VALUE", // required
+ *   MonitorName: 'STRING_VALUE', // required
  *   Resources: [ // SetOfARNs
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   ClientToken: "STRING_VALUE",
+ *   ClientToken: 'STRING_VALUE',
  *   Tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
- *   MaxCityNetworksToMonitor: Number("int"),
+ *   MaxCityNetworksToMonitor: Number('int'),
  *   InternetMeasurementsLogDelivery: { // InternetMeasurementsLogDelivery
  *     S3Config: { // S3Config
- *       BucketName: "STRING_VALUE",
- *       BucketPrefix: "STRING_VALUE",
- *       LogDeliveryStatus: "STRING_VALUE",
+ *       BucketName: 'STRING_VALUE',
+ *       BucketPrefix: 'STRING_VALUE',
+ *       LogDeliveryStatus: 'STRING_VALUE',
  *     },
  *   },
- *   TrafficPercentageToMonitor: Number("int"),
+ *   TrafficPercentageToMonitor: Number('int'),
  * };
  * const command = new CreateMonitorCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateMonitorOutput
+ *   Arn: 'STRING_VALUE', // required
+ *   Status: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param CreateMonitorCommandInput - {@link CreateMonitorCommandInput}
@@ -92,6 +98,8 @@ export interface CreateMonitorCommandOutput extends CreateMonitorOutput, __Metad
  * @throws {@link ValidationException} (client fault)
  *  <p>Invalid request.</p>
  *
+ * @throws {@link InternetMonitorServiceException}
+ * <p>Base exception class for all service exceptions from InternetMonitor service.</p>
  *
  */
 export class CreateMonitorCommand extends $Command<

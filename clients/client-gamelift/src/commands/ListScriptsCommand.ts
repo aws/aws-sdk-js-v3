@@ -49,15 +49,36 @@ export interface ListScriptsCommandOutput extends ListScriptsOutput, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GameLiftClient, ListScriptsCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
- * // const { GameLiftClient, ListScriptsCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
+ * import { GameLiftClient, ListScriptsCommand } from '@aws-sdk/client-gamelift'; // ES Modules import
+ * // const { GameLiftClient, ListScriptsCommand } = require('@aws-sdk/client-gamelift'); // CommonJS import
  * const client = new GameLiftClient(config);
  * const input = { // ListScriptsInput
- *   Limit: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   Limit: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListScriptsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListScriptsOutput
+ *   Scripts: [ // ScriptList
+ *     { // Script
+ *       ScriptId: 'STRING_VALUE',
+ *       ScriptArn: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *       Version: 'STRING_VALUE',
+ *       SizeOnDisk: Number('long'),
+ *       CreationTime: new Date('TIMESTAMP'),
+ *       StorageLocation: { // S3Location
+ *         Bucket: 'STRING_VALUE',
+ *         Key: 'STRING_VALUE',
+ *         RoleArn: 'STRING_VALUE',
+ *         ObjectVersion: 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListScriptsCommandInput - {@link ListScriptsCommandInput}
@@ -77,6 +98,8 @@ export interface ListScriptsCommandOutput extends ListScriptsOutput, __MetadataB
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client failed authentication. Clients should not retry such requests.</p>
  *
+ * @throws {@link GameLiftServiceException}
+ * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
  */
 export class ListScriptsCommand extends $Command<

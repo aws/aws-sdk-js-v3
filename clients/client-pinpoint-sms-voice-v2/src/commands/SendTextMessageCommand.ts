@@ -45,28 +45,33 @@ export interface SendTextMessageCommandOutput extends SendTextMessageResult, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PinpointSMSVoiceV2Client, SendTextMessageCommand } from "@aws-sdk/client-pinpoint-sms-voice-v2"; // ES Modules import
- * // const { PinpointSMSVoiceV2Client, SendTextMessageCommand } = require("@aws-sdk/client-pinpoint-sms-voice-v2"); // CommonJS import
+ * import { PinpointSMSVoiceV2Client, SendTextMessageCommand } from '@aws-sdk/client-pinpoint-sms-voice-v2'; // ES Modules import
+ * // const { PinpointSMSVoiceV2Client, SendTextMessageCommand } = require('@aws-sdk/client-pinpoint-sms-voice-v2'); // CommonJS import
  * const client = new PinpointSMSVoiceV2Client(config);
  * const input = { // SendTextMessageRequest
- *   DestinationPhoneNumber: "STRING_VALUE", // required
- *   OriginationIdentity: "STRING_VALUE",
- *   MessageBody: "STRING_VALUE",
- *   MessageType: "STRING_VALUE",
- *   Keyword: "STRING_VALUE",
- *   ConfigurationSetName: "STRING_VALUE",
- *   MaxPrice: "STRING_VALUE",
- *   TimeToLive: Number("int"),
+ *   DestinationPhoneNumber: 'STRING_VALUE', // required
+ *   OriginationIdentity: 'STRING_VALUE',
+ *   MessageBody: 'STRING_VALUE',
+ *   MessageType: 'STRING_VALUE',
+ *   Keyword: 'STRING_VALUE',
+ *   ConfigurationSetName: 'STRING_VALUE',
+ *   MaxPrice: 'STRING_VALUE',
+ *   TimeToLive: Number('int'),
  *   Context: { // ContextMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  *   DestinationCountryParameters: { // DestinationCountryParameters
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  *   DryRun: true || false,
  * };
  * const command = new SendTextMessageCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SendTextMessageResult
+ *   MessageId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param SendTextMessageCommandInput - {@link SendTextMessageCommandInput}
@@ -102,6 +107,8 @@ export interface SendTextMessageCommandOutput extends SendTextMessageResult, __M
  * @throws {@link ValidationException} (client fault)
  *  <p>A validation exception for a field.</p>
  *
+ * @throws {@link PinpointSMSVoiceV2ServiceException}
+ * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
  *
  */
 export class SendTextMessageCommand extends $Command<

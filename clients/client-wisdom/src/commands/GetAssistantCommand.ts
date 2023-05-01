@@ -36,14 +36,32 @@ export interface GetAssistantCommandOutput extends GetAssistantResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WisdomClient, GetAssistantCommand } from "@aws-sdk/client-wisdom"; // ES Modules import
- * // const { WisdomClient, GetAssistantCommand } = require("@aws-sdk/client-wisdom"); // CommonJS import
+ * import { WisdomClient, GetAssistantCommand } from '@aws-sdk/client-wisdom'; // ES Modules import
+ * // const { WisdomClient, GetAssistantCommand } = require('@aws-sdk/client-wisdom'); // CommonJS import
  * const client = new WisdomClient(config);
  * const input = { // GetAssistantRequest
- *   assistantId: "STRING_VALUE", // required
+ *   assistantId: 'STRING_VALUE', // required
  * };
  * const command = new GetAssistantCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetAssistantResponse
+ *   assistant: { // AssistantData
+ *     assistantId: 'STRING_VALUE', // required
+ *     assistantArn: 'STRING_VALUE', // required
+ *     name: 'STRING_VALUE', // required
+ *     type: 'STRING_VALUE', // required
+ *     status: 'STRING_VALUE', // required
+ *     description: 'STRING_VALUE',
+ *     tags: { // Tags
+ *       '<keys>': 'STRING_VALUE',
+ *     },
+ *     serverSideEncryptionConfiguration: { // ServerSideEncryptionConfiguration
+ *       kmsKeyId: 'STRING_VALUE',
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetAssistantCommandInput - {@link GetAssistantCommandInput}
@@ -61,6 +79,8 @@ export interface GetAssistantCommandOutput extends GetAssistantResponse, __Metad
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by a service.</p>
  *
+ * @throws {@link WisdomServiceException}
+ * <p>Base exception class for all service exceptions from Wisdom service.</p>
  *
  */
 export class GetAssistantCommand extends $Command<

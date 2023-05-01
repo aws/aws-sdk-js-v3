@@ -38,16 +38,26 @@ export interface DeleteMembersCommandOutput extends DeleteMembersResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SecurityHubClient, DeleteMembersCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
- * // const { SecurityHubClient, DeleteMembersCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
+ * import { SecurityHubClient, DeleteMembersCommand } from '@aws-sdk/client-securityhub'; // ES Modules import
+ * // const { SecurityHubClient, DeleteMembersCommand } = require('@aws-sdk/client-securityhub'); // CommonJS import
  * const client = new SecurityHubClient(config);
  * const input = { // DeleteMembersRequest
  *   AccountIds: [ // AccountIdList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new DeleteMembersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteMembersResponse
+ *   UnprocessedAccounts: [ // ResultList
+ *     { // Result
+ *       AccountId: 'STRING_VALUE',
+ *       ProcessingResult: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DeleteMembersCommandInput - {@link DeleteMembersCommandInput}
@@ -73,6 +83,8 @@ export interface DeleteMembersCommandOutput extends DeleteMembersResponse, __Met
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The request was rejected because we can't find the specified resource.</p>
  *
+ * @throws {@link SecurityHubServiceException}
+ * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
  * @example To delete a member account
  * ```javascript

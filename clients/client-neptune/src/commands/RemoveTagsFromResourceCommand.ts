@@ -36,17 +36,20 @@ export interface RemoveTagsFromResourceCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { NeptuneClient, RemoveTagsFromResourceCommand } from "@aws-sdk/client-neptune"; // ES Modules import
- * // const { NeptuneClient, RemoveTagsFromResourceCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
+ * import { NeptuneClient, RemoveTagsFromResourceCommand } from '@aws-sdk/client-neptune'; // ES Modules import
+ * // const { NeptuneClient, RemoveTagsFromResourceCommand } = require('@aws-sdk/client-neptune'); // CommonJS import
  * const client = new NeptuneClient(config);
  * const input = { // RemoveTagsFromResourceMessage
- *   ResourceName: "STRING_VALUE", // required
+ *   ResourceName: 'STRING_VALUE', // required
  *   TagKeys: [ // KeyList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new RemoveTagsFromResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param RemoveTagsFromResourceCommandInput - {@link RemoveTagsFromResourceCommandInput}
@@ -67,6 +70,8 @@ export interface RemoveTagsFromResourceCommandOutput extends __MetadataBearer {}
  *  <p>
  *             <i>DBSnapshotIdentifier</i> does not refer to an existing DB snapshot.</p>
  *
+ * @throws {@link NeptuneServiceException}
+ * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
  */
 export class RemoveTagsFromResourceCommand extends $Command<

@@ -36,16 +36,19 @@ export interface DeleteAppCommandOutput extends DeleteAppOutput, __MetadataBeare
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SimSpaceWeaverClient, DeleteAppCommand } from "@aws-sdk/client-simspaceweaver"; // ES Modules import
- * // const { SimSpaceWeaverClient, DeleteAppCommand } = require("@aws-sdk/client-simspaceweaver"); // CommonJS import
+ * import { SimSpaceWeaverClient, DeleteAppCommand } from '@aws-sdk/client-simspaceweaver'; // ES Modules import
+ * // const { SimSpaceWeaverClient, DeleteAppCommand } = require('@aws-sdk/client-simspaceweaver'); // CommonJS import
  * const client = new SimSpaceWeaverClient(config);
  * const input = { // DeleteAppInput
- *   Simulation: "STRING_VALUE", // required
- *   Domain: "STRING_VALUE", // required
- *   App: "STRING_VALUE", // required
+ *   Simulation: 'STRING_VALUE', // required
+ *   Domain: 'STRING_VALUE', // required
+ *   App: 'STRING_VALUE', // required
  * };
  * const command = new DeleteAppCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteAppCommandInput - {@link DeleteAppCommandInput}
@@ -69,6 +72,8 @@ export interface DeleteAppCommandOutput extends DeleteAppOutput, __MetadataBeare
  * @throws {@link ValidationException} (client fault)
  *  <p/>
  *
+ * @throws {@link SimSpaceWeaverServiceException}
+ * <p>Base exception class for all service exceptions from SimSpaceWeaver service.</p>
  *
  */
 export class DeleteAppCommand extends $Command<

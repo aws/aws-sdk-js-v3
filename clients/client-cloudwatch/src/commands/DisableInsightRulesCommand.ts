@@ -37,16 +37,28 @@ export interface DisableInsightRulesCommandOutput extends DisableInsightRulesOut
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudWatchClient, DisableInsightRulesCommand } from "@aws-sdk/client-cloudwatch"; // ES Modules import
- * // const { CloudWatchClient, DisableInsightRulesCommand } = require("@aws-sdk/client-cloudwatch"); // CommonJS import
+ * import { CloudWatchClient, DisableInsightRulesCommand } from '@aws-sdk/client-cloudwatch'; // ES Modules import
+ * // const { CloudWatchClient, DisableInsightRulesCommand } = require('@aws-sdk/client-cloudwatch'); // CommonJS import
  * const client = new CloudWatchClient(config);
  * const input = { // DisableInsightRulesInput
  *   RuleNames: [ // InsightRuleNames // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new DisableInsightRulesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DisableInsightRulesOutput
+ *   Failures: [ // BatchFailures
+ *     { // PartialFailure
+ *       FailureResource: 'STRING_VALUE',
+ *       ExceptionType: 'STRING_VALUE',
+ *       FailureCode: 'STRING_VALUE',
+ *       FailureDescription: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DisableInsightRulesCommandInput - {@link DisableInsightRulesCommandInput}
@@ -61,6 +73,8 @@ export interface DisableInsightRulesCommandOutput extends DisableInsightRulesOut
  * @throws {@link MissingRequiredParameterException} (client fault)
  *  <p>An input parameter that is required is missing.</p>
  *
+ * @throws {@link CloudWatchServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatch service.</p>
  *
  */
 export class DisableInsightRulesCommand extends $Command<

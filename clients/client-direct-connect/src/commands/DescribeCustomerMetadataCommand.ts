@@ -36,12 +36,23 @@ export interface DescribeCustomerMetadataCommandOutput extends DescribeCustomerM
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DirectConnectClient, DescribeCustomerMetadataCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
- * // const { DirectConnectClient, DescribeCustomerMetadataCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
+ * import { DirectConnectClient, DescribeCustomerMetadataCommand } from '@aws-sdk/client-direct-connect'; // ES Modules import
+ * // const { DirectConnectClient, DescribeCustomerMetadataCommand } = require('@aws-sdk/client-direct-connect'); // CommonJS import
  * const client = new DirectConnectClient(config);
  * const input = {};
  * const command = new DescribeCustomerMetadataCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeCustomerMetadataResponse
+ *   agreements: [ // AgreementList
+ *     { // CustomerAgreement
+ *       agreementName: 'STRING_VALUE',
+ *       status: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   nniPartnerType: 'v1' || 'v2' || 'nonPartner',
+ * };
+ *
  * ```
  *
  * @param DescribeCustomerMetadataCommandInput - {@link DescribeCustomerMetadataCommandInput}
@@ -56,6 +67,8 @@ export interface DescribeCustomerMetadataCommandOutput extends DescribeCustomerM
  * @throws {@link DirectConnectServerException} (server fault)
  *  <p>A server-side error occurred.</p>
  *
+ * @throws {@link DirectConnectServiceException}
+ * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
  */
 export class DescribeCustomerMetadataCommand extends $Command<

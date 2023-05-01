@@ -36,15 +36,18 @@ export interface DeleteSpaceCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, DeleteSpaceCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, DeleteSpaceCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, DeleteSpaceCommand } from '@aws-sdk/client-sagemaker'; // ES Modules import
+ * // const { SageMakerClient, DeleteSpaceCommand } = require('@aws-sdk/client-sagemaker'); // CommonJS import
  * const client = new SageMakerClient(config);
  * const input = { // DeleteSpaceRequest
- *   DomainId: "STRING_VALUE", // required
- *   SpaceName: "STRING_VALUE", // required
+ *   DomainId: 'STRING_VALUE', // required
+ *   SpaceName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteSpaceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteSpaceCommandInput - {@link DeleteSpaceCommandInput}
@@ -59,6 +62,8 @@ export interface DeleteSpaceCommandOutput extends __MetadataBearer {}
  * @throws {@link ResourceNotFound} (client fault)
  *  <p>Resource being access is not found.</p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class DeleteSpaceCommand extends $Command<

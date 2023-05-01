@@ -36,16 +36,31 @@ export interface GetIPSetCommandOutput extends GetIPSetResponse, __MetadataBeare
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WAFV2Client, GetIPSetCommand } from "@aws-sdk/client-wafv2"; // ES Modules import
- * // const { WAFV2Client, GetIPSetCommand } = require("@aws-sdk/client-wafv2"); // CommonJS import
+ * import { WAFV2Client, GetIPSetCommand } from '@aws-sdk/client-wafv2'; // ES Modules import
+ * // const { WAFV2Client, GetIPSetCommand } = require('@aws-sdk/client-wafv2'); // CommonJS import
  * const client = new WAFV2Client(config);
  * const input = { // GetIPSetRequest
- *   Name: "STRING_VALUE", // required
- *   Scope: "CLOUDFRONT" || "REGIONAL", // required
- *   Id: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
+ *   Scope: 'CLOUDFRONT' || 'REGIONAL', // required
+ *   Id: 'STRING_VALUE', // required
  * };
  * const command = new GetIPSetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetIPSetResponse
+ *   IPSet: { // IPSet
+ *     Name: 'STRING_VALUE', // required
+ *     Id: 'STRING_VALUE', // required
+ *     ARN: 'STRING_VALUE', // required
+ *     Description: 'STRING_VALUE',
+ *     IPAddressVersion: 'IPV4' || 'IPV6', // required
+ *     Addresses: [ // IPAddresses // required
+ *       'STRING_VALUE',
+ *     ],
+ *   },
+ *   LockToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetIPSetCommandInput - {@link GetIPSetCommandInput}
@@ -88,6 +103,8 @@ export interface GetIPSetCommandOutput extends GetIPSetResponse, __MetadataBeare
  *        just need to wait a few minutes. It can take from a few seconds to a number of minutes
  *        for changes to propagate. </p>
  *
+ * @throws {@link WAFV2ServiceException}
+ * <p>Base exception class for all service exceptions from WAFV2 service.</p>
  *
  */
 export class GetIPSetCommand extends $Command<GetIPSetCommandInput, GetIPSetCommandOutput, WAFV2ClientResolvedConfig> {

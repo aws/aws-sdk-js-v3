@@ -36,29 +36,29 @@ export interface StartAnnotationImportJobCommandOutput extends StartAnnotationIm
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OmicsClient, StartAnnotationImportJobCommand } from "@aws-sdk/client-omics"; // ES Modules import
- * // const { OmicsClient, StartAnnotationImportJobCommand } = require("@aws-sdk/client-omics"); // CommonJS import
+ * import { OmicsClient, StartAnnotationImportJobCommand } from '@aws-sdk/client-omics'; // ES Modules import
+ * // const { OmicsClient, StartAnnotationImportJobCommand } = require('@aws-sdk/client-omics'); // CommonJS import
  * const client = new OmicsClient(config);
  * const input = { // StartAnnotationImportRequest
- *   destinationName: "STRING_VALUE", // required
- *   roleArn: "STRING_VALUE", // required
+ *   destinationName: 'STRING_VALUE', // required
+ *   roleArn: 'STRING_VALUE', // required
  *   items: [ // AnnotationImportItemSources // required
  *     { // AnnotationImportItemSource
- *       source: "STRING_VALUE", // required
+ *       source: 'STRING_VALUE', // required
  *     },
  *   ],
  *   formatOptions: { // FormatOptions Union: only one key present
  *     tsvOptions: { // TsvOptions
  *       readOptions: { // ReadOptions
- *         sep: "STRING_VALUE",
- *         encoding: "STRING_VALUE",
- *         quote: "STRING_VALUE",
+ *         sep: 'STRING_VALUE',
+ *         encoding: 'STRING_VALUE',
+ *         quote: 'STRING_VALUE',
  *         quoteAll: true || false,
- *         escape: "STRING_VALUE",
+ *         escape: 'STRING_VALUE',
  *         escapeQuotes: true || false,
- *         comment: "STRING_VALUE",
+ *         comment: 'STRING_VALUE',
  *         header: true || false,
- *         lineSep: "STRING_VALUE",
+ *         lineSep: 'STRING_VALUE',
  *       },
  *     },
  *     vcfOptions: { // VcfOptions
@@ -70,6 +70,11 @@ export interface StartAnnotationImportJobCommandOutput extends StartAnnotationIm
  * };
  * const command = new StartAnnotationImportJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartAnnotationImportResponse
+ *   jobId: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param StartAnnotationImportJobCommandInput - {@link StartAnnotationImportJobCommandInput}
@@ -96,6 +101,8 @@ export interface StartAnnotationImportJobCommandOutput extends StartAnnotationIm
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link OmicsServiceException}
+ * <p>Base exception class for all service exceptions from Omics service.</p>
  *
  */
 export class StartAnnotationImportJobCommand extends $Command<

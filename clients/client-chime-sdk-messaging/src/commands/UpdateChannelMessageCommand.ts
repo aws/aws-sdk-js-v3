@@ -49,20 +49,31 @@ export interface UpdateChannelMessageCommandOutput extends UpdateChannelMessageR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeSDKMessagingClient, UpdateChannelMessageCommand } from "@aws-sdk/client-chime-sdk-messaging"; // ES Modules import
- * // const { ChimeSDKMessagingClient, UpdateChannelMessageCommand } = require("@aws-sdk/client-chime-sdk-messaging"); // CommonJS import
+ * import { ChimeSDKMessagingClient, UpdateChannelMessageCommand } from '@aws-sdk/client-chime-sdk-messaging'; // ES Modules import
+ * // const { ChimeSDKMessagingClient, UpdateChannelMessageCommand } = require('@aws-sdk/client-chime-sdk-messaging'); // CommonJS import
  * const client = new ChimeSDKMessagingClient(config);
  * const input = { // UpdateChannelMessageRequest
- *   ChannelArn: "STRING_VALUE", // required
- *   MessageId: "STRING_VALUE", // required
- *   Content: "STRING_VALUE", // required
- *   Metadata: "STRING_VALUE",
- *   ChimeBearer: "STRING_VALUE", // required
- *   SubChannelId: "STRING_VALUE",
- *   ContentType: "STRING_VALUE",
+ *   ChannelArn: 'STRING_VALUE', // required
+ *   MessageId: 'STRING_VALUE', // required
+ *   Content: 'STRING_VALUE', // required
+ *   Metadata: 'STRING_VALUE',
+ *   ChimeBearer: 'STRING_VALUE', // required
+ *   SubChannelId: 'STRING_VALUE',
+ *   ContentType: 'STRING_VALUE',
  * };
  * const command = new UpdateChannelMessageCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateChannelMessageResponse
+ *   ChannelArn: 'STRING_VALUE',
+ *   MessageId: 'STRING_VALUE',
+ *   Status: { // ChannelMessageStatusStructure
+ *     Value: 'SENT' || 'PENDING' || 'FAILED' || 'DENIED',
+ *     Detail: 'STRING_VALUE',
+ *   },
+ *   SubChannelId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateChannelMessageCommandInput - {@link UpdateChannelMessageCommandInput}
@@ -93,6 +104,8 @@ export interface UpdateChannelMessageCommandOutput extends UpdateChannelMessageR
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeSDKMessagingServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKMessaging service.</p>
  *
  */
 export class UpdateChannelMessageCommand extends $Command<

@@ -36,23 +36,26 @@ export interface UpdateDeviceFleetCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, UpdateDeviceFleetCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, UpdateDeviceFleetCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, UpdateDeviceFleetCommand } from '@aws-sdk/client-sagemaker'; // ES Modules import
+ * // const { SageMakerClient, UpdateDeviceFleetCommand } = require('@aws-sdk/client-sagemaker'); // CommonJS import
  * const client = new SageMakerClient(config);
  * const input = { // UpdateDeviceFleetRequest
- *   DeviceFleetName: "STRING_VALUE", // required
- *   RoleArn: "STRING_VALUE",
- *   Description: "STRING_VALUE",
+ *   DeviceFleetName: 'STRING_VALUE', // required
+ *   RoleArn: 'STRING_VALUE',
+ *   Description: 'STRING_VALUE',
  *   OutputConfig: { // EdgeOutputConfig
- *     S3OutputLocation: "STRING_VALUE", // required
- *     KmsKeyId: "STRING_VALUE",
- *     PresetDeploymentType: "GreengrassV2Component",
- *     PresetDeploymentConfig: "STRING_VALUE",
+ *     S3OutputLocation: 'STRING_VALUE', // required
+ *     KmsKeyId: 'STRING_VALUE',
+ *     PresetDeploymentType: 'GreengrassV2Component',
+ *     PresetDeploymentConfig: 'STRING_VALUE',
  *   },
  *   EnableIotRoleAlias: true || false,
  * };
  * const command = new UpdateDeviceFleetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateDeviceFleetCommandInput - {@link UpdateDeviceFleetCommandInput}
@@ -64,6 +67,8 @@ export interface UpdateDeviceFleetCommandOutput extends __MetadataBearer {}
  * @throws {@link ResourceInUse} (client fault)
  *  <p>Resource being accessed is in use.</p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class UpdateDeviceFleetCommand extends $Command<

@@ -39,17 +39,20 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WAFV2Client, UntagResourceCommand } from "@aws-sdk/client-wafv2"; // ES Modules import
- * // const { WAFV2Client, UntagResourceCommand } = require("@aws-sdk/client-wafv2"); // CommonJS import
+ * import { WAFV2Client, UntagResourceCommand } from '@aws-sdk/client-wafv2'; // ES Modules import
+ * // const { WAFV2Client, UntagResourceCommand } = require('@aws-sdk/client-wafv2'); // CommonJS import
  * const client = new WAFV2Client(config);
  * const input = { // UntagResourceRequest
- *   ResourceARN: "STRING_VALUE", // required
+ *   ResourceARN: 'STRING_VALUE', // required
  *   TagKeys: [ // TagKeyList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new UntagResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UntagResourceCommandInput - {@link UntagResourceCommandInput}
@@ -99,6 +102,8 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  *  <p>WAF couldn’t perform your tagging operation because of an internal error. Retry
  *          your request.</p>
  *
+ * @throws {@link WAFV2ServiceException}
+ * <p>Base exception class for all service exceptions from WAFV2 service.</p>
  *
  */
 export class UntagResourceCommand extends $Command<

@@ -42,14 +42,61 @@ export interface InferRxNormCommandOutput extends InferRxNormResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ComprehendMedicalClient, InferRxNormCommand } from "@aws-sdk/client-comprehendmedical"; // ES Modules import
- * // const { ComprehendMedicalClient, InferRxNormCommand } = require("@aws-sdk/client-comprehendmedical"); // CommonJS import
+ * import { ComprehendMedicalClient, InferRxNormCommand } from '@aws-sdk/client-comprehendmedical'; // ES Modules import
+ * // const { ComprehendMedicalClient, InferRxNormCommand } = require('@aws-sdk/client-comprehendmedical'); // CommonJS import
  * const client = new ComprehendMedicalClient(config);
  * const input = { // InferRxNormRequest
- *   Text: "STRING_VALUE", // required
+ *   Text: 'STRING_VALUE', // required
  * };
  * const command = new InferRxNormCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // InferRxNormResponse
+ *   Entities: [ // RxNormEntityList // required
+ *     { // RxNormEntity
+ *       Id: Number('int'),
+ *       Text: 'STRING_VALUE',
+ *       Category: 'MEDICATION',
+ *       Type: 'BRAND_NAME' || 'GENERIC_NAME',
+ *       Score: Number('float'),
+ *       BeginOffset: Number('int'),
+ *       EndOffset: Number('int'),
+ *       Attributes: [ // RxNormAttributeList
+ *         { // RxNormAttribute
+ *           Type: 'DOSAGE' || 'DURATION' || 'FORM' || 'FREQUENCY' || 'RATE' || 'ROUTE_OR_MODE' || 'STRENGTH',
+ *           Score: Number('float'),
+ *           RelationshipScore: Number('float'),
+ *           Id: Number('int'),
+ *           BeginOffset: Number('int'),
+ *           EndOffset: Number('int'),
+ *           Text: 'STRING_VALUE',
+ *           Traits: [ // RxNormTraitList
+ *             { // RxNormTrait
+ *               Name: 'NEGATION',
+ *               Score: Number('float'),
+ *             },
+ *           ],
+ *         },
+ *       ],
+ *       Traits: [
+ *         {
+ *           Name: 'NEGATION',
+ *           Score: Number('float'),
+ *         },
+ *       ],
+ *       RxNormConcepts: [ // RxNormConceptList
+ *         { // RxNormConcept
+ *           Description: 'STRING_VALUE',
+ *           Code: 'STRING_VALUE',
+ *           Score: Number('float'),
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   PaginationToken: 'STRING_VALUE',
+ *   ModelVersion: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param InferRxNormCommandInput - {@link InferRxNormCommandInput}
@@ -82,6 +129,8 @@ export interface InferRxNormCommandOutput extends InferRxNormResponse, __Metadat
  *       then try your request again. Contact customer support for more information about a service
  *       limit increase. </p>
  *
+ * @throws {@link ComprehendMedicalServiceException}
+ * <p>Base exception class for all service exceptions from ComprehendMedical service.</p>
  *
  */
 export class InferRxNormCommand extends $Command<

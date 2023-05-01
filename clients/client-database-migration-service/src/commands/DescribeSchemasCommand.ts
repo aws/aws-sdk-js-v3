@@ -41,16 +41,24 @@ export interface DescribeSchemasCommandOutput extends DescribeSchemasResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DatabaseMigrationServiceClient, DescribeSchemasCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
- * // const { DatabaseMigrationServiceClient, DescribeSchemasCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
+ * import { DatabaseMigrationServiceClient, DescribeSchemasCommand } from '@aws-sdk/client-database-migration-service'; // ES Modules import
+ * // const { DatabaseMigrationServiceClient, DescribeSchemasCommand } = require('@aws-sdk/client-database-migration-service'); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
  * const input = { // DescribeSchemasMessage
- *   EndpointArn: "STRING_VALUE", // required
- *   MaxRecords: Number("int"),
- *   Marker: "STRING_VALUE",
+ *   EndpointArn: 'STRING_VALUE', // required
+ *   MaxRecords: Number('int'),
+ *   Marker: 'STRING_VALUE',
  * };
  * const command = new DescribeSchemasCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeSchemasResponse
+ *   Marker: 'STRING_VALUE',
+ *   Schemas: [ // SchemaList
+ *     'STRING_VALUE',
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeSchemasCommandInput - {@link DescribeSchemasCommandInput}
@@ -65,6 +73,8 @@ export interface DescribeSchemasCommandOutput extends DescribeSchemasResponse, _
  * @throws {@link ResourceNotFoundFault} (client fault)
  *  <p>The resource could not be found.</p>
  *
+ * @throws {@link DatabaseMigrationServiceServiceException}
+ * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
  * @example Describe schemas
  * ```javascript

@@ -36,31 +36,48 @@ export interface TestInvokeAuthorizerCommandOutput extends TestInvokeAuthorizerR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { APIGatewayClient, TestInvokeAuthorizerCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
- * // const { APIGatewayClient, TestInvokeAuthorizerCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
+ * import { APIGatewayClient, TestInvokeAuthorizerCommand } from '@aws-sdk/client-api-gateway'; // ES Modules import
+ * // const { APIGatewayClient, TestInvokeAuthorizerCommand } = require('@aws-sdk/client-api-gateway'); // CommonJS import
  * const client = new APIGatewayClient(config);
  * const input = { // TestInvokeAuthorizerRequest
- *   restApiId: "STRING_VALUE", // required
- *   authorizerId: "STRING_VALUE", // required
+ *   restApiId: 'STRING_VALUE', // required
+ *   authorizerId: 'STRING_VALUE', // required
  *   headers: { // MapOfStringToString
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  *   multiValueHeaders: { // MapOfStringToList
- *     "<keys>": [ // ListOfString
- *       "STRING_VALUE",
+ *     '<keys>': [ // ListOfString
+ *       'STRING_VALUE',
  *     ],
  *   },
- *   pathWithQueryString: "STRING_VALUE",
- *   body: "STRING_VALUE",
+ *   pathWithQueryString: 'STRING_VALUE',
+ *   body: 'STRING_VALUE',
  *   stageVariables: {
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  *   additionalContext: {
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new TestInvokeAuthorizerCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // TestInvokeAuthorizerResponse
+ *   clientStatus: Number('int'),
+ *   log: 'STRING_VALUE',
+ *   latency: Number('long'),
+ *   principalId: 'STRING_VALUE',
+ *   policy: 'STRING_VALUE',
+ *   authorization: { // MapOfStringToList
+ *     '<keys>': [ // ListOfString
+ *       'STRING_VALUE',
+ *     ],
+ *   },
+ *   claims: { // MapOfStringToString
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param TestInvokeAuthorizerCommandInput - {@link TestInvokeAuthorizerCommandInput}
@@ -81,6 +98,8 @@ export interface TestInvokeAuthorizerCommandOutput extends TestInvokeAuthorizerR
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The request is denied because the caller has insufficient permissions.</p>
  *
+ * @throws {@link APIGatewayServiceException}
+ * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
  */
 export class TestInvokeAuthorizerCommand extends $Command<

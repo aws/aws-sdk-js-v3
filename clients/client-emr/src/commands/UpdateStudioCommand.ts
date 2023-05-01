@@ -37,20 +37,23 @@ export interface UpdateStudioCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EMRClient, UpdateStudioCommand } from "@aws-sdk/client-emr"; // ES Modules import
- * // const { EMRClient, UpdateStudioCommand } = require("@aws-sdk/client-emr"); // CommonJS import
+ * import { EMRClient, UpdateStudioCommand } from '@aws-sdk/client-emr'; // ES Modules import
+ * // const { EMRClient, UpdateStudioCommand } = require('@aws-sdk/client-emr'); // CommonJS import
  * const client = new EMRClient(config);
  * const input = { // UpdateStudioInput
- *   StudioId: "STRING_VALUE", // required
- *   Name: "STRING_VALUE",
- *   Description: "STRING_VALUE",
+ *   StudioId: 'STRING_VALUE', // required
+ *   Name: 'STRING_VALUE',
+ *   Description: 'STRING_VALUE',
  *   SubnetIds: [ // SubnetIdList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   DefaultS3Location: "STRING_VALUE",
+ *   DefaultS3Location: 'STRING_VALUE',
  * };
  * const command = new UpdateStudioCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateStudioCommandInput - {@link UpdateStudioCommandInput}
@@ -66,6 +69,8 @@ export interface UpdateStudioCommandOutput extends __MetadataBearer {}
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception occurs when there is something wrong with user input.</p>
  *
+ * @throws {@link EMRServiceException}
+ * <p>Base exception class for all service exceptions from EMR service.</p>
  *
  */
 export class UpdateStudioCommand extends $Command<

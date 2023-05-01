@@ -52,17 +52,42 @@ export interface ListCustomRoutingPortMappingsByDestinationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlobalAcceleratorClient, ListCustomRoutingPortMappingsByDestinationCommand } from "@aws-sdk/client-global-accelerator"; // ES Modules import
- * // const { GlobalAcceleratorClient, ListCustomRoutingPortMappingsByDestinationCommand } = require("@aws-sdk/client-global-accelerator"); // CommonJS import
+ * import { GlobalAcceleratorClient, ListCustomRoutingPortMappingsByDestinationCommand } from '@aws-sdk/client-global-accelerator'; // ES Modules import
+ * // const { GlobalAcceleratorClient, ListCustomRoutingPortMappingsByDestinationCommand } = require('@aws-sdk/client-global-accelerator'); // CommonJS import
  * const client = new GlobalAcceleratorClient(config);
  * const input = { // ListCustomRoutingPortMappingsByDestinationRequest
- *   EndpointId: "STRING_VALUE", // required
- *   DestinationAddress: "STRING_VALUE", // required
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   EndpointId: 'STRING_VALUE', // required
+ *   DestinationAddress: 'STRING_VALUE', // required
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListCustomRoutingPortMappingsByDestinationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListCustomRoutingPortMappingsByDestinationResponse
+ *   DestinationPortMappings: [ // DestinationPortMappings
+ *     { // DestinationPortMapping
+ *       AcceleratorArn: 'STRING_VALUE',
+ *       AcceleratorSocketAddresses: [ // SocketAddresses
+ *         { // SocketAddress
+ *           IpAddress: 'STRING_VALUE',
+ *           Port: Number('int'),
+ *         },
+ *       ],
+ *       EndpointGroupArn: 'STRING_VALUE',
+ *       EndpointId: 'STRING_VALUE',
+ *       EndpointGroupRegion: 'STRING_VALUE',
+ *       DestinationSocketAddress: {
+ *         IpAddress: 'STRING_VALUE',
+ *         Port: Number('int'),
+ *       },
+ *       IpAddressType: 'IPV4' || 'DUAL_STACK',
+ *       DestinationTrafficState: 'ALLOW' || 'DENY',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListCustomRoutingPortMappingsByDestinationCommandInput - {@link ListCustomRoutingPortMappingsByDestinationCommandInput}
@@ -83,6 +108,8 @@ export interface ListCustomRoutingPortMappingsByDestinationCommandOutput
  * @throws {@link InvalidNextTokenException} (client fault)
  *  <p>There isn't another item to return.</p>
  *
+ * @throws {@link GlobalAcceleratorServiceException}
+ * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
  */
 export class ListCustomRoutingPortMappingsByDestinationCommand extends $Command<

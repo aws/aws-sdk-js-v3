@@ -40,22 +40,37 @@ export interface UpdateListenerCommandOutput extends UpdateListenerResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlobalAcceleratorClient, UpdateListenerCommand } from "@aws-sdk/client-global-accelerator"; // ES Modules import
- * // const { GlobalAcceleratorClient, UpdateListenerCommand } = require("@aws-sdk/client-global-accelerator"); // CommonJS import
+ * import { GlobalAcceleratorClient, UpdateListenerCommand } from '@aws-sdk/client-global-accelerator'; // ES Modules import
+ * // const { GlobalAcceleratorClient, UpdateListenerCommand } = require('@aws-sdk/client-global-accelerator'); // CommonJS import
  * const client = new GlobalAcceleratorClient(config);
  * const input = { // UpdateListenerRequest
- *   ListenerArn: "STRING_VALUE", // required
+ *   ListenerArn: 'STRING_VALUE', // required
  *   PortRanges: [ // PortRanges
  *     { // PortRange
- *       FromPort: Number("int"),
- *       ToPort: Number("int"),
+ *       FromPort: Number('int'),
+ *       ToPort: Number('int'),
  *     },
  *   ],
- *   Protocol: "TCP" || "UDP",
- *   ClientAffinity: "NONE" || "SOURCE_IP",
+ *   Protocol: 'TCP' || 'UDP',
+ *   ClientAffinity: 'NONE' || 'SOURCE_IP',
  * };
  * const command = new UpdateListenerCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateListenerResponse
+ *   Listener: { // Listener
+ *     ListenerArn: 'STRING_VALUE',
+ *     PortRanges: [ // PortRanges
+ *       { // PortRange
+ *         FromPort: Number('int'),
+ *         ToPort: Number('int'),
+ *       },
+ *     ],
+ *     Protocol: 'TCP' || 'UDP',
+ *     ClientAffinity: 'NONE' || 'SOURCE_IP',
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateListenerCommandInput - {@link UpdateListenerCommandInput}
@@ -79,6 +94,8 @@ export interface UpdateListenerCommandOutput extends UpdateListenerResponse, __M
  * @throws {@link ListenerNotFoundException} (client fault)
  *  <p>The listener that you specified doesn't exist.</p>
  *
+ * @throws {@link GlobalAcceleratorServiceException}
+ * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
  */
 export class UpdateListenerCommand extends $Command<

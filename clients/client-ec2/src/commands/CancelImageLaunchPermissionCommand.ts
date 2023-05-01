@@ -39,15 +39,20 @@ export interface CancelImageLaunchPermissionCommandOutput extends CancelImageLau
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, CancelImageLaunchPermissionCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, CancelImageLaunchPermissionCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, CancelImageLaunchPermissionCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, CancelImageLaunchPermissionCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // CancelImageLaunchPermissionRequest
- *   ImageId: "STRING_VALUE", // required
+ *   ImageId: 'STRING_VALUE', // required
  *   DryRun: true || false,
  * };
  * const command = new CancelImageLaunchPermissionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CancelImageLaunchPermissionResult
+ *   Return: true || false,
+ * };
+ *
  * ```
  *
  * @param CancelImageLaunchPermissionCommandInput - {@link CancelImageLaunchPermissionCommandInput}
@@ -56,6 +61,8 @@ export interface CancelImageLaunchPermissionCommandOutput extends CancelImageLau
  * @see {@link CancelImageLaunchPermissionCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class CancelImageLaunchPermissionCommand extends $Command<

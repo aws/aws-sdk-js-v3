@@ -36,19 +36,29 @@ export interface ImportBackendAuthCommandOutput extends ImportBackendAuthRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AmplifyBackendClient, ImportBackendAuthCommand } from "@aws-sdk/client-amplifybackend"; // ES Modules import
- * // const { AmplifyBackendClient, ImportBackendAuthCommand } = require("@aws-sdk/client-amplifybackend"); // CommonJS import
+ * import { AmplifyBackendClient, ImportBackendAuthCommand } from '@aws-sdk/client-amplifybackend'; // ES Modules import
+ * // const { AmplifyBackendClient, ImportBackendAuthCommand } = require('@aws-sdk/client-amplifybackend'); // CommonJS import
  * const client = new AmplifyBackendClient(config);
  * const input = { // ImportBackendAuthRequest
- *   AppId: "STRING_VALUE", // required
- *   BackendEnvironmentName: "STRING_VALUE", // required
- *   IdentityPoolId: "STRING_VALUE",
- *   NativeClientId: "STRING_VALUE", // required
- *   UserPoolId: "STRING_VALUE", // required
- *   WebClientId: "STRING_VALUE", // required
+ *   AppId: 'STRING_VALUE', // required
+ *   BackendEnvironmentName: 'STRING_VALUE', // required
+ *   IdentityPoolId: 'STRING_VALUE',
+ *   NativeClientId: 'STRING_VALUE', // required
+ *   UserPoolId: 'STRING_VALUE', // required
+ *   WebClientId: 'STRING_VALUE', // required
  * };
  * const command = new ImportBackendAuthCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ImportBackendAuthResponse
+ *   AppId: 'STRING_VALUE',
+ *   BackendEnvironmentName: 'STRING_VALUE',
+ *   Error: 'STRING_VALUE',
+ *   JobId: 'STRING_VALUE',
+ *   Operation: 'STRING_VALUE',
+ *   Status: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ImportBackendAuthCommandInput - {@link ImportBackendAuthCommandInput}
@@ -69,6 +79,8 @@ export interface ImportBackendAuthCommandOutput extends ImportBackendAuthRespons
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>An error that is returned when a limit of a specific type has been exceeded.</p>
  *
+ * @throws {@link AmplifyBackendServiceException}
+ * <p>Base exception class for all service exceptions from AmplifyBackend service.</p>
  *
  */
 export class ImportBackendAuthCommand extends $Command<

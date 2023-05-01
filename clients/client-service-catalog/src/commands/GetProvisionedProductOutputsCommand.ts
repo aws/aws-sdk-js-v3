@@ -41,21 +41,33 @@ export interface GetProvisionedProductOutputsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ServiceCatalogClient, GetProvisionedProductOutputsCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
- * // const { ServiceCatalogClient, GetProvisionedProductOutputsCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
+ * import { ServiceCatalogClient, GetProvisionedProductOutputsCommand } from '@aws-sdk/client-service-catalog'; // ES Modules import
+ * // const { ServiceCatalogClient, GetProvisionedProductOutputsCommand } = require('@aws-sdk/client-service-catalog'); // CommonJS import
  * const client = new ServiceCatalogClient(config);
  * const input = { // GetProvisionedProductOutputsInput
- *   AcceptLanguage: "STRING_VALUE",
- *   ProvisionedProductId: "STRING_VALUE",
- *   ProvisionedProductName: "STRING_VALUE",
+ *   AcceptLanguage: 'STRING_VALUE',
+ *   ProvisionedProductId: 'STRING_VALUE',
+ *   ProvisionedProductName: 'STRING_VALUE',
  *   OutputKeys: [ // OutputKeys
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   PageSize: Number("int"),
- *   PageToken: "STRING_VALUE",
+ *   PageSize: Number('int'),
+ *   PageToken: 'STRING_VALUE',
  * };
  * const command = new GetProvisionedProductOutputsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetProvisionedProductOutputsOutput
+ *   Outputs: [ // RecordOutputs
+ *     { // RecordOutput
+ *       OutputKey: 'STRING_VALUE',
+ *       OutputValue: 'STRING_VALUE',
+ *       Description: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextPageToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetProvisionedProductOutputsCommandInput - {@link GetProvisionedProductOutputsCommandInput}
@@ -70,6 +82,8 @@ export interface GetProvisionedProductOutputsCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link ServiceCatalogServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
  */
 export class GetProvisionedProductOutputsCommand extends $Command<

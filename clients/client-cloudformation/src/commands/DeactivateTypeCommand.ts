@@ -41,16 +41,19 @@ export interface DeactivateTypeCommandOutput extends DeactivateTypeOutput, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudFormationClient, DeactivateTypeCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
- * // const { CloudFormationClient, DeactivateTypeCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
+ * import { CloudFormationClient, DeactivateTypeCommand } from '@aws-sdk/client-cloudformation'; // ES Modules import
+ * // const { CloudFormationClient, DeactivateTypeCommand } = require('@aws-sdk/client-cloudformation'); // CommonJS import
  * const client = new CloudFormationClient(config);
  * const input = { // DeactivateTypeInput
- *   TypeName: "STRING_VALUE",
- *   Type: "RESOURCE" || "MODULE" || "HOOK",
- *   Arn: "STRING_VALUE",
+ *   TypeName: 'STRING_VALUE',
+ *   Type: 'RESOURCE' || 'MODULE' || 'HOOK',
+ *   Arn: 'STRING_VALUE',
  * };
  * const command = new DeactivateTypeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeactivateTypeCommandInput - {@link DeactivateTypeCommandInput}
@@ -65,6 +68,8 @@ export interface DeactivateTypeCommandOutput extends DeactivateTypeOutput, __Met
  * @throws {@link TypeNotFoundException} (client fault)
  *  <p>The specified extension doesn't exist in the CloudFormation registry.</p>
  *
+ * @throws {@link CloudFormationServiceException}
+ * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
  */
 export class DeactivateTypeCommand extends $Command<

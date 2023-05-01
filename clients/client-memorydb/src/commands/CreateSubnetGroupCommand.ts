@@ -39,24 +39,42 @@ export interface CreateSubnetGroupCommandOutput extends CreateSubnetGroupRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MemoryDBClient, CreateSubnetGroupCommand } from "@aws-sdk/client-memorydb"; // ES Modules import
- * // const { MemoryDBClient, CreateSubnetGroupCommand } = require("@aws-sdk/client-memorydb"); // CommonJS import
+ * import { MemoryDBClient, CreateSubnetGroupCommand } from '@aws-sdk/client-memorydb'; // ES Modules import
+ * // const { MemoryDBClient, CreateSubnetGroupCommand } = require('@aws-sdk/client-memorydb'); // CommonJS import
  * const client = new MemoryDBClient(config);
  * const input = { // CreateSubnetGroupRequest
- *   SubnetGroupName: "STRING_VALUE", // required
- *   Description: "STRING_VALUE",
+ *   SubnetGroupName: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE',
  *   SubnetIds: [ // SubnetIdentifierList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE",
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new CreateSubnetGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateSubnetGroupResponse
+ *   SubnetGroup: { // SubnetGroup
+ *     Name: 'STRING_VALUE',
+ *     Description: 'STRING_VALUE',
+ *     VpcId: 'STRING_VALUE',
+ *     Subnets: [ // SubnetList
+ *       { // Subnet
+ *         Identifier: 'STRING_VALUE',
+ *         AvailabilityZone: { // AvailabilityZone
+ *           Name: 'STRING_VALUE',
+ *         },
+ *       },
+ *     ],
+ *     ARN: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateSubnetGroupCommandInput - {@link CreateSubnetGroupCommandInput}
@@ -86,6 +104,8 @@ export interface CreateSubnetGroupCommandOutput extends CreateSubnetGroupRespons
  * @throws {@link TagQuotaPerResourceExceeded} (client fault)
  *  <p></p>
  *
+ * @throws {@link MemoryDBServiceException}
+ * <p>Base exception class for all service exceptions from MemoryDB service.</p>
  *
  */
 export class CreateSubnetGroupCommand extends $Command<

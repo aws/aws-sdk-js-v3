@@ -40,15 +40,35 @@ export interface ListImportFileTaskCommandOutput extends ListImportFileTaskRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MigrationHubStrategyClient, ListImportFileTaskCommand } from "@aws-sdk/client-migrationhubstrategy"; // ES Modules import
- * // const { MigrationHubStrategyClient, ListImportFileTaskCommand } = require("@aws-sdk/client-migrationhubstrategy"); // CommonJS import
+ * import { MigrationHubStrategyClient, ListImportFileTaskCommand } from '@aws-sdk/client-migrationhubstrategy'; // ES Modules import
+ * // const { MigrationHubStrategyClient, ListImportFileTaskCommand } = require('@aws-sdk/client-migrationhubstrategy'); // CommonJS import
  * const client = new MigrationHubStrategyClient(config);
  * const input = { // ListImportFileTaskRequest
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new ListImportFileTaskCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListImportFileTaskResponse
+ *   taskInfos: [ // ListImportFileTaskInformation
+ *     { // ImportFileTaskInformation
+ *       id: 'STRING_VALUE',
+ *       status: 'STRING_VALUE',
+ *       startTime: new Date('TIMESTAMP'),
+ *       inputS3Bucket: 'STRING_VALUE',
+ *       inputS3Key: 'STRING_VALUE',
+ *       statusReportS3Bucket: 'STRING_VALUE',
+ *       statusReportS3Key: 'STRING_VALUE',
+ *       completionTime: new Date('TIMESTAMP'),
+ *       numberOfRecordsSuccess: Number('int'),
+ *       numberOfRecordsFailed: Number('int'),
+ *       importName: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListImportFileTaskCommandInput - {@link ListImportFileTaskCommandInput}
@@ -70,6 +90,8 @@ export interface ListImportFileTaskCommandOutput extends ListImportFileTaskRespo
  * @throws {@link ValidationException} (client fault)
  *  <p> The request body isn't valid. </p>
  *
+ * @throws {@link MigrationHubStrategyServiceException}
+ * <p>Base exception class for all service exceptions from MigrationHubStrategy service.</p>
  *
  */
 export class ListImportFileTaskCommand extends $Command<

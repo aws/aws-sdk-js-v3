@@ -37,18 +37,35 @@ export interface ListArchivesCommandOutput extends ListArchivesResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EventBridgeClient, ListArchivesCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
- * // const { EventBridgeClient, ListArchivesCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
+ * import { EventBridgeClient, ListArchivesCommand } from '@aws-sdk/client-eventbridge'; // ES Modules import
+ * // const { EventBridgeClient, ListArchivesCommand } = require('@aws-sdk/client-eventbridge'); // CommonJS import
  * const client = new EventBridgeClient(config);
  * const input = { // ListArchivesRequest
- *   NamePrefix: "STRING_VALUE",
- *   EventSourceArn: "STRING_VALUE",
- *   State: "ENABLED" || "DISABLED" || "CREATING" || "UPDATING" || "CREATE_FAILED" || "UPDATE_FAILED",
- *   NextToken: "STRING_VALUE",
- *   Limit: Number("int"),
+ *   NamePrefix: 'STRING_VALUE',
+ *   EventSourceArn: 'STRING_VALUE',
+ *   State: 'ENABLED' || 'DISABLED' || 'CREATING' || 'UPDATING' || 'CREATE_FAILED' || 'UPDATE_FAILED',
+ *   NextToken: 'STRING_VALUE',
+ *   Limit: Number('int'),
  * };
  * const command = new ListArchivesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListArchivesResponse
+ *   Archives: [ // ArchiveResponseList
+ *     { // Archive
+ *       ArchiveName: 'STRING_VALUE',
+ *       EventSourceArn: 'STRING_VALUE',
+ *       State: 'ENABLED' || 'DISABLED' || 'CREATING' || 'UPDATING' || 'CREATE_FAILED' || 'UPDATE_FAILED',
+ *       StateReason: 'STRING_VALUE',
+ *       RetentionDays: Number('int'),
+ *       SizeBytes: Number('long'),
+ *       EventCount: Number('long'),
+ *       CreationTime: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListArchivesCommandInput - {@link ListArchivesCommandInput}
@@ -63,6 +80,8 @@ export interface ListArchivesCommandOutput extends ListArchivesResponse, __Metad
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>An entity that you specified does not exist.</p>
  *
+ * @throws {@link EventBridgeServiceException}
+ * <p>Base exception class for all service exceptions from EventBridge service.</p>
  *
  */
 export class ListArchivesCommand extends $Command<

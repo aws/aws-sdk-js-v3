@@ -61,17 +61,31 @@ export interface ListMultipartUploadsCommandOutput extends ListMultipartUploadsO
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlacierClient, ListMultipartUploadsCommand } from "@aws-sdk/client-glacier"; // ES Modules import
- * // const { GlacierClient, ListMultipartUploadsCommand } = require("@aws-sdk/client-glacier"); // CommonJS import
+ * import { GlacierClient, ListMultipartUploadsCommand } from '@aws-sdk/client-glacier'; // ES Modules import
+ * // const { GlacierClient, ListMultipartUploadsCommand } = require('@aws-sdk/client-glacier'); // CommonJS import
  * const client = new GlacierClient(config);
  * const input = { // ListMultipartUploadsInput
- *   accountId: "STRING_VALUE", // required
- *   vaultName: "STRING_VALUE", // required
- *   limit: Number("int"),
- *   marker: "STRING_VALUE",
+ *   accountId: 'STRING_VALUE', // required
+ *   vaultName: 'STRING_VALUE', // required
+ *   limit: Number('int'),
+ *   marker: 'STRING_VALUE',
  * };
  * const command = new ListMultipartUploadsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListMultipartUploadsOutput
+ *   UploadsList: [ // UploadsList
+ *     { // UploadListElement
+ *       MultipartUploadId: 'STRING_VALUE',
+ *       VaultARN: 'STRING_VALUE',
+ *       ArchiveDescription: 'STRING_VALUE',
+ *       PartSizeInBytes: Number('long'),
+ *       CreationDate: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   Marker: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListMultipartUploadsCommandInput - {@link ListMultipartUploadsCommandInput}
@@ -93,6 +107,8 @@ export interface ListMultipartUploadsCommandOutput extends ListMultipartUploadsO
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>Returned if the service cannot complete the request.</p>
  *
+ * @throws {@link GlacierServiceException}
+ * <p>Base exception class for all service exceptions from Glacier service.</p>
  *
  * @example To list all the in-progress multipart uploads for a vault
  * ```javascript

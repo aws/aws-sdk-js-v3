@@ -45,16 +45,29 @@ export interface DescribeServiceActionExecutionParametersCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ServiceCatalogClient, DescribeServiceActionExecutionParametersCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
- * // const { ServiceCatalogClient, DescribeServiceActionExecutionParametersCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
+ * import { ServiceCatalogClient, DescribeServiceActionExecutionParametersCommand } from '@aws-sdk/client-service-catalog'; // ES Modules import
+ * // const { ServiceCatalogClient, DescribeServiceActionExecutionParametersCommand } = require('@aws-sdk/client-service-catalog'); // CommonJS import
  * const client = new ServiceCatalogClient(config);
  * const input = { // DescribeServiceActionExecutionParametersInput
- *   ProvisionedProductId: "STRING_VALUE", // required
- *   ServiceActionId: "STRING_VALUE", // required
- *   AcceptLanguage: "STRING_VALUE",
+ *   ProvisionedProductId: 'STRING_VALUE', // required
+ *   ServiceActionId: 'STRING_VALUE', // required
+ *   AcceptLanguage: 'STRING_VALUE',
  * };
  * const command = new DescribeServiceActionExecutionParametersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeServiceActionExecutionParametersOutput
+ *   ServiceActionParameters: [ // ExecutionParameters
+ *     { // ExecutionParameter
+ *       Name: 'STRING_VALUE',
+ *       Type: 'STRING_VALUE',
+ *       DefaultValues: [ // ExecutionParameterValueList
+ *         'STRING_VALUE',
+ *       ],
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeServiceActionExecutionParametersCommandInput - {@link DescribeServiceActionExecutionParametersCommandInput}
@@ -69,6 +82,8 @@ export interface DescribeServiceActionExecutionParametersCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link ServiceCatalogServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
  */
 export class DescribeServiceActionExecutionParametersCommand extends $Command<

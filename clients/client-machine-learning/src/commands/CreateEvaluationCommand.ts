@@ -47,17 +47,22 @@ export interface CreateEvaluationCommandOutput extends CreateEvaluationOutput, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MachineLearningClient, CreateEvaluationCommand } from "@aws-sdk/client-machine-learning"; // ES Modules import
- * // const { MachineLearningClient, CreateEvaluationCommand } = require("@aws-sdk/client-machine-learning"); // CommonJS import
+ * import { MachineLearningClient, CreateEvaluationCommand } from '@aws-sdk/client-machine-learning'; // ES Modules import
+ * // const { MachineLearningClient, CreateEvaluationCommand } = require('@aws-sdk/client-machine-learning'); // CommonJS import
  * const client = new MachineLearningClient(config);
  * const input = { // CreateEvaluationInput
- *   EvaluationId: "STRING_VALUE", // required
- *   EvaluationName: "STRING_VALUE",
- *   MLModelId: "STRING_VALUE", // required
- *   EvaluationDataSourceId: "STRING_VALUE", // required
+ *   EvaluationId: 'STRING_VALUE', // required
+ *   EvaluationName: 'STRING_VALUE',
+ *   MLModelId: 'STRING_VALUE', // required
+ *   EvaluationDataSourceId: 'STRING_VALUE', // required
  * };
  * const command = new CreateEvaluationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateEvaluationOutput
+ *   EvaluationId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateEvaluationCommandInput - {@link CreateEvaluationCommandInput}
@@ -75,6 +80,8 @@ export interface CreateEvaluationCommandOutput extends CreateEvaluationOutput, _
  * @throws {@link InvalidInputException} (client fault)
  *  <p>An error on the client occurred. Typically, the cause is an invalid input value.</p>
  *
+ * @throws {@link MachineLearningServiceException}
+ * <p>Base exception class for all service exceptions from MachineLearning service.</p>
  *
  */
 export class CreateEvaluationCommand extends $Command<

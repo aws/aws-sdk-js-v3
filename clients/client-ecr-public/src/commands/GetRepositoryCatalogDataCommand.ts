@@ -37,15 +37,32 @@ export interface GetRepositoryCatalogDataCommandOutput extends GetRepositoryCata
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ECRPUBLICClient, GetRepositoryCatalogDataCommand } from "@aws-sdk/client-ecr-public"; // ES Modules import
- * // const { ECRPUBLICClient, GetRepositoryCatalogDataCommand } = require("@aws-sdk/client-ecr-public"); // CommonJS import
+ * import { ECRPUBLICClient, GetRepositoryCatalogDataCommand } from '@aws-sdk/client-ecr-public'; // ES Modules import
+ * // const { ECRPUBLICClient, GetRepositoryCatalogDataCommand } = require('@aws-sdk/client-ecr-public'); // CommonJS import
  * const client = new ECRPUBLICClient(config);
  * const input = { // GetRepositoryCatalogDataRequest
- *   registryId: "STRING_VALUE",
- *   repositoryName: "STRING_VALUE", // required
+ *   registryId: 'STRING_VALUE',
+ *   repositoryName: 'STRING_VALUE', // required
  * };
  * const command = new GetRepositoryCatalogDataCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetRepositoryCatalogDataResponse
+ *   catalogData: { // RepositoryCatalogData
+ *     description: 'STRING_VALUE',
+ *     architectures: [ // ArchitectureList
+ *       'STRING_VALUE',
+ *     ],
+ *     operatingSystems: [ // OperatingSystemList
+ *       'STRING_VALUE',
+ *     ],
+ *     logoUrl: 'STRING_VALUE',
+ *     aboutText: 'STRING_VALUE',
+ *     usageText: 'STRING_VALUE',
+ *     marketplaceCertified: true || false,
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetRepositoryCatalogDataCommandInput - {@link GetRepositoryCatalogDataCommandInput}
@@ -71,6 +88,8 @@ export interface GetRepositoryCatalogDataCommandOutput extends GetRepositoryCata
  * @throws {@link UnsupportedCommandException} (client fault)
  *  <p>The action isn't supported in this Region.</p>
  *
+ * @throws {@link ECRPUBLICServiceException}
+ * <p>Base exception class for all service exceptions from ECRPUBLIC service.</p>
  *
  */
 export class GetRepositoryCatalogDataCommand extends $Command<

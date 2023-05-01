@@ -36,21 +36,32 @@ export interface RenderUiTemplateCommandOutput extends RenderUiTemplateResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, RenderUiTemplateCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, RenderUiTemplateCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, RenderUiTemplateCommand } from '@aws-sdk/client-sagemaker'; // ES Modules import
+ * // const { SageMakerClient, RenderUiTemplateCommand } = require('@aws-sdk/client-sagemaker'); // CommonJS import
  * const client = new SageMakerClient(config);
  * const input = { // RenderUiTemplateRequest
  *   UiTemplate: { // UiTemplate
- *     Content: "STRING_VALUE", // required
+ *     Content: 'STRING_VALUE', // required
  *   },
  *   Task: { // RenderableTask
- *     Input: "STRING_VALUE", // required
+ *     Input: 'STRING_VALUE', // required
  *   },
- *   RoleArn: "STRING_VALUE", // required
- *   HumanTaskUiArn: "STRING_VALUE",
+ *   RoleArn: 'STRING_VALUE', // required
+ *   HumanTaskUiArn: 'STRING_VALUE',
  * };
  * const command = new RenderUiTemplateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // RenderUiTemplateResponse
+ *   RenderedContent: 'STRING_VALUE', // required
+ *   Errors: [ // RenderingErrorList // required
+ *     { // RenderingError
+ *       Code: 'STRING_VALUE', // required
+ *       Message: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param RenderUiTemplateCommandInput - {@link RenderUiTemplateCommandInput}
@@ -62,6 +73,8 @@ export interface RenderUiTemplateCommandOutput extends RenderUiTemplateResponse,
  * @throws {@link ResourceNotFound} (client fault)
  *  <p>Resource being access is not found.</p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class RenderUiTemplateCommand extends $Command<

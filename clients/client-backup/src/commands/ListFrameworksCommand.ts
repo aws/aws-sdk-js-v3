@@ -36,15 +36,30 @@ export interface ListFrameworksCommandOutput extends ListFrameworksOutput, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BackupClient, ListFrameworksCommand } from "@aws-sdk/client-backup"; // ES Modules import
- * // const { BackupClient, ListFrameworksCommand } = require("@aws-sdk/client-backup"); // CommonJS import
+ * import { BackupClient, ListFrameworksCommand } from '@aws-sdk/client-backup'; // ES Modules import
+ * // const { BackupClient, ListFrameworksCommand } = require('@aws-sdk/client-backup'); // CommonJS import
  * const client = new BackupClient(config);
  * const input = { // ListFrameworksInput
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListFrameworksCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListFrameworksOutput
+ *   Frameworks: [ // FrameworkList
+ *     { // Framework
+ *       FrameworkName: 'STRING_VALUE',
+ *       FrameworkArn: 'STRING_VALUE',
+ *       FrameworkDescription: 'STRING_VALUE',
+ *       NumberOfControls: Number('int'),
+ *       CreationTime: new Date('TIMESTAMP'),
+ *       DeploymentStatus: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListFrameworksCommandInput - {@link ListFrameworksCommandInput}
@@ -60,6 +75,8 @@ export interface ListFrameworksCommandOutput extends ListFrameworksOutput, __Met
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request failed due to a temporary failure of the server.</p>
  *
+ * @throws {@link BackupServiceException}
+ * <p>Base exception class for all service exceptions from Backup service.</p>
  *
  */
 export class ListFrameworksCommand extends $Command<

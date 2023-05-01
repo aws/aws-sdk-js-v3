@@ -63,8 +63,8 @@ export interface ModifySubnetAttributeCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, ModifySubnetAttributeCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, ModifySubnetAttributeCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, ModifySubnetAttributeCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, ModifySubnetAttributeCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // ModifySubnetAttributeRequest
  *   AssignIpv6AddressOnCreation: { // AttributeBooleanValue
@@ -73,24 +73,27 @@ export interface ModifySubnetAttributeCommandOutput extends __MetadataBearer {}
  *   MapPublicIpOnLaunch: {
  *     Value: true || false,
  *   },
- *   SubnetId: "STRING_VALUE", // required
+ *   SubnetId: 'STRING_VALUE', // required
  *   MapCustomerOwnedIpOnLaunch: {
  *     Value: true || false,
  *   },
- *   CustomerOwnedIpv4Pool: "STRING_VALUE",
+ *   CustomerOwnedIpv4Pool: 'STRING_VALUE',
  *   EnableDns64: {
  *     Value: true || false,
  *   },
- *   PrivateDnsHostnameTypeOnLaunch: "ip-name" || "resource-name",
+ *   PrivateDnsHostnameTypeOnLaunch: 'ip-name' || 'resource-name',
  *   EnableResourceNameDnsARecordOnLaunch: {
  *     Value: true || false,
  *   },
- *   EnableResourceNameDnsAAAARecordOnLaunch: "<AttributeBooleanValue>",
- *   EnableLniAtDeviceIndex: Number("int"),
- *   DisableLniAtDeviceIndex: "<AttributeBooleanValue>",
+ *   EnableResourceNameDnsAAAARecordOnLaunch: '<AttributeBooleanValue>',
+ *   EnableLniAtDeviceIndex: Number('int'),
+ *   DisableLniAtDeviceIndex: '<AttributeBooleanValue>',
  * };
  * const command = new ModifySubnetAttributeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param ModifySubnetAttributeCommandInput - {@link ModifySubnetAttributeCommandInput}
@@ -99,6 +102,8 @@ export interface ModifySubnetAttributeCommandOutput extends __MetadataBearer {}
  * @see {@link ModifySubnetAttributeCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @example To change a subnet's public IP addressing behavior
  * ```javascript

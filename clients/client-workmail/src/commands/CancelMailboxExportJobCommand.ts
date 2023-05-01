@@ -40,16 +40,19 @@ export interface CancelMailboxExportJobCommandOutput extends CancelMailboxExport
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkMailClient, CancelMailboxExportJobCommand } from "@aws-sdk/client-workmail"; // ES Modules import
- * // const { WorkMailClient, CancelMailboxExportJobCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
+ * import { WorkMailClient, CancelMailboxExportJobCommand } from '@aws-sdk/client-workmail'; // ES Modules import
+ * // const { WorkMailClient, CancelMailboxExportJobCommand } = require('@aws-sdk/client-workmail'); // CommonJS import
  * const client = new WorkMailClient(config);
  * const input = { // CancelMailboxExportJobRequest
- *   ClientToken: "STRING_VALUE", // required
- *   JobId: "STRING_VALUE", // required
- *   OrganizationId: "STRING_VALUE", // required
+ *   ClientToken: 'STRING_VALUE', // required
+ *   JobId: 'STRING_VALUE', // required
+ *   OrganizationId: 'STRING_VALUE', // required
  * };
  * const command = new CancelMailboxExportJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param CancelMailboxExportJobCommandInput - {@link CancelMailboxExportJobCommandInput}
@@ -73,6 +76,8 @@ export interface CancelMailboxExportJobCommandOutput extends CancelMailboxExport
  *  <p>The organization must have a valid state to perform certain
  *          operations on the organization or its members.</p>
  *
+ * @throws {@link WorkMailServiceException}
+ * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
  */
 export class CancelMailboxExportJobCommand extends $Command<

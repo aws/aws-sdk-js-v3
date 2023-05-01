@@ -36,16 +36,30 @@ export interface ListDeploymentsCommandOutput extends ListDeploymentsResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GreengrassClient, ListDeploymentsCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
- * // const { GreengrassClient, ListDeploymentsCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
+ * import { GreengrassClient, ListDeploymentsCommand } from '@aws-sdk/client-greengrass'; // ES Modules import
+ * // const { GreengrassClient, ListDeploymentsCommand } = require('@aws-sdk/client-greengrass'); // CommonJS import
  * const client = new GreengrassClient(config);
  * const input = { // ListDeploymentsRequest
- *   GroupId: "STRING_VALUE", // required
- *   MaxResults: "STRING_VALUE",
- *   NextToken: "STRING_VALUE",
+ *   GroupId: 'STRING_VALUE', // required
+ *   MaxResults: 'STRING_VALUE',
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListDeploymentsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListDeploymentsResponse
+ *   Deployments: [ // Deployments
+ *     { // Deployment
+ *       CreatedAt: 'STRING_VALUE',
+ *       DeploymentArn: 'STRING_VALUE',
+ *       DeploymentId: 'STRING_VALUE',
+ *       DeploymentType: 'NewDeployment' || 'Redeployment' || 'ResetDeployment' || 'ForceResetDeployment',
+ *       GroupArn: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListDeploymentsCommandInput - {@link ListDeploymentsCommandInput}
@@ -57,6 +71,8 @@ export interface ListDeploymentsCommandOutput extends ListDeploymentsResponse, _
  * @throws {@link BadRequestException} (client fault)
  *  General error information.
  *
+ * @throws {@link GreengrassServiceException}
+ * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
  */
 export class ListDeploymentsCommand extends $Command<

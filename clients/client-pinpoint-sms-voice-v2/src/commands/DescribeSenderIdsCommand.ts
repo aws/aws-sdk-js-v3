@@ -45,29 +45,45 @@ export interface DescribeSenderIdsCommandOutput extends DescribeSenderIdsResult,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PinpointSMSVoiceV2Client, DescribeSenderIdsCommand } from "@aws-sdk/client-pinpoint-sms-voice-v2"; // ES Modules import
- * // const { PinpointSMSVoiceV2Client, DescribeSenderIdsCommand } = require("@aws-sdk/client-pinpoint-sms-voice-v2"); // CommonJS import
+ * import { PinpointSMSVoiceV2Client, DescribeSenderIdsCommand } from '@aws-sdk/client-pinpoint-sms-voice-v2'; // ES Modules import
+ * // const { PinpointSMSVoiceV2Client, DescribeSenderIdsCommand } = require('@aws-sdk/client-pinpoint-sms-voice-v2'); // CommonJS import
  * const client = new PinpointSMSVoiceV2Client(config);
  * const input = { // DescribeSenderIdsRequest
  *   SenderIds: [ // SenderIdList
  *     { // SenderIdAndCountry
- *       SenderId: "STRING_VALUE", // required
- *       IsoCountryCode: "STRING_VALUE", // required
+ *       SenderId: 'STRING_VALUE', // required
+ *       IsoCountryCode: 'STRING_VALUE', // required
  *     },
  *   ],
  *   Filters: [ // SenderIdFilterList
  *     { // SenderIdFilter
- *       Name: "STRING_VALUE", // required
+ *       Name: 'STRING_VALUE', // required
  *       Values: [ // FilterValueList // required
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new DescribeSenderIdsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeSenderIdsResult
+ *   SenderIds: [ // SenderIdInformationList
+ *     { // SenderIdInformation
+ *       SenderIdArn: 'STRING_VALUE', // required
+ *       SenderId: 'STRING_VALUE', // required
+ *       IsoCountryCode: 'STRING_VALUE', // required
+ *       MessageTypes: [ // MessageTypeList // required
+ *         'STRING_VALUE',
+ *       ],
+ *       MonthlyLeasingPrice: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeSenderIdsCommandInput - {@link DescribeSenderIdsCommandInput}
@@ -94,6 +110,8 @@ export interface DescribeSenderIdsCommandOutput extends DescribeSenderIdsResult,
  * @throws {@link ValidationException} (client fault)
  *  <p>A validation exception for a field.</p>
  *
+ * @throws {@link PinpointSMSVoiceV2ServiceException}
+ * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
  *
  */
 export class DescribeSenderIdsCommand extends $Command<

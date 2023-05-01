@@ -43,16 +43,25 @@ export interface GetRepositoryPermissionsPolicyCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeartifactClient, GetRepositoryPermissionsPolicyCommand } from "@aws-sdk/client-codeartifact"; // ES Modules import
- * // const { CodeartifactClient, GetRepositoryPermissionsPolicyCommand } = require("@aws-sdk/client-codeartifact"); // CommonJS import
+ * import { CodeartifactClient, GetRepositoryPermissionsPolicyCommand } from '@aws-sdk/client-codeartifact'; // ES Modules import
+ * // const { CodeartifactClient, GetRepositoryPermissionsPolicyCommand } = require('@aws-sdk/client-codeartifact'); // CommonJS import
  * const client = new CodeartifactClient(config);
  * const input = { // GetRepositoryPermissionsPolicyRequest
- *   domain: "STRING_VALUE", // required
- *   domainOwner: "STRING_VALUE",
- *   repository: "STRING_VALUE", // required
+ *   domain: 'STRING_VALUE', // required
+ *   domainOwner: 'STRING_VALUE',
+ *   repository: 'STRING_VALUE', // required
  * };
  * const command = new GetRepositoryPermissionsPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetRepositoryPermissionsPolicyResult
+ *   policy: { // ResourcePolicy
+ *     resourceArn: 'STRING_VALUE',
+ *     revision: 'STRING_VALUE',
+ *     document: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetRepositoryPermissionsPolicyCommandInput - {@link GetRepositoryPermissionsPolicyCommandInput}
@@ -84,6 +93,8 @@ export interface GetRepositoryPermissionsPolicyCommandOutput
  *       The operation did not succeed because a parameter in the request was sent with an invalid value.
  *     </p>
  *
+ * @throws {@link CodeartifactServiceException}
+ * <p>Base exception class for all service exceptions from Codeartifact service.</p>
  *
  */
 export class GetRepositoryPermissionsPolicyCommand extends $Command<

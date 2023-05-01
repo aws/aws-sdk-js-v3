@@ -39,18 +39,29 @@ export interface GetMobileDeviceAccessEffectCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkMailClient, GetMobileDeviceAccessEffectCommand } from "@aws-sdk/client-workmail"; // ES Modules import
- * // const { WorkMailClient, GetMobileDeviceAccessEffectCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
+ * import { WorkMailClient, GetMobileDeviceAccessEffectCommand } from '@aws-sdk/client-workmail'; // ES Modules import
+ * // const { WorkMailClient, GetMobileDeviceAccessEffectCommand } = require('@aws-sdk/client-workmail'); // CommonJS import
  * const client = new WorkMailClient(config);
  * const input = { // GetMobileDeviceAccessEffectRequest
- *   OrganizationId: "STRING_VALUE", // required
- *   DeviceType: "STRING_VALUE",
- *   DeviceModel: "STRING_VALUE",
- *   DeviceOperatingSystem: "STRING_VALUE",
- *   DeviceUserAgent: "STRING_VALUE",
+ *   OrganizationId: 'STRING_VALUE', // required
+ *   DeviceType: 'STRING_VALUE',
+ *   DeviceModel: 'STRING_VALUE',
+ *   DeviceOperatingSystem: 'STRING_VALUE',
+ *   DeviceUserAgent: 'STRING_VALUE',
  * };
  * const command = new GetMobileDeviceAccessEffectCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetMobileDeviceAccessEffectResponse
+ *   Effect: 'ALLOW' || 'DENY',
+ *   MatchedRules: [ // MobileDeviceAccessMatchedRuleList
+ *     { // MobileDeviceAccessMatchedRule
+ *       MobileDeviceAccessRuleId: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetMobileDeviceAccessEffectCommandInput - {@link GetMobileDeviceAccessEffectCommandInput}
@@ -70,6 +81,8 @@ export interface GetMobileDeviceAccessEffectCommandOutput
  *  <p>The organization must have a valid state to perform certain
  *          operations on the organization or its members.</p>
  *
+ * @throws {@link WorkMailServiceException}
+ * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
  */
 export class GetMobileDeviceAccessEffectCommand extends $Command<

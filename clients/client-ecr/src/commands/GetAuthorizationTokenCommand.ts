@@ -43,16 +43,27 @@ export interface GetAuthorizationTokenCommandOutput extends GetAuthorizationToke
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ECRClient, GetAuthorizationTokenCommand } from "@aws-sdk/client-ecr"; // ES Modules import
- * // const { ECRClient, GetAuthorizationTokenCommand } = require("@aws-sdk/client-ecr"); // CommonJS import
+ * import { ECRClient, GetAuthorizationTokenCommand } from '@aws-sdk/client-ecr'; // ES Modules import
+ * // const { ECRClient, GetAuthorizationTokenCommand } = require('@aws-sdk/client-ecr'); // CommonJS import
  * const client = new ECRClient(config);
  * const input = { // GetAuthorizationTokenRequest
  *   registryIds: [ // GetAuthorizationTokenRegistryIdList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new GetAuthorizationTokenCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetAuthorizationTokenResponse
+ *   authorizationData: [ // AuthorizationDataList
+ *     { // AuthorizationData
+ *       authorizationToken: 'STRING_VALUE',
+ *       expiresAt: new Date('TIMESTAMP'),
+ *       proxyEndpoint: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetAuthorizationTokenCommandInput - {@link GetAuthorizationTokenCommandInput}
@@ -68,6 +79,8 @@ export interface GetAuthorizationTokenCommandOutput extends GetAuthorizationToke
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server-side issue.</p>
  *
+ * @throws {@link ECRServiceException}
+ * <p>Base exception class for all service exceptions from ECR service.</p>
  *
  * @example To obtain an authorization token
  * ```javascript

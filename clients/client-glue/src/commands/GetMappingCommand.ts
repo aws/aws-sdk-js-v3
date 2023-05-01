@@ -36,39 +36,39 @@ export interface GetMappingCommandOutput extends GetMappingResponse, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlueClient, GetMappingCommand } from "@aws-sdk/client-glue"; // ES Modules import
- * // const { GlueClient, GetMappingCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * import { GlueClient, GetMappingCommand } from '@aws-sdk/client-glue'; // ES Modules import
+ * // const { GlueClient, GetMappingCommand } = require('@aws-sdk/client-glue'); // CommonJS import
  * const client = new GlueClient(config);
  * const input = { // GetMappingRequest
  *   Source: { // CatalogEntry
- *     DatabaseName: "STRING_VALUE", // required
- *     TableName: "STRING_VALUE", // required
+ *     DatabaseName: 'STRING_VALUE', // required
+ *     TableName: 'STRING_VALUE', // required
  *   },
  *   Sinks: [ // CatalogEntries
  *     {
- *       DatabaseName: "STRING_VALUE", // required
- *       TableName: "STRING_VALUE", // required
+ *       DatabaseName: 'STRING_VALUE', // required
+ *       TableName: 'STRING_VALUE', // required
  *     },
  *   ],
  *   Location: { // Location
  *     Jdbc: [ // CodeGenNodeArgs
  *       { // CodeGenNodeArg
- *         Name: "STRING_VALUE", // required
- *         Value: "STRING_VALUE", // required
+ *         Name: 'STRING_VALUE', // required
+ *         Value: 'STRING_VALUE', // required
  *         Param: true || false,
  *       },
  *     ],
  *     S3: [
  *       {
- *         Name: "STRING_VALUE", // required
- *         Value: "STRING_VALUE", // required
+ *         Name: 'STRING_VALUE', // required
+ *         Value: 'STRING_VALUE', // required
  *         Param: true || false,
  *       },
  *     ],
  *     DynamoDB: [
  *       {
- *         Name: "STRING_VALUE", // required
- *         Value: "STRING_VALUE", // required
+ *         Name: 'STRING_VALUE', // required
+ *         Value: 'STRING_VALUE', // required
  *         Param: true || false,
  *       },
  *     ],
@@ -76,6 +76,20 @@ export interface GetMappingCommandOutput extends GetMappingResponse, __MetadataB
  * };
  * const command = new GetMappingCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetMappingResponse
+ *   Mapping: [ // MappingList // required
+ *     { // MappingEntry
+ *       SourceTable: 'STRING_VALUE',
+ *       SourcePath: 'STRING_VALUE',
+ *       SourceType: 'STRING_VALUE',
+ *       TargetTable: 'STRING_VALUE',
+ *       TargetPath: 'STRING_VALUE',
+ *       TargetType: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetMappingCommandInput - {@link GetMappingCommandInput}
@@ -96,6 +110,8 @@ export interface GetMappingCommandOutput extends GetMappingResponse, __MetadataB
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class GetMappingCommand extends $Command<

@@ -36,15 +36,23 @@ export interface DeleteEmailTemplateCommandOutput extends DeleteEmailTemplateRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PinpointClient, DeleteEmailTemplateCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
- * // const { PinpointClient, DeleteEmailTemplateCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
+ * import { PinpointClient, DeleteEmailTemplateCommand } from '@aws-sdk/client-pinpoint'; // ES Modules import
+ * // const { PinpointClient, DeleteEmailTemplateCommand } = require('@aws-sdk/client-pinpoint'); // CommonJS import
  * const client = new PinpointClient(config);
  * const input = { // DeleteEmailTemplateRequest
- *   TemplateName: "STRING_VALUE", // required
- *   Version: "STRING_VALUE",
+ *   TemplateName: 'STRING_VALUE', // required
+ *   Version: 'STRING_VALUE',
  * };
  * const command = new DeleteEmailTemplateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteEmailTemplateResponse
+ *   MessageBody: { // MessageBody
+ *     Message: 'STRING_VALUE',
+ *     RequestID: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param DeleteEmailTemplateCommandInput - {@link DeleteEmailTemplateCommandInput}
@@ -74,6 +82,8 @@ export interface DeleteEmailTemplateCommandOutput extends DeleteEmailTemplateRes
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Provides information about an API request or response.</p>
  *
+ * @throws {@link PinpointServiceException}
+ * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
  */
 export class DeleteEmailTemplateCommand extends $Command<

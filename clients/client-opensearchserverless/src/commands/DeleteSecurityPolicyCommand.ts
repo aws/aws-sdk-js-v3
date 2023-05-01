@@ -40,16 +40,19 @@ export interface DeleteSecurityPolicyCommandOutput extends DeleteSecurityPolicyR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OpenSearchServerlessClient, DeleteSecurityPolicyCommand } from "@aws-sdk/client-opensearchserverless"; // ES Modules import
- * // const { OpenSearchServerlessClient, DeleteSecurityPolicyCommand } = require("@aws-sdk/client-opensearchserverless"); // CommonJS import
+ * import { OpenSearchServerlessClient, DeleteSecurityPolicyCommand } from '@aws-sdk/client-opensearchserverless'; // ES Modules import
+ * // const { OpenSearchServerlessClient, DeleteSecurityPolicyCommand } = require('@aws-sdk/client-opensearchserverless'); // CommonJS import
  * const client = new OpenSearchServerlessClient(config);
  * const input = { // DeleteSecurityPolicyRequest
- *   type: "STRING_VALUE", // required
- *   name: "STRING_VALUE", // required
- *   clientToken: "STRING_VALUE",
+ *   type: 'STRING_VALUE', // required
+ *   name: 'STRING_VALUE', // required
+ *   clientToken: 'STRING_VALUE',
  * };
  * const command = new DeleteSecurityPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteSecurityPolicyCommandInput - {@link DeleteSecurityPolicyCommandInput}
@@ -73,6 +76,8 @@ export interface DeleteSecurityPolicyCommandOutput extends DeleteSecurityPolicyR
  *  <p>Thrown when the HTTP request contains invalid input or is missing required
  *             input.</p>
  *
+ * @throws {@link OpenSearchServerlessServiceException}
+ * <p>Base exception class for all service exceptions from OpenSearchServerless service.</p>
  *
  */
 export class DeleteSecurityPolicyCommand extends $Command<

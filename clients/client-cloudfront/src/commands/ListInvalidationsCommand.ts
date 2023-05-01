@@ -36,16 +36,34 @@ export interface ListInvalidationsCommandOutput extends ListInvalidationsResult,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudFrontClient, ListInvalidationsCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
- * // const { CloudFrontClient, ListInvalidationsCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
+ * import { CloudFrontClient, ListInvalidationsCommand } from '@aws-sdk/client-cloudfront'; // ES Modules import
+ * // const { CloudFrontClient, ListInvalidationsCommand } = require('@aws-sdk/client-cloudfront'); // CommonJS import
  * const client = new CloudFrontClient(config);
  * const input = { // ListInvalidationsRequest
- *   DistributionId: "STRING_VALUE", // required
- *   Marker: "STRING_VALUE",
- *   MaxItems: Number("int"),
+ *   DistributionId: 'STRING_VALUE', // required
+ *   Marker: 'STRING_VALUE',
+ *   MaxItems: Number('int'),
  * };
  * const command = new ListInvalidationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListInvalidationsResult
+ *   InvalidationList: { // InvalidationList
+ *     Marker: 'STRING_VALUE', // required
+ *     NextMarker: 'STRING_VALUE',
+ *     MaxItems: Number('int'), // required
+ *     IsTruncated: true || false, // required
+ *     Quantity: Number('int'), // required
+ *     Items: [ // InvalidationSummaryList
+ *       { // InvalidationSummary
+ *         Id: 'STRING_VALUE', // required
+ *         CreateTime: new Date('TIMESTAMP'), // required
+ *         Status: 'STRING_VALUE', // required
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param ListInvalidationsCommandInput - {@link ListInvalidationsCommandInput}
@@ -63,6 +81,8 @@ export interface ListInvalidationsCommandOutput extends ListInvalidationsResult,
  * @throws {@link NoSuchDistribution} (client fault)
  *  <p>The specified distribution does not exist.</p>
  *
+ * @throws {@link CloudFrontServiceException}
+ * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
  */
 export class ListInvalidationsCommand extends $Command<

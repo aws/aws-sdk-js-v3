@@ -36,14 +36,17 @@ export interface StopAutoMLJobCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, StopAutoMLJobCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, StopAutoMLJobCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, StopAutoMLJobCommand } from '@aws-sdk/client-sagemaker'; // ES Modules import
+ * // const { SageMakerClient, StopAutoMLJobCommand } = require('@aws-sdk/client-sagemaker'); // CommonJS import
  * const client = new SageMakerClient(config);
  * const input = { // StopAutoMLJobRequest
- *   AutoMLJobName: "STRING_VALUE", // required
+ *   AutoMLJobName: 'STRING_VALUE', // required
  * };
  * const command = new StopAutoMLJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param StopAutoMLJobCommandInput - {@link StopAutoMLJobCommandInput}
@@ -55,6 +58,8 @@ export interface StopAutoMLJobCommandOutput extends __MetadataBearer {}
  * @throws {@link ResourceNotFound} (client fault)
  *  <p>Resource being access is not found.</p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class StopAutoMLJobCommand extends $Command<

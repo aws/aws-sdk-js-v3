@@ -36,28 +36,36 @@ export interface CreateBackendStorageCommandOutput extends CreateBackendStorageR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AmplifyBackendClient, CreateBackendStorageCommand } from "@aws-sdk/client-amplifybackend"; // ES Modules import
- * // const { AmplifyBackendClient, CreateBackendStorageCommand } = require("@aws-sdk/client-amplifybackend"); // CommonJS import
+ * import { AmplifyBackendClient, CreateBackendStorageCommand } from '@aws-sdk/client-amplifybackend'; // ES Modules import
+ * // const { AmplifyBackendClient, CreateBackendStorageCommand } = require('@aws-sdk/client-amplifybackend'); // CommonJS import
  * const client = new AmplifyBackendClient(config);
  * const input = { // CreateBackendStorageRequest
- *   AppId: "STRING_VALUE", // required
- *   BackendEnvironmentName: "STRING_VALUE", // required
+ *   AppId: 'STRING_VALUE', // required
+ *   BackendEnvironmentName: 'STRING_VALUE', // required
  *   ResourceConfig: { // CreateBackendStorageResourceConfig
- *     BucketName: "STRING_VALUE",
+ *     BucketName: 'STRING_VALUE',
  *     Permissions: { // BackendStoragePermissions
  *       Authenticated: [ // ListOfAuthenticatedElement // required
- *         "READ" || "CREATE_AND_UPDATE" || "DELETE",
+ *         'READ' || 'CREATE_AND_UPDATE' || 'DELETE',
  *       ],
  *       UnAuthenticated: [ // ListOfUnAuthenticatedElement
- *         "READ" || "CREATE_AND_UPDATE" || "DELETE",
+ *         'READ' || 'CREATE_AND_UPDATE' || 'DELETE',
  *       ],
  *     },
- *     ServiceName: "S3", // required
+ *     ServiceName: 'S3', // required
  *   },
- *   ResourceName: "STRING_VALUE", // required
+ *   ResourceName: 'STRING_VALUE', // required
  * };
  * const command = new CreateBackendStorageCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateBackendStorageResponse
+ *   AppId: 'STRING_VALUE',
+ *   BackendEnvironmentName: 'STRING_VALUE',
+ *   JobId: 'STRING_VALUE',
+ *   Status: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateBackendStorageCommandInput - {@link CreateBackendStorageCommandInput}
@@ -78,6 +86,8 @@ export interface CreateBackendStorageCommandOutput extends CreateBackendStorageR
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>An error that is returned when a limit of a specific type has been exceeded.</p>
  *
+ * @throws {@link AmplifyBackendServiceException}
+ * <p>Base exception class for all service exceptions from AmplifyBackend service.</p>
  *
  */
 export class CreateBackendStorageCommand extends $Command<

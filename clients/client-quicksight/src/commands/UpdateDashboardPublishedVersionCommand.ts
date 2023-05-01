@@ -41,16 +41,24 @@ export interface UpdateDashboardPublishedVersionCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { QuickSightClient, UpdateDashboardPublishedVersionCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
- * // const { QuickSightClient, UpdateDashboardPublishedVersionCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * import { QuickSightClient, UpdateDashboardPublishedVersionCommand } from '@aws-sdk/client-quicksight'; // ES Modules import
+ * // const { QuickSightClient, UpdateDashboardPublishedVersionCommand } = require('@aws-sdk/client-quicksight'); // CommonJS import
  * const client = new QuickSightClient(config);
  * const input = { // UpdateDashboardPublishedVersionRequest
- *   AwsAccountId: "STRING_VALUE", // required
- *   DashboardId: "STRING_VALUE", // required
- *   VersionNumber: Number("long"), // required
+ *   AwsAccountId: 'STRING_VALUE', // required
+ *   DashboardId: 'STRING_VALUE', // required
+ *   VersionNumber: Number('long'), // required
  * };
  * const command = new UpdateDashboardPublishedVersionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateDashboardPublishedVersionResponse
+ *   DashboardId: 'STRING_VALUE',
+ *   DashboardArn: 'STRING_VALUE',
+ *   Status: Number('int'),
+ *   RequestId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateDashboardPublishedVersionCommandInput - {@link UpdateDashboardPublishedVersionCommandInput}
@@ -80,6 +88,8 @@ export interface UpdateDashboardPublishedVersionCommandOutput
  * 			Amazon QuickSight currently has Standard Edition and Enterprise Edition. Not every operation and
  * 			capability is available in every edition.</p>
  *
+ * @throws {@link QuickSightServiceException}
+ * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
 export class UpdateDashboardPublishedVersionCommand extends $Command<

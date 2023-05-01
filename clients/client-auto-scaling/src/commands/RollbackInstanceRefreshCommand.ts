@@ -58,14 +58,19 @@ export interface RollbackInstanceRefreshCommandOutput extends RollbackInstanceRe
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AutoScalingClient, RollbackInstanceRefreshCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
- * // const { AutoScalingClient, RollbackInstanceRefreshCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
+ * import { AutoScalingClient, RollbackInstanceRefreshCommand } from '@aws-sdk/client-auto-scaling'; // ES Modules import
+ * // const { AutoScalingClient, RollbackInstanceRefreshCommand } = require('@aws-sdk/client-auto-scaling'); // CommonJS import
  * const client = new AutoScalingClient(config);
  * const input = { // RollbackInstanceRefreshType
- *   AutoScalingGroupName: "STRING_VALUE",
+ *   AutoScalingGroupName: 'STRING_VALUE',
  * };
  * const command = new RollbackInstanceRefreshCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // RollbackInstanceRefreshAnswer
+ *   InstanceRefreshId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param RollbackInstanceRefreshCommandInput - {@link RollbackInstanceRefreshCommandInput}
@@ -94,6 +99,8 @@ export interface RollbackInstanceRefreshCommandOutput extends RollbackInstanceRe
  *  <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group,
  *             instance, or load balancer).</p>
  *
+ * @throws {@link AutoScalingServiceException}
+ * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
  */
 export class RollbackInstanceRefreshCommand extends $Command<

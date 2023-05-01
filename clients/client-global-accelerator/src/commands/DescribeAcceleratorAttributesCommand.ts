@@ -46,14 +46,23 @@ export interface DescribeAcceleratorAttributesCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlobalAcceleratorClient, DescribeAcceleratorAttributesCommand } from "@aws-sdk/client-global-accelerator"; // ES Modules import
- * // const { GlobalAcceleratorClient, DescribeAcceleratorAttributesCommand } = require("@aws-sdk/client-global-accelerator"); // CommonJS import
+ * import { GlobalAcceleratorClient, DescribeAcceleratorAttributesCommand } from '@aws-sdk/client-global-accelerator'; // ES Modules import
+ * // const { GlobalAcceleratorClient, DescribeAcceleratorAttributesCommand } = require('@aws-sdk/client-global-accelerator'); // CommonJS import
  * const client = new GlobalAcceleratorClient(config);
  * const input = { // DescribeAcceleratorAttributesRequest
- *   AcceleratorArn: "STRING_VALUE", // required
+ *   AcceleratorArn: 'STRING_VALUE', // required
  * };
  * const command = new DescribeAcceleratorAttributesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeAcceleratorAttributesResponse
+ *   AcceleratorAttributes: { // AcceleratorAttributes
+ *     FlowLogsEnabled: true || false,
+ *     FlowLogsS3Bucket: 'STRING_VALUE',
+ *     FlowLogsS3Prefix: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeAcceleratorAttributesCommandInput - {@link DescribeAcceleratorAttributesCommandInput}
@@ -71,6 +80,8 @@ export interface DescribeAcceleratorAttributesCommandOutput
  * @throws {@link InvalidArgumentException} (client fault)
  *  <p>An argument that you specified is invalid.</p>
  *
+ * @throws {@link GlobalAcceleratorServiceException}
+ * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
  */
 export class DescribeAcceleratorAttributesCommand extends $Command<

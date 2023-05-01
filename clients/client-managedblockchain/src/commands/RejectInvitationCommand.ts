@@ -41,14 +41,17 @@ export interface RejectInvitationCommandOutput extends RejectInvitationOutput, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ManagedBlockchainClient, RejectInvitationCommand } from "@aws-sdk/client-managedblockchain"; // ES Modules import
- * // const { ManagedBlockchainClient, RejectInvitationCommand } = require("@aws-sdk/client-managedblockchain"); // CommonJS import
+ * import { ManagedBlockchainClient, RejectInvitationCommand } from '@aws-sdk/client-managedblockchain'; // ES Modules import
+ * // const { ManagedBlockchainClient, RejectInvitationCommand } = require('@aws-sdk/client-managedblockchain'); // CommonJS import
  * const client = new ManagedBlockchainClient(config);
  * const input = { // RejectInvitationInput
- *   InvitationId: "STRING_VALUE", // required
+ *   InvitationId: 'STRING_VALUE', // required
  * };
  * const command = new RejectInvitationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param RejectInvitationCommandInput - {@link RejectInvitationCommandInput}
@@ -78,6 +81,8 @@ export interface RejectInvitationCommandOutput extends RejectInvitationOutput, _
  *          creating resources that exceed your service limit for this resource type.
  *          Request a limit increase or delete unused resources if possible.</p>
  *
+ * @throws {@link ManagedBlockchainServiceException}
+ * <p>Base exception class for all service exceptions from ManagedBlockchain service.</p>
  *
  */
 export class RejectInvitationCommand extends $Command<

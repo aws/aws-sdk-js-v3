@@ -36,15 +36,55 @@ export interface DescribeUserHierarchyGroupCommandOutput extends DescribeUserHie
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, DescribeUserHierarchyGroupCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, DescribeUserHierarchyGroupCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, DescribeUserHierarchyGroupCommand } from '@aws-sdk/client-connect'; // ES Modules import
+ * // const { ConnectClient, DescribeUserHierarchyGroupCommand } = require('@aws-sdk/client-connect'); // CommonJS import
  * const client = new ConnectClient(config);
  * const input = { // DescribeUserHierarchyGroupRequest
- *   HierarchyGroupId: "STRING_VALUE", // required
- *   InstanceId: "STRING_VALUE", // required
+ *   HierarchyGroupId: 'STRING_VALUE', // required
+ *   InstanceId: 'STRING_VALUE', // required
  * };
  * const command = new DescribeUserHierarchyGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeUserHierarchyGroupResponse
+ *   HierarchyGroup: { // HierarchyGroup
+ *     Id: 'STRING_VALUE',
+ *     Arn: 'STRING_VALUE',
+ *     Name: 'STRING_VALUE',
+ *     LevelId: 'STRING_VALUE',
+ *     HierarchyPath: { // HierarchyPath
+ *       LevelOne: { // HierarchyGroupSummary
+ *         Id: 'STRING_VALUE',
+ *         Arn: 'STRING_VALUE',
+ *         Name: 'STRING_VALUE',
+ *       },
+ *       LevelTwo: {
+ *         Id: 'STRING_VALUE',
+ *         Arn: 'STRING_VALUE',
+ *         Name: 'STRING_VALUE',
+ *       },
+ *       LevelThree: {
+ *         Id: 'STRING_VALUE',
+ *         Arn: 'STRING_VALUE',
+ *         Name: 'STRING_VALUE',
+ *       },
+ *       LevelFour: {
+ *         Id: 'STRING_VALUE',
+ *         Arn: 'STRING_VALUE',
+ *         Name: 'STRING_VALUE',
+ *       },
+ *       LevelFive: {
+ *         Id: 'STRING_VALUE',
+ *         Arn: 'STRING_VALUE',
+ *         Name: 'STRING_VALUE',
+ *       },
+ *     },
+ *     Tags: { // TagMap
+ *       '<keys>': 'STRING_VALUE',
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeUserHierarchyGroupCommandInput - {@link DescribeUserHierarchyGroupCommandInput}
@@ -68,6 +108,8 @@ export interface DescribeUserHierarchyGroupCommandOutput extends DescribeUserHie
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class DescribeUserHierarchyGroupCommand extends $Command<

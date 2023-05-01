@@ -36,19 +36,22 @@ export interface UpdateDataCatalogCommandOutput extends UpdateDataCatalogOutput,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AthenaClient, UpdateDataCatalogCommand } from "@aws-sdk/client-athena"; // ES Modules import
- * // const { AthenaClient, UpdateDataCatalogCommand } = require("@aws-sdk/client-athena"); // CommonJS import
+ * import { AthenaClient, UpdateDataCatalogCommand } from '@aws-sdk/client-athena'; // ES Modules import
+ * // const { AthenaClient, UpdateDataCatalogCommand } = require('@aws-sdk/client-athena'); // CommonJS import
  * const client = new AthenaClient(config);
  * const input = { // UpdateDataCatalogInput
- *   Name: "STRING_VALUE", // required
- *   Type: "LAMBDA" || "GLUE" || "HIVE", // required
- *   Description: "STRING_VALUE",
+ *   Name: 'STRING_VALUE', // required
+ *   Type: 'LAMBDA' || 'GLUE' || 'HIVE', // required
+ *   Description: 'STRING_VALUE',
  *   Parameters: { // ParametersMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new UpdateDataCatalogCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateDataCatalogCommandInput - {@link UpdateDataCatalogCommandInput}
@@ -65,6 +68,8 @@ export interface UpdateDataCatalogCommandOutput extends UpdateDataCatalogOutput,
  *  <p>Indicates that something is wrong with the input to the request. For example, a
  *             required parameter may be missing or out of range.</p>
  *
+ * @throws {@link AthenaServiceException}
+ * <p>Base exception class for all service exceptions from Athena service.</p>
  *
  */
 export class UpdateDataCatalogCommand extends $Command<

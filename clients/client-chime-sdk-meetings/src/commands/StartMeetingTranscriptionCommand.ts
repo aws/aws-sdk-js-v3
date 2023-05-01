@@ -46,42 +46,45 @@ export interface StartMeetingTranscriptionCommandOutput extends __MetadataBearer
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeSDKMeetingsClient, StartMeetingTranscriptionCommand } from "@aws-sdk/client-chime-sdk-meetings"; // ES Modules import
- * // const { ChimeSDKMeetingsClient, StartMeetingTranscriptionCommand } = require("@aws-sdk/client-chime-sdk-meetings"); // CommonJS import
+ * import { ChimeSDKMeetingsClient, StartMeetingTranscriptionCommand } from '@aws-sdk/client-chime-sdk-meetings'; // ES Modules import
+ * // const { ChimeSDKMeetingsClient, StartMeetingTranscriptionCommand } = require('@aws-sdk/client-chime-sdk-meetings'); // CommonJS import
  * const client = new ChimeSDKMeetingsClient(config);
  * const input = { // StartMeetingTranscriptionRequest
- *   MeetingId: "STRING_VALUE", // required
+ *   MeetingId: 'STRING_VALUE', // required
  *   TranscriptionConfiguration: { // TranscriptionConfiguration
  *     EngineTranscribeSettings: { // EngineTranscribeSettings
- *       LanguageCode: "en-US" || "en-GB" || "es-US" || "fr-CA" || "fr-FR" || "en-AU" || "it-IT" || "de-DE" || "pt-BR" || "ja-JP" || "ko-KR" || "zh-CN" || "th-TH" || "hi-IN",
- *       VocabularyFilterMethod: "remove" || "mask" || "tag",
- *       VocabularyFilterName: "STRING_VALUE",
- *       VocabularyName: "STRING_VALUE",
- *       Region: "us-east-2" || "us-east-1" || "us-west-2" || "ap-northeast-2" || "ap-southeast-2" || "ap-northeast-1" || "ca-central-1" || "eu-central-1" || "eu-west-1" || "eu-west-2" || "sa-east-1" || "auto" || "us-gov-west-1",
+ *       LanguageCode: 'en-US' || 'en-GB' || 'es-US' || 'fr-CA' || 'fr-FR' || 'en-AU' || 'it-IT' || 'de-DE' || 'pt-BR' || 'ja-JP' || 'ko-KR' || 'zh-CN' || 'th-TH' || 'hi-IN',
+ *       VocabularyFilterMethod: 'remove' || 'mask' || 'tag',
+ *       VocabularyFilterName: 'STRING_VALUE',
+ *       VocabularyName: 'STRING_VALUE',
+ *       Region: 'us-east-2' || 'us-east-1' || 'us-west-2' || 'ap-northeast-2' || 'ap-southeast-2' || 'ap-northeast-1' || 'ca-central-1' || 'eu-central-1' || 'eu-west-1' || 'eu-west-2' || 'sa-east-1' || 'auto' || 'us-gov-west-1',
  *       EnablePartialResultsStabilization: true || false,
- *       PartialResultsStability: "low" || "medium" || "high",
- *       ContentIdentificationType: "PII",
- *       ContentRedactionType: "PII",
- *       PiiEntityTypes: "STRING_VALUE",
- *       LanguageModelName: "STRING_VALUE",
+ *       PartialResultsStability: 'low' || 'medium' || 'high',
+ *       ContentIdentificationType: 'PII',
+ *       ContentRedactionType: 'PII',
+ *       PiiEntityTypes: 'STRING_VALUE',
+ *       LanguageModelName: 'STRING_VALUE',
  *       IdentifyLanguage: true || false,
- *       LanguageOptions: "STRING_VALUE",
- *       PreferredLanguage: "en-US" || "en-GB" || "es-US" || "fr-CA" || "fr-FR" || "en-AU" || "it-IT" || "de-DE" || "pt-BR" || "ja-JP" || "ko-KR" || "zh-CN" || "th-TH" || "hi-IN",
- *       VocabularyNames: "STRING_VALUE",
- *       VocabularyFilterNames: "STRING_VALUE",
+ *       LanguageOptions: 'STRING_VALUE',
+ *       PreferredLanguage: 'en-US' || 'en-GB' || 'es-US' || 'fr-CA' || 'fr-FR' || 'en-AU' || 'it-IT' || 'de-DE' || 'pt-BR' || 'ja-JP' || 'ko-KR' || 'zh-CN' || 'th-TH' || 'hi-IN',
+ *       VocabularyNames: 'STRING_VALUE',
+ *       VocabularyFilterNames: 'STRING_VALUE',
  *     },
  *     EngineTranscribeMedicalSettings: { // EngineTranscribeMedicalSettings
- *       LanguageCode: "en-US", // required
- *       Specialty: "PRIMARYCARE" || "CARDIOLOGY" || "NEUROLOGY" || "ONCOLOGY" || "RADIOLOGY" || "UROLOGY", // required
- *       Type: "CONVERSATION" || "DICTATION", // required
- *       VocabularyName: "STRING_VALUE",
- *       Region: "us-east-1" || "us-east-2" || "us-west-2" || "ap-southeast-2" || "ca-central-1" || "eu-west-1" || "auto",
- *       ContentIdentificationType: "PHI",
+ *       LanguageCode: 'en-US', // required
+ *       Specialty: 'PRIMARYCARE' || 'CARDIOLOGY' || 'NEUROLOGY' || 'ONCOLOGY' || 'RADIOLOGY' || 'UROLOGY', // required
+ *       Type: 'CONVERSATION' || 'DICTATION', // required
+ *       VocabularyName: 'STRING_VALUE',
+ *       Region: 'us-east-1' || 'us-east-2' || 'us-west-2' || 'ap-southeast-2' || 'ca-central-1' || 'eu-west-1' || 'auto',
+ *       ContentIdentificationType: 'PHI',
  *     },
  *   },
  * };
  * const command = new StartMeetingTranscriptionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param StartMeetingTranscriptionCommandInput - {@link StartMeetingTranscriptionCommandInput}
@@ -117,6 +120,8 @@ export interface StartMeetingTranscriptionCommandOutput extends __MetadataBearer
  * @throws {@link UnprocessableEntityException} (client fault)
  *  <p>The request was well-formed but was unable to be followed due to semantic errors.</p>
  *
+ * @throws {@link ChimeSDKMeetingsServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKMeetings service.</p>
  *
  */
 export class StartMeetingTranscriptionCommand extends $Command<

@@ -36,14 +36,35 @@ export interface UnarchiveWaveCommandOutput extends Wave, __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MgnClient, UnarchiveWaveCommand } from "@aws-sdk/client-mgn"; // ES Modules import
- * // const { MgnClient, UnarchiveWaveCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
+ * import { MgnClient, UnarchiveWaveCommand } from '@aws-sdk/client-mgn'; // ES Modules import
+ * // const { MgnClient, UnarchiveWaveCommand } = require('@aws-sdk/client-mgn'); // CommonJS import
  * const client = new MgnClient(config);
  * const input = { // UnarchiveWaveRequest
- *   waveID: "STRING_VALUE", // required
+ *   waveID: 'STRING_VALUE', // required
  * };
  * const command = new UnarchiveWaveCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // Wave
+ *   waveID: 'STRING_VALUE',
+ *   arn: 'STRING_VALUE',
+ *   name: 'STRING_VALUE',
+ *   description: 'STRING_VALUE',
+ *   isArchived: true || false,
+ *   waveAggregatedStatus: { // WaveAggregatedStatus
+ *     lastUpdateDateTime: 'STRING_VALUE',
+ *     replicationStartedDateTime: 'STRING_VALUE',
+ *     healthStatus: 'STRING_VALUE',
+ *     progressStatus: 'STRING_VALUE',
+ *     totalApplications: Number('long'),
+ *   },
+ *   creationDateTime: 'STRING_VALUE',
+ *   lastModifiedDateTime: 'STRING_VALUE',
+ *   tags: { // TagsMap
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param UnarchiveWaveCommandInput - {@link UnarchiveWaveCommandInput}
@@ -61,6 +82,8 @@ export interface UnarchiveWaveCommandOutput extends Wave, __MetadataBearer {}
  * @throws {@link UninitializedAccountException} (client fault)
  *  <p>Uninitialized account exception.</p>
  *
+ * @throws {@link MgnServiceException}
+ * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
  */
 export class UnarchiveWaveCommand extends $Command<

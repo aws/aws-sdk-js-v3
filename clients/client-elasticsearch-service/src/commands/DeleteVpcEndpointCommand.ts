@@ -40,14 +40,24 @@ export interface DeleteVpcEndpointCommandOutput extends DeleteVpcEndpointRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElasticsearchServiceClient, DeleteVpcEndpointCommand } from "@aws-sdk/client-elasticsearch-service"; // ES Modules import
- * // const { ElasticsearchServiceClient, DeleteVpcEndpointCommand } = require("@aws-sdk/client-elasticsearch-service"); // CommonJS import
+ * import { ElasticsearchServiceClient, DeleteVpcEndpointCommand } from '@aws-sdk/client-elasticsearch-service'; // ES Modules import
+ * // const { ElasticsearchServiceClient, DeleteVpcEndpointCommand } = require('@aws-sdk/client-elasticsearch-service'); // CommonJS import
  * const client = new ElasticsearchServiceClient(config);
  * const input = { // DeleteVpcEndpointRequest
- *   VpcEndpointId: "STRING_VALUE", // required
+ *   VpcEndpointId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteVpcEndpointCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteVpcEndpointResponse
+ *   VpcEndpointSummary: { // VpcEndpointSummary
+ *     VpcEndpointId: 'STRING_VALUE',
+ *     VpcEndpointOwner: 'STRING_VALUE',
+ *     DomainArn: 'STRING_VALUE',
+ *     Status: 'CREATING' || 'CREATE_FAILED' || 'ACTIVE' || 'UPDATING' || 'UPDATE_FAILED' || 'DELETING' || 'DELETE_FAILED',
+ *   },
+ * };
+ *
  * ```
  *
  * @param DeleteVpcEndpointCommandInput - {@link DeleteVpcEndpointCommandInput}
@@ -68,6 +78,8 @@ export interface DeleteVpcEndpointCommandOutput extends DeleteVpcEndpointRespons
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>An exception for accessing or deleting a resource that does not exist. Gives http status code of 400.</p>
  *
+ * @throws {@link ElasticsearchServiceServiceException}
+ * <p>Base exception class for all service exceptions from ElasticsearchService service.</p>
  *
  */
 export class DeleteVpcEndpointCommand extends $Command<

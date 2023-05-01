@@ -45,16 +45,21 @@ export interface SendAlexaOfferToMasterCommandOutput extends SendAlexaOfferToMas
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KinesisVideoSignalingClient, SendAlexaOfferToMasterCommand } from "@aws-sdk/client-kinesis-video-signaling"; // ES Modules import
- * // const { KinesisVideoSignalingClient, SendAlexaOfferToMasterCommand } = require("@aws-sdk/client-kinesis-video-signaling"); // CommonJS import
+ * import { KinesisVideoSignalingClient, SendAlexaOfferToMasterCommand } from '@aws-sdk/client-kinesis-video-signaling'; // ES Modules import
+ * // const { KinesisVideoSignalingClient, SendAlexaOfferToMasterCommand } = require('@aws-sdk/client-kinesis-video-signaling'); // CommonJS import
  * const client = new KinesisVideoSignalingClient(config);
  * const input = { // SendAlexaOfferToMasterRequest
- *   ChannelARN: "STRING_VALUE", // required
- *   SenderClientId: "STRING_VALUE", // required
- *   MessagePayload: "STRING_VALUE", // required
+ *   ChannelARN: 'STRING_VALUE', // required
+ *   SenderClientId: 'STRING_VALUE', // required
+ *   MessagePayload: 'STRING_VALUE', // required
  * };
  * const command = new SendAlexaOfferToMasterCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SendAlexaOfferToMasterResponse
+ *   Answer: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param SendAlexaOfferToMasterCommandInput - {@link SendAlexaOfferToMasterCommandInput}
@@ -76,6 +81,8 @@ export interface SendAlexaOfferToMasterCommandOutput extends SendAlexaOfferToMas
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource is not found.</p>
  *
+ * @throws {@link KinesisVideoSignalingServiceException}
+ * <p>Base exception class for all service exceptions from KinesisVideoSignaling service.</p>
  *
  */
 export class SendAlexaOfferToMasterCommand extends $Command<

@@ -36,15 +36,47 @@ export interface GetWirelessGatewayCommandOutput extends GetWirelessGatewayRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTWirelessClient, GetWirelessGatewayCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
- * // const { IoTWirelessClient, GetWirelessGatewayCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
+ * import { IoTWirelessClient, GetWirelessGatewayCommand } from '@aws-sdk/client-iot-wireless'; // ES Modules import
+ * // const { IoTWirelessClient, GetWirelessGatewayCommand } = require('@aws-sdk/client-iot-wireless'); // CommonJS import
  * const client = new IoTWirelessClient(config);
  * const input = { // GetWirelessGatewayRequest
- *   Identifier: "STRING_VALUE", // required
- *   IdentifierType: "GatewayEui" || "WirelessGatewayId" || "ThingName", // required
+ *   Identifier: 'STRING_VALUE', // required
+ *   IdentifierType: 'GatewayEui' || 'WirelessGatewayId' || 'ThingName', // required
  * };
  * const command = new GetWirelessGatewayCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetWirelessGatewayResponse
+ *   Name: 'STRING_VALUE',
+ *   Id: 'STRING_VALUE',
+ *   Description: 'STRING_VALUE',
+ *   LoRaWAN: { // LoRaWANGateway
+ *     GatewayEui: 'STRING_VALUE',
+ *     RfRegion: 'STRING_VALUE',
+ *     JoinEuiFilters: [ // JoinEuiFilters
+ *       [ // JoinEuiRange
+ *         'STRING_VALUE',
+ *       ],
+ *     ],
+ *     NetIdFilters: [ // NetIdFilters
+ *       'STRING_VALUE',
+ *     ],
+ *     SubBands: [ // SubBands
+ *       Number('int'),
+ *     ],
+ *     Beaconing: { // Beaconing
+ *       DataRate: Number('int'),
+ *       Frequencies: [ // BeaconingFrequencies
+ *         Number('int'),
+ *       ],
+ *     },
+ *     MaxEirp: Number('float'),
+ *   },
+ *   Arn: 'STRING_VALUE',
+ *   ThingName: 'STRING_VALUE',
+ *   ThingArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetWirelessGatewayCommandInput - {@link GetWirelessGatewayCommandInput}
@@ -68,6 +100,8 @@ export interface GetWirelessGatewayCommandOutput extends GetWirelessGatewayRespo
  * @throws {@link ValidationException} (client fault)
  *  <p>The input did not meet the specified constraints.</p>
  *
+ * @throws {@link IoTWirelessServiceException}
+ * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
  */
 export class GetWirelessGatewayCommand extends $Command<

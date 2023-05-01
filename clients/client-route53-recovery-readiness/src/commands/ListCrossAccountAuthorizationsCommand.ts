@@ -45,15 +45,23 @@ export interface ListCrossAccountAuthorizationsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Route53RecoveryReadinessClient, ListCrossAccountAuthorizationsCommand } from "@aws-sdk/client-route53-recovery-readiness"; // ES Modules import
- * // const { Route53RecoveryReadinessClient, ListCrossAccountAuthorizationsCommand } = require("@aws-sdk/client-route53-recovery-readiness"); // CommonJS import
+ * import { Route53RecoveryReadinessClient, ListCrossAccountAuthorizationsCommand } from '@aws-sdk/client-route53-recovery-readiness'; // ES Modules import
+ * // const { Route53RecoveryReadinessClient, ListCrossAccountAuthorizationsCommand } = require('@aws-sdk/client-route53-recovery-readiness'); // CommonJS import
  * const client = new Route53RecoveryReadinessClient(config);
  * const input = { // ListCrossAccountAuthorizationsRequest
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListCrossAccountAuthorizationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListCrossAccountAuthorizationsResponse
+ *   CrossAccountAuthorizations: [ // __listOfCrossAccountAuthorization
+ *     'STRING_VALUE',
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListCrossAccountAuthorizationsCommandInput - {@link ListCrossAccountAuthorizationsCommandInput}
@@ -74,6 +82,8 @@ export interface ListCrossAccountAuthorizationsCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  The input fails to satisfy the constraints specified by an AWS service.
  *
+ * @throws {@link Route53RecoveryReadinessServiceException}
+ * <p>Base exception class for all service exceptions from Route53RecoveryReadiness service.</p>
  *
  */
 export class ListCrossAccountAuthorizationsCommand extends $Command<

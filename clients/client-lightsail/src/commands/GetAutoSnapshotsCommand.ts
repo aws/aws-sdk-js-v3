@@ -37,14 +37,33 @@ export interface GetAutoSnapshotsCommandOutput extends GetAutoSnapshotsResult, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LightsailClient, GetAutoSnapshotsCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
- * // const { LightsailClient, GetAutoSnapshotsCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
+ * import { LightsailClient, GetAutoSnapshotsCommand } from '@aws-sdk/client-lightsail'; // ES Modules import
+ * // const { LightsailClient, GetAutoSnapshotsCommand } = require('@aws-sdk/client-lightsail'); // CommonJS import
  * const client = new LightsailClient(config);
  * const input = { // GetAutoSnapshotsRequest
- *   resourceName: "STRING_VALUE", // required
+ *   resourceName: 'STRING_VALUE', // required
  * };
  * const command = new GetAutoSnapshotsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetAutoSnapshotsResult
+ *   resourceName: 'STRING_VALUE',
+ *   resourceType: 'ContainerService' || 'Instance' || 'StaticIp' || 'KeyPair' || 'InstanceSnapshot' || 'Domain' || 'PeeredVpc' || 'LoadBalancer' || 'LoadBalancerTlsCertificate' || 'Disk' || 'DiskSnapshot' || 'RelationalDatabase' || 'RelationalDatabaseSnapshot' || 'ExportSnapshotRecord' || 'CloudFormationStackRecord' || 'Alarm' || 'ContactMethod' || 'Distribution' || 'Certificate' || 'Bucket',
+ *   autoSnapshots: [ // AutoSnapshotDetailsList
+ *     { // AutoSnapshotDetails
+ *       date: 'STRING_VALUE',
+ *       createdAt: new Date('TIMESTAMP'),
+ *       status: 'Success' || 'Failed' || 'InProgress' || 'NotFound',
+ *       fromAttachedDisks: [ // AttachedDiskList
+ *         { // AttachedDisk
+ *           path: 'STRING_VALUE',
+ *           sizeInGb: Number('int'),
+ *         },
+ *       ],
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetAutoSnapshotsCommandInput - {@link GetAutoSnapshotsCommandInput}
@@ -79,6 +98,8 @@ export interface GetAutoSnapshotsCommandOutput extends GetAutoSnapshotsResult, _
  * @throws {@link UnauthenticatedException} (client fault)
  *  <p>Lightsail throws this exception when the user has not been authenticated.</p>
  *
+ * @throws {@link LightsailServiceException}
+ * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
  */
 export class GetAutoSnapshotsCommand extends $Command<

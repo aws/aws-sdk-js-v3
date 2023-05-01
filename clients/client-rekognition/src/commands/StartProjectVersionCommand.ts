@@ -46,16 +46,21 @@ export interface StartProjectVersionCommandOutput extends StartProjectVersionRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RekognitionClient, StartProjectVersionCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
- * // const { RekognitionClient, StartProjectVersionCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
+ * import { RekognitionClient, StartProjectVersionCommand } from '@aws-sdk/client-rekognition'; // ES Modules import
+ * // const { RekognitionClient, StartProjectVersionCommand } = require('@aws-sdk/client-rekognition'); // CommonJS import
  * const client = new RekognitionClient(config);
  * const input = { // StartProjectVersionRequest
- *   ProjectVersionArn: "STRING_VALUE", // required
- *   MinInferenceUnits: Number("int"), // required
- *   MaxInferenceUnits: Number("int"),
+ *   ProjectVersionArn: 'STRING_VALUE', // required
+ *   MinInferenceUnits: Number('int'), // required
+ *   MaxInferenceUnits: Number('int'),
  * };
  * const command = new StartProjectVersionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartProjectVersionResponse
+ *   Status: 'TRAINING_IN_PROGRESS' || 'TRAINING_COMPLETED' || 'TRAINING_FAILED' || 'STARTING' || 'RUNNING' || 'FAILED' || 'STOPPING' || 'STOPPED' || 'DELETING' || 'COPYING_IN_PROGRESS' || 'COPYING_COMPLETED' || 'COPYING_FAILED',
+ * };
+ *
  * ```
  *
  * @param StartProjectVersionCommandInput - {@link StartProjectVersionCommandInput}
@@ -92,6 +97,8 @@ export interface StartProjectVersionCommandOutput extends StartProjectVersionRes
  * @throws {@link ThrottlingException} (server fault)
  *  <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
  *
+ * @throws {@link RekognitionServiceException}
+ * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
  */
 export class StartProjectVersionCommand extends $Command<

@@ -38,33 +38,38 @@ export interface CreateAppImageConfigCommandOutput extends CreateAppImageConfigR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, CreateAppImageConfigCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, CreateAppImageConfigCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, CreateAppImageConfigCommand } from '@aws-sdk/client-sagemaker'; // ES Modules import
+ * // const { SageMakerClient, CreateAppImageConfigCommand } = require('@aws-sdk/client-sagemaker'); // CommonJS import
  * const client = new SageMakerClient(config);
  * const input = { // CreateAppImageConfigRequest
- *   AppImageConfigName: "STRING_VALUE", // required
+ *   AppImageConfigName: 'STRING_VALUE', // required
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  *   KernelGatewayImageConfig: { // KernelGatewayImageConfig
  *     KernelSpecs: [ // KernelSpecs // required
  *       { // KernelSpec
- *         Name: "STRING_VALUE", // required
- *         DisplayName: "STRING_VALUE",
+ *         Name: 'STRING_VALUE', // required
+ *         DisplayName: 'STRING_VALUE',
  *       },
  *     ],
  *     FileSystemConfig: { // FileSystemConfig
- *       MountPath: "STRING_VALUE",
- *       DefaultUid: Number("int"),
- *       DefaultGid: Number("int"),
+ *       MountPath: 'STRING_VALUE',
+ *       DefaultUid: Number('int'),
+ *       DefaultGid: Number('int'),
  *     },
  *   },
  * };
  * const command = new CreateAppImageConfigCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateAppImageConfigResponse
+ *   AppImageConfigArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateAppImageConfigCommandInput - {@link CreateAppImageConfigCommandInput}
@@ -76,6 +81,8 @@ export interface CreateAppImageConfigCommandOutput extends CreateAppImageConfigR
  * @throws {@link ResourceInUse} (client fault)
  *  <p>Resource being accessed is in use.</p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class CreateAppImageConfigCommand extends $Command<

@@ -37,20 +37,113 @@ export interface DescribeContainerInstancesCommandOutput extends DescribeContain
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ECSClient, DescribeContainerInstancesCommand } from "@aws-sdk/client-ecs"; // ES Modules import
- * // const { ECSClient, DescribeContainerInstancesCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
+ * import { ECSClient, DescribeContainerInstancesCommand } from '@aws-sdk/client-ecs'; // ES Modules import
+ * // const { ECSClient, DescribeContainerInstancesCommand } = require('@aws-sdk/client-ecs'); // CommonJS import
  * const client = new ECSClient(config);
  * const input = { // DescribeContainerInstancesRequest
- *   cluster: "STRING_VALUE",
+ *   cluster: 'STRING_VALUE',
  *   containerInstances: [ // StringList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   include: [ // ContainerInstanceFieldList
- *     "TAGS" || "CONTAINER_INSTANCE_HEALTH",
+ *     'TAGS' || 'CONTAINER_INSTANCE_HEALTH',
  *   ],
  * };
  * const command = new DescribeContainerInstancesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeContainerInstancesResponse
+ *   containerInstances: [ // ContainerInstances
+ *     { // ContainerInstance
+ *       containerInstanceArn: 'STRING_VALUE',
+ *       ec2InstanceId: 'STRING_VALUE',
+ *       capacityProviderName: 'STRING_VALUE',
+ *       version: Number('long'),
+ *       versionInfo: { // VersionInfo
+ *         agentVersion: 'STRING_VALUE',
+ *         agentHash: 'STRING_VALUE',
+ *         dockerVersion: 'STRING_VALUE',
+ *       },
+ *       remainingResources: [ // Resources
+ *         { // Resource
+ *           name: 'STRING_VALUE',
+ *           type: 'STRING_VALUE',
+ *           doubleValue: Number('double'),
+ *           longValue: Number('long'),
+ *           integerValue: Number('int'),
+ *           stringSetValue: [ // StringList
+ *             'STRING_VALUE',
+ *           ],
+ *         },
+ *       ],
+ *       registeredResources: [
+ *         {
+ *           name: 'STRING_VALUE',
+ *           type: 'STRING_VALUE',
+ *           doubleValue: Number('double'),
+ *           longValue: Number('long'),
+ *           integerValue: Number('int'),
+ *           stringSetValue: [
+ *             'STRING_VALUE',
+ *           ],
+ *         },
+ *       ],
+ *       status: 'STRING_VALUE',
+ *       statusReason: 'STRING_VALUE',
+ *       agentConnected: true || false,
+ *       runningTasksCount: Number('int'),
+ *       pendingTasksCount: Number('int'),
+ *       agentUpdateStatus: 'PENDING' || 'STAGING' || 'STAGED' || 'UPDATING' || 'UPDATED' || 'FAILED',
+ *       attributes: [ // Attributes
+ *         { // Attribute
+ *           name: 'STRING_VALUE', // required
+ *           value: 'STRING_VALUE',
+ *           targetType: 'container-instance',
+ *           targetId: 'STRING_VALUE',
+ *         },
+ *       ],
+ *       registeredAt: new Date('TIMESTAMP'),
+ *       attachments: [ // Attachments
+ *         { // Attachment
+ *           id: 'STRING_VALUE',
+ *           type: 'STRING_VALUE',
+ *           status: 'STRING_VALUE',
+ *           details: [ // AttachmentDetails
+ *             { // KeyValuePair
+ *               name: 'STRING_VALUE',
+ *               value: 'STRING_VALUE',
+ *             },
+ *           ],
+ *         },
+ *       ],
+ *       tags: [ // Tags
+ *         { // Tag
+ *           key: 'STRING_VALUE',
+ *           value: 'STRING_VALUE',
+ *         },
+ *       ],
+ *       healthStatus: { // ContainerInstanceHealthStatus
+ *         overallStatus: 'OK' || 'IMPAIRED' || 'INSUFFICIENT_DATA' || 'INITIALIZING',
+ *         details: [ // InstanceHealthCheckResultList
+ *           { // InstanceHealthCheckResult
+ *             type: 'CONTAINER_RUNTIME',
+ *             status: 'OK' || 'IMPAIRED' || 'INSUFFICIENT_DATA' || 'INITIALIZING',
+ *             lastUpdated: new Date('TIMESTAMP'),
+ *             lastStatusChange: new Date('TIMESTAMP'),
+ *           },
+ *         ],
+ *       },
+ *     },
+ *   ],
+ *   failures: [ // Failures
+ *     { // Failure
+ *       arn: 'STRING_VALUE',
+ *       reason: 'STRING_VALUE',
+ *       detail: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeContainerInstancesCommandInput - {@link DescribeContainerInstancesCommandInput}
@@ -74,6 +167,8 @@ export interface DescribeContainerInstancesCommandOutput extends DescribeContain
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server issue.</p>
  *
+ * @throws {@link ECSServiceException}
+ * <p>Base exception class for all service exceptions from ECS service.</p>
  *
  * @example To describe container instance
  * ```javascript

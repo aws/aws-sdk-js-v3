@@ -39,20 +39,31 @@ export interface GetDimensionKeyDetailsCommandOutput extends GetDimensionKeyDeta
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PIClient, GetDimensionKeyDetailsCommand } from "@aws-sdk/client-pi"; // ES Modules import
- * // const { PIClient, GetDimensionKeyDetailsCommand } = require("@aws-sdk/client-pi"); // CommonJS import
+ * import { PIClient, GetDimensionKeyDetailsCommand } from '@aws-sdk/client-pi'; // ES Modules import
+ * // const { PIClient, GetDimensionKeyDetailsCommand } = require('@aws-sdk/client-pi'); // CommonJS import
  * const client = new PIClient(config);
  * const input = { // GetDimensionKeyDetailsRequest
- *   ServiceType: "RDS" || "DOCDB", // required
- *   Identifier: "STRING_VALUE", // required
- *   Group: "STRING_VALUE", // required
- *   GroupIdentifier: "STRING_VALUE", // required
+ *   ServiceType: 'RDS' || 'DOCDB', // required
+ *   Identifier: 'STRING_VALUE', // required
+ *   Group: 'STRING_VALUE', // required
+ *   GroupIdentifier: 'STRING_VALUE', // required
  *   RequestedDimensions: [ // RequestedDimensionList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new GetDimensionKeyDetailsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetDimensionKeyDetailsResponse
+ *   Dimensions: [ // DimensionKeyDetailList
+ *     { // DimensionKeyDetail
+ *       Value: 'STRING_VALUE',
+ *       Dimension: 'STRING_VALUE',
+ *       Status: 'AVAILABLE' || 'PROCESSING' || 'UNAVAILABLE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetDimensionKeyDetailsCommandInput - {@link GetDimensionKeyDetailsCommandInput}
@@ -70,6 +81,8 @@ export interface GetDimensionKeyDetailsCommandOutput extends GetDimensionKeyDeta
  * @throws {@link NotAuthorizedException} (client fault)
  *  <p>The user is not authorized to perform this request.</p>
  *
+ * @throws {@link PIServiceException}
+ * <p>Base exception class for all service exceptions from PI service.</p>
  *
  */
 export class GetDimensionKeyDetailsCommand extends $Command<

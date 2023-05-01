@@ -49,17 +49,50 @@ export interface GetChannelMessageCommandOutput extends GetChannelMessageRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeSDKMessagingClient, GetChannelMessageCommand } from "@aws-sdk/client-chime-sdk-messaging"; // ES Modules import
- * // const { ChimeSDKMessagingClient, GetChannelMessageCommand } = require("@aws-sdk/client-chime-sdk-messaging"); // CommonJS import
+ * import { ChimeSDKMessagingClient, GetChannelMessageCommand } from '@aws-sdk/client-chime-sdk-messaging'; // ES Modules import
+ * // const { ChimeSDKMessagingClient, GetChannelMessageCommand } = require('@aws-sdk/client-chime-sdk-messaging'); // CommonJS import
  * const client = new ChimeSDKMessagingClient(config);
  * const input = { // GetChannelMessageRequest
- *   ChannelArn: "STRING_VALUE", // required
- *   MessageId: "STRING_VALUE", // required
- *   ChimeBearer: "STRING_VALUE", // required
- *   SubChannelId: "STRING_VALUE",
+ *   ChannelArn: 'STRING_VALUE', // required
+ *   MessageId: 'STRING_VALUE', // required
+ *   ChimeBearer: 'STRING_VALUE', // required
+ *   SubChannelId: 'STRING_VALUE',
  * };
  * const command = new GetChannelMessageCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetChannelMessageResponse
+ *   ChannelMessage: { // ChannelMessage
+ *     ChannelArn: 'STRING_VALUE',
+ *     MessageId: 'STRING_VALUE',
+ *     Content: 'STRING_VALUE',
+ *     Metadata: 'STRING_VALUE',
+ *     Type: 'STANDARD' || 'CONTROL',
+ *     CreatedTimestamp: new Date('TIMESTAMP'),
+ *     LastEditedTimestamp: new Date('TIMESTAMP'),
+ *     LastUpdatedTimestamp: new Date('TIMESTAMP'),
+ *     Sender: { // Identity
+ *       Arn: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *     },
+ *     Redacted: true || false,
+ *     Persistence: 'PERSISTENT' || 'NON_PERSISTENT',
+ *     Status: { // ChannelMessageStatusStructure
+ *       Value: 'SENT' || 'PENDING' || 'FAILED' || 'DENIED',
+ *       Detail: 'STRING_VALUE',
+ *     },
+ *     MessageAttributes: { // MessageAttributeMap
+ *       '<keys>': { // MessageAttributeValue
+ *         StringValues: [ // MessageAttributeStringValues
+ *           'STRING_VALUE',
+ *         ],
+ *       },
+ *     },
+ *     SubChannelId: 'STRING_VALUE',
+ *     ContentType: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetChannelMessageCommandInput - {@link GetChannelMessageCommandInput}
@@ -89,6 +122,8 @@ export interface GetChannelMessageCommandOutput extends GetChannelMessageRespons
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeSDKMessagingServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKMessaging service.</p>
  *
  */
 export class GetChannelMessageCommand extends $Command<

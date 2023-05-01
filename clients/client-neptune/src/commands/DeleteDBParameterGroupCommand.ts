@@ -37,14 +37,17 @@ export interface DeleteDBParameterGroupCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { NeptuneClient, DeleteDBParameterGroupCommand } from "@aws-sdk/client-neptune"; // ES Modules import
- * // const { NeptuneClient, DeleteDBParameterGroupCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
+ * import { NeptuneClient, DeleteDBParameterGroupCommand } from '@aws-sdk/client-neptune'; // ES Modules import
+ * // const { NeptuneClient, DeleteDBParameterGroupCommand } = require('@aws-sdk/client-neptune'); // CommonJS import
  * const client = new NeptuneClient(config);
  * const input = { // DeleteDBParameterGroupMessage
- *   DBParameterGroupName: "STRING_VALUE", // required
+ *   DBParameterGroupName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteDBParameterGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteDBParameterGroupCommandInput - {@link DeleteDBParameterGroupCommandInput}
@@ -62,6 +65,8 @@ export interface DeleteDBParameterGroupCommandOutput extends __MetadataBearer {}
  *  <p>The DB parameter group is in use or is in an invalid state. If you are attempting to
  *       delete the parameter group, you cannot delete it when the parameter group is in this state.</p>
  *
+ * @throws {@link NeptuneServiceException}
+ * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
  */
 export class DeleteDBParameterGroupCommand extends $Command<

@@ -36,27 +36,38 @@ export interface CreateGroupCommandOutput extends CreateGroupResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GreengrassClient, CreateGroupCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
- * // const { GreengrassClient, CreateGroupCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
+ * import { GreengrassClient, CreateGroupCommand } from '@aws-sdk/client-greengrass'; // ES Modules import
+ * // const { GreengrassClient, CreateGroupCommand } = require('@aws-sdk/client-greengrass'); // CommonJS import
  * const client = new GreengrassClient(config);
  * const input = { // CreateGroupRequest
- *   AmznClientToken: "STRING_VALUE",
+ *   AmznClientToken: 'STRING_VALUE',
  *   InitialVersion: { // GroupVersion
- *     ConnectorDefinitionVersionArn: "STRING_VALUE",
- *     CoreDefinitionVersionArn: "STRING_VALUE",
- *     DeviceDefinitionVersionArn: "STRING_VALUE",
- *     FunctionDefinitionVersionArn: "STRING_VALUE",
- *     LoggerDefinitionVersionArn: "STRING_VALUE",
- *     ResourceDefinitionVersionArn: "STRING_VALUE",
- *     SubscriptionDefinitionVersionArn: "STRING_VALUE",
+ *     ConnectorDefinitionVersionArn: 'STRING_VALUE',
+ *     CoreDefinitionVersionArn: 'STRING_VALUE',
+ *     DeviceDefinitionVersionArn: 'STRING_VALUE',
+ *     FunctionDefinitionVersionArn: 'STRING_VALUE',
+ *     LoggerDefinitionVersionArn: 'STRING_VALUE',
+ *     ResourceDefinitionVersionArn: 'STRING_VALUE',
+ *     SubscriptionDefinitionVersionArn: 'STRING_VALUE',
  *   },
- *   Name: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
  *   tags: { // Tags
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateGroupResponse
+ *   Arn: 'STRING_VALUE',
+ *   CreationTimestamp: 'STRING_VALUE',
+ *   Id: 'STRING_VALUE',
+ *   LastUpdatedTimestamp: 'STRING_VALUE',
+ *   LatestVersion: 'STRING_VALUE',
+ *   LatestVersionArn: 'STRING_VALUE',
+ *   Name: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateGroupCommandInput - {@link CreateGroupCommandInput}
@@ -68,6 +79,8 @@ export interface CreateGroupCommandOutput extends CreateGroupResponse, __Metadat
  * @throws {@link BadRequestException} (client fault)
  *  General error information.
  *
+ * @throws {@link GreengrassServiceException}
+ * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
  */
 export class CreateGroupCommand extends $Command<

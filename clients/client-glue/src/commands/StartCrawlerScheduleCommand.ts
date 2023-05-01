@@ -38,14 +38,17 @@ export interface StartCrawlerScheduleCommandOutput extends StartCrawlerScheduleR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlueClient, StartCrawlerScheduleCommand } from "@aws-sdk/client-glue"; // ES Modules import
- * // const { GlueClient, StartCrawlerScheduleCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * import { GlueClient, StartCrawlerScheduleCommand } from '@aws-sdk/client-glue'; // ES Modules import
+ * // const { GlueClient, StartCrawlerScheduleCommand } = require('@aws-sdk/client-glue'); // CommonJS import
  * const client = new GlueClient(config);
  * const input = { // StartCrawlerScheduleRequest
- *   CrawlerName: "STRING_VALUE", // required
+ *   CrawlerName: 'STRING_VALUE', // required
  * };
  * const command = new StartCrawlerScheduleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param StartCrawlerScheduleCommandInput - {@link StartCrawlerScheduleCommandInput}
@@ -69,6 +72,8 @@ export interface StartCrawlerScheduleCommandOutput extends StartCrawlerScheduleR
  * @throws {@link SchedulerTransitioningException} (client fault)
  *  <p>The specified scheduler is transitioning.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class StartCrawlerScheduleCommand extends $Command<

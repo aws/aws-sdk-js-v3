@@ -42,19 +42,33 @@ export interface GetCustomerGatewayAssociationsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { NetworkManagerClient, GetCustomerGatewayAssociationsCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
- * // const { NetworkManagerClient, GetCustomerGatewayAssociationsCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
+ * import { NetworkManagerClient, GetCustomerGatewayAssociationsCommand } from '@aws-sdk/client-networkmanager'; // ES Modules import
+ * // const { NetworkManagerClient, GetCustomerGatewayAssociationsCommand } = require('@aws-sdk/client-networkmanager'); // CommonJS import
  * const client = new NetworkManagerClient(config);
  * const input = { // GetCustomerGatewayAssociationsRequest
- *   GlobalNetworkId: "STRING_VALUE", // required
+ *   GlobalNetworkId: 'STRING_VALUE', // required
  *   CustomerGatewayArns: [ // CustomerGatewayArnList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new GetCustomerGatewayAssociationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetCustomerGatewayAssociationsResponse
+ *   CustomerGatewayAssociations: [ // CustomerGatewayAssociationList
+ *     { // CustomerGatewayAssociation
+ *       CustomerGatewayArn: 'STRING_VALUE',
+ *       GlobalNetworkId: 'STRING_VALUE',
+ *       DeviceId: 'STRING_VALUE',
+ *       LinkId: 'STRING_VALUE',
+ *       State: 'PENDING' || 'AVAILABLE' || 'DELETING' || 'DELETED',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetCustomerGatewayAssociationsCommandInput - {@link GetCustomerGatewayAssociationsCommandInput}
@@ -82,6 +96,8 @@ export interface GetCustomerGatewayAssociationsCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints.</p>
  *
+ * @throws {@link NetworkManagerServiceException}
+ * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
  */
 export class GetCustomerGatewayAssociationsCommand extends $Command<

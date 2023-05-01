@@ -39,41 +39,44 @@ export interface PutAccessControlRuleCommandOutput extends PutAccessControlRuleR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkMailClient, PutAccessControlRuleCommand } from "@aws-sdk/client-workmail"; // ES Modules import
- * // const { WorkMailClient, PutAccessControlRuleCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
+ * import { WorkMailClient, PutAccessControlRuleCommand } from '@aws-sdk/client-workmail'; // ES Modules import
+ * // const { WorkMailClient, PutAccessControlRuleCommand } = require('@aws-sdk/client-workmail'); // CommonJS import
  * const client = new WorkMailClient(config);
  * const input = { // PutAccessControlRuleRequest
- *   Name: "STRING_VALUE", // required
- *   Effect: "ALLOW" || "DENY", // required
- *   Description: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
+ *   Effect: 'ALLOW' || 'DENY', // required
+ *   Description: 'STRING_VALUE', // required
  *   IpRanges: [ // IpRangeList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   NotIpRanges: [
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   Actions: [ // ActionsList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   NotActions: [
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   UserIds: [ // UserIdList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   NotUserIds: [
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   OrganizationId: "STRING_VALUE", // required
+ *   OrganizationId: 'STRING_VALUE', // required
  *   ImpersonationRoleIds: [ // ImpersonationRoleIdList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   NotImpersonationRoleIds: [
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new PutAccessControlRuleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutAccessControlRuleCommandInput - {@link PutAccessControlRuleCommandInput}
@@ -103,6 +106,8 @@ export interface PutAccessControlRuleCommandOutput extends PutAccessControlRuleR
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource cannot be found.</p>
  *
+ * @throws {@link WorkMailServiceException}
+ * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
  */
 export class PutAccessControlRuleCommand extends $Command<

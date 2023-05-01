@@ -44,15 +44,20 @@ export interface GetPriceListFileUrlCommandOutput extends GetPriceListFileUrlRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PricingClient, GetPriceListFileUrlCommand } from "@aws-sdk/client-pricing"; // ES Modules import
- * // const { PricingClient, GetPriceListFileUrlCommand } = require("@aws-sdk/client-pricing"); // CommonJS import
+ * import { PricingClient, GetPriceListFileUrlCommand } from '@aws-sdk/client-pricing'; // ES Modules import
+ * // const { PricingClient, GetPriceListFileUrlCommand } = require('@aws-sdk/client-pricing'); // CommonJS import
  * const client = new PricingClient(config);
  * const input = { // GetPriceListFileUrlRequest
- *   PriceListArn: "STRING_VALUE", // required
- *   FileFormat: "STRING_VALUE", // required
+ *   PriceListArn: 'STRING_VALUE', // required
+ *   FileFormat: 'STRING_VALUE', // required
  * };
  * const command = new GetPriceListFileUrlCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetPriceListFileUrlResponse
+ *   Url: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetPriceListFileUrlCommandInput - {@link GetPriceListFileUrlCommandInput}
@@ -73,6 +78,8 @@ export interface GetPriceListFileUrlCommandOutput extends GetPriceListFileUrlRes
  * @throws {@link NotFoundException} (client fault)
  *  <p>The requested resource can't be found.</p>
  *
+ * @throws {@link PricingServiceException}
+ * <p>Base exception class for all service exceptions from Pricing service.</p>
  *
  */
 export class GetPriceListFileUrlCommand extends $Command<

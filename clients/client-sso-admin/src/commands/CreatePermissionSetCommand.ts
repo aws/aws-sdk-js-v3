@@ -41,24 +41,36 @@ export interface CreatePermissionSetCommandOutput extends CreatePermissionSetRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSOAdminClient, CreatePermissionSetCommand } from "@aws-sdk/client-sso-admin"; // ES Modules import
- * // const { SSOAdminClient, CreatePermissionSetCommand } = require("@aws-sdk/client-sso-admin"); // CommonJS import
+ * import { SSOAdminClient, CreatePermissionSetCommand } from '@aws-sdk/client-sso-admin'; // ES Modules import
+ * // const { SSOAdminClient, CreatePermissionSetCommand } = require('@aws-sdk/client-sso-admin'); // CommonJS import
  * const client = new SSOAdminClient(config);
  * const input = { // CreatePermissionSetRequest
- *   Name: "STRING_VALUE", // required
- *   Description: "STRING_VALUE",
- *   InstanceArn: "STRING_VALUE", // required
- *   SessionDuration: "STRING_VALUE",
- *   RelayState: "STRING_VALUE",
+ *   Name: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE',
+ *   InstanceArn: 'STRING_VALUE', // required
+ *   SessionDuration: 'STRING_VALUE',
+ *   RelayState: 'STRING_VALUE',
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreatePermissionSetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreatePermissionSetResponse
+ *   PermissionSet: { // PermissionSet
+ *     Name: 'STRING_VALUE',
+ *     PermissionSetArn: 'STRING_VALUE',
+ *     Description: 'STRING_VALUE',
+ *     CreatedDate: new Date('TIMESTAMP'),
+ *     SessionDuration: 'STRING_VALUE',
+ *     RelayState: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreatePermissionSetCommandInput - {@link CreatePermissionSetCommandInput}
@@ -94,6 +106,8 @@ export interface CreatePermissionSetCommandOutput extends CreatePermissionSetRes
  * @throws {@link ValidationException} (client fault)
  *  <p>The request failed because it contains a syntax error.</p>
  *
+ * @throws {@link SSOAdminServiceException}
+ * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
  */
 export class CreatePermissionSetCommand extends $Command<

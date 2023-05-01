@@ -48,38 +48,64 @@ export interface CreateServiceTemplateVersionCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ProtonClient, CreateServiceTemplateVersionCommand } from "@aws-sdk/client-proton"; // ES Modules import
- * // const { ProtonClient, CreateServiceTemplateVersionCommand } = require("@aws-sdk/client-proton"); // CommonJS import
+ * import { ProtonClient, CreateServiceTemplateVersionCommand } from '@aws-sdk/client-proton'; // ES Modules import
+ * // const { ProtonClient, CreateServiceTemplateVersionCommand } = require('@aws-sdk/client-proton'); // CommonJS import
  * const client = new ProtonClient(config);
  * const input = { // CreateServiceTemplateVersionInput
- *   clientToken: "STRING_VALUE",
- *   templateName: "STRING_VALUE", // required
- *   description: "STRING_VALUE",
- *   majorVersion: "STRING_VALUE",
+ *   clientToken: 'STRING_VALUE',
+ *   templateName: 'STRING_VALUE', // required
+ *   description: 'STRING_VALUE',
+ *   majorVersion: 'STRING_VALUE',
  *   source: { // TemplateVersionSourceInput Union: only one key present
  *     s3: { // S3ObjectSource
- *       bucket: "STRING_VALUE", // required
- *       key: "STRING_VALUE", // required
+ *       bucket: 'STRING_VALUE', // required
+ *       key: 'STRING_VALUE', // required
  *     },
  *   },
  *   compatibleEnvironmentTemplates: [ // CompatibleEnvironmentTemplateInputList // required
  *     { // CompatibleEnvironmentTemplateInput
- *       templateName: "STRING_VALUE", // required
- *       majorVersion: "STRING_VALUE", // required
+ *       templateName: 'STRING_VALUE', // required
+ *       majorVersion: 'STRING_VALUE', // required
  *     },
  *   ],
  *   tags: [ // TagList
  *     { // Tag
- *       key: "STRING_VALUE", // required
- *       value: "STRING_VALUE", // required
+ *       key: 'STRING_VALUE', // required
+ *       value: 'STRING_VALUE', // required
  *     },
  *   ],
  *   supportedComponentSources: [ // ServiceTemplateSupportedComponentSourceInputList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new CreateServiceTemplateVersionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateServiceTemplateVersionOutput
+ *   serviceTemplateVersion: { // ServiceTemplateVersion
+ *     templateName: 'STRING_VALUE', // required
+ *     majorVersion: 'STRING_VALUE', // required
+ *     minorVersion: 'STRING_VALUE', // required
+ *     recommendedMinorVersion: 'STRING_VALUE',
+ *     status: 'STRING_VALUE', // required
+ *     statusMessage: 'STRING_VALUE',
+ *     description: 'STRING_VALUE',
+ *     arn: 'STRING_VALUE', // required
+ *     createdAt: new Date('TIMESTAMP'), // required
+ *     lastModifiedAt: new Date('TIMESTAMP'), // required
+ *     compatibleEnvironmentTemplates: [ // CompatibleEnvironmentTemplateList // required
+ *       { // CompatibleEnvironmentTemplate
+ *         templateName: 'STRING_VALUE', // required
+ *         majorVersion: 'STRING_VALUE', // required
+ *       },
+ *     ],
+ *     schema: 'STRING_VALUE',
+ *     supportedComponentSources: [ // ServiceTemplateSupportedComponentSourceInputList
+ *       'STRING_VALUE',
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateServiceTemplateVersionCommandInput - {@link CreateServiceTemplateVersionCommandInput}
@@ -110,6 +136,8 @@ export interface CreateServiceTemplateVersionCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The input is invalid or an out-of-range value was supplied for the input parameter.</p>
  *
+ * @throws {@link ProtonServiceException}
+ * <p>Base exception class for all service exceptions from Proton service.</p>
  *
  */
 export class CreateServiceTemplateVersionCommand extends $Command<

@@ -36,16 +36,35 @@ export interface ListCollaborationsCommandOutput extends ListCollaborationsOutpu
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CleanRoomsClient, ListCollaborationsCommand } from "@aws-sdk/client-cleanrooms"; // ES Modules import
- * // const { CleanRoomsClient, ListCollaborationsCommand } = require("@aws-sdk/client-cleanrooms"); // CommonJS import
+ * import { CleanRoomsClient, ListCollaborationsCommand } from '@aws-sdk/client-cleanrooms'; // ES Modules import
+ * // const { CleanRoomsClient, ListCollaborationsCommand } = require('@aws-sdk/client-cleanrooms'); // CommonJS import
  * const client = new CleanRoomsClient(config);
  * const input = { // ListCollaborationsInput
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
- *   memberStatus: "STRING_VALUE",
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
+ *   memberStatus: 'STRING_VALUE',
  * };
  * const command = new ListCollaborationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListCollaborationsOutput
+ *   nextToken: 'STRING_VALUE',
+ *   collaborationList: [ // CollaborationSummaryList // required
+ *     { // CollaborationSummary
+ *       id: 'STRING_VALUE', // required
+ *       arn: 'STRING_VALUE', // required
+ *       name: 'STRING_VALUE', // required
+ *       creatorAccountId: 'STRING_VALUE', // required
+ *       creatorDisplayName: 'STRING_VALUE', // required
+ *       createTime: new Date('TIMESTAMP'), // required
+ *       updateTime: new Date('TIMESTAMP'), // required
+ *       memberStatus: 'STRING_VALUE', // required
+ *       membershipId: 'STRING_VALUE',
+ *       membershipArn: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListCollaborationsCommandInput - {@link ListCollaborationsCommandInput}
@@ -66,6 +85,8 @@ export interface ListCollaborationsCommandOutput extends ListCollaborationsOutpu
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the specified constraints.</p>
  *
+ * @throws {@link CleanRoomsServiceException}
+ * <p>Base exception class for all service exceptions from CleanRooms service.</p>
  *
  */
 export class ListCollaborationsCommand extends $Command<

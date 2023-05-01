@@ -41,34 +41,41 @@ export interface CreateDevEnvironmentCommandOutput extends CreateDevEnvironmentR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeCatalystClient, CreateDevEnvironmentCommand } from "@aws-sdk/client-codecatalyst"; // ES Modules import
- * // const { CodeCatalystClient, CreateDevEnvironmentCommand } = require("@aws-sdk/client-codecatalyst"); // CommonJS import
+ * import { CodeCatalystClient, CreateDevEnvironmentCommand } from '@aws-sdk/client-codecatalyst'; // ES Modules import
+ * // const { CodeCatalystClient, CreateDevEnvironmentCommand } = require('@aws-sdk/client-codecatalyst'); // CommonJS import
  * const client = new CodeCatalystClient(config);
  * const input = { // CreateDevEnvironmentRequest
- *   spaceName: "STRING_VALUE", // required
- *   projectName: "STRING_VALUE", // required
+ *   spaceName: 'STRING_VALUE', // required
+ *   projectName: 'STRING_VALUE', // required
  *   repositories: [ // RepositoriesInput
  *     { // RepositoryInput
- *       repositoryName: "STRING_VALUE", // required
- *       branchName: "STRING_VALUE",
+ *       repositoryName: 'STRING_VALUE', // required
+ *       branchName: 'STRING_VALUE',
  *     },
  *   ],
- *   clientToken: "STRING_VALUE",
- *   alias: "STRING_VALUE",
+ *   clientToken: 'STRING_VALUE',
+ *   alias: 'STRING_VALUE',
  *   ides: [ // IdeConfigurationList
  *     { // IdeConfiguration
- *       runtime: "STRING_VALUE",
- *       name: "STRING_VALUE",
+ *       runtime: 'STRING_VALUE',
+ *       name: 'STRING_VALUE',
  *     },
  *   ],
- *   instanceType: "STRING_VALUE", // required
- *   inactivityTimeoutMinutes: Number("int"),
+ *   instanceType: 'STRING_VALUE', // required
+ *   inactivityTimeoutMinutes: Number('int'),
  *   persistentStorage: { // PersistentStorageConfiguration
- *     sizeInGiB: Number("int"), // required
+ *     sizeInGiB: Number('int'), // required
  *   },
  * };
  * const command = new CreateDevEnvironmentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateDevEnvironmentResponse
+ *   spaceName: 'STRING_VALUE', // required
+ *   projectName: 'STRING_VALUE', // required
+ *   id: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param CreateDevEnvironmentCommandInput - {@link CreateDevEnvironmentCommandInput}
@@ -97,6 +104,8 @@ export interface CreateDevEnvironmentCommandOutput extends CreateDevEnvironmentR
  * @throws {@link ValidationException} (client fault)
  *  <p>The request was denied because an input failed to satisfy the constraints specified by the service. Check the spelling and input requirements, and then try again.</p>
  *
+ * @throws {@link CodeCatalystServiceException}
+ * <p>Base exception class for all service exceptions from CodeCatalyst service.</p>
  *
  */
 export class CreateDevEnvironmentCommand extends $Command<

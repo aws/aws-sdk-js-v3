@@ -36,16 +36,30 @@ export interface UpdateWorkloadShareCommandOutput extends UpdateWorkloadShareOut
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WellArchitectedClient, UpdateWorkloadShareCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
- * // const { WellArchitectedClient, UpdateWorkloadShareCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
+ * import { WellArchitectedClient, UpdateWorkloadShareCommand } from '@aws-sdk/client-wellarchitected'; // ES Modules import
+ * // const { WellArchitectedClient, UpdateWorkloadShareCommand } = require('@aws-sdk/client-wellarchitected'); // CommonJS import
  * const client = new WellArchitectedClient(config);
  * const input = { // UpdateWorkloadShareInput
- *   ShareId: "STRING_VALUE", // required
- *   WorkloadId: "STRING_VALUE", // required
- *   PermissionType: "READONLY" || "CONTRIBUTOR", // required
+ *   ShareId: 'STRING_VALUE', // required
+ *   WorkloadId: 'STRING_VALUE', // required
+ *   PermissionType: 'READONLY' || 'CONTRIBUTOR', // required
  * };
  * const command = new UpdateWorkloadShareCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateWorkloadShareOutput
+ *   WorkloadId: 'STRING_VALUE',
+ *   WorkloadShare: { // WorkloadShare
+ *     ShareId: 'STRING_VALUE',
+ *     SharedBy: 'STRING_VALUE',
+ *     SharedWith: 'STRING_VALUE',
+ *     PermissionType: 'READONLY' || 'CONTRIBUTOR',
+ *     Status: 'ACCEPTED' || 'REJECTED' || 'PENDING' || 'REVOKED' || 'EXPIRED' || 'ASSOCIATING' || 'ASSOCIATED' || 'FAILED',
+ *     WorkloadName: 'STRING_VALUE',
+ *     WorkloadId: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateWorkloadShareCommandInput - {@link UpdateWorkloadShareCommandInput}
@@ -72,6 +86,8 @@ export interface UpdateWorkloadShareCommandOutput extends UpdateWorkloadShareOut
  * @throws {@link ValidationException} (client fault)
  *  <p>The user input is not valid.</p>
  *
+ * @throws {@link WellArchitectedServiceException}
+ * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
  */
 export class UpdateWorkloadShareCommand extends $Command<

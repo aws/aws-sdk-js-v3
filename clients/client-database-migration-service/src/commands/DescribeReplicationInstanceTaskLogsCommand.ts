@@ -48,16 +48,29 @@ export interface DescribeReplicationInstanceTaskLogsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DatabaseMigrationServiceClient, DescribeReplicationInstanceTaskLogsCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
- * // const { DatabaseMigrationServiceClient, DescribeReplicationInstanceTaskLogsCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
+ * import { DatabaseMigrationServiceClient, DescribeReplicationInstanceTaskLogsCommand } from '@aws-sdk/client-database-migration-service'; // ES Modules import
+ * // const { DatabaseMigrationServiceClient, DescribeReplicationInstanceTaskLogsCommand } = require('@aws-sdk/client-database-migration-service'); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
  * const input = { // DescribeReplicationInstanceTaskLogsMessage
- *   ReplicationInstanceArn: "STRING_VALUE", // required
- *   MaxRecords: Number("int"),
- *   Marker: "STRING_VALUE",
+ *   ReplicationInstanceArn: 'STRING_VALUE', // required
+ *   MaxRecords: Number('int'),
+ *   Marker: 'STRING_VALUE',
  * };
  * const command = new DescribeReplicationInstanceTaskLogsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeReplicationInstanceTaskLogsResponse
+ *   ReplicationInstanceArn: 'STRING_VALUE',
+ *   ReplicationInstanceTaskLogs: [ // ReplicationInstanceTaskLogsList
+ *     { // ReplicationInstanceTaskLog
+ *       ReplicationTaskName: 'STRING_VALUE',
+ *       ReplicationTaskArn: 'STRING_VALUE',
+ *       ReplicationInstanceTaskLogSize: Number('long'),
+ *     },
+ *   ],
+ *   Marker: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeReplicationInstanceTaskLogsCommandInput - {@link DescribeReplicationInstanceTaskLogsCommandInput}
@@ -72,6 +85,8 @@ export interface DescribeReplicationInstanceTaskLogsCommandOutput
  * @throws {@link ResourceNotFoundFault} (client fault)
  *  <p>The resource could not be found.</p>
  *
+ * @throws {@link DatabaseMigrationServiceServiceException}
+ * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
  */
 export class DescribeReplicationInstanceTaskLogsCommand extends $Command<

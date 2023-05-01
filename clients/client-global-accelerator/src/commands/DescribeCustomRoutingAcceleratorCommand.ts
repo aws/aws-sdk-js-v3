@@ -45,14 +45,37 @@ export interface DescribeCustomRoutingAcceleratorCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlobalAcceleratorClient, DescribeCustomRoutingAcceleratorCommand } from "@aws-sdk/client-global-accelerator"; // ES Modules import
- * // const { GlobalAcceleratorClient, DescribeCustomRoutingAcceleratorCommand } = require("@aws-sdk/client-global-accelerator"); // CommonJS import
+ * import { GlobalAcceleratorClient, DescribeCustomRoutingAcceleratorCommand } from '@aws-sdk/client-global-accelerator'; // ES Modules import
+ * // const { GlobalAcceleratorClient, DescribeCustomRoutingAcceleratorCommand } = require('@aws-sdk/client-global-accelerator'); // CommonJS import
  * const client = new GlobalAcceleratorClient(config);
  * const input = { // DescribeCustomRoutingAcceleratorRequest
- *   AcceleratorArn: "STRING_VALUE", // required
+ *   AcceleratorArn: 'STRING_VALUE', // required
  * };
  * const command = new DescribeCustomRoutingAcceleratorCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeCustomRoutingAcceleratorResponse
+ *   Accelerator: { // CustomRoutingAccelerator
+ *     AcceleratorArn: 'STRING_VALUE',
+ *     Name: 'STRING_VALUE',
+ *     IpAddressType: 'IPV4' || 'DUAL_STACK',
+ *     Enabled: true || false,
+ *     IpSets: [ // IpSets
+ *       { // IpSet
+ *         IpFamily: 'STRING_VALUE',
+ *         IpAddresses: [ // IpAddresses
+ *           'STRING_VALUE',
+ *         ],
+ *         IpAddressFamily: 'IPv4' || 'IPv6',
+ *       },
+ *     ],
+ *     DnsName: 'STRING_VALUE',
+ *     Status: 'DEPLOYED' || 'IN_PROGRESS',
+ *     CreatedTime: new Date('TIMESTAMP'),
+ *     LastModifiedTime: new Date('TIMESTAMP'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeCustomRoutingAcceleratorCommandInput - {@link DescribeCustomRoutingAcceleratorCommandInput}
@@ -70,6 +93,8 @@ export interface DescribeCustomRoutingAcceleratorCommandOutput
  * @throws {@link InvalidArgumentException} (client fault)
  *  <p>An argument that you specified is invalid.</p>
  *
+ * @throws {@link GlobalAcceleratorServiceException}
+ * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
  */
 export class DescribeCustomRoutingAcceleratorCommand extends $Command<

@@ -41,21 +41,24 @@ export interface UpdateNotificationConfigurationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KinesisVideoClient, UpdateNotificationConfigurationCommand } from "@aws-sdk/client-kinesis-video"; // ES Modules import
- * // const { KinesisVideoClient, UpdateNotificationConfigurationCommand } = require("@aws-sdk/client-kinesis-video"); // CommonJS import
+ * import { KinesisVideoClient, UpdateNotificationConfigurationCommand } from '@aws-sdk/client-kinesis-video'; // ES Modules import
+ * // const { KinesisVideoClient, UpdateNotificationConfigurationCommand } = require('@aws-sdk/client-kinesis-video'); // CommonJS import
  * const client = new KinesisVideoClient(config);
  * const input = { // UpdateNotificationConfigurationInput
- *   StreamName: "STRING_VALUE",
- *   StreamARN: "STRING_VALUE",
+ *   StreamName: 'STRING_VALUE',
+ *   StreamARN: 'STRING_VALUE',
  *   NotificationConfiguration: { // NotificationConfiguration
- *     Status: "ENABLED" || "DISABLED", // required
+ *     Status: 'ENABLED' || 'DISABLED', // required
  *     DestinationConfig: { // NotificationDestinationConfig
- *       Uri: "STRING_VALUE", // required
+ *       Uri: 'STRING_VALUE', // required
  *     },
  *   },
  * };
  * const command = new UpdateNotificationConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateNotificationConfigurationCommandInput - {@link UpdateNotificationConfigurationCommandInput}
@@ -100,6 +103,8 @@ export interface UpdateNotificationConfigurationCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Amazon Kinesis Video Streams can't find the stream that you specified.</p>
  *
+ * @throws {@link KinesisVideoServiceException}
+ * <p>Base exception class for all service exceptions from KinesisVideo service.</p>
  *
  */
 export class UpdateNotificationConfigurationCommand extends $Command<

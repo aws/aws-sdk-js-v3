@@ -43,101 +43,113 @@ export interface GetSpotPlacementScoresCommandOutput extends GetSpotPlacementSco
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, GetSpotPlacementScoresCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, GetSpotPlacementScoresCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, GetSpotPlacementScoresCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, GetSpotPlacementScoresCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // GetSpotPlacementScoresRequest
  *   InstanceTypes: [ // InstanceTypes
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   TargetCapacity: Number("int"), // required
- *   TargetCapacityUnitType: "vcpu" || "memory-mib" || "units",
+ *   TargetCapacity: Number('int'), // required
+ *   TargetCapacityUnitType: 'vcpu' || 'memory-mib' || 'units',
  *   SingleAvailabilityZone: true || false,
  *   RegionNames: [ // RegionNames
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   InstanceRequirementsWithMetadata: { // InstanceRequirementsWithMetadataRequest
  *     ArchitectureTypes: [ // ArchitectureTypeSet
- *       "i386" || "x86_64" || "arm64" || "x86_64_mac" || "arm64_mac",
+ *       'i386' || 'x86_64' || 'arm64' || 'x86_64_mac' || 'arm64_mac',
  *     ],
  *     VirtualizationTypes: [ // VirtualizationTypeSet
- *       "hvm" || "paravirtual",
+ *       'hvm' || 'paravirtual',
  *     ],
  *     InstanceRequirements: { // InstanceRequirementsRequest
  *       VCpuCount: { // VCpuCountRangeRequest
- *         Min: Number("int"), // required
- *         Max: Number("int"),
+ *         Min: Number('int'), // required
+ *         Max: Number('int'),
  *       },
  *       MemoryMiB: { // MemoryMiBRequest
- *         Min: Number("int"), // required
- *         Max: Number("int"),
+ *         Min: Number('int'), // required
+ *         Max: Number('int'),
  *       },
  *       CpuManufacturers: [ // CpuManufacturerSet
- *         "intel" || "amd" || "amazon-web-services",
+ *         'intel' || 'amd' || 'amazon-web-services',
  *       ],
  *       MemoryGiBPerVCpu: { // MemoryGiBPerVCpuRequest
- *         Min: Number("double"),
- *         Max: Number("double"),
+ *         Min: Number('double'),
+ *         Max: Number('double'),
  *       },
  *       ExcludedInstanceTypes: [ // ExcludedInstanceTypeSet
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *       InstanceGenerations: [ // InstanceGenerationSet
- *         "current" || "previous",
+ *         'current' || 'previous',
  *       ],
- *       SpotMaxPricePercentageOverLowestPrice: Number("int"),
- *       OnDemandMaxPricePercentageOverLowestPrice: Number("int"),
- *       BareMetal: "included" || "required" || "excluded",
- *       BurstablePerformance: "included" || "required" || "excluded",
+ *       SpotMaxPricePercentageOverLowestPrice: Number('int'),
+ *       OnDemandMaxPricePercentageOverLowestPrice: Number('int'),
+ *       BareMetal: 'included' || 'required' || 'excluded',
+ *       BurstablePerformance: 'included' || 'required' || 'excluded',
  *       RequireHibernateSupport: true || false,
  *       NetworkInterfaceCount: { // NetworkInterfaceCountRequest
- *         Min: Number("int"),
- *         Max: Number("int"),
+ *         Min: Number('int'),
+ *         Max: Number('int'),
  *       },
- *       LocalStorage: "included" || "required" || "excluded",
+ *       LocalStorage: 'included' || 'required' || 'excluded',
  *       LocalStorageTypes: [ // LocalStorageTypeSet
- *         "hdd" || "ssd",
+ *         'hdd' || 'ssd',
  *       ],
  *       TotalLocalStorageGB: { // TotalLocalStorageGBRequest
- *         Min: Number("double"),
- *         Max: Number("double"),
+ *         Min: Number('double'),
+ *         Max: Number('double'),
  *       },
  *       BaselineEbsBandwidthMbps: { // BaselineEbsBandwidthMbpsRequest
- *         Min: Number("int"),
- *         Max: Number("int"),
+ *         Min: Number('int'),
+ *         Max: Number('int'),
  *       },
  *       AcceleratorTypes: [ // AcceleratorTypeSet
- *         "gpu" || "fpga" || "inference",
+ *         'gpu' || 'fpga' || 'inference',
  *       ],
  *       AcceleratorCount: { // AcceleratorCountRequest
- *         Min: Number("int"),
- *         Max: Number("int"),
+ *         Min: Number('int'),
+ *         Max: Number('int'),
  *       },
  *       AcceleratorManufacturers: [ // AcceleratorManufacturerSet
- *         "nvidia" || "amd" || "amazon-web-services" || "xilinx",
+ *         'nvidia' || 'amd' || 'amazon-web-services' || 'xilinx',
  *       ],
  *       AcceleratorNames: [ // AcceleratorNameSet
- *         "a100" || "v100" || "k80" || "t4" || "m60" || "radeon-pro-v520" || "vu9p" || "inferentia" || "k520",
+ *         'a100' || 'v100' || 'k80' || 't4' || 'm60' || 'radeon-pro-v520' || 'vu9p' || 'inferentia' || 'k520',
  *       ],
  *       AcceleratorTotalMemoryMiB: { // AcceleratorTotalMemoryMiBRequest
- *         Min: Number("int"),
- *         Max: Number("int"),
+ *         Min: Number('int'),
+ *         Max: Number('int'),
  *       },
  *       NetworkBandwidthGbps: { // NetworkBandwidthGbpsRequest
- *         Min: Number("double"),
- *         Max: Number("double"),
+ *         Min: Number('double'),
+ *         Max: Number('double'),
  *       },
  *       AllowedInstanceTypes: [ // AllowedInstanceTypeSet
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   },
  *   DryRun: true || false,
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new GetSpotPlacementScoresCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetSpotPlacementScoresResult
+ *   SpotPlacementScores: [ // SpotPlacementScores
+ *     { // SpotPlacementScore
+ *       Region: 'STRING_VALUE',
+ *       AvailabilityZoneId: 'STRING_VALUE',
+ *       Score: Number('int'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetSpotPlacementScoresCommandInput - {@link GetSpotPlacementScoresCommandInput}
@@ -146,6 +158,8 @@ export interface GetSpotPlacementScoresCommandOutput extends GetSpotPlacementSco
  * @see {@link GetSpotPlacementScoresCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class GetSpotPlacementScoresCommand extends $Command<

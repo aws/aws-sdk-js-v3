@@ -36,19 +36,25 @@ export interface UpdateProjectCommandOutput extends UpdateProjectResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DataBrewClient, UpdateProjectCommand } from "@aws-sdk/client-databrew"; // ES Modules import
- * // const { DataBrewClient, UpdateProjectCommand } = require("@aws-sdk/client-databrew"); // CommonJS import
+ * import { DataBrewClient, UpdateProjectCommand } from '@aws-sdk/client-databrew'; // ES Modules import
+ * // const { DataBrewClient, UpdateProjectCommand } = require('@aws-sdk/client-databrew'); // CommonJS import
  * const client = new DataBrewClient(config);
  * const input = { // UpdateProjectRequest
  *   Sample: { // Sample
- *     Size: Number("int"),
- *     Type: "FIRST_N" || "LAST_N" || "RANDOM", // required
+ *     Size: Number('int'),
+ *     Type: 'FIRST_N' || 'LAST_N' || 'RANDOM', // required
  *   },
- *   RoleArn: "STRING_VALUE", // required
- *   Name: "STRING_VALUE", // required
+ *   RoleArn: 'STRING_VALUE', // required
+ *   Name: 'STRING_VALUE', // required
  * };
  * const command = new UpdateProjectCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateProjectResponse
+ *   LastModifiedDate: new Date('TIMESTAMP'),
+ *   Name: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param UpdateProjectCommandInput - {@link UpdateProjectCommandInput}
@@ -63,6 +69,8 @@ export interface UpdateProjectCommandOutput extends UpdateProjectResponse, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>The input parameters for this request failed validation.</p>
  *
+ * @throws {@link DataBrewServiceException}
+ * <p>Base exception class for all service exceptions from DataBrew service.</p>
  *
  */
 export class UpdateProjectCommand extends $Command<

@@ -36,15 +36,41 @@ export interface GetListenerCommandOutput extends GetListenerResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { VPCLatticeClient, GetListenerCommand } from "@aws-sdk/client-vpc-lattice"; // ES Modules import
- * // const { VPCLatticeClient, GetListenerCommand } = require("@aws-sdk/client-vpc-lattice"); // CommonJS import
+ * import { VPCLatticeClient, GetListenerCommand } from '@aws-sdk/client-vpc-lattice'; // ES Modules import
+ * // const { VPCLatticeClient, GetListenerCommand } = require('@aws-sdk/client-vpc-lattice'); // CommonJS import
  * const client = new VPCLatticeClient(config);
  * const input = { // GetListenerRequest
- *   serviceIdentifier: "STRING_VALUE", // required
- *   listenerIdentifier: "STRING_VALUE", // required
+ *   serviceIdentifier: 'STRING_VALUE', // required
+ *   listenerIdentifier: 'STRING_VALUE', // required
  * };
  * const command = new GetListenerCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetListenerResponse
+ *   arn: 'STRING_VALUE',
+ *   id: 'STRING_VALUE',
+ *   name: 'STRING_VALUE',
+ *   protocol: 'STRING_VALUE',
+ *   port: Number('int'),
+ *   serviceArn: 'STRING_VALUE',
+ *   serviceId: 'STRING_VALUE',
+ *   defaultAction: { // RuleAction Union: only one key present
+ *     forward: { // ForwardAction
+ *       targetGroups: [ // WeightedTargetGroupList // required
+ *         { // WeightedTargetGroup
+ *           targetGroupIdentifier: 'STRING_VALUE', // required
+ *           weight: Number('int'),
+ *         },
+ *       ],
+ *     },
+ *     fixedResponse: { // FixedResponseAction
+ *       statusCode: Number('int'), // required
+ *     },
+ *   },
+ *   createdAt: new Date('TIMESTAMP'),
+ *   lastUpdatedAt: new Date('TIMESTAMP'),
+ * };
+ *
  * ```
  *
  * @param GetListenerCommandInput - {@link GetListenerCommandInput}
@@ -69,6 +95,8 @@ export interface GetListenerCommandOutput extends GetListenerResponse, __Metadat
  *  <p>The input does not satisfy the constraints specified by an Amazon Web Services
  *    service.</p>
  *
+ * @throws {@link VPCLatticeServiceException}
+ * <p>Base exception class for all service exceptions from VPCLattice service.</p>
  *
  */
 export class GetListenerCommand extends $Command<

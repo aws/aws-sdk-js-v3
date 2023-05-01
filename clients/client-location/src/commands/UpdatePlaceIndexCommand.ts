@@ -36,19 +36,26 @@ export interface UpdatePlaceIndexCommandOutput extends UpdatePlaceIndexResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LocationClient, UpdatePlaceIndexCommand } from "@aws-sdk/client-location"; // ES Modules import
- * // const { LocationClient, UpdatePlaceIndexCommand } = require("@aws-sdk/client-location"); // CommonJS import
+ * import { LocationClient, UpdatePlaceIndexCommand } from '@aws-sdk/client-location'; // ES Modules import
+ * // const { LocationClient, UpdatePlaceIndexCommand } = require('@aws-sdk/client-location'); // CommonJS import
  * const client = new LocationClient(config);
  * const input = { // UpdatePlaceIndexRequest
- *   IndexName: "STRING_VALUE", // required
- *   PricingPlan: "STRING_VALUE",
- *   Description: "STRING_VALUE",
+ *   IndexName: 'STRING_VALUE', // required
+ *   PricingPlan: 'STRING_VALUE',
+ *   Description: 'STRING_VALUE',
  *   DataSourceConfiguration: { // DataSourceConfiguration
- *     IntendedUse: "STRING_VALUE",
+ *     IntendedUse: 'STRING_VALUE',
  *   },
  * };
  * const command = new UpdatePlaceIndexCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdatePlaceIndexResponse
+ *   IndexName: 'STRING_VALUE', // required
+ *   IndexArn: 'STRING_VALUE', // required
+ *   UpdateTime: new Date('TIMESTAMP'), // required
+ * };
+ *
  * ```
  *
  * @param UpdatePlaceIndexCommandInput - {@link UpdatePlaceIndexCommandInput}
@@ -73,6 +80,8 @@ export interface UpdatePlaceIndexCommandOutput extends UpdatePlaceIndexResponse,
  * @throws {@link ValidationException} (client fault)
  *  <p>The input failed to meet the constraints specified by the AWS service. </p>
  *
+ * @throws {@link LocationServiceException}
+ * <p>Base exception class for all service exceptions from Location service.</p>
  *
  */
 export class UpdatePlaceIndexCommand extends $Command<

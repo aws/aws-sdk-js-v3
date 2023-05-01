@@ -36,26 +36,32 @@ export interface CreateSceneCommandOutput extends CreateSceneResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTTwinMakerClient, CreateSceneCommand } from "@aws-sdk/client-iottwinmaker"; // ES Modules import
- * // const { IoTTwinMakerClient, CreateSceneCommand } = require("@aws-sdk/client-iottwinmaker"); // CommonJS import
+ * import { IoTTwinMakerClient, CreateSceneCommand } from '@aws-sdk/client-iottwinmaker'; // ES Modules import
+ * // const { IoTTwinMakerClient, CreateSceneCommand } = require('@aws-sdk/client-iottwinmaker'); // CommonJS import
  * const client = new IoTTwinMakerClient(config);
  * const input = { // CreateSceneRequest
- *   workspaceId: "STRING_VALUE", // required
- *   sceneId: "STRING_VALUE", // required
- *   contentLocation: "STRING_VALUE", // required
- *   description: "STRING_VALUE",
+ *   workspaceId: 'STRING_VALUE', // required
+ *   sceneId: 'STRING_VALUE', // required
+ *   contentLocation: 'STRING_VALUE', // required
+ *   description: 'STRING_VALUE',
  *   capabilities: [ // SceneCapabilities
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  *   sceneMetadata: { // SceneMetadataMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateSceneCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateSceneResponse
+ *   arn: 'STRING_VALUE', // required
+ *   creationDateTime: new Date('TIMESTAMP'), // required
+ * };
+ *
  * ```
  *
  * @param CreateSceneCommandInput - {@link CreateSceneCommandInput}
@@ -82,6 +88,8 @@ export interface CreateSceneCommandOutput extends CreateSceneResponse, __Metadat
  * @throws {@link ValidationException} (client fault)
  *  <p>Failed</p>
  *
+ * @throws {@link IoTTwinMakerServiceException}
+ * <p>Base exception class for all service exceptions from IoTTwinMaker service.</p>
  *
  */
 export class CreateSceneCommand extends $Command<

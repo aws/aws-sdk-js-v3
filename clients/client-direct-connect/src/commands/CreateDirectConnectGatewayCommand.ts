@@ -41,15 +41,27 @@ export interface CreateDirectConnectGatewayCommandOutput extends CreateDirectCon
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DirectConnectClient, CreateDirectConnectGatewayCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
- * // const { DirectConnectClient, CreateDirectConnectGatewayCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
+ * import { DirectConnectClient, CreateDirectConnectGatewayCommand } from '@aws-sdk/client-direct-connect'; // ES Modules import
+ * // const { DirectConnectClient, CreateDirectConnectGatewayCommand } = require('@aws-sdk/client-direct-connect'); // CommonJS import
  * const client = new DirectConnectClient(config);
  * const input = { // CreateDirectConnectGatewayRequest
- *   directConnectGatewayName: "STRING_VALUE", // required
- *   amazonSideAsn: Number("long"),
+ *   directConnectGatewayName: 'STRING_VALUE', // required
+ *   amazonSideAsn: Number('long'),
  * };
  * const command = new CreateDirectConnectGatewayCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateDirectConnectGatewayResult
+ *   directConnectGateway: { // DirectConnectGateway
+ *     directConnectGatewayId: 'STRING_VALUE',
+ *     directConnectGatewayName: 'STRING_VALUE',
+ *     amazonSideAsn: Number('long'),
+ *     ownerAccount: 'STRING_VALUE',
+ *     directConnectGatewayState: 'pending' || 'available' || 'deleting' || 'deleted',
+ *     stateChangeError: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateDirectConnectGatewayCommandInput - {@link CreateDirectConnectGatewayCommandInput}
@@ -64,6 +76,8 @@ export interface CreateDirectConnectGatewayCommandOutput extends CreateDirectCon
  * @throws {@link DirectConnectServerException} (server fault)
  *  <p>A server-side error occurred.</p>
  *
+ * @throws {@link DirectConnectServiceException}
+ * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
  */
 export class CreateDirectConnectGatewayCommand extends $Command<

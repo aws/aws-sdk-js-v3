@@ -44,48 +44,89 @@ export interface UpdateDomainCommandOutput extends UpdateDomainResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CustomerProfilesClient, UpdateDomainCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
- * // const { CustomerProfilesClient, UpdateDomainCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
+ * import { CustomerProfilesClient, UpdateDomainCommand } from '@aws-sdk/client-customer-profiles'; // ES Modules import
+ * // const { CustomerProfilesClient, UpdateDomainCommand } = require('@aws-sdk/client-customer-profiles'); // CommonJS import
  * const client = new CustomerProfilesClient(config);
  * const input = { // UpdateDomainRequest
- *   DomainName: "STRING_VALUE", // required
- *   DefaultExpirationDays: Number("int"),
- *   DefaultEncryptionKey: "STRING_VALUE",
- *   DeadLetterQueueUrl: "STRING_VALUE",
+ *   DomainName: 'STRING_VALUE', // required
+ *   DefaultExpirationDays: Number('int'),
+ *   DefaultEncryptionKey: 'STRING_VALUE',
+ *   DeadLetterQueueUrl: 'STRING_VALUE',
  *   Matching: { // MatchingRequest
  *     Enabled: true || false, // required
  *     JobSchedule: { // JobSchedule
- *       DayOfTheWeek: "SUNDAY" || "MONDAY" || "TUESDAY" || "WEDNESDAY" || "THURSDAY" || "FRIDAY" || "SATURDAY", // required
- *       Time: "STRING_VALUE", // required
+ *       DayOfTheWeek: 'SUNDAY' || 'MONDAY' || 'TUESDAY' || 'WEDNESDAY' || 'THURSDAY' || 'FRIDAY' || 'SATURDAY', // required
+ *       Time: 'STRING_VALUE', // required
  *     },
  *     AutoMerging: { // AutoMerging
  *       Enabled: true || false, // required
  *       Consolidation: { // Consolidation
  *         MatchingAttributesList: [ // MatchingAttributesList // required
  *           [ // MatchingAttributes
- *             "STRING_VALUE",
+ *             'STRING_VALUE',
  *           ],
  *         ],
  *       },
  *       ConflictResolution: { // ConflictResolution
- *         ConflictResolvingModel: "RECENCY" || "SOURCE", // required
- *         SourceName: "STRING_VALUE",
+ *         ConflictResolvingModel: 'RECENCY' || 'SOURCE', // required
+ *         SourceName: 'STRING_VALUE',
  *       },
- *       MinAllowedConfidenceScoreForMerging: Number("double"),
+ *       MinAllowedConfidenceScoreForMerging: Number('double'),
  *     },
  *     ExportingConfig: { // ExportingConfig
  *       S3Exporting: { // S3ExportingConfig
- *         S3BucketName: "STRING_VALUE", // required
- *         S3KeyName: "STRING_VALUE",
+ *         S3BucketName: 'STRING_VALUE', // required
+ *         S3KeyName: 'STRING_VALUE',
  *       },
  *     },
  *   },
  *   Tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new UpdateDomainCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateDomainResponse
+ *   DomainName: 'STRING_VALUE', // required
+ *   DefaultExpirationDays: Number('int'),
+ *   DefaultEncryptionKey: 'STRING_VALUE',
+ *   DeadLetterQueueUrl: 'STRING_VALUE',
+ *   Matching: { // MatchingResponse
+ *     Enabled: true || false,
+ *     JobSchedule: { // JobSchedule
+ *       DayOfTheWeek: 'SUNDAY' || 'MONDAY' || 'TUESDAY' || 'WEDNESDAY' || 'THURSDAY' || 'FRIDAY' || 'SATURDAY', // required
+ *       Time: 'STRING_VALUE', // required
+ *     },
+ *     AutoMerging: { // AutoMerging
+ *       Enabled: true || false, // required
+ *       Consolidation: { // Consolidation
+ *         MatchingAttributesList: [ // MatchingAttributesList // required
+ *           [ // MatchingAttributes
+ *             'STRING_VALUE',
+ *           ],
+ *         ],
+ *       },
+ *       ConflictResolution: { // ConflictResolution
+ *         ConflictResolvingModel: 'RECENCY' || 'SOURCE', // required
+ *         SourceName: 'STRING_VALUE',
+ *       },
+ *       MinAllowedConfidenceScoreForMerging: Number('double'),
+ *     },
+ *     ExportingConfig: { // ExportingConfig
+ *       S3Exporting: { // S3ExportingConfig
+ *         S3BucketName: 'STRING_VALUE', // required
+ *         S3KeyName: 'STRING_VALUE',
+ *       },
+ *     },
+ *   },
+ *   CreatedAt: new Date('TIMESTAMP'), // required
+ *   LastUpdatedAt: new Date('TIMESTAMP'), // required
+ *   Tags: { // TagMap
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateDomainCommandInput - {@link UpdateDomainCommandInput}
@@ -109,6 +150,8 @@ export interface UpdateDomainCommandOutput extends UpdateDomainResponse, __Metad
  * @throws {@link ThrottlingException} (client fault)
  *  <p>You exceeded the maximum number of requests.</p>
  *
+ * @throws {@link CustomerProfilesServiceException}
+ * <p>Base exception class for all service exceptions from CustomerProfiles service.</p>
  *
  */
 export class UpdateDomainCommand extends $Command<

@@ -38,15 +38,20 @@ export interface DisableControlCommandOutput extends DisableControlOutput, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ControlTowerClient, DisableControlCommand } from "@aws-sdk/client-controltower"; // ES Modules import
- * // const { ControlTowerClient, DisableControlCommand } = require("@aws-sdk/client-controltower"); // CommonJS import
+ * import { ControlTowerClient, DisableControlCommand } from '@aws-sdk/client-controltower'; // ES Modules import
+ * // const { ControlTowerClient, DisableControlCommand } = require('@aws-sdk/client-controltower'); // CommonJS import
  * const client = new ControlTowerClient(config);
  * const input = { // DisableControlInput
- *   controlIdentifier: "STRING_VALUE", // required
- *   targetIdentifier: "STRING_VALUE", // required
+ *   controlIdentifier: 'STRING_VALUE', // required
+ *   targetIdentifier: 'STRING_VALUE', // required
  * };
  * const command = new DisableControlCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DisableControlOutput
+ *   operationIdentifier: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param DisableControlCommandInput - {@link DisableControlCommandInput}
@@ -77,6 +82,8 @@ export interface DisableControlCommandOutput extends DisableControlOutput, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link ControlTowerServiceException}
+ * <p>Base exception class for all service exceptions from ControlTower service.</p>
  *
  */
 export class DisableControlCommand extends $Command<

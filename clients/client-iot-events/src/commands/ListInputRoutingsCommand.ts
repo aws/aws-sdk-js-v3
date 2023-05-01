@@ -38,26 +38,37 @@ export interface ListInputRoutingsCommandOutput extends ListInputRoutingsRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTEventsClient, ListInputRoutingsCommand } from "@aws-sdk/client-iot-events"; // ES Modules import
- * // const { IoTEventsClient, ListInputRoutingsCommand } = require("@aws-sdk/client-iot-events"); // CommonJS import
+ * import { IoTEventsClient, ListInputRoutingsCommand } from '@aws-sdk/client-iot-events'; // ES Modules import
+ * // const { IoTEventsClient, ListInputRoutingsCommand } = require('@aws-sdk/client-iot-events'); // CommonJS import
  * const client = new IoTEventsClient(config);
  * const input = { // ListInputRoutingsRequest
  *   inputIdentifier: { // InputIdentifier
  *     iotEventsInputIdentifier: { // IotEventsInputIdentifier
- *       inputName: "STRING_VALUE", // required
+ *       inputName: 'STRING_VALUE', // required
  *     },
  *     iotSiteWiseInputIdentifier: { // IotSiteWiseInputIdentifier
  *       iotSiteWiseAssetModelPropertyIdentifier: { // IotSiteWiseAssetModelPropertyIdentifier
- *         assetModelId: "STRING_VALUE", // required
- *         propertyId: "STRING_VALUE", // required
+ *         assetModelId: 'STRING_VALUE', // required
+ *         propertyId: 'STRING_VALUE', // required
  *       },
  *     },
  *   },
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new ListInputRoutingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListInputRoutingsResponse
+ *   routedResources: [ // RoutedResources
+ *     { // RoutedResource
+ *       name: 'STRING_VALUE',
+ *       arn: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListInputRoutingsCommandInput - {@link ListInputRoutingsCommandInput}
@@ -81,6 +92,8 @@ export interface ListInputRoutingsCommandOutput extends ListInputRoutingsRespons
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request could not be completed due to throttling.</p>
  *
+ * @throws {@link IoTEventsServiceException}
+ * <p>Base exception class for all service exceptions from IoTEvents service.</p>
  *
  */
 export class ListInputRoutingsCommand extends $Command<

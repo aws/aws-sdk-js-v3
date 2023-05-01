@@ -36,18 +36,23 @@ export interface PutResourcePolicyCommandOutput extends PutResourcePolicyRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlueClient, PutResourcePolicyCommand } from "@aws-sdk/client-glue"; // ES Modules import
- * // const { GlueClient, PutResourcePolicyCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * import { GlueClient, PutResourcePolicyCommand } from '@aws-sdk/client-glue'; // ES Modules import
+ * // const { GlueClient, PutResourcePolicyCommand } = require('@aws-sdk/client-glue'); // CommonJS import
  * const client = new GlueClient(config);
  * const input = { // PutResourcePolicyRequest
- *   PolicyInJson: "STRING_VALUE", // required
- *   ResourceArn: "STRING_VALUE",
- *   PolicyHashCondition: "STRING_VALUE",
- *   PolicyExistsCondition: "MUST_EXIST" || "NOT_EXIST" || "NONE",
- *   EnableHybrid: "TRUE" || "FALSE",
+ *   PolicyInJson: 'STRING_VALUE', // required
+ *   ResourceArn: 'STRING_VALUE',
+ *   PolicyHashCondition: 'STRING_VALUE',
+ *   PolicyExistsCondition: 'MUST_EXIST' || 'NOT_EXIST' || 'NONE',
+ *   EnableHybrid: 'TRUE' || 'FALSE',
  * };
  * const command = new PutResourcePolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutResourcePolicyResponse
+ *   PolicyHash: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param PutResourcePolicyCommandInput - {@link PutResourcePolicyCommandInput}
@@ -71,6 +76,8 @@ export interface PutResourcePolicyCommandOutput extends PutResourcePolicyRespons
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class PutResourcePolicyCommand extends $Command<

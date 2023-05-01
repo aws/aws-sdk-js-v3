@@ -36,39 +36,39 @@ export interface CreateBrokerCommandOutput extends CreateBrokerResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MqClient, CreateBrokerCommand } from "@aws-sdk/client-mq"; // ES Modules import
- * // const { MqClient, CreateBrokerCommand } = require("@aws-sdk/client-mq"); // CommonJS import
+ * import { MqClient, CreateBrokerCommand } from '@aws-sdk/client-mq'; // ES Modules import
+ * // const { MqClient, CreateBrokerCommand } = require('@aws-sdk/client-mq'); // CommonJS import
  * const client = new MqClient(config);
  * const input = { // CreateBrokerRequest
- *   AuthenticationStrategy: "STRING_VALUE",
+ *   AuthenticationStrategy: 'STRING_VALUE',
  *   AutoMinorVersionUpgrade: true || false, // required
- *   BrokerName: "STRING_VALUE", // required
+ *   BrokerName: 'STRING_VALUE', // required
  *   Configuration: { // ConfigurationId
- *     Id: "STRING_VALUE", // required
- *     Revision: Number("int"),
+ *     Id: 'STRING_VALUE', // required
+ *     Revision: Number('int'),
  *   },
- *   CreatorRequestId: "STRING_VALUE",
- *   DeploymentMode: "STRING_VALUE", // required
+ *   CreatorRequestId: 'STRING_VALUE',
+ *   DeploymentMode: 'STRING_VALUE', // required
  *   EncryptionOptions: { // EncryptionOptions
- *     KmsKeyId: "STRING_VALUE",
+ *     KmsKeyId: 'STRING_VALUE',
  *     UseAwsOwnedKey: true || false, // required
  *   },
- *   EngineType: "STRING_VALUE", // required
- *   EngineVersion: "STRING_VALUE", // required
- *   HostInstanceType: "STRING_VALUE", // required
+ *   EngineType: 'STRING_VALUE', // required
+ *   EngineVersion: 'STRING_VALUE', // required
+ *   HostInstanceType: 'STRING_VALUE', // required
  *   LdapServerMetadata: { // LdapServerMetadataInput
  *     Hosts: [ // __listOf__string // required
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
- *     RoleBase: "STRING_VALUE", // required
- *     RoleName: "STRING_VALUE",
- *     RoleSearchMatching: "STRING_VALUE", // required
+ *     RoleBase: 'STRING_VALUE', // required
+ *     RoleName: 'STRING_VALUE',
+ *     RoleSearchMatching: 'STRING_VALUE', // required
  *     RoleSearchSubtree: true || false,
- *     ServiceAccountPassword: "STRING_VALUE", // required
- *     ServiceAccountUsername: "STRING_VALUE", // required
- *     UserBase: "STRING_VALUE", // required
- *     UserRoleName: "STRING_VALUE",
- *     UserSearchMatching: "STRING_VALUE", // required
+ *     ServiceAccountPassword: 'STRING_VALUE', // required
+ *     ServiceAccountUsername: 'STRING_VALUE', // required
+ *     UserBase: 'STRING_VALUE', // required
+ *     UserRoleName: 'STRING_VALUE',
+ *     UserSearchMatching: 'STRING_VALUE', // required
  *     UserSearchSubtree: true || false,
  *   },
  *   Logs: { // Logs
@@ -76,32 +76,38 @@ export interface CreateBrokerCommandOutput extends CreateBrokerResponse, __Metad
  *     General: true || false,
  *   },
  *   MaintenanceWindowStartTime: { // WeeklyStartTime
- *     DayOfWeek: "STRING_VALUE", // required
- *     TimeOfDay: "STRING_VALUE", // required
- *     TimeZone: "STRING_VALUE",
+ *     DayOfWeek: 'STRING_VALUE', // required
+ *     TimeOfDay: 'STRING_VALUE', // required
+ *     TimeZone: 'STRING_VALUE',
  *   },
  *   PubliclyAccessible: true || false, // required
  *   SecurityGroups: [
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   StorageType: "STRING_VALUE",
+ *   StorageType: 'STRING_VALUE',
  *   SubnetIds: [
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   Tags: { // __mapOf__string
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  *   Users: [ // __listOfUser // required
  *     { // User
  *       ConsoleAccess: true || false,
- *       Groups: "<__listOf__string>",
- *       Password: "STRING_VALUE", // required
- *       Username: "STRING_VALUE", // required
+ *       Groups: '<__listOf__string>',
+ *       Password: 'STRING_VALUE', // required
+ *       Username: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreateBrokerCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateBrokerResponse
+ *   BrokerArn: 'STRING_VALUE',
+ *   BrokerId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateBrokerCommandInput - {@link CreateBrokerCommandInput}
@@ -125,6 +131,8 @@ export interface CreateBrokerCommandOutput extends CreateBrokerResponse, __Metad
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>Returns information about an error.</p>
  *
+ * @throws {@link MqServiceException}
+ * <p>Base exception class for all service exceptions from Mq service.</p>
  *
  */
 export class CreateBrokerCommand extends $Command<

@@ -38,16 +38,19 @@ export interface UpdateContactFlowContentCommandOutput extends UpdateContactFlow
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, UpdateContactFlowContentCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, UpdateContactFlowContentCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, UpdateContactFlowContentCommand } from '@aws-sdk/client-connect'; // ES Modules import
+ * // const { ConnectClient, UpdateContactFlowContentCommand } = require('@aws-sdk/client-connect'); // CommonJS import
  * const client = new ConnectClient(config);
  * const input = { // UpdateContactFlowContentRequest
- *   InstanceId: "STRING_VALUE", // required
- *   ContactFlowId: "STRING_VALUE", // required
- *   Content: "STRING_VALUE", // required
+ *   InstanceId: 'STRING_VALUE', // required
+ *   ContactFlowId: 'STRING_VALUE', // required
+ *   Content: 'STRING_VALUE', // required
  * };
  * const command = new UpdateContactFlowContentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateContactFlowContentCommandInput - {@link UpdateContactFlowContentCommandInput}
@@ -74,6 +77,8 @@ export interface UpdateContactFlowContentCommandOutput extends UpdateContactFlow
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class UpdateContactFlowContentCommand extends $Command<

@@ -36,15 +36,21 @@ export interface AssociateTrustStoreCommandOutput extends AssociateTrustStoreRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkSpacesWebClient, AssociateTrustStoreCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
- * // const { WorkSpacesWebClient, AssociateTrustStoreCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
+ * import { WorkSpacesWebClient, AssociateTrustStoreCommand } from '@aws-sdk/client-workspaces-web'; // ES Modules import
+ * // const { WorkSpacesWebClient, AssociateTrustStoreCommand } = require('@aws-sdk/client-workspaces-web'); // CommonJS import
  * const client = new WorkSpacesWebClient(config);
  * const input = { // AssociateTrustStoreRequest
- *   portalArn: "STRING_VALUE", // required
- *   trustStoreArn: "STRING_VALUE", // required
+ *   portalArn: 'STRING_VALUE', // required
+ *   trustStoreArn: 'STRING_VALUE', // required
  * };
  * const command = new AssociateTrustStoreCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AssociateTrustStoreResponse
+ *   portalArn: 'STRING_VALUE', // required
+ *   trustStoreArn: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param AssociateTrustStoreCommandInput - {@link AssociateTrustStoreCommandInput}
@@ -68,6 +74,8 @@ export interface AssociateTrustStoreCommandOutput extends AssociateTrustStoreRes
  * @throws {@link ValidationException} (client fault)
  *  <p>There is a validation error.</p>
  *
+ * @throws {@link WorkSpacesWebServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
  */
 export class AssociateTrustStoreCommand extends $Command<

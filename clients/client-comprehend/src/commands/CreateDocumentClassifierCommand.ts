@@ -41,71 +41,76 @@ export interface CreateDocumentClassifierCommandOutput extends CreateDocumentCla
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ComprehendClient, CreateDocumentClassifierCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
- * // const { ComprehendClient, CreateDocumentClassifierCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
+ * import { ComprehendClient, CreateDocumentClassifierCommand } from '@aws-sdk/client-comprehend'; // ES Modules import
+ * // const { ComprehendClient, CreateDocumentClassifierCommand } = require('@aws-sdk/client-comprehend'); // CommonJS import
  * const client = new ComprehendClient(config);
  * const input = { // CreateDocumentClassifierRequest
- *   DocumentClassifierName: "STRING_VALUE", // required
- *   VersionName: "STRING_VALUE",
- *   DataAccessRoleArn: "STRING_VALUE", // required
+ *   DocumentClassifierName: 'STRING_VALUE', // required
+ *   VersionName: 'STRING_VALUE',
+ *   DataAccessRoleArn: 'STRING_VALUE', // required
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
  *   InputDataConfig: { // DocumentClassifierInputDataConfig
- *     DataFormat: "COMPREHEND_CSV" || "AUGMENTED_MANIFEST",
- *     S3Uri: "STRING_VALUE",
- *     TestS3Uri: "STRING_VALUE",
- *     LabelDelimiter: "STRING_VALUE",
+ *     DataFormat: 'COMPREHEND_CSV' || 'AUGMENTED_MANIFEST',
+ *     S3Uri: 'STRING_VALUE',
+ *     TestS3Uri: 'STRING_VALUE',
+ *     LabelDelimiter: 'STRING_VALUE',
  *     AugmentedManifests: [ // DocumentClassifierAugmentedManifestsList
  *       { // AugmentedManifestsListItem
- *         S3Uri: "STRING_VALUE", // required
- *         Split: "TRAIN" || "TEST",
+ *         S3Uri: 'STRING_VALUE', // required
+ *         Split: 'TRAIN' || 'TEST',
  *         AttributeNames: [ // AttributeNamesList // required
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
- *         AnnotationDataS3Uri: "STRING_VALUE",
- *         SourceDocumentsS3Uri: "STRING_VALUE",
- *         DocumentType: "PLAIN_TEXT_DOCUMENT" || "SEMI_STRUCTURED_DOCUMENT",
+ *         AnnotationDataS3Uri: 'STRING_VALUE',
+ *         SourceDocumentsS3Uri: 'STRING_VALUE',
+ *         DocumentType: 'PLAIN_TEXT_DOCUMENT' || 'SEMI_STRUCTURED_DOCUMENT',
  *       },
  *     ],
- *     DocumentType: "PLAIN_TEXT_DOCUMENT" || "SEMI_STRUCTURED_DOCUMENT",
+ *     DocumentType: 'PLAIN_TEXT_DOCUMENT' || 'SEMI_STRUCTURED_DOCUMENT',
  *     Documents: { // DocumentClassifierDocuments
- *       S3Uri: "STRING_VALUE", // required
- *       TestS3Uri: "STRING_VALUE",
+ *       S3Uri: 'STRING_VALUE', // required
+ *       TestS3Uri: 'STRING_VALUE',
  *     },
  *     DocumentReaderConfig: { // DocumentReaderConfig
- *       DocumentReadAction: "TEXTRACT_DETECT_DOCUMENT_TEXT" || "TEXTRACT_ANALYZE_DOCUMENT", // required
- *       DocumentReadMode: "SERVICE_DEFAULT" || "FORCE_DOCUMENT_READ_ACTION",
+ *       DocumentReadAction: 'TEXTRACT_DETECT_DOCUMENT_TEXT' || 'TEXTRACT_ANALYZE_DOCUMENT', // required
+ *       DocumentReadMode: 'SERVICE_DEFAULT' || 'FORCE_DOCUMENT_READ_ACTION',
  *       FeatureTypes: [ // ListOfDocumentReadFeatureTypes
- *         "TABLES" || "FORMS",
+ *         'TABLES' || 'FORMS',
  *       ],
  *     },
  *   },
  *   OutputDataConfig: { // DocumentClassifierOutputDataConfig
- *     S3Uri: "STRING_VALUE",
- *     KmsKeyId: "STRING_VALUE",
- *     FlywheelStatsS3Prefix: "STRING_VALUE",
+ *     S3Uri: 'STRING_VALUE',
+ *     KmsKeyId: 'STRING_VALUE',
+ *     FlywheelStatsS3Prefix: 'STRING_VALUE',
  *   },
- *   ClientRequestToken: "STRING_VALUE",
- *   LanguageCode: "en" || "es" || "fr" || "de" || "it" || "pt" || "ar" || "hi" || "ja" || "ko" || "zh" || "zh-TW", // required
- *   VolumeKmsKeyId: "STRING_VALUE",
+ *   ClientRequestToken: 'STRING_VALUE',
+ *   LanguageCode: 'en' || 'es' || 'fr' || 'de' || 'it' || 'pt' || 'ar' || 'hi' || 'ja' || 'ko' || 'zh' || 'zh-TW', // required
+ *   VolumeKmsKeyId: 'STRING_VALUE',
  *   VpcConfig: { // VpcConfig
  *     SecurityGroupIds: [ // SecurityGroupIds // required
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     Subnets: [ // Subnets // required
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *   },
- *   Mode: "MULTI_CLASS" || "MULTI_LABEL",
- *   ModelKmsKeyId: "STRING_VALUE",
- *   ModelPolicy: "STRING_VALUE",
+ *   Mode: 'MULTI_CLASS' || 'MULTI_LABEL',
+ *   ModelKmsKeyId: 'STRING_VALUE',
+ *   ModelPolicy: 'STRING_VALUE',
  * };
  * const command = new CreateDocumentClassifierCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateDocumentClassifierResponse
+ *   DocumentClassifierArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateDocumentClassifierCommandInput - {@link CreateDocumentClassifierCommandInput}
@@ -147,6 +152,8 @@ export interface CreateDocumentClassifierCommandOutput extends CreateDocumentCla
  *       <a href="https://docs.aws.amazon.com/comprehend/latest/dg/supported-languages.html">Supported languages</a> in the Comprehend Developer Guide.
  *     </p>
  *
+ * @throws {@link ComprehendServiceException}
+ * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
  */
 export class CreateDocumentClassifierCommand extends $Command<

@@ -36,16 +36,31 @@ export interface DescribeDestinationsCommandOutput extends DescribeDestinationsR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudWatchLogsClient, DescribeDestinationsCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
- * // const { CloudWatchLogsClient, DescribeDestinationsCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
+ * import { CloudWatchLogsClient, DescribeDestinationsCommand } from '@aws-sdk/client-cloudwatch-logs'; // ES Modules import
+ * // const { CloudWatchLogsClient, DescribeDestinationsCommand } = require('@aws-sdk/client-cloudwatch-logs'); // CommonJS import
  * const client = new CloudWatchLogsClient(config);
  * const input = { // DescribeDestinationsRequest
- *   DestinationNamePrefix: "STRING_VALUE",
- *   nextToken: "STRING_VALUE",
- *   limit: Number("int"),
+ *   DestinationNamePrefix: 'STRING_VALUE',
+ *   nextToken: 'STRING_VALUE',
+ *   limit: Number('int'),
  * };
  * const command = new DescribeDestinationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeDestinationsResponse
+ *   destinations: [ // Destinations
+ *     { // Destination
+ *       destinationName: 'STRING_VALUE',
+ *       targetArn: 'STRING_VALUE',
+ *       roleArn: 'STRING_VALUE',
+ *       accessPolicy: 'STRING_VALUE',
+ *       arn: 'STRING_VALUE',
+ *       creationTime: Number('long'),
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeDestinationsCommandInput - {@link DescribeDestinationsCommandInput}
@@ -60,6 +75,8 @@ export interface DescribeDestinationsCommandOutput extends DescribeDestinationsR
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service cannot complete the request.</p>
  *
+ * @throws {@link CloudWatchLogsServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
  */
 export class DescribeDestinationsCommand extends $Command<

@@ -40,16 +40,19 @@ export interface DismissUserContactCommandOutput extends DismissUserContactRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, DismissUserContactCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, DismissUserContactCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, DismissUserContactCommand } from '@aws-sdk/client-connect'; // ES Modules import
+ * // const { ConnectClient, DismissUserContactCommand } = require('@aws-sdk/client-connect'); // CommonJS import
  * const client = new ConnectClient(config);
  * const input = { // DismissUserContactRequest
- *   UserId: "STRING_VALUE", // required
- *   InstanceId: "STRING_VALUE", // required
- *   ContactId: "STRING_VALUE", // required
+ *   UserId: 'STRING_VALUE', // required
+ *   InstanceId: 'STRING_VALUE', // required
+ *   ContactId: 'STRING_VALUE', // required
  * };
  * const command = new DismissUserContactCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DismissUserContactCommandInput - {@link DismissUserContactCommandInput}
@@ -76,6 +79,8 @@ export interface DismissUserContactCommandOutput extends DismissUserContactRespo
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class DismissUserContactCommand extends $Command<

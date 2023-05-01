@@ -38,16 +38,19 @@ export interface UpdateResourcePositionCommandOutput extends UpdateResourcePosit
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTWirelessClient, UpdateResourcePositionCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
- * // const { IoTWirelessClient, UpdateResourcePositionCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
+ * import { IoTWirelessClient, UpdateResourcePositionCommand } from '@aws-sdk/client-iot-wireless'; // ES Modules import
+ * // const { IoTWirelessClient, UpdateResourcePositionCommand } = require('@aws-sdk/client-iot-wireless'); // CommonJS import
  * const client = new IoTWirelessClient(config);
  * const input = { // UpdateResourcePositionRequest
- *   ResourceIdentifier: "STRING_VALUE", // required
- *   ResourceType: "WirelessDevice" || "WirelessGateway", // required
- *   GeoJsonPayload: "BLOB_VALUE",
+ *   ResourceIdentifier: 'STRING_VALUE', // required
+ *   ResourceType: 'WirelessDevice' || 'WirelessGateway', // required
+ *   GeoJsonPayload: 'BLOB_VALUE',
  * };
  * const command = new UpdateResourcePositionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateResourcePositionCommandInput - {@link UpdateResourcePositionCommandInput}
@@ -71,6 +74,8 @@ export interface UpdateResourcePositionCommandOutput extends UpdateResourcePosit
  * @throws {@link ValidationException} (client fault)
  *  <p>The input did not meet the specified constraints.</p>
  *
+ * @throws {@link IoTWirelessServiceException}
+ * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
  */
 export class UpdateResourcePositionCommand extends $Command<

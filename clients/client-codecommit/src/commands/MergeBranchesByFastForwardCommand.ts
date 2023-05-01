@@ -36,17 +36,23 @@ export interface MergeBranchesByFastForwardCommandOutput extends MergeBranchesBy
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeCommitClient, MergeBranchesByFastForwardCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
- * // const { CodeCommitClient, MergeBranchesByFastForwardCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
+ * import { CodeCommitClient, MergeBranchesByFastForwardCommand } from '@aws-sdk/client-codecommit'; // ES Modules import
+ * // const { CodeCommitClient, MergeBranchesByFastForwardCommand } = require('@aws-sdk/client-codecommit'); // CommonJS import
  * const client = new CodeCommitClient(config);
  * const input = { // MergeBranchesByFastForwardInput
- *   repositoryName: "STRING_VALUE", // required
- *   sourceCommitSpecifier: "STRING_VALUE", // required
- *   destinationCommitSpecifier: "STRING_VALUE", // required
- *   targetBranch: "STRING_VALUE",
+ *   repositoryName: 'STRING_VALUE', // required
+ *   sourceCommitSpecifier: 'STRING_VALUE', // required
+ *   destinationCommitSpecifier: 'STRING_VALUE', // required
+ *   targetBranch: 'STRING_VALUE',
  * };
  * const command = new MergeBranchesByFastForwardCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // MergeBranchesByFastForwardOutput
+ *   commitId: 'STRING_VALUE',
+ *   treeId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param MergeBranchesByFastForwardCommandInput - {@link MergeBranchesByFastForwardCommandInput}
@@ -120,6 +126,8 @@ export interface MergeBranchesByFastForwardCommandOutput extends MergeBranchesBy
  *  <p>The divergence between the tips of the provided commit specifiers is too great to determine whether there might be
  *             any merge conflicts. Locally compare the specifiers using <code>git diff</code> or a diff tool.</p>
  *
+ * @throws {@link CodeCommitServiceException}
+ * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
  */
 export class MergeBranchesByFastForwardCommand extends $Command<

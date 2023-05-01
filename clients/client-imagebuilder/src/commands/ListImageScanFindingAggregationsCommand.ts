@@ -68,20 +68,67 @@ export interface ListImageScanFindingAggregationsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ImagebuilderClient, ListImageScanFindingAggregationsCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
- * // const { ImagebuilderClient, ListImageScanFindingAggregationsCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
+ * import { ImagebuilderClient, ListImageScanFindingAggregationsCommand } from '@aws-sdk/client-imagebuilder'; // ES Modules import
+ * // const { ImagebuilderClient, ListImageScanFindingAggregationsCommand } = require('@aws-sdk/client-imagebuilder'); // CommonJS import
  * const client = new ImagebuilderClient(config);
  * const input = { // ListImageScanFindingAggregationsRequest
  *   filter: { // Filter
- *     name: "STRING_VALUE",
+ *     name: 'STRING_VALUE',
  *     values: [ // FilterValues
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *   },
- *   nextToken: "STRING_VALUE",
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new ListImageScanFindingAggregationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListImageScanFindingAggregationsResponse
+ *   requestId: 'STRING_VALUE',
+ *   aggregationType: 'STRING_VALUE',
+ *   responses: [ // ImageScanFindingAggregationsList
+ *     { // ImageScanFindingAggregation
+ *       accountAggregation: { // AccountAggregation
+ *         accountId: 'STRING_VALUE',
+ *         severityCounts: { // SeverityCounts
+ *           all: Number('long'),
+ *           critical: Number('long'),
+ *           high: Number('long'),
+ *           medium: Number('long'),
+ *         },
+ *       },
+ *       imageAggregation: { // ImageAggregation
+ *         imageBuildVersionArn: 'STRING_VALUE',
+ *         severityCounts: {
+ *           all: Number('long'),
+ *           critical: Number('long'),
+ *           high: Number('long'),
+ *           medium: Number('long'),
+ *         },
+ *       },
+ *       imagePipelineAggregation: { // ImagePipelineAggregation
+ *         imagePipelineArn: 'STRING_VALUE',
+ *         severityCounts: {
+ *           all: Number('long'),
+ *           critical: Number('long'),
+ *           high: Number('long'),
+ *           medium: Number('long'),
+ *         },
+ *       },
+ *       vulnerabilityIdAggregation: { // VulnerabilityIdAggregation
+ *         vulnerabilityId: 'STRING_VALUE',
+ *         severityCounts: {
+ *           all: Number('long'),
+ *           critical: Number('long'),
+ *           high: Number('long'),
+ *           medium: Number('long'),
+ *         },
+ *       },
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListImageScanFindingAggregationsCommandInput - {@link ListImageScanFindingAggregationsCommandInput}
@@ -114,6 +161,8 @@ export interface ListImageScanFindingAggregationsCommandOutput
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service is unable to process your request at this time.</p>
  *
+ * @throws {@link ImagebuilderServiceException}
+ * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
  */
 export class ListImageScanFindingAggregationsCommand extends $Command<

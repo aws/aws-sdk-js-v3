@@ -36,14 +36,17 @@ export interface ClaimDeviceCommandOutput extends ClaimDeviceResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MediaLiveClient, ClaimDeviceCommand } from "@aws-sdk/client-medialive"; // ES Modules import
- * // const { MediaLiveClient, ClaimDeviceCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
+ * import { MediaLiveClient, ClaimDeviceCommand } from '@aws-sdk/client-medialive'; // ES Modules import
+ * // const { MediaLiveClient, ClaimDeviceCommand } = require('@aws-sdk/client-medialive'); // CommonJS import
  * const client = new MediaLiveClient(config);
  * const input = { // ClaimDeviceRequest
- *   Id: "STRING_VALUE",
+ *   Id: 'STRING_VALUE',
  * };
  * const command = new ClaimDeviceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param ClaimDeviceCommandInput - {@link ClaimDeviceCommandInput}
@@ -76,6 +79,8 @@ export interface ClaimDeviceCommandOutput extends ClaimDeviceResponse, __Metadat
  * @throws {@link UnprocessableEntityException} (client fault)
  *  Placeholder documentation for UnprocessableEntityException
  *
+ * @throws {@link MediaLiveServiceException}
+ * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
  */
 export class ClaimDeviceCommand extends $Command<

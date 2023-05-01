@@ -38,17 +38,31 @@ export interface DescribeDocumentPermissionCommandOutput extends DescribeDocumen
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMClient, DescribeDocumentPermissionCommand } from "@aws-sdk/client-ssm"; // ES Modules import
- * // const { SSMClient, DescribeDocumentPermissionCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * import { SSMClient, DescribeDocumentPermissionCommand } from '@aws-sdk/client-ssm'; // ES Modules import
+ * // const { SSMClient, DescribeDocumentPermissionCommand } = require('@aws-sdk/client-ssm'); // CommonJS import
  * const client = new SSMClient(config);
  * const input = { // DescribeDocumentPermissionRequest
- *   Name: "STRING_VALUE", // required
- *   PermissionType: "Share", // required
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   Name: 'STRING_VALUE', // required
+ *   PermissionType: 'Share', // required
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new DescribeDocumentPermissionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeDocumentPermissionResponse
+ *   AccountIds: [ // AccountIdList
+ *     'STRING_VALUE',
+ *   ],
+ *   AccountSharingInfoList: [ // AccountSharingInfoList
+ *     { // AccountSharingInfo
+ *       AccountId: 'STRING_VALUE',
+ *       SharedDocumentVersion: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeDocumentPermissionCommandInput - {@link DescribeDocumentPermissionCommandInput}
@@ -74,6 +88,8 @@ export interface DescribeDocumentPermissionCommandOutput extends DescribeDocumen
  *  <p>The permission type isn't supported. <i>Share</i> is the only supported
  *    permission type.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class DescribeDocumentPermissionCommand extends $Command<

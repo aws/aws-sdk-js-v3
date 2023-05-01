@@ -44,15 +44,26 @@ export interface DescribePendingAggregationRequestsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConfigServiceClient, DescribePendingAggregationRequestsCommand } from "@aws-sdk/client-config-service"; // ES Modules import
- * // const { ConfigServiceClient, DescribePendingAggregationRequestsCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
+ * import { ConfigServiceClient, DescribePendingAggregationRequestsCommand } from '@aws-sdk/client-config-service'; // ES Modules import
+ * // const { ConfigServiceClient, DescribePendingAggregationRequestsCommand } = require('@aws-sdk/client-config-service'); // CommonJS import
  * const client = new ConfigServiceClient(config);
  * const input = { // DescribePendingAggregationRequestsRequest
- *   Limit: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   Limit: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new DescribePendingAggregationRequestsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribePendingAggregationRequestsResponse
+ *   PendingAggregationRequests: [ // PendingAggregationRequestList
+ *     { // PendingAggregationRequest
+ *       RequesterAccountId: 'STRING_VALUE',
+ *       RequesterAwsRegion: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribePendingAggregationRequestsCommandInput - {@link DescribePendingAggregationRequestsCommandInput}
@@ -73,6 +84,8 @@ export interface DescribePendingAggregationRequestsCommandOutput
  *  <p>One or more of the specified parameters are not valid. Verify
  * 			that your parameters are valid and try again.</p>
  *
+ * @throws {@link ConfigServiceServiceException}
+ * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
  */
 export class DescribePendingAggregationRequestsCommand extends $Command<

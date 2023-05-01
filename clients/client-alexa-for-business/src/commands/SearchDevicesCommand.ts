@@ -36,29 +36,61 @@ export interface SearchDevicesCommandOutput extends SearchDevicesResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AlexaForBusinessClient, SearchDevicesCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
- * // const { AlexaForBusinessClient, SearchDevicesCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
+ * import { AlexaForBusinessClient, SearchDevicesCommand } from '@aws-sdk/client-alexa-for-business'; // ES Modules import
+ * // const { AlexaForBusinessClient, SearchDevicesCommand } = require('@aws-sdk/client-alexa-for-business'); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
  * const input = { // SearchDevicesRequest
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  *   Filters: [ // FilterList
  *     { // Filter
- *       Key: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
  *       Values: [ // FilterValueList // required
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
  *   SortCriteria: [ // SortList
  *     { // Sort
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new SearchDevicesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SearchDevicesResponse
+ *   Devices: [ // DeviceDataList
+ *     { // DeviceData
+ *       DeviceArn: 'STRING_VALUE',
+ *       DeviceSerialNumber: 'STRING_VALUE',
+ *       DeviceType: 'STRING_VALUE',
+ *       DeviceName: 'STRING_VALUE',
+ *       SoftwareVersion: 'STRING_VALUE',
+ *       MacAddress: 'STRING_VALUE',
+ *       DeviceStatus: 'STRING_VALUE',
+ *       NetworkProfileArn: 'STRING_VALUE',
+ *       NetworkProfileName: 'STRING_VALUE',
+ *       RoomArn: 'STRING_VALUE',
+ *       RoomName: 'STRING_VALUE',
+ *       DeviceStatusInfo: { // DeviceStatusInfo
+ *         DeviceStatusDetails: [ // DeviceStatusDetails
+ *           { // DeviceStatusDetail
+ *             Feature: 'STRING_VALUE',
+ *             Code: 'STRING_VALUE',
+ *           },
+ *         ],
+ *         ConnectionStatus: 'STRING_VALUE',
+ *         ConnectionStatusUpdatedTime: new Date('TIMESTAMP'),
+ *       },
+ *       CreatedTime: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ *   TotalCount: Number('int'),
+ * };
+ *
  * ```
  *
  * @param SearchDevicesCommandInput - {@link SearchDevicesCommandInput}
@@ -67,6 +99,8 @@ export interface SearchDevicesCommandOutput extends SearchDevicesResponse, __Met
  * @see {@link SearchDevicesCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
  *
+ * @throws {@link AlexaForBusinessServiceException}
+ * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  */
 export class SearchDevicesCommand extends $Command<

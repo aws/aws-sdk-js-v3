@@ -38,15 +38,20 @@ export interface TestRenderEmailTemplateCommandOutput extends TestRenderEmailTem
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SESv2Client, TestRenderEmailTemplateCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
- * // const { SESv2Client, TestRenderEmailTemplateCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
+ * import { SESv2Client, TestRenderEmailTemplateCommand } from '@aws-sdk/client-sesv2'; // ES Modules import
+ * // const { SESv2Client, TestRenderEmailTemplateCommand } = require('@aws-sdk/client-sesv2'); // CommonJS import
  * const client = new SESv2Client(config);
  * const input = { // TestRenderEmailTemplateRequest
- *   TemplateName: "STRING_VALUE", // required
- *   TemplateData: "STRING_VALUE", // required
+ *   TemplateName: 'STRING_VALUE', // required
+ *   TemplateData: 'STRING_VALUE', // required
  * };
  * const command = new TestRenderEmailTemplateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // TestRenderEmailTemplateResponse
+ *   RenderedTemplate: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param TestRenderEmailTemplateCommandInput - {@link TestRenderEmailTemplateCommandInput}
@@ -64,6 +69,8 @@ export interface TestRenderEmailTemplateCommandOutput extends TestRenderEmailTem
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Too many requests have been made to the operation.</p>
  *
+ * @throws {@link SESv2ServiceException}
+ * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
  */
 export class TestRenderEmailTemplateCommand extends $Command<

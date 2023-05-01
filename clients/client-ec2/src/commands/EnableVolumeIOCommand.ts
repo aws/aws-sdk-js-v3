@@ -37,15 +37,18 @@ export interface EnableVolumeIOCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, EnableVolumeIOCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, EnableVolumeIOCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, EnableVolumeIOCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, EnableVolumeIOCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // EnableVolumeIORequest
  *   DryRun: true || false,
- *   VolumeId: "STRING_VALUE", // required
+ *   VolumeId: 'STRING_VALUE', // required
  * };
  * const command = new EnableVolumeIOCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param EnableVolumeIOCommandInput - {@link EnableVolumeIOCommandInput}
@@ -54,6 +57,8 @@ export interface EnableVolumeIOCommandOutput extends __MetadataBearer {}
  * @see {@link EnableVolumeIOCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @example To enable I/O for a volume
  * ```javascript

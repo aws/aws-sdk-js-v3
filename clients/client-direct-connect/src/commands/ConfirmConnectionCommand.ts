@@ -38,14 +38,19 @@ export interface ConfirmConnectionCommandOutput extends ConfirmConnectionRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DirectConnectClient, ConfirmConnectionCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
- * // const { DirectConnectClient, ConfirmConnectionCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
+ * import { DirectConnectClient, ConfirmConnectionCommand } from '@aws-sdk/client-direct-connect'; // ES Modules import
+ * // const { DirectConnectClient, ConfirmConnectionCommand } = require('@aws-sdk/client-direct-connect'); // CommonJS import
  * const client = new DirectConnectClient(config);
  * const input = { // ConfirmConnectionRequest
- *   connectionId: "STRING_VALUE", // required
+ *   connectionId: 'STRING_VALUE', // required
  * };
  * const command = new ConfirmConnectionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ConfirmConnectionResponse
+ *   connectionState: 'ordering' || 'requested' || 'pending' || 'available' || 'down' || 'deleting' || 'deleted' || 'rejected' || 'unknown',
+ * };
+ *
  * ```
  *
  * @param ConfirmConnectionCommandInput - {@link ConfirmConnectionCommandInput}
@@ -60,6 +65,8 @@ export interface ConfirmConnectionCommandOutput extends ConfirmConnectionRespons
  * @throws {@link DirectConnectServerException} (server fault)
  *  <p>A server-side error occurred.</p>
  *
+ * @throws {@link DirectConnectServiceException}
+ * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
  */
 export class ConfirmConnectionCommand extends $Command<

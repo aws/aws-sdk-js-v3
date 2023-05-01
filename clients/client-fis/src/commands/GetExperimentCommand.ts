@@ -36,14 +36,93 @@ export interface GetExperimentCommandOutput extends GetExperimentResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FisClient, GetExperimentCommand } from "@aws-sdk/client-fis"; // ES Modules import
- * // const { FisClient, GetExperimentCommand } = require("@aws-sdk/client-fis"); // CommonJS import
+ * import { FisClient, GetExperimentCommand } from '@aws-sdk/client-fis'; // ES Modules import
+ * // const { FisClient, GetExperimentCommand } = require('@aws-sdk/client-fis'); // CommonJS import
  * const client = new FisClient(config);
  * const input = { // GetExperimentRequest
- *   id: "STRING_VALUE", // required
+ *   id: 'STRING_VALUE', // required
  * };
  * const command = new GetExperimentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetExperimentResponse
+ *   experiment: { // Experiment
+ *     id: 'STRING_VALUE',
+ *     experimentTemplateId: 'STRING_VALUE',
+ *     roleArn: 'STRING_VALUE',
+ *     state: { // ExperimentState
+ *       status: 'pending' || 'initiating' || 'running' || 'completed' || 'stopping' || 'stopped' || 'failed',
+ *       reason: 'STRING_VALUE',
+ *     },
+ *     targets: { // ExperimentTargetMap
+ *       '<keys>': { // ExperimentTarget
+ *         resourceType: 'STRING_VALUE',
+ *         resourceArns: [ // ResourceArnList
+ *           'STRING_VALUE',
+ *         ],
+ *         resourceTags: { // TagMap
+ *           '<keys>': 'STRING_VALUE',
+ *         },
+ *         filters: [ // ExperimentTargetFilterList
+ *           { // ExperimentTargetFilter
+ *             path: 'STRING_VALUE',
+ *             values: [ // ExperimentTargetFilterValues
+ *               'STRING_VALUE',
+ *             ],
+ *           },
+ *         ],
+ *         selectionMode: 'STRING_VALUE',
+ *         parameters: { // ExperimentTargetParameterMap
+ *           '<keys>': 'STRING_VALUE',
+ *         },
+ *       },
+ *     },
+ *     actions: { // ExperimentActionMap
+ *       '<keys>': { // ExperimentAction
+ *         actionId: 'STRING_VALUE',
+ *         description: 'STRING_VALUE',
+ *         parameters: { // ExperimentActionParameterMap
+ *           '<keys>': 'STRING_VALUE',
+ *         },
+ *         targets: { // ExperimentActionTargetMap
+ *           '<keys>': 'STRING_VALUE',
+ *         },
+ *         startAfter: [ // ExperimentActionStartAfterList
+ *           'STRING_VALUE',
+ *         ],
+ *         state: { // ExperimentActionState
+ *           status: 'pending' || 'initiating' || 'running' || 'completed' || 'cancelled' || 'stopping' || 'stopped' || 'failed',
+ *           reason: 'STRING_VALUE',
+ *         },
+ *         startTime: new Date('TIMESTAMP'),
+ *         endTime: new Date('TIMESTAMP'),
+ *       },
+ *     },
+ *     stopConditions: [ // ExperimentStopConditionList
+ *       { // ExperimentStopCondition
+ *         source: 'STRING_VALUE',
+ *         value: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     creationTime: new Date('TIMESTAMP'),
+ *     startTime: new Date('TIMESTAMP'),
+ *     endTime: new Date('TIMESTAMP'),
+ *     tags: {
+ *       '<keys>': 'STRING_VALUE',
+ *     },
+ *     logConfiguration: { // ExperimentLogConfiguration
+ *       cloudWatchLogsConfiguration: { // ExperimentCloudWatchLogsLogConfiguration
+ *         logGroupArn: 'STRING_VALUE',
+ *       },
+ *       s3Configuration: { // ExperimentS3LogConfiguration
+ *         bucketName: 'STRING_VALUE',
+ *         prefix: 'STRING_VALUE',
+ *       },
+ *       logSchemaVersion: Number('int'),
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetExperimentCommandInput - {@link GetExperimentCommandInput}
@@ -58,6 +137,8 @@ export interface GetExperimentCommandOutput extends GetExperimentResponse, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>The specified input is not valid, or fails to satisfy the constraints for the request.</p>
  *
+ * @throws {@link FisServiceException}
+ * <p>Base exception class for all service exceptions from Fis service.</p>
  *
  */
 export class GetExperimentCommand extends $Command<

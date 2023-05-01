@@ -37,16 +37,28 @@ export interface GetVehicleStatusCommandOutput extends GetVehicleStatusResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTFleetWiseClient, GetVehicleStatusCommand } from "@aws-sdk/client-iotfleetwise"; // ES Modules import
- * // const { IoTFleetWiseClient, GetVehicleStatusCommand } = require("@aws-sdk/client-iotfleetwise"); // CommonJS import
+ * import { IoTFleetWiseClient, GetVehicleStatusCommand } from '@aws-sdk/client-iotfleetwise'; // ES Modules import
+ * // const { IoTFleetWiseClient, GetVehicleStatusCommand } = require('@aws-sdk/client-iotfleetwise'); // CommonJS import
  * const client = new IoTFleetWiseClient(config);
  * const input = { // GetVehicleStatusRequest
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
- *   vehicleName: "STRING_VALUE", // required
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
+ *   vehicleName: 'STRING_VALUE', // required
  * };
  * const command = new GetVehicleStatusCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetVehicleStatusResponse
+ *   campaigns: [ // VehicleStatusList
+ *     { // VehicleStatus
+ *       campaignName: 'STRING_VALUE',
+ *       vehicleName: 'STRING_VALUE',
+ *       status: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetVehicleStatusCommandInput - {@link GetVehicleStatusCommandInput}
@@ -70,6 +82,8 @@ export interface GetVehicleStatusCommandOutput extends GetVehicleStatusResponse,
  * @throws {@link InternalServerException} (server fault)
  *  <p>The request couldn't be completed because the server temporarily failed.</p>
  *
+ * @throws {@link IoTFleetWiseServiceException}
+ * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
  */
 export class GetVehicleStatusCommand extends $Command<

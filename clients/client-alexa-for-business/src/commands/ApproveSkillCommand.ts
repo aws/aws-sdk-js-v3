@@ -37,14 +37,17 @@ export interface ApproveSkillCommandOutput extends ApproveSkillResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AlexaForBusinessClient, ApproveSkillCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
- * // const { AlexaForBusinessClient, ApproveSkillCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
+ * import { AlexaForBusinessClient, ApproveSkillCommand } from '@aws-sdk/client-alexa-for-business'; // ES Modules import
+ * // const { AlexaForBusinessClient, ApproveSkillCommand } = require('@aws-sdk/client-alexa-for-business'); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
  * const input = { // ApproveSkillRequest
- *   SkillId: "STRING_VALUE", // required
+ *   SkillId: 'STRING_VALUE', // required
  * };
  * const command = new ApproveSkillCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param ApproveSkillCommandInput - {@link ApproveSkillCommandInput}
@@ -62,6 +65,8 @@ export interface ApproveSkillCommandOutput extends ApproveSkillResponse, __Metad
  * @throws {@link NotFoundException} (client fault)
  *  <p>The resource is not found.</p>
  *
+ * @throws {@link AlexaForBusinessServiceException}
+ * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  */
 export class ApproveSkillCommand extends $Command<

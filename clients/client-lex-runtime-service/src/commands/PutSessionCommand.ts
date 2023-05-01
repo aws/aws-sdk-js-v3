@@ -54,54 +54,70 @@ export interface PutSessionCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LexRuntimeServiceClient, PutSessionCommand } from "@aws-sdk/client-lex-runtime-service"; // ES Modules import
- * // const { LexRuntimeServiceClient, PutSessionCommand } = require("@aws-sdk/client-lex-runtime-service"); // CommonJS import
+ * import { LexRuntimeServiceClient, PutSessionCommand } from '@aws-sdk/client-lex-runtime-service'; // ES Modules import
+ * // const { LexRuntimeServiceClient, PutSessionCommand } = require('@aws-sdk/client-lex-runtime-service'); // CommonJS import
  * const client = new LexRuntimeServiceClient(config);
  * const input = { // PutSessionRequest
- *   botName: "STRING_VALUE", // required
- *   botAlias: "STRING_VALUE", // required
- *   userId: "STRING_VALUE", // required
+ *   botName: 'STRING_VALUE', // required
+ *   botAlias: 'STRING_VALUE', // required
+ *   userId: 'STRING_VALUE', // required
  *   sessionAttributes: { // StringMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  *   dialogAction: { // DialogAction
- *     type: "STRING_VALUE", // required
- *     intentName: "STRING_VALUE",
+ *     type: 'STRING_VALUE', // required
+ *     intentName: 'STRING_VALUE',
  *     slots: {
- *       "<keys>": "STRING_VALUE",
+ *       '<keys>': 'STRING_VALUE',
  *     },
- *     slotToElicit: "STRING_VALUE",
- *     fulfillmentState: "STRING_VALUE",
- *     message: "STRING_VALUE",
- *     messageFormat: "STRING_VALUE",
+ *     slotToElicit: 'STRING_VALUE',
+ *     fulfillmentState: 'STRING_VALUE',
+ *     message: 'STRING_VALUE',
+ *     messageFormat: 'STRING_VALUE',
  *   },
  *   recentIntentSummaryView: [ // IntentSummaryList
  *     { // IntentSummary
- *       intentName: "STRING_VALUE",
- *       checkpointLabel: "STRING_VALUE",
- *       slots: "<StringMap>",
- *       confirmationStatus: "STRING_VALUE",
- *       dialogActionType: "STRING_VALUE", // required
- *       fulfillmentState: "STRING_VALUE",
- *       slotToElicit: "STRING_VALUE",
+ *       intentName: 'STRING_VALUE',
+ *       checkpointLabel: 'STRING_VALUE',
+ *       slots: '<StringMap>',
+ *       confirmationStatus: 'STRING_VALUE',
+ *       dialogActionType: 'STRING_VALUE', // required
+ *       fulfillmentState: 'STRING_VALUE',
+ *       slotToElicit: 'STRING_VALUE',
  *     },
  *   ],
- *   accept: "STRING_VALUE",
+ *   accept: 'STRING_VALUE',
  *   activeContexts: [ // ActiveContextsList
  *     { // ActiveContext
- *       name: "STRING_VALUE", // required
+ *       name: 'STRING_VALUE', // required
  *       timeToLive: { // ActiveContextTimeToLive
- *         timeToLiveInSeconds: Number("int"),
- *         turnsToLive: Number("int"),
+ *         timeToLiveInSeconds: Number('int'),
+ *         turnsToLive: Number('int'),
  *       },
  *       parameters: { // ActiveContextParametersMap // required
- *         "<keys>": "STRING_VALUE",
+ *         '<keys>': 'STRING_VALUE',
  *       },
  *     },
  *   ],
  * };
  * const command = new PutSessionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutSessionResponse
+ *   contentType: 'STRING_VALUE',
+ *   intentName: 'STRING_VALUE',
+ *   slots: 'STRING_VALUE',
+ *   sessionAttributes: 'STRING_VALUE',
+ *   message: 'STRING_VALUE',
+ *   encodedMessage: 'STRING_VALUE',
+ *   messageFormat: 'STRING_VALUE',
+ *   dialogState: 'STRING_VALUE',
+ *   slotToElicit: 'STRING_VALUE',
+ *   audioStream: 'STREAMING_BLOB_VALUE',
+ *   sessionId: 'STRING_VALUE',
+ *   activeContexts: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param PutSessionCommandInput - {@link PutSessionCommandInput}
@@ -155,6 +171,8 @@ export interface PutSessionCommandOutput
  *  <p>The resource (such as the Amazon Lex bot or an alias) that is referred
  *       to is not found.</p>
  *
+ * @throws {@link LexRuntimeServiceServiceException}
+ * <p>Base exception class for all service exceptions from LexRuntimeService service.</p>
  *
  */
 export class PutSessionCommand extends $Command<

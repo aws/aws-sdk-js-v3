@@ -54,22 +54,27 @@ export interface CreatePortfolioShareCommandOutput extends CreatePortfolioShareO
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ServiceCatalogClient, CreatePortfolioShareCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
- * // const { ServiceCatalogClient, CreatePortfolioShareCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
+ * import { ServiceCatalogClient, CreatePortfolioShareCommand } from '@aws-sdk/client-service-catalog'; // ES Modules import
+ * // const { ServiceCatalogClient, CreatePortfolioShareCommand } = require('@aws-sdk/client-service-catalog'); // CommonJS import
  * const client = new ServiceCatalogClient(config);
  * const input = { // CreatePortfolioShareInput
- *   AcceptLanguage: "STRING_VALUE",
- *   PortfolioId: "STRING_VALUE", // required
- *   AccountId: "STRING_VALUE",
+ *   AcceptLanguage: 'STRING_VALUE',
+ *   PortfolioId: 'STRING_VALUE', // required
+ *   AccountId: 'STRING_VALUE',
  *   OrganizationNode: { // OrganizationNode
- *     Type: "ORGANIZATION" || "ORGANIZATIONAL_UNIT" || "ACCOUNT",
- *     Value: "STRING_VALUE",
+ *     Type: 'ORGANIZATION' || 'ORGANIZATIONAL_UNIT' || 'ACCOUNT',
+ *     Value: 'STRING_VALUE',
  *   },
  *   ShareTagOptions: true || false,
  *   SharePrincipals: true || false,
  * };
  * const command = new CreatePortfolioShareCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreatePortfolioShareOutput
+ *   PortfolioShareToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreatePortfolioShareCommandInput - {@link CreatePortfolioShareCommandInput}
@@ -95,6 +100,8 @@ export interface CreatePortfolioShareCommandOutput extends CreatePortfolioShareO
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link ServiceCatalogServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
  */
 export class CreatePortfolioShareCommand extends $Command<

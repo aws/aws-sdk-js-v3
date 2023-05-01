@@ -45,48 +45,53 @@ export interface CreateIndexCommandOutput extends CreateIndexResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KendraClient, CreateIndexCommand } from "@aws-sdk/client-kendra"; // ES Modules import
- * // const { KendraClient, CreateIndexCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
+ * import { KendraClient, CreateIndexCommand } from '@aws-sdk/client-kendra'; // ES Modules import
+ * // const { KendraClient, CreateIndexCommand } = require('@aws-sdk/client-kendra'); // CommonJS import
  * const client = new KendraClient(config);
  * const input = { // CreateIndexRequest
- *   Name: "STRING_VALUE", // required
- *   Edition: "DEVELOPER_EDITION" || "ENTERPRISE_EDITION",
- *   RoleArn: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
+ *   Edition: 'DEVELOPER_EDITION' || 'ENTERPRISE_EDITION',
+ *   RoleArn: 'STRING_VALUE', // required
  *   ServerSideEncryptionConfiguration: { // ServerSideEncryptionConfiguration
- *     KmsKeyId: "STRING_VALUE",
+ *     KmsKeyId: 'STRING_VALUE',
  *   },
- *   Description: "STRING_VALUE",
- *   ClientToken: "STRING_VALUE",
+ *   Description: 'STRING_VALUE',
+ *   ClientToken: 'STRING_VALUE',
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  *   UserTokenConfigurations: [ // UserTokenConfigurationList
  *     { // UserTokenConfiguration
  *       JwtTokenTypeConfiguration: { // JwtTokenTypeConfiguration
- *         KeyLocation: "URL" || "SECRET_MANAGER", // required
- *         URL: "STRING_VALUE",
- *         SecretManagerArn: "STRING_VALUE",
- *         UserNameAttributeField: "STRING_VALUE",
- *         GroupAttributeField: "STRING_VALUE",
- *         Issuer: "STRING_VALUE",
- *         ClaimRegex: "STRING_VALUE",
+ *         KeyLocation: 'URL' || 'SECRET_MANAGER', // required
+ *         URL: 'STRING_VALUE',
+ *         SecretManagerArn: 'STRING_VALUE',
+ *         UserNameAttributeField: 'STRING_VALUE',
+ *         GroupAttributeField: 'STRING_VALUE',
+ *         Issuer: 'STRING_VALUE',
+ *         ClaimRegex: 'STRING_VALUE',
  *       },
  *       JsonTokenTypeConfiguration: { // JsonTokenTypeConfiguration
- *         UserNameAttributeField: "STRING_VALUE", // required
- *         GroupAttributeField: "STRING_VALUE", // required
+ *         UserNameAttributeField: 'STRING_VALUE', // required
+ *         GroupAttributeField: 'STRING_VALUE', // required
  *       },
  *     },
  *   ],
- *   UserContextPolicy: "ATTRIBUTE_FILTER" || "USER_TOKEN",
+ *   UserContextPolicy: 'ATTRIBUTE_FILTER' || 'USER_TOKEN',
  *   UserGroupResolutionConfiguration: { // UserGroupResolutionConfiguration
- *     UserGroupResolutionMode: "AWS_SSO" || "NONE", // required
+ *     UserGroupResolutionMode: 'AWS_SSO' || 'NONE', // required
  *   },
  * };
  * const command = new CreateIndexCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateIndexResponse
+ *   Id: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateIndexCommandInput - {@link CreateIndexCommandInput}
@@ -125,6 +130,8 @@ export interface CreateIndexCommandOutput extends CreateIndexResponse, __Metadat
  *  <p>The input fails to satisfy the constraints set by the Amazon Kendra service.
  *             Please provide the correct input and try again.</p>
  *
+ * @throws {@link KendraServiceException}
+ * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
  */
 export class CreateIndexCommand extends $Command<

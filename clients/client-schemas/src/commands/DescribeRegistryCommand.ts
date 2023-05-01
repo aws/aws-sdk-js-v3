@@ -36,14 +36,24 @@ export interface DescribeRegistryCommandOutput extends DescribeRegistryResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SchemasClient, DescribeRegistryCommand } from "@aws-sdk/client-schemas"; // ES Modules import
- * // const { SchemasClient, DescribeRegistryCommand } = require("@aws-sdk/client-schemas"); // CommonJS import
+ * import { SchemasClient, DescribeRegistryCommand } from '@aws-sdk/client-schemas'; // ES Modules import
+ * // const { SchemasClient, DescribeRegistryCommand } = require('@aws-sdk/client-schemas'); // CommonJS import
  * const client = new SchemasClient(config);
  * const input = { // DescribeRegistryRequest
- *   RegistryName: "STRING_VALUE", // required
+ *   RegistryName: 'STRING_VALUE', // required
  * };
  * const command = new DescribeRegistryCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeRegistryResponse
+ *   Description: 'STRING_VALUE',
+ *   RegistryArn: 'STRING_VALUE',
+ *   RegistryName: 'STRING_VALUE',
+ *   Tags: { // Tags
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeRegistryCommandInput - {@link DescribeRegistryCommandInput}
@@ -64,6 +74,8 @@ export interface DescribeRegistryCommandOutput extends DescribeRegistryResponse,
  *
  * @throws {@link UnauthorizedException} (client fault)
  *
+ * @throws {@link SchemasServiceException}
+ * <p>Base exception class for all service exceptions from Schemas service.</p>
  *
  */
 export class DescribeRegistryCommand extends $Command<

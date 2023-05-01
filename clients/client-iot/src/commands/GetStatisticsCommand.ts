@@ -39,17 +39,31 @@ export interface GetStatisticsCommandOutput extends GetStatisticsResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTClient, GetStatisticsCommand } from "@aws-sdk/client-iot"; // ES Modules import
- * // const { IoTClient, GetStatisticsCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * import { IoTClient, GetStatisticsCommand } from '@aws-sdk/client-iot'; // ES Modules import
+ * // const { IoTClient, GetStatisticsCommand } = require('@aws-sdk/client-iot'); // CommonJS import
  * const client = new IoTClient(config);
  * const input = { // GetStatisticsRequest
- *   indexName: "STRING_VALUE",
- *   queryString: "STRING_VALUE", // required
- *   aggregationField: "STRING_VALUE",
- *   queryVersion: "STRING_VALUE",
+ *   indexName: 'STRING_VALUE',
+ *   queryString: 'STRING_VALUE', // required
+ *   aggregationField: 'STRING_VALUE',
+ *   queryVersion: 'STRING_VALUE',
  * };
  * const command = new GetStatisticsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetStatisticsResponse
+ *   statistics: { // Statistics
+ *     count: Number('int'),
+ *     average: Number('double'),
+ *     sum: Number('double'),
+ *     minimum: Number('double'),
+ *     maximum: Number('double'),
+ *     sumOfSquares: Number('double'),
+ *     variance: Number('double'),
+ *     stdDeviation: Number('double'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetStatisticsCommandInput - {@link GetStatisticsCommandInput}
@@ -85,6 +99,8 @@ export interface GetStatisticsCommandOutput extends GetStatisticsResponse, __Met
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this operation.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class GetStatisticsCommand extends $Command<

@@ -41,34 +41,34 @@ export interface CreateNetworkCommandOutput extends CreateNetworkOutput, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ManagedBlockchainClient, CreateNetworkCommand } from "@aws-sdk/client-managedblockchain"; // ES Modules import
- * // const { ManagedBlockchainClient, CreateNetworkCommand } = require("@aws-sdk/client-managedblockchain"); // CommonJS import
+ * import { ManagedBlockchainClient, CreateNetworkCommand } from '@aws-sdk/client-managedblockchain'; // ES Modules import
+ * // const { ManagedBlockchainClient, CreateNetworkCommand } = require('@aws-sdk/client-managedblockchain'); // CommonJS import
  * const client = new ManagedBlockchainClient(config);
  * const input = { // CreateNetworkInput
- *   ClientRequestToken: "STRING_VALUE", // required
- *   Name: "STRING_VALUE", // required
- *   Description: "STRING_VALUE",
- *   Framework: "HYPERLEDGER_FABRIC" || "ETHEREUM", // required
- *   FrameworkVersion: "STRING_VALUE", // required
+ *   ClientRequestToken: 'STRING_VALUE', // required
+ *   Name: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE',
+ *   Framework: 'HYPERLEDGER_FABRIC' || 'ETHEREUM', // required
+ *   FrameworkVersion: 'STRING_VALUE', // required
  *   FrameworkConfiguration: { // NetworkFrameworkConfiguration
  *     Fabric: { // NetworkFabricConfiguration
- *       Edition: "STARTER" || "STANDARD", // required
+ *       Edition: 'STARTER' || 'STANDARD', // required
  *     },
  *   },
  *   VotingPolicy: { // VotingPolicy
  *     ApprovalThresholdPolicy: { // ApprovalThresholdPolicy
- *       ThresholdPercentage: Number("int"),
- *       ProposalDurationInHours: Number("int"),
- *       ThresholdComparator: "GREATER_THAN" || "GREATER_THAN_OR_EQUAL_TO",
+ *       ThresholdPercentage: Number('int'),
+ *       ProposalDurationInHours: Number('int'),
+ *       ThresholdComparator: 'GREATER_THAN' || 'GREATER_THAN_OR_EQUAL_TO',
  *     },
  *   },
  *   MemberConfiguration: { // MemberConfiguration
- *     Name: "STRING_VALUE", // required
- *     Description: "STRING_VALUE",
+ *     Name: 'STRING_VALUE', // required
+ *     Description: 'STRING_VALUE',
  *     FrameworkConfiguration: { // MemberFrameworkConfiguration
  *       Fabric: { // MemberFabricConfiguration
- *         AdminUsername: "STRING_VALUE", // required
- *         AdminPassword: "STRING_VALUE", // required
+ *         AdminUsername: 'STRING_VALUE', // required
+ *         AdminPassword: 'STRING_VALUE', // required
  *       },
  *     },
  *     LogPublishingConfiguration: { // MemberLogPublishingConfiguration
@@ -81,16 +81,22 @@ export interface CreateNetworkCommandOutput extends CreateNetworkOutput, __Metad
  *       },
  *     },
  *     Tags: { // InputTagMap
- *       "<keys>": "STRING_VALUE",
+ *       '<keys>': 'STRING_VALUE',
  *     },
- *     KmsKeyArn: "STRING_VALUE",
+ *     KmsKeyArn: 'STRING_VALUE',
  *   },
  *   Tags: {
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateNetworkCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateNetworkOutput
+ *   NetworkId: 'STRING_VALUE',
+ *   MemberId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateNetworkCommandInput - {@link CreateNetworkCommandInput}
@@ -124,6 +130,8 @@ export interface CreateNetworkCommandOutput extends CreateNetworkOutput, __Metad
  * @throws {@link TooManyTagsException} (client fault)
  *  <p></p>
  *
+ * @throws {@link ManagedBlockchainServiceException}
+ * <p>Base exception class for all service exceptions from ManagedBlockchain service.</p>
  *
  */
 export class CreateNetworkCommand extends $Command<

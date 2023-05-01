@@ -36,26 +36,40 @@ export interface ListInventoryEntriesCommandOutput extends ListInventoryEntriesR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMClient, ListInventoryEntriesCommand } from "@aws-sdk/client-ssm"; // ES Modules import
- * // const { SSMClient, ListInventoryEntriesCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * import { SSMClient, ListInventoryEntriesCommand } from '@aws-sdk/client-ssm'; // ES Modules import
+ * // const { SSMClient, ListInventoryEntriesCommand } = require('@aws-sdk/client-ssm'); // CommonJS import
  * const client = new SSMClient(config);
  * const input = { // ListInventoryEntriesRequest
- *   InstanceId: "STRING_VALUE", // required
- *   TypeName: "STRING_VALUE", // required
+ *   InstanceId: 'STRING_VALUE', // required
+ *   TypeName: 'STRING_VALUE', // required
  *   Filters: [ // InventoryFilterList
  *     { // InventoryFilter
- *       Key: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
  *       Values: [ // InventoryFilterValueList // required
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
- *       Type: "Equal" || "NotEqual" || "BeginWith" || "LessThan" || "GreaterThan" || "Exists",
+ *       Type: 'Equal' || 'NotEqual' || 'BeginWith' || 'LessThan' || 'GreaterThan' || 'Exists',
  *     },
  *   ],
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListInventoryEntriesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListInventoryEntriesResult
+ *   TypeName: 'STRING_VALUE',
+ *   InstanceId: 'STRING_VALUE',
+ *   SchemaVersion: 'STRING_VALUE',
+ *   CaptureTime: 'STRING_VALUE',
+ *   Entries: [ // InventoryItemEntryList
+ *     { // InventoryItemEntry
+ *       '<keys>': 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListInventoryEntriesCommandInput - {@link ListInventoryEntriesCommandInput}
@@ -96,6 +110,8 @@ export interface ListInventoryEntriesCommandOutput extends ListInventoryEntriesR
  * @throws {@link InvalidTypeNameException} (client fault)
  *  <p>The parameter type name isn't valid.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class ListInventoryEntriesCommand extends $Command<

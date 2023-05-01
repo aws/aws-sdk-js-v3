@@ -36,14 +36,66 @@ export interface GetAppLaunchConfigurationCommandOutput extends GetAppLaunchConf
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SMSClient, GetAppLaunchConfigurationCommand } from "@aws-sdk/client-sms"; // ES Modules import
- * // const { SMSClient, GetAppLaunchConfigurationCommand } = require("@aws-sdk/client-sms"); // CommonJS import
+ * import { SMSClient, GetAppLaunchConfigurationCommand } from '@aws-sdk/client-sms'; // ES Modules import
+ * // const { SMSClient, GetAppLaunchConfigurationCommand } = require('@aws-sdk/client-sms'); // CommonJS import
  * const client = new SMSClient(config);
  * const input = { // GetAppLaunchConfigurationRequest
- *   appId: "STRING_VALUE",
+ *   appId: 'STRING_VALUE',
  * };
  * const command = new GetAppLaunchConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetAppLaunchConfigurationResponse
+ *   appId: 'STRING_VALUE',
+ *   roleName: 'STRING_VALUE',
+ *   autoLaunch: true || false,
+ *   serverGroupLaunchConfigurations: [ // ServerGroupLaunchConfigurations
+ *     { // ServerGroupLaunchConfiguration
+ *       serverGroupId: 'STRING_VALUE',
+ *       launchOrder: Number('int'),
+ *       serverLaunchConfigurations: [ // ServerLaunchConfigurations
+ *         { // ServerLaunchConfiguration
+ *           server: { // Server
+ *             serverId: 'STRING_VALUE',
+ *             serverType: 'VIRTUAL_MACHINE',
+ *             vmServer: { // VmServer
+ *               vmServerAddress: { // VmServerAddress
+ *                 vmManagerId: 'STRING_VALUE',
+ *                 vmId: 'STRING_VALUE',
+ *               },
+ *               vmName: 'STRING_VALUE',
+ *               vmManagerName: 'STRING_VALUE',
+ *               vmManagerType: 'VSPHERE' || 'SCVMM' || 'HYPERV-MANAGER',
+ *               vmPath: 'STRING_VALUE',
+ *             },
+ *             replicationJobId: 'STRING_VALUE',
+ *             replicationJobTerminated: true || false,
+ *           },
+ *           logicalId: 'STRING_VALUE',
+ *           vpc: 'STRING_VALUE',
+ *           subnet: 'STRING_VALUE',
+ *           securityGroup: 'STRING_VALUE',
+ *           ec2KeyName: 'STRING_VALUE',
+ *           userData: { // UserData
+ *             s3Location: { // S3Location
+ *               bucket: 'STRING_VALUE',
+ *               key: 'STRING_VALUE',
+ *             },
+ *           },
+ *           instanceType: 'STRING_VALUE',
+ *           associatePublicIpAddress: true || false,
+ *           iamInstanceProfileName: 'STRING_VALUE',
+ *           configureScript: {
+ *             bucket: 'STRING_VALUE',
+ *             key: 'STRING_VALUE',
+ *           },
+ *           configureScriptType: 'SHELL_SCRIPT' || 'POWERSHELL_SCRIPT',
+ *         },
+ *       ],
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetAppLaunchConfigurationCommandInput - {@link GetAppLaunchConfigurationCommandInput}
@@ -68,6 +120,8 @@ export interface GetAppLaunchConfigurationCommandOutput extends GetAppLaunchConf
  *  <p>You lack permissions needed to perform this operation. Check your IAM policies,
  *             and ensure that you are using the correct access keys.</p>
  *
+ * @throws {@link SMSServiceException}
+ * <p>Base exception class for all service exceptions from SMS service.</p>
  *
  */
 export class GetAppLaunchConfigurationCommand extends $Command<

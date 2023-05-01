@@ -36,15 +36,18 @@ export interface UpdateCrawlerScheduleCommandOutput extends UpdateCrawlerSchedul
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlueClient, UpdateCrawlerScheduleCommand } from "@aws-sdk/client-glue"; // ES Modules import
- * // const { GlueClient, UpdateCrawlerScheduleCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * import { GlueClient, UpdateCrawlerScheduleCommand } from '@aws-sdk/client-glue'; // ES Modules import
+ * // const { GlueClient, UpdateCrawlerScheduleCommand } = require('@aws-sdk/client-glue'); // CommonJS import
  * const client = new GlueClient(config);
  * const input = { // UpdateCrawlerScheduleRequest
- *   CrawlerName: "STRING_VALUE", // required
- *   Schedule: "STRING_VALUE",
+ *   CrawlerName: 'STRING_VALUE', // required
+ *   Schedule: 'STRING_VALUE',
  * };
  * const command = new UpdateCrawlerScheduleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateCrawlerScheduleCommandInput - {@link UpdateCrawlerScheduleCommandInput}
@@ -68,6 +71,8 @@ export interface UpdateCrawlerScheduleCommandOutput extends UpdateCrawlerSchedul
  * @throws {@link VersionMismatchException} (client fault)
  *  <p>There was a version conflict.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class UpdateCrawlerScheduleCommand extends $Command<

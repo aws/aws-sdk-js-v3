@@ -53,14 +53,25 @@ export interface DescribeStackDriftDetectionStatusCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudFormationClient, DescribeStackDriftDetectionStatusCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
- * // const { CloudFormationClient, DescribeStackDriftDetectionStatusCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
+ * import { CloudFormationClient, DescribeStackDriftDetectionStatusCommand } from '@aws-sdk/client-cloudformation'; // ES Modules import
+ * // const { CloudFormationClient, DescribeStackDriftDetectionStatusCommand } = require('@aws-sdk/client-cloudformation'); // CommonJS import
  * const client = new CloudFormationClient(config);
  * const input = { // DescribeStackDriftDetectionStatusInput
- *   StackDriftDetectionId: "STRING_VALUE", // required
+ *   StackDriftDetectionId: 'STRING_VALUE', // required
  * };
  * const command = new DescribeStackDriftDetectionStatusCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeStackDriftDetectionStatusOutput
+ *   StackId: 'STRING_VALUE', // required
+ *   StackDriftDetectionId: 'STRING_VALUE', // required
+ *   StackDriftStatus: 'DRIFTED' || 'IN_SYNC' || 'UNKNOWN' || 'NOT_CHECKED',
+ *   DetectionStatus: 'DETECTION_IN_PROGRESS' || 'DETECTION_FAILED' || 'DETECTION_COMPLETE', // required
+ *   DetectionStatusReason: 'STRING_VALUE',
+ *   DriftedStackResourceCount: Number('int'),
+ *   Timestamp: new Date('TIMESTAMP'), // required
+ * };
+ *
  * ```
  *
  * @param DescribeStackDriftDetectionStatusCommandInput - {@link DescribeStackDriftDetectionStatusCommandInput}
@@ -69,6 +80,8 @@ export interface DescribeStackDriftDetectionStatusCommandOutput
  * @see {@link DescribeStackDriftDetectionStatusCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
+ * @throws {@link CloudFormationServiceException}
+ * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
  */
 export class DescribeStackDriftDetectionStatusCommand extends $Command<

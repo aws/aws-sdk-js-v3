@@ -45,14 +45,17 @@ export interface DeleteLoggingConfigurationCommandOutput extends DeleteLoggingCo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WAFClient, DeleteLoggingConfigurationCommand } from "@aws-sdk/client-waf"; // ES Modules import
- * // const { WAFClient, DeleteLoggingConfigurationCommand } = require("@aws-sdk/client-waf"); // CommonJS import
+ * import { WAFClient, DeleteLoggingConfigurationCommand } from '@aws-sdk/client-waf'; // ES Modules import
+ * // const { WAFClient, DeleteLoggingConfigurationCommand } = require('@aws-sdk/client-waf'); // CommonJS import
  * const client = new WAFClient(config);
  * const input = { // DeleteLoggingConfigurationRequest
- *   ResourceArn: "STRING_VALUE", // required
+ *   ResourceArn: 'STRING_VALUE', // required
  * };
  * const command = new DeleteLoggingConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteLoggingConfigurationCommandInput - {@link DeleteLoggingConfigurationCommandInput}
@@ -70,6 +73,8 @@ export interface DeleteLoggingConfigurationCommandOutput extends DeleteLoggingCo
  * @throws {@link WAFStaleDataException} (client fault)
  *  <p>The operation failed because you tried to create, update, or delete an object by using a change token that has already been used.</p>
  *
+ * @throws {@link WAFServiceException}
+ * <p>Base exception class for all service exceptions from WAF service.</p>
  *
  */
 export class DeleteLoggingConfigurationCommand extends $Command<

@@ -60,38 +60,66 @@ export interface ListAggregatedUtterancesCommandOutput extends ListAggregatedUtt
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LexModelsV2Client, ListAggregatedUtterancesCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
- * // const { LexModelsV2Client, ListAggregatedUtterancesCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
+ * import { LexModelsV2Client, ListAggregatedUtterancesCommand } from '@aws-sdk/client-lex-models-v2'; // ES Modules import
+ * // const { LexModelsV2Client, ListAggregatedUtterancesCommand } = require('@aws-sdk/client-lex-models-v2'); // CommonJS import
  * const client = new LexModelsV2Client(config);
  * const input = { // ListAggregatedUtterancesRequest
- *   botId: "STRING_VALUE", // required
- *   botAliasId: "STRING_VALUE",
- *   botVersion: "STRING_VALUE",
- *   localeId: "STRING_VALUE", // required
+ *   botId: 'STRING_VALUE', // required
+ *   botAliasId: 'STRING_VALUE',
+ *   botVersion: 'STRING_VALUE',
+ *   localeId: 'STRING_VALUE', // required
  *   aggregationDuration: { // UtteranceAggregationDuration
  *     relativeAggregationDuration: { // RelativeAggregationDuration
- *       timeDimension: "Hours" || "Days" || "Weeks", // required
- *       timeValue: Number("int"), // required
+ *       timeDimension: 'Hours' || 'Days' || 'Weeks', // required
+ *       timeValue: Number('int'), // required
  *     },
  *   },
  *   sortBy: { // AggregatedUtterancesSortBy
- *     attribute: "HitCount" || "MissedCount", // required
- *     order: "Ascending" || "Descending", // required
+ *     attribute: 'HitCount' || 'MissedCount', // required
+ *     order: 'Ascending' || 'Descending', // required
  *   },
  *   filters: [ // AggregatedUtterancesFilters
  *     { // AggregatedUtterancesFilter
- *       name: "Utterance", // required
+ *       name: 'Utterance', // required
  *       values: [ // FilterValues // required
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
- *       operator: "CO" || "EQ", // required
+ *       operator: 'CO' || 'EQ', // required
  *     },
  *   ],
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new ListAggregatedUtterancesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListAggregatedUtterancesResponse
+ *   botId: 'STRING_VALUE',
+ *   botAliasId: 'STRING_VALUE',
+ *   botVersion: 'STRING_VALUE',
+ *   localeId: 'STRING_VALUE',
+ *   aggregationDuration: { // UtteranceAggregationDuration
+ *     relativeAggregationDuration: { // RelativeAggregationDuration
+ *       timeDimension: 'Hours' || 'Days' || 'Weeks', // required
+ *       timeValue: Number('int'), // required
+ *     },
+ *   },
+ *   aggregationWindowStartTime: new Date('TIMESTAMP'),
+ *   aggregationWindowEndTime: new Date('TIMESTAMP'),
+ *   aggregationLastRefreshedDateTime: new Date('TIMESTAMP'),
+ *   aggregatedUtterancesSummaries: [ // AggregatedUtterancesSummaryList
+ *     { // AggregatedUtterancesSummary
+ *       utterance: 'STRING_VALUE',
+ *       hitCount: Number('int'),
+ *       missedCount: Number('int'),
+ *       utteranceFirstRecordedInAggregationDuration: new Date('TIMESTAMP'),
+ *       utteranceLastRecordedInAggregationDuration: new Date('TIMESTAMP'),
+ *       containsDataFromDeletedResources: true || false,
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListAggregatedUtterancesCommandInput - {@link ListAggregatedUtterancesCommandInput}
@@ -117,6 +145,8 @@ export interface ListAggregatedUtterancesCommandOutput extends ListAggregatedUtt
  *  <p>One of the input parameters in your request isn't valid. Check the
  *          parameters and try your request again.</p>
  *
+ * @throws {@link LexModelsV2ServiceException}
+ * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
  */
 export class ListAggregatedUtterancesCommand extends $Command<

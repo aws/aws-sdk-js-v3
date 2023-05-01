@@ -36,17 +36,20 @@ export interface UpdateEventLabelCommandOutput extends UpdateEventLabelResult, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FraudDetectorClient, UpdateEventLabelCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
- * // const { FraudDetectorClient, UpdateEventLabelCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
+ * import { FraudDetectorClient, UpdateEventLabelCommand } from '@aws-sdk/client-frauddetector'; // ES Modules import
+ * // const { FraudDetectorClient, UpdateEventLabelCommand } = require('@aws-sdk/client-frauddetector'); // CommonJS import
  * const client = new FraudDetectorClient(config);
  * const input = { // UpdateEventLabelRequest
- *   eventId: "STRING_VALUE", // required
- *   eventTypeName: "STRING_VALUE", // required
- *   assignedLabel: "STRING_VALUE", // required
- *   labelTimestamp: "STRING_VALUE", // required
+ *   eventId: 'STRING_VALUE', // required
+ *   eventTypeName: 'STRING_VALUE', // required
+ *   assignedLabel: 'STRING_VALUE', // required
+ *   labelTimestamp: 'STRING_VALUE', // required
  * };
  * const command = new UpdateEventLabelCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateEventLabelCommandInput - {@link UpdateEventLabelCommandInput}
@@ -73,6 +76,8 @@ export interface UpdateEventLabelCommandOutput extends UpdateEventLabelResult, _
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception indicating a specified value is not allowed.</p>
  *
+ * @throws {@link FraudDetectorServiceException}
+ * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
  */
 export class UpdateEventLabelCommand extends $Command<

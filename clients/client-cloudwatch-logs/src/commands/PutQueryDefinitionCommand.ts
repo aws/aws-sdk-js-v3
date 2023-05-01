@@ -46,19 +46,24 @@ export interface PutQueryDefinitionCommandOutput extends PutQueryDefinitionRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudWatchLogsClient, PutQueryDefinitionCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
- * // const { CloudWatchLogsClient, PutQueryDefinitionCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
+ * import { CloudWatchLogsClient, PutQueryDefinitionCommand } from '@aws-sdk/client-cloudwatch-logs'; // ES Modules import
+ * // const { CloudWatchLogsClient, PutQueryDefinitionCommand } = require('@aws-sdk/client-cloudwatch-logs'); // CommonJS import
  * const client = new CloudWatchLogsClient(config);
  * const input = { // PutQueryDefinitionRequest
- *   name: "STRING_VALUE", // required
- *   queryDefinitionId: "STRING_VALUE",
+ *   name: 'STRING_VALUE', // required
+ *   queryDefinitionId: 'STRING_VALUE',
  *   logGroupNames: [ // LogGroupNames
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   queryString: "STRING_VALUE", // required
+ *   queryString: 'STRING_VALUE', // required
  * };
  * const command = new PutQueryDefinitionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutQueryDefinitionResponse
+ *   queryDefinitionId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param PutQueryDefinitionCommandInput - {@link PutQueryDefinitionCommandInput}
@@ -79,6 +84,8 @@ export interface PutQueryDefinitionCommandOutput extends PutQueryDefinitionRespo
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service cannot complete the request.</p>
  *
+ * @throws {@link CloudWatchLogsServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
  */
 export class PutQueryDefinitionCommand extends $Command<

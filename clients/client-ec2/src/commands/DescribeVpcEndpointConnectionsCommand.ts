@@ -42,24 +42,58 @@ export interface DescribeVpcEndpointConnectionsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, DescribeVpcEndpointConnectionsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, DescribeVpcEndpointConnectionsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, DescribeVpcEndpointConnectionsCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, DescribeVpcEndpointConnectionsCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // DescribeVpcEndpointConnectionsRequest
  *   DryRun: true || false,
  *   Filters: [ // FilterList
  *     { // Filter
- *       Name: "STRING_VALUE",
+ *       Name: 'STRING_VALUE',
  *       Values: [ // ValueStringList
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new DescribeVpcEndpointConnectionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeVpcEndpointConnectionsResult
+ *   VpcEndpointConnections: [ // VpcEndpointConnectionSet
+ *     { // VpcEndpointConnection
+ *       ServiceId: 'STRING_VALUE',
+ *       VpcEndpointId: 'STRING_VALUE',
+ *       VpcEndpointOwner: 'STRING_VALUE',
+ *       VpcEndpointState: 'PendingAcceptance' || 'Pending' || 'Available' || 'Deleting' || 'Deleted' || 'Rejected' || 'Failed' || 'Expired',
+ *       CreationTimestamp: new Date('TIMESTAMP'),
+ *       DnsEntries: [ // DnsEntrySet
+ *         { // DnsEntry
+ *           DnsName: 'STRING_VALUE',
+ *           HostedZoneId: 'STRING_VALUE',
+ *         },
+ *       ],
+ *       NetworkLoadBalancerArns: [ // ValueStringList
+ *         'STRING_VALUE',
+ *       ],
+ *       GatewayLoadBalancerArns: [
+ *         'STRING_VALUE',
+ *       ],
+ *       IpAddressType: 'ipv4' || 'dualstack' || 'ipv6',
+ *       VpcEndpointConnectionId: 'STRING_VALUE',
+ *       Tags: [ // TagList
+ *         { // Tag
+ *           Key: 'STRING_VALUE',
+ *           Value: 'STRING_VALUE',
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeVpcEndpointConnectionsCommandInput - {@link DescribeVpcEndpointConnectionsCommandInput}
@@ -68,6 +102,8 @@ export interface DescribeVpcEndpointConnectionsCommandOutput
  * @see {@link DescribeVpcEndpointConnectionsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class DescribeVpcEndpointConnectionsCommand extends $Command<

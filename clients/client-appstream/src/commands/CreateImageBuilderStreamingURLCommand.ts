@@ -41,15 +41,21 @@ export interface CreateImageBuilderStreamingURLCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppStreamClient, CreateImageBuilderStreamingURLCommand } from "@aws-sdk/client-appstream"; // ES Modules import
- * // const { AppStreamClient, CreateImageBuilderStreamingURLCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
+ * import { AppStreamClient, CreateImageBuilderStreamingURLCommand } from '@aws-sdk/client-appstream'; // ES Modules import
+ * // const { AppStreamClient, CreateImageBuilderStreamingURLCommand } = require('@aws-sdk/client-appstream'); // CommonJS import
  * const client = new AppStreamClient(config);
  * const input = { // CreateImageBuilderStreamingURLRequest
- *   Name: "STRING_VALUE", // required
- *   Validity: Number("long"),
+ *   Name: 'STRING_VALUE', // required
+ *   Validity: Number('long'),
  * };
  * const command = new CreateImageBuilderStreamingURLCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateImageBuilderStreamingURLResult
+ *   StreamingURL: 'STRING_VALUE',
+ *   Expires: new Date('TIMESTAMP'),
+ * };
+ *
  * ```
  *
  * @param CreateImageBuilderStreamingURLCommandInput - {@link CreateImageBuilderStreamingURLCommandInput}
@@ -64,6 +70,8 @@ export interface CreateImageBuilderStreamingURLCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link AppStreamServiceException}
+ * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
  */
 export class CreateImageBuilderStreamingURLCommand extends $Command<

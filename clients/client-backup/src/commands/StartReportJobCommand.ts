@@ -36,15 +36,20 @@ export interface StartReportJobCommandOutput extends StartReportJobOutput, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BackupClient, StartReportJobCommand } from "@aws-sdk/client-backup"; // ES Modules import
- * // const { BackupClient, StartReportJobCommand } = require("@aws-sdk/client-backup"); // CommonJS import
+ * import { BackupClient, StartReportJobCommand } from '@aws-sdk/client-backup'; // ES Modules import
+ * // const { BackupClient, StartReportJobCommand } = require('@aws-sdk/client-backup'); // CommonJS import
  * const client = new BackupClient(config);
  * const input = { // StartReportJobInput
- *   ReportPlanName: "STRING_VALUE", // required
- *   IdempotencyToken: "STRING_VALUE",
+ *   ReportPlanName: 'STRING_VALUE', // required
+ *   IdempotencyToken: 'STRING_VALUE',
  * };
  * const command = new StartReportJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartReportJobOutput
+ *   ReportJobId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param StartReportJobCommandInput - {@link StartReportJobCommandInput}
@@ -66,6 +71,8 @@ export interface StartReportJobCommandOutput extends StartReportJobOutput, __Met
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request failed due to a temporary failure of the server.</p>
  *
+ * @throws {@link BackupServiceException}
+ * <p>Base exception class for all service exceptions from Backup service.</p>
  *
  */
 export class StartReportJobCommand extends $Command<

@@ -36,15 +36,50 @@ export interface GetProfileObjectTypeCommandOutput extends GetProfileObjectTypeR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CustomerProfilesClient, GetProfileObjectTypeCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
- * // const { CustomerProfilesClient, GetProfileObjectTypeCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
+ * import { CustomerProfilesClient, GetProfileObjectTypeCommand } from '@aws-sdk/client-customer-profiles'; // ES Modules import
+ * // const { CustomerProfilesClient, GetProfileObjectTypeCommand } = require('@aws-sdk/client-customer-profiles'); // CommonJS import
  * const client = new CustomerProfilesClient(config);
  * const input = { // GetProfileObjectTypeRequest
- *   DomainName: "STRING_VALUE", // required
- *   ObjectTypeName: "STRING_VALUE", // required
+ *   DomainName: 'STRING_VALUE', // required
+ *   ObjectTypeName: 'STRING_VALUE', // required
  * };
  * const command = new GetProfileObjectTypeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetProfileObjectTypeResponse
+ *   ObjectTypeName: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE', // required
+ *   TemplateId: 'STRING_VALUE',
+ *   ExpirationDays: Number('int'),
+ *   EncryptionKey: 'STRING_VALUE',
+ *   AllowProfileCreation: true || false,
+ *   SourceLastUpdatedTimestampFormat: 'STRING_VALUE',
+ *   Fields: { // FieldMap
+ *     '<keys>': { // ObjectTypeField
+ *       Source: 'STRING_VALUE',
+ *       Target: 'STRING_VALUE',
+ *       ContentType: 'STRING' || 'NUMBER' || 'PHONE_NUMBER' || 'EMAIL_ADDRESS' || 'NAME',
+ *     },
+ *   },
+ *   Keys: { // KeyMap
+ *     '<keys>': [ // ObjectTypeKeyList
+ *       { // ObjectTypeKey
+ *         StandardIdentifiers: [ // StandardIdentifierList
+ *           'PROFILE' || 'ASSET' || 'CASE' || 'UNIQUE' || 'SECONDARY' || 'LOOKUP_ONLY' || 'NEW_ONLY' || 'ORDER',
+ *         ],
+ *         FieldNames: [ // FieldNameList
+ *           'STRING_VALUE',
+ *         ],
+ *       },
+ *     ],
+ *   },
+ *   CreatedAt: new Date('TIMESTAMP'),
+ *   LastUpdatedAt: new Date('TIMESTAMP'),
+ *   Tags: { // TagMap
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetProfileObjectTypeCommandInput - {@link GetProfileObjectTypeCommandInput}
@@ -68,6 +103,8 @@ export interface GetProfileObjectTypeCommandOutput extends GetProfileObjectTypeR
  * @throws {@link ThrottlingException} (client fault)
  *  <p>You exceeded the maximum number of requests.</p>
  *
+ * @throws {@link CustomerProfilesServiceException}
+ * <p>Base exception class for all service exceptions from CustomerProfiles service.</p>
  *
  */
 export class GetProfileObjectTypeCommand extends $Command<

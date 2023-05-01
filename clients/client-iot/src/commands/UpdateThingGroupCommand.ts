@@ -37,24 +37,29 @@ export interface UpdateThingGroupCommandOutput extends UpdateThingGroupResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTClient, UpdateThingGroupCommand } from "@aws-sdk/client-iot"; // ES Modules import
- * // const { IoTClient, UpdateThingGroupCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * import { IoTClient, UpdateThingGroupCommand } from '@aws-sdk/client-iot'; // ES Modules import
+ * // const { IoTClient, UpdateThingGroupCommand } = require('@aws-sdk/client-iot'); // CommonJS import
  * const client = new IoTClient(config);
  * const input = { // UpdateThingGroupRequest
- *   thingGroupName: "STRING_VALUE", // required
+ *   thingGroupName: 'STRING_VALUE', // required
  *   thingGroupProperties: { // ThingGroupProperties
- *     thingGroupDescription: "STRING_VALUE",
+ *     thingGroupDescription: 'STRING_VALUE',
  *     attributePayload: { // AttributePayload
  *       attributes: { // Attributes
- *         "<keys>": "STRING_VALUE",
+ *         '<keys>': 'STRING_VALUE',
  *       },
  *       merge: true || false,
  *     },
  *   },
- *   expectedVersion: Number("long"),
+ *   expectedVersion: Number('long'),
  * };
  * const command = new UpdateThingGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateThingGroupResponse
+ *   version: Number('long'),
+ * };
+ *
  * ```
  *
  * @param UpdateThingGroupCommandInput - {@link UpdateThingGroupCommandInput}
@@ -80,6 +85,8 @@ export interface UpdateThingGroupCommandOutput extends UpdateThingGroupResponse,
  *             <code>expectedVersion</code> parameter does not match the latest version in the
  *          system.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class UpdateThingGroupCommand extends $Command<

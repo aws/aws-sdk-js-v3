@@ -46,14 +46,19 @@ export interface DeleteLunaClientCommandOutput extends DeleteLunaClientResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudHSMClient, DeleteLunaClientCommand } from "@aws-sdk/client-cloudhsm"; // ES Modules import
- * // const { CloudHSMClient, DeleteLunaClientCommand } = require("@aws-sdk/client-cloudhsm"); // CommonJS import
+ * import { CloudHSMClient, DeleteLunaClientCommand } from '@aws-sdk/client-cloudhsm'; // ES Modules import
+ * // const { CloudHSMClient, DeleteLunaClientCommand } = require('@aws-sdk/client-cloudhsm'); // CommonJS import
  * const client = new CloudHSMClient(config);
  * const input = { // DeleteLunaClientRequest
- *   ClientArn: "STRING_VALUE", // required
+ *   ClientArn: 'STRING_VALUE', // required
  * };
  * const command = new DeleteLunaClientCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteLunaClientResponse
+ *   Status: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param DeleteLunaClientCommandInput - {@link DeleteLunaClientCommandInput}
@@ -71,6 +76,8 @@ export interface DeleteLunaClientCommandOutput extends DeleteLunaClientResponse,
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>Indicates that one or more of the request parameters are not valid.</p>
  *
+ * @throws {@link CloudHSMServiceException}
+ * <p>Base exception class for all service exceptions from CloudHSM service.</p>
  *
  */
 export class DeleteLunaClientCommand extends $Command<

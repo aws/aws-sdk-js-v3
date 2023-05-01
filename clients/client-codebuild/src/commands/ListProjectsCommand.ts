@@ -37,16 +37,24 @@ export interface ListProjectsCommandOutput extends ListProjectsOutput, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeBuildClient, ListProjectsCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
- * // const { CodeBuildClient, ListProjectsCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import
+ * import { CodeBuildClient, ListProjectsCommand } from '@aws-sdk/client-codebuild'; // ES Modules import
+ * // const { CodeBuildClient, ListProjectsCommand } = require('@aws-sdk/client-codebuild'); // CommonJS import
  * const client = new CodeBuildClient(config);
  * const input = { // ListProjectsInput
- *   sortBy: "STRING_VALUE",
- *   sortOrder: "STRING_VALUE",
- *   nextToken: "STRING_VALUE",
+ *   sortBy: 'STRING_VALUE',
+ *   sortOrder: 'STRING_VALUE',
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new ListProjectsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListProjectsOutput
+ *   nextToken: 'STRING_VALUE',
+ *   projects: [ // ProjectNames
+ *     'STRING_VALUE',
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListProjectsCommandInput - {@link ListProjectsCommandInput}
@@ -58,6 +66,8 @@ export interface ListProjectsCommandOutput extends ListProjectsOutput, __Metadat
  * @throws {@link InvalidInputException} (client fault)
  *  <p>The input value that was provided is not valid.</p>
  *
+ * @throws {@link CodeBuildServiceException}
+ * <p>Base exception class for all service exceptions from CodeBuild service.</p>
  *
  */
 export class ListProjectsCommand extends $Command<

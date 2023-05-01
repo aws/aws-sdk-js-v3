@@ -38,15 +38,18 @@ export interface DeleteDeviceUsageDataCommandOutput extends DeleteDeviceUsageDat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AlexaForBusinessClient, DeleteDeviceUsageDataCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
- * // const { AlexaForBusinessClient, DeleteDeviceUsageDataCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
+ * import { AlexaForBusinessClient, DeleteDeviceUsageDataCommand } from '@aws-sdk/client-alexa-for-business'; // ES Modules import
+ * // const { AlexaForBusinessClient, DeleteDeviceUsageDataCommand } = require('@aws-sdk/client-alexa-for-business'); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
  * const input = { // DeleteDeviceUsageDataRequest
- *   DeviceArn: "STRING_VALUE", // required
- *   DeviceUsageType: "STRING_VALUE", // required
+ *   DeviceArn: 'STRING_VALUE', // required
+ *   DeviceUsageType: 'STRING_VALUE', // required
  * };
  * const command = new DeleteDeviceUsageDataCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteDeviceUsageDataCommandInput - {@link DeleteDeviceUsageDataCommandInput}
@@ -64,6 +67,8 @@ export interface DeleteDeviceUsageDataCommandOutput extends DeleteDeviceUsageDat
  * @throws {@link NotFoundException} (client fault)
  *  <p>The resource is not found.</p>
  *
+ * @throws {@link AlexaForBusinessServiceException}
+ * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  */
 export class DeleteDeviceUsageDataCommand extends $Command<

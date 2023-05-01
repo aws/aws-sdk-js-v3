@@ -36,15 +36,18 @@ export interface DeleteFraudsterCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { VoiceIDClient, DeleteFraudsterCommand } from "@aws-sdk/client-voice-id"; // ES Modules import
- * // const { VoiceIDClient, DeleteFraudsterCommand } = require("@aws-sdk/client-voice-id"); // CommonJS import
+ * import { VoiceIDClient, DeleteFraudsterCommand } from '@aws-sdk/client-voice-id'; // ES Modules import
+ * // const { VoiceIDClient, DeleteFraudsterCommand } = require('@aws-sdk/client-voice-id'); // CommonJS import
  * const client = new VoiceIDClient(config);
  * const input = { // DeleteFraudsterRequest
- *   DomainId: "STRING_VALUE", // required
- *   FraudsterId: "STRING_VALUE", // required
+ *   DomainId: 'STRING_VALUE', // required
+ *   FraudsterId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteFraudsterCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteFraudsterCommandInput - {@link DeleteFraudsterCommandInput}
@@ -78,6 +81,8 @@ export interface DeleteFraudsterCommandOutput extends __MetadataBearer {}
  *  <p>The request failed one or more validations; check the error message for more
  *             details.</p>
  *
+ * @throws {@link VoiceIDServiceException}
+ * <p>Base exception class for all service exceptions from VoiceID service.</p>
  *
  */
 export class DeleteFraudsterCommand extends $Command<

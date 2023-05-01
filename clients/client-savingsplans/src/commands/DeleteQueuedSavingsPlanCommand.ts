@@ -36,14 +36,17 @@ export interface DeleteQueuedSavingsPlanCommandOutput extends DeleteQueuedSaving
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SavingsplansClient, DeleteQueuedSavingsPlanCommand } from "@aws-sdk/client-savingsplans"; // ES Modules import
- * // const { SavingsplansClient, DeleteQueuedSavingsPlanCommand } = require("@aws-sdk/client-savingsplans"); // CommonJS import
+ * import { SavingsplansClient, DeleteQueuedSavingsPlanCommand } from '@aws-sdk/client-savingsplans'; // ES Modules import
+ * // const { SavingsplansClient, DeleteQueuedSavingsPlanCommand } = require('@aws-sdk/client-savingsplans'); // CommonJS import
  * const client = new SavingsplansClient(config);
  * const input = { // DeleteQueuedSavingsPlanRequest
- *   savingsPlanId: "STRING_VALUE", // required
+ *   savingsPlanId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteQueuedSavingsPlanCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteQueuedSavingsPlanCommandInput - {@link DeleteQueuedSavingsPlanCommandInput}
@@ -64,6 +67,8 @@ export interface DeleteQueuedSavingsPlanCommandOutput extends DeleteQueuedSaving
  * @throws {@link ValidationException} (client fault)
  *  <p>One of the input parameters is not valid.</p>
  *
+ * @throws {@link SavingsplansServiceException}
+ * <p>Base exception class for all service exceptions from Savingsplans service.</p>
  *
  */
 export class DeleteQueuedSavingsPlanCommand extends $Command<

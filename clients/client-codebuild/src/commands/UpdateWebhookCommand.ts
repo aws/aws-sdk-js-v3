@@ -40,26 +40,47 @@ export interface UpdateWebhookCommandOutput extends UpdateWebhookOutput, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeBuildClient, UpdateWebhookCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
- * // const { CodeBuildClient, UpdateWebhookCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import
+ * import { CodeBuildClient, UpdateWebhookCommand } from '@aws-sdk/client-codebuild'; // ES Modules import
+ * // const { CodeBuildClient, UpdateWebhookCommand } = require('@aws-sdk/client-codebuild'); // CommonJS import
  * const client = new CodeBuildClient(config);
  * const input = { // UpdateWebhookInput
- *   projectName: "STRING_VALUE", // required
- *   branchFilter: "STRING_VALUE",
+ *   projectName: 'STRING_VALUE', // required
+ *   branchFilter: 'STRING_VALUE',
  *   rotateSecret: true || false,
  *   filterGroups: [ // FilterGroups
  *     [ // FilterGroup
  *       { // WebhookFilter
- *         type: "STRING_VALUE", // required
- *         pattern: "STRING_VALUE", // required
+ *         type: 'STRING_VALUE', // required
+ *         pattern: 'STRING_VALUE', // required
  *         excludeMatchedPattern: true || false,
  *       },
  *     ],
  *   ],
- *   buildType: "STRING_VALUE",
+ *   buildType: 'STRING_VALUE',
  * };
  * const command = new UpdateWebhookCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateWebhookOutput
+ *   webhook: { // Webhook
+ *     url: 'STRING_VALUE',
+ *     payloadUrl: 'STRING_VALUE',
+ *     secret: 'STRING_VALUE',
+ *     branchFilter: 'STRING_VALUE',
+ *     filterGroups: [ // FilterGroups
+ *       [ // FilterGroup
+ *         { // WebhookFilter
+ *           type: 'STRING_VALUE', // required
+ *           pattern: 'STRING_VALUE', // required
+ *           excludeMatchedPattern: true || false,
+ *         },
+ *       ],
+ *     ],
+ *     buildType: 'STRING_VALUE',
+ *     lastModifiedSecret: new Date('TIMESTAMP'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateWebhookCommandInput - {@link UpdateWebhookCommandInput}
@@ -77,6 +98,8 @@ export interface UpdateWebhookCommandOutput extends UpdateWebhookOutput, __Metad
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified Amazon Web Services resource cannot be found.</p>
  *
+ * @throws {@link CodeBuildServiceException}
+ * <p>Base exception class for all service exceptions from CodeBuild service.</p>
  *
  */
 export class UpdateWebhookCommand extends $Command<

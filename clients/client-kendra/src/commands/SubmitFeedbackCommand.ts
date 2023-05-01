@@ -40,27 +40,30 @@ export interface SubmitFeedbackCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KendraClient, SubmitFeedbackCommand } from "@aws-sdk/client-kendra"; // ES Modules import
- * // const { KendraClient, SubmitFeedbackCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
+ * import { KendraClient, SubmitFeedbackCommand } from '@aws-sdk/client-kendra'; // ES Modules import
+ * // const { KendraClient, SubmitFeedbackCommand } = require('@aws-sdk/client-kendra'); // CommonJS import
  * const client = new KendraClient(config);
  * const input = { // SubmitFeedbackRequest
- *   IndexId: "STRING_VALUE", // required
- *   QueryId: "STRING_VALUE", // required
+ *   IndexId: 'STRING_VALUE', // required
+ *   QueryId: 'STRING_VALUE', // required
  *   ClickFeedbackItems: [ // ClickFeedbackList
  *     { // ClickFeedback
- *       ResultId: "STRING_VALUE", // required
- *       ClickTime: new Date("TIMESTAMP"), // required
+ *       ResultId: 'STRING_VALUE', // required
+ *       ClickTime: new Date('TIMESTAMP'), // required
  *     },
  *   ],
  *   RelevanceFeedbackItems: [ // RelevanceFeedbackList
  *     { // RelevanceFeedback
- *       ResultId: "STRING_VALUE", // required
- *       RelevanceValue: "RELEVANT" || "NOT_RELEVANT", // required
+ *       ResultId: 'STRING_VALUE', // required
+ *       RelevanceValue: 'RELEVANT' || 'NOT_RELEVANT', // required
  *     },
  *   ],
  * };
  * const command = new SubmitFeedbackCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param SubmitFeedbackCommandInput - {@link SubmitFeedbackCommandInput}
@@ -93,6 +96,8 @@ export interface SubmitFeedbackCommandOutput extends __MetadataBearer {}
  *  <p>The input fails to satisfy the constraints set by the Amazon Kendra service.
  *             Please provide the correct input and try again.</p>
  *
+ * @throws {@link KendraServiceException}
+ * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
  */
 export class SubmitFeedbackCommand extends $Command<

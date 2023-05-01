@@ -44,22 +44,35 @@ export interface ListNotebookInstanceLifecycleConfigsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, ListNotebookInstanceLifecycleConfigsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, ListNotebookInstanceLifecycleConfigsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, ListNotebookInstanceLifecycleConfigsCommand } from '@aws-sdk/client-sagemaker'; // ES Modules import
+ * // const { SageMakerClient, ListNotebookInstanceLifecycleConfigsCommand } = require('@aws-sdk/client-sagemaker'); // CommonJS import
  * const client = new SageMakerClient(config);
  * const input = { // ListNotebookInstanceLifecycleConfigsInput
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
- *   SortBy: "Name" || "CreationTime" || "LastModifiedTime",
- *   SortOrder: "Ascending" || "Descending",
- *   NameContains: "STRING_VALUE",
- *   CreationTimeBefore: new Date("TIMESTAMP"),
- *   CreationTimeAfter: new Date("TIMESTAMP"),
- *   LastModifiedTimeBefore: new Date("TIMESTAMP"),
- *   LastModifiedTimeAfter: new Date("TIMESTAMP"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
+ *   SortBy: 'Name' || 'CreationTime' || 'LastModifiedTime',
+ *   SortOrder: 'Ascending' || 'Descending',
+ *   NameContains: 'STRING_VALUE',
+ *   CreationTimeBefore: new Date('TIMESTAMP'),
+ *   CreationTimeAfter: new Date('TIMESTAMP'),
+ *   LastModifiedTimeBefore: new Date('TIMESTAMP'),
+ *   LastModifiedTimeAfter: new Date('TIMESTAMP'),
  * };
  * const command = new ListNotebookInstanceLifecycleConfigsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListNotebookInstanceLifecycleConfigsOutput
+ *   NextToken: 'STRING_VALUE',
+ *   NotebookInstanceLifecycleConfigs: [ // NotebookInstanceLifecycleConfigSummaryList
+ *     { // NotebookInstanceLifecycleConfigSummary
+ *       NotebookInstanceLifecycleConfigName: 'STRING_VALUE', // required
+ *       NotebookInstanceLifecycleConfigArn: 'STRING_VALUE', // required
+ *       CreationTime: new Date('TIMESTAMP'),
+ *       LastModifiedTime: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListNotebookInstanceLifecycleConfigsCommandInput - {@link ListNotebookInstanceLifecycleConfigsCommandInput}
@@ -68,6 +81,8 @@ export interface ListNotebookInstanceLifecycleConfigsCommandOutput
  * @see {@link ListNotebookInstanceLifecycleConfigsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class ListNotebookInstanceLifecycleConfigsCommand extends $Command<

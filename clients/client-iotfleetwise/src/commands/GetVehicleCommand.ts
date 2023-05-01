@@ -36,14 +36,27 @@ export interface GetVehicleCommandOutput extends GetVehicleResponse, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTFleetWiseClient, GetVehicleCommand } from "@aws-sdk/client-iotfleetwise"; // ES Modules import
- * // const { IoTFleetWiseClient, GetVehicleCommand } = require("@aws-sdk/client-iotfleetwise"); // CommonJS import
+ * import { IoTFleetWiseClient, GetVehicleCommand } from '@aws-sdk/client-iotfleetwise'; // ES Modules import
+ * // const { IoTFleetWiseClient, GetVehicleCommand } = require('@aws-sdk/client-iotfleetwise'); // CommonJS import
  * const client = new IoTFleetWiseClient(config);
  * const input = { // GetVehicleRequest
- *   vehicleName: "STRING_VALUE", // required
+ *   vehicleName: 'STRING_VALUE', // required
  * };
  * const command = new GetVehicleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetVehicleResponse
+ *   vehicleName: 'STRING_VALUE',
+ *   arn: 'STRING_VALUE',
+ *   modelManifestArn: 'STRING_VALUE',
+ *   decoderManifestArn: 'STRING_VALUE',
+ *   attributes: { // attributesMap
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ *   creationTime: new Date('TIMESTAMP'),
+ *   lastModificationTime: new Date('TIMESTAMP'),
+ * };
+ *
  * ```
  *
  * @param GetVehicleCommandInput - {@link GetVehicleCommandInput}
@@ -67,6 +80,8 @@ export interface GetVehicleCommandOutput extends GetVehicleResponse, __MetadataB
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
  *
+ * @throws {@link IoTFleetWiseServiceException}
+ * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
  */
 export class GetVehicleCommand extends $Command<

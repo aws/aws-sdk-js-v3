@@ -38,23 +38,38 @@ export interface DiscoverInstancesCommandOutput extends DiscoverInstancesRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ServiceDiscoveryClient, DiscoverInstancesCommand } from "@aws-sdk/client-servicediscovery"; // ES Modules import
- * // const { ServiceDiscoveryClient, DiscoverInstancesCommand } = require("@aws-sdk/client-servicediscovery"); // CommonJS import
+ * import { ServiceDiscoveryClient, DiscoverInstancesCommand } from '@aws-sdk/client-servicediscovery'; // ES Modules import
+ * // const { ServiceDiscoveryClient, DiscoverInstancesCommand } = require('@aws-sdk/client-servicediscovery'); // CommonJS import
  * const client = new ServiceDiscoveryClient(config);
  * const input = { // DiscoverInstancesRequest
- *   NamespaceName: "STRING_VALUE", // required
- *   ServiceName: "STRING_VALUE", // required
- *   MaxResults: Number("int"),
+ *   NamespaceName: 'STRING_VALUE', // required
+ *   ServiceName: 'STRING_VALUE', // required
+ *   MaxResults: Number('int'),
  *   QueryParameters: { // Attributes
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  *   OptionalParameters: {
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
- *   HealthStatus: "HEALTHY" || "UNHEALTHY" || "ALL" || "HEALTHY_OR_ELSE_ALL",
+ *   HealthStatus: 'HEALTHY' || 'UNHEALTHY' || 'ALL' || 'HEALTHY_OR_ELSE_ALL',
  * };
  * const command = new DiscoverInstancesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DiscoverInstancesResponse
+ *   Instances: [ // HttpInstanceSummaryList
+ *     { // HttpInstanceSummary
+ *       InstanceId: 'STRING_VALUE',
+ *       NamespaceName: 'STRING_VALUE',
+ *       ServiceName: 'STRING_VALUE',
+ *       HealthStatus: 'HEALTHY' || 'UNHEALTHY' || 'UNKNOWN',
+ *       Attributes: { // Attributes
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DiscoverInstancesCommandInput - {@link DiscoverInstancesCommandInput}
@@ -79,6 +94,8 @@ export interface DiscoverInstancesCommandOutput extends DiscoverInstancesRespons
  * @throws {@link ServiceNotFound} (client fault)
  *  <p>No service exists with the specified ID.</p>
  *
+ * @throws {@link ServiceDiscoveryServiceException}
+ * <p>Base exception class for all service exceptions from ServiceDiscovery service.</p>
  *
  * @example Example: Discover registered instances
  * ```javascript

@@ -45,14 +45,21 @@ export interface GetSipMediaApplicationLoggingConfigurationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeClient, GetSipMediaApplicationLoggingConfigurationCommand } from "@aws-sdk/client-chime"; // ES Modules import
- * // const { ChimeClient, GetSipMediaApplicationLoggingConfigurationCommand } = require("@aws-sdk/client-chime"); // CommonJS import
+ * import { ChimeClient, GetSipMediaApplicationLoggingConfigurationCommand } from '@aws-sdk/client-chime'; // ES Modules import
+ * // const { ChimeClient, GetSipMediaApplicationLoggingConfigurationCommand } = require('@aws-sdk/client-chime'); // CommonJS import
  * const client = new ChimeClient(config);
  * const input = { // GetSipMediaApplicationLoggingConfigurationRequest
- *   SipMediaApplicationId: "STRING_VALUE", // required
+ *   SipMediaApplicationId: 'STRING_VALUE', // required
  * };
  * const command = new GetSipMediaApplicationLoggingConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetSipMediaApplicationLoggingConfigurationResponse
+ *   SipMediaApplicationLoggingConfiguration: { // SipMediaApplicationLoggingConfiguration
+ *     EnableSipMediaApplicationMessageLogs: true || false,
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetSipMediaApplicationLoggingConfigurationCommandInput - {@link GetSipMediaApplicationLoggingConfigurationCommandInput}
@@ -82,6 +89,8 @@ export interface GetSipMediaApplicationLoggingConfigurationCommandOutput
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeServiceException}
+ * <p>Base exception class for all service exceptions from Chime service.</p>
  *
  */
 export class GetSipMediaApplicationLoggingConfigurationCommand extends $Command<

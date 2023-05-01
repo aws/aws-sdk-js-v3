@@ -36,14 +36,27 @@ export interface GetWebhookCommandOutput extends GetWebhookResult, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AmplifyClient, GetWebhookCommand } from "@aws-sdk/client-amplify"; // ES Modules import
- * // const { AmplifyClient, GetWebhookCommand } = require("@aws-sdk/client-amplify"); // CommonJS import
+ * import { AmplifyClient, GetWebhookCommand } from '@aws-sdk/client-amplify'; // ES Modules import
+ * // const { AmplifyClient, GetWebhookCommand } = require('@aws-sdk/client-amplify'); // CommonJS import
  * const client = new AmplifyClient(config);
  * const input = { // GetWebhookRequest
- *   webhookId: "STRING_VALUE", // required
+ *   webhookId: 'STRING_VALUE', // required
  * };
  * const command = new GetWebhookCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetWebhookResult
+ *   webhook: { // Webhook
+ *     webhookArn: 'STRING_VALUE', // required
+ *     webhookId: 'STRING_VALUE', // required
+ *     webhookUrl: 'STRING_VALUE', // required
+ *     branchName: 'STRING_VALUE', // required
+ *     description: 'STRING_VALUE', // required
+ *     createTime: new Date('TIMESTAMP'), // required
+ *     updateTime: new Date('TIMESTAMP'), // required
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetWebhookCommandInput - {@link GetWebhookCommandInput}
@@ -67,6 +80,8 @@ export interface GetWebhookCommandOutput extends GetWebhookResult, __MetadataBea
  * @throws {@link UnauthorizedException} (client fault)
  *  <p> An operation failed due to a lack of access. </p>
  *
+ * @throws {@link AmplifyServiceException}
+ * <p>Base exception class for all service exceptions from Amplify service.</p>
  *
  */
 export class GetWebhookCommand extends $Command<

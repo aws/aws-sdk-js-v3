@@ -52,17 +52,20 @@ export interface UntagResourceCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OrganizationsClient, UntagResourceCommand } from "@aws-sdk/client-organizations"; // ES Modules import
- * // const { OrganizationsClient, UntagResourceCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
+ * import { OrganizationsClient, UntagResourceCommand } from '@aws-sdk/client-organizations'; // ES Modules import
+ * // const { OrganizationsClient, UntagResourceCommand } = require('@aws-sdk/client-organizations'); // CommonJS import
  * const client = new OrganizationsClient(config);
  * const input = { // UntagResourceRequest
- *   ResourceId: "STRING_VALUE", // required
+ *   ResourceId: 'STRING_VALUE', // required
  *   TagKeys: [ // TagKeys // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new UntagResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UntagResourceCommandInput - {@link UntagResourceCommandInput}
@@ -402,6 +405,8 @@ export interface UntagResourceCommandOutput extends __MetadataBearer {}
  *                 <i>Organizations User Guide.</i>
  *          </p>
  *
+ * @throws {@link OrganizationsServiceException}
+ * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
  */
 export class UntagResourceCommand extends $Command<

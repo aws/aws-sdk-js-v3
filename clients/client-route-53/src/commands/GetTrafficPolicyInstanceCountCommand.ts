@@ -42,12 +42,17 @@ export interface GetTrafficPolicyInstanceCountCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Route53Client, GetTrafficPolicyInstanceCountCommand } from "@aws-sdk/client-route-53"; // ES Modules import
- * // const { Route53Client, GetTrafficPolicyInstanceCountCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
+ * import { Route53Client, GetTrafficPolicyInstanceCountCommand } from '@aws-sdk/client-route-53'; // ES Modules import
+ * // const { Route53Client, GetTrafficPolicyInstanceCountCommand } = require('@aws-sdk/client-route-53'); // CommonJS import
  * const client = new Route53Client(config);
  * const input = {};
  * const command = new GetTrafficPolicyInstanceCountCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetTrafficPolicyInstanceCountResponse
+ *   TrafficPolicyInstanceCount: Number('int'), // required
+ * };
+ *
  * ```
  *
  * @param GetTrafficPolicyInstanceCountCommandInput - {@link GetTrafficPolicyInstanceCountCommandInput}
@@ -56,6 +61,8 @@ export interface GetTrafficPolicyInstanceCountCommandOutput
  * @see {@link GetTrafficPolicyInstanceCountCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
  *
+ * @throws {@link Route53ServiceException}
+ * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
  */
 export class GetTrafficPolicyInstanceCountCommand extends $Command<

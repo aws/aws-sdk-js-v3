@@ -36,15 +36,31 @@ export interface ListFindingsFiltersCommandOutput extends ListFindingsFiltersRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Macie2Client, ListFindingsFiltersCommand } from "@aws-sdk/client-macie2"; // ES Modules import
- * // const { Macie2Client, ListFindingsFiltersCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
+ * import { Macie2Client, ListFindingsFiltersCommand } from '@aws-sdk/client-macie2'; // ES Modules import
+ * // const { Macie2Client, ListFindingsFiltersCommand } = require('@aws-sdk/client-macie2'); // CommonJS import
  * const client = new Macie2Client(config);
  * const input = { // ListFindingsFiltersRequest
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new ListFindingsFiltersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListFindingsFiltersResponse
+ *   findingsFilterListItems: [ // __listOfFindingsFilterListItem
+ *     { // FindingsFilterListItem
+ *       action: 'ARCHIVE' || 'NOOP',
+ *       arn: 'STRING_VALUE',
+ *       id: 'STRING_VALUE',
+ *       name: 'STRING_VALUE',
+ *       tags: { // TagMap
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListFindingsFiltersCommandInput - {@link ListFindingsFiltersCommandInput}
@@ -74,6 +90,8 @@ export interface ListFindingsFiltersCommandOutput extends ListFindingsFiltersRes
  * @throws {@link ValidationException} (client fault)
  *  <p>Provides information about an error that occurred due to a syntax error in a request.</p>
  *
+ * @throws {@link Macie2ServiceException}
+ * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
  */
 export class ListFindingsFiltersCommand extends $Command<

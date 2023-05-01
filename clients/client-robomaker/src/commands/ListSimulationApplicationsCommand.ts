@@ -37,24 +37,45 @@ export interface ListSimulationApplicationsCommandOutput extends ListSimulationA
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RoboMakerClient, ListSimulationApplicationsCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
- * // const { RoboMakerClient, ListSimulationApplicationsCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
+ * import { RoboMakerClient, ListSimulationApplicationsCommand } from '@aws-sdk/client-robomaker'; // ES Modules import
+ * // const { RoboMakerClient, ListSimulationApplicationsCommand } = require('@aws-sdk/client-robomaker'); // CommonJS import
  * const client = new RoboMakerClient(config);
  * const input = { // ListSimulationApplicationsRequest
- *   versionQualifier: "STRING_VALUE",
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   versionQualifier: 'STRING_VALUE',
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  *   filters: [ // Filters
  *     { // Filter
- *       name: "STRING_VALUE",
+ *       name: 'STRING_VALUE',
  *       values: [ // FilterValues
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
  * };
  * const command = new ListSimulationApplicationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListSimulationApplicationsResponse
+ *   simulationApplicationSummaries: [ // SimulationApplicationSummaries
+ *     { // SimulationApplicationSummary
+ *       name: 'STRING_VALUE',
+ *       arn: 'STRING_VALUE',
+ *       version: 'STRING_VALUE',
+ *       lastUpdatedAt: new Date('TIMESTAMP'),
+ *       robotSoftwareSuite: { // RobotSoftwareSuite
+ *         name: 'STRING_VALUE',
+ *         version: 'STRING_VALUE',
+ *       },
+ *       simulationSoftwareSuite: { // SimulationSoftwareSuite
+ *         name: 'STRING_VALUE',
+ *         version: 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListSimulationApplicationsCommandInput - {@link ListSimulationApplicationsCommandInput}
@@ -73,6 +94,8 @@ export interface ListSimulationApplicationsCommandOutput extends ListSimulationA
  * @throws {@link ThrottlingException} (client fault)
  *  <p>AWS RoboMaker is temporarily unable to process the request. Try your call again.</p>
  *
+ * @throws {@link RoboMakerServiceException}
+ * <p>Base exception class for all service exceptions from RoboMaker service.</p>
  *
  */
 export class ListSimulationApplicationsCommand extends $Command<

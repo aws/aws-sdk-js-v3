@@ -36,47 +36,50 @@ export interface UpdateRelatedItemsCommandOutput extends UpdateRelatedItemsOutpu
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMIncidentsClient, UpdateRelatedItemsCommand } from "@aws-sdk/client-ssm-incidents"; // ES Modules import
- * // const { SSMIncidentsClient, UpdateRelatedItemsCommand } = require("@aws-sdk/client-ssm-incidents"); // CommonJS import
+ * import { SSMIncidentsClient, UpdateRelatedItemsCommand } from '@aws-sdk/client-ssm-incidents'; // ES Modules import
+ * // const { SSMIncidentsClient, UpdateRelatedItemsCommand } = require('@aws-sdk/client-ssm-incidents'); // CommonJS import
  * const client = new SSMIncidentsClient(config);
  * const input = { // UpdateRelatedItemsInput
- *   clientToken: "STRING_VALUE",
- *   incidentRecordArn: "STRING_VALUE", // required
+ *   clientToken: 'STRING_VALUE',
+ *   incidentRecordArn: 'STRING_VALUE', // required
  *   relatedItemsUpdate: { // RelatedItemsUpdate Union: only one key present
  *     itemToAdd: { // RelatedItem
  *       identifier: { // ItemIdentifier
  *         value: { // ItemValue Union: only one key present
- *           arn: "STRING_VALUE",
- *           url: "STRING_VALUE",
- *           metricDefinition: "STRING_VALUE",
+ *           arn: 'STRING_VALUE',
+ *           url: 'STRING_VALUE',
+ *           metricDefinition: 'STRING_VALUE',
  *           pagerDutyIncidentDetail: { // PagerDutyIncidentDetail
- *             id: "STRING_VALUE", // required
+ *             id: 'STRING_VALUE', // required
  *             autoResolve: true || false,
- *             secretId: "STRING_VALUE",
+ *             secretId: 'STRING_VALUE',
  *           },
  *         },
- *         type: "STRING_VALUE", // required
+ *         type: 'STRING_VALUE', // required
  *       },
- *       title: "STRING_VALUE",
- *       generatedId: "STRING_VALUE",
+ *       title: 'STRING_VALUE',
+ *       generatedId: 'STRING_VALUE',
  *     },
  *     itemToRemove: {
  *       value: {//  Union: only one key present
- *         arn: "STRING_VALUE",
- *         url: "STRING_VALUE",
- *         metricDefinition: "STRING_VALUE",
+ *         arn: 'STRING_VALUE',
+ *         url: 'STRING_VALUE',
+ *         metricDefinition: 'STRING_VALUE',
  *         pagerDutyIncidentDetail: {
- *           id: "STRING_VALUE", // required
+ *           id: 'STRING_VALUE', // required
  *           autoResolve: true || false,
- *           secretId: "STRING_VALUE",
+ *           secretId: 'STRING_VALUE',
  *         },
  *       },
- *       type: "STRING_VALUE", // required
+ *       type: 'STRING_VALUE', // required
  *     },
  *   },
  * };
  * const command = new UpdateRelatedItemsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateRelatedItemsCommandInput - {@link UpdateRelatedItemsCommandInput}
@@ -105,6 +108,8 @@ export interface UpdateRelatedItemsCommandOutput extends UpdateRelatedItemsOutpu
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
  *       service.</p>
  *
+ * @throws {@link SSMIncidentsServiceException}
+ * <p>Base exception class for all service exceptions from SSMIncidents service.</p>
  *
  */
 export class UpdateRelatedItemsCommand extends $Command<

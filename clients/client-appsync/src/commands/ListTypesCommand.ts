@@ -36,17 +36,31 @@ export interface ListTypesCommandOutput extends ListTypesResponse, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppSyncClient, ListTypesCommand } from "@aws-sdk/client-appsync"; // ES Modules import
- * // const { AppSyncClient, ListTypesCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
+ * import { AppSyncClient, ListTypesCommand } from '@aws-sdk/client-appsync'; // ES Modules import
+ * // const { AppSyncClient, ListTypesCommand } = require('@aws-sdk/client-appsync'); // CommonJS import
  * const client = new AppSyncClient(config);
  * const input = { // ListTypesRequest
- *   apiId: "STRING_VALUE", // required
- *   format: "SDL" || "JSON", // required
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   apiId: 'STRING_VALUE', // required
+ *   format: 'SDL' || 'JSON', // required
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new ListTypesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTypesResponse
+ *   types: [ // TypeList
+ *     { // Type
+ *       name: 'STRING_VALUE',
+ *       description: 'STRING_VALUE',
+ *       arn: 'STRING_VALUE',
+ *       definition: 'STRING_VALUE',
+ *       format: 'SDL' || 'JSON',
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListTypesCommandInput - {@link ListTypesCommandInput}
@@ -72,6 +86,8 @@ export interface ListTypesCommandOutput extends ListTypesResponse, __MetadataBea
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You aren't authorized to perform this operation.</p>
  *
+ * @throws {@link AppSyncServiceException}
+ * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
  */
 export class ListTypesCommand extends $Command<

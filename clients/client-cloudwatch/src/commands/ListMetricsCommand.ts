@@ -48,25 +48,45 @@ export interface ListMetricsCommandOutput extends ListMetricsOutput, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudWatchClient, ListMetricsCommand } from "@aws-sdk/client-cloudwatch"; // ES Modules import
- * // const { CloudWatchClient, ListMetricsCommand } = require("@aws-sdk/client-cloudwatch"); // CommonJS import
+ * import { CloudWatchClient, ListMetricsCommand } from '@aws-sdk/client-cloudwatch'; // ES Modules import
+ * // const { CloudWatchClient, ListMetricsCommand } = require('@aws-sdk/client-cloudwatch'); // CommonJS import
  * const client = new CloudWatchClient(config);
  * const input = { // ListMetricsInput
- *   Namespace: "STRING_VALUE",
- *   MetricName: "STRING_VALUE",
+ *   Namespace: 'STRING_VALUE',
+ *   MetricName: 'STRING_VALUE',
  *   Dimensions: [ // DimensionFilters
  *     { // DimensionFilter
- *       Name: "STRING_VALUE", // required
- *       Value: "STRING_VALUE",
+ *       Name: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
- *   NextToken: "STRING_VALUE",
- *   RecentlyActive: "PT3H",
+ *   NextToken: 'STRING_VALUE',
+ *   RecentlyActive: 'PT3H',
  *   IncludeLinkedAccounts: true || false,
- *   OwningAccount: "STRING_VALUE",
+ *   OwningAccount: 'STRING_VALUE',
  * };
  * const command = new ListMetricsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListMetricsOutput
+ *   Metrics: [ // Metrics
+ *     { // Metric
+ *       Namespace: 'STRING_VALUE',
+ *       MetricName: 'STRING_VALUE',
+ *       Dimensions: [ // Dimensions
+ *         { // Dimension
+ *           Name: 'STRING_VALUE', // required
+ *           Value: 'STRING_VALUE', // required
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ *   OwningAccounts: [ // OwningAccounts
+ *     'STRING_VALUE',
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListMetricsCommandInput - {@link ListMetricsCommandInput}
@@ -81,6 +101,8 @@ export interface ListMetricsCommandOutput extends ListMetricsOutput, __MetadataB
  * @throws {@link InvalidParameterValueException} (client fault)
  *  <p>The value of an input parameter is bad or out-of-range.</p>
  *
+ * @throws {@link CloudWatchServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatch service.</p>
  *
  */
 export class ListMetricsCommand extends $Command<

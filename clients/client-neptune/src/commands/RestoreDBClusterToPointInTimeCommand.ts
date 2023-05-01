@@ -53,41 +53,137 @@ export interface RestoreDBClusterToPointInTimeCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { NeptuneClient, RestoreDBClusterToPointInTimeCommand } from "@aws-sdk/client-neptune"; // ES Modules import
- * // const { NeptuneClient, RestoreDBClusterToPointInTimeCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
+ * import { NeptuneClient, RestoreDBClusterToPointInTimeCommand } from '@aws-sdk/client-neptune'; // ES Modules import
+ * // const { NeptuneClient, RestoreDBClusterToPointInTimeCommand } = require('@aws-sdk/client-neptune'); // CommonJS import
  * const client = new NeptuneClient(config);
  * const input = { // RestoreDBClusterToPointInTimeMessage
- *   DBClusterIdentifier: "STRING_VALUE", // required
- *   RestoreType: "STRING_VALUE",
- *   SourceDBClusterIdentifier: "STRING_VALUE", // required
- *   RestoreToTime: new Date("TIMESTAMP"),
+ *   DBClusterIdentifier: 'STRING_VALUE', // required
+ *   RestoreType: 'STRING_VALUE',
+ *   SourceDBClusterIdentifier: 'STRING_VALUE', // required
+ *   RestoreToTime: new Date('TIMESTAMP'),
  *   UseLatestRestorableTime: true || false,
- *   Port: Number("int"),
- *   DBSubnetGroupName: "STRING_VALUE",
- *   OptionGroupName: "STRING_VALUE",
+ *   Port: Number('int'),
+ *   DBSubnetGroupName: 'STRING_VALUE',
+ *   OptionGroupName: 'STRING_VALUE',
  *   VpcSecurityGroupIds: [ // VpcSecurityGroupIdList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE",
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
- *   KmsKeyId: "STRING_VALUE",
+ *   KmsKeyId: 'STRING_VALUE',
  *   EnableIAMDatabaseAuthentication: true || false,
  *   EnableCloudwatchLogsExports: [ // LogTypeList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   DBClusterParameterGroupName: "STRING_VALUE",
+ *   DBClusterParameterGroupName: 'STRING_VALUE',
  *   DeletionProtection: true || false,
  *   ServerlessV2ScalingConfiguration: { // ServerlessV2ScalingConfiguration
- *     MinCapacity: Number("double"),
- *     MaxCapacity: Number("double"),
+ *     MinCapacity: Number('double'),
+ *     MaxCapacity: Number('double'),
  *   },
  * };
  * const command = new RestoreDBClusterToPointInTimeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // RestoreDBClusterToPointInTimeResult
+ *   DBCluster: { // DBCluster
+ *     AllocatedStorage: Number('int'),
+ *     AvailabilityZones: [ // AvailabilityZones
+ *       'STRING_VALUE',
+ *     ],
+ *     BackupRetentionPeriod: Number('int'),
+ *     CharacterSetName: 'STRING_VALUE',
+ *     DatabaseName: 'STRING_VALUE',
+ *     DBClusterIdentifier: 'STRING_VALUE',
+ *     DBClusterParameterGroup: 'STRING_VALUE',
+ *     DBSubnetGroup: 'STRING_VALUE',
+ *     Status: 'STRING_VALUE',
+ *     PercentProgress: 'STRING_VALUE',
+ *     EarliestRestorableTime: new Date('TIMESTAMP'),
+ *     Endpoint: 'STRING_VALUE',
+ *     ReaderEndpoint: 'STRING_VALUE',
+ *     MultiAZ: true || false,
+ *     Engine: 'STRING_VALUE',
+ *     EngineVersion: 'STRING_VALUE',
+ *     LatestRestorableTime: new Date('TIMESTAMP'),
+ *     Port: Number('int'),
+ *     MasterUsername: 'STRING_VALUE',
+ *     DBClusterOptionGroupMemberships: [ // DBClusterOptionGroupMemberships
+ *       { // DBClusterOptionGroupStatus
+ *         DBClusterOptionGroupName: 'STRING_VALUE',
+ *         Status: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     PreferredBackupWindow: 'STRING_VALUE',
+ *     PreferredMaintenanceWindow: 'STRING_VALUE',
+ *     ReplicationSourceIdentifier: 'STRING_VALUE',
+ *     ReadReplicaIdentifiers: [ // ReadReplicaIdentifierList
+ *       'STRING_VALUE',
+ *     ],
+ *     DBClusterMembers: [ // DBClusterMemberList
+ *       { // DBClusterMember
+ *         DBInstanceIdentifier: 'STRING_VALUE',
+ *         IsClusterWriter: true || false,
+ *         DBClusterParameterGroupStatus: 'STRING_VALUE',
+ *         PromotionTier: Number('int'),
+ *       },
+ *     ],
+ *     VpcSecurityGroups: [ // VpcSecurityGroupMembershipList
+ *       { // VpcSecurityGroupMembership
+ *         VpcSecurityGroupId: 'STRING_VALUE',
+ *         Status: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     HostedZoneId: 'STRING_VALUE',
+ *     StorageEncrypted: true || false,
+ *     KmsKeyId: 'STRING_VALUE',
+ *     DbClusterResourceId: 'STRING_VALUE',
+ *     DBClusterArn: 'STRING_VALUE',
+ *     AssociatedRoles: [ // DBClusterRoles
+ *       { // DBClusterRole
+ *         RoleArn: 'STRING_VALUE',
+ *         Status: 'STRING_VALUE',
+ *         FeatureName: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     IAMDatabaseAuthenticationEnabled: true || false,
+ *     CloneGroupId: 'STRING_VALUE',
+ *     ClusterCreateTime: new Date('TIMESTAMP'),
+ *     CopyTagsToSnapshot: true || false,
+ *     EnabledCloudwatchLogsExports: [ // LogTypeList
+ *       'STRING_VALUE',
+ *     ],
+ *     PendingModifiedValues: { // ClusterPendingModifiedValues
+ *       PendingCloudwatchLogsExports: { // PendingCloudwatchLogsExports
+ *         LogTypesToEnable: [
+ *           'STRING_VALUE',
+ *         ],
+ *         LogTypesToDisable: [
+ *           'STRING_VALUE',
+ *         ],
+ *       },
+ *       DBClusterIdentifier: 'STRING_VALUE',
+ *       IAMDatabaseAuthenticationEnabled: true || false,
+ *       EngineVersion: 'STRING_VALUE',
+ *       BackupRetentionPeriod: Number('int'),
+ *       AllocatedStorage: Number('int'),
+ *       Iops: Number('int'),
+ *     },
+ *     DeletionProtection: true || false,
+ *     CrossAccountClone: true || false,
+ *     AutomaticRestartTime: new Date('TIMESTAMP'),
+ *     ServerlessV2ScalingConfiguration: { // ServerlessV2ScalingConfigurationInfo
+ *       MinCapacity: Number('double'),
+ *       MaxCapacity: Number('double'),
+ *     },
+ *     GlobalClusterIdentifier: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param RestoreDBClusterToPointInTimeCommandInput - {@link RestoreDBClusterToPointInTimeCommandInput}
@@ -158,6 +254,8 @@ export interface RestoreDBClusterToPointInTimeCommandOutput
  * @throws {@link StorageQuotaExceededFault} (client fault)
  *  <p>Request would result in user exceeding the allowed amount of storage available across all DB instances.</p>
  *
+ * @throws {@link NeptuneServiceException}
+ * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
  */
 export class RestoreDBClusterToPointInTimeCommand extends $Command<

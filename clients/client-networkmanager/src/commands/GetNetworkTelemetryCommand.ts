@@ -36,22 +36,44 @@ export interface GetNetworkTelemetryCommandOutput extends GetNetworkTelemetryRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { NetworkManagerClient, GetNetworkTelemetryCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
- * // const { NetworkManagerClient, GetNetworkTelemetryCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
+ * import { NetworkManagerClient, GetNetworkTelemetryCommand } from '@aws-sdk/client-networkmanager'; // ES Modules import
+ * // const { NetworkManagerClient, GetNetworkTelemetryCommand } = require('@aws-sdk/client-networkmanager'); // CommonJS import
  * const client = new NetworkManagerClient(config);
  * const input = { // GetNetworkTelemetryRequest
- *   GlobalNetworkId: "STRING_VALUE", // required
- *   CoreNetworkId: "STRING_VALUE",
- *   RegisteredGatewayArn: "STRING_VALUE",
- *   AwsRegion: "STRING_VALUE",
- *   AccountId: "STRING_VALUE",
- *   ResourceType: "STRING_VALUE",
- *   ResourceArn: "STRING_VALUE",
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   GlobalNetworkId: 'STRING_VALUE', // required
+ *   CoreNetworkId: 'STRING_VALUE',
+ *   RegisteredGatewayArn: 'STRING_VALUE',
+ *   AwsRegion: 'STRING_VALUE',
+ *   AccountId: 'STRING_VALUE',
+ *   ResourceType: 'STRING_VALUE',
+ *   ResourceArn: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new GetNetworkTelemetryCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetNetworkTelemetryResponse
+ *   NetworkTelemetry: [ // NetworkTelemetryList
+ *     { // NetworkTelemetry
+ *       RegisteredGatewayArn: 'STRING_VALUE',
+ *       CoreNetworkId: 'STRING_VALUE',
+ *       AwsRegion: 'STRING_VALUE',
+ *       AccountId: 'STRING_VALUE',
+ *       ResourceType: 'STRING_VALUE',
+ *       ResourceId: 'STRING_VALUE',
+ *       ResourceArn: 'STRING_VALUE',
+ *       Address: 'STRING_VALUE',
+ *       Health: { // ConnectionHealth
+ *         Type: 'BGP' || 'IPSEC',
+ *         Status: 'UP' || 'DOWN',
+ *         Timestamp: new Date('TIMESTAMP'),
+ *       },
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetNetworkTelemetryCommandInput - {@link GetNetworkTelemetryCommandInput}
@@ -75,6 +97,8 @@ export interface GetNetworkTelemetryCommandOutput extends GetNetworkTelemetryRes
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints.</p>
  *
+ * @throws {@link NetworkManagerServiceException}
+ * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
  */
 export class GetNetworkTelemetryCommand extends $Command<

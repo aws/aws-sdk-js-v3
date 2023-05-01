@@ -40,16 +40,53 @@ export interface GetServiceCommandOutput extends GetServiceResponse, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MigrationHubRefactorSpacesClient, GetServiceCommand } from "@aws-sdk/client-migration-hub-refactor-spaces"; // ES Modules import
- * // const { MigrationHubRefactorSpacesClient, GetServiceCommand } = require("@aws-sdk/client-migration-hub-refactor-spaces"); // CommonJS import
+ * import { MigrationHubRefactorSpacesClient, GetServiceCommand } from '@aws-sdk/client-migration-hub-refactor-spaces'; // ES Modules import
+ * // const { MigrationHubRefactorSpacesClient, GetServiceCommand } = require('@aws-sdk/client-migration-hub-refactor-spaces'); // CommonJS import
  * const client = new MigrationHubRefactorSpacesClient(config);
  * const input = { // GetServiceRequest
- *   EnvironmentIdentifier: "STRING_VALUE", // required
- *   ApplicationIdentifier: "STRING_VALUE", // required
- *   ServiceIdentifier: "STRING_VALUE", // required
+ *   EnvironmentIdentifier: 'STRING_VALUE', // required
+ *   ApplicationIdentifier: 'STRING_VALUE', // required
+ *   ServiceIdentifier: 'STRING_VALUE', // required
  * };
  * const command = new GetServiceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetServiceResponse
+ *   ServiceId: 'STRING_VALUE',
+ *   Name: 'STRING_VALUE',
+ *   Arn: 'STRING_VALUE',
+ *   OwnerAccountId: 'STRING_VALUE',
+ *   CreatedByAccountId: 'STRING_VALUE',
+ *   Description: 'STRING_VALUE',
+ *   EnvironmentId: 'STRING_VALUE',
+ *   ApplicationId: 'STRING_VALUE',
+ *   VpcId: 'STRING_VALUE',
+ *   EndpointType: 'STRING_VALUE',
+ *   UrlEndpoint: { // UrlEndpointConfig
+ *     Url: 'STRING_VALUE',
+ *     HealthUrl: 'STRING_VALUE',
+ *   },
+ *   LambdaEndpoint: { // LambdaEndpointConfig
+ *     Arn: 'STRING_VALUE',
+ *   },
+ *   State: 'STRING_VALUE',
+ *   Tags: { // TagMap
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ *   Error: { // ErrorResponse
+ *     Code: 'STRING_VALUE',
+ *     Message: 'STRING_VALUE',
+ *     AccountId: 'STRING_VALUE',
+ *     ResourceIdentifier: 'STRING_VALUE',
+ *     ResourceType: 'STRING_VALUE',
+ *     AdditionalDetails: { // AdditionalDetails
+ *       '<keys>': 'STRING_VALUE',
+ *     },
+ *   },
+ *   LastUpdatedTime: new Date('TIMESTAMP'),
+ *   CreatedTime: new Date('TIMESTAMP'),
+ * };
+ *
  * ```
  *
  * @param GetServiceCommandInput - {@link GetServiceCommandInput}
@@ -74,6 +111,8 @@ export interface GetServiceCommandOutput extends GetServiceResponse, __MetadataB
  *  <p>The input does not satisfy the constraints specified by an Amazon Web Service.
  *     </p>
  *
+ * @throws {@link MigrationHubRefactorSpacesServiceException}
+ * <p>Base exception class for all service exceptions from MigrationHubRefactorSpaces service.</p>
  *
  */
 export class GetServiceCommand extends $Command<

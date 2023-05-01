@@ -36,31 +36,49 @@ export interface QuerySchemaVersionMetadataCommandOutput extends QuerySchemaVers
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlueClient, QuerySchemaVersionMetadataCommand } from "@aws-sdk/client-glue"; // ES Modules import
- * // const { GlueClient, QuerySchemaVersionMetadataCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * import { GlueClient, QuerySchemaVersionMetadataCommand } from '@aws-sdk/client-glue'; // ES Modules import
+ * // const { GlueClient, QuerySchemaVersionMetadataCommand } = require('@aws-sdk/client-glue'); // CommonJS import
  * const client = new GlueClient(config);
  * const input = { // QuerySchemaVersionMetadataInput
  *   SchemaId: { // SchemaId
- *     SchemaArn: "STRING_VALUE",
- *     SchemaName: "STRING_VALUE",
- *     RegistryName: "STRING_VALUE",
+ *     SchemaArn: 'STRING_VALUE',
+ *     SchemaName: 'STRING_VALUE',
+ *     RegistryName: 'STRING_VALUE',
  *   },
  *   SchemaVersionNumber: { // SchemaVersionNumber
  *     LatestVersion: true || false,
- *     VersionNumber: Number("long"),
+ *     VersionNumber: Number('long'),
  *   },
- *   SchemaVersionId: "STRING_VALUE",
+ *   SchemaVersionId: 'STRING_VALUE',
  *   MetadataList: [ // MetadataList
  *     { // MetadataKeyValuePair
- *       MetadataKey: "STRING_VALUE",
- *       MetadataValue: "STRING_VALUE",
+ *       MetadataKey: 'STRING_VALUE',
+ *       MetadataValue: 'STRING_VALUE',
  *     },
  *   ],
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new QuerySchemaVersionMetadataCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // QuerySchemaVersionMetadataResponse
+ *   MetadataInfoMap: { // MetadataInfoMap
+ *     '<keys>': { // MetadataInfo
+ *       MetadataValue: 'STRING_VALUE',
+ *       CreatedTime: 'STRING_VALUE',
+ *       OtherMetadataValueList: [ // OtherMetadataValueList
+ *         { // OtherMetadataValueListItem
+ *           MetadataValue: 'STRING_VALUE',
+ *           CreatedTime: 'STRING_VALUE',
+ *         },
+ *       ],
+ *     },
+ *   },
+ *   SchemaVersionId: 'STRING_VALUE',
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param QuerySchemaVersionMetadataCommandInput - {@link QuerySchemaVersionMetadataCommandInput}
@@ -78,6 +96,8 @@ export interface QuerySchemaVersionMetadataCommandOutput extends QuerySchemaVers
  * @throws {@link InvalidInputException} (client fault)
  *  <p>The input provided was not valid.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class QuerySchemaVersionMetadataCommand extends $Command<

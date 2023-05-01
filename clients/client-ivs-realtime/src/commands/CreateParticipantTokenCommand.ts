@@ -42,22 +42,39 @@ export interface CreateParticipantTokenCommandOutput extends CreateParticipantTo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IVSRealTimeClient, CreateParticipantTokenCommand } from "@aws-sdk/client-ivs-realtime"; // ES Modules import
- * // const { IVSRealTimeClient, CreateParticipantTokenCommand } = require("@aws-sdk/client-ivs-realtime"); // CommonJS import
+ * import { IVSRealTimeClient, CreateParticipantTokenCommand } from '@aws-sdk/client-ivs-realtime'; // ES Modules import
+ * // const { IVSRealTimeClient, CreateParticipantTokenCommand } = require('@aws-sdk/client-ivs-realtime'); // CommonJS import
  * const client = new IVSRealTimeClient(config);
  * const input = { // CreateParticipantTokenRequest
- *   stageArn: "STRING_VALUE", // required
- *   duration: Number("int"),
- *   userId: "STRING_VALUE",
+ *   stageArn: 'STRING_VALUE', // required
+ *   duration: Number('int'),
+ *   userId: 'STRING_VALUE',
  *   attributes: { // ParticipantTokenAttributes
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  *   capabilities: [ // ParticipantTokenCapabilities
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new CreateParticipantTokenCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateParticipantTokenResponse
+ *   participantToken: { // ParticipantToken
+ *     participantId: 'STRING_VALUE',
+ *     token: 'STRING_VALUE',
+ *     userId: 'STRING_VALUE',
+ *     attributes: { // ParticipantTokenAttributes
+ *       '<keys>': 'STRING_VALUE',
+ *     },
+ *     duration: Number('int'),
+ *     capabilities: [ // ParticipantTokenCapabilities
+ *       'STRING_VALUE',
+ *     ],
+ *     expirationTime: new Date('TIMESTAMP'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateParticipantTokenCommandInput - {@link CreateParticipantTokenCommandInput}
@@ -81,6 +98,8 @@ export interface CreateParticipantTokenCommandOutput extends CreateParticipantTo
  * @throws {@link ValidationException} (client fault)
  *  <p/>
  *
+ * @throws {@link IVSRealTimeServiceException}
+ * <p>Base exception class for all service exceptions from IVSRealTime service.</p>
  *
  */
 export class CreateParticipantTokenCommand extends $Command<

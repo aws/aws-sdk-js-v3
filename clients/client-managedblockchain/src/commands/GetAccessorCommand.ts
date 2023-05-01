@@ -41,14 +41,29 @@ export interface GetAccessorCommandOutput extends GetAccessorOutput, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ManagedBlockchainClient, GetAccessorCommand } from "@aws-sdk/client-managedblockchain"; // ES Modules import
- * // const { ManagedBlockchainClient, GetAccessorCommand } = require("@aws-sdk/client-managedblockchain"); // CommonJS import
+ * import { ManagedBlockchainClient, GetAccessorCommand } from '@aws-sdk/client-managedblockchain'; // ES Modules import
+ * // const { ManagedBlockchainClient, GetAccessorCommand } = require('@aws-sdk/client-managedblockchain'); // CommonJS import
  * const client = new ManagedBlockchainClient(config);
  * const input = { // GetAccessorInput
- *   AccessorId: "STRING_VALUE", // required
+ *   AccessorId: 'STRING_VALUE', // required
  * };
  * const command = new GetAccessorCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetAccessorOutput
+ *   Accessor: { // Accessor
+ *     Id: 'STRING_VALUE',
+ *     Type: 'BILLING_TOKEN',
+ *     BillingToken: 'STRING_VALUE',
+ *     Status: 'AVAILABLE' || 'PENDING_DELETION' || 'DELETED',
+ *     CreationDate: new Date('TIMESTAMP'),
+ *     Arn: 'STRING_VALUE',
+ *     Tags: { // OutputTagMap
+ *       '<keys>': 'STRING_VALUE',
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetAccessorCommandInput - {@link GetAccessorCommandInput}
@@ -75,6 +90,8 @@ export interface GetAccessorCommandOutput extends GetAccessorOutput, __MetadataB
  *          creating resources that exceed your service limit for this resource type.
  *          Request a limit increase or delete unused resources if possible.</p>
  *
+ * @throws {@link ManagedBlockchainServiceException}
+ * <p>Base exception class for all service exceptions from ManagedBlockchain service.</p>
  *
  */
 export class GetAccessorCommand extends $Command<

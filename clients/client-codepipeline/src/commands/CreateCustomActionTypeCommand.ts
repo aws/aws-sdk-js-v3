@@ -37,47 +37,90 @@ export interface CreateCustomActionTypeCommandOutput extends CreateCustomActionT
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodePipelineClient, CreateCustomActionTypeCommand } from "@aws-sdk/client-codepipeline"; // ES Modules import
- * // const { CodePipelineClient, CreateCustomActionTypeCommand } = require("@aws-sdk/client-codepipeline"); // CommonJS import
+ * import { CodePipelineClient, CreateCustomActionTypeCommand } from '@aws-sdk/client-codepipeline'; // ES Modules import
+ * // const { CodePipelineClient, CreateCustomActionTypeCommand } = require('@aws-sdk/client-codepipeline'); // CommonJS import
  * const client = new CodePipelineClient(config);
  * const input = { // CreateCustomActionTypeInput
- *   category: "STRING_VALUE", // required
- *   provider: "STRING_VALUE", // required
- *   version: "STRING_VALUE", // required
+ *   category: 'STRING_VALUE', // required
+ *   provider: 'STRING_VALUE', // required
+ *   version: 'STRING_VALUE', // required
  *   settings: { // ActionTypeSettings
- *     thirdPartyConfigurationUrl: "STRING_VALUE",
- *     entityUrlTemplate: "STRING_VALUE",
- *     executionUrlTemplate: "STRING_VALUE",
- *     revisionUrlTemplate: "STRING_VALUE",
+ *     thirdPartyConfigurationUrl: 'STRING_VALUE',
+ *     entityUrlTemplate: 'STRING_VALUE',
+ *     executionUrlTemplate: 'STRING_VALUE',
+ *     revisionUrlTemplate: 'STRING_VALUE',
  *   },
  *   configurationProperties: [ // ActionConfigurationPropertyList
  *     { // ActionConfigurationProperty
- *       name: "STRING_VALUE", // required
+ *       name: 'STRING_VALUE', // required
  *       required: true || false, // required
  *       key: true || false, // required
  *       secret: true || false, // required
  *       queryable: true || false,
- *       description: "STRING_VALUE",
- *       type: "STRING_VALUE",
+ *       description: 'STRING_VALUE',
+ *       type: 'STRING_VALUE',
  *     },
  *   ],
  *   inputArtifactDetails: { // ArtifactDetails
- *     minimumCount: Number("int"), // required
- *     maximumCount: Number("int"), // required
+ *     minimumCount: Number('int'), // required
+ *     maximumCount: Number('int'), // required
  *   },
  *   outputArtifactDetails: {
- *     minimumCount: Number("int"), // required
- *     maximumCount: Number("int"), // required
+ *     minimumCount: Number('int'), // required
+ *     maximumCount: Number('int'), // required
  *   },
  *   tags: [ // TagList
  *     { // Tag
- *       key: "STRING_VALUE", // required
- *       value: "STRING_VALUE", // required
+ *       key: 'STRING_VALUE', // required
+ *       value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreateCustomActionTypeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateCustomActionTypeOutput
+ *   actionType: { // ActionType
+ *     id: { // ActionTypeId
+ *       category: 'STRING_VALUE', // required
+ *       owner: 'STRING_VALUE', // required
+ *       provider: 'STRING_VALUE', // required
+ *       version: 'STRING_VALUE', // required
+ *     },
+ *     settings: { // ActionTypeSettings
+ *       thirdPartyConfigurationUrl: 'STRING_VALUE',
+ *       entityUrlTemplate: 'STRING_VALUE',
+ *       executionUrlTemplate: 'STRING_VALUE',
+ *       revisionUrlTemplate: 'STRING_VALUE',
+ *     },
+ *     actionConfigurationProperties: [ // ActionConfigurationPropertyList
+ *       { // ActionConfigurationProperty
+ *         name: 'STRING_VALUE', // required
+ *         required: true || false, // required
+ *         key: true || false, // required
+ *         secret: true || false, // required
+ *         queryable: true || false,
+ *         description: 'STRING_VALUE',
+ *         type: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     inputArtifactDetails: { // ArtifactDetails
+ *       minimumCount: Number('int'), // required
+ *       maximumCount: Number('int'), // required
+ *     },
+ *     outputArtifactDetails: {
+ *       minimumCount: Number('int'), // required
+ *       maximumCount: Number('int'), // required
+ *     },
+ *   },
+ *   tags: [ // TagList
+ *     { // Tag
+ *       key: 'STRING_VALUE', // required
+ *       value: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param CreateCustomActionTypeCommandInput - {@link CreateCustomActionTypeCommandInput}
@@ -102,6 +145,8 @@ export interface CreateCustomActionTypeCommandOutput extends CreateCustomActionT
  * @throws {@link ValidationException} (client fault)
  *  <p>The validation was specified in an invalid format.</p>
  *
+ * @throws {@link CodePipelineServiceException}
+ * <p>Base exception class for all service exceptions from CodePipeline service.</p>
  *
  */
 export class CreateCustomActionTypeCommand extends $Command<

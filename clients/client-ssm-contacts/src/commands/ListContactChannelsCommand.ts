@@ -36,16 +36,33 @@ export interface ListContactChannelsCommandOutput extends ListContactChannelsRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMContactsClient, ListContactChannelsCommand } from "@aws-sdk/client-ssm-contacts"; // ES Modules import
- * // const { SSMContactsClient, ListContactChannelsCommand } = require("@aws-sdk/client-ssm-contacts"); // CommonJS import
+ * import { SSMContactsClient, ListContactChannelsCommand } from '@aws-sdk/client-ssm-contacts'; // ES Modules import
+ * // const { SSMContactsClient, ListContactChannelsCommand } = require('@aws-sdk/client-ssm-contacts'); // CommonJS import
  * const client = new SSMContactsClient(config);
  * const input = { // ListContactChannelsRequest
- *   ContactId: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   ContactId: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListContactChannelsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListContactChannelsResult
+ *   NextToken: 'STRING_VALUE',
+ *   ContactChannels: [ // ContactChannelList // required
+ *     { // ContactChannel
+ *       ContactChannelArn: 'STRING_VALUE', // required
+ *       ContactArn: 'STRING_VALUE', // required
+ *       Name: 'STRING_VALUE', // required
+ *       Type: 'SMS' || 'VOICE' || 'EMAIL',
+ *       DeliveryAddress: { // ContactChannelAddress
+ *         SimpleAddress: 'STRING_VALUE',
+ *       },
+ *       ActivationStatus: 'ACTIVATED' || 'NOT_ACTIVATED', // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListContactChannelsCommandInput - {@link ListContactChannelsCommandInput}
@@ -73,6 +90,8 @@ export interface ListContactChannelsCommandOutput extends ListContactChannelsRes
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
  *          service.</p>
  *
+ * @throws {@link SSMContactsServiceException}
+ * <p>Base exception class for all service exceptions from SSMContacts service.</p>
  *
  */
 export class ListContactChannelsCommand extends $Command<

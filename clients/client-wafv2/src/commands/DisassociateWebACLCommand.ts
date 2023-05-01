@@ -40,14 +40,17 @@ export interface DisassociateWebACLCommandOutput extends DisassociateWebACLRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WAFV2Client, DisassociateWebACLCommand } from "@aws-sdk/client-wafv2"; // ES Modules import
- * // const { WAFV2Client, DisassociateWebACLCommand } = require("@aws-sdk/client-wafv2"); // CommonJS import
+ * import { WAFV2Client, DisassociateWebACLCommand } from '@aws-sdk/client-wafv2'; // ES Modules import
+ * // const { WAFV2Client, DisassociateWebACLCommand } = require('@aws-sdk/client-wafv2'); // CommonJS import
  * const client = new WAFV2Client(config);
  * const input = { // DisassociateWebACLRequest
- *   ResourceArn: "STRING_VALUE", // required
+ *   ResourceArn: 'STRING_VALUE', // required
  * };
  * const command = new DisassociateWebACLCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DisassociateWebACLCommandInput - {@link DisassociateWebACLCommandInput}
@@ -90,6 +93,8 @@ export interface DisassociateWebACLCommandOutput extends DisassociateWebACLRespo
  *        just need to wait a few minutes. It can take from a few seconds to a number of minutes
  *        for changes to propagate. </p>
  *
+ * @throws {@link WAFV2ServiceException}
+ * <p>Base exception class for all service exceptions from WAFV2 service.</p>
  *
  */
 export class DisassociateWebACLCommand extends $Command<

@@ -36,18 +36,23 @@ export interface PutMaintenanceStartTimeCommandOutput extends PutMaintenanceStar
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BackupGatewayClient, PutMaintenanceStartTimeCommand } from "@aws-sdk/client-backup-gateway"; // ES Modules import
- * // const { BackupGatewayClient, PutMaintenanceStartTimeCommand } = require("@aws-sdk/client-backup-gateway"); // CommonJS import
+ * import { BackupGatewayClient, PutMaintenanceStartTimeCommand } from '@aws-sdk/client-backup-gateway'; // ES Modules import
+ * // const { BackupGatewayClient, PutMaintenanceStartTimeCommand } = require('@aws-sdk/client-backup-gateway'); // CommonJS import
  * const client = new BackupGatewayClient(config);
  * const input = { // PutMaintenanceStartTimeInput
- *   GatewayArn: "STRING_VALUE", // required
- *   HourOfDay: Number("int"), // required
- *   MinuteOfHour: Number("int"), // required
- *   DayOfWeek: Number("int"),
- *   DayOfMonth: Number("int"),
+ *   GatewayArn: 'STRING_VALUE', // required
+ *   HourOfDay: Number('int'), // required
+ *   MinuteOfHour: Number('int'), // required
+ *   DayOfWeek: Number('int'),
+ *   DayOfMonth: Number('int'),
  * };
  * const command = new PutMaintenanceStartTimeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutMaintenanceStartTimeOutput
+ *   GatewayArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param PutMaintenanceStartTimeCommandInput - {@link PutMaintenanceStartTimeCommandInput}
@@ -72,6 +77,8 @@ export interface PutMaintenanceStartTimeCommandOutput extends PutMaintenanceStar
  * @throws {@link ValidationException} (client fault)
  *  <p>The operation did not succeed because a validation error occurred.</p>
  *
+ * @throws {@link BackupGatewayServiceException}
+ * <p>Base exception class for all service exceptions from BackupGateway service.</p>
  *
  */
 export class PutMaintenanceStartTimeCommand extends $Command<

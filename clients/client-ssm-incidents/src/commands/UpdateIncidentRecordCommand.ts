@@ -38,30 +38,33 @@ export interface UpdateIncidentRecordCommandOutput extends UpdateIncidentRecordO
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMIncidentsClient, UpdateIncidentRecordCommand } from "@aws-sdk/client-ssm-incidents"; // ES Modules import
- * // const { SSMIncidentsClient, UpdateIncidentRecordCommand } = require("@aws-sdk/client-ssm-incidents"); // CommonJS import
+ * import { SSMIncidentsClient, UpdateIncidentRecordCommand } from '@aws-sdk/client-ssm-incidents'; // ES Modules import
+ * // const { SSMIncidentsClient, UpdateIncidentRecordCommand } = require('@aws-sdk/client-ssm-incidents'); // CommonJS import
  * const client = new SSMIncidentsClient(config);
  * const input = { // UpdateIncidentRecordInput
- *   clientToken: "STRING_VALUE",
- *   arn: "STRING_VALUE", // required
- *   title: "STRING_VALUE",
- *   summary: "STRING_VALUE",
- *   impact: Number("int"),
- *   status: "STRING_VALUE",
+ *   clientToken: 'STRING_VALUE',
+ *   arn: 'STRING_VALUE', // required
+ *   title: 'STRING_VALUE',
+ *   summary: 'STRING_VALUE',
+ *   impact: Number('int'),
+ *   status: 'STRING_VALUE',
  *   chatChannel: { // ChatChannel Union: only one key present
  *     empty: {},
  *     chatbotSns: [ // ChatbotSnsConfigurationSet
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *   },
  *   notificationTargets: [ // NotificationTargetSet
  *     { // NotificationTargetItem Union: only one key present
- *       snsTopicArn: "STRING_VALUE",
+ *       snsTopicArn: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new UpdateIncidentRecordCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateIncidentRecordCommandInput - {@link UpdateIncidentRecordCommandInput}
@@ -90,6 +93,8 @@ export interface UpdateIncidentRecordCommandOutput extends UpdateIncidentRecordO
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
  *       service.</p>
  *
+ * @throws {@link SSMIncidentsServiceException}
+ * <p>Base exception class for all service exceptions from SSMIncidents service.</p>
  *
  */
 export class UpdateIncidentRecordCommand extends $Command<

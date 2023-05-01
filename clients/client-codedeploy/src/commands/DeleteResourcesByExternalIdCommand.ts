@@ -36,14 +36,17 @@ export interface DeleteResourcesByExternalIdCommandOutput extends DeleteResource
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeDeployClient, DeleteResourcesByExternalIdCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
- * // const { CodeDeployClient, DeleteResourcesByExternalIdCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
+ * import { CodeDeployClient, DeleteResourcesByExternalIdCommand } from '@aws-sdk/client-codedeploy'; // ES Modules import
+ * // const { CodeDeployClient, DeleteResourcesByExternalIdCommand } = require('@aws-sdk/client-codedeploy'); // CommonJS import
  * const client = new CodeDeployClient(config);
  * const input = { // DeleteResourcesByExternalIdInput
- *   externalId: "STRING_VALUE",
+ *   externalId: 'STRING_VALUE',
  * };
  * const command = new DeleteResourcesByExternalIdCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteResourcesByExternalIdCommandInput - {@link DeleteResourcesByExternalIdCommandInput}
@@ -52,6 +55,8 @@ export interface DeleteResourcesByExternalIdCommandOutput extends DeleteResource
  * @see {@link DeleteResourcesByExternalIdCommandOutput} for command's `response` shape.
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
  *
+ * @throws {@link CodeDeployServiceException}
+ * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
  */
 export class DeleteResourcesByExternalIdCommand extends $Command<

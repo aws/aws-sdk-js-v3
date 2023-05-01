@@ -36,17 +36,20 @@ export interface UntagResourceCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SchemasClient, UntagResourceCommand } from "@aws-sdk/client-schemas"; // ES Modules import
- * // const { SchemasClient, UntagResourceCommand } = require("@aws-sdk/client-schemas"); // CommonJS import
+ * import { SchemasClient, UntagResourceCommand } from '@aws-sdk/client-schemas'; // ES Modules import
+ * // const { SchemasClient, UntagResourceCommand } = require('@aws-sdk/client-schemas'); // CommonJS import
  * const client = new SchemasClient(config);
  * const input = { // UntagResourceRequest
- *   ResourceArn: "STRING_VALUE", // required
+ *   ResourceArn: 'STRING_VALUE', // required
  *   TagKeys: [ // __listOf__string // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new UntagResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UntagResourceCommandInput - {@link UntagResourceCommandInput}
@@ -63,6 +66,8 @@ export interface UntagResourceCommandOutput extends __MetadataBearer {}
  *
  * @throws {@link NotFoundException} (client fault)
  *
+ * @throws {@link SchemasServiceException}
+ * <p>Base exception class for all service exceptions from Schemas service.</p>
  *
  */
 export class UntagResourceCommand extends $Command<

@@ -36,16 +36,27 @@ export interface GetTypeCommandOutput extends GetTypeResponse, __MetadataBearer 
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppSyncClient, GetTypeCommand } from "@aws-sdk/client-appsync"; // ES Modules import
- * // const { AppSyncClient, GetTypeCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
+ * import { AppSyncClient, GetTypeCommand } from '@aws-sdk/client-appsync'; // ES Modules import
+ * // const { AppSyncClient, GetTypeCommand } = require('@aws-sdk/client-appsync'); // CommonJS import
  * const client = new AppSyncClient(config);
  * const input = { // GetTypeRequest
- *   apiId: "STRING_VALUE", // required
- *   typeName: "STRING_VALUE", // required
- *   format: "SDL" || "JSON", // required
+ *   apiId: 'STRING_VALUE', // required
+ *   typeName: 'STRING_VALUE', // required
+ *   format: 'SDL' || 'JSON', // required
  * };
  * const command = new GetTypeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetTypeResponse
+ *   type: { // Type
+ *     name: 'STRING_VALUE',
+ *     description: 'STRING_VALUE',
+ *     arn: 'STRING_VALUE',
+ *     definition: 'STRING_VALUE',
+ *     format: 'SDL' || 'JSON',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetTypeCommandInput - {@link GetTypeCommandInput}
@@ -71,6 +82,8 @@ export interface GetTypeCommandOutput extends GetTypeResponse, __MetadataBearer 
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You aren't authorized to perform this operation.</p>
  *
+ * @throws {@link AppSyncServiceException}
+ * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
  */
 export class GetTypeCommand extends $Command<GetTypeCommandInput, GetTypeCommandOutput, AppSyncClientResolvedConfig> {

@@ -39,12 +39,20 @@ export interface DescribeLimitsCommandOutput extends DescribeLimitsOutput, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KinesisClient, DescribeLimitsCommand } from "@aws-sdk/client-kinesis"; // ES Modules import
- * // const { KinesisClient, DescribeLimitsCommand } = require("@aws-sdk/client-kinesis"); // CommonJS import
+ * import { KinesisClient, DescribeLimitsCommand } from '@aws-sdk/client-kinesis'; // ES Modules import
+ * // const { KinesisClient, DescribeLimitsCommand } = require('@aws-sdk/client-kinesis'); // CommonJS import
  * const client = new KinesisClient(config);
  * const input = {};
  * const command = new DescribeLimitsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeLimitsOutput
+ *   ShardLimit: Number('int'), // required
+ *   OpenShardCount: Number('int'), // required
+ *   OnDemandStreamCount: Number('int'), // required
+ *   OnDemandStreamCountLimit: Number('int'), // required
+ * };
+ *
  * ```
  *
  * @param DescribeLimitsCommandInput - {@link DescribeLimitsCommandInput}
@@ -57,6 +65,8 @@ export interface DescribeLimitsCommandOutput extends DescribeLimitsOutput, __Met
  *  <p>The requested resource exceeds the maximum number allowed, or the number of concurrent
  *             stream requests exceeds the maximum number allowed. </p>
  *
+ * @throws {@link KinesisServiceException}
+ * <p>Base exception class for all service exceptions from Kinesis service.</p>
  *
  */
 export class DescribeLimitsCommand extends $Command<

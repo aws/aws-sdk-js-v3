@@ -36,16 +36,35 @@ export interface GetDeviceDefinitionVersionCommandOutput extends GetDeviceDefini
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GreengrassClient, GetDeviceDefinitionVersionCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
- * // const { GreengrassClient, GetDeviceDefinitionVersionCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
+ * import { GreengrassClient, GetDeviceDefinitionVersionCommand } from '@aws-sdk/client-greengrass'; // ES Modules import
+ * // const { GreengrassClient, GetDeviceDefinitionVersionCommand } = require('@aws-sdk/client-greengrass'); // CommonJS import
  * const client = new GreengrassClient(config);
  * const input = { // GetDeviceDefinitionVersionRequest
- *   DeviceDefinitionId: "STRING_VALUE", // required
- *   DeviceDefinitionVersionId: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
+ *   DeviceDefinitionId: 'STRING_VALUE', // required
+ *   DeviceDefinitionVersionId: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new GetDeviceDefinitionVersionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetDeviceDefinitionVersionResponse
+ *   Arn: 'STRING_VALUE',
+ *   CreationTimestamp: 'STRING_VALUE',
+ *   Definition: { // DeviceDefinitionVersion
+ *     Devices: [ // __listOfDevice
+ *       { // Device
+ *         CertificateArn: 'STRING_VALUE', // required
+ *         Id: 'STRING_VALUE', // required
+ *         SyncShadow: true || false,
+ *         ThingArn: 'STRING_VALUE', // required
+ *       },
+ *     ],
+ *   },
+ *   Id: 'STRING_VALUE',
+ *   NextToken: 'STRING_VALUE',
+ *   Version: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetDeviceDefinitionVersionCommandInput - {@link GetDeviceDefinitionVersionCommandInput}
@@ -57,6 +76,8 @@ export interface GetDeviceDefinitionVersionCommandOutput extends GetDeviceDefini
  * @throws {@link BadRequestException} (client fault)
  *  General error information.
  *
+ * @throws {@link GreengrassServiceException}
+ * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
  */
 export class GetDeviceDefinitionVersionCommand extends $Command<

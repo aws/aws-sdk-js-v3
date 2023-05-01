@@ -36,17 +36,25 @@ export interface ConfigureLogsForChannelCommandOutput extends ConfigureLogsForCh
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MediaTailorClient, ConfigureLogsForChannelCommand } from "@aws-sdk/client-mediatailor"; // ES Modules import
- * // const { MediaTailorClient, ConfigureLogsForChannelCommand } = require("@aws-sdk/client-mediatailor"); // CommonJS import
+ * import { MediaTailorClient, ConfigureLogsForChannelCommand } from '@aws-sdk/client-mediatailor'; // ES Modules import
+ * // const { MediaTailorClient, ConfigureLogsForChannelCommand } = require('@aws-sdk/client-mediatailor'); // CommonJS import
  * const client = new MediaTailorClient(config);
  * const input = { // ConfigureLogsForChannelRequest
- *   ChannelName: "STRING_VALUE", // required
+ *   ChannelName: 'STRING_VALUE', // required
  *   LogTypes: [ // LogTypes // required
- *     "AS_RUN",
+ *     'AS_RUN',
  *   ],
  * };
  * const command = new ConfigureLogsForChannelCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ConfigureLogsForChannelResponse
+ *   ChannelName: 'STRING_VALUE',
+ *   LogTypes: [ // LogTypes
+ *     'AS_RUN',
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ConfigureLogsForChannelCommandInput - {@link ConfigureLogsForChannelCommandInput}
@@ -55,6 +63,8 @@ export interface ConfigureLogsForChannelCommandOutput extends ConfigureLogsForCh
  * @see {@link ConfigureLogsForChannelCommandOutput} for command's `response` shape.
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.
  *
+ * @throws {@link MediaTailorServiceException}
+ * <p>Base exception class for all service exceptions from MediaTailor service.</p>
  *
  */
 export class ConfigureLogsForChannelCommand extends $Command<

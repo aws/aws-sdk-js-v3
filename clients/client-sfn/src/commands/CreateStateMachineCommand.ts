@@ -59,29 +59,29 @@ export interface CreateStateMachineCommandOutput extends CreateStateMachineOutpu
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SFNClient, CreateStateMachineCommand } from "@aws-sdk/client-sfn"; // ES Modules import
- * // const { SFNClient, CreateStateMachineCommand } = require("@aws-sdk/client-sfn"); // CommonJS import
+ * import { SFNClient, CreateStateMachineCommand } from '@aws-sdk/client-sfn'; // ES Modules import
+ * // const { SFNClient, CreateStateMachineCommand } = require('@aws-sdk/client-sfn'); // CommonJS import
  * const client = new SFNClient(config);
  * const input = { // CreateStateMachineInput
- *   name: "STRING_VALUE", // required
- *   definition: "STRING_VALUE", // required
- *   roleArn: "STRING_VALUE", // required
- *   type: "STANDARD" || "EXPRESS",
+ *   name: 'STRING_VALUE', // required
+ *   definition: 'STRING_VALUE', // required
+ *   roleArn: 'STRING_VALUE', // required
+ *   type: 'STANDARD' || 'EXPRESS',
  *   loggingConfiguration: { // LoggingConfiguration
- *     level: "ALL" || "ERROR" || "FATAL" || "OFF",
+ *     level: 'ALL' || 'ERROR' || 'FATAL' || 'OFF',
  *     includeExecutionData: true || false,
  *     destinations: [ // LogDestinationList
  *       { // LogDestination
  *         cloudWatchLogsLogGroup: { // CloudWatchLogsLogGroup
- *           logGroupArn: "STRING_VALUE",
+ *           logGroupArn: 'STRING_VALUE',
  *         },
  *       },
  *     ],
  *   },
  *   tags: [ // TagList
  *     { // Tag
- *       key: "STRING_VALUE",
- *       value: "STRING_VALUE",
+ *       key: 'STRING_VALUE',
+ *       value: 'STRING_VALUE',
  *     },
  *   ],
  *   tracingConfiguration: { // TracingConfiguration
@@ -90,6 +90,12 @@ export interface CreateStateMachineCommandOutput extends CreateStateMachineOutpu
  * };
  * const command = new CreateStateMachineCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateStateMachineOutput
+ *   stateMachineArn: 'STRING_VALUE', // required
+ *   creationDate: new Date('TIMESTAMP'), // required
+ * };
+ *
  * ```
  *
  * @param CreateStateMachineCommandInput - {@link CreateStateMachineCommandInput}
@@ -132,6 +138,8 @@ export interface CreateStateMachineCommandOutput extends CreateStateMachineOutpu
  *  <p>You've exceeded the number of tags allowed for a resource. See the <a href="https://docs.aws.amazon.com/step-functions/latest/dg/limits.html"> Limits Topic</a> in the
  *       Step Functions Developer Guide.</p>
  *
+ * @throws {@link SFNServiceException}
+ * <p>Base exception class for all service exceptions from SFN service.</p>
  *
  */
 export class CreateStateMachineCommand extends $Command<

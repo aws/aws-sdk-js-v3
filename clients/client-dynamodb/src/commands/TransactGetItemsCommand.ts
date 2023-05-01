@@ -62,70 +62,150 @@ export interface TransactGetItemsCommandOutput extends TransactGetItemsOutput, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DynamoDBClient, TransactGetItemsCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
- * // const { DynamoDBClient, TransactGetItemsCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
+ * import { DynamoDBClient, TransactGetItemsCommand } from '@aws-sdk/client-dynamodb'; // ES Modules import
+ * // const { DynamoDBClient, TransactGetItemsCommand } = require('@aws-sdk/client-dynamodb'); // CommonJS import
  * const client = new DynamoDBClient(config);
  * const input = { // TransactGetItemsInput
  *   TransactItems: [ // TransactGetItemList // required
  *     { // TransactGetItem
  *       Get: { // Get
  *         Key: { // Key // required
- *           "<keys>": { // AttributeValue Union: only one key present
- *             S: "STRING_VALUE",
- *             N: "STRING_VALUE",
- *             B: "BLOB_VALUE",
+ *           '<keys>': { // AttributeValue Union: only one key present
+ *             S: 'STRING_VALUE',
+ *             N: 'STRING_VALUE',
+ *             B: 'BLOB_VALUE',
  *             SS: [ // StringSetAttributeValue
- *               "STRING_VALUE",
+ *               'STRING_VALUE',
  *             ],
  *             NS: [ // NumberSetAttributeValue
- *               "STRING_VALUE",
+ *               'STRING_VALUE',
  *             ],
  *             BS: [ // BinarySetAttributeValue
- *               "BLOB_VALUE",
+ *               'BLOB_VALUE',
  *             ],
  *             M: { // MapAttributeValue
- *               "<keys>": {//  Union: only one key present
- *                 S: "STRING_VALUE",
- *                 N: "STRING_VALUE",
- *                 B: "BLOB_VALUE",
+ *               '<keys>': {//  Union: only one key present
+ *                 S: 'STRING_VALUE',
+ *                 N: 'STRING_VALUE',
+ *                 B: 'BLOB_VALUE',
  *                 SS: [
- *                   "STRING_VALUE",
+ *                   'STRING_VALUE',
  *                 ],
  *                 NS: [
- *                   "STRING_VALUE",
+ *                   'STRING_VALUE',
  *                 ],
  *                 BS: [
- *                   "BLOB_VALUE",
+ *                   'BLOB_VALUE',
  *                 ],
  *                 M: {
- *                   "<keys>": "<AttributeValue>",
+ *                   '<keys>': '<AttributeValue>',
  *                 },
  *                 L: [ // ListAttributeValue
- *                   "<AttributeValue>",
+ *                   '<AttributeValue>',
  *                 ],
  *                 NULL: true || false,
  *                 BOOL: true || false,
  *               },
  *             },
  *             L: [
- *               "<AttributeValue>",
+ *               '<AttributeValue>',
  *             ],
  *             NULL: true || false,
  *             BOOL: true || false,
  *           },
  *         },
- *         TableName: "STRING_VALUE", // required
- *         ProjectionExpression: "STRING_VALUE",
+ *         TableName: 'STRING_VALUE', // required
+ *         ProjectionExpression: 'STRING_VALUE',
  *         ExpressionAttributeNames: { // ExpressionAttributeNameMap
- *           "<keys>": "STRING_VALUE",
+ *           '<keys>': 'STRING_VALUE',
  *         },
  *       },
  *     },
  *   ],
- *   ReturnConsumedCapacity: "INDEXES" || "TOTAL" || "NONE",
+ *   ReturnConsumedCapacity: 'INDEXES' || 'TOTAL' || 'NONE',
  * };
  * const command = new TransactGetItemsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // TransactGetItemsOutput
+ *   ConsumedCapacity: [ // ConsumedCapacityMultiple
+ *     { // ConsumedCapacity
+ *       TableName: 'STRING_VALUE',
+ *       CapacityUnits: Number('double'),
+ *       ReadCapacityUnits: Number('double'),
+ *       WriteCapacityUnits: Number('double'),
+ *       Table: { // Capacity
+ *         ReadCapacityUnits: Number('double'),
+ *         WriteCapacityUnits: Number('double'),
+ *         CapacityUnits: Number('double'),
+ *       },
+ *       LocalSecondaryIndexes: { // SecondaryIndexesCapacityMap
+ *         '<keys>': {
+ *           ReadCapacityUnits: Number('double'),
+ *           WriteCapacityUnits: Number('double'),
+ *           CapacityUnits: Number('double'),
+ *         },
+ *       },
+ *       GlobalSecondaryIndexes: {
+ *         '<keys>': {
+ *           ReadCapacityUnits: Number('double'),
+ *           WriteCapacityUnits: Number('double'),
+ *           CapacityUnits: Number('double'),
+ *         },
+ *       },
+ *     },
+ *   ],
+ *   Responses: [ // ItemResponseList
+ *     { // ItemResponse
+ *       Item: { // AttributeMap
+ *         '<keys>': { // AttributeValue Union: only one key present
+ *           S: 'STRING_VALUE',
+ *           N: 'STRING_VALUE',
+ *           B: 'BLOB_VALUE',
+ *           SS: [ // StringSetAttributeValue
+ *             'STRING_VALUE',
+ *           ],
+ *           NS: [ // NumberSetAttributeValue
+ *             'STRING_VALUE',
+ *           ],
+ *           BS: [ // BinarySetAttributeValue
+ *             'BLOB_VALUE',
+ *           ],
+ *           M: { // MapAttributeValue
+ *             '<keys>': {//  Union: only one key present
+ *               S: 'STRING_VALUE',
+ *               N: 'STRING_VALUE',
+ *               B: 'BLOB_VALUE',
+ *               SS: [
+ *                 'STRING_VALUE',
+ *               ],
+ *               NS: [
+ *                 'STRING_VALUE',
+ *               ],
+ *               BS: [
+ *                 'BLOB_VALUE',
+ *               ],
+ *               M: {
+ *                 '<keys>': '<AttributeValue>',
+ *               },
+ *               L: [ // ListAttributeValue
+ *                 '<AttributeValue>',
+ *               ],
+ *               NULL: true || false,
+ *               BOOL: true || false,
+ *             },
+ *           },
+ *           L: [
+ *             '<AttributeValue>',
+ *           ],
+ *           NULL: true || false,
+ *           BOOL: true || false,
+ *         },
+ *       },
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param TransactGetItemsCommandInput - {@link TransactGetItemsCommandInput}
@@ -387,6 +467,8 @@ export interface TransactGetItemsCommandOutput extends TransactGetItemsOutput, _
  *             </li>
  *          </ul>
  *
+ * @throws {@link DynamoDBServiceException}
+ * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
  */
 export class TransactGetItemsCommand extends $Command<

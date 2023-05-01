@@ -68,41 +68,109 @@ export interface SimulatePrincipalPolicyCommandOutput extends SimulatePolicyResp
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IAMClient, SimulatePrincipalPolicyCommand } from "@aws-sdk/client-iam"; // ES Modules import
- * // const { IAMClient, SimulatePrincipalPolicyCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * import { IAMClient, SimulatePrincipalPolicyCommand } from '@aws-sdk/client-iam'; // ES Modules import
+ * // const { IAMClient, SimulatePrincipalPolicyCommand } = require('@aws-sdk/client-iam'); // CommonJS import
  * const client = new IAMClient(config);
  * const input = { // SimulatePrincipalPolicyRequest
- *   PolicySourceArn: "STRING_VALUE", // required
+ *   PolicySourceArn: 'STRING_VALUE', // required
  *   PolicyInputList: [ // SimulationPolicyListType
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   PermissionsBoundaryPolicyInputList: [
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   ActionNames: [ // ActionNameListType // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   ResourceArns: [ // ResourceNameListType
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   ResourcePolicy: "STRING_VALUE",
- *   ResourceOwner: "STRING_VALUE",
- *   CallerArn: "STRING_VALUE",
+ *   ResourcePolicy: 'STRING_VALUE',
+ *   ResourceOwner: 'STRING_VALUE',
+ *   CallerArn: 'STRING_VALUE',
  *   ContextEntries: [ // ContextEntryListType
  *     { // ContextEntry
- *       ContextKeyName: "STRING_VALUE",
+ *       ContextKeyName: 'STRING_VALUE',
  *       ContextKeyValues: [ // ContextKeyValueListType
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
- *       ContextKeyType: "string" || "stringList" || "numeric" || "numericList" || "boolean" || "booleanList" || "ip" || "ipList" || "binary" || "binaryList" || "date" || "dateList",
+ *       ContextKeyType: 'string' || 'stringList' || 'numeric' || 'numericList' || 'boolean' || 'booleanList' || 'ip' || 'ipList' || 'binary' || 'binaryList' || 'date' || 'dateList',
  *     },
  *   ],
- *   ResourceHandlingOption: "STRING_VALUE",
- *   MaxItems: Number("int"),
- *   Marker: "STRING_VALUE",
+ *   ResourceHandlingOption: 'STRING_VALUE',
+ *   MaxItems: Number('int'),
+ *   Marker: 'STRING_VALUE',
  * };
  * const command = new SimulatePrincipalPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SimulatePolicyResponse
+ *   EvaluationResults: [ // EvaluationResultsListType
+ *     { // EvaluationResult
+ *       EvalActionName: 'STRING_VALUE', // required
+ *       EvalResourceName: 'STRING_VALUE',
+ *       EvalDecision: 'allowed' || 'explicitDeny' || 'implicitDeny', // required
+ *       MatchedStatements: [ // StatementListType
+ *         { // Statement
+ *           SourcePolicyId: 'STRING_VALUE',
+ *           SourcePolicyType: 'user' || 'group' || 'role' || 'aws-managed' || 'user-managed' || 'resource' || 'none',
+ *           StartPosition: { // Position
+ *             Line: Number('int'),
+ *             Column: Number('int'),
+ *           },
+ *           EndPosition: {
+ *             Line: Number('int'),
+ *             Column: Number('int'),
+ *           },
+ *         },
+ *       ],
+ *       MissingContextValues: [ // ContextKeyNamesResultListType
+ *         'STRING_VALUE',
+ *       ],
+ *       OrganizationsDecisionDetail: { // OrganizationsDecisionDetail
+ *         AllowedByOrganizations: true || false,
+ *       },
+ *       PermissionsBoundaryDecisionDetail: { // PermissionsBoundaryDecisionDetail
+ *         AllowedByPermissionsBoundary: true || false,
+ *       },
+ *       EvalDecisionDetails: { // EvalDecisionDetailsType
+ *         '<keys>': 'allowed' || 'explicitDeny' || 'implicitDeny',
+ *       },
+ *       ResourceSpecificResults: [ // ResourceSpecificResultListType
+ *         { // ResourceSpecificResult
+ *           EvalResourceName: 'STRING_VALUE', // required
+ *           EvalResourceDecision: 'allowed' || 'explicitDeny' || 'implicitDeny', // required
+ *           MatchedStatements: [
+ *             {
+ *               SourcePolicyId: 'STRING_VALUE',
+ *               SourcePolicyType: 'user' || 'group' || 'role' || 'aws-managed' || 'user-managed' || 'resource' || 'none',
+ *               StartPosition: {
+ *                 Line: Number('int'),
+ *                 Column: Number('int'),
+ *               },
+ *               EndPosition: {
+ *                 Line: Number('int'),
+ *                 Column: Number('int'),
+ *               },
+ *             },
+ *           ],
+ *           MissingContextValues: [
+ *             'STRING_VALUE',
+ *           ],
+ *           EvalDecisionDetails: {
+ *             '<keys>': 'allowed' || 'explicitDeny' || 'implicitDeny',
+ *           },
+ *           PermissionsBoundaryDecisionDetail: {
+ *             AllowedByPermissionsBoundary: true || false,
+ *           },
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   IsTruncated: true || false,
+ *   Marker: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param SimulatePrincipalPolicyCommandInput - {@link SimulatePrincipalPolicyCommandInput}
@@ -123,6 +191,8 @@ export interface SimulatePrincipalPolicyCommandOutput extends SimulatePolicyResp
  *  <p>The request failed because a provided policy could not be successfully evaluated. An
  *       additional detailed message indicates the source of the failure.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  */
 export class SimulatePrincipalPolicyCommand extends $Command<

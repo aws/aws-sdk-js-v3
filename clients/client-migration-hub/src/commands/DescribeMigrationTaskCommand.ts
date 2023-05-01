@@ -36,15 +36,35 @@ export interface DescribeMigrationTaskCommandOutput extends DescribeMigrationTas
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MigrationHubClient, DescribeMigrationTaskCommand } from "@aws-sdk/client-migration-hub"; // ES Modules import
- * // const { MigrationHubClient, DescribeMigrationTaskCommand } = require("@aws-sdk/client-migration-hub"); // CommonJS import
+ * import { MigrationHubClient, DescribeMigrationTaskCommand } from '@aws-sdk/client-migration-hub'; // ES Modules import
+ * // const { MigrationHubClient, DescribeMigrationTaskCommand } = require('@aws-sdk/client-migration-hub'); // CommonJS import
  * const client = new MigrationHubClient(config);
  * const input = { // DescribeMigrationTaskRequest
- *   ProgressUpdateStream: "STRING_VALUE", // required
- *   MigrationTaskName: "STRING_VALUE", // required
+ *   ProgressUpdateStream: 'STRING_VALUE', // required
+ *   MigrationTaskName: 'STRING_VALUE', // required
  * };
  * const command = new DescribeMigrationTaskCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeMigrationTaskResult
+ *   MigrationTask: { // MigrationTask
+ *     ProgressUpdateStream: 'STRING_VALUE',
+ *     MigrationTaskName: 'STRING_VALUE',
+ *     Task: { // Task
+ *       Status: 'STRING_VALUE', // required
+ *       StatusDetail: 'STRING_VALUE',
+ *       ProgressPercent: Number('int'),
+ *     },
+ *     UpdateDateTime: new Date('TIMESTAMP'),
+ *     ResourceAttributeList: [ // LatestResourceAttributeList
+ *       { // ResourceAttribute
+ *         Type: 'STRING_VALUE', // required
+ *         Value: 'STRING_VALUE', // required
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeMigrationTaskCommandInput - {@link DescribeMigrationTaskCommandInput}
@@ -79,6 +99,8 @@ export interface DescribeMigrationTaskCommandOutput extends DescribeMigrationTas
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
  *
+ * @throws {@link MigrationHubServiceException}
+ * <p>Base exception class for all service exceptions from MigrationHub service.</p>
  *
  */
 export class DescribeMigrationTaskCommand extends $Command<

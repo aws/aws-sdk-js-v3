@@ -100,15 +100,49 @@ export interface GetPipelineDefinitionCommandOutput extends GetPipelineDefinitio
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DataPipelineClient, GetPipelineDefinitionCommand } from "@aws-sdk/client-data-pipeline"; // ES Modules import
- * // const { DataPipelineClient, GetPipelineDefinitionCommand } = require("@aws-sdk/client-data-pipeline"); // CommonJS import
+ * import { DataPipelineClient, GetPipelineDefinitionCommand } from '@aws-sdk/client-data-pipeline'; // ES Modules import
+ * // const { DataPipelineClient, GetPipelineDefinitionCommand } = require('@aws-sdk/client-data-pipeline'); // CommonJS import
  * const client = new DataPipelineClient(config);
  * const input = { // GetPipelineDefinitionInput
- *   pipelineId: "STRING_VALUE", // required
- *   version: "STRING_VALUE",
+ *   pipelineId: 'STRING_VALUE', // required
+ *   version: 'STRING_VALUE',
  * };
  * const command = new GetPipelineDefinitionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetPipelineDefinitionOutput
+ *   pipelineObjects: [ // PipelineObjectList
+ *     { // PipelineObject
+ *       id: 'STRING_VALUE', // required
+ *       name: 'STRING_VALUE', // required
+ *       fields: [ // fieldList // required
+ *         { // Field
+ *           key: 'STRING_VALUE', // required
+ *           stringValue: 'STRING_VALUE',
+ *           refValue: 'STRING_VALUE',
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   parameterObjects: [ // ParameterObjectList
+ *     { // ParameterObject
+ *       id: 'STRING_VALUE', // required
+ *       attributes: [ // ParameterAttributeList // required
+ *         { // ParameterAttribute
+ *           key: 'STRING_VALUE', // required
+ *           stringValue: 'STRING_VALUE', // required
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   parameterValues: [ // ParameterValueList
+ *     { // ParameterValue
+ *       id: 'STRING_VALUE', // required
+ *       stringValue: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetPipelineDefinitionCommandInput - {@link GetPipelineDefinitionCommandInput}
@@ -129,6 +163,8 @@ export interface GetPipelineDefinitionCommandOutput extends GetPipelineDefinitio
  * @throws {@link PipelineNotFoundException} (client fault)
  *  <p>The specified pipeline was not found. Verify that you used the correct user and account identifiers.</p>
  *
+ * @throws {@link DataPipelineServiceException}
+ * <p>Base exception class for all service exceptions from DataPipeline service.</p>
  *
  */
 export class GetPipelineDefinitionCommand extends $Command<

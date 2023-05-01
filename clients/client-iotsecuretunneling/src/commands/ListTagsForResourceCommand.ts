@@ -40,14 +40,24 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTSecureTunnelingClient, ListTagsForResourceCommand } from "@aws-sdk/client-iotsecuretunneling"; // ES Modules import
- * // const { IoTSecureTunnelingClient, ListTagsForResourceCommand } = require("@aws-sdk/client-iotsecuretunneling"); // CommonJS import
+ * import { IoTSecureTunnelingClient, ListTagsForResourceCommand } from '@aws-sdk/client-iotsecuretunneling'; // ES Modules import
+ * // const { IoTSecureTunnelingClient, ListTagsForResourceCommand } = require('@aws-sdk/client-iotsecuretunneling'); // CommonJS import
  * const client = new IoTSecureTunnelingClient(config);
  * const input = { // ListTagsForResourceRequest
- *   resourceArn: "STRING_VALUE", // required
+ *   resourceArn: 'STRING_VALUE', // required
  * };
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTagsForResourceResponse
+ *   tags: [ // TagList
+ *     { // Tag
+ *       key: 'STRING_VALUE', // required
+ *       value: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListTagsForResourceCommandInput - {@link ListTagsForResourceCommandInput}
@@ -59,6 +69,8 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Thrown when an operation is attempted on a resource that does not exist.</p>
  *
+ * @throws {@link IoTSecureTunnelingServiceException}
+ * <p>Base exception class for all service exceptions from IoTSecureTunneling service.</p>
  *
  */
 export class ListTagsForResourceCommand extends $Command<

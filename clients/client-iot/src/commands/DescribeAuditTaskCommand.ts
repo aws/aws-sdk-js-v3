@@ -37,14 +37,42 @@ export interface DescribeAuditTaskCommandOutput extends DescribeAuditTaskRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTClient, DescribeAuditTaskCommand } from "@aws-sdk/client-iot"; // ES Modules import
- * // const { IoTClient, DescribeAuditTaskCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * import { IoTClient, DescribeAuditTaskCommand } from '@aws-sdk/client-iot'; // ES Modules import
+ * // const { IoTClient, DescribeAuditTaskCommand } = require('@aws-sdk/client-iot'); // CommonJS import
  * const client = new IoTClient(config);
  * const input = { // DescribeAuditTaskRequest
- *   taskId: "STRING_VALUE", // required
+ *   taskId: 'STRING_VALUE', // required
  * };
  * const command = new DescribeAuditTaskCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeAuditTaskResponse
+ *   taskStatus: 'IN_PROGRESS' || 'COMPLETED' || 'FAILED' || 'CANCELED',
+ *   taskType: 'ON_DEMAND_AUDIT_TASK' || 'SCHEDULED_AUDIT_TASK',
+ *   taskStartTime: new Date('TIMESTAMP'),
+ *   taskStatistics: { // TaskStatistics
+ *     totalChecks: Number('int'),
+ *     inProgressChecks: Number('int'),
+ *     waitingForDataCollectionChecks: Number('int'),
+ *     compliantChecks: Number('int'),
+ *     nonCompliantChecks: Number('int'),
+ *     failedChecks: Number('int'),
+ *     canceledChecks: Number('int'),
+ *   },
+ *   scheduledAuditName: 'STRING_VALUE',
+ *   auditDetails: { // AuditDetails
+ *     '<keys>': { // AuditCheckDetails
+ *       checkRunStatus: 'IN_PROGRESS' || 'WAITING_FOR_DATA_COLLECTION' || 'CANCELED' || 'COMPLETED_COMPLIANT' || 'COMPLETED_NON_COMPLIANT' || 'FAILED',
+ *       checkCompliant: true || false,
+ *       totalResourcesCount: Number('long'),
+ *       nonCompliantResourcesCount: Number('long'),
+ *       suppressedNonCompliantResourcesCount: Number('long'),
+ *       errorCode: 'STRING_VALUE',
+ *       message: 'STRING_VALUE',
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeAuditTaskCommandInput - {@link DescribeAuditTaskCommandInput}
@@ -65,6 +93,8 @@ export interface DescribeAuditTaskCommandOutput extends DescribeAuditTaskRespons
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The rate exceeds the limit.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class DescribeAuditTaskCommand extends $Command<

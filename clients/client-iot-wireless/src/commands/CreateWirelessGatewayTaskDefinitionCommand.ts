@@ -44,40 +44,46 @@ export interface CreateWirelessGatewayTaskDefinitionCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTWirelessClient, CreateWirelessGatewayTaskDefinitionCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
- * // const { IoTWirelessClient, CreateWirelessGatewayTaskDefinitionCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
+ * import { IoTWirelessClient, CreateWirelessGatewayTaskDefinitionCommand } from '@aws-sdk/client-iot-wireless'; // ES Modules import
+ * // const { IoTWirelessClient, CreateWirelessGatewayTaskDefinitionCommand } = require('@aws-sdk/client-iot-wireless'); // CommonJS import
  * const client = new IoTWirelessClient(config);
  * const input = { // CreateWirelessGatewayTaskDefinitionRequest
  *   AutoCreateTasks: true || false, // required
- *   Name: "STRING_VALUE",
+ *   Name: 'STRING_VALUE',
  *   Update: { // UpdateWirelessGatewayTaskCreate
- *     UpdateDataSource: "STRING_VALUE",
- *     UpdateDataRole: "STRING_VALUE",
+ *     UpdateDataSource: 'STRING_VALUE',
+ *     UpdateDataRole: 'STRING_VALUE',
  *     LoRaWAN: { // LoRaWANUpdateGatewayTaskCreate
- *       UpdateSignature: "STRING_VALUE",
- *       SigKeyCrc: Number("long"),
+ *       UpdateSignature: 'STRING_VALUE',
+ *       SigKeyCrc: Number('long'),
  *       CurrentVersion: { // LoRaWANGatewayVersion
- *         PackageVersion: "STRING_VALUE",
- *         Model: "STRING_VALUE",
- *         Station: "STRING_VALUE",
+ *         PackageVersion: 'STRING_VALUE',
+ *         Model: 'STRING_VALUE',
+ *         Station: 'STRING_VALUE',
  *       },
  *       UpdateVersion: {
- *         PackageVersion: "STRING_VALUE",
- *         Model: "STRING_VALUE",
- *         Station: "STRING_VALUE",
+ *         PackageVersion: 'STRING_VALUE',
+ *         Model: 'STRING_VALUE',
+ *         Station: 'STRING_VALUE',
  *       },
  *     },
  *   },
- *   ClientRequestToken: "STRING_VALUE",
+ *   ClientRequestToken: 'STRING_VALUE',
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreateWirelessGatewayTaskDefinitionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateWirelessGatewayTaskDefinitionResponse
+ *   Id: 'STRING_VALUE',
+ *   Arn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateWirelessGatewayTaskDefinitionCommandInput - {@link CreateWirelessGatewayTaskDefinitionCommandInput}
@@ -104,6 +110,8 @@ export interface CreateWirelessGatewayTaskDefinitionCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The input did not meet the specified constraints.</p>
  *
+ * @throws {@link IoTWirelessServiceException}
+ * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
  */
 export class CreateWirelessGatewayTaskDefinitionCommand extends $Command<

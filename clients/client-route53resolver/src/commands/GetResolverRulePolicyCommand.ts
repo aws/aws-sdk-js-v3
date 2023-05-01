@@ -37,14 +37,19 @@ export interface GetResolverRulePolicyCommandOutput extends GetResolverRulePolic
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Route53ResolverClient, GetResolverRulePolicyCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
- * // const { Route53ResolverClient, GetResolverRulePolicyCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
+ * import { Route53ResolverClient, GetResolverRulePolicyCommand } from '@aws-sdk/client-route53resolver'; // ES Modules import
+ * // const { Route53ResolverClient, GetResolverRulePolicyCommand } = require('@aws-sdk/client-route53resolver'); // CommonJS import
  * const client = new Route53ResolverClient(config);
  * const input = { // GetResolverRulePolicyRequest
- *   Arn: "STRING_VALUE", // required
+ *   Arn: 'STRING_VALUE', // required
  * };
  * const command = new GetResolverRulePolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetResolverRulePolicyResponse
+ *   ResolverRulePolicy: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetResolverRulePolicyCommandInput - {@link GetResolverRulePolicyCommandInput}
@@ -65,6 +70,8 @@ export interface GetResolverRulePolicyCommandOutput extends GetResolverRulePolic
  * @throws {@link UnknownResourceException} (client fault)
  *  <p>The specified resource doesn't exist.</p>
  *
+ * @throws {@link Route53ResolverServiceException}
+ * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
  */
 export class GetResolverRulePolicyCommand extends $Command<

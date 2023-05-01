@@ -37,14 +37,21 @@ export interface GetUpgradeStatusCommandOutput extends GetUpgradeStatusResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OpenSearchClient, GetUpgradeStatusCommand } from "@aws-sdk/client-opensearch"; // ES Modules import
- * // const { OpenSearchClient, GetUpgradeStatusCommand } = require("@aws-sdk/client-opensearch"); // CommonJS import
+ * import { OpenSearchClient, GetUpgradeStatusCommand } from '@aws-sdk/client-opensearch'; // ES Modules import
+ * // const { OpenSearchClient, GetUpgradeStatusCommand } = require('@aws-sdk/client-opensearch'); // CommonJS import
  * const client = new OpenSearchClient(config);
  * const input = { // GetUpgradeStatusRequest
- *   DomainName: "STRING_VALUE", // required
+ *   DomainName: 'STRING_VALUE', // required
  * };
  * const command = new GetUpgradeStatusCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetUpgradeStatusResponse
+ *   UpgradeStep: 'PRE_UPGRADE_CHECK' || 'SNAPSHOT' || 'UPGRADE',
+ *   StepStatus: 'IN_PROGRESS' || 'SUCCEEDED' || 'SUCCEEDED_WITH_ISSUES' || 'FAILED',
+ *   UpgradeName: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetUpgradeStatusCommandInput - {@link GetUpgradeStatusCommandInput}
@@ -68,6 +75,8 @@ export interface GetUpgradeStatusCommandOutput extends GetUpgradeStatusResponse,
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception for accessing or deleting a resource that doesn't exist.</p>
  *
+ * @throws {@link OpenSearchServiceException}
+ * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
  */
 export class GetUpgradeStatusCommand extends $Command<

@@ -54,46 +54,86 @@ export interface UpdateOriginRequestPolicyCommandOutput extends UpdateOriginRequ
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudFrontClient, UpdateOriginRequestPolicyCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
- * // const { CloudFrontClient, UpdateOriginRequestPolicyCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
+ * import { CloudFrontClient, UpdateOriginRequestPolicyCommand } from '@aws-sdk/client-cloudfront'; // ES Modules import
+ * // const { CloudFrontClient, UpdateOriginRequestPolicyCommand } = require('@aws-sdk/client-cloudfront'); // CommonJS import
  * const client = new CloudFrontClient(config);
  * const input = { // UpdateOriginRequestPolicyRequest
  *   OriginRequestPolicyConfig: { // OriginRequestPolicyConfig
- *     Comment: "STRING_VALUE",
- *     Name: "STRING_VALUE", // required
+ *     Comment: 'STRING_VALUE',
+ *     Name: 'STRING_VALUE', // required
  *     HeadersConfig: { // OriginRequestPolicyHeadersConfig
- *       HeaderBehavior: "none" || "whitelist" || "allViewer" || "allViewerAndWhitelistCloudFront" || "allExcept", // required
+ *       HeaderBehavior: 'none' || 'whitelist' || 'allViewer' || 'allViewerAndWhitelistCloudFront' || 'allExcept', // required
  *       Headers: { // Headers
- *         Quantity: Number("int"), // required
+ *         Quantity: Number('int'), // required
  *         Items: [ // HeaderList
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
  *       },
  *     },
  *     CookiesConfig: { // OriginRequestPolicyCookiesConfig
- *       CookieBehavior: "none" || "whitelist" || "all" || "allExcept", // required
+ *       CookieBehavior: 'none' || 'whitelist' || 'all' || 'allExcept', // required
  *       Cookies: { // CookieNames
- *         Quantity: Number("int"), // required
+ *         Quantity: Number('int'), // required
  *         Items: [ // CookieNameList
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
  *       },
  *     },
  *     QueryStringsConfig: { // OriginRequestPolicyQueryStringsConfig
- *       QueryStringBehavior: "none" || "whitelist" || "all" || "allExcept", // required
+ *       QueryStringBehavior: 'none' || 'whitelist' || 'all' || 'allExcept', // required
  *       QueryStrings: { // QueryStringNames
- *         Quantity: Number("int"), // required
+ *         Quantity: Number('int'), // required
  *         Items: [ // QueryStringNamesList
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
  *       },
  *     },
  *   },
- *   Id: "STRING_VALUE", // required
- *   IfMatch: "STRING_VALUE",
+ *   Id: 'STRING_VALUE', // required
+ *   IfMatch: 'STRING_VALUE',
  * };
  * const command = new UpdateOriginRequestPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateOriginRequestPolicyResult
+ *   OriginRequestPolicy: { // OriginRequestPolicy
+ *     Id: 'STRING_VALUE', // required
+ *     LastModifiedTime: new Date('TIMESTAMP'), // required
+ *     OriginRequestPolicyConfig: { // OriginRequestPolicyConfig
+ *       Comment: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE', // required
+ *       HeadersConfig: { // OriginRequestPolicyHeadersConfig
+ *         HeaderBehavior: 'none' || 'whitelist' || 'allViewer' || 'allViewerAndWhitelistCloudFront' || 'allExcept', // required
+ *         Headers: { // Headers
+ *           Quantity: Number('int'), // required
+ *           Items: [ // HeaderList
+ *             'STRING_VALUE',
+ *           ],
+ *         },
+ *       },
+ *       CookiesConfig: { // OriginRequestPolicyCookiesConfig
+ *         CookieBehavior: 'none' || 'whitelist' || 'all' || 'allExcept', // required
+ *         Cookies: { // CookieNames
+ *           Quantity: Number('int'), // required
+ *           Items: [ // CookieNameList
+ *             'STRING_VALUE',
+ *           ],
+ *         },
+ *       },
+ *       QueryStringsConfig: { // OriginRequestPolicyQueryStringsConfig
+ *         QueryStringBehavior: 'none' || 'whitelist' || 'all' || 'allExcept', // required
+ *         QueryStrings: { // QueryStringNames
+ *           Quantity: Number('int'), // required
+ *           Items: [ // QueryStringNamesList
+ *             'STRING_VALUE',
+ *           ],
+ *         },
+ *       },
+ *     },
+ *   },
+ *   ETag: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateOriginRequestPolicyCommandInput - {@link UpdateOriginRequestPolicyCommandInput}
@@ -145,6 +185,8 @@ export interface UpdateOriginRequestPolicyCommandOutput extends UpdateOriginRequ
  * 			information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
  * 				<i>Amazon CloudFront Developer Guide</i>.</p>
  *
+ * @throws {@link CloudFrontServiceException}
+ * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
  */
 export class UpdateOriginRequestPolicyCommand extends $Command<

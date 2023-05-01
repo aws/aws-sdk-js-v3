@@ -42,25 +42,30 @@ export interface PutObjectRetentionCommandOutput extends PutObjectRetentionOutpu
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { S3Client, PutObjectRetentionCommand } from "@aws-sdk/client-s3"; // ES Modules import
- * // const { S3Client, PutObjectRetentionCommand } = require("@aws-sdk/client-s3"); // CommonJS import
+ * import { S3Client, PutObjectRetentionCommand } from '@aws-sdk/client-s3'; // ES Modules import
+ * // const { S3Client, PutObjectRetentionCommand } = require('@aws-sdk/client-s3'); // CommonJS import
  * const client = new S3Client(config);
  * const input = { // PutObjectRetentionRequest
- *   Bucket: "STRING_VALUE", // required
- *   Key: "STRING_VALUE", // required
+ *   Bucket: 'STRING_VALUE', // required
+ *   Key: 'STRING_VALUE', // required
  *   Retention: { // ObjectLockRetention
- *     Mode: "GOVERNANCE" || "COMPLIANCE",
- *     RetainUntilDate: new Date("TIMESTAMP"),
+ *     Mode: 'GOVERNANCE' || 'COMPLIANCE',
+ *     RetainUntilDate: new Date('TIMESTAMP'),
  *   },
- *   RequestPayer: "requester",
- *   VersionId: "STRING_VALUE",
+ *   RequestPayer: 'requester',
+ *   VersionId: 'STRING_VALUE',
  *   BypassGovernanceRetention: true || false,
- *   ContentMD5: "STRING_VALUE",
- *   ChecksumAlgorithm: "CRC32" || "CRC32C" || "SHA1" || "SHA256",
- *   ExpectedBucketOwner: "STRING_VALUE",
+ *   ContentMD5: 'STRING_VALUE',
+ *   ChecksumAlgorithm: 'CRC32' || 'CRC32C' || 'SHA1' || 'SHA256',
+ *   ExpectedBucketOwner: 'STRING_VALUE',
  * };
  * const command = new PutObjectRetentionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutObjectRetentionOutput
+ *   RequestCharged: 'requester',
+ * };
+ *
  * ```
  *
  * @param PutObjectRetentionCommandInput - {@link PutObjectRetentionCommandInput}
@@ -69,6 +74,8 @@ export interface PutObjectRetentionCommandOutput extends PutObjectRetentionOutpu
  * @see {@link PutObjectRetentionCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
+ * @throws {@link S3ServiceException}
+ * <p>Base exception class for all service exceptions from S3 service.</p>
  *
  */
 export class PutObjectRetentionCommand extends $Command<

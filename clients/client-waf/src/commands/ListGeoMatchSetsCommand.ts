@@ -44,15 +44,26 @@ export interface ListGeoMatchSetsCommandOutput extends ListGeoMatchSetsResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WAFClient, ListGeoMatchSetsCommand } from "@aws-sdk/client-waf"; // ES Modules import
- * // const { WAFClient, ListGeoMatchSetsCommand } = require("@aws-sdk/client-waf"); // CommonJS import
+ * import { WAFClient, ListGeoMatchSetsCommand } from '@aws-sdk/client-waf'; // ES Modules import
+ * // const { WAFClient, ListGeoMatchSetsCommand } = require('@aws-sdk/client-waf'); // CommonJS import
  * const client = new WAFClient(config);
  * const input = { // ListGeoMatchSetsRequest
- *   NextMarker: "STRING_VALUE",
- *   Limit: Number("int"),
+ *   NextMarker: 'STRING_VALUE',
+ *   Limit: Number('int'),
  * };
  * const command = new ListGeoMatchSetsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListGeoMatchSetsResponse
+ *   NextMarker: 'STRING_VALUE',
+ *   GeoMatchSets: [ // GeoMatchSetSummaries
+ *     { // GeoMatchSetSummary
+ *       GeoMatchSetId: 'STRING_VALUE', // required
+ *       Name: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListGeoMatchSetsCommandInput - {@link ListGeoMatchSetsCommandInput}
@@ -67,6 +78,8 @@ export interface ListGeoMatchSetsCommandOutput extends ListGeoMatchSetsResponse,
  * @throws {@link WAFInvalidAccountException} (client fault)
  *  <p>The operation failed because you tried to create, update, or delete an object by using an invalid account identifier.</p>
  *
+ * @throws {@link WAFServiceException}
+ * <p>Base exception class for all service exceptions from WAF service.</p>
  *
  */
 export class ListGeoMatchSetsCommand extends $Command<

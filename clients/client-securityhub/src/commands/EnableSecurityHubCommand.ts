@@ -55,18 +55,21 @@ export interface EnableSecurityHubCommandOutput extends EnableSecurityHubRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SecurityHubClient, EnableSecurityHubCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
- * // const { SecurityHubClient, EnableSecurityHubCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
+ * import { SecurityHubClient, EnableSecurityHubCommand } from '@aws-sdk/client-securityhub'; // ES Modules import
+ * // const { SecurityHubClient, EnableSecurityHubCommand } = require('@aws-sdk/client-securityhub'); // CommonJS import
  * const client = new SecurityHubClient(config);
  * const input = { // EnableSecurityHubRequest
  *   Tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  *   EnableDefaultStandards: true || false,
- *   ControlFindingGenerator: "STANDARD_CONTROL" || "SECURITY_CONTROL",
+ *   ControlFindingGenerator: 'STANDARD_CONTROL' || 'SECURITY_CONTROL',
  * };
  * const command = new EnableSecurityHubCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param EnableSecurityHubCommandInput - {@link EnableSecurityHubCommandInput}
@@ -91,6 +94,8 @@ export interface EnableSecurityHubCommandOutput extends EnableSecurityHubRespons
  * @throws {@link ResourceConflictException} (client fault)
  *  <p>The resource specified in the request conflicts with an existing resource.</p>
  *
+ * @throws {@link SecurityHubServiceException}
+ * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
  * @example To activate Security Hub
  * ```javascript

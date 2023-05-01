@@ -40,14 +40,34 @@ export interface GetServerStrategiesCommandOutput extends GetServerStrategiesRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MigrationHubStrategyClient, GetServerStrategiesCommand } from "@aws-sdk/client-migrationhubstrategy"; // ES Modules import
- * // const { MigrationHubStrategyClient, GetServerStrategiesCommand } = require("@aws-sdk/client-migrationhubstrategy"); // CommonJS import
+ * import { MigrationHubStrategyClient, GetServerStrategiesCommand } from '@aws-sdk/client-migrationhubstrategy'; // ES Modules import
+ * // const { MigrationHubStrategyClient, GetServerStrategiesCommand } = require('@aws-sdk/client-migrationhubstrategy'); // CommonJS import
  * const client = new MigrationHubStrategyClient(config);
  * const input = { // GetServerStrategiesRequest
- *   serverId: "STRING_VALUE", // required
+ *   serverId: 'STRING_VALUE', // required
  * };
  * const command = new GetServerStrategiesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetServerStrategiesResponse
+ *   serverStrategies: [ // ServerStrategies
+ *     { // ServerStrategy
+ *       recommendation: { // RecommendationSet
+ *         transformationTool: { // TransformationTool
+ *           name: 'STRING_VALUE',
+ *           description: 'STRING_VALUE',
+ *           tranformationToolInstallationLink: 'STRING_VALUE',
+ *         },
+ *         targetDestination: 'STRING_VALUE',
+ *         strategy: 'STRING_VALUE',
+ *       },
+ *       status: 'STRING_VALUE',
+ *       numberOfApplicationComponents: Number('int'),
+ *       isPreferred: true || false,
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetServerStrategiesCommandInput - {@link GetServerStrategiesCommandInput}
@@ -72,6 +92,8 @@ export interface GetServerStrategiesCommandOutput extends GetServerStrategiesRes
  * @throws {@link ValidationException} (client fault)
  *  <p> The request body isn't valid. </p>
  *
+ * @throws {@link MigrationHubStrategyServiceException}
+ * <p>Base exception class for all service exceptions from MigrationHubStrategy service.</p>
  *
  */
 export class GetServerStrategiesCommand extends $Command<

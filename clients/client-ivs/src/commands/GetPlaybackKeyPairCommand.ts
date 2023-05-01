@@ -40,14 +40,26 @@ export interface GetPlaybackKeyPairCommandOutput extends GetPlaybackKeyPairRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IvsClient, GetPlaybackKeyPairCommand } from "@aws-sdk/client-ivs"; // ES Modules import
- * // const { IvsClient, GetPlaybackKeyPairCommand } = require("@aws-sdk/client-ivs"); // CommonJS import
+ * import { IvsClient, GetPlaybackKeyPairCommand } from '@aws-sdk/client-ivs'; // ES Modules import
+ * // const { IvsClient, GetPlaybackKeyPairCommand } = require('@aws-sdk/client-ivs'); // CommonJS import
  * const client = new IvsClient(config);
  * const input = { // GetPlaybackKeyPairRequest
- *   arn: "STRING_VALUE", // required
+ *   arn: 'STRING_VALUE', // required
  * };
  * const command = new GetPlaybackKeyPairCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetPlaybackKeyPairResponse
+ *   keyPair: { // PlaybackKeyPair
+ *     arn: 'STRING_VALUE',
+ *     name: 'STRING_VALUE',
+ *     fingerprint: 'STRING_VALUE',
+ *     tags: { // Tags
+ *       '<keys>': 'STRING_VALUE',
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetPlaybackKeyPairCommandInput - {@link GetPlaybackKeyPairCommandInput}
@@ -65,6 +77,8 @@ export interface GetPlaybackKeyPairCommandOutput extends GetPlaybackKeyPairRespo
  * @throws {@link ValidationException} (client fault)
  *  <p/>
  *
+ * @throws {@link IvsServiceException}
+ * <p>Base exception class for all service exceptions from Ivs service.</p>
  *
  */
 export class GetPlaybackKeyPairCommand extends $Command<

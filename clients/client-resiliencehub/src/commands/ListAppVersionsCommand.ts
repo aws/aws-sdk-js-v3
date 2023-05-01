@@ -36,16 +36,26 @@ export interface ListAppVersionsCommandOutput extends ListAppVersionsResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ResiliencehubClient, ListAppVersionsCommand } from "@aws-sdk/client-resiliencehub"; // ES Modules import
- * // const { ResiliencehubClient, ListAppVersionsCommand } = require("@aws-sdk/client-resiliencehub"); // CommonJS import
+ * import { ResiliencehubClient, ListAppVersionsCommand } from '@aws-sdk/client-resiliencehub'; // ES Modules import
+ * // const { ResiliencehubClient, ListAppVersionsCommand } = require('@aws-sdk/client-resiliencehub'); // CommonJS import
  * const client = new ResiliencehubClient(config);
  * const input = { // ListAppVersionsRequest
- *   appArn: "STRING_VALUE", // required
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   appArn: 'STRING_VALUE', // required
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new ListAppVersionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListAppVersionsResponse
+ *   appVersions: [ // AppVersionList // required
+ *     { // AppVersionSummary
+ *       appVersion: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListAppVersionsCommandInput - {@link ListAppVersionsCommandInput}
@@ -69,6 +79,8 @@ export interface ListAppVersionsCommandOutput extends ListAppVersionsResponse, _
  * @throws {@link ValidationException} (client fault)
  *  <p>This exception occurs when a request is not valid.</p>
  *
+ * @throws {@link ResiliencehubServiceException}
+ * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
  */
 export class ListAppVersionsCommand extends $Command<

@@ -36,15 +36,28 @@ export interface ListMissionProfilesCommandOutput extends ListMissionProfilesRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GroundStationClient, ListMissionProfilesCommand } from "@aws-sdk/client-groundstation"; // ES Modules import
- * // const { GroundStationClient, ListMissionProfilesCommand } = require("@aws-sdk/client-groundstation"); // CommonJS import
+ * import { GroundStationClient, ListMissionProfilesCommand } from '@aws-sdk/client-groundstation'; // ES Modules import
+ * // const { GroundStationClient, ListMissionProfilesCommand } = require('@aws-sdk/client-groundstation'); // CommonJS import
  * const client = new GroundStationClient(config);
  * const input = { // ListMissionProfilesRequest
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new ListMissionProfilesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListMissionProfilesResponse
+ *   nextToken: 'STRING_VALUE',
+ *   missionProfileList: [ // MissionProfileList
+ *     { // MissionProfileListItem
+ *       missionProfileId: 'STRING_VALUE',
+ *       missionProfileArn: 'STRING_VALUE',
+ *       region: 'STRING_VALUE',
+ *       name: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListMissionProfilesCommandInput - {@link ListMissionProfilesCommandInput}
@@ -62,6 +75,8 @@ export interface ListMissionProfilesCommandOutput extends ListMissionProfilesRes
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Resource was not found.</p>
  *
+ * @throws {@link GroundStationServiceException}
+ * <p>Base exception class for all service exceptions from GroundStation service.</p>
  *
  */
 export class ListMissionProfilesCommand extends $Command<

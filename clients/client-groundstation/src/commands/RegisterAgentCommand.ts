@@ -39,36 +39,36 @@ export interface RegisterAgentCommandOutput extends RegisterAgentResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GroundStationClient, RegisterAgentCommand } from "@aws-sdk/client-groundstation"; // ES Modules import
- * // const { GroundStationClient, RegisterAgentCommand } = require("@aws-sdk/client-groundstation"); // CommonJS import
+ * import { GroundStationClient, RegisterAgentCommand } from '@aws-sdk/client-groundstation'; // ES Modules import
+ * // const { GroundStationClient, RegisterAgentCommand } = require('@aws-sdk/client-groundstation'); // CommonJS import
  * const client = new GroundStationClient(config);
  * const input = { // RegisterAgentRequest
  *   discoveryData: { // DiscoveryData
  *     publicIpAddresses: [ // IpAddressList // required
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     privateIpAddresses: [ // required
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     capabilityArns: [ // CapabilityArnList // required
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *   },
  *   agentDetails: { // AgentDetails
- *     agentVersion: "STRING_VALUE", // required
- *     instanceId: "STRING_VALUE", // required
- *     instanceType: "STRING_VALUE", // required
+ *     agentVersion: 'STRING_VALUE', // required
+ *     instanceId: 'STRING_VALUE', // required
+ *     instanceType: 'STRING_VALUE', // required
  *     reservedCpuCores: [ // AgentCpuCoresList
- *       Number("int"),
+ *       Number('int'),
  *     ],
  *     agentCpuCores: [
- *       Number("int"),
+ *       Number('int'),
  *     ],
  *     componentVersions: [ // ComponentVersionList // required
  *       { // ComponentVersion
- *         componentType: "STRING_VALUE", // required
+ *         componentType: 'STRING_VALUE', // required
  *         versions: [ // VersionStringList // required
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
  *       },
  *     ],
@@ -76,6 +76,11 @@ export interface RegisterAgentCommandOutput extends RegisterAgentResponse, __Met
  * };
  * const command = new RegisterAgentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // RegisterAgentResponse
+ *   agentId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param RegisterAgentCommandInput - {@link RegisterAgentCommandInput}
@@ -93,6 +98,8 @@ export interface RegisterAgentCommandOutput extends RegisterAgentResponse, __Met
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Resource was not found.</p>
  *
+ * @throws {@link GroundStationServiceException}
+ * <p>Base exception class for all service exceptions from GroundStation service.</p>
  *
  */
 export class RegisterAgentCommand extends $Command<

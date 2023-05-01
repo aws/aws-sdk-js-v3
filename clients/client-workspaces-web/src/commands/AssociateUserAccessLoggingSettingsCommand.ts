@@ -44,15 +44,21 @@ export interface AssociateUserAccessLoggingSettingsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkSpacesWebClient, AssociateUserAccessLoggingSettingsCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
- * // const { WorkSpacesWebClient, AssociateUserAccessLoggingSettingsCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
+ * import { WorkSpacesWebClient, AssociateUserAccessLoggingSettingsCommand } from '@aws-sdk/client-workspaces-web'; // ES Modules import
+ * // const { WorkSpacesWebClient, AssociateUserAccessLoggingSettingsCommand } = require('@aws-sdk/client-workspaces-web'); // CommonJS import
  * const client = new WorkSpacesWebClient(config);
  * const input = { // AssociateUserAccessLoggingSettingsRequest
- *   portalArn: "STRING_VALUE", // required
- *   userAccessLoggingSettingsArn: "STRING_VALUE", // required
+ *   portalArn: 'STRING_VALUE', // required
+ *   userAccessLoggingSettingsArn: 'STRING_VALUE', // required
  * };
  * const command = new AssociateUserAccessLoggingSettingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AssociateUserAccessLoggingSettingsResponse
+ *   portalArn: 'STRING_VALUE', // required
+ *   userAccessLoggingSettingsArn: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param AssociateUserAccessLoggingSettingsCommandInput - {@link AssociateUserAccessLoggingSettingsCommandInput}
@@ -79,6 +85,8 @@ export interface AssociateUserAccessLoggingSettingsCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>There is a validation error.</p>
  *
+ * @throws {@link WorkSpacesWebServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
  */
 export class AssociateUserAccessLoggingSettingsCommand extends $Command<

@@ -43,16 +43,27 @@ export interface GetHostedConfigurationVersionCommandOutput extends HostedConfig
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppConfigClient, GetHostedConfigurationVersionCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
- * // const { AppConfigClient, GetHostedConfigurationVersionCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import
+ * import { AppConfigClient, GetHostedConfigurationVersionCommand } from '@aws-sdk/client-appconfig'; // ES Modules import
+ * // const { AppConfigClient, GetHostedConfigurationVersionCommand } = require('@aws-sdk/client-appconfig'); // CommonJS import
  * const client = new AppConfigClient(config);
  * const input = { // GetHostedConfigurationVersionRequest
- *   ApplicationId: "STRING_VALUE", // required
- *   ConfigurationProfileId: "STRING_VALUE", // required
- *   VersionNumber: Number("int"), // required
+ *   ApplicationId: 'STRING_VALUE', // required
+ *   ConfigurationProfileId: 'STRING_VALUE', // required
+ *   VersionNumber: Number('int'), // required
  * };
  * const command = new GetHostedConfigurationVersionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // HostedConfigurationVersion
+ *   ApplicationId: 'STRING_VALUE',
+ *   ConfigurationProfileId: 'STRING_VALUE',
+ *   VersionNumber: Number('int'),
+ *   Description: 'STRING_VALUE',
+ *   Content: 'BLOB_VALUE',
+ *   ContentType: 'STRING_VALUE',
+ *   VersionLabel: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetHostedConfigurationVersionCommandInput - {@link GetHostedConfigurationVersionCommandInput}
@@ -70,6 +81,8 @@ export interface GetHostedConfigurationVersionCommandOutput extends HostedConfig
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The requested resource could not be found.</p>
  *
+ * @throws {@link AppConfigServiceException}
+ * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
  * @example To retrieve hosted configuration details
  * ```javascript

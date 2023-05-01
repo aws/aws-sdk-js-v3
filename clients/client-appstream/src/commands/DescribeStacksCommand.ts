@@ -36,17 +36,71 @@ export interface DescribeStacksCommandOutput extends DescribeStacksResult, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppStreamClient, DescribeStacksCommand } from "@aws-sdk/client-appstream"; // ES Modules import
- * // const { AppStreamClient, DescribeStacksCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
+ * import { AppStreamClient, DescribeStacksCommand } from '@aws-sdk/client-appstream'; // ES Modules import
+ * // const { AppStreamClient, DescribeStacksCommand } = require('@aws-sdk/client-appstream'); // CommonJS import
  * const client = new AppStreamClient(config);
  * const input = { // DescribeStacksRequest
  *   Names: [ // StringList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   NextToken: "STRING_VALUE",
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new DescribeStacksCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeStacksResult
+ *   Stacks: [ // StackList
+ *     { // Stack
+ *       Arn: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE', // required
+ *       Description: 'STRING_VALUE',
+ *       DisplayName: 'STRING_VALUE',
+ *       CreatedTime: new Date('TIMESTAMP'),
+ *       StorageConnectors: [ // StorageConnectorList
+ *         { // StorageConnector
+ *           ConnectorType: 'HOMEFOLDERS' || 'GOOGLE_DRIVE' || 'ONE_DRIVE', // required
+ *           ResourceIdentifier: 'STRING_VALUE',
+ *           Domains: [ // DomainList
+ *             'STRING_VALUE',
+ *           ],
+ *         },
+ *       ],
+ *       RedirectURL: 'STRING_VALUE',
+ *       FeedbackURL: 'STRING_VALUE',
+ *       StackErrors: [ // StackErrors
+ *         { // StackError
+ *           ErrorCode: 'STORAGE_CONNECTOR_ERROR' || 'INTERNAL_SERVICE_ERROR',
+ *           ErrorMessage: 'STRING_VALUE',
+ *         },
+ *       ],
+ *       UserSettings: [ // UserSettingList
+ *         { // UserSetting
+ *           Action: 'CLIPBOARD_COPY_FROM_LOCAL_DEVICE' || 'CLIPBOARD_COPY_TO_LOCAL_DEVICE' || 'FILE_UPLOAD' || 'FILE_DOWNLOAD' || 'PRINTING_TO_LOCAL_DEVICE' || 'DOMAIN_PASSWORD_SIGNIN' || 'DOMAIN_SMART_CARD_SIGNIN', // required
+ *           Permission: 'ENABLED' || 'DISABLED', // required
+ *         },
+ *       ],
+ *       ApplicationSettings: { // ApplicationSettingsResponse
+ *         Enabled: true || false,
+ *         SettingsGroup: 'STRING_VALUE',
+ *         S3BucketName: 'STRING_VALUE',
+ *       },
+ *       AccessEndpoints: [ // AccessEndpointList
+ *         { // AccessEndpoint
+ *           EndpointType: 'STREAMING', // required
+ *           VpceId: 'STRING_VALUE',
+ *         },
+ *       ],
+ *       EmbedHostDomains: [ // EmbedHostDomains
+ *         'STRING_VALUE',
+ *       ],
+ *       StreamingExperienceSettings: { // StreamingExperienceSettings
+ *         PreferredProtocol: 'TCP' || 'UDP',
+ *       },
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeStacksCommandInput - {@link DescribeStacksCommandInput}
@@ -58,6 +112,8 @@ export interface DescribeStacksCommandOutput extends DescribeStacksResult, __Met
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link AppStreamServiceException}
+ * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
  */
 export class DescribeStacksCommand extends $Command<

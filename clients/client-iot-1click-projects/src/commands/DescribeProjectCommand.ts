@@ -40,14 +40,41 @@ export interface DescribeProjectCommandOutput extends DescribeProjectResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoT1ClickProjectsClient, DescribeProjectCommand } from "@aws-sdk/client-iot-1click-projects"; // ES Modules import
- * // const { IoT1ClickProjectsClient, DescribeProjectCommand } = require("@aws-sdk/client-iot-1click-projects"); // CommonJS import
+ * import { IoT1ClickProjectsClient, DescribeProjectCommand } from '@aws-sdk/client-iot-1click-projects'; // ES Modules import
+ * // const { IoT1ClickProjectsClient, DescribeProjectCommand } = require('@aws-sdk/client-iot-1click-projects'); // CommonJS import
  * const client = new IoT1ClickProjectsClient(config);
  * const input = { // DescribeProjectRequest
- *   projectName: "STRING_VALUE", // required
+ *   projectName: 'STRING_VALUE', // required
  * };
  * const command = new DescribeProjectCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeProjectResponse
+ *   project: { // ProjectDescription
+ *     arn: 'STRING_VALUE',
+ *     projectName: 'STRING_VALUE', // required
+ *     description: 'STRING_VALUE',
+ *     createdDate: new Date('TIMESTAMP'), // required
+ *     updatedDate: new Date('TIMESTAMP'), // required
+ *     placementTemplate: { // PlacementTemplate
+ *       defaultAttributes: { // DefaultPlacementAttributeMap
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *       deviceTemplates: { // DeviceTemplateMap
+ *         '<keys>': { // DeviceTemplate
+ *           deviceType: 'STRING_VALUE',
+ *           callbackOverrides: { // DeviceCallbackOverrideMap
+ *             '<keys>': 'STRING_VALUE',
+ *           },
+ *         },
+ *       },
+ *     },
+ *     tags: { // TagMap
+ *       '<keys>': 'STRING_VALUE',
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeProjectCommandInput - {@link DescribeProjectCommandInput}
@@ -65,6 +92,8 @@ export interface DescribeProjectCommandOutput extends DescribeProjectResponse, _
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p></p>
  *
+ * @throws {@link IoT1ClickProjectsServiceException}
+ * <p>Base exception class for all service exceptions from IoT1ClickProjects service.</p>
  *
  */
 export class DescribeProjectCommand extends $Command<

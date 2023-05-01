@@ -37,25 +37,47 @@ export interface ListStackInstancesCommandOutput extends ListStackInstancesOutpu
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudFormationClient, ListStackInstancesCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
- * // const { CloudFormationClient, ListStackInstancesCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
+ * import { CloudFormationClient, ListStackInstancesCommand } from '@aws-sdk/client-cloudformation'; // ES Modules import
+ * // const { CloudFormationClient, ListStackInstancesCommand } = require('@aws-sdk/client-cloudformation'); // CommonJS import
  * const client = new CloudFormationClient(config);
  * const input = { // ListStackInstancesInput
- *   StackSetName: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   StackSetName: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  *   Filters: [ // StackInstanceFilters
  *     { // StackInstanceFilter
- *       Name: "DETAILED_STATUS" || "LAST_OPERATION_ID",
- *       Values: "STRING_VALUE",
+ *       Name: 'DETAILED_STATUS' || 'LAST_OPERATION_ID',
+ *       Values: 'STRING_VALUE',
  *     },
  *   ],
- *   StackInstanceAccount: "STRING_VALUE",
- *   StackInstanceRegion: "STRING_VALUE",
- *   CallAs: "SELF" || "DELEGATED_ADMIN",
+ *   StackInstanceAccount: 'STRING_VALUE',
+ *   StackInstanceRegion: 'STRING_VALUE',
+ *   CallAs: 'SELF' || 'DELEGATED_ADMIN',
  * };
  * const command = new ListStackInstancesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListStackInstancesOutput
+ *   Summaries: [ // StackInstanceSummaries
+ *     { // StackInstanceSummary
+ *       StackSetId: 'STRING_VALUE',
+ *       Region: 'STRING_VALUE',
+ *       Account: 'STRING_VALUE',
+ *       StackId: 'STRING_VALUE',
+ *       Status: 'CURRENT' || 'OUTDATED' || 'INOPERABLE',
+ *       StatusReason: 'STRING_VALUE',
+ *       StackInstanceStatus: { // StackInstanceComprehensiveStatus
+ *         DetailedStatus: 'PENDING' || 'RUNNING' || 'SUCCEEDED' || 'FAILED' || 'CANCELLED' || 'INOPERABLE',
+ *       },
+ *       OrganizationalUnitId: 'STRING_VALUE',
+ *       DriftStatus: 'DRIFTED' || 'IN_SYNC' || 'UNKNOWN' || 'NOT_CHECKED',
+ *       LastDriftCheckTimestamp: new Date('TIMESTAMP'),
+ *       LastOperationId: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListStackInstancesCommandInput - {@link ListStackInstancesCommandInput}
@@ -67,6 +89,8 @@ export interface ListStackInstancesCommandOutput extends ListStackInstancesOutpu
  * @throws {@link StackSetNotFoundException} (client fault)
  *  <p>The specified stack set doesn't exist.</p>
  *
+ * @throws {@link CloudFormationServiceException}
+ * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
  */
 export class ListStackInstancesCommand extends $Command<

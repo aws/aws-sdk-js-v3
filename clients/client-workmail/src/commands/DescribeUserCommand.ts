@@ -36,15 +36,27 @@ export interface DescribeUserCommandOutput extends DescribeUserResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkMailClient, DescribeUserCommand } from "@aws-sdk/client-workmail"; // ES Modules import
- * // const { WorkMailClient, DescribeUserCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
+ * import { WorkMailClient, DescribeUserCommand } from '@aws-sdk/client-workmail'; // ES Modules import
+ * // const { WorkMailClient, DescribeUserCommand } = require('@aws-sdk/client-workmail'); // CommonJS import
  * const client = new WorkMailClient(config);
  * const input = { // DescribeUserRequest
- *   OrganizationId: "STRING_VALUE", // required
- *   UserId: "STRING_VALUE", // required
+ *   OrganizationId: 'STRING_VALUE', // required
+ *   UserId: 'STRING_VALUE', // required
  * };
  * const command = new DescribeUserCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeUserResponse
+ *   UserId: 'STRING_VALUE',
+ *   Name: 'STRING_VALUE',
+ *   Email: 'STRING_VALUE',
+ *   DisplayName: 'STRING_VALUE',
+ *   State: 'ENABLED' || 'DISABLED' || 'DELETED',
+ *   UserRole: 'USER' || 'RESOURCE' || 'SYSTEM_USER',
+ *   EnabledDate: new Date('TIMESTAMP'),
+ *   DisabledDate: new Date('TIMESTAMP'),
+ * };
+ *
  * ```
  *
  * @param DescribeUserCommandInput - {@link DescribeUserCommandInput}
@@ -68,6 +80,8 @@ export interface DescribeUserCommandOutput extends DescribeUserResponse, __Metad
  *  <p>The organization must have a valid state to perform certain
  *          operations on the organization or its members.</p>
  *
+ * @throws {@link WorkMailServiceException}
+ * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
  */
 export class DescribeUserCommand extends $Command<

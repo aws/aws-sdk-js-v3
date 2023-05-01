@@ -36,33 +36,62 @@ export interface GetIpamResourceCidrsCommandOutput extends GetIpamResourceCidrsR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, GetIpamResourceCidrsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, GetIpamResourceCidrsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, GetIpamResourceCidrsCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, GetIpamResourceCidrsCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // GetIpamResourceCidrsRequest
  *   DryRun: true || false,
  *   Filters: [ // FilterList
  *     { // Filter
- *       Name: "STRING_VALUE",
+ *       Name: 'STRING_VALUE',
  *       Values: [ // ValueStringList
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
- *   IpamScopeId: "STRING_VALUE", // required
- *   IpamPoolId: "STRING_VALUE",
- *   ResourceId: "STRING_VALUE",
- *   ResourceType: "vpc" || "subnet" || "eip" || "public-ipv4-pool" || "ipv6-pool",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
+ *   IpamScopeId: 'STRING_VALUE', // required
+ *   IpamPoolId: 'STRING_VALUE',
+ *   ResourceId: 'STRING_VALUE',
+ *   ResourceType: 'vpc' || 'subnet' || 'eip' || 'public-ipv4-pool' || 'ipv6-pool',
  *   ResourceTag: { // RequestIpamResourceTag
- *     Key: "STRING_VALUE",
- *     Value: "STRING_VALUE",
+ *     Key: 'STRING_VALUE',
+ *     Value: 'STRING_VALUE',
  *   },
- *   ResourceOwner: "STRING_VALUE",
+ *   ResourceOwner: 'STRING_VALUE',
  * };
  * const command = new GetIpamResourceCidrsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetIpamResourceCidrsResult
+ *   NextToken: 'STRING_VALUE',
+ *   IpamResourceCidrs: [ // IpamResourceCidrSet
+ *     { // IpamResourceCidr
+ *       IpamId: 'STRING_VALUE',
+ *       IpamScopeId: 'STRING_VALUE',
+ *       IpamPoolId: 'STRING_VALUE',
+ *       ResourceRegion: 'STRING_VALUE',
+ *       ResourceOwnerId: 'STRING_VALUE',
+ *       ResourceId: 'STRING_VALUE',
+ *       ResourceName: 'STRING_VALUE',
+ *       ResourceCidr: 'STRING_VALUE',
+ *       ResourceType: 'vpc' || 'subnet' || 'eip' || 'public-ipv4-pool' || 'ipv6-pool',
+ *       ResourceTags: [ // IpamResourceTagList
+ *         { // IpamResourceTag
+ *           Key: 'STRING_VALUE',
+ *           Value: 'STRING_VALUE',
+ *         },
+ *       ],
+ *       IpUsage: Number('double'),
+ *       ComplianceStatus: 'compliant' || 'noncompliant' || 'unmanaged' || 'ignored',
+ *       ManagementState: 'managed' || 'unmanaged' || 'ignored',
+ *       OverlapStatus: 'overlapping' || 'nonoverlapping' || 'ignored',
+ *       VpcId: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetIpamResourceCidrsCommandInput - {@link GetIpamResourceCidrsCommandInput}
@@ -71,6 +100,8 @@ export interface GetIpamResourceCidrsCommandOutput extends GetIpamResourceCidrsR
  * @see {@link GetIpamResourceCidrsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class GetIpamResourceCidrsCommand extends $Command<

@@ -38,12 +38,36 @@ export interface DescribeAttackStatisticsCommandOutput extends DescribeAttackSta
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ShieldClient, DescribeAttackStatisticsCommand } from "@aws-sdk/client-shield"; // ES Modules import
- * // const { ShieldClient, DescribeAttackStatisticsCommand } = require("@aws-sdk/client-shield"); // CommonJS import
+ * import { ShieldClient, DescribeAttackStatisticsCommand } from '@aws-sdk/client-shield'; // ES Modules import
+ * // const { ShieldClient, DescribeAttackStatisticsCommand } = require('@aws-sdk/client-shield'); // CommonJS import
  * const client = new ShieldClient(config);
  * const input = {};
  * const command = new DescribeAttackStatisticsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeAttackStatisticsResponse
+ *   TimeRange: { // TimeRange
+ *     FromInclusive: new Date('TIMESTAMP'),
+ *     ToExclusive: new Date('TIMESTAMP'),
+ *   },
+ *   DataItems: [ // AttackStatisticsDataList // required
+ *     { // AttackStatisticsDataItem
+ *       AttackVolume: { // AttackVolume
+ *         BitsPerSecond: { // AttackVolumeStatistics
+ *           Max: Number('double'), // required
+ *         },
+ *         PacketsPerSecond: {
+ *           Max: Number('double'), // required
+ *         },
+ *         RequestsPerSecond: {
+ *           Max: Number('double'), // required
+ *         },
+ *       },
+ *       AttackCount: Number('long'), // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeAttackStatisticsCommandInput - {@link DescribeAttackStatisticsCommandInput}
@@ -55,6 +79,8 @@ export interface DescribeAttackStatisticsCommandOutput extends DescribeAttackSta
  * @throws {@link InternalErrorException} (server fault)
  *  <p>Exception that indicates that a problem occurred with the service infrastructure. You can retry the request.</p>
  *
+ * @throws {@link ShieldServiceException}
+ * <p>Base exception class for all service exceptions from Shield service.</p>
  *
  */
 export class DescribeAttackStatisticsCommand extends $Command<

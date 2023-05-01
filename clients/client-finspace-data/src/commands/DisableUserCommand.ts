@@ -36,15 +36,20 @@ export interface DisableUserCommandOutput extends DisableUserResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FinspaceDataClient, DisableUserCommand } from "@aws-sdk/client-finspace-data"; // ES Modules import
- * // const { FinspaceDataClient, DisableUserCommand } = require("@aws-sdk/client-finspace-data"); // CommonJS import
+ * import { FinspaceDataClient, DisableUserCommand } from '@aws-sdk/client-finspace-data'; // ES Modules import
+ * // const { FinspaceDataClient, DisableUserCommand } = require('@aws-sdk/client-finspace-data'); // CommonJS import
  * const client = new FinspaceDataClient(config);
  * const input = { // DisableUserRequest
- *   userId: "STRING_VALUE", // required
- *   clientToken: "STRING_VALUE",
+ *   userId: 'STRING_VALUE', // required
+ *   clientToken: 'STRING_VALUE',
  * };
  * const command = new DisableUserCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DisableUserResponse
+ *   userId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DisableUserCommandInput - {@link DisableUserCommandInput}
@@ -72,6 +77,8 @@ export interface DisableUserCommandOutput extends DisableUserResponse, __Metadat
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link FinspaceDataServiceException}
+ * <p>Base exception class for all service exceptions from FinspaceData service.</p>
  *
  */
 export class DisableUserCommand extends $Command<

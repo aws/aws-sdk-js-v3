@@ -46,24 +46,39 @@ export interface DescribeMaintenanceWindowExecutionsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMClient, DescribeMaintenanceWindowExecutionsCommand } from "@aws-sdk/client-ssm"; // ES Modules import
- * // const { SSMClient, DescribeMaintenanceWindowExecutionsCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * import { SSMClient, DescribeMaintenanceWindowExecutionsCommand } from '@aws-sdk/client-ssm'; // ES Modules import
+ * // const { SSMClient, DescribeMaintenanceWindowExecutionsCommand } = require('@aws-sdk/client-ssm'); // CommonJS import
  * const client = new SSMClient(config);
  * const input = { // DescribeMaintenanceWindowExecutionsRequest
- *   WindowId: "STRING_VALUE", // required
+ *   WindowId: 'STRING_VALUE', // required
  *   Filters: [ // MaintenanceWindowFilterList
  *     { // MaintenanceWindowFilter
- *       Key: "STRING_VALUE",
+ *       Key: 'STRING_VALUE',
  *       Values: [ // MaintenanceWindowFilterValues
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new DescribeMaintenanceWindowExecutionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeMaintenanceWindowExecutionsResult
+ *   WindowExecutions: [ // MaintenanceWindowExecutionList
+ *     { // MaintenanceWindowExecution
+ *       WindowId: 'STRING_VALUE',
+ *       WindowExecutionId: 'STRING_VALUE',
+ *       Status: 'PENDING' || 'IN_PROGRESS' || 'SUCCESS' || 'FAILED' || 'TIMED_OUT' || 'CANCELLING' || 'CANCELLED' || 'SKIPPED_OVERLAPPING',
+ *       StatusDetails: 'STRING_VALUE',
+ *       StartTime: new Date('TIMESTAMP'),
+ *       EndTime: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeMaintenanceWindowExecutionsCommandInput - {@link DescribeMaintenanceWindowExecutionsCommandInput}
@@ -75,6 +90,8 @@ export interface DescribeMaintenanceWindowExecutionsCommandOutput
  * @throws {@link InternalServerError} (server fault)
  *  <p>An error occurred on the server side.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class DescribeMaintenanceWindowExecutionsCommand extends $Command<

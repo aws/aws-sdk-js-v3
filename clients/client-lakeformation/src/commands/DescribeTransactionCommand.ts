@@ -36,14 +36,24 @@ export interface DescribeTransactionCommandOutput extends DescribeTransactionRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LakeFormationClient, DescribeTransactionCommand } from "@aws-sdk/client-lakeformation"; // ES Modules import
- * // const { LakeFormationClient, DescribeTransactionCommand } = require("@aws-sdk/client-lakeformation"); // CommonJS import
+ * import { LakeFormationClient, DescribeTransactionCommand } from '@aws-sdk/client-lakeformation'; // ES Modules import
+ * // const { LakeFormationClient, DescribeTransactionCommand } = require('@aws-sdk/client-lakeformation'); // CommonJS import
  * const client = new LakeFormationClient(config);
  * const input = { // DescribeTransactionRequest
- *   TransactionId: "STRING_VALUE", // required
+ *   TransactionId: 'STRING_VALUE', // required
  * };
  * const command = new DescribeTransactionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeTransactionResponse
+ *   TransactionDescription: { // TransactionDescription
+ *     TransactionId: 'STRING_VALUE',
+ *     TransactionStatus: 'ACTIVE' || 'COMMITTED' || 'ABORTED' || 'COMMIT_IN_PROGRESS',
+ *     TransactionStartTime: new Date('TIMESTAMP'),
+ *     TransactionEndTime: new Date('TIMESTAMP'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeTransactionCommandInput - {@link DescribeTransactionCommandInput}
@@ -64,6 +74,8 @@ export interface DescribeTransactionCommandOutput extends DescribeTransactionRes
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link LakeFormationServiceException}
+ * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
  */
 export class DescribeTransactionCommand extends $Command<

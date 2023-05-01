@@ -38,19 +38,79 @@ export interface DescribeInstancesHealthCommandOutput extends DescribeInstancesH
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElasticBeanstalkClient, DescribeInstancesHealthCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
- * // const { ElasticBeanstalkClient, DescribeInstancesHealthCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
+ * import { ElasticBeanstalkClient, DescribeInstancesHealthCommand } from '@aws-sdk/client-elastic-beanstalk'; // ES Modules import
+ * // const { ElasticBeanstalkClient, DescribeInstancesHealthCommand } = require('@aws-sdk/client-elastic-beanstalk'); // CommonJS import
  * const client = new ElasticBeanstalkClient(config);
  * const input = { // DescribeInstancesHealthRequest
- *   EnvironmentName: "STRING_VALUE",
- *   EnvironmentId: "STRING_VALUE",
+ *   EnvironmentName: 'STRING_VALUE',
+ *   EnvironmentId: 'STRING_VALUE',
  *   AttributeNames: [ // InstancesHealthAttributes
- *     "HealthStatus" || "Color" || "Causes" || "ApplicationMetrics" || "RefreshedAt" || "LaunchedAt" || "System" || "Deployment" || "AvailabilityZone" || "InstanceType" || "All",
+ *     'HealthStatus' || 'Color' || 'Causes' || 'ApplicationMetrics' || 'RefreshedAt' || 'LaunchedAt' || 'System' || 'Deployment' || 'AvailabilityZone' || 'InstanceType' || 'All',
  *   ],
- *   NextToken: "STRING_VALUE",
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new DescribeInstancesHealthCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeInstancesHealthResult
+ *   InstanceHealthList: [ // InstanceHealthList
+ *     { // SingleInstanceHealth
+ *       InstanceId: 'STRING_VALUE',
+ *       HealthStatus: 'STRING_VALUE',
+ *       Color: 'STRING_VALUE',
+ *       Causes: [ // Causes
+ *         'STRING_VALUE',
+ *       ],
+ *       LaunchedAt: new Date('TIMESTAMP'),
+ *       ApplicationMetrics: { // ApplicationMetrics
+ *         Duration: Number('int'),
+ *         RequestCount: Number('int'),
+ *         StatusCodes: { // StatusCodes
+ *           Status2xx: Number('int'),
+ *           Status3xx: Number('int'),
+ *           Status4xx: Number('int'),
+ *           Status5xx: Number('int'),
+ *         },
+ *         Latency: { // Latency
+ *           P999: Number('double'),
+ *           P99: Number('double'),
+ *           P95: Number('double'),
+ *           P90: Number('double'),
+ *           P85: Number('double'),
+ *           P75: Number('double'),
+ *           P50: Number('double'),
+ *           P10: Number('double'),
+ *         },
+ *       },
+ *       System: { // SystemStatus
+ *         CPUUtilization: { // CPUUtilization
+ *           User: Number('double'),
+ *           Nice: Number('double'),
+ *           System: Number('double'),
+ *           Idle: Number('double'),
+ *           IOWait: Number('double'),
+ *           IRQ: Number('double'),
+ *           SoftIRQ: Number('double'),
+ *           Privileged: Number('double'),
+ *         },
+ *         LoadAverage: [ // LoadAverage
+ *           Number('double'),
+ *         ],
+ *       },
+ *       Deployment: { // Deployment
+ *         VersionLabel: 'STRING_VALUE',
+ *         DeploymentId: Number('long'),
+ *         Status: 'STRING_VALUE',
+ *         DeploymentTime: new Date('TIMESTAMP'),
+ *       },
+ *       AvailabilityZone: 'STRING_VALUE',
+ *       InstanceType: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   RefreshedAt: new Date('TIMESTAMP'),
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeInstancesHealthCommandInput - {@link DescribeInstancesHealthCommandInput}
@@ -66,6 +126,8 @@ export interface DescribeInstancesHealthCommandOutput extends DescribeInstancesH
  *  <p>One or more input parameters is not valid. Please correct the input parameters and try
  *       the operation again.</p>
  *
+ * @throws {@link ElasticBeanstalkServiceException}
+ * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
  * @example To view environment health
  * ```javascript

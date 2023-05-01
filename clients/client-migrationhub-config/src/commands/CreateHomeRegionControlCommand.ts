@@ -40,19 +40,32 @@ export interface CreateHomeRegionControlCommandOutput extends CreateHomeRegionCo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MigrationHubConfigClient, CreateHomeRegionControlCommand } from "@aws-sdk/client-migrationhub-config"; // ES Modules import
- * // const { MigrationHubConfigClient, CreateHomeRegionControlCommand } = require("@aws-sdk/client-migrationhub-config"); // CommonJS import
+ * import { MigrationHubConfigClient, CreateHomeRegionControlCommand } from '@aws-sdk/client-migrationhub-config'; // ES Modules import
+ * // const { MigrationHubConfigClient, CreateHomeRegionControlCommand } = require('@aws-sdk/client-migrationhub-config'); // CommonJS import
  * const client = new MigrationHubConfigClient(config);
  * const input = { // CreateHomeRegionControlRequest
- *   HomeRegion: "STRING_VALUE", // required
+ *   HomeRegion: 'STRING_VALUE', // required
  *   Target: { // Target
- *     Type: "STRING_VALUE", // required
- *     Id: "STRING_VALUE",
+ *     Type: 'STRING_VALUE', // required
+ *     Id: 'STRING_VALUE',
  *   },
  *   DryRun: true || false,
  * };
  * const command = new CreateHomeRegionControlCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateHomeRegionControlResult
+ *   HomeRegionControl: { // HomeRegionControl
+ *     ControlId: 'STRING_VALUE',
+ *     HomeRegion: 'STRING_VALUE',
+ *     Target: { // Target
+ *       Type: 'STRING_VALUE', // required
+ *       Id: 'STRING_VALUE',
+ *     },
+ *     RequestedTime: new Date('TIMESTAMP'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateHomeRegionControlCommandInput - {@link CreateHomeRegionControlCommandInput}
@@ -83,6 +96,8 @@ export interface CreateHomeRegionControlCommandOutput extends CreateHomeRegionCo
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
  *
+ * @throws {@link MigrationHubConfigServiceException}
+ * <p>Base exception class for all service exceptions from MigrationHubConfig service.</p>
  *
  */
 export class CreateHomeRegionControlCommand extends $Command<

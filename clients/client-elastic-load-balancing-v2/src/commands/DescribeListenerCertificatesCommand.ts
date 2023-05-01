@@ -49,16 +49,27 @@ export interface DescribeListenerCertificatesCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElasticLoadBalancingV2Client, DescribeListenerCertificatesCommand } from "@aws-sdk/client-elastic-load-balancing-v2"; // ES Modules import
- * // const { ElasticLoadBalancingV2Client, DescribeListenerCertificatesCommand } = require("@aws-sdk/client-elastic-load-balancing-v2"); // CommonJS import
+ * import { ElasticLoadBalancingV2Client, DescribeListenerCertificatesCommand } from '@aws-sdk/client-elastic-load-balancing-v2'; // ES Modules import
+ * // const { ElasticLoadBalancingV2Client, DescribeListenerCertificatesCommand } = require('@aws-sdk/client-elastic-load-balancing-v2'); // CommonJS import
  * const client = new ElasticLoadBalancingV2Client(config);
  * const input = { // DescribeListenerCertificatesInput
- *   ListenerArn: "STRING_VALUE", // required
- *   Marker: "STRING_VALUE",
- *   PageSize: Number("int"),
+ *   ListenerArn: 'STRING_VALUE', // required
+ *   Marker: 'STRING_VALUE',
+ *   PageSize: Number('int'),
  * };
  * const command = new DescribeListenerCertificatesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeListenerCertificatesOutput
+ *   Certificates: [ // CertificateList
+ *     { // Certificate
+ *       CertificateArn: 'STRING_VALUE',
+ *       IsDefault: true || false,
+ *     },
+ *   ],
+ *   NextMarker: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeListenerCertificatesCommandInput - {@link DescribeListenerCertificatesCommandInput}
@@ -70,6 +81,8 @@ export interface DescribeListenerCertificatesCommandOutput
  * @throws {@link ListenerNotFoundException} (client fault)
  *  <p>The specified listener does not exist.</p>
  *
+ * @throws {@link ElasticLoadBalancingV2ServiceException}
+ * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
  */
 export class DescribeListenerCertificatesCommand extends $Command<

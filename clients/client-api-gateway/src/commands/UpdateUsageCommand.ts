@@ -36,23 +36,38 @@ export interface UpdateUsageCommandOutput extends Usage, __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { APIGatewayClient, UpdateUsageCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
- * // const { APIGatewayClient, UpdateUsageCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
+ * import { APIGatewayClient, UpdateUsageCommand } from '@aws-sdk/client-api-gateway'; // ES Modules import
+ * // const { APIGatewayClient, UpdateUsageCommand } = require('@aws-sdk/client-api-gateway'); // CommonJS import
  * const client = new APIGatewayClient(config);
  * const input = { // UpdateUsageRequest
- *   usagePlanId: "STRING_VALUE", // required
- *   keyId: "STRING_VALUE", // required
+ *   usagePlanId: 'STRING_VALUE', // required
+ *   keyId: 'STRING_VALUE', // required
  *   patchOperations: [ // ListOfPatchOperation
  *     { // PatchOperation
- *       op: "add" || "remove" || "replace" || "move" || "copy" || "test",
- *       path: "STRING_VALUE",
- *       value: "STRING_VALUE",
- *       from: "STRING_VALUE",
+ *       op: 'add' || 'remove' || 'replace' || 'move' || 'copy' || 'test',
+ *       path: 'STRING_VALUE',
+ *       value: 'STRING_VALUE',
+ *       from: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new UpdateUsageCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // Usage
+ *   usagePlanId: 'STRING_VALUE',
+ *   startDate: 'STRING_VALUE',
+ *   endDate: 'STRING_VALUE',
+ *   items: { // MapOfKeyUsages
+ *     '<keys>': [ // ListOfUsage
+ *       [ // ListOfLong
+ *         Number('long'),
+ *       ],
+ *     ],
+ *   },
+ *   position: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateUsageCommandInput - {@link UpdateUsageCommandInput}
@@ -79,6 +94,8 @@ export interface UpdateUsageCommandOutput extends Usage, __MetadataBearer {}
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The request is denied because the caller has insufficient permissions.</p>
  *
+ * @throws {@link APIGatewayServiceException}
+ * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
  */
 export class UpdateUsageCommand extends $Command<

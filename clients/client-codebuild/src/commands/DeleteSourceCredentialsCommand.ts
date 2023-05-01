@@ -36,14 +36,19 @@ export interface DeleteSourceCredentialsCommandOutput extends DeleteSourceCreden
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeBuildClient, DeleteSourceCredentialsCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
- * // const { CodeBuildClient, DeleteSourceCredentialsCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import
+ * import { CodeBuildClient, DeleteSourceCredentialsCommand } from '@aws-sdk/client-codebuild'; // ES Modules import
+ * // const { CodeBuildClient, DeleteSourceCredentialsCommand } = require('@aws-sdk/client-codebuild'); // CommonJS import
  * const client = new CodeBuildClient(config);
  * const input = { // DeleteSourceCredentialsInput
- *   arn: "STRING_VALUE", // required
+ *   arn: 'STRING_VALUE', // required
  * };
  * const command = new DeleteSourceCredentialsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteSourceCredentialsOutput
+ *   arn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DeleteSourceCredentialsCommandInput - {@link DeleteSourceCredentialsCommandInput}
@@ -58,6 +63,8 @@ export interface DeleteSourceCredentialsCommandOutput extends DeleteSourceCreden
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified Amazon Web Services resource cannot be found.</p>
  *
+ * @throws {@link CodeBuildServiceException}
+ * <p>Base exception class for all service exceptions from CodeBuild service.</p>
  *
  */
 export class DeleteSourceCredentialsCommand extends $Command<

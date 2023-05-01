@@ -40,14 +40,28 @@ export interface DescribeFilterCommandOutput extends DescribeFilterResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PersonalizeClient, DescribeFilterCommand } from "@aws-sdk/client-personalize"; // ES Modules import
- * // const { PersonalizeClient, DescribeFilterCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
+ * import { PersonalizeClient, DescribeFilterCommand } from '@aws-sdk/client-personalize'; // ES Modules import
+ * // const { PersonalizeClient, DescribeFilterCommand } = require('@aws-sdk/client-personalize'); // CommonJS import
  * const client = new PersonalizeClient(config);
  * const input = { // DescribeFilterRequest
- *   filterArn: "STRING_VALUE", // required
+ *   filterArn: 'STRING_VALUE', // required
  * };
  * const command = new DescribeFilterCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeFilterResponse
+ *   filter: { // Filter
+ *     name: 'STRING_VALUE',
+ *     filterArn: 'STRING_VALUE',
+ *     creationDateTime: new Date('TIMESTAMP'),
+ *     lastUpdatedDateTime: new Date('TIMESTAMP'),
+ *     datasetGroupArn: 'STRING_VALUE',
+ *     failureReason: 'STRING_VALUE',
+ *     filterExpression: 'STRING_VALUE',
+ *     status: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeFilterCommandInput - {@link DescribeFilterCommandInput}
@@ -62,6 +76,8 @@ export interface DescribeFilterCommandOutput extends DescribeFilterResponse, __M
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Could not find the specified resource.</p>
  *
+ * @throws {@link PersonalizeServiceException}
+ * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
  */
 export class DescribeFilterCommand extends $Command<

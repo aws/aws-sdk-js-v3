@@ -39,31 +39,48 @@ export interface DescribeEventsCommandOutput extends EventsMessage, __MetadataBe
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { NeptuneClient, DescribeEventsCommand } from "@aws-sdk/client-neptune"; // ES Modules import
- * // const { NeptuneClient, DescribeEventsCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
+ * import { NeptuneClient, DescribeEventsCommand } from '@aws-sdk/client-neptune'; // ES Modules import
+ * // const { NeptuneClient, DescribeEventsCommand } = require('@aws-sdk/client-neptune'); // CommonJS import
  * const client = new NeptuneClient(config);
  * const input = { // DescribeEventsMessage
- *   SourceIdentifier: "STRING_VALUE",
- *   SourceType: "db-instance" || "db-parameter-group" || "db-security-group" || "db-snapshot" || "db-cluster" || "db-cluster-snapshot",
- *   StartTime: new Date("TIMESTAMP"),
- *   EndTime: new Date("TIMESTAMP"),
- *   Duration: Number("int"),
+ *   SourceIdentifier: 'STRING_VALUE',
+ *   SourceType: 'db-instance' || 'db-parameter-group' || 'db-security-group' || 'db-snapshot' || 'db-cluster' || 'db-cluster-snapshot',
+ *   StartTime: new Date('TIMESTAMP'),
+ *   EndTime: new Date('TIMESTAMP'),
+ *   Duration: Number('int'),
  *   EventCategories: [ // EventCategoriesList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   Filters: [ // FilterList
  *     { // Filter
- *       Name: "STRING_VALUE", // required
+ *       Name: 'STRING_VALUE', // required
  *       Values: [ // FilterValueList // required
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
- *   MaxRecords: Number("int"),
- *   Marker: "STRING_VALUE",
+ *   MaxRecords: Number('int'),
+ *   Marker: 'STRING_VALUE',
  * };
  * const command = new DescribeEventsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // EventsMessage
+ *   Marker: 'STRING_VALUE',
+ *   Events: [ // EventList
+ *     { // Event
+ *       SourceIdentifier: 'STRING_VALUE',
+ *       SourceType: 'db-instance' || 'db-parameter-group' || 'db-security-group' || 'db-snapshot' || 'db-cluster' || 'db-cluster-snapshot',
+ *       Message: 'STRING_VALUE',
+ *       EventCategories: [ // EventCategoriesList
+ *         'STRING_VALUE',
+ *       ],
+ *       Date: new Date('TIMESTAMP'),
+ *       SourceArn: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeEventsCommandInput - {@link DescribeEventsCommandInput}
@@ -72,6 +89,8 @@ export interface DescribeEventsCommandOutput extends EventsMessage, __MetadataBe
  * @see {@link DescribeEventsCommandOutput} for command's `response` shape.
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
  *
+ * @throws {@link NeptuneServiceException}
+ * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
  */
 export class DescribeEventsCommand extends $Command<

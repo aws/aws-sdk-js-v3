@@ -53,21 +53,190 @@ export interface AnalyzeExpenseCommandOutput extends AnalyzeExpenseResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { TextractClient, AnalyzeExpenseCommand } from "@aws-sdk/client-textract"; // ES Modules import
- * // const { TextractClient, AnalyzeExpenseCommand } = require("@aws-sdk/client-textract"); // CommonJS import
+ * import { TextractClient, AnalyzeExpenseCommand } from '@aws-sdk/client-textract'; // ES Modules import
+ * // const { TextractClient, AnalyzeExpenseCommand } = require('@aws-sdk/client-textract'); // CommonJS import
  * const client = new TextractClient(config);
  * const input = { // AnalyzeExpenseRequest
  *   Document: { // Document
- *     Bytes: "BLOB_VALUE",
+ *     Bytes: 'BLOB_VALUE',
  *     S3Object: { // S3Object
- *       Bucket: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *       Version: "STRING_VALUE",
+ *       Bucket: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *       Version: 'STRING_VALUE',
  *     },
  *   },
  * };
  * const command = new AnalyzeExpenseCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AnalyzeExpenseResponse
+ *   DocumentMetadata: { // DocumentMetadata
+ *     Pages: Number('int'),
+ *   },
+ *   ExpenseDocuments: [ // ExpenseDocumentList
+ *     { // ExpenseDocument
+ *       ExpenseIndex: Number('int'),
+ *       SummaryFields: [ // ExpenseFieldList
+ *         { // ExpenseField
+ *           Type: { // ExpenseType
+ *             Text: 'STRING_VALUE',
+ *             Confidence: Number('float'),
+ *           },
+ *           LabelDetection: { // ExpenseDetection
+ *             Text: 'STRING_VALUE',
+ *             Geometry: { // Geometry
+ *               BoundingBox: { // BoundingBox
+ *                 Width: Number('float'),
+ *                 Height: Number('float'),
+ *                 Left: Number('float'),
+ *                 Top: Number('float'),
+ *               },
+ *               Polygon: [ // Polygon
+ *                 { // Point
+ *                   X: Number('float'),
+ *                   Y: Number('float'),
+ *                 },
+ *               ],
+ *             },
+ *             Confidence: Number('float'),
+ *           },
+ *           ValueDetection: {
+ *             Text: 'STRING_VALUE',
+ *             Geometry: {
+ *               BoundingBox: {
+ *                 Width: Number('float'),
+ *                 Height: Number('float'),
+ *                 Left: Number('float'),
+ *                 Top: Number('float'),
+ *               },
+ *               Polygon: [
+ *                 {
+ *                   X: Number('float'),
+ *                   Y: Number('float'),
+ *                 },
+ *               ],
+ *             },
+ *             Confidence: Number('float'),
+ *           },
+ *           PageNumber: Number('int'),
+ *           Currency: { // ExpenseCurrency
+ *             Code: 'STRING_VALUE',
+ *             Confidence: Number('float'),
+ *           },
+ *           GroupProperties: [ // ExpenseGroupPropertyList
+ *             { // ExpenseGroupProperty
+ *               Types: [ // StringList
+ *                 'STRING_VALUE',
+ *               ],
+ *               Id: 'STRING_VALUE',
+ *             },
+ *           ],
+ *         },
+ *       ],
+ *       LineItemGroups: [ // LineItemGroupList
+ *         { // LineItemGroup
+ *           LineItemGroupIndex: Number('int'),
+ *           LineItems: [ // LineItemList
+ *             { // LineItemFields
+ *               LineItemExpenseFields: [
+ *                 {
+ *                   Type: {
+ *                     Text: 'STRING_VALUE',
+ *                     Confidence: Number('float'),
+ *                   },
+ *                   LabelDetection: {
+ *                     Text: 'STRING_VALUE',
+ *                     Geometry: {
+ *                       BoundingBox: {
+ *                         Width: Number('float'),
+ *                         Height: Number('float'),
+ *                         Left: Number('float'),
+ *                         Top: Number('float'),
+ *                       },
+ *                       Polygon: [
+ *                         {
+ *                           X: Number('float'),
+ *                           Y: Number('float'),
+ *                         },
+ *                       ],
+ *                     },
+ *                     Confidence: Number('float'),
+ *                   },
+ *                   ValueDetection: {
+ *                     Text: 'STRING_VALUE',
+ *                     Geometry: {
+ *                       BoundingBox: {
+ *                         Width: Number('float'),
+ *                         Height: Number('float'),
+ *                         Left: Number('float'),
+ *                         Top: Number('float'),
+ *                       },
+ *                       Polygon: [
+ *                         {
+ *                           X: Number('float'),
+ *                           Y: Number('float'),
+ *                         },
+ *                       ],
+ *                     },
+ *                     Confidence: Number('float'),
+ *                   },
+ *                   PageNumber: Number('int'),
+ *                   Currency: {
+ *                     Code: 'STRING_VALUE',
+ *                     Confidence: Number('float'),
+ *                   },
+ *                   GroupProperties: [
+ *                     {
+ *                       Types: [
+ *                         'STRING_VALUE',
+ *                       ],
+ *                       Id: 'STRING_VALUE',
+ *                     },
+ *                   ],
+ *                 },
+ *               ],
+ *             },
+ *           ],
+ *         },
+ *       ],
+ *       Blocks: [ // BlockList
+ *         { // Block
+ *           BlockType: 'KEY_VALUE_SET' || 'PAGE' || 'LINE' || 'WORD' || 'TABLE' || 'CELL' || 'SELECTION_ELEMENT' || 'MERGED_CELL' || 'TITLE' || 'QUERY' || 'QUERY_RESULT' || 'SIGNATURE' || 'TABLE_TITLE' || 'TABLE_FOOTER',
+ *           Confidence: Number('float'),
+ *           Text: 'STRING_VALUE',
+ *           TextType: 'HANDWRITING' || 'PRINTED',
+ *           RowIndex: Number('int'),
+ *           ColumnIndex: Number('int'),
+ *           RowSpan: Number('int'),
+ *           ColumnSpan: Number('int'),
+ *           Geometry: '<Geometry>',
+ *           Id: 'STRING_VALUE',
+ *           Relationships: [ // RelationshipList
+ *             { // Relationship
+ *               Type: 'VALUE' || 'CHILD' || 'COMPLEX_FEATURES' || 'MERGED_CELL' || 'TITLE' || 'ANSWER' || 'TABLE' || 'TABLE_TITLE' || 'TABLE_FOOTER',
+ *               Ids: [ // IdList
+ *                 'STRING_VALUE',
+ *               ],
+ *             },
+ *           ],
+ *           EntityTypes: [ // EntityTypes
+ *             'KEY' || 'VALUE' || 'COLUMN_HEADER' || 'TABLE_TITLE' || 'TABLE_FOOTER' || 'TABLE_SECTION_TITLE' || 'TABLE_SUMMARY' || 'STRUCTURED_TABLE' || 'SEMI_STRUCTURED_TABLE',
+ *           ],
+ *           SelectionStatus: 'SELECTED' || 'NOT_SELECTED',
+ *           Page: Number('int'),
+ *           Query: { // Query
+ *             Text: 'STRING_VALUE', // required
+ *             Alias: 'STRING_VALUE',
+ *             Pages: [ // QueryPages
+ *               'STRING_VALUE',
+ *             ],
+ *           },
+ *         },
+ *       ],
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param AnalyzeExpenseCommandInput - {@link AnalyzeExpenseCommandInput}
@@ -116,6 +285,8 @@ export interface AnalyzeExpenseCommandOutput extends AnalyzeExpenseResponse, __M
  *  <p>The format of the input document isn't supported. Documents for operations can be in
  *          PNG, JPEG, PDF, or TIFF format.</p>
  *
+ * @throws {@link TextractServiceException}
+ * <p>Base exception class for all service exceptions from Textract service.</p>
  *
  */
 export class AnalyzeExpenseCommand extends $Command<

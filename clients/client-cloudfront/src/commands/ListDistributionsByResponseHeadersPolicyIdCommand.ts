@@ -51,16 +51,30 @@ export interface ListDistributionsByResponseHeadersPolicyIdCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudFrontClient, ListDistributionsByResponseHeadersPolicyIdCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
- * // const { CloudFrontClient, ListDistributionsByResponseHeadersPolicyIdCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
+ * import { CloudFrontClient, ListDistributionsByResponseHeadersPolicyIdCommand } from '@aws-sdk/client-cloudfront'; // ES Modules import
+ * // const { CloudFrontClient, ListDistributionsByResponseHeadersPolicyIdCommand } = require('@aws-sdk/client-cloudfront'); // CommonJS import
  * const client = new CloudFrontClient(config);
  * const input = { // ListDistributionsByResponseHeadersPolicyIdRequest
- *   Marker: "STRING_VALUE",
- *   MaxItems: Number("int"),
- *   ResponseHeadersPolicyId: "STRING_VALUE", // required
+ *   Marker: 'STRING_VALUE',
+ *   MaxItems: Number('int'),
+ *   ResponseHeadersPolicyId: 'STRING_VALUE', // required
  * };
  * const command = new ListDistributionsByResponseHeadersPolicyIdCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListDistributionsByResponseHeadersPolicyIdResult
+ *   DistributionIdList: { // DistributionIdList
+ *     Marker: 'STRING_VALUE', // required
+ *     NextMarker: 'STRING_VALUE',
+ *     MaxItems: Number('int'), // required
+ *     IsTruncated: true || false, // required
+ *     Quantity: Number('int'), // required
+ *     Items: [ // DistributionIdListSummary
+ *       'STRING_VALUE',
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param ListDistributionsByResponseHeadersPolicyIdCommandInput - {@link ListDistributionsByResponseHeadersPolicyIdCommandInput}
@@ -78,6 +92,8 @@ export interface ListDistributionsByResponseHeadersPolicyIdCommandOutput
  * @throws {@link NoSuchResponseHeadersPolicy} (client fault)
  *  <p>The response headers policy does not exist.</p>
  *
+ * @throws {@link CloudFrontServiceException}
+ * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
  */
 export class ListDistributionsByResponseHeadersPolicyIdCommand extends $Command<

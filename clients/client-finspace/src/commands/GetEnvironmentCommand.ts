@@ -36,14 +36,41 @@ export interface GetEnvironmentCommandOutput extends GetEnvironmentResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FinspaceClient, GetEnvironmentCommand } from "@aws-sdk/client-finspace"; // ES Modules import
- * // const { FinspaceClient, GetEnvironmentCommand } = require("@aws-sdk/client-finspace"); // CommonJS import
+ * import { FinspaceClient, GetEnvironmentCommand } from '@aws-sdk/client-finspace'; // ES Modules import
+ * // const { FinspaceClient, GetEnvironmentCommand } = require('@aws-sdk/client-finspace'); // CommonJS import
  * const client = new FinspaceClient(config);
  * const input = { // GetEnvironmentRequest
- *   environmentId: "STRING_VALUE", // required
+ *   environmentId: 'STRING_VALUE', // required
  * };
  * const command = new GetEnvironmentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetEnvironmentResponse
+ *   environment: { // Environment
+ *     name: 'STRING_VALUE',
+ *     environmentId: 'STRING_VALUE',
+ *     awsAccountId: 'STRING_VALUE',
+ *     status: 'STRING_VALUE',
+ *     environmentUrl: 'STRING_VALUE',
+ *     description: 'STRING_VALUE',
+ *     environmentArn: 'STRING_VALUE',
+ *     sageMakerStudioDomainUrl: 'STRING_VALUE',
+ *     kmsKeyId: 'STRING_VALUE',
+ *     dedicatedServiceAccountId: 'STRING_VALUE',
+ *     federationMode: 'STRING_VALUE',
+ *     federationParameters: { // FederationParameters
+ *       samlMetadataDocument: 'STRING_VALUE',
+ *       samlMetadataURL: 'STRING_VALUE',
+ *       applicationCallBackURL: 'STRING_VALUE',
+ *       federationURN: 'STRING_VALUE',
+ *       federationProviderName: 'STRING_VALUE',
+ *       attributeMap: { // AttributeMap
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetEnvironmentCommandInput - {@link GetEnvironmentCommandInput}
@@ -65,6 +92,8 @@ export interface GetEnvironmentCommandOutput extends GetEnvironmentResponse, __M
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link FinspaceServiceException}
+ * <p>Base exception class for all service exceptions from Finspace service.</p>
  *
  */
 export class GetEnvironmentCommand extends $Command<

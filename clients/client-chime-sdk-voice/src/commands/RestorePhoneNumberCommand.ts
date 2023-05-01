@@ -41,14 +41,47 @@ export interface RestorePhoneNumberCommandOutput extends RestorePhoneNumberRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeSDKVoiceClient, RestorePhoneNumberCommand } from "@aws-sdk/client-chime-sdk-voice"; // ES Modules import
- * // const { ChimeSDKVoiceClient, RestorePhoneNumberCommand } = require("@aws-sdk/client-chime-sdk-voice"); // CommonJS import
+ * import { ChimeSDKVoiceClient, RestorePhoneNumberCommand } from '@aws-sdk/client-chime-sdk-voice'; // ES Modules import
+ * // const { ChimeSDKVoiceClient, RestorePhoneNumberCommand } = require('@aws-sdk/client-chime-sdk-voice'); // CommonJS import
  * const client = new ChimeSDKVoiceClient(config);
  * const input = { // RestorePhoneNumberRequest
- *   PhoneNumberId: "STRING_VALUE", // required
+ *   PhoneNumberId: 'STRING_VALUE', // required
  * };
  * const command = new RestorePhoneNumberCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // RestorePhoneNumberResponse
+ *   PhoneNumber: { // PhoneNumber
+ *     PhoneNumberId: 'STRING_VALUE',
+ *     E164PhoneNumber: 'STRING_VALUE',
+ *     Country: 'STRING_VALUE',
+ *     Type: 'Local' || 'TollFree',
+ *     ProductType: 'VoiceConnector' || 'SipMediaApplicationDialIn',
+ *     Status: 'Cancelled' || 'PortinCancelRequested' || 'PortinInProgress' || 'AcquireInProgress' || 'AcquireFailed' || 'Unassigned' || 'Assigned' || 'ReleaseInProgress' || 'DeleteInProgress' || 'ReleaseFailed' || 'DeleteFailed',
+ *     Capabilities: { // PhoneNumberCapabilities
+ *       InboundCall: true || false,
+ *       OutboundCall: true || false,
+ *       InboundSMS: true || false,
+ *       OutboundSMS: true || false,
+ *       InboundMMS: true || false,
+ *       OutboundMMS: true || false,
+ *     },
+ *     Associations: [ // PhoneNumberAssociationList
+ *       { // PhoneNumberAssociation
+ *         Value: 'STRING_VALUE',
+ *         Name: 'VoiceConnectorId' || 'VoiceConnectorGroupId' || 'SipRuleId',
+ *         AssociatedTimestamp: new Date('TIMESTAMP'),
+ *       },
+ *     ],
+ *     CallingName: 'STRING_VALUE',
+ *     CallingNameStatus: 'Unassigned' || 'UpdateInProgress' || 'UpdateSucceeded' || 'UpdateFailed',
+ *     CreatedTimestamp: new Date('TIMESTAMP'),
+ *     UpdatedTimestamp: new Date('TIMESTAMP'),
+ *     DeletionTimestamp: new Date('TIMESTAMP'),
+ *     OrderId: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param RestorePhoneNumberCommandInput - {@link RestorePhoneNumberCommandInput}
@@ -81,6 +114,8 @@ export interface RestorePhoneNumberCommandOutput extends RestorePhoneNumberRespo
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client isn't authorized to request a resource.</p>
  *
+ * @throws {@link ChimeSDKVoiceServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
  */
 export class RestorePhoneNumberCommand extends $Command<

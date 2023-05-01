@@ -38,18 +38,23 @@ export interface CompleteSnapshotCommandOutput extends CompleteSnapshotResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EBSClient, CompleteSnapshotCommand } from "@aws-sdk/client-ebs"; // ES Modules import
- * // const { EBSClient, CompleteSnapshotCommand } = require("@aws-sdk/client-ebs"); // CommonJS import
+ * import { EBSClient, CompleteSnapshotCommand } from '@aws-sdk/client-ebs'; // ES Modules import
+ * // const { EBSClient, CompleteSnapshotCommand } = require('@aws-sdk/client-ebs'); // CommonJS import
  * const client = new EBSClient(config);
  * const input = { // CompleteSnapshotRequest
- *   SnapshotId: "STRING_VALUE", // required
- *   ChangedBlocksCount: Number("int"), // required
- *   Checksum: "STRING_VALUE",
- *   ChecksumAlgorithm: "STRING_VALUE",
- *   ChecksumAggregationMethod: "STRING_VALUE",
+ *   SnapshotId: 'STRING_VALUE', // required
+ *   ChangedBlocksCount: Number('int'), // required
+ *   Checksum: 'STRING_VALUE',
+ *   ChecksumAlgorithm: 'STRING_VALUE',
+ *   ChecksumAggregationMethod: 'STRING_VALUE',
  * };
  * const command = new CompleteSnapshotCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CompleteSnapshotResponse
+ *   Status: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CompleteSnapshotCommandInput - {@link CompleteSnapshotCommandInput}
@@ -77,6 +82,8 @@ export interface CompleteSnapshotCommandOutput extends CompleteSnapshotResponse,
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints of the EBS direct APIs.</p>
  *
+ * @throws {@link EBSServiceException}
+ * <p>Base exception class for all service exceptions from EBS service.</p>
  *
  */
 export class CompleteSnapshotCommand extends $Command<

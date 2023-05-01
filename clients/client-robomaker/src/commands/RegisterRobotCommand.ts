@@ -41,15 +41,21 @@ export interface RegisterRobotCommandOutput extends RegisterRobotResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RoboMakerClient, RegisterRobotCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
- * // const { RoboMakerClient, RegisterRobotCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
+ * import { RoboMakerClient, RegisterRobotCommand } from '@aws-sdk/client-robomaker'; // ES Modules import
+ * // const { RoboMakerClient, RegisterRobotCommand } = require('@aws-sdk/client-robomaker'); // CommonJS import
  * const client = new RoboMakerClient(config);
  * const input = { // RegisterRobotRequest
- *   fleet: "STRING_VALUE", // required
- *   robot: "STRING_VALUE", // required
+ *   fleet: 'STRING_VALUE', // required
+ *   robot: 'STRING_VALUE', // required
  * };
  * const command = new RegisterRobotCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // RegisterRobotResponse
+ *   fleet: 'STRING_VALUE',
+ *   robot: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param RegisterRobotCommandInput - {@link RegisterRobotCommandInput}
@@ -75,6 +81,8 @@ export interface RegisterRobotCommandOutput extends RegisterRobotResponse, __Met
  * @throws {@link ThrottlingException} (client fault)
  *  <p>AWS RoboMaker is temporarily unable to process the request. Try your call again.</p>
  *
+ * @throws {@link RoboMakerServiceException}
+ * <p>Base exception class for all service exceptions from RoboMaker service.</p>
  *
  */
 export class RegisterRobotCommand extends $Command<

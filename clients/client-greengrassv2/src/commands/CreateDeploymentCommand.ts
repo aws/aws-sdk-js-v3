@@ -46,75 +46,82 @@ export interface CreateDeploymentCommandOutput extends CreateDeploymentResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GreengrassV2Client, CreateDeploymentCommand } from "@aws-sdk/client-greengrassv2"; // ES Modules import
- * // const { GreengrassV2Client, CreateDeploymentCommand } = require("@aws-sdk/client-greengrassv2"); // CommonJS import
+ * import { GreengrassV2Client, CreateDeploymentCommand } from '@aws-sdk/client-greengrassv2'; // ES Modules import
+ * // const { GreengrassV2Client, CreateDeploymentCommand } = require('@aws-sdk/client-greengrassv2'); // CommonJS import
  * const client = new GreengrassV2Client(config);
  * const input = { // CreateDeploymentRequest
- *   targetArn: "STRING_VALUE", // required
- *   deploymentName: "STRING_VALUE",
+ *   targetArn: 'STRING_VALUE', // required
+ *   deploymentName: 'STRING_VALUE',
  *   components: { // ComponentDeploymentSpecifications
- *     "<keys>": { // ComponentDeploymentSpecification
- *       componentVersion: "STRING_VALUE",
+ *     '<keys>': { // ComponentDeploymentSpecification
+ *       componentVersion: 'STRING_VALUE',
  *       configurationUpdate: { // ComponentConfigurationUpdate
- *         merge: "STRING_VALUE",
+ *         merge: 'STRING_VALUE',
  *         reset: [ // ComponentConfigurationPathList
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
  *       },
  *       runWith: { // ComponentRunWith
- *         posixUser: "STRING_VALUE",
+ *         posixUser: 'STRING_VALUE',
  *         systemResourceLimits: { // SystemResourceLimits
- *           memory: Number("long"),
- *           cpus: Number("double"),
+ *           memory: Number('long'),
+ *           cpus: Number('double'),
  *         },
- *         windowsUser: "STRING_VALUE",
+ *         windowsUser: 'STRING_VALUE',
  *       },
  *     },
  *   },
  *   iotJobConfiguration: { // DeploymentIoTJobConfiguration
  *     jobExecutionsRolloutConfig: { // IoTJobExecutionsRolloutConfig
  *       exponentialRate: { // IoTJobExponentialRolloutRate
- *         baseRatePerMinute: Number("int"), // required
- *         incrementFactor: Number("double"), // required
+ *         baseRatePerMinute: Number('int'), // required
+ *         incrementFactor: Number('double'), // required
  *         rateIncreaseCriteria: { // IoTJobRateIncreaseCriteria
- *           numberOfNotifiedThings: Number("int"),
- *           numberOfSucceededThings: Number("int"),
+ *           numberOfNotifiedThings: Number('int'),
+ *           numberOfSucceededThings: Number('int'),
  *         },
  *       },
- *       maximumPerMinute: Number("int"),
+ *       maximumPerMinute: Number('int'),
  *     },
  *     abortConfig: { // IoTJobAbortConfig
  *       criteriaList: [ // IoTJobAbortCriteriaList // required
  *         { // IoTJobAbortCriteria
- *           failureType: "FAILED" || "REJECTED" || "TIMED_OUT" || "ALL", // required
- *           action: "CANCEL", // required
- *           thresholdPercentage: Number("double"), // required
- *           minNumberOfExecutedThings: Number("int"), // required
+ *           failureType: 'FAILED' || 'REJECTED' || 'TIMED_OUT' || 'ALL', // required
+ *           action: 'CANCEL', // required
+ *           thresholdPercentage: Number('double'), // required
+ *           minNumberOfExecutedThings: Number('int'), // required
  *         },
  *       ],
  *     },
  *     timeoutConfig: { // IoTJobTimeoutConfig
- *       inProgressTimeoutInMinutes: Number("long"),
+ *       inProgressTimeoutInMinutes: Number('long'),
  *     },
  *   },
  *   deploymentPolicies: { // DeploymentPolicies
- *     failureHandlingPolicy: "ROLLBACK" || "DO_NOTHING",
+ *     failureHandlingPolicy: 'ROLLBACK' || 'DO_NOTHING',
  *     componentUpdatePolicy: { // DeploymentComponentUpdatePolicy
- *       timeoutInSeconds: Number("int"),
- *       action: "NOTIFY_COMPONENTS" || "SKIP_NOTIFY_COMPONENTS",
+ *       timeoutInSeconds: Number('int'),
+ *       action: 'NOTIFY_COMPONENTS' || 'SKIP_NOTIFY_COMPONENTS',
  *     },
  *     configurationValidationPolicy: { // DeploymentConfigurationValidationPolicy
- *       timeoutInSeconds: Number("int"),
+ *       timeoutInSeconds: Number('int'),
  *     },
  *   },
- *   parentTargetArn: "STRING_VALUE",
+ *   parentTargetArn: 'STRING_VALUE',
  *   tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
- *   clientToken: "STRING_VALUE",
+ *   clientToken: 'STRING_VALUE',
  * };
  * const command = new CreateDeploymentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateDeploymentResponse
+ *   deploymentId: 'STRING_VALUE',
+ *   iotJobId: 'STRING_VALUE',
+ *   iotJobArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateDeploymentCommandInput - {@link CreateDeploymentCommandInput}
@@ -149,6 +156,8 @@ export interface CreateDeploymentCommandOutput extends CreateDeploymentResponse,
  *  <p>The request isn't valid. This can occur if your request contains malformed JSON or
  *       unsupported characters.</p>
  *
+ * @throws {@link GreengrassV2ServiceException}
+ * <p>Base exception class for all service exceptions from GreengrassV2 service.</p>
  *
  */
 export class CreateDeploymentCommand extends $Command<

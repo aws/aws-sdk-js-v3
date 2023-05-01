@@ -36,16 +36,27 @@ export interface DeleteInvitationsCommandOutput extends DeleteInvitationsRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Macie2Client, DeleteInvitationsCommand } from "@aws-sdk/client-macie2"; // ES Modules import
- * // const { Macie2Client, DeleteInvitationsCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
+ * import { Macie2Client, DeleteInvitationsCommand } from '@aws-sdk/client-macie2'; // ES Modules import
+ * // const { Macie2Client, DeleteInvitationsCommand } = require('@aws-sdk/client-macie2'); // CommonJS import
  * const client = new Macie2Client(config);
  * const input = { // DeleteInvitationsRequest
  *   accountIds: [ // __listOf__string // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new DeleteInvitationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteInvitationsResponse
+ *   unprocessedAccounts: [ // __listOfUnprocessedAccount
+ *     { // UnprocessedAccount
+ *       accountId: 'STRING_VALUE',
+ *       errorCode: 'ClientError' || 'InternalError',
+ *       errorMessage: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DeleteInvitationsCommandInput - {@link DeleteInvitationsCommandInput}
@@ -75,6 +86,8 @@ export interface DeleteInvitationsCommandOutput extends DeleteInvitationsRespons
  * @throws {@link ValidationException} (client fault)
  *  <p>Provides information about an error that occurred due to a syntax error in a request.</p>
  *
+ * @throws {@link Macie2ServiceException}
+ * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
  */
 export class DeleteInvitationsCommand extends $Command<

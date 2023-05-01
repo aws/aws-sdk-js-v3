@@ -36,31 +36,84 @@ export interface UpdateMultiplexProgramCommandOutput extends UpdateMultiplexProg
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MediaLiveClient, UpdateMultiplexProgramCommand } from "@aws-sdk/client-medialive"; // ES Modules import
- * // const { MediaLiveClient, UpdateMultiplexProgramCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
+ * import { MediaLiveClient, UpdateMultiplexProgramCommand } from '@aws-sdk/client-medialive'; // ES Modules import
+ * // const { MediaLiveClient, UpdateMultiplexProgramCommand } = require('@aws-sdk/client-medialive'); // CommonJS import
  * const client = new MediaLiveClient(config);
  * const input = { // UpdateMultiplexProgramRequest
- *   MultiplexId: "STRING_VALUE", // required
+ *   MultiplexId: 'STRING_VALUE', // required
  *   MultiplexProgramSettings: { // MultiplexProgramSettings
- *     PreferredChannelPipeline: "CURRENTLY_ACTIVE" || "PIPELINE_0" || "PIPELINE_1",
- *     ProgramNumber: Number("int"), // required
+ *     PreferredChannelPipeline: 'CURRENTLY_ACTIVE' || 'PIPELINE_0' || 'PIPELINE_1',
+ *     ProgramNumber: Number('int'), // required
  *     ServiceDescriptor: { // MultiplexProgramServiceDescriptor
- *       ProviderName: "STRING_VALUE", // required
- *       ServiceName: "STRING_VALUE", // required
+ *       ProviderName: 'STRING_VALUE', // required
+ *       ServiceName: 'STRING_VALUE', // required
  *     },
  *     VideoSettings: { // MultiplexVideoSettings
- *       ConstantBitrate: Number("int"),
+ *       ConstantBitrate: Number('int'),
  *       StatmuxSettings: { // MultiplexStatmuxVideoSettings
- *         MaximumBitrate: Number("int"),
- *         MinimumBitrate: Number("int"),
- *         Priority: Number("int"),
+ *         MaximumBitrate: Number('int'),
+ *         MinimumBitrate: Number('int'),
+ *         Priority: Number('int'),
  *       },
  *     },
  *   },
- *   ProgramName: "STRING_VALUE", // required
+ *   ProgramName: 'STRING_VALUE', // required
  * };
  * const command = new UpdateMultiplexProgramCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateMultiplexProgramResponse
+ *   MultiplexProgram: { // MultiplexProgram
+ *     ChannelId: 'STRING_VALUE',
+ *     MultiplexProgramSettings: { // MultiplexProgramSettings
+ *       PreferredChannelPipeline: 'CURRENTLY_ACTIVE' || 'PIPELINE_0' || 'PIPELINE_1',
+ *       ProgramNumber: Number('int'), // required
+ *       ServiceDescriptor: { // MultiplexProgramServiceDescriptor
+ *         ProviderName: 'STRING_VALUE', // required
+ *         ServiceName: 'STRING_VALUE', // required
+ *       },
+ *       VideoSettings: { // MultiplexVideoSettings
+ *         ConstantBitrate: Number('int'),
+ *         StatmuxSettings: { // MultiplexStatmuxVideoSettings
+ *           MaximumBitrate: Number('int'),
+ *           MinimumBitrate: Number('int'),
+ *           Priority: Number('int'),
+ *         },
+ *       },
+ *     },
+ *     PacketIdentifiersMap: { // MultiplexProgramPacketIdentifiersMap
+ *       AudioPids: [ // __listOf__integer
+ *         Number('int'),
+ *       ],
+ *       DvbSubPids: [
+ *         Number('int'),
+ *       ],
+ *       DvbTeletextPid: Number('int'),
+ *       EtvPlatformPid: Number('int'),
+ *       EtvSignalPid: Number('int'),
+ *       KlvDataPids: [
+ *         Number('int'),
+ *       ],
+ *       PcrPid: Number('int'),
+ *       PmtPid: Number('int'),
+ *       PrivateMetadataPid: Number('int'),
+ *       Scte27Pids: [
+ *         Number('int'),
+ *       ],
+ *       Scte35Pid: Number('int'),
+ *       TimedMetadataPid: Number('int'),
+ *       VideoPid: Number('int'),
+ *     },
+ *     PipelineDetails: [ // __listOfMultiplexProgramPipelineDetail
+ *       { // MultiplexProgramPipelineDetail
+ *         ActiveChannelPipeline: 'STRING_VALUE',
+ *         PipelineId: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     ProgramName: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateMultiplexProgramCommandInput - {@link UpdateMultiplexProgramCommandInput}
@@ -93,6 +146,8 @@ export interface UpdateMultiplexProgramCommandOutput extends UpdateMultiplexProg
  * @throws {@link UnprocessableEntityException} (client fault)
  *  Placeholder documentation for UnprocessableEntityException
  *
+ * @throws {@link MediaLiveServiceException}
+ * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
  */
 export class UpdateMultiplexProgramCommand extends $Command<

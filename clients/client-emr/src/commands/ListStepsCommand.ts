@@ -41,21 +41,60 @@ export interface ListStepsCommandOutput extends ListStepsOutput, __MetadataBeare
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EMRClient, ListStepsCommand } from "@aws-sdk/client-emr"; // ES Modules import
- * // const { EMRClient, ListStepsCommand } = require("@aws-sdk/client-emr"); // CommonJS import
+ * import { EMRClient, ListStepsCommand } from '@aws-sdk/client-emr'; // ES Modules import
+ * // const { EMRClient, ListStepsCommand } = require('@aws-sdk/client-emr'); // CommonJS import
  * const client = new EMRClient(config);
  * const input = { // ListStepsInput
- *   ClusterId: "STRING_VALUE", // required
+ *   ClusterId: 'STRING_VALUE', // required
  *   StepStates: [ // StepStateList
- *     "PENDING" || "CANCEL_PENDING" || "RUNNING" || "COMPLETED" || "CANCELLED" || "FAILED" || "INTERRUPTED",
+ *     'PENDING' || 'CANCEL_PENDING' || 'RUNNING' || 'COMPLETED' || 'CANCELLED' || 'FAILED' || 'INTERRUPTED',
  *   ],
  *   StepIds: [ // XmlStringList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   Marker: "STRING_VALUE",
+ *   Marker: 'STRING_VALUE',
  * };
  * const command = new ListStepsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListStepsOutput
+ *   Steps: [ // StepSummaryList
+ *     { // StepSummary
+ *       Id: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *       Config: { // HadoopStepConfig
+ *         Jar: 'STRING_VALUE',
+ *         Properties: { // StringMap
+ *           '<keys>': 'STRING_VALUE',
+ *         },
+ *         MainClass: 'STRING_VALUE',
+ *         Args: [ // StringList
+ *           'STRING_VALUE',
+ *         ],
+ *       },
+ *       ActionOnFailure: 'TERMINATE_JOB_FLOW' || 'TERMINATE_CLUSTER' || 'CANCEL_AND_WAIT' || 'CONTINUE',
+ *       Status: { // StepStatus
+ *         State: 'PENDING' || 'CANCEL_PENDING' || 'RUNNING' || 'COMPLETED' || 'CANCELLED' || 'FAILED' || 'INTERRUPTED',
+ *         StateChangeReason: { // StepStateChangeReason
+ *           Code: 'NONE',
+ *           Message: 'STRING_VALUE',
+ *         },
+ *         FailureDetails: { // FailureDetails
+ *           Reason: 'STRING_VALUE',
+ *           Message: 'STRING_VALUE',
+ *           LogFile: 'STRING_VALUE',
+ *         },
+ *         Timeline: { // StepTimeline
+ *           CreationDateTime: new Date('TIMESTAMP'),
+ *           StartDateTime: new Date('TIMESTAMP'),
+ *           EndDateTime: new Date('TIMESTAMP'),
+ *         },
+ *       },
+ *     },
+ *   ],
+ *   Marker: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListStepsCommandInput - {@link ListStepsCommandInput}
@@ -71,6 +110,8 @@ export interface ListStepsCommandOutput extends ListStepsOutput, __MetadataBeare
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception occurs when there is something wrong with user input.</p>
  *
+ * @throws {@link EMRServiceException}
+ * <p>Base exception class for all service exceptions from EMR service.</p>
  *
  */
 export class ListStepsCommand extends $Command<ListStepsCommandInput, ListStepsCommandOutput, EMRClientResolvedConfig> {

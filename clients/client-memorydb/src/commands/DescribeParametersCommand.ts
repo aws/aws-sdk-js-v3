@@ -36,16 +36,31 @@ export interface DescribeParametersCommandOutput extends DescribeParametersRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MemoryDBClient, DescribeParametersCommand } from "@aws-sdk/client-memorydb"; // ES Modules import
- * // const { MemoryDBClient, DescribeParametersCommand } = require("@aws-sdk/client-memorydb"); // CommonJS import
+ * import { MemoryDBClient, DescribeParametersCommand } from '@aws-sdk/client-memorydb'; // ES Modules import
+ * // const { MemoryDBClient, DescribeParametersCommand } = require('@aws-sdk/client-memorydb'); // CommonJS import
  * const client = new MemoryDBClient(config);
  * const input = { // DescribeParametersRequest
- *   ParameterGroupName: "STRING_VALUE", // required
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   ParameterGroupName: 'STRING_VALUE', // required
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new DescribeParametersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeParametersResponse
+ *   NextToken: 'STRING_VALUE',
+ *   Parameters: [ // ParametersList
+ *     { // Parameter
+ *       Name: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
+ *       Description: 'STRING_VALUE',
+ *       DataType: 'STRING_VALUE',
+ *       AllowedValues: 'STRING_VALUE',
+ *       MinimumEngineVersion: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeParametersCommandInput - {@link DescribeParametersCommandInput}
@@ -66,6 +81,8 @@ export interface DescribeParametersCommandOutput extends DescribeParametersRespo
  * @throws {@link ServiceLinkedRoleNotFoundFault} (client fault)
  *  <p></p>
  *
+ * @throws {@link MemoryDBServiceException}
+ * <p>Base exception class for all service exceptions from MemoryDB service.</p>
  *
  */
 export class DescribeParametersCommand extends $Command<

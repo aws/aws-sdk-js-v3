@@ -39,16 +39,21 @@ export interface UpdateThingShadowCommandOutput extends UpdateThingShadowRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTDataPlaneClient, UpdateThingShadowCommand } from "@aws-sdk/client-iot-data-plane"; // ES Modules import
- * // const { IoTDataPlaneClient, UpdateThingShadowCommand } = require("@aws-sdk/client-iot-data-plane"); // CommonJS import
+ * import { IoTDataPlaneClient, UpdateThingShadowCommand } from '@aws-sdk/client-iot-data-plane'; // ES Modules import
+ * // const { IoTDataPlaneClient, UpdateThingShadowCommand } = require('@aws-sdk/client-iot-data-plane'); // CommonJS import
  * const client = new IoTDataPlaneClient(config);
  * const input = { // UpdateThingShadowRequest
- *   thingName: "STRING_VALUE", // required
- *   shadowName: "STRING_VALUE",
- *   payload: "BLOB_VALUE", // required
+ *   thingName: 'STRING_VALUE', // required
+ *   shadowName: 'STRING_VALUE',
+ *   payload: 'BLOB_VALUE', // required
  * };
  * const command = new UpdateThingShadowCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateThingShadowResponse
+ *   payload: 'BLOB_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateThingShadowCommandInput - {@link UpdateThingShadowCommandInput}
@@ -84,6 +89,8 @@ export interface UpdateThingShadowCommandOutput extends UpdateThingShadowRespons
  * @throws {@link UnsupportedDocumentEncodingException} (client fault)
  *  <p>The document encoding is not supported.</p>
  *
+ * @throws {@link IoTDataPlaneServiceException}
+ * <p>Base exception class for all service exceptions from IoTDataPlane service.</p>
  *
  */
 export class UpdateThingShadowCommand extends $Command<

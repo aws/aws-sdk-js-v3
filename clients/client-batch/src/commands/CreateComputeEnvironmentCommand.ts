@@ -114,62 +114,68 @@ export interface CreateComputeEnvironmentCommandOutput extends CreateComputeEnvi
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BatchClient, CreateComputeEnvironmentCommand } from "@aws-sdk/client-batch"; // ES Modules import
- * // const { BatchClient, CreateComputeEnvironmentCommand } = require("@aws-sdk/client-batch"); // CommonJS import
+ * import { BatchClient, CreateComputeEnvironmentCommand } from '@aws-sdk/client-batch'; // ES Modules import
+ * // const { BatchClient, CreateComputeEnvironmentCommand } = require('@aws-sdk/client-batch'); // CommonJS import
  * const client = new BatchClient(config);
  * const input = { // CreateComputeEnvironmentRequest
- *   computeEnvironmentName: "STRING_VALUE", // required
- *   type: "MANAGED" || "UNMANAGED", // required
- *   state: "ENABLED" || "DISABLED",
- *   unmanagedvCpus: Number("int"),
+ *   computeEnvironmentName: 'STRING_VALUE', // required
+ *   type: 'MANAGED' || 'UNMANAGED', // required
+ *   state: 'ENABLED' || 'DISABLED',
+ *   unmanagedvCpus: Number('int'),
  *   computeResources: { // ComputeResource
- *     type: "EC2" || "SPOT" || "FARGATE" || "FARGATE_SPOT", // required
- *     allocationStrategy: "BEST_FIT" || "BEST_FIT_PROGRESSIVE" || "SPOT_CAPACITY_OPTIMIZED",
- *     minvCpus: Number("int"),
- *     maxvCpus: Number("int"), // required
- *     desiredvCpus: Number("int"),
+ *     type: 'EC2' || 'SPOT' || 'FARGATE' || 'FARGATE_SPOT', // required
+ *     allocationStrategy: 'BEST_FIT' || 'BEST_FIT_PROGRESSIVE' || 'SPOT_CAPACITY_OPTIMIZED',
+ *     minvCpus: Number('int'),
+ *     maxvCpus: Number('int'), // required
+ *     desiredvCpus: Number('int'),
  *     instanceTypes: [ // StringList
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
- *     imageId: "STRING_VALUE",
+ *     imageId: 'STRING_VALUE',
  *     subnets: [ // required
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     securityGroupIds: [
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
- *     ec2KeyPair: "STRING_VALUE",
- *     instanceRole: "STRING_VALUE",
+ *     ec2KeyPair: 'STRING_VALUE',
+ *     instanceRole: 'STRING_VALUE',
  *     tags: { // TagsMap
- *       "<keys>": "STRING_VALUE",
+ *       '<keys>': 'STRING_VALUE',
  *     },
- *     placementGroup: "STRING_VALUE",
- *     bidPercentage: Number("int"),
- *     spotIamFleetRole: "STRING_VALUE",
+ *     placementGroup: 'STRING_VALUE',
+ *     bidPercentage: Number('int'),
+ *     spotIamFleetRole: 'STRING_VALUE',
  *     launchTemplate: { // LaunchTemplateSpecification
- *       launchTemplateId: "STRING_VALUE",
- *       launchTemplateName: "STRING_VALUE",
- *       version: "STRING_VALUE",
+ *       launchTemplateId: 'STRING_VALUE',
+ *       launchTemplateName: 'STRING_VALUE',
+ *       version: 'STRING_VALUE',
  *     },
  *     ec2Configuration: [ // Ec2ConfigurationList
  *       { // Ec2Configuration
- *         imageType: "STRING_VALUE", // required
- *         imageIdOverride: "STRING_VALUE",
- *         imageKubernetesVersion: "STRING_VALUE",
+ *         imageType: 'STRING_VALUE', // required
+ *         imageIdOverride: 'STRING_VALUE',
+ *         imageKubernetesVersion: 'STRING_VALUE',
  *       },
  *     ],
  *   },
- *   serviceRole: "STRING_VALUE",
+ *   serviceRole: 'STRING_VALUE',
  *   tags: { // TagrisTagsMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  *   eksConfiguration: { // EksConfiguration
- *     eksClusterArn: "STRING_VALUE", // required
- *     kubernetesNamespace: "STRING_VALUE", // required
+ *     eksClusterArn: 'STRING_VALUE', // required
+ *     kubernetesNamespace: 'STRING_VALUE', // required
  *   },
  * };
  * const command = new CreateComputeEnvironmentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateComputeEnvironmentResponse
+ *   computeEnvironmentName: 'STRING_VALUE',
+ *   computeEnvironmentArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateComputeEnvironmentCommandInput - {@link CreateComputeEnvironmentCommandInput}
@@ -186,6 +192,8 @@ export interface CreateComputeEnvironmentCommandOutput extends CreateComputeEnvi
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server issue.</p>
  *
+ * @throws {@link BatchServiceException}
+ * <p>Base exception class for all service exceptions from Batch service.</p>
  *
  * @example To create a managed EC2 compute environment
  * ```javascript

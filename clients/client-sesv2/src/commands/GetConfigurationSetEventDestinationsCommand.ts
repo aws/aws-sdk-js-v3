@@ -51,14 +51,46 @@ export interface GetConfigurationSetEventDestinationsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SESv2Client, GetConfigurationSetEventDestinationsCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
- * // const { SESv2Client, GetConfigurationSetEventDestinationsCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
+ * import { SESv2Client, GetConfigurationSetEventDestinationsCommand } from '@aws-sdk/client-sesv2'; // ES Modules import
+ * // const { SESv2Client, GetConfigurationSetEventDestinationsCommand } = require('@aws-sdk/client-sesv2'); // CommonJS import
  * const client = new SESv2Client(config);
  * const input = { // GetConfigurationSetEventDestinationsRequest
- *   ConfigurationSetName: "STRING_VALUE", // required
+ *   ConfigurationSetName: 'STRING_VALUE', // required
  * };
  * const command = new GetConfigurationSetEventDestinationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetConfigurationSetEventDestinationsResponse
+ *   EventDestinations: [ // EventDestinations
+ *     { // EventDestination
+ *       Name: 'STRING_VALUE', // required
+ *       Enabled: true || false,
+ *       MatchingEventTypes: [ // EventTypes // required
+ *         'SEND' || 'REJECT' || 'BOUNCE' || 'COMPLAINT' || 'DELIVERY' || 'OPEN' || 'CLICK' || 'RENDERING_FAILURE' || 'DELIVERY_DELAY' || 'SUBSCRIPTION',
+ *       ],
+ *       KinesisFirehoseDestination: { // KinesisFirehoseDestination
+ *         IamRoleArn: 'STRING_VALUE', // required
+ *         DeliveryStreamArn: 'STRING_VALUE', // required
+ *       },
+ *       CloudWatchDestination: { // CloudWatchDestination
+ *         DimensionConfigurations: [ // CloudWatchDimensionConfigurations // required
+ *           { // CloudWatchDimensionConfiguration
+ *             DimensionName: 'STRING_VALUE', // required
+ *             DimensionValueSource: 'MESSAGE_TAG' || 'EMAIL_HEADER' || 'LINK_TAG', // required
+ *             DefaultDimensionValue: 'STRING_VALUE', // required
+ *           },
+ *         ],
+ *       },
+ *       SnsDestination: { // SnsDestination
+ *         TopicArn: 'STRING_VALUE', // required
+ *       },
+ *       PinpointDestination: { // PinpointDestination
+ *         ApplicationArn: 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetConfigurationSetEventDestinationsCommandInput - {@link GetConfigurationSetEventDestinationsCommandInput}
@@ -76,6 +108,8 @@ export interface GetConfigurationSetEventDestinationsCommandOutput
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Too many requests have been made to the operation.</p>
  *
+ * @throws {@link SESv2ServiceException}
+ * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
  */
 export class GetConfigurationSetEventDestinationsCommand extends $Command<

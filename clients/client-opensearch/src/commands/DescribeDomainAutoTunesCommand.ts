@@ -38,16 +38,34 @@ export interface DescribeDomainAutoTunesCommandOutput extends DescribeDomainAuto
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OpenSearchClient, DescribeDomainAutoTunesCommand } from "@aws-sdk/client-opensearch"; // ES Modules import
- * // const { OpenSearchClient, DescribeDomainAutoTunesCommand } = require("@aws-sdk/client-opensearch"); // CommonJS import
+ * import { OpenSearchClient, DescribeDomainAutoTunesCommand } from '@aws-sdk/client-opensearch'; // ES Modules import
+ * // const { OpenSearchClient, DescribeDomainAutoTunesCommand } = require('@aws-sdk/client-opensearch'); // CommonJS import
  * const client = new OpenSearchClient(config);
  * const input = { // DescribeDomainAutoTunesRequest
- *   DomainName: "STRING_VALUE", // required
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   DomainName: 'STRING_VALUE', // required
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new DescribeDomainAutoTunesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeDomainAutoTunesResponse
+ *   AutoTunes: [ // AutoTuneList
+ *     { // AutoTune
+ *       AutoTuneType: 'SCHEDULED_ACTION',
+ *       AutoTuneDetails: { // AutoTuneDetails
+ *         ScheduledAutoTuneDetails: { // ScheduledAutoTuneDetails
+ *           Date: new Date('TIMESTAMP'),
+ *           ActionType: 'JVM_HEAP_SIZE_TUNING' || 'JVM_YOUNG_GEN_TUNING',
+ *           Action: 'STRING_VALUE',
+ *           Severity: 'LOW' || 'MEDIUM' || 'HIGH',
+ *         },
+ *       },
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeDomainAutoTunesCommandInput - {@link DescribeDomainAutoTunesCommandInput}
@@ -68,6 +86,8 @@ export interface DescribeDomainAutoTunesCommandOutput extends DescribeDomainAuto
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception for accessing or deleting a resource that doesn't exist.</p>
  *
+ * @throws {@link OpenSearchServiceException}
+ * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
  */
 export class DescribeDomainAutoTunesCommand extends $Command<

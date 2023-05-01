@@ -36,17 +36,31 @@ export interface DescribePartnersCommandOutput extends DescribePartnersOutputMes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RedshiftClient, DescribePartnersCommand } from "@aws-sdk/client-redshift"; // ES Modules import
- * // const { RedshiftClient, DescribePartnersCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * import { RedshiftClient, DescribePartnersCommand } from '@aws-sdk/client-redshift'; // ES Modules import
+ * // const { RedshiftClient, DescribePartnersCommand } = require('@aws-sdk/client-redshift'); // CommonJS import
  * const client = new RedshiftClient(config);
  * const input = { // DescribePartnersInputMessage
- *   AccountId: "STRING_VALUE", // required
- *   ClusterIdentifier: "STRING_VALUE", // required
- *   DatabaseName: "STRING_VALUE",
- *   PartnerName: "STRING_VALUE",
+ *   AccountId: 'STRING_VALUE', // required
+ *   ClusterIdentifier: 'STRING_VALUE', // required
+ *   DatabaseName: 'STRING_VALUE',
+ *   PartnerName: 'STRING_VALUE',
  * };
  * const command = new DescribePartnersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribePartnersOutputMessage
+ *   PartnerIntegrationInfoList: [ // PartnerIntegrationInfoList
+ *     { // PartnerIntegrationInfo
+ *       DatabaseName: 'STRING_VALUE',
+ *       PartnerName: 'STRING_VALUE',
+ *       Status: 'Active' || 'Inactive' || 'RuntimeFailure' || 'ConnectionFailure',
+ *       StatusMessage: 'STRING_VALUE',
+ *       CreatedAt: new Date('TIMESTAMP'),
+ *       UpdatedAt: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribePartnersCommandInput - {@link DescribePartnersCommandInput}
@@ -62,6 +76,8 @@ export interface DescribePartnersCommandOutput extends DescribePartnersOutputMes
  * @throws {@link UnauthorizedPartnerIntegrationFault} (client fault)
  *  <p>The partner integration is not authorized.</p>
  *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class DescribePartnersCommand extends $Command<

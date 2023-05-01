@@ -39,17 +39,28 @@ export interface AssociateConnectPeerCommandOutput extends AssociateConnectPeerR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { NetworkManagerClient, AssociateConnectPeerCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
- * // const { NetworkManagerClient, AssociateConnectPeerCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
+ * import { NetworkManagerClient, AssociateConnectPeerCommand } from '@aws-sdk/client-networkmanager'; // ES Modules import
+ * // const { NetworkManagerClient, AssociateConnectPeerCommand } = require('@aws-sdk/client-networkmanager'); // CommonJS import
  * const client = new NetworkManagerClient(config);
  * const input = { // AssociateConnectPeerRequest
- *   GlobalNetworkId: "STRING_VALUE", // required
- *   ConnectPeerId: "STRING_VALUE", // required
- *   DeviceId: "STRING_VALUE", // required
- *   LinkId: "STRING_VALUE",
+ *   GlobalNetworkId: 'STRING_VALUE', // required
+ *   ConnectPeerId: 'STRING_VALUE', // required
+ *   DeviceId: 'STRING_VALUE', // required
+ *   LinkId: 'STRING_VALUE',
  * };
  * const command = new AssociateConnectPeerCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AssociateConnectPeerResponse
+ *   ConnectPeerAssociation: { // ConnectPeerAssociation
+ *     ConnectPeerId: 'STRING_VALUE',
+ *     GlobalNetworkId: 'STRING_VALUE',
+ *     DeviceId: 'STRING_VALUE',
+ *     LinkId: 'STRING_VALUE',
+ *     State: 'PENDING' || 'AVAILABLE' || 'DELETING' || 'DELETED',
+ *   },
+ * };
+ *
  * ```
  *
  * @param AssociateConnectPeerCommandInput - {@link AssociateConnectPeerCommandInput}
@@ -80,6 +91,8 @@ export interface AssociateConnectPeerCommandOutput extends AssociateConnectPeerR
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints.</p>
  *
+ * @throws {@link NetworkManagerServiceException}
+ * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
  */
 export class AssociateConnectPeerCommand extends $Command<

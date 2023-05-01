@@ -46,20 +46,34 @@ export interface CreateAttendeeCommandOutput extends CreateAttendeeResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeSDKMeetingsClient, CreateAttendeeCommand } from "@aws-sdk/client-chime-sdk-meetings"; // ES Modules import
- * // const { ChimeSDKMeetingsClient, CreateAttendeeCommand } = require("@aws-sdk/client-chime-sdk-meetings"); // CommonJS import
+ * import { ChimeSDKMeetingsClient, CreateAttendeeCommand } from '@aws-sdk/client-chime-sdk-meetings'; // ES Modules import
+ * // const { ChimeSDKMeetingsClient, CreateAttendeeCommand } = require('@aws-sdk/client-chime-sdk-meetings'); // CommonJS import
  * const client = new ChimeSDKMeetingsClient(config);
  * const input = { // CreateAttendeeRequest
- *   MeetingId: "STRING_VALUE", // required
- *   ExternalUserId: "STRING_VALUE", // required
+ *   MeetingId: 'STRING_VALUE', // required
+ *   ExternalUserId: 'STRING_VALUE', // required
  *   Capabilities: { // AttendeeCapabilities
- *     Audio: "SendReceive" || "Send" || "Receive" || "None", // required
- *     Video: "SendReceive" || "Send" || "Receive" || "None", // required
- *     Content: "SendReceive" || "Send" || "Receive" || "None", // required
+ *     Audio: 'SendReceive' || 'Send' || 'Receive' || 'None', // required
+ *     Video: 'SendReceive' || 'Send' || 'Receive' || 'None', // required
+ *     Content: 'SendReceive' || 'Send' || 'Receive' || 'None', // required
  *   },
  * };
  * const command = new CreateAttendeeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateAttendeeResponse
+ *   Attendee: { // Attendee
+ *     ExternalUserId: 'STRING_VALUE',
+ *     AttendeeId: 'STRING_VALUE',
+ *     JoinToken: 'STRING_VALUE',
+ *     Capabilities: { // AttendeeCapabilities
+ *       Audio: 'SendReceive' || 'Send' || 'Receive' || 'None', // required
+ *       Video: 'SendReceive' || 'Send' || 'Receive' || 'None', // required
+ *       Content: 'SendReceive' || 'Send' || 'Receive' || 'None', // required
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateAttendeeCommandInput - {@link CreateAttendeeCommandInput}
@@ -95,6 +109,8 @@ export interface CreateAttendeeCommandOutput extends CreateAttendeeResponse, __M
  * @throws {@link UnprocessableEntityException} (client fault)
  *  <p>The request was well-formed but was unable to be followed due to semantic errors.</p>
  *
+ * @throws {@link ChimeSDKMeetingsServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKMeetings service.</p>
  *
  */
 export class CreateAttendeeCommand extends $Command<

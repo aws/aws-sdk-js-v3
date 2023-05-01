@@ -39,14 +39,17 @@ export interface DeleteAuthPolicyCommandOutput extends DeleteAuthPolicyResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { VPCLatticeClient, DeleteAuthPolicyCommand } from "@aws-sdk/client-vpc-lattice"; // ES Modules import
- * // const { VPCLatticeClient, DeleteAuthPolicyCommand } = require("@aws-sdk/client-vpc-lattice"); // CommonJS import
+ * import { VPCLatticeClient, DeleteAuthPolicyCommand } from '@aws-sdk/client-vpc-lattice'; // ES Modules import
+ * // const { VPCLatticeClient, DeleteAuthPolicyCommand } = require('@aws-sdk/client-vpc-lattice'); // CommonJS import
  * const client = new VPCLatticeClient(config);
  * const input = { // DeleteAuthPolicyRequest
- *   resourceIdentifier: "STRING_VALUE", // required
+ *   resourceIdentifier: 'STRING_VALUE', // required
  * };
  * const command = new DeleteAuthPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteAuthPolicyCommandInput - {@link DeleteAuthPolicyCommandInput}
@@ -71,6 +74,8 @@ export interface DeleteAuthPolicyCommandOutput extends DeleteAuthPolicyResponse,
  *  <p>The input does not satisfy the constraints specified by an Amazon Web Services
  *    service.</p>
  *
+ * @throws {@link VPCLatticeServiceException}
+ * <p>Base exception class for all service exceptions from VPCLattice service.</p>
  *
  */
 export class DeleteAuthPolicyCommand extends $Command<

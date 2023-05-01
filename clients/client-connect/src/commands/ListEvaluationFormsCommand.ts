@@ -36,16 +36,36 @@ export interface ListEvaluationFormsCommandOutput extends ListEvaluationFormsRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, ListEvaluationFormsCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, ListEvaluationFormsCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, ListEvaluationFormsCommand } from '@aws-sdk/client-connect'; // ES Modules import
+ * // const { ConnectClient, ListEvaluationFormsCommand } = require('@aws-sdk/client-connect'); // CommonJS import
  * const client = new ConnectClient(config);
  * const input = { // ListEvaluationFormsRequest
- *   InstanceId: "STRING_VALUE", // required
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   InstanceId: 'STRING_VALUE', // required
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListEvaluationFormsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListEvaluationFormsResponse
+ *   EvaluationFormSummaryList: [ // EvaluationFormSummaryList // required
+ *     { // EvaluationFormSummary
+ *       EvaluationFormId: 'STRING_VALUE', // required
+ *       EvaluationFormArn: 'STRING_VALUE', // required
+ *       Title: 'STRING_VALUE', // required
+ *       CreatedTime: new Date('TIMESTAMP'), // required
+ *       CreatedBy: 'STRING_VALUE', // required
+ *       LastModifiedTime: new Date('TIMESTAMP'), // required
+ *       LastModifiedBy: 'STRING_VALUE', // required
+ *       LastActivatedTime: new Date('TIMESTAMP'),
+ *       LastActivatedBy: 'STRING_VALUE',
+ *       LatestVersion: Number('int'), // required
+ *       ActiveVersion: Number('int'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListEvaluationFormsCommandInput - {@link ListEvaluationFormsCommandInput}
@@ -66,6 +86,8 @@ export interface ListEvaluationFormsCommandOutput extends ListEvaluationFormsRes
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class ListEvaluationFormsCommand extends $Command<

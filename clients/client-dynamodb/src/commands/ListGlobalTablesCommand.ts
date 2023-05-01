@@ -48,16 +48,31 @@ export interface ListGlobalTablesCommandOutput extends ListGlobalTablesOutput, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DynamoDBClient, ListGlobalTablesCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
- * // const { DynamoDBClient, ListGlobalTablesCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
+ * import { DynamoDBClient, ListGlobalTablesCommand } from '@aws-sdk/client-dynamodb'; // ES Modules import
+ * // const { DynamoDBClient, ListGlobalTablesCommand } = require('@aws-sdk/client-dynamodb'); // CommonJS import
  * const client = new DynamoDBClient(config);
  * const input = { // ListGlobalTablesInput
- *   ExclusiveStartGlobalTableName: "STRING_VALUE",
- *   Limit: Number("int"),
- *   RegionName: "STRING_VALUE",
+ *   ExclusiveStartGlobalTableName: 'STRING_VALUE',
+ *   Limit: Number('int'),
+ *   RegionName: 'STRING_VALUE',
  * };
  * const command = new ListGlobalTablesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListGlobalTablesOutput
+ *   GlobalTables: [ // GlobalTableList
+ *     { // GlobalTable
+ *       GlobalTableName: 'STRING_VALUE',
+ *       ReplicationGroup: [ // ReplicaList
+ *         { // Replica
+ *           RegionName: 'STRING_VALUE',
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   LastEvaluatedGlobalTableName: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListGlobalTablesCommandInput - {@link ListGlobalTablesCommandInput}
@@ -71,6 +86,8 @@ export interface ListGlobalTablesCommandOutput extends ListGlobalTablesOutput, _
  *
  * @throws {@link InvalidEndpointException} (client fault)
  *
+ * @throws {@link DynamoDBServiceException}
+ * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
  */
 export class ListGlobalTablesCommand extends $Command<

@@ -62,16 +62,21 @@ export interface CreateSchemaCommandOutput extends CreateSchemaResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PersonalizeClient, CreateSchemaCommand } from "@aws-sdk/client-personalize"; // ES Modules import
- * // const { PersonalizeClient, CreateSchemaCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
+ * import { PersonalizeClient, CreateSchemaCommand } from '@aws-sdk/client-personalize'; // ES Modules import
+ * // const { PersonalizeClient, CreateSchemaCommand } = require('@aws-sdk/client-personalize'); // CommonJS import
  * const client = new PersonalizeClient(config);
  * const input = { // CreateSchemaRequest
- *   name: "STRING_VALUE", // required
- *   schema: "STRING_VALUE", // required
- *   domain: "ECOMMERCE" || "VIDEO_ON_DEMAND",
+ *   name: 'STRING_VALUE', // required
+ *   schema: 'STRING_VALUE', // required
+ *   domain: 'ECOMMERCE' || 'VIDEO_ON_DEMAND',
  * };
  * const command = new CreateSchemaCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateSchemaResponse
+ *   schemaArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateSchemaCommandInput - {@link CreateSchemaCommandInput}
@@ -89,6 +94,8 @@ export interface CreateSchemaCommandOutput extends CreateSchemaResponse, __Metad
  * @throws {@link ResourceAlreadyExistsException} (client fault)
  *  <p>The specified resource already exists.</p>
  *
+ * @throws {@link PersonalizeServiceException}
+ * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
  */
 export class CreateSchemaCommand extends $Command<

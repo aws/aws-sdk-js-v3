@@ -46,28 +46,48 @@ export interface UpdateIdentityProviderSettingsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LicenseManagerUserSubscriptionsClient, UpdateIdentityProviderSettingsCommand } from "@aws-sdk/client-license-manager-user-subscriptions"; // ES Modules import
- * // const { LicenseManagerUserSubscriptionsClient, UpdateIdentityProviderSettingsCommand } = require("@aws-sdk/client-license-manager-user-subscriptions"); // CommonJS import
+ * import { LicenseManagerUserSubscriptionsClient, UpdateIdentityProviderSettingsCommand } from '@aws-sdk/client-license-manager-user-subscriptions'; // ES Modules import
+ * // const { LicenseManagerUserSubscriptionsClient, UpdateIdentityProviderSettingsCommand } = require('@aws-sdk/client-license-manager-user-subscriptions'); // CommonJS import
  * const client = new LicenseManagerUserSubscriptionsClient(config);
  * const input = { // UpdateIdentityProviderSettingsRequest
  *   IdentityProvider: { // IdentityProvider Union: only one key present
  *     ActiveDirectoryIdentityProvider: { // ActiveDirectoryIdentityProvider
- *       DirectoryId: "STRING_VALUE",
+ *       DirectoryId: 'STRING_VALUE',
  *     },
  *   },
- *   Product: "STRING_VALUE", // required
+ *   Product: 'STRING_VALUE', // required
  *   UpdateSettings: { // UpdateSettings
  *     AddSubnets: [ // Subnets // required
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     RemoveSubnets: [ // required
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
- *     SecurityGroupId: "STRING_VALUE",
+ *     SecurityGroupId: 'STRING_VALUE',
  *   },
  * };
  * const command = new UpdateIdentityProviderSettingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateIdentityProviderSettingsResponse
+ *   IdentityProviderSummary: { // IdentityProviderSummary
+ *     IdentityProvider: { // IdentityProvider Union: only one key present
+ *       ActiveDirectoryIdentityProvider: { // ActiveDirectoryIdentityProvider
+ *         DirectoryId: 'STRING_VALUE',
+ *       },
+ *     },
+ *     Settings: { // Settings
+ *       Subnets: [ // Subnets // required
+ *         'STRING_VALUE',
+ *       ],
+ *       SecurityGroupId: 'STRING_VALUE', // required
+ *     },
+ *     Product: 'STRING_VALUE', // required
+ *     Status: 'STRING_VALUE', // required
+ *     FailureMessage: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateIdentityProviderSettingsCommandInput - {@link UpdateIdentityProviderSettingsCommandInput}
@@ -88,6 +108,8 @@ export interface UpdateIdentityProviderSettingsCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>A parameter is not valid.</p>
  *
+ * @throws {@link LicenseManagerUserSubscriptionsServiceException}
+ * <p>Base exception class for all service exceptions from LicenseManagerUserSubscriptions service.</p>
  *
  */
 export class UpdateIdentityProviderSettingsCommand extends $Command<

@@ -38,14 +38,19 @@ export interface CreateExclusionsPreviewCommandOutput extends CreateExclusionsPr
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { InspectorClient, CreateExclusionsPreviewCommand } from "@aws-sdk/client-inspector"; // ES Modules import
- * // const { InspectorClient, CreateExclusionsPreviewCommand } = require("@aws-sdk/client-inspector"); // CommonJS import
+ * import { InspectorClient, CreateExclusionsPreviewCommand } from '@aws-sdk/client-inspector'; // ES Modules import
+ * // const { InspectorClient, CreateExclusionsPreviewCommand } = require('@aws-sdk/client-inspector'); // CommonJS import
  * const client = new InspectorClient(config);
  * const input = { // CreateExclusionsPreviewRequest
- *   assessmentTemplateArn: "STRING_VALUE", // required
+ *   assessmentTemplateArn: 'STRING_VALUE', // required
  * };
  * const command = new CreateExclusionsPreviewCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateExclusionsPreviewResponse
+ *   previewToken: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param CreateExclusionsPreviewCommandInput - {@link CreateExclusionsPreviewCommandInput}
@@ -75,6 +80,8 @@ export interface CreateExclusionsPreviewCommandOutput extends CreateExclusionsPr
  * @throws {@link ServiceTemporarilyUnavailableException} (server fault)
  *  <p>The serice is temporary unavailable.</p>
  *
+ * @throws {@link InspectorServiceException}
+ * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
  */
 export class CreateExclusionsPreviewCommand extends $Command<

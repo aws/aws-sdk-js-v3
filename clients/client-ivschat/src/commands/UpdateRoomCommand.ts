@@ -36,24 +36,45 @@ export interface UpdateRoomCommandOutput extends UpdateRoomResponse, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IvschatClient, UpdateRoomCommand } from "@aws-sdk/client-ivschat"; // ES Modules import
- * // const { IvschatClient, UpdateRoomCommand } = require("@aws-sdk/client-ivschat"); // CommonJS import
+ * import { IvschatClient, UpdateRoomCommand } from '@aws-sdk/client-ivschat'; // ES Modules import
+ * // const { IvschatClient, UpdateRoomCommand } = require('@aws-sdk/client-ivschat'); // CommonJS import
  * const client = new IvschatClient(config);
  * const input = { // UpdateRoomRequest
- *   identifier: "STRING_VALUE", // required
- *   name: "STRING_VALUE",
- *   maximumMessageRatePerSecond: Number("int"),
- *   maximumMessageLength: Number("int"),
+ *   identifier: 'STRING_VALUE', // required
+ *   name: 'STRING_VALUE',
+ *   maximumMessageRatePerSecond: Number('int'),
+ *   maximumMessageLength: Number('int'),
  *   messageReviewHandler: { // MessageReviewHandler
- *     uri: "STRING_VALUE",
- *     fallbackResult: "STRING_VALUE",
+ *     uri: 'STRING_VALUE',
+ *     fallbackResult: 'STRING_VALUE',
  *   },
  *   loggingConfigurationIdentifiers: [ // LoggingConfigurationIdentifierList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new UpdateRoomCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateRoomResponse
+ *   arn: 'STRING_VALUE',
+ *   id: 'STRING_VALUE',
+ *   name: 'STRING_VALUE',
+ *   createTime: new Date('TIMESTAMP'),
+ *   updateTime: new Date('TIMESTAMP'),
+ *   maximumMessageRatePerSecond: Number('int'),
+ *   maximumMessageLength: Number('int'),
+ *   messageReviewHandler: { // MessageReviewHandler
+ *     uri: 'STRING_VALUE',
+ *     fallbackResult: 'STRING_VALUE',
+ *   },
+ *   tags: { // Tags
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ *   loggingConfigurationIdentifiers: [ // LoggingConfigurationIdentifierList
+ *     'STRING_VALUE',
+ *   ],
+ * };
+ *
  * ```
  *
  * @param UpdateRoomCommandInput - {@link UpdateRoomCommandInput}
@@ -74,6 +95,8 @@ export interface UpdateRoomCommandOutput extends UpdateRoomResponse, __MetadataB
  * @throws {@link ValidationException} (client fault)
  *  <p/>
  *
+ * @throws {@link IvschatServiceException}
+ * <p>Base exception class for all service exceptions from Ivschat service.</p>
  *
  */
 export class UpdateRoomCommand extends $Command<

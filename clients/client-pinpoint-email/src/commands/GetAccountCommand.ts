@@ -37,12 +37,25 @@ export interface GetAccountCommandOutput extends GetAccountResponse, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PinpointEmailClient, GetAccountCommand } from "@aws-sdk/client-pinpoint-email"; // ES Modules import
- * // const { PinpointEmailClient, GetAccountCommand } = require("@aws-sdk/client-pinpoint-email"); // CommonJS import
+ * import { PinpointEmailClient, GetAccountCommand } from '@aws-sdk/client-pinpoint-email'; // ES Modules import
+ * // const { PinpointEmailClient, GetAccountCommand } = require('@aws-sdk/client-pinpoint-email'); // CommonJS import
  * const client = new PinpointEmailClient(config);
  * const input = {};
  * const command = new GetAccountCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetAccountResponse
+ *   SendQuota: { // SendQuota
+ *     Max24HourSend: Number('double'),
+ *     MaxSendRate: Number('double'),
+ *     SentLast24Hours: Number('double'),
+ *   },
+ *   SendingEnabled: true || false,
+ *   DedicatedIpAutoWarmupEnabled: true || false,
+ *   EnforcementStatus: 'STRING_VALUE',
+ *   ProductionAccessEnabled: true || false,
+ * };
+ *
  * ```
  *
  * @param GetAccountCommandInput - {@link GetAccountCommandInput}
@@ -57,6 +70,8 @@ export interface GetAccountCommandOutput extends GetAccountResponse, __MetadataB
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Too many requests have been made to the operation.</p>
  *
+ * @throws {@link PinpointEmailServiceException}
+ * <p>Base exception class for all service exceptions from PinpointEmail service.</p>
  *
  */
 export class GetAccountCommand extends $Command<

@@ -36,17 +36,28 @@ export interface UpdateTemplateAliasCommandOutput extends UpdateTemplateAliasRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { QuickSightClient, UpdateTemplateAliasCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
- * // const { QuickSightClient, UpdateTemplateAliasCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * import { QuickSightClient, UpdateTemplateAliasCommand } from '@aws-sdk/client-quicksight'; // ES Modules import
+ * // const { QuickSightClient, UpdateTemplateAliasCommand } = require('@aws-sdk/client-quicksight'); // CommonJS import
  * const client = new QuickSightClient(config);
  * const input = { // UpdateTemplateAliasRequest
- *   AwsAccountId: "STRING_VALUE", // required
- *   TemplateId: "STRING_VALUE", // required
- *   AliasName: "STRING_VALUE", // required
- *   TemplateVersionNumber: Number("long"), // required
+ *   AwsAccountId: 'STRING_VALUE', // required
+ *   TemplateId: 'STRING_VALUE', // required
+ *   AliasName: 'STRING_VALUE', // required
+ *   TemplateVersionNumber: Number('long'), // required
  * };
  * const command = new UpdateTemplateAliasCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateTemplateAliasResponse
+ *   TemplateAlias: { // TemplateAlias
+ *     AliasName: 'STRING_VALUE',
+ *     Arn: 'STRING_VALUE',
+ *     TemplateVersionNumber: Number('long'),
+ *   },
+ *   Status: Number('int'),
+ *   RequestId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateTemplateAliasCommandInput - {@link UpdateTemplateAliasCommandInput}
@@ -73,6 +84,8 @@ export interface UpdateTemplateAliasCommandOutput extends UpdateTemplateAliasRes
  * 			Amazon QuickSight currently has Standard Edition and Enterprise Edition. Not every operation and
  * 			capability is available in every edition.</p>
  *
+ * @throws {@link QuickSightServiceException}
+ * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
 export class UpdateTemplateAliasCommand extends $Command<

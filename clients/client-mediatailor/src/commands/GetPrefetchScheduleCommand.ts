@@ -36,15 +36,40 @@ export interface GetPrefetchScheduleCommandOutput extends GetPrefetchScheduleRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MediaTailorClient, GetPrefetchScheduleCommand } from "@aws-sdk/client-mediatailor"; // ES Modules import
- * // const { MediaTailorClient, GetPrefetchScheduleCommand } = require("@aws-sdk/client-mediatailor"); // CommonJS import
+ * import { MediaTailorClient, GetPrefetchScheduleCommand } from '@aws-sdk/client-mediatailor'; // ES Modules import
+ * // const { MediaTailorClient, GetPrefetchScheduleCommand } = require('@aws-sdk/client-mediatailor'); // CommonJS import
  * const client = new MediaTailorClient(config);
  * const input = { // GetPrefetchScheduleRequest
- *   Name: "STRING_VALUE", // required
- *   PlaybackConfigurationName: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
+ *   PlaybackConfigurationName: 'STRING_VALUE', // required
  * };
  * const command = new GetPrefetchScheduleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetPrefetchScheduleResponse
+ *   Arn: 'STRING_VALUE',
+ *   Consumption: { // PrefetchConsumption
+ *     AvailMatchingCriteria: [ // __listOfAvailMatchingCriteria
+ *       { // AvailMatchingCriteria
+ *         DynamicVariable: 'STRING_VALUE', // required
+ *         Operator: 'EQUALS', // required
+ *       },
+ *     ],
+ *     EndTime: new Date('TIMESTAMP'), // required
+ *     StartTime: new Date('TIMESTAMP'),
+ *   },
+ *   Name: 'STRING_VALUE',
+ *   PlaybackConfigurationName: 'STRING_VALUE',
+ *   Retrieval: { // PrefetchRetrieval
+ *     DynamicVariables: { // __mapOf__string
+ *       '<keys>': 'STRING_VALUE',
+ *     },
+ *     EndTime: new Date('TIMESTAMP'), // required
+ *     StartTime: new Date('TIMESTAMP'),
+ *   },
+ *   StreamId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetPrefetchScheduleCommandInput - {@link GetPrefetchScheduleCommandInput}
@@ -53,6 +78,8 @@ export interface GetPrefetchScheduleCommandOutput extends GetPrefetchScheduleRes
  * @see {@link GetPrefetchScheduleCommandOutput} for command's `response` shape.
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.
  *
+ * @throws {@link MediaTailorServiceException}
+ * <p>Base exception class for all service exceptions from MediaTailor service.</p>
  *
  */
 export class GetPrefetchScheduleCommand extends $Command<

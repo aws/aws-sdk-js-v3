@@ -67,20 +67,30 @@ export interface PutSecretValueCommandOutput extends PutSecretValueResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SecretsManagerClient, PutSecretValueCommand } from "@aws-sdk/client-secrets-manager"; // ES Modules import
- * // const { SecretsManagerClient, PutSecretValueCommand } = require("@aws-sdk/client-secrets-manager"); // CommonJS import
+ * import { SecretsManagerClient, PutSecretValueCommand } from '@aws-sdk/client-secrets-manager'; // ES Modules import
+ * // const { SecretsManagerClient, PutSecretValueCommand } = require('@aws-sdk/client-secrets-manager'); // CommonJS import
  * const client = new SecretsManagerClient(config);
  * const input = { // PutSecretValueRequest
- *   SecretId: "STRING_VALUE", // required
- *   ClientRequestToken: "STRING_VALUE",
- *   SecretBinary: "BLOB_VALUE",
- *   SecretString: "STRING_VALUE",
+ *   SecretId: 'STRING_VALUE', // required
+ *   ClientRequestToken: 'STRING_VALUE',
+ *   SecretBinary: 'BLOB_VALUE',
+ *   SecretString: 'STRING_VALUE',
  *   VersionStages: [ // SecretVersionStagesType
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new PutSecretValueCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutSecretValueResponse
+ *   ARN: 'STRING_VALUE',
+ *   Name: 'STRING_VALUE',
+ *   VersionId: 'STRING_VALUE',
+ *   VersionStages: [ // SecretVersionStagesType
+ *     'STRING_VALUE',
+ *   ],
+ * };
+ *
  * ```
  *
  * @param PutSecretValueCommandInput - {@link PutSecretValueCommandInput}
@@ -130,6 +140,8 @@ export interface PutSecretValueCommandOutput extends PutSecretValueResponse, __M
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Secrets Manager can't find the resource that you asked for.</p>
  *
+ * @throws {@link SecretsManagerServiceException}
+ * <p>Base exception class for all service exceptions from SecretsManager service.</p>
  *
  * @example To store a secret value in a new version of a secret
  * ```javascript

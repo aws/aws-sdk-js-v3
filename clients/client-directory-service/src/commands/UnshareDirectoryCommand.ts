@@ -36,18 +36,23 @@ export interface UnshareDirectoryCommandOutput extends UnshareDirectoryResult, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DirectoryServiceClient, UnshareDirectoryCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
- * // const { DirectoryServiceClient, UnshareDirectoryCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
+ * import { DirectoryServiceClient, UnshareDirectoryCommand } from '@aws-sdk/client-directory-service'; // ES Modules import
+ * // const { DirectoryServiceClient, UnshareDirectoryCommand } = require('@aws-sdk/client-directory-service'); // CommonJS import
  * const client = new DirectoryServiceClient(config);
  * const input = { // UnshareDirectoryRequest
- *   DirectoryId: "STRING_VALUE", // required
+ *   DirectoryId: 'STRING_VALUE', // required
  *   UnshareTarget: { // UnshareTarget
- *     Id: "STRING_VALUE", // required
- *     Type: "ACCOUNT", // required
+ *     Id: 'STRING_VALUE', // required
+ *     Type: 'ACCOUNT', // required
  *   },
  * };
  * const command = new UnshareDirectoryCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UnshareDirectoryResult
+ *   SharedDirectoryId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UnshareDirectoryCommandInput - {@link UnshareDirectoryCommandInput}
@@ -71,6 +76,8 @@ export interface UnshareDirectoryCommandOutput extends UnshareDirectoryResult, _
  * @throws {@link ServiceException} (server fault)
  *  <p>An exception has occurred in Directory Service.</p>
  *
+ * @throws {@link DirectoryServiceServiceException}
+ * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
  */
 export class UnshareDirectoryCommand extends $Command<

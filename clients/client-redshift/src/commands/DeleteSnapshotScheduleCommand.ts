@@ -36,14 +36,17 @@ export interface DeleteSnapshotScheduleCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RedshiftClient, DeleteSnapshotScheduleCommand } from "@aws-sdk/client-redshift"; // ES Modules import
- * // const { RedshiftClient, DeleteSnapshotScheduleCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * import { RedshiftClient, DeleteSnapshotScheduleCommand } from '@aws-sdk/client-redshift'; // ES Modules import
+ * // const { RedshiftClient, DeleteSnapshotScheduleCommand } = require('@aws-sdk/client-redshift'); // CommonJS import
  * const client = new RedshiftClient(config);
  * const input = { // DeleteSnapshotScheduleMessage
- *   ScheduleIdentifier: "STRING_VALUE", // required
+ *   ScheduleIdentifier: 'STRING_VALUE', // required
  * };
  * const command = new DeleteSnapshotScheduleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteSnapshotScheduleCommandInput - {@link DeleteSnapshotScheduleCommandInput}
@@ -58,6 +61,8 @@ export interface DeleteSnapshotScheduleCommandOutput extends __MetadataBearer {}
  * @throws {@link SnapshotScheduleNotFoundFault} (client fault)
  *  <p>We could not find the specified snapshot schedule. </p>
  *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class DeleteSnapshotScheduleCommand extends $Command<

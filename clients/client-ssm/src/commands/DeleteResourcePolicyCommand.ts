@@ -39,16 +39,19 @@ export interface DeleteResourcePolicyCommandOutput extends DeleteResourcePolicyR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMClient, DeleteResourcePolicyCommand } from "@aws-sdk/client-ssm"; // ES Modules import
- * // const { SSMClient, DeleteResourcePolicyCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * import { SSMClient, DeleteResourcePolicyCommand } from '@aws-sdk/client-ssm'; // ES Modules import
+ * // const { SSMClient, DeleteResourcePolicyCommand } = require('@aws-sdk/client-ssm'); // CommonJS import
  * const client = new SSMClient(config);
  * const input = { // DeleteResourcePolicyRequest
- *   ResourceArn: "STRING_VALUE", // required
- *   PolicyId: "STRING_VALUE", // required
- *   PolicyHash: "STRING_VALUE", // required
+ *   ResourceArn: 'STRING_VALUE', // required
+ *   PolicyId: 'STRING_VALUE', // required
+ *   PolicyHash: 'STRING_VALUE', // required
  * };
  * const command = new DeleteResourcePolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteResourcePolicyCommandInput - {@link DeleteResourcePolicyCommandInput}
@@ -69,6 +72,8 @@ export interface DeleteResourcePolicyCommandOutput extends DeleteResourcePolicyR
  *  <p>One or more parameters specified for the call aren't valid. Verify the parameters and their
  *    values and try again.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class DeleteResourcePolicyCommand extends $Command<

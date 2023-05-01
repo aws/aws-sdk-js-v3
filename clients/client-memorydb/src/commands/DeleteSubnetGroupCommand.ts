@@ -36,14 +36,32 @@ export interface DeleteSubnetGroupCommandOutput extends DeleteSubnetGroupRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MemoryDBClient, DeleteSubnetGroupCommand } from "@aws-sdk/client-memorydb"; // ES Modules import
- * // const { MemoryDBClient, DeleteSubnetGroupCommand } = require("@aws-sdk/client-memorydb"); // CommonJS import
+ * import { MemoryDBClient, DeleteSubnetGroupCommand } from '@aws-sdk/client-memorydb'; // ES Modules import
+ * // const { MemoryDBClient, DeleteSubnetGroupCommand } = require('@aws-sdk/client-memorydb'); // CommonJS import
  * const client = new MemoryDBClient(config);
  * const input = { // DeleteSubnetGroupRequest
- *   SubnetGroupName: "STRING_VALUE", // required
+ *   SubnetGroupName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteSubnetGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteSubnetGroupResponse
+ *   SubnetGroup: { // SubnetGroup
+ *     Name: 'STRING_VALUE',
+ *     Description: 'STRING_VALUE',
+ *     VpcId: 'STRING_VALUE',
+ *     Subnets: [ // SubnetList
+ *       { // Subnet
+ *         Identifier: 'STRING_VALUE',
+ *         AvailabilityZone: { // AvailabilityZone
+ *           Name: 'STRING_VALUE',
+ *         },
+ *       },
+ *     ],
+ *     ARN: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param DeleteSubnetGroupCommandInput - {@link DeleteSubnetGroupCommandInput}
@@ -61,6 +79,8 @@ export interface DeleteSubnetGroupCommandOutput extends DeleteSubnetGroupRespons
  * @throws {@link SubnetGroupNotFoundFault} (client fault)
  *  <p></p>
  *
+ * @throws {@link MemoryDBServiceException}
+ * <p>Base exception class for all service exceptions from MemoryDB service.</p>
  *
  */
 export class DeleteSubnetGroupCommand extends $Command<

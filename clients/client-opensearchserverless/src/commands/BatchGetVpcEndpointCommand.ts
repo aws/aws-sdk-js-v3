@@ -42,16 +42,42 @@ export interface BatchGetVpcEndpointCommandOutput extends BatchGetVpcEndpointRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OpenSearchServerlessClient, BatchGetVpcEndpointCommand } from "@aws-sdk/client-opensearchserverless"; // ES Modules import
- * // const { OpenSearchServerlessClient, BatchGetVpcEndpointCommand } = require("@aws-sdk/client-opensearchserverless"); // CommonJS import
+ * import { OpenSearchServerlessClient, BatchGetVpcEndpointCommand } from '@aws-sdk/client-opensearchserverless'; // ES Modules import
+ * // const { OpenSearchServerlessClient, BatchGetVpcEndpointCommand } = require('@aws-sdk/client-opensearchserverless'); // CommonJS import
  * const client = new OpenSearchServerlessClient(config);
  * const input = { // BatchGetVpcEndpointRequest
  *   ids: [ // VpcEndpointIds // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new BatchGetVpcEndpointCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BatchGetVpcEndpointResponse
+ *   vpcEndpointDetails: [ // VpcEndpointDetails
+ *     { // VpcEndpointDetail
+ *       id: 'STRING_VALUE',
+ *       name: 'STRING_VALUE',
+ *       vpcId: 'STRING_VALUE',
+ *       subnetIds: [ // SubnetIds
+ *         'STRING_VALUE',
+ *       ],
+ *       securityGroupIds: [ // SecurityGroupIds
+ *         'STRING_VALUE',
+ *       ],
+ *       status: 'STRING_VALUE',
+ *       createdDate: Number('long'),
+ *     },
+ *   ],
+ *   vpcEndpointErrorDetails: [ // VpcEndpointErrorDetails
+ *     { // VpcEndpointErrorDetail
+ *       id: 'STRING_VALUE',
+ *       errorMessage: 'STRING_VALUE',
+ *       errorCode: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param BatchGetVpcEndpointCommandInput - {@link BatchGetVpcEndpointCommandInput}
@@ -67,6 +93,8 @@ export interface BatchGetVpcEndpointCommandOutput extends BatchGetVpcEndpointRes
  *  <p>Thrown when the HTTP request contains invalid input or is missing required
  *             input.</p>
  *
+ * @throws {@link OpenSearchServerlessServiceException}
+ * <p>Base exception class for all service exceptions from OpenSearchServerless service.</p>
  *
  */
 export class BatchGetVpcEndpointCommand extends $Command<

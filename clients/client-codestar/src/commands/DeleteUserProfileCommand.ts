@@ -38,14 +38,19 @@ export interface DeleteUserProfileCommandOutput extends DeleteUserProfileResult,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeStarClient, DeleteUserProfileCommand } from "@aws-sdk/client-codestar"; // ES Modules import
- * // const { CodeStarClient, DeleteUserProfileCommand } = require("@aws-sdk/client-codestar"); // CommonJS import
+ * import { CodeStarClient, DeleteUserProfileCommand } from '@aws-sdk/client-codestar'; // ES Modules import
+ * // const { CodeStarClient, DeleteUserProfileCommand } = require('@aws-sdk/client-codestar'); // CommonJS import
  * const client = new CodeStarClient(config);
  * const input = { // DeleteUserProfileRequest
- *   userArn: "STRING_VALUE", // required
+ *   userArn: 'STRING_VALUE', // required
  * };
  * const command = new DeleteUserProfileCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteUserProfileResult
+ *   userArn: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param DeleteUserProfileCommandInput - {@link DeleteUserProfileCommandInput}
@@ -57,6 +62,8 @@ export interface DeleteUserProfileCommandOutput extends DeleteUserProfileResult,
  * @throws {@link ValidationException} (client fault)
  *  <p>The specified input is either not valid, or it could not be validated.</p>
  *
+ * @throws {@link CodeStarServiceException}
+ * <p>Base exception class for all service exceptions from CodeStar service.</p>
  *
  */
 export class DeleteUserProfileCommand extends $Command<

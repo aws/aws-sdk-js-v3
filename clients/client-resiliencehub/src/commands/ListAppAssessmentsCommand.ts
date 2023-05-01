@@ -37,23 +37,48 @@ export interface ListAppAssessmentsCommandOutput extends ListAppAssessmentsRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ResiliencehubClient, ListAppAssessmentsCommand } from "@aws-sdk/client-resiliencehub"; // ES Modules import
- * // const { ResiliencehubClient, ListAppAssessmentsCommand } = require("@aws-sdk/client-resiliencehub"); // CommonJS import
+ * import { ResiliencehubClient, ListAppAssessmentsCommand } from '@aws-sdk/client-resiliencehub'; // ES Modules import
+ * // const { ResiliencehubClient, ListAppAssessmentsCommand } = require('@aws-sdk/client-resiliencehub'); // CommonJS import
  * const client = new ResiliencehubClient(config);
  * const input = { // ListAppAssessmentsRequest
- *   appArn: "STRING_VALUE",
- *   assessmentName: "STRING_VALUE",
+ *   appArn: 'STRING_VALUE',
+ *   assessmentName: 'STRING_VALUE',
  *   assessmentStatus: [ // AssessmentStatusList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   complianceStatus: "STRING_VALUE",
- *   invoker: "STRING_VALUE",
+ *   complianceStatus: 'STRING_VALUE',
+ *   invoker: 'STRING_VALUE',
  *   reverseOrder: true || false,
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new ListAppAssessmentsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListAppAssessmentsResponse
+ *   nextToken: 'STRING_VALUE',
+ *   assessmentSummaries: [ // AppAssessmentSummaryList // required
+ *     { // AppAssessmentSummary
+ *       appArn: 'STRING_VALUE',
+ *       appVersion: 'STRING_VALUE',
+ *       assessmentStatus: 'STRING_VALUE', // required
+ *       invoker: 'STRING_VALUE',
+ *       startTime: new Date('TIMESTAMP'),
+ *       endTime: new Date('TIMESTAMP'),
+ *       message: 'STRING_VALUE',
+ *       assessmentName: 'STRING_VALUE',
+ *       assessmentArn: 'STRING_VALUE', // required
+ *       complianceStatus: 'STRING_VALUE',
+ *       cost: { // Cost
+ *         amount: Number('double'), // required
+ *         currency: 'STRING_VALUE', // required
+ *         frequency: 'STRING_VALUE', // required
+ *       },
+ *       resiliencyScore: Number('double'),
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListAppAssessmentsCommandInput - {@link ListAppAssessmentsCommandInput}
@@ -80,6 +105,8 @@ export interface ListAppAssessmentsCommandOutput extends ListAppAssessmentsRespo
  * @throws {@link ValidationException} (client fault)
  *  <p>This exception occurs when a request is not valid.</p>
  *
+ * @throws {@link ResiliencehubServiceException}
+ * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
  */
 export class ListAppAssessmentsCommand extends $Command<

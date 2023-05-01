@@ -41,19 +41,31 @@ export interface GetRelationalDatabaseLogEventsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LightsailClient, GetRelationalDatabaseLogEventsCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
- * // const { LightsailClient, GetRelationalDatabaseLogEventsCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
+ * import { LightsailClient, GetRelationalDatabaseLogEventsCommand } from '@aws-sdk/client-lightsail'; // ES Modules import
+ * // const { LightsailClient, GetRelationalDatabaseLogEventsCommand } = require('@aws-sdk/client-lightsail'); // CommonJS import
  * const client = new LightsailClient(config);
  * const input = { // GetRelationalDatabaseLogEventsRequest
- *   relationalDatabaseName: "STRING_VALUE", // required
- *   logStreamName: "STRING_VALUE", // required
- *   startTime: new Date("TIMESTAMP"),
- *   endTime: new Date("TIMESTAMP"),
+ *   relationalDatabaseName: 'STRING_VALUE', // required
+ *   logStreamName: 'STRING_VALUE', // required
+ *   startTime: new Date('TIMESTAMP'),
+ *   endTime: new Date('TIMESTAMP'),
  *   startFromHead: true || false,
- *   pageToken: "STRING_VALUE",
+ *   pageToken: 'STRING_VALUE',
  * };
  * const command = new GetRelationalDatabaseLogEventsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetRelationalDatabaseLogEventsResult
+ *   resourceLogEvents: [ // LogEventList
+ *     { // LogEvent
+ *       createdAt: new Date('TIMESTAMP'),
+ *       message: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   nextBackwardToken: 'STRING_VALUE',
+ *   nextForwardToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetRelationalDatabaseLogEventsCommandInput - {@link GetRelationalDatabaseLogEventsCommandInput}
@@ -92,6 +104,8 @@ export interface GetRelationalDatabaseLogEventsCommandOutput
  * @throws {@link UnauthenticatedException} (client fault)
  *  <p>Lightsail throws this exception when the user has not been authenticated.</p>
  *
+ * @throws {@link LightsailServiceException}
+ * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
  */
 export class GetRelationalDatabaseLogEventsCommand extends $Command<

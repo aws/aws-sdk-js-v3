@@ -47,42 +47,77 @@ export interface CreateReplicationConfigurationTemplateCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DrsClient, CreateReplicationConfigurationTemplateCommand } from "@aws-sdk/client-drs"; // ES Modules import
- * // const { DrsClient, CreateReplicationConfigurationTemplateCommand } = require("@aws-sdk/client-drs"); // CommonJS import
+ * import { DrsClient, CreateReplicationConfigurationTemplateCommand } from '@aws-sdk/client-drs'; // ES Modules import
+ * // const { DrsClient, CreateReplicationConfigurationTemplateCommand } = require('@aws-sdk/client-drs'); // CommonJS import
  * const client = new DrsClient(config);
  * const input = { // CreateReplicationConfigurationTemplateRequest
- *   stagingAreaSubnetId: "STRING_VALUE", // required
+ *   stagingAreaSubnetId: 'STRING_VALUE', // required
  *   associateDefaultSecurityGroup: true || false, // required
  *   replicationServersSecurityGroupsIDs: [ // ReplicationServersSecurityGroupsIDs // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   replicationServerInstanceType: "STRING_VALUE", // required
+ *   replicationServerInstanceType: 'STRING_VALUE', // required
  *   useDedicatedReplicationServer: true || false, // required
- *   defaultLargeStagingDiskType: "STRING_VALUE", // required
- *   ebsEncryption: "STRING_VALUE", // required
- *   ebsEncryptionKeyArn: "STRING_VALUE",
- *   bandwidthThrottling: Number("long"), // required
- *   dataPlaneRouting: "STRING_VALUE", // required
+ *   defaultLargeStagingDiskType: 'STRING_VALUE', // required
+ *   ebsEncryption: 'STRING_VALUE', // required
+ *   ebsEncryptionKeyArn: 'STRING_VALUE',
+ *   bandwidthThrottling: Number('long'), // required
+ *   dataPlaneRouting: 'STRING_VALUE', // required
  *   createPublicIP: true || false, // required
  *   stagingAreaTags: { // TagsMap // required
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  *   pitPolicy: [ // PITPolicy // required
  *     { // PITPolicyRule
- *       ruleID: Number("long"),
- *       units: "STRING_VALUE", // required
- *       interval: Number("int"), // required
- *       retentionDuration: Number("int"), // required
+ *       ruleID: Number('long'),
+ *       units: 'STRING_VALUE', // required
+ *       interval: Number('int'), // required
+ *       retentionDuration: Number('int'), // required
  *       enabled: true || false,
  *     },
  *   ],
  *   tags: {
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  *   autoReplicateNewDisks: true || false,
  * };
  * const command = new CreateReplicationConfigurationTemplateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ReplicationConfigurationTemplate
+ *   replicationConfigurationTemplateID: 'STRING_VALUE', // required
+ *   arn: 'STRING_VALUE',
+ *   stagingAreaSubnetId: 'STRING_VALUE',
+ *   associateDefaultSecurityGroup: true || false,
+ *   replicationServersSecurityGroupsIDs: [ // ReplicationServersSecurityGroupsIDs
+ *     'STRING_VALUE',
+ *   ],
+ *   replicationServerInstanceType: 'STRING_VALUE',
+ *   useDedicatedReplicationServer: true || false,
+ *   defaultLargeStagingDiskType: 'STRING_VALUE',
+ *   ebsEncryption: 'STRING_VALUE',
+ *   ebsEncryptionKeyArn: 'STRING_VALUE',
+ *   bandwidthThrottling: Number('long'),
+ *   dataPlaneRouting: 'STRING_VALUE',
+ *   createPublicIP: true || false,
+ *   stagingAreaTags: { // TagsMap
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ *   tags: {
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ *   pitPolicy: [ // PITPolicy
+ *     { // PITPolicyRule
+ *       ruleID: Number('long'),
+ *       units: 'STRING_VALUE', // required
+ *       interval: Number('int'), // required
+ *       retentionDuration: Number('int'), // required
+ *       enabled: true || false,
+ *     },
+ *   ],
+ *   autoReplicateNewDisks: true || false,
+ * };
+ *
  * ```
  *
  * @param CreateReplicationConfigurationTemplateCommandInput - {@link CreateReplicationConfigurationTemplateCommandInput}
@@ -109,6 +144,8 @@ export interface CreateReplicationConfigurationTemplateCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by the AWS service.</p>
  *
+ * @throws {@link DrsServiceException}
+ * <p>Base exception class for all service exceptions from Drs service.</p>
  *
  */
 export class CreateReplicationConfigurationTemplateCommand extends $Command<

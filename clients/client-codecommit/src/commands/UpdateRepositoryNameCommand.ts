@@ -40,15 +40,18 @@ export interface UpdateRepositoryNameCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeCommitClient, UpdateRepositoryNameCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
- * // const { CodeCommitClient, UpdateRepositoryNameCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
+ * import { CodeCommitClient, UpdateRepositoryNameCommand } from '@aws-sdk/client-codecommit'; // ES Modules import
+ * // const { CodeCommitClient, UpdateRepositoryNameCommand } = require('@aws-sdk/client-codecommit'); // CommonJS import
  * const client = new CodeCommitClient(config);
  * const input = { // UpdateRepositoryNameInput
- *   oldName: "STRING_VALUE", // required
- *   newName: "STRING_VALUE", // required
+ *   oldName: 'STRING_VALUE', // required
+ *   newName: 'STRING_VALUE', // required
  * };
  * const command = new UpdateRepositoryNameCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateRepositoryNameCommandInput - {@link UpdateRepositoryNameCommandInput}
@@ -75,6 +78,8 @@ export interface UpdateRepositoryNameCommandOutput extends __MetadataBearer {}
  * @throws {@link RepositoryNameRequiredException} (client fault)
  *  <p>A repository name is required, but was not specified.</p>
  *
+ * @throws {@link CodeCommitServiceException}
+ * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
  */
 export class UpdateRepositoryNameCommand extends $Command<

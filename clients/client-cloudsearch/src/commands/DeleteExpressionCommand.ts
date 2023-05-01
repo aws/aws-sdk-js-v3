@@ -36,15 +36,32 @@ export interface DeleteExpressionCommandOutput extends DeleteExpressionResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudSearchClient, DeleteExpressionCommand } from "@aws-sdk/client-cloudsearch"; // ES Modules import
- * // const { CloudSearchClient, DeleteExpressionCommand } = require("@aws-sdk/client-cloudsearch"); // CommonJS import
+ * import { CloudSearchClient, DeleteExpressionCommand } from '@aws-sdk/client-cloudsearch'; // ES Modules import
+ * // const { CloudSearchClient, DeleteExpressionCommand } = require('@aws-sdk/client-cloudsearch'); // CommonJS import
  * const client = new CloudSearchClient(config);
  * const input = { // DeleteExpressionRequest
- *   DomainName: "STRING_VALUE", // required
- *   ExpressionName: "STRING_VALUE", // required
+ *   DomainName: 'STRING_VALUE', // required
+ *   ExpressionName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteExpressionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteExpressionResponse
+ *   Expression: { // ExpressionStatus
+ *     Options: { // Expression
+ *       ExpressionName: 'STRING_VALUE', // required
+ *       ExpressionValue: 'STRING_VALUE', // required
+ *     },
+ *     Status: { // OptionStatus
+ *       CreationDate: new Date('TIMESTAMP'), // required
+ *       UpdateDate: new Date('TIMESTAMP'), // required
+ *       UpdateVersion: Number('int'),
+ *       State: 'STRING_VALUE', // required
+ *       PendingDeletion: true || false,
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param DeleteExpressionCommandInput - {@link DeleteExpressionCommandInput}
@@ -69,6 +86,8 @@ export interface DeleteExpressionCommandOutput extends DeleteExpressionResponse,
  * @throws {@link ValidationException} (client fault)
  *  <p>The request was rejected because it has invalid parameters.</p>
  *
+ * @throws {@link CloudSearchServiceException}
+ * <p>Base exception class for all service exceptions from CloudSearch service.</p>
  *
  */
 export class DeleteExpressionCommand extends $Command<

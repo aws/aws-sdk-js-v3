@@ -36,14 +36,17 @@ export interface DeleteObjectCommandOutput extends DeleteObjectResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MediaStoreDataClient, DeleteObjectCommand } from "@aws-sdk/client-mediastore-data"; // ES Modules import
- * // const { MediaStoreDataClient, DeleteObjectCommand } = require("@aws-sdk/client-mediastore-data"); // CommonJS import
+ * import { MediaStoreDataClient, DeleteObjectCommand } from '@aws-sdk/client-mediastore-data'; // ES Modules import
+ * // const { MediaStoreDataClient, DeleteObjectCommand } = require('@aws-sdk/client-mediastore-data'); // CommonJS import
  * const client = new MediaStoreDataClient(config);
  * const input = { // DeleteObjectRequest
- *   Path: "STRING_VALUE", // required
+ *   Path: 'STRING_VALUE', // required
  * };
  * const command = new DeleteObjectCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteObjectCommandInput - {@link DeleteObjectCommandInput}
@@ -61,6 +64,8 @@ export interface DeleteObjectCommandOutput extends DeleteObjectResponse, __Metad
  * @throws {@link ObjectNotFoundException} (client fault)
  *  <p>Could not perform an operation on an object that does not exist.</p>
  *
+ * @throws {@link MediaStoreDataServiceException}
+ * <p>Base exception class for all service exceptions from MediaStoreData service.</p>
  *
  */
 export class DeleteObjectCommand extends $Command<

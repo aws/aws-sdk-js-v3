@@ -36,14 +36,17 @@ export interface DeleteDiscovererCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SchemasClient, DeleteDiscovererCommand } from "@aws-sdk/client-schemas"; // ES Modules import
- * // const { SchemasClient, DeleteDiscovererCommand } = require("@aws-sdk/client-schemas"); // CommonJS import
+ * import { SchemasClient, DeleteDiscovererCommand } from '@aws-sdk/client-schemas'; // ES Modules import
+ * // const { SchemasClient, DeleteDiscovererCommand } = require('@aws-sdk/client-schemas'); // CommonJS import
  * const client = new SchemasClient(config);
  * const input = { // DeleteDiscovererRequest
- *   DiscovererId: "STRING_VALUE", // required
+ *   DiscovererId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteDiscovererCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteDiscovererCommandInput - {@link DeleteDiscovererCommandInput}
@@ -64,6 +67,8 @@ export interface DeleteDiscovererCommandOutput extends __MetadataBearer {}
  *
  * @throws {@link UnauthorizedException} (client fault)
  *
+ * @throws {@link SchemasServiceException}
+ * <p>Base exception class for all service exceptions from Schemas service.</p>
  *
  */
 export class DeleteDiscovererCommand extends $Command<

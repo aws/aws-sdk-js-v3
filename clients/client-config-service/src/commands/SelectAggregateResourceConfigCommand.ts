@@ -52,18 +52,33 @@ export interface SelectAggregateResourceConfigCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConfigServiceClient, SelectAggregateResourceConfigCommand } from "@aws-sdk/client-config-service"; // ES Modules import
- * // const { ConfigServiceClient, SelectAggregateResourceConfigCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
+ * import { ConfigServiceClient, SelectAggregateResourceConfigCommand } from '@aws-sdk/client-config-service'; // ES Modules import
+ * // const { ConfigServiceClient, SelectAggregateResourceConfigCommand } = require('@aws-sdk/client-config-service'); // CommonJS import
  * const client = new ConfigServiceClient(config);
  * const input = { // SelectAggregateResourceConfigRequest
- *   Expression: "STRING_VALUE", // required
- *   ConfigurationAggregatorName: "STRING_VALUE", // required
- *   Limit: Number("int"),
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   Expression: 'STRING_VALUE', // required
+ *   ConfigurationAggregatorName: 'STRING_VALUE', // required
+ *   Limit: Number('int'),
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new SelectAggregateResourceConfigCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SelectAggregateResourceConfigResponse
+ *   Results: [ // Results
+ *     'STRING_VALUE',
+ *   ],
+ *   QueryInfo: { // QueryInfo
+ *     SelectFields: [ // FieldInfoList
+ *       { // FieldInfo
+ *         Name: 'STRING_VALUE',
+ *       },
+ *     ],
+ *   },
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param SelectAggregateResourceConfigCommandInput - {@link SelectAggregateResourceConfigCommandInput}
@@ -86,6 +101,8 @@ export interface SelectAggregateResourceConfigCommandOutput
  * @throws {@link NoSuchConfigurationAggregatorException} (client fault)
  *  <p>You have specified a configuration aggregator that does not exist.</p>
  *
+ * @throws {@link ConfigServiceServiceException}
+ * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
  */
 export class SelectAggregateResourceConfigCommand extends $Command<

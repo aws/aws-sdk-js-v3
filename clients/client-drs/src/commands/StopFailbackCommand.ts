@@ -36,14 +36,17 @@ export interface StopFailbackCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DrsClient, StopFailbackCommand } from "@aws-sdk/client-drs"; // ES Modules import
- * // const { DrsClient, StopFailbackCommand } = require("@aws-sdk/client-drs"); // CommonJS import
+ * import { DrsClient, StopFailbackCommand } from '@aws-sdk/client-drs'; // ES Modules import
+ * // const { DrsClient, StopFailbackCommand } = require('@aws-sdk/client-drs'); // CommonJS import
  * const client = new DrsClient(config);
  * const input = { // StopFailbackRequest
- *   recoveryInstanceID: "STRING_VALUE", // required
+ *   recoveryInstanceID: 'STRING_VALUE', // required
  * };
  * const command = new StopFailbackCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param StopFailbackCommandInput - {@link StopFailbackCommandInput}
@@ -64,6 +67,8 @@ export interface StopFailbackCommandOutput extends __MetadataBearer {}
  * @throws {@link UninitializedAccountException} (client fault)
  *  <p>The account performing the request has not been initialized.</p>
  *
+ * @throws {@link DrsServiceException}
+ * <p>Base exception class for all service exceptions from Drs service.</p>
  *
  */
 export class StopFailbackCommand extends $Command<

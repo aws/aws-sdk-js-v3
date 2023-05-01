@@ -47,16 +47,22 @@ export interface PutFileSystemPolicyCommandOutput extends FileSystemPolicyDescri
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EFSClient, PutFileSystemPolicyCommand } from "@aws-sdk/client-efs"; // ES Modules import
- * // const { EFSClient, PutFileSystemPolicyCommand } = require("@aws-sdk/client-efs"); // CommonJS import
+ * import { EFSClient, PutFileSystemPolicyCommand } from '@aws-sdk/client-efs'; // ES Modules import
+ * // const { EFSClient, PutFileSystemPolicyCommand } = require('@aws-sdk/client-efs'); // CommonJS import
  * const client = new EFSClient(config);
  * const input = { // PutFileSystemPolicyRequest
- *   FileSystemId: "STRING_VALUE", // required
- *   Policy: "STRING_VALUE", // required
+ *   FileSystemId: 'STRING_VALUE', // required
+ *   Policy: 'STRING_VALUE', // required
  *   BypassPolicyLockoutSafetyCheck: true || false,
  * };
  * const command = new PutFileSystemPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // FileSystemPolicyDescription
+ *   FileSystemId: 'STRING_VALUE',
+ *   Policy: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param PutFileSystemPolicyCommandInput - {@link PutFileSystemPolicyCommandInput}
@@ -84,6 +90,8 @@ export interface PutFileSystemPolicyCommandOutput extends FileSystemPolicyDescri
  *             as a parameter value that is not valid or a missing required parameter. Returned in the
  *             case of a policy lockout safety check error.</p>
  *
+ * @throws {@link EFSServiceException}
+ * <p>Base exception class for all service exceptions from EFS service.</p>
  *
  */
 export class PutFileSystemPolicyCommand extends $Command<

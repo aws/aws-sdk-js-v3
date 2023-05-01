@@ -36,21 +36,41 @@ export interface RegisterDBProxyTargetsCommandOutput extends RegisterDBProxyTarg
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RDSClient, RegisterDBProxyTargetsCommand } from "@aws-sdk/client-rds"; // ES Modules import
- * // const { RDSClient, RegisterDBProxyTargetsCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * import { RDSClient, RegisterDBProxyTargetsCommand } from '@aws-sdk/client-rds'; // ES Modules import
+ * // const { RDSClient, RegisterDBProxyTargetsCommand } = require('@aws-sdk/client-rds'); // CommonJS import
  * const client = new RDSClient(config);
  * const input = { // RegisterDBProxyTargetsRequest
- *   DBProxyName: "STRING_VALUE", // required
- *   TargetGroupName: "STRING_VALUE",
+ *   DBProxyName: 'STRING_VALUE', // required
+ *   TargetGroupName: 'STRING_VALUE',
  *   DBInstanceIdentifiers: [ // StringList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   DBClusterIdentifiers: [
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new RegisterDBProxyTargetsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // RegisterDBProxyTargetsResponse
+ *   DBProxyTargets: [ // TargetList
+ *     { // DBProxyTarget
+ *       TargetArn: 'STRING_VALUE',
+ *       Endpoint: 'STRING_VALUE',
+ *       TrackedClusterId: 'STRING_VALUE',
+ *       RdsResourceId: 'STRING_VALUE',
+ *       Port: Number('int'),
+ *       Type: 'RDS_INSTANCE' || 'RDS_SERVERLESS_ENDPOINT' || 'TRACKED_CLUSTER',
+ *       Role: 'READ_WRITE' || 'READ_ONLY' || 'UNKNOWN',
+ *       TargetHealth: { // TargetHealth
+ *         State: 'REGISTERING' || 'AVAILABLE' || 'UNAVAILABLE',
+ *         Reason: 'UNREACHABLE' || 'CONNECTION_FAILED' || 'AUTH_FAILURE' || 'PENDING_PROXY_CAPACITY' || 'INVALID_REPLICATION_STATE',
+ *         Description: 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param RegisterDBProxyTargetsCommandInput - {@link RegisterDBProxyTargetsCommandInput}
@@ -90,6 +110,8 @@ export interface RegisterDBProxyTargetsCommandOutput extends RegisterDBProxyTarg
  * @throws {@link InvalidDBProxyStateFault} (client fault)
  *  <p>The requested operation can't be performed while the proxy is in this state.</p>
  *
+ * @throws {@link RDSServiceException}
+ * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  */
 export class RegisterDBProxyTargetsCommand extends $Command<

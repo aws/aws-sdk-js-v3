@@ -36,20 +36,25 @@ export interface CreateMemberCommandOutput extends CreateMemberResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Macie2Client, CreateMemberCommand } from "@aws-sdk/client-macie2"; // ES Modules import
- * // const { Macie2Client, CreateMemberCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
+ * import { Macie2Client, CreateMemberCommand } from '@aws-sdk/client-macie2'; // ES Modules import
+ * // const { Macie2Client, CreateMemberCommand } = require('@aws-sdk/client-macie2'); // CommonJS import
  * const client = new Macie2Client(config);
  * const input = { // CreateMemberRequest
  *   account: { // AccountDetail
- *     accountId: "STRING_VALUE", // required
- *     email: "STRING_VALUE", // required
+ *     accountId: 'STRING_VALUE', // required
+ *     email: 'STRING_VALUE', // required
  *   },
  *   tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateMemberCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateMemberResponse
+ *   arn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateMemberCommandInput - {@link CreateMemberCommandInput}
@@ -79,6 +84,8 @@ export interface CreateMemberCommandOutput extends CreateMemberResponse, __Metad
  * @throws {@link ValidationException} (client fault)
  *  <p>Provides information about an error that occurred due to a syntax error in a request.</p>
  *
+ * @throws {@link Macie2ServiceException}
+ * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
  */
 export class CreateMemberCommand extends $Command<

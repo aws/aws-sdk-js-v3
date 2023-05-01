@@ -36,14 +36,17 @@ export interface DeleteUsageLimitCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RedshiftClient, DeleteUsageLimitCommand } from "@aws-sdk/client-redshift"; // ES Modules import
- * // const { RedshiftClient, DeleteUsageLimitCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * import { RedshiftClient, DeleteUsageLimitCommand } from '@aws-sdk/client-redshift'; // ES Modules import
+ * // const { RedshiftClient, DeleteUsageLimitCommand } = require('@aws-sdk/client-redshift'); // CommonJS import
  * const client = new RedshiftClient(config);
  * const input = { // DeleteUsageLimitMessage
- *   UsageLimitId: "STRING_VALUE", // required
+ *   UsageLimitId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteUsageLimitCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteUsageLimitCommandInput - {@link DeleteUsageLimitCommandInput}
@@ -58,6 +61,8 @@ export interface DeleteUsageLimitCommandOutput extends __MetadataBearer {}
  * @throws {@link UsageLimitNotFoundFault} (client fault)
  *  <p>The usage limit identifier can't be found.</p>
  *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class DeleteUsageLimitCommand extends $Command<

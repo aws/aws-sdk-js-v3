@@ -46,21 +46,26 @@ export interface AttachObjectCommandOutput extends AttachObjectResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudDirectoryClient, AttachObjectCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
- * // const { CloudDirectoryClient, AttachObjectCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
+ * import { CloudDirectoryClient, AttachObjectCommand } from '@aws-sdk/client-clouddirectory'; // ES Modules import
+ * // const { CloudDirectoryClient, AttachObjectCommand } = require('@aws-sdk/client-clouddirectory'); // CommonJS import
  * const client = new CloudDirectoryClient(config);
  * const input = { // AttachObjectRequest
- *   DirectoryArn: "STRING_VALUE", // required
+ *   DirectoryArn: 'STRING_VALUE', // required
  *   ParentReference: { // ObjectReference
- *     Selector: "STRING_VALUE",
+ *     Selector: 'STRING_VALUE',
  *   },
  *   ChildReference: {
- *     Selector: "STRING_VALUE",
+ *     Selector: 'STRING_VALUE',
  *   },
- *   LinkName: "STRING_VALUE", // required
+ *   LinkName: 'STRING_VALUE', // required
  * };
  * const command = new AttachObjectCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AttachObjectResponse
+ *   AttachedObjectIdentifier: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param AttachObjectCommandInput - {@link AttachObjectCommandInput}
@@ -106,6 +111,8 @@ export interface AttachObjectCommandOutput extends AttachObjectResponse, __Metad
  *  <p>Indicates that your request is malformed in some manner. See the exception
  *       message.</p>
  *
+ * @throws {@link CloudDirectoryServiceException}
+ * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
  */
 export class AttachObjectCommand extends $Command<

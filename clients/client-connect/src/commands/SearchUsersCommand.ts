@@ -40,68 +40,100 @@ export interface SearchUsersCommandOutput extends SearchUsersResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, SearchUsersCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, SearchUsersCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, SearchUsersCommand } from '@aws-sdk/client-connect'; // ES Modules import
+ * // const { ConnectClient, SearchUsersCommand } = require('@aws-sdk/client-connect'); // CommonJS import
  * const client = new ConnectClient(config);
  * const input = { // SearchUsersRequest
- *   InstanceId: "STRING_VALUE",
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   InstanceId: 'STRING_VALUE',
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  *   SearchFilter: { // UserSearchFilter
  *     TagFilter: { // ControlPlaneTagFilter
  *       OrConditions: [ // TagOrConditionList
  *         [ // TagAndConditionList
  *           { // TagCondition
- *             TagKey: "STRING_VALUE",
- *             TagValue: "STRING_VALUE",
+ *             TagKey: 'STRING_VALUE',
+ *             TagValue: 'STRING_VALUE',
  *           },
  *         ],
  *       ],
  *       AndConditions: [
  *         {
- *           TagKey: "STRING_VALUE",
- *           TagValue: "STRING_VALUE",
+ *           TagKey: 'STRING_VALUE',
+ *           TagValue: 'STRING_VALUE',
  *         },
  *       ],
- *       TagCondition: "<TagCondition>",
+ *       TagCondition: '<TagCondition>',
  *     },
  *   },
  *   SearchCriteria: { // UserSearchCriteria
  *     OrConditions: [ // UserSearchConditionList
  *       {
  *         OrConditions: [
- *           "<UserSearchCriteria>",
+ *           '<UserSearchCriteria>',
  *         ],
  *         AndConditions: [
- *           "<UserSearchCriteria>",
+ *           '<UserSearchCriteria>',
  *         ],
  *         StringCondition: { // StringCondition
- *           FieldName: "STRING_VALUE",
- *           Value: "STRING_VALUE",
- *           ComparisonType: "STARTS_WITH" || "CONTAINS" || "EXACT",
+ *           FieldName: 'STRING_VALUE',
+ *           Value: 'STRING_VALUE',
+ *           ComparisonType: 'STARTS_WITH' || 'CONTAINS' || 'EXACT',
  *         },
  *         HierarchyGroupCondition: { // HierarchyGroupCondition
- *           Value: "STRING_VALUE",
- *           HierarchyGroupMatchType: "EXACT" || "WITH_CHILD_GROUPS",
+ *           Value: 'STRING_VALUE',
+ *           HierarchyGroupMatchType: 'EXACT' || 'WITH_CHILD_GROUPS',
  *         },
  *       },
  *     ],
  *     AndConditions: [
- *       "<UserSearchCriteria>",
+ *       '<UserSearchCriteria>',
  *     ],
  *     StringCondition: {
- *       FieldName: "STRING_VALUE",
- *       Value: "STRING_VALUE",
- *       ComparisonType: "STARTS_WITH" || "CONTAINS" || "EXACT",
+ *       FieldName: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
+ *       ComparisonType: 'STARTS_WITH' || 'CONTAINS' || 'EXACT',
  *     },
  *     HierarchyGroupCondition: {
- *       Value: "STRING_VALUE",
- *       HierarchyGroupMatchType: "EXACT" || "WITH_CHILD_GROUPS",
+ *       Value: 'STRING_VALUE',
+ *       HierarchyGroupMatchType: 'EXACT' || 'WITH_CHILD_GROUPS',
  *     },
  *   },
  * };
  * const command = new SearchUsersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SearchUsersResponse
+ *   Users: [ // UserSearchSummaryList
+ *     { // UserSearchSummary
+ *       Arn: 'STRING_VALUE',
+ *       DirectoryUserId: 'STRING_VALUE',
+ *       HierarchyGroupId: 'STRING_VALUE',
+ *       Id: 'STRING_VALUE',
+ *       IdentityInfo: { // UserIdentityInfoLite
+ *         FirstName: 'STRING_VALUE',
+ *         LastName: 'STRING_VALUE',
+ *       },
+ *       PhoneConfig: { // UserPhoneConfig
+ *         PhoneType: 'SOFT_PHONE' || 'DESK_PHONE', // required
+ *         AutoAccept: true || false,
+ *         AfterContactWorkTimeLimit: Number('int'),
+ *         DeskPhoneNumber: 'STRING_VALUE',
+ *       },
+ *       RoutingProfileId: 'STRING_VALUE',
+ *       SecurityProfileIds: [ // SecurityProfileIds
+ *         'STRING_VALUE',
+ *       ],
+ *       Tags: { // TagMap
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *       Username: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ *   ApproximateTotalCount: Number('long'),
+ * };
+ *
  * ```
  *
  * @param SearchUsersCommandInput - {@link SearchUsersCommandInput}
@@ -125,6 +157,8 @@ export interface SearchUsersCommandOutput extends SearchUsersResponse, __Metadat
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class SearchUsersCommand extends $Command<

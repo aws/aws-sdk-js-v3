@@ -46,14 +46,24 @@ export interface DescribeInstanceEventNotificationAttributesCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, DescribeInstanceEventNotificationAttributesCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, DescribeInstanceEventNotificationAttributesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, DescribeInstanceEventNotificationAttributesCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, DescribeInstanceEventNotificationAttributesCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // DescribeInstanceEventNotificationAttributesRequest
  *   DryRun: true || false,
  * };
  * const command = new DescribeInstanceEventNotificationAttributesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeInstanceEventNotificationAttributesResult
+ *   InstanceTagAttribute: { // InstanceTagNotificationAttribute
+ *     InstanceTagKeys: [ // InstanceTagKeySet
+ *       'STRING_VALUE',
+ *     ],
+ *     IncludeAllTagsOfInstance: true || false,
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeInstanceEventNotificationAttributesCommandInput - {@link DescribeInstanceEventNotificationAttributesCommandInput}
@@ -62,6 +72,8 @@ export interface DescribeInstanceEventNotificationAttributesCommandOutput
  * @see {@link DescribeInstanceEventNotificationAttributesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class DescribeInstanceEventNotificationAttributesCommand extends $Command<

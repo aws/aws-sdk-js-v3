@@ -57,16 +57,66 @@ export interface DescribeMatchmakingCommandOutput extends DescribeMatchmakingOut
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GameLiftClient, DescribeMatchmakingCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
- * // const { GameLiftClient, DescribeMatchmakingCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
+ * import { GameLiftClient, DescribeMatchmakingCommand } from '@aws-sdk/client-gamelift'; // ES Modules import
+ * // const { GameLiftClient, DescribeMatchmakingCommand } = require('@aws-sdk/client-gamelift'); // CommonJS import
  * const client = new GameLiftClient(config);
  * const input = { // DescribeMatchmakingInput
  *   TicketIds: [ // MatchmakingIdList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new DescribeMatchmakingCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeMatchmakingOutput
+ *   TicketList: [ // MatchmakingTicketList
+ *     { // MatchmakingTicket
+ *       TicketId: 'STRING_VALUE',
+ *       ConfigurationName: 'STRING_VALUE',
+ *       ConfigurationArn: 'STRING_VALUE',
+ *       Status: 'CANCELLED' || 'COMPLETED' || 'FAILED' || 'PLACING' || 'QUEUED' || 'REQUIRES_ACCEPTANCE' || 'SEARCHING' || 'TIMED_OUT',
+ *       StatusReason: 'STRING_VALUE',
+ *       StatusMessage: 'STRING_VALUE',
+ *       StartTime: new Date('TIMESTAMP'),
+ *       EndTime: new Date('TIMESTAMP'),
+ *       Players: [ // PlayerList
+ *         { // Player
+ *           PlayerId: 'STRING_VALUE',
+ *           PlayerAttributes: { // PlayerAttributeMap
+ *             '<keys>': { // AttributeValue
+ *               S: 'STRING_VALUE',
+ *               N: Number('double'),
+ *               SL: [ // PlayerAttributeStringList
+ *                 'STRING_VALUE',
+ *               ],
+ *               SDM: { // PlayerAttributeStringDoubleMap
+ *                 '<keys>': Number('double'),
+ *               },
+ *             },
+ *           },
+ *           Team: 'STRING_VALUE',
+ *           LatencyInMs: { // LatencyMap
+ *             '<keys>': Number('int'),
+ *           },
+ *         },
+ *       ],
+ *       GameSessionConnectionInfo: { // GameSessionConnectionInfo
+ *         GameSessionArn: 'STRING_VALUE',
+ *         IpAddress: 'STRING_VALUE',
+ *         DnsName: 'STRING_VALUE',
+ *         Port: Number('int'),
+ *         MatchedPlayerSessions: [ // MatchedPlayerSessionList
+ *           { // MatchedPlayerSession
+ *             PlayerId: 'STRING_VALUE',
+ *             PlayerSessionId: 'STRING_VALUE',
+ *           },
+ *         ],
+ *       },
+ *       EstimatedWaitTime: Number('int'),
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeMatchmakingCommandInput - {@link DescribeMatchmakingCommandInput}
@@ -86,6 +136,8 @@ export interface DescribeMatchmakingCommandOutput extends DescribeMatchmakingOut
  * @throws {@link UnsupportedRegionException} (client fault)
  *  <p>The requested operation is not supported in the Region specified.</p>
  *
+ * @throws {@link GameLiftServiceException}
+ * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
  */
 export class DescribeMatchmakingCommand extends $Command<

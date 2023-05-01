@@ -36,15 +36,20 @@ export interface DeleteAnnotationStoreCommandOutput extends DeleteAnnotationStor
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OmicsClient, DeleteAnnotationStoreCommand } from "@aws-sdk/client-omics"; // ES Modules import
- * // const { OmicsClient, DeleteAnnotationStoreCommand } = require("@aws-sdk/client-omics"); // CommonJS import
+ * import { OmicsClient, DeleteAnnotationStoreCommand } from '@aws-sdk/client-omics'; // ES Modules import
+ * // const { OmicsClient, DeleteAnnotationStoreCommand } = require('@aws-sdk/client-omics'); // CommonJS import
  * const client = new OmicsClient(config);
  * const input = { // DeleteAnnotationStoreRequest
- *   name: "STRING_VALUE", // required
+ *   name: 'STRING_VALUE', // required
  *   force: true || false,
  * };
  * const command = new DeleteAnnotationStoreCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteAnnotationStoreResponse
+ *   status: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param DeleteAnnotationStoreCommandInput - {@link DeleteAnnotationStoreCommandInput}
@@ -71,6 +76,8 @@ export interface DeleteAnnotationStoreCommandOutput extends DeleteAnnotationStor
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link OmicsServiceException}
+ * <p>Base exception class for all service exceptions from Omics service.</p>
  *
  */
 export class DeleteAnnotationStoreCommand extends $Command<

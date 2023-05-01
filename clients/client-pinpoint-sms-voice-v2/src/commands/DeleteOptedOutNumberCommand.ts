@@ -44,15 +44,24 @@ export interface DeleteOptedOutNumberCommandOutput extends DeleteOptedOutNumberR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PinpointSMSVoiceV2Client, DeleteOptedOutNumberCommand } from "@aws-sdk/client-pinpoint-sms-voice-v2"; // ES Modules import
- * // const { PinpointSMSVoiceV2Client, DeleteOptedOutNumberCommand } = require("@aws-sdk/client-pinpoint-sms-voice-v2"); // CommonJS import
+ * import { PinpointSMSVoiceV2Client, DeleteOptedOutNumberCommand } from '@aws-sdk/client-pinpoint-sms-voice-v2'; // ES Modules import
+ * // const { PinpointSMSVoiceV2Client, DeleteOptedOutNumberCommand } = require('@aws-sdk/client-pinpoint-sms-voice-v2'); // CommonJS import
  * const client = new PinpointSMSVoiceV2Client(config);
  * const input = { // DeleteOptedOutNumberRequest
- *   OptOutListName: "STRING_VALUE", // required
- *   OptedOutNumber: "STRING_VALUE", // required
+ *   OptOutListName: 'STRING_VALUE', // required
+ *   OptedOutNumber: 'STRING_VALUE', // required
  * };
  * const command = new DeleteOptedOutNumberCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteOptedOutNumberResult
+ *   OptOutListArn: 'STRING_VALUE',
+ *   OptOutListName: 'STRING_VALUE',
+ *   OptedOutNumber: 'STRING_VALUE',
+ *   OptedOutTimestamp: new Date('TIMESTAMP'),
+ *   EndUserOptedOut: true || false,
+ * };
+ *
  * ```
  *
  * @param DeleteOptedOutNumberCommandInput - {@link DeleteOptedOutNumberCommandInput}
@@ -85,6 +94,8 @@ export interface DeleteOptedOutNumberCommandOutput extends DeleteOptedOutNumberR
  * @throws {@link ValidationException} (client fault)
  *  <p>A validation exception for a field.</p>
  *
+ * @throws {@link PinpointSMSVoiceV2ServiceException}
+ * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
  *
  */
 export class DeleteOptedOutNumberCommand extends $Command<

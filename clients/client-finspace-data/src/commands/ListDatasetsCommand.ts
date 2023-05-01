@@ -36,15 +36,51 @@ export interface ListDatasetsCommandOutput extends ListDatasetsResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FinspaceDataClient, ListDatasetsCommand } from "@aws-sdk/client-finspace-data"; // ES Modules import
- * // const { FinspaceDataClient, ListDatasetsCommand } = require("@aws-sdk/client-finspace-data"); // CommonJS import
+ * import { FinspaceDataClient, ListDatasetsCommand } from '@aws-sdk/client-finspace-data'; // ES Modules import
+ * // const { FinspaceDataClient, ListDatasetsCommand } = require('@aws-sdk/client-finspace-data'); // CommonJS import
  * const client = new FinspaceDataClient(config);
  * const input = { // ListDatasetsRequest
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new ListDatasetsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListDatasetsResponse
+ *   datasets: [ // DatasetList
+ *     { // Dataset
+ *       datasetId: 'STRING_VALUE',
+ *       datasetArn: 'STRING_VALUE',
+ *       datasetTitle: 'STRING_VALUE',
+ *       kind: 'STRING_VALUE',
+ *       datasetDescription: 'STRING_VALUE',
+ *       ownerInfo: { // DatasetOwnerInfo
+ *         name: 'STRING_VALUE',
+ *         phoneNumber: 'STRING_VALUE',
+ *         email: 'STRING_VALUE',
+ *       },
+ *       createTime: Number('long'),
+ *       lastModifiedTime: Number('long'),
+ *       schemaDefinition: { // SchemaUnion
+ *         tabularSchemaConfig: { // SchemaDefinition
+ *           columns: [ // ColumnList
+ *             { // ColumnDefinition
+ *               dataType: 'STRING_VALUE',
+ *               columnName: 'STRING_VALUE',
+ *               columnDescription: 'STRING_VALUE',
+ *             },
+ *           ],
+ *           primaryKeyColumns: [ // ColumnNameList
+ *             'STRING_VALUE',
+ *           ],
+ *         },
+ *       },
+ *       alias: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListDatasetsCommandInput - {@link ListDatasetsCommandInput}
@@ -69,6 +105,8 @@ export interface ListDatasetsCommandOutput extends ListDatasetsResponse, __Metad
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link FinspaceDataServiceException}
+ * <p>Base exception class for all service exceptions from FinspaceData service.</p>
  *
  */
 export class ListDatasetsCommand extends $Command<

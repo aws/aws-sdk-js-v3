@@ -46,16 +46,21 @@ export interface SendCustomVerificationEmailCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SESClient, SendCustomVerificationEmailCommand } from "@aws-sdk/client-ses"; // ES Modules import
- * // const { SESClient, SendCustomVerificationEmailCommand } = require("@aws-sdk/client-ses"); // CommonJS import
+ * import { SESClient, SendCustomVerificationEmailCommand } from '@aws-sdk/client-ses'; // ES Modules import
+ * // const { SESClient, SendCustomVerificationEmailCommand } = require('@aws-sdk/client-ses'); // CommonJS import
  * const client = new SESClient(config);
  * const input = { // SendCustomVerificationEmailRequest
- *   EmailAddress: "STRING_VALUE", // required
- *   TemplateName: "STRING_VALUE", // required
- *   ConfigurationSetName: "STRING_VALUE",
+ *   EmailAddress: 'STRING_VALUE', // required
+ *   TemplateName: 'STRING_VALUE', // required
+ *   ConfigurationSetName: 'STRING_VALUE',
  * };
  * const command = new SendCustomVerificationEmailCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SendCustomVerificationEmailResponse
+ *   MessageId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param SendCustomVerificationEmailCommandInput - {@link SendCustomVerificationEmailCommandInput}
@@ -82,6 +87,8 @@ export interface SendCustomVerificationEmailCommandOutput
  * @throws {@link ProductionAccessNotGrantedException} (client fault)
  *  <p>Indicates that the account has not been granted production access.</p>
  *
+ * @throws {@link SESServiceException}
+ * <p>Base exception class for all service exceptions from SES service.</p>
  *
  */
 export class SendCustomVerificationEmailCommand extends $Command<

@@ -44,34 +44,39 @@ export interface CreateLicenseManagerReportGeneratorCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LicenseManagerClient, CreateLicenseManagerReportGeneratorCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
- * // const { LicenseManagerClient, CreateLicenseManagerReportGeneratorCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
+ * import { LicenseManagerClient, CreateLicenseManagerReportGeneratorCommand } from '@aws-sdk/client-license-manager'; // ES Modules import
+ * // const { LicenseManagerClient, CreateLicenseManagerReportGeneratorCommand } = require('@aws-sdk/client-license-manager'); // CommonJS import
  * const client = new LicenseManagerClient(config);
  * const input = { // CreateLicenseManagerReportGeneratorRequest
- *   ReportGeneratorName: "STRING_VALUE", // required
+ *   ReportGeneratorName: 'STRING_VALUE', // required
  *   Type: [ // ReportTypeList // required
- *     "LicenseConfigurationSummaryReport" || "LicenseConfigurationUsageReport",
+ *     'LicenseConfigurationSummaryReport' || 'LicenseConfigurationUsageReport',
  *   ],
  *   ReportContext: { // ReportContext
  *     licenseConfigurationArns: [ // ArnList // required
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *   },
  *   ReportFrequency: { // ReportFrequency
- *     value: Number("int"),
- *     period: "DAY" || "WEEK" || "MONTH",
+ *     value: Number('int'),
+ *     period: 'DAY' || 'WEEK' || 'MONTH',
  *   },
- *   ClientToken: "STRING_VALUE", // required
- *   Description: "STRING_VALUE",
+ *   ClientToken: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE',
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE",
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new CreateLicenseManagerReportGeneratorCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateLicenseManagerReportGeneratorResponse
+ *   LicenseManagerReportGeneratorArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateLicenseManagerReportGeneratorCommandInput - {@link CreateLicenseManagerReportGeneratorCommandInput}
@@ -105,6 +110,8 @@ export interface CreateLicenseManagerReportGeneratorCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The provided input is not valid. Try your request again.</p>
  *
+ * @throws {@link LicenseManagerServiceException}
+ * <p>Base exception class for all service exceptions from LicenseManager service.</p>
  *
  */
 export class CreateLicenseManagerReportGeneratorCommand extends $Command<

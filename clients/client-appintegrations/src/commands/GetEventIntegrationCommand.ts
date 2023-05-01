@@ -36,14 +36,28 @@ export interface GetEventIntegrationCommandOutput extends GetEventIntegrationRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppIntegrationsClient, GetEventIntegrationCommand } from "@aws-sdk/client-appintegrations"; // ES Modules import
- * // const { AppIntegrationsClient, GetEventIntegrationCommand } = require("@aws-sdk/client-appintegrations"); // CommonJS import
+ * import { AppIntegrationsClient, GetEventIntegrationCommand } from '@aws-sdk/client-appintegrations'; // ES Modules import
+ * // const { AppIntegrationsClient, GetEventIntegrationCommand } = require('@aws-sdk/client-appintegrations'); // CommonJS import
  * const client = new AppIntegrationsClient(config);
  * const input = { // GetEventIntegrationRequest
- *   Name: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
  * };
  * const command = new GetEventIntegrationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetEventIntegrationResponse
+ *   Name: 'STRING_VALUE',
+ *   Description: 'STRING_VALUE',
+ *   EventIntegrationArn: 'STRING_VALUE',
+ *   EventBridgeBus: 'STRING_VALUE',
+ *   EventFilter: { // EventFilter
+ *     Source: 'STRING_VALUE', // required
+ *   },
+ *   Tags: { // TagMap
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetEventIntegrationCommandInput - {@link GetEventIntegrationCommandInput}
@@ -67,6 +81,8 @@ export interface GetEventIntegrationCommandOutput extends GetEventIntegrationRes
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link AppIntegrationsServiceException}
+ * <p>Base exception class for all service exceptions from AppIntegrations service.</p>
  *
  */
 export class GetEventIntegrationCommand extends $Command<

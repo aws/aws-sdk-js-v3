@@ -79,18 +79,30 @@ export interface CreateParticipantConnectionCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectParticipantClient, CreateParticipantConnectionCommand } from "@aws-sdk/client-connectparticipant"; // ES Modules import
- * // const { ConnectParticipantClient, CreateParticipantConnectionCommand } = require("@aws-sdk/client-connectparticipant"); // CommonJS import
+ * import { ConnectParticipantClient, CreateParticipantConnectionCommand } from '@aws-sdk/client-connectparticipant'; // ES Modules import
+ * // const { ConnectParticipantClient, CreateParticipantConnectionCommand } = require('@aws-sdk/client-connectparticipant'); // CommonJS import
  * const client = new ConnectParticipantClient(config);
  * const input = { // CreateParticipantConnectionRequest
  *   Type: [ // ConnectionTypeList
- *     "WEBSOCKET" || "CONNECTION_CREDENTIALS",
+ *     'WEBSOCKET' || 'CONNECTION_CREDENTIALS',
  *   ],
- *   ParticipantToken: "STRING_VALUE", // required
+ *   ParticipantToken: 'STRING_VALUE', // required
  *   ConnectParticipant: true || false,
  * };
  * const command = new CreateParticipantConnectionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateParticipantConnectionResponse
+ *   Websocket: { // Websocket
+ *     Url: 'STRING_VALUE',
+ *     ConnectionExpiry: 'STRING_VALUE',
+ *   },
+ *   ConnectionCredentials: { // ConnectionCredentials
+ *     ConnectionToken: 'STRING_VALUE',
+ *     Expiry: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateParticipantConnectionCommandInput - {@link CreateParticipantConnectionCommandInput}
@@ -111,6 +123,8 @@ export interface CreateParticipantConnectionCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by Amazon Connect.</p>
  *
+ * @throws {@link ConnectParticipantServiceException}
+ * <p>Base exception class for all service exceptions from ConnectParticipant service.</p>
  *
  */
 export class CreateParticipantConnectionCommand extends $Command<

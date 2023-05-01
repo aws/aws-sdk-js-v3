@@ -45,20 +45,29 @@ export interface GetManagedEndpointSessionCredentialsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EMRContainersClient, GetManagedEndpointSessionCredentialsCommand } from "@aws-sdk/client-emr-containers"; // ES Modules import
- * // const { EMRContainersClient, GetManagedEndpointSessionCredentialsCommand } = require("@aws-sdk/client-emr-containers"); // CommonJS import
+ * import { EMRContainersClient, GetManagedEndpointSessionCredentialsCommand } from '@aws-sdk/client-emr-containers'; // ES Modules import
+ * // const { EMRContainersClient, GetManagedEndpointSessionCredentialsCommand } = require('@aws-sdk/client-emr-containers'); // CommonJS import
  * const client = new EMRContainersClient(config);
  * const input = { // GetManagedEndpointSessionCredentialsRequest
- *   endpointIdentifier: "STRING_VALUE", // required
- *   virtualClusterIdentifier: "STRING_VALUE", // required
- *   executionRoleArn: "STRING_VALUE", // required
- *   credentialType: "STRING_VALUE", // required
- *   durationInSeconds: Number("int"),
- *   logContext: "STRING_VALUE",
- *   clientToken: "STRING_VALUE",
+ *   endpointIdentifier: 'STRING_VALUE', // required
+ *   virtualClusterIdentifier: 'STRING_VALUE', // required
+ *   executionRoleArn: 'STRING_VALUE', // required
+ *   credentialType: 'STRING_VALUE', // required
+ *   durationInSeconds: Number('int'),
+ *   logContext: 'STRING_VALUE',
+ *   clientToken: 'STRING_VALUE',
  * };
  * const command = new GetManagedEndpointSessionCredentialsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetManagedEndpointSessionCredentialsResponse
+ *   id: 'STRING_VALUE',
+ *   credentials: { // Credentials Union: only one key present
+ *     token: 'STRING_VALUE',
+ *   },
+ *   expiresAt: new Date('TIMESTAMP'),
+ * };
+ *
  * ```
  *
  * @param GetManagedEndpointSessionCredentialsCommandInput - {@link GetManagedEndpointSessionCredentialsCommandInput}
@@ -79,6 +88,8 @@ export interface GetManagedEndpointSessionCredentialsCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>There are invalid parameters in the client request.</p>
  *
+ * @throws {@link EMRContainersServiceException}
+ * <p>Base exception class for all service exceptions from EMRContainers service.</p>
  *
  */
 export class GetManagedEndpointSessionCredentialsCommand extends $Command<

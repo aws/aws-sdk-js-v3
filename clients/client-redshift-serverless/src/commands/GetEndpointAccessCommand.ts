@@ -40,14 +40,48 @@ export interface GetEndpointAccessCommandOutput extends GetEndpointAccessRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RedshiftServerlessClient, GetEndpointAccessCommand } from "@aws-sdk/client-redshift-serverless"; // ES Modules import
- * // const { RedshiftServerlessClient, GetEndpointAccessCommand } = require("@aws-sdk/client-redshift-serverless"); // CommonJS import
+ * import { RedshiftServerlessClient, GetEndpointAccessCommand } from '@aws-sdk/client-redshift-serverless'; // ES Modules import
+ * // const { RedshiftServerlessClient, GetEndpointAccessCommand } = require('@aws-sdk/client-redshift-serverless'); // CommonJS import
  * const client = new RedshiftServerlessClient(config);
  * const input = { // GetEndpointAccessRequest
- *   endpointName: "STRING_VALUE", // required
+ *   endpointName: 'STRING_VALUE', // required
  * };
  * const command = new GetEndpointAccessCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetEndpointAccessResponse
+ *   endpoint: { // EndpointAccess
+ *     endpointName: 'STRING_VALUE',
+ *     endpointStatus: 'STRING_VALUE',
+ *     workgroupName: 'STRING_VALUE',
+ *     endpointCreateTime: new Date('TIMESTAMP'),
+ *     port: Number('int'),
+ *     address: 'STRING_VALUE',
+ *     subnetIds: [ // SubnetIdList
+ *       'STRING_VALUE',
+ *     ],
+ *     vpcSecurityGroups: [ // VpcSecurityGroupMembershipList
+ *       { // VpcSecurityGroupMembership
+ *         vpcSecurityGroupId: 'STRING_VALUE',
+ *         status: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     vpcEndpoint: { // VpcEndpoint
+ *       vpcEndpointId: 'STRING_VALUE',
+ *       vpcId: 'STRING_VALUE',
+ *       networkInterfaces: [ // NetworkInterfaceList
+ *         { // NetworkInterface
+ *           networkInterfaceId: 'STRING_VALUE',
+ *           subnetId: 'STRING_VALUE',
+ *           privateIpAddress: 'STRING_VALUE',
+ *           availabilityZone: 'STRING_VALUE',
+ *         },
+ *       ],
+ *     },
+ *     endpointArn: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetEndpointAccessCommandInput - {@link GetEndpointAccessCommandInput}
@@ -68,6 +102,8 @@ export interface GetEndpointAccessCommandOutput extends GetEndpointAccessRespons
  * @throws {@link ValidationException} (client fault)
  *  <p>The input failed to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link RedshiftServerlessServiceException}
+ * <p>Base exception class for all service exceptions from RedshiftServerless service.</p>
  *
  */
 export class GetEndpointAccessCommand extends $Command<

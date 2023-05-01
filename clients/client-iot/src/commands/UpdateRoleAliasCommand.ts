@@ -37,16 +37,22 @@ export interface UpdateRoleAliasCommandOutput extends UpdateRoleAliasResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTClient, UpdateRoleAliasCommand } from "@aws-sdk/client-iot"; // ES Modules import
- * // const { IoTClient, UpdateRoleAliasCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * import { IoTClient, UpdateRoleAliasCommand } from '@aws-sdk/client-iot'; // ES Modules import
+ * // const { IoTClient, UpdateRoleAliasCommand } = require('@aws-sdk/client-iot'); // CommonJS import
  * const client = new IoTClient(config);
  * const input = { // UpdateRoleAliasRequest
- *   roleAlias: "STRING_VALUE", // required
- *   roleArn: "STRING_VALUE",
- *   credentialDurationSeconds: Number("int"),
+ *   roleAlias: 'STRING_VALUE', // required
+ *   roleArn: 'STRING_VALUE',
+ *   credentialDurationSeconds: Number('int'),
  * };
  * const command = new UpdateRoleAliasCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateRoleAliasResponse
+ *   roleAlias: 'STRING_VALUE',
+ *   roleAliasArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateRoleAliasCommandInput - {@link UpdateRoleAliasCommandInput}
@@ -73,6 +79,8 @@ export interface UpdateRoleAliasCommandOutput extends UpdateRoleAliasResponse, _
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this operation.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class UpdateRoleAliasCommand extends $Command<

@@ -36,17 +36,23 @@ export interface DeleteFolderMembershipCommandOutput extends DeleteFolderMembers
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { QuickSightClient, DeleteFolderMembershipCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
- * // const { QuickSightClient, DeleteFolderMembershipCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * import { QuickSightClient, DeleteFolderMembershipCommand } from '@aws-sdk/client-quicksight'; // ES Modules import
+ * // const { QuickSightClient, DeleteFolderMembershipCommand } = require('@aws-sdk/client-quicksight'); // CommonJS import
  * const client = new QuickSightClient(config);
  * const input = { // DeleteFolderMembershipRequest
- *   AwsAccountId: "STRING_VALUE", // required
- *   FolderId: "STRING_VALUE", // required
- *   MemberId: "STRING_VALUE", // required
- *   MemberType: "DASHBOARD" || "ANALYSIS" || "DATASET", // required
+ *   AwsAccountId: 'STRING_VALUE', // required
+ *   FolderId: 'STRING_VALUE', // required
+ *   MemberId: 'STRING_VALUE', // required
+ *   MemberType: 'DASHBOARD' || 'ANALYSIS' || 'DATASET', // required
  * };
  * const command = new DeleteFolderMembershipCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteFolderMembershipResponse
+ *   Status: Number('int'),
+ *   RequestId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DeleteFolderMembershipCommandInput - {@link DeleteFolderMembershipCommandInput}
@@ -79,6 +85,8 @@ export interface DeleteFolderMembershipCommandOutput extends DeleteFolderMembers
  * 			Amazon QuickSight currently has Standard Edition and Enterprise Edition. Not every operation and
  * 			capability is available in every edition.</p>
  *
+ * @throws {@link QuickSightServiceException}
+ * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
 export class DeleteFolderMembershipCommand extends $Command<

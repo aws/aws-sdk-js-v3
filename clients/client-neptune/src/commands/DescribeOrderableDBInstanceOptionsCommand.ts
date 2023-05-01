@@ -41,28 +41,62 @@ export interface DescribeOrderableDBInstanceOptionsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { NeptuneClient, DescribeOrderableDBInstanceOptionsCommand } from "@aws-sdk/client-neptune"; // ES Modules import
- * // const { NeptuneClient, DescribeOrderableDBInstanceOptionsCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
+ * import { NeptuneClient, DescribeOrderableDBInstanceOptionsCommand } from '@aws-sdk/client-neptune'; // ES Modules import
+ * // const { NeptuneClient, DescribeOrderableDBInstanceOptionsCommand } = require('@aws-sdk/client-neptune'); // CommonJS import
  * const client = new NeptuneClient(config);
  * const input = { // DescribeOrderableDBInstanceOptionsMessage
- *   Engine: "STRING_VALUE", // required
- *   EngineVersion: "STRING_VALUE",
- *   DBInstanceClass: "STRING_VALUE",
- *   LicenseModel: "STRING_VALUE",
+ *   Engine: 'STRING_VALUE', // required
+ *   EngineVersion: 'STRING_VALUE',
+ *   DBInstanceClass: 'STRING_VALUE',
+ *   LicenseModel: 'STRING_VALUE',
  *   Vpc: true || false,
  *   Filters: [ // FilterList
  *     { // Filter
- *       Name: "STRING_VALUE", // required
+ *       Name: 'STRING_VALUE', // required
  *       Values: [ // FilterValueList // required
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
- *   MaxRecords: Number("int"),
- *   Marker: "STRING_VALUE",
+ *   MaxRecords: Number('int'),
+ *   Marker: 'STRING_VALUE',
  * };
  * const command = new DescribeOrderableDBInstanceOptionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // OrderableDBInstanceOptionsMessage
+ *   OrderableDBInstanceOptions: [ // OrderableDBInstanceOptionsList
+ *     { // OrderableDBInstanceOption
+ *       Engine: 'STRING_VALUE',
+ *       EngineVersion: 'STRING_VALUE',
+ *       DBInstanceClass: 'STRING_VALUE',
+ *       LicenseModel: 'STRING_VALUE',
+ *       AvailabilityZones: [ // AvailabilityZoneList
+ *         { // AvailabilityZone
+ *           Name: 'STRING_VALUE',
+ *         },
+ *       ],
+ *       MultiAZCapable: true || false,
+ *       ReadReplicaCapable: true || false,
+ *       Vpc: true || false,
+ *       SupportsStorageEncryption: true || false,
+ *       StorageType: 'STRING_VALUE',
+ *       SupportsIops: true || false,
+ *       SupportsEnhancedMonitoring: true || false,
+ *       SupportsIAMDatabaseAuthentication: true || false,
+ *       SupportsPerformanceInsights: true || false,
+ *       MinStorageSize: Number('int'),
+ *       MaxStorageSize: Number('int'),
+ *       MinIopsPerDbInstance: Number('int'),
+ *       MaxIopsPerDbInstance: Number('int'),
+ *       MinIopsPerGib: Number('double'),
+ *       MaxIopsPerGib: Number('double'),
+ *       SupportsGlobalDatabases: true || false,
+ *     },
+ *   ],
+ *   Marker: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeOrderableDBInstanceOptionsCommandInput - {@link DescribeOrderableDBInstanceOptionsCommandInput}
@@ -71,6 +105,8 @@ export interface DescribeOrderableDBInstanceOptionsCommandOutput
  * @see {@link DescribeOrderableDBInstanceOptionsCommandOutput} for command's `response` shape.
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
  *
+ * @throws {@link NeptuneServiceException}
+ * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
  */
 export class DescribeOrderableDBInstanceOptionsCommand extends $Command<

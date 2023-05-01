@@ -37,19 +37,32 @@ export interface ListAgentStatusesCommandOutput extends ListAgentStatusResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, ListAgentStatusesCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, ListAgentStatusesCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, ListAgentStatusesCommand } from '@aws-sdk/client-connect'; // ES Modules import
+ * // const { ConnectClient, ListAgentStatusesCommand } = require('@aws-sdk/client-connect'); // CommonJS import
  * const client = new ConnectClient(config);
  * const input = { // ListAgentStatusRequest
- *   InstanceId: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   InstanceId: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  *   AgentStatusTypes: [ // AgentStatusTypes
- *     "ROUTABLE" || "CUSTOM" || "OFFLINE",
+ *     'ROUTABLE' || 'CUSTOM' || 'OFFLINE',
  *   ],
  * };
  * const command = new ListAgentStatusesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListAgentStatusResponse
+ *   NextToken: 'STRING_VALUE',
+ *   AgentStatusSummaryList: [ // AgentStatusSummaryList
+ *     { // AgentStatusSummary
+ *       Id: 'STRING_VALUE',
+ *       Arn: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *       Type: 'ROUTABLE' || 'CUSTOM' || 'OFFLINE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListAgentStatusesCommandInput - {@link ListAgentStatusesCommandInput}
@@ -73,6 +86,8 @@ export interface ListAgentStatusesCommandOutput extends ListAgentStatusResponse,
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class ListAgentStatusesCommand extends $Command<

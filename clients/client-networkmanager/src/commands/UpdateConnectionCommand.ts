@@ -37,18 +37,40 @@ export interface UpdateConnectionCommandOutput extends UpdateConnectionResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { NetworkManagerClient, UpdateConnectionCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
- * // const { NetworkManagerClient, UpdateConnectionCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
+ * import { NetworkManagerClient, UpdateConnectionCommand } from '@aws-sdk/client-networkmanager'; // ES Modules import
+ * // const { NetworkManagerClient, UpdateConnectionCommand } = require('@aws-sdk/client-networkmanager'); // CommonJS import
  * const client = new NetworkManagerClient(config);
  * const input = { // UpdateConnectionRequest
- *   GlobalNetworkId: "STRING_VALUE", // required
- *   ConnectionId: "STRING_VALUE", // required
- *   LinkId: "STRING_VALUE",
- *   ConnectedLinkId: "STRING_VALUE",
- *   Description: "STRING_VALUE",
+ *   GlobalNetworkId: 'STRING_VALUE', // required
+ *   ConnectionId: 'STRING_VALUE', // required
+ *   LinkId: 'STRING_VALUE',
+ *   ConnectedLinkId: 'STRING_VALUE',
+ *   Description: 'STRING_VALUE',
  * };
  * const command = new UpdateConnectionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateConnectionResponse
+ *   Connection: { // Connection
+ *     ConnectionId: 'STRING_VALUE',
+ *     ConnectionArn: 'STRING_VALUE',
+ *     GlobalNetworkId: 'STRING_VALUE',
+ *     DeviceId: 'STRING_VALUE',
+ *     ConnectedDeviceId: 'STRING_VALUE',
+ *     LinkId: 'STRING_VALUE',
+ *     ConnectedLinkId: 'STRING_VALUE',
+ *     Description: 'STRING_VALUE',
+ *     CreatedAt: new Date('TIMESTAMP'),
+ *     State: 'PENDING' || 'AVAILABLE' || 'DELETING' || 'UPDATING',
+ *     Tags: [ // TagList
+ *       { // Tag
+ *         Key: 'STRING_VALUE',
+ *         Value: 'STRING_VALUE',
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateConnectionCommandInput - {@link UpdateConnectionCommandInput}
@@ -76,6 +98,8 @@ export interface UpdateConnectionCommandOutput extends UpdateConnectionResponse,
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints.</p>
  *
+ * @throws {@link NetworkManagerServiceException}
+ * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
  */
 export class UpdateConnectionCommand extends $Command<

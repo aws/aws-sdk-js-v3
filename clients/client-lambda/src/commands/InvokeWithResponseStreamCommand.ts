@@ -45,19 +45,36 @@ export interface InvokeWithResponseStreamCommandOutput extends InvokeWithRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LambdaClient, InvokeWithResponseStreamCommand } from "@aws-sdk/client-lambda"; // ES Modules import
- * // const { LambdaClient, InvokeWithResponseStreamCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
+ * import { LambdaClient, InvokeWithResponseStreamCommand } from '@aws-sdk/client-lambda'; // ES Modules import
+ * // const { LambdaClient, InvokeWithResponseStreamCommand } = require('@aws-sdk/client-lambda'); // CommonJS import
  * const client = new LambdaClient(config);
  * const input = { // InvokeWithResponseStreamRequest
- *   FunctionName: "STRING_VALUE", // required
- *   InvocationType: "RequestResponse" || "DryRun",
- *   LogType: "None" || "Tail",
- *   ClientContext: "STRING_VALUE",
- *   Qualifier: "STRING_VALUE",
- *   Payload: "BLOB_VALUE",
+ *   FunctionName: 'STRING_VALUE', // required
+ *   InvocationType: 'RequestResponse' || 'DryRun',
+ *   LogType: 'None' || 'Tail',
+ *   ClientContext: 'STRING_VALUE',
+ *   Qualifier: 'STRING_VALUE',
+ *   Payload: 'BLOB_VALUE',
  * };
  * const command = new InvokeWithResponseStreamCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // InvokeWithResponseStreamResponse
+ *   StatusCode: Number('int'),
+ *   ExecutedVersion: 'STRING_VALUE',
+ *   EventStream: { // InvokeWithResponseStreamResponseEvent Union: only one key present
+ *     PayloadChunk: { // InvokeResponseStreamUpdate
+ *       Payload: 'BLOB_VALUE',
+ *     },
+ *     InvokeComplete: { // InvokeWithResponseStreamCompleteEvent
+ *       ErrorCode: 'STRING_VALUE',
+ *       ErrorDetails: 'STRING_VALUE',
+ *       LogResult: 'STRING_VALUE',
+ *     },
+ *   },
+ *   ResponseStreamContentType: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param InvokeWithResponseStreamCommandInput - {@link InvokeWithResponseStreamCommandInput}
@@ -166,6 +183,8 @@ export interface InvokeWithResponseStreamCommandOutput extends InvokeWithRespons
  * @throws {@link UnsupportedMediaTypeException} (client fault)
  *  <p>The content type of the <code>Invoke</code> request body is not JSON.</p>
  *
+ * @throws {@link LambdaServiceException}
+ * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
  */
 export class InvokeWithResponseStreamCommand extends $Command<

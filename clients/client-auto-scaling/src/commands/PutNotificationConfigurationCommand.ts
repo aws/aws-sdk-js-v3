@@ -44,18 +44,21 @@ export interface PutNotificationConfigurationCommandOutput extends __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AutoScalingClient, PutNotificationConfigurationCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
- * // const { AutoScalingClient, PutNotificationConfigurationCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
+ * import { AutoScalingClient, PutNotificationConfigurationCommand } from '@aws-sdk/client-auto-scaling'; // ES Modules import
+ * // const { AutoScalingClient, PutNotificationConfigurationCommand } = require('@aws-sdk/client-auto-scaling'); // CommonJS import
  * const client = new AutoScalingClient(config);
  * const input = { // PutNotificationConfigurationType
- *   AutoScalingGroupName: "STRING_VALUE", // required
- *   TopicARN: "STRING_VALUE", // required
+ *   AutoScalingGroupName: 'STRING_VALUE', // required
+ *   TopicARN: 'STRING_VALUE', // required
  *   NotificationTypes: [ // AutoScalingNotificationTypes // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new PutNotificationConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutNotificationConfigurationCommandInput - {@link PutNotificationConfigurationCommandInput}
@@ -77,6 +80,8 @@ export interface PutNotificationConfigurationCommandOutput extends __MetadataBea
  * @throws {@link ServiceLinkedRoleFailure} (server fault)
  *  <p>The service-linked role is not yet ready for use.</p>
  *
+ * @throws {@link AutoScalingServiceException}
+ * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
  * @example To add an Auto Scaling notification
  * ```javascript

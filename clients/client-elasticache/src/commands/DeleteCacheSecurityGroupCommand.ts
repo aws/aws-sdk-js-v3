@@ -39,14 +39,17 @@ export interface DeleteCacheSecurityGroupCommandOutput extends __MetadataBearer 
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElastiCacheClient, DeleteCacheSecurityGroupCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
- * // const { ElastiCacheClient, DeleteCacheSecurityGroupCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
+ * import { ElastiCacheClient, DeleteCacheSecurityGroupCommand } from '@aws-sdk/client-elasticache'; // ES Modules import
+ * // const { ElastiCacheClient, DeleteCacheSecurityGroupCommand } = require('@aws-sdk/client-elasticache'); // CommonJS import
  * const client = new ElastiCacheClient(config);
  * const input = { // DeleteCacheSecurityGroupMessage
- *   CacheSecurityGroupName: "STRING_VALUE", // required
+ *   CacheSecurityGroupName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteCacheSecurityGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteCacheSecurityGroupCommandInput - {@link DeleteCacheSecurityGroupCommandInput}
@@ -67,6 +70,8 @@ export interface DeleteCacheSecurityGroupCommandOutput extends __MetadataBearer 
  * @throws {@link InvalidParameterValueException} (client fault)
  *  <p>The value for a parameter is invalid.</p>
  *
+ * @throws {@link ElastiCacheServiceException}
+ * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
  * @example DeleteCacheSecurityGroup
  * ```javascript

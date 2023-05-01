@@ -49,14 +49,23 @@ export interface DescribeCustomRoutingAcceleratorAttributesCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlobalAcceleratorClient, DescribeCustomRoutingAcceleratorAttributesCommand } from "@aws-sdk/client-global-accelerator"; // ES Modules import
- * // const { GlobalAcceleratorClient, DescribeCustomRoutingAcceleratorAttributesCommand } = require("@aws-sdk/client-global-accelerator"); // CommonJS import
+ * import { GlobalAcceleratorClient, DescribeCustomRoutingAcceleratorAttributesCommand } from '@aws-sdk/client-global-accelerator'; // ES Modules import
+ * // const { GlobalAcceleratorClient, DescribeCustomRoutingAcceleratorAttributesCommand } = require('@aws-sdk/client-global-accelerator'); // CommonJS import
  * const client = new GlobalAcceleratorClient(config);
  * const input = { // DescribeCustomRoutingAcceleratorAttributesRequest
- *   AcceleratorArn: "STRING_VALUE", // required
+ *   AcceleratorArn: 'STRING_VALUE', // required
  * };
  * const command = new DescribeCustomRoutingAcceleratorAttributesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeCustomRoutingAcceleratorAttributesResponse
+ *   AcceleratorAttributes: { // CustomRoutingAcceleratorAttributes
+ *     FlowLogsEnabled: true || false,
+ *     FlowLogsS3Bucket: 'STRING_VALUE',
+ *     FlowLogsS3Prefix: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeCustomRoutingAcceleratorAttributesCommandInput - {@link DescribeCustomRoutingAcceleratorAttributesCommandInput}
@@ -74,6 +83,8 @@ export interface DescribeCustomRoutingAcceleratorAttributesCommandOutput
  * @throws {@link InvalidArgumentException} (client fault)
  *  <p>An argument that you specified is invalid.</p>
  *
+ * @throws {@link GlobalAcceleratorServiceException}
+ * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
  */
 export class DescribeCustomRoutingAcceleratorAttributesCommand extends $Command<

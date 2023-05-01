@@ -36,14 +36,17 @@ export interface DeleteResourceDefinitionCommandOutput extends DeleteResourceDef
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GreengrassClient, DeleteResourceDefinitionCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
- * // const { GreengrassClient, DeleteResourceDefinitionCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
+ * import { GreengrassClient, DeleteResourceDefinitionCommand } from '@aws-sdk/client-greengrass'; // ES Modules import
+ * // const { GreengrassClient, DeleteResourceDefinitionCommand } = require('@aws-sdk/client-greengrass'); // CommonJS import
  * const client = new GreengrassClient(config);
  * const input = { // DeleteResourceDefinitionRequest
- *   ResourceDefinitionId: "STRING_VALUE", // required
+ *   ResourceDefinitionId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteResourceDefinitionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteResourceDefinitionCommandInput - {@link DeleteResourceDefinitionCommandInput}
@@ -55,6 +58,8 @@ export interface DeleteResourceDefinitionCommandOutput extends DeleteResourceDef
  * @throws {@link BadRequestException} (client fault)
  *  General error information.
  *
+ * @throws {@link GreengrassServiceException}
+ * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
  */
 export class DeleteResourceDefinitionCommand extends $Command<

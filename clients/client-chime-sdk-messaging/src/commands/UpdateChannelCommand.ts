@@ -51,18 +51,23 @@ export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeSDKMessagingClient, UpdateChannelCommand } from "@aws-sdk/client-chime-sdk-messaging"; // ES Modules import
- * // const { ChimeSDKMessagingClient, UpdateChannelCommand } = require("@aws-sdk/client-chime-sdk-messaging"); // CommonJS import
+ * import { ChimeSDKMessagingClient, UpdateChannelCommand } from '@aws-sdk/client-chime-sdk-messaging'; // ES Modules import
+ * // const { ChimeSDKMessagingClient, UpdateChannelCommand } = require('@aws-sdk/client-chime-sdk-messaging'); // CommonJS import
  * const client = new ChimeSDKMessagingClient(config);
  * const input = { // UpdateChannelRequest
- *   ChannelArn: "STRING_VALUE", // required
- *   Name: "STRING_VALUE",
- *   Mode: "UNRESTRICTED" || "RESTRICTED",
- *   Metadata: "STRING_VALUE",
- *   ChimeBearer: "STRING_VALUE", // required
+ *   ChannelArn: 'STRING_VALUE', // required
+ *   Name: 'STRING_VALUE',
+ *   Mode: 'UNRESTRICTED' || 'RESTRICTED',
+ *   Metadata: 'STRING_VALUE',
+ *   ChimeBearer: 'STRING_VALUE', // required
  * };
  * const command = new UpdateChannelCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateChannelResponse
+ *   ChannelArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateChannelCommandInput - {@link UpdateChannelCommandInput}
@@ -93,6 +98,8 @@ export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __Met
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeSDKMessagingServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKMessaging service.</p>
  *
  */
 export class UpdateChannelCommand extends $Command<

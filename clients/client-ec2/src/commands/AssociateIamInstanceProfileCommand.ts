@@ -37,18 +37,32 @@ export interface AssociateIamInstanceProfileCommandOutput extends AssociateIamIn
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, AssociateIamInstanceProfileCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, AssociateIamInstanceProfileCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, AssociateIamInstanceProfileCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, AssociateIamInstanceProfileCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // AssociateIamInstanceProfileRequest
  *   IamInstanceProfile: { // IamInstanceProfileSpecification
- *     Arn: "STRING_VALUE",
- *     Name: "STRING_VALUE",
+ *     Arn: 'STRING_VALUE',
+ *     Name: 'STRING_VALUE',
  *   },
- *   InstanceId: "STRING_VALUE", // required
+ *   InstanceId: 'STRING_VALUE', // required
  * };
  * const command = new AssociateIamInstanceProfileCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AssociateIamInstanceProfileResult
+ *   IamInstanceProfileAssociation: { // IamInstanceProfileAssociation
+ *     AssociationId: 'STRING_VALUE',
+ *     InstanceId: 'STRING_VALUE',
+ *     IamInstanceProfile: { // IamInstanceProfile
+ *       Arn: 'STRING_VALUE',
+ *       Id: 'STRING_VALUE',
+ *     },
+ *     State: 'associating' || 'associated' || 'disassociating' || 'disassociated',
+ *     Timestamp: new Date('TIMESTAMP'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param AssociateIamInstanceProfileCommandInput - {@link AssociateIamInstanceProfileCommandInput}
@@ -57,6 +71,8 @@ export interface AssociateIamInstanceProfileCommandOutput extends AssociateIamIn
  * @see {@link AssociateIamInstanceProfileCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @example To associate an IAM instance profile with an instance
  * ```javascript

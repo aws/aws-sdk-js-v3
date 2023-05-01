@@ -45,15 +45,20 @@ export interface AssociateWirelessGatewayWithCertificateCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTWirelessClient, AssociateWirelessGatewayWithCertificateCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
- * // const { IoTWirelessClient, AssociateWirelessGatewayWithCertificateCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
+ * import { IoTWirelessClient, AssociateWirelessGatewayWithCertificateCommand } from '@aws-sdk/client-iot-wireless'; // ES Modules import
+ * // const { IoTWirelessClient, AssociateWirelessGatewayWithCertificateCommand } = require('@aws-sdk/client-iot-wireless'); // CommonJS import
  * const client = new IoTWirelessClient(config);
  * const input = { // AssociateWirelessGatewayWithCertificateRequest
- *   Id: "STRING_VALUE", // required
- *   IotCertificateId: "STRING_VALUE", // required
+ *   Id: 'STRING_VALUE', // required
+ *   IotCertificateId: 'STRING_VALUE', // required
  * };
  * const command = new AssociateWirelessGatewayWithCertificateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AssociateWirelessGatewayWithCertificateResponse
+ *   IotCertificateId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param AssociateWirelessGatewayWithCertificateCommandInput - {@link AssociateWirelessGatewayWithCertificateCommandInput}
@@ -80,6 +85,8 @@ export interface AssociateWirelessGatewayWithCertificateCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The input did not meet the specified constraints.</p>
  *
+ * @throws {@link IoTWirelessServiceException}
+ * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
  */
 export class AssociateWirelessGatewayWithCertificateCommand extends $Command<

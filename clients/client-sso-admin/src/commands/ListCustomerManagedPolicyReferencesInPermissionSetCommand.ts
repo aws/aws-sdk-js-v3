@@ -45,17 +45,28 @@ export interface ListCustomerManagedPolicyReferencesInPermissionSetCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSOAdminClient, ListCustomerManagedPolicyReferencesInPermissionSetCommand } from "@aws-sdk/client-sso-admin"; // ES Modules import
- * // const { SSOAdminClient, ListCustomerManagedPolicyReferencesInPermissionSetCommand } = require("@aws-sdk/client-sso-admin"); // CommonJS import
+ * import { SSOAdminClient, ListCustomerManagedPolicyReferencesInPermissionSetCommand } from '@aws-sdk/client-sso-admin'; // ES Modules import
+ * // const { SSOAdminClient, ListCustomerManagedPolicyReferencesInPermissionSetCommand } = require('@aws-sdk/client-sso-admin'); // CommonJS import
  * const client = new SSOAdminClient(config);
  * const input = { // ListCustomerManagedPolicyReferencesInPermissionSetRequest
- *   InstanceArn: "STRING_VALUE", // required
- *   PermissionSetArn: "STRING_VALUE", // required
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   InstanceArn: 'STRING_VALUE', // required
+ *   PermissionSetArn: 'STRING_VALUE', // required
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListCustomerManagedPolicyReferencesInPermissionSetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListCustomerManagedPolicyReferencesInPermissionSetResponse
+ *   CustomerManagedPolicyReferences: [ // CustomerManagedPolicyReferenceList
+ *     { // CustomerManagedPolicyReference
+ *       Name: 'STRING_VALUE', // required
+ *       Path: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListCustomerManagedPolicyReferencesInPermissionSetCommandInput - {@link ListCustomerManagedPolicyReferencesInPermissionSetCommandInput}
@@ -81,6 +92,8 @@ export interface ListCustomerManagedPolicyReferencesInPermissionSetCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The request failed because it contains a syntax error.</p>
  *
+ * @throws {@link SSOAdminServiceException}
+ * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
  */
 export class ListCustomerManagedPolicyReferencesInPermissionSetCommand extends $Command<

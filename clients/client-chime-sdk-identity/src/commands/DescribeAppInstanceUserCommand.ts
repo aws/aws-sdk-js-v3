@@ -40,14 +40,29 @@ export interface DescribeAppInstanceUserCommandOutput extends DescribeAppInstanc
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeSDKIdentityClient, DescribeAppInstanceUserCommand } from "@aws-sdk/client-chime-sdk-identity"; // ES Modules import
- * // const { ChimeSDKIdentityClient, DescribeAppInstanceUserCommand } = require("@aws-sdk/client-chime-sdk-identity"); // CommonJS import
+ * import { ChimeSDKIdentityClient, DescribeAppInstanceUserCommand } from '@aws-sdk/client-chime-sdk-identity'; // ES Modules import
+ * // const { ChimeSDKIdentityClient, DescribeAppInstanceUserCommand } = require('@aws-sdk/client-chime-sdk-identity'); // CommonJS import
  * const client = new ChimeSDKIdentityClient(config);
  * const input = { // DescribeAppInstanceUserRequest
- *   AppInstanceUserArn: "STRING_VALUE", // required
+ *   AppInstanceUserArn: 'STRING_VALUE', // required
  * };
  * const command = new DescribeAppInstanceUserCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeAppInstanceUserResponse
+ *   AppInstanceUser: { // AppInstanceUser
+ *     AppInstanceUserArn: 'STRING_VALUE',
+ *     Name: 'STRING_VALUE',
+ *     Metadata: 'STRING_VALUE',
+ *     CreatedTimestamp: new Date('TIMESTAMP'),
+ *     LastUpdatedTimestamp: new Date('TIMESTAMP'),
+ *     ExpirationSettings: { // ExpirationSettings
+ *       ExpirationDays: Number('int'), // required
+ *       ExpirationCriterion: 'CREATED_TIMESTAMP', // required
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeAppInstanceUserCommandInput - {@link DescribeAppInstanceUserCommandInput}
@@ -74,6 +89,8 @@ export interface DescribeAppInstanceUserCommandOutput extends DescribeAppInstanc
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeSDKIdentityServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKIdentity service.</p>
  *
  */
 export class DescribeAppInstanceUserCommand extends $Command<

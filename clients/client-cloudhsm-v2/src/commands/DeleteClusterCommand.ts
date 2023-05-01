@@ -37,14 +37,62 @@ export interface DeleteClusterCommandOutput extends DeleteClusterResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudHSMV2Client, DeleteClusterCommand } from "@aws-sdk/client-cloudhsm-v2"; // ES Modules import
- * // const { CloudHSMV2Client, DeleteClusterCommand } = require("@aws-sdk/client-cloudhsm-v2"); // CommonJS import
+ * import { CloudHSMV2Client, DeleteClusterCommand } from '@aws-sdk/client-cloudhsm-v2'; // ES Modules import
+ * // const { CloudHSMV2Client, DeleteClusterCommand } = require('@aws-sdk/client-cloudhsm-v2'); // CommonJS import
  * const client = new CloudHSMV2Client(config);
  * const input = { // DeleteClusterRequest
- *   ClusterId: "STRING_VALUE", // required
+ *   ClusterId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteClusterCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteClusterResponse
+ *   Cluster: { // Cluster
+ *     BackupPolicy: 'STRING_VALUE',
+ *     BackupRetentionPolicy: { // BackupRetentionPolicy
+ *       Type: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
+ *     },
+ *     ClusterId: 'STRING_VALUE',
+ *     CreateTimestamp: new Date('TIMESTAMP'),
+ *     Hsms: [ // Hsms
+ *       { // Hsm
+ *         AvailabilityZone: 'STRING_VALUE',
+ *         ClusterId: 'STRING_VALUE',
+ *         SubnetId: 'STRING_VALUE',
+ *         EniId: 'STRING_VALUE',
+ *         EniIp: 'STRING_VALUE',
+ *         HsmId: 'STRING_VALUE', // required
+ *         State: 'STRING_VALUE',
+ *         StateMessage: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     HsmType: 'STRING_VALUE',
+ *     PreCoPassword: 'STRING_VALUE',
+ *     SecurityGroup: 'STRING_VALUE',
+ *     SourceBackupId: 'STRING_VALUE',
+ *     State: 'STRING_VALUE',
+ *     StateMessage: 'STRING_VALUE',
+ *     SubnetMapping: { // ExternalSubnetMapping
+ *       '<keys>': 'STRING_VALUE',
+ *     },
+ *     VpcId: 'STRING_VALUE',
+ *     Certificates: { // Certificates
+ *       ClusterCsr: 'STRING_VALUE',
+ *       HsmCertificate: 'STRING_VALUE',
+ *       AwsHardwareCertificate: 'STRING_VALUE',
+ *       ManufacturerHardwareCertificate: 'STRING_VALUE',
+ *       ClusterCertificate: 'STRING_VALUE',
+ *     },
+ *     TagList: [ // TagList
+ *       { // Tag
+ *         Key: 'STRING_VALUE', // required
+ *         Value: 'STRING_VALUE', // required
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param DeleteClusterCommandInput - {@link DeleteClusterCommandInput}
@@ -74,6 +122,8 @@ export interface DeleteClusterCommandOutput extends DeleteClusterResponse, __Met
  * @throws {@link CloudHsmTagException} (client fault)
  *  <p>The request was rejected because of a tagging failure. Verify the tag conditions in all applicable policies, and then retry the request.</p>
  *
+ * @throws {@link CloudHSMV2ServiceException}
+ * <p>Base exception class for all service exceptions from CloudHSMV2 service.</p>
  *
  */
 export class DeleteClusterCommand extends $Command<

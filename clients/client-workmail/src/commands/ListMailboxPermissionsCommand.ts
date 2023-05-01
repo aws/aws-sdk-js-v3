@@ -37,17 +37,31 @@ export interface ListMailboxPermissionsCommandOutput extends ListMailboxPermissi
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkMailClient, ListMailboxPermissionsCommand } from "@aws-sdk/client-workmail"; // ES Modules import
- * // const { WorkMailClient, ListMailboxPermissionsCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
+ * import { WorkMailClient, ListMailboxPermissionsCommand } from '@aws-sdk/client-workmail'; // ES Modules import
+ * // const { WorkMailClient, ListMailboxPermissionsCommand } = require('@aws-sdk/client-workmail'); // CommonJS import
  * const client = new WorkMailClient(config);
  * const input = { // ListMailboxPermissionsRequest
- *   OrganizationId: "STRING_VALUE", // required
- *   EntityId: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   OrganizationId: 'STRING_VALUE', // required
+ *   EntityId: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListMailboxPermissionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListMailboxPermissionsResponse
+ *   Permissions: [ // Permissions
+ *     { // Permission
+ *       GranteeId: 'STRING_VALUE', // required
+ *       GranteeType: 'GROUP' || 'USER', // required
+ *       PermissionValues: [ // PermissionValues // required
+ *         'FULL_ACCESS' || 'SEND_AS' || 'SEND_ON_BEHALF',
+ *       ],
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListMailboxPermissionsCommandInput - {@link ListMailboxPermissionsCommandInput}
@@ -71,6 +85,8 @@ export interface ListMailboxPermissionsCommandOutput extends ListMailboxPermissi
  *  <p>The organization must have a valid state to perform certain
  *          operations on the organization or its members.</p>
  *
+ * @throws {@link WorkMailServiceException}
+ * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
  */
 export class ListMailboxPermissionsCommand extends $Command<

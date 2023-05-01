@@ -36,14 +36,31 @@ export interface GetUserSettingsCommandOutput extends GetUserSettingsResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkSpacesWebClient, GetUserSettingsCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
- * // const { WorkSpacesWebClient, GetUserSettingsCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
+ * import { WorkSpacesWebClient, GetUserSettingsCommand } from '@aws-sdk/client-workspaces-web'; // ES Modules import
+ * // const { WorkSpacesWebClient, GetUserSettingsCommand } = require('@aws-sdk/client-workspaces-web'); // CommonJS import
  * const client = new WorkSpacesWebClient(config);
  * const input = { // GetUserSettingsRequest
- *   userSettingsArn: "STRING_VALUE", // required
+ *   userSettingsArn: 'STRING_VALUE', // required
  * };
  * const command = new GetUserSettingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetUserSettingsResponse
+ *   userSettings: { // UserSettings
+ *     userSettingsArn: 'STRING_VALUE', // required
+ *     associatedPortalArns: [ // ArnList
+ *       'STRING_VALUE',
+ *     ],
+ *     copyAllowed: 'STRING_VALUE',
+ *     pasteAllowed: 'STRING_VALUE',
+ *     downloadAllowed: 'STRING_VALUE',
+ *     uploadAllowed: 'STRING_VALUE',
+ *     printAllowed: 'STRING_VALUE',
+ *     disconnectTimeoutInMinutes: Number('int'),
+ *     idleDisconnectTimeoutInMinutes: Number('int'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetUserSettingsCommandInput - {@link GetUserSettingsCommandInput}
@@ -67,6 +84,8 @@ export interface GetUserSettingsCommandOutput extends GetUserSettingsResponse, _
  * @throws {@link ValidationException} (client fault)
  *  <p>There is a validation error.</p>
  *
+ * @throws {@link WorkSpacesWebServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
  */
 export class GetUserSettingsCommand extends $Command<

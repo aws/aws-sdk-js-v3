@@ -36,14 +36,41 @@ export interface GetImportJobCommandOutput extends GetImportJobResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SESv2Client, GetImportJobCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
- * // const { SESv2Client, GetImportJobCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
+ * import { SESv2Client, GetImportJobCommand } from '@aws-sdk/client-sesv2'; // ES Modules import
+ * // const { SESv2Client, GetImportJobCommand } = require('@aws-sdk/client-sesv2'); // CommonJS import
  * const client = new SESv2Client(config);
  * const input = { // GetImportJobRequest
- *   JobId: "STRING_VALUE", // required
+ *   JobId: 'STRING_VALUE', // required
  * };
  * const command = new GetImportJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetImportJobResponse
+ *   JobId: 'STRING_VALUE',
+ *   ImportDestination: { // ImportDestination
+ *     SuppressionListDestination: { // SuppressionListDestination
+ *       SuppressionListImportAction: 'DELETE' || 'PUT', // required
+ *     },
+ *     ContactListDestination: { // ContactListDestination
+ *       ContactListName: 'STRING_VALUE', // required
+ *       ContactListImportAction: 'DELETE' || 'PUT', // required
+ *     },
+ *   },
+ *   ImportDataSource: { // ImportDataSource
+ *     S3Url: 'STRING_VALUE', // required
+ *     DataFormat: 'CSV' || 'JSON', // required
+ *   },
+ *   FailureInfo: { // FailureInfo
+ *     FailedRecordsS3Url: 'STRING_VALUE',
+ *     ErrorMessage: 'STRING_VALUE',
+ *   },
+ *   JobStatus: 'CREATED' || 'PROCESSING' || 'COMPLETED' || 'FAILED',
+ *   CreatedTimestamp: new Date('TIMESTAMP'),
+ *   CompletedTimestamp: new Date('TIMESTAMP'),
+ *   ProcessedRecordsCount: Number('int'),
+ *   FailedRecordsCount: Number('int'),
+ * };
+ *
  * ```
  *
  * @param GetImportJobCommandInput - {@link GetImportJobCommandInput}
@@ -61,6 +88,8 @@ export interface GetImportJobCommandOutput extends GetImportJobResponse, __Metad
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Too many requests have been made to the operation.</p>
  *
+ * @throws {@link SESv2ServiceException}
+ * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
  */
 export class GetImportJobCommand extends $Command<

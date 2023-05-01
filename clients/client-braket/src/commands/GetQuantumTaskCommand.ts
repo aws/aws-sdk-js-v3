@@ -36,14 +36,32 @@ export interface GetQuantumTaskCommandOutput extends GetQuantumTaskResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BraketClient, GetQuantumTaskCommand } from "@aws-sdk/client-braket"; // ES Modules import
- * // const { BraketClient, GetQuantumTaskCommand } = require("@aws-sdk/client-braket"); // CommonJS import
+ * import { BraketClient, GetQuantumTaskCommand } from '@aws-sdk/client-braket'; // ES Modules import
+ * // const { BraketClient, GetQuantumTaskCommand } = require('@aws-sdk/client-braket'); // CommonJS import
  * const client = new BraketClient(config);
  * const input = { // GetQuantumTaskRequest
- *   quantumTaskArn: "STRING_VALUE", // required
+ *   quantumTaskArn: 'STRING_VALUE', // required
  * };
  * const command = new GetQuantumTaskCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetQuantumTaskResponse
+ *   quantumTaskArn: 'STRING_VALUE', // required
+ *   status: 'STRING_VALUE', // required
+ *   failureReason: 'STRING_VALUE',
+ *   deviceArn: 'STRING_VALUE', // required
+ *   deviceParameters: 'STRING_VALUE', // required
+ *   shots: Number('long'), // required
+ *   outputS3Bucket: 'STRING_VALUE', // required
+ *   outputS3Directory: 'STRING_VALUE', // required
+ *   createdAt: new Date('TIMESTAMP'), // required
+ *   endedAt: new Date('TIMESTAMP'),
+ *   tags: { // TagsMap
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ *   jobArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetQuantumTaskCommandInput - {@link GetQuantumTaskCommandInput}
@@ -68,6 +86,8 @@ export interface GetQuantumTaskCommandOutput extends GetQuantumTaskResponse, __M
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link BraketServiceException}
+ * <p>Base exception class for all service exceptions from Braket service.</p>
  *
  */
 export class GetQuantumTaskCommand extends $Command<

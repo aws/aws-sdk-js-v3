@@ -36,23 +36,30 @@ export interface UpdateDocumentationVersionCommandOutput extends DocumentationVe
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { APIGatewayClient, UpdateDocumentationVersionCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
- * // const { APIGatewayClient, UpdateDocumentationVersionCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
+ * import { APIGatewayClient, UpdateDocumentationVersionCommand } from '@aws-sdk/client-api-gateway'; // ES Modules import
+ * // const { APIGatewayClient, UpdateDocumentationVersionCommand } = require('@aws-sdk/client-api-gateway'); // CommonJS import
  * const client = new APIGatewayClient(config);
  * const input = { // UpdateDocumentationVersionRequest
- *   restApiId: "STRING_VALUE", // required
- *   documentationVersion: "STRING_VALUE", // required
+ *   restApiId: 'STRING_VALUE', // required
+ *   documentationVersion: 'STRING_VALUE', // required
  *   patchOperations: [ // ListOfPatchOperation
  *     { // PatchOperation
- *       op: "add" || "remove" || "replace" || "move" || "copy" || "test",
- *       path: "STRING_VALUE",
- *       value: "STRING_VALUE",
- *       from: "STRING_VALUE",
+ *       op: 'add' || 'remove' || 'replace' || 'move' || 'copy' || 'test',
+ *       path: 'STRING_VALUE',
+ *       value: 'STRING_VALUE',
+ *       from: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new UpdateDocumentationVersionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DocumentationVersion
+ *   version: 'STRING_VALUE',
+ *   createdDate: new Date('TIMESTAMP'),
+ *   description: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateDocumentationVersionCommandInput - {@link UpdateDocumentationVersionCommandInput}
@@ -79,6 +86,8 @@ export interface UpdateDocumentationVersionCommandOutput extends DocumentationVe
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The request is denied because the caller has insufficient permissions.</p>
  *
+ * @throws {@link APIGatewayServiceException}
+ * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
  */
 export class UpdateDocumentationVersionCommand extends $Command<

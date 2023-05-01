@@ -41,23 +41,53 @@ export interface PostCommentForComparedCommitCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeCommitClient, PostCommentForComparedCommitCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
- * // const { CodeCommitClient, PostCommentForComparedCommitCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
+ * import { CodeCommitClient, PostCommentForComparedCommitCommand } from '@aws-sdk/client-codecommit'; // ES Modules import
+ * // const { CodeCommitClient, PostCommentForComparedCommitCommand } = require('@aws-sdk/client-codecommit'); // CommonJS import
  * const client = new CodeCommitClient(config);
  * const input = { // PostCommentForComparedCommitInput
- *   repositoryName: "STRING_VALUE", // required
- *   beforeCommitId: "STRING_VALUE",
- *   afterCommitId: "STRING_VALUE", // required
+ *   repositoryName: 'STRING_VALUE', // required
+ *   beforeCommitId: 'STRING_VALUE',
+ *   afterCommitId: 'STRING_VALUE', // required
  *   location: { // Location
- *     filePath: "STRING_VALUE",
- *     filePosition: Number("long"),
- *     relativeFileVersion: "STRING_VALUE",
+ *     filePath: 'STRING_VALUE',
+ *     filePosition: Number('long'),
+ *     relativeFileVersion: 'STRING_VALUE',
  *   },
- *   content: "STRING_VALUE", // required
- *   clientRequestToken: "STRING_VALUE",
+ *   content: 'STRING_VALUE', // required
+ *   clientRequestToken: 'STRING_VALUE',
  * };
  * const command = new PostCommentForComparedCommitCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PostCommentForComparedCommitOutput
+ *   repositoryName: 'STRING_VALUE',
+ *   beforeCommitId: 'STRING_VALUE',
+ *   afterCommitId: 'STRING_VALUE',
+ *   beforeBlobId: 'STRING_VALUE',
+ *   afterBlobId: 'STRING_VALUE',
+ *   location: { // Location
+ *     filePath: 'STRING_VALUE',
+ *     filePosition: Number('long'),
+ *     relativeFileVersion: 'STRING_VALUE',
+ *   },
+ *   comment: { // Comment
+ *     commentId: 'STRING_VALUE',
+ *     content: 'STRING_VALUE',
+ *     inReplyTo: 'STRING_VALUE',
+ *     creationDate: new Date('TIMESTAMP'),
+ *     lastModifiedDate: new Date('TIMESTAMP'),
+ *     authorArn: 'STRING_VALUE',
+ *     deleted: true || false,
+ *     clientRequestToken: 'STRING_VALUE',
+ *     callerReactions: [ // CallerReactions
+ *       'STRING_VALUE',
+ *     ],
+ *     reactionCounts: { // ReactionCountsMap
+ *       '<keys>': Number('int'),
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param PostCommentForComparedCommitCommandInput - {@link PostCommentForComparedCommitCommandInput}
@@ -147,6 +177,8 @@ export interface PostCommentForComparedCommitCommandOutput
  * @throws {@link RepositoryNameRequiredException} (client fault)
  *  <p>A repository name is required, but was not specified.</p>
  *
+ * @throws {@link CodeCommitServiceException}
+ * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
  */
 export class PostCommentForComparedCommitCommand extends $Command<

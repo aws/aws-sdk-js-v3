@@ -36,14 +36,17 @@ export interface DeleteMonitorCommandOutput extends DeleteMonitorOutput, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { InternetMonitorClient, DeleteMonitorCommand } from "@aws-sdk/client-internetmonitor"; // ES Modules import
- * // const { InternetMonitorClient, DeleteMonitorCommand } = require("@aws-sdk/client-internetmonitor"); // CommonJS import
+ * import { InternetMonitorClient, DeleteMonitorCommand } from '@aws-sdk/client-internetmonitor'; // ES Modules import
+ * // const { InternetMonitorClient, DeleteMonitorCommand } = require('@aws-sdk/client-internetmonitor'); // CommonJS import
  * const client = new InternetMonitorClient(config);
  * const input = { // DeleteMonitorInput
- *   MonitorName: "STRING_VALUE", // required
+ *   MonitorName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteMonitorCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteMonitorCommandInput - {@link DeleteMonitorCommandInput}
@@ -64,6 +67,8 @@ export interface DeleteMonitorCommandOutput extends DeleteMonitorOutput, __Metad
  * @throws {@link ValidationException} (client fault)
  *  <p>Invalid request.</p>
  *
+ * @throws {@link InternetMonitorServiceException}
+ * <p>Base exception class for all service exceptions from InternetMonitor service.</p>
  *
  */
 export class DeleteMonitorCommand extends $Command<

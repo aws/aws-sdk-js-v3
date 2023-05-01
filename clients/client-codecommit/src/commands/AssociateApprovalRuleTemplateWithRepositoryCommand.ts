@@ -46,15 +46,18 @@ export interface AssociateApprovalRuleTemplateWithRepositoryCommandOutput extend
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeCommitClient, AssociateApprovalRuleTemplateWithRepositoryCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
- * // const { CodeCommitClient, AssociateApprovalRuleTemplateWithRepositoryCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
+ * import { CodeCommitClient, AssociateApprovalRuleTemplateWithRepositoryCommand } from '@aws-sdk/client-codecommit'; // ES Modules import
+ * // const { CodeCommitClient, AssociateApprovalRuleTemplateWithRepositoryCommand } = require('@aws-sdk/client-codecommit'); // CommonJS import
  * const client = new CodeCommitClient(config);
  * const input = { // AssociateApprovalRuleTemplateWithRepositoryInput
- *   approvalRuleTemplateName: "STRING_VALUE", // required
- *   repositoryName: "STRING_VALUE", // required
+ *   approvalRuleTemplateName: 'STRING_VALUE', // required
+ *   repositoryName: 'STRING_VALUE', // required
  * };
  * const command = new AssociateApprovalRuleTemplateWithRepositoryCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param AssociateApprovalRuleTemplateWithRepositoryCommandInput - {@link AssociateApprovalRuleTemplateWithRepositoryCommandInput}
@@ -110,6 +113,8 @@ export interface AssociateApprovalRuleTemplateWithRepositoryCommandOutput extend
  * @throws {@link RepositoryNameRequiredException} (client fault)
  *  <p>A repository name is required, but was not specified.</p>
  *
+ * @throws {@link CodeCommitServiceException}
+ * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
  */
 export class AssociateApprovalRuleTemplateWithRepositoryCommand extends $Command<

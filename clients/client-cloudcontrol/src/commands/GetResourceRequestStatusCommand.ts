@@ -42,14 +42,30 @@ export interface GetResourceRequestStatusCommandOutput extends GetResourceReques
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudControlClient, GetResourceRequestStatusCommand } from "@aws-sdk/client-cloudcontrol"; // ES Modules import
- * // const { CloudControlClient, GetResourceRequestStatusCommand } = require("@aws-sdk/client-cloudcontrol"); // CommonJS import
+ * import { CloudControlClient, GetResourceRequestStatusCommand } from '@aws-sdk/client-cloudcontrol'; // ES Modules import
+ * // const { CloudControlClient, GetResourceRequestStatusCommand } = require('@aws-sdk/client-cloudcontrol'); // CommonJS import
  * const client = new CloudControlClient(config);
  * const input = { // GetResourceRequestStatusInput
- *   RequestToken: "STRING_VALUE", // required
+ *   RequestToken: 'STRING_VALUE', // required
  * };
  * const command = new GetResourceRequestStatusCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetResourceRequestStatusOutput
+ *   ProgressEvent: { // ProgressEvent
+ *     TypeName: 'STRING_VALUE',
+ *     Identifier: 'STRING_VALUE',
+ *     RequestToken: 'STRING_VALUE',
+ *     Operation: 'STRING_VALUE',
+ *     OperationStatus: 'STRING_VALUE',
+ *     EventTime: new Date('TIMESTAMP'),
+ *     ResourceModel: 'STRING_VALUE',
+ *     StatusMessage: 'STRING_VALUE',
+ *     ErrorCode: 'STRING_VALUE',
+ *     RetryAfter: new Date('TIMESTAMP'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetResourceRequestStatusCommandInput - {@link GetResourceRequestStatusCommandInput}
@@ -61,6 +77,8 @@ export interface GetResourceRequestStatusCommandOutput extends GetResourceReques
  * @throws {@link RequestTokenNotFoundException} (client fault)
  *  <p>A resource operation with the specified request token can't be found.</p>
  *
+ * @throws {@link CloudControlServiceException}
+ * <p>Base exception class for all service exceptions from CloudControl service.</p>
  *
  */
 export class GetResourceRequestStatusCommand extends $Command<

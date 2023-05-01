@@ -36,16 +36,23 @@ export interface DeleteIAMPolicyAssignmentCommandOutput extends DeleteIAMPolicyA
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { QuickSightClient, DeleteIAMPolicyAssignmentCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
- * // const { QuickSightClient, DeleteIAMPolicyAssignmentCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * import { QuickSightClient, DeleteIAMPolicyAssignmentCommand } from '@aws-sdk/client-quicksight'; // ES Modules import
+ * // const { QuickSightClient, DeleteIAMPolicyAssignmentCommand } = require('@aws-sdk/client-quicksight'); // CommonJS import
  * const client = new QuickSightClient(config);
  * const input = { // DeleteIAMPolicyAssignmentRequest
- *   AwsAccountId: "STRING_VALUE", // required
- *   AssignmentName: "STRING_VALUE", // required
- *   Namespace: "STRING_VALUE", // required
+ *   AwsAccountId: 'STRING_VALUE', // required
+ *   AssignmentName: 'STRING_VALUE', // required
+ *   Namespace: 'STRING_VALUE', // required
  * };
  * const command = new DeleteIAMPolicyAssignmentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteIAMPolicyAssignmentResponse
+ *   AssignmentName: 'STRING_VALUE',
+ *   RequestId: 'STRING_VALUE',
+ *   Status: Number('int'),
+ * };
+ *
  * ```
  *
  * @param DeleteIAMPolicyAssignmentCommandInput - {@link DeleteIAMPolicyAssignmentCommandInput}
@@ -79,6 +86,8 @@ export interface DeleteIAMPolicyAssignmentCommandOutput extends DeleteIAMPolicyA
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Access is throttled.</p>
  *
+ * @throws {@link QuickSightServiceException}
+ * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
 export class DeleteIAMPolicyAssignmentCommand extends $Command<

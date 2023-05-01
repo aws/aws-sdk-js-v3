@@ -36,15 +36,33 @@ export interface GetReadSetExportJobCommandOutput extends GetReadSetExportJobRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OmicsClient, GetReadSetExportJobCommand } from "@aws-sdk/client-omics"; // ES Modules import
- * // const { OmicsClient, GetReadSetExportJobCommand } = require("@aws-sdk/client-omics"); // CommonJS import
+ * import { OmicsClient, GetReadSetExportJobCommand } from '@aws-sdk/client-omics'; // ES Modules import
+ * // const { OmicsClient, GetReadSetExportJobCommand } = require('@aws-sdk/client-omics'); // CommonJS import
  * const client = new OmicsClient(config);
  * const input = { // GetReadSetExportJobRequest
- *   sequenceStoreId: "STRING_VALUE", // required
- *   id: "STRING_VALUE", // required
+ *   sequenceStoreId: 'STRING_VALUE', // required
+ *   id: 'STRING_VALUE', // required
  * };
  * const command = new GetReadSetExportJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetReadSetExportJobResponse
+ *   id: 'STRING_VALUE', // required
+ *   sequenceStoreId: 'STRING_VALUE', // required
+ *   destination: 'STRING_VALUE', // required
+ *   status: 'STRING_VALUE', // required
+ *   statusMessage: 'STRING_VALUE',
+ *   creationTime: new Date('TIMESTAMP'), // required
+ *   completionTime: new Date('TIMESTAMP'),
+ *   readSets: [ // ExportReadSetDetailList
+ *     { // ExportReadSetDetail
+ *       id: 'STRING_VALUE', // required
+ *       status: 'STRING_VALUE', // required
+ *       statusMessage: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetReadSetExportJobCommandInput - {@link GetReadSetExportJobCommandInput}
@@ -71,6 +89,8 @@ export interface GetReadSetExportJobCommandOutput extends GetReadSetExportJobRes
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link OmicsServiceException}
+ * <p>Base exception class for all service exceptions from Omics service.</p>
  *
  */
 export class GetReadSetExportJobCommand extends $Command<

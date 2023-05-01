@@ -42,20 +42,32 @@ export interface ListAvailableResourceMetricsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PIClient, ListAvailableResourceMetricsCommand } from "@aws-sdk/client-pi"; // ES Modules import
- * // const { PIClient, ListAvailableResourceMetricsCommand } = require("@aws-sdk/client-pi"); // CommonJS import
+ * import { PIClient, ListAvailableResourceMetricsCommand } from '@aws-sdk/client-pi'; // ES Modules import
+ * // const { PIClient, ListAvailableResourceMetricsCommand } = require('@aws-sdk/client-pi'); // CommonJS import
  * const client = new PIClient(config);
  * const input = { // ListAvailableResourceMetricsRequest
- *   ServiceType: "RDS" || "DOCDB", // required
- *   Identifier: "STRING_VALUE", // required
+ *   ServiceType: 'RDS' || 'DOCDB', // required
+ *   Identifier: 'STRING_VALUE', // required
  *   MetricTypes: [ // MetricTypeList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListAvailableResourceMetricsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListAvailableResourceMetricsResponse
+ *   Metrics: [ // ResponseResourceMetricList
+ *     { // ResponseResourceMetric
+ *       Metric: 'STRING_VALUE',
+ *       Description: 'STRING_VALUE',
+ *       Unit: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListAvailableResourceMetricsCommandInput - {@link ListAvailableResourceMetricsCommandInput}
@@ -73,6 +85,8 @@ export interface ListAvailableResourceMetricsCommandOutput
  * @throws {@link NotAuthorizedException} (client fault)
  *  <p>The user is not authorized to perform this request.</p>
  *
+ * @throws {@link PIServiceException}
+ * <p>Base exception class for all service exceptions from PI service.</p>
  *
  */
 export class ListAvailableResourceMetricsCommand extends $Command<

@@ -40,14 +40,26 @@ export interface GetVoiceConnectorProxyCommandOutput extends GetVoiceConnectorPr
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeClient, GetVoiceConnectorProxyCommand } from "@aws-sdk/client-chime"; // ES Modules import
- * // const { ChimeClient, GetVoiceConnectorProxyCommand } = require("@aws-sdk/client-chime"); // CommonJS import
+ * import { ChimeClient, GetVoiceConnectorProxyCommand } from '@aws-sdk/client-chime'; // ES Modules import
+ * // const { ChimeClient, GetVoiceConnectorProxyCommand } = require('@aws-sdk/client-chime'); // CommonJS import
  * const client = new ChimeClient(config);
  * const input = { // GetVoiceConnectorProxyRequest
- *   VoiceConnectorId: "STRING_VALUE", // required
+ *   VoiceConnectorId: 'STRING_VALUE', // required
  * };
  * const command = new GetVoiceConnectorProxyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetVoiceConnectorProxyResponse
+ *   Proxy: { // Proxy
+ *     DefaultSessionExpiryMinutes: Number('int'),
+ *     Disabled: true || false,
+ *     FallBackPhoneNumber: 'STRING_VALUE',
+ *     PhoneNumberCountries: [ // StringList
+ *       'STRING_VALUE',
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetVoiceConnectorProxyCommandInput - {@link GetVoiceConnectorProxyCommandInput}
@@ -77,6 +89,8 @@ export interface GetVoiceConnectorProxyCommandOutput extends GetVoiceConnectorPr
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeServiceException}
+ * <p>Base exception class for all service exceptions from Chime service.</p>
  *
  */
 export class GetVoiceConnectorProxyCommand extends $Command<

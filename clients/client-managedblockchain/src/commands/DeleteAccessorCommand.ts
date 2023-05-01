@@ -46,14 +46,17 @@ export interface DeleteAccessorCommandOutput extends DeleteAccessorOutput, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ManagedBlockchainClient, DeleteAccessorCommand } from "@aws-sdk/client-managedblockchain"; // ES Modules import
- * // const { ManagedBlockchainClient, DeleteAccessorCommand } = require("@aws-sdk/client-managedblockchain"); // CommonJS import
+ * import { ManagedBlockchainClient, DeleteAccessorCommand } from '@aws-sdk/client-managedblockchain'; // ES Modules import
+ * // const { ManagedBlockchainClient, DeleteAccessorCommand } = require('@aws-sdk/client-managedblockchain'); // CommonJS import
  * const client = new ManagedBlockchainClient(config);
  * const input = { // DeleteAccessorInput
- *   AccessorId: "STRING_VALUE", // required
+ *   AccessorId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteAccessorCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteAccessorCommandInput - {@link DeleteAccessorCommandInput}
@@ -80,6 +83,8 @@ export interface DeleteAccessorCommandOutput extends DeleteAccessorOutput, __Met
  *          creating resources that exceed your service limit for this resource type.
  *          Request a limit increase or delete unused resources if possible.</p>
  *
+ * @throws {@link ManagedBlockchainServiceException}
+ * <p>Base exception class for all service exceptions from ManagedBlockchain service.</p>
  *
  */
 export class DeleteAccessorCommand extends $Command<

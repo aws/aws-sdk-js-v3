@@ -36,17 +36,49 @@ export interface BatchGetCommitsCommandOutput extends BatchGetCommitsOutput, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeCommitClient, BatchGetCommitsCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
- * // const { CodeCommitClient, BatchGetCommitsCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
+ * import { CodeCommitClient, BatchGetCommitsCommand } from '@aws-sdk/client-codecommit'; // ES Modules import
+ * // const { CodeCommitClient, BatchGetCommitsCommand } = require('@aws-sdk/client-codecommit'); // CommonJS import
  * const client = new CodeCommitClient(config);
  * const input = { // BatchGetCommitsInput
  *   commitIds: [ // CommitIdsInputList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   repositoryName: "STRING_VALUE", // required
+ *   repositoryName: 'STRING_VALUE', // required
  * };
  * const command = new BatchGetCommitsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BatchGetCommitsOutput
+ *   commits: [ // CommitObjectsList
+ *     { // Commit
+ *       commitId: 'STRING_VALUE',
+ *       treeId: 'STRING_VALUE',
+ *       parents: [ // ParentList
+ *         'STRING_VALUE',
+ *       ],
+ *       message: 'STRING_VALUE',
+ *       author: { // UserInfo
+ *         name: 'STRING_VALUE',
+ *         email: 'STRING_VALUE',
+ *         date: 'STRING_VALUE',
+ *       },
+ *       committer: {
+ *         name: 'STRING_VALUE',
+ *         email: 'STRING_VALUE',
+ *         date: 'STRING_VALUE',
+ *       },
+ *       additionalData: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   errors: [ // BatchGetCommitsErrorsList
+ *     { // BatchGetCommitsError
+ *       commitId: 'STRING_VALUE',
+ *       errorCode: 'STRING_VALUE',
+ *       errorMessage: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param BatchGetCommitsCommandInput - {@link BatchGetCommitsCommandInput}
@@ -91,6 +123,8 @@ export interface BatchGetCommitsCommandOutput extends BatchGetCommitsOutput, __M
  * @throws {@link RepositoryNameRequiredException} (client fault)
  *  <p>A repository name is required, but was not specified.</p>
  *
+ * @throws {@link CodeCommitServiceException}
+ * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
  */
 export class BatchGetCommitsCommand extends $Command<

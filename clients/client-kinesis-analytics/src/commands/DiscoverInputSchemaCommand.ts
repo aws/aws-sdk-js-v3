@@ -50,29 +50,66 @@ export interface DiscoverInputSchemaCommandOutput extends DiscoverInputSchemaRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KinesisAnalyticsClient, DiscoverInputSchemaCommand } from "@aws-sdk/client-kinesis-analytics"; // ES Modules import
- * // const { KinesisAnalyticsClient, DiscoverInputSchemaCommand } = require("@aws-sdk/client-kinesis-analytics"); // CommonJS import
+ * import { KinesisAnalyticsClient, DiscoverInputSchemaCommand } from '@aws-sdk/client-kinesis-analytics'; // ES Modules import
+ * // const { KinesisAnalyticsClient, DiscoverInputSchemaCommand } = require('@aws-sdk/client-kinesis-analytics'); // CommonJS import
  * const client = new KinesisAnalyticsClient(config);
  * const input = { // DiscoverInputSchemaRequest
- *   ResourceARN: "STRING_VALUE",
- *   RoleARN: "STRING_VALUE",
+ *   ResourceARN: 'STRING_VALUE',
+ *   RoleARN: 'STRING_VALUE',
  *   InputStartingPositionConfiguration: { // InputStartingPositionConfiguration
- *     InputStartingPosition: "STRING_VALUE",
+ *     InputStartingPosition: 'STRING_VALUE',
  *   },
  *   S3Configuration: { // S3Configuration
- *     RoleARN: "STRING_VALUE", // required
- *     BucketARN: "STRING_VALUE", // required
- *     FileKey: "STRING_VALUE", // required
+ *     RoleARN: 'STRING_VALUE', // required
+ *     BucketARN: 'STRING_VALUE', // required
+ *     FileKey: 'STRING_VALUE', // required
  *   },
  *   InputProcessingConfiguration: { // InputProcessingConfiguration
  *     InputLambdaProcessor: { // InputLambdaProcessor
- *       ResourceARN: "STRING_VALUE", // required
- *       RoleARN: "STRING_VALUE", // required
+ *       ResourceARN: 'STRING_VALUE', // required
+ *       RoleARN: 'STRING_VALUE', // required
  *     },
  *   },
  * };
  * const command = new DiscoverInputSchemaCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DiscoverInputSchemaResponse
+ *   InputSchema: { // SourceSchema
+ *     RecordFormat: { // RecordFormat
+ *       RecordFormatType: 'STRING_VALUE', // required
+ *       MappingParameters: { // MappingParameters
+ *         JSONMappingParameters: { // JSONMappingParameters
+ *           RecordRowPath: 'STRING_VALUE', // required
+ *         },
+ *         CSVMappingParameters: { // CSVMappingParameters
+ *           RecordRowDelimiter: 'STRING_VALUE', // required
+ *           RecordColumnDelimiter: 'STRING_VALUE', // required
+ *         },
+ *       },
+ *     },
+ *     RecordEncoding: 'STRING_VALUE',
+ *     RecordColumns: [ // RecordColumns // required
+ *       { // RecordColumn
+ *         Name: 'STRING_VALUE', // required
+ *         Mapping: 'STRING_VALUE',
+ *         SqlType: 'STRING_VALUE', // required
+ *       },
+ *     ],
+ *   },
+ *   ParsedInputRecords: [ // ParsedInputRecords
+ *     [ // ParsedInputRecord
+ *       'STRING_VALUE',
+ *     ],
+ *   ],
+ *   ProcessedInputRecords: [ // ProcessedInputRecords
+ *     'STRING_VALUE',
+ *   ],
+ *   RawInputRecords: [ // RawInputRecords
+ *     'STRING_VALUE',
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DiscoverInputSchemaCommandInput - {@link DiscoverInputSchemaCommandInput}
@@ -98,6 +135,8 @@ export interface DiscoverInputSchemaCommandOutput extends DiscoverInputSchemaRes
  *  <p>Data format is not valid. Amazon Kinesis Analytics is not able to detect schema for
  *             the given streaming source.</p>
  *
+ * @throws {@link KinesisAnalyticsServiceException}
+ * <p>Base exception class for all service exceptions from KinesisAnalytics service.</p>
  *
  */
 export class DiscoverInputSchemaCommand extends $Command<

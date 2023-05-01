@@ -38,16 +38,32 @@ export interface DescribeQueryDefinitionsCommandOutput extends DescribeQueryDefi
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudWatchLogsClient, DescribeQueryDefinitionsCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
- * // const { CloudWatchLogsClient, DescribeQueryDefinitionsCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
+ * import { CloudWatchLogsClient, DescribeQueryDefinitionsCommand } from '@aws-sdk/client-cloudwatch-logs'; // ES Modules import
+ * // const { CloudWatchLogsClient, DescribeQueryDefinitionsCommand } = require('@aws-sdk/client-cloudwatch-logs'); // CommonJS import
  * const client = new CloudWatchLogsClient(config);
  * const input = { // DescribeQueryDefinitionsRequest
- *   queryDefinitionNamePrefix: "STRING_VALUE",
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   queryDefinitionNamePrefix: 'STRING_VALUE',
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new DescribeQueryDefinitionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeQueryDefinitionsResponse
+ *   queryDefinitions: [ // QueryDefinitionList
+ *     { // QueryDefinition
+ *       queryDefinitionId: 'STRING_VALUE',
+ *       name: 'STRING_VALUE',
+ *       queryString: 'STRING_VALUE',
+ *       lastModified: Number('long'),
+ *       logGroupNames: [ // LogGroupNames
+ *         'STRING_VALUE',
+ *       ],
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeQueryDefinitionsCommandInput - {@link DescribeQueryDefinitionsCommandInput}
@@ -62,6 +78,8 @@ export interface DescribeQueryDefinitionsCommandOutput extends DescribeQueryDefi
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service cannot complete the request.</p>
  *
+ * @throws {@link CloudWatchLogsServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
  */
 export class DescribeQueryDefinitionsCommand extends $Command<

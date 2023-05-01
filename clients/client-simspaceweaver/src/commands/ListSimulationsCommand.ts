@@ -36,15 +36,29 @@ export interface ListSimulationsCommandOutput extends ListSimulationsOutput, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SimSpaceWeaverClient, ListSimulationsCommand } from "@aws-sdk/client-simspaceweaver"; // ES Modules import
- * // const { SimSpaceWeaverClient, ListSimulationsCommand } = require("@aws-sdk/client-simspaceweaver"); // CommonJS import
+ * import { SimSpaceWeaverClient, ListSimulationsCommand } from '@aws-sdk/client-simspaceweaver'; // ES Modules import
+ * // const { SimSpaceWeaverClient, ListSimulationsCommand } = require('@aws-sdk/client-simspaceweaver'); // CommonJS import
  * const client = new SimSpaceWeaverClient(config);
  * const input = { // ListSimulationsInput
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListSimulationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListSimulationsOutput
+ *   Simulations: [ // SimulationList
+ *     { // SimulationMetadata
+ *       Name: 'STRING_VALUE',
+ *       Arn: 'STRING_VALUE',
+ *       CreationTime: new Date('TIMESTAMP'),
+ *       Status: 'STRING_VALUE',
+ *       TargetStatus: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListSimulationsCommandInput - {@link ListSimulationsCommandInput}
@@ -62,6 +76,8 @@ export interface ListSimulationsCommandOutput extends ListSimulationsOutput, __M
  * @throws {@link ValidationException} (client fault)
  *  <p/>
  *
+ * @throws {@link SimSpaceWeaverServiceException}
+ * <p>Base exception class for all service exceptions from SimSpaceWeaver service.</p>
  *
  */
 export class ListSimulationsCommand extends $Command<

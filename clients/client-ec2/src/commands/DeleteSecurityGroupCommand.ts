@@ -43,16 +43,19 @@ export interface DeleteSecurityGroupCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, DeleteSecurityGroupCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, DeleteSecurityGroupCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, DeleteSecurityGroupCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, DeleteSecurityGroupCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // DeleteSecurityGroupRequest
- *   GroupId: "STRING_VALUE",
- *   GroupName: "STRING_VALUE",
+ *   GroupId: 'STRING_VALUE',
+ *   GroupName: 'STRING_VALUE',
  *   DryRun: true || false,
  * };
  * const command = new DeleteSecurityGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteSecurityGroupCommandInput - {@link DeleteSecurityGroupCommandInput}
@@ -61,6 +64,8 @@ export interface DeleteSecurityGroupCommandOutput extends __MetadataBearer {}
  * @see {@link DeleteSecurityGroupCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @example To delete a security group
  * ```javascript

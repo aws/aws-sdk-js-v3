@@ -40,18 +40,21 @@ export interface CreatePlacementCommandOutput extends CreatePlacementResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoT1ClickProjectsClient, CreatePlacementCommand } from "@aws-sdk/client-iot-1click-projects"; // ES Modules import
- * // const { IoT1ClickProjectsClient, CreatePlacementCommand } = require("@aws-sdk/client-iot-1click-projects"); // CommonJS import
+ * import { IoT1ClickProjectsClient, CreatePlacementCommand } from '@aws-sdk/client-iot-1click-projects'; // ES Modules import
+ * // const { IoT1ClickProjectsClient, CreatePlacementCommand } = require('@aws-sdk/client-iot-1click-projects'); // CommonJS import
  * const client = new IoT1ClickProjectsClient(config);
  * const input = { // CreatePlacementRequest
- *   placementName: "STRING_VALUE", // required
- *   projectName: "STRING_VALUE", // required
+ *   placementName: 'STRING_VALUE', // required
+ *   projectName: 'STRING_VALUE', // required
  *   attributes: { // PlacementAttributeMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new CreatePlacementCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param CreatePlacementCommandInput - {@link CreatePlacementCommandInput}
@@ -72,6 +75,8 @@ export interface CreatePlacementCommandOutput extends CreatePlacementResponse, _
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p></p>
  *
+ * @throws {@link IoT1ClickProjectsServiceException}
+ * <p>Base exception class for all service exceptions from IoT1ClickProjects service.</p>
  *
  */
 export class CreatePlacementCommand extends $Command<

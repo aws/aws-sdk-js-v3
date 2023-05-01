@@ -36,19 +36,24 @@ export interface CopyFpgaImageCommandOutput extends CopyFpgaImageResult, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, CopyFpgaImageCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, CopyFpgaImageCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, CopyFpgaImageCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, CopyFpgaImageCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // CopyFpgaImageRequest
  *   DryRun: true || false,
- *   SourceFpgaImageId: "STRING_VALUE", // required
- *   Description: "STRING_VALUE",
- *   Name: "STRING_VALUE",
- *   SourceRegion: "STRING_VALUE", // required
- *   ClientToken: "STRING_VALUE",
+ *   SourceFpgaImageId: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE',
+ *   Name: 'STRING_VALUE',
+ *   SourceRegion: 'STRING_VALUE', // required
+ *   ClientToken: 'STRING_VALUE',
  * };
  * const command = new CopyFpgaImageCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CopyFpgaImageResult
+ *   FpgaImageId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CopyFpgaImageCommandInput - {@link CopyFpgaImageCommandInput}
@@ -57,6 +62,8 @@ export interface CopyFpgaImageCommandOutput extends CopyFpgaImageResult, __Metad
  * @see {@link CopyFpgaImageCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class CopyFpgaImageCommand extends $Command<

@@ -36,21 +36,40 @@ export interface GetTableObjectsCommandOutput extends GetTableObjectsResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LakeFormationClient, GetTableObjectsCommand } from "@aws-sdk/client-lakeformation"; // ES Modules import
- * // const { LakeFormationClient, GetTableObjectsCommand } = require("@aws-sdk/client-lakeformation"); // CommonJS import
+ * import { LakeFormationClient, GetTableObjectsCommand } from '@aws-sdk/client-lakeformation'; // ES Modules import
+ * // const { LakeFormationClient, GetTableObjectsCommand } = require('@aws-sdk/client-lakeformation'); // CommonJS import
  * const client = new LakeFormationClient(config);
  * const input = { // GetTableObjectsRequest
- *   CatalogId: "STRING_VALUE",
- *   DatabaseName: "STRING_VALUE", // required
- *   TableName: "STRING_VALUE", // required
- *   TransactionId: "STRING_VALUE",
- *   QueryAsOfTime: new Date("TIMESTAMP"),
- *   PartitionPredicate: "STRING_VALUE",
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   CatalogId: 'STRING_VALUE',
+ *   DatabaseName: 'STRING_VALUE', // required
+ *   TableName: 'STRING_VALUE', // required
+ *   TransactionId: 'STRING_VALUE',
+ *   QueryAsOfTime: new Date('TIMESTAMP'),
+ *   PartitionPredicate: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new GetTableObjectsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetTableObjectsResponse
+ *   Objects: [ // PartitionedTableObjectsList
+ *     { // PartitionObjects
+ *       PartitionValues: [ // PartitionValuesList
+ *         'STRING_VALUE',
+ *       ],
+ *       Objects: [ // TableObjectList
+ *         { // TableObject
+ *           Uri: 'STRING_VALUE',
+ *           ETag: 'STRING_VALUE',
+ *           Size: Number('long'),
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetTableObjectsCommandInput - {@link GetTableObjectsCommandInput}
@@ -80,6 +99,8 @@ export interface GetTableObjectsCommandOutput extends GetTableObjectsResponse, _
  * @throws {@link TransactionCommittedException} (client fault)
  *  <p>Contains details about an error where the specified transaction has already been committed and cannot be used for <code>UpdateTableObjects</code>.</p>
  *
+ * @throws {@link LakeFormationServiceException}
+ * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
  */
 export class GetTableObjectsCommand extends $Command<

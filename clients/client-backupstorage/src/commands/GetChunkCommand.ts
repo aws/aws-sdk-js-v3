@@ -39,15 +39,23 @@ export interface GetChunkCommandOutput extends __WithSdkStreamMixin<GetChunkOutp
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BackupStorageClient, GetChunkCommand } from "@aws-sdk/client-backupstorage"; // ES Modules import
- * // const { BackupStorageClient, GetChunkCommand } = require("@aws-sdk/client-backupstorage"); // CommonJS import
+ * import { BackupStorageClient, GetChunkCommand } from '@aws-sdk/client-backupstorage'; // ES Modules import
+ * // const { BackupStorageClient, GetChunkCommand } = require('@aws-sdk/client-backupstorage'); // CommonJS import
  * const client = new BackupStorageClient(config);
  * const input = { // GetChunkInput
- *   StorageJobId: "STRING_VALUE", // required
- *   ChunkToken: "STRING_VALUE", // required
+ *   StorageJobId: 'STRING_VALUE', // required
+ *   ChunkToken: 'STRING_VALUE', // required
  * };
  * const command = new GetChunkCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetChunkOutput
+ *   Data: 'STREAMING_BLOB_VALUE', // required
+ *   Length: Number('long'), // required
+ *   Checksum: 'STRING_VALUE', // required
+ *   ChecksumAlgorithm: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param GetChunkCommandInput - {@link GetChunkCommandInput}
@@ -77,6 +85,8 @@ export interface GetChunkCommandOutput extends __WithSdkStreamMixin<GetChunkOutp
  * @throws {@link ThrottlingException} (client fault)
  *  Increased rate over throttling limits. Can be retried with exponential backoff.
  *
+ * @throws {@link BackupStorageServiceException}
+ * <p>Base exception class for all service exceptions from BackupStorage service.</p>
  *
  */
 export class GetChunkCommand extends $Command<

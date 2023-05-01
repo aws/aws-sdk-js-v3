@@ -44,15 +44,18 @@ export interface DeleteScheduleGroupCommandOutput extends DeleteScheduleGroupOut
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SchedulerClient, DeleteScheduleGroupCommand } from "@aws-sdk/client-scheduler"; // ES Modules import
- * // const { SchedulerClient, DeleteScheduleGroupCommand } = require("@aws-sdk/client-scheduler"); // CommonJS import
+ * import { SchedulerClient, DeleteScheduleGroupCommand } from '@aws-sdk/client-scheduler'; // ES Modules import
+ * // const { SchedulerClient, DeleteScheduleGroupCommand } = require('@aws-sdk/client-scheduler'); // CommonJS import
  * const client = new SchedulerClient(config);
  * const input = { // DeleteScheduleGroupInput
- *   Name: "STRING_VALUE", // required
- *   ClientToken: "STRING_VALUE",
+ *   Name: 'STRING_VALUE', // required
+ *   ClientToken: 'STRING_VALUE',
  * };
  * const command = new DeleteScheduleGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteScheduleGroupCommandInput - {@link DeleteScheduleGroupCommandInput}
@@ -76,6 +79,8 @@ export interface DeleteScheduleGroupCommandOutput extends DeleteScheduleGroupOut
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link SchedulerServiceException}
+ * <p>Base exception class for all service exceptions from Scheduler service.</p>
  *
  */
 export class DeleteScheduleGroupCommand extends $Command<

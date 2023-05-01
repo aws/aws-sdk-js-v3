@@ -36,15 +36,92 @@ export interface GetInAppTemplateCommandOutput extends GetInAppTemplateResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PinpointClient, GetInAppTemplateCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
- * // const { PinpointClient, GetInAppTemplateCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
+ * import { PinpointClient, GetInAppTemplateCommand } from '@aws-sdk/client-pinpoint'; // ES Modules import
+ * // const { PinpointClient, GetInAppTemplateCommand } = require('@aws-sdk/client-pinpoint'); // CommonJS import
  * const client = new PinpointClient(config);
  * const input = { // GetInAppTemplateRequest
- *   TemplateName: "STRING_VALUE", // required
- *   Version: "STRING_VALUE",
+ *   TemplateName: 'STRING_VALUE', // required
+ *   Version: 'STRING_VALUE',
  * };
  * const command = new GetInAppTemplateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetInAppTemplateResponse
+ *   InAppTemplateResponse: { // InAppTemplateResponse
+ *     Arn: 'STRING_VALUE',
+ *     Content: [ // ListOfInAppMessageContent
+ *       { // InAppMessageContent
+ *         BackgroundColor: 'STRING_VALUE',
+ *         BodyConfig: { // InAppMessageBodyConfig
+ *           Alignment: 'LEFT' || 'CENTER' || 'RIGHT', // required
+ *           Body: 'STRING_VALUE', // required
+ *           TextColor: 'STRING_VALUE', // required
+ *         },
+ *         HeaderConfig: { // InAppMessageHeaderConfig
+ *           Alignment: 'LEFT' || 'CENTER' || 'RIGHT', // required
+ *           Header: 'STRING_VALUE', // required
+ *           TextColor: 'STRING_VALUE', // required
+ *         },
+ *         ImageUrl: 'STRING_VALUE',
+ *         PrimaryBtn: { // InAppMessageButton
+ *           Android: { // OverrideButtonConfiguration
+ *             ButtonAction: 'LINK' || 'DEEP_LINK' || 'CLOSE', // required
+ *             Link: 'STRING_VALUE',
+ *           },
+ *           DefaultConfig: { // DefaultButtonConfiguration
+ *             BackgroundColor: 'STRING_VALUE',
+ *             BorderRadius: Number('int'),
+ *             ButtonAction: 'LINK' || 'DEEP_LINK' || 'CLOSE', // required
+ *             Link: 'STRING_VALUE',
+ *             Text: 'STRING_VALUE', // required
+ *             TextColor: 'STRING_VALUE',
+ *           },
+ *           IOS: {
+ *             ButtonAction: 'LINK' || 'DEEP_LINK' || 'CLOSE', // required
+ *             Link: 'STRING_VALUE',
+ *           },
+ *           Web: {
+ *             ButtonAction: 'LINK' || 'DEEP_LINK' || 'CLOSE', // required
+ *             Link: 'STRING_VALUE',
+ *           },
+ *         },
+ *         SecondaryBtn: {
+ *           Android: {
+ *             ButtonAction: 'LINK' || 'DEEP_LINK' || 'CLOSE', // required
+ *             Link: 'STRING_VALUE',
+ *           },
+ *           DefaultConfig: {
+ *             BackgroundColor: 'STRING_VALUE',
+ *             BorderRadius: Number('int'),
+ *             ButtonAction: 'LINK' || 'DEEP_LINK' || 'CLOSE', // required
+ *             Link: 'STRING_VALUE',
+ *             Text: 'STRING_VALUE', // required
+ *             TextColor: 'STRING_VALUE',
+ *           },
+ *           IOS: {
+ *             ButtonAction: 'LINK' || 'DEEP_LINK' || 'CLOSE', // required
+ *             Link: 'STRING_VALUE',
+ *           },
+ *           Web: '<OverrideButtonConfiguration>',
+ *         },
+ *       },
+ *     ],
+ *     CreationDate: 'STRING_VALUE', // required
+ *     CustomConfig: { // MapOf__string
+ *       '<keys>': 'STRING_VALUE',
+ *     },
+ *     LastModifiedDate: 'STRING_VALUE', // required
+ *     Layout: 'BOTTOM_BANNER' || 'TOP_BANNER' || 'OVERLAYS' || 'MOBILE_FEED' || 'MIDDLE_BANNER' || 'CAROUSEL',
+ *     tags: {
+ *       '<keys>': 'STRING_VALUE',
+ *     },
+ *     TemplateDescription: 'STRING_VALUE',
+ *     TemplateName: 'STRING_VALUE', // required
+ *     TemplateType: 'EMAIL' || 'SMS' || 'VOICE' || 'PUSH' || 'INAPP', // required
+ *     Version: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetInAppTemplateCommandInput - {@link GetInAppTemplateCommandInput}
@@ -74,6 +151,8 @@ export interface GetInAppTemplateCommandOutput extends GetInAppTemplateResponse,
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Provides information about an API request or response.</p>
  *
+ * @throws {@link PinpointServiceException}
+ * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
  */
 export class GetInAppTemplateCommand extends $Command<

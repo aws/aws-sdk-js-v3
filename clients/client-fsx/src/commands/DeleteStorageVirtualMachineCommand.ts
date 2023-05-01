@@ -39,15 +39,21 @@ export interface DeleteStorageVirtualMachineCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FSxClient, DeleteStorageVirtualMachineCommand } from "@aws-sdk/client-fsx"; // ES Modules import
- * // const { FSxClient, DeleteStorageVirtualMachineCommand } = require("@aws-sdk/client-fsx"); // CommonJS import
+ * import { FSxClient, DeleteStorageVirtualMachineCommand } from '@aws-sdk/client-fsx'; // ES Modules import
+ * // const { FSxClient, DeleteStorageVirtualMachineCommand } = require('@aws-sdk/client-fsx'); // CommonJS import
  * const client = new FSxClient(config);
  * const input = { // DeleteStorageVirtualMachineRequest
- *   ClientRequestToken: "STRING_VALUE",
- *   StorageVirtualMachineId: "STRING_VALUE", // required
+ *   ClientRequestToken: 'STRING_VALUE',
+ *   StorageVirtualMachineId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteStorageVirtualMachineCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteStorageVirtualMachineResponse
+ *   StorageVirtualMachineId: 'STRING_VALUE',
+ *   Lifecycle: 'CREATED' || 'CREATING' || 'DELETING' || 'FAILED' || 'MISCONFIGURED' || 'PENDING',
+ * };
+ *
  * ```
  *
  * @param DeleteStorageVirtualMachineCommandInput - {@link DeleteStorageVirtualMachineCommandInput}
@@ -70,6 +76,8 @@ export interface DeleteStorageVirtualMachineCommandOutput
  * @throws {@link StorageVirtualMachineNotFound} (client fault)
  *  <p>No FSx for ONTAP SVMs were found based upon the supplied parameters.</p>
  *
+ * @throws {@link FSxServiceException}
+ * <p>Base exception class for all service exceptions from FSx service.</p>
  *
  */
 export class DeleteStorageVirtualMachineCommand extends $Command<

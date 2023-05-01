@@ -45,15 +45,21 @@ export interface ConfigureLogsForPlaybackConfigurationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MediaTailorClient, ConfigureLogsForPlaybackConfigurationCommand } from "@aws-sdk/client-mediatailor"; // ES Modules import
- * // const { MediaTailorClient, ConfigureLogsForPlaybackConfigurationCommand } = require("@aws-sdk/client-mediatailor"); // CommonJS import
+ * import { MediaTailorClient, ConfigureLogsForPlaybackConfigurationCommand } from '@aws-sdk/client-mediatailor'; // ES Modules import
+ * // const { MediaTailorClient, ConfigureLogsForPlaybackConfigurationCommand } = require('@aws-sdk/client-mediatailor'); // CommonJS import
  * const client = new MediaTailorClient(config);
  * const input = { // ConfigureLogsForPlaybackConfigurationRequest
- *   PercentEnabled: Number("int"), // required
- *   PlaybackConfigurationName: "STRING_VALUE", // required
+ *   PercentEnabled: Number('int'), // required
+ *   PlaybackConfigurationName: 'STRING_VALUE', // required
  * };
  * const command = new ConfigureLogsForPlaybackConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ConfigureLogsForPlaybackConfigurationResponse
+ *   PercentEnabled: Number('int'), // required
+ *   PlaybackConfigurationName: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ConfigureLogsForPlaybackConfigurationCommandInput - {@link ConfigureLogsForPlaybackConfigurationCommandInput}
@@ -62,6 +68,8 @@ export interface ConfigureLogsForPlaybackConfigurationCommandOutput
  * @see {@link ConfigureLogsForPlaybackConfigurationCommandOutput} for command's `response` shape.
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.
  *
+ * @throws {@link MediaTailorServiceException}
+ * <p>Base exception class for all service exceptions from MediaTailor service.</p>
  *
  */
 export class ConfigureLogsForPlaybackConfigurationCommand extends $Command<

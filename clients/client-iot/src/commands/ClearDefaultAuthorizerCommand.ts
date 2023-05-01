@@ -37,12 +37,15 @@ export interface ClearDefaultAuthorizerCommandOutput extends ClearDefaultAuthori
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTClient, ClearDefaultAuthorizerCommand } from "@aws-sdk/client-iot"; // ES Modules import
- * // const { IoTClient, ClearDefaultAuthorizerCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * import { IoTClient, ClearDefaultAuthorizerCommand } from '@aws-sdk/client-iot'; // ES Modules import
+ * // const { IoTClient, ClearDefaultAuthorizerCommand } = require('@aws-sdk/client-iot'); // CommonJS import
  * const client = new IoTClient(config);
  * const input = {};
  * const command = new ClearDefaultAuthorizerCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param ClearDefaultAuthorizerCommandInput - {@link ClearDefaultAuthorizerCommandInput}
@@ -69,6 +72,8 @@ export interface ClearDefaultAuthorizerCommandOutput extends ClearDefaultAuthori
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this operation.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class ClearDefaultAuthorizerCommand extends $Command<

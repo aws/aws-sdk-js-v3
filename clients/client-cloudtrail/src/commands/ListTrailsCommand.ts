@@ -36,14 +36,26 @@ export interface ListTrailsCommandOutput extends ListTrailsResponse, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudTrailClient, ListTrailsCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
- * // const { CloudTrailClient, ListTrailsCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
+ * import { CloudTrailClient, ListTrailsCommand } from '@aws-sdk/client-cloudtrail'; // ES Modules import
+ * // const { CloudTrailClient, ListTrailsCommand } = require('@aws-sdk/client-cloudtrail'); // CommonJS import
  * const client = new CloudTrailClient(config);
  * const input = { // ListTrailsRequest
- *   NextToken: "STRING_VALUE",
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListTrailsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTrailsResponse
+ *   Trails: [ // Trails
+ *     { // TrailInfo
+ *       TrailARN: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *       HomeRegion: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListTrailsCommandInput - {@link ListTrailsCommandInput}
@@ -58,6 +70,8 @@ export interface ListTrailsCommandOutput extends ListTrailsResponse, __MetadataB
  * @throws {@link UnsupportedOperationException} (client fault)
  *  <p>This exception is thrown when the requested operation is not supported.</p>
  *
+ * @throws {@link CloudTrailServiceException}
+ * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
  */
 export class ListTrailsCommand extends $Command<

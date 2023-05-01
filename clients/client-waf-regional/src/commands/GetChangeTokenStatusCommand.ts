@@ -60,14 +60,19 @@ export interface GetChangeTokenStatusCommandOutput extends GetChangeTokenStatusR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WAFRegionalClient, GetChangeTokenStatusCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
- * // const { WAFRegionalClient, GetChangeTokenStatusCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import
+ * import { WAFRegionalClient, GetChangeTokenStatusCommand } from '@aws-sdk/client-waf-regional'; // ES Modules import
+ * // const { WAFRegionalClient, GetChangeTokenStatusCommand } = require('@aws-sdk/client-waf-regional'); // CommonJS import
  * const client = new WAFRegionalClient(config);
  * const input = { // GetChangeTokenStatusRequest
- *   ChangeToken: "STRING_VALUE", // required
+ *   ChangeToken: 'STRING_VALUE', // required
  * };
  * const command = new GetChangeTokenStatusCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetChangeTokenStatusResponse
+ *   ChangeTokenStatus: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetChangeTokenStatusCommandInput - {@link GetChangeTokenStatusCommandInput}
@@ -82,6 +87,8 @@ export interface GetChangeTokenStatusCommandOutput extends GetChangeTokenStatusR
  * @throws {@link WAFNonexistentItemException} (client fault)
  *  <p>The operation failed because the referenced object doesn't exist.</p>
  *
+ * @throws {@link WAFRegionalServiceException}
+ * <p>Base exception class for all service exceptions from WAFRegional service.</p>
  *
  * @example To get the change token status
  * ```javascript

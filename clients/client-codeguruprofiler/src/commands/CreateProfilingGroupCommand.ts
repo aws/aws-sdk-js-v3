@@ -36,22 +36,47 @@ export interface CreateProfilingGroupCommandOutput extends CreateProfilingGroupR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeGuruProfilerClient, CreateProfilingGroupCommand } from "@aws-sdk/client-codeguruprofiler"; // ES Modules import
- * // const { CodeGuruProfilerClient, CreateProfilingGroupCommand } = require("@aws-sdk/client-codeguruprofiler"); // CommonJS import
+ * import { CodeGuruProfilerClient, CreateProfilingGroupCommand } from '@aws-sdk/client-codeguruprofiler'; // ES Modules import
+ * // const { CodeGuruProfilerClient, CreateProfilingGroupCommand } = require('@aws-sdk/client-codeguruprofiler'); // CommonJS import
  * const client = new CodeGuruProfilerClient(config);
  * const input = { // CreateProfilingGroupRequest
- *   profilingGroupName: "STRING_VALUE", // required
- *   computePlatform: "STRING_VALUE",
- *   clientToken: "STRING_VALUE", // required
+ *   profilingGroupName: 'STRING_VALUE', // required
+ *   computePlatform: 'STRING_VALUE',
+ *   clientToken: 'STRING_VALUE', // required
  *   agentOrchestrationConfig: { // AgentOrchestrationConfig
  *     profilingEnabled: true || false, // required
  *   },
  *   tags: { // TagsMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateProfilingGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateProfilingGroupResponse
+ *   profilingGroup: { // ProfilingGroupDescription
+ *     name: 'STRING_VALUE',
+ *     agentOrchestrationConfig: { // AgentOrchestrationConfig
+ *       profilingEnabled: true || false, // required
+ *     },
+ *     arn: 'STRING_VALUE',
+ *     createdAt: new Date('TIMESTAMP'),
+ *     updatedAt: new Date('TIMESTAMP'),
+ *     profilingStatus: { // ProfilingStatus
+ *       latestAgentProfileReportedAt: new Date('TIMESTAMP'),
+ *       latestAggregatedProfile: { // AggregatedProfileTime
+ *         start: new Date('TIMESTAMP'),
+ *         period: 'STRING_VALUE',
+ *       },
+ *       latestAgentOrchestratedAt: new Date('TIMESTAMP'),
+ *     },
+ *     computePlatform: 'STRING_VALUE',
+ *     tags: { // TagsMap
+ *       '<keys>': 'STRING_VALUE',
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateProfilingGroupCommandInput - {@link CreateProfilingGroupCommandInput}
@@ -81,6 +106,8 @@ export interface CreateProfilingGroupCommandOutput extends CreateProfilingGroupR
  * @throws {@link ValidationException} (client fault)
  *  <p>The parameter is not valid.</p>
  *
+ * @throws {@link CodeGuruProfilerServiceException}
+ * <p>Base exception class for all service exceptions from CodeGuruProfiler service.</p>
  *
  */
 export class CreateProfilingGroupCommand extends $Command<

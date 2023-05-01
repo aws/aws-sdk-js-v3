@@ -36,16 +36,27 @@ export interface CreateDomainNameCommandOutput extends CreateDomainNameResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppSyncClient, CreateDomainNameCommand } from "@aws-sdk/client-appsync"; // ES Modules import
- * // const { AppSyncClient, CreateDomainNameCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
+ * import { AppSyncClient, CreateDomainNameCommand } from '@aws-sdk/client-appsync'; // ES Modules import
+ * // const { AppSyncClient, CreateDomainNameCommand } = require('@aws-sdk/client-appsync'); // CommonJS import
  * const client = new AppSyncClient(config);
  * const input = { // CreateDomainNameRequest
- *   domainName: "STRING_VALUE", // required
- *   certificateArn: "STRING_VALUE", // required
- *   description: "STRING_VALUE",
+ *   domainName: 'STRING_VALUE', // required
+ *   certificateArn: 'STRING_VALUE', // required
+ *   description: 'STRING_VALUE',
  * };
  * const command = new CreateDomainNameCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateDomainNameResponse
+ *   domainNameConfig: { // DomainNameConfig
+ *     domainName: 'STRING_VALUE',
+ *     description: 'STRING_VALUE',
+ *     certificateArn: 'STRING_VALUE',
+ *     appsyncDomainName: 'STRING_VALUE',
+ *     hostedZoneId: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateDomainNameCommandInput - {@link CreateDomainNameCommandInput}
@@ -64,6 +75,8 @@ export interface CreateDomainNameCommandOutput extends CreateDomainNameResponse,
  * @throws {@link InternalFailureException} (server fault)
  *  <p>An internal AppSync error occurred. Try your request again.</p>
  *
+ * @throws {@link AppSyncServiceException}
+ * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
  */
 export class CreateDomainNameCommand extends $Command<

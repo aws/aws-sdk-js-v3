@@ -38,18 +38,23 @@ export interface GetIdCommandOutput extends GetIdResponse, __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CognitoIdentityClient, GetIdCommand } from "@aws-sdk/client-cognito-identity"; // ES Modules import
- * // const { CognitoIdentityClient, GetIdCommand } = require("@aws-sdk/client-cognito-identity"); // CommonJS import
+ * import { CognitoIdentityClient, GetIdCommand } from '@aws-sdk/client-cognito-identity'; // ES Modules import
+ * // const { CognitoIdentityClient, GetIdCommand } = require('@aws-sdk/client-cognito-identity'); // CommonJS import
  * const client = new CognitoIdentityClient(config);
  * const input = { // GetIdInput
- *   AccountId: "STRING_VALUE",
- *   IdentityPoolId: "STRING_VALUE", // required
+ *   AccountId: 'STRING_VALUE',
+ *   IdentityPoolId: 'STRING_VALUE', // required
  *   Logins: { // LoginsMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new GetIdCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetIdResponse
+ *   IdentityId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetIdCommandInput - {@link GetIdCommandInput}
@@ -85,6 +90,8 @@ export interface GetIdCommandOutput extends GetIdResponse, __MetadataBearer {}
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Thrown when a request is throttled.</p>
  *
+ * @throws {@link CognitoIdentityServiceException}
+ * <p>Base exception class for all service exceptions from CognitoIdentity service.</p>
  *
  */
 export class GetIdCommand extends $Command<GetIdCommandInput, GetIdCommandOutput, CognitoIdentityClientResolvedConfig> {

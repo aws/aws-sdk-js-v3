@@ -36,14 +36,25 @@ export interface GetSiteCommandOutput extends GetSiteResponse, __MetadataBearer 
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTRoboRunnerClient, GetSiteCommand } from "@aws-sdk/client-iot-roborunner"; // ES Modules import
- * // const { IoTRoboRunnerClient, GetSiteCommand } = require("@aws-sdk/client-iot-roborunner"); // CommonJS import
+ * import { IoTRoboRunnerClient, GetSiteCommand } from '@aws-sdk/client-iot-roborunner'; // ES Modules import
+ * // const { IoTRoboRunnerClient, GetSiteCommand } = require('@aws-sdk/client-iot-roborunner'); // CommonJS import
  * const client = new IoTRoboRunnerClient(config);
  * const input = { // GetSiteRequest
- *   id: "STRING_VALUE", // required
+ *   id: 'STRING_VALUE', // required
  * };
  * const command = new GetSiteCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetSiteResponse
+ *   arn: 'STRING_VALUE', // required
+ *   id: 'STRING_VALUE', // required
+ *   name: 'STRING_VALUE', // required
+ *   countryCode: 'STRING_VALUE', // required
+ *   description: 'STRING_VALUE',
+ *   createdAt: new Date('TIMESTAMP'), // required
+ *   updatedAt: new Date('TIMESTAMP'), // required
+ * };
+ *
  * ```
  *
  * @param GetSiteCommandInput - {@link GetSiteCommandInput}
@@ -67,6 +78,8 @@ export interface GetSiteCommandOutput extends GetSiteResponse, __MetadataBearer 
  * @throws {@link ValidationException} (client fault)
  *  Exception thrown if an invalid parameter is provided to an API.
  *
+ * @throws {@link IoTRoboRunnerServiceException}
+ * <p>Base exception class for all service exceptions from IoTRoboRunner service.</p>
  *
  */
 export class GetSiteCommand extends $Command<

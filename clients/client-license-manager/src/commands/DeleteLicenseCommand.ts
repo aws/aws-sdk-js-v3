@@ -36,15 +36,21 @@ export interface DeleteLicenseCommandOutput extends DeleteLicenseResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LicenseManagerClient, DeleteLicenseCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
- * // const { LicenseManagerClient, DeleteLicenseCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
+ * import { LicenseManagerClient, DeleteLicenseCommand } from '@aws-sdk/client-license-manager'; // ES Modules import
+ * // const { LicenseManagerClient, DeleteLicenseCommand } = require('@aws-sdk/client-license-manager'); // CommonJS import
  * const client = new LicenseManagerClient(config);
  * const input = { // DeleteLicenseRequest
- *   LicenseArn: "STRING_VALUE", // required
- *   SourceVersion: "STRING_VALUE", // required
+ *   LicenseArn: 'STRING_VALUE', // required
+ *   SourceVersion: 'STRING_VALUE', // required
  * };
  * const command = new DeleteLicenseCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteLicenseResponse
+ *   Status: 'PENDING_DELETE' || 'DELETED',
+ *   DeletionDate: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DeleteLicenseCommandInput - {@link DeleteLicenseCommandInput}
@@ -78,6 +84,8 @@ export interface DeleteLicenseCommandOutput extends DeleteLicenseResponse, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>The provided input is not valid. Try your request again.</p>
  *
+ * @throws {@link LicenseManagerServiceException}
+ * <p>Base exception class for all service exceptions from LicenseManager service.</p>
  *
  */
 export class DeleteLicenseCommand extends $Command<

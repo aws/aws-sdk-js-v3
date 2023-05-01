@@ -36,15 +36,45 @@ export interface GetDetectorVersionCommandOutput extends GetDetectorVersionResul
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FraudDetectorClient, GetDetectorVersionCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
- * // const { FraudDetectorClient, GetDetectorVersionCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
+ * import { FraudDetectorClient, GetDetectorVersionCommand } from '@aws-sdk/client-frauddetector'; // ES Modules import
+ * // const { FraudDetectorClient, GetDetectorVersionCommand } = require('@aws-sdk/client-frauddetector'); // CommonJS import
  * const client = new FraudDetectorClient(config);
  * const input = { // GetDetectorVersionRequest
- *   detectorId: "STRING_VALUE", // required
- *   detectorVersionId: "STRING_VALUE", // required
+ *   detectorId: 'STRING_VALUE', // required
+ *   detectorVersionId: 'STRING_VALUE', // required
  * };
  * const command = new GetDetectorVersionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetDetectorVersionResult
+ *   detectorId: 'STRING_VALUE',
+ *   detectorVersionId: 'STRING_VALUE',
+ *   description: 'STRING_VALUE',
+ *   externalModelEndpoints: [ // ListOfStrings
+ *     'STRING_VALUE',
+ *   ],
+ *   modelVersions: [ // ListOfModelVersions
+ *     { // ModelVersion
+ *       modelId: 'STRING_VALUE', // required
+ *       modelType: 'ONLINE_FRAUD_INSIGHTS' || 'TRANSACTION_FRAUD_INSIGHTS' || 'ACCOUNT_TAKEOVER_INSIGHTS', // required
+ *       modelVersionNumber: 'STRING_VALUE', // required
+ *       arn: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   rules: [ // RuleList
+ *     { // Rule
+ *       detectorId: 'STRING_VALUE', // required
+ *       ruleId: 'STRING_VALUE', // required
+ *       ruleVersion: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ *   status: 'DRAFT' || 'ACTIVE' || 'INACTIVE',
+ *   lastUpdatedTime: 'STRING_VALUE',
+ *   createdTime: 'STRING_VALUE',
+ *   ruleExecutionMode: 'ALL_MATCHED' || 'FIRST_MATCHED',
+ *   arn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetDetectorVersionCommandInput - {@link GetDetectorVersionCommandInput}
@@ -68,6 +98,8 @@ export interface GetDetectorVersionCommandOutput extends GetDetectorVersionResul
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception indicating a specified value is not allowed.</p>
  *
+ * @throws {@link FraudDetectorServiceException}
+ * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
  */
 export class GetDetectorVersionCommand extends $Command<

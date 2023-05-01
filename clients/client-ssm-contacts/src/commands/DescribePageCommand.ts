@@ -36,14 +36,30 @@ export interface DescribePageCommandOutput extends DescribePageResult, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMContactsClient, DescribePageCommand } from "@aws-sdk/client-ssm-contacts"; // ES Modules import
- * // const { SSMContactsClient, DescribePageCommand } = require("@aws-sdk/client-ssm-contacts"); // CommonJS import
+ * import { SSMContactsClient, DescribePageCommand } from '@aws-sdk/client-ssm-contacts'; // ES Modules import
+ * // const { SSMContactsClient, DescribePageCommand } = require('@aws-sdk/client-ssm-contacts'); // CommonJS import
  * const client = new SSMContactsClient(config);
  * const input = { // DescribePageRequest
- *   PageId: "STRING_VALUE", // required
+ *   PageId: 'STRING_VALUE', // required
  * };
  * const command = new DescribePageCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribePageResult
+ *   PageArn: 'STRING_VALUE', // required
+ *   EngagementArn: 'STRING_VALUE', // required
+ *   ContactArn: 'STRING_VALUE', // required
+ *   Sender: 'STRING_VALUE', // required
+ *   Subject: 'STRING_VALUE', // required
+ *   Content: 'STRING_VALUE', // required
+ *   PublicSubject: 'STRING_VALUE',
+ *   PublicContent: 'STRING_VALUE',
+ *   IncidentId: 'STRING_VALUE',
+ *   SentTime: new Date('TIMESTAMP'),
+ *   ReadTime: new Date('TIMESTAMP'),
+ *   DeliveryTime: new Date('TIMESTAMP'),
+ * };
+ *
  * ```
  *
  * @param DescribePageCommandInput - {@link DescribePageCommandInput}
@@ -71,6 +87,8 @@ export interface DescribePageCommandOutput extends DescribePageResult, __Metadat
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
  *          service.</p>
  *
+ * @throws {@link SSMContactsServiceException}
+ * <p>Base exception class for all service exceptions from SSMContacts service.</p>
  *
  */
 export class DescribePageCommand extends $Command<

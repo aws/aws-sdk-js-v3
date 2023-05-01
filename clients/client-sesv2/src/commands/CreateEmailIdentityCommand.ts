@@ -65,26 +65,43 @@ export interface CreateEmailIdentityCommandOutput extends CreateEmailIdentityRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SESv2Client, CreateEmailIdentityCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
- * // const { SESv2Client, CreateEmailIdentityCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
+ * import { SESv2Client, CreateEmailIdentityCommand } from '@aws-sdk/client-sesv2'; // ES Modules import
+ * // const { SESv2Client, CreateEmailIdentityCommand } = require('@aws-sdk/client-sesv2'); // CommonJS import
  * const client = new SESv2Client(config);
  * const input = { // CreateEmailIdentityRequest
- *   EmailIdentity: "STRING_VALUE", // required
+ *   EmailIdentity: 'STRING_VALUE', // required
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  *   DkimSigningAttributes: { // DkimSigningAttributes
- *     DomainSigningSelector: "STRING_VALUE",
- *     DomainSigningPrivateKey: "STRING_VALUE",
- *     NextSigningKeyLength: "RSA_1024_BIT" || "RSA_2048_BIT",
+ *     DomainSigningSelector: 'STRING_VALUE',
+ *     DomainSigningPrivateKey: 'STRING_VALUE',
+ *     NextSigningKeyLength: 'RSA_1024_BIT' || 'RSA_2048_BIT',
  *   },
- *   ConfigurationSetName: "STRING_VALUE",
+ *   ConfigurationSetName: 'STRING_VALUE',
  * };
  * const command = new CreateEmailIdentityCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateEmailIdentityResponse
+ *   IdentityType: 'EMAIL_ADDRESS' || 'DOMAIN' || 'MANAGED_DOMAIN',
+ *   VerifiedForSendingStatus: true || false,
+ *   DkimAttributes: { // DkimAttributes
+ *     SigningEnabled: true || false,
+ *     Status: 'PENDING' || 'SUCCESS' || 'FAILED' || 'TEMPORARY_FAILURE' || 'NOT_STARTED',
+ *     Tokens: [ // DnsTokenList
+ *       'STRING_VALUE',
+ *     ],
+ *     SigningAttributesOrigin: 'AWS_SES' || 'EXTERNAL',
+ *     NextSigningKeyLength: 'RSA_1024_BIT' || 'RSA_2048_BIT',
+ *     CurrentSigningKeyLength: 'RSA_1024_BIT' || 'RSA_2048_BIT',
+ *     LastKeyGenerationTimestamp: new Date('TIMESTAMP'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateEmailIdentityCommandInput - {@link CreateEmailIdentityCommandInput}
@@ -111,6 +128,8 @@ export interface CreateEmailIdentityCommandOutput extends CreateEmailIdentityRes
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Too many requests have been made to the operation.</p>
  *
+ * @throws {@link SESv2ServiceException}
+ * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
  */
 export class CreateEmailIdentityCommand extends $Command<

@@ -39,14 +39,17 @@ export interface DeleteFlywheelCommandOutput extends DeleteFlywheelResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ComprehendClient, DeleteFlywheelCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
- * // const { ComprehendClient, DeleteFlywheelCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
+ * import { ComprehendClient, DeleteFlywheelCommand } from '@aws-sdk/client-comprehend'; // ES Modules import
+ * // const { ComprehendClient, DeleteFlywheelCommand } = require('@aws-sdk/client-comprehend'); // CommonJS import
  * const client = new ComprehendClient(config);
  * const input = { // DeleteFlywheelRequest
- *   FlywheelArn: "STRING_VALUE", // required
+ *   FlywheelArn: 'STRING_VALUE', // required
  * };
  * const command = new DeleteFlywheelCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteFlywheelCommandInput - {@link DeleteFlywheelCommandInput}
@@ -75,6 +78,8 @@ export interface DeleteFlywheelCommandOutput extends DeleteFlywheelResponse, __M
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>The number of requests exceeds the limit. Resubmit your request later.</p>
  *
+ * @throws {@link ComprehendServiceException}
+ * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
  */
 export class DeleteFlywheelCommand extends $Command<

@@ -36,16 +36,29 @@ export interface ListGroupVersionsCommandOutput extends ListGroupVersionsRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GreengrassClient, ListGroupVersionsCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
- * // const { GreengrassClient, ListGroupVersionsCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
+ * import { GreengrassClient, ListGroupVersionsCommand } from '@aws-sdk/client-greengrass'; // ES Modules import
+ * // const { GreengrassClient, ListGroupVersionsCommand } = require('@aws-sdk/client-greengrass'); // CommonJS import
  * const client = new GreengrassClient(config);
  * const input = { // ListGroupVersionsRequest
- *   GroupId: "STRING_VALUE", // required
- *   MaxResults: "STRING_VALUE",
- *   NextToken: "STRING_VALUE",
+ *   GroupId: 'STRING_VALUE', // required
+ *   MaxResults: 'STRING_VALUE',
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListGroupVersionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListGroupVersionsResponse
+ *   NextToken: 'STRING_VALUE',
+ *   Versions: [ // __listOfVersionInformation
+ *     { // VersionInformation
+ *       Arn: 'STRING_VALUE',
+ *       CreationTimestamp: 'STRING_VALUE',
+ *       Id: 'STRING_VALUE',
+ *       Version: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListGroupVersionsCommandInput - {@link ListGroupVersionsCommandInput}
@@ -57,6 +70,8 @@ export interface ListGroupVersionsCommandOutput extends ListGroupVersionsRespons
  * @throws {@link BadRequestException} (client fault)
  *  General error information.
  *
+ * @throws {@link GreengrassServiceException}
+ * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
  */
 export class ListGroupVersionsCommand extends $Command<

@@ -38,15 +38,20 @@ export interface StartDataSourceSyncJobCommandOutput extends StartDataSourceSync
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KendraClient, StartDataSourceSyncJobCommand } from "@aws-sdk/client-kendra"; // ES Modules import
- * // const { KendraClient, StartDataSourceSyncJobCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
+ * import { KendraClient, StartDataSourceSyncJobCommand } from '@aws-sdk/client-kendra'; // ES Modules import
+ * // const { KendraClient, StartDataSourceSyncJobCommand } = require('@aws-sdk/client-kendra'); // CommonJS import
  * const client = new KendraClient(config);
  * const input = { // StartDataSourceSyncJobRequest
- *   Id: "STRING_VALUE", // required
- *   IndexId: "STRING_VALUE", // required
+ *   Id: 'STRING_VALUE', // required
+ *   IndexId: 'STRING_VALUE', // required
  * };
  * const command = new StartDataSourceSyncJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartDataSourceSyncJobResponse
+ *   ExecutionId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param StartDataSourceSyncJobCommandInput - {@link StartDataSourceSyncJobCommandInput}
@@ -83,6 +88,8 @@ export interface StartDataSourceSyncJobCommandOutput extends StartDataSourceSync
  *  <p>The input fails to satisfy the constraints set by the Amazon Kendra service.
  *             Please provide the correct input and try again.</p>
  *
+ * @throws {@link KendraServiceException}
+ * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
  */
 export class StartDataSourceSyncJobCommand extends $Command<

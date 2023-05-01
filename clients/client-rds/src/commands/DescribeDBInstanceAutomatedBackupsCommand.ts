@@ -47,26 +47,70 @@ export interface DescribeDBInstanceAutomatedBackupsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RDSClient, DescribeDBInstanceAutomatedBackupsCommand } from "@aws-sdk/client-rds"; // ES Modules import
- * // const { RDSClient, DescribeDBInstanceAutomatedBackupsCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * import { RDSClient, DescribeDBInstanceAutomatedBackupsCommand } from '@aws-sdk/client-rds'; // ES Modules import
+ * // const { RDSClient, DescribeDBInstanceAutomatedBackupsCommand } = require('@aws-sdk/client-rds'); // CommonJS import
  * const client = new RDSClient(config);
  * const input = { // DescribeDBInstanceAutomatedBackupsMessage
- *   DbiResourceId: "STRING_VALUE",
- *   DBInstanceIdentifier: "STRING_VALUE",
+ *   DbiResourceId: 'STRING_VALUE',
+ *   DBInstanceIdentifier: 'STRING_VALUE',
  *   Filters: [ // FilterList
  *     { // Filter
- *       Name: "STRING_VALUE", // required
+ *       Name: 'STRING_VALUE', // required
  *       Values: [ // FilterValueList // required
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
- *   MaxRecords: Number("int"),
- *   Marker: "STRING_VALUE",
- *   DBInstanceAutomatedBackupsArn: "STRING_VALUE",
+ *   MaxRecords: Number('int'),
+ *   Marker: 'STRING_VALUE',
+ *   DBInstanceAutomatedBackupsArn: 'STRING_VALUE',
  * };
  * const command = new DescribeDBInstanceAutomatedBackupsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DBInstanceAutomatedBackupMessage
+ *   Marker: 'STRING_VALUE',
+ *   DBInstanceAutomatedBackups: [ // DBInstanceAutomatedBackupList
+ *     { // DBInstanceAutomatedBackup
+ *       DBInstanceArn: 'STRING_VALUE',
+ *       DbiResourceId: 'STRING_VALUE',
+ *       Region: 'STRING_VALUE',
+ *       DBInstanceIdentifier: 'STRING_VALUE',
+ *       RestoreWindow: { // RestoreWindow
+ *         EarliestTime: new Date('TIMESTAMP'),
+ *         LatestTime: new Date('TIMESTAMP'),
+ *       },
+ *       AllocatedStorage: Number('int'),
+ *       Status: 'STRING_VALUE',
+ *       Port: Number('int'),
+ *       AvailabilityZone: 'STRING_VALUE',
+ *       VpcId: 'STRING_VALUE',
+ *       InstanceCreateTime: new Date('TIMESTAMP'),
+ *       MasterUsername: 'STRING_VALUE',
+ *       Engine: 'STRING_VALUE',
+ *       EngineVersion: 'STRING_VALUE',
+ *       LicenseModel: 'STRING_VALUE',
+ *       Iops: Number('int'),
+ *       OptionGroupName: 'STRING_VALUE',
+ *       TdeCredentialArn: 'STRING_VALUE',
+ *       Encrypted: true || false,
+ *       StorageType: 'STRING_VALUE',
+ *       KmsKeyId: 'STRING_VALUE',
+ *       Timezone: 'STRING_VALUE',
+ *       IAMDatabaseAuthenticationEnabled: true || false,
+ *       BackupRetentionPeriod: Number('int'),
+ *       DBInstanceAutomatedBackupsArn: 'STRING_VALUE',
+ *       DBInstanceAutomatedBackupsReplications: [ // DBInstanceAutomatedBackupsReplicationList
+ *         { // DBInstanceAutomatedBackupsReplication
+ *           DBInstanceAutomatedBackupsArn: 'STRING_VALUE',
+ *         },
+ *       ],
+ *       BackupTarget: 'STRING_VALUE',
+ *       StorageThroughput: Number('int'),
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeDBInstanceAutomatedBackupsCommandInput - {@link DescribeDBInstanceAutomatedBackupsCommandInput}
@@ -78,6 +122,8 @@ export interface DescribeDBInstanceAutomatedBackupsCommandOutput
  * @throws {@link DBInstanceAutomatedBackupNotFoundFault} (client fault)
  *  <p>No automated backup for this DB instance was found.</p>
  *
+ * @throws {@link RDSServiceException}
+ * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  * @example To describe the automated backups for a DB instance
  * ```javascript

@@ -36,20 +36,44 @@ export interface UpdateACLCommandOutput extends UpdateACLResponse, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MemoryDBClient, UpdateACLCommand } from "@aws-sdk/client-memorydb"; // ES Modules import
- * // const { MemoryDBClient, UpdateACLCommand } = require("@aws-sdk/client-memorydb"); // CommonJS import
+ * import { MemoryDBClient, UpdateACLCommand } from '@aws-sdk/client-memorydb'; // ES Modules import
+ * // const { MemoryDBClient, UpdateACLCommand } = require('@aws-sdk/client-memorydb'); // CommonJS import
  * const client = new MemoryDBClient(config);
  * const input = { // UpdateACLRequest
- *   ACLName: "STRING_VALUE", // required
+ *   ACLName: 'STRING_VALUE', // required
  *   UserNamesToAdd: [ // UserNameListInput
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   UserNamesToRemove: [
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new UpdateACLCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateACLResponse
+ *   ACL: { // ACL
+ *     Name: 'STRING_VALUE',
+ *     Status: 'STRING_VALUE',
+ *     UserNames: [ // UserNameList
+ *       'STRING_VALUE',
+ *     ],
+ *     MinimumEngineVersion: 'STRING_VALUE',
+ *     PendingChanges: { // ACLPendingChanges
+ *       UserNamesToRemove: [
+ *         'STRING_VALUE',
+ *       ],
+ *       UserNamesToAdd: [
+ *         'STRING_VALUE',
+ *       ],
+ *     },
+ *     Clusters: [ // ACLClusterNameList
+ *       'STRING_VALUE',
+ *     ],
+ *     ARN: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateACLCommandInput - {@link UpdateACLCommandInput}
@@ -79,6 +103,8 @@ export interface UpdateACLCommandOutput extends UpdateACLResponse, __MetadataBea
  * @throws {@link UserNotFoundFault} (client fault)
  *  <p></p>
  *
+ * @throws {@link MemoryDBServiceException}
+ * <p>Base exception class for all service exceptions from MemoryDB service.</p>
  *
  */
 export class UpdateACLCommand extends $Command<

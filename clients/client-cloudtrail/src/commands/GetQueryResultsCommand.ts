@@ -38,17 +38,36 @@ export interface GetQueryResultsCommandOutput extends GetQueryResultsResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudTrailClient, GetQueryResultsCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
- * // const { CloudTrailClient, GetQueryResultsCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
+ * import { CloudTrailClient, GetQueryResultsCommand } from '@aws-sdk/client-cloudtrail'; // ES Modules import
+ * // const { CloudTrailClient, GetQueryResultsCommand } = require('@aws-sdk/client-cloudtrail'); // CommonJS import
  * const client = new CloudTrailClient(config);
  * const input = { // GetQueryResultsRequest
- *   EventDataStore: "STRING_VALUE",
- *   QueryId: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   MaxQueryResults: Number("int"),
+ *   EventDataStore: 'STRING_VALUE',
+ *   QueryId: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxQueryResults: Number('int'),
  * };
  * const command = new GetQueryResultsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetQueryResultsResponse
+ *   QueryStatus: 'QUEUED' || 'RUNNING' || 'FINISHED' || 'FAILED' || 'CANCELLED' || 'TIMED_OUT',
+ *   QueryStatistics: { // QueryStatistics
+ *     ResultsCount: Number('int'),
+ *     TotalResultsCount: Number('int'),
+ *     BytesScanned: Number('long'),
+ *   },
+ *   QueryResultRows: [ // QueryResultRows
+ *     [ // QueryResultRow
+ *       { // QueryResultColumn
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *     ],
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ *   ErrorMessage: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetQueryResultsCommandInput - {@link GetQueryResultsCommandInput}
@@ -94,6 +113,8 @@ export interface GetQueryResultsCommandOutput extends GetQueryResultsResponse, _
  * @throws {@link UnsupportedOperationException} (client fault)
  *  <p>This exception is thrown when the requested operation is not supported.</p>
  *
+ * @throws {@link CloudTrailServiceException}
+ * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
  */
 export class GetQueryResultsCommand extends $Command<

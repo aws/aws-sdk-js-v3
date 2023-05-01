@@ -59,37 +59,42 @@ export interface CreateAccessControlConfigurationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KendraClient, CreateAccessControlConfigurationCommand } from "@aws-sdk/client-kendra"; // ES Modules import
- * // const { KendraClient, CreateAccessControlConfigurationCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
+ * import { KendraClient, CreateAccessControlConfigurationCommand } from '@aws-sdk/client-kendra'; // ES Modules import
+ * // const { KendraClient, CreateAccessControlConfigurationCommand } = require('@aws-sdk/client-kendra'); // CommonJS import
  * const client = new KendraClient(config);
  * const input = { // CreateAccessControlConfigurationRequest
- *   IndexId: "STRING_VALUE", // required
- *   Name: "STRING_VALUE", // required
- *   Description: "STRING_VALUE",
+ *   IndexId: 'STRING_VALUE', // required
+ *   Name: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE',
  *   AccessControlList: [ // PrincipalList
  *     { // Principal
- *       Name: "STRING_VALUE", // required
- *       Type: "USER" || "GROUP", // required
- *       Access: "ALLOW" || "DENY", // required
- *       DataSourceId: "STRING_VALUE",
+ *       Name: 'STRING_VALUE', // required
+ *       Type: 'USER' || 'GROUP', // required
+ *       Access: 'ALLOW' || 'DENY', // required
+ *       DataSourceId: 'STRING_VALUE',
  *     },
  *   ],
  *   HierarchicalAccessControlList: [ // HierarchicalPrincipalList
  *     { // HierarchicalPrincipal
  *       PrincipalList: [ // required
  *         {
- *           Name: "STRING_VALUE", // required
- *           Type: "USER" || "GROUP", // required
- *           Access: "ALLOW" || "DENY", // required
- *           DataSourceId: "STRING_VALUE",
+ *           Name: 'STRING_VALUE', // required
+ *           Type: 'USER' || 'GROUP', // required
+ *           Access: 'ALLOW' || 'DENY', // required
+ *           DataSourceId: 'STRING_VALUE',
  *         },
  *       ],
  *     },
  *   ],
- *   ClientToken: "STRING_VALUE",
+ *   ClientToken: 'STRING_VALUE',
  * };
  * const command = new CreateAccessControlConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateAccessControlConfigurationResponse
+ *   Id: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param CreateAccessControlConfigurationCommandInput - {@link CreateAccessControlConfigurationCommandInput}
@@ -128,6 +133,8 @@ export interface CreateAccessControlConfigurationCommandOutput
  *  <p>The input fails to satisfy the constraints set by the Amazon Kendra service.
  *             Please provide the correct input and try again.</p>
  *
+ * @throws {@link KendraServiceException}
+ * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
  */
 export class CreateAccessControlConfigurationCommand extends $Command<

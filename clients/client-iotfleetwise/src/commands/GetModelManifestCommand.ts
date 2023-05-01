@@ -36,14 +36,25 @@ export interface GetModelManifestCommandOutput extends GetModelManifestResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTFleetWiseClient, GetModelManifestCommand } from "@aws-sdk/client-iotfleetwise"; // ES Modules import
- * // const { IoTFleetWiseClient, GetModelManifestCommand } = require("@aws-sdk/client-iotfleetwise"); // CommonJS import
+ * import { IoTFleetWiseClient, GetModelManifestCommand } from '@aws-sdk/client-iotfleetwise'; // ES Modules import
+ * // const { IoTFleetWiseClient, GetModelManifestCommand } = require('@aws-sdk/client-iotfleetwise'); // CommonJS import
  * const client = new IoTFleetWiseClient(config);
  * const input = { // GetModelManifestRequest
- *   name: "STRING_VALUE", // required
+ *   name: 'STRING_VALUE', // required
  * };
  * const command = new GetModelManifestCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetModelManifestResponse
+ *   name: 'STRING_VALUE', // required
+ *   arn: 'STRING_VALUE', // required
+ *   description: 'STRING_VALUE',
+ *   signalCatalogArn: 'STRING_VALUE',
+ *   status: 'STRING_VALUE',
+ *   creationTime: new Date('TIMESTAMP'), // required
+ *   lastModificationTime: new Date('TIMESTAMP'), // required
+ * };
+ *
  * ```
  *
  * @param GetModelManifestCommandInput - {@link GetModelManifestCommandInput}
@@ -67,6 +78,8 @@ export interface GetModelManifestCommandOutput extends GetModelManifestResponse,
  * @throws {@link InternalServerException} (server fault)
  *  <p>The request couldn't be completed because the server temporarily failed.</p>
  *
+ * @throws {@link IoTFleetWiseServiceException}
+ * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
  */
 export class GetModelManifestCommand extends $Command<

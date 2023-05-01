@@ -50,23 +50,26 @@ export interface PutDeliveryChannelCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConfigServiceClient, PutDeliveryChannelCommand } from "@aws-sdk/client-config-service"; // ES Modules import
- * // const { ConfigServiceClient, PutDeliveryChannelCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
+ * import { ConfigServiceClient, PutDeliveryChannelCommand } from '@aws-sdk/client-config-service'; // ES Modules import
+ * // const { ConfigServiceClient, PutDeliveryChannelCommand } = require('@aws-sdk/client-config-service'); // CommonJS import
  * const client = new ConfigServiceClient(config);
  * const input = { // PutDeliveryChannelRequest
  *   DeliveryChannel: { // DeliveryChannel
- *     name: "STRING_VALUE",
- *     s3BucketName: "STRING_VALUE",
- *     s3KeyPrefix: "STRING_VALUE",
- *     s3KmsKeyArn: "STRING_VALUE",
- *     snsTopicARN: "STRING_VALUE",
+ *     name: 'STRING_VALUE',
+ *     s3BucketName: 'STRING_VALUE',
+ *     s3KeyPrefix: 'STRING_VALUE',
+ *     s3KmsKeyArn: 'STRING_VALUE',
+ *     snsTopicARN: 'STRING_VALUE',
  *     configSnapshotDeliveryProperties: { // ConfigSnapshotDeliveryProperties
- *       deliveryFrequency: "One_Hour" || "Three_Hours" || "Six_Hours" || "Twelve_Hours" || "TwentyFour_Hours",
+ *       deliveryFrequency: 'One_Hour' || 'Three_Hours' || 'Six_Hours' || 'Twelve_Hours' || 'TwentyFour_Hours',
  *     },
  *   },
  * };
  * const command = new PutDeliveryChannelCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutDeliveryChannelCommandInput - {@link PutDeliveryChannelCommandInput}
@@ -103,6 +106,8 @@ export interface PutDeliveryChannelCommandOutput extends __MetadataBearer {}
  * @throws {@link NoSuchBucketException} (client fault)
  *  <p>The specified Amazon S3 bucket does not exist.</p>
  *
+ * @throws {@link ConfigServiceServiceException}
+ * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
  */
 export class PutDeliveryChannelCommand extends $Command<

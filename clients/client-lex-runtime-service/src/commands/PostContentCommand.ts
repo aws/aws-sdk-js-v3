@@ -135,22 +135,44 @@ export interface PostContentCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LexRuntimeServiceClient, PostContentCommand } from "@aws-sdk/client-lex-runtime-service"; // ES Modules import
- * // const { LexRuntimeServiceClient, PostContentCommand } = require("@aws-sdk/client-lex-runtime-service"); // CommonJS import
+ * import { LexRuntimeServiceClient, PostContentCommand } from '@aws-sdk/client-lex-runtime-service'; // ES Modules import
+ * // const { LexRuntimeServiceClient, PostContentCommand } = require('@aws-sdk/client-lex-runtime-service'); // CommonJS import
  * const client = new LexRuntimeServiceClient(config);
  * const input = { // PostContentRequest
- *   botName: "STRING_VALUE", // required
- *   botAlias: "STRING_VALUE", // required
- *   userId: "STRING_VALUE", // required
- *   sessionAttributes: "STRING_VALUE",
- *   requestAttributes: "STRING_VALUE",
- *   contentType: "STRING_VALUE", // required
- *   accept: "STRING_VALUE",
- *   inputStream: "STREAMING_BLOB_VALUE", // required
- *   activeContexts: "STRING_VALUE",
+ *   botName: 'STRING_VALUE', // required
+ *   botAlias: 'STRING_VALUE', // required
+ *   userId: 'STRING_VALUE', // required
+ *   sessionAttributes: 'STRING_VALUE',
+ *   requestAttributes: 'STRING_VALUE',
+ *   contentType: 'STRING_VALUE', // required
+ *   accept: 'STRING_VALUE',
+ *   inputStream: 'STREAMING_BLOB_VALUE', // required
+ *   activeContexts: 'STRING_VALUE',
  * };
  * const command = new PostContentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PostContentResponse
+ *   contentType: 'STRING_VALUE',
+ *   intentName: 'STRING_VALUE',
+ *   nluIntentConfidence: 'STRING_VALUE',
+ *   alternativeIntents: 'STRING_VALUE',
+ *   slots: 'STRING_VALUE',
+ *   sessionAttributes: 'STRING_VALUE',
+ *   sentimentResponse: 'STRING_VALUE',
+ *   message: 'STRING_VALUE',
+ *   encodedMessage: 'STRING_VALUE',
+ *   messageFormat: 'STRING_VALUE',
+ *   dialogState: 'STRING_VALUE',
+ *   slotToElicit: 'STRING_VALUE',
+ *   inputTranscript: 'STRING_VALUE',
+ *   encodedInputTranscript: 'STRING_VALUE',
+ *   audioStream: 'STREAMING_BLOB_VALUE',
+ *   botVersion: 'STRING_VALUE',
+ *   sessionId: 'STRING_VALUE',
+ *   activeContexts: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param PostContentCommandInput - {@link PostContentCommandInput}
@@ -214,6 +236,8 @@ export interface PostContentCommandOutput
  *  <p>The Content-Type header (<code>PostContent</code> API) has an invalid
  *       value. </p>
  *
+ * @throws {@link LexRuntimeServiceServiceException}
+ * <p>Base exception class for all service exceptions from LexRuntimeService service.</p>
  *
  */
 export class PostContentCommand extends $Command<

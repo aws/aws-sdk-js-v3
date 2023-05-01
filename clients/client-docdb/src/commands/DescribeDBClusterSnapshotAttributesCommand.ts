@@ -47,14 +47,29 @@ export interface DescribeDBClusterSnapshotAttributesCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DocDBClient, DescribeDBClusterSnapshotAttributesCommand } from "@aws-sdk/client-docdb"; // ES Modules import
- * // const { DocDBClient, DescribeDBClusterSnapshotAttributesCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
+ * import { DocDBClient, DescribeDBClusterSnapshotAttributesCommand } from '@aws-sdk/client-docdb'; // ES Modules import
+ * // const { DocDBClient, DescribeDBClusterSnapshotAttributesCommand } = require('@aws-sdk/client-docdb'); // CommonJS import
  * const client = new DocDBClient(config);
  * const input = { // DescribeDBClusterSnapshotAttributesMessage
- *   DBClusterSnapshotIdentifier: "STRING_VALUE", // required
+ *   DBClusterSnapshotIdentifier: 'STRING_VALUE', // required
  * };
  * const command = new DescribeDBClusterSnapshotAttributesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeDBClusterSnapshotAttributesResult
+ *   DBClusterSnapshotAttributesResult: { // DBClusterSnapshotAttributesResult
+ *     DBClusterSnapshotIdentifier: 'STRING_VALUE',
+ *     DBClusterSnapshotAttributes: [ // DBClusterSnapshotAttributeList
+ *       { // DBClusterSnapshotAttribute
+ *         AttributeName: 'STRING_VALUE',
+ *         AttributeValues: [ // AttributeValueList
+ *           'STRING_VALUE',
+ *         ],
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeDBClusterSnapshotAttributesCommandInput - {@link DescribeDBClusterSnapshotAttributesCommandInput}
@@ -67,6 +82,8 @@ export interface DescribeDBClusterSnapshotAttributesCommandOutput
  *  <p>
  *             <code>DBClusterSnapshotIdentifier</code> doesn't refer to an existing cluster snapshot. </p>
  *
+ * @throws {@link DocDBServiceException}
+ * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
  */
 export class DescribeDBClusterSnapshotAttributesCommand extends $Command<

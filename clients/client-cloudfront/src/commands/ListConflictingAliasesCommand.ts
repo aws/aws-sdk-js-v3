@@ -58,17 +58,33 @@ export interface ListConflictingAliasesCommandOutput extends ListConflictingAlia
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudFrontClient, ListConflictingAliasesCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
- * // const { CloudFrontClient, ListConflictingAliasesCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
+ * import { CloudFrontClient, ListConflictingAliasesCommand } from '@aws-sdk/client-cloudfront'; // ES Modules import
+ * // const { CloudFrontClient, ListConflictingAliasesCommand } = require('@aws-sdk/client-cloudfront'); // CommonJS import
  * const client = new CloudFrontClient(config);
  * const input = { // ListConflictingAliasesRequest
- *   DistributionId: "STRING_VALUE", // required
- *   Alias: "STRING_VALUE", // required
- *   Marker: "STRING_VALUE",
- *   MaxItems: Number("int"),
+ *   DistributionId: 'STRING_VALUE', // required
+ *   Alias: 'STRING_VALUE', // required
+ *   Marker: 'STRING_VALUE',
+ *   MaxItems: Number('int'),
  * };
  * const command = new ListConflictingAliasesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListConflictingAliasesResult
+ *   ConflictingAliasesList: { // ConflictingAliasesList
+ *     NextMarker: 'STRING_VALUE',
+ *     MaxItems: Number('int'),
+ *     Quantity: Number('int'),
+ *     Items: [ // ConflictingAliases
+ *       { // ConflictingAlias
+ *         Alias: 'STRING_VALUE',
+ *         DistributionId: 'STRING_VALUE',
+ *         AccountId: 'STRING_VALUE',
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param ListConflictingAliasesCommandInput - {@link ListConflictingAliasesCommandInput}
@@ -83,6 +99,8 @@ export interface ListConflictingAliasesCommandOutput extends ListConflictingAlia
  * @throws {@link NoSuchDistribution} (client fault)
  *  <p>The specified distribution does not exist.</p>
  *
+ * @throws {@link CloudFrontServiceException}
+ * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
  */
 export class ListConflictingAliasesCommand extends $Command<

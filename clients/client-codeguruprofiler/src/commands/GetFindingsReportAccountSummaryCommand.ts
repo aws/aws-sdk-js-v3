@@ -47,16 +47,30 @@ export interface GetFindingsReportAccountSummaryCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeGuruProfilerClient, GetFindingsReportAccountSummaryCommand } from "@aws-sdk/client-codeguruprofiler"; // ES Modules import
- * // const { CodeGuruProfilerClient, GetFindingsReportAccountSummaryCommand } = require("@aws-sdk/client-codeguruprofiler"); // CommonJS import
+ * import { CodeGuruProfilerClient, GetFindingsReportAccountSummaryCommand } from '@aws-sdk/client-codeguruprofiler'; // ES Modules import
+ * // const { CodeGuruProfilerClient, GetFindingsReportAccountSummaryCommand } = require('@aws-sdk/client-codeguruprofiler'); // CommonJS import
  * const client = new CodeGuruProfilerClient(config);
  * const input = { // GetFindingsReportAccountSummaryRequest
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  *   dailyReportsOnly: true || false,
  * };
  * const command = new GetFindingsReportAccountSummaryCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetFindingsReportAccountSummaryResponse
+ *   reportSummaries: [ // FindingsReportSummaries // required
+ *     { // FindingsReportSummary
+ *       id: 'STRING_VALUE',
+ *       profilingGroupName: 'STRING_VALUE',
+ *       profileStartTime: new Date('TIMESTAMP'),
+ *       profileEndTime: new Date('TIMESTAMP'),
+ *       totalNumberOfFindings: Number('int'),
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetFindingsReportAccountSummaryCommandInput - {@link GetFindingsReportAccountSummaryCommandInput}
@@ -74,6 +88,8 @@ export interface GetFindingsReportAccountSummaryCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The parameter is not valid.</p>
  *
+ * @throws {@link CodeGuruProfilerServiceException}
+ * <p>Base exception class for all service exceptions from CodeGuruProfiler service.</p>
  *
  */
 export class GetFindingsReportAccountSummaryCommand extends $Command<

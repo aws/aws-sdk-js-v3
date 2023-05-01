@@ -36,14 +36,17 @@ export interface DeleteTokenCommandOutput extends DeleteTokenResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LicenseManagerClient, DeleteTokenCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
- * // const { LicenseManagerClient, DeleteTokenCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
+ * import { LicenseManagerClient, DeleteTokenCommand } from '@aws-sdk/client-license-manager'; // ES Modules import
+ * // const { LicenseManagerClient, DeleteTokenCommand } = require('@aws-sdk/client-license-manager'); // CommonJS import
  * const client = new LicenseManagerClient(config);
  * const input = { // DeleteTokenRequest
- *   TokenId: "STRING_VALUE", // required
+ *   TokenId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteTokenCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteTokenCommandInput - {@link DeleteTokenCommandInput}
@@ -74,6 +77,8 @@ export interface DeleteTokenCommandOutput extends DeleteTokenResponse, __Metadat
  * @throws {@link ValidationException} (client fault)
  *  <p>The provided input is not valid. Try your request again.</p>
  *
+ * @throws {@link LicenseManagerServiceException}
+ * <p>Base exception class for all service exceptions from LicenseManager service.</p>
  *
  */
 export class DeleteTokenCommand extends $Command<

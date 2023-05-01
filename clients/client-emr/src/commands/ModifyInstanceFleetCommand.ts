@@ -42,27 +42,30 @@ export interface ModifyInstanceFleetCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EMRClient, ModifyInstanceFleetCommand } from "@aws-sdk/client-emr"; // ES Modules import
- * // const { EMRClient, ModifyInstanceFleetCommand } = require("@aws-sdk/client-emr"); // CommonJS import
+ * import { EMRClient, ModifyInstanceFleetCommand } from '@aws-sdk/client-emr'; // ES Modules import
+ * // const { EMRClient, ModifyInstanceFleetCommand } = require('@aws-sdk/client-emr'); // CommonJS import
  * const client = new EMRClient(config);
  * const input = { // ModifyInstanceFleetInput
- *   ClusterId: "STRING_VALUE", // required
+ *   ClusterId: 'STRING_VALUE', // required
  *   InstanceFleet: { // InstanceFleetModifyConfig
- *     InstanceFleetId: "STRING_VALUE", // required
- *     TargetOnDemandCapacity: Number("int"),
- *     TargetSpotCapacity: Number("int"),
+ *     InstanceFleetId: 'STRING_VALUE', // required
+ *     TargetOnDemandCapacity: Number('int'),
+ *     TargetSpotCapacity: Number('int'),
  *     ResizeSpecifications: { // InstanceFleetResizingSpecifications
  *       SpotResizeSpecification: { // SpotResizingSpecification
- *         TimeoutDurationMinutes: Number("int"), // required
+ *         TimeoutDurationMinutes: Number('int'), // required
  *       },
  *       OnDemandResizeSpecification: { // OnDemandResizingSpecification
- *         TimeoutDurationMinutes: Number("int"), // required
+ *         TimeoutDurationMinutes: Number('int'), // required
  *       },
  *     },
  *   },
  * };
  * const command = new ModifyInstanceFleetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param ModifyInstanceFleetCommandInput - {@link ModifyInstanceFleetCommandInput}
@@ -78,6 +81,8 @@ export interface ModifyInstanceFleetCommandOutput extends __MetadataBearer {}
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception occurs when there is something wrong with user input.</p>
  *
+ * @throws {@link EMRServiceException}
+ * <p>Base exception class for all service exceptions from EMR service.</p>
  *
  */
 export class ModifyInstanceFleetCommand extends $Command<

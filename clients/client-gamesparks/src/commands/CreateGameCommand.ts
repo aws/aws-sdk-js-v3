@@ -39,19 +39,35 @@ export interface CreateGameCommandOutput extends CreateGameResult, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GameSparksClient, CreateGameCommand } from "@aws-sdk/client-gamesparks"; // ES Modules import
- * // const { GameSparksClient, CreateGameCommand } = require("@aws-sdk/client-gamesparks"); // CommonJS import
+ * import { GameSparksClient, CreateGameCommand } from '@aws-sdk/client-gamesparks'; // ES Modules import
+ * // const { GameSparksClient, CreateGameCommand } = require('@aws-sdk/client-gamesparks'); // CommonJS import
  * const client = new GameSparksClient(config);
  * const input = { // CreateGameRequest
- *   GameName: "STRING_VALUE", // required
- *   Description: "STRING_VALUE",
- *   ClientToken: "STRING_VALUE",
+ *   GameName: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE',
+ *   ClientToken: 'STRING_VALUE',
  *   Tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateGameCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateGameResult
+ *   Game: { // GameDetails
+ *     Name: 'STRING_VALUE',
+ *     Arn: 'STRING_VALUE',
+ *     Description: 'STRING_VALUE',
+ *     Created: new Date('TIMESTAMP'),
+ *     LastUpdated: new Date('TIMESTAMP'),
+ *     State: 'STRING_VALUE',
+ *     EnableTerminationProtection: true || false,
+ *     Tags: { // TagMap
+ *       '<keys>': 'STRING_VALUE',
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateGameCommandInput - {@link CreateGameCommandInput}
@@ -78,6 +94,8 @@ export interface CreateGameCommandOutput extends CreateGameResult, __MetadataBea
  * @throws {@link ValidationException} (client fault)
  *  <p>One of the parameters in the request is invalid.</p>
  *
+ * @throws {@link GameSparksServiceException}
+ * <p>Base exception class for all service exceptions from GameSparks service.</p>
  *
  */
 export class CreateGameCommand extends $Command<

@@ -37,49 +37,52 @@ export interface UpdateWorkGroupCommandOutput extends UpdateWorkGroupOutput, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AthenaClient, UpdateWorkGroupCommand } from "@aws-sdk/client-athena"; // ES Modules import
- * // const { AthenaClient, UpdateWorkGroupCommand } = require("@aws-sdk/client-athena"); // CommonJS import
+ * import { AthenaClient, UpdateWorkGroupCommand } from '@aws-sdk/client-athena'; // ES Modules import
+ * // const { AthenaClient, UpdateWorkGroupCommand } = require('@aws-sdk/client-athena'); // CommonJS import
  * const client = new AthenaClient(config);
  * const input = { // UpdateWorkGroupInput
- *   WorkGroup: "STRING_VALUE", // required
- *   Description: "STRING_VALUE",
+ *   WorkGroup: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE',
  *   ConfigurationUpdates: { // WorkGroupConfigurationUpdates
  *     EnforceWorkGroupConfiguration: true || false,
  *     ResultConfigurationUpdates: { // ResultConfigurationUpdates
- *       OutputLocation: "STRING_VALUE",
+ *       OutputLocation: 'STRING_VALUE',
  *       RemoveOutputLocation: true || false,
  *       EncryptionConfiguration: { // EncryptionConfiguration
- *         EncryptionOption: "SSE_S3" || "SSE_KMS" || "CSE_KMS", // required
- *         KmsKey: "STRING_VALUE",
+ *         EncryptionOption: 'SSE_S3' || 'SSE_KMS' || 'CSE_KMS', // required
+ *         KmsKey: 'STRING_VALUE',
  *       },
  *       RemoveEncryptionConfiguration: true || false,
- *       ExpectedBucketOwner: "STRING_VALUE",
+ *       ExpectedBucketOwner: 'STRING_VALUE',
  *       RemoveExpectedBucketOwner: true || false,
  *       AclConfiguration: { // AclConfiguration
- *         S3AclOption: "BUCKET_OWNER_FULL_CONTROL", // required
+ *         S3AclOption: 'BUCKET_OWNER_FULL_CONTROL', // required
  *       },
  *       RemoveAclConfiguration: true || false,
  *     },
  *     PublishCloudWatchMetricsEnabled: true || false,
- *     BytesScannedCutoffPerQuery: Number("long"),
+ *     BytesScannedCutoffPerQuery: Number('long'),
  *     RemoveBytesScannedCutoffPerQuery: true || false,
  *     RequesterPaysEnabled: true || false,
  *     EngineVersion: { // EngineVersion
- *       SelectedEngineVersion: "STRING_VALUE",
- *       EffectiveEngineVersion: "STRING_VALUE",
+ *       SelectedEngineVersion: 'STRING_VALUE',
+ *       EffectiveEngineVersion: 'STRING_VALUE',
  *     },
  *     RemoveCustomerContentEncryptionConfiguration: true || false,
- *     AdditionalConfiguration: "STRING_VALUE",
- *     ExecutionRole: "STRING_VALUE",
+ *     AdditionalConfiguration: 'STRING_VALUE',
+ *     ExecutionRole: 'STRING_VALUE',
  *     CustomerContentEncryptionConfiguration: { // CustomerContentEncryptionConfiguration
- *       KmsKey: "STRING_VALUE", // required
+ *       KmsKey: 'STRING_VALUE', // required
  *     },
  *     EnableMinimumEncryptionConfiguration: true || false,
  *   },
- *   State: "ENABLED" || "DISABLED",
+ *   State: 'ENABLED' || 'DISABLED',
  * };
  * const command = new UpdateWorkGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateWorkGroupCommandInput - {@link UpdateWorkGroupCommandInput}
@@ -96,6 +99,8 @@ export interface UpdateWorkGroupCommandOutput extends UpdateWorkGroupOutput, __M
  *  <p>Indicates that something is wrong with the input to the request. For example, a
  *             required parameter may be missing or out of range.</p>
  *
+ * @throws {@link AthenaServiceException}
+ * <p>Base exception class for all service exceptions from Athena service.</p>
  *
  */
 export class UpdateWorkGroupCommand extends $Command<

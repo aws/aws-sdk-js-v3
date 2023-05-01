@@ -43,20 +43,35 @@ export interface ListBotVersionsCommandOutput extends ListBotVersionsResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LexModelsV2Client, ListBotVersionsCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
- * // const { LexModelsV2Client, ListBotVersionsCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
+ * import { LexModelsV2Client, ListBotVersionsCommand } from '@aws-sdk/client-lex-models-v2'; // ES Modules import
+ * // const { LexModelsV2Client, ListBotVersionsCommand } = require('@aws-sdk/client-lex-models-v2'); // CommonJS import
  * const client = new LexModelsV2Client(config);
  * const input = { // ListBotVersionsRequest
- *   botId: "STRING_VALUE", // required
+ *   botId: 'STRING_VALUE', // required
  *   sortBy: { // BotVersionSortBy
- *     attribute: "BotVersion", // required
- *     order: "Ascending" || "Descending", // required
+ *     attribute: 'BotVersion', // required
+ *     order: 'Ascending' || 'Descending', // required
  *   },
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new ListBotVersionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListBotVersionsResponse
+ *   botId: 'STRING_VALUE',
+ *   botVersionSummaries: [ // BotVersionSummaryList
+ *     { // BotVersionSummary
+ *       botName: 'STRING_VALUE',
+ *       botVersion: 'STRING_VALUE',
+ *       description: 'STRING_VALUE',
+ *       botStatus: 'Creating' || 'Available' || 'Inactive' || 'Deleting' || 'Failed' || 'Versioning' || 'Importing' || 'Updating',
+ *       creationDateTime: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListBotVersionsCommandInput - {@link ListBotVersionsCommandInput}
@@ -80,6 +95,8 @@ export interface ListBotVersionsCommandOutput extends ListBotVersionsResponse, _
  *  <p>One of the input parameters in your request isn't valid. Check the
  *          parameters and try your request again.</p>
  *
+ * @throws {@link LexModelsV2ServiceException}
+ * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
  */
 export class ListBotVersionsCommand extends $Command<

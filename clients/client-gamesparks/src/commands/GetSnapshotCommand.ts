@@ -36,18 +36,35 @@ export interface GetSnapshotCommandOutput extends GetSnapshotResult, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GameSparksClient, GetSnapshotCommand } from "@aws-sdk/client-gamesparks"; // ES Modules import
- * // const { GameSparksClient, GetSnapshotCommand } = require("@aws-sdk/client-gamesparks"); // CommonJS import
+ * import { GameSparksClient, GetSnapshotCommand } from '@aws-sdk/client-gamesparks'; // ES Modules import
+ * // const { GameSparksClient, GetSnapshotCommand } = require('@aws-sdk/client-gamesparks'); // CommonJS import
  * const client = new GameSparksClient(config);
  * const input = { // GetSnapshotRequest
- *   GameName: "STRING_VALUE", // required
- *   SnapshotId: "STRING_VALUE", // required
+ *   GameName: 'STRING_VALUE', // required
+ *   SnapshotId: 'STRING_VALUE', // required
  *   Sections: [ // SectionList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new GetSnapshotCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetSnapshotResult
+ *   Snapshot: { // SnapshotDetails
+ *     Id: 'STRING_VALUE',
+ *     Description: 'STRING_VALUE',
+ *     Sections: { // Sections
+ *       '<keys>': { // Section
+ *         Name: 'STRING_VALUE',
+ *         Size: Number('int'),
+ *         Attributes: 'DOCUMENT_VALUE',
+ *       },
+ *     },
+ *     Created: new Date('TIMESTAMP'),
+ *     LastUpdated: new Date('TIMESTAMP'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetSnapshotCommandInput - {@link GetSnapshotCommandInput}
@@ -71,6 +88,8 @@ export interface GetSnapshotCommandOutput extends GetSnapshotResult, __MetadataB
  * @throws {@link ValidationException} (client fault)
  *  <p>One of the parameters in the request is invalid.</p>
  *
+ * @throws {@link GameSparksServiceException}
+ * <p>Base exception class for all service exceptions from GameSparks service.</p>
  *
  */
 export class GetSnapshotCommand extends $Command<

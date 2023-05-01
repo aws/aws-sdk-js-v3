@@ -42,15 +42,28 @@ export interface GetSecurityPolicyCommandOutput extends GetSecurityPolicyRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OpenSearchServerlessClient, GetSecurityPolicyCommand } from "@aws-sdk/client-opensearchserverless"; // ES Modules import
- * // const { OpenSearchServerlessClient, GetSecurityPolicyCommand } = require("@aws-sdk/client-opensearchserverless"); // CommonJS import
+ * import { OpenSearchServerlessClient, GetSecurityPolicyCommand } from '@aws-sdk/client-opensearchserverless'; // ES Modules import
+ * // const { OpenSearchServerlessClient, GetSecurityPolicyCommand } = require('@aws-sdk/client-opensearchserverless'); // CommonJS import
  * const client = new OpenSearchServerlessClient(config);
  * const input = { // GetSecurityPolicyRequest
- *   type: "STRING_VALUE", // required
- *   name: "STRING_VALUE", // required
+ *   type: 'STRING_VALUE', // required
+ *   name: 'STRING_VALUE', // required
  * };
  * const command = new GetSecurityPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetSecurityPolicyResponse
+ *   securityPolicyDetail: { // SecurityPolicyDetail
+ *     type: 'STRING_VALUE',
+ *     name: 'STRING_VALUE',
+ *     policyVersion: 'STRING_VALUE',
+ *     description: 'STRING_VALUE',
+ *     policy: 'DOCUMENT_VALUE',
+ *     createdDate: Number('long'),
+ *     lastModifiedDate: Number('long'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetSecurityPolicyCommandInput - {@link GetSecurityPolicyCommandInput}
@@ -69,6 +82,8 @@ export interface GetSecurityPolicyCommandOutput extends GetSecurityPolicyRespons
  *  <p>Thrown when the HTTP request contains invalid input or is missing required
  *             input.</p>
  *
+ * @throws {@link OpenSearchServerlessServiceException}
+ * <p>Base exception class for all service exceptions from OpenSearchServerless service.</p>
  *
  */
 export class GetSecurityPolicyCommand extends $Command<

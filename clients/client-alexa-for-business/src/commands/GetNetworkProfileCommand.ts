@@ -40,14 +40,32 @@ export interface GetNetworkProfileCommandOutput extends GetNetworkProfileRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AlexaForBusinessClient, GetNetworkProfileCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
- * // const { AlexaForBusinessClient, GetNetworkProfileCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
+ * import { AlexaForBusinessClient, GetNetworkProfileCommand } from '@aws-sdk/client-alexa-for-business'; // ES Modules import
+ * // const { AlexaForBusinessClient, GetNetworkProfileCommand } = require('@aws-sdk/client-alexa-for-business'); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
  * const input = { // GetNetworkProfileRequest
- *   NetworkProfileArn: "STRING_VALUE", // required
+ *   NetworkProfileArn: 'STRING_VALUE', // required
  * };
  * const command = new GetNetworkProfileCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetNetworkProfileResponse
+ *   NetworkProfile: { // NetworkProfile
+ *     NetworkProfileArn: 'STRING_VALUE',
+ *     NetworkProfileName: 'STRING_VALUE',
+ *     Description: 'STRING_VALUE',
+ *     Ssid: 'STRING_VALUE',
+ *     SecurityType: 'STRING_VALUE',
+ *     EapMethod: 'STRING_VALUE',
+ *     CurrentPassword: 'STRING_VALUE',
+ *     NextPassword: 'STRING_VALUE',
+ *     CertificateAuthorityArn: 'STRING_VALUE',
+ *     TrustAnchors: [ // TrustAnchorList
+ *       'STRING_VALUE',
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetNetworkProfileCommandInput - {@link GetNetworkProfileCommandInput}
@@ -62,6 +80,8 @@ export interface GetNetworkProfileCommandOutput extends GetNetworkProfileRespons
  * @throws {@link NotFoundException} (client fault)
  *  <p>The resource is not found.</p>
  *
+ * @throws {@link AlexaForBusinessServiceException}
+ * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  */
 export class GetNetworkProfileCommand extends $Command<

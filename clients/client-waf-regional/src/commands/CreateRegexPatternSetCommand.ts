@@ -63,15 +63,27 @@ export interface CreateRegexPatternSetCommandOutput extends CreateRegexPatternSe
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WAFRegionalClient, CreateRegexPatternSetCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
- * // const { WAFRegionalClient, CreateRegexPatternSetCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import
+ * import { WAFRegionalClient, CreateRegexPatternSetCommand } from '@aws-sdk/client-waf-regional'; // ES Modules import
+ * // const { WAFRegionalClient, CreateRegexPatternSetCommand } = require('@aws-sdk/client-waf-regional'); // CommonJS import
  * const client = new WAFRegionalClient(config);
  * const input = { // CreateRegexPatternSetRequest
- *   Name: "STRING_VALUE", // required
- *   ChangeToken: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
+ *   ChangeToken: 'STRING_VALUE', // required
  * };
  * const command = new CreateRegexPatternSetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateRegexPatternSetResponse
+ *   RegexPatternSet: { // RegexPatternSet
+ *     RegexPatternSetId: 'STRING_VALUE', // required
+ *     Name: 'STRING_VALUE',
+ *     RegexPatternStrings: [ // RegexPatternStrings // required
+ *       'STRING_VALUE',
+ *     ],
+ *   },
+ *   ChangeToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateRegexPatternSetCommandInput - {@link CreateRegexPatternSetCommandInput}
@@ -94,6 +106,8 @@ export interface CreateRegexPatternSetCommandOutput extends CreateRegexPatternSe
  * @throws {@link WAFStaleDataException} (client fault)
  *  <p>The operation failed because you tried to create, update, or delete an object by using a change token that has already been used.</p>
  *
+ * @throws {@link WAFRegionalServiceException}
+ * <p>Base exception class for all service exceptions from WAFRegional service.</p>
  *
  */
 export class CreateRegexPatternSetCommand extends $Command<

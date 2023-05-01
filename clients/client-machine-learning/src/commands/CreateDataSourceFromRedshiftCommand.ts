@@ -73,32 +73,37 @@ export interface CreateDataSourceFromRedshiftCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MachineLearningClient, CreateDataSourceFromRedshiftCommand } from "@aws-sdk/client-machine-learning"; // ES Modules import
- * // const { MachineLearningClient, CreateDataSourceFromRedshiftCommand } = require("@aws-sdk/client-machine-learning"); // CommonJS import
+ * import { MachineLearningClient, CreateDataSourceFromRedshiftCommand } from '@aws-sdk/client-machine-learning'; // ES Modules import
+ * // const { MachineLearningClient, CreateDataSourceFromRedshiftCommand } = require('@aws-sdk/client-machine-learning'); // CommonJS import
  * const client = new MachineLearningClient(config);
  * const input = { // CreateDataSourceFromRedshiftInput
- *   DataSourceId: "STRING_VALUE", // required
- *   DataSourceName: "STRING_VALUE",
+ *   DataSourceId: 'STRING_VALUE', // required
+ *   DataSourceName: 'STRING_VALUE',
  *   DataSpec: { // RedshiftDataSpec
  *     DatabaseInformation: { // RedshiftDatabase
- *       DatabaseName: "STRING_VALUE", // required
- *       ClusterIdentifier: "STRING_VALUE", // required
+ *       DatabaseName: 'STRING_VALUE', // required
+ *       ClusterIdentifier: 'STRING_VALUE', // required
  *     },
- *     SelectSqlQuery: "STRING_VALUE", // required
+ *     SelectSqlQuery: 'STRING_VALUE', // required
  *     DatabaseCredentials: { // RedshiftDatabaseCredentials
- *       Username: "STRING_VALUE", // required
- *       Password: "STRING_VALUE", // required
+ *       Username: 'STRING_VALUE', // required
+ *       Password: 'STRING_VALUE', // required
  *     },
- *     S3StagingLocation: "STRING_VALUE", // required
- *     DataRearrangement: "STRING_VALUE",
- *     DataSchema: "STRING_VALUE",
- *     DataSchemaUri: "STRING_VALUE",
+ *     S3StagingLocation: 'STRING_VALUE', // required
+ *     DataRearrangement: 'STRING_VALUE',
+ *     DataSchema: 'STRING_VALUE',
+ *     DataSchemaUri: 'STRING_VALUE',
  *   },
- *   RoleARN: "STRING_VALUE", // required
+ *   RoleARN: 'STRING_VALUE', // required
  *   ComputeStatistics: true || false,
  * };
  * const command = new CreateDataSourceFromRedshiftCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateDataSourceFromRedshiftOutput
+ *   DataSourceId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateDataSourceFromRedshiftCommandInput - {@link CreateDataSourceFromRedshiftCommandInput}
@@ -116,6 +121,8 @@ export interface CreateDataSourceFromRedshiftCommandOutput
  * @throws {@link InvalidInputException} (client fault)
  *  <p>An error on the client occurred. Typically, the cause is an invalid input value.</p>
  *
+ * @throws {@link MachineLearningServiceException}
+ * <p>Base exception class for all service exceptions from MachineLearning service.</p>
  *
  */
 export class CreateDataSourceFromRedshiftCommand extends $Command<

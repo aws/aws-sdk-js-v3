@@ -72,25 +72,55 @@ export interface SearchFacesByImageCommandOutput extends SearchFacesByImageRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RekognitionClient, SearchFacesByImageCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
- * // const { RekognitionClient, SearchFacesByImageCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
+ * import { RekognitionClient, SearchFacesByImageCommand } from '@aws-sdk/client-rekognition'; // ES Modules import
+ * // const { RekognitionClient, SearchFacesByImageCommand } = require('@aws-sdk/client-rekognition'); // CommonJS import
  * const client = new RekognitionClient(config);
  * const input = { // SearchFacesByImageRequest
- *   CollectionId: "STRING_VALUE", // required
+ *   CollectionId: 'STRING_VALUE', // required
  *   Image: { // Image
- *     Bytes: "BLOB_VALUE",
+ *     Bytes: 'BLOB_VALUE',
  *     S3Object: { // S3Object
- *       Bucket: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *       Version: "STRING_VALUE",
+ *       Bucket: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *       Version: 'STRING_VALUE',
  *     },
  *   },
- *   MaxFaces: Number("int"),
- *   FaceMatchThreshold: Number("float"),
- *   QualityFilter: "NONE" || "AUTO" || "LOW" || "MEDIUM" || "HIGH",
+ *   MaxFaces: Number('int'),
+ *   FaceMatchThreshold: Number('float'),
+ *   QualityFilter: 'NONE' || 'AUTO' || 'LOW' || 'MEDIUM' || 'HIGH',
  * };
  * const command = new SearchFacesByImageCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SearchFacesByImageResponse
+ *   SearchedFaceBoundingBox: { // BoundingBox
+ *     Width: Number('float'),
+ *     Height: Number('float'),
+ *     Left: Number('float'),
+ *     Top: Number('float'),
+ *   },
+ *   SearchedFaceConfidence: Number('float'),
+ *   FaceMatches: [ // FaceMatchList
+ *     { // FaceMatch
+ *       Similarity: Number('float'),
+ *       Face: { // Face
+ *         FaceId: 'STRING_VALUE',
+ *         BoundingBox: {
+ *           Width: Number('float'),
+ *           Height: Number('float'),
+ *           Left: Number('float'),
+ *           Top: Number('float'),
+ *         },
+ *         ImageId: 'STRING_VALUE',
+ *         ExternalImageId: 'STRING_VALUE',
+ *         Confidence: Number('float'),
+ *         IndexFacesModelVersion: 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ *   FaceModelVersion: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param SearchFacesByImageCommandInput - {@link SearchFacesByImageCommandInput}
@@ -131,6 +161,8 @@ export interface SearchFacesByImageCommandOutput extends SearchFacesByImageRespo
  * @throws {@link ThrottlingException} (server fault)
  *  <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
  *
+ * @throws {@link RekognitionServiceException}
+ * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
  * @example To search for faces matching a supplied image
  * ```javascript

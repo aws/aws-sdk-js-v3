@@ -37,21 +37,21 @@ export interface CreateAuthorizerCommandOutput extends CreateAuthorizerResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTClient, CreateAuthorizerCommand } from "@aws-sdk/client-iot"; // ES Modules import
- * // const { IoTClient, CreateAuthorizerCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * import { IoTClient, CreateAuthorizerCommand } from '@aws-sdk/client-iot'; // ES Modules import
+ * // const { IoTClient, CreateAuthorizerCommand } = require('@aws-sdk/client-iot'); // CommonJS import
  * const client = new IoTClient(config);
  * const input = { // CreateAuthorizerRequest
- *   authorizerName: "STRING_VALUE", // required
- *   authorizerFunctionArn: "STRING_VALUE", // required
- *   tokenKeyName: "STRING_VALUE",
+ *   authorizerName: 'STRING_VALUE', // required
+ *   authorizerFunctionArn: 'STRING_VALUE', // required
+ *   tokenKeyName: 'STRING_VALUE',
  *   tokenSigningPublicKeys: { // PublicKeyMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
- *   status: "ACTIVE" || "INACTIVE",
+ *   status: 'ACTIVE' || 'INACTIVE',
  *   tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
  *   signingDisabled: true || false,
@@ -59,6 +59,12 @@ export interface CreateAuthorizerCommandOutput extends CreateAuthorizerResponse,
  * };
  * const command = new CreateAuthorizerCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateAuthorizerResponse
+ *   authorizerName: 'STRING_VALUE',
+ *   authorizerArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateAuthorizerCommandInput - {@link CreateAuthorizerCommandInput}
@@ -88,6 +94,8 @@ export interface CreateAuthorizerCommandOutput extends CreateAuthorizerResponse,
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this operation.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class CreateAuthorizerCommand extends $Command<

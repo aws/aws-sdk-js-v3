@@ -42,22 +42,27 @@ export interface CreateTrustCommandOutput extends CreateTrustResult, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DirectoryServiceClient, CreateTrustCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
- * // const { DirectoryServiceClient, CreateTrustCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
+ * import { DirectoryServiceClient, CreateTrustCommand } from '@aws-sdk/client-directory-service'; // ES Modules import
+ * // const { DirectoryServiceClient, CreateTrustCommand } = require('@aws-sdk/client-directory-service'); // CommonJS import
  * const client = new DirectoryServiceClient(config);
  * const input = { // CreateTrustRequest
- *   DirectoryId: "STRING_VALUE", // required
- *   RemoteDomainName: "STRING_VALUE", // required
- *   TrustPassword: "STRING_VALUE", // required
- *   TrustDirection: "One-Way: Outgoing" || "One-Way: Incoming" || "Two-Way", // required
- *   TrustType: "Forest" || "External",
+ *   DirectoryId: 'STRING_VALUE', // required
+ *   RemoteDomainName: 'STRING_VALUE', // required
+ *   TrustPassword: 'STRING_VALUE', // required
+ *   TrustDirection: 'One-Way: Outgoing' || 'One-Way: Incoming' || 'Two-Way', // required
+ *   TrustType: 'Forest' || 'External',
  *   ConditionalForwarderIpAddrs: [ // DnsIpAddrs
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   SelectiveAuth: "Enabled" || "Disabled",
+ *   SelectiveAuth: 'Enabled' || 'Disabled',
  * };
  * const command = new CreateTrustCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateTrustResult
+ *   TrustId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateTrustCommandInput - {@link CreateTrustCommandInput}
@@ -84,6 +89,8 @@ export interface CreateTrustCommandOutput extends CreateTrustResult, __MetadataB
  * @throws {@link UnsupportedOperationException} (client fault)
  *  <p>The operation is not supported.</p>
  *
+ * @throws {@link DirectoryServiceServiceException}
+ * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
  */
 export class CreateTrustCommand extends $Command<

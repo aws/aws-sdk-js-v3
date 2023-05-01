@@ -42,23 +42,26 @@ export interface UpdateContactCommandOutput extends UpdateContactResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, UpdateContactCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, UpdateContactCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, UpdateContactCommand } from '@aws-sdk/client-connect'; // ES Modules import
+ * // const { ConnectClient, UpdateContactCommand } = require('@aws-sdk/client-connect'); // CommonJS import
  * const client = new ConnectClient(config);
  * const input = { // UpdateContactRequest
- *   InstanceId: "STRING_VALUE", // required
- *   ContactId: "STRING_VALUE", // required
- *   Name: "STRING_VALUE",
- *   Description: "STRING_VALUE",
+ *   InstanceId: 'STRING_VALUE', // required
+ *   ContactId: 'STRING_VALUE', // required
+ *   Name: 'STRING_VALUE',
+ *   Description: 'STRING_VALUE',
  *   References: { // ContactReferences
- *     "<keys>": { // Reference
- *       Value: "STRING_VALUE", // required
- *       Type: "URL" || "ATTACHMENT" || "NUMBER" || "STRING" || "DATE" || "EMAIL", // required
+ *     '<keys>': { // Reference
+ *       Value: 'STRING_VALUE', // required
+ *       Type: 'URL' || 'ATTACHMENT' || 'NUMBER' || 'STRING' || 'DATE' || 'EMAIL', // required
  *     },
  *   },
  * };
  * const command = new UpdateContactCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateContactCommandInput - {@link UpdateContactCommandInput}
@@ -82,6 +85,8 @@ export interface UpdateContactCommandOutput extends UpdateContactResponse, __Met
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class UpdateContactCommand extends $Command<

@@ -39,14 +39,17 @@ export interface DeleteReplicationJobCommandOutput extends DeleteReplicationJobR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SMSClient, DeleteReplicationJobCommand } from "@aws-sdk/client-sms"; // ES Modules import
- * // const { SMSClient, DeleteReplicationJobCommand } = require("@aws-sdk/client-sms"); // CommonJS import
+ * import { SMSClient, DeleteReplicationJobCommand } from '@aws-sdk/client-sms'; // ES Modules import
+ * // const { SMSClient, DeleteReplicationJobCommand } = require('@aws-sdk/client-sms'); // CommonJS import
  * const client = new SMSClient(config);
  * const input = { // DeleteReplicationJobRequest
- *   replicationJobId: "STRING_VALUE", // required
+ *   replicationJobId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteReplicationJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteReplicationJobCommandInput - {@link DeleteReplicationJobCommandInput}
@@ -71,6 +74,8 @@ export interface DeleteReplicationJobCommandOutput extends DeleteReplicationJobR
  *  <p>You lack permissions needed to perform this operation. Check your IAM policies,
  *             and ensure that you are using the correct access keys.</p>
  *
+ * @throws {@link SMSServiceException}
+ * <p>Base exception class for all service exceptions from SMS service.</p>
  *
  */
 export class DeleteReplicationJobCommand extends $Command<

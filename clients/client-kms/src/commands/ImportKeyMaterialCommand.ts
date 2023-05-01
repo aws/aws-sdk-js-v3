@@ -99,18 +99,21 @@ export interface ImportKeyMaterialCommandOutput extends ImportKeyMaterialRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KMSClient, ImportKeyMaterialCommand } from "@aws-sdk/client-kms"; // ES Modules import
- * // const { KMSClient, ImportKeyMaterialCommand } = require("@aws-sdk/client-kms"); // CommonJS import
+ * import { KMSClient, ImportKeyMaterialCommand } from '@aws-sdk/client-kms'; // ES Modules import
+ * // const { KMSClient, ImportKeyMaterialCommand } = require('@aws-sdk/client-kms'); // CommonJS import
  * const client = new KMSClient(config);
  * const input = { // ImportKeyMaterialRequest
- *   KeyId: "STRING_VALUE", // required
- *   ImportToken: "BLOB_VALUE", // required
- *   EncryptedKeyMaterial: "BLOB_VALUE", // required
- *   ValidTo: new Date("TIMESTAMP"),
- *   ExpirationModel: "KEY_MATERIAL_EXPIRES" || "KEY_MATERIAL_DOES_NOT_EXPIRE",
+ *   KeyId: 'STRING_VALUE', // required
+ *   ImportToken: 'BLOB_VALUE', // required
+ *   EncryptedKeyMaterial: 'BLOB_VALUE', // required
+ *   ValidTo: new Date('TIMESTAMP'),
+ *   ExpirationModel: 'KEY_MATERIAL_EXPIRES' || 'KEY_MATERIAL_DOES_NOT_EXPIRE',
  * };
  * const command = new ImportKeyMaterialCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param ImportKeyMaterialCommandInput - {@link ImportKeyMaterialCommandInput}
@@ -177,6 +180,8 @@ export interface ImportKeyMaterialCommandOutput extends ImportKeyMaterialRespons
  *  <p>The request was rejected because a specified parameter is not supported or a specified
  *       resource is not valid for this operation.</p>
  *
+ * @throws {@link KMSServiceException}
+ * <p>Base exception class for all service exceptions from KMS service.</p>
  *
  * @example To import key material into a KMS key
  * ```javascript

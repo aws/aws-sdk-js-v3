@@ -40,22 +40,43 @@ export interface CreateWorkflowStepGroupCommandOutput extends CreateWorkflowStep
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MigrationHubOrchestratorClient, CreateWorkflowStepGroupCommand } from "@aws-sdk/client-migrationhuborchestrator"; // ES Modules import
- * // const { MigrationHubOrchestratorClient, CreateWorkflowStepGroupCommand } = require("@aws-sdk/client-migrationhuborchestrator"); // CommonJS import
+ * import { MigrationHubOrchestratorClient, CreateWorkflowStepGroupCommand } from '@aws-sdk/client-migrationhuborchestrator'; // ES Modules import
+ * // const { MigrationHubOrchestratorClient, CreateWorkflowStepGroupCommand } = require('@aws-sdk/client-migrationhuborchestrator'); // CommonJS import
  * const client = new MigrationHubOrchestratorClient(config);
  * const input = { // CreateWorkflowStepGroupRequest
- *   workflowId: "STRING_VALUE", // required
- *   name: "STRING_VALUE", // required
- *   description: "STRING_VALUE",
+ *   workflowId: 'STRING_VALUE', // required
+ *   name: 'STRING_VALUE', // required
+ *   description: 'STRING_VALUE',
  *   next: [ // StringList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   previous: [
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new CreateWorkflowStepGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateWorkflowStepGroupResponse
+ *   workflowId: 'STRING_VALUE',
+ *   name: 'STRING_VALUE',
+ *   id: 'STRING_VALUE',
+ *   description: 'STRING_VALUE',
+ *   tools: [ // ToolsList
+ *     { // Tool
+ *       name: 'STRING_VALUE',
+ *       url: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   next: [ // StringList
+ *     'STRING_VALUE',
+ *   ],
+ *   previous: [
+ *     'STRING_VALUE',
+ *   ],
+ *   creationTime: new Date('TIMESTAMP'),
+ * };
+ *
  * ```
  *
  * @param CreateWorkflowStepGroupCommandInput - {@link CreateWorkflowStepGroupCommandInput}
@@ -76,6 +97,8 @@ export interface CreateWorkflowStepGroupCommandOutput extends CreateWorkflowStep
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link MigrationHubOrchestratorServiceException}
+ * <p>Base exception class for all service exceptions from MigrationHubOrchestrator service.</p>
  *
  */
 export class CreateWorkflowStepGroupCommand extends $Command<

@@ -78,18 +78,26 @@ export interface TestIdentityProviderCommandOutput extends TestIdentityProviderR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { TransferClient, TestIdentityProviderCommand } from "@aws-sdk/client-transfer"; // ES Modules import
- * // const { TransferClient, TestIdentityProviderCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
+ * import { TransferClient, TestIdentityProviderCommand } from '@aws-sdk/client-transfer'; // ES Modules import
+ * // const { TransferClient, TestIdentityProviderCommand } = require('@aws-sdk/client-transfer'); // CommonJS import
  * const client = new TransferClient(config);
  * const input = { // TestIdentityProviderRequest
- *   ServerId: "STRING_VALUE", // required
- *   ServerProtocol: "SFTP" || "FTP" || "FTPS" || "AS2",
- *   SourceIp: "STRING_VALUE",
- *   UserName: "STRING_VALUE", // required
- *   UserPassword: "STRING_VALUE",
+ *   ServerId: 'STRING_VALUE', // required
+ *   ServerProtocol: 'SFTP' || 'FTP' || 'FTPS' || 'AS2',
+ *   SourceIp: 'STRING_VALUE',
+ *   UserName: 'STRING_VALUE', // required
+ *   UserPassword: 'STRING_VALUE',
  * };
  * const command = new TestIdentityProviderCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // TestIdentityProviderResponse
+ *   Response: 'STRING_VALUE',
+ *   StatusCode: Number('int'), // required
+ *   Message: 'STRING_VALUE',
+ *   Url: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param TestIdentityProviderCommandInput - {@link TestIdentityProviderCommandInput}
@@ -111,6 +119,8 @@ export interface TestIdentityProviderCommandOutput extends TestIdentityProviderR
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request has failed because the Amazon Web ServicesTransfer Family service is not available.</p>
  *
+ * @throws {@link TransferServiceException}
+ * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
  */
 export class TestIdentityProviderCommand extends $Command<

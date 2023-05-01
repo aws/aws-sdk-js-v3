@@ -42,14 +42,17 @@ export interface EnableOrganizationAdminAccountCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GuardDutyClient, EnableOrganizationAdminAccountCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
- * // const { GuardDutyClient, EnableOrganizationAdminAccountCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
+ * import { GuardDutyClient, EnableOrganizationAdminAccountCommand } from '@aws-sdk/client-guardduty'; // ES Modules import
+ * // const { GuardDutyClient, EnableOrganizationAdminAccountCommand } = require('@aws-sdk/client-guardduty'); // CommonJS import
  * const client = new GuardDutyClient(config);
  * const input = { // EnableOrganizationAdminAccountRequest
- *   AdminAccountId: "STRING_VALUE", // required
+ *   AdminAccountId: 'STRING_VALUE', // required
  * };
  * const command = new EnableOrganizationAdminAccountCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param EnableOrganizationAdminAccountCommandInput - {@link EnableOrganizationAdminAccountCommandInput}
@@ -64,6 +67,8 @@ export interface EnableOrganizationAdminAccountCommandOutput
  * @throws {@link InternalServerErrorException} (server fault)
  *  <p>An internal server error exception object.</p>
  *
+ * @throws {@link GuardDutyServiceException}
+ * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
  */
 export class EnableOrganizationAdminAccountCommand extends $Command<

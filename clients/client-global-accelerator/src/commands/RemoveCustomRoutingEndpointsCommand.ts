@@ -43,17 +43,20 @@ export interface RemoveCustomRoutingEndpointsCommandOutput extends __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlobalAcceleratorClient, RemoveCustomRoutingEndpointsCommand } from "@aws-sdk/client-global-accelerator"; // ES Modules import
- * // const { GlobalAcceleratorClient, RemoveCustomRoutingEndpointsCommand } = require("@aws-sdk/client-global-accelerator"); // CommonJS import
+ * import { GlobalAcceleratorClient, RemoveCustomRoutingEndpointsCommand } from '@aws-sdk/client-global-accelerator'; // ES Modules import
+ * // const { GlobalAcceleratorClient, RemoveCustomRoutingEndpointsCommand } = require('@aws-sdk/client-global-accelerator'); // CommonJS import
  * const client = new GlobalAcceleratorClient(config);
  * const input = { // RemoveCustomRoutingEndpointsRequest
  *   EndpointIds: [ // EndpointIds // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   EndpointGroupArn: "STRING_VALUE", // required
+ *   EndpointGroupArn: 'STRING_VALUE', // required
  * };
  * const command = new RemoveCustomRoutingEndpointsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param RemoveCustomRoutingEndpointsCommandInput - {@link RemoveCustomRoutingEndpointsCommandInput}
@@ -80,6 +83,8 @@ export interface RemoveCustomRoutingEndpointsCommandOutput extends __MetadataBea
  * @throws {@link InvalidArgumentException} (client fault)
  *  <p>An argument that you specified is invalid.</p>
  *
+ * @throws {@link GlobalAcceleratorServiceException}
+ * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
  */
 export class RemoveCustomRoutingEndpointsCommand extends $Command<

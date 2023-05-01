@@ -36,23 +36,47 @@ export interface CreateACLCommandOutput extends CreateACLResponse, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MemoryDBClient, CreateACLCommand } from "@aws-sdk/client-memorydb"; // ES Modules import
- * // const { MemoryDBClient, CreateACLCommand } = require("@aws-sdk/client-memorydb"); // CommonJS import
+ * import { MemoryDBClient, CreateACLCommand } from '@aws-sdk/client-memorydb'; // ES Modules import
+ * // const { MemoryDBClient, CreateACLCommand } = require('@aws-sdk/client-memorydb'); // CommonJS import
  * const client = new MemoryDBClient(config);
  * const input = { // CreateACLRequest
- *   ACLName: "STRING_VALUE", // required
+ *   ACLName: 'STRING_VALUE', // required
  *   UserNames: [ // UserNameListInput
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE",
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new CreateACLCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateACLResponse
+ *   ACL: { // ACL
+ *     Name: 'STRING_VALUE',
+ *     Status: 'STRING_VALUE',
+ *     UserNames: [ // UserNameList
+ *       'STRING_VALUE',
+ *     ],
+ *     MinimumEngineVersion: 'STRING_VALUE',
+ *     PendingChanges: { // ACLPendingChanges
+ *       UserNamesToRemove: [
+ *         'STRING_VALUE',
+ *       ],
+ *       UserNamesToAdd: [
+ *         'STRING_VALUE',
+ *       ],
+ *     },
+ *     Clusters: [ // ACLClusterNameList
+ *       'STRING_VALUE',
+ *     ],
+ *     ARN: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateACLCommandInput - {@link CreateACLCommandInput}
@@ -82,6 +106,8 @@ export interface CreateACLCommandOutput extends CreateACLResponse, __MetadataBea
  * @throws {@link UserNotFoundFault} (client fault)
  *  <p></p>
  *
+ * @throws {@link MemoryDBServiceException}
+ * <p>Base exception class for all service exceptions from MemoryDB service.</p>
  *
  */
 export class CreateACLCommand extends $Command<

@@ -47,24 +47,41 @@ export interface ListPoolOriginationIdentitiesCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PinpointSMSVoiceV2Client, ListPoolOriginationIdentitiesCommand } from "@aws-sdk/client-pinpoint-sms-voice-v2"; // ES Modules import
- * // const { PinpointSMSVoiceV2Client, ListPoolOriginationIdentitiesCommand } = require("@aws-sdk/client-pinpoint-sms-voice-v2"); // CommonJS import
+ * import { PinpointSMSVoiceV2Client, ListPoolOriginationIdentitiesCommand } from '@aws-sdk/client-pinpoint-sms-voice-v2'; // ES Modules import
+ * // const { PinpointSMSVoiceV2Client, ListPoolOriginationIdentitiesCommand } = require('@aws-sdk/client-pinpoint-sms-voice-v2'); // CommonJS import
  * const client = new PinpointSMSVoiceV2Client(config);
  * const input = { // ListPoolOriginationIdentitiesRequest
- *   PoolId: "STRING_VALUE", // required
+ *   PoolId: 'STRING_VALUE', // required
  *   Filters: [ // PoolOriginationIdentitiesFilterList
  *     { // PoolOriginationIdentitiesFilter
- *       Name: "STRING_VALUE", // required
+ *       Name: 'STRING_VALUE', // required
  *       Values: [ // FilterValueList // required
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListPoolOriginationIdentitiesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListPoolOriginationIdentitiesResult
+ *   PoolArn: 'STRING_VALUE',
+ *   PoolId: 'STRING_VALUE',
+ *   OriginationIdentities: [ // OriginationIdentityMetadataList
+ *     { // OriginationIdentityMetadata
+ *       OriginationIdentityArn: 'STRING_VALUE', // required
+ *       OriginationIdentity: 'STRING_VALUE', // required
+ *       IsoCountryCode: 'STRING_VALUE', // required
+ *       NumberCapabilities: [ // NumberCapabilityList // required
+ *         'STRING_VALUE',
+ *       ],
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListPoolOriginationIdentitiesCommandInput - {@link ListPoolOriginationIdentitiesCommandInput}
@@ -91,6 +108,8 @@ export interface ListPoolOriginationIdentitiesCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>A validation exception for a field.</p>
  *
+ * @throws {@link PinpointSMSVoiceV2ServiceException}
+ * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
  *
  */
 export class ListPoolOriginationIdentitiesCommand extends $Command<

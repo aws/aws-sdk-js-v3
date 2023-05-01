@@ -36,15 +36,46 @@ export interface GetReadSetImportJobCommandOutput extends GetReadSetImportJobRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OmicsClient, GetReadSetImportJobCommand } from "@aws-sdk/client-omics"; // ES Modules import
- * // const { OmicsClient, GetReadSetImportJobCommand } = require("@aws-sdk/client-omics"); // CommonJS import
+ * import { OmicsClient, GetReadSetImportJobCommand } from '@aws-sdk/client-omics'; // ES Modules import
+ * // const { OmicsClient, GetReadSetImportJobCommand } = require('@aws-sdk/client-omics'); // CommonJS import
  * const client = new OmicsClient(config);
  * const input = { // GetReadSetImportJobRequest
- *   id: "STRING_VALUE", // required
- *   sequenceStoreId: "STRING_VALUE", // required
+ *   id: 'STRING_VALUE', // required
+ *   sequenceStoreId: 'STRING_VALUE', // required
  * };
  * const command = new GetReadSetImportJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetReadSetImportJobResponse
+ *   id: 'STRING_VALUE', // required
+ *   sequenceStoreId: 'STRING_VALUE', // required
+ *   roleArn: 'STRING_VALUE', // required
+ *   status: 'STRING_VALUE', // required
+ *   statusMessage: 'STRING_VALUE',
+ *   creationTime: new Date('TIMESTAMP'), // required
+ *   completionTime: new Date('TIMESTAMP'),
+ *   sources: [ // ImportReadSetSourceList // required
+ *     { // ImportReadSetSourceItem
+ *       sourceFiles: { // SourceFiles
+ *         source1: 'STRING_VALUE', // required
+ *         source2: 'STRING_VALUE',
+ *       },
+ *       sourceFileType: 'STRING_VALUE', // required
+ *       status: 'STRING_VALUE', // required
+ *       statusMessage: 'STRING_VALUE',
+ *       subjectId: 'STRING_VALUE', // required
+ *       sampleId: 'STRING_VALUE', // required
+ *       generatedFrom: 'STRING_VALUE',
+ *       referenceArn: 'STRING_VALUE',
+ *       name: 'STRING_VALUE',
+ *       description: 'STRING_VALUE',
+ *       tags: { // TagMap
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetReadSetImportJobCommandInput - {@link GetReadSetImportJobCommandInput}
@@ -71,6 +102,8 @@ export interface GetReadSetImportJobCommandOutput extends GetReadSetImportJobRes
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link OmicsServiceException}
+ * <p>Base exception class for all service exceptions from Omics service.</p>
  *
  */
 export class GetReadSetImportJobCommand extends $Command<

@@ -48,43 +48,84 @@ export interface UpdateWorkspaceAuthenticationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GrafanaClient, UpdateWorkspaceAuthenticationCommand } from "@aws-sdk/client-grafana"; // ES Modules import
- * // const { GrafanaClient, UpdateWorkspaceAuthenticationCommand } = require("@aws-sdk/client-grafana"); // CommonJS import
+ * import { GrafanaClient, UpdateWorkspaceAuthenticationCommand } from '@aws-sdk/client-grafana'; // ES Modules import
+ * // const { GrafanaClient, UpdateWorkspaceAuthenticationCommand } = require('@aws-sdk/client-grafana'); // CommonJS import
  * const client = new GrafanaClient(config);
  * const input = { // UpdateWorkspaceAuthenticationRequest
- *   workspaceId: "STRING_VALUE", // required
+ *   workspaceId: 'STRING_VALUE', // required
  *   authenticationProviders: [ // AuthenticationProviders // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   samlConfiguration: { // SamlConfiguration
  *     idpMetadata: { // IdpMetadata Union: only one key present
- *       url: "STRING_VALUE",
- *       xml: "STRING_VALUE",
+ *       url: 'STRING_VALUE',
+ *       xml: 'STRING_VALUE',
  *     },
  *     assertionAttributes: { // AssertionAttributes
- *       name: "STRING_VALUE",
- *       login: "STRING_VALUE",
- *       email: "STRING_VALUE",
- *       groups: "STRING_VALUE",
- *       role: "STRING_VALUE",
- *       org: "STRING_VALUE",
+ *       name: 'STRING_VALUE',
+ *       login: 'STRING_VALUE',
+ *       email: 'STRING_VALUE',
+ *       groups: 'STRING_VALUE',
+ *       role: 'STRING_VALUE',
+ *       org: 'STRING_VALUE',
  *     },
  *     roleValues: { // RoleValues
  *       editor: [ // RoleValueList
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *       admin: [
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *     allowedOrganizations: [ // AllowedOrganizations
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
- *     loginValidityDuration: Number("int"),
+ *     loginValidityDuration: Number('int'),
  *   },
  * };
  * const command = new UpdateWorkspaceAuthenticationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateWorkspaceAuthenticationResponse
+ *   authentication: { // AuthenticationDescription
+ *     providers: [ // AuthenticationProviders // required
+ *       'STRING_VALUE',
+ *     ],
+ *     saml: { // SamlAuthentication
+ *       status: 'STRING_VALUE', // required
+ *       configuration: { // SamlConfiguration
+ *         idpMetadata: { // IdpMetadata Union: only one key present
+ *           url: 'STRING_VALUE',
+ *           xml: 'STRING_VALUE',
+ *         },
+ *         assertionAttributes: { // AssertionAttributes
+ *           name: 'STRING_VALUE',
+ *           login: 'STRING_VALUE',
+ *           email: 'STRING_VALUE',
+ *           groups: 'STRING_VALUE',
+ *           role: 'STRING_VALUE',
+ *           org: 'STRING_VALUE',
+ *         },
+ *         roleValues: { // RoleValues
+ *           editor: [ // RoleValueList
+ *             'STRING_VALUE',
+ *           ],
+ *           admin: [
+ *             'STRING_VALUE',
+ *           ],
+ *         },
+ *         allowedOrganizations: [ // AllowedOrganizations
+ *           'STRING_VALUE',
+ *         ],
+ *         loginValidityDuration: Number('int'),
+ *       },
+ *     },
+ *     awsSso: { // AwsSsoAuthentication
+ *       ssoClientId: 'STRING_VALUE',
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateWorkspaceAuthenticationCommandInput - {@link UpdateWorkspaceAuthenticationCommandInput}
@@ -111,6 +152,8 @@ export interface UpdateWorkspaceAuthenticationCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The value of a parameter in the request caused an error.</p>
  *
+ * @throws {@link GrafanaServiceException}
+ * <p>Base exception class for all service exceptions from Grafana service.</p>
  *
  */
 export class UpdateWorkspaceAuthenticationCommand extends $Command<

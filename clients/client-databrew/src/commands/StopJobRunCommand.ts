@@ -36,15 +36,20 @@ export interface StopJobRunCommandOutput extends StopJobRunResponse, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DataBrewClient, StopJobRunCommand } from "@aws-sdk/client-databrew"; // ES Modules import
- * // const { DataBrewClient, StopJobRunCommand } = require("@aws-sdk/client-databrew"); // CommonJS import
+ * import { DataBrewClient, StopJobRunCommand } from '@aws-sdk/client-databrew'; // ES Modules import
+ * // const { DataBrewClient, StopJobRunCommand } = require('@aws-sdk/client-databrew'); // CommonJS import
  * const client = new DataBrewClient(config);
  * const input = { // StopJobRunRequest
- *   Name: "STRING_VALUE", // required
- *   RunId: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
+ *   RunId: 'STRING_VALUE', // required
  * };
  * const command = new StopJobRunCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StopJobRunResponse
+ *   RunId: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param StopJobRunCommandInput - {@link StopJobRunCommandInput}
@@ -59,6 +64,8 @@ export interface StopJobRunCommandOutput extends StopJobRunResponse, __MetadataB
  * @throws {@link ValidationException} (client fault)
  *  <p>The input parameters for this request failed validation.</p>
  *
+ * @throws {@link DataBrewServiceException}
+ * <p>Base exception class for all service exceptions from DataBrew service.</p>
  *
  */
 export class StopJobRunCommand extends $Command<

@@ -47,16 +47,22 @@ export interface AssociateResourceCommandOutput extends AssociateResourceRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ServiceCatalogAppRegistryClient, AssociateResourceCommand } from "@aws-sdk/client-service-catalog-appregistry"; // ES Modules import
- * // const { ServiceCatalogAppRegistryClient, AssociateResourceCommand } = require("@aws-sdk/client-service-catalog-appregistry"); // CommonJS import
+ * import { ServiceCatalogAppRegistryClient, AssociateResourceCommand } from '@aws-sdk/client-service-catalog-appregistry'; // ES Modules import
+ * // const { ServiceCatalogAppRegistryClient, AssociateResourceCommand } = require('@aws-sdk/client-service-catalog-appregistry'); // CommonJS import
  * const client = new ServiceCatalogAppRegistryClient(config);
  * const input = { // AssociateResourceRequest
- *   application: "STRING_VALUE", // required
- *   resourceType: "CFN_STACK" || "RESOURCE_TAG_VALUE", // required
- *   resource: "STRING_VALUE", // required
+ *   application: 'STRING_VALUE', // required
+ *   resourceType: 'CFN_STACK' || 'RESOURCE_TAG_VALUE', // required
+ *   resource: 'STRING_VALUE', // required
  * };
  * const command = new AssociateResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AssociateResourceResponse
+ *   applicationArn: 'STRING_VALUE',
+ *   resourceArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param AssociateResourceCommandInput - {@link AssociateResourceCommandInput}
@@ -91,6 +97,8 @@ export interface AssociateResourceCommandOutput extends AssociateResourceRespons
  * @throws {@link ValidationException} (client fault)
  *  <p>The request has invalid or missing parameters.</p>
  *
+ * @throws {@link ServiceCatalogAppRegistryServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalogAppRegistry service.</p>
  *
  */
 export class AssociateResourceCommand extends $Command<

@@ -36,15 +36,18 @@ export interface StopApplicationCommandOutput extends StopApplicationResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { M2Client, StopApplicationCommand } from "@aws-sdk/client-m2"; // ES Modules import
- * // const { M2Client, StopApplicationCommand } = require("@aws-sdk/client-m2"); // CommonJS import
+ * import { M2Client, StopApplicationCommand } from '@aws-sdk/client-m2'; // ES Modules import
+ * // const { M2Client, StopApplicationCommand } = require('@aws-sdk/client-m2'); // CommonJS import
  * const client = new M2Client(config);
  * const input = { // StopApplicationRequest
- *   applicationId: "STRING_VALUE", // required
+ *   applicationId: 'STRING_VALUE', // required
  *   forceStop: true || false,
  * };
  * const command = new StopApplicationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param StopApplicationCommandInput - {@link StopApplicationCommandInput}
@@ -71,6 +74,8 @@ export interface StopApplicationCommandOutput extends StopApplicationResponse, _
  * @throws {@link ValidationException} (client fault)
  *  <p>One or more parameters provided in the request is not valid.</p>
  *
+ * @throws {@link M2ServiceException}
+ * <p>Base exception class for all service exceptions from M2 service.</p>
  *
  */
 export class StopApplicationCommand extends $Command<

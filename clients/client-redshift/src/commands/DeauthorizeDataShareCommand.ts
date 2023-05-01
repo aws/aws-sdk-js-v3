@@ -36,15 +36,32 @@ export interface DeauthorizeDataShareCommandOutput extends DataShare, __Metadata
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RedshiftClient, DeauthorizeDataShareCommand } from "@aws-sdk/client-redshift"; // ES Modules import
- * // const { RedshiftClient, DeauthorizeDataShareCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * import { RedshiftClient, DeauthorizeDataShareCommand } from '@aws-sdk/client-redshift'; // ES Modules import
+ * // const { RedshiftClient, DeauthorizeDataShareCommand } = require('@aws-sdk/client-redshift'); // CommonJS import
  * const client = new RedshiftClient(config);
  * const input = { // DeauthorizeDataShareMessage
- *   DataShareArn: "STRING_VALUE", // required
- *   ConsumerIdentifier: "STRING_VALUE", // required
+ *   DataShareArn: 'STRING_VALUE', // required
+ *   ConsumerIdentifier: 'STRING_VALUE', // required
  * };
  * const command = new DeauthorizeDataShareCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DataShare
+ *   DataShareArn: 'STRING_VALUE',
+ *   ProducerArn: 'STRING_VALUE',
+ *   AllowPubliclyAccessibleConsumers: true || false,
+ *   DataShareAssociations: [ // DataShareAssociationList
+ *     { // DataShareAssociation
+ *       ConsumerIdentifier: 'STRING_VALUE',
+ *       Status: 'ACTIVE' || 'PENDING_AUTHORIZATION' || 'AUTHORIZED' || 'DEAUTHORIZED' || 'REJECTED' || 'AVAILABLE',
+ *       ConsumerRegion: 'STRING_VALUE',
+ *       CreatedDate: new Date('TIMESTAMP'),
+ *       StatusChangeDate: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   ManagedBy: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DeauthorizeDataShareCommandInput - {@link DeauthorizeDataShareCommandInput}
@@ -56,6 +73,8 @@ export interface DeauthorizeDataShareCommandOutput extends DataShare, __Metadata
  * @throws {@link InvalidDataShareFault} (client fault)
  *  <p>There is an error with the datashare.</p>
  *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class DeauthorizeDataShareCommand extends $Command<

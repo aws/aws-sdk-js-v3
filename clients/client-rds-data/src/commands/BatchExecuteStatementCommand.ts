@@ -49,38 +49,38 @@ export interface BatchExecuteStatementCommandOutput extends BatchExecuteStatemen
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RDSDataClient, BatchExecuteStatementCommand } from "@aws-sdk/client-rds-data"; // ES Modules import
- * // const { RDSDataClient, BatchExecuteStatementCommand } = require("@aws-sdk/client-rds-data"); // CommonJS import
+ * import { RDSDataClient, BatchExecuteStatementCommand } from '@aws-sdk/client-rds-data'; // ES Modules import
+ * // const { RDSDataClient, BatchExecuteStatementCommand } = require('@aws-sdk/client-rds-data'); // CommonJS import
  * const client = new RDSDataClient(config);
  * const input = { // BatchExecuteStatementRequest
- *   resourceArn: "STRING_VALUE", // required
- *   secretArn: "STRING_VALUE", // required
- *   sql: "STRING_VALUE", // required
- *   database: "STRING_VALUE",
- *   schema: "STRING_VALUE",
+ *   resourceArn: 'STRING_VALUE', // required
+ *   secretArn: 'STRING_VALUE', // required
+ *   sql: 'STRING_VALUE', // required
+ *   database: 'STRING_VALUE',
+ *   schema: 'STRING_VALUE',
  *   parameterSets: [ // SqlParameterSets
  *     [ // SqlParametersList
  *       { // SqlParameter
- *         name: "STRING_VALUE",
+ *         name: 'STRING_VALUE',
  *         value: { // Field Union: only one key present
  *           isNull: true || false,
  *           booleanValue: true || false,
- *           longValue: Number("long"),
- *           doubleValue: Number("double"),
- *           stringValue: "STRING_VALUE",
- *           blobValue: "BLOB_VALUE",
+ *           longValue: Number('long'),
+ *           doubleValue: Number('double'),
+ *           stringValue: 'STRING_VALUE',
+ *           blobValue: 'BLOB_VALUE',
  *           arrayValue: { // ArrayValue Union: only one key present
  *             booleanValues: [ // BooleanArray
  *               true || false,
  *             ],
  *             longValues: [ // LongArray
- *               Number("long"),
+ *               Number('long'),
  *             ],
  *             doubleValues: [ // DoubleArray
- *               Number("double"),
+ *               Number('double'),
  *             ],
  *             stringValues: [ // StringArray
- *               "STRING_VALUE",
+ *               'STRING_VALUE',
  *             ],
  *             arrayValues: [ // ArrayOfArray
  *               {//  Union: only one key present
@@ -88,29 +88,80 @@ export interface BatchExecuteStatementCommandOutput extends BatchExecuteStatemen
  *                   true || false,
  *                 ],
  *                 longValues: [
- *                   Number("long"),
+ *                   Number('long'),
  *                 ],
  *                 doubleValues: [
- *                   Number("double"),
+ *                   Number('double'),
  *                 ],
  *                 stringValues: [
- *                   "STRING_VALUE",
+ *                   'STRING_VALUE',
  *                 ],
  *                 arrayValues: [
- *                   "<ArrayValue>",
+ *                   '<ArrayValue>',
  *                 ],
  *               },
  *             ],
  *           },
  *         },
- *         typeHint: "STRING_VALUE",
+ *         typeHint: 'STRING_VALUE',
  *       },
  *     ],
  *   ],
- *   transactionId: "STRING_VALUE",
+ *   transactionId: 'STRING_VALUE',
  * };
  * const command = new BatchExecuteStatementCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BatchExecuteStatementResponse
+ *   updateResults: [ // UpdateResults
+ *     { // UpdateResult
+ *       generatedFields: [ // FieldList
+ *         { // Field Union: only one key present
+ *           isNull: true || false,
+ *           booleanValue: true || false,
+ *           longValue: Number('long'),
+ *           doubleValue: Number('double'),
+ *           stringValue: 'STRING_VALUE',
+ *           blobValue: 'BLOB_VALUE',
+ *           arrayValue: { // ArrayValue Union: only one key present
+ *             booleanValues: [ // BooleanArray
+ *               true || false,
+ *             ],
+ *             longValues: [ // LongArray
+ *               Number('long'),
+ *             ],
+ *             doubleValues: [ // DoubleArray
+ *               Number('double'),
+ *             ],
+ *             stringValues: [ // StringArray
+ *               'STRING_VALUE',
+ *             ],
+ *             arrayValues: [ // ArrayOfArray
+ *               {//  Union: only one key present
+ *                 booleanValues: [
+ *                   true || false,
+ *                 ],
+ *                 longValues: [
+ *                   Number('long'),
+ *                 ],
+ *                 doubleValues: [
+ *                   Number('double'),
+ *                 ],
+ *                 stringValues: [
+ *                   'STRING_VALUE',
+ *                 ],
+ *                 arrayValues: [
+ *                   '<ArrayValue>',
+ *                 ],
+ *               },
+ *             ],
+ *           },
+ *         },
+ *       ],
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param BatchExecuteStatementCommandInput - {@link BatchExecuteStatementCommandInput}
@@ -138,6 +189,8 @@ export interface BatchExecuteStatementCommandOutput extends BatchExecuteStatemen
  * @throws {@link StatementTimeoutException} (client fault)
  *  <p>The execution of the SQL statement timed out.</p>
  *
+ * @throws {@link RDSDataServiceException}
+ * <p>Base exception class for all service exceptions from RDSData service.</p>
  *
  */
 export class BatchExecuteStatementCommand extends $Command<

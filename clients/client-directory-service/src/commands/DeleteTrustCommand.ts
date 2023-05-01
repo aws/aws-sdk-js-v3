@@ -37,15 +37,20 @@ export interface DeleteTrustCommandOutput extends DeleteTrustResult, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DirectoryServiceClient, DeleteTrustCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
- * // const { DirectoryServiceClient, DeleteTrustCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
+ * import { DirectoryServiceClient, DeleteTrustCommand } from '@aws-sdk/client-directory-service'; // ES Modules import
+ * // const { DirectoryServiceClient, DeleteTrustCommand } = require('@aws-sdk/client-directory-service'); // CommonJS import
  * const client = new DirectoryServiceClient(config);
  * const input = { // DeleteTrustRequest
- *   TrustId: "STRING_VALUE", // required
+ *   TrustId: 'STRING_VALUE', // required
  *   DeleteAssociatedConditionalForwarder: true || false,
  * };
  * const command = new DeleteTrustCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteTrustResult
+ *   TrustId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DeleteTrustCommandInput - {@link DeleteTrustCommandInput}
@@ -69,6 +74,8 @@ export interface DeleteTrustCommandOutput extends DeleteTrustResult, __MetadataB
  * @throws {@link UnsupportedOperationException} (client fault)
  *  <p>The operation is not supported.</p>
  *
+ * @throws {@link DirectoryServiceServiceException}
+ * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
  */
 export class DeleteTrustCommand extends $Command<

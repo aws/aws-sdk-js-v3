@@ -51,16 +51,27 @@ export interface ListParentsCommandOutput extends ListParentsResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OrganizationsClient, ListParentsCommand } from "@aws-sdk/client-organizations"; // ES Modules import
- * // const { OrganizationsClient, ListParentsCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
+ * import { OrganizationsClient, ListParentsCommand } from '@aws-sdk/client-organizations'; // ES Modules import
+ * // const { OrganizationsClient, ListParentsCommand } = require('@aws-sdk/client-organizations'); // CommonJS import
  * const client = new OrganizationsClient(config);
  * const input = { // ListParentsRequest
- *   ChildId: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   ChildId: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListParentsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListParentsResponse
+ *   Parents: [ // Parents
+ *     { // Parent
+ *       Id: 'STRING_VALUE',
+ *       Type: 'ROOT' || 'ORGANIZATIONAL_UNIT',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListParentsCommandInput - {@link ListParentsCommandInput}
@@ -199,6 +210,8 @@ export interface ListParentsCommandOutput extends ListParentsResponse, __Metadat
  *                 <i>Organizations User Guide.</i>
  *          </p>
  *
+ * @throws {@link OrganizationsServiceException}
+ * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
  * @example To retrieve a list of all of the parents of a child OU or account
  * ```javascript

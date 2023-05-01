@@ -46,15 +46,24 @@ export interface DescribeLunaClientCommandOutput extends DescribeLunaClientRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudHSMClient, DescribeLunaClientCommand } from "@aws-sdk/client-cloudhsm"; // ES Modules import
- * // const { CloudHSMClient, DescribeLunaClientCommand } = require("@aws-sdk/client-cloudhsm"); // CommonJS import
+ * import { CloudHSMClient, DescribeLunaClientCommand } from '@aws-sdk/client-cloudhsm'; // ES Modules import
+ * // const { CloudHSMClient, DescribeLunaClientCommand } = require('@aws-sdk/client-cloudhsm'); // CommonJS import
  * const client = new CloudHSMClient(config);
  * const input = { // DescribeLunaClientRequest
- *   ClientArn: "STRING_VALUE",
- *   CertificateFingerprint: "STRING_VALUE",
+ *   ClientArn: 'STRING_VALUE',
+ *   CertificateFingerprint: 'STRING_VALUE',
  * };
  * const command = new DescribeLunaClientCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeLunaClientResponse
+ *   ClientArn: 'STRING_VALUE',
+ *   Certificate: 'STRING_VALUE',
+ *   CertificateFingerprint: 'STRING_VALUE',
+ *   LastModifiedTimestamp: 'STRING_VALUE',
+ *   Label: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeLunaClientCommandInput - {@link DescribeLunaClientCommandInput}
@@ -72,6 +81,8 @@ export interface DescribeLunaClientCommandOutput extends DescribeLunaClientRespo
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>Indicates that one or more of the request parameters are not valid.</p>
  *
+ * @throws {@link CloudHSMServiceException}
+ * <p>Base exception class for all service exceptions from CloudHSM service.</p>
  *
  */
 export class DescribeLunaClientCommand extends $Command<

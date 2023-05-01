@@ -36,46 +36,54 @@ export interface ListFindingsCommandOutput extends ListFindingsResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GuardDutyClient, ListFindingsCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
- * // const { GuardDutyClient, ListFindingsCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
+ * import { GuardDutyClient, ListFindingsCommand } from '@aws-sdk/client-guardduty'; // ES Modules import
+ * // const { GuardDutyClient, ListFindingsCommand } = require('@aws-sdk/client-guardduty'); // CommonJS import
  * const client = new GuardDutyClient(config);
  * const input = { // ListFindingsRequest
- *   DetectorId: "STRING_VALUE", // required
+ *   DetectorId: 'STRING_VALUE', // required
  *   FindingCriteria: { // FindingCriteria
  *     Criterion: { // Criterion
- *       "<keys>": { // Condition
+ *       '<keys>': { // Condition
  *         Eq: [ // Eq
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
  *         Neq: [ // Neq
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
- *         Gt: Number("int"),
- *         Gte: Number("int"),
- *         Lt: Number("int"),
- *         Lte: Number("int"),
+ *         Gt: Number('int'),
+ *         Gte: Number('int'),
+ *         Lt: Number('int'),
+ *         Lte: Number('int'),
  *         Equals: [ // Equals
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
  *         NotEquals: [ // NotEquals
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
- *         GreaterThan: Number("long"),
- *         GreaterThanOrEqual: Number("long"),
- *         LessThan: Number("long"),
- *         LessThanOrEqual: Number("long"),
+ *         GreaterThan: Number('long'),
+ *         GreaterThanOrEqual: Number('long'),
+ *         LessThan: Number('long'),
+ *         LessThanOrEqual: Number('long'),
  *       },
  *     },
  *   },
  *   SortCriteria: { // SortCriteria
- *     AttributeName: "STRING_VALUE",
- *     OrderBy: "ASC" || "DESC",
+ *     AttributeName: 'STRING_VALUE',
+ *     OrderBy: 'ASC' || 'DESC',
  *   },
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListFindingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListFindingsResponse
+ *   FindingIds: [ // FindingIds // required
+ *     'STRING_VALUE',
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListFindingsCommandInput - {@link ListFindingsCommandInput}
@@ -90,6 +98,8 @@ export interface ListFindingsCommandOutput extends ListFindingsResponse, __Metad
  * @throws {@link InternalServerErrorException} (server fault)
  *  <p>An internal server error exception object.</p>
  *
+ * @throws {@link GuardDutyServiceException}
+ * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
  */
 export class ListFindingsCommand extends $Command<

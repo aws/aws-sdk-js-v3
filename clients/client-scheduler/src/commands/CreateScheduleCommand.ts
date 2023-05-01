@@ -36,103 +36,108 @@ export interface CreateScheduleCommandOutput extends CreateScheduleOutput, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SchedulerClient, CreateScheduleCommand } from "@aws-sdk/client-scheduler"; // ES Modules import
- * // const { SchedulerClient, CreateScheduleCommand } = require("@aws-sdk/client-scheduler"); // CommonJS import
+ * import { SchedulerClient, CreateScheduleCommand } from '@aws-sdk/client-scheduler'; // ES Modules import
+ * // const { SchedulerClient, CreateScheduleCommand } = require('@aws-sdk/client-scheduler'); // CommonJS import
  * const client = new SchedulerClient(config);
  * const input = { // CreateScheduleInput
- *   Name: "STRING_VALUE", // required
- *   GroupName: "STRING_VALUE",
- *   ScheduleExpression: "STRING_VALUE", // required
- *   StartDate: new Date("TIMESTAMP"),
- *   EndDate: new Date("TIMESTAMP"),
- *   Description: "STRING_VALUE",
- *   ScheduleExpressionTimezone: "STRING_VALUE",
- *   State: "STRING_VALUE",
- *   KmsKeyArn: "STRING_VALUE",
+ *   Name: 'STRING_VALUE', // required
+ *   GroupName: 'STRING_VALUE',
+ *   ScheduleExpression: 'STRING_VALUE', // required
+ *   StartDate: new Date('TIMESTAMP'),
+ *   EndDate: new Date('TIMESTAMP'),
+ *   Description: 'STRING_VALUE',
+ *   ScheduleExpressionTimezone: 'STRING_VALUE',
+ *   State: 'STRING_VALUE',
+ *   KmsKeyArn: 'STRING_VALUE',
  *   Target: { // Target
- *     Arn: "STRING_VALUE", // required
- *     RoleArn: "STRING_VALUE", // required
+ *     Arn: 'STRING_VALUE', // required
+ *     RoleArn: 'STRING_VALUE', // required
  *     DeadLetterConfig: { // DeadLetterConfig
- *       Arn: "STRING_VALUE",
+ *       Arn: 'STRING_VALUE',
  *     },
  *     RetryPolicy: { // RetryPolicy
- *       MaximumEventAgeInSeconds: Number("int"),
- *       MaximumRetryAttempts: Number("int"),
+ *       MaximumEventAgeInSeconds: Number('int'),
+ *       MaximumRetryAttempts: Number('int'),
  *     },
- *     Input: "STRING_VALUE",
+ *     Input: 'STRING_VALUE',
  *     EcsParameters: { // EcsParameters
- *       TaskDefinitionArn: "STRING_VALUE", // required
- *       TaskCount: Number("int"),
- *       LaunchType: "STRING_VALUE",
+ *       TaskDefinitionArn: 'STRING_VALUE', // required
+ *       TaskCount: Number('int'),
+ *       LaunchType: 'STRING_VALUE',
  *       NetworkConfiguration: { // NetworkConfiguration
  *         awsvpcConfiguration: { // AwsVpcConfiguration
  *           Subnets: [ // Subnets // required
- *             "STRING_VALUE",
+ *             'STRING_VALUE',
  *           ],
  *           SecurityGroups: [ // SecurityGroups
- *             "STRING_VALUE",
+ *             'STRING_VALUE',
  *           ],
- *           AssignPublicIp: "STRING_VALUE",
+ *           AssignPublicIp: 'STRING_VALUE',
  *         },
  *       },
- *       PlatformVersion: "STRING_VALUE",
- *       Group: "STRING_VALUE",
+ *       PlatformVersion: 'STRING_VALUE',
+ *       Group: 'STRING_VALUE',
  *       CapacityProviderStrategy: [ // CapacityProviderStrategy
  *         { // CapacityProviderStrategyItem
- *           capacityProvider: "STRING_VALUE", // required
- *           weight: Number("int"),
- *           base: Number("int"),
+ *           capacityProvider: 'STRING_VALUE', // required
+ *           weight: Number('int'),
+ *           base: Number('int'),
  *         },
  *       ],
  *       EnableECSManagedTags: true || false,
  *       EnableExecuteCommand: true || false,
  *       PlacementConstraints: [ // PlacementConstraints
  *         { // PlacementConstraint
- *           type: "STRING_VALUE",
- *           expression: "STRING_VALUE",
+ *           type: 'STRING_VALUE',
+ *           expression: 'STRING_VALUE',
  *         },
  *       ],
  *       PlacementStrategy: [ // PlacementStrategies
  *         { // PlacementStrategy
- *           type: "STRING_VALUE",
- *           field: "STRING_VALUE",
+ *           type: 'STRING_VALUE',
+ *           field: 'STRING_VALUE',
  *         },
  *       ],
- *       PropagateTags: "STRING_VALUE",
- *       ReferenceId: "STRING_VALUE",
+ *       PropagateTags: 'STRING_VALUE',
+ *       ReferenceId: 'STRING_VALUE',
  *       Tags: [ // Tags
  *         { // TagMap
- *           "<keys>": "STRING_VALUE",
+ *           '<keys>': 'STRING_VALUE',
  *         },
  *       ],
  *     },
  *     EventBridgeParameters: { // EventBridgeParameters
- *       DetailType: "STRING_VALUE", // required
- *       Source: "STRING_VALUE", // required
+ *       DetailType: 'STRING_VALUE', // required
+ *       Source: 'STRING_VALUE', // required
  *     },
  *     KinesisParameters: { // KinesisParameters
- *       PartitionKey: "STRING_VALUE", // required
+ *       PartitionKey: 'STRING_VALUE', // required
  *     },
  *     SageMakerPipelineParameters: { // SageMakerPipelineParameters
  *       PipelineParameterList: [ // SageMakerPipelineParameterList
  *         { // SageMakerPipelineParameter
- *           Name: "STRING_VALUE", // required
- *           Value: "STRING_VALUE", // required
+ *           Name: 'STRING_VALUE', // required
+ *           Value: 'STRING_VALUE', // required
  *         },
  *       ],
  *     },
  *     SqsParameters: { // SqsParameters
- *       MessageGroupId: "STRING_VALUE",
+ *       MessageGroupId: 'STRING_VALUE',
  *     },
  *   },
  *   FlexibleTimeWindow: { // FlexibleTimeWindow
- *     Mode: "STRING_VALUE", // required
- *     MaximumWindowInMinutes: Number("int"),
+ *     Mode: 'STRING_VALUE', // required
+ *     MaximumWindowInMinutes: Number('int'),
  *   },
- *   ClientToken: "STRING_VALUE",
+ *   ClientToken: 'STRING_VALUE',
  * };
  * const command = new CreateScheduleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateScheduleOutput
+ *   ScheduleArn: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param CreateScheduleCommandInput - {@link CreateScheduleCommandInput}
@@ -159,6 +164,8 @@ export interface CreateScheduleCommandOutput extends CreateScheduleOutput, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link SchedulerServiceException}
+ * <p>Base exception class for all service exceptions from Scheduler service.</p>
  *
  */
 export class CreateScheduleCommand extends $Command<

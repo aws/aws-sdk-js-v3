@@ -40,14 +40,35 @@ export interface GetNamespaceCommandOutput extends GetNamespaceResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RedshiftServerlessClient, GetNamespaceCommand } from "@aws-sdk/client-redshift-serverless"; // ES Modules import
- * // const { RedshiftServerlessClient, GetNamespaceCommand } = require("@aws-sdk/client-redshift-serverless"); // CommonJS import
+ * import { RedshiftServerlessClient, GetNamespaceCommand } from '@aws-sdk/client-redshift-serverless'; // ES Modules import
+ * // const { RedshiftServerlessClient, GetNamespaceCommand } = require('@aws-sdk/client-redshift-serverless'); // CommonJS import
  * const client = new RedshiftServerlessClient(config);
  * const input = { // GetNamespaceRequest
- *   namespaceName: "STRING_VALUE", // required
+ *   namespaceName: 'STRING_VALUE', // required
  * };
  * const command = new GetNamespaceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetNamespaceResponse
+ *   namespace: { // Namespace
+ *     namespaceArn: 'STRING_VALUE',
+ *     namespaceId: 'STRING_VALUE',
+ *     namespaceName: 'STRING_VALUE',
+ *     adminUsername: 'STRING_VALUE',
+ *     dbName: 'STRING_VALUE',
+ *     kmsKeyId: 'STRING_VALUE',
+ *     defaultIamRoleArn: 'STRING_VALUE',
+ *     iamRoles: [ // IamRoleArnList
+ *       'STRING_VALUE',
+ *     ],
+ *     logExports: [ // LogExportList
+ *       'STRING_VALUE',
+ *     ],
+ *     status: 'STRING_VALUE',
+ *     creationDate: new Date('TIMESTAMP'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetNamespaceCommandInput - {@link GetNamespaceCommandInput}
@@ -65,6 +86,8 @@ export interface GetNamespaceCommandOutput extends GetNamespaceResponse, __Metad
  * @throws {@link ValidationException} (client fault)
  *  <p>The input failed to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link RedshiftServerlessServiceException}
+ * <p>Base exception class for all service exceptions from RedshiftServerless service.</p>
  *
  */
 export class GetNamespaceCommand extends $Command<

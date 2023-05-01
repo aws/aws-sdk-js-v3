@@ -37,24 +37,38 @@ export interface ListPrincipalsCommandOutput extends ListPrincipalsResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RAMClient, ListPrincipalsCommand } from "@aws-sdk/client-ram"; // ES Modules import
- * // const { RAMClient, ListPrincipalsCommand } = require("@aws-sdk/client-ram"); // CommonJS import
+ * import { RAMClient, ListPrincipalsCommand } from '@aws-sdk/client-ram'; // ES Modules import
+ * // const { RAMClient, ListPrincipalsCommand } = require('@aws-sdk/client-ram'); // CommonJS import
  * const client = new RAMClient(config);
  * const input = { // ListPrincipalsRequest
- *   resourceOwner: "SELF" || "OTHER-ACCOUNTS", // required
- *   resourceArn: "STRING_VALUE",
+ *   resourceOwner: 'SELF' || 'OTHER-ACCOUNTS', // required
+ *   resourceArn: 'STRING_VALUE',
  *   principals: [ // PrincipalArnOrIdList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   resourceType: "STRING_VALUE",
+ *   resourceType: 'STRING_VALUE',
  *   resourceShareArns: [ // ResourceShareArnList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new ListPrincipalsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListPrincipalsResponse
+ *   principals: [ // PrincipalList
+ *     { // Principal
+ *       id: 'STRING_VALUE',
+ *       resourceShareArn: 'STRING_VALUE',
+ *       creationTime: new Date('TIMESTAMP'),
+ *       lastUpdatedTime: new Date('TIMESTAMP'),
+ *       external: true || false,
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListPrincipalsCommandInput - {@link ListPrincipalsCommandInput}
@@ -85,6 +99,8 @@ export interface ListPrincipalsCommandOutput extends ListPrincipalsResponse, __M
  * @throws {@link UnknownResourceException} (client fault)
  *  <p>The operation failed because a specified resource couldn't be found.</p>
  *
+ * @throws {@link RAMServiceException}
+ * <p>Base exception class for all service exceptions from RAM service.</p>
  *
  */
 export class ListPrincipalsCommand extends $Command<

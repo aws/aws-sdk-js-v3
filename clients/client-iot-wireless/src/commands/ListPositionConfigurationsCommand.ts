@@ -43,16 +43,36 @@ export interface ListPositionConfigurationsCommandOutput extends ListPositionCon
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTWirelessClient, ListPositionConfigurationsCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
- * // const { IoTWirelessClient, ListPositionConfigurationsCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
+ * import { IoTWirelessClient, ListPositionConfigurationsCommand } from '@aws-sdk/client-iot-wireless'; // ES Modules import
+ * // const { IoTWirelessClient, ListPositionConfigurationsCommand } = require('@aws-sdk/client-iot-wireless'); // CommonJS import
  * const client = new IoTWirelessClient(config);
  * const input = { // ListPositionConfigurationsRequest
- *   ResourceType: "WirelessDevice" || "WirelessGateway",
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   ResourceType: 'WirelessDevice' || 'WirelessGateway',
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListPositionConfigurationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListPositionConfigurationsResponse
+ *   PositionConfigurationList: [ // PositionConfigurationList
+ *     { // PositionConfigurationItem
+ *       ResourceIdentifier: 'STRING_VALUE',
+ *       ResourceType: 'WirelessDevice' || 'WirelessGateway',
+ *       Solvers: { // PositionSolverDetails
+ *         SemtechGnss: { // SemtechGnssDetail
+ *           Provider: 'Semtech',
+ *           Type: 'GNSS',
+ *           Status: 'Enabled' || 'Disabled',
+ *           Fec: 'ROSE' || 'NONE',
+ *         },
+ *       },
+ *       Destination: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListPositionConfigurationsCommandInput - {@link ListPositionConfigurationsCommandInput}
@@ -73,6 +93,8 @@ export interface ListPositionConfigurationsCommandOutput extends ListPositionCon
  * @throws {@link ValidationException} (client fault)
  *  <p>The input did not meet the specified constraints.</p>
  *
+ * @throws {@link IoTWirelessServiceException}
+ * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
  */
 export class ListPositionConfigurationsCommand extends $Command<

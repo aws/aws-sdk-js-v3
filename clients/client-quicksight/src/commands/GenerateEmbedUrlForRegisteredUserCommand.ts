@@ -65,16 +65,16 @@ export interface GenerateEmbedUrlForRegisteredUserCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { QuickSightClient, GenerateEmbedUrlForRegisteredUserCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
- * // const { QuickSightClient, GenerateEmbedUrlForRegisteredUserCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * import { QuickSightClient, GenerateEmbedUrlForRegisteredUserCommand } from '@aws-sdk/client-quicksight'; // ES Modules import
+ * // const { QuickSightClient, GenerateEmbedUrlForRegisteredUserCommand } = require('@aws-sdk/client-quicksight'); // CommonJS import
  * const client = new QuickSightClient(config);
  * const input = { // GenerateEmbedUrlForRegisteredUserRequest
- *   AwsAccountId: "STRING_VALUE", // required
- *   SessionLifetimeInMinutes: Number("long"),
- *   UserArn: "STRING_VALUE", // required
+ *   AwsAccountId: 'STRING_VALUE', // required
+ *   SessionLifetimeInMinutes: Number('long'),
+ *   UserArn: 'STRING_VALUE', // required
  *   ExperienceConfiguration: { // RegisteredUserEmbeddingExperienceConfiguration
  *     Dashboard: { // RegisteredUserDashboardEmbeddingConfiguration
- *       InitialDashboardId: "STRING_VALUE", // required
+ *       InitialDashboardId: 'STRING_VALUE', // required
  *       FeatureConfigurations: { // RegisteredUserDashboardFeatureConfigurations
  *         StatePersistence: { // StatePersistenceConfigurations
  *           Enabled: true || false, // required
@@ -82,7 +82,7 @@ export interface GenerateEmbedUrlForRegisteredUserCommandOutput
  *       },
  *     },
  *     QuickSightConsole: { // RegisteredUserQuickSightConsoleEmbeddingConfiguration
- *       InitialPath: "STRING_VALUE",
+ *       InitialPath: 'STRING_VALUE',
  *       FeatureConfigurations: { // RegisteredUserConsoleFeatureConfigurations
  *         StatePersistence: {
  *           Enabled: true || false, // required
@@ -90,22 +90,29 @@ export interface GenerateEmbedUrlForRegisteredUserCommandOutput
  *       },
  *     },
  *     QSearchBar: { // RegisteredUserQSearchBarEmbeddingConfiguration
- *       InitialTopicId: "STRING_VALUE",
+ *       InitialTopicId: 'STRING_VALUE',
  *     },
  *     DashboardVisual: { // RegisteredUserDashboardVisualEmbeddingConfiguration
  *       InitialDashboardVisualId: { // DashboardVisualId
- *         DashboardId: "STRING_VALUE", // required
- *         SheetId: "STRING_VALUE", // required
- *         VisualId: "STRING_VALUE", // required
+ *         DashboardId: 'STRING_VALUE', // required
+ *         SheetId: 'STRING_VALUE', // required
+ *         VisualId: 'STRING_VALUE', // required
  *       },
  *     },
  *   },
  *   AllowedDomains: [ // StringList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new GenerateEmbedUrlForRegisteredUserCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GenerateEmbedUrlForRegisteredUserResponse
+ *   EmbedUrl: 'STRING_VALUE', // required
+ *   Status: Number('int'), // required
+ *   RequestId: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param GenerateEmbedUrlForRegisteredUserCommandInput - {@link GenerateEmbedUrlForRegisteredUserCommandInput}
@@ -158,6 +165,8 @@ export interface GenerateEmbedUrlForRegisteredUserCommandOutput
  * 			Amazon QuickSight currently has Standard Edition and Enterprise Edition. Not every operation and
  * 			capability is available in every edition.</p>
  *
+ * @throws {@link QuickSightServiceException}
+ * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
 export class GenerateEmbedUrlForRegisteredUserCommand extends $Command<

@@ -36,17 +36,20 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FSxClient, UntagResourceCommand } from "@aws-sdk/client-fsx"; // ES Modules import
- * // const { FSxClient, UntagResourceCommand } = require("@aws-sdk/client-fsx"); // CommonJS import
+ * import { FSxClient, UntagResourceCommand } from '@aws-sdk/client-fsx'; // ES Modules import
+ * // const { FSxClient, UntagResourceCommand } = require('@aws-sdk/client-fsx'); // CommonJS import
  * const client = new FSxClient(config);
  * const input = { // UntagResourceRequest
- *   ResourceARN: "STRING_VALUE", // required
+ *   ResourceARN: 'STRING_VALUE', // required
  *   TagKeys: [ // TagKeys // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new UntagResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UntagResourceCommandInput - {@link UntagResourceCommandInput}
@@ -71,6 +74,8 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * @throws {@link ResourceNotFound} (client fault)
  *  <p>The resource specified by the Amazon Resource Name (ARN) can't be found.</p>
  *
+ * @throws {@link FSxServiceException}
+ * <p>Base exception class for all service exceptions from FSx service.</p>
  *
  * @example To untag a resource
  * ```javascript

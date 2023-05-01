@@ -46,16 +46,19 @@ export interface PutIdentityPolicyCommandOutput extends PutIdentityPolicyRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SESClient, PutIdentityPolicyCommand } from "@aws-sdk/client-ses"; // ES Modules import
- * // const { SESClient, PutIdentityPolicyCommand } = require("@aws-sdk/client-ses"); // CommonJS import
+ * import { SESClient, PutIdentityPolicyCommand } from '@aws-sdk/client-ses'; // ES Modules import
+ * // const { SESClient, PutIdentityPolicyCommand } = require('@aws-sdk/client-ses'); // CommonJS import
  * const client = new SESClient(config);
  * const input = { // PutIdentityPolicyRequest
- *   Identity: "STRING_VALUE", // required
- *   PolicyName: "STRING_VALUE", // required
- *   Policy: "STRING_VALUE", // required
+ *   Identity: 'STRING_VALUE', // required
+ *   PolicyName: 'STRING_VALUE', // required
+ *   Policy: 'STRING_VALUE', // required
  * };
  * const command = new PutIdentityPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutIdentityPolicyCommandInput - {@link PutIdentityPolicyCommandInput}
@@ -68,6 +71,8 @@ export interface PutIdentityPolicyCommandOutput extends PutIdentityPolicyRespons
  *  <p>Indicates that the provided policy is invalid. Check the error stack for more
  *             information about what caused the error.</p>
  *
+ * @throws {@link SESServiceException}
+ * <p>Base exception class for all service exceptions from SES service.</p>
  *
  * @example PutIdentityPolicy
  * ```javascript

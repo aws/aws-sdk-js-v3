@@ -36,14 +36,27 @@ export interface DescribeDeviceJobCommandOutput extends DescribeDeviceJobRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PanoramaClient, DescribeDeviceJobCommand } from "@aws-sdk/client-panorama"; // ES Modules import
- * // const { PanoramaClient, DescribeDeviceJobCommand } = require("@aws-sdk/client-panorama"); // CommonJS import
+ * import { PanoramaClient, DescribeDeviceJobCommand } from '@aws-sdk/client-panorama'; // ES Modules import
+ * // const { PanoramaClient, DescribeDeviceJobCommand } = require('@aws-sdk/client-panorama'); // CommonJS import
  * const client = new PanoramaClient(config);
  * const input = { // DescribeDeviceJobRequest
- *   JobId: "STRING_VALUE", // required
+ *   JobId: 'STRING_VALUE', // required
  * };
  * const command = new DescribeDeviceJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeDeviceJobResponse
+ *   JobId: 'STRING_VALUE',
+ *   DeviceId: 'STRING_VALUE',
+ *   DeviceArn: 'STRING_VALUE',
+ *   DeviceName: 'STRING_VALUE',
+ *   DeviceType: 'STRING_VALUE',
+ *   ImageVersion: 'STRING_VALUE',
+ *   Status: 'STRING_VALUE',
+ *   CreatedTime: new Date('TIMESTAMP'),
+ *   JobType: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeDeviceJobCommandInput - {@link DescribeDeviceJobCommandInput}
@@ -67,6 +80,8 @@ export interface DescribeDeviceJobCommandOutput extends DescribeDeviceJobRespons
  * @throws {@link ValidationException} (client fault)
  *  <p>The request contains an invalid parameter value.</p>
  *
+ * @throws {@link PanoramaServiceException}
+ * <p>Base exception class for all service exceptions from Panorama service.</p>
  *
  */
 export class DescribeDeviceJobCommand extends $Command<

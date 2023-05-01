@@ -46,18 +46,30 @@ export interface GetDocumentPathCommandOutput extends GetDocumentPathResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkDocsClient, GetDocumentPathCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
- * // const { WorkDocsClient, GetDocumentPathCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import
+ * import { WorkDocsClient, GetDocumentPathCommand } from '@aws-sdk/client-workdocs'; // ES Modules import
+ * // const { WorkDocsClient, GetDocumentPathCommand } = require('@aws-sdk/client-workdocs'); // CommonJS import
  * const client = new WorkDocsClient(config);
  * const input = { // GetDocumentPathRequest
- *   AuthenticationToken: "STRING_VALUE",
- *   DocumentId: "STRING_VALUE", // required
- *   Limit: Number("int"),
- *   Fields: "STRING_VALUE",
- *   Marker: "STRING_VALUE",
+ *   AuthenticationToken: 'STRING_VALUE',
+ *   DocumentId: 'STRING_VALUE', // required
+ *   Limit: Number('int'),
+ *   Fields: 'STRING_VALUE',
+ *   Marker: 'STRING_VALUE',
  * };
  * const command = new GetDocumentPathCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetDocumentPathResponse
+ *   Path: { // ResourcePath
+ *     Components: [ // ResourcePathComponentList
+ *       { // ResourcePathComponent
+ *         Id: 'STRING_VALUE',
+ *         Name: 'STRING_VALUE',
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetDocumentPathCommandInput - {@link GetDocumentPathCommandInput}
@@ -83,6 +95,8 @@ export interface GetDocumentPathCommandOutput extends GetDocumentPathResponse, _
  * @throws {@link UnauthorizedResourceAccessException} (client fault)
  *  <p>The caller does not have access to perform the action on the resource.</p>
  *
+ * @throws {@link WorkDocsServiceException}
+ * <p>Base exception class for all service exceptions from WorkDocs service.</p>
  *
  */
 export class GetDocumentPathCommand extends $Command<

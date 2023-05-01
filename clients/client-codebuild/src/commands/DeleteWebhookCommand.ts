@@ -38,14 +38,17 @@ export interface DeleteWebhookCommandOutput extends DeleteWebhookOutput, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeBuildClient, DeleteWebhookCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
- * // const { CodeBuildClient, DeleteWebhookCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import
+ * import { CodeBuildClient, DeleteWebhookCommand } from '@aws-sdk/client-codebuild'; // ES Modules import
+ * // const { CodeBuildClient, DeleteWebhookCommand } = require('@aws-sdk/client-codebuild'); // CommonJS import
  * const client = new CodeBuildClient(config);
  * const input = { // DeleteWebhookInput
- *   projectName: "STRING_VALUE", // required
+ *   projectName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteWebhookCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteWebhookCommandInput - {@link DeleteWebhookCommandInput}
@@ -63,6 +66,8 @@ export interface DeleteWebhookCommandOutput extends DeleteWebhookOutput, __Metad
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified Amazon Web Services resource cannot be found.</p>
  *
+ * @throws {@link CodeBuildServiceException}
+ * <p>Base exception class for all service exceptions from CodeBuild service.</p>
  *
  */
 export class DeleteWebhookCommand extends $Command<

@@ -36,21 +36,24 @@ export interface UpdateUserCommandOutput extends UpdateUserResponse, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IdentitystoreClient, UpdateUserCommand } from "@aws-sdk/client-identitystore"; // ES Modules import
- * // const { IdentitystoreClient, UpdateUserCommand } = require("@aws-sdk/client-identitystore"); // CommonJS import
+ * import { IdentitystoreClient, UpdateUserCommand } from '@aws-sdk/client-identitystore'; // ES Modules import
+ * // const { IdentitystoreClient, UpdateUserCommand } = require('@aws-sdk/client-identitystore'); // CommonJS import
  * const client = new IdentitystoreClient(config);
  * const input = { // UpdateUserRequest
- *   IdentityStoreId: "STRING_VALUE", // required
- *   UserId: "STRING_VALUE", // required
+ *   IdentityStoreId: 'STRING_VALUE', // required
+ *   UserId: 'STRING_VALUE', // required
  *   Operations: [ // AttributeOperations // required
  *     { // AttributeOperation
- *       AttributePath: "STRING_VALUE", // required
- *       AttributeValue: "DOCUMENT_VALUE",
+ *       AttributePath: 'STRING_VALUE', // required
+ *       AttributeValue: 'DOCUMENT_VALUE',
  *     },
  *   ],
  * };
  * const command = new UpdateUserCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateUserCommandInput - {@link UpdateUserCommandInput}
@@ -88,6 +91,8 @@ export interface UpdateUserCommandOutput extends UpdateUserResponse, __MetadataB
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Indicates that the principal has crossed the throttling limits of the API operations.</p>
  *
+ * @throws {@link IdentitystoreServiceException}
+ * <p>Base exception class for all service exceptions from Identitystore service.</p>
  *
  */
 export class UpdateUserCommand extends $Command<

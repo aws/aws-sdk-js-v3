@@ -73,20 +73,23 @@ export interface TagOpenIDConnectProviderCommandOutput extends __MetadataBearer 
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IAMClient, TagOpenIDConnectProviderCommand } from "@aws-sdk/client-iam"; // ES Modules import
- * // const { IAMClient, TagOpenIDConnectProviderCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * import { IAMClient, TagOpenIDConnectProviderCommand } from '@aws-sdk/client-iam'; // ES Modules import
+ * // const { IAMClient, TagOpenIDConnectProviderCommand } = require('@aws-sdk/client-iam'); // CommonJS import
  * const client = new IAMClient(config);
  * const input = { // TagOpenIDConnectProviderRequest
- *   OpenIDConnectProviderArn: "STRING_VALUE", // required
+ *   OpenIDConnectProviderArn: 'STRING_VALUE', // required
  *   Tags: [ // tagListType // required
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new TagOpenIDConnectProviderCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param TagOpenIDConnectProviderCommandInput - {@link TagOpenIDConnectProviderCommandInput}
@@ -115,6 +118,8 @@ export interface TagOpenIDConnectProviderCommandOutput extends __MetadataBearer 
  *  <p>The request processing has failed because of an unknown error, exception or
  *       failure.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  */
 export class TagOpenIDConnectProviderCommand extends $Command<

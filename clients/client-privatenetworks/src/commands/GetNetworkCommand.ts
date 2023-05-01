@@ -36,14 +36,29 @@ export interface GetNetworkCommandOutput extends GetNetworkResponse, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PrivateNetworksClient, GetNetworkCommand } from "@aws-sdk/client-privatenetworks"; // ES Modules import
- * // const { PrivateNetworksClient, GetNetworkCommand } = require("@aws-sdk/client-privatenetworks"); // CommonJS import
+ * import { PrivateNetworksClient, GetNetworkCommand } from '@aws-sdk/client-privatenetworks'; // ES Modules import
+ * // const { PrivateNetworksClient, GetNetworkCommand } = require('@aws-sdk/client-privatenetworks'); // CommonJS import
  * const client = new PrivateNetworksClient(config);
  * const input = { // GetNetworkRequest
- *   networkArn: "STRING_VALUE", // required
+ *   networkArn: 'STRING_VALUE', // required
  * };
  * const command = new GetNetworkCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetNetworkResponse
+ *   network: { // Network
+ *     networkArn: 'STRING_VALUE', // required
+ *     networkName: 'STRING_VALUE', // required
+ *     description: 'STRING_VALUE',
+ *     status: 'STRING_VALUE', // required
+ *     statusReason: 'STRING_VALUE',
+ *     createdAt: new Date('TIMESTAMP'),
+ *   },
+ *   tags: { // TagMap
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetNetworkCommandInput - {@link GetNetworkCommandInput}
@@ -61,6 +76,8 @@ export interface GetNetworkCommandOutput extends GetNetworkResponse, __MetadataB
  * @throws {@link ValidationException} (client fault)
  *  <p>The request failed validation.</p>
  *
+ * @throws {@link PrivateNetworksServiceException}
+ * <p>Base exception class for all service exceptions from PrivateNetworks service.</p>
  *
  */
 export class GetNetworkCommand extends $Command<

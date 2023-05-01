@@ -75,45 +75,133 @@ export interface StartCallAnalyticsStreamTranscriptionCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { TranscribeStreamingClient, StartCallAnalyticsStreamTranscriptionCommand } from "@aws-sdk/client-transcribe-streaming"; // ES Modules import
- * // const { TranscribeStreamingClient, StartCallAnalyticsStreamTranscriptionCommand } = require("@aws-sdk/client-transcribe-streaming"); // CommonJS import
+ * import { TranscribeStreamingClient, StartCallAnalyticsStreamTranscriptionCommand } from '@aws-sdk/client-transcribe-streaming'; // ES Modules import
+ * // const { TranscribeStreamingClient, StartCallAnalyticsStreamTranscriptionCommand } = require('@aws-sdk/client-transcribe-streaming'); // CommonJS import
  * const client = new TranscribeStreamingClient(config);
  * const input = { // StartCallAnalyticsStreamTranscriptionRequest
- *   LanguageCode: "en-US" || "en-GB" || "es-US" || "fr-CA" || "fr-FR" || "en-AU" || "it-IT" || "de-DE" || "pt-BR", // required
- *   MediaSampleRateHertz: Number("int"), // required
- *   MediaEncoding: "pcm" || "ogg-opus" || "flac", // required
- *   VocabularyName: "STRING_VALUE",
- *   SessionId: "STRING_VALUE",
+ *   LanguageCode: 'en-US' || 'en-GB' || 'es-US' || 'fr-CA' || 'fr-FR' || 'en-AU' || 'it-IT' || 'de-DE' || 'pt-BR', // required
+ *   MediaSampleRateHertz: Number('int'), // required
+ *   MediaEncoding: 'pcm' || 'ogg-opus' || 'flac', // required
+ *   VocabularyName: 'STRING_VALUE',
+ *   SessionId: 'STRING_VALUE',
  *   AudioStream: { // AudioStream Union: only one key present
  *     AudioEvent: { // AudioEvent
- *       AudioChunk: "BLOB_VALUE",
+ *       AudioChunk: 'BLOB_VALUE',
  *     },
  *     ConfigurationEvent: { // ConfigurationEvent
  *       ChannelDefinitions: [ // ChannelDefinitions
  *         { // ChannelDefinition
- *           ChannelId: Number("int"), // required
- *           ParticipantRole: "AGENT" || "CUSTOMER", // required
+ *           ChannelId: Number('int'), // required
+ *           ParticipantRole: 'AGENT' || 'CUSTOMER', // required
  *         },
  *       ],
  *       PostCallAnalyticsSettings: { // PostCallAnalyticsSettings
- *         OutputLocation: "STRING_VALUE", // required
- *         DataAccessRoleArn: "STRING_VALUE", // required
- *         ContentRedactionOutput: "redacted" || "redacted_and_unredacted",
- *         OutputEncryptionKMSKeyId: "STRING_VALUE",
+ *         OutputLocation: 'STRING_VALUE', // required
+ *         DataAccessRoleArn: 'STRING_VALUE', // required
+ *         ContentRedactionOutput: 'redacted' || 'redacted_and_unredacted',
+ *         OutputEncryptionKMSKeyId: 'STRING_VALUE',
  *       },
  *     },
  *   },
- *   VocabularyFilterName: "STRING_VALUE",
- *   VocabularyFilterMethod: "remove" || "mask" || "tag",
- *   LanguageModelName: "STRING_VALUE",
+ *   VocabularyFilterName: 'STRING_VALUE',
+ *   VocabularyFilterMethod: 'remove' || 'mask' || 'tag',
+ *   LanguageModelName: 'STRING_VALUE',
  *   EnablePartialResultsStabilization: true || false,
- *   PartialResultsStability: "high" || "medium" || "low",
- *   ContentIdentificationType: "PII",
- *   ContentRedactionType: "PII",
- *   PiiEntityTypes: "STRING_VALUE",
+ *   PartialResultsStability: 'high' || 'medium' || 'low',
+ *   ContentIdentificationType: 'PII',
+ *   ContentRedactionType: 'PII',
+ *   PiiEntityTypes: 'STRING_VALUE',
  * };
  * const command = new StartCallAnalyticsStreamTranscriptionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartCallAnalyticsStreamTranscriptionResponse
+ *   RequestId: 'STRING_VALUE',
+ *   LanguageCode: 'en-US' || 'en-GB' || 'es-US' || 'fr-CA' || 'fr-FR' || 'en-AU' || 'it-IT' || 'de-DE' || 'pt-BR',
+ *   MediaSampleRateHertz: Number('int'),
+ *   MediaEncoding: 'pcm' || 'ogg-opus' || 'flac',
+ *   VocabularyName: 'STRING_VALUE',
+ *   SessionId: 'STRING_VALUE',
+ *   CallAnalyticsTranscriptResultStream: { // CallAnalyticsTranscriptResultStream Union: only one key present
+ *     UtteranceEvent: { // UtteranceEvent
+ *       UtteranceId: 'STRING_VALUE',
+ *       IsPartial: true || false,
+ *       ParticipantRole: 'AGENT' || 'CUSTOMER',
+ *       BeginOffsetMillis: Number('long'),
+ *       EndOffsetMillis: Number('long'),
+ *       Transcript: 'STRING_VALUE',
+ *       Items: [ // CallAnalyticsItemList
+ *         { // CallAnalyticsItem
+ *           BeginOffsetMillis: Number('long'),
+ *           EndOffsetMillis: Number('long'),
+ *           Type: 'pronunciation' || 'punctuation',
+ *           Content: 'STRING_VALUE',
+ *           Confidence: Number('double'),
+ *           VocabularyFilterMatch: true || false,
+ *           Stable: true || false,
+ *         },
+ *       ],
+ *       Entities: [ // CallAnalyticsEntityList
+ *         { // CallAnalyticsEntity
+ *           BeginOffsetMillis: Number('long'),
+ *           EndOffsetMillis: Number('long'),
+ *           Category: 'STRING_VALUE',
+ *           Type: 'STRING_VALUE',
+ *           Content: 'STRING_VALUE',
+ *           Confidence: Number('double'),
+ *         },
+ *       ],
+ *       Sentiment: 'POSITIVE' || 'NEGATIVE' || 'MIXED' || 'NEUTRAL',
+ *       IssuesDetected: [ // IssuesDetected
+ *         { // IssueDetected
+ *           CharacterOffsets: { // CharacterOffsets
+ *             Begin: Number('int'),
+ *             End: Number('int'),
+ *           },
+ *         },
+ *       ],
+ *     },
+ *     CategoryEvent: { // CategoryEvent
+ *       MatchedCategories: [ // StringList
+ *         'STRING_VALUE',
+ *       ],
+ *       MatchedDetails: { // MatchedCategoryDetails
+ *         '<keys>': { // PointsOfInterest
+ *           TimestampRanges: [ // TimestampRanges
+ *             { // TimestampRange
+ *               BeginOffsetMillis: Number('long'),
+ *               EndOffsetMillis: Number('long'),
+ *             },
+ *           ],
+ *         },
+ *       },
+ *     },
+ *     BadRequestException: { // BadRequestException
+ *       Message: 'STRING_VALUE',
+ *     },
+ *     LimitExceededException: { // LimitExceededException
+ *       Message: 'STRING_VALUE',
+ *     },
+ *     InternalFailureException: { // InternalFailureException
+ *       Message: 'STRING_VALUE',
+ *     },
+ *     ConflictException: { // ConflictException
+ *       Message: 'STRING_VALUE',
+ *     },
+ *     ServiceUnavailableException: { // ServiceUnavailableException
+ *       Message: 'STRING_VALUE',
+ *     },
+ *   },
+ *   VocabularyFilterName: 'STRING_VALUE',
+ *   VocabularyFilterMethod: 'remove' || 'mask' || 'tag',
+ *   LanguageModelName: 'STRING_VALUE',
+ *   EnablePartialResultsStabilization: true || false,
+ *   PartialResultsStability: 'high' || 'medium' || 'low',
+ *   ContentIdentificationType: 'PII',
+ *   ContentRedactionType: 'PII',
+ *   PiiEntityTypes: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param StartCallAnalyticsStreamTranscriptionCommandInput - {@link StartCallAnalyticsStreamTranscriptionCommandInput}
@@ -142,6 +230,8 @@ export interface StartCallAnalyticsStreamTranscriptionCommandOutput
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service is currently unavailable. Try your request later.</p>
  *
+ * @throws {@link TranscribeStreamingServiceException}
+ * <p>Base exception class for all service exceptions from TranscribeStreaming service.</p>
  *
  */
 export class StartCallAnalyticsStreamTranscriptionCommand extends $Command<

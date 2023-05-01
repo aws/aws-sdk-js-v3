@@ -41,15 +41,48 @@ export interface DeleteBlueGreenDeploymentCommandOutput extends DeleteBlueGreenD
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RDSClient, DeleteBlueGreenDeploymentCommand } from "@aws-sdk/client-rds"; // ES Modules import
- * // const { RDSClient, DeleteBlueGreenDeploymentCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * import { RDSClient, DeleteBlueGreenDeploymentCommand } from '@aws-sdk/client-rds'; // ES Modules import
+ * // const { RDSClient, DeleteBlueGreenDeploymentCommand } = require('@aws-sdk/client-rds'); // CommonJS import
  * const client = new RDSClient(config);
  * const input = { // DeleteBlueGreenDeploymentRequest
- *   BlueGreenDeploymentIdentifier: "STRING_VALUE", // required
+ *   BlueGreenDeploymentIdentifier: 'STRING_VALUE', // required
  *   DeleteTarget: true || false,
  * };
  * const command = new DeleteBlueGreenDeploymentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteBlueGreenDeploymentResponse
+ *   BlueGreenDeployment: { // BlueGreenDeployment
+ *     BlueGreenDeploymentIdentifier: 'STRING_VALUE',
+ *     BlueGreenDeploymentName: 'STRING_VALUE',
+ *     Source: 'STRING_VALUE',
+ *     Target: 'STRING_VALUE',
+ *     SwitchoverDetails: [ // SwitchoverDetailList
+ *       { // SwitchoverDetail
+ *         SourceMember: 'STRING_VALUE',
+ *         TargetMember: 'STRING_VALUE',
+ *         Status: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     Tasks: [ // BlueGreenDeploymentTaskList
+ *       { // BlueGreenDeploymentTask
+ *         Name: 'STRING_VALUE',
+ *         Status: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     Status: 'STRING_VALUE',
+ *     StatusDetails: 'STRING_VALUE',
+ *     CreateTime: new Date('TIMESTAMP'),
+ *     DeleteTime: new Date('TIMESTAMP'),
+ *     TagList: [ // TagList
+ *       { // Tag
+ *         Key: 'STRING_VALUE',
+ *         Value: 'STRING_VALUE',
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param DeleteBlueGreenDeploymentCommandInput - {@link DeleteBlueGreenDeploymentCommandInput}
@@ -66,6 +99,8 @@ export interface DeleteBlueGreenDeploymentCommandOutput extends DeleteBlueGreenD
  *  <p>The blue/green deployment can't be switched over or deleted because there is an invalid configuration in
  *             the green environment.</p>
  *
+ * @throws {@link RDSServiceException}
+ * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  * @example To delete resources in green environment for an RDS for MySQL DB instance
  * ```javascript

@@ -36,23 +36,23 @@ export interface DescribeDBEngineVersionsCommandOutput extends DBEngineVersionMe
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RDSClient, DescribeDBEngineVersionsCommand } from "@aws-sdk/client-rds"; // ES Modules import
- * // const { RDSClient, DescribeDBEngineVersionsCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * import { RDSClient, DescribeDBEngineVersionsCommand } from '@aws-sdk/client-rds'; // ES Modules import
+ * // const { RDSClient, DescribeDBEngineVersionsCommand } = require('@aws-sdk/client-rds'); // CommonJS import
  * const client = new RDSClient(config);
  * const input = { // DescribeDBEngineVersionsMessage
- *   Engine: "STRING_VALUE",
- *   EngineVersion: "STRING_VALUE",
- *   DBParameterGroupFamily: "STRING_VALUE",
+ *   Engine: 'STRING_VALUE',
+ *   EngineVersion: 'STRING_VALUE',
+ *   DBParameterGroupFamily: 'STRING_VALUE',
  *   Filters: [ // FilterList
  *     { // Filter
- *       Name: "STRING_VALUE", // required
+ *       Name: 'STRING_VALUE', // required
  *       Values: [ // FilterValueList // required
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
- *   MaxRecords: Number("int"),
- *   Marker: "STRING_VALUE",
+ *   MaxRecords: Number('int'),
+ *   Marker: 'STRING_VALUE',
  *   DefaultOnly: true || false,
  *   ListSupportedCharacterSets: true || false,
  *   ListSupportedTimezones: true || false,
@@ -60,6 +60,93 @@ export interface DescribeDBEngineVersionsCommandOutput extends DBEngineVersionMe
  * };
  * const command = new DescribeDBEngineVersionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DBEngineVersionMessage
+ *   Marker: 'STRING_VALUE',
+ *   DBEngineVersions: [ // DBEngineVersionList
+ *     { // DBEngineVersion
+ *       Engine: 'STRING_VALUE',
+ *       EngineVersion: 'STRING_VALUE',
+ *       DBParameterGroupFamily: 'STRING_VALUE',
+ *       DBEngineDescription: 'STRING_VALUE',
+ *       DBEngineVersionDescription: 'STRING_VALUE',
+ *       DefaultCharacterSet: { // CharacterSet
+ *         CharacterSetName: 'STRING_VALUE',
+ *         CharacterSetDescription: 'STRING_VALUE',
+ *       },
+ *       Image: { // CustomDBEngineVersionAMI
+ *         ImageId: 'STRING_VALUE',
+ *         Status: 'STRING_VALUE',
+ *       },
+ *       DBEngineMediaType: 'STRING_VALUE',
+ *       SupportedCharacterSets: [ // SupportedCharacterSetsList
+ *         {
+ *           CharacterSetName: 'STRING_VALUE',
+ *           CharacterSetDescription: 'STRING_VALUE',
+ *         },
+ *       ],
+ *       SupportedNcharCharacterSets: [
+ *         {
+ *           CharacterSetName: 'STRING_VALUE',
+ *           CharacterSetDescription: 'STRING_VALUE',
+ *         },
+ *       ],
+ *       ValidUpgradeTarget: [ // ValidUpgradeTargetList
+ *         { // UpgradeTarget
+ *           Engine: 'STRING_VALUE',
+ *           EngineVersion: 'STRING_VALUE',
+ *           Description: 'STRING_VALUE',
+ *           AutoUpgrade: true || false,
+ *           IsMajorVersionUpgrade: true || false,
+ *           SupportedEngineModes: [ // EngineModeList
+ *             'STRING_VALUE',
+ *           ],
+ *           SupportsParallelQuery: true || false,
+ *           SupportsGlobalDatabases: true || false,
+ *           SupportsBabelfish: true || false,
+ *         },
+ *       ],
+ *       SupportedTimezones: [ // SupportedTimezonesList
+ *         { // Timezone
+ *           TimezoneName: 'STRING_VALUE',
+ *         },
+ *       ],
+ *       ExportableLogTypes: [ // LogTypeList
+ *         'STRING_VALUE',
+ *       ],
+ *       SupportsLogExportsToCloudwatchLogs: true || false,
+ *       SupportsReadReplica: true || false,
+ *       SupportedEngineModes: [
+ *         'STRING_VALUE',
+ *       ],
+ *       SupportedFeatureNames: [ // FeatureNameList
+ *         'STRING_VALUE',
+ *       ],
+ *       Status: 'STRING_VALUE',
+ *       SupportsParallelQuery: true || false,
+ *       SupportsGlobalDatabases: true || false,
+ *       MajorEngineVersion: 'STRING_VALUE',
+ *       DatabaseInstallationFilesS3BucketName: 'STRING_VALUE',
+ *       DatabaseInstallationFilesS3Prefix: 'STRING_VALUE',
+ *       DBEngineVersionArn: 'STRING_VALUE',
+ *       KMSKeyId: 'STRING_VALUE',
+ *       CreateTime: new Date('TIMESTAMP'),
+ *       TagList: [ // TagList
+ *         { // Tag
+ *           Key: 'STRING_VALUE',
+ *           Value: 'STRING_VALUE',
+ *         },
+ *       ],
+ *       SupportsBabelfish: true || false,
+ *       CustomDBEngineVersionManifest: 'STRING_VALUE',
+ *       SupportsCertificateRotationWithoutRestart: true || false,
+ *       SupportedCACertificateIdentifiers: [ // CACertificateIdentifiersList
+ *         'STRING_VALUE',
+ *       ],
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeDBEngineVersionsCommandInput - {@link DescribeDBEngineVersionsCommandInput}
@@ -68,6 +155,8 @@ export interface DescribeDBEngineVersionsCommandOutput extends DBEngineVersionMe
  * @see {@link DescribeDBEngineVersionsCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
+ * @throws {@link RDSServiceException}
+ * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  * @example To describe the DB engine versions for the MySQL DB engine
  * ```javascript

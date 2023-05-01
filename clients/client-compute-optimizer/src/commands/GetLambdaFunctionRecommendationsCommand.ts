@@ -45,29 +45,77 @@ export interface GetLambdaFunctionRecommendationsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ComputeOptimizerClient, GetLambdaFunctionRecommendationsCommand } from "@aws-sdk/client-compute-optimizer"; // ES Modules import
- * // const { ComputeOptimizerClient, GetLambdaFunctionRecommendationsCommand } = require("@aws-sdk/client-compute-optimizer"); // CommonJS import
+ * import { ComputeOptimizerClient, GetLambdaFunctionRecommendationsCommand } from '@aws-sdk/client-compute-optimizer'; // ES Modules import
+ * // const { ComputeOptimizerClient, GetLambdaFunctionRecommendationsCommand } = require('@aws-sdk/client-compute-optimizer'); // CommonJS import
  * const client = new ComputeOptimizerClient(config);
  * const input = { // GetLambdaFunctionRecommendationsRequest
  *   functionArns: [ // FunctionArns
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   accountIds: [ // AccountIds
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   filters: [ // LambdaFunctionRecommendationFilters
  *     { // LambdaFunctionRecommendationFilter
- *       name: "Finding" || "FindingReasonCode",
+ *       name: 'Finding' || 'FindingReasonCode',
  *       values: [ // FilterValues
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new GetLambdaFunctionRecommendationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetLambdaFunctionRecommendationsResponse
+ *   nextToken: 'STRING_VALUE',
+ *   lambdaFunctionRecommendations: [ // LambdaFunctionRecommendations
+ *     { // LambdaFunctionRecommendation
+ *       functionArn: 'STRING_VALUE',
+ *       functionVersion: 'STRING_VALUE',
+ *       accountId: 'STRING_VALUE',
+ *       currentMemorySize: Number('int'),
+ *       numberOfInvocations: Number('long'),
+ *       utilizationMetrics: [ // LambdaFunctionUtilizationMetrics
+ *         { // LambdaFunctionUtilizationMetric
+ *           name: 'Duration' || 'Memory',
+ *           statistic: 'Maximum' || 'Average',
+ *           value: Number('double'),
+ *         },
+ *       ],
+ *       lookbackPeriodInDays: Number('double'),
+ *       lastRefreshTimestamp: new Date('TIMESTAMP'),
+ *       finding: 'Optimized' || 'NotOptimized' || 'Unavailable',
+ *       findingReasonCodes: [ // LambdaFunctionRecommendationFindingReasonCodes
+ *         'MemoryOverprovisioned' || 'MemoryUnderprovisioned' || 'InsufficientData' || 'Inconclusive',
+ *       ],
+ *       memorySizeRecommendationOptions: [ // LambdaFunctionMemoryRecommendationOptions
+ *         { // LambdaFunctionMemoryRecommendationOption
+ *           rank: Number('int'),
+ *           memorySize: Number('int'),
+ *           projectedUtilizationMetrics: [ // LambdaFunctionMemoryProjectedMetrics
+ *             { // LambdaFunctionMemoryProjectedMetric
+ *               name: 'Duration',
+ *               statistic: 'LowerBound' || 'UpperBound' || 'Expected',
+ *               value: Number('double'),
+ *             },
+ *           ],
+ *           savingsOpportunity: { // SavingsOpportunity
+ *             savingsOpportunityPercentage: Number('double'),
+ *             estimatedMonthlySavings: { // EstimatedMonthlySavings
+ *               currency: 'USD' || 'CNY',
+ *               value: Number('double'),
+ *             },
+ *           },
+ *         },
+ *       ],
+ *       currentPerformanceRisk: 'VeryLow' || 'Low' || 'Medium' || 'High',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetLambdaFunctionRecommendationsCommandInput - {@link GetLambdaFunctionRecommendationsCommandInput}
@@ -101,6 +149,8 @@ export interface GetLambdaFunctionRecommendationsCommandOutput
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
  *
+ * @throws {@link ComputeOptimizerServiceException}
+ * <p>Base exception class for all service exceptions from ComputeOptimizer service.</p>
  *
  */
 export class GetLambdaFunctionRecommendationsCommand extends $Command<

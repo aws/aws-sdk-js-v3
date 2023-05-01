@@ -36,19 +36,38 @@ export interface CreateDataSetCommandOutput extends CreateDataSetResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DataExchangeClient, CreateDataSetCommand } from "@aws-sdk/client-dataexchange"; // ES Modules import
- * // const { DataExchangeClient, CreateDataSetCommand } = require("@aws-sdk/client-dataexchange"); // CommonJS import
+ * import { DataExchangeClient, CreateDataSetCommand } from '@aws-sdk/client-dataexchange'; // ES Modules import
+ * // const { DataExchangeClient, CreateDataSetCommand } = require('@aws-sdk/client-dataexchange'); // CommonJS import
  * const client = new DataExchangeClient(config);
  * const input = { // CreateDataSetRequest
- *   AssetType: "STRING_VALUE", // required
- *   Description: "STRING_VALUE", // required
- *   Name: "STRING_VALUE", // required
+ *   AssetType: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE', // required
+ *   Name: 'STRING_VALUE', // required
  *   Tags: { // MapOf__string
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateDataSetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateDataSetResponse
+ *   Arn: 'STRING_VALUE',
+ *   AssetType: 'STRING_VALUE',
+ *   CreatedAt: new Date('TIMESTAMP'),
+ *   Description: 'STRING_VALUE',
+ *   Id: 'STRING_VALUE',
+ *   Name: 'STRING_VALUE',
+ *   Origin: 'STRING_VALUE',
+ *   OriginDetails: { // OriginDetails
+ *     ProductId: 'STRING_VALUE', // required
+ *   },
+ *   SourceId: 'STRING_VALUE',
+ *   Tags: { // MapOf__string
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ *   UpdatedAt: new Date('TIMESTAMP'),
+ * };
+ *
  * ```
  *
  * @param CreateDataSetCommandInput - {@link CreateDataSetCommandInput}
@@ -72,6 +91,8 @@ export interface CreateDataSetCommandOutput extends CreateDataSetResponse, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>The request was invalid.</p>
  *
+ * @throws {@link DataExchangeServiceException}
+ * <p>Base exception class for all service exceptions from DataExchange service.</p>
  *
  */
 export class CreateDataSetCommand extends $Command<

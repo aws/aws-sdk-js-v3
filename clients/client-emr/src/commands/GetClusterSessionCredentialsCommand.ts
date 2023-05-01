@@ -46,15 +46,26 @@ export interface GetClusterSessionCredentialsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EMRClient, GetClusterSessionCredentialsCommand } from "@aws-sdk/client-emr"; // ES Modules import
- * // const { EMRClient, GetClusterSessionCredentialsCommand } = require("@aws-sdk/client-emr"); // CommonJS import
+ * import { EMRClient, GetClusterSessionCredentialsCommand } from '@aws-sdk/client-emr'; // ES Modules import
+ * // const { EMRClient, GetClusterSessionCredentialsCommand } = require('@aws-sdk/client-emr'); // CommonJS import
  * const client = new EMRClient(config);
  * const input = { // GetClusterSessionCredentialsInput
- *   ClusterId: "STRING_VALUE", // required
- *   ExecutionRoleArn: "STRING_VALUE", // required
+ *   ClusterId: 'STRING_VALUE', // required
+ *   ExecutionRoleArn: 'STRING_VALUE', // required
  * };
  * const command = new GetClusterSessionCredentialsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetClusterSessionCredentialsOutput
+ *   Credentials: { // Credentials Union: only one key present
+ *     UsernamePassword: { // UsernamePassword
+ *       Username: 'STRING_VALUE',
+ *       Password: 'STRING_VALUE',
+ *     },
+ *   },
+ *   ExpiresAt: new Date('TIMESTAMP'),
+ * };
+ *
  * ```
  *
  * @param GetClusterSessionCredentialsCommandInput - {@link GetClusterSessionCredentialsCommandInput}
@@ -70,6 +81,8 @@ export interface GetClusterSessionCredentialsCommandOutput
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception occurs when there is something wrong with user input.</p>
  *
+ * @throws {@link EMRServiceException}
+ * <p>Base exception class for all service exceptions from EMR service.</p>
  *
  */
 export class GetClusterSessionCredentialsCommand extends $Command<

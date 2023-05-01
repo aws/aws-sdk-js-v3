@@ -36,17 +36,28 @@ export interface CreateTemplateAliasCommandOutput extends CreateTemplateAliasRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { QuickSightClient, CreateTemplateAliasCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
- * // const { QuickSightClient, CreateTemplateAliasCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * import { QuickSightClient, CreateTemplateAliasCommand } from '@aws-sdk/client-quicksight'; // ES Modules import
+ * // const { QuickSightClient, CreateTemplateAliasCommand } = require('@aws-sdk/client-quicksight'); // CommonJS import
  * const client = new QuickSightClient(config);
  * const input = { // CreateTemplateAliasRequest
- *   AwsAccountId: "STRING_VALUE", // required
- *   TemplateId: "STRING_VALUE", // required
- *   AliasName: "STRING_VALUE", // required
- *   TemplateVersionNumber: Number("long"), // required
+ *   AwsAccountId: 'STRING_VALUE', // required
+ *   TemplateId: 'STRING_VALUE', // required
+ *   AliasName: 'STRING_VALUE', // required
+ *   TemplateVersionNumber: Number('long'), // required
  * };
  * const command = new CreateTemplateAliasCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateTemplateAliasResponse
+ *   TemplateAlias: { // TemplateAlias
+ *     AliasName: 'STRING_VALUE',
+ *     Arn: 'STRING_VALUE',
+ *     TemplateVersionNumber: Number('long'),
+ *   },
+ *   Status: Number('int'),
+ *   RequestId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateTemplateAliasCommandInput - {@link CreateTemplateAliasCommandInput}
@@ -79,6 +90,8 @@ export interface CreateTemplateAliasCommandOutput extends CreateTemplateAliasRes
  * 			Amazon QuickSight currently has Standard Edition and Enterprise Edition. Not every operation and
  * 			capability is available in every edition.</p>
  *
+ * @throws {@link QuickSightServiceException}
+ * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
 export class CreateTemplateAliasCommand extends $Command<

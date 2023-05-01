@@ -42,25 +42,47 @@ export interface DescribeDBClusterParametersCommandOutput extends DBClusterParam
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RDSClient, DescribeDBClusterParametersCommand } from "@aws-sdk/client-rds"; // ES Modules import
- * // const { RDSClient, DescribeDBClusterParametersCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * import { RDSClient, DescribeDBClusterParametersCommand } from '@aws-sdk/client-rds'; // ES Modules import
+ * // const { RDSClient, DescribeDBClusterParametersCommand } = require('@aws-sdk/client-rds'); // CommonJS import
  * const client = new RDSClient(config);
  * const input = { // DescribeDBClusterParametersMessage
- *   DBClusterParameterGroupName: "STRING_VALUE", // required
- *   Source: "STRING_VALUE",
+ *   DBClusterParameterGroupName: 'STRING_VALUE', // required
+ *   Source: 'STRING_VALUE',
  *   Filters: [ // FilterList
  *     { // Filter
- *       Name: "STRING_VALUE", // required
+ *       Name: 'STRING_VALUE', // required
  *       Values: [ // FilterValueList // required
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
- *   MaxRecords: Number("int"),
- *   Marker: "STRING_VALUE",
+ *   MaxRecords: Number('int'),
+ *   Marker: 'STRING_VALUE',
  * };
  * const command = new DescribeDBClusterParametersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DBClusterParameterGroupDetails
+ *   Parameters: [ // ParametersList
+ *     { // Parameter
+ *       ParameterName: 'STRING_VALUE',
+ *       ParameterValue: 'STRING_VALUE',
+ *       Description: 'STRING_VALUE',
+ *       Source: 'STRING_VALUE',
+ *       ApplyType: 'STRING_VALUE',
+ *       DataType: 'STRING_VALUE',
+ *       AllowedValues: 'STRING_VALUE',
+ *       IsModifiable: true || false,
+ *       MinimumEngineVersion: 'STRING_VALUE',
+ *       ApplyMethod: 'immediate' || 'pending-reboot',
+ *       SupportedEngineModes: [ // EngineModeList
+ *         'STRING_VALUE',
+ *       ],
+ *     },
+ *   ],
+ *   Marker: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeDBClusterParametersCommandInput - {@link DescribeDBClusterParametersCommandInput}
@@ -74,6 +96,8 @@ export interface DescribeDBClusterParametersCommandOutput extends DBClusterParam
  *             <code>DBParameterGroupName</code> doesn't refer to an
  *         existing DB parameter group.</p>
  *
+ * @throws {@link RDSServiceException}
+ * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  * @example To describe the parameters in a DB cluster parameter group
  * ```javascript

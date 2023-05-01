@@ -62,16 +62,25 @@ export interface CreateChannelModeratorCommandOutput extends CreateChannelModera
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeClient, CreateChannelModeratorCommand } from "@aws-sdk/client-chime"; // ES Modules import
- * // const { ChimeClient, CreateChannelModeratorCommand } = require("@aws-sdk/client-chime"); // CommonJS import
+ * import { ChimeClient, CreateChannelModeratorCommand } from '@aws-sdk/client-chime'; // ES Modules import
+ * // const { ChimeClient, CreateChannelModeratorCommand } = require('@aws-sdk/client-chime'); // CommonJS import
  * const client = new ChimeClient(config);
  * const input = { // CreateChannelModeratorRequest
- *   ChannelArn: "STRING_VALUE", // required
- *   ChannelModeratorArn: "STRING_VALUE", // required
- *   ChimeBearer: "STRING_VALUE",
+ *   ChannelArn: 'STRING_VALUE', // required
+ *   ChannelModeratorArn: 'STRING_VALUE', // required
+ *   ChimeBearer: 'STRING_VALUE',
  * };
  * const command = new CreateChannelModeratorCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateChannelModeratorResponse
+ *   ChannelArn: 'STRING_VALUE',
+ *   ChannelModerator: { // Identity
+ *     Arn: 'STRING_VALUE',
+ *     Name: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateChannelModeratorCommandInput - {@link CreateChannelModeratorCommandInput}
@@ -105,6 +114,8 @@ export interface CreateChannelModeratorCommandOutput extends CreateChannelModera
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeServiceException}
+ * <p>Base exception class for all service exceptions from Chime service.</p>
  *
  */
 export class CreateChannelModeratorCommand extends $Command<

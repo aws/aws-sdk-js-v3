@@ -41,14 +41,40 @@ export interface GetWirelessDeviceStatisticsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTWirelessClient, GetWirelessDeviceStatisticsCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
- * // const { IoTWirelessClient, GetWirelessDeviceStatisticsCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
+ * import { IoTWirelessClient, GetWirelessDeviceStatisticsCommand } from '@aws-sdk/client-iot-wireless'; // ES Modules import
+ * // const { IoTWirelessClient, GetWirelessDeviceStatisticsCommand } = require('@aws-sdk/client-iot-wireless'); // CommonJS import
  * const client = new IoTWirelessClient(config);
  * const input = { // GetWirelessDeviceStatisticsRequest
- *   WirelessDeviceId: "STRING_VALUE", // required
+ *   WirelessDeviceId: 'STRING_VALUE', // required
  * };
  * const command = new GetWirelessDeviceStatisticsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetWirelessDeviceStatisticsResponse
+ *   WirelessDeviceId: 'STRING_VALUE',
+ *   LastUplinkReceivedAt: 'STRING_VALUE',
+ *   LoRaWAN: { // LoRaWANDeviceMetadata
+ *     DevEui: 'STRING_VALUE',
+ *     FPort: Number('int'),
+ *     DataRate: Number('int'),
+ *     Frequency: Number('int'),
+ *     Timestamp: 'STRING_VALUE',
+ *     Gateways: [ // LoRaWANGatewayMetadataList
+ *       { // LoRaWANGatewayMetadata
+ *         GatewayEui: 'STRING_VALUE',
+ *         Snr: Number('double'),
+ *         Rssi: Number('double'),
+ *       },
+ *     ],
+ *   },
+ *   Sidewalk: { // SidewalkDeviceMetadata
+ *     Rssi: Number('int'),
+ *     BatteryLevel: 'normal' || 'low' || 'critical',
+ *     Event: 'discovered' || 'lost' || 'ack' || 'nack' || 'passthrough',
+ *     DeviceState: 'Provisioned' || 'RegisteredNotSeen' || 'RegisteredReachable' || 'RegisteredUnreachable',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetWirelessDeviceStatisticsCommandInput - {@link GetWirelessDeviceStatisticsCommandInput}
@@ -72,6 +98,8 @@ export interface GetWirelessDeviceStatisticsCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The input did not meet the specified constraints.</p>
  *
+ * @throws {@link IoTWirelessServiceException}
+ * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
  */
 export class GetWirelessDeviceStatisticsCommand extends $Command<

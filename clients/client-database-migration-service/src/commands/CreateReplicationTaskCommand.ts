@@ -40,32 +40,69 @@ export interface CreateReplicationTaskCommandOutput extends CreateReplicationTas
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DatabaseMigrationServiceClient, CreateReplicationTaskCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
- * // const { DatabaseMigrationServiceClient, CreateReplicationTaskCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
+ * import { DatabaseMigrationServiceClient, CreateReplicationTaskCommand } from '@aws-sdk/client-database-migration-service'; // ES Modules import
+ * // const { DatabaseMigrationServiceClient, CreateReplicationTaskCommand } = require('@aws-sdk/client-database-migration-service'); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
  * const input = { // CreateReplicationTaskMessage
- *   ReplicationTaskIdentifier: "STRING_VALUE", // required
- *   SourceEndpointArn: "STRING_VALUE", // required
- *   TargetEndpointArn: "STRING_VALUE", // required
- *   ReplicationInstanceArn: "STRING_VALUE", // required
- *   MigrationType: "full-load" || "cdc" || "full-load-and-cdc", // required
- *   TableMappings: "STRING_VALUE", // required
- *   ReplicationTaskSettings: "STRING_VALUE",
- *   CdcStartTime: new Date("TIMESTAMP"),
- *   CdcStartPosition: "STRING_VALUE",
- *   CdcStopPosition: "STRING_VALUE",
+ *   ReplicationTaskIdentifier: 'STRING_VALUE', // required
+ *   SourceEndpointArn: 'STRING_VALUE', // required
+ *   TargetEndpointArn: 'STRING_VALUE', // required
+ *   ReplicationInstanceArn: 'STRING_VALUE', // required
+ *   MigrationType: 'full-load' || 'cdc' || 'full-load-and-cdc', // required
+ *   TableMappings: 'STRING_VALUE', // required
+ *   ReplicationTaskSettings: 'STRING_VALUE',
+ *   CdcStartTime: new Date('TIMESTAMP'),
+ *   CdcStartPosition: 'STRING_VALUE',
+ *   CdcStopPosition: 'STRING_VALUE',
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE",
- *       Value: "STRING_VALUE",
- *       ResourceArn: "STRING_VALUE",
+ *       Key: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
+ *       ResourceArn: 'STRING_VALUE',
  *     },
  *   ],
- *   TaskData: "STRING_VALUE",
- *   ResourceIdentifier: "STRING_VALUE",
+ *   TaskData: 'STRING_VALUE',
+ *   ResourceIdentifier: 'STRING_VALUE',
  * };
  * const command = new CreateReplicationTaskCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateReplicationTaskResponse
+ *   ReplicationTask: { // ReplicationTask
+ *     ReplicationTaskIdentifier: 'STRING_VALUE',
+ *     SourceEndpointArn: 'STRING_VALUE',
+ *     TargetEndpointArn: 'STRING_VALUE',
+ *     ReplicationInstanceArn: 'STRING_VALUE',
+ *     MigrationType: 'full-load' || 'cdc' || 'full-load-and-cdc',
+ *     TableMappings: 'STRING_VALUE',
+ *     ReplicationTaskSettings: 'STRING_VALUE',
+ *     Status: 'STRING_VALUE',
+ *     LastFailureMessage: 'STRING_VALUE',
+ *     StopReason: 'STRING_VALUE',
+ *     ReplicationTaskCreationDate: new Date('TIMESTAMP'),
+ *     ReplicationTaskStartDate: new Date('TIMESTAMP'),
+ *     CdcStartPosition: 'STRING_VALUE',
+ *     CdcStopPosition: 'STRING_VALUE',
+ *     RecoveryCheckpoint: 'STRING_VALUE',
+ *     ReplicationTaskArn: 'STRING_VALUE',
+ *     ReplicationTaskStats: { // ReplicationTaskStats
+ *       FullLoadProgressPercent: Number('int'),
+ *       ElapsedTimeMillis: Number('long'),
+ *       TablesLoaded: Number('int'),
+ *       TablesLoading: Number('int'),
+ *       TablesQueued: Number('int'),
+ *       TablesErrored: Number('int'),
+ *       FreshStartDate: new Date('TIMESTAMP'),
+ *       StartDate: new Date('TIMESTAMP'),
+ *       StopDate: new Date('TIMESTAMP'),
+ *       FullLoadStartDate: new Date('TIMESTAMP'),
+ *       FullLoadFinishDate: new Date('TIMESTAMP'),
+ *     },
+ *     TaskData: 'STRING_VALUE',
+ *     TargetReplicationInstanceArn: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateReplicationTaskCommandInput - {@link CreateReplicationTaskCommandInput}
@@ -93,6 +130,8 @@ export interface CreateReplicationTaskCommandOutput extends CreateReplicationTas
  * @throws {@link ResourceQuotaExceededFault} (client fault)
  *  <p>The quota for this resource quota has been exceeded.</p>
  *
+ * @throws {@link DatabaseMigrationServiceServiceException}
+ * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
  * @example Create replication task
  * ```javascript

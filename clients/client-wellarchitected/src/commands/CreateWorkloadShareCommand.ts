@@ -43,17 +43,23 @@ export interface CreateWorkloadShareCommandOutput extends CreateWorkloadShareOut
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WellArchitectedClient, CreateWorkloadShareCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
- * // const { WellArchitectedClient, CreateWorkloadShareCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
+ * import { WellArchitectedClient, CreateWorkloadShareCommand } from '@aws-sdk/client-wellarchitected'; // ES Modules import
+ * // const { WellArchitectedClient, CreateWorkloadShareCommand } = require('@aws-sdk/client-wellarchitected'); // CommonJS import
  * const client = new WellArchitectedClient(config);
  * const input = { // CreateWorkloadShareInput
- *   WorkloadId: "STRING_VALUE", // required
- *   SharedWith: "STRING_VALUE", // required
- *   PermissionType: "READONLY" || "CONTRIBUTOR", // required
- *   ClientRequestToken: "STRING_VALUE", // required
+ *   WorkloadId: 'STRING_VALUE', // required
+ *   SharedWith: 'STRING_VALUE', // required
+ *   PermissionType: 'READONLY' || 'CONTRIBUTOR', // required
+ *   ClientRequestToken: 'STRING_VALUE', // required
  * };
  * const command = new CreateWorkloadShareCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateWorkloadShareOutput
+ *   WorkloadId: 'STRING_VALUE',
+ *   ShareId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateWorkloadShareCommandInput - {@link CreateWorkloadShareCommandInput}
@@ -83,6 +89,8 @@ export interface CreateWorkloadShareCommandOutput extends CreateWorkloadShareOut
  * @throws {@link ValidationException} (client fault)
  *  <p>The user input is not valid.</p>
  *
+ * @throws {@link WellArchitectedServiceException}
+ * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
  */
 export class CreateWorkloadShareCommand extends $Command<

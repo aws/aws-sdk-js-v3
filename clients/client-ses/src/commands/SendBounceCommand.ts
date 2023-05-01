@@ -44,48 +44,53 @@ export interface SendBounceCommandOutput extends SendBounceResponse, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SESClient, SendBounceCommand } from "@aws-sdk/client-ses"; // ES Modules import
- * // const { SESClient, SendBounceCommand } = require("@aws-sdk/client-ses"); // CommonJS import
+ * import { SESClient, SendBounceCommand } from '@aws-sdk/client-ses'; // ES Modules import
+ * // const { SESClient, SendBounceCommand } = require('@aws-sdk/client-ses'); // CommonJS import
  * const client = new SESClient(config);
  * const input = { // SendBounceRequest
- *   OriginalMessageId: "STRING_VALUE", // required
- *   BounceSender: "STRING_VALUE", // required
- *   Explanation: "STRING_VALUE",
+ *   OriginalMessageId: 'STRING_VALUE', // required
+ *   BounceSender: 'STRING_VALUE', // required
+ *   Explanation: 'STRING_VALUE',
  *   MessageDsn: { // MessageDsn
- *     ReportingMta: "STRING_VALUE", // required
- *     ArrivalDate: new Date("TIMESTAMP"),
+ *     ReportingMta: 'STRING_VALUE', // required
+ *     ArrivalDate: new Date('TIMESTAMP'),
  *     ExtensionFields: [ // ExtensionFieldList
  *       { // ExtensionField
- *         Name: "STRING_VALUE", // required
- *         Value: "STRING_VALUE", // required
+ *         Name: 'STRING_VALUE', // required
+ *         Value: 'STRING_VALUE', // required
  *       },
  *     ],
  *   },
  *   BouncedRecipientInfoList: [ // BouncedRecipientInfoList // required
  *     { // BouncedRecipientInfo
- *       Recipient: "STRING_VALUE", // required
- *       RecipientArn: "STRING_VALUE",
- *       BounceType: "STRING_VALUE",
+ *       Recipient: 'STRING_VALUE', // required
+ *       RecipientArn: 'STRING_VALUE',
+ *       BounceType: 'STRING_VALUE',
  *       RecipientDsnFields: { // RecipientDsnFields
- *         FinalRecipient: "STRING_VALUE",
- *         Action: "STRING_VALUE", // required
- *         RemoteMta: "STRING_VALUE",
- *         Status: "STRING_VALUE", // required
- *         DiagnosticCode: "STRING_VALUE",
- *         LastAttemptDate: new Date("TIMESTAMP"),
+ *         FinalRecipient: 'STRING_VALUE',
+ *         Action: 'STRING_VALUE', // required
+ *         RemoteMta: 'STRING_VALUE',
+ *         Status: 'STRING_VALUE', // required
+ *         DiagnosticCode: 'STRING_VALUE',
+ *         LastAttemptDate: new Date('TIMESTAMP'),
  *         ExtensionFields: [
  *           {
- *             Name: "STRING_VALUE", // required
- *             Value: "STRING_VALUE", // required
+ *             Name: 'STRING_VALUE', // required
+ *             Value: 'STRING_VALUE', // required
  *           },
  *         ],
  *       },
  *     },
  *   ],
- *   BounceSenderArn: "STRING_VALUE",
+ *   BounceSenderArn: 'STRING_VALUE',
  * };
  * const command = new SendBounceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SendBounceResponse
+ *   MessageId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param SendBounceCommandInput - {@link SendBounceCommandInput}
@@ -98,6 +103,8 @@ export interface SendBounceCommandOutput extends SendBounceResponse, __MetadataB
  *  <p>Indicates that the action failed, and the message could not be sent. Check the error
  *             stack for more information about what caused the error.</p>
  *
+ * @throws {@link SESServiceException}
+ * <p>Base exception class for all service exceptions from SES service.</p>
  *
  */
 export class SendBounceCommand extends $Command<

@@ -36,15 +36,29 @@ export interface DescribeConstraintCommandOutput extends DescribeConstraintOutpu
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ServiceCatalogClient, DescribeConstraintCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
- * // const { ServiceCatalogClient, DescribeConstraintCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
+ * import { ServiceCatalogClient, DescribeConstraintCommand } from '@aws-sdk/client-service-catalog'; // ES Modules import
+ * // const { ServiceCatalogClient, DescribeConstraintCommand } = require('@aws-sdk/client-service-catalog'); // CommonJS import
  * const client = new ServiceCatalogClient(config);
  * const input = { // DescribeConstraintInput
- *   AcceptLanguage: "STRING_VALUE",
- *   Id: "STRING_VALUE", // required
+ *   AcceptLanguage: 'STRING_VALUE',
+ *   Id: 'STRING_VALUE', // required
  * };
  * const command = new DescribeConstraintCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeConstraintOutput
+ *   ConstraintDetail: { // ConstraintDetail
+ *     ConstraintId: 'STRING_VALUE',
+ *     Type: 'STRING_VALUE',
+ *     Description: 'STRING_VALUE',
+ *     Owner: 'STRING_VALUE',
+ *     ProductId: 'STRING_VALUE',
+ *     PortfolioId: 'STRING_VALUE',
+ *   },
+ *   ConstraintParameters: 'STRING_VALUE',
+ *   Status: 'AVAILABLE' || 'CREATING' || 'FAILED',
+ * };
+ *
  * ```
  *
  * @param DescribeConstraintCommandInput - {@link DescribeConstraintCommandInput}
@@ -56,6 +70,8 @@ export interface DescribeConstraintCommandOutput extends DescribeConstraintOutpu
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link ServiceCatalogServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
  */
 export class DescribeConstraintCommand extends $Command<

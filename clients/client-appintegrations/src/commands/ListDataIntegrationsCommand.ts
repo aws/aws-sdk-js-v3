@@ -41,15 +41,27 @@ export interface ListDataIntegrationsCommandOutput extends ListDataIntegrationsR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppIntegrationsClient, ListDataIntegrationsCommand } from "@aws-sdk/client-appintegrations"; // ES Modules import
- * // const { AppIntegrationsClient, ListDataIntegrationsCommand } = require("@aws-sdk/client-appintegrations"); // CommonJS import
+ * import { AppIntegrationsClient, ListDataIntegrationsCommand } from '@aws-sdk/client-appintegrations'; // ES Modules import
+ * // const { AppIntegrationsClient, ListDataIntegrationsCommand } = require('@aws-sdk/client-appintegrations'); // CommonJS import
  * const client = new AppIntegrationsClient(config);
  * const input = { // ListDataIntegrationsRequest
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListDataIntegrationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListDataIntegrationsResponse
+ *   DataIntegrations: [ // DataIntegrationsList
+ *     { // DataIntegrationSummary
+ *       Arn: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *       SourceURI: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListDataIntegrationsCommandInput - {@link ListDataIntegrationsCommandInput}
@@ -70,6 +82,8 @@ export interface ListDataIntegrationsCommandOutput extends ListDataIntegrationsR
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link AppIntegrationsServiceException}
+ * <p>Base exception class for all service exceptions from AppIntegrations service.</p>
  *
  */
 export class ListDataIntegrationsCommand extends $Command<

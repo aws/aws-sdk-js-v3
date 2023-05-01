@@ -43,15 +43,31 @@ export interface GetDevicePositionCommandOutput extends GetDevicePositionRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LocationClient, GetDevicePositionCommand } from "@aws-sdk/client-location"; // ES Modules import
- * // const { LocationClient, GetDevicePositionCommand } = require("@aws-sdk/client-location"); // CommonJS import
+ * import { LocationClient, GetDevicePositionCommand } from '@aws-sdk/client-location'; // ES Modules import
+ * // const { LocationClient, GetDevicePositionCommand } = require('@aws-sdk/client-location'); // CommonJS import
  * const client = new LocationClient(config);
  * const input = { // GetDevicePositionRequest
- *   TrackerName: "STRING_VALUE", // required
- *   DeviceId: "STRING_VALUE", // required
+ *   TrackerName: 'STRING_VALUE', // required
+ *   DeviceId: 'STRING_VALUE', // required
  * };
  * const command = new GetDevicePositionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetDevicePositionResponse
+ *   DeviceId: 'STRING_VALUE',
+ *   SampleTime: new Date('TIMESTAMP'), // required
+ *   ReceivedTime: new Date('TIMESTAMP'), // required
+ *   Position: [ // Position // required
+ *     Number('double'),
+ *   ],
+ *   Accuracy: { // PositionalAccuracy
+ *     Horizontal: Number('double'), // required
+ *   },
+ *   PositionProperties: { // PropertyMap
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetDevicePositionCommandInput - {@link GetDevicePositionCommandInput}
@@ -76,6 +92,8 @@ export interface GetDevicePositionCommandOutput extends GetDevicePositionRespons
  * @throws {@link ValidationException} (client fault)
  *  <p>The input failed to meet the constraints specified by the AWS service. </p>
  *
+ * @throws {@link LocationServiceException}
+ * <p>Base exception class for all service exceptions from Location service.</p>
  *
  */
 export class GetDevicePositionCommand extends $Command<

@@ -38,15 +38,18 @@ export interface DisassociateLambdaFunctionCommandOutput extends __MetadataBeare
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, DisassociateLambdaFunctionCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, DisassociateLambdaFunctionCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, DisassociateLambdaFunctionCommand } from '@aws-sdk/client-connect'; // ES Modules import
+ * // const { ConnectClient, DisassociateLambdaFunctionCommand } = require('@aws-sdk/client-connect'); // CommonJS import
  * const client = new ConnectClient(config);
  * const input = { // DisassociateLambdaFunctionRequest
- *   InstanceId: "STRING_VALUE", // required
- *   FunctionArn: "STRING_VALUE", // required
+ *   InstanceId: 'STRING_VALUE', // required
+ *   FunctionArn: 'STRING_VALUE', // required
  * };
  * const command = new DisassociateLambdaFunctionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DisassociateLambdaFunctionCommandInput - {@link DisassociateLambdaFunctionCommandInput}
@@ -70,6 +73,8 @@ export interface DisassociateLambdaFunctionCommandOutput extends __MetadataBeare
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class DisassociateLambdaFunctionCommand extends $Command<

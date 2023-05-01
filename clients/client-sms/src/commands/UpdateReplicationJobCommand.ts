@@ -36,22 +36,25 @@ export interface UpdateReplicationJobCommandOutput extends UpdateReplicationJobR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SMSClient, UpdateReplicationJobCommand } from "@aws-sdk/client-sms"; // ES Modules import
- * // const { SMSClient, UpdateReplicationJobCommand } = require("@aws-sdk/client-sms"); // CommonJS import
+ * import { SMSClient, UpdateReplicationJobCommand } from '@aws-sdk/client-sms'; // ES Modules import
+ * // const { SMSClient, UpdateReplicationJobCommand } = require('@aws-sdk/client-sms'); // CommonJS import
  * const client = new SMSClient(config);
  * const input = { // UpdateReplicationJobRequest
- *   replicationJobId: "STRING_VALUE", // required
- *   frequency: Number("int"),
- *   nextReplicationRunStartTime: new Date("TIMESTAMP"),
- *   licenseType: "AWS" || "BYOL",
- *   roleName: "STRING_VALUE",
- *   description: "STRING_VALUE",
- *   numberOfRecentAmisToKeep: Number("int"),
+ *   replicationJobId: 'STRING_VALUE', // required
+ *   frequency: Number('int'),
+ *   nextReplicationRunStartTime: new Date('TIMESTAMP'),
+ *   licenseType: 'AWS' || 'BYOL',
+ *   roleName: 'STRING_VALUE',
+ *   description: 'STRING_VALUE',
+ *   numberOfRecentAmisToKeep: Number('int'),
  *   encrypted: true || false,
- *   kmsKeyId: "STRING_VALUE",
+ *   kmsKeyId: 'STRING_VALUE',
  * };
  * const command = new UpdateReplicationJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateReplicationJobCommandInput - {@link UpdateReplicationJobCommandInput}
@@ -85,6 +88,8 @@ export interface UpdateReplicationJobCommandOutput extends UpdateReplicationJobR
  *  <p>You lack permissions needed to perform this operation. Check your IAM policies,
  *             and ensure that you are using the correct access keys.</p>
  *
+ * @throws {@link SMSServiceException}
+ * <p>Base exception class for all service exceptions from SMS service.</p>
  *
  */
 export class UpdateReplicationJobCommand extends $Command<

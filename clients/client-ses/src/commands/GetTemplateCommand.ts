@@ -38,14 +38,24 @@ export interface GetTemplateCommandOutput extends GetTemplateResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SESClient, GetTemplateCommand } from "@aws-sdk/client-ses"; // ES Modules import
- * // const { SESClient, GetTemplateCommand } = require("@aws-sdk/client-ses"); // CommonJS import
+ * import { SESClient, GetTemplateCommand } from '@aws-sdk/client-ses'; // ES Modules import
+ * // const { SESClient, GetTemplateCommand } = require('@aws-sdk/client-ses'); // CommonJS import
  * const client = new SESClient(config);
  * const input = { // GetTemplateRequest
- *   TemplateName: "STRING_VALUE", // required
+ *   TemplateName: 'STRING_VALUE', // required
  * };
  * const command = new GetTemplateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetTemplateResponse
+ *   Template: { // Template
+ *     TemplateName: 'STRING_VALUE', // required
+ *     SubjectPart: 'STRING_VALUE',
+ *     TextPart: 'STRING_VALUE',
+ *     HtmlPart: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetTemplateCommandInput - {@link GetTemplateCommandInput}
@@ -58,6 +68,8 @@ export interface GetTemplateCommandOutput extends GetTemplateResponse, __Metadat
  *  <p>Indicates that the Template object you specified does not exist in your Amazon SES
  *             account.</p>
  *
+ * @throws {@link SESServiceException}
+ * <p>Base exception class for all service exceptions from SES service.</p>
  *
  */
 export class GetTemplateCommand extends $Command<

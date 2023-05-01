@@ -43,16 +43,31 @@ export interface ListSecurityControlDefinitionsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SecurityHubClient, ListSecurityControlDefinitionsCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
- * // const { SecurityHubClient, ListSecurityControlDefinitionsCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
+ * import { SecurityHubClient, ListSecurityControlDefinitionsCommand } from '@aws-sdk/client-securityhub'; // ES Modules import
+ * // const { SecurityHubClient, ListSecurityControlDefinitionsCommand } = require('@aws-sdk/client-securityhub'); // CommonJS import
  * const client = new SecurityHubClient(config);
  * const input = { // ListSecurityControlDefinitionsRequest
- *   StandardsArn: "STRING_VALUE",
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   StandardsArn: 'STRING_VALUE',
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListSecurityControlDefinitionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListSecurityControlDefinitionsResponse
+ *   SecurityControlDefinitions: [ // SecurityControlDefinitions // required
+ *     { // SecurityControlDefinition
+ *       SecurityControlId: 'STRING_VALUE', // required
+ *       Title: 'STRING_VALUE', // required
+ *       Description: 'STRING_VALUE', // required
+ *       RemediationUrl: 'STRING_VALUE', // required
+ *       SeverityRating: 'LOW' || 'MEDIUM' || 'HIGH' || 'CRITICAL', // required
+ *       CurrentRegionAvailability: 'AVAILABLE' || 'UNAVAILABLE', // required
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListSecurityControlDefinitionsCommandInput - {@link ListSecurityControlDefinitionsCommandInput}
@@ -75,6 +90,8 @@ export interface ListSecurityControlDefinitionsCommandOutput
  *  <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services
  *          account or throttling limits. The error code describes the limit exceeded.</p>
  *
+ * @throws {@link SecurityHubServiceException}
+ * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
  * @example To list security controls that apply to a standard
  * ```javascript

@@ -39,16 +39,27 @@ export interface ListLexBotsCommandOutput extends ListLexBotsResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, ListLexBotsCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, ListLexBotsCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, ListLexBotsCommand } from '@aws-sdk/client-connect'; // ES Modules import
+ * // const { ConnectClient, ListLexBotsCommand } = require('@aws-sdk/client-connect'); // CommonJS import
  * const client = new ConnectClient(config);
  * const input = { // ListLexBotsRequest
- *   InstanceId: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   InstanceId: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListLexBotsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListLexBotsResponse
+ *   LexBots: [ // LexBotsList
+ *     { // LexBot
+ *       Name: 'STRING_VALUE', // required
+ *       LexRegion: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListLexBotsCommandInput - {@link ListLexBotsCommandInput}
@@ -72,6 +83,8 @@ export interface ListLexBotsCommandOutput extends ListLexBotsResponse, __Metadat
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class ListLexBotsCommand extends $Command<

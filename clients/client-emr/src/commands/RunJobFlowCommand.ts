@@ -57,42 +57,42 @@ export interface RunJobFlowCommandOutput extends RunJobFlowOutput, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EMRClient, RunJobFlowCommand } from "@aws-sdk/client-emr"; // ES Modules import
- * // const { EMRClient, RunJobFlowCommand } = require("@aws-sdk/client-emr"); // CommonJS import
+ * import { EMRClient, RunJobFlowCommand } from '@aws-sdk/client-emr'; // ES Modules import
+ * // const { EMRClient, RunJobFlowCommand } = require('@aws-sdk/client-emr'); // CommonJS import
  * const client = new EMRClient(config);
  * const input = { // RunJobFlowInput
- *   Name: "STRING_VALUE", // required
- *   LogUri: "STRING_VALUE",
- *   LogEncryptionKmsKeyId: "STRING_VALUE",
- *   AdditionalInfo: "STRING_VALUE",
- *   AmiVersion: "STRING_VALUE",
- *   ReleaseLabel: "STRING_VALUE",
+ *   Name: 'STRING_VALUE', // required
+ *   LogUri: 'STRING_VALUE',
+ *   LogEncryptionKmsKeyId: 'STRING_VALUE',
+ *   AdditionalInfo: 'STRING_VALUE',
+ *   AmiVersion: 'STRING_VALUE',
+ *   ReleaseLabel: 'STRING_VALUE',
  *   Instances: { // JobFlowInstancesConfig
- *     MasterInstanceType: "STRING_VALUE",
- *     SlaveInstanceType: "STRING_VALUE",
- *     InstanceCount: Number("int"),
+ *     MasterInstanceType: 'STRING_VALUE',
+ *     SlaveInstanceType: 'STRING_VALUE',
+ *     InstanceCount: Number('int'),
  *     InstanceGroups: [ // InstanceGroupConfigList
  *       { // InstanceGroupConfig
- *         Name: "STRING_VALUE",
- *         Market: "ON_DEMAND" || "SPOT",
- *         InstanceRole: "MASTER" || "CORE" || "TASK", // required
- *         BidPrice: "STRING_VALUE",
- *         InstanceType: "STRING_VALUE", // required
- *         InstanceCount: Number("int"), // required
+ *         Name: 'STRING_VALUE',
+ *         Market: 'ON_DEMAND' || 'SPOT',
+ *         InstanceRole: 'MASTER' || 'CORE' || 'TASK', // required
+ *         BidPrice: 'STRING_VALUE',
+ *         InstanceType: 'STRING_VALUE', // required
+ *         InstanceCount: Number('int'), // required
  *         Configurations: [ // ConfigurationList
  *           { // Configuration
- *             Classification: "STRING_VALUE",
+ *             Classification: 'STRING_VALUE',
  *             Configurations: [
  *               {
- *                 Classification: "STRING_VALUE",
- *                 Configurations: "<ConfigurationList>",
+ *                 Classification: 'STRING_VALUE',
+ *                 Configurations: '<ConfigurationList>',
  *                 Properties: { // StringMap
- *                   "<keys>": "STRING_VALUE",
+ *                   '<keys>': 'STRING_VALUE',
  *                 },
  *               },
  *             ],
  *             Properties: {
- *               "<keys>": "STRING_VALUE",
+ *               '<keys>': 'STRING_VALUE',
  *             },
  *           },
  *         ],
@@ -100,47 +100,47 @@ export interface RunJobFlowCommandOutput extends RunJobFlowOutput, __MetadataBea
  *           EbsBlockDeviceConfigs: [ // EbsBlockDeviceConfigList
  *             { // EbsBlockDeviceConfig
  *               VolumeSpecification: { // VolumeSpecification
- *                 VolumeType: "STRING_VALUE", // required
- *                 Iops: Number("int"),
- *                 SizeInGB: Number("int"), // required
- *                 Throughput: Number("int"),
+ *                 VolumeType: 'STRING_VALUE', // required
+ *                 Iops: Number('int'),
+ *                 SizeInGB: Number('int'), // required
+ *                 Throughput: Number('int'),
  *               },
- *               VolumesPerInstance: Number("int"),
+ *               VolumesPerInstance: Number('int'),
  *             },
  *           ],
  *           EbsOptimized: true || false,
  *         },
  *         AutoScalingPolicy: { // AutoScalingPolicy
  *           Constraints: { // ScalingConstraints
- *             MinCapacity: Number("int"), // required
- *             MaxCapacity: Number("int"), // required
+ *             MinCapacity: Number('int'), // required
+ *             MaxCapacity: Number('int'), // required
  *           },
  *           Rules: [ // ScalingRuleList // required
  *             { // ScalingRule
- *               Name: "STRING_VALUE", // required
- *               Description: "STRING_VALUE",
+ *               Name: 'STRING_VALUE', // required
+ *               Description: 'STRING_VALUE',
  *               Action: { // ScalingAction
- *                 Market: "ON_DEMAND" || "SPOT",
+ *                 Market: 'ON_DEMAND' || 'SPOT',
  *                 SimpleScalingPolicyConfiguration: { // SimpleScalingPolicyConfiguration
- *                   AdjustmentType: "CHANGE_IN_CAPACITY" || "PERCENT_CHANGE_IN_CAPACITY" || "EXACT_CAPACITY",
- *                   ScalingAdjustment: Number("int"), // required
- *                   CoolDown: Number("int"),
+ *                   AdjustmentType: 'CHANGE_IN_CAPACITY' || 'PERCENT_CHANGE_IN_CAPACITY' || 'EXACT_CAPACITY',
+ *                   ScalingAdjustment: Number('int'), // required
+ *                   CoolDown: Number('int'),
  *                 },
  *               },
  *               Trigger: { // ScalingTrigger
  *                 CloudWatchAlarmDefinition: { // CloudWatchAlarmDefinition
- *                   ComparisonOperator: "GREATER_THAN_OR_EQUAL" || "GREATER_THAN" || "LESS_THAN" || "LESS_THAN_OR_EQUAL", // required
- *                   EvaluationPeriods: Number("int"),
- *                   MetricName: "STRING_VALUE", // required
- *                   Namespace: "STRING_VALUE",
- *                   Period: Number("int"), // required
- *                   Statistic: "SAMPLE_COUNT" || "AVERAGE" || "SUM" || "MINIMUM" || "MAXIMUM",
- *                   Threshold: Number("double"), // required
- *                   Unit: "NONE" || "SECONDS" || "MICRO_SECONDS" || "MILLI_SECONDS" || "BYTES" || "KILO_BYTES" || "MEGA_BYTES" || "GIGA_BYTES" || "TERA_BYTES" || "BITS" || "KILO_BITS" || "MEGA_BITS" || "GIGA_BITS" || "TERA_BITS" || "PERCENT" || "COUNT" || "BYTES_PER_SECOND" || "KILO_BYTES_PER_SECOND" || "MEGA_BYTES_PER_SECOND" || "GIGA_BYTES_PER_SECOND" || "TERA_BYTES_PER_SECOND" || "BITS_PER_SECOND" || "KILO_BITS_PER_SECOND" || "MEGA_BITS_PER_SECOND" || "GIGA_BITS_PER_SECOND" || "TERA_BITS_PER_SECOND" || "COUNT_PER_SECOND",
+ *                   ComparisonOperator: 'GREATER_THAN_OR_EQUAL' || 'GREATER_THAN' || 'LESS_THAN' || 'LESS_THAN_OR_EQUAL', // required
+ *                   EvaluationPeriods: Number('int'),
+ *                   MetricName: 'STRING_VALUE', // required
+ *                   Namespace: 'STRING_VALUE',
+ *                   Period: Number('int'), // required
+ *                   Statistic: 'SAMPLE_COUNT' || 'AVERAGE' || 'SUM' || 'MINIMUM' || 'MAXIMUM',
+ *                   Threshold: Number('double'), // required
+ *                   Unit: 'NONE' || 'SECONDS' || 'MICRO_SECONDS' || 'MILLI_SECONDS' || 'BYTES' || 'KILO_BYTES' || 'MEGA_BYTES' || 'GIGA_BYTES' || 'TERA_BYTES' || 'BITS' || 'KILO_BITS' || 'MEGA_BITS' || 'GIGA_BITS' || 'TERA_BITS' || 'PERCENT' || 'COUNT' || 'BYTES_PER_SECOND' || 'KILO_BYTES_PER_SECOND' || 'MEGA_BYTES_PER_SECOND' || 'GIGA_BYTES_PER_SECOND' || 'TERA_BYTES_PER_SECOND' || 'BITS_PER_SECOND' || 'KILO_BITS_PER_SECOND' || 'MEGA_BITS_PER_SECOND' || 'GIGA_BITS_PER_SECOND' || 'TERA_BITS_PER_SECOND' || 'COUNT_PER_SECOND',
  *                   Dimensions: [ // MetricDimensionList
  *                     { // MetricDimension
- *                       Key: "STRING_VALUE",
- *                       Value: "STRING_VALUE",
+ *                       Key: 'STRING_VALUE',
+ *                       Value: 'STRING_VALUE',
  *                     },
  *                   ],
  *                 },
@@ -148,186 +148,192 @@ export interface RunJobFlowCommandOutput extends RunJobFlowOutput, __MetadataBea
  *             },
  *           ],
  *         },
- *         CustomAmiId: "STRING_VALUE",
+ *         CustomAmiId: 'STRING_VALUE',
  *       },
  *     ],
  *     InstanceFleets: [ // InstanceFleetConfigList
  *       { // InstanceFleetConfig
- *         Name: "STRING_VALUE",
- *         InstanceFleetType: "MASTER" || "CORE" || "TASK", // required
- *         TargetOnDemandCapacity: Number("int"),
- *         TargetSpotCapacity: Number("int"),
+ *         Name: 'STRING_VALUE',
+ *         InstanceFleetType: 'MASTER' || 'CORE' || 'TASK', // required
+ *         TargetOnDemandCapacity: Number('int'),
+ *         TargetSpotCapacity: Number('int'),
  *         InstanceTypeConfigs: [ // InstanceTypeConfigList
  *           { // InstanceTypeConfig
- *             InstanceType: "STRING_VALUE", // required
- *             WeightedCapacity: Number("int"),
- *             BidPrice: "STRING_VALUE",
- *             BidPriceAsPercentageOfOnDemandPrice: Number("double"),
+ *             InstanceType: 'STRING_VALUE', // required
+ *             WeightedCapacity: Number('int'),
+ *             BidPrice: 'STRING_VALUE',
+ *             BidPriceAsPercentageOfOnDemandPrice: Number('double'),
  *             EbsConfiguration: {
  *               EbsBlockDeviceConfigs: [
  *                 {
  *                   VolumeSpecification: {
- *                     VolumeType: "STRING_VALUE", // required
- *                     Iops: Number("int"),
- *                     SizeInGB: Number("int"), // required
- *                     Throughput: Number("int"),
+ *                     VolumeType: 'STRING_VALUE', // required
+ *                     Iops: Number('int'),
+ *                     SizeInGB: Number('int'), // required
+ *                     Throughput: Number('int'),
  *                   },
- *                   VolumesPerInstance: Number("int"),
+ *                   VolumesPerInstance: Number('int'),
  *                 },
  *               ],
  *               EbsOptimized: true || false,
  *             },
- *             Configurations: "<ConfigurationList>",
- *             CustomAmiId: "STRING_VALUE",
+ *             Configurations: '<ConfigurationList>',
+ *             CustomAmiId: 'STRING_VALUE',
  *           },
  *         ],
  *         LaunchSpecifications: { // InstanceFleetProvisioningSpecifications
  *           SpotSpecification: { // SpotProvisioningSpecification
- *             TimeoutDurationMinutes: Number("int"), // required
- *             TimeoutAction: "SWITCH_TO_ON_DEMAND" || "TERMINATE_CLUSTER", // required
- *             BlockDurationMinutes: Number("int"),
- *             AllocationStrategy: "capacity-optimized",
+ *             TimeoutDurationMinutes: Number('int'), // required
+ *             TimeoutAction: 'SWITCH_TO_ON_DEMAND' || 'TERMINATE_CLUSTER', // required
+ *             BlockDurationMinutes: Number('int'),
+ *             AllocationStrategy: 'capacity-optimized',
  *           },
  *           OnDemandSpecification: { // OnDemandProvisioningSpecification
- *             AllocationStrategy: "lowest-price", // required
+ *             AllocationStrategy: 'lowest-price', // required
  *             CapacityReservationOptions: { // OnDemandCapacityReservationOptions
- *               UsageStrategy: "use-capacity-reservations-first",
- *               CapacityReservationPreference: "open" || "none",
- *               CapacityReservationResourceGroupArn: "STRING_VALUE",
+ *               UsageStrategy: 'use-capacity-reservations-first',
+ *               CapacityReservationPreference: 'open' || 'none',
+ *               CapacityReservationResourceGroupArn: 'STRING_VALUE',
  *             },
  *           },
  *         },
  *         ResizeSpecifications: { // InstanceFleetResizingSpecifications
  *           SpotResizeSpecification: { // SpotResizingSpecification
- *             TimeoutDurationMinutes: Number("int"), // required
+ *             TimeoutDurationMinutes: Number('int'), // required
  *           },
  *           OnDemandResizeSpecification: { // OnDemandResizingSpecification
- *             TimeoutDurationMinutes: Number("int"), // required
+ *             TimeoutDurationMinutes: Number('int'), // required
  *           },
  *         },
  *       },
  *     ],
- *     Ec2KeyName: "STRING_VALUE",
+ *     Ec2KeyName: 'STRING_VALUE',
  *     Placement: { // PlacementType
- *       AvailabilityZone: "STRING_VALUE",
+ *       AvailabilityZone: 'STRING_VALUE',
  *       AvailabilityZones: [ // XmlStringMaxLen256List
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *     KeepJobFlowAliveWhenNoSteps: true || false,
  *     TerminationProtected: true || false,
- *     HadoopVersion: "STRING_VALUE",
- *     Ec2SubnetId: "STRING_VALUE",
+ *     HadoopVersion: 'STRING_VALUE',
+ *     Ec2SubnetId: 'STRING_VALUE',
  *     Ec2SubnetIds: [
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
- *     EmrManagedMasterSecurityGroup: "STRING_VALUE",
- *     EmrManagedSlaveSecurityGroup: "STRING_VALUE",
- *     ServiceAccessSecurityGroup: "STRING_VALUE",
+ *     EmrManagedMasterSecurityGroup: 'STRING_VALUE',
+ *     EmrManagedSlaveSecurityGroup: 'STRING_VALUE',
+ *     ServiceAccessSecurityGroup: 'STRING_VALUE',
  *     AdditionalMasterSecurityGroups: [ // SecurityGroupsList
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     AdditionalSlaveSecurityGroups: [
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *   },
  *   Steps: [ // StepConfigList
  *     { // StepConfig
- *       Name: "STRING_VALUE", // required
- *       ActionOnFailure: "TERMINATE_JOB_FLOW" || "TERMINATE_CLUSTER" || "CANCEL_AND_WAIT" || "CONTINUE",
+ *       Name: 'STRING_VALUE', // required
+ *       ActionOnFailure: 'TERMINATE_JOB_FLOW' || 'TERMINATE_CLUSTER' || 'CANCEL_AND_WAIT' || 'CONTINUE',
  *       HadoopJarStep: { // HadoopJarStepConfig
  *         Properties: [ // KeyValueList
  *           { // KeyValue
- *             Key: "STRING_VALUE",
- *             Value: "STRING_VALUE",
+ *             Key: 'STRING_VALUE',
+ *             Value: 'STRING_VALUE',
  *           },
  *         ],
- *         Jar: "STRING_VALUE", // required
- *         MainClass: "STRING_VALUE",
+ *         Jar: 'STRING_VALUE', // required
+ *         MainClass: 'STRING_VALUE',
  *         Args: [ // XmlStringList
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
  *       },
  *     },
  *   ],
  *   BootstrapActions: [ // BootstrapActionConfigList
  *     { // BootstrapActionConfig
- *       Name: "STRING_VALUE", // required
+ *       Name: 'STRING_VALUE', // required
  *       ScriptBootstrapAction: { // ScriptBootstrapActionConfig
- *         Path: "STRING_VALUE", // required
+ *         Path: 'STRING_VALUE', // required
  *         Args: [
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
  *       },
  *     },
  *   ],
  *   SupportedProducts: [ // SupportedProductsList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   NewSupportedProducts: [ // NewSupportedProductsList
  *     { // SupportedProductConfig
- *       Name: "STRING_VALUE",
+ *       Name: 'STRING_VALUE',
  *       Args: [
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
  *   Applications: [ // ApplicationList
  *     { // Application
- *       Name: "STRING_VALUE",
- *       Version: "STRING_VALUE",
+ *       Name: 'STRING_VALUE',
+ *       Version: 'STRING_VALUE',
  *       Args: [ // StringList
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
- *       AdditionalInfo: "<StringMap>",
+ *       AdditionalInfo: '<StringMap>',
  *     },
  *   ],
- *   Configurations: "<ConfigurationList>",
+ *   Configurations: '<ConfigurationList>',
  *   VisibleToAllUsers: true || false,
- *   JobFlowRole: "STRING_VALUE",
- *   ServiceRole: "STRING_VALUE",
+ *   JobFlowRole: 'STRING_VALUE',
+ *   ServiceRole: 'STRING_VALUE',
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE",
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
- *   SecurityConfiguration: "STRING_VALUE",
- *   AutoScalingRole: "STRING_VALUE",
- *   ScaleDownBehavior: "TERMINATE_AT_INSTANCE_HOUR" || "TERMINATE_AT_TASK_COMPLETION",
- *   CustomAmiId: "STRING_VALUE",
- *   EbsRootVolumeSize: Number("int"),
- *   RepoUpgradeOnBoot: "SECURITY" || "NONE",
+ *   SecurityConfiguration: 'STRING_VALUE',
+ *   AutoScalingRole: 'STRING_VALUE',
+ *   ScaleDownBehavior: 'TERMINATE_AT_INSTANCE_HOUR' || 'TERMINATE_AT_TASK_COMPLETION',
+ *   CustomAmiId: 'STRING_VALUE',
+ *   EbsRootVolumeSize: Number('int'),
+ *   RepoUpgradeOnBoot: 'SECURITY' || 'NONE',
  *   KerberosAttributes: { // KerberosAttributes
- *     Realm: "STRING_VALUE", // required
- *     KdcAdminPassword: "STRING_VALUE", // required
- *     CrossRealmTrustPrincipalPassword: "STRING_VALUE",
- *     ADDomainJoinUser: "STRING_VALUE",
- *     ADDomainJoinPassword: "STRING_VALUE",
+ *     Realm: 'STRING_VALUE', // required
+ *     KdcAdminPassword: 'STRING_VALUE', // required
+ *     CrossRealmTrustPrincipalPassword: 'STRING_VALUE',
+ *     ADDomainJoinUser: 'STRING_VALUE',
+ *     ADDomainJoinPassword: 'STRING_VALUE',
  *   },
- *   StepConcurrencyLevel: Number("int"),
+ *   StepConcurrencyLevel: Number('int'),
  *   ManagedScalingPolicy: { // ManagedScalingPolicy
  *     ComputeLimits: { // ComputeLimits
- *       UnitType: "InstanceFleetUnits" || "Instances" || "VCPU", // required
- *       MinimumCapacityUnits: Number("int"), // required
- *       MaximumCapacityUnits: Number("int"), // required
- *       MaximumOnDemandCapacityUnits: Number("int"),
- *       MaximumCoreCapacityUnits: Number("int"),
+ *       UnitType: 'InstanceFleetUnits' || 'Instances' || 'VCPU', // required
+ *       MinimumCapacityUnits: Number('int'), // required
+ *       MaximumCapacityUnits: Number('int'), // required
+ *       MaximumOnDemandCapacityUnits: Number('int'),
+ *       MaximumCoreCapacityUnits: Number('int'),
  *     },
  *   },
  *   PlacementGroupConfigs: [ // PlacementGroupConfigList
  *     { // PlacementGroupConfig
- *       InstanceRole: "MASTER" || "CORE" || "TASK", // required
- *       PlacementStrategy: "SPREAD" || "PARTITION" || "CLUSTER" || "NONE",
+ *       InstanceRole: 'MASTER' || 'CORE' || 'TASK', // required
+ *       PlacementStrategy: 'SPREAD' || 'PARTITION' || 'CLUSTER' || 'NONE',
  *     },
  *   ],
  *   AutoTerminationPolicy: { // AutoTerminationPolicy
- *     IdleTimeout: Number("long"),
+ *     IdleTimeout: Number('long'),
  *   },
- *   OSReleaseLabel: "STRING_VALUE",
+ *   OSReleaseLabel: 'STRING_VALUE',
  * };
  * const command = new RunJobFlowCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // RunJobFlowOutput
+ *   JobFlowId: 'STRING_VALUE',
+ *   ClusterArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param RunJobFlowCommandInput - {@link RunJobFlowCommandInput}
@@ -340,6 +346,8 @@ export interface RunJobFlowCommandOutput extends RunJobFlowOutput, __MetadataBea
  *  <p>Indicates that an error occurred while processing the request and that the request was
  *          not completed.</p>
  *
+ * @throws {@link EMRServiceException}
+ * <p>Base exception class for all service exceptions from EMR service.</p>
  *
  */
 export class RunJobFlowCommand extends $Command<

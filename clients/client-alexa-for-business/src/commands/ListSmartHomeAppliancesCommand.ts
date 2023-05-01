@@ -36,16 +36,28 @@ export interface ListSmartHomeAppliancesCommandOutput extends ListSmartHomeAppli
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AlexaForBusinessClient, ListSmartHomeAppliancesCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
- * // const { AlexaForBusinessClient, ListSmartHomeAppliancesCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
+ * import { AlexaForBusinessClient, ListSmartHomeAppliancesCommand } from '@aws-sdk/client-alexa-for-business'; // ES Modules import
+ * // const { AlexaForBusinessClient, ListSmartHomeAppliancesCommand } = require('@aws-sdk/client-alexa-for-business'); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
  * const input = { // ListSmartHomeAppliancesRequest
- *   RoomArn: "STRING_VALUE", // required
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   RoomArn: 'STRING_VALUE', // required
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListSmartHomeAppliancesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListSmartHomeAppliancesResponse
+ *   SmartHomeAppliances: [ // SmartHomeApplianceList
+ *     { // SmartHomeAppliance
+ *       FriendlyName: 'STRING_VALUE',
+ *       Description: 'STRING_VALUE',
+ *       ManufacturerName: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListSmartHomeAppliancesCommandInput - {@link ListSmartHomeAppliancesCommandInput}
@@ -57,6 +69,8 @@ export interface ListSmartHomeAppliancesCommandOutput extends ListSmartHomeAppli
  * @throws {@link NotFoundException} (client fault)
  *  <p>The resource is not found.</p>
  *
+ * @throws {@link AlexaForBusinessServiceException}
+ * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  */
 export class ListSmartHomeAppliancesCommand extends $Command<

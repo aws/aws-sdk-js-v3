@@ -68,36 +68,41 @@ export interface UpdateRuleGroupCommandOutput extends UpdateRuleGroupResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WAFClient, UpdateRuleGroupCommand } from "@aws-sdk/client-waf"; // ES Modules import
- * // const { WAFClient, UpdateRuleGroupCommand } = require("@aws-sdk/client-waf"); // CommonJS import
+ * import { WAFClient, UpdateRuleGroupCommand } from '@aws-sdk/client-waf'; // ES Modules import
+ * // const { WAFClient, UpdateRuleGroupCommand } = require('@aws-sdk/client-waf'); // CommonJS import
  * const client = new WAFClient(config);
  * const input = { // UpdateRuleGroupRequest
- *   RuleGroupId: "STRING_VALUE", // required
+ *   RuleGroupId: 'STRING_VALUE', // required
  *   Updates: [ // RuleGroupUpdates // required
  *     { // RuleGroupUpdate
- *       Action: "STRING_VALUE", // required
+ *       Action: 'STRING_VALUE', // required
  *       ActivatedRule: { // ActivatedRule
- *         Priority: Number("int"), // required
- *         RuleId: "STRING_VALUE", // required
+ *         Priority: Number('int'), // required
+ *         RuleId: 'STRING_VALUE', // required
  *         Action: { // WafAction
- *           Type: "STRING_VALUE", // required
+ *           Type: 'STRING_VALUE', // required
  *         },
  *         OverrideAction: { // WafOverrideAction
- *           Type: "STRING_VALUE", // required
+ *           Type: 'STRING_VALUE', // required
  *         },
- *         Type: "STRING_VALUE",
+ *         Type: 'STRING_VALUE',
  *         ExcludedRules: [ // ExcludedRules
  *           { // ExcludedRule
- *             RuleId: "STRING_VALUE", // required
+ *             RuleId: 'STRING_VALUE', // required
  *           },
  *         ],
  *       },
  *     },
  *   ],
- *   ChangeToken: "STRING_VALUE", // required
+ *   ChangeToken: 'STRING_VALUE', // required
  * };
  * const command = new UpdateRuleGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateRuleGroupResponse
+ *   ChangeToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateRuleGroupCommandInput - {@link UpdateRuleGroupCommandInput}
@@ -201,6 +206,8 @@ export interface UpdateRuleGroupCommandOutput extends UpdateRuleGroupResponse, _
  * @throws {@link WAFStaleDataException} (client fault)
  *  <p>The operation failed because you tried to create, update, or delete an object by using a change token that has already been used.</p>
  *
+ * @throws {@link WAFServiceException}
+ * <p>Base exception class for all service exceptions from WAF service.</p>
  *
  */
 export class UpdateRuleGroupCommand extends $Command<

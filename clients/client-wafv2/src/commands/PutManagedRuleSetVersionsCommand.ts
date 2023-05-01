@@ -47,24 +47,29 @@ export interface PutManagedRuleSetVersionsCommandOutput extends PutManagedRuleSe
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WAFV2Client, PutManagedRuleSetVersionsCommand } from "@aws-sdk/client-wafv2"; // ES Modules import
- * // const { WAFV2Client, PutManagedRuleSetVersionsCommand } = require("@aws-sdk/client-wafv2"); // CommonJS import
+ * import { WAFV2Client, PutManagedRuleSetVersionsCommand } from '@aws-sdk/client-wafv2'; // ES Modules import
+ * // const { WAFV2Client, PutManagedRuleSetVersionsCommand } = require('@aws-sdk/client-wafv2'); // CommonJS import
  * const client = new WAFV2Client(config);
  * const input = { // PutManagedRuleSetVersionsRequest
- *   Name: "STRING_VALUE", // required
- *   Scope: "CLOUDFRONT" || "REGIONAL", // required
- *   Id: "STRING_VALUE", // required
- *   LockToken: "STRING_VALUE", // required
- *   RecommendedVersion: "STRING_VALUE",
+ *   Name: 'STRING_VALUE', // required
+ *   Scope: 'CLOUDFRONT' || 'REGIONAL', // required
+ *   Id: 'STRING_VALUE', // required
+ *   LockToken: 'STRING_VALUE', // required
+ *   RecommendedVersion: 'STRING_VALUE',
  *   VersionsToPublish: { // VersionsToPublish
- *     "<keys>": { // VersionToPublish
- *       AssociatedRuleGroupArn: "STRING_VALUE",
- *       ForecastedLifetime: Number("int"),
+ *     '<keys>': { // VersionToPublish
+ *       AssociatedRuleGroupArn: 'STRING_VALUE',
+ *       ForecastedLifetime: Number('int'),
  *     },
  *   },
  * };
  * const command = new PutManagedRuleSetVersionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutManagedRuleSetVersionsResponse
+ *   NextLockToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param PutManagedRuleSetVersionsCommandInput - {@link PutManagedRuleSetVersionsCommandInput}
@@ -112,6 +117,8 @@ export interface PutManagedRuleSetVersionsCommandOutput extends PutManagedRuleSe
  *          that has changed since you last retrieved it. Get the resource again, make any changes you
  *          need to make to the new copy, and retry your operation. </p>
  *
+ * @throws {@link WAFV2ServiceException}
+ * <p>Base exception class for all service exceptions from WAFV2 service.</p>
  *
  */
 export class PutManagedRuleSetVersionsCommand extends $Command<

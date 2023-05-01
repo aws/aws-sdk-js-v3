@@ -36,15 +36,31 @@ export interface ListPackagesCommandOutput extends ListPackagesResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PanoramaClient, ListPackagesCommand } from "@aws-sdk/client-panorama"; // ES Modules import
- * // const { PanoramaClient, ListPackagesCommand } = require("@aws-sdk/client-panorama"); // CommonJS import
+ * import { PanoramaClient, ListPackagesCommand } from '@aws-sdk/client-panorama'; // ES Modules import
+ * // const { PanoramaClient, ListPackagesCommand } = require('@aws-sdk/client-panorama'); // CommonJS import
  * const client = new PanoramaClient(config);
  * const input = { // ListPackagesRequest
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListPackagesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListPackagesResponse
+ *   Packages: [ // PackageList
+ *     { // PackageListItem
+ *       PackageId: 'STRING_VALUE',
+ *       PackageName: 'STRING_VALUE',
+ *       Arn: 'STRING_VALUE',
+ *       CreatedTime: new Date('TIMESTAMP'),
+ *       Tags: { // TagMap
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListPackagesCommandInput - {@link ListPackagesCommandInput}
@@ -68,6 +84,8 @@ export interface ListPackagesCommandOutput extends ListPackagesResponse, __Metad
  * @throws {@link ValidationException} (client fault)
  *  <p>The request contains an invalid parameter value.</p>
  *
+ * @throws {@link PanoramaServiceException}
+ * <p>Base exception class for all service exceptions from Panorama service.</p>
  *
  */
 export class ListPackagesCommand extends $Command<

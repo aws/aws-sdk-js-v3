@@ -48,18 +48,30 @@ export interface StartAttachmentUploadCommandOutput extends StartAttachmentUploa
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectParticipantClient, StartAttachmentUploadCommand } from "@aws-sdk/client-connectparticipant"; // ES Modules import
- * // const { ConnectParticipantClient, StartAttachmentUploadCommand } = require("@aws-sdk/client-connectparticipant"); // CommonJS import
+ * import { ConnectParticipantClient, StartAttachmentUploadCommand } from '@aws-sdk/client-connectparticipant'; // ES Modules import
+ * // const { ConnectParticipantClient, StartAttachmentUploadCommand } = require('@aws-sdk/client-connectparticipant'); // CommonJS import
  * const client = new ConnectParticipantClient(config);
  * const input = { // StartAttachmentUploadRequest
- *   ContentType: "STRING_VALUE", // required
- *   AttachmentSizeInBytes: Number("long"), // required
- *   AttachmentName: "STRING_VALUE", // required
- *   ClientToken: "STRING_VALUE", // required
- *   ConnectionToken: "STRING_VALUE", // required
+ *   ContentType: 'STRING_VALUE', // required
+ *   AttachmentSizeInBytes: Number('long'), // required
+ *   AttachmentName: 'STRING_VALUE', // required
+ *   ClientToken: 'STRING_VALUE', // required
+ *   ConnectionToken: 'STRING_VALUE', // required
  * };
  * const command = new StartAttachmentUploadCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartAttachmentUploadResponse
+ *   AttachmentId: 'STRING_VALUE',
+ *   UploadMetadata: { // UploadMetadata
+ *     Url: 'STRING_VALUE',
+ *     UrlExpiry: 'STRING_VALUE',
+ *     HeadersToInclude: { // UploadMetadataSignedHeaders
+ *       '<keys>': 'STRING_VALUE',
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param StartAttachmentUploadCommandInput - {@link StartAttachmentUploadCommandInput}
@@ -83,6 +95,8 @@ export interface StartAttachmentUploadCommandOutput extends StartAttachmentUploa
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by Amazon Connect.</p>
  *
+ * @throws {@link ConnectParticipantServiceException}
+ * <p>Base exception class for all service exceptions from ConnectParticipant service.</p>
  *
  */
 export class StartAttachmentUploadCommand extends $Command<

@@ -37,16 +37,19 @@ export interface UnsubscribeFromEventCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { InspectorClient, UnsubscribeFromEventCommand } from "@aws-sdk/client-inspector"; // ES Modules import
- * // const { InspectorClient, UnsubscribeFromEventCommand } = require("@aws-sdk/client-inspector"); // CommonJS import
+ * import { InspectorClient, UnsubscribeFromEventCommand } from '@aws-sdk/client-inspector'; // ES Modules import
+ * // const { InspectorClient, UnsubscribeFromEventCommand } = require('@aws-sdk/client-inspector'); // CommonJS import
  * const client = new InspectorClient(config);
  * const input = { // UnsubscribeFromEventRequest
- *   resourceArn: "STRING_VALUE", // required
- *   event: "STRING_VALUE", // required
- *   topicArn: "STRING_VALUE", // required
+ *   resourceArn: 'STRING_VALUE', // required
+ *   event: 'STRING_VALUE', // required
+ *   topicArn: 'STRING_VALUE', // required
  * };
  * const command = new UnsubscribeFromEventCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UnsubscribeFromEventCommandInput - {@link UnsubscribeFromEventCommandInput}
@@ -72,6 +75,8 @@ export interface UnsubscribeFromEventCommandOutput extends __MetadataBearer {}
  * @throws {@link ServiceTemporarilyUnavailableException} (server fault)
  *  <p>The serice is temporary unavailable.</p>
  *
+ * @throws {@link InspectorServiceException}
+ * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
  * @example Unsubscribe from event
  * ```javascript

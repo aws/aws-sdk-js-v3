@@ -204,15 +204,25 @@ export interface CreateQueryLoggingConfigCommandOutput extends CreateQueryLoggin
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Route53Client, CreateQueryLoggingConfigCommand } from "@aws-sdk/client-route-53"; // ES Modules import
- * // const { Route53Client, CreateQueryLoggingConfigCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
+ * import { Route53Client, CreateQueryLoggingConfigCommand } from '@aws-sdk/client-route-53'; // ES Modules import
+ * // const { Route53Client, CreateQueryLoggingConfigCommand } = require('@aws-sdk/client-route-53'); // CommonJS import
  * const client = new Route53Client(config);
  * const input = { // CreateQueryLoggingConfigRequest
- *   HostedZoneId: "STRING_VALUE", // required
- *   CloudWatchLogsLogGroupArn: "STRING_VALUE", // required
+ *   HostedZoneId: 'STRING_VALUE', // required
+ *   CloudWatchLogsLogGroupArn: 'STRING_VALUE', // required
  * };
  * const command = new CreateQueryLoggingConfigCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateQueryLoggingConfigResponse
+ *   QueryLoggingConfig: { // QueryLoggingConfig
+ *     Id: 'STRING_VALUE', // required
+ *     HostedZoneId: 'STRING_VALUE', // required
+ *     CloudWatchLogsLogGroupArn: 'STRING_VALUE', // required
+ *   },
+ *   Location: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param CreateQueryLoggingConfigCommandInput - {@link CreateQueryLoggingConfigCommandInput}
@@ -265,6 +275,8 @@ export interface CreateQueryLoggingConfigCommandOutput extends CreateQueryLoggin
  *  <p>You can create only one query logging configuration for a hosted zone, and a query
  * 			logging configuration already exists for this hosted zone.</p>
  *
+ * @throws {@link Route53ServiceException}
+ * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
  */
 export class CreateQueryLoggingConfigCommand extends $Command<

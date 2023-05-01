@@ -41,17 +41,31 @@ export interface DescribeNotificationsForBudgetCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BudgetsClient, DescribeNotificationsForBudgetCommand } from "@aws-sdk/client-budgets"; // ES Modules import
- * // const { BudgetsClient, DescribeNotificationsForBudgetCommand } = require("@aws-sdk/client-budgets"); // CommonJS import
+ * import { BudgetsClient, DescribeNotificationsForBudgetCommand } from '@aws-sdk/client-budgets'; // ES Modules import
+ * // const { BudgetsClient, DescribeNotificationsForBudgetCommand } = require('@aws-sdk/client-budgets'); // CommonJS import
  * const client = new BudgetsClient(config);
  * const input = { // DescribeNotificationsForBudgetRequest
- *   AccountId: "STRING_VALUE", // required
- *   BudgetName: "STRING_VALUE", // required
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   AccountId: 'STRING_VALUE', // required
+ *   BudgetName: 'STRING_VALUE', // required
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new DescribeNotificationsForBudgetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeNotificationsForBudgetResponse
+ *   Notifications: [ // Notifications
+ *     { // Notification
+ *       NotificationType: 'STRING_VALUE', // required
+ *       ComparisonOperator: 'STRING_VALUE', // required
+ *       Threshold: Number('double'), // required
+ *       ThresholdType: 'STRING_VALUE',
+ *       NotificationState: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeNotificationsForBudgetCommandInput - {@link DescribeNotificationsForBudgetCommandInput}
@@ -83,6 +97,8 @@ export interface DescribeNotificationsForBudgetCommandOutput
  *       The number of API requests has exceeded the maximum allowed API request throttling limit for the account.
  *     </p>
  *
+ * @throws {@link BudgetsServiceException}
+ * <p>Base exception class for all service exceptions from Budgets service.</p>
  *
  */
 export class DescribeNotificationsForBudgetCommand extends $Command<

@@ -36,14 +36,17 @@ export interface DeleteSkillGroupCommandOutput extends DeleteSkillGroupResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AlexaForBusinessClient, DeleteSkillGroupCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
- * // const { AlexaForBusinessClient, DeleteSkillGroupCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
+ * import { AlexaForBusinessClient, DeleteSkillGroupCommand } from '@aws-sdk/client-alexa-for-business'; // ES Modules import
+ * // const { AlexaForBusinessClient, DeleteSkillGroupCommand } = require('@aws-sdk/client-alexa-for-business'); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
  * const input = { // DeleteSkillGroupRequest
- *   SkillGroupArn: "STRING_VALUE",
+ *   SkillGroupArn: 'STRING_VALUE',
  * };
  * const command = new DeleteSkillGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteSkillGroupCommandInput - {@link DeleteSkillGroupCommandInput}
@@ -58,6 +61,8 @@ export interface DeleteSkillGroupCommandOutput extends DeleteSkillGroupResponse,
  * @throws {@link NotFoundException} (client fault)
  *  <p>The resource is not found.</p>
  *
+ * @throws {@link AlexaForBusinessServiceException}
+ * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  */
 export class DeleteSkillGroupCommand extends $Command<

@@ -45,19 +45,31 @@ export interface ListAccountAssignmentDeletionStatusCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSOAdminClient, ListAccountAssignmentDeletionStatusCommand } from "@aws-sdk/client-sso-admin"; // ES Modules import
- * // const { SSOAdminClient, ListAccountAssignmentDeletionStatusCommand } = require("@aws-sdk/client-sso-admin"); // CommonJS import
+ * import { SSOAdminClient, ListAccountAssignmentDeletionStatusCommand } from '@aws-sdk/client-sso-admin'; // ES Modules import
+ * // const { SSOAdminClient, ListAccountAssignmentDeletionStatusCommand } = require('@aws-sdk/client-sso-admin'); // CommonJS import
  * const client = new SSOAdminClient(config);
  * const input = { // ListAccountAssignmentDeletionStatusRequest
- *   InstanceArn: "STRING_VALUE", // required
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   InstanceArn: 'STRING_VALUE', // required
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  *   Filter: { // OperationStatusFilter
- *     Status: "IN_PROGRESS" || "FAILED" || "SUCCEEDED",
+ *     Status: 'IN_PROGRESS' || 'FAILED' || 'SUCCEEDED',
  *   },
  * };
  * const command = new ListAccountAssignmentDeletionStatusCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListAccountAssignmentDeletionStatusResponse
+ *   AccountAssignmentsDeletionStatus: [ // AccountAssignmentOperationStatusList
+ *     { // AccountAssignmentOperationStatusMetadata
+ *       Status: 'IN_PROGRESS' || 'FAILED' || 'SUCCEEDED',
+ *       RequestId: 'STRING_VALUE',
+ *       CreatedDate: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListAccountAssignmentDeletionStatusCommandInput - {@link ListAccountAssignmentDeletionStatusCommandInput}
@@ -83,6 +95,8 @@ export interface ListAccountAssignmentDeletionStatusCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The request failed because it contains a syntax error.</p>
  *
+ * @throws {@link SSOAdminServiceException}
+ * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
  */
 export class ListAccountAssignmentDeletionStatusCommand extends $Command<

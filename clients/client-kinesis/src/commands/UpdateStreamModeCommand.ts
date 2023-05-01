@@ -39,17 +39,20 @@ export interface UpdateStreamModeCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KinesisClient, UpdateStreamModeCommand } from "@aws-sdk/client-kinesis"; // ES Modules import
- * // const { KinesisClient, UpdateStreamModeCommand } = require("@aws-sdk/client-kinesis"); // CommonJS import
+ * import { KinesisClient, UpdateStreamModeCommand } from '@aws-sdk/client-kinesis'; // ES Modules import
+ * // const { KinesisClient, UpdateStreamModeCommand } = require('@aws-sdk/client-kinesis'); // CommonJS import
  * const client = new KinesisClient(config);
  * const input = { // UpdateStreamModeInput
- *   StreamARN: "STRING_VALUE", // required
+ *   StreamARN: 'STRING_VALUE', // required
  *   StreamModeDetails: { // StreamModeDetails
- *     StreamMode: "PROVISIONED" || "ON_DEMAND", // required
+ *     StreamMode: 'PROVISIONED' || 'ON_DEMAND', // required
  *   },
  * };
  * const command = new UpdateStreamModeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateStreamModeCommandInput - {@link UpdateStreamModeCommandInput}
@@ -74,6 +77,8 @@ export interface UpdateStreamModeCommandOutput extends __MetadataBearer {}
  *  <p>The requested resource could not be found. The stream might not be specified
  *             correctly.</p>
  *
+ * @throws {@link KinesisServiceException}
+ * <p>Base exception class for all service exceptions from Kinesis service.</p>
  *
  */
 export class UpdateStreamModeCommand extends $Command<

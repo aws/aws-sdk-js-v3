@@ -41,15 +41,18 @@ export interface AssociateSkillWithSkillGroupCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AlexaForBusinessClient, AssociateSkillWithSkillGroupCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
- * // const { AlexaForBusinessClient, AssociateSkillWithSkillGroupCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
+ * import { AlexaForBusinessClient, AssociateSkillWithSkillGroupCommand } from '@aws-sdk/client-alexa-for-business'; // ES Modules import
+ * // const { AlexaForBusinessClient, AssociateSkillWithSkillGroupCommand } = require('@aws-sdk/client-alexa-for-business'); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
  * const input = { // AssociateSkillWithSkillGroupRequest
- *   SkillGroupArn: "STRING_VALUE",
- *   SkillId: "STRING_VALUE", // required
+ *   SkillGroupArn: 'STRING_VALUE',
+ *   SkillId: 'STRING_VALUE', // required
  * };
  * const command = new AssociateSkillWithSkillGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param AssociateSkillWithSkillGroupCommandInput - {@link AssociateSkillWithSkillGroupCommandInput}
@@ -67,6 +70,8 @@ export interface AssociateSkillWithSkillGroupCommandOutput
  * @throws {@link SkillNotLinkedException} (client fault)
  *  <p>The skill must be linked to a third-party account.</p>
  *
+ * @throws {@link AlexaForBusinessServiceException}
+ * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  */
 export class AssociateSkillWithSkillGroupCommand extends $Command<

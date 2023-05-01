@@ -39,14 +39,23 @@ export interface GetQueryLoggingConfigCommandOutput extends GetQueryLoggingConfi
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Route53Client, GetQueryLoggingConfigCommand } from "@aws-sdk/client-route-53"; // ES Modules import
- * // const { Route53Client, GetQueryLoggingConfigCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
+ * import { Route53Client, GetQueryLoggingConfigCommand } from '@aws-sdk/client-route-53'; // ES Modules import
+ * // const { Route53Client, GetQueryLoggingConfigCommand } = require('@aws-sdk/client-route-53'); // CommonJS import
  * const client = new Route53Client(config);
  * const input = { // GetQueryLoggingConfigRequest
- *   Id: "STRING_VALUE", // required
+ *   Id: 'STRING_VALUE', // required
  * };
  * const command = new GetQueryLoggingConfigCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetQueryLoggingConfigResponse
+ *   QueryLoggingConfig: { // QueryLoggingConfig
+ *     Id: 'STRING_VALUE', // required
+ *     HostedZoneId: 'STRING_VALUE', // required
+ *     CloudWatchLogsLogGroupArn: 'STRING_VALUE', // required
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetQueryLoggingConfigCommandInput - {@link GetQueryLoggingConfigCommandInput}
@@ -61,6 +70,8 @@ export interface GetQueryLoggingConfigCommandOutput extends GetQueryLoggingConfi
  * @throws {@link NoSuchQueryLoggingConfig} (client fault)
  *  <p>There is no DNS query logging configuration with the specified ID.</p>
  *
+ * @throws {@link Route53ServiceException}
+ * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
  */
 export class GetQueryLoggingConfigCommand extends $Command<

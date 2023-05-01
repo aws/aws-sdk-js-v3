@@ -42,16 +42,26 @@ export interface InviteMembersCommandOutput extends InviteMembersResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SecurityHubClient, InviteMembersCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
- * // const { SecurityHubClient, InviteMembersCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
+ * import { SecurityHubClient, InviteMembersCommand } from '@aws-sdk/client-securityhub'; // ES Modules import
+ * // const { SecurityHubClient, InviteMembersCommand } = require('@aws-sdk/client-securityhub'); // CommonJS import
  * const client = new SecurityHubClient(config);
  * const input = { // InviteMembersRequest
  *   AccountIds: [ // AccountIdList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new InviteMembersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // InviteMembersResponse
+ *   UnprocessedAccounts: [ // ResultList
+ *     { // Result
+ *       AccountId: 'STRING_VALUE',
+ *       ProcessingResult: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param InviteMembersCommandInput - {@link InviteMembersCommandInput}
@@ -77,6 +87,8 @@ export interface InviteMembersCommandOutput extends InviteMembersResponse, __Met
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The request was rejected because we can't find the specified resource.</p>
  *
+ * @throws {@link SecurityHubServiceException}
+ * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
  * @example To invite accounts to become members
  * ```javascript

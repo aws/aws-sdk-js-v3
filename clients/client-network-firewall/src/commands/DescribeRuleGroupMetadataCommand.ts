@@ -39,16 +39,29 @@ export interface DescribeRuleGroupMetadataCommandOutput extends DescribeRuleGrou
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { NetworkFirewallClient, DescribeRuleGroupMetadataCommand } from "@aws-sdk/client-network-firewall"; // ES Modules import
- * // const { NetworkFirewallClient, DescribeRuleGroupMetadataCommand } = require("@aws-sdk/client-network-firewall"); // CommonJS import
+ * import { NetworkFirewallClient, DescribeRuleGroupMetadataCommand } from '@aws-sdk/client-network-firewall'; // ES Modules import
+ * // const { NetworkFirewallClient, DescribeRuleGroupMetadataCommand } = require('@aws-sdk/client-network-firewall'); // CommonJS import
  * const client = new NetworkFirewallClient(config);
  * const input = { // DescribeRuleGroupMetadataRequest
- *   RuleGroupName: "STRING_VALUE",
- *   RuleGroupArn: "STRING_VALUE",
- *   Type: "STATELESS" || "STATEFUL",
+ *   RuleGroupName: 'STRING_VALUE',
+ *   RuleGroupArn: 'STRING_VALUE',
+ *   Type: 'STATELESS' || 'STATEFUL',
  * };
  * const command = new DescribeRuleGroupMetadataCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeRuleGroupMetadataResponse
+ *   RuleGroupArn: 'STRING_VALUE', // required
+ *   RuleGroupName: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE',
+ *   Type: 'STATELESS' || 'STATEFUL',
+ *   Capacity: Number('int'),
+ *   StatefulRuleOptions: { // StatefulRuleOptions
+ *     RuleOrder: 'DEFAULT_ACTION_ORDER' || 'STRICT_ORDER',
+ *   },
+ *   LastModifiedTime: new Date('TIMESTAMP'),
+ * };
+ *
  * ```
  *
  * @param DescribeRuleGroupMetadataCommandInput - {@link DescribeRuleGroupMetadataCommandInput}
@@ -83,6 +96,8 @@ export interface DescribeRuleGroupMetadataCommandOutput extends DescribeRuleGrou
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Unable to process the request due to throttling limitations.</p>
  *
+ * @throws {@link NetworkFirewallServiceException}
+ * <p>Base exception class for all service exceptions from NetworkFirewall service.</p>
  *
  */
 export class DescribeRuleGroupMetadataCommand extends $Command<

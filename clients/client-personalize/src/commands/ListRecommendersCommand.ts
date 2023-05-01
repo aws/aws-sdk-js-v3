@@ -39,16 +39,38 @@ export interface ListRecommendersCommandOutput extends ListRecommendersResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PersonalizeClient, ListRecommendersCommand } from "@aws-sdk/client-personalize"; // ES Modules import
- * // const { PersonalizeClient, ListRecommendersCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
+ * import { PersonalizeClient, ListRecommendersCommand } from '@aws-sdk/client-personalize'; // ES Modules import
+ * // const { PersonalizeClient, ListRecommendersCommand } = require('@aws-sdk/client-personalize'); // CommonJS import
  * const client = new PersonalizeClient(config);
  * const input = { // ListRecommendersRequest
- *   datasetGroupArn: "STRING_VALUE",
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   datasetGroupArn: 'STRING_VALUE',
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new ListRecommendersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListRecommendersResponse
+ *   recommenders: [ // Recommenders
+ *     { // RecommenderSummary
+ *       name: 'STRING_VALUE',
+ *       recommenderArn: 'STRING_VALUE',
+ *       datasetGroupArn: 'STRING_VALUE',
+ *       recipeArn: 'STRING_VALUE',
+ *       recommenderConfig: { // RecommenderConfig
+ *         itemExplorationConfig: { // HyperParameters
+ *           '<keys>': 'STRING_VALUE',
+ *         },
+ *         minRecommendationRequestsPerSecond: Number('int'),
+ *       },
+ *       status: 'STRING_VALUE',
+ *       creationDateTime: new Date('TIMESTAMP'),
+ *       lastUpdatedDateTime: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListRecommendersCommandInput - {@link ListRecommendersCommandInput}
@@ -63,6 +85,8 @@ export interface ListRecommendersCommandOutput extends ListRecommendersResponse,
  * @throws {@link InvalidNextTokenException} (client fault)
  *  <p>The token is not valid.</p>
  *
+ * @throws {@link PersonalizeServiceException}
+ * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
  */
 export class ListRecommendersCommand extends $Command<

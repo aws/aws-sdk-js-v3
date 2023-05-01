@@ -36,12 +36,15 @@ export interface DisableMacieCommandOutput extends DisableMacieResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Macie2Client, DisableMacieCommand } from "@aws-sdk/client-macie2"; // ES Modules import
- * // const { Macie2Client, DisableMacieCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
+ * import { Macie2Client, DisableMacieCommand } from '@aws-sdk/client-macie2'; // ES Modules import
+ * // const { Macie2Client, DisableMacieCommand } = require('@aws-sdk/client-macie2'); // CommonJS import
  * const client = new Macie2Client(config);
  * const input = {};
  * const command = new DisableMacieCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DisableMacieCommandInput - {@link DisableMacieCommandInput}
@@ -71,6 +74,8 @@ export interface DisableMacieCommandOutput extends DisableMacieResponse, __Metad
  * @throws {@link ValidationException} (client fault)
  *  <p>Provides information about an error that occurred due to a syntax error in a request.</p>
  *
+ * @throws {@link Macie2ServiceException}
+ * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
  */
 export class DisableMacieCommand extends $Command<

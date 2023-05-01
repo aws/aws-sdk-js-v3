@@ -36,15 +36,36 @@ export interface ListVpcConnectorsCommandOutput extends ListVpcConnectorsRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppRunnerClient, ListVpcConnectorsCommand } from "@aws-sdk/client-apprunner"; // ES Modules import
- * // const { AppRunnerClient, ListVpcConnectorsCommand } = require("@aws-sdk/client-apprunner"); // CommonJS import
+ * import { AppRunnerClient, ListVpcConnectorsCommand } from '@aws-sdk/client-apprunner'; // ES Modules import
+ * // const { AppRunnerClient, ListVpcConnectorsCommand } = require('@aws-sdk/client-apprunner'); // CommonJS import
  * const client = new AppRunnerClient(config);
  * const input = { // ListVpcConnectorsRequest
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListVpcConnectorsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListVpcConnectorsResponse
+ *   VpcConnectors: [ // VpcConnectors // required
+ *     { // VpcConnector
+ *       VpcConnectorName: 'STRING_VALUE',
+ *       VpcConnectorArn: 'STRING_VALUE',
+ *       VpcConnectorRevision: Number('int'),
+ *       Subnets: [ // StringList
+ *         'STRING_VALUE',
+ *       ],
+ *       SecurityGroups: [
+ *         'STRING_VALUE',
+ *       ],
+ *       Status: 'ACTIVE' || 'INACTIVE',
+ *       CreatedAt: new Date('TIMESTAMP'),
+ *       DeletedAt: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListVpcConnectorsCommandInput - {@link ListVpcConnectorsCommandInput}
@@ -59,6 +80,8 @@ export interface ListVpcConnectorsCommandOutput extends ListVpcConnectorsRespons
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>One or more input parameters aren't valid. Refer to the API action's document page, correct the input parameters, and try the action again.</p>
  *
+ * @throws {@link AppRunnerServiceException}
+ * <p>Base exception class for all service exceptions from AppRunner service.</p>
  *
  */
 export class ListVpcConnectorsCommand extends $Command<

@@ -81,21 +81,57 @@ export interface ListMultipartUploadsCommandOutput extends ListMultipartUploadsO
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { S3Client, ListMultipartUploadsCommand } from "@aws-sdk/client-s3"; // ES Modules import
- * // const { S3Client, ListMultipartUploadsCommand } = require("@aws-sdk/client-s3"); // CommonJS import
+ * import { S3Client, ListMultipartUploadsCommand } from '@aws-sdk/client-s3'; // ES Modules import
+ * // const { S3Client, ListMultipartUploadsCommand } = require('@aws-sdk/client-s3'); // CommonJS import
  * const client = new S3Client(config);
  * const input = { // ListMultipartUploadsRequest
- *   Bucket: "STRING_VALUE", // required
- *   Delimiter: "STRING_VALUE",
- *   EncodingType: "url",
- *   KeyMarker: "STRING_VALUE",
- *   MaxUploads: Number("int"),
- *   Prefix: "STRING_VALUE",
- *   UploadIdMarker: "STRING_VALUE",
- *   ExpectedBucketOwner: "STRING_VALUE",
+ *   Bucket: 'STRING_VALUE', // required
+ *   Delimiter: 'STRING_VALUE',
+ *   EncodingType: 'url',
+ *   KeyMarker: 'STRING_VALUE',
+ *   MaxUploads: Number('int'),
+ *   Prefix: 'STRING_VALUE',
+ *   UploadIdMarker: 'STRING_VALUE',
+ *   ExpectedBucketOwner: 'STRING_VALUE',
  * };
  * const command = new ListMultipartUploadsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListMultipartUploadsOutput
+ *   Bucket: 'STRING_VALUE',
+ *   KeyMarker: 'STRING_VALUE',
+ *   UploadIdMarker: 'STRING_VALUE',
+ *   NextKeyMarker: 'STRING_VALUE',
+ *   Prefix: 'STRING_VALUE',
+ *   Delimiter: 'STRING_VALUE',
+ *   NextUploadIdMarker: 'STRING_VALUE',
+ *   MaxUploads: Number('int'),
+ *   IsTruncated: true || false,
+ *   Uploads: [ // MultipartUploadList
+ *     { // MultipartUpload
+ *       UploadId: 'STRING_VALUE',
+ *       Key: 'STRING_VALUE',
+ *       Initiated: new Date('TIMESTAMP'),
+ *       StorageClass: 'STANDARD' || 'REDUCED_REDUNDANCY' || 'STANDARD_IA' || 'ONEZONE_IA' || 'INTELLIGENT_TIERING' || 'GLACIER' || 'DEEP_ARCHIVE' || 'OUTPOSTS' || 'GLACIER_IR' || 'SNOW',
+ *       Owner: { // Owner
+ *         DisplayName: 'STRING_VALUE',
+ *         ID: 'STRING_VALUE',
+ *       },
+ *       Initiator: { // Initiator
+ *         ID: 'STRING_VALUE',
+ *         DisplayName: 'STRING_VALUE',
+ *       },
+ *       ChecksumAlgorithm: 'CRC32' || 'CRC32C' || 'SHA1' || 'SHA256',
+ *     },
+ *   ],
+ *   CommonPrefixes: [ // CommonPrefixList
+ *     { // CommonPrefix
+ *       Prefix: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   EncodingType: 'url',
+ * };
+ *
  * ```
  *
  * @param ListMultipartUploadsCommandInput - {@link ListMultipartUploadsCommandInput}
@@ -104,6 +140,8 @@ export interface ListMultipartUploadsCommandOutput extends ListMultipartUploadsO
  * @see {@link ListMultipartUploadsCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
+ * @throws {@link S3ServiceException}
+ * <p>Base exception class for all service exceptions from S3 service.</p>
  *
  * @example To list in-progress multipart uploads on a bucket
  * ```javascript

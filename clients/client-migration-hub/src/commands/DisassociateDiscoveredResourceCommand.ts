@@ -42,17 +42,20 @@ export interface DisassociateDiscoveredResourceCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MigrationHubClient, DisassociateDiscoveredResourceCommand } from "@aws-sdk/client-migration-hub"; // ES Modules import
- * // const { MigrationHubClient, DisassociateDiscoveredResourceCommand } = require("@aws-sdk/client-migration-hub"); // CommonJS import
+ * import { MigrationHubClient, DisassociateDiscoveredResourceCommand } from '@aws-sdk/client-migration-hub'; // ES Modules import
+ * // const { MigrationHubClient, DisassociateDiscoveredResourceCommand } = require('@aws-sdk/client-migration-hub'); // CommonJS import
  * const client = new MigrationHubClient(config);
  * const input = { // DisassociateDiscoveredResourceRequest
- *   ProgressUpdateStream: "STRING_VALUE", // required
- *   MigrationTaskName: "STRING_VALUE", // required
- *   ConfigurationId: "STRING_VALUE", // required
+ *   ProgressUpdateStream: 'STRING_VALUE', // required
+ *   MigrationTaskName: 'STRING_VALUE', // required
+ *   ConfigurationId: 'STRING_VALUE', // required
  *   DryRun: true || false,
  * };
  * const command = new DisassociateDiscoveredResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DisassociateDiscoveredResourceCommandInput - {@link DisassociateDiscoveredResourceCommandInput}
@@ -95,6 +98,8 @@ export interface DisassociateDiscoveredResourceCommandOutput
  *  <p>Exception raised to indicate a request was not authorized when the <code>DryRun</code>
  *          flag is set to "true".</p>
  *
+ * @throws {@link MigrationHubServiceException}
+ * <p>Base exception class for all service exceptions from MigrationHub service.</p>
  *
  */
 export class DisassociateDiscoveredResourceCommand extends $Command<

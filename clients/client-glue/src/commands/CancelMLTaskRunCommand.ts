@@ -38,15 +38,22 @@ export interface CancelMLTaskRunCommandOutput extends CancelMLTaskRunResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlueClient, CancelMLTaskRunCommand } from "@aws-sdk/client-glue"; // ES Modules import
- * // const { GlueClient, CancelMLTaskRunCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * import { GlueClient, CancelMLTaskRunCommand } from '@aws-sdk/client-glue'; // ES Modules import
+ * // const { GlueClient, CancelMLTaskRunCommand } = require('@aws-sdk/client-glue'); // CommonJS import
  * const client = new GlueClient(config);
  * const input = { // CancelMLTaskRunRequest
- *   TransformId: "STRING_VALUE", // required
- *   TaskRunId: "STRING_VALUE", // required
+ *   TransformId: 'STRING_VALUE', // required
+ *   TaskRunId: 'STRING_VALUE', // required
  * };
  * const command = new CancelMLTaskRunCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CancelMLTaskRunResponse
+ *   TransformId: 'STRING_VALUE',
+ *   TaskRunId: 'STRING_VALUE',
+ *   Status: 'STARTING' || 'RUNNING' || 'STOPPING' || 'STOPPED' || 'SUCCEEDED' || 'FAILED' || 'TIMEOUT',
+ * };
+ *
  * ```
  *
  * @param CancelMLTaskRunCommandInput - {@link CancelMLTaskRunCommandInput}
@@ -67,6 +74,8 @@ export interface CancelMLTaskRunCommandOutput extends CancelMLTaskRunResponse, _
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class CancelMLTaskRunCommand extends $Command<

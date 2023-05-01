@@ -36,15 +36,23 @@ export interface ListRulesPackagesCommandOutput extends ListRulesPackagesRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { InspectorClient, ListRulesPackagesCommand } from "@aws-sdk/client-inspector"; // ES Modules import
- * // const { InspectorClient, ListRulesPackagesCommand } = require("@aws-sdk/client-inspector"); // CommonJS import
+ * import { InspectorClient, ListRulesPackagesCommand } from '@aws-sdk/client-inspector'; // ES Modules import
+ * // const { InspectorClient, ListRulesPackagesCommand } = require('@aws-sdk/client-inspector'); // CommonJS import
  * const client = new InspectorClient(config);
  * const input = { // ListRulesPackagesRequest
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new ListRulesPackagesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListRulesPackagesResponse
+ *   rulesPackageArns: [ // ListReturnedArnList // required
+ *     'STRING_VALUE',
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListRulesPackagesCommandInput - {@link ListRulesPackagesCommandInput}
@@ -63,6 +71,8 @@ export interface ListRulesPackagesCommandOutput extends ListRulesPackagesRespons
  *  <p>The request was rejected because an invalid or out-of-range value was supplied for an
  *          input parameter.</p>
  *
+ * @throws {@link InspectorServiceException}
+ * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
  * @example List rules packages
  * ```javascript

@@ -39,24 +39,30 @@ export interface CreateTimelineEventCommandOutput extends CreateTimelineEventOut
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMIncidentsClient, CreateTimelineEventCommand } from "@aws-sdk/client-ssm-incidents"; // ES Modules import
- * // const { SSMIncidentsClient, CreateTimelineEventCommand } = require("@aws-sdk/client-ssm-incidents"); // CommonJS import
+ * import { SSMIncidentsClient, CreateTimelineEventCommand } from '@aws-sdk/client-ssm-incidents'; // ES Modules import
+ * // const { SSMIncidentsClient, CreateTimelineEventCommand } = require('@aws-sdk/client-ssm-incidents'); // CommonJS import
  * const client = new SSMIncidentsClient(config);
  * const input = { // CreateTimelineEventInput
- *   clientToken: "STRING_VALUE",
- *   incidentRecordArn: "STRING_VALUE", // required
- *   eventTime: new Date("TIMESTAMP"), // required
- *   eventType: "STRING_VALUE", // required
- *   eventData: "STRING_VALUE", // required
+ *   clientToken: 'STRING_VALUE',
+ *   incidentRecordArn: 'STRING_VALUE', // required
+ *   eventTime: new Date('TIMESTAMP'), // required
+ *   eventType: 'STRING_VALUE', // required
+ *   eventData: 'STRING_VALUE', // required
  *   eventReferences: [ // EventReferenceList
  *     { // EventReference Union: only one key present
- *       resource: "STRING_VALUE",
- *       relatedItemId: "STRING_VALUE",
+ *       resource: 'STRING_VALUE',
+ *       relatedItemId: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new CreateTimelineEventCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateTimelineEventOutput
+ *   incidentRecordArn: 'STRING_VALUE', // required
+ *   eventId: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param CreateTimelineEventCommandInput - {@link CreateTimelineEventCommandInput}
@@ -85,6 +91,8 @@ export interface CreateTimelineEventCommandOutput extends CreateTimelineEventOut
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
  *       service.</p>
  *
+ * @throws {@link SSMIncidentsServiceException}
+ * <p>Base exception class for all service exceptions from SSMIncidents service.</p>
  *
  */
 export class CreateTimelineEventCommand extends $Command<

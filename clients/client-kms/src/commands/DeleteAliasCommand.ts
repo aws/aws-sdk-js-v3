@@ -83,14 +83,17 @@ export interface DeleteAliasCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KMSClient, DeleteAliasCommand } from "@aws-sdk/client-kms"; // ES Modules import
- * // const { KMSClient, DeleteAliasCommand } = require("@aws-sdk/client-kms"); // CommonJS import
+ * import { KMSClient, DeleteAliasCommand } from '@aws-sdk/client-kms'; // ES Modules import
+ * // const { KMSClient, DeleteAliasCommand } = require('@aws-sdk/client-kms'); // CommonJS import
  * const client = new KMSClient(config);
  * const input = { // DeleteAliasRequest
- *   AliasName: "STRING_VALUE", // required
+ *   AliasName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteAliasCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteAliasCommandInput - {@link DeleteAliasCommandInput}
@@ -129,6 +132,8 @@ export interface DeleteAliasCommandOutput extends __MetadataBearer {}
  *  <p>The request was rejected because the specified entity or resource could not be
  *       found.</p>
  *
+ * @throws {@link KMSServiceException}
+ * <p>Base exception class for all service exceptions from KMS service.</p>
  *
  * @example To delete an alias
  * ```javascript

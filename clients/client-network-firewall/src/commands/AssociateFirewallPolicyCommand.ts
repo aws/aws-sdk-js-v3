@@ -40,17 +40,25 @@ export interface AssociateFirewallPolicyCommandOutput extends AssociateFirewallP
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { NetworkFirewallClient, AssociateFirewallPolicyCommand } from "@aws-sdk/client-network-firewall"; // ES Modules import
- * // const { NetworkFirewallClient, AssociateFirewallPolicyCommand } = require("@aws-sdk/client-network-firewall"); // CommonJS import
+ * import { NetworkFirewallClient, AssociateFirewallPolicyCommand } from '@aws-sdk/client-network-firewall'; // ES Modules import
+ * // const { NetworkFirewallClient, AssociateFirewallPolicyCommand } = require('@aws-sdk/client-network-firewall'); // CommonJS import
  * const client = new NetworkFirewallClient(config);
  * const input = { // AssociateFirewallPolicyRequest
- *   UpdateToken: "STRING_VALUE",
- *   FirewallArn: "STRING_VALUE",
- *   FirewallName: "STRING_VALUE",
- *   FirewallPolicyArn: "STRING_VALUE", // required
+ *   UpdateToken: 'STRING_VALUE',
+ *   FirewallArn: 'STRING_VALUE',
+ *   FirewallName: 'STRING_VALUE',
+ *   FirewallPolicyArn: 'STRING_VALUE', // required
  * };
  * const command = new AssociateFirewallPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AssociateFirewallPolicyResponse
+ *   FirewallArn: 'STRING_VALUE',
+ *   FirewallName: 'STRING_VALUE',
+ *   FirewallPolicyArn: 'STRING_VALUE',
+ *   UpdateToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param AssociateFirewallPolicyCommandInput - {@link AssociateFirewallPolicyCommandInput}
@@ -92,6 +100,8 @@ export interface AssociateFirewallPolicyCommandOutput extends AssociateFirewallP
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Unable to process the request due to throttling limitations.</p>
  *
+ * @throws {@link NetworkFirewallServiceException}
+ * <p>Base exception class for all service exceptions from NetworkFirewall service.</p>
  *
  */
 export class AssociateFirewallPolicyCommand extends $Command<

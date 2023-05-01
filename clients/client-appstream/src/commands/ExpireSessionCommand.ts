@@ -36,14 +36,17 @@ export interface ExpireSessionCommandOutput extends ExpireSessionResult, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppStreamClient, ExpireSessionCommand } from "@aws-sdk/client-appstream"; // ES Modules import
- * // const { AppStreamClient, ExpireSessionCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
+ * import { AppStreamClient, ExpireSessionCommand } from '@aws-sdk/client-appstream'; // ES Modules import
+ * // const { AppStreamClient, ExpireSessionCommand } = require('@aws-sdk/client-appstream'); // CommonJS import
  * const client = new AppStreamClient(config);
  * const input = { // ExpireSessionRequest
- *   SessionId: "STRING_VALUE", // required
+ *   SessionId: 'STRING_VALUE', // required
  * };
  * const command = new ExpireSessionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param ExpireSessionCommandInput - {@link ExpireSessionCommandInput}
@@ -52,6 +55,8 @@ export interface ExpireSessionCommandOutput extends ExpireSessionResult, __Metad
  * @see {@link ExpireSessionCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
  *
+ * @throws {@link AppStreamServiceException}
+ * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
  */
 export class ExpireSessionCommand extends $Command<

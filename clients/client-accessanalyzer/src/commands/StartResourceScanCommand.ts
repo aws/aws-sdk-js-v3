@@ -36,16 +36,19 @@ export interface StartResourceScanCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AccessAnalyzerClient, StartResourceScanCommand } from "@aws-sdk/client-accessanalyzer"; // ES Modules import
- * // const { AccessAnalyzerClient, StartResourceScanCommand } = require("@aws-sdk/client-accessanalyzer"); // CommonJS import
+ * import { AccessAnalyzerClient, StartResourceScanCommand } from '@aws-sdk/client-accessanalyzer'; // ES Modules import
+ * // const { AccessAnalyzerClient, StartResourceScanCommand } = require('@aws-sdk/client-accessanalyzer'); // CommonJS import
  * const client = new AccessAnalyzerClient(config);
  * const input = { // StartResourceScanRequest
- *   analyzerArn: "STRING_VALUE", // required
- *   resourceArn: "STRING_VALUE", // required
- *   resourceOwnerAccount: "STRING_VALUE",
+ *   analyzerArn: 'STRING_VALUE', // required
+ *   resourceArn: 'STRING_VALUE', // required
+ *   resourceOwnerAccount: 'STRING_VALUE',
  * };
  * const command = new StartResourceScanCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param StartResourceScanCommandInput - {@link StartResourceScanCommandInput}
@@ -69,6 +72,8 @@ export interface StartResourceScanCommandOutput extends __MetadataBearer {}
  * @throws {@link ValidationException} (client fault)
  *  <p>Validation exception error.</p>
  *
+ * @throws {@link AccessAnalyzerServiceException}
+ * <p>Base exception class for all service exceptions from AccessAnalyzer service.</p>
  *
  */
 export class StartResourceScanCommand extends $Command<

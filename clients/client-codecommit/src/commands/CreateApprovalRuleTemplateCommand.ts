@@ -40,16 +40,30 @@ export interface CreateApprovalRuleTemplateCommandOutput extends CreateApprovalR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeCommitClient, CreateApprovalRuleTemplateCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
- * // const { CodeCommitClient, CreateApprovalRuleTemplateCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
+ * import { CodeCommitClient, CreateApprovalRuleTemplateCommand } from '@aws-sdk/client-codecommit'; // ES Modules import
+ * // const { CodeCommitClient, CreateApprovalRuleTemplateCommand } = require('@aws-sdk/client-codecommit'); // CommonJS import
  * const client = new CodeCommitClient(config);
  * const input = { // CreateApprovalRuleTemplateInput
- *   approvalRuleTemplateName: "STRING_VALUE", // required
- *   approvalRuleTemplateContent: "STRING_VALUE", // required
- *   approvalRuleTemplateDescription: "STRING_VALUE",
+ *   approvalRuleTemplateName: 'STRING_VALUE', // required
+ *   approvalRuleTemplateContent: 'STRING_VALUE', // required
+ *   approvalRuleTemplateDescription: 'STRING_VALUE',
  * };
  * const command = new CreateApprovalRuleTemplateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateApprovalRuleTemplateOutput
+ *   approvalRuleTemplate: { // ApprovalRuleTemplate
+ *     approvalRuleTemplateId: 'STRING_VALUE',
+ *     approvalRuleTemplateName: 'STRING_VALUE',
+ *     approvalRuleTemplateDescription: 'STRING_VALUE',
+ *     approvalRuleTemplateContent: 'STRING_VALUE',
+ *     ruleContentSha256: 'STRING_VALUE',
+ *     lastModifiedDate: new Date('TIMESTAMP'),
+ *     creationDate: new Date('TIMESTAMP'),
+ *     lastModifiedUser: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateApprovalRuleTemplateCommandInput - {@link CreateApprovalRuleTemplateCommandInput}
@@ -87,6 +101,8 @@ export interface CreateApprovalRuleTemplateCommandOutput extends CreateApprovalR
  * @throws {@link NumberOfRuleTemplatesExceededException} (client fault)
  *  <p>The maximum number of approval rule templates has been exceeded for this AWS Region. </p>
  *
+ * @throws {@link CodeCommitServiceException}
+ * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
  */
 export class CreateApprovalRuleTemplateCommand extends $Command<

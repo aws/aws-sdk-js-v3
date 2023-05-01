@@ -40,15 +40,18 @@ export interface DeleteSSHPublicKeyCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IAMClient, DeleteSSHPublicKeyCommand } from "@aws-sdk/client-iam"; // ES Modules import
- * // const { IAMClient, DeleteSSHPublicKeyCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * import { IAMClient, DeleteSSHPublicKeyCommand } from '@aws-sdk/client-iam'; // ES Modules import
+ * // const { IAMClient, DeleteSSHPublicKeyCommand } = require('@aws-sdk/client-iam'); // CommonJS import
  * const client = new IAMClient(config);
  * const input = { // DeleteSSHPublicKeyRequest
- *   UserName: "STRING_VALUE", // required
- *   SSHPublicKeyId: "STRING_VALUE", // required
+ *   UserName: 'STRING_VALUE', // required
+ *   SSHPublicKeyId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteSSHPublicKeyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteSSHPublicKeyCommandInput - {@link DeleteSSHPublicKeyCommandInput}
@@ -61,6 +64,8 @@ export interface DeleteSSHPublicKeyCommandOutput extends __MetadataBearer {}
  *  <p>The request was rejected because it referenced a resource entity that does not exist. The
  *       error message describes the resource.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  */
 export class DeleteSSHPublicKeyCommand extends $Command<

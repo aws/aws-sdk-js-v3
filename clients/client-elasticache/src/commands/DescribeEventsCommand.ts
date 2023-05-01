@@ -41,20 +41,33 @@ export interface DescribeEventsCommandOutput extends EventsMessage, __MetadataBe
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElastiCacheClient, DescribeEventsCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
- * // const { ElastiCacheClient, DescribeEventsCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
+ * import { ElastiCacheClient, DescribeEventsCommand } from '@aws-sdk/client-elasticache'; // ES Modules import
+ * // const { ElastiCacheClient, DescribeEventsCommand } = require('@aws-sdk/client-elasticache'); // CommonJS import
  * const client = new ElastiCacheClient(config);
  * const input = { // DescribeEventsMessage
- *   SourceIdentifier: "STRING_VALUE",
- *   SourceType: "cache-cluster" || "cache-parameter-group" || "cache-security-group" || "cache-subnet-group" || "replication-group" || "user" || "user-group",
- *   StartTime: new Date("TIMESTAMP"),
- *   EndTime: new Date("TIMESTAMP"),
- *   Duration: Number("int"),
- *   MaxRecords: Number("int"),
- *   Marker: "STRING_VALUE",
+ *   SourceIdentifier: 'STRING_VALUE',
+ *   SourceType: 'cache-cluster' || 'cache-parameter-group' || 'cache-security-group' || 'cache-subnet-group' || 'replication-group' || 'user' || 'user-group',
+ *   StartTime: new Date('TIMESTAMP'),
+ *   EndTime: new Date('TIMESTAMP'),
+ *   Duration: Number('int'),
+ *   MaxRecords: Number('int'),
+ *   Marker: 'STRING_VALUE',
  * };
  * const command = new DescribeEventsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // EventsMessage
+ *   Marker: 'STRING_VALUE',
+ *   Events: [ // EventList
+ *     { // Event
+ *       SourceIdentifier: 'STRING_VALUE',
+ *       SourceType: 'cache-cluster' || 'cache-parameter-group' || 'cache-security-group' || 'cache-subnet-group' || 'replication-group' || 'user' || 'user-group',
+ *       Message: 'STRING_VALUE',
+ *       Date: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeEventsCommandInput - {@link DescribeEventsCommandInput}
@@ -69,6 +82,8 @@ export interface DescribeEventsCommandOutput extends EventsMessage, __MetadataBe
  * @throws {@link InvalidParameterValueException} (client fault)
  *  <p>The value for a parameter is invalid.</p>
  *
+ * @throws {@link ElastiCacheServiceException}
+ * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
  * @example DescribeEvents
  * ```javascript

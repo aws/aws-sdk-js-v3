@@ -38,22 +38,47 @@ export interface ExportTableToPointInTimeCommandOutput extends ExportTableToPoin
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DynamoDBClient, ExportTableToPointInTimeCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
- * // const { DynamoDBClient, ExportTableToPointInTimeCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
+ * import { DynamoDBClient, ExportTableToPointInTimeCommand } from '@aws-sdk/client-dynamodb'; // ES Modules import
+ * // const { DynamoDBClient, ExportTableToPointInTimeCommand } = require('@aws-sdk/client-dynamodb'); // CommonJS import
  * const client = new DynamoDBClient(config);
  * const input = { // ExportTableToPointInTimeInput
- *   TableArn: "STRING_VALUE", // required
- *   ExportTime: new Date("TIMESTAMP"),
- *   ClientToken: "STRING_VALUE",
- *   S3Bucket: "STRING_VALUE", // required
- *   S3BucketOwner: "STRING_VALUE",
- *   S3Prefix: "STRING_VALUE",
- *   S3SseAlgorithm: "AES256" || "KMS",
- *   S3SseKmsKeyId: "STRING_VALUE",
- *   ExportFormat: "DYNAMODB_JSON" || "ION",
+ *   TableArn: 'STRING_VALUE', // required
+ *   ExportTime: new Date('TIMESTAMP'),
+ *   ClientToken: 'STRING_VALUE',
+ *   S3Bucket: 'STRING_VALUE', // required
+ *   S3BucketOwner: 'STRING_VALUE',
+ *   S3Prefix: 'STRING_VALUE',
+ *   S3SseAlgorithm: 'AES256' || 'KMS',
+ *   S3SseKmsKeyId: 'STRING_VALUE',
+ *   ExportFormat: 'DYNAMODB_JSON' || 'ION',
  * };
  * const command = new ExportTableToPointInTimeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ExportTableToPointInTimeOutput
+ *   ExportDescription: { // ExportDescription
+ *     ExportArn: 'STRING_VALUE',
+ *     ExportStatus: 'IN_PROGRESS' || 'COMPLETED' || 'FAILED',
+ *     StartTime: new Date('TIMESTAMP'),
+ *     EndTime: new Date('TIMESTAMP'),
+ *     ExportManifest: 'STRING_VALUE',
+ *     TableArn: 'STRING_VALUE',
+ *     TableId: 'STRING_VALUE',
+ *     ExportTime: new Date('TIMESTAMP'),
+ *     ClientToken: 'STRING_VALUE',
+ *     S3Bucket: 'STRING_VALUE',
+ *     S3BucketOwner: 'STRING_VALUE',
+ *     S3Prefix: 'STRING_VALUE',
+ *     S3SseAlgorithm: 'AES256' || 'KMS',
+ *     S3SseKmsKeyId: 'STRING_VALUE',
+ *     FailureCode: 'STRING_VALUE',
+ *     FailureMessage: 'STRING_VALUE',
+ *     ExportFormat: 'DYNAMODB_JSON' || 'ION',
+ *     BilledSizeBytes: Number('long'),
+ *     ItemCount: Number('long'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param ExportTableToPointInTimeCommandInput - {@link ExportTableToPointInTimeCommandInput}
@@ -92,6 +117,8 @@ export interface ExportTableToPointInTimeCommandOutput extends ExportTableToPoin
  *  <p>A source table with the name <code>TableName</code> does not currently exist within
  *             the subscriber's account or the subscriber is operating in the wrong Amazon Web Services Region.</p>
  *
+ * @throws {@link DynamoDBServiceException}
+ * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
  */
 export class ExportTableToPointInTimeCommand extends $Command<

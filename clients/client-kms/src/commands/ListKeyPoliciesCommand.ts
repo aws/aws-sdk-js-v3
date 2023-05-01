@@ -57,16 +57,25 @@ export interface ListKeyPoliciesCommandOutput extends ListKeyPoliciesResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KMSClient, ListKeyPoliciesCommand } from "@aws-sdk/client-kms"; // ES Modules import
- * // const { KMSClient, ListKeyPoliciesCommand } = require("@aws-sdk/client-kms"); // CommonJS import
+ * import { KMSClient, ListKeyPoliciesCommand } from '@aws-sdk/client-kms'; // ES Modules import
+ * // const { KMSClient, ListKeyPoliciesCommand } = require('@aws-sdk/client-kms'); // CommonJS import
  * const client = new KMSClient(config);
  * const input = { // ListKeyPoliciesRequest
- *   KeyId: "STRING_VALUE", // required
- *   Limit: Number("int"),
- *   Marker: "STRING_VALUE",
+ *   KeyId: 'STRING_VALUE', // required
+ *   Limit: Number('int'),
+ *   Marker: 'STRING_VALUE',
  * };
  * const command = new ListKeyPoliciesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListKeyPoliciesResponse
+ *   PolicyNames: [ // PolicyNameList
+ *     'STRING_VALUE',
+ *   ],
+ *   NextMarker: 'STRING_VALUE',
+ *   Truncated: true || false,
+ * };
+ *
  * ```
  *
  * @param ListKeyPoliciesCommandInput - {@link ListKeyPoliciesCommandInput}
@@ -109,6 +118,8 @@ export interface ListKeyPoliciesCommandOutput extends ListKeyPoliciesResponse, _
  *  <p>The request was rejected because the specified entity or resource could not be
  *       found.</p>
  *
+ * @throws {@link KMSServiceException}
+ * <p>Base exception class for all service exceptions from KMS service.</p>
  *
  * @example To list key policies for a KMS key
  * ```javascript

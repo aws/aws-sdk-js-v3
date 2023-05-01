@@ -36,14 +36,17 @@ export interface DeleteLoggerDefinitionCommandOutput extends DeleteLoggerDefinit
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GreengrassClient, DeleteLoggerDefinitionCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
- * // const { GreengrassClient, DeleteLoggerDefinitionCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
+ * import { GreengrassClient, DeleteLoggerDefinitionCommand } from '@aws-sdk/client-greengrass'; // ES Modules import
+ * // const { GreengrassClient, DeleteLoggerDefinitionCommand } = require('@aws-sdk/client-greengrass'); // CommonJS import
  * const client = new GreengrassClient(config);
  * const input = { // DeleteLoggerDefinitionRequest
- *   LoggerDefinitionId: "STRING_VALUE", // required
+ *   LoggerDefinitionId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteLoggerDefinitionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteLoggerDefinitionCommandInput - {@link DeleteLoggerDefinitionCommandInput}
@@ -55,6 +58,8 @@ export interface DeleteLoggerDefinitionCommandOutput extends DeleteLoggerDefinit
  * @throws {@link BadRequestException} (client fault)
  *  General error information.
  *
+ * @throws {@link GreengrassServiceException}
+ * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
  */
 export class DeleteLoggerDefinitionCommand extends $Command<

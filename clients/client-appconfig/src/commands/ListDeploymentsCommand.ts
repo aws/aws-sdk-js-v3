@@ -36,17 +36,37 @@ export interface ListDeploymentsCommandOutput extends Deployments, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppConfigClient, ListDeploymentsCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
- * // const { AppConfigClient, ListDeploymentsCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import
+ * import { AppConfigClient, ListDeploymentsCommand } from '@aws-sdk/client-appconfig'; // ES Modules import
+ * // const { AppConfigClient, ListDeploymentsCommand } = require('@aws-sdk/client-appconfig'); // CommonJS import
  * const client = new AppConfigClient(config);
  * const input = { // ListDeploymentsRequest
- *   ApplicationId: "STRING_VALUE", // required
- *   EnvironmentId: "STRING_VALUE", // required
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   ApplicationId: 'STRING_VALUE', // required
+ *   EnvironmentId: 'STRING_VALUE', // required
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListDeploymentsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // Deployments
+ *   Items: [ // DeploymentList
+ *     { // DeploymentSummary
+ *       DeploymentNumber: Number('int'),
+ *       ConfigurationName: 'STRING_VALUE',
+ *       ConfigurationVersion: 'STRING_VALUE',
+ *       DeploymentDurationInMinutes: Number('int'),
+ *       GrowthType: 'LINEAR' || 'EXPONENTIAL',
+ *       GrowthFactor: Number('float'),
+ *       FinalBakeTimeInMinutes: Number('int'),
+ *       State: 'BAKING' || 'VALIDATING' || 'DEPLOYING' || 'COMPLETE' || 'ROLLING_BACK' || 'ROLLED_BACK',
+ *       PercentageComplete: Number('float'),
+ *       StartedAt: new Date('TIMESTAMP'),
+ *       CompletedAt: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListDeploymentsCommandInput - {@link ListDeploymentsCommandInput}
@@ -64,6 +84,8 @@ export interface ListDeploymentsCommandOutput extends Deployments, __MetadataBea
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The requested resource could not be found.</p>
  *
+ * @throws {@link AppConfigServiceException}
+ * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
  * @example To list the available deployments
  * ```javascript

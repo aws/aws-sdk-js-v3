@@ -36,17 +36,20 @@ export interface DisassociateSourceServersCommandOutput extends DisassociateSour
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MgnClient, DisassociateSourceServersCommand } from "@aws-sdk/client-mgn"; // ES Modules import
- * // const { MgnClient, DisassociateSourceServersCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
+ * import { MgnClient, DisassociateSourceServersCommand } from '@aws-sdk/client-mgn'; // ES Modules import
+ * // const { MgnClient, DisassociateSourceServersCommand } = require('@aws-sdk/client-mgn'); // CommonJS import
  * const client = new MgnClient(config);
  * const input = { // DisassociateSourceServersRequest
- *   applicationID: "STRING_VALUE", // required
+ *   applicationID: 'STRING_VALUE', // required
  *   sourceServerIDs: [ // DisassociateSourceServersRequestSourceServerIDs // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new DisassociateSourceServersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DisassociateSourceServersCommandInput - {@link DisassociateSourceServersCommandInput}
@@ -64,6 +67,8 @@ export interface DisassociateSourceServersCommandOutput extends DisassociateSour
  * @throws {@link UninitializedAccountException} (client fault)
  *  <p>Uninitialized account exception.</p>
  *
+ * @throws {@link MgnServiceException}
+ * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
  */
 export class DisassociateSourceServersCommand extends $Command<

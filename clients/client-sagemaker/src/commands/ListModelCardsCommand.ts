@@ -36,21 +36,35 @@ export interface ListModelCardsCommandOutput extends ListModelCardsResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, ListModelCardsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, ListModelCardsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, ListModelCardsCommand } from '@aws-sdk/client-sagemaker'; // ES Modules import
+ * // const { SageMakerClient, ListModelCardsCommand } = require('@aws-sdk/client-sagemaker'); // CommonJS import
  * const client = new SageMakerClient(config);
  * const input = { // ListModelCardsRequest
- *   CreationTimeAfter: new Date("TIMESTAMP"),
- *   CreationTimeBefore: new Date("TIMESTAMP"),
- *   MaxResults: Number("int"),
- *   NameContains: "STRING_VALUE",
- *   ModelCardStatus: "Draft" || "PendingReview" || "Approved" || "Archived",
- *   NextToken: "STRING_VALUE",
- *   SortBy: "Name" || "CreationTime",
- *   SortOrder: "Ascending" || "Descending",
+ *   CreationTimeAfter: new Date('TIMESTAMP'),
+ *   CreationTimeBefore: new Date('TIMESTAMP'),
+ *   MaxResults: Number('int'),
+ *   NameContains: 'STRING_VALUE',
+ *   ModelCardStatus: 'Draft' || 'PendingReview' || 'Approved' || 'Archived',
+ *   NextToken: 'STRING_VALUE',
+ *   SortBy: 'Name' || 'CreationTime',
+ *   SortOrder: 'Ascending' || 'Descending',
  * };
  * const command = new ListModelCardsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListModelCardsResponse
+ *   ModelCardSummaries: [ // ModelCardSummaryList // required
+ *     { // ModelCardSummary
+ *       ModelCardName: 'STRING_VALUE', // required
+ *       ModelCardArn: 'STRING_VALUE', // required
+ *       ModelCardStatus: 'Draft' || 'PendingReview' || 'Approved' || 'Archived', // required
+ *       CreationTime: new Date('TIMESTAMP'), // required
+ *       LastModifiedTime: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListModelCardsCommandInput - {@link ListModelCardsCommandInput}
@@ -59,6 +73,8 @@ export interface ListModelCardsCommandOutput extends ListModelCardsResponse, __M
  * @see {@link ListModelCardsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class ListModelCardsCommand extends $Command<

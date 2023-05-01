@@ -64,16 +64,19 @@ export interface DeletePermissionCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ACMPCAClient, DeletePermissionCommand } from "@aws-sdk/client-acm-pca"; // ES Modules import
- * // const { ACMPCAClient, DeletePermissionCommand } = require("@aws-sdk/client-acm-pca"); // CommonJS import
+ * import { ACMPCAClient, DeletePermissionCommand } from '@aws-sdk/client-acm-pca'; // ES Modules import
+ * // const { ACMPCAClient, DeletePermissionCommand } = require('@aws-sdk/client-acm-pca'); // CommonJS import
  * const client = new ACMPCAClient(config);
  * const input = { // DeletePermissionRequest
- *   CertificateAuthorityArn: "STRING_VALUE", // required
- *   Principal: "STRING_VALUE", // required
- *   SourceAccount: "STRING_VALUE",
+ *   CertificateAuthorityArn: 'STRING_VALUE', // required
+ *   Principal: 'STRING_VALUE', // required
+ *   SourceAccount: 'STRING_VALUE',
  * };
  * const command = new DeletePermissionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeletePermissionCommandInput - {@link DeletePermissionCommandInput}
@@ -96,6 +99,8 @@ export interface DeletePermissionCommandOutput extends __MetadataBearer {}
  *  <p>A resource such as a private CA, S3 bucket, certificate, audit report, or policy
  * 			cannot be found.</p>
  *
+ * @throws {@link ACMPCAServiceException}
+ * <p>Base exception class for all service exceptions from ACMPCA service.</p>
  *
  */
 export class DeletePermissionCommand extends $Command<

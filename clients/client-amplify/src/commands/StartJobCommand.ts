@@ -36,21 +36,36 @@ export interface StartJobCommandOutput extends StartJobResult, __MetadataBearer 
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AmplifyClient, StartJobCommand } from "@aws-sdk/client-amplify"; // ES Modules import
- * // const { AmplifyClient, StartJobCommand } = require("@aws-sdk/client-amplify"); // CommonJS import
+ * import { AmplifyClient, StartJobCommand } from '@aws-sdk/client-amplify'; // ES Modules import
+ * // const { AmplifyClient, StartJobCommand } = require('@aws-sdk/client-amplify'); // CommonJS import
  * const client = new AmplifyClient(config);
  * const input = { // StartJobRequest
- *   appId: "STRING_VALUE", // required
- *   branchName: "STRING_VALUE", // required
- *   jobId: "STRING_VALUE",
- *   jobType: "RELEASE" || "RETRY" || "MANUAL" || "WEB_HOOK", // required
- *   jobReason: "STRING_VALUE",
- *   commitId: "STRING_VALUE",
- *   commitMessage: "STRING_VALUE",
- *   commitTime: new Date("TIMESTAMP"),
+ *   appId: 'STRING_VALUE', // required
+ *   branchName: 'STRING_VALUE', // required
+ *   jobId: 'STRING_VALUE',
+ *   jobType: 'RELEASE' || 'RETRY' || 'MANUAL' || 'WEB_HOOK', // required
+ *   jobReason: 'STRING_VALUE',
+ *   commitId: 'STRING_VALUE',
+ *   commitMessage: 'STRING_VALUE',
+ *   commitTime: new Date('TIMESTAMP'),
  * };
  * const command = new StartJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartJobResult
+ *   jobSummary: { // JobSummary
+ *     jobArn: 'STRING_VALUE', // required
+ *     jobId: 'STRING_VALUE', // required
+ *     commitId: 'STRING_VALUE', // required
+ *     commitMessage: 'STRING_VALUE', // required
+ *     commitTime: new Date('TIMESTAMP'), // required
+ *     startTime: new Date('TIMESTAMP'), // required
+ *     status: 'PENDING' || 'PROVISIONING' || 'RUNNING' || 'FAILED' || 'SUCCEED' || 'CANCELLING' || 'CANCELLED', // required
+ *     endTime: new Date('TIMESTAMP'),
+ *     jobType: 'RELEASE' || 'RETRY' || 'MANUAL' || 'WEB_HOOK', // required
+ *   },
+ * };
+ *
  * ```
  *
  * @param StartJobCommandInput - {@link StartJobCommandInput}
@@ -74,6 +89,8 @@ export interface StartJobCommandOutput extends StartJobResult, __MetadataBearer 
  * @throws {@link UnauthorizedException} (client fault)
  *  <p> An operation failed due to a lack of access. </p>
  *
+ * @throws {@link AmplifyServiceException}
+ * <p>Base exception class for all service exceptions from Amplify service.</p>
  *
  */
 export class StartJobCommand extends $Command<

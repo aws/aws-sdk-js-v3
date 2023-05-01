@@ -44,16 +44,28 @@ export interface ListAttendeesCommandOutput extends ListAttendeesResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeClient, ListAttendeesCommand } from "@aws-sdk/client-chime"; // ES Modules import
- * // const { ChimeClient, ListAttendeesCommand } = require("@aws-sdk/client-chime"); // CommonJS import
+ * import { ChimeClient, ListAttendeesCommand } from '@aws-sdk/client-chime'; // ES Modules import
+ * // const { ChimeClient, ListAttendeesCommand } = require('@aws-sdk/client-chime'); // CommonJS import
  * const client = new ChimeClient(config);
  * const input = { // ListAttendeesRequest
- *   MeetingId: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   MeetingId: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListAttendeesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListAttendeesResponse
+ *   Attendees: [ // AttendeeList
+ *     { // Attendee
+ *       ExternalUserId: 'STRING_VALUE',
+ *       AttendeeId: 'STRING_VALUE',
+ *       JoinToken: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListAttendeesCommandInput - {@link ListAttendeesCommandInput}
@@ -83,6 +95,8 @@ export interface ListAttendeesCommandOutput extends ListAttendeesResponse, __Met
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeServiceException}
+ * <p>Base exception class for all service exceptions from Chime service.</p>
  *
  */
 export class ListAttendeesCommand extends $Command<

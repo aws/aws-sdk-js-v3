@@ -50,15 +50,34 @@ export interface DescribeQuerySuggestionsBlockListCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KendraClient, DescribeQuerySuggestionsBlockListCommand } from "@aws-sdk/client-kendra"; // ES Modules import
- * // const { KendraClient, DescribeQuerySuggestionsBlockListCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
+ * import { KendraClient, DescribeQuerySuggestionsBlockListCommand } from '@aws-sdk/client-kendra'; // ES Modules import
+ * // const { KendraClient, DescribeQuerySuggestionsBlockListCommand } = require('@aws-sdk/client-kendra'); // CommonJS import
  * const client = new KendraClient(config);
  * const input = { // DescribeQuerySuggestionsBlockListRequest
- *   IndexId: "STRING_VALUE", // required
- *   Id: "STRING_VALUE", // required
+ *   IndexId: 'STRING_VALUE', // required
+ *   Id: 'STRING_VALUE', // required
  * };
  * const command = new DescribeQuerySuggestionsBlockListCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeQuerySuggestionsBlockListResponse
+ *   IndexId: 'STRING_VALUE',
+ *   Id: 'STRING_VALUE',
+ *   Name: 'STRING_VALUE',
+ *   Description: 'STRING_VALUE',
+ *   Status: 'ACTIVE' || 'CREATING' || 'DELETING' || 'UPDATING' || 'ACTIVE_BUT_UPDATE_FAILED' || 'FAILED',
+ *   ErrorMessage: 'STRING_VALUE',
+ *   CreatedAt: new Date('TIMESTAMP'),
+ *   UpdatedAt: new Date('TIMESTAMP'),
+ *   SourceS3Path: { // S3Path
+ *     Bucket: 'STRING_VALUE', // required
+ *     Key: 'STRING_VALUE', // required
+ *   },
+ *   ItemCount: Number('int'),
+ *   FileSizeBytes: Number('long'),
+ *   RoleArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeQuerySuggestionsBlockListCommandInput - {@link DescribeQuerySuggestionsBlockListCommandInput}
@@ -87,6 +106,8 @@ export interface DescribeQuerySuggestionsBlockListCommandOutput
  *  <p>The input fails to satisfy the constraints set by the Amazon Kendra service.
  *             Please provide the correct input and try again.</p>
  *
+ * @throws {@link KendraServiceException}
+ * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
  */
 export class DescribeQuerySuggestionsBlockListCommand extends $Command<

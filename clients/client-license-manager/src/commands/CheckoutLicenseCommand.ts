@@ -40,26 +40,44 @@ export interface CheckoutLicenseCommandOutput extends CheckoutLicenseResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LicenseManagerClient, CheckoutLicenseCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
- * // const { LicenseManagerClient, CheckoutLicenseCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
+ * import { LicenseManagerClient, CheckoutLicenseCommand } from '@aws-sdk/client-license-manager'; // ES Modules import
+ * // const { LicenseManagerClient, CheckoutLicenseCommand } = require('@aws-sdk/client-license-manager'); // CommonJS import
  * const client = new LicenseManagerClient(config);
  * const input = { // CheckoutLicenseRequest
- *   ProductSKU: "STRING_VALUE", // required
- *   CheckoutType: "PROVISIONAL" || "PERPETUAL", // required
- *   KeyFingerprint: "STRING_VALUE", // required
+ *   ProductSKU: 'STRING_VALUE', // required
+ *   CheckoutType: 'PROVISIONAL' || 'PERPETUAL', // required
+ *   KeyFingerprint: 'STRING_VALUE', // required
  *   Entitlements: [ // EntitlementDataList // required
  *     { // EntitlementData
- *       Name: "STRING_VALUE", // required
- *       Value: "STRING_VALUE",
- *       Unit: "Count" || "None" || "Seconds" || "Microseconds" || "Milliseconds" || "Bytes" || "Kilobytes" || "Megabytes" || "Gigabytes" || "Terabytes" || "Bits" || "Kilobits" || "Megabits" || "Gigabits" || "Terabits" || "Percent" || "Bytes/Second" || "Kilobytes/Second" || "Megabytes/Second" || "Gigabytes/Second" || "Terabytes/Second" || "Bits/Second" || "Kilobits/Second" || "Megabits/Second" || "Gigabits/Second" || "Terabits/Second" || "Count/Second", // required
+ *       Name: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE',
+ *       Unit: 'Count' || 'None' || 'Seconds' || 'Microseconds' || 'Milliseconds' || 'Bytes' || 'Kilobytes' || 'Megabytes' || 'Gigabytes' || 'Terabytes' || 'Bits' || 'Kilobits' || 'Megabits' || 'Gigabits' || 'Terabits' || 'Percent' || 'Bytes/Second' || 'Kilobytes/Second' || 'Megabytes/Second' || 'Gigabytes/Second' || 'Terabytes/Second' || 'Bits/Second' || 'Kilobits/Second' || 'Megabits/Second' || 'Gigabits/Second' || 'Terabits/Second' || 'Count/Second', // required
  *     },
  *   ],
- *   ClientToken: "STRING_VALUE", // required
- *   Beneficiary: "STRING_VALUE",
- *   NodeId: "STRING_VALUE",
+ *   ClientToken: 'STRING_VALUE', // required
+ *   Beneficiary: 'STRING_VALUE',
+ *   NodeId: 'STRING_VALUE',
  * };
  * const command = new CheckoutLicenseCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CheckoutLicenseResponse
+ *   CheckoutType: 'PROVISIONAL' || 'PERPETUAL',
+ *   LicenseConsumptionToken: 'STRING_VALUE',
+ *   EntitlementsAllowed: [ // EntitlementDataList
+ *     { // EntitlementData
+ *       Name: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE',
+ *       Unit: 'Count' || 'None' || 'Seconds' || 'Microseconds' || 'Milliseconds' || 'Bytes' || 'Kilobytes' || 'Megabytes' || 'Gigabytes' || 'Terabytes' || 'Bits' || 'Kilobits' || 'Megabits' || 'Gigabits' || 'Terabits' || 'Percent' || 'Bytes/Second' || 'Kilobytes/Second' || 'Megabytes/Second' || 'Gigabytes/Second' || 'Terabytes/Second' || 'Bits/Second' || 'Kilobits/Second' || 'Megabits/Second' || 'Gigabits/Second' || 'Terabits/Second' || 'Count/Second', // required
+ *     },
+ *   ],
+ *   SignedToken: 'STRING_VALUE',
+ *   NodeId: 'STRING_VALUE',
+ *   IssuedAt: 'STRING_VALUE',
+ *   Expiration: 'STRING_VALUE',
+ *   LicenseArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CheckoutLicenseCommandInput - {@link CheckoutLicenseCommandInput}
@@ -99,6 +117,8 @@ export interface CheckoutLicenseCommandOutput extends CheckoutLicenseResponse, _
  * @throws {@link ValidationException} (client fault)
  *  <p>The provided input is not valid. Try your request again.</p>
  *
+ * @throws {@link LicenseManagerServiceException}
+ * <p>Base exception class for all service exceptions from LicenseManager service.</p>
  *
  */
 export class CheckoutLicenseCommand extends $Command<

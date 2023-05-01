@@ -45,16 +45,28 @@ export interface GetRecoveryGroupReadinessSummaryCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Route53RecoveryReadinessClient, GetRecoveryGroupReadinessSummaryCommand } from "@aws-sdk/client-route53-recovery-readiness"; // ES Modules import
- * // const { Route53RecoveryReadinessClient, GetRecoveryGroupReadinessSummaryCommand } = require("@aws-sdk/client-route53-recovery-readiness"); // CommonJS import
+ * import { Route53RecoveryReadinessClient, GetRecoveryGroupReadinessSummaryCommand } from '@aws-sdk/client-route53-recovery-readiness'; // ES Modules import
+ * // const { Route53RecoveryReadinessClient, GetRecoveryGroupReadinessSummaryCommand } = require('@aws-sdk/client-route53-recovery-readiness'); // CommonJS import
  * const client = new Route53RecoveryReadinessClient(config);
  * const input = { // GetRecoveryGroupReadinessSummaryRequest
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
- *   RecoveryGroupName: "STRING_VALUE", // required
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
+ *   RecoveryGroupName: 'STRING_VALUE', // required
  * };
  * const command = new GetRecoveryGroupReadinessSummaryCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetRecoveryGroupReadinessSummaryResponse
+ *   NextToken: 'STRING_VALUE',
+ *   Readiness: 'STRING_VALUE',
+ *   ReadinessChecks: [ // __listOfReadinessCheckSummary
+ *     { // ReadinessCheckSummary
+ *       Readiness: 'STRING_VALUE',
+ *       ReadinessCheckName: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetRecoveryGroupReadinessSummaryCommandInput - {@link GetRecoveryGroupReadinessSummaryCommandInput}
@@ -78,6 +90,8 @@ export interface GetRecoveryGroupReadinessSummaryCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  The input fails to satisfy the constraints specified by an AWS service.
  *
+ * @throws {@link Route53RecoveryReadinessServiceException}
+ * <p>Base exception class for all service exceptions from Route53RecoveryReadiness service.</p>
  *
  */
 export class GetRecoveryGroupReadinessSummaryCommand extends $Command<

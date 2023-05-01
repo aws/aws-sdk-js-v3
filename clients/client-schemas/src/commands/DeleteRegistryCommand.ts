@@ -36,14 +36,17 @@ export interface DeleteRegistryCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SchemasClient, DeleteRegistryCommand } from "@aws-sdk/client-schemas"; // ES Modules import
- * // const { SchemasClient, DeleteRegistryCommand } = require("@aws-sdk/client-schemas"); // CommonJS import
+ * import { SchemasClient, DeleteRegistryCommand } from '@aws-sdk/client-schemas'; // ES Modules import
+ * // const { SchemasClient, DeleteRegistryCommand } = require('@aws-sdk/client-schemas'); // CommonJS import
  * const client = new SchemasClient(config);
  * const input = { // DeleteRegistryRequest
- *   RegistryName: "STRING_VALUE", // required
+ *   RegistryName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteRegistryCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteRegistryCommandInput - {@link DeleteRegistryCommandInput}
@@ -64,6 +67,8 @@ export interface DeleteRegistryCommandOutput extends __MetadataBearer {}
  *
  * @throws {@link UnauthorizedException} (client fault)
  *
+ * @throws {@link SchemasServiceException}
+ * <p>Base exception class for all service exceptions from Schemas service.</p>
  *
  */
 export class DeleteRegistryCommand extends $Command<

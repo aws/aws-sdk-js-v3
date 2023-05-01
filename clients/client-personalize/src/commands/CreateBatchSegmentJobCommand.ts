@@ -38,36 +38,41 @@ export interface CreateBatchSegmentJobCommandOutput extends CreateBatchSegmentJo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PersonalizeClient, CreateBatchSegmentJobCommand } from "@aws-sdk/client-personalize"; // ES Modules import
- * // const { PersonalizeClient, CreateBatchSegmentJobCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
+ * import { PersonalizeClient, CreateBatchSegmentJobCommand } from '@aws-sdk/client-personalize'; // ES Modules import
+ * // const { PersonalizeClient, CreateBatchSegmentJobCommand } = require('@aws-sdk/client-personalize'); // CommonJS import
  * const client = new PersonalizeClient(config);
  * const input = { // CreateBatchSegmentJobRequest
- *   jobName: "STRING_VALUE", // required
- *   solutionVersionArn: "STRING_VALUE", // required
- *   filterArn: "STRING_VALUE",
- *   numResults: Number("int"),
+ *   jobName: 'STRING_VALUE', // required
+ *   solutionVersionArn: 'STRING_VALUE', // required
+ *   filterArn: 'STRING_VALUE',
+ *   numResults: Number('int'),
  *   jobInput: { // BatchSegmentJobInput
  *     s3DataSource: { // S3DataConfig
- *       path: "STRING_VALUE", // required
- *       kmsKeyArn: "STRING_VALUE",
+ *       path: 'STRING_VALUE', // required
+ *       kmsKeyArn: 'STRING_VALUE',
  *     },
  *   },
  *   jobOutput: { // BatchSegmentJobOutput
  *     s3DataDestination: {
- *       path: "STRING_VALUE", // required
- *       kmsKeyArn: "STRING_VALUE",
+ *       path: 'STRING_VALUE', // required
+ *       kmsKeyArn: 'STRING_VALUE',
  *     },
  *   },
- *   roleArn: "STRING_VALUE", // required
+ *   roleArn: 'STRING_VALUE', // required
  *   tags: [ // Tags
  *     { // Tag
- *       tagKey: "STRING_VALUE", // required
- *       tagValue: "STRING_VALUE", // required
+ *       tagKey: 'STRING_VALUE', // required
+ *       tagValue: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreateBatchSegmentJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateBatchSegmentJobResponse
+ *   batchSegmentJobArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateBatchSegmentJobCommandInput - {@link CreateBatchSegmentJobCommandInput}
@@ -94,6 +99,8 @@ export interface CreateBatchSegmentJobCommandOutput extends CreateBatchSegmentJo
  * @throws {@link TooManyTagsException} (client fault)
  *  <p>You have exceeded the maximum number of tags you can apply to this resource. </p>
  *
+ * @throws {@link PersonalizeServiceException}
+ * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
  */
 export class CreateBatchSegmentJobCommand extends $Command<

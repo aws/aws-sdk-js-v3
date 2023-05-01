@@ -36,15 +36,20 @@ export interface DeleteTokenCommandOutput extends DeleteTokenResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AmplifyBackendClient, DeleteTokenCommand } from "@aws-sdk/client-amplifybackend"; // ES Modules import
- * // const { AmplifyBackendClient, DeleteTokenCommand } = require("@aws-sdk/client-amplifybackend"); // CommonJS import
+ * import { AmplifyBackendClient, DeleteTokenCommand } from '@aws-sdk/client-amplifybackend'; // ES Modules import
+ * // const { AmplifyBackendClient, DeleteTokenCommand } = require('@aws-sdk/client-amplifybackend'); // CommonJS import
  * const client = new AmplifyBackendClient(config);
  * const input = { // DeleteTokenRequest
- *   AppId: "STRING_VALUE", // required
- *   SessionId: "STRING_VALUE", // required
+ *   AppId: 'STRING_VALUE', // required
+ *   SessionId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteTokenCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteTokenResponse
+ *   IsSuccess: true || false,
+ * };
+ *
  * ```
  *
  * @param DeleteTokenCommandInput - {@link DeleteTokenCommandInput}
@@ -65,6 +70,8 @@ export interface DeleteTokenCommandOutput extends DeleteTokenResponse, __Metadat
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>An error that is returned when a limit of a specific type has been exceeded.</p>
  *
+ * @throws {@link AmplifyBackendServiceException}
+ * <p>Base exception class for all service exceptions from AmplifyBackend service.</p>
  *
  */
 export class DeleteTokenCommand extends $Command<

@@ -47,17 +47,26 @@ export interface DeleteAnalysisCommandOutput extends DeleteAnalysisResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { QuickSightClient, DeleteAnalysisCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
- * // const { QuickSightClient, DeleteAnalysisCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * import { QuickSightClient, DeleteAnalysisCommand } from '@aws-sdk/client-quicksight'; // ES Modules import
+ * // const { QuickSightClient, DeleteAnalysisCommand } = require('@aws-sdk/client-quicksight'); // CommonJS import
  * const client = new QuickSightClient(config);
  * const input = { // DeleteAnalysisRequest
- *   AwsAccountId: "STRING_VALUE", // required
- *   AnalysisId: "STRING_VALUE", // required
- *   RecoveryWindowInDays: Number("long"),
+ *   AwsAccountId: 'STRING_VALUE', // required
+ *   AnalysisId: 'STRING_VALUE', // required
+ *   RecoveryWindowInDays: Number('long'),
  *   ForceDeleteWithoutRecovery: true || false,
  * };
  * const command = new DeleteAnalysisCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteAnalysisResponse
+ *   Status: Number('int'),
+ *   Arn: 'STRING_VALUE',
+ *   AnalysisId: 'STRING_VALUE',
+ *   DeletionTime: new Date('TIMESTAMP'),
+ *   RequestId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DeleteAnalysisCommandInput - {@link DeleteAnalysisCommandInput}
@@ -87,6 +96,8 @@ export interface DeleteAnalysisCommandOutput extends DeleteAnalysisResponse, __M
  * 			Amazon QuickSight currently has Standard Edition and Enterprise Edition. Not every operation and
  * 			capability is available in every edition.</p>
  *
+ * @throws {@link QuickSightServiceException}
+ * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
 export class DeleteAnalysisCommand extends $Command<

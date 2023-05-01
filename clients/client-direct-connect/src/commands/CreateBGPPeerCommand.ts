@@ -51,21 +51,75 @@ export interface CreateBGPPeerCommandOutput extends CreateBGPPeerResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DirectConnectClient, CreateBGPPeerCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
- * // const { DirectConnectClient, CreateBGPPeerCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
+ * import { DirectConnectClient, CreateBGPPeerCommand } from '@aws-sdk/client-direct-connect'; // ES Modules import
+ * // const { DirectConnectClient, CreateBGPPeerCommand } = require('@aws-sdk/client-direct-connect'); // CommonJS import
  * const client = new DirectConnectClient(config);
  * const input = { // CreateBGPPeerRequest
- *   virtualInterfaceId: "STRING_VALUE",
+ *   virtualInterfaceId: 'STRING_VALUE',
  *   newBGPPeer: { // NewBGPPeer
- *     asn: Number("int"),
- *     authKey: "STRING_VALUE",
- *     addressFamily: "ipv4" || "ipv6",
- *     amazonAddress: "STRING_VALUE",
- *     customerAddress: "STRING_VALUE",
+ *     asn: Number('int'),
+ *     authKey: 'STRING_VALUE',
+ *     addressFamily: 'ipv4' || 'ipv6',
+ *     amazonAddress: 'STRING_VALUE',
+ *     customerAddress: 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateBGPPeerCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateBGPPeerResponse
+ *   virtualInterface: { // VirtualInterface
+ *     ownerAccount: 'STRING_VALUE',
+ *     virtualInterfaceId: 'STRING_VALUE',
+ *     location: 'STRING_VALUE',
+ *     connectionId: 'STRING_VALUE',
+ *     virtualInterfaceType: 'STRING_VALUE',
+ *     virtualInterfaceName: 'STRING_VALUE',
+ *     vlan: Number('int'),
+ *     asn: Number('int'),
+ *     amazonSideAsn: Number('long'),
+ *     authKey: 'STRING_VALUE',
+ *     amazonAddress: 'STRING_VALUE',
+ *     customerAddress: 'STRING_VALUE',
+ *     addressFamily: 'ipv4' || 'ipv6',
+ *     virtualInterfaceState: 'confirming' || 'verifying' || 'pending' || 'available' || 'down' || 'deleting' || 'deleted' || 'rejected' || 'unknown',
+ *     customerRouterConfig: 'STRING_VALUE',
+ *     mtu: Number('int'),
+ *     jumboFrameCapable: true || false,
+ *     virtualGatewayId: 'STRING_VALUE',
+ *     directConnectGatewayId: 'STRING_VALUE',
+ *     routeFilterPrefixes: [ // RouteFilterPrefixList
+ *       { // RouteFilterPrefix
+ *         cidr: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     bgpPeers: [ // BGPPeerList
+ *       { // BGPPeer
+ *         bgpPeerId: 'STRING_VALUE',
+ *         asn: Number('int'),
+ *         authKey: 'STRING_VALUE',
+ *         addressFamily: 'ipv4' || 'ipv6',
+ *         amazonAddress: 'STRING_VALUE',
+ *         customerAddress: 'STRING_VALUE',
+ *         bgpPeerState: 'verifying' || 'pending' || 'available' || 'deleting' || 'deleted',
+ *         bgpStatus: 'up' || 'down' || 'unknown',
+ *         awsDeviceV2: 'STRING_VALUE',
+ *         awsLogicalDeviceId: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     region: 'STRING_VALUE',
+ *     awsDeviceV2: 'STRING_VALUE',
+ *     awsLogicalDeviceId: 'STRING_VALUE',
+ *     tags: [ // TagList
+ *       { // Tag
+ *         key: 'STRING_VALUE', // required
+ *         value: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     siteLinkEnabled: true || false,
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateBGPPeerCommandInput - {@link CreateBGPPeerCommandInput}
@@ -80,6 +134,8 @@ export interface CreateBGPPeerCommandOutput extends CreateBGPPeerResponse, __Met
  * @throws {@link DirectConnectServerException} (server fault)
  *  <p>A server-side error occurred.</p>
  *
+ * @throws {@link DirectConnectServiceException}
+ * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
  */
 export class CreateBGPPeerCommand extends $Command<

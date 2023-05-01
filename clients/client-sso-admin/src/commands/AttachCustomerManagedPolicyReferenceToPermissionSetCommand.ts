@@ -45,19 +45,22 @@ export interface AttachCustomerManagedPolicyReferenceToPermissionSetCommandOutpu
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSOAdminClient, AttachCustomerManagedPolicyReferenceToPermissionSetCommand } from "@aws-sdk/client-sso-admin"; // ES Modules import
- * // const { SSOAdminClient, AttachCustomerManagedPolicyReferenceToPermissionSetCommand } = require("@aws-sdk/client-sso-admin"); // CommonJS import
+ * import { SSOAdminClient, AttachCustomerManagedPolicyReferenceToPermissionSetCommand } from '@aws-sdk/client-sso-admin'; // ES Modules import
+ * // const { SSOAdminClient, AttachCustomerManagedPolicyReferenceToPermissionSetCommand } = require('@aws-sdk/client-sso-admin'); // CommonJS import
  * const client = new SSOAdminClient(config);
  * const input = { // AttachCustomerManagedPolicyReferenceToPermissionSetRequest
- *   InstanceArn: "STRING_VALUE", // required
- *   PermissionSetArn: "STRING_VALUE", // required
+ *   InstanceArn: 'STRING_VALUE', // required
+ *   PermissionSetArn: 'STRING_VALUE', // required
  *   CustomerManagedPolicyReference: { // CustomerManagedPolicyReference
- *     Name: "STRING_VALUE", // required
- *     Path: "STRING_VALUE",
+ *     Name: 'STRING_VALUE', // required
+ *     Path: 'STRING_VALUE',
  *   },
  * };
  * const command = new AttachCustomerManagedPolicyReferenceToPermissionSetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param AttachCustomerManagedPolicyReferenceToPermissionSetCommandInput - {@link AttachCustomerManagedPolicyReferenceToPermissionSetCommandInput}
@@ -93,6 +96,8 @@ export interface AttachCustomerManagedPolicyReferenceToPermissionSetCommandOutpu
  * @throws {@link ValidationException} (client fault)
  *  <p>The request failed because it contains a syntax error.</p>
  *
+ * @throws {@link SSOAdminServiceException}
+ * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
  */
 export class AttachCustomerManagedPolicyReferenceToPermissionSetCommand extends $Command<

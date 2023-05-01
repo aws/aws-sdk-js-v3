@@ -41,14 +41,17 @@ export interface DisassociateBrowserSettingsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkSpacesWebClient, DisassociateBrowserSettingsCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
- * // const { WorkSpacesWebClient, DisassociateBrowserSettingsCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
+ * import { WorkSpacesWebClient, DisassociateBrowserSettingsCommand } from '@aws-sdk/client-workspaces-web'; // ES Modules import
+ * // const { WorkSpacesWebClient, DisassociateBrowserSettingsCommand } = require('@aws-sdk/client-workspaces-web'); // CommonJS import
  * const client = new WorkSpacesWebClient(config);
  * const input = { // DisassociateBrowserSettingsRequest
- *   portalArn: "STRING_VALUE", // required
+ *   portalArn: 'STRING_VALUE', // required
  * };
  * const command = new DisassociateBrowserSettingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DisassociateBrowserSettingsCommandInput - {@link DisassociateBrowserSettingsCommandInput}
@@ -72,6 +75,8 @@ export interface DisassociateBrowserSettingsCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>There is a validation error.</p>
  *
+ * @throws {@link WorkSpacesWebServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
  */
 export class DisassociateBrowserSettingsCommand extends $Command<

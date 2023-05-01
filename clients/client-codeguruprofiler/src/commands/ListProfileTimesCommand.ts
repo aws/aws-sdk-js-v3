@@ -37,20 +37,30 @@ export interface ListProfileTimesCommandOutput extends ListProfileTimesResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeGuruProfilerClient, ListProfileTimesCommand } from "@aws-sdk/client-codeguruprofiler"; // ES Modules import
- * // const { CodeGuruProfilerClient, ListProfileTimesCommand } = require("@aws-sdk/client-codeguruprofiler"); // CommonJS import
+ * import { CodeGuruProfilerClient, ListProfileTimesCommand } from '@aws-sdk/client-codeguruprofiler'; // ES Modules import
+ * // const { CodeGuruProfilerClient, ListProfileTimesCommand } = require('@aws-sdk/client-codeguruprofiler'); // CommonJS import
  * const client = new CodeGuruProfilerClient(config);
  * const input = { // ListProfileTimesRequest
- *   profilingGroupName: "STRING_VALUE", // required
- *   startTime: new Date("TIMESTAMP"), // required
- *   endTime: new Date("TIMESTAMP"), // required
- *   period: "STRING_VALUE", // required
- *   orderBy: "STRING_VALUE",
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   profilingGroupName: 'STRING_VALUE', // required
+ *   startTime: new Date('TIMESTAMP'), // required
+ *   endTime: new Date('TIMESTAMP'), // required
+ *   period: 'STRING_VALUE', // required
+ *   orderBy: 'STRING_VALUE',
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new ListProfileTimesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListProfileTimesResponse
+ *   profileTimes: [ // ProfileTimes // required
+ *     { // ProfileTime
+ *       start: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListProfileTimesCommandInput - {@link ListProfileTimesCommandInput}
@@ -71,6 +81,8 @@ export interface ListProfileTimesCommandOutput extends ListProfileTimesResponse,
  * @throws {@link ValidationException} (client fault)
  *  <p>The parameter is not valid.</p>
  *
+ * @throws {@link CodeGuruProfilerServiceException}
+ * <p>Base exception class for all service exceptions from CodeGuruProfiler service.</p>
  *
  */
 export class ListProfileTimesCommand extends $Command<

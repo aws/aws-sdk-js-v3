@@ -36,29 +36,35 @@ export interface PutParameterCommandOutput extends PutParameterResult, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMClient, PutParameterCommand } from "@aws-sdk/client-ssm"; // ES Modules import
- * // const { SSMClient, PutParameterCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * import { SSMClient, PutParameterCommand } from '@aws-sdk/client-ssm'; // ES Modules import
+ * // const { SSMClient, PutParameterCommand } = require('@aws-sdk/client-ssm'); // CommonJS import
  * const client = new SSMClient(config);
  * const input = { // PutParameterRequest
- *   Name: "STRING_VALUE", // required
- *   Description: "STRING_VALUE",
- *   Value: "STRING_VALUE", // required
- *   Type: "String" || "StringList" || "SecureString",
- *   KeyId: "STRING_VALUE",
+ *   Name: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE',
+ *   Value: 'STRING_VALUE', // required
+ *   Type: 'String' || 'StringList' || 'SecureString',
+ *   KeyId: 'STRING_VALUE',
  *   Overwrite: true || false,
- *   AllowedPattern: "STRING_VALUE",
+ *   AllowedPattern: 'STRING_VALUE',
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
- *   Tier: "Standard" || "Advanced" || "Intelligent-Tiering",
- *   Policies: "STRING_VALUE",
- *   DataType: "STRING_VALUE",
+ *   Tier: 'Standard' || 'Advanced' || 'Intelligent-Tiering',
+ *   Policies: 'STRING_VALUE',
+ *   DataType: 'STRING_VALUE',
  * };
  * const command = new PutParameterCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutParameterResult
+ *   Version: Number('long'),
+ *   Tier: 'Standard' || 'Advanced' || 'Intelligent-Tiering',
+ * };
+ *
  * ```
  *
  * @param PutParameterCommandInput - {@link PutParameterCommandInput}
@@ -134,6 +140,8 @@ export interface PutParameterCommandOutput extends PutParameterResult, __Metadat
  * @throws {@link UnsupportedParameterType} (client fault)
  *  <p>The parameter type isn't supported.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class PutParameterCommand extends $Command<

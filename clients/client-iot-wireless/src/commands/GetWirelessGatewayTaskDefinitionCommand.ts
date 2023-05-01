@@ -41,14 +41,39 @@ export interface GetWirelessGatewayTaskDefinitionCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTWirelessClient, GetWirelessGatewayTaskDefinitionCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
- * // const { IoTWirelessClient, GetWirelessGatewayTaskDefinitionCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
+ * import { IoTWirelessClient, GetWirelessGatewayTaskDefinitionCommand } from '@aws-sdk/client-iot-wireless'; // ES Modules import
+ * // const { IoTWirelessClient, GetWirelessGatewayTaskDefinitionCommand } = require('@aws-sdk/client-iot-wireless'); // CommonJS import
  * const client = new IoTWirelessClient(config);
  * const input = { // GetWirelessGatewayTaskDefinitionRequest
- *   Id: "STRING_VALUE", // required
+ *   Id: 'STRING_VALUE', // required
  * };
  * const command = new GetWirelessGatewayTaskDefinitionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetWirelessGatewayTaskDefinitionResponse
+ *   AutoCreateTasks: true || false,
+ *   Name: 'STRING_VALUE',
+ *   Update: { // UpdateWirelessGatewayTaskCreate
+ *     UpdateDataSource: 'STRING_VALUE',
+ *     UpdateDataRole: 'STRING_VALUE',
+ *     LoRaWAN: { // LoRaWANUpdateGatewayTaskCreate
+ *       UpdateSignature: 'STRING_VALUE',
+ *       SigKeyCrc: Number('long'),
+ *       CurrentVersion: { // LoRaWANGatewayVersion
+ *         PackageVersion: 'STRING_VALUE',
+ *         Model: 'STRING_VALUE',
+ *         Station: 'STRING_VALUE',
+ *       },
+ *       UpdateVersion: {
+ *         PackageVersion: 'STRING_VALUE',
+ *         Model: 'STRING_VALUE',
+ *         Station: 'STRING_VALUE',
+ *       },
+ *     },
+ *   },
+ *   Arn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetWirelessGatewayTaskDefinitionCommandInput - {@link GetWirelessGatewayTaskDefinitionCommandInput}
@@ -72,6 +97,8 @@ export interface GetWirelessGatewayTaskDefinitionCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The input did not meet the specified constraints.</p>
  *
+ * @throws {@link IoTWirelessServiceException}
+ * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
  */
 export class GetWirelessGatewayTaskDefinitionCommand extends $Command<

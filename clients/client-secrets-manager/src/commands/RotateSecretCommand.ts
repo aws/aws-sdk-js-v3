@@ -51,22 +51,29 @@ export interface RotateSecretCommandOutput extends RotateSecretResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SecretsManagerClient, RotateSecretCommand } from "@aws-sdk/client-secrets-manager"; // ES Modules import
- * // const { SecretsManagerClient, RotateSecretCommand } = require("@aws-sdk/client-secrets-manager"); // CommonJS import
+ * import { SecretsManagerClient, RotateSecretCommand } from '@aws-sdk/client-secrets-manager'; // ES Modules import
+ * // const { SecretsManagerClient, RotateSecretCommand } = require('@aws-sdk/client-secrets-manager'); // CommonJS import
  * const client = new SecretsManagerClient(config);
  * const input = { // RotateSecretRequest
- *   SecretId: "STRING_VALUE", // required
- *   ClientRequestToken: "STRING_VALUE",
- *   RotationLambdaARN: "STRING_VALUE",
+ *   SecretId: 'STRING_VALUE', // required
+ *   ClientRequestToken: 'STRING_VALUE',
+ *   RotationLambdaARN: 'STRING_VALUE',
  *   RotationRules: { // RotationRulesType
- *     AutomaticallyAfterDays: Number("long"),
- *     Duration: "STRING_VALUE",
- *     ScheduleExpression: "STRING_VALUE",
+ *     AutomaticallyAfterDays: Number('long'),
+ *     Duration: 'STRING_VALUE',
+ *     ScheduleExpression: 'STRING_VALUE',
  *   },
  *   RotateImmediately: true || false,
  * };
  * const command = new RotateSecretCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // RotateSecretResponse
+ *   ARN: 'STRING_VALUE',
+ *   Name: 'STRING_VALUE',
+ *   VersionId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param RotateSecretCommandInput - {@link RotateSecretCommandInput}
@@ -102,6 +109,8 @@ export interface RotateSecretCommandOutput extends RotateSecretResponse, __Metad
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Secrets Manager can't find the resource that you asked for.</p>
  *
+ * @throws {@link SecretsManagerServiceException}
+ * <p>Base exception class for all service exceptions from SecretsManager service.</p>
  *
  * @example To configure rotation for a secret
  * ```javascript

@@ -41,14 +41,19 @@ export interface DeleteReportDefinitionCommandOutput extends DeleteReportDefinit
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ApplicationCostProfilerClient, DeleteReportDefinitionCommand } from "@aws-sdk/client-applicationcostprofiler"; // ES Modules import
- * // const { ApplicationCostProfilerClient, DeleteReportDefinitionCommand } = require("@aws-sdk/client-applicationcostprofiler"); // CommonJS import
+ * import { ApplicationCostProfilerClient, DeleteReportDefinitionCommand } from '@aws-sdk/client-applicationcostprofiler'; // ES Modules import
+ * // const { ApplicationCostProfilerClient, DeleteReportDefinitionCommand } = require('@aws-sdk/client-applicationcostprofiler'); // CommonJS import
  * const client = new ApplicationCostProfilerClient(config);
  * const input = { // DeleteReportDefinitionRequest
- *   reportId: "STRING_VALUE", // required
+ *   reportId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteReportDefinitionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteReportDefinitionResult
+ *   reportId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DeleteReportDefinitionCommandInput - {@link DeleteReportDefinitionCommandInput}
@@ -69,6 +74,8 @@ export interface DeleteReportDefinitionCommandOutput extends DeleteReportDefinit
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints for the API.</p>
  *
+ * @throws {@link ApplicationCostProfilerServiceException}
+ * <p>Base exception class for all service exceptions from ApplicationCostProfiler service.</p>
  *
  */
 export class DeleteReportDefinitionCommand extends $Command<

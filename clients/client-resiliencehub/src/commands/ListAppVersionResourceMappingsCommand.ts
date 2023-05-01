@@ -43,17 +43,39 @@ export interface ListAppVersionResourceMappingsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ResiliencehubClient, ListAppVersionResourceMappingsCommand } from "@aws-sdk/client-resiliencehub"; // ES Modules import
- * // const { ResiliencehubClient, ListAppVersionResourceMappingsCommand } = require("@aws-sdk/client-resiliencehub"); // CommonJS import
+ * import { ResiliencehubClient, ListAppVersionResourceMappingsCommand } from '@aws-sdk/client-resiliencehub'; // ES Modules import
+ * // const { ResiliencehubClient, ListAppVersionResourceMappingsCommand } = require('@aws-sdk/client-resiliencehub'); // CommonJS import
  * const client = new ResiliencehubClient(config);
  * const input = { // ListAppVersionResourceMappingsRequest
- *   appArn: "STRING_VALUE", // required
- *   appVersion: "STRING_VALUE", // required
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   appArn: 'STRING_VALUE', // required
+ *   appVersion: 'STRING_VALUE', // required
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new ListAppVersionResourceMappingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListAppVersionResourceMappingsResponse
+ *   resourceMappings: [ // ResourceMappingList // required
+ *     { // ResourceMapping
+ *       resourceName: 'STRING_VALUE',
+ *       logicalStackName: 'STRING_VALUE',
+ *       appRegistryAppName: 'STRING_VALUE',
+ *       resourceGroupName: 'STRING_VALUE',
+ *       mappingType: 'STRING_VALUE', // required
+ *       physicalResourceId: { // PhysicalResourceId
+ *         identifier: 'STRING_VALUE', // required
+ *         type: 'STRING_VALUE', // required
+ *         awsRegion: 'STRING_VALUE',
+ *         awsAccountId: 'STRING_VALUE',
+ *       },
+ *       terraformSourceName: 'STRING_VALUE',
+ *       eksSourceName: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListAppVersionResourceMappingsCommandInput - {@link ListAppVersionResourceMappingsCommandInput}
@@ -80,6 +102,8 @@ export interface ListAppVersionResourceMappingsCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>This exception occurs when a request is not valid.</p>
  *
+ * @throws {@link ResiliencehubServiceException}
+ * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
  */
 export class ListAppVersionResourceMappingsCommand extends $Command<

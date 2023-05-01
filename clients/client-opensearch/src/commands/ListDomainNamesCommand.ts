@@ -37,14 +37,24 @@ export interface ListDomainNamesCommandOutput extends ListDomainNamesResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OpenSearchClient, ListDomainNamesCommand } from "@aws-sdk/client-opensearch"; // ES Modules import
- * // const { OpenSearchClient, ListDomainNamesCommand } = require("@aws-sdk/client-opensearch"); // CommonJS import
+ * import { OpenSearchClient, ListDomainNamesCommand } from '@aws-sdk/client-opensearch'; // ES Modules import
+ * // const { OpenSearchClient, ListDomainNamesCommand } = require('@aws-sdk/client-opensearch'); // CommonJS import
  * const client = new OpenSearchClient(config);
  * const input = { // ListDomainNamesRequest
- *   EngineType: "OpenSearch" || "Elasticsearch",
+ *   EngineType: 'OpenSearch' || 'Elasticsearch',
  * };
  * const command = new ListDomainNamesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListDomainNamesResponse
+ *   DomainNames: [ // DomainInfoList
+ *     { // DomainInfo
+ *       DomainName: 'STRING_VALUE',
+ *       EngineType: 'OpenSearch' || 'Elasticsearch',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListDomainNamesCommandInput - {@link ListDomainNamesCommandInput}
@@ -59,6 +69,8 @@ export interface ListDomainNamesCommandOutput extends ListDomainNamesResponse, _
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception for accessing or deleting a resource that doesn't exist.</p>
  *
+ * @throws {@link OpenSearchServiceException}
+ * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
  */
 export class ListDomainNamesCommand extends $Command<

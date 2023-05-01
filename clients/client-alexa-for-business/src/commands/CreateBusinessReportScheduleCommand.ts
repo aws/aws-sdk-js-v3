@@ -42,30 +42,35 @@ export interface CreateBusinessReportScheduleCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AlexaForBusinessClient, CreateBusinessReportScheduleCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
- * // const { AlexaForBusinessClient, CreateBusinessReportScheduleCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
+ * import { AlexaForBusinessClient, CreateBusinessReportScheduleCommand } from '@aws-sdk/client-alexa-for-business'; // ES Modules import
+ * // const { AlexaForBusinessClient, CreateBusinessReportScheduleCommand } = require('@aws-sdk/client-alexa-for-business'); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
  * const input = { // CreateBusinessReportScheduleRequest
- *   ScheduleName: "STRING_VALUE",
- *   S3BucketName: "STRING_VALUE",
- *   S3KeyPrefix: "STRING_VALUE",
- *   Format: "STRING_VALUE", // required
+ *   ScheduleName: 'STRING_VALUE',
+ *   S3BucketName: 'STRING_VALUE',
+ *   S3KeyPrefix: 'STRING_VALUE',
+ *   Format: 'STRING_VALUE', // required
  *   ContentRange: { // BusinessReportContentRange
- *     Interval: "STRING_VALUE", // required
+ *     Interval: 'STRING_VALUE', // required
  *   },
  *   Recurrence: { // BusinessReportRecurrence
- *     StartDate: "STRING_VALUE",
+ *     StartDate: 'STRING_VALUE',
  *   },
- *   ClientRequestToken: "STRING_VALUE",
+ *   ClientRequestToken: 'STRING_VALUE',
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreateBusinessReportScheduleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateBusinessReportScheduleResponse
+ *   ScheduleArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateBusinessReportScheduleCommandInput - {@link CreateBusinessReportScheduleCommandInput}
@@ -77,6 +82,8 @@ export interface CreateBusinessReportScheduleCommandOutput
  * @throws {@link AlreadyExistsException} (client fault)
  *  <p>The resource being created already exists.</p>
  *
+ * @throws {@link AlexaForBusinessServiceException}
+ * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  */
 export class CreateBusinessReportScheduleCommand extends $Command<

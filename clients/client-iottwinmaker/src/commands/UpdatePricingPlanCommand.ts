@@ -36,17 +36,47 @@ export interface UpdatePricingPlanCommandOutput extends UpdatePricingPlanRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTTwinMakerClient, UpdatePricingPlanCommand } from "@aws-sdk/client-iottwinmaker"; // ES Modules import
- * // const { IoTTwinMakerClient, UpdatePricingPlanCommand } = require("@aws-sdk/client-iottwinmaker"); // CommonJS import
+ * import { IoTTwinMakerClient, UpdatePricingPlanCommand } from '@aws-sdk/client-iottwinmaker'; // ES Modules import
+ * // const { IoTTwinMakerClient, UpdatePricingPlanCommand } = require('@aws-sdk/client-iottwinmaker'); // CommonJS import
  * const client = new IoTTwinMakerClient(config);
  * const input = { // UpdatePricingPlanRequest
- *   pricingMode: "STRING_VALUE", // required
+ *   pricingMode: 'STRING_VALUE', // required
  *   bundleNames: [ // PricingBundles
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new UpdatePricingPlanCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdatePricingPlanResponse
+ *   currentPricingPlan: { // PricingPlan
+ *     billableEntityCount: Number('long'),
+ *     bundleInformation: { // BundleInformation
+ *       bundleNames: [ // PricingBundles // required
+ *         'STRING_VALUE',
+ *       ],
+ *       pricingTier: 'STRING_VALUE',
+ *     },
+ *     effectiveDateTime: new Date('TIMESTAMP'), // required
+ *     pricingMode: 'STRING_VALUE', // required
+ *     updateDateTime: new Date('TIMESTAMP'), // required
+ *     updateReason: 'STRING_VALUE', // required
+ *   },
+ *   pendingPricingPlan: {
+ *     billableEntityCount: Number('long'),
+ *     bundleInformation: {
+ *       bundleNames: [ // required
+ *         'STRING_VALUE',
+ *       ],
+ *       pricingTier: 'STRING_VALUE',
+ *     },
+ *     effectiveDateTime: new Date('TIMESTAMP'), // required
+ *     pricingMode: 'STRING_VALUE', // required
+ *     updateDateTime: new Date('TIMESTAMP'), // required
+ *     updateReason: 'STRING_VALUE', // required
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdatePricingPlanCommandInput - {@link UpdatePricingPlanCommandInput}
@@ -67,6 +97,8 @@ export interface UpdatePricingPlanCommandOutput extends UpdatePricingPlanRespons
  * @throws {@link ValidationException} (client fault)
  *  <p>Failed</p>
  *
+ * @throws {@link IoTTwinMakerServiceException}
+ * <p>Base exception class for all service exceptions from IoTTwinMaker service.</p>
  *
  */
 export class UpdatePricingPlanCommand extends $Command<

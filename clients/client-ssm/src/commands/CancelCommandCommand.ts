@@ -37,17 +37,20 @@ export interface CancelCommandCommandOutput extends CancelCommandResult, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMClient, CancelCommandCommand } from "@aws-sdk/client-ssm"; // ES Modules import
- * // const { SSMClient, CancelCommandCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * import { SSMClient, CancelCommandCommand } from '@aws-sdk/client-ssm'; // ES Modules import
+ * // const { SSMClient, CancelCommandCommand } = require('@aws-sdk/client-ssm'); // CommonJS import
  * const client = new SSMClient(config);
  * const input = { // CancelCommandRequest
- *   CommandId: "STRING_VALUE", // required
+ *   CommandId: 'STRING_VALUE', // required
  *   InstanceIds: [ // InstanceIdList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new CancelCommandCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param CancelCommandCommandInput - {@link CancelCommandCommandInput}
@@ -85,6 +88,8 @@ export interface CancelCommandCommandOutput extends CancelCommandResult, __Metad
  *             </li>
  *          </ul>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class CancelCommandCommand extends $Command<

@@ -39,21 +39,24 @@ export interface CreateDedicatedIpPoolCommandOutput extends CreateDedicatedIpPoo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SESv2Client, CreateDedicatedIpPoolCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
- * // const { SESv2Client, CreateDedicatedIpPoolCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
+ * import { SESv2Client, CreateDedicatedIpPoolCommand } from '@aws-sdk/client-sesv2'; // ES Modules import
+ * // const { SESv2Client, CreateDedicatedIpPoolCommand } = require('@aws-sdk/client-sesv2'); // CommonJS import
  * const client = new SESv2Client(config);
  * const input = { // CreateDedicatedIpPoolRequest
- *   PoolName: "STRING_VALUE", // required
+ *   PoolName: 'STRING_VALUE', // required
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
- *   ScalingMode: "STANDARD" || "MANAGED",
+ *   ScalingMode: 'STANDARD' || 'MANAGED',
  * };
  * const command = new CreateDedicatedIpPoolCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param CreateDedicatedIpPoolCommandInput - {@link CreateDedicatedIpPoolCommandInput}
@@ -77,6 +80,8 @@ export interface CreateDedicatedIpPoolCommandOutput extends CreateDedicatedIpPoo
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Too many requests have been made to the operation.</p>
  *
+ * @throws {@link SESv2ServiceException}
+ * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
  */
 export class CreateDedicatedIpPoolCommand extends $Command<

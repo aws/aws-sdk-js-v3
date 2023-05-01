@@ -36,14 +36,20 @@ export interface PublishAppVersionCommandOutput extends PublishAppVersionRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ResiliencehubClient, PublishAppVersionCommand } from "@aws-sdk/client-resiliencehub"; // ES Modules import
- * // const { ResiliencehubClient, PublishAppVersionCommand } = require("@aws-sdk/client-resiliencehub"); // CommonJS import
+ * import { ResiliencehubClient, PublishAppVersionCommand } from '@aws-sdk/client-resiliencehub'; // ES Modules import
+ * // const { ResiliencehubClient, PublishAppVersionCommand } = require('@aws-sdk/client-resiliencehub'); // CommonJS import
  * const client = new ResiliencehubClient(config);
  * const input = { // PublishAppVersionRequest
- *   appArn: "STRING_VALUE", // required
+ *   appArn: 'STRING_VALUE', // required
  * };
  * const command = new PublishAppVersionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PublishAppVersionResponse
+ *   appArn: 'STRING_VALUE', // required
+ *   appVersion: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param PublishAppVersionCommandInput - {@link PublishAppVersionCommandInput}
@@ -76,6 +82,8 @@ export interface PublishAppVersionCommandOutput extends PublishAppVersionRespons
  * @throws {@link ValidationException} (client fault)
  *  <p>This exception occurs when a request is not valid.</p>
  *
+ * @throws {@link ResiliencehubServiceException}
+ * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
  */
 export class PublishAppVersionCommand extends $Command<

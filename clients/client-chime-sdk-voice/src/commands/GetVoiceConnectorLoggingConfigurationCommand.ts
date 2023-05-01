@@ -46,14 +46,22 @@ export interface GetVoiceConnectorLoggingConfigurationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeSDKVoiceClient, GetVoiceConnectorLoggingConfigurationCommand } from "@aws-sdk/client-chime-sdk-voice"; // ES Modules import
- * // const { ChimeSDKVoiceClient, GetVoiceConnectorLoggingConfigurationCommand } = require("@aws-sdk/client-chime-sdk-voice"); // CommonJS import
+ * import { ChimeSDKVoiceClient, GetVoiceConnectorLoggingConfigurationCommand } from '@aws-sdk/client-chime-sdk-voice'; // ES Modules import
+ * // const { ChimeSDKVoiceClient, GetVoiceConnectorLoggingConfigurationCommand } = require('@aws-sdk/client-chime-sdk-voice'); // CommonJS import
  * const client = new ChimeSDKVoiceClient(config);
  * const input = { // GetVoiceConnectorLoggingConfigurationRequest
- *   VoiceConnectorId: "STRING_VALUE", // required
+ *   VoiceConnectorId: 'STRING_VALUE', // required
  * };
  * const command = new GetVoiceConnectorLoggingConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetVoiceConnectorLoggingConfigurationResponse
+ *   LoggingConfiguration: { // LoggingConfiguration
+ *     EnableSIPLogs: true || false,
+ *     EnableMediaMetricLogs: true || false,
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetVoiceConnectorLoggingConfigurationCommandInput - {@link GetVoiceConnectorLoggingConfigurationCommandInput}
@@ -83,6 +91,8 @@ export interface GetVoiceConnectorLoggingConfigurationCommandOutput
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client isn't authorized to request a resource.</p>
  *
+ * @throws {@link ChimeSDKVoiceServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
  */
 export class GetVoiceConnectorLoggingConfigurationCommand extends $Command<

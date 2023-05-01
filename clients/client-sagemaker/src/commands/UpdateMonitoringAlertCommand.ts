@@ -36,17 +36,23 @@ export interface UpdateMonitoringAlertCommandOutput extends UpdateMonitoringAler
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, UpdateMonitoringAlertCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, UpdateMonitoringAlertCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, UpdateMonitoringAlertCommand } from '@aws-sdk/client-sagemaker'; // ES Modules import
+ * // const { SageMakerClient, UpdateMonitoringAlertCommand } = require('@aws-sdk/client-sagemaker'); // CommonJS import
  * const client = new SageMakerClient(config);
  * const input = { // UpdateMonitoringAlertRequest
- *   MonitoringScheduleName: "STRING_VALUE", // required
- *   MonitoringAlertName: "STRING_VALUE", // required
- *   DatapointsToAlert: Number("int"), // required
- *   EvaluationPeriod: Number("int"), // required
+ *   MonitoringScheduleName: 'STRING_VALUE', // required
+ *   MonitoringAlertName: 'STRING_VALUE', // required
+ *   DatapointsToAlert: Number('int'), // required
+ *   EvaluationPeriod: Number('int'), // required
  * };
  * const command = new UpdateMonitoringAlertCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateMonitoringAlertResponse
+ *   MonitoringScheduleArn: 'STRING_VALUE', // required
+ *   MonitoringAlertName: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateMonitoringAlertCommandInput - {@link UpdateMonitoringAlertCommandInput}
@@ -62,6 +68,8 @@ export interface UpdateMonitoringAlertCommandOutput extends UpdateMonitoringAler
  * @throws {@link ResourceNotFound} (client fault)
  *  <p>Resource being access is not found.</p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class UpdateMonitoringAlertCommand extends $Command<

@@ -36,24 +36,50 @@ export interface CreateDBSubnetGroupCommandOutput extends CreateDBSubnetGroupRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RDSClient, CreateDBSubnetGroupCommand } from "@aws-sdk/client-rds"; // ES Modules import
- * // const { RDSClient, CreateDBSubnetGroupCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * import { RDSClient, CreateDBSubnetGroupCommand } from '@aws-sdk/client-rds'; // ES Modules import
+ * // const { RDSClient, CreateDBSubnetGroupCommand } = require('@aws-sdk/client-rds'); // CommonJS import
  * const client = new RDSClient(config);
  * const input = { // CreateDBSubnetGroupMessage
- *   DBSubnetGroupName: "STRING_VALUE", // required
- *   DBSubnetGroupDescription: "STRING_VALUE", // required
+ *   DBSubnetGroupName: 'STRING_VALUE', // required
+ *   DBSubnetGroupDescription: 'STRING_VALUE', // required
  *   SubnetIds: [ // SubnetIdentifierList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE",
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new CreateDBSubnetGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateDBSubnetGroupResult
+ *   DBSubnetGroup: { // DBSubnetGroup
+ *     DBSubnetGroupName: 'STRING_VALUE',
+ *     DBSubnetGroupDescription: 'STRING_VALUE',
+ *     VpcId: 'STRING_VALUE',
+ *     SubnetGroupStatus: 'STRING_VALUE',
+ *     Subnets: [ // SubnetList
+ *       { // Subnet
+ *         SubnetIdentifier: 'STRING_VALUE',
+ *         SubnetAvailabilityZone: { // AvailabilityZone
+ *           Name: 'STRING_VALUE',
+ *         },
+ *         SubnetOutpost: { // Outpost
+ *           Arn: 'STRING_VALUE',
+ *         },
+ *         SubnetStatus: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     DBSubnetGroupArn: 'STRING_VALUE',
+ *     SupportedNetworkTypes: [ // StringList
+ *       'STRING_VALUE',
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateDBSubnetGroupCommandInput - {@link CreateDBSubnetGroupCommandInput}
@@ -80,6 +106,8 @@ export interface CreateDBSubnetGroupCommandOutput extends CreateDBSubnetGroupRes
  * @throws {@link InvalidSubnet} (client fault)
  *  <p>The requested subnet is invalid, or multiple subnets were requested that are not all in a common VPC.</p>
  *
+ * @throws {@link RDSServiceException}
+ * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  * @example To create a DB subnet group
  * ```javascript

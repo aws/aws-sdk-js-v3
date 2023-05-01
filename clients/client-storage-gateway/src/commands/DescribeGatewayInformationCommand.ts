@@ -38,14 +38,52 @@ export interface DescribeGatewayInformationCommandOutput extends DescribeGateway
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { StorageGatewayClient, DescribeGatewayInformationCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
- * // const { StorageGatewayClient, DescribeGatewayInformationCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
+ * import { StorageGatewayClient, DescribeGatewayInformationCommand } from '@aws-sdk/client-storage-gateway'; // ES Modules import
+ * // const { StorageGatewayClient, DescribeGatewayInformationCommand } = require('@aws-sdk/client-storage-gateway'); // CommonJS import
  * const client = new StorageGatewayClient(config);
  * const input = { // DescribeGatewayInformationInput
- *   GatewayARN: "STRING_VALUE", // required
+ *   GatewayARN: 'STRING_VALUE', // required
  * };
  * const command = new DescribeGatewayInformationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeGatewayInformationOutput
+ *   GatewayARN: 'STRING_VALUE',
+ *   GatewayId: 'STRING_VALUE',
+ *   GatewayName: 'STRING_VALUE',
+ *   GatewayTimezone: 'STRING_VALUE',
+ *   GatewayState: 'STRING_VALUE',
+ *   GatewayNetworkInterfaces: [ // GatewayNetworkInterfaces
+ *     { // NetworkInterface
+ *       Ipv4Address: 'STRING_VALUE',
+ *       MacAddress: 'STRING_VALUE',
+ *       Ipv6Address: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   GatewayType: 'STRING_VALUE',
+ *   NextUpdateAvailabilityDate: 'STRING_VALUE',
+ *   LastSoftwareUpdate: 'STRING_VALUE',
+ *   Ec2InstanceId: 'STRING_VALUE',
+ *   Ec2InstanceRegion: 'STRING_VALUE',
+ *   Tags: [ // Tags
+ *     { // Tag
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ *   VPCEndpoint: 'STRING_VALUE',
+ *   CloudWatchLogGroupARN: 'STRING_VALUE',
+ *   HostEnvironment: 'STRING_VALUE',
+ *   EndpointType: 'STRING_VALUE',
+ *   SoftwareUpdatesEndDate: 'STRING_VALUE',
+ *   DeprecationDate: 'STRING_VALUE',
+ *   GatewayCapacity: 'STRING_VALUE',
+ *   SupportedGatewayCapacities: [ // SupportedGatewayCapacities
+ *     'STRING_VALUE',
+ *   ],
+ *   HostEnvironmentId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeGatewayInformationCommandInput - {@link DescribeGatewayInformationCommandInput}
@@ -62,6 +100,8 @@ export interface DescribeGatewayInformationCommandOutput extends DescribeGateway
  *  <p>An exception occurred because an invalid gateway request was issued to the service. For
  *          more information, see the error and message fields.</p>
  *
+ * @throws {@link StorageGatewayServiceException}
+ * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
  * @example To describe metadata about the gateway
  * ```javascript

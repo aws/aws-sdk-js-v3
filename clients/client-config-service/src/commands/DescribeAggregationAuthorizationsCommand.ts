@@ -45,15 +45,28 @@ export interface DescribeAggregationAuthorizationsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConfigServiceClient, DescribeAggregationAuthorizationsCommand } from "@aws-sdk/client-config-service"; // ES Modules import
- * // const { ConfigServiceClient, DescribeAggregationAuthorizationsCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
+ * import { ConfigServiceClient, DescribeAggregationAuthorizationsCommand } from '@aws-sdk/client-config-service'; // ES Modules import
+ * // const { ConfigServiceClient, DescribeAggregationAuthorizationsCommand } = require('@aws-sdk/client-config-service'); // CommonJS import
  * const client = new ConfigServiceClient(config);
  * const input = { // DescribeAggregationAuthorizationsRequest
- *   Limit: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   Limit: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new DescribeAggregationAuthorizationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeAggregationAuthorizationsResponse
+ *   AggregationAuthorizations: [ // AggregationAuthorizationList
+ *     { // AggregationAuthorization
+ *       AggregationAuthorizationArn: 'STRING_VALUE',
+ *       AuthorizedAccountId: 'STRING_VALUE',
+ *       AuthorizedAwsRegion: 'STRING_VALUE',
+ *       CreationTime: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeAggregationAuthorizationsCommandInput - {@link DescribeAggregationAuthorizationsCommandInput}
@@ -74,6 +87,8 @@ export interface DescribeAggregationAuthorizationsCommandOutput
  *  <p>One or more of the specified parameters are not valid. Verify
  * 			that your parameters are valid and try again.</p>
  *
+ * @throws {@link ConfigServiceServiceException}
+ * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
  */
 export class DescribeAggregationAuthorizationsCommand extends $Command<

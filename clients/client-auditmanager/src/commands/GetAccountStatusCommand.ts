@@ -36,12 +36,17 @@ export interface GetAccountStatusCommandOutput extends GetAccountStatusResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AuditManagerClient, GetAccountStatusCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
- * // const { AuditManagerClient, GetAccountStatusCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import
+ * import { AuditManagerClient, GetAccountStatusCommand } from '@aws-sdk/client-auditmanager'; // ES Modules import
+ * // const { AuditManagerClient, GetAccountStatusCommand } = require('@aws-sdk/client-auditmanager'); // CommonJS import
  * const client = new AuditManagerClient(config);
  * const input = {};
  * const command = new GetAccountStatusCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetAccountStatusResponse
+ *   status: 'ACTIVE' || 'INACTIVE' || 'PENDING_ACTIVATION',
+ * };
+ *
  * ```
  *
  * @param GetAccountStatusCommandInput - {@link GetAccountStatusCommandInput}
@@ -54,6 +59,8 @@ export interface GetAccountStatusCommandOutput extends GetAccountStatusResponse,
  *  <p> An internal service error occurred during the processing of your request. Try again
  *          later. </p>
  *
+ * @throws {@link AuditManagerServiceException}
+ * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
  */
 export class GetAccountStatusCommand extends $Command<

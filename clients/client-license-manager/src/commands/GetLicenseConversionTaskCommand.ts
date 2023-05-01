@@ -36,14 +36,31 @@ export interface GetLicenseConversionTaskCommandOutput extends GetLicenseConvers
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LicenseManagerClient, GetLicenseConversionTaskCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
- * // const { LicenseManagerClient, GetLicenseConversionTaskCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
+ * import { LicenseManagerClient, GetLicenseConversionTaskCommand } from '@aws-sdk/client-license-manager'; // ES Modules import
+ * // const { LicenseManagerClient, GetLicenseConversionTaskCommand } = require('@aws-sdk/client-license-manager'); // CommonJS import
  * const client = new LicenseManagerClient(config);
  * const input = { // GetLicenseConversionTaskRequest
- *   LicenseConversionTaskId: "STRING_VALUE", // required
+ *   LicenseConversionTaskId: 'STRING_VALUE', // required
  * };
  * const command = new GetLicenseConversionTaskCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetLicenseConversionTaskResponse
+ *   LicenseConversionTaskId: 'STRING_VALUE',
+ *   ResourceArn: 'STRING_VALUE',
+ *   SourceLicenseContext: { // LicenseConversionContext
+ *     UsageOperation: 'STRING_VALUE',
+ *   },
+ *   DestinationLicenseContext: {
+ *     UsageOperation: 'STRING_VALUE',
+ *   },
+ *   StatusMessage: 'STRING_VALUE',
+ *   Status: 'IN_PROGRESS' || 'SUCCEEDED' || 'FAILED',
+ *   StartTime: new Date('TIMESTAMP'),
+ *   LicenseConversionTime: new Date('TIMESTAMP'),
+ *   EndTime: new Date('TIMESTAMP'),
+ * };
+ *
  * ```
  *
  * @param GetLicenseConversionTaskCommandInput - {@link GetLicenseConversionTaskCommandInput}
@@ -68,6 +85,8 @@ export interface GetLicenseConversionTaskCommandOutput extends GetLicenseConvers
  * @throws {@link ServerInternalException} (server fault)
  *  <p>The server experienced an internal error. Try again.</p>
  *
+ * @throws {@link LicenseManagerServiceException}
+ * <p>Base exception class for all service exceptions from LicenseManager service.</p>
  *
  */
 export class GetLicenseConversionTaskCommand extends $Command<

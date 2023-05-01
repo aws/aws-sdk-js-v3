@@ -57,16 +57,21 @@ export interface StartImportLabelsTaskRunCommandOutput extends StartImportLabels
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlueClient, StartImportLabelsTaskRunCommand } from "@aws-sdk/client-glue"; // ES Modules import
- * // const { GlueClient, StartImportLabelsTaskRunCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * import { GlueClient, StartImportLabelsTaskRunCommand } from '@aws-sdk/client-glue'; // ES Modules import
+ * // const { GlueClient, StartImportLabelsTaskRunCommand } = require('@aws-sdk/client-glue'); // CommonJS import
  * const client = new GlueClient(config);
  * const input = { // StartImportLabelsTaskRunRequest
- *   TransformId: "STRING_VALUE", // required
- *   InputS3Path: "STRING_VALUE", // required
+ *   TransformId: 'STRING_VALUE', // required
+ *   InputS3Path: 'STRING_VALUE', // required
  *   ReplaceAllLabels: true || false,
  * };
  * const command = new StartImportLabelsTaskRunCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartImportLabelsTaskRunResponse
+ *   TaskRunId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param StartImportLabelsTaskRunCommandInput - {@link StartImportLabelsTaskRunCommandInput}
@@ -90,6 +95,8 @@ export interface StartImportLabelsTaskRunCommandOutput extends StartImportLabels
  * @throws {@link ResourceNumberLimitExceededException} (client fault)
  *  <p>A resource numerical limit was exceeded.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class StartImportLabelsTaskRunCommand extends $Command<

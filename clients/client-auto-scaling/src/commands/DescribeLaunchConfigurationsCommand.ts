@@ -36,18 +36,72 @@ export interface DescribeLaunchConfigurationsCommandOutput extends LaunchConfigu
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AutoScalingClient, DescribeLaunchConfigurationsCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
- * // const { AutoScalingClient, DescribeLaunchConfigurationsCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
+ * import { AutoScalingClient, DescribeLaunchConfigurationsCommand } from '@aws-sdk/client-auto-scaling'; // ES Modules import
+ * // const { AutoScalingClient, DescribeLaunchConfigurationsCommand } = require('@aws-sdk/client-auto-scaling'); // CommonJS import
  * const client = new AutoScalingClient(config);
  * const input = { // LaunchConfigurationNamesType
  *   LaunchConfigurationNames: [ // LaunchConfigurationNames
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   NextToken: "STRING_VALUE",
- *   MaxRecords: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxRecords: Number('int'),
  * };
  * const command = new DescribeLaunchConfigurationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // LaunchConfigurationsType
+ *   LaunchConfigurations: [ // LaunchConfigurations // required
+ *     { // LaunchConfiguration
+ *       LaunchConfigurationName: 'STRING_VALUE', // required
+ *       LaunchConfigurationARN: 'STRING_VALUE',
+ *       ImageId: 'STRING_VALUE', // required
+ *       KeyName: 'STRING_VALUE',
+ *       SecurityGroups: [ // SecurityGroups
+ *         'STRING_VALUE',
+ *       ],
+ *       ClassicLinkVPCId: 'STRING_VALUE',
+ *       ClassicLinkVPCSecurityGroups: [ // ClassicLinkVPCSecurityGroups
+ *         'STRING_VALUE',
+ *       ],
+ *       UserData: 'STRING_VALUE',
+ *       InstanceType: 'STRING_VALUE', // required
+ *       KernelId: 'STRING_VALUE',
+ *       RamdiskId: 'STRING_VALUE',
+ *       BlockDeviceMappings: [ // BlockDeviceMappings
+ *         { // BlockDeviceMapping
+ *           VirtualName: 'STRING_VALUE',
+ *           DeviceName: 'STRING_VALUE', // required
+ *           Ebs: { // Ebs
+ *             SnapshotId: 'STRING_VALUE',
+ *             VolumeSize: Number('int'),
+ *             VolumeType: 'STRING_VALUE',
+ *             DeleteOnTermination: true || false,
+ *             Iops: Number('int'),
+ *             Encrypted: true || false,
+ *             Throughput: Number('int'),
+ *           },
+ *           NoDevice: true || false,
+ *         },
+ *       ],
+ *       InstanceMonitoring: { // InstanceMonitoring
+ *         Enabled: true || false,
+ *       },
+ *       SpotPrice: 'STRING_VALUE',
+ *       IamInstanceProfile: 'STRING_VALUE',
+ *       CreatedTime: new Date('TIMESTAMP'), // required
+ *       EbsOptimized: true || false,
+ *       AssociatePublicIpAddress: true || false,
+ *       PlacementTenancy: 'STRING_VALUE',
+ *       MetadataOptions: { // InstanceMetadataOptions
+ *         HttpTokens: 'optional' || 'required',
+ *         HttpPutResponseHopLimit: Number('int'),
+ *         HttpEndpoint: 'disabled' || 'enabled',
+ *       },
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeLaunchConfigurationsCommandInput - {@link DescribeLaunchConfigurationsCommandInput}
@@ -63,6 +117,8 @@ export interface DescribeLaunchConfigurationsCommandOutput extends LaunchConfigu
  *  <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group,
  *             instance, or load balancer).</p>
  *
+ * @throws {@link AutoScalingServiceException}
+ * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
  * @example To describe Auto Scaling launch configurations
  * ```javascript

@@ -36,16 +36,49 @@ export interface GetModelVersionCommandOutput extends GetModelVersionResult, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FraudDetectorClient, GetModelVersionCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
- * // const { FraudDetectorClient, GetModelVersionCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
+ * import { FraudDetectorClient, GetModelVersionCommand } from '@aws-sdk/client-frauddetector'; // ES Modules import
+ * // const { FraudDetectorClient, GetModelVersionCommand } = require('@aws-sdk/client-frauddetector'); // CommonJS import
  * const client = new FraudDetectorClient(config);
  * const input = { // GetModelVersionRequest
- *   modelId: "STRING_VALUE", // required
- *   modelType: "ONLINE_FRAUD_INSIGHTS" || "TRANSACTION_FRAUD_INSIGHTS" || "ACCOUNT_TAKEOVER_INSIGHTS", // required
- *   modelVersionNumber: "STRING_VALUE", // required
+ *   modelId: 'STRING_VALUE', // required
+ *   modelType: 'ONLINE_FRAUD_INSIGHTS' || 'TRANSACTION_FRAUD_INSIGHTS' || 'ACCOUNT_TAKEOVER_INSIGHTS', // required
+ *   modelVersionNumber: 'STRING_VALUE', // required
  * };
  * const command = new GetModelVersionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetModelVersionResult
+ *   modelId: 'STRING_VALUE',
+ *   modelType: 'ONLINE_FRAUD_INSIGHTS' || 'TRANSACTION_FRAUD_INSIGHTS' || 'ACCOUNT_TAKEOVER_INSIGHTS',
+ *   modelVersionNumber: 'STRING_VALUE',
+ *   trainingDataSource: 'EXTERNAL_EVENTS' || 'INGESTED_EVENTS',
+ *   trainingDataSchema: { // TrainingDataSchema
+ *     modelVariables: [ // ListOfStrings // required
+ *       'STRING_VALUE',
+ *     ],
+ *     labelSchema: { // LabelSchema
+ *       labelMapper: { // labelMapper
+ *         '<keys>': [
+ *           'STRING_VALUE',
+ *         ],
+ *       },
+ *       unlabeledEventsTreatment: 'IGNORE' || 'FRAUD' || 'LEGIT' || 'AUTO',
+ *     },
+ *   },
+ *   externalEventsDetail: { // ExternalEventsDetail
+ *     dataLocation: 'STRING_VALUE', // required
+ *     dataAccessRoleArn: 'STRING_VALUE', // required
+ *   },
+ *   ingestedEventsDetail: { // IngestedEventsDetail
+ *     ingestedEventsTimeWindow: { // IngestedEventsTimeWindow
+ *       startTime: 'STRING_VALUE', // required
+ *       endTime: 'STRING_VALUE', // required
+ *     },
+ *   },
+ *   status: 'STRING_VALUE',
+ *   arn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetModelVersionCommandInput - {@link GetModelVersionCommandInput}
@@ -69,6 +102,8 @@ export interface GetModelVersionCommandOutput extends GetModelVersionResult, __M
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception indicating a specified value is not allowed.</p>
  *
+ * @throws {@link FraudDetectorServiceException}
+ * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
  */
 export class GetModelVersionCommand extends $Command<

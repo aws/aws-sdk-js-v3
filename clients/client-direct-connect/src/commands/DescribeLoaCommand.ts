@@ -39,16 +39,22 @@ export interface DescribeLoaCommandOutput extends Loa, __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DirectConnectClient, DescribeLoaCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
- * // const { DirectConnectClient, DescribeLoaCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
+ * import { DirectConnectClient, DescribeLoaCommand } from '@aws-sdk/client-direct-connect'; // ES Modules import
+ * // const { DirectConnectClient, DescribeLoaCommand } = require('@aws-sdk/client-direct-connect'); // CommonJS import
  * const client = new DirectConnectClient(config);
  * const input = { // DescribeLoaRequest
- *   connectionId: "STRING_VALUE", // required
- *   providerName: "STRING_VALUE",
- *   loaContentType: "application/pdf",
+ *   connectionId: 'STRING_VALUE', // required
+ *   providerName: 'STRING_VALUE',
+ *   loaContentType: 'application/pdf',
  * };
  * const command = new DescribeLoaCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // Loa
+ *   loaContent: 'BLOB_VALUE',
+ *   loaContentType: 'application/pdf',
+ * };
+ *
  * ```
  *
  * @param DescribeLoaCommandInput - {@link DescribeLoaCommandInput}
@@ -63,6 +69,8 @@ export interface DescribeLoaCommandOutput extends Loa, __MetadataBearer {}
  * @throws {@link DirectConnectServerException} (server fault)
  *  <p>A server-side error occurred.</p>
  *
+ * @throws {@link DirectConnectServiceException}
+ * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
  */
 export class DescribeLoaCommand extends $Command<

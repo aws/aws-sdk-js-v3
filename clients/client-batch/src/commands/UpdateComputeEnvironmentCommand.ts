@@ -36,58 +36,64 @@ export interface UpdateComputeEnvironmentCommandOutput extends UpdateComputeEnvi
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BatchClient, UpdateComputeEnvironmentCommand } from "@aws-sdk/client-batch"; // ES Modules import
- * // const { BatchClient, UpdateComputeEnvironmentCommand } = require("@aws-sdk/client-batch"); // CommonJS import
+ * import { BatchClient, UpdateComputeEnvironmentCommand } from '@aws-sdk/client-batch'; // ES Modules import
+ * // const { BatchClient, UpdateComputeEnvironmentCommand } = require('@aws-sdk/client-batch'); // CommonJS import
  * const client = new BatchClient(config);
  * const input = { // UpdateComputeEnvironmentRequest
- *   computeEnvironment: "STRING_VALUE", // required
- *   state: "ENABLED" || "DISABLED",
- *   unmanagedvCpus: Number("int"),
+ *   computeEnvironment: 'STRING_VALUE', // required
+ *   state: 'ENABLED' || 'DISABLED',
+ *   unmanagedvCpus: Number('int'),
  *   computeResources: { // ComputeResourceUpdate
- *     minvCpus: Number("int"),
- *     maxvCpus: Number("int"),
- *     desiredvCpus: Number("int"),
+ *     minvCpus: Number('int'),
+ *     maxvCpus: Number('int'),
+ *     desiredvCpus: Number('int'),
  *     subnets: [ // StringList
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     securityGroupIds: [
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
- *     allocationStrategy: "BEST_FIT_PROGRESSIVE" || "SPOT_CAPACITY_OPTIMIZED",
+ *     allocationStrategy: 'BEST_FIT_PROGRESSIVE' || 'SPOT_CAPACITY_OPTIMIZED',
  *     instanceTypes: [
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
- *     ec2KeyPair: "STRING_VALUE",
- *     instanceRole: "STRING_VALUE",
+ *     ec2KeyPair: 'STRING_VALUE',
+ *     instanceRole: 'STRING_VALUE',
  *     tags: { // TagsMap
- *       "<keys>": "STRING_VALUE",
+ *       '<keys>': 'STRING_VALUE',
  *     },
- *     placementGroup: "STRING_VALUE",
- *     bidPercentage: Number("int"),
+ *     placementGroup: 'STRING_VALUE',
+ *     bidPercentage: Number('int'),
  *     launchTemplate: { // LaunchTemplateSpecification
- *       launchTemplateId: "STRING_VALUE",
- *       launchTemplateName: "STRING_VALUE",
- *       version: "STRING_VALUE",
+ *       launchTemplateId: 'STRING_VALUE',
+ *       launchTemplateName: 'STRING_VALUE',
+ *       version: 'STRING_VALUE',
  *     },
  *     ec2Configuration: [ // Ec2ConfigurationList
  *       { // Ec2Configuration
- *         imageType: "STRING_VALUE", // required
- *         imageIdOverride: "STRING_VALUE",
- *         imageKubernetesVersion: "STRING_VALUE",
+ *         imageType: 'STRING_VALUE', // required
+ *         imageIdOverride: 'STRING_VALUE',
+ *         imageKubernetesVersion: 'STRING_VALUE',
  *       },
  *     ],
  *     updateToLatestImageVersion: true || false,
- *     type: "EC2" || "SPOT" || "FARGATE" || "FARGATE_SPOT",
- *     imageId: "STRING_VALUE",
+ *     type: 'EC2' || 'SPOT' || 'FARGATE' || 'FARGATE_SPOT',
+ *     imageId: 'STRING_VALUE',
  *   },
- *   serviceRole: "STRING_VALUE",
+ *   serviceRole: 'STRING_VALUE',
  *   updatePolicy: { // UpdatePolicy
  *     terminateJobsOnUpdate: true || false,
- *     jobExecutionTimeoutMinutes: Number("long"),
+ *     jobExecutionTimeoutMinutes: Number('long'),
  *   },
  * };
  * const command = new UpdateComputeEnvironmentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateComputeEnvironmentResponse
+ *   computeEnvironmentName: 'STRING_VALUE',
+ *   computeEnvironmentArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateComputeEnvironmentCommandInput - {@link UpdateComputeEnvironmentCommandInput}
@@ -104,6 +110,8 @@ export interface UpdateComputeEnvironmentCommandOutput extends UpdateComputeEnvi
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server issue.</p>
  *
+ * @throws {@link BatchServiceException}
+ * <p>Base exception class for all service exceptions from Batch service.</p>
  *
  * @example To update a compute environment
  * ```javascript

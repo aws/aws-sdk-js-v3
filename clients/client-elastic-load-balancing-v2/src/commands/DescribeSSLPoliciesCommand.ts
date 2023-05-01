@@ -42,19 +42,41 @@ export interface DescribeSSLPoliciesCommandOutput extends DescribeSSLPoliciesOut
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElasticLoadBalancingV2Client, DescribeSSLPoliciesCommand } from "@aws-sdk/client-elastic-load-balancing-v2"; // ES Modules import
- * // const { ElasticLoadBalancingV2Client, DescribeSSLPoliciesCommand } = require("@aws-sdk/client-elastic-load-balancing-v2"); // CommonJS import
+ * import { ElasticLoadBalancingV2Client, DescribeSSLPoliciesCommand } from '@aws-sdk/client-elastic-load-balancing-v2'; // ES Modules import
+ * // const { ElasticLoadBalancingV2Client, DescribeSSLPoliciesCommand } = require('@aws-sdk/client-elastic-load-balancing-v2'); // CommonJS import
  * const client = new ElasticLoadBalancingV2Client(config);
  * const input = { // DescribeSSLPoliciesInput
  *   Names: [ // SslPolicyNames
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   Marker: "STRING_VALUE",
- *   PageSize: Number("int"),
- *   LoadBalancerType: "application" || "network" || "gateway",
+ *   Marker: 'STRING_VALUE',
+ *   PageSize: Number('int'),
+ *   LoadBalancerType: 'application' || 'network' || 'gateway',
  * };
  * const command = new DescribeSSLPoliciesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeSSLPoliciesOutput
+ *   SslPolicies: [ // SslPolicies
+ *     { // SslPolicy
+ *       SslProtocols: [ // SslProtocols
+ *         'STRING_VALUE',
+ *       ],
+ *       Ciphers: [ // Ciphers
+ *         { // Cipher
+ *           Name: 'STRING_VALUE',
+ *           Priority: Number('int'),
+ *         },
+ *       ],
+ *       Name: 'STRING_VALUE',
+ *       SupportedLoadBalancerTypes: [ // ListOfString
+ *         'STRING_VALUE',
+ *       ],
+ *     },
+ *   ],
+ *   NextMarker: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeSSLPoliciesCommandInput - {@link DescribeSSLPoliciesCommandInput}
@@ -66,6 +88,8 @@ export interface DescribeSSLPoliciesCommandOutput extends DescribeSSLPoliciesOut
  * @throws {@link SSLPolicyNotFoundException} (client fault)
  *  <p>The specified SSL policy does not exist.</p>
  *
+ * @throws {@link ElasticLoadBalancingV2ServiceException}
+ * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
  * @example To describe a policy used for SSL negotiation
  * ```javascript

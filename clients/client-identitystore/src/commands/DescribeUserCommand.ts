@@ -36,15 +36,70 @@ export interface DescribeUserCommandOutput extends DescribeUserResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IdentitystoreClient, DescribeUserCommand } from "@aws-sdk/client-identitystore"; // ES Modules import
- * // const { IdentitystoreClient, DescribeUserCommand } = require("@aws-sdk/client-identitystore"); // CommonJS import
+ * import { IdentitystoreClient, DescribeUserCommand } from '@aws-sdk/client-identitystore'; // ES Modules import
+ * // const { IdentitystoreClient, DescribeUserCommand } = require('@aws-sdk/client-identitystore'); // CommonJS import
  * const client = new IdentitystoreClient(config);
  * const input = { // DescribeUserRequest
- *   IdentityStoreId: "STRING_VALUE", // required
- *   UserId: "STRING_VALUE", // required
+ *   IdentityStoreId: 'STRING_VALUE', // required
+ *   UserId: 'STRING_VALUE', // required
  * };
  * const command = new DescribeUserCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeUserResponse
+ *   UserName: 'STRING_VALUE',
+ *   UserId: 'STRING_VALUE', // required
+ *   ExternalIds: [ // ExternalIds
+ *     { // ExternalId
+ *       Issuer: 'STRING_VALUE', // required
+ *       Id: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ *   Name: { // Name
+ *     Formatted: 'STRING_VALUE',
+ *     FamilyName: 'STRING_VALUE',
+ *     GivenName: 'STRING_VALUE',
+ *     MiddleName: 'STRING_VALUE',
+ *     HonorificPrefix: 'STRING_VALUE',
+ *     HonorificSuffix: 'STRING_VALUE',
+ *   },
+ *   DisplayName: 'STRING_VALUE',
+ *   NickName: 'STRING_VALUE',
+ *   ProfileUrl: 'STRING_VALUE',
+ *   Emails: [ // Emails
+ *     { // Email
+ *       Value: 'STRING_VALUE',
+ *       Type: 'STRING_VALUE',
+ *       Primary: true || false,
+ *     },
+ *   ],
+ *   Addresses: [ // Addresses
+ *     { // Address
+ *       StreetAddress: 'STRING_VALUE',
+ *       Locality: 'STRING_VALUE',
+ *       Region: 'STRING_VALUE',
+ *       PostalCode: 'STRING_VALUE',
+ *       Country: 'STRING_VALUE',
+ *       Formatted: 'STRING_VALUE',
+ *       Type: 'STRING_VALUE',
+ *       Primary: true || false,
+ *     },
+ *   ],
+ *   PhoneNumbers: [ // PhoneNumbers
+ *     { // PhoneNumber
+ *       Value: 'STRING_VALUE',
+ *       Type: 'STRING_VALUE',
+ *       Primary: true || false,
+ *     },
+ *   ],
+ *   UserType: 'STRING_VALUE',
+ *   Title: 'STRING_VALUE',
+ *   PreferredLanguage: 'STRING_VALUE',
+ *   Locale: 'STRING_VALUE',
+ *   Timezone: 'STRING_VALUE',
+ *   IdentityStoreId: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param DescribeUserCommandInput - {@link DescribeUserCommandInput}
@@ -68,6 +123,8 @@ export interface DescribeUserCommandOutput extends DescribeUserResponse, __Metad
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Indicates that the principal has crossed the throttling limits of the API operations.</p>
  *
+ * @throws {@link IdentitystoreServiceException}
+ * <p>Base exception class for all service exceptions from Identitystore service.</p>
  *
  */
 export class DescribeUserCommand extends $Command<

@@ -47,15 +47,23 @@ export interface GetTagValuesCommandOutput extends GetTagValuesOutput, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ResourceGroupsTaggingAPIClient, GetTagValuesCommand } from "@aws-sdk/client-resource-groups-tagging-api"; // ES Modules import
- * // const { ResourceGroupsTaggingAPIClient, GetTagValuesCommand } = require("@aws-sdk/client-resource-groups-tagging-api"); // CommonJS import
+ * import { ResourceGroupsTaggingAPIClient, GetTagValuesCommand } from '@aws-sdk/client-resource-groups-tagging-api'; // ES Modules import
+ * // const { ResourceGroupsTaggingAPIClient, GetTagValuesCommand } = require('@aws-sdk/client-resource-groups-tagging-api'); // CommonJS import
  * const client = new ResourceGroupsTaggingAPIClient(config);
  * const input = { // GetTagValuesInput
- *   PaginationToken: "STRING_VALUE",
- *   Key: "STRING_VALUE", // required
+ *   PaginationToken: 'STRING_VALUE',
+ *   Key: 'STRING_VALUE', // required
  * };
  * const command = new GetTagValuesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetTagValuesOutput
+ *   PaginationToken: 'STRING_VALUE',
+ *   TagValues: [ // TagValuesOutputList
+ *     'STRING_VALUE',
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetTagValuesCommandInput - {@link GetTagValuesCommandInput}
@@ -98,6 +106,8 @@ export interface GetTagValuesCommandOutput extends GetTagValuesOutput, __Metadat
  * @throws {@link ThrottledException} (client fault)
  *  <p>The request was denied to limit the frequency of submitted requests.</p>
  *
+ * @throws {@link ResourceGroupsTaggingAPIServiceException}
+ * <p>Base exception class for all service exceptions from ResourceGroupsTaggingAPI service.</p>
  *
  */
 export class GetTagValuesCommand extends $Command<

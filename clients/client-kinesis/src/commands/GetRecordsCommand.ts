@@ -87,16 +87,43 @@ export interface GetRecordsCommandOutput extends GetRecordsOutput, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KinesisClient, GetRecordsCommand } from "@aws-sdk/client-kinesis"; // ES Modules import
- * // const { KinesisClient, GetRecordsCommand } = require("@aws-sdk/client-kinesis"); // CommonJS import
+ * import { KinesisClient, GetRecordsCommand } from '@aws-sdk/client-kinesis'; // ES Modules import
+ * // const { KinesisClient, GetRecordsCommand } = require('@aws-sdk/client-kinesis'); // CommonJS import
  * const client = new KinesisClient(config);
  * const input = { // GetRecordsInput
- *   ShardIterator: "STRING_VALUE", // required
- *   Limit: Number("int"),
- *   StreamARN: "STRING_VALUE",
+ *   ShardIterator: 'STRING_VALUE', // required
+ *   Limit: Number('int'),
+ *   StreamARN: 'STRING_VALUE',
  * };
  * const command = new GetRecordsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetRecordsOutput
+ *   Records: [ // RecordList // required
+ *     { // Record
+ *       SequenceNumber: 'STRING_VALUE', // required
+ *       ApproximateArrivalTimestamp: new Date('TIMESTAMP'),
+ *       Data: 'BLOB_VALUE', // required
+ *       PartitionKey: 'STRING_VALUE', // required
+ *       EncryptionType: 'NONE' || 'KMS',
+ *     },
+ *   ],
+ *   NextShardIterator: 'STRING_VALUE',
+ *   MillisBehindLatest: Number('long'),
+ *   ChildShards: [ // ChildShardList
+ *     { // ChildShard
+ *       ShardId: 'STRING_VALUE', // required
+ *       ParentShards: [ // ShardIdList // required
+ *         'STRING_VALUE',
+ *       ],
+ *       HashKeyRange: { // HashKeyRange
+ *         StartingHashKey: 'STRING_VALUE', // required
+ *         EndingHashKey: 'STRING_VALUE', // required
+ *       },
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetRecordsCommandInput - {@link GetRecordsCommandInput}
@@ -154,6 +181,8 @@ export interface GetRecordsCommandOutput extends GetRecordsOutput, __MetadataBea
  *  <p>The requested resource could not be found. The stream might not be specified
  *             correctly.</p>
  *
+ * @throws {@link KinesisServiceException}
+ * <p>Base exception class for all service exceptions from Kinesis service.</p>
  *
  */
 export class GetRecordsCommand extends $Command<

@@ -40,16 +40,44 @@ export interface ListGeofencesCommandOutput extends ListGeofencesResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LocationClient, ListGeofencesCommand } from "@aws-sdk/client-location"; // ES Modules import
- * // const { LocationClient, ListGeofencesCommand } = require("@aws-sdk/client-location"); // CommonJS import
+ * import { LocationClient, ListGeofencesCommand } from '@aws-sdk/client-location'; // ES Modules import
+ * // const { LocationClient, ListGeofencesCommand } = require('@aws-sdk/client-location'); // CommonJS import
  * const client = new LocationClient(config);
  * const input = { // ListGeofencesRequest
- *   CollectionName: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   CollectionName: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListGeofencesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListGeofencesResponse
+ *   Entries: [ // ListGeofenceResponseEntryList // required
+ *     { // ListGeofenceResponseEntry
+ *       GeofenceId: 'STRING_VALUE', // required
+ *       Geometry: { // GeofenceGeometry
+ *         Polygon: [ // LinearRings
+ *           [ // LinearRing
+ *             [ // Position
+ *               Number('double'),
+ *             ],
+ *           ],
+ *         ],
+ *         Circle: { // Circle
+ *           Center: [ // required
+ *             Number('double'),
+ *           ],
+ *           Radius: Number('double'), // required
+ *         },
+ *       },
+ *       Status: 'STRING_VALUE', // required
+ *       CreateTime: new Date('TIMESTAMP'), // required
+ *       UpdateTime: new Date('TIMESTAMP'), // required
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListGeofencesCommandInput - {@link ListGeofencesCommandInput}
@@ -74,6 +102,8 @@ export interface ListGeofencesCommandOutput extends ListGeofencesResponse, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>The input failed to meet the constraints specified by the AWS service. </p>
  *
+ * @throws {@link LocationServiceException}
+ * <p>Base exception class for all service exceptions from Location service.</p>
  *
  */
 export class ListGeofencesCommand extends $Command<

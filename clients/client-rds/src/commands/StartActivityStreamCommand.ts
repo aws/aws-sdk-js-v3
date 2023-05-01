@@ -43,18 +43,28 @@ export interface StartActivityStreamCommandOutput extends StartActivityStreamRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RDSClient, StartActivityStreamCommand } from "@aws-sdk/client-rds"; // ES Modules import
- * // const { RDSClient, StartActivityStreamCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * import { RDSClient, StartActivityStreamCommand } from '@aws-sdk/client-rds'; // ES Modules import
+ * // const { RDSClient, StartActivityStreamCommand } = require('@aws-sdk/client-rds'); // CommonJS import
  * const client = new RDSClient(config);
  * const input = { // StartActivityStreamRequest
- *   ResourceArn: "STRING_VALUE", // required
- *   Mode: "sync" || "async", // required
- *   KmsKeyId: "STRING_VALUE", // required
+ *   ResourceArn: 'STRING_VALUE', // required
+ *   Mode: 'sync' || 'async', // required
+ *   KmsKeyId: 'STRING_VALUE', // required
  *   ApplyImmediately: true || false,
  *   EngineNativeAuditFieldsIncluded: true || false,
  * };
  * const command = new StartActivityStreamCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartActivityStreamResponse
+ *   KmsKeyId: 'STRING_VALUE',
+ *   KinesisStreamName: 'STRING_VALUE',
+ *   Status: 'stopped' || 'starting' || 'started' || 'stopping',
+ *   Mode: 'sync' || 'async',
+ *   ApplyImmediately: true || false,
+ *   EngineNativeAuditFieldsIncluded: true || false,
+ * };
+ *
  * ```
  *
  * @param StartActivityStreamCommandInput - {@link StartActivityStreamCommandInput}
@@ -83,6 +93,8 @@ export interface StartActivityStreamCommandOutput extends StartActivityStreamRes
  * @throws {@link ResourceNotFoundFault} (client fault)
  *  <p>The specified resource ID was not found.</p>
  *
+ * @throws {@link RDSServiceException}
+ * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  * @example To start a database activity stream
  * ```javascript

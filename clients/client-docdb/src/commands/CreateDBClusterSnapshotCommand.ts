@@ -36,21 +36,46 @@ export interface CreateDBClusterSnapshotCommandOutput extends CreateDBClusterSna
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DocDBClient, CreateDBClusterSnapshotCommand } from "@aws-sdk/client-docdb"; // ES Modules import
- * // const { DocDBClient, CreateDBClusterSnapshotCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
+ * import { DocDBClient, CreateDBClusterSnapshotCommand } from '@aws-sdk/client-docdb'; // ES Modules import
+ * // const { DocDBClient, CreateDBClusterSnapshotCommand } = require('@aws-sdk/client-docdb'); // CommonJS import
  * const client = new DocDBClient(config);
  * const input = { // CreateDBClusterSnapshotMessage
- *   DBClusterSnapshotIdentifier: "STRING_VALUE", // required
- *   DBClusterIdentifier: "STRING_VALUE", // required
+ *   DBClusterSnapshotIdentifier: 'STRING_VALUE', // required
+ *   DBClusterIdentifier: 'STRING_VALUE', // required
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE",
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new CreateDBClusterSnapshotCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateDBClusterSnapshotResult
+ *   DBClusterSnapshot: { // DBClusterSnapshot
+ *     AvailabilityZones: [ // AvailabilityZones
+ *       'STRING_VALUE',
+ *     ],
+ *     DBClusterSnapshotIdentifier: 'STRING_VALUE',
+ *     DBClusterIdentifier: 'STRING_VALUE',
+ *     SnapshotCreateTime: new Date('TIMESTAMP'),
+ *     Engine: 'STRING_VALUE',
+ *     Status: 'STRING_VALUE',
+ *     Port: Number('int'),
+ *     VpcId: 'STRING_VALUE',
+ *     ClusterCreateTime: new Date('TIMESTAMP'),
+ *     MasterUsername: 'STRING_VALUE',
+ *     EngineVersion: 'STRING_VALUE',
+ *     SnapshotType: 'STRING_VALUE',
+ *     PercentProgress: Number('int'),
+ *     StorageEncrypted: true || false,
+ *     KmsKeyId: 'STRING_VALUE',
+ *     DBClusterSnapshotArn: 'STRING_VALUE',
+ *     SourceDBClusterSnapshotArn: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateDBClusterSnapshotCommandInput - {@link CreateDBClusterSnapshotCommandInput}
@@ -75,6 +100,8 @@ export interface CreateDBClusterSnapshotCommandOutput extends CreateDBClusterSna
  * @throws {@link SnapshotQuotaExceededFault} (client fault)
  *  <p>The request would cause you to exceed the allowed number of snapshots.</p>
  *
+ * @throws {@link DocDBServiceException}
+ * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
  */
 export class CreateDBClusterSnapshotCommand extends $Command<

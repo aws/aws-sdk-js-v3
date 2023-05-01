@@ -36,14 +36,24 @@ export interface GetFindingAggregatorCommandOutput extends GetFindingAggregatorR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SecurityHubClient, GetFindingAggregatorCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
- * // const { SecurityHubClient, GetFindingAggregatorCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
+ * import { SecurityHubClient, GetFindingAggregatorCommand } from '@aws-sdk/client-securityhub'; // ES Modules import
+ * // const { SecurityHubClient, GetFindingAggregatorCommand } = require('@aws-sdk/client-securityhub'); // CommonJS import
  * const client = new SecurityHubClient(config);
  * const input = { // GetFindingAggregatorRequest
- *   FindingAggregatorArn: "STRING_VALUE", // required
+ *   FindingAggregatorArn: 'STRING_VALUE', // required
  * };
  * const command = new GetFindingAggregatorCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetFindingAggregatorResponse
+ *   FindingAggregatorArn: 'STRING_VALUE',
+ *   FindingAggregationRegion: 'STRING_VALUE',
+ *   RegionLinkingMode: 'STRING_VALUE',
+ *   Regions: [ // StringList
+ *     'STRING_VALUE',
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetFindingAggregatorCommandInput - {@link GetFindingAggregatorCommandInput}
@@ -72,6 +82,8 @@ export interface GetFindingAggregatorCommandOutput extends GetFindingAggregatorR
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The request was rejected because we can't find the specified resource.</p>
  *
+ * @throws {@link SecurityHubServiceException}
+ * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
  * @example To get cross-Region aggregation details
  * ```javascript

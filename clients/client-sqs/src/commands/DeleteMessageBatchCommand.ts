@@ -47,20 +47,37 @@ export interface DeleteMessageBatchCommandOutput extends DeleteMessageBatchResul
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SQSClient, DeleteMessageBatchCommand } from "@aws-sdk/client-sqs"; // ES Modules import
- * // const { SQSClient, DeleteMessageBatchCommand } = require("@aws-sdk/client-sqs"); // CommonJS import
+ * import { SQSClient, DeleteMessageBatchCommand } from '@aws-sdk/client-sqs'; // ES Modules import
+ * // const { SQSClient, DeleteMessageBatchCommand } = require('@aws-sdk/client-sqs'); // CommonJS import
  * const client = new SQSClient(config);
  * const input = { // DeleteMessageBatchRequest
- *   QueueUrl: "STRING_VALUE", // required
+ *   QueueUrl: 'STRING_VALUE', // required
  *   Entries: [ // DeleteMessageBatchRequestEntryList // required
  *     { // DeleteMessageBatchRequestEntry
- *       Id: "STRING_VALUE", // required
- *       ReceiptHandle: "STRING_VALUE", // required
+ *       Id: 'STRING_VALUE', // required
+ *       ReceiptHandle: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new DeleteMessageBatchCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteMessageBatchResult
+ *   Successful: [ // DeleteMessageBatchResultEntryList // required
+ *     { // DeleteMessageBatchResultEntry
+ *       Id: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ *   Failed: [ // BatchResultErrorEntryList // required
+ *     { // BatchResultErrorEntry
+ *       Id: 'STRING_VALUE', // required
+ *       SenderFault: true || false, // required
+ *       Code: 'STRING_VALUE', // required
+ *       Message: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DeleteMessageBatchCommandInput - {@link DeleteMessageBatchCommandInput}
@@ -81,6 +98,8 @@ export interface DeleteMessageBatchCommandOutput extends DeleteMessageBatchResul
  * @throws {@link TooManyEntriesInBatchRequest} (client fault)
  *  <p>The batch request contains more entries than permissible.</p>
  *
+ * @throws {@link SQSServiceException}
+ * <p>Base exception class for all service exceptions from SQS service.</p>
  *
  */
 export class DeleteMessageBatchCommand extends $Command<

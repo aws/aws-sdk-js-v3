@@ -36,14 +36,17 @@ export interface DisconnectRecoveryInstanceCommandOutput extends __MetadataBeare
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DrsClient, DisconnectRecoveryInstanceCommand } from "@aws-sdk/client-drs"; // ES Modules import
- * // const { DrsClient, DisconnectRecoveryInstanceCommand } = require("@aws-sdk/client-drs"); // CommonJS import
+ * import { DrsClient, DisconnectRecoveryInstanceCommand } from '@aws-sdk/client-drs'; // ES Modules import
+ * // const { DrsClient, DisconnectRecoveryInstanceCommand } = require('@aws-sdk/client-drs'); // CommonJS import
  * const client = new DrsClient(config);
  * const input = { // DisconnectRecoveryInstanceRequest
- *   recoveryInstanceID: "STRING_VALUE", // required
+ *   recoveryInstanceID: 'STRING_VALUE', // required
  * };
  * const command = new DisconnectRecoveryInstanceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DisconnectRecoveryInstanceCommandInput - {@link DisconnectRecoveryInstanceCommandInput}
@@ -70,6 +73,8 @@ export interface DisconnectRecoveryInstanceCommandOutput extends __MetadataBeare
  * @throws {@link UninitializedAccountException} (client fault)
  *  <p>The account performing the request has not been initialized.</p>
  *
+ * @throws {@link DrsServiceException}
+ * <p>Base exception class for all service exceptions from Drs service.</p>
  *
  */
 export class DisconnectRecoveryInstanceCommand extends $Command<

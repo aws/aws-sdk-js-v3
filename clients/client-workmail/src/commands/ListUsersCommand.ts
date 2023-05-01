@@ -36,16 +36,33 @@ export interface ListUsersCommandOutput extends ListUsersResponse, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkMailClient, ListUsersCommand } from "@aws-sdk/client-workmail"; // ES Modules import
- * // const { WorkMailClient, ListUsersCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
+ * import { WorkMailClient, ListUsersCommand } from '@aws-sdk/client-workmail'; // ES Modules import
+ * // const { WorkMailClient, ListUsersCommand } = require('@aws-sdk/client-workmail'); // CommonJS import
  * const client = new WorkMailClient(config);
  * const input = { // ListUsersRequest
- *   OrganizationId: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   OrganizationId: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListUsersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListUsersResponse
+ *   Users: [ // Users
+ *     { // User
+ *       Id: 'STRING_VALUE',
+ *       Email: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *       DisplayName: 'STRING_VALUE',
+ *       State: 'ENABLED' || 'DISABLED' || 'DELETED',
+ *       UserRole: 'USER' || 'RESOURCE' || 'SYSTEM_USER',
+ *       EnabledDate: new Date('TIMESTAMP'),
+ *       DisabledDate: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListUsersCommandInput - {@link ListUsersCommandInput}
@@ -65,6 +82,8 @@ export interface ListUsersCommandOutput extends ListUsersResponse, __MetadataBea
  *  <p>The organization must have a valid state to perform certain
  *          operations on the organization or its members.</p>
  *
+ * @throws {@link WorkMailServiceException}
+ * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
  */
 export class ListUsersCommand extends $Command<

@@ -36,15 +36,26 @@ export interface ListClassificationScopesCommandOutput extends ListClassificatio
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Macie2Client, ListClassificationScopesCommand } from "@aws-sdk/client-macie2"; // ES Modules import
- * // const { Macie2Client, ListClassificationScopesCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
+ * import { Macie2Client, ListClassificationScopesCommand } from '@aws-sdk/client-macie2'; // ES Modules import
+ * // const { Macie2Client, ListClassificationScopesCommand } = require('@aws-sdk/client-macie2'); // CommonJS import
  * const client = new Macie2Client(config);
  * const input = { // ListClassificationScopesRequest
- *   name: "STRING_VALUE",
- *   nextToken: "STRING_VALUE",
+ *   name: 'STRING_VALUE',
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new ListClassificationScopesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListClassificationScopesResponse
+ *   classificationScopes: [ // __listOfClassificationScopeSummary
+ *     { // ClassificationScopeSummary
+ *       id: 'STRING_VALUE',
+ *       name: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListClassificationScopesCommandInput - {@link ListClassificationScopesCommandInput}
@@ -65,6 +76,8 @@ export interface ListClassificationScopesCommandOutput extends ListClassificatio
  * @throws {@link ValidationException} (client fault)
  *  <p>Provides information about an error that occurred due to a syntax error in a request.</p>
  *
+ * @throws {@link Macie2ServiceException}
+ * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
  */
 export class ListClassificationScopesCommand extends $Command<

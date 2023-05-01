@@ -38,17 +38,38 @@ export interface BatchGetTracesCommandOutput extends BatchGetTracesResult, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { XRayClient, BatchGetTracesCommand } from "@aws-sdk/client-xray"; // ES Modules import
- * // const { XRayClient, BatchGetTracesCommand } = require("@aws-sdk/client-xray"); // CommonJS import
+ * import { XRayClient, BatchGetTracesCommand } from '@aws-sdk/client-xray'; // ES Modules import
+ * // const { XRayClient, BatchGetTracesCommand } = require('@aws-sdk/client-xray'); // CommonJS import
  * const client = new XRayClient(config);
  * const input = { // BatchGetTracesRequest
  *   TraceIds: [ // TraceIdList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   NextToken: "STRING_VALUE",
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new BatchGetTracesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BatchGetTracesResult
+ *   Traces: [ // TraceList
+ *     { // Trace
+ *       Id: 'STRING_VALUE',
+ *       Duration: Number('double'),
+ *       LimitExceeded: true || false,
+ *       Segments: [ // SegmentList
+ *         { // Segment
+ *           Id: 'STRING_VALUE',
+ *           Document: 'STRING_VALUE',
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   UnprocessedTraceIds: [ // UnprocessedTraceIdList
+ *     'STRING_VALUE',
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param BatchGetTracesCommandInput - {@link BatchGetTracesCommandInput}
@@ -63,6 +84,8 @@ export interface BatchGetTracesCommandOutput extends BatchGetTracesResult, __Met
  * @throws {@link ThrottledException} (client fault)
  *  <p>The request exceeds the maximum number of requests per second.</p>
  *
+ * @throws {@link XRayServiceException}
+ * <p>Base exception class for all service exceptions from XRay service.</p>
  *
  */
 export class BatchGetTracesCommand extends $Command<

@@ -70,16 +70,21 @@ export interface RollbackStackCommandOutput extends RollbackStackOutput, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudFormationClient, RollbackStackCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
- * // const { CloudFormationClient, RollbackStackCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
+ * import { CloudFormationClient, RollbackStackCommand } from '@aws-sdk/client-cloudformation'; // ES Modules import
+ * // const { CloudFormationClient, RollbackStackCommand } = require('@aws-sdk/client-cloudformation'); // CommonJS import
  * const client = new CloudFormationClient(config);
  * const input = { // RollbackStackInput
- *   StackName: "STRING_VALUE", // required
- *   RoleARN: "STRING_VALUE",
- *   ClientRequestToken: "STRING_VALUE",
+ *   StackName: 'STRING_VALUE', // required
+ *   RoleARN: 'STRING_VALUE',
+ *   ClientRequestToken: 'STRING_VALUE',
  * };
  * const command = new RollbackStackCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // RollbackStackOutput
+ *   StackId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param RollbackStackCommandInput - {@link RollbackStackCommandInput}
@@ -91,6 +96,8 @@ export interface RollbackStackCommandOutput extends RollbackStackOutput, __Metad
  * @throws {@link TokenAlreadyExistsException} (client fault)
  *  <p>A client request token already exists.</p>
  *
+ * @throws {@link CloudFormationServiceException}
+ * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
  */
 export class RollbackStackCommand extends $Command<

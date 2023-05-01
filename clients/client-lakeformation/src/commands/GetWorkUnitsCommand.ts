@@ -36,16 +36,29 @@ export interface GetWorkUnitsCommandOutput extends GetWorkUnitsResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LakeFormationClient, GetWorkUnitsCommand } from "@aws-sdk/client-lakeformation"; // ES Modules import
- * // const { LakeFormationClient, GetWorkUnitsCommand } = require("@aws-sdk/client-lakeformation"); // CommonJS import
+ * import { LakeFormationClient, GetWorkUnitsCommand } from '@aws-sdk/client-lakeformation'; // ES Modules import
+ * // const { LakeFormationClient, GetWorkUnitsCommand } = require('@aws-sdk/client-lakeformation'); // CommonJS import
  * const client = new LakeFormationClient(config);
  * const input = { // GetWorkUnitsRequest
- *   NextToken: "STRING_VALUE",
- *   PageSize: Number("int"),
- *   QueryId: "STRING_VALUE", // required
+ *   NextToken: 'STRING_VALUE',
+ *   PageSize: Number('int'),
+ *   QueryId: 'STRING_VALUE', // required
  * };
  * const command = new GetWorkUnitsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetWorkUnitsResponse
+ *   NextToken: 'STRING_VALUE',
+ *   QueryId: 'STRING_VALUE', // required
+ *   WorkUnitRanges: [ // WorkUnitRangeList // required
+ *     { // WorkUnitRange
+ *       WorkUnitIdMax: Number('long'), // required
+ *       WorkUnitIdMin: Number('long'), // required
+ *       WorkUnitToken: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetWorkUnitsCommandInput - {@link GetWorkUnitsCommandInput}
@@ -69,6 +82,8 @@ export interface GetWorkUnitsCommandOutput extends GetWorkUnitsResponse, __Metad
  * @throws {@link WorkUnitsNotReadyYetException} (client fault)
  *  <p>Contains details about an error related to work units not being ready.</p>
  *
+ * @throws {@link LakeFormationServiceException}
+ * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
  */
 export class GetWorkUnitsCommand extends $Command<

@@ -42,20 +42,32 @@ export interface ListAuditMitigationActionsTasksCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTClient, ListAuditMitigationActionsTasksCommand } from "@aws-sdk/client-iot"; // ES Modules import
- * // const { IoTClient, ListAuditMitigationActionsTasksCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * import { IoTClient, ListAuditMitigationActionsTasksCommand } from '@aws-sdk/client-iot'; // ES Modules import
+ * // const { IoTClient, ListAuditMitigationActionsTasksCommand } = require('@aws-sdk/client-iot'); // CommonJS import
  * const client = new IoTClient(config);
  * const input = { // ListAuditMitigationActionsTasksRequest
- *   auditTaskId: "STRING_VALUE",
- *   findingId: "STRING_VALUE",
- *   taskStatus: "IN_PROGRESS" || "COMPLETED" || "FAILED" || "CANCELED",
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
- *   startTime: new Date("TIMESTAMP"), // required
- *   endTime: new Date("TIMESTAMP"), // required
+ *   auditTaskId: 'STRING_VALUE',
+ *   findingId: 'STRING_VALUE',
+ *   taskStatus: 'IN_PROGRESS' || 'COMPLETED' || 'FAILED' || 'CANCELED',
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
+ *   startTime: new Date('TIMESTAMP'), // required
+ *   endTime: new Date('TIMESTAMP'), // required
  * };
  * const command = new ListAuditMitigationActionsTasksCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListAuditMitigationActionsTasksResponse
+ *   tasks: [ // AuditMitigationActionsTaskMetadataList
+ *     { // AuditMitigationActionsTaskMetadata
+ *       taskId: 'STRING_VALUE',
+ *       startTime: new Date('TIMESTAMP'),
+ *       taskStatus: 'IN_PROGRESS' || 'COMPLETED' || 'FAILED' || 'CANCELED',
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListAuditMitigationActionsTasksCommandInput - {@link ListAuditMitigationActionsTasksCommandInput}
@@ -73,6 +85,8 @@ export interface ListAuditMitigationActionsTasksCommandOutput
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The rate exceeds the limit.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class ListAuditMitigationActionsTasksCommand extends $Command<

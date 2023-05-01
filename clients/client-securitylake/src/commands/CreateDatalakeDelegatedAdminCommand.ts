@@ -43,14 +43,17 @@ export interface CreateDatalakeDelegatedAdminCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SecurityLakeClient, CreateDatalakeDelegatedAdminCommand } from "@aws-sdk/client-securitylake"; // ES Modules import
- * // const { SecurityLakeClient, CreateDatalakeDelegatedAdminCommand } = require("@aws-sdk/client-securitylake"); // CommonJS import
+ * import { SecurityLakeClient, CreateDatalakeDelegatedAdminCommand } from '@aws-sdk/client-securitylake'; // ES Modules import
+ * // const { SecurityLakeClient, CreateDatalakeDelegatedAdminCommand } = require('@aws-sdk/client-securitylake'); // CommonJS import
  * const client = new SecurityLakeClient(config);
  * const input = { // CreateDatalakeDelegatedAdminRequest
- *   account: "STRING_VALUE", // required
+ *   account: 'STRING_VALUE', // required
  * };
  * const command = new CreateDatalakeDelegatedAdminCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param CreateDatalakeDelegatedAdminCommandInput - {@link CreateDatalakeDelegatedAdminCommandInput}
@@ -75,6 +78,8 @@ export interface CreateDatalakeDelegatedAdminCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>Your signing certificate could not be validated. </p>
  *
+ * @throws {@link SecurityLakeServiceException}
+ * <p>Base exception class for all service exceptions from SecurityLake service.</p>
  *
  */
 export class CreateDatalakeDelegatedAdminCommand extends $Command<

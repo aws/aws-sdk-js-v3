@@ -48,18 +48,21 @@ export interface NotifyTerminateProvisionedProductEngineWorkflowResultCommandOut
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ServiceCatalogClient, NotifyTerminateProvisionedProductEngineWorkflowResultCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
- * // const { ServiceCatalogClient, NotifyTerminateProvisionedProductEngineWorkflowResultCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
+ * import { ServiceCatalogClient, NotifyTerminateProvisionedProductEngineWorkflowResultCommand } from '@aws-sdk/client-service-catalog'; // ES Modules import
+ * // const { ServiceCatalogClient, NotifyTerminateProvisionedProductEngineWorkflowResultCommand } = require('@aws-sdk/client-service-catalog'); // CommonJS import
  * const client = new ServiceCatalogClient(config);
  * const input = { // NotifyTerminateProvisionedProductEngineWorkflowResultInput
- *   WorkflowToken: "STRING_VALUE", // required
- *   RecordId: "STRING_VALUE", // required
- *   Status: "SUCCEEDED" || "FAILED", // required
- *   FailureReason: "STRING_VALUE",
- *   IdempotencyToken: "STRING_VALUE", // required
+ *   WorkflowToken: 'STRING_VALUE', // required
+ *   RecordId: 'STRING_VALUE', // required
+ *   Status: 'SUCCEEDED' || 'FAILED', // required
+ *   FailureReason: 'STRING_VALUE',
+ *   IdempotencyToken: 'STRING_VALUE', // required
  * };
  * const command = new NotifyTerminateProvisionedProductEngineWorkflowResultCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param NotifyTerminateProvisionedProductEngineWorkflowResultCommandInput - {@link NotifyTerminateProvisionedProductEngineWorkflowResultCommandInput}
@@ -74,6 +77,8 @@ export interface NotifyTerminateProvisionedProductEngineWorkflowResultCommandOut
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link ServiceCatalogServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
  */
 export class NotifyTerminateProvisionedProductEngineWorkflowResultCommand extends $Command<

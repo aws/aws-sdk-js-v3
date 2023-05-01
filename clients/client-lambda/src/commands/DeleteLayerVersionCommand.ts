@@ -38,15 +38,18 @@ export interface DeleteLayerVersionCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LambdaClient, DeleteLayerVersionCommand } from "@aws-sdk/client-lambda"; // ES Modules import
- * // const { LambdaClient, DeleteLayerVersionCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
+ * import { LambdaClient, DeleteLayerVersionCommand } from '@aws-sdk/client-lambda'; // ES Modules import
+ * // const { LambdaClient, DeleteLayerVersionCommand } = require('@aws-sdk/client-lambda'); // CommonJS import
  * const client = new LambdaClient(config);
  * const input = { // DeleteLayerVersionRequest
- *   LayerName: "STRING_VALUE", // required
- *   VersionNumber: Number("long"), // required
+ *   LayerName: 'STRING_VALUE', // required
+ *   VersionNumber: Number('long'), // required
  * };
  * const command = new DeleteLayerVersionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteLayerVersionCommandInput - {@link DeleteLayerVersionCommandInput}
@@ -61,6 +64,8 @@ export interface DeleteLayerVersionCommandOutput extends __MetadataBearer {}
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>The request throughput limit was exceeded. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests">Lambda quotas</a>.</p>
  *
+ * @throws {@link LambdaServiceException}
+ * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
  */
 export class DeleteLayerVersionCommand extends $Command<

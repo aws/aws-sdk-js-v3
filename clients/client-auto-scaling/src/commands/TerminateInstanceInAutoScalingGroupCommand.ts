@@ -50,15 +50,33 @@ export interface TerminateInstanceInAutoScalingGroupCommandOutput extends Activi
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AutoScalingClient, TerminateInstanceInAutoScalingGroupCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
- * // const { AutoScalingClient, TerminateInstanceInAutoScalingGroupCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
+ * import { AutoScalingClient, TerminateInstanceInAutoScalingGroupCommand } from '@aws-sdk/client-auto-scaling'; // ES Modules import
+ * // const { AutoScalingClient, TerminateInstanceInAutoScalingGroupCommand } = require('@aws-sdk/client-auto-scaling'); // CommonJS import
  * const client = new AutoScalingClient(config);
  * const input = { // TerminateInstanceInAutoScalingGroupType
- *   InstanceId: "STRING_VALUE", // required
+ *   InstanceId: 'STRING_VALUE', // required
  *   ShouldDecrementDesiredCapacity: true || false, // required
  * };
  * const command = new TerminateInstanceInAutoScalingGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ActivityType
+ *   Activity: { // Activity
+ *     ActivityId: 'STRING_VALUE', // required
+ *     AutoScalingGroupName: 'STRING_VALUE', // required
+ *     Description: 'STRING_VALUE',
+ *     Cause: 'STRING_VALUE', // required
+ *     StartTime: new Date('TIMESTAMP'), // required
+ *     EndTime: new Date('TIMESTAMP'),
+ *     StatusCode: 'PendingSpotBidPlacement' || 'WaitingForSpotInstanceRequestId' || 'WaitingForSpotInstanceId' || 'WaitingForInstanceId' || 'PreInService' || 'InProgress' || 'WaitingForELBConnectionDraining' || 'MidLifecycleAction' || 'WaitingForInstanceWarmup' || 'Successful' || 'Failed' || 'Cancelled' || 'WaitingForConnectionDraining', // required
+ *     StatusMessage: 'STRING_VALUE',
+ *     Progress: Number('int'),
+ *     Details: 'STRING_VALUE',
+ *     AutoScalingGroupState: 'STRING_VALUE',
+ *     AutoScalingGroupARN: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param TerminateInstanceInAutoScalingGroupCommandInput - {@link TerminateInstanceInAutoScalingGroupCommandInput}
@@ -75,6 +93,8 @@ export interface TerminateInstanceInAutoScalingGroupCommandOutput extends Activi
  *  <p>The operation can't be performed because there are scaling activities in
  *             progress.</p>
  *
+ * @throws {@link AutoScalingServiceException}
+ * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
  * @example To terminate an instance in an Auto Scaling group
  * ```javascript

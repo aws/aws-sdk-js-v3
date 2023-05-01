@@ -41,23 +41,45 @@ export interface DescribeImportTasksCommandOutput extends DescribeImportTasksRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ApplicationDiscoveryServiceClient, DescribeImportTasksCommand } from "@aws-sdk/client-application-discovery-service"; // ES Modules import
- * // const { ApplicationDiscoveryServiceClient, DescribeImportTasksCommand } = require("@aws-sdk/client-application-discovery-service"); // CommonJS import
+ * import { ApplicationDiscoveryServiceClient, DescribeImportTasksCommand } from '@aws-sdk/client-application-discovery-service'; // ES Modules import
+ * // const { ApplicationDiscoveryServiceClient, DescribeImportTasksCommand } = require('@aws-sdk/client-application-discovery-service'); // CommonJS import
  * const client = new ApplicationDiscoveryServiceClient(config);
  * const input = { // DescribeImportTasksRequest
  *   filters: [ // DescribeImportTasksFilterList
  *     { // ImportTaskFilter
- *       name: "IMPORT_TASK_ID" || "STATUS" || "NAME",
+ *       name: 'IMPORT_TASK_ID' || 'STATUS' || 'NAME',
  *       values: [ // ImportTaskFilterValueList
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new DescribeImportTasksCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeImportTasksResponse
+ *   nextToken: 'STRING_VALUE',
+ *   tasks: [ // ImportTaskList
+ *     { // ImportTask
+ *       importTaskId: 'STRING_VALUE',
+ *       clientRequestToken: 'STRING_VALUE',
+ *       name: 'STRING_VALUE',
+ *       importUrl: 'STRING_VALUE',
+ *       status: 'IMPORT_IN_PROGRESS' || 'IMPORT_COMPLETE' || 'IMPORT_COMPLETE_WITH_ERRORS' || 'IMPORT_FAILED' || 'IMPORT_FAILED_SERVER_LIMIT_EXCEEDED' || 'IMPORT_FAILED_RECORD_LIMIT_EXCEEDED' || 'DELETE_IN_PROGRESS' || 'DELETE_COMPLETE' || 'DELETE_FAILED' || 'DELETE_FAILED_LIMIT_EXCEEDED' || 'INTERNAL_ERROR',
+ *       importRequestTime: new Date('TIMESTAMP'),
+ *       importCompletionTime: new Date('TIMESTAMP'),
+ *       importDeletedTime: new Date('TIMESTAMP'),
+ *       serverImportSuccess: Number('int'),
+ *       serverImportFailure: Number('int'),
+ *       applicationImportSuccess: Number('int'),
+ *       applicationImportFailure: Number('int'),
+ *       errorsAndFailedEntriesZip: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeImportTasksCommandInput - {@link DescribeImportTasksCommandInput}
@@ -83,6 +105,8 @@ export interface DescribeImportTasksCommandOutput extends DescribeImportTasksRes
  * @throws {@link ServerInternalErrorException} (server fault)
  *  <p>The server experienced an internal error. Try again.</p>
  *
+ * @throws {@link ApplicationDiscoveryServiceServiceException}
+ * <p>Base exception class for all service exceptions from ApplicationDiscoveryService service.</p>
  *
  */
 export class DescribeImportTasksCommand extends $Command<

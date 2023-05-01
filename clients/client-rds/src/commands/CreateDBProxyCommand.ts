@@ -36,41 +36,75 @@ export interface CreateDBProxyCommandOutput extends CreateDBProxyResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RDSClient, CreateDBProxyCommand } from "@aws-sdk/client-rds"; // ES Modules import
- * // const { RDSClient, CreateDBProxyCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * import { RDSClient, CreateDBProxyCommand } from '@aws-sdk/client-rds'; // ES Modules import
+ * // const { RDSClient, CreateDBProxyCommand } = require('@aws-sdk/client-rds'); // CommonJS import
  * const client = new RDSClient(config);
  * const input = { // CreateDBProxyRequest
- *   DBProxyName: "STRING_VALUE", // required
- *   EngineFamily: "MYSQL" || "POSTGRESQL" || "SQLSERVER", // required
+ *   DBProxyName: 'STRING_VALUE', // required
+ *   EngineFamily: 'MYSQL' || 'POSTGRESQL' || 'SQLSERVER', // required
  *   Auth: [ // UserAuthConfigList // required
  *     { // UserAuthConfig
- *       Description: "STRING_VALUE",
- *       UserName: "STRING_VALUE",
- *       AuthScheme: "SECRETS",
- *       SecretArn: "STRING_VALUE",
- *       IAMAuth: "DISABLED" || "REQUIRED" || "ENABLED",
- *       ClientPasswordAuthType: "MYSQL_NATIVE_PASSWORD" || "POSTGRES_SCRAM_SHA_256" || "POSTGRES_MD5" || "SQL_SERVER_AUTHENTICATION",
+ *       Description: 'STRING_VALUE',
+ *       UserName: 'STRING_VALUE',
+ *       AuthScheme: 'SECRETS',
+ *       SecretArn: 'STRING_VALUE',
+ *       IAMAuth: 'DISABLED' || 'REQUIRED' || 'ENABLED',
+ *       ClientPasswordAuthType: 'MYSQL_NATIVE_PASSWORD' || 'POSTGRES_SCRAM_SHA_256' || 'POSTGRES_MD5' || 'SQL_SERVER_AUTHENTICATION',
  *     },
  *   ],
- *   RoleArn: "STRING_VALUE", // required
+ *   RoleArn: 'STRING_VALUE', // required
  *   VpcSubnetIds: [ // StringList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   VpcSecurityGroupIds: [
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   RequireTLS: true || false,
- *   IdleClientTimeout: Number("int"),
+ *   IdleClientTimeout: Number('int'),
  *   DebugLogging: true || false,
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE",
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new CreateDBProxyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateDBProxyResponse
+ *   DBProxy: { // DBProxy
+ *     DBProxyName: 'STRING_VALUE',
+ *     DBProxyArn: 'STRING_VALUE',
+ *     Status: 'available' || 'modifying' || 'incompatible-network' || 'insufficient-resource-limits' || 'creating' || 'deleting' || 'suspended' || 'suspending' || 'reactivating',
+ *     EngineFamily: 'STRING_VALUE',
+ *     VpcId: 'STRING_VALUE',
+ *     VpcSecurityGroupIds: [ // StringList
+ *       'STRING_VALUE',
+ *     ],
+ *     VpcSubnetIds: [
+ *       'STRING_VALUE',
+ *     ],
+ *     Auth: [ // UserAuthConfigInfoList
+ *       { // UserAuthConfigInfo
+ *         Description: 'STRING_VALUE',
+ *         UserName: 'STRING_VALUE',
+ *         AuthScheme: 'SECRETS',
+ *         SecretArn: 'STRING_VALUE',
+ *         IAMAuth: 'DISABLED' || 'REQUIRED' || 'ENABLED',
+ *         ClientPasswordAuthType: 'MYSQL_NATIVE_PASSWORD' || 'POSTGRES_SCRAM_SHA_256' || 'POSTGRES_MD5' || 'SQL_SERVER_AUTHENTICATION',
+ *       },
+ *     ],
+ *     RoleArn: 'STRING_VALUE',
+ *     Endpoint: 'STRING_VALUE',
+ *     RequireTLS: true || false,
+ *     IdleClientTimeout: Number('int'),
+ *     DebugLogging: true || false,
+ *     CreatedDate: new Date('TIMESTAMP'),
+ *     UpdatedDate: new Date('TIMESTAMP'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateDBProxyCommandInput - {@link CreateDBProxyCommandInput}
@@ -88,6 +122,8 @@ export interface CreateDBProxyCommandOutput extends CreateDBProxyResponse, __Met
  * @throws {@link InvalidSubnet} (client fault)
  *  <p>The requested subnet is invalid, or multiple subnets were requested that are not all in a common VPC.</p>
  *
+ * @throws {@link RDSServiceException}
+ * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  */
 export class CreateDBProxyCommand extends $Command<

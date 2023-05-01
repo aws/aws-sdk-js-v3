@@ -43,51 +43,130 @@ export interface SearchOrganizationInsightsCommandOutput extends SearchOrganizat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DevOpsGuruClient, SearchOrganizationInsightsCommand } from "@aws-sdk/client-devops-guru"; // ES Modules import
- * // const { DevOpsGuruClient, SearchOrganizationInsightsCommand } = require("@aws-sdk/client-devops-guru"); // CommonJS import
+ * import { DevOpsGuruClient, SearchOrganizationInsightsCommand } from '@aws-sdk/client-devops-guru'; // ES Modules import
+ * // const { DevOpsGuruClient, SearchOrganizationInsightsCommand } = require('@aws-sdk/client-devops-guru'); // CommonJS import
  * const client = new DevOpsGuruClient(config);
  * const input = { // SearchOrganizationInsightsRequest
  *   AccountIds: [ // SearchInsightsAccountIdList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   StartTimeRange: { // StartTimeRange
- *     FromTime: new Date("TIMESTAMP"),
- *     ToTime: new Date("TIMESTAMP"),
+ *     FromTime: new Date('TIMESTAMP'),
+ *     ToTime: new Date('TIMESTAMP'),
  *   },
  *   Filters: { // SearchOrganizationInsightsFilters
  *     Severities: [ // InsightSeverities
- *       "LOW" || "MEDIUM" || "HIGH",
+ *       'LOW' || 'MEDIUM' || 'HIGH',
  *     ],
  *     Statuses: [ // InsightStatuses
- *       "ONGOING" || "CLOSED",
+ *       'ONGOING' || 'CLOSED',
  *     ],
  *     ResourceCollection: { // ResourceCollection
  *       CloudFormation: { // CloudFormationCollection
  *         StackNames: [ // StackNames
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
  *       },
  *       Tags: [ // TagCollections
  *         { // TagCollection
- *           AppBoundaryKey: "STRING_VALUE", // required
+ *           AppBoundaryKey: 'STRING_VALUE', // required
  *           TagValues: [ // TagValues // required
- *             "STRING_VALUE",
+ *             'STRING_VALUE',
  *           ],
  *         },
  *       ],
  *     },
  *     ServiceCollection: { // ServiceCollection
  *       ServiceNames: [ // ServiceNames
- *         "API_GATEWAY" || "APPLICATION_ELB" || "AUTO_SCALING_GROUP" || "CLOUD_FRONT" || "DYNAMO_DB" || "EC2" || "ECS" || "EKS" || "ELASTIC_BEANSTALK" || "ELASTI_CACHE" || "ELB" || "ES" || "KINESIS" || "LAMBDA" || "NAT_GATEWAY" || "NETWORK_ELB" || "RDS" || "REDSHIFT" || "ROUTE_53" || "S3" || "SAGE_MAKER" || "SNS" || "SQS" || "STEP_FUNCTIONS" || "SWF",
+ *         'API_GATEWAY' || 'APPLICATION_ELB' || 'AUTO_SCALING_GROUP' || 'CLOUD_FRONT' || 'DYNAMO_DB' || 'EC2' || 'ECS' || 'EKS' || 'ELASTIC_BEANSTALK' || 'ELASTI_CACHE' || 'ELB' || 'ES' || 'KINESIS' || 'LAMBDA' || 'NAT_GATEWAY' || 'NETWORK_ELB' || 'RDS' || 'REDSHIFT' || 'ROUTE_53' || 'S3' || 'SAGE_MAKER' || 'SNS' || 'SQS' || 'STEP_FUNCTIONS' || 'SWF',
  *       ],
  *     },
  *   },
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
- *   Type: "REACTIVE" || "PROACTIVE", // required
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
+ *   Type: 'REACTIVE' || 'PROACTIVE', // required
  * };
  * const command = new SearchOrganizationInsightsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SearchOrganizationInsightsResponse
+ *   ProactiveInsights: [ // ProactiveInsights
+ *     { // ProactiveInsightSummary
+ *       Id: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *       Severity: 'LOW' || 'MEDIUM' || 'HIGH',
+ *       Status: 'ONGOING' || 'CLOSED',
+ *       InsightTimeRange: { // InsightTimeRange
+ *         StartTime: new Date('TIMESTAMP'), // required
+ *         EndTime: new Date('TIMESTAMP'),
+ *       },
+ *       PredictionTimeRange: { // PredictionTimeRange
+ *         StartTime: new Date('TIMESTAMP'), // required
+ *         EndTime: new Date('TIMESTAMP'),
+ *       },
+ *       ResourceCollection: { // ResourceCollection
+ *         CloudFormation: { // CloudFormationCollection
+ *           StackNames: [ // StackNames
+ *             'STRING_VALUE',
+ *           ],
+ *         },
+ *         Tags: [ // TagCollections
+ *           { // TagCollection
+ *             AppBoundaryKey: 'STRING_VALUE', // required
+ *             TagValues: [ // TagValues // required
+ *               'STRING_VALUE',
+ *             ],
+ *           },
+ *         ],
+ *       },
+ *       ServiceCollection: { // ServiceCollection
+ *         ServiceNames: [ // ServiceNames
+ *           'API_GATEWAY' || 'APPLICATION_ELB' || 'AUTO_SCALING_GROUP' || 'CLOUD_FRONT' || 'DYNAMO_DB' || 'EC2' || 'ECS' || 'EKS' || 'ELASTIC_BEANSTALK' || 'ELASTI_CACHE' || 'ELB' || 'ES' || 'KINESIS' || 'LAMBDA' || 'NAT_GATEWAY' || 'NETWORK_ELB' || 'RDS' || 'REDSHIFT' || 'ROUTE_53' || 'S3' || 'SAGE_MAKER' || 'SNS' || 'SQS' || 'STEP_FUNCTIONS' || 'SWF',
+ *         ],
+ *       },
+ *       AssociatedResourceArns: [ // AssociatedResourceArns
+ *         'STRING_VALUE',
+ *       ],
+ *     },
+ *   ],
+ *   ReactiveInsights: [ // ReactiveInsights
+ *     { // ReactiveInsightSummary
+ *       Id: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *       Severity: 'LOW' || 'MEDIUM' || 'HIGH',
+ *       Status: 'ONGOING' || 'CLOSED',
+ *       InsightTimeRange: {
+ *         StartTime: new Date('TIMESTAMP'), // required
+ *         EndTime: new Date('TIMESTAMP'),
+ *       },
+ *       ResourceCollection: {
+ *         CloudFormation: {
+ *           StackNames: [
+ *             'STRING_VALUE',
+ *           ],
+ *         },
+ *         Tags: [
+ *           {
+ *             AppBoundaryKey: 'STRING_VALUE', // required
+ *             TagValues: [ // required
+ *               'STRING_VALUE',
+ *             ],
+ *           },
+ *         ],
+ *       },
+ *       ServiceCollection: {
+ *         ServiceNames: [
+ *           'API_GATEWAY' || 'APPLICATION_ELB' || 'AUTO_SCALING_GROUP' || 'CLOUD_FRONT' || 'DYNAMO_DB' || 'EC2' || 'ECS' || 'EKS' || 'ELASTIC_BEANSTALK' || 'ELASTI_CACHE' || 'ELB' || 'ES' || 'KINESIS' || 'LAMBDA' || 'NAT_GATEWAY' || 'NETWORK_ELB' || 'RDS' || 'REDSHIFT' || 'ROUTE_53' || 'S3' || 'SAGE_MAKER' || 'SNS' || 'SQS' || 'STEP_FUNCTIONS' || 'SWF',
+ *         ],
+ *       },
+ *       AssociatedResourceArns: [
+ *         'STRING_VALUE',
+ *       ],
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param SearchOrganizationInsightsCommandInput - {@link SearchOrganizationInsightsCommandInput}
@@ -112,6 +191,8 @@ export interface SearchOrganizationInsightsCommandOutput extends SearchOrganizat
  *  <p> Contains information about data passed in to a field during a request that is not
  * 			valid. </p>
  *
+ * @throws {@link DevOpsGuruServiceException}
+ * <p>Base exception class for all service exceptions from DevOpsGuru service.</p>
  *
  */
 export class SearchOrganizationInsightsCommand extends $Command<

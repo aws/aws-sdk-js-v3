@@ -50,21 +50,41 @@ export interface BatchEvaluateFeatureCommandOutput extends BatchEvaluateFeatureR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EvidentlyClient, BatchEvaluateFeatureCommand } from "@aws-sdk/client-evidently"; // ES Modules import
- * // const { EvidentlyClient, BatchEvaluateFeatureCommand } = require("@aws-sdk/client-evidently"); // CommonJS import
+ * import { EvidentlyClient, BatchEvaluateFeatureCommand } from '@aws-sdk/client-evidently'; // ES Modules import
+ * // const { EvidentlyClient, BatchEvaluateFeatureCommand } = require('@aws-sdk/client-evidently'); // CommonJS import
  * const client = new EvidentlyClient(config);
  * const input = { // BatchEvaluateFeatureRequest
- *   project: "STRING_VALUE", // required
+ *   project: 'STRING_VALUE', // required
  *   requests: [ // EvaluationRequestsList // required
  *     { // EvaluationRequest
- *       feature: "STRING_VALUE", // required
- *       entityId: "STRING_VALUE", // required
- *       evaluationContext: "STRING_VALUE",
+ *       feature: 'STRING_VALUE', // required
+ *       entityId: 'STRING_VALUE', // required
+ *       evaluationContext: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new BatchEvaluateFeatureCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BatchEvaluateFeatureResponse
+ *   results: [ // EvaluationResultsList
+ *     { // EvaluationResult
+ *       project: 'STRING_VALUE',
+ *       feature: 'STRING_VALUE', // required
+ *       variation: 'STRING_VALUE',
+ *       value: { // VariableValue Union: only one key present
+ *         boolValue: true || false,
+ *         stringValue: 'STRING_VALUE',
+ *         longValue: Number('long'),
+ *         doubleValue: Number('double'),
+ *       },
+ *       entityId: 'STRING_VALUE', // required
+ *       reason: 'STRING_VALUE',
+ *       details: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param BatchEvaluateFeatureCommandInput - {@link BatchEvaluateFeatureCommandInput}
@@ -85,6 +105,8 @@ export interface BatchEvaluateFeatureCommandOutput extends BatchEvaluateFeatureR
  * @throws {@link ValidationException} (client fault)
  *  <p>The value of a parameter in the request caused an error.</p>
  *
+ * @throws {@link EvidentlyServiceException}
+ * <p>Base exception class for all service exceptions from Evidently service.</p>
  *
  */
 export class BatchEvaluateFeatureCommand extends $Command<

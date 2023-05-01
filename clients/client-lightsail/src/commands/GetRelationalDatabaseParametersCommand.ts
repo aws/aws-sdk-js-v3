@@ -45,15 +45,32 @@ export interface GetRelationalDatabaseParametersCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LightsailClient, GetRelationalDatabaseParametersCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
- * // const { LightsailClient, GetRelationalDatabaseParametersCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
+ * import { LightsailClient, GetRelationalDatabaseParametersCommand } from '@aws-sdk/client-lightsail'; // ES Modules import
+ * // const { LightsailClient, GetRelationalDatabaseParametersCommand } = require('@aws-sdk/client-lightsail'); // CommonJS import
  * const client = new LightsailClient(config);
  * const input = { // GetRelationalDatabaseParametersRequest
- *   relationalDatabaseName: "STRING_VALUE", // required
- *   pageToken: "STRING_VALUE",
+ *   relationalDatabaseName: 'STRING_VALUE', // required
+ *   pageToken: 'STRING_VALUE',
  * };
  * const command = new GetRelationalDatabaseParametersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetRelationalDatabaseParametersResult
+ *   parameters: [ // RelationalDatabaseParameterList
+ *     { // RelationalDatabaseParameter
+ *       allowedValues: 'STRING_VALUE',
+ *       applyMethod: 'STRING_VALUE',
+ *       applyType: 'STRING_VALUE',
+ *       dataType: 'STRING_VALUE',
+ *       description: 'STRING_VALUE',
+ *       isModifiable: true || false,
+ *       parameterName: 'STRING_VALUE',
+ *       parameterValue: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   nextPageToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetRelationalDatabaseParametersCommandInput - {@link GetRelationalDatabaseParametersCommandInput}
@@ -92,6 +109,8 @@ export interface GetRelationalDatabaseParametersCommandOutput
  * @throws {@link UnauthenticatedException} (client fault)
  *  <p>Lightsail throws this exception when the user has not been authenticated.</p>
  *
+ * @throws {@link LightsailServiceException}
+ * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
  */
 export class GetRelationalDatabaseParametersCommand extends $Command<

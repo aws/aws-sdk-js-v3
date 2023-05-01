@@ -38,16 +38,19 @@ export interface UpdateFleetMetadataCommandOutput extends UpdateFleetMetadataRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkLinkClient, UpdateFleetMetadataCommand } from "@aws-sdk/client-worklink"; // ES Modules import
- * // const { WorkLinkClient, UpdateFleetMetadataCommand } = require("@aws-sdk/client-worklink"); // CommonJS import
+ * import { WorkLinkClient, UpdateFleetMetadataCommand } from '@aws-sdk/client-worklink'; // ES Modules import
+ * // const { WorkLinkClient, UpdateFleetMetadataCommand } = require('@aws-sdk/client-worklink'); // CommonJS import
  * const client = new WorkLinkClient(config);
  * const input = { // UpdateFleetMetadataRequest
- *   FleetArn: "STRING_VALUE", // required
- *   DisplayName: "STRING_VALUE",
+ *   FleetArn: 'STRING_VALUE', // required
+ *   DisplayName: 'STRING_VALUE',
  *   OptimizeForEndUserLocation: true || false,
  * };
  * const command = new UpdateFleetMetadataCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateFleetMetadataCommandInput - {@link UpdateFleetMetadataCommandInput}
@@ -71,6 +74,8 @@ export interface UpdateFleetMetadataCommandOutput extends UpdateFleetMetadataRes
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this action.</p>
  *
+ * @throws {@link WorkLinkServiceException}
+ * <p>Base exception class for all service exceptions from WorkLink service.</p>
  *
  */
 export class UpdateFleetMetadataCommand extends $Command<

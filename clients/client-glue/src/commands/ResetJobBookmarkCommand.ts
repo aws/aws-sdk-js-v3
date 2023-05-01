@@ -54,15 +54,28 @@ export interface ResetJobBookmarkCommandOutput extends ResetJobBookmarkResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlueClient, ResetJobBookmarkCommand } from "@aws-sdk/client-glue"; // ES Modules import
- * // const { GlueClient, ResetJobBookmarkCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * import { GlueClient, ResetJobBookmarkCommand } from '@aws-sdk/client-glue'; // ES Modules import
+ * // const { GlueClient, ResetJobBookmarkCommand } = require('@aws-sdk/client-glue'); // CommonJS import
  * const client = new GlueClient(config);
  * const input = { // ResetJobBookmarkRequest
- *   JobName: "STRING_VALUE", // required
- *   RunId: "STRING_VALUE",
+ *   JobName: 'STRING_VALUE', // required
+ *   RunId: 'STRING_VALUE',
  * };
  * const command = new ResetJobBookmarkCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ResetJobBookmarkResponse
+ *   JobBookmarkEntry: { // JobBookmarkEntry
+ *     JobName: 'STRING_VALUE',
+ *     Version: Number('int'),
+ *     Run: Number('int'),
+ *     Attempt: Number('int'),
+ *     PreviousRunId: 'STRING_VALUE',
+ *     RunId: 'STRING_VALUE',
+ *     JobBookmark: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param ResetJobBookmarkCommandInput - {@link ResetJobBookmarkCommandInput}
@@ -83,6 +96,8 @@ export interface ResetJobBookmarkCommandOutput extends ResetJobBookmarkResponse,
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class ResetJobBookmarkCommand extends $Command<

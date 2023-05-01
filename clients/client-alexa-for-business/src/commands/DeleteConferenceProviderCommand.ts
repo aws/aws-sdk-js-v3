@@ -36,14 +36,17 @@ export interface DeleteConferenceProviderCommandOutput extends DeleteConferenceP
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AlexaForBusinessClient, DeleteConferenceProviderCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
- * // const { AlexaForBusinessClient, DeleteConferenceProviderCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
+ * import { AlexaForBusinessClient, DeleteConferenceProviderCommand } from '@aws-sdk/client-alexa-for-business'; // ES Modules import
+ * // const { AlexaForBusinessClient, DeleteConferenceProviderCommand } = require('@aws-sdk/client-alexa-for-business'); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
  * const input = { // DeleteConferenceProviderRequest
- *   ConferenceProviderArn: "STRING_VALUE", // required
+ *   ConferenceProviderArn: 'STRING_VALUE', // required
  * };
  * const command = new DeleteConferenceProviderCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteConferenceProviderCommandInput - {@link DeleteConferenceProviderCommandInput}
@@ -55,6 +58,8 @@ export interface DeleteConferenceProviderCommandOutput extends DeleteConferenceP
  * @throws {@link NotFoundException} (client fault)
  *  <p>The resource is not found.</p>
  *
+ * @throws {@link AlexaForBusinessServiceException}
+ * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  */
 export class DeleteConferenceProviderCommand extends $Command<

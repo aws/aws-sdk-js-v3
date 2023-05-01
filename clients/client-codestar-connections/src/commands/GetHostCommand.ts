@@ -41,14 +41,32 @@ export interface GetHostCommandOutput extends GetHostOutput, __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeStarConnectionsClient, GetHostCommand } from "@aws-sdk/client-codestar-connections"; // ES Modules import
- * // const { CodeStarConnectionsClient, GetHostCommand } = require("@aws-sdk/client-codestar-connections"); // CommonJS import
+ * import { CodeStarConnectionsClient, GetHostCommand } from '@aws-sdk/client-codestar-connections'; // ES Modules import
+ * // const { CodeStarConnectionsClient, GetHostCommand } = require('@aws-sdk/client-codestar-connections'); // CommonJS import
  * const client = new CodeStarConnectionsClient(config);
  * const input = { // GetHostInput
- *   HostArn: "STRING_VALUE", // required
+ *   HostArn: 'STRING_VALUE', // required
  * };
  * const command = new GetHostCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetHostOutput
+ *   Name: 'STRING_VALUE',
+ *   Status: 'STRING_VALUE',
+ *   ProviderType: 'STRING_VALUE',
+ *   ProviderEndpoint: 'STRING_VALUE',
+ *   VpcConfiguration: { // VpcConfiguration
+ *     VpcId: 'STRING_VALUE', // required
+ *     SubnetIds: [ // SubnetIds // required
+ *       'STRING_VALUE',
+ *     ],
+ *     SecurityGroupIds: [ // SecurityGroupIds // required
+ *       'STRING_VALUE',
+ *     ],
+ *     TlsCertificate: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetHostCommandInput - {@link GetHostCommandInput}
@@ -63,6 +81,8 @@ export interface GetHostCommandOutput extends GetHostOutput, __MetadataBearer {}
  * @throws {@link ResourceUnavailableException} (client fault)
  *  <p>Resource not found. Verify the ARN for the host resource and try again.</p>
  *
+ * @throws {@link CodeStarConnectionsServiceException}
+ * <p>Base exception class for all service exceptions from CodeStarConnections service.</p>
  *
  */
 export class GetHostCommand extends $Command<

@@ -48,14 +48,20 @@ export interface NotifyWhenUploadedCommandOutput extends NotifyWhenUploadedOutpu
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { StorageGatewayClient, NotifyWhenUploadedCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
- * // const { StorageGatewayClient, NotifyWhenUploadedCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
+ * import { StorageGatewayClient, NotifyWhenUploadedCommand } from '@aws-sdk/client-storage-gateway'; // ES Modules import
+ * // const { StorageGatewayClient, NotifyWhenUploadedCommand } = require('@aws-sdk/client-storage-gateway'); // CommonJS import
  * const client = new StorageGatewayClient(config);
  * const input = { // NotifyWhenUploadedInput
- *   FileShareARN: "STRING_VALUE", // required
+ *   FileShareARN: 'STRING_VALUE', // required
  * };
  * const command = new NotifyWhenUploadedCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // NotifyWhenUploadedOutput
+ *   FileShareARN: 'STRING_VALUE',
+ *   NotificationId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param NotifyWhenUploadedCommandInput - {@link NotifyWhenUploadedCommandInput}
@@ -72,6 +78,8 @@ export interface NotifyWhenUploadedCommandOutput extends NotifyWhenUploadedOutpu
  *  <p>An exception occurred because an invalid gateway request was issued to the service. For
  *          more information, see the error and message fields.</p>
  *
+ * @throws {@link StorageGatewayServiceException}
+ * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
  */
 export class NotifyWhenUploadedCommand extends $Command<

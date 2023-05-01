@@ -36,24 +36,47 @@ export interface DescribeSavingsPlanRatesCommandOutput extends DescribeSavingsPl
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SavingsplansClient, DescribeSavingsPlanRatesCommand } from "@aws-sdk/client-savingsplans"; // ES Modules import
- * // const { SavingsplansClient, DescribeSavingsPlanRatesCommand } = require("@aws-sdk/client-savingsplans"); // CommonJS import
+ * import { SavingsplansClient, DescribeSavingsPlanRatesCommand } from '@aws-sdk/client-savingsplans'; // ES Modules import
+ * // const { SavingsplansClient, DescribeSavingsPlanRatesCommand } = require('@aws-sdk/client-savingsplans'); // CommonJS import
  * const client = new SavingsplansClient(config);
  * const input = { // DescribeSavingsPlanRatesRequest
- *   savingsPlanId: "STRING_VALUE", // required
+ *   savingsPlanId: 'STRING_VALUE', // required
  *   filters: [ // SavingsPlanRateFilterList
  *     { // SavingsPlanRateFilter
- *       name: "STRING_VALUE",
+ *       name: 'STRING_VALUE',
  *       values: [ // ListOfStrings
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new DescribeSavingsPlanRatesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeSavingsPlanRatesResponse
+ *   savingsPlanId: 'STRING_VALUE',
+ *   searchResults: [ // SavingsPlanRateList
+ *     { // SavingsPlanRate
+ *       rate: 'STRING_VALUE',
+ *       currency: 'STRING_VALUE',
+ *       unit: 'STRING_VALUE',
+ *       productType: 'STRING_VALUE',
+ *       serviceCode: 'STRING_VALUE',
+ *       usageType: 'STRING_VALUE',
+ *       operation: 'STRING_VALUE',
+ *       properties: [ // SavingsPlanRatePropertyList
+ *         { // SavingsPlanRateProperty
+ *           name: 'STRING_VALUE',
+ *           value: 'STRING_VALUE',
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeSavingsPlanRatesCommandInput - {@link DescribeSavingsPlanRatesCommandInput}
@@ -68,6 +91,8 @@ export interface DescribeSavingsPlanRatesCommandOutput extends DescribeSavingsPl
  * @throws {@link ValidationException} (client fault)
  *  <p>One of the input parameters is not valid.</p>
  *
+ * @throws {@link SavingsplansServiceException}
+ * <p>Base exception class for all service exceptions from Savingsplans service.</p>
  *
  */
 export class DescribeSavingsPlanRatesCommand extends $Command<

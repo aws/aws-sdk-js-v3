@@ -36,21 +36,24 @@ export interface UpdateLFTagCommandOutput extends UpdateLFTagResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LakeFormationClient, UpdateLFTagCommand } from "@aws-sdk/client-lakeformation"; // ES Modules import
- * // const { LakeFormationClient, UpdateLFTagCommand } = require("@aws-sdk/client-lakeformation"); // CommonJS import
+ * import { LakeFormationClient, UpdateLFTagCommand } from '@aws-sdk/client-lakeformation'; // ES Modules import
+ * // const { LakeFormationClient, UpdateLFTagCommand } = require('@aws-sdk/client-lakeformation'); // CommonJS import
  * const client = new LakeFormationClient(config);
  * const input = { // UpdateLFTagRequest
- *   CatalogId: "STRING_VALUE",
- *   TagKey: "STRING_VALUE", // required
+ *   CatalogId: 'STRING_VALUE',
+ *   TagKey: 'STRING_VALUE', // required
  *   TagValuesToDelete: [ // TagValueList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   TagValuesToAdd: [
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new UpdateLFTagCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateLFTagCommandInput - {@link UpdateLFTagCommandInput}
@@ -77,6 +80,8 @@ export interface UpdateLFTagCommandOutput extends UpdateLFTagResponse, __Metadat
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link LakeFormationServiceException}
+ * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
  */
 export class UpdateLFTagCommand extends $Command<

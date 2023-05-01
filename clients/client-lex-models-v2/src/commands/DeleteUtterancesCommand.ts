@@ -47,16 +47,19 @@ export interface DeleteUtterancesCommandOutput extends DeleteUtterancesResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LexModelsV2Client, DeleteUtterancesCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
- * // const { LexModelsV2Client, DeleteUtterancesCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
+ * import { LexModelsV2Client, DeleteUtterancesCommand } from '@aws-sdk/client-lex-models-v2'; // ES Modules import
+ * // const { LexModelsV2Client, DeleteUtterancesCommand } = require('@aws-sdk/client-lex-models-v2'); // CommonJS import
  * const client = new LexModelsV2Client(config);
  * const input = { // DeleteUtterancesRequest
- *   botId: "STRING_VALUE", // required
- *   localeId: "STRING_VALUE",
- *   sessionId: "STRING_VALUE",
+ *   botId: 'STRING_VALUE', // required
+ *   localeId: 'STRING_VALUE',
+ *   sessionId: 'STRING_VALUE',
  * };
  * const command = new DeleteUtterancesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteUtterancesCommandInput - {@link DeleteUtterancesCommandInput}
@@ -77,6 +80,8 @@ export interface DeleteUtterancesCommandOutput extends DeleteUtterancesResponse,
  *  <p>One of the input parameters in your request isn't valid. Check the
  *          parameters and try your request again.</p>
  *
+ * @throws {@link LexModelsV2ServiceException}
+ * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
  */
 export class DeleteUtterancesCommand extends $Command<

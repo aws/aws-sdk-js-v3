@@ -36,63 +36,119 @@ export interface CreateDataSourceCommandOutput extends CreateDataSourceResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppSyncClient, CreateDataSourceCommand } from "@aws-sdk/client-appsync"; // ES Modules import
- * // const { AppSyncClient, CreateDataSourceCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
+ * import { AppSyncClient, CreateDataSourceCommand } from '@aws-sdk/client-appsync'; // ES Modules import
+ * // const { AppSyncClient, CreateDataSourceCommand } = require('@aws-sdk/client-appsync'); // CommonJS import
  * const client = new AppSyncClient(config);
  * const input = { // CreateDataSourceRequest
- *   apiId: "STRING_VALUE", // required
- *   name: "STRING_VALUE", // required
- *   description: "STRING_VALUE",
- *   type: "AWS_LAMBDA" || "AMAZON_DYNAMODB" || "AMAZON_ELASTICSEARCH" || "NONE" || "HTTP" || "RELATIONAL_DATABASE" || "AMAZON_OPENSEARCH_SERVICE" || "AMAZON_EVENTBRIDGE", // required
- *   serviceRoleArn: "STRING_VALUE",
+ *   apiId: 'STRING_VALUE', // required
+ *   name: 'STRING_VALUE', // required
+ *   description: 'STRING_VALUE',
+ *   type: 'AWS_LAMBDA' || 'AMAZON_DYNAMODB' || 'AMAZON_ELASTICSEARCH' || 'NONE' || 'HTTP' || 'RELATIONAL_DATABASE' || 'AMAZON_OPENSEARCH_SERVICE' || 'AMAZON_EVENTBRIDGE', // required
+ *   serviceRoleArn: 'STRING_VALUE',
  *   dynamodbConfig: { // DynamodbDataSourceConfig
- *     tableName: "STRING_VALUE", // required
- *     awsRegion: "STRING_VALUE", // required
+ *     tableName: 'STRING_VALUE', // required
+ *     awsRegion: 'STRING_VALUE', // required
  *     useCallerCredentials: true || false,
  *     deltaSyncConfig: { // DeltaSyncConfig
- *       baseTableTTL: Number("long"),
- *       deltaSyncTableName: "STRING_VALUE",
- *       deltaSyncTableTTL: Number("long"),
+ *       baseTableTTL: Number('long'),
+ *       deltaSyncTableName: 'STRING_VALUE',
+ *       deltaSyncTableTTL: Number('long'),
  *     },
  *     versioned: true || false,
  *   },
  *   lambdaConfig: { // LambdaDataSourceConfig
- *     lambdaFunctionArn: "STRING_VALUE", // required
+ *     lambdaFunctionArn: 'STRING_VALUE', // required
  *   },
  *   elasticsearchConfig: { // ElasticsearchDataSourceConfig
- *     endpoint: "STRING_VALUE", // required
- *     awsRegion: "STRING_VALUE", // required
+ *     endpoint: 'STRING_VALUE', // required
+ *     awsRegion: 'STRING_VALUE', // required
  *   },
  *   openSearchServiceConfig: { // OpenSearchServiceDataSourceConfig
- *     endpoint: "STRING_VALUE", // required
- *     awsRegion: "STRING_VALUE", // required
+ *     endpoint: 'STRING_VALUE', // required
+ *     awsRegion: 'STRING_VALUE', // required
  *   },
  *   httpConfig: { // HttpDataSourceConfig
- *     endpoint: "STRING_VALUE",
+ *     endpoint: 'STRING_VALUE',
  *     authorizationConfig: { // AuthorizationConfig
- *       authorizationType: "AWS_IAM", // required
+ *       authorizationType: 'AWS_IAM', // required
  *       awsIamConfig: { // AwsIamConfig
- *         signingRegion: "STRING_VALUE",
- *         signingServiceName: "STRING_VALUE",
+ *         signingRegion: 'STRING_VALUE',
+ *         signingServiceName: 'STRING_VALUE',
  *       },
  *     },
  *   },
  *   relationalDatabaseConfig: { // RelationalDatabaseDataSourceConfig
- *     relationalDatabaseSourceType: "RDS_HTTP_ENDPOINT",
+ *     relationalDatabaseSourceType: 'RDS_HTTP_ENDPOINT',
  *     rdsHttpEndpointConfig: { // RdsHttpEndpointConfig
- *       awsRegion: "STRING_VALUE",
- *       dbClusterIdentifier: "STRING_VALUE",
- *       databaseName: "STRING_VALUE",
- *       schema: "STRING_VALUE",
- *       awsSecretStoreArn: "STRING_VALUE",
+ *       awsRegion: 'STRING_VALUE',
+ *       dbClusterIdentifier: 'STRING_VALUE',
+ *       databaseName: 'STRING_VALUE',
+ *       schema: 'STRING_VALUE',
+ *       awsSecretStoreArn: 'STRING_VALUE',
  *     },
  *   },
  *   eventBridgeConfig: { // EventBridgeDataSourceConfig
- *     eventBusArn: "STRING_VALUE", // required
+ *     eventBusArn: 'STRING_VALUE', // required
  *   },
  * };
  * const command = new CreateDataSourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateDataSourceResponse
+ *   dataSource: { // DataSource
+ *     dataSourceArn: 'STRING_VALUE',
+ *     name: 'STRING_VALUE',
+ *     description: 'STRING_VALUE',
+ *     type: 'AWS_LAMBDA' || 'AMAZON_DYNAMODB' || 'AMAZON_ELASTICSEARCH' || 'NONE' || 'HTTP' || 'RELATIONAL_DATABASE' || 'AMAZON_OPENSEARCH_SERVICE' || 'AMAZON_EVENTBRIDGE',
+ *     serviceRoleArn: 'STRING_VALUE',
+ *     dynamodbConfig: { // DynamodbDataSourceConfig
+ *       tableName: 'STRING_VALUE', // required
+ *       awsRegion: 'STRING_VALUE', // required
+ *       useCallerCredentials: true || false,
+ *       deltaSyncConfig: { // DeltaSyncConfig
+ *         baseTableTTL: Number('long'),
+ *         deltaSyncTableName: 'STRING_VALUE',
+ *         deltaSyncTableTTL: Number('long'),
+ *       },
+ *       versioned: true || false,
+ *     },
+ *     lambdaConfig: { // LambdaDataSourceConfig
+ *       lambdaFunctionArn: 'STRING_VALUE', // required
+ *     },
+ *     elasticsearchConfig: { // ElasticsearchDataSourceConfig
+ *       endpoint: 'STRING_VALUE', // required
+ *       awsRegion: 'STRING_VALUE', // required
+ *     },
+ *     openSearchServiceConfig: { // OpenSearchServiceDataSourceConfig
+ *       endpoint: 'STRING_VALUE', // required
+ *       awsRegion: 'STRING_VALUE', // required
+ *     },
+ *     httpConfig: { // HttpDataSourceConfig
+ *       endpoint: 'STRING_VALUE',
+ *       authorizationConfig: { // AuthorizationConfig
+ *         authorizationType: 'AWS_IAM', // required
+ *         awsIamConfig: { // AwsIamConfig
+ *           signingRegion: 'STRING_VALUE',
+ *           signingServiceName: 'STRING_VALUE',
+ *         },
+ *       },
+ *     },
+ *     relationalDatabaseConfig: { // RelationalDatabaseDataSourceConfig
+ *       relationalDatabaseSourceType: 'RDS_HTTP_ENDPOINT',
+ *       rdsHttpEndpointConfig: { // RdsHttpEndpointConfig
+ *         awsRegion: 'STRING_VALUE',
+ *         dbClusterIdentifier: 'STRING_VALUE',
+ *         databaseName: 'STRING_VALUE',
+ *         schema: 'STRING_VALUE',
+ *         awsSecretStoreArn: 'STRING_VALUE',
+ *       },
+ *     },
+ *     eventBridgeConfig: { // EventBridgeDataSourceConfig
+ *       eventBusArn: 'STRING_VALUE', // required
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateDataSourceCommandInput - {@link CreateDataSourceCommandInput}
@@ -118,6 +174,8 @@ export interface CreateDataSourceCommandOutput extends CreateDataSourceResponse,
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You aren't authorized to perform this operation.</p>
  *
+ * @throws {@link AppSyncServiceException}
+ * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
  */
 export class CreateDataSourceCommand extends $Command<

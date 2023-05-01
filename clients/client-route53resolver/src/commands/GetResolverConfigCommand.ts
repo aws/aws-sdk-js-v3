@@ -37,14 +37,24 @@ export interface GetResolverConfigCommandOutput extends GetResolverConfigRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Route53ResolverClient, GetResolverConfigCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
- * // const { Route53ResolverClient, GetResolverConfigCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
+ * import { Route53ResolverClient, GetResolverConfigCommand } from '@aws-sdk/client-route53resolver'; // ES Modules import
+ * // const { Route53ResolverClient, GetResolverConfigCommand } = require('@aws-sdk/client-route53resolver'); // CommonJS import
  * const client = new Route53ResolverClient(config);
  * const input = { // GetResolverConfigRequest
- *   ResourceId: "STRING_VALUE", // required
+ *   ResourceId: 'STRING_VALUE', // required
  * };
  * const command = new GetResolverConfigCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetResolverConfigResponse
+ *   ResolverConfig: { // ResolverConfig
+ *     Id: 'STRING_VALUE',
+ *     ResourceId: 'STRING_VALUE',
+ *     OwnerId: 'STRING_VALUE',
+ *     AutodefinedReverse: 'ENABLING' || 'ENABLED' || 'DISABLING' || 'DISABLED' || 'UPDATING_TO_USE_LOCAL_RESOURCE_SETTING' || 'USE_LOCAL_RESOURCE_SETTING',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetResolverConfigCommandInput - {@link GetResolverConfigCommandInput}
@@ -72,6 +82,8 @@ export interface GetResolverConfigCommandOutput extends GetResolverConfigRespons
  *  <p>You have provided an invalid command. Supported values are <code>ADD</code>,
  * 			<code>REMOVE</code>, or <code>REPLACE</code> a domain.</p>
  *
+ * @throws {@link Route53ResolverServiceException}
+ * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
  */
 export class GetResolverConfigCommand extends $Command<

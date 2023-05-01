@@ -40,43 +40,43 @@ export interface CreatePipelineCommandOutput extends CreatePipelineResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElasticTranscoderClient, CreatePipelineCommand } from "@aws-sdk/client-elastic-transcoder"; // ES Modules import
- * // const { ElasticTranscoderClient, CreatePipelineCommand } = require("@aws-sdk/client-elastic-transcoder"); // CommonJS import
+ * import { ElasticTranscoderClient, CreatePipelineCommand } from '@aws-sdk/client-elastic-transcoder'; // ES Modules import
+ * // const { ElasticTranscoderClient, CreatePipelineCommand } = require('@aws-sdk/client-elastic-transcoder'); // CommonJS import
  * const client = new ElasticTranscoderClient(config);
  * const input = { // CreatePipelineRequest
- *   Name: "STRING_VALUE", // required
- *   InputBucket: "STRING_VALUE", // required
- *   OutputBucket: "STRING_VALUE",
- *   Role: "STRING_VALUE", // required
- *   AwsKmsKeyArn: "STRING_VALUE",
+ *   Name: 'STRING_VALUE', // required
+ *   InputBucket: 'STRING_VALUE', // required
+ *   OutputBucket: 'STRING_VALUE',
+ *   Role: 'STRING_VALUE', // required
+ *   AwsKmsKeyArn: 'STRING_VALUE',
  *   Notifications: { // Notifications
- *     Progressing: "STRING_VALUE",
- *     Completed: "STRING_VALUE",
- *     Warning: "STRING_VALUE",
- *     Error: "STRING_VALUE",
+ *     Progressing: 'STRING_VALUE',
+ *     Completed: 'STRING_VALUE',
+ *     Warning: 'STRING_VALUE',
+ *     Error: 'STRING_VALUE',
  *   },
  *   ContentConfig: { // PipelineOutputConfig
- *     Bucket: "STRING_VALUE",
- *     StorageClass: "STRING_VALUE",
+ *     Bucket: 'STRING_VALUE',
+ *     StorageClass: 'STRING_VALUE',
  *     Permissions: [ // Permissions
  *       { // Permission
- *         GranteeType: "STRING_VALUE",
- *         Grantee: "STRING_VALUE",
+ *         GranteeType: 'STRING_VALUE',
+ *         Grantee: 'STRING_VALUE',
  *         Access: [ // AccessControls
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
  *       },
  *     ],
  *   },
  *   ThumbnailConfig: {
- *     Bucket: "STRING_VALUE",
- *     StorageClass: "STRING_VALUE",
+ *     Bucket: 'STRING_VALUE',
+ *     StorageClass: 'STRING_VALUE',
  *     Permissions: [
  *       {
- *         GranteeType: "STRING_VALUE",
- *         Grantee: "STRING_VALUE",
+ *         GranteeType: 'STRING_VALUE',
+ *         Grantee: 'STRING_VALUE',
  *         Access: [
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
  *       },
  *     ],
@@ -84,6 +84,58 @@ export interface CreatePipelineCommandOutput extends CreatePipelineResponse, __M
  * };
  * const command = new CreatePipelineCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreatePipelineResponse
+ *   Pipeline: { // Pipeline
+ *     Id: 'STRING_VALUE',
+ *     Arn: 'STRING_VALUE',
+ *     Name: 'STRING_VALUE',
+ *     Status: 'STRING_VALUE',
+ *     InputBucket: 'STRING_VALUE',
+ *     OutputBucket: 'STRING_VALUE',
+ *     Role: 'STRING_VALUE',
+ *     AwsKmsKeyArn: 'STRING_VALUE',
+ *     Notifications: { // Notifications
+ *       Progressing: 'STRING_VALUE',
+ *       Completed: 'STRING_VALUE',
+ *       Warning: 'STRING_VALUE',
+ *       Error: 'STRING_VALUE',
+ *     },
+ *     ContentConfig: { // PipelineOutputConfig
+ *       Bucket: 'STRING_VALUE',
+ *       StorageClass: 'STRING_VALUE',
+ *       Permissions: [ // Permissions
+ *         { // Permission
+ *           GranteeType: 'STRING_VALUE',
+ *           Grantee: 'STRING_VALUE',
+ *           Access: [ // AccessControls
+ *             'STRING_VALUE',
+ *           ],
+ *         },
+ *       ],
+ *     },
+ *     ThumbnailConfig: {
+ *       Bucket: 'STRING_VALUE',
+ *       StorageClass: 'STRING_VALUE',
+ *       Permissions: [
+ *         {
+ *           GranteeType: 'STRING_VALUE',
+ *           Grantee: 'STRING_VALUE',
+ *           Access: [
+ *             'STRING_VALUE',
+ *           ],
+ *         },
+ *       ],
+ *     },
+ *   },
+ *   Warnings: [ // Warnings
+ *     { // Warning
+ *       Code: 'STRING_VALUE',
+ *       Message: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param CreatePipelineCommandInput - {@link CreatePipelineCommandInput}
@@ -111,6 +163,8 @@ export interface CreatePipelineCommandOutput extends CreatePipelineResponse, __M
  * @throws {@link ValidationException} (client fault)
  *  <p>One or more required parameter values were not provided in the request.</p>
  *
+ * @throws {@link ElasticTranscoderServiceException}
+ * <p>Base exception class for all service exceptions from ElasticTranscoder service.</p>
  *
  */
 export class CreatePipelineCommand extends $Command<

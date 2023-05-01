@@ -38,14 +38,17 @@ export interface DeleteWorkspaceBundleCommandOutput extends DeleteWorkspaceBundl
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkSpacesClient, DeleteWorkspaceBundleCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
- * // const { WorkSpacesClient, DeleteWorkspaceBundleCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
+ * import { WorkSpacesClient, DeleteWorkspaceBundleCommand } from '@aws-sdk/client-workspaces'; // ES Modules import
+ * // const { WorkSpacesClient, DeleteWorkspaceBundleCommand } = require('@aws-sdk/client-workspaces'); // CommonJS import
  * const client = new WorkSpacesClient(config);
  * const input = { // DeleteWorkspaceBundleRequest
- *   BundleId: "STRING_VALUE",
+ *   BundleId: 'STRING_VALUE',
  * };
  * const command = new DeleteWorkspaceBundleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteWorkspaceBundleCommandInput - {@link DeleteWorkspaceBundleCommandInput}
@@ -66,6 +69,8 @@ export interface DeleteWorkspaceBundleCommandOutput extends DeleteWorkspaceBundl
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource could not be found.</p>
  *
+ * @throws {@link WorkSpacesServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
  */
 export class DeleteWorkspaceBundleCommand extends $Command<

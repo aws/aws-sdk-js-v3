@@ -36,14 +36,25 @@ export interface DescribeIpRestrictionCommandOutput extends DescribeIpRestrictio
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { QuickSightClient, DescribeIpRestrictionCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
- * // const { QuickSightClient, DescribeIpRestrictionCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * import { QuickSightClient, DescribeIpRestrictionCommand } from '@aws-sdk/client-quicksight'; // ES Modules import
+ * // const { QuickSightClient, DescribeIpRestrictionCommand } = require('@aws-sdk/client-quicksight'); // CommonJS import
  * const client = new QuickSightClient(config);
  * const input = { // DescribeIpRestrictionRequest
- *   AwsAccountId: "STRING_VALUE", // required
+ *   AwsAccountId: 'STRING_VALUE', // required
  * };
  * const command = new DescribeIpRestrictionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeIpRestrictionResponse
+ *   AwsAccountId: 'STRING_VALUE',
+ *   IpRestrictionRuleMap: { // IpRestrictionRuleMap
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ *   Enabled: true || false,
+ *   RequestId: 'STRING_VALUE',
+ *   Status: Number('int'),
+ * };
+ *
  * ```
  *
  * @param DescribeIpRestrictionCommandInput - {@link DescribeIpRestrictionCommandInput}
@@ -70,6 +81,8 @@ export interface DescribeIpRestrictionCommandOutput extends DescribeIpRestrictio
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Access is throttled.</p>
  *
+ * @throws {@link QuickSightServiceException}
+ * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
 export class DescribeIpRestrictionCommand extends $Command<

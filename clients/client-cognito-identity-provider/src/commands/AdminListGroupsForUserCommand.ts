@@ -46,17 +46,33 @@ export interface AdminListGroupsForUserCommandOutput extends AdminListGroupsForU
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CognitoIdentityProviderClient, AdminListGroupsForUserCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
- * // const { CognitoIdentityProviderClient, AdminListGroupsForUserCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
+ * import { CognitoIdentityProviderClient, AdminListGroupsForUserCommand } from '@aws-sdk/client-cognito-identity-provider'; // ES Modules import
+ * // const { CognitoIdentityProviderClient, AdminListGroupsForUserCommand } = require('@aws-sdk/client-cognito-identity-provider'); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
  * const input = { // AdminListGroupsForUserRequest
- *   Username: "STRING_VALUE", // required
- *   UserPoolId: "STRING_VALUE", // required
- *   Limit: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   Username: 'STRING_VALUE', // required
+ *   UserPoolId: 'STRING_VALUE', // required
+ *   Limit: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new AdminListGroupsForUserCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AdminListGroupsForUserResponse
+ *   Groups: [ // GroupListType
+ *     { // GroupType
+ *       GroupName: 'STRING_VALUE',
+ *       UserPoolId: 'STRING_VALUE',
+ *       Description: 'STRING_VALUE',
+ *       RoleArn: 'STRING_VALUE',
+ *       Precedence: Number('int'),
+ *       LastModifiedDate: new Date('TIMESTAMP'),
+ *       CreationDate: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param AdminListGroupsForUserCommandInput - {@link AdminListGroupsForUserCommandInput}
@@ -86,6 +102,8 @@ export interface AdminListGroupsForUserCommandOutput extends AdminListGroupsForU
  * @throws {@link UserNotFoundException} (client fault)
  *  <p>This exception is thrown when a user isn't found.</p>
  *
+ * @throws {@link CognitoIdentityProviderServiceException}
+ * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
  */
 export class AdminListGroupsForUserCommand extends $Command<

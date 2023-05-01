@@ -36,22 +36,25 @@ export interface UpdateClassificationScopeCommandOutput extends UpdateClassifica
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Macie2Client, UpdateClassificationScopeCommand } from "@aws-sdk/client-macie2"; // ES Modules import
- * // const { Macie2Client, UpdateClassificationScopeCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
+ * import { Macie2Client, UpdateClassificationScopeCommand } from '@aws-sdk/client-macie2'; // ES Modules import
+ * // const { Macie2Client, UpdateClassificationScopeCommand } = require('@aws-sdk/client-macie2'); // CommonJS import
  * const client = new Macie2Client(config);
  * const input = { // UpdateClassificationScopeRequest
- *   id: "STRING_VALUE", // required
+ *   id: 'STRING_VALUE', // required
  *   s3: { // S3ClassificationScopeUpdate
  *     excludes: { // S3ClassificationScopeExclusionUpdate
  *       bucketNames: [ // __listOfS3BucketName // required
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
- *       operation: "ADD" || "REPLACE" || "REMOVE", // required
+ *       operation: 'ADD' || 'REPLACE' || 'REMOVE', // required
  *     },
  *   },
  * };
  * const command = new UpdateClassificationScopeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateClassificationScopeCommandInput - {@link UpdateClassificationScopeCommandInput}
@@ -75,6 +78,8 @@ export interface UpdateClassificationScopeCommandOutput extends UpdateClassifica
  * @throws {@link ValidationException} (client fault)
  *  <p>Provides information about an error that occurred due to a syntax error in a request.</p>
  *
+ * @throws {@link Macie2ServiceException}
+ * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
  */
 export class UpdateClassificationScopeCommand extends $Command<

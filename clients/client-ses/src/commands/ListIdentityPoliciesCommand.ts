@@ -47,14 +47,21 @@ export interface ListIdentityPoliciesCommandOutput extends ListIdentityPoliciesR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SESClient, ListIdentityPoliciesCommand } from "@aws-sdk/client-ses"; // ES Modules import
- * // const { SESClient, ListIdentityPoliciesCommand } = require("@aws-sdk/client-ses"); // CommonJS import
+ * import { SESClient, ListIdentityPoliciesCommand } from '@aws-sdk/client-ses'; // ES Modules import
+ * // const { SESClient, ListIdentityPoliciesCommand } = require('@aws-sdk/client-ses'); // CommonJS import
  * const client = new SESClient(config);
  * const input = { // ListIdentityPoliciesRequest
- *   Identity: "STRING_VALUE", // required
+ *   Identity: 'STRING_VALUE', // required
  * };
  * const command = new ListIdentityPoliciesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListIdentityPoliciesResponse
+ *   PolicyNames: [ // PolicyNameList // required
+ *     'STRING_VALUE',
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListIdentityPoliciesCommandInput - {@link ListIdentityPoliciesCommandInput}
@@ -63,6 +70,8 @@ export interface ListIdentityPoliciesCommandOutput extends ListIdentityPoliciesR
  * @see {@link ListIdentityPoliciesCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
+ * @throws {@link SESServiceException}
+ * <p>Base exception class for all service exceptions from SES service.</p>
  *
  * @example ListIdentityPolicies
  * ```javascript

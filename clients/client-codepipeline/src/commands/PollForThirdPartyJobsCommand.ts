@@ -42,20 +42,30 @@ export interface PollForThirdPartyJobsCommandOutput extends PollForThirdPartyJob
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodePipelineClient, PollForThirdPartyJobsCommand } from "@aws-sdk/client-codepipeline"; // ES Modules import
- * // const { CodePipelineClient, PollForThirdPartyJobsCommand } = require("@aws-sdk/client-codepipeline"); // CommonJS import
+ * import { CodePipelineClient, PollForThirdPartyJobsCommand } from '@aws-sdk/client-codepipeline'; // ES Modules import
+ * // const { CodePipelineClient, PollForThirdPartyJobsCommand } = require('@aws-sdk/client-codepipeline'); // CommonJS import
  * const client = new CodePipelineClient(config);
  * const input = { // PollForThirdPartyJobsInput
  *   actionTypeId: { // ActionTypeId
- *     category: "STRING_VALUE", // required
- *     owner: "STRING_VALUE", // required
- *     provider: "STRING_VALUE", // required
- *     version: "STRING_VALUE", // required
+ *     category: 'STRING_VALUE', // required
+ *     owner: 'STRING_VALUE', // required
+ *     provider: 'STRING_VALUE', // required
+ *     version: 'STRING_VALUE', // required
  *   },
- *   maxBatchSize: Number("int"),
+ *   maxBatchSize: Number('int'),
  * };
  * const command = new PollForThirdPartyJobsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PollForThirdPartyJobsOutput
+ *   jobs: [ // ThirdPartyJobList
+ *     { // ThirdPartyJob
+ *       clientId: 'STRING_VALUE',
+ *       jobId: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param PollForThirdPartyJobsCommandInput - {@link PollForThirdPartyJobsCommandInput}
@@ -70,6 +80,8 @@ export interface PollForThirdPartyJobsCommandOutput extends PollForThirdPartyJob
  * @throws {@link ValidationException} (client fault)
  *  <p>The validation was specified in an invalid format.</p>
  *
+ * @throws {@link CodePipelineServiceException}
+ * <p>Base exception class for all service exceptions from CodePipeline service.</p>
  *
  */
 export class PollForThirdPartyJobsCommand extends $Command<

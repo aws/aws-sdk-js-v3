@@ -37,14 +37,17 @@ export interface DeleteDetectorModelCommandOutput extends DeleteDetectorModelRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTEventsClient, DeleteDetectorModelCommand } from "@aws-sdk/client-iot-events"; // ES Modules import
- * // const { IoTEventsClient, DeleteDetectorModelCommand } = require("@aws-sdk/client-iot-events"); // CommonJS import
+ * import { IoTEventsClient, DeleteDetectorModelCommand } from '@aws-sdk/client-iot-events'; // ES Modules import
+ * // const { IoTEventsClient, DeleteDetectorModelCommand } = require('@aws-sdk/client-iot-events'); // CommonJS import
  * const client = new IoTEventsClient(config);
  * const input = { // DeleteDetectorModelRequest
- *   detectorModelName: "STRING_VALUE", // required
+ *   detectorModelName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteDetectorModelCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteDetectorModelCommandInput - {@link DeleteDetectorModelCommandInput}
@@ -71,6 +74,8 @@ export interface DeleteDetectorModelCommandOutput extends DeleteDetectorModelRes
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request could not be completed due to throttling.</p>
  *
+ * @throws {@link IoTEventsServiceException}
+ * <p>Base exception class for all service exceptions from IoTEvents service.</p>
  *
  */
 export class DeleteDetectorModelCommand extends $Command<

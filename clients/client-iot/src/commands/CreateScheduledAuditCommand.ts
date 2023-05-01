@@ -38,26 +38,31 @@ export interface CreateScheduledAuditCommandOutput extends CreateScheduledAuditR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTClient, CreateScheduledAuditCommand } from "@aws-sdk/client-iot"; // ES Modules import
- * // const { IoTClient, CreateScheduledAuditCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * import { IoTClient, CreateScheduledAuditCommand } from '@aws-sdk/client-iot'; // ES Modules import
+ * // const { IoTClient, CreateScheduledAuditCommand } = require('@aws-sdk/client-iot'); // CommonJS import
  * const client = new IoTClient(config);
  * const input = { // CreateScheduledAuditRequest
- *   frequency: "DAILY" || "WEEKLY" || "BIWEEKLY" || "MONTHLY", // required
- *   dayOfMonth: "STRING_VALUE",
- *   dayOfWeek: "SUN" || "MON" || "TUE" || "WED" || "THU" || "FRI" || "SAT",
+ *   frequency: 'DAILY' || 'WEEKLY' || 'BIWEEKLY' || 'MONTHLY', // required
+ *   dayOfMonth: 'STRING_VALUE',
+ *   dayOfWeek: 'SUN' || 'MON' || 'TUE' || 'WED' || 'THU' || 'FRI' || 'SAT',
  *   targetCheckNames: [ // TargetAuditCheckNames // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   scheduledAuditName: "STRING_VALUE", // required
+ *   scheduledAuditName: 'STRING_VALUE', // required
  *   tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new CreateScheduledAuditCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateScheduledAuditResponse
+ *   scheduledAuditArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateScheduledAuditCommandInput - {@link CreateScheduledAuditCommandInput}
@@ -81,6 +86,8 @@ export interface CreateScheduledAuditCommandOutput extends CreateScheduledAuditR
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The rate exceeds the limit.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class CreateScheduledAuditCommand extends $Command<

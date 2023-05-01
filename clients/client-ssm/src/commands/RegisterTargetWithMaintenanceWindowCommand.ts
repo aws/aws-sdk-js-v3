@@ -45,27 +45,32 @@ export interface RegisterTargetWithMaintenanceWindowCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMClient, RegisterTargetWithMaintenanceWindowCommand } from "@aws-sdk/client-ssm"; // ES Modules import
- * // const { SSMClient, RegisterTargetWithMaintenanceWindowCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * import { SSMClient, RegisterTargetWithMaintenanceWindowCommand } from '@aws-sdk/client-ssm'; // ES Modules import
+ * // const { SSMClient, RegisterTargetWithMaintenanceWindowCommand } = require('@aws-sdk/client-ssm'); // CommonJS import
  * const client = new SSMClient(config);
  * const input = { // RegisterTargetWithMaintenanceWindowRequest
- *   WindowId: "STRING_VALUE", // required
- *   ResourceType: "INSTANCE" || "RESOURCE_GROUP", // required
+ *   WindowId: 'STRING_VALUE', // required
+ *   ResourceType: 'INSTANCE' || 'RESOURCE_GROUP', // required
  *   Targets: [ // Targets // required
  *     { // Target
- *       Key: "STRING_VALUE",
+ *       Key: 'STRING_VALUE',
  *       Values: [ // TargetValues
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
- *   OwnerInformation: "STRING_VALUE",
- *   Name: "STRING_VALUE",
- *   Description: "STRING_VALUE",
- *   ClientToken: "STRING_VALUE",
+ *   OwnerInformation: 'STRING_VALUE',
+ *   Name: 'STRING_VALUE',
+ *   Description: 'STRING_VALUE',
+ *   ClientToken: 'STRING_VALUE',
  * };
  * const command = new RegisterTargetWithMaintenanceWindowCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // RegisterTargetWithMaintenanceWindowResult
+ *   WindowTargetId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param RegisterTargetWithMaintenanceWindowCommandInput - {@link RegisterTargetWithMaintenanceWindowCommandInput}
@@ -93,6 +98,8 @@ export interface RegisterTargetWithMaintenanceWindowCommandOutput
  *          <p>For information about resource quotas in Systems Manager, see <a href="https://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm">Systems Manager service quotas</a> in the
  *     <i>Amazon Web Services General Reference</i>.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class RegisterTargetWithMaintenanceWindowCommand extends $Command<

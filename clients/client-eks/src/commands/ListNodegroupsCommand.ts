@@ -38,16 +38,24 @@ export interface ListNodegroupsCommandOutput extends ListNodegroupsResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EKSClient, ListNodegroupsCommand } from "@aws-sdk/client-eks"; // ES Modules import
- * // const { EKSClient, ListNodegroupsCommand } = require("@aws-sdk/client-eks"); // CommonJS import
+ * import { EKSClient, ListNodegroupsCommand } from '@aws-sdk/client-eks'; // ES Modules import
+ * // const { EKSClient, ListNodegroupsCommand } = require('@aws-sdk/client-eks'); // CommonJS import
  * const client = new EKSClient(config);
  * const input = { // ListNodegroupsRequest
- *   clusterName: "STRING_VALUE", // required
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   clusterName: 'STRING_VALUE', // required
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new ListNodegroupsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListNodegroupsResponse
+ *   nodegroups: [ // StringList
+ *     'STRING_VALUE',
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListNodegroupsCommandInput - {@link ListNodegroupsCommandInput}
@@ -77,6 +85,8 @@ export interface ListNodegroupsCommandOutput extends ListNodegroupsResponse, __M
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service is unavailable. Back off and retry the operation.</p>
  *
+ * @throws {@link EKSServiceException}
+ * <p>Base exception class for all service exceptions from EKS service.</p>
  *
  */
 export class ListNodegroupsCommand extends $Command<

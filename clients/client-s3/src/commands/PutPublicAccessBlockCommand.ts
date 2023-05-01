@@ -75,23 +75,26 @@ export interface PutPublicAccessBlockCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { S3Client, PutPublicAccessBlockCommand } from "@aws-sdk/client-s3"; // ES Modules import
- * // const { S3Client, PutPublicAccessBlockCommand } = require("@aws-sdk/client-s3"); // CommonJS import
+ * import { S3Client, PutPublicAccessBlockCommand } from '@aws-sdk/client-s3'; // ES Modules import
+ * // const { S3Client, PutPublicAccessBlockCommand } = require('@aws-sdk/client-s3'); // CommonJS import
  * const client = new S3Client(config);
  * const input = { // PutPublicAccessBlockRequest
- *   Bucket: "STRING_VALUE", // required
- *   ContentMD5: "STRING_VALUE",
- *   ChecksumAlgorithm: "CRC32" || "CRC32C" || "SHA1" || "SHA256",
+ *   Bucket: 'STRING_VALUE', // required
+ *   ContentMD5: 'STRING_VALUE',
+ *   ChecksumAlgorithm: 'CRC32' || 'CRC32C' || 'SHA1' || 'SHA256',
  *   PublicAccessBlockConfiguration: { // PublicAccessBlockConfiguration
  *     BlockPublicAcls: true || false,
  *     IgnorePublicAcls: true || false,
  *     BlockPublicPolicy: true || false,
  *     RestrictPublicBuckets: true || false,
  *   },
- *   ExpectedBucketOwner: "STRING_VALUE",
+ *   ExpectedBucketOwner: 'STRING_VALUE',
  * };
  * const command = new PutPublicAccessBlockCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutPublicAccessBlockCommandInput - {@link PutPublicAccessBlockCommandInput}
@@ -100,6 +103,8 @@ export interface PutPublicAccessBlockCommandOutput extends __MetadataBearer {}
  * @see {@link PutPublicAccessBlockCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
+ * @throws {@link S3ServiceException}
+ * <p>Base exception class for all service exceptions from S3 service.</p>
  *
  */
 export class PutPublicAccessBlockCommand extends $Command<

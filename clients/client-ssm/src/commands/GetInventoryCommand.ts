@@ -38,36 +38,36 @@ export interface GetInventoryCommandOutput extends GetInventoryResult, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMClient, GetInventoryCommand } from "@aws-sdk/client-ssm"; // ES Modules import
- * // const { SSMClient, GetInventoryCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * import { SSMClient, GetInventoryCommand } from '@aws-sdk/client-ssm'; // ES Modules import
+ * // const { SSMClient, GetInventoryCommand } = require('@aws-sdk/client-ssm'); // CommonJS import
  * const client = new SSMClient(config);
  * const input = { // GetInventoryRequest
  *   Filters: [ // InventoryFilterList
  *     { // InventoryFilter
- *       Key: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
  *       Values: [ // InventoryFilterValueList // required
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
- *       Type: "Equal" || "NotEqual" || "BeginWith" || "LessThan" || "GreaterThan" || "Exists",
+ *       Type: 'Equal' || 'NotEqual' || 'BeginWith' || 'LessThan' || 'GreaterThan' || 'Exists',
  *     },
  *   ],
  *   Aggregators: [ // InventoryAggregatorList
  *     { // InventoryAggregator
- *       Expression: "STRING_VALUE",
+ *       Expression: 'STRING_VALUE',
  *       Aggregators: [
  *         {
- *           Expression: "STRING_VALUE",
- *           Aggregators: "<InventoryAggregatorList>",
+ *           Expression: 'STRING_VALUE',
+ *           Aggregators: '<InventoryAggregatorList>',
  *           Groups: [ // InventoryGroupList
  *             { // InventoryGroup
- *               Name: "STRING_VALUE", // required
+ *               Name: 'STRING_VALUE', // required
  *               Filters: [ // required
  *                 {
- *                   Key: "STRING_VALUE", // required
+ *                   Key: 'STRING_VALUE', // required
  *                   Values: [ // required
- *                     "STRING_VALUE",
+ *                     'STRING_VALUE',
  *                   ],
- *                   Type: "Equal" || "NotEqual" || "BeginWith" || "LessThan" || "GreaterThan" || "Exists",
+ *                   Type: 'Equal' || 'NotEqual' || 'BeginWith' || 'LessThan' || 'GreaterThan' || 'Exists',
  *                 },
  *               ],
  *             },
@@ -76,22 +76,45 @@ export interface GetInventoryCommandOutput extends GetInventoryResult, __Metadat
  *       ],
  *       Groups: [
  *         {
- *           Name: "STRING_VALUE", // required
- *           Filters: "<InventoryFilterList>", // required
+ *           Name: 'STRING_VALUE', // required
+ *           Filters: '<InventoryFilterList>', // required
  *         },
  *       ],
  *     },
  *   ],
  *   ResultAttributes: [ // ResultAttributeList
  *     { // ResultAttribute
- *       TypeName: "STRING_VALUE", // required
+ *       TypeName: 'STRING_VALUE', // required
  *     },
  *   ],
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new GetInventoryCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetInventoryResult
+ *   Entities: [ // InventoryResultEntityList
+ *     { // InventoryResultEntity
+ *       Id: 'STRING_VALUE',
+ *       Data: { // InventoryResultItemMap
+ *         '<keys>': { // InventoryResultItem
+ *           TypeName: 'STRING_VALUE', // required
+ *           SchemaVersion: 'STRING_VALUE', // required
+ *           CaptureTime: 'STRING_VALUE',
+ *           ContentHash: 'STRING_VALUE',
+ *           Content: [ // InventoryItemEntryList // required
+ *             { // InventoryItemEntry
+ *               '<keys>': 'STRING_VALUE',
+ *             },
+ *           ],
+ *         },
+ *       },
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetInventoryCommandInput - {@link GetInventoryCommandInput}
@@ -123,6 +146,8 @@ export interface GetInventoryCommandOutput extends GetInventoryResult, __Metadat
  * @throws {@link InvalidTypeNameException} (client fault)
  *  <p>The parameter type name isn't valid.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class GetInventoryCommand extends $Command<

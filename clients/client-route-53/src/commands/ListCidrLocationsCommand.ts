@@ -37,16 +37,26 @@ export interface ListCidrLocationsCommandOutput extends ListCidrLocationsRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Route53Client, ListCidrLocationsCommand } from "@aws-sdk/client-route-53"; // ES Modules import
- * // const { Route53Client, ListCidrLocationsCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
+ * import { Route53Client, ListCidrLocationsCommand } from '@aws-sdk/client-route-53'; // ES Modules import
+ * // const { Route53Client, ListCidrLocationsCommand } = require('@aws-sdk/client-route-53'); // CommonJS import
  * const client = new Route53Client(config);
  * const input = { // ListCidrLocationsRequest
- *   CollectionId: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   CollectionId: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListCidrLocationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListCidrLocationsResponse
+ *   NextToken: 'STRING_VALUE',
+ *   CidrLocations: [ // LocationSummaries
+ *     { // LocationSummary
+ *       LocationName: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListCidrLocationsCommandInput - {@link ListCidrLocationsCommandInput}
@@ -61,6 +71,8 @@ export interface ListCidrLocationsCommandOutput extends ListCidrLocationsRespons
  * @throws {@link NoSuchCidrCollectionException} (client fault)
  *  <p>The CIDR collection you specified, doesn't exist.</p>
  *
+ * @throws {@link Route53ServiceException}
+ * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
  */
 export class ListCidrLocationsCommand extends $Command<

@@ -45,15 +45,18 @@ export interface AssociateWirelessDeviceWithMulticastGroupCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTWirelessClient, AssociateWirelessDeviceWithMulticastGroupCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
- * // const { IoTWirelessClient, AssociateWirelessDeviceWithMulticastGroupCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
+ * import { IoTWirelessClient, AssociateWirelessDeviceWithMulticastGroupCommand } from '@aws-sdk/client-iot-wireless'; // ES Modules import
+ * // const { IoTWirelessClient, AssociateWirelessDeviceWithMulticastGroupCommand } = require('@aws-sdk/client-iot-wireless'); // CommonJS import
  * const client = new IoTWirelessClient(config);
  * const input = { // AssociateWirelessDeviceWithMulticastGroupRequest
- *   Id: "STRING_VALUE", // required
- *   WirelessDeviceId: "STRING_VALUE", // required
+ *   Id: 'STRING_VALUE', // required
+ *   WirelessDeviceId: 'STRING_VALUE', // required
  * };
  * const command = new AssociateWirelessDeviceWithMulticastGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param AssociateWirelessDeviceWithMulticastGroupCommandInput - {@link AssociateWirelessDeviceWithMulticastGroupCommandInput}
@@ -80,6 +83,8 @@ export interface AssociateWirelessDeviceWithMulticastGroupCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The input did not meet the specified constraints.</p>
  *
+ * @throws {@link IoTWirelessServiceException}
+ * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
  */
 export class AssociateWirelessDeviceWithMulticastGroupCommand extends $Command<

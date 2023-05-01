@@ -37,16 +37,19 @@ export interface UpdateDeletionProtectionCommandOutput extends UpdateDeletionPro
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMIncidentsClient, UpdateDeletionProtectionCommand } from "@aws-sdk/client-ssm-incidents"; // ES Modules import
- * // const { SSMIncidentsClient, UpdateDeletionProtectionCommand } = require("@aws-sdk/client-ssm-incidents"); // CommonJS import
+ * import { SSMIncidentsClient, UpdateDeletionProtectionCommand } from '@aws-sdk/client-ssm-incidents'; // ES Modules import
+ * // const { SSMIncidentsClient, UpdateDeletionProtectionCommand } = require('@aws-sdk/client-ssm-incidents'); // CommonJS import
  * const client = new SSMIncidentsClient(config);
  * const input = { // UpdateDeletionProtectionInput
- *   arn: "STRING_VALUE", // required
+ *   arn: 'STRING_VALUE', // required
  *   deletionProtected: true || false, // required
- *   clientToken: "STRING_VALUE",
+ *   clientToken: 'STRING_VALUE',
  * };
  * const command = new UpdateDeletionProtectionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateDeletionProtectionCommandInput - {@link UpdateDeletionProtectionCommandInput}
@@ -72,6 +75,8 @@ export interface UpdateDeletionProtectionCommandOutput extends UpdateDeletionPro
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
  *       service.</p>
  *
+ * @throws {@link SSMIncidentsServiceException}
+ * <p>Base exception class for all service exceptions from SSMIncidents service.</p>
  *
  */
 export class UpdateDeletionProtectionCommand extends $Command<

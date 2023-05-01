@@ -58,18 +58,18 @@ export interface DeleteFileSystemCommandOutput extends DeleteFileSystemResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FSxClient, DeleteFileSystemCommand } from "@aws-sdk/client-fsx"; // ES Modules import
- * // const { FSxClient, DeleteFileSystemCommand } = require("@aws-sdk/client-fsx"); // CommonJS import
+ * import { FSxClient, DeleteFileSystemCommand } from '@aws-sdk/client-fsx'; // ES Modules import
+ * // const { FSxClient, DeleteFileSystemCommand } = require('@aws-sdk/client-fsx'); // CommonJS import
  * const client = new FSxClient(config);
  * const input = { // DeleteFileSystemRequest
- *   FileSystemId: "STRING_VALUE", // required
- *   ClientRequestToken: "STRING_VALUE",
+ *   FileSystemId: 'STRING_VALUE', // required
+ *   ClientRequestToken: 'STRING_VALUE',
  *   WindowsConfiguration: { // DeleteFileSystemWindowsConfiguration
  *     SkipFinalBackup: true || false,
  *     FinalBackupTags: [ // Tags
  *       { // Tag
- *         Key: "STRING_VALUE", // required
- *         Value: "STRING_VALUE", // required
+ *         Key: 'STRING_VALUE', // required
+ *         Value: 'STRING_VALUE', // required
  *       },
  *     ],
  *   },
@@ -77,8 +77,8 @@ export interface DeleteFileSystemCommandOutput extends DeleteFileSystemResponse,
  *     SkipFinalBackup: true || false,
  *     FinalBackupTags: [
  *       {
- *         Key: "STRING_VALUE", // required
- *         Value: "STRING_VALUE", // required
+ *         Key: 'STRING_VALUE', // required
+ *         Value: 'STRING_VALUE', // required
  *       },
  *     ],
  *   },
@@ -86,17 +86,50 @@ export interface DeleteFileSystemCommandOutput extends DeleteFileSystemResponse,
  *     SkipFinalBackup: true || false,
  *     FinalBackupTags: [
  *       {
- *         Key: "STRING_VALUE", // required
- *         Value: "STRING_VALUE", // required
+ *         Key: 'STRING_VALUE', // required
+ *         Value: 'STRING_VALUE', // required
  *       },
  *     ],
  *     Options: [ // DeleteFileSystemOpenZFSOptions
- *       "DELETE_CHILD_VOLUMES_AND_SNAPSHOTS",
+ *       'DELETE_CHILD_VOLUMES_AND_SNAPSHOTS',
  *     ],
  *   },
  * };
  * const command = new DeleteFileSystemCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteFileSystemResponse
+ *   FileSystemId: 'STRING_VALUE',
+ *   Lifecycle: 'AVAILABLE' || 'CREATING' || 'FAILED' || 'DELETING' || 'MISCONFIGURED' || 'UPDATING' || 'MISCONFIGURED_UNAVAILABLE',
+ *   WindowsResponse: { // DeleteFileSystemWindowsResponse
+ *     FinalBackupId: 'STRING_VALUE',
+ *     FinalBackupTags: [ // Tags
+ *       { // Tag
+ *         Key: 'STRING_VALUE', // required
+ *         Value: 'STRING_VALUE', // required
+ *       },
+ *     ],
+ *   },
+ *   LustreResponse: { // DeleteFileSystemLustreResponse
+ *     FinalBackupId: 'STRING_VALUE',
+ *     FinalBackupTags: [
+ *       {
+ *         Key: 'STRING_VALUE', // required
+ *         Value: 'STRING_VALUE', // required
+ *       },
+ *     ],
+ *   },
+ *   OpenZFSResponse: { // DeleteFileSystemOpenZFSResponse
+ *     FinalBackupId: 'STRING_VALUE',
+ *     FinalBackupTags: [
+ *       {
+ *         Key: 'STRING_VALUE', // required
+ *         Value: 'STRING_VALUE', // required
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param DeleteFileSystemCommandInput - {@link DeleteFileSystemCommandInput}
@@ -123,6 +156,8 @@ export interface DeleteFileSystemCommandOutput extends DeleteFileSystemResponse,
  *  <p>An error indicating that a particular service limit was exceeded. You can increase
  *             some service limits by contacting Amazon Web Services Support.</p>
  *
+ * @throws {@link FSxServiceException}
+ * <p>Base exception class for all service exceptions from FSx service.</p>
  *
  * @example To delete a file system
  * ```javascript

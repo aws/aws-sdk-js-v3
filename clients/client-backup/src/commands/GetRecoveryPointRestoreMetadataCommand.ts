@@ -45,15 +45,24 @@ export interface GetRecoveryPointRestoreMetadataCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BackupClient, GetRecoveryPointRestoreMetadataCommand } from "@aws-sdk/client-backup"; // ES Modules import
- * // const { BackupClient, GetRecoveryPointRestoreMetadataCommand } = require("@aws-sdk/client-backup"); // CommonJS import
+ * import { BackupClient, GetRecoveryPointRestoreMetadataCommand } from '@aws-sdk/client-backup'; // ES Modules import
+ * // const { BackupClient, GetRecoveryPointRestoreMetadataCommand } = require('@aws-sdk/client-backup'); // CommonJS import
  * const client = new BackupClient(config);
  * const input = { // GetRecoveryPointRestoreMetadataInput
- *   BackupVaultName: "STRING_VALUE", // required
- *   RecoveryPointArn: "STRING_VALUE", // required
+ *   BackupVaultName: 'STRING_VALUE', // required
+ *   RecoveryPointArn: 'STRING_VALUE', // required
  * };
  * const command = new GetRecoveryPointRestoreMetadataCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetRecoveryPointRestoreMetadataOutput
+ *   BackupVaultArn: 'STRING_VALUE',
+ *   RecoveryPointArn: 'STRING_VALUE',
+ *   RestoreMetadata: { // Metadata
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetRecoveryPointRestoreMetadataCommandInput - {@link GetRecoveryPointRestoreMetadataCommandInput}
@@ -75,6 +84,8 @@ export interface GetRecoveryPointRestoreMetadataCommandOutput
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request failed due to a temporary failure of the server.</p>
  *
+ * @throws {@link BackupServiceException}
+ * <p>Base exception class for all service exceptions from Backup service.</p>
  *
  */
 export class GetRecoveryPointRestoreMetadataCommand extends $Command<

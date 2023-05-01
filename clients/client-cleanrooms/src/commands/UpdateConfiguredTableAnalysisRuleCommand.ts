@@ -41,46 +41,46 @@ export interface UpdateConfiguredTableAnalysisRuleCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CleanRoomsClient, UpdateConfiguredTableAnalysisRuleCommand } from "@aws-sdk/client-cleanrooms"; // ES Modules import
- * // const { CleanRoomsClient, UpdateConfiguredTableAnalysisRuleCommand } = require("@aws-sdk/client-cleanrooms"); // CommonJS import
+ * import { CleanRoomsClient, UpdateConfiguredTableAnalysisRuleCommand } from '@aws-sdk/client-cleanrooms'; // ES Modules import
+ * // const { CleanRoomsClient, UpdateConfiguredTableAnalysisRuleCommand } = require('@aws-sdk/client-cleanrooms'); // CommonJS import
  * const client = new CleanRoomsClient(config);
  * const input = { // UpdateConfiguredTableAnalysisRuleInput
- *   configuredTableIdentifier: "STRING_VALUE", // required
- *   analysisRuleType: "AGGREGATION" || "LIST", // required
+ *   configuredTableIdentifier: 'STRING_VALUE', // required
+ *   analysisRuleType: 'AGGREGATION' || 'LIST', // required
  *   analysisRulePolicy: { // ConfiguredTableAnalysisRulePolicy Union: only one key present
  *     v1: { // ConfiguredTableAnalysisRulePolicyV1 Union: only one key present
  *       list: { // AnalysisRuleList
  *         joinColumns: [ // AnalysisRuleColumnList // required
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
  *         listColumns: [ // required
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
  *       },
  *       aggregation: { // AnalysisRuleAggregation
  *         aggregateColumns: [ // AggregateColumnList // required
  *           { // AggregateColumn
  *             columnNames: [ // AnalysisRuleColumnNameList // required
- *               "STRING_VALUE",
+ *               'STRING_VALUE',
  *             ],
- *             function: "STRING_VALUE", // required
+ *             function: 'STRING_VALUE', // required
  *           },
  *         ],
  *         joinColumns: [ // required
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
- *         joinRequired: "STRING_VALUE",
+ *         joinRequired: 'STRING_VALUE',
  *         dimensionColumns: [ // required
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
  *         scalarFunctions: [ // ScalarFunctionsList // required
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
  *         outputConstraints: [ // AggregationConstraints // required
  *           { // AggregationConstraint
- *             columnName: "STRING_VALUE", // required
- *             minimum: Number("int"), // required
- *             type: "STRING_VALUE", // required
+ *             columnName: 'STRING_VALUE', // required
+ *             minimum: Number('int'), // required
+ *             type: 'STRING_VALUE', // required
  *           },
  *         ],
  *       },
@@ -89,6 +89,56 @@ export interface UpdateConfiguredTableAnalysisRuleCommandOutput
  * };
  * const command = new UpdateConfiguredTableAnalysisRuleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateConfiguredTableAnalysisRuleOutput
+ *   analysisRule: { // ConfiguredTableAnalysisRule
+ *     configuredTableId: 'STRING_VALUE', // required
+ *     configuredTableArn: 'STRING_VALUE', // required
+ *     policy: { // ConfiguredTableAnalysisRulePolicy Union: only one key present
+ *       v1: { // ConfiguredTableAnalysisRulePolicyV1 Union: only one key present
+ *         list: { // AnalysisRuleList
+ *           joinColumns: [ // AnalysisRuleColumnList // required
+ *             'STRING_VALUE',
+ *           ],
+ *           listColumns: [ // required
+ *             'STRING_VALUE',
+ *           ],
+ *         },
+ *         aggregation: { // AnalysisRuleAggregation
+ *           aggregateColumns: [ // AggregateColumnList // required
+ *             { // AggregateColumn
+ *               columnNames: [ // AnalysisRuleColumnNameList // required
+ *                 'STRING_VALUE',
+ *               ],
+ *               function: 'STRING_VALUE', // required
+ *             },
+ *           ],
+ *           joinColumns: [ // required
+ *             'STRING_VALUE',
+ *           ],
+ *           joinRequired: 'STRING_VALUE',
+ *           dimensionColumns: [ // required
+ *             'STRING_VALUE',
+ *           ],
+ *           scalarFunctions: [ // ScalarFunctionsList // required
+ *             'STRING_VALUE',
+ *           ],
+ *           outputConstraints: [ // AggregationConstraints // required
+ *             { // AggregationConstraint
+ *               columnName: 'STRING_VALUE', // required
+ *               minimum: Number('int'), // required
+ *               type: 'STRING_VALUE', // required
+ *             },
+ *           ],
+ *         },
+ *       },
+ *     },
+ *     type: 'AGGREGATION' || 'LIST', // required
+ *     createTime: new Date('TIMESTAMP'), // required
+ *     updateTime: new Date('TIMESTAMP'), // required
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateConfiguredTableAnalysisRuleCommandInput - {@link UpdateConfiguredTableAnalysisRuleCommandInput}
@@ -115,6 +165,8 @@ export interface UpdateConfiguredTableAnalysisRuleCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the specified constraints.</p>
  *
+ * @throws {@link CleanRoomsServiceException}
+ * <p>Base exception class for all service exceptions from CleanRooms service.</p>
  *
  */
 export class UpdateConfiguredTableAnalysisRuleCommand extends $Command<

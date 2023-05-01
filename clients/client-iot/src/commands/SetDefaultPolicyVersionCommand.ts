@@ -40,15 +40,18 @@ export interface SetDefaultPolicyVersionCommandOutput extends __MetadataBearer {
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTClient, SetDefaultPolicyVersionCommand } from "@aws-sdk/client-iot"; // ES Modules import
- * // const { IoTClient, SetDefaultPolicyVersionCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * import { IoTClient, SetDefaultPolicyVersionCommand } from '@aws-sdk/client-iot'; // ES Modules import
+ * // const { IoTClient, SetDefaultPolicyVersionCommand } = require('@aws-sdk/client-iot'); // CommonJS import
  * const client = new IoTClient(config);
  * const input = { // SetDefaultPolicyVersionRequest
- *   policyName: "STRING_VALUE", // required
- *   policyVersionId: "STRING_VALUE", // required
+ *   policyName: 'STRING_VALUE', // required
+ *   policyVersionId: 'STRING_VALUE', // required
  * };
  * const command = new SetDefaultPolicyVersionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param SetDefaultPolicyVersionCommandInput - {@link SetDefaultPolicyVersionCommandInput}
@@ -75,6 +78,8 @@ export interface SetDefaultPolicyVersionCommandOutput extends __MetadataBearer {
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this operation.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class SetDefaultPolicyVersionCommand extends $Command<

@@ -54,14 +54,19 @@ export interface GetAccessKeyInfoCommandOutput extends GetAccessKeyInfoResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { STSClient, GetAccessKeyInfoCommand } from "@aws-sdk/client-sts"; // ES Modules import
- * // const { STSClient, GetAccessKeyInfoCommand } = require("@aws-sdk/client-sts"); // CommonJS import
+ * import { STSClient, GetAccessKeyInfoCommand } from '@aws-sdk/client-sts'; // ES Modules import
+ * // const { STSClient, GetAccessKeyInfoCommand } = require('@aws-sdk/client-sts'); // CommonJS import
  * const client = new STSClient(config);
  * const input = { // GetAccessKeyInfoRequest
- *   AccessKeyId: "STRING_VALUE", // required
+ *   AccessKeyId: 'STRING_VALUE', // required
  * };
  * const command = new GetAccessKeyInfoCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetAccessKeyInfoResponse
+ *   Account: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetAccessKeyInfoCommandInput - {@link GetAccessKeyInfoCommandInput}
@@ -70,6 +75,8 @@ export interface GetAccessKeyInfoCommandOutput extends GetAccessKeyInfoResponse,
  * @see {@link GetAccessKeyInfoCommandOutput} for command's `response` shape.
  * @see {@link STSClientResolvedConfig | config} for STSClient's `config` shape.
  *
+ * @throws {@link STSServiceException}
+ * <p>Base exception class for all service exceptions from STS service.</p>
  *
  */
 export class GetAccessKeyInfoCommand extends $Command<

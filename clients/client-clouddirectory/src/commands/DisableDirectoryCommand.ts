@@ -37,14 +37,19 @@ export interface DisableDirectoryCommandOutput extends DisableDirectoryResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudDirectoryClient, DisableDirectoryCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
- * // const { CloudDirectoryClient, DisableDirectoryCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
+ * import { CloudDirectoryClient, DisableDirectoryCommand } from '@aws-sdk/client-clouddirectory'; // ES Modules import
+ * // const { CloudDirectoryClient, DisableDirectoryCommand } = require('@aws-sdk/client-clouddirectory'); // CommonJS import
  * const client = new CloudDirectoryClient(config);
  * const input = { // DisableDirectoryRequest
- *   DirectoryArn: "STRING_VALUE", // required
+ *   DirectoryArn: 'STRING_VALUE', // required
  * };
  * const command = new DisableDirectoryCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DisableDirectoryResponse
+ *   DirectoryArn: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param DisableDirectoryCommandInput - {@link DisableDirectoryCommandInput}
@@ -79,6 +84,8 @@ export interface DisableDirectoryCommandOutput extends DisableDirectoryResponse,
  *  <p>Indicates that your request is malformed in some manner. See the exception
  *       message.</p>
  *
+ * @throws {@link CloudDirectoryServiceException}
+ * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
  */
 export class DisableDirectoryCommand extends $Command<

@@ -37,18 +37,21 @@ export interface AddThingToThingGroupCommandOutput extends AddThingToThingGroupR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTClient, AddThingToThingGroupCommand } from "@aws-sdk/client-iot"; // ES Modules import
- * // const { IoTClient, AddThingToThingGroupCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * import { IoTClient, AddThingToThingGroupCommand } from '@aws-sdk/client-iot'; // ES Modules import
+ * // const { IoTClient, AddThingToThingGroupCommand } = require('@aws-sdk/client-iot'); // CommonJS import
  * const client = new IoTClient(config);
  * const input = { // AddThingToThingGroupRequest
- *   thingGroupName: "STRING_VALUE",
- *   thingGroupArn: "STRING_VALUE",
- *   thingName: "STRING_VALUE",
- *   thingArn: "STRING_VALUE",
+ *   thingGroupName: 'STRING_VALUE',
+ *   thingGroupArn: 'STRING_VALUE',
+ *   thingName: 'STRING_VALUE',
+ *   thingArn: 'STRING_VALUE',
  *   overrideDynamicGroups: true || false,
  * };
  * const command = new AddThingToThingGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param AddThingToThingGroupCommandInput - {@link AddThingToThingGroupCommandInput}
@@ -69,6 +72,8 @@ export interface AddThingToThingGroupCommandOutput extends AddThingToThingGroupR
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The rate exceeds the limit.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class AddThingToThingGroupCommand extends $Command<

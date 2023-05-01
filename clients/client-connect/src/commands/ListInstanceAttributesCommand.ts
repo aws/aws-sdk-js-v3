@@ -37,16 +37,27 @@ export interface ListInstanceAttributesCommandOutput extends ListInstanceAttribu
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, ListInstanceAttributesCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, ListInstanceAttributesCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, ListInstanceAttributesCommand } from '@aws-sdk/client-connect'; // ES Modules import
+ * // const { ConnectClient, ListInstanceAttributesCommand } = require('@aws-sdk/client-connect'); // CommonJS import
  * const client = new ConnectClient(config);
  * const input = { // ListInstanceAttributesRequest
- *   InstanceId: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   InstanceId: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListInstanceAttributesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListInstanceAttributesResponse
+ *   Attributes: [ // AttributesList
+ *     { // Attribute
+ *       AttributeType: 'INBOUND_CALLS' || 'OUTBOUND_CALLS' || 'CONTACTFLOW_LOGS' || 'CONTACT_LENS' || 'AUTO_RESOLVE_BEST_VOICES' || 'USE_CUSTOM_TTS_VOICES' || 'EARLY_MEDIA' || 'MULTI_PARTY_CONFERENCE' || 'HIGH_VOLUME_OUTBOUND' || 'ENHANCED_CONTACT_MONITORING',
+ *       Value: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListInstanceAttributesCommandInput - {@link ListInstanceAttributesCommandInput}
@@ -70,6 +81,8 @@ export interface ListInstanceAttributesCommandOutput extends ListInstanceAttribu
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class ListInstanceAttributesCommand extends $Command<

@@ -36,17 +36,38 @@ export interface GetWorkflowStepsCommandOutput extends GetWorkflowStepsResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CustomerProfilesClient, GetWorkflowStepsCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
- * // const { CustomerProfilesClient, GetWorkflowStepsCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
+ * import { CustomerProfilesClient, GetWorkflowStepsCommand } from '@aws-sdk/client-customer-profiles'; // ES Modules import
+ * // const { CustomerProfilesClient, GetWorkflowStepsCommand } = require('@aws-sdk/client-customer-profiles'); // CommonJS import
  * const client = new CustomerProfilesClient(config);
  * const input = { // GetWorkflowStepsRequest
- *   DomainName: "STRING_VALUE", // required
- *   WorkflowId: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   DomainName: 'STRING_VALUE', // required
+ *   WorkflowId: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new GetWorkflowStepsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetWorkflowStepsResponse
+ *   WorkflowId: 'STRING_VALUE',
+ *   WorkflowType: 'APPFLOW_INTEGRATION',
+ *   Items: [ // WorkflowStepsList
+ *     { // WorkflowStepItem
+ *       AppflowIntegration: { // AppflowIntegrationWorkflowStep
+ *         FlowName: 'STRING_VALUE', // required
+ *         Status: 'NOT_STARTED' || 'IN_PROGRESS' || 'COMPLETE' || 'FAILED' || 'SPLIT' || 'RETRY' || 'CANCELLED', // required
+ *         ExecutionMessage: 'STRING_VALUE', // required
+ *         RecordsProcessed: Number('long'), // required
+ *         BatchRecordsStartTime: 'STRING_VALUE', // required
+ *         BatchRecordsEndTime: 'STRING_VALUE', // required
+ *         CreatedAt: new Date('TIMESTAMP'), // required
+ *         LastUpdatedAt: new Date('TIMESTAMP'), // required
+ *       },
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetWorkflowStepsCommandInput - {@link GetWorkflowStepsCommandInput}
@@ -70,6 +91,8 @@ export interface GetWorkflowStepsCommandOutput extends GetWorkflowStepsResponse,
  * @throws {@link ThrottlingException} (client fault)
  *  <p>You exceeded the maximum number of requests.</p>
  *
+ * @throws {@link CustomerProfilesServiceException}
+ * <p>Base exception class for all service exceptions from CustomerProfiles service.</p>
  *
  */
 export class GetWorkflowStepsCommand extends $Command<

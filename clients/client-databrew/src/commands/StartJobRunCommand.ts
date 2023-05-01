@@ -36,14 +36,19 @@ export interface StartJobRunCommandOutput extends StartJobRunResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DataBrewClient, StartJobRunCommand } from "@aws-sdk/client-databrew"; // ES Modules import
- * // const { DataBrewClient, StartJobRunCommand } = require("@aws-sdk/client-databrew"); // CommonJS import
+ * import { DataBrewClient, StartJobRunCommand } from '@aws-sdk/client-databrew'; // ES Modules import
+ * // const { DataBrewClient, StartJobRunCommand } = require('@aws-sdk/client-databrew'); // CommonJS import
  * const client = new DataBrewClient(config);
  * const input = { // StartJobRunRequest
- *   Name: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
  * };
  * const command = new StartJobRunCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartJobRunResponse
+ *   RunId: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param StartJobRunCommandInput - {@link StartJobRunCommandInput}
@@ -64,6 +69,8 @@ export interface StartJobRunCommandOutput extends StartJobRunResponse, __Metadat
  * @throws {@link ValidationException} (client fault)
  *  <p>The input parameters for this request failed validation.</p>
  *
+ * @throws {@link DataBrewServiceException}
+ * <p>Base exception class for all service exceptions from DataBrew service.</p>
  *
  */
 export class StartJobRunCommand extends $Command<

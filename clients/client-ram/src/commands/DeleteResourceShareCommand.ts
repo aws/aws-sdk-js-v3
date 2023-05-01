@@ -40,15 +40,21 @@ export interface DeleteResourceShareCommandOutput extends DeleteResourceShareRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RAMClient, DeleteResourceShareCommand } from "@aws-sdk/client-ram"; // ES Modules import
- * // const { RAMClient, DeleteResourceShareCommand } = require("@aws-sdk/client-ram"); // CommonJS import
+ * import { RAMClient, DeleteResourceShareCommand } from '@aws-sdk/client-ram'; // ES Modules import
+ * // const { RAMClient, DeleteResourceShareCommand } = require('@aws-sdk/client-ram'); // CommonJS import
  * const client = new RAMClient(config);
  * const input = { // DeleteResourceShareRequest
- *   resourceShareArn: "STRING_VALUE", // required
- *   clientToken: "STRING_VALUE",
+ *   resourceShareArn: 'STRING_VALUE', // required
+ *   clientToken: 'STRING_VALUE',
  * };
  * const command = new DeleteResourceShareCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteResourceShareResponse
+ *   returnValue: true || false,
+ *   clientToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DeleteResourceShareCommandInput - {@link DeleteResourceShareCommandInput}
@@ -89,6 +95,8 @@ export interface DeleteResourceShareCommandOutput extends DeleteResourceShareRes
  * @throws {@link UnknownResourceException} (client fault)
  *  <p>The operation failed because a specified resource couldn't be found.</p>
  *
+ * @throws {@link RAMServiceException}
+ * <p>Base exception class for all service exceptions from RAM service.</p>
  *
  */
 export class DeleteResourceShareCommand extends $Command<

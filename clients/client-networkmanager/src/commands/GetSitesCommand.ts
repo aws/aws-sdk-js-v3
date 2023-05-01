@@ -36,19 +36,45 @@ export interface GetSitesCommandOutput extends GetSitesResponse, __MetadataBeare
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { NetworkManagerClient, GetSitesCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
- * // const { NetworkManagerClient, GetSitesCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
+ * import { NetworkManagerClient, GetSitesCommand } from '@aws-sdk/client-networkmanager'; // ES Modules import
+ * // const { NetworkManagerClient, GetSitesCommand } = require('@aws-sdk/client-networkmanager'); // CommonJS import
  * const client = new NetworkManagerClient(config);
  * const input = { // GetSitesRequest
- *   GlobalNetworkId: "STRING_VALUE", // required
+ *   GlobalNetworkId: 'STRING_VALUE', // required
  *   SiteIds: [ // SiteIdList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new GetSitesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetSitesResponse
+ *   Sites: [ // SiteList
+ *     { // Site
+ *       SiteId: 'STRING_VALUE',
+ *       SiteArn: 'STRING_VALUE',
+ *       GlobalNetworkId: 'STRING_VALUE',
+ *       Description: 'STRING_VALUE',
+ *       Location: { // Location
+ *         Address: 'STRING_VALUE',
+ *         Latitude: 'STRING_VALUE',
+ *         Longitude: 'STRING_VALUE',
+ *       },
+ *       CreatedAt: new Date('TIMESTAMP'),
+ *       State: 'PENDING' || 'AVAILABLE' || 'DELETING' || 'UPDATING',
+ *       Tags: [ // TagList
+ *         { // Tag
+ *           Key: 'STRING_VALUE',
+ *           Value: 'STRING_VALUE',
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetSitesCommandInput - {@link GetSitesCommandInput}
@@ -72,6 +98,8 @@ export interface GetSitesCommandOutput extends GetSitesResponse, __MetadataBeare
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints.</p>
  *
+ * @throws {@link NetworkManagerServiceException}
+ * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
  */
 export class GetSitesCommand extends $Command<

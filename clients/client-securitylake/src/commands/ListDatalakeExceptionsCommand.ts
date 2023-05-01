@@ -37,18 +37,35 @@ export interface ListDatalakeExceptionsCommandOutput extends ListDatalakeExcepti
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SecurityLakeClient, ListDatalakeExceptionsCommand } from "@aws-sdk/client-securitylake"; // ES Modules import
- * // const { SecurityLakeClient, ListDatalakeExceptionsCommand } = require("@aws-sdk/client-securitylake"); // CommonJS import
+ * import { SecurityLakeClient, ListDatalakeExceptionsCommand } from '@aws-sdk/client-securitylake'; // ES Modules import
+ * // const { SecurityLakeClient, ListDatalakeExceptionsCommand } = require('@aws-sdk/client-securitylake'); // CommonJS import
  * const client = new SecurityLakeClient(config);
  * const input = { // ListDatalakeExceptionsRequest
  *   regionSet: [ // RegionSet
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   maxFailures: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   maxFailures: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new ListDatalakeExceptionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListDatalakeExceptionsResponse
+ *   nonRetryableFailures: [ // FailuresResponseList // required
+ *     { // FailuresResponse
+ *       region: 'STRING_VALUE',
+ *       failures: [ // Failureslist
+ *         { // Failures
+ *           exceptionMessage: 'STRING_VALUE', // required
+ *           remediation: 'STRING_VALUE', // required
+ *           timestamp: new Date('TIMESTAMP'), // required
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListDatalakeExceptionsCommandInput - {@link ListDatalakeExceptionsCommandInput}
@@ -75,6 +92,8 @@ export interface ListDatalakeExceptionsCommandOutput extends ListDatalakeExcepti
  * @throws {@link ValidationException} (client fault)
  *  <p>Your signing certificate could not be validated. </p>
  *
+ * @throws {@link SecurityLakeServiceException}
+ * <p>Base exception class for all service exceptions from SecurityLake service.</p>
  *
  */
 export class ListDatalakeExceptionsCommand extends $Command<

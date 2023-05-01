@@ -44,14 +44,32 @@ export interface GetRegexMatchSetCommandOutput extends GetRegexMatchSetResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WAFRegionalClient, GetRegexMatchSetCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
- * // const { WAFRegionalClient, GetRegexMatchSetCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import
+ * import { WAFRegionalClient, GetRegexMatchSetCommand } from '@aws-sdk/client-waf-regional'; // ES Modules import
+ * // const { WAFRegionalClient, GetRegexMatchSetCommand } = require('@aws-sdk/client-waf-regional'); // CommonJS import
  * const client = new WAFRegionalClient(config);
  * const input = { // GetRegexMatchSetRequest
- *   RegexMatchSetId: "STRING_VALUE", // required
+ *   RegexMatchSetId: 'STRING_VALUE', // required
  * };
  * const command = new GetRegexMatchSetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetRegexMatchSetResponse
+ *   RegexMatchSet: { // RegexMatchSet
+ *     RegexMatchSetId: 'STRING_VALUE',
+ *     Name: 'STRING_VALUE',
+ *     RegexMatchTuples: [ // RegexMatchTuples
+ *       { // RegexMatchTuple
+ *         FieldToMatch: { // FieldToMatch
+ *           Type: 'STRING_VALUE', // required
+ *           Data: 'STRING_VALUE',
+ *         },
+ *         TextTransformation: 'STRING_VALUE', // required
+ *         RegexPatternSetId: 'STRING_VALUE', // required
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetRegexMatchSetCommandInput - {@link GetRegexMatchSetCommandInput}
@@ -69,6 +87,8 @@ export interface GetRegexMatchSetCommandOutput extends GetRegexMatchSetResponse,
  * @throws {@link WAFNonexistentItemException} (client fault)
  *  <p>The operation failed because the referenced object doesn't exist.</p>
  *
+ * @throws {@link WAFRegionalServiceException}
+ * <p>Base exception class for all service exceptions from WAFRegional service.</p>
  *
  */
 export class GetRegexMatchSetCommand extends $Command<

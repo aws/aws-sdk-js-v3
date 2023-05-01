@@ -36,47 +36,52 @@ export interface CreateStackSetCommandOutput extends CreateStackSetOutput, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudFormationClient, CreateStackSetCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
- * // const { CloudFormationClient, CreateStackSetCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
+ * import { CloudFormationClient, CreateStackSetCommand } from '@aws-sdk/client-cloudformation'; // ES Modules import
+ * // const { CloudFormationClient, CreateStackSetCommand } = require('@aws-sdk/client-cloudformation'); // CommonJS import
  * const client = new CloudFormationClient(config);
  * const input = { // CreateStackSetInput
- *   StackSetName: "STRING_VALUE", // required
- *   Description: "STRING_VALUE",
- *   TemplateBody: "STRING_VALUE",
- *   TemplateURL: "STRING_VALUE",
- *   StackId: "STRING_VALUE",
+ *   StackSetName: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE',
+ *   TemplateBody: 'STRING_VALUE',
+ *   TemplateURL: 'STRING_VALUE',
+ *   StackId: 'STRING_VALUE',
  *   Parameters: [ // Parameters
  *     { // Parameter
- *       ParameterKey: "STRING_VALUE",
- *       ParameterValue: "STRING_VALUE",
+ *       ParameterKey: 'STRING_VALUE',
+ *       ParameterValue: 'STRING_VALUE',
  *       UsePreviousValue: true || false,
- *       ResolvedValue: "STRING_VALUE",
+ *       ResolvedValue: 'STRING_VALUE',
  *     },
  *   ],
  *   Capabilities: [ // Capabilities
- *     "CAPABILITY_IAM" || "CAPABILITY_NAMED_IAM" || "CAPABILITY_AUTO_EXPAND",
+ *     'CAPABILITY_IAM' || 'CAPABILITY_NAMED_IAM' || 'CAPABILITY_AUTO_EXPAND',
  *   ],
  *   Tags: [ // Tags
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
- *   AdministrationRoleARN: "STRING_VALUE",
- *   ExecutionRoleName: "STRING_VALUE",
- *   PermissionModel: "SERVICE_MANAGED" || "SELF_MANAGED",
+ *   AdministrationRoleARN: 'STRING_VALUE',
+ *   ExecutionRoleName: 'STRING_VALUE',
+ *   PermissionModel: 'SERVICE_MANAGED' || 'SELF_MANAGED',
  *   AutoDeployment: { // AutoDeployment
  *     Enabled: true || false,
  *     RetainStacksOnAccountRemoval: true || false,
  *   },
- *   CallAs: "SELF" || "DELEGATED_ADMIN",
- *   ClientRequestToken: "STRING_VALUE",
+ *   CallAs: 'SELF' || 'DELEGATED_ADMIN',
+ *   ClientRequestToken: 'STRING_VALUE',
  *   ManagedExecution: { // ManagedExecution
  *     Active: true || false,
  *   },
  * };
  * const command = new CreateStackSetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateStackSetOutput
+ *   StackSetId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateStackSetCommandInput - {@link CreateStackSetCommandInput}
@@ -96,6 +101,8 @@ export interface CreateStackSetCommandOutput extends CreateStackSetOutput, __Met
  * @throws {@link NameAlreadyExistsException} (client fault)
  *  <p>The specified name is already in use.</p>
  *
+ * @throws {@link CloudFormationServiceException}
+ * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
  */
 export class CreateStackSetCommand extends $Command<

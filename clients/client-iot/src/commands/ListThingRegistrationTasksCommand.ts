@@ -37,16 +37,24 @@ export interface ListThingRegistrationTasksCommandOutput extends ListThingRegist
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTClient, ListThingRegistrationTasksCommand } from "@aws-sdk/client-iot"; // ES Modules import
- * // const { IoTClient, ListThingRegistrationTasksCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * import { IoTClient, ListThingRegistrationTasksCommand } from '@aws-sdk/client-iot'; // ES Modules import
+ * // const { IoTClient, ListThingRegistrationTasksCommand } = require('@aws-sdk/client-iot'); // CommonJS import
  * const client = new IoTClient(config);
  * const input = { // ListThingRegistrationTasksRequest
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
- *   status: "InProgress" || "Completed" || "Failed" || "Cancelled" || "Cancelling",
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
+ *   status: 'InProgress' || 'Completed' || 'Failed' || 'Cancelled' || 'Cancelling',
  * };
  * const command = new ListThingRegistrationTasksCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListThingRegistrationTasksResponse
+ *   taskIds: [ // TaskIdList
+ *     'STRING_VALUE',
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListThingRegistrationTasksCommandInput - {@link ListThingRegistrationTasksCommandInput}
@@ -67,6 +75,8 @@ export interface ListThingRegistrationTasksCommandOutput extends ListThingRegist
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this operation.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class ListThingRegistrationTasksCommand extends $Command<

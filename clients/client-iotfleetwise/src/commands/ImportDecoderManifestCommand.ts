@@ -37,20 +37,20 @@ export interface ImportDecoderManifestCommandOutput extends ImportDecoderManifes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTFleetWiseClient, ImportDecoderManifestCommand } from "@aws-sdk/client-iotfleetwise"; // ES Modules import
- * // const { IoTFleetWiseClient, ImportDecoderManifestCommand } = require("@aws-sdk/client-iotfleetwise"); // CommonJS import
+ * import { IoTFleetWiseClient, ImportDecoderManifestCommand } from '@aws-sdk/client-iotfleetwise'; // ES Modules import
+ * // const { IoTFleetWiseClient, ImportDecoderManifestCommand } = require('@aws-sdk/client-iotfleetwise'); // CommonJS import
  * const client = new IoTFleetWiseClient(config);
  * const input = { // ImportDecoderManifestRequest
- *   name: "STRING_VALUE", // required
+ *   name: 'STRING_VALUE', // required
  *   networkFileDefinitions: [ // NetworkFileDefinitions // required
  *     { // NetworkFileDefinition Union: only one key present
  *       canDbc: { // CanDbcDefinition
- *         networkInterface: "STRING_VALUE", // required
+ *         networkInterface: 'STRING_VALUE', // required
  *         canDbcFiles: [ // NetworkFilesList // required
- *           "BLOB_VALUE",
+ *           'BLOB_VALUE',
  *         ],
  *         signalsMap: { // ModelSignalsMap
- *           "<keys>": "STRING_VALUE",
+ *           '<keys>': 'STRING_VALUE',
  *         },
  *       },
  *     },
@@ -58,6 +58,12 @@ export interface ImportDecoderManifestCommandOutput extends ImportDecoderManifes
  * };
  * const command = new ImportDecoderManifestCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ImportDecoderManifestResponse
+ *   name: 'STRING_VALUE', // required
+ *   arn: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param ImportDecoderManifestCommandInput - {@link ImportDecoderManifestCommandInput}
@@ -91,6 +97,8 @@ export interface ImportDecoderManifestCommandOutput extends ImportDecoderManifes
  * @throws {@link InternalServerException} (server fault)
  *  <p>The request couldn't be completed because the server temporarily failed.</p>
  *
+ * @throws {@link IoTFleetWiseServiceException}
+ * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
  */
 export class ImportDecoderManifestCommand extends $Command<

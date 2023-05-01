@@ -44,15 +44,26 @@ export interface ListRulesCommandOutput extends ListRulesResponse, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WAFClient, ListRulesCommand } from "@aws-sdk/client-waf"; // ES Modules import
- * // const { WAFClient, ListRulesCommand } = require("@aws-sdk/client-waf"); // CommonJS import
+ * import { WAFClient, ListRulesCommand } from '@aws-sdk/client-waf'; // ES Modules import
+ * // const { WAFClient, ListRulesCommand } = require('@aws-sdk/client-waf'); // CommonJS import
  * const client = new WAFClient(config);
  * const input = { // ListRulesRequest
- *   NextMarker: "STRING_VALUE",
- *   Limit: Number("int"),
+ *   NextMarker: 'STRING_VALUE',
+ *   Limit: Number('int'),
  * };
  * const command = new ListRulesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListRulesResponse
+ *   NextMarker: 'STRING_VALUE',
+ *   Rules: [ // RuleSummaries
+ *     { // RuleSummary
+ *       RuleId: 'STRING_VALUE', // required
+ *       Name: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListRulesCommandInput - {@link ListRulesCommandInput}
@@ -67,6 +78,8 @@ export interface ListRulesCommandOutput extends ListRulesResponse, __MetadataBea
  * @throws {@link WAFInvalidAccountException} (client fault)
  *  <p>The operation failed because you tried to create, update, or delete an object by using an invalid account identifier.</p>
  *
+ * @throws {@link WAFServiceException}
+ * <p>Base exception class for all service exceptions from WAF service.</p>
  *
  * @example To list rules
  * ```javascript

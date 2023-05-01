@@ -37,16 +37,47 @@ export interface UpdateFileSystemCommandOutput extends FileSystemDescription, __
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EFSClient, UpdateFileSystemCommand } from "@aws-sdk/client-efs"; // ES Modules import
- * // const { EFSClient, UpdateFileSystemCommand } = require("@aws-sdk/client-efs"); // CommonJS import
+ * import { EFSClient, UpdateFileSystemCommand } from '@aws-sdk/client-efs'; // ES Modules import
+ * // const { EFSClient, UpdateFileSystemCommand } = require('@aws-sdk/client-efs'); // CommonJS import
  * const client = new EFSClient(config);
  * const input = { // UpdateFileSystemRequest
- *   FileSystemId: "STRING_VALUE", // required
- *   ThroughputMode: "bursting" || "provisioned" || "elastic",
- *   ProvisionedThroughputInMibps: Number("double"),
+ *   FileSystemId: 'STRING_VALUE', // required
+ *   ThroughputMode: 'bursting' || 'provisioned' || 'elastic',
+ *   ProvisionedThroughputInMibps: Number('double'),
  * };
  * const command = new UpdateFileSystemCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // FileSystemDescription
+ *   OwnerId: 'STRING_VALUE', // required
+ *   CreationToken: 'STRING_VALUE', // required
+ *   FileSystemId: 'STRING_VALUE', // required
+ *   FileSystemArn: 'STRING_VALUE',
+ *   CreationTime: new Date('TIMESTAMP'), // required
+ *   LifeCycleState: 'creating' || 'available' || 'updating' || 'deleting' || 'deleted' || 'error', // required
+ *   Name: 'STRING_VALUE',
+ *   NumberOfMountTargets: Number('int'), // required
+ *   SizeInBytes: { // FileSystemSize
+ *     Value: Number('long'), // required
+ *     Timestamp: new Date('TIMESTAMP'),
+ *     ValueInIA: Number('long'),
+ *     ValueInStandard: Number('long'),
+ *   },
+ *   PerformanceMode: 'generalPurpose' || 'maxIO', // required
+ *   Encrypted: true || false,
+ *   KmsKeyId: 'STRING_VALUE',
+ *   ThroughputMode: 'bursting' || 'provisioned' || 'elastic',
+ *   ProvisionedThroughputInMibps: Number('double'),
+ *   AvailabilityZoneName: 'STRING_VALUE',
+ *   AvailabilityZoneId: 'STRING_VALUE',
+ *   Tags: [ // Tags // required
+ *     { // Tag
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param UpdateFileSystemCommandInput - {@link UpdateFileSystemCommandInput}
@@ -84,6 +115,8 @@ export interface UpdateFileSystemCommandOutput extends FileSystemDescription, __
  *  <p>Returned if you don’t wait at least 24 hours before either changing the throughput mode, or
  *             decreasing the Provisioned Throughput value.</p>
  *
+ * @throws {@link EFSServiceException}
+ * <p>Base exception class for all service exceptions from EFS service.</p>
  *
  */
 export class UpdateFileSystemCommand extends $Command<

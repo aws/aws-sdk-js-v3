@@ -61,35 +61,47 @@ export interface GetRecommendationsCommandOutput extends GetRecommendationsRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PersonalizeRuntimeClient, GetRecommendationsCommand } from "@aws-sdk/client-personalize-runtime"; // ES Modules import
- * // const { PersonalizeRuntimeClient, GetRecommendationsCommand } = require("@aws-sdk/client-personalize-runtime"); // CommonJS import
+ * import { PersonalizeRuntimeClient, GetRecommendationsCommand } from '@aws-sdk/client-personalize-runtime'; // ES Modules import
+ * // const { PersonalizeRuntimeClient, GetRecommendationsCommand } = require('@aws-sdk/client-personalize-runtime'); // CommonJS import
  * const client = new PersonalizeRuntimeClient(config);
  * const input = { // GetRecommendationsRequest
- *   campaignArn: "STRING_VALUE",
- *   itemId: "STRING_VALUE",
- *   userId: "STRING_VALUE",
- *   numResults: Number("int"),
+ *   campaignArn: 'STRING_VALUE',
+ *   itemId: 'STRING_VALUE',
+ *   userId: 'STRING_VALUE',
+ *   numResults: Number('int'),
  *   context: { // Context
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
- *   filterArn: "STRING_VALUE",
+ *   filterArn: 'STRING_VALUE',
  *   filterValues: { // FilterValues
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
- *   recommenderArn: "STRING_VALUE",
+ *   recommenderArn: 'STRING_VALUE',
  *   promotions: [ // PromotionList
  *     { // Promotion
- *       name: "STRING_VALUE",
- *       percentPromotedItems: Number("int"),
- *       filterArn: "STRING_VALUE",
+ *       name: 'STRING_VALUE',
+ *       percentPromotedItems: Number('int'),
+ *       filterArn: 'STRING_VALUE',
  *       filterValues: {
- *         "<keys>": "STRING_VALUE",
+ *         '<keys>': 'STRING_VALUE',
  *       },
  *     },
  *   ],
  * };
  * const command = new GetRecommendationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetRecommendationsResponse
+ *   itemList: [ // ItemList
+ *     { // PredictedItem
+ *       itemId: 'STRING_VALUE',
+ *       score: Number('double'),
+ *       promotionName: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   recommendationId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetRecommendationsCommandInput - {@link GetRecommendationsCommandInput}
@@ -104,6 +116,8 @@ export interface GetRecommendationsCommandOutput extends GetRecommendationsRespo
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource does not exist.</p>
  *
+ * @throws {@link PersonalizeRuntimeServiceException}
+ * <p>Base exception class for all service exceptions from PersonalizeRuntime service.</p>
  *
  */
 export class GetRecommendationsCommand extends $Command<

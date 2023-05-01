@@ -36,18 +36,21 @@ export interface ModifyClientPropertiesCommandOutput extends ModifyClientPropert
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkSpacesClient, ModifyClientPropertiesCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
- * // const { WorkSpacesClient, ModifyClientPropertiesCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
+ * import { WorkSpacesClient, ModifyClientPropertiesCommand } from '@aws-sdk/client-workspaces'; // ES Modules import
+ * // const { WorkSpacesClient, ModifyClientPropertiesCommand } = require('@aws-sdk/client-workspaces'); // CommonJS import
  * const client = new WorkSpacesClient(config);
  * const input = { // ModifyClientPropertiesRequest
- *   ResourceId: "STRING_VALUE", // required
+ *   ResourceId: 'STRING_VALUE', // required
  *   ClientProperties: { // ClientProperties
- *     ReconnectEnabled: "ENABLED" || "DISABLED",
- *     LogUploadEnabled: "ENABLED" || "DISABLED",
+ *     ReconnectEnabled: 'ENABLED' || 'DISABLED',
+ *     LogUploadEnabled: 'ENABLED' || 'DISABLED',
  *   },
  * };
  * const command = new ModifyClientPropertiesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param ModifyClientPropertiesCommandInput - {@link ModifyClientPropertiesCommandInput}
@@ -65,6 +68,8 @@ export interface ModifyClientPropertiesCommandOutput extends ModifyClientPropert
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource could not be found.</p>
  *
+ * @throws {@link WorkSpacesServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
  */
 export class ModifyClientPropertiesCommand extends $Command<

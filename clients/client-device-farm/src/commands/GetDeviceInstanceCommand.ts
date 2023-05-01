@@ -36,14 +36,37 @@ export interface GetDeviceInstanceCommandOutput extends GetDeviceInstanceResult,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DeviceFarmClient, GetDeviceInstanceCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
- * // const { DeviceFarmClient, GetDeviceInstanceCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
+ * import { DeviceFarmClient, GetDeviceInstanceCommand } from '@aws-sdk/client-device-farm'; // ES Modules import
+ * // const { DeviceFarmClient, GetDeviceInstanceCommand } = require('@aws-sdk/client-device-farm'); // CommonJS import
  * const client = new DeviceFarmClient(config);
  * const input = { // GetDeviceInstanceRequest
- *   arn: "STRING_VALUE", // required
+ *   arn: 'STRING_VALUE', // required
  * };
  * const command = new GetDeviceInstanceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetDeviceInstanceResult
+ *   deviceInstance: { // DeviceInstance
+ *     arn: 'STRING_VALUE',
+ *     deviceArn: 'STRING_VALUE',
+ *     labels: [ // InstanceLabels
+ *       'STRING_VALUE',
+ *     ],
+ *     status: 'IN_USE' || 'PREPARING' || 'AVAILABLE' || 'NOT_AVAILABLE',
+ *     udid: 'STRING_VALUE',
+ *     instanceProfile: { // InstanceProfile
+ *       arn: 'STRING_VALUE',
+ *       packageCleanup: true || false,
+ *       excludeAppPackagesFromCleanup: [ // PackageIds
+ *         'STRING_VALUE',
+ *       ],
+ *       rebootAfterUse: true || false,
+ *       name: 'STRING_VALUE',
+ *       description: 'STRING_VALUE',
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetDeviceInstanceCommandInput - {@link GetDeviceInstanceCommandInput}
@@ -64,6 +87,8 @@ export interface GetDeviceInstanceCommandOutput extends GetDeviceInstanceResult,
  * @throws {@link ServiceAccountException} (client fault)
  *  <p>There was a problem with the service account.</p>
  *
+ * @throws {@link DeviceFarmServiceException}
+ * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
  */
 export class GetDeviceInstanceCommand extends $Command<

@@ -37,15 +37,18 @@ export interface StopSuiteRunCommandOutput extends StopSuiteRunResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IotDeviceAdvisorClient, StopSuiteRunCommand } from "@aws-sdk/client-iotdeviceadvisor"; // ES Modules import
- * // const { IotDeviceAdvisorClient, StopSuiteRunCommand } = require("@aws-sdk/client-iotdeviceadvisor"); // CommonJS import
+ * import { IotDeviceAdvisorClient, StopSuiteRunCommand } from '@aws-sdk/client-iotdeviceadvisor'; // ES Modules import
+ * // const { IotDeviceAdvisorClient, StopSuiteRunCommand } = require('@aws-sdk/client-iotdeviceadvisor'); // CommonJS import
  * const client = new IotDeviceAdvisorClient(config);
  * const input = { // StopSuiteRunRequest
- *   suiteDefinitionId: "STRING_VALUE", // required
- *   suiteRunId: "STRING_VALUE", // required
+ *   suiteDefinitionId: 'STRING_VALUE', // required
+ *   suiteRunId: 'STRING_VALUE', // required
  * };
  * const command = new StopSuiteRunCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param StopSuiteRunCommandInput - {@link StopSuiteRunCommandInput}
@@ -63,6 +66,8 @@ export interface StopSuiteRunCommandOutput extends StopSuiteRunResponse, __Metad
  * @throws {@link ValidationException} (client fault)
  *  <p>Sends a validation exception.</p>
  *
+ * @throws {@link IotDeviceAdvisorServiceException}
+ * <p>Base exception class for all service exceptions from IotDeviceAdvisor service.</p>
  *
  */
 export class StopSuiteRunCommand extends $Command<

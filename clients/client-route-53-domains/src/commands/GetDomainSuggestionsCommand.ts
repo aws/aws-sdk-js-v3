@@ -36,16 +36,26 @@ export interface GetDomainSuggestionsCommandOutput extends GetDomainSuggestionsR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Route53DomainsClient, GetDomainSuggestionsCommand } from "@aws-sdk/client-route-53-domains"; // ES Modules import
- * // const { Route53DomainsClient, GetDomainSuggestionsCommand } = require("@aws-sdk/client-route-53-domains"); // CommonJS import
+ * import { Route53DomainsClient, GetDomainSuggestionsCommand } from '@aws-sdk/client-route-53-domains'; // ES Modules import
+ * // const { Route53DomainsClient, GetDomainSuggestionsCommand } = require('@aws-sdk/client-route-53-domains'); // CommonJS import
  * const client = new Route53DomainsClient(config);
  * const input = { // GetDomainSuggestionsRequest
- *   DomainName: "STRING_VALUE", // required
- *   SuggestionCount: Number("int"), // required
+ *   DomainName: 'STRING_VALUE', // required
+ *   SuggestionCount: Number('int'), // required
  *   OnlyAvailable: true || false, // required
  * };
  * const command = new GetDomainSuggestionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetDomainSuggestionsResponse
+ *   SuggestionsList: [ // DomainSuggestionsList
+ *     { // DomainSuggestion
+ *       DomainName: 'STRING_VALUE',
+ *       Availability: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetDomainSuggestionsCommandInput - {@link GetDomainSuggestionsCommandInput}
@@ -63,6 +73,8 @@ export interface GetDomainSuggestionsCommandOutput extends GetDomainSuggestionsR
  * @throws {@link UnsupportedTLD} (client fault)
  *  <p>Amazon Route 53 does not support this top-level domain (TLD).</p>
  *
+ * @throws {@link Route53DomainsServiceException}
+ * <p>Base exception class for all service exceptions from Route53Domains service.</p>
  *
  */
 export class GetDomainSuggestionsCommand extends $Command<

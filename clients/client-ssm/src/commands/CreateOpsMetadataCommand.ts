@@ -37,25 +37,30 @@ export interface CreateOpsMetadataCommandOutput extends CreateOpsMetadataResult,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMClient, CreateOpsMetadataCommand } from "@aws-sdk/client-ssm"; // ES Modules import
- * // const { SSMClient, CreateOpsMetadataCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * import { SSMClient, CreateOpsMetadataCommand } from '@aws-sdk/client-ssm'; // ES Modules import
+ * // const { SSMClient, CreateOpsMetadataCommand } = require('@aws-sdk/client-ssm'); // CommonJS import
  * const client = new SSMClient(config);
  * const input = { // CreateOpsMetadataRequest
- *   ResourceId: "STRING_VALUE", // required
+ *   ResourceId: 'STRING_VALUE', // required
  *   Metadata: { // MetadataMap
- *     "<keys>": { // MetadataValue
- *       Value: "STRING_VALUE",
+ *     '<keys>': { // MetadataValue
+ *       Value: 'STRING_VALUE',
  *     },
  *   },
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreateOpsMetadataCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateOpsMetadataResult
+ *   OpsMetadataArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateOpsMetadataCommandInput - {@link CreateOpsMetadataCommandInput}
@@ -81,6 +86,8 @@ export interface CreateOpsMetadataCommandOutput extends CreateOpsMetadataResult,
  *  <p>The system is processing too many concurrent updates. Wait a few moments and try
  *    again.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class CreateOpsMetadataCommand extends $Command<

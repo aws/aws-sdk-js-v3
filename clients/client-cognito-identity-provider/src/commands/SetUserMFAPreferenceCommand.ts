@@ -53,8 +53,8 @@ export interface SetUserMFAPreferenceCommandOutput extends SetUserMFAPreferenceR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CognitoIdentityProviderClient, SetUserMFAPreferenceCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
- * // const { CognitoIdentityProviderClient, SetUserMFAPreferenceCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
+ * import { CognitoIdentityProviderClient, SetUserMFAPreferenceCommand } from '@aws-sdk/client-cognito-identity-provider'; // ES Modules import
+ * // const { CognitoIdentityProviderClient, SetUserMFAPreferenceCommand } = require('@aws-sdk/client-cognito-identity-provider'); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
  * const input = { // SetUserMFAPreferenceRequest
  *   SMSMfaSettings: { // SMSMfaSettingsType
@@ -65,10 +65,13 @@ export interface SetUserMFAPreferenceCommandOutput extends SetUserMFAPreferenceR
  *     Enabled: true || false,
  *     PreferredMfa: true || false,
  *   },
- *   AccessToken: "STRING_VALUE", // required
+ *   AccessToken: 'STRING_VALUE', // required
  * };
  * const command = new SetUserMFAPreferenceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param SetUserMFAPreferenceCommandInput - {@link SetUserMFAPreferenceCommandInput}
@@ -103,6 +106,8 @@ export interface SetUserMFAPreferenceCommandOutput extends SetUserMFAPreferenceR
  * @throws {@link UserNotFoundException} (client fault)
  *  <p>This exception is thrown when a user isn't found.</p>
  *
+ * @throws {@link CognitoIdentityProviderServiceException}
+ * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
  */
 export class SetUserMFAPreferenceCommand extends $Command<

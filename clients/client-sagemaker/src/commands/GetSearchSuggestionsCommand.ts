@@ -39,19 +39,28 @@ export interface GetSearchSuggestionsCommandOutput extends GetSearchSuggestionsR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, GetSearchSuggestionsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, GetSearchSuggestionsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, GetSearchSuggestionsCommand } from '@aws-sdk/client-sagemaker'; // ES Modules import
+ * // const { SageMakerClient, GetSearchSuggestionsCommand } = require('@aws-sdk/client-sagemaker'); // CommonJS import
  * const client = new SageMakerClient(config);
  * const input = { // GetSearchSuggestionsRequest
- *   Resource: "TrainingJob" || "Experiment" || "ExperimentTrial" || "ExperimentTrialComponent" || "Endpoint" || "ModelPackage" || "ModelPackageGroup" || "Pipeline" || "PipelineExecution" || "FeatureGroup" || "Project" || "FeatureMetadata" || "HyperParameterTuningJob" || "ModelCard" || "Model", // required
+ *   Resource: 'TrainingJob' || 'Experiment' || 'ExperimentTrial' || 'ExperimentTrialComponent' || 'Endpoint' || 'ModelPackage' || 'ModelPackageGroup' || 'Pipeline' || 'PipelineExecution' || 'FeatureGroup' || 'Project' || 'FeatureMetadata' || 'HyperParameterTuningJob' || 'ModelCard' || 'Model', // required
  *   SuggestionQuery: { // SuggestionQuery
  *     PropertyNameQuery: { // PropertyNameQuery
- *       PropertyNameHint: "STRING_VALUE", // required
+ *       PropertyNameHint: 'STRING_VALUE', // required
  *     },
  *   },
  * };
  * const command = new GetSearchSuggestionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetSearchSuggestionsResponse
+ *   PropertyNameSuggestions: [ // PropertyNameSuggestionList
+ *     { // PropertyNameSuggestion
+ *       PropertyName: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetSearchSuggestionsCommandInput - {@link GetSearchSuggestionsCommandInput}
@@ -60,6 +69,8 @@ export interface GetSearchSuggestionsCommandOutput extends GetSearchSuggestionsR
  * @see {@link GetSearchSuggestionsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class GetSearchSuggestionsCommand extends $Command<

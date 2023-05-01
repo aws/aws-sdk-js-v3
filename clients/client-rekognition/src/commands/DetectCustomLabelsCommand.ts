@@ -67,24 +67,48 @@ export interface DetectCustomLabelsCommandOutput extends DetectCustomLabelsRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RekognitionClient, DetectCustomLabelsCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
- * // const { RekognitionClient, DetectCustomLabelsCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
+ * import { RekognitionClient, DetectCustomLabelsCommand } from '@aws-sdk/client-rekognition'; // ES Modules import
+ * // const { RekognitionClient, DetectCustomLabelsCommand } = require('@aws-sdk/client-rekognition'); // CommonJS import
  * const client = new RekognitionClient(config);
  * const input = { // DetectCustomLabelsRequest
- *   ProjectVersionArn: "STRING_VALUE", // required
+ *   ProjectVersionArn: 'STRING_VALUE', // required
  *   Image: { // Image
- *     Bytes: "BLOB_VALUE",
+ *     Bytes: 'BLOB_VALUE',
  *     S3Object: { // S3Object
- *       Bucket: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *       Version: "STRING_VALUE",
+ *       Bucket: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *       Version: 'STRING_VALUE',
  *     },
  *   },
- *   MaxResults: Number("int"),
- *   MinConfidence: Number("float"),
+ *   MaxResults: Number('int'),
+ *   MinConfidence: Number('float'),
  * };
  * const command = new DetectCustomLabelsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DetectCustomLabelsResponse
+ *   CustomLabels: [ // CustomLabels
+ *     { // CustomLabel
+ *       Name: 'STRING_VALUE',
+ *       Confidence: Number('float'),
+ *       Geometry: { // Geometry
+ *         BoundingBox: { // BoundingBox
+ *           Width: Number('float'),
+ *           Height: Number('float'),
+ *           Left: Number('float'),
+ *           Top: Number('float'),
+ *         },
+ *         Polygon: [ // Polygon
+ *           { // Point
+ *             X: Number('float'),
+ *             Y: Number('float'),
+ *           },
+ *         ],
+ *       },
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DetectCustomLabelsCommandInput - {@link DetectCustomLabelsCommandInput}
@@ -135,6 +159,8 @@ export interface DetectCustomLabelsCommandOutput extends DetectCustomLabelsRespo
  * @throws {@link ThrottlingException} (server fault)
  *  <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
  *
+ * @throws {@link RekognitionServiceException}
+ * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
  */
 export class DetectCustomLabelsCommand extends $Command<

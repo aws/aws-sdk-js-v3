@@ -41,19 +41,22 @@ export interface UpdateRescoreExecutionPlanCommandOutput extends __MetadataBeare
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KendraRankingClient, UpdateRescoreExecutionPlanCommand } from "@aws-sdk/client-kendra-ranking"; // ES Modules import
- * // const { KendraRankingClient, UpdateRescoreExecutionPlanCommand } = require("@aws-sdk/client-kendra-ranking"); // CommonJS import
+ * import { KendraRankingClient, UpdateRescoreExecutionPlanCommand } from '@aws-sdk/client-kendra-ranking'; // ES Modules import
+ * // const { KendraRankingClient, UpdateRescoreExecutionPlanCommand } = require('@aws-sdk/client-kendra-ranking'); // CommonJS import
  * const client = new KendraRankingClient(config);
  * const input = { // UpdateRescoreExecutionPlanRequest
- *   Id: "STRING_VALUE", // required
- *   Name: "STRING_VALUE",
- *   Description: "STRING_VALUE",
+ *   Id: 'STRING_VALUE', // required
+ *   Name: 'STRING_VALUE',
+ *   Description: 'STRING_VALUE',
  *   CapacityUnits: { // CapacityUnitsConfiguration
- *     RescoreCapacityUnits: Number("int"), // required
+ *     RescoreCapacityUnits: Number('int'), // required
  *   },
  * };
  * const command = new UpdateRescoreExecutionPlanCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateRescoreExecutionPlanCommandInput - {@link UpdateRescoreExecutionPlanCommandInput}
@@ -99,6 +102,8 @@ export interface UpdateRescoreExecutionPlanCommandOutput extends __MetadataBeare
  *             the Amazon Kendra Intelligent Ranking service.
  *             Please provide the correct input and try again.</p>
  *
+ * @throws {@link KendraRankingServiceException}
+ * <p>Base exception class for all service exceptions from KendraRanking service.</p>
  *
  */
 export class UpdateRescoreExecutionPlanCommand extends $Command<

@@ -44,15 +44,18 @@ export interface RemoveClientIDFromOpenIDConnectProviderCommandOutput extends __
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IAMClient, RemoveClientIDFromOpenIDConnectProviderCommand } from "@aws-sdk/client-iam"; // ES Modules import
- * // const { IAMClient, RemoveClientIDFromOpenIDConnectProviderCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * import { IAMClient, RemoveClientIDFromOpenIDConnectProviderCommand } from '@aws-sdk/client-iam'; // ES Modules import
+ * // const { IAMClient, RemoveClientIDFromOpenIDConnectProviderCommand } = require('@aws-sdk/client-iam'); // CommonJS import
  * const client = new IAMClient(config);
  * const input = { // RemoveClientIDFromOpenIDConnectProviderRequest
- *   OpenIDConnectProviderArn: "STRING_VALUE", // required
- *   ClientID: "STRING_VALUE", // required
+ *   OpenIDConnectProviderArn: 'STRING_VALUE', // required
+ *   ClientID: 'STRING_VALUE', // required
  * };
  * const command = new RemoveClientIDFromOpenIDConnectProviderCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param RemoveClientIDFromOpenIDConnectProviderCommandInput - {@link RemoveClientIDFromOpenIDConnectProviderCommandInput}
@@ -73,6 +76,8 @@ export interface RemoveClientIDFromOpenIDConnectProviderCommandOutput extends __
  *  <p>The request processing has failed because of an unknown error, exception or
  *       failure.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  */
 export class RemoveClientIDFromOpenIDConnectProviderCommand extends $Command<

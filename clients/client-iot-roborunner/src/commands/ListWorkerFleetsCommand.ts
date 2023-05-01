@@ -36,16 +36,32 @@ export interface ListWorkerFleetsCommandOutput extends ListWorkerFleetsResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTRoboRunnerClient, ListWorkerFleetsCommand } from "@aws-sdk/client-iot-roborunner"; // ES Modules import
- * // const { IoTRoboRunnerClient, ListWorkerFleetsCommand } = require("@aws-sdk/client-iot-roborunner"); // CommonJS import
+ * import { IoTRoboRunnerClient, ListWorkerFleetsCommand } from '@aws-sdk/client-iot-roborunner'; // ES Modules import
+ * // const { IoTRoboRunnerClient, ListWorkerFleetsCommand } = require('@aws-sdk/client-iot-roborunner'); // CommonJS import
  * const client = new IoTRoboRunnerClient(config);
  * const input = { // ListWorkerFleetsRequest
- *   site: "STRING_VALUE", // required
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   site: 'STRING_VALUE', // required
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new ListWorkerFleetsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListWorkerFleetsResponse
+ *   nextToken: 'STRING_VALUE',
+ *   workerFleets: [ // WorkerFleets
+ *     { // WorkerFleet
+ *       arn: 'STRING_VALUE', // required
+ *       id: 'STRING_VALUE', // required
+ *       name: 'STRING_VALUE', // required
+ *       site: 'STRING_VALUE', // required
+ *       createdAt: new Date('TIMESTAMP'), // required
+ *       updatedAt: new Date('TIMESTAMP'), // required
+ *       additionalFixedProperties: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListWorkerFleetsCommandInput - {@link ListWorkerFleetsCommandInput}
@@ -69,6 +85,8 @@ export interface ListWorkerFleetsCommandOutput extends ListWorkerFleetsResponse,
  * @throws {@link ValidationException} (client fault)
  *  Exception thrown if an invalid parameter is provided to an API.
  *
+ * @throws {@link IoTRoboRunnerServiceException}
+ * <p>Base exception class for all service exceptions from IoTRoboRunner service.</p>
  *
  */
 export class ListWorkerFleetsCommand extends $Command<

@@ -38,21 +38,67 @@ export interface DescribeWorkspacesCommandOutput extends DescribeWorkspacesResul
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkSpacesClient, DescribeWorkspacesCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
- * // const { WorkSpacesClient, DescribeWorkspacesCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
+ * import { WorkSpacesClient, DescribeWorkspacesCommand } from '@aws-sdk/client-workspaces'; // ES Modules import
+ * // const { WorkSpacesClient, DescribeWorkspacesCommand } = require('@aws-sdk/client-workspaces'); // CommonJS import
  * const client = new WorkSpacesClient(config);
  * const input = { // DescribeWorkspacesRequest
  *   WorkspaceIds: [ // WorkspaceIdList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   DirectoryId: "STRING_VALUE",
- *   UserName: "STRING_VALUE",
- *   BundleId: "STRING_VALUE",
- *   Limit: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   DirectoryId: 'STRING_VALUE',
+ *   UserName: 'STRING_VALUE',
+ *   BundleId: 'STRING_VALUE',
+ *   Limit: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new DescribeWorkspacesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeWorkspacesResult
+ *   Workspaces: [ // WorkspaceList
+ *     { // Workspace
+ *       WorkspaceId: 'STRING_VALUE',
+ *       DirectoryId: 'STRING_VALUE',
+ *       UserName: 'STRING_VALUE',
+ *       IpAddress: 'STRING_VALUE',
+ *       State: 'PENDING' || 'AVAILABLE' || 'IMPAIRED' || 'UNHEALTHY' || 'REBOOTING' || 'STARTING' || 'REBUILDING' || 'RESTORING' || 'MAINTENANCE' || 'ADMIN_MAINTENANCE' || 'TERMINATING' || 'TERMINATED' || 'SUSPENDED' || 'UPDATING' || 'STOPPING' || 'STOPPED' || 'ERROR',
+ *       BundleId: 'STRING_VALUE',
+ *       SubnetId: 'STRING_VALUE',
+ *       ErrorMessage: 'STRING_VALUE',
+ *       ErrorCode: 'STRING_VALUE',
+ *       ComputerName: 'STRING_VALUE',
+ *       VolumeEncryptionKey: 'STRING_VALUE',
+ *       UserVolumeEncryptionEnabled: true || false,
+ *       RootVolumeEncryptionEnabled: true || false,
+ *       WorkspaceProperties: { // WorkspaceProperties
+ *         RunningMode: 'AUTO_STOP' || 'ALWAYS_ON' || 'MANUAL',
+ *         RunningModeAutoStopTimeoutInMinutes: Number('int'),
+ *         RootVolumeSizeGib: Number('int'),
+ *         UserVolumeSizeGib: Number('int'),
+ *         ComputeTypeName: 'VALUE' || 'STANDARD' || 'PERFORMANCE' || 'POWER' || 'GRAPHICS' || 'POWERPRO' || 'GRAPHICSPRO' || 'GRAPHICS_G4DN' || 'GRAPHICSPRO_G4DN',
+ *         Protocols: [ // ProtocolList
+ *           'PCOIP' || 'WSP',
+ *         ],
+ *       },
+ *       ModificationStates: [ // ModificationStateList
+ *         { // ModificationState
+ *           Resource: 'ROOT_VOLUME' || 'USER_VOLUME' || 'COMPUTE_TYPE',
+ *           State: 'UPDATE_INITIATED' || 'UPDATE_IN_PROGRESS',
+ *         },
+ *       ],
+ *       RelatedWorkspaces: [ // RelatedWorkspaces
+ *         { // RelatedWorkspaceProperties
+ *           WorkspaceId: 'STRING_VALUE',
+ *           Region: 'STRING_VALUE',
+ *           State: 'PENDING' || 'AVAILABLE' || 'IMPAIRED' || 'UNHEALTHY' || 'REBOOTING' || 'STARTING' || 'REBUILDING' || 'RESTORING' || 'MAINTENANCE' || 'ADMIN_MAINTENANCE' || 'TERMINATING' || 'TERMINATED' || 'SUSPENDED' || 'UPDATING' || 'STOPPING' || 'STOPPED' || 'ERROR',
+ *           Type: 'PRIMARY' || 'STANDBY',
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeWorkspacesCommandInput - {@link DescribeWorkspacesCommandInput}
@@ -67,6 +113,8 @@ export interface DescribeWorkspacesCommandOutput extends DescribeWorkspacesResul
  * @throws {@link ResourceUnavailableException} (client fault)
  *  <p>The specified resource is not available.</p>
  *
+ * @throws {@link WorkSpacesServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
  */
 export class DescribeWorkspacesCommand extends $Command<

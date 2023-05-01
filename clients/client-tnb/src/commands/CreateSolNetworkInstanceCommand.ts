@@ -43,19 +43,30 @@ export interface CreateSolNetworkInstanceCommandOutput extends CreateSolNetworkI
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { TnbClient, CreateSolNetworkInstanceCommand } from "@aws-sdk/client-tnb"; // ES Modules import
- * // const { TnbClient, CreateSolNetworkInstanceCommand } = require("@aws-sdk/client-tnb"); // CommonJS import
+ * import { TnbClient, CreateSolNetworkInstanceCommand } from '@aws-sdk/client-tnb'; // ES Modules import
+ * // const { TnbClient, CreateSolNetworkInstanceCommand } = require('@aws-sdk/client-tnb'); // CommonJS import
  * const client = new TnbClient(config);
  * const input = { // CreateSolNetworkInstanceInput
- *   nsdInfoId: "STRING_VALUE", // required
- *   nsName: "STRING_VALUE", // required
- *   nsDescription: "STRING_VALUE",
+ *   nsdInfoId: 'STRING_VALUE', // required
+ *   nsName: 'STRING_VALUE', // required
+ *   nsDescription: 'STRING_VALUE',
  *   tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateSolNetworkInstanceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateSolNetworkInstanceOutput
+ *   id: 'STRING_VALUE', // required
+ *   arn: 'STRING_VALUE', // required
+ *   nsdInfoId: 'STRING_VALUE', // required
+ *   nsInstanceName: 'STRING_VALUE', // required
+ *   tags: { // TagMap
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateSolNetworkInstanceCommandInput - {@link CreateSolNetworkInstanceCommandInput}
@@ -82,6 +93,8 @@ export interface CreateSolNetworkInstanceCommandOutput extends CreateSolNetworkI
  * @throws {@link ValidationException} (client fault)
  *  <p>Unable to process the request because the client provided input failed to satisfy request constraints.</p>
  *
+ * @throws {@link TnbServiceException}
+ * <p>Base exception class for all service exceptions from Tnb service.</p>
  *
  */
 export class CreateSolNetworkInstanceCommand extends $Command<

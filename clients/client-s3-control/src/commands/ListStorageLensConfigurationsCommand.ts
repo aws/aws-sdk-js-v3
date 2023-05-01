@@ -51,15 +51,28 @@ export interface ListStorageLensConfigurationsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { S3ControlClient, ListStorageLensConfigurationsCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
- * // const { S3ControlClient, ListStorageLensConfigurationsCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
+ * import { S3ControlClient, ListStorageLensConfigurationsCommand } from '@aws-sdk/client-s3-control'; // ES Modules import
+ * // const { S3ControlClient, ListStorageLensConfigurationsCommand } = require('@aws-sdk/client-s3-control'); // CommonJS import
  * const client = new S3ControlClient(config);
  * const input = { // ListStorageLensConfigurationsRequest
- *   AccountId: "STRING_VALUE",
- *   NextToken: "STRING_VALUE",
+ *   AccountId: 'STRING_VALUE',
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListStorageLensConfigurationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListStorageLensConfigurationsResult
+ *   NextToken: 'STRING_VALUE',
+ *   StorageLensConfigurationList: [ // StorageLensConfigurationList
+ *     { // ListStorageLensConfigurationEntry
+ *       Id: 'STRING_VALUE', // required
+ *       StorageLensArn: 'STRING_VALUE', // required
+ *       HomeRegion: 'STRING_VALUE', // required
+ *       IsEnabled: true || false,
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListStorageLensConfigurationsCommandInput - {@link ListStorageLensConfigurationsCommandInput}
@@ -68,6 +81,8 @@ export interface ListStorageLensConfigurationsCommandOutput
  * @see {@link ListStorageLensConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
  *
+ * @throws {@link S3ControlServiceException}
+ * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
  */
 export class ListStorageLensConfigurationsCommand extends $Command<

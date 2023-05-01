@@ -36,15 +36,18 @@ export interface DisableRegionCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AccountClient, DisableRegionCommand } from "@aws-sdk/client-account"; // ES Modules import
- * // const { AccountClient, DisableRegionCommand } = require("@aws-sdk/client-account"); // CommonJS import
+ * import { AccountClient, DisableRegionCommand } from '@aws-sdk/client-account'; // ES Modules import
+ * // const { AccountClient, DisableRegionCommand } = require('@aws-sdk/client-account'); // CommonJS import
  * const client = new AccountClient(config);
  * const input = { // DisableRegionRequest
- *   AccountId: "STRING_VALUE",
- *   RegionName: "STRING_VALUE", // required
+ *   AccountId: 'STRING_VALUE',
+ *   RegionName: 'STRING_VALUE', // required
  * };
  * const command = new DisableRegionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DisableRegionCommandInput - {@link DisableRegionCommandInput}
@@ -73,6 +76,8 @@ export interface DisableRegionCommandOutput extends __MetadataBearer {}
  * @throws {@link ValidationException} (client fault)
  *  <p>The operation failed because one of the input parameters was invalid.</p>
  *
+ * @throws {@link AccountServiceException}
+ * <p>Base exception class for all service exceptions from Account service.</p>
  *
  */
 export class DisableRegionCommand extends $Command<

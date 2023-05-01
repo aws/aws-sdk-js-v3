@@ -36,30 +36,46 @@ export interface TestInvokeMethodCommandOutput extends TestInvokeMethodResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { APIGatewayClient, TestInvokeMethodCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
- * // const { APIGatewayClient, TestInvokeMethodCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
+ * import { APIGatewayClient, TestInvokeMethodCommand } from '@aws-sdk/client-api-gateway'; // ES Modules import
+ * // const { APIGatewayClient, TestInvokeMethodCommand } = require('@aws-sdk/client-api-gateway'); // CommonJS import
  * const client = new APIGatewayClient(config);
  * const input = { // TestInvokeMethodRequest
- *   restApiId: "STRING_VALUE", // required
- *   resourceId: "STRING_VALUE", // required
- *   httpMethod: "STRING_VALUE", // required
- *   pathWithQueryString: "STRING_VALUE",
- *   body: "STRING_VALUE",
+ *   restApiId: 'STRING_VALUE', // required
+ *   resourceId: 'STRING_VALUE', // required
+ *   httpMethod: 'STRING_VALUE', // required
+ *   pathWithQueryString: 'STRING_VALUE',
+ *   body: 'STRING_VALUE',
  *   headers: { // MapOfStringToString
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  *   multiValueHeaders: { // MapOfStringToList
- *     "<keys>": [ // ListOfString
- *       "STRING_VALUE",
+ *     '<keys>': [ // ListOfString
+ *       'STRING_VALUE',
  *     ],
  *   },
- *   clientCertificateId: "STRING_VALUE",
+ *   clientCertificateId: 'STRING_VALUE',
  *   stageVariables: {
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new TestInvokeMethodCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // TestInvokeMethodResponse
+ *   status: Number('int'),
+ *   body: 'STRING_VALUE',
+ *   headers: { // MapOfStringToString
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ *   multiValueHeaders: { // MapOfStringToList
+ *     '<keys>': [ // ListOfString
+ *       'STRING_VALUE',
+ *     ],
+ *   },
+ *   log: 'STRING_VALUE',
+ *   latency: Number('long'),
+ * };
+ *
  * ```
  *
  * @param TestInvokeMethodCommandInput - {@link TestInvokeMethodCommandInput}
@@ -80,6 +96,8 @@ export interface TestInvokeMethodCommandOutput extends TestInvokeMethodResponse,
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The request is denied because the caller has insufficient permissions.</p>
  *
+ * @throws {@link APIGatewayServiceException}
+ * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
  */
 export class TestInvokeMethodCommand extends $Command<

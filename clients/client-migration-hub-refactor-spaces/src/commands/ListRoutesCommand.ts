@@ -40,17 +40,58 @@ export interface ListRoutesCommandOutput extends ListRoutesResponse, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MigrationHubRefactorSpacesClient, ListRoutesCommand } from "@aws-sdk/client-migration-hub-refactor-spaces"; // ES Modules import
- * // const { MigrationHubRefactorSpacesClient, ListRoutesCommand } = require("@aws-sdk/client-migration-hub-refactor-spaces"); // CommonJS import
+ * import { MigrationHubRefactorSpacesClient, ListRoutesCommand } from '@aws-sdk/client-migration-hub-refactor-spaces'; // ES Modules import
+ * // const { MigrationHubRefactorSpacesClient, ListRoutesCommand } = require('@aws-sdk/client-migration-hub-refactor-spaces'); // CommonJS import
  * const client = new MigrationHubRefactorSpacesClient(config);
  * const input = { // ListRoutesRequest
- *   EnvironmentIdentifier: "STRING_VALUE", // required
- *   ApplicationIdentifier: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   EnvironmentIdentifier: 'STRING_VALUE', // required
+ *   ApplicationIdentifier: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListRoutesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListRoutesResponse
+ *   RouteSummaryList: [ // RouteSummaries
+ *     { // RouteSummary
+ *       RouteId: 'STRING_VALUE',
+ *       Arn: 'STRING_VALUE',
+ *       OwnerAccountId: 'STRING_VALUE',
+ *       CreatedByAccountId: 'STRING_VALUE',
+ *       RouteType: 'STRING_VALUE',
+ *       ServiceId: 'STRING_VALUE',
+ *       ApplicationId: 'STRING_VALUE',
+ *       EnvironmentId: 'STRING_VALUE',
+ *       SourcePath: 'STRING_VALUE',
+ *       Methods: [ // HttpMethods
+ *         'STRING_VALUE',
+ *       ],
+ *       IncludeChildPaths: true || false,
+ *       PathResourceToId: { // PathResourceToId
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *       State: 'STRING_VALUE',
+ *       Tags: { // TagMap
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *       Error: { // ErrorResponse
+ *         Code: 'STRING_VALUE',
+ *         Message: 'STRING_VALUE',
+ *         AccountId: 'STRING_VALUE',
+ *         ResourceIdentifier: 'STRING_VALUE',
+ *         ResourceType: 'STRING_VALUE',
+ *         AdditionalDetails: { // AdditionalDetails
+ *           '<keys>': 'STRING_VALUE',
+ *         },
+ *       },
+ *       LastUpdatedTime: new Date('TIMESTAMP'),
+ *       CreatedTime: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListRoutesCommandInput - {@link ListRoutesCommandInput}
@@ -81,6 +122,8 @@ export interface ListRoutesCommandOutput extends ListRoutesResponse, __MetadataB
  *  <p>The input does not satisfy the constraints specified by an Amazon Web Service.
  *     </p>
  *
+ * @throws {@link MigrationHubRefactorSpacesServiceException}
+ * <p>Base exception class for all service exceptions from MigrationHubRefactorSpaces service.</p>
  *
  */
 export class ListRoutesCommand extends $Command<

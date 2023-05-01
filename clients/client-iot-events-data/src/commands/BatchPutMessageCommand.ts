@@ -40,23 +40,34 @@ export interface BatchPutMessageCommandOutput extends BatchPutMessageResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTEventsDataClient, BatchPutMessageCommand } from "@aws-sdk/client-iot-events-data"; // ES Modules import
- * // const { IoTEventsDataClient, BatchPutMessageCommand } = require("@aws-sdk/client-iot-events-data"); // CommonJS import
+ * import { IoTEventsDataClient, BatchPutMessageCommand } from '@aws-sdk/client-iot-events-data'; // ES Modules import
+ * // const { IoTEventsDataClient, BatchPutMessageCommand } = require('@aws-sdk/client-iot-events-data'); // CommonJS import
  * const client = new IoTEventsDataClient(config);
  * const input = { // BatchPutMessageRequest
  *   messages: [ // Messages // required
  *     { // Message
- *       messageId: "STRING_VALUE", // required
- *       inputName: "STRING_VALUE", // required
- *       payload: "BLOB_VALUE", // required
+ *       messageId: 'STRING_VALUE', // required
+ *       inputName: 'STRING_VALUE', // required
+ *       payload: 'BLOB_VALUE', // required
  *       timestamp: { // TimestampValue
- *         timeInMillis: Number("long"),
+ *         timeInMillis: Number('long'),
  *       },
  *     },
  *   ],
  * };
  * const command = new BatchPutMessageCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BatchPutMessageResponse
+ *   BatchPutMessageErrorEntries: [ // BatchPutMessageErrorEntries
+ *     { // BatchPutMessageErrorEntry
+ *       messageId: 'STRING_VALUE',
+ *       errorCode: 'STRING_VALUE',
+ *       errorMessage: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param BatchPutMessageCommandInput - {@link BatchPutMessageCommandInput}
@@ -77,6 +88,8 @@ export interface BatchPutMessageCommandOutput extends BatchPutMessageResponse, _
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request could not be completed due to throttling.</p>
  *
+ * @throws {@link IoTEventsDataServiceException}
+ * <p>Base exception class for all service exceptions from IoTEventsData service.</p>
  *
  */
 export class BatchPutMessageCommand extends $Command<

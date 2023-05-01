@@ -36,18 +36,35 @@ export interface GetCrawlerMetricsCommandOutput extends GetCrawlerMetricsRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlueClient, GetCrawlerMetricsCommand } from "@aws-sdk/client-glue"; // ES Modules import
- * // const { GlueClient, GetCrawlerMetricsCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * import { GlueClient, GetCrawlerMetricsCommand } from '@aws-sdk/client-glue'; // ES Modules import
+ * // const { GlueClient, GetCrawlerMetricsCommand } = require('@aws-sdk/client-glue'); // CommonJS import
  * const client = new GlueClient(config);
  * const input = { // GetCrawlerMetricsRequest
  *   CrawlerNameList: [ // CrawlerNameList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new GetCrawlerMetricsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetCrawlerMetricsResponse
+ *   CrawlerMetricsList: [ // CrawlerMetricsList
+ *     { // CrawlerMetrics
+ *       CrawlerName: 'STRING_VALUE',
+ *       TimeLeftSeconds: Number('double'),
+ *       StillEstimating: true || false,
+ *       LastRuntimeSeconds: Number('double'),
+ *       MedianRuntimeSeconds: Number('double'),
+ *       TablesCreated: Number('int'),
+ *       TablesUpdated: Number('int'),
+ *       TablesDeleted: Number('int'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetCrawlerMetricsCommandInput - {@link GetCrawlerMetricsCommandInput}
@@ -59,6 +76,8 @@ export interface GetCrawlerMetricsCommandOutput extends GetCrawlerMetricsRespons
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class GetCrawlerMetricsCommand extends $Command<

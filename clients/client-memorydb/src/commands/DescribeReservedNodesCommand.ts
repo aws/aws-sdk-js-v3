@@ -36,20 +36,45 @@ export interface DescribeReservedNodesCommandOutput extends DescribeReservedNode
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MemoryDBClient, DescribeReservedNodesCommand } from "@aws-sdk/client-memorydb"; // ES Modules import
- * // const { MemoryDBClient, DescribeReservedNodesCommand } = require("@aws-sdk/client-memorydb"); // CommonJS import
+ * import { MemoryDBClient, DescribeReservedNodesCommand } from '@aws-sdk/client-memorydb'; // ES Modules import
+ * // const { MemoryDBClient, DescribeReservedNodesCommand } = require('@aws-sdk/client-memorydb'); // CommonJS import
  * const client = new MemoryDBClient(config);
  * const input = { // DescribeReservedNodesRequest
- *   ReservationId: "STRING_VALUE",
- *   ReservedNodesOfferingId: "STRING_VALUE",
- *   NodeType: "STRING_VALUE",
- *   Duration: "STRING_VALUE",
- *   OfferingType: "STRING_VALUE",
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   ReservationId: 'STRING_VALUE',
+ *   ReservedNodesOfferingId: 'STRING_VALUE',
+ *   NodeType: 'STRING_VALUE',
+ *   Duration: 'STRING_VALUE',
+ *   OfferingType: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new DescribeReservedNodesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeReservedNodesResponse
+ *   NextToken: 'STRING_VALUE',
+ *   ReservedNodes: [ // ReservedNodeList
+ *     { // ReservedNode
+ *       ReservationId: 'STRING_VALUE',
+ *       ReservedNodesOfferingId: 'STRING_VALUE',
+ *       NodeType: 'STRING_VALUE',
+ *       StartTime: new Date('TIMESTAMP'),
+ *       Duration: Number('int'),
+ *       FixedPrice: Number('double'),
+ *       NodeCount: Number('int'),
+ *       OfferingType: 'STRING_VALUE',
+ *       State: 'STRING_VALUE',
+ *       RecurringCharges: [ // RecurringChargeList
+ *         { // RecurringCharge
+ *           RecurringChargeAmount: Number('double'),
+ *           RecurringChargeFrequency: 'STRING_VALUE',
+ *         },
+ *       ],
+ *       ARN: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeReservedNodesCommandInput - {@link DescribeReservedNodesCommandInput}
@@ -70,6 +95,8 @@ export interface DescribeReservedNodesCommandOutput extends DescribeReservedNode
  * @throws {@link ServiceLinkedRoleNotFoundFault} (client fault)
  *  <p></p>
  *
+ * @throws {@link MemoryDBServiceException}
+ * <p>Base exception class for all service exceptions from MemoryDB service.</p>
  *
  */
 export class DescribeReservedNodesCommand extends $Command<

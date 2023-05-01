@@ -37,16 +37,28 @@ export interface ListImagePackagesCommandOutput extends ListImagePackagesRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ImagebuilderClient, ListImagePackagesCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
- * // const { ImagebuilderClient, ListImagePackagesCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
+ * import { ImagebuilderClient, ListImagePackagesCommand } from '@aws-sdk/client-imagebuilder'; // ES Modules import
+ * // const { ImagebuilderClient, ListImagePackagesCommand } = require('@aws-sdk/client-imagebuilder'); // CommonJS import
  * const client = new ImagebuilderClient(config);
  * const input = { // ListImagePackagesRequest
- *   imageBuildVersionArn: "STRING_VALUE", // required
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   imageBuildVersionArn: 'STRING_VALUE', // required
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new ListImagePackagesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListImagePackagesResponse
+ *   requestId: 'STRING_VALUE',
+ *   imagePackageList: [ // ImagePackageList
+ *     { // ImagePackage
+ *       packageName: 'STRING_VALUE',
+ *       packageVersion: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListImagePackagesCommandInput - {@link ListImagePackagesCommandInput}
@@ -82,6 +94,8 @@ export interface ListImagePackagesCommandOutput extends ListImagePackagesRespons
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service is unable to process your request at this time.</p>
  *
+ * @throws {@link ImagebuilderServiceException}
+ * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
  */
 export class ListImagePackagesCommand extends $Command<

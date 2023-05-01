@@ -40,14 +40,17 @@ export interface DeleteSimulationCommandOutput extends DeleteSimulationOutput, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SimSpaceWeaverClient, DeleteSimulationCommand } from "@aws-sdk/client-simspaceweaver"; // ES Modules import
- * // const { SimSpaceWeaverClient, DeleteSimulationCommand } = require("@aws-sdk/client-simspaceweaver"); // CommonJS import
+ * import { SimSpaceWeaverClient, DeleteSimulationCommand } from '@aws-sdk/client-simspaceweaver'; // ES Modules import
+ * // const { SimSpaceWeaverClient, DeleteSimulationCommand } = require('@aws-sdk/client-simspaceweaver'); // CommonJS import
  * const client = new SimSpaceWeaverClient(config);
  * const input = { // DeleteSimulationInput
- *   Simulation: "STRING_VALUE", // required
+ *   Simulation: 'STRING_VALUE', // required
  * };
  * const command = new DeleteSimulationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteSimulationCommandInput - {@link DeleteSimulationCommandInput}
@@ -71,6 +74,8 @@ export interface DeleteSimulationCommandOutput extends DeleteSimulationOutput, _
  * @throws {@link ValidationException} (client fault)
  *  <p/>
  *
+ * @throws {@link SimSpaceWeaverServiceException}
+ * <p>Base exception class for all service exceptions from SimSpaceWeaver service.</p>
  *
  */
 export class DeleteSimulationCommand extends $Command<

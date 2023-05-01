@@ -36,15 +36,37 @@ export interface ListTestGridProjectsCommandOutput extends ListTestGridProjectsR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DeviceFarmClient, ListTestGridProjectsCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
- * // const { DeviceFarmClient, ListTestGridProjectsCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
+ * import { DeviceFarmClient, ListTestGridProjectsCommand } from '@aws-sdk/client-device-farm'; // ES Modules import
+ * // const { DeviceFarmClient, ListTestGridProjectsCommand } = require('@aws-sdk/client-device-farm'); // CommonJS import
  * const client = new DeviceFarmClient(config);
  * const input = { // ListTestGridProjectsRequest
- *   maxResult: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   maxResult: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new ListTestGridProjectsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTestGridProjectsResult
+ *   testGridProjects: [ // TestGridProjects
+ *     { // TestGridProject
+ *       arn: 'STRING_VALUE',
+ *       name: 'STRING_VALUE',
+ *       description: 'STRING_VALUE',
+ *       vpcConfig: { // TestGridVpcConfig
+ *         securityGroupIds: [ // SecurityGroupIds // required
+ *           'STRING_VALUE',
+ *         ],
+ *         subnetIds: [ // SubnetIds // required
+ *           'STRING_VALUE',
+ *         ],
+ *         vpcId: 'STRING_VALUE', // required
+ *       },
+ *       created: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListTestGridProjectsCommandInput - {@link ListTestGridProjectsCommandInput}
@@ -60,6 +82,8 @@ export interface ListTestGridProjectsCommandOutput extends ListTestGridProjectsR
  *  <p>An internal exception was raised in the service. Contact <a href="mailto:aws-devicefarm-support@amazon.com">aws-devicefarm-support@amazon.com</a> if you see this
  *          error. </p>
  *
+ * @throws {@link DeviceFarmServiceException}
+ * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
  */
 export class ListTestGridProjectsCommand extends $Command<

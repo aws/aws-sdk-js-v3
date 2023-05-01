@@ -38,24 +38,29 @@ export interface CreateSignalingChannelCommandOutput extends CreateSignalingChan
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KinesisVideoClient, CreateSignalingChannelCommand } from "@aws-sdk/client-kinesis-video"; // ES Modules import
- * // const { KinesisVideoClient, CreateSignalingChannelCommand } = require("@aws-sdk/client-kinesis-video"); // CommonJS import
+ * import { KinesisVideoClient, CreateSignalingChannelCommand } from '@aws-sdk/client-kinesis-video'; // ES Modules import
+ * // const { KinesisVideoClient, CreateSignalingChannelCommand } = require('@aws-sdk/client-kinesis-video'); // CommonJS import
  * const client = new KinesisVideoClient(config);
  * const input = { // CreateSignalingChannelInput
- *   ChannelName: "STRING_VALUE", // required
- *   ChannelType: "SINGLE_MASTER" || "FULL_MESH",
+ *   ChannelName: 'STRING_VALUE', // required
+ *   ChannelType: 'SINGLE_MASTER' || 'FULL_MESH',
  *   SingleMasterConfiguration: { // SingleMasterConfiguration
- *     MessageTtlSeconds: Number("int"),
+ *     MessageTtlSeconds: Number('int'),
  *   },
  *   Tags: [ // TagOnCreateList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreateSignalingChannelCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateSignalingChannelOutput
+ *   ChannelARN: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateSignalingChannelCommandInput - {@link CreateSignalingChannelCommandInput}
@@ -102,6 +107,8 @@ export interface CreateSignalingChannelCommandOutput extends CreateSignalingChan
  *  <p>You have exceeded the limit of tags that you can associate with the resource.
  *             A Kinesis video stream can support up to 50 tags. </p>
  *
+ * @throws {@link KinesisVideoServiceException}
+ * <p>Base exception class for all service exceptions from KinesisVideo service.</p>
  *
  */
 export class CreateSignalingChannelCommand extends $Command<

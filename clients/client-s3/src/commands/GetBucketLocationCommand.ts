@@ -53,15 +53,20 @@ export interface GetBucketLocationCommandOutput extends GetBucketLocationOutput,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { S3Client, GetBucketLocationCommand } from "@aws-sdk/client-s3"; // ES Modules import
- * // const { S3Client, GetBucketLocationCommand } = require("@aws-sdk/client-s3"); // CommonJS import
+ * import { S3Client, GetBucketLocationCommand } from '@aws-sdk/client-s3'; // ES Modules import
+ * // const { S3Client, GetBucketLocationCommand } = require('@aws-sdk/client-s3'); // CommonJS import
  * const client = new S3Client(config);
  * const input = { // GetBucketLocationRequest
- *   Bucket: "STRING_VALUE", // required
- *   ExpectedBucketOwner: "STRING_VALUE",
+ *   Bucket: 'STRING_VALUE', // required
+ *   ExpectedBucketOwner: 'STRING_VALUE',
  * };
  * const command = new GetBucketLocationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetBucketLocationOutput
+ *   LocationConstraint: 'af-south-1' || 'ap-east-1' || 'ap-northeast-1' || 'ap-northeast-2' || 'ap-northeast-3' || 'ap-south-1' || 'ap-southeast-1' || 'ap-southeast-2' || 'ap-southeast-3' || 'ca-central-1' || 'cn-north-1' || 'cn-northwest-1' || 'EU' || 'eu-central-1' || 'eu-north-1' || 'eu-south-1' || 'eu-west-1' || 'eu-west-2' || 'eu-west-3' || 'me-south-1' || 'sa-east-1' || 'us-east-2' || 'us-gov-east-1' || 'us-gov-west-1' || 'us-west-1' || 'us-west-2',
+ * };
+ *
  * ```
  *
  * @param GetBucketLocationCommandInput - {@link GetBucketLocationCommandInput}
@@ -70,6 +75,8 @@ export interface GetBucketLocationCommandOutput extends GetBucketLocationOutput,
  * @see {@link GetBucketLocationCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
+ * @throws {@link S3ServiceException}
+ * <p>Base exception class for all service exceptions from S3 service.</p>
  *
  * @example To get bucket location
  * ```javascript

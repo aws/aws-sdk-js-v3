@@ -51,17 +51,20 @@ export interface PutBackupVaultLockConfigurationCommandOutput extends __Metadata
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BackupClient, PutBackupVaultLockConfigurationCommand } from "@aws-sdk/client-backup"; // ES Modules import
- * // const { BackupClient, PutBackupVaultLockConfigurationCommand } = require("@aws-sdk/client-backup"); // CommonJS import
+ * import { BackupClient, PutBackupVaultLockConfigurationCommand } from '@aws-sdk/client-backup'; // ES Modules import
+ * // const { BackupClient, PutBackupVaultLockConfigurationCommand } = require('@aws-sdk/client-backup'); // CommonJS import
  * const client = new BackupClient(config);
  * const input = { // PutBackupVaultLockConfigurationInput
- *   BackupVaultName: "STRING_VALUE", // required
- *   MinRetentionDays: Number("long"),
- *   MaxRetentionDays: Number("long"),
- *   ChangeableForDays: Number("long"),
+ *   BackupVaultName: 'STRING_VALUE', // required
+ *   MinRetentionDays: Number('long'),
+ *   MaxRetentionDays: Number('long'),
+ *   ChangeableForDays: Number('long'),
  * };
  * const command = new PutBackupVaultLockConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutBackupVaultLockConfigurationCommandInput - {@link PutBackupVaultLockConfigurationCommandInput}
@@ -87,6 +90,8 @@ export interface PutBackupVaultLockConfigurationCommandOutput extends __Metadata
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request failed due to a temporary failure of the server.</p>
  *
+ * @throws {@link BackupServiceException}
+ * <p>Base exception class for all service exceptions from Backup service.</p>
  *
  */
 export class PutBackupVaultLockConfigurationCommand extends $Command<

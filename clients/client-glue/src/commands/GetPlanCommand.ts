@@ -36,60 +36,66 @@ export interface GetPlanCommandOutput extends GetPlanResponse, __MetadataBearer 
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlueClient, GetPlanCommand } from "@aws-sdk/client-glue"; // ES Modules import
- * // const { GlueClient, GetPlanCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * import { GlueClient, GetPlanCommand } from '@aws-sdk/client-glue'; // ES Modules import
+ * // const { GlueClient, GetPlanCommand } = require('@aws-sdk/client-glue'); // CommonJS import
  * const client = new GlueClient(config);
  * const input = { // GetPlanRequest
  *   Mapping: [ // MappingList // required
  *     { // MappingEntry
- *       SourceTable: "STRING_VALUE",
- *       SourcePath: "STRING_VALUE",
- *       SourceType: "STRING_VALUE",
- *       TargetTable: "STRING_VALUE",
- *       TargetPath: "STRING_VALUE",
- *       TargetType: "STRING_VALUE",
+ *       SourceTable: 'STRING_VALUE',
+ *       SourcePath: 'STRING_VALUE',
+ *       SourceType: 'STRING_VALUE',
+ *       TargetTable: 'STRING_VALUE',
+ *       TargetPath: 'STRING_VALUE',
+ *       TargetType: 'STRING_VALUE',
  *     },
  *   ],
  *   Source: { // CatalogEntry
- *     DatabaseName: "STRING_VALUE", // required
- *     TableName: "STRING_VALUE", // required
+ *     DatabaseName: 'STRING_VALUE', // required
+ *     TableName: 'STRING_VALUE', // required
  *   },
  *   Sinks: [ // CatalogEntries
  *     {
- *       DatabaseName: "STRING_VALUE", // required
- *       TableName: "STRING_VALUE", // required
+ *       DatabaseName: 'STRING_VALUE', // required
+ *       TableName: 'STRING_VALUE', // required
  *     },
  *   ],
  *   Location: { // Location
  *     Jdbc: [ // CodeGenNodeArgs
  *       { // CodeGenNodeArg
- *         Name: "STRING_VALUE", // required
- *         Value: "STRING_VALUE", // required
+ *         Name: 'STRING_VALUE', // required
+ *         Value: 'STRING_VALUE', // required
  *         Param: true || false,
  *       },
  *     ],
  *     S3: [
  *       {
- *         Name: "STRING_VALUE", // required
- *         Value: "STRING_VALUE", // required
+ *         Name: 'STRING_VALUE', // required
+ *         Value: 'STRING_VALUE', // required
  *         Param: true || false,
  *       },
  *     ],
  *     DynamoDB: [
  *       {
- *         Name: "STRING_VALUE", // required
- *         Value: "STRING_VALUE", // required
+ *         Name: 'STRING_VALUE', // required
+ *         Value: 'STRING_VALUE', // required
  *         Param: true || false,
  *       },
  *     ],
  *   },
- *   Language: "PYTHON" || "SCALA",
+ *   Language: 'PYTHON' || 'SCALA',
  *   AdditionalPlanOptionsMap: { // AdditionalPlanOptionsMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new GetPlanCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetPlanResponse
+ *   PythonScript: 'STRING_VALUE',
+ *   ScalaCode: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetPlanCommandInput - {@link GetPlanCommandInput}
@@ -107,6 +113,8 @@ export interface GetPlanCommandOutput extends GetPlanResponse, __MetadataBearer 
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class GetPlanCommand extends $Command<GetPlanCommandInput, GetPlanCommandOutput, GlueClientResolvedConfig> {

@@ -46,14 +46,22 @@ export interface GetVoiceConnectorTerminationHealthCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeSDKVoiceClient, GetVoiceConnectorTerminationHealthCommand } from "@aws-sdk/client-chime-sdk-voice"; // ES Modules import
- * // const { ChimeSDKVoiceClient, GetVoiceConnectorTerminationHealthCommand } = require("@aws-sdk/client-chime-sdk-voice"); // CommonJS import
+ * import { ChimeSDKVoiceClient, GetVoiceConnectorTerminationHealthCommand } from '@aws-sdk/client-chime-sdk-voice'; // ES Modules import
+ * // const { ChimeSDKVoiceClient, GetVoiceConnectorTerminationHealthCommand } = require('@aws-sdk/client-chime-sdk-voice'); // CommonJS import
  * const client = new ChimeSDKVoiceClient(config);
  * const input = { // GetVoiceConnectorTerminationHealthRequest
- *   VoiceConnectorId: "STRING_VALUE", // required
+ *   VoiceConnectorId: 'STRING_VALUE', // required
  * };
  * const command = new GetVoiceConnectorTerminationHealthCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetVoiceConnectorTerminationHealthResponse
+ *   TerminationHealth: { // TerminationHealth
+ *     Timestamp: new Date('TIMESTAMP'),
+ *     Source: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetVoiceConnectorTerminationHealthCommandInput - {@link GetVoiceConnectorTerminationHealthCommandInput}
@@ -83,6 +91,8 @@ export interface GetVoiceConnectorTerminationHealthCommandOutput
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client isn't authorized to request a resource.</p>
  *
+ * @throws {@link ChimeSDKVoiceServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
  */
 export class GetVoiceConnectorTerminationHealthCommand extends $Command<

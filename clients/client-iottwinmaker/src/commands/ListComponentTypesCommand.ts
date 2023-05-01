@@ -36,23 +36,47 @@ export interface ListComponentTypesCommandOutput extends ListComponentTypesRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTTwinMakerClient, ListComponentTypesCommand } from "@aws-sdk/client-iottwinmaker"; // ES Modules import
- * // const { IoTTwinMakerClient, ListComponentTypesCommand } = require("@aws-sdk/client-iottwinmaker"); // CommonJS import
+ * import { IoTTwinMakerClient, ListComponentTypesCommand } from '@aws-sdk/client-iottwinmaker'; // ES Modules import
+ * // const { IoTTwinMakerClient, ListComponentTypesCommand } = require('@aws-sdk/client-iottwinmaker'); // CommonJS import
  * const client = new IoTTwinMakerClient(config);
  * const input = { // ListComponentTypesRequest
- *   workspaceId: "STRING_VALUE", // required
+ *   workspaceId: 'STRING_VALUE', // required
  *   filters: [ // ListComponentTypesFilters
  *     { // ListComponentTypesFilter Union: only one key present
- *       extendsFrom: "STRING_VALUE",
- *       namespace: "STRING_VALUE",
+ *       extendsFrom: 'STRING_VALUE',
+ *       namespace: 'STRING_VALUE',
  *       isAbstract: true || false,
  *     },
  *   ],
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new ListComponentTypesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListComponentTypesResponse
+ *   workspaceId: 'STRING_VALUE', // required
+ *   componentTypeSummaries: [ // ComponentTypeSummaries // required
+ *     { // ComponentTypeSummary
+ *       arn: 'STRING_VALUE', // required
+ *       componentTypeId: 'STRING_VALUE', // required
+ *       creationDateTime: new Date('TIMESTAMP'), // required
+ *       updateDateTime: new Date('TIMESTAMP'), // required
+ *       description: 'STRING_VALUE',
+ *       status: { // Status
+ *         state: 'STRING_VALUE',
+ *         error: { // ErrorDetails
+ *           code: 'STRING_VALUE',
+ *           message: 'STRING_VALUE',
+ *         },
+ *       },
+ *       componentTypeName: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
+ * };
+ *
  * ```
  *
  * @param ListComponentTypesCommandInput - {@link ListComponentTypesCommandInput}
@@ -73,6 +97,8 @@ export interface ListComponentTypesCommandOutput extends ListComponentTypesRespo
  * @throws {@link ValidationException} (client fault)
  *  <p>Failed</p>
  *
+ * @throws {@link IoTTwinMakerServiceException}
+ * <p>Base exception class for all service exceptions from IoTTwinMaker service.</p>
  *
  */
 export class ListComponentTypesCommand extends $Command<

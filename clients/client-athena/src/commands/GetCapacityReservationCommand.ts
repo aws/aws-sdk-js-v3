@@ -36,14 +36,32 @@ export interface GetCapacityReservationCommandOutput extends GetCapacityReservat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AthenaClient, GetCapacityReservationCommand } from "@aws-sdk/client-athena"; // ES Modules import
- * // const { AthenaClient, GetCapacityReservationCommand } = require("@aws-sdk/client-athena"); // CommonJS import
+ * import { AthenaClient, GetCapacityReservationCommand } from '@aws-sdk/client-athena'; // ES Modules import
+ * // const { AthenaClient, GetCapacityReservationCommand } = require('@aws-sdk/client-athena'); // CommonJS import
  * const client = new AthenaClient(config);
  * const input = { // GetCapacityReservationInput
- *   Name: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
  * };
  * const command = new GetCapacityReservationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetCapacityReservationOutput
+ *   CapacityReservation: { // CapacityReservation
+ *     Name: 'STRING_VALUE', // required
+ *     Status: 'PENDING' || 'ACTIVE' || 'CANCELLING' || 'CANCELLED' || 'FAILED' || 'UPDATE_PENDING', // required
+ *     TargetDpus: Number('int'), // required
+ *     AllocatedDpus: Number('int'), // required
+ *     LastAllocation: { // CapacityAllocation
+ *       Status: 'PENDING' || 'SUCCEEDED' || 'FAILED', // required
+ *       StatusMessage: 'STRING_VALUE',
+ *       RequestTime: new Date('TIMESTAMP'), // required
+ *       RequestCompletionTime: new Date('TIMESTAMP'),
+ *     },
+ *     LastSuccessfulAllocationTime: new Date('TIMESTAMP'),
+ *     CreationTime: new Date('TIMESTAMP'), // required
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetCapacityReservationCommandInput - {@link GetCapacityReservationCommandInput}
@@ -60,6 +78,8 @@ export interface GetCapacityReservationCommandOutput extends GetCapacityReservat
  *  <p>Indicates that something is wrong with the input to the request. For example, a
  *             required parameter may be missing or out of range.</p>
  *
+ * @throws {@link AthenaServiceException}
+ * <p>Base exception class for all service exceptions from Athena service.</p>
  *
  */
 export class GetCapacityReservationCommand extends $Command<

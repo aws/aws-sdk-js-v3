@@ -63,15 +63,20 @@ export interface DeleteRateBasedRuleCommandOutput extends DeleteRateBasedRuleRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WAFRegionalClient, DeleteRateBasedRuleCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
- * // const { WAFRegionalClient, DeleteRateBasedRuleCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import
+ * import { WAFRegionalClient, DeleteRateBasedRuleCommand } from '@aws-sdk/client-waf-regional'; // ES Modules import
+ * // const { WAFRegionalClient, DeleteRateBasedRuleCommand } = require('@aws-sdk/client-waf-regional'); // CommonJS import
  * const client = new WAFRegionalClient(config);
  * const input = { // DeleteRateBasedRuleRequest
- *   RuleId: "STRING_VALUE", // required
- *   ChangeToken: "STRING_VALUE", // required
+ *   RuleId: 'STRING_VALUE', // required
+ *   ChangeToken: 'STRING_VALUE', // required
  * };
  * const command = new DeleteRateBasedRuleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteRateBasedRuleResponse
+ *   ChangeToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DeleteRateBasedRuleCommandInput - {@link DeleteRateBasedRuleCommandInput}
@@ -127,6 +132,8 @@ export interface DeleteRateBasedRuleCommandOutput extends DeleteRateBasedRuleRes
  * @throws {@link WAFTagOperationInternalErrorException} (server fault)
  *  <p></p>
  *
+ * @throws {@link WAFRegionalServiceException}
+ * <p>Base exception class for all service exceptions from WAFRegional service.</p>
  *
  */
 export class DeleteRateBasedRuleCommand extends $Command<

@@ -37,15 +37,21 @@ export interface DeleteAccountCustomizationCommandOutput extends DeleteAccountCu
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { QuickSightClient, DeleteAccountCustomizationCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
- * // const { QuickSightClient, DeleteAccountCustomizationCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * import { QuickSightClient, DeleteAccountCustomizationCommand } from '@aws-sdk/client-quicksight'; // ES Modules import
+ * // const { QuickSightClient, DeleteAccountCustomizationCommand } = require('@aws-sdk/client-quicksight'); // CommonJS import
  * const client = new QuickSightClient(config);
  * const input = { // DeleteAccountCustomizationRequest
- *   AwsAccountId: "STRING_VALUE", // required
- *   Namespace: "STRING_VALUE",
+ *   AwsAccountId: 'STRING_VALUE', // required
+ *   Namespace: 'STRING_VALUE',
  * };
  * const command = new DeleteAccountCustomizationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteAccountCustomizationResponse
+ *   RequestId: 'STRING_VALUE',
+ *   Status: Number('int'),
+ * };
+ *
  * ```
  *
  * @param DeleteAccountCustomizationCommandInput - {@link DeleteAccountCustomizationCommandInput}
@@ -78,6 +84,8 @@ export interface DeleteAccountCustomizationCommandOutput extends DeleteAccountCu
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Access is throttled.</p>
  *
+ * @throws {@link QuickSightServiceException}
+ * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
 export class DeleteAccountCustomizationCommand extends $Command<

@@ -45,23 +45,28 @@ export interface UpdateSnapshotScheduleCommandOutput extends UpdateSnapshotSched
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { StorageGatewayClient, UpdateSnapshotScheduleCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
- * // const { StorageGatewayClient, UpdateSnapshotScheduleCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
+ * import { StorageGatewayClient, UpdateSnapshotScheduleCommand } from '@aws-sdk/client-storage-gateway'; // ES Modules import
+ * // const { StorageGatewayClient, UpdateSnapshotScheduleCommand } = require('@aws-sdk/client-storage-gateway'); // CommonJS import
  * const client = new StorageGatewayClient(config);
  * const input = { // UpdateSnapshotScheduleInput
- *   VolumeARN: "STRING_VALUE", // required
- *   StartAt: Number("int"), // required
- *   RecurrenceInHours: Number("int"), // required
- *   Description: "STRING_VALUE",
+ *   VolumeARN: 'STRING_VALUE', // required
+ *   StartAt: Number('int'), // required
+ *   RecurrenceInHours: Number('int'), // required
+ *   Description: 'STRING_VALUE',
  *   Tags: [ // Tags
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new UpdateSnapshotScheduleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateSnapshotScheduleOutput
+ *   VolumeARN: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateSnapshotScheduleCommandInput - {@link UpdateSnapshotScheduleCommandInput}
@@ -78,6 +83,8 @@ export interface UpdateSnapshotScheduleCommandOutput extends UpdateSnapshotSched
  *  <p>An exception occurred because an invalid gateway request was issued to the service. For
  *          more information, see the error and message fields.</p>
  *
+ * @throws {@link StorageGatewayServiceException}
+ * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
  * @example To update a volume snapshot schedule
  * ```javascript

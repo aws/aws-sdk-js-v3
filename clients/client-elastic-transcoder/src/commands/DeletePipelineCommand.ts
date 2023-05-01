@@ -43,14 +43,17 @@ export interface DeletePipelineCommandOutput extends DeletePipelineResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElasticTranscoderClient, DeletePipelineCommand } from "@aws-sdk/client-elastic-transcoder"; // ES Modules import
- * // const { ElasticTranscoderClient, DeletePipelineCommand } = require("@aws-sdk/client-elastic-transcoder"); // CommonJS import
+ * import { ElasticTranscoderClient, DeletePipelineCommand } from '@aws-sdk/client-elastic-transcoder'; // ES Modules import
+ * // const { ElasticTranscoderClient, DeletePipelineCommand } = require('@aws-sdk/client-elastic-transcoder'); // CommonJS import
  * const client = new ElasticTranscoderClient(config);
  * const input = { // DeletePipelineRequest
- *   Id: "STRING_VALUE", // required
+ *   Id: 'STRING_VALUE', // required
  * };
  * const command = new DeletePipelineCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeletePipelineCommandInput - {@link DeletePipelineCommandInput}
@@ -78,6 +81,8 @@ export interface DeletePipelineCommandOutput extends DeletePipelineResponse, __M
  * @throws {@link ValidationException} (client fault)
  *  <p>One or more required parameter values were not provided in the request.</p>
  *
+ * @throws {@link ElasticTranscoderServiceException}
+ * <p>Base exception class for all service exceptions from ElasticTranscoder service.</p>
  *
  */
 export class DeletePipelineCommand extends $Command<

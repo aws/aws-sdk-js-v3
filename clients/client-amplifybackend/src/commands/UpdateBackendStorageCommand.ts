@@ -36,27 +36,35 @@ export interface UpdateBackendStorageCommandOutput extends UpdateBackendStorageR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AmplifyBackendClient, UpdateBackendStorageCommand } from "@aws-sdk/client-amplifybackend"; // ES Modules import
- * // const { AmplifyBackendClient, UpdateBackendStorageCommand } = require("@aws-sdk/client-amplifybackend"); // CommonJS import
+ * import { AmplifyBackendClient, UpdateBackendStorageCommand } from '@aws-sdk/client-amplifybackend'; // ES Modules import
+ * // const { AmplifyBackendClient, UpdateBackendStorageCommand } = require('@aws-sdk/client-amplifybackend'); // CommonJS import
  * const client = new AmplifyBackendClient(config);
  * const input = { // UpdateBackendStorageRequest
- *   AppId: "STRING_VALUE", // required
- *   BackendEnvironmentName: "STRING_VALUE", // required
+ *   AppId: 'STRING_VALUE', // required
+ *   BackendEnvironmentName: 'STRING_VALUE', // required
  *   ResourceConfig: { // UpdateBackendStorageResourceConfig
  *     Permissions: { // BackendStoragePermissions
  *       Authenticated: [ // ListOfAuthenticatedElement // required
- *         "READ" || "CREATE_AND_UPDATE" || "DELETE",
+ *         'READ' || 'CREATE_AND_UPDATE' || 'DELETE',
  *       ],
  *       UnAuthenticated: [ // ListOfUnAuthenticatedElement
- *         "READ" || "CREATE_AND_UPDATE" || "DELETE",
+ *         'READ' || 'CREATE_AND_UPDATE' || 'DELETE',
  *       ],
  *     },
- *     ServiceName: "S3", // required
+ *     ServiceName: 'S3', // required
  *   },
- *   ResourceName: "STRING_VALUE", // required
+ *   ResourceName: 'STRING_VALUE', // required
  * };
  * const command = new UpdateBackendStorageCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateBackendStorageResponse
+ *   AppId: 'STRING_VALUE',
+ *   BackendEnvironmentName: 'STRING_VALUE',
+ *   JobId: 'STRING_VALUE',
+ *   Status: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateBackendStorageCommandInput - {@link UpdateBackendStorageCommandInput}
@@ -77,6 +85,8 @@ export interface UpdateBackendStorageCommandOutput extends UpdateBackendStorageR
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>An error that is returned when a limit of a specific type has been exceeded.</p>
  *
+ * @throws {@link AmplifyBackendServiceException}
+ * <p>Base exception class for all service exceptions from AmplifyBackend service.</p>
  *
  */
 export class UpdateBackendStorageCommand extends $Command<

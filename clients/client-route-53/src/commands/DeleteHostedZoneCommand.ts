@@ -78,14 +78,24 @@ export interface DeleteHostedZoneCommandOutput extends DeleteHostedZoneResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Route53Client, DeleteHostedZoneCommand } from "@aws-sdk/client-route-53"; // ES Modules import
- * // const { Route53Client, DeleteHostedZoneCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
+ * import { Route53Client, DeleteHostedZoneCommand } from '@aws-sdk/client-route-53'; // ES Modules import
+ * // const { Route53Client, DeleteHostedZoneCommand } = require('@aws-sdk/client-route-53'); // CommonJS import
  * const client = new Route53Client(config);
  * const input = { // DeleteHostedZoneRequest
- *   Id: "STRING_VALUE", // required
+ *   Id: 'STRING_VALUE', // required
  * };
  * const command = new DeleteHostedZoneCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteHostedZoneResponse
+ *   ChangeInfo: { // ChangeInfo
+ *     Id: 'STRING_VALUE', // required
+ *     Status: 'PENDING' || 'INSYNC', // required
+ *     SubmittedAt: new Date('TIMESTAMP'), // required
+ *     Comment: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param DeleteHostedZoneCommandInput - {@link DeleteHostedZoneCommandInput}
@@ -113,6 +123,8 @@ export interface DeleteHostedZoneCommandOutput extends DeleteHostedZoneResponse,
  * 			for the same request, we recommend that you wait, in intervals of increasing duration,
  * 			before you try the request again.</p>
  *
+ * @throws {@link Route53ServiceException}
+ * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
  */
 export class DeleteHostedZoneCommand extends $Command<

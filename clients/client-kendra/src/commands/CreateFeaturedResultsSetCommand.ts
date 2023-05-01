@@ -42,32 +42,52 @@ export interface CreateFeaturedResultsSetCommandOutput extends CreateFeaturedRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KendraClient, CreateFeaturedResultsSetCommand } from "@aws-sdk/client-kendra"; // ES Modules import
- * // const { KendraClient, CreateFeaturedResultsSetCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
+ * import { KendraClient, CreateFeaturedResultsSetCommand } from '@aws-sdk/client-kendra'; // ES Modules import
+ * // const { KendraClient, CreateFeaturedResultsSetCommand } = require('@aws-sdk/client-kendra'); // CommonJS import
  * const client = new KendraClient(config);
  * const input = { // CreateFeaturedResultsSetRequest
- *   IndexId: "STRING_VALUE", // required
- *   FeaturedResultsSetName: "STRING_VALUE", // required
- *   Description: "STRING_VALUE",
- *   ClientToken: "STRING_VALUE",
- *   Status: "ACTIVE" || "INACTIVE",
+ *   IndexId: 'STRING_VALUE', // required
+ *   FeaturedResultsSetName: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE',
+ *   ClientToken: 'STRING_VALUE',
+ *   Status: 'ACTIVE' || 'INACTIVE',
  *   QueryTexts: [ // QueryTextList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   FeaturedDocuments: [ // FeaturedDocumentList
  *     { // FeaturedDocument
- *       Id: "STRING_VALUE",
+ *       Id: 'STRING_VALUE',
  *     },
  *   ],
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreateFeaturedResultsSetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateFeaturedResultsSetResponse
+ *   FeaturedResultsSet: { // FeaturedResultsSet
+ *     FeaturedResultsSetId: 'STRING_VALUE',
+ *     FeaturedResultsSetName: 'STRING_VALUE',
+ *     Description: 'STRING_VALUE',
+ *     Status: 'ACTIVE' || 'INACTIVE',
+ *     QueryTexts: [ // QueryTextList
+ *       'STRING_VALUE',
+ *     ],
+ *     FeaturedDocuments: [ // FeaturedDocumentList
+ *       { // FeaturedDocument
+ *         Id: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     LastUpdatedTimestamp: Number('long'),
+ *     CreationTimestamp: Number('long'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateFeaturedResultsSetCommandInput - {@link CreateFeaturedResultsSetCommandInput}
@@ -106,6 +126,8 @@ export interface CreateFeaturedResultsSetCommandOutput extends CreateFeaturedRes
  *  <p>The input fails to satisfy the constraints set by the Amazon Kendra service.
  *             Please provide the correct input and try again.</p>
  *
+ * @throws {@link KendraServiceException}
+ * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
  */
 export class CreateFeaturedResultsSetCommand extends $Command<

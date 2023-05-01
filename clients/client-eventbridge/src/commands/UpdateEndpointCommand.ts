@@ -36,34 +36,62 @@ export interface UpdateEndpointCommandOutput extends UpdateEndpointResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EventBridgeClient, UpdateEndpointCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
- * // const { EventBridgeClient, UpdateEndpointCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
+ * import { EventBridgeClient, UpdateEndpointCommand } from '@aws-sdk/client-eventbridge'; // ES Modules import
+ * // const { EventBridgeClient, UpdateEndpointCommand } = require('@aws-sdk/client-eventbridge'); // CommonJS import
  * const client = new EventBridgeClient(config);
  * const input = { // UpdateEndpointRequest
- *   Name: "STRING_VALUE", // required
- *   Description: "STRING_VALUE",
+ *   Name: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE',
  *   RoutingConfig: { // RoutingConfig
  *     FailoverConfig: { // FailoverConfig
  *       Primary: { // Primary
- *         HealthCheck: "STRING_VALUE", // required
+ *         HealthCheck: 'STRING_VALUE', // required
  *       },
  *       Secondary: { // Secondary
- *         Route: "STRING_VALUE", // required
+ *         Route: 'STRING_VALUE', // required
  *       },
  *     },
  *   },
  *   ReplicationConfig: { // ReplicationConfig
- *     State: "ENABLED" || "DISABLED",
+ *     State: 'ENABLED' || 'DISABLED',
  *   },
  *   EventBuses: [ // EndpointEventBusList
  *     { // EndpointEventBus
- *       EventBusArn: "STRING_VALUE", // required
+ *       EventBusArn: 'STRING_VALUE', // required
  *     },
  *   ],
- *   RoleArn: "STRING_VALUE",
+ *   RoleArn: 'STRING_VALUE',
  * };
  * const command = new UpdateEndpointCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateEndpointResponse
+ *   Name: 'STRING_VALUE',
+ *   Arn: 'STRING_VALUE',
+ *   RoutingConfig: { // RoutingConfig
+ *     FailoverConfig: { // FailoverConfig
+ *       Primary: { // Primary
+ *         HealthCheck: 'STRING_VALUE', // required
+ *       },
+ *       Secondary: { // Secondary
+ *         Route: 'STRING_VALUE', // required
+ *       },
+ *     },
+ *   },
+ *   ReplicationConfig: { // ReplicationConfig
+ *     State: 'ENABLED' || 'DISABLED',
+ *   },
+ *   EventBuses: [ // EndpointEventBusList
+ *     { // EndpointEventBus
+ *       EventBusArn: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ *   RoleArn: 'STRING_VALUE',
+ *   EndpointId: 'STRING_VALUE',
+ *   EndpointUrl: 'STRING_VALUE',
+ *   State: 'ACTIVE' || 'CREATING' || 'UPDATING' || 'DELETING' || 'CREATE_FAILED' || 'UPDATE_FAILED' || 'DELETE_FAILED',
+ * };
+ *
  * ```
  *
  * @param UpdateEndpointCommandInput - {@link UpdateEndpointCommandInput}
@@ -81,6 +109,8 @@ export interface UpdateEndpointCommandOutput extends UpdateEndpointResponse, __M
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>An entity that you specified does not exist.</p>
  *
+ * @throws {@link EventBridgeServiceException}
+ * <p>Base exception class for all service exceptions from EventBridge service.</p>
  *
  */
 export class UpdateEndpointCommand extends $Command<

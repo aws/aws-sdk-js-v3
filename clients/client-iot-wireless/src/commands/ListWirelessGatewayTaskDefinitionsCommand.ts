@@ -44,16 +44,39 @@ export interface ListWirelessGatewayTaskDefinitionsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTWirelessClient, ListWirelessGatewayTaskDefinitionsCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
- * // const { IoTWirelessClient, ListWirelessGatewayTaskDefinitionsCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
+ * import { IoTWirelessClient, ListWirelessGatewayTaskDefinitionsCommand } from '@aws-sdk/client-iot-wireless'; // ES Modules import
+ * // const { IoTWirelessClient, ListWirelessGatewayTaskDefinitionsCommand } = require('@aws-sdk/client-iot-wireless'); // CommonJS import
  * const client = new IoTWirelessClient(config);
  * const input = { // ListWirelessGatewayTaskDefinitionsRequest
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
- *   TaskDefinitionType: "UPDATE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
+ *   TaskDefinitionType: 'UPDATE',
  * };
  * const command = new ListWirelessGatewayTaskDefinitionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListWirelessGatewayTaskDefinitionsResponse
+ *   NextToken: 'STRING_VALUE',
+ *   TaskDefinitions: [ // WirelessGatewayTaskDefinitionList
+ *     { // UpdateWirelessGatewayTaskEntry
+ *       Id: 'STRING_VALUE',
+ *       LoRaWAN: { // LoRaWANUpdateGatewayTaskEntry
+ *         CurrentVersion: { // LoRaWANGatewayVersion
+ *           PackageVersion: 'STRING_VALUE',
+ *           Model: 'STRING_VALUE',
+ *           Station: 'STRING_VALUE',
+ *         },
+ *         UpdateVersion: {
+ *           PackageVersion: 'STRING_VALUE',
+ *           Model: 'STRING_VALUE',
+ *           Station: 'STRING_VALUE',
+ *         },
+ *       },
+ *       Arn: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListWirelessGatewayTaskDefinitionsCommandInput - {@link ListWirelessGatewayTaskDefinitionsCommandInput}
@@ -74,6 +97,8 @@ export interface ListWirelessGatewayTaskDefinitionsCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The input did not meet the specified constraints.</p>
  *
+ * @throws {@link IoTWirelessServiceException}
+ * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
  */
 export class ListWirelessGatewayTaskDefinitionsCommand extends $Command<

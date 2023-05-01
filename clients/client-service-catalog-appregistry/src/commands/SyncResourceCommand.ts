@@ -41,15 +41,22 @@ export interface SyncResourceCommandOutput extends SyncResourceResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ServiceCatalogAppRegistryClient, SyncResourceCommand } from "@aws-sdk/client-service-catalog-appregistry"; // ES Modules import
- * // const { ServiceCatalogAppRegistryClient, SyncResourceCommand } = require("@aws-sdk/client-service-catalog-appregistry"); // CommonJS import
+ * import { ServiceCatalogAppRegistryClient, SyncResourceCommand } from '@aws-sdk/client-service-catalog-appregistry'; // ES Modules import
+ * // const { ServiceCatalogAppRegistryClient, SyncResourceCommand } = require('@aws-sdk/client-service-catalog-appregistry'); // CommonJS import
  * const client = new ServiceCatalogAppRegistryClient(config);
  * const input = { // SyncResourceRequest
- *   resourceType: "CFN_STACK" || "RESOURCE_TAG_VALUE", // required
- *   resource: "STRING_VALUE", // required
+ *   resourceType: 'CFN_STACK' || 'RESOURCE_TAG_VALUE', // required
+ *   resource: 'STRING_VALUE', // required
  * };
  * const command = new SyncResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SyncResourceResponse
+ *   applicationArn: 'STRING_VALUE',
+ *   resourceArn: 'STRING_VALUE',
+ *   actionTaken: 'START_SYNC' || 'NO_ACTION',
+ * };
+ *
  * ```
  *
  * @param SyncResourceCommandInput - {@link SyncResourceCommandInput}
@@ -78,6 +85,8 @@ export interface SyncResourceCommandOutput extends SyncResourceResponse, __Metad
  * @throws {@link ValidationException} (client fault)
  *  <p>The request has invalid or missing parameters.</p>
  *
+ * @throws {@link ServiceCatalogAppRegistryServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalogAppRegistry service.</p>
  *
  */
 export class SyncResourceCommand extends $Command<

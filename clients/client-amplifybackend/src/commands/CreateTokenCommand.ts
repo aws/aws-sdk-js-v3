@@ -36,14 +36,22 @@ export interface CreateTokenCommandOutput extends CreateTokenResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AmplifyBackendClient, CreateTokenCommand } from "@aws-sdk/client-amplifybackend"; // ES Modules import
- * // const { AmplifyBackendClient, CreateTokenCommand } = require("@aws-sdk/client-amplifybackend"); // CommonJS import
+ * import { AmplifyBackendClient, CreateTokenCommand } from '@aws-sdk/client-amplifybackend'; // ES Modules import
+ * // const { AmplifyBackendClient, CreateTokenCommand } = require('@aws-sdk/client-amplifybackend'); // CommonJS import
  * const client = new AmplifyBackendClient(config);
  * const input = { // CreateTokenRequest
- *   AppId: "STRING_VALUE", // required
+ *   AppId: 'STRING_VALUE', // required
  * };
  * const command = new CreateTokenCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateTokenResponse
+ *   AppId: 'STRING_VALUE',
+ *   ChallengeCode: 'STRING_VALUE',
+ *   SessionId: 'STRING_VALUE',
+ *   Ttl: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateTokenCommandInput - {@link CreateTokenCommandInput}
@@ -64,6 +72,8 @@ export interface CreateTokenCommandOutput extends CreateTokenResponse, __Metadat
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>An error that is returned when a limit of a specific type has been exceeded.</p>
  *
+ * @throws {@link AmplifyBackendServiceException}
+ * <p>Base exception class for all service exceptions from AmplifyBackend service.</p>
  *
  */
 export class CreateTokenCommand extends $Command<

@@ -37,16 +37,28 @@ export interface ListOTAUpdatesCommandOutput extends ListOTAUpdatesResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTClient, ListOTAUpdatesCommand } from "@aws-sdk/client-iot"; // ES Modules import
- * // const { IoTClient, ListOTAUpdatesCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * import { IoTClient, ListOTAUpdatesCommand } from '@aws-sdk/client-iot'; // ES Modules import
+ * // const { IoTClient, ListOTAUpdatesCommand } = require('@aws-sdk/client-iot'); // CommonJS import
  * const client = new IoTClient(config);
  * const input = { // ListOTAUpdatesRequest
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
- *   otaUpdateStatus: "CREATE_PENDING" || "CREATE_IN_PROGRESS" || "CREATE_COMPLETE" || "CREATE_FAILED" || "DELETE_IN_PROGRESS" || "DELETE_FAILED",
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
+ *   otaUpdateStatus: 'CREATE_PENDING' || 'CREATE_IN_PROGRESS' || 'CREATE_COMPLETE' || 'CREATE_FAILED' || 'DELETE_IN_PROGRESS' || 'DELETE_FAILED',
  * };
  * const command = new ListOTAUpdatesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListOTAUpdatesResponse
+ *   otaUpdates: [ // OTAUpdatesSummary
+ *     { // OTAUpdateSummary
+ *       otaUpdateId: 'STRING_VALUE',
+ *       otaUpdateArn: 'STRING_VALUE',
+ *       creationDate: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListOTAUpdatesCommandInput - {@link ListOTAUpdatesCommandInput}
@@ -70,6 +82,8 @@ export interface ListOTAUpdatesCommandOutput extends ListOTAUpdatesResponse, __M
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this operation.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class ListOTAUpdatesCommand extends $Command<

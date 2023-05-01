@@ -75,26 +75,31 @@ export interface PutRuleCommandOutput extends PutRuleResponse, __MetadataBearer 
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EventBridgeClient, PutRuleCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
- * // const { EventBridgeClient, PutRuleCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
+ * import { EventBridgeClient, PutRuleCommand } from '@aws-sdk/client-eventbridge'; // ES Modules import
+ * // const { EventBridgeClient, PutRuleCommand } = require('@aws-sdk/client-eventbridge'); // CommonJS import
  * const client = new EventBridgeClient(config);
  * const input = { // PutRuleRequest
- *   Name: "STRING_VALUE", // required
- *   ScheduleExpression: "STRING_VALUE",
- *   EventPattern: "STRING_VALUE",
- *   State: "ENABLED" || "DISABLED",
- *   Description: "STRING_VALUE",
- *   RoleArn: "STRING_VALUE",
+ *   Name: 'STRING_VALUE', // required
+ *   ScheduleExpression: 'STRING_VALUE',
+ *   EventPattern: 'STRING_VALUE',
+ *   State: 'ENABLED' || 'DISABLED',
+ *   Description: 'STRING_VALUE',
+ *   RoleArn: 'STRING_VALUE',
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
- *   EventBusName: "STRING_VALUE",
+ *   EventBusName: 'STRING_VALUE',
  * };
  * const command = new PutRuleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutRuleResponse
+ *   RuleArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param PutRuleCommandInput - {@link PutRuleCommandInput}
@@ -127,6 +132,8 @@ export interface PutRuleCommandOutput extends PutRuleResponse, __MetadataBearer 
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>An entity that you specified does not exist.</p>
  *
+ * @throws {@link EventBridgeServiceException}
+ * <p>Base exception class for all service exceptions from EventBridge service.</p>
  *
  */
 export class PutRuleCommand extends $Command<

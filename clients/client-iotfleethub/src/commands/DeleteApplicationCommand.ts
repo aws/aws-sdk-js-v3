@@ -39,15 +39,18 @@ export interface DeleteApplicationCommandOutput extends DeleteApplicationRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTFleetHubClient, DeleteApplicationCommand } from "@aws-sdk/client-iotfleethub"; // ES Modules import
- * // const { IoTFleetHubClient, DeleteApplicationCommand } = require("@aws-sdk/client-iotfleethub"); // CommonJS import
+ * import { IoTFleetHubClient, DeleteApplicationCommand } from '@aws-sdk/client-iotfleethub'; // ES Modules import
+ * // const { IoTFleetHubClient, DeleteApplicationCommand } = require('@aws-sdk/client-iotfleethub'); // CommonJS import
  * const client = new IoTFleetHubClient(config);
  * const input = { // DeleteApplicationRequest
- *   applicationId: "STRING_VALUE", // required
- *   clientToken: "STRING_VALUE",
+ *   applicationId: 'STRING_VALUE', // required
+ *   clientToken: 'STRING_VALUE',
  * };
  * const command = new DeleteApplicationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteApplicationCommandInput - {@link DeleteApplicationCommandInput}
@@ -68,6 +71,8 @@ export interface DeleteApplicationCommandOutput extends DeleteApplicationRespons
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The rate exceeds the limit.</p>
  *
+ * @throws {@link IoTFleetHubServiceException}
+ * <p>Base exception class for all service exceptions from IoTFleetHub service.</p>
  *
  */
 export class DeleteApplicationCommand extends $Command<

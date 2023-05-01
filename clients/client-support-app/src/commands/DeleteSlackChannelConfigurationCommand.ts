@@ -42,15 +42,18 @@ export interface DeleteSlackChannelConfigurationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SupportAppClient, DeleteSlackChannelConfigurationCommand } from "@aws-sdk/client-support-app"; // ES Modules import
- * // const { SupportAppClient, DeleteSlackChannelConfigurationCommand } = require("@aws-sdk/client-support-app"); // CommonJS import
+ * import { SupportAppClient, DeleteSlackChannelConfigurationCommand } from '@aws-sdk/client-support-app'; // ES Modules import
+ * // const { SupportAppClient, DeleteSlackChannelConfigurationCommand } = require('@aws-sdk/client-support-app'); // CommonJS import
  * const client = new SupportAppClient(config);
  * const input = { // DeleteSlackChannelConfigurationRequest
- *   teamId: "STRING_VALUE", // required
- *   channelId: "STRING_VALUE", // required
+ *   teamId: 'STRING_VALUE', // required
+ *   channelId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteSlackChannelConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteSlackChannelConfigurationCommandInput - {@link DeleteSlackChannelConfigurationCommandInput}
@@ -101,6 +104,8 @@ export interface DeleteSlackChannelConfigurationCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>Your request input doesn't meet the constraints that the Amazon Web Services Support App specifies.</p>
  *
+ * @throws {@link SupportAppServiceException}
+ * <p>Base exception class for all service exceptions from SupportApp service.</p>
  *
  */
 export class DeleteSlackChannelConfigurationCommand extends $Command<

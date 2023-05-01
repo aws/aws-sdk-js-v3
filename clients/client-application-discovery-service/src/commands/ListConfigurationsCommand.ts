@@ -42,31 +42,41 @@ export interface ListConfigurationsCommandOutput extends ListConfigurationsRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ApplicationDiscoveryServiceClient, ListConfigurationsCommand } from "@aws-sdk/client-application-discovery-service"; // ES Modules import
- * // const { ApplicationDiscoveryServiceClient, ListConfigurationsCommand } = require("@aws-sdk/client-application-discovery-service"); // CommonJS import
+ * import { ApplicationDiscoveryServiceClient, ListConfigurationsCommand } from '@aws-sdk/client-application-discovery-service'; // ES Modules import
+ * // const { ApplicationDiscoveryServiceClient, ListConfigurationsCommand } = require('@aws-sdk/client-application-discovery-service'); // CommonJS import
  * const client = new ApplicationDiscoveryServiceClient(config);
  * const input = { // ListConfigurationsRequest
- *   configurationType: "SERVER" || "PROCESS" || "CONNECTION" || "APPLICATION", // required
+ *   configurationType: 'SERVER' || 'PROCESS' || 'CONNECTION' || 'APPLICATION', // required
  *   filters: [ // Filters
  *     { // Filter
- *       name: "STRING_VALUE", // required
+ *       name: 'STRING_VALUE', // required
  *       values: [ // FilterValues // required
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
- *       condition: "STRING_VALUE", // required
+ *       condition: 'STRING_VALUE', // required
  *     },
  *   ],
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  *   orderBy: [ // OrderByList
  *     { // OrderByElement
- *       fieldName: "STRING_VALUE", // required
- *       sortOrder: "ASC" || "DESC",
+ *       fieldName: 'STRING_VALUE', // required
+ *       sortOrder: 'ASC' || 'DESC',
  *     },
  *   ],
  * };
  * const command = new ListConfigurationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListConfigurationsResponse
+ *   configurations: [ // Configurations
+ *     { // Configuration
+ *       '<keys>': 'STRING_VALUE',
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListConfigurationsCommandInput - {@link ListConfigurationsCommandInput}
@@ -96,6 +106,8 @@ export interface ListConfigurationsCommandOutput extends ListConfigurationsRespo
  * @throws {@link ServerInternalErrorException} (server fault)
  *  <p>The server experienced an internal error. Try again.</p>
  *
+ * @throws {@link ApplicationDiscoveryServiceServiceException}
+ * <p>Base exception class for all service exceptions from ApplicationDiscoveryService service.</p>
  *
  */
 export class ListConfigurationsCommand extends $Command<

@@ -41,42 +41,49 @@ export interface SendProjectSessionActionCommandOutput extends SendProjectSessio
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DataBrewClient, SendProjectSessionActionCommand } from "@aws-sdk/client-databrew"; // ES Modules import
- * // const { DataBrewClient, SendProjectSessionActionCommand } = require("@aws-sdk/client-databrew"); // CommonJS import
+ * import { DataBrewClient, SendProjectSessionActionCommand } from '@aws-sdk/client-databrew'; // ES Modules import
+ * // const { DataBrewClient, SendProjectSessionActionCommand } = require('@aws-sdk/client-databrew'); // CommonJS import
  * const client = new DataBrewClient(config);
  * const input = { // SendProjectSessionActionRequest
  *   Preview: true || false,
- *   Name: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
  *   RecipeStep: { // RecipeStep
  *     Action: { // RecipeAction
- *       Operation: "STRING_VALUE", // required
+ *       Operation: 'STRING_VALUE', // required
  *       Parameters: { // ParameterMap
- *         "<keys>": "STRING_VALUE",
+ *         '<keys>': 'STRING_VALUE',
  *       },
  *     },
  *     ConditionExpressions: [ // ConditionExpressionList
  *       { // ConditionExpression
- *         Condition: "STRING_VALUE", // required
- *         Value: "STRING_VALUE",
- *         TargetColumn: "STRING_VALUE", // required
+ *         Condition: 'STRING_VALUE', // required
+ *         Value: 'STRING_VALUE',
+ *         TargetColumn: 'STRING_VALUE', // required
  *       },
  *     ],
  *   },
- *   StepIndex: Number("int"),
- *   ClientSessionId: "STRING_VALUE",
+ *   StepIndex: Number('int'),
+ *   ClientSessionId: 'STRING_VALUE',
  *   ViewFrame: { // ViewFrame
- *     StartColumnIndex: Number("int"), // required
- *     ColumnRange: Number("int"),
+ *     StartColumnIndex: Number('int'), // required
+ *     ColumnRange: Number('int'),
  *     HiddenColumns: [ // HiddenColumnList
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
- *     StartRowIndex: Number("int"),
- *     RowRange: Number("int"),
- *     Analytics: "ENABLE" || "DISABLE",
+ *     StartRowIndex: Number('int'),
+ *     RowRange: Number('int'),
+ *     Analytics: 'ENABLE' || 'DISABLE',
  *   },
  * };
  * const command = new SendProjectSessionActionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SendProjectSessionActionResponse
+ *   Result: 'STRING_VALUE',
+ *   Name: 'STRING_VALUE', // required
+ *   ActionId: Number('int'),
+ * };
+ *
  * ```
  *
  * @param SendProjectSessionActionCommandInput - {@link SendProjectSessionActionCommandInput}
@@ -94,6 +101,8 @@ export interface SendProjectSessionActionCommandOutput extends SendProjectSessio
  * @throws {@link ValidationException} (client fault)
  *  <p>The input parameters for this request failed validation.</p>
  *
+ * @throws {@link DataBrewServiceException}
+ * <p>Base exception class for all service exceptions from DataBrew service.</p>
  *
  */
 export class SendProjectSessionActionCommand extends $Command<

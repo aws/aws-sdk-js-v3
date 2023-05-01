@@ -42,29 +42,42 @@ export interface DescribeNodeConfigurationOptionsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RedshiftClient, DescribeNodeConfigurationOptionsCommand } from "@aws-sdk/client-redshift"; // ES Modules import
- * // const { RedshiftClient, DescribeNodeConfigurationOptionsCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * import { RedshiftClient, DescribeNodeConfigurationOptionsCommand } from '@aws-sdk/client-redshift'; // ES Modules import
+ * // const { RedshiftClient, DescribeNodeConfigurationOptionsCommand } = require('@aws-sdk/client-redshift'); // CommonJS import
  * const client = new RedshiftClient(config);
  * const input = { // DescribeNodeConfigurationOptionsMessage
- *   ActionType: "restore-cluster" || "recommend-node-config" || "resize-cluster", // required
- *   ClusterIdentifier: "STRING_VALUE",
- *   SnapshotIdentifier: "STRING_VALUE",
- *   SnapshotArn: "STRING_VALUE",
- *   OwnerAccount: "STRING_VALUE",
+ *   ActionType: 'restore-cluster' || 'recommend-node-config' || 'resize-cluster', // required
+ *   ClusterIdentifier: 'STRING_VALUE',
+ *   SnapshotIdentifier: 'STRING_VALUE',
+ *   SnapshotArn: 'STRING_VALUE',
+ *   OwnerAccount: 'STRING_VALUE',
  *   Filters: [ // NodeConfigurationOptionsFilterList
  *     { // NodeConfigurationOptionsFilter
- *       Name: "NodeType" || "NumberOfNodes" || "EstimatedDiskUtilizationPercent" || "Mode",
- *       Operator: "eq" || "lt" || "gt" || "le" || "ge" || "in" || "between",
+ *       Name: 'NodeType' || 'NumberOfNodes' || 'EstimatedDiskUtilizationPercent' || 'Mode',
+ *       Operator: 'eq' || 'lt' || 'gt' || 'le' || 'ge' || 'in' || 'between',
  *       Values: [ // ValueStringList
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
- *   Marker: "STRING_VALUE",
- *   MaxRecords: Number("int"),
+ *   Marker: 'STRING_VALUE',
+ *   MaxRecords: Number('int'),
  * };
  * const command = new DescribeNodeConfigurationOptionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // NodeConfigurationOptionsMessage
+ *   NodeConfigurationOptionList: [ // NodeConfigurationOptionList
+ *     { // NodeConfigurationOption
+ *       NodeType: 'STRING_VALUE',
+ *       NumberOfNodes: Number('int'),
+ *       EstimatedDiskUtilizationPercent: Number('double'),
+ *       Mode: 'standard' || 'high-performance',
+ *     },
+ *   ],
+ *   Marker: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeNodeConfigurationOptionsCommandInput - {@link DescribeNodeConfigurationOptionsCommandInput}
@@ -91,6 +104,8 @@ export interface DescribeNodeConfigurationOptionsCommandOutput
  * @throws {@link UnsupportedOperationFault} (client fault)
  *  <p>The requested operation isn't supported.</p>
  *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class DescribeNodeConfigurationOptionsCommand extends $Command<

@@ -37,39 +37,45 @@ export interface UpdateMitigationActionCommandOutput extends UpdateMitigationAct
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTClient, UpdateMitigationActionCommand } from "@aws-sdk/client-iot"; // ES Modules import
- * // const { IoTClient, UpdateMitigationActionCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * import { IoTClient, UpdateMitigationActionCommand } from '@aws-sdk/client-iot'; // ES Modules import
+ * // const { IoTClient, UpdateMitigationActionCommand } = require('@aws-sdk/client-iot'); // CommonJS import
  * const client = new IoTClient(config);
  * const input = { // UpdateMitigationActionRequest
- *   actionName: "STRING_VALUE", // required
- *   roleArn: "STRING_VALUE",
+ *   actionName: 'STRING_VALUE', // required
+ *   roleArn: 'STRING_VALUE',
  *   actionParams: { // MitigationActionParams
  *     updateDeviceCertificateParams: { // UpdateDeviceCertificateParams
- *       action: "DEACTIVATE", // required
+ *       action: 'DEACTIVATE', // required
  *     },
  *     updateCACertificateParams: { // UpdateCACertificateParams
- *       action: "DEACTIVATE", // required
+ *       action: 'DEACTIVATE', // required
  *     },
  *     addThingsToThingGroupParams: { // AddThingsToThingGroupParams
  *       thingGroupNames: [ // ThingGroupNames // required
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *       overrideDynamicGroups: true || false,
  *     },
  *     replaceDefaultPolicyVersionParams: { // ReplaceDefaultPolicyVersionParams
- *       templateName: "BLANK_POLICY", // required
+ *       templateName: 'BLANK_POLICY', // required
  *     },
  *     enableIoTLoggingParams: { // EnableIoTLoggingParams
- *       roleArnForLogging: "STRING_VALUE", // required
- *       logLevel: "DEBUG" || "INFO" || "ERROR" || "WARN" || "DISABLED", // required
+ *       roleArnForLogging: 'STRING_VALUE', // required
+ *       logLevel: 'DEBUG' || 'INFO' || 'ERROR' || 'WARN' || 'DISABLED', // required
  *     },
  *     publishFindingToSnsParams: { // PublishFindingToSnsParams
- *       topicArn: "STRING_VALUE", // required
+ *       topicArn: 'STRING_VALUE', // required
  *     },
  *   },
  * };
  * const command = new UpdateMitigationActionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateMitigationActionResponse
+ *   actionArn: 'STRING_VALUE',
+ *   actionId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateMitigationActionCommandInput - {@link UpdateMitigationActionCommandInput}
@@ -90,6 +96,8 @@ export interface UpdateMitigationActionCommandOutput extends UpdateMitigationAct
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The rate exceeds the limit.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class UpdateMitigationActionCommand extends $Command<

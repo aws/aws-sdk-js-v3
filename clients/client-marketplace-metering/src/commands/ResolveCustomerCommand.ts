@@ -53,14 +53,21 @@ export interface ResolveCustomerCommandOutput extends ResolveCustomerResult, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MarketplaceMeteringClient, ResolveCustomerCommand } from "@aws-sdk/client-marketplace-metering"; // ES Modules import
- * // const { MarketplaceMeteringClient, ResolveCustomerCommand } = require("@aws-sdk/client-marketplace-metering"); // CommonJS import
+ * import { MarketplaceMeteringClient, ResolveCustomerCommand } from '@aws-sdk/client-marketplace-metering'; // ES Modules import
+ * // const { MarketplaceMeteringClient, ResolveCustomerCommand } = require('@aws-sdk/client-marketplace-metering'); // CommonJS import
  * const client = new MarketplaceMeteringClient(config);
  * const input = { // ResolveCustomerRequest
- *   RegistrationToken: "STRING_VALUE", // required
+ *   RegistrationToken: 'STRING_VALUE', // required
  * };
  * const command = new ResolveCustomerCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ResolveCustomerResult
+ *   CustomerIdentifier: 'STRING_VALUE',
+ *   ProductCode: 'STRING_VALUE',
+ *   CustomerAWSAccountId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ResolveCustomerCommandInput - {@link ResolveCustomerCommandInput}
@@ -89,6 +96,8 @@ export interface ResolveCustomerCommandOutput extends ResolveCustomerResult, __M
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The calls to the API are throttled.</p>
  *
+ * @throws {@link MarketplaceMeteringServiceException}
+ * <p>Base exception class for all service exceptions from MarketplaceMetering service.</p>
  *
  */
 export class ResolveCustomerCommand extends $Command<

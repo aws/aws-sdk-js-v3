@@ -46,22 +46,41 @@ export interface DescribeHsmConfigurationsCommandOutput extends HsmConfiguration
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RedshiftClient, DescribeHsmConfigurationsCommand } from "@aws-sdk/client-redshift"; // ES Modules import
- * // const { RedshiftClient, DescribeHsmConfigurationsCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * import { RedshiftClient, DescribeHsmConfigurationsCommand } from '@aws-sdk/client-redshift'; // ES Modules import
+ * // const { RedshiftClient, DescribeHsmConfigurationsCommand } = require('@aws-sdk/client-redshift'); // CommonJS import
  * const client = new RedshiftClient(config);
  * const input = { // DescribeHsmConfigurationsMessage
- *   HsmConfigurationIdentifier: "STRING_VALUE",
- *   MaxRecords: Number("int"),
- *   Marker: "STRING_VALUE",
+ *   HsmConfigurationIdentifier: 'STRING_VALUE',
+ *   MaxRecords: Number('int'),
+ *   Marker: 'STRING_VALUE',
  *   TagKeys: [ // TagKeyList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   TagValues: [ // TagValueList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new DescribeHsmConfigurationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // HsmConfigurationMessage
+ *   Marker: 'STRING_VALUE',
+ *   HsmConfigurations: [ // HsmConfigurationList
+ *     { // HsmConfiguration
+ *       HsmConfigurationIdentifier: 'STRING_VALUE',
+ *       Description: 'STRING_VALUE',
+ *       HsmIpAddress: 'STRING_VALUE',
+ *       HsmPartitionName: 'STRING_VALUE',
+ *       Tags: [ // TagList
+ *         { // Tag
+ *           Key: 'STRING_VALUE',
+ *           Value: 'STRING_VALUE',
+ *         },
+ *       ],
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeHsmConfigurationsCommandInput - {@link DescribeHsmConfigurationsCommandInput}
@@ -76,6 +95,8 @@ export interface DescribeHsmConfigurationsCommandOutput extends HsmConfiguration
  * @throws {@link InvalidTagFault} (client fault)
  *  <p>The tag is invalid.</p>
  *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class DescribeHsmConfigurationsCommand extends $Command<

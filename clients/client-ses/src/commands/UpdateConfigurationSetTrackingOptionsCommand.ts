@@ -49,17 +49,20 @@ export interface UpdateConfigurationSetTrackingOptionsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SESClient, UpdateConfigurationSetTrackingOptionsCommand } from "@aws-sdk/client-ses"; // ES Modules import
- * // const { SESClient, UpdateConfigurationSetTrackingOptionsCommand } = require("@aws-sdk/client-ses"); // CommonJS import
+ * import { SESClient, UpdateConfigurationSetTrackingOptionsCommand } from '@aws-sdk/client-ses'; // ES Modules import
+ * // const { SESClient, UpdateConfigurationSetTrackingOptionsCommand } = require('@aws-sdk/client-ses'); // CommonJS import
  * const client = new SESClient(config);
  * const input = { // UpdateConfigurationSetTrackingOptionsRequest
- *   ConfigurationSetName: "STRING_VALUE", // required
+ *   ConfigurationSetName: 'STRING_VALUE', // required
  *   TrackingOptions: { // TrackingOptions
- *     CustomRedirectDomain: "STRING_VALUE",
+ *     CustomRedirectDomain: 'STRING_VALUE',
  *   },
  * };
  * const command = new UpdateConfigurationSetTrackingOptionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateConfigurationSetTrackingOptionsCommandInput - {@link UpdateConfigurationSetTrackingOptionsCommandInput}
@@ -87,6 +90,8 @@ export interface UpdateConfigurationSetTrackingOptionsCommandOutput
  * @throws {@link TrackingOptionsDoesNotExistException} (client fault)
  *  <p>Indicates that the TrackingOptions object you specified does not exist.</p>
  *
+ * @throws {@link SESServiceException}
+ * <p>Base exception class for all service exceptions from SES service.</p>
  *
  */
 export class UpdateConfigurationSetTrackingOptionsCommand extends $Command<

@@ -38,15 +38,24 @@ export interface DescribeDomainCommandOutput extends DescribeDomainResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkLinkClient, DescribeDomainCommand } from "@aws-sdk/client-worklink"; // ES Modules import
- * // const { WorkLinkClient, DescribeDomainCommand } = require("@aws-sdk/client-worklink"); // CommonJS import
+ * import { WorkLinkClient, DescribeDomainCommand } from '@aws-sdk/client-worklink'; // ES Modules import
+ * // const { WorkLinkClient, DescribeDomainCommand } = require('@aws-sdk/client-worklink'); // CommonJS import
  * const client = new WorkLinkClient(config);
  * const input = { // DescribeDomainRequest
- *   FleetArn: "STRING_VALUE", // required
- *   DomainName: "STRING_VALUE", // required
+ *   FleetArn: 'STRING_VALUE', // required
+ *   DomainName: 'STRING_VALUE', // required
  * };
  * const command = new DescribeDomainCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeDomainResponse
+ *   DomainName: 'STRING_VALUE',
+ *   DisplayName: 'STRING_VALUE',
+ *   CreatedTime: new Date('TIMESTAMP'),
+ *   DomainStatus: 'STRING_VALUE',
+ *   AcmCertificateArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeDomainCommandInput - {@link DescribeDomainCommandInput}
@@ -70,6 +79,8 @@ export interface DescribeDomainCommandOutput extends DescribeDomainResponse, __M
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this action.</p>
  *
+ * @throws {@link WorkLinkServiceException}
+ * <p>Base exception class for all service exceptions from WorkLink service.</p>
  *
  */
 export class DescribeDomainCommand extends $Command<

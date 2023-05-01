@@ -39,16 +39,34 @@ export interface ListScheduledActionsCommandOutput extends ListScheduledActionsR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OpenSearchClient, ListScheduledActionsCommand } from "@aws-sdk/client-opensearch"; // ES Modules import
- * // const { OpenSearchClient, ListScheduledActionsCommand } = require("@aws-sdk/client-opensearch"); // CommonJS import
+ * import { OpenSearchClient, ListScheduledActionsCommand } from '@aws-sdk/client-opensearch'; // ES Modules import
+ * // const { OpenSearchClient, ListScheduledActionsCommand } = require('@aws-sdk/client-opensearch'); // CommonJS import
  * const client = new OpenSearchClient(config);
  * const input = { // ListScheduledActionsRequest
- *   DomainName: "STRING_VALUE", // required
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   DomainName: 'STRING_VALUE', // required
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListScheduledActionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListScheduledActionsResponse
+ *   ScheduledActions: [ // ScheduledActionsList
+ *     { // ScheduledAction
+ *       Id: 'STRING_VALUE', // required
+ *       Type: 'SERVICE_SOFTWARE_UPDATE' || 'JVM_HEAP_SIZE_TUNING' || 'JVM_YOUNG_GEN_TUNING', // required
+ *       Severity: 'HIGH' || 'MEDIUM' || 'LOW', // required
+ *       ScheduledTime: Number('long'), // required
+ *       Description: 'STRING_VALUE',
+ *       ScheduledBy: 'CUSTOMER' || 'SYSTEM',
+ *       Status: 'PENDING_UPDATE' || 'IN_PROGRESS' || 'FAILED' || 'COMPLETED' || 'NOT_ELIGIBLE' || 'ELIGIBLE',
+ *       Mandatory: true || false,
+ *       Cancellable: true || false,
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListScheduledActionsCommandInput - {@link ListScheduledActionsCommandInput}
@@ -72,6 +90,8 @@ export interface ListScheduledActionsCommandOutput extends ListScheduledActionsR
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception for accessing or deleting a resource that doesn't exist.</p>
  *
+ * @throws {@link OpenSearchServiceException}
+ * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
  */
 export class ListScheduledActionsCommand extends $Command<

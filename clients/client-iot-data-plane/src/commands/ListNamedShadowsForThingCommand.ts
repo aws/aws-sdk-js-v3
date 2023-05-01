@@ -37,16 +37,25 @@ export interface ListNamedShadowsForThingCommandOutput extends ListNamedShadowsF
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTDataPlaneClient, ListNamedShadowsForThingCommand } from "@aws-sdk/client-iot-data-plane"; // ES Modules import
- * // const { IoTDataPlaneClient, ListNamedShadowsForThingCommand } = require("@aws-sdk/client-iot-data-plane"); // CommonJS import
+ * import { IoTDataPlaneClient, ListNamedShadowsForThingCommand } from '@aws-sdk/client-iot-data-plane'; // ES Modules import
+ * // const { IoTDataPlaneClient, ListNamedShadowsForThingCommand } = require('@aws-sdk/client-iot-data-plane'); // CommonJS import
  * const client = new IoTDataPlaneClient(config);
  * const input = { // ListNamedShadowsForThingRequest
- *   thingName: "STRING_VALUE", // required
- *   nextToken: "STRING_VALUE",
- *   pageSize: Number("int"),
+ *   thingName: 'STRING_VALUE', // required
+ *   nextToken: 'STRING_VALUE',
+ *   pageSize: Number('int'),
  * };
  * const command = new ListNamedShadowsForThingCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListNamedShadowsForThingResponse
+ *   results: [ // NamedShadowList
+ *     'STRING_VALUE',
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ *   timestamp: Number('long'),
+ * };
+ *
  * ```
  *
  * @param ListNamedShadowsForThingCommandInput - {@link ListNamedShadowsForThingCommandInput}
@@ -76,6 +85,8 @@ export interface ListNamedShadowsForThingCommandOutput extends ListNamedShadowsF
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this operation.</p>
  *
+ * @throws {@link IoTDataPlaneServiceException}
+ * <p>Base exception class for all service exceptions from IoTDataPlane service.</p>
  *
  */
 export class ListNamedShadowsForThingCommand extends $Command<

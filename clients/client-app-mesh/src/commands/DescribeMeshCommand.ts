@@ -36,15 +36,42 @@ export interface DescribeMeshCommandOutput extends DescribeMeshOutput, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppMeshClient, DescribeMeshCommand } from "@aws-sdk/client-app-mesh"; // ES Modules import
- * // const { AppMeshClient, DescribeMeshCommand } = require("@aws-sdk/client-app-mesh"); // CommonJS import
+ * import { AppMeshClient, DescribeMeshCommand } from '@aws-sdk/client-app-mesh'; // ES Modules import
+ * // const { AppMeshClient, DescribeMeshCommand } = require('@aws-sdk/client-app-mesh'); // CommonJS import
  * const client = new AppMeshClient(config);
  * const input = { // DescribeMeshInput
- *   meshName: "STRING_VALUE", // required
- *   meshOwner: "STRING_VALUE",
+ *   meshName: 'STRING_VALUE', // required
+ *   meshOwner: 'STRING_VALUE',
  * };
  * const command = new DescribeMeshCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeMeshOutput
+ *   mesh: { // MeshData
+ *     meshName: 'STRING_VALUE', // required
+ *     spec: { // MeshSpec
+ *       egressFilter: { // EgressFilter
+ *         type: 'STRING_VALUE', // required
+ *       },
+ *       serviceDiscovery: { // MeshServiceDiscovery
+ *         ipPreference: 'STRING_VALUE',
+ *       },
+ *     },
+ *     metadata: { // ResourceMetadata
+ *       arn: 'STRING_VALUE', // required
+ *       version: Number('long'), // required
+ *       uid: 'STRING_VALUE', // required
+ *       createdAt: new Date('TIMESTAMP'), // required
+ *       lastUpdatedAt: new Date('TIMESTAMP'), // required
+ *       meshOwner: 'STRING_VALUE', // required
+ *       resourceOwner: 'STRING_VALUE', // required
+ *     },
+ *     status: { // MeshStatus
+ *       status: 'STRING_VALUE',
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeMeshCommandInput - {@link DescribeMeshCommandInput}
@@ -74,6 +101,8 @@ export interface DescribeMeshCommandOutput extends DescribeMeshOutput, __Metadat
  *          your account. For best results, use an increasing or variable sleep interval between
  *          requests.</p>
  *
+ * @throws {@link AppMeshServiceException}
+ * <p>Base exception class for all service exceptions from AppMesh service.</p>
  *
  */
 export class DescribeMeshCommand extends $Command<

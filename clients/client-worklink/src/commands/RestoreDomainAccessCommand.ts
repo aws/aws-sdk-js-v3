@@ -38,15 +38,18 @@ export interface RestoreDomainAccessCommandOutput extends RestoreDomainAccessRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkLinkClient, RestoreDomainAccessCommand } from "@aws-sdk/client-worklink"; // ES Modules import
- * // const { WorkLinkClient, RestoreDomainAccessCommand } = require("@aws-sdk/client-worklink"); // CommonJS import
+ * import { WorkLinkClient, RestoreDomainAccessCommand } from '@aws-sdk/client-worklink'; // ES Modules import
+ * // const { WorkLinkClient, RestoreDomainAccessCommand } = require('@aws-sdk/client-worklink'); // CommonJS import
  * const client = new WorkLinkClient(config);
  * const input = { // RestoreDomainAccessRequest
- *   FleetArn: "STRING_VALUE", // required
- *   DomainName: "STRING_VALUE", // required
+ *   FleetArn: 'STRING_VALUE', // required
+ *   DomainName: 'STRING_VALUE', // required
  * };
  * const command = new RestoreDomainAccessCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param RestoreDomainAccessCommandInput - {@link RestoreDomainAccessCommandInput}
@@ -70,6 +73,8 @@ export interface RestoreDomainAccessCommandOutput extends RestoreDomainAccessRes
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this action.</p>
  *
+ * @throws {@link WorkLinkServiceException}
+ * <p>Base exception class for all service exceptions from WorkLink service.</p>
  *
  */
 export class RestoreDomainAccessCommand extends $Command<

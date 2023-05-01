@@ -85,37 +85,40 @@ export interface PutBucketMetricsConfigurationCommandOutput extends __MetadataBe
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { S3Client, PutBucketMetricsConfigurationCommand } from "@aws-sdk/client-s3"; // ES Modules import
- * // const { S3Client, PutBucketMetricsConfigurationCommand } = require("@aws-sdk/client-s3"); // CommonJS import
+ * import { S3Client, PutBucketMetricsConfigurationCommand } from '@aws-sdk/client-s3'; // ES Modules import
+ * // const { S3Client, PutBucketMetricsConfigurationCommand } = require('@aws-sdk/client-s3'); // CommonJS import
  * const client = new S3Client(config);
  * const input = { // PutBucketMetricsConfigurationRequest
- *   Bucket: "STRING_VALUE", // required
- *   Id: "STRING_VALUE", // required
+ *   Bucket: 'STRING_VALUE', // required
+ *   Id: 'STRING_VALUE', // required
  *   MetricsConfiguration: { // MetricsConfiguration
- *     Id: "STRING_VALUE", // required
+ *     Id: 'STRING_VALUE', // required
  *     Filter: { // MetricsFilter Union: only one key present
- *       Prefix: "STRING_VALUE",
+ *       Prefix: 'STRING_VALUE',
  *       Tag: { // Tag
- *         Key: "STRING_VALUE", // required
- *         Value: "STRING_VALUE", // required
+ *         Key: 'STRING_VALUE', // required
+ *         Value: 'STRING_VALUE', // required
  *       },
- *       AccessPointArn: "STRING_VALUE",
+ *       AccessPointArn: 'STRING_VALUE',
  *       And: { // MetricsAndOperator
- *         Prefix: "STRING_VALUE",
+ *         Prefix: 'STRING_VALUE',
  *         Tags: [ // TagSet
  *           {
- *             Key: "STRING_VALUE", // required
- *             Value: "STRING_VALUE", // required
+ *             Key: 'STRING_VALUE', // required
+ *             Value: 'STRING_VALUE', // required
  *           },
  *         ],
- *         AccessPointArn: "STRING_VALUE",
+ *         AccessPointArn: 'STRING_VALUE',
  *       },
  *     },
  *   },
- *   ExpectedBucketOwner: "STRING_VALUE",
+ *   ExpectedBucketOwner: 'STRING_VALUE',
  * };
  * const command = new PutBucketMetricsConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutBucketMetricsConfigurationCommandInput - {@link PutBucketMetricsConfigurationCommandInput}
@@ -124,6 +127,8 @@ export interface PutBucketMetricsConfigurationCommandOutput extends __MetadataBe
  * @see {@link PutBucketMetricsConfigurationCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
+ * @throws {@link S3ServiceException}
+ * <p>Base exception class for all service exceptions from S3 service.</p>
  *
  */
 export class PutBucketMetricsConfigurationCommand extends $Command<

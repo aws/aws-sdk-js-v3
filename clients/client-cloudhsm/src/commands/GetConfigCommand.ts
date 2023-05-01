@@ -47,18 +47,25 @@ export interface GetConfigCommandOutput extends GetConfigResponse, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudHSMClient, GetConfigCommand } from "@aws-sdk/client-cloudhsm"; // ES Modules import
- * // const { CloudHSMClient, GetConfigCommand } = require("@aws-sdk/client-cloudhsm"); // CommonJS import
+ * import { CloudHSMClient, GetConfigCommand } from '@aws-sdk/client-cloudhsm'; // ES Modules import
+ * // const { CloudHSMClient, GetConfigCommand } = require('@aws-sdk/client-cloudhsm'); // CommonJS import
  * const client = new CloudHSMClient(config);
  * const input = { // GetConfigRequest
- *   ClientArn: "STRING_VALUE", // required
- *   ClientVersion: "STRING_VALUE", // required
+ *   ClientArn: 'STRING_VALUE', // required
+ *   ClientVersion: 'STRING_VALUE', // required
  *   HapgList: [ // HapgList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new GetConfigCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetConfigResponse
+ *   ConfigType: 'STRING_VALUE',
+ *   ConfigFile: 'STRING_VALUE',
+ *   ConfigCred: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetConfigCommandInput - {@link GetConfigCommandInput}
@@ -76,6 +83,8 @@ export interface GetConfigCommandOutput extends GetConfigResponse, __MetadataBea
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>Indicates that one or more of the request parameters are not valid.</p>
  *
+ * @throws {@link CloudHSMServiceException}
+ * <p>Base exception class for all service exceptions from CloudHSM service.</p>
  *
  */
 export class GetConfigCommand extends $Command<

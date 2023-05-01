@@ -46,26 +46,53 @@ export interface DescribePhoneNumbersCommandOutput extends DescribePhoneNumbersR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PinpointSMSVoiceV2Client, DescribePhoneNumbersCommand } from "@aws-sdk/client-pinpoint-sms-voice-v2"; // ES Modules import
- * // const { PinpointSMSVoiceV2Client, DescribePhoneNumbersCommand } = require("@aws-sdk/client-pinpoint-sms-voice-v2"); // CommonJS import
+ * import { PinpointSMSVoiceV2Client, DescribePhoneNumbersCommand } from '@aws-sdk/client-pinpoint-sms-voice-v2'; // ES Modules import
+ * // const { PinpointSMSVoiceV2Client, DescribePhoneNumbersCommand } = require('@aws-sdk/client-pinpoint-sms-voice-v2'); // CommonJS import
  * const client = new PinpointSMSVoiceV2Client(config);
  * const input = { // DescribePhoneNumbersRequest
  *   PhoneNumberIds: [ // PhoneNumberIdList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   Filters: [ // PhoneNumberFilterList
  *     { // PhoneNumberFilter
- *       Name: "STRING_VALUE", // required
+ *       Name: 'STRING_VALUE', // required
  *       Values: [ // FilterValueList // required
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new DescribePhoneNumbersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribePhoneNumbersResult
+ *   PhoneNumbers: [ // PhoneNumberInformationList
+ *     { // PhoneNumberInformation
+ *       PhoneNumberArn: 'STRING_VALUE', // required
+ *       PhoneNumberId: 'STRING_VALUE',
+ *       PhoneNumber: 'STRING_VALUE', // required
+ *       Status: 'STRING_VALUE', // required
+ *       IsoCountryCode: 'STRING_VALUE', // required
+ *       MessageType: 'STRING_VALUE', // required
+ *       NumberCapabilities: [ // NumberCapabilityList // required
+ *         'STRING_VALUE',
+ *       ],
+ *       NumberType: 'STRING_VALUE', // required
+ *       MonthlyLeasingPrice: 'STRING_VALUE', // required
+ *       TwoWayEnabled: true || false, // required
+ *       TwoWayChannelArn: 'STRING_VALUE',
+ *       SelfManagedOptOutsEnabled: true || false, // required
+ *       OptOutListName: 'STRING_VALUE', // required
+ *       DeletionProtectionEnabled: true || false, // required
+ *       PoolId: 'STRING_VALUE',
+ *       CreatedTimestamp: new Date('TIMESTAMP'), // required
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribePhoneNumbersCommandInput - {@link DescribePhoneNumbersCommandInput}
@@ -92,6 +119,8 @@ export interface DescribePhoneNumbersCommandOutput extends DescribePhoneNumbersR
  * @throws {@link ValidationException} (client fault)
  *  <p>A validation exception for a field.</p>
  *
+ * @throws {@link PinpointSMSVoiceV2ServiceException}
+ * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
  *
  */
 export class DescribePhoneNumbersCommand extends $Command<

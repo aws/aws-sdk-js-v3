@@ -36,44 +36,47 @@ export interface UpdateProfileCommandOutput extends UpdateProfileResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AlexaForBusinessClient, UpdateProfileCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
- * // const { AlexaForBusinessClient, UpdateProfileCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
+ * import { AlexaForBusinessClient, UpdateProfileCommand } from '@aws-sdk/client-alexa-for-business'; // ES Modules import
+ * // const { AlexaForBusinessClient, UpdateProfileCommand } = require('@aws-sdk/client-alexa-for-business'); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
  * const input = { // UpdateProfileRequest
- *   ProfileArn: "STRING_VALUE",
- *   ProfileName: "STRING_VALUE",
+ *   ProfileArn: 'STRING_VALUE',
+ *   ProfileName: 'STRING_VALUE',
  *   IsDefault: true || false,
- *   Timezone: "STRING_VALUE",
- *   Address: "STRING_VALUE",
- *   DistanceUnit: "STRING_VALUE",
- *   TemperatureUnit: "STRING_VALUE",
- *   WakeWord: "STRING_VALUE",
- *   Locale: "STRING_VALUE",
+ *   Timezone: 'STRING_VALUE',
+ *   Address: 'STRING_VALUE',
+ *   DistanceUnit: 'STRING_VALUE',
+ *   TemperatureUnit: 'STRING_VALUE',
+ *   WakeWord: 'STRING_VALUE',
+ *   Locale: 'STRING_VALUE',
  *   SetupModeDisabled: true || false,
- *   MaxVolumeLimit: Number("int"),
+ *   MaxVolumeLimit: Number('int'),
  *   PSTNEnabled: true || false,
  *   DataRetentionOptIn: true || false,
  *   MeetingRoomConfiguration: { // UpdateMeetingRoomConfiguration
  *     RoomUtilizationMetricsEnabled: true || false,
  *     EndOfMeetingReminder: { // UpdateEndOfMeetingReminder
  *       ReminderAtMinutes: [ // EndOfMeetingReminderMinutesList
- *         Number("int"),
+ *         Number('int'),
  *       ],
- *       ReminderType: "STRING_VALUE",
+ *       ReminderType: 'STRING_VALUE',
  *       Enabled: true || false,
  *     },
  *     InstantBooking: { // UpdateInstantBooking
- *       DurationInMinutes: Number("int"),
+ *       DurationInMinutes: Number('int'),
  *       Enabled: true || false,
  *     },
  *     RequireCheckIn: { // UpdateRequireCheckIn
- *       ReleaseAfterMinutes: Number("int"),
+ *       ReleaseAfterMinutes: Number('int'),
  *       Enabled: true || false,
  *     },
  *   },
  * };
  * const command = new UpdateProfileCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateProfileCommandInput - {@link UpdateProfileCommandInput}
@@ -91,6 +94,8 @@ export interface UpdateProfileCommandOutput extends UpdateProfileResponse, __Met
  * @throws {@link NotFoundException} (client fault)
  *  <p>The resource is not found.</p>
  *
+ * @throws {@link AlexaForBusinessServiceException}
+ * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  */
 export class UpdateProfileCommand extends $Command<

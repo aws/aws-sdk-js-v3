@@ -41,17 +41,22 @@ export interface CreateAPIKeyCommandOutput extends CreateAPIKeyResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WAFV2Client, CreateAPIKeyCommand } from "@aws-sdk/client-wafv2"; // ES Modules import
- * // const { WAFV2Client, CreateAPIKeyCommand } = require("@aws-sdk/client-wafv2"); // CommonJS import
+ * import { WAFV2Client, CreateAPIKeyCommand } from '@aws-sdk/client-wafv2'; // ES Modules import
+ * // const { WAFV2Client, CreateAPIKeyCommand } = require('@aws-sdk/client-wafv2'); // CommonJS import
  * const client = new WAFV2Client(config);
  * const input = { // CreateAPIKeyRequest
- *   Scope: "CLOUDFRONT" || "REGIONAL", // required
+ *   Scope: 'CLOUDFRONT' || 'REGIONAL', // required
  *   TokenDomains: [ // APIKeyTokenDomains // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new CreateAPIKeyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateAPIKeyResponse
+ *   APIKey: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateAPIKeyCommandInput - {@link CreateAPIKeyCommandInput}
@@ -94,6 +99,8 @@ export interface CreateAPIKeyCommandOutput extends CreateAPIKeyResponse, __Metad
  *          account. For more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/limits.html">WAF quotas</a> in the
  *             <i>WAF Developer Guide</i>.</p>
  *
+ * @throws {@link WAFV2ServiceException}
+ * <p>Base exception class for all service exceptions from WAFV2 service.</p>
  *
  */
 export class CreateAPIKeyCommand extends $Command<

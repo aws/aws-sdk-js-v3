@@ -36,18 +36,30 @@ export interface DescribeEngineVersionsCommandOutput extends DescribeEngineVersi
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MemoryDBClient, DescribeEngineVersionsCommand } from "@aws-sdk/client-memorydb"; // ES Modules import
- * // const { MemoryDBClient, DescribeEngineVersionsCommand } = require("@aws-sdk/client-memorydb"); // CommonJS import
+ * import { MemoryDBClient, DescribeEngineVersionsCommand } from '@aws-sdk/client-memorydb'; // ES Modules import
+ * // const { MemoryDBClient, DescribeEngineVersionsCommand } = require('@aws-sdk/client-memorydb'); // CommonJS import
  * const client = new MemoryDBClient(config);
  * const input = { // DescribeEngineVersionsRequest
- *   EngineVersion: "STRING_VALUE",
- *   ParameterGroupFamily: "STRING_VALUE",
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   EngineVersion: 'STRING_VALUE',
+ *   ParameterGroupFamily: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  *   DefaultOnly: true || false,
  * };
  * const command = new DescribeEngineVersionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeEngineVersionsResponse
+ *   NextToken: 'STRING_VALUE',
+ *   EngineVersions: [ // EngineVersionInfoList
+ *     { // EngineVersionInfo
+ *       EngineVersion: 'STRING_VALUE',
+ *       EnginePatchVersion: 'STRING_VALUE',
+ *       ParameterGroupFamily: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeEngineVersionsCommandInput - {@link DescribeEngineVersionsCommandInput}
@@ -65,6 +77,8 @@ export interface DescribeEngineVersionsCommandOutput extends DescribeEngineVersi
  * @throws {@link ServiceLinkedRoleNotFoundFault} (client fault)
  *  <p></p>
  *
+ * @throws {@link MemoryDBServiceException}
+ * <p>Base exception class for all service exceptions from MemoryDB service.</p>
  *
  */
 export class DescribeEngineVersionsCommand extends $Command<

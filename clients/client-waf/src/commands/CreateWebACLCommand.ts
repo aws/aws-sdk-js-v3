@@ -75,25 +75,57 @@ export interface CreateWebACLCommandOutput extends CreateWebACLResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WAFClient, CreateWebACLCommand } from "@aws-sdk/client-waf"; // ES Modules import
- * // const { WAFClient, CreateWebACLCommand } = require("@aws-sdk/client-waf"); // CommonJS import
+ * import { WAFClient, CreateWebACLCommand } from '@aws-sdk/client-waf'; // ES Modules import
+ * // const { WAFClient, CreateWebACLCommand } = require('@aws-sdk/client-waf'); // CommonJS import
  * const client = new WAFClient(config);
  * const input = { // CreateWebACLRequest
- *   Name: "STRING_VALUE", // required
- *   MetricName: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
+ *   MetricName: 'STRING_VALUE', // required
  *   DefaultAction: { // WafAction
- *     Type: "STRING_VALUE", // required
+ *     Type: 'STRING_VALUE', // required
  *   },
- *   ChangeToken: "STRING_VALUE", // required
+ *   ChangeToken: 'STRING_VALUE', // required
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreateWebACLCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateWebACLResponse
+ *   WebACL: { // WebACL
+ *     WebACLId: 'STRING_VALUE', // required
+ *     Name: 'STRING_VALUE',
+ *     MetricName: 'STRING_VALUE',
+ *     DefaultAction: { // WafAction
+ *       Type: 'STRING_VALUE', // required
+ *     },
+ *     Rules: [ // ActivatedRules // required
+ *       { // ActivatedRule
+ *         Priority: Number('int'), // required
+ *         RuleId: 'STRING_VALUE', // required
+ *         Action: {
+ *           Type: 'STRING_VALUE', // required
+ *         },
+ *         OverrideAction: { // WafOverrideAction
+ *           Type: 'STRING_VALUE', // required
+ *         },
+ *         Type: 'STRING_VALUE',
+ *         ExcludedRules: [ // ExcludedRules
+ *           { // ExcludedRule
+ *             RuleId: 'STRING_VALUE', // required
+ *           },
+ *         ],
+ *       },
+ *     ],
+ *     WebACLArn: 'STRING_VALUE',
+ *   },
+ *   ChangeToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateWebACLCommandInput - {@link CreateWebACLCommandInput}
@@ -168,6 +200,8 @@ export interface CreateWebACLCommandOutput extends CreateWebACLResponse, __Metad
  * @throws {@link WAFTagOperationInternalErrorException} (server fault)
  *  <p></p>
  *
+ * @throws {@link WAFServiceException}
+ * <p>Base exception class for all service exceptions from WAF service.</p>
  *
  * @example To create a web ACL
  * ```javascript

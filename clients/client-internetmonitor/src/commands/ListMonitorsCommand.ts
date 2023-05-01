@@ -36,16 +36,29 @@ export interface ListMonitorsCommandOutput extends ListMonitorsOutput, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { InternetMonitorClient, ListMonitorsCommand } from "@aws-sdk/client-internetmonitor"; // ES Modules import
- * // const { InternetMonitorClient, ListMonitorsCommand } = require("@aws-sdk/client-internetmonitor"); // CommonJS import
+ * import { InternetMonitorClient, ListMonitorsCommand } from '@aws-sdk/client-internetmonitor'; // ES Modules import
+ * // const { InternetMonitorClient, ListMonitorsCommand } = require('@aws-sdk/client-internetmonitor'); // CommonJS import
  * const client = new InternetMonitorClient(config);
  * const input = { // ListMonitorsInput
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
- *   MonitorStatus: "STRING_VALUE",
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
+ *   MonitorStatus: 'STRING_VALUE',
  * };
  * const command = new ListMonitorsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListMonitorsOutput
+ *   Monitors: [ // MonitorList // required
+ *     { // Monitor
+ *       MonitorName: 'STRING_VALUE', // required
+ *       MonitorArn: 'STRING_VALUE', // required
+ *       Status: 'STRING_VALUE', // required
+ *       ProcessingStatus: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListMonitorsCommandInput - {@link ListMonitorsCommandInput}
@@ -66,6 +79,8 @@ export interface ListMonitorsCommandOutput extends ListMonitorsOutput, __Metadat
  * @throws {@link ValidationException} (client fault)
  *  <p>Invalid request.</p>
  *
+ * @throws {@link InternetMonitorServiceException}
+ * <p>Base exception class for all service exceptions from InternetMonitor service.</p>
  *
  */
 export class ListMonitorsCommand extends $Command<

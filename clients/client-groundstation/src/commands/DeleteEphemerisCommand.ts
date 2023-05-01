@@ -36,14 +36,19 @@ export interface DeleteEphemerisCommandOutput extends EphemerisIdResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GroundStationClient, DeleteEphemerisCommand } from "@aws-sdk/client-groundstation"; // ES Modules import
- * // const { GroundStationClient, DeleteEphemerisCommand } = require("@aws-sdk/client-groundstation"); // CommonJS import
+ * import { GroundStationClient, DeleteEphemerisCommand } from '@aws-sdk/client-groundstation'; // ES Modules import
+ * // const { GroundStationClient, DeleteEphemerisCommand } = require('@aws-sdk/client-groundstation'); // CommonJS import
  * const client = new GroundStationClient(config);
  * const input = { // DeleteEphemerisRequest
- *   ephemerisId: "STRING_VALUE", // required
+ *   ephemerisId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteEphemerisCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // EphemerisIdResponse
+ *   ephemerisId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DeleteEphemerisCommandInput - {@link DeleteEphemerisCommandInput}
@@ -61,6 +66,8 @@ export interface DeleteEphemerisCommandOutput extends EphemerisIdResponse, __Met
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Resource was not found.</p>
  *
+ * @throws {@link GroundStationServiceException}
+ * <p>Base exception class for all service exceptions from GroundStation service.</p>
  *
  */
 export class DeleteEphemerisCommand extends $Command<

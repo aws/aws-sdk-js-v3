@@ -45,15 +45,18 @@ export interface AcceptQualificationRequestCommandOutput extends AcceptQualifica
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MTurkClient, AcceptQualificationRequestCommand } from "@aws-sdk/client-mturk"; // ES Modules import
- * // const { MTurkClient, AcceptQualificationRequestCommand } = require("@aws-sdk/client-mturk"); // CommonJS import
+ * import { MTurkClient, AcceptQualificationRequestCommand } from '@aws-sdk/client-mturk'; // ES Modules import
+ * // const { MTurkClient, AcceptQualificationRequestCommand } = require('@aws-sdk/client-mturk'); // CommonJS import
  * const client = new MTurkClient(config);
  * const input = { // AcceptQualificationRequestRequest
- *   QualificationRequestId: "STRING_VALUE", // required
- *   IntegerValue: Number("int"),
+ *   QualificationRequestId: 'STRING_VALUE', // required
+ *   IntegerValue: Number('int'),
  * };
  * const command = new AcceptQualificationRequestCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param AcceptQualificationRequestCommandInput - {@link AcceptQualificationRequestCommandInput}
@@ -68,6 +71,8 @@ export interface AcceptQualificationRequestCommandOutput extends AcceptQualifica
  * @throws {@link ServiceFault} (server fault)
  *  <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
  *
+ * @throws {@link MTurkServiceException}
+ * <p>Base exception class for all service exceptions from MTurk service.</p>
  *
  */
 export class AcceptQualificationRequestCommand extends $Command<

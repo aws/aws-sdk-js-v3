@@ -36,14 +36,17 @@ export interface DeleteSecurityConfigurationCommandOutput extends DeleteSecurity
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EMRClient, DeleteSecurityConfigurationCommand } from "@aws-sdk/client-emr"; // ES Modules import
- * // const { EMRClient, DeleteSecurityConfigurationCommand } = require("@aws-sdk/client-emr"); // CommonJS import
+ * import { EMRClient, DeleteSecurityConfigurationCommand } from '@aws-sdk/client-emr'; // ES Modules import
+ * // const { EMRClient, DeleteSecurityConfigurationCommand } = require('@aws-sdk/client-emr'); // CommonJS import
  * const client = new EMRClient(config);
  * const input = { // DeleteSecurityConfigurationInput
- *   Name: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
  * };
  * const command = new DeleteSecurityConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteSecurityConfigurationCommandInput - {@link DeleteSecurityConfigurationCommandInput}
@@ -59,6 +62,8 @@ export interface DeleteSecurityConfigurationCommandOutput extends DeleteSecurity
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception occurs when there is something wrong with user input.</p>
  *
+ * @throws {@link EMRServiceException}
+ * <p>Base exception class for all service exceptions from EMR service.</p>
  *
  */
 export class DeleteSecurityConfigurationCommand extends $Command<

@@ -36,29 +36,32 @@ export interface UpdateQuickConnectConfigCommandOutput extends __MetadataBearer 
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, UpdateQuickConnectConfigCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, UpdateQuickConnectConfigCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, UpdateQuickConnectConfigCommand } from '@aws-sdk/client-connect'; // ES Modules import
+ * // const { ConnectClient, UpdateQuickConnectConfigCommand } = require('@aws-sdk/client-connect'); // CommonJS import
  * const client = new ConnectClient(config);
  * const input = { // UpdateQuickConnectConfigRequest
- *   InstanceId: "STRING_VALUE", // required
- *   QuickConnectId: "STRING_VALUE", // required
+ *   InstanceId: 'STRING_VALUE', // required
+ *   QuickConnectId: 'STRING_VALUE', // required
  *   QuickConnectConfig: { // QuickConnectConfig
- *     QuickConnectType: "USER" || "QUEUE" || "PHONE_NUMBER", // required
+ *     QuickConnectType: 'USER' || 'QUEUE' || 'PHONE_NUMBER', // required
  *     UserConfig: { // UserQuickConnectConfig
- *       UserId: "STRING_VALUE", // required
- *       ContactFlowId: "STRING_VALUE", // required
+ *       UserId: 'STRING_VALUE', // required
+ *       ContactFlowId: 'STRING_VALUE', // required
  *     },
  *     QueueConfig: { // QueueQuickConnectConfig
- *       QueueId: "STRING_VALUE", // required
- *       ContactFlowId: "STRING_VALUE", // required
+ *       QueueId: 'STRING_VALUE', // required
+ *       ContactFlowId: 'STRING_VALUE', // required
  *     },
  *     PhoneConfig: { // PhoneNumberQuickConnectConfig
- *       PhoneNumber: "STRING_VALUE", // required
+ *       PhoneNumber: 'STRING_VALUE', // required
  *     },
  *   },
  * };
  * const command = new UpdateQuickConnectConfigCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateQuickConnectConfigCommandInput - {@link UpdateQuickConnectConfigCommandInput}
@@ -82,6 +85,8 @@ export interface UpdateQuickConnectConfigCommandOutput extends __MetadataBearer 
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class UpdateQuickConnectConfigCommand extends $Command<

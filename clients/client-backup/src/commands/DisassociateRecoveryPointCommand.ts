@@ -39,15 +39,18 @@ export interface DisassociateRecoveryPointCommandOutput extends __MetadataBearer
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BackupClient, DisassociateRecoveryPointCommand } from "@aws-sdk/client-backup"; // ES Modules import
- * // const { BackupClient, DisassociateRecoveryPointCommand } = require("@aws-sdk/client-backup"); // CommonJS import
+ * import { BackupClient, DisassociateRecoveryPointCommand } from '@aws-sdk/client-backup'; // ES Modules import
+ * // const { BackupClient, DisassociateRecoveryPointCommand } = require('@aws-sdk/client-backup'); // CommonJS import
  * const client = new BackupClient(config);
  * const input = { // DisassociateRecoveryPointInput
- *   BackupVaultName: "STRING_VALUE", // required
- *   RecoveryPointArn: "STRING_VALUE", // required
+ *   BackupVaultName: 'STRING_VALUE', // required
+ *   RecoveryPointArn: 'STRING_VALUE', // required
  * };
  * const command = new DisassociateRecoveryPointCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DisassociateRecoveryPointCommandInput - {@link DisassociateRecoveryPointCommandInput}
@@ -77,6 +80,8 @@ export interface DisassociateRecoveryPointCommandOutput extends __MetadataBearer
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request failed due to a temporary failure of the server.</p>
  *
+ * @throws {@link BackupServiceException}
+ * <p>Base exception class for all service exceptions from Backup service.</p>
  *
  */
 export class DisassociateRecoveryPointCommand extends $Command<

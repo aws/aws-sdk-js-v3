@@ -38,14 +38,28 @@ export interface DescribeEventTrackerCommandOutput extends DescribeEventTrackerR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PersonalizeClient, DescribeEventTrackerCommand } from "@aws-sdk/client-personalize"; // ES Modules import
- * // const { PersonalizeClient, DescribeEventTrackerCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
+ * import { PersonalizeClient, DescribeEventTrackerCommand } from '@aws-sdk/client-personalize'; // ES Modules import
+ * // const { PersonalizeClient, DescribeEventTrackerCommand } = require('@aws-sdk/client-personalize'); // CommonJS import
  * const client = new PersonalizeClient(config);
  * const input = { // DescribeEventTrackerRequest
- *   eventTrackerArn: "STRING_VALUE", // required
+ *   eventTrackerArn: 'STRING_VALUE', // required
  * };
  * const command = new DescribeEventTrackerCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeEventTrackerResponse
+ *   eventTracker: { // EventTracker
+ *     name: 'STRING_VALUE',
+ *     eventTrackerArn: 'STRING_VALUE',
+ *     accountId: 'STRING_VALUE',
+ *     trackingId: 'STRING_VALUE',
+ *     datasetGroupArn: 'STRING_VALUE',
+ *     status: 'STRING_VALUE',
+ *     creationDateTime: new Date('TIMESTAMP'),
+ *     lastUpdatedDateTime: new Date('TIMESTAMP'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeEventTrackerCommandInput - {@link DescribeEventTrackerCommandInput}
@@ -60,6 +74,8 @@ export interface DescribeEventTrackerCommandOutput extends DescribeEventTrackerR
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Could not find the specified resource.</p>
  *
+ * @throws {@link PersonalizeServiceException}
+ * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
  */
 export class DescribeEventTrackerCommand extends $Command<

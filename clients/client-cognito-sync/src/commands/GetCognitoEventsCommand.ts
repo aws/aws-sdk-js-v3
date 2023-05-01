@@ -36,14 +36,21 @@ export interface GetCognitoEventsCommandOutput extends GetCognitoEventsResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CognitoSyncClient, GetCognitoEventsCommand } from "@aws-sdk/client-cognito-sync"; // ES Modules import
- * // const { CognitoSyncClient, GetCognitoEventsCommand } = require("@aws-sdk/client-cognito-sync"); // CommonJS import
+ * import { CognitoSyncClient, GetCognitoEventsCommand } from '@aws-sdk/client-cognito-sync'; // ES Modules import
+ * // const { CognitoSyncClient, GetCognitoEventsCommand } = require('@aws-sdk/client-cognito-sync'); // CommonJS import
  * const client = new CognitoSyncClient(config);
  * const input = { // GetCognitoEventsRequest
- *   IdentityPoolId: "STRING_VALUE", // required
+ *   IdentityPoolId: 'STRING_VALUE', // required
  * };
  * const command = new GetCognitoEventsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetCognitoEventsResponse
+ *   Events: { // Events
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetCognitoEventsCommandInput - {@link GetCognitoEventsCommandInput}
@@ -72,6 +79,8 @@ export interface GetCognitoEventsCommandOutput extends GetCognitoEventsResponse,
  *  Thrown if the request is
  *       throttled.
  *
+ * @throws {@link CognitoSyncServiceException}
+ * <p>Base exception class for all service exceptions from CognitoSync service.</p>
  *
  */
 export class GetCognitoEventsCommand extends $Command<

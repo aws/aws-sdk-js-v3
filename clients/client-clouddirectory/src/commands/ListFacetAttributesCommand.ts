@@ -36,17 +36,51 @@ export interface ListFacetAttributesCommandOutput extends ListFacetAttributesRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudDirectoryClient, ListFacetAttributesCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
- * // const { CloudDirectoryClient, ListFacetAttributesCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
+ * import { CloudDirectoryClient, ListFacetAttributesCommand } from '@aws-sdk/client-clouddirectory'; // ES Modules import
+ * // const { CloudDirectoryClient, ListFacetAttributesCommand } = require('@aws-sdk/client-clouddirectory'); // CommonJS import
  * const client = new CloudDirectoryClient(config);
  * const input = { // ListFacetAttributesRequest
- *   SchemaArn: "STRING_VALUE", // required
- *   Name: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   SchemaArn: 'STRING_VALUE', // required
+ *   Name: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListFacetAttributesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListFacetAttributesResponse
+ *   Attributes: [ // FacetAttributeList
+ *     { // FacetAttribute
+ *       Name: 'STRING_VALUE', // required
+ *       AttributeDefinition: { // FacetAttributeDefinition
+ *         Type: 'STRING' || 'BINARY' || 'BOOLEAN' || 'NUMBER' || 'DATETIME' || 'VARIANT', // required
+ *         DefaultValue: { // TypedAttributeValue Union: only one key present
+ *           StringValue: 'STRING_VALUE',
+ *           BinaryValue: 'BLOB_VALUE',
+ *           BooleanValue: true || false,
+ *           NumberValue: 'STRING_VALUE',
+ *           DatetimeValue: new Date('TIMESTAMP'),
+ *         },
+ *         IsImmutable: true || false,
+ *         Rules: { // RuleMap
+ *           '<keys>': { // Rule
+ *             Type: 'BINARY_LENGTH' || 'NUMBER_COMPARISON' || 'STRING_FROM_SET' || 'STRING_LENGTH',
+ *             Parameters: { // RuleParameterMap
+ *               '<keys>': 'STRING_VALUE',
+ *             },
+ *           },
+ *         },
+ *       },
+ *       AttributeReference: { // FacetAttributeReference
+ *         TargetFacetName: 'STRING_VALUE', // required
+ *         TargetAttributeName: 'STRING_VALUE', // required
+ *       },
+ *       RequiredBehavior: 'REQUIRED_ALWAYS' || 'NOT_REQUIRED',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListFacetAttributesCommandInput - {@link ListFacetAttributesCommandInput}
@@ -83,6 +117,8 @@ export interface ListFacetAttributesCommandOutput extends ListFacetAttributesRes
  *  <p>Indicates that your request is malformed in some manner. See the exception
  *       message.</p>
  *
+ * @throws {@link CloudDirectoryServiceException}
+ * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
  */
 export class ListFacetAttributesCommand extends $Command<

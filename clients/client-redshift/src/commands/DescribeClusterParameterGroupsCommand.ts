@@ -55,22 +55,40 @@ export interface DescribeClusterParameterGroupsCommandOutput extends ClusterPara
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RedshiftClient, DescribeClusterParameterGroupsCommand } from "@aws-sdk/client-redshift"; // ES Modules import
- * // const { RedshiftClient, DescribeClusterParameterGroupsCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * import { RedshiftClient, DescribeClusterParameterGroupsCommand } from '@aws-sdk/client-redshift'; // ES Modules import
+ * // const { RedshiftClient, DescribeClusterParameterGroupsCommand } = require('@aws-sdk/client-redshift'); // CommonJS import
  * const client = new RedshiftClient(config);
  * const input = { // DescribeClusterParameterGroupsMessage
- *   ParameterGroupName: "STRING_VALUE",
- *   MaxRecords: Number("int"),
- *   Marker: "STRING_VALUE",
+ *   ParameterGroupName: 'STRING_VALUE',
+ *   MaxRecords: Number('int'),
+ *   Marker: 'STRING_VALUE',
  *   TagKeys: [ // TagKeyList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   TagValues: [ // TagValueList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new DescribeClusterParameterGroupsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ClusterParameterGroupsMessage
+ *   Marker: 'STRING_VALUE',
+ *   ParameterGroups: [ // ParameterGroupList
+ *     { // ClusterParameterGroup
+ *       ParameterGroupName: 'STRING_VALUE',
+ *       ParameterGroupFamily: 'STRING_VALUE',
+ *       Description: 'STRING_VALUE',
+ *       Tags: [ // TagList
+ *         { // Tag
+ *           Key: 'STRING_VALUE',
+ *           Value: 'STRING_VALUE',
+ *         },
+ *       ],
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeClusterParameterGroupsCommandInput - {@link DescribeClusterParameterGroupsCommandInput}
@@ -85,6 +103,8 @@ export interface DescribeClusterParameterGroupsCommandOutput extends ClusterPara
  * @throws {@link InvalidTagFault} (client fault)
  *  <p>The tag is invalid.</p>
  *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class DescribeClusterParameterGroupsCommand extends $Command<

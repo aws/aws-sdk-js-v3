@@ -45,15 +45,18 @@ export interface DeleteQuerySuggestionsBlockListCommandOutput extends __Metadata
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KendraClient, DeleteQuerySuggestionsBlockListCommand } from "@aws-sdk/client-kendra"; // ES Modules import
- * // const { KendraClient, DeleteQuerySuggestionsBlockListCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
+ * import { KendraClient, DeleteQuerySuggestionsBlockListCommand } from '@aws-sdk/client-kendra'; // ES Modules import
+ * // const { KendraClient, DeleteQuerySuggestionsBlockListCommand } = require('@aws-sdk/client-kendra'); // CommonJS import
  * const client = new KendraClient(config);
  * const input = { // DeleteQuerySuggestionsBlockListRequest
- *   IndexId: "STRING_VALUE", // required
- *   Id: "STRING_VALUE", // required
+ *   IndexId: 'STRING_VALUE', // required
+ *   Id: 'STRING_VALUE', // required
  * };
  * const command = new DeleteQuerySuggestionsBlockListCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteQuerySuggestionsBlockListCommandInput - {@link DeleteQuerySuggestionsBlockListCommandInput}
@@ -86,6 +89,8 @@ export interface DeleteQuerySuggestionsBlockListCommandOutput extends __Metadata
  *  <p>The input fails to satisfy the constraints set by the Amazon Kendra service.
  *             Please provide the correct input and try again.</p>
  *
+ * @throws {@link KendraServiceException}
+ * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
  */
 export class DeleteQuerySuggestionsBlockListCommand extends $Command<

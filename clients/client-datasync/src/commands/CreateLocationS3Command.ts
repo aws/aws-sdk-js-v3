@@ -53,28 +53,33 @@ export interface CreateLocationS3CommandOutput extends CreateLocationS3Response,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DataSyncClient, CreateLocationS3Command } from "@aws-sdk/client-datasync"; // ES Modules import
- * // const { DataSyncClient, CreateLocationS3Command } = require("@aws-sdk/client-datasync"); // CommonJS import
+ * import { DataSyncClient, CreateLocationS3Command } from '@aws-sdk/client-datasync'; // ES Modules import
+ * // const { DataSyncClient, CreateLocationS3Command } = require('@aws-sdk/client-datasync'); // CommonJS import
  * const client = new DataSyncClient(config);
  * const input = { // CreateLocationS3Request
- *   Subdirectory: "STRING_VALUE",
- *   S3BucketArn: "STRING_VALUE", // required
- *   S3StorageClass: "STANDARD" || "STANDARD_IA" || "ONEZONE_IA" || "INTELLIGENT_TIERING" || "GLACIER" || "DEEP_ARCHIVE" || "OUTPOSTS" || "GLACIER_INSTANT_RETRIEVAL",
+ *   Subdirectory: 'STRING_VALUE',
+ *   S3BucketArn: 'STRING_VALUE', // required
+ *   S3StorageClass: 'STANDARD' || 'STANDARD_IA' || 'ONEZONE_IA' || 'INTELLIGENT_TIERING' || 'GLACIER' || 'DEEP_ARCHIVE' || 'OUTPOSTS' || 'GLACIER_INSTANT_RETRIEVAL',
  *   S3Config: { // S3Config
- *     BucketAccessRoleArn: "STRING_VALUE", // required
+ *     BucketAccessRoleArn: 'STRING_VALUE', // required
  *   },
  *   AgentArns: [ // AgentArnList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   Tags: [ // InputTagList
  *     { // TagListEntry
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new CreateLocationS3Command(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateLocationS3Response
+ *   LocationArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateLocationS3CommandInput - {@link CreateLocationS3CommandInput}
@@ -90,6 +95,8 @@ export interface CreateLocationS3CommandOutput extends CreateLocationS3Response,
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception is thrown when the client submits a malformed request.</p>
  *
+ * @throws {@link DataSyncServiceException}
+ * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
  */
 export class CreateLocationS3Command extends $Command<

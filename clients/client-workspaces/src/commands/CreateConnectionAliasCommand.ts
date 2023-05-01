@@ -38,20 +38,25 @@ export interface CreateConnectionAliasCommandOutput extends CreateConnectionAlia
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkSpacesClient, CreateConnectionAliasCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
- * // const { WorkSpacesClient, CreateConnectionAliasCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
+ * import { WorkSpacesClient, CreateConnectionAliasCommand } from '@aws-sdk/client-workspaces'; // ES Modules import
+ * // const { WorkSpacesClient, CreateConnectionAliasCommand } = require('@aws-sdk/client-workspaces'); // CommonJS import
  * const client = new WorkSpacesClient(config);
  * const input = { // CreateConnectionAliasRequest
- *   ConnectionString: "STRING_VALUE", // required
+ *   ConnectionString: 'STRING_VALUE', // required
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new CreateConnectionAliasCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateConnectionAliasResult
+ *   AliasId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateConnectionAliasCommandInput - {@link CreateConnectionAliasCommandInput}
@@ -78,6 +83,8 @@ export interface CreateConnectionAliasCommandOutput extends CreateConnectionAlia
  * @throws {@link ResourceLimitExceededException} (client fault)
  *  <p>Your resource limits have been exceeded.</p>
  *
+ * @throws {@link WorkSpacesServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
  */
 export class CreateConnectionAliasCommand extends $Command<

@@ -44,14 +44,28 @@ export interface GetGeoMatchSetCommandOutput extends GetGeoMatchSetResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WAFClient, GetGeoMatchSetCommand } from "@aws-sdk/client-waf"; // ES Modules import
- * // const { WAFClient, GetGeoMatchSetCommand } = require("@aws-sdk/client-waf"); // CommonJS import
+ * import { WAFClient, GetGeoMatchSetCommand } from '@aws-sdk/client-waf'; // ES Modules import
+ * // const { WAFClient, GetGeoMatchSetCommand } = require('@aws-sdk/client-waf'); // CommonJS import
  * const client = new WAFClient(config);
  * const input = { // GetGeoMatchSetRequest
- *   GeoMatchSetId: "STRING_VALUE", // required
+ *   GeoMatchSetId: 'STRING_VALUE', // required
  * };
  * const command = new GetGeoMatchSetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetGeoMatchSetResponse
+ *   GeoMatchSet: { // GeoMatchSet
+ *     GeoMatchSetId: 'STRING_VALUE', // required
+ *     Name: 'STRING_VALUE',
+ *     GeoMatchConstraints: [ // GeoMatchConstraints // required
+ *       { // GeoMatchConstraint
+ *         Type: 'STRING_VALUE', // required
+ *         Value: 'STRING_VALUE', // required
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetGeoMatchSetCommandInput - {@link GetGeoMatchSetCommandInput}
@@ -69,6 +83,8 @@ export interface GetGeoMatchSetCommandOutput extends GetGeoMatchSetResponse, __M
  * @throws {@link WAFNonexistentItemException} (client fault)
  *  <p>The operation failed because the referenced object doesn't exist.</p>
  *
+ * @throws {@link WAFServiceException}
+ * <p>Base exception class for all service exceptions from WAF service.</p>
  *
  */
 export class GetGeoMatchSetCommand extends $Command<

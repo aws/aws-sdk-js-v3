@@ -41,15 +41,26 @@ export interface EvaluateMappingTemplateCommandOutput extends EvaluateMappingTem
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppSyncClient, EvaluateMappingTemplateCommand } from "@aws-sdk/client-appsync"; // ES Modules import
- * // const { AppSyncClient, EvaluateMappingTemplateCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
+ * import { AppSyncClient, EvaluateMappingTemplateCommand } from '@aws-sdk/client-appsync'; // ES Modules import
+ * // const { AppSyncClient, EvaluateMappingTemplateCommand } = require('@aws-sdk/client-appsync'); // CommonJS import
  * const client = new AppSyncClient(config);
  * const input = { // EvaluateMappingTemplateRequest
- *   template: "STRING_VALUE", // required
- *   context: "STRING_VALUE", // required
+ *   template: 'STRING_VALUE', // required
+ *   context: 'STRING_VALUE', // required
  * };
  * const command = new EvaluateMappingTemplateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // EvaluateMappingTemplateResponse
+ *   evaluationResult: 'STRING_VALUE',
+ *   error: { // ErrorDetail
+ *     message: 'STRING_VALUE',
+ *   },
+ *   logs: [ // Logs
+ *     'STRING_VALUE',
+ *   ],
+ * };
+ *
  * ```
  *
  * @param EvaluateMappingTemplateCommandInput - {@link EvaluateMappingTemplateCommandInput}
@@ -68,6 +79,8 @@ export interface EvaluateMappingTemplateCommandOutput extends EvaluateMappingTem
  * @throws {@link InternalFailureException} (server fault)
  *  <p>An internal AppSync error occurred. Try your request again.</p>
  *
+ * @throws {@link AppSyncServiceException}
+ * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
  */
 export class EvaluateMappingTemplateCommand extends $Command<

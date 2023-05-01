@@ -36,14 +36,26 @@ export interface GetDestinationCommandOutput extends GetDestinationResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTRoboRunnerClient, GetDestinationCommand } from "@aws-sdk/client-iot-roborunner"; // ES Modules import
- * // const { IoTRoboRunnerClient, GetDestinationCommand } = require("@aws-sdk/client-iot-roborunner"); // CommonJS import
+ * import { IoTRoboRunnerClient, GetDestinationCommand } from '@aws-sdk/client-iot-roborunner'; // ES Modules import
+ * // const { IoTRoboRunnerClient, GetDestinationCommand } = require('@aws-sdk/client-iot-roborunner'); // CommonJS import
  * const client = new IoTRoboRunnerClient(config);
  * const input = { // GetDestinationRequest
- *   id: "STRING_VALUE", // required
+ *   id: 'STRING_VALUE', // required
  * };
  * const command = new GetDestinationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetDestinationResponse
+ *   arn: 'STRING_VALUE', // required
+ *   id: 'STRING_VALUE', // required
+ *   name: 'STRING_VALUE', // required
+ *   site: 'STRING_VALUE', // required
+ *   createdAt: new Date('TIMESTAMP'), // required
+ *   updatedAt: new Date('TIMESTAMP'), // required
+ *   state: 'STRING_VALUE', // required
+ *   additionalFixedProperties: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetDestinationCommandInput - {@link GetDestinationCommandInput}
@@ -67,6 +79,8 @@ export interface GetDestinationCommandOutput extends GetDestinationResponse, __M
  * @throws {@link ValidationException} (client fault)
  *  Exception thrown if an invalid parameter is provided to an API.
  *
+ * @throws {@link IoTRoboRunnerServiceException}
+ * <p>Base exception class for all service exceptions from IoTRoboRunner service.</p>
  *
  */
 export class GetDestinationCommand extends $Command<

@@ -36,16 +36,28 @@ export interface DescribeGroupCommandOutput extends DescribeGroupResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { QuickSightClient, DescribeGroupCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
- * // const { QuickSightClient, DescribeGroupCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * import { QuickSightClient, DescribeGroupCommand } from '@aws-sdk/client-quicksight'; // ES Modules import
+ * // const { QuickSightClient, DescribeGroupCommand } = require('@aws-sdk/client-quicksight'); // CommonJS import
  * const client = new QuickSightClient(config);
  * const input = { // DescribeGroupRequest
- *   GroupName: "STRING_VALUE", // required
- *   AwsAccountId: "STRING_VALUE", // required
- *   Namespace: "STRING_VALUE", // required
+ *   GroupName: 'STRING_VALUE', // required
+ *   AwsAccountId: 'STRING_VALUE', // required
+ *   Namespace: 'STRING_VALUE', // required
  * };
  * const command = new DescribeGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeGroupResponse
+ *   Group: { // Group
+ *     Arn: 'STRING_VALUE',
+ *     GroupName: 'STRING_VALUE',
+ *     Description: 'STRING_VALUE',
+ *     PrincipalId: 'STRING_VALUE',
+ *   },
+ *   RequestId: 'STRING_VALUE',
+ *   Status: Number('int'),
+ * };
+ *
  * ```
  *
  * @param DescribeGroupCommandInput - {@link DescribeGroupCommandInput}
@@ -78,6 +90,8 @@ export interface DescribeGroupCommandOutput extends DescribeGroupResponse, __Met
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Access is throttled.</p>
  *
+ * @throws {@link QuickSightServiceException}
+ * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
 export class DescribeGroupCommand extends $Command<

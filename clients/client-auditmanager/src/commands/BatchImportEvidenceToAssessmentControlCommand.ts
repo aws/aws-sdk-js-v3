@@ -66,21 +66,34 @@ export interface BatchImportEvidenceToAssessmentControlCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AuditManagerClient, BatchImportEvidenceToAssessmentControlCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
- * // const { AuditManagerClient, BatchImportEvidenceToAssessmentControlCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import
+ * import { AuditManagerClient, BatchImportEvidenceToAssessmentControlCommand } from '@aws-sdk/client-auditmanager'; // ES Modules import
+ * // const { AuditManagerClient, BatchImportEvidenceToAssessmentControlCommand } = require('@aws-sdk/client-auditmanager'); // CommonJS import
  * const client = new AuditManagerClient(config);
  * const input = { // BatchImportEvidenceToAssessmentControlRequest
- *   assessmentId: "STRING_VALUE", // required
- *   controlSetId: "STRING_VALUE", // required
- *   controlId: "STRING_VALUE", // required
+ *   assessmentId: 'STRING_VALUE', // required
+ *   controlSetId: 'STRING_VALUE', // required
+ *   controlId: 'STRING_VALUE', // required
  *   manualEvidence: [ // ManualEvidenceList // required
  *     { // ManualEvidence
- *       s3ResourcePath: "STRING_VALUE",
+ *       s3ResourcePath: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new BatchImportEvidenceToAssessmentControlCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BatchImportEvidenceToAssessmentControlResponse
+ *   errors: [ // BatchImportEvidenceToAssessmentControlErrors
+ *     { // BatchImportEvidenceToAssessmentControlError
+ *       manualEvidence: { // ManualEvidence
+ *         s3ResourcePath: 'STRING_VALUE',
+ *       },
+ *       errorCode: 'STRING_VALUE',
+ *       errorMessage: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param BatchImportEvidenceToAssessmentControlCommandInput - {@link BatchImportEvidenceToAssessmentControlCommandInput}
@@ -103,6 +116,8 @@ export interface BatchImportEvidenceToAssessmentControlCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p> The request has invalid or missing parameters. </p>
  *
+ * @throws {@link AuditManagerServiceException}
+ * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
  */
 export class BatchImportEvidenceToAssessmentControlCommand extends $Command<

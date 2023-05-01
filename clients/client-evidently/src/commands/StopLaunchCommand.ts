@@ -40,17 +40,22 @@ export interface StopLaunchCommandOutput extends StopLaunchResponse, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EvidentlyClient, StopLaunchCommand } from "@aws-sdk/client-evidently"; // ES Modules import
- * // const { EvidentlyClient, StopLaunchCommand } = require("@aws-sdk/client-evidently"); // CommonJS import
+ * import { EvidentlyClient, StopLaunchCommand } from '@aws-sdk/client-evidently'; // ES Modules import
+ * // const { EvidentlyClient, StopLaunchCommand } = require('@aws-sdk/client-evidently'); // CommonJS import
  * const client = new EvidentlyClient(config);
  * const input = { // StopLaunchRequest
- *   project: "STRING_VALUE", // required
- *   launch: "STRING_VALUE", // required
- *   desiredState: "STRING_VALUE",
- *   reason: "STRING_VALUE",
+ *   project: 'STRING_VALUE', // required
+ *   launch: 'STRING_VALUE', // required
+ *   desiredState: 'STRING_VALUE',
+ *   reason: 'STRING_VALUE',
  * };
  * const command = new StopLaunchCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StopLaunchResponse
+ *   endedTime: new Date('TIMESTAMP'),
+ * };
+ *
  * ```
  *
  * @param StopLaunchCommandInput - {@link StopLaunchCommandInput}
@@ -71,6 +76,8 @@ export interface StopLaunchCommandOutput extends StopLaunchResponse, __MetadataB
  * @throws {@link ValidationException} (client fault)
  *  <p>The value of a parameter in the request caused an error.</p>
  *
+ * @throws {@link EvidentlyServiceException}
+ * <p>Base exception class for all service exceptions from Evidently service.</p>
  *
  */
 export class StopLaunchCommand extends $Command<

@@ -38,27 +38,89 @@ export interface DescribeTrafficMirrorFiltersCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, DescribeTrafficMirrorFiltersCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, DescribeTrafficMirrorFiltersCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, DescribeTrafficMirrorFiltersCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, DescribeTrafficMirrorFiltersCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // DescribeTrafficMirrorFiltersRequest
  *   TrafficMirrorFilterIds: [ // TrafficMirrorFilterIdList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   DryRun: true || false,
  *   Filters: [ // FilterList
  *     { // Filter
- *       Name: "STRING_VALUE",
+ *       Name: 'STRING_VALUE',
  *       Values: [ // ValueStringList
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new DescribeTrafficMirrorFiltersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeTrafficMirrorFiltersResult
+ *   TrafficMirrorFilters: [ // TrafficMirrorFilterSet
+ *     { // TrafficMirrorFilter
+ *       TrafficMirrorFilterId: 'STRING_VALUE',
+ *       IngressFilterRules: [ // TrafficMirrorFilterRuleList
+ *         { // TrafficMirrorFilterRule
+ *           TrafficMirrorFilterRuleId: 'STRING_VALUE',
+ *           TrafficMirrorFilterId: 'STRING_VALUE',
+ *           TrafficDirection: 'ingress' || 'egress',
+ *           RuleNumber: Number('int'),
+ *           RuleAction: 'accept' || 'reject',
+ *           Protocol: Number('int'),
+ *           DestinationPortRange: { // TrafficMirrorPortRange
+ *             FromPort: Number('int'),
+ *             ToPort: Number('int'),
+ *           },
+ *           SourcePortRange: {
+ *             FromPort: Number('int'),
+ *             ToPort: Number('int'),
+ *           },
+ *           DestinationCidrBlock: 'STRING_VALUE',
+ *           SourceCidrBlock: 'STRING_VALUE',
+ *           Description: 'STRING_VALUE',
+ *         },
+ *       ],
+ *       EgressFilterRules: [
+ *         {
+ *           TrafficMirrorFilterRuleId: 'STRING_VALUE',
+ *           TrafficMirrorFilterId: 'STRING_VALUE',
+ *           TrafficDirection: 'ingress' || 'egress',
+ *           RuleNumber: Number('int'),
+ *           RuleAction: 'accept' || 'reject',
+ *           Protocol: Number('int'),
+ *           DestinationPortRange: {
+ *             FromPort: Number('int'),
+ *             ToPort: Number('int'),
+ *           },
+ *           SourcePortRange: {
+ *             FromPort: Number('int'),
+ *             ToPort: Number('int'),
+ *           },
+ *           DestinationCidrBlock: 'STRING_VALUE',
+ *           SourceCidrBlock: 'STRING_VALUE',
+ *           Description: 'STRING_VALUE',
+ *         },
+ *       ],
+ *       NetworkServices: [ // TrafficMirrorNetworkServiceList
+ *         'amazon-dns',
+ *       ],
+ *       Description: 'STRING_VALUE',
+ *       Tags: [ // TagList
+ *         { // Tag
+ *           Key: 'STRING_VALUE',
+ *           Value: 'STRING_VALUE',
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeTrafficMirrorFiltersCommandInput - {@link DescribeTrafficMirrorFiltersCommandInput}
@@ -67,6 +129,8 @@ export interface DescribeTrafficMirrorFiltersCommandOutput
  * @see {@link DescribeTrafficMirrorFiltersCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class DescribeTrafficMirrorFiltersCommand extends $Command<

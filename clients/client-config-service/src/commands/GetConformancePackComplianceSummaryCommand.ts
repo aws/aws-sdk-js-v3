@@ -44,18 +44,29 @@ export interface GetConformancePackComplianceSummaryCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConfigServiceClient, GetConformancePackComplianceSummaryCommand } from "@aws-sdk/client-config-service"; // ES Modules import
- * // const { ConfigServiceClient, GetConformancePackComplianceSummaryCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
+ * import { ConfigServiceClient, GetConformancePackComplianceSummaryCommand } from '@aws-sdk/client-config-service'; // ES Modules import
+ * // const { ConfigServiceClient, GetConformancePackComplianceSummaryCommand } = require('@aws-sdk/client-config-service'); // CommonJS import
  * const client = new ConfigServiceClient(config);
  * const input = { // GetConformancePackComplianceSummaryRequest
  *   ConformancePackNames: [ // ConformancePackNamesToSummarizeList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   Limit: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   Limit: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new GetConformancePackComplianceSummaryCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetConformancePackComplianceSummaryResponse
+ *   ConformancePackComplianceSummaryList: [ // ConformancePackComplianceSummaryList
+ *     { // ConformancePackComplianceSummary
+ *       ConformancePackName: 'STRING_VALUE', // required
+ *       ConformancePackComplianceStatus: 'COMPLIANT' || 'NON_COMPLIANT' || 'INSUFFICIENT_DATA', // required
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetConformancePackComplianceSummaryCommandInput - {@link GetConformancePackComplianceSummaryCommandInput}
@@ -75,6 +86,8 @@ export interface GetConformancePackComplianceSummaryCommandOutput
  * @throws {@link NoSuchConformancePackException} (client fault)
  *  <p>You specified one or more conformance packs that do not exist.</p>
  *
+ * @throws {@link ConfigServiceServiceException}
+ * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
  */
 export class GetConformancePackComplianceSummaryCommand extends $Command<

@@ -44,14 +44,20 @@ export interface DeleteInfrastructureConfigurationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ImagebuilderClient, DeleteInfrastructureConfigurationCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
- * // const { ImagebuilderClient, DeleteInfrastructureConfigurationCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
+ * import { ImagebuilderClient, DeleteInfrastructureConfigurationCommand } from '@aws-sdk/client-imagebuilder'; // ES Modules import
+ * // const { ImagebuilderClient, DeleteInfrastructureConfigurationCommand } = require('@aws-sdk/client-imagebuilder'); // CommonJS import
  * const client = new ImagebuilderClient(config);
  * const input = { // DeleteInfrastructureConfigurationRequest
- *   infrastructureConfigurationArn: "STRING_VALUE", // required
+ *   infrastructureConfigurationArn: 'STRING_VALUE', // required
  * };
  * const command = new DeleteInfrastructureConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteInfrastructureConfigurationResponse
+ *   requestId: 'STRING_VALUE',
+ *   infrastructureConfigurationArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DeleteInfrastructureConfigurationCommandInput - {@link DeleteInfrastructureConfigurationCommandInput}
@@ -85,6 +91,8 @@ export interface DeleteInfrastructureConfigurationCommandOutput
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service is unable to process your request at this time.</p>
  *
+ * @throws {@link ImagebuilderServiceException}
+ * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
  */
 export class DeleteInfrastructureConfigurationCommand extends $Command<

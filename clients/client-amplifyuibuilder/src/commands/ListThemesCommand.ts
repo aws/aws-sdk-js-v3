@@ -37,17 +37,30 @@ export interface ListThemesCommandOutput extends ListThemesResponse, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AmplifyUIBuilderClient, ListThemesCommand } from "@aws-sdk/client-amplifyuibuilder"; // ES Modules import
- * // const { AmplifyUIBuilderClient, ListThemesCommand } = require("@aws-sdk/client-amplifyuibuilder"); // CommonJS import
+ * import { AmplifyUIBuilderClient, ListThemesCommand } from '@aws-sdk/client-amplifyuibuilder'; // ES Modules import
+ * // const { AmplifyUIBuilderClient, ListThemesCommand } = require('@aws-sdk/client-amplifyuibuilder'); // CommonJS import
  * const client = new AmplifyUIBuilderClient(config);
  * const input = { // ListThemesRequest
- *   appId: "STRING_VALUE", // required
- *   environmentName: "STRING_VALUE", // required
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   appId: 'STRING_VALUE', // required
+ *   environmentName: 'STRING_VALUE', // required
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new ListThemesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListThemesResponse
+ *   entities: [ // ThemeSummaryList // required
+ *     { // ThemeSummary
+ *       appId: 'STRING_VALUE', // required
+ *       environmentName: 'STRING_VALUE', // required
+ *       id: 'STRING_VALUE', // required
+ *       name: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListThemesCommandInput - {@link ListThemesCommandInput}
@@ -62,6 +75,8 @@ export interface ListThemesCommandOutput extends ListThemesResponse, __MetadataB
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>An invalid or out-of-range value was supplied for the input parameter.</p>
  *
+ * @throws {@link AmplifyUIBuilderServiceException}
+ * <p>Base exception class for all service exceptions from AmplifyUIBuilder service.</p>
  *
  */
 export class ListThemesCommand extends $Command<

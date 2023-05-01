@@ -36,17 +36,25 @@ export interface CreateSiteCommandOutput extends CreateSiteResponse, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTRoboRunnerClient, CreateSiteCommand } from "@aws-sdk/client-iot-roborunner"; // ES Modules import
- * // const { IoTRoboRunnerClient, CreateSiteCommand } = require("@aws-sdk/client-iot-roborunner"); // CommonJS import
+ * import { IoTRoboRunnerClient, CreateSiteCommand } from '@aws-sdk/client-iot-roborunner'; // ES Modules import
+ * // const { IoTRoboRunnerClient, CreateSiteCommand } = require('@aws-sdk/client-iot-roborunner'); // CommonJS import
  * const client = new IoTRoboRunnerClient(config);
  * const input = { // CreateSiteRequest
- *   clientToken: "STRING_VALUE",
- *   name: "STRING_VALUE", // required
- *   countryCode: "STRING_VALUE", // required
- *   description: "STRING_VALUE",
+ *   clientToken: 'STRING_VALUE',
+ *   name: 'STRING_VALUE', // required
+ *   countryCode: 'STRING_VALUE', // required
+ *   description: 'STRING_VALUE',
  * };
  * const command = new CreateSiteCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateSiteResponse
+ *   arn: 'STRING_VALUE', // required
+ *   id: 'STRING_VALUE', // required
+ *   createdAt: new Date('TIMESTAMP'), // required
+ *   updatedAt: new Date('TIMESTAMP'), // required
+ * };
+ *
  * ```
  *
  * @param CreateSiteCommandInput - {@link CreateSiteCommandInput}
@@ -73,6 +81,8 @@ export interface CreateSiteCommandOutput extends CreateSiteResponse, __MetadataB
  * @throws {@link ValidationException} (client fault)
  *  Exception thrown if an invalid parameter is provided to an API.
  *
+ * @throws {@link IoTRoboRunnerServiceException}
+ * <p>Base exception class for all service exceptions from IoTRoboRunner service.</p>
  *
  */
 export class CreateSiteCommand extends $Command<

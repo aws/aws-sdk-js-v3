@@ -36,14 +36,28 @@ export interface DescribeLocationS3CommandOutput extends DescribeLocationS3Respo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DataSyncClient, DescribeLocationS3Command } from "@aws-sdk/client-datasync"; // ES Modules import
- * // const { DataSyncClient, DescribeLocationS3Command } = require("@aws-sdk/client-datasync"); // CommonJS import
+ * import { DataSyncClient, DescribeLocationS3Command } from '@aws-sdk/client-datasync'; // ES Modules import
+ * // const { DataSyncClient, DescribeLocationS3Command } = require('@aws-sdk/client-datasync'); // CommonJS import
  * const client = new DataSyncClient(config);
  * const input = { // DescribeLocationS3Request
- *   LocationArn: "STRING_VALUE", // required
+ *   LocationArn: 'STRING_VALUE', // required
  * };
  * const command = new DescribeLocationS3Command(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeLocationS3Response
+ *   LocationArn: 'STRING_VALUE',
+ *   LocationUri: 'STRING_VALUE',
+ *   S3StorageClass: 'STANDARD' || 'STANDARD_IA' || 'ONEZONE_IA' || 'INTELLIGENT_TIERING' || 'GLACIER' || 'DEEP_ARCHIVE' || 'OUTPOSTS' || 'GLACIER_INSTANT_RETRIEVAL',
+ *   S3Config: { // S3Config
+ *     BucketAccessRoleArn: 'STRING_VALUE', // required
+ *   },
+ *   AgentArns: [ // AgentArnList
+ *     'STRING_VALUE',
+ *   ],
+ *   CreationTime: new Date('TIMESTAMP'),
+ * };
+ *
  * ```
  *
  * @param DescribeLocationS3CommandInput - {@link DescribeLocationS3CommandInput}
@@ -59,6 +73,8 @@ export interface DescribeLocationS3CommandOutput extends DescribeLocationS3Respo
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception is thrown when the client submits a malformed request.</p>
  *
+ * @throws {@link DataSyncServiceException}
+ * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
  */
 export class DescribeLocationS3Command extends $Command<

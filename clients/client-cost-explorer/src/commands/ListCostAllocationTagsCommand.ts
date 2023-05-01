@@ -37,20 +37,32 @@ export interface ListCostAllocationTagsCommandOutput extends ListCostAllocationT
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CostExplorerClient, ListCostAllocationTagsCommand } from "@aws-sdk/client-cost-explorer"; // ES Modules import
- * // const { CostExplorerClient, ListCostAllocationTagsCommand } = require("@aws-sdk/client-cost-explorer"); // CommonJS import
+ * import { CostExplorerClient, ListCostAllocationTagsCommand } from '@aws-sdk/client-cost-explorer'; // ES Modules import
+ * // const { CostExplorerClient, ListCostAllocationTagsCommand } = require('@aws-sdk/client-cost-explorer'); // CommonJS import
  * const client = new CostExplorerClient(config);
  * const input = { // ListCostAllocationTagsRequest
- *   Status: "Active" || "Inactive",
+ *   Status: 'Active' || 'Inactive',
  *   TagKeys: [ // CostAllocationTagKeyList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   Type: "AWSGenerated" || "UserDefined",
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   Type: 'AWSGenerated' || 'UserDefined',
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListCostAllocationTagsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListCostAllocationTagsResponse
+ *   CostAllocationTags: [ // CostAllocationTagList
+ *     { // CostAllocationTag
+ *       TagKey: 'STRING_VALUE', // required
+ *       Type: 'AWSGenerated' || 'UserDefined', // required
+ *       Status: 'Active' || 'Inactive', // required
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListCostAllocationTagsCommandInput - {@link ListCostAllocationTagsCommandInput}
@@ -65,6 +77,8 @@ export interface ListCostAllocationTagsCommandOutput extends ListCostAllocationT
  * @throws {@link LimitExceededException} (client fault)
  *  <p>You made too many calls in a short period of time. Try again later.</p>
  *
+ * @throws {@link CostExplorerServiceException}
+ * <p>Base exception class for all service exceptions from CostExplorer service.</p>
  *
  */
 export class ListCostAllocationTagsCommand extends $Command<

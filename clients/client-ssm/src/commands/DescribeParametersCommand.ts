@@ -48,32 +48,58 @@ export interface DescribeParametersCommandOutput extends DescribeParametersResul
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMClient, DescribeParametersCommand } from "@aws-sdk/client-ssm"; // ES Modules import
- * // const { SSMClient, DescribeParametersCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * import { SSMClient, DescribeParametersCommand } from '@aws-sdk/client-ssm'; // ES Modules import
+ * // const { SSMClient, DescribeParametersCommand } = require('@aws-sdk/client-ssm'); // CommonJS import
  * const client = new SSMClient(config);
  * const input = { // DescribeParametersRequest
  *   Filters: [ // ParametersFilterList
  *     { // ParametersFilter
- *       Key: "Name" || "Type" || "KeyId", // required
+ *       Key: 'Name' || 'Type' || 'KeyId', // required
  *       Values: [ // ParametersFilterValueList // required
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
  *   ParameterFilters: [ // ParameterStringFilterList
  *     { // ParameterStringFilter
- *       Key: "STRING_VALUE", // required
- *       Option: "STRING_VALUE",
+ *       Key: 'STRING_VALUE', // required
+ *       Option: 'STRING_VALUE',
  *       Values: [ // ParameterStringFilterValueList
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new DescribeParametersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeParametersResult
+ *   Parameters: [ // ParameterMetadataList
+ *     { // ParameterMetadata
+ *       Name: 'STRING_VALUE',
+ *       Type: 'String' || 'StringList' || 'SecureString',
+ *       KeyId: 'STRING_VALUE',
+ *       LastModifiedDate: new Date('TIMESTAMP'),
+ *       LastModifiedUser: 'STRING_VALUE',
+ *       Description: 'STRING_VALUE',
+ *       AllowedPattern: 'STRING_VALUE',
+ *       Version: Number('long'),
+ *       Tier: 'Standard' || 'Advanced' || 'Intelligent-Tiering',
+ *       Policies: [ // ParameterPolicyList
+ *         { // ParameterInlinePolicy
+ *           PolicyText: 'STRING_VALUE',
+ *           PolicyType: 'STRING_VALUE',
+ *           PolicyStatus: 'STRING_VALUE',
+ *         },
+ *       ],
+ *       DataType: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeParametersCommandInput - {@link DescribeParametersCommandInput}
@@ -98,6 +124,8 @@ export interface DescribeParametersCommandOutput extends DescribeParametersResul
  * @throws {@link InvalidNextToken} (client fault)
  *  <p>The specified token isn't valid.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class DescribeParametersCommand extends $Command<

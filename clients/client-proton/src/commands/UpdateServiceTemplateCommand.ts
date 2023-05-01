@@ -41,16 +41,31 @@ export interface UpdateServiceTemplateCommandOutput extends UpdateServiceTemplat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ProtonClient, UpdateServiceTemplateCommand } from "@aws-sdk/client-proton"; // ES Modules import
- * // const { ProtonClient, UpdateServiceTemplateCommand } = require("@aws-sdk/client-proton"); // CommonJS import
+ * import { ProtonClient, UpdateServiceTemplateCommand } from '@aws-sdk/client-proton'; // ES Modules import
+ * // const { ProtonClient, UpdateServiceTemplateCommand } = require('@aws-sdk/client-proton'); // CommonJS import
  * const client = new ProtonClient(config);
  * const input = { // UpdateServiceTemplateInput
- *   name: "STRING_VALUE", // required
- *   displayName: "STRING_VALUE",
- *   description: "STRING_VALUE",
+ *   name: 'STRING_VALUE', // required
+ *   displayName: 'STRING_VALUE',
+ *   description: 'STRING_VALUE',
  * };
  * const command = new UpdateServiceTemplateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateServiceTemplateOutput
+ *   serviceTemplate: { // ServiceTemplate
+ *     name: 'STRING_VALUE', // required
+ *     arn: 'STRING_VALUE', // required
+ *     createdAt: new Date('TIMESTAMP'), // required
+ *     lastModifiedAt: new Date('TIMESTAMP'), // required
+ *     displayName: 'STRING_VALUE',
+ *     description: 'STRING_VALUE',
+ *     recommendedVersion: 'STRING_VALUE',
+ *     encryptionKey: 'STRING_VALUE',
+ *     pipelineProvisioning: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateServiceTemplateCommandInput - {@link UpdateServiceTemplateCommandInput}
@@ -77,6 +92,8 @@ export interface UpdateServiceTemplateCommandOutput extends UpdateServiceTemplat
  * @throws {@link ValidationException} (client fault)
  *  <p>The input is invalid or an out-of-range value was supplied for the input parameter.</p>
  *
+ * @throws {@link ProtonServiceException}
+ * <p>Base exception class for all service exceptions from Proton service.</p>
  *
  */
 export class UpdateServiceTemplateCommand extends $Command<

@@ -36,17 +36,29 @@ export interface UpdateGroupCommandOutput extends UpdateGroupResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { QuickSightClient, UpdateGroupCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
- * // const { QuickSightClient, UpdateGroupCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * import { QuickSightClient, UpdateGroupCommand } from '@aws-sdk/client-quicksight'; // ES Modules import
+ * // const { QuickSightClient, UpdateGroupCommand } = require('@aws-sdk/client-quicksight'); // CommonJS import
  * const client = new QuickSightClient(config);
  * const input = { // UpdateGroupRequest
- *   GroupName: "STRING_VALUE", // required
- *   Description: "STRING_VALUE",
- *   AwsAccountId: "STRING_VALUE", // required
- *   Namespace: "STRING_VALUE", // required
+ *   GroupName: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE',
+ *   AwsAccountId: 'STRING_VALUE', // required
+ *   Namespace: 'STRING_VALUE', // required
  * };
  * const command = new UpdateGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateGroupResponse
+ *   Group: { // Group
+ *     Arn: 'STRING_VALUE',
+ *     GroupName: 'STRING_VALUE',
+ *     Description: 'STRING_VALUE',
+ *     PrincipalId: 'STRING_VALUE',
+ *   },
+ *   RequestId: 'STRING_VALUE',
+ *   Status: Number('int'),
+ * };
+ *
  * ```
  *
  * @param UpdateGroupCommandInput - {@link UpdateGroupCommandInput}
@@ -79,6 +91,8 @@ export interface UpdateGroupCommandOutput extends UpdateGroupResponse, __Metadat
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Access is throttled.</p>
  *
+ * @throws {@link QuickSightServiceException}
+ * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
 export class UpdateGroupCommand extends $Command<

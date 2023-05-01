@@ -47,25 +47,46 @@ export interface ListComponentsCommandOutput extends ListComponentsResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ImagebuilderClient, ListComponentsCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
- * // const { ImagebuilderClient, ListComponentsCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
+ * import { ImagebuilderClient, ListComponentsCommand } from '@aws-sdk/client-imagebuilder'; // ES Modules import
+ * // const { ImagebuilderClient, ListComponentsCommand } = require('@aws-sdk/client-imagebuilder'); // CommonJS import
  * const client = new ImagebuilderClient(config);
  * const input = { // ListComponentsRequest
- *   owner: "Self" || "Shared" || "Amazon" || "ThirdParty",
+ *   owner: 'Self' || 'Shared' || 'Amazon' || 'ThirdParty',
  *   filters: [ // FilterList
  *     { // Filter
- *       name: "STRING_VALUE",
+ *       name: 'STRING_VALUE',
  *       values: [ // FilterValues
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
  *   byName: true || false,
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new ListComponentsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListComponentsResponse
+ *   requestId: 'STRING_VALUE',
+ *   componentVersionList: [ // ComponentVersionList
+ *     { // ComponentVersion
+ *       arn: 'STRING_VALUE',
+ *       name: 'STRING_VALUE',
+ *       version: 'STRING_VALUE',
+ *       description: 'STRING_VALUE',
+ *       platform: 'Windows' || 'Linux',
+ *       supportedOsVersions: [ // OsVersionList
+ *         'STRING_VALUE',
+ *       ],
+ *       type: 'BUILD' || 'TEST',
+ *       owner: 'STRING_VALUE',
+ *       dateCreated: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListComponentsCommandInput - {@link ListComponentsCommandInput}
@@ -98,6 +119,8 @@ export interface ListComponentsCommandOutput extends ListComponentsResponse, __M
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service is unable to process your request at this time.</p>
  *
+ * @throws {@link ImagebuilderServiceException}
+ * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
  */
 export class ListComponentsCommand extends $Command<

@@ -37,22 +37,28 @@ export interface CreateRoleAliasCommandOutput extends CreateRoleAliasResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTClient, CreateRoleAliasCommand } from "@aws-sdk/client-iot"; // ES Modules import
- * // const { IoTClient, CreateRoleAliasCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * import { IoTClient, CreateRoleAliasCommand } from '@aws-sdk/client-iot'; // ES Modules import
+ * // const { IoTClient, CreateRoleAliasCommand } = require('@aws-sdk/client-iot'); // CommonJS import
  * const client = new IoTClient(config);
  * const input = { // CreateRoleAliasRequest
- *   roleAlias: "STRING_VALUE", // required
- *   roleArn: "STRING_VALUE", // required
- *   credentialDurationSeconds: Number("int"),
+ *   roleAlias: 'STRING_VALUE', // required
+ *   roleArn: 'STRING_VALUE', // required
+ *   credentialDurationSeconds: Number('int'),
  *   tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new CreateRoleAliasCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateRoleAliasResponse
+ *   roleAlias: 'STRING_VALUE',
+ *   roleAliasArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateRoleAliasCommandInput - {@link CreateRoleAliasCommandInput}
@@ -82,6 +88,8 @@ export interface CreateRoleAliasCommandOutput extends CreateRoleAliasResponse, _
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this operation.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class CreateRoleAliasCommand extends $Command<

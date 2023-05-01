@@ -38,15 +38,34 @@ export interface ListFleetsCommandOutput extends ListFleetsResponse, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkLinkClient, ListFleetsCommand } from "@aws-sdk/client-worklink"; // ES Modules import
- * // const { WorkLinkClient, ListFleetsCommand } = require("@aws-sdk/client-worklink"); // CommonJS import
+ * import { WorkLinkClient, ListFleetsCommand } from '@aws-sdk/client-worklink'; // ES Modules import
+ * // const { WorkLinkClient, ListFleetsCommand } = require('@aws-sdk/client-worklink'); // CommonJS import
  * const client = new WorkLinkClient(config);
  * const input = { // ListFleetsRequest
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListFleetsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListFleetsResponse
+ *   FleetSummaryList: [ // FleetSummaryList
+ *     { // FleetSummary
+ *       FleetArn: 'STRING_VALUE',
+ *       CreatedTime: new Date('TIMESTAMP'),
+ *       LastUpdatedTime: new Date('TIMESTAMP'),
+ *       FleetName: 'STRING_VALUE',
+ *       DisplayName: 'STRING_VALUE',
+ *       CompanyCode: 'STRING_VALUE',
+ *       FleetStatus: 'STRING_VALUE',
+ *       Tags: { // TagMap
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListFleetsCommandInput - {@link ListFleetsCommandInput}
@@ -67,6 +86,8 @@ export interface ListFleetsCommandOutput extends ListFleetsResponse, __MetadataB
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this action.</p>
  *
+ * @throws {@link WorkLinkServiceException}
+ * <p>Base exception class for all service exceptions from WorkLink service.</p>
  *
  */
 export class ListFleetsCommand extends $Command<

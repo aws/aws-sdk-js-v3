@@ -45,19 +45,54 @@ export interface DescribeStackResourceDriftsCommandOutput extends DescribeStackR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudFormationClient, DescribeStackResourceDriftsCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
- * // const { CloudFormationClient, DescribeStackResourceDriftsCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
+ * import { CloudFormationClient, DescribeStackResourceDriftsCommand } from '@aws-sdk/client-cloudformation'; // ES Modules import
+ * // const { CloudFormationClient, DescribeStackResourceDriftsCommand } = require('@aws-sdk/client-cloudformation'); // CommonJS import
  * const client = new CloudFormationClient(config);
  * const input = { // DescribeStackResourceDriftsInput
- *   StackName: "STRING_VALUE", // required
+ *   StackName: 'STRING_VALUE', // required
  *   StackResourceDriftStatusFilters: [ // StackResourceDriftStatusFilters
- *     "IN_SYNC" || "MODIFIED" || "DELETED" || "NOT_CHECKED",
+ *     'IN_SYNC' || 'MODIFIED' || 'DELETED' || 'NOT_CHECKED',
  *   ],
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new DescribeStackResourceDriftsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeStackResourceDriftsOutput
+ *   StackResourceDrifts: [ // StackResourceDrifts // required
+ *     { // StackResourceDrift
+ *       StackId: 'STRING_VALUE', // required
+ *       LogicalResourceId: 'STRING_VALUE', // required
+ *       PhysicalResourceId: 'STRING_VALUE',
+ *       PhysicalResourceIdContext: [ // PhysicalResourceIdContext
+ *         { // PhysicalResourceIdContextKeyValuePair
+ *           Key: 'STRING_VALUE', // required
+ *           Value: 'STRING_VALUE', // required
+ *         },
+ *       ],
+ *       ResourceType: 'STRING_VALUE', // required
+ *       ExpectedProperties: 'STRING_VALUE',
+ *       ActualProperties: 'STRING_VALUE',
+ *       PropertyDifferences: [ // PropertyDifferences
+ *         { // PropertyDifference
+ *           PropertyPath: 'STRING_VALUE', // required
+ *           ExpectedValue: 'STRING_VALUE', // required
+ *           ActualValue: 'STRING_VALUE', // required
+ *           DifferenceType: 'ADD' || 'REMOVE' || 'NOT_EQUAL', // required
+ *         },
+ *       ],
+ *       StackResourceDriftStatus: 'IN_SYNC' || 'MODIFIED' || 'DELETED' || 'NOT_CHECKED', // required
+ *       Timestamp: new Date('TIMESTAMP'), // required
+ *       ModuleInfo: { // ModuleInfo
+ *         TypeHierarchy: 'STRING_VALUE',
+ *         LogicalIdHierarchy: 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeStackResourceDriftsCommandInput - {@link DescribeStackResourceDriftsCommandInput}
@@ -66,6 +101,8 @@ export interface DescribeStackResourceDriftsCommandOutput extends DescribeStackR
  * @see {@link DescribeStackResourceDriftsCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
+ * @throws {@link CloudFormationServiceException}
+ * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
  */
 export class DescribeStackResourceDriftsCommand extends $Command<

@@ -45,18 +45,26 @@ export interface GetObjectRetentionCommandOutput extends GetObjectRetentionOutpu
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { S3Client, GetObjectRetentionCommand } from "@aws-sdk/client-s3"; // ES Modules import
- * // const { S3Client, GetObjectRetentionCommand } = require("@aws-sdk/client-s3"); // CommonJS import
+ * import { S3Client, GetObjectRetentionCommand } from '@aws-sdk/client-s3'; // ES Modules import
+ * // const { S3Client, GetObjectRetentionCommand } = require('@aws-sdk/client-s3'); // CommonJS import
  * const client = new S3Client(config);
  * const input = { // GetObjectRetentionRequest
- *   Bucket: "STRING_VALUE", // required
- *   Key: "STRING_VALUE", // required
- *   VersionId: "STRING_VALUE",
- *   RequestPayer: "requester",
- *   ExpectedBucketOwner: "STRING_VALUE",
+ *   Bucket: 'STRING_VALUE', // required
+ *   Key: 'STRING_VALUE', // required
+ *   VersionId: 'STRING_VALUE',
+ *   RequestPayer: 'requester',
+ *   ExpectedBucketOwner: 'STRING_VALUE',
  * };
  * const command = new GetObjectRetentionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetObjectRetentionOutput
+ *   Retention: { // ObjectLockRetention
+ *     Mode: 'GOVERNANCE' || 'COMPLIANCE',
+ *     RetainUntilDate: new Date('TIMESTAMP'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetObjectRetentionCommandInput - {@link GetObjectRetentionCommandInput}
@@ -65,6 +73,8 @@ export interface GetObjectRetentionCommandOutput extends GetObjectRetentionOutpu
  * @see {@link GetObjectRetentionCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
+ * @throws {@link S3ServiceException}
+ * <p>Base exception class for all service exceptions from S3 service.</p>
  *
  */
 export class GetObjectRetentionCommand extends $Command<

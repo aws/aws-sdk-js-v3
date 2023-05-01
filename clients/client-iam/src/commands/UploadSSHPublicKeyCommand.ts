@@ -40,15 +40,27 @@ export interface UploadSSHPublicKeyCommandOutput extends UploadSSHPublicKeyRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IAMClient, UploadSSHPublicKeyCommand } from "@aws-sdk/client-iam"; // ES Modules import
- * // const { IAMClient, UploadSSHPublicKeyCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * import { IAMClient, UploadSSHPublicKeyCommand } from '@aws-sdk/client-iam'; // ES Modules import
+ * // const { IAMClient, UploadSSHPublicKeyCommand } = require('@aws-sdk/client-iam'); // CommonJS import
  * const client = new IAMClient(config);
  * const input = { // UploadSSHPublicKeyRequest
- *   UserName: "STRING_VALUE", // required
- *   SSHPublicKeyBody: "STRING_VALUE", // required
+ *   UserName: 'STRING_VALUE', // required
+ *   SSHPublicKeyBody: 'STRING_VALUE', // required
  * };
  * const command = new UploadSSHPublicKeyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UploadSSHPublicKeyResponse
+ *   SSHPublicKey: { // SSHPublicKey
+ *     UserName: 'STRING_VALUE', // required
+ *     SSHPublicKeyId: 'STRING_VALUE', // required
+ *     Fingerprint: 'STRING_VALUE', // required
+ *     SSHPublicKeyBody: 'STRING_VALUE', // required
+ *     Status: 'Active' || 'Inactive', // required
+ *     UploadDate: new Date('TIMESTAMP'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param UploadSSHPublicKeyCommandInput - {@link UploadSSHPublicKeyCommandInput}
@@ -76,6 +88,8 @@ export interface UploadSSHPublicKeyCommandOutput extends UploadSSHPublicKeyRespo
  *  <p>The request was rejected because the public key encoding format is unsupported or
  *       unrecognized.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  */
 export class UploadSSHPublicKeyCommand extends $Command<

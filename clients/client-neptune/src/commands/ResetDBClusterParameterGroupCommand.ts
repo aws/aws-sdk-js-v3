@@ -45,29 +45,34 @@ export interface ResetDBClusterParameterGroupCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { NeptuneClient, ResetDBClusterParameterGroupCommand } from "@aws-sdk/client-neptune"; // ES Modules import
- * // const { NeptuneClient, ResetDBClusterParameterGroupCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
+ * import { NeptuneClient, ResetDBClusterParameterGroupCommand } from '@aws-sdk/client-neptune'; // ES Modules import
+ * // const { NeptuneClient, ResetDBClusterParameterGroupCommand } = require('@aws-sdk/client-neptune'); // CommonJS import
  * const client = new NeptuneClient(config);
  * const input = { // ResetDBClusterParameterGroupMessage
- *   DBClusterParameterGroupName: "STRING_VALUE", // required
+ *   DBClusterParameterGroupName: 'STRING_VALUE', // required
  *   ResetAllParameters: true || false,
  *   Parameters: [ // ParametersList
  *     { // Parameter
- *       ParameterName: "STRING_VALUE",
- *       ParameterValue: "STRING_VALUE",
- *       Description: "STRING_VALUE",
- *       Source: "STRING_VALUE",
- *       ApplyType: "STRING_VALUE",
- *       DataType: "STRING_VALUE",
- *       AllowedValues: "STRING_VALUE",
+ *       ParameterName: 'STRING_VALUE',
+ *       ParameterValue: 'STRING_VALUE',
+ *       Description: 'STRING_VALUE',
+ *       Source: 'STRING_VALUE',
+ *       ApplyType: 'STRING_VALUE',
+ *       DataType: 'STRING_VALUE',
+ *       AllowedValues: 'STRING_VALUE',
  *       IsModifiable: true || false,
- *       MinimumEngineVersion: "STRING_VALUE",
- *       ApplyMethod: "immediate" || "pending-reboot",
+ *       MinimumEngineVersion: 'STRING_VALUE',
+ *       ApplyMethod: 'immediate' || 'pending-reboot',
  *     },
  *   ],
  * };
  * const command = new ResetDBClusterParameterGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DBClusterParameterGroupNameMessage
+ *   DBClusterParameterGroupName: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ResetDBClusterParameterGroupCommandInput - {@link ResetDBClusterParameterGroupCommandInput}
@@ -85,6 +90,8 @@ export interface ResetDBClusterParameterGroupCommandOutput
  *  <p>The DB parameter group is in use or is in an invalid state. If you are attempting to
  *       delete the parameter group, you cannot delete it when the parameter group is in this state.</p>
  *
+ * @throws {@link NeptuneServiceException}
+ * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
  */
 export class ResetDBClusterParameterGroupCommand extends $Command<

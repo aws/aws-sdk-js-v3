@@ -45,24 +45,46 @@ export interface DescribeEventSubscriptionsCommandOutput extends DescribeEventSu
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DatabaseMigrationServiceClient, DescribeEventSubscriptionsCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
- * // const { DatabaseMigrationServiceClient, DescribeEventSubscriptionsCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
+ * import { DatabaseMigrationServiceClient, DescribeEventSubscriptionsCommand } from '@aws-sdk/client-database-migration-service'; // ES Modules import
+ * // const { DatabaseMigrationServiceClient, DescribeEventSubscriptionsCommand } = require('@aws-sdk/client-database-migration-service'); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
  * const input = { // DescribeEventSubscriptionsMessage
- *   SubscriptionName: "STRING_VALUE",
+ *   SubscriptionName: 'STRING_VALUE',
  *   Filters: [ // FilterList
  *     { // Filter
- *       Name: "STRING_VALUE", // required
+ *       Name: 'STRING_VALUE', // required
  *       Values: [ // FilterValueList // required
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
- *   MaxRecords: Number("int"),
- *   Marker: "STRING_VALUE",
+ *   MaxRecords: Number('int'),
+ *   Marker: 'STRING_VALUE',
  * };
  * const command = new DescribeEventSubscriptionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeEventSubscriptionsResponse
+ *   Marker: 'STRING_VALUE',
+ *   EventSubscriptionsList: [ // EventSubscriptionsList
+ *     { // EventSubscription
+ *       CustomerAwsId: 'STRING_VALUE',
+ *       CustSubscriptionId: 'STRING_VALUE',
+ *       SnsTopicArn: 'STRING_VALUE',
+ *       Status: 'STRING_VALUE',
+ *       SubscriptionCreationTime: 'STRING_VALUE',
+ *       SourceType: 'STRING_VALUE',
+ *       SourceIdsList: [ // SourceIdsList
+ *         'STRING_VALUE',
+ *       ],
+ *       EventCategoriesList: [ // EventCategoriesList
+ *         'STRING_VALUE',
+ *       ],
+ *       Enabled: true || false,
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeEventSubscriptionsCommandInput - {@link DescribeEventSubscriptionsCommandInput}
@@ -74,6 +96,8 @@ export interface DescribeEventSubscriptionsCommandOutput extends DescribeEventSu
  * @throws {@link ResourceNotFoundFault} (client fault)
  *  <p>The resource could not be found.</p>
  *
+ * @throws {@link DatabaseMigrationServiceServiceException}
+ * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
  */
 export class DescribeEventSubscriptionsCommand extends $Command<

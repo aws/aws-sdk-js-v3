@@ -36,19 +36,99 @@ export interface DescribeClustersCommandOutput extends DescribeClustersResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ECSClient, DescribeClustersCommand } from "@aws-sdk/client-ecs"; // ES Modules import
- * // const { ECSClient, DescribeClustersCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
+ * import { ECSClient, DescribeClustersCommand } from '@aws-sdk/client-ecs'; // ES Modules import
+ * // const { ECSClient, DescribeClustersCommand } = require('@aws-sdk/client-ecs'); // CommonJS import
  * const client = new ECSClient(config);
  * const input = { // DescribeClustersRequest
  *   clusters: [ // StringList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   include: [ // ClusterFieldList
- *     "ATTACHMENTS" || "CONFIGURATIONS" || "SETTINGS" || "STATISTICS" || "TAGS",
+ *     'ATTACHMENTS' || 'CONFIGURATIONS' || 'SETTINGS' || 'STATISTICS' || 'TAGS',
  *   ],
  * };
  * const command = new DescribeClustersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeClustersResponse
+ *   clusters: [ // Clusters
+ *     { // Cluster
+ *       clusterArn: 'STRING_VALUE',
+ *       clusterName: 'STRING_VALUE',
+ *       configuration: { // ClusterConfiguration
+ *         executeCommandConfiguration: { // ExecuteCommandConfiguration
+ *           kmsKeyId: 'STRING_VALUE',
+ *           logging: 'NONE' || 'DEFAULT' || 'OVERRIDE',
+ *           logConfiguration: { // ExecuteCommandLogConfiguration
+ *             cloudWatchLogGroupName: 'STRING_VALUE',
+ *             cloudWatchEncryptionEnabled: true || false,
+ *             s3BucketName: 'STRING_VALUE',
+ *             s3EncryptionEnabled: true || false,
+ *             s3KeyPrefix: 'STRING_VALUE',
+ *           },
+ *         },
+ *       },
+ *       status: 'STRING_VALUE',
+ *       registeredContainerInstancesCount: Number('int'),
+ *       runningTasksCount: Number('int'),
+ *       pendingTasksCount: Number('int'),
+ *       activeServicesCount: Number('int'),
+ *       statistics: [ // Statistics
+ *         { // KeyValuePair
+ *           name: 'STRING_VALUE',
+ *           value: 'STRING_VALUE',
+ *         },
+ *       ],
+ *       tags: [ // Tags
+ *         { // Tag
+ *           key: 'STRING_VALUE',
+ *           value: 'STRING_VALUE',
+ *         },
+ *       ],
+ *       settings: [ // ClusterSettings
+ *         { // ClusterSetting
+ *           name: 'containerInsights',
+ *           value: 'STRING_VALUE',
+ *         },
+ *       ],
+ *       capacityProviders: [ // StringList
+ *         'STRING_VALUE',
+ *       ],
+ *       defaultCapacityProviderStrategy: [ // CapacityProviderStrategy
+ *         { // CapacityProviderStrategyItem
+ *           capacityProvider: 'STRING_VALUE', // required
+ *           weight: Number('int'),
+ *           base: Number('int'),
+ *         },
+ *       ],
+ *       attachments: [ // Attachments
+ *         { // Attachment
+ *           id: 'STRING_VALUE',
+ *           type: 'STRING_VALUE',
+ *           status: 'STRING_VALUE',
+ *           details: [ // AttachmentDetails
+ *             {
+ *               name: 'STRING_VALUE',
+ *               value: 'STRING_VALUE',
+ *             },
+ *           ],
+ *         },
+ *       ],
+ *       attachmentsStatus: 'STRING_VALUE',
+ *       serviceConnectDefaults: { // ClusterServiceConnectDefaults
+ *         namespace: 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ *   failures: [ // Failures
+ *     { // Failure
+ *       arn: 'STRING_VALUE',
+ *       reason: 'STRING_VALUE',
+ *       detail: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeClustersCommandInput - {@link DescribeClustersCommandInput}
@@ -69,6 +149,8 @@ export interface DescribeClustersCommandOutput extends DescribeClustersResponse,
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server issue.</p>
  *
+ * @throws {@link ECSServiceException}
+ * <p>Base exception class for all service exceptions from ECS service.</p>
  *
  * @example To describe a cluster
  * ```javascript

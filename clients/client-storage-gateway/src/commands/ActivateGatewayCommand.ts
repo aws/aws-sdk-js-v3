@@ -43,26 +43,31 @@ export interface ActivateGatewayCommandOutput extends ActivateGatewayOutput, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { StorageGatewayClient, ActivateGatewayCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
- * // const { StorageGatewayClient, ActivateGatewayCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
+ * import { StorageGatewayClient, ActivateGatewayCommand } from '@aws-sdk/client-storage-gateway'; // ES Modules import
+ * // const { StorageGatewayClient, ActivateGatewayCommand } = require('@aws-sdk/client-storage-gateway'); // CommonJS import
  * const client = new StorageGatewayClient(config);
  * const input = { // ActivateGatewayInput
- *   ActivationKey: "STRING_VALUE", // required
- *   GatewayName: "STRING_VALUE", // required
- *   GatewayTimezone: "STRING_VALUE", // required
- *   GatewayRegion: "STRING_VALUE", // required
- *   GatewayType: "STRING_VALUE",
- *   TapeDriveType: "STRING_VALUE",
- *   MediumChangerType: "STRING_VALUE",
+ *   ActivationKey: 'STRING_VALUE', // required
+ *   GatewayName: 'STRING_VALUE', // required
+ *   GatewayTimezone: 'STRING_VALUE', // required
+ *   GatewayRegion: 'STRING_VALUE', // required
+ *   GatewayType: 'STRING_VALUE',
+ *   TapeDriveType: 'STRING_VALUE',
+ *   MediumChangerType: 'STRING_VALUE',
  *   Tags: [ // Tags
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new ActivateGatewayCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ActivateGatewayOutput
+ *   GatewayARN: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ActivateGatewayCommandInput - {@link ActivateGatewayCommandInput}
@@ -79,6 +84,8 @@ export interface ActivateGatewayCommandOutput extends ActivateGatewayOutput, __M
  *  <p>An exception occurred because an invalid gateway request was issued to the service. For
  *          more information, see the error and message fields.</p>
  *
+ * @throws {@link StorageGatewayServiceException}
+ * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
  * @example To activate the gateway
  * ```javascript

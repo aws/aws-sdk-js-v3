@@ -43,15 +43,30 @@ export interface ListDeliverabilityTestReportsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SESv2Client, ListDeliverabilityTestReportsCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
- * // const { SESv2Client, ListDeliverabilityTestReportsCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
+ * import { SESv2Client, ListDeliverabilityTestReportsCommand } from '@aws-sdk/client-sesv2'; // ES Modules import
+ * // const { SESv2Client, ListDeliverabilityTestReportsCommand } = require('@aws-sdk/client-sesv2'); // CommonJS import
  * const client = new SESv2Client(config);
  * const input = { // ListDeliverabilityTestReportsRequest
- *   NextToken: "STRING_VALUE",
- *   PageSize: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   PageSize: Number('int'),
  * };
  * const command = new ListDeliverabilityTestReportsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListDeliverabilityTestReportsResponse
+ *   DeliverabilityTestReports: [ // DeliverabilityTestReports // required
+ *     { // DeliverabilityTestReport
+ *       ReportId: 'STRING_VALUE',
+ *       ReportName: 'STRING_VALUE',
+ *       Subject: 'STRING_VALUE',
+ *       FromEmailAddress: 'STRING_VALUE',
+ *       CreateDate: new Date('TIMESTAMP'),
+ *       DeliverabilityTestStatus: 'IN_PROGRESS' || 'COMPLETED',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListDeliverabilityTestReportsCommandInput - {@link ListDeliverabilityTestReportsCommandInput}
@@ -69,6 +84,8 @@ export interface ListDeliverabilityTestReportsCommandOutput
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Too many requests have been made to the operation.</p>
  *
+ * @throws {@link SESv2ServiceException}
+ * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
  */
 export class ListDeliverabilityTestReportsCommand extends $Command<

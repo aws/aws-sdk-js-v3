@@ -44,17 +44,22 @@ export interface BeginTransactionCommandOutput extends BeginTransactionResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RDSDataClient, BeginTransactionCommand } from "@aws-sdk/client-rds-data"; // ES Modules import
- * // const { RDSDataClient, BeginTransactionCommand } = require("@aws-sdk/client-rds-data"); // CommonJS import
+ * import { RDSDataClient, BeginTransactionCommand } from '@aws-sdk/client-rds-data'; // ES Modules import
+ * // const { RDSDataClient, BeginTransactionCommand } = require('@aws-sdk/client-rds-data'); // CommonJS import
  * const client = new RDSDataClient(config);
  * const input = { // BeginTransactionRequest
- *   resourceArn: "STRING_VALUE", // required
- *   secretArn: "STRING_VALUE", // required
- *   database: "STRING_VALUE",
- *   schema: "STRING_VALUE",
+ *   resourceArn: 'STRING_VALUE', // required
+ *   secretArn: 'STRING_VALUE', // required
+ *   database: 'STRING_VALUE',
+ *   schema: 'STRING_VALUE',
  * };
  * const command = new BeginTransactionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BeginTransactionResponse
+ *   transactionId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param BeginTransactionCommandInput - {@link BeginTransactionCommandInput}
@@ -82,6 +87,8 @@ export interface BeginTransactionCommandOutput extends BeginTransactionResponse,
  * @throws {@link StatementTimeoutException} (client fault)
  *  <p>The execution of the SQL statement timed out.</p>
  *
+ * @throws {@link RDSDataServiceException}
+ * <p>Base exception class for all service exceptions from RDSData service.</p>
  *
  */
 export class BeginTransactionCommand extends $Command<

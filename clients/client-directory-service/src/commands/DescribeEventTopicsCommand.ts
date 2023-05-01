@@ -39,17 +39,30 @@ export interface DescribeEventTopicsCommandOutput extends DescribeEventTopicsRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DirectoryServiceClient, DescribeEventTopicsCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
- * // const { DirectoryServiceClient, DescribeEventTopicsCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
+ * import { DirectoryServiceClient, DescribeEventTopicsCommand } from '@aws-sdk/client-directory-service'; // ES Modules import
+ * // const { DirectoryServiceClient, DescribeEventTopicsCommand } = require('@aws-sdk/client-directory-service'); // CommonJS import
  * const client = new DirectoryServiceClient(config);
  * const input = { // DescribeEventTopicsRequest
- *   DirectoryId: "STRING_VALUE",
+ *   DirectoryId: 'STRING_VALUE',
  *   TopicNames: [ // TopicNames
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new DescribeEventTopicsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeEventTopicsResult
+ *   EventTopics: [ // EventTopics
+ *     { // EventTopic
+ *       DirectoryId: 'STRING_VALUE',
+ *       TopicName: 'STRING_VALUE',
+ *       TopicArn: 'STRING_VALUE',
+ *       CreatedDateTime: new Date('TIMESTAMP'),
+ *       Status: 'Registered' || 'Topic not found' || 'Failed' || 'Deleted',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeEventTopicsCommandInput - {@link DescribeEventTopicsCommandInput}
@@ -70,6 +83,8 @@ export interface DescribeEventTopicsCommandOutput extends DescribeEventTopicsRes
  * @throws {@link ServiceException} (server fault)
  *  <p>An exception has occurred in Directory Service.</p>
  *
+ * @throws {@link DirectoryServiceServiceException}
+ * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
  */
 export class DescribeEventTopicsCommand extends $Command<

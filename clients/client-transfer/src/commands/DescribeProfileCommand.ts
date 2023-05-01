@@ -36,14 +36,33 @@ export interface DescribeProfileCommandOutput extends DescribeProfileResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { TransferClient, DescribeProfileCommand } from "@aws-sdk/client-transfer"; // ES Modules import
- * // const { TransferClient, DescribeProfileCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
+ * import { TransferClient, DescribeProfileCommand } from '@aws-sdk/client-transfer'; // ES Modules import
+ * // const { TransferClient, DescribeProfileCommand } = require('@aws-sdk/client-transfer'); // CommonJS import
  * const client = new TransferClient(config);
  * const input = { // DescribeProfileRequest
- *   ProfileId: "STRING_VALUE", // required
+ *   ProfileId: 'STRING_VALUE', // required
  * };
  * const command = new DescribeProfileCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeProfileResponse
+ *   Profile: { // DescribedProfile
+ *     Arn: 'STRING_VALUE', // required
+ *     ProfileId: 'STRING_VALUE',
+ *     ProfileType: 'LOCAL' || 'PARTNER',
+ *     As2Id: 'STRING_VALUE',
+ *     CertificateIds: [ // CertificateIds
+ *       'STRING_VALUE',
+ *     ],
+ *     Tags: [ // Tags
+ *       { // Tag
+ *         Key: 'STRING_VALUE', // required
+ *         Value: 'STRING_VALUE', // required
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeProfileCommandInput - {@link DescribeProfileCommandInput}
@@ -65,6 +84,8 @@ export interface DescribeProfileCommandOutput extends DescribeProfileResponse, _
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request has failed because the Amazon Web ServicesTransfer Family service is not available.</p>
  *
+ * @throws {@link TransferServiceException}
+ * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
  */
 export class DescribeProfileCommand extends $Command<

@@ -36,16 +36,31 @@ export interface DescribeDetectorCommandOutput extends DescribeDetectorResult, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FraudDetectorClient, DescribeDetectorCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
- * // const { FraudDetectorClient, DescribeDetectorCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
+ * import { FraudDetectorClient, DescribeDetectorCommand } from '@aws-sdk/client-frauddetector'; // ES Modules import
+ * // const { FraudDetectorClient, DescribeDetectorCommand } = require('@aws-sdk/client-frauddetector'); // CommonJS import
  * const client = new FraudDetectorClient(config);
  * const input = { // DescribeDetectorRequest
- *   detectorId: "STRING_VALUE", // required
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   detectorId: 'STRING_VALUE', // required
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new DescribeDetectorCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeDetectorResult
+ *   detectorId: 'STRING_VALUE',
+ *   detectorVersionSummaries: [ // DetectorVersionSummaryList
+ *     { // DetectorVersionSummary
+ *       detectorVersionId: 'STRING_VALUE',
+ *       status: 'DRAFT' || 'ACTIVE' || 'INACTIVE',
+ *       description: 'STRING_VALUE',
+ *       lastUpdatedTime: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ *   arn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeDetectorCommandInput - {@link DescribeDetectorCommandInput}
@@ -69,6 +84,8 @@ export interface DescribeDetectorCommandOutput extends DescribeDetectorResult, _
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception indicating a specified value is not allowed.</p>
  *
+ * @throws {@link FraudDetectorServiceException}
+ * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
  */
 export class DescribeDetectorCommand extends $Command<

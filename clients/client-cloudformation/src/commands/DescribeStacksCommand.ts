@@ -40,15 +40,80 @@ export interface DescribeStacksCommandOutput extends DescribeStacksOutput, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudFormationClient, DescribeStacksCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
- * // const { CloudFormationClient, DescribeStacksCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
+ * import { CloudFormationClient, DescribeStacksCommand } from '@aws-sdk/client-cloudformation'; // ES Modules import
+ * // const { CloudFormationClient, DescribeStacksCommand } = require('@aws-sdk/client-cloudformation'); // CommonJS import
  * const client = new CloudFormationClient(config);
  * const input = { // DescribeStacksInput
- *   StackName: "STRING_VALUE",
- *   NextToken: "STRING_VALUE",
+ *   StackName: 'STRING_VALUE',
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new DescribeStacksCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeStacksOutput
+ *   Stacks: [ // Stacks
+ *     { // Stack
+ *       StackId: 'STRING_VALUE',
+ *       StackName: 'STRING_VALUE', // required
+ *       ChangeSetId: 'STRING_VALUE',
+ *       Description: 'STRING_VALUE',
+ *       Parameters: [ // Parameters
+ *         { // Parameter
+ *           ParameterKey: 'STRING_VALUE',
+ *           ParameterValue: 'STRING_VALUE',
+ *           UsePreviousValue: true || false,
+ *           ResolvedValue: 'STRING_VALUE',
+ *         },
+ *       ],
+ *       CreationTime: new Date('TIMESTAMP'), // required
+ *       DeletionTime: new Date('TIMESTAMP'),
+ *       LastUpdatedTime: new Date('TIMESTAMP'),
+ *       RollbackConfiguration: { // RollbackConfiguration
+ *         RollbackTriggers: [ // RollbackTriggers
+ *           { // RollbackTrigger
+ *             Arn: 'STRING_VALUE', // required
+ *             Type: 'STRING_VALUE', // required
+ *           },
+ *         ],
+ *         MonitoringTimeInMinutes: Number('int'),
+ *       },
+ *       StackStatus: 'CREATE_IN_PROGRESS' || 'CREATE_FAILED' || 'CREATE_COMPLETE' || 'ROLLBACK_IN_PROGRESS' || 'ROLLBACK_FAILED' || 'ROLLBACK_COMPLETE' || 'DELETE_IN_PROGRESS' || 'DELETE_FAILED' || 'DELETE_COMPLETE' || 'UPDATE_IN_PROGRESS' || 'UPDATE_COMPLETE_CLEANUP_IN_PROGRESS' || 'UPDATE_COMPLETE' || 'UPDATE_FAILED' || 'UPDATE_ROLLBACK_IN_PROGRESS' || 'UPDATE_ROLLBACK_FAILED' || 'UPDATE_ROLLBACK_COMPLETE_CLEANUP_IN_PROGRESS' || 'UPDATE_ROLLBACK_COMPLETE' || 'REVIEW_IN_PROGRESS' || 'IMPORT_IN_PROGRESS' || 'IMPORT_COMPLETE' || 'IMPORT_ROLLBACK_IN_PROGRESS' || 'IMPORT_ROLLBACK_FAILED' || 'IMPORT_ROLLBACK_COMPLETE', // required
+ *       StackStatusReason: 'STRING_VALUE',
+ *       DisableRollback: true || false,
+ *       NotificationARNs: [ // NotificationARNs
+ *         'STRING_VALUE',
+ *       ],
+ *       TimeoutInMinutes: Number('int'),
+ *       Capabilities: [ // Capabilities
+ *         'CAPABILITY_IAM' || 'CAPABILITY_NAMED_IAM' || 'CAPABILITY_AUTO_EXPAND',
+ *       ],
+ *       Outputs: [ // Outputs
+ *         { // Output
+ *           OutputKey: 'STRING_VALUE',
+ *           OutputValue: 'STRING_VALUE',
+ *           Description: 'STRING_VALUE',
+ *           ExportName: 'STRING_VALUE',
+ *         },
+ *       ],
+ *       RoleARN: 'STRING_VALUE',
+ *       Tags: [ // Tags
+ *         { // Tag
+ *           Key: 'STRING_VALUE', // required
+ *           Value: 'STRING_VALUE', // required
+ *         },
+ *       ],
+ *       EnableTerminationProtection: true || false,
+ *       ParentId: 'STRING_VALUE',
+ *       RootId: 'STRING_VALUE',
+ *       DriftInformation: { // StackDriftInformation
+ *         StackDriftStatus: 'DRIFTED' || 'IN_SYNC' || 'UNKNOWN' || 'NOT_CHECKED', // required
+ *         LastCheckTimestamp: new Date('TIMESTAMP'),
+ *       },
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeStacksCommandInput - {@link DescribeStacksCommandInput}
@@ -57,6 +122,8 @@ export interface DescribeStacksCommandOutput extends DescribeStacksOutput, __Met
  * @see {@link DescribeStacksCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
+ * @throws {@link CloudFormationServiceException}
+ * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
  */
 export class DescribeStacksCommand extends $Command<

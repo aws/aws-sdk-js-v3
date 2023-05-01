@@ -37,15 +37,21 @@ export interface ApplySchemaCommandOutput extends ApplySchemaResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudDirectoryClient, ApplySchemaCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
- * // const { CloudDirectoryClient, ApplySchemaCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
+ * import { CloudDirectoryClient, ApplySchemaCommand } from '@aws-sdk/client-clouddirectory'; // ES Modules import
+ * // const { CloudDirectoryClient, ApplySchemaCommand } = require('@aws-sdk/client-clouddirectory'); // CommonJS import
  * const client = new CloudDirectoryClient(config);
  * const input = { // ApplySchemaRequest
- *   PublishedSchemaArn: "STRING_VALUE", // required
- *   DirectoryArn: "STRING_VALUE", // required
+ *   PublishedSchemaArn: 'STRING_VALUE', // required
+ *   DirectoryArn: 'STRING_VALUE', // required
  * };
  * const command = new ApplySchemaCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ApplySchemaResponse
+ *   AppliedSchemaArn: 'STRING_VALUE',
+ *   DirectoryArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ApplySchemaCommandInput - {@link ApplySchemaCommandInput}
@@ -84,6 +90,8 @@ export interface ApplySchemaCommandOutput extends ApplySchemaResponse, __Metadat
  *  <p>Indicates that your request is malformed in some manner. See the exception
  *       message.</p>
  *
+ * @throws {@link CloudDirectoryServiceException}
+ * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
  */
 export class ApplySchemaCommand extends $Command<

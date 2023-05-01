@@ -74,17 +74,29 @@ export interface BatchDeleteRecipeVersionCommandOutput extends BatchDeleteRecipe
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DataBrewClient, BatchDeleteRecipeVersionCommand } from "@aws-sdk/client-databrew"; // ES Modules import
- * // const { DataBrewClient, BatchDeleteRecipeVersionCommand } = require("@aws-sdk/client-databrew"); // CommonJS import
+ * import { DataBrewClient, BatchDeleteRecipeVersionCommand } from '@aws-sdk/client-databrew'; // ES Modules import
+ * // const { DataBrewClient, BatchDeleteRecipeVersionCommand } = require('@aws-sdk/client-databrew'); // CommonJS import
  * const client = new DataBrewClient(config);
  * const input = { // BatchDeleteRecipeVersionRequest
- *   Name: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
  *   RecipeVersions: [ // RecipeVersionList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new BatchDeleteRecipeVersionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BatchDeleteRecipeVersionResponse
+ *   Name: 'STRING_VALUE', // required
+ *   Errors: [ // RecipeErrorList
+ *     { // RecipeVersionErrorDetail
+ *       ErrorCode: 'STRING_VALUE',
+ *       ErrorMessage: 'STRING_VALUE',
+ *       RecipeVersion: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param BatchDeleteRecipeVersionCommandInput - {@link BatchDeleteRecipeVersionCommandInput}
@@ -102,6 +114,8 @@ export interface BatchDeleteRecipeVersionCommandOutput extends BatchDeleteRecipe
  * @throws {@link ValidationException} (client fault)
  *  <p>The input parameters for this request failed validation.</p>
  *
+ * @throws {@link DataBrewServiceException}
+ * <p>Base exception class for all service exceptions from DataBrew service.</p>
  *
  */
 export class BatchDeleteRecipeVersionCommand extends $Command<

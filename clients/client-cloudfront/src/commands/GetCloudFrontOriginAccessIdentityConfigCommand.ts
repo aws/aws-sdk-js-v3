@@ -45,14 +45,23 @@ export interface GetCloudFrontOriginAccessIdentityConfigCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudFrontClient, GetCloudFrontOriginAccessIdentityConfigCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
- * // const { CloudFrontClient, GetCloudFrontOriginAccessIdentityConfigCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
+ * import { CloudFrontClient, GetCloudFrontOriginAccessIdentityConfigCommand } from '@aws-sdk/client-cloudfront'; // ES Modules import
+ * // const { CloudFrontClient, GetCloudFrontOriginAccessIdentityConfigCommand } = require('@aws-sdk/client-cloudfront'); // CommonJS import
  * const client = new CloudFrontClient(config);
  * const input = { // GetCloudFrontOriginAccessIdentityConfigRequest
- *   Id: "STRING_VALUE", // required
+ *   Id: 'STRING_VALUE', // required
  * };
  * const command = new GetCloudFrontOriginAccessIdentityConfigCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetCloudFrontOriginAccessIdentityConfigResult
+ *   CloudFrontOriginAccessIdentityConfig: { // CloudFrontOriginAccessIdentityConfig
+ *     CallerReference: 'STRING_VALUE', // required
+ *     Comment: 'STRING_VALUE', // required
+ *   },
+ *   ETag: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetCloudFrontOriginAccessIdentityConfigCommandInput - {@link GetCloudFrontOriginAccessIdentityConfigCommandInput}
@@ -67,6 +76,8 @@ export interface GetCloudFrontOriginAccessIdentityConfigCommandOutput
  * @throws {@link NoSuchCloudFrontOriginAccessIdentity} (client fault)
  *  <p>The specified origin access identity does not exist.</p>
  *
+ * @throws {@link CloudFrontServiceException}
+ * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
  */
 export class GetCloudFrontOriginAccessIdentityConfigCommand extends $Command<

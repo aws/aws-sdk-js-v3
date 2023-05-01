@@ -36,12 +36,15 @@ export interface DeleteOrganizationCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OrganizationsClient, DeleteOrganizationCommand } from "@aws-sdk/client-organizations"; // ES Modules import
- * // const { OrganizationsClient, DeleteOrganizationCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
+ * import { OrganizationsClient, DeleteOrganizationCommand } from '@aws-sdk/client-organizations'; // ES Modules import
+ * // const { OrganizationsClient, DeleteOrganizationCommand } = require('@aws-sdk/client-organizations'); // CommonJS import
  * const client = new OrganizationsClient(config);
  * const input = {};
  * const command = new DeleteOrganizationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteOrganizationCommandInput - {@link DeleteOrganizationCommandInput}
@@ -184,6 +187,8 @@ export interface DeleteOrganizationCommandOutput extends __MetadataBearer {}
  *                 <i>Organizations User Guide.</i>
  *          </p>
  *
+ * @throws {@link OrganizationsServiceException}
+ * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
  */
 export class DeleteOrganizationCommand extends $Command<

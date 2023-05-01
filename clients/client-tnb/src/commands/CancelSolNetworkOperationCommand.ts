@@ -37,14 +37,17 @@ export interface CancelSolNetworkOperationCommandOutput extends __MetadataBearer
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { TnbClient, CancelSolNetworkOperationCommand } from "@aws-sdk/client-tnb"; // ES Modules import
- * // const { TnbClient, CancelSolNetworkOperationCommand } = require("@aws-sdk/client-tnb"); // CommonJS import
+ * import { TnbClient, CancelSolNetworkOperationCommand } from '@aws-sdk/client-tnb'; // ES Modules import
+ * // const { TnbClient, CancelSolNetworkOperationCommand } = require('@aws-sdk/client-tnb'); // CommonJS import
  * const client = new TnbClient(config);
  * const input = { // CancelSolNetworkOperationInput
- *   nsLcmOpOccId: "STRING_VALUE", // required
+ *   nsLcmOpOccId: 'STRING_VALUE', // required
  * };
  * const command = new CancelSolNetworkOperationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param CancelSolNetworkOperationCommandInput - {@link CancelSolNetworkOperationCommandInput}
@@ -68,6 +71,8 @@ export interface CancelSolNetworkOperationCommandOutput extends __MetadataBearer
  * @throws {@link ValidationException} (client fault)
  *  <p>Unable to process the request because the client provided input failed to satisfy request constraints.</p>
  *
+ * @throws {@link TnbServiceException}
+ * <p>Base exception class for all service exceptions from Tnb service.</p>
  *
  */
 export class CancelSolNetworkOperationCommand extends $Command<

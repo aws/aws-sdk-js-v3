@@ -36,66 +36,78 @@ export interface ListCoverageStatisticsCommandOutput extends ListCoverageStatist
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Inspector2Client, ListCoverageStatisticsCommand } from "@aws-sdk/client-inspector2"; // ES Modules import
- * // const { Inspector2Client, ListCoverageStatisticsCommand } = require("@aws-sdk/client-inspector2"); // CommonJS import
+ * import { Inspector2Client, ListCoverageStatisticsCommand } from '@aws-sdk/client-inspector2'; // ES Modules import
+ * // const { Inspector2Client, ListCoverageStatisticsCommand } = require('@aws-sdk/client-inspector2'); // CommonJS import
  * const client = new Inspector2Client(config);
  * const input = { // ListCoverageStatisticsRequest
  *   filterCriteria: { // CoverageFilterCriteria
  *     scanStatusCode: [ // CoverageStringFilterList
  *       { // CoverageStringFilter
- *         comparison: "STRING_VALUE", // required
- *         value: "STRING_VALUE", // required
+ *         comparison: 'STRING_VALUE', // required
+ *         value: 'STRING_VALUE', // required
  *       },
  *     ],
  *     scanStatusReason: [
  *       {
- *         comparison: "STRING_VALUE", // required
- *         value: "STRING_VALUE", // required
+ *         comparison: 'STRING_VALUE', // required
+ *         value: 'STRING_VALUE', // required
  *       },
  *     ],
  *     accountId: [
  *       {
- *         comparison: "STRING_VALUE", // required
- *         value: "STRING_VALUE", // required
+ *         comparison: 'STRING_VALUE', // required
+ *         value: 'STRING_VALUE', // required
  *       },
  *     ],
  *     resourceId: [
  *       {
- *         comparison: "STRING_VALUE", // required
- *         value: "STRING_VALUE", // required
+ *         comparison: 'STRING_VALUE', // required
+ *         value: 'STRING_VALUE', // required
  *       },
  *     ],
  *     resourceType: [
  *       {
- *         comparison: "STRING_VALUE", // required
- *         value: "STRING_VALUE", // required
+ *         comparison: 'STRING_VALUE', // required
+ *         value: 'STRING_VALUE', // required
  *       },
  *     ],
- *     scanType: "<CoverageStringFilterList>",
- *     ecrRepositoryName: "<CoverageStringFilterList>",
- *     ecrImageTags: "<CoverageStringFilterList>",
+ *     scanType: '<CoverageStringFilterList>',
+ *     ecrRepositoryName: '<CoverageStringFilterList>',
+ *     ecrImageTags: '<CoverageStringFilterList>',
  *     ec2InstanceTags: [ // CoverageMapFilterList
  *       { // CoverageMapFilter
- *         comparison: "STRING_VALUE", // required
- *         key: "STRING_VALUE", // required
- *         value: "STRING_VALUE",
+ *         comparison: 'STRING_VALUE', // required
+ *         key: 'STRING_VALUE', // required
+ *         value: 'STRING_VALUE',
  *       },
  *     ],
- *     lambdaFunctionName: "<CoverageStringFilterList>",
+ *     lambdaFunctionName: '<CoverageStringFilterList>',
  *     lambdaFunctionTags: [
  *       {
- *         comparison: "STRING_VALUE", // required
- *         key: "STRING_VALUE", // required
- *         value: "STRING_VALUE",
+ *         comparison: 'STRING_VALUE', // required
+ *         key: 'STRING_VALUE', // required
+ *         value: 'STRING_VALUE',
  *       },
  *     ],
- *     lambdaFunctionRuntime: "<CoverageStringFilterList>",
+ *     lambdaFunctionRuntime: '<CoverageStringFilterList>',
  *   },
- *   groupBy: "STRING_VALUE",
- *   nextToken: "STRING_VALUE",
+ *   groupBy: 'STRING_VALUE',
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new ListCoverageStatisticsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListCoverageStatisticsResponse
+ *   countsByGroup: [ // CountsList
+ *     { // Counts
+ *       count: Number('long'),
+ *       groupKey: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   totalCounts: Number('long'), // required
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListCoverageStatisticsCommandInput - {@link ListCoverageStatisticsCommandInput}
@@ -114,6 +126,8 @@ export interface ListCoverageStatisticsCommandOutput extends ListCoverageStatist
  *  <p>The request has failed validation due to missing required fields or having invalid
  *          inputs.</p>
  *
+ * @throws {@link Inspector2ServiceException}
+ * <p>Base exception class for all service exceptions from Inspector2 service.</p>
  *
  */
 export class ListCoverageStatisticsCommand extends $Command<

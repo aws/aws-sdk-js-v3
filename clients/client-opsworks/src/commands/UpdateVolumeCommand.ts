@@ -41,16 +41,19 @@ export interface UpdateVolumeCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OpsWorksClient, UpdateVolumeCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
- * // const { OpsWorksClient, UpdateVolumeCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
+ * import { OpsWorksClient, UpdateVolumeCommand } from '@aws-sdk/client-opsworks'; // ES Modules import
+ * // const { OpsWorksClient, UpdateVolumeCommand } = require('@aws-sdk/client-opsworks'); // CommonJS import
  * const client = new OpsWorksClient(config);
  * const input = { // UpdateVolumeRequest
- *   VolumeId: "STRING_VALUE", // required
- *   Name: "STRING_VALUE",
- *   MountPoint: "STRING_VALUE",
+ *   VolumeId: 'STRING_VALUE', // required
+ *   Name: 'STRING_VALUE',
+ *   MountPoint: 'STRING_VALUE',
  * };
  * const command = new UpdateVolumeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateVolumeCommandInput - {@link UpdateVolumeCommandInput}
@@ -65,6 +68,8 @@ export interface UpdateVolumeCommandOutput extends __MetadataBearer {}
  * @throws {@link ValidationException} (client fault)
  *  <p>Indicates that a request was not valid.</p>
  *
+ * @throws {@link OpsWorksServiceException}
+ * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
  */
 export class UpdateVolumeCommand extends $Command<

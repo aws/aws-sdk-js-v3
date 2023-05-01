@@ -37,16 +37,30 @@ export interface BatchGetApplicationsCommandOutput extends BatchGetApplicationsO
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeDeployClient, BatchGetApplicationsCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
- * // const { CodeDeployClient, BatchGetApplicationsCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
+ * import { CodeDeployClient, BatchGetApplicationsCommand } from '@aws-sdk/client-codedeploy'; // ES Modules import
+ * // const { CodeDeployClient, BatchGetApplicationsCommand } = require('@aws-sdk/client-codedeploy'); // CommonJS import
  * const client = new CodeDeployClient(config);
  * const input = { // BatchGetApplicationsInput
  *   applicationNames: [ // ApplicationsList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new BatchGetApplicationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BatchGetApplicationsOutput
+ *   applicationsInfo: [ // ApplicationsInfoList
+ *     { // ApplicationInfo
+ *       applicationId: 'STRING_VALUE',
+ *       applicationName: 'STRING_VALUE',
+ *       createTime: new Date('TIMESTAMP'),
+ *       linkedToGitHub: true || false,
+ *       gitHubAccountName: 'STRING_VALUE',
+ *       computePlatform: 'Server' || 'Lambda' || 'ECS',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param BatchGetApplicationsCommandInput - {@link BatchGetApplicationsCommandInput}
@@ -67,6 +81,8 @@ export interface BatchGetApplicationsCommandOutput extends BatchGetApplicationsO
  * @throws {@link InvalidApplicationNameException} (client fault)
  *  <p>The application name was specified in an invalid format.</p>
  *
+ * @throws {@link CodeDeployServiceException}
+ * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
  */
 export class BatchGetApplicationsCommand extends $Command<

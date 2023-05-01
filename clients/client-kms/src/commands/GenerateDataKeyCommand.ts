@@ -133,22 +133,29 @@ export interface GenerateDataKeyCommandOutput extends GenerateDataKeyResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KMSClient, GenerateDataKeyCommand } from "@aws-sdk/client-kms"; // ES Modules import
- * // const { KMSClient, GenerateDataKeyCommand } = require("@aws-sdk/client-kms"); // CommonJS import
+ * import { KMSClient, GenerateDataKeyCommand } from '@aws-sdk/client-kms'; // ES Modules import
+ * // const { KMSClient, GenerateDataKeyCommand } = require('@aws-sdk/client-kms'); // CommonJS import
  * const client = new KMSClient(config);
  * const input = { // GenerateDataKeyRequest
- *   KeyId: "STRING_VALUE", // required
+ *   KeyId: 'STRING_VALUE', // required
  *   EncryptionContext: { // EncryptionContextType
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
- *   NumberOfBytes: Number("int"),
- *   KeySpec: "AES_256" || "AES_128",
+ *   NumberOfBytes: Number('int'),
+ *   KeySpec: 'AES_256' || 'AES_128',
  *   GrantTokens: [ // GrantTokenList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new GenerateDataKeyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GenerateDataKeyResponse
+ *   CiphertextBlob: 'BLOB_VALUE',
+ *   Plaintext: 'BLOB_VALUE',
+ *   KeyId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GenerateDataKeyCommandInput - {@link GenerateDataKeyCommandInput}
@@ -218,6 +225,8 @@ export interface GenerateDataKeyCommandOutput extends GenerateDataKeyResponse, _
  *  <p>The request was rejected because the specified entity or resource could not be
  *       found.</p>
  *
+ * @throws {@link KMSServiceException}
+ * <p>Base exception class for all service exceptions from KMS service.</p>
  *
  * @example To generate a data key
  * ```javascript

@@ -37,19 +37,22 @@ export interface PutJobFailureResultCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodePipelineClient, PutJobFailureResultCommand } from "@aws-sdk/client-codepipeline"; // ES Modules import
- * // const { CodePipelineClient, PutJobFailureResultCommand } = require("@aws-sdk/client-codepipeline"); // CommonJS import
+ * import { CodePipelineClient, PutJobFailureResultCommand } from '@aws-sdk/client-codepipeline'; // ES Modules import
+ * // const { CodePipelineClient, PutJobFailureResultCommand } = require('@aws-sdk/client-codepipeline'); // CommonJS import
  * const client = new CodePipelineClient(config);
  * const input = { // PutJobFailureResultInput
- *   jobId: "STRING_VALUE", // required
+ *   jobId: 'STRING_VALUE', // required
  *   failureDetails: { // FailureDetails
- *     type: "STRING_VALUE", // required
- *     message: "STRING_VALUE", // required
- *     externalExecutionId: "STRING_VALUE",
+ *     type: 'STRING_VALUE', // required
+ *     message: 'STRING_VALUE', // required
+ *     externalExecutionId: 'STRING_VALUE',
  *   },
  * };
  * const command = new PutJobFailureResultCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutJobFailureResultCommandInput - {@link PutJobFailureResultCommandInput}
@@ -67,6 +70,8 @@ export interface PutJobFailureResultCommandOutput extends __MetadataBearer {}
  * @throws {@link ValidationException} (client fault)
  *  <p>The validation was specified in an invalid format.</p>
  *
+ * @throws {@link CodePipelineServiceException}
+ * <p>Base exception class for all service exceptions from CodePipeline service.</p>
  *
  */
 export class PutJobFailureResultCommand extends $Command<

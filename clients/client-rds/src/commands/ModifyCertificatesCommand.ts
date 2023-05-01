@@ -60,15 +60,29 @@ export interface ModifyCertificatesCommandOutput extends ModifyCertificatesResul
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RDSClient, ModifyCertificatesCommand } from "@aws-sdk/client-rds"; // ES Modules import
- * // const { RDSClient, ModifyCertificatesCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * import { RDSClient, ModifyCertificatesCommand } from '@aws-sdk/client-rds'; // ES Modules import
+ * // const { RDSClient, ModifyCertificatesCommand } = require('@aws-sdk/client-rds'); // CommonJS import
  * const client = new RDSClient(config);
  * const input = { // ModifyCertificatesMessage
- *   CertificateIdentifier: "STRING_VALUE",
+ *   CertificateIdentifier: 'STRING_VALUE',
  *   RemoveCustomerOverride: true || false,
  * };
  * const command = new ModifyCertificatesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ModifyCertificatesResult
+ *   Certificate: { // Certificate
+ *     CertificateIdentifier: 'STRING_VALUE',
+ *     CertificateType: 'STRING_VALUE',
+ *     Thumbprint: 'STRING_VALUE',
+ *     ValidFrom: new Date('TIMESTAMP'),
+ *     ValidTill: new Date('TIMESTAMP'),
+ *     CertificateArn: 'STRING_VALUE',
+ *     CustomerOverride: true || false,
+ *     CustomerOverrideValidTill: new Date('TIMESTAMP'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param ModifyCertificatesCommandInput - {@link ModifyCertificatesCommandInput}
@@ -82,6 +96,8 @@ export interface ModifyCertificatesCommandOutput extends ModifyCertificatesResul
  *             <code>CertificateIdentifier</code> doesn't refer to an
  *         existing certificate.</p>
  *
+ * @throws {@link RDSServiceException}
+ * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  * @example To temporarily override the system-default SSL/TLS certificate for new DB instances
  * ```javascript

@@ -39,19 +39,24 @@ export interface CreateFleetCommandOutput extends CreateFleetResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkLinkClient, CreateFleetCommand } from "@aws-sdk/client-worklink"; // ES Modules import
- * // const { WorkLinkClient, CreateFleetCommand } = require("@aws-sdk/client-worklink"); // CommonJS import
+ * import { WorkLinkClient, CreateFleetCommand } from '@aws-sdk/client-worklink'; // ES Modules import
+ * // const { WorkLinkClient, CreateFleetCommand } = require('@aws-sdk/client-worklink'); // CommonJS import
  * const client = new WorkLinkClient(config);
  * const input = { // CreateFleetRequest
- *   FleetName: "STRING_VALUE", // required
- *   DisplayName: "STRING_VALUE",
+ *   FleetName: 'STRING_VALUE', // required
+ *   DisplayName: 'STRING_VALUE',
  *   OptimizeForEndUserLocation: true || false,
  *   Tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateFleetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateFleetResponse
+ *   FleetArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateFleetCommandInput - {@link CreateFleetCommandInput}
@@ -78,6 +83,8 @@ export interface CreateFleetCommandOutput extends CreateFleetResponse, __Metadat
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this action.</p>
  *
+ * @throws {@link WorkLinkServiceException}
+ * <p>Base exception class for all service exceptions from WorkLink service.</p>
  *
  */
 export class CreateFleetCommand extends $Command<

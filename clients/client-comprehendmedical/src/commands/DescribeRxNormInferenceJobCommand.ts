@@ -41,14 +41,40 @@ export interface DescribeRxNormInferenceJobCommandOutput extends DescribeRxNormI
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ComprehendMedicalClient, DescribeRxNormInferenceJobCommand } from "@aws-sdk/client-comprehendmedical"; // ES Modules import
- * // const { ComprehendMedicalClient, DescribeRxNormInferenceJobCommand } = require("@aws-sdk/client-comprehendmedical"); // CommonJS import
+ * import { ComprehendMedicalClient, DescribeRxNormInferenceJobCommand } from '@aws-sdk/client-comprehendmedical'; // ES Modules import
+ * // const { ComprehendMedicalClient, DescribeRxNormInferenceJobCommand } = require('@aws-sdk/client-comprehendmedical'); // CommonJS import
  * const client = new ComprehendMedicalClient(config);
  * const input = { // DescribeRxNormInferenceJobRequest
- *   JobId: "STRING_VALUE", // required
+ *   JobId: 'STRING_VALUE', // required
  * };
  * const command = new DescribeRxNormInferenceJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeRxNormInferenceJobResponse
+ *   ComprehendMedicalAsyncJobProperties: { // ComprehendMedicalAsyncJobProperties
+ *     JobId: 'STRING_VALUE',
+ *     JobName: 'STRING_VALUE',
+ *     JobStatus: 'SUBMITTED' || 'IN_PROGRESS' || 'COMPLETED' || 'PARTIAL_SUCCESS' || 'FAILED' || 'STOP_REQUESTED' || 'STOPPED',
+ *     Message: 'STRING_VALUE',
+ *     SubmitTime: new Date('TIMESTAMP'),
+ *     EndTime: new Date('TIMESTAMP'),
+ *     ExpirationTime: new Date('TIMESTAMP'),
+ *     InputDataConfig: { // InputDataConfig
+ *       S3Bucket: 'STRING_VALUE', // required
+ *       S3Key: 'STRING_VALUE',
+ *     },
+ *     OutputDataConfig: { // OutputDataConfig
+ *       S3Bucket: 'STRING_VALUE', // required
+ *       S3Key: 'STRING_VALUE',
+ *     },
+ *     LanguageCode: 'en',
+ *     DataAccessRoleArn: 'STRING_VALUE',
+ *     ManifestFilePath: 'STRING_VALUE',
+ *     KMSKey: 'STRING_VALUE',
+ *     ModelVersion: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeRxNormInferenceJobCommandInput - {@link DescribeRxNormInferenceJobCommandInput}
@@ -73,6 +99,8 @@ export interface DescribeRxNormInferenceJobCommandOutput extends DescribeRxNormI
  *       then try your request again. Contact customer support for more information about a service
  *       limit increase. </p>
  *
+ * @throws {@link ComprehendMedicalServiceException}
+ * <p>Base exception class for all service exceptions from ComprehendMedical service.</p>
  *
  */
 export class DescribeRxNormInferenceJobCommand extends $Command<

@@ -39,50 +39,55 @@ export interface CreateStackInstancesCommandOutput extends CreateStackInstancesO
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudFormationClient, CreateStackInstancesCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
- * // const { CloudFormationClient, CreateStackInstancesCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
+ * import { CloudFormationClient, CreateStackInstancesCommand } from '@aws-sdk/client-cloudformation'; // ES Modules import
+ * // const { CloudFormationClient, CreateStackInstancesCommand } = require('@aws-sdk/client-cloudformation'); // CommonJS import
  * const client = new CloudFormationClient(config);
  * const input = { // CreateStackInstancesInput
- *   StackSetName: "STRING_VALUE", // required
+ *   StackSetName: 'STRING_VALUE', // required
  *   Accounts: [ // AccountList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   DeploymentTargets: { // DeploymentTargets
  *     Accounts: [
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
- *     AccountsUrl: "STRING_VALUE",
+ *     AccountsUrl: 'STRING_VALUE',
  *     OrganizationalUnitIds: [ // OrganizationalUnitIdList
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
- *     AccountFilterType: "NONE" || "INTERSECTION" || "DIFFERENCE" || "UNION",
+ *     AccountFilterType: 'NONE' || 'INTERSECTION' || 'DIFFERENCE' || 'UNION',
  *   },
  *   Regions: [ // RegionList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   ParameterOverrides: [ // Parameters
  *     { // Parameter
- *       ParameterKey: "STRING_VALUE",
- *       ParameterValue: "STRING_VALUE",
+ *       ParameterKey: 'STRING_VALUE',
+ *       ParameterValue: 'STRING_VALUE',
  *       UsePreviousValue: true || false,
- *       ResolvedValue: "STRING_VALUE",
+ *       ResolvedValue: 'STRING_VALUE',
  *     },
  *   ],
  *   OperationPreferences: { // StackSetOperationPreferences
- *     RegionConcurrencyType: "SEQUENTIAL" || "PARALLEL",
+ *     RegionConcurrencyType: 'SEQUENTIAL' || 'PARALLEL',
  *     RegionOrder: [
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
- *     FailureToleranceCount: Number("int"),
- *     FailureTolerancePercentage: Number("int"),
- *     MaxConcurrentCount: Number("int"),
- *     MaxConcurrentPercentage: Number("int"),
+ *     FailureToleranceCount: Number('int'),
+ *     FailureTolerancePercentage: Number('int'),
+ *     MaxConcurrentCount: Number('int'),
+ *     MaxConcurrentPercentage: Number('int'),
  *   },
- *   OperationId: "STRING_VALUE",
- *   CallAs: "SELF" || "DELEGATED_ADMIN",
+ *   OperationId: 'STRING_VALUE',
+ *   CallAs: 'SELF' || 'DELEGATED_ADMIN',
  * };
  * const command = new CreateStackInstancesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateStackInstancesOutput
+ *   OperationId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateStackInstancesCommandInput - {@link CreateStackInstancesCommandInput}
@@ -113,6 +118,8 @@ export interface CreateStackInstancesCommandOutput extends CreateStackInstancesO
  *  <p>Another operation has been performed on this stack set since the specified operation was
  *          performed.</p>
  *
+ * @throws {@link CloudFormationServiceException}
+ * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
  */
 export class CreateStackInstancesCommand extends $Command<

@@ -39,14 +39,17 @@ export interface DeleteCacheSubnetGroupCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElastiCacheClient, DeleteCacheSubnetGroupCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
- * // const { ElastiCacheClient, DeleteCacheSubnetGroupCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
+ * import { ElastiCacheClient, DeleteCacheSubnetGroupCommand } from '@aws-sdk/client-elasticache'; // ES Modules import
+ * // const { ElastiCacheClient, DeleteCacheSubnetGroupCommand } = require('@aws-sdk/client-elasticache'); // CommonJS import
  * const client = new ElastiCacheClient(config);
  * const input = { // DeleteCacheSubnetGroupMessage
- *   CacheSubnetGroupName: "STRING_VALUE", // required
+ *   CacheSubnetGroupName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteCacheSubnetGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteCacheSubnetGroupCommandInput - {@link DeleteCacheSubnetGroupCommandInput}
@@ -61,6 +64,8 @@ export interface DeleteCacheSubnetGroupCommandOutput extends __MetadataBearer {}
  * @throws {@link CacheSubnetGroupNotFoundFault} (client fault)
  *  <p>The requested cache subnet group name does not refer to an existing cache subnet group.</p>
  *
+ * @throws {@link ElastiCacheServiceException}
+ * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
  * @example DeleteCacheSubnetGroup
  * ```javascript

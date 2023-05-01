@@ -42,17 +42,34 @@ export interface StartVoiceToneAnalysisTaskCommandOutput extends StartVoiceToneA
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeSDKVoiceClient, StartVoiceToneAnalysisTaskCommand } from "@aws-sdk/client-chime-sdk-voice"; // ES Modules import
- * // const { ChimeSDKVoiceClient, StartVoiceToneAnalysisTaskCommand } = require("@aws-sdk/client-chime-sdk-voice"); // CommonJS import
+ * import { ChimeSDKVoiceClient, StartVoiceToneAnalysisTaskCommand } from '@aws-sdk/client-chime-sdk-voice'; // ES Modules import
+ * // const { ChimeSDKVoiceClient, StartVoiceToneAnalysisTaskCommand } = require('@aws-sdk/client-chime-sdk-voice'); // CommonJS import
  * const client = new ChimeSDKVoiceClient(config);
  * const input = { // StartVoiceToneAnalysisTaskRequest
- *   VoiceConnectorId: "STRING_VALUE", // required
- *   TransactionId: "STRING_VALUE", // required
- *   LanguageCode: "en-US", // required
- *   ClientRequestToken: "STRING_VALUE",
+ *   VoiceConnectorId: 'STRING_VALUE', // required
+ *   TransactionId: 'STRING_VALUE', // required
+ *   LanguageCode: 'en-US', // required
+ *   ClientRequestToken: 'STRING_VALUE',
  * };
  * const command = new StartVoiceToneAnalysisTaskCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartVoiceToneAnalysisTaskResponse
+ *   VoiceToneAnalysisTask: { // VoiceToneAnalysisTask
+ *     VoiceToneAnalysisTaskId: 'STRING_VALUE',
+ *     VoiceToneAnalysisTaskStatus: 'STRING_VALUE',
+ *     CallDetails: { // CallDetails
+ *       VoiceConnectorId: 'STRING_VALUE',
+ *       TransactionId: 'STRING_VALUE',
+ *       IsCaller: true || false,
+ *     },
+ *     CreatedTimestamp: new Date('TIMESTAMP'),
+ *     UpdatedTimestamp: new Date('TIMESTAMP'),
+ *     StartedTimestamp: new Date('TIMESTAMP'),
+ *     StatusMessage: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param StartVoiceToneAnalysisTaskCommandInput - {@link StartVoiceToneAnalysisTaskCommandInput}
@@ -97,6 +114,8 @@ export interface StartVoiceToneAnalysisTaskCommandOutput extends StartVoiceToneA
  * @throws {@link UnprocessableEntityException} (client fault)
  *  <p>A well-formed request couldn't be followed due to semantic errors.</p>
  *
+ * @throws {@link ChimeSDKVoiceServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
  */
 export class StartVoiceToneAnalysisTaskCommand extends $Command<

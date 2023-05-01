@@ -45,21 +45,36 @@ export interface CreateLinkCommandOutput extends CreateLinkOutput, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OAMClient, CreateLinkCommand } from "@aws-sdk/client-oam"; // ES Modules import
- * // const { OAMClient, CreateLinkCommand } = require("@aws-sdk/client-oam"); // CommonJS import
+ * import { OAMClient, CreateLinkCommand } from '@aws-sdk/client-oam'; // ES Modules import
+ * // const { OAMClient, CreateLinkCommand } = require('@aws-sdk/client-oam'); // CommonJS import
  * const client = new OAMClient(config);
  * const input = { // CreateLinkInput
- *   LabelTemplate: "STRING_VALUE", // required
+ *   LabelTemplate: 'STRING_VALUE', // required
  *   ResourceTypes: [ // ResourceTypesInput // required
- *     "AWS::CloudWatch::Metric" || "AWS::Logs::LogGroup" || "AWS::XRay::Trace",
+ *     'AWS::CloudWatch::Metric' || 'AWS::Logs::LogGroup' || 'AWS::XRay::Trace',
  *   ],
- *   SinkIdentifier: "STRING_VALUE", // required
+ *   SinkIdentifier: 'STRING_VALUE', // required
  *   Tags: { // TagMapInput
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateLinkCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateLinkOutput
+ *   Arn: 'STRING_VALUE',
+ *   Id: 'STRING_VALUE',
+ *   Label: 'STRING_VALUE',
+ *   LabelTemplate: 'STRING_VALUE',
+ *   ResourceTypes: [ // ResourceTypesOutput
+ *     'STRING_VALUE',
+ *   ],
+ *   SinkArn: 'STRING_VALUE',
+ *   Tags: { // TagMapOutput
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateLinkCommandInput - {@link CreateLinkCommandInput}
@@ -83,6 +98,8 @@ export interface CreateLinkCommandOutput extends CreateLinkOutput, __MetadataBea
  * @throws {@link ServiceQuotaExceededException} (client fault)
  *  <p>The request would cause a service quota to be exceeded.</p>
  *
+ * @throws {@link OAMServiceException}
+ * <p>Base exception class for all service exceptions from OAM service.</p>
  *
  */
 export class CreateLinkCommand extends $Command<

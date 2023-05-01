@@ -36,23 +36,40 @@ export interface ListProcessingJobsCommandOutput extends ListProcessingJobsRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, ListProcessingJobsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, ListProcessingJobsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, ListProcessingJobsCommand } from '@aws-sdk/client-sagemaker'; // ES Modules import
+ * // const { SageMakerClient, ListProcessingJobsCommand } = require('@aws-sdk/client-sagemaker'); // CommonJS import
  * const client = new SageMakerClient(config);
  * const input = { // ListProcessingJobsRequest
- *   CreationTimeAfter: new Date("TIMESTAMP"),
- *   CreationTimeBefore: new Date("TIMESTAMP"),
- *   LastModifiedTimeAfter: new Date("TIMESTAMP"),
- *   LastModifiedTimeBefore: new Date("TIMESTAMP"),
- *   NameContains: "STRING_VALUE",
- *   StatusEquals: "InProgress" || "Completed" || "Failed" || "Stopping" || "Stopped",
- *   SortBy: "Name" || "CreationTime" || "Status",
- *   SortOrder: "Ascending" || "Descending",
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   CreationTimeAfter: new Date('TIMESTAMP'),
+ *   CreationTimeBefore: new Date('TIMESTAMP'),
+ *   LastModifiedTimeAfter: new Date('TIMESTAMP'),
+ *   LastModifiedTimeBefore: new Date('TIMESTAMP'),
+ *   NameContains: 'STRING_VALUE',
+ *   StatusEquals: 'InProgress' || 'Completed' || 'Failed' || 'Stopping' || 'Stopped',
+ *   SortBy: 'Name' || 'CreationTime' || 'Status',
+ *   SortOrder: 'Ascending' || 'Descending',
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListProcessingJobsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListProcessingJobsResponse
+ *   ProcessingJobSummaries: [ // ProcessingJobSummaries // required
+ *     { // ProcessingJobSummary
+ *       ProcessingJobName: 'STRING_VALUE', // required
+ *       ProcessingJobArn: 'STRING_VALUE', // required
+ *       CreationTime: new Date('TIMESTAMP'), // required
+ *       ProcessingEndTime: new Date('TIMESTAMP'),
+ *       LastModifiedTime: new Date('TIMESTAMP'),
+ *       ProcessingJobStatus: 'InProgress' || 'Completed' || 'Failed' || 'Stopping' || 'Stopped', // required
+ *       FailureReason: 'STRING_VALUE',
+ *       ExitMessage: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListProcessingJobsCommandInput - {@link ListProcessingJobsCommandInput}
@@ -61,6 +78,8 @@ export interface ListProcessingJobsCommandOutput extends ListProcessingJobsRespo
  * @see {@link ListProcessingJobsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class ListProcessingJobsCommand extends $Command<

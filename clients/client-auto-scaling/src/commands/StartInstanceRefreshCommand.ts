@@ -59,126 +59,131 @@ export interface StartInstanceRefreshCommandOutput extends StartInstanceRefreshA
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AutoScalingClient, StartInstanceRefreshCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
- * // const { AutoScalingClient, StartInstanceRefreshCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
+ * import { AutoScalingClient, StartInstanceRefreshCommand } from '@aws-sdk/client-auto-scaling'; // ES Modules import
+ * // const { AutoScalingClient, StartInstanceRefreshCommand } = require('@aws-sdk/client-auto-scaling'); // CommonJS import
  * const client = new AutoScalingClient(config);
  * const input = { // StartInstanceRefreshType
- *   AutoScalingGroupName: "STRING_VALUE", // required
- *   Strategy: "Rolling",
+ *   AutoScalingGroupName: 'STRING_VALUE', // required
+ *   Strategy: 'Rolling',
  *   DesiredConfiguration: { // DesiredConfiguration
  *     LaunchTemplate: { // LaunchTemplateSpecification
- *       LaunchTemplateId: "STRING_VALUE",
- *       LaunchTemplateName: "STRING_VALUE",
- *       Version: "STRING_VALUE",
+ *       LaunchTemplateId: 'STRING_VALUE',
+ *       LaunchTemplateName: 'STRING_VALUE',
+ *       Version: 'STRING_VALUE',
  *     },
  *     MixedInstancesPolicy: { // MixedInstancesPolicy
  *       LaunchTemplate: { // LaunchTemplate
  *         LaunchTemplateSpecification: {
- *           LaunchTemplateId: "STRING_VALUE",
- *           LaunchTemplateName: "STRING_VALUE",
- *           Version: "STRING_VALUE",
+ *           LaunchTemplateId: 'STRING_VALUE',
+ *           LaunchTemplateName: 'STRING_VALUE',
+ *           Version: 'STRING_VALUE',
  *         },
  *         Overrides: [ // Overrides
  *           { // LaunchTemplateOverrides
- *             InstanceType: "STRING_VALUE",
- *             WeightedCapacity: "STRING_VALUE",
- *             LaunchTemplateSpecification: "<LaunchTemplateSpecification>",
+ *             InstanceType: 'STRING_VALUE',
+ *             WeightedCapacity: 'STRING_VALUE',
+ *             LaunchTemplateSpecification: '<LaunchTemplateSpecification>',
  *             InstanceRequirements: { // InstanceRequirements
  *               VCpuCount: { // VCpuCountRequest
- *                 Min: Number("int"), // required
- *                 Max: Number("int"),
+ *                 Min: Number('int'), // required
+ *                 Max: Number('int'),
  *               },
  *               MemoryMiB: { // MemoryMiBRequest
- *                 Min: Number("int"), // required
- *                 Max: Number("int"),
+ *                 Min: Number('int'), // required
+ *                 Max: Number('int'),
  *               },
  *               CpuManufacturers: [ // CpuManufacturers
- *                 "intel" || "amd" || "amazon-web-services",
+ *                 'intel' || 'amd' || 'amazon-web-services',
  *               ],
  *               MemoryGiBPerVCpu: { // MemoryGiBPerVCpuRequest
- *                 Min: Number("double"),
- *                 Max: Number("double"),
+ *                 Min: Number('double'),
+ *                 Max: Number('double'),
  *               },
  *               ExcludedInstanceTypes: [ // ExcludedInstanceTypes
- *                 "STRING_VALUE",
+ *                 'STRING_VALUE',
  *               ],
  *               InstanceGenerations: [ // InstanceGenerations
- *                 "current" || "previous",
+ *                 'current' || 'previous',
  *               ],
- *               SpotMaxPricePercentageOverLowestPrice: Number("int"),
- *               OnDemandMaxPricePercentageOverLowestPrice: Number("int"),
- *               BareMetal: "included" || "excluded" || "required",
- *               BurstablePerformance: "included" || "excluded" || "required",
+ *               SpotMaxPricePercentageOverLowestPrice: Number('int'),
+ *               OnDemandMaxPricePercentageOverLowestPrice: Number('int'),
+ *               BareMetal: 'included' || 'excluded' || 'required',
+ *               BurstablePerformance: 'included' || 'excluded' || 'required',
  *               RequireHibernateSupport: true || false,
  *               NetworkInterfaceCount: { // NetworkInterfaceCountRequest
- *                 Min: Number("int"),
- *                 Max: Number("int"),
+ *                 Min: Number('int'),
+ *                 Max: Number('int'),
  *               },
- *               LocalStorage: "included" || "excluded" || "required",
+ *               LocalStorage: 'included' || 'excluded' || 'required',
  *               LocalStorageTypes: [ // LocalStorageTypes
- *                 "hdd" || "ssd",
+ *                 'hdd' || 'ssd',
  *               ],
  *               TotalLocalStorageGB: { // TotalLocalStorageGBRequest
- *                 Min: Number("double"),
- *                 Max: Number("double"),
+ *                 Min: Number('double'),
+ *                 Max: Number('double'),
  *               },
  *               BaselineEbsBandwidthMbps: { // BaselineEbsBandwidthMbpsRequest
- *                 Min: Number("int"),
- *                 Max: Number("int"),
+ *                 Min: Number('int'),
+ *                 Max: Number('int'),
  *               },
  *               AcceleratorTypes: [ // AcceleratorTypes
- *                 "gpu" || "fpga" || "inference",
+ *                 'gpu' || 'fpga' || 'inference',
  *               ],
  *               AcceleratorCount: { // AcceleratorCountRequest
- *                 Min: Number("int"),
- *                 Max: Number("int"),
+ *                 Min: Number('int'),
+ *                 Max: Number('int'),
  *               },
  *               AcceleratorManufacturers: [ // AcceleratorManufacturers
- *                 "nvidia" || "amd" || "amazon-web-services" || "xilinx",
+ *                 'nvidia' || 'amd' || 'amazon-web-services' || 'xilinx',
  *               ],
  *               AcceleratorNames: [ // AcceleratorNames
- *                 "a100" || "v100" || "k80" || "t4" || "m60" || "radeon-pro-v520" || "vu9p",
+ *                 'a100' || 'v100' || 'k80' || 't4' || 'm60' || 'radeon-pro-v520' || 'vu9p',
  *               ],
  *               AcceleratorTotalMemoryMiB: { // AcceleratorTotalMemoryMiBRequest
- *                 Min: Number("int"),
- *                 Max: Number("int"),
+ *                 Min: Number('int'),
+ *                 Max: Number('int'),
  *               },
  *               NetworkBandwidthGbps: { // NetworkBandwidthGbpsRequest
- *                 Min: Number("double"),
- *                 Max: Number("double"),
+ *                 Min: Number('double'),
+ *                 Max: Number('double'),
  *               },
  *               AllowedInstanceTypes: [ // AllowedInstanceTypes
- *                 "STRING_VALUE",
+ *                 'STRING_VALUE',
  *               ],
  *             },
  *           },
  *         ],
  *       },
  *       InstancesDistribution: { // InstancesDistribution
- *         OnDemandAllocationStrategy: "STRING_VALUE",
- *         OnDemandBaseCapacity: Number("int"),
- *         OnDemandPercentageAboveBaseCapacity: Number("int"),
- *         SpotAllocationStrategy: "STRING_VALUE",
- *         SpotInstancePools: Number("int"),
- *         SpotMaxPrice: "STRING_VALUE",
+ *         OnDemandAllocationStrategy: 'STRING_VALUE',
+ *         OnDemandBaseCapacity: Number('int'),
+ *         OnDemandPercentageAboveBaseCapacity: Number('int'),
+ *         SpotAllocationStrategy: 'STRING_VALUE',
+ *         SpotInstancePools: Number('int'),
+ *         SpotMaxPrice: 'STRING_VALUE',
  *       },
  *     },
  *   },
  *   Preferences: { // RefreshPreferences
- *     MinHealthyPercentage: Number("int"),
- *     InstanceWarmup: Number("int"),
+ *     MinHealthyPercentage: Number('int'),
+ *     InstanceWarmup: Number('int'),
  *     CheckpointPercentages: [ // CheckpointPercentages
- *       Number("int"),
+ *       Number('int'),
  *     ],
- *     CheckpointDelay: Number("int"),
+ *     CheckpointDelay: Number('int'),
  *     SkipMatching: true || false,
  *     AutoRollback: true || false,
- *     ScaleInProtectedInstances: "Refresh" || "Ignore" || "Wait",
- *     StandbyInstances: "Terminate" || "Ignore" || "Wait",
+ *     ScaleInProtectedInstances: 'Refresh' || 'Ignore' || 'Wait',
+ *     StandbyInstances: 'Terminate' || 'Ignore' || 'Wait',
  *   },
  * };
  * const command = new StartInstanceRefreshCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartInstanceRefreshAnswer
+ *   InstanceRefreshId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param StartInstanceRefreshCommandInput - {@link StartInstanceRefreshCommandInput}
@@ -201,6 +206,8 @@ export interface StartInstanceRefreshCommandOutput extends StartInstanceRefreshA
  *  <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group,
  *             instance, or load balancer).</p>
  *
+ * @throws {@link AutoScalingServiceException}
+ * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
  * @example To start an instance refresh
  * ```javascript

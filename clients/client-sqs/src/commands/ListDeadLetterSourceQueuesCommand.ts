@@ -46,16 +46,24 @@ export interface ListDeadLetterSourceQueuesCommandOutput extends ListDeadLetterS
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SQSClient, ListDeadLetterSourceQueuesCommand } from "@aws-sdk/client-sqs"; // ES Modules import
- * // const { SQSClient, ListDeadLetterSourceQueuesCommand } = require("@aws-sdk/client-sqs"); // CommonJS import
+ * import { SQSClient, ListDeadLetterSourceQueuesCommand } from '@aws-sdk/client-sqs'; // ES Modules import
+ * // const { SQSClient, ListDeadLetterSourceQueuesCommand } = require('@aws-sdk/client-sqs'); // CommonJS import
  * const client = new SQSClient(config);
  * const input = { // ListDeadLetterSourceQueuesRequest
- *   QueueUrl: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   QueueUrl: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListDeadLetterSourceQueuesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListDeadLetterSourceQueuesResult
+ *   queueUrls: [ // QueueUrlList // required
+ *     'STRING_VALUE',
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListDeadLetterSourceQueuesCommandInput - {@link ListDeadLetterSourceQueuesCommandInput}
@@ -67,6 +75,8 @@ export interface ListDeadLetterSourceQueuesCommandOutput extends ListDeadLetterS
  * @throws {@link QueueDoesNotExist} (client fault)
  *  <p>The specified queue doesn't exist.</p>
  *
+ * @throws {@link SQSServiceException}
+ * <p>Base exception class for all service exceptions from SQS service.</p>
  *
  */
 export class ListDeadLetterSourceQueuesCommand extends $Command<

@@ -37,17 +37,29 @@ export interface ListDeviceEventsCommandOutput extends ListDeviceEventsResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AlexaForBusinessClient, ListDeviceEventsCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
- * // const { AlexaForBusinessClient, ListDeviceEventsCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
+ * import { AlexaForBusinessClient, ListDeviceEventsCommand } from '@aws-sdk/client-alexa-for-business'; // ES Modules import
+ * // const { AlexaForBusinessClient, ListDeviceEventsCommand } = require('@aws-sdk/client-alexa-for-business'); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
  * const input = { // ListDeviceEventsRequest
- *   DeviceArn: "STRING_VALUE", // required
- *   EventType: "STRING_VALUE",
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   DeviceArn: 'STRING_VALUE', // required
+ *   EventType: 'STRING_VALUE',
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListDeviceEventsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListDeviceEventsResponse
+ *   DeviceEvents: [ // DeviceEventList
+ *     { // DeviceEvent
+ *       Type: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
+ *       Timestamp: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListDeviceEventsCommandInput - {@link ListDeviceEventsCommandInput}
@@ -59,6 +71,8 @@ export interface ListDeviceEventsCommandOutput extends ListDeviceEventsResponse,
  * @throws {@link NotFoundException} (client fault)
  *  <p>The resource is not found.</p>
  *
+ * @throws {@link AlexaForBusinessServiceException}
+ * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  */
 export class ListDeviceEventsCommand extends $Command<

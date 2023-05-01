@@ -44,14 +44,17 @@ export interface DeleteDBSecurityGroupCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RDSClient, DeleteDBSecurityGroupCommand } from "@aws-sdk/client-rds"; // ES Modules import
- * // const { RDSClient, DeleteDBSecurityGroupCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * import { RDSClient, DeleteDBSecurityGroupCommand } from '@aws-sdk/client-rds'; // ES Modules import
+ * // const { RDSClient, DeleteDBSecurityGroupCommand } = require('@aws-sdk/client-rds'); // CommonJS import
  * const client = new RDSClient(config);
  * const input = { // DeleteDBSecurityGroupMessage
- *   DBSecurityGroupName: "STRING_VALUE", // required
+ *   DBSecurityGroupName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteDBSecurityGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteDBSecurityGroupCommandInput - {@link DeleteDBSecurityGroupCommandInput}
@@ -67,6 +70,8 @@ export interface DeleteDBSecurityGroupCommandOutput extends __MetadataBearer {}
  * @throws {@link InvalidDBSecurityGroupStateFault} (client fault)
  *  <p>The state of the DB security group doesn't allow deletion.</p>
  *
+ * @throws {@link RDSServiceException}
+ * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  * @example To delete a DB security group
  * ```javascript

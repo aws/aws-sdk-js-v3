@@ -40,17 +40,46 @@ export interface BatchGetDevicePositionCommandOutput extends BatchGetDevicePosit
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LocationClient, BatchGetDevicePositionCommand } from "@aws-sdk/client-location"; // ES Modules import
- * // const { LocationClient, BatchGetDevicePositionCommand } = require("@aws-sdk/client-location"); // CommonJS import
+ * import { LocationClient, BatchGetDevicePositionCommand } from '@aws-sdk/client-location'; // ES Modules import
+ * // const { LocationClient, BatchGetDevicePositionCommand } = require('@aws-sdk/client-location'); // CommonJS import
  * const client = new LocationClient(config);
  * const input = { // BatchGetDevicePositionRequest
- *   TrackerName: "STRING_VALUE", // required
+ *   TrackerName: 'STRING_VALUE', // required
  *   DeviceIds: [ // IdList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new BatchGetDevicePositionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BatchGetDevicePositionResponse
+ *   Errors: [ // BatchGetDevicePositionErrorList // required
+ *     { // BatchGetDevicePositionError
+ *       DeviceId: 'STRING_VALUE', // required
+ *       Error: { // BatchItemError
+ *         Code: 'STRING_VALUE',
+ *         Message: 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ *   DevicePositions: [ // DevicePositionList // required
+ *     { // DevicePosition
+ *       DeviceId: 'STRING_VALUE',
+ *       SampleTime: new Date('TIMESTAMP'), // required
+ *       ReceivedTime: new Date('TIMESTAMP'), // required
+ *       Position: [ // Position // required
+ *         Number('double'),
+ *       ],
+ *       Accuracy: { // PositionalAccuracy
+ *         Horizontal: Number('double'), // required
+ *       },
+ *       PositionProperties: { // PropertyMap
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param BatchGetDevicePositionCommandInput - {@link BatchGetDevicePositionCommandInput}
@@ -75,6 +104,8 @@ export interface BatchGetDevicePositionCommandOutput extends BatchGetDevicePosit
  * @throws {@link ValidationException} (client fault)
  *  <p>The input failed to meet the constraints specified by the AWS service. </p>
  *
+ * @throws {@link LocationServiceException}
+ * <p>Base exception class for all service exceptions from Location service.</p>
  *
  */
 export class BatchGetDevicePositionCommand extends $Command<

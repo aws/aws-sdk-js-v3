@@ -38,22 +38,48 @@ export interface ListAppImageConfigsCommandOutput extends ListAppImageConfigsRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, ListAppImageConfigsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, ListAppImageConfigsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, ListAppImageConfigsCommand } from '@aws-sdk/client-sagemaker'; // ES Modules import
+ * // const { SageMakerClient, ListAppImageConfigsCommand } = require('@aws-sdk/client-sagemaker'); // CommonJS import
  * const client = new SageMakerClient(config);
  * const input = { // ListAppImageConfigsRequest
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
- *   NameContains: "STRING_VALUE",
- *   CreationTimeBefore: new Date("TIMESTAMP"),
- *   CreationTimeAfter: new Date("TIMESTAMP"),
- *   ModifiedTimeBefore: new Date("TIMESTAMP"),
- *   ModifiedTimeAfter: new Date("TIMESTAMP"),
- *   SortBy: "CreationTime" || "LastModifiedTime" || "Name",
- *   SortOrder: "Ascending" || "Descending",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
+ *   NameContains: 'STRING_VALUE',
+ *   CreationTimeBefore: new Date('TIMESTAMP'),
+ *   CreationTimeAfter: new Date('TIMESTAMP'),
+ *   ModifiedTimeBefore: new Date('TIMESTAMP'),
+ *   ModifiedTimeAfter: new Date('TIMESTAMP'),
+ *   SortBy: 'CreationTime' || 'LastModifiedTime' || 'Name',
+ *   SortOrder: 'Ascending' || 'Descending',
  * };
  * const command = new ListAppImageConfigsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListAppImageConfigsResponse
+ *   NextToken: 'STRING_VALUE',
+ *   AppImageConfigs: [ // AppImageConfigList
+ *     { // AppImageConfigDetails
+ *       AppImageConfigArn: 'STRING_VALUE',
+ *       AppImageConfigName: 'STRING_VALUE',
+ *       CreationTime: new Date('TIMESTAMP'),
+ *       LastModifiedTime: new Date('TIMESTAMP'),
+ *       KernelGatewayImageConfig: { // KernelGatewayImageConfig
+ *         KernelSpecs: [ // KernelSpecs // required
+ *           { // KernelSpec
+ *             Name: 'STRING_VALUE', // required
+ *             DisplayName: 'STRING_VALUE',
+ *           },
+ *         ],
+ *         FileSystemConfig: { // FileSystemConfig
+ *           MountPath: 'STRING_VALUE',
+ *           DefaultUid: Number('int'),
+ *           DefaultGid: Number('int'),
+ *         },
+ *       },
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListAppImageConfigsCommandInput - {@link ListAppImageConfigsCommandInput}
@@ -62,6 +88,8 @@ export interface ListAppImageConfigsCommandOutput extends ListAppImageConfigsRes
  * @see {@link ListAppImageConfigsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class ListAppImageConfigsCommand extends $Command<

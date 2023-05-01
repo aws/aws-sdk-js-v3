@@ -41,26 +41,46 @@ export interface CreateRecommenderConfigurationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PinpointClient, CreateRecommenderConfigurationCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
- * // const { PinpointClient, CreateRecommenderConfigurationCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
+ * import { PinpointClient, CreateRecommenderConfigurationCommand } from '@aws-sdk/client-pinpoint'; // ES Modules import
+ * // const { PinpointClient, CreateRecommenderConfigurationCommand } = require('@aws-sdk/client-pinpoint'); // CommonJS import
  * const client = new PinpointClient(config);
  * const input = { // CreateRecommenderConfigurationRequest
  *   CreateRecommenderConfiguration: { // CreateRecommenderConfigurationShape
  *     Attributes: { // MapOf__string
- *       "<keys>": "STRING_VALUE",
+ *       '<keys>': 'STRING_VALUE',
  *     },
- *     Description: "STRING_VALUE",
- *     Name: "STRING_VALUE",
- *     RecommendationProviderIdType: "STRING_VALUE",
- *     RecommendationProviderRoleArn: "STRING_VALUE", // required
- *     RecommendationProviderUri: "STRING_VALUE", // required
- *     RecommendationTransformerUri: "STRING_VALUE",
- *     RecommendationsDisplayName: "STRING_VALUE",
- *     RecommendationsPerMessage: Number("int"),
+ *     Description: 'STRING_VALUE',
+ *     Name: 'STRING_VALUE',
+ *     RecommendationProviderIdType: 'STRING_VALUE',
+ *     RecommendationProviderRoleArn: 'STRING_VALUE', // required
+ *     RecommendationProviderUri: 'STRING_VALUE', // required
+ *     RecommendationTransformerUri: 'STRING_VALUE',
+ *     RecommendationsDisplayName: 'STRING_VALUE',
+ *     RecommendationsPerMessage: Number('int'),
  *   },
  * };
  * const command = new CreateRecommenderConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateRecommenderConfigurationResponse
+ *   RecommenderConfigurationResponse: { // RecommenderConfigurationResponse
+ *     Attributes: { // MapOf__string
+ *       '<keys>': 'STRING_VALUE',
+ *     },
+ *     CreationDate: 'STRING_VALUE', // required
+ *     Description: 'STRING_VALUE',
+ *     Id: 'STRING_VALUE', // required
+ *     LastModifiedDate: 'STRING_VALUE', // required
+ *     Name: 'STRING_VALUE',
+ *     RecommendationProviderIdType: 'STRING_VALUE',
+ *     RecommendationProviderRoleArn: 'STRING_VALUE', // required
+ *     RecommendationProviderUri: 'STRING_VALUE', // required
+ *     RecommendationTransformerUri: 'STRING_VALUE',
+ *     RecommendationsDisplayName: 'STRING_VALUE',
+ *     RecommendationsPerMessage: Number('int'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateRecommenderConfigurationCommandInput - {@link CreateRecommenderConfigurationCommandInput}
@@ -90,6 +110,8 @@ export interface CreateRecommenderConfigurationCommandOutput
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Provides information about an API request or response.</p>
  *
+ * @throws {@link PinpointServiceException}
+ * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
  */
 export class CreateRecommenderConfigurationCommand extends $Command<

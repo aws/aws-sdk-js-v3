@@ -49,12 +49,12 @@ export interface GetRandomPasswordCommandOutput extends GetRandomPasswordRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SecretsManagerClient, GetRandomPasswordCommand } from "@aws-sdk/client-secrets-manager"; // ES Modules import
- * // const { SecretsManagerClient, GetRandomPasswordCommand } = require("@aws-sdk/client-secrets-manager"); // CommonJS import
+ * import { SecretsManagerClient, GetRandomPasswordCommand } from '@aws-sdk/client-secrets-manager'; // ES Modules import
+ * // const { SecretsManagerClient, GetRandomPasswordCommand } = require('@aws-sdk/client-secrets-manager'); // CommonJS import
  * const client = new SecretsManagerClient(config);
  * const input = { // GetRandomPasswordRequest
- *   PasswordLength: Number("long"),
- *   ExcludeCharacters: "STRING_VALUE",
+ *   PasswordLength: Number('long'),
+ *   ExcludeCharacters: 'STRING_VALUE',
  *   ExcludeNumbers: true || false,
  *   ExcludePunctuation: true || false,
  *   ExcludeUppercase: true || false,
@@ -64,6 +64,11 @@ export interface GetRandomPasswordCommandOutput extends GetRandomPasswordRespons
  * };
  * const command = new GetRandomPasswordCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetRandomPasswordResponse
+ *   RandomPassword: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetRandomPasswordCommandInput - {@link GetRandomPasswordCommandInput}
@@ -96,6 +101,8 @@ export interface GetRandomPasswordCommandOutput extends GetRandomPasswordRespons
  *             </li>
  *          </ul>
  *
+ * @throws {@link SecretsManagerServiceException}
+ * <p>Base exception class for all service exceptions from SecretsManager service.</p>
  *
  * @example To generate a random password
  * ```javascript

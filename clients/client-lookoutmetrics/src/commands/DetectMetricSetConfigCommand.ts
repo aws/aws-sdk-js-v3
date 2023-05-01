@@ -36,24 +36,135 @@ export interface DetectMetricSetConfigCommandOutput extends DetectMetricSetConfi
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LookoutMetricsClient, DetectMetricSetConfigCommand } from "@aws-sdk/client-lookoutmetrics"; // ES Modules import
- * // const { LookoutMetricsClient, DetectMetricSetConfigCommand } = require("@aws-sdk/client-lookoutmetrics"); // CommonJS import
+ * import { LookoutMetricsClient, DetectMetricSetConfigCommand } from '@aws-sdk/client-lookoutmetrics'; // ES Modules import
+ * // const { LookoutMetricsClient, DetectMetricSetConfigCommand } = require('@aws-sdk/client-lookoutmetrics'); // CommonJS import
  * const client = new LookoutMetricsClient(config);
  * const input = { // DetectMetricSetConfigRequest
- *   AnomalyDetectorArn: "STRING_VALUE", // required
+ *   AnomalyDetectorArn: 'STRING_VALUE', // required
  *   AutoDetectionMetricSource: { // AutoDetectionMetricSource
  *     S3SourceConfig: { // AutoDetectionS3SourceConfig
  *       TemplatedPathList: [ // TemplatedPathList
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *       HistoricalDataPathList: [ // HistoricalDataPathList
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   },
  * };
  * const command = new DetectMetricSetConfigCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DetectMetricSetConfigResponse
+ *   DetectedMetricSetConfig: { // DetectedMetricSetConfig
+ *     Offset: { // DetectedField
+ *       Value: { // AttributeValue
+ *         S: 'STRING_VALUE',
+ *         N: 'STRING_VALUE',
+ *         B: 'STRING_VALUE',
+ *         SS: [ // StringListAttributeValue
+ *           'STRING_VALUE',
+ *         ],
+ *         NS: [ // NumberListAttributeValue
+ *           'STRING_VALUE',
+ *         ],
+ *         BS: [ // BinaryListAttributeValue
+ *           'STRING_VALUE',
+ *         ],
+ *       },
+ *       Confidence: 'STRING_VALUE',
+ *       Message: 'STRING_VALUE',
+ *     },
+ *     MetricSetFrequency: {
+ *       Value: {
+ *         S: 'STRING_VALUE',
+ *         N: 'STRING_VALUE',
+ *         B: 'STRING_VALUE',
+ *         SS: [
+ *           'STRING_VALUE',
+ *         ],
+ *         NS: [
+ *           'STRING_VALUE',
+ *         ],
+ *         BS: [
+ *           'STRING_VALUE',
+ *         ],
+ *       },
+ *       Confidence: 'STRING_VALUE',
+ *       Message: 'STRING_VALUE',
+ *     },
+ *     MetricSource: { // DetectedMetricSource
+ *       S3SourceConfig: { // DetectedS3SourceConfig
+ *         FileFormatDescriptor: { // DetectedFileFormatDescriptor
+ *           CsvFormatDescriptor: { // DetectedCsvFormatDescriptor
+ *             FileCompression: {
+ *               Value: {
+ *                 S: 'STRING_VALUE',
+ *                 N: 'STRING_VALUE',
+ *                 B: 'STRING_VALUE',
+ *                 SS: [
+ *                   'STRING_VALUE',
+ *                 ],
+ *                 NS: [
+ *                   'STRING_VALUE',
+ *                 ],
+ *                 BS: [
+ *                   'STRING_VALUE',
+ *                 ],
+ *               },
+ *               Confidence: 'STRING_VALUE',
+ *               Message: 'STRING_VALUE',
+ *             },
+ *             Charset: {
+ *               Value: {
+ *                 S: 'STRING_VALUE',
+ *                 N: 'STRING_VALUE',
+ *                 B: 'STRING_VALUE',
+ *                 SS: [
+ *                   'STRING_VALUE',
+ *                 ],
+ *                 NS: [
+ *                   'STRING_VALUE',
+ *                 ],
+ *                 BS: [
+ *                   'STRING_VALUE',
+ *                 ],
+ *               },
+ *               Confidence: 'STRING_VALUE',
+ *               Message: 'STRING_VALUE',
+ *             },
+ *             ContainsHeader: {
+ *               Value: {
+ *                 S: 'STRING_VALUE',
+ *                 N: 'STRING_VALUE',
+ *                 B: 'STRING_VALUE',
+ *                 SS: [
+ *                   'STRING_VALUE',
+ *                 ],
+ *                 NS: [
+ *                   'STRING_VALUE',
+ *                 ],
+ *                 BS: [
+ *                   'STRING_VALUE',
+ *                 ],
+ *               },
+ *               Confidence: 'STRING_VALUE',
+ *               Message: 'STRING_VALUE',
+ *             },
+ *             Delimiter: '<DetectedField>',
+ *             HeaderList: '<DetectedField>',
+ *             QuoteSymbol: '<DetectedField>',
+ *           },
+ *           JsonFormatDescriptor: { // DetectedJsonFormatDescriptor
+ *             FileCompression: '<DetectedField>',
+ *             Charset: '<DetectedField>',
+ *           },
+ *         },
+ *       },
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param DetectMetricSetConfigCommandInput - {@link DetectMetricSetConfigCommandInput}
@@ -78,6 +189,8 @@ export interface DetectMetricSetConfigCommandOutput extends DetectMetricSetConfi
  *  <p>The input fails to satisfy the constraints specified by the AWS service. Check your input values and try
  *       again.</p>
  *
+ * @throws {@link LookoutMetricsServiceException}
+ * <p>Base exception class for all service exceptions from LookoutMetrics service.</p>
  *
  */
 export class DetectMetricSetConfigCommand extends $Command<

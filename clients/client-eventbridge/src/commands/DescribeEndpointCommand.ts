@@ -36,15 +36,47 @@ export interface DescribeEndpointCommandOutput extends DescribeEndpointResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EventBridgeClient, DescribeEndpointCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
- * // const { EventBridgeClient, DescribeEndpointCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
+ * import { EventBridgeClient, DescribeEndpointCommand } from '@aws-sdk/client-eventbridge'; // ES Modules import
+ * // const { EventBridgeClient, DescribeEndpointCommand } = require('@aws-sdk/client-eventbridge'); // CommonJS import
  * const client = new EventBridgeClient(config);
  * const input = { // DescribeEndpointRequest
- *   Name: "STRING_VALUE", // required
- *   HomeRegion: "STRING_VALUE",
+ *   Name: 'STRING_VALUE', // required
+ *   HomeRegion: 'STRING_VALUE',
  * };
  * const command = new DescribeEndpointCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeEndpointResponse
+ *   Name: 'STRING_VALUE',
+ *   Description: 'STRING_VALUE',
+ *   Arn: 'STRING_VALUE',
+ *   RoutingConfig: { // RoutingConfig
+ *     FailoverConfig: { // FailoverConfig
+ *       Primary: { // Primary
+ *         HealthCheck: 'STRING_VALUE', // required
+ *       },
+ *       Secondary: { // Secondary
+ *         Route: 'STRING_VALUE', // required
+ *       },
+ *     },
+ *   },
+ *   ReplicationConfig: { // ReplicationConfig
+ *     State: 'ENABLED' || 'DISABLED',
+ *   },
+ *   EventBuses: [ // EndpointEventBusList
+ *     { // EndpointEventBus
+ *       EventBusArn: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ *   RoleArn: 'STRING_VALUE',
+ *   EndpointId: 'STRING_VALUE',
+ *   EndpointUrl: 'STRING_VALUE',
+ *   State: 'ACTIVE' || 'CREATING' || 'UPDATING' || 'DELETING' || 'CREATE_FAILED' || 'UPDATE_FAILED' || 'DELETE_FAILED',
+ *   StateReason: 'STRING_VALUE',
+ *   CreationTime: new Date('TIMESTAMP'),
+ *   LastModifiedTime: new Date('TIMESTAMP'),
+ * };
+ *
  * ```
  *
  * @param DescribeEndpointCommandInput - {@link DescribeEndpointCommandInput}
@@ -59,6 +91,8 @@ export interface DescribeEndpointCommandOutput extends DescribeEndpointResponse,
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>An entity that you specified does not exist.</p>
  *
+ * @throws {@link EventBridgeServiceException}
+ * <p>Base exception class for all service exceptions from EventBridge service.</p>
  *
  */
 export class DescribeEndpointCommand extends $Command<

@@ -36,14 +36,19 @@ export interface DeleteDatasetCommandOutput extends DeleteDatasetResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DataBrewClient, DeleteDatasetCommand } from "@aws-sdk/client-databrew"; // ES Modules import
- * // const { DataBrewClient, DeleteDatasetCommand } = require("@aws-sdk/client-databrew"); // CommonJS import
+ * import { DataBrewClient, DeleteDatasetCommand } from '@aws-sdk/client-databrew'; // ES Modules import
+ * // const { DataBrewClient, DeleteDatasetCommand } = require('@aws-sdk/client-databrew'); // CommonJS import
  * const client = new DataBrewClient(config);
  * const input = { // DeleteDatasetRequest
- *   Name: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
  * };
  * const command = new DeleteDatasetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteDatasetResponse
+ *   Name: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param DeleteDatasetCommandInput - {@link DeleteDatasetCommandInput}
@@ -61,6 +66,8 @@ export interface DeleteDatasetCommandOutput extends DeleteDatasetResponse, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>The input parameters for this request failed validation.</p>
  *
+ * @throws {@link DataBrewServiceException}
+ * <p>Base exception class for all service exceptions from DataBrew service.</p>
  *
  */
 export class DeleteDatasetCommand extends $Command<

@@ -36,38 +36,50 @@ export interface GetSampleDataCommandOutput extends GetSampleDataResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LookoutMetricsClient, GetSampleDataCommand } from "@aws-sdk/client-lookoutmetrics"; // ES Modules import
- * // const { LookoutMetricsClient, GetSampleDataCommand } = require("@aws-sdk/client-lookoutmetrics"); // CommonJS import
+ * import { LookoutMetricsClient, GetSampleDataCommand } from '@aws-sdk/client-lookoutmetrics'; // ES Modules import
+ * // const { LookoutMetricsClient, GetSampleDataCommand } = require('@aws-sdk/client-lookoutmetrics'); // CommonJS import
  * const client = new LookoutMetricsClient(config);
  * const input = { // GetSampleDataRequest
  *   S3SourceConfig: { // SampleDataS3SourceConfig
- *     RoleArn: "STRING_VALUE", // required
+ *     RoleArn: 'STRING_VALUE', // required
  *     TemplatedPathList: [ // TemplatedPathList
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     HistoricalDataPathList: [ // HistoricalDataPathList
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     FileFormatDescriptor: { // FileFormatDescriptor
  *       CsvFormatDescriptor: { // CsvFormatDescriptor
- *         FileCompression: "STRING_VALUE",
- *         Charset: "STRING_VALUE",
+ *         FileCompression: 'STRING_VALUE',
+ *         Charset: 'STRING_VALUE',
  *         ContainsHeader: true || false,
- *         Delimiter: "STRING_VALUE",
+ *         Delimiter: 'STRING_VALUE',
  *         HeaderList: [ // HeaderList
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
- *         QuoteSymbol: "STRING_VALUE",
+ *         QuoteSymbol: 'STRING_VALUE',
  *       },
  *       JsonFormatDescriptor: { // JsonFormatDescriptor
- *         FileCompression: "STRING_VALUE",
- *         Charset: "STRING_VALUE",
+ *         FileCompression: 'STRING_VALUE',
+ *         Charset: 'STRING_VALUE',
  *       },
  *     },
  *   },
  * };
  * const command = new GetSampleDataCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetSampleDataResponse
+ *   HeaderValues: [ // HeaderValueList
+ *     'STRING_VALUE',
+ *   ],
+ *   SampleRows: [ // SampleRows
+ *     [ // SampleRow
+ *       'STRING_VALUE',
+ *     ],
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetSampleDataCommandInput - {@link GetSampleDataCommandInput}
@@ -92,6 +104,8 @@ export interface GetSampleDataCommandOutput extends GetSampleDataResponse, __Met
  *  <p>The input fails to satisfy the constraints specified by the AWS service. Check your input values and try
  *       again.</p>
  *
+ * @throws {@link LookoutMetricsServiceException}
+ * <p>Base exception class for all service exceptions from LookoutMetrics service.</p>
  *
  */
 export class GetSampleDataCommand extends $Command<

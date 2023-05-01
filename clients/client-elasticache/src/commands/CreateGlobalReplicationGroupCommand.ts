@@ -52,16 +52,48 @@ export interface CreateGlobalReplicationGroupCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElastiCacheClient, CreateGlobalReplicationGroupCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
- * // const { ElastiCacheClient, CreateGlobalReplicationGroupCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
+ * import { ElastiCacheClient, CreateGlobalReplicationGroupCommand } from '@aws-sdk/client-elasticache'; // ES Modules import
+ * // const { ElastiCacheClient, CreateGlobalReplicationGroupCommand } = require('@aws-sdk/client-elasticache'); // CommonJS import
  * const client = new ElastiCacheClient(config);
  * const input = { // CreateGlobalReplicationGroupMessage
- *   GlobalReplicationGroupIdSuffix: "STRING_VALUE", // required
- *   GlobalReplicationGroupDescription: "STRING_VALUE",
- *   PrimaryReplicationGroupId: "STRING_VALUE", // required
+ *   GlobalReplicationGroupIdSuffix: 'STRING_VALUE', // required
+ *   GlobalReplicationGroupDescription: 'STRING_VALUE',
+ *   PrimaryReplicationGroupId: 'STRING_VALUE', // required
  * };
  * const command = new CreateGlobalReplicationGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateGlobalReplicationGroupResult
+ *   GlobalReplicationGroup: { // GlobalReplicationGroup
+ *     GlobalReplicationGroupId: 'STRING_VALUE',
+ *     GlobalReplicationGroupDescription: 'STRING_VALUE',
+ *     Status: 'STRING_VALUE',
+ *     CacheNodeType: 'STRING_VALUE',
+ *     Engine: 'STRING_VALUE',
+ *     EngineVersion: 'STRING_VALUE',
+ *     Members: [ // GlobalReplicationGroupMemberList
+ *       { // GlobalReplicationGroupMember
+ *         ReplicationGroupId: 'STRING_VALUE',
+ *         ReplicationGroupRegion: 'STRING_VALUE',
+ *         Role: 'STRING_VALUE',
+ *         AutomaticFailover: 'enabled' || 'disabled' || 'enabling' || 'disabling',
+ *         Status: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     ClusterEnabled: true || false,
+ *     GlobalNodeGroups: [ // GlobalNodeGroupList
+ *       { // GlobalNodeGroup
+ *         GlobalNodeGroupId: 'STRING_VALUE',
+ *         Slots: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     AuthTokenEnabled: true || false,
+ *     TransitEncryptionEnabled: true || false,
+ *     AtRestEncryptionEnabled: true || false,
+ *     ARN: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateGlobalReplicationGroupCommandInput - {@link CreateGlobalReplicationGroupCommandInput}
@@ -85,6 +117,8 @@ export interface CreateGlobalReplicationGroupCommandOutput
  * @throws {@link ServiceLinkedRoleNotFoundFault} (client fault)
  *  <p>The specified service linked role (SLR) was not found.</p>
  *
+ * @throws {@link ElastiCacheServiceException}
+ * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
  */
 export class CreateGlobalReplicationGroupCommand extends $Command<

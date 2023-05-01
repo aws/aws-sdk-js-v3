@@ -36,20 +36,39 @@ export interface DescribeCodeCoveragesCommandOutput extends DescribeCodeCoverage
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeBuildClient, DescribeCodeCoveragesCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
- * // const { CodeBuildClient, DescribeCodeCoveragesCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import
+ * import { CodeBuildClient, DescribeCodeCoveragesCommand } from '@aws-sdk/client-codebuild'; // ES Modules import
+ * // const { CodeBuildClient, DescribeCodeCoveragesCommand } = require('@aws-sdk/client-codebuild'); // CommonJS import
  * const client = new CodeBuildClient(config);
  * const input = { // DescribeCodeCoveragesInput
- *   reportArn: "STRING_VALUE", // required
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
- *   sortOrder: "STRING_VALUE",
- *   sortBy: "STRING_VALUE",
- *   minLineCoveragePercentage: Number("double"),
- *   maxLineCoveragePercentage: Number("double"),
+ *   reportArn: 'STRING_VALUE', // required
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
+ *   sortOrder: 'STRING_VALUE',
+ *   sortBy: 'STRING_VALUE',
+ *   minLineCoveragePercentage: Number('double'),
+ *   maxLineCoveragePercentage: Number('double'),
  * };
  * const command = new DescribeCodeCoveragesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeCodeCoveragesOutput
+ *   nextToken: 'STRING_VALUE',
+ *   codeCoverages: [ // CodeCoverages
+ *     { // CodeCoverage
+ *       id: 'STRING_VALUE',
+ *       reportARN: 'STRING_VALUE',
+ *       filePath: 'STRING_VALUE',
+ *       lineCoveragePercentage: Number('double'),
+ *       linesCovered: Number('int'),
+ *       linesMissed: Number('int'),
+ *       branchCoveragePercentage: Number('double'),
+ *       branchesCovered: Number('int'),
+ *       branchesMissed: Number('int'),
+ *       expired: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeCodeCoveragesCommandInput - {@link DescribeCodeCoveragesCommandInput}
@@ -61,6 +80,8 @@ export interface DescribeCodeCoveragesCommandOutput extends DescribeCodeCoverage
  * @throws {@link InvalidInputException} (client fault)
  *  <p>The input value that was provided is not valid.</p>
  *
+ * @throws {@link CodeBuildServiceException}
+ * <p>Base exception class for all service exceptions from CodeBuild service.</p>
  *
  */
 export class DescribeCodeCoveragesCommand extends $Command<

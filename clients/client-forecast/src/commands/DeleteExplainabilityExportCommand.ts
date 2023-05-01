@@ -36,14 +36,17 @@ export interface DeleteExplainabilityExportCommandOutput extends __MetadataBeare
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ForecastClient, DeleteExplainabilityExportCommand } from "@aws-sdk/client-forecast"; // ES Modules import
- * // const { ForecastClient, DeleteExplainabilityExportCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
+ * import { ForecastClient, DeleteExplainabilityExportCommand } from '@aws-sdk/client-forecast'; // ES Modules import
+ * // const { ForecastClient, DeleteExplainabilityExportCommand } = require('@aws-sdk/client-forecast'); // CommonJS import
  * const client = new ForecastClient(config);
  * const input = { // DeleteExplainabilityExportRequest
- *   ExplainabilityExportArn: "STRING_VALUE", // required
+ *   ExplainabilityExportArn: 'STRING_VALUE', // required
  * };
  * const command = new DeleteExplainabilityExportCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteExplainabilityExportCommandInput - {@link DeleteExplainabilityExportCommandInput}
@@ -63,6 +66,8 @@ export interface DeleteExplainabilityExportCommandOutput extends __MetadataBeare
  *  <p>We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try
  *       again.</p>
  *
+ * @throws {@link ForecastServiceException}
+ * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
  */
 export class DeleteExplainabilityExportCommand extends $Command<

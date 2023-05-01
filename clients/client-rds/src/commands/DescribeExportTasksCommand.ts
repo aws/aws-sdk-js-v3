@@ -37,26 +37,53 @@ export interface DescribeExportTasksCommandOutput extends ExportTasksMessage, __
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RDSClient, DescribeExportTasksCommand } from "@aws-sdk/client-rds"; // ES Modules import
- * // const { RDSClient, DescribeExportTasksCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * import { RDSClient, DescribeExportTasksCommand } from '@aws-sdk/client-rds'; // ES Modules import
+ * // const { RDSClient, DescribeExportTasksCommand } = require('@aws-sdk/client-rds'); // CommonJS import
  * const client = new RDSClient(config);
  * const input = { // DescribeExportTasksMessage
- *   ExportTaskIdentifier: "STRING_VALUE",
- *   SourceArn: "STRING_VALUE",
+ *   ExportTaskIdentifier: 'STRING_VALUE',
+ *   SourceArn: 'STRING_VALUE',
  *   Filters: [ // FilterList
  *     { // Filter
- *       Name: "STRING_VALUE", // required
+ *       Name: 'STRING_VALUE', // required
  *       Values: [ // FilterValueList // required
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
- *   Marker: "STRING_VALUE",
- *   MaxRecords: Number("int"),
- *   SourceType: "SNAPSHOT" || "CLUSTER",
+ *   Marker: 'STRING_VALUE',
+ *   MaxRecords: Number('int'),
+ *   SourceType: 'SNAPSHOT' || 'CLUSTER',
  * };
  * const command = new DescribeExportTasksCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ExportTasksMessage
+ *   Marker: 'STRING_VALUE',
+ *   ExportTasks: [ // ExportTasksList
+ *     { // ExportTask
+ *       ExportTaskIdentifier: 'STRING_VALUE',
+ *       SourceArn: 'STRING_VALUE',
+ *       ExportOnly: [ // StringList
+ *         'STRING_VALUE',
+ *       ],
+ *       SnapshotTime: new Date('TIMESTAMP'),
+ *       TaskStartTime: new Date('TIMESTAMP'),
+ *       TaskEndTime: new Date('TIMESTAMP'),
+ *       S3Bucket: 'STRING_VALUE',
+ *       S3Prefix: 'STRING_VALUE',
+ *       IamRoleArn: 'STRING_VALUE',
+ *       KmsKeyId: 'STRING_VALUE',
+ *       Status: 'STRING_VALUE',
+ *       PercentProgress: Number('int'),
+ *       TotalExtractedDataInGB: Number('int'),
+ *       FailureCause: 'STRING_VALUE',
+ *       WarningMessage: 'STRING_VALUE',
+ *       SourceType: 'SNAPSHOT' || 'CLUSTER',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeExportTasksCommandInput - {@link DescribeExportTasksCommandInput}
@@ -68,6 +95,8 @@ export interface DescribeExportTasksCommandOutput extends ExportTasksMessage, __
  * @throws {@link ExportTaskNotFoundFault} (client fault)
  *  <p>The export task doesn't exist.</p>
  *
+ * @throws {@link RDSServiceException}
+ * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  * @example To describe snapshot export tasks
  * ```javascript

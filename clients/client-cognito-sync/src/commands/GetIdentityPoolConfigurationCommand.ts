@@ -87,14 +87,30 @@ export interface GetIdentityPoolConfigurationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CognitoSyncClient, GetIdentityPoolConfigurationCommand } from "@aws-sdk/client-cognito-sync"; // ES Modules import
- * // const { CognitoSyncClient, GetIdentityPoolConfigurationCommand } = require("@aws-sdk/client-cognito-sync"); // CommonJS import
+ * import { CognitoSyncClient, GetIdentityPoolConfigurationCommand } from '@aws-sdk/client-cognito-sync'; // ES Modules import
+ * // const { CognitoSyncClient, GetIdentityPoolConfigurationCommand } = require('@aws-sdk/client-cognito-sync'); // CommonJS import
  * const client = new CognitoSyncClient(config);
  * const input = { // GetIdentityPoolConfigurationRequest
- *   IdentityPoolId: "STRING_VALUE", // required
+ *   IdentityPoolId: 'STRING_VALUE', // required
  * };
  * const command = new GetIdentityPoolConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetIdentityPoolConfigurationResponse
+ *   IdentityPoolId: 'STRING_VALUE',
+ *   PushSync: { // PushSync
+ *     ApplicationArns: [ // ApplicationArnList
+ *       'STRING_VALUE',
+ *     ],
+ *     RoleArn: 'STRING_VALUE',
+ *   },
+ *   CognitoStreams: { // CognitoStreams
+ *     StreamName: 'STRING_VALUE',
+ *     RoleArn: 'STRING_VALUE',
+ *     StreamingStatus: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetIdentityPoolConfigurationCommandInput - {@link GetIdentityPoolConfigurationCommandInput}
@@ -123,6 +139,8 @@ export interface GetIdentityPoolConfigurationCommandOutput
  *  Thrown if the request is
  *       throttled.
  *
+ * @throws {@link CognitoSyncServiceException}
+ * <p>Base exception class for all service exceptions from CognitoSync service.</p>
  *
  */
 export class GetIdentityPoolConfigurationCommand extends $Command<

@@ -40,24 +40,27 @@ export interface UpdateRoutingProfileConcurrencyCommandOutput extends __Metadata
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, UpdateRoutingProfileConcurrencyCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, UpdateRoutingProfileConcurrencyCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, UpdateRoutingProfileConcurrencyCommand } from '@aws-sdk/client-connect'; // ES Modules import
+ * // const { ConnectClient, UpdateRoutingProfileConcurrencyCommand } = require('@aws-sdk/client-connect'); // CommonJS import
  * const client = new ConnectClient(config);
  * const input = { // UpdateRoutingProfileConcurrencyRequest
- *   InstanceId: "STRING_VALUE", // required
- *   RoutingProfileId: "STRING_VALUE", // required
+ *   InstanceId: 'STRING_VALUE', // required
+ *   RoutingProfileId: 'STRING_VALUE', // required
  *   MediaConcurrencies: [ // MediaConcurrencies // required
  *     { // MediaConcurrency
- *       Channel: "VOICE" || "CHAT" || "TASK", // required
- *       Concurrency: Number("int"), // required
+ *       Channel: 'VOICE' || 'CHAT' || 'TASK', // required
+ *       Concurrency: Number('int'), // required
  *       CrossChannelBehavior: { // CrossChannelBehavior
- *         BehaviorType: "ROUTE_CURRENT_CHANNEL_ONLY" || "ROUTE_ANY_CHANNEL", // required
+ *         BehaviorType: 'ROUTE_CURRENT_CHANNEL_ONLY' || 'ROUTE_ANY_CHANNEL', // required
  *       },
  *     },
  *   ],
  * };
  * const command = new UpdateRoutingProfileConcurrencyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateRoutingProfileConcurrencyCommandInput - {@link UpdateRoutingProfileConcurrencyCommandInput}
@@ -81,6 +84,8 @@ export interface UpdateRoutingProfileConcurrencyCommandOutput extends __Metadata
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class UpdateRoutingProfileConcurrencyCommand extends $Command<

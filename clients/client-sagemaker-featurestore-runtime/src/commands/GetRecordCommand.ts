@@ -42,18 +42,28 @@ export interface GetRecordCommandOutput extends GetRecordResponse, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerFeatureStoreRuntimeClient, GetRecordCommand } from "@aws-sdk/client-sagemaker-featurestore-runtime"; // ES Modules import
- * // const { SageMakerFeatureStoreRuntimeClient, GetRecordCommand } = require("@aws-sdk/client-sagemaker-featurestore-runtime"); // CommonJS import
+ * import { SageMakerFeatureStoreRuntimeClient, GetRecordCommand } from '@aws-sdk/client-sagemaker-featurestore-runtime'; // ES Modules import
+ * // const { SageMakerFeatureStoreRuntimeClient, GetRecordCommand } = require('@aws-sdk/client-sagemaker-featurestore-runtime'); // CommonJS import
  * const client = new SageMakerFeatureStoreRuntimeClient(config);
  * const input = { // GetRecordRequest
- *   FeatureGroupName: "STRING_VALUE", // required
- *   RecordIdentifierValueAsString: "STRING_VALUE", // required
+ *   FeatureGroupName: 'STRING_VALUE', // required
+ *   RecordIdentifierValueAsString: 'STRING_VALUE', // required
  *   FeatureNames: [ // FeatureNames
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new GetRecordCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetRecordResponse
+ *   Record: [ // Record
+ *     { // FeatureValue
+ *       FeatureName: 'STRING_VALUE', // required
+ *       ValueAsString: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetRecordCommandInput - {@link GetRecordCommandInput}
@@ -78,6 +88,8 @@ export interface GetRecordCommandOutput extends GetRecordResponse, __MetadataBea
  * @throws {@link ValidationError} (client fault)
  *  <p>There was an error validating your request.</p>
  *
+ * @throws {@link SageMakerFeatureStoreRuntimeServiceException}
+ * <p>Base exception class for all service exceptions from SageMakerFeatureStoreRuntime service.</p>
  *
  */
 export class GetRecordCommand extends $Command<

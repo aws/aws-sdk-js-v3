@@ -41,17 +41,20 @@ export interface VoteOnProposalCommandOutput extends VoteOnProposalOutput, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ManagedBlockchainClient, VoteOnProposalCommand } from "@aws-sdk/client-managedblockchain"; // ES Modules import
- * // const { ManagedBlockchainClient, VoteOnProposalCommand } = require("@aws-sdk/client-managedblockchain"); // CommonJS import
+ * import { ManagedBlockchainClient, VoteOnProposalCommand } from '@aws-sdk/client-managedblockchain'; // ES Modules import
+ * // const { ManagedBlockchainClient, VoteOnProposalCommand } = require('@aws-sdk/client-managedblockchain'); // CommonJS import
  * const client = new ManagedBlockchainClient(config);
  * const input = { // VoteOnProposalInput
- *   NetworkId: "STRING_VALUE", // required
- *   ProposalId: "STRING_VALUE", // required
- *   VoterMemberId: "STRING_VALUE", // required
- *   Vote: "YES" || "NO", // required
+ *   NetworkId: 'STRING_VALUE', // required
+ *   ProposalId: 'STRING_VALUE', // required
+ *   VoterMemberId: 'STRING_VALUE', // required
+ *   Vote: 'YES' || 'NO', // required
  * };
  * const command = new VoteOnProposalCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param VoteOnProposalCommandInput - {@link VoteOnProposalCommandInput}
@@ -81,6 +84,8 @@ export interface VoteOnProposalCommandOutput extends VoteOnProposalOutput, __Met
  *          creating resources that exceed your service limit for this resource type.
  *          Request a limit increase or delete unused resources if possible.</p>
  *
+ * @throws {@link ManagedBlockchainServiceException}
+ * <p>Base exception class for all service exceptions from ManagedBlockchain service.</p>
  *
  */
 export class VoteOnProposalCommand extends $Command<

@@ -57,17 +57,23 @@ export interface UpdateSecretVersionStageCommandOutput extends UpdateSecretVersi
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SecretsManagerClient, UpdateSecretVersionStageCommand } from "@aws-sdk/client-secrets-manager"; // ES Modules import
- * // const { SecretsManagerClient, UpdateSecretVersionStageCommand } = require("@aws-sdk/client-secrets-manager"); // CommonJS import
+ * import { SecretsManagerClient, UpdateSecretVersionStageCommand } from '@aws-sdk/client-secrets-manager'; // ES Modules import
+ * // const { SecretsManagerClient, UpdateSecretVersionStageCommand } = require('@aws-sdk/client-secrets-manager'); // CommonJS import
  * const client = new SecretsManagerClient(config);
  * const input = { // UpdateSecretVersionStageRequest
- *   SecretId: "STRING_VALUE", // required
- *   VersionStage: "STRING_VALUE", // required
- *   RemoveFromVersionId: "STRING_VALUE",
- *   MoveToVersionId: "STRING_VALUE",
+ *   SecretId: 'STRING_VALUE', // required
+ *   VersionStage: 'STRING_VALUE', // required
+ *   RemoveFromVersionId: 'STRING_VALUE',
+ *   MoveToVersionId: 'STRING_VALUE',
  * };
  * const command = new UpdateSecretVersionStageCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateSecretVersionStageResponse
+ *   ARN: 'STRING_VALUE',
+ *   Name: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateSecretVersionStageCommandInput - {@link UpdateSecretVersionStageCommandInput}
@@ -106,6 +112,8 @@ export interface UpdateSecretVersionStageCommandOutput extends UpdateSecretVersi
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Secrets Manager can't find the resource that you asked for.</p>
  *
+ * @throws {@link SecretsManagerServiceException}
+ * <p>Base exception class for all service exceptions from SecretsManager service.</p>
  *
  * @example To add a staging label attached to a version of a secret
  * ```javascript

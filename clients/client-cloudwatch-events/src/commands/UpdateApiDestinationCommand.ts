@@ -36,19 +36,27 @@ export interface UpdateApiDestinationCommandOutput extends UpdateApiDestinationR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudWatchEventsClient, UpdateApiDestinationCommand } from "@aws-sdk/client-cloudwatch-events"; // ES Modules import
- * // const { CloudWatchEventsClient, UpdateApiDestinationCommand } = require("@aws-sdk/client-cloudwatch-events"); // CommonJS import
+ * import { CloudWatchEventsClient, UpdateApiDestinationCommand } from '@aws-sdk/client-cloudwatch-events'; // ES Modules import
+ * // const { CloudWatchEventsClient, UpdateApiDestinationCommand } = require('@aws-sdk/client-cloudwatch-events'); // CommonJS import
  * const client = new CloudWatchEventsClient(config);
  * const input = { // UpdateApiDestinationRequest
- *   Name: "STRING_VALUE", // required
- *   Description: "STRING_VALUE",
- *   ConnectionArn: "STRING_VALUE",
- *   InvocationEndpoint: "STRING_VALUE",
- *   HttpMethod: "STRING_VALUE",
- *   InvocationRateLimitPerSecond: Number("int"),
+ *   Name: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE',
+ *   ConnectionArn: 'STRING_VALUE',
+ *   InvocationEndpoint: 'STRING_VALUE',
+ *   HttpMethod: 'STRING_VALUE',
+ *   InvocationRateLimitPerSecond: Number('int'),
  * };
  * const command = new UpdateApiDestinationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateApiDestinationResponse
+ *   ApiDestinationArn: 'STRING_VALUE',
+ *   ApiDestinationState: 'STRING_VALUE',
+ *   CreationTime: new Date('TIMESTAMP'),
+ *   LastModifiedTime: new Date('TIMESTAMP'),
+ * };
+ *
  * ```
  *
  * @param UpdateApiDestinationCommandInput - {@link UpdateApiDestinationCommandInput}
@@ -70,6 +78,8 @@ export interface UpdateApiDestinationCommandOutput extends UpdateApiDestinationR
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>An entity that you specified does not exist.</p>
  *
+ * @throws {@link CloudWatchEventsServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatchEvents service.</p>
  *
  */
 export class UpdateApiDestinationCommand extends $Command<

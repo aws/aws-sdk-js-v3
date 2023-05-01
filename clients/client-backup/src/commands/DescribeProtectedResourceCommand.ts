@@ -38,14 +38,22 @@ export interface DescribeProtectedResourceCommandOutput extends DescribeProtecte
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BackupClient, DescribeProtectedResourceCommand } from "@aws-sdk/client-backup"; // ES Modules import
- * // const { BackupClient, DescribeProtectedResourceCommand } = require("@aws-sdk/client-backup"); // CommonJS import
+ * import { BackupClient, DescribeProtectedResourceCommand } from '@aws-sdk/client-backup'; // ES Modules import
+ * // const { BackupClient, DescribeProtectedResourceCommand } = require('@aws-sdk/client-backup'); // CommonJS import
  * const client = new BackupClient(config);
  * const input = { // DescribeProtectedResourceInput
- *   ResourceArn: "STRING_VALUE", // required
+ *   ResourceArn: 'STRING_VALUE', // required
  * };
  * const command = new DescribeProtectedResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeProtectedResourceOutput
+ *   ResourceArn: 'STRING_VALUE',
+ *   ResourceType: 'STRING_VALUE',
+ *   LastBackupTime: new Date('TIMESTAMP'),
+ *   ResourceName: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeProtectedResourceCommandInput - {@link DescribeProtectedResourceCommandInput}
@@ -67,6 +75,8 @@ export interface DescribeProtectedResourceCommandOutput extends DescribeProtecte
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request failed due to a temporary failure of the server.</p>
  *
+ * @throws {@link BackupServiceException}
+ * <p>Base exception class for all service exceptions from Backup service.</p>
  *
  */
 export class DescribeProtectedResourceCommand extends $Command<

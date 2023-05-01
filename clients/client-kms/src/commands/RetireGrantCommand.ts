@@ -81,16 +81,19 @@ export interface RetireGrantCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KMSClient, RetireGrantCommand } from "@aws-sdk/client-kms"; // ES Modules import
- * // const { KMSClient, RetireGrantCommand } = require("@aws-sdk/client-kms"); // CommonJS import
+ * import { KMSClient, RetireGrantCommand } from '@aws-sdk/client-kms'; // ES Modules import
+ * // const { KMSClient, RetireGrantCommand } = require('@aws-sdk/client-kms'); // CommonJS import
  * const client = new KMSClient(config);
  * const input = { // RetireGrantRequest
- *   GrantToken: "STRING_VALUE",
- *   KeyId: "STRING_VALUE",
- *   GrantId: "STRING_VALUE",
+ *   GrantToken: 'STRING_VALUE',
+ *   KeyId: 'STRING_VALUE',
+ *   GrantId: 'STRING_VALUE',
  * };
  * const command = new RetireGrantCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param RetireGrantCommandInput - {@link RetireGrantCommandInput}
@@ -139,6 +142,8 @@ export interface RetireGrantCommandOutput extends __MetadataBearer {}
  *  <p>The request was rejected because the specified entity or resource could not be
  *       found.</p>
  *
+ * @throws {@link KMSServiceException}
+ * <p>Base exception class for all service exceptions from KMS service.</p>
  *
  * @example To retire a grant
  * ```javascript

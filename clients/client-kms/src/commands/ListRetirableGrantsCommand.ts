@@ -78,16 +78,44 @@ export interface ListRetirableGrantsCommandOutput extends ListGrantsResponse, __
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KMSClient, ListRetirableGrantsCommand } from "@aws-sdk/client-kms"; // ES Modules import
- * // const { KMSClient, ListRetirableGrantsCommand } = require("@aws-sdk/client-kms"); // CommonJS import
+ * import { KMSClient, ListRetirableGrantsCommand } from '@aws-sdk/client-kms'; // ES Modules import
+ * // const { KMSClient, ListRetirableGrantsCommand } = require('@aws-sdk/client-kms'); // CommonJS import
  * const client = new KMSClient(config);
  * const input = { // ListRetirableGrantsRequest
- *   Limit: Number("int"),
- *   Marker: "STRING_VALUE",
- *   RetiringPrincipal: "STRING_VALUE", // required
+ *   Limit: Number('int'),
+ *   Marker: 'STRING_VALUE',
+ *   RetiringPrincipal: 'STRING_VALUE', // required
  * };
  * const command = new ListRetirableGrantsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListGrantsResponse
+ *   Grants: [ // GrantList
+ *     { // GrantListEntry
+ *       KeyId: 'STRING_VALUE',
+ *       GrantId: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *       CreationDate: new Date('TIMESTAMP'),
+ *       GranteePrincipal: 'STRING_VALUE',
+ *       RetiringPrincipal: 'STRING_VALUE',
+ *       IssuingAccount: 'STRING_VALUE',
+ *       Operations: [ // GrantOperationList
+ *         'Decrypt' || 'Encrypt' || 'GenerateDataKey' || 'GenerateDataKeyWithoutPlaintext' || 'ReEncryptFrom' || 'ReEncryptTo' || 'Sign' || 'Verify' || 'GetPublicKey' || 'CreateGrant' || 'RetireGrant' || 'DescribeKey' || 'GenerateDataKeyPair' || 'GenerateDataKeyPairWithoutPlaintext' || 'GenerateMac' || 'VerifyMac',
+ *       ],
+ *       Constraints: { // GrantConstraints
+ *         EncryptionContextSubset: { // EncryptionContextType
+ *           '<keys>': 'STRING_VALUE',
+ *         },
+ *         EncryptionContextEquals: {
+ *           '<keys>': 'STRING_VALUE',
+ *         },
+ *       },
+ *     },
+ *   ],
+ *   NextMarker: 'STRING_VALUE',
+ *   Truncated: true || false,
+ * };
+ *
  * ```
  *
  * @param ListRetirableGrantsCommandInput - {@link ListRetirableGrantsCommandInput}
@@ -116,6 +144,8 @@ export interface ListRetirableGrantsCommandOutput extends ListGrantsResponse, __
  *  <p>The request was rejected because the specified entity or resource could not be
  *       found.</p>
  *
+ * @throws {@link KMSServiceException}
+ * <p>Base exception class for all service exceptions from KMS service.</p>
  *
  * @example To list grants that the specified principal can retire
  * ```javascript

@@ -36,15 +36,23 @@ export interface ResolveAppVersionResourcesCommandOutput extends ResolveAppVersi
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ResiliencehubClient, ResolveAppVersionResourcesCommand } from "@aws-sdk/client-resiliencehub"; // ES Modules import
- * // const { ResiliencehubClient, ResolveAppVersionResourcesCommand } = require("@aws-sdk/client-resiliencehub"); // CommonJS import
+ * import { ResiliencehubClient, ResolveAppVersionResourcesCommand } from '@aws-sdk/client-resiliencehub'; // ES Modules import
+ * // const { ResiliencehubClient, ResolveAppVersionResourcesCommand } = require('@aws-sdk/client-resiliencehub'); // CommonJS import
  * const client = new ResiliencehubClient(config);
  * const input = { // ResolveAppVersionResourcesRequest
- *   appArn: "STRING_VALUE", // required
- *   appVersion: "STRING_VALUE", // required
+ *   appArn: 'STRING_VALUE', // required
+ *   appVersion: 'STRING_VALUE', // required
  * };
  * const command = new ResolveAppVersionResourcesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ResolveAppVersionResourcesResponse
+ *   appArn: 'STRING_VALUE', // required
+ *   appVersion: 'STRING_VALUE', // required
+ *   resolutionId: 'STRING_VALUE', // required
+ *   status: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param ResolveAppVersionResourcesCommandInput - {@link ResolveAppVersionResourcesCommandInput}
@@ -77,6 +85,8 @@ export interface ResolveAppVersionResourcesCommandOutput extends ResolveAppVersi
  * @throws {@link ValidationException} (client fault)
  *  <p>This exception occurs when a request is not valid.</p>
  *
+ * @throws {@link ResiliencehubServiceException}
+ * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
  */
 export class ResolveAppVersionResourcesCommand extends $Command<

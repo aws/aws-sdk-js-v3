@@ -36,14 +36,17 @@ export interface DeleteNetworkProfileCommandOutput extends DeleteNetworkProfileR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AlexaForBusinessClient, DeleteNetworkProfileCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
- * // const { AlexaForBusinessClient, DeleteNetworkProfileCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
+ * import { AlexaForBusinessClient, DeleteNetworkProfileCommand } from '@aws-sdk/client-alexa-for-business'; // ES Modules import
+ * // const { AlexaForBusinessClient, DeleteNetworkProfileCommand } = require('@aws-sdk/client-alexa-for-business'); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
  * const input = { // DeleteNetworkProfileRequest
- *   NetworkProfileArn: "STRING_VALUE", // required
+ *   NetworkProfileArn: 'STRING_VALUE', // required
  * };
  * const command = new DeleteNetworkProfileCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteNetworkProfileCommandInput - {@link DeleteNetworkProfileCommandInput}
@@ -61,6 +64,8 @@ export interface DeleteNetworkProfileCommandOutput extends DeleteNetworkProfileR
  * @throws {@link ResourceInUseException} (client fault)
  *  <p>The resource in the request is already in use.</p>
  *
+ * @throws {@link AlexaForBusinessServiceException}
+ * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  */
 export class DeleteNetworkProfileCommand extends $Command<

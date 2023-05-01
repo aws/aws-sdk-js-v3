@@ -38,32 +38,61 @@ export interface CreateReportGroupCommandOutput extends CreateReportGroupOutput,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeBuildClient, CreateReportGroupCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
- * // const { CodeBuildClient, CreateReportGroupCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import
+ * import { CodeBuildClient, CreateReportGroupCommand } from '@aws-sdk/client-codebuild'; // ES Modules import
+ * // const { CodeBuildClient, CreateReportGroupCommand } = require('@aws-sdk/client-codebuild'); // CommonJS import
  * const client = new CodeBuildClient(config);
  * const input = { // CreateReportGroupInput
- *   name: "STRING_VALUE", // required
- *   type: "STRING_VALUE", // required
+ *   name: 'STRING_VALUE', // required
+ *   type: 'STRING_VALUE', // required
  *   exportConfig: { // ReportExportConfig
- *     exportConfigType: "STRING_VALUE",
+ *     exportConfigType: 'STRING_VALUE',
  *     s3Destination: { // S3ReportExportConfig
- *       bucket: "STRING_VALUE",
- *       bucketOwner: "STRING_VALUE",
- *       path: "STRING_VALUE",
- *       packaging: "STRING_VALUE",
- *       encryptionKey: "STRING_VALUE",
+ *       bucket: 'STRING_VALUE',
+ *       bucketOwner: 'STRING_VALUE',
+ *       path: 'STRING_VALUE',
+ *       packaging: 'STRING_VALUE',
+ *       encryptionKey: 'STRING_VALUE',
  *       encryptionDisabled: true || false,
  *     },
  *   },
  *   tags: [ // TagList
  *     { // Tag
- *       key: "STRING_VALUE",
- *       value: "STRING_VALUE",
+ *       key: 'STRING_VALUE',
+ *       value: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new CreateReportGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateReportGroupOutput
+ *   reportGroup: { // ReportGroup
+ *     arn: 'STRING_VALUE',
+ *     name: 'STRING_VALUE',
+ *     type: 'STRING_VALUE',
+ *     exportConfig: { // ReportExportConfig
+ *       exportConfigType: 'STRING_VALUE',
+ *       s3Destination: { // S3ReportExportConfig
+ *         bucket: 'STRING_VALUE',
+ *         bucketOwner: 'STRING_VALUE',
+ *         path: 'STRING_VALUE',
+ *         packaging: 'STRING_VALUE',
+ *         encryptionKey: 'STRING_VALUE',
+ *         encryptionDisabled: true || false,
+ *       },
+ *     },
+ *     created: new Date('TIMESTAMP'),
+ *     lastModified: new Date('TIMESTAMP'),
+ *     tags: [ // TagList
+ *       { // Tag
+ *         key: 'STRING_VALUE',
+ *         value: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     status: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateReportGroupCommandInput - {@link CreateReportGroupCommandInput}
@@ -82,6 +111,8 @@ export interface CreateReportGroupCommandOutput extends CreateReportGroupOutput,
  *  <p>The specified Amazon Web Services resource cannot be created, because an Amazon Web Services resource with the same
  *             settings already exists.</p>
  *
+ * @throws {@link CodeBuildServiceException}
+ * <p>Base exception class for all service exceptions from CodeBuild service.</p>
  *
  */
 export class CreateReportGroupCommand extends $Command<

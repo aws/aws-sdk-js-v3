@@ -49,14 +49,28 @@ export interface StartElasticsearchServiceSoftwareUpdateCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElasticsearchServiceClient, StartElasticsearchServiceSoftwareUpdateCommand } from "@aws-sdk/client-elasticsearch-service"; // ES Modules import
- * // const { ElasticsearchServiceClient, StartElasticsearchServiceSoftwareUpdateCommand } = require("@aws-sdk/client-elasticsearch-service"); // CommonJS import
+ * import { ElasticsearchServiceClient, StartElasticsearchServiceSoftwareUpdateCommand } from '@aws-sdk/client-elasticsearch-service'; // ES Modules import
+ * // const { ElasticsearchServiceClient, StartElasticsearchServiceSoftwareUpdateCommand } = require('@aws-sdk/client-elasticsearch-service'); // CommonJS import
  * const client = new ElasticsearchServiceClient(config);
  * const input = { // StartElasticsearchServiceSoftwareUpdateRequest
- *   DomainName: "STRING_VALUE", // required
+ *   DomainName: 'STRING_VALUE', // required
  * };
  * const command = new StartElasticsearchServiceSoftwareUpdateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartElasticsearchServiceSoftwareUpdateResponse
+ *   ServiceSoftwareOptions: { // ServiceSoftwareOptions
+ *     CurrentVersion: 'STRING_VALUE',
+ *     NewVersion: 'STRING_VALUE',
+ *     UpdateAvailable: true || false,
+ *     Cancellable: true || false,
+ *     UpdateStatus: 'PENDING_UPDATE' || 'IN_PROGRESS' || 'COMPLETED' || 'NOT_ELIGIBLE' || 'ELIGIBLE',
+ *     Description: 'STRING_VALUE',
+ *     AutomatedUpdateDate: new Date('TIMESTAMP'),
+ *     OptionalDeployment: true || false,
+ *   },
+ * };
+ *
  * ```
  *
  * @param StartElasticsearchServiceSoftwareUpdateCommandInput - {@link StartElasticsearchServiceSoftwareUpdateCommandInput}
@@ -77,6 +91,8 @@ export interface StartElasticsearchServiceSoftwareUpdateCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception for missing / invalid input fields. Gives http status code of 400.</p>
  *
+ * @throws {@link ElasticsearchServiceServiceException}
+ * <p>Base exception class for all service exceptions from ElasticsearchService service.</p>
  *
  */
 export class StartElasticsearchServiceSoftwareUpdateCommand extends $Command<

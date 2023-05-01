@@ -45,17 +45,33 @@ export interface ListDevicesForWirelessDeviceImportTaskCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTWirelessClient, ListDevicesForWirelessDeviceImportTaskCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
- * // const { IoTWirelessClient, ListDevicesForWirelessDeviceImportTaskCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
+ * import { IoTWirelessClient, ListDevicesForWirelessDeviceImportTaskCommand } from '@aws-sdk/client-iot-wireless'; // ES Modules import
+ * // const { IoTWirelessClient, ListDevicesForWirelessDeviceImportTaskCommand } = require('@aws-sdk/client-iot-wireless'); // CommonJS import
  * const client = new IoTWirelessClient(config);
  * const input = { // ListDevicesForWirelessDeviceImportTaskRequest
- *   Id: "STRING_VALUE", // required
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
- *   Status: "INITIALIZED" || "PENDING" || "ONBOARDED" || "FAILED",
+ *   Id: 'STRING_VALUE', // required
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
+ *   Status: 'INITIALIZED' || 'PENDING' || 'ONBOARDED' || 'FAILED',
  * };
  * const command = new ListDevicesForWirelessDeviceImportTaskCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListDevicesForWirelessDeviceImportTaskResponse
+ *   NextToken: 'STRING_VALUE',
+ *   DestinationName: 'STRING_VALUE',
+ *   ImportedWirelessDeviceList: [ // ImportedWirelessDeviceList
+ *     { // ImportedWirelessDevice
+ *       Sidewalk: { // ImportedSidewalkDevice
+ *         SidewalkManufacturingSn: 'STRING_VALUE',
+ *         OnboardingStatus: 'INITIALIZED' || 'PENDING' || 'ONBOARDED' || 'FAILED',
+ *         OnboardingStatusReason: 'STRING_VALUE',
+ *         LastUpdateTime: new Date('TIMESTAMP'),
+ *       },
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListDevicesForWirelessDeviceImportTaskCommandInput - {@link ListDevicesForWirelessDeviceImportTaskCommandInput}
@@ -82,6 +98,8 @@ export interface ListDevicesForWirelessDeviceImportTaskCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The input did not meet the specified constraints.</p>
  *
+ * @throws {@link IoTWirelessServiceException}
+ * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
  */
 export class ListDevicesForWirelessDeviceImportTaskCommand extends $Command<

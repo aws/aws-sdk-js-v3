@@ -45,17 +45,34 @@ export interface ListAppsCommandOutput extends ListAppsResponse, __MetadataBeare
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ResiliencehubClient, ListAppsCommand } from "@aws-sdk/client-resiliencehub"; // ES Modules import
- * // const { ResiliencehubClient, ListAppsCommand } = require("@aws-sdk/client-resiliencehub"); // CommonJS import
+ * import { ResiliencehubClient, ListAppsCommand } from '@aws-sdk/client-resiliencehub'; // ES Modules import
+ * // const { ResiliencehubClient, ListAppsCommand } = require('@aws-sdk/client-resiliencehub'); // CommonJS import
  * const client = new ResiliencehubClient(config);
  * const input = { // ListAppsRequest
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
- *   name: "STRING_VALUE",
- *   appArn: "STRING_VALUE",
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
+ *   name: 'STRING_VALUE',
+ *   appArn: 'STRING_VALUE',
  * };
  * const command = new ListAppsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListAppsResponse
+ *   appSummaries: [ // AppSummaryList // required
+ *     { // AppSummary
+ *       appArn: 'STRING_VALUE', // required
+ *       name: 'STRING_VALUE', // required
+ *       description: 'STRING_VALUE',
+ *       creationTime: new Date('TIMESTAMP'), // required
+ *       complianceStatus: 'STRING_VALUE',
+ *       resiliencyScore: Number('double'),
+ *       assessmentSchedule: 'STRING_VALUE',
+ *       status: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListAppsCommandInput - {@link ListAppsCommandInput}
@@ -79,6 +96,8 @@ export interface ListAppsCommandOutput extends ListAppsResponse, __MetadataBeare
  * @throws {@link ValidationException} (client fault)
  *  <p>This exception occurs when a request is not valid.</p>
  *
+ * @throws {@link ResiliencehubServiceException}
+ * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
  */
 export class ListAppsCommand extends $Command<

@@ -36,14 +36,19 @@ export interface BulkPublishCommandOutput extends BulkPublishResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CognitoSyncClient, BulkPublishCommand } from "@aws-sdk/client-cognito-sync"; // ES Modules import
- * // const { CognitoSyncClient, BulkPublishCommand } = require("@aws-sdk/client-cognito-sync"); // CommonJS import
+ * import { CognitoSyncClient, BulkPublishCommand } from '@aws-sdk/client-cognito-sync'; // ES Modules import
+ * // const { CognitoSyncClient, BulkPublishCommand } = require('@aws-sdk/client-cognito-sync'); // CommonJS import
  * const client = new CognitoSyncClient(config);
  * const input = { // BulkPublishRequest
- *   IdentityPoolId: "STRING_VALUE", // required
+ *   IdentityPoolId: 'STRING_VALUE', // required
  * };
  * const command = new BulkPublishCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BulkPublishResponse
+ *   IdentityPoolId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param BulkPublishCommandInput - {@link BulkPublishCommandInput}
@@ -74,6 +79,8 @@ export interface BulkPublishCommandOutput extends BulkPublishResponse, __Metadat
  *  Thrown if the resource doesn't
  *       exist.
  *
+ * @throws {@link CognitoSyncServiceException}
+ * <p>Base exception class for all service exceptions from CognitoSync service.</p>
  *
  */
 export class BulkPublishCommand extends $Command<

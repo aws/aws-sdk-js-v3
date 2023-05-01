@@ -41,19 +41,53 @@ export interface UpdateProjectCommandOutput extends UpdateProjectResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EvidentlyClient, UpdateProjectCommand } from "@aws-sdk/client-evidently"; // ES Modules import
- * // const { EvidentlyClient, UpdateProjectCommand } = require("@aws-sdk/client-evidently"); // CommonJS import
+ * import { EvidentlyClient, UpdateProjectCommand } from '@aws-sdk/client-evidently'; // ES Modules import
+ * // const { EvidentlyClient, UpdateProjectCommand } = require('@aws-sdk/client-evidently'); // CommonJS import
  * const client = new EvidentlyClient(config);
  * const input = { // UpdateProjectRequest
- *   project: "STRING_VALUE", // required
+ *   project: 'STRING_VALUE', // required
  *   appConfigResource: { // ProjectAppConfigResourceConfig
- *     applicationId: "STRING_VALUE",
- *     environmentId: "STRING_VALUE",
+ *     applicationId: 'STRING_VALUE',
+ *     environmentId: 'STRING_VALUE',
  *   },
- *   description: "STRING_VALUE",
+ *   description: 'STRING_VALUE',
  * };
  * const command = new UpdateProjectCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateProjectResponse
+ *   project: { // Project
+ *     arn: 'STRING_VALUE', // required
+ *     name: 'STRING_VALUE', // required
+ *     status: 'STRING_VALUE', // required
+ *     description: 'STRING_VALUE',
+ *     createdTime: new Date('TIMESTAMP'), // required
+ *     lastUpdatedTime: new Date('TIMESTAMP'), // required
+ *     featureCount: Number('long'),
+ *     launchCount: Number('long'),
+ *     activeLaunchCount: Number('long'),
+ *     experimentCount: Number('long'),
+ *     activeExperimentCount: Number('long'),
+ *     dataDelivery: { // ProjectDataDelivery
+ *       s3Destination: { // S3Destination
+ *         bucket: 'STRING_VALUE',
+ *         prefix: 'STRING_VALUE',
+ *       },
+ *       cloudWatchLogs: { // CloudWatchLogsDestination
+ *         logGroup: 'STRING_VALUE',
+ *       },
+ *     },
+ *     appConfigResource: { // ProjectAppConfigResource
+ *       applicationId: 'STRING_VALUE', // required
+ *       environmentId: 'STRING_VALUE', // required
+ *       configurationProfileId: 'STRING_VALUE', // required
+ *     },
+ *     tags: { // TagMap
+ *       '<keys>': 'STRING_VALUE',
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateProjectCommandInput - {@link UpdateProjectCommandInput}
@@ -77,6 +111,8 @@ export interface UpdateProjectCommandOutput extends UpdateProjectResponse, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>The value of a parameter in the request caused an error.</p>
  *
+ * @throws {@link EvidentlyServiceException}
+ * <p>Base exception class for all service exceptions from Evidently service.</p>
  *
  */
 export class UpdateProjectCommand extends $Command<

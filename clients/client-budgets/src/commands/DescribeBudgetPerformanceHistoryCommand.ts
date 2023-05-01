@@ -41,21 +41,65 @@ export interface DescribeBudgetPerformanceHistoryCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BudgetsClient, DescribeBudgetPerformanceHistoryCommand } from "@aws-sdk/client-budgets"; // ES Modules import
- * // const { BudgetsClient, DescribeBudgetPerformanceHistoryCommand } = require("@aws-sdk/client-budgets"); // CommonJS import
+ * import { BudgetsClient, DescribeBudgetPerformanceHistoryCommand } from '@aws-sdk/client-budgets'; // ES Modules import
+ * // const { BudgetsClient, DescribeBudgetPerformanceHistoryCommand } = require('@aws-sdk/client-budgets'); // CommonJS import
  * const client = new BudgetsClient(config);
  * const input = { // DescribeBudgetPerformanceHistoryRequest
- *   AccountId: "STRING_VALUE", // required
- *   BudgetName: "STRING_VALUE", // required
+ *   AccountId: 'STRING_VALUE', // required
+ *   BudgetName: 'STRING_VALUE', // required
  *   TimePeriod: { // TimePeriod
- *     Start: new Date("TIMESTAMP"),
- *     End: new Date("TIMESTAMP"),
+ *     Start: new Date('TIMESTAMP'),
+ *     End: new Date('TIMESTAMP'),
  *   },
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new DescribeBudgetPerformanceHistoryCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeBudgetPerformanceHistoryResponse
+ *   BudgetPerformanceHistory: { // BudgetPerformanceHistory
+ *     BudgetName: 'STRING_VALUE',
+ *     BudgetType: 'STRING_VALUE',
+ *     CostFilters: { // CostFilters
+ *       '<keys>': [ // DimensionValues
+ *         'STRING_VALUE',
+ *       ],
+ *     },
+ *     CostTypes: { // CostTypes
+ *       IncludeTax: true || false,
+ *       IncludeSubscription: true || false,
+ *       UseBlended: true || false,
+ *       IncludeRefund: true || false,
+ *       IncludeCredit: true || false,
+ *       IncludeUpfront: true || false,
+ *       IncludeRecurring: true || false,
+ *       IncludeOtherSubscription: true || false,
+ *       IncludeSupport: true || false,
+ *       IncludeDiscount: true || false,
+ *       UseAmortized: true || false,
+ *     },
+ *     TimeUnit: 'STRING_VALUE',
+ *     BudgetedAndActualAmountsList: [ // BudgetedAndActualAmountsList
+ *       { // BudgetedAndActualAmounts
+ *         BudgetedAmount: { // Spend
+ *           Amount: 'STRING_VALUE', // required
+ *           Unit: 'STRING_VALUE', // required
+ *         },
+ *         ActualAmount: {
+ *           Amount: 'STRING_VALUE', // required
+ *           Unit: 'STRING_VALUE', // required
+ *         },
+ *         TimePeriod: { // TimePeriod
+ *           Start: new Date('TIMESTAMP'),
+ *           End: new Date('TIMESTAMP'),
+ *         },
+ *       },
+ *     ],
+ *   },
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeBudgetPerformanceHistoryCommandInput - {@link DescribeBudgetPerformanceHistoryCommandInput}
@@ -87,6 +131,8 @@ export interface DescribeBudgetPerformanceHistoryCommandOutput
  *       The number of API requests has exceeded the maximum allowed API request throttling limit for the account.
  *     </p>
  *
+ * @throws {@link BudgetsServiceException}
+ * <p>Base exception class for all service exceptions from Budgets service.</p>
  *
  */
 export class DescribeBudgetPerformanceHistoryCommand extends $Command<

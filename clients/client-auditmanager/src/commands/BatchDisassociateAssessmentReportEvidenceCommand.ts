@@ -46,18 +46,32 @@ export interface BatchDisassociateAssessmentReportEvidenceCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AuditManagerClient, BatchDisassociateAssessmentReportEvidenceCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
- * // const { AuditManagerClient, BatchDisassociateAssessmentReportEvidenceCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import
+ * import { AuditManagerClient, BatchDisassociateAssessmentReportEvidenceCommand } from '@aws-sdk/client-auditmanager'; // ES Modules import
+ * // const { AuditManagerClient, BatchDisassociateAssessmentReportEvidenceCommand } = require('@aws-sdk/client-auditmanager'); // CommonJS import
  * const client = new AuditManagerClient(config);
  * const input = { // BatchDisassociateAssessmentReportEvidenceRequest
- *   assessmentId: "STRING_VALUE", // required
- *   evidenceFolderId: "STRING_VALUE", // required
+ *   assessmentId: 'STRING_VALUE', // required
+ *   evidenceFolderId: 'STRING_VALUE', // required
  *   evidenceIds: [ // EvidenceIds // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new BatchDisassociateAssessmentReportEvidenceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BatchDisassociateAssessmentReportEvidenceResponse
+ *   evidenceIds: [ // EvidenceIds
+ *     'STRING_VALUE',
+ *   ],
+ *   errors: [ // AssessmentReportEvidenceErrors
+ *     { // AssessmentReportEvidenceError
+ *       evidenceId: 'STRING_VALUE',
+ *       errorCode: 'STRING_VALUE',
+ *       errorMessage: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param BatchDisassociateAssessmentReportEvidenceCommandInput - {@link BatchDisassociateAssessmentReportEvidenceCommandInput}
@@ -80,6 +94,8 @@ export interface BatchDisassociateAssessmentReportEvidenceCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p> The request has invalid or missing parameters. </p>
  *
+ * @throws {@link AuditManagerServiceException}
+ * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
  */
 export class BatchDisassociateAssessmentReportEvidenceCommand extends $Command<

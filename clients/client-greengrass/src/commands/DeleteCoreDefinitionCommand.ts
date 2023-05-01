@@ -36,14 +36,17 @@ export interface DeleteCoreDefinitionCommandOutput extends DeleteCoreDefinitionR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GreengrassClient, DeleteCoreDefinitionCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
- * // const { GreengrassClient, DeleteCoreDefinitionCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
+ * import { GreengrassClient, DeleteCoreDefinitionCommand } from '@aws-sdk/client-greengrass'; // ES Modules import
+ * // const { GreengrassClient, DeleteCoreDefinitionCommand } = require('@aws-sdk/client-greengrass'); // CommonJS import
  * const client = new GreengrassClient(config);
  * const input = { // DeleteCoreDefinitionRequest
- *   CoreDefinitionId: "STRING_VALUE", // required
+ *   CoreDefinitionId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteCoreDefinitionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteCoreDefinitionCommandInput - {@link DeleteCoreDefinitionCommandInput}
@@ -55,6 +58,8 @@ export interface DeleteCoreDefinitionCommandOutput extends DeleteCoreDefinitionR
  * @throws {@link BadRequestException} (client fault)
  *  General error information.
  *
+ * @throws {@link GreengrassServiceException}
+ * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
  */
 export class DeleteCoreDefinitionCommand extends $Command<

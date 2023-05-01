@@ -45,14 +45,17 @@ export interface DeleteCrossAccountAuthorizationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Route53RecoveryReadinessClient, DeleteCrossAccountAuthorizationCommand } from "@aws-sdk/client-route53-recovery-readiness"; // ES Modules import
- * // const { Route53RecoveryReadinessClient, DeleteCrossAccountAuthorizationCommand } = require("@aws-sdk/client-route53-recovery-readiness"); // CommonJS import
+ * import { Route53RecoveryReadinessClient, DeleteCrossAccountAuthorizationCommand } from '@aws-sdk/client-route53-recovery-readiness'; // ES Modules import
+ * // const { Route53RecoveryReadinessClient, DeleteCrossAccountAuthorizationCommand } = require('@aws-sdk/client-route53-recovery-readiness'); // CommonJS import
  * const client = new Route53RecoveryReadinessClient(config);
  * const input = { // DeleteCrossAccountAuthorizationRequest
- *   CrossAccountAuthorization: "STRING_VALUE", // required
+ *   CrossAccountAuthorization: 'STRING_VALUE', // required
  * };
  * const command = new DeleteCrossAccountAuthorizationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteCrossAccountAuthorizationCommandInput - {@link DeleteCrossAccountAuthorizationCommandInput}
@@ -73,6 +76,8 @@ export interface DeleteCrossAccountAuthorizationCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  The input fails to satisfy the constraints specified by an AWS service.
  *
+ * @throws {@link Route53RecoveryReadinessServiceException}
+ * <p>Base exception class for all service exceptions from Route53RecoveryReadiness service.</p>
  *
  */
 export class DeleteCrossAccountAuthorizationCommand extends $Command<

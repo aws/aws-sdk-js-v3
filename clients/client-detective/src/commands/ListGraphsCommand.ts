@@ -39,15 +39,26 @@ export interface ListGraphsCommandOutput extends ListGraphsResponse, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DetectiveClient, ListGraphsCommand } from "@aws-sdk/client-detective"; // ES Modules import
- * // const { DetectiveClient, ListGraphsCommand } = require("@aws-sdk/client-detective"); // CommonJS import
+ * import { DetectiveClient, ListGraphsCommand } from '@aws-sdk/client-detective'; // ES Modules import
+ * // const { DetectiveClient, ListGraphsCommand } = require('@aws-sdk/client-detective'); // CommonJS import
  * const client = new DetectiveClient(config);
  * const input = { // ListGraphsRequest
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListGraphsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListGraphsResponse
+ *   GraphList: [ // GraphList
+ *     { // Graph
+ *       Arn: 'STRING_VALUE',
+ *       CreatedTime: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListGraphsCommandInput - {@link ListGraphsCommandInput}
@@ -66,6 +77,8 @@ export interface ListGraphsCommandOutput extends ListGraphsResponse, __MetadataB
  * @throws {@link ValidationException} (client fault)
  *  <p>The request parameters are invalid.</p>
  *
+ * @throws {@link DetectiveServiceException}
+ * <p>Base exception class for all service exceptions from Detective service.</p>
  *
  */
 export class ListGraphsCommand extends $Command<

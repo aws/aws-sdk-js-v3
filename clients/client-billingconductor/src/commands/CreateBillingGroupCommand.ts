@@ -42,28 +42,33 @@ export interface CreateBillingGroupCommandOutput extends CreateBillingGroupOutpu
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BillingconductorClient, CreateBillingGroupCommand } from "@aws-sdk/client-billingconductor"; // ES Modules import
- * // const { BillingconductorClient, CreateBillingGroupCommand } = require("@aws-sdk/client-billingconductor"); // CommonJS import
+ * import { BillingconductorClient, CreateBillingGroupCommand } from '@aws-sdk/client-billingconductor'; // ES Modules import
+ * // const { BillingconductorClient, CreateBillingGroupCommand } = require('@aws-sdk/client-billingconductor'); // CommonJS import
  * const client = new BillingconductorClient(config);
  * const input = { // CreateBillingGroupInput
- *   ClientToken: "STRING_VALUE",
- *   Name: "STRING_VALUE", // required
+ *   ClientToken: 'STRING_VALUE',
+ *   Name: 'STRING_VALUE', // required
  *   AccountGrouping: { // AccountGrouping
  *     LinkedAccountIds: [ // AccountIdList // required
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *   },
  *   ComputationPreference: { // ComputationPreference
- *     PricingPlanArn: "STRING_VALUE", // required
+ *     PricingPlanArn: 'STRING_VALUE', // required
  *   },
- *   PrimaryAccountId: "STRING_VALUE",
- *   Description: "STRING_VALUE",
+ *   PrimaryAccountId: 'STRING_VALUE',
+ *   Description: 'STRING_VALUE',
  *   Tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateBillingGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateBillingGroupOutput
+ *   Arn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateBillingGroupCommandInput - {@link CreateBillingGroupCommandInput}
@@ -95,6 +100,8 @@ export interface CreateBillingGroupCommandOutput extends CreateBillingGroupOutpu
  * @throws {@link ValidationException} (client fault)
  *  <p>The input doesn't match with the constraints specified by Amazon Web Services services.</p>
  *
+ * @throws {@link BillingconductorServiceException}
+ * <p>Base exception class for all service exceptions from Billingconductor service.</p>
  *
  */
 export class CreateBillingGroupCommand extends $Command<

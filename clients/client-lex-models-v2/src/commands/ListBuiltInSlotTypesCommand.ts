@@ -37,20 +37,32 @@ export interface ListBuiltInSlotTypesCommandOutput extends ListBuiltInSlotTypesR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LexModelsV2Client, ListBuiltInSlotTypesCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
- * // const { LexModelsV2Client, ListBuiltInSlotTypesCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
+ * import { LexModelsV2Client, ListBuiltInSlotTypesCommand } from '@aws-sdk/client-lex-models-v2'; // ES Modules import
+ * // const { LexModelsV2Client, ListBuiltInSlotTypesCommand } = require('@aws-sdk/client-lex-models-v2'); // CommonJS import
  * const client = new LexModelsV2Client(config);
  * const input = { // ListBuiltInSlotTypesRequest
- *   localeId: "STRING_VALUE", // required
+ *   localeId: 'STRING_VALUE', // required
  *   sortBy: { // BuiltInSlotTypeSortBy
- *     attribute: "SlotTypeSignature", // required
- *     order: "Ascending" || "Descending", // required
+ *     attribute: 'SlotTypeSignature', // required
+ *     order: 'Ascending' || 'Descending', // required
  *   },
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new ListBuiltInSlotTypesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListBuiltInSlotTypesResponse
+ *   builtInSlotTypeSummaries: [ // BuiltInSlotTypeSummaryList
+ *     { // BuiltInSlotTypeSummary
+ *       slotTypeSignature: 'STRING_VALUE',
+ *       description: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ *   localeId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListBuiltInSlotTypesCommandInput - {@link ListBuiltInSlotTypesCommandInput}
@@ -74,6 +86,8 @@ export interface ListBuiltInSlotTypesCommandOutput extends ListBuiltInSlotTypesR
  *  <p>One of the input parameters in your request isn't valid. Check the
  *          parameters and try your request again.</p>
  *
+ * @throws {@link LexModelsV2ServiceException}
+ * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
  */
 export class ListBuiltInSlotTypesCommand extends $Command<

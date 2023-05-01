@@ -53,15 +53,20 @@ export interface GetFileUploadURLCommandOutput extends GetFileUploadURLResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MTurkClient, GetFileUploadURLCommand } from "@aws-sdk/client-mturk"; // ES Modules import
- * // const { MTurkClient, GetFileUploadURLCommand } = require("@aws-sdk/client-mturk"); // CommonJS import
+ * import { MTurkClient, GetFileUploadURLCommand } from '@aws-sdk/client-mturk'; // ES Modules import
+ * // const { MTurkClient, GetFileUploadURLCommand } = require('@aws-sdk/client-mturk'); // CommonJS import
  * const client = new MTurkClient(config);
  * const input = { // GetFileUploadURLRequest
- *   AssignmentId: "STRING_VALUE", // required
- *   QuestionIdentifier: "STRING_VALUE", // required
+ *   AssignmentId: 'STRING_VALUE', // required
+ *   QuestionIdentifier: 'STRING_VALUE', // required
  * };
  * const command = new GetFileUploadURLCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetFileUploadURLResponse
+ *   FileUploadURL: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetFileUploadURLCommandInput - {@link GetFileUploadURLCommandInput}
@@ -76,6 +81,8 @@ export interface GetFileUploadURLCommandOutput extends GetFileUploadURLResponse,
  * @throws {@link ServiceFault} (server fault)
  *  <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
  *
+ * @throws {@link MTurkServiceException}
+ * <p>Base exception class for all service exceptions from MTurk service.</p>
  *
  */
 export class GetFileUploadURLCommand extends $Command<

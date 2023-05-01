@@ -42,14 +42,17 @@ export interface DeleteVoiceConnectorOriginationCommandOutput extends __Metadata
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeClient, DeleteVoiceConnectorOriginationCommand } from "@aws-sdk/client-chime"; // ES Modules import
- * // const { ChimeClient, DeleteVoiceConnectorOriginationCommand } = require("@aws-sdk/client-chime"); // CommonJS import
+ * import { ChimeClient, DeleteVoiceConnectorOriginationCommand } from '@aws-sdk/client-chime'; // ES Modules import
+ * // const { ChimeClient, DeleteVoiceConnectorOriginationCommand } = require('@aws-sdk/client-chime'); // CommonJS import
  * const client = new ChimeClient(config);
  * const input = { // DeleteVoiceConnectorOriginationRequest
- *   VoiceConnectorId: "STRING_VALUE", // required
+ *   VoiceConnectorId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteVoiceConnectorOriginationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteVoiceConnectorOriginationCommandInput - {@link DeleteVoiceConnectorOriginationCommandInput}
@@ -79,6 +82,8 @@ export interface DeleteVoiceConnectorOriginationCommandOutput extends __Metadata
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeServiceException}
+ * <p>Base exception class for all service exceptions from Chime service.</p>
  *
  */
 export class DeleteVoiceConnectorOriginationCommand extends $Command<

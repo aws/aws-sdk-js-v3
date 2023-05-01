@@ -39,25 +39,30 @@ export interface CreateAssessmentTemplateCommandOutput extends CreateAssessmentT
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { InspectorClient, CreateAssessmentTemplateCommand } from "@aws-sdk/client-inspector"; // ES Modules import
- * // const { InspectorClient, CreateAssessmentTemplateCommand } = require("@aws-sdk/client-inspector"); // CommonJS import
+ * import { InspectorClient, CreateAssessmentTemplateCommand } from '@aws-sdk/client-inspector'; // ES Modules import
+ * // const { InspectorClient, CreateAssessmentTemplateCommand } = require('@aws-sdk/client-inspector'); // CommonJS import
  * const client = new InspectorClient(config);
  * const input = { // CreateAssessmentTemplateRequest
- *   assessmentTargetArn: "STRING_VALUE", // required
- *   assessmentTemplateName: "STRING_VALUE", // required
- *   durationInSeconds: Number("int"), // required
+ *   assessmentTargetArn: 'STRING_VALUE', // required
+ *   assessmentTemplateName: 'STRING_VALUE', // required
+ *   durationInSeconds: Number('int'), // required
  *   rulesPackageArns: [ // AssessmentTemplateRulesPackageArnList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   userAttributesForFindings: [ // UserAttributeList
  *     { // Attribute
- *       key: "STRING_VALUE", // required
- *       value: "STRING_VALUE",
+ *       key: 'STRING_VALUE', // required
+ *       value: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new CreateAssessmentTemplateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateAssessmentTemplateResponse
+ *   assessmentTemplateArn: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param CreateAssessmentTemplateCommandInput - {@link CreateAssessmentTemplateCommandInput}
@@ -87,6 +92,8 @@ export interface CreateAssessmentTemplateCommandOutput extends CreateAssessmentT
  * @throws {@link ServiceTemporarilyUnavailableException} (server fault)
  *  <p>The serice is temporary unavailable.</p>
  *
+ * @throws {@link InspectorServiceException}
+ * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
  * @example Create assessment template
  * ```javascript

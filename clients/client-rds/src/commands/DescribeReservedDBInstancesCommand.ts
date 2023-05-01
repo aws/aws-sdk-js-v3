@@ -36,31 +36,61 @@ export interface DescribeReservedDBInstancesCommandOutput extends ReservedDBInst
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RDSClient, DescribeReservedDBInstancesCommand } from "@aws-sdk/client-rds"; // ES Modules import
- * // const { RDSClient, DescribeReservedDBInstancesCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * import { RDSClient, DescribeReservedDBInstancesCommand } from '@aws-sdk/client-rds'; // ES Modules import
+ * // const { RDSClient, DescribeReservedDBInstancesCommand } = require('@aws-sdk/client-rds'); // CommonJS import
  * const client = new RDSClient(config);
  * const input = { // DescribeReservedDBInstancesMessage
- *   ReservedDBInstanceId: "STRING_VALUE",
- *   ReservedDBInstancesOfferingId: "STRING_VALUE",
- *   DBInstanceClass: "STRING_VALUE",
- *   Duration: "STRING_VALUE",
- *   ProductDescription: "STRING_VALUE",
- *   OfferingType: "STRING_VALUE",
+ *   ReservedDBInstanceId: 'STRING_VALUE',
+ *   ReservedDBInstancesOfferingId: 'STRING_VALUE',
+ *   DBInstanceClass: 'STRING_VALUE',
+ *   Duration: 'STRING_VALUE',
+ *   ProductDescription: 'STRING_VALUE',
+ *   OfferingType: 'STRING_VALUE',
  *   MultiAZ: true || false,
- *   LeaseId: "STRING_VALUE",
+ *   LeaseId: 'STRING_VALUE',
  *   Filters: [ // FilterList
  *     { // Filter
- *       Name: "STRING_VALUE", // required
+ *       Name: 'STRING_VALUE', // required
  *       Values: [ // FilterValueList // required
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
- *   MaxRecords: Number("int"),
- *   Marker: "STRING_VALUE",
+ *   MaxRecords: Number('int'),
+ *   Marker: 'STRING_VALUE',
  * };
  * const command = new DescribeReservedDBInstancesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ReservedDBInstanceMessage
+ *   Marker: 'STRING_VALUE',
+ *   ReservedDBInstances: [ // ReservedDBInstanceList
+ *     { // ReservedDBInstance
+ *       ReservedDBInstanceId: 'STRING_VALUE',
+ *       ReservedDBInstancesOfferingId: 'STRING_VALUE',
+ *       DBInstanceClass: 'STRING_VALUE',
+ *       StartTime: new Date('TIMESTAMP'),
+ *       Duration: Number('int'),
+ *       FixedPrice: Number('double'),
+ *       UsagePrice: Number('double'),
+ *       CurrencyCode: 'STRING_VALUE',
+ *       DBInstanceCount: Number('int'),
+ *       ProductDescription: 'STRING_VALUE',
+ *       OfferingType: 'STRING_VALUE',
+ *       MultiAZ: true || false,
+ *       State: 'STRING_VALUE',
+ *       RecurringCharges: [ // RecurringChargeList
+ *         { // RecurringCharge
+ *           RecurringChargeAmount: Number('double'),
+ *           RecurringChargeFrequency: 'STRING_VALUE',
+ *         },
+ *       ],
+ *       ReservedDBInstanceArn: 'STRING_VALUE',
+ *       LeaseId: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeReservedDBInstancesCommandInput - {@link DescribeReservedDBInstancesCommandInput}
@@ -72,6 +102,8 @@ export interface DescribeReservedDBInstancesCommandOutput extends ReservedDBInst
  * @throws {@link ReservedDBInstanceNotFoundFault} (client fault)
  *  <p>The specified reserved DB Instance not found.</p>
  *
+ * @throws {@link RDSServiceException}
+ * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  * @example To describe reserved DB instances
  * ```javascript

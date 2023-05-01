@@ -36,14 +36,17 @@ export interface DeleteClusterSubnetGroupCommandOutput extends __MetadataBearer 
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RedshiftClient, DeleteClusterSubnetGroupCommand } from "@aws-sdk/client-redshift"; // ES Modules import
- * // const { RedshiftClient, DeleteClusterSubnetGroupCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * import { RedshiftClient, DeleteClusterSubnetGroupCommand } from '@aws-sdk/client-redshift'; // ES Modules import
+ * // const { RedshiftClient, DeleteClusterSubnetGroupCommand } = require('@aws-sdk/client-redshift'); // CommonJS import
  * const client = new RedshiftClient(config);
  * const input = { // DeleteClusterSubnetGroupMessage
- *   ClusterSubnetGroupName: "STRING_VALUE", // required
+ *   ClusterSubnetGroupName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteClusterSubnetGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteClusterSubnetGroupCommandInput - {@link DeleteClusterSubnetGroupCommandInput}
@@ -62,6 +65,8 @@ export interface DeleteClusterSubnetGroupCommandOutput extends __MetadataBearer 
  * @throws {@link InvalidClusterSubnetStateFault} (client fault)
  *  <p>The state of the subnet is invalid.</p>
  *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class DeleteClusterSubnetGroupCommand extends $Command<

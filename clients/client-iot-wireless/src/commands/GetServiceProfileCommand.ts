@@ -36,14 +36,42 @@ export interface GetServiceProfileCommandOutput extends GetServiceProfileRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTWirelessClient, GetServiceProfileCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
- * // const { IoTWirelessClient, GetServiceProfileCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
+ * import { IoTWirelessClient, GetServiceProfileCommand } from '@aws-sdk/client-iot-wireless'; // ES Modules import
+ * // const { IoTWirelessClient, GetServiceProfileCommand } = require('@aws-sdk/client-iot-wireless'); // CommonJS import
  * const client = new IoTWirelessClient(config);
  * const input = { // GetServiceProfileRequest
- *   Id: "STRING_VALUE", // required
+ *   Id: 'STRING_VALUE', // required
  * };
  * const command = new GetServiceProfileCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetServiceProfileResponse
+ *   Arn: 'STRING_VALUE',
+ *   Name: 'STRING_VALUE',
+ *   Id: 'STRING_VALUE',
+ *   LoRaWAN: { // LoRaWANGetServiceProfileInfo
+ *     UlRate: Number('int'),
+ *     UlBucketSize: Number('int'),
+ *     UlRatePolicy: 'STRING_VALUE',
+ *     DlRate: Number('int'),
+ *     DlBucketSize: Number('int'),
+ *     DlRatePolicy: 'STRING_VALUE',
+ *     AddGwMetadata: true || false,
+ *     DevStatusReqFreq: Number('int'),
+ *     ReportDevStatusBattery: true || false,
+ *     ReportDevStatusMargin: true || false,
+ *     DrMin: Number('int'),
+ *     DrMax: Number('int'),
+ *     ChannelMask: 'STRING_VALUE',
+ *     PrAllowed: true || false,
+ *     HrAllowed: true || false,
+ *     RaAllowed: true || false,
+ *     NwkGeoLoc: true || false,
+ *     TargetPer: Number('int'),
+ *     MinGwDiversity: Number('int'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetServiceProfileCommandInput - {@link GetServiceProfileCommandInput}
@@ -67,6 +95,8 @@ export interface GetServiceProfileCommandOutput extends GetServiceProfileRespons
  * @throws {@link ValidationException} (client fault)
  *  <p>The input did not meet the specified constraints.</p>
  *
+ * @throws {@link IoTWirelessServiceException}
+ * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
  */
 export class GetServiceProfileCommand extends $Command<

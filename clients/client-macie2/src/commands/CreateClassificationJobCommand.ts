@@ -36,43 +36,43 @@ export interface CreateClassificationJobCommandOutput extends CreateClassificati
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Macie2Client, CreateClassificationJobCommand } from "@aws-sdk/client-macie2"; // ES Modules import
- * // const { Macie2Client, CreateClassificationJobCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
+ * import { Macie2Client, CreateClassificationJobCommand } from '@aws-sdk/client-macie2'; // ES Modules import
+ * // const { Macie2Client, CreateClassificationJobCommand } = require('@aws-sdk/client-macie2'); // CommonJS import
  * const client = new Macie2Client(config);
  * const input = { // CreateClassificationJobRequest
  *   allowListIds: [ // __listOf__string
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   clientToken: "STRING_VALUE", // required
+ *   clientToken: 'STRING_VALUE', // required
  *   customDataIdentifierIds: [
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   description: "STRING_VALUE",
+ *   description: 'STRING_VALUE',
  *   initialRun: true || false,
- *   jobType: "ONE_TIME" || "SCHEDULED", // required
+ *   jobType: 'ONE_TIME' || 'SCHEDULED', // required
  *   managedDataIdentifierIds: [
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   managedDataIdentifierSelector: "ALL" || "EXCLUDE" || "INCLUDE" || "NONE",
- *   name: "STRING_VALUE", // required
+ *   managedDataIdentifierSelector: 'ALL' || 'EXCLUDE' || 'INCLUDE' || 'NONE',
+ *   name: 'STRING_VALUE', // required
  *   s3JobDefinition: { // S3JobDefinition
  *     bucketCriteria: { // S3BucketCriteriaForJob
  *       excludes: { // CriteriaBlockForJob
  *         and: [ // __listOfCriteriaForJob
  *           { // CriteriaForJob
  *             simpleCriterion: { // SimpleCriterionForJob
- *               comparator: "EQ" || "GT" || "GTE" || "LT" || "LTE" || "NE" || "CONTAINS" || "STARTS_WITH",
- *               key: "ACCOUNT_ID" || "S3_BUCKET_NAME" || "S3_BUCKET_EFFECTIVE_PERMISSION" || "S3_BUCKET_SHARED_ACCESS",
+ *               comparator: 'EQ' || 'GT' || 'GTE' || 'LT' || 'LTE' || 'NE' || 'CONTAINS' || 'STARTS_WITH',
+ *               key: 'ACCOUNT_ID' || 'S3_BUCKET_NAME' || 'S3_BUCKET_EFFECTIVE_PERMISSION' || 'S3_BUCKET_SHARED_ACCESS',
  *               values: [
- *                 "STRING_VALUE",
+ *                 'STRING_VALUE',
  *               ],
  *             },
  *             tagCriterion: { // TagCriterionForJob
- *               comparator: "EQ" || "GT" || "GTE" || "LT" || "LTE" || "NE" || "CONTAINS" || "STARTS_WITH",
+ *               comparator: 'EQ' || 'GT' || 'GTE' || 'LT' || 'LTE' || 'NE' || 'CONTAINS' || 'STARTS_WITH',
  *               tagValues: [ // __listOfTagCriterionPairForJob
  *                 { // TagCriterionPairForJob
- *                   key: "STRING_VALUE",
- *                   value: "STRING_VALUE",
+ *                   key: 'STRING_VALUE',
+ *                   value: 'STRING_VALUE',
  *                 },
  *               ],
  *             },
@@ -83,18 +83,18 @@ export interface CreateClassificationJobCommandOutput extends CreateClassificati
  *         and: [
  *           {
  *             simpleCriterion: {
- *               comparator: "EQ" || "GT" || "GTE" || "LT" || "LTE" || "NE" || "CONTAINS" || "STARTS_WITH",
- *               key: "ACCOUNT_ID" || "S3_BUCKET_NAME" || "S3_BUCKET_EFFECTIVE_PERMISSION" || "S3_BUCKET_SHARED_ACCESS",
+ *               comparator: 'EQ' || 'GT' || 'GTE' || 'LT' || 'LTE' || 'NE' || 'CONTAINS' || 'STARTS_WITH',
+ *               key: 'ACCOUNT_ID' || 'S3_BUCKET_NAME' || 'S3_BUCKET_EFFECTIVE_PERMISSION' || 'S3_BUCKET_SHARED_ACCESS',
  *               values: [
- *                 "STRING_VALUE",
+ *                 'STRING_VALUE',
  *               ],
  *             },
  *             tagCriterion: {
- *               comparator: "EQ" || "GT" || "GTE" || "LT" || "LTE" || "NE" || "CONTAINS" || "STARTS_WITH",
+ *               comparator: 'EQ' || 'GT' || 'GTE' || 'LT' || 'LTE' || 'NE' || 'CONTAINS' || 'STARTS_WITH',
  *               tagValues: [
  *                 {
- *                   key: "STRING_VALUE",
- *                   value: "STRING_VALUE",
+ *                   key: 'STRING_VALUE',
+ *                   value: 'STRING_VALUE',
  *                 },
  *               ],
  *             },
@@ -104,8 +104,8 @@ export interface CreateClassificationJobCommandOutput extends CreateClassificati
  *     },
  *     bucketDefinitions: [ // __listOfS3BucketDefinitionForJob
  *       { // S3BucketDefinitionForJob
- *         accountId: "STRING_VALUE", // required
- *         buckets: "<__listOf__string>", // required
+ *         accountId: 'STRING_VALUE', // required
+ *         buckets: '<__listOf__string>', // required
  *       },
  *     ],
  *     scoping: { // Scoping
@@ -113,20 +113,20 @@ export interface CreateClassificationJobCommandOutput extends CreateClassificati
  *         and: [ // __listOfJobScopeTerm
  *           { // JobScopeTerm
  *             simpleScopeTerm: { // SimpleScopeTerm
- *               comparator: "EQ" || "GT" || "GTE" || "LT" || "LTE" || "NE" || "CONTAINS" || "STARTS_WITH",
- *               key: "OBJECT_EXTENSION" || "OBJECT_LAST_MODIFIED_DATE" || "OBJECT_SIZE" || "OBJECT_KEY",
- *               values: "<__listOf__string>",
+ *               comparator: 'EQ' || 'GT' || 'GTE' || 'LT' || 'LTE' || 'NE' || 'CONTAINS' || 'STARTS_WITH',
+ *               key: 'OBJECT_EXTENSION' || 'OBJECT_LAST_MODIFIED_DATE' || 'OBJECT_SIZE' || 'OBJECT_KEY',
+ *               values: '<__listOf__string>',
  *             },
  *             tagScopeTerm: { // TagScopeTerm
- *               comparator: "EQ" || "GT" || "GTE" || "LT" || "LTE" || "NE" || "CONTAINS" || "STARTS_WITH",
- *               key: "STRING_VALUE",
+ *               comparator: 'EQ' || 'GT' || 'GTE' || 'LT' || 'LTE' || 'NE' || 'CONTAINS' || 'STARTS_WITH',
+ *               key: 'STRING_VALUE',
  *               tagValues: [ // __listOfTagValuePair
  *                 { // TagValuePair
- *                   key: "STRING_VALUE",
- *                   value: "STRING_VALUE",
+ *                   key: 'STRING_VALUE',
+ *                   value: 'STRING_VALUE',
  *                 },
  *               ],
- *               target: "S3_OBJECT",
+ *               target: 'S3_OBJECT',
  *             },
  *           },
  *         ],
@@ -135,42 +135,48 @@ export interface CreateClassificationJobCommandOutput extends CreateClassificati
  *         and: [
  *           {
  *             simpleScopeTerm: {
- *               comparator: "EQ" || "GT" || "GTE" || "LT" || "LTE" || "NE" || "CONTAINS" || "STARTS_WITH",
- *               key: "OBJECT_EXTENSION" || "OBJECT_LAST_MODIFIED_DATE" || "OBJECT_SIZE" || "OBJECT_KEY",
- *               values: "<__listOf__string>",
+ *               comparator: 'EQ' || 'GT' || 'GTE' || 'LT' || 'LTE' || 'NE' || 'CONTAINS' || 'STARTS_WITH',
+ *               key: 'OBJECT_EXTENSION' || 'OBJECT_LAST_MODIFIED_DATE' || 'OBJECT_SIZE' || 'OBJECT_KEY',
+ *               values: '<__listOf__string>',
  *             },
  *             tagScopeTerm: {
- *               comparator: "EQ" || "GT" || "GTE" || "LT" || "LTE" || "NE" || "CONTAINS" || "STARTS_WITH",
- *               key: "STRING_VALUE",
+ *               comparator: 'EQ' || 'GT' || 'GTE' || 'LT' || 'LTE' || 'NE' || 'CONTAINS' || 'STARTS_WITH',
+ *               key: 'STRING_VALUE',
  *               tagValues: [
  *                 {
- *                   key: "STRING_VALUE",
- *                   value: "STRING_VALUE",
+ *                   key: 'STRING_VALUE',
+ *                   value: 'STRING_VALUE',
  *                 },
  *               ],
- *               target: "S3_OBJECT",
+ *               target: 'S3_OBJECT',
  *             },
  *           },
  *         ],
  *       },
  *     },
  *   },
- *   samplingPercentage: Number("int"),
+ *   samplingPercentage: Number('int'),
  *   scheduleFrequency: { // JobScheduleFrequency
  *     dailySchedule: {},
  *     monthlySchedule: { // MonthlySchedule
- *       dayOfMonth: Number("int"),
+ *       dayOfMonth: Number('int'),
  *     },
  *     weeklySchedule: { // WeeklySchedule
- *       dayOfWeek: "SUNDAY" || "MONDAY" || "TUESDAY" || "WEDNESDAY" || "THURSDAY" || "FRIDAY" || "SATURDAY",
+ *       dayOfWeek: 'SUNDAY' || 'MONDAY' || 'TUESDAY' || 'WEDNESDAY' || 'THURSDAY' || 'FRIDAY' || 'SATURDAY',
  *     },
  *   },
  *   tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateClassificationJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateClassificationJobResponse
+ *   jobArn: 'STRING_VALUE',
+ *   jobId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateClassificationJobCommandInput - {@link CreateClassificationJobCommandInput}
@@ -200,6 +206,8 @@ export interface CreateClassificationJobCommandOutput extends CreateClassificati
  * @throws {@link ValidationException} (client fault)
  *  <p>Provides information about an error that occurred due to a syntax error in a request.</p>
  *
+ * @throws {@link Macie2ServiceException}
+ * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
  */
 export class CreateClassificationJobCommand extends $Command<

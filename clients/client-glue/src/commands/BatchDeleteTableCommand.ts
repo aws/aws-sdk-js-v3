@@ -46,19 +46,32 @@ export interface BatchDeleteTableCommandOutput extends BatchDeleteTableResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlueClient, BatchDeleteTableCommand } from "@aws-sdk/client-glue"; // ES Modules import
- * // const { GlueClient, BatchDeleteTableCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * import { GlueClient, BatchDeleteTableCommand } from '@aws-sdk/client-glue'; // ES Modules import
+ * // const { GlueClient, BatchDeleteTableCommand } = require('@aws-sdk/client-glue'); // CommonJS import
  * const client = new GlueClient(config);
  * const input = { // BatchDeleteTableRequest
- *   CatalogId: "STRING_VALUE",
- *   DatabaseName: "STRING_VALUE", // required
+ *   CatalogId: 'STRING_VALUE',
+ *   DatabaseName: 'STRING_VALUE', // required
  *   TablesToDelete: [ // BatchDeleteTableNameList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   TransactionId: "STRING_VALUE",
+ *   TransactionId: 'STRING_VALUE',
  * };
  * const command = new BatchDeleteTableCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BatchDeleteTableResponse
+ *   Errors: [ // TableErrors
+ *     { // TableError
+ *       TableName: 'STRING_VALUE',
+ *       ErrorDetail: { // ErrorDetail
+ *         ErrorCode: 'STRING_VALUE',
+ *         ErrorMessage: 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param BatchDeleteTableCommandInput - {@link BatchDeleteTableCommandInput}
@@ -85,6 +98,8 @@ export interface BatchDeleteTableCommandOutput extends BatchDeleteTableResponse,
  * @throws {@link ResourceNotReadyException} (client fault)
  *  <p>A resource was not ready for a transaction.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class BatchDeleteTableCommand extends $Command<

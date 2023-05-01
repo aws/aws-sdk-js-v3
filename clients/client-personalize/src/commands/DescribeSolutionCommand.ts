@@ -37,14 +37,94 @@ export interface DescribeSolutionCommandOutput extends DescribeSolutionResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PersonalizeClient, DescribeSolutionCommand } from "@aws-sdk/client-personalize"; // ES Modules import
- * // const { PersonalizeClient, DescribeSolutionCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
+ * import { PersonalizeClient, DescribeSolutionCommand } from '@aws-sdk/client-personalize'; // ES Modules import
+ * // const { PersonalizeClient, DescribeSolutionCommand } = require('@aws-sdk/client-personalize'); // CommonJS import
  * const client = new PersonalizeClient(config);
  * const input = { // DescribeSolutionRequest
- *   solutionArn: "STRING_VALUE", // required
+ *   solutionArn: 'STRING_VALUE', // required
  * };
  * const command = new DescribeSolutionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeSolutionResponse
+ *   solution: { // Solution
+ *     name: 'STRING_VALUE',
+ *     solutionArn: 'STRING_VALUE',
+ *     performHPO: true || false,
+ *     performAutoML: true || false,
+ *     recipeArn: 'STRING_VALUE',
+ *     datasetGroupArn: 'STRING_VALUE',
+ *     eventType: 'STRING_VALUE',
+ *     solutionConfig: { // SolutionConfig
+ *       eventValueThreshold: 'STRING_VALUE',
+ *       hpoConfig: { // HPOConfig
+ *         hpoObjective: { // HPOObjective
+ *           type: 'STRING_VALUE',
+ *           metricName: 'STRING_VALUE',
+ *           metricRegex: 'STRING_VALUE',
+ *         },
+ *         hpoResourceConfig: { // HPOResourceConfig
+ *           maxNumberOfTrainingJobs: 'STRING_VALUE',
+ *           maxParallelTrainingJobs: 'STRING_VALUE',
+ *         },
+ *         algorithmHyperParameterRanges: { // HyperParameterRanges
+ *           integerHyperParameterRanges: [ // IntegerHyperParameterRanges
+ *             { // IntegerHyperParameterRange
+ *               name: 'STRING_VALUE',
+ *               minValue: Number('int'),
+ *               maxValue: Number('int'),
+ *             },
+ *           ],
+ *           continuousHyperParameterRanges: [ // ContinuousHyperParameterRanges
+ *             { // ContinuousHyperParameterRange
+ *               name: 'STRING_VALUE',
+ *               minValue: Number('double'),
+ *               maxValue: Number('double'),
+ *             },
+ *           ],
+ *           categoricalHyperParameterRanges: [ // CategoricalHyperParameterRanges
+ *             { // CategoricalHyperParameterRange
+ *               name: 'STRING_VALUE',
+ *               values: [ // CategoricalValues
+ *                 'STRING_VALUE',
+ *               ],
+ *             },
+ *           ],
+ *         },
+ *       },
+ *       algorithmHyperParameters: { // HyperParameters
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *       featureTransformationParameters: { // FeatureTransformationParameters
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *       autoMLConfig: { // AutoMLConfig
+ *         metricName: 'STRING_VALUE',
+ *         recipeList: [ // ArnList
+ *           'STRING_VALUE',
+ *         ],
+ *       },
+ *       optimizationObjective: { // OptimizationObjective
+ *         itemAttribute: 'STRING_VALUE',
+ *         objectiveSensitivity: 'LOW' || 'MEDIUM' || 'HIGH' || 'OFF',
+ *       },
+ *     },
+ *     autoMLResult: { // AutoMLResult
+ *       bestRecipeArn: 'STRING_VALUE',
+ *     },
+ *     status: 'STRING_VALUE',
+ *     creationDateTime: new Date('TIMESTAMP'),
+ *     lastUpdatedDateTime: new Date('TIMESTAMP'),
+ *     latestSolutionVersion: { // SolutionVersionSummary
+ *       solutionVersionArn: 'STRING_VALUE',
+ *       status: 'STRING_VALUE',
+ *       creationDateTime: new Date('TIMESTAMP'),
+ *       lastUpdatedDateTime: new Date('TIMESTAMP'),
+ *       failureReason: 'STRING_VALUE',
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeSolutionCommandInput - {@link DescribeSolutionCommandInput}
@@ -59,6 +139,8 @@ export interface DescribeSolutionCommandOutput extends DescribeSolutionResponse,
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Could not find the specified resource.</p>
  *
+ * @throws {@link PersonalizeServiceException}
+ * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
  */
 export class DescribeSolutionCommand extends $Command<

@@ -39,16 +39,35 @@ export interface ListExperiencesCommandOutput extends ListExperiencesResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KendraClient, ListExperiencesCommand } from "@aws-sdk/client-kendra"; // ES Modules import
- * // const { KendraClient, ListExperiencesCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
+ * import { KendraClient, ListExperiencesCommand } from '@aws-sdk/client-kendra'; // ES Modules import
+ * // const { KendraClient, ListExperiencesCommand } = require('@aws-sdk/client-kendra'); // CommonJS import
  * const client = new KendraClient(config);
  * const input = { // ListExperiencesRequest
- *   IndexId: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   IndexId: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListExperiencesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListExperiencesResponse
+ *   SummaryItems: [ // ExperiencesSummaryList
+ *     { // ExperiencesSummary
+ *       Name: 'STRING_VALUE',
+ *       Id: 'STRING_VALUE',
+ *       CreatedAt: new Date('TIMESTAMP'),
+ *       Status: 'CREATING' || 'ACTIVE' || 'DELETING' || 'FAILED',
+ *       Endpoints: [ // ExperienceEndpoints
+ *         { // ExperienceEndpoint
+ *           EndpointType: 'HOME',
+ *           Endpoint: 'STRING_VALUE',
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListExperiencesCommandInput - {@link ListExperiencesCommandInput}
@@ -77,6 +96,8 @@ export interface ListExperiencesCommandOutput extends ListExperiencesResponse, _
  *  <p>The input fails to satisfy the constraints set by the Amazon Kendra service.
  *             Please provide the correct input and try again.</p>
  *
+ * @throws {@link KendraServiceException}
+ * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
  */
 export class ListExperiencesCommand extends $Command<

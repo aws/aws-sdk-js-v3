@@ -37,15 +37,40 @@ export interface DeleteLinkCommandOutput extends DeleteLinkResponse, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { NetworkManagerClient, DeleteLinkCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
- * // const { NetworkManagerClient, DeleteLinkCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
+ * import { NetworkManagerClient, DeleteLinkCommand } from '@aws-sdk/client-networkmanager'; // ES Modules import
+ * // const { NetworkManagerClient, DeleteLinkCommand } = require('@aws-sdk/client-networkmanager'); // CommonJS import
  * const client = new NetworkManagerClient(config);
  * const input = { // DeleteLinkRequest
- *   GlobalNetworkId: "STRING_VALUE", // required
- *   LinkId: "STRING_VALUE", // required
+ *   GlobalNetworkId: 'STRING_VALUE', // required
+ *   LinkId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteLinkCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteLinkResponse
+ *   Link: { // Link
+ *     LinkId: 'STRING_VALUE',
+ *     LinkArn: 'STRING_VALUE',
+ *     GlobalNetworkId: 'STRING_VALUE',
+ *     SiteId: 'STRING_VALUE',
+ *     Description: 'STRING_VALUE',
+ *     Type: 'STRING_VALUE',
+ *     Bandwidth: { // Bandwidth
+ *       UploadSpeed: Number('int'),
+ *       DownloadSpeed: Number('int'),
+ *     },
+ *     Provider: 'STRING_VALUE',
+ *     CreatedAt: new Date('TIMESTAMP'),
+ *     State: 'PENDING' || 'AVAILABLE' || 'DELETING' || 'UPDATING',
+ *     Tags: [ // TagList
+ *       { // Tag
+ *         Key: 'STRING_VALUE',
+ *         Value: 'STRING_VALUE',
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param DeleteLinkCommandInput - {@link DeleteLinkCommandInput}
@@ -73,6 +98,8 @@ export interface DeleteLinkCommandOutput extends DeleteLinkResponse, __MetadataB
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints.</p>
  *
+ * @throws {@link NetworkManagerServiceException}
+ * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
  */
 export class DeleteLinkCommand extends $Command<

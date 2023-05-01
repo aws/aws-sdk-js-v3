@@ -37,19 +37,33 @@ export interface DescribeCacheEngineVersionsCommandOutput extends CacheEngineVer
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElastiCacheClient, DescribeCacheEngineVersionsCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
- * // const { ElastiCacheClient, DescribeCacheEngineVersionsCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
+ * import { ElastiCacheClient, DescribeCacheEngineVersionsCommand } from '@aws-sdk/client-elasticache'; // ES Modules import
+ * // const { ElastiCacheClient, DescribeCacheEngineVersionsCommand } = require('@aws-sdk/client-elasticache'); // CommonJS import
  * const client = new ElastiCacheClient(config);
  * const input = { // DescribeCacheEngineVersionsMessage
- *   Engine: "STRING_VALUE",
- *   EngineVersion: "STRING_VALUE",
- *   CacheParameterGroupFamily: "STRING_VALUE",
- *   MaxRecords: Number("int"),
- *   Marker: "STRING_VALUE",
+ *   Engine: 'STRING_VALUE',
+ *   EngineVersion: 'STRING_VALUE',
+ *   CacheParameterGroupFamily: 'STRING_VALUE',
+ *   MaxRecords: Number('int'),
+ *   Marker: 'STRING_VALUE',
  *   DefaultOnly: true || false,
  * };
  * const command = new DescribeCacheEngineVersionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CacheEngineVersionMessage
+ *   Marker: 'STRING_VALUE',
+ *   CacheEngineVersions: [ // CacheEngineVersionList
+ *     { // CacheEngineVersion
+ *       Engine: 'STRING_VALUE',
+ *       EngineVersion: 'STRING_VALUE',
+ *       CacheParameterGroupFamily: 'STRING_VALUE',
+ *       CacheEngineDescription: 'STRING_VALUE',
+ *       CacheEngineVersionDescription: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeCacheEngineVersionsCommandInput - {@link DescribeCacheEngineVersionsCommandInput}
@@ -58,6 +72,8 @@ export interface DescribeCacheEngineVersionsCommandOutput extends CacheEngineVer
  * @see {@link DescribeCacheEngineVersionsCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
+ * @throws {@link ElastiCacheServiceException}
+ * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
  * @example DescribeCacheEngineVersions
  * ```javascript

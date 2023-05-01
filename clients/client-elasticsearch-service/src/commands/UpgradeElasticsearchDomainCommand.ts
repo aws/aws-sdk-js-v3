@@ -40,16 +40,27 @@ export interface UpgradeElasticsearchDomainCommandOutput extends UpgradeElastics
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElasticsearchServiceClient, UpgradeElasticsearchDomainCommand } from "@aws-sdk/client-elasticsearch-service"; // ES Modules import
- * // const { ElasticsearchServiceClient, UpgradeElasticsearchDomainCommand } = require("@aws-sdk/client-elasticsearch-service"); // CommonJS import
+ * import { ElasticsearchServiceClient, UpgradeElasticsearchDomainCommand } from '@aws-sdk/client-elasticsearch-service'; // ES Modules import
+ * // const { ElasticsearchServiceClient, UpgradeElasticsearchDomainCommand } = require('@aws-sdk/client-elasticsearch-service'); // CommonJS import
  * const client = new ElasticsearchServiceClient(config);
  * const input = { // UpgradeElasticsearchDomainRequest
- *   DomainName: "STRING_VALUE", // required
- *   TargetVersion: "STRING_VALUE", // required
+ *   DomainName: 'STRING_VALUE', // required
+ *   TargetVersion: 'STRING_VALUE', // required
  *   PerformCheckOnly: true || false,
  * };
  * const command = new UpgradeElasticsearchDomainCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpgradeElasticsearchDomainResponse
+ *   DomainName: 'STRING_VALUE',
+ *   TargetVersion: 'STRING_VALUE',
+ *   PerformCheckOnly: true || false,
+ *   ChangeProgressDetails: { // ChangeProgressDetails
+ *     ChangeId: 'STRING_VALUE',
+ *     Message: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpgradeElasticsearchDomainCommandInput - {@link UpgradeElasticsearchDomainCommandInput}
@@ -76,6 +87,8 @@ export interface UpgradeElasticsearchDomainCommandOutput extends UpgradeElastics
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception for missing / invalid input fields. Gives http status code of 400.</p>
  *
+ * @throws {@link ElasticsearchServiceServiceException}
+ * <p>Base exception class for all service exceptions from ElasticsearchService service.</p>
  *
  */
 export class UpgradeElasticsearchDomainCommand extends $Command<

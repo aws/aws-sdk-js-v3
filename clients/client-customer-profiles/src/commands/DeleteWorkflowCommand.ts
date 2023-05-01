@@ -36,15 +36,18 @@ export interface DeleteWorkflowCommandOutput extends DeleteWorkflowResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CustomerProfilesClient, DeleteWorkflowCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
- * // const { CustomerProfilesClient, DeleteWorkflowCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
+ * import { CustomerProfilesClient, DeleteWorkflowCommand } from '@aws-sdk/client-customer-profiles'; // ES Modules import
+ * // const { CustomerProfilesClient, DeleteWorkflowCommand } = require('@aws-sdk/client-customer-profiles'); // CommonJS import
  * const client = new CustomerProfilesClient(config);
  * const input = { // DeleteWorkflowRequest
- *   DomainName: "STRING_VALUE", // required
- *   WorkflowId: "STRING_VALUE", // required
+ *   DomainName: 'STRING_VALUE', // required
+ *   WorkflowId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteWorkflowCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteWorkflowCommandInput - {@link DeleteWorkflowCommandInput}
@@ -68,6 +71,8 @@ export interface DeleteWorkflowCommandOutput extends DeleteWorkflowResponse, __M
  * @throws {@link ThrottlingException} (client fault)
  *  <p>You exceeded the maximum number of requests.</p>
  *
+ * @throws {@link CustomerProfilesServiceException}
+ * <p>Base exception class for all service exceptions from CustomerProfiles service.</p>
  *
  */
 export class DeleteWorkflowCommand extends $Command<

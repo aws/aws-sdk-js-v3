@@ -36,18 +36,21 @@ export interface UpdateIPSetCommandOutput extends UpdateIPSetResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GuardDutyClient, UpdateIPSetCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
- * // const { GuardDutyClient, UpdateIPSetCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
+ * import { GuardDutyClient, UpdateIPSetCommand } from '@aws-sdk/client-guardduty'; // ES Modules import
+ * // const { GuardDutyClient, UpdateIPSetCommand } = require('@aws-sdk/client-guardduty'); // CommonJS import
  * const client = new GuardDutyClient(config);
  * const input = { // UpdateIPSetRequest
- *   DetectorId: "STRING_VALUE", // required
- *   IpSetId: "STRING_VALUE", // required
- *   Name: "STRING_VALUE",
- *   Location: "STRING_VALUE",
+ *   DetectorId: 'STRING_VALUE', // required
+ *   IpSetId: 'STRING_VALUE', // required
+ *   Name: 'STRING_VALUE',
+ *   Location: 'STRING_VALUE',
  *   Activate: true || false,
  * };
  * const command = new UpdateIPSetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateIPSetCommandInput - {@link UpdateIPSetCommandInput}
@@ -62,6 +65,8 @@ export interface UpdateIPSetCommandOutput extends UpdateIPSetResponse, __Metadat
  * @throws {@link InternalServerErrorException} (server fault)
  *  <p>An internal server error exception object.</p>
  *
+ * @throws {@link GuardDutyServiceException}
+ * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
  */
 export class UpdateIPSetCommand extends $Command<

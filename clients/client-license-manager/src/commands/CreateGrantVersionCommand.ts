@@ -37,25 +37,32 @@ export interface CreateGrantVersionCommandOutput extends CreateGrantVersionRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LicenseManagerClient, CreateGrantVersionCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
- * // const { LicenseManagerClient, CreateGrantVersionCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
+ * import { LicenseManagerClient, CreateGrantVersionCommand } from '@aws-sdk/client-license-manager'; // ES Modules import
+ * // const { LicenseManagerClient, CreateGrantVersionCommand } = require('@aws-sdk/client-license-manager'); // CommonJS import
  * const client = new LicenseManagerClient(config);
  * const input = { // CreateGrantVersionRequest
- *   ClientToken: "STRING_VALUE", // required
- *   GrantArn: "STRING_VALUE", // required
- *   GrantName: "STRING_VALUE",
+ *   ClientToken: 'STRING_VALUE', // required
+ *   GrantArn: 'STRING_VALUE', // required
+ *   GrantName: 'STRING_VALUE',
  *   AllowedOperations: [ // AllowedOperationList
- *     "CreateGrant" || "CheckoutLicense" || "CheckoutBorrowLicense" || "CheckInLicense" || "ExtendConsumptionLicense" || "ListPurchasedLicenses" || "CreateToken",
+ *     'CreateGrant' || 'CheckoutLicense' || 'CheckoutBorrowLicense' || 'CheckInLicense' || 'ExtendConsumptionLicense' || 'ListPurchasedLicenses' || 'CreateToken',
  *   ],
- *   Status: "PENDING_WORKFLOW" || "PENDING_ACCEPT" || "REJECTED" || "ACTIVE" || "FAILED_WORKFLOW" || "DELETED" || "PENDING_DELETE" || "DISABLED" || "WORKFLOW_COMPLETED",
- *   StatusReason: "STRING_VALUE",
- *   SourceVersion: "STRING_VALUE",
+ *   Status: 'PENDING_WORKFLOW' || 'PENDING_ACCEPT' || 'REJECTED' || 'ACTIVE' || 'FAILED_WORKFLOW' || 'DELETED' || 'PENDING_DELETE' || 'DISABLED' || 'WORKFLOW_COMPLETED',
+ *   StatusReason: 'STRING_VALUE',
+ *   SourceVersion: 'STRING_VALUE',
  *   Options: { // Options
- *     ActivationOverrideBehavior: "DISTRIBUTED_GRANTS_ONLY" || "ALL_GRANTS_PERMITTED_BY_ISSUER",
+ *     ActivationOverrideBehavior: 'DISTRIBUTED_GRANTS_ONLY' || 'ALL_GRANTS_PERMITTED_BY_ISSUER',
  *   },
  * };
  * const command = new CreateGrantVersionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateGrantVersionResponse
+ *   GrantArn: 'STRING_VALUE',
+ *   Status: 'PENDING_WORKFLOW' || 'PENDING_ACCEPT' || 'REJECTED' || 'ACTIVE' || 'FAILED_WORKFLOW' || 'DELETED' || 'PENDING_DELETE' || 'DISABLED' || 'WORKFLOW_COMPLETED',
+ *   Version: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateGrantVersionCommandInput - {@link CreateGrantVersionCommandInput}
@@ -86,6 +93,8 @@ export interface CreateGrantVersionCommandOutput extends CreateGrantVersionRespo
  * @throws {@link ValidationException} (client fault)
  *  <p>The provided input is not valid. Try your request again.</p>
  *
+ * @throws {@link LicenseManagerServiceException}
+ * <p>Base exception class for all service exceptions from LicenseManager service.</p>
  *
  */
 export class CreateGrantVersionCommand extends $Command<

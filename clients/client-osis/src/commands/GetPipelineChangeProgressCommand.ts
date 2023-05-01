@@ -39,14 +39,33 @@ export interface GetPipelineChangeProgressCommandOutput extends GetPipelineChang
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OSISClient, GetPipelineChangeProgressCommand } from "@aws-sdk/client-osis"; // ES Modules import
- * // const { OSISClient, GetPipelineChangeProgressCommand } = require("@aws-sdk/client-osis"); // CommonJS import
+ * import { OSISClient, GetPipelineChangeProgressCommand } from '@aws-sdk/client-osis'; // ES Modules import
+ * // const { OSISClient, GetPipelineChangeProgressCommand } = require('@aws-sdk/client-osis'); // CommonJS import
  * const client = new OSISClient(config);
  * const input = { // GetPipelineChangeProgressRequest
- *   PipelineName: "STRING_VALUE", // required
+ *   PipelineName: 'STRING_VALUE', // required
  * };
  * const command = new GetPipelineChangeProgressCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetPipelineChangeProgressResponse
+ *   ChangeProgressStatuses: [ // ChangeProgressStatusList
+ *     { // ChangeProgressStatus
+ *       StartTime: new Date('TIMESTAMP'),
+ *       Status: 'PENDING' || 'IN_PROGRESS' || 'COMPLETED' || 'FAILED',
+ *       TotalNumberOfStages: Number('int'),
+ *       ChangeProgressStages: [ // ChangeProgressStageList
+ *         { // ChangeProgressStage
+ *           Name: 'STRING_VALUE',
+ *           Status: 'PENDING' || 'IN_PROGRESS' || 'COMPLETED' || 'FAILED',
+ *           Description: 'STRING_VALUE',
+ *           LastUpdatedAt: new Date('TIMESTAMP'),
+ *         },
+ *       ],
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetPipelineChangeProgressCommandInput - {@link GetPipelineChangeProgressCommandInput}
@@ -68,6 +87,8 @@ export interface GetPipelineChangeProgressCommandOutput extends GetPipelineChang
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception for missing or invalid input fields.</p>
  *
+ * @throws {@link OSISServiceException}
+ * <p>Base exception class for all service exceptions from OSIS service.</p>
  *
  */
 export class GetPipelineChangeProgressCommand extends $Command<

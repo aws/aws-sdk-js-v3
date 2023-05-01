@@ -55,25 +55,30 @@ export interface CopyProjectVersionCommandOutput extends CopyProjectVersionRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RekognitionClient, CopyProjectVersionCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
- * // const { RekognitionClient, CopyProjectVersionCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
+ * import { RekognitionClient, CopyProjectVersionCommand } from '@aws-sdk/client-rekognition'; // ES Modules import
+ * // const { RekognitionClient, CopyProjectVersionCommand } = require('@aws-sdk/client-rekognition'); // CommonJS import
  * const client = new RekognitionClient(config);
  * const input = { // CopyProjectVersionRequest
- *   SourceProjectArn: "STRING_VALUE", // required
- *   SourceProjectVersionArn: "STRING_VALUE", // required
- *   DestinationProjectArn: "STRING_VALUE", // required
- *   VersionName: "STRING_VALUE", // required
+ *   SourceProjectArn: 'STRING_VALUE', // required
+ *   SourceProjectVersionArn: 'STRING_VALUE', // required
+ *   DestinationProjectArn: 'STRING_VALUE', // required
+ *   VersionName: 'STRING_VALUE', // required
  *   OutputConfig: { // OutputConfig
- *     S3Bucket: "STRING_VALUE",
- *     S3KeyPrefix: "STRING_VALUE",
+ *     S3Bucket: 'STRING_VALUE',
+ *     S3KeyPrefix: 'STRING_VALUE',
  *   },
  *   Tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
- *   KmsKeyId: "STRING_VALUE",
+ *   KmsKeyId: 'STRING_VALUE',
  * };
  * const command = new CopyProjectVersionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CopyProjectVersionResponse
+ *   ProjectVersionArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CopyProjectVersionCommandInput - {@link CopyProjectVersionCommandInput}
@@ -115,6 +120,8 @@ export interface CopyProjectVersionCommandOutput extends CopyProjectVersionRespo
  * @throws {@link ThrottlingException} (server fault)
  *  <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
  *
+ * @throws {@link RekognitionServiceException}
+ * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
  * @example CopyProjectVersion
  * ```javascript

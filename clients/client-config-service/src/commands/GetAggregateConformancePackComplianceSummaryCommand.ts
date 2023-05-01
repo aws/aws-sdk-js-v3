@@ -48,21 +48,36 @@ export interface GetAggregateConformancePackComplianceSummaryCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConfigServiceClient, GetAggregateConformancePackComplianceSummaryCommand } from "@aws-sdk/client-config-service"; // ES Modules import
- * // const { ConfigServiceClient, GetAggregateConformancePackComplianceSummaryCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
+ * import { ConfigServiceClient, GetAggregateConformancePackComplianceSummaryCommand } from '@aws-sdk/client-config-service'; // ES Modules import
+ * // const { ConfigServiceClient, GetAggregateConformancePackComplianceSummaryCommand } = require('@aws-sdk/client-config-service'); // CommonJS import
  * const client = new ConfigServiceClient(config);
  * const input = { // GetAggregateConformancePackComplianceSummaryRequest
- *   ConfigurationAggregatorName: "STRING_VALUE", // required
+ *   ConfigurationAggregatorName: 'STRING_VALUE', // required
  *   Filters: { // AggregateConformancePackComplianceSummaryFilters
- *     AccountId: "STRING_VALUE",
- *     AwsRegion: "STRING_VALUE",
+ *     AccountId: 'STRING_VALUE',
+ *     AwsRegion: 'STRING_VALUE',
  *   },
- *   GroupByKey: "ACCOUNT_ID" || "AWS_REGION",
- *   Limit: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   GroupByKey: 'ACCOUNT_ID' || 'AWS_REGION',
+ *   Limit: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new GetAggregateConformancePackComplianceSummaryCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetAggregateConformancePackComplianceSummaryResponse
+ *   AggregateConformancePackComplianceSummaries: [ // AggregateConformancePackComplianceSummaryList
+ *     { // AggregateConformancePackComplianceSummary
+ *       ComplianceSummary: { // AggregateConformancePackComplianceCount
+ *         CompliantConformancePackCount: Number('int'),
+ *         NonCompliantConformancePackCount: Number('int'),
+ *       },
+ *       GroupName: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   GroupByKey: 'STRING_VALUE',
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetAggregateConformancePackComplianceSummaryCommandInput - {@link GetAggregateConformancePackComplianceSummaryCommandInput}
@@ -87,6 +102,8 @@ export interface GetAggregateConformancePackComplianceSummaryCommandOutput
  *          <p>For PutStoredQuery, you will see this exception if there are missing required fields or if the input value fails the validation, or if you are trying to create more than 300 queries.</p>
  *          <p>For GetStoredQuery, ListStoredQuery, and DeleteStoredQuery you will see this exception if there are missing required fields or if the input value fails the validation.</p>
  *
+ * @throws {@link ConfigServiceServiceException}
+ * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
  */
 export class GetAggregateConformancePackComplianceSummaryCommand extends $Command<

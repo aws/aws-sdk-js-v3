@@ -78,15 +78,18 @@ export interface RespondActivityTaskCompletedCommandOutput extends __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SWFClient, RespondActivityTaskCompletedCommand } from "@aws-sdk/client-swf"; // ES Modules import
- * // const { SWFClient, RespondActivityTaskCompletedCommand } = require("@aws-sdk/client-swf"); // CommonJS import
+ * import { SWFClient, RespondActivityTaskCompletedCommand } from '@aws-sdk/client-swf'; // ES Modules import
+ * // const { SWFClient, RespondActivityTaskCompletedCommand } = require('@aws-sdk/client-swf'); // CommonJS import
  * const client = new SWFClient(config);
  * const input = { // RespondActivityTaskCompletedInput
- *   taskToken: "STRING_VALUE", // required
- *   result: "STRING_VALUE",
+ *   taskToken: 'STRING_VALUE', // required
+ *   result: 'STRING_VALUE',
  * };
  * const command = new RespondActivityTaskCompletedCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param RespondActivityTaskCompletedCommandInput - {@link RespondActivityTaskCompletedCommandInput}
@@ -101,6 +104,8 @@ export interface RespondActivityTaskCompletedCommandOutput extends __MetadataBea
  * @throws {@link UnknownResourceFault} (client fault)
  *  <p>Returned when the named resource cannot be found with in the scope of this operation (region or domain). This could happen if the named resource was never created or is no longer available for this operation.</p>
  *
+ * @throws {@link SWFServiceException}
+ * <p>Base exception class for all service exceptions from SWF service.</p>
  *
  */
 export class RespondActivityTaskCompletedCommand extends $Command<

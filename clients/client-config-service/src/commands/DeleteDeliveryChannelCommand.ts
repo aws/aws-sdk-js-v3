@@ -38,14 +38,17 @@ export interface DeleteDeliveryChannelCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConfigServiceClient, DeleteDeliveryChannelCommand } from "@aws-sdk/client-config-service"; // ES Modules import
- * // const { ConfigServiceClient, DeleteDeliveryChannelCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
+ * import { ConfigServiceClient, DeleteDeliveryChannelCommand } from '@aws-sdk/client-config-service'; // ES Modules import
+ * // const { ConfigServiceClient, DeleteDeliveryChannelCommand } = require('@aws-sdk/client-config-service'); // CommonJS import
  * const client = new ConfigServiceClient(config);
  * const input = { // DeleteDeliveryChannelRequest
- *   DeliveryChannelName: "STRING_VALUE", // required
+ *   DeliveryChannelName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteDeliveryChannelCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteDeliveryChannelCommandInput - {@link DeleteDeliveryChannelCommandInput}
@@ -62,6 +65,8 @@ export interface DeleteDeliveryChannelCommandOutput extends __MetadataBearer {}
  *  <p>You have specified a delivery channel that does not
  * 			exist.</p>
  *
+ * @throws {@link ConfigServiceServiceException}
+ * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
  */
 export class DeleteDeliveryChannelCommand extends $Command<

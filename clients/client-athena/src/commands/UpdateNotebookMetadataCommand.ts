@@ -36,16 +36,19 @@ export interface UpdateNotebookMetadataCommandOutput extends UpdateNotebookMetad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AthenaClient, UpdateNotebookMetadataCommand } from "@aws-sdk/client-athena"; // ES Modules import
- * // const { AthenaClient, UpdateNotebookMetadataCommand } = require("@aws-sdk/client-athena"); // CommonJS import
+ * import { AthenaClient, UpdateNotebookMetadataCommand } from '@aws-sdk/client-athena'; // ES Modules import
+ * // const { AthenaClient, UpdateNotebookMetadataCommand } = require('@aws-sdk/client-athena'); // CommonJS import
  * const client = new AthenaClient(config);
  * const input = { // UpdateNotebookMetadataInput
- *   NotebookId: "STRING_VALUE", // required
- *   ClientRequestToken: "STRING_VALUE",
- *   Name: "STRING_VALUE", // required
+ *   NotebookId: 'STRING_VALUE', // required
+ *   ClientRequestToken: 'STRING_VALUE',
+ *   Name: 'STRING_VALUE', // required
  * };
  * const command = new UpdateNotebookMetadataCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateNotebookMetadataCommandInput - {@link UpdateNotebookMetadataCommandInput}
@@ -65,6 +68,8 @@ export interface UpdateNotebookMetadataCommandOutput extends UpdateNotebookMetad
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Indicates that the request was throttled.</p>
  *
+ * @throws {@link AthenaServiceException}
+ * <p>Base exception class for all service exceptions from Athena service.</p>
  *
  */
 export class UpdateNotebookMetadataCommand extends $Command<

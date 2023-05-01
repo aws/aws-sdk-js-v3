@@ -36,14 +36,30 @@ export interface DeleteFirewallDomainListCommandOutput extends DeleteFirewallDom
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Route53ResolverClient, DeleteFirewallDomainListCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
- * // const { Route53ResolverClient, DeleteFirewallDomainListCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
+ * import { Route53ResolverClient, DeleteFirewallDomainListCommand } from '@aws-sdk/client-route53resolver'; // ES Modules import
+ * // const { Route53ResolverClient, DeleteFirewallDomainListCommand } = require('@aws-sdk/client-route53resolver'); // CommonJS import
  * const client = new Route53ResolverClient(config);
  * const input = { // DeleteFirewallDomainListRequest
- *   FirewallDomainListId: "STRING_VALUE", // required
+ *   FirewallDomainListId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteFirewallDomainListCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteFirewallDomainListResponse
+ *   FirewallDomainList: { // FirewallDomainList
+ *     Id: 'STRING_VALUE',
+ *     Arn: 'STRING_VALUE',
+ *     Name: 'STRING_VALUE',
+ *     DomainCount: Number('int'),
+ *     Status: 'COMPLETE' || 'COMPLETE_IMPORT_FAILED' || 'IMPORTING' || 'DELETING' || 'UPDATING',
+ *     StatusMessage: 'STRING_VALUE',
+ *     ManagedOwnerName: 'STRING_VALUE',
+ *     CreatorRequestId: 'STRING_VALUE',
+ *     CreationTime: 'STRING_VALUE',
+ *     ModificationTime: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param DeleteFirewallDomainListCommandInput - {@link DeleteFirewallDomainListCommandInput}
@@ -69,6 +85,8 @@ export interface DeleteFirewallDomainListCommandOutput extends DeleteFirewallDom
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was throttled. Try again in a few minutes.</p>
  *
+ * @throws {@link Route53ResolverServiceException}
+ * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
  */
 export class DeleteFirewallDomainListCommand extends $Command<

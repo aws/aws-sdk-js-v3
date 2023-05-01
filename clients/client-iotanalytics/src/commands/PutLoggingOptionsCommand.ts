@@ -40,18 +40,21 @@ export interface PutLoggingOptionsCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTAnalyticsClient, PutLoggingOptionsCommand } from "@aws-sdk/client-iotanalytics"; // ES Modules import
- * // const { IoTAnalyticsClient, PutLoggingOptionsCommand } = require("@aws-sdk/client-iotanalytics"); // CommonJS import
+ * import { IoTAnalyticsClient, PutLoggingOptionsCommand } from '@aws-sdk/client-iotanalytics'; // ES Modules import
+ * // const { IoTAnalyticsClient, PutLoggingOptionsCommand } = require('@aws-sdk/client-iotanalytics'); // CommonJS import
  * const client = new IoTAnalyticsClient(config);
  * const input = { // PutLoggingOptionsRequest
  *   loggingOptions: { // LoggingOptions
- *     roleArn: "STRING_VALUE", // required
- *     level: "STRING_VALUE", // required
+ *     roleArn: 'STRING_VALUE', // required
+ *     level: 'STRING_VALUE', // required
  *     enabled: true || false, // required
  *   },
  * };
  * const command = new PutLoggingOptionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutLoggingOptionsCommandInput - {@link PutLoggingOptionsCommandInput}
@@ -72,6 +75,8 @@ export interface PutLoggingOptionsCommandOutput extends __MetadataBearer {}
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
  *
+ * @throws {@link IoTAnalyticsServiceException}
+ * <p>Base exception class for all service exceptions from IoTAnalytics service.</p>
  *
  */
 export class PutLoggingOptionsCommand extends $Command<

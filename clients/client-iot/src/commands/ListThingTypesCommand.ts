@@ -37,16 +37,38 @@ export interface ListThingTypesCommandOutput extends ListThingTypesResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTClient, ListThingTypesCommand } from "@aws-sdk/client-iot"; // ES Modules import
- * // const { IoTClient, ListThingTypesCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * import { IoTClient, ListThingTypesCommand } from '@aws-sdk/client-iot'; // ES Modules import
+ * // const { IoTClient, ListThingTypesCommand } = require('@aws-sdk/client-iot'); // CommonJS import
  * const client = new IoTClient(config);
  * const input = { // ListThingTypesRequest
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
- *   thingTypeName: "STRING_VALUE",
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
+ *   thingTypeName: 'STRING_VALUE',
  * };
  * const command = new ListThingTypesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListThingTypesResponse
+ *   thingTypes: [ // ThingTypeList
+ *     { // ThingTypeDefinition
+ *       thingTypeName: 'STRING_VALUE',
+ *       thingTypeArn: 'STRING_VALUE',
+ *       thingTypeProperties: { // ThingTypeProperties
+ *         thingTypeDescription: 'STRING_VALUE',
+ *         searchableAttributes: [ // SearchableAttributes
+ *           'STRING_VALUE',
+ *         ],
+ *       },
+ *       thingTypeMetadata: { // ThingTypeMetadata
+ *         deprecated: true || false,
+ *         deprecationDate: new Date('TIMESTAMP'),
+ *         creationDate: new Date('TIMESTAMP'),
+ *       },
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListThingTypesCommandInput - {@link ListThingTypesCommandInput}
@@ -70,6 +92,8 @@ export interface ListThingTypesCommandOutput extends ListThingTypesResponse, __M
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this operation.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class ListThingTypesCommand extends $Command<

@@ -62,30 +62,35 @@ export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ServiceDiscoveryClient, UpdateServiceCommand } from "@aws-sdk/client-servicediscovery"; // ES Modules import
- * // const { ServiceDiscoveryClient, UpdateServiceCommand } = require("@aws-sdk/client-servicediscovery"); // CommonJS import
+ * import { ServiceDiscoveryClient, UpdateServiceCommand } from '@aws-sdk/client-servicediscovery'; // ES Modules import
+ * // const { ServiceDiscoveryClient, UpdateServiceCommand } = require('@aws-sdk/client-servicediscovery'); // CommonJS import
  * const client = new ServiceDiscoveryClient(config);
  * const input = { // UpdateServiceRequest
- *   Id: "STRING_VALUE", // required
+ *   Id: 'STRING_VALUE', // required
  *   Service: { // ServiceChange
- *     Description: "STRING_VALUE",
+ *     Description: 'STRING_VALUE',
  *     DnsConfig: { // DnsConfigChange
  *       DnsRecords: [ // DnsRecordList // required
  *         { // DnsRecord
- *           Type: "SRV" || "A" || "AAAA" || "CNAME", // required
- *           TTL: Number("long"), // required
+ *           Type: 'SRV' || 'A' || 'AAAA' || 'CNAME', // required
+ *           TTL: Number('long'), // required
  *         },
  *       ],
  *     },
  *     HealthCheckConfig: { // HealthCheckConfig
- *       Type: "HTTP" || "HTTPS" || "TCP", // required
- *       ResourcePath: "STRING_VALUE",
- *       FailureThreshold: Number("int"),
+ *       Type: 'HTTP' || 'HTTPS' || 'TCP', // required
+ *       ResourcePath: 'STRING_VALUE',
+ *       FailureThreshold: Number('int'),
  *     },
  *   },
  * };
  * const command = new UpdateServiceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateServiceResponse
+ *   OperationId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateServiceCommandInput - {@link UpdateServiceCommandInput}
@@ -105,6 +110,8 @@ export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __Met
  * @throws {@link ServiceNotFound} (client fault)
  *  <p>No service exists with the specified ID.</p>
  *
+ * @throws {@link ServiceDiscoveryServiceException}
+ * <p>Base exception class for all service exceptions from ServiceDiscovery service.</p>
  *
  * @example UpdateService Example
  * ```javascript

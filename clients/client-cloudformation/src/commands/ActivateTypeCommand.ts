@@ -41,26 +41,31 @@ export interface ActivateTypeCommandOutput extends ActivateTypeOutput, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudFormationClient, ActivateTypeCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
- * // const { CloudFormationClient, ActivateTypeCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
+ * import { CloudFormationClient, ActivateTypeCommand } from '@aws-sdk/client-cloudformation'; // ES Modules import
+ * // const { CloudFormationClient, ActivateTypeCommand } = require('@aws-sdk/client-cloudformation'); // CommonJS import
  * const client = new CloudFormationClient(config);
  * const input = { // ActivateTypeInput
- *   Type: "RESOURCE" || "MODULE" || "HOOK",
- *   PublicTypeArn: "STRING_VALUE",
- *   PublisherId: "STRING_VALUE",
- *   TypeName: "STRING_VALUE",
- *   TypeNameAlias: "STRING_VALUE",
+ *   Type: 'RESOURCE' || 'MODULE' || 'HOOK',
+ *   PublicTypeArn: 'STRING_VALUE',
+ *   PublisherId: 'STRING_VALUE',
+ *   TypeName: 'STRING_VALUE',
+ *   TypeNameAlias: 'STRING_VALUE',
  *   AutoUpdate: true || false,
  *   LoggingConfig: { // LoggingConfig
- *     LogRoleArn: "STRING_VALUE", // required
- *     LogGroupName: "STRING_VALUE", // required
+ *     LogRoleArn: 'STRING_VALUE', // required
+ *     LogGroupName: 'STRING_VALUE', // required
  *   },
- *   ExecutionRoleArn: "STRING_VALUE",
- *   VersionBump: "MAJOR" || "MINOR",
- *   MajorVersion: Number("long"),
+ *   ExecutionRoleArn: 'STRING_VALUE',
+ *   VersionBump: 'MAJOR' || 'MINOR',
+ *   MajorVersion: Number('long'),
  * };
  * const command = new ActivateTypeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ActivateTypeOutput
+ *   Arn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ActivateTypeCommandInput - {@link ActivateTypeCommandInput}
@@ -75,6 +80,8 @@ export interface ActivateTypeCommandOutput extends ActivateTypeOutput, __Metadat
  * @throws {@link TypeNotFoundException} (client fault)
  *  <p>The specified extension doesn't exist in the CloudFormation registry.</p>
  *
+ * @throws {@link CloudFormationServiceException}
+ * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
  */
 export class ActivateTypeCommand extends $Command<

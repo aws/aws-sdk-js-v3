@@ -41,17 +41,20 @@ export interface TestHypervisorConfigurationCommandOutput extends TestHypervisor
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BackupGatewayClient, TestHypervisorConfigurationCommand } from "@aws-sdk/client-backup-gateway"; // ES Modules import
- * // const { BackupGatewayClient, TestHypervisorConfigurationCommand } = require("@aws-sdk/client-backup-gateway"); // CommonJS import
+ * import { BackupGatewayClient, TestHypervisorConfigurationCommand } from '@aws-sdk/client-backup-gateway'; // ES Modules import
+ * // const { BackupGatewayClient, TestHypervisorConfigurationCommand } = require('@aws-sdk/client-backup-gateway'); // CommonJS import
  * const client = new BackupGatewayClient(config);
  * const input = { // TestHypervisorConfigurationInput
- *   GatewayArn: "STRING_VALUE", // required
- *   Host: "STRING_VALUE", // required
- *   Username: "STRING_VALUE",
- *   Password: "STRING_VALUE",
+ *   GatewayArn: 'STRING_VALUE', // required
+ *   Host: 'STRING_VALUE', // required
+ *   Username: 'STRING_VALUE',
+ *   Password: 'STRING_VALUE',
  * };
  * const command = new TestHypervisorConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param TestHypervisorConfigurationCommandInput - {@link TestHypervisorConfigurationCommandInput}
@@ -76,6 +79,8 @@ export interface TestHypervisorConfigurationCommandOutput extends TestHypervisor
  * @throws {@link ValidationException} (client fault)
  *  <p>The operation did not succeed because a validation error occurred.</p>
  *
+ * @throws {@link BackupGatewayServiceException}
+ * <p>Base exception class for all service exceptions from BackupGateway service.</p>
  *
  */
 export class TestHypervisorConfigurationCommand extends $Command<

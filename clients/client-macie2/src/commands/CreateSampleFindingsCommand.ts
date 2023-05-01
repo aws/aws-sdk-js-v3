@@ -36,16 +36,19 @@ export interface CreateSampleFindingsCommandOutput extends CreateSampleFindingsR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Macie2Client, CreateSampleFindingsCommand } from "@aws-sdk/client-macie2"; // ES Modules import
- * // const { Macie2Client, CreateSampleFindingsCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
+ * import { Macie2Client, CreateSampleFindingsCommand } from '@aws-sdk/client-macie2'; // ES Modules import
+ * // const { Macie2Client, CreateSampleFindingsCommand } = require('@aws-sdk/client-macie2'); // CommonJS import
  * const client = new Macie2Client(config);
  * const input = { // CreateSampleFindingsRequest
  *   findingTypes: [ // __listOfFindingType
- *     "SensitiveData:S3Object/Multiple" || "SensitiveData:S3Object/Financial" || "SensitiveData:S3Object/Personal" || "SensitiveData:S3Object/Credentials" || "SensitiveData:S3Object/CustomIdentifier" || "Policy:IAMUser/S3BucketPublic" || "Policy:IAMUser/S3BucketSharedExternally" || "Policy:IAMUser/S3BucketReplicatedExternally" || "Policy:IAMUser/S3BucketEncryptionDisabled" || "Policy:IAMUser/S3BlockPublicAccessDisabled" || "Policy:IAMUser/S3BucketSharedWithCloudFront",
+ *     'SensitiveData:S3Object/Multiple' || 'SensitiveData:S3Object/Financial' || 'SensitiveData:S3Object/Personal' || 'SensitiveData:S3Object/Credentials' || 'SensitiveData:S3Object/CustomIdentifier' || 'Policy:IAMUser/S3BucketPublic' || 'Policy:IAMUser/S3BucketSharedExternally' || 'Policy:IAMUser/S3BucketReplicatedExternally' || 'Policy:IAMUser/S3BucketEncryptionDisabled' || 'Policy:IAMUser/S3BlockPublicAccessDisabled' || 'Policy:IAMUser/S3BucketSharedWithCloudFront',
  *   ],
  * };
  * const command = new CreateSampleFindingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param CreateSampleFindingsCommandInput - {@link CreateSampleFindingsCommandInput}
@@ -75,6 +78,8 @@ export interface CreateSampleFindingsCommandOutput extends CreateSampleFindingsR
  * @throws {@link ValidationException} (client fault)
  *  <p>Provides information about an error that occurred due to a syntax error in a request.</p>
  *
+ * @throws {@link Macie2ServiceException}
+ * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
  */
 export class CreateSampleFindingsCommand extends $Command<

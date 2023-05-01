@@ -36,23 +36,75 @@ export interface StartDeploymentCommandOutput extends Deployment, __MetadataBear
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppConfigClient, StartDeploymentCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
- * // const { AppConfigClient, StartDeploymentCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import
+ * import { AppConfigClient, StartDeploymentCommand } from '@aws-sdk/client-appconfig'; // ES Modules import
+ * // const { AppConfigClient, StartDeploymentCommand } = require('@aws-sdk/client-appconfig'); // CommonJS import
  * const client = new AppConfigClient(config);
  * const input = { // StartDeploymentRequest
- *   ApplicationId: "STRING_VALUE", // required
- *   EnvironmentId: "STRING_VALUE", // required
- *   DeploymentStrategyId: "STRING_VALUE", // required
- *   ConfigurationProfileId: "STRING_VALUE", // required
- *   ConfigurationVersion: "STRING_VALUE", // required
- *   Description: "STRING_VALUE",
+ *   ApplicationId: 'STRING_VALUE', // required
+ *   EnvironmentId: 'STRING_VALUE', // required
+ *   DeploymentStrategyId: 'STRING_VALUE', // required
+ *   ConfigurationProfileId: 'STRING_VALUE', // required
+ *   ConfigurationVersion: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE',
  *   Tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
- *   KmsKeyIdentifier: "STRING_VALUE",
+ *   KmsKeyIdentifier: 'STRING_VALUE',
  * };
  * const command = new StartDeploymentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // Deployment
+ *   ApplicationId: 'STRING_VALUE',
+ *   EnvironmentId: 'STRING_VALUE',
+ *   DeploymentStrategyId: 'STRING_VALUE',
+ *   ConfigurationProfileId: 'STRING_VALUE',
+ *   DeploymentNumber: Number('int'),
+ *   ConfigurationName: 'STRING_VALUE',
+ *   ConfigurationLocationUri: 'STRING_VALUE',
+ *   ConfigurationVersion: 'STRING_VALUE',
+ *   Description: 'STRING_VALUE',
+ *   DeploymentDurationInMinutes: Number('int'),
+ *   GrowthType: 'LINEAR' || 'EXPONENTIAL',
+ *   GrowthFactor: Number('float'),
+ *   FinalBakeTimeInMinutes: Number('int'),
+ *   State: 'BAKING' || 'VALIDATING' || 'DEPLOYING' || 'COMPLETE' || 'ROLLING_BACK' || 'ROLLED_BACK',
+ *   EventLog: [ // DeploymentEvents
+ *     { // DeploymentEvent
+ *       EventType: 'PERCENTAGE_UPDATED' || 'ROLLBACK_STARTED' || 'ROLLBACK_COMPLETED' || 'BAKE_TIME_STARTED' || 'DEPLOYMENT_STARTED' || 'DEPLOYMENT_COMPLETED',
+ *       TriggeredBy: 'USER' || 'APPCONFIG' || 'CLOUDWATCH_ALARM' || 'INTERNAL_ERROR',
+ *       Description: 'STRING_VALUE',
+ *       ActionInvocations: [ // ActionInvocations
+ *         { // ActionInvocation
+ *           ExtensionIdentifier: 'STRING_VALUE',
+ *           ActionName: 'STRING_VALUE',
+ *           Uri: 'STRING_VALUE',
+ *           RoleArn: 'STRING_VALUE',
+ *           ErrorMessage: 'STRING_VALUE',
+ *           ErrorCode: 'STRING_VALUE',
+ *           InvocationId: 'STRING_VALUE',
+ *         },
+ *       ],
+ *       OccurredAt: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   PercentageComplete: Number('float'),
+ *   StartedAt: new Date('TIMESTAMP'),
+ *   CompletedAt: new Date('TIMESTAMP'),
+ *   AppliedExtensions: [ // AppliedExtensions
+ *     { // AppliedExtension
+ *       ExtensionId: 'STRING_VALUE',
+ *       ExtensionAssociationId: 'STRING_VALUE',
+ *       VersionNumber: Number('int'),
+ *       Parameters: { // ParameterValueMap
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ *   KmsKeyArn: 'STRING_VALUE',
+ *   KmsKeyIdentifier: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param StartDeploymentCommandInput - {@link StartDeploymentCommandInput}
@@ -74,6 +126,8 @@ export interface StartDeploymentCommandOutput extends Deployment, __MetadataBear
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The requested resource could not be found.</p>
  *
+ * @throws {@link AppConfigServiceException}
+ * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
  * @example To start a configuration deployment
  * ```javascript

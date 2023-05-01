@@ -39,17 +39,32 @@ export interface UpdateLinkCommandOutput extends UpdateLinkOutput, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OAMClient, UpdateLinkCommand } from "@aws-sdk/client-oam"; // ES Modules import
- * // const { OAMClient, UpdateLinkCommand } = require("@aws-sdk/client-oam"); // CommonJS import
+ * import { OAMClient, UpdateLinkCommand } from '@aws-sdk/client-oam'; // ES Modules import
+ * // const { OAMClient, UpdateLinkCommand } = require('@aws-sdk/client-oam'); // CommonJS import
  * const client = new OAMClient(config);
  * const input = { // UpdateLinkInput
- *   Identifier: "STRING_VALUE", // required
+ *   Identifier: 'STRING_VALUE', // required
  *   ResourceTypes: [ // ResourceTypesInput // required
- *     "AWS::CloudWatch::Metric" || "AWS::Logs::LogGroup" || "AWS::XRay::Trace",
+ *     'AWS::CloudWatch::Metric' || 'AWS::Logs::LogGroup' || 'AWS::XRay::Trace',
  *   ],
  * };
  * const command = new UpdateLinkCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateLinkOutput
+ *   Arn: 'STRING_VALUE',
+ *   Id: 'STRING_VALUE',
+ *   Label: 'STRING_VALUE',
+ *   LabelTemplate: 'STRING_VALUE',
+ *   ResourceTypes: [ // ResourceTypesOutput
+ *     'STRING_VALUE',
+ *   ],
+ *   SinkArn: 'STRING_VALUE',
+ *   Tags: { // TagMapOutput
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateLinkCommandInput - {@link UpdateLinkCommandInput}
@@ -70,6 +85,8 @@ export interface UpdateLinkCommandOutput extends UpdateLinkOutput, __MetadataBea
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The request references a resource that does not exist.</p>
  *
+ * @throws {@link OAMServiceException}
+ * <p>Base exception class for all service exceptions from OAM service.</p>
  *
  */
 export class UpdateLinkCommand extends $Command<

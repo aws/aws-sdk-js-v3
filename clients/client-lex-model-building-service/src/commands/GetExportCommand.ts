@@ -41,17 +41,28 @@ export interface GetExportCommandOutput extends GetExportResponse, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LexModelBuildingServiceClient, GetExportCommand } from "@aws-sdk/client-lex-model-building-service"; // ES Modules import
- * // const { LexModelBuildingServiceClient, GetExportCommand } = require("@aws-sdk/client-lex-model-building-service"); // CommonJS import
+ * import { LexModelBuildingServiceClient, GetExportCommand } from '@aws-sdk/client-lex-model-building-service'; // ES Modules import
+ * // const { LexModelBuildingServiceClient, GetExportCommand } = require('@aws-sdk/client-lex-model-building-service'); // CommonJS import
  * const client = new LexModelBuildingServiceClient(config);
  * const input = { // GetExportRequest
- *   name: "STRING_VALUE", // required
- *   version: "STRING_VALUE", // required
- *   resourceType: "STRING_VALUE", // required
- *   exportType: "STRING_VALUE", // required
+ *   name: 'STRING_VALUE', // required
+ *   version: 'STRING_VALUE', // required
+ *   resourceType: 'STRING_VALUE', // required
+ *   exportType: 'STRING_VALUE', // required
  * };
  * const command = new GetExportCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetExportResponse
+ *   name: 'STRING_VALUE',
+ *   version: 'STRING_VALUE',
+ *   resourceType: 'STRING_VALUE',
+ *   exportType: 'STRING_VALUE',
+ *   exportStatus: 'STRING_VALUE',
+ *   failureReason: 'STRING_VALUE',
+ *   url: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetExportCommandInput - {@link GetExportCommandInput}
@@ -75,6 +86,8 @@ export interface GetExportCommandOutput extends GetExportResponse, __MetadataBea
  *  <p>The resource specified in the request was not found. Check the
  *       resource and try again.</p>
  *
+ * @throws {@link LexModelBuildingServiceServiceException}
+ * <p>Base exception class for all service exceptions from LexModelBuildingService service.</p>
  *
  */
 export class GetExportCommand extends $Command<

@@ -36,15 +36,29 @@ export interface ListAppMonitorsCommandOutput extends ListAppMonitorsResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RUMClient, ListAppMonitorsCommand } from "@aws-sdk/client-rum"; // ES Modules import
- * // const { RUMClient, ListAppMonitorsCommand } = require("@aws-sdk/client-rum"); // CommonJS import
+ * import { RUMClient, ListAppMonitorsCommand } from '@aws-sdk/client-rum'; // ES Modules import
+ * // const { RUMClient, ListAppMonitorsCommand } = require('@aws-sdk/client-rum'); // CommonJS import
  * const client = new RUMClient(config);
  * const input = { // ListAppMonitorsRequest
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListAppMonitorsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListAppMonitorsResponse
+ *   NextToken: 'STRING_VALUE',
+ *   AppMonitorSummaries: [ // AppMonitorSummaryList
+ *     { // AppMonitorSummary
+ *       Name: 'STRING_VALUE',
+ *       Id: 'STRING_VALUE',
+ *       Created: 'STRING_VALUE',
+ *       LastModified: 'STRING_VALUE',
+ *       State: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListAppMonitorsCommandInput - {@link ListAppMonitorsCommandInput}
@@ -65,6 +79,8 @@ export interface ListAppMonitorsCommandOutput extends ListAppMonitorsResponse, _
  * @throws {@link ValidationException} (client fault)
  *  <p>One of the arguments for the request is not valid.</p>
  *
+ * @throws {@link RUMServiceException}
+ * <p>Base exception class for all service exceptions from RUM service.</p>
  *
  */
 export class ListAppMonitorsCommand extends $Command<

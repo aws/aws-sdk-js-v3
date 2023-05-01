@@ -36,16 +36,35 @@ export interface ListAppsListsCommandOutput extends ListAppsListsResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FMSClient, ListAppsListsCommand } from "@aws-sdk/client-fms"; // ES Modules import
- * // const { FMSClient, ListAppsListsCommand } = require("@aws-sdk/client-fms"); // CommonJS import
+ * import { FMSClient, ListAppsListsCommand } from '@aws-sdk/client-fms'; // ES Modules import
+ * // const { FMSClient, ListAppsListsCommand } = require('@aws-sdk/client-fms'); // CommonJS import
  * const client = new FMSClient(config);
  * const input = { // ListAppsListsRequest
  *   DefaultLists: true || false,
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"), // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'), // required
  * };
  * const command = new ListAppsListsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListAppsListsResponse
+ *   AppsLists: [ // AppsListsData
+ *     { // AppsListDataSummary
+ *       ListArn: 'STRING_VALUE',
+ *       ListId: 'STRING_VALUE',
+ *       ListName: 'STRING_VALUE',
+ *       AppsList: [ // AppsList
+ *         { // App
+ *           AppName: 'STRING_VALUE', // required
+ *           Protocol: 'STRING_VALUE', // required
+ *           Port: Number('long'), // required
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListAppsListsCommandInput - {@link ListAppsListsCommandInput}
@@ -74,6 +93,8 @@ export interface ListAppsListsCommandOutput extends ListAppsListsResponse, __Met
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link FMSServiceException}
+ * <p>Base exception class for all service exceptions from FMS service.</p>
  *
  */
 export class ListAppsListsCommand extends $Command<

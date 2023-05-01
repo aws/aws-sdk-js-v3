@@ -37,15 +37,18 @@ export interface DetachSecurityProfileCommandOutput extends DetachSecurityProfil
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTClient, DetachSecurityProfileCommand } from "@aws-sdk/client-iot"; // ES Modules import
- * // const { IoTClient, DetachSecurityProfileCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * import { IoTClient, DetachSecurityProfileCommand } from '@aws-sdk/client-iot'; // ES Modules import
+ * // const { IoTClient, DetachSecurityProfileCommand } = require('@aws-sdk/client-iot'); // CommonJS import
  * const client = new IoTClient(config);
  * const input = { // DetachSecurityProfileRequest
- *   securityProfileName: "STRING_VALUE", // required
- *   securityProfileTargetArn: "STRING_VALUE", // required
+ *   securityProfileName: 'STRING_VALUE', // required
+ *   securityProfileTargetArn: 'STRING_VALUE', // required
  * };
  * const command = new DetachSecurityProfileCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DetachSecurityProfileCommandInput - {@link DetachSecurityProfileCommandInput}
@@ -66,6 +69,8 @@ export interface DetachSecurityProfileCommandOutput extends DetachSecurityProfil
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The rate exceeds the limit.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class DetachSecurityProfileCommand extends $Command<

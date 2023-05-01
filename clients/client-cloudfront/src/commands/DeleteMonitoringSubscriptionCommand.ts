@@ -42,14 +42,17 @@ export interface DeleteMonitoringSubscriptionCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudFrontClient, DeleteMonitoringSubscriptionCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
- * // const { CloudFrontClient, DeleteMonitoringSubscriptionCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
+ * import { CloudFrontClient, DeleteMonitoringSubscriptionCommand } from '@aws-sdk/client-cloudfront'; // ES Modules import
+ * // const { CloudFrontClient, DeleteMonitoringSubscriptionCommand } = require('@aws-sdk/client-cloudfront'); // CommonJS import
  * const client = new CloudFrontClient(config);
  * const input = { // DeleteMonitoringSubscriptionRequest
- *   DistributionId: "STRING_VALUE", // required
+ *   DistributionId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteMonitoringSubscriptionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteMonitoringSubscriptionCommandInput - {@link DeleteMonitoringSubscriptionCommandInput}
@@ -70,6 +73,8 @@ export interface DeleteMonitoringSubscriptionCommandOutput
  * @throws {@link UnsupportedOperation} (client fault)
  *  <p>This operation is not supported in this region.</p>
  *
+ * @throws {@link CloudFrontServiceException}
+ * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
  */
 export class DeleteMonitoringSubscriptionCommand extends $Command<

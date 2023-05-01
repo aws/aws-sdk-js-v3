@@ -44,15 +44,18 @@ export interface DisassociateContactFromAddressBookCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AlexaForBusinessClient, DisassociateContactFromAddressBookCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
- * // const { AlexaForBusinessClient, DisassociateContactFromAddressBookCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
+ * import { AlexaForBusinessClient, DisassociateContactFromAddressBookCommand } from '@aws-sdk/client-alexa-for-business'; // ES Modules import
+ * // const { AlexaForBusinessClient, DisassociateContactFromAddressBookCommand } = require('@aws-sdk/client-alexa-for-business'); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
  * const input = { // DisassociateContactFromAddressBookRequest
- *   ContactArn: "STRING_VALUE", // required
- *   AddressBookArn: "STRING_VALUE", // required
+ *   ContactArn: 'STRING_VALUE', // required
+ *   AddressBookArn: 'STRING_VALUE', // required
  * };
  * const command = new DisassociateContactFromAddressBookCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DisassociateContactFromAddressBookCommandInput - {@link DisassociateContactFromAddressBookCommandInput}
@@ -61,6 +64,8 @@ export interface DisassociateContactFromAddressBookCommandOutput
  * @see {@link DisassociateContactFromAddressBookCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
  *
+ * @throws {@link AlexaForBusinessServiceException}
+ * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  */
 export class DisassociateContactFromAddressBookCommand extends $Command<

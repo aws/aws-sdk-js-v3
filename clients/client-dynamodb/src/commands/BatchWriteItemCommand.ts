@@ -117,54 +117,54 @@ export interface BatchWriteItemCommandOutput extends BatchWriteItemOutput, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DynamoDBClient, BatchWriteItemCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
- * // const { DynamoDBClient, BatchWriteItemCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
+ * import { DynamoDBClient, BatchWriteItemCommand } from '@aws-sdk/client-dynamodb'; // ES Modules import
+ * // const { DynamoDBClient, BatchWriteItemCommand } = require('@aws-sdk/client-dynamodb'); // CommonJS import
  * const client = new DynamoDBClient(config);
  * const input = { // BatchWriteItemInput
  *   RequestItems: { // BatchWriteItemRequestMap // required
- *     "<keys>": [ // WriteRequests
+ *     '<keys>': [ // WriteRequests
  *       { // WriteRequest
  *         PutRequest: { // PutRequest
  *           Item: { // PutItemInputAttributeMap // required
- *             "<keys>": { // AttributeValue Union: only one key present
- *               S: "STRING_VALUE",
- *               N: "STRING_VALUE",
- *               B: "BLOB_VALUE",
+ *             '<keys>': { // AttributeValue Union: only one key present
+ *               S: 'STRING_VALUE',
+ *               N: 'STRING_VALUE',
+ *               B: 'BLOB_VALUE',
  *               SS: [ // StringSetAttributeValue
- *                 "STRING_VALUE",
+ *                 'STRING_VALUE',
  *               ],
  *               NS: [ // NumberSetAttributeValue
- *                 "STRING_VALUE",
+ *                 'STRING_VALUE',
  *               ],
  *               BS: [ // BinarySetAttributeValue
- *                 "BLOB_VALUE",
+ *                 'BLOB_VALUE',
  *               ],
  *               M: { // MapAttributeValue
- *                 "<keys>": {//  Union: only one key present
- *                   S: "STRING_VALUE",
- *                   N: "STRING_VALUE",
- *                   B: "BLOB_VALUE",
+ *                 '<keys>': {//  Union: only one key present
+ *                   S: 'STRING_VALUE',
+ *                   N: 'STRING_VALUE',
+ *                   B: 'BLOB_VALUE',
  *                   SS: [
- *                     "STRING_VALUE",
+ *                     'STRING_VALUE',
  *                   ],
  *                   NS: [
- *                     "STRING_VALUE",
+ *                     'STRING_VALUE',
  *                   ],
  *                   BS: [
- *                     "BLOB_VALUE",
+ *                     'BLOB_VALUE',
  *                   ],
  *                   M: {
- *                     "<keys>": "<AttributeValue>",
+ *                     '<keys>': '<AttributeValue>',
  *                   },
  *                   L: [ // ListAttributeValue
- *                     "<AttributeValue>",
+ *                     '<AttributeValue>',
  *                   ],
  *                   NULL: true || false,
  *                   BOOL: true || false,
  *                 },
  *               },
  *               L: [
- *                 "<AttributeValue>",
+ *                 '<AttributeValue>',
  *               ],
  *               NULL: true || false,
  *               BOOL: true || false,
@@ -173,17 +173,118 @@ export interface BatchWriteItemCommandOutput extends BatchWriteItemOutput, __Met
  *         },
  *         DeleteRequest: { // DeleteRequest
  *           Key: { // Key // required
- *             "<keys>": "<AttributeValue>",
+ *             '<keys>': '<AttributeValue>',
  *           },
  *         },
  *       },
  *     ],
  *   },
- *   ReturnConsumedCapacity: "INDEXES" || "TOTAL" || "NONE",
- *   ReturnItemCollectionMetrics: "SIZE" || "NONE",
+ *   ReturnConsumedCapacity: 'INDEXES' || 'TOTAL' || 'NONE',
+ *   ReturnItemCollectionMetrics: 'SIZE' || 'NONE',
  * };
  * const command = new BatchWriteItemCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BatchWriteItemOutput
+ *   UnprocessedItems: { // BatchWriteItemRequestMap
+ *     '<keys>': [ // WriteRequests
+ *       { // WriteRequest
+ *         PutRequest: { // PutRequest
+ *           Item: { // PutItemInputAttributeMap // required
+ *             '<keys>': { // AttributeValue Union: only one key present
+ *               S: 'STRING_VALUE',
+ *               N: 'STRING_VALUE',
+ *               B: 'BLOB_VALUE',
+ *               SS: [ // StringSetAttributeValue
+ *                 'STRING_VALUE',
+ *               ],
+ *               NS: [ // NumberSetAttributeValue
+ *                 'STRING_VALUE',
+ *               ],
+ *               BS: [ // BinarySetAttributeValue
+ *                 'BLOB_VALUE',
+ *               ],
+ *               M: { // MapAttributeValue
+ *                 '<keys>': {//  Union: only one key present
+ *                   S: 'STRING_VALUE',
+ *                   N: 'STRING_VALUE',
+ *                   B: 'BLOB_VALUE',
+ *                   SS: [
+ *                     'STRING_VALUE',
+ *                   ],
+ *                   NS: [
+ *                     'STRING_VALUE',
+ *                   ],
+ *                   BS: [
+ *                     'BLOB_VALUE',
+ *                   ],
+ *                   M: {
+ *                     '<keys>': '<AttributeValue>',
+ *                   },
+ *                   L: [ // ListAttributeValue
+ *                     '<AttributeValue>',
+ *                   ],
+ *                   NULL: true || false,
+ *                   BOOL: true || false,
+ *                 },
+ *               },
+ *               L: [
+ *                 '<AttributeValue>',
+ *               ],
+ *               NULL: true || false,
+ *               BOOL: true || false,
+ *             },
+ *           },
+ *         },
+ *         DeleteRequest: { // DeleteRequest
+ *           Key: { // Key // required
+ *             '<keys>': '<AttributeValue>',
+ *           },
+ *         },
+ *       },
+ *     ],
+ *   },
+ *   ItemCollectionMetrics: { // ItemCollectionMetricsPerTable
+ *     '<keys>': [ // ItemCollectionMetricsMultiple
+ *       { // ItemCollectionMetrics
+ *         ItemCollectionKey: { // ItemCollectionKeyAttributeMap
+ *           '<keys>': '<AttributeValue>',
+ *         },
+ *         SizeEstimateRangeGB: [ // ItemCollectionSizeEstimateRange
+ *           Number('double'),
+ *         ],
+ *       },
+ *     ],
+ *   },
+ *   ConsumedCapacity: [ // ConsumedCapacityMultiple
+ *     { // ConsumedCapacity
+ *       TableName: 'STRING_VALUE',
+ *       CapacityUnits: Number('double'),
+ *       ReadCapacityUnits: Number('double'),
+ *       WriteCapacityUnits: Number('double'),
+ *       Table: { // Capacity
+ *         ReadCapacityUnits: Number('double'),
+ *         WriteCapacityUnits: Number('double'),
+ *         CapacityUnits: Number('double'),
+ *       },
+ *       LocalSecondaryIndexes: { // SecondaryIndexesCapacityMap
+ *         '<keys>': {
+ *           ReadCapacityUnits: Number('double'),
+ *           WriteCapacityUnits: Number('double'),
+ *           CapacityUnits: Number('double'),
+ *         },
+ *       },
+ *       GlobalSecondaryIndexes: {
+ *         '<keys>': {
+ *           ReadCapacityUnits: Number('double'),
+ *           WriteCapacityUnits: Number('double'),
+ *           CapacityUnits: Number('double'),
+ *         },
+ *       },
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param BatchWriteItemCommandInput - {@link BatchWriteItemCommandInput}
@@ -216,6 +317,8 @@ export interface BatchWriteItemCommandOutput extends BatchWriteItemOutput, __Met
  *  <p>The operation tried to access a nonexistent table or index. The resource might not
  *             be specified correctly, or its status might not be <code>ACTIVE</code>.</p>
  *
+ * @throws {@link DynamoDBServiceException}
+ * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
  * @example To add multiple items to a table
  * ```javascript

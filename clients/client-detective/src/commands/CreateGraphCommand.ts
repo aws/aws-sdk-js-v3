@@ -51,16 +51,21 @@ export interface CreateGraphCommandOutput extends CreateGraphResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DetectiveClient, CreateGraphCommand } from "@aws-sdk/client-detective"; // ES Modules import
- * // const { DetectiveClient, CreateGraphCommand } = require("@aws-sdk/client-detective"); // CommonJS import
+ * import { DetectiveClient, CreateGraphCommand } from '@aws-sdk/client-detective'; // ES Modules import
+ * // const { DetectiveClient, CreateGraphCommand } = require('@aws-sdk/client-detective'); // CommonJS import
  * const client = new DetectiveClient(config);
  * const input = { // CreateGraphRequest
  *   Tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateGraphCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateGraphResponse
+ *   GraphArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateGraphCommandInput - {@link CreateGraphCommandInput}
@@ -97,6 +102,8 @@ export interface CreateGraphCommandOutput extends CreateGraphResponse, __Metadat
  *             </li>
  *          </ul>
  *
+ * @throws {@link DetectiveServiceException}
+ * <p>Base exception class for all service exceptions from Detective service.</p>
  *
  */
 export class CreateGraphCommand extends $Command<

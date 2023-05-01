@@ -38,19 +38,37 @@ export interface ListStreamsCommandOutput extends ListStreamsOutput, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KinesisVideoClient, ListStreamsCommand } from "@aws-sdk/client-kinesis-video"; // ES Modules import
- * // const { KinesisVideoClient, ListStreamsCommand } = require("@aws-sdk/client-kinesis-video"); // CommonJS import
+ * import { KinesisVideoClient, ListStreamsCommand } from '@aws-sdk/client-kinesis-video'; // ES Modules import
+ * // const { KinesisVideoClient, ListStreamsCommand } = require('@aws-sdk/client-kinesis-video'); // CommonJS import
  * const client = new KinesisVideoClient(config);
  * const input = { // ListStreamsInput
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  *   StreamNameCondition: { // StreamNameCondition
- *     ComparisonOperator: "BEGINS_WITH",
- *     ComparisonValue: "STRING_VALUE",
+ *     ComparisonOperator: 'BEGINS_WITH',
+ *     ComparisonValue: 'STRING_VALUE',
  *   },
  * };
  * const command = new ListStreamsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListStreamsOutput
+ *   StreamInfoList: [ // StreamInfoList
+ *     { // StreamInfo
+ *       DeviceName: 'STRING_VALUE',
+ *       StreamName: 'STRING_VALUE',
+ *       StreamARN: 'STRING_VALUE',
+ *       MediaType: 'STRING_VALUE',
+ *       KmsKeyId: 'STRING_VALUE',
+ *       Version: 'STRING_VALUE',
+ *       Status: 'CREATING' || 'ACTIVE' || 'UPDATING' || 'DELETING',
+ *       CreationTime: new Date('TIMESTAMP'),
+ *       DataRetentionInHours: Number('int'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListStreamsCommandInput - {@link ListStreamsCommandInput}
@@ -66,6 +84,8 @@ export interface ListStreamsCommandOutput extends ListStreamsOutput, __MetadataB
  * @throws {@link InvalidArgumentException} (client fault)
  *  <p>The value for this input parameter is invalid.</p>
  *
+ * @throws {@link KinesisVideoServiceException}
+ * <p>Base exception class for all service exceptions from KinesisVideo service.</p>
  *
  */
 export class ListStreamsCommand extends $Command<

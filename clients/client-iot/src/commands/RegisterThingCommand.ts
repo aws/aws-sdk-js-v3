@@ -40,17 +40,25 @@ export interface RegisterThingCommandOutput extends RegisterThingResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTClient, RegisterThingCommand } from "@aws-sdk/client-iot"; // ES Modules import
- * // const { IoTClient, RegisterThingCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * import { IoTClient, RegisterThingCommand } from '@aws-sdk/client-iot'; // ES Modules import
+ * // const { IoTClient, RegisterThingCommand } = require('@aws-sdk/client-iot'); // CommonJS import
  * const client = new IoTClient(config);
  * const input = { // RegisterThingRequest
- *   templateBody: "STRING_VALUE", // required
+ *   templateBody: 'STRING_VALUE', // required
  *   parameters: { // Parameters
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new RegisterThingCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // RegisterThingResponse
+ *   certificatePem: 'STRING_VALUE',
+ *   resourceArns: { // ResourceArns
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param RegisterThingCommandInput - {@link RegisterThingCommandInput}
@@ -81,6 +89,8 @@ export interface RegisterThingCommandOutput extends RegisterThingResponse, __Met
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this operation.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class RegisterThingCommand extends $Command<

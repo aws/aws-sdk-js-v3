@@ -37,20 +37,38 @@ export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IvsClient, UpdateChannelCommand } from "@aws-sdk/client-ivs"; // ES Modules import
- * // const { IvsClient, UpdateChannelCommand } = require("@aws-sdk/client-ivs"); // CommonJS import
+ * import { IvsClient, UpdateChannelCommand } from '@aws-sdk/client-ivs'; // ES Modules import
+ * // const { IvsClient, UpdateChannelCommand } = require('@aws-sdk/client-ivs'); // CommonJS import
  * const client = new IvsClient(config);
  * const input = { // UpdateChannelRequest
- *   arn: "STRING_VALUE", // required
- *   name: "STRING_VALUE",
- *   latencyMode: "STRING_VALUE",
- *   type: "BASIC" || "STANDARD",
+ *   arn: 'STRING_VALUE', // required
+ *   name: 'STRING_VALUE',
+ *   latencyMode: 'STRING_VALUE',
+ *   type: 'BASIC' || 'STANDARD',
  *   authorized: true || false,
- *   recordingConfigurationArn: "STRING_VALUE",
+ *   recordingConfigurationArn: 'STRING_VALUE',
  *   insecureIngest: true || false,
  * };
  * const command = new UpdateChannelCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateChannelResponse
+ *   channel: { // Channel
+ *     arn: 'STRING_VALUE',
+ *     name: 'STRING_VALUE',
+ *     latencyMode: 'STRING_VALUE',
+ *     type: 'BASIC' || 'STANDARD',
+ *     recordingConfigurationArn: 'STRING_VALUE',
+ *     ingestEndpoint: 'STRING_VALUE',
+ *     playbackUrl: 'STRING_VALUE',
+ *     authorized: true || false,
+ *     tags: { // Tags
+ *       '<keys>': 'STRING_VALUE',
+ *     },
+ *     insecureIngest: true || false,
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateChannelCommandInput - {@link UpdateChannelCommandInput}
@@ -74,6 +92,8 @@ export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p/>
  *
+ * @throws {@link IvsServiceException}
+ * <p>Base exception class for all service exceptions from Ivs service.</p>
  *
  */
 export class UpdateChannelCommand extends $Command<

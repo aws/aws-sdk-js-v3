@@ -61,19 +61,19 @@ export interface UpdateLoggingConfigurationCommandOutput extends UpdateLoggingCo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { NetworkFirewallClient, UpdateLoggingConfigurationCommand } from "@aws-sdk/client-network-firewall"; // ES Modules import
- * // const { NetworkFirewallClient, UpdateLoggingConfigurationCommand } = require("@aws-sdk/client-network-firewall"); // CommonJS import
+ * import { NetworkFirewallClient, UpdateLoggingConfigurationCommand } from '@aws-sdk/client-network-firewall'; // ES Modules import
+ * // const { NetworkFirewallClient, UpdateLoggingConfigurationCommand } = require('@aws-sdk/client-network-firewall'); // CommonJS import
  * const client = new NetworkFirewallClient(config);
  * const input = { // UpdateLoggingConfigurationRequest
- *   FirewallArn: "STRING_VALUE",
- *   FirewallName: "STRING_VALUE",
+ *   FirewallArn: 'STRING_VALUE',
+ *   FirewallName: 'STRING_VALUE',
  *   LoggingConfiguration: { // LoggingConfiguration
  *     LogDestinationConfigs: [ // LogDestinationConfigs // required
  *       { // LogDestinationConfig
- *         LogType: "ALERT" || "FLOW", // required
- *         LogDestinationType: "S3" || "CloudWatchLogs" || "KinesisDataFirehose", // required
+ *         LogType: 'ALERT' || 'FLOW', // required
+ *         LogDestinationType: 'S3' || 'CloudWatchLogs' || 'KinesisDataFirehose', // required
  *         LogDestination: { // LogDestinationMap // required
- *           "<keys>": "STRING_VALUE",
+ *           '<keys>': 'STRING_VALUE',
  *         },
  *       },
  *     ],
@@ -81,6 +81,23 @@ export interface UpdateLoggingConfigurationCommandOutput extends UpdateLoggingCo
  * };
  * const command = new UpdateLoggingConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateLoggingConfigurationResponse
+ *   FirewallArn: 'STRING_VALUE',
+ *   FirewallName: 'STRING_VALUE',
+ *   LoggingConfiguration: { // LoggingConfiguration
+ *     LogDestinationConfigs: [ // LogDestinationConfigs // required
+ *       { // LogDestinationConfig
+ *         LogType: 'ALERT' || 'FLOW', // required
+ *         LogDestinationType: 'S3' || 'CloudWatchLogs' || 'KinesisDataFirehose', // required
+ *         LogDestination: { // LogDestinationMap // required
+ *           '<keys>': 'STRING_VALUE',
+ *         },
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateLoggingConfigurationCommandInput - {@link UpdateLoggingConfigurationCommandInput}
@@ -121,6 +138,8 @@ export interface UpdateLoggingConfigurationCommandOutput extends UpdateLoggingCo
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Unable to process the request due to throttling limitations.</p>
  *
+ * @throws {@link NetworkFirewallServiceException}
+ * <p>Base exception class for all service exceptions from NetworkFirewall service.</p>
  *
  */
 export class UpdateLoggingConfigurationCommand extends $Command<

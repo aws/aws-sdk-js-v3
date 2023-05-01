@@ -36,17 +36,20 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FinspaceClient, UntagResourceCommand } from "@aws-sdk/client-finspace"; // ES Modules import
- * // const { FinspaceClient, UntagResourceCommand } = require("@aws-sdk/client-finspace"); // CommonJS import
+ * import { FinspaceClient, UntagResourceCommand } from '@aws-sdk/client-finspace'; // ES Modules import
+ * // const { FinspaceClient, UntagResourceCommand } = require('@aws-sdk/client-finspace'); // CommonJS import
  * const client = new FinspaceClient(config);
  * const input = { // UntagResourceRequest
- *   resourceArn: "STRING_VALUE", // required
+ *   resourceArn: 'STRING_VALUE', // required
  *   tagKeys: [ // TagKeyList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new UntagResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UntagResourceCommandInput - {@link UntagResourceCommandInput}
@@ -65,6 +68,8 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>One or more resources can't be found.</p>
  *
+ * @throws {@link FinspaceServiceException}
+ * <p>Base exception class for all service exceptions from Finspace service.</p>
  *
  */
 export class UntagResourceCommand extends $Command<

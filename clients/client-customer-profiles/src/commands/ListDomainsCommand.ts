@@ -36,15 +36,30 @@ export interface ListDomainsCommandOutput extends ListDomainsResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CustomerProfilesClient, ListDomainsCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
- * // const { CustomerProfilesClient, ListDomainsCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
+ * import { CustomerProfilesClient, ListDomainsCommand } from '@aws-sdk/client-customer-profiles'; // ES Modules import
+ * // const { CustomerProfilesClient, ListDomainsCommand } = require('@aws-sdk/client-customer-profiles'); // CommonJS import
  * const client = new CustomerProfilesClient(config);
  * const input = { // ListDomainsRequest
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListDomainsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListDomainsResponse
+ *   Items: [ // DomainList
+ *     { // ListDomainItem
+ *       DomainName: 'STRING_VALUE', // required
+ *       CreatedAt: new Date('TIMESTAMP'), // required
+ *       LastUpdatedAt: new Date('TIMESTAMP'), // required
+ *       Tags: { // TagMap
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListDomainsCommandInput - {@link ListDomainsCommandInput}
@@ -68,6 +83,8 @@ export interface ListDomainsCommandOutput extends ListDomainsResponse, __Metadat
  * @throws {@link ThrottlingException} (client fault)
  *  <p>You exceeded the maximum number of requests.</p>
  *
+ * @throws {@link CustomerProfilesServiceException}
+ * <p>Base exception class for all service exceptions from CustomerProfiles service.</p>
  *
  */
 export class ListDomainsCommand extends $Command<

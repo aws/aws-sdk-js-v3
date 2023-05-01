@@ -38,22 +38,36 @@ export interface ProvisionIpamPoolCidrCommandOutput extends ProvisionIpamPoolCid
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, ProvisionIpamPoolCidrCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, ProvisionIpamPoolCidrCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, ProvisionIpamPoolCidrCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, ProvisionIpamPoolCidrCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // ProvisionIpamPoolCidrRequest
  *   DryRun: true || false,
- *   IpamPoolId: "STRING_VALUE", // required
- *   Cidr: "STRING_VALUE",
+ *   IpamPoolId: 'STRING_VALUE', // required
+ *   Cidr: 'STRING_VALUE',
  *   CidrAuthorizationContext: { // IpamCidrAuthorizationContext
- *     Message: "STRING_VALUE",
- *     Signature: "STRING_VALUE",
+ *     Message: 'STRING_VALUE',
+ *     Signature: 'STRING_VALUE',
  *   },
- *   NetmaskLength: Number("int"),
- *   ClientToken: "STRING_VALUE",
+ *   NetmaskLength: Number('int'),
+ *   ClientToken: 'STRING_VALUE',
  * };
  * const command = new ProvisionIpamPoolCidrCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ProvisionIpamPoolCidrResult
+ *   IpamPoolCidr: { // IpamPoolCidr
+ *     Cidr: 'STRING_VALUE',
+ *     State: 'pending-provision' || 'provisioned' || 'failed-provision' || 'pending-deprovision' || 'deprovisioned' || 'failed-deprovision' || 'pending-import' || 'failed-import',
+ *     FailureReason: { // IpamPoolCidrFailureReason
+ *       Code: 'cidr-not-available' || 'limit-exceeded',
+ *       Message: 'STRING_VALUE',
+ *     },
+ *     IpamPoolCidrId: 'STRING_VALUE',
+ *     NetmaskLength: Number('int'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param ProvisionIpamPoolCidrCommandInput - {@link ProvisionIpamPoolCidrCommandInput}
@@ -62,6 +76,8 @@ export interface ProvisionIpamPoolCidrCommandOutput extends ProvisionIpamPoolCid
  * @see {@link ProvisionIpamPoolCidrCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class ProvisionIpamPoolCidrCommand extends $Command<

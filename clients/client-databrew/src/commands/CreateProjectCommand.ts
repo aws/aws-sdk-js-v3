@@ -36,24 +36,29 @@ export interface CreateProjectCommandOutput extends CreateProjectResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DataBrewClient, CreateProjectCommand } from "@aws-sdk/client-databrew"; // ES Modules import
- * // const { DataBrewClient, CreateProjectCommand } = require("@aws-sdk/client-databrew"); // CommonJS import
+ * import { DataBrewClient, CreateProjectCommand } from '@aws-sdk/client-databrew'; // ES Modules import
+ * // const { DataBrewClient, CreateProjectCommand } = require('@aws-sdk/client-databrew'); // CommonJS import
  * const client = new DataBrewClient(config);
  * const input = { // CreateProjectRequest
- *   DatasetName: "STRING_VALUE", // required
- *   Name: "STRING_VALUE", // required
- *   RecipeName: "STRING_VALUE", // required
+ *   DatasetName: 'STRING_VALUE', // required
+ *   Name: 'STRING_VALUE', // required
+ *   RecipeName: 'STRING_VALUE', // required
  *   Sample: { // Sample
- *     Size: Number("int"),
- *     Type: "FIRST_N" || "LAST_N" || "RANDOM", // required
+ *     Size: Number('int'),
+ *     Type: 'FIRST_N' || 'LAST_N' || 'RANDOM', // required
  *   },
- *   RoleArn: "STRING_VALUE", // required
+ *   RoleArn: 'STRING_VALUE', // required
  *   Tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateProjectCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateProjectResponse
+ *   Name: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param CreateProjectCommandInput - {@link CreateProjectCommandInput}
@@ -74,6 +79,8 @@ export interface CreateProjectCommandOutput extends CreateProjectResponse, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>The input parameters for this request failed validation.</p>
  *
+ * @throws {@link DataBrewServiceException}
+ * <p>Base exception class for all service exceptions from DataBrew service.</p>
  *
  */
 export class CreateProjectCommand extends $Command<

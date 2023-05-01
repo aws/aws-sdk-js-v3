@@ -54,30 +54,36 @@ export interface UpdateFleetPortSettingsCommandOutput extends UpdateFleetPortSet
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GameLiftClient, UpdateFleetPortSettingsCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
- * // const { GameLiftClient, UpdateFleetPortSettingsCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
+ * import { GameLiftClient, UpdateFleetPortSettingsCommand } from '@aws-sdk/client-gamelift'; // ES Modules import
+ * // const { GameLiftClient, UpdateFleetPortSettingsCommand } = require('@aws-sdk/client-gamelift'); // CommonJS import
  * const client = new GameLiftClient(config);
  * const input = { // UpdateFleetPortSettingsInput
- *   FleetId: "STRING_VALUE", // required
+ *   FleetId: 'STRING_VALUE', // required
  *   InboundPermissionAuthorizations: [ // IpPermissionsList
  *     { // IpPermission
- *       FromPort: Number("int"), // required
- *       ToPort: Number("int"), // required
- *       IpRange: "STRING_VALUE", // required
- *       Protocol: "TCP" || "UDP", // required
+ *       FromPort: Number('int'), // required
+ *       ToPort: Number('int'), // required
+ *       IpRange: 'STRING_VALUE', // required
+ *       Protocol: 'TCP' || 'UDP', // required
  *     },
  *   ],
  *   InboundPermissionRevocations: [
  *     {
- *       FromPort: Number("int"), // required
- *       ToPort: Number("int"), // required
- *       IpRange: "STRING_VALUE", // required
- *       Protocol: "TCP" || "UDP", // required
+ *       FromPort: Number('int'), // required
+ *       ToPort: Number('int'), // required
+ *       IpRange: 'STRING_VALUE', // required
+ *       Protocol: 'TCP' || 'UDP', // required
  *     },
  *   ],
  * };
  * const command = new UpdateFleetPortSettingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateFleetPortSettingsOutput
+ *   FleetId: 'STRING_VALUE',
+ *   FleetArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateFleetPortSettingsCommandInput - {@link UpdateFleetPortSettingsCommandInput}
@@ -115,6 +121,8 @@ export interface UpdateFleetPortSettingsCommandOutput extends UpdateFleetPortSet
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client failed authentication. Clients should not retry such requests.</p>
  *
+ * @throws {@link GameLiftServiceException}
+ * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
  */
 export class UpdateFleetPortSettingsCommand extends $Command<

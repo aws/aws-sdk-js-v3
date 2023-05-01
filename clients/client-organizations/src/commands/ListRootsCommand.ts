@@ -53,15 +53,33 @@ export interface ListRootsCommandOutput extends ListRootsResponse, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OrganizationsClient, ListRootsCommand } from "@aws-sdk/client-organizations"; // ES Modules import
- * // const { OrganizationsClient, ListRootsCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
+ * import { OrganizationsClient, ListRootsCommand } from '@aws-sdk/client-organizations'; // ES Modules import
+ * // const { OrganizationsClient, ListRootsCommand } = require('@aws-sdk/client-organizations'); // CommonJS import
  * const client = new OrganizationsClient(config);
  * const input = { // ListRootsRequest
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListRootsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListRootsResponse
+ *   Roots: [ // Roots
+ *     { // Root
+ *       Id: 'STRING_VALUE',
+ *       Arn: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *       PolicyTypes: [ // PolicyTypes
+ *         { // PolicyTypeSummary
+ *           Type: 'SERVICE_CONTROL_POLICY' || 'TAG_POLICY' || 'BACKUP_POLICY' || 'AISERVICES_OPT_OUT_POLICY',
+ *           Status: 'ENABLED' || 'PENDING_ENABLE' || 'PENDING_DISABLE',
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListRootsCommandInput - {@link ListRootsCommandInput}
@@ -196,6 +214,8 @@ export interface ListRootsCommandOutput extends ListRootsResponse, __MetadataBea
  *                 <i>Organizations User Guide.</i>
  *          </p>
  *
+ * @throws {@link OrganizationsServiceException}
+ * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
  * @example To retrieve a list of roots in the organization
  * ```javascript

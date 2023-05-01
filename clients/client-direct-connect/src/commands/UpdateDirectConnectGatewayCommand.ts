@@ -36,15 +36,27 @@ export interface UpdateDirectConnectGatewayCommandOutput extends UpdateDirectCon
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DirectConnectClient, UpdateDirectConnectGatewayCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
- * // const { DirectConnectClient, UpdateDirectConnectGatewayCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
+ * import { DirectConnectClient, UpdateDirectConnectGatewayCommand } from '@aws-sdk/client-direct-connect'; // ES Modules import
+ * // const { DirectConnectClient, UpdateDirectConnectGatewayCommand } = require('@aws-sdk/client-direct-connect'); // CommonJS import
  * const client = new DirectConnectClient(config);
  * const input = { // UpdateDirectConnectGatewayRequest
- *   directConnectGatewayId: "STRING_VALUE", // required
- *   newDirectConnectGatewayName: "STRING_VALUE", // required
+ *   directConnectGatewayId: 'STRING_VALUE', // required
+ *   newDirectConnectGatewayName: 'STRING_VALUE', // required
  * };
  * const command = new UpdateDirectConnectGatewayCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateDirectConnectGatewayResponse
+ *   directConnectGateway: { // DirectConnectGateway
+ *     directConnectGatewayId: 'STRING_VALUE',
+ *     directConnectGatewayName: 'STRING_VALUE',
+ *     amazonSideAsn: Number('long'),
+ *     ownerAccount: 'STRING_VALUE',
+ *     directConnectGatewayState: 'pending' || 'available' || 'deleting' || 'deleted',
+ *     stateChangeError: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateDirectConnectGatewayCommandInput - {@link UpdateDirectConnectGatewayCommandInput}
@@ -59,6 +71,8 @@ export interface UpdateDirectConnectGatewayCommandOutput extends UpdateDirectCon
  * @throws {@link DirectConnectServerException} (server fault)
  *  <p>A server-side error occurred.</p>
  *
+ * @throws {@link DirectConnectServiceException}
+ * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
  */
 export class UpdateDirectConnectGatewayCommand extends $Command<

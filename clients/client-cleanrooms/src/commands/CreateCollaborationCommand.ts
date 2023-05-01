@@ -36,38 +36,62 @@ export interface CreateCollaborationCommandOutput extends CreateCollaborationOut
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CleanRoomsClient, CreateCollaborationCommand } from "@aws-sdk/client-cleanrooms"; // ES Modules import
- * // const { CleanRoomsClient, CreateCollaborationCommand } = require("@aws-sdk/client-cleanrooms"); // CommonJS import
+ * import { CleanRoomsClient, CreateCollaborationCommand } from '@aws-sdk/client-cleanrooms'; // ES Modules import
+ * // const { CleanRoomsClient, CreateCollaborationCommand } = require('@aws-sdk/client-cleanrooms'); // CommonJS import
  * const client = new CleanRoomsClient(config);
  * const input = { // CreateCollaborationInput
  *   members: [ // MemberList // required
  *     { // MemberSpecification
- *       accountId: "STRING_VALUE", // required
+ *       accountId: 'STRING_VALUE', // required
  *       memberAbilities: [ // MemberAbilities // required
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
- *       displayName: "STRING_VALUE", // required
+ *       displayName: 'STRING_VALUE', // required
  *     },
  *   ],
- *   name: "STRING_VALUE", // required
- *   description: "STRING_VALUE", // required
+ *   name: 'STRING_VALUE', // required
+ *   description: 'STRING_VALUE', // required
  *   creatorMemberAbilities: [ // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   creatorDisplayName: "STRING_VALUE", // required
+ *   creatorDisplayName: 'STRING_VALUE', // required
  *   dataEncryptionMetadata: { // DataEncryptionMetadata
  *     allowCleartext: true || false, // required
  *     allowDuplicates: true || false, // required
  *     allowJoinsOnColumnsWithDifferentNames: true || false, // required
  *     preserveNulls: true || false, // required
  *   },
- *   queryLogStatus: "STRING_VALUE", // required
+ *   queryLogStatus: 'STRING_VALUE', // required
  *   tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateCollaborationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateCollaborationOutput
+ *   collaboration: { // Collaboration
+ *     id: 'STRING_VALUE', // required
+ *     arn: 'STRING_VALUE', // required
+ *     name: 'STRING_VALUE', // required
+ *     description: 'STRING_VALUE',
+ *     creatorAccountId: 'STRING_VALUE', // required
+ *     creatorDisplayName: 'STRING_VALUE', // required
+ *     createTime: new Date('TIMESTAMP'), // required
+ *     updateTime: new Date('TIMESTAMP'), // required
+ *     memberStatus: 'STRING_VALUE', // required
+ *     membershipId: 'STRING_VALUE',
+ *     membershipArn: 'STRING_VALUE',
+ *     dataEncryptionMetadata: { // DataEncryptionMetadata
+ *       allowCleartext: true || false, // required
+ *       allowDuplicates: true || false, // required
+ *       allowJoinsOnColumnsWithDifferentNames: true || false, // required
+ *       preserveNulls: true || false, // required
+ *     },
+ *     queryLogStatus: 'STRING_VALUE', // required
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateCollaborationCommandInput - {@link CreateCollaborationCommandInput}
@@ -91,6 +115,8 @@ export interface CreateCollaborationCommandOutput extends CreateCollaborationOut
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the specified constraints.</p>
  *
+ * @throws {@link CleanRoomsServiceException}
+ * <p>Base exception class for all service exceptions from CleanRooms service.</p>
  *
  */
 export class CreateCollaborationCommand extends $Command<

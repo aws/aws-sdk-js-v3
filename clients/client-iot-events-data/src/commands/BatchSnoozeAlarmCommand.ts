@@ -37,22 +37,33 @@ export interface BatchSnoozeAlarmCommandOutput extends BatchSnoozeAlarmResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTEventsDataClient, BatchSnoozeAlarmCommand } from "@aws-sdk/client-iot-events-data"; // ES Modules import
- * // const { IoTEventsDataClient, BatchSnoozeAlarmCommand } = require("@aws-sdk/client-iot-events-data"); // CommonJS import
+ * import { IoTEventsDataClient, BatchSnoozeAlarmCommand } from '@aws-sdk/client-iot-events-data'; // ES Modules import
+ * // const { IoTEventsDataClient, BatchSnoozeAlarmCommand } = require('@aws-sdk/client-iot-events-data'); // CommonJS import
  * const client = new IoTEventsDataClient(config);
  * const input = { // BatchSnoozeAlarmRequest
  *   snoozeActionRequests: [ // SnoozeAlarmActionRequests // required
  *     { // SnoozeAlarmActionRequest
- *       requestId: "STRING_VALUE", // required
- *       alarmModelName: "STRING_VALUE", // required
- *       keyValue: "STRING_VALUE",
- *       note: "STRING_VALUE",
- *       snoozeDuration: Number("int"), // required
+ *       requestId: 'STRING_VALUE', // required
+ *       alarmModelName: 'STRING_VALUE', // required
+ *       keyValue: 'STRING_VALUE',
+ *       note: 'STRING_VALUE',
+ *       snoozeDuration: Number('int'), // required
  *     },
  *   ],
  * };
  * const command = new BatchSnoozeAlarmCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BatchSnoozeAlarmResponse
+ *   errorEntries: [ // BatchAlarmActionErrorEntries
+ *     { // BatchAlarmActionErrorEntry
+ *       requestId: 'STRING_VALUE',
+ *       errorCode: 'STRING_VALUE',
+ *       errorMessage: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param BatchSnoozeAlarmCommandInput - {@link BatchSnoozeAlarmCommandInput}
@@ -73,6 +84,8 @@ export interface BatchSnoozeAlarmCommandOutput extends BatchSnoozeAlarmResponse,
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request could not be completed due to throttling.</p>
  *
+ * @throws {@link IoTEventsDataServiceException}
+ * <p>Base exception class for all service exceptions from IoTEventsData service.</p>
  *
  */
 export class BatchSnoozeAlarmCommand extends $Command<

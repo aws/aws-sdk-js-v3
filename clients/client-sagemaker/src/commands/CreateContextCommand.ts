@@ -40,30 +40,35 @@ export interface CreateContextCommandOutput extends CreateContextResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, CreateContextCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, CreateContextCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, CreateContextCommand } from '@aws-sdk/client-sagemaker'; // ES Modules import
+ * // const { SageMakerClient, CreateContextCommand } = require('@aws-sdk/client-sagemaker'); // CommonJS import
  * const client = new SageMakerClient(config);
  * const input = { // CreateContextRequest
- *   ContextName: "STRING_VALUE", // required
+ *   ContextName: 'STRING_VALUE', // required
  *   Source: { // ContextSource
- *     SourceUri: "STRING_VALUE", // required
- *     SourceType: "STRING_VALUE",
- *     SourceId: "STRING_VALUE",
+ *     SourceUri: 'STRING_VALUE', // required
+ *     SourceType: 'STRING_VALUE',
+ *     SourceId: 'STRING_VALUE',
  *   },
- *   ContextType: "STRING_VALUE", // required
- *   Description: "STRING_VALUE",
+ *   ContextType: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE',
  *   Properties: { // LineageEntityParameters
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreateContextCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateContextResponse
+ *   ContextArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateContextCommandInput - {@link CreateContextCommandInput}
@@ -76,6 +81,8 @@ export interface CreateContextCommandOutput extends CreateContextResponse, __Met
  *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many
  *             training jobs created. </p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class CreateContextCommand extends $Command<

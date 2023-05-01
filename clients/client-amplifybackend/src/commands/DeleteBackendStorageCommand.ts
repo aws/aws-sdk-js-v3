@@ -36,17 +36,25 @@ export interface DeleteBackendStorageCommandOutput extends DeleteBackendStorageR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AmplifyBackendClient, DeleteBackendStorageCommand } from "@aws-sdk/client-amplifybackend"; // ES Modules import
- * // const { AmplifyBackendClient, DeleteBackendStorageCommand } = require("@aws-sdk/client-amplifybackend"); // CommonJS import
+ * import { AmplifyBackendClient, DeleteBackendStorageCommand } from '@aws-sdk/client-amplifybackend'; // ES Modules import
+ * // const { AmplifyBackendClient, DeleteBackendStorageCommand } = require('@aws-sdk/client-amplifybackend'); // CommonJS import
  * const client = new AmplifyBackendClient(config);
  * const input = { // DeleteBackendStorageRequest
- *   AppId: "STRING_VALUE", // required
- *   BackendEnvironmentName: "STRING_VALUE", // required
- *   ResourceName: "STRING_VALUE", // required
- *   ServiceName: "S3", // required
+ *   AppId: 'STRING_VALUE', // required
+ *   BackendEnvironmentName: 'STRING_VALUE', // required
+ *   ResourceName: 'STRING_VALUE', // required
+ *   ServiceName: 'S3', // required
  * };
  * const command = new DeleteBackendStorageCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteBackendStorageResponse
+ *   AppId: 'STRING_VALUE',
+ *   BackendEnvironmentName: 'STRING_VALUE',
+ *   JobId: 'STRING_VALUE',
+ *   Status: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DeleteBackendStorageCommandInput - {@link DeleteBackendStorageCommandInput}
@@ -67,6 +75,8 @@ export interface DeleteBackendStorageCommandOutput extends DeleteBackendStorageR
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>An error that is returned when a limit of a specific type has been exceeded.</p>
  *
+ * @throws {@link AmplifyBackendServiceException}
+ * <p>Base exception class for all service exceptions from AmplifyBackend service.</p>
  *
  */
 export class DeleteBackendStorageCommand extends $Command<

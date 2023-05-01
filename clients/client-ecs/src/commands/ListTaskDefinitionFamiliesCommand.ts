@@ -42,17 +42,25 @@ export interface ListTaskDefinitionFamiliesCommandOutput extends ListTaskDefinit
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ECSClient, ListTaskDefinitionFamiliesCommand } from "@aws-sdk/client-ecs"; // ES Modules import
- * // const { ECSClient, ListTaskDefinitionFamiliesCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
+ * import { ECSClient, ListTaskDefinitionFamiliesCommand } from '@aws-sdk/client-ecs'; // ES Modules import
+ * // const { ECSClient, ListTaskDefinitionFamiliesCommand } = require('@aws-sdk/client-ecs'); // CommonJS import
  * const client = new ECSClient(config);
  * const input = { // ListTaskDefinitionFamiliesRequest
- *   familyPrefix: "STRING_VALUE",
- *   status: "ACTIVE" || "INACTIVE" || "ALL",
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   familyPrefix: 'STRING_VALUE',
+ *   status: 'ACTIVE' || 'INACTIVE' || 'ALL',
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new ListTaskDefinitionFamiliesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTaskDefinitionFamiliesResponse
+ *   families: [ // StringList
+ *     'STRING_VALUE',
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListTaskDefinitionFamiliesCommandInput - {@link ListTaskDefinitionFamiliesCommandInput}
@@ -73,6 +81,8 @@ export interface ListTaskDefinitionFamiliesCommandOutput extends ListTaskDefinit
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server issue.</p>
  *
+ * @throws {@link ECSServiceException}
+ * <p>Base exception class for all service exceptions from ECS service.</p>
  *
  * @example To list your registered task definition families
  * ```javascript

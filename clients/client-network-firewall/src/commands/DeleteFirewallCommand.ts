@@ -46,15 +46,77 @@ export interface DeleteFirewallCommandOutput extends DeleteFirewallResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { NetworkFirewallClient, DeleteFirewallCommand } from "@aws-sdk/client-network-firewall"; // ES Modules import
- * // const { NetworkFirewallClient, DeleteFirewallCommand } = require("@aws-sdk/client-network-firewall"); // CommonJS import
+ * import { NetworkFirewallClient, DeleteFirewallCommand } from '@aws-sdk/client-network-firewall'; // ES Modules import
+ * // const { NetworkFirewallClient, DeleteFirewallCommand } = require('@aws-sdk/client-network-firewall'); // CommonJS import
  * const client = new NetworkFirewallClient(config);
  * const input = { // DeleteFirewallRequest
- *   FirewallName: "STRING_VALUE",
- *   FirewallArn: "STRING_VALUE",
+ *   FirewallName: 'STRING_VALUE',
+ *   FirewallArn: 'STRING_VALUE',
  * };
  * const command = new DeleteFirewallCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteFirewallResponse
+ *   Firewall: { // Firewall
+ *     FirewallName: 'STRING_VALUE',
+ *     FirewallArn: 'STRING_VALUE',
+ *     FirewallPolicyArn: 'STRING_VALUE', // required
+ *     VpcId: 'STRING_VALUE', // required
+ *     SubnetMappings: [ // SubnetMappings // required
+ *       { // SubnetMapping
+ *         SubnetId: 'STRING_VALUE', // required
+ *         IPAddressType: 'DUALSTACK' || 'IPV4' || 'IPV6',
+ *       },
+ *     ],
+ *     DeleteProtection: true || false,
+ *     SubnetChangeProtection: true || false,
+ *     FirewallPolicyChangeProtection: true || false,
+ *     Description: 'STRING_VALUE',
+ *     FirewallId: 'STRING_VALUE', // required
+ *     Tags: [ // TagList
+ *       { // Tag
+ *         Key: 'STRING_VALUE', // required
+ *         Value: 'STRING_VALUE', // required
+ *       },
+ *     ],
+ *     EncryptionConfiguration: { // EncryptionConfiguration
+ *       KeyId: 'STRING_VALUE',
+ *       Type: 'CUSTOMER_KMS' || 'AWS_OWNED_KMS_KEY', // required
+ *     },
+ *   },
+ *   FirewallStatus: { // FirewallStatus
+ *     Status: 'PROVISIONING' || 'DELETING' || 'READY', // required
+ *     ConfigurationSyncStateSummary: 'PENDING' || 'IN_SYNC' || 'CAPACITY_CONSTRAINED', // required
+ *     SyncStates: { // SyncStates
+ *       '<keys>': { // SyncState
+ *         Attachment: { // Attachment
+ *           SubnetId: 'STRING_VALUE',
+ *           EndpointId: 'STRING_VALUE',
+ *           Status: 'CREATING' || 'DELETING' || 'SCALING' || 'READY',
+ *           StatusMessage: 'STRING_VALUE',
+ *         },
+ *         Config: { // SyncStateConfig
+ *           '<keys>': { // PerObjectStatus
+ *             SyncStatus: 'PENDING' || 'IN_SYNC' || 'CAPACITY_CONSTRAINED',
+ *             UpdateToken: 'STRING_VALUE',
+ *           },
+ *         },
+ *       },
+ *     },
+ *     CapacityUsageSummary: { // CapacityUsageSummary
+ *       CIDRs: { // CIDRSummary
+ *         AvailableCIDRCount: Number('int'),
+ *         UtilizedCIDRCount: Number('int'),
+ *         IPSetReferences: { // IPSetMetadataMap
+ *           '<keys>': { // IPSetMetadata
+ *             ResolvedCIDRCount: Number('int'),
+ *           },
+ *         },
+ *       },
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param DeleteFirewallCommandInput - {@link DeleteFirewallCommandInput}
@@ -96,6 +158,8 @@ export interface DeleteFirewallCommandOutput extends DeleteFirewallResponse, __M
  * @throws {@link UnsupportedOperationException} (client fault)
  *  <p>The operation you requested isn't supported by Network Firewall. </p>
  *
+ * @throws {@link NetworkFirewallServiceException}
+ * <p>Base exception class for all service exceptions from NetworkFirewall service.</p>
  *
  */
 export class DeleteFirewallCommand extends $Command<

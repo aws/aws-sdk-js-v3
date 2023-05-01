@@ -36,33 +36,38 @@ export interface CreateCustomDataIdentifierCommandOutput extends CreateCustomDat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Macie2Client, CreateCustomDataIdentifierCommand } from "@aws-sdk/client-macie2"; // ES Modules import
- * // const { Macie2Client, CreateCustomDataIdentifierCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
+ * import { Macie2Client, CreateCustomDataIdentifierCommand } from '@aws-sdk/client-macie2'; // ES Modules import
+ * // const { Macie2Client, CreateCustomDataIdentifierCommand } = require('@aws-sdk/client-macie2'); // CommonJS import
  * const client = new Macie2Client(config);
  * const input = { // CreateCustomDataIdentifierRequest
- *   clientToken: "STRING_VALUE",
- *   description: "STRING_VALUE",
+ *   clientToken: 'STRING_VALUE',
+ *   description: 'STRING_VALUE',
  *   ignoreWords: [ // __listOf__string
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   keywords: [
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   maximumMatchDistance: Number("int"),
- *   name: "STRING_VALUE", // required
- *   regex: "STRING_VALUE", // required
+ *   maximumMatchDistance: Number('int'),
+ *   name: 'STRING_VALUE', // required
+ *   regex: 'STRING_VALUE', // required
  *   severityLevels: [ // SeverityLevelList
  *     { // SeverityLevel
- *       occurrencesThreshold: Number("long"), // required
- *       severity: "LOW" || "MEDIUM" || "HIGH", // required
+ *       occurrencesThreshold: Number('long'), // required
+ *       severity: 'LOW' || 'MEDIUM' || 'HIGH', // required
  *     },
  *   ],
  *   tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateCustomDataIdentifierCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateCustomDataIdentifierResponse
+ *   customDataIdentifierId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateCustomDataIdentifierCommandInput - {@link CreateCustomDataIdentifierCommandInput}
@@ -92,6 +97,8 @@ export interface CreateCustomDataIdentifierCommandOutput extends CreateCustomDat
  * @throws {@link ValidationException} (client fault)
  *  <p>Provides information about an error that occurred due to a syntax error in a request.</p>
  *
+ * @throws {@link Macie2ServiceException}
+ * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
  */
 export class CreateCustomDataIdentifierCommand extends $Command<

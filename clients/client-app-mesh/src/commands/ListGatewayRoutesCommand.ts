@@ -37,18 +37,36 @@ export interface ListGatewayRoutesCommandOutput extends ListGatewayRoutesOutput,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppMeshClient, ListGatewayRoutesCommand } from "@aws-sdk/client-app-mesh"; // ES Modules import
- * // const { AppMeshClient, ListGatewayRoutesCommand } = require("@aws-sdk/client-app-mesh"); // CommonJS import
+ * import { AppMeshClient, ListGatewayRoutesCommand } from '@aws-sdk/client-app-mesh'; // ES Modules import
+ * // const { AppMeshClient, ListGatewayRoutesCommand } = require('@aws-sdk/client-app-mesh'); // CommonJS import
  * const client = new AppMeshClient(config);
  * const input = { // ListGatewayRoutesInput
- *   meshName: "STRING_VALUE", // required
- *   virtualGatewayName: "STRING_VALUE", // required
- *   nextToken: "STRING_VALUE",
- *   limit: Number("int"),
- *   meshOwner: "STRING_VALUE",
+ *   meshName: 'STRING_VALUE', // required
+ *   virtualGatewayName: 'STRING_VALUE', // required
+ *   nextToken: 'STRING_VALUE',
+ *   limit: Number('int'),
+ *   meshOwner: 'STRING_VALUE',
  * };
  * const command = new ListGatewayRoutesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListGatewayRoutesOutput
+ *   gatewayRoutes: [ // GatewayRouteList // required
+ *     { // GatewayRouteRef
+ *       meshName: 'STRING_VALUE', // required
+ *       gatewayRouteName: 'STRING_VALUE', // required
+ *       virtualGatewayName: 'STRING_VALUE', // required
+ *       meshOwner: 'STRING_VALUE', // required
+ *       resourceOwner: 'STRING_VALUE', // required
+ *       arn: 'STRING_VALUE', // required
+ *       version: Number('long'), // required
+ *       createdAt: new Date('TIMESTAMP'), // required
+ *       lastUpdatedAt: new Date('TIMESTAMP'), // required
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListGatewayRoutesCommandInput - {@link ListGatewayRoutesCommandInput}
@@ -78,6 +96,8 @@ export interface ListGatewayRoutesCommandOutput extends ListGatewayRoutesOutput,
  *          your account. For best results, use an increasing or variable sleep interval between
  *          requests.</p>
  *
+ * @throws {@link AppMeshServiceException}
+ * <p>Base exception class for all service exceptions from AppMesh service.</p>
  *
  */
 export class ListGatewayRoutesCommand extends $Command<

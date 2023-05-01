@@ -36,15 +36,30 @@ export interface ListInputsCommandOutput extends ListInputsResponse, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTEventsClient, ListInputsCommand } from "@aws-sdk/client-iot-events"; // ES Modules import
- * // const { IoTEventsClient, ListInputsCommand } = require("@aws-sdk/client-iot-events"); // CommonJS import
+ * import { IoTEventsClient, ListInputsCommand } from '@aws-sdk/client-iot-events'; // ES Modules import
+ * // const { IoTEventsClient, ListInputsCommand } = require('@aws-sdk/client-iot-events'); // CommonJS import
  * const client = new IoTEventsClient(config);
  * const input = { // ListInputsRequest
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new ListInputsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListInputsResponse
+ *   inputSummaries: [ // InputSummaries
+ *     { // InputSummary
+ *       inputName: 'STRING_VALUE',
+ *       inputDescription: 'STRING_VALUE',
+ *       inputArn: 'STRING_VALUE',
+ *       creationTime: new Date('TIMESTAMP'),
+ *       lastUpdateTime: new Date('TIMESTAMP'),
+ *       status: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListInputsCommandInput - {@link ListInputsCommandInput}
@@ -65,6 +80,8 @@ export interface ListInputsCommandOutput extends ListInputsResponse, __MetadataB
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request could not be completed due to throttling.</p>
  *
+ * @throws {@link IoTEventsServiceException}
+ * <p>Base exception class for all service exceptions from IoTEvents service.</p>
  *
  */
 export class ListInputsCommand extends $Command<

@@ -37,25 +37,43 @@ export interface ListResourcesCommandOutput extends ListResourcesResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RAMClient, ListResourcesCommand } from "@aws-sdk/client-ram"; // ES Modules import
- * // const { RAMClient, ListResourcesCommand } = require("@aws-sdk/client-ram"); // CommonJS import
+ * import { RAMClient, ListResourcesCommand } from '@aws-sdk/client-ram'; // ES Modules import
+ * // const { RAMClient, ListResourcesCommand } = require('@aws-sdk/client-ram'); // CommonJS import
  * const client = new RAMClient(config);
  * const input = { // ListResourcesRequest
- *   resourceOwner: "SELF" || "OTHER-ACCOUNTS", // required
- *   principal: "STRING_VALUE",
- *   resourceType: "STRING_VALUE",
+ *   resourceOwner: 'SELF' || 'OTHER-ACCOUNTS', // required
+ *   principal: 'STRING_VALUE',
+ *   resourceType: 'STRING_VALUE',
  *   resourceArns: [ // ResourceArnList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   resourceShareArns: [ // ResourceShareArnList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
- *   resourceRegionScope: "ALL" || "REGIONAL" || "GLOBAL",
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
+ *   resourceRegionScope: 'ALL' || 'REGIONAL' || 'GLOBAL',
  * };
  * const command = new ListResourcesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListResourcesResponse
+ *   resources: [ // ResourceList
+ *     { // Resource
+ *       arn: 'STRING_VALUE',
+ *       type: 'STRING_VALUE',
+ *       resourceShareArn: 'STRING_VALUE',
+ *       resourceGroupArn: 'STRING_VALUE',
+ *       status: 'AVAILABLE' || 'ZONAL_RESOURCE_INACCESSIBLE' || 'LIMIT_EXCEEDED' || 'UNAVAILABLE' || 'PENDING',
+ *       statusMessage: 'STRING_VALUE',
+ *       creationTime: new Date('TIMESTAMP'),
+ *       lastUpdatedTime: new Date('TIMESTAMP'),
+ *       resourceRegionScope: 'REGIONAL' || 'GLOBAL',
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListResourcesCommandInput - {@link ListResourcesCommandInput}
@@ -89,6 +107,8 @@ export interface ListResourcesCommandOutput extends ListResourcesResponse, __Met
  * @throws {@link UnknownResourceException} (client fault)
  *  <p>The operation failed because a specified resource couldn't be found.</p>
  *
+ * @throws {@link RAMServiceException}
+ * <p>Base exception class for all service exceptions from RAM service.</p>
  *
  */
 export class ListResourcesCommand extends $Command<

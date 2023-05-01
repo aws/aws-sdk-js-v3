@@ -39,69 +39,72 @@ export interface UpdateActionTypeCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodePipelineClient, UpdateActionTypeCommand } from "@aws-sdk/client-codepipeline"; // ES Modules import
- * // const { CodePipelineClient, UpdateActionTypeCommand } = require("@aws-sdk/client-codepipeline"); // CommonJS import
+ * import { CodePipelineClient, UpdateActionTypeCommand } from '@aws-sdk/client-codepipeline'; // ES Modules import
+ * // const { CodePipelineClient, UpdateActionTypeCommand } = require('@aws-sdk/client-codepipeline'); // CommonJS import
  * const client = new CodePipelineClient(config);
  * const input = { // UpdateActionTypeInput
  *   actionType: { // ActionTypeDeclaration
- *     description: "STRING_VALUE",
+ *     description: 'STRING_VALUE',
  *     executor: { // ActionTypeExecutor
  *       configuration: { // ExecutorConfiguration
  *         lambdaExecutorConfiguration: { // LambdaExecutorConfiguration
- *           lambdaFunctionArn: "STRING_VALUE", // required
+ *           lambdaFunctionArn: 'STRING_VALUE', // required
  *         },
  *         jobWorkerExecutorConfiguration: { // JobWorkerExecutorConfiguration
  *           pollingAccounts: [ // PollingAccountList
- *             "STRING_VALUE",
+ *             'STRING_VALUE',
  *           ],
  *           pollingServicePrincipals: [ // PollingServicePrincipalList
- *             "STRING_VALUE",
+ *             'STRING_VALUE',
  *           ],
  *         },
  *       },
- *       type: "STRING_VALUE", // required
- *       policyStatementsTemplate: "STRING_VALUE",
- *       jobTimeout: Number("int"),
+ *       type: 'STRING_VALUE', // required
+ *       policyStatementsTemplate: 'STRING_VALUE',
+ *       jobTimeout: Number('int'),
  *     },
  *     id: { // ActionTypeIdentifier
- *       category: "STRING_VALUE", // required
- *       owner: "STRING_VALUE", // required
- *       provider: "STRING_VALUE", // required
- *       version: "STRING_VALUE", // required
+ *       category: 'STRING_VALUE', // required
+ *       owner: 'STRING_VALUE', // required
+ *       provider: 'STRING_VALUE', // required
+ *       version: 'STRING_VALUE', // required
  *     },
  *     inputArtifactDetails: { // ActionTypeArtifactDetails
- *       minimumCount: Number("int"), // required
- *       maximumCount: Number("int"), // required
+ *       minimumCount: Number('int'), // required
+ *       maximumCount: Number('int'), // required
  *     },
  *     outputArtifactDetails: {
- *       minimumCount: Number("int"), // required
- *       maximumCount: Number("int"), // required
+ *       minimumCount: Number('int'), // required
+ *       maximumCount: Number('int'), // required
  *     },
  *     permissions: { // ActionTypePermissions
  *       allowedAccounts: [ // AllowedAccounts // required
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *     properties: [ // ActionTypeProperties
  *       { // ActionTypeProperty
- *         name: "STRING_VALUE", // required
+ *         name: 'STRING_VALUE', // required
  *         optional: true || false, // required
  *         key: true || false, // required
  *         noEcho: true || false, // required
  *         queryable: true || false,
- *         description: "STRING_VALUE",
+ *         description: 'STRING_VALUE',
  *       },
  *     ],
  *     urls: { // ActionTypeUrls
- *       configurationUrl: "STRING_VALUE",
- *       entityUrlTemplate: "STRING_VALUE",
- *       executionUrlTemplate: "STRING_VALUE",
- *       revisionUrlTemplate: "STRING_VALUE",
+ *       configurationUrl: 'STRING_VALUE',
+ *       entityUrlTemplate: 'STRING_VALUE',
+ *       executionUrlTemplate: 'STRING_VALUE',
+ *       revisionUrlTemplate: 'STRING_VALUE',
  *     },
  *   },
  * };
  * const command = new UpdateActionTypeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateActionTypeCommandInput - {@link UpdateActionTypeCommandInput}
@@ -119,6 +122,8 @@ export interface UpdateActionTypeCommandOutput extends __MetadataBearer {}
  * @throws {@link ValidationException} (client fault)
  *  <p>The validation was specified in an invalid format.</p>
  *
+ * @throws {@link CodePipelineServiceException}
+ * <p>Base exception class for all service exceptions from CodePipeline service.</p>
  *
  */
 export class UpdateActionTypeCommand extends $Command<

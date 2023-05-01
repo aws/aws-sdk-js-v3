@@ -108,79 +108,84 @@ export interface CreateSolutionCommandOutput extends CreateSolutionResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PersonalizeClient, CreateSolutionCommand } from "@aws-sdk/client-personalize"; // ES Modules import
- * // const { PersonalizeClient, CreateSolutionCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
+ * import { PersonalizeClient, CreateSolutionCommand } from '@aws-sdk/client-personalize'; // ES Modules import
+ * // const { PersonalizeClient, CreateSolutionCommand } = require('@aws-sdk/client-personalize'); // CommonJS import
  * const client = new PersonalizeClient(config);
  * const input = { // CreateSolutionRequest
- *   name: "STRING_VALUE", // required
+ *   name: 'STRING_VALUE', // required
  *   performHPO: true || false,
  *   performAutoML: true || false,
- *   recipeArn: "STRING_VALUE",
- *   datasetGroupArn: "STRING_VALUE", // required
- *   eventType: "STRING_VALUE",
+ *   recipeArn: 'STRING_VALUE',
+ *   datasetGroupArn: 'STRING_VALUE', // required
+ *   eventType: 'STRING_VALUE',
  *   solutionConfig: { // SolutionConfig
- *     eventValueThreshold: "STRING_VALUE",
+ *     eventValueThreshold: 'STRING_VALUE',
  *     hpoConfig: { // HPOConfig
  *       hpoObjective: { // HPOObjective
- *         type: "STRING_VALUE",
- *         metricName: "STRING_VALUE",
- *         metricRegex: "STRING_VALUE",
+ *         type: 'STRING_VALUE',
+ *         metricName: 'STRING_VALUE',
+ *         metricRegex: 'STRING_VALUE',
  *       },
  *       hpoResourceConfig: { // HPOResourceConfig
- *         maxNumberOfTrainingJobs: "STRING_VALUE",
- *         maxParallelTrainingJobs: "STRING_VALUE",
+ *         maxNumberOfTrainingJobs: 'STRING_VALUE',
+ *         maxParallelTrainingJobs: 'STRING_VALUE',
  *       },
  *       algorithmHyperParameterRanges: { // HyperParameterRanges
  *         integerHyperParameterRanges: [ // IntegerHyperParameterRanges
  *           { // IntegerHyperParameterRange
- *             name: "STRING_VALUE",
- *             minValue: Number("int"),
- *             maxValue: Number("int"),
+ *             name: 'STRING_VALUE',
+ *             minValue: Number('int'),
+ *             maxValue: Number('int'),
  *           },
  *         ],
  *         continuousHyperParameterRanges: [ // ContinuousHyperParameterRanges
  *           { // ContinuousHyperParameterRange
- *             name: "STRING_VALUE",
- *             minValue: Number("double"),
- *             maxValue: Number("double"),
+ *             name: 'STRING_VALUE',
+ *             minValue: Number('double'),
+ *             maxValue: Number('double'),
  *           },
  *         ],
  *         categoricalHyperParameterRanges: [ // CategoricalHyperParameterRanges
  *           { // CategoricalHyperParameterRange
- *             name: "STRING_VALUE",
+ *             name: 'STRING_VALUE',
  *             values: [ // CategoricalValues
- *               "STRING_VALUE",
+ *               'STRING_VALUE',
  *             ],
  *           },
  *         ],
  *       },
  *     },
  *     algorithmHyperParameters: { // HyperParameters
- *       "<keys>": "STRING_VALUE",
+ *       '<keys>': 'STRING_VALUE',
  *     },
  *     featureTransformationParameters: { // FeatureTransformationParameters
- *       "<keys>": "STRING_VALUE",
+ *       '<keys>': 'STRING_VALUE',
  *     },
  *     autoMLConfig: { // AutoMLConfig
- *       metricName: "STRING_VALUE",
+ *       metricName: 'STRING_VALUE',
  *       recipeList: [ // ArnList
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *     optimizationObjective: { // OptimizationObjective
- *       itemAttribute: "STRING_VALUE",
- *       objectiveSensitivity: "LOW" || "MEDIUM" || "HIGH" || "OFF",
+ *       itemAttribute: 'STRING_VALUE',
+ *       objectiveSensitivity: 'LOW' || 'MEDIUM' || 'HIGH' || 'OFF',
  *     },
  *   },
  *   tags: [ // Tags
  *     { // Tag
- *       tagKey: "STRING_VALUE", // required
- *       tagValue: "STRING_VALUE", // required
+ *       tagKey: 'STRING_VALUE', // required
+ *       tagValue: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreateSolutionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateSolutionResponse
+ *   solutionArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateSolutionCommandInput - {@link CreateSolutionCommandInput}
@@ -207,6 +212,8 @@ export interface CreateSolutionCommandOutput extends CreateSolutionResponse, __M
  * @throws {@link TooManyTagsException} (client fault)
  *  <p>You have exceeded the maximum number of tags you can apply to this resource. </p>
  *
+ * @throws {@link PersonalizeServiceException}
+ * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
  */
 export class CreateSolutionCommand extends $Command<

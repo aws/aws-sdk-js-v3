@@ -41,15 +41,23 @@ export interface GetDefaultCreditSpecificationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, GetDefaultCreditSpecificationCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, GetDefaultCreditSpecificationCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, GetDefaultCreditSpecificationCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, GetDefaultCreditSpecificationCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // GetDefaultCreditSpecificationRequest
  *   DryRun: true || false,
- *   InstanceFamily: "t2" || "t3" || "t3a" || "t4g", // required
+ *   InstanceFamily: 't2' || 't3' || 't3a' || 't4g', // required
  * };
  * const command = new GetDefaultCreditSpecificationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetDefaultCreditSpecificationResult
+ *   InstanceFamilyCreditSpecification: { // InstanceFamilyCreditSpecification
+ *     InstanceFamily: 't2' || 't3' || 't3a' || 't4g',
+ *     CpuCredits: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetDefaultCreditSpecificationCommandInput - {@link GetDefaultCreditSpecificationCommandInput}
@@ -58,6 +66,8 @@ export interface GetDefaultCreditSpecificationCommandOutput
  * @see {@link GetDefaultCreditSpecificationCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class GetDefaultCreditSpecificationCommand extends $Command<

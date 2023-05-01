@@ -36,27 +36,38 @@ export interface DescribeMovingAddressesCommandOutput extends DescribeMovingAddr
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, DescribeMovingAddressesCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, DescribeMovingAddressesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, DescribeMovingAddressesCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, DescribeMovingAddressesCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // DescribeMovingAddressesRequest
  *   Filters: [ // FilterList
  *     { // Filter
- *       Name: "STRING_VALUE",
+ *       Name: 'STRING_VALUE',
  *       Values: [ // ValueStringList
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
  *   DryRun: true || false,
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  *   PublicIps: [
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new DescribeMovingAddressesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeMovingAddressesResult
+ *   MovingAddressStatuses: [ // MovingAddressStatusSet
+ *     { // MovingAddressStatus
+ *       MoveStatus: 'movingToVpc' || 'restoringToClassic',
+ *       PublicIp: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeMovingAddressesCommandInput - {@link DescribeMovingAddressesCommandInput}
@@ -65,6 +76,8 @@ export interface DescribeMovingAddressesCommandOutput extends DescribeMovingAddr
  * @see {@link DescribeMovingAddressesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @example To describe your moving addresses
  * ```javascript

@@ -45,17 +45,20 @@ export interface AssociateServiceActionWithProvisioningArtifactCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ServiceCatalogClient, AssociateServiceActionWithProvisioningArtifactCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
- * // const { ServiceCatalogClient, AssociateServiceActionWithProvisioningArtifactCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
+ * import { ServiceCatalogClient, AssociateServiceActionWithProvisioningArtifactCommand } from '@aws-sdk/client-service-catalog'; // ES Modules import
+ * // const { ServiceCatalogClient, AssociateServiceActionWithProvisioningArtifactCommand } = require('@aws-sdk/client-service-catalog'); // CommonJS import
  * const client = new ServiceCatalogClient(config);
  * const input = { // AssociateServiceActionWithProvisioningArtifactInput
- *   ProductId: "STRING_VALUE", // required
- *   ProvisioningArtifactId: "STRING_VALUE", // required
- *   ServiceActionId: "STRING_VALUE", // required
- *   AcceptLanguage: "STRING_VALUE",
+ *   ProductId: 'STRING_VALUE', // required
+ *   ProvisioningArtifactId: 'STRING_VALUE', // required
+ *   ServiceActionId: 'STRING_VALUE', // required
+ *   AcceptLanguage: 'STRING_VALUE',
  * };
  * const command = new AssociateServiceActionWithProvisioningArtifactCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param AssociateServiceActionWithProvisioningArtifactCommandInput - {@link AssociateServiceActionWithProvisioningArtifactCommandInput}
@@ -77,6 +80,8 @@ export interface AssociateServiceActionWithProvisioningArtifactCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link ServiceCatalogServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
  */
 export class AssociateServiceActionWithProvisioningArtifactCommand extends $Command<

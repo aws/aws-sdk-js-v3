@@ -39,24 +39,47 @@ export interface ListOutpostsCommandOutput extends ListOutpostsOutput, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OutpostsClient, ListOutpostsCommand } from "@aws-sdk/client-outposts"; // ES Modules import
- * // const { OutpostsClient, ListOutpostsCommand } = require("@aws-sdk/client-outposts"); // CommonJS import
+ * import { OutpostsClient, ListOutpostsCommand } from '@aws-sdk/client-outposts'; // ES Modules import
+ * // const { OutpostsClient, ListOutpostsCommand } = require('@aws-sdk/client-outposts'); // CommonJS import
  * const client = new OutpostsClient(config);
  * const input = { // ListOutpostsInput
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  *   LifeCycleStatusFilter: [ // LifeCycleStatusList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   AvailabilityZoneFilter: [ // AvailabilityZoneList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   AvailabilityZoneIdFilter: [ // AvailabilityZoneIdList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new ListOutpostsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListOutpostsOutput
+ *   Outposts: [ // outpostListDefinition
+ *     { // Outpost
+ *       OutpostId: 'STRING_VALUE',
+ *       OwnerId: 'STRING_VALUE',
+ *       OutpostArn: 'STRING_VALUE',
+ *       SiteId: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *       Description: 'STRING_VALUE',
+ *       LifeCycleStatus: 'STRING_VALUE',
+ *       AvailabilityZone: 'STRING_VALUE',
+ *       AvailabilityZoneId: 'STRING_VALUE',
+ *       Tags: { // TagMap
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *       SiteArn: 'STRING_VALUE',
+ *       SupportedHardwareType: 'RACK' || 'SERVER',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListOutpostsCommandInput - {@link ListOutpostsCommandInput}
@@ -74,6 +97,8 @@ export interface ListOutpostsCommandOutput extends ListOutpostsOutput, __Metadat
  * @throws {@link ValidationException} (client fault)
  *  <p>A parameter is not valid.</p>
  *
+ * @throws {@link OutpostsServiceException}
+ * <p>Base exception class for all service exceptions from Outposts service.</p>
  *
  */
 export class ListOutpostsCommand extends $Command<

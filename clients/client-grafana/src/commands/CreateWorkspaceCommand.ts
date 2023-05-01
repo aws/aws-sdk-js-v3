@@ -45,54 +45,111 @@ export interface CreateWorkspaceCommandOutput extends CreateWorkspaceResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GrafanaClient, CreateWorkspaceCommand } from "@aws-sdk/client-grafana"; // ES Modules import
- * // const { GrafanaClient, CreateWorkspaceCommand } = require("@aws-sdk/client-grafana"); // CommonJS import
+ * import { GrafanaClient, CreateWorkspaceCommand } from '@aws-sdk/client-grafana'; // ES Modules import
+ * // const { GrafanaClient, CreateWorkspaceCommand } = require('@aws-sdk/client-grafana'); // CommonJS import
  * const client = new GrafanaClient(config);
  * const input = { // CreateWorkspaceRequest
- *   accountAccessType: "STRING_VALUE", // required
- *   clientToken: "STRING_VALUE",
- *   organizationRoleName: "STRING_VALUE",
- *   permissionType: "STRING_VALUE", // required
- *   stackSetName: "STRING_VALUE",
+ *   accountAccessType: 'STRING_VALUE', // required
+ *   clientToken: 'STRING_VALUE',
+ *   organizationRoleName: 'STRING_VALUE',
+ *   permissionType: 'STRING_VALUE', // required
+ *   stackSetName: 'STRING_VALUE',
  *   workspaceDataSources: [ // DataSourceTypesList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   workspaceDescription: "STRING_VALUE",
- *   workspaceName: "STRING_VALUE",
+ *   workspaceDescription: 'STRING_VALUE',
+ *   workspaceName: 'STRING_VALUE',
  *   workspaceNotificationDestinations: [ // NotificationDestinationsList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   workspaceOrganizationalUnits: [ // OrganizationalUnitList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   workspaceRoleArn: "STRING_VALUE",
+ *   workspaceRoleArn: 'STRING_VALUE',
  *   authenticationProviders: [ // AuthenticationProviders // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  *   vpcConfiguration: { // VpcConfiguration
  *     securityGroupIds: [ // SecurityGroupIds // required
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     subnetIds: [ // SubnetIds // required
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *   },
- *   configuration: "STRING_VALUE",
+ *   configuration: 'STRING_VALUE',
  *   networkAccessControl: { // NetworkAccessConfiguration
  *     prefixListIds: [ // PrefixListIds // required
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     vpceIds: [ // VpceIds // required
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *   },
- *   grafanaVersion: "STRING_VALUE",
+ *   grafanaVersion: 'STRING_VALUE',
  * };
  * const command = new CreateWorkspaceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateWorkspaceResponse
+ *   workspace: { // WorkspaceDescription
+ *     accountAccessType: 'STRING_VALUE',
+ *     created: new Date('TIMESTAMP'), // required
+ *     dataSources: [ // DataSourceTypesList // required
+ *       'STRING_VALUE',
+ *     ],
+ *     description: 'STRING_VALUE',
+ *     endpoint: 'STRING_VALUE', // required
+ *     grafanaVersion: 'STRING_VALUE', // required
+ *     id: 'STRING_VALUE', // required
+ *     modified: new Date('TIMESTAMP'), // required
+ *     name: 'STRING_VALUE',
+ *     organizationRoleName: 'STRING_VALUE',
+ *     notificationDestinations: [ // NotificationDestinationsList
+ *       'STRING_VALUE',
+ *     ],
+ *     organizationalUnits: [ // OrganizationalUnitList
+ *       'STRING_VALUE',
+ *     ],
+ *     permissionType: 'STRING_VALUE',
+ *     stackSetName: 'STRING_VALUE',
+ *     status: 'STRING_VALUE', // required
+ *     workspaceRoleArn: 'STRING_VALUE',
+ *     licenseType: 'STRING_VALUE',
+ *     freeTrialConsumed: true || false,
+ *     licenseExpiration: new Date('TIMESTAMP'),
+ *     freeTrialExpiration: new Date('TIMESTAMP'),
+ *     authentication: { // AuthenticationSummary
+ *       providers: [ // AuthenticationProviders // required
+ *         'STRING_VALUE',
+ *       ],
+ *       samlConfigurationStatus: 'STRING_VALUE',
+ *     },
+ *     tags: { // TagMap
+ *       '<keys>': 'STRING_VALUE',
+ *     },
+ *     vpcConfiguration: { // VpcConfiguration
+ *       securityGroupIds: [ // SecurityGroupIds // required
+ *         'STRING_VALUE',
+ *       ],
+ *       subnetIds: [ // SubnetIds // required
+ *         'STRING_VALUE',
+ *       ],
+ *     },
+ *     networkAccessControl: { // NetworkAccessConfiguration
+ *       prefixListIds: [ // PrefixListIds // required
+ *         'STRING_VALUE',
+ *       ],
+ *       vpceIds: [ // VpceIds // required
+ *         'STRING_VALUE',
+ *       ],
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateWorkspaceCommandInput - {@link CreateWorkspaceCommandInput}
@@ -119,6 +176,8 @@ export interface CreateWorkspaceCommandOutput extends CreateWorkspaceResponse, _
  * @throws {@link ValidationException} (client fault)
  *  <p>The value of a parameter in the request caused an error.</p>
  *
+ * @throws {@link GrafanaServiceException}
+ * <p>Base exception class for all service exceptions from Grafana service.</p>
  *
  */
 export class CreateWorkspaceCommand extends $Command<

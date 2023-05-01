@@ -36,15 +36,22 @@ export interface DescribeAddonConfigurationCommandOutput extends DescribeAddonCo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EKSClient, DescribeAddonConfigurationCommand } from "@aws-sdk/client-eks"; // ES Modules import
- * // const { EKSClient, DescribeAddonConfigurationCommand } = require("@aws-sdk/client-eks"); // CommonJS import
+ * import { EKSClient, DescribeAddonConfigurationCommand } from '@aws-sdk/client-eks'; // ES Modules import
+ * // const { EKSClient, DescribeAddonConfigurationCommand } = require('@aws-sdk/client-eks'); // CommonJS import
  * const client = new EKSClient(config);
  * const input = { // DescribeAddonConfigurationRequest
- *   addonName: "STRING_VALUE", // required
- *   addonVersion: "STRING_VALUE", // required
+ *   addonName: 'STRING_VALUE', // required
+ *   addonVersion: 'STRING_VALUE', // required
  * };
  * const command = new DescribeAddonConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeAddonConfigurationResponse
+ *   addonName: 'STRING_VALUE',
+ *   addonVersion: 'STRING_VALUE',
+ *   configurationSchema: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeAddonConfigurationCommandInput - {@link DescribeAddonConfigurationCommandInput}
@@ -66,6 +73,8 @@ export interface DescribeAddonConfigurationCommandOutput extends DescribeAddonCo
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server-side issue.</p>
  *
+ * @throws {@link EKSServiceException}
+ * <p>Base exception class for all service exceptions from EKS service.</p>
  *
  */
 export class DescribeAddonConfigurationCommand extends $Command<

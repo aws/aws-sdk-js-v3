@@ -49,19 +49,19 @@ export interface PutGroupConfigurationCommandOutput extends PutGroupConfiguratio
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ResourceGroupsClient, PutGroupConfigurationCommand } from "@aws-sdk/client-resource-groups"; // ES Modules import
- * // const { ResourceGroupsClient, PutGroupConfigurationCommand } = require("@aws-sdk/client-resource-groups"); // CommonJS import
+ * import { ResourceGroupsClient, PutGroupConfigurationCommand } from '@aws-sdk/client-resource-groups'; // ES Modules import
+ * // const { ResourceGroupsClient, PutGroupConfigurationCommand } = require('@aws-sdk/client-resource-groups'); // CommonJS import
  * const client = new ResourceGroupsClient(config);
  * const input = { // PutGroupConfigurationInput
- *   Group: "STRING_VALUE",
+ *   Group: 'STRING_VALUE',
  *   Configuration: [ // GroupConfigurationList
  *     { // GroupConfigurationItem
- *       Type: "STRING_VALUE", // required
+ *       Type: 'STRING_VALUE', // required
  *       Parameters: [ // GroupParameterList
  *         { // GroupConfigurationParameter
- *           Name: "STRING_VALUE", // required
+ *           Name: 'STRING_VALUE', // required
  *           Values: [ // GroupConfigurationParameterValueList
- *             "STRING_VALUE",
+ *             'STRING_VALUE',
  *           ],
  *         },
  *       ],
@@ -70,6 +70,9 @@ export interface PutGroupConfigurationCommandOutput extends PutGroupConfiguratio
  * };
  * const command = new PutGroupConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutGroupConfigurationCommandInput - {@link PutGroupConfigurationCommandInput}
@@ -97,6 +100,8 @@ export interface PutGroupConfigurationCommandOutput extends PutGroupConfiguratio
  *  <p>You've exceeded throttling limits by making too many requests in a period of
  *             time.</p>
  *
+ * @throws {@link ResourceGroupsServiceException}
+ * <p>Base exception class for all service exceptions from ResourceGroups service.</p>
  *
  */
 export class PutGroupConfigurationCommand extends $Command<

@@ -42,16 +42,19 @@ export interface AbortDocumentVersionUploadCommandOutput extends __MetadataBeare
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkDocsClient, AbortDocumentVersionUploadCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
- * // const { WorkDocsClient, AbortDocumentVersionUploadCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import
+ * import { WorkDocsClient, AbortDocumentVersionUploadCommand } from '@aws-sdk/client-workdocs'; // ES Modules import
+ * // const { WorkDocsClient, AbortDocumentVersionUploadCommand } = require('@aws-sdk/client-workdocs'); // CommonJS import
  * const client = new WorkDocsClient(config);
  * const input = { // AbortDocumentVersionUploadRequest
- *   AuthenticationToken: "STRING_VALUE",
- *   DocumentId: "STRING_VALUE", // required
- *   VersionId: "STRING_VALUE", // required
+ *   AuthenticationToken: 'STRING_VALUE',
+ *   DocumentId: 'STRING_VALUE', // required
+ *   VersionId: 'STRING_VALUE', // required
  * };
  * const command = new AbortDocumentVersionUploadCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param AbortDocumentVersionUploadCommandInput - {@link AbortDocumentVersionUploadCommandInput}
@@ -83,6 +86,8 @@ export interface AbortDocumentVersionUploadCommandOutput extends __MetadataBeare
  * @throws {@link UnauthorizedResourceAccessException} (client fault)
  *  <p>The caller does not have access to perform the action on the resource.</p>
  *
+ * @throws {@link WorkDocsServiceException}
+ * <p>Base exception class for all service exceptions from WorkDocs service.</p>
  *
  */
 export class AbortDocumentVersionUploadCommand extends $Command<

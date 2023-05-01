@@ -36,20 +36,26 @@ export interface UpdateVehicleCommandOutput extends UpdateVehicleResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTFleetWiseClient, UpdateVehicleCommand } from "@aws-sdk/client-iotfleetwise"; // ES Modules import
- * // const { IoTFleetWiseClient, UpdateVehicleCommand } = require("@aws-sdk/client-iotfleetwise"); // CommonJS import
+ * import { IoTFleetWiseClient, UpdateVehicleCommand } from '@aws-sdk/client-iotfleetwise'; // ES Modules import
+ * // const { IoTFleetWiseClient, UpdateVehicleCommand } = require('@aws-sdk/client-iotfleetwise'); // CommonJS import
  * const client = new IoTFleetWiseClient(config);
  * const input = { // UpdateVehicleRequest
- *   vehicleName: "STRING_VALUE", // required
- *   modelManifestArn: "STRING_VALUE",
- *   decoderManifestArn: "STRING_VALUE",
+ *   vehicleName: 'STRING_VALUE', // required
+ *   modelManifestArn: 'STRING_VALUE',
+ *   decoderManifestArn: 'STRING_VALUE',
  *   attributes: { // attributesMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
- *   attributeUpdateMode: "STRING_VALUE",
+ *   attributeUpdateMode: 'STRING_VALUE',
  * };
  * const command = new UpdateVehicleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateVehicleResponse
+ *   vehicleName: 'STRING_VALUE',
+ *   arn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateVehicleCommandInput - {@link UpdateVehicleCommandInput}
@@ -77,6 +83,8 @@ export interface UpdateVehicleCommandOutput extends UpdateVehicleResponse, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
  *
+ * @throws {@link IoTFleetWiseServiceException}
+ * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
  */
 export class UpdateVehicleCommand extends $Command<

@@ -36,15 +36,20 @@ export interface DeleteDatasetCommandOutput extends DeleteDatasetResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FinspaceDataClient, DeleteDatasetCommand } from "@aws-sdk/client-finspace-data"; // ES Modules import
- * // const { FinspaceDataClient, DeleteDatasetCommand } = require("@aws-sdk/client-finspace-data"); // CommonJS import
+ * import { FinspaceDataClient, DeleteDatasetCommand } from '@aws-sdk/client-finspace-data'; // ES Modules import
+ * // const { FinspaceDataClient, DeleteDatasetCommand } = require('@aws-sdk/client-finspace-data'); // CommonJS import
  * const client = new FinspaceDataClient(config);
  * const input = { // DeleteDatasetRequest
- *   clientToken: "STRING_VALUE",
- *   datasetId: "STRING_VALUE", // required
+ *   clientToken: 'STRING_VALUE',
+ *   datasetId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteDatasetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteDatasetResponse
+ *   datasetId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DeleteDatasetCommandInput - {@link DeleteDatasetCommandInput}
@@ -75,6 +80,8 @@ export interface DeleteDatasetCommandOutput extends DeleteDatasetResponse, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link FinspaceDataServiceException}
+ * <p>Base exception class for all service exceptions from FinspaceData service.</p>
  *
  */
 export class DeleteDatasetCommand extends $Command<

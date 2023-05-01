@@ -36,14 +36,17 @@ export interface DeleteKeyspaceCommandOutput extends DeleteKeyspaceResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KeyspacesClient, DeleteKeyspaceCommand } from "@aws-sdk/client-keyspaces"; // ES Modules import
- * // const { KeyspacesClient, DeleteKeyspaceCommand } = require("@aws-sdk/client-keyspaces"); // CommonJS import
+ * import { KeyspacesClient, DeleteKeyspaceCommand } from '@aws-sdk/client-keyspaces'; // ES Modules import
+ * // const { KeyspacesClient, DeleteKeyspaceCommand } = require('@aws-sdk/client-keyspaces'); // CommonJS import
  * const client = new KeyspacesClient(config);
  * const input = { // DeleteKeyspaceRequest
- *   keyspaceName: "STRING_VALUE", // required
+ *   keyspaceName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteKeyspaceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteKeyspaceCommandInput - {@link DeleteKeyspaceCommandInput}
@@ -73,6 +76,8 @@ export interface DeleteKeyspaceCommandOutput extends DeleteKeyspaceResponse, __M
  * @throws {@link ValidationException} (client fault)
  *  <p>The operation failed due to an invalid or malformed request.</p>
  *
+ * @throws {@link KeyspacesServiceException}
+ * <p>Base exception class for all service exceptions from Keyspaces service.</p>
  *
  */
 export class DeleteKeyspaceCommand extends $Command<

@@ -41,14 +41,17 @@ export interface UpdateAccountSendingEnabledCommandOutput extends __MetadataBear
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SESClient, UpdateAccountSendingEnabledCommand } from "@aws-sdk/client-ses"; // ES Modules import
- * // const { SESClient, UpdateAccountSendingEnabledCommand } = require("@aws-sdk/client-ses"); // CommonJS import
+ * import { SESClient, UpdateAccountSendingEnabledCommand } from '@aws-sdk/client-ses'; // ES Modules import
+ * // const { SESClient, UpdateAccountSendingEnabledCommand } = require('@aws-sdk/client-ses'); // CommonJS import
  * const client = new SESClient(config);
  * const input = { // UpdateAccountSendingEnabledRequest
  *   Enabled: true || false,
  * };
  * const command = new UpdateAccountSendingEnabledCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateAccountSendingEnabledCommandInput - {@link UpdateAccountSendingEnabledCommandInput}
@@ -57,6 +60,8 @@ export interface UpdateAccountSendingEnabledCommandOutput extends __MetadataBear
  * @see {@link UpdateAccountSendingEnabledCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
+ * @throws {@link SESServiceException}
+ * <p>Base exception class for all service exceptions from SES service.</p>
  *
  * @example UpdateAccountSendingEnabled
  * ```javascript

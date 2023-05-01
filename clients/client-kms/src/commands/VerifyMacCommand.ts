@@ -56,20 +56,27 @@ export interface VerifyMacCommandOutput extends VerifyMacResponse, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KMSClient, VerifyMacCommand } from "@aws-sdk/client-kms"; // ES Modules import
- * // const { KMSClient, VerifyMacCommand } = require("@aws-sdk/client-kms"); // CommonJS import
+ * import { KMSClient, VerifyMacCommand } from '@aws-sdk/client-kms'; // ES Modules import
+ * // const { KMSClient, VerifyMacCommand } = require('@aws-sdk/client-kms'); // CommonJS import
  * const client = new KMSClient(config);
  * const input = { // VerifyMacRequest
- *   Message: "BLOB_VALUE", // required
- *   KeyId: "STRING_VALUE", // required
- *   MacAlgorithm: "HMAC_SHA_224" || "HMAC_SHA_256" || "HMAC_SHA_384" || "HMAC_SHA_512", // required
- *   Mac: "BLOB_VALUE", // required
+ *   Message: 'BLOB_VALUE', // required
+ *   KeyId: 'STRING_VALUE', // required
+ *   MacAlgorithm: 'HMAC_SHA_224' || 'HMAC_SHA_256' || 'HMAC_SHA_384' || 'HMAC_SHA_512', // required
+ *   Mac: 'BLOB_VALUE', // required
  *   GrantTokens: [ // GrantTokenList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new VerifyMacCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // VerifyMacResponse
+ *   KeyId: 'STRING_VALUE',
+ *   MacValid: true || false,
+ *   MacAlgorithm: 'HMAC_SHA_224' || 'HMAC_SHA_256' || 'HMAC_SHA_384' || 'HMAC_SHA_512',
+ * };
+ *
  * ```
  *
  * @param VerifyMacCommandInput - {@link VerifyMacCommandInput}
@@ -140,6 +147,8 @@ export interface VerifyMacCommandOutput extends VerifyMacResponse, __MetadataBea
  *  <p>The request was rejected because the specified entity or resource could not be
  *       found.</p>
  *
+ * @throws {@link KMSServiceException}
+ * <p>Base exception class for all service exceptions from KMS service.</p>
  *
  * @example To verify an HMAC
  * ```javascript

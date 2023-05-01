@@ -38,17 +38,25 @@ export interface ListReportGroupsCommandOutput extends ListReportGroupsOutput, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeBuildClient, ListReportGroupsCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
- * // const { CodeBuildClient, ListReportGroupsCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import
+ * import { CodeBuildClient, ListReportGroupsCommand } from '@aws-sdk/client-codebuild'; // ES Modules import
+ * // const { CodeBuildClient, ListReportGroupsCommand } = require('@aws-sdk/client-codebuild'); // CommonJS import
  * const client = new CodeBuildClient(config);
  * const input = { // ListReportGroupsInput
- *   sortOrder: "STRING_VALUE",
- *   sortBy: "STRING_VALUE",
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   sortOrder: 'STRING_VALUE',
+ *   sortBy: 'STRING_VALUE',
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new ListReportGroupsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListReportGroupsOutput
+ *   nextToken: 'STRING_VALUE',
+ *   reportGroups: [ // ReportGroupArns
+ *     'STRING_VALUE',
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListReportGroupsCommandInput - {@link ListReportGroupsCommandInput}
@@ -60,6 +68,8 @@ export interface ListReportGroupsCommandOutput extends ListReportGroupsOutput, _
  * @throws {@link InvalidInputException} (client fault)
  *  <p>The input value that was provided is not valid.</p>
  *
+ * @throws {@link CodeBuildServiceException}
+ * <p>Base exception class for all service exceptions from CodeBuild service.</p>
  *
  */
 export class ListReportGroupsCommand extends $Command<

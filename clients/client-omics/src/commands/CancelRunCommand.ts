@@ -36,14 +36,17 @@ export interface CancelRunCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OmicsClient, CancelRunCommand } from "@aws-sdk/client-omics"; // ES Modules import
- * // const { OmicsClient, CancelRunCommand } = require("@aws-sdk/client-omics"); // CommonJS import
+ * import { OmicsClient, CancelRunCommand } from '@aws-sdk/client-omics'; // ES Modules import
+ * // const { OmicsClient, CancelRunCommand } = require('@aws-sdk/client-omics'); // CommonJS import
  * const client = new OmicsClient(config);
  * const input = { // CancelRunRequest
- *   id: "STRING_VALUE", // required
+ *   id: 'STRING_VALUE', // required
  * };
  * const command = new CancelRunCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param CancelRunCommandInput - {@link CancelRunCommandInput}
@@ -76,6 +79,8 @@ export interface CancelRunCommandOutput extends __MetadataBearer {}
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link OmicsServiceException}
+ * <p>Base exception class for all service exceptions from Omics service.</p>
  *
  */
 export class CancelRunCommand extends $Command<

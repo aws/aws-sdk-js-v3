@@ -46,46 +46,86 @@ export interface UpdateEventDataStoreCommandOutput extends UpdateEventDataStoreR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudTrailClient, UpdateEventDataStoreCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
- * // const { CloudTrailClient, UpdateEventDataStoreCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
+ * import { CloudTrailClient, UpdateEventDataStoreCommand } from '@aws-sdk/client-cloudtrail'; // ES Modules import
+ * // const { CloudTrailClient, UpdateEventDataStoreCommand } = require('@aws-sdk/client-cloudtrail'); // CommonJS import
  * const client = new CloudTrailClient(config);
  * const input = { // UpdateEventDataStoreRequest
- *   EventDataStore: "STRING_VALUE", // required
- *   Name: "STRING_VALUE",
+ *   EventDataStore: 'STRING_VALUE', // required
+ *   Name: 'STRING_VALUE',
  *   AdvancedEventSelectors: [ // AdvancedEventSelectors
  *     { // AdvancedEventSelector
- *       Name: "STRING_VALUE",
+ *       Name: 'STRING_VALUE',
  *       FieldSelectors: [ // AdvancedFieldSelectors // required
  *         { // AdvancedFieldSelector
- *           Field: "STRING_VALUE", // required
+ *           Field: 'STRING_VALUE', // required
  *           Equals: [ // Operator
- *             "STRING_VALUE",
+ *             'STRING_VALUE',
  *           ],
  *           StartsWith: [
- *             "STRING_VALUE",
+ *             'STRING_VALUE',
  *           ],
  *           EndsWith: [
- *             "STRING_VALUE",
+ *             'STRING_VALUE',
  *           ],
  *           NotEquals: [
- *             "STRING_VALUE",
+ *             'STRING_VALUE',
  *           ],
  *           NotStartsWith: [
- *             "STRING_VALUE",
+ *             'STRING_VALUE',
  *           ],
- *           NotEndsWith: "<Operator>",
+ *           NotEndsWith: '<Operator>',
  *         },
  *       ],
  *     },
  *   ],
  *   MultiRegionEnabled: true || false,
  *   OrganizationEnabled: true || false,
- *   RetentionPeriod: Number("int"),
+ *   RetentionPeriod: Number('int'),
  *   TerminationProtectionEnabled: true || false,
- *   KmsKeyId: "STRING_VALUE",
+ *   KmsKeyId: 'STRING_VALUE',
  * };
  * const command = new UpdateEventDataStoreCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateEventDataStoreResponse
+ *   EventDataStoreArn: 'STRING_VALUE',
+ *   Name: 'STRING_VALUE',
+ *   Status: 'CREATED' || 'ENABLED' || 'PENDING_DELETION',
+ *   AdvancedEventSelectors: [ // AdvancedEventSelectors
+ *     { // AdvancedEventSelector
+ *       Name: 'STRING_VALUE',
+ *       FieldSelectors: [ // AdvancedFieldSelectors // required
+ *         { // AdvancedFieldSelector
+ *           Field: 'STRING_VALUE', // required
+ *           Equals: [ // Operator
+ *             'STRING_VALUE',
+ *           ],
+ *           StartsWith: [
+ *             'STRING_VALUE',
+ *           ],
+ *           EndsWith: [
+ *             'STRING_VALUE',
+ *           ],
+ *           NotEquals: [
+ *             'STRING_VALUE',
+ *           ],
+ *           NotStartsWith: [
+ *             'STRING_VALUE',
+ *           ],
+ *           NotEndsWith: '<Operator>',
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   MultiRegionEnabled: true || false,
+ *   OrganizationEnabled: true || false,
+ *   RetentionPeriod: Number('int'),
+ *   TerminationProtectionEnabled: true || false,
+ *   CreatedTimestamp: new Date('TIMESTAMP'),
+ *   UpdatedTimestamp: new Date('TIMESTAMP'),
+ *   KmsKeyId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateEventDataStoreCommandInput - {@link UpdateEventDataStoreCommandInput}
@@ -190,6 +230,8 @@ export interface UpdateEventDataStoreCommandOutput extends UpdateEventDataStoreR
  * @throws {@link UnsupportedOperationException} (client fault)
  *  <p>This exception is thrown when the requested operation is not supported.</p>
  *
+ * @throws {@link CloudTrailServiceException}
+ * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
  */
 export class UpdateEventDataStoreCommand extends $Command<

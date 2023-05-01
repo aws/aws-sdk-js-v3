@@ -44,28 +44,58 @@ export interface CreateServiceCommandOutput extends CreateServiceOutput, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ProtonClient, CreateServiceCommand } from "@aws-sdk/client-proton"; // ES Modules import
- * // const { ProtonClient, CreateServiceCommand } = require("@aws-sdk/client-proton"); // CommonJS import
+ * import { ProtonClient, CreateServiceCommand } from '@aws-sdk/client-proton'; // ES Modules import
+ * // const { ProtonClient, CreateServiceCommand } = require('@aws-sdk/client-proton'); // CommonJS import
  * const client = new ProtonClient(config);
  * const input = { // CreateServiceInput
- *   name: "STRING_VALUE", // required
- *   description: "STRING_VALUE",
- *   templateName: "STRING_VALUE", // required
- *   templateMajorVersion: "STRING_VALUE", // required
- *   templateMinorVersion: "STRING_VALUE",
- *   spec: "STRING_VALUE", // required
- *   repositoryConnectionArn: "STRING_VALUE",
- *   repositoryId: "STRING_VALUE",
- *   branchName: "STRING_VALUE",
+ *   name: 'STRING_VALUE', // required
+ *   description: 'STRING_VALUE',
+ *   templateName: 'STRING_VALUE', // required
+ *   templateMajorVersion: 'STRING_VALUE', // required
+ *   templateMinorVersion: 'STRING_VALUE',
+ *   spec: 'STRING_VALUE', // required
+ *   repositoryConnectionArn: 'STRING_VALUE',
+ *   repositoryId: 'STRING_VALUE',
+ *   branchName: 'STRING_VALUE',
  *   tags: [ // TagList
  *     { // Tag
- *       key: "STRING_VALUE", // required
- *       value: "STRING_VALUE", // required
+ *       key: 'STRING_VALUE', // required
+ *       value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreateServiceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateServiceOutput
+ *   service: { // Service
+ *     name: 'STRING_VALUE', // required
+ *     description: 'STRING_VALUE',
+ *     arn: 'STRING_VALUE', // required
+ *     templateName: 'STRING_VALUE', // required
+ *     createdAt: new Date('TIMESTAMP'), // required
+ *     lastModifiedAt: new Date('TIMESTAMP'), // required
+ *     status: 'STRING_VALUE', // required
+ *     statusMessage: 'STRING_VALUE',
+ *     spec: 'STRING_VALUE', // required
+ *     pipeline: { // ServicePipeline
+ *       arn: 'STRING_VALUE', // required
+ *       createdAt: new Date('TIMESTAMP'), // required
+ *       lastDeploymentAttemptedAt: new Date('TIMESTAMP'), // required
+ *       lastDeploymentSucceededAt: new Date('TIMESTAMP'), // required
+ *       templateName: 'STRING_VALUE', // required
+ *       templateMajorVersion: 'STRING_VALUE', // required
+ *       templateMinorVersion: 'STRING_VALUE', // required
+ *       deploymentStatus: 'STRING_VALUE', // required
+ *       deploymentStatusMessage: 'STRING_VALUE',
+ *       spec: 'STRING_VALUE',
+ *     },
+ *     repositoryConnectionArn: 'STRING_VALUE',
+ *     repositoryId: 'STRING_VALUE',
+ *     branchName: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateServiceCommandInput - {@link CreateServiceCommandInput}
@@ -96,6 +126,8 @@ export interface CreateServiceCommandOutput extends CreateServiceOutput, __Metad
  * @throws {@link ValidationException} (client fault)
  *  <p>The input is invalid or an out-of-range value was supplied for the input parameter.</p>
  *
+ * @throws {@link ProtonServiceException}
+ * <p>Base exception class for all service exceptions from Proton service.</p>
  *
  */
 export class CreateServiceCommand extends $Command<

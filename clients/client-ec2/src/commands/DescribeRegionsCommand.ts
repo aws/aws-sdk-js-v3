@@ -39,26 +39,37 @@ export interface DescribeRegionsCommandOutput extends DescribeRegionsResult, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, DescribeRegionsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, DescribeRegionsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, DescribeRegionsCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, DescribeRegionsCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // DescribeRegionsRequest
  *   Filters: [ // FilterList
  *     { // Filter
- *       Name: "STRING_VALUE",
+ *       Name: 'STRING_VALUE',
  *       Values: [ // ValueStringList
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
  *   RegionNames: [ // RegionNameStringList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   DryRun: true || false,
  *   AllRegions: true || false,
  * };
  * const command = new DescribeRegionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeRegionsResult
+ *   Regions: [ // RegionList
+ *     { // Region
+ *       Endpoint: 'STRING_VALUE',
+ *       RegionName: 'STRING_VALUE',
+ *       OptInStatus: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeRegionsCommandInput - {@link DescribeRegionsCommandInput}
@@ -67,6 +78,8 @@ export interface DescribeRegionsCommandOutput extends DescribeRegionsResult, __M
  * @see {@link DescribeRegionsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @example To describe your regions
  * ```javascript

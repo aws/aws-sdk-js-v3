@@ -76,14 +76,17 @@ export interface RemoveAccountFromOrganizationCommandOutput extends __MetadataBe
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OrganizationsClient, RemoveAccountFromOrganizationCommand } from "@aws-sdk/client-organizations"; // ES Modules import
- * // const { OrganizationsClient, RemoveAccountFromOrganizationCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
+ * import { OrganizationsClient, RemoveAccountFromOrganizationCommand } from '@aws-sdk/client-organizations'; // ES Modules import
+ * // const { OrganizationsClient, RemoveAccountFromOrganizationCommand } = require('@aws-sdk/client-organizations'); // CommonJS import
  * const client = new OrganizationsClient(config);
  * const input = { // RemoveAccountFromOrganizationRequest
- *   AccountId: "STRING_VALUE", // required
+ *   AccountId: 'STRING_VALUE', // required
  * };
  * const command = new RemoveAccountFromOrganizationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param RemoveAccountFromOrganizationCommandInput - {@link RemoveAccountFromOrganizationCommandInput}
@@ -429,6 +432,8 @@ export interface RemoveAccountFromOrganizationCommandOutput extends __MetadataBe
  *                 <i>Organizations User Guide.</i>
  *          </p>
  *
+ * @throws {@link OrganizationsServiceException}
+ * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
  * @example To remove an account from an organization as the master account
  * ```javascript

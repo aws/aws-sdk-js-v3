@@ -44,14 +44,30 @@ export interface DescribeObservabilityConfigurationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppRunnerClient, DescribeObservabilityConfigurationCommand } from "@aws-sdk/client-apprunner"; // ES Modules import
- * // const { AppRunnerClient, DescribeObservabilityConfigurationCommand } = require("@aws-sdk/client-apprunner"); // CommonJS import
+ * import { AppRunnerClient, DescribeObservabilityConfigurationCommand } from '@aws-sdk/client-apprunner'; // ES Modules import
+ * // const { AppRunnerClient, DescribeObservabilityConfigurationCommand } = require('@aws-sdk/client-apprunner'); // CommonJS import
  * const client = new AppRunnerClient(config);
  * const input = { // DescribeObservabilityConfigurationRequest
- *   ObservabilityConfigurationArn: "STRING_VALUE", // required
+ *   ObservabilityConfigurationArn: 'STRING_VALUE', // required
  * };
  * const command = new DescribeObservabilityConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeObservabilityConfigurationResponse
+ *   ObservabilityConfiguration: { // ObservabilityConfiguration
+ *     ObservabilityConfigurationArn: 'STRING_VALUE',
+ *     ObservabilityConfigurationName: 'STRING_VALUE',
+ *     TraceConfiguration: { // TraceConfiguration
+ *       Vendor: 'AWSXRAY', // required
+ *     },
+ *     ObservabilityConfigurationRevision: Number('int'),
+ *     Latest: true || false,
+ *     Status: 'ACTIVE' || 'INACTIVE',
+ *     CreatedAt: new Date('TIMESTAMP'),
+ *     DeletedAt: new Date('TIMESTAMP'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeObservabilityConfigurationCommandInput - {@link DescribeObservabilityConfigurationCommandInput}
@@ -69,6 +85,8 @@ export interface DescribeObservabilityConfigurationCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>A resource doesn't exist for the specified Amazon Resource Name (ARN) in your Amazon Web Services account.</p>
  *
+ * @throws {@link AppRunnerServiceException}
+ * <p>Base exception class for all service exceptions from AppRunner service.</p>
  *
  */
 export class DescribeObservabilityConfigurationCommand extends $Command<

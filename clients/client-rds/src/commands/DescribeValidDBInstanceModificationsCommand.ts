@@ -46,14 +46,66 @@ export interface DescribeValidDBInstanceModificationsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RDSClient, DescribeValidDBInstanceModificationsCommand } from "@aws-sdk/client-rds"; // ES Modules import
- * // const { RDSClient, DescribeValidDBInstanceModificationsCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * import { RDSClient, DescribeValidDBInstanceModificationsCommand } from '@aws-sdk/client-rds'; // ES Modules import
+ * // const { RDSClient, DescribeValidDBInstanceModificationsCommand } = require('@aws-sdk/client-rds'); // CommonJS import
  * const client = new RDSClient(config);
  * const input = { // DescribeValidDBInstanceModificationsMessage
- *   DBInstanceIdentifier: "STRING_VALUE", // required
+ *   DBInstanceIdentifier: 'STRING_VALUE', // required
  * };
  * const command = new DescribeValidDBInstanceModificationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeValidDBInstanceModificationsResult
+ *   ValidDBInstanceModificationsMessage: { // ValidDBInstanceModificationsMessage
+ *     Storage: [ // ValidStorageOptionsList
+ *       { // ValidStorageOptions
+ *         StorageType: 'STRING_VALUE',
+ *         StorageSize: [ // RangeList
+ *           { // Range
+ *             From: Number('int'),
+ *             To: Number('int'),
+ *             Step: Number('int'),
+ *           },
+ *         ],
+ *         ProvisionedIops: [
+ *           {
+ *             From: Number('int'),
+ *             To: Number('int'),
+ *             Step: Number('int'),
+ *           },
+ *         ],
+ *         IopsToStorageRatio: [ // DoubleRangeList
+ *           { // DoubleRange
+ *             From: Number('double'),
+ *             To: Number('double'),
+ *           },
+ *         ],
+ *         SupportsStorageAutoscaling: true || false,
+ *         ProvisionedStorageThroughput: [
+ *           {
+ *             From: Number('int'),
+ *             To: Number('int'),
+ *             Step: Number('int'),
+ *           },
+ *         ],
+ *         StorageThroughputToIopsRatio: [
+ *           {
+ *             From: Number('double'),
+ *             To: Number('double'),
+ *           },
+ *         ],
+ *       },
+ *     ],
+ *     ValidProcessorFeatures: [ // AvailableProcessorFeatureList
+ *       { // AvailableProcessorFeature
+ *         Name: 'STRING_VALUE',
+ *         DefaultValue: 'STRING_VALUE',
+ *         AllowedValues: 'STRING_VALUE',
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeValidDBInstanceModificationsCommandInput - {@link DescribeValidDBInstanceModificationsCommandInput}
@@ -69,6 +121,8 @@ export interface DescribeValidDBInstanceModificationsCommandOutput
  * @throws {@link InvalidDBInstanceStateFault} (client fault)
  *  <p>The DB instance isn't in a valid state.</p>
  *
+ * @throws {@link RDSServiceException}
+ * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  * @example To describe valid modifications for a DB instance
  * ```javascript

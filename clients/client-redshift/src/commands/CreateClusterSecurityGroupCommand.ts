@@ -41,21 +41,60 @@ export interface CreateClusterSecurityGroupCommandOutput extends CreateClusterSe
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RedshiftClient, CreateClusterSecurityGroupCommand } from "@aws-sdk/client-redshift"; // ES Modules import
- * // const { RedshiftClient, CreateClusterSecurityGroupCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * import { RedshiftClient, CreateClusterSecurityGroupCommand } from '@aws-sdk/client-redshift'; // ES Modules import
+ * // const { RedshiftClient, CreateClusterSecurityGroupCommand } = require('@aws-sdk/client-redshift'); // CommonJS import
  * const client = new RedshiftClient(config);
  * const input = { // CreateClusterSecurityGroupMessage
- *   ClusterSecurityGroupName: "STRING_VALUE", // required
- *   Description: "STRING_VALUE", // required
+ *   ClusterSecurityGroupName: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE', // required
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE",
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new CreateClusterSecurityGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateClusterSecurityGroupResult
+ *   ClusterSecurityGroup: { // ClusterSecurityGroup
+ *     ClusterSecurityGroupName: 'STRING_VALUE',
+ *     Description: 'STRING_VALUE',
+ *     EC2SecurityGroups: [ // EC2SecurityGroupList
+ *       { // EC2SecurityGroup
+ *         Status: 'STRING_VALUE',
+ *         EC2SecurityGroupName: 'STRING_VALUE',
+ *         EC2SecurityGroupOwnerId: 'STRING_VALUE',
+ *         Tags: [ // TagList
+ *           { // Tag
+ *             Key: 'STRING_VALUE',
+ *             Value: 'STRING_VALUE',
+ *           },
+ *         ],
+ *       },
+ *     ],
+ *     IPRanges: [ // IPRangeList
+ *       { // IPRange
+ *         Status: 'STRING_VALUE',
+ *         CIDRIP: 'STRING_VALUE',
+ *         Tags: [
+ *           {
+ *             Key: 'STRING_VALUE',
+ *             Value: 'STRING_VALUE',
+ *           },
+ *         ],
+ *       },
+ *     ],
+ *     Tags: [
+ *       {
+ *         Key: 'STRING_VALUE',
+ *         Value: 'STRING_VALUE',
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateClusterSecurityGroupCommandInput - {@link CreateClusterSecurityGroupCommandInput}
@@ -80,6 +119,8 @@ export interface CreateClusterSecurityGroupCommandOutput extends CreateClusterSe
  * @throws {@link TagLimitExceededFault} (client fault)
  *  <p>You have exceeded the number of tags allowed.</p>
  *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class CreateClusterSecurityGroupCommand extends $Command<

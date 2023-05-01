@@ -36,18 +36,21 @@ export interface UpdateContactFlowMetadataCommandOutput extends UpdateContactFlo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, UpdateContactFlowMetadataCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, UpdateContactFlowMetadataCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, UpdateContactFlowMetadataCommand } from '@aws-sdk/client-connect'; // ES Modules import
+ * // const { ConnectClient, UpdateContactFlowMetadataCommand } = require('@aws-sdk/client-connect'); // CommonJS import
  * const client = new ConnectClient(config);
  * const input = { // UpdateContactFlowMetadataRequest
- *   InstanceId: "STRING_VALUE", // required
- *   ContactFlowId: "STRING_VALUE", // required
- *   Name: "STRING_VALUE",
- *   Description: "STRING_VALUE",
- *   ContactFlowState: "ACTIVE" || "ARCHIVED",
+ *   InstanceId: 'STRING_VALUE', // required
+ *   ContactFlowId: 'STRING_VALUE', // required
+ *   Name: 'STRING_VALUE',
+ *   Description: 'STRING_VALUE',
+ *   ContactFlowState: 'ACTIVE' || 'ARCHIVED',
  * };
  * const command = new UpdateContactFlowMetadataCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateContactFlowMetadataCommandInput - {@link UpdateContactFlowMetadataCommandInput}
@@ -74,6 +77,8 @@ export interface UpdateContactFlowMetadataCommandOutput extends UpdateContactFlo
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class UpdateContactFlowMetadataCommand extends $Command<

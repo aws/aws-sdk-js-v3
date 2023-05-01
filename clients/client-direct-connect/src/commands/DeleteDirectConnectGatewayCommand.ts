@@ -38,14 +38,26 @@ export interface DeleteDirectConnectGatewayCommandOutput extends DeleteDirectCon
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DirectConnectClient, DeleteDirectConnectGatewayCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
- * // const { DirectConnectClient, DeleteDirectConnectGatewayCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
+ * import { DirectConnectClient, DeleteDirectConnectGatewayCommand } from '@aws-sdk/client-direct-connect'; // ES Modules import
+ * // const { DirectConnectClient, DeleteDirectConnectGatewayCommand } = require('@aws-sdk/client-direct-connect'); // CommonJS import
  * const client = new DirectConnectClient(config);
  * const input = { // DeleteDirectConnectGatewayRequest
- *   directConnectGatewayId: "STRING_VALUE", // required
+ *   directConnectGatewayId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteDirectConnectGatewayCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteDirectConnectGatewayResult
+ *   directConnectGateway: { // DirectConnectGateway
+ *     directConnectGatewayId: 'STRING_VALUE',
+ *     directConnectGatewayName: 'STRING_VALUE',
+ *     amazonSideAsn: Number('long'),
+ *     ownerAccount: 'STRING_VALUE',
+ *     directConnectGatewayState: 'pending' || 'available' || 'deleting' || 'deleted',
+ *     stateChangeError: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param DeleteDirectConnectGatewayCommandInput - {@link DeleteDirectConnectGatewayCommandInput}
@@ -60,6 +72,8 @@ export interface DeleteDirectConnectGatewayCommandOutput extends DeleteDirectCon
  * @throws {@link DirectConnectServerException} (server fault)
  *  <p>A server-side error occurred.</p>
  *
+ * @throws {@link DirectConnectServiceException}
+ * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
  */
 export class DeleteDirectConnectGatewayCommand extends $Command<

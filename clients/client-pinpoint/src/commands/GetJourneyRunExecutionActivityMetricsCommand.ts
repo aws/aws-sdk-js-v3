@@ -45,19 +45,34 @@ export interface GetJourneyRunExecutionActivityMetricsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PinpointClient, GetJourneyRunExecutionActivityMetricsCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
- * // const { PinpointClient, GetJourneyRunExecutionActivityMetricsCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
+ * import { PinpointClient, GetJourneyRunExecutionActivityMetricsCommand } from '@aws-sdk/client-pinpoint'; // ES Modules import
+ * // const { PinpointClient, GetJourneyRunExecutionActivityMetricsCommand } = require('@aws-sdk/client-pinpoint'); // CommonJS import
  * const client = new PinpointClient(config);
  * const input = { // GetJourneyRunExecutionActivityMetricsRequest
- *   ApplicationId: "STRING_VALUE", // required
- *   JourneyActivityId: "STRING_VALUE", // required
- *   JourneyId: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   PageSize: "STRING_VALUE",
- *   RunId: "STRING_VALUE", // required
+ *   ApplicationId: 'STRING_VALUE', // required
+ *   JourneyActivityId: 'STRING_VALUE', // required
+ *   JourneyId: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
+ *   PageSize: 'STRING_VALUE',
+ *   RunId: 'STRING_VALUE', // required
  * };
  * const command = new GetJourneyRunExecutionActivityMetricsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetJourneyRunExecutionActivityMetricsResponse
+ *   JourneyRunExecutionActivityMetricsResponse: { // JourneyRunExecutionActivityMetricsResponse
+ *     ActivityType: 'STRING_VALUE', // required
+ *     ApplicationId: 'STRING_VALUE', // required
+ *     JourneyActivityId: 'STRING_VALUE', // required
+ *     JourneyId: 'STRING_VALUE', // required
+ *     LastEvaluatedTime: 'STRING_VALUE', // required
+ *     Metrics: { // MapOf__string // required
+ *       '<keys>': 'STRING_VALUE',
+ *     },
+ *     RunId: 'STRING_VALUE', // required
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetJourneyRunExecutionActivityMetricsCommandInput - {@link GetJourneyRunExecutionActivityMetricsCommandInput}
@@ -87,6 +102,8 @@ export interface GetJourneyRunExecutionActivityMetricsCommandOutput
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Provides information about an API request or response.</p>
  *
+ * @throws {@link PinpointServiceException}
+ * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
  * @example To get the activity execution metrics for a journey run
  * ```javascript

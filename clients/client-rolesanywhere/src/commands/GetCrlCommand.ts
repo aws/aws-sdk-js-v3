@@ -40,14 +40,28 @@ export interface GetCrlCommandOutput extends CrlDetailResponse, __MetadataBearer
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RolesAnywhereClient, GetCrlCommand } from "@aws-sdk/client-rolesanywhere"; // ES Modules import
- * // const { RolesAnywhereClient, GetCrlCommand } = require("@aws-sdk/client-rolesanywhere"); // CommonJS import
+ * import { RolesAnywhereClient, GetCrlCommand } from '@aws-sdk/client-rolesanywhere'; // ES Modules import
+ * // const { RolesAnywhereClient, GetCrlCommand } = require('@aws-sdk/client-rolesanywhere'); // CommonJS import
  * const client = new RolesAnywhereClient(config);
  * const input = { // ScalarCrlRequest
- *   crlId: "STRING_VALUE", // required
+ *   crlId: 'STRING_VALUE', // required
  * };
  * const command = new GetCrlCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CrlDetailResponse
+ *   crl: { // CrlDetail
+ *     crlId: 'STRING_VALUE',
+ *     crlArn: 'STRING_VALUE',
+ *     name: 'STRING_VALUE',
+ *     enabled: true || false,
+ *     crlData: 'BLOB_VALUE',
+ *     trustAnchorArn: 'STRING_VALUE',
+ *     createdAt: new Date('TIMESTAMP'),
+ *     updatedAt: new Date('TIMESTAMP'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetCrlCommandInput - {@link GetCrlCommandInput}
@@ -59,6 +73,8 @@ export interface GetCrlCommandOutput extends CrlDetailResponse, __MetadataBearer
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource could not be found.</p>
  *
+ * @throws {@link RolesAnywhereServiceException}
+ * <p>Base exception class for all service exceptions from RolesAnywhere service.</p>
  *
  */
 export class GetCrlCommand extends $Command<

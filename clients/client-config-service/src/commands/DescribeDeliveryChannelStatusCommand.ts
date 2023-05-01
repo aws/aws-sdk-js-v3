@@ -48,16 +48,47 @@ export interface DescribeDeliveryChannelStatusCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConfigServiceClient, DescribeDeliveryChannelStatusCommand } from "@aws-sdk/client-config-service"; // ES Modules import
- * // const { ConfigServiceClient, DescribeDeliveryChannelStatusCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
+ * import { ConfigServiceClient, DescribeDeliveryChannelStatusCommand } from '@aws-sdk/client-config-service'; // ES Modules import
+ * // const { ConfigServiceClient, DescribeDeliveryChannelStatusCommand } = require('@aws-sdk/client-config-service'); // CommonJS import
  * const client = new ConfigServiceClient(config);
  * const input = { // DescribeDeliveryChannelStatusRequest
  *   DeliveryChannelNames: [ // DeliveryChannelNameList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new DescribeDeliveryChannelStatusCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeDeliveryChannelStatusResponse
+ *   DeliveryChannelsStatus: [ // DeliveryChannelStatusList
+ *     { // DeliveryChannelStatus
+ *       name: 'STRING_VALUE',
+ *       configSnapshotDeliveryInfo: { // ConfigExportDeliveryInfo
+ *         lastStatus: 'Success' || 'Failure' || 'Not_Applicable',
+ *         lastErrorCode: 'STRING_VALUE',
+ *         lastErrorMessage: 'STRING_VALUE',
+ *         lastAttemptTime: new Date('TIMESTAMP'),
+ *         lastSuccessfulTime: new Date('TIMESTAMP'),
+ *         nextDeliveryTime: new Date('TIMESTAMP'),
+ *       },
+ *       configHistoryDeliveryInfo: {
+ *         lastStatus: 'Success' || 'Failure' || 'Not_Applicable',
+ *         lastErrorCode: 'STRING_VALUE',
+ *         lastErrorMessage: 'STRING_VALUE',
+ *         lastAttemptTime: new Date('TIMESTAMP'),
+ *         lastSuccessfulTime: new Date('TIMESTAMP'),
+ *         nextDeliveryTime: new Date('TIMESTAMP'),
+ *       },
+ *       configStreamDeliveryInfo: { // ConfigStreamDeliveryInfo
+ *         lastStatus: 'Success' || 'Failure' || 'Not_Applicable',
+ *         lastErrorCode: 'STRING_VALUE',
+ *         lastErrorMessage: 'STRING_VALUE',
+ *         lastStatusChangeTime: new Date('TIMESTAMP'),
+ *       },
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeDeliveryChannelStatusCommandInput - {@link DescribeDeliveryChannelStatusCommandInput}
@@ -70,6 +101,8 @@ export interface DescribeDeliveryChannelStatusCommandOutput
  *  <p>You have specified a delivery channel that does not
  * 			exist.</p>
  *
+ * @throws {@link ConfigServiceServiceException}
+ * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
  */
 export class DescribeDeliveryChannelStatusCommand extends $Command<

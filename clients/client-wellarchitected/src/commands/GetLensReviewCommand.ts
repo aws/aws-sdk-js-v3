@@ -36,16 +36,45 @@ export interface GetLensReviewCommandOutput extends GetLensReviewOutput, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WellArchitectedClient, GetLensReviewCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
- * // const { WellArchitectedClient, GetLensReviewCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
+ * import { WellArchitectedClient, GetLensReviewCommand } from '@aws-sdk/client-wellarchitected'; // ES Modules import
+ * // const { WellArchitectedClient, GetLensReviewCommand } = require('@aws-sdk/client-wellarchitected'); // CommonJS import
  * const client = new WellArchitectedClient(config);
  * const input = { // GetLensReviewInput
- *   WorkloadId: "STRING_VALUE", // required
- *   LensAlias: "STRING_VALUE", // required
- *   MilestoneNumber: Number("int"),
+ *   WorkloadId: 'STRING_VALUE', // required
+ *   LensAlias: 'STRING_VALUE', // required
+ *   MilestoneNumber: Number('int'),
  * };
  * const command = new GetLensReviewCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetLensReviewOutput
+ *   WorkloadId: 'STRING_VALUE',
+ *   MilestoneNumber: Number('int'),
+ *   LensReview: { // LensReview
+ *     LensAlias: 'STRING_VALUE',
+ *     LensArn: 'STRING_VALUE',
+ *     LensVersion: 'STRING_VALUE',
+ *     LensName: 'STRING_VALUE',
+ *     LensStatus: 'CURRENT' || 'NOT_CURRENT' || 'DEPRECATED' || 'DELETED' || 'UNSHARED',
+ *     PillarReviewSummaries: [ // PillarReviewSummaries
+ *       { // PillarReviewSummary
+ *         PillarId: 'STRING_VALUE',
+ *         PillarName: 'STRING_VALUE',
+ *         Notes: 'STRING_VALUE',
+ *         RiskCounts: { // RiskCounts
+ *           '<keys>': Number('int'),
+ *         },
+ *       },
+ *     ],
+ *     UpdatedAt: new Date('TIMESTAMP'),
+ *     Notes: 'STRING_VALUE',
+ *     RiskCounts: {
+ *       '<keys>': Number('int'),
+ *     },
+ *     NextToken: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetLensReviewCommandInput - {@link GetLensReviewCommandInput}
@@ -69,6 +98,8 @@ export interface GetLensReviewCommandOutput extends GetLensReviewOutput, __Metad
  * @throws {@link ValidationException} (client fault)
  *  <p>The user input is not valid.</p>
  *
+ * @throws {@link WellArchitectedServiceException}
+ * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
  */
 export class GetLensReviewCommand extends $Command<

@@ -37,15 +37,26 @@ export interface ListEngineVersionsCommandOutput extends ListEngineVersionsOutpu
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AthenaClient, ListEngineVersionsCommand } from "@aws-sdk/client-athena"; // ES Modules import
- * // const { AthenaClient, ListEngineVersionsCommand } = require("@aws-sdk/client-athena"); // CommonJS import
+ * import { AthenaClient, ListEngineVersionsCommand } from '@aws-sdk/client-athena'; // ES Modules import
+ * // const { AthenaClient, ListEngineVersionsCommand } = require('@aws-sdk/client-athena'); // CommonJS import
  * const client = new AthenaClient(config);
  * const input = { // ListEngineVersionsInput
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListEngineVersionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListEngineVersionsOutput
+ *   EngineVersions: [ // EngineVersionsList
+ *     { // EngineVersion
+ *       SelectedEngineVersion: 'STRING_VALUE',
+ *       EffectiveEngineVersion: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListEngineVersionsCommandInput - {@link ListEngineVersionsCommandInput}
@@ -62,6 +73,8 @@ export interface ListEngineVersionsCommandOutput extends ListEngineVersionsOutpu
  *  <p>Indicates that something is wrong with the input to the request. For example, a
  *             required parameter may be missing or out of range.</p>
  *
+ * @throws {@link AthenaServiceException}
+ * <p>Base exception class for all service exceptions from Athena service.</p>
  *
  */
 export class ListEngineVersionsCommand extends $Command<

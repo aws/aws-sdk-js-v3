@@ -54,29 +54,34 @@ export interface CreateDatasetExportJobCommandOutput extends CreateDatasetExport
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PersonalizeClient, CreateDatasetExportJobCommand } from "@aws-sdk/client-personalize"; // ES Modules import
- * // const { PersonalizeClient, CreateDatasetExportJobCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
+ * import { PersonalizeClient, CreateDatasetExportJobCommand } from '@aws-sdk/client-personalize'; // ES Modules import
+ * // const { PersonalizeClient, CreateDatasetExportJobCommand } = require('@aws-sdk/client-personalize'); // CommonJS import
  * const client = new PersonalizeClient(config);
  * const input = { // CreateDatasetExportJobRequest
- *   jobName: "STRING_VALUE", // required
- *   datasetArn: "STRING_VALUE", // required
- *   ingestionMode: "BULK" || "PUT" || "ALL",
- *   roleArn: "STRING_VALUE", // required
+ *   jobName: 'STRING_VALUE', // required
+ *   datasetArn: 'STRING_VALUE', // required
+ *   ingestionMode: 'BULK' || 'PUT' || 'ALL',
+ *   roleArn: 'STRING_VALUE', // required
  *   jobOutput: { // DatasetExportJobOutput
  *     s3DataDestination: { // S3DataConfig
- *       path: "STRING_VALUE", // required
- *       kmsKeyArn: "STRING_VALUE",
+ *       path: 'STRING_VALUE', // required
+ *       kmsKeyArn: 'STRING_VALUE',
  *     },
  *   },
  *   tags: [ // Tags
  *     { // Tag
- *       tagKey: "STRING_VALUE", // required
- *       tagValue: "STRING_VALUE", // required
+ *       tagKey: 'STRING_VALUE', // required
+ *       tagValue: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreateDatasetExportJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateDatasetExportJobResponse
+ *   datasetExportJobArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateDatasetExportJobCommandInput - {@link CreateDatasetExportJobCommandInput}
@@ -103,6 +108,8 @@ export interface CreateDatasetExportJobCommandOutput extends CreateDatasetExport
  * @throws {@link TooManyTagsException} (client fault)
  *  <p>You have exceeded the maximum number of tags you can apply to this resource. </p>
  *
+ * @throws {@link PersonalizeServiceException}
+ * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
  */
 export class CreateDatasetExportJobCommand extends $Command<

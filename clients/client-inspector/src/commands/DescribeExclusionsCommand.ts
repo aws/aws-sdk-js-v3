@@ -36,17 +36,47 @@ export interface DescribeExclusionsCommandOutput extends DescribeExclusionsRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { InspectorClient, DescribeExclusionsCommand } from "@aws-sdk/client-inspector"; // ES Modules import
- * // const { InspectorClient, DescribeExclusionsCommand } = require("@aws-sdk/client-inspector"); // CommonJS import
+ * import { InspectorClient, DescribeExclusionsCommand } from '@aws-sdk/client-inspector'; // ES Modules import
+ * // const { InspectorClient, DescribeExclusionsCommand } = require('@aws-sdk/client-inspector'); // CommonJS import
  * const client = new InspectorClient(config);
  * const input = { // DescribeExclusionsRequest
  *   exclusionArns: [ // BatchDescribeExclusionsArnList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   locale: "STRING_VALUE",
+ *   locale: 'STRING_VALUE',
  * };
  * const command = new DescribeExclusionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeExclusionsResponse
+ *   exclusions: { // ExclusionMap // required
+ *     '<keys>': { // Exclusion
+ *       arn: 'STRING_VALUE', // required
+ *       title: 'STRING_VALUE', // required
+ *       description: 'STRING_VALUE', // required
+ *       recommendation: 'STRING_VALUE', // required
+ *       scopes: [ // ScopeList // required
+ *         { // Scope
+ *           key: 'STRING_VALUE',
+ *           value: 'STRING_VALUE',
+ *         },
+ *       ],
+ *       attributes: [ // AttributeList
+ *         { // Attribute
+ *           key: 'STRING_VALUE', // required
+ *           value: 'STRING_VALUE',
+ *         },
+ *       ],
+ *     },
+ *   },
+ *   failedItems: { // FailedItems // required
+ *     '<keys>': { // FailedItemDetails
+ *       failureCode: 'STRING_VALUE', // required
+ *       retryable: true || false, // required
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeExclusionsCommandInput - {@link DescribeExclusionsCommandInput}
@@ -62,6 +92,8 @@ export interface DescribeExclusionsCommandOutput extends DescribeExclusionsRespo
  *  <p>The request was rejected because an invalid or out-of-range value was supplied for an
  *          input parameter.</p>
  *
+ * @throws {@link InspectorServiceException}
+ * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
  */
 export class DescribeExclusionsCommand extends $Command<

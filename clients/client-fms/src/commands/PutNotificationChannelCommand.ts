@@ -39,15 +39,18 @@ export interface PutNotificationChannelCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FMSClient, PutNotificationChannelCommand } from "@aws-sdk/client-fms"; // ES Modules import
- * // const { FMSClient, PutNotificationChannelCommand } = require("@aws-sdk/client-fms"); // CommonJS import
+ * import { FMSClient, PutNotificationChannelCommand } from '@aws-sdk/client-fms'; // ES Modules import
+ * // const { FMSClient, PutNotificationChannelCommand } = require('@aws-sdk/client-fms'); // CommonJS import
  * const client = new FMSClient(config);
  * const input = { // PutNotificationChannelRequest
- *   SnsTopicArn: "STRING_VALUE", // required
- *   SnsRoleName: "STRING_VALUE", // required
+ *   SnsTopicArn: 'STRING_VALUE', // required
+ *   SnsRoleName: 'STRING_VALUE', // required
  * };
  * const command = new PutNotificationChannelCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutNotificationChannelCommandInput - {@link PutNotificationChannelCommandInput}
@@ -70,6 +73,8 @@ export interface PutNotificationChannelCommandOutput extends __MetadataBearer {}
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link FMSServiceException}
+ * <p>Base exception class for all service exceptions from FMS service.</p>
  *
  */
 export class PutNotificationChannelCommand extends $Command<

@@ -38,15 +38,18 @@ export interface DeleteFleetMetricCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTClient, DeleteFleetMetricCommand } from "@aws-sdk/client-iot"; // ES Modules import
- * // const { IoTClient, DeleteFleetMetricCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * import { IoTClient, DeleteFleetMetricCommand } from '@aws-sdk/client-iot'; // ES Modules import
+ * // const { IoTClient, DeleteFleetMetricCommand } = require('@aws-sdk/client-iot'); // CommonJS import
  * const client = new IoTClient(config);
  * const input = { // DeleteFleetMetricRequest
- *   metricName: "STRING_VALUE", // required
- *   expectedVersion: Number("long"),
+ *   metricName: 'STRING_VALUE', // required
+ *   expectedVersion: Number('long'),
  * };
  * const command = new DeleteFleetMetricCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteFleetMetricCommandInput - {@link DeleteFleetMetricCommandInput}
@@ -75,6 +78,8 @@ export interface DeleteFleetMetricCommandOutput extends __MetadataBearer {}
  *             <code>expectedVersion</code> parameter does not match the latest version in the
  *          system.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class DeleteFleetMetricCommand extends $Command<

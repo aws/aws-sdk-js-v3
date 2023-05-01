@@ -38,12 +38,33 @@ export interface DescribeAccountAttributesCommandOutput extends DescribeAccountA
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElasticBeanstalkClient, DescribeAccountAttributesCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
- * // const { ElasticBeanstalkClient, DescribeAccountAttributesCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
+ * import { ElasticBeanstalkClient, DescribeAccountAttributesCommand } from '@aws-sdk/client-elastic-beanstalk'; // ES Modules import
+ * // const { ElasticBeanstalkClient, DescribeAccountAttributesCommand } = require('@aws-sdk/client-elastic-beanstalk'); // CommonJS import
  * const client = new ElasticBeanstalkClient(config);
  * const input = {};
  * const command = new DescribeAccountAttributesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeAccountAttributesResult
+ *   ResourceQuotas: { // ResourceQuotas
+ *     ApplicationQuota: { // ResourceQuota
+ *       Maximum: Number('int'),
+ *     },
+ *     ApplicationVersionQuota: {
+ *       Maximum: Number('int'),
+ *     },
+ *     EnvironmentQuota: {
+ *       Maximum: Number('int'),
+ *     },
+ *     ConfigurationTemplateQuota: {
+ *       Maximum: Number('int'),
+ *     },
+ *     CustomPlatformQuota: {
+ *       Maximum: Number('int'),
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeAccountAttributesCommandInput - {@link DescribeAccountAttributesCommandInput}
@@ -56,6 +77,8 @@ export interface DescribeAccountAttributesCommandOutput extends DescribeAccountA
  *  <p>The specified account does not have sufficient privileges for one or more AWS
  *       services.</p>
  *
+ * @throws {@link ElasticBeanstalkServiceException}
+ * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
  */
 export class DescribeAccountAttributesCommand extends $Command<

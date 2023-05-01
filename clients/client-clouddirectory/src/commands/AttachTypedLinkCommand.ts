@@ -36,36 +36,64 @@ export interface AttachTypedLinkCommandOutput extends AttachTypedLinkResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudDirectoryClient, AttachTypedLinkCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
- * // const { CloudDirectoryClient, AttachTypedLinkCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
+ * import { CloudDirectoryClient, AttachTypedLinkCommand } from '@aws-sdk/client-clouddirectory'; // ES Modules import
+ * // const { CloudDirectoryClient, AttachTypedLinkCommand } = require('@aws-sdk/client-clouddirectory'); // CommonJS import
  * const client = new CloudDirectoryClient(config);
  * const input = { // AttachTypedLinkRequest
- *   DirectoryArn: "STRING_VALUE", // required
+ *   DirectoryArn: 'STRING_VALUE', // required
  *   SourceObjectReference: { // ObjectReference
- *     Selector: "STRING_VALUE",
+ *     Selector: 'STRING_VALUE',
  *   },
  *   TargetObjectReference: {
- *     Selector: "STRING_VALUE",
+ *     Selector: 'STRING_VALUE',
  *   },
  *   TypedLinkFacet: { // TypedLinkSchemaAndFacetName
- *     SchemaArn: "STRING_VALUE", // required
- *     TypedLinkName: "STRING_VALUE", // required
+ *     SchemaArn: 'STRING_VALUE', // required
+ *     TypedLinkName: 'STRING_VALUE', // required
  *   },
  *   Attributes: [ // AttributeNameAndValueList // required
  *     { // AttributeNameAndValue
- *       AttributeName: "STRING_VALUE", // required
+ *       AttributeName: 'STRING_VALUE', // required
  *       Value: { // TypedAttributeValue Union: only one key present
- *         StringValue: "STRING_VALUE",
- *         BinaryValue: "BLOB_VALUE",
+ *         StringValue: 'STRING_VALUE',
+ *         BinaryValue: 'BLOB_VALUE',
  *         BooleanValue: true || false,
- *         NumberValue: "STRING_VALUE",
- *         DatetimeValue: new Date("TIMESTAMP"),
+ *         NumberValue: 'STRING_VALUE',
+ *         DatetimeValue: new Date('TIMESTAMP'),
  *       },
  *     },
  *   ],
  * };
  * const command = new AttachTypedLinkCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AttachTypedLinkResponse
+ *   TypedLinkSpecifier: { // TypedLinkSpecifier
+ *     TypedLinkFacet: { // TypedLinkSchemaAndFacetName
+ *       SchemaArn: 'STRING_VALUE', // required
+ *       TypedLinkName: 'STRING_VALUE', // required
+ *     },
+ *     SourceObjectReference: { // ObjectReference
+ *       Selector: 'STRING_VALUE',
+ *     },
+ *     TargetObjectReference: {
+ *       Selector: 'STRING_VALUE',
+ *     },
+ *     IdentityAttributeValues: [ // AttributeNameAndValueList // required
+ *       { // AttributeNameAndValue
+ *         AttributeName: 'STRING_VALUE', // required
+ *         Value: { // TypedAttributeValue Union: only one key present
+ *           StringValue: 'STRING_VALUE',
+ *           BinaryValue: 'BLOB_VALUE',
+ *           BooleanValue: true || false,
+ *           NumberValue: 'STRING_VALUE',
+ *           DatetimeValue: new Date('TIMESTAMP'),
+ *         },
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param AttachTypedLinkCommandInput - {@link AttachTypedLinkCommandInput}
@@ -107,6 +135,8 @@ export interface AttachTypedLinkCommandOutput extends AttachTypedLinkResponse, _
  *  <p>Indicates that your request is malformed in some manner. See the exception
  *       message.</p>
  *
+ * @throws {@link CloudDirectoryServiceException}
+ * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
  */
 export class AttachTypedLinkCommand extends $Command<

@@ -38,16 +38,23 @@ export interface PutLifecyclePolicyCommandOutput extends PutLifecyclePolicyRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ECRClient, PutLifecyclePolicyCommand } from "@aws-sdk/client-ecr"; // ES Modules import
- * // const { ECRClient, PutLifecyclePolicyCommand } = require("@aws-sdk/client-ecr"); // CommonJS import
+ * import { ECRClient, PutLifecyclePolicyCommand } from '@aws-sdk/client-ecr'; // ES Modules import
+ * // const { ECRClient, PutLifecyclePolicyCommand } = require('@aws-sdk/client-ecr'); // CommonJS import
  * const client = new ECRClient(config);
  * const input = { // PutLifecyclePolicyRequest
- *   registryId: "STRING_VALUE",
- *   repositoryName: "STRING_VALUE", // required
- *   lifecyclePolicyText: "STRING_VALUE", // required
+ *   registryId: 'STRING_VALUE',
+ *   repositoryName: 'STRING_VALUE', // required
+ *   lifecyclePolicyText: 'STRING_VALUE', // required
  * };
  * const command = new PutLifecyclePolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutLifecyclePolicyResponse
+ *   registryId: 'STRING_VALUE',
+ *   repositoryName: 'STRING_VALUE',
+ *   lifecyclePolicyText: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param PutLifecyclePolicyCommandInput - {@link PutLifecyclePolicyCommandInput}
@@ -67,6 +74,8 @@ export interface PutLifecyclePolicyCommandOutput extends PutLifecyclePolicyRespo
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server-side issue.</p>
  *
+ * @throws {@link ECRServiceException}
+ * <p>Base exception class for all service exceptions from ECR service.</p>
  *
  */
 export class PutLifecyclePolicyCommand extends $Command<

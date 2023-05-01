@@ -37,28 +37,34 @@ export interface CreateSecurityProfileCommandOutput extends CreateSecurityProfil
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, CreateSecurityProfileCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, CreateSecurityProfileCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, CreateSecurityProfileCommand } from '@aws-sdk/client-connect'; // ES Modules import
+ * // const { ConnectClient, CreateSecurityProfileCommand } = require('@aws-sdk/client-connect'); // CommonJS import
  * const client = new ConnectClient(config);
  * const input = { // CreateSecurityProfileRequest
- *   SecurityProfileName: "STRING_VALUE", // required
- *   Description: "STRING_VALUE",
+ *   SecurityProfileName: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE',
  *   Permissions: [ // PermissionsList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   InstanceId: "STRING_VALUE", // required
+ *   InstanceId: 'STRING_VALUE', // required
  *   Tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  *   AllowedAccessControlTags: { // AllowedAccessControlTags
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  *   TagRestrictedResources: [ // TagRestrictedResourceList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new CreateSecurityProfileCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateSecurityProfileResponse
+ *   SecurityProfileId: 'STRING_VALUE',
+ *   SecurityProfileArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateSecurityProfileCommandInput - {@link CreateSecurityProfileCommandInput}
@@ -88,6 +94,8 @@ export interface CreateSecurityProfileCommandOutput extends CreateSecurityProfil
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class CreateSecurityProfileCommand extends $Command<

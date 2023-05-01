@@ -36,16 +36,29 @@ export interface ListApplicationVersionsCommandOutput extends ListApplicationVer
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { M2Client, ListApplicationVersionsCommand } from "@aws-sdk/client-m2"; // ES Modules import
- * // const { M2Client, ListApplicationVersionsCommand } = require("@aws-sdk/client-m2"); // CommonJS import
+ * import { M2Client, ListApplicationVersionsCommand } from '@aws-sdk/client-m2'; // ES Modules import
+ * // const { M2Client, ListApplicationVersionsCommand } = require('@aws-sdk/client-m2'); // CommonJS import
  * const client = new M2Client(config);
  * const input = { // ListApplicationVersionsRequest
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
- *   applicationId: "STRING_VALUE", // required
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
+ *   applicationId: 'STRING_VALUE', // required
  * };
  * const command = new ListApplicationVersionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListApplicationVersionsResponse
+ *   applicationVersions: [ // ApplicationVersionSummaryList // required
+ *     { // ApplicationVersionSummary
+ *       applicationVersion: Number('int'), // required
+ *       status: 'STRING_VALUE', // required
+ *       statusReason: 'STRING_VALUE',
+ *       creationTime: new Date('TIMESTAMP'), // required
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListApplicationVersionsCommandInput - {@link ListApplicationVersionsCommandInput}
@@ -69,6 +82,8 @@ export interface ListApplicationVersionsCommandOutput extends ListApplicationVer
  * @throws {@link ValidationException} (client fault)
  *  <p>One or more parameters provided in the request is not valid.</p>
  *
+ * @throws {@link M2ServiceException}
+ * <p>Base exception class for all service exceptions from M2 service.</p>
  *
  */
 export class ListApplicationVersionsCommand extends $Command<

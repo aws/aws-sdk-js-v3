@@ -36,15 +36,43 @@ export interface GetSessionCommandOutput extends GetSessionResponse, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlueClient, GetSessionCommand } from "@aws-sdk/client-glue"; // ES Modules import
- * // const { GlueClient, GetSessionCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * import { GlueClient, GetSessionCommand } from '@aws-sdk/client-glue'; // ES Modules import
+ * // const { GlueClient, GetSessionCommand } = require('@aws-sdk/client-glue'); // CommonJS import
  * const client = new GlueClient(config);
  * const input = { // GetSessionRequest
- *   Id: "STRING_VALUE", // required
- *   RequestOrigin: "STRING_VALUE",
+ *   Id: 'STRING_VALUE', // required
+ *   RequestOrigin: 'STRING_VALUE',
  * };
  * const command = new GetSessionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetSessionResponse
+ *   Session: { // Session
+ *     Id: 'STRING_VALUE',
+ *     CreatedOn: new Date('TIMESTAMP'),
+ *     Status: 'PROVISIONING' || 'READY' || 'FAILED' || 'TIMEOUT' || 'STOPPING' || 'STOPPED',
+ *     ErrorMessage: 'STRING_VALUE',
+ *     Description: 'STRING_VALUE',
+ *     Role: 'STRING_VALUE',
+ *     Command: { // SessionCommand
+ *       Name: 'STRING_VALUE',
+ *       PythonVersion: 'STRING_VALUE',
+ *     },
+ *     DefaultArguments: { // OrchestrationArgumentsMap
+ *       '<keys>': 'STRING_VALUE',
+ *     },
+ *     Connections: { // ConnectionsList
+ *       Connections: [ // OrchestrationStringList
+ *         'STRING_VALUE',
+ *       ],
+ *     },
+ *     Progress: Number('double'),
+ *     MaxCapacity: Number('double'),
+ *     SecurityConfiguration: 'STRING_VALUE',
+ *     GlueVersion: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetSessionCommandInput - {@link GetSessionCommandInput}
@@ -68,6 +96,8 @@ export interface GetSessionCommandOutput extends GetSessionResponse, __MetadataB
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class GetSessionCommand extends $Command<

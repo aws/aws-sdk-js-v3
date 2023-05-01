@@ -38,15 +38,46 @@ export interface GetServiceQuotaCommandOutput extends GetServiceQuotaResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ServiceQuotasClient, GetServiceQuotaCommand } from "@aws-sdk/client-service-quotas"; // ES Modules import
- * // const { ServiceQuotasClient, GetServiceQuotaCommand } = require("@aws-sdk/client-service-quotas"); // CommonJS import
+ * import { ServiceQuotasClient, GetServiceQuotaCommand } from '@aws-sdk/client-service-quotas'; // ES Modules import
+ * // const { ServiceQuotasClient, GetServiceQuotaCommand } = require('@aws-sdk/client-service-quotas'); // CommonJS import
  * const client = new ServiceQuotasClient(config);
  * const input = { // GetServiceQuotaRequest
- *   ServiceCode: "STRING_VALUE", // required
- *   QuotaCode: "STRING_VALUE", // required
+ *   ServiceCode: 'STRING_VALUE', // required
+ *   QuotaCode: 'STRING_VALUE', // required
  * };
  * const command = new GetServiceQuotaCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetServiceQuotaResponse
+ *   Quota: { // ServiceQuota
+ *     ServiceCode: 'STRING_VALUE',
+ *     ServiceName: 'STRING_VALUE',
+ *     QuotaArn: 'STRING_VALUE',
+ *     QuotaCode: 'STRING_VALUE',
+ *     QuotaName: 'STRING_VALUE',
+ *     Value: Number('double'),
+ *     Unit: 'STRING_VALUE',
+ *     Adjustable: true || false,
+ *     GlobalQuota: true || false,
+ *     UsageMetric: { // MetricInfo
+ *       MetricNamespace: 'STRING_VALUE',
+ *       MetricName: 'STRING_VALUE',
+ *       MetricDimensions: { // MetricDimensionsMapDefinition
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *       MetricStatisticRecommendation: 'STRING_VALUE',
+ *     },
+ *     Period: { // QuotaPeriod
+ *       PeriodValue: Number('int'),
+ *       PeriodUnit: 'STRING_VALUE',
+ *     },
+ *     ErrorReason: { // ErrorReason
+ *       ErrorCode: 'STRING_VALUE',
+ *       ErrorMessage: 'STRING_VALUE',
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetServiceQuotaCommandInput - {@link GetServiceQuotaCommandInput}
@@ -71,6 +102,8 @@ export interface GetServiceQuotaCommandOutput extends GetServiceQuotaResponse, _
  *  <p>Due to throttling, the request was denied. Slow down the rate of request calls, or request
  *       an increase for this quota.</p>
  *
+ * @throws {@link ServiceQuotasServiceException}
+ * <p>Base exception class for all service exceptions from ServiceQuotas service.</p>
  *
  */
 export class GetServiceQuotaCommand extends $Command<

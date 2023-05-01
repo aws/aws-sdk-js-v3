@@ -56,37 +56,40 @@ export interface UpdateConfigurationSetEventDestinationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SESClient, UpdateConfigurationSetEventDestinationCommand } from "@aws-sdk/client-ses"; // ES Modules import
- * // const { SESClient, UpdateConfigurationSetEventDestinationCommand } = require("@aws-sdk/client-ses"); // CommonJS import
+ * import { SESClient, UpdateConfigurationSetEventDestinationCommand } from '@aws-sdk/client-ses'; // ES Modules import
+ * // const { SESClient, UpdateConfigurationSetEventDestinationCommand } = require('@aws-sdk/client-ses'); // CommonJS import
  * const client = new SESClient(config);
  * const input = { // UpdateConfigurationSetEventDestinationRequest
- *   ConfigurationSetName: "STRING_VALUE", // required
+ *   ConfigurationSetName: 'STRING_VALUE', // required
  *   EventDestination: { // EventDestination
- *     Name: "STRING_VALUE", // required
+ *     Name: 'STRING_VALUE', // required
  *     Enabled: true || false,
  *     MatchingEventTypes: [ // EventTypes // required
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     KinesisFirehoseDestination: { // KinesisFirehoseDestination
- *       IAMRoleARN: "STRING_VALUE", // required
- *       DeliveryStreamARN: "STRING_VALUE", // required
+ *       IAMRoleARN: 'STRING_VALUE', // required
+ *       DeliveryStreamARN: 'STRING_VALUE', // required
  *     },
  *     CloudWatchDestination: { // CloudWatchDestination
  *       DimensionConfigurations: [ // CloudWatchDimensionConfigurations // required
  *         { // CloudWatchDimensionConfiguration
- *           DimensionName: "STRING_VALUE", // required
- *           DimensionValueSource: "STRING_VALUE", // required
- *           DefaultDimensionValue: "STRING_VALUE", // required
+ *           DimensionName: 'STRING_VALUE', // required
+ *           DimensionValueSource: 'STRING_VALUE', // required
+ *           DefaultDimensionValue: 'STRING_VALUE', // required
  *         },
  *       ],
  *     },
  *     SNSDestination: { // SNSDestination
- *       TopicARN: "STRING_VALUE", // required
+ *       TopicARN: 'STRING_VALUE', // required
  *     },
  *   },
  * };
  * const command = new UpdateConfigurationSetEventDestinationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateConfigurationSetEventDestinationCommandInput - {@link UpdateConfigurationSetEventDestinationCommandInput}
@@ -113,6 +116,8 @@ export interface UpdateConfigurationSetEventDestinationCommandOutput
  *  <p>Indicates that the Amazon Simple Notification Service (Amazon SNS) destination is
  *             invalid. See the error message for details.</p>
  *
+ * @throws {@link SESServiceException}
+ * <p>Base exception class for all service exceptions from SES service.</p>
  *
  */
 export class UpdateConfigurationSetEventDestinationCommand extends $Command<

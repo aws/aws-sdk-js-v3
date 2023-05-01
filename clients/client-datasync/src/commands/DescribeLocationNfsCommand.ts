@@ -36,14 +36,29 @@ export interface DescribeLocationNfsCommandOutput extends DescribeLocationNfsRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DataSyncClient, DescribeLocationNfsCommand } from "@aws-sdk/client-datasync"; // ES Modules import
- * // const { DataSyncClient, DescribeLocationNfsCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
+ * import { DataSyncClient, DescribeLocationNfsCommand } from '@aws-sdk/client-datasync'; // ES Modules import
+ * // const { DataSyncClient, DescribeLocationNfsCommand } = require('@aws-sdk/client-datasync'); // CommonJS import
  * const client = new DataSyncClient(config);
  * const input = { // DescribeLocationNfsRequest
- *   LocationArn: "STRING_VALUE", // required
+ *   LocationArn: 'STRING_VALUE', // required
  * };
  * const command = new DescribeLocationNfsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeLocationNfsResponse
+ *   LocationArn: 'STRING_VALUE',
+ *   LocationUri: 'STRING_VALUE',
+ *   OnPremConfig: { // OnPremConfig
+ *     AgentArns: [ // AgentArnList // required
+ *       'STRING_VALUE',
+ *     ],
+ *   },
+ *   MountOptions: { // NfsMountOptions
+ *     Version: 'AUTOMATIC' || 'NFS3' || 'NFS4_0' || 'NFS4_1',
+ *   },
+ *   CreationTime: new Date('TIMESTAMP'),
+ * };
+ *
  * ```
  *
  * @param DescribeLocationNfsCommandInput - {@link DescribeLocationNfsCommandInput}
@@ -59,6 +74,8 @@ export interface DescribeLocationNfsCommandOutput extends DescribeLocationNfsRes
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception is thrown when the client submits a malformed request.</p>
  *
+ * @throws {@link DataSyncServiceException}
+ * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
  */
 export class DescribeLocationNfsCommand extends $Command<

@@ -40,16 +40,23 @@ export interface ImportSshPublicKeyCommandOutput extends ImportSshPublicKeyRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { TransferClient, ImportSshPublicKeyCommand } from "@aws-sdk/client-transfer"; // ES Modules import
- * // const { TransferClient, ImportSshPublicKeyCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
+ * import { TransferClient, ImportSshPublicKeyCommand } from '@aws-sdk/client-transfer'; // ES Modules import
+ * // const { TransferClient, ImportSshPublicKeyCommand } = require('@aws-sdk/client-transfer'); // CommonJS import
  * const client = new TransferClient(config);
  * const input = { // ImportSshPublicKeyRequest
- *   ServerId: "STRING_VALUE", // required
- *   SshPublicKeyBody: "STRING_VALUE", // required
- *   UserName: "STRING_VALUE", // required
+ *   ServerId: 'STRING_VALUE', // required
+ *   SshPublicKeyBody: 'STRING_VALUE', // required
+ *   UserName: 'STRING_VALUE', // required
  * };
  * const command = new ImportSshPublicKeyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ImportSshPublicKeyResponse
+ *   ServerId: 'STRING_VALUE', // required
+ *   SshPublicKeyId: 'STRING_VALUE', // required
+ *   UserName: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param ImportSshPublicKeyCommandInput - {@link ImportSshPublicKeyCommandInput}
@@ -77,6 +84,8 @@ export interface ImportSshPublicKeyCommandOutput extends ImportSshPublicKeyRespo
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
  *
+ * @throws {@link TransferServiceException}
+ * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
  */
 export class ImportSshPublicKeyCommand extends $Command<

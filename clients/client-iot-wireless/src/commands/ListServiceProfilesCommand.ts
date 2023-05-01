@@ -36,15 +36,27 @@ export interface ListServiceProfilesCommandOutput extends ListServiceProfilesRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTWirelessClient, ListServiceProfilesCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
- * // const { IoTWirelessClient, ListServiceProfilesCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
+ * import { IoTWirelessClient, ListServiceProfilesCommand } from '@aws-sdk/client-iot-wireless'; // ES Modules import
+ * // const { IoTWirelessClient, ListServiceProfilesCommand } = require('@aws-sdk/client-iot-wireless'); // CommonJS import
  * const client = new IoTWirelessClient(config);
  * const input = { // ListServiceProfilesRequest
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListServiceProfilesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListServiceProfilesResponse
+ *   NextToken: 'STRING_VALUE',
+ *   ServiceProfileList: [ // ServiceProfileList
+ *     { // ServiceProfile
+ *       Arn: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *       Id: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListServiceProfilesCommandInput - {@link ListServiceProfilesCommandInput}
@@ -65,6 +77,8 @@ export interface ListServiceProfilesCommandOutput extends ListServiceProfilesRes
  * @throws {@link ValidationException} (client fault)
  *  <p>The input did not meet the specified constraints.</p>
  *
+ * @throws {@link IoTWirelessServiceException}
+ * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
  */
 export class ListServiceProfilesCommand extends $Command<

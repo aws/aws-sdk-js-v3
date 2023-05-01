@@ -62,27 +62,27 @@ export interface CreateAccessPointForObjectLambdaCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { S3ControlClient, CreateAccessPointForObjectLambdaCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
- * // const { S3ControlClient, CreateAccessPointForObjectLambdaCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
+ * import { S3ControlClient, CreateAccessPointForObjectLambdaCommand } from '@aws-sdk/client-s3-control'; // ES Modules import
+ * // const { S3ControlClient, CreateAccessPointForObjectLambdaCommand } = require('@aws-sdk/client-s3-control'); // CommonJS import
  * const client = new S3ControlClient(config);
  * const input = { // CreateAccessPointForObjectLambdaRequest
- *   AccountId: "STRING_VALUE",
- *   Name: "STRING_VALUE", // required
+ *   AccountId: 'STRING_VALUE',
+ *   Name: 'STRING_VALUE', // required
  *   Configuration: { // ObjectLambdaConfiguration
- *     SupportingAccessPoint: "STRING_VALUE", // required
+ *     SupportingAccessPoint: 'STRING_VALUE', // required
  *     CloudWatchMetricsEnabled: true || false,
  *     AllowedFeatures: [ // ObjectLambdaAllowedFeaturesList
- *       "GetObject-Range" || "GetObject-PartNumber" || "HeadObject-Range" || "HeadObject-PartNumber",
+ *       'GetObject-Range' || 'GetObject-PartNumber' || 'HeadObject-Range' || 'HeadObject-PartNumber',
  *     ],
  *     TransformationConfigurations: [ // ObjectLambdaTransformationConfigurationsList // required
  *       { // ObjectLambdaTransformationConfiguration
  *         Actions: [ // ObjectLambdaTransformationConfigurationActionsList // required
- *           "GetObject" || "HeadObject" || "ListObjects" || "ListObjectsV2",
+ *           'GetObject' || 'HeadObject' || 'ListObjects' || 'ListObjectsV2',
  *         ],
  *         ContentTransformation: { // ObjectLambdaContentTransformation Union: only one key present
  *           AwsLambda: { // AwsLambdaTransformation
- *             FunctionArn: "STRING_VALUE", // required
- *             FunctionPayload: "STRING_VALUE",
+ *             FunctionArn: 'STRING_VALUE', // required
+ *             FunctionPayload: 'STRING_VALUE',
  *           },
  *         },
  *       },
@@ -91,6 +91,15 @@ export interface CreateAccessPointForObjectLambdaCommandOutput
  * };
  * const command = new CreateAccessPointForObjectLambdaCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateAccessPointForObjectLambdaResult
+ *   ObjectLambdaAccessPointArn: 'STRING_VALUE',
+ *   Alias: { // ObjectLambdaAccessPointAlias
+ *     Value: 'STRING_VALUE',
+ *     Status: 'PROVISIONING' || 'READY',
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateAccessPointForObjectLambdaCommandInput - {@link CreateAccessPointForObjectLambdaCommandInput}
@@ -99,6 +108,8 @@ export interface CreateAccessPointForObjectLambdaCommandOutput
  * @see {@link CreateAccessPointForObjectLambdaCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
  *
+ * @throws {@link S3ControlServiceException}
+ * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
  */
 export class CreateAccessPointForObjectLambdaCommand extends $Command<

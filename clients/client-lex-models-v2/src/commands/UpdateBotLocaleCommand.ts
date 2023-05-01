@@ -36,22 +36,45 @@ export interface UpdateBotLocaleCommandOutput extends UpdateBotLocaleResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LexModelsV2Client, UpdateBotLocaleCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
- * // const { LexModelsV2Client, UpdateBotLocaleCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
+ * import { LexModelsV2Client, UpdateBotLocaleCommand } from '@aws-sdk/client-lex-models-v2'; // ES Modules import
+ * // const { LexModelsV2Client, UpdateBotLocaleCommand } = require('@aws-sdk/client-lex-models-v2'); // CommonJS import
  * const client = new LexModelsV2Client(config);
  * const input = { // UpdateBotLocaleRequest
- *   botId: "STRING_VALUE", // required
- *   botVersion: "STRING_VALUE", // required
- *   localeId: "STRING_VALUE", // required
- *   description: "STRING_VALUE",
- *   nluIntentConfidenceThreshold: Number("double"), // required
+ *   botId: 'STRING_VALUE', // required
+ *   botVersion: 'STRING_VALUE', // required
+ *   localeId: 'STRING_VALUE', // required
+ *   description: 'STRING_VALUE',
+ *   nluIntentConfidenceThreshold: Number('double'), // required
  *   voiceSettings: { // VoiceSettings
- *     voiceId: "STRING_VALUE", // required
- *     engine: "standard" || "neural",
+ *     voiceId: 'STRING_VALUE', // required
+ *     engine: 'standard' || 'neural',
  *   },
  * };
  * const command = new UpdateBotLocaleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateBotLocaleResponse
+ *   botId: 'STRING_VALUE',
+ *   botVersion: 'STRING_VALUE',
+ *   localeId: 'STRING_VALUE',
+ *   localeName: 'STRING_VALUE',
+ *   description: 'STRING_VALUE',
+ *   nluIntentConfidenceThreshold: Number('double'),
+ *   voiceSettings: { // VoiceSettings
+ *     voiceId: 'STRING_VALUE', // required
+ *     engine: 'standard' || 'neural',
+ *   },
+ *   botLocaleStatus: 'Creating' || 'Building' || 'Built' || 'ReadyExpressTesting' || 'Failed' || 'Deleting' || 'NotBuilt' || 'Importing' || 'Processing',
+ *   failureReasons: [ // FailureReasons
+ *     'STRING_VALUE',
+ *   ],
+ *   creationDateTime: new Date('TIMESTAMP'),
+ *   lastUpdatedDateTime: new Date('TIMESTAMP'),
+ *   recommendedActions: [ // RecommendedActions
+ *     'STRING_VALUE',
+ *   ],
+ * };
+ *
  * ```
  *
  * @param UpdateBotLocaleCommandInput - {@link UpdateBotLocaleCommandInput}
@@ -85,6 +108,8 @@ export interface UpdateBotLocaleCommandOutput extends UpdateBotLocaleResponse, _
  *  <p>One of the input parameters in your request isn't valid. Check the
  *          parameters and try your request again.</p>
  *
+ * @throws {@link LexModelsV2ServiceException}
+ * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
  */
 export class UpdateBotLocaleCommand extends $Command<

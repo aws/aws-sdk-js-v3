@@ -36,15 +36,28 @@ export interface ListSitesCommandOutput extends ListSitesResponse, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTRoboRunnerClient, ListSitesCommand } from "@aws-sdk/client-iot-roborunner"; // ES Modules import
- * // const { IoTRoboRunnerClient, ListSitesCommand } = require("@aws-sdk/client-iot-roborunner"); // CommonJS import
+ * import { IoTRoboRunnerClient, ListSitesCommand } from '@aws-sdk/client-iot-roborunner'; // ES Modules import
+ * // const { IoTRoboRunnerClient, ListSitesCommand } = require('@aws-sdk/client-iot-roborunner'); // CommonJS import
  * const client = new IoTRoboRunnerClient(config);
  * const input = { // ListSitesRequest
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new ListSitesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListSitesResponse
+ *   nextToken: 'STRING_VALUE',
+ *   sites: [ // Sites
+ *     { // Site
+ *       arn: 'STRING_VALUE', // required
+ *       name: 'STRING_VALUE', // required
+ *       countryCode: 'STRING_VALUE', // required
+ *       createdAt: new Date('TIMESTAMP'), // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListSitesCommandInput - {@link ListSitesCommandInput}
@@ -65,6 +78,8 @@ export interface ListSitesCommandOutput extends ListSitesResponse, __MetadataBea
  * @throws {@link ValidationException} (client fault)
  *  Exception thrown if an invalid parameter is provided to an API.
  *
+ * @throws {@link IoTRoboRunnerServiceException}
+ * <p>Base exception class for all service exceptions from IoTRoboRunner service.</p>
  *
  */
 export class ListSitesCommand extends $Command<

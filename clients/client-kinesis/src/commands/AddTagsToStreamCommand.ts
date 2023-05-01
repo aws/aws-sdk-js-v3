@@ -46,18 +46,21 @@ export interface AddTagsToStreamCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KinesisClient, AddTagsToStreamCommand } from "@aws-sdk/client-kinesis"; // ES Modules import
- * // const { KinesisClient, AddTagsToStreamCommand } = require("@aws-sdk/client-kinesis"); // CommonJS import
+ * import { KinesisClient, AddTagsToStreamCommand } from '@aws-sdk/client-kinesis'; // ES Modules import
+ * // const { KinesisClient, AddTagsToStreamCommand } = require('@aws-sdk/client-kinesis'); // CommonJS import
  * const client = new KinesisClient(config);
  * const input = { // AddTagsToStreamInput
- *   StreamName: "STRING_VALUE",
+ *   StreamName: 'STRING_VALUE',
  *   Tags: { // TagMap // required
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
- *   StreamARN: "STRING_VALUE",
+ *   StreamARN: 'STRING_VALUE',
  * };
  * const command = new AddTagsToStreamCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param AddTagsToStreamCommandInput - {@link AddTagsToStreamCommandInput}
@@ -86,6 +89,8 @@ export interface AddTagsToStreamCommandOutput extends __MetadataBearer {}
  *  <p>The requested resource could not be found. The stream might not be specified
  *             correctly.</p>
  *
+ * @throws {@link KinesisServiceException}
+ * <p>Base exception class for all service exceptions from Kinesis service.</p>
  *
  */
 export class AddTagsToStreamCommand extends $Command<

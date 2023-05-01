@@ -41,19 +41,29 @@ export interface UpdateProvisionedProductPropertiesCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ServiceCatalogClient, UpdateProvisionedProductPropertiesCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
- * // const { ServiceCatalogClient, UpdateProvisionedProductPropertiesCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
+ * import { ServiceCatalogClient, UpdateProvisionedProductPropertiesCommand } from '@aws-sdk/client-service-catalog'; // ES Modules import
+ * // const { ServiceCatalogClient, UpdateProvisionedProductPropertiesCommand } = require('@aws-sdk/client-service-catalog'); // CommonJS import
  * const client = new ServiceCatalogClient(config);
  * const input = { // UpdateProvisionedProductPropertiesInput
- *   AcceptLanguage: "STRING_VALUE",
- *   ProvisionedProductId: "STRING_VALUE", // required
+ *   AcceptLanguage: 'STRING_VALUE',
+ *   ProvisionedProductId: 'STRING_VALUE', // required
  *   ProvisionedProductProperties: { // ProvisionedProductProperties // required
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
- *   IdempotencyToken: "STRING_VALUE", // required
+ *   IdempotencyToken: 'STRING_VALUE', // required
  * };
  * const command = new UpdateProvisionedProductPropertiesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateProvisionedProductPropertiesOutput
+ *   ProvisionedProductId: 'STRING_VALUE',
+ *   ProvisionedProductProperties: { // ProvisionedProductProperties
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ *   RecordId: 'STRING_VALUE',
+ *   Status: 'CREATED' || 'IN_PROGRESS' || 'IN_PROGRESS_IN_ERROR' || 'SUCCEEDED' || 'FAILED',
+ * };
+ *
  * ```
  *
  * @param UpdateProvisionedProductPropertiesCommandInput - {@link UpdateProvisionedProductPropertiesCommandInput}
@@ -72,6 +82,8 @@ export interface UpdateProvisionedProductPropertiesCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link ServiceCatalogServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
  */
 export class UpdateProvisionedProductPropertiesCommand extends $Command<

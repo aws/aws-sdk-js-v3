@@ -45,14 +45,29 @@ export interface GetRecommendationReportDetailsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MigrationHubStrategyClient, GetRecommendationReportDetailsCommand } from "@aws-sdk/client-migrationhubstrategy"; // ES Modules import
- * // const { MigrationHubStrategyClient, GetRecommendationReportDetailsCommand } = require("@aws-sdk/client-migrationhubstrategy"); // CommonJS import
+ * import { MigrationHubStrategyClient, GetRecommendationReportDetailsCommand } from '@aws-sdk/client-migrationhubstrategy'; // ES Modules import
+ * // const { MigrationHubStrategyClient, GetRecommendationReportDetailsCommand } = require('@aws-sdk/client-migrationhubstrategy'); // CommonJS import
  * const client = new MigrationHubStrategyClient(config);
  * const input = { // GetRecommendationReportDetailsRequest
- *   id: "STRING_VALUE", // required
+ *   id: 'STRING_VALUE', // required
  * };
  * const command = new GetRecommendationReportDetailsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetRecommendationReportDetailsResponse
+ *   id: 'STRING_VALUE',
+ *   recommendationReportDetails: { // RecommendationReportDetails
+ *     status: 'STRING_VALUE',
+ *     statusMessage: 'STRING_VALUE',
+ *     startTime: new Date('TIMESTAMP'),
+ *     completionTime: new Date('TIMESTAMP'),
+ *     s3Bucket: 'STRING_VALUE',
+ *     s3Keys: [ // S3Keys
+ *       'STRING_VALUE',
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetRecommendationReportDetailsCommandInput - {@link GetRecommendationReportDetailsCommandInput}
@@ -77,6 +92,8 @@ export interface GetRecommendationReportDetailsCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p> The request body isn't valid. </p>
  *
+ * @throws {@link MigrationHubStrategyServiceException}
+ * <p>Base exception class for all service exceptions from MigrationHubStrategy service.</p>
  *
  */
 export class GetRecommendationReportDetailsCommand extends $Command<

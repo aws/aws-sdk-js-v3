@@ -122,21 +122,38 @@ export interface CreateReplicationConfigurationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EFSClient, CreateReplicationConfigurationCommand } from "@aws-sdk/client-efs"; // ES Modules import
- * // const { EFSClient, CreateReplicationConfigurationCommand } = require("@aws-sdk/client-efs"); // CommonJS import
+ * import { EFSClient, CreateReplicationConfigurationCommand } from '@aws-sdk/client-efs'; // ES Modules import
+ * // const { EFSClient, CreateReplicationConfigurationCommand } = require('@aws-sdk/client-efs'); // CommonJS import
  * const client = new EFSClient(config);
  * const input = { // CreateReplicationConfigurationRequest
- *   SourceFileSystemId: "STRING_VALUE", // required
+ *   SourceFileSystemId: 'STRING_VALUE', // required
  *   Destinations: [ // DestinationsToCreate // required
  *     { // DestinationToCreate
- *       Region: "STRING_VALUE",
- *       AvailabilityZoneName: "STRING_VALUE",
- *       KmsKeyId: "STRING_VALUE",
+ *       Region: 'STRING_VALUE',
+ *       AvailabilityZoneName: 'STRING_VALUE',
+ *       KmsKeyId: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new CreateReplicationConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ReplicationConfigurationDescription
+ *   SourceFileSystemId: 'STRING_VALUE', // required
+ *   SourceFileSystemRegion: 'STRING_VALUE', // required
+ *   SourceFileSystemArn: 'STRING_VALUE', // required
+ *   OriginalSourceFileSystemArn: 'STRING_VALUE', // required
+ *   CreationTime: new Date('TIMESTAMP'), // required
+ *   Destinations: [ // Destinations // required
+ *     { // Destination
+ *       Status: 'ENABLED' || 'ENABLING' || 'DELETING' || 'ERROR' || 'PAUSED' || 'PAUSING', // required
+ *       FileSystemId: 'STRING_VALUE', // required
+ *       Region: 'STRING_VALUE', // required
+ *       LastReplicatedTimestamp: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param CreateReplicationConfigurationCommandInput - {@link CreateReplicationConfigurationCommandInput}
@@ -184,6 +201,8 @@ export interface CreateReplicationConfigurationCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>Returned if the Backup service is not available in the Amazon Web Services Region in which the request was made.</p>
  *
+ * @throws {@link EFSServiceException}
+ * <p>Base exception class for all service exceptions from EFS service.</p>
  *
  */
 export class CreateReplicationConfigurationCommand extends $Command<

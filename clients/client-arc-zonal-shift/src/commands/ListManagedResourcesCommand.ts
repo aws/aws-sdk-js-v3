@@ -38,15 +38,29 @@ export interface ListManagedResourcesCommandOutput extends ListManagedResourcesR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ARCZonalShiftClient, ListManagedResourcesCommand } from "@aws-sdk/client-arc-zonal-shift"; // ES Modules import
- * // const { ARCZonalShiftClient, ListManagedResourcesCommand } = require("@aws-sdk/client-arc-zonal-shift"); // CommonJS import
+ * import { ARCZonalShiftClient, ListManagedResourcesCommand } from '@aws-sdk/client-arc-zonal-shift'; // ES Modules import
+ * // const { ARCZonalShiftClient, ListManagedResourcesCommand } = require('@aws-sdk/client-arc-zonal-shift'); // CommonJS import
  * const client = new ARCZonalShiftClient(config);
  * const input = { // ListManagedResourcesRequest
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new ListManagedResourcesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListManagedResourcesResponse
+ *   items: [ // ManagedResourceSummaries // required
+ *     { // ManagedResourceSummary
+ *       arn: 'STRING_VALUE',
+ *       name: 'STRING_VALUE',
+ *       availabilityZones: [ // AvailabilityZones // required
+ *         'STRING_VALUE',
+ *       ],
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListManagedResourcesCommandInput - {@link ListManagedResourcesCommandInput}
@@ -67,6 +81,8 @@ export interface ListManagedResourcesCommandOutput extends ListManagedResourcesR
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link ARCZonalShiftServiceException}
+ * <p>Base exception class for all service exceptions from ARCZonalShift service.</p>
  *
  */
 export class ListManagedResourcesCommand extends $Command<

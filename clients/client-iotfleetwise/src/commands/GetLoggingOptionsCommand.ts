@@ -36,12 +36,20 @@ export interface GetLoggingOptionsCommandOutput extends GetLoggingOptionsRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTFleetWiseClient, GetLoggingOptionsCommand } from "@aws-sdk/client-iotfleetwise"; // ES Modules import
- * // const { IoTFleetWiseClient, GetLoggingOptionsCommand } = require("@aws-sdk/client-iotfleetwise"); // CommonJS import
+ * import { IoTFleetWiseClient, GetLoggingOptionsCommand } from '@aws-sdk/client-iotfleetwise'; // ES Modules import
+ * // const { IoTFleetWiseClient, GetLoggingOptionsCommand } = require('@aws-sdk/client-iotfleetwise'); // CommonJS import
  * const client = new IoTFleetWiseClient(config);
  * const input = {};
  * const command = new GetLoggingOptionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetLoggingOptionsResponse
+ *   cloudWatchLogDelivery: { // CloudWatchLogDeliveryOptions
+ *     logType: 'STRING_VALUE', // required
+ *     logGroupName: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetLoggingOptionsCommandInput - {@link GetLoggingOptionsCommandInput}
@@ -59,6 +67,8 @@ export interface GetLoggingOptionsCommandOutput extends GetLoggingOptionsRespons
  * @throws {@link InternalServerException} (server fault)
  *  <p>The request couldn't be completed because the server temporarily failed.</p>
  *
+ * @throws {@link IoTFleetWiseServiceException}
+ * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
  */
 export class GetLoggingOptionsCommand extends $Command<

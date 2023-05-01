@@ -61,21 +61,24 @@ export interface CreateSlackChannelConfigurationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SupportAppClient, CreateSlackChannelConfigurationCommand } from "@aws-sdk/client-support-app"; // ES Modules import
- * // const { SupportAppClient, CreateSlackChannelConfigurationCommand } = require("@aws-sdk/client-support-app"); // CommonJS import
+ * import { SupportAppClient, CreateSlackChannelConfigurationCommand } from '@aws-sdk/client-support-app'; // ES Modules import
+ * // const { SupportAppClient, CreateSlackChannelConfigurationCommand } = require('@aws-sdk/client-support-app'); // CommonJS import
  * const client = new SupportAppClient(config);
  * const input = { // CreateSlackChannelConfigurationRequest
- *   teamId: "STRING_VALUE", // required
- *   channelId: "STRING_VALUE", // required
- *   channelName: "STRING_VALUE",
+ *   teamId: 'STRING_VALUE', // required
+ *   channelId: 'STRING_VALUE', // required
+ *   channelName: 'STRING_VALUE',
  *   notifyOnCreateOrReopenCase: true || false,
  *   notifyOnAddCorrespondenceToCase: true || false,
  *   notifyOnResolveCase: true || false,
- *   notifyOnCaseSeverity: "STRING_VALUE", // required
- *   channelRoleArn: "STRING_VALUE", // required
+ *   notifyOnCaseSeverity: 'STRING_VALUE', // required
+ *   channelRoleArn: 'STRING_VALUE', // required
  * };
  * const command = new CreateSlackChannelConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param CreateSlackChannelConfigurationCommandInput - {@link CreateSlackChannelConfigurationCommandInput}
@@ -127,6 +130,8 @@ export interface CreateSlackChannelConfigurationCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>Your request input doesn't meet the constraints that the Amazon Web Services Support App specifies.</p>
  *
+ * @throws {@link SupportAppServiceException}
+ * <p>Base exception class for all service exceptions from SupportApp service.</p>
  *
  */
 export class CreateSlackChannelConfigurationCommand extends $Command<

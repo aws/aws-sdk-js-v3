@@ -37,81 +37,88 @@ export interface CreateConfigCommandOutput extends ConfigIdResponse, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GroundStationClient, CreateConfigCommand } from "@aws-sdk/client-groundstation"; // ES Modules import
- * // const { GroundStationClient, CreateConfigCommand } = require("@aws-sdk/client-groundstation"); // CommonJS import
+ * import { GroundStationClient, CreateConfigCommand } from '@aws-sdk/client-groundstation'; // ES Modules import
+ * // const { GroundStationClient, CreateConfigCommand } = require('@aws-sdk/client-groundstation'); // CommonJS import
  * const client = new GroundStationClient(config);
  * const input = { // CreateConfigRequest
- *   name: "STRING_VALUE", // required
+ *   name: 'STRING_VALUE', // required
  *   configData: { // ConfigTypeData Union: only one key present
  *     antennaDownlinkConfig: { // AntennaDownlinkConfig
  *       spectrumConfig: { // SpectrumConfig
  *         centerFrequency: { // Frequency
- *           value: Number("double"), // required
- *           units: "STRING_VALUE", // required
+ *           value: Number('double'), // required
+ *           units: 'STRING_VALUE', // required
  *         },
  *         bandwidth: { // FrequencyBandwidth
- *           value: Number("double"), // required
- *           units: "STRING_VALUE", // required
+ *           value: Number('double'), // required
+ *           units: 'STRING_VALUE', // required
  *         },
- *         polarization: "STRING_VALUE",
+ *         polarization: 'STRING_VALUE',
  *       },
  *     },
  *     trackingConfig: { // TrackingConfig
- *       autotrack: "STRING_VALUE", // required
+ *       autotrack: 'STRING_VALUE', // required
  *     },
  *     dataflowEndpointConfig: { // DataflowEndpointConfig
- *       dataflowEndpointName: "STRING_VALUE", // required
- *       dataflowEndpointRegion: "STRING_VALUE",
+ *       dataflowEndpointName: 'STRING_VALUE', // required
+ *       dataflowEndpointRegion: 'STRING_VALUE',
  *     },
  *     antennaDownlinkDemodDecodeConfig: { // AntennaDownlinkDemodDecodeConfig
  *       spectrumConfig: {
  *         centerFrequency: {
- *           value: Number("double"), // required
- *           units: "STRING_VALUE", // required
+ *           value: Number('double'), // required
+ *           units: 'STRING_VALUE', // required
  *         },
  *         bandwidth: {
- *           value: Number("double"), // required
- *           units: "STRING_VALUE", // required
+ *           value: Number('double'), // required
+ *           units: 'STRING_VALUE', // required
  *         },
- *         polarization: "STRING_VALUE",
+ *         polarization: 'STRING_VALUE',
  *       },
  *       demodulationConfig: { // DemodulationConfig
- *         unvalidatedJSON: "STRING_VALUE", // required
+ *         unvalidatedJSON: 'STRING_VALUE', // required
  *       },
  *       decodeConfig: { // DecodeConfig
- *         unvalidatedJSON: "STRING_VALUE", // required
+ *         unvalidatedJSON: 'STRING_VALUE', // required
  *       },
  *     },
  *     antennaUplinkConfig: { // AntennaUplinkConfig
  *       transmitDisabled: true || false,
  *       spectrumConfig: { // UplinkSpectrumConfig
  *         centerFrequency: {
- *           value: Number("double"), // required
- *           units: "STRING_VALUE", // required
+ *           value: Number('double'), // required
+ *           units: 'STRING_VALUE', // required
  *         },
- *         polarization: "STRING_VALUE",
+ *         polarization: 'STRING_VALUE',
  *       },
  *       targetEirp: { // Eirp
- *         value: Number("double"), // required
- *         units: "STRING_VALUE", // required
+ *         value: Number('double'), // required
+ *         units: 'STRING_VALUE', // required
  *       },
  *     },
  *     uplinkEchoConfig: { // UplinkEchoConfig
  *       enabled: true || false, // required
- *       antennaUplinkConfigArn: "STRING_VALUE", // required
+ *       antennaUplinkConfigArn: 'STRING_VALUE', // required
  *     },
  *     s3RecordingConfig: { // S3RecordingConfig
- *       bucketArn: "STRING_VALUE", // required
- *       roleArn: "STRING_VALUE", // required
- *       prefix: "STRING_VALUE",
+ *       bucketArn: 'STRING_VALUE', // required
+ *       roleArn: 'STRING_VALUE', // required
+ *       prefix: 'STRING_VALUE',
  *     },
  *   },
  *   tags: { // TagsMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateConfigCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ConfigIdResponse
+ *   configId: 'STRING_VALUE',
+ *   configType: 'STRING_VALUE',
+ *   configArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateConfigCommandInput - {@link CreateConfigCommandInput}
@@ -132,6 +139,8 @@ export interface CreateConfigCommandOutput extends ConfigIdResponse, __MetadataB
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Resource was not found.</p>
  *
+ * @throws {@link GroundStationServiceException}
+ * <p>Base exception class for all service exceptions from GroundStation service.</p>
  *
  */
 export class CreateConfigCommand extends $Command<

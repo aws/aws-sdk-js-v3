@@ -42,15 +42,29 @@ export interface DescribeServiceAccessPoliciesCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudSearchClient, DescribeServiceAccessPoliciesCommand } from "@aws-sdk/client-cloudsearch"; // ES Modules import
- * // const { CloudSearchClient, DescribeServiceAccessPoliciesCommand } = require("@aws-sdk/client-cloudsearch"); // CommonJS import
+ * import { CloudSearchClient, DescribeServiceAccessPoliciesCommand } from '@aws-sdk/client-cloudsearch'; // ES Modules import
+ * // const { CloudSearchClient, DescribeServiceAccessPoliciesCommand } = require('@aws-sdk/client-cloudsearch'); // CommonJS import
  * const client = new CloudSearchClient(config);
  * const input = { // DescribeServiceAccessPoliciesRequest
- *   DomainName: "STRING_VALUE", // required
+ *   DomainName: 'STRING_VALUE', // required
  *   Deployed: true || false,
  * };
  * const command = new DescribeServiceAccessPoliciesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeServiceAccessPoliciesResponse
+ *   AccessPolicies: { // AccessPoliciesStatus
+ *     Options: 'STRING_VALUE', // required
+ *     Status: { // OptionStatus
+ *       CreationDate: new Date('TIMESTAMP'), // required
+ *       UpdateDate: new Date('TIMESTAMP'), // required
+ *       UpdateVersion: Number('int'),
+ *       State: 'STRING_VALUE', // required
+ *       PendingDeletion: true || false,
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeServiceAccessPoliciesCommandInput - {@link DescribeServiceAccessPoliciesCommandInput}
@@ -69,6 +83,8 @@ export interface DescribeServiceAccessPoliciesCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The request was rejected because it attempted to reference a resource that does not exist.</p>
  *
+ * @throws {@link CloudSearchServiceException}
+ * <p>Base exception class for all service exceptions from CloudSearch service.</p>
  *
  */
 export class DescribeServiceAccessPoliciesCommand extends $Command<

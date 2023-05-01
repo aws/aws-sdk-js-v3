@@ -45,15 +45,20 @@ export interface DeleteRegexPatternSetCommandOutput extends DeleteRegexPatternSe
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WAFRegionalClient, DeleteRegexPatternSetCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
- * // const { WAFRegionalClient, DeleteRegexPatternSetCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import
+ * import { WAFRegionalClient, DeleteRegexPatternSetCommand } from '@aws-sdk/client-waf-regional'; // ES Modules import
+ * // const { WAFRegionalClient, DeleteRegexPatternSetCommand } = require('@aws-sdk/client-waf-regional'); // CommonJS import
  * const client = new WAFRegionalClient(config);
  * const input = { // DeleteRegexPatternSetRequest
- *   RegexPatternSetId: "STRING_VALUE", // required
- *   ChangeToken: "STRING_VALUE", // required
+ *   RegexPatternSetId: 'STRING_VALUE', // required
+ *   ChangeToken: 'STRING_VALUE', // required
  * };
  * const command = new DeleteRegexPatternSetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteRegexPatternSetResponse
+ *   ChangeToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DeleteRegexPatternSetCommandInput - {@link DeleteRegexPatternSetCommandInput}
@@ -103,6 +108,8 @@ export interface DeleteRegexPatternSetCommandOutput extends DeleteRegexPatternSe
  * @throws {@link WAFStaleDataException} (client fault)
  *  <p>The operation failed because you tried to create, update, or delete an object by using a change token that has already been used.</p>
  *
+ * @throws {@link WAFRegionalServiceException}
+ * <p>Base exception class for all service exceptions from WAFRegional service.</p>
  *
  */
 export class DeleteRegexPatternSetCommand extends $Command<

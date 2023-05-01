@@ -42,46 +42,51 @@ export interface CreateInstanceCommandOutput extends CreateInstanceResult, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OpsWorksClient, CreateInstanceCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
- * // const { OpsWorksClient, CreateInstanceCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
+ * import { OpsWorksClient, CreateInstanceCommand } from '@aws-sdk/client-opsworks'; // ES Modules import
+ * // const { OpsWorksClient, CreateInstanceCommand } = require('@aws-sdk/client-opsworks'); // CommonJS import
  * const client = new OpsWorksClient(config);
  * const input = { // CreateInstanceRequest
- *   StackId: "STRING_VALUE", // required
+ *   StackId: 'STRING_VALUE', // required
  *   LayerIds: [ // Strings // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   InstanceType: "STRING_VALUE", // required
- *   AutoScalingType: "STRING_VALUE",
- *   Hostname: "STRING_VALUE",
- *   Os: "STRING_VALUE",
- *   AmiId: "STRING_VALUE",
- *   SshKeyName: "STRING_VALUE",
- *   AvailabilityZone: "STRING_VALUE",
- *   VirtualizationType: "STRING_VALUE",
- *   SubnetId: "STRING_VALUE",
- *   Architecture: "STRING_VALUE",
- *   RootDeviceType: "STRING_VALUE",
+ *   InstanceType: 'STRING_VALUE', // required
+ *   AutoScalingType: 'STRING_VALUE',
+ *   Hostname: 'STRING_VALUE',
+ *   Os: 'STRING_VALUE',
+ *   AmiId: 'STRING_VALUE',
+ *   SshKeyName: 'STRING_VALUE',
+ *   AvailabilityZone: 'STRING_VALUE',
+ *   VirtualizationType: 'STRING_VALUE',
+ *   SubnetId: 'STRING_VALUE',
+ *   Architecture: 'STRING_VALUE',
+ *   RootDeviceType: 'STRING_VALUE',
  *   BlockDeviceMappings: [ // BlockDeviceMappings
  *     { // BlockDeviceMapping
- *       DeviceName: "STRING_VALUE",
- *       NoDevice: "STRING_VALUE",
- *       VirtualName: "STRING_VALUE",
+ *       DeviceName: 'STRING_VALUE',
+ *       NoDevice: 'STRING_VALUE',
+ *       VirtualName: 'STRING_VALUE',
  *       Ebs: { // EbsBlockDevice
- *         SnapshotId: "STRING_VALUE",
- *         Iops: Number("int"),
- *         VolumeSize: Number("int"),
- *         VolumeType: "STRING_VALUE",
+ *         SnapshotId: 'STRING_VALUE',
+ *         Iops: Number('int'),
+ *         VolumeSize: Number('int'),
+ *         VolumeType: 'STRING_VALUE',
  *         DeleteOnTermination: true || false,
  *       },
  *     },
  *   ],
  *   InstallUpdatesOnBoot: true || false,
  *   EbsOptimized: true || false,
- *   AgentVersion: "STRING_VALUE",
- *   Tenancy: "STRING_VALUE",
+ *   AgentVersion: 'STRING_VALUE',
+ *   Tenancy: 'STRING_VALUE',
  * };
  * const command = new CreateInstanceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateInstanceResult
+ *   InstanceId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateInstanceCommandInput - {@link CreateInstanceCommandInput}
@@ -96,6 +101,8 @@ export interface CreateInstanceCommandOutput extends CreateInstanceResult, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>Indicates that a request was not valid.</p>
  *
+ * @throws {@link OpsWorksServiceException}
+ * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
  */
 export class CreateInstanceCommand extends $Command<

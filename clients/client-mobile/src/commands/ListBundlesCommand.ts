@@ -38,15 +38,32 @@ export interface ListBundlesCommandOutput extends ListBundlesResult, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MobileClient, ListBundlesCommand } from "@aws-sdk/client-mobile"; // ES Modules import
- * // const { MobileClient, ListBundlesCommand } = require("@aws-sdk/client-mobile"); // CommonJS import
+ * import { MobileClient, ListBundlesCommand } from '@aws-sdk/client-mobile'; // ES Modules import
+ * // const { MobileClient, ListBundlesCommand } = require('@aws-sdk/client-mobile'); // CommonJS import
  * const client = new MobileClient(config);
  * const input = { // ListBundlesRequest
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new ListBundlesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListBundlesResult
+ *   bundleList: [ // BundleList
+ *     { // BundleDetails
+ *       bundleId: 'STRING_VALUE',
+ *       title: 'STRING_VALUE',
+ *       version: 'STRING_VALUE',
+ *       description: 'STRING_VALUE',
+ *       iconUrl: 'STRING_VALUE',
+ *       availablePlatforms: [ // Platforms
+ *         'STRING_VALUE',
+ *       ],
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListBundlesCommandInput - {@link ListBundlesCommandInput}
@@ -84,6 +101,8 @@ export interface ListBundlesCommandOutput extends ListBundlesResult, __MetadataB
  *             Credentials of the caller are insufficient to authorize the request.
  *         </p>
  *
+ * @throws {@link MobileServiceException}
+ * <p>Base exception class for all service exceptions from Mobile service.</p>
  *
  */
 export class ListBundlesCommand extends $Command<

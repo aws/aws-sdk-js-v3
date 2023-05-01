@@ -40,14 +40,17 @@ export interface StopAssessmentCommandOutput extends StopAssessmentResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MigrationHubStrategyClient, StopAssessmentCommand } from "@aws-sdk/client-migrationhubstrategy"; // ES Modules import
- * // const { MigrationHubStrategyClient, StopAssessmentCommand } = require("@aws-sdk/client-migrationhubstrategy"); // CommonJS import
+ * import { MigrationHubStrategyClient, StopAssessmentCommand } from '@aws-sdk/client-migrationhubstrategy'; // ES Modules import
+ * // const { MigrationHubStrategyClient, StopAssessmentCommand } = require('@aws-sdk/client-migrationhubstrategy'); // CommonJS import
  * const client = new MigrationHubStrategyClient(config);
  * const input = { // StopAssessmentRequest
- *   assessmentId: "STRING_VALUE", // required
+ *   assessmentId: 'STRING_VALUE', // required
  * };
  * const command = new StopAssessmentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param StopAssessmentCommandInput - {@link StopAssessmentCommandInput}
@@ -69,6 +72,8 @@ export interface StopAssessmentCommandOutput extends StopAssessmentResponse, __M
  * @throws {@link ValidationException} (client fault)
  *  <p> The request body isn't valid. </p>
  *
+ * @throws {@link MigrationHubStrategyServiceException}
+ * <p>Base exception class for all service exceptions from MigrationHubStrategy service.</p>
  *
  */
 export class StopAssessmentCommand extends $Command<

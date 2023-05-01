@@ -37,15 +37,28 @@ export interface ListApplicationDPUSizesCommandOutput extends ListApplicationDPU
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AthenaClient, ListApplicationDPUSizesCommand } from "@aws-sdk/client-athena"; // ES Modules import
- * // const { AthenaClient, ListApplicationDPUSizesCommand } = require("@aws-sdk/client-athena"); // CommonJS import
+ * import { AthenaClient, ListApplicationDPUSizesCommand } from '@aws-sdk/client-athena'; // ES Modules import
+ * // const { AthenaClient, ListApplicationDPUSizesCommand } = require('@aws-sdk/client-athena'); // CommonJS import
  * const client = new AthenaClient(config);
  * const input = { // ListApplicationDPUSizesInput
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListApplicationDPUSizesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListApplicationDPUSizesOutput
+ *   ApplicationDPUSizes: [ // ApplicationDPUSizesList
+ *     { // ApplicationDPUSizes
+ *       ApplicationRuntimeId: 'STRING_VALUE',
+ *       SupportedDPUSizes: [ // SupportedDPUSizeList
+ *         Number('int'),
+ *       ],
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListApplicationDPUSizesCommandInput - {@link ListApplicationDPUSizesCommandInput}
@@ -65,6 +78,8 @@ export interface ListApplicationDPUSizesCommandOutput extends ListApplicationDPU
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Indicates that the request was throttled.</p>
  *
+ * @throws {@link AthenaServiceException}
+ * <p>Base exception class for all service exceptions from Athena service.</p>
  *
  */
 export class ListApplicationDPUSizesCommand extends $Command<

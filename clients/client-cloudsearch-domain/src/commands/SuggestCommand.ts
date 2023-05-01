@@ -43,16 +43,35 @@ export interface SuggestCommandOutput extends SuggestResponse, __MetadataBearer 
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudSearchDomainClient, SuggestCommand } from "@aws-sdk/client-cloudsearch-domain"; // ES Modules import
- * // const { CloudSearchDomainClient, SuggestCommand } = require("@aws-sdk/client-cloudsearch-domain"); // CommonJS import
+ * import { CloudSearchDomainClient, SuggestCommand } from '@aws-sdk/client-cloudsearch-domain'; // ES Modules import
+ * // const { CloudSearchDomainClient, SuggestCommand } = require('@aws-sdk/client-cloudsearch-domain'); // CommonJS import
  * const client = new CloudSearchDomainClient(config);
  * const input = { // SuggestRequest
- *   query: "STRING_VALUE", // required
- *   suggester: "STRING_VALUE", // required
- *   size: Number("long"),
+ *   query: 'STRING_VALUE', // required
+ *   suggester: 'STRING_VALUE', // required
+ *   size: Number('long'),
  * };
  * const command = new SuggestCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SuggestResponse
+ *   status: { // SuggestStatus
+ *     timems: Number('long'),
+ *     rid: 'STRING_VALUE',
+ *   },
+ *   suggest: { // SuggestModel
+ *     query: 'STRING_VALUE',
+ *     found: Number('long'),
+ *     suggestions: [ // Suggestions
+ *       { // SuggestionMatch
+ *         suggestion: 'STRING_VALUE',
+ *         score: Number('long'),
+ *         id: 'STRING_VALUE',
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param SuggestCommandInput - {@link SuggestCommandInput}
@@ -64,6 +83,8 @@ export interface SuggestCommandOutput extends SuggestResponse, __MetadataBearer 
  * @throws {@link SearchException} (client fault)
  *  <p>Information about any problems encountered while processing a search request.</p>
  *
+ * @throws {@link CloudSearchDomainServiceException}
+ * <p>Base exception class for all service exceptions from CloudSearchDomain service.</p>
  *
  */
 export class SuggestCommand extends $Command<

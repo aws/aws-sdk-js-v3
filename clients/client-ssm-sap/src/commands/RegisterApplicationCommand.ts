@@ -47,30 +47,47 @@ export interface RegisterApplicationCommandOutput extends RegisterApplicationOut
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SsmSapClient, RegisterApplicationCommand } from "@aws-sdk/client-ssm-sap"; // ES Modules import
- * // const { SsmSapClient, RegisterApplicationCommand } = require("@aws-sdk/client-ssm-sap"); // CommonJS import
+ * import { SsmSapClient, RegisterApplicationCommand } from '@aws-sdk/client-ssm-sap'; // ES Modules import
+ * // const { SsmSapClient, RegisterApplicationCommand } = require('@aws-sdk/client-ssm-sap'); // CommonJS import
  * const client = new SsmSapClient(config);
  * const input = { // RegisterApplicationInput
- *   ApplicationId: "STRING_VALUE", // required
- *   ApplicationType: "STRING_VALUE", // required
+ *   ApplicationId: 'STRING_VALUE', // required
+ *   ApplicationType: 'STRING_VALUE', // required
  *   Instances: [ // InstanceList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   SapInstanceNumber: "STRING_VALUE",
- *   Sid: "STRING_VALUE",
+ *   SapInstanceNumber: 'STRING_VALUE',
+ *   Sid: 'STRING_VALUE',
  *   Tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  *   Credentials: [ // ApplicationCredentialList // required
  *     { // ApplicationCredential
- *       DatabaseName: "STRING_VALUE", // required
- *       CredentialType: "STRING_VALUE", // required
- *       SecretId: "STRING_VALUE", // required
+ *       DatabaseName: 'STRING_VALUE', // required
+ *       CredentialType: 'STRING_VALUE', // required
+ *       SecretId: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new RegisterApplicationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // RegisterApplicationOutput
+ *   Application: { // Application
+ *     Id: 'STRING_VALUE',
+ *     Type: 'STRING_VALUE',
+ *     Arn: 'STRING_VALUE',
+ *     AppRegistryArn: 'STRING_VALUE',
+ *     Status: 'STRING_VALUE',
+ *     Components: [ // ComponentIdList
+ *       'STRING_VALUE',
+ *     ],
+ *     LastUpdated: new Date('TIMESTAMP'),
+ *     StatusMessage: 'STRING_VALUE',
+ *   },
+ *   OperationId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param RegisterApplicationCommandInput - {@link RegisterApplicationCommandInput}
@@ -88,6 +105,8 @@ export interface RegisterApplicationCommandOutput extends RegisterApplicationOut
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service. </p>
  *
+ * @throws {@link SsmSapServiceException}
+ * <p>Base exception class for all service exceptions from SsmSap service.</p>
  *
  */
 export class RegisterApplicationCommand extends $Command<

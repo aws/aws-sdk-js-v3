@@ -41,19 +41,38 @@ export interface DescribeFleetHistoryCommandOutput extends DescribeFleetHistoryR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, DescribeFleetHistoryCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, DescribeFleetHistoryCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, DescribeFleetHistoryCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, DescribeFleetHistoryCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // DescribeFleetHistoryRequest
  *   DryRun: true || false,
- *   EventType: "instance-change" || "fleet-change" || "service-error",
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
- *   FleetId: "STRING_VALUE", // required
- *   StartTime: new Date("TIMESTAMP"), // required
+ *   EventType: 'instance-change' || 'fleet-change' || 'service-error',
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
+ *   FleetId: 'STRING_VALUE', // required
+ *   StartTime: new Date('TIMESTAMP'), // required
  * };
  * const command = new DescribeFleetHistoryCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeFleetHistoryResult
+ *   HistoryRecords: [ // HistoryRecordSet
+ *     { // HistoryRecordEntry
+ *       EventInformation: { // EventInformation
+ *         EventDescription: 'STRING_VALUE',
+ *         EventSubType: 'STRING_VALUE',
+ *         InstanceId: 'STRING_VALUE',
+ *       },
+ *       EventType: 'instance-change' || 'fleet-change' || 'service-error',
+ *       Timestamp: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   LastEvaluatedTime: new Date('TIMESTAMP'),
+ *   NextToken: 'STRING_VALUE',
+ *   FleetId: 'STRING_VALUE',
+ *   StartTime: new Date('TIMESTAMP'),
+ * };
+ *
  * ```
  *
  * @param DescribeFleetHistoryCommandInput - {@link DescribeFleetHistoryCommandInput}
@@ -62,6 +81,8 @@ export interface DescribeFleetHistoryCommandOutput extends DescribeFleetHistoryR
  * @see {@link DescribeFleetHistoryCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class DescribeFleetHistoryCommand extends $Command<

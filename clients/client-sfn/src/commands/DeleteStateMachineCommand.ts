@@ -47,14 +47,17 @@ export interface DeleteStateMachineCommandOutput extends DeleteStateMachineOutpu
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SFNClient, DeleteStateMachineCommand } from "@aws-sdk/client-sfn"; // ES Modules import
- * // const { SFNClient, DeleteStateMachineCommand } = require("@aws-sdk/client-sfn"); // CommonJS import
+ * import { SFNClient, DeleteStateMachineCommand } from '@aws-sdk/client-sfn'; // ES Modules import
+ * // const { SFNClient, DeleteStateMachineCommand } = require('@aws-sdk/client-sfn'); // CommonJS import
  * const client = new SFNClient(config);
  * const input = { // DeleteStateMachineInput
- *   stateMachineArn: "STRING_VALUE", // required
+ *   stateMachineArn: 'STRING_VALUE', // required
  * };
  * const command = new DeleteStateMachineCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteStateMachineCommandInput - {@link DeleteStateMachineCommandInput}
@@ -69,6 +72,8 @@ export interface DeleteStateMachineCommandOutput extends DeleteStateMachineOutpu
  * @throws {@link ValidationException} (client fault)
  *  <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
  *
+ * @throws {@link SFNServiceException}
+ * <p>Base exception class for all service exceptions from SFN service.</p>
  *
  */
 export class DeleteStateMachineCommand extends $Command<

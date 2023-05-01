@@ -36,15 +36,21 @@ export interface ExtendLicenseConsumptionCommandOutput extends ExtendLicenseCons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LicenseManagerClient, ExtendLicenseConsumptionCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
- * // const { LicenseManagerClient, ExtendLicenseConsumptionCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
+ * import { LicenseManagerClient, ExtendLicenseConsumptionCommand } from '@aws-sdk/client-license-manager'; // ES Modules import
+ * // const { LicenseManagerClient, ExtendLicenseConsumptionCommand } = require('@aws-sdk/client-license-manager'); // CommonJS import
  * const client = new LicenseManagerClient(config);
  * const input = { // ExtendLicenseConsumptionRequest
- *   LicenseConsumptionToken: "STRING_VALUE", // required
+ *   LicenseConsumptionToken: 'STRING_VALUE', // required
  *   DryRun: true || false,
  * };
  * const command = new ExtendLicenseConsumptionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ExtendLicenseConsumptionResponse
+ *   LicenseConsumptionToken: 'STRING_VALUE',
+ *   Expiration: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ExtendLicenseConsumptionCommandInput - {@link ExtendLicenseConsumptionCommandInput}
@@ -75,6 +81,8 @@ export interface ExtendLicenseConsumptionCommandOutput extends ExtendLicenseCons
  * @throws {@link ValidationException} (client fault)
  *  <p>The provided input is not valid. Try your request again.</p>
  *
+ * @throws {@link LicenseManagerServiceException}
+ * <p>Base exception class for all service exceptions from LicenseManager service.</p>
  *
  */
 export class ExtendLicenseConsumptionCommand extends $Command<

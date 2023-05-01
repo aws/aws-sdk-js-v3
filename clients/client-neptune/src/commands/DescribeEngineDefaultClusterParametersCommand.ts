@@ -46,24 +46,46 @@ export interface DescribeEngineDefaultClusterParametersCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { NeptuneClient, DescribeEngineDefaultClusterParametersCommand } from "@aws-sdk/client-neptune"; // ES Modules import
- * // const { NeptuneClient, DescribeEngineDefaultClusterParametersCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
+ * import { NeptuneClient, DescribeEngineDefaultClusterParametersCommand } from '@aws-sdk/client-neptune'; // ES Modules import
+ * // const { NeptuneClient, DescribeEngineDefaultClusterParametersCommand } = require('@aws-sdk/client-neptune'); // CommonJS import
  * const client = new NeptuneClient(config);
  * const input = { // DescribeEngineDefaultClusterParametersMessage
- *   DBParameterGroupFamily: "STRING_VALUE", // required
+ *   DBParameterGroupFamily: 'STRING_VALUE', // required
  *   Filters: [ // FilterList
  *     { // Filter
- *       Name: "STRING_VALUE", // required
+ *       Name: 'STRING_VALUE', // required
  *       Values: [ // FilterValueList // required
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
- *   MaxRecords: Number("int"),
- *   Marker: "STRING_VALUE",
+ *   MaxRecords: Number('int'),
+ *   Marker: 'STRING_VALUE',
  * };
  * const command = new DescribeEngineDefaultClusterParametersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeEngineDefaultClusterParametersResult
+ *   EngineDefaults: { // EngineDefaults
+ *     DBParameterGroupFamily: 'STRING_VALUE',
+ *     Marker: 'STRING_VALUE',
+ *     Parameters: [ // ParametersList
+ *       { // Parameter
+ *         ParameterName: 'STRING_VALUE',
+ *         ParameterValue: 'STRING_VALUE',
+ *         Description: 'STRING_VALUE',
+ *         Source: 'STRING_VALUE',
+ *         ApplyType: 'STRING_VALUE',
+ *         DataType: 'STRING_VALUE',
+ *         AllowedValues: 'STRING_VALUE',
+ *         IsModifiable: true || false,
+ *         MinimumEngineVersion: 'STRING_VALUE',
+ *         ApplyMethod: 'immediate' || 'pending-reboot',
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeEngineDefaultClusterParametersCommandInput - {@link DescribeEngineDefaultClusterParametersCommandInput}
@@ -72,6 +94,8 @@ export interface DescribeEngineDefaultClusterParametersCommandOutput
  * @see {@link DescribeEngineDefaultClusterParametersCommandOutput} for command's `response` shape.
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
  *
+ * @throws {@link NeptuneServiceException}
+ * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
  */
 export class DescribeEngineDefaultClusterParametersCommand extends $Command<

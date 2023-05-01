@@ -51,16 +51,33 @@ export interface ListControlInsightsByControlDomainCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AuditManagerClient, ListControlInsightsByControlDomainCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
- * // const { AuditManagerClient, ListControlInsightsByControlDomainCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import
+ * import { AuditManagerClient, ListControlInsightsByControlDomainCommand } from '@aws-sdk/client-auditmanager'; // ES Modules import
+ * // const { AuditManagerClient, ListControlInsightsByControlDomainCommand } = require('@aws-sdk/client-auditmanager'); // CommonJS import
  * const client = new AuditManagerClient(config);
  * const input = { // ListControlInsightsByControlDomainRequest
- *   controlDomainId: "STRING_VALUE", // required
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   controlDomainId: 'STRING_VALUE', // required
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new ListControlInsightsByControlDomainCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListControlInsightsByControlDomainResponse
+ *   controlInsightsMetadata: [ // ControlInsightsMetadata
+ *     { // ControlInsightsMetadataItem
+ *       name: 'STRING_VALUE',
+ *       id: 'STRING_VALUE',
+ *       evidenceInsights: { // EvidenceInsights
+ *         noncompliantEvidenceCount: Number('int'),
+ *         compliantEvidenceCount: Number('int'),
+ *         inconclusiveEvidenceCount: Number('int'),
+ *       },
+ *       lastUpdated: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListControlInsightsByControlDomainCommandInput - {@link ListControlInsightsByControlDomainCommandInput}
@@ -83,6 +100,8 @@ export interface ListControlInsightsByControlDomainCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p> The request has invalid or missing parameters. </p>
  *
+ * @throws {@link AuditManagerServiceException}
+ * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
  */
 export class ListControlInsightsByControlDomainCommand extends $Command<

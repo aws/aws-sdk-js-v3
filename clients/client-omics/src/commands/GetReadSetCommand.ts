@@ -41,17 +41,22 @@ export interface GetReadSetCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OmicsClient, GetReadSetCommand } from "@aws-sdk/client-omics"; // ES Modules import
- * // const { OmicsClient, GetReadSetCommand } = require("@aws-sdk/client-omics"); // CommonJS import
+ * import { OmicsClient, GetReadSetCommand } from '@aws-sdk/client-omics'; // ES Modules import
+ * // const { OmicsClient, GetReadSetCommand } = require('@aws-sdk/client-omics'); // CommonJS import
  * const client = new OmicsClient(config);
  * const input = { // GetReadSetRequest
- *   id: "STRING_VALUE", // required
- *   sequenceStoreId: "STRING_VALUE", // required
- *   file: "STRING_VALUE",
- *   partNumber: Number("int"), // required
+ *   id: 'STRING_VALUE', // required
+ *   sequenceStoreId: 'STRING_VALUE', // required
+ *   file: 'STRING_VALUE',
+ *   partNumber: Number('int'), // required
  * };
  * const command = new GetReadSetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetReadSetResponse
+ *   payload: 'STREAMING_BLOB_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetReadSetCommandInput - {@link GetReadSetCommandInput}
@@ -84,6 +89,8 @@ export interface GetReadSetCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link OmicsServiceException}
+ * <p>Base exception class for all service exceptions from Omics service.</p>
  *
  */
 export class GetReadSetCommand extends $Command<

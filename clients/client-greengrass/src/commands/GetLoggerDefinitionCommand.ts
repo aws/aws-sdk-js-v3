@@ -36,14 +36,28 @@ export interface GetLoggerDefinitionCommandOutput extends GetLoggerDefinitionRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GreengrassClient, GetLoggerDefinitionCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
- * // const { GreengrassClient, GetLoggerDefinitionCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
+ * import { GreengrassClient, GetLoggerDefinitionCommand } from '@aws-sdk/client-greengrass'; // ES Modules import
+ * // const { GreengrassClient, GetLoggerDefinitionCommand } = require('@aws-sdk/client-greengrass'); // CommonJS import
  * const client = new GreengrassClient(config);
  * const input = { // GetLoggerDefinitionRequest
- *   LoggerDefinitionId: "STRING_VALUE", // required
+ *   LoggerDefinitionId: 'STRING_VALUE', // required
  * };
  * const command = new GetLoggerDefinitionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetLoggerDefinitionResponse
+ *   Arn: 'STRING_VALUE',
+ *   CreationTimestamp: 'STRING_VALUE',
+ *   Id: 'STRING_VALUE',
+ *   LastUpdatedTimestamp: 'STRING_VALUE',
+ *   LatestVersion: 'STRING_VALUE',
+ *   LatestVersionArn: 'STRING_VALUE',
+ *   Name: 'STRING_VALUE',
+ *   tags: { // Tags
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetLoggerDefinitionCommandInput - {@link GetLoggerDefinitionCommandInput}
@@ -55,6 +69,8 @@ export interface GetLoggerDefinitionCommandOutput extends GetLoggerDefinitionRes
  * @throws {@link BadRequestException} (client fault)
  *  General error information.
  *
+ * @throws {@link GreengrassServiceException}
+ * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
  */
 export class GetLoggerDefinitionCommand extends $Command<

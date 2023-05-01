@@ -38,16 +38,21 @@ export interface CreateActionTargetCommandOutput extends CreateActionTargetRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SecurityHubClient, CreateActionTargetCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
- * // const { SecurityHubClient, CreateActionTargetCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
+ * import { SecurityHubClient, CreateActionTargetCommand } from '@aws-sdk/client-securityhub'; // ES Modules import
+ * // const { SecurityHubClient, CreateActionTargetCommand } = require('@aws-sdk/client-securityhub'); // CommonJS import
  * const client = new SecurityHubClient(config);
  * const input = { // CreateActionTargetRequest
- *   Name: "STRING_VALUE", // required
- *   Description: "STRING_VALUE", // required
- *   Id: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE', // required
+ *   Id: 'STRING_VALUE', // required
  * };
  * const command = new CreateActionTargetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateActionTargetResponse
+ *   ActionTargetArn: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param CreateActionTargetCommandInput - {@link CreateActionTargetCommandInput}
@@ -73,6 +78,8 @@ export interface CreateActionTargetCommandOutput extends CreateActionTargetRespo
  * @throws {@link ResourceConflictException} (client fault)
  *  <p>The resource specified in the request conflicts with an existing resource.</p>
  *
+ * @throws {@link SecurityHubServiceException}
+ * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
  * @example To create a custom action target
  * ```javascript

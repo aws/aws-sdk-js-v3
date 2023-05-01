@@ -49,16 +49,22 @@ export interface PurchaseReservedElasticsearchInstanceOfferingCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElasticsearchServiceClient, PurchaseReservedElasticsearchInstanceOfferingCommand } from "@aws-sdk/client-elasticsearch-service"; // ES Modules import
- * // const { ElasticsearchServiceClient, PurchaseReservedElasticsearchInstanceOfferingCommand } = require("@aws-sdk/client-elasticsearch-service"); // CommonJS import
+ * import { ElasticsearchServiceClient, PurchaseReservedElasticsearchInstanceOfferingCommand } from '@aws-sdk/client-elasticsearch-service'; // ES Modules import
+ * // const { ElasticsearchServiceClient, PurchaseReservedElasticsearchInstanceOfferingCommand } = require('@aws-sdk/client-elasticsearch-service'); // CommonJS import
  * const client = new ElasticsearchServiceClient(config);
  * const input = { // PurchaseReservedElasticsearchInstanceOfferingRequest
- *   ReservedElasticsearchInstanceOfferingId: "STRING_VALUE", // required
- *   ReservationName: "STRING_VALUE", // required
- *   InstanceCount: Number("int"),
+ *   ReservedElasticsearchInstanceOfferingId: 'STRING_VALUE', // required
+ *   ReservationName: 'STRING_VALUE', // required
+ *   InstanceCount: Number('int'),
  * };
  * const command = new PurchaseReservedElasticsearchInstanceOfferingCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PurchaseReservedElasticsearchInstanceOfferingResponse
+ *   ReservedElasticsearchInstanceId: 'STRING_VALUE',
+ *   ReservationName: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param PurchaseReservedElasticsearchInstanceOfferingCommandInput - {@link PurchaseReservedElasticsearchInstanceOfferingCommandInput}
@@ -85,6 +91,8 @@ export interface PurchaseReservedElasticsearchInstanceOfferingCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception for missing / invalid input fields. Gives http status code of 400.</p>
  *
+ * @throws {@link ElasticsearchServiceServiceException}
+ * <p>Base exception class for all service exceptions from ElasticsearchService service.</p>
  *
  */
 export class PurchaseReservedElasticsearchInstanceOfferingCommand extends $Command<

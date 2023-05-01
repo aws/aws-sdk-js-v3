@@ -36,29 +36,86 @@ export interface UpdateAnswerCommandOutput extends UpdateAnswerOutput, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WellArchitectedClient, UpdateAnswerCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
- * // const { WellArchitectedClient, UpdateAnswerCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
+ * import { WellArchitectedClient, UpdateAnswerCommand } from '@aws-sdk/client-wellarchitected'; // ES Modules import
+ * // const { WellArchitectedClient, UpdateAnswerCommand } = require('@aws-sdk/client-wellarchitected'); // CommonJS import
  * const client = new WellArchitectedClient(config);
  * const input = { // UpdateAnswerInput
- *   WorkloadId: "STRING_VALUE", // required
- *   LensAlias: "STRING_VALUE", // required
- *   QuestionId: "STRING_VALUE", // required
+ *   WorkloadId: 'STRING_VALUE', // required
+ *   LensAlias: 'STRING_VALUE', // required
+ *   QuestionId: 'STRING_VALUE', // required
  *   SelectedChoices: [ // SelectedChoices
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   ChoiceUpdates: { // ChoiceUpdates
- *     "<keys>": { // ChoiceUpdate
- *       Status: "SELECTED" || "NOT_APPLICABLE" || "UNSELECTED", // required
- *       Reason: "OUT_OF_SCOPE" || "BUSINESS_PRIORITIES" || "ARCHITECTURE_CONSTRAINTS" || "OTHER" || "NONE",
- *       Notes: "STRING_VALUE",
+ *     '<keys>': { // ChoiceUpdate
+ *       Status: 'SELECTED' || 'NOT_APPLICABLE' || 'UNSELECTED', // required
+ *       Reason: 'OUT_OF_SCOPE' || 'BUSINESS_PRIORITIES' || 'ARCHITECTURE_CONSTRAINTS' || 'OTHER' || 'NONE',
+ *       Notes: 'STRING_VALUE',
  *     },
  *   },
- *   Notes: "STRING_VALUE",
+ *   Notes: 'STRING_VALUE',
  *   IsApplicable: true || false,
- *   Reason: "OUT_OF_SCOPE" || "BUSINESS_PRIORITIES" || "ARCHITECTURE_CONSTRAINTS" || "OTHER" || "NONE",
+ *   Reason: 'OUT_OF_SCOPE' || 'BUSINESS_PRIORITIES' || 'ARCHITECTURE_CONSTRAINTS' || 'OTHER' || 'NONE',
  * };
  * const command = new UpdateAnswerCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateAnswerOutput
+ *   WorkloadId: 'STRING_VALUE',
+ *   LensAlias: 'STRING_VALUE',
+ *   LensArn: 'STRING_VALUE',
+ *   Answer: { // Answer
+ *     QuestionId: 'STRING_VALUE',
+ *     PillarId: 'STRING_VALUE',
+ *     QuestionTitle: 'STRING_VALUE',
+ *     QuestionDescription: 'STRING_VALUE',
+ *     ImprovementPlanUrl: 'STRING_VALUE',
+ *     HelpfulResourceUrl: 'STRING_VALUE',
+ *     HelpfulResourceDisplayText: 'STRING_VALUE',
+ *     Choices: [ // Choices
+ *       { // Choice
+ *         ChoiceId: 'STRING_VALUE',
+ *         Title: 'STRING_VALUE',
+ *         Description: 'STRING_VALUE',
+ *         HelpfulResource: { // ChoiceContent
+ *           DisplayText: 'STRING_VALUE',
+ *           Url: 'STRING_VALUE',
+ *         },
+ *         ImprovementPlan: {
+ *           DisplayText: 'STRING_VALUE',
+ *           Url: 'STRING_VALUE',
+ *         },
+ *         AdditionalResources: [ // AdditionalResourcesList
+ *           { // AdditionalResources
+ *             Type: 'HELPFUL_RESOURCE' || 'IMPROVEMENT_PLAN',
+ *             Content: [ // Urls
+ *               {
+ *                 DisplayText: 'STRING_VALUE',
+ *                 Url: 'STRING_VALUE',
+ *               },
+ *             ],
+ *           },
+ *         ],
+ *       },
+ *     ],
+ *     SelectedChoices: [ // SelectedChoices
+ *       'STRING_VALUE',
+ *     ],
+ *     ChoiceAnswers: [ // ChoiceAnswers
+ *       { // ChoiceAnswer
+ *         ChoiceId: 'STRING_VALUE',
+ *         Status: 'SELECTED' || 'NOT_APPLICABLE' || 'UNSELECTED',
+ *         Reason: 'OUT_OF_SCOPE' || 'BUSINESS_PRIORITIES' || 'ARCHITECTURE_CONSTRAINTS' || 'OTHER' || 'NONE',
+ *         Notes: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     IsApplicable: true || false,
+ *     Risk: 'UNANSWERED' || 'HIGH' || 'MEDIUM' || 'NONE' || 'NOT_APPLICABLE',
+ *     Notes: 'STRING_VALUE',
+ *     Reason: 'OUT_OF_SCOPE' || 'BUSINESS_PRIORITIES' || 'ARCHITECTURE_CONSTRAINTS' || 'OTHER' || 'NONE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateAnswerCommandInput - {@link UpdateAnswerCommandInput}
@@ -85,6 +142,8 @@ export interface UpdateAnswerCommandOutput extends UpdateAnswerOutput, __Metadat
  * @throws {@link ValidationException} (client fault)
  *  <p>The user input is not valid.</p>
  *
+ * @throws {@link WellArchitectedServiceException}
+ * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
  */
 export class UpdateAnswerCommand extends $Command<

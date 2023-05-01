@@ -36,14 +36,27 @@ export interface GetClassificationScopeCommandOutput extends GetClassificationSc
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Macie2Client, GetClassificationScopeCommand } from "@aws-sdk/client-macie2"; // ES Modules import
- * // const { Macie2Client, GetClassificationScopeCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
+ * import { Macie2Client, GetClassificationScopeCommand } from '@aws-sdk/client-macie2'; // ES Modules import
+ * // const { Macie2Client, GetClassificationScopeCommand } = require('@aws-sdk/client-macie2'); // CommonJS import
  * const client = new Macie2Client(config);
  * const input = { // GetClassificationScopeRequest
- *   id: "STRING_VALUE", // required
+ *   id: 'STRING_VALUE', // required
  * };
  * const command = new GetClassificationScopeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetClassificationScopeResponse
+ *   id: 'STRING_VALUE',
+ *   name: 'STRING_VALUE',
+ *   s3: { // S3ClassificationScope
+ *     excludes: { // S3ClassificationScopeExclusion
+ *       bucketNames: [ // __listOfS3BucketName // required
+ *         'STRING_VALUE',
+ *       ],
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetClassificationScopeCommandInput - {@link GetClassificationScopeCommandInput}
@@ -67,6 +80,8 @@ export interface GetClassificationScopeCommandOutput extends GetClassificationSc
  * @throws {@link ValidationException} (client fault)
  *  <p>Provides information about an error that occurred due to a syntax error in a request.</p>
  *
+ * @throws {@link Macie2ServiceException}
+ * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
  */
 export class GetClassificationScopeCommand extends $Command<

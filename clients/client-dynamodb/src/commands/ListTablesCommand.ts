@@ -38,15 +38,23 @@ export interface ListTablesCommandOutput extends ListTablesOutput, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DynamoDBClient, ListTablesCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
- * // const { DynamoDBClient, ListTablesCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
+ * import { DynamoDBClient, ListTablesCommand } from '@aws-sdk/client-dynamodb'; // ES Modules import
+ * // const { DynamoDBClient, ListTablesCommand } = require('@aws-sdk/client-dynamodb'); // CommonJS import
  * const client = new DynamoDBClient(config);
  * const input = { // ListTablesInput
- *   ExclusiveStartTableName: "STRING_VALUE",
- *   Limit: Number("int"),
+ *   ExclusiveStartTableName: 'STRING_VALUE',
+ *   Limit: Number('int'),
  * };
  * const command = new ListTablesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTablesOutput
+ *   TableNames: [ // TableNameList
+ *     'STRING_VALUE',
+ *   ],
+ *   LastEvaluatedTableName: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListTablesCommandInput - {@link ListTablesCommandInput}
@@ -60,6 +68,8 @@ export interface ListTablesCommandOutput extends ListTablesOutput, __MetadataBea
  *
  * @throws {@link InvalidEndpointException} (client fault)
  *
+ * @throws {@link DynamoDBServiceException}
+ * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
  * @example To list tables
  * ```javascript

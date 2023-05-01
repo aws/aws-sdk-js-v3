@@ -36,14 +36,31 @@ export interface DescribeWorkspaceCommandOutput extends DescribeWorkspaceRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AmpClient, DescribeWorkspaceCommand } from "@aws-sdk/client-amp"; // ES Modules import
- * // const { AmpClient, DescribeWorkspaceCommand } = require("@aws-sdk/client-amp"); // CommonJS import
+ * import { AmpClient, DescribeWorkspaceCommand } from '@aws-sdk/client-amp'; // ES Modules import
+ * // const { AmpClient, DescribeWorkspaceCommand } = require('@aws-sdk/client-amp'); // CommonJS import
  * const client = new AmpClient(config);
  * const input = { // DescribeWorkspaceRequest
- *   workspaceId: "STRING_VALUE", // required
+ *   workspaceId: 'STRING_VALUE', // required
  * };
  * const command = new DescribeWorkspaceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeWorkspaceResponse
+ *   workspace: { // WorkspaceDescription
+ *     workspaceId: 'STRING_VALUE', // required
+ *     alias: 'STRING_VALUE',
+ *     arn: 'STRING_VALUE', // required
+ *     status: { // WorkspaceStatus
+ *       statusCode: 'STRING_VALUE', // required
+ *     },
+ *     prometheusEndpoint: 'STRING_VALUE',
+ *     createdAt: new Date('TIMESTAMP'), // required
+ *     tags: { // TagMap
+ *       '<keys>': 'STRING_VALUE',
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeWorkspaceCommandInput - {@link DescribeWorkspaceCommandInput}
@@ -67,6 +84,8 @@ export interface DescribeWorkspaceCommandOutput extends DescribeWorkspaceRespons
  * @throws {@link ValidationException} (client fault)
  *  The input fails to satisfy the constraints specified by an AWS service.
  *
+ * @throws {@link AmpServiceException}
+ * <p>Base exception class for all service exceptions from Amp service.</p>
  *
  */
 export class DescribeWorkspaceCommand extends $Command<

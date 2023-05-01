@@ -38,14 +38,19 @@ export interface DeleteTrialComponentCommandOutput extends DeleteTrialComponentR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, DeleteTrialComponentCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, DeleteTrialComponentCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, DeleteTrialComponentCommand } from '@aws-sdk/client-sagemaker'; // ES Modules import
+ * // const { SageMakerClient, DeleteTrialComponentCommand } = require('@aws-sdk/client-sagemaker'); // CommonJS import
  * const client = new SageMakerClient(config);
  * const input = { // DeleteTrialComponentRequest
- *   TrialComponentName: "STRING_VALUE", // required
+ *   TrialComponentName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteTrialComponentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteTrialComponentResponse
+ *   TrialComponentArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DeleteTrialComponentCommandInput - {@link DeleteTrialComponentCommandInput}
@@ -57,6 +62,8 @@ export interface DeleteTrialComponentCommandOutput extends DeleteTrialComponentR
  * @throws {@link ResourceNotFound} (client fault)
  *  <p>Resource being access is not found.</p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class DeleteTrialComponentCommand extends $Command<

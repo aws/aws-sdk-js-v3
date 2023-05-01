@@ -37,14 +37,17 @@ export interface DeleteSuiteDefinitionCommandOutput extends DeleteSuiteDefinitio
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IotDeviceAdvisorClient, DeleteSuiteDefinitionCommand } from "@aws-sdk/client-iotdeviceadvisor"; // ES Modules import
- * // const { IotDeviceAdvisorClient, DeleteSuiteDefinitionCommand } = require("@aws-sdk/client-iotdeviceadvisor"); // CommonJS import
+ * import { IotDeviceAdvisorClient, DeleteSuiteDefinitionCommand } from '@aws-sdk/client-iotdeviceadvisor'; // ES Modules import
+ * // const { IotDeviceAdvisorClient, DeleteSuiteDefinitionCommand } = require('@aws-sdk/client-iotdeviceadvisor'); // CommonJS import
  * const client = new IotDeviceAdvisorClient(config);
  * const input = { // DeleteSuiteDefinitionRequest
- *   suiteDefinitionId: "STRING_VALUE", // required
+ *   suiteDefinitionId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteSuiteDefinitionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteSuiteDefinitionCommandInput - {@link DeleteSuiteDefinitionCommandInput}
@@ -59,6 +62,8 @@ export interface DeleteSuiteDefinitionCommandOutput extends DeleteSuiteDefinitio
  * @throws {@link ValidationException} (client fault)
  *  <p>Sends a validation exception.</p>
  *
+ * @throws {@link IotDeviceAdvisorServiceException}
+ * <p>Base exception class for all service exceptions from IotDeviceAdvisor service.</p>
  *
  */
 export class DeleteSuiteDefinitionCommand extends $Command<

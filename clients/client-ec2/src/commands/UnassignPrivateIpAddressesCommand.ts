@@ -37,20 +37,23 @@ export interface UnassignPrivateIpAddressesCommandOutput extends __MetadataBeare
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, UnassignPrivateIpAddressesCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, UnassignPrivateIpAddressesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, UnassignPrivateIpAddressesCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, UnassignPrivateIpAddressesCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // UnassignPrivateIpAddressesRequest
- *   NetworkInterfaceId: "STRING_VALUE", // required
+ *   NetworkInterfaceId: 'STRING_VALUE', // required
  *   PrivateIpAddresses: [ // PrivateIpAddressStringList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   Ipv4Prefixes: [ // IpPrefixList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new UnassignPrivateIpAddressesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UnassignPrivateIpAddressesCommandInput - {@link UnassignPrivateIpAddressesCommandInput}
@@ -59,6 +62,8 @@ export interface UnassignPrivateIpAddressesCommandOutput extends __MetadataBeare
  * @see {@link UnassignPrivateIpAddressesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @example To unassign a secondary private IP address from a network interface
  * ```javascript

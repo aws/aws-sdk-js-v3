@@ -36,20 +36,35 @@ export interface ListEngagementsCommandOutput extends ListEngagementsResult, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMContactsClient, ListEngagementsCommand } from "@aws-sdk/client-ssm-contacts"; // ES Modules import
- * // const { SSMContactsClient, ListEngagementsCommand } = require("@aws-sdk/client-ssm-contacts"); // CommonJS import
+ * import { SSMContactsClient, ListEngagementsCommand } from '@aws-sdk/client-ssm-contacts'; // ES Modules import
+ * // const { SSMContactsClient, ListEngagementsCommand } = require('@aws-sdk/client-ssm-contacts'); // CommonJS import
  * const client = new SSMContactsClient(config);
  * const input = { // ListEngagementsRequest
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
- *   IncidentId: "STRING_VALUE",
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
+ *   IncidentId: 'STRING_VALUE',
  *   TimeRangeValue: { // TimeRange
- *     StartTime: new Date("TIMESTAMP"),
- *     EndTime: new Date("TIMESTAMP"),
+ *     StartTime: new Date('TIMESTAMP'),
+ *     EndTime: new Date('TIMESTAMP'),
  *   },
  * };
  * const command = new ListEngagementsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListEngagementsResult
+ *   NextToken: 'STRING_VALUE',
+ *   Engagements: [ // EngagementsList // required
+ *     { // Engagement
+ *       EngagementArn: 'STRING_VALUE', // required
+ *       ContactArn: 'STRING_VALUE', // required
+ *       Sender: 'STRING_VALUE', // required
+ *       IncidentId: 'STRING_VALUE',
+ *       StartTime: new Date('TIMESTAMP'),
+ *       StopTime: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListEngagementsCommandInput - {@link ListEngagementsCommandInput}
@@ -71,6 +86,8 @@ export interface ListEngagementsCommandOutput extends ListEngagementsResult, __M
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
  *          service.</p>
  *
+ * @throws {@link SSMContactsServiceException}
+ * <p>Base exception class for all service exceptions from SSMContacts service.</p>
  *
  */
 export class ListEngagementsCommand extends $Command<

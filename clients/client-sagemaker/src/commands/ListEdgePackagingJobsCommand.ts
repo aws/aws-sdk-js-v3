@@ -36,24 +36,41 @@ export interface ListEdgePackagingJobsCommandOutput extends ListEdgePackagingJob
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, ListEdgePackagingJobsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, ListEdgePackagingJobsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, ListEdgePackagingJobsCommand } from '@aws-sdk/client-sagemaker'; // ES Modules import
+ * // const { SageMakerClient, ListEdgePackagingJobsCommand } = require('@aws-sdk/client-sagemaker'); // CommonJS import
  * const client = new SageMakerClient(config);
  * const input = { // ListEdgePackagingJobsRequest
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
- *   CreationTimeAfter: new Date("TIMESTAMP"),
- *   CreationTimeBefore: new Date("TIMESTAMP"),
- *   LastModifiedTimeAfter: new Date("TIMESTAMP"),
- *   LastModifiedTimeBefore: new Date("TIMESTAMP"),
- *   NameContains: "STRING_VALUE",
- *   ModelNameContains: "STRING_VALUE",
- *   StatusEquals: "STARTING" || "INPROGRESS" || "COMPLETED" || "FAILED" || "STOPPING" || "STOPPED",
- *   SortBy: "NAME" || "MODEL_NAME" || "CREATION_TIME" || "LAST_MODIFIED_TIME" || "STATUS",
- *   SortOrder: "Ascending" || "Descending",
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
+ *   CreationTimeAfter: new Date('TIMESTAMP'),
+ *   CreationTimeBefore: new Date('TIMESTAMP'),
+ *   LastModifiedTimeAfter: new Date('TIMESTAMP'),
+ *   LastModifiedTimeBefore: new Date('TIMESTAMP'),
+ *   NameContains: 'STRING_VALUE',
+ *   ModelNameContains: 'STRING_VALUE',
+ *   StatusEquals: 'STARTING' || 'INPROGRESS' || 'COMPLETED' || 'FAILED' || 'STOPPING' || 'STOPPED',
+ *   SortBy: 'NAME' || 'MODEL_NAME' || 'CREATION_TIME' || 'LAST_MODIFIED_TIME' || 'STATUS',
+ *   SortOrder: 'Ascending' || 'Descending',
  * };
  * const command = new ListEdgePackagingJobsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListEdgePackagingJobsResponse
+ *   EdgePackagingJobSummaries: [ // EdgePackagingJobSummaries // required
+ *     { // EdgePackagingJobSummary
+ *       EdgePackagingJobArn: 'STRING_VALUE', // required
+ *       EdgePackagingJobName: 'STRING_VALUE', // required
+ *       EdgePackagingJobStatus: 'STARTING' || 'INPROGRESS' || 'COMPLETED' || 'FAILED' || 'STOPPING' || 'STOPPED', // required
+ *       CompilationJobName: 'STRING_VALUE',
+ *       ModelName: 'STRING_VALUE',
+ *       ModelVersion: 'STRING_VALUE',
+ *       CreationTime: new Date('TIMESTAMP'),
+ *       LastModifiedTime: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListEdgePackagingJobsCommandInput - {@link ListEdgePackagingJobsCommandInput}
@@ -62,6 +79,8 @@ export interface ListEdgePackagingJobsCommandOutput extends ListEdgePackagingJob
  * @see {@link ListEdgePackagingJobsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class ListEdgePackagingJobsCommand extends $Command<

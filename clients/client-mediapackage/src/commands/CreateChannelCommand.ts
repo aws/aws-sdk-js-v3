@@ -36,18 +36,45 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MediaPackageClient, CreateChannelCommand } from "@aws-sdk/client-mediapackage"; // ES Modules import
- * // const { MediaPackageClient, CreateChannelCommand } = require("@aws-sdk/client-mediapackage"); // CommonJS import
+ * import { MediaPackageClient, CreateChannelCommand } from '@aws-sdk/client-mediapackage'; // ES Modules import
+ * // const { MediaPackageClient, CreateChannelCommand } = require('@aws-sdk/client-mediapackage'); // CommonJS import
  * const client = new MediaPackageClient(config);
  * const input = { // CreateChannelRequest
- *   Description: "STRING_VALUE",
- *   Id: "STRING_VALUE", // required
+ *   Description: 'STRING_VALUE',
+ *   Id: 'STRING_VALUE', // required
  *   Tags: { // Tags
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateChannelCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateChannelResponse
+ *   Arn: 'STRING_VALUE',
+ *   CreatedAt: 'STRING_VALUE',
+ *   Description: 'STRING_VALUE',
+ *   EgressAccessLogs: { // EgressAccessLogs
+ *     LogGroupName: 'STRING_VALUE',
+ *   },
+ *   HlsIngest: { // HlsIngest
+ *     IngestEndpoints: [ // __listOfIngestEndpoint
+ *       { // IngestEndpoint
+ *         Id: 'STRING_VALUE',
+ *         Password: 'STRING_VALUE',
+ *         Url: 'STRING_VALUE',
+ *         Username: 'STRING_VALUE',
+ *       },
+ *     ],
+ *   },
+ *   Id: 'STRING_VALUE',
+ *   IngressAccessLogs: { // IngressAccessLogs
+ *     LogGroupName: 'STRING_VALUE',
+ *   },
+ *   Tags: { // Tags
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateChannelCommandInput - {@link CreateChannelCommandInput}
@@ -74,6 +101,8 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  * @throws {@link UnprocessableEntityException} (client fault)
  *  The parameters sent in the request are not valid.
  *
+ * @throws {@link MediaPackageServiceException}
+ * <p>Base exception class for all service exceptions from MediaPackage service.</p>
  *
  */
 export class CreateChannelCommand extends $Command<

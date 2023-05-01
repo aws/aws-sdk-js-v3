@@ -41,22 +41,25 @@ export interface CreateLoadBalancerPolicyCommandOutput extends CreateLoadBalance
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElasticLoadBalancingClient, CreateLoadBalancerPolicyCommand } from "@aws-sdk/client-elastic-load-balancing"; // ES Modules import
- * // const { ElasticLoadBalancingClient, CreateLoadBalancerPolicyCommand } = require("@aws-sdk/client-elastic-load-balancing"); // CommonJS import
+ * import { ElasticLoadBalancingClient, CreateLoadBalancerPolicyCommand } from '@aws-sdk/client-elastic-load-balancing'; // ES Modules import
+ * // const { ElasticLoadBalancingClient, CreateLoadBalancerPolicyCommand } = require('@aws-sdk/client-elastic-load-balancing'); // CommonJS import
  * const client = new ElasticLoadBalancingClient(config);
  * const input = { // CreateLoadBalancerPolicyInput
- *   LoadBalancerName: "STRING_VALUE", // required
- *   PolicyName: "STRING_VALUE", // required
- *   PolicyTypeName: "STRING_VALUE", // required
+ *   LoadBalancerName: 'STRING_VALUE', // required
+ *   PolicyName: 'STRING_VALUE', // required
+ *   PolicyTypeName: 'STRING_VALUE', // required
  *   PolicyAttributes: [ // PolicyAttributes
  *     { // PolicyAttribute
- *       AttributeName: "STRING_VALUE",
- *       AttributeValue: "STRING_VALUE",
+ *       AttributeName: 'STRING_VALUE',
+ *       AttributeValue: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new CreateLoadBalancerPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param CreateLoadBalancerPolicyCommandInput - {@link CreateLoadBalancerPolicyCommandInput}
@@ -80,6 +83,8 @@ export interface CreateLoadBalancerPolicyCommandOutput extends CreateLoadBalance
  * @throws {@link TooManyPoliciesException} (client fault)
  *  <p>The quota for the number of policies for this load balancer has been reached.</p>
  *
+ * @throws {@link ElasticLoadBalancingServiceException}
+ * <p>Base exception class for all service exceptions from ElasticLoadBalancing service.</p>
  *
  * @example To create a policy that enables Proxy Protocol on a load balancer
  * ```javascript

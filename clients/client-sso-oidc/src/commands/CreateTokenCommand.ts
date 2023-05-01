@@ -38,23 +38,32 @@ export interface CreateTokenCommandOutput extends CreateTokenResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSOOIDCClient, CreateTokenCommand } from "@aws-sdk/client-sso-oidc"; // ES Modules import
- * // const { SSOOIDCClient, CreateTokenCommand } = require("@aws-sdk/client-sso-oidc"); // CommonJS import
+ * import { SSOOIDCClient, CreateTokenCommand } from '@aws-sdk/client-sso-oidc'; // ES Modules import
+ * // const { SSOOIDCClient, CreateTokenCommand } = require('@aws-sdk/client-sso-oidc'); // CommonJS import
  * const client = new SSOOIDCClient(config);
  * const input = { // CreateTokenRequest
- *   clientId: "STRING_VALUE", // required
- *   clientSecret: "STRING_VALUE", // required
- *   grantType: "STRING_VALUE", // required
- *   deviceCode: "STRING_VALUE",
- *   code: "STRING_VALUE",
- *   refreshToken: "STRING_VALUE",
+ *   clientId: 'STRING_VALUE', // required
+ *   clientSecret: 'STRING_VALUE', // required
+ *   grantType: 'STRING_VALUE', // required
+ *   deviceCode: 'STRING_VALUE',
+ *   code: 'STRING_VALUE',
+ *   refreshToken: 'STRING_VALUE',
  *   scope: [ // Scopes
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   redirectUri: "STRING_VALUE",
+ *   redirectUri: 'STRING_VALUE',
  * };
  * const command = new CreateTokenCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateTokenResponse
+ *   accessToken: 'STRING_VALUE',
+ *   tokenType: 'STRING_VALUE',
+ *   expiresIn: Number('int'),
+ *   refreshToken: 'STRING_VALUE',
+ *   idToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateTokenCommandInput - {@link CreateTokenCommandInput}
@@ -104,6 +113,8 @@ export interface CreateTokenCommandOutput extends CreateTokenResponse, __Metadat
  * @throws {@link UnsupportedGrantTypeException} (client fault)
  *  <p>Indicates that the grant type in the request is not supported by the service.</p>
  *
+ * @throws {@link SSOOIDCServiceException}
+ * <p>Base exception class for all service exceptions from SSOOIDC service.</p>
  *
  */
 export class CreateTokenCommand extends $Command<

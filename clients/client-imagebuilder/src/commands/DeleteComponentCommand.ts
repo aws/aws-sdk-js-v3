@@ -36,14 +36,20 @@ export interface DeleteComponentCommandOutput extends DeleteComponentResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ImagebuilderClient, DeleteComponentCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
- * // const { ImagebuilderClient, DeleteComponentCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
+ * import { ImagebuilderClient, DeleteComponentCommand } from '@aws-sdk/client-imagebuilder'; // ES Modules import
+ * // const { ImagebuilderClient, DeleteComponentCommand } = require('@aws-sdk/client-imagebuilder'); // CommonJS import
  * const client = new ImagebuilderClient(config);
  * const input = { // DeleteComponentRequest
- *   componentBuildVersionArn: "STRING_VALUE", // required
+ *   componentBuildVersionArn: 'STRING_VALUE', // required
  * };
  * const command = new DeleteComponentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteComponentResponse
+ *   requestId: 'STRING_VALUE',
+ *   componentBuildVersionArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DeleteComponentCommandInput - {@link DeleteComponentCommandInput}
@@ -77,6 +83,8 @@ export interface DeleteComponentCommandOutput extends DeleteComponentResponse, _
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service is unable to process your request at this time.</p>
  *
+ * @throws {@link ImagebuilderServiceException}
+ * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
  */
 export class DeleteComponentCommand extends $Command<

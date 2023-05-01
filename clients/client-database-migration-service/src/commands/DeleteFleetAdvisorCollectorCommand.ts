@@ -40,14 +40,17 @@ export interface DeleteFleetAdvisorCollectorCommandOutput extends __MetadataBear
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DatabaseMigrationServiceClient, DeleteFleetAdvisorCollectorCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
- * // const { DatabaseMigrationServiceClient, DeleteFleetAdvisorCollectorCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
+ * import { DatabaseMigrationServiceClient, DeleteFleetAdvisorCollectorCommand } from '@aws-sdk/client-database-migration-service'; // ES Modules import
+ * // const { DatabaseMigrationServiceClient, DeleteFleetAdvisorCollectorCommand } = require('@aws-sdk/client-database-migration-service'); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
  * const input = { // DeleteCollectorRequest
- *   CollectorReferencedId: "STRING_VALUE", // required
+ *   CollectorReferencedId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteFleetAdvisorCollectorCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteFleetAdvisorCollectorCommandInput - {@link DeleteFleetAdvisorCollectorCommandInput}
@@ -62,6 +65,8 @@ export interface DeleteFleetAdvisorCollectorCommandOutput extends __MetadataBear
  * @throws {@link InvalidResourceStateFault} (client fault)
  *  <p>The resource is in a state that prevents it from being used for database migration.</p>
  *
+ * @throws {@link DatabaseMigrationServiceServiceException}
+ * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
  */
 export class DeleteFleetAdvisorCollectorCommand extends $Command<

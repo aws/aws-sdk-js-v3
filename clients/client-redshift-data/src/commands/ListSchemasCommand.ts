@@ -72,22 +72,30 @@ export interface ListSchemasCommandOutput extends ListSchemasResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RedshiftDataClient, ListSchemasCommand } from "@aws-sdk/client-redshift-data"; // ES Modules import
- * // const { RedshiftDataClient, ListSchemasCommand } = require("@aws-sdk/client-redshift-data"); // CommonJS import
+ * import { RedshiftDataClient, ListSchemasCommand } from '@aws-sdk/client-redshift-data'; // ES Modules import
+ * // const { RedshiftDataClient, ListSchemasCommand } = require('@aws-sdk/client-redshift-data'); // CommonJS import
  * const client = new RedshiftDataClient(config);
  * const input = { // ListSchemasRequest
- *   ClusterIdentifier: "STRING_VALUE",
- *   SecretArn: "STRING_VALUE",
- *   DbUser: "STRING_VALUE",
- *   Database: "STRING_VALUE", // required
- *   ConnectedDatabase: "STRING_VALUE",
- *   SchemaPattern: "STRING_VALUE",
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
- *   WorkgroupName: "STRING_VALUE",
+ *   ClusterIdentifier: 'STRING_VALUE',
+ *   SecretArn: 'STRING_VALUE',
+ *   DbUser: 'STRING_VALUE',
+ *   Database: 'STRING_VALUE', // required
+ *   ConnectedDatabase: 'STRING_VALUE',
+ *   SchemaPattern: 'STRING_VALUE',
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
+ *   WorkgroupName: 'STRING_VALUE',
  * };
  * const command = new ListSchemasCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListSchemasResponse
+ *   Schemas: [ // SchemaList
+ *     'STRING_VALUE',
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListSchemasCommandInput - {@link ListSchemasCommandInput}
@@ -105,6 +113,8 @@ export interface ListSchemasCommandOutput extends ListSchemasResponse, __Metadat
  * @throws {@link ValidationException} (client fault)
  *  <p>The Amazon Redshift Data API operation failed due to invalid input. </p>
  *
+ * @throws {@link RedshiftDataServiceException}
+ * <p>Base exception class for all service exceptions from RedshiftData service.</p>
  *
  */
 export class ListSchemasCommand extends $Command<

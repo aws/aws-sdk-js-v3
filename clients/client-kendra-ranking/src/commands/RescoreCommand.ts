@@ -39,30 +39,41 @@ export interface RescoreCommandOutput extends RescoreResult, __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KendraRankingClient, RescoreCommand } from "@aws-sdk/client-kendra-ranking"; // ES Modules import
- * // const { KendraRankingClient, RescoreCommand } = require("@aws-sdk/client-kendra-ranking"); // CommonJS import
+ * import { KendraRankingClient, RescoreCommand } from '@aws-sdk/client-kendra-ranking'; // ES Modules import
+ * // const { KendraRankingClient, RescoreCommand } = require('@aws-sdk/client-kendra-ranking'); // CommonJS import
  * const client = new KendraRankingClient(config);
  * const input = { // RescoreRequest
- *   RescoreExecutionPlanId: "STRING_VALUE", // required
- *   SearchQuery: "STRING_VALUE", // required
+ *   RescoreExecutionPlanId: 'STRING_VALUE', // required
+ *   SearchQuery: 'STRING_VALUE', // required
  *   Documents: [ // DocumentList // required
  *     { // Document
- *       Id: "STRING_VALUE", // required
- *       GroupId: "STRING_VALUE",
- *       Title: "STRING_VALUE",
- *       Body: "STRING_VALUE",
+ *       Id: 'STRING_VALUE', // required
+ *       GroupId: 'STRING_VALUE',
+ *       Title: 'STRING_VALUE',
+ *       Body: 'STRING_VALUE',
  *       TokenizedTitle: [ // TitleTokensList
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *       TokenizedBody: [ // BodyTokensList
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
- *       OriginalScore: Number("float"), // required
+ *       OriginalScore: Number('float'), // required
  *     },
  *   ],
  * };
  * const command = new RescoreCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // RescoreResult
+ *   RescoreId: 'STRING_VALUE',
+ *   ResultItems: [ // RescoreResultItemList
+ *     { // RescoreResultItem
+ *       DocumentId: 'STRING_VALUE',
+ *       Score: Number('float'),
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param RescoreCommandInput - {@link RescoreCommandInput}
@@ -101,6 +112,8 @@ export interface RescoreCommandOutput extends RescoreResult, __MetadataBearer {}
  *             the Amazon Kendra Intelligent Ranking service.
  *             Please provide the correct input and try again.</p>
  *
+ * @throws {@link KendraRankingServiceException}
+ * <p>Base exception class for all service exceptions from KendraRanking service.</p>
  *
  */
 export class RescoreCommand extends $Command<

@@ -39,15 +39,18 @@ export interface DeleteServiceSpecificCredentialCommandOutput extends __Metadata
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IAMClient, DeleteServiceSpecificCredentialCommand } from "@aws-sdk/client-iam"; // ES Modules import
- * // const { IAMClient, DeleteServiceSpecificCredentialCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * import { IAMClient, DeleteServiceSpecificCredentialCommand } from '@aws-sdk/client-iam'; // ES Modules import
+ * // const { IAMClient, DeleteServiceSpecificCredentialCommand } = require('@aws-sdk/client-iam'); // CommonJS import
  * const client = new IAMClient(config);
  * const input = { // DeleteServiceSpecificCredentialRequest
- *   UserName: "STRING_VALUE",
- *   ServiceSpecificCredentialId: "STRING_VALUE", // required
+ *   UserName: 'STRING_VALUE',
+ *   ServiceSpecificCredentialId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteServiceSpecificCredentialCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteServiceSpecificCredentialCommandInput - {@link DeleteServiceSpecificCredentialCommandInput}
@@ -60,6 +63,8 @@ export interface DeleteServiceSpecificCredentialCommandOutput extends __Metadata
  *  <p>The request was rejected because it referenced a resource entity that does not exist. The
  *       error message describes the resource.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  */
 export class DeleteServiceSpecificCredentialCommand extends $Command<

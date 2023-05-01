@@ -36,14 +36,26 @@ export interface GetApplicationCommandOutput extends GetApplicationOutput, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeDeployClient, GetApplicationCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
- * // const { CodeDeployClient, GetApplicationCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
+ * import { CodeDeployClient, GetApplicationCommand } from '@aws-sdk/client-codedeploy'; // ES Modules import
+ * // const { CodeDeployClient, GetApplicationCommand } = require('@aws-sdk/client-codedeploy'); // CommonJS import
  * const client = new CodeDeployClient(config);
  * const input = { // GetApplicationInput
- *   applicationName: "STRING_VALUE", // required
+ *   applicationName: 'STRING_VALUE', // required
  * };
  * const command = new GetApplicationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetApplicationOutput
+ *   application: { // ApplicationInfo
+ *     applicationId: 'STRING_VALUE',
+ *     applicationName: 'STRING_VALUE',
+ *     createTime: new Date('TIMESTAMP'),
+ *     linkedToGitHub: true || false,
+ *     gitHubAccountName: 'STRING_VALUE',
+ *     computePlatform: 'Server' || 'Lambda' || 'ECS',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetApplicationCommandInput - {@link GetApplicationCommandInput}
@@ -61,6 +73,8 @@ export interface GetApplicationCommandOutput extends GetApplicationOutput, __Met
  * @throws {@link InvalidApplicationNameException} (client fault)
  *  <p>The application name was specified in an invalid format.</p>
  *
+ * @throws {@link CodeDeployServiceException}
+ * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
  */
 export class GetApplicationCommand extends $Command<

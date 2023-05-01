@@ -44,26 +44,50 @@ export interface GetConformancePackComplianceDetailsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConfigServiceClient, GetConformancePackComplianceDetailsCommand } from "@aws-sdk/client-config-service"; // ES Modules import
- * // const { ConfigServiceClient, GetConformancePackComplianceDetailsCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
+ * import { ConfigServiceClient, GetConformancePackComplianceDetailsCommand } from '@aws-sdk/client-config-service'; // ES Modules import
+ * // const { ConfigServiceClient, GetConformancePackComplianceDetailsCommand } = require('@aws-sdk/client-config-service'); // CommonJS import
  * const client = new ConfigServiceClient(config);
  * const input = { // GetConformancePackComplianceDetailsRequest
- *   ConformancePackName: "STRING_VALUE", // required
+ *   ConformancePackName: 'STRING_VALUE', // required
  *   Filters: { // ConformancePackEvaluationFilters
  *     ConfigRuleNames: [ // ConformancePackConfigRuleNames
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
- *     ComplianceType: "COMPLIANT" || "NON_COMPLIANT" || "INSUFFICIENT_DATA",
- *     ResourceType: "STRING_VALUE",
+ *     ComplianceType: 'COMPLIANT' || 'NON_COMPLIANT' || 'INSUFFICIENT_DATA',
+ *     ResourceType: 'STRING_VALUE',
  *     ResourceIds: [ // ConformancePackComplianceResourceIds
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *   },
- *   Limit: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   Limit: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new GetConformancePackComplianceDetailsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetConformancePackComplianceDetailsResponse
+ *   ConformancePackName: 'STRING_VALUE', // required
+ *   ConformancePackRuleEvaluationResults: [ // ConformancePackRuleEvaluationResultsList
+ *     { // ConformancePackEvaluationResult
+ *       ComplianceType: 'COMPLIANT' || 'NON_COMPLIANT' || 'INSUFFICIENT_DATA', // required
+ *       EvaluationResultIdentifier: { // EvaluationResultIdentifier
+ *         EvaluationResultQualifier: { // EvaluationResultQualifier
+ *           ConfigRuleName: 'STRING_VALUE',
+ *           ResourceType: 'STRING_VALUE',
+ *           ResourceId: 'STRING_VALUE',
+ *           EvaluationMode: 'DETECTIVE' || 'PROACTIVE',
+ *         },
+ *         OrderingTimestamp: new Date('TIMESTAMP'),
+ *         ResourceEvaluationId: 'STRING_VALUE',
+ *       },
+ *       ConfigRuleInvokedTime: new Date('TIMESTAMP'), // required
+ *       ResultRecordedTime: new Date('TIMESTAMP'), // required
+ *       Annotation: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetConformancePackComplianceDetailsCommandInput - {@link GetConformancePackComplianceDetailsCommandInput}
@@ -90,6 +114,8 @@ export interface GetConformancePackComplianceDetailsCommandOutput
  * @throws {@link NoSuchConformancePackException} (client fault)
  *  <p>You specified one or more conformance packs that do not exist.</p>
  *
+ * @throws {@link ConfigServiceServiceException}
+ * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
  */
 export class GetConformancePackComplianceDetailsCommand extends $Command<

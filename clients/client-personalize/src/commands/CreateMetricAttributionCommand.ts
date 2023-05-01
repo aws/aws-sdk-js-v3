@@ -38,29 +38,34 @@ export interface CreateMetricAttributionCommandOutput extends CreateMetricAttrib
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PersonalizeClient, CreateMetricAttributionCommand } from "@aws-sdk/client-personalize"; // ES Modules import
- * // const { PersonalizeClient, CreateMetricAttributionCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
+ * import { PersonalizeClient, CreateMetricAttributionCommand } from '@aws-sdk/client-personalize'; // ES Modules import
+ * // const { PersonalizeClient, CreateMetricAttributionCommand } = require('@aws-sdk/client-personalize'); // CommonJS import
  * const client = new PersonalizeClient(config);
  * const input = { // CreateMetricAttributionRequest
- *   name: "STRING_VALUE", // required
- *   datasetGroupArn: "STRING_VALUE", // required
+ *   name: 'STRING_VALUE', // required
+ *   datasetGroupArn: 'STRING_VALUE', // required
  *   metrics: [ // MetricAttributes // required
  *     { // MetricAttribute
- *       eventType: "STRING_VALUE", // required
- *       metricName: "STRING_VALUE", // required
- *       expression: "STRING_VALUE", // required
+ *       eventType: 'STRING_VALUE', // required
+ *       metricName: 'STRING_VALUE', // required
+ *       expression: 'STRING_VALUE', // required
  *     },
  *   ],
  *   metricsOutputConfig: { // MetricAttributionOutput
  *     s3DataDestination: { // S3DataConfig
- *       path: "STRING_VALUE", // required
- *       kmsKeyArn: "STRING_VALUE",
+ *       path: 'STRING_VALUE', // required
+ *       kmsKeyArn: 'STRING_VALUE',
  *     },
- *     roleArn: "STRING_VALUE", // required
+ *     roleArn: 'STRING_VALUE', // required
  *   },
  * };
  * const command = new CreateMetricAttributionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateMetricAttributionResponse
+ *   metricAttributionArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateMetricAttributionCommandInput - {@link CreateMetricAttributionCommandInput}
@@ -84,6 +89,8 @@ export interface CreateMetricAttributionCommandOutput extends CreateMetricAttrib
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Could not find the specified resource.</p>
  *
+ * @throws {@link PersonalizeServiceException}
+ * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
  */
 export class CreateMetricAttributionCommand extends $Command<

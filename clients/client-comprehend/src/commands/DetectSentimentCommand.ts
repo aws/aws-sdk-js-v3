@@ -42,15 +42,26 @@ export interface DetectSentimentCommandOutput extends DetectSentimentResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ComprehendClient, DetectSentimentCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
- * // const { ComprehendClient, DetectSentimentCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
+ * import { ComprehendClient, DetectSentimentCommand } from '@aws-sdk/client-comprehend'; // ES Modules import
+ * // const { ComprehendClient, DetectSentimentCommand } = require('@aws-sdk/client-comprehend'); // CommonJS import
  * const client = new ComprehendClient(config);
  * const input = { // DetectSentimentRequest
- *   Text: "STRING_VALUE", // required
- *   LanguageCode: "en" || "es" || "fr" || "de" || "it" || "pt" || "ar" || "hi" || "ja" || "ko" || "zh" || "zh-TW", // required
+ *   Text: 'STRING_VALUE', // required
+ *   LanguageCode: 'en' || 'es' || 'fr' || 'de' || 'it' || 'pt' || 'ar' || 'hi' || 'ja' || 'ko' || 'zh' || 'zh-TW', // required
  * };
  * const command = new DetectSentimentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DetectSentimentResponse
+ *   Sentiment: 'POSITIVE' || 'NEGATIVE' || 'NEUTRAL' || 'MIXED',
+ *   SentimentScore: { // SentimentScore
+ *     Positive: Number('float'),
+ *     Negative: Number('float'),
+ *     Neutral: Number('float'),
+ *     Mixed: Number('float'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param DetectSentimentCommandInput - {@link DetectSentimentCommandInput}
@@ -75,6 +86,8 @@ export interface DetectSentimentCommandOutput extends DetectSentimentResponse, _
  *       <a href="https://docs.aws.amazon.com/comprehend/latest/dg/supported-languages.html">Supported languages</a> in the Comprehend Developer Guide.
  *     </p>
  *
+ * @throws {@link ComprehendServiceException}
+ * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
  */
 export class DetectSentimentCommand extends $Command<

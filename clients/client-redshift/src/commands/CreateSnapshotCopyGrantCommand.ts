@@ -43,21 +43,35 @@ export interface CreateSnapshotCopyGrantCommandOutput extends CreateSnapshotCopy
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RedshiftClient, CreateSnapshotCopyGrantCommand } from "@aws-sdk/client-redshift"; // ES Modules import
- * // const { RedshiftClient, CreateSnapshotCopyGrantCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * import { RedshiftClient, CreateSnapshotCopyGrantCommand } from '@aws-sdk/client-redshift'; // ES Modules import
+ * // const { RedshiftClient, CreateSnapshotCopyGrantCommand } = require('@aws-sdk/client-redshift'); // CommonJS import
  * const client = new RedshiftClient(config);
  * const input = { // CreateSnapshotCopyGrantMessage
- *   SnapshotCopyGrantName: "STRING_VALUE", // required
- *   KmsKeyId: "STRING_VALUE",
+ *   SnapshotCopyGrantName: 'STRING_VALUE', // required
+ *   KmsKeyId: 'STRING_VALUE',
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE",
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new CreateSnapshotCopyGrantCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateSnapshotCopyGrantResult
+ *   SnapshotCopyGrant: { // SnapshotCopyGrant
+ *     SnapshotCopyGrantName: 'STRING_VALUE',
+ *     KmsKeyId: 'STRING_VALUE',
+ *     Tags: [ // TagList
+ *       { // Tag
+ *         Key: 'STRING_VALUE',
+ *         Value: 'STRING_VALUE',
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateSnapshotCopyGrantCommandInput - {@link CreateSnapshotCopyGrantCommandInput}
@@ -87,6 +101,8 @@ export interface CreateSnapshotCopyGrantCommandOutput extends CreateSnapshotCopy
  * @throws {@link TagLimitExceededFault} (client fault)
  *  <p>You have exceeded the number of tags allowed.</p>
  *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class CreateSnapshotCopyGrantCommand extends $Command<

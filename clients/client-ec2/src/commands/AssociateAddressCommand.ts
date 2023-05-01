@@ -63,20 +63,25 @@ export interface AssociateAddressCommandOutput extends AssociateAddressResult, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, AssociateAddressCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, AssociateAddressCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, AssociateAddressCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, AssociateAddressCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // AssociateAddressRequest
- *   AllocationId: "STRING_VALUE",
- *   InstanceId: "STRING_VALUE",
- *   PublicIp: "STRING_VALUE",
+ *   AllocationId: 'STRING_VALUE',
+ *   InstanceId: 'STRING_VALUE',
+ *   PublicIp: 'STRING_VALUE',
  *   AllowReassociation: true || false,
  *   DryRun: true || false,
- *   NetworkInterfaceId: "STRING_VALUE",
- *   PrivateIpAddress: "STRING_VALUE",
+ *   NetworkInterfaceId: 'STRING_VALUE',
+ *   PrivateIpAddress: 'STRING_VALUE',
  * };
  * const command = new AssociateAddressCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AssociateAddressResult
+ *   AssociationId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param AssociateAddressCommandInput - {@link AssociateAddressCommandInput}
@@ -85,6 +90,8 @@ export interface AssociateAddressCommandOutput extends AssociateAddressResult, _
  * @see {@link AssociateAddressCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @example To associate an Elastic IP address in EC2-VPC
  * ```javascript

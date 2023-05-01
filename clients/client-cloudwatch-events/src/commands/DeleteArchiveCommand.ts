@@ -36,14 +36,17 @@ export interface DeleteArchiveCommandOutput extends DeleteArchiveResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudWatchEventsClient, DeleteArchiveCommand } from "@aws-sdk/client-cloudwatch-events"; // ES Modules import
- * // const { CloudWatchEventsClient, DeleteArchiveCommand } = require("@aws-sdk/client-cloudwatch-events"); // CommonJS import
+ * import { CloudWatchEventsClient, DeleteArchiveCommand } from '@aws-sdk/client-cloudwatch-events'; // ES Modules import
+ * // const { CloudWatchEventsClient, DeleteArchiveCommand } = require('@aws-sdk/client-cloudwatch-events'); // CommonJS import
  * const client = new CloudWatchEventsClient(config);
  * const input = { // DeleteArchiveRequest
- *   ArchiveName: "STRING_VALUE", // required
+ *   ArchiveName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteArchiveCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteArchiveCommandInput - {@link DeleteArchiveCommandInput}
@@ -61,6 +64,8 @@ export interface DeleteArchiveCommandOutput extends DeleteArchiveResponse, __Met
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>An entity that you specified does not exist.</p>
  *
+ * @throws {@link CloudWatchEventsServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatchEvents service.</p>
  *
  */
 export class DeleteArchiveCommand extends $Command<

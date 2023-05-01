@@ -46,16 +46,19 @@ export interface CreateEmailIdentityPolicyCommandOutput extends CreateEmailIdent
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SESv2Client, CreateEmailIdentityPolicyCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
- * // const { SESv2Client, CreateEmailIdentityPolicyCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
+ * import { SESv2Client, CreateEmailIdentityPolicyCommand } from '@aws-sdk/client-sesv2'; // ES Modules import
+ * // const { SESv2Client, CreateEmailIdentityPolicyCommand } = require('@aws-sdk/client-sesv2'); // CommonJS import
  * const client = new SESv2Client(config);
  * const input = { // CreateEmailIdentityPolicyRequest
- *   EmailIdentity: "STRING_VALUE", // required
- *   PolicyName: "STRING_VALUE", // required
- *   Policy: "STRING_VALUE", // required
+ *   EmailIdentity: 'STRING_VALUE', // required
+ *   PolicyName: 'STRING_VALUE', // required
+ *   Policy: 'STRING_VALUE', // required
  * };
  * const command = new CreateEmailIdentityPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param CreateEmailIdentityPolicyCommandInput - {@link CreateEmailIdentityPolicyCommandInput}
@@ -79,6 +82,8 @@ export interface CreateEmailIdentityPolicyCommandOutput extends CreateEmailIdent
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Too many requests have been made to the operation.</p>
  *
+ * @throws {@link SESv2ServiceException}
+ * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
  */
 export class CreateEmailIdentityPolicyCommand extends $Command<

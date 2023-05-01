@@ -36,15 +36,32 @@ export interface DescribeVocabularyCommandOutput extends DescribeVocabularyRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, DescribeVocabularyCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, DescribeVocabularyCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, DescribeVocabularyCommand } from '@aws-sdk/client-connect'; // ES Modules import
+ * // const { ConnectClient, DescribeVocabularyCommand } = require('@aws-sdk/client-connect'); // CommonJS import
  * const client = new ConnectClient(config);
  * const input = { // DescribeVocabularyRequest
- *   InstanceId: "STRING_VALUE", // required
- *   VocabularyId: "STRING_VALUE", // required
+ *   InstanceId: 'STRING_VALUE', // required
+ *   VocabularyId: 'STRING_VALUE', // required
  * };
  * const command = new DescribeVocabularyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeVocabularyResponse
+ *   Vocabulary: { // Vocabulary
+ *     Name: 'STRING_VALUE', // required
+ *     Id: 'STRING_VALUE', // required
+ *     Arn: 'STRING_VALUE', // required
+ *     LanguageCode: 'ar-AE' || 'de-CH' || 'de-DE' || 'en-AB' || 'en-AU' || 'en-GB' || 'en-IE' || 'en-IN' || 'en-US' || 'en-WL' || 'es-ES' || 'es-US' || 'fr-CA' || 'fr-FR' || 'hi-IN' || 'it-IT' || 'ja-JP' || 'ko-KR' || 'pt-BR' || 'pt-PT' || 'zh-CN' || 'en-NZ' || 'en-ZA', // required
+ *     State: 'CREATION_IN_PROGRESS' || 'ACTIVE' || 'CREATION_FAILED' || 'DELETE_IN_PROGRESS', // required
+ *     LastModifiedTime: new Date('TIMESTAMP'), // required
+ *     FailureReason: 'STRING_VALUE',
+ *     Content: 'STRING_VALUE',
+ *     Tags: { // TagMap
+ *       '<keys>': 'STRING_VALUE',
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeVocabularyCommandInput - {@link DescribeVocabularyCommandInput}
@@ -68,6 +85,8 @@ export interface DescribeVocabularyCommandOutput extends DescribeVocabularyRespo
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class DescribeVocabularyCommand extends $Command<

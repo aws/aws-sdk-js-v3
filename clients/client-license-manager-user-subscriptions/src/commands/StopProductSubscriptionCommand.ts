@@ -40,21 +40,39 @@ export interface StopProductSubscriptionCommandOutput extends StopProductSubscri
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LicenseManagerUserSubscriptionsClient, StopProductSubscriptionCommand } from "@aws-sdk/client-license-manager-user-subscriptions"; // ES Modules import
- * // const { LicenseManagerUserSubscriptionsClient, StopProductSubscriptionCommand } = require("@aws-sdk/client-license-manager-user-subscriptions"); // CommonJS import
+ * import { LicenseManagerUserSubscriptionsClient, StopProductSubscriptionCommand } from '@aws-sdk/client-license-manager-user-subscriptions'; // ES Modules import
+ * // const { LicenseManagerUserSubscriptionsClient, StopProductSubscriptionCommand } = require('@aws-sdk/client-license-manager-user-subscriptions'); // CommonJS import
  * const client = new LicenseManagerUserSubscriptionsClient(config);
  * const input = { // StopProductSubscriptionRequest
- *   Username: "STRING_VALUE", // required
+ *   Username: 'STRING_VALUE', // required
  *   IdentityProvider: { // IdentityProvider Union: only one key present
  *     ActiveDirectoryIdentityProvider: { // ActiveDirectoryIdentityProvider
- *       DirectoryId: "STRING_VALUE",
+ *       DirectoryId: 'STRING_VALUE',
  *     },
  *   },
- *   Product: "STRING_VALUE", // required
- *   Domain: "STRING_VALUE",
+ *   Product: 'STRING_VALUE', // required
+ *   Domain: 'STRING_VALUE',
  * };
  * const command = new StopProductSubscriptionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StopProductSubscriptionResponse
+ *   ProductUserSummary: { // ProductUserSummary
+ *     Username: 'STRING_VALUE', // required
+ *     Product: 'STRING_VALUE', // required
+ *     IdentityProvider: { // IdentityProvider Union: only one key present
+ *       ActiveDirectoryIdentityProvider: { // ActiveDirectoryIdentityProvider
+ *         DirectoryId: 'STRING_VALUE',
+ *       },
+ *     },
+ *     Status: 'STRING_VALUE', // required
+ *     StatusMessage: 'STRING_VALUE',
+ *     Domain: 'STRING_VALUE',
+ *     SubscriptionStartDate: 'STRING_VALUE',
+ *     SubscriptionEndDate: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param StopProductSubscriptionCommandInput - {@link StopProductSubscriptionCommandInput}
@@ -85,6 +103,8 @@ export interface StopProductSubscriptionCommandOutput extends StopProductSubscri
  * @throws {@link ValidationException} (client fault)
  *  <p>A parameter is not valid.</p>
  *
+ * @throws {@link LicenseManagerUserSubscriptionsServiceException}
+ * <p>Base exception class for all service exceptions from LicenseManagerUserSubscriptions service.</p>
  *
  */
 export class StopProductSubscriptionCommand extends $Command<

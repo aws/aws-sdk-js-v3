@@ -41,20 +41,20 @@ export interface CreateMemberCommandOutput extends CreateMemberOutput, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ManagedBlockchainClient, CreateMemberCommand } from "@aws-sdk/client-managedblockchain"; // ES Modules import
- * // const { ManagedBlockchainClient, CreateMemberCommand } = require("@aws-sdk/client-managedblockchain"); // CommonJS import
+ * import { ManagedBlockchainClient, CreateMemberCommand } from '@aws-sdk/client-managedblockchain'; // ES Modules import
+ * // const { ManagedBlockchainClient, CreateMemberCommand } = require('@aws-sdk/client-managedblockchain'); // CommonJS import
  * const client = new ManagedBlockchainClient(config);
  * const input = { // CreateMemberInput
- *   ClientRequestToken: "STRING_VALUE", // required
- *   InvitationId: "STRING_VALUE", // required
- *   NetworkId: "STRING_VALUE", // required
+ *   ClientRequestToken: 'STRING_VALUE', // required
+ *   InvitationId: 'STRING_VALUE', // required
+ *   NetworkId: 'STRING_VALUE', // required
  *   MemberConfiguration: { // MemberConfiguration
- *     Name: "STRING_VALUE", // required
- *     Description: "STRING_VALUE",
+ *     Name: 'STRING_VALUE', // required
+ *     Description: 'STRING_VALUE',
  *     FrameworkConfiguration: { // MemberFrameworkConfiguration
  *       Fabric: { // MemberFabricConfiguration
- *         AdminUsername: "STRING_VALUE", // required
- *         AdminPassword: "STRING_VALUE", // required
+ *         AdminUsername: 'STRING_VALUE', // required
+ *         AdminPassword: 'STRING_VALUE', // required
  *       },
  *     },
  *     LogPublishingConfiguration: { // MemberLogPublishingConfiguration
@@ -67,13 +67,18 @@ export interface CreateMemberCommandOutput extends CreateMemberOutput, __Metadat
  *       },
  *     },
  *     Tags: { // InputTagMap
- *       "<keys>": "STRING_VALUE",
+ *       '<keys>': 'STRING_VALUE',
  *     },
- *     KmsKeyArn: "STRING_VALUE",
+ *     KmsKeyArn: 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateMemberCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateMemberOutput
+ *   MemberId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateMemberCommandInput - {@link CreateMemberCommandInput}
@@ -113,6 +118,8 @@ export interface CreateMemberCommandOutput extends CreateMemberOutput, __Metadat
  * @throws {@link TooManyTagsException} (client fault)
  *  <p></p>
  *
+ * @throws {@link ManagedBlockchainServiceException}
+ * <p>Base exception class for all service exceptions from ManagedBlockchain service.</p>
  *
  */
 export class CreateMemberCommand extends $Command<

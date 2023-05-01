@@ -36,14 +36,19 @@ export interface StartInferenceExperimentCommandOutput extends StartInferenceExp
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, StartInferenceExperimentCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, StartInferenceExperimentCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, StartInferenceExperimentCommand } from '@aws-sdk/client-sagemaker'; // ES Modules import
+ * // const { SageMakerClient, StartInferenceExperimentCommand } = require('@aws-sdk/client-sagemaker'); // CommonJS import
  * const client = new SageMakerClient(config);
  * const input = { // StartInferenceExperimentRequest
- *   Name: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
  * };
  * const command = new StartInferenceExperimentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartInferenceExperimentResponse
+ *   InferenceExperimentArn: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param StartInferenceExperimentCommandInput - {@link StartInferenceExperimentCommandInput}
@@ -59,6 +64,8 @@ export interface StartInferenceExperimentCommandOutput extends StartInferenceExp
  * @throws {@link ResourceNotFound} (client fault)
  *  <p>Resource being access is not found.</p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class StartInferenceExperimentCommand extends $Command<

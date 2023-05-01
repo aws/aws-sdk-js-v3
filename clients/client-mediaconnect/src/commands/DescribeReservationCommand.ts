@@ -36,14 +36,36 @@ export interface DescribeReservationCommandOutput extends DescribeReservationRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MediaConnectClient, DescribeReservationCommand } from "@aws-sdk/client-mediaconnect"; // ES Modules import
- * // const { MediaConnectClient, DescribeReservationCommand } = require("@aws-sdk/client-mediaconnect"); // CommonJS import
+ * import { MediaConnectClient, DescribeReservationCommand } from '@aws-sdk/client-mediaconnect'; // ES Modules import
+ * // const { MediaConnectClient, DescribeReservationCommand } = require('@aws-sdk/client-mediaconnect'); // CommonJS import
  * const client = new MediaConnectClient(config);
  * const input = { // DescribeReservationRequest
- *   ReservationArn: "STRING_VALUE", // required
+ *   ReservationArn: 'STRING_VALUE', // required
  * };
  * const command = new DescribeReservationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeReservationResponse
+ *   Reservation: { // Reservation
+ *     CurrencyCode: 'STRING_VALUE', // required
+ *     Duration: Number('int'), // required
+ *     DurationUnits: 'MONTHS', // required
+ *     End: 'STRING_VALUE', // required
+ *     OfferingArn: 'STRING_VALUE', // required
+ *     OfferingDescription: 'STRING_VALUE', // required
+ *     PricePerUnit: 'STRING_VALUE', // required
+ *     PriceUnits: 'HOURLY', // required
+ *     ReservationArn: 'STRING_VALUE', // required
+ *     ReservationName: 'STRING_VALUE', // required
+ *     ReservationState: 'ACTIVE' || 'EXPIRED' || 'PROCESSING' || 'CANCELED', // required
+ *     ResourceSpecification: { // ResourceSpecification
+ *       ReservedBitrate: Number('int'),
+ *       ResourceType: 'Mbps_Outbound_Bandwidth', // required
+ *     },
+ *     Start: 'STRING_VALUE', // required
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeReservationCommandInput - {@link DescribeReservationCommandInput}
@@ -67,6 +89,8 @@ export interface DescribeReservationCommandOutput extends DescribeReservationRes
  * @throws {@link TooManyRequestsException} (client fault)
  *  Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
  *
+ * @throws {@link MediaConnectServiceException}
+ * <p>Base exception class for all service exceptions from MediaConnect service.</p>
  *
  */
 export class DescribeReservationCommand extends $Command<

@@ -44,17 +44,27 @@ export interface CreateUserProfileCommandOutput extends CreateUserProfileResult,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeStarClient, CreateUserProfileCommand } from "@aws-sdk/client-codestar"; // ES Modules import
- * // const { CodeStarClient, CreateUserProfileCommand } = require("@aws-sdk/client-codestar"); // CommonJS import
+ * import { CodeStarClient, CreateUserProfileCommand } from '@aws-sdk/client-codestar'; // ES Modules import
+ * // const { CodeStarClient, CreateUserProfileCommand } = require('@aws-sdk/client-codestar'); // CommonJS import
  * const client = new CodeStarClient(config);
  * const input = { // CreateUserProfileRequest
- *   userArn: "STRING_VALUE", // required
- *   displayName: "STRING_VALUE", // required
- *   emailAddress: "STRING_VALUE", // required
- *   sshPublicKey: "STRING_VALUE",
+ *   userArn: 'STRING_VALUE', // required
+ *   displayName: 'STRING_VALUE', // required
+ *   emailAddress: 'STRING_VALUE', // required
+ *   sshPublicKey: 'STRING_VALUE',
  * };
  * const command = new CreateUserProfileCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateUserProfileResult
+ *   userArn: 'STRING_VALUE', // required
+ *   displayName: 'STRING_VALUE',
+ *   emailAddress: 'STRING_VALUE',
+ *   sshPublicKey: 'STRING_VALUE',
+ *   createdTimestamp: new Date('TIMESTAMP'),
+ *   lastModifiedTimestamp: new Date('TIMESTAMP'),
+ * };
+ *
  * ```
  *
  * @param CreateUserProfileCommandInput - {@link CreateUserProfileCommandInput}
@@ -70,6 +80,8 @@ export interface CreateUserProfileCommandOutput extends CreateUserProfileResult,
  * @throws {@link ValidationException} (client fault)
  *  <p>The specified input is either not valid, or it could not be validated.</p>
  *
+ * @throws {@link CodeStarServiceException}
+ * <p>Base exception class for all service exceptions from CodeStar service.</p>
  *
  */
 export class CreateUserProfileCommand extends $Command<

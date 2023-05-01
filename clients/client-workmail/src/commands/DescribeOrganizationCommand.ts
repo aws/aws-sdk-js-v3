@@ -37,14 +37,27 @@ export interface DescribeOrganizationCommandOutput extends DescribeOrganizationR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkMailClient, DescribeOrganizationCommand } from "@aws-sdk/client-workmail"; // ES Modules import
- * // const { WorkMailClient, DescribeOrganizationCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
+ * import { WorkMailClient, DescribeOrganizationCommand } from '@aws-sdk/client-workmail'; // ES Modules import
+ * // const { WorkMailClient, DescribeOrganizationCommand } = require('@aws-sdk/client-workmail'); // CommonJS import
  * const client = new WorkMailClient(config);
  * const input = { // DescribeOrganizationRequest
- *   OrganizationId: "STRING_VALUE", // required
+ *   OrganizationId: 'STRING_VALUE', // required
  * };
  * const command = new DescribeOrganizationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeOrganizationResponse
+ *   OrganizationId: 'STRING_VALUE',
+ *   Alias: 'STRING_VALUE',
+ *   State: 'STRING_VALUE',
+ *   DirectoryId: 'STRING_VALUE',
+ *   DirectoryType: 'STRING_VALUE',
+ *   DefaultMailDomain: 'STRING_VALUE',
+ *   CompletedDate: new Date('TIMESTAMP'),
+ *   ErrorMessage: 'STRING_VALUE',
+ *   ARN: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeOrganizationCommandInput - {@link DescribeOrganizationCommandInput}
@@ -60,6 +73,8 @@ export interface DescribeOrganizationCommandOutput extends DescribeOrganizationR
  *  <p>An operation received a valid organization identifier that either doesn't belong or
  *          exist in the system.</p>
  *
+ * @throws {@link WorkMailServiceException}
+ * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
  */
 export class DescribeOrganizationCommand extends $Command<

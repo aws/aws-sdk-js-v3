@@ -36,20 +36,34 @@ export interface ListSchemaVersionsCommandOutput extends ListSchemaVersionsRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlueClient, ListSchemaVersionsCommand } from "@aws-sdk/client-glue"; // ES Modules import
- * // const { GlueClient, ListSchemaVersionsCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * import { GlueClient, ListSchemaVersionsCommand } from '@aws-sdk/client-glue'; // ES Modules import
+ * // const { GlueClient, ListSchemaVersionsCommand } = require('@aws-sdk/client-glue'); // CommonJS import
  * const client = new GlueClient(config);
  * const input = { // ListSchemaVersionsInput
  *   SchemaId: { // SchemaId
- *     SchemaArn: "STRING_VALUE",
- *     SchemaName: "STRING_VALUE",
- *     RegistryName: "STRING_VALUE",
+ *     SchemaArn: 'STRING_VALUE',
+ *     SchemaName: 'STRING_VALUE',
+ *     RegistryName: 'STRING_VALUE',
  *   },
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListSchemaVersionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListSchemaVersionsResponse
+ *   Schemas: [ // SchemaVersionList
+ *     { // SchemaVersionListItem
+ *       SchemaArn: 'STRING_VALUE',
+ *       SchemaVersionId: 'STRING_VALUE',
+ *       VersionNumber: Number('long'),
+ *       Status: 'AVAILABLE' || 'PENDING' || 'FAILURE' || 'DELETING',
+ *       CreatedTime: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListSchemaVersionsCommandInput - {@link ListSchemaVersionsCommandInput}
@@ -70,6 +84,8 @@ export interface ListSchemaVersionsCommandOutput extends ListSchemaVersionsRespo
  * @throws {@link InvalidInputException} (client fault)
  *  <p>The input provided was not valid.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class ListSchemaVersionsCommand extends $Command<

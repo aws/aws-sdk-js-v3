@@ -36,16 +36,45 @@ export interface DescribeCustomDomainsCommandOutput extends DescribeCustomDomain
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppRunnerClient, DescribeCustomDomainsCommand } from "@aws-sdk/client-apprunner"; // ES Modules import
- * // const { AppRunnerClient, DescribeCustomDomainsCommand } = require("@aws-sdk/client-apprunner"); // CommonJS import
+ * import { AppRunnerClient, DescribeCustomDomainsCommand } from '@aws-sdk/client-apprunner'; // ES Modules import
+ * // const { AppRunnerClient, DescribeCustomDomainsCommand } = require('@aws-sdk/client-apprunner'); // CommonJS import
  * const client = new AppRunnerClient(config);
  * const input = { // DescribeCustomDomainsRequest
- *   ServiceArn: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   ServiceArn: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new DescribeCustomDomainsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeCustomDomainsResponse
+ *   DNSTarget: 'STRING_VALUE', // required
+ *   ServiceArn: 'STRING_VALUE', // required
+ *   CustomDomains: [ // CustomDomainList // required
+ *     { // CustomDomain
+ *       DomainName: 'STRING_VALUE', // required
+ *       EnableWWWSubdomain: true || false, // required
+ *       CertificateValidationRecords: [ // CertificateValidationRecordList
+ *         { // CertificateValidationRecord
+ *           Name: 'STRING_VALUE',
+ *           Type: 'STRING_VALUE',
+ *           Value: 'STRING_VALUE',
+ *           Status: 'PENDING_VALIDATION' || 'SUCCESS' || 'FAILED',
+ *         },
+ *       ],
+ *       Status: 'CREATING' || 'CREATE_FAILED' || 'ACTIVE' || 'DELETING' || 'DELETE_FAILED' || 'PENDING_CERTIFICATE_DNS_VALIDATION' || 'BINDING_CERTIFICATE', // required
+ *     },
+ *   ],
+ *   VpcDNSTargets: [ // VpcDNSTargetList // required
+ *     { // VpcDNSTarget
+ *       VpcIngressConnectionArn: 'STRING_VALUE',
+ *       VpcId: 'STRING_VALUE',
+ *       DomainName: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeCustomDomainsCommandInput - {@link DescribeCustomDomainsCommandInput}
@@ -63,6 +92,8 @@ export interface DescribeCustomDomainsCommandOutput extends DescribeCustomDomain
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>A resource doesn't exist for the specified Amazon Resource Name (ARN) in your Amazon Web Services account.</p>
  *
+ * @throws {@link AppRunnerServiceException}
+ * <p>Base exception class for all service exceptions from AppRunner service.</p>
  *
  */
 export class DescribeCustomDomainsCommand extends $Command<

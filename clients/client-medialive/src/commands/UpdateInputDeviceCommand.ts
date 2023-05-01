@@ -36,25 +36,72 @@ export interface UpdateInputDeviceCommandOutput extends UpdateInputDeviceRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MediaLiveClient, UpdateInputDeviceCommand } from "@aws-sdk/client-medialive"; // ES Modules import
- * // const { MediaLiveClient, UpdateInputDeviceCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
+ * import { MediaLiveClient, UpdateInputDeviceCommand } from '@aws-sdk/client-medialive'; // ES Modules import
+ * // const { MediaLiveClient, UpdateInputDeviceCommand } = require('@aws-sdk/client-medialive'); // CommonJS import
  * const client = new MediaLiveClient(config);
  * const input = { // UpdateInputDeviceRequest
  *   HdDeviceSettings: { // InputDeviceConfigurableSettings
- *     ConfiguredInput: "AUTO" || "HDMI" || "SDI",
- *     MaxBitrate: Number("int"),
- *     LatencyMs: Number("int"),
+ *     ConfiguredInput: 'AUTO' || 'HDMI' || 'SDI',
+ *     MaxBitrate: Number('int'),
+ *     LatencyMs: Number('int'),
  *   },
- *   InputDeviceId: "STRING_VALUE", // required
- *   Name: "STRING_VALUE",
+ *   InputDeviceId: 'STRING_VALUE', // required
+ *   Name: 'STRING_VALUE',
  *   UhdDeviceSettings: {
- *     ConfiguredInput: "AUTO" || "HDMI" || "SDI",
- *     MaxBitrate: Number("int"),
- *     LatencyMs: Number("int"),
+ *     ConfiguredInput: 'AUTO' || 'HDMI' || 'SDI',
+ *     MaxBitrate: Number('int'),
+ *     LatencyMs: Number('int'),
  *   },
  * };
  * const command = new UpdateInputDeviceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateInputDeviceResponse
+ *   Arn: 'STRING_VALUE',
+ *   ConnectionState: 'DISCONNECTED' || 'CONNECTED',
+ *   DeviceSettingsSyncState: 'SYNCED' || 'SYNCING',
+ *   DeviceUpdateStatus: 'UP_TO_DATE' || 'NOT_UP_TO_DATE' || 'UPDATING',
+ *   HdDeviceSettings: { // InputDeviceHdSettings
+ *     ActiveInput: 'HDMI' || 'SDI',
+ *     ConfiguredInput: 'AUTO' || 'HDMI' || 'SDI',
+ *     DeviceState: 'IDLE' || 'STREAMING',
+ *     Framerate: Number('double'),
+ *     Height: Number('int'),
+ *     MaxBitrate: Number('int'),
+ *     ScanType: 'INTERLACED' || 'PROGRESSIVE',
+ *     Width: Number('int'),
+ *     LatencyMs: Number('int'),
+ *   },
+ *   Id: 'STRING_VALUE',
+ *   MacAddress: 'STRING_VALUE',
+ *   Name: 'STRING_VALUE',
+ *   NetworkSettings: { // InputDeviceNetworkSettings
+ *     DnsAddresses: [ // __listOf__string
+ *       'STRING_VALUE',
+ *     ],
+ *     Gateway: 'STRING_VALUE',
+ *     IpAddress: 'STRING_VALUE',
+ *     IpScheme: 'STATIC' || 'DHCP',
+ *     SubnetMask: 'STRING_VALUE',
+ *   },
+ *   SerialNumber: 'STRING_VALUE',
+ *   Type: 'HD' || 'UHD',
+ *   UhdDeviceSettings: { // InputDeviceUhdSettings
+ *     ActiveInput: 'HDMI' || 'SDI',
+ *     ConfiguredInput: 'AUTO' || 'HDMI' || 'SDI',
+ *     DeviceState: 'IDLE' || 'STREAMING',
+ *     Framerate: Number('double'),
+ *     Height: Number('int'),
+ *     MaxBitrate: Number('int'),
+ *     ScanType: 'INTERLACED' || 'PROGRESSIVE',
+ *     Width: Number('int'),
+ *     LatencyMs: Number('int'),
+ *   },
+ *   Tags: { // Tags
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateInputDeviceCommandInput - {@link UpdateInputDeviceCommandInput}
@@ -87,6 +134,8 @@ export interface UpdateInputDeviceCommandOutput extends UpdateInputDeviceRespons
  * @throws {@link UnprocessableEntityException} (client fault)
  *  Placeholder documentation for UnprocessableEntityException
  *
+ * @throws {@link MediaLiveServiceException}
+ * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
  */
 export class UpdateInputDeviceCommand extends $Command<

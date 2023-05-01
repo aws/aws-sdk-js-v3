@@ -47,21 +47,39 @@ export interface ListPackageVersionDependenciesCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeartifactClient, ListPackageVersionDependenciesCommand } from "@aws-sdk/client-codeartifact"; // ES Modules import
- * // const { CodeartifactClient, ListPackageVersionDependenciesCommand } = require("@aws-sdk/client-codeartifact"); // CommonJS import
+ * import { CodeartifactClient, ListPackageVersionDependenciesCommand } from '@aws-sdk/client-codeartifact'; // ES Modules import
+ * // const { CodeartifactClient, ListPackageVersionDependenciesCommand } = require('@aws-sdk/client-codeartifact'); // CommonJS import
  * const client = new CodeartifactClient(config);
  * const input = { // ListPackageVersionDependenciesRequest
- *   domain: "STRING_VALUE", // required
- *   domainOwner: "STRING_VALUE",
- *   repository: "STRING_VALUE", // required
- *   format: "npm" || "pypi" || "maven" || "nuget" || "generic", // required
- *   namespace: "STRING_VALUE",
- *   package: "STRING_VALUE", // required
- *   packageVersion: "STRING_VALUE", // required
- *   nextToken: "STRING_VALUE",
+ *   domain: 'STRING_VALUE', // required
+ *   domainOwner: 'STRING_VALUE',
+ *   repository: 'STRING_VALUE', // required
+ *   format: 'npm' || 'pypi' || 'maven' || 'nuget' || 'generic', // required
+ *   namespace: 'STRING_VALUE',
+ *   package: 'STRING_VALUE', // required
+ *   packageVersion: 'STRING_VALUE', // required
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new ListPackageVersionDependenciesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListPackageVersionDependenciesResult
+ *   format: 'npm' || 'pypi' || 'maven' || 'nuget' || 'generic',
+ *   namespace: 'STRING_VALUE',
+ *   package: 'STRING_VALUE',
+ *   version: 'STRING_VALUE',
+ *   versionRevision: 'STRING_VALUE',
+ *   nextToken: 'STRING_VALUE',
+ *   dependencies: [ // PackageDependencyList
+ *     { // PackageDependency
+ *       namespace: 'STRING_VALUE',
+ *       package: 'STRING_VALUE',
+ *       dependencyType: 'STRING_VALUE',
+ *       versionRequirement: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListPackageVersionDependenciesCommandInput - {@link ListPackageVersionDependenciesCommandInput}
@@ -93,6 +111,8 @@ export interface ListPackageVersionDependenciesCommandOutput
  *       The operation did not succeed because a parameter in the request was sent with an invalid value.
  *     </p>
  *
+ * @throws {@link CodeartifactServiceException}
+ * <p>Base exception class for all service exceptions from Codeartifact service.</p>
  *
  */
 export class ListPackageVersionDependenciesCommand extends $Command<

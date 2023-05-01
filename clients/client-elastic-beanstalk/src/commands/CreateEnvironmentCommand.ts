@@ -37,49 +37,94 @@ export interface CreateEnvironmentCommandOutput extends EnvironmentDescription, 
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElasticBeanstalkClient, CreateEnvironmentCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
- * // const { ElasticBeanstalkClient, CreateEnvironmentCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
+ * import { ElasticBeanstalkClient, CreateEnvironmentCommand } from '@aws-sdk/client-elastic-beanstalk'; // ES Modules import
+ * // const { ElasticBeanstalkClient, CreateEnvironmentCommand } = require('@aws-sdk/client-elastic-beanstalk'); // CommonJS import
  * const client = new ElasticBeanstalkClient(config);
  * const input = { // CreateEnvironmentMessage
- *   ApplicationName: "STRING_VALUE", // required
- *   EnvironmentName: "STRING_VALUE",
- *   GroupName: "STRING_VALUE",
- *   Description: "STRING_VALUE",
- *   CNAMEPrefix: "STRING_VALUE",
+ *   ApplicationName: 'STRING_VALUE', // required
+ *   EnvironmentName: 'STRING_VALUE',
+ *   GroupName: 'STRING_VALUE',
+ *   Description: 'STRING_VALUE',
+ *   CNAMEPrefix: 'STRING_VALUE',
  *   Tier: { // EnvironmentTier
- *     Name: "STRING_VALUE",
- *     Type: "STRING_VALUE",
- *     Version: "STRING_VALUE",
+ *     Name: 'STRING_VALUE',
+ *     Type: 'STRING_VALUE',
+ *     Version: 'STRING_VALUE',
  *   },
  *   Tags: [ // Tags
  *     { // Tag
- *       Key: "STRING_VALUE",
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
- *   VersionLabel: "STRING_VALUE",
- *   TemplateName: "STRING_VALUE",
- *   SolutionStackName: "STRING_VALUE",
- *   PlatformArn: "STRING_VALUE",
+ *   VersionLabel: 'STRING_VALUE',
+ *   TemplateName: 'STRING_VALUE',
+ *   SolutionStackName: 'STRING_VALUE',
+ *   PlatformArn: 'STRING_VALUE',
  *   OptionSettings: [ // ConfigurationOptionSettingsList
  *     { // ConfigurationOptionSetting
- *       ResourceName: "STRING_VALUE",
- *       Namespace: "STRING_VALUE",
- *       OptionName: "STRING_VALUE",
- *       Value: "STRING_VALUE",
+ *       ResourceName: 'STRING_VALUE',
+ *       Namespace: 'STRING_VALUE',
+ *       OptionName: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
  *   OptionsToRemove: [ // OptionsSpecifierList
  *     { // OptionSpecification
- *       ResourceName: "STRING_VALUE",
- *       Namespace: "STRING_VALUE",
- *       OptionName: "STRING_VALUE",
+ *       ResourceName: 'STRING_VALUE',
+ *       Namespace: 'STRING_VALUE',
+ *       OptionName: 'STRING_VALUE',
  *     },
  *   ],
- *   OperationsRole: "STRING_VALUE",
+ *   OperationsRole: 'STRING_VALUE',
  * };
  * const command = new CreateEnvironmentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // EnvironmentDescription
+ *   EnvironmentName: 'STRING_VALUE',
+ *   EnvironmentId: 'STRING_VALUE',
+ *   ApplicationName: 'STRING_VALUE',
+ *   VersionLabel: 'STRING_VALUE',
+ *   SolutionStackName: 'STRING_VALUE',
+ *   PlatformArn: 'STRING_VALUE',
+ *   TemplateName: 'STRING_VALUE',
+ *   Description: 'STRING_VALUE',
+ *   EndpointURL: 'STRING_VALUE',
+ *   CNAME: 'STRING_VALUE',
+ *   DateCreated: new Date('TIMESTAMP'),
+ *   DateUpdated: new Date('TIMESTAMP'),
+ *   Status: 'Aborting' || 'Launching' || 'Updating' || 'LinkingFrom' || 'LinkingTo' || 'Ready' || 'Terminating' || 'Terminated',
+ *   AbortableOperationInProgress: true || false,
+ *   Health: 'Green' || 'Yellow' || 'Red' || 'Grey',
+ *   HealthStatus: 'NoData' || 'Unknown' || 'Pending' || 'Ok' || 'Info' || 'Warning' || 'Degraded' || 'Severe' || 'Suspended',
+ *   Resources: { // EnvironmentResourcesDescription
+ *     LoadBalancer: { // LoadBalancerDescription
+ *       LoadBalancerName: 'STRING_VALUE',
+ *       Domain: 'STRING_VALUE',
+ *       Listeners: [ // LoadBalancerListenersDescription
+ *         { // Listener
+ *           Protocol: 'STRING_VALUE',
+ *           Port: Number('int'),
+ *         },
+ *       ],
+ *     },
+ *   },
+ *   Tier: { // EnvironmentTier
+ *     Name: 'STRING_VALUE',
+ *     Type: 'STRING_VALUE',
+ *     Version: 'STRING_VALUE',
+ *   },
+ *   EnvironmentLinks: [ // EnvironmentLinks
+ *     { // EnvironmentLink
+ *       LinkName: 'STRING_VALUE',
+ *       EnvironmentName: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   EnvironmentArn: 'STRING_VALUE',
+ *   OperationsRole: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateEnvironmentCommandInput - {@link CreateEnvironmentCommandInput}
@@ -95,6 +140,8 @@ export interface CreateEnvironmentCommandOutput extends EnvironmentDescription, 
  * @throws {@link TooManyEnvironmentsException} (client fault)
  *  <p>The specified account has reached its limit of environments.</p>
  *
+ * @throws {@link ElasticBeanstalkServiceException}
+ * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
  * @example To create a new environment for an application
  * ```javascript

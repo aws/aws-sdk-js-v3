@@ -36,17 +36,31 @@ export interface UpdateConstraintCommandOutput extends UpdateConstraintOutput, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ServiceCatalogClient, UpdateConstraintCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
- * // const { ServiceCatalogClient, UpdateConstraintCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
+ * import { ServiceCatalogClient, UpdateConstraintCommand } from '@aws-sdk/client-service-catalog'; // ES Modules import
+ * // const { ServiceCatalogClient, UpdateConstraintCommand } = require('@aws-sdk/client-service-catalog'); // CommonJS import
  * const client = new ServiceCatalogClient(config);
  * const input = { // UpdateConstraintInput
- *   AcceptLanguage: "STRING_VALUE",
- *   Id: "STRING_VALUE", // required
- *   Description: "STRING_VALUE",
- *   Parameters: "STRING_VALUE",
+ *   AcceptLanguage: 'STRING_VALUE',
+ *   Id: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE',
+ *   Parameters: 'STRING_VALUE',
  * };
  * const command = new UpdateConstraintCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateConstraintOutput
+ *   ConstraintDetail: { // ConstraintDetail
+ *     ConstraintId: 'STRING_VALUE',
+ *     Type: 'STRING_VALUE',
+ *     Description: 'STRING_VALUE',
+ *     Owner: 'STRING_VALUE',
+ *     ProductId: 'STRING_VALUE',
+ *     PortfolioId: 'STRING_VALUE',
+ *   },
+ *   ConstraintParameters: 'STRING_VALUE',
+ *   Status: 'AVAILABLE' || 'CREATING' || 'FAILED',
+ * };
+ *
  * ```
  *
  * @param UpdateConstraintCommandInput - {@link UpdateConstraintCommandInput}
@@ -61,6 +75,8 @@ export interface UpdateConstraintCommandOutput extends UpdateConstraintOutput, _
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link ServiceCatalogServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
  */
 export class UpdateConstraintCommand extends $Command<

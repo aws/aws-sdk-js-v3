@@ -42,31 +42,36 @@ export interface CreateDeploymentCommandOutput extends CreateDeploymentResult, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OpsWorksClient, CreateDeploymentCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
- * // const { OpsWorksClient, CreateDeploymentCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
+ * import { OpsWorksClient, CreateDeploymentCommand } from '@aws-sdk/client-opsworks'; // ES Modules import
+ * // const { OpsWorksClient, CreateDeploymentCommand } = require('@aws-sdk/client-opsworks'); // CommonJS import
  * const client = new OpsWorksClient(config);
  * const input = { // CreateDeploymentRequest
- *   StackId: "STRING_VALUE", // required
- *   AppId: "STRING_VALUE",
+ *   StackId: 'STRING_VALUE', // required
+ *   AppId: 'STRING_VALUE',
  *   InstanceIds: [ // Strings
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   LayerIds: [
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   Command: { // DeploymentCommand
- *     Name: "STRING_VALUE", // required
+ *     Name: 'STRING_VALUE', // required
  *     Args: { // DeploymentCommandArgs
- *       "<keys>": [
- *         "STRING_VALUE",
+ *       '<keys>': [
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   },
- *   Comment: "STRING_VALUE",
- *   CustomJson: "STRING_VALUE",
+ *   Comment: 'STRING_VALUE',
+ *   CustomJson: 'STRING_VALUE',
  * };
  * const command = new CreateDeploymentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateDeploymentResult
+ *   DeploymentId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateDeploymentCommandInput - {@link CreateDeploymentCommandInput}
@@ -81,6 +86,8 @@ export interface CreateDeploymentCommandOutput extends CreateDeploymentResult, _
  * @throws {@link ValidationException} (client fault)
  *  <p>Indicates that a request was not valid.</p>
  *
+ * @throws {@link OpsWorksServiceException}
+ * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
  */
 export class CreateDeploymentCommand extends $Command<

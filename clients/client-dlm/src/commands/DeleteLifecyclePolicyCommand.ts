@@ -39,14 +39,17 @@ export interface DeleteLifecyclePolicyCommandOutput extends DeleteLifecyclePolic
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DLMClient, DeleteLifecyclePolicyCommand } from "@aws-sdk/client-dlm"; // ES Modules import
- * // const { DLMClient, DeleteLifecyclePolicyCommand } = require("@aws-sdk/client-dlm"); // CommonJS import
+ * import { DLMClient, DeleteLifecyclePolicyCommand } from '@aws-sdk/client-dlm'; // ES Modules import
+ * // const { DLMClient, DeleteLifecyclePolicyCommand } = require('@aws-sdk/client-dlm'); // CommonJS import
  * const client = new DLMClient(config);
  * const input = { // DeleteLifecyclePolicyRequest
- *   PolicyId: "STRING_VALUE", // required
+ *   PolicyId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteLifecyclePolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteLifecyclePolicyCommandInput - {@link DeleteLifecyclePolicyCommandInput}
@@ -64,6 +67,8 @@ export interface DeleteLifecyclePolicyCommandOutput extends DeleteLifecyclePolic
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>A requested resource was not found.</p>
  *
+ * @throws {@link DLMServiceException}
+ * <p>Base exception class for all service exceptions from DLM service.</p>
  *
  */
 export class DeleteLifecyclePolicyCommand extends $Command<

@@ -41,14 +41,19 @@ export interface DisableDelegatedAdminAccountCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Inspector2Client, DisableDelegatedAdminAccountCommand } from "@aws-sdk/client-inspector2"; // ES Modules import
- * // const { Inspector2Client, DisableDelegatedAdminAccountCommand } = require("@aws-sdk/client-inspector2"); // CommonJS import
+ * import { Inspector2Client, DisableDelegatedAdminAccountCommand } from '@aws-sdk/client-inspector2'; // ES Modules import
+ * // const { Inspector2Client, DisableDelegatedAdminAccountCommand } = require('@aws-sdk/client-inspector2'); // CommonJS import
  * const client = new Inspector2Client(config);
  * const input = { // DisableDelegatedAdminAccountRequest
- *   delegatedAdminAccountId: "STRING_VALUE", // required
+ *   delegatedAdminAccountId: 'STRING_VALUE', // required
  * };
  * const command = new DisableDelegatedAdminAccountCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DisableDelegatedAdminAccountResponse
+ *   delegatedAdminAccountId: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param DisableDelegatedAdminAccountCommandInput - {@link DisableDelegatedAdminAccountCommandInput}
@@ -76,6 +81,8 @@ export interface DisableDelegatedAdminAccountCommandOutput
  *  <p>The request has failed validation due to missing required fields or having invalid
  *          inputs.</p>
  *
+ * @throws {@link Inspector2ServiceException}
+ * <p>Base exception class for all service exceptions from Inspector2 service.</p>
  *
  */
 export class DisableDelegatedAdminAccountCommand extends $Command<

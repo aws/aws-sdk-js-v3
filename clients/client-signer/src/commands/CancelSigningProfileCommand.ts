@@ -39,14 +39,17 @@ export interface CancelSigningProfileCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SignerClient, CancelSigningProfileCommand } from "@aws-sdk/client-signer"; // ES Modules import
- * // const { SignerClient, CancelSigningProfileCommand } = require("@aws-sdk/client-signer"); // CommonJS import
+ * import { SignerClient, CancelSigningProfileCommand } from '@aws-sdk/client-signer'; // ES Modules import
+ * // const { SignerClient, CancelSigningProfileCommand } = require('@aws-sdk/client-signer'); // CommonJS import
  * const client = new SignerClient(config);
  * const input = { // CancelSigningProfileRequest
- *   profileName: "STRING_VALUE", // required
+ *   profileName: 'STRING_VALUE', // required
  * };
  * const command = new CancelSigningProfileCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param CancelSigningProfileCommandInput - {@link CancelSigningProfileCommandInput}
@@ -68,6 +71,8 @@ export interface CancelSigningProfileCommandOutput extends __MetadataBearer {}
  *  <p>The allowed number of job-signing requests has been exceeded.</p>
  * 		       <p>This error supersedes the error <code>ThrottlingException</code>.</p>
  *
+ * @throws {@link SignerServiceException}
+ * <p>Base exception class for all service exceptions from Signer service.</p>
  *
  */
 export class CancelSigningProfileCommand extends $Command<

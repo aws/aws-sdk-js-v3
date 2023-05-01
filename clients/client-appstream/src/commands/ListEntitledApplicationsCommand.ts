@@ -36,17 +36,27 @@ export interface ListEntitledApplicationsCommandOutput extends ListEntitledAppli
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppStreamClient, ListEntitledApplicationsCommand } from "@aws-sdk/client-appstream"; // ES Modules import
- * // const { AppStreamClient, ListEntitledApplicationsCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
+ * import { AppStreamClient, ListEntitledApplicationsCommand } from '@aws-sdk/client-appstream'; // ES Modules import
+ * // const { AppStreamClient, ListEntitledApplicationsCommand } = require('@aws-sdk/client-appstream'); // CommonJS import
  * const client = new AppStreamClient(config);
  * const input = { // ListEntitledApplicationsRequest
- *   StackName: "STRING_VALUE", // required
- *   EntitlementName: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   StackName: 'STRING_VALUE', // required
+ *   EntitlementName: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListEntitledApplicationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListEntitledApplicationsResult
+ *   EntitledApplications: [ // EntitledApplicationList
+ *     { // EntitledApplication
+ *       ApplicationIdentifier: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListEntitledApplicationsCommandInput - {@link ListEntitledApplicationsCommandInput}
@@ -64,6 +74,8 @@ export interface ListEntitledApplicationsCommandOutput extends ListEntitledAppli
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link AppStreamServiceException}
+ * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
  */
 export class ListEntitledApplicationsCommand extends $Command<

@@ -46,31 +46,66 @@ export interface DescribeInstanceInformationCommandOutput extends DescribeInstan
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMClient, DescribeInstanceInformationCommand } from "@aws-sdk/client-ssm"; // ES Modules import
- * // const { SSMClient, DescribeInstanceInformationCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * import { SSMClient, DescribeInstanceInformationCommand } from '@aws-sdk/client-ssm'; // ES Modules import
+ * // const { SSMClient, DescribeInstanceInformationCommand } = require('@aws-sdk/client-ssm'); // CommonJS import
  * const client = new SSMClient(config);
  * const input = { // DescribeInstanceInformationRequest
  *   InstanceInformationFilterList: [ // InstanceInformationFilterList
  *     { // InstanceInformationFilter
- *       key: "InstanceIds" || "AgentVersion" || "PingStatus" || "PlatformTypes" || "ActivationIds" || "IamRole" || "ResourceType" || "AssociationStatus", // required
+ *       key: 'InstanceIds' || 'AgentVersion' || 'PingStatus' || 'PlatformTypes' || 'ActivationIds' || 'IamRole' || 'ResourceType' || 'AssociationStatus', // required
  *       valueSet: [ // InstanceInformationFilterValueSet // required
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
  *   Filters: [ // InstanceInformationStringFilterList
  *     { // InstanceInformationStringFilter
- *       Key: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
  *       Values: [ // required
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new DescribeInstanceInformationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeInstanceInformationResult
+ *   InstanceInformationList: [ // InstanceInformationList
+ *     { // InstanceInformation
+ *       InstanceId: 'STRING_VALUE',
+ *       PingStatus: 'Online' || 'ConnectionLost' || 'Inactive',
+ *       LastPingDateTime: new Date('TIMESTAMP'),
+ *       AgentVersion: 'STRING_VALUE',
+ *       IsLatestVersion: true || false,
+ *       PlatformType: 'Windows' || 'Linux' || 'MacOS',
+ *       PlatformName: 'STRING_VALUE',
+ *       PlatformVersion: 'STRING_VALUE',
+ *       ActivationId: 'STRING_VALUE',
+ *       IamRole: 'STRING_VALUE',
+ *       RegistrationDate: new Date('TIMESTAMP'),
+ *       ResourceType: 'ManagedInstance' || 'Document' || 'EC2Instance',
+ *       Name: 'STRING_VALUE',
+ *       IPAddress: 'STRING_VALUE',
+ *       ComputerName: 'STRING_VALUE',
+ *       AssociationStatus: 'STRING_VALUE',
+ *       LastAssociationExecutionDate: new Date('TIMESTAMP'),
+ *       LastSuccessfulAssociationExecutionDate: new Date('TIMESTAMP'),
+ *       AssociationOverview: { // InstanceAggregatedAssociationOverview
+ *         DetailedStatus: 'STRING_VALUE',
+ *         InstanceAssociationStatusAggregatedCount: { // InstanceAssociationStatusAggregatedCount
+ *           '<keys>': Number('int'),
+ *         },
+ *       },
+ *       SourceId: 'STRING_VALUE',
+ *       SourceType: 'AWS::EC2::Instance' || 'AWS::IoT::Thing' || 'AWS::SSM::ManagedInstance',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeInstanceInformationCommandInput - {@link DescribeInstanceInformationCommandInput}
@@ -111,6 +146,8 @@ export interface DescribeInstanceInformationCommandOutput extends DescribeInstan
  * @throws {@link InvalidNextToken} (client fault)
  *  <p>The specified token isn't valid.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class DescribeInstanceInformationCommand extends $Command<

@@ -36,14 +36,17 @@ export interface DeleteLoggingConfigurationCommandOutput extends DeleteLoggingCo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WAFV2Client, DeleteLoggingConfigurationCommand } from "@aws-sdk/client-wafv2"; // ES Modules import
- * // const { WAFV2Client, DeleteLoggingConfigurationCommand } = require("@aws-sdk/client-wafv2"); // CommonJS import
+ * import { WAFV2Client, DeleteLoggingConfigurationCommand } from '@aws-sdk/client-wafv2'; // ES Modules import
+ * // const { WAFV2Client, DeleteLoggingConfigurationCommand } = require('@aws-sdk/client-wafv2'); // CommonJS import
  * const client = new WAFV2Client(config);
  * const input = { // DeleteLoggingConfigurationRequest
- *   ResourceArn: "STRING_VALUE", // required
+ *   ResourceArn: 'STRING_VALUE', // required
  * };
  * const command = new DeleteLoggingConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteLoggingConfigurationCommandInput - {@link DeleteLoggingConfigurationCommandInput}
@@ -91,6 +94,8 @@ export interface DeleteLoggingConfigurationCommandOutput extends DeleteLoggingCo
  *          that has changed since you last retrieved it. Get the resource again, make any changes you
  *          need to make to the new copy, and retry your operation. </p>
  *
+ * @throws {@link WAFV2ServiceException}
+ * <p>Base exception class for all service exceptions from WAFV2 service.</p>
  *
  */
 export class DeleteLoggingConfigurationCommand extends $Command<

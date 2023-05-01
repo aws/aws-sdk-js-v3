@@ -37,18 +37,33 @@ export interface ListStreamsCommandOutput extends ListStreamsResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IvsClient, ListStreamsCommand } from "@aws-sdk/client-ivs"; // ES Modules import
- * // const { IvsClient, ListStreamsCommand } = require("@aws-sdk/client-ivs"); // CommonJS import
+ * import { IvsClient, ListStreamsCommand } from '@aws-sdk/client-ivs'; // ES Modules import
+ * // const { IvsClient, ListStreamsCommand } = require('@aws-sdk/client-ivs'); // CommonJS import
  * const client = new IvsClient(config);
  * const input = { // ListStreamsRequest
  *   filterBy: { // StreamFilters
- *     health: "STRING_VALUE",
+ *     health: 'STRING_VALUE',
  *   },
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new ListStreamsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListStreamsResponse
+ *   streams: [ // StreamList // required
+ *     { // StreamSummary
+ *       channelArn: 'STRING_VALUE',
+ *       streamId: 'STRING_VALUE',
+ *       state: 'STRING_VALUE',
+ *       health: 'STRING_VALUE',
+ *       viewerCount: Number('long'),
+ *       startTime: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListStreamsCommandInput - {@link ListStreamsCommandInput}
@@ -63,6 +78,8 @@ export interface ListStreamsCommandOutput extends ListStreamsResponse, __Metadat
  * @throws {@link ValidationException} (client fault)
  *  <p/>
  *
+ * @throws {@link IvsServiceException}
+ * <p>Base exception class for all service exceptions from Ivs service.</p>
  *
  */
 export class ListStreamsCommand extends $Command<

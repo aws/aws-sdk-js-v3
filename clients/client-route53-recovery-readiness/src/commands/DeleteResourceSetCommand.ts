@@ -40,14 +40,17 @@ export interface DeleteResourceSetCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Route53RecoveryReadinessClient, DeleteResourceSetCommand } from "@aws-sdk/client-route53-recovery-readiness"; // ES Modules import
- * // const { Route53RecoveryReadinessClient, DeleteResourceSetCommand } = require("@aws-sdk/client-route53-recovery-readiness"); // CommonJS import
+ * import { Route53RecoveryReadinessClient, DeleteResourceSetCommand } from '@aws-sdk/client-route53-recovery-readiness'; // ES Modules import
+ * // const { Route53RecoveryReadinessClient, DeleteResourceSetCommand } = require('@aws-sdk/client-route53-recovery-readiness'); // CommonJS import
  * const client = new Route53RecoveryReadinessClient(config);
  * const input = { // DeleteResourceSetRequest
- *   ResourceSetName: "STRING_VALUE", // required
+ *   ResourceSetName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteResourceSetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteResourceSetCommandInput - {@link DeleteResourceSetCommandInput}
@@ -71,6 +74,8 @@ export interface DeleteResourceSetCommandOutput extends __MetadataBearer {}
  * @throws {@link ValidationException} (client fault)
  *  The input fails to satisfy the constraints specified by an AWS service.
  *
+ * @throws {@link Route53RecoveryReadinessServiceException}
+ * <p>Base exception class for all service exceptions from Route53RecoveryReadiness service.</p>
  *
  */
 export class DeleteResourceSetCommand extends $Command<

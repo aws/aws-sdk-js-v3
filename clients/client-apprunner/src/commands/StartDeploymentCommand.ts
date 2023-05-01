@@ -41,14 +41,19 @@ export interface StartDeploymentCommandOutput extends StartDeploymentResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppRunnerClient, StartDeploymentCommand } from "@aws-sdk/client-apprunner"; // ES Modules import
- * // const { AppRunnerClient, StartDeploymentCommand } = require("@aws-sdk/client-apprunner"); // CommonJS import
+ * import { AppRunnerClient, StartDeploymentCommand } from '@aws-sdk/client-apprunner'; // ES Modules import
+ * // const { AppRunnerClient, StartDeploymentCommand } = require('@aws-sdk/client-apprunner'); // CommonJS import
  * const client = new AppRunnerClient(config);
  * const input = { // StartDeploymentRequest
- *   ServiceArn: "STRING_VALUE", // required
+ *   ServiceArn: 'STRING_VALUE', // required
  * };
  * const command = new StartDeploymentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartDeploymentResponse
+ *   OperationId: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param StartDeploymentCommandInput - {@link StartDeploymentCommandInput}
@@ -66,6 +71,8 @@ export interface StartDeploymentCommandOutput extends StartDeploymentResponse, _
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>A resource doesn't exist for the specified Amazon Resource Name (ARN) in your Amazon Web Services account.</p>
  *
+ * @throws {@link AppRunnerServiceException}
+ * <p>Base exception class for all service exceptions from AppRunner service.</p>
  *
  */
 export class StartDeploymentCommand extends $Command<

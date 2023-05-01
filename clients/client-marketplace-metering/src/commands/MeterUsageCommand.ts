@@ -50,22 +50,22 @@ export interface MeterUsageCommandOutput extends MeterUsageResult, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MarketplaceMeteringClient, MeterUsageCommand } from "@aws-sdk/client-marketplace-metering"; // ES Modules import
- * // const { MarketplaceMeteringClient, MeterUsageCommand } = require("@aws-sdk/client-marketplace-metering"); // CommonJS import
+ * import { MarketplaceMeteringClient, MeterUsageCommand } from '@aws-sdk/client-marketplace-metering'; // ES Modules import
+ * // const { MarketplaceMeteringClient, MeterUsageCommand } = require('@aws-sdk/client-marketplace-metering'); // CommonJS import
  * const client = new MarketplaceMeteringClient(config);
  * const input = { // MeterUsageRequest
- *   ProductCode: "STRING_VALUE", // required
- *   Timestamp: new Date("TIMESTAMP"), // required
- *   UsageDimension: "STRING_VALUE", // required
- *   UsageQuantity: Number("int"),
+ *   ProductCode: 'STRING_VALUE', // required
+ *   Timestamp: new Date('TIMESTAMP'), // required
+ *   UsageDimension: 'STRING_VALUE', // required
+ *   UsageQuantity: Number('int'),
  *   DryRun: true || false,
  *   UsageAllocations: [ // UsageAllocations
  *     { // UsageAllocation
- *       AllocatedUsageQuantity: Number("int"), // required
+ *       AllocatedUsageQuantity: Number('int'), // required
  *       Tags: [ // TagList
  *         { // Tag
- *           Key: "STRING_VALUE", // required
- *           Value: "STRING_VALUE", // required
+ *           Key: 'STRING_VALUE', // required
+ *           Value: 'STRING_VALUE', // required
  *         },
  *       ],
  *     },
@@ -73,6 +73,11 @@ export interface MeterUsageCommandOutput extends MeterUsageResult, __MetadataBea
  * };
  * const command = new MeterUsageCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // MeterUsageResult
+ *   MeteringRecordId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param MeterUsageCommandInput - {@link MeterUsageCommandInput}
@@ -124,6 +129,8 @@ export interface MeterUsageCommandOutput extends MeterUsageResult, __MetadataBea
  *             range, the entire batch is not processed. You must remove invalid records and try
  *             again.</p>
  *
+ * @throws {@link MarketplaceMeteringServiceException}
+ * <p>Base exception class for all service exceptions from MarketplaceMetering service.</p>
  *
  */
 export class MeterUsageCommand extends $Command<

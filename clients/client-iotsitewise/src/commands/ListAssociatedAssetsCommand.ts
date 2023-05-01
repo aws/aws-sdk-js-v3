@@ -45,18 +45,53 @@ export interface ListAssociatedAssetsCommandOutput extends ListAssociatedAssetsR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTSiteWiseClient, ListAssociatedAssetsCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
- * // const { IoTSiteWiseClient, ListAssociatedAssetsCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
+ * import { IoTSiteWiseClient, ListAssociatedAssetsCommand } from '@aws-sdk/client-iotsitewise'; // ES Modules import
+ * // const { IoTSiteWiseClient, ListAssociatedAssetsCommand } = require('@aws-sdk/client-iotsitewise'); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
  * const input = { // ListAssociatedAssetsRequest
- *   assetId: "STRING_VALUE", // required
- *   hierarchyId: "STRING_VALUE",
- *   traversalDirection: "PARENT" || "CHILD",
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   assetId: 'STRING_VALUE', // required
+ *   hierarchyId: 'STRING_VALUE',
+ *   traversalDirection: 'PARENT' || 'CHILD',
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new ListAssociatedAssetsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListAssociatedAssetsResponse
+ *   assetSummaries: [ // AssociatedAssetsSummaries // required
+ *     { // AssociatedAssetsSummary
+ *       id: 'STRING_VALUE', // required
+ *       arn: 'STRING_VALUE', // required
+ *       name: 'STRING_VALUE', // required
+ *       assetModelId: 'STRING_VALUE', // required
+ *       creationDate: new Date('TIMESTAMP'), // required
+ *       lastUpdateDate: new Date('TIMESTAMP'), // required
+ *       status: { // AssetStatus
+ *         state: 'CREATING' || 'ACTIVE' || 'UPDATING' || 'DELETING' || 'FAILED', // required
+ *         error: { // ErrorDetails
+ *           code: 'VALIDATION_ERROR' || 'INTERNAL_FAILURE', // required
+ *           message: 'STRING_VALUE', // required
+ *           details: [ // DetailedErrors
+ *             { // DetailedError
+ *               code: 'INCOMPATIBLE_COMPUTE_LOCATION' || 'INCOMPATIBLE_FORWARDING_CONFIGURATION', // required
+ *               message: 'STRING_VALUE', // required
+ *             },
+ *           ],
+ *         },
+ *       },
+ *       hierarchies: [ // AssetHierarchies // required
+ *         { // AssetHierarchy
+ *           id: 'STRING_VALUE',
+ *           name: 'STRING_VALUE', // required
+ *         },
+ *       ],
+ *       description: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListAssociatedAssetsCommandInput - {@link ListAssociatedAssetsCommandInput}
@@ -81,6 +116,8 @@ export interface ListAssociatedAssetsCommandOutput extends ListAssociatedAssetsR
  *       on.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
  *
+ * @throws {@link IoTSiteWiseServiceException}
+ * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
  */
 export class ListAssociatedAssetsCommand extends $Command<

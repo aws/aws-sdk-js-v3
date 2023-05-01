@@ -68,17 +68,25 @@ export interface ListFleetsCommandOutput extends ListFleetsOutput, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GameLiftClient, ListFleetsCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
- * // const { GameLiftClient, ListFleetsCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
+ * import { GameLiftClient, ListFleetsCommand } from '@aws-sdk/client-gamelift'; // ES Modules import
+ * // const { GameLiftClient, ListFleetsCommand } = require('@aws-sdk/client-gamelift'); // CommonJS import
  * const client = new GameLiftClient(config);
  * const input = { // ListFleetsInput
- *   BuildId: "STRING_VALUE",
- *   ScriptId: "STRING_VALUE",
- *   Limit: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   BuildId: 'STRING_VALUE',
+ *   ScriptId: 'STRING_VALUE',
+ *   Limit: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListFleetsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListFleetsOutput
+ *   FleetIds: [ // FleetIdList
+ *     'STRING_VALUE',
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListFleetsCommandInput - {@link ListFleetsCommandInput}
@@ -101,6 +109,8 @@ export interface ListFleetsCommandOutput extends ListFleetsOutput, __MetadataBea
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client failed authentication. Clients should not retry such requests.</p>
  *
+ * @throws {@link GameLiftServiceException}
+ * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
  */
 export class ListFleetsCommand extends $Command<

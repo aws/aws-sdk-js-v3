@@ -82,29 +82,34 @@ export interface UpdateByteMatchSetCommandOutput extends UpdateByteMatchSetRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WAFRegionalClient, UpdateByteMatchSetCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
- * // const { WAFRegionalClient, UpdateByteMatchSetCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import
+ * import { WAFRegionalClient, UpdateByteMatchSetCommand } from '@aws-sdk/client-waf-regional'; // ES Modules import
+ * // const { WAFRegionalClient, UpdateByteMatchSetCommand } = require('@aws-sdk/client-waf-regional'); // CommonJS import
  * const client = new WAFRegionalClient(config);
  * const input = { // UpdateByteMatchSetRequest
- *   ByteMatchSetId: "STRING_VALUE", // required
- *   ChangeToken: "STRING_VALUE", // required
+ *   ByteMatchSetId: 'STRING_VALUE', // required
+ *   ChangeToken: 'STRING_VALUE', // required
  *   Updates: [ // ByteMatchSetUpdates // required
  *     { // ByteMatchSetUpdate
- *       Action: "STRING_VALUE", // required
+ *       Action: 'STRING_VALUE', // required
  *       ByteMatchTuple: { // ByteMatchTuple
  *         FieldToMatch: { // FieldToMatch
- *           Type: "STRING_VALUE", // required
- *           Data: "STRING_VALUE",
+ *           Type: 'STRING_VALUE', // required
+ *           Data: 'STRING_VALUE',
  *         },
- *         TargetString: "BLOB_VALUE", // required
- *         TextTransformation: "STRING_VALUE", // required
- *         PositionalConstraint: "STRING_VALUE", // required
+ *         TargetString: 'BLOB_VALUE', // required
+ *         TextTransformation: 'STRING_VALUE', // required
+ *         PositionalConstraint: 'STRING_VALUE', // required
  *       },
  *     },
  *   ],
  * };
  * const command = new UpdateByteMatchSetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateByteMatchSetResponse
+ *   ChangeToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateByteMatchSetCommandInput - {@link UpdateByteMatchSetCommandInput}
@@ -211,6 +216,8 @@ export interface UpdateByteMatchSetCommandOutput extends UpdateByteMatchSetRespo
  * @throws {@link WAFStaleDataException} (client fault)
  *  <p>The operation failed because you tried to create, update, or delete an object by using a change token that has already been used.</p>
  *
+ * @throws {@link WAFRegionalServiceException}
+ * <p>Base exception class for all service exceptions from WAFRegional service.</p>
  *
  * @example To update a byte match set
  * ```javascript

@@ -36,16 +36,33 @@ export interface GetVoiceToneAnalysisTaskCommandOutput extends GetVoiceToneAnaly
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeSDKVoiceClient, GetVoiceToneAnalysisTaskCommand } from "@aws-sdk/client-chime-sdk-voice"; // ES Modules import
- * // const { ChimeSDKVoiceClient, GetVoiceToneAnalysisTaskCommand } = require("@aws-sdk/client-chime-sdk-voice"); // CommonJS import
+ * import { ChimeSDKVoiceClient, GetVoiceToneAnalysisTaskCommand } from '@aws-sdk/client-chime-sdk-voice'; // ES Modules import
+ * // const { ChimeSDKVoiceClient, GetVoiceToneAnalysisTaskCommand } = require('@aws-sdk/client-chime-sdk-voice'); // CommonJS import
  * const client = new ChimeSDKVoiceClient(config);
  * const input = { // GetVoiceToneAnalysisTaskRequest
- *   VoiceConnectorId: "STRING_VALUE", // required
- *   VoiceToneAnalysisTaskId: "STRING_VALUE", // required
+ *   VoiceConnectorId: 'STRING_VALUE', // required
+ *   VoiceToneAnalysisTaskId: 'STRING_VALUE', // required
  *   IsCaller: true || false, // required
  * };
  * const command = new GetVoiceToneAnalysisTaskCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetVoiceToneAnalysisTaskResponse
+ *   VoiceToneAnalysisTask: { // VoiceToneAnalysisTask
+ *     VoiceToneAnalysisTaskId: 'STRING_VALUE',
+ *     VoiceToneAnalysisTaskStatus: 'STRING_VALUE',
+ *     CallDetails: { // CallDetails
+ *       VoiceConnectorId: 'STRING_VALUE',
+ *       TransactionId: 'STRING_VALUE',
+ *       IsCaller: true || false,
+ *     },
+ *     CreatedTimestamp: new Date('TIMESTAMP'),
+ *     UpdatedTimestamp: new Date('TIMESTAMP'),
+ *     StartedTimestamp: new Date('TIMESTAMP'),
+ *     StatusMessage: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetVoiceToneAnalysisTaskCommandInput - {@link GetVoiceToneAnalysisTaskCommandInput}
@@ -81,6 +98,8 @@ export interface GetVoiceToneAnalysisTaskCommandOutput extends GetVoiceToneAnaly
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client isn't authorized to request a resource.</p>
  *
+ * @throws {@link ChimeSDKVoiceServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
  */
 export class GetVoiceToneAnalysisTaskCommand extends $Command<

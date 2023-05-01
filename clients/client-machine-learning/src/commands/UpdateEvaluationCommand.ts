@@ -37,15 +37,20 @@ export interface UpdateEvaluationCommandOutput extends UpdateEvaluationOutput, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MachineLearningClient, UpdateEvaluationCommand } from "@aws-sdk/client-machine-learning"; // ES Modules import
- * // const { MachineLearningClient, UpdateEvaluationCommand } = require("@aws-sdk/client-machine-learning"); // CommonJS import
+ * import { MachineLearningClient, UpdateEvaluationCommand } from '@aws-sdk/client-machine-learning'; // ES Modules import
+ * // const { MachineLearningClient, UpdateEvaluationCommand } = require('@aws-sdk/client-machine-learning'); // CommonJS import
  * const client = new MachineLearningClient(config);
  * const input = { // UpdateEvaluationInput
- *   EvaluationId: "STRING_VALUE", // required
- *   EvaluationName: "STRING_VALUE", // required
+ *   EvaluationId: 'STRING_VALUE', // required
+ *   EvaluationName: 'STRING_VALUE', // required
  * };
  * const command = new UpdateEvaluationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateEvaluationOutput
+ *   EvaluationId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateEvaluationCommandInput - {@link UpdateEvaluationCommandInput}
@@ -63,6 +68,8 @@ export interface UpdateEvaluationCommandOutput extends UpdateEvaluationOutput, _
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>A specified resource cannot be located.</p>
  *
+ * @throws {@link MachineLearningServiceException}
+ * <p>Base exception class for all service exceptions from MachineLearning service.</p>
  *
  */
 export class UpdateEvaluationCommand extends $Command<

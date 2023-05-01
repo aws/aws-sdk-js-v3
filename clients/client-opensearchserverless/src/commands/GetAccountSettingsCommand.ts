@@ -40,12 +40,22 @@ export interface GetAccountSettingsCommandOutput extends GetAccountSettingsRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OpenSearchServerlessClient, GetAccountSettingsCommand } from "@aws-sdk/client-opensearchserverless"; // ES Modules import
- * // const { OpenSearchServerlessClient, GetAccountSettingsCommand } = require("@aws-sdk/client-opensearchserverless"); // CommonJS import
+ * import { OpenSearchServerlessClient, GetAccountSettingsCommand } from '@aws-sdk/client-opensearchserverless'; // ES Modules import
+ * // const { OpenSearchServerlessClient, GetAccountSettingsCommand } = require('@aws-sdk/client-opensearchserverless'); // CommonJS import
  * const client = new OpenSearchServerlessClient(config);
  * const input = {};
  * const command = new GetAccountSettingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetAccountSettingsResponse
+ *   accountSettingsDetail: { // AccountSettingsDetail
+ *     capacityLimits: { // CapacityLimits
+ *       maxIndexingCapacityInOCU: Number('int'),
+ *       maxSearchCapacityInOCU: Number('int'),
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetAccountSettingsCommandInput - {@link GetAccountSettingsCommandInput}
@@ -61,6 +71,8 @@ export interface GetAccountSettingsCommandOutput extends GetAccountSettingsRespo
  *  <p>Thrown when the HTTP request contains invalid input or is missing required
  *             input.</p>
  *
+ * @throws {@link OpenSearchServerlessServiceException}
+ * <p>Base exception class for all service exceptions from OpenSearchServerless service.</p>
  *
  */
 export class GetAccountSettingsCommand extends $Command<

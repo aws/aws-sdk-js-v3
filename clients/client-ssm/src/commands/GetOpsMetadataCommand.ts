@@ -36,16 +36,27 @@ export interface GetOpsMetadataCommandOutput extends GetOpsMetadataResult, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMClient, GetOpsMetadataCommand } from "@aws-sdk/client-ssm"; // ES Modules import
- * // const { SSMClient, GetOpsMetadataCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * import { SSMClient, GetOpsMetadataCommand } from '@aws-sdk/client-ssm'; // ES Modules import
+ * // const { SSMClient, GetOpsMetadataCommand } = require('@aws-sdk/client-ssm'); // CommonJS import
  * const client = new SSMClient(config);
  * const input = { // GetOpsMetadataRequest
- *   OpsMetadataArn: "STRING_VALUE", // required
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   OpsMetadataArn: 'STRING_VALUE', // required
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new GetOpsMetadataCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetOpsMetadataResult
+ *   ResourceId: 'STRING_VALUE',
+ *   Metadata: { // MetadataMap
+ *     '<keys>': { // MetadataValue
+ *       Value: 'STRING_VALUE',
+ *     },
+ *   },
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetOpsMetadataCommandInput - {@link GetOpsMetadataCommandInput}
@@ -63,6 +74,8 @@ export interface GetOpsMetadataCommandOutput extends GetOpsMetadataResult, __Met
  * @throws {@link OpsMetadataNotFoundException} (client fault)
  *  <p>The OpsMetadata object doesn't exist. </p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class GetOpsMetadataCommand extends $Command<

@@ -36,15 +36,18 @@ export interface UpdateCoreDefinitionCommandOutput extends UpdateCoreDefinitionR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GreengrassClient, UpdateCoreDefinitionCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
- * // const { GreengrassClient, UpdateCoreDefinitionCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
+ * import { GreengrassClient, UpdateCoreDefinitionCommand } from '@aws-sdk/client-greengrass'; // ES Modules import
+ * // const { GreengrassClient, UpdateCoreDefinitionCommand } = require('@aws-sdk/client-greengrass'); // CommonJS import
  * const client = new GreengrassClient(config);
  * const input = { // UpdateCoreDefinitionRequest
- *   CoreDefinitionId: "STRING_VALUE", // required
- *   Name: "STRING_VALUE",
+ *   CoreDefinitionId: 'STRING_VALUE', // required
+ *   Name: 'STRING_VALUE',
  * };
  * const command = new UpdateCoreDefinitionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateCoreDefinitionCommandInput - {@link UpdateCoreDefinitionCommandInput}
@@ -56,6 +59,8 @@ export interface UpdateCoreDefinitionCommandOutput extends UpdateCoreDefinitionR
  * @throws {@link BadRequestException} (client fault)
  *  General error information.
  *
+ * @throws {@link GreengrassServiceException}
+ * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
  */
 export class UpdateCoreDefinitionCommand extends $Command<

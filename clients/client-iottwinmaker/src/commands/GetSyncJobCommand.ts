@@ -36,15 +36,32 @@ export interface GetSyncJobCommandOutput extends GetSyncJobResponse, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTTwinMakerClient, GetSyncJobCommand } from "@aws-sdk/client-iottwinmaker"; // ES Modules import
- * // const { IoTTwinMakerClient, GetSyncJobCommand } = require("@aws-sdk/client-iottwinmaker"); // CommonJS import
+ * import { IoTTwinMakerClient, GetSyncJobCommand } from '@aws-sdk/client-iottwinmaker'; // ES Modules import
+ * // const { IoTTwinMakerClient, GetSyncJobCommand } = require('@aws-sdk/client-iottwinmaker'); // CommonJS import
  * const client = new IoTTwinMakerClient(config);
  * const input = { // GetSyncJobRequest
- *   syncSource: "STRING_VALUE", // required
- *   workspaceId: "STRING_VALUE",
+ *   syncSource: 'STRING_VALUE', // required
+ *   workspaceId: 'STRING_VALUE',
  * };
  * const command = new GetSyncJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetSyncJobResponse
+ *   arn: 'STRING_VALUE', // required
+ *   workspaceId: 'STRING_VALUE', // required
+ *   syncSource: 'STRING_VALUE', // required
+ *   syncRole: 'STRING_VALUE', // required
+ *   status: { // SyncJobStatus
+ *     state: 'STRING_VALUE',
+ *     error: { // ErrorDetails
+ *       code: 'STRING_VALUE',
+ *       message: 'STRING_VALUE',
+ *     },
+ *   },
+ *   creationDateTime: new Date('TIMESTAMP'), // required
+ *   updateDateTime: new Date('TIMESTAMP'), // required
+ * };
+ *
  * ```
  *
  * @param GetSyncJobCommandInput - {@link GetSyncJobCommandInput}
@@ -71,6 +88,8 @@ export interface GetSyncJobCommandOutput extends GetSyncJobResponse, __MetadataB
  * @throws {@link ValidationException} (client fault)
  *  <p>Failed</p>
  *
+ * @throws {@link IoTTwinMakerServiceException}
+ * <p>Base exception class for all service exceptions from IoTTwinMaker service.</p>
  *
  */
 export class GetSyncJobCommand extends $Command<

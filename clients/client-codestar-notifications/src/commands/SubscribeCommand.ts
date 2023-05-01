@@ -42,19 +42,24 @@ export interface SubscribeCommandOutput extends SubscribeResult, __MetadataBeare
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodestarNotificationsClient, SubscribeCommand } from "@aws-sdk/client-codestar-notifications"; // ES Modules import
- * // const { CodestarNotificationsClient, SubscribeCommand } = require("@aws-sdk/client-codestar-notifications"); // CommonJS import
+ * import { CodestarNotificationsClient, SubscribeCommand } from '@aws-sdk/client-codestar-notifications'; // ES Modules import
+ * // const { CodestarNotificationsClient, SubscribeCommand } = require('@aws-sdk/client-codestar-notifications'); // CommonJS import
  * const client = new CodestarNotificationsClient(config);
  * const input = { // SubscribeRequest
- *   Arn: "STRING_VALUE", // required
+ *   Arn: 'STRING_VALUE', // required
  *   Target: { // Target
- *     TargetType: "STRING_VALUE",
- *     TargetAddress: "STRING_VALUE",
+ *     TargetType: 'STRING_VALUE',
+ *     TargetAddress: 'STRING_VALUE',
  *   },
- *   ClientRequestToken: "STRING_VALUE",
+ *   ClientRequestToken: 'STRING_VALUE',
  * };
  * const command = new SubscribeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SubscribeResult
+ *   Arn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param SubscribeCommandInput - {@link SubscribeCommandInput}
@@ -72,6 +77,8 @@ export interface SubscribeCommandOutput extends SubscribeResult, __MetadataBeare
  * @throws {@link ValidationException} (client fault)
  *  <p>One or more parameter values are not valid.</p>
  *
+ * @throws {@link CodestarNotificationsServiceException}
+ * <p>Base exception class for all service exceptions from CodestarNotifications service.</p>
  *
  */
 export class SubscribeCommand extends $Command<

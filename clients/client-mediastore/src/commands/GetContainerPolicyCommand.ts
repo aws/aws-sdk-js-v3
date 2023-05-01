@@ -38,14 +38,19 @@ export interface GetContainerPolicyCommandOutput extends GetContainerPolicyOutpu
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MediaStoreClient, GetContainerPolicyCommand } from "@aws-sdk/client-mediastore"; // ES Modules import
- * // const { MediaStoreClient, GetContainerPolicyCommand } = require("@aws-sdk/client-mediastore"); // CommonJS import
+ * import { MediaStoreClient, GetContainerPolicyCommand } from '@aws-sdk/client-mediastore'; // ES Modules import
+ * // const { MediaStoreClient, GetContainerPolicyCommand } = require('@aws-sdk/client-mediastore'); // CommonJS import
  * const client = new MediaStoreClient(config);
  * const input = { // GetContainerPolicyInput
- *   ContainerName: "STRING_VALUE", // required
+ *   ContainerName: 'STRING_VALUE', // required
  * };
  * const command = new GetContainerPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetContainerPolicyOutput
+ *   Policy: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param GetContainerPolicyCommandInput - {@link GetContainerPolicyCommandInput}
@@ -67,6 +72,8 @@ export interface GetContainerPolicyCommandOutput extends GetContainerPolicyOutpu
  * @throws {@link PolicyNotFoundException} (client fault)
  *  <p>The policy that you specified in the request does not exist.</p>
  *
+ * @throws {@link MediaStoreServiceException}
+ * <p>Base exception class for all service exceptions from MediaStore service.</p>
  *
  */
 export class GetContainerPolicyCommand extends $Command<

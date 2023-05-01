@@ -38,18 +38,21 @@ export interface AssociateLexBotCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, AssociateLexBotCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, AssociateLexBotCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, AssociateLexBotCommand } from '@aws-sdk/client-connect'; // ES Modules import
+ * // const { ConnectClient, AssociateLexBotCommand } = require('@aws-sdk/client-connect'); // CommonJS import
  * const client = new ConnectClient(config);
  * const input = { // AssociateLexBotRequest
- *   InstanceId: "STRING_VALUE", // required
+ *   InstanceId: 'STRING_VALUE', // required
  *   LexBot: { // LexBot
- *     Name: "STRING_VALUE", // required
- *     LexRegion: "STRING_VALUE", // required
+ *     Name: 'STRING_VALUE', // required
+ *     LexRegion: 'STRING_VALUE', // required
  *   },
  * };
  * const command = new AssociateLexBotCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param AssociateLexBotCommandInput - {@link AssociateLexBotCommandInput}
@@ -79,6 +82,8 @@ export interface AssociateLexBotCommandOutput extends __MetadataBearer {}
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class AssociateLexBotCommand extends $Command<

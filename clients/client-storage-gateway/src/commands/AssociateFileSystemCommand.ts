@@ -43,33 +43,38 @@ export interface AssociateFileSystemCommandOutput extends AssociateFileSystemOut
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { StorageGatewayClient, AssociateFileSystemCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
- * // const { StorageGatewayClient, AssociateFileSystemCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
+ * import { StorageGatewayClient, AssociateFileSystemCommand } from '@aws-sdk/client-storage-gateway'; // ES Modules import
+ * // const { StorageGatewayClient, AssociateFileSystemCommand } = require('@aws-sdk/client-storage-gateway'); // CommonJS import
  * const client = new StorageGatewayClient(config);
  * const input = { // AssociateFileSystemInput
- *   UserName: "STRING_VALUE", // required
- *   Password: "STRING_VALUE", // required
- *   ClientToken: "STRING_VALUE", // required
- *   GatewayARN: "STRING_VALUE", // required
- *   LocationARN: "STRING_VALUE", // required
+ *   UserName: 'STRING_VALUE', // required
+ *   Password: 'STRING_VALUE', // required
+ *   ClientToken: 'STRING_VALUE', // required
+ *   GatewayARN: 'STRING_VALUE', // required
+ *   LocationARN: 'STRING_VALUE', // required
  *   Tags: [ // Tags
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
- *   AuditDestinationARN: "STRING_VALUE",
+ *   AuditDestinationARN: 'STRING_VALUE',
  *   CacheAttributes: { // CacheAttributes
- *     CacheStaleTimeoutInSeconds: Number("int"),
+ *     CacheStaleTimeoutInSeconds: Number('int'),
  *   },
  *   EndpointNetworkConfiguration: { // EndpointNetworkConfiguration
  *     IpAddresses: [ // IpAddressList
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *   },
  * };
  * const command = new AssociateFileSystemCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AssociateFileSystemOutput
+ *   FileSystemAssociationARN: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param AssociateFileSystemCommandInput - {@link AssociateFileSystemCommandInput}
@@ -86,6 +91,8 @@ export interface AssociateFileSystemCommandOutput extends AssociateFileSystemOut
  *  <p>An exception occurred because an invalid gateway request was issued to the service. For
  *          more information, see the error and message fields.</p>
  *
+ * @throws {@link StorageGatewayServiceException}
+ * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
  */
 export class AssociateFileSystemCommand extends $Command<

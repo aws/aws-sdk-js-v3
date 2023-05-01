@@ -44,14 +44,30 @@ export interface GetLoggingConfigurationCommandOutput extends GetLoggingConfigur
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WAFRegionalClient, GetLoggingConfigurationCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
- * // const { WAFRegionalClient, GetLoggingConfigurationCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import
+ * import { WAFRegionalClient, GetLoggingConfigurationCommand } from '@aws-sdk/client-waf-regional'; // ES Modules import
+ * // const { WAFRegionalClient, GetLoggingConfigurationCommand } = require('@aws-sdk/client-waf-regional'); // CommonJS import
  * const client = new WAFRegionalClient(config);
  * const input = { // GetLoggingConfigurationRequest
- *   ResourceArn: "STRING_VALUE", // required
+ *   ResourceArn: 'STRING_VALUE', // required
  * };
  * const command = new GetLoggingConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetLoggingConfigurationResponse
+ *   LoggingConfiguration: { // LoggingConfiguration
+ *     ResourceArn: 'STRING_VALUE', // required
+ *     LogDestinationConfigs: [ // LogDestinationConfigs // required
+ *       'STRING_VALUE',
+ *     ],
+ *     RedactedFields: [ // RedactedFields
+ *       { // FieldToMatch
+ *         Type: 'STRING_VALUE', // required
+ *         Data: 'STRING_VALUE',
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetLoggingConfigurationCommandInput - {@link GetLoggingConfigurationCommandInput}
@@ -66,6 +82,8 @@ export interface GetLoggingConfigurationCommandOutput extends GetLoggingConfigur
  * @throws {@link WAFNonexistentItemException} (client fault)
  *  <p>The operation failed because the referenced object doesn't exist.</p>
  *
+ * @throws {@link WAFRegionalServiceException}
+ * <p>Base exception class for all service exceptions from WAFRegional service.</p>
  *
  */
 export class GetLoggingConfigurationCommand extends $Command<

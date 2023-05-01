@@ -38,16 +38,19 @@ export interface UpdateDomainMetadataCommandOutput extends UpdateDomainMetadataR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkLinkClient, UpdateDomainMetadataCommand } from "@aws-sdk/client-worklink"; // ES Modules import
- * // const { WorkLinkClient, UpdateDomainMetadataCommand } = require("@aws-sdk/client-worklink"); // CommonJS import
+ * import { WorkLinkClient, UpdateDomainMetadataCommand } from '@aws-sdk/client-worklink'; // ES Modules import
+ * // const { WorkLinkClient, UpdateDomainMetadataCommand } = require('@aws-sdk/client-worklink'); // CommonJS import
  * const client = new WorkLinkClient(config);
  * const input = { // UpdateDomainMetadataRequest
- *   FleetArn: "STRING_VALUE", // required
- *   DomainName: "STRING_VALUE", // required
- *   DisplayName: "STRING_VALUE",
+ *   FleetArn: 'STRING_VALUE', // required
+ *   DomainName: 'STRING_VALUE', // required
+ *   DisplayName: 'STRING_VALUE',
  * };
  * const command = new UpdateDomainMetadataCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateDomainMetadataCommandInput - {@link UpdateDomainMetadataCommandInput}
@@ -71,6 +74,8 @@ export interface UpdateDomainMetadataCommandOutput extends UpdateDomainMetadataR
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this action.</p>
  *
+ * @throws {@link WorkLinkServiceException}
+ * <p>Base exception class for all service exceptions from WorkLink service.</p>
  *
  */
 export class UpdateDomainMetadataCommand extends $Command<

@@ -37,38 +37,41 @@ export interface UpdateAccessPolicyCommandOutput extends UpdateAccessPolicyRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTSiteWiseClient, UpdateAccessPolicyCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
- * // const { IoTSiteWiseClient, UpdateAccessPolicyCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
+ * import { IoTSiteWiseClient, UpdateAccessPolicyCommand } from '@aws-sdk/client-iotsitewise'; // ES Modules import
+ * // const { IoTSiteWiseClient, UpdateAccessPolicyCommand } = require('@aws-sdk/client-iotsitewise'); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
  * const input = { // UpdateAccessPolicyRequest
- *   accessPolicyId: "STRING_VALUE", // required
+ *   accessPolicyId: 'STRING_VALUE', // required
  *   accessPolicyIdentity: { // Identity
  *     user: { // UserIdentity
- *       id: "STRING_VALUE", // required
+ *       id: 'STRING_VALUE', // required
  *     },
  *     group: { // GroupIdentity
- *       id: "STRING_VALUE", // required
+ *       id: 'STRING_VALUE', // required
  *     },
  *     iamUser: { // IAMUserIdentity
- *       arn: "STRING_VALUE", // required
+ *       arn: 'STRING_VALUE', // required
  *     },
  *     iamRole: { // IAMRoleIdentity
- *       arn: "STRING_VALUE", // required
+ *       arn: 'STRING_VALUE', // required
  *     },
  *   },
  *   accessPolicyResource: { // Resource
  *     portal: { // PortalResource
- *       id: "STRING_VALUE", // required
+ *       id: 'STRING_VALUE', // required
  *     },
  *     project: { // ProjectResource
- *       id: "STRING_VALUE", // required
+ *       id: 'STRING_VALUE', // required
  *     },
  *   },
- *   accessPolicyPermission: "ADMINISTRATOR" || "VIEWER", // required
- *   clientToken: "STRING_VALUE",
+ *   accessPolicyPermission: 'ADMINISTRATOR' || 'VIEWER', // required
+ *   clientToken: 'STRING_VALUE',
  * };
  * const command = new UpdateAccessPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateAccessPolicyCommandInput - {@link UpdateAccessPolicyCommandInput}
@@ -93,6 +96,8 @@ export interface UpdateAccessPolicyCommandOutput extends UpdateAccessPolicyRespo
  *       on.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
  *
+ * @throws {@link IoTSiteWiseServiceException}
+ * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
  */
 export class UpdateAccessPolicyCommand extends $Command<

@@ -51,23 +51,42 @@ export interface ListCrawlsCommandOutput extends ListCrawlsResponse, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlueClient, ListCrawlsCommand } from "@aws-sdk/client-glue"; // ES Modules import
- * // const { GlueClient, ListCrawlsCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * import { GlueClient, ListCrawlsCommand } from '@aws-sdk/client-glue'; // ES Modules import
+ * // const { GlueClient, ListCrawlsCommand } = require('@aws-sdk/client-glue'); // CommonJS import
  * const client = new GlueClient(config);
  * const input = { // ListCrawlsRequest
- *   CrawlerName: "STRING_VALUE", // required
- *   MaxResults: Number("int"),
+ *   CrawlerName: 'STRING_VALUE', // required
+ *   MaxResults: Number('int'),
  *   Filters: [ // CrawlsFilterList
  *     { // CrawlsFilter
- *       FieldName: "CRAWL_ID" || "STATE" || "START_TIME" || "END_TIME" || "DPU_HOUR",
- *       FilterOperator: "GT" || "GE" || "LT" || "LE" || "EQ" || "NE",
- *       FieldValue: "STRING_VALUE",
+ *       FieldName: 'CRAWL_ID' || 'STATE' || 'START_TIME' || 'END_TIME' || 'DPU_HOUR',
+ *       FilterOperator: 'GT' || 'GE' || 'LT' || 'LE' || 'EQ' || 'NE',
+ *       FieldValue: 'STRING_VALUE',
  *     },
  *   ],
- *   NextToken: "STRING_VALUE",
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListCrawlsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListCrawlsResponse
+ *   Crawls: [ // CrawlerHistoryList
+ *     { // CrawlerHistory
+ *       CrawlId: 'STRING_VALUE',
+ *       State: 'RUNNING' || 'COMPLETED' || 'FAILED' || 'STOPPED',
+ *       StartTime: new Date('TIMESTAMP'),
+ *       EndTime: new Date('TIMESTAMP'),
+ *       Summary: 'STRING_VALUE',
+ *       ErrorMessage: 'STRING_VALUE',
+ *       LogGroup: 'STRING_VALUE',
+ *       LogStream: 'STRING_VALUE',
+ *       MessagePrefix: 'STRING_VALUE',
+ *       DPUHour: Number('double'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListCrawlsCommandInput - {@link ListCrawlsCommandInput}
@@ -85,6 +104,8 @@ export interface ListCrawlsCommandOutput extends ListCrawlsResponse, __MetadataB
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class ListCrawlsCommand extends $Command<

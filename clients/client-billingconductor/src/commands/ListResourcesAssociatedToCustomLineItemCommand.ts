@@ -47,20 +47,33 @@ export interface ListResourcesAssociatedToCustomLineItemCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BillingconductorClient, ListResourcesAssociatedToCustomLineItemCommand } from "@aws-sdk/client-billingconductor"; // ES Modules import
- * // const { BillingconductorClient, ListResourcesAssociatedToCustomLineItemCommand } = require("@aws-sdk/client-billingconductor"); // CommonJS import
+ * import { BillingconductorClient, ListResourcesAssociatedToCustomLineItemCommand } from '@aws-sdk/client-billingconductor'; // ES Modules import
+ * // const { BillingconductorClient, ListResourcesAssociatedToCustomLineItemCommand } = require('@aws-sdk/client-billingconductor'); // CommonJS import
  * const client = new BillingconductorClient(config);
  * const input = { // ListResourcesAssociatedToCustomLineItemInput
- *   BillingPeriod: "STRING_VALUE",
- *   Arn: "STRING_VALUE", // required
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   BillingPeriod: 'STRING_VALUE',
+ *   Arn: 'STRING_VALUE', // required
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  *   Filters: { // ListResourcesAssociatedToCustomLineItemFilter
- *     Relationship: "STRING_VALUE",
+ *     Relationship: 'STRING_VALUE',
  *   },
  * };
  * const command = new ListResourcesAssociatedToCustomLineItemCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListResourcesAssociatedToCustomLineItemOutput
+ *   Arn: 'STRING_VALUE',
+ *   AssociatedResources: [ // ListResourcesAssociatedToCustomLineItemResponseList
+ *     { // ListResourcesAssociatedToCustomLineItemResponseElement
+ *       Arn: 'STRING_VALUE',
+ *       Relationship: 'STRING_VALUE',
+ *       EndBillingPeriod: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListResourcesAssociatedToCustomLineItemCommandInput - {@link ListResourcesAssociatedToCustomLineItemCommandInput}
@@ -88,6 +101,8 @@ export interface ListResourcesAssociatedToCustomLineItemCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The input doesn't match with the constraints specified by Amazon Web Services services.</p>
  *
+ * @throws {@link BillingconductorServiceException}
+ * <p>Base exception class for all service exceptions from Billingconductor service.</p>
  *
  */
 export class ListResourcesAssociatedToCustomLineItemCommand extends $Command<

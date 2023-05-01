@@ -40,24 +40,47 @@ export interface ListPackageVersionsCommandOutput extends ListPackageVersionsRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeartifactClient, ListPackageVersionsCommand } from "@aws-sdk/client-codeartifact"; // ES Modules import
- * // const { CodeartifactClient, ListPackageVersionsCommand } = require("@aws-sdk/client-codeartifact"); // CommonJS import
+ * import { CodeartifactClient, ListPackageVersionsCommand } from '@aws-sdk/client-codeartifact'; // ES Modules import
+ * // const { CodeartifactClient, ListPackageVersionsCommand } = require('@aws-sdk/client-codeartifact'); // CommonJS import
  * const client = new CodeartifactClient(config);
  * const input = { // ListPackageVersionsRequest
- *   domain: "STRING_VALUE", // required
- *   domainOwner: "STRING_VALUE",
- *   repository: "STRING_VALUE", // required
- *   format: "npm" || "pypi" || "maven" || "nuget" || "generic", // required
- *   namespace: "STRING_VALUE",
- *   package: "STRING_VALUE", // required
- *   status: "Published" || "Unfinished" || "Unlisted" || "Archived" || "Disposed" || "Deleted",
- *   sortBy: "PUBLISHED_TIME",
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
- *   originType: "INTERNAL" || "EXTERNAL" || "UNKNOWN",
+ *   domain: 'STRING_VALUE', // required
+ *   domainOwner: 'STRING_VALUE',
+ *   repository: 'STRING_VALUE', // required
+ *   format: 'npm' || 'pypi' || 'maven' || 'nuget' || 'generic', // required
+ *   namespace: 'STRING_VALUE',
+ *   package: 'STRING_VALUE', // required
+ *   status: 'Published' || 'Unfinished' || 'Unlisted' || 'Archived' || 'Disposed' || 'Deleted',
+ *   sortBy: 'PUBLISHED_TIME',
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
+ *   originType: 'INTERNAL' || 'EXTERNAL' || 'UNKNOWN',
  * };
  * const command = new ListPackageVersionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListPackageVersionsResult
+ *   defaultDisplayVersion: 'STRING_VALUE',
+ *   format: 'npm' || 'pypi' || 'maven' || 'nuget' || 'generic',
+ *   namespace: 'STRING_VALUE',
+ *   package: 'STRING_VALUE',
+ *   versions: [ // PackageVersionSummaryList
+ *     { // PackageVersionSummary
+ *       version: 'STRING_VALUE', // required
+ *       revision: 'STRING_VALUE',
+ *       status: 'Published' || 'Unfinished' || 'Unlisted' || 'Archived' || 'Disposed' || 'Deleted', // required
+ *       origin: { // PackageVersionOrigin
+ *         domainEntryPoint: { // DomainEntryPoint
+ *           repositoryName: 'STRING_VALUE',
+ *           externalConnectionName: 'STRING_VALUE',
+ *         },
+ *         originType: 'INTERNAL' || 'EXTERNAL' || 'UNKNOWN',
+ *       },
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListPackageVersionsCommandInput - {@link ListPackageVersionsCommandInput}
@@ -89,6 +112,8 @@ export interface ListPackageVersionsCommandOutput extends ListPackageVersionsRes
  *       The operation did not succeed because a parameter in the request was sent with an invalid value.
  *     </p>
  *
+ * @throws {@link CodeartifactServiceException}
+ * <p>Base exception class for all service exceptions from Codeartifact service.</p>
  *
  */
 export class ListPackageVersionsCommand extends $Command<

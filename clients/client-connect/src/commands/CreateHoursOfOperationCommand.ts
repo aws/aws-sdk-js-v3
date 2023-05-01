@@ -37,33 +37,39 @@ export interface CreateHoursOfOperationCommandOutput extends CreateHoursOfOperat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, CreateHoursOfOperationCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, CreateHoursOfOperationCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, CreateHoursOfOperationCommand } from '@aws-sdk/client-connect'; // ES Modules import
+ * // const { ConnectClient, CreateHoursOfOperationCommand } = require('@aws-sdk/client-connect'); // CommonJS import
  * const client = new ConnectClient(config);
  * const input = { // CreateHoursOfOperationRequest
- *   InstanceId: "STRING_VALUE", // required
- *   Name: "STRING_VALUE", // required
- *   Description: "STRING_VALUE",
- *   TimeZone: "STRING_VALUE", // required
+ *   InstanceId: 'STRING_VALUE', // required
+ *   Name: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE',
+ *   TimeZone: 'STRING_VALUE', // required
  *   Config: [ // HoursOfOperationConfigList // required
  *     { // HoursOfOperationConfig
- *       Day: "SUNDAY" || "MONDAY" || "TUESDAY" || "WEDNESDAY" || "THURSDAY" || "FRIDAY" || "SATURDAY", // required
+ *       Day: 'SUNDAY' || 'MONDAY' || 'TUESDAY' || 'WEDNESDAY' || 'THURSDAY' || 'FRIDAY' || 'SATURDAY', // required
  *       StartTime: { // HoursOfOperationTimeSlice
- *         Hours: Number("int"), // required
- *         Minutes: Number("int"), // required
+ *         Hours: Number('int'), // required
+ *         Minutes: Number('int'), // required
  *       },
  *       EndTime: {
- *         Hours: Number("int"), // required
- *         Minutes: Number("int"), // required
+ *         Hours: Number('int'), // required
+ *         Minutes: Number('int'), // required
  *       },
  *     },
  *   ],
  *   Tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateHoursOfOperationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateHoursOfOperationResponse
+ *   HoursOfOperationId: 'STRING_VALUE',
+ *   HoursOfOperationArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateHoursOfOperationCommandInput - {@link CreateHoursOfOperationCommandInput}
@@ -93,6 +99,8 @@ export interface CreateHoursOfOperationCommandOutput extends CreateHoursOfOperat
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class CreateHoursOfOperationCommand extends $Command<

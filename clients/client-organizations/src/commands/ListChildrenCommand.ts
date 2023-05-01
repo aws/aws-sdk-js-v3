@@ -48,17 +48,28 @@ export interface ListChildrenCommandOutput extends ListChildrenResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OrganizationsClient, ListChildrenCommand } from "@aws-sdk/client-organizations"; // ES Modules import
- * // const { OrganizationsClient, ListChildrenCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
+ * import { OrganizationsClient, ListChildrenCommand } from '@aws-sdk/client-organizations'; // ES Modules import
+ * // const { OrganizationsClient, ListChildrenCommand } = require('@aws-sdk/client-organizations'); // CommonJS import
  * const client = new OrganizationsClient(config);
  * const input = { // ListChildrenRequest
- *   ParentId: "STRING_VALUE", // required
- *   ChildType: "ACCOUNT" || "ORGANIZATIONAL_UNIT", // required
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   ParentId: 'STRING_VALUE', // required
+ *   ChildType: 'ACCOUNT' || 'ORGANIZATIONAL_UNIT', // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListChildrenCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListChildrenResponse
+ *   Children: [ // Children
+ *     { // Child
+ *       Id: 'STRING_VALUE',
+ *       Type: 'ACCOUNT' || 'ORGANIZATIONAL_UNIT',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListChildrenCommandInput - {@link ListChildrenCommandInput}
@@ -196,6 +207,8 @@ export interface ListChildrenCommandOutput extends ListChildrenResponse, __Metad
  *                 <i>Organizations User Guide.</i>
  *          </p>
  *
+ * @throws {@link OrganizationsServiceException}
+ * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
  * @example To retrieve a list of all of the child accounts and OUs in a parent root or OU
  * ```javascript

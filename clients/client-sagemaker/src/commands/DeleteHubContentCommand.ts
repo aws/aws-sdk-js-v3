@@ -39,17 +39,20 @@ export interface DeleteHubContentCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, DeleteHubContentCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, DeleteHubContentCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, DeleteHubContentCommand } from '@aws-sdk/client-sagemaker'; // ES Modules import
+ * // const { SageMakerClient, DeleteHubContentCommand } = require('@aws-sdk/client-sagemaker'); // CommonJS import
  * const client = new SageMakerClient(config);
  * const input = { // DeleteHubContentRequest
- *   HubName: "STRING_VALUE", // required
- *   HubContentType: "Model" || "Notebook", // required
- *   HubContentName: "STRING_VALUE", // required
- *   HubContentVersion: "STRING_VALUE", // required
+ *   HubName: 'STRING_VALUE', // required
+ *   HubContentType: 'Model' || 'Notebook', // required
+ *   HubContentName: 'STRING_VALUE', // required
+ *   HubContentVersion: 'STRING_VALUE', // required
  * };
  * const command = new DeleteHubContentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteHubContentCommandInput - {@link DeleteHubContentCommandInput}
@@ -64,6 +67,8 @@ export interface DeleteHubContentCommandOutput extends __MetadataBearer {}
  * @throws {@link ResourceNotFound} (client fault)
  *  <p>Resource being access is not found.</p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class DeleteHubContentCommand extends $Command<

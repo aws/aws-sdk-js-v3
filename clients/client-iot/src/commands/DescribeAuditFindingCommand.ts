@@ -41,14 +41,81 @@ export interface DescribeAuditFindingCommandOutput extends DescribeAuditFindingR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTClient, DescribeAuditFindingCommand } from "@aws-sdk/client-iot"; // ES Modules import
- * // const { IoTClient, DescribeAuditFindingCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * import { IoTClient, DescribeAuditFindingCommand } from '@aws-sdk/client-iot'; // ES Modules import
+ * // const { IoTClient, DescribeAuditFindingCommand } = require('@aws-sdk/client-iot'); // CommonJS import
  * const client = new IoTClient(config);
  * const input = { // DescribeAuditFindingRequest
- *   findingId: "STRING_VALUE", // required
+ *   findingId: 'STRING_VALUE', // required
  * };
  * const command = new DescribeAuditFindingCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeAuditFindingResponse
+ *   finding: { // AuditFinding
+ *     findingId: 'STRING_VALUE',
+ *     taskId: 'STRING_VALUE',
+ *     checkName: 'STRING_VALUE',
+ *     taskStartTime: new Date('TIMESTAMP'),
+ *     findingTime: new Date('TIMESTAMP'),
+ *     severity: 'CRITICAL' || 'HIGH' || 'MEDIUM' || 'LOW',
+ *     nonCompliantResource: { // NonCompliantResource
+ *       resourceType: 'DEVICE_CERTIFICATE' || 'CA_CERTIFICATE' || 'IOT_POLICY' || 'COGNITO_IDENTITY_POOL' || 'CLIENT_ID' || 'ACCOUNT_SETTINGS' || 'ROLE_ALIAS' || 'IAM_ROLE' || 'ISSUER_CERTIFICATE',
+ *       resourceIdentifier: { // ResourceIdentifier
+ *         deviceCertificateId: 'STRING_VALUE',
+ *         caCertificateId: 'STRING_VALUE',
+ *         cognitoIdentityPoolId: 'STRING_VALUE',
+ *         clientId: 'STRING_VALUE',
+ *         policyVersionIdentifier: { // PolicyVersionIdentifier
+ *           policyName: 'STRING_VALUE',
+ *           policyVersionId: 'STRING_VALUE',
+ *         },
+ *         account: 'STRING_VALUE',
+ *         iamRoleArn: 'STRING_VALUE',
+ *         roleAliasArn: 'STRING_VALUE',
+ *         issuerCertificateIdentifier: { // IssuerCertificateIdentifier
+ *           issuerCertificateSubject: 'STRING_VALUE',
+ *           issuerId: 'STRING_VALUE',
+ *           issuerCertificateSerialNumber: 'STRING_VALUE',
+ *         },
+ *         deviceCertificateArn: 'STRING_VALUE',
+ *       },
+ *       additionalInfo: { // StringMap
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *     },
+ *     relatedResources: [ // RelatedResources
+ *       { // RelatedResource
+ *         resourceType: 'DEVICE_CERTIFICATE' || 'CA_CERTIFICATE' || 'IOT_POLICY' || 'COGNITO_IDENTITY_POOL' || 'CLIENT_ID' || 'ACCOUNT_SETTINGS' || 'ROLE_ALIAS' || 'IAM_ROLE' || 'ISSUER_CERTIFICATE',
+ *         resourceIdentifier: {
+ *           deviceCertificateId: 'STRING_VALUE',
+ *           caCertificateId: 'STRING_VALUE',
+ *           cognitoIdentityPoolId: 'STRING_VALUE',
+ *           clientId: 'STRING_VALUE',
+ *           policyVersionIdentifier: {
+ *             policyName: 'STRING_VALUE',
+ *             policyVersionId: 'STRING_VALUE',
+ *           },
+ *           account: 'STRING_VALUE',
+ *           iamRoleArn: 'STRING_VALUE',
+ *           roleAliasArn: 'STRING_VALUE',
+ *           issuerCertificateIdentifier: {
+ *             issuerCertificateSubject: 'STRING_VALUE',
+ *             issuerId: 'STRING_VALUE',
+ *             issuerCertificateSerialNumber: 'STRING_VALUE',
+ *           },
+ *           deviceCertificateArn: 'STRING_VALUE',
+ *         },
+ *         additionalInfo: {
+ *           '<keys>': 'STRING_VALUE',
+ *         },
+ *       },
+ *     ],
+ *     reasonForNonCompliance: 'STRING_VALUE',
+ *     reasonForNonComplianceCode: 'STRING_VALUE',
+ *     isSuppressed: true || false,
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeAuditFindingCommandInput - {@link DescribeAuditFindingCommandInput}
@@ -69,6 +136,8 @@ export interface DescribeAuditFindingCommandOutput extends DescribeAuditFindingR
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The rate exceeds the limit.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class DescribeAuditFindingCommand extends $Command<

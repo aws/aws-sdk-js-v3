@@ -43,15 +43,25 @@ export interface StartContentUploadCommandOutput extends StartContentUploadRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WisdomClient, StartContentUploadCommand } from "@aws-sdk/client-wisdom"; // ES Modules import
- * // const { WisdomClient, StartContentUploadCommand } = require("@aws-sdk/client-wisdom"); // CommonJS import
+ * import { WisdomClient, StartContentUploadCommand } from '@aws-sdk/client-wisdom'; // ES Modules import
+ * // const { WisdomClient, StartContentUploadCommand } = require('@aws-sdk/client-wisdom'); // CommonJS import
  * const client = new WisdomClient(config);
  * const input = { // StartContentUploadRequest
- *   knowledgeBaseId: "STRING_VALUE", // required
- *   contentType: "STRING_VALUE", // required
+ *   knowledgeBaseId: 'STRING_VALUE', // required
+ *   contentType: 'STRING_VALUE', // required
  * };
  * const command = new StartContentUploadCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartContentUploadResponse
+ *   uploadId: 'STRING_VALUE', // required
+ *   url: 'STRING_VALUE', // required
+ *   urlExpiry: new Date('TIMESTAMP'), // required
+ *   headersToInclude: { // Headers // required
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param StartContentUploadCommandInput - {@link StartContentUploadCommandInput}
@@ -69,6 +79,8 @@ export interface StartContentUploadCommandOutput extends StartContentUploadRespo
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by a service.</p>
  *
+ * @throws {@link WisdomServiceException}
+ * <p>Base exception class for all service exceptions from Wisdom service.</p>
  *
  */
 export class StartContentUploadCommand extends $Command<

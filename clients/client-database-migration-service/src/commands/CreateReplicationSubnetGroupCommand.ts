@@ -47,25 +47,47 @@ export interface CreateReplicationSubnetGroupCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DatabaseMigrationServiceClient, CreateReplicationSubnetGroupCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
- * // const { DatabaseMigrationServiceClient, CreateReplicationSubnetGroupCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
+ * import { DatabaseMigrationServiceClient, CreateReplicationSubnetGroupCommand } from '@aws-sdk/client-database-migration-service'; // ES Modules import
+ * // const { DatabaseMigrationServiceClient, CreateReplicationSubnetGroupCommand } = require('@aws-sdk/client-database-migration-service'); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
  * const input = { // CreateReplicationSubnetGroupMessage
- *   ReplicationSubnetGroupIdentifier: "STRING_VALUE", // required
- *   ReplicationSubnetGroupDescription: "STRING_VALUE", // required
+ *   ReplicationSubnetGroupIdentifier: 'STRING_VALUE', // required
+ *   ReplicationSubnetGroupDescription: 'STRING_VALUE', // required
  *   SubnetIds: [ // SubnetIdentifierList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE",
- *       Value: "STRING_VALUE",
- *       ResourceArn: "STRING_VALUE",
+ *       Key: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
+ *       ResourceArn: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new CreateReplicationSubnetGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateReplicationSubnetGroupResponse
+ *   ReplicationSubnetGroup: { // ReplicationSubnetGroup
+ *     ReplicationSubnetGroupIdentifier: 'STRING_VALUE',
+ *     ReplicationSubnetGroupDescription: 'STRING_VALUE',
+ *     VpcId: 'STRING_VALUE',
+ *     SubnetGroupStatus: 'STRING_VALUE',
+ *     Subnets: [ // SubnetList
+ *       { // Subnet
+ *         SubnetIdentifier: 'STRING_VALUE',
+ *         SubnetAvailabilityZone: { // AvailabilityZone
+ *           Name: 'STRING_VALUE',
+ *         },
+ *         SubnetStatus: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     SupportedNetworkTypes: [ // StringList
+ *       'STRING_VALUE',
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateReplicationSubnetGroupCommandInput - {@link CreateReplicationSubnetGroupCommandInput}
@@ -93,6 +115,8 @@ export interface CreateReplicationSubnetGroupCommandOutput
  * @throws {@link ResourceQuotaExceededFault} (client fault)
  *  <p>The quota for this resource quota has been exceeded.</p>
  *
+ * @throws {@link DatabaseMigrationServiceServiceException}
+ * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
  * @example Create replication subnet group
  * ```javascript

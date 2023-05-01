@@ -38,14 +38,17 @@ export interface OptInPhoneNumberCommandOutput extends OptInPhoneNumberResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SNSClient, OptInPhoneNumberCommand } from "@aws-sdk/client-sns"; // ES Modules import
- * // const { SNSClient, OptInPhoneNumberCommand } = require("@aws-sdk/client-sns"); // CommonJS import
+ * import { SNSClient, OptInPhoneNumberCommand } from '@aws-sdk/client-sns'; // ES Modules import
+ * // const { SNSClient, OptInPhoneNumberCommand } = require('@aws-sdk/client-sns'); // CommonJS import
  * const client = new SNSClient(config);
  * const input = { // OptInPhoneNumberInput
- *   phoneNumber: "STRING_VALUE", // required
+ *   phoneNumber: 'STRING_VALUE', // required
  * };
  * const command = new OptInPhoneNumberCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param OptInPhoneNumberCommandInput - {@link OptInPhoneNumberCommandInput}
@@ -67,6 +70,8 @@ export interface OptInPhoneNumberCommandOutput extends OptInPhoneNumberResponse,
  * @throws {@link ThrottledException} (client fault)
  *  <p>Indicates that the rate at which requests have been submitted for this action exceeds the limit for your Amazon Web Services account.</p>
  *
+ * @throws {@link SNSServiceException}
+ * <p>Base exception class for all service exceptions from SNS service.</p>
  *
  */
 export class OptInPhoneNumberCommand extends $Command<

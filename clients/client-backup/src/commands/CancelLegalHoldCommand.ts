@@ -37,16 +37,19 @@ export interface CancelLegalHoldCommandOutput extends CancelLegalHoldOutput, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BackupClient, CancelLegalHoldCommand } from "@aws-sdk/client-backup"; // ES Modules import
- * // const { BackupClient, CancelLegalHoldCommand } = require("@aws-sdk/client-backup"); // CommonJS import
+ * import { BackupClient, CancelLegalHoldCommand } from '@aws-sdk/client-backup'; // ES Modules import
+ * // const { BackupClient, CancelLegalHoldCommand } = require('@aws-sdk/client-backup'); // CommonJS import
  * const client = new BackupClient(config);
  * const input = { // CancelLegalHoldInput
- *   LegalHoldId: "STRING_VALUE", // required
- *   CancelDescription: "STRING_VALUE", // required
- *   RetainRecordInDays: Number("long"),
+ *   LegalHoldId: 'STRING_VALUE', // required
+ *   CancelDescription: 'STRING_VALUE', // required
+ *   RetainRecordInDays: Number('long'),
  * };
  * const command = new CancelLegalHoldCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param CancelLegalHoldCommandInput - {@link CancelLegalHoldCommandInput}
@@ -72,6 +75,8 @@ export interface CancelLegalHoldCommandOutput extends CancelLegalHoldOutput, __M
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request failed due to a temporary failure of the server.</p>
  *
+ * @throws {@link BackupServiceException}
+ * <p>Base exception class for all service exceptions from Backup service.</p>
  *
  */
 export class CancelLegalHoldCommand extends $Command<

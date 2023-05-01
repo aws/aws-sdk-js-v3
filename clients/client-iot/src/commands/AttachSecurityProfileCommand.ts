@@ -38,15 +38,18 @@ export interface AttachSecurityProfileCommandOutput extends AttachSecurityProfil
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTClient, AttachSecurityProfileCommand } from "@aws-sdk/client-iot"; // ES Modules import
- * // const { IoTClient, AttachSecurityProfileCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * import { IoTClient, AttachSecurityProfileCommand } from '@aws-sdk/client-iot'; // ES Modules import
+ * // const { IoTClient, AttachSecurityProfileCommand } = require('@aws-sdk/client-iot'); // CommonJS import
  * const client = new IoTClient(config);
  * const input = { // AttachSecurityProfileRequest
- *   securityProfileName: "STRING_VALUE", // required
- *   securityProfileTargetArn: "STRING_VALUE", // required
+ *   securityProfileName: 'STRING_VALUE', // required
+ *   securityProfileTargetArn: 'STRING_VALUE', // required
  * };
  * const command = new AttachSecurityProfileCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param AttachSecurityProfileCommandInput - {@link AttachSecurityProfileCommandInput}
@@ -75,6 +78,8 @@ export interface AttachSecurityProfileCommandOutput extends AttachSecurityProfil
  *             <code>expectedVersion</code> parameter does not match the latest version in the
  *          system.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class AttachSecurityProfileCommand extends $Command<

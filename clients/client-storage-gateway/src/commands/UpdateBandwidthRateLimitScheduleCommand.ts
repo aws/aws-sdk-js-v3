@@ -45,27 +45,32 @@ export interface UpdateBandwidthRateLimitScheduleCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { StorageGatewayClient, UpdateBandwidthRateLimitScheduleCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
- * // const { StorageGatewayClient, UpdateBandwidthRateLimitScheduleCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
+ * import { StorageGatewayClient, UpdateBandwidthRateLimitScheduleCommand } from '@aws-sdk/client-storage-gateway'; // ES Modules import
+ * // const { StorageGatewayClient, UpdateBandwidthRateLimitScheduleCommand } = require('@aws-sdk/client-storage-gateway'); // CommonJS import
  * const client = new StorageGatewayClient(config);
  * const input = { // UpdateBandwidthRateLimitScheduleInput
- *   GatewayARN: "STRING_VALUE", // required
+ *   GatewayARN: 'STRING_VALUE', // required
  *   BandwidthRateLimitIntervals: [ // BandwidthRateLimitIntervals // required
  *     { // BandwidthRateLimitInterval
- *       StartHourOfDay: Number("int"), // required
- *       StartMinuteOfHour: Number("int"), // required
- *       EndHourOfDay: Number("int"), // required
- *       EndMinuteOfHour: Number("int"), // required
+ *       StartHourOfDay: Number('int'), // required
+ *       StartMinuteOfHour: Number('int'), // required
+ *       EndHourOfDay: Number('int'), // required
+ *       EndMinuteOfHour: Number('int'), // required
  *       DaysOfWeek: [ // DaysOfWeek // required
- *         Number("int"),
+ *         Number('int'),
  *       ],
- *       AverageUploadRateLimitInBitsPerSec: Number("long"),
- *       AverageDownloadRateLimitInBitsPerSec: Number("long"),
+ *       AverageUploadRateLimitInBitsPerSec: Number('long'),
+ *       AverageDownloadRateLimitInBitsPerSec: Number('long'),
  *     },
  *   ],
  * };
  * const command = new UpdateBandwidthRateLimitScheduleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateBandwidthRateLimitScheduleOutput
+ *   GatewayARN: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateBandwidthRateLimitScheduleCommandInput - {@link UpdateBandwidthRateLimitScheduleCommandInput}
@@ -82,6 +87,8 @@ export interface UpdateBandwidthRateLimitScheduleCommandOutput
  *  <p>An exception occurred because an invalid gateway request was issued to the service. For
  *          more information, see the error and message fields.</p>
  *
+ * @throws {@link StorageGatewayServiceException}
+ * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
  */
 export class UpdateBandwidthRateLimitScheduleCommand extends $Command<

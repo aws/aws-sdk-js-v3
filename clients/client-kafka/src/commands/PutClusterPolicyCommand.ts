@@ -36,16 +36,21 @@ export interface PutClusterPolicyCommandOutput extends PutClusterPolicyResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KafkaClient, PutClusterPolicyCommand } from "@aws-sdk/client-kafka"; // ES Modules import
- * // const { KafkaClient, PutClusterPolicyCommand } = require("@aws-sdk/client-kafka"); // CommonJS import
+ * import { KafkaClient, PutClusterPolicyCommand } from '@aws-sdk/client-kafka'; // ES Modules import
+ * // const { KafkaClient, PutClusterPolicyCommand } = require('@aws-sdk/client-kafka'); // CommonJS import
  * const client = new KafkaClient(config);
  * const input = { // PutClusterPolicyRequest
- *   ClusterArn: "STRING_VALUE", // required
- *   CurrentVersion: "STRING_VALUE",
- *   Policy: "STRING_VALUE", // required
+ *   ClusterArn: 'STRING_VALUE', // required
+ *   CurrentVersion: 'STRING_VALUE',
+ *   Policy: 'STRING_VALUE', // required
  * };
  * const command = new PutClusterPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutClusterPolicyResponse
+ *   CurrentVersion: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param PutClusterPolicyCommandInput - {@link PutClusterPolicyCommandInput}
@@ -63,6 +68,8 @@ export interface PutClusterPolicyCommandOutput extends PutClusterPolicyResponse,
  * @throws {@link InternalServerErrorException} (server fault)
  *  <p>Returns information about an error.</p>
  *
+ * @throws {@link KafkaServiceException}
+ * <p>Base exception class for all service exceptions from Kafka service.</p>
  *
  */
 export class PutClusterPolicyCommand extends $Command<

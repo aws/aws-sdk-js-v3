@@ -73,16 +73,24 @@ export interface GetParametersForImportCommandOutput extends GetParametersForImp
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KMSClient, GetParametersForImportCommand } from "@aws-sdk/client-kms"; // ES Modules import
- * // const { KMSClient, GetParametersForImportCommand } = require("@aws-sdk/client-kms"); // CommonJS import
+ * import { KMSClient, GetParametersForImportCommand } from '@aws-sdk/client-kms'; // ES Modules import
+ * // const { KMSClient, GetParametersForImportCommand } = require('@aws-sdk/client-kms'); // CommonJS import
  * const client = new KMSClient(config);
  * const input = { // GetParametersForImportRequest
- *   KeyId: "STRING_VALUE", // required
- *   WrappingAlgorithm: "RSAES_PKCS1_V1_5" || "RSAES_OAEP_SHA_1" || "RSAES_OAEP_SHA_256", // required
- *   WrappingKeySpec: "RSA_2048", // required
+ *   KeyId: 'STRING_VALUE', // required
+ *   WrappingAlgorithm: 'RSAES_PKCS1_V1_5' || 'RSAES_OAEP_SHA_1' || 'RSAES_OAEP_SHA_256', // required
+ *   WrappingKeySpec: 'RSA_2048', // required
  * };
  * const command = new GetParametersForImportCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetParametersForImportResponse
+ *   KeyId: 'STRING_VALUE',
+ *   ImportToken: 'BLOB_VALUE',
+ *   PublicKey: 'BLOB_VALUE',
+ *   ParametersValidTo: new Date('TIMESTAMP'),
+ * };
+ *
  * ```
  *
  * @param GetParametersForImportCommandInput - {@link GetParametersForImportCommandInput}
@@ -129,6 +137,8 @@ export interface GetParametersForImportCommandOutput extends GetParametersForImp
  *  <p>The request was rejected because a specified parameter is not supported or a specified
  *       resource is not valid for this operation.</p>
  *
+ * @throws {@link KMSServiceException}
+ * <p>Base exception class for all service exceptions from KMS service.</p>
  *
  * @example To retrieve the public key and import token for a KMS key
  * ```javascript

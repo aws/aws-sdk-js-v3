@@ -55,28 +55,33 @@ export interface CreateQuerySuggestionsBlockListCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KendraClient, CreateQuerySuggestionsBlockListCommand } from "@aws-sdk/client-kendra"; // ES Modules import
- * // const { KendraClient, CreateQuerySuggestionsBlockListCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
+ * import { KendraClient, CreateQuerySuggestionsBlockListCommand } from '@aws-sdk/client-kendra'; // ES Modules import
+ * // const { KendraClient, CreateQuerySuggestionsBlockListCommand } = require('@aws-sdk/client-kendra'); // CommonJS import
  * const client = new KendraClient(config);
  * const input = { // CreateQuerySuggestionsBlockListRequest
- *   IndexId: "STRING_VALUE", // required
- *   Name: "STRING_VALUE", // required
- *   Description: "STRING_VALUE",
+ *   IndexId: 'STRING_VALUE', // required
+ *   Name: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE',
  *   SourceS3Path: { // S3Path
- *     Bucket: "STRING_VALUE", // required
- *     Key: "STRING_VALUE", // required
+ *     Bucket: 'STRING_VALUE', // required
+ *     Key: 'STRING_VALUE', // required
  *   },
- *   ClientToken: "STRING_VALUE",
- *   RoleArn: "STRING_VALUE", // required
+ *   ClientToken: 'STRING_VALUE',
+ *   RoleArn: 'STRING_VALUE', // required
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreateQuerySuggestionsBlockListCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateQuerySuggestionsBlockListResponse
+ *   Id: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateQuerySuggestionsBlockListCommandInput - {@link CreateQuerySuggestionsBlockListCommandInput}
@@ -115,6 +120,8 @@ export interface CreateQuerySuggestionsBlockListCommandOutput
  *  <p>The input fails to satisfy the constraints set by the Amazon Kendra service.
  *             Please provide the correct input and try again.</p>
  *
+ * @throws {@link KendraServiceException}
+ * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
  */
 export class CreateQuerySuggestionsBlockListCommand extends $Command<

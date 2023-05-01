@@ -40,14 +40,24 @@ export interface GetDeviceMethodsCommandOutput extends GetDeviceMethodsResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoT1ClickDevicesServiceClient, GetDeviceMethodsCommand } from "@aws-sdk/client-iot-1click-devices-service"; // ES Modules import
- * // const { IoT1ClickDevicesServiceClient, GetDeviceMethodsCommand } = require("@aws-sdk/client-iot-1click-devices-service"); // CommonJS import
+ * import { IoT1ClickDevicesServiceClient, GetDeviceMethodsCommand } from '@aws-sdk/client-iot-1click-devices-service'; // ES Modules import
+ * // const { IoT1ClickDevicesServiceClient, GetDeviceMethodsCommand } = require('@aws-sdk/client-iot-1click-devices-service'); // CommonJS import
  * const client = new IoT1ClickDevicesServiceClient(config);
  * const input = { // GetDeviceMethodsRequest
- *   DeviceId: "STRING_VALUE", // required
+ *   DeviceId: 'STRING_VALUE', // required
  * };
  * const command = new GetDeviceMethodsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetDeviceMethodsResponse
+ *   DeviceMethods: [ // __listOfDeviceMethod
+ *     { // DeviceMethod
+ *       DeviceType: 'STRING_VALUE',
+ *       MethodName: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetDeviceMethodsCommandInput - {@link GetDeviceMethodsCommandInput}
@@ -62,6 +72,8 @@ export interface GetDeviceMethodsCommandOutput extends GetDeviceMethodsResponse,
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *
+ * @throws {@link IoT1ClickDevicesServiceServiceException}
+ * <p>Base exception class for all service exceptions from IoT1ClickDevicesService service.</p>
  *
  */
 export class GetDeviceMethodsCommand extends $Command<

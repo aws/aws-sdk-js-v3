@@ -36,15 +36,18 @@ export interface StopWorkflowRunCommandOutput extends StopWorkflowRunResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlueClient, StopWorkflowRunCommand } from "@aws-sdk/client-glue"; // ES Modules import
- * // const { GlueClient, StopWorkflowRunCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * import { GlueClient, StopWorkflowRunCommand } from '@aws-sdk/client-glue'; // ES Modules import
+ * // const { GlueClient, StopWorkflowRunCommand } = require('@aws-sdk/client-glue'); // CommonJS import
  * const client = new GlueClient(config);
  * const input = { // StopWorkflowRunRequest
- *   Name: "STRING_VALUE", // required
- *   RunId: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
+ *   RunId: 'STRING_VALUE', // required
  * };
  * const command = new StopWorkflowRunCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param StopWorkflowRunCommandInput - {@link StopWorkflowRunCommandInput}
@@ -68,6 +71,8 @@ export interface StopWorkflowRunCommandOutput extends StopWorkflowRunResponse, _
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class StopWorkflowRunCommand extends $Command<

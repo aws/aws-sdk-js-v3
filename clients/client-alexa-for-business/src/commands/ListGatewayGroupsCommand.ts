@@ -37,15 +37,27 @@ export interface ListGatewayGroupsCommandOutput extends ListGatewayGroupsRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AlexaForBusinessClient, ListGatewayGroupsCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
- * // const { AlexaForBusinessClient, ListGatewayGroupsCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
+ * import { AlexaForBusinessClient, ListGatewayGroupsCommand } from '@aws-sdk/client-alexa-for-business'; // ES Modules import
+ * // const { AlexaForBusinessClient, ListGatewayGroupsCommand } = require('@aws-sdk/client-alexa-for-business'); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
  * const input = { // ListGatewayGroupsRequest
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListGatewayGroupsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListGatewayGroupsResponse
+ *   GatewayGroups: [ // GatewayGroupSummaries
+ *     { // GatewayGroupSummary
+ *       Arn: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *       Description: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListGatewayGroupsCommandInput - {@link ListGatewayGroupsCommandInput}
@@ -54,6 +66,8 @@ export interface ListGatewayGroupsCommandOutput extends ListGatewayGroupsRespons
  * @see {@link ListGatewayGroupsCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
  *
+ * @throws {@link AlexaForBusinessServiceException}
+ * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  */
 export class ListGatewayGroupsCommand extends $Command<

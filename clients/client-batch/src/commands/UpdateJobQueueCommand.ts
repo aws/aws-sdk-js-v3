@@ -36,23 +36,29 @@ export interface UpdateJobQueueCommandOutput extends UpdateJobQueueResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BatchClient, UpdateJobQueueCommand } from "@aws-sdk/client-batch"; // ES Modules import
- * // const { BatchClient, UpdateJobQueueCommand } = require("@aws-sdk/client-batch"); // CommonJS import
+ * import { BatchClient, UpdateJobQueueCommand } from '@aws-sdk/client-batch'; // ES Modules import
+ * // const { BatchClient, UpdateJobQueueCommand } = require('@aws-sdk/client-batch'); // CommonJS import
  * const client = new BatchClient(config);
  * const input = { // UpdateJobQueueRequest
- *   jobQueue: "STRING_VALUE", // required
- *   state: "ENABLED" || "DISABLED",
- *   schedulingPolicyArn: "STRING_VALUE",
- *   priority: Number("int"),
+ *   jobQueue: 'STRING_VALUE', // required
+ *   state: 'ENABLED' || 'DISABLED',
+ *   schedulingPolicyArn: 'STRING_VALUE',
+ *   priority: Number('int'),
  *   computeEnvironmentOrder: [ // ComputeEnvironmentOrders
  *     { // ComputeEnvironmentOrder
- *       order: Number("int"), // required
- *       computeEnvironment: "STRING_VALUE", // required
+ *       order: Number('int'), // required
+ *       computeEnvironment: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new UpdateJobQueueCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateJobQueueResponse
+ *   jobQueueName: 'STRING_VALUE',
+ *   jobQueueArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateJobQueueCommandInput - {@link UpdateJobQueueCommandInput}
@@ -69,6 +75,8 @@ export interface UpdateJobQueueCommandOutput extends UpdateJobQueueResponse, __M
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server issue.</p>
  *
+ * @throws {@link BatchServiceException}
+ * <p>Base exception class for all service exceptions from Batch service.</p>
  *
  * @example To update a job queue
  * ```javascript

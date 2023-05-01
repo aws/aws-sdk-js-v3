@@ -44,18 +44,29 @@ export interface ListGroupsOlderThanOrderingIdCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KendraClient, ListGroupsOlderThanOrderingIdCommand } from "@aws-sdk/client-kendra"; // ES Modules import
- * // const { KendraClient, ListGroupsOlderThanOrderingIdCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
+ * import { KendraClient, ListGroupsOlderThanOrderingIdCommand } from '@aws-sdk/client-kendra'; // ES Modules import
+ * // const { KendraClient, ListGroupsOlderThanOrderingIdCommand } = require('@aws-sdk/client-kendra'); // CommonJS import
  * const client = new KendraClient(config);
  * const input = { // ListGroupsOlderThanOrderingIdRequest
- *   IndexId: "STRING_VALUE", // required
- *   DataSourceId: "STRING_VALUE",
- *   OrderingId: Number("long"), // required
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   IndexId: 'STRING_VALUE', // required
+ *   DataSourceId: 'STRING_VALUE',
+ *   OrderingId: Number('long'), // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListGroupsOlderThanOrderingIdCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListGroupsOlderThanOrderingIdResponse
+ *   GroupsSummaries: [ // ListOfGroupSummaries
+ *     { // GroupSummary
+ *       GroupId: 'STRING_VALUE',
+ *       OrderingId: Number('long'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListGroupsOlderThanOrderingIdCommandInput - {@link ListGroupsOlderThanOrderingIdCommandInput}
@@ -88,6 +99,8 @@ export interface ListGroupsOlderThanOrderingIdCommandOutput
  *  <p>The input fails to satisfy the constraints set by the Amazon Kendra service.
  *             Please provide the correct input and try again.</p>
  *
+ * @throws {@link KendraServiceException}
+ * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
  */
 export class ListGroupsOlderThanOrderingIdCommand extends $Command<

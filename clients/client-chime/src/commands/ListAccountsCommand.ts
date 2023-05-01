@@ -38,17 +38,41 @@ export interface ListAccountsCommandOutput extends ListAccountsResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeClient, ListAccountsCommand } from "@aws-sdk/client-chime"; // ES Modules import
- * // const { ChimeClient, ListAccountsCommand } = require("@aws-sdk/client-chime"); // CommonJS import
+ * import { ChimeClient, ListAccountsCommand } from '@aws-sdk/client-chime'; // ES Modules import
+ * // const { ChimeClient, ListAccountsCommand } = require('@aws-sdk/client-chime'); // CommonJS import
  * const client = new ChimeClient(config);
  * const input = { // ListAccountsRequest
- *   Name: "STRING_VALUE",
- *   UserEmail: "STRING_VALUE",
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   Name: 'STRING_VALUE',
+ *   UserEmail: 'STRING_VALUE',
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListAccountsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListAccountsResponse
+ *   Accounts: [ // AccountList
+ *     { // Account
+ *       AwsAccountId: 'STRING_VALUE', // required
+ *       AccountId: 'STRING_VALUE', // required
+ *       Name: 'STRING_VALUE', // required
+ *       AccountType: 'Team' || 'EnterpriseDirectory' || 'EnterpriseLWA' || 'EnterpriseOIDC',
+ *       CreatedTimestamp: new Date('TIMESTAMP'),
+ *       DefaultLicense: 'Basic' || 'Plus' || 'Pro' || 'ProTrial',
+ *       SupportedLicenses: [ // LicenseList
+ *         'Basic' || 'Plus' || 'Pro' || 'ProTrial',
+ *       ],
+ *       AccountStatus: 'Suspended' || 'Active',
+ *       SigninDelegateGroups: [ // SigninDelegateGroupList
+ *         { // SigninDelegateGroup
+ *           GroupName: 'STRING_VALUE',
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListAccountsCommandInput - {@link ListAccountsCommandInput}
@@ -78,6 +102,8 @@ export interface ListAccountsCommandOutput extends ListAccountsResponse, __Metad
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeServiceException}
+ * <p>Base exception class for all service exceptions from Chime service.</p>
  *
  */
 export class ListAccountsCommand extends $Command<

@@ -55,14 +55,26 @@ export interface GetCompatibleElasticsearchVersionsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElasticsearchServiceClient, GetCompatibleElasticsearchVersionsCommand } from "@aws-sdk/client-elasticsearch-service"; // ES Modules import
- * // const { ElasticsearchServiceClient, GetCompatibleElasticsearchVersionsCommand } = require("@aws-sdk/client-elasticsearch-service"); // CommonJS import
+ * import { ElasticsearchServiceClient, GetCompatibleElasticsearchVersionsCommand } from '@aws-sdk/client-elasticsearch-service'; // ES Modules import
+ * // const { ElasticsearchServiceClient, GetCompatibleElasticsearchVersionsCommand } = require('@aws-sdk/client-elasticsearch-service'); // CommonJS import
  * const client = new ElasticsearchServiceClient(config);
  * const input = { // GetCompatibleElasticsearchVersionsRequest
- *   DomainName: "STRING_VALUE",
+ *   DomainName: 'STRING_VALUE',
  * };
  * const command = new GetCompatibleElasticsearchVersionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetCompatibleElasticsearchVersionsResponse
+ *   CompatibleElasticsearchVersions: [ // CompatibleElasticsearchVersionsList
+ *     { // CompatibleVersionsMap
+ *       SourceVersion: 'STRING_VALUE',
+ *       TargetVersions: [ // ElasticsearchVersionList
+ *         'STRING_VALUE',
+ *       ],
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetCompatibleElasticsearchVersionsCommandInput - {@link GetCompatibleElasticsearchVersionsCommandInput}
@@ -86,6 +98,8 @@ export interface GetCompatibleElasticsearchVersionsCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception for missing / invalid input fields. Gives http status code of 400.</p>
  *
+ * @throws {@link ElasticsearchServiceServiceException}
+ * <p>Base exception class for all service exceptions from ElasticsearchService service.</p>
  *
  */
 export class GetCompatibleElasticsearchVersionsCommand extends $Command<

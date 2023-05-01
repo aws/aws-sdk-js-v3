@@ -36,14 +36,29 @@ export interface GetPublicKeyCommandOutput extends GetPublicKeyResult, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudFrontClient, GetPublicKeyCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
- * // const { CloudFrontClient, GetPublicKeyCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
+ * import { CloudFrontClient, GetPublicKeyCommand } from '@aws-sdk/client-cloudfront'; // ES Modules import
+ * // const { CloudFrontClient, GetPublicKeyCommand } = require('@aws-sdk/client-cloudfront'); // CommonJS import
  * const client = new CloudFrontClient(config);
  * const input = { // GetPublicKeyRequest
- *   Id: "STRING_VALUE", // required
+ *   Id: 'STRING_VALUE', // required
  * };
  * const command = new GetPublicKeyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetPublicKeyResult
+ *   PublicKey: { // PublicKey
+ *     Id: 'STRING_VALUE', // required
+ *     CreatedTime: new Date('TIMESTAMP'), // required
+ *     PublicKeyConfig: { // PublicKeyConfig
+ *       CallerReference: 'STRING_VALUE', // required
+ *       Name: 'STRING_VALUE', // required
+ *       EncodedKey: 'STRING_VALUE', // required
+ *       Comment: 'STRING_VALUE',
+ *     },
+ *   },
+ *   ETag: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetPublicKeyCommandInput - {@link GetPublicKeyCommandInput}
@@ -58,6 +73,8 @@ export interface GetPublicKeyCommandOutput extends GetPublicKeyResult, __Metadat
  * @throws {@link NoSuchPublicKey} (client fault)
  *  <p>The specified public key doesn't exist.</p>
  *
+ * @throws {@link CloudFrontServiceException}
+ * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
  */
 export class GetPublicKeyCommand extends $Command<

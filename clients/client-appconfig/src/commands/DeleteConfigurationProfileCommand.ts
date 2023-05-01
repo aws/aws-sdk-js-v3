@@ -37,15 +37,18 @@ export interface DeleteConfigurationProfileCommandOutput extends __MetadataBeare
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppConfigClient, DeleteConfigurationProfileCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
- * // const { AppConfigClient, DeleteConfigurationProfileCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import
+ * import { AppConfigClient, DeleteConfigurationProfileCommand } from '@aws-sdk/client-appconfig'; // ES Modules import
+ * // const { AppConfigClient, DeleteConfigurationProfileCommand } = require('@aws-sdk/client-appconfig'); // CommonJS import
  * const client = new AppConfigClient(config);
  * const input = { // DeleteConfigurationProfileRequest
- *   ApplicationId: "STRING_VALUE", // required
- *   ConfigurationProfileId: "STRING_VALUE", // required
+ *   ApplicationId: 'STRING_VALUE', // required
+ *   ConfigurationProfileId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteConfigurationProfileCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteConfigurationProfileCommandInput - {@link DeleteConfigurationProfileCommandInput}
@@ -67,6 +70,8 @@ export interface DeleteConfigurationProfileCommandOutput extends __MetadataBeare
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The requested resource could not be found.</p>
  *
+ * @throws {@link AppConfigServiceException}
+ * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
  * @example To delete a configuration profile
  * ```javascript

@@ -43,16 +43,21 @@ export interface UpdateModelCardCommandOutput extends UpdateModelCardResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, UpdateModelCardCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, UpdateModelCardCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, UpdateModelCardCommand } from '@aws-sdk/client-sagemaker'; // ES Modules import
+ * // const { SageMakerClient, UpdateModelCardCommand } = require('@aws-sdk/client-sagemaker'); // CommonJS import
  * const client = new SageMakerClient(config);
  * const input = { // UpdateModelCardRequest
- *   ModelCardName: "STRING_VALUE", // required
- *   Content: "STRING_VALUE",
- *   ModelCardStatus: "Draft" || "PendingReview" || "Approved" || "Archived",
+ *   ModelCardName: 'STRING_VALUE', // required
+ *   Content: 'STRING_VALUE',
+ *   ModelCardStatus: 'Draft' || 'PendingReview' || 'Approved' || 'Archived',
  * };
  * const command = new UpdateModelCardCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateModelCardResponse
+ *   ModelCardArn: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param UpdateModelCardCommandInput - {@link UpdateModelCardCommandInput}
@@ -72,6 +77,8 @@ export interface UpdateModelCardCommandOutput extends UpdateModelCardResponse, _
  * @throws {@link ResourceNotFound} (client fault)
  *  <p>Resource being access is not found.</p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class UpdateModelCardCommand extends $Command<

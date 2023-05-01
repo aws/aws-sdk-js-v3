@@ -41,14 +41,17 @@ export interface RemoveKnowledgeBaseTemplateUriCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WisdomClient, RemoveKnowledgeBaseTemplateUriCommand } from "@aws-sdk/client-wisdom"; // ES Modules import
- * // const { WisdomClient, RemoveKnowledgeBaseTemplateUriCommand } = require("@aws-sdk/client-wisdom"); // CommonJS import
+ * import { WisdomClient, RemoveKnowledgeBaseTemplateUriCommand } from '@aws-sdk/client-wisdom'; // ES Modules import
+ * // const { WisdomClient, RemoveKnowledgeBaseTemplateUriCommand } = require('@aws-sdk/client-wisdom'); // CommonJS import
  * const client = new WisdomClient(config);
  * const input = { // RemoveKnowledgeBaseTemplateUriRequest
- *   knowledgeBaseId: "STRING_VALUE", // required
+ *   knowledgeBaseId: 'STRING_VALUE', // required
  * };
  * const command = new RemoveKnowledgeBaseTemplateUriCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param RemoveKnowledgeBaseTemplateUriCommandInput - {@link RemoveKnowledgeBaseTemplateUriCommandInput}
@@ -66,6 +69,8 @@ export interface RemoveKnowledgeBaseTemplateUriCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by a service.</p>
  *
+ * @throws {@link WisdomServiceException}
+ * <p>Base exception class for all service exceptions from Wisdom service.</p>
  *
  */
 export class RemoveKnowledgeBaseTemplateUriCommand extends $Command<

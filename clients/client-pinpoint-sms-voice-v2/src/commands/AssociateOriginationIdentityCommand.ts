@@ -49,17 +49,26 @@ export interface AssociateOriginationIdentityCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PinpointSMSVoiceV2Client, AssociateOriginationIdentityCommand } from "@aws-sdk/client-pinpoint-sms-voice-v2"; // ES Modules import
- * // const { PinpointSMSVoiceV2Client, AssociateOriginationIdentityCommand } = require("@aws-sdk/client-pinpoint-sms-voice-v2"); // CommonJS import
+ * import { PinpointSMSVoiceV2Client, AssociateOriginationIdentityCommand } from '@aws-sdk/client-pinpoint-sms-voice-v2'; // ES Modules import
+ * // const { PinpointSMSVoiceV2Client, AssociateOriginationIdentityCommand } = require('@aws-sdk/client-pinpoint-sms-voice-v2'); // CommonJS import
  * const client = new PinpointSMSVoiceV2Client(config);
  * const input = { // AssociateOriginationIdentityRequest
- *   PoolId: "STRING_VALUE", // required
- *   OriginationIdentity: "STRING_VALUE", // required
- *   IsoCountryCode: "STRING_VALUE", // required
- *   ClientToken: "STRING_VALUE",
+ *   PoolId: 'STRING_VALUE', // required
+ *   OriginationIdentity: 'STRING_VALUE', // required
+ *   IsoCountryCode: 'STRING_VALUE', // required
+ *   ClientToken: 'STRING_VALUE',
  * };
  * const command = new AssociateOriginationIdentityCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AssociateOriginationIdentityResult
+ *   PoolArn: 'STRING_VALUE',
+ *   PoolId: 'STRING_VALUE',
+ *   OriginationIdentityArn: 'STRING_VALUE',
+ *   OriginationIdentity: 'STRING_VALUE',
+ *   IsoCountryCode: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param AssociateOriginationIdentityCommandInput - {@link AssociateOriginationIdentityCommandInput}
@@ -95,6 +104,8 @@ export interface AssociateOriginationIdentityCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>A validation exception for a field.</p>
  *
+ * @throws {@link PinpointSMSVoiceV2ServiceException}
+ * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
  *
  */
 export class AssociateOriginationIdentityCommand extends $Command<

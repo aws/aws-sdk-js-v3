@@ -36,18 +36,26 @@ export interface ResumeWorkflowRunCommandOutput extends ResumeWorkflowRunRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlueClient, ResumeWorkflowRunCommand } from "@aws-sdk/client-glue"; // ES Modules import
- * // const { GlueClient, ResumeWorkflowRunCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * import { GlueClient, ResumeWorkflowRunCommand } from '@aws-sdk/client-glue'; // ES Modules import
+ * // const { GlueClient, ResumeWorkflowRunCommand } = require('@aws-sdk/client-glue'); // CommonJS import
  * const client = new GlueClient(config);
  * const input = { // ResumeWorkflowRunRequest
- *   Name: "STRING_VALUE", // required
- *   RunId: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
+ *   RunId: 'STRING_VALUE', // required
  *   NodeIds: [ // NodeIdList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new ResumeWorkflowRunCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ResumeWorkflowRunResponse
+ *   RunId: 'STRING_VALUE',
+ *   NodeIds: [ // NodeIdList
+ *     'STRING_VALUE',
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ResumeWorkflowRunCommandInput - {@link ResumeWorkflowRunCommandInput}
@@ -74,6 +82,8 @@ export interface ResumeWorkflowRunCommandOutput extends ResumeWorkflowRunRespons
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class ResumeWorkflowRunCommand extends $Command<

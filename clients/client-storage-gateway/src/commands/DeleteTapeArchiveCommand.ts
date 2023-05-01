@@ -37,15 +37,20 @@ export interface DeleteTapeArchiveCommandOutput extends DeleteTapeArchiveOutput,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { StorageGatewayClient, DeleteTapeArchiveCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
- * // const { StorageGatewayClient, DeleteTapeArchiveCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
+ * import { StorageGatewayClient, DeleteTapeArchiveCommand } from '@aws-sdk/client-storage-gateway'; // ES Modules import
+ * // const { StorageGatewayClient, DeleteTapeArchiveCommand } = require('@aws-sdk/client-storage-gateway'); // CommonJS import
  * const client = new StorageGatewayClient(config);
  * const input = { // DeleteTapeArchiveInput
- *   TapeARN: "STRING_VALUE", // required
+ *   TapeARN: 'STRING_VALUE', // required
  *   BypassGovernanceRetention: true || false,
  * };
  * const command = new DeleteTapeArchiveCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteTapeArchiveOutput
+ *   TapeARN: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DeleteTapeArchiveCommandInput - {@link DeleteTapeArchiveCommandInput}
@@ -62,6 +67,8 @@ export interface DeleteTapeArchiveCommandOutput extends DeleteTapeArchiveOutput,
  *  <p>An exception occurred because an invalid gateway request was issued to the service. For
  *          more information, see the error and message fields.</p>
  *
+ * @throws {@link StorageGatewayServiceException}
+ * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
  * @example To delete a virtual tape from the shelf (VTS)
  * ```javascript

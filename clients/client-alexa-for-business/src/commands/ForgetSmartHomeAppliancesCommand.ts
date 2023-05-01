@@ -36,14 +36,17 @@ export interface ForgetSmartHomeAppliancesCommandOutput extends ForgetSmartHomeA
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AlexaForBusinessClient, ForgetSmartHomeAppliancesCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
- * // const { AlexaForBusinessClient, ForgetSmartHomeAppliancesCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
+ * import { AlexaForBusinessClient, ForgetSmartHomeAppliancesCommand } from '@aws-sdk/client-alexa-for-business'; // ES Modules import
+ * // const { AlexaForBusinessClient, ForgetSmartHomeAppliancesCommand } = require('@aws-sdk/client-alexa-for-business'); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
  * const input = { // ForgetSmartHomeAppliancesRequest
- *   RoomArn: "STRING_VALUE", // required
+ *   RoomArn: 'STRING_VALUE', // required
  * };
  * const command = new ForgetSmartHomeAppliancesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param ForgetSmartHomeAppliancesCommandInput - {@link ForgetSmartHomeAppliancesCommandInput}
@@ -55,6 +58,8 @@ export interface ForgetSmartHomeAppliancesCommandOutput extends ForgetSmartHomeA
  * @throws {@link NotFoundException} (client fault)
  *  <p>The resource is not found.</p>
  *
+ * @throws {@link AlexaForBusinessServiceException}
+ * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  */
 export class ForgetSmartHomeAppliancesCommand extends $Command<

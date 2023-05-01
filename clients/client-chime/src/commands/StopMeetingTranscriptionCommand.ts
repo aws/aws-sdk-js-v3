@@ -36,14 +36,17 @@ export interface StopMeetingTranscriptionCommandOutput extends StopMeetingTransc
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeClient, StopMeetingTranscriptionCommand } from "@aws-sdk/client-chime"; // ES Modules import
- * // const { ChimeClient, StopMeetingTranscriptionCommand } = require("@aws-sdk/client-chime"); // CommonJS import
+ * import { ChimeClient, StopMeetingTranscriptionCommand } from '@aws-sdk/client-chime'; // ES Modules import
+ * // const { ChimeClient, StopMeetingTranscriptionCommand } = require('@aws-sdk/client-chime'); // CommonJS import
  * const client = new ChimeClient(config);
  * const input = { // StopMeetingTranscriptionRequest
- *   MeetingId: "STRING_VALUE", // required
+ *   MeetingId: 'STRING_VALUE', // required
  * };
  * const command = new StopMeetingTranscriptionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param StopMeetingTranscriptionCommandInput - {@link StopMeetingTranscriptionCommandInput}
@@ -76,6 +79,8 @@ export interface StopMeetingTranscriptionCommandOutput extends StopMeetingTransc
  * @throws {@link UnprocessableEntityException} (client fault)
  *  <p>The request was well-formed but was unable to be followed due to semantic errors.</p>
  *
+ * @throws {@link ChimeServiceException}
+ * <p>Base exception class for all service exceptions from Chime service.</p>
  *
  */
 export class StopMeetingTranscriptionCommand extends $Command<

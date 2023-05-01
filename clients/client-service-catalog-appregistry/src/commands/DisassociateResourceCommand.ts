@@ -40,16 +40,22 @@ export interface DisassociateResourceCommandOutput extends DisassociateResourceR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ServiceCatalogAppRegistryClient, DisassociateResourceCommand } from "@aws-sdk/client-service-catalog-appregistry"; // ES Modules import
- * // const { ServiceCatalogAppRegistryClient, DisassociateResourceCommand } = require("@aws-sdk/client-service-catalog-appregistry"); // CommonJS import
+ * import { ServiceCatalogAppRegistryClient, DisassociateResourceCommand } from '@aws-sdk/client-service-catalog-appregistry'; // ES Modules import
+ * // const { ServiceCatalogAppRegistryClient, DisassociateResourceCommand } = require('@aws-sdk/client-service-catalog-appregistry'); // CommonJS import
  * const client = new ServiceCatalogAppRegistryClient(config);
  * const input = { // DisassociateResourceRequest
- *   application: "STRING_VALUE", // required
- *   resourceType: "CFN_STACK" || "RESOURCE_TAG_VALUE", // required
- *   resource: "STRING_VALUE", // required
+ *   application: 'STRING_VALUE', // required
+ *   resourceType: 'CFN_STACK' || 'RESOURCE_TAG_VALUE', // required
+ *   resource: 'STRING_VALUE', // required
  * };
  * const command = new DisassociateResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DisassociateResourceResponse
+ *   applicationArn: 'STRING_VALUE',
+ *   resourceArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DisassociateResourceCommandInput - {@link DisassociateResourceCommandInput}
@@ -74,6 +80,8 @@ export interface DisassociateResourceCommandOutput extends DisassociateResourceR
  * @throws {@link ValidationException} (client fault)
  *  <p>The request has invalid or missing parameters.</p>
  *
+ * @throws {@link ServiceCatalogAppRegistryServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalogAppRegistry service.</p>
  *
  */
 export class DisassociateResourceCommand extends $Command<

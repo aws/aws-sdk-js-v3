@@ -42,23 +42,26 @@ export interface PublishCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTDataPlaneClient, PublishCommand } from "@aws-sdk/client-iot-data-plane"; // ES Modules import
- * // const { IoTDataPlaneClient, PublishCommand } = require("@aws-sdk/client-iot-data-plane"); // CommonJS import
+ * import { IoTDataPlaneClient, PublishCommand } from '@aws-sdk/client-iot-data-plane'; // ES Modules import
+ * // const { IoTDataPlaneClient, PublishCommand } = require('@aws-sdk/client-iot-data-plane'); // CommonJS import
  * const client = new IoTDataPlaneClient(config);
  * const input = { // PublishRequest
- *   topic: "STRING_VALUE", // required
- *   qos: Number("int"),
+ *   topic: 'STRING_VALUE', // required
+ *   qos: Number('int'),
  *   retain: true || false,
- *   payload: "BLOB_VALUE",
- *   userProperties: "STRING_VALUE",
- *   payloadFormatIndicator: "UNSPECIFIED_BYTES" || "UTF8_DATA",
- *   contentType: "STRING_VALUE",
- *   responseTopic: "STRING_VALUE",
- *   correlationData: "STRING_VALUE",
- *   messageExpiry: Number("long"),
+ *   payload: 'BLOB_VALUE',
+ *   userProperties: 'STRING_VALUE',
+ *   payloadFormatIndicator: 'UNSPECIFIED_BYTES' || 'UTF8_DATA',
+ *   contentType: 'STRING_VALUE',
+ *   responseTopic: 'STRING_VALUE',
+ *   correlationData: 'STRING_VALUE',
+ *   messageExpiry: Number('long'),
  * };
  * const command = new PublishCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PublishCommandInput - {@link PublishCommandInput}
@@ -82,6 +85,8 @@ export interface PublishCommandOutput extends __MetadataBearer {}
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this operation.</p>
  *
+ * @throws {@link IoTDataPlaneServiceException}
+ * <p>Base exception class for all service exceptions from IoTDataPlane service.</p>
  *
  */
 export class PublishCommand extends $Command<

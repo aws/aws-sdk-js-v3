@@ -36,14 +36,20 @@ export interface GetSchemaAsJsonCommandOutput extends GetSchemaAsJsonResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudDirectoryClient, GetSchemaAsJsonCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
- * // const { CloudDirectoryClient, GetSchemaAsJsonCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
+ * import { CloudDirectoryClient, GetSchemaAsJsonCommand } from '@aws-sdk/client-clouddirectory'; // ES Modules import
+ * // const { CloudDirectoryClient, GetSchemaAsJsonCommand } = require('@aws-sdk/client-clouddirectory'); // CommonJS import
  * const client = new CloudDirectoryClient(config);
  * const input = { // GetSchemaAsJsonRequest
- *   SchemaArn: "STRING_VALUE", // required
+ *   SchemaArn: 'STRING_VALUE', // required
  * };
  * const command = new GetSchemaAsJsonCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetSchemaAsJsonResponse
+ *   Name: 'STRING_VALUE',
+ *   Document: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetSchemaAsJsonCommandInput - {@link GetSchemaAsJsonCommandInput}
@@ -74,6 +80,8 @@ export interface GetSchemaAsJsonCommandOutput extends GetSchemaAsJsonResponse, _
  *  <p>Indicates that your request is malformed in some manner. See the exception
  *       message.</p>
  *
+ * @throws {@link CloudDirectoryServiceException}
+ * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
  */
 export class GetSchemaAsJsonCommand extends $Command<

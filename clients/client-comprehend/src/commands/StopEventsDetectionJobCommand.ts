@@ -36,14 +36,20 @@ export interface StopEventsDetectionJobCommandOutput extends StopEventsDetection
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ComprehendClient, StopEventsDetectionJobCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
- * // const { ComprehendClient, StopEventsDetectionJobCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
+ * import { ComprehendClient, StopEventsDetectionJobCommand } from '@aws-sdk/client-comprehend'; // ES Modules import
+ * // const { ComprehendClient, StopEventsDetectionJobCommand } = require('@aws-sdk/client-comprehend'); // CommonJS import
  * const client = new ComprehendClient(config);
  * const input = { // StopEventsDetectionJobRequest
- *   JobId: "STRING_VALUE", // required
+ *   JobId: 'STRING_VALUE', // required
  * };
  * const command = new StopEventsDetectionJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StopEventsDetectionJobResponse
+ *   JobId: 'STRING_VALUE',
+ *   JobStatus: 'SUBMITTED' || 'IN_PROGRESS' || 'COMPLETED' || 'FAILED' || 'STOP_REQUESTED' || 'STOPPED',
+ * };
+ *
  * ```
  *
  * @param StopEventsDetectionJobCommandInput - {@link StopEventsDetectionJobCommandInput}
@@ -61,6 +67,8 @@ export interface StopEventsDetectionJobCommandOutput extends StopEventsDetection
  * @throws {@link JobNotFoundException} (client fault)
  *  <p>The specified job was not found. Check the job ID and try again.</p>
  *
+ * @throws {@link ComprehendServiceException}
+ * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
  */
 export class StopEventsDetectionJobCommand extends $Command<

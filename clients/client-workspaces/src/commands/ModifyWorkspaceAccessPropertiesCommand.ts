@@ -43,24 +43,27 @@ export interface ModifyWorkspaceAccessPropertiesCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkSpacesClient, ModifyWorkspaceAccessPropertiesCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
- * // const { WorkSpacesClient, ModifyWorkspaceAccessPropertiesCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
+ * import { WorkSpacesClient, ModifyWorkspaceAccessPropertiesCommand } from '@aws-sdk/client-workspaces'; // ES Modules import
+ * // const { WorkSpacesClient, ModifyWorkspaceAccessPropertiesCommand } = require('@aws-sdk/client-workspaces'); // CommonJS import
  * const client = new WorkSpacesClient(config);
  * const input = { // ModifyWorkspaceAccessPropertiesRequest
- *   ResourceId: "STRING_VALUE", // required
+ *   ResourceId: 'STRING_VALUE', // required
  *   WorkspaceAccessProperties: { // WorkspaceAccessProperties
- *     DeviceTypeWindows: "ALLOW" || "DENY",
- *     DeviceTypeOsx: "ALLOW" || "DENY",
- *     DeviceTypeWeb: "ALLOW" || "DENY",
- *     DeviceTypeIos: "ALLOW" || "DENY",
- *     DeviceTypeAndroid: "ALLOW" || "DENY",
- *     DeviceTypeChromeOs: "ALLOW" || "DENY",
- *     DeviceTypeZeroClient: "ALLOW" || "DENY",
- *     DeviceTypeLinux: "ALLOW" || "DENY",
+ *     DeviceTypeWindows: 'ALLOW' || 'DENY',
+ *     DeviceTypeOsx: 'ALLOW' || 'DENY',
+ *     DeviceTypeWeb: 'ALLOW' || 'DENY',
+ *     DeviceTypeIos: 'ALLOW' || 'DENY',
+ *     DeviceTypeAndroid: 'ALLOW' || 'DENY',
+ *     DeviceTypeChromeOs: 'ALLOW' || 'DENY',
+ *     DeviceTypeZeroClient: 'ALLOW' || 'DENY',
+ *     DeviceTypeLinux: 'ALLOW' || 'DENY',
  *   },
  * };
  * const command = new ModifyWorkspaceAccessPropertiesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param ModifyWorkspaceAccessPropertiesCommandInput - {@link ModifyWorkspaceAccessPropertiesCommandInput}
@@ -75,6 +78,8 @@ export interface ModifyWorkspaceAccessPropertiesCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource could not be found.</p>
  *
+ * @throws {@link WorkSpacesServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
  */
 export class ModifyWorkspaceAccessPropertiesCommand extends $Command<

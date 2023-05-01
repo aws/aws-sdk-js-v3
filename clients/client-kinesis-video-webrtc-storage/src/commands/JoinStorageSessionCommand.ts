@@ -61,14 +61,17 @@ export interface JoinStorageSessionCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KinesisVideoWebRTCStorageClient, JoinStorageSessionCommand } from "@aws-sdk/client-kinesis-video-webrtc-storage"; // ES Modules import
- * // const { KinesisVideoWebRTCStorageClient, JoinStorageSessionCommand } = require("@aws-sdk/client-kinesis-video-webrtc-storage"); // CommonJS import
+ * import { KinesisVideoWebRTCStorageClient, JoinStorageSessionCommand } from '@aws-sdk/client-kinesis-video-webrtc-storage'; // ES Modules import
+ * // const { KinesisVideoWebRTCStorageClient, JoinStorageSessionCommand } = require('@aws-sdk/client-kinesis-video-webrtc-storage'); // CommonJS import
  * const client = new KinesisVideoWebRTCStorageClient(config);
  * const input = { // JoinStorageSessionInput
- *   channelArn: "STRING_VALUE", // required
+ *   channelArn: 'STRING_VALUE', // required
  * };
  * const command = new JoinStorageSessionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param JoinStorageSessionCommandInput - {@link JoinStorageSessionCommandInput}
@@ -91,6 +94,8 @@ export interface JoinStorageSessionCommandOutput extends __MetadataBearer {}
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource is not found.</p>
  *
+ * @throws {@link KinesisVideoWebRTCStorageServiceException}
+ * <p>Base exception class for all service exceptions from KinesisVideoWebRTCStorage service.</p>
  *
  */
 export class JoinStorageSessionCommand extends $Command<

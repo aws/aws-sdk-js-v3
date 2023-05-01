@@ -36,18 +36,38 @@ export interface CreateClusterSnapshotCommandOutput extends CreateClusterSnapsho
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DocDBElasticClient, CreateClusterSnapshotCommand } from "@aws-sdk/client-docdb-elastic"; // ES Modules import
- * // const { DocDBElasticClient, CreateClusterSnapshotCommand } = require("@aws-sdk/client-docdb-elastic"); // CommonJS import
+ * import { DocDBElasticClient, CreateClusterSnapshotCommand } from '@aws-sdk/client-docdb-elastic'; // ES Modules import
+ * // const { DocDBElasticClient, CreateClusterSnapshotCommand } = require('@aws-sdk/client-docdb-elastic'); // CommonJS import
  * const client = new DocDBElasticClient(config);
  * const input = { // CreateClusterSnapshotInput
- *   clusterArn: "STRING_VALUE", // required
- *   snapshotName: "STRING_VALUE", // required
+ *   clusterArn: 'STRING_VALUE', // required
+ *   snapshotName: 'STRING_VALUE', // required
  *   tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateClusterSnapshotCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateClusterSnapshotOutput
+ *   snapshot: { // ClusterSnapshot
+ *     subnetIds: [ // StringList // required
+ *       'STRING_VALUE',
+ *     ],
+ *     snapshotName: 'STRING_VALUE', // required
+ *     snapshotArn: 'STRING_VALUE', // required
+ *     snapshotCreationTime: 'STRING_VALUE', // required
+ *     clusterArn: 'STRING_VALUE', // required
+ *     clusterCreationTime: 'STRING_VALUE', // required
+ *     status: 'STRING_VALUE', // required
+ *     vpcSecurityGroupIds: [ // required
+ *       'STRING_VALUE',
+ *     ],
+ *     adminUserName: 'STRING_VALUE', // required
+ *     kmsKeyId: 'STRING_VALUE', // required
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateClusterSnapshotCommandInput - {@link CreateClusterSnapshotCommandInput}
@@ -77,6 +97,8 @@ export interface CreateClusterSnapshotCommandOutput extends CreateClusterSnapsho
  * @throws {@link ValidationException} (client fault)
  *  <p>A structure defining a validation exception.</p>
  *
+ * @throws {@link DocDBElasticServiceException}
+ * <p>Base exception class for all service exceptions from DocDBElastic service.</p>
  *
  */
 export class CreateClusterSnapshotCommand extends $Command<

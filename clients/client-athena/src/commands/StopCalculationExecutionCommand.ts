@@ -45,14 +45,19 @@ export interface StopCalculationExecutionCommandOutput extends StopCalculationEx
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AthenaClient, StopCalculationExecutionCommand } from "@aws-sdk/client-athena"; // ES Modules import
- * // const { AthenaClient, StopCalculationExecutionCommand } = require("@aws-sdk/client-athena"); // CommonJS import
+ * import { AthenaClient, StopCalculationExecutionCommand } from '@aws-sdk/client-athena'; // ES Modules import
+ * // const { AthenaClient, StopCalculationExecutionCommand } = require('@aws-sdk/client-athena'); // CommonJS import
  * const client = new AthenaClient(config);
  * const input = { // StopCalculationExecutionRequest
- *   CalculationExecutionId: "STRING_VALUE", // required
+ *   CalculationExecutionId: 'STRING_VALUE', // required
  * };
  * const command = new StopCalculationExecutionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StopCalculationExecutionResponse
+ *   State: 'CREATING' || 'CREATED' || 'QUEUED' || 'RUNNING' || 'CANCELING' || 'CANCELED' || 'COMPLETED' || 'FAILED',
+ * };
+ *
  * ```
  *
  * @param StopCalculationExecutionCommandInput - {@link StopCalculationExecutionCommandInput}
@@ -72,6 +77,8 @@ export interface StopCalculationExecutionCommandOutput extends StopCalculationEx
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>A resource, such as a workgroup, was not found.</p>
  *
+ * @throws {@link AthenaServiceException}
+ * <p>Base exception class for all service exceptions from Athena service.</p>
  *
  */
 export class StopCalculationExecutionCommand extends $Command<

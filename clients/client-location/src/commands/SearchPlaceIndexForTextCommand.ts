@@ -50,26 +50,78 @@ export interface SearchPlaceIndexForTextCommandOutput extends SearchPlaceIndexFo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LocationClient, SearchPlaceIndexForTextCommand } from "@aws-sdk/client-location"; // ES Modules import
- * // const { LocationClient, SearchPlaceIndexForTextCommand } = require("@aws-sdk/client-location"); // CommonJS import
+ * import { LocationClient, SearchPlaceIndexForTextCommand } from '@aws-sdk/client-location'; // ES Modules import
+ * // const { LocationClient, SearchPlaceIndexForTextCommand } = require('@aws-sdk/client-location'); // CommonJS import
  * const client = new LocationClient(config);
  * const input = { // SearchPlaceIndexForTextRequest
- *   IndexName: "STRING_VALUE", // required
- *   Text: "STRING_VALUE", // required
+ *   IndexName: 'STRING_VALUE', // required
+ *   Text: 'STRING_VALUE', // required
  *   BiasPosition: [ // Position
- *     Number("double"),
+ *     Number('double'),
  *   ],
  *   FilterBBox: [ // BoundingBox
- *     Number("double"),
+ *     Number('double'),
  *   ],
  *   FilterCountries: [ // CountryCodeList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   MaxResults: Number("int"),
- *   Language: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   Language: 'STRING_VALUE',
  * };
  * const command = new SearchPlaceIndexForTextCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SearchPlaceIndexForTextResponse
+ *   Summary: { // SearchPlaceIndexForTextSummary
+ *     Text: 'STRING_VALUE', // required
+ *     BiasPosition: [ // Position
+ *       Number('double'),
+ *     ],
+ *     FilterBBox: [ // BoundingBox
+ *       Number('double'),
+ *     ],
+ *     FilterCountries: [ // CountryCodeList
+ *       'STRING_VALUE',
+ *     ],
+ *     MaxResults: Number('int'),
+ *     ResultBBox: [
+ *       Number('double'),
+ *     ],
+ *     DataSource: 'STRING_VALUE', // required
+ *     Language: 'STRING_VALUE',
+ *   },
+ *   Results: [ // SearchForTextResultList // required
+ *     { // SearchForTextResult
+ *       Place: { // Place
+ *         Label: 'STRING_VALUE',
+ *         Geometry: { // PlaceGeometry
+ *           Point: [
+ *             Number('double'),
+ *           ],
+ *         },
+ *         AddressNumber: 'STRING_VALUE',
+ *         Street: 'STRING_VALUE',
+ *         Neighborhood: 'STRING_VALUE',
+ *         Municipality: 'STRING_VALUE',
+ *         SubRegion: 'STRING_VALUE',
+ *         Region: 'STRING_VALUE',
+ *         Country: 'STRING_VALUE',
+ *         PostalCode: 'STRING_VALUE',
+ *         Interpolated: true || false,
+ *         TimeZone: { // TimeZone
+ *           Name: 'STRING_VALUE', // required
+ *           Offset: Number('int'),
+ *         },
+ *         UnitType: 'STRING_VALUE',
+ *         UnitNumber: 'STRING_VALUE',
+ *       },
+ *       Distance: Number('double'),
+ *       Relevance: Number('double'),
+ *       PlaceId: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param SearchPlaceIndexForTextCommandInput - {@link SearchPlaceIndexForTextCommandInput}
@@ -94,6 +146,8 @@ export interface SearchPlaceIndexForTextCommandOutput extends SearchPlaceIndexFo
  * @throws {@link ValidationException} (client fault)
  *  <p>The input failed to meet the constraints specified by the AWS service. </p>
  *
+ * @throws {@link LocationServiceException}
+ * <p>Base exception class for all service exceptions from Location service.</p>
  *
  */
 export class SearchPlaceIndexForTextCommand extends $Command<

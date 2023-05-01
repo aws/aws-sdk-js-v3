@@ -37,17 +37,22 @@ export interface StartFileTransferCommandOutput extends StartFileTransferRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { TransferClient, StartFileTransferCommand } from "@aws-sdk/client-transfer"; // ES Modules import
- * // const { TransferClient, StartFileTransferCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
+ * import { TransferClient, StartFileTransferCommand } from '@aws-sdk/client-transfer'; // ES Modules import
+ * // const { TransferClient, StartFileTransferCommand } = require('@aws-sdk/client-transfer'); // CommonJS import
  * const client = new TransferClient(config);
  * const input = { // StartFileTransferRequest
- *   ConnectorId: "STRING_VALUE", // required
+ *   ConnectorId: 'STRING_VALUE', // required
  *   SendFilePaths: [ // FilePaths // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new StartFileTransferCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartFileTransferResponse
+ *   TransferId: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param StartFileTransferCommandInput - {@link StartFileTransferCommandInput}
@@ -72,6 +77,8 @@ export interface StartFileTransferCommandOutput extends StartFileTransferRespons
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
  *
+ * @throws {@link TransferServiceException}
+ * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
  */
 export class StartFileTransferCommand extends $Command<

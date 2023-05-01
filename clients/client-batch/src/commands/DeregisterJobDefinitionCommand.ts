@@ -36,14 +36,17 @@ export interface DeregisterJobDefinitionCommandOutput extends DeregisterJobDefin
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BatchClient, DeregisterJobDefinitionCommand } from "@aws-sdk/client-batch"; // ES Modules import
- * // const { BatchClient, DeregisterJobDefinitionCommand } = require("@aws-sdk/client-batch"); // CommonJS import
+ * import { BatchClient, DeregisterJobDefinitionCommand } from '@aws-sdk/client-batch'; // ES Modules import
+ * // const { BatchClient, DeregisterJobDefinitionCommand } = require('@aws-sdk/client-batch'); // CommonJS import
  * const client = new BatchClient(config);
  * const input = { // DeregisterJobDefinitionRequest
- *   jobDefinition: "STRING_VALUE", // required
+ *   jobDefinition: 'STRING_VALUE', // required
  * };
  * const command = new DeregisterJobDefinitionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeregisterJobDefinitionCommandInput - {@link DeregisterJobDefinitionCommandInput}
@@ -60,6 +63,8 @@ export interface DeregisterJobDefinitionCommandOutput extends DeregisterJobDefin
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server issue.</p>
  *
+ * @throws {@link BatchServiceException}
+ * <p>Base exception class for all service exceptions from Batch service.</p>
  *
  * @example To deregister a job definition
  * ```javascript

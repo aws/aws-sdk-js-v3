@@ -41,26 +41,31 @@ export interface CreateAgreementCommandOutput extends CreateAgreementResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { TransferClient, CreateAgreementCommand } from "@aws-sdk/client-transfer"; // ES Modules import
- * // const { TransferClient, CreateAgreementCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
+ * import { TransferClient, CreateAgreementCommand } from '@aws-sdk/client-transfer'; // ES Modules import
+ * // const { TransferClient, CreateAgreementCommand } = require('@aws-sdk/client-transfer'); // CommonJS import
  * const client = new TransferClient(config);
  * const input = { // CreateAgreementRequest
- *   Description: "STRING_VALUE",
- *   ServerId: "STRING_VALUE", // required
- *   LocalProfileId: "STRING_VALUE", // required
- *   PartnerProfileId: "STRING_VALUE", // required
- *   BaseDirectory: "STRING_VALUE", // required
- *   AccessRole: "STRING_VALUE", // required
- *   Status: "ACTIVE" || "INACTIVE",
+ *   Description: 'STRING_VALUE',
+ *   ServerId: 'STRING_VALUE', // required
+ *   LocalProfileId: 'STRING_VALUE', // required
+ *   PartnerProfileId: 'STRING_VALUE', // required
+ *   BaseDirectory: 'STRING_VALUE', // required
+ *   AccessRole: 'STRING_VALUE', // required
+ *   Status: 'ACTIVE' || 'INACTIVE',
  *   Tags: [ // Tags
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreateAgreementCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateAgreementResponse
+ *   AgreementId: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param CreateAgreementCommandInput - {@link CreateAgreementCommandInput}
@@ -88,6 +93,8 @@ export interface CreateAgreementCommandOutput extends CreateAgreementResponse, _
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
  *
+ * @throws {@link TransferServiceException}
+ * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
  */
 export class CreateAgreementCommand extends $Command<

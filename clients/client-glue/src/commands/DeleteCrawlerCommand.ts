@@ -37,14 +37,17 @@ export interface DeleteCrawlerCommandOutput extends DeleteCrawlerResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlueClient, DeleteCrawlerCommand } from "@aws-sdk/client-glue"; // ES Modules import
- * // const { GlueClient, DeleteCrawlerCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * import { GlueClient, DeleteCrawlerCommand } from '@aws-sdk/client-glue'; // ES Modules import
+ * // const { GlueClient, DeleteCrawlerCommand } = require('@aws-sdk/client-glue'); // CommonJS import
  * const client = new GlueClient(config);
  * const input = { // DeleteCrawlerRequest
- *   Name: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
  * };
  * const command = new DeleteCrawlerCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteCrawlerCommandInput - {@link DeleteCrawlerCommandInput}
@@ -65,6 +68,8 @@ export interface DeleteCrawlerCommandOutput extends DeleteCrawlerResponse, __Met
  * @throws {@link SchedulerTransitioningException} (client fault)
  *  <p>The specified scheduler is transitioning.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class DeleteCrawlerCommand extends $Command<

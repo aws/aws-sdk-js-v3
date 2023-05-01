@@ -38,17 +38,20 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { TranscribeClient, UntagResourceCommand } from "@aws-sdk/client-transcribe"; // ES Modules import
- * // const { TranscribeClient, UntagResourceCommand } = require("@aws-sdk/client-transcribe"); // CommonJS import
+ * import { TranscribeClient, UntagResourceCommand } from '@aws-sdk/client-transcribe'; // ES Modules import
+ * // const { TranscribeClient, UntagResourceCommand } = require('@aws-sdk/client-transcribe'); // CommonJS import
  * const client = new TranscribeClient(config);
  * const input = { // UntagResourceRequest
- *   ResourceArn: "STRING_VALUE", // required
+ *   ResourceArn: 'STRING_VALUE', // required
  *   TagKeys: [ // TagKeyList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new UntagResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UntagResourceCommandInput - {@link UntagResourceCommandInput}
@@ -79,6 +82,8 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  *  <p>We can't find the requested resource. Check that the specified name is correct and try
  *             your request again.</p>
  *
+ * @throws {@link TranscribeServiceException}
+ * <p>Base exception class for all service exceptions from Transcribe service.</p>
  *
  */
 export class UntagResourceCommand extends $Command<

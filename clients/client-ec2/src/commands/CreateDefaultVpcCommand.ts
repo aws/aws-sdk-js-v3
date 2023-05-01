@@ -50,14 +50,55 @@ export interface CreateDefaultVpcCommandOutput extends CreateDefaultVpcResult, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, CreateDefaultVpcCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, CreateDefaultVpcCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, CreateDefaultVpcCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, CreateDefaultVpcCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // CreateDefaultVpcRequest
  *   DryRun: true || false,
  * };
  * const command = new CreateDefaultVpcCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateDefaultVpcResult
+ *   Vpc: { // Vpc
+ *     CidrBlock: 'STRING_VALUE',
+ *     DhcpOptionsId: 'STRING_VALUE',
+ *     State: 'pending' || 'available',
+ *     VpcId: 'STRING_VALUE',
+ *     OwnerId: 'STRING_VALUE',
+ *     InstanceTenancy: 'default' || 'dedicated' || 'host',
+ *     Ipv6CidrBlockAssociationSet: [ // VpcIpv6CidrBlockAssociationSet
+ *       { // VpcIpv6CidrBlockAssociation
+ *         AssociationId: 'STRING_VALUE',
+ *         Ipv6CidrBlock: 'STRING_VALUE',
+ *         Ipv6CidrBlockState: { // VpcCidrBlockState
+ *           State: 'associating' || 'associated' || 'disassociating' || 'disassociated' || 'failing' || 'failed',
+ *           StatusMessage: 'STRING_VALUE',
+ *         },
+ *         NetworkBorderGroup: 'STRING_VALUE',
+ *         Ipv6Pool: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     CidrBlockAssociationSet: [ // VpcCidrBlockAssociationSet
+ *       { // VpcCidrBlockAssociation
+ *         AssociationId: 'STRING_VALUE',
+ *         CidrBlock: 'STRING_VALUE',
+ *         CidrBlockState: {
+ *           State: 'associating' || 'associated' || 'disassociating' || 'disassociated' || 'failing' || 'failed',
+ *           StatusMessage: 'STRING_VALUE',
+ *         },
+ *       },
+ *     ],
+ *     IsDefault: true || false,
+ *     Tags: [ // TagList
+ *       { // Tag
+ *         Key: 'STRING_VALUE',
+ *         Value: 'STRING_VALUE',
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateDefaultVpcCommandInput - {@link CreateDefaultVpcCommandInput}
@@ -66,6 +107,8 @@ export interface CreateDefaultVpcCommandOutput extends CreateDefaultVpcResult, _
  * @see {@link CreateDefaultVpcCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class CreateDefaultVpcCommand extends $Command<

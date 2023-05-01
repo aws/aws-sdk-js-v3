@@ -40,17 +40,28 @@ export interface ListAccountRolesCommandOutput extends ListAccountRolesResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSOClient, ListAccountRolesCommand } from "@aws-sdk/client-sso"; // ES Modules import
- * // const { SSOClient, ListAccountRolesCommand } = require("@aws-sdk/client-sso"); // CommonJS import
+ * import { SSOClient, ListAccountRolesCommand } from '@aws-sdk/client-sso'; // ES Modules import
+ * // const { SSOClient, ListAccountRolesCommand } = require('@aws-sdk/client-sso'); // CommonJS import
  * const client = new SSOClient(config);
  * const input = { // ListAccountRolesRequest
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
- *   accessToken: "STRING_VALUE", // required
- *   accountId: "STRING_VALUE", // required
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
+ *   accessToken: 'STRING_VALUE', // required
+ *   accountId: 'STRING_VALUE', // required
  * };
  * const command = new ListAccountRolesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListAccountRolesResponse
+ *   nextToken: 'STRING_VALUE',
+ *   roleList: [ // RoleListType
+ *     { // RoleInfo
+ *       roleName: 'STRING_VALUE',
+ *       accountId: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListAccountRolesCommandInput - {@link ListAccountRolesCommandInput}
@@ -74,6 +85,8 @@ export interface ListAccountRolesCommandOutput extends ListAccountRolesResponse,
  *  <p>Indicates that the request is not authorized. This can happen due to an invalid access
  *       token in the request.</p>
  *
+ * @throws {@link SSOServiceException}
+ * <p>Base exception class for all service exceptions from SSO service.</p>
  *
  */
 export class ListAccountRolesCommand extends $Command<

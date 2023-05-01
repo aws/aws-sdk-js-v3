@@ -40,21 +40,21 @@ export interface SearchRelatedItemsCommandOutput extends SearchRelatedItemsRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectCasesClient, SearchRelatedItemsCommand } from "@aws-sdk/client-connectcases"; // ES Modules import
- * // const { ConnectCasesClient, SearchRelatedItemsCommand } = require("@aws-sdk/client-connectcases"); // CommonJS import
+ * import { ConnectCasesClient, SearchRelatedItemsCommand } from '@aws-sdk/client-connectcases'; // ES Modules import
+ * // const { ConnectCasesClient, SearchRelatedItemsCommand } = require('@aws-sdk/client-connectcases'); // CommonJS import
  * const client = new ConnectCasesClient(config);
  * const input = { // SearchRelatedItemsRequest
- *   domainId: "STRING_VALUE", // required
- *   caseId: "STRING_VALUE", // required
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   domainId: 'STRING_VALUE', // required
+ *   caseId: 'STRING_VALUE', // required
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  *   filters: [ // RelatedItemFilterList
  *     { // RelatedItemTypeFilter Union: only one key present
  *       contact: { // ContactFilter
  *         channel: [ // ChannelList
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
- *         contactArn: "STRING_VALUE",
+ *         contactArn: 'STRING_VALUE',
  *       },
  *       comment: {},
  *     },
@@ -62,6 +62,32 @@ export interface SearchRelatedItemsCommandOutput extends SearchRelatedItemsRespo
  * };
  * const command = new SearchRelatedItemsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SearchRelatedItemsResponse
+ *   nextToken: 'STRING_VALUE',
+ *   relatedItems: [ // SearchRelatedItemsResponseItemList // required
+ *     { // SearchRelatedItemsResponseItem
+ *       relatedItemId: 'STRING_VALUE', // required
+ *       type: 'STRING_VALUE', // required
+ *       associationTime: new Date('TIMESTAMP'), // required
+ *       content: { // RelatedItemContent Union: only one key present
+ *         contact: { // ContactContent
+ *           contactArn: 'STRING_VALUE', // required
+ *           channel: 'STRING_VALUE', // required
+ *           connectedToSystemTime: new Date('TIMESTAMP'), // required
+ *         },
+ *         comment: { // CommentContent
+ *           body: 'STRING_VALUE', // required
+ *           contentType: 'STRING_VALUE', // required
+ *         },
+ *       },
+ *       tags: { // Tags
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param SearchRelatedItemsCommandInput - {@link SearchRelatedItemsCommandInput}
@@ -87,6 +113,8 @@ export interface SearchRelatedItemsCommandOutput extends SearchRelatedItemsRespo
  * @throws {@link ValidationException} (client fault)
  *  <p>The request isn't valid. Check the syntax and try again.</p>
  *
+ * @throws {@link ConnectCasesServiceException}
+ * <p>Base exception class for all service exceptions from ConnectCases service.</p>
  *
  */
 export class SearchRelatedItemsCommand extends $Command<

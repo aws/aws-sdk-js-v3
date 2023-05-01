@@ -49,15 +49,21 @@ export interface UpdatePublicSharingSettingsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { QuickSightClient, UpdatePublicSharingSettingsCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
- * // const { QuickSightClient, UpdatePublicSharingSettingsCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * import { QuickSightClient, UpdatePublicSharingSettingsCommand } from '@aws-sdk/client-quicksight'; // ES Modules import
+ * // const { QuickSightClient, UpdatePublicSharingSettingsCommand } = require('@aws-sdk/client-quicksight'); // CommonJS import
  * const client = new QuickSightClient(config);
  * const input = { // UpdatePublicSharingSettingsRequest
- *   AwsAccountId: "STRING_VALUE", // required
+ *   AwsAccountId: 'STRING_VALUE', // required
  *   PublicSharingEnabled: true || false,
  * };
  * const command = new UpdatePublicSharingSettingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdatePublicSharingSettingsResponse
+ *   RequestId: 'STRING_VALUE',
+ *   Status: Number('int'),
+ * };
+ *
  * ```
  *
  * @param UpdatePublicSharingSettingsCommandInput - {@link UpdatePublicSharingSettingsCommandInput}
@@ -95,6 +101,8 @@ export interface UpdatePublicSharingSettingsCommandOutput
  *             </code> API operation with the
  *             <code>--identity-type ANONYMOUS</code> option.</p>
  *
+ * @throws {@link QuickSightServiceException}
+ * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
 export class UpdatePublicSharingSettingsCommand extends $Command<

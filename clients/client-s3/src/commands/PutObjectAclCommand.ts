@@ -215,44 +215,49 @@ export interface PutObjectAclCommandOutput extends PutObjectAclOutput, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { S3Client, PutObjectAclCommand } from "@aws-sdk/client-s3"; // ES Modules import
- * // const { S3Client, PutObjectAclCommand } = require("@aws-sdk/client-s3"); // CommonJS import
+ * import { S3Client, PutObjectAclCommand } from '@aws-sdk/client-s3'; // ES Modules import
+ * // const { S3Client, PutObjectAclCommand } = require('@aws-sdk/client-s3'); // CommonJS import
  * const client = new S3Client(config);
  * const input = { // PutObjectAclRequest
- *   ACL: "private" || "public-read" || "public-read-write" || "authenticated-read" || "aws-exec-read" || "bucket-owner-read" || "bucket-owner-full-control",
+ *   ACL: 'private' || 'public-read' || 'public-read-write' || 'authenticated-read' || 'aws-exec-read' || 'bucket-owner-read' || 'bucket-owner-full-control',
  *   AccessControlPolicy: { // AccessControlPolicy
  *     Grants: [ // Grants
  *       { // Grant
  *         Grantee: { // Grantee
- *           DisplayName: "STRING_VALUE",
- *           EmailAddress: "STRING_VALUE",
- *           ID: "STRING_VALUE",
- *           URI: "STRING_VALUE",
- *           Type: "CanonicalUser" || "AmazonCustomerByEmail" || "Group", // required
+ *           DisplayName: 'STRING_VALUE',
+ *           EmailAddress: 'STRING_VALUE',
+ *           ID: 'STRING_VALUE',
+ *           URI: 'STRING_VALUE',
+ *           Type: 'CanonicalUser' || 'AmazonCustomerByEmail' || 'Group', // required
  *         },
- *         Permission: "FULL_CONTROL" || "WRITE" || "WRITE_ACP" || "READ" || "READ_ACP",
+ *         Permission: 'FULL_CONTROL' || 'WRITE' || 'WRITE_ACP' || 'READ' || 'READ_ACP',
  *       },
  *     ],
  *     Owner: { // Owner
- *       DisplayName: "STRING_VALUE",
- *       ID: "STRING_VALUE",
+ *       DisplayName: 'STRING_VALUE',
+ *       ID: 'STRING_VALUE',
  *     },
  *   },
- *   Bucket: "STRING_VALUE", // required
- *   ContentMD5: "STRING_VALUE",
- *   ChecksumAlgorithm: "CRC32" || "CRC32C" || "SHA1" || "SHA256",
- *   GrantFullControl: "STRING_VALUE",
- *   GrantRead: "STRING_VALUE",
- *   GrantReadACP: "STRING_VALUE",
- *   GrantWrite: "STRING_VALUE",
- *   GrantWriteACP: "STRING_VALUE",
- *   Key: "STRING_VALUE", // required
- *   RequestPayer: "requester",
- *   VersionId: "STRING_VALUE",
- *   ExpectedBucketOwner: "STRING_VALUE",
+ *   Bucket: 'STRING_VALUE', // required
+ *   ContentMD5: 'STRING_VALUE',
+ *   ChecksumAlgorithm: 'CRC32' || 'CRC32C' || 'SHA1' || 'SHA256',
+ *   GrantFullControl: 'STRING_VALUE',
+ *   GrantRead: 'STRING_VALUE',
+ *   GrantReadACP: 'STRING_VALUE',
+ *   GrantWrite: 'STRING_VALUE',
+ *   GrantWriteACP: 'STRING_VALUE',
+ *   Key: 'STRING_VALUE', // required
+ *   RequestPayer: 'requester',
+ *   VersionId: 'STRING_VALUE',
+ *   ExpectedBucketOwner: 'STRING_VALUE',
  * };
  * const command = new PutObjectAclCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutObjectAclOutput
+ *   RequestCharged: 'requester',
+ * };
+ *
  * ```
  *
  * @param PutObjectAclCommandInput - {@link PutObjectAclCommandInput}
@@ -264,6 +269,8 @@ export interface PutObjectAclCommandOutput extends PutObjectAclOutput, __Metadat
  * @throws {@link NoSuchKey} (client fault)
  *  <p>The specified key does not exist.</p>
  *
+ * @throws {@link S3ServiceException}
+ * <p>Base exception class for all service exceptions from S3 service.</p>
  *
  * @example To grant permissions using object ACL
  * ```javascript

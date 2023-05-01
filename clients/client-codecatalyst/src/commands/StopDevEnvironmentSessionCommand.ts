@@ -36,17 +36,25 @@ export interface StopDevEnvironmentSessionCommandOutput extends StopDevEnvironme
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeCatalystClient, StopDevEnvironmentSessionCommand } from "@aws-sdk/client-codecatalyst"; // ES Modules import
- * // const { CodeCatalystClient, StopDevEnvironmentSessionCommand } = require("@aws-sdk/client-codecatalyst"); // CommonJS import
+ * import { CodeCatalystClient, StopDevEnvironmentSessionCommand } from '@aws-sdk/client-codecatalyst'; // ES Modules import
+ * // const { CodeCatalystClient, StopDevEnvironmentSessionCommand } = require('@aws-sdk/client-codecatalyst'); // CommonJS import
  * const client = new CodeCatalystClient(config);
  * const input = { // StopDevEnvironmentSessionRequest
- *   spaceName: "STRING_VALUE", // required
- *   projectName: "STRING_VALUE", // required
- *   id: "STRING_VALUE", // required
- *   sessionId: "STRING_VALUE", // required
+ *   spaceName: 'STRING_VALUE', // required
+ *   projectName: 'STRING_VALUE', // required
+ *   id: 'STRING_VALUE', // required
+ *   sessionId: 'STRING_VALUE', // required
  * };
  * const command = new StopDevEnvironmentSessionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StopDevEnvironmentSessionResponse
+ *   spaceName: 'STRING_VALUE', // required
+ *   projectName: 'STRING_VALUE', // required
+ *   id: 'STRING_VALUE', // required
+ *   sessionId: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param StopDevEnvironmentSessionCommandInput - {@link StopDevEnvironmentSessionCommandInput}
@@ -75,6 +83,8 @@ export interface StopDevEnvironmentSessionCommandOutput extends StopDevEnvironme
  * @throws {@link ValidationException} (client fault)
  *  <p>The request was denied because an input failed to satisfy the constraints specified by the service. Check the spelling and input requirements, and then try again.</p>
  *
+ * @throws {@link CodeCatalystServiceException}
+ * <p>Base exception class for all service exceptions from CodeCatalyst service.</p>
  *
  */
 export class StopDevEnvironmentSessionCommand extends $Command<

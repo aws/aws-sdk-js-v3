@@ -36,19 +36,44 @@ export interface ListLensReviewImprovementsCommandOutput extends ListLensReviewI
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WellArchitectedClient, ListLensReviewImprovementsCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
- * // const { WellArchitectedClient, ListLensReviewImprovementsCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
+ * import { WellArchitectedClient, ListLensReviewImprovementsCommand } from '@aws-sdk/client-wellarchitected'; // ES Modules import
+ * // const { WellArchitectedClient, ListLensReviewImprovementsCommand } = require('@aws-sdk/client-wellarchitected'); // CommonJS import
  * const client = new WellArchitectedClient(config);
  * const input = { // ListLensReviewImprovementsInput
- *   WorkloadId: "STRING_VALUE", // required
- *   LensAlias: "STRING_VALUE", // required
- *   PillarId: "STRING_VALUE",
- *   MilestoneNumber: Number("int"),
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   WorkloadId: 'STRING_VALUE', // required
+ *   LensAlias: 'STRING_VALUE', // required
+ *   PillarId: 'STRING_VALUE',
+ *   MilestoneNumber: Number('int'),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListLensReviewImprovementsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListLensReviewImprovementsOutput
+ *   WorkloadId: 'STRING_VALUE',
+ *   MilestoneNumber: Number('int'),
+ *   LensAlias: 'STRING_VALUE',
+ *   LensArn: 'STRING_VALUE',
+ *   ImprovementSummaries: [ // ImprovementSummaries
+ *     { // ImprovementSummary
+ *       QuestionId: 'STRING_VALUE',
+ *       PillarId: 'STRING_VALUE',
+ *       QuestionTitle: 'STRING_VALUE',
+ *       Risk: 'UNANSWERED' || 'HIGH' || 'MEDIUM' || 'NONE' || 'NOT_APPLICABLE',
+ *       ImprovementPlanUrl: 'STRING_VALUE',
+ *       ImprovementPlans: [ // ChoiceImprovementPlans
+ *         { // ChoiceImprovementPlan
+ *           ChoiceId: 'STRING_VALUE',
+ *           DisplayText: 'STRING_VALUE',
+ *           ImprovementPlanUrl: 'STRING_VALUE',
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListLensReviewImprovementsCommandInput - {@link ListLensReviewImprovementsCommandInput}
@@ -72,6 +97,8 @@ export interface ListLensReviewImprovementsCommandOutput extends ListLensReviewI
  * @throws {@link ValidationException} (client fault)
  *  <p>The user input is not valid.</p>
  *
+ * @throws {@link WellArchitectedServiceException}
+ * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
  */
 export class ListLensReviewImprovementsCommand extends $Command<

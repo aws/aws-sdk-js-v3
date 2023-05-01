@@ -39,16 +39,33 @@ export interface ListCampaignsCommandOutput extends ListCampaignsResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTFleetWiseClient, ListCampaignsCommand } from "@aws-sdk/client-iotfleetwise"; // ES Modules import
- * // const { IoTFleetWiseClient, ListCampaignsCommand } = require("@aws-sdk/client-iotfleetwise"); // CommonJS import
+ * import { IoTFleetWiseClient, ListCampaignsCommand } from '@aws-sdk/client-iotfleetwise'; // ES Modules import
+ * // const { IoTFleetWiseClient, ListCampaignsCommand } = require('@aws-sdk/client-iotfleetwise'); // CommonJS import
  * const client = new IoTFleetWiseClient(config);
  * const input = { // ListCampaignsRequest
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
- *   status: "STRING_VALUE",
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
+ *   status: 'STRING_VALUE',
  * };
  * const command = new ListCampaignsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListCampaignsResponse
+ *   campaignSummaries: [ // campaignSummaries
+ *     { // CampaignSummary
+ *       arn: 'STRING_VALUE',
+ *       name: 'STRING_VALUE',
+ *       description: 'STRING_VALUE',
+ *       signalCatalogArn: 'STRING_VALUE',
+ *       targetArn: 'STRING_VALUE',
+ *       status: 'STRING_VALUE',
+ *       creationTime: new Date('TIMESTAMP'), // required
+ *       lastModificationTime: new Date('TIMESTAMP'), // required
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListCampaignsCommandInput - {@link ListCampaignsCommandInput}
@@ -69,6 +86,8 @@ export interface ListCampaignsCommandOutput extends ListCampaignsResponse, __Met
  * @throws {@link InternalServerException} (server fault)
  *  <p>The request couldn't be completed because the server temporarily failed.</p>
  *
+ * @throws {@link IoTFleetWiseServiceException}
+ * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
  */
 export class ListCampaignsCommand extends $Command<

@@ -38,15 +38,29 @@ export interface DescribeRuleCommandOutput extends DescribeRuleResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudWatchEventsClient, DescribeRuleCommand } from "@aws-sdk/client-cloudwatch-events"; // ES Modules import
- * // const { CloudWatchEventsClient, DescribeRuleCommand } = require("@aws-sdk/client-cloudwatch-events"); // CommonJS import
+ * import { CloudWatchEventsClient, DescribeRuleCommand } from '@aws-sdk/client-cloudwatch-events'; // ES Modules import
+ * // const { CloudWatchEventsClient, DescribeRuleCommand } = require('@aws-sdk/client-cloudwatch-events'); // CommonJS import
  * const client = new CloudWatchEventsClient(config);
  * const input = { // DescribeRuleRequest
- *   Name: "STRING_VALUE", // required
- *   EventBusName: "STRING_VALUE",
+ *   Name: 'STRING_VALUE', // required
+ *   EventBusName: 'STRING_VALUE',
  * };
  * const command = new DescribeRuleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeRuleResponse
+ *   Name: 'STRING_VALUE',
+ *   Arn: 'STRING_VALUE',
+ *   EventPattern: 'STRING_VALUE',
+ *   ScheduleExpression: 'STRING_VALUE',
+ *   State: 'STRING_VALUE',
+ *   Description: 'STRING_VALUE',
+ *   RoleArn: 'STRING_VALUE',
+ *   ManagedBy: 'STRING_VALUE',
+ *   EventBusName: 'STRING_VALUE',
+ *   CreatedBy: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeRuleCommandInput - {@link DescribeRuleCommandInput}
@@ -61,6 +75,8 @@ export interface DescribeRuleCommandOutput extends DescribeRuleResponse, __Metad
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>An entity that you specified does not exist.</p>
  *
+ * @throws {@link CloudWatchEventsServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatchEvents service.</p>
  *
  */
 export class DescribeRuleCommand extends $Command<

@@ -36,32 +36,37 @@ export interface SendVoiceMessageCommandOutput extends SendVoiceMessageResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PinpointSMSVoiceClient, SendVoiceMessageCommand } from "@aws-sdk/client-pinpoint-sms-voice"; // ES Modules import
- * // const { PinpointSMSVoiceClient, SendVoiceMessageCommand } = require("@aws-sdk/client-pinpoint-sms-voice"); // CommonJS import
+ * import { PinpointSMSVoiceClient, SendVoiceMessageCommand } from '@aws-sdk/client-pinpoint-sms-voice'; // ES Modules import
+ * // const { PinpointSMSVoiceClient, SendVoiceMessageCommand } = require('@aws-sdk/client-pinpoint-sms-voice'); // CommonJS import
  * const client = new PinpointSMSVoiceClient(config);
  * const input = { // SendVoiceMessageRequest
- *   CallerId: "STRING_VALUE",
- *   ConfigurationSetName: "STRING_VALUE",
+ *   CallerId: 'STRING_VALUE',
+ *   ConfigurationSetName: 'STRING_VALUE',
  *   Content: { // VoiceMessageContent
  *     CallInstructionsMessage: { // CallInstructionsMessageType
- *       Text: "STRING_VALUE",
+ *       Text: 'STRING_VALUE',
  *     },
  *     PlainTextMessage: { // PlainTextMessageType
- *       LanguageCode: "STRING_VALUE",
- *       Text: "STRING_VALUE",
- *       VoiceId: "STRING_VALUE",
+ *       LanguageCode: 'STRING_VALUE',
+ *       Text: 'STRING_VALUE',
+ *       VoiceId: 'STRING_VALUE',
  *     },
  *     SSMLMessage: { // SSMLMessageType
- *       LanguageCode: "STRING_VALUE",
- *       Text: "STRING_VALUE",
- *       VoiceId: "STRING_VALUE",
+ *       LanguageCode: 'STRING_VALUE',
+ *       Text: 'STRING_VALUE',
+ *       VoiceId: 'STRING_VALUE',
  *     },
  *   },
- *   DestinationPhoneNumber: "STRING_VALUE",
- *   OriginationPhoneNumber: "STRING_VALUE",
+ *   DestinationPhoneNumber: 'STRING_VALUE',
+ *   OriginationPhoneNumber: 'STRING_VALUE',
  * };
  * const command = new SendVoiceMessageCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SendVoiceMessageResponse
+ *   MessageId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param SendVoiceMessageCommandInput - {@link SendVoiceMessageCommandInput}
@@ -79,6 +84,8 @@ export interface SendVoiceMessageCommandOutput extends SendVoiceMessageResponse,
  * @throws {@link TooManyRequestsException} (client fault)
  *  You've issued too many requests to the resource. Wait a few minutes, and then try again.
  *
+ * @throws {@link PinpointSMSVoiceServiceException}
+ * <p>Base exception class for all service exceptions from PinpointSMSVoice service.</p>
  *
  */
 export class SendVoiceMessageCommand extends $Command<

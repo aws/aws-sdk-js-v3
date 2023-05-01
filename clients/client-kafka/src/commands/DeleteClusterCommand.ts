@@ -36,15 +36,21 @@ export interface DeleteClusterCommandOutput extends DeleteClusterResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KafkaClient, DeleteClusterCommand } from "@aws-sdk/client-kafka"; // ES Modules import
- * // const { KafkaClient, DeleteClusterCommand } = require("@aws-sdk/client-kafka"); // CommonJS import
+ * import { KafkaClient, DeleteClusterCommand } from '@aws-sdk/client-kafka'; // ES Modules import
+ * // const { KafkaClient, DeleteClusterCommand } = require('@aws-sdk/client-kafka'); // CommonJS import
  * const client = new KafkaClient(config);
  * const input = { // DeleteClusterRequest
- *   ClusterArn: "STRING_VALUE", // required
- *   CurrentVersion: "STRING_VALUE",
+ *   ClusterArn: 'STRING_VALUE', // required
+ *   CurrentVersion: 'STRING_VALUE',
  * };
  * const command = new DeleteClusterCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteClusterResponse
+ *   ClusterArn: 'STRING_VALUE',
+ *   State: 'ACTIVE' || 'CREATING' || 'DELETING' || 'FAILED' || 'HEALING' || 'MAINTENANCE' || 'REBOOTING_BROKER' || 'UPDATING',
+ * };
+ *
  * ```
  *
  * @param DeleteClusterCommandInput - {@link DeleteClusterCommandInput}
@@ -65,6 +71,8 @@ export interface DeleteClusterCommandOutput extends DeleteClusterResponse, __Met
  * @throws {@link NotFoundException} (client fault)
  *  <p>Returns information about an error.</p>
  *
+ * @throws {@link KafkaServiceException}
+ * <p>Base exception class for all service exceptions from Kafka service.</p>
  *
  */
 export class DeleteClusterCommand extends $Command<

@@ -42,17 +42,26 @@ export interface AssociateRouteTableCommandOutput extends AssociateRouteTableRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, AssociateRouteTableCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, AssociateRouteTableCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, AssociateRouteTableCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, AssociateRouteTableCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // AssociateRouteTableRequest
  *   DryRun: true || false,
- *   RouteTableId: "STRING_VALUE", // required
- *   SubnetId: "STRING_VALUE",
- *   GatewayId: "STRING_VALUE",
+ *   RouteTableId: 'STRING_VALUE', // required
+ *   SubnetId: 'STRING_VALUE',
+ *   GatewayId: 'STRING_VALUE',
  * };
  * const command = new AssociateRouteTableCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AssociateRouteTableResult
+ *   AssociationId: 'STRING_VALUE',
+ *   AssociationState: { // RouteTableAssociationState
+ *     State: 'associating' || 'associated' || 'disassociating' || 'disassociated' || 'failed',
+ *     StatusMessage: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param AssociateRouteTableCommandInput - {@link AssociateRouteTableCommandInput}
@@ -61,6 +70,8 @@ export interface AssociateRouteTableCommandOutput extends AssociateRouteTableRes
  * @see {@link AssociateRouteTableCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @example To associate a route table with a subnet
  * ```javascript

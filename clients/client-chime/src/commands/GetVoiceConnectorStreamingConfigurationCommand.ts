@@ -47,14 +47,27 @@ export interface GetVoiceConnectorStreamingConfigurationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeClient, GetVoiceConnectorStreamingConfigurationCommand } from "@aws-sdk/client-chime"; // ES Modules import
- * // const { ChimeClient, GetVoiceConnectorStreamingConfigurationCommand } = require("@aws-sdk/client-chime"); // CommonJS import
+ * import { ChimeClient, GetVoiceConnectorStreamingConfigurationCommand } from '@aws-sdk/client-chime'; // ES Modules import
+ * // const { ChimeClient, GetVoiceConnectorStreamingConfigurationCommand } = require('@aws-sdk/client-chime'); // CommonJS import
  * const client = new ChimeClient(config);
  * const input = { // GetVoiceConnectorStreamingConfigurationRequest
- *   VoiceConnectorId: "STRING_VALUE", // required
+ *   VoiceConnectorId: 'STRING_VALUE', // required
  * };
  * const command = new GetVoiceConnectorStreamingConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetVoiceConnectorStreamingConfigurationResponse
+ *   StreamingConfiguration: { // StreamingConfiguration
+ *     DataRetentionInHours: Number('int'), // required
+ *     Disabled: true || false,
+ *     StreamingNotificationTargets: [ // StreamingNotificationTargetList
+ *       { // StreamingNotificationTarget
+ *         NotificationTarget: 'EventBridge' || 'SNS' || 'SQS', // required
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetVoiceConnectorStreamingConfigurationCommandInput - {@link GetVoiceConnectorStreamingConfigurationCommandInput}
@@ -84,6 +97,8 @@ export interface GetVoiceConnectorStreamingConfigurationCommandOutput
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeServiceException}
+ * <p>Base exception class for all service exceptions from Chime service.</p>
  *
  */
 export class GetVoiceConnectorStreamingConfigurationCommand extends $Command<

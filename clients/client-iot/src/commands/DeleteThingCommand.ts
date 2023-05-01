@@ -38,15 +38,18 @@ export interface DeleteThingCommandOutput extends DeleteThingResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTClient, DeleteThingCommand } from "@aws-sdk/client-iot"; // ES Modules import
- * // const { IoTClient, DeleteThingCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * import { IoTClient, DeleteThingCommand } from '@aws-sdk/client-iot'; // ES Modules import
+ * // const { IoTClient, DeleteThingCommand } = require('@aws-sdk/client-iot'); // CommonJS import
  * const client = new IoTClient(config);
  * const input = { // DeleteThingRequest
- *   thingName: "STRING_VALUE", // required
- *   expectedVersion: Number("long"),
+ *   thingName: 'STRING_VALUE', // required
+ *   expectedVersion: Number('long'),
  * };
  * const command = new DeleteThingCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteThingCommandInput - {@link DeleteThingCommandInput}
@@ -78,6 +81,8 @@ export interface DeleteThingCommandOutput extends DeleteThingResponse, __Metadat
  *             <code>expectedVersion</code> parameter does not match the latest version in the
  *          system.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class DeleteThingCommand extends $Command<

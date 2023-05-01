@@ -41,23 +41,44 @@ export interface RestoreTableFromSnapshotCommandOutput extends RestoreTableFromS
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RedshiftServerlessClient, RestoreTableFromSnapshotCommand } from "@aws-sdk/client-redshift-serverless"; // ES Modules import
- * // const { RedshiftServerlessClient, RestoreTableFromSnapshotCommand } = require("@aws-sdk/client-redshift-serverless"); // CommonJS import
+ * import { RedshiftServerlessClient, RestoreTableFromSnapshotCommand } from '@aws-sdk/client-redshift-serverless'; // ES Modules import
+ * // const { RedshiftServerlessClient, RestoreTableFromSnapshotCommand } = require('@aws-sdk/client-redshift-serverless'); // CommonJS import
  * const client = new RedshiftServerlessClient(config);
  * const input = { // RestoreTableFromSnapshotRequest
- *   namespaceName: "STRING_VALUE", // required
- *   workgroupName: "STRING_VALUE", // required
- *   snapshotName: "STRING_VALUE", // required
- *   sourceDatabaseName: "STRING_VALUE", // required
- *   sourceSchemaName: "STRING_VALUE",
- *   sourceTableName: "STRING_VALUE", // required
- *   targetDatabaseName: "STRING_VALUE",
- *   targetSchemaName: "STRING_VALUE",
- *   newTableName: "STRING_VALUE", // required
+ *   namespaceName: 'STRING_VALUE', // required
+ *   workgroupName: 'STRING_VALUE', // required
+ *   snapshotName: 'STRING_VALUE', // required
+ *   sourceDatabaseName: 'STRING_VALUE', // required
+ *   sourceSchemaName: 'STRING_VALUE',
+ *   sourceTableName: 'STRING_VALUE', // required
+ *   targetDatabaseName: 'STRING_VALUE',
+ *   targetSchemaName: 'STRING_VALUE',
+ *   newTableName: 'STRING_VALUE', // required
  *   activateCaseSensitiveIdentifier: true || false,
  * };
  * const command = new RestoreTableFromSnapshotCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // RestoreTableFromSnapshotResponse
+ *   tableRestoreStatus: { // TableRestoreStatus
+ *     tableRestoreRequestId: 'STRING_VALUE',
+ *     status: 'STRING_VALUE',
+ *     message: 'STRING_VALUE',
+ *     requestTime: new Date('TIMESTAMP'),
+ *     namespaceName: 'STRING_VALUE',
+ *     workgroupName: 'STRING_VALUE',
+ *     snapshotName: 'STRING_VALUE',
+ *     progressInMegaBytes: Number('long'),
+ *     totalDataInMegaBytes: Number('long'),
+ *     sourceDatabaseName: 'STRING_VALUE',
+ *     sourceSchemaName: 'STRING_VALUE',
+ *     sourceTableName: 'STRING_VALUE',
+ *     targetDatabaseName: 'STRING_VALUE',
+ *     targetSchemaName: 'STRING_VALUE',
+ *     newTableName: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param RestoreTableFromSnapshotCommandInput - {@link RestoreTableFromSnapshotCommandInput}
@@ -78,6 +99,8 @@ export interface RestoreTableFromSnapshotCommandOutput extends RestoreTableFromS
  * @throws {@link ValidationException} (client fault)
  *  <p>The input failed to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link RedshiftServerlessServiceException}
+ * <p>Base exception class for all service exceptions from RedshiftServerless service.</p>
  *
  */
 export class RestoreTableFromSnapshotCommand extends $Command<

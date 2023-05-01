@@ -44,17 +44,36 @@ export interface ListGeoLocationsCommandOutput extends ListGeoLocationsResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Route53Client, ListGeoLocationsCommand } from "@aws-sdk/client-route-53"; // ES Modules import
- * // const { Route53Client, ListGeoLocationsCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
+ * import { Route53Client, ListGeoLocationsCommand } from '@aws-sdk/client-route-53'; // ES Modules import
+ * // const { Route53Client, ListGeoLocationsCommand } = require('@aws-sdk/client-route-53'); // CommonJS import
  * const client = new Route53Client(config);
  * const input = { // ListGeoLocationsRequest
- *   StartContinentCode: "STRING_VALUE",
- *   StartCountryCode: "STRING_VALUE",
- *   StartSubdivisionCode: "STRING_VALUE",
- *   MaxItems: Number("int"),
+ *   StartContinentCode: 'STRING_VALUE',
+ *   StartCountryCode: 'STRING_VALUE',
+ *   StartSubdivisionCode: 'STRING_VALUE',
+ *   MaxItems: Number('int'),
  * };
  * const command = new ListGeoLocationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListGeoLocationsResponse
+ *   GeoLocationDetailsList: [ // GeoLocationDetailsList // required
+ *     { // GeoLocationDetails
+ *       ContinentCode: 'STRING_VALUE',
+ *       ContinentName: 'STRING_VALUE',
+ *       CountryCode: 'STRING_VALUE',
+ *       CountryName: 'STRING_VALUE',
+ *       SubdivisionCode: 'STRING_VALUE',
+ *       SubdivisionName: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   IsTruncated: true || false, // required
+ *   NextContinentCode: 'STRING_VALUE',
+ *   NextCountryCode: 'STRING_VALUE',
+ *   NextSubdivisionCode: 'STRING_VALUE',
+ *   MaxItems: Number('int'), // required
+ * };
+ *
  * ```
  *
  * @param ListGeoLocationsCommandInput - {@link ListGeoLocationsCommandInput}
@@ -66,6 +85,8 @@ export interface ListGeoLocationsCommandOutput extends ListGeoLocationsResponse,
  * @throws {@link InvalidInput} (client fault)
  *  <p>The input is not valid.</p>
  *
+ * @throws {@link Route53ServiceException}
+ * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
  */
 export class ListGeoLocationsCommand extends $Command<

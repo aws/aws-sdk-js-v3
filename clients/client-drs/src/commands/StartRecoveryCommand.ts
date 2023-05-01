@@ -41,23 +41,46 @@ export interface StartRecoveryCommandOutput extends StartRecoveryResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DrsClient, StartRecoveryCommand } from "@aws-sdk/client-drs"; // ES Modules import
- * // const { DrsClient, StartRecoveryCommand } = require("@aws-sdk/client-drs"); // CommonJS import
+ * import { DrsClient, StartRecoveryCommand } from '@aws-sdk/client-drs'; // ES Modules import
+ * // const { DrsClient, StartRecoveryCommand } = require('@aws-sdk/client-drs'); // CommonJS import
  * const client = new DrsClient(config);
  * const input = { // StartRecoveryRequest
  *   sourceServers: [ // StartRecoveryRequestSourceServers // required
  *     { // StartRecoveryRequestSourceServer
- *       sourceServerID: "STRING_VALUE", // required
- *       recoverySnapshotID: "STRING_VALUE",
+ *       sourceServerID: 'STRING_VALUE', // required
+ *       recoverySnapshotID: 'STRING_VALUE',
  *     },
  *   ],
  *   isDrill: true || false,
  *   tags: { // TagsMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new StartRecoveryCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartRecoveryResponse
+ *   job: { // Job
+ *     jobID: 'STRING_VALUE', // required
+ *     arn: 'STRING_VALUE',
+ *     type: 'STRING_VALUE',
+ *     initiatedBy: 'STRING_VALUE',
+ *     creationDateTime: 'STRING_VALUE',
+ *     endDateTime: 'STRING_VALUE',
+ *     status: 'STRING_VALUE',
+ *     participatingServers: [ // ParticipatingServers
+ *       { // ParticipatingServer
+ *         sourceServerID: 'STRING_VALUE',
+ *         recoveryInstanceID: 'STRING_VALUE',
+ *         launchStatus: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     tags: { // TagsMap
+ *       '<keys>': 'STRING_VALUE',
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param StartRecoveryCommandInput - {@link StartRecoveryCommandInput}
@@ -81,6 +104,8 @@ export interface StartRecoveryCommandOutput extends StartRecoveryResponse, __Met
  * @throws {@link UninitializedAccountException} (client fault)
  *  <p>The account performing the request has not been initialized.</p>
  *
+ * @throws {@link DrsServiceException}
+ * <p>Base exception class for all service exceptions from Drs service.</p>
  *
  */
 export class StartRecoveryCommand extends $Command<

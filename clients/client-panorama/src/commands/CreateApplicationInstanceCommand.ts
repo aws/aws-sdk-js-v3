@@ -36,27 +36,32 @@ export interface CreateApplicationInstanceCommandOutput extends CreateApplicatio
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PanoramaClient, CreateApplicationInstanceCommand } from "@aws-sdk/client-panorama"; // ES Modules import
- * // const { PanoramaClient, CreateApplicationInstanceCommand } = require("@aws-sdk/client-panorama"); // CommonJS import
+ * import { PanoramaClient, CreateApplicationInstanceCommand } from '@aws-sdk/client-panorama'; // ES Modules import
+ * // const { PanoramaClient, CreateApplicationInstanceCommand } = require('@aws-sdk/client-panorama'); // CommonJS import
  * const client = new PanoramaClient(config);
  * const input = { // CreateApplicationInstanceRequest
- *   Name: "STRING_VALUE",
- *   Description: "STRING_VALUE",
+ *   Name: 'STRING_VALUE',
+ *   Description: 'STRING_VALUE',
  *   ManifestPayload: { // ManifestPayload Union: only one key present
- *     PayloadData: "STRING_VALUE",
+ *     PayloadData: 'STRING_VALUE',
  *   },
  *   ManifestOverridesPayload: { // ManifestOverridesPayload Union: only one key present
- *     PayloadData: "STRING_VALUE",
+ *     PayloadData: 'STRING_VALUE',
  *   },
- *   ApplicationInstanceIdToReplace: "STRING_VALUE",
- *   RuntimeRoleArn: "STRING_VALUE",
- *   DefaultRuntimeContextDevice: "STRING_VALUE", // required
+ *   ApplicationInstanceIdToReplace: 'STRING_VALUE',
+ *   RuntimeRoleArn: 'STRING_VALUE',
+ *   DefaultRuntimeContextDevice: 'STRING_VALUE', // required
  *   Tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateApplicationInstanceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateApplicationInstanceResponse
+ *   ApplicationInstanceId: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param CreateApplicationInstanceCommandInput - {@link CreateApplicationInstanceCommandInput}
@@ -77,6 +82,8 @@ export interface CreateApplicationInstanceCommandOutput extends CreateApplicatio
  * @throws {@link ValidationException} (client fault)
  *  <p>The request contains an invalid parameter value.</p>
  *
+ * @throws {@link PanoramaServiceException}
+ * <p>Base exception class for all service exceptions from Panorama service.</p>
  *
  */
 export class CreateApplicationInstanceCommand extends $Command<

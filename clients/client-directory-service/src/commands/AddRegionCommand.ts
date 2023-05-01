@@ -36,21 +36,24 @@ export interface AddRegionCommandOutput extends AddRegionResult, __MetadataBeare
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DirectoryServiceClient, AddRegionCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
- * // const { DirectoryServiceClient, AddRegionCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
+ * import { DirectoryServiceClient, AddRegionCommand } from '@aws-sdk/client-directory-service'; // ES Modules import
+ * // const { DirectoryServiceClient, AddRegionCommand } = require('@aws-sdk/client-directory-service'); // CommonJS import
  * const client = new DirectoryServiceClient(config);
  * const input = { // AddRegionRequest
- *   DirectoryId: "STRING_VALUE", // required
- *   RegionName: "STRING_VALUE", // required
+ *   DirectoryId: 'STRING_VALUE', // required
+ *   RegionName: 'STRING_VALUE', // required
  *   VPCSettings: { // DirectoryVpcSettings
- *     VpcId: "STRING_VALUE", // required
+ *     VpcId: 'STRING_VALUE', // required
  *     SubnetIds: [ // SubnetIds // required
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *   },
  * };
  * const command = new AddRegionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param AddRegionCommandInput - {@link AddRegionCommandInput}
@@ -91,6 +94,8 @@ export interface AddRegionCommandOutput extends AddRegionResult, __MetadataBeare
  * @throws {@link UnsupportedOperationException} (client fault)
  *  <p>The operation is not supported.</p>
  *
+ * @throws {@link DirectoryServiceServiceException}
+ * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
  */
 export class AddRegionCommand extends $Command<

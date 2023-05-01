@@ -40,14 +40,30 @@ export interface DeleteCertificateCommandOutput extends DeleteCertificateRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DatabaseMigrationServiceClient, DeleteCertificateCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
- * // const { DatabaseMigrationServiceClient, DeleteCertificateCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
+ * import { DatabaseMigrationServiceClient, DeleteCertificateCommand } from '@aws-sdk/client-database-migration-service'; // ES Modules import
+ * // const { DatabaseMigrationServiceClient, DeleteCertificateCommand } = require('@aws-sdk/client-database-migration-service'); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
  * const input = { // DeleteCertificateMessage
- *   CertificateArn: "STRING_VALUE", // required
+ *   CertificateArn: 'STRING_VALUE', // required
  * };
  * const command = new DeleteCertificateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteCertificateResponse
+ *   Certificate: { // Certificate
+ *     CertificateIdentifier: 'STRING_VALUE',
+ *     CertificateCreationDate: new Date('TIMESTAMP'),
+ *     CertificatePem: 'STRING_VALUE',
+ *     CertificateWallet: 'BLOB_VALUE',
+ *     CertificateArn: 'STRING_VALUE',
+ *     CertificateOwner: 'STRING_VALUE',
+ *     ValidFromDate: new Date('TIMESTAMP'),
+ *     ValidToDate: new Date('TIMESTAMP'),
+ *     SigningAlgorithm: 'STRING_VALUE',
+ *     KeyLength: Number('int'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param DeleteCertificateCommandInput - {@link DeleteCertificateCommandInput}
@@ -62,6 +78,8 @@ export interface DeleteCertificateCommandOutput extends DeleteCertificateRespons
  * @throws {@link ResourceNotFoundFault} (client fault)
  *  <p>The resource could not be found.</p>
  *
+ * @throws {@link DatabaseMigrationServiceServiceException}
+ * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
  * @example Delete Certificate
  * ```javascript

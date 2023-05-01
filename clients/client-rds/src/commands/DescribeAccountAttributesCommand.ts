@@ -37,12 +37,23 @@ export interface DescribeAccountAttributesCommandOutput extends AccountAttribute
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RDSClient, DescribeAccountAttributesCommand } from "@aws-sdk/client-rds"; // ES Modules import
- * // const { RDSClient, DescribeAccountAttributesCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * import { RDSClient, DescribeAccountAttributesCommand } from '@aws-sdk/client-rds'; // ES Modules import
+ * // const { RDSClient, DescribeAccountAttributesCommand } = require('@aws-sdk/client-rds'); // CommonJS import
  * const client = new RDSClient(config);
  * const input = {};
  * const command = new DescribeAccountAttributesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AccountAttributesMessage
+ *   AccountQuotas: [ // AccountQuotaList
+ *     { // AccountQuota
+ *       AccountQuotaName: 'STRING_VALUE',
+ *       Used: Number('long'),
+ *       Max: Number('long'),
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeAccountAttributesCommandInput - {@link DescribeAccountAttributesCommandInput}
@@ -51,6 +62,8 @@ export interface DescribeAccountAttributesCommandOutput extends AccountAttribute
  * @see {@link DescribeAccountAttributesCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
+ * @throws {@link RDSServiceException}
+ * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  * @example To describe account attributes
  * ```javascript

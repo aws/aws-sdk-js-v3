@@ -36,20 +36,35 @@ export interface UpdateServiceActionCommandOutput extends UpdateServiceActionOut
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ServiceCatalogClient, UpdateServiceActionCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
- * // const { ServiceCatalogClient, UpdateServiceActionCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
+ * import { ServiceCatalogClient, UpdateServiceActionCommand } from '@aws-sdk/client-service-catalog'; // ES Modules import
+ * // const { ServiceCatalogClient, UpdateServiceActionCommand } = require('@aws-sdk/client-service-catalog'); // CommonJS import
  * const client = new ServiceCatalogClient(config);
  * const input = { // UpdateServiceActionInput
- *   Id: "STRING_VALUE", // required
- *   Name: "STRING_VALUE",
+ *   Id: 'STRING_VALUE', // required
+ *   Name: 'STRING_VALUE',
  *   Definition: { // ServiceActionDefinitionMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
- *   Description: "STRING_VALUE",
- *   AcceptLanguage: "STRING_VALUE",
+ *   Description: 'STRING_VALUE',
+ *   AcceptLanguage: 'STRING_VALUE',
  * };
  * const command = new UpdateServiceActionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateServiceActionOutput
+ *   ServiceActionDetail: { // ServiceActionDetail
+ *     ServiceActionSummary: { // ServiceActionSummary
+ *       Id: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *       Description: 'STRING_VALUE',
+ *       DefinitionType: 'SSM_AUTOMATION',
+ *     },
+ *     Definition: { // ServiceActionDefinitionMap
+ *       '<keys>': 'STRING_VALUE',
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateServiceActionCommandInput - {@link UpdateServiceActionCommandInput}
@@ -64,6 +79,8 @@ export interface UpdateServiceActionCommandOutput extends UpdateServiceActionOut
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link ServiceCatalogServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
  */
 export class UpdateServiceActionCommand extends $Command<

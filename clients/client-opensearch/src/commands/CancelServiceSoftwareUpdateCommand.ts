@@ -43,14 +43,28 @@ export interface CancelServiceSoftwareUpdateCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OpenSearchClient, CancelServiceSoftwareUpdateCommand } from "@aws-sdk/client-opensearch"; // ES Modules import
- * // const { OpenSearchClient, CancelServiceSoftwareUpdateCommand } = require("@aws-sdk/client-opensearch"); // CommonJS import
+ * import { OpenSearchClient, CancelServiceSoftwareUpdateCommand } from '@aws-sdk/client-opensearch'; // ES Modules import
+ * // const { OpenSearchClient, CancelServiceSoftwareUpdateCommand } = require('@aws-sdk/client-opensearch'); // CommonJS import
  * const client = new OpenSearchClient(config);
  * const input = { // CancelServiceSoftwareUpdateRequest
- *   DomainName: "STRING_VALUE", // required
+ *   DomainName: 'STRING_VALUE', // required
  * };
  * const command = new CancelServiceSoftwareUpdateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CancelServiceSoftwareUpdateResponse
+ *   ServiceSoftwareOptions: { // ServiceSoftwareOptions
+ *     CurrentVersion: 'STRING_VALUE',
+ *     NewVersion: 'STRING_VALUE',
+ *     UpdateAvailable: true || false,
+ *     Cancellable: true || false,
+ *     UpdateStatus: 'PENDING_UPDATE' || 'IN_PROGRESS' || 'COMPLETED' || 'NOT_ELIGIBLE' || 'ELIGIBLE',
+ *     Description: 'STRING_VALUE',
+ *     AutomatedUpdateDate: new Date('TIMESTAMP'),
+ *     OptionalDeployment: true || false,
+ *   },
+ * };
+ *
  * ```
  *
  * @param CancelServiceSoftwareUpdateCommandInput - {@link CancelServiceSoftwareUpdateCommandInput}
@@ -71,6 +85,8 @@ export interface CancelServiceSoftwareUpdateCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception for accessing or deleting a resource that doesn't exist.</p>
  *
+ * @throws {@link OpenSearchServiceException}
+ * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
  */
 export class CancelServiceSoftwareUpdateCommand extends $Command<

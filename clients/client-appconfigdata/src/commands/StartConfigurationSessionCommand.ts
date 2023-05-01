@@ -39,17 +39,22 @@ export interface StartConfigurationSessionCommandOutput extends StartConfigurati
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppConfigDataClient, StartConfigurationSessionCommand } from "@aws-sdk/client-appconfigdata"; // ES Modules import
- * // const { AppConfigDataClient, StartConfigurationSessionCommand } = require("@aws-sdk/client-appconfigdata"); // CommonJS import
+ * import { AppConfigDataClient, StartConfigurationSessionCommand } from '@aws-sdk/client-appconfigdata'; // ES Modules import
+ * // const { AppConfigDataClient, StartConfigurationSessionCommand } = require('@aws-sdk/client-appconfigdata'); // CommonJS import
  * const client = new AppConfigDataClient(config);
  * const input = { // StartConfigurationSessionRequest
- *   ApplicationIdentifier: "STRING_VALUE", // required
- *   EnvironmentIdentifier: "STRING_VALUE", // required
- *   ConfigurationProfileIdentifier: "STRING_VALUE", // required
- *   RequiredMinimumPollIntervalInSeconds: Number("int"),
+ *   ApplicationIdentifier: 'STRING_VALUE', // required
+ *   EnvironmentIdentifier: 'STRING_VALUE', // required
+ *   ConfigurationProfileIdentifier: 'STRING_VALUE', // required
+ *   RequiredMinimumPollIntervalInSeconds: Number('int'),
  * };
  * const command = new StartConfigurationSessionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartConfigurationSessionResponse
+ *   InitialConfigurationToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param StartConfigurationSessionCommandInput - {@link StartConfigurationSessionCommandInput}
@@ -70,6 +75,8 @@ export interface StartConfigurationSessionCommandOutput extends StartConfigurati
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
  *
+ * @throws {@link AppConfigDataServiceException}
+ * <p>Base exception class for all service exceptions from AppConfigData service.</p>
  *
  */
 export class StartConfigurationSessionCommand extends $Command<

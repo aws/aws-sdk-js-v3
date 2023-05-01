@@ -48,23 +48,26 @@ export interface NotifyResourceDeploymentStatusChangeCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ProtonClient, NotifyResourceDeploymentStatusChangeCommand } from "@aws-sdk/client-proton"; // ES Modules import
- * // const { ProtonClient, NotifyResourceDeploymentStatusChangeCommand } = require("@aws-sdk/client-proton"); // CommonJS import
+ * import { ProtonClient, NotifyResourceDeploymentStatusChangeCommand } from '@aws-sdk/client-proton'; // ES Modules import
+ * // const { ProtonClient, NotifyResourceDeploymentStatusChangeCommand } = require('@aws-sdk/client-proton'); // CommonJS import
  * const client = new ProtonClient(config);
  * const input = { // NotifyResourceDeploymentStatusChangeInput
- *   resourceArn: "STRING_VALUE", // required
- *   status: "STRING_VALUE",
+ *   resourceArn: 'STRING_VALUE', // required
+ *   status: 'STRING_VALUE',
  *   outputs: [ // OutputsList
  *     { // Output
- *       key: "STRING_VALUE",
- *       valueString: "STRING_VALUE",
+ *       key: 'STRING_VALUE',
+ *       valueString: 'STRING_VALUE',
  *     },
  *   ],
- *   deploymentId: "STRING_VALUE",
- *   statusMessage: "STRING_VALUE",
+ *   deploymentId: 'STRING_VALUE',
+ *   statusMessage: 'STRING_VALUE',
  * };
  * const command = new NotifyResourceDeploymentStatusChangeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param NotifyResourceDeploymentStatusChangeCommandInput - {@link NotifyResourceDeploymentStatusChangeCommandInput}
@@ -95,6 +98,8 @@ export interface NotifyResourceDeploymentStatusChangeCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The input is invalid or an out-of-range value was supplied for the input parameter.</p>
  *
+ * @throws {@link ProtonServiceException}
+ * <p>Base exception class for all service exceptions from Proton service.</p>
  *
  */
 export class NotifyResourceDeploymentStatusChangeCommand extends $Command<

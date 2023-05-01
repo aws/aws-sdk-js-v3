@@ -44,15 +44,21 @@ export interface DeregisterPatchBaselineForPatchGroupCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMClient, DeregisterPatchBaselineForPatchGroupCommand } from "@aws-sdk/client-ssm"; // ES Modules import
- * // const { SSMClient, DeregisterPatchBaselineForPatchGroupCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * import { SSMClient, DeregisterPatchBaselineForPatchGroupCommand } from '@aws-sdk/client-ssm'; // ES Modules import
+ * // const { SSMClient, DeregisterPatchBaselineForPatchGroupCommand } = require('@aws-sdk/client-ssm'); // CommonJS import
  * const client = new SSMClient(config);
  * const input = { // DeregisterPatchBaselineForPatchGroupRequest
- *   BaselineId: "STRING_VALUE", // required
- *   PatchGroup: "STRING_VALUE", // required
+ *   BaselineId: 'STRING_VALUE', // required
+ *   PatchGroup: 'STRING_VALUE', // required
  * };
  * const command = new DeregisterPatchBaselineForPatchGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeregisterPatchBaselineForPatchGroupResult
+ *   BaselineId: 'STRING_VALUE',
+ *   PatchGroup: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DeregisterPatchBaselineForPatchGroupCommandInput - {@link DeregisterPatchBaselineForPatchGroupCommandInput}
@@ -67,6 +73,8 @@ export interface DeregisterPatchBaselineForPatchGroupCommandOutput
  * @throws {@link InvalidResourceId} (client fault)
  *  <p>The resource ID isn't valid. Verify that you entered the correct ID and try again.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class DeregisterPatchBaselineForPatchGroupCommand extends $Command<

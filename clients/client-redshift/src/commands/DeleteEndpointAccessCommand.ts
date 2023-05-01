@@ -36,14 +36,44 @@ export interface DeleteEndpointAccessCommandOutput extends EndpointAccess, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RedshiftClient, DeleteEndpointAccessCommand } from "@aws-sdk/client-redshift"; // ES Modules import
- * // const { RedshiftClient, DeleteEndpointAccessCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * import { RedshiftClient, DeleteEndpointAccessCommand } from '@aws-sdk/client-redshift'; // ES Modules import
+ * // const { RedshiftClient, DeleteEndpointAccessCommand } = require('@aws-sdk/client-redshift'); // CommonJS import
  * const client = new RedshiftClient(config);
  * const input = { // DeleteEndpointAccessMessage
- *   EndpointName: "STRING_VALUE", // required
+ *   EndpointName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteEndpointAccessCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // EndpointAccess
+ *   ClusterIdentifier: 'STRING_VALUE',
+ *   ResourceOwner: 'STRING_VALUE',
+ *   SubnetGroupName: 'STRING_VALUE',
+ *   EndpointStatus: 'STRING_VALUE',
+ *   EndpointName: 'STRING_VALUE',
+ *   EndpointCreateTime: new Date('TIMESTAMP'),
+ *   Port: Number('int'),
+ *   Address: 'STRING_VALUE',
+ *   VpcSecurityGroups: [ // VpcSecurityGroupMembershipList
+ *     { // VpcSecurityGroupMembership
+ *       VpcSecurityGroupId: 'STRING_VALUE',
+ *       Status: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   VpcEndpoint: { // VpcEndpoint
+ *     VpcEndpointId: 'STRING_VALUE',
+ *     VpcId: 'STRING_VALUE',
+ *     NetworkInterfaces: [ // NetworkInterfaceList
+ *       { // NetworkInterface
+ *         NetworkInterfaceId: 'STRING_VALUE',
+ *         SubnetId: 'STRING_VALUE',
+ *         PrivateIpAddress: 'STRING_VALUE',
+ *         AvailabilityZone: 'STRING_VALUE',
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param DeleteEndpointAccessCommandInput - {@link DeleteEndpointAccessCommandInput}
@@ -68,6 +98,8 @@ export interface DeleteEndpointAccessCommandOutput extends EndpointAccess, __Met
  * @throws {@link InvalidEndpointStateFault} (client fault)
  *  <p>The status of the endpoint is not valid.</p>
  *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class DeleteEndpointAccessCommand extends $Command<

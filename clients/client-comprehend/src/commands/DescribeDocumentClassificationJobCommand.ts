@@ -45,14 +45,54 @@ export interface DescribeDocumentClassificationJobCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ComprehendClient, DescribeDocumentClassificationJobCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
- * // const { ComprehendClient, DescribeDocumentClassificationJobCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
+ * import { ComprehendClient, DescribeDocumentClassificationJobCommand } from '@aws-sdk/client-comprehend'; // ES Modules import
+ * // const { ComprehendClient, DescribeDocumentClassificationJobCommand } = require('@aws-sdk/client-comprehend'); // CommonJS import
  * const client = new ComprehendClient(config);
  * const input = { // DescribeDocumentClassificationJobRequest
- *   JobId: "STRING_VALUE", // required
+ *   JobId: 'STRING_VALUE', // required
  * };
  * const command = new DescribeDocumentClassificationJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeDocumentClassificationJobResponse
+ *   DocumentClassificationJobProperties: { // DocumentClassificationJobProperties
+ *     JobId: 'STRING_VALUE',
+ *     JobArn: 'STRING_VALUE',
+ *     JobName: 'STRING_VALUE',
+ *     JobStatus: 'SUBMITTED' || 'IN_PROGRESS' || 'COMPLETED' || 'FAILED' || 'STOP_REQUESTED' || 'STOPPED',
+ *     Message: 'STRING_VALUE',
+ *     SubmitTime: new Date('TIMESTAMP'),
+ *     EndTime: new Date('TIMESTAMP'),
+ *     DocumentClassifierArn: 'STRING_VALUE',
+ *     InputDataConfig: { // InputDataConfig
+ *       S3Uri: 'STRING_VALUE', // required
+ *       InputFormat: 'ONE_DOC_PER_FILE' || 'ONE_DOC_PER_LINE',
+ *       DocumentReaderConfig: { // DocumentReaderConfig
+ *         DocumentReadAction: 'TEXTRACT_DETECT_DOCUMENT_TEXT' || 'TEXTRACT_ANALYZE_DOCUMENT', // required
+ *         DocumentReadMode: 'SERVICE_DEFAULT' || 'FORCE_DOCUMENT_READ_ACTION',
+ *         FeatureTypes: [ // ListOfDocumentReadFeatureTypes
+ *           'TABLES' || 'FORMS',
+ *         ],
+ *       },
+ *     },
+ *     OutputDataConfig: { // OutputDataConfig
+ *       S3Uri: 'STRING_VALUE', // required
+ *       KmsKeyId: 'STRING_VALUE',
+ *     },
+ *     DataAccessRoleArn: 'STRING_VALUE',
+ *     VolumeKmsKeyId: 'STRING_VALUE',
+ *     VpcConfig: { // VpcConfig
+ *       SecurityGroupIds: [ // SecurityGroupIds // required
+ *         'STRING_VALUE',
+ *       ],
+ *       Subnets: [ // Subnets // required
+ *         'STRING_VALUE',
+ *       ],
+ *     },
+ *     FlywheelArn: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeDocumentClassificationJobCommandInput - {@link DescribeDocumentClassificationJobCommandInput}
@@ -73,6 +113,8 @@ export interface DescribeDocumentClassificationJobCommandOutput
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>The number of requests exceeds the limit. Resubmit your request later.</p>
  *
+ * @throws {@link ComprehendServiceException}
+ * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
  */
 export class DescribeDocumentClassificationJobCommand extends $Command<

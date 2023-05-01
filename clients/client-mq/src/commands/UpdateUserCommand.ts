@@ -36,20 +36,23 @@ export interface UpdateUserCommandOutput extends UpdateUserResponse, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MqClient, UpdateUserCommand } from "@aws-sdk/client-mq"; // ES Modules import
- * // const { MqClient, UpdateUserCommand } = require("@aws-sdk/client-mq"); // CommonJS import
+ * import { MqClient, UpdateUserCommand } from '@aws-sdk/client-mq'; // ES Modules import
+ * // const { MqClient, UpdateUserCommand } = require('@aws-sdk/client-mq'); // CommonJS import
  * const client = new MqClient(config);
  * const input = { // UpdateUserRequest
- *   BrokerId: "STRING_VALUE", // required
+ *   BrokerId: 'STRING_VALUE', // required
  *   ConsoleAccess: true || false,
  *   Groups: [ // __listOf__string
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   Password: "STRING_VALUE",
- *   Username: "STRING_VALUE", // required
+ *   Password: 'STRING_VALUE',
+ *   Username: 'STRING_VALUE', // required
  * };
  * const command = new UpdateUserCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateUserCommandInput - {@link UpdateUserCommandInput}
@@ -73,6 +76,8 @@ export interface UpdateUserCommandOutput extends UpdateUserResponse, __MetadataB
  * @throws {@link NotFoundException} (client fault)
  *  <p>Returns information about an error.</p>
  *
+ * @throws {@link MqServiceException}
+ * <p>Base exception class for all service exceptions from Mq service.</p>
  *
  */
 export class UpdateUserCommand extends $Command<

@@ -40,27 +40,48 @@ export interface CreateRealtimeLogConfigCommandOutput extends CreateRealtimeLogC
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudFrontClient, CreateRealtimeLogConfigCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
- * // const { CloudFrontClient, CreateRealtimeLogConfigCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
+ * import { CloudFrontClient, CreateRealtimeLogConfigCommand } from '@aws-sdk/client-cloudfront'; // ES Modules import
+ * // const { CloudFrontClient, CreateRealtimeLogConfigCommand } = require('@aws-sdk/client-cloudfront'); // CommonJS import
  * const client = new CloudFrontClient(config);
  * const input = { // CreateRealtimeLogConfigRequest
  *   EndPoints: [ // EndPointList // required
  *     { // EndPoint
- *       StreamType: "STRING_VALUE", // required
+ *       StreamType: 'STRING_VALUE', // required
  *       KinesisStreamConfig: { // KinesisStreamConfig
- *         RoleARN: "STRING_VALUE", // required
- *         StreamARN: "STRING_VALUE", // required
+ *         RoleARN: 'STRING_VALUE', // required
+ *         StreamARN: 'STRING_VALUE', // required
  *       },
  *     },
  *   ],
  *   Fields: [ // FieldList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   Name: "STRING_VALUE", // required
- *   SamplingRate: Number("long"), // required
+ *   Name: 'STRING_VALUE', // required
+ *   SamplingRate: Number('long'), // required
  * };
  * const command = new CreateRealtimeLogConfigCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateRealtimeLogConfigResult
+ *   RealtimeLogConfig: { // RealtimeLogConfig
+ *     ARN: 'STRING_VALUE', // required
+ *     Name: 'STRING_VALUE', // required
+ *     SamplingRate: Number('long'), // required
+ *     EndPoints: [ // EndPointList // required
+ *       { // EndPoint
+ *         StreamType: 'STRING_VALUE', // required
+ *         KinesisStreamConfig: { // KinesisStreamConfig
+ *           RoleARN: 'STRING_VALUE', // required
+ *           StreamARN: 'STRING_VALUE', // required
+ *         },
+ *       },
+ *     ],
+ *     Fields: [ // FieldList // required
+ *       'STRING_VALUE',
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateRealtimeLogConfigCommandInput - {@link CreateRealtimeLogConfigCommandInput}
@@ -85,6 +106,8 @@ export interface CreateRealtimeLogConfigCommandOutput extends CreateRealtimeLogC
  * 			Amazon Web Services account. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
  * 				<i>Amazon CloudFront Developer Guide</i>.</p>
  *
+ * @throws {@link CloudFrontServiceException}
+ * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
  */
 export class CreateRealtimeLogConfigCommand extends $Command<

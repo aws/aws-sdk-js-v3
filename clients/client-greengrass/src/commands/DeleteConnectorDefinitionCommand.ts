@@ -36,14 +36,17 @@ export interface DeleteConnectorDefinitionCommandOutput extends DeleteConnectorD
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GreengrassClient, DeleteConnectorDefinitionCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
- * // const { GreengrassClient, DeleteConnectorDefinitionCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
+ * import { GreengrassClient, DeleteConnectorDefinitionCommand } from '@aws-sdk/client-greengrass'; // ES Modules import
+ * // const { GreengrassClient, DeleteConnectorDefinitionCommand } = require('@aws-sdk/client-greengrass'); // CommonJS import
  * const client = new GreengrassClient(config);
  * const input = { // DeleteConnectorDefinitionRequest
- *   ConnectorDefinitionId: "STRING_VALUE", // required
+ *   ConnectorDefinitionId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteConnectorDefinitionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteConnectorDefinitionCommandInput - {@link DeleteConnectorDefinitionCommandInput}
@@ -55,6 +58,8 @@ export interface DeleteConnectorDefinitionCommandOutput extends DeleteConnectorD
  * @throws {@link BadRequestException} (client fault)
  *  General error information.
  *
+ * @throws {@link GreengrassServiceException}
+ * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
  */
 export class DeleteConnectorDefinitionCommand extends $Command<

@@ -42,25 +42,87 @@ export interface UpdateStorageVirtualMachineCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FSxClient, UpdateStorageVirtualMachineCommand } from "@aws-sdk/client-fsx"; // ES Modules import
- * // const { FSxClient, UpdateStorageVirtualMachineCommand } = require("@aws-sdk/client-fsx"); // CommonJS import
+ * import { FSxClient, UpdateStorageVirtualMachineCommand } from '@aws-sdk/client-fsx'; // ES Modules import
+ * // const { FSxClient, UpdateStorageVirtualMachineCommand } = require('@aws-sdk/client-fsx'); // CommonJS import
  * const client = new FSxClient(config);
  * const input = { // UpdateStorageVirtualMachineRequest
  *   ActiveDirectoryConfiguration: { // UpdateSvmActiveDirectoryConfiguration
  *     SelfManagedActiveDirectoryConfiguration: { // SelfManagedActiveDirectoryConfigurationUpdates
- *       UserName: "STRING_VALUE",
- *       Password: "STRING_VALUE",
+ *       UserName: 'STRING_VALUE',
+ *       Password: 'STRING_VALUE',
  *       DnsIps: [ // DnsIps
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   },
- *   ClientRequestToken: "STRING_VALUE",
- *   StorageVirtualMachineId: "STRING_VALUE", // required
- *   SvmAdminPassword: "STRING_VALUE",
+ *   ClientRequestToken: 'STRING_VALUE',
+ *   StorageVirtualMachineId: 'STRING_VALUE', // required
+ *   SvmAdminPassword: 'STRING_VALUE',
  * };
  * const command = new UpdateStorageVirtualMachineCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateStorageVirtualMachineResponse
+ *   StorageVirtualMachine: { // StorageVirtualMachine
+ *     ActiveDirectoryConfiguration: { // SvmActiveDirectoryConfiguration
+ *       NetBiosName: 'STRING_VALUE',
+ *       SelfManagedActiveDirectoryConfiguration: { // SelfManagedActiveDirectoryAttributes
+ *         DomainName: 'STRING_VALUE',
+ *         OrganizationalUnitDistinguishedName: 'STRING_VALUE',
+ *         FileSystemAdministratorsGroup: 'STRING_VALUE',
+ *         UserName: 'STRING_VALUE',
+ *         DnsIps: [ // DnsIps
+ *           'STRING_VALUE',
+ *         ],
+ *       },
+ *     },
+ *     CreationTime: new Date('TIMESTAMP'),
+ *     Endpoints: { // SvmEndpoints
+ *       Iscsi: { // SvmEndpoint
+ *         DNSName: 'STRING_VALUE',
+ *         IpAddresses: [ // OntapEndpointIpAddresses
+ *           'STRING_VALUE',
+ *         ],
+ *       },
+ *       Management: {
+ *         DNSName: 'STRING_VALUE',
+ *         IpAddresses: [
+ *           'STRING_VALUE',
+ *         ],
+ *       },
+ *       Nfs: {
+ *         DNSName: 'STRING_VALUE',
+ *         IpAddresses: [
+ *           'STRING_VALUE',
+ *         ],
+ *       },
+ *       Smb: {
+ *         DNSName: 'STRING_VALUE',
+ *         IpAddresses: [
+ *           'STRING_VALUE',
+ *         ],
+ *       },
+ *     },
+ *     FileSystemId: 'STRING_VALUE',
+ *     Lifecycle: 'CREATED' || 'CREATING' || 'DELETING' || 'FAILED' || 'MISCONFIGURED' || 'PENDING',
+ *     Name: 'STRING_VALUE',
+ *     ResourceARN: 'STRING_VALUE',
+ *     StorageVirtualMachineId: 'STRING_VALUE',
+ *     Subtype: 'DEFAULT' || 'DP_DESTINATION' || 'SYNC_DESTINATION' || 'SYNC_SOURCE',
+ *     UUID: 'STRING_VALUE',
+ *     Tags: [ // Tags
+ *       { // Tag
+ *         Key: 'STRING_VALUE', // required
+ *         Value: 'STRING_VALUE', // required
+ *       },
+ *     ],
+ *     LifecycleTransitionReason: { // LifecycleTransitionReason
+ *       Message: 'STRING_VALUE',
+ *     },
+ *     RootVolumeSecurityStyle: 'UNIX' || 'NTFS' || 'MIXED',
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateStorageVirtualMachineCommandInput - {@link UpdateStorageVirtualMachineCommandInput}
@@ -86,6 +148,8 @@ export interface UpdateStorageVirtualMachineCommandOutput
  * @throws {@link UnsupportedOperation} (client fault)
  *  <p>The requested operation is not supported for this resource or API.</p>
  *
+ * @throws {@link FSxServiceException}
+ * <p>Base exception class for all service exceptions from FSx service.</p>
  *
  */
 export class UpdateStorageVirtualMachineCommand extends $Command<

@@ -53,21 +53,32 @@ export interface CreateSAMLProviderCommandOutput extends CreateSAMLProviderRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IAMClient, CreateSAMLProviderCommand } from "@aws-sdk/client-iam"; // ES Modules import
- * // const { IAMClient, CreateSAMLProviderCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * import { IAMClient, CreateSAMLProviderCommand } from '@aws-sdk/client-iam'; // ES Modules import
+ * // const { IAMClient, CreateSAMLProviderCommand } = require('@aws-sdk/client-iam'); // CommonJS import
  * const client = new IAMClient(config);
  * const input = { // CreateSAMLProviderRequest
- *   SAMLMetadataDocument: "STRING_VALUE", // required
- *   Name: "STRING_VALUE", // required
+ *   SAMLMetadataDocument: 'STRING_VALUE', // required
+ *   Name: 'STRING_VALUE', // required
  *   Tags: [ // tagListType
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreateSAMLProviderCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateSAMLProviderResponse
+ *   SAMLProviderArn: 'STRING_VALUE',
+ *   Tags: [ // tagListType
+ *     { // Tag
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param CreateSAMLProviderCommandInput - {@link CreateSAMLProviderCommandInput}
@@ -96,6 +107,8 @@ export interface CreateSAMLProviderCommandOutput extends CreateSAMLProviderRespo
  *  <p>The request processing has failed because of an unknown error, exception or
  *       failure.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  */
 export class CreateSAMLProviderCommand extends $Command<

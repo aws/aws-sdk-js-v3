@@ -47,15 +47,21 @@ export interface DeleteFileCacheCommandOutput extends DeleteFileCacheResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FSxClient, DeleteFileCacheCommand } from "@aws-sdk/client-fsx"; // ES Modules import
- * // const { FSxClient, DeleteFileCacheCommand } = require("@aws-sdk/client-fsx"); // CommonJS import
+ * import { FSxClient, DeleteFileCacheCommand } from '@aws-sdk/client-fsx'; // ES Modules import
+ * // const { FSxClient, DeleteFileCacheCommand } = require('@aws-sdk/client-fsx'); // CommonJS import
  * const client = new FSxClient(config);
  * const input = { // DeleteFileCacheRequest
- *   FileCacheId: "STRING_VALUE", // required
- *   ClientRequestToken: "STRING_VALUE",
+ *   FileCacheId: 'STRING_VALUE', // required
+ *   ClientRequestToken: 'STRING_VALUE',
  * };
  * const command = new DeleteFileCacheCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteFileCacheResponse
+ *   FileCacheId: 'STRING_VALUE',
+ *   Lifecycle: 'AVAILABLE' || 'CREATING' || 'DELETING' || 'UPDATING' || 'FAILED',
+ * };
+ *
  * ```
  *
  * @param DeleteFileCacheCommandInput - {@link DeleteFileCacheCommandInput}
@@ -82,6 +88,8 @@ export interface DeleteFileCacheCommandOutput extends DeleteFileCacheResponse, _
  *  <p>An error indicating that a particular service limit was exceeded. You can increase
  *             some service limits by contacting Amazon Web Services Support.</p>
  *
+ * @throws {@link FSxServiceException}
+ * <p>Base exception class for all service exceptions from FSx service.</p>
  *
  */
 export class DeleteFileCacheCommand extends $Command<

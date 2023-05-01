@@ -41,16 +41,37 @@ export interface UpdateAssessmentFrameworkShareCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AuditManagerClient, UpdateAssessmentFrameworkShareCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
- * // const { AuditManagerClient, UpdateAssessmentFrameworkShareCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import
+ * import { AuditManagerClient, UpdateAssessmentFrameworkShareCommand } from '@aws-sdk/client-auditmanager'; // ES Modules import
+ * // const { AuditManagerClient, UpdateAssessmentFrameworkShareCommand } = require('@aws-sdk/client-auditmanager'); // CommonJS import
  * const client = new AuditManagerClient(config);
  * const input = { // UpdateAssessmentFrameworkShareRequest
- *   requestId: "STRING_VALUE", // required
- *   requestType: "SENT" || "RECEIVED", // required
- *   action: "ACCEPT" || "DECLINE" || "REVOKE", // required
+ *   requestId: 'STRING_VALUE', // required
+ *   requestType: 'SENT' || 'RECEIVED', // required
+ *   action: 'ACCEPT' || 'DECLINE' || 'REVOKE', // required
  * };
  * const command = new UpdateAssessmentFrameworkShareCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateAssessmentFrameworkShareResponse
+ *   assessmentFrameworkShareRequest: { // AssessmentFrameworkShareRequest
+ *     id: 'STRING_VALUE',
+ *     frameworkId: 'STRING_VALUE',
+ *     frameworkName: 'STRING_VALUE',
+ *     frameworkDescription: 'STRING_VALUE',
+ *     status: 'ACTIVE' || 'REPLICATING' || 'SHARED' || 'EXPIRING' || 'FAILED' || 'EXPIRED' || 'DECLINED' || 'REVOKED',
+ *     sourceAccount: 'STRING_VALUE',
+ *     destinationAccount: 'STRING_VALUE',
+ *     destinationRegion: 'STRING_VALUE',
+ *     expirationTime: new Date('TIMESTAMP'),
+ *     creationTime: new Date('TIMESTAMP'),
+ *     lastUpdated: new Date('TIMESTAMP'),
+ *     comment: 'STRING_VALUE',
+ *     standardControlsCount: Number('int'),
+ *     customControlsCount: Number('int'),
+ *     complianceType: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateAssessmentFrameworkShareCommandInput - {@link UpdateAssessmentFrameworkShareCommandInput}
@@ -79,6 +100,8 @@ export interface UpdateAssessmentFrameworkShareCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p> The request has invalid or missing parameters. </p>
  *
+ * @throws {@link AuditManagerServiceException}
+ * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
  */
 export class UpdateAssessmentFrameworkShareCommand extends $Command<

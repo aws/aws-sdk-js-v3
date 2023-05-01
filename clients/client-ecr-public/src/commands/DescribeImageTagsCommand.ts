@@ -36,17 +36,35 @@ export interface DescribeImageTagsCommandOutput extends DescribeImageTagsRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ECRPUBLICClient, DescribeImageTagsCommand } from "@aws-sdk/client-ecr-public"; // ES Modules import
- * // const { ECRPUBLICClient, DescribeImageTagsCommand } = require("@aws-sdk/client-ecr-public"); // CommonJS import
+ * import { ECRPUBLICClient, DescribeImageTagsCommand } from '@aws-sdk/client-ecr-public'; // ES Modules import
+ * // const { ECRPUBLICClient, DescribeImageTagsCommand } = require('@aws-sdk/client-ecr-public'); // CommonJS import
  * const client = new ECRPUBLICClient(config);
  * const input = { // DescribeImageTagsRequest
- *   registryId: "STRING_VALUE",
- *   repositoryName: "STRING_VALUE", // required
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   registryId: 'STRING_VALUE',
+ *   repositoryName: 'STRING_VALUE', // required
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new DescribeImageTagsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeImageTagsResponse
+ *   imageTagDetails: [ // ImageTagDetailList
+ *     { // ImageTagDetail
+ *       imageTag: 'STRING_VALUE',
+ *       createdAt: new Date('TIMESTAMP'),
+ *       imageDetail: { // ReferencedImageDetail
+ *         imageDigest: 'STRING_VALUE',
+ *         imageSizeInBytes: Number('long'),
+ *         imagePushedAt: new Date('TIMESTAMP'),
+ *         imageManifestMediaType: 'STRING_VALUE',
+ *         artifactMediaType: 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeImageTagsCommandInput - {@link DescribeImageTagsCommandInput}
@@ -69,6 +87,8 @@ export interface DescribeImageTagsCommandOutput extends DescribeImageTagsRespons
  * @throws {@link UnsupportedCommandException} (client fault)
  *  <p>The action isn't supported in this Region.</p>
  *
+ * @throws {@link ECRPUBLICServiceException}
+ * <p>Base exception class for all service exceptions from ECRPUBLIC service.</p>
  *
  */
 export class DescribeImageTagsCommand extends $Command<

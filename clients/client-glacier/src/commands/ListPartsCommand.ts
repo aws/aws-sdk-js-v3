@@ -57,18 +57,34 @@ export interface ListPartsCommandOutput extends ListPartsOutput, __MetadataBeare
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlacierClient, ListPartsCommand } from "@aws-sdk/client-glacier"; // ES Modules import
- * // const { GlacierClient, ListPartsCommand } = require("@aws-sdk/client-glacier"); // CommonJS import
+ * import { GlacierClient, ListPartsCommand } from '@aws-sdk/client-glacier'; // ES Modules import
+ * // const { GlacierClient, ListPartsCommand } = require('@aws-sdk/client-glacier'); // CommonJS import
  * const client = new GlacierClient(config);
  * const input = { // ListPartsInput
- *   accountId: "STRING_VALUE", // required
- *   vaultName: "STRING_VALUE", // required
- *   uploadId: "STRING_VALUE", // required
- *   marker: "STRING_VALUE",
- *   limit: Number("int"),
+ *   accountId: 'STRING_VALUE', // required
+ *   vaultName: 'STRING_VALUE', // required
+ *   uploadId: 'STRING_VALUE', // required
+ *   marker: 'STRING_VALUE',
+ *   limit: Number('int'),
  * };
  * const command = new ListPartsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListPartsOutput
+ *   MultipartUploadId: 'STRING_VALUE',
+ *   VaultARN: 'STRING_VALUE',
+ *   ArchiveDescription: 'STRING_VALUE',
+ *   PartSizeInBytes: Number('long'),
+ *   CreationDate: 'STRING_VALUE',
+ *   Parts: [ // PartList
+ *     { // PartListElement
+ *       RangeInBytes: 'STRING_VALUE',
+ *       SHA256TreeHash: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   Marker: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListPartsCommandInput - {@link ListPartsCommandInput}
@@ -90,6 +106,8 @@ export interface ListPartsCommandOutput extends ListPartsOutput, __MetadataBeare
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>Returned if the service cannot complete the request.</p>
  *
+ * @throws {@link GlacierServiceException}
+ * <p>Base exception class for all service exceptions from Glacier service.</p>
  *
  * @example To list the parts of an archive that have been uploaded in a multipart upload
  * ```javascript

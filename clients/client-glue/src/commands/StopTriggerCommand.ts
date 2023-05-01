@@ -36,14 +36,19 @@ export interface StopTriggerCommandOutput extends StopTriggerResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlueClient, StopTriggerCommand } from "@aws-sdk/client-glue"; // ES Modules import
- * // const { GlueClient, StopTriggerCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * import { GlueClient, StopTriggerCommand } from '@aws-sdk/client-glue'; // ES Modules import
+ * // const { GlueClient, StopTriggerCommand } = require('@aws-sdk/client-glue'); // CommonJS import
  * const client = new GlueClient(config);
  * const input = { // StopTriggerRequest
- *   Name: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
  * };
  * const command = new StopTriggerCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StopTriggerResponse
+ *   Name: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param StopTriggerCommandInput - {@link StopTriggerCommandInput}
@@ -67,6 +72,8 @@ export interface StopTriggerCommandOutput extends StopTriggerResponse, __Metadat
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class StopTriggerCommand extends $Command<

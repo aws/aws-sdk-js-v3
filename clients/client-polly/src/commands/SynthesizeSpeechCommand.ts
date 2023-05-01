@@ -49,26 +49,33 @@ export interface SynthesizeSpeechCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PollyClient, SynthesizeSpeechCommand } from "@aws-sdk/client-polly"; // ES Modules import
- * // const { PollyClient, SynthesizeSpeechCommand } = require("@aws-sdk/client-polly"); // CommonJS import
+ * import { PollyClient, SynthesizeSpeechCommand } from '@aws-sdk/client-polly'; // ES Modules import
+ * // const { PollyClient, SynthesizeSpeechCommand } = require('@aws-sdk/client-polly'); // CommonJS import
  * const client = new PollyClient(config);
  * const input = { // SynthesizeSpeechInput
- *   Engine: "standard" || "neural",
- *   LanguageCode: "arb" || "cmn-CN" || "cy-GB" || "da-DK" || "de-DE" || "en-AU" || "en-GB" || "en-GB-WLS" || "en-IN" || "en-US" || "es-ES" || "es-MX" || "es-US" || "fr-CA" || "fr-FR" || "is-IS" || "it-IT" || "ja-JP" || "hi-IN" || "ko-KR" || "nb-NO" || "nl-NL" || "pl-PL" || "pt-BR" || "pt-PT" || "ro-RO" || "ru-RU" || "sv-SE" || "tr-TR" || "en-NZ" || "en-ZA" || "ca-ES" || "de-AT" || "yue-CN" || "ar-AE" || "fi-FI",
+ *   Engine: 'standard' || 'neural',
+ *   LanguageCode: 'arb' || 'cmn-CN' || 'cy-GB' || 'da-DK' || 'de-DE' || 'en-AU' || 'en-GB' || 'en-GB-WLS' || 'en-IN' || 'en-US' || 'es-ES' || 'es-MX' || 'es-US' || 'fr-CA' || 'fr-FR' || 'is-IS' || 'it-IT' || 'ja-JP' || 'hi-IN' || 'ko-KR' || 'nb-NO' || 'nl-NL' || 'pl-PL' || 'pt-BR' || 'pt-PT' || 'ro-RO' || 'ru-RU' || 'sv-SE' || 'tr-TR' || 'en-NZ' || 'en-ZA' || 'ca-ES' || 'de-AT' || 'yue-CN' || 'ar-AE' || 'fi-FI',
  *   LexiconNames: [ // LexiconNameList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   OutputFormat: "json" || "mp3" || "ogg_vorbis" || "pcm", // required
- *   SampleRate: "STRING_VALUE",
+ *   OutputFormat: 'json' || 'mp3' || 'ogg_vorbis' || 'pcm', // required
+ *   SampleRate: 'STRING_VALUE',
  *   SpeechMarkTypes: [ // SpeechMarkTypeList
- *     "sentence" || "ssml" || "viseme" || "word",
+ *     'sentence' || 'ssml' || 'viseme' || 'word',
  *   ],
- *   Text: "STRING_VALUE", // required
- *   TextType: "ssml" || "text",
- *   VoiceId: "Aditi" || "Amy" || "Astrid" || "Bianca" || "Brian" || "Camila" || "Carla" || "Carmen" || "Celine" || "Chantal" || "Conchita" || "Cristiano" || "Dora" || "Emma" || "Enrique" || "Ewa" || "Filiz" || "Gabrielle" || "Geraint" || "Giorgio" || "Gwyneth" || "Hans" || "Ines" || "Ivy" || "Jacek" || "Jan" || "Joanna" || "Joey" || "Justin" || "Karl" || "Kendra" || "Kevin" || "Kimberly" || "Lea" || "Liv" || "Lotte" || "Lucia" || "Lupe" || "Mads" || "Maja" || "Marlene" || "Mathieu" || "Matthew" || "Maxim" || "Mia" || "Miguel" || "Mizuki" || "Naja" || "Nicole" || "Olivia" || "Penelope" || "Raveena" || "Ricardo" || "Ruben" || "Russell" || "Salli" || "Seoyeon" || "Takumi" || "Tatyana" || "Vicki" || "Vitoria" || "Zeina" || "Zhiyu" || "Aria" || "Ayanda" || "Arlet" || "Hannah" || "Arthur" || "Daniel" || "Liam" || "Pedro" || "Kajal" || "Hiujin" || "Laura" || "Elin" || "Ida" || "Suvi" || "Ola" || "Hala" || "Andres" || "Sergio" || "Remi" || "Adriano" || "Thiago" || "Ruth" || "Stephen" || "Kazuha" || "Tomoko", // required
+ *   Text: 'STRING_VALUE', // required
+ *   TextType: 'ssml' || 'text',
+ *   VoiceId: 'Aditi' || 'Amy' || 'Astrid' || 'Bianca' || 'Brian' || 'Camila' || 'Carla' || 'Carmen' || 'Celine' || 'Chantal' || 'Conchita' || 'Cristiano' || 'Dora' || 'Emma' || 'Enrique' || 'Ewa' || 'Filiz' || 'Gabrielle' || 'Geraint' || 'Giorgio' || 'Gwyneth' || 'Hans' || 'Ines' || 'Ivy' || 'Jacek' || 'Jan' || 'Joanna' || 'Joey' || 'Justin' || 'Karl' || 'Kendra' || 'Kevin' || 'Kimberly' || 'Lea' || 'Liv' || 'Lotte' || 'Lucia' || 'Lupe' || 'Mads' || 'Maja' || 'Marlene' || 'Mathieu' || 'Matthew' || 'Maxim' || 'Mia' || 'Miguel' || 'Mizuki' || 'Naja' || 'Nicole' || 'Olivia' || 'Penelope' || 'Raveena' || 'Ricardo' || 'Ruben' || 'Russell' || 'Salli' || 'Seoyeon' || 'Takumi' || 'Tatyana' || 'Vicki' || 'Vitoria' || 'Zeina' || 'Zhiyu' || 'Aria' || 'Ayanda' || 'Arlet' || 'Hannah' || 'Arthur' || 'Daniel' || 'Liam' || 'Pedro' || 'Kajal' || 'Hiujin' || 'Laura' || 'Elin' || 'Ida' || 'Suvi' || 'Ola' || 'Hala' || 'Andres' || 'Sergio' || 'Remi' || 'Adriano' || 'Thiago' || 'Ruth' || 'Stephen' || 'Kazuha' || 'Tomoko', // required
  * };
  * const command = new SynthesizeSpeechCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SynthesizeSpeechOutput
+ *   AudioStream: 'STREAMING_BLOB_VALUE',
+ *   ContentType: 'STRING_VALUE',
+ *   RequestCharacters: Number('int'),
+ * };
+ *
  * ```
  *
  * @param SynthesizeSpeechCommandInput - {@link SynthesizeSpeechCommandInput}
@@ -121,6 +128,8 @@ export interface SynthesizeSpeechCommandOutput
  *       billed characters. SSML tags are not counted as billed
  *       characters.</p>
  *
+ * @throws {@link PollyServiceException}
+ * <p>Base exception class for all service exceptions from Polly service.</p>
  *
  * @example To synthesize speech
  * ```javascript

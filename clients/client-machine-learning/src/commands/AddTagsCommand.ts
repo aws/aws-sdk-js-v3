@@ -38,21 +38,27 @@ export interface AddTagsCommandOutput extends AddTagsOutput, __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MachineLearningClient, AddTagsCommand } from "@aws-sdk/client-machine-learning"; // ES Modules import
- * // const { MachineLearningClient, AddTagsCommand } = require("@aws-sdk/client-machine-learning"); // CommonJS import
+ * import { MachineLearningClient, AddTagsCommand } from '@aws-sdk/client-machine-learning'; // ES Modules import
+ * // const { MachineLearningClient, AddTagsCommand } = require('@aws-sdk/client-machine-learning'); // CommonJS import
  * const client = new MachineLearningClient(config);
  * const input = { // AddTagsInput
  *   Tags: [ // TagList // required
  *     { // Tag
- *       Key: "STRING_VALUE",
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
- *   ResourceId: "STRING_VALUE", // required
- *   ResourceType: "STRING_VALUE", // required
+ *   ResourceId: 'STRING_VALUE', // required
+ *   ResourceType: 'STRING_VALUE', // required
  * };
  * const command = new AddTagsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AddTagsOutput
+ *   ResourceId: 'STRING_VALUE',
+ *   ResourceType: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param AddTagsCommandInput - {@link AddTagsCommandInput}
@@ -74,6 +80,8 @@ export interface AddTagsCommandOutput extends AddTagsOutput, __MetadataBearer {}
  *
  * @throws {@link TagLimitExceededException} (client fault)
  *
+ * @throws {@link MachineLearningServiceException}
+ * <p>Base exception class for all service exceptions from MachineLearning service.</p>
  *
  */
 export class AddTagsCommand extends $Command<

@@ -44,18 +44,18 @@ export interface CreatePatchBaselineCommandOutput extends CreatePatchBaselineRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMClient, CreatePatchBaselineCommand } from "@aws-sdk/client-ssm"; // ES Modules import
- * // const { SSMClient, CreatePatchBaselineCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * import { SSMClient, CreatePatchBaselineCommand } from '@aws-sdk/client-ssm'; // ES Modules import
+ * // const { SSMClient, CreatePatchBaselineCommand } = require('@aws-sdk/client-ssm'); // CommonJS import
  * const client = new SSMClient(config);
  * const input = { // CreatePatchBaselineRequest
- *   OperatingSystem: "WINDOWS" || "AMAZON_LINUX" || "AMAZON_LINUX_2" || "AMAZON_LINUX_2022" || "UBUNTU" || "REDHAT_ENTERPRISE_LINUX" || "SUSE" || "CENTOS" || "ORACLE_LINUX" || "DEBIAN" || "MACOS" || "RASPBIAN" || "ROCKY_LINUX" || "ALMA_LINUX" || "AMAZON_LINUX_2023",
- *   Name: "STRING_VALUE", // required
+ *   OperatingSystem: 'WINDOWS' || 'AMAZON_LINUX' || 'AMAZON_LINUX_2' || 'AMAZON_LINUX_2022' || 'UBUNTU' || 'REDHAT_ENTERPRISE_LINUX' || 'SUSE' || 'CENTOS' || 'ORACLE_LINUX' || 'DEBIAN' || 'MACOS' || 'RASPBIAN' || 'ROCKY_LINUX' || 'ALMA_LINUX' || 'AMAZON_LINUX_2023',
+ *   Name: 'STRING_VALUE', // required
  *   GlobalFilters: { // PatchFilterGroup
  *     PatchFilters: [ // PatchFilterList // required
  *       { // PatchFilter
- *         Key: "ARCH" || "ADVISORY_ID" || "BUGZILLA_ID" || "PATCH_SET" || "PRODUCT" || "PRODUCT_FAMILY" || "CLASSIFICATION" || "CVE_ID" || "EPOCH" || "MSRC_SEVERITY" || "NAME" || "PATCH_ID" || "SECTION" || "PRIORITY" || "REPOSITORY" || "RELEASE" || "SEVERITY" || "SECURITY" || "VERSION", // required
+ *         Key: 'ARCH' || 'ADVISORY_ID' || 'BUGZILLA_ID' || 'PATCH_SET' || 'PRODUCT' || 'PRODUCT_FAMILY' || 'CLASSIFICATION' || 'CVE_ID' || 'EPOCH' || 'MSRC_SEVERITY' || 'NAME' || 'PATCH_ID' || 'SECTION' || 'PRIORITY' || 'REPOSITORY' || 'RELEASE' || 'SEVERITY' || 'SECURITY' || 'VERSION', // required
  *         Values: [ // PatchFilterValueList // required
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
  *       },
  *     ],
@@ -66,49 +66,54 @@ export interface CreatePatchBaselineCommandOutput extends CreatePatchBaselineRes
  *         PatchFilterGroup: {
  *           PatchFilters: [ // required
  *             {
- *               Key: "ARCH" || "ADVISORY_ID" || "BUGZILLA_ID" || "PATCH_SET" || "PRODUCT" || "PRODUCT_FAMILY" || "CLASSIFICATION" || "CVE_ID" || "EPOCH" || "MSRC_SEVERITY" || "NAME" || "PATCH_ID" || "SECTION" || "PRIORITY" || "REPOSITORY" || "RELEASE" || "SEVERITY" || "SECURITY" || "VERSION", // required
+ *               Key: 'ARCH' || 'ADVISORY_ID' || 'BUGZILLA_ID' || 'PATCH_SET' || 'PRODUCT' || 'PRODUCT_FAMILY' || 'CLASSIFICATION' || 'CVE_ID' || 'EPOCH' || 'MSRC_SEVERITY' || 'NAME' || 'PATCH_ID' || 'SECTION' || 'PRIORITY' || 'REPOSITORY' || 'RELEASE' || 'SEVERITY' || 'SECURITY' || 'VERSION', // required
  *               Values: [ // required
- *                 "STRING_VALUE",
+ *                 'STRING_VALUE',
  *               ],
  *             },
  *           ],
  *         },
- *         ComplianceLevel: "CRITICAL" || "HIGH" || "MEDIUM" || "LOW" || "INFORMATIONAL" || "UNSPECIFIED",
- *         ApproveAfterDays: Number("int"),
- *         ApproveUntilDate: "STRING_VALUE",
+ *         ComplianceLevel: 'CRITICAL' || 'HIGH' || 'MEDIUM' || 'LOW' || 'INFORMATIONAL' || 'UNSPECIFIED',
+ *         ApproveAfterDays: Number('int'),
+ *         ApproveUntilDate: 'STRING_VALUE',
  *         EnableNonSecurity: true || false,
  *       },
  *     ],
  *   },
  *   ApprovedPatches: [ // PatchIdList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   ApprovedPatchesComplianceLevel: "CRITICAL" || "HIGH" || "MEDIUM" || "LOW" || "INFORMATIONAL" || "UNSPECIFIED",
+ *   ApprovedPatchesComplianceLevel: 'CRITICAL' || 'HIGH' || 'MEDIUM' || 'LOW' || 'INFORMATIONAL' || 'UNSPECIFIED',
  *   ApprovedPatchesEnableNonSecurity: true || false,
  *   RejectedPatches: [
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   RejectedPatchesAction: "ALLOW_AS_DEPENDENCY" || "BLOCK",
- *   Description: "STRING_VALUE",
+ *   RejectedPatchesAction: 'ALLOW_AS_DEPENDENCY' || 'BLOCK',
+ *   Description: 'STRING_VALUE',
  *   Sources: [ // PatchSourceList
  *     { // PatchSource
- *       Name: "STRING_VALUE", // required
+ *       Name: 'STRING_VALUE', // required
  *       Products: [ // PatchSourceProductList // required
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
- *       Configuration: "STRING_VALUE", // required
+ *       Configuration: 'STRING_VALUE', // required
  *     },
  *   ],
- *   ClientToken: "STRING_VALUE",
+ *   ClientToken: 'STRING_VALUE',
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreatePatchBaselineCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreatePatchBaselineResult
+ *   BaselineId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreatePatchBaselineCommandInput - {@link CreatePatchBaselineCommandInput}
@@ -130,6 +135,8 @@ export interface CreatePatchBaselineCommandOutput extends CreatePatchBaselineRes
  *          <p>For information about resource quotas in Systems Manager, see <a href="https://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm">Systems Manager service quotas</a> in the
  *     <i>Amazon Web Services General Reference</i>.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class CreatePatchBaselineCommand extends $Command<

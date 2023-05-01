@@ -36,16 +36,31 @@ export interface ListTrustStoreCertificatesCommandOutput extends ListTrustStoreC
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkSpacesWebClient, ListTrustStoreCertificatesCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
- * // const { WorkSpacesWebClient, ListTrustStoreCertificatesCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
+ * import { WorkSpacesWebClient, ListTrustStoreCertificatesCommand } from '@aws-sdk/client-workspaces-web'; // ES Modules import
+ * // const { WorkSpacesWebClient, ListTrustStoreCertificatesCommand } = require('@aws-sdk/client-workspaces-web'); // CommonJS import
  * const client = new WorkSpacesWebClient(config);
  * const input = { // ListTrustStoreCertificatesRequest
- *   trustStoreArn: "STRING_VALUE", // required
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   trustStoreArn: 'STRING_VALUE', // required
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new ListTrustStoreCertificatesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTrustStoreCertificatesResponse
+ *   certificateList: [ // CertificateSummaryList
+ *     { // CertificateSummary
+ *       thumbprint: 'STRING_VALUE',
+ *       subject: 'STRING_VALUE',
+ *       issuer: 'STRING_VALUE',
+ *       notValidBefore: new Date('TIMESTAMP'),
+ *       notValidAfter: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   trustStoreArn: 'STRING_VALUE',
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListTrustStoreCertificatesCommandInput - {@link ListTrustStoreCertificatesCommandInput}
@@ -69,6 +84,8 @@ export interface ListTrustStoreCertificatesCommandOutput extends ListTrustStoreC
  * @throws {@link ValidationException} (client fault)
  *  <p>There is a validation error.</p>
  *
+ * @throws {@link WorkSpacesWebServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
  */
 export class ListTrustStoreCertificatesCommand extends $Command<

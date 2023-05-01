@@ -36,15 +36,18 @@ export interface DeleteUserCommandOutput extends DeleteUserResult, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppStreamClient, DeleteUserCommand } from "@aws-sdk/client-appstream"; // ES Modules import
- * // const { AppStreamClient, DeleteUserCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
+ * import { AppStreamClient, DeleteUserCommand } from '@aws-sdk/client-appstream'; // ES Modules import
+ * // const { AppStreamClient, DeleteUserCommand } = require('@aws-sdk/client-appstream'); // CommonJS import
  * const client = new AppStreamClient(config);
  * const input = { // DeleteUserRequest
- *   UserName: "STRING_VALUE", // required
- *   AuthenticationType: "API" || "SAML" || "USERPOOL" || "AWS_AD", // required
+ *   UserName: 'STRING_VALUE', // required
+ *   AuthenticationType: 'API' || 'SAML' || 'USERPOOL' || 'AWS_AD', // required
  * };
  * const command = new DeleteUserCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteUserCommandInput - {@link DeleteUserCommandInput}
@@ -56,6 +59,8 @@ export interface DeleteUserCommandOutput extends DeleteUserResult, __MetadataBea
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link AppStreamServiceException}
+ * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
  */
 export class DeleteUserCommand extends $Command<

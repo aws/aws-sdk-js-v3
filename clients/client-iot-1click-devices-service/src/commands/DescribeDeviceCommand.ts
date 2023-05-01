@@ -41,14 +41,31 @@ export interface DescribeDeviceCommandOutput extends DescribeDeviceResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoT1ClickDevicesServiceClient, DescribeDeviceCommand } from "@aws-sdk/client-iot-1click-devices-service"; // ES Modules import
- * // const { IoT1ClickDevicesServiceClient, DescribeDeviceCommand } = require("@aws-sdk/client-iot-1click-devices-service"); // CommonJS import
+ * import { IoT1ClickDevicesServiceClient, DescribeDeviceCommand } from '@aws-sdk/client-iot-1click-devices-service'; // ES Modules import
+ * // const { IoT1ClickDevicesServiceClient, DescribeDeviceCommand } = require('@aws-sdk/client-iot-1click-devices-service'); // CommonJS import
  * const client = new IoT1ClickDevicesServiceClient(config);
  * const input = { // DescribeDeviceRequest
- *   DeviceId: "STRING_VALUE", // required
+ *   DeviceId: 'STRING_VALUE', // required
  * };
  * const command = new DescribeDeviceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeDeviceResponse
+ *   DeviceDescription: { // DeviceDescription
+ *     Arn: 'STRING_VALUE',
+ *     Attributes: { // DeviceAttributes
+ *       '<keys>': 'STRING_VALUE',
+ *     },
+ *     DeviceId: 'STRING_VALUE',
+ *     Enabled: true || false,
+ *     RemainingLife: Number('double'),
+ *     Type: 'STRING_VALUE',
+ *     Tags: { // __mapOf__string
+ *       '<keys>': 'STRING_VALUE',
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeDeviceCommandInput - {@link DescribeDeviceCommandInput}
@@ -63,6 +80,8 @@ export interface DescribeDeviceCommandOutput extends DescribeDeviceResponse, __M
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *
+ * @throws {@link IoT1ClickDevicesServiceServiceException}
+ * <p>Base exception class for all service exceptions from IoT1ClickDevicesService service.</p>
  *
  */
 export class DescribeDeviceCommand extends $Command<

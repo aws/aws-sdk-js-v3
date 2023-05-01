@@ -44,15 +44,31 @@ export interface ListOrganizationServiceAccessStatusCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { NetworkManagerClient, ListOrganizationServiceAccessStatusCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
- * // const { NetworkManagerClient, ListOrganizationServiceAccessStatusCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
+ * import { NetworkManagerClient, ListOrganizationServiceAccessStatusCommand } from '@aws-sdk/client-networkmanager'; // ES Modules import
+ * // const { NetworkManagerClient, ListOrganizationServiceAccessStatusCommand } = require('@aws-sdk/client-networkmanager'); // CommonJS import
  * const client = new NetworkManagerClient(config);
  * const input = { // ListOrganizationServiceAccessStatusRequest
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListOrganizationServiceAccessStatusCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListOrganizationServiceAccessStatusResponse
+ *   OrganizationStatus: { // OrganizationStatus
+ *     OrganizationId: 'STRING_VALUE',
+ *     OrganizationAwsServiceAccessStatus: 'STRING_VALUE',
+ *     SLRDeploymentStatus: 'STRING_VALUE',
+ *     AccountStatusList: [ // AccountStatusList
+ *       { // AccountStatus
+ *         AccountId: 'STRING_VALUE',
+ *         SLRDeploymentStatus: 'STRING_VALUE',
+ *       },
+ *     ],
+ *   },
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListOrganizationServiceAccessStatusCommandInput - {@link ListOrganizationServiceAccessStatusCommandInput}
@@ -61,6 +77,8 @@ export interface ListOrganizationServiceAccessStatusCommandOutput
  * @see {@link ListOrganizationServiceAccessStatusCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
  *
+ * @throws {@link NetworkManagerServiceException}
+ * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
  */
 export class ListOrganizationServiceAccessStatusCommand extends $Command<

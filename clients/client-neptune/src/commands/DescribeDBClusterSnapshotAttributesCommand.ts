@@ -53,14 +53,29 @@ export interface DescribeDBClusterSnapshotAttributesCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { NeptuneClient, DescribeDBClusterSnapshotAttributesCommand } from "@aws-sdk/client-neptune"; // ES Modules import
- * // const { NeptuneClient, DescribeDBClusterSnapshotAttributesCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
+ * import { NeptuneClient, DescribeDBClusterSnapshotAttributesCommand } from '@aws-sdk/client-neptune'; // ES Modules import
+ * // const { NeptuneClient, DescribeDBClusterSnapshotAttributesCommand } = require('@aws-sdk/client-neptune'); // CommonJS import
  * const client = new NeptuneClient(config);
  * const input = { // DescribeDBClusterSnapshotAttributesMessage
- *   DBClusterSnapshotIdentifier: "STRING_VALUE", // required
+ *   DBClusterSnapshotIdentifier: 'STRING_VALUE', // required
  * };
  * const command = new DescribeDBClusterSnapshotAttributesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeDBClusterSnapshotAttributesResult
+ *   DBClusterSnapshotAttributesResult: { // DBClusterSnapshotAttributesResult
+ *     DBClusterSnapshotIdentifier: 'STRING_VALUE',
+ *     DBClusterSnapshotAttributes: [ // DBClusterSnapshotAttributeList
+ *       { // DBClusterSnapshotAttribute
+ *         AttributeName: 'STRING_VALUE',
+ *         AttributeValues: [ // AttributeValueList
+ *           'STRING_VALUE',
+ *         ],
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeDBClusterSnapshotAttributesCommandInput - {@link DescribeDBClusterSnapshotAttributesCommandInput}
@@ -74,6 +89,8 @@ export interface DescribeDBClusterSnapshotAttributesCommandOutput
  *             <i>DBClusterSnapshotIdentifier</i> does not refer to an existing
  *       DB cluster snapshot.</p>
  *
+ * @throws {@link NeptuneServiceException}
+ * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
  */
 export class DescribeDBClusterSnapshotAttributesCommand extends $Command<

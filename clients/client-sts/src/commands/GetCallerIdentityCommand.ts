@@ -46,12 +46,19 @@ export interface GetCallerIdentityCommandOutput extends GetCallerIdentityRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { STSClient, GetCallerIdentityCommand } from "@aws-sdk/client-sts"; // ES Modules import
- * // const { STSClient, GetCallerIdentityCommand } = require("@aws-sdk/client-sts"); // CommonJS import
+ * import { STSClient, GetCallerIdentityCommand } from '@aws-sdk/client-sts'; // ES Modules import
+ * // const { STSClient, GetCallerIdentityCommand } = require('@aws-sdk/client-sts'); // CommonJS import
  * const client = new STSClient(config);
  * const input = {};
  * const command = new GetCallerIdentityCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetCallerIdentityResponse
+ *   UserId: 'STRING_VALUE',
+ *   Account: 'STRING_VALUE',
+ *   Arn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetCallerIdentityCommandInput - {@link GetCallerIdentityCommandInput}
@@ -60,6 +67,8 @@ export interface GetCallerIdentityCommandOutput extends GetCallerIdentityRespons
  * @see {@link GetCallerIdentityCommandOutput} for command's `response` shape.
  * @see {@link STSClientResolvedConfig | config} for STSClient's `config` shape.
  *
+ * @throws {@link STSServiceException}
+ * <p>Base exception class for all service exceptions from STS service.</p>
  *
  * @example To get details about a calling IAM user
  * ```javascript

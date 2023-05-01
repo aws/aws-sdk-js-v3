@@ -36,14 +36,21 @@ export interface GetDataProtectionPolicyCommandOutput extends GetDataProtectionP
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudWatchLogsClient, GetDataProtectionPolicyCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
- * // const { CloudWatchLogsClient, GetDataProtectionPolicyCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
+ * import { CloudWatchLogsClient, GetDataProtectionPolicyCommand } from '@aws-sdk/client-cloudwatch-logs'; // ES Modules import
+ * // const { CloudWatchLogsClient, GetDataProtectionPolicyCommand } = require('@aws-sdk/client-cloudwatch-logs'); // CommonJS import
  * const client = new CloudWatchLogsClient(config);
  * const input = { // GetDataProtectionPolicyRequest
- *   logGroupIdentifier: "STRING_VALUE", // required
+ *   logGroupIdentifier: 'STRING_VALUE', // required
  * };
  * const command = new GetDataProtectionPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetDataProtectionPolicyResponse
+ *   logGroupIdentifier: 'STRING_VALUE',
+ *   policyDocument: 'STRING_VALUE',
+ *   lastUpdatedTime: Number('long'),
+ * };
+ *
  * ```
  *
  * @param GetDataProtectionPolicyCommandInput - {@link GetDataProtectionPolicyCommandInput}
@@ -64,6 +71,8 @@ export interface GetDataProtectionPolicyCommandOutput extends GetDataProtectionP
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service cannot complete the request.</p>
  *
+ * @throws {@link CloudWatchLogsServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
  */
 export class GetDataProtectionPolicyCommand extends $Command<

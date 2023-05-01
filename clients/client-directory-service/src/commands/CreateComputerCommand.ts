@@ -40,23 +40,37 @@ export interface CreateComputerCommandOutput extends CreateComputerResult, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DirectoryServiceClient, CreateComputerCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
- * // const { DirectoryServiceClient, CreateComputerCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
+ * import { DirectoryServiceClient, CreateComputerCommand } from '@aws-sdk/client-directory-service'; // ES Modules import
+ * // const { DirectoryServiceClient, CreateComputerCommand } = require('@aws-sdk/client-directory-service'); // CommonJS import
  * const client = new DirectoryServiceClient(config);
  * const input = { // CreateComputerRequest
- *   DirectoryId: "STRING_VALUE", // required
- *   ComputerName: "STRING_VALUE", // required
- *   Password: "STRING_VALUE", // required
- *   OrganizationalUnitDistinguishedName: "STRING_VALUE",
+ *   DirectoryId: 'STRING_VALUE', // required
+ *   ComputerName: 'STRING_VALUE', // required
+ *   Password: 'STRING_VALUE', // required
+ *   OrganizationalUnitDistinguishedName: 'STRING_VALUE',
  *   ComputerAttributes: [ // Attributes
  *     { // Attribute
- *       Name: "STRING_VALUE",
- *       Value: "STRING_VALUE",
+ *       Name: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new CreateComputerCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateComputerResult
+ *   Computer: { // Computer
+ *     ComputerId: 'STRING_VALUE',
+ *     ComputerName: 'STRING_VALUE',
+ *     ComputerAttributes: [ // Attributes
+ *       { // Attribute
+ *         Name: 'STRING_VALUE',
+ *         Value: 'STRING_VALUE',
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateComputerCommandInput - {@link CreateComputerCommandInput}
@@ -89,6 +103,8 @@ export interface CreateComputerCommandOutput extends CreateComputerResult, __Met
  * @throws {@link UnsupportedOperationException} (client fault)
  *  <p>The operation is not supported.</p>
  *
+ * @throws {@link DirectoryServiceServiceException}
+ * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
  */
 export class CreateComputerCommand extends $Command<

@@ -40,14 +40,17 @@ export interface RegisterCrossAccountAccessRoleCommandOutput extends __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { InspectorClient, RegisterCrossAccountAccessRoleCommand } from "@aws-sdk/client-inspector"; // ES Modules import
- * // const { InspectorClient, RegisterCrossAccountAccessRoleCommand } = require("@aws-sdk/client-inspector"); // CommonJS import
+ * import { InspectorClient, RegisterCrossAccountAccessRoleCommand } from '@aws-sdk/client-inspector'; // ES Modules import
+ * // const { InspectorClient, RegisterCrossAccountAccessRoleCommand } = require('@aws-sdk/client-inspector'); // CommonJS import
  * const client = new InspectorClient(config);
  * const input = { // RegisterCrossAccountAccessRoleRequest
- *   roleArn: "STRING_VALUE", // required
+ *   roleArn: 'STRING_VALUE', // required
  * };
  * const command = new RegisterCrossAccountAccessRoleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param RegisterCrossAccountAccessRoleCommandInput - {@link RegisterCrossAccountAccessRoleCommandInput}
@@ -73,6 +76,8 @@ export interface RegisterCrossAccountAccessRoleCommandOutput extends __MetadataB
  * @throws {@link ServiceTemporarilyUnavailableException} (server fault)
  *  <p>The serice is temporary unavailable.</p>
  *
+ * @throws {@link InspectorServiceException}
+ * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
  * @example Register cross account access role
  * ```javascript

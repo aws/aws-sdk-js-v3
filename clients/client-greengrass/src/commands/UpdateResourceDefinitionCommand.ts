@@ -36,15 +36,18 @@ export interface UpdateResourceDefinitionCommandOutput extends UpdateResourceDef
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GreengrassClient, UpdateResourceDefinitionCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
- * // const { GreengrassClient, UpdateResourceDefinitionCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
+ * import { GreengrassClient, UpdateResourceDefinitionCommand } from '@aws-sdk/client-greengrass'; // ES Modules import
+ * // const { GreengrassClient, UpdateResourceDefinitionCommand } = require('@aws-sdk/client-greengrass'); // CommonJS import
  * const client = new GreengrassClient(config);
  * const input = { // UpdateResourceDefinitionRequest
- *   Name: "STRING_VALUE",
- *   ResourceDefinitionId: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE',
+ *   ResourceDefinitionId: 'STRING_VALUE', // required
  * };
  * const command = new UpdateResourceDefinitionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateResourceDefinitionCommandInput - {@link UpdateResourceDefinitionCommandInput}
@@ -56,6 +59,8 @@ export interface UpdateResourceDefinitionCommandOutput extends UpdateResourceDef
  * @throws {@link BadRequestException} (client fault)
  *  General error information.
  *
+ * @throws {@link GreengrassServiceException}
+ * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
  */
 export class UpdateResourceDefinitionCommand extends $Command<

@@ -54,19 +54,22 @@ export interface StartContactRecordingCommandOutput extends StartContactRecordin
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, StartContactRecordingCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, StartContactRecordingCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, StartContactRecordingCommand } from '@aws-sdk/client-connect'; // ES Modules import
+ * // const { ConnectClient, StartContactRecordingCommand } = require('@aws-sdk/client-connect'); // CommonJS import
  * const client = new ConnectClient(config);
  * const input = { // StartContactRecordingRequest
- *   InstanceId: "STRING_VALUE", // required
- *   ContactId: "STRING_VALUE", // required
- *   InitialContactId: "STRING_VALUE", // required
+ *   InstanceId: 'STRING_VALUE', // required
+ *   ContactId: 'STRING_VALUE', // required
+ *   InitialContactId: 'STRING_VALUE', // required
  *   VoiceRecordingConfiguration: { // VoiceRecordingConfiguration
- *     VoiceRecordingTrack: "FROM_AGENT" || "TO_AGENT" || "ALL",
+ *     VoiceRecordingTrack: 'FROM_AGENT' || 'TO_AGENT' || 'ALL',
  *   },
  * };
  * const command = new StartContactRecordingCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param StartContactRecordingCommandInput - {@link StartContactRecordingCommandInput}
@@ -87,6 +90,8 @@ export interface StartContactRecordingCommandOutput extends StartContactRecordin
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class StartContactRecordingCommand extends $Command<

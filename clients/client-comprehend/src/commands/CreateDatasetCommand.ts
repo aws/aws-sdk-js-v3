@@ -38,54 +38,59 @@ export interface CreateDatasetCommandOutput extends CreateDatasetResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ComprehendClient, CreateDatasetCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
- * // const { ComprehendClient, CreateDatasetCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
+ * import { ComprehendClient, CreateDatasetCommand } from '@aws-sdk/client-comprehend'; // ES Modules import
+ * // const { ComprehendClient, CreateDatasetCommand } = require('@aws-sdk/client-comprehend'); // CommonJS import
  * const client = new ComprehendClient(config);
  * const input = { // CreateDatasetRequest
- *   FlywheelArn: "STRING_VALUE", // required
- *   DatasetName: "STRING_VALUE", // required
- *   DatasetType: "TRAIN" || "TEST",
- *   Description: "STRING_VALUE",
+ *   FlywheelArn: 'STRING_VALUE', // required
+ *   DatasetName: 'STRING_VALUE', // required
+ *   DatasetType: 'TRAIN' || 'TEST',
+ *   Description: 'STRING_VALUE',
  *   InputDataConfig: { // DatasetInputDataConfig
  *     AugmentedManifests: [ // DatasetAugmentedManifestsList
  *       { // DatasetAugmentedManifestsListItem
  *         AttributeNames: [ // AttributeNamesList // required
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
- *         S3Uri: "STRING_VALUE", // required
- *         AnnotationDataS3Uri: "STRING_VALUE",
- *         SourceDocumentsS3Uri: "STRING_VALUE",
- *         DocumentType: "PLAIN_TEXT_DOCUMENT" || "SEMI_STRUCTURED_DOCUMENT",
+ *         S3Uri: 'STRING_VALUE', // required
+ *         AnnotationDataS3Uri: 'STRING_VALUE',
+ *         SourceDocumentsS3Uri: 'STRING_VALUE',
+ *         DocumentType: 'PLAIN_TEXT_DOCUMENT' || 'SEMI_STRUCTURED_DOCUMENT',
  *       },
  *     ],
- *     DataFormat: "COMPREHEND_CSV" || "AUGMENTED_MANIFEST",
+ *     DataFormat: 'COMPREHEND_CSV' || 'AUGMENTED_MANIFEST',
  *     DocumentClassifierInputDataConfig: { // DatasetDocumentClassifierInputDataConfig
- *       S3Uri: "STRING_VALUE", // required
- *       LabelDelimiter: "STRING_VALUE",
+ *       S3Uri: 'STRING_VALUE', // required
+ *       LabelDelimiter: 'STRING_VALUE',
  *     },
  *     EntityRecognizerInputDataConfig: { // DatasetEntityRecognizerInputDataConfig
  *       Annotations: { // DatasetEntityRecognizerAnnotations
- *         S3Uri: "STRING_VALUE", // required
+ *         S3Uri: 'STRING_VALUE', // required
  *       },
  *       Documents: { // DatasetEntityRecognizerDocuments
- *         S3Uri: "STRING_VALUE", // required
- *         InputFormat: "ONE_DOC_PER_FILE" || "ONE_DOC_PER_LINE",
+ *         S3Uri: 'STRING_VALUE', // required
+ *         InputFormat: 'ONE_DOC_PER_FILE' || 'ONE_DOC_PER_LINE',
  *       },
  *       EntityList: { // DatasetEntityRecognizerEntityList
- *         S3Uri: "STRING_VALUE", // required
+ *         S3Uri: 'STRING_VALUE', // required
  *       },
  *     },
  *   },
- *   ClientRequestToken: "STRING_VALUE",
+ *   ClientRequestToken: 'STRING_VALUE',
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new CreateDatasetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateDatasetResponse
+ *   DatasetArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateDatasetCommandInput - {@link CreateDatasetCommandInput}
@@ -119,6 +124,8 @@ export interface CreateDatasetCommandOutput extends CreateDatasetResponse, __Met
  *       resource). The maximum number of tags includes both existing tags and those included in your
  *       current request. </p>
  *
+ * @throws {@link ComprehendServiceException}
+ * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
  */
 export class CreateDatasetCommand extends $Command<

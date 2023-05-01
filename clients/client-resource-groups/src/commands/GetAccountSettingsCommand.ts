@@ -36,12 +36,21 @@ export interface GetAccountSettingsCommandOutput extends GetAccountSettingsOutpu
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ResourceGroupsClient, GetAccountSettingsCommand } from "@aws-sdk/client-resource-groups"; // ES Modules import
- * // const { ResourceGroupsClient, GetAccountSettingsCommand } = require("@aws-sdk/client-resource-groups"); // CommonJS import
+ * import { ResourceGroupsClient, GetAccountSettingsCommand } from '@aws-sdk/client-resource-groups'; // ES Modules import
+ * // const { ResourceGroupsClient, GetAccountSettingsCommand } = require('@aws-sdk/client-resource-groups'); // CommonJS import
  * const client = new ResourceGroupsClient(config);
  * const input = {};
  * const command = new GetAccountSettingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetAccountSettingsOutput
+ *   AccountSettings: { // AccountSettings
+ *     GroupLifecycleEventsDesiredStatus: 'ACTIVE' || 'INACTIVE',
+ *     GroupLifecycleEventsStatus: 'ACTIVE' || 'INACTIVE' || 'IN_PROGRESS' || 'ERROR',
+ *     GroupLifecycleEventsStatusMessage: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetAccountSettingsCommandInput - {@link GetAccountSettingsCommandInput}
@@ -66,6 +75,8 @@ export interface GetAccountSettingsCommandOutput extends GetAccountSettingsOutpu
  *  <p>You've exceeded throttling limits by making too many requests in a period of
  *             time.</p>
  *
+ * @throws {@link ResourceGroupsServiceException}
+ * <p>Base exception class for all service exceptions from ResourceGroups service.</p>
  *
  */
 export class GetAccountSettingsCommand extends $Command<

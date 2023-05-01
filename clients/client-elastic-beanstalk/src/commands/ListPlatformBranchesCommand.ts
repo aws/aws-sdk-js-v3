@@ -39,24 +39,40 @@ export interface ListPlatformBranchesCommandOutput extends ListPlatformBranchesR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElasticBeanstalkClient, ListPlatformBranchesCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
- * // const { ElasticBeanstalkClient, ListPlatformBranchesCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
+ * import { ElasticBeanstalkClient, ListPlatformBranchesCommand } from '@aws-sdk/client-elastic-beanstalk'; // ES Modules import
+ * // const { ElasticBeanstalkClient, ListPlatformBranchesCommand } = require('@aws-sdk/client-elastic-beanstalk'); // CommonJS import
  * const client = new ElasticBeanstalkClient(config);
  * const input = { // ListPlatformBranchesRequest
  *   Filters: [ // SearchFilters
  *     { // SearchFilter
- *       Attribute: "STRING_VALUE",
- *       Operator: "STRING_VALUE",
+ *       Attribute: 'STRING_VALUE',
+ *       Operator: 'STRING_VALUE',
  *       Values: [ // SearchFilterValues
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
- *   MaxRecords: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxRecords: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListPlatformBranchesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListPlatformBranchesResult
+ *   PlatformBranchSummaryList: [ // PlatformBranchSummaryList
+ *     { // PlatformBranchSummary
+ *       PlatformName: 'STRING_VALUE',
+ *       BranchName: 'STRING_VALUE',
+ *       LifecycleState: 'STRING_VALUE',
+ *       BranchOrder: Number('int'),
+ *       SupportedTierList: [ // SupportedTierList
+ *         'STRING_VALUE',
+ *       ],
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListPlatformBranchesCommandInput - {@link ListPlatformBranchesCommandInput}
@@ -65,6 +81,8 @@ export interface ListPlatformBranchesCommandOutput extends ListPlatformBranchesR
  * @see {@link ListPlatformBranchesCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
+ * @throws {@link ElasticBeanstalkServiceException}
+ * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
  */
 export class ListPlatformBranchesCommand extends $Command<

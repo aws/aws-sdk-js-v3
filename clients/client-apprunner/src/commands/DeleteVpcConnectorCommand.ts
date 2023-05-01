@@ -37,14 +37,32 @@ export interface DeleteVpcConnectorCommandOutput extends DeleteVpcConnectorRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppRunnerClient, DeleteVpcConnectorCommand } from "@aws-sdk/client-apprunner"; // ES Modules import
- * // const { AppRunnerClient, DeleteVpcConnectorCommand } = require("@aws-sdk/client-apprunner"); // CommonJS import
+ * import { AppRunnerClient, DeleteVpcConnectorCommand } from '@aws-sdk/client-apprunner'; // ES Modules import
+ * // const { AppRunnerClient, DeleteVpcConnectorCommand } = require('@aws-sdk/client-apprunner'); // CommonJS import
  * const client = new AppRunnerClient(config);
  * const input = { // DeleteVpcConnectorRequest
- *   VpcConnectorArn: "STRING_VALUE", // required
+ *   VpcConnectorArn: 'STRING_VALUE', // required
  * };
  * const command = new DeleteVpcConnectorCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteVpcConnectorResponse
+ *   VpcConnector: { // VpcConnector
+ *     VpcConnectorName: 'STRING_VALUE',
+ *     VpcConnectorArn: 'STRING_VALUE',
+ *     VpcConnectorRevision: Number('int'),
+ *     Subnets: [ // StringList
+ *       'STRING_VALUE',
+ *     ],
+ *     SecurityGroups: [
+ *       'STRING_VALUE',
+ *     ],
+ *     Status: 'ACTIVE' || 'INACTIVE',
+ *     CreatedAt: new Date('TIMESTAMP'),
+ *     DeletedAt: new Date('TIMESTAMP'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param DeleteVpcConnectorCommandInput - {@link DeleteVpcConnectorCommandInput}
@@ -62,6 +80,8 @@ export interface DeleteVpcConnectorCommandOutput extends DeleteVpcConnectorRespo
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>A resource doesn't exist for the specified Amazon Resource Name (ARN) in your Amazon Web Services account.</p>
  *
+ * @throws {@link AppRunnerServiceException}
+ * <p>Base exception class for all service exceptions from AppRunner service.</p>
  *
  */
 export class DeleteVpcConnectorCommand extends $Command<

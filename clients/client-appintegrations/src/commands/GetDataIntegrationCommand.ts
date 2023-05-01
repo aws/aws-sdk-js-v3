@@ -41,14 +41,49 @@ export interface GetDataIntegrationCommandOutput extends GetDataIntegrationRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppIntegrationsClient, GetDataIntegrationCommand } from "@aws-sdk/client-appintegrations"; // ES Modules import
- * // const { AppIntegrationsClient, GetDataIntegrationCommand } = require("@aws-sdk/client-appintegrations"); // CommonJS import
+ * import { AppIntegrationsClient, GetDataIntegrationCommand } from '@aws-sdk/client-appintegrations'; // ES Modules import
+ * // const { AppIntegrationsClient, GetDataIntegrationCommand } = require('@aws-sdk/client-appintegrations'); // CommonJS import
  * const client = new AppIntegrationsClient(config);
  * const input = { // GetDataIntegrationRequest
- *   Identifier: "STRING_VALUE", // required
+ *   Identifier: 'STRING_VALUE', // required
  * };
  * const command = new GetDataIntegrationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetDataIntegrationResponse
+ *   Arn: 'STRING_VALUE',
+ *   Id: 'STRING_VALUE',
+ *   Name: 'STRING_VALUE',
+ *   Description: 'STRING_VALUE',
+ *   KmsKey: 'STRING_VALUE',
+ *   SourceURI: 'STRING_VALUE',
+ *   ScheduleConfiguration: { // ScheduleConfiguration
+ *     FirstExecutionFrom: 'STRING_VALUE',
+ *     Object: 'STRING_VALUE',
+ *     ScheduleExpression: 'STRING_VALUE', // required
+ *   },
+ *   Tags: { // TagMap
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ *   FileConfiguration: { // FileConfiguration
+ *     Folders: [ // FolderList // required
+ *       'STRING_VALUE',
+ *     ],
+ *     Filters: { // FieldsMap
+ *       '<keys>': [ // FieldsList
+ *         'STRING_VALUE',
+ *       ],
+ *     },
+ *   },
+ *   ObjectConfiguration: { // ObjectConfiguration
+ *     '<keys>': {
+ *       '<keys>': [
+ *         'STRING_VALUE',
+ *       ],
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetDataIntegrationCommandInput - {@link GetDataIntegrationCommandInput}
@@ -72,6 +107,8 @@ export interface GetDataIntegrationCommandOutput extends GetDataIntegrationRespo
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link AppIntegrationsServiceException}
+ * <p>Base exception class for all service exceptions from AppIntegrations service.</p>
  *
  */
 export class GetDataIntegrationCommand extends $Command<

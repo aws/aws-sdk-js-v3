@@ -36,15 +36,26 @@ export interface ListInstancesCommandOutput extends ListInstancesResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSOAdminClient, ListInstancesCommand } from "@aws-sdk/client-sso-admin"; // ES Modules import
- * // const { SSOAdminClient, ListInstancesCommand } = require("@aws-sdk/client-sso-admin"); // CommonJS import
+ * import { SSOAdminClient, ListInstancesCommand } from '@aws-sdk/client-sso-admin'; // ES Modules import
+ * // const { SSOAdminClient, ListInstancesCommand } = require('@aws-sdk/client-sso-admin'); // CommonJS import
  * const client = new SSOAdminClient(config);
  * const input = { // ListInstancesRequest
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListInstancesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListInstancesResponse
+ *   Instances: [ // InstanceList
+ *     { // InstanceMetadata
+ *       InstanceArn: 'STRING_VALUE',
+ *       IdentityStoreId: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListInstancesCommandInput - {@link ListInstancesCommandInput}
@@ -67,6 +78,8 @@ export interface ListInstancesCommandOutput extends ListInstancesResponse, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>The request failed because it contains a syntax error.</p>
  *
+ * @throws {@link SSOAdminServiceException}
+ * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
  */
 export class ListInstancesCommand extends $Command<

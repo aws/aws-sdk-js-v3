@@ -45,16 +45,19 @@ export interface PutEmailIdentityMailFromAttributesCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SESv2Client, PutEmailIdentityMailFromAttributesCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
- * // const { SESv2Client, PutEmailIdentityMailFromAttributesCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
+ * import { SESv2Client, PutEmailIdentityMailFromAttributesCommand } from '@aws-sdk/client-sesv2'; // ES Modules import
+ * // const { SESv2Client, PutEmailIdentityMailFromAttributesCommand } = require('@aws-sdk/client-sesv2'); // CommonJS import
  * const client = new SESv2Client(config);
  * const input = { // PutEmailIdentityMailFromAttributesRequest
- *   EmailIdentity: "STRING_VALUE", // required
- *   MailFromDomain: "STRING_VALUE",
- *   BehaviorOnMxFailure: "USE_DEFAULT_VALUE" || "REJECT_MESSAGE",
+ *   EmailIdentity: 'STRING_VALUE', // required
+ *   MailFromDomain: 'STRING_VALUE',
+ *   BehaviorOnMxFailure: 'USE_DEFAULT_VALUE' || 'REJECT_MESSAGE',
  * };
  * const command = new PutEmailIdentityMailFromAttributesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutEmailIdentityMailFromAttributesCommandInput - {@link PutEmailIdentityMailFromAttributesCommandInput}
@@ -72,6 +75,8 @@ export interface PutEmailIdentityMailFromAttributesCommandOutput
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Too many requests have been made to the operation.</p>
  *
+ * @throws {@link SESv2ServiceException}
+ * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
  */
 export class PutEmailIdentityMailFromAttributesCommand extends $Command<

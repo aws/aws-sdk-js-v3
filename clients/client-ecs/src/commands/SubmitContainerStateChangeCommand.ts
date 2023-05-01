@@ -39,30 +39,35 @@ export interface SubmitContainerStateChangeCommandOutput extends SubmitContainer
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ECSClient, SubmitContainerStateChangeCommand } from "@aws-sdk/client-ecs"; // ES Modules import
- * // const { ECSClient, SubmitContainerStateChangeCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
+ * import { ECSClient, SubmitContainerStateChangeCommand } from '@aws-sdk/client-ecs'; // ES Modules import
+ * // const { ECSClient, SubmitContainerStateChangeCommand } = require('@aws-sdk/client-ecs'); // CommonJS import
  * const client = new ECSClient(config);
  * const input = { // SubmitContainerStateChangeRequest
- *   cluster: "STRING_VALUE",
- *   task: "STRING_VALUE",
- *   containerName: "STRING_VALUE",
- *   runtimeId: "STRING_VALUE",
- *   status: "STRING_VALUE",
- *   exitCode: Number("int"),
- *   reason: "STRING_VALUE",
+ *   cluster: 'STRING_VALUE',
+ *   task: 'STRING_VALUE',
+ *   containerName: 'STRING_VALUE',
+ *   runtimeId: 'STRING_VALUE',
+ *   status: 'STRING_VALUE',
+ *   exitCode: Number('int'),
+ *   reason: 'STRING_VALUE',
  *   networkBindings: [ // NetworkBindings
  *     { // NetworkBinding
- *       bindIP: "STRING_VALUE",
- *       containerPort: Number("int"),
- *       hostPort: Number("int"),
- *       protocol: "tcp" || "udp",
- *       containerPortRange: "STRING_VALUE",
- *       hostPortRange: "STRING_VALUE",
+ *       bindIP: 'STRING_VALUE',
+ *       containerPort: Number('int'),
+ *       hostPort: Number('int'),
+ *       protocol: 'tcp' || 'udp',
+ *       containerPortRange: 'STRING_VALUE',
+ *       hostPortRange: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new SubmitContainerStateChangeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SubmitContainerStateChangeResponse
+ *   acknowledgment: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param SubmitContainerStateChangeCommandInput - {@link SubmitContainerStateChangeCommandInput}
@@ -82,6 +87,8 @@ export interface SubmitContainerStateChangeCommandOutput extends SubmitContainer
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server issue.</p>
  *
+ * @throws {@link ECSServiceException}
+ * <p>Base exception class for all service exceptions from ECS service.</p>
  *
  */
 export class SubmitContainerStateChangeCommand extends $Command<

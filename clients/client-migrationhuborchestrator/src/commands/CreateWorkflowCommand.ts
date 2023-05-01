@@ -45,35 +45,65 @@ export interface CreateWorkflowCommandOutput extends CreateMigrationWorkflowResp
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MigrationHubOrchestratorClient, CreateWorkflowCommand } from "@aws-sdk/client-migrationhuborchestrator"; // ES Modules import
- * // const { MigrationHubOrchestratorClient, CreateWorkflowCommand } = require("@aws-sdk/client-migrationhuborchestrator"); // CommonJS import
+ * import { MigrationHubOrchestratorClient, CreateWorkflowCommand } from '@aws-sdk/client-migrationhuborchestrator'; // ES Modules import
+ * // const { MigrationHubOrchestratorClient, CreateWorkflowCommand } = require('@aws-sdk/client-migrationhuborchestrator'); // CommonJS import
  * const client = new MigrationHubOrchestratorClient(config);
  * const input = { // CreateMigrationWorkflowRequest
- *   name: "STRING_VALUE", // required
- *   description: "STRING_VALUE",
- *   templateId: "STRING_VALUE", // required
- *   applicationConfigurationId: "STRING_VALUE", // required
+ *   name: 'STRING_VALUE', // required
+ *   description: 'STRING_VALUE',
+ *   templateId: 'STRING_VALUE', // required
+ *   applicationConfigurationId: 'STRING_VALUE', // required
  *   inputParameters: { // StepInputParameters // required
- *     "<keys>": { // StepInput Union: only one key present
- *       integerValue: Number("int"),
- *       stringValue: "STRING_VALUE",
+ *     '<keys>': { // StepInput Union: only one key present
+ *       integerValue: Number('int'),
+ *       stringValue: 'STRING_VALUE',
  *       listOfStringsValue: [ // StringList
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *       mapOfStringValue: { // StringMap
- *         "<keys>": "STRING_VALUE",
+ *         '<keys>': 'STRING_VALUE',
  *       },
  *     },
  *   },
  *   stepTargets: [
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   tags: {
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateWorkflowCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateMigrationWorkflowResponse
+ *   id: 'STRING_VALUE',
+ *   arn: 'STRING_VALUE',
+ *   name: 'STRING_VALUE',
+ *   description: 'STRING_VALUE',
+ *   templateId: 'STRING_VALUE',
+ *   adsApplicationConfigurationId: 'STRING_VALUE',
+ *   workflowInputs: { // StepInputParameters
+ *     '<keys>': { // StepInput Union: only one key present
+ *       integerValue: Number('int'),
+ *       stringValue: 'STRING_VALUE',
+ *       listOfStringsValue: [ // StringList
+ *         'STRING_VALUE',
+ *       ],
+ *       mapOfStringValue: { // StringMap
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *     },
+ *   },
+ *   stepTargets: [
+ *     'STRING_VALUE',
+ *   ],
+ *   status: 'STRING_VALUE',
+ *   creationTime: new Date('TIMESTAMP'),
+ *   tags: {
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateWorkflowCommandInput - {@link CreateWorkflowCommandInput}
@@ -94,6 +124,8 @@ export interface CreateWorkflowCommandOutput extends CreateMigrationWorkflowResp
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link MigrationHubOrchestratorServiceException}
+ * <p>Base exception class for all service exceptions from MigrationHubOrchestrator service.</p>
  *
  */
 export class CreateWorkflowCommand extends $Command<

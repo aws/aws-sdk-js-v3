@@ -45,22 +45,54 @@ export interface ListRecommendationTemplatesCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ResiliencehubClient, ListRecommendationTemplatesCommand } from "@aws-sdk/client-resiliencehub"; // ES Modules import
- * // const { ResiliencehubClient, ListRecommendationTemplatesCommand } = require("@aws-sdk/client-resiliencehub"); // CommonJS import
+ * import { ResiliencehubClient, ListRecommendationTemplatesCommand } from '@aws-sdk/client-resiliencehub'; // ES Modules import
+ * // const { ResiliencehubClient, ListRecommendationTemplatesCommand } = require('@aws-sdk/client-resiliencehub'); // CommonJS import
  * const client = new ResiliencehubClient(config);
  * const input = { // ListRecommendationTemplatesRequest
- *   assessmentArn: "STRING_VALUE", // required
+ *   assessmentArn: 'STRING_VALUE', // required
  *   reverseOrder: true || false,
  *   status: [ // RecommendationTemplateStatusList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   recommendationTemplateArn: "STRING_VALUE",
- *   name: "STRING_VALUE",
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   recommendationTemplateArn: 'STRING_VALUE',
+ *   name: 'STRING_VALUE',
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new ListRecommendationTemplatesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListRecommendationTemplatesResponse
+ *   nextToken: 'STRING_VALUE',
+ *   recommendationTemplates: [ // RecommendationTemplateList
+ *     { // RecommendationTemplate
+ *       templatesLocation: { // S3Location
+ *         bucket: 'STRING_VALUE',
+ *         prefix: 'STRING_VALUE',
+ *       },
+ *       assessmentArn: 'STRING_VALUE', // required
+ *       appArn: 'STRING_VALUE',
+ *       recommendationIds: [ // RecommendationIdList
+ *         'STRING_VALUE',
+ *       ],
+ *       recommendationTypes: [ // RenderRecommendationTypeList // required
+ *         'STRING_VALUE',
+ *       ],
+ *       format: 'STRING_VALUE', // required
+ *       recommendationTemplateArn: 'STRING_VALUE', // required
+ *       message: 'STRING_VALUE',
+ *       status: 'STRING_VALUE', // required
+ *       name: 'STRING_VALUE', // required
+ *       startTime: new Date('TIMESTAMP'),
+ *       endTime: new Date('TIMESTAMP'),
+ *       tags: { // TagMap
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *       needsReplacements: true || false,
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListRecommendationTemplatesCommandInput - {@link ListRecommendationTemplatesCommandInput}
@@ -84,6 +116,8 @@ export interface ListRecommendationTemplatesCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>This exception occurs when a request is not valid.</p>
  *
+ * @throws {@link ResiliencehubServiceException}
+ * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
  */
 export class ListRecommendationTemplatesCommand extends $Command<

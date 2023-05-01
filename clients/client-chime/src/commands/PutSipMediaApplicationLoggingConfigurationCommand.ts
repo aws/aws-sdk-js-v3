@@ -45,17 +45,24 @@ export interface PutSipMediaApplicationLoggingConfigurationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeClient, PutSipMediaApplicationLoggingConfigurationCommand } from "@aws-sdk/client-chime"; // ES Modules import
- * // const { ChimeClient, PutSipMediaApplicationLoggingConfigurationCommand } = require("@aws-sdk/client-chime"); // CommonJS import
+ * import { ChimeClient, PutSipMediaApplicationLoggingConfigurationCommand } from '@aws-sdk/client-chime'; // ES Modules import
+ * // const { ChimeClient, PutSipMediaApplicationLoggingConfigurationCommand } = require('@aws-sdk/client-chime'); // CommonJS import
  * const client = new ChimeClient(config);
  * const input = { // PutSipMediaApplicationLoggingConfigurationRequest
- *   SipMediaApplicationId: "STRING_VALUE", // required
+ *   SipMediaApplicationId: 'STRING_VALUE', // required
  *   SipMediaApplicationLoggingConfiguration: { // SipMediaApplicationLoggingConfiguration
  *     EnableSipMediaApplicationMessageLogs: true || false,
  *   },
  * };
  * const command = new PutSipMediaApplicationLoggingConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutSipMediaApplicationLoggingConfigurationResponse
+ *   SipMediaApplicationLoggingConfiguration: { // SipMediaApplicationLoggingConfiguration
+ *     EnableSipMediaApplicationMessageLogs: true || false,
+ *   },
+ * };
+ *
  * ```
  *
  * @param PutSipMediaApplicationLoggingConfigurationCommandInput - {@link PutSipMediaApplicationLoggingConfigurationCommandInput}
@@ -85,6 +92,8 @@ export interface PutSipMediaApplicationLoggingConfigurationCommandOutput
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeServiceException}
+ * <p>Base exception class for all service exceptions from Chime service.</p>
  *
  */
 export class PutSipMediaApplicationLoggingConfigurationCommand extends $Command<

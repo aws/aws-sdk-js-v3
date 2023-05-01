@@ -49,17 +49,25 @@ export interface DeleteSessionCommandOutput extends DeleteSessionResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LexRuntimeV2Client, DeleteSessionCommand } from "@aws-sdk/client-lex-runtime-v2"; // ES Modules import
- * // const { LexRuntimeV2Client, DeleteSessionCommand } = require("@aws-sdk/client-lex-runtime-v2"); // CommonJS import
+ * import { LexRuntimeV2Client, DeleteSessionCommand } from '@aws-sdk/client-lex-runtime-v2'; // ES Modules import
+ * // const { LexRuntimeV2Client, DeleteSessionCommand } = require('@aws-sdk/client-lex-runtime-v2'); // CommonJS import
  * const client = new LexRuntimeV2Client(config);
  * const input = { // DeleteSessionRequest
- *   botId: "STRING_VALUE", // required
- *   botAliasId: "STRING_VALUE", // required
- *   localeId: "STRING_VALUE", // required
- *   sessionId: "STRING_VALUE", // required
+ *   botId: 'STRING_VALUE', // required
+ *   botAliasId: 'STRING_VALUE', // required
+ *   localeId: 'STRING_VALUE', // required
+ *   sessionId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteSessionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteSessionResponse
+ *   botId: 'STRING_VALUE',
+ *   botAliasId: 'STRING_VALUE',
+ *   localeId: 'STRING_VALUE',
+ *   sessionId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DeleteSessionCommandInput - {@link DeleteSessionCommandInput}
@@ -86,6 +94,8 @@ export interface DeleteSessionCommandOutput extends DeleteSessionResponse, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p></p>
  *
+ * @throws {@link LexRuntimeV2ServiceException}
+ * <p>Base exception class for all service exceptions from LexRuntimeV2 service.</p>
  *
  */
 export class DeleteSessionCommand extends $Command<

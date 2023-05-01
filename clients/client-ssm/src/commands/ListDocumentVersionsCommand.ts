@@ -36,16 +36,35 @@ export interface ListDocumentVersionsCommandOutput extends ListDocumentVersionsR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMClient, ListDocumentVersionsCommand } from "@aws-sdk/client-ssm"; // ES Modules import
- * // const { SSMClient, ListDocumentVersionsCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * import { SSMClient, ListDocumentVersionsCommand } from '@aws-sdk/client-ssm'; // ES Modules import
+ * // const { SSMClient, ListDocumentVersionsCommand } = require('@aws-sdk/client-ssm'); // CommonJS import
  * const client = new SSMClient(config);
  * const input = { // ListDocumentVersionsRequest
- *   Name: "STRING_VALUE", // required
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   Name: 'STRING_VALUE', // required
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListDocumentVersionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListDocumentVersionsResult
+ *   DocumentVersions: [ // DocumentVersionList
+ *     { // DocumentVersionInfo
+ *       Name: 'STRING_VALUE',
+ *       DisplayName: 'STRING_VALUE',
+ *       DocumentVersion: 'STRING_VALUE',
+ *       VersionName: 'STRING_VALUE',
+ *       CreatedDate: new Date('TIMESTAMP'),
+ *       IsDefaultVersion: true || false,
+ *       DocumentFormat: 'YAML' || 'JSON' || 'TEXT',
+ *       Status: 'Creating' || 'Active' || 'Updating' || 'Deleting' || 'Failed',
+ *       StatusInformation: 'STRING_VALUE',
+ *       ReviewStatus: 'APPROVED' || 'NOT_REVIEWED' || 'PENDING' || 'REJECTED',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListDocumentVersionsCommandInput - {@link ListDocumentVersionsCommandInput}
@@ -63,6 +82,8 @@ export interface ListDocumentVersionsCommandOutput extends ListDocumentVersionsR
  * @throws {@link InvalidNextToken} (client fault)
  *  <p>The specified token isn't valid.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class ListDocumentVersionsCommand extends $Command<

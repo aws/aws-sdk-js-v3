@@ -53,14 +53,32 @@ export interface DescribeVpcPeeringConnectionsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GameLiftClient, DescribeVpcPeeringConnectionsCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
- * // const { GameLiftClient, DescribeVpcPeeringConnectionsCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
+ * import { GameLiftClient, DescribeVpcPeeringConnectionsCommand } from '@aws-sdk/client-gamelift'; // ES Modules import
+ * // const { GameLiftClient, DescribeVpcPeeringConnectionsCommand } = require('@aws-sdk/client-gamelift'); // CommonJS import
  * const client = new GameLiftClient(config);
  * const input = { // DescribeVpcPeeringConnectionsInput
- *   FleetId: "STRING_VALUE",
+ *   FleetId: 'STRING_VALUE',
  * };
  * const command = new DescribeVpcPeeringConnectionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeVpcPeeringConnectionsOutput
+ *   VpcPeeringConnections: [ // VpcPeeringConnectionList
+ *     { // VpcPeeringConnection
+ *       FleetId: 'STRING_VALUE',
+ *       FleetArn: 'STRING_VALUE',
+ *       IpV4CidrBlock: 'STRING_VALUE',
+ *       VpcPeeringConnectionId: 'STRING_VALUE',
+ *       Status: { // VpcPeeringConnectionStatus
+ *         Code: 'STRING_VALUE',
+ *         Message: 'STRING_VALUE',
+ *       },
+ *       PeerVpcId: 'STRING_VALUE',
+ *       GameLiftVpcId: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeVpcPeeringConnectionsCommandInput - {@link DescribeVpcPeeringConnectionsCommandInput}
@@ -83,6 +101,8 @@ export interface DescribeVpcPeeringConnectionsCommandOutput
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client failed authentication. Clients should not retry such requests.</p>
  *
+ * @throws {@link GameLiftServiceException}
+ * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
  */
 export class DescribeVpcPeeringConnectionsCommand extends $Command<

@@ -36,18 +36,21 @@ export interface UpdateRoomCommandOutput extends UpdateRoomResponse, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AlexaForBusinessClient, UpdateRoomCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
- * // const { AlexaForBusinessClient, UpdateRoomCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
+ * import { AlexaForBusinessClient, UpdateRoomCommand } from '@aws-sdk/client-alexa-for-business'; // ES Modules import
+ * // const { AlexaForBusinessClient, UpdateRoomCommand } = require('@aws-sdk/client-alexa-for-business'); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
  * const input = { // UpdateRoomRequest
- *   RoomArn: "STRING_VALUE",
- *   RoomName: "STRING_VALUE",
- *   Description: "STRING_VALUE",
- *   ProviderCalendarId: "STRING_VALUE",
- *   ProfileArn: "STRING_VALUE",
+ *   RoomArn: 'STRING_VALUE',
+ *   RoomName: 'STRING_VALUE',
+ *   Description: 'STRING_VALUE',
+ *   ProviderCalendarId: 'STRING_VALUE',
+ *   ProfileArn: 'STRING_VALUE',
  * };
  * const command = new UpdateRoomCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateRoomCommandInput - {@link UpdateRoomCommandInput}
@@ -62,6 +65,8 @@ export interface UpdateRoomCommandOutput extends UpdateRoomResponse, __MetadataB
  * @throws {@link NotFoundException} (client fault)
  *  <p>The resource is not found.</p>
  *
+ * @throws {@link AlexaForBusinessServiceException}
+ * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  */
 export class UpdateRoomCommand extends $Command<

@@ -40,17 +40,20 @@ export interface UpdateFailbackReplicationConfigurationCommandOutput extends __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DrsClient, UpdateFailbackReplicationConfigurationCommand } from "@aws-sdk/client-drs"; // ES Modules import
- * // const { DrsClient, UpdateFailbackReplicationConfigurationCommand } = require("@aws-sdk/client-drs"); // CommonJS import
+ * import { DrsClient, UpdateFailbackReplicationConfigurationCommand } from '@aws-sdk/client-drs'; // ES Modules import
+ * // const { DrsClient, UpdateFailbackReplicationConfigurationCommand } = require('@aws-sdk/client-drs'); // CommonJS import
  * const client = new DrsClient(config);
  * const input = { // UpdateFailbackReplicationConfigurationRequest
- *   recoveryInstanceID: "STRING_VALUE", // required
- *   name: "STRING_VALUE",
- *   bandwidthThrottling: Number("long"),
+ *   recoveryInstanceID: 'STRING_VALUE', // required
+ *   name: 'STRING_VALUE',
+ *   bandwidthThrottling: Number('long'),
  *   usePrivateIP: true || false,
  * };
  * const command = new UpdateFailbackReplicationConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateFailbackReplicationConfigurationCommandInput - {@link UpdateFailbackReplicationConfigurationCommandInput}
@@ -74,6 +77,8 @@ export interface UpdateFailbackReplicationConfigurationCommandOutput extends __M
  * @throws {@link UninitializedAccountException} (client fault)
  *  <p>The account performing the request has not been initialized.</p>
  *
+ * @throws {@link DrsServiceException}
+ * <p>Base exception class for all service exceptions from Drs service.</p>
  *
  */
 export class UpdateFailbackReplicationConfigurationCommand extends $Command<

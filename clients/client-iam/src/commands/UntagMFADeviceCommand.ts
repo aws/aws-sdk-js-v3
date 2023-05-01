@@ -38,17 +38,20 @@ export interface UntagMFADeviceCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IAMClient, UntagMFADeviceCommand } from "@aws-sdk/client-iam"; // ES Modules import
- * // const { IAMClient, UntagMFADeviceCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * import { IAMClient, UntagMFADeviceCommand } from '@aws-sdk/client-iam'; // ES Modules import
+ * // const { IAMClient, UntagMFADeviceCommand } = require('@aws-sdk/client-iam'); // CommonJS import
  * const client = new IAMClient(config);
  * const input = { // UntagMFADeviceRequest
- *   SerialNumber: "STRING_VALUE", // required
+ *   SerialNumber: 'STRING_VALUE', // required
  *   TagKeys: [ // tagKeyListType // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new UntagMFADeviceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UntagMFADeviceCommandInput - {@link UntagMFADeviceCommandInput}
@@ -73,6 +76,8 @@ export interface UntagMFADeviceCommandOutput extends __MetadataBearer {}
  *  <p>The request processing has failed because of an unknown error, exception or
  *       failure.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  */
 export class UntagMFADeviceCommand extends $Command<

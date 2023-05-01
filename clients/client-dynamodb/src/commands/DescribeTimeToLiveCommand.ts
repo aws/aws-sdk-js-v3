@@ -36,14 +36,22 @@ export interface DescribeTimeToLiveCommandOutput extends DescribeTimeToLiveOutpu
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DynamoDBClient, DescribeTimeToLiveCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
- * // const { DynamoDBClient, DescribeTimeToLiveCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
+ * import { DynamoDBClient, DescribeTimeToLiveCommand } from '@aws-sdk/client-dynamodb'; // ES Modules import
+ * // const { DynamoDBClient, DescribeTimeToLiveCommand } = require('@aws-sdk/client-dynamodb'); // CommonJS import
  * const client = new DynamoDBClient(config);
  * const input = { // DescribeTimeToLiveInput
- *   TableName: "STRING_VALUE", // required
+ *   TableName: 'STRING_VALUE', // required
  * };
  * const command = new DescribeTimeToLiveCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeTimeToLiveOutput
+ *   TimeToLiveDescription: { // TimeToLiveDescription
+ *     TimeToLiveStatus: 'ENABLING' || 'DISABLING' || 'ENABLED' || 'DISABLED',
+ *     AttributeName: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeTimeToLiveCommandInput - {@link DescribeTimeToLiveCommandInput}
@@ -61,6 +69,8 @@ export interface DescribeTimeToLiveCommandOutput extends DescribeTimeToLiveOutpu
  *  <p>The operation tried to access a nonexistent table or index. The resource might not
  *             be specified correctly, or its status might not be <code>ACTIVE</code>.</p>
  *
+ * @throws {@link DynamoDBServiceException}
+ * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
  */
 export class DescribeTimeToLiveCommand extends $Command<

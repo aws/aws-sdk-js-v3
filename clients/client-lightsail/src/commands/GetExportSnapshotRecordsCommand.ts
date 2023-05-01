@@ -40,14 +40,59 @@ export interface GetExportSnapshotRecordsCommandOutput extends GetExportSnapshot
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LightsailClient, GetExportSnapshotRecordsCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
- * // const { LightsailClient, GetExportSnapshotRecordsCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
+ * import { LightsailClient, GetExportSnapshotRecordsCommand } from '@aws-sdk/client-lightsail'; // ES Modules import
+ * // const { LightsailClient, GetExportSnapshotRecordsCommand } = require('@aws-sdk/client-lightsail'); // CommonJS import
  * const client = new LightsailClient(config);
  * const input = { // GetExportSnapshotRecordsRequest
- *   pageToken: "STRING_VALUE",
+ *   pageToken: 'STRING_VALUE',
  * };
  * const command = new GetExportSnapshotRecordsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetExportSnapshotRecordsResult
+ *   exportSnapshotRecords: [ // ExportSnapshotRecordList
+ *     { // ExportSnapshotRecord
+ *       name: 'STRING_VALUE',
+ *       arn: 'STRING_VALUE',
+ *       createdAt: new Date('TIMESTAMP'),
+ *       location: { // ResourceLocation
+ *         availabilityZone: 'STRING_VALUE',
+ *         regionName: 'us-east-1' || 'us-east-2' || 'us-west-1' || 'us-west-2' || 'eu-west-1' || 'eu-west-2' || 'eu-west-3' || 'eu-central-1' || 'ca-central-1' || 'ap-south-1' || 'ap-southeast-1' || 'ap-southeast-2' || 'ap-northeast-1' || 'ap-northeast-2' || 'eu-north-1',
+ *       },
+ *       resourceType: 'ContainerService' || 'Instance' || 'StaticIp' || 'KeyPair' || 'InstanceSnapshot' || 'Domain' || 'PeeredVpc' || 'LoadBalancer' || 'LoadBalancerTlsCertificate' || 'Disk' || 'DiskSnapshot' || 'RelationalDatabase' || 'RelationalDatabaseSnapshot' || 'ExportSnapshotRecord' || 'CloudFormationStackRecord' || 'Alarm' || 'ContactMethod' || 'Distribution' || 'Certificate' || 'Bucket',
+ *       state: 'Started' || 'Succeeded' || 'Failed',
+ *       sourceInfo: { // ExportSnapshotRecordSourceInfo
+ *         resourceType: 'InstanceSnapshot' || 'DiskSnapshot',
+ *         createdAt: new Date('TIMESTAMP'),
+ *         name: 'STRING_VALUE',
+ *         arn: 'STRING_VALUE',
+ *         fromResourceName: 'STRING_VALUE',
+ *         fromResourceArn: 'STRING_VALUE',
+ *         instanceSnapshotInfo: { // InstanceSnapshotInfo
+ *           fromBundleId: 'STRING_VALUE',
+ *           fromBlueprintId: 'STRING_VALUE',
+ *           fromDiskInfo: [ // DiskInfoList
+ *             { // DiskInfo
+ *               name: 'STRING_VALUE',
+ *               path: 'STRING_VALUE',
+ *               sizeInGb: Number('int'),
+ *               isSystemDisk: true || false,
+ *             },
+ *           ],
+ *         },
+ *         diskSnapshotInfo: { // DiskSnapshotInfo
+ *           sizeInGb: Number('int'),
+ *         },
+ *       },
+ *       destinationInfo: { // DestinationInfo
+ *         id: 'STRING_VALUE',
+ *         service: 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ *   nextPageToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetExportSnapshotRecordsCommandInput - {@link GetExportSnapshotRecordsCommandInput}
@@ -86,6 +131,8 @@ export interface GetExportSnapshotRecordsCommandOutput extends GetExportSnapshot
  * @throws {@link UnauthenticatedException} (client fault)
  *  <p>Lightsail throws this exception when the user has not been authenticated.</p>
  *
+ * @throws {@link LightsailServiceException}
+ * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
  */
 export class GetExportSnapshotRecordsCommand extends $Command<

@@ -41,18 +41,29 @@ export interface BatchAssociateProjectAssetsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTSiteWiseClient, BatchAssociateProjectAssetsCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
- * // const { IoTSiteWiseClient, BatchAssociateProjectAssetsCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
+ * import { IoTSiteWiseClient, BatchAssociateProjectAssetsCommand } from '@aws-sdk/client-iotsitewise'; // ES Modules import
+ * // const { IoTSiteWiseClient, BatchAssociateProjectAssetsCommand } = require('@aws-sdk/client-iotsitewise'); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
  * const input = { // BatchAssociateProjectAssetsRequest
- *   projectId: "STRING_VALUE", // required
+ *   projectId: 'STRING_VALUE', // required
  *   assetIds: [ // IDs // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   clientToken: "STRING_VALUE",
+ *   clientToken: 'STRING_VALUE',
  * };
  * const command = new BatchAssociateProjectAssetsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BatchAssociateProjectAssetsResponse
+ *   errors: [ // BatchAssociateProjectAssetsErrors
+ *     { // AssetErrorDetails
+ *       assetId: 'STRING_VALUE', // required
+ *       code: 'INTERNAL_FAILURE', // required
+ *       message: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param BatchAssociateProjectAssetsCommandInput - {@link BatchAssociateProjectAssetsCommandInput}
@@ -83,6 +94,8 @@ export interface BatchAssociateProjectAssetsCommandOutput
  *       on.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
  *
+ * @throws {@link IoTSiteWiseServiceException}
+ * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
  */
 export class BatchAssociateProjectAssetsCommand extends $Command<

@@ -40,15 +40,18 @@ export interface DeleteIntegrationAssociationCommandOutput extends __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, DeleteIntegrationAssociationCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, DeleteIntegrationAssociationCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, DeleteIntegrationAssociationCommand } from '@aws-sdk/client-connect'; // ES Modules import
+ * // const { ConnectClient, DeleteIntegrationAssociationCommand } = require('@aws-sdk/client-connect'); // CommonJS import
  * const client = new ConnectClient(config);
  * const input = { // DeleteIntegrationAssociationRequest
- *   InstanceId: "STRING_VALUE", // required
- *   IntegrationAssociationId: "STRING_VALUE", // required
+ *   InstanceId: 'STRING_VALUE', // required
+ *   IntegrationAssociationId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteIntegrationAssociationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteIntegrationAssociationCommandInput - {@link DeleteIntegrationAssociationCommandInput}
@@ -69,6 +72,8 @@ export interface DeleteIntegrationAssociationCommandOutput extends __MetadataBea
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class DeleteIntegrationAssociationCommand extends $Command<

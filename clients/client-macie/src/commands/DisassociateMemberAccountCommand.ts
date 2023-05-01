@@ -37,14 +37,17 @@ export interface DisassociateMemberAccountCommandOutput extends __MetadataBearer
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MacieClient, DisassociateMemberAccountCommand } from "@aws-sdk/client-macie"; // ES Modules import
- * // const { MacieClient, DisassociateMemberAccountCommand } = require("@aws-sdk/client-macie"); // CommonJS import
+ * import { MacieClient, DisassociateMemberAccountCommand } from '@aws-sdk/client-macie'; // ES Modules import
+ * // const { MacieClient, DisassociateMemberAccountCommand } = require('@aws-sdk/client-macie'); // CommonJS import
  * const client = new MacieClient(config);
  * const input = { // DisassociateMemberAccountRequest
- *   memberAccountId: "STRING_VALUE", // required
+ *   memberAccountId: 'STRING_VALUE', // required
  * };
  * const command = new DisassociateMemberAccountCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DisassociateMemberAccountCommandInput - {@link DisassociateMemberAccountCommandInput}
@@ -60,6 +63,8 @@ export interface DisassociateMemberAccountCommandOutput extends __MetadataBearer
  *  <p>(Discontinued) The request was rejected because an invalid or out-of-range value was supplied for an
  *       input parameter.</p>
  *
+ * @throws {@link MacieServiceException}
+ * <p>Base exception class for all service exceptions from Macie service.</p>
  *
  */
 export class DisassociateMemberAccountCommand extends $Command<

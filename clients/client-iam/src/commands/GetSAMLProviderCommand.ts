@@ -40,14 +40,27 @@ export interface GetSAMLProviderCommandOutput extends GetSAMLProviderResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IAMClient, GetSAMLProviderCommand } from "@aws-sdk/client-iam"; // ES Modules import
- * // const { IAMClient, GetSAMLProviderCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * import { IAMClient, GetSAMLProviderCommand } from '@aws-sdk/client-iam'; // ES Modules import
+ * // const { IAMClient, GetSAMLProviderCommand } = require('@aws-sdk/client-iam'); // CommonJS import
  * const client = new IAMClient(config);
  * const input = { // GetSAMLProviderRequest
- *   SAMLProviderArn: "STRING_VALUE", // required
+ *   SAMLProviderArn: 'STRING_VALUE', // required
  * };
  * const command = new GetSAMLProviderCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetSAMLProviderResponse
+ *   SAMLMetadataDocument: 'STRING_VALUE',
+ *   CreateDate: new Date('TIMESTAMP'),
+ *   ValidUntil: new Date('TIMESTAMP'),
+ *   Tags: [ // tagListType
+ *     { // Tag
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetSAMLProviderCommandInput - {@link GetSAMLProviderCommandInput}
@@ -68,6 +81,8 @@ export interface GetSAMLProviderCommandOutput extends GetSAMLProviderResponse, _
  *  <p>The request processing has failed because of an unknown error, exception or
  *       failure.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  */
 export class GetSAMLProviderCommand extends $Command<

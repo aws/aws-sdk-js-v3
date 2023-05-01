@@ -37,15 +37,18 @@ export interface PutDataProtectionPolicyCommandOutput extends __MetadataBearer {
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SNSClient, PutDataProtectionPolicyCommand } from "@aws-sdk/client-sns"; // ES Modules import
- * // const { SNSClient, PutDataProtectionPolicyCommand } = require("@aws-sdk/client-sns"); // CommonJS import
+ * import { SNSClient, PutDataProtectionPolicyCommand } from '@aws-sdk/client-sns'; // ES Modules import
+ * // const { SNSClient, PutDataProtectionPolicyCommand } = require('@aws-sdk/client-sns'); // CommonJS import
  * const client = new SNSClient(config);
  * const input = { // PutDataProtectionPolicyInput
- *   ResourceArn: "STRING_VALUE", // required
- *   DataProtectionPolicy: "STRING_VALUE", // required
+ *   ResourceArn: 'STRING_VALUE', // required
+ *   DataProtectionPolicy: 'STRING_VALUE', // required
  * };
  * const command = new PutDataProtectionPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutDataProtectionPolicyCommandInput - {@link PutDataProtectionPolicyCommandInput}
@@ -71,6 +74,8 @@ export interface PutDataProtectionPolicyCommandOutput extends __MetadataBearer {
  * @throws {@link NotFoundException} (client fault)
  *  <p>Indicates that the requested resource does not exist.</p>
  *
+ * @throws {@link SNSServiceException}
+ * <p>Base exception class for all service exceptions from SNS service.</p>
  *
  */
 export class PutDataProtectionPolicyCommand extends $Command<

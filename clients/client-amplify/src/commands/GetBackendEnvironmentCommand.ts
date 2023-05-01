@@ -36,15 +36,27 @@ export interface GetBackendEnvironmentCommandOutput extends GetBackendEnvironmen
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AmplifyClient, GetBackendEnvironmentCommand } from "@aws-sdk/client-amplify"; // ES Modules import
- * // const { AmplifyClient, GetBackendEnvironmentCommand } = require("@aws-sdk/client-amplify"); // CommonJS import
+ * import { AmplifyClient, GetBackendEnvironmentCommand } from '@aws-sdk/client-amplify'; // ES Modules import
+ * // const { AmplifyClient, GetBackendEnvironmentCommand } = require('@aws-sdk/client-amplify'); // CommonJS import
  * const client = new AmplifyClient(config);
  * const input = { // GetBackendEnvironmentRequest
- *   appId: "STRING_VALUE", // required
- *   environmentName: "STRING_VALUE", // required
+ *   appId: 'STRING_VALUE', // required
+ *   environmentName: 'STRING_VALUE', // required
  * };
  * const command = new GetBackendEnvironmentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetBackendEnvironmentResult
+ *   backendEnvironment: { // BackendEnvironment
+ *     backendEnvironmentArn: 'STRING_VALUE', // required
+ *     environmentName: 'STRING_VALUE', // required
+ *     stackName: 'STRING_VALUE',
+ *     deploymentArtifacts: 'STRING_VALUE',
+ *     createTime: new Date('TIMESTAMP'), // required
+ *     updateTime: new Date('TIMESTAMP'), // required
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetBackendEnvironmentCommandInput - {@link GetBackendEnvironmentCommandInput}
@@ -65,6 +77,8 @@ export interface GetBackendEnvironmentCommandOutput extends GetBackendEnvironmen
  * @throws {@link UnauthorizedException} (client fault)
  *  <p> An operation failed due to a lack of access. </p>
  *
+ * @throws {@link AmplifyServiceException}
+ * <p>Base exception class for all service exceptions from Amplify service.</p>
  *
  */
 export class GetBackendEnvironmentCommand extends $Command<

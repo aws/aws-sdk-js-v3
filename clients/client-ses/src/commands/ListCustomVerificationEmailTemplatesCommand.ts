@@ -48,15 +48,29 @@ export interface ListCustomVerificationEmailTemplatesCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SESClient, ListCustomVerificationEmailTemplatesCommand } from "@aws-sdk/client-ses"; // ES Modules import
- * // const { SESClient, ListCustomVerificationEmailTemplatesCommand } = require("@aws-sdk/client-ses"); // CommonJS import
+ * import { SESClient, ListCustomVerificationEmailTemplatesCommand } from '@aws-sdk/client-ses'; // ES Modules import
+ * // const { SESClient, ListCustomVerificationEmailTemplatesCommand } = require('@aws-sdk/client-ses'); // CommonJS import
  * const client = new SESClient(config);
  * const input = { // ListCustomVerificationEmailTemplatesRequest
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListCustomVerificationEmailTemplatesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListCustomVerificationEmailTemplatesResponse
+ *   CustomVerificationEmailTemplates: [ // CustomVerificationEmailTemplates
+ *     { // CustomVerificationEmailTemplate
+ *       TemplateName: 'STRING_VALUE',
+ *       FromEmailAddress: 'STRING_VALUE',
+ *       TemplateSubject: 'STRING_VALUE',
+ *       SuccessRedirectionURL: 'STRING_VALUE',
+ *       FailureRedirectionURL: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListCustomVerificationEmailTemplatesCommandInput - {@link ListCustomVerificationEmailTemplatesCommandInput}
@@ -65,6 +79,8 @@ export interface ListCustomVerificationEmailTemplatesCommandOutput
  * @see {@link ListCustomVerificationEmailTemplatesCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
+ * @throws {@link SESServiceException}
+ * <p>Base exception class for all service exceptions from SES service.</p>
  *
  */
 export class ListCustomVerificationEmailTemplatesCommand extends $Command<

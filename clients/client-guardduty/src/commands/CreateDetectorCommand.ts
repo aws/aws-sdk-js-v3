@@ -42,13 +42,13 @@ export interface CreateDetectorCommandOutput extends CreateDetectorResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GuardDutyClient, CreateDetectorCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
- * // const { GuardDutyClient, CreateDetectorCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
+ * import { GuardDutyClient, CreateDetectorCommand } from '@aws-sdk/client-guardduty'; // ES Modules import
+ * // const { GuardDutyClient, CreateDetectorCommand } = require('@aws-sdk/client-guardduty'); // CommonJS import
  * const client = new GuardDutyClient(config);
  * const input = { // CreateDetectorRequest
  *   Enable: true || false, // required
- *   ClientToken: "STRING_VALUE",
- *   FindingPublishingFrequency: "FIFTEEN_MINUTES" || "ONE_HOUR" || "SIX_HOURS",
+ *   ClientToken: 'STRING_VALUE',
+ *   FindingPublishingFrequency: 'FIFTEEN_MINUTES' || 'ONE_HOUR' || 'SIX_HOURS',
  *   DataSources: { // DataSourceConfigurations
  *     S3Logs: { // S3LogsConfiguration
  *       Enable: true || false, // required
@@ -65,16 +65,16 @@ export interface CreateDetectorCommandOutput extends CreateDetectorResponse, __M
  *     },
  *   },
  *   Tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  *   Features: [ // DetectorFeatureConfigurations
  *     { // DetectorFeatureConfiguration
- *       Name: "S3_DATA_EVENTS" || "EKS_AUDIT_LOGS" || "EBS_MALWARE_PROTECTION" || "RDS_LOGIN_EVENTS" || "EKS_RUNTIME_MONITORING" || "LAMBDA_NETWORK_LOGS",
- *       Status: "ENABLED" || "DISABLED",
+ *       Name: 'S3_DATA_EVENTS' || 'EKS_AUDIT_LOGS' || 'EBS_MALWARE_PROTECTION' || 'RDS_LOGIN_EVENTS' || 'EKS_RUNTIME_MONITORING' || 'LAMBDA_NETWORK_LOGS',
+ *       Status: 'ENABLED' || 'DISABLED',
  *       AdditionalConfiguration: [ // DetectorAdditionalConfigurations
  *         { // DetectorAdditionalConfiguration
- *           Name: "EKS_ADDON_MANAGEMENT",
- *           Status: "ENABLED" || "DISABLED",
+ *           Name: 'EKS_ADDON_MANAGEMENT',
+ *           Status: 'ENABLED' || 'DISABLED',
  *         },
  *       ],
  *     },
@@ -82,6 +82,22 @@ export interface CreateDetectorCommandOutput extends CreateDetectorResponse, __M
  * };
  * const command = new CreateDetectorCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateDetectorResponse
+ *   DetectorId: 'STRING_VALUE',
+ *   UnprocessedDataSources: { // UnprocessedDataSourcesResult
+ *     MalwareProtection: { // MalwareProtectionConfigurationResult
+ *       ScanEc2InstanceWithFindings: { // ScanEc2InstanceWithFindingsResult
+ *         EbsVolumes: { // EbsVolumesResult
+ *           Status: 'ENABLED' || 'DISABLED',
+ *           Reason: 'STRING_VALUE',
+ *         },
+ *       },
+ *       ServiceRole: 'STRING_VALUE',
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateDetectorCommandInput - {@link CreateDetectorCommandInput}
@@ -96,6 +112,8 @@ export interface CreateDetectorCommandOutput extends CreateDetectorResponse, __M
  * @throws {@link InternalServerErrorException} (server fault)
  *  <p>An internal server error exception object.</p>
  *
+ * @throws {@link GuardDutyServiceException}
+ * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
  */
 export class CreateDetectorCommand extends $Command<

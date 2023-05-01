@@ -46,17 +46,35 @@ export interface DescribeReservedNodeExchangeStatusCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RedshiftClient, DescribeReservedNodeExchangeStatusCommand } from "@aws-sdk/client-redshift"; // ES Modules import
- * // const { RedshiftClient, DescribeReservedNodeExchangeStatusCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * import { RedshiftClient, DescribeReservedNodeExchangeStatusCommand } from '@aws-sdk/client-redshift'; // ES Modules import
+ * // const { RedshiftClient, DescribeReservedNodeExchangeStatusCommand } = require('@aws-sdk/client-redshift'); // CommonJS import
  * const client = new RedshiftClient(config);
  * const input = { // DescribeReservedNodeExchangeStatusInputMessage
- *   ReservedNodeId: "STRING_VALUE",
- *   ReservedNodeExchangeRequestId: "STRING_VALUE",
- *   MaxRecords: Number("int"),
- *   Marker: "STRING_VALUE",
+ *   ReservedNodeId: 'STRING_VALUE',
+ *   ReservedNodeExchangeRequestId: 'STRING_VALUE',
+ *   MaxRecords: Number('int'),
+ *   Marker: 'STRING_VALUE',
  * };
  * const command = new DescribeReservedNodeExchangeStatusCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeReservedNodeExchangeStatusOutputMessage
+ *   ReservedNodeExchangeStatusDetails: [ // ReservedNodeExchangeStatusList
+ *     { // ReservedNodeExchangeStatus
+ *       ReservedNodeExchangeRequestId: 'STRING_VALUE',
+ *       Status: 'REQUESTED' || 'PENDING' || 'IN_PROGRESS' || 'RETRYING' || 'SUCCEEDED' || 'FAILED',
+ *       RequestTime: new Date('TIMESTAMP'),
+ *       SourceReservedNodeId: 'STRING_VALUE',
+ *       SourceReservedNodeType: 'STRING_VALUE',
+ *       SourceReservedNodeCount: Number('int'),
+ *       TargetReservedNodeOfferingId: 'STRING_VALUE',
+ *       TargetReservedNodeType: 'STRING_VALUE',
+ *       TargetReservedNodeCount: Number('int'),
+ *     },
+ *   ],
+ *   Marker: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeReservedNodeExchangeStatusCommandInput - {@link DescribeReservedNodeExchangeStatusCommandInput}
@@ -74,6 +92,8 @@ export interface DescribeReservedNodeExchangeStatusCommandOutput
  * @throws {@link UnsupportedOperationFault} (client fault)
  *  <p>The requested operation isn't supported.</p>
  *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class DescribeReservedNodeExchangeStatusCommand extends $Command<

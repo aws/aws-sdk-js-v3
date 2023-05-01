@@ -39,14 +39,19 @@ export interface ReverseReplicationCommandOutput extends ReverseReplicationRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DrsClient, ReverseReplicationCommand } from "@aws-sdk/client-drs"; // ES Modules import
- * // const { DrsClient, ReverseReplicationCommand } = require("@aws-sdk/client-drs"); // CommonJS import
+ * import { DrsClient, ReverseReplicationCommand } from '@aws-sdk/client-drs'; // ES Modules import
+ * // const { DrsClient, ReverseReplicationCommand } = require('@aws-sdk/client-drs'); // CommonJS import
  * const client = new DrsClient(config);
  * const input = { // ReverseReplicationRequest
- *   recoveryInstanceID: "STRING_VALUE", // required
+ *   recoveryInstanceID: 'STRING_VALUE', // required
  * };
  * const command = new ReverseReplicationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ReverseReplicationResponse
+ *   reversedDirectionSourceServerArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ReverseReplicationCommandInput - {@link ReverseReplicationCommandInput}
@@ -76,6 +81,8 @@ export interface ReverseReplicationCommandOutput extends ReverseReplicationRespo
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by the AWS service.</p>
  *
+ * @throws {@link DrsServiceException}
+ * <p>Base exception class for all service exceptions from Drs service.</p>
  *
  */
 export class ReverseReplicationCommand extends $Command<

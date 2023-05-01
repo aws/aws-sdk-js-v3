@@ -48,15 +48,23 @@ export interface GetRateBasedRuleManagedKeysCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WAFRegionalClient, GetRateBasedRuleManagedKeysCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
- * // const { WAFRegionalClient, GetRateBasedRuleManagedKeysCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import
+ * import { WAFRegionalClient, GetRateBasedRuleManagedKeysCommand } from '@aws-sdk/client-waf-regional'; // ES Modules import
+ * // const { WAFRegionalClient, GetRateBasedRuleManagedKeysCommand } = require('@aws-sdk/client-waf-regional'); // CommonJS import
  * const client = new WAFRegionalClient(config);
  * const input = { // GetRateBasedRuleManagedKeysRequest
- *   RuleId: "STRING_VALUE", // required
- *   NextMarker: "STRING_VALUE",
+ *   RuleId: 'STRING_VALUE', // required
+ *   NextMarker: 'STRING_VALUE',
  * };
  * const command = new GetRateBasedRuleManagedKeysCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetRateBasedRuleManagedKeysResponse
+ *   ManagedKeys: [ // ManagedKeys
+ *     'STRING_VALUE',
+ *   ],
+ *   NextMarker: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetRateBasedRuleManagedKeysCommandInput - {@link GetRateBasedRuleManagedKeysCommandInput}
@@ -114,6 +122,8 @@ export interface GetRateBasedRuleManagedKeysCommandOutput
  * @throws {@link WAFNonexistentItemException} (client fault)
  *  <p>The operation failed because the referenced object doesn't exist.</p>
  *
+ * @throws {@link WAFRegionalServiceException}
+ * <p>Base exception class for all service exceptions from WAFRegional service.</p>
  *
  */
 export class GetRateBasedRuleManagedKeysCommand extends $Command<

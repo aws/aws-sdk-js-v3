@@ -37,17 +37,28 @@ export interface ListAttachedPoliciesCommandOutput extends ListAttachedPoliciesR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTClient, ListAttachedPoliciesCommand } from "@aws-sdk/client-iot"; // ES Modules import
- * // const { IoTClient, ListAttachedPoliciesCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * import { IoTClient, ListAttachedPoliciesCommand } from '@aws-sdk/client-iot'; // ES Modules import
+ * // const { IoTClient, ListAttachedPoliciesCommand } = require('@aws-sdk/client-iot'); // CommonJS import
  * const client = new IoTClient(config);
  * const input = { // ListAttachedPoliciesRequest
- *   target: "STRING_VALUE", // required
+ *   target: 'STRING_VALUE', // required
  *   recursive: true || false,
- *   marker: "STRING_VALUE",
- *   pageSize: Number("int"),
+ *   marker: 'STRING_VALUE',
+ *   pageSize: Number('int'),
  * };
  * const command = new ListAttachedPoliciesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListAttachedPoliciesResponse
+ *   policies: [ // Policies
+ *     { // Policy
+ *       policyName: 'STRING_VALUE',
+ *       policyArn: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   nextMarker: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListAttachedPoliciesCommandInput - {@link ListAttachedPoliciesCommandInput}
@@ -77,6 +88,8 @@ export interface ListAttachedPoliciesCommandOutput extends ListAttachedPoliciesR
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this operation.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class ListAttachedPoliciesCommand extends $Command<

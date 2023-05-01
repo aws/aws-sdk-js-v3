@@ -36,17 +36,25 @@ export interface UpdateArchiveCommandOutput extends UpdateArchiveResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EventBridgeClient, UpdateArchiveCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
- * // const { EventBridgeClient, UpdateArchiveCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
+ * import { EventBridgeClient, UpdateArchiveCommand } from '@aws-sdk/client-eventbridge'; // ES Modules import
+ * // const { EventBridgeClient, UpdateArchiveCommand } = require('@aws-sdk/client-eventbridge'); // CommonJS import
  * const client = new EventBridgeClient(config);
  * const input = { // UpdateArchiveRequest
- *   ArchiveName: "STRING_VALUE", // required
- *   Description: "STRING_VALUE",
- *   EventPattern: "STRING_VALUE",
- *   RetentionDays: Number("int"),
+ *   ArchiveName: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE',
+ *   EventPattern: 'STRING_VALUE',
+ *   RetentionDays: Number('int'),
  * };
  * const command = new UpdateArchiveCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateArchiveResponse
+ *   ArchiveArn: 'STRING_VALUE',
+ *   State: 'ENABLED' || 'DISABLED' || 'CREATING' || 'UPDATING' || 'CREATE_FAILED' || 'UPDATE_FAILED',
+ *   StateReason: 'STRING_VALUE',
+ *   CreationTime: new Date('TIMESTAMP'),
+ * };
+ *
  * ```
  *
  * @param UpdateArchiveCommandInput - {@link UpdateArchiveCommandInput}
@@ -71,6 +79,8 @@ export interface UpdateArchiveCommandOutput extends UpdateArchiveResponse, __Met
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>An entity that you specified does not exist.</p>
  *
+ * @throws {@link EventBridgeServiceException}
+ * <p>Base exception class for all service exceptions from EventBridge service.</p>
  *
  */
 export class UpdateArchiveCommand extends $Command<

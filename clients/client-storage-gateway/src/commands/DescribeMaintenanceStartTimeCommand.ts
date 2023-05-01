@@ -42,14 +42,24 @@ export interface DescribeMaintenanceStartTimeCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { StorageGatewayClient, DescribeMaintenanceStartTimeCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
- * // const { StorageGatewayClient, DescribeMaintenanceStartTimeCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
+ * import { StorageGatewayClient, DescribeMaintenanceStartTimeCommand } from '@aws-sdk/client-storage-gateway'; // ES Modules import
+ * // const { StorageGatewayClient, DescribeMaintenanceStartTimeCommand } = require('@aws-sdk/client-storage-gateway'); // CommonJS import
  * const client = new StorageGatewayClient(config);
  * const input = { // DescribeMaintenanceStartTimeInput
- *   GatewayARN: "STRING_VALUE", // required
+ *   GatewayARN: 'STRING_VALUE', // required
  * };
  * const command = new DescribeMaintenanceStartTimeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeMaintenanceStartTimeOutput
+ *   GatewayARN: 'STRING_VALUE',
+ *   HourOfDay: Number('int'),
+ *   MinuteOfHour: Number('int'),
+ *   DayOfWeek: Number('int'),
+ *   DayOfMonth: Number('int'),
+ *   Timezone: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeMaintenanceStartTimeCommandInput - {@link DescribeMaintenanceStartTimeCommandInput}
@@ -66,6 +76,8 @@ export interface DescribeMaintenanceStartTimeCommandOutput
  *  <p>An exception occurred because an invalid gateway request was issued to the service. For
  *          more information, see the error and message fields.</p>
  *
+ * @throws {@link StorageGatewayServiceException}
+ * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
  * @example To describe gateway's maintenance start time
  * ```javascript

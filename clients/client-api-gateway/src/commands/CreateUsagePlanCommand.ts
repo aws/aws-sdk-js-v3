@@ -36,39 +36,71 @@ export interface CreateUsagePlanCommandOutput extends UsagePlan, __MetadataBeare
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { APIGatewayClient, CreateUsagePlanCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
- * // const { APIGatewayClient, CreateUsagePlanCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
+ * import { APIGatewayClient, CreateUsagePlanCommand } from '@aws-sdk/client-api-gateway'; // ES Modules import
+ * // const { APIGatewayClient, CreateUsagePlanCommand } = require('@aws-sdk/client-api-gateway'); // CommonJS import
  * const client = new APIGatewayClient(config);
  * const input = { // CreateUsagePlanRequest
- *   name: "STRING_VALUE", // required
- *   description: "STRING_VALUE",
+ *   name: 'STRING_VALUE', // required
+ *   description: 'STRING_VALUE',
  *   apiStages: [ // ListOfApiStage
  *     { // ApiStage
- *       apiId: "STRING_VALUE",
- *       stage: "STRING_VALUE",
+ *       apiId: 'STRING_VALUE',
+ *       stage: 'STRING_VALUE',
  *       throttle: { // MapOfApiStageThrottleSettings
- *         "<keys>": { // ThrottleSettings
- *           burstLimit: Number("int"),
- *           rateLimit: Number("double"),
+ *         '<keys>': { // ThrottleSettings
+ *           burstLimit: Number('int'),
+ *           rateLimit: Number('double'),
  *         },
  *       },
  *     },
  *   ],
  *   throttle: {
- *     burstLimit: Number("int"),
- *     rateLimit: Number("double"),
+ *     burstLimit: Number('int'),
+ *     rateLimit: Number('double'),
  *   },
  *   quota: { // QuotaSettings
- *     limit: Number("int"),
- *     offset: Number("int"),
- *     period: "DAY" || "WEEK" || "MONTH",
+ *     limit: Number('int'),
+ *     offset: Number('int'),
+ *     period: 'DAY' || 'WEEK' || 'MONTH',
  *   },
  *   tags: { // MapOfStringToString
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateUsagePlanCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UsagePlan
+ *   id: 'STRING_VALUE',
+ *   name: 'STRING_VALUE',
+ *   description: 'STRING_VALUE',
+ *   apiStages: [ // ListOfApiStage
+ *     { // ApiStage
+ *       apiId: 'STRING_VALUE',
+ *       stage: 'STRING_VALUE',
+ *       throttle: { // MapOfApiStageThrottleSettings
+ *         '<keys>': { // ThrottleSettings
+ *           burstLimit: Number('int'),
+ *           rateLimit: Number('double'),
+ *         },
+ *       },
+ *     },
+ *   ],
+ *   throttle: {
+ *     burstLimit: Number('int'),
+ *     rateLimit: Number('double'),
+ *   },
+ *   quota: { // QuotaSettings
+ *     limit: Number('int'),
+ *     offset: Number('int'),
+ *     period: 'DAY' || 'WEEK' || 'MONTH',
+ *   },
+ *   productCode: 'STRING_VALUE',
+ *   tags: { // MapOfStringToString
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateUsagePlanCommandInput - {@link CreateUsagePlanCommandInput}
@@ -95,6 +127,8 @@ export interface CreateUsagePlanCommandOutput extends UsagePlan, __MetadataBeare
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The request is denied because the caller has insufficient permissions.</p>
  *
+ * @throws {@link APIGatewayServiceException}
+ * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
  */
 export class CreateUsagePlanCommand extends $Command<

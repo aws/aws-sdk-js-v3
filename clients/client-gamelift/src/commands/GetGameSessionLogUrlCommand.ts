@@ -46,14 +46,19 @@ export interface GetGameSessionLogUrlCommandOutput extends GetGameSessionLogUrlO
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GameLiftClient, GetGameSessionLogUrlCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
- * // const { GameLiftClient, GetGameSessionLogUrlCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
+ * import { GameLiftClient, GetGameSessionLogUrlCommand } from '@aws-sdk/client-gamelift'; // ES Modules import
+ * // const { GameLiftClient, GetGameSessionLogUrlCommand } = require('@aws-sdk/client-gamelift'); // CommonJS import
  * const client = new GameLiftClient(config);
  * const input = { // GetGameSessionLogUrlInput
- *   GameSessionId: "STRING_VALUE", // required
+ *   GameSessionId: 'STRING_VALUE', // required
  * };
  * const command = new GetGameSessionLogUrlCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetGameSessionLogUrlOutput
+ *   PreSignedUrl: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetGameSessionLogUrlCommandInput - {@link GetGameSessionLogUrlCommandInput}
@@ -76,6 +81,8 @@ export interface GetGameSessionLogUrlCommandOutput extends GetGameSessionLogUrlO
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client failed authentication. Clients should not retry such requests.</p>
  *
+ * @throws {@link GameLiftServiceException}
+ * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
  */
 export class GetGameSessionLogUrlCommand extends $Command<

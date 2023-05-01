@@ -36,28 +36,34 @@ export interface CreateServiceProfileCommandOutput extends CreateServiceProfileR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTWirelessClient, CreateServiceProfileCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
- * // const { IoTWirelessClient, CreateServiceProfileCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
+ * import { IoTWirelessClient, CreateServiceProfileCommand } from '@aws-sdk/client-iot-wireless'; // ES Modules import
+ * // const { IoTWirelessClient, CreateServiceProfileCommand } = require('@aws-sdk/client-iot-wireless'); // CommonJS import
  * const client = new IoTWirelessClient(config);
  * const input = { // CreateServiceProfileRequest
- *   Name: "STRING_VALUE",
+ *   Name: 'STRING_VALUE',
  *   LoRaWAN: { // LoRaWANServiceProfile
  *     AddGwMetadata: true || false,
- *     DrMin: Number("int"),
- *     DrMax: Number("int"),
+ *     DrMin: Number('int'),
+ *     DrMax: Number('int'),
  *     PrAllowed: true || false,
  *     RaAllowed: true || false,
  *   },
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
- *   ClientRequestToken: "STRING_VALUE",
+ *   ClientRequestToken: 'STRING_VALUE',
  * };
  * const command = new CreateServiceProfileCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateServiceProfileResponse
+ *   Arn: 'STRING_VALUE',
+ *   Id: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateServiceProfileCommandInput - {@link CreateServiceProfileCommandInput}
@@ -81,6 +87,8 @@ export interface CreateServiceProfileCommandOutput extends CreateServiceProfileR
  * @throws {@link ValidationException} (client fault)
  *  <p>The input did not meet the specified constraints.</p>
  *
+ * @throws {@link IoTWirelessServiceException}
+ * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
  */
 export class CreateServiceProfileCommand extends $Command<

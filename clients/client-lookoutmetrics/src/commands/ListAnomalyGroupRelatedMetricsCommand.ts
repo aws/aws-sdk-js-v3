@@ -42,18 +42,31 @@ export interface ListAnomalyGroupRelatedMetricsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LookoutMetricsClient, ListAnomalyGroupRelatedMetricsCommand } from "@aws-sdk/client-lookoutmetrics"; // ES Modules import
- * // const { LookoutMetricsClient, ListAnomalyGroupRelatedMetricsCommand } = require("@aws-sdk/client-lookoutmetrics"); // CommonJS import
+ * import { LookoutMetricsClient, ListAnomalyGroupRelatedMetricsCommand } from '@aws-sdk/client-lookoutmetrics'; // ES Modules import
+ * // const { LookoutMetricsClient, ListAnomalyGroupRelatedMetricsCommand } = require('@aws-sdk/client-lookoutmetrics'); // CommonJS import
  * const client = new LookoutMetricsClient(config);
  * const input = { // ListAnomalyGroupRelatedMetricsRequest
- *   AnomalyDetectorArn: "STRING_VALUE", // required
- *   AnomalyGroupId: "STRING_VALUE", // required
- *   RelationshipTypeFilter: "STRING_VALUE",
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   AnomalyDetectorArn: 'STRING_VALUE', // required
+ *   AnomalyGroupId: 'STRING_VALUE', // required
+ *   RelationshipTypeFilter: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListAnomalyGroupRelatedMetricsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListAnomalyGroupRelatedMetricsResponse
+ *   InterMetricImpactList: [ // InterMetricImpactList
+ *     { // InterMetricImpactDetails
+ *       MetricName: 'STRING_VALUE',
+ *       AnomalyGroupId: 'STRING_VALUE',
+ *       RelationshipType: 'STRING_VALUE',
+ *       ContributionPercentage: Number('double'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListAnomalyGroupRelatedMetricsCommandInput - {@link ListAnomalyGroupRelatedMetricsCommandInput}
@@ -78,6 +91,8 @@ export interface ListAnomalyGroupRelatedMetricsCommandOutput
  *  <p>The input fails to satisfy the constraints specified by the AWS service. Check your input values and try
  *       again.</p>
  *
+ * @throws {@link LookoutMetricsServiceException}
+ * <p>Base exception class for all service exceptions from LookoutMetrics service.</p>
  *
  */
 export class ListAnomalyGroupRelatedMetricsCommand extends $Command<

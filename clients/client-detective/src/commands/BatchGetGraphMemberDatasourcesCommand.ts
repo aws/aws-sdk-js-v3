@@ -41,17 +41,40 @@ export interface BatchGetGraphMemberDatasourcesCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DetectiveClient, BatchGetGraphMemberDatasourcesCommand } from "@aws-sdk/client-detective"; // ES Modules import
- * // const { DetectiveClient, BatchGetGraphMemberDatasourcesCommand } = require("@aws-sdk/client-detective"); // CommonJS import
+ * import { DetectiveClient, BatchGetGraphMemberDatasourcesCommand } from '@aws-sdk/client-detective'; // ES Modules import
+ * // const { DetectiveClient, BatchGetGraphMemberDatasourcesCommand } = require('@aws-sdk/client-detective'); // CommonJS import
  * const client = new DetectiveClient(config);
  * const input = { // BatchGetGraphMemberDatasourcesRequest
- *   GraphArn: "STRING_VALUE", // required
+ *   GraphArn: 'STRING_VALUE', // required
  *   AccountIds: [ // AccountIdExtendedList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new BatchGetGraphMemberDatasourcesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BatchGetGraphMemberDatasourcesResponse
+ *   MemberDatasources: [ // MembershipDatasourcesList
+ *     { // MembershipDatasources
+ *       AccountId: 'STRING_VALUE',
+ *       GraphArn: 'STRING_VALUE',
+ *       DatasourcePackageIngestHistory: { // DatasourcePackageIngestHistory
+ *         '<keys>': { // LastIngestStateChangeDates
+ *           '<keys>': { // TimestampForCollection
+ *             Timestamp: new Date('TIMESTAMP'),
+ *           },
+ *         },
+ *       },
+ *     },
+ *   ],
+ *   UnprocessedAccounts: [ // UnprocessedAccountList
+ *     { // UnprocessedAccount
+ *       AccountId: 'STRING_VALUE',
+ *       Reason: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param BatchGetGraphMemberDatasourcesCommandInput - {@link BatchGetGraphMemberDatasourcesCommandInput}
@@ -73,6 +96,8 @@ export interface BatchGetGraphMemberDatasourcesCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The request parameters are invalid.</p>
  *
+ * @throws {@link DetectiveServiceException}
+ * <p>Base exception class for all service exceptions from Detective service.</p>
  *
  */
 export class BatchGetGraphMemberDatasourcesCommand extends $Command<

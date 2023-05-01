@@ -36,16 +36,31 @@ export interface ListScenesCommandOutput extends ListScenesResponse, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTTwinMakerClient, ListScenesCommand } from "@aws-sdk/client-iottwinmaker"; // ES Modules import
- * // const { IoTTwinMakerClient, ListScenesCommand } = require("@aws-sdk/client-iottwinmaker"); // CommonJS import
+ * import { IoTTwinMakerClient, ListScenesCommand } from '@aws-sdk/client-iottwinmaker'; // ES Modules import
+ * // const { IoTTwinMakerClient, ListScenesCommand } = require('@aws-sdk/client-iottwinmaker'); // CommonJS import
  * const client = new IoTTwinMakerClient(config);
  * const input = { // ListScenesRequest
- *   workspaceId: "STRING_VALUE", // required
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   workspaceId: 'STRING_VALUE', // required
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new ListScenesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListScenesResponse
+ *   sceneSummaries: [ // SceneSummaries
+ *     { // SceneSummary
+ *       sceneId: 'STRING_VALUE', // required
+ *       contentLocation: 'STRING_VALUE', // required
+ *       arn: 'STRING_VALUE', // required
+ *       creationDateTime: new Date('TIMESTAMP'), // required
+ *       updateDateTime: new Date('TIMESTAMP'), // required
+ *       description: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListScenesCommandInput - {@link ListScenesCommandInput}
@@ -66,6 +81,8 @@ export interface ListScenesCommandOutput extends ListScenesResponse, __MetadataB
  * @throws {@link ValidationException} (client fault)
  *  <p>Failed</p>
  *
+ * @throws {@link IoTTwinMakerServiceException}
+ * <p>Base exception class for all service exceptions from IoTTwinMaker service.</p>
  *
  */
 export class ListScenesCommand extends $Command<

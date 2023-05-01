@@ -36,18 +36,36 @@ export interface DescribeIpGroupsCommandOutput extends DescribeIpGroupsResult, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkSpacesClient, DescribeIpGroupsCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
- * // const { WorkSpacesClient, DescribeIpGroupsCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
+ * import { WorkSpacesClient, DescribeIpGroupsCommand } from '@aws-sdk/client-workspaces'; // ES Modules import
+ * // const { WorkSpacesClient, DescribeIpGroupsCommand } = require('@aws-sdk/client-workspaces'); // CommonJS import
  * const client = new WorkSpacesClient(config);
  * const input = { // DescribeIpGroupsRequest
  *   GroupIds: [ // IpGroupIdList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new DescribeIpGroupsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeIpGroupsResult
+ *   Result: [ // WorkspacesIpGroupsList
+ *     { // WorkspacesIpGroup
+ *       groupId: 'STRING_VALUE',
+ *       groupName: 'STRING_VALUE',
+ *       groupDesc: 'STRING_VALUE',
+ *       userRules: [ // IpRuleList
+ *         { // IpRuleItem
+ *           ipRule: 'STRING_VALUE',
+ *           ruleDesc: 'STRING_VALUE',
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeIpGroupsCommandInput - {@link DescribeIpGroupsCommandInput}
@@ -62,6 +80,8 @@ export interface DescribeIpGroupsCommandOutput extends DescribeIpGroupsResult, _
  * @throws {@link InvalidParameterValuesException} (client fault)
  *  <p>One or more parameter values are not valid.</p>
  *
+ * @throws {@link WorkSpacesServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
  */
 export class DescribeIpGroupsCommand extends $Command<

@@ -40,27 +40,30 @@ export interface PutThirdPartyJobSuccessResultCommandOutput extends __MetadataBe
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodePipelineClient, PutThirdPartyJobSuccessResultCommand } from "@aws-sdk/client-codepipeline"; // ES Modules import
- * // const { CodePipelineClient, PutThirdPartyJobSuccessResultCommand } = require("@aws-sdk/client-codepipeline"); // CommonJS import
+ * import { CodePipelineClient, PutThirdPartyJobSuccessResultCommand } from '@aws-sdk/client-codepipeline'; // ES Modules import
+ * // const { CodePipelineClient, PutThirdPartyJobSuccessResultCommand } = require('@aws-sdk/client-codepipeline'); // CommonJS import
  * const client = new CodePipelineClient(config);
  * const input = { // PutThirdPartyJobSuccessResultInput
- *   jobId: "STRING_VALUE", // required
- *   clientToken: "STRING_VALUE", // required
+ *   jobId: 'STRING_VALUE', // required
+ *   clientToken: 'STRING_VALUE', // required
  *   currentRevision: { // CurrentRevision
- *     revision: "STRING_VALUE", // required
- *     changeIdentifier: "STRING_VALUE", // required
- *     created: new Date("TIMESTAMP"),
- *     revisionSummary: "STRING_VALUE",
+ *     revision: 'STRING_VALUE', // required
+ *     changeIdentifier: 'STRING_VALUE', // required
+ *     created: new Date('TIMESTAMP'),
+ *     revisionSummary: 'STRING_VALUE',
  *   },
- *   continuationToken: "STRING_VALUE",
+ *   continuationToken: 'STRING_VALUE',
  *   executionDetails: { // ExecutionDetails
- *     summary: "STRING_VALUE",
- *     externalExecutionId: "STRING_VALUE",
- *     percentComplete: Number("int"),
+ *     summary: 'STRING_VALUE',
+ *     externalExecutionId: 'STRING_VALUE',
+ *     percentComplete: Number('int'),
  *   },
  * };
  * const command = new PutThirdPartyJobSuccessResultCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PutThirdPartyJobSuccessResultCommandInput - {@link PutThirdPartyJobSuccessResultCommandInput}
@@ -81,6 +84,8 @@ export interface PutThirdPartyJobSuccessResultCommandOutput extends __MetadataBe
  * @throws {@link ValidationException} (client fault)
  *  <p>The validation was specified in an invalid format.</p>
  *
+ * @throws {@link CodePipelineServiceException}
+ * <p>Base exception class for all service exceptions from CodePipeline service.</p>
  *
  */
 export class PutThirdPartyJobSuccessResultCommand extends $Command<

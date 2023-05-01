@@ -42,14 +42,20 @@ export interface GetSolNetworkPackageDescriptorCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { TnbClient, GetSolNetworkPackageDescriptorCommand } from "@aws-sdk/client-tnb"; // ES Modules import
- * // const { TnbClient, GetSolNetworkPackageDescriptorCommand } = require("@aws-sdk/client-tnb"); // CommonJS import
+ * import { TnbClient, GetSolNetworkPackageDescriptorCommand } from '@aws-sdk/client-tnb'; // ES Modules import
+ * // const { TnbClient, GetSolNetworkPackageDescriptorCommand } = require('@aws-sdk/client-tnb'); // CommonJS import
  * const client = new TnbClient(config);
  * const input = { // GetSolNetworkPackageDescriptorInput
- *   nsdInfoId: "STRING_VALUE", // required
+ *   nsdInfoId: 'STRING_VALUE', // required
  * };
  * const command = new GetSolNetworkPackageDescriptorCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetSolNetworkPackageDescriptorOutput
+ *   contentType: 'text/plain',
+ *   nsd: 'BLOB_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetSolNetworkPackageDescriptorCommandInput - {@link GetSolNetworkPackageDescriptorCommandInput}
@@ -73,6 +79,8 @@ export interface GetSolNetworkPackageDescriptorCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>Unable to process the request because the client provided input failed to satisfy request constraints.</p>
  *
+ * @throws {@link TnbServiceException}
+ * <p>Base exception class for all service exceptions from Tnb service.</p>
  *
  */
 export class GetSolNetworkPackageDescriptorCommand extends $Command<

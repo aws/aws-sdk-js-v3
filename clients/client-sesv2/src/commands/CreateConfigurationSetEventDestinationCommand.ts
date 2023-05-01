@@ -51,40 +51,43 @@ export interface CreateConfigurationSetEventDestinationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SESv2Client, CreateConfigurationSetEventDestinationCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
- * // const { SESv2Client, CreateConfigurationSetEventDestinationCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
+ * import { SESv2Client, CreateConfigurationSetEventDestinationCommand } from '@aws-sdk/client-sesv2'; // ES Modules import
+ * // const { SESv2Client, CreateConfigurationSetEventDestinationCommand } = require('@aws-sdk/client-sesv2'); // CommonJS import
  * const client = new SESv2Client(config);
  * const input = { // CreateConfigurationSetEventDestinationRequest
- *   ConfigurationSetName: "STRING_VALUE", // required
- *   EventDestinationName: "STRING_VALUE", // required
+ *   ConfigurationSetName: 'STRING_VALUE', // required
+ *   EventDestinationName: 'STRING_VALUE', // required
  *   EventDestination: { // EventDestinationDefinition
  *     Enabled: true || false,
  *     MatchingEventTypes: [ // EventTypes
- *       "SEND" || "REJECT" || "BOUNCE" || "COMPLAINT" || "DELIVERY" || "OPEN" || "CLICK" || "RENDERING_FAILURE" || "DELIVERY_DELAY" || "SUBSCRIPTION",
+ *       'SEND' || 'REJECT' || 'BOUNCE' || 'COMPLAINT' || 'DELIVERY' || 'OPEN' || 'CLICK' || 'RENDERING_FAILURE' || 'DELIVERY_DELAY' || 'SUBSCRIPTION',
  *     ],
  *     KinesisFirehoseDestination: { // KinesisFirehoseDestination
- *       IamRoleArn: "STRING_VALUE", // required
- *       DeliveryStreamArn: "STRING_VALUE", // required
+ *       IamRoleArn: 'STRING_VALUE', // required
+ *       DeliveryStreamArn: 'STRING_VALUE', // required
  *     },
  *     CloudWatchDestination: { // CloudWatchDestination
  *       DimensionConfigurations: [ // CloudWatchDimensionConfigurations // required
  *         { // CloudWatchDimensionConfiguration
- *           DimensionName: "STRING_VALUE", // required
- *           DimensionValueSource: "MESSAGE_TAG" || "EMAIL_HEADER" || "LINK_TAG", // required
- *           DefaultDimensionValue: "STRING_VALUE", // required
+ *           DimensionName: 'STRING_VALUE', // required
+ *           DimensionValueSource: 'MESSAGE_TAG' || 'EMAIL_HEADER' || 'LINK_TAG', // required
+ *           DefaultDimensionValue: 'STRING_VALUE', // required
  *         },
  *       ],
  *     },
  *     SnsDestination: { // SnsDestination
- *       TopicArn: "STRING_VALUE", // required
+ *       TopicArn: 'STRING_VALUE', // required
  *     },
  *     PinpointDestination: { // PinpointDestination
- *       ApplicationArn: "STRING_VALUE",
+ *       ApplicationArn: 'STRING_VALUE',
  *     },
  *   },
  * };
  * const command = new CreateConfigurationSetEventDestinationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param CreateConfigurationSetEventDestinationCommandInput - {@link CreateConfigurationSetEventDestinationCommandInput}
@@ -108,6 +111,8 @@ export interface CreateConfigurationSetEventDestinationCommandOutput
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Too many requests have been made to the operation.</p>
  *
+ * @throws {@link SESv2ServiceException}
+ * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
  */
 export class CreateConfigurationSetEventDestinationCommand extends $Command<

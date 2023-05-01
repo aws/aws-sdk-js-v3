@@ -41,16 +41,35 @@ export interface DisableFastLaunchCommandOutput extends DisableFastLaunchResult,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, DisableFastLaunchCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, DisableFastLaunchCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, DisableFastLaunchCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, DisableFastLaunchCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // DisableFastLaunchRequest
- *   ImageId: "STRING_VALUE", // required
+ *   ImageId: 'STRING_VALUE', // required
  *   Force: true || false,
  *   DryRun: true || false,
  * };
  * const command = new DisableFastLaunchCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DisableFastLaunchResult
+ *   ImageId: 'STRING_VALUE',
+ *   ResourceType: 'snapshot',
+ *   SnapshotConfiguration: { // FastLaunchSnapshotConfigurationResponse
+ *     TargetResourceCount: Number('int'),
+ *   },
+ *   LaunchTemplate: { // FastLaunchLaunchTemplateSpecificationResponse
+ *     LaunchTemplateId: 'STRING_VALUE',
+ *     LaunchTemplateName: 'STRING_VALUE',
+ *     Version: 'STRING_VALUE',
+ *   },
+ *   MaxParallelLaunches: Number('int'),
+ *   OwnerId: 'STRING_VALUE',
+ *   State: 'enabling' || 'enabling-failed' || 'enabled' || 'enabled-failed' || 'disabling' || 'disabling-failed',
+ *   StateTransitionReason: 'STRING_VALUE',
+ *   StateTransitionTime: new Date('TIMESTAMP'),
+ * };
+ *
  * ```
  *
  * @param DisableFastLaunchCommandInput - {@link DisableFastLaunchCommandInput}
@@ -59,6 +78,8 @@ export interface DisableFastLaunchCommandOutput extends DisableFastLaunchResult,
  * @see {@link DisableFastLaunchCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class DisableFastLaunchCommand extends $Command<

@@ -37,15 +37,27 @@ export interface ListDetectorModelsCommandOutput extends ListDetectorModelsRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTEventsClient, ListDetectorModelsCommand } from "@aws-sdk/client-iot-events"; // ES Modules import
- * // const { IoTEventsClient, ListDetectorModelsCommand } = require("@aws-sdk/client-iot-events"); // CommonJS import
+ * import { IoTEventsClient, ListDetectorModelsCommand } from '@aws-sdk/client-iot-events'; // ES Modules import
+ * // const { IoTEventsClient, ListDetectorModelsCommand } = require('@aws-sdk/client-iot-events'); // CommonJS import
  * const client = new IoTEventsClient(config);
  * const input = { // ListDetectorModelsRequest
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new ListDetectorModelsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListDetectorModelsResponse
+ *   detectorModelSummaries: [ // DetectorModelSummaries
+ *     { // DetectorModelSummary
+ *       detectorModelName: 'STRING_VALUE',
+ *       detectorModelDescription: 'STRING_VALUE',
+ *       creationTime: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListDetectorModelsCommandInput - {@link ListDetectorModelsCommandInput}
@@ -66,6 +78,8 @@ export interface ListDetectorModelsCommandOutput extends ListDetectorModelsRespo
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request could not be completed due to throttling.</p>
  *
+ * @throws {@link IoTEventsServiceException}
+ * <p>Base exception class for all service exceptions from IoTEvents service.</p>
  *
  */
 export class ListDetectorModelsCommand extends $Command<

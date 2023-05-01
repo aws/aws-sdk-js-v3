@@ -37,15 +37,18 @@ export interface DeleteConnectClientAddInCommandOutput extends DeleteConnectClie
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkSpacesClient, DeleteConnectClientAddInCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
- * // const { WorkSpacesClient, DeleteConnectClientAddInCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
+ * import { WorkSpacesClient, DeleteConnectClientAddInCommand } from '@aws-sdk/client-workspaces'; // ES Modules import
+ * // const { WorkSpacesClient, DeleteConnectClientAddInCommand } = require('@aws-sdk/client-workspaces'); // CommonJS import
  * const client = new WorkSpacesClient(config);
  * const input = { // DeleteConnectClientAddInRequest
- *   AddInId: "STRING_VALUE", // required
- *   ResourceId: "STRING_VALUE", // required
+ *   AddInId: 'STRING_VALUE', // required
+ *   ResourceId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteConnectClientAddInCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteConnectClientAddInCommandInput - {@link DeleteConnectClientAddInCommandInput}
@@ -63,6 +66,8 @@ export interface DeleteConnectClientAddInCommandOutput extends DeleteConnectClie
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource could not be found.</p>
  *
+ * @throws {@link WorkSpacesServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
  */
 export class DeleteConnectClientAddInCommand extends $Command<

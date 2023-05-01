@@ -40,15 +40,18 @@ export interface PostToConnectionCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ApiGatewayManagementApiClient, PostToConnectionCommand } from "@aws-sdk/client-apigatewaymanagementapi"; // ES Modules import
- * // const { ApiGatewayManagementApiClient, PostToConnectionCommand } = require("@aws-sdk/client-apigatewaymanagementapi"); // CommonJS import
+ * import { ApiGatewayManagementApiClient, PostToConnectionCommand } from '@aws-sdk/client-apigatewaymanagementapi'; // ES Modules import
+ * // const { ApiGatewayManagementApiClient, PostToConnectionCommand } = require('@aws-sdk/client-apigatewaymanagementapi'); // CommonJS import
  * const client = new ApiGatewayManagementApiClient(config);
  * const input = { // PostToConnectionRequest
- *   Data: "BLOB_VALUE", // required
- *   ConnectionId: "STRING_VALUE", // required
+ *   Data: 'BLOB_VALUE', // required
+ *   ConnectionId: 'STRING_VALUE', // required
  * };
  * const command = new PostToConnectionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param PostToConnectionCommandInput - {@link PostToConnectionCommandInput}
@@ -69,6 +72,8 @@ export interface PostToConnectionCommandOutput extends __MetadataBearer {}
  * @throws {@link PayloadTooLargeException} (client fault)
  *  <p>The data has exceeded the maximum size allowed.</p>
  *
+ * @throws {@link ApiGatewayManagementApiServiceException}
+ * <p>Base exception class for all service exceptions from ApiGatewayManagementApi service.</p>
  *
  */
 export class PostToConnectionCommand extends $Command<

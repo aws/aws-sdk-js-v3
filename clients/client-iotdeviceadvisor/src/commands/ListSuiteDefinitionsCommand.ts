@@ -37,15 +37,37 @@ export interface ListSuiteDefinitionsCommandOutput extends ListSuiteDefinitionsR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IotDeviceAdvisorClient, ListSuiteDefinitionsCommand } from "@aws-sdk/client-iotdeviceadvisor"; // ES Modules import
- * // const { IotDeviceAdvisorClient, ListSuiteDefinitionsCommand } = require("@aws-sdk/client-iotdeviceadvisor"); // CommonJS import
+ * import { IotDeviceAdvisorClient, ListSuiteDefinitionsCommand } from '@aws-sdk/client-iotdeviceadvisor'; // ES Modules import
+ * // const { IotDeviceAdvisorClient, ListSuiteDefinitionsCommand } = require('@aws-sdk/client-iotdeviceadvisor'); // CommonJS import
  * const client = new IotDeviceAdvisorClient(config);
  * const input = { // ListSuiteDefinitionsRequest
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new ListSuiteDefinitionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListSuiteDefinitionsResponse
+ *   suiteDefinitionInformationList: [ // SuiteDefinitionInformationList
+ *     { // SuiteDefinitionInformation
+ *       suiteDefinitionId: 'STRING_VALUE',
+ *       suiteDefinitionName: 'STRING_VALUE',
+ *       defaultDevices: [ // DeviceUnderTestList
+ *         { // DeviceUnderTest
+ *           thingArn: 'STRING_VALUE',
+ *           certificateArn: 'STRING_VALUE',
+ *           deviceRoleArn: 'STRING_VALUE',
+ *         },
+ *       ],
+ *       intendedForQualification: true || false,
+ *       isLongDurationTest: true || false,
+ *       protocol: 'MqttV3_1_1' || 'MqttV5' || 'MqttV3_1_1_OverWebSocket' || 'MqttV5_OverWebSocket',
+ *       createdAt: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListSuiteDefinitionsCommandInput - {@link ListSuiteDefinitionsCommandInput}
@@ -60,6 +82,8 @@ export interface ListSuiteDefinitionsCommandOutput extends ListSuiteDefinitionsR
  * @throws {@link ValidationException} (client fault)
  *  <p>Sends a validation exception.</p>
  *
+ * @throws {@link IotDeviceAdvisorServiceException}
+ * <p>Base exception class for all service exceptions from IotDeviceAdvisor service.</p>
  *
  */
 export class ListSuiteDefinitionsCommand extends $Command<

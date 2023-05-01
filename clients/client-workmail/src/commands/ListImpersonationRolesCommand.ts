@@ -36,16 +36,30 @@ export interface ListImpersonationRolesCommandOutput extends ListImpersonationRo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkMailClient, ListImpersonationRolesCommand } from "@aws-sdk/client-workmail"; // ES Modules import
- * // const { WorkMailClient, ListImpersonationRolesCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
+ * import { WorkMailClient, ListImpersonationRolesCommand } from '@aws-sdk/client-workmail'; // ES Modules import
+ * // const { WorkMailClient, ListImpersonationRolesCommand } = require('@aws-sdk/client-workmail'); // CommonJS import
  * const client = new WorkMailClient(config);
  * const input = { // ListImpersonationRolesRequest
- *   OrganizationId: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   OrganizationId: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListImpersonationRolesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListImpersonationRolesResponse
+ *   Roles: [ // ImpersonationRoleList
+ *     { // ImpersonationRole
+ *       ImpersonationRoleId: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *       Type: 'FULL_ACCESS' || 'READ_ONLY',
+ *       DateCreated: new Date('TIMESTAMP'),
+ *       DateModified: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListImpersonationRolesCommandInput - {@link ListImpersonationRolesCommandInput}
@@ -65,6 +79,8 @@ export interface ListImpersonationRolesCommandOutput extends ListImpersonationRo
  *  <p>The organization must have a valid state to perform certain
  *          operations on the organization or its members.</p>
  *
+ * @throws {@link WorkMailServiceException}
+ * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
  */
 export class ListImpersonationRolesCommand extends $Command<

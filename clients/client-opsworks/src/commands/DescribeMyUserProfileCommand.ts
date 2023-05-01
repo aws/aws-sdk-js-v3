@@ -41,12 +41,22 @@ export interface DescribeMyUserProfileCommandOutput extends DescribeMyUserProfil
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OpsWorksClient, DescribeMyUserProfileCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
- * // const { OpsWorksClient, DescribeMyUserProfileCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
+ * import { OpsWorksClient, DescribeMyUserProfileCommand } from '@aws-sdk/client-opsworks'; // ES Modules import
+ * // const { OpsWorksClient, DescribeMyUserProfileCommand } = require('@aws-sdk/client-opsworks'); // CommonJS import
  * const client = new OpsWorksClient(config);
  * const input = {};
  * const command = new DescribeMyUserProfileCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeMyUserProfileResult
+ *   UserProfile: { // SelfUserProfile
+ *     IamUserArn: 'STRING_VALUE',
+ *     Name: 'STRING_VALUE',
+ *     SshUsername: 'STRING_VALUE',
+ *     SshPublicKey: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeMyUserProfileCommandInput - {@link DescribeMyUserProfileCommandInput}
@@ -55,6 +65,8 @@ export interface DescribeMyUserProfileCommandOutput extends DescribeMyUserProfil
  * @see {@link DescribeMyUserProfileCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
  *
+ * @throws {@link OpsWorksServiceException}
+ * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
  */
 export class DescribeMyUserProfileCommand extends $Command<

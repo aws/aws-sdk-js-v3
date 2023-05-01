@@ -37,14 +37,17 @@ export interface ExtendTransactionCommandOutput extends ExtendTransactionRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LakeFormationClient, ExtendTransactionCommand } from "@aws-sdk/client-lakeformation"; // ES Modules import
- * // const { LakeFormationClient, ExtendTransactionCommand } = require("@aws-sdk/client-lakeformation"); // CommonJS import
+ * import { LakeFormationClient, ExtendTransactionCommand } from '@aws-sdk/client-lakeformation'; // ES Modules import
+ * // const { LakeFormationClient, ExtendTransactionCommand } = require('@aws-sdk/client-lakeformation'); // CommonJS import
  * const client = new LakeFormationClient(config);
  * const input = { // ExtendTransactionRequest
- *   TransactionId: "STRING_VALUE",
+ *   TransactionId: 'STRING_VALUE',
  * };
  * const command = new ExtendTransactionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param ExtendTransactionCommandInput - {@link ExtendTransactionCommandInput}
@@ -74,6 +77,8 @@ export interface ExtendTransactionCommandOutput extends ExtendTransactionRespons
  * @throws {@link TransactionCommittedException} (client fault)
  *  <p>Contains details about an error where the specified transaction has already been committed and cannot be used for <code>UpdateTableObjects</code>.</p>
  *
+ * @throws {@link LakeFormationServiceException}
+ * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
  */
 export class ExtendTransactionCommand extends $Command<

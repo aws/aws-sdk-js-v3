@@ -36,21 +36,34 @@ export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudTrailClient, UpdateChannelCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
- * // const { CloudTrailClient, UpdateChannelCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
+ * import { CloudTrailClient, UpdateChannelCommand } from '@aws-sdk/client-cloudtrail'; // ES Modules import
+ * // const { CloudTrailClient, UpdateChannelCommand } = require('@aws-sdk/client-cloudtrail'); // CommonJS import
  * const client = new CloudTrailClient(config);
  * const input = { // UpdateChannelRequest
- *   Channel: "STRING_VALUE", // required
+ *   Channel: 'STRING_VALUE', // required
  *   Destinations: [ // Destinations
  *     { // Destination
- *       Type: "EVENT_DATA_STORE" || "AWS_SERVICE", // required
- *       Location: "STRING_VALUE", // required
+ *       Type: 'EVENT_DATA_STORE' || 'AWS_SERVICE', // required
+ *       Location: 'STRING_VALUE', // required
  *     },
  *   ],
- *   Name: "STRING_VALUE",
+ *   Name: 'STRING_VALUE',
  * };
  * const command = new UpdateChannelCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateChannelResponse
+ *   ChannelArn: 'STRING_VALUE',
+ *   Name: 'STRING_VALUE',
+ *   Source: 'STRING_VALUE',
+ *   Destinations: [ // Destinations
+ *     { // Destination
+ *       Type: 'EVENT_DATA_STORE' || 'AWS_SERVICE', // required
+ *       Location: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param UpdateChannelCommandInput - {@link UpdateChannelCommandInput}
@@ -94,6 +107,8 @@ export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __Met
  * @throws {@link UnsupportedOperationException} (client fault)
  *  <p>This exception is thrown when the requested operation is not supported.</p>
  *
+ * @throws {@link CloudTrailServiceException}
+ * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
  */
 export class UpdateChannelCommand extends $Command<

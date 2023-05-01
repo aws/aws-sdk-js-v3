@@ -49,23 +49,39 @@ export interface CreateObservabilityConfigurationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppRunnerClient, CreateObservabilityConfigurationCommand } from "@aws-sdk/client-apprunner"; // ES Modules import
- * // const { AppRunnerClient, CreateObservabilityConfigurationCommand } = require("@aws-sdk/client-apprunner"); // CommonJS import
+ * import { AppRunnerClient, CreateObservabilityConfigurationCommand } from '@aws-sdk/client-apprunner'; // ES Modules import
+ * // const { AppRunnerClient, CreateObservabilityConfigurationCommand } = require('@aws-sdk/client-apprunner'); // CommonJS import
  * const client = new AppRunnerClient(config);
  * const input = { // CreateObservabilityConfigurationRequest
- *   ObservabilityConfigurationName: "STRING_VALUE", // required
+ *   ObservabilityConfigurationName: 'STRING_VALUE', // required
  *   TraceConfiguration: { // TraceConfiguration
- *     Vendor: "AWSXRAY", // required
+ *     Vendor: 'AWSXRAY', // required
  *   },
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE",
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new CreateObservabilityConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateObservabilityConfigurationResponse
+ *   ObservabilityConfiguration: { // ObservabilityConfiguration
+ *     ObservabilityConfigurationArn: 'STRING_VALUE',
+ *     ObservabilityConfigurationName: 'STRING_VALUE',
+ *     TraceConfiguration: { // TraceConfiguration
+ *       Vendor: 'AWSXRAY', // required
+ *     },
+ *     ObservabilityConfigurationRevision: Number('int'),
+ *     Latest: true || false,
+ *     Status: 'ACTIVE' || 'INACTIVE',
+ *     CreatedAt: new Date('TIMESTAMP'),
+ *     DeletedAt: new Date('TIMESTAMP'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateObservabilityConfigurationCommandInput - {@link CreateObservabilityConfigurationCommandInput}
@@ -85,6 +101,8 @@ export interface CreateObservabilityConfigurationCommandOutput
  *          <p>For App Runner per-resource quotas, see <a href="https://docs.aws.amazon.com/general/latest/gr/apprunner.html">App Runner endpoints and quotas</a> in the
  *         <i>Amazon Web Services General Reference</i>.</p>
  *
+ * @throws {@link AppRunnerServiceException}
+ * <p>Base exception class for all service exceptions from AppRunner service.</p>
  *
  */
 export class CreateObservabilityConfigurationCommand extends $Command<

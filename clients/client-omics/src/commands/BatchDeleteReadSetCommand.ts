@@ -36,17 +36,28 @@ export interface BatchDeleteReadSetCommandOutput extends BatchDeleteReadSetRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OmicsClient, BatchDeleteReadSetCommand } from "@aws-sdk/client-omics"; // ES Modules import
- * // const { OmicsClient, BatchDeleteReadSetCommand } = require("@aws-sdk/client-omics"); // CommonJS import
+ * import { OmicsClient, BatchDeleteReadSetCommand } from '@aws-sdk/client-omics'; // ES Modules import
+ * // const { OmicsClient, BatchDeleteReadSetCommand } = require('@aws-sdk/client-omics'); // CommonJS import
  * const client = new OmicsClient(config);
  * const input = { // BatchDeleteReadSetRequest
  *   ids: [ // ReadSetIdList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   sequenceStoreId: "STRING_VALUE", // required
+ *   sequenceStoreId: 'STRING_VALUE', // required
  * };
  * const command = new BatchDeleteReadSetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BatchDeleteReadSetResponse
+ *   errors: [ // ReadSetBatchErrorList
+ *     { // ReadSetBatchError
+ *       id: 'STRING_VALUE', // required
+ *       code: 'STRING_VALUE', // required
+ *       message: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param BatchDeleteReadSetCommandInput - {@link BatchDeleteReadSetCommandInput}
@@ -73,6 +84,8 @@ export interface BatchDeleteReadSetCommandOutput extends BatchDeleteReadSetRespo
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link OmicsServiceException}
+ * <p>Base exception class for all service exceptions from Omics service.</p>
  *
  */
 export class BatchDeleteReadSetCommand extends $Command<

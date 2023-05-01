@@ -47,21 +47,38 @@ export interface DescribeLogGroupsCommandOutput extends DescribeLogGroupsRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudWatchLogsClient, DescribeLogGroupsCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
- * // const { CloudWatchLogsClient, DescribeLogGroupsCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
+ * import { CloudWatchLogsClient, DescribeLogGroupsCommand } from '@aws-sdk/client-cloudwatch-logs'; // ES Modules import
+ * // const { CloudWatchLogsClient, DescribeLogGroupsCommand } = require('@aws-sdk/client-cloudwatch-logs'); // CommonJS import
  * const client = new CloudWatchLogsClient(config);
  * const input = { // DescribeLogGroupsRequest
  *   accountIdentifiers: [ // AccountIds
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   logGroupNamePrefix: "STRING_VALUE",
- *   logGroupNamePattern: "STRING_VALUE",
- *   nextToken: "STRING_VALUE",
- *   limit: Number("int"),
+ *   logGroupNamePrefix: 'STRING_VALUE',
+ *   logGroupNamePattern: 'STRING_VALUE',
+ *   nextToken: 'STRING_VALUE',
+ *   limit: Number('int'),
  *   includeLinkedAccounts: true || false,
  * };
  * const command = new DescribeLogGroupsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeLogGroupsResponse
+ *   logGroups: [ // LogGroups
+ *     { // LogGroup
+ *       logGroupName: 'STRING_VALUE',
+ *       creationTime: Number('long'),
+ *       retentionInDays: Number('int'),
+ *       metricFilterCount: Number('int'),
+ *       arn: 'STRING_VALUE',
+ *       storedBytes: Number('long'),
+ *       kmsKeyId: 'STRING_VALUE',
+ *       dataProtectionStatus: 'ACTIVATED' || 'DELETED' || 'ARCHIVED' || 'DISABLED',
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeLogGroupsCommandInput - {@link DescribeLogGroupsCommandInput}
@@ -76,6 +93,8 @@ export interface DescribeLogGroupsCommandOutput extends DescribeLogGroupsRespons
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service cannot complete the request.</p>
  *
+ * @throws {@link CloudWatchLogsServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
  */
 export class DescribeLogGroupsCommand extends $Command<

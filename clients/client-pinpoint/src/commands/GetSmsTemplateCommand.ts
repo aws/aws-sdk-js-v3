@@ -36,15 +36,34 @@ export interface GetSmsTemplateCommandOutput extends GetSmsTemplateResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PinpointClient, GetSmsTemplateCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
- * // const { PinpointClient, GetSmsTemplateCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
+ * import { PinpointClient, GetSmsTemplateCommand } from '@aws-sdk/client-pinpoint'; // ES Modules import
+ * // const { PinpointClient, GetSmsTemplateCommand } = require('@aws-sdk/client-pinpoint'); // CommonJS import
  * const client = new PinpointClient(config);
  * const input = { // GetSmsTemplateRequest
- *   TemplateName: "STRING_VALUE", // required
- *   Version: "STRING_VALUE",
+ *   TemplateName: 'STRING_VALUE', // required
+ *   Version: 'STRING_VALUE',
  * };
  * const command = new GetSmsTemplateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetSmsTemplateResponse
+ *   SMSTemplateResponse: { // SMSTemplateResponse
+ *     Arn: 'STRING_VALUE',
+ *     Body: 'STRING_VALUE',
+ *     CreationDate: 'STRING_VALUE', // required
+ *     DefaultSubstitutions: 'STRING_VALUE',
+ *     LastModifiedDate: 'STRING_VALUE', // required
+ *     RecommenderId: 'STRING_VALUE',
+ *     tags: { // MapOf__string
+ *       '<keys>': 'STRING_VALUE',
+ *     },
+ *     TemplateDescription: 'STRING_VALUE',
+ *     TemplateName: 'STRING_VALUE', // required
+ *     TemplateType: 'EMAIL' || 'SMS' || 'VOICE' || 'PUSH' || 'INAPP', // required
+ *     Version: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetSmsTemplateCommandInput - {@link GetSmsTemplateCommandInput}
@@ -74,6 +93,8 @@ export interface GetSmsTemplateCommandOutput extends GetSmsTemplateResponse, __M
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Provides information about an API request or response.</p>
  *
+ * @throws {@link PinpointServiceException}
+ * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
  */
 export class GetSmsTemplateCommand extends $Command<

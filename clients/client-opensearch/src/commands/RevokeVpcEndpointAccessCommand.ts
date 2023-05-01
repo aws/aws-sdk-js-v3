@@ -37,15 +37,18 @@ export interface RevokeVpcEndpointAccessCommandOutput extends RevokeVpcEndpointA
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OpenSearchClient, RevokeVpcEndpointAccessCommand } from "@aws-sdk/client-opensearch"; // ES Modules import
- * // const { OpenSearchClient, RevokeVpcEndpointAccessCommand } = require("@aws-sdk/client-opensearch"); // CommonJS import
+ * import { OpenSearchClient, RevokeVpcEndpointAccessCommand } from '@aws-sdk/client-opensearch'; // ES Modules import
+ * // const { OpenSearchClient, RevokeVpcEndpointAccessCommand } = require('@aws-sdk/client-opensearch'); // CommonJS import
  * const client = new OpenSearchClient(config);
  * const input = { // RevokeVpcEndpointAccessRequest
- *   DomainName: "STRING_VALUE", // required
- *   Account: "STRING_VALUE", // required
+ *   DomainName: 'STRING_VALUE', // required
+ *   Account: 'STRING_VALUE', // required
  * };
  * const command = new RevokeVpcEndpointAccessCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param RevokeVpcEndpointAccessCommandInput - {@link RevokeVpcEndpointAccessCommandInput}
@@ -69,6 +72,8 @@ export interface RevokeVpcEndpointAccessCommandOutput extends RevokeVpcEndpointA
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception for accessing or deleting a resource that doesn't exist.</p>
  *
+ * @throws {@link OpenSearchServiceException}
+ * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
  */
 export class RevokeVpcEndpointAccessCommand extends $Command<

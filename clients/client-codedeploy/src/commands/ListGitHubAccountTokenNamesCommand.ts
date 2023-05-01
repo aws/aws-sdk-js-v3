@@ -36,14 +36,22 @@ export interface ListGitHubAccountTokenNamesCommandOutput extends ListGitHubAcco
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeDeployClient, ListGitHubAccountTokenNamesCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
- * // const { CodeDeployClient, ListGitHubAccountTokenNamesCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
+ * import { CodeDeployClient, ListGitHubAccountTokenNamesCommand } from '@aws-sdk/client-codedeploy'; // ES Modules import
+ * // const { CodeDeployClient, ListGitHubAccountTokenNamesCommand } = require('@aws-sdk/client-codedeploy'); // CommonJS import
  * const client = new CodeDeployClient(config);
  * const input = { // ListGitHubAccountTokenNamesInput
- *   nextToken: "STRING_VALUE",
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new ListGitHubAccountTokenNamesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListGitHubAccountTokenNamesOutput
+ *   tokenNameList: [ // GitHubAccountTokenNameList
+ *     'STRING_VALUE',
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListGitHubAccountTokenNamesCommandInput - {@link ListGitHubAccountTokenNamesCommandInput}
@@ -61,6 +69,8 @@ export interface ListGitHubAccountTokenNamesCommandOutput extends ListGitHubAcco
  * @throws {@link ResourceValidationException} (client fault)
  *  <p>The specified resource could not be validated.</p>
  *
+ * @throws {@link CodeDeployServiceException}
+ * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
  */
 export class ListGitHubAccountTokenNamesCommand extends $Command<

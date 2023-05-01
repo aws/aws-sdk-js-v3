@@ -71,18 +71,34 @@ export interface PollForActivityTaskCommandOutput extends ActivityTask, __Metada
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SWFClient, PollForActivityTaskCommand } from "@aws-sdk/client-swf"; // ES Modules import
- * // const { SWFClient, PollForActivityTaskCommand } = require("@aws-sdk/client-swf"); // CommonJS import
+ * import { SWFClient, PollForActivityTaskCommand } from '@aws-sdk/client-swf'; // ES Modules import
+ * // const { SWFClient, PollForActivityTaskCommand } = require('@aws-sdk/client-swf'); // CommonJS import
  * const client = new SWFClient(config);
  * const input = { // PollForActivityTaskInput
- *   domain: "STRING_VALUE", // required
+ *   domain: 'STRING_VALUE', // required
  *   taskList: { // TaskList
- *     name: "STRING_VALUE", // required
+ *     name: 'STRING_VALUE', // required
  *   },
- *   identity: "STRING_VALUE",
+ *   identity: 'STRING_VALUE',
  * };
  * const command = new PollForActivityTaskCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ActivityTask
+ *   taskToken: 'STRING_VALUE', // required
+ *   activityId: 'STRING_VALUE', // required
+ *   startedEventId: Number('long'), // required
+ *   workflowExecution: { // WorkflowExecution
+ *     workflowId: 'STRING_VALUE', // required
+ *     runId: 'STRING_VALUE', // required
+ *   },
+ *   activityType: { // ActivityType
+ *     name: 'STRING_VALUE', // required
+ *     version: 'STRING_VALUE', // required
+ *   },
+ *   input: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param PollForActivityTaskCommandInput - {@link PollForActivityTaskCommandInput}
@@ -100,6 +116,8 @@ export interface PollForActivityTaskCommandOutput extends ActivityTask, __Metada
  * @throws {@link UnknownResourceFault} (client fault)
  *  <p>Returned when the named resource cannot be found with in the scope of this operation (region or domain). This could happen if the named resource was never created or is no longer available for this operation.</p>
  *
+ * @throws {@link SWFServiceException}
+ * <p>Base exception class for all service exceptions from SWF service.</p>
  *
  */
 export class PollForActivityTaskCommand extends $Command<

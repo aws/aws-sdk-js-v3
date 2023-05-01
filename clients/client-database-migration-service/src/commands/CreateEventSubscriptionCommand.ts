@@ -55,30 +55,49 @@ export interface CreateEventSubscriptionCommandOutput extends CreateEventSubscri
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DatabaseMigrationServiceClient, CreateEventSubscriptionCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
- * // const { DatabaseMigrationServiceClient, CreateEventSubscriptionCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
+ * import { DatabaseMigrationServiceClient, CreateEventSubscriptionCommand } from '@aws-sdk/client-database-migration-service'; // ES Modules import
+ * // const { DatabaseMigrationServiceClient, CreateEventSubscriptionCommand } = require('@aws-sdk/client-database-migration-service'); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
  * const input = { // CreateEventSubscriptionMessage
- *   SubscriptionName: "STRING_VALUE", // required
- *   SnsTopicArn: "STRING_VALUE", // required
- *   SourceType: "STRING_VALUE",
+ *   SubscriptionName: 'STRING_VALUE', // required
+ *   SnsTopicArn: 'STRING_VALUE', // required
+ *   SourceType: 'STRING_VALUE',
  *   EventCategories: [ // EventCategoriesList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   SourceIds: [ // SourceIdsList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   Enabled: true || false,
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE",
- *       Value: "STRING_VALUE",
- *       ResourceArn: "STRING_VALUE",
+ *       Key: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
+ *       ResourceArn: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new CreateEventSubscriptionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateEventSubscriptionResponse
+ *   EventSubscription: { // EventSubscription
+ *     CustomerAwsId: 'STRING_VALUE',
+ *     CustSubscriptionId: 'STRING_VALUE',
+ *     SnsTopicArn: 'STRING_VALUE',
+ *     Status: 'STRING_VALUE',
+ *     SubscriptionCreationTime: 'STRING_VALUE',
+ *     SourceType: 'STRING_VALUE',
+ *     SourceIdsList: [ // SourceIdsList
+ *       'STRING_VALUE',
+ *     ],
+ *     EventCategoriesList: [ // EventCategoriesList
+ *       'STRING_VALUE',
+ *     ],
+ *     Enabled: true || false,
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateEventSubscriptionCommandInput - {@link CreateEventSubscriptionCommandInput}
@@ -117,6 +136,8 @@ export interface CreateEventSubscriptionCommandOutput extends CreateEventSubscri
  * @throws {@link SNSNoAuthorizationFault} (client fault)
  *  <p>You are not authorized for the SNS subscription.</p>
  *
+ * @throws {@link DatabaseMigrationServiceServiceException}
+ * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
  */
 export class CreateEventSubscriptionCommand extends $Command<

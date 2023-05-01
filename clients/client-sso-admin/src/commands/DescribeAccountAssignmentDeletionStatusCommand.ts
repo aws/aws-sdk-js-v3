@@ -45,15 +45,30 @@ export interface DescribeAccountAssignmentDeletionStatusCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSOAdminClient, DescribeAccountAssignmentDeletionStatusCommand } from "@aws-sdk/client-sso-admin"; // ES Modules import
- * // const { SSOAdminClient, DescribeAccountAssignmentDeletionStatusCommand } = require("@aws-sdk/client-sso-admin"); // CommonJS import
+ * import { SSOAdminClient, DescribeAccountAssignmentDeletionStatusCommand } from '@aws-sdk/client-sso-admin'; // ES Modules import
+ * // const { SSOAdminClient, DescribeAccountAssignmentDeletionStatusCommand } = require('@aws-sdk/client-sso-admin'); // CommonJS import
  * const client = new SSOAdminClient(config);
  * const input = { // DescribeAccountAssignmentDeletionStatusRequest
- *   InstanceArn: "STRING_VALUE", // required
- *   AccountAssignmentDeletionRequestId: "STRING_VALUE", // required
+ *   InstanceArn: 'STRING_VALUE', // required
+ *   AccountAssignmentDeletionRequestId: 'STRING_VALUE', // required
  * };
  * const command = new DescribeAccountAssignmentDeletionStatusCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeAccountAssignmentDeletionStatusResponse
+ *   AccountAssignmentDeletionStatus: { // AccountAssignmentOperationStatus
+ *     Status: 'IN_PROGRESS' || 'FAILED' || 'SUCCEEDED',
+ *     RequestId: 'STRING_VALUE',
+ *     FailureReason: 'STRING_VALUE',
+ *     TargetId: 'STRING_VALUE',
+ *     TargetType: 'AWS_ACCOUNT',
+ *     PermissionSetArn: 'STRING_VALUE',
+ *     PrincipalType: 'USER' || 'GROUP',
+ *     PrincipalId: 'STRING_VALUE',
+ *     CreatedDate: new Date('TIMESTAMP'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeAccountAssignmentDeletionStatusCommandInput - {@link DescribeAccountAssignmentDeletionStatusCommandInput}
@@ -79,6 +94,8 @@ export interface DescribeAccountAssignmentDeletionStatusCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The request failed because it contains a syntax error.</p>
  *
+ * @throws {@link SSOAdminServiceException}
+ * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
  */
 export class DescribeAccountAssignmentDeletionStatusCommand extends $Command<

@@ -39,17 +39,20 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SignerClient, TagResourceCommand } from "@aws-sdk/client-signer"; // ES Modules import
- * // const { SignerClient, TagResourceCommand } = require("@aws-sdk/client-signer"); // CommonJS import
+ * import { SignerClient, TagResourceCommand } from '@aws-sdk/client-signer'; // ES Modules import
+ * // const { SignerClient, TagResourceCommand } = require('@aws-sdk/client-signer'); // CommonJS import
  * const client = new SignerClient(config);
  * const input = { // TagResourceRequest
- *   resourceArn: "STRING_VALUE", // required
+ *   resourceArn: 'STRING_VALUE', // required
  *   tags: { // TagMap // required
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param TagResourceCommandInput - {@link TagResourceCommandInput}
@@ -72,6 +75,8 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  *  <p>The allowed number of job-signing requests has been exceeded.</p>
  * 		       <p>This error supersedes the error <code>ThrottlingException</code>.</p>
  *
+ * @throws {@link SignerServiceException}
+ * <p>Base exception class for all service exceptions from Signer service.</p>
  *
  */
 export class TagResourceCommand extends $Command<

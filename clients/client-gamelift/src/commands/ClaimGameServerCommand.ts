@@ -77,16 +77,33 @@ export interface ClaimGameServerCommandOutput extends ClaimGameServerOutput, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GameLiftClient, ClaimGameServerCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
- * // const { GameLiftClient, ClaimGameServerCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
+ * import { GameLiftClient, ClaimGameServerCommand } from '@aws-sdk/client-gamelift'; // ES Modules import
+ * // const { GameLiftClient, ClaimGameServerCommand } = require('@aws-sdk/client-gamelift'); // CommonJS import
  * const client = new GameLiftClient(config);
  * const input = { // ClaimGameServerInput
- *   GameServerGroupName: "STRING_VALUE", // required
- *   GameServerId: "STRING_VALUE",
- *   GameServerData: "STRING_VALUE",
+ *   GameServerGroupName: 'STRING_VALUE', // required
+ *   GameServerId: 'STRING_VALUE',
+ *   GameServerData: 'STRING_VALUE',
  * };
  * const command = new ClaimGameServerCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ClaimGameServerOutput
+ *   GameServer: { // GameServer
+ *     GameServerGroupName: 'STRING_VALUE',
+ *     GameServerGroupArn: 'STRING_VALUE',
+ *     GameServerId: 'STRING_VALUE',
+ *     InstanceId: 'STRING_VALUE',
+ *     ConnectionInfo: 'STRING_VALUE',
+ *     GameServerData: 'STRING_VALUE',
+ *     ClaimStatus: 'CLAIMED',
+ *     UtilizationStatus: 'AVAILABLE' || 'UTILIZED',
+ *     RegistrationTime: new Date('TIMESTAMP'),
+ *     LastClaimTime: new Date('TIMESTAMP'),
+ *     LastHealthCheckTime: new Date('TIMESTAMP'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param ClaimGameServerCommandInput - {@link ClaimGameServerCommandInput}
@@ -120,6 +137,8 @@ export interface ClaimGameServerCommandOutput extends ClaimGameServerOutput, __M
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client failed authentication. Clients should not retry such requests.</p>
  *
+ * @throws {@link GameLiftServiceException}
+ * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
  */
 export class ClaimGameServerCommand extends $Command<

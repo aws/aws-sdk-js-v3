@@ -36,15 +36,129 @@ export interface GetDeploymentTargetCommandOutput extends GetDeploymentTargetOut
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeDeployClient, GetDeploymentTargetCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
- * // const { CodeDeployClient, GetDeploymentTargetCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
+ * import { CodeDeployClient, GetDeploymentTargetCommand } from '@aws-sdk/client-codedeploy'; // ES Modules import
+ * // const { CodeDeployClient, GetDeploymentTargetCommand } = require('@aws-sdk/client-codedeploy'); // CommonJS import
  * const client = new CodeDeployClient(config);
  * const input = { // GetDeploymentTargetInput
- *   deploymentId: "STRING_VALUE",
- *   targetId: "STRING_VALUE",
+ *   deploymentId: 'STRING_VALUE',
+ *   targetId: 'STRING_VALUE',
  * };
  * const command = new GetDeploymentTargetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetDeploymentTargetOutput
+ *   deploymentTarget: { // DeploymentTarget
+ *     deploymentTargetType: 'InstanceTarget' || 'LambdaTarget' || 'ECSTarget' || 'CloudFormationTarget',
+ *     instanceTarget: { // InstanceTarget
+ *       deploymentId: 'STRING_VALUE',
+ *       targetId: 'STRING_VALUE',
+ *       targetArn: 'STRING_VALUE',
+ *       status: 'Pending' || 'InProgress' || 'Succeeded' || 'Failed' || 'Skipped' || 'Unknown' || 'Ready',
+ *       lastUpdatedAt: new Date('TIMESTAMP'),
+ *       lifecycleEvents: [ // LifecycleEventList
+ *         { // LifecycleEvent
+ *           lifecycleEventName: 'STRING_VALUE',
+ *           diagnostics: { // Diagnostics
+ *             errorCode: 'Success' || 'ScriptMissing' || 'ScriptNotExecutable' || 'ScriptTimedOut' || 'ScriptFailed' || 'UnknownError',
+ *             scriptName: 'STRING_VALUE',
+ *             message: 'STRING_VALUE',
+ *             logTail: 'STRING_VALUE',
+ *           },
+ *           startTime: new Date('TIMESTAMP'),
+ *           endTime: new Date('TIMESTAMP'),
+ *           status: 'Pending' || 'InProgress' || 'Succeeded' || 'Failed' || 'Skipped' || 'Unknown',
+ *         },
+ *       ],
+ *       instanceLabel: 'Blue' || 'Green',
+ *     },
+ *     lambdaTarget: { // LambdaTarget
+ *       deploymentId: 'STRING_VALUE',
+ *       targetId: 'STRING_VALUE',
+ *       targetArn: 'STRING_VALUE',
+ *       status: 'Pending' || 'InProgress' || 'Succeeded' || 'Failed' || 'Skipped' || 'Unknown' || 'Ready',
+ *       lastUpdatedAt: new Date('TIMESTAMP'),
+ *       lifecycleEvents: [
+ *         {
+ *           lifecycleEventName: 'STRING_VALUE',
+ *           diagnostics: {
+ *             errorCode: 'Success' || 'ScriptMissing' || 'ScriptNotExecutable' || 'ScriptTimedOut' || 'ScriptFailed' || 'UnknownError',
+ *             scriptName: 'STRING_VALUE',
+ *             message: 'STRING_VALUE',
+ *             logTail: 'STRING_VALUE',
+ *           },
+ *           startTime: new Date('TIMESTAMP'),
+ *           endTime: new Date('TIMESTAMP'),
+ *           status: 'Pending' || 'InProgress' || 'Succeeded' || 'Failed' || 'Skipped' || 'Unknown',
+ *         },
+ *       ],
+ *       lambdaFunctionInfo: { // LambdaFunctionInfo
+ *         functionName: 'STRING_VALUE',
+ *         functionAlias: 'STRING_VALUE',
+ *         currentVersion: 'STRING_VALUE',
+ *         targetVersion: 'STRING_VALUE',
+ *         targetVersionWeight: Number('double'),
+ *       },
+ *     },
+ *     ecsTarget: { // ECSTarget
+ *       deploymentId: 'STRING_VALUE',
+ *       targetId: 'STRING_VALUE',
+ *       targetArn: 'STRING_VALUE',
+ *       lastUpdatedAt: new Date('TIMESTAMP'),
+ *       lifecycleEvents: [
+ *         {
+ *           lifecycleEventName: 'STRING_VALUE',
+ *           diagnostics: {
+ *             errorCode: 'Success' || 'ScriptMissing' || 'ScriptNotExecutable' || 'ScriptTimedOut' || 'ScriptFailed' || 'UnknownError',
+ *             scriptName: 'STRING_VALUE',
+ *             message: 'STRING_VALUE',
+ *             logTail: 'STRING_VALUE',
+ *           },
+ *           startTime: new Date('TIMESTAMP'),
+ *           endTime: new Date('TIMESTAMP'),
+ *           status: 'Pending' || 'InProgress' || 'Succeeded' || 'Failed' || 'Skipped' || 'Unknown',
+ *         },
+ *       ],
+ *       status: 'Pending' || 'InProgress' || 'Succeeded' || 'Failed' || 'Skipped' || 'Unknown' || 'Ready',
+ *       taskSetsInfo: [ // ECSTaskSetList
+ *         { // ECSTaskSet
+ *           identifer: 'STRING_VALUE',
+ *           desiredCount: Number('long'),
+ *           pendingCount: Number('long'),
+ *           runningCount: Number('long'),
+ *           status: 'STRING_VALUE',
+ *           trafficWeight: Number('double'),
+ *           targetGroup: { // TargetGroupInfo
+ *             name: 'STRING_VALUE',
+ *           },
+ *           taskSetLabel: 'Blue' || 'Green',
+ *         },
+ *       ],
+ *     },
+ *     cloudFormationTarget: { // CloudFormationTarget
+ *       deploymentId: 'STRING_VALUE',
+ *       targetId: 'STRING_VALUE',
+ *       lastUpdatedAt: new Date('TIMESTAMP'),
+ *       lifecycleEvents: [
+ *         {
+ *           lifecycleEventName: 'STRING_VALUE',
+ *           diagnostics: {
+ *             errorCode: 'Success' || 'ScriptMissing' || 'ScriptNotExecutable' || 'ScriptTimedOut' || 'ScriptFailed' || 'UnknownError',
+ *             scriptName: 'STRING_VALUE',
+ *             message: 'STRING_VALUE',
+ *             logTail: 'STRING_VALUE',
+ *           },
+ *           startTime: new Date('TIMESTAMP'),
+ *           endTime: new Date('TIMESTAMP'),
+ *           status: 'Pending' || 'InProgress' || 'Succeeded' || 'Failed' || 'Skipped' || 'Unknown',
+ *         },
+ *       ],
+ *       status: 'Pending' || 'InProgress' || 'Succeeded' || 'Failed' || 'Skipped' || 'Unknown' || 'Ready',
+ *       resourceType: 'STRING_VALUE',
+ *       targetVersionWeight: Number('double'),
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetDeploymentTargetCommandInput - {@link GetDeploymentTargetCommandInput}
@@ -78,6 +192,8 @@ export interface GetDeploymentTargetCommandOutput extends GetDeploymentTargetOut
  * @throws {@link InvalidInstanceNameException} (client fault)
  *  <p>The on-premises instance name was specified in an invalid format.</p>
  *
+ * @throws {@link CodeDeployServiceException}
+ * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
  */
 export class GetDeploymentTargetCommand extends $Command<

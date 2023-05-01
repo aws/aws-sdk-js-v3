@@ -42,16 +42,28 @@ export interface ListProvisioningTemplateVersionsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTClient, ListProvisioningTemplateVersionsCommand } from "@aws-sdk/client-iot"; // ES Modules import
- * // const { IoTClient, ListProvisioningTemplateVersionsCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * import { IoTClient, ListProvisioningTemplateVersionsCommand } from '@aws-sdk/client-iot'; // ES Modules import
+ * // const { IoTClient, ListProvisioningTemplateVersionsCommand } = require('@aws-sdk/client-iot'); // CommonJS import
  * const client = new IoTClient(config);
  * const input = { // ListProvisioningTemplateVersionsRequest
- *   templateName: "STRING_VALUE", // required
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   templateName: 'STRING_VALUE', // required
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new ListProvisioningTemplateVersionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListProvisioningTemplateVersionsResponse
+ *   versions: [ // ProvisioningTemplateVersionListing
+ *     { // ProvisioningTemplateVersionSummary
+ *       versionId: Number('int'),
+ *       creationDate: new Date('TIMESTAMP'),
+ *       isDefaultVersion: true || false,
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListProvisioningTemplateVersionsCommandInput - {@link ListProvisioningTemplateVersionsCommandInput}
@@ -75,6 +87,8 @@ export interface ListProvisioningTemplateVersionsCommandOutput
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this operation.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class ListProvisioningTemplateVersionsCommand extends $Command<

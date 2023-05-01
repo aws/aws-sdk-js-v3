@@ -36,16 +36,19 @@ export interface UpdateGlobalSettingsCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeSDKVoiceClient, UpdateGlobalSettingsCommand } from "@aws-sdk/client-chime-sdk-voice"; // ES Modules import
- * // const { ChimeSDKVoiceClient, UpdateGlobalSettingsCommand } = require("@aws-sdk/client-chime-sdk-voice"); // CommonJS import
+ * import { ChimeSDKVoiceClient, UpdateGlobalSettingsCommand } from '@aws-sdk/client-chime-sdk-voice'; // ES Modules import
+ * // const { ChimeSDKVoiceClient, UpdateGlobalSettingsCommand } = require('@aws-sdk/client-chime-sdk-voice'); // CommonJS import
  * const client = new ChimeSDKVoiceClient(config);
  * const input = { // UpdateGlobalSettingsRequest
  *   VoiceConnector: { // VoiceConnectorSettings
- *     CdrBucket: "STRING_VALUE",
+ *     CdrBucket: 'STRING_VALUE',
  *   },
  * };
  * const command = new UpdateGlobalSettingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateGlobalSettingsCommandInput - {@link UpdateGlobalSettingsCommandInput}
@@ -72,6 +75,8 @@ export interface UpdateGlobalSettingsCommandOutput extends __MetadataBearer {}
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client isn't authorized to request a resource.</p>
  *
+ * @throws {@link ChimeSDKVoiceServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
  */
 export class UpdateGlobalSettingsCommand extends $Command<

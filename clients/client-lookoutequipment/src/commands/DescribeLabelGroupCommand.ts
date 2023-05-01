@@ -38,14 +38,25 @@ export interface DescribeLabelGroupCommandOutput extends DescribeLabelGroupRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LookoutEquipmentClient, DescribeLabelGroupCommand } from "@aws-sdk/client-lookoutequipment"; // ES Modules import
- * // const { LookoutEquipmentClient, DescribeLabelGroupCommand } = require("@aws-sdk/client-lookoutequipment"); // CommonJS import
+ * import { LookoutEquipmentClient, DescribeLabelGroupCommand } from '@aws-sdk/client-lookoutequipment'; // ES Modules import
+ * // const { LookoutEquipmentClient, DescribeLabelGroupCommand } = require('@aws-sdk/client-lookoutequipment'); // CommonJS import
  * const client = new LookoutEquipmentClient(config);
  * const input = { // DescribeLabelGroupRequest
- *   LabelGroupName: "STRING_VALUE", // required
+ *   LabelGroupName: 'STRING_VALUE', // required
  * };
  * const command = new DescribeLabelGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeLabelGroupResponse
+ *   LabelGroupName: 'STRING_VALUE',
+ *   LabelGroupArn: 'STRING_VALUE',
+ *   FaultCodes: [ // FaultCodes
+ *     'STRING_VALUE',
+ *   ],
+ *   CreatedAt: new Date('TIMESTAMP'),
+ *   UpdatedAt: new Date('TIMESTAMP'),
+ * };
+ *
  * ```
  *
  * @param DescribeLabelGroupCommandInput - {@link DescribeLabelGroupCommandInput}
@@ -73,6 +84,8 @@ export interface DescribeLabelGroupCommandOutput extends DescribeLabelGroupRespo
  *  <p> The input fails to satisfy constraints specified by Amazon Lookout for Equipment or a
  *          related AWS service that's being utilized. </p>
  *
+ * @throws {@link LookoutEquipmentServiceException}
+ * <p>Base exception class for all service exceptions from LookoutEquipment service.</p>
  *
  */
 export class DescribeLabelGroupCommand extends $Command<

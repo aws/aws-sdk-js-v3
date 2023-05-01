@@ -37,17 +37,22 @@ export interface StopExperimentCommandOutput extends StopExperimentResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EvidentlyClient, StopExperimentCommand } from "@aws-sdk/client-evidently"; // ES Modules import
- * // const { EvidentlyClient, StopExperimentCommand } = require("@aws-sdk/client-evidently"); // CommonJS import
+ * import { EvidentlyClient, StopExperimentCommand } from '@aws-sdk/client-evidently'; // ES Modules import
+ * // const { EvidentlyClient, StopExperimentCommand } = require('@aws-sdk/client-evidently'); // CommonJS import
  * const client = new EvidentlyClient(config);
  * const input = { // StopExperimentRequest
- *   project: "STRING_VALUE", // required
- *   experiment: "STRING_VALUE", // required
- *   desiredState: "STRING_VALUE",
- *   reason: "STRING_VALUE",
+ *   project: 'STRING_VALUE', // required
+ *   experiment: 'STRING_VALUE', // required
+ *   desiredState: 'STRING_VALUE',
+ *   reason: 'STRING_VALUE',
  * };
  * const command = new StopExperimentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StopExperimentResponse
+ *   endedTime: new Date('TIMESTAMP'),
+ * };
+ *
  * ```
  *
  * @param StopExperimentCommandInput - {@link StopExperimentCommandInput}
@@ -74,6 +79,8 @@ export interface StopExperimentCommandOutput extends StopExperimentResponse, __M
  * @throws {@link ValidationException} (client fault)
  *  <p>The value of a parameter in the request caused an error.</p>
  *
+ * @throws {@link EvidentlyServiceException}
+ * <p>Base exception class for all service exceptions from Evidently service.</p>
  *
  */
 export class StopExperimentCommand extends $Command<

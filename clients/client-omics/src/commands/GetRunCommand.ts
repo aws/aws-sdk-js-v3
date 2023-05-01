@@ -36,17 +36,48 @@ export interface GetRunCommandOutput extends GetRunResponse, __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OmicsClient, GetRunCommand } from "@aws-sdk/client-omics"; // ES Modules import
- * // const { OmicsClient, GetRunCommand } = require("@aws-sdk/client-omics"); // CommonJS import
+ * import { OmicsClient, GetRunCommand } from '@aws-sdk/client-omics'; // ES Modules import
+ * // const { OmicsClient, GetRunCommand } = require('@aws-sdk/client-omics'); // CommonJS import
  * const client = new OmicsClient(config);
  * const input = { // GetRunRequest
- *   id: "STRING_VALUE", // required
+ *   id: 'STRING_VALUE', // required
  *   export: [ // RunExportList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new GetRunCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetRunResponse
+ *   arn: 'STRING_VALUE',
+ *   id: 'STRING_VALUE',
+ *   status: 'STRING_VALUE',
+ *   workflowId: 'STRING_VALUE',
+ *   workflowType: 'STRING_VALUE',
+ *   runId: 'STRING_VALUE',
+ *   roleArn: 'STRING_VALUE',
+ *   name: 'STRING_VALUE',
+ *   runGroupId: 'STRING_VALUE',
+ *   priority: Number('int'),
+ *   definition: 'STRING_VALUE',
+ *   digest: 'STRING_VALUE',
+ *   parameters: 'DOCUMENT_VALUE',
+ *   storageCapacity: Number('int'),
+ *   outputUri: 'STRING_VALUE',
+ *   logLevel: 'STRING_VALUE',
+ *   resourceDigests: { // RunResourceDigests
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ *   startedBy: 'STRING_VALUE',
+ *   creationTime: new Date('TIMESTAMP'),
+ *   startTime: new Date('TIMESTAMP'),
+ *   stopTime: new Date('TIMESTAMP'),
+ *   statusMessage: 'STRING_VALUE',
+ *   tags: { // TagMap
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetRunCommandInput - {@link GetRunCommandInput}
@@ -79,6 +110,8 @@ export interface GetRunCommandOutput extends GetRunResponse, __MetadataBearer {}
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link OmicsServiceException}
+ * <p>Base exception class for all service exceptions from Omics service.</p>
  *
  */
 export class GetRunCommand extends $Command<GetRunCommandInput, GetRunCommandOutput, OmicsClientResolvedConfig> {

@@ -52,17 +52,20 @@ export interface AdminUpdateAuthEventFeedbackCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CognitoIdentityProviderClient, AdminUpdateAuthEventFeedbackCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
- * // const { CognitoIdentityProviderClient, AdminUpdateAuthEventFeedbackCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
+ * import { CognitoIdentityProviderClient, AdminUpdateAuthEventFeedbackCommand } from '@aws-sdk/client-cognito-identity-provider'; // ES Modules import
+ * // const { CognitoIdentityProviderClient, AdminUpdateAuthEventFeedbackCommand } = require('@aws-sdk/client-cognito-identity-provider'); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
  * const input = { // AdminUpdateAuthEventFeedbackRequest
- *   UserPoolId: "STRING_VALUE", // required
- *   Username: "STRING_VALUE", // required
- *   EventId: "STRING_VALUE", // required
- *   FeedbackValue: "Valid" || "Invalid", // required
+ *   UserPoolId: 'STRING_VALUE', // required
+ *   Username: 'STRING_VALUE', // required
+ *   EventId: 'STRING_VALUE', // required
+ *   FeedbackValue: 'Valid' || 'Invalid', // required
  * };
  * const command = new AdminUpdateAuthEventFeedbackCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param AdminUpdateAuthEventFeedbackCommandInput - {@link AdminUpdateAuthEventFeedbackCommandInput}
@@ -95,6 +98,8 @@ export interface AdminUpdateAuthEventFeedbackCommandOutput
  * @throws {@link UserPoolAddOnNotEnabledException} (client fault)
  *  <p>This exception is thrown when user pool add-ons aren't enabled.</p>
  *
+ * @throws {@link CognitoIdentityProviderServiceException}
+ * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
  */
 export class AdminUpdateAuthEventFeedbackCommand extends $Command<

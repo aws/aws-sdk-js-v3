@@ -46,26 +46,58 @@ export interface ModifyVerifiedAccessTrustProviderCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, ModifyVerifiedAccessTrustProviderCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, ModifyVerifiedAccessTrustProviderCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, ModifyVerifiedAccessTrustProviderCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, ModifyVerifiedAccessTrustProviderCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // ModifyVerifiedAccessTrustProviderRequest
- *   VerifiedAccessTrustProviderId: "STRING_VALUE", // required
+ *   VerifiedAccessTrustProviderId: 'STRING_VALUE', // required
  *   OidcOptions: { // ModifyVerifiedAccessTrustProviderOidcOptions
- *     Issuer: "STRING_VALUE",
- *     AuthorizationEndpoint: "STRING_VALUE",
- *     TokenEndpoint: "STRING_VALUE",
- *     UserInfoEndpoint: "STRING_VALUE",
- *     ClientId: "STRING_VALUE",
- *     ClientSecret: "STRING_VALUE",
- *     Scope: "STRING_VALUE",
+ *     Issuer: 'STRING_VALUE',
+ *     AuthorizationEndpoint: 'STRING_VALUE',
+ *     TokenEndpoint: 'STRING_VALUE',
+ *     UserInfoEndpoint: 'STRING_VALUE',
+ *     ClientId: 'STRING_VALUE',
+ *     ClientSecret: 'STRING_VALUE',
+ *     Scope: 'STRING_VALUE',
  *   },
- *   Description: "STRING_VALUE",
+ *   Description: 'STRING_VALUE',
  *   DryRun: true || false,
- *   ClientToken: "STRING_VALUE",
+ *   ClientToken: 'STRING_VALUE',
  * };
  * const command = new ModifyVerifiedAccessTrustProviderCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ModifyVerifiedAccessTrustProviderResult
+ *   VerifiedAccessTrustProvider: { // VerifiedAccessTrustProvider
+ *     VerifiedAccessTrustProviderId: 'STRING_VALUE',
+ *     Description: 'STRING_VALUE',
+ *     TrustProviderType: 'user' || 'device',
+ *     UserTrustProviderType: 'iam-identity-center' || 'oidc',
+ *     DeviceTrustProviderType: 'jamf' || 'crowdstrike',
+ *     OidcOptions: { // OidcOptions
+ *       Issuer: 'STRING_VALUE',
+ *       AuthorizationEndpoint: 'STRING_VALUE',
+ *       TokenEndpoint: 'STRING_VALUE',
+ *       UserInfoEndpoint: 'STRING_VALUE',
+ *       ClientId: 'STRING_VALUE',
+ *       ClientSecret: 'STRING_VALUE',
+ *       Scope: 'STRING_VALUE',
+ *     },
+ *     DeviceOptions: { // DeviceOptions
+ *       TenantId: 'STRING_VALUE',
+ *     },
+ *     PolicyReferenceName: 'STRING_VALUE',
+ *     CreationTime: 'STRING_VALUE',
+ *     LastUpdatedTime: 'STRING_VALUE',
+ *     Tags: [ // TagList
+ *       { // Tag
+ *         Key: 'STRING_VALUE',
+ *         Value: 'STRING_VALUE',
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param ModifyVerifiedAccessTrustProviderCommandInput - {@link ModifyVerifiedAccessTrustProviderCommandInput}
@@ -74,6 +106,8 @@ export interface ModifyVerifiedAccessTrustProviderCommandOutput
  * @see {@link ModifyVerifiedAccessTrustProviderCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class ModifyVerifiedAccessTrustProviderCommand extends $Command<

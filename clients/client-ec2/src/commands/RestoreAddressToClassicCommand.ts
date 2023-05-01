@@ -39,15 +39,21 @@ export interface RestoreAddressToClassicCommandOutput extends RestoreAddressToCl
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, RestoreAddressToClassicCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, RestoreAddressToClassicCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, RestoreAddressToClassicCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, RestoreAddressToClassicCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // RestoreAddressToClassicRequest
  *   DryRun: true || false,
- *   PublicIp: "STRING_VALUE", // required
+ *   PublicIp: 'STRING_VALUE', // required
  * };
  * const command = new RestoreAddressToClassicCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // RestoreAddressToClassicResult
+ *   PublicIp: 'STRING_VALUE',
+ *   Status: 'MoveInProgress' || 'InVpc' || 'InClassic',
+ * };
+ *
  * ```
  *
  * @param RestoreAddressToClassicCommandInput - {@link RestoreAddressToClassicCommandInput}
@@ -56,6 +62,8 @@ export interface RestoreAddressToClassicCommandOutput extends RestoreAddressToCl
  * @see {@link RestoreAddressToClassicCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @example To restore an address to EC2-Classic
  * ```javascript

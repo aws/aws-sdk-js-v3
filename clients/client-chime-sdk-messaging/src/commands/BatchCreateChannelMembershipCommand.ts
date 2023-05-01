@@ -49,20 +49,46 @@ export interface BatchCreateChannelMembershipCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeSDKMessagingClient, BatchCreateChannelMembershipCommand } from "@aws-sdk/client-chime-sdk-messaging"; // ES Modules import
- * // const { ChimeSDKMessagingClient, BatchCreateChannelMembershipCommand } = require("@aws-sdk/client-chime-sdk-messaging"); // CommonJS import
+ * import { ChimeSDKMessagingClient, BatchCreateChannelMembershipCommand } from '@aws-sdk/client-chime-sdk-messaging'; // ES Modules import
+ * // const { ChimeSDKMessagingClient, BatchCreateChannelMembershipCommand } = require('@aws-sdk/client-chime-sdk-messaging'); // CommonJS import
  * const client = new ChimeSDKMessagingClient(config);
  * const input = { // BatchCreateChannelMembershipRequest
- *   ChannelArn: "STRING_VALUE", // required
- *   Type: "DEFAULT" || "HIDDEN",
+ *   ChannelArn: 'STRING_VALUE', // required
+ *   Type: 'DEFAULT' || 'HIDDEN',
  *   MemberArns: [ // MemberArns // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   ChimeBearer: "STRING_VALUE", // required
- *   SubChannelId: "STRING_VALUE",
+ *   ChimeBearer: 'STRING_VALUE', // required
+ *   SubChannelId: 'STRING_VALUE',
  * };
  * const command = new BatchCreateChannelMembershipCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BatchCreateChannelMembershipResponse
+ *   BatchChannelMemberships: { // BatchChannelMemberships
+ *     InvitedBy: { // Identity
+ *       Arn: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *     },
+ *     Type: 'DEFAULT' || 'HIDDEN',
+ *     Members: [ // Members
+ *       {
+ *         Arn: 'STRING_VALUE',
+ *         Name: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     ChannelArn: 'STRING_VALUE',
+ *     SubChannelId: 'STRING_VALUE',
+ *   },
+ *   Errors: [ // BatchCreateChannelMembershipErrors
+ *     { // BatchCreateChannelMembershipError
+ *       MemberArn: 'STRING_VALUE',
+ *       ErrorCode: 'BadRequest' || 'Conflict' || 'Forbidden' || 'NotFound' || 'PreconditionFailed' || 'ResourceLimitExceeded' || 'ServiceFailure' || 'AccessDenied' || 'ServiceUnavailable' || 'Throttled' || 'Throttling' || 'Unauthorized' || 'Unprocessable' || 'VoiceConnectorGroupAssociationsExist' || 'PhoneNumberAssociationsExist',
+ *       ErrorMessage: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param BatchCreateChannelMembershipCommandInput - {@link BatchCreateChannelMembershipCommandInput}
@@ -95,6 +121,8 @@ export interface BatchCreateChannelMembershipCommandOutput
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeSDKMessagingServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKMessaging service.</p>
  *
  */
 export class BatchCreateChannelMembershipCommand extends $Command<

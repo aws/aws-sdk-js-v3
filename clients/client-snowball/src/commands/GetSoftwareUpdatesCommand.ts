@@ -37,14 +37,19 @@ export interface GetSoftwareUpdatesCommandOutput extends GetSoftwareUpdatesResul
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SnowballClient, GetSoftwareUpdatesCommand } from "@aws-sdk/client-snowball"; // ES Modules import
- * // const { SnowballClient, GetSoftwareUpdatesCommand } = require("@aws-sdk/client-snowball"); // CommonJS import
+ * import { SnowballClient, GetSoftwareUpdatesCommand } from '@aws-sdk/client-snowball'; // ES Modules import
+ * // const { SnowballClient, GetSoftwareUpdatesCommand } = require('@aws-sdk/client-snowball'); // CommonJS import
  * const client = new SnowballClient(config);
  * const input = { // GetSoftwareUpdatesRequest
- *   JobId: "STRING_VALUE", // required
+ *   JobId: 'STRING_VALUE', // required
  * };
  * const command = new GetSoftwareUpdatesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetSoftwareUpdatesResult
+ *   UpdatesURI: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetSoftwareUpdatesCommandInput - {@link GetSoftwareUpdatesCommandInput}
@@ -61,6 +66,8 @@ export interface GetSoftwareUpdatesCommandOutput extends GetSoftwareUpdatesResul
  *  <p>The specified resource can't be found. Check the information you provided in your last
  *       request, and try again.</p>
  *
+ * @throws {@link SnowballServiceException}
+ * <p>Base exception class for all service exceptions from Snowball service.</p>
  *
  */
 export class GetSoftwareUpdatesCommand extends $Command<

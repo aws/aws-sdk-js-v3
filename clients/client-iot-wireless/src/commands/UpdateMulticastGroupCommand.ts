@@ -36,20 +36,23 @@ export interface UpdateMulticastGroupCommandOutput extends UpdateMulticastGroupR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTWirelessClient, UpdateMulticastGroupCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
- * // const { IoTWirelessClient, UpdateMulticastGroupCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
+ * import { IoTWirelessClient, UpdateMulticastGroupCommand } from '@aws-sdk/client-iot-wireless'; // ES Modules import
+ * // const { IoTWirelessClient, UpdateMulticastGroupCommand } = require('@aws-sdk/client-iot-wireless'); // CommonJS import
  * const client = new IoTWirelessClient(config);
  * const input = { // UpdateMulticastGroupRequest
- *   Id: "STRING_VALUE", // required
- *   Name: "STRING_VALUE",
- *   Description: "STRING_VALUE",
+ *   Id: 'STRING_VALUE', // required
+ *   Name: 'STRING_VALUE',
+ *   Description: 'STRING_VALUE',
  *   LoRaWAN: { // LoRaWANMulticast
- *     RfRegion: "EU868" || "US915" || "AU915" || "AS923-1" || "AS923-2" || "AS923-3" || "AS923-4" || "EU433" || "CN470" || "CN779" || "RU864" || "KR920" || "IN865",
- *     DlClass: "ClassB" || "ClassC",
+ *     RfRegion: 'EU868' || 'US915' || 'AU915' || 'AS923-1' || 'AS923-2' || 'AS923-3' || 'AS923-4' || 'EU433' || 'CN470' || 'CN779' || 'RU864' || 'KR920' || 'IN865',
+ *     DlClass: 'ClassB' || 'ClassC',
  *   },
  * };
  * const command = new UpdateMulticastGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateMulticastGroupCommandInput - {@link UpdateMulticastGroupCommandInput}
@@ -76,6 +79,8 @@ export interface UpdateMulticastGroupCommandOutput extends UpdateMulticastGroupR
  * @throws {@link ValidationException} (client fault)
  *  <p>The input did not meet the specified constraints.</p>
  *
+ * @throws {@link IoTWirelessServiceException}
+ * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
  */
 export class UpdateMulticastGroupCommand extends $Command<

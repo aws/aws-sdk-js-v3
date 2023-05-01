@@ -36,18 +36,29 @@ export interface UpdateVPCEConfigurationCommandOutput extends UpdateVPCEConfigur
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DeviceFarmClient, UpdateVPCEConfigurationCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
- * // const { DeviceFarmClient, UpdateVPCEConfigurationCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
+ * import { DeviceFarmClient, UpdateVPCEConfigurationCommand } from '@aws-sdk/client-device-farm'; // ES Modules import
+ * // const { DeviceFarmClient, UpdateVPCEConfigurationCommand } = require('@aws-sdk/client-device-farm'); // CommonJS import
  * const client = new DeviceFarmClient(config);
  * const input = { // UpdateVPCEConfigurationRequest
- *   arn: "STRING_VALUE", // required
- *   vpceConfigurationName: "STRING_VALUE",
- *   vpceServiceName: "STRING_VALUE",
- *   serviceDnsName: "STRING_VALUE",
- *   vpceConfigurationDescription: "STRING_VALUE",
+ *   arn: 'STRING_VALUE', // required
+ *   vpceConfigurationName: 'STRING_VALUE',
+ *   vpceServiceName: 'STRING_VALUE',
+ *   serviceDnsName: 'STRING_VALUE',
+ *   vpceConfigurationDescription: 'STRING_VALUE',
  * };
  * const command = new UpdateVPCEConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateVPCEConfigurationResult
+ *   vpceConfiguration: { // VPCEConfiguration
+ *     arn: 'STRING_VALUE',
+ *     vpceConfigurationName: 'STRING_VALUE',
+ *     vpceServiceName: 'STRING_VALUE',
+ *     serviceDnsName: 'STRING_VALUE',
+ *     vpceConfigurationDescription: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateVPCEConfigurationCommandInput - {@link UpdateVPCEConfigurationCommandInput}
@@ -69,6 +80,8 @@ export interface UpdateVPCEConfigurationCommandOutput extends UpdateVPCEConfigur
  * @throws {@link ServiceAccountException} (client fault)
  *  <p>There was a problem with the service account.</p>
  *
+ * @throws {@link DeviceFarmServiceException}
+ * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
  */
 export class UpdateVPCEConfigurationCommand extends $Command<

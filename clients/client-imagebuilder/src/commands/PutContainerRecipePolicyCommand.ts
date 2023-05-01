@@ -43,15 +43,21 @@ export interface PutContainerRecipePolicyCommandOutput extends PutContainerRecip
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ImagebuilderClient, PutContainerRecipePolicyCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
- * // const { ImagebuilderClient, PutContainerRecipePolicyCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
+ * import { ImagebuilderClient, PutContainerRecipePolicyCommand } from '@aws-sdk/client-imagebuilder'; // ES Modules import
+ * // const { ImagebuilderClient, PutContainerRecipePolicyCommand } = require('@aws-sdk/client-imagebuilder'); // CommonJS import
  * const client = new ImagebuilderClient(config);
  * const input = { // PutContainerRecipePolicyRequest
- *   containerRecipeArn: "STRING_VALUE", // required
- *   policy: "STRING_VALUE", // required
+ *   containerRecipeArn: 'STRING_VALUE', // required
+ *   policy: 'STRING_VALUE', // required
  * };
  * const command = new PutContainerRecipePolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutContainerRecipePolicyResponse
+ *   requestId: 'STRING_VALUE',
+ *   containerRecipeArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param PutContainerRecipePolicyCommandInput - {@link PutContainerRecipePolicyCommandInput}
@@ -87,6 +93,8 @@ export interface PutContainerRecipePolicyCommandOutput extends PutContainerRecip
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service is unable to process your request at this time.</p>
  *
+ * @throws {@link ImagebuilderServiceException}
+ * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
  */
 export class PutContainerRecipePolicyCommand extends $Command<

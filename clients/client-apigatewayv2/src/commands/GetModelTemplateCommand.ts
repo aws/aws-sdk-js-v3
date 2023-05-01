@@ -36,15 +36,20 @@ export interface GetModelTemplateCommandOutput extends GetModelTemplateResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ApiGatewayV2Client, GetModelTemplateCommand } from "@aws-sdk/client-apigatewayv2"; // ES Modules import
- * // const { ApiGatewayV2Client, GetModelTemplateCommand } = require("@aws-sdk/client-apigatewayv2"); // CommonJS import
+ * import { ApiGatewayV2Client, GetModelTemplateCommand } from '@aws-sdk/client-apigatewayv2'; // ES Modules import
+ * // const { ApiGatewayV2Client, GetModelTemplateCommand } = require('@aws-sdk/client-apigatewayv2'); // CommonJS import
  * const client = new ApiGatewayV2Client(config);
  * const input = { // GetModelTemplateRequest
- *   ApiId: "STRING_VALUE", // required
- *   ModelId: "STRING_VALUE", // required
+ *   ApiId: 'STRING_VALUE', // required
+ *   ModelId: 'STRING_VALUE', // required
  * };
  * const command = new GetModelTemplateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetModelTemplateResponse
+ *   Value: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetModelTemplateCommandInput - {@link GetModelTemplateCommandInput}
@@ -59,6 +64,8 @@ export interface GetModelTemplateCommandOutput extends GetModelTemplateResponse,
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>A limit has been exceeded. See the accompanying error message for details.</p>
  *
+ * @throws {@link ApiGatewayV2ServiceException}
+ * <p>Base exception class for all service exceptions from ApiGatewayV2 service.</p>
  *
  */
 export class GetModelTemplateCommand extends $Command<

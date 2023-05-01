@@ -41,15 +41,18 @@ export interface DisassociateSkillFromSkillGroupCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AlexaForBusinessClient, DisassociateSkillFromSkillGroupCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
- * // const { AlexaForBusinessClient, DisassociateSkillFromSkillGroupCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
+ * import { AlexaForBusinessClient, DisassociateSkillFromSkillGroupCommand } from '@aws-sdk/client-alexa-for-business'; // ES Modules import
+ * // const { AlexaForBusinessClient, DisassociateSkillFromSkillGroupCommand } = require('@aws-sdk/client-alexa-for-business'); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
  * const input = { // DisassociateSkillFromSkillGroupRequest
- *   SkillGroupArn: "STRING_VALUE",
- *   SkillId: "STRING_VALUE", // required
+ *   SkillGroupArn: 'STRING_VALUE',
+ *   SkillId: 'STRING_VALUE', // required
  * };
  * const command = new DisassociateSkillFromSkillGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DisassociateSkillFromSkillGroupCommandInput - {@link DisassociateSkillFromSkillGroupCommandInput}
@@ -64,6 +67,8 @@ export interface DisassociateSkillFromSkillGroupCommandOutput
  * @throws {@link NotFoundException} (client fault)
  *  <p>The resource is not found.</p>
  *
+ * @throws {@link AlexaForBusinessServiceException}
+ * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  */
 export class DisassociateSkillFromSkillGroupCommand extends $Command<

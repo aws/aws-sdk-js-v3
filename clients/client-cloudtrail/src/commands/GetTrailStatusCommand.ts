@@ -40,14 +40,35 @@ export interface GetTrailStatusCommandOutput extends GetTrailStatusResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudTrailClient, GetTrailStatusCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
- * // const { CloudTrailClient, GetTrailStatusCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
+ * import { CloudTrailClient, GetTrailStatusCommand } from '@aws-sdk/client-cloudtrail'; // ES Modules import
+ * // const { CloudTrailClient, GetTrailStatusCommand } = require('@aws-sdk/client-cloudtrail'); // CommonJS import
  * const client = new CloudTrailClient(config);
  * const input = { // GetTrailStatusRequest
- *   Name: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
  * };
  * const command = new GetTrailStatusCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetTrailStatusResponse
+ *   IsLogging: true || false,
+ *   LatestDeliveryError: 'STRING_VALUE',
+ *   LatestNotificationError: 'STRING_VALUE',
+ *   LatestDeliveryTime: new Date('TIMESTAMP'),
+ *   LatestNotificationTime: new Date('TIMESTAMP'),
+ *   StartLoggingTime: new Date('TIMESTAMP'),
+ *   StopLoggingTime: new Date('TIMESTAMP'),
+ *   LatestCloudWatchLogsDeliveryError: 'STRING_VALUE',
+ *   LatestCloudWatchLogsDeliveryTime: new Date('TIMESTAMP'),
+ *   LatestDigestDeliveryTime: new Date('TIMESTAMP'),
+ *   LatestDigestDeliveryError: 'STRING_VALUE',
+ *   LatestDeliveryAttemptTime: 'STRING_VALUE',
+ *   LatestNotificationAttemptTime: 'STRING_VALUE',
+ *   LatestNotificationAttemptSucceeded: 'STRING_VALUE',
+ *   LatestDeliveryAttemptSucceeded: 'STRING_VALUE',
+ *   TimeLoggingStarted: 'STRING_VALUE',
+ *   TimeLoggingStopped: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetTrailStatusCommandInput - {@link GetTrailStatusCommandInput}
@@ -102,6 +123,8 @@ export interface GetTrailStatusCommandOutput extends GetTrailStatusResponse, __M
  * @throws {@link UnsupportedOperationException} (client fault)
  *  <p>This exception is thrown when the requested operation is not supported.</p>
  *
+ * @throws {@link CloudTrailServiceException}
+ * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
  */
 export class GetTrailStatusCommand extends $Command<

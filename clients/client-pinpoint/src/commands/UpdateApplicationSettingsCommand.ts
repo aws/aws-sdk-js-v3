@@ -36,34 +36,58 @@ export interface UpdateApplicationSettingsCommandOutput extends UpdateApplicatio
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PinpointClient, UpdateApplicationSettingsCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
- * // const { PinpointClient, UpdateApplicationSettingsCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
+ * import { PinpointClient, UpdateApplicationSettingsCommand } from '@aws-sdk/client-pinpoint'; // ES Modules import
+ * // const { PinpointClient, UpdateApplicationSettingsCommand } = require('@aws-sdk/client-pinpoint'); // CommonJS import
  * const client = new PinpointClient(config);
  * const input = { // UpdateApplicationSettingsRequest
- *   ApplicationId: "STRING_VALUE", // required
+ *   ApplicationId: 'STRING_VALUE', // required
  *   WriteApplicationSettingsRequest: { // WriteApplicationSettingsRequest
  *     CampaignHook: { // CampaignHook
- *       LambdaFunctionName: "STRING_VALUE",
- *       Mode: "DELIVERY" || "FILTER",
- *       WebUrl: "STRING_VALUE",
+ *       LambdaFunctionName: 'STRING_VALUE',
+ *       Mode: 'DELIVERY' || 'FILTER',
+ *       WebUrl: 'STRING_VALUE',
  *     },
  *     CloudWatchMetricsEnabled: true || false,
  *     EventTaggingEnabled: true || false,
  *     Limits: { // CampaignLimits
- *       Daily: Number("int"),
- *       MaximumDuration: Number("int"),
- *       MessagesPerSecond: Number("int"),
- *       Total: Number("int"),
- *       Session: Number("int"),
+ *       Daily: Number('int'),
+ *       MaximumDuration: Number('int'),
+ *       MessagesPerSecond: Number('int'),
+ *       Total: Number('int'),
+ *       Session: Number('int'),
  *     },
  *     QuietTime: { // QuietTime
- *       End: "STRING_VALUE",
- *       Start: "STRING_VALUE",
+ *       End: 'STRING_VALUE',
+ *       Start: 'STRING_VALUE',
  *     },
  *   },
  * };
  * const command = new UpdateApplicationSettingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateApplicationSettingsResponse
+ *   ApplicationSettingsResource: { // ApplicationSettingsResource
+ *     ApplicationId: 'STRING_VALUE', // required
+ *     CampaignHook: { // CampaignHook
+ *       LambdaFunctionName: 'STRING_VALUE',
+ *       Mode: 'DELIVERY' || 'FILTER',
+ *       WebUrl: 'STRING_VALUE',
+ *     },
+ *     LastModifiedDate: 'STRING_VALUE',
+ *     Limits: { // CampaignLimits
+ *       Daily: Number('int'),
+ *       MaximumDuration: Number('int'),
+ *       MessagesPerSecond: Number('int'),
+ *       Total: Number('int'),
+ *       Session: Number('int'),
+ *     },
+ *     QuietTime: { // QuietTime
+ *       End: 'STRING_VALUE',
+ *       Start: 'STRING_VALUE',
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateApplicationSettingsCommandInput - {@link UpdateApplicationSettingsCommandInput}
@@ -93,6 +117,8 @@ export interface UpdateApplicationSettingsCommandOutput extends UpdateApplicatio
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Provides information about an API request or response.</p>
  *
+ * @throws {@link PinpointServiceException}
+ * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
  */
 export class UpdateApplicationSettingsCommand extends $Command<

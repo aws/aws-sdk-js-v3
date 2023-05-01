@@ -36,34 +36,54 @@ export interface PutProtocolsListCommandOutput extends PutProtocolsListResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FMSClient, PutProtocolsListCommand } from "@aws-sdk/client-fms"; // ES Modules import
- * // const { FMSClient, PutProtocolsListCommand } = require("@aws-sdk/client-fms"); // CommonJS import
+ * import { FMSClient, PutProtocolsListCommand } from '@aws-sdk/client-fms'; // ES Modules import
+ * // const { FMSClient, PutProtocolsListCommand } = require('@aws-sdk/client-fms'); // CommonJS import
  * const client = new FMSClient(config);
  * const input = { // PutProtocolsListRequest
  *   ProtocolsList: { // ProtocolsListData
- *     ListId: "STRING_VALUE",
- *     ListName: "STRING_VALUE", // required
- *     ListUpdateToken: "STRING_VALUE",
- *     CreateTime: new Date("TIMESTAMP"),
- *     LastUpdateTime: new Date("TIMESTAMP"),
+ *     ListId: 'STRING_VALUE',
+ *     ListName: 'STRING_VALUE', // required
+ *     ListUpdateToken: 'STRING_VALUE',
+ *     CreateTime: new Date('TIMESTAMP'),
+ *     LastUpdateTime: new Date('TIMESTAMP'),
  *     ProtocolsList: [ // ProtocolsList // required
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     PreviousProtocolsList: { // PreviousProtocolsList
- *       "<keys>": [
- *         "STRING_VALUE",
+ *       '<keys>': [
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   },
  *   TagList: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new PutProtocolsListCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutProtocolsListResponse
+ *   ProtocolsList: { // ProtocolsListData
+ *     ListId: 'STRING_VALUE',
+ *     ListName: 'STRING_VALUE', // required
+ *     ListUpdateToken: 'STRING_VALUE',
+ *     CreateTime: new Date('TIMESTAMP'),
+ *     LastUpdateTime: new Date('TIMESTAMP'),
+ *     ProtocolsList: [ // ProtocolsList // required
+ *       'STRING_VALUE',
+ *     ],
+ *     PreviousProtocolsList: { // PreviousProtocolsList
+ *       '<keys>': [
+ *         'STRING_VALUE',
+ *       ],
+ *     },
+ *   },
+ *   ProtocolsListArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param PutProtocolsListCommandInput - {@link PutProtocolsListCommandInput}
@@ -95,6 +115,8 @@ export interface PutProtocolsListCommandOutput extends PutProtocolsListResponse,
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link FMSServiceException}
+ * <p>Base exception class for all service exceptions from FMS service.</p>
  *
  */
 export class PutProtocolsListCommand extends $Command<

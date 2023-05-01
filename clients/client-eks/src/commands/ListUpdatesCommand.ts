@@ -37,18 +37,26 @@ export interface ListUpdatesCommandOutput extends ListUpdatesResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EKSClient, ListUpdatesCommand } from "@aws-sdk/client-eks"; // ES Modules import
- * // const { EKSClient, ListUpdatesCommand } = require("@aws-sdk/client-eks"); // CommonJS import
+ * import { EKSClient, ListUpdatesCommand } from '@aws-sdk/client-eks'; // ES Modules import
+ * // const { EKSClient, ListUpdatesCommand } = require('@aws-sdk/client-eks'); // CommonJS import
  * const client = new EKSClient(config);
  * const input = { // ListUpdatesRequest
- *   name: "STRING_VALUE", // required
- *   nodegroupName: "STRING_VALUE",
- *   addonName: "STRING_VALUE",
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   name: 'STRING_VALUE', // required
+ *   nodegroupName: 'STRING_VALUE',
+ *   addonName: 'STRING_VALUE',
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new ListUpdatesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListUpdatesResponse
+ *   updateIds: [ // StringList
+ *     'STRING_VALUE',
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListUpdatesCommandInput - {@link ListUpdatesCommandInput}
@@ -75,6 +83,8 @@ export interface ListUpdatesCommandOutput extends ListUpdatesResponse, __Metadat
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server-side issue.</p>
  *
+ * @throws {@link EKSServiceException}
+ * <p>Base exception class for all service exceptions from EKS service.</p>
  *
  */
 export class ListUpdatesCommand extends $Command<

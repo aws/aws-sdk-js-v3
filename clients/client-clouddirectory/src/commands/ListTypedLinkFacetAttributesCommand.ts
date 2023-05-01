@@ -41,17 +41,45 @@ export interface ListTypedLinkFacetAttributesCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudDirectoryClient, ListTypedLinkFacetAttributesCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
- * // const { CloudDirectoryClient, ListTypedLinkFacetAttributesCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
+ * import { CloudDirectoryClient, ListTypedLinkFacetAttributesCommand } from '@aws-sdk/client-clouddirectory'; // ES Modules import
+ * // const { CloudDirectoryClient, ListTypedLinkFacetAttributesCommand } = require('@aws-sdk/client-clouddirectory'); // CommonJS import
  * const client = new CloudDirectoryClient(config);
  * const input = { // ListTypedLinkFacetAttributesRequest
- *   SchemaArn: "STRING_VALUE", // required
- *   Name: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   SchemaArn: 'STRING_VALUE', // required
+ *   Name: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListTypedLinkFacetAttributesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTypedLinkFacetAttributesResponse
+ *   Attributes: [ // TypedLinkAttributeDefinitionList
+ *     { // TypedLinkAttributeDefinition
+ *       Name: 'STRING_VALUE', // required
+ *       Type: 'STRING' || 'BINARY' || 'BOOLEAN' || 'NUMBER' || 'DATETIME' || 'VARIANT', // required
+ *       DefaultValue: { // TypedAttributeValue Union: only one key present
+ *         StringValue: 'STRING_VALUE',
+ *         BinaryValue: 'BLOB_VALUE',
+ *         BooleanValue: true || false,
+ *         NumberValue: 'STRING_VALUE',
+ *         DatetimeValue: new Date('TIMESTAMP'),
+ *       },
+ *       IsImmutable: true || false,
+ *       Rules: { // RuleMap
+ *         '<keys>': { // Rule
+ *           Type: 'BINARY_LENGTH' || 'NUMBER_COMPARISON' || 'STRING_FROM_SET' || 'STRING_LENGTH',
+ *           Parameters: { // RuleParameterMap
+ *             '<keys>': 'STRING_VALUE',
+ *           },
+ *         },
+ *       },
+ *       RequiredBehavior: 'REQUIRED_ALWAYS' || 'NOT_REQUIRED', // required
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListTypedLinkFacetAttributesCommandInput - {@link ListTypedLinkFacetAttributesCommandInput}
@@ -88,6 +116,8 @@ export interface ListTypedLinkFacetAttributesCommandOutput
  *  <p>Indicates that your request is malformed in some manner. See the exception
  *       message.</p>
  *
+ * @throws {@link CloudDirectoryServiceException}
+ * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
  */
 export class ListTypedLinkFacetAttributesCommand extends $Command<

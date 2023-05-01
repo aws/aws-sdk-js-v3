@@ -36,15 +36,18 @@ export interface DeleteObjectCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BackupStorageClient, DeleteObjectCommand } from "@aws-sdk/client-backupstorage"; // ES Modules import
- * // const { BackupStorageClient, DeleteObjectCommand } = require("@aws-sdk/client-backupstorage"); // CommonJS import
+ * import { BackupStorageClient, DeleteObjectCommand } from '@aws-sdk/client-backupstorage'; // ES Modules import
+ * // const { BackupStorageClient, DeleteObjectCommand } = require('@aws-sdk/client-backupstorage'); // CommonJS import
  * const client = new BackupStorageClient(config);
  * const input = { // DeleteObjectInput
- *   BackupJobId: "STRING_VALUE", // required
- *   ObjectName: "STRING_VALUE", // required
+ *   BackupJobId: 'STRING_VALUE', // required
+ *   ObjectName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteObjectCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteObjectCommandInput - {@link DeleteObjectCommandInput}
@@ -74,6 +77,8 @@ export interface DeleteObjectCommandOutput extends __MetadataBearer {}
  * @throws {@link ThrottlingException} (client fault)
  *  Increased rate over throttling limits. Can be retried with exponential backoff.
  *
+ * @throws {@link BackupStorageServiceException}
+ * <p>Base exception class for all service exceptions from BackupStorage service.</p>
  *
  */
 export class DeleteObjectCommand extends $Command<

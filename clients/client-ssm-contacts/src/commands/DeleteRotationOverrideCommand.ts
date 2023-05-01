@@ -36,15 +36,18 @@ export interface DeleteRotationOverrideCommandOutput extends DeleteRotationOverr
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMContactsClient, DeleteRotationOverrideCommand } from "@aws-sdk/client-ssm-contacts"; // ES Modules import
- * // const { SSMContactsClient, DeleteRotationOverrideCommand } = require("@aws-sdk/client-ssm-contacts"); // CommonJS import
+ * import { SSMContactsClient, DeleteRotationOverrideCommand } from '@aws-sdk/client-ssm-contacts'; // ES Modules import
+ * // const { SSMContactsClient, DeleteRotationOverrideCommand } = require('@aws-sdk/client-ssm-contacts'); // CommonJS import
  * const client = new SSMContactsClient(config);
  * const input = { // DeleteRotationOverrideRequest
- *   RotationId: "STRING_VALUE", // required
- *   RotationOverrideId: "STRING_VALUE", // required
+ *   RotationId: 'STRING_VALUE', // required
+ *   RotationOverrideId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteRotationOverrideCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteRotationOverrideCommandInput - {@link DeleteRotationOverrideCommandInput}
@@ -69,6 +72,8 @@ export interface DeleteRotationOverrideCommandOutput extends DeleteRotationOverr
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
  *          service.</p>
  *
+ * @throws {@link SSMContactsServiceException}
+ * <p>Base exception class for all service exceptions from SSMContacts service.</p>
  *
  */
 export class DeleteRotationOverrideCommand extends $Command<

@@ -91,25 +91,41 @@ export interface SetIdentityPoolConfigurationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CognitoSyncClient, SetIdentityPoolConfigurationCommand } from "@aws-sdk/client-cognito-sync"; // ES Modules import
- * // const { CognitoSyncClient, SetIdentityPoolConfigurationCommand } = require("@aws-sdk/client-cognito-sync"); // CommonJS import
+ * import { CognitoSyncClient, SetIdentityPoolConfigurationCommand } from '@aws-sdk/client-cognito-sync'; // ES Modules import
+ * // const { CognitoSyncClient, SetIdentityPoolConfigurationCommand } = require('@aws-sdk/client-cognito-sync'); // CommonJS import
  * const client = new CognitoSyncClient(config);
  * const input = { // SetIdentityPoolConfigurationRequest
- *   IdentityPoolId: "STRING_VALUE", // required
+ *   IdentityPoolId: 'STRING_VALUE', // required
  *   PushSync: { // PushSync
  *     ApplicationArns: [ // ApplicationArnList
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
- *     RoleArn: "STRING_VALUE",
+ *     RoleArn: 'STRING_VALUE',
  *   },
  *   CognitoStreams: { // CognitoStreams
- *     StreamName: "STRING_VALUE",
- *     RoleArn: "STRING_VALUE",
- *     StreamingStatus: "STRING_VALUE",
+ *     StreamName: 'STRING_VALUE',
+ *     RoleArn: 'STRING_VALUE',
+ *     StreamingStatus: 'STRING_VALUE',
  *   },
  * };
  * const command = new SetIdentityPoolConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SetIdentityPoolConfigurationResponse
+ *   IdentityPoolId: 'STRING_VALUE',
+ *   PushSync: { // PushSync
+ *     ApplicationArns: [ // ApplicationArnList
+ *       'STRING_VALUE',
+ *     ],
+ *     RoleArn: 'STRING_VALUE',
+ *   },
+ *   CognitoStreams: { // CognitoStreams
+ *     StreamName: 'STRING_VALUE',
+ *     RoleArn: 'STRING_VALUE',
+ *     StreamingStatus: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param SetIdentityPoolConfigurationCommandInput - {@link SetIdentityPoolConfigurationCommandInput}
@@ -141,6 +157,8 @@ export interface SetIdentityPoolConfigurationCommandOutput
  *  Thrown if the request is
  *       throttled.
  *
+ * @throws {@link CognitoSyncServiceException}
+ * <p>Base exception class for all service exceptions from CognitoSync service.</p>
  *
  */
 export class SetIdentityPoolConfigurationCommand extends $Command<

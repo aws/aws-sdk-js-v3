@@ -41,18 +41,24 @@ export interface RefreshTokenCommandOutput extends RefreshTokenResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AmplifyUIBuilderClient, RefreshTokenCommand } from "@aws-sdk/client-amplifyuibuilder"; // ES Modules import
- * // const { AmplifyUIBuilderClient, RefreshTokenCommand } = require("@aws-sdk/client-amplifyuibuilder"); // CommonJS import
+ * import { AmplifyUIBuilderClient, RefreshTokenCommand } from '@aws-sdk/client-amplifyuibuilder'; // ES Modules import
+ * // const { AmplifyUIBuilderClient, RefreshTokenCommand } = require('@aws-sdk/client-amplifyuibuilder'); // CommonJS import
  * const client = new AmplifyUIBuilderClient(config);
  * const input = { // RefreshTokenRequest
- *   provider: "STRING_VALUE", // required
+ *   provider: 'STRING_VALUE', // required
  *   refreshTokenBody: { // RefreshTokenRequestBody
- *     token: "STRING_VALUE", // required
- *     clientId: "STRING_VALUE",
+ *     token: 'STRING_VALUE', // required
+ *     clientId: 'STRING_VALUE',
  *   },
  * };
  * const command = new RefreshTokenCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // RefreshTokenResponse
+ *   accessToken: 'STRING_VALUE', // required
+ *   expiresIn: Number('int'), // required
+ * };
+ *
  * ```
  *
  * @param RefreshTokenCommandInput - {@link RefreshTokenCommandInput}
@@ -64,6 +70,8 @@ export interface RefreshTokenCommandOutput extends RefreshTokenResponse, __Metad
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>An invalid or out-of-range value was supplied for the input parameter.</p>
  *
+ * @throws {@link AmplifyUIBuilderServiceException}
+ * <p>Base exception class for all service exceptions from AmplifyUIBuilder service.</p>
  *
  */
 export class RefreshTokenCommand extends $Command<

@@ -42,14 +42,33 @@ export interface DescribeLanguageModelCommandOutput extends DescribeLanguageMode
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { TranscribeClient, DescribeLanguageModelCommand } from "@aws-sdk/client-transcribe"; // ES Modules import
- * // const { TranscribeClient, DescribeLanguageModelCommand } = require("@aws-sdk/client-transcribe"); // CommonJS import
+ * import { TranscribeClient, DescribeLanguageModelCommand } from '@aws-sdk/client-transcribe'; // ES Modules import
+ * // const { TranscribeClient, DescribeLanguageModelCommand } = require('@aws-sdk/client-transcribe'); // CommonJS import
  * const client = new TranscribeClient(config);
  * const input = { // DescribeLanguageModelRequest
- *   ModelName: "STRING_VALUE", // required
+ *   ModelName: 'STRING_VALUE', // required
  * };
  * const command = new DescribeLanguageModelCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeLanguageModelResponse
+ *   LanguageModel: { // LanguageModel
+ *     ModelName: 'STRING_VALUE',
+ *     CreateTime: new Date('TIMESTAMP'),
+ *     LastModifiedTime: new Date('TIMESTAMP'),
+ *     LanguageCode: 'en-US' || 'hi-IN' || 'es-US' || 'en-GB' || 'en-AU' || 'de-DE' || 'ja-JP',
+ *     BaseModelName: 'NarrowBand' || 'WideBand',
+ *     ModelStatus: 'IN_PROGRESS' || 'FAILED' || 'COMPLETED',
+ *     UpgradeAvailability: true || false,
+ *     FailureReason: 'STRING_VALUE',
+ *     InputDataConfig: { // InputDataConfig
+ *       S3Uri: 'STRING_VALUE', // required
+ *       TuningDataS3Uri: 'STRING_VALUE',
+ *       DataAccessRoleArn: 'STRING_VALUE', // required
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeLanguageModelCommandInput - {@link DescribeLanguageModelCommandInput}
@@ -76,6 +95,8 @@ export interface DescribeLanguageModelCommandOutput extends DescribeLanguageMode
  *  <p>We can't find the requested resource. Check that the specified name is correct and try
  *             your request again.</p>
  *
+ * @throws {@link TranscribeServiceException}
+ * <p>Base exception class for all service exceptions from Transcribe service.</p>
  *
  */
 export class DescribeLanguageModelCommand extends $Command<

@@ -38,16 +38,19 @@ export interface StopContactStreamingCommandOutput extends StopContactStreamingR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, StopContactStreamingCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, StopContactStreamingCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, StopContactStreamingCommand } from '@aws-sdk/client-connect'; // ES Modules import
+ * // const { ConnectClient, StopContactStreamingCommand } = require('@aws-sdk/client-connect'); // CommonJS import
  * const client = new ConnectClient(config);
  * const input = { // StopContactStreamingRequest
- *   InstanceId: "STRING_VALUE", // required
- *   ContactId: "STRING_VALUE", // required
- *   StreamingId: "STRING_VALUE", // required
+ *   InstanceId: 'STRING_VALUE', // required
+ *   ContactId: 'STRING_VALUE', // required
+ *   StreamingId: 'STRING_VALUE', // required
  * };
  * const command = new StopContactStreamingCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param StopContactStreamingCommandInput - {@link StopContactStreamingCommandInput}
@@ -68,6 +71,8 @@ export interface StopContactStreamingCommandOutput extends StopContactStreamingR
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class StopContactStreamingCommand extends $Command<

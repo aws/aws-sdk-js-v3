@@ -36,22 +36,32 @@ export interface CopyDBParameterGroupCommandOutput extends CopyDBParameterGroupR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RDSClient, CopyDBParameterGroupCommand } from "@aws-sdk/client-rds"; // ES Modules import
- * // const { RDSClient, CopyDBParameterGroupCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * import { RDSClient, CopyDBParameterGroupCommand } from '@aws-sdk/client-rds'; // ES Modules import
+ * // const { RDSClient, CopyDBParameterGroupCommand } = require('@aws-sdk/client-rds'); // CommonJS import
  * const client = new RDSClient(config);
  * const input = { // CopyDBParameterGroupMessage
- *   SourceDBParameterGroupIdentifier: "STRING_VALUE", // required
- *   TargetDBParameterGroupIdentifier: "STRING_VALUE", // required
- *   TargetDBParameterGroupDescription: "STRING_VALUE", // required
+ *   SourceDBParameterGroupIdentifier: 'STRING_VALUE', // required
+ *   TargetDBParameterGroupIdentifier: 'STRING_VALUE', // required
+ *   TargetDBParameterGroupDescription: 'STRING_VALUE', // required
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE",
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE',
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new CopyDBParameterGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CopyDBParameterGroupResult
+ *   DBParameterGroup: { // DBParameterGroup
+ *     DBParameterGroupName: 'STRING_VALUE',
+ *     DBParameterGroupFamily: 'STRING_VALUE',
+ *     Description: 'STRING_VALUE',
+ *     DBParameterGroupArn: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param CopyDBParameterGroupCommandInput - {@link CopyDBParameterGroupCommandInput}
@@ -72,6 +82,8 @@ export interface CopyDBParameterGroupCommandOutput extends CopyDBParameterGroupR
  *  <p>The request would result in the user exceeding the allowed number of DB parameter
  *             groups.</p>
  *
+ * @throws {@link RDSServiceException}
+ * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  * @example To copy a DB parameter group
  * ```javascript

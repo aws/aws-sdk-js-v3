@@ -37,26 +37,49 @@ export interface ListProtectionsCommandOutput extends ListProtectionsResponse, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ShieldClient, ListProtectionsCommand } from "@aws-sdk/client-shield"; // ES Modules import
- * // const { ShieldClient, ListProtectionsCommand } = require("@aws-sdk/client-shield"); // CommonJS import
+ * import { ShieldClient, ListProtectionsCommand } from '@aws-sdk/client-shield'; // ES Modules import
+ * // const { ShieldClient, ListProtectionsCommand } = require('@aws-sdk/client-shield'); // CommonJS import
  * const client = new ShieldClient(config);
  * const input = { // ListProtectionsRequest
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  *   InclusionFilters: { // InclusionProtectionFilters
  *     ResourceArns: [ // ResourceArnFilters
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     ProtectionNames: [ // ProtectionNameFilters
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     ResourceTypes: [ // ProtectedResourceTypeFilters
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *   },
  * };
  * const command = new ListProtectionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListProtectionsResponse
+ *   Protections: [ // Protections
+ *     { // Protection
+ *       Id: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *       ResourceArn: 'STRING_VALUE',
+ *       HealthCheckIds: [ // HealthCheckIds
+ *         'STRING_VALUE',
+ *       ],
+ *       ProtectionArn: 'STRING_VALUE',
+ *       ApplicationLayerAutomaticResponseConfiguration: { // ApplicationLayerAutomaticResponseConfiguration
+ *         Status: 'STRING_VALUE', // required
+ *         Action: { // ResponseAction
+ *           Block: {},
+ *           Count: {},
+ *         },
+ *       },
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListProtectionsCommandInput - {@link ListProtectionsCommandInput}
@@ -74,6 +97,8 @@ export interface ListProtectionsCommandOutput extends ListProtectionsResponse, _
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Exception indicating the specified resource does not exist. If available, this exception includes details in additional properties. </p>
  *
+ * @throws {@link ShieldServiceException}
+ * <p>Base exception class for all service exceptions from Shield service.</p>
  *
  */
 export class ListProtectionsCommand extends $Command<

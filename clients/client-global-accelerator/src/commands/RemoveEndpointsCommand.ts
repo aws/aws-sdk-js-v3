@@ -56,20 +56,23 @@ export interface RemoveEndpointsCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlobalAcceleratorClient, RemoveEndpointsCommand } from "@aws-sdk/client-global-accelerator"; // ES Modules import
- * // const { GlobalAcceleratorClient, RemoveEndpointsCommand } = require("@aws-sdk/client-global-accelerator"); // CommonJS import
+ * import { GlobalAcceleratorClient, RemoveEndpointsCommand } from '@aws-sdk/client-global-accelerator'; // ES Modules import
+ * // const { GlobalAcceleratorClient, RemoveEndpointsCommand } = require('@aws-sdk/client-global-accelerator'); // CommonJS import
  * const client = new GlobalAcceleratorClient(config);
  * const input = { // RemoveEndpointsRequest
  *   EndpointIdentifiers: [ // EndpointIdentifiers // required
  *     { // EndpointIdentifier
- *       EndpointId: "STRING_VALUE", // required
+ *       EndpointId: 'STRING_VALUE', // required
  *       ClientIPPreservationEnabled: true || false,
  *     },
  *   ],
- *   EndpointGroupArn: "STRING_VALUE", // required
+ *   EndpointGroupArn: 'STRING_VALUE', // required
  * };
  * const command = new RemoveEndpointsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param RemoveEndpointsCommandInput - {@link RemoveEndpointsCommandInput}
@@ -93,6 +96,8 @@ export interface RemoveEndpointsCommandOutput extends __MetadataBearer {}
  * @throws {@link TransactionInProgressException} (client fault)
  *  <p>There's already a transaction in progress. Another transaction can't be processed.</p>
  *
+ * @throws {@link GlobalAcceleratorServiceException}
+ * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
  */
 export class RemoveEndpointsCommand extends $Command<

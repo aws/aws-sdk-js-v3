@@ -45,14 +45,17 @@ export interface CancelDataQualityRuleRecommendationRunCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlueClient, CancelDataQualityRuleRecommendationRunCommand } from "@aws-sdk/client-glue"; // ES Modules import
- * // const { GlueClient, CancelDataQualityRuleRecommendationRunCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * import { GlueClient, CancelDataQualityRuleRecommendationRunCommand } from '@aws-sdk/client-glue'; // ES Modules import
+ * // const { GlueClient, CancelDataQualityRuleRecommendationRunCommand } = require('@aws-sdk/client-glue'); // CommonJS import
  * const client = new GlueClient(config);
  * const input = { // CancelDataQualityRuleRecommendationRunRequest
- *   RunId: "STRING_VALUE", // required
+ *   RunId: 'STRING_VALUE', // required
  * };
  * const command = new CancelDataQualityRuleRecommendationRunCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param CancelDataQualityRuleRecommendationRunCommandInput - {@link CancelDataQualityRuleRecommendationRunCommandInput}
@@ -73,6 +76,8 @@ export interface CancelDataQualityRuleRecommendationRunCommandOutput
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class CancelDataQualityRuleRecommendationRunCommand extends $Command<

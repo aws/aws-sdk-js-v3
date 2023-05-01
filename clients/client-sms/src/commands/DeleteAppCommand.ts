@@ -37,16 +37,19 @@ export interface DeleteAppCommandOutput extends DeleteAppResponse, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SMSClient, DeleteAppCommand } from "@aws-sdk/client-sms"; // ES Modules import
- * // const { SMSClient, DeleteAppCommand } = require("@aws-sdk/client-sms"); // CommonJS import
+ * import { SMSClient, DeleteAppCommand } from '@aws-sdk/client-sms'; // ES Modules import
+ * // const { SMSClient, DeleteAppCommand } = require('@aws-sdk/client-sms'); // CommonJS import
  * const client = new SMSClient(config);
  * const input = { // DeleteAppRequest
- *   appId: "STRING_VALUE",
+ *   appId: 'STRING_VALUE',
  *   forceStopAppReplication: true || false,
  *   forceTerminateApp: true || false,
  * };
  * const command = new DeleteAppCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteAppCommandInput - {@link DeleteAppCommandInput}
@@ -71,6 +74,8 @@ export interface DeleteAppCommandOutput extends DeleteAppResponse, __MetadataBea
  *  <p>You lack permissions needed to perform this operation. Check your IAM policies,
  *             and ensure that you are using the correct access keys.</p>
  *
+ * @throws {@link SMSServiceException}
+ * <p>Base exception class for all service exceptions from SMS service.</p>
  *
  */
 export class DeleteAppCommand extends $Command<DeleteAppCommandInput, DeleteAppCommandOutput, SMSClientResolvedConfig> {

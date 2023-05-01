@@ -51,17 +51,41 @@ export interface SearchFacesCommandOutput extends SearchFacesResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RekognitionClient, SearchFacesCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
- * // const { RekognitionClient, SearchFacesCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
+ * import { RekognitionClient, SearchFacesCommand } from '@aws-sdk/client-rekognition'; // ES Modules import
+ * // const { RekognitionClient, SearchFacesCommand } = require('@aws-sdk/client-rekognition'); // CommonJS import
  * const client = new RekognitionClient(config);
  * const input = { // SearchFacesRequest
- *   CollectionId: "STRING_VALUE", // required
- *   FaceId: "STRING_VALUE", // required
- *   MaxFaces: Number("int"),
- *   FaceMatchThreshold: Number("float"),
+ *   CollectionId: 'STRING_VALUE', // required
+ *   FaceId: 'STRING_VALUE', // required
+ *   MaxFaces: Number('int'),
+ *   FaceMatchThreshold: Number('float'),
  * };
  * const command = new SearchFacesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SearchFacesResponse
+ *   SearchedFaceId: 'STRING_VALUE',
+ *   FaceMatches: [ // FaceMatchList
+ *     { // FaceMatch
+ *       Similarity: Number('float'),
+ *       Face: { // Face
+ *         FaceId: 'STRING_VALUE',
+ *         BoundingBox: { // BoundingBox
+ *           Width: Number('float'),
+ *           Height: Number('float'),
+ *           Left: Number('float'),
+ *           Top: Number('float'),
+ *         },
+ *         ImageId: 'STRING_VALUE',
+ *         ExternalImageId: 'STRING_VALUE',
+ *         Confidence: Number('float'),
+ *         IndexFacesModelVersion: 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ *   FaceModelVersion: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param SearchFacesCommandInput - {@link SearchFacesCommandInput}
@@ -90,6 +114,8 @@ export interface SearchFacesCommandOutput extends SearchFacesResponse, __Metadat
  * @throws {@link ThrottlingException} (server fault)
  *  <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
  *
+ * @throws {@link RekognitionServiceException}
+ * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
  * @example To delete a face
  * ```javascript

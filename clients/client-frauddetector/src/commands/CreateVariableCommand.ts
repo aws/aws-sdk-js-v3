@@ -36,25 +36,28 @@ export interface CreateVariableCommandOutput extends CreateVariableResult, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FraudDetectorClient, CreateVariableCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
- * // const { FraudDetectorClient, CreateVariableCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
+ * import { FraudDetectorClient, CreateVariableCommand } from '@aws-sdk/client-frauddetector'; // ES Modules import
+ * // const { FraudDetectorClient, CreateVariableCommand } = require('@aws-sdk/client-frauddetector'); // CommonJS import
  * const client = new FraudDetectorClient(config);
  * const input = { // CreateVariableRequest
- *   name: "STRING_VALUE", // required
- *   dataType: "STRING" || "INTEGER" || "FLOAT" || "BOOLEAN", // required
- *   dataSource: "EVENT" || "MODEL_SCORE" || "EXTERNAL_MODEL_SCORE", // required
- *   defaultValue: "STRING_VALUE", // required
- *   description: "STRING_VALUE",
- *   variableType: "STRING_VALUE",
+ *   name: 'STRING_VALUE', // required
+ *   dataType: 'STRING' || 'INTEGER' || 'FLOAT' || 'BOOLEAN', // required
+ *   dataSource: 'EVENT' || 'MODEL_SCORE' || 'EXTERNAL_MODEL_SCORE', // required
+ *   defaultValue: 'STRING_VALUE', // required
+ *   description: 'STRING_VALUE',
+ *   variableType: 'STRING_VALUE',
  *   tags: [ // tagList
  *     { // Tag
- *       key: "STRING_VALUE", // required
- *       value: "STRING_VALUE", // required
+ *       key: 'STRING_VALUE', // required
+ *       value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreateVariableCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param CreateVariableCommandInput - {@link CreateVariableCommandInput}
@@ -75,6 +78,8 @@ export interface CreateVariableCommandOutput extends CreateVariableResult, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception indicating a specified value is not allowed.</p>
  *
+ * @throws {@link FraudDetectorServiceException}
+ * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
  */
 export class CreateVariableCommand extends $Command<

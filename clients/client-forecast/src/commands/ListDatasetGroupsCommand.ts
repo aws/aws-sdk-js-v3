@@ -40,15 +40,28 @@ export interface ListDatasetGroupsCommandOutput extends ListDatasetGroupsRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ForecastClient, ListDatasetGroupsCommand } from "@aws-sdk/client-forecast"; // ES Modules import
- * // const { ForecastClient, ListDatasetGroupsCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
+ * import { ForecastClient, ListDatasetGroupsCommand } from '@aws-sdk/client-forecast'; // ES Modules import
+ * // const { ForecastClient, ListDatasetGroupsCommand } = require('@aws-sdk/client-forecast'); // CommonJS import
  * const client = new ForecastClient(config);
  * const input = { // ListDatasetGroupsRequest
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListDatasetGroupsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListDatasetGroupsResponse
+ *   DatasetGroups: [ // DatasetGroups
+ *     { // DatasetGroupSummary
+ *       DatasetGroupArn: 'STRING_VALUE',
+ *       DatasetGroupName: 'STRING_VALUE',
+ *       CreationTime: new Date('TIMESTAMP'),
+ *       LastModificationTime: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListDatasetGroupsCommandInput - {@link ListDatasetGroupsCommandInput}
@@ -60,6 +73,8 @@ export interface ListDatasetGroupsCommandOutput extends ListDatasetGroupsRespons
  * @throws {@link InvalidNextTokenException} (client fault)
  *  <p>The token is not valid. Tokens expire after 24 hours.</p>
  *
+ * @throws {@link ForecastServiceException}
+ * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
  */
 export class ListDatasetGroupsCommand extends $Command<

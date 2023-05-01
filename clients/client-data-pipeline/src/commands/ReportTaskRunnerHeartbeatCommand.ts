@@ -68,16 +68,21 @@ export interface ReportTaskRunnerHeartbeatCommandOutput extends ReportTaskRunner
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DataPipelineClient, ReportTaskRunnerHeartbeatCommand } from "@aws-sdk/client-data-pipeline"; // ES Modules import
- * // const { DataPipelineClient, ReportTaskRunnerHeartbeatCommand } = require("@aws-sdk/client-data-pipeline"); // CommonJS import
+ * import { DataPipelineClient, ReportTaskRunnerHeartbeatCommand } from '@aws-sdk/client-data-pipeline'; // ES Modules import
+ * // const { DataPipelineClient, ReportTaskRunnerHeartbeatCommand } = require('@aws-sdk/client-data-pipeline'); // CommonJS import
  * const client = new DataPipelineClient(config);
  * const input = { // ReportTaskRunnerHeartbeatInput
- *   taskrunnerId: "STRING_VALUE", // required
- *   workerGroup: "STRING_VALUE",
- *   hostname: "STRING_VALUE",
+ *   taskrunnerId: 'STRING_VALUE', // required
+ *   workerGroup: 'STRING_VALUE',
+ *   hostname: 'STRING_VALUE',
  * };
  * const command = new ReportTaskRunnerHeartbeatCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ReportTaskRunnerHeartbeatOutput
+ *   terminate: true || false, // required
+ * };
+ *
  * ```
  *
  * @param ReportTaskRunnerHeartbeatCommandInput - {@link ReportTaskRunnerHeartbeatCommandInput}
@@ -92,6 +97,8 @@ export interface ReportTaskRunnerHeartbeatCommandOutput extends ReportTaskRunner
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>The request was not valid. Verify that your request was properly formatted, that the signature was generated with the correct credentials, and that you haven't exceeded any of the service limits for your account.</p>
  *
+ * @throws {@link DataPipelineServiceException}
+ * <p>Base exception class for all service exceptions from DataPipeline service.</p>
  *
  */
 export class ReportTaskRunnerHeartbeatCommand extends $Command<

@@ -45,16 +45,33 @@ export interface ApplyPendingMaintenanceActionCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DatabaseMigrationServiceClient, ApplyPendingMaintenanceActionCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
- * // const { DatabaseMigrationServiceClient, ApplyPendingMaintenanceActionCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
+ * import { DatabaseMigrationServiceClient, ApplyPendingMaintenanceActionCommand } from '@aws-sdk/client-database-migration-service'; // ES Modules import
+ * // const { DatabaseMigrationServiceClient, ApplyPendingMaintenanceActionCommand } = require('@aws-sdk/client-database-migration-service'); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
  * const input = { // ApplyPendingMaintenanceActionMessage
- *   ReplicationInstanceArn: "STRING_VALUE", // required
- *   ApplyAction: "STRING_VALUE", // required
- *   OptInType: "STRING_VALUE", // required
+ *   ReplicationInstanceArn: 'STRING_VALUE', // required
+ *   ApplyAction: 'STRING_VALUE', // required
+ *   OptInType: 'STRING_VALUE', // required
  * };
  * const command = new ApplyPendingMaintenanceActionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ApplyPendingMaintenanceActionResponse
+ *   ResourcePendingMaintenanceActions: { // ResourcePendingMaintenanceActions
+ *     ResourceIdentifier: 'STRING_VALUE',
+ *     PendingMaintenanceActionDetails: [ // PendingMaintenanceActionDetails
+ *       { // PendingMaintenanceAction
+ *         Action: 'STRING_VALUE',
+ *         AutoAppliedAfterDate: new Date('TIMESTAMP'),
+ *         ForcedApplyDate: new Date('TIMESTAMP'),
+ *         OptInStatus: 'STRING_VALUE',
+ *         CurrentApplyDate: new Date('TIMESTAMP'),
+ *         Description: 'STRING_VALUE',
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param ApplyPendingMaintenanceActionCommandInput - {@link ApplyPendingMaintenanceActionCommandInput}
@@ -66,6 +83,8 @@ export interface ApplyPendingMaintenanceActionCommandOutput
  * @throws {@link ResourceNotFoundFault} (client fault)
  *  <p>The resource could not be found.</p>
  *
+ * @throws {@link DatabaseMigrationServiceServiceException}
+ * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
  */
 export class ApplyPendingMaintenanceActionCommand extends $Command<

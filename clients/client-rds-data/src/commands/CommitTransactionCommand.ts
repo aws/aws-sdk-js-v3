@@ -37,16 +37,21 @@ export interface CommitTransactionCommandOutput extends CommitTransactionRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RDSDataClient, CommitTransactionCommand } from "@aws-sdk/client-rds-data"; // ES Modules import
- * // const { RDSDataClient, CommitTransactionCommand } = require("@aws-sdk/client-rds-data"); // CommonJS import
+ * import { RDSDataClient, CommitTransactionCommand } from '@aws-sdk/client-rds-data'; // ES Modules import
+ * // const { RDSDataClient, CommitTransactionCommand } = require('@aws-sdk/client-rds-data'); // CommonJS import
  * const client = new RDSDataClient(config);
  * const input = { // CommitTransactionRequest
- *   resourceArn: "STRING_VALUE", // required
- *   secretArn: "STRING_VALUE", // required
- *   transactionId: "STRING_VALUE", // required
+ *   resourceArn: 'STRING_VALUE', // required
+ *   secretArn: 'STRING_VALUE', // required
+ *   transactionId: 'STRING_VALUE', // required
  * };
  * const command = new CommitTransactionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CommitTransactionResponse
+ *   transactionStatus: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CommitTransactionCommandInput - {@link CommitTransactionCommandInput}
@@ -77,6 +82,8 @@ export interface CommitTransactionCommandOutput extends CommitTransactionRespons
  * @throws {@link StatementTimeoutException} (client fault)
  *  <p>The execution of the SQL statement timed out.</p>
  *
+ * @throws {@link RDSDataServiceException}
+ * <p>Base exception class for all service exceptions from RDSData service.</p>
  *
  */
 export class CommitTransactionCommand extends $Command<

@@ -48,14 +48,19 @@ export interface GetJobUnlockCodeCommandOutput extends GetJobUnlockCodeResult, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SnowballClient, GetJobUnlockCodeCommand } from "@aws-sdk/client-snowball"; // ES Modules import
- * // const { SnowballClient, GetJobUnlockCodeCommand } = require("@aws-sdk/client-snowball"); // CommonJS import
+ * import { SnowballClient, GetJobUnlockCodeCommand } from '@aws-sdk/client-snowball'; // ES Modules import
+ * // const { SnowballClient, GetJobUnlockCodeCommand } = require('@aws-sdk/client-snowball'); // CommonJS import
  * const client = new SnowballClient(config);
  * const input = { // GetJobUnlockCodeRequest
- *   JobId: "STRING_VALUE", // required
+ *   JobId: 'STRING_VALUE', // required
  * };
  * const command = new GetJobUnlockCodeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetJobUnlockCodeResult
+ *   UnlockCode: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetJobUnlockCodeCommandInput - {@link GetJobUnlockCodeCommandInput}
@@ -72,6 +77,8 @@ export interface GetJobUnlockCodeCommandOutput extends GetJobUnlockCodeResult, _
  *  <p>The specified resource can't be found. Check the information you provided in your last
  *       request, and try again.</p>
  *
+ * @throws {@link SnowballServiceException}
+ * <p>Base exception class for all service exceptions from Snowball service.</p>
  *
  * @example To get the unlock code for a job you've created for AWS Snowball
  * ```javascript

@@ -58,17 +58,33 @@ export interface DescribeServicesCommandOutput extends DescribeServicesResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SupportClient, DescribeServicesCommand } from "@aws-sdk/client-support"; // ES Modules import
- * // const { SupportClient, DescribeServicesCommand } = require("@aws-sdk/client-support"); // CommonJS import
+ * import { SupportClient, DescribeServicesCommand } from '@aws-sdk/client-support'; // ES Modules import
+ * // const { SupportClient, DescribeServicesCommand } = require('@aws-sdk/client-support'); // CommonJS import
  * const client = new SupportClient(config);
  * const input = { // DescribeServicesRequest
  *   serviceCodeList: [ // ServiceCodeList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   language: "STRING_VALUE",
+ *   language: 'STRING_VALUE',
  * };
  * const command = new DescribeServicesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeServicesResponse
+ *   services: [ // ServiceList
+ *     { // Service
+ *       code: 'STRING_VALUE',
+ *       name: 'STRING_VALUE',
+ *       categories: [ // CategoryList
+ *         { // Category
+ *           code: 'STRING_VALUE',
+ *           name: 'STRING_VALUE',
+ *         },
+ *       ],
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeServicesCommandInput - {@link DescribeServicesCommandInput}
@@ -80,6 +96,8 @@ export interface DescribeServicesCommandOutput extends DescribeServicesResponse,
  * @throws {@link InternalServerError} (server fault)
  *  <p>An internal server error occurred.</p>
  *
+ * @throws {@link SupportServiceException}
+ * <p>Base exception class for all service exceptions from Support service.</p>
  *
  */
 export class DescribeServicesCommand extends $Command<

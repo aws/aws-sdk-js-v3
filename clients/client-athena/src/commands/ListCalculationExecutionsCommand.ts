@@ -37,17 +37,34 @@ export interface ListCalculationExecutionsCommandOutput extends ListCalculationE
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AthenaClient, ListCalculationExecutionsCommand } from "@aws-sdk/client-athena"; // ES Modules import
- * // const { AthenaClient, ListCalculationExecutionsCommand } = require("@aws-sdk/client-athena"); // CommonJS import
+ * import { AthenaClient, ListCalculationExecutionsCommand } from '@aws-sdk/client-athena'; // ES Modules import
+ * // const { AthenaClient, ListCalculationExecutionsCommand } = require('@aws-sdk/client-athena'); // CommonJS import
  * const client = new AthenaClient(config);
  * const input = { // ListCalculationExecutionsRequest
- *   SessionId: "STRING_VALUE", // required
- *   StateFilter: "CREATING" || "CREATED" || "QUEUED" || "RUNNING" || "CANCELING" || "CANCELED" || "COMPLETED" || "FAILED",
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   SessionId: 'STRING_VALUE', // required
+ *   StateFilter: 'CREATING' || 'CREATED' || 'QUEUED' || 'RUNNING' || 'CANCELING' || 'CANCELED' || 'COMPLETED' || 'FAILED',
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListCalculationExecutionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListCalculationExecutionsResponse
+ *   NextToken: 'STRING_VALUE',
+ *   Calculations: [ // CalculationsList
+ *     { // CalculationSummary
+ *       CalculationExecutionId: 'STRING_VALUE',
+ *       Description: 'STRING_VALUE',
+ *       Status: { // CalculationStatus
+ *         SubmissionDateTime: new Date('TIMESTAMP'),
+ *         CompletionDateTime: new Date('TIMESTAMP'),
+ *         State: 'CREATING' || 'CREATED' || 'QUEUED' || 'RUNNING' || 'CANCELING' || 'CANCELED' || 'COMPLETED' || 'FAILED',
+ *         StateChangeReason: 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListCalculationExecutionsCommandInput - {@link ListCalculationExecutionsCommandInput}
@@ -67,6 +84,8 @@ export interface ListCalculationExecutionsCommandOutput extends ListCalculationE
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>A resource, such as a workgroup, was not found.</p>
  *
+ * @throws {@link AthenaServiceException}
+ * <p>Base exception class for all service exceptions from Athena service.</p>
  *
  */
 export class ListCalculationExecutionsCommand extends $Command<

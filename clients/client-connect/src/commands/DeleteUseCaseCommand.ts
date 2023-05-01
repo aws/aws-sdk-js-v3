@@ -36,16 +36,19 @@ export interface DeleteUseCaseCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, DeleteUseCaseCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, DeleteUseCaseCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, DeleteUseCaseCommand } from '@aws-sdk/client-connect'; // ES Modules import
+ * // const { ConnectClient, DeleteUseCaseCommand } = require('@aws-sdk/client-connect'); // CommonJS import
  * const client = new ConnectClient(config);
  * const input = { // DeleteUseCaseRequest
- *   InstanceId: "STRING_VALUE", // required
- *   IntegrationAssociationId: "STRING_VALUE", // required
- *   UseCaseId: "STRING_VALUE", // required
+ *   InstanceId: 'STRING_VALUE', // required
+ *   IntegrationAssociationId: 'STRING_VALUE', // required
+ *   UseCaseId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteUseCaseCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteUseCaseCommandInput - {@link DeleteUseCaseCommandInput}
@@ -66,6 +69,8 @@ export interface DeleteUseCaseCommandOutput extends __MetadataBearer {}
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class DeleteUseCaseCommand extends $Command<

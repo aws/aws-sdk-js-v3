@@ -39,19 +39,29 @@ export interface SetPrincipalTagAttributeMapCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CognitoIdentityClient, SetPrincipalTagAttributeMapCommand } from "@aws-sdk/client-cognito-identity"; // ES Modules import
- * // const { CognitoIdentityClient, SetPrincipalTagAttributeMapCommand } = require("@aws-sdk/client-cognito-identity"); // CommonJS import
+ * import { CognitoIdentityClient, SetPrincipalTagAttributeMapCommand } from '@aws-sdk/client-cognito-identity'; // ES Modules import
+ * // const { CognitoIdentityClient, SetPrincipalTagAttributeMapCommand } = require('@aws-sdk/client-cognito-identity'); // CommonJS import
  * const client = new CognitoIdentityClient(config);
  * const input = { // SetPrincipalTagAttributeMapInput
- *   IdentityPoolId: "STRING_VALUE", // required
- *   IdentityProviderName: "STRING_VALUE", // required
+ *   IdentityPoolId: 'STRING_VALUE', // required
+ *   IdentityProviderName: 'STRING_VALUE', // required
  *   UseDefaults: true || false,
  *   PrincipalTags: { // PrincipalTags
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new SetPrincipalTagAttributeMapCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SetPrincipalTagAttributeMapResponse
+ *   IdentityPoolId: 'STRING_VALUE',
+ *   IdentityProviderName: 'STRING_VALUE',
+ *   UseDefaults: true || false,
+ *   PrincipalTags: { // PrincipalTags
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param SetPrincipalTagAttributeMapCommandInput - {@link SetPrincipalTagAttributeMapCommandInput}
@@ -76,6 +86,8 @@ export interface SetPrincipalTagAttributeMapCommandOutput
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Thrown when a request is throttled.</p>
  *
+ * @throws {@link CognitoIdentityServiceException}
+ * <p>Base exception class for all service exceptions from CognitoIdentity service.</p>
  *
  */
 export class SetPrincipalTagAttributeMapCommand extends $Command<

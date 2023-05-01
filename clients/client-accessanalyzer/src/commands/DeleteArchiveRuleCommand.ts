@@ -36,16 +36,19 @@ export interface DeleteArchiveRuleCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AccessAnalyzerClient, DeleteArchiveRuleCommand } from "@aws-sdk/client-accessanalyzer"; // ES Modules import
- * // const { AccessAnalyzerClient, DeleteArchiveRuleCommand } = require("@aws-sdk/client-accessanalyzer"); // CommonJS import
+ * import { AccessAnalyzerClient, DeleteArchiveRuleCommand } from '@aws-sdk/client-accessanalyzer'; // ES Modules import
+ * // const { AccessAnalyzerClient, DeleteArchiveRuleCommand } = require('@aws-sdk/client-accessanalyzer'); // CommonJS import
  * const client = new AccessAnalyzerClient(config);
  * const input = { // DeleteArchiveRuleRequest
- *   analyzerName: "STRING_VALUE", // required
- *   ruleName: "STRING_VALUE", // required
- *   clientToken: "STRING_VALUE",
+ *   analyzerName: 'STRING_VALUE', // required
+ *   ruleName: 'STRING_VALUE', // required
+ *   clientToken: 'STRING_VALUE',
  * };
  * const command = new DeleteArchiveRuleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteArchiveRuleCommandInput - {@link DeleteArchiveRuleCommandInput}
@@ -69,6 +72,8 @@ export interface DeleteArchiveRuleCommandOutput extends __MetadataBearer {}
  * @throws {@link ValidationException} (client fault)
  *  <p>Validation exception error.</p>
  *
+ * @throws {@link AccessAnalyzerServiceException}
+ * <p>Base exception class for all service exceptions from AccessAnalyzer service.</p>
  *
  */
 export class DeleteArchiveRuleCommand extends $Command<

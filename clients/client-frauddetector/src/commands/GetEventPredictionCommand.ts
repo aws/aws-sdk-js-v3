@@ -40,33 +40,69 @@ export interface GetEventPredictionCommandOutput extends GetEventPredictionResul
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FraudDetectorClient, GetEventPredictionCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
- * // const { FraudDetectorClient, GetEventPredictionCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
+ * import { FraudDetectorClient, GetEventPredictionCommand } from '@aws-sdk/client-frauddetector'; // ES Modules import
+ * // const { FraudDetectorClient, GetEventPredictionCommand } = require('@aws-sdk/client-frauddetector'); // CommonJS import
  * const client = new FraudDetectorClient(config);
  * const input = { // GetEventPredictionRequest
- *   detectorId: "STRING_VALUE", // required
- *   detectorVersionId: "STRING_VALUE",
- *   eventId: "STRING_VALUE", // required
- *   eventTypeName: "STRING_VALUE", // required
+ *   detectorId: 'STRING_VALUE', // required
+ *   detectorVersionId: 'STRING_VALUE',
+ *   eventId: 'STRING_VALUE', // required
+ *   eventTypeName: 'STRING_VALUE', // required
  *   entities: [ // listOfEntities // required
  *     { // Entity
- *       entityType: "STRING_VALUE", // required
- *       entityId: "STRING_VALUE", // required
+ *       entityType: 'STRING_VALUE', // required
+ *       entityId: 'STRING_VALUE', // required
  *     },
  *   ],
- *   eventTimestamp: "STRING_VALUE", // required
+ *   eventTimestamp: 'STRING_VALUE', // required
  *   eventVariables: { // EventVariableMap // required
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  *   externalModelEndpointDataBlobs: { // ExternalModelEndpointDataBlobMap
- *     "<keys>": { // ModelEndpointDataBlob
- *       byteBuffer: "BLOB_VALUE",
- *       contentType: "STRING_VALUE",
+ *     '<keys>': { // ModelEndpointDataBlob
+ *       byteBuffer: 'BLOB_VALUE',
+ *       contentType: 'STRING_VALUE',
  *     },
  *   },
  * };
  * const command = new GetEventPredictionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetEventPredictionResult
+ *   modelScores: [ // ListOfModelScores
+ *     { // ModelScores
+ *       modelVersion: { // ModelVersion
+ *         modelId: 'STRING_VALUE', // required
+ *         modelType: 'ONLINE_FRAUD_INSIGHTS' || 'TRANSACTION_FRAUD_INSIGHTS' || 'ACCOUNT_TAKEOVER_INSIGHTS', // required
+ *         modelVersionNumber: 'STRING_VALUE', // required
+ *         arn: 'STRING_VALUE',
+ *       },
+ *       scores: { // ModelPredictionMap
+ *         '<keys>': Number('float'),
+ *       },
+ *     },
+ *   ],
+ *   ruleResults: [ // ListOfRuleResults
+ *     { // RuleResult
+ *       ruleId: 'STRING_VALUE',
+ *       outcomes: [ // ListOfStrings
+ *         'STRING_VALUE',
+ *       ],
+ *     },
+ *   ],
+ *   externalModelOutputs: [ // ListOfExternalModelOutputs
+ *     { // ExternalModelOutputs
+ *       externalModel: { // ExternalModelSummary
+ *         modelEndpoint: 'STRING_VALUE',
+ *         modelSource: 'SAGEMAKER',
+ *       },
+ *       outputs: { // ExternalModelPredictionMap
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetEventPredictionCommandInput - {@link GetEventPredictionCommandInput}
@@ -96,6 +132,8 @@ export interface GetEventPredictionCommandOutput extends GetEventPredictionResul
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception indicating a specified value is not allowed.</p>
  *
+ * @throws {@link FraudDetectorServiceException}
+ * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
  */
 export class GetEventPredictionCommand extends $Command<

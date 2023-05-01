@@ -62,18 +62,61 @@ export interface GetContentModerationCommandOutput extends GetContentModerationR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RekognitionClient, GetContentModerationCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
- * // const { RekognitionClient, GetContentModerationCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
+ * import { RekognitionClient, GetContentModerationCommand } from '@aws-sdk/client-rekognition'; // ES Modules import
+ * // const { RekognitionClient, GetContentModerationCommand } = require('@aws-sdk/client-rekognition'); // CommonJS import
  * const client = new RekognitionClient(config);
  * const input = { // GetContentModerationRequest
- *   JobId: "STRING_VALUE", // required
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
- *   SortBy: "NAME" || "TIMESTAMP",
- *   AggregateBy: "TIMESTAMPS" || "SEGMENTS",
+ *   JobId: 'STRING_VALUE', // required
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
+ *   SortBy: 'NAME' || 'TIMESTAMP',
+ *   AggregateBy: 'TIMESTAMPS' || 'SEGMENTS',
  * };
  * const command = new GetContentModerationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetContentModerationResponse
+ *   JobStatus: 'IN_PROGRESS' || 'SUCCEEDED' || 'FAILED',
+ *   StatusMessage: 'STRING_VALUE',
+ *   VideoMetadata: { // VideoMetadata
+ *     Codec: 'STRING_VALUE',
+ *     DurationMillis: Number('long'),
+ *     Format: 'STRING_VALUE',
+ *     FrameRate: Number('float'),
+ *     FrameHeight: Number('long'),
+ *     FrameWidth: Number('long'),
+ *     ColorRange: 'FULL' || 'LIMITED',
+ *   },
+ *   ModerationLabels: [ // ContentModerationDetections
+ *     { // ContentModerationDetection
+ *       Timestamp: Number('long'),
+ *       ModerationLabel: { // ModerationLabel
+ *         Confidence: Number('float'),
+ *         Name: 'STRING_VALUE',
+ *         ParentName: 'STRING_VALUE',
+ *       },
+ *       StartTimestampMillis: Number('long'),
+ *       EndTimestampMillis: Number('long'),
+ *       DurationMillis: Number('long'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ *   ModerationModelVersion: 'STRING_VALUE',
+ *   JobId: 'STRING_VALUE',
+ *   Video: { // Video
+ *     S3Object: { // S3Object
+ *       Bucket: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *       Version: 'STRING_VALUE',
+ *     },
+ *   },
+ *   JobTag: 'STRING_VALUE',
+ *   GetRequestMetadata: { // GetContentModerationRequestMetadata
+ *     SortBy: 'NAME' || 'TIMESTAMP',
+ *     AggregateBy: 'TIMESTAMPS' || 'SEGMENTS',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetContentModerationCommandInput - {@link GetContentModerationCommandInput}
@@ -105,6 +148,8 @@ export interface GetContentModerationCommandOutput extends GetContentModerationR
  * @throws {@link ThrottlingException} (server fault)
  *  <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
  *
+ * @throws {@link RekognitionServiceException}
+ * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
  */
 export class GetContentModerationCommand extends $Command<

@@ -39,15 +39,22 @@ export interface GetFunctionCommandOutput extends GetFunctionResult, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudFrontClient, GetFunctionCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
- * // const { CloudFrontClient, GetFunctionCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
+ * import { CloudFrontClient, GetFunctionCommand } from '@aws-sdk/client-cloudfront'; // ES Modules import
+ * // const { CloudFrontClient, GetFunctionCommand } = require('@aws-sdk/client-cloudfront'); // CommonJS import
  * const client = new CloudFrontClient(config);
  * const input = { // GetFunctionRequest
- *   Name: "STRING_VALUE", // required
- *   Stage: "DEVELOPMENT" || "LIVE",
+ *   Name: 'STRING_VALUE', // required
+ *   Stage: 'DEVELOPMENT' || 'LIVE',
  * };
  * const command = new GetFunctionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetFunctionResult
+ *   FunctionCode: 'BLOB_VALUE',
+ *   ETag: 'STRING_VALUE',
+ *   ContentType: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetFunctionCommandInput - {@link GetFunctionCommandInput}
@@ -62,6 +69,8 @@ export interface GetFunctionCommandOutput extends GetFunctionResult, __MetadataB
  * @throws {@link UnsupportedOperation} (client fault)
  *  <p>This operation is not supported in this region.</p>
  *
+ * @throws {@link CloudFrontServiceException}
+ * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
  */
 export class GetFunctionCommand extends $Command<

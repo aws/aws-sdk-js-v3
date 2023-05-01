@@ -46,21 +46,75 @@ export interface DescribeFolderContentsCommandOutput extends DescribeFolderConte
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkDocsClient, DescribeFolderContentsCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
- * // const { WorkDocsClient, DescribeFolderContentsCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import
+ * import { WorkDocsClient, DescribeFolderContentsCommand } from '@aws-sdk/client-workdocs'; // ES Modules import
+ * // const { WorkDocsClient, DescribeFolderContentsCommand } = require('@aws-sdk/client-workdocs'); // CommonJS import
  * const client = new WorkDocsClient(config);
  * const input = { // DescribeFolderContentsRequest
- *   AuthenticationToken: "STRING_VALUE",
- *   FolderId: "STRING_VALUE", // required
- *   Sort: "DATE" || "NAME",
- *   Order: "ASCENDING" || "DESCENDING",
- *   Limit: Number("int"),
- *   Marker: "STRING_VALUE",
- *   Type: "ALL" || "DOCUMENT" || "FOLDER",
- *   Include: "STRING_VALUE",
+ *   AuthenticationToken: 'STRING_VALUE',
+ *   FolderId: 'STRING_VALUE', // required
+ *   Sort: 'DATE' || 'NAME',
+ *   Order: 'ASCENDING' || 'DESCENDING',
+ *   Limit: Number('int'),
+ *   Marker: 'STRING_VALUE',
+ *   Type: 'ALL' || 'DOCUMENT' || 'FOLDER',
+ *   Include: 'STRING_VALUE',
  * };
  * const command = new DescribeFolderContentsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeFolderContentsResponse
+ *   Folders: [ // FolderMetadataList
+ *     { // FolderMetadata
+ *       Id: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *       CreatorId: 'STRING_VALUE',
+ *       ParentFolderId: 'STRING_VALUE',
+ *       CreatedTimestamp: new Date('TIMESTAMP'),
+ *       ModifiedTimestamp: new Date('TIMESTAMP'),
+ *       ResourceState: 'ACTIVE' || 'RESTORING' || 'RECYCLING' || 'RECYCLED',
+ *       Signature: 'STRING_VALUE',
+ *       Labels: [ // SharedLabels
+ *         'STRING_VALUE',
+ *       ],
+ *       Size: Number('long'),
+ *       LatestVersionSize: Number('long'),
+ *     },
+ *   ],
+ *   Documents: [ // DocumentMetadataList
+ *     { // DocumentMetadata
+ *       Id: 'STRING_VALUE',
+ *       CreatorId: 'STRING_VALUE',
+ *       ParentFolderId: 'STRING_VALUE',
+ *       CreatedTimestamp: new Date('TIMESTAMP'),
+ *       ModifiedTimestamp: new Date('TIMESTAMP'),
+ *       LatestVersionMetadata: { // DocumentVersionMetadata
+ *         Id: 'STRING_VALUE',
+ *         Name: 'STRING_VALUE',
+ *         ContentType: 'STRING_VALUE',
+ *         Size: Number('long'),
+ *         Signature: 'STRING_VALUE',
+ *         Status: 'INITIALIZED' || 'ACTIVE',
+ *         CreatedTimestamp: new Date('TIMESTAMP'),
+ *         ModifiedTimestamp: new Date('TIMESTAMP'),
+ *         ContentCreatedTimestamp: new Date('TIMESTAMP'),
+ *         ContentModifiedTimestamp: new Date('TIMESTAMP'),
+ *         CreatorId: 'STRING_VALUE',
+ *         Thumbnail: { // DocumentThumbnailUrlMap
+ *           '<keys>': 'STRING_VALUE',
+ *         },
+ *         Source: { // DocumentSourceUrlMap
+ *           '<keys>': 'STRING_VALUE',
+ *         },
+ *       },
+ *       ResourceState: 'ACTIVE' || 'RESTORING' || 'RECYCLING' || 'RECYCLED',
+ *       Labels: [
+ *         'STRING_VALUE',
+ *       ],
+ *     },
+ *   ],
+ *   Marker: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeFolderContentsCommandInput - {@link DescribeFolderContentsCommandInput}
@@ -89,6 +143,8 @@ export interface DescribeFolderContentsCommandOutput extends DescribeFolderConte
  * @throws {@link UnauthorizedResourceAccessException} (client fault)
  *  <p>The caller does not have access to perform the action on the resource.</p>
  *
+ * @throws {@link WorkDocsServiceException}
+ * <p>Base exception class for all service exceptions from WorkDocs service.</p>
  *
  */
 export class DescribeFolderContentsCommand extends $Command<

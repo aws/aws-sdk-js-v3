@@ -38,16 +38,19 @@ export interface ResumeContactRecordingCommandOutput extends ResumeContactRecord
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, ResumeContactRecordingCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, ResumeContactRecordingCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, ResumeContactRecordingCommand } from '@aws-sdk/client-connect'; // ES Modules import
+ * // const { ConnectClient, ResumeContactRecordingCommand } = require('@aws-sdk/client-connect'); // CommonJS import
  * const client = new ConnectClient(config);
  * const input = { // ResumeContactRecordingRequest
- *   InstanceId: "STRING_VALUE", // required
- *   ContactId: "STRING_VALUE", // required
- *   InitialContactId: "STRING_VALUE", // required
+ *   InstanceId: 'STRING_VALUE', // required
+ *   ContactId: 'STRING_VALUE', // required
+ *   InitialContactId: 'STRING_VALUE', // required
  * };
  * const command = new ResumeContactRecordingCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param ResumeContactRecordingCommandInput - {@link ResumeContactRecordingCommandInput}
@@ -65,6 +68,8 @@ export interface ResumeContactRecordingCommandOutput extends ResumeContactRecord
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class ResumeContactRecordingCommand extends $Command<

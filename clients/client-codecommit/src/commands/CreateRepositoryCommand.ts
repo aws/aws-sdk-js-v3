@@ -36,18 +36,34 @@ export interface CreateRepositoryCommandOutput extends CreateRepositoryOutput, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeCommitClient, CreateRepositoryCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
- * // const { CodeCommitClient, CreateRepositoryCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
+ * import { CodeCommitClient, CreateRepositoryCommand } from '@aws-sdk/client-codecommit'; // ES Modules import
+ * // const { CodeCommitClient, CreateRepositoryCommand } = require('@aws-sdk/client-codecommit'); // CommonJS import
  * const client = new CodeCommitClient(config);
  * const input = { // CreateRepositoryInput
- *   repositoryName: "STRING_VALUE", // required
- *   repositoryDescription: "STRING_VALUE",
+ *   repositoryName: 'STRING_VALUE', // required
+ *   repositoryDescription: 'STRING_VALUE',
  *   tags: { // TagsMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateRepositoryCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateRepositoryOutput
+ *   repositoryMetadata: { // RepositoryMetadata
+ *     accountId: 'STRING_VALUE',
+ *     repositoryId: 'STRING_VALUE',
+ *     repositoryName: 'STRING_VALUE',
+ *     repositoryDescription: 'STRING_VALUE',
+ *     defaultBranch: 'STRING_VALUE',
+ *     lastModifiedDate: new Date('TIMESTAMP'),
+ *     creationDate: new Date('TIMESTAMP'),
+ *     cloneUrlHttp: 'STRING_VALUE',
+ *     cloneUrlSsh: 'STRING_VALUE',
+ *     Arn: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateRepositoryCommandInput - {@link CreateRepositoryCommandInput}
@@ -104,6 +120,8 @@ export interface CreateRepositoryCommandOutput extends CreateRepositoryOutput, _
  * @throws {@link TooManyTagsException} (client fault)
  *  <p>The maximum number of tags for an AWS CodeCommit resource has been exceeded.</p>
  *
+ * @throws {@link CodeCommitServiceException}
+ * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
  */
 export class CreateRepositoryCommand extends $Command<

@@ -48,17 +48,28 @@ export interface AssociateTransitGatewayConnectPeerCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { NetworkManagerClient, AssociateTransitGatewayConnectPeerCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
- * // const { NetworkManagerClient, AssociateTransitGatewayConnectPeerCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
+ * import { NetworkManagerClient, AssociateTransitGatewayConnectPeerCommand } from '@aws-sdk/client-networkmanager'; // ES Modules import
+ * // const { NetworkManagerClient, AssociateTransitGatewayConnectPeerCommand } = require('@aws-sdk/client-networkmanager'); // CommonJS import
  * const client = new NetworkManagerClient(config);
  * const input = { // AssociateTransitGatewayConnectPeerRequest
- *   GlobalNetworkId: "STRING_VALUE", // required
- *   TransitGatewayConnectPeerArn: "STRING_VALUE", // required
- *   DeviceId: "STRING_VALUE", // required
- *   LinkId: "STRING_VALUE",
+ *   GlobalNetworkId: 'STRING_VALUE', // required
+ *   TransitGatewayConnectPeerArn: 'STRING_VALUE', // required
+ *   DeviceId: 'STRING_VALUE', // required
+ *   LinkId: 'STRING_VALUE',
  * };
  * const command = new AssociateTransitGatewayConnectPeerCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AssociateTransitGatewayConnectPeerResponse
+ *   TransitGatewayConnectPeerAssociation: { // TransitGatewayConnectPeerAssociation
+ *     TransitGatewayConnectPeerArn: 'STRING_VALUE',
+ *     GlobalNetworkId: 'STRING_VALUE',
+ *     DeviceId: 'STRING_VALUE',
+ *     LinkId: 'STRING_VALUE',
+ *     State: 'PENDING' || 'AVAILABLE' || 'DELETING' || 'DELETED',
+ *   },
+ * };
+ *
  * ```
  *
  * @param AssociateTransitGatewayConnectPeerCommandInput - {@link AssociateTransitGatewayConnectPeerCommandInput}
@@ -89,6 +100,8 @@ export interface AssociateTransitGatewayConnectPeerCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints.</p>
  *
+ * @throws {@link NetworkManagerServiceException}
+ * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
  */
 export class AssociateTransitGatewayConnectPeerCommand extends $Command<

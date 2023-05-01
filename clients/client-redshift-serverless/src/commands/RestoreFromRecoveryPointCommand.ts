@@ -44,16 +44,38 @@ export interface RestoreFromRecoveryPointCommandOutput extends RestoreFromRecove
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RedshiftServerlessClient, RestoreFromRecoveryPointCommand } from "@aws-sdk/client-redshift-serverless"; // ES Modules import
- * // const { RedshiftServerlessClient, RestoreFromRecoveryPointCommand } = require("@aws-sdk/client-redshift-serverless"); // CommonJS import
+ * import { RedshiftServerlessClient, RestoreFromRecoveryPointCommand } from '@aws-sdk/client-redshift-serverless'; // ES Modules import
+ * // const { RedshiftServerlessClient, RestoreFromRecoveryPointCommand } = require('@aws-sdk/client-redshift-serverless'); // CommonJS import
  * const client = new RedshiftServerlessClient(config);
  * const input = { // RestoreFromRecoveryPointRequest
- *   recoveryPointId: "STRING_VALUE", // required
- *   namespaceName: "STRING_VALUE", // required
- *   workgroupName: "STRING_VALUE", // required
+ *   recoveryPointId: 'STRING_VALUE', // required
+ *   namespaceName: 'STRING_VALUE', // required
+ *   workgroupName: 'STRING_VALUE', // required
  * };
  * const command = new RestoreFromRecoveryPointCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // RestoreFromRecoveryPointResponse
+ *   recoveryPointId: 'STRING_VALUE',
+ *   namespace: { // Namespace
+ *     namespaceArn: 'STRING_VALUE',
+ *     namespaceId: 'STRING_VALUE',
+ *     namespaceName: 'STRING_VALUE',
+ *     adminUsername: 'STRING_VALUE',
+ *     dbName: 'STRING_VALUE',
+ *     kmsKeyId: 'STRING_VALUE',
+ *     defaultIamRoleArn: 'STRING_VALUE',
+ *     iamRoles: [ // IamRoleArnList
+ *       'STRING_VALUE',
+ *     ],
+ *     logExports: [ // LogExportList
+ *       'STRING_VALUE',
+ *     ],
+ *     status: 'STRING_VALUE',
+ *     creationDate: new Date('TIMESTAMP'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param RestoreFromRecoveryPointCommandInput - {@link RestoreFromRecoveryPointCommandInput}
@@ -74,6 +96,8 @@ export interface RestoreFromRecoveryPointCommandOutput extends RestoreFromRecove
  * @throws {@link ValidationException} (client fault)
  *  <p>The input failed to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link RedshiftServerlessServiceException}
+ * <p>Base exception class for all service exceptions from RedshiftServerless service.</p>
  *
  */
 export class RestoreFromRecoveryPointCommand extends $Command<

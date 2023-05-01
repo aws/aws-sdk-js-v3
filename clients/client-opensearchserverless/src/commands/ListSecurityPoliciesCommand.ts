@@ -40,19 +40,34 @@ export interface ListSecurityPoliciesCommandOutput extends ListSecurityPoliciesR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OpenSearchServerlessClient, ListSecurityPoliciesCommand } from "@aws-sdk/client-opensearchserverless"; // ES Modules import
- * // const { OpenSearchServerlessClient, ListSecurityPoliciesCommand } = require("@aws-sdk/client-opensearchserverless"); // CommonJS import
+ * import { OpenSearchServerlessClient, ListSecurityPoliciesCommand } from '@aws-sdk/client-opensearchserverless'; // ES Modules import
+ * // const { OpenSearchServerlessClient, ListSecurityPoliciesCommand } = require('@aws-sdk/client-opensearchserverless'); // CommonJS import
  * const client = new OpenSearchServerlessClient(config);
  * const input = { // ListSecurityPoliciesRequest
- *   type: "STRING_VALUE", // required
+ *   type: 'STRING_VALUE', // required
  *   resource: [ // ResourceFilter
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new ListSecurityPoliciesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListSecurityPoliciesResponse
+ *   securityPolicySummaries: [ // SecurityPolicySummaries
+ *     { // SecurityPolicySummary
+ *       type: 'STRING_VALUE',
+ *       name: 'STRING_VALUE',
+ *       policyVersion: 'STRING_VALUE',
+ *       description: 'STRING_VALUE',
+ *       createdDate: Number('long'),
+ *       lastModifiedDate: Number('long'),
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListSecurityPoliciesCommandInput - {@link ListSecurityPoliciesCommandInput}
@@ -68,6 +83,8 @@ export interface ListSecurityPoliciesCommandOutput extends ListSecurityPoliciesR
  *  <p>Thrown when the HTTP request contains invalid input or is missing required
  *             input.</p>
  *
+ * @throws {@link OpenSearchServerlessServiceException}
+ * <p>Base exception class for all service exceptions from OpenSearchServerless service.</p>
  *
  */
 export class ListSecurityPoliciesCommand extends $Command<

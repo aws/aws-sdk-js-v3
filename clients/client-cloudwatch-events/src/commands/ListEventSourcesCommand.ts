@@ -37,16 +37,31 @@ export interface ListEventSourcesCommandOutput extends ListEventSourcesResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudWatchEventsClient, ListEventSourcesCommand } from "@aws-sdk/client-cloudwatch-events"; // ES Modules import
- * // const { CloudWatchEventsClient, ListEventSourcesCommand } = require("@aws-sdk/client-cloudwatch-events"); // CommonJS import
+ * import { CloudWatchEventsClient, ListEventSourcesCommand } from '@aws-sdk/client-cloudwatch-events'; // ES Modules import
+ * // const { CloudWatchEventsClient, ListEventSourcesCommand } = require('@aws-sdk/client-cloudwatch-events'); // CommonJS import
  * const client = new CloudWatchEventsClient(config);
  * const input = { // ListEventSourcesRequest
- *   NamePrefix: "STRING_VALUE",
- *   NextToken: "STRING_VALUE",
- *   Limit: Number("int"),
+ *   NamePrefix: 'STRING_VALUE',
+ *   NextToken: 'STRING_VALUE',
+ *   Limit: Number('int'),
  * };
  * const command = new ListEventSourcesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListEventSourcesResponse
+ *   EventSources: [ // EventSourceList
+ *     { // EventSource
+ *       Arn: 'STRING_VALUE',
+ *       CreatedBy: 'STRING_VALUE',
+ *       CreationTime: new Date('TIMESTAMP'),
+ *       ExpirationTime: new Date('TIMESTAMP'),
+ *       Name: 'STRING_VALUE',
+ *       State: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListEventSourcesCommandInput - {@link ListEventSourcesCommandInput}
@@ -61,6 +76,8 @@ export interface ListEventSourcesCommandOutput extends ListEventSourcesResponse,
  * @throws {@link OperationDisabledException} (client fault)
  *  <p>The operation you are attempting is not available in this region.</p>
  *
+ * @throws {@link CloudWatchEventsServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatchEvents service.</p>
  *
  */
 export class ListEventSourcesCommand extends $Command<

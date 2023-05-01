@@ -42,14 +42,40 @@ export interface DescribeResizeCommandOutput extends ResizeProgressMessage, __Me
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RedshiftClient, DescribeResizeCommand } from "@aws-sdk/client-redshift"; // ES Modules import
- * // const { RedshiftClient, DescribeResizeCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * import { RedshiftClient, DescribeResizeCommand } from '@aws-sdk/client-redshift'; // ES Modules import
+ * // const { RedshiftClient, DescribeResizeCommand } = require('@aws-sdk/client-redshift'); // CommonJS import
  * const client = new RedshiftClient(config);
  * const input = { // DescribeResizeMessage
- *   ClusterIdentifier: "STRING_VALUE", // required
+ *   ClusterIdentifier: 'STRING_VALUE', // required
  * };
  * const command = new DescribeResizeCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ResizeProgressMessage
+ *   TargetNodeType: 'STRING_VALUE',
+ *   TargetNumberOfNodes: Number('int'),
+ *   TargetClusterType: 'STRING_VALUE',
+ *   Status: 'STRING_VALUE',
+ *   ImportTablesCompleted: [ // ImportTablesCompleted
+ *     'STRING_VALUE',
+ *   ],
+ *   ImportTablesInProgress: [ // ImportTablesInProgress
+ *     'STRING_VALUE',
+ *   ],
+ *   ImportTablesNotStarted: [ // ImportTablesNotStarted
+ *     'STRING_VALUE',
+ *   ],
+ *   AvgResizeRateInMegaBytesPerSecond: Number('double'),
+ *   TotalResizeDataInMegaBytes: Number('long'),
+ *   ProgressInMegaBytes: Number('long'),
+ *   ElapsedTimeInSeconds: Number('long'),
+ *   EstimatedTimeToCompletionInSeconds: Number('long'),
+ *   ResizeType: 'STRING_VALUE',
+ *   Message: 'STRING_VALUE',
+ *   TargetEncryptionType: 'STRING_VALUE',
+ *   DataTransferProgressPercent: Number('double'),
+ * };
+ *
  * ```
  *
  * @param DescribeResizeCommandInput - {@link DescribeResizeCommandInput}
@@ -65,6 +91,8 @@ export interface DescribeResizeCommandOutput extends ResizeProgressMessage, __Me
  * @throws {@link ResizeNotFoundFault} (client fault)
  *  <p>A resize operation for the specified cluster is not found.</p>
  *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class DescribeResizeCommand extends $Command<

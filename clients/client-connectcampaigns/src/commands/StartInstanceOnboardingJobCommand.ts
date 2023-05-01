@@ -36,19 +36,28 @@ export interface StartInstanceOnboardingJobCommandOutput extends StartInstanceOn
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectCampaignsClient, StartInstanceOnboardingJobCommand } from "@aws-sdk/client-connectcampaigns"; // ES Modules import
- * // const { ConnectCampaignsClient, StartInstanceOnboardingJobCommand } = require("@aws-sdk/client-connectcampaigns"); // CommonJS import
+ * import { ConnectCampaignsClient, StartInstanceOnboardingJobCommand } from '@aws-sdk/client-connectcampaigns'; // ES Modules import
+ * // const { ConnectCampaignsClient, StartInstanceOnboardingJobCommand } = require('@aws-sdk/client-connectcampaigns'); // CommonJS import
  * const client = new ConnectCampaignsClient(config);
  * const input = { // StartInstanceOnboardingJobRequest
- *   connectInstanceId: "STRING_VALUE", // required
+ *   connectInstanceId: 'STRING_VALUE', // required
  *   encryptionConfig: { // EncryptionConfig
  *     enabled: true || false, // required
- *     encryptionType: "STRING_VALUE",
- *     keyArn: "STRING_VALUE",
+ *     encryptionType: 'STRING_VALUE',
+ *     keyArn: 'STRING_VALUE',
  *   },
  * };
  * const command = new StartInstanceOnboardingJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartInstanceOnboardingJobResponse
+ *   connectInstanceOnboardingJobStatus: { // InstanceOnboardingJobStatus
+ *     connectInstanceId: 'STRING_VALUE', // required
+ *     status: 'STRING_VALUE', // required
+ *     failureCode: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param StartInstanceOnboardingJobCommandInput - {@link StartInstanceOnboardingJobCommandInput}
@@ -75,6 +84,8 @@ export interface StartInstanceOnboardingJobCommandOutput extends StartInstanceOn
  * @throws {@link ValidationException} (client fault)
  *  The input fails to satisfy the constraints specified by an AWS service.
  *
+ * @throws {@link ConnectCampaignsServiceException}
+ * <p>Base exception class for all service exceptions from ConnectCampaigns service.</p>
  *
  */
 export class StartInstanceOnboardingJobCommand extends $Command<

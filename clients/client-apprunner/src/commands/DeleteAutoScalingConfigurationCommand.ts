@@ -42,14 +42,30 @@ export interface DeleteAutoScalingConfigurationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppRunnerClient, DeleteAutoScalingConfigurationCommand } from "@aws-sdk/client-apprunner"; // ES Modules import
- * // const { AppRunnerClient, DeleteAutoScalingConfigurationCommand } = require("@aws-sdk/client-apprunner"); // CommonJS import
+ * import { AppRunnerClient, DeleteAutoScalingConfigurationCommand } from '@aws-sdk/client-apprunner'; // ES Modules import
+ * // const { AppRunnerClient, DeleteAutoScalingConfigurationCommand } = require('@aws-sdk/client-apprunner'); // CommonJS import
  * const client = new AppRunnerClient(config);
  * const input = { // DeleteAutoScalingConfigurationRequest
- *   AutoScalingConfigurationArn: "STRING_VALUE", // required
+ *   AutoScalingConfigurationArn: 'STRING_VALUE', // required
  * };
  * const command = new DeleteAutoScalingConfigurationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteAutoScalingConfigurationResponse
+ *   AutoScalingConfiguration: { // AutoScalingConfiguration
+ *     AutoScalingConfigurationArn: 'STRING_VALUE',
+ *     AutoScalingConfigurationName: 'STRING_VALUE',
+ *     AutoScalingConfigurationRevision: Number('int'),
+ *     Latest: true || false,
+ *     Status: 'ACTIVE' || 'INACTIVE',
+ *     MaxConcurrency: Number('int'),
+ *     MinSize: Number('int'),
+ *     MaxSize: Number('int'),
+ *     CreatedAt: new Date('TIMESTAMP'),
+ *     DeletedAt: new Date('TIMESTAMP'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param DeleteAutoScalingConfigurationCommandInput - {@link DeleteAutoScalingConfigurationCommandInput}
@@ -67,6 +83,8 @@ export interface DeleteAutoScalingConfigurationCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>A resource doesn't exist for the specified Amazon Resource Name (ARN) in your Amazon Web Services account.</p>
  *
+ * @throws {@link AppRunnerServiceException}
+ * <p>Base exception class for all service exceptions from AppRunner service.</p>
  *
  */
 export class DeleteAutoScalingConfigurationCommand extends $Command<

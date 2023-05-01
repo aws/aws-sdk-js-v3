@@ -41,56 +41,117 @@ export interface UpdateAppCommandOutput extends UpdateAppResult, __MetadataBeare
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AmplifyClient, UpdateAppCommand } from "@aws-sdk/client-amplify"; // ES Modules import
- * // const { AmplifyClient, UpdateAppCommand } = require("@aws-sdk/client-amplify"); // CommonJS import
+ * import { AmplifyClient, UpdateAppCommand } from '@aws-sdk/client-amplify'; // ES Modules import
+ * // const { AmplifyClient, UpdateAppCommand } = require('@aws-sdk/client-amplify'); // CommonJS import
  * const client = new AmplifyClient(config);
  * const input = { // UpdateAppRequest
- *   appId: "STRING_VALUE", // required
- *   name: "STRING_VALUE",
- *   description: "STRING_VALUE",
- *   platform: "WEB" || "WEB_DYNAMIC" || "WEB_COMPUTE",
- *   iamServiceRoleArn: "STRING_VALUE",
+ *   appId: 'STRING_VALUE', // required
+ *   name: 'STRING_VALUE',
+ *   description: 'STRING_VALUE',
+ *   platform: 'WEB' || 'WEB_DYNAMIC' || 'WEB_COMPUTE',
+ *   iamServiceRoleArn: 'STRING_VALUE',
  *   environmentVariables: { // EnvironmentVariables
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  *   enableBranchAutoBuild: true || false,
  *   enableBranchAutoDeletion: true || false,
  *   enableBasicAuth: true || false,
- *   basicAuthCredentials: "STRING_VALUE",
+ *   basicAuthCredentials: 'STRING_VALUE',
  *   customRules: [ // CustomRules
  *     { // CustomRule
- *       source: "STRING_VALUE", // required
- *       target: "STRING_VALUE", // required
- *       status: "STRING_VALUE",
- *       condition: "STRING_VALUE",
+ *       source: 'STRING_VALUE', // required
+ *       target: 'STRING_VALUE', // required
+ *       status: 'STRING_VALUE',
+ *       condition: 'STRING_VALUE',
  *     },
  *   ],
- *   buildSpec: "STRING_VALUE",
- *   customHeaders: "STRING_VALUE",
+ *   buildSpec: 'STRING_VALUE',
+ *   customHeaders: 'STRING_VALUE',
  *   enableAutoBranchCreation: true || false,
  *   autoBranchCreationPatterns: [ // AutoBranchCreationPatterns
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   autoBranchCreationConfig: { // AutoBranchCreationConfig
- *     stage: "PRODUCTION" || "BETA" || "DEVELOPMENT" || "EXPERIMENTAL" || "PULL_REQUEST",
- *     framework: "STRING_VALUE",
+ *     stage: 'PRODUCTION' || 'BETA' || 'DEVELOPMENT' || 'EXPERIMENTAL' || 'PULL_REQUEST',
+ *     framework: 'STRING_VALUE',
  *     enableAutoBuild: true || false,
  *     environmentVariables: {
- *       "<keys>": "STRING_VALUE",
+ *       '<keys>': 'STRING_VALUE',
  *     },
- *     basicAuthCredentials: "STRING_VALUE",
+ *     basicAuthCredentials: 'STRING_VALUE',
  *     enableBasicAuth: true || false,
  *     enablePerformanceMode: true || false,
- *     buildSpec: "STRING_VALUE",
+ *     buildSpec: 'STRING_VALUE',
  *     enablePullRequestPreview: true || false,
- *     pullRequestEnvironmentName: "STRING_VALUE",
+ *     pullRequestEnvironmentName: 'STRING_VALUE',
  *   },
- *   repository: "STRING_VALUE",
- *   oauthToken: "STRING_VALUE",
- *   accessToken: "STRING_VALUE",
+ *   repository: 'STRING_VALUE',
+ *   oauthToken: 'STRING_VALUE',
+ *   accessToken: 'STRING_VALUE',
  * };
  * const command = new UpdateAppCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateAppResult
+ *   app: { // App
+ *     appId: 'STRING_VALUE', // required
+ *     appArn: 'STRING_VALUE', // required
+ *     name: 'STRING_VALUE', // required
+ *     tags: { // TagMap
+ *       '<keys>': 'STRING_VALUE',
+ *     },
+ *     description: 'STRING_VALUE', // required
+ *     repository: 'STRING_VALUE', // required
+ *     platform: 'WEB' || 'WEB_DYNAMIC' || 'WEB_COMPUTE', // required
+ *     createTime: new Date('TIMESTAMP'), // required
+ *     updateTime: new Date('TIMESTAMP'), // required
+ *     iamServiceRoleArn: 'STRING_VALUE',
+ *     environmentVariables: { // EnvironmentVariables // required
+ *       '<keys>': 'STRING_VALUE',
+ *     },
+ *     defaultDomain: 'STRING_VALUE', // required
+ *     enableBranchAutoBuild: true || false, // required
+ *     enableBranchAutoDeletion: true || false,
+ *     enableBasicAuth: true || false, // required
+ *     basicAuthCredentials: 'STRING_VALUE',
+ *     customRules: [ // CustomRules
+ *       { // CustomRule
+ *         source: 'STRING_VALUE', // required
+ *         target: 'STRING_VALUE', // required
+ *         status: 'STRING_VALUE',
+ *         condition: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     productionBranch: { // ProductionBranch
+ *       lastDeployTime: new Date('TIMESTAMP'),
+ *       status: 'STRING_VALUE',
+ *       thumbnailUrl: 'STRING_VALUE',
+ *       branchName: 'STRING_VALUE',
+ *     },
+ *     buildSpec: 'STRING_VALUE',
+ *     customHeaders: 'STRING_VALUE',
+ *     enableAutoBranchCreation: true || false,
+ *     autoBranchCreationPatterns: [ // AutoBranchCreationPatterns
+ *       'STRING_VALUE',
+ *     ],
+ *     autoBranchCreationConfig: { // AutoBranchCreationConfig
+ *       stage: 'PRODUCTION' || 'BETA' || 'DEVELOPMENT' || 'EXPERIMENTAL' || 'PULL_REQUEST',
+ *       framework: 'STRING_VALUE',
+ *       enableAutoBuild: true || false,
+ *       environmentVariables: {
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *       basicAuthCredentials: 'STRING_VALUE',
+ *       enableBasicAuth: true || false,
+ *       enablePerformanceMode: true || false,
+ *       buildSpec: 'STRING_VALUE',
+ *       enablePullRequestPreview: true || false,
+ *       pullRequestEnvironmentName: 'STRING_VALUE',
+ *     },
+ *     repositoryCloneMethod: 'SSH' || 'TOKEN' || 'SIGV4',
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateAppCommandInput - {@link UpdateAppCommandInput}
@@ -111,6 +172,8 @@ export interface UpdateAppCommandOutput extends UpdateAppResult, __MetadataBeare
  * @throws {@link UnauthorizedException} (client fault)
  *  <p> An operation failed due to a lack of access. </p>
  *
+ * @throws {@link AmplifyServiceException}
+ * <p>Base exception class for all service exceptions from Amplify service.</p>
  *
  */
 export class UpdateAppCommand extends $Command<

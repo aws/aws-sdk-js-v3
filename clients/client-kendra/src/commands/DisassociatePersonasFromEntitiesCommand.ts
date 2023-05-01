@@ -45,18 +45,28 @@ export interface DisassociatePersonasFromEntitiesCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KendraClient, DisassociatePersonasFromEntitiesCommand } from "@aws-sdk/client-kendra"; // ES Modules import
- * // const { KendraClient, DisassociatePersonasFromEntitiesCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
+ * import { KendraClient, DisassociatePersonasFromEntitiesCommand } from '@aws-sdk/client-kendra'; // ES Modules import
+ * // const { KendraClient, DisassociatePersonasFromEntitiesCommand } = require('@aws-sdk/client-kendra'); // CommonJS import
  * const client = new KendraClient(config);
  * const input = { // DisassociatePersonasFromEntitiesRequest
- *   Id: "STRING_VALUE", // required
- *   IndexId: "STRING_VALUE", // required
+ *   Id: 'STRING_VALUE', // required
+ *   IndexId: 'STRING_VALUE', // required
  *   EntityIds: [ // EntityIdsList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new DisassociatePersonasFromEntitiesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DisassociatePersonasFromEntitiesResponse
+ *   FailedEntityList: [ // FailedEntityList
+ *     { // FailedEntity
+ *       EntityId: 'STRING_VALUE',
+ *       ErrorMessage: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DisassociatePersonasFromEntitiesCommandInput - {@link DisassociatePersonasFromEntitiesCommandInput}
@@ -85,6 +95,8 @@ export interface DisassociatePersonasFromEntitiesCommandOutput
  *  <p>The input fails to satisfy the constraints set by the Amazon Kendra service.
  *             Please provide the correct input and try again.</p>
  *
+ * @throws {@link KendraServiceException}
+ * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
  */
 export class DisassociatePersonasFromEntitiesCommand extends $Command<

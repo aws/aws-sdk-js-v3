@@ -37,15 +37,18 @@ export interface DeleteFlowCommandOutput extends DeleteFlowResponse, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppflowClient, DeleteFlowCommand } from "@aws-sdk/client-appflow"; // ES Modules import
- * // const { AppflowClient, DeleteFlowCommand } = require("@aws-sdk/client-appflow"); // CommonJS import
+ * import { AppflowClient, DeleteFlowCommand } from '@aws-sdk/client-appflow'; // ES Modules import
+ * // const { AppflowClient, DeleteFlowCommand } = require('@aws-sdk/client-appflow'); // CommonJS import
  * const client = new AppflowClient(config);
  * const input = { // DeleteFlowRequest
- *   flowName: "STRING_VALUE", // required
+ *   flowName: 'STRING_VALUE', // required
  *   forceDelete: true || false,
  * };
  * const command = new DeleteFlowCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteFlowCommandInput - {@link DeleteFlowCommandInput}
@@ -66,6 +69,8 @@ export interface DeleteFlowCommandOutput extends DeleteFlowResponse, __MetadataB
  *  <p> The resource specified in the request (such as the source or destination connector
  *       profile) is not found. </p>
  *
+ * @throws {@link AppflowServiceException}
+ * <p>Base exception class for all service exceptions from Appflow service.</p>
  *
  */
 export class DeleteFlowCommand extends $Command<

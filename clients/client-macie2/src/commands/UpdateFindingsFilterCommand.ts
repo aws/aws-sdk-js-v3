@@ -36,38 +36,44 @@ export interface UpdateFindingsFilterCommandOutput extends UpdateFindingsFilterR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Macie2Client, UpdateFindingsFilterCommand } from "@aws-sdk/client-macie2"; // ES Modules import
- * // const { Macie2Client, UpdateFindingsFilterCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
+ * import { Macie2Client, UpdateFindingsFilterCommand } from '@aws-sdk/client-macie2'; // ES Modules import
+ * // const { Macie2Client, UpdateFindingsFilterCommand } = require('@aws-sdk/client-macie2'); // CommonJS import
  * const client = new Macie2Client(config);
  * const input = { // UpdateFindingsFilterRequest
- *   action: "ARCHIVE" || "NOOP",
- *   clientToken: "STRING_VALUE",
- *   description: "STRING_VALUE",
+ *   action: 'ARCHIVE' || 'NOOP',
+ *   clientToken: 'STRING_VALUE',
+ *   description: 'STRING_VALUE',
  *   findingCriteria: { // FindingCriteria
  *     criterion: { // Criterion
- *       "<keys>": { // CriterionAdditionalProperties
+ *       '<keys>': { // CriterionAdditionalProperties
  *         eq: [ // __listOf__string
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
  *         eqExactMatch: [
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
- *         gt: Number("long"),
- *         gte: Number("long"),
- *         lt: Number("long"),
- *         lte: Number("long"),
+ *         gt: Number('long'),
+ *         gte: Number('long'),
+ *         lt: Number('long'),
+ *         lte: Number('long'),
  *         neq: [
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
  *       },
  *     },
  *   },
- *   id: "STRING_VALUE", // required
- *   name: "STRING_VALUE",
- *   position: Number("int"),
+ *   id: 'STRING_VALUE', // required
+ *   name: 'STRING_VALUE',
+ *   position: Number('int'),
  * };
  * const command = new UpdateFindingsFilterCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateFindingsFilterResponse
+ *   arn: 'STRING_VALUE',
+ *   id: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateFindingsFilterCommandInput - {@link UpdateFindingsFilterCommandInput}
@@ -97,6 +103,8 @@ export interface UpdateFindingsFilterCommandOutput extends UpdateFindingsFilterR
  * @throws {@link ValidationException} (client fault)
  *  <p>Provides information about an error that occurred due to a syntax error in a request.</p>
  *
+ * @throws {@link Macie2ServiceException}
+ * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
  */
 export class UpdateFindingsFilterCommand extends $Command<

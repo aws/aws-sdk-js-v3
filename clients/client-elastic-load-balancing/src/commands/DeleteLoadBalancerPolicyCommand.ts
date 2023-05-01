@@ -40,15 +40,18 @@ export interface DeleteLoadBalancerPolicyCommandOutput extends DeleteLoadBalance
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElasticLoadBalancingClient, DeleteLoadBalancerPolicyCommand } from "@aws-sdk/client-elastic-load-balancing"; // ES Modules import
- * // const { ElasticLoadBalancingClient, DeleteLoadBalancerPolicyCommand } = require("@aws-sdk/client-elastic-load-balancing"); // CommonJS import
+ * import { ElasticLoadBalancingClient, DeleteLoadBalancerPolicyCommand } from '@aws-sdk/client-elastic-load-balancing'; // ES Modules import
+ * // const { ElasticLoadBalancingClient, DeleteLoadBalancerPolicyCommand } = require('@aws-sdk/client-elastic-load-balancing'); // CommonJS import
  * const client = new ElasticLoadBalancingClient(config);
  * const input = { // DeleteLoadBalancerPolicyInput
- *   LoadBalancerName: "STRING_VALUE", // required
- *   PolicyName: "STRING_VALUE", // required
+ *   LoadBalancerName: 'STRING_VALUE', // required
+ *   PolicyName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteLoadBalancerPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteLoadBalancerPolicyCommandInput - {@link DeleteLoadBalancerPolicyCommandInput}
@@ -63,6 +66,8 @@ export interface DeleteLoadBalancerPolicyCommandOutput extends DeleteLoadBalance
  * @throws {@link InvalidConfigurationRequestException} (client fault)
  *  <p>The requested configuration change is not valid.</p>
  *
+ * @throws {@link ElasticLoadBalancingServiceException}
+ * <p>Base exception class for all service exceptions from ElasticLoadBalancing service.</p>
  *
  * @example To delete a policy from your load balancer
  * ```javascript

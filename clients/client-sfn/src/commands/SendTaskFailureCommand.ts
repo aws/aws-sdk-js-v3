@@ -41,16 +41,19 @@ export interface SendTaskFailureCommandOutput extends SendTaskFailureOutput, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SFNClient, SendTaskFailureCommand } from "@aws-sdk/client-sfn"; // ES Modules import
- * // const { SFNClient, SendTaskFailureCommand } = require("@aws-sdk/client-sfn"); // CommonJS import
+ * import { SFNClient, SendTaskFailureCommand } from '@aws-sdk/client-sfn'; // ES Modules import
+ * // const { SFNClient, SendTaskFailureCommand } = require('@aws-sdk/client-sfn'); // CommonJS import
  * const client = new SFNClient(config);
  * const input = { // SendTaskFailureInput
- *   taskToken: "STRING_VALUE", // required
- *   error: "STRING_VALUE",
- *   cause: "STRING_VALUE",
+ *   taskToken: 'STRING_VALUE', // required
+ *   error: 'STRING_VALUE',
+ *   cause: 'STRING_VALUE',
  * };
  * const command = new SendTaskFailureCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param SendTaskFailureCommandInput - {@link SendTaskFailureCommandInput}
@@ -66,6 +69,8 @@ export interface SendTaskFailureCommandOutput extends SendTaskFailureOutput, __M
  *
  * @throws {@link TaskTimedOut} (client fault)
  *
+ * @throws {@link SFNServiceException}
+ * <p>Base exception class for all service exceptions from SFN service.</p>
  *
  */
 export class SendTaskFailureCommand extends $Command<

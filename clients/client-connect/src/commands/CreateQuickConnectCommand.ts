@@ -36,33 +36,39 @@ export interface CreateQuickConnectCommandOutput extends CreateQuickConnectRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, CreateQuickConnectCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, CreateQuickConnectCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, CreateQuickConnectCommand } from '@aws-sdk/client-connect'; // ES Modules import
+ * // const { ConnectClient, CreateQuickConnectCommand } = require('@aws-sdk/client-connect'); // CommonJS import
  * const client = new ConnectClient(config);
  * const input = { // CreateQuickConnectRequest
- *   InstanceId: "STRING_VALUE", // required
- *   Name: "STRING_VALUE", // required
- *   Description: "STRING_VALUE",
+ *   InstanceId: 'STRING_VALUE', // required
+ *   Name: 'STRING_VALUE', // required
+ *   Description: 'STRING_VALUE',
  *   QuickConnectConfig: { // QuickConnectConfig
- *     QuickConnectType: "USER" || "QUEUE" || "PHONE_NUMBER", // required
+ *     QuickConnectType: 'USER' || 'QUEUE' || 'PHONE_NUMBER', // required
  *     UserConfig: { // UserQuickConnectConfig
- *       UserId: "STRING_VALUE", // required
- *       ContactFlowId: "STRING_VALUE", // required
+ *       UserId: 'STRING_VALUE', // required
+ *       ContactFlowId: 'STRING_VALUE', // required
  *     },
  *     QueueConfig: { // QueueQuickConnectConfig
- *       QueueId: "STRING_VALUE", // required
- *       ContactFlowId: "STRING_VALUE", // required
+ *       QueueId: 'STRING_VALUE', // required
+ *       ContactFlowId: 'STRING_VALUE', // required
  *     },
  *     PhoneConfig: { // PhoneNumberQuickConnectConfig
- *       PhoneNumber: "STRING_VALUE", // required
+ *       PhoneNumber: 'STRING_VALUE', // required
  *     },
  *   },
  *   Tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateQuickConnectCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateQuickConnectResponse
+ *   QuickConnectARN: 'STRING_VALUE',
+ *   QuickConnectId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateQuickConnectCommandInput - {@link CreateQuickConnectCommandInput}
@@ -92,6 +98,8 @@ export interface CreateQuickConnectCommandOutput extends CreateQuickConnectRespo
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class CreateQuickConnectCommand extends $Command<

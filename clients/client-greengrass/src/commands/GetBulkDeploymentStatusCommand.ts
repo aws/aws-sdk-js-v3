@@ -36,14 +36,35 @@ export interface GetBulkDeploymentStatusCommandOutput extends GetBulkDeploymentS
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GreengrassClient, GetBulkDeploymentStatusCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
- * // const { GreengrassClient, GetBulkDeploymentStatusCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
+ * import { GreengrassClient, GetBulkDeploymentStatusCommand } from '@aws-sdk/client-greengrass'; // ES Modules import
+ * // const { GreengrassClient, GetBulkDeploymentStatusCommand } = require('@aws-sdk/client-greengrass'); // CommonJS import
  * const client = new GreengrassClient(config);
  * const input = { // GetBulkDeploymentStatusRequest
- *   BulkDeploymentId: "STRING_VALUE", // required
+ *   BulkDeploymentId: 'STRING_VALUE', // required
  * };
  * const command = new GetBulkDeploymentStatusCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetBulkDeploymentStatusResponse
+ *   BulkDeploymentMetrics: { // BulkDeploymentMetrics
+ *     InvalidInputRecords: Number('int'),
+ *     RecordsProcessed: Number('int'),
+ *     RetryAttempts: Number('int'),
+ *   },
+ *   BulkDeploymentStatus: 'Initializing' || 'Running' || 'Completed' || 'Stopping' || 'Stopped' || 'Failed',
+ *   CreatedAt: 'STRING_VALUE',
+ *   ErrorDetails: [ // ErrorDetails
+ *     { // ErrorDetail
+ *       DetailedErrorCode: 'STRING_VALUE',
+ *       DetailedErrorMessage: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   ErrorMessage: 'STRING_VALUE',
+ *   tags: { // Tags
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetBulkDeploymentStatusCommandInput - {@link GetBulkDeploymentStatusCommandInput}
@@ -55,6 +76,8 @@ export interface GetBulkDeploymentStatusCommandOutput extends GetBulkDeploymentS
  * @throws {@link BadRequestException} (client fault)
  *  General error information.
  *
+ * @throws {@link GreengrassServiceException}
+ * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
  */
 export class GetBulkDeploymentStatusCommand extends $Command<

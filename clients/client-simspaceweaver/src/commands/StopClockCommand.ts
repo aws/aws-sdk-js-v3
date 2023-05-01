@@ -36,14 +36,17 @@ export interface StopClockCommandOutput extends StopClockOutput, __MetadataBeare
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SimSpaceWeaverClient, StopClockCommand } from "@aws-sdk/client-simspaceweaver"; // ES Modules import
- * // const { SimSpaceWeaverClient, StopClockCommand } = require("@aws-sdk/client-simspaceweaver"); // CommonJS import
+ * import { SimSpaceWeaverClient, StopClockCommand } from '@aws-sdk/client-simspaceweaver'; // ES Modules import
+ * // const { SimSpaceWeaverClient, StopClockCommand } = require('@aws-sdk/client-simspaceweaver'); // CommonJS import
  * const client = new SimSpaceWeaverClient(config);
  * const input = { // StopClockInput
- *   Simulation: "STRING_VALUE", // required
+ *   Simulation: 'STRING_VALUE', // required
  * };
  * const command = new StopClockCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param StopClockCommandInput - {@link StopClockCommandInput}
@@ -67,6 +70,8 @@ export interface StopClockCommandOutput extends StopClockOutput, __MetadataBeare
  * @throws {@link ValidationException} (client fault)
  *  <p/>
  *
+ * @throws {@link SimSpaceWeaverServiceException}
+ * <p>Base exception class for all service exceptions from SimSpaceWeaver service.</p>
  *
  */
 export class StopClockCommand extends $Command<

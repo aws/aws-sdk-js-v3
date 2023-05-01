@@ -36,14 +36,19 @@ export interface DeleteRulesetCommandOutput extends DeleteRulesetResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DataBrewClient, DeleteRulesetCommand } from "@aws-sdk/client-databrew"; // ES Modules import
- * // const { DataBrewClient, DeleteRulesetCommand } = require("@aws-sdk/client-databrew"); // CommonJS import
+ * import { DataBrewClient, DeleteRulesetCommand } from '@aws-sdk/client-databrew'; // ES Modules import
+ * // const { DataBrewClient, DeleteRulesetCommand } = require('@aws-sdk/client-databrew'); // CommonJS import
  * const client = new DataBrewClient(config);
  * const input = { // DeleteRulesetRequest
- *   Name: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
  * };
  * const command = new DeleteRulesetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteRulesetResponse
+ *   Name: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param DeleteRulesetCommandInput - {@link DeleteRulesetCommandInput}
@@ -61,6 +66,8 @@ export interface DeleteRulesetCommandOutput extends DeleteRulesetResponse, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>The input parameters for this request failed validation.</p>
  *
+ * @throws {@link DataBrewServiceException}
+ * <p>Base exception class for all service exceptions from DataBrew service.</p>
  *
  */
 export class DeleteRulesetCommand extends $Command<

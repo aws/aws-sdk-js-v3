@@ -38,18 +38,23 @@ export interface SendEventCommandOutput extends SendEventResponse, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IvschatClient, SendEventCommand } from "@aws-sdk/client-ivschat"; // ES Modules import
- * // const { IvschatClient, SendEventCommand } = require("@aws-sdk/client-ivschat"); // CommonJS import
+ * import { IvschatClient, SendEventCommand } from '@aws-sdk/client-ivschat'; // ES Modules import
+ * // const { IvschatClient, SendEventCommand } = require('@aws-sdk/client-ivschat'); // CommonJS import
  * const client = new IvschatClient(config);
  * const input = { // SendEventRequest
- *   roomIdentifier: "STRING_VALUE", // required
- *   eventName: "STRING_VALUE", // required
+ *   roomIdentifier: 'STRING_VALUE', // required
+ *   eventName: 'STRING_VALUE', // required
  *   attributes: { // EventAttributes
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new SendEventCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SendEventResponse
+ *   id: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param SendEventCommandInput - {@link SendEventCommandInput}
@@ -73,6 +78,8 @@ export interface SendEventCommandOutput extends SendEventResponse, __MetadataBea
  * @throws {@link ValidationException} (client fault)
  *  <p/>
  *
+ * @throws {@link IvschatServiceException}
+ * <p>Base exception class for all service exceptions from Ivschat service.</p>
  *
  */
 export class SendEventCommand extends $Command<

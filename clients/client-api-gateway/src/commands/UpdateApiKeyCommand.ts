@@ -36,22 +36,40 @@ export interface UpdateApiKeyCommandOutput extends ApiKey, __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { APIGatewayClient, UpdateApiKeyCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
- * // const { APIGatewayClient, UpdateApiKeyCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
+ * import { APIGatewayClient, UpdateApiKeyCommand } from '@aws-sdk/client-api-gateway'; // ES Modules import
+ * // const { APIGatewayClient, UpdateApiKeyCommand } = require('@aws-sdk/client-api-gateway'); // CommonJS import
  * const client = new APIGatewayClient(config);
  * const input = { // UpdateApiKeyRequest
- *   apiKey: "STRING_VALUE", // required
+ *   apiKey: 'STRING_VALUE', // required
  *   patchOperations: [ // ListOfPatchOperation
  *     { // PatchOperation
- *       op: "add" || "remove" || "replace" || "move" || "copy" || "test",
- *       path: "STRING_VALUE",
- *       value: "STRING_VALUE",
- *       from: "STRING_VALUE",
+ *       op: 'add' || 'remove' || 'replace' || 'move' || 'copy' || 'test',
+ *       path: 'STRING_VALUE',
+ *       value: 'STRING_VALUE',
+ *       from: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new UpdateApiKeyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ApiKey
+ *   id: 'STRING_VALUE',
+ *   value: 'STRING_VALUE',
+ *   name: 'STRING_VALUE',
+ *   customerId: 'STRING_VALUE',
+ *   description: 'STRING_VALUE',
+ *   enabled: true || false,
+ *   createdDate: new Date('TIMESTAMP'),
+ *   lastUpdatedDate: new Date('TIMESTAMP'),
+ *   stageKeys: [ // ListOfString
+ *     'STRING_VALUE',
+ *   ],
+ *   tags: { // MapOfStringToString
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateApiKeyCommandInput - {@link UpdateApiKeyCommandInput}
@@ -78,6 +96,8 @@ export interface UpdateApiKeyCommandOutput extends ApiKey, __MetadataBearer {}
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The request is denied because the caller has insufficient permissions.</p>
  *
+ * @throws {@link APIGatewayServiceException}
+ * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
  */
 export class UpdateApiKeyCommand extends $Command<

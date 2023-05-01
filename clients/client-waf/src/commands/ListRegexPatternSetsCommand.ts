@@ -44,15 +44,26 @@ export interface ListRegexPatternSetsCommandOutput extends ListRegexPatternSetsR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WAFClient, ListRegexPatternSetsCommand } from "@aws-sdk/client-waf"; // ES Modules import
- * // const { WAFClient, ListRegexPatternSetsCommand } = require("@aws-sdk/client-waf"); // CommonJS import
+ * import { WAFClient, ListRegexPatternSetsCommand } from '@aws-sdk/client-waf'; // ES Modules import
+ * // const { WAFClient, ListRegexPatternSetsCommand } = require('@aws-sdk/client-waf'); // CommonJS import
  * const client = new WAFClient(config);
  * const input = { // ListRegexPatternSetsRequest
- *   NextMarker: "STRING_VALUE",
- *   Limit: Number("int"),
+ *   NextMarker: 'STRING_VALUE',
+ *   Limit: Number('int'),
  * };
  * const command = new ListRegexPatternSetsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListRegexPatternSetsResponse
+ *   NextMarker: 'STRING_VALUE',
+ *   RegexPatternSets: [ // RegexPatternSetSummaries
+ *     { // RegexPatternSetSummary
+ *       RegexPatternSetId: 'STRING_VALUE', // required
+ *       Name: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListRegexPatternSetsCommandInput - {@link ListRegexPatternSetsCommandInput}
@@ -67,6 +78,8 @@ export interface ListRegexPatternSetsCommandOutput extends ListRegexPatternSetsR
  * @throws {@link WAFInvalidAccountException} (client fault)
  *  <p>The operation failed because you tried to create, update, or delete an object by using an invalid account identifier.</p>
  *
+ * @throws {@link WAFServiceException}
+ * <p>Base exception class for all service exceptions from WAF service.</p>
  *
  */
 export class ListRegexPatternSetsCommand extends $Command<

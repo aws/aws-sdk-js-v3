@@ -36,16 +36,32 @@ export interface GetCampaignStateBatchCommandOutput extends GetCampaignStateBatc
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectCampaignsClient, GetCampaignStateBatchCommand } from "@aws-sdk/client-connectcampaigns"; // ES Modules import
- * // const { ConnectCampaignsClient, GetCampaignStateBatchCommand } = require("@aws-sdk/client-connectcampaigns"); // CommonJS import
+ * import { ConnectCampaignsClient, GetCampaignStateBatchCommand } from '@aws-sdk/client-connectcampaigns'; // ES Modules import
+ * // const { ConnectCampaignsClient, GetCampaignStateBatchCommand } = require('@aws-sdk/client-connectcampaigns'); // CommonJS import
  * const client = new ConnectCampaignsClient(config);
  * const input = { // GetCampaignStateBatchRequest
  *   campaignIds: [ // CampaignIdList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new GetCampaignStateBatchCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetCampaignStateBatchResponse
+ *   successfulRequests: [ // SuccessfulCampaignStateResponseList
+ *     { // SuccessfulCampaignStateResponse
+ *       campaignId: 'STRING_VALUE',
+ *       state: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   failedRequests: [ // FailedCampaignStateResponseList
+ *     { // FailedCampaignStateResponse
+ *       campaignId: 'STRING_VALUE',
+ *       failureCode: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetCampaignStateBatchCommandInput - {@link GetCampaignStateBatchCommandInput}
@@ -66,6 +82,8 @@ export interface GetCampaignStateBatchCommandOutput extends GetCampaignStateBatc
  * @throws {@link ValidationException} (client fault)
  *  The input fails to satisfy the constraints specified by an AWS service.
  *
+ * @throws {@link ConnectCampaignsServiceException}
+ * <p>Base exception class for all service exceptions from ConnectCampaigns service.</p>
  *
  */
 export class GetCampaignStateBatchCommand extends $Command<

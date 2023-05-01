@@ -36,14 +36,19 @@ export interface RejectSharedDirectoryCommandOutput extends RejectSharedDirector
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DirectoryServiceClient, RejectSharedDirectoryCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
- * // const { DirectoryServiceClient, RejectSharedDirectoryCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
+ * import { DirectoryServiceClient, RejectSharedDirectoryCommand } from '@aws-sdk/client-directory-service'; // ES Modules import
+ * // const { DirectoryServiceClient, RejectSharedDirectoryCommand } = require('@aws-sdk/client-directory-service'); // CommonJS import
  * const client = new DirectoryServiceClient(config);
  * const input = { // RejectSharedDirectoryRequest
- *   SharedDirectoryId: "STRING_VALUE", // required
+ *   SharedDirectoryId: 'STRING_VALUE', // required
  * };
  * const command = new RejectSharedDirectoryCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // RejectSharedDirectoryResult
+ *   SharedDirectoryId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param RejectSharedDirectoryCommandInput - {@link RejectSharedDirectoryCommandInput}
@@ -67,6 +72,8 @@ export interface RejectSharedDirectoryCommandOutput extends RejectSharedDirector
  * @throws {@link ServiceException} (server fault)
  *  <p>An exception has occurred in Directory Service.</p>
  *
+ * @throws {@link DirectoryServiceServiceException}
+ * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
  */
 export class RejectSharedDirectoryCommand extends $Command<

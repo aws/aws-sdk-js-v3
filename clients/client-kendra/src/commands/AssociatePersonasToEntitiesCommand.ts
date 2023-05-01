@@ -42,21 +42,31 @@ export interface AssociatePersonasToEntitiesCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KendraClient, AssociatePersonasToEntitiesCommand } from "@aws-sdk/client-kendra"; // ES Modules import
- * // const { KendraClient, AssociatePersonasToEntitiesCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
+ * import { KendraClient, AssociatePersonasToEntitiesCommand } from '@aws-sdk/client-kendra'; // ES Modules import
+ * // const { KendraClient, AssociatePersonasToEntitiesCommand } = require('@aws-sdk/client-kendra'); // CommonJS import
  * const client = new KendraClient(config);
  * const input = { // AssociatePersonasToEntitiesRequest
- *   Id: "STRING_VALUE", // required
- *   IndexId: "STRING_VALUE", // required
+ *   Id: 'STRING_VALUE', // required
+ *   IndexId: 'STRING_VALUE', // required
  *   Personas: [ // EntityPersonaConfigurationList // required
  *     { // EntityPersonaConfiguration
- *       EntityId: "STRING_VALUE", // required
- *       Persona: "OWNER" || "VIEWER", // required
+ *       EntityId: 'STRING_VALUE', // required
+ *       Persona: 'OWNER' || 'VIEWER', // required
  *     },
  *   ],
  * };
  * const command = new AssociatePersonasToEntitiesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AssociatePersonasToEntitiesResponse
+ *   FailedEntityList: [ // FailedEntityList
+ *     { // FailedEntity
+ *       EntityId: 'STRING_VALUE',
+ *       ErrorMessage: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param AssociatePersonasToEntitiesCommandInput - {@link AssociatePersonasToEntitiesCommandInput}
@@ -89,6 +99,8 @@ export interface AssociatePersonasToEntitiesCommandOutput
  *  <p>The input fails to satisfy the constraints set by the Amazon Kendra service.
  *             Please provide the correct input and try again.</p>
  *
+ * @throws {@link KendraServiceException}
+ * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
  */
 export class AssociatePersonasToEntitiesCommand extends $Command<

@@ -36,45 +36,51 @@ export interface CreateDeviceProfileCommandOutput extends CreateDeviceProfileRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTWirelessClient, CreateDeviceProfileCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
- * // const { IoTWirelessClient, CreateDeviceProfileCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
+ * import { IoTWirelessClient, CreateDeviceProfileCommand } from '@aws-sdk/client-iot-wireless'; // ES Modules import
+ * // const { IoTWirelessClient, CreateDeviceProfileCommand } = require('@aws-sdk/client-iot-wireless'); // CommonJS import
  * const client = new IoTWirelessClient(config);
  * const input = { // CreateDeviceProfileRequest
- *   Name: "STRING_VALUE",
+ *   Name: 'STRING_VALUE',
  *   LoRaWAN: { // LoRaWANDeviceProfile
  *     SupportsClassB: true || false,
- *     ClassBTimeout: Number("int"),
- *     PingSlotPeriod: Number("int"),
- *     PingSlotDr: Number("int"),
- *     PingSlotFreq: Number("int"),
+ *     ClassBTimeout: Number('int'),
+ *     PingSlotPeriod: Number('int'),
+ *     PingSlotDr: Number('int'),
+ *     PingSlotFreq: Number('int'),
  *     SupportsClassC: true || false,
- *     ClassCTimeout: Number("int"),
- *     MacVersion: "STRING_VALUE",
- *     RegParamsRevision: "STRING_VALUE",
- *     RxDelay1: Number("int"),
- *     RxDrOffset1: Number("int"),
- *     RxDataRate2: Number("int"),
- *     RxFreq2: Number("int"),
+ *     ClassCTimeout: Number('int'),
+ *     MacVersion: 'STRING_VALUE',
+ *     RegParamsRevision: 'STRING_VALUE',
+ *     RxDelay1: Number('int'),
+ *     RxDrOffset1: Number('int'),
+ *     RxDataRate2: Number('int'),
+ *     RxFreq2: Number('int'),
  *     FactoryPresetFreqsList: [ // FactoryPresetFreqsList
- *       Number("int"),
+ *       Number('int'),
  *     ],
- *     MaxEirp: Number("int"),
- *     MaxDutyCycle: Number("int"),
- *     RfRegion: "STRING_VALUE",
+ *     MaxEirp: Number('int'),
+ *     MaxDutyCycle: Number('int'),
+ *     RfRegion: 'STRING_VALUE',
  *     SupportsJoin: true || false,
  *     Supports32BitFCnt: true || false,
  *   },
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
- *   ClientRequestToken: "STRING_VALUE",
+ *   ClientRequestToken: 'STRING_VALUE',
  *   Sidewalk: {},
  * };
  * const command = new CreateDeviceProfileCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateDeviceProfileResponse
+ *   Arn: 'STRING_VALUE',
+ *   Id: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateDeviceProfileCommandInput - {@link CreateDeviceProfileCommandInput}
@@ -98,6 +104,8 @@ export interface CreateDeviceProfileCommandOutput extends CreateDeviceProfileRes
  * @throws {@link ValidationException} (client fault)
  *  <p>The input did not meet the specified constraints.</p>
  *
+ * @throws {@link IoTWirelessServiceException}
+ * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
  */
 export class CreateDeviceProfileCommand extends $Command<

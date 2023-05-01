@@ -36,14 +36,17 @@ export interface DeleteAppMonitorCommandOutput extends DeleteAppMonitorResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RUMClient, DeleteAppMonitorCommand } from "@aws-sdk/client-rum"; // ES Modules import
- * // const { RUMClient, DeleteAppMonitorCommand } = require("@aws-sdk/client-rum"); // CommonJS import
+ * import { RUMClient, DeleteAppMonitorCommand } from '@aws-sdk/client-rum'; // ES Modules import
+ * // const { RUMClient, DeleteAppMonitorCommand } = require('@aws-sdk/client-rum'); // CommonJS import
  * const client = new RUMClient(config);
  * const input = { // DeleteAppMonitorRequest
- *   Name: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
  * };
  * const command = new DeleteAppMonitorCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteAppMonitorCommandInput - {@link DeleteAppMonitorCommandInput}
@@ -70,6 +73,8 @@ export interface DeleteAppMonitorCommandOutput extends DeleteAppMonitorResponse,
  * @throws {@link ValidationException} (client fault)
  *  <p>One of the arguments for the request is not valid.</p>
  *
+ * @throws {@link RUMServiceException}
+ * <p>Base exception class for all service exceptions from RUM service.</p>
  *
  */
 export class DeleteAppMonitorCommand extends $Command<

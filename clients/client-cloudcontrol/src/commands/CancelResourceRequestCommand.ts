@@ -43,14 +43,30 @@ export interface CancelResourceRequestCommandOutput extends CancelResourceReques
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudControlClient, CancelResourceRequestCommand } from "@aws-sdk/client-cloudcontrol"; // ES Modules import
- * // const { CloudControlClient, CancelResourceRequestCommand } = require("@aws-sdk/client-cloudcontrol"); // CommonJS import
+ * import { CloudControlClient, CancelResourceRequestCommand } from '@aws-sdk/client-cloudcontrol'; // ES Modules import
+ * // const { CloudControlClient, CancelResourceRequestCommand } = require('@aws-sdk/client-cloudcontrol'); // CommonJS import
  * const client = new CloudControlClient(config);
  * const input = { // CancelResourceRequestInput
- *   RequestToken: "STRING_VALUE", // required
+ *   RequestToken: 'STRING_VALUE', // required
  * };
  * const command = new CancelResourceRequestCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CancelResourceRequestOutput
+ *   ProgressEvent: { // ProgressEvent
+ *     TypeName: 'STRING_VALUE',
+ *     Identifier: 'STRING_VALUE',
+ *     RequestToken: 'STRING_VALUE',
+ *     Operation: 'STRING_VALUE',
+ *     OperationStatus: 'STRING_VALUE',
+ *     EventTime: new Date('TIMESTAMP'),
+ *     ResourceModel: 'STRING_VALUE',
+ *     StatusMessage: 'STRING_VALUE',
+ *     ErrorCode: 'STRING_VALUE',
+ *     RetryAfter: new Date('TIMESTAMP'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param CancelResourceRequestCommandInput - {@link CancelResourceRequestCommandInput}
@@ -65,6 +81,8 @@ export interface CancelResourceRequestCommandOutput extends CancelResourceReques
  * @throws {@link RequestTokenNotFoundException} (client fault)
  *  <p>A resource operation with the specified request token can't be found.</p>
  *
+ * @throws {@link CloudControlServiceException}
+ * <p>Base exception class for all service exceptions from CloudControl service.</p>
  *
  */
 export class CancelResourceRequestCommand extends $Command<

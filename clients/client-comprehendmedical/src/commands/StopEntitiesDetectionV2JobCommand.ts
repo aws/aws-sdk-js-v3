@@ -40,14 +40,19 @@ export interface StopEntitiesDetectionV2JobCommandOutput extends StopEntitiesDet
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ComprehendMedicalClient, StopEntitiesDetectionV2JobCommand } from "@aws-sdk/client-comprehendmedical"; // ES Modules import
- * // const { ComprehendMedicalClient, StopEntitiesDetectionV2JobCommand } = require("@aws-sdk/client-comprehendmedical"); // CommonJS import
+ * import { ComprehendMedicalClient, StopEntitiesDetectionV2JobCommand } from '@aws-sdk/client-comprehendmedical'; // ES Modules import
+ * // const { ComprehendMedicalClient, StopEntitiesDetectionV2JobCommand } = require('@aws-sdk/client-comprehendmedical'); // CommonJS import
  * const client = new ComprehendMedicalClient(config);
  * const input = { // StopEntitiesDetectionV2JobRequest
- *   JobId: "STRING_VALUE", // required
+ *   JobId: 'STRING_VALUE', // required
  * };
  * const command = new StopEntitiesDetectionV2JobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StopEntitiesDetectionV2JobResponse
+ *   JobId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param StopEntitiesDetectionV2JobCommandInput - {@link StopEntitiesDetectionV2JobCommandInput}
@@ -67,6 +72,8 @@ export interface StopEntitiesDetectionV2JobCommandOutput extends StopEntitiesDet
  *  <p>The resource identified by the specified Amazon Resource Name (ARN) was not found. Check
  *       the ARN and try your request again.</p>
  *
+ * @throws {@link ComprehendMedicalServiceException}
+ * <p>Base exception class for all service exceptions from ComprehendMedical service.</p>
  *
  */
 export class StopEntitiesDetectionV2JobCommand extends $Command<

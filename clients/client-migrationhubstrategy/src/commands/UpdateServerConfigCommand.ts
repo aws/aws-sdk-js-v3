@@ -40,20 +40,23 @@ export interface UpdateServerConfigCommandOutput extends UpdateServerConfigRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MigrationHubStrategyClient, UpdateServerConfigCommand } from "@aws-sdk/client-migrationhubstrategy"; // ES Modules import
- * // const { MigrationHubStrategyClient, UpdateServerConfigCommand } = require("@aws-sdk/client-migrationhubstrategy"); // CommonJS import
+ * import { MigrationHubStrategyClient, UpdateServerConfigCommand } from '@aws-sdk/client-migrationhubstrategy'; // ES Modules import
+ * // const { MigrationHubStrategyClient, UpdateServerConfigCommand } = require('@aws-sdk/client-migrationhubstrategy'); // CommonJS import
  * const client = new MigrationHubStrategyClient(config);
  * const input = { // UpdateServerConfigRequest
- *   serverId: "STRING_VALUE", // required
+ *   serverId: 'STRING_VALUE', // required
  *   strategyOption: { // StrategyOption
- *     strategy: "STRING_VALUE",
- *     toolName: "STRING_VALUE",
- *     targetDestination: "STRING_VALUE",
+ *     strategy: 'STRING_VALUE',
+ *     toolName: 'STRING_VALUE',
+ *     targetDestination: 'STRING_VALUE',
  *     isPreferred: true || false,
  *   },
  * };
  * const command = new UpdateServerConfigCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateServerConfigCommandInput - {@link UpdateServerConfigCommandInput}
@@ -74,6 +77,8 @@ export interface UpdateServerConfigCommandOutput extends UpdateServerConfigRespo
  * @throws {@link ValidationException} (client fault)
  *  <p> The request body isn't valid. </p>
  *
+ * @throws {@link MigrationHubStrategyServiceException}
+ * <p>Base exception class for all service exceptions from MigrationHubStrategy service.</p>
  *
  */
 export class UpdateServerConfigCommand extends $Command<

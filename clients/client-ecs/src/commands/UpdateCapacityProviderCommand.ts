@@ -36,24 +36,52 @@ export interface UpdateCapacityProviderCommandOutput extends UpdateCapacityProvi
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ECSClient, UpdateCapacityProviderCommand } from "@aws-sdk/client-ecs"; // ES Modules import
- * // const { ECSClient, UpdateCapacityProviderCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
+ * import { ECSClient, UpdateCapacityProviderCommand } from '@aws-sdk/client-ecs'; // ES Modules import
+ * // const { ECSClient, UpdateCapacityProviderCommand } = require('@aws-sdk/client-ecs'); // CommonJS import
  * const client = new ECSClient(config);
  * const input = { // UpdateCapacityProviderRequest
- *   name: "STRING_VALUE", // required
+ *   name: 'STRING_VALUE', // required
  *   autoScalingGroupProvider: { // AutoScalingGroupProviderUpdate
  *     managedScaling: { // ManagedScaling
- *       status: "ENABLED" || "DISABLED",
- *       targetCapacity: Number("int"),
- *       minimumScalingStepSize: Number("int"),
- *       maximumScalingStepSize: Number("int"),
- *       instanceWarmupPeriod: Number("int"),
+ *       status: 'ENABLED' || 'DISABLED',
+ *       targetCapacity: Number('int'),
+ *       minimumScalingStepSize: Number('int'),
+ *       maximumScalingStepSize: Number('int'),
+ *       instanceWarmupPeriod: Number('int'),
  *     },
- *     managedTerminationProtection: "ENABLED" || "DISABLED",
+ *     managedTerminationProtection: 'ENABLED' || 'DISABLED',
  *   },
  * };
  * const command = new UpdateCapacityProviderCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateCapacityProviderResponse
+ *   capacityProvider: { // CapacityProvider
+ *     capacityProviderArn: 'STRING_VALUE',
+ *     name: 'STRING_VALUE',
+ *     status: 'ACTIVE' || 'INACTIVE',
+ *     autoScalingGroupProvider: { // AutoScalingGroupProvider
+ *       autoScalingGroupArn: 'STRING_VALUE', // required
+ *       managedScaling: { // ManagedScaling
+ *         status: 'ENABLED' || 'DISABLED',
+ *         targetCapacity: Number('int'),
+ *         minimumScalingStepSize: Number('int'),
+ *         maximumScalingStepSize: Number('int'),
+ *         instanceWarmupPeriod: Number('int'),
+ *       },
+ *       managedTerminationProtection: 'ENABLED' || 'DISABLED',
+ *     },
+ *     updateStatus: 'DELETE_IN_PROGRESS' || 'DELETE_COMPLETE' || 'DELETE_FAILED' || 'UPDATE_IN_PROGRESS' || 'UPDATE_COMPLETE' || 'UPDATE_FAILED',
+ *     updateStatusReason: 'STRING_VALUE',
+ *     tags: [ // Tags
+ *       { // Tag
+ *         key: 'STRING_VALUE',
+ *         value: 'STRING_VALUE',
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateCapacityProviderCommandInput - {@link UpdateCapacityProviderCommandInput}
@@ -74,6 +102,8 @@ export interface UpdateCapacityProviderCommandOutput extends UpdateCapacityProvi
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server issue.</p>
  *
+ * @throws {@link ECSServiceException}
+ * <p>Base exception class for all service exceptions from ECS service.</p>
  *
  */
 export class UpdateCapacityProviderCommand extends $Command<

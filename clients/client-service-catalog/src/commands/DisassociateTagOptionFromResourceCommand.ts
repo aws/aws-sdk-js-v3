@@ -41,15 +41,18 @@ export interface DisassociateTagOptionFromResourceCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ServiceCatalogClient, DisassociateTagOptionFromResourceCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
- * // const { ServiceCatalogClient, DisassociateTagOptionFromResourceCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
+ * import { ServiceCatalogClient, DisassociateTagOptionFromResourceCommand } from '@aws-sdk/client-service-catalog'; // ES Modules import
+ * // const { ServiceCatalogClient, DisassociateTagOptionFromResourceCommand } = require('@aws-sdk/client-service-catalog'); // CommonJS import
  * const client = new ServiceCatalogClient(config);
  * const input = { // DisassociateTagOptionFromResourceInput
- *   ResourceId: "STRING_VALUE", // required
- *   TagOptionId: "STRING_VALUE", // required
+ *   ResourceId: 'STRING_VALUE', // required
+ *   TagOptionId: 'STRING_VALUE', // required
  * };
  * const command = new DisassociateTagOptionFromResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DisassociateTagOptionFromResourceCommandInput - {@link DisassociateTagOptionFromResourceCommandInput}
@@ -66,6 +69,8 @@ export interface DisassociateTagOptionFromResourceCommandOutput
  *          not been performed for this account. Use the Amazon Web Services Management Console to perform the migration
  *          process before retrying the operation.</p>
  *
+ * @throws {@link ServiceCatalogServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
  */
 export class DisassociateTagOptionFromResourceCommand extends $Command<

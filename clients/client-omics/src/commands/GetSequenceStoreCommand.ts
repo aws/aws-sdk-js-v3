@@ -36,14 +36,27 @@ export interface GetSequenceStoreCommandOutput extends GetSequenceStoreResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OmicsClient, GetSequenceStoreCommand } from "@aws-sdk/client-omics"; // ES Modules import
- * // const { OmicsClient, GetSequenceStoreCommand } = require("@aws-sdk/client-omics"); // CommonJS import
+ * import { OmicsClient, GetSequenceStoreCommand } from '@aws-sdk/client-omics'; // ES Modules import
+ * // const { OmicsClient, GetSequenceStoreCommand } = require('@aws-sdk/client-omics'); // CommonJS import
  * const client = new OmicsClient(config);
  * const input = { // GetSequenceStoreRequest
- *   id: "STRING_VALUE", // required
+ *   id: 'STRING_VALUE', // required
  * };
  * const command = new GetSequenceStoreCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetSequenceStoreResponse
+ *   id: 'STRING_VALUE', // required
+ *   arn: 'STRING_VALUE', // required
+ *   name: 'STRING_VALUE',
+ *   description: 'STRING_VALUE',
+ *   sseConfig: { // SseConfig
+ *     type: 'STRING_VALUE', // required
+ *     keyArn: 'STRING_VALUE',
+ *   },
+ *   creationTime: new Date('TIMESTAMP'), // required
+ * };
+ *
  * ```
  *
  * @param GetSequenceStoreCommandInput - {@link GetSequenceStoreCommandInput}
@@ -70,6 +83,8 @@ export interface GetSequenceStoreCommandOutput extends GetSequenceStoreResponse,
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link OmicsServiceException}
+ * <p>Base exception class for all service exceptions from Omics service.</p>
  *
  */
 export class GetSequenceStoreCommand extends $Command<

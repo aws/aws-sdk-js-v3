@@ -36,14 +36,17 @@ export interface CancelInputDeviceTransferCommandOutput extends CancelInputDevic
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MediaLiveClient, CancelInputDeviceTransferCommand } from "@aws-sdk/client-medialive"; // ES Modules import
- * // const { MediaLiveClient, CancelInputDeviceTransferCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
+ * import { MediaLiveClient, CancelInputDeviceTransferCommand } from '@aws-sdk/client-medialive'; // ES Modules import
+ * // const { MediaLiveClient, CancelInputDeviceTransferCommand } = require('@aws-sdk/client-medialive'); // CommonJS import
  * const client = new MediaLiveClient(config);
  * const input = { // CancelInputDeviceTransferRequest
- *   InputDeviceId: "STRING_VALUE", // required
+ *   InputDeviceId: 'STRING_VALUE', // required
  * };
  * const command = new CancelInputDeviceTransferCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param CancelInputDeviceTransferCommandInput - {@link CancelInputDeviceTransferCommandInput}
@@ -79,6 +82,8 @@ export interface CancelInputDeviceTransferCommandOutput extends CancelInputDevic
  * @throws {@link UnprocessableEntityException} (client fault)
  *  Placeholder documentation for UnprocessableEntityException
  *
+ * @throws {@link MediaLiveServiceException}
+ * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
  */
 export class CancelInputDeviceTransferCommand extends $Command<

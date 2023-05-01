@@ -38,14 +38,17 @@ export interface DeleteCallAnalyticsJobCommandOutput extends DeleteCallAnalytics
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { TranscribeClient, DeleteCallAnalyticsJobCommand } from "@aws-sdk/client-transcribe"; // ES Modules import
- * // const { TranscribeClient, DeleteCallAnalyticsJobCommand } = require("@aws-sdk/client-transcribe"); // CommonJS import
+ * import { TranscribeClient, DeleteCallAnalyticsJobCommand } from '@aws-sdk/client-transcribe'; // ES Modules import
+ * // const { TranscribeClient, DeleteCallAnalyticsJobCommand } = require('@aws-sdk/client-transcribe'); // CommonJS import
  * const client = new TranscribeClient(config);
  * const input = { // DeleteCallAnalyticsJobRequest
- *   CallAnalyticsJobName: "STRING_VALUE", // required
+ *   CallAnalyticsJobName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteCallAnalyticsJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteCallAnalyticsJobCommandInput - {@link DeleteCallAnalyticsJobCommandInput}
@@ -68,6 +71,8 @@ export interface DeleteCallAnalyticsJobCommandOutput extends DeleteCallAnalytics
  *  <p>You've either sent too many requests or your input file is too long. Wait before
  *             retrying your request, or use a smaller file and try your request again.</p>
  *
+ * @throws {@link TranscribeServiceException}
+ * <p>Base exception class for all service exceptions from Transcribe service.</p>
  *
  */
 export class DeleteCallAnalyticsJobCommand extends $Command<

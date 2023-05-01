@@ -42,15 +42,18 @@ export interface DeleteRealtimeLogConfigCommandOutput extends __MetadataBearer {
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudFrontClient, DeleteRealtimeLogConfigCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
- * // const { CloudFrontClient, DeleteRealtimeLogConfigCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
+ * import { CloudFrontClient, DeleteRealtimeLogConfigCommand } from '@aws-sdk/client-cloudfront'; // ES Modules import
+ * // const { CloudFrontClient, DeleteRealtimeLogConfigCommand } = require('@aws-sdk/client-cloudfront'); // CommonJS import
  * const client = new CloudFrontClient(config);
  * const input = { // DeleteRealtimeLogConfigRequest
- *   Name: "STRING_VALUE",
- *   ARN: "STRING_VALUE",
+ *   Name: 'STRING_VALUE',
+ *   ARN: 'STRING_VALUE',
  * };
  * const command = new DeleteRealtimeLogConfigCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteRealtimeLogConfigCommandInput - {@link DeleteRealtimeLogConfigCommandInput}
@@ -72,6 +75,8 @@ export interface DeleteRealtimeLogConfigCommandOutput extends __MetadataBearer {
  *  <p>Cannot delete the real-time log configuration because it is attached to one or more
  * 			cache behaviors.</p>
  *
+ * @throws {@link CloudFrontServiceException}
+ * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
  */
 export class DeleteRealtimeLogConfigCommand extends $Command<

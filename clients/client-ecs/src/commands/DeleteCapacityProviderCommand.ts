@@ -50,14 +50,42 @@ export interface DeleteCapacityProviderCommandOutput extends DeleteCapacityProvi
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ECSClient, DeleteCapacityProviderCommand } from "@aws-sdk/client-ecs"; // ES Modules import
- * // const { ECSClient, DeleteCapacityProviderCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
+ * import { ECSClient, DeleteCapacityProviderCommand } from '@aws-sdk/client-ecs'; // ES Modules import
+ * // const { ECSClient, DeleteCapacityProviderCommand } = require('@aws-sdk/client-ecs'); // CommonJS import
  * const client = new ECSClient(config);
  * const input = { // DeleteCapacityProviderRequest
- *   capacityProvider: "STRING_VALUE", // required
+ *   capacityProvider: 'STRING_VALUE', // required
  * };
  * const command = new DeleteCapacityProviderCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteCapacityProviderResponse
+ *   capacityProvider: { // CapacityProvider
+ *     capacityProviderArn: 'STRING_VALUE',
+ *     name: 'STRING_VALUE',
+ *     status: 'ACTIVE' || 'INACTIVE',
+ *     autoScalingGroupProvider: { // AutoScalingGroupProvider
+ *       autoScalingGroupArn: 'STRING_VALUE', // required
+ *       managedScaling: { // ManagedScaling
+ *         status: 'ENABLED' || 'DISABLED',
+ *         targetCapacity: Number('int'),
+ *         minimumScalingStepSize: Number('int'),
+ *         maximumScalingStepSize: Number('int'),
+ *         instanceWarmupPeriod: Number('int'),
+ *       },
+ *       managedTerminationProtection: 'ENABLED' || 'DISABLED',
+ *     },
+ *     updateStatus: 'DELETE_IN_PROGRESS' || 'DELETE_COMPLETE' || 'DELETE_FAILED' || 'UPDATE_IN_PROGRESS' || 'UPDATE_COMPLETE' || 'UPDATE_FAILED',
+ *     updateStatusReason: 'STRING_VALUE',
+ *     tags: [ // Tags
+ *       { // Tag
+ *         key: 'STRING_VALUE',
+ *         value: 'STRING_VALUE',
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param DeleteCapacityProviderCommandInput - {@link DeleteCapacityProviderCommandInput}
@@ -78,6 +106,8 @@ export interface DeleteCapacityProviderCommandOutput extends DeleteCapacityProvi
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server issue.</p>
  *
+ * @throws {@link ECSServiceException}
+ * <p>Base exception class for all service exceptions from ECS service.</p>
  *
  */
 export class DeleteCapacityProviderCommand extends $Command<

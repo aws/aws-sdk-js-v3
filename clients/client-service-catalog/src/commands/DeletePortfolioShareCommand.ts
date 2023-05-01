@@ -39,20 +39,25 @@ export interface DeletePortfolioShareCommandOutput extends DeletePortfolioShareO
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ServiceCatalogClient, DeletePortfolioShareCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
- * // const { ServiceCatalogClient, DeletePortfolioShareCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
+ * import { ServiceCatalogClient, DeletePortfolioShareCommand } from '@aws-sdk/client-service-catalog'; // ES Modules import
+ * // const { ServiceCatalogClient, DeletePortfolioShareCommand } = require('@aws-sdk/client-service-catalog'); // CommonJS import
  * const client = new ServiceCatalogClient(config);
  * const input = { // DeletePortfolioShareInput
- *   AcceptLanguage: "STRING_VALUE",
- *   PortfolioId: "STRING_VALUE", // required
- *   AccountId: "STRING_VALUE",
+ *   AcceptLanguage: 'STRING_VALUE',
+ *   PortfolioId: 'STRING_VALUE', // required
+ *   AccountId: 'STRING_VALUE',
  *   OrganizationNode: { // OrganizationNode
- *     Type: "ORGANIZATION" || "ORGANIZATIONAL_UNIT" || "ACCOUNT",
- *     Value: "STRING_VALUE",
+ *     Type: 'ORGANIZATION' || 'ORGANIZATIONAL_UNIT' || 'ACCOUNT',
+ *     Value: 'STRING_VALUE',
  *   },
  * };
  * const command = new DeletePortfolioShareCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeletePortfolioShareOutput
+ *   PortfolioShareToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DeletePortfolioShareCommandInput - {@link DeletePortfolioShareCommandInput}
@@ -74,6 +79,8 @@ export interface DeletePortfolioShareCommandOutput extends DeletePortfolioShareO
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link ServiceCatalogServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
  */
 export class DeletePortfolioShareCommand extends $Command<

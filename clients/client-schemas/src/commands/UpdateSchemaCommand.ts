@@ -36,19 +36,33 @@ export interface UpdateSchemaCommandOutput extends UpdateSchemaResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SchemasClient, UpdateSchemaCommand } from "@aws-sdk/client-schemas"; // ES Modules import
- * // const { SchemasClient, UpdateSchemaCommand } = require("@aws-sdk/client-schemas"); // CommonJS import
+ * import { SchemasClient, UpdateSchemaCommand } from '@aws-sdk/client-schemas'; // ES Modules import
+ * // const { SchemasClient, UpdateSchemaCommand } = require('@aws-sdk/client-schemas'); // CommonJS import
  * const client = new SchemasClient(config);
  * const input = { // UpdateSchemaRequest
- *   ClientTokenId: "STRING_VALUE",
- *   Content: "STRING_VALUE",
- *   Description: "STRING_VALUE",
- *   RegistryName: "STRING_VALUE", // required
- *   SchemaName: "STRING_VALUE", // required
- *   Type: "STRING_VALUE",
+ *   ClientTokenId: 'STRING_VALUE',
+ *   Content: 'STRING_VALUE',
+ *   Description: 'STRING_VALUE',
+ *   RegistryName: 'STRING_VALUE', // required
+ *   SchemaName: 'STRING_VALUE', // required
+ *   Type: 'STRING_VALUE',
  * };
  * const command = new UpdateSchemaCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateSchemaResponse
+ *   Description: 'STRING_VALUE',
+ *   LastModified: new Date('TIMESTAMP'),
+ *   SchemaArn: 'STRING_VALUE',
+ *   SchemaName: 'STRING_VALUE',
+ *   SchemaVersion: 'STRING_VALUE',
+ *   Tags: { // Tags
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ *   Type: 'STRING_VALUE',
+ *   VersionCreatedDate: new Date('TIMESTAMP'),
+ * };
+ *
  * ```
  *
  * @param UpdateSchemaCommandInput - {@link UpdateSchemaCommandInput}
@@ -67,6 +81,8 @@ export interface UpdateSchemaCommandOutput extends UpdateSchemaResponse, __Metad
  *
  * @throws {@link ServiceUnavailableException} (server fault)
  *
+ * @throws {@link SchemasServiceException}
+ * <p>Base exception class for all service exceptions from Schemas service.</p>
  *
  */
 export class UpdateSchemaCommand extends $Command<

@@ -37,30 +37,47 @@ export interface CreateTrailCommandOutput extends CreateTrailResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudTrailClient, CreateTrailCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
- * // const { CloudTrailClient, CreateTrailCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
+ * import { CloudTrailClient, CreateTrailCommand } from '@aws-sdk/client-cloudtrail'; // ES Modules import
+ * // const { CloudTrailClient, CreateTrailCommand } = require('@aws-sdk/client-cloudtrail'); // CommonJS import
  * const client = new CloudTrailClient(config);
  * const input = { // CreateTrailRequest
- *   Name: "STRING_VALUE", // required
- *   S3BucketName: "STRING_VALUE", // required
- *   S3KeyPrefix: "STRING_VALUE",
- *   SnsTopicName: "STRING_VALUE",
+ *   Name: 'STRING_VALUE', // required
+ *   S3BucketName: 'STRING_VALUE', // required
+ *   S3KeyPrefix: 'STRING_VALUE',
+ *   SnsTopicName: 'STRING_VALUE',
  *   IncludeGlobalServiceEvents: true || false,
  *   IsMultiRegionTrail: true || false,
  *   EnableLogFileValidation: true || false,
- *   CloudWatchLogsLogGroupArn: "STRING_VALUE",
- *   CloudWatchLogsRoleArn: "STRING_VALUE",
- *   KmsKeyId: "STRING_VALUE",
+ *   CloudWatchLogsLogGroupArn: 'STRING_VALUE',
+ *   CloudWatchLogsRoleArn: 'STRING_VALUE',
+ *   KmsKeyId: 'STRING_VALUE',
  *   IsOrganizationTrail: true || false,
  *   TagsList: [ // TagsList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new CreateTrailCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateTrailResponse
+ *   Name: 'STRING_VALUE',
+ *   S3BucketName: 'STRING_VALUE',
+ *   S3KeyPrefix: 'STRING_VALUE',
+ *   SnsTopicName: 'STRING_VALUE',
+ *   SnsTopicARN: 'STRING_VALUE',
+ *   IncludeGlobalServiceEvents: true || false,
+ *   IsMultiRegionTrail: true || false,
+ *   TrailARN: 'STRING_VALUE',
+ *   LogFileValidationEnabled: true || false,
+ *   CloudWatchLogsLogGroupArn: 'STRING_VALUE',
+ *   CloudWatchLogsRoleArn: 'STRING_VALUE',
+ *   KmsKeyId: 'STRING_VALUE',
+ *   IsOrganizationTrail: true || false,
+ * };
+ *
  * ```
  *
  * @param CreateTrailCommandInput - {@link CreateTrailCommandInput}
@@ -205,6 +222,8 @@ export interface CreateTrailCommandOutput extends CreateTrailResponse, __Metadat
  * @throws {@link UnsupportedOperationException} (client fault)
  *  <p>This exception is thrown when the requested operation is not supported.</p>
  *
+ * @throws {@link CloudTrailServiceException}
+ * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
  */
 export class CreateTrailCommand extends $Command<

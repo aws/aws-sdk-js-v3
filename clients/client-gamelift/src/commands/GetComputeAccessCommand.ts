@@ -62,15 +62,28 @@ export interface GetComputeAccessCommandOutput extends GetComputeAccessOutput, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GameLiftClient, GetComputeAccessCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
- * // const { GameLiftClient, GetComputeAccessCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
+ * import { GameLiftClient, GetComputeAccessCommand } from '@aws-sdk/client-gamelift'; // ES Modules import
+ * // const { GameLiftClient, GetComputeAccessCommand } = require('@aws-sdk/client-gamelift'); // CommonJS import
  * const client = new GameLiftClient(config);
  * const input = { // GetComputeAccessInput
- *   FleetId: "STRING_VALUE", // required
- *   ComputeName: "STRING_VALUE", // required
+ *   FleetId: 'STRING_VALUE', // required
+ *   ComputeName: 'STRING_VALUE', // required
  * };
  * const command = new GetComputeAccessCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetComputeAccessOutput
+ *   FleetId: 'STRING_VALUE',
+ *   FleetArn: 'STRING_VALUE',
+ *   ComputeName: 'STRING_VALUE',
+ *   ComputeArn: 'STRING_VALUE',
+ *   Credentials: { // AwsCredentials
+ *     AccessKeyId: 'STRING_VALUE',
+ *     SecretAccessKey: 'STRING_VALUE',
+ *     SessionToken: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetComputeAccessCommandInput - {@link GetComputeAccessCommandInput}
@@ -93,6 +106,8 @@ export interface GetComputeAccessCommandOutput extends GetComputeAccessOutput, _
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client failed authentication. Clients should not retry such requests.</p>
  *
+ * @throws {@link GameLiftServiceException}
+ * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
  */
 export class GetComputeAccessCommand extends $Command<

@@ -40,15 +40,25 @@ export interface UpdateRoutingControlCommandOutput extends UpdateRoutingControlR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Route53RecoveryControlConfigClient, UpdateRoutingControlCommand } from "@aws-sdk/client-route53-recovery-control-config"; // ES Modules import
- * // const { Route53RecoveryControlConfigClient, UpdateRoutingControlCommand } = require("@aws-sdk/client-route53-recovery-control-config"); // CommonJS import
+ * import { Route53RecoveryControlConfigClient, UpdateRoutingControlCommand } from '@aws-sdk/client-route53-recovery-control-config'; // ES Modules import
+ * // const { Route53RecoveryControlConfigClient, UpdateRoutingControlCommand } = require('@aws-sdk/client-route53-recovery-control-config'); // CommonJS import
  * const client = new Route53RecoveryControlConfigClient(config);
  * const input = { // UpdateRoutingControlRequest
- *   RoutingControlArn: "STRING_VALUE", // required
- *   RoutingControlName: "STRING_VALUE", // required
+ *   RoutingControlArn: 'STRING_VALUE', // required
+ *   RoutingControlName: 'STRING_VALUE', // required
  * };
  * const command = new UpdateRoutingControlCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateRoutingControlResponse
+ *   RoutingControl: { // RoutingControl
+ *     ControlPanelArn: 'STRING_VALUE',
+ *     Name: 'STRING_VALUE',
+ *     RoutingControlArn: 'STRING_VALUE',
+ *     Status: 'PENDING' || 'DEPLOYED' || 'PENDING_DELETION',
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateRoutingControlCommandInput - {@link UpdateRoutingControlCommandInput}
@@ -75,6 +85,8 @@ export interface UpdateRoutingControlCommandOutput extends UpdateRoutingControlR
  * @throws {@link ValidationException} (client fault)
  *  <p>400 response - Multiple causes. For example, you might have a malformed query string and input parameter might be out of range, or you might have used parameters together incorrectly.</p>
  *
+ * @throws {@link Route53RecoveryControlConfigServiceException}
+ * <p>Base exception class for all service exceptions from Route53RecoveryControlConfig service.</p>
  *
  */
 export class UpdateRoutingControlCommand extends $Command<

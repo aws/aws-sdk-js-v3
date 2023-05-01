@@ -40,15 +40,18 @@ export interface DeleteScalingPlanCommandOutput extends DeleteScalingPlanRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AutoScalingPlansClient, DeleteScalingPlanCommand } from "@aws-sdk/client-auto-scaling-plans"; // ES Modules import
- * // const { AutoScalingPlansClient, DeleteScalingPlanCommand } = require("@aws-sdk/client-auto-scaling-plans"); // CommonJS import
+ * import { AutoScalingPlansClient, DeleteScalingPlanCommand } from '@aws-sdk/client-auto-scaling-plans'; // ES Modules import
+ * // const { AutoScalingPlansClient, DeleteScalingPlanCommand } = require('@aws-sdk/client-auto-scaling-plans'); // CommonJS import
  * const client = new AutoScalingPlansClient(config);
  * const input = { // DeleteScalingPlanRequest
- *   ScalingPlanName: "STRING_VALUE", // required
- *   ScalingPlanVersion: Number("long"), // required
+ *   ScalingPlanName: 'STRING_VALUE', // required
+ *   ScalingPlanVersion: Number('long'), // required
  * };
  * const command = new DeleteScalingPlanCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteScalingPlanCommandInput - {@link DeleteScalingPlanCommandInput}
@@ -70,6 +73,8 @@ export interface DeleteScalingPlanCommandOutput extends DeleteScalingPlanRespons
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception was thrown for a validation issue. Review the parameters provided.</p>
  *
+ * @throws {@link AutoScalingPlansServiceException}
+ * <p>Base exception class for all service exceptions from AutoScalingPlans service.</p>
  *
  */
 export class DeleteScalingPlanCommand extends $Command<

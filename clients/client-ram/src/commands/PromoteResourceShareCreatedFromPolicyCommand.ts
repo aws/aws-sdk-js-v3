@@ -58,14 +58,19 @@ export interface PromoteResourceShareCreatedFromPolicyCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RAMClient, PromoteResourceShareCreatedFromPolicyCommand } from "@aws-sdk/client-ram"; // ES Modules import
- * // const { RAMClient, PromoteResourceShareCreatedFromPolicyCommand } = require("@aws-sdk/client-ram"); // CommonJS import
+ * import { RAMClient, PromoteResourceShareCreatedFromPolicyCommand } from '@aws-sdk/client-ram'; // ES Modules import
+ * // const { RAMClient, PromoteResourceShareCreatedFromPolicyCommand } = require('@aws-sdk/client-ram'); // CommonJS import
  * const client = new RAMClient(config);
  * const input = { // PromoteResourceShareCreatedFromPolicyRequest
- *   resourceShareArn: "STRING_VALUE", // required
+ *   resourceShareArn: 'STRING_VALUE', // required
  * };
  * const command = new PromoteResourceShareCreatedFromPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PromoteResourceShareCreatedFromPolicyResponse
+ *   returnValue: true || false,
+ * };
+ *
  * ```
  *
  * @param PromoteResourceShareCreatedFromPolicyCommandInput - {@link PromoteResourceShareCreatedFromPolicyCommandInput}
@@ -110,6 +115,8 @@ export interface PromoteResourceShareCreatedFromPolicyCommandOutput
  *  <p>There isn't an existing managed permission defined in RAM that has the same IAM permissions as
  *             the resource-based policy attached to the resource. You should first run <a>PromotePermissionCreatedFromPolicy</a> to create that managed permission.</p>
  *
+ * @throws {@link RAMServiceException}
+ * <p>Base exception class for all service exceptions from RAM service.</p>
  *
  */
 export class PromoteResourceShareCreatedFromPolicyCommand extends $Command<

@@ -36,14 +36,17 @@ export interface DeleteEnvironmentCommandOutput extends DeleteEnvironmentOutput,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MWAAClient, DeleteEnvironmentCommand } from "@aws-sdk/client-mwaa"; // ES Modules import
- * // const { MWAAClient, DeleteEnvironmentCommand } = require("@aws-sdk/client-mwaa"); // CommonJS import
+ * import { MWAAClient, DeleteEnvironmentCommand } from '@aws-sdk/client-mwaa'; // ES Modules import
+ * // const { MWAAClient, DeleteEnvironmentCommand } = require('@aws-sdk/client-mwaa'); // CommonJS import
  * const client = new MWAAClient(config);
  * const input = { // DeleteEnvironmentInput
- *   Name: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
  * };
  * const command = new DeleteEnvironmentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteEnvironmentCommandInput - {@link DeleteEnvironmentCommandInput}
@@ -61,6 +64,8 @@ export interface DeleteEnvironmentCommandOutput extends DeleteEnvironmentOutput,
  * @throws {@link ValidationException} (client fault)
  *  <p>ValidationException: The provided input is not valid.</p>
  *
+ * @throws {@link MWAAServiceException}
+ * <p>Base exception class for all service exceptions from MWAA service.</p>
  *
  */
 export class DeleteEnvironmentCommand extends $Command<

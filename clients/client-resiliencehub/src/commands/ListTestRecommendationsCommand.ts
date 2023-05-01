@@ -36,16 +36,45 @@ export interface ListTestRecommendationsCommandOutput extends ListTestRecommenda
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ResiliencehubClient, ListTestRecommendationsCommand } from "@aws-sdk/client-resiliencehub"; // ES Modules import
- * // const { ResiliencehubClient, ListTestRecommendationsCommand } = require("@aws-sdk/client-resiliencehub"); // CommonJS import
+ * import { ResiliencehubClient, ListTestRecommendationsCommand } from '@aws-sdk/client-resiliencehub'; // ES Modules import
+ * // const { ResiliencehubClient, ListTestRecommendationsCommand } = require('@aws-sdk/client-resiliencehub'); // CommonJS import
  * const client = new ResiliencehubClient(config);
  * const input = { // ListTestRecommendationsRequest
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
- *   assessmentArn: "STRING_VALUE", // required
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
+ *   assessmentArn: 'STRING_VALUE', // required
  * };
  * const command = new ListTestRecommendationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTestRecommendationsResponse
+ *   nextToken: 'STRING_VALUE',
+ *   testRecommendations: [ // TestRecommendationList // required
+ *     { // TestRecommendation
+ *       recommendationId: 'STRING_VALUE',
+ *       referenceId: 'STRING_VALUE', // required
+ *       appComponentName: 'STRING_VALUE',
+ *       name: 'STRING_VALUE',
+ *       intent: 'STRING_VALUE',
+ *       risk: 'STRING_VALUE',
+ *       type: 'STRING_VALUE',
+ *       description: 'STRING_VALUE',
+ *       items: [ // RecommendationItemList
+ *         { // RecommendationItem
+ *           resourceId: 'STRING_VALUE',
+ *           targetAccountId: 'STRING_VALUE',
+ *           targetRegion: 'STRING_VALUE',
+ *           alreadyImplemented: true || false,
+ *         },
+ *       ],
+ *       prerequisite: 'STRING_VALUE',
+ *       dependsOnAlarms: [ // AlarmReferenceIdList
+ *         'STRING_VALUE',
+ *       ],
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListTestRecommendationsCommandInput - {@link ListTestRecommendationsCommandInput}
@@ -78,6 +107,8 @@ export interface ListTestRecommendationsCommandOutput extends ListTestRecommenda
  * @throws {@link ValidationException} (client fault)
  *  <p>This exception occurs when a request is not valid.</p>
  *
+ * @throws {@link ResiliencehubServiceException}
+ * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
  */
 export class ListTestRecommendationsCommand extends $Command<

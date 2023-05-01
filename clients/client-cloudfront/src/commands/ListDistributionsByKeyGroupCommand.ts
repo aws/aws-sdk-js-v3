@@ -42,16 +42,30 @@ export interface ListDistributionsByKeyGroupCommandOutput extends ListDistributi
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudFrontClient, ListDistributionsByKeyGroupCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
- * // const { CloudFrontClient, ListDistributionsByKeyGroupCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
+ * import { CloudFrontClient, ListDistributionsByKeyGroupCommand } from '@aws-sdk/client-cloudfront'; // ES Modules import
+ * // const { CloudFrontClient, ListDistributionsByKeyGroupCommand } = require('@aws-sdk/client-cloudfront'); // CommonJS import
  * const client = new CloudFrontClient(config);
  * const input = { // ListDistributionsByKeyGroupRequest
- *   Marker: "STRING_VALUE",
- *   MaxItems: Number("int"),
- *   KeyGroupId: "STRING_VALUE", // required
+ *   Marker: 'STRING_VALUE',
+ *   MaxItems: Number('int'),
+ *   KeyGroupId: 'STRING_VALUE', // required
  * };
  * const command = new ListDistributionsByKeyGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListDistributionsByKeyGroupResult
+ *   DistributionIdList: { // DistributionIdList
+ *     Marker: 'STRING_VALUE', // required
+ *     NextMarker: 'STRING_VALUE',
+ *     MaxItems: Number('int'), // required
+ *     IsTruncated: true || false, // required
+ *     Quantity: Number('int'), // required
+ *     Items: [ // DistributionIdListSummary
+ *       'STRING_VALUE',
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param ListDistributionsByKeyGroupCommandInput - {@link ListDistributionsByKeyGroupCommandInput}
@@ -66,6 +80,8 @@ export interface ListDistributionsByKeyGroupCommandOutput extends ListDistributi
  * @throws {@link NoSuchResource} (client fault)
  *  <p>A resource that was specified is not valid.</p>
  *
+ * @throws {@link CloudFrontServiceException}
+ * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
  */
 export class ListDistributionsByKeyGroupCommand extends $Command<

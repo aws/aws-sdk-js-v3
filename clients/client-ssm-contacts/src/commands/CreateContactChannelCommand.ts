@@ -36,21 +36,26 @@ export interface CreateContactChannelCommandOutput extends CreateContactChannelR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMContactsClient, CreateContactChannelCommand } from "@aws-sdk/client-ssm-contacts"; // ES Modules import
- * // const { SSMContactsClient, CreateContactChannelCommand } = require("@aws-sdk/client-ssm-contacts"); // CommonJS import
+ * import { SSMContactsClient, CreateContactChannelCommand } from '@aws-sdk/client-ssm-contacts'; // ES Modules import
+ * // const { SSMContactsClient, CreateContactChannelCommand } = require('@aws-sdk/client-ssm-contacts'); // CommonJS import
  * const client = new SSMContactsClient(config);
  * const input = { // CreateContactChannelRequest
- *   ContactId: "STRING_VALUE", // required
- *   Name: "STRING_VALUE", // required
- *   Type: "SMS" || "VOICE" || "EMAIL", // required
+ *   ContactId: 'STRING_VALUE', // required
+ *   Name: 'STRING_VALUE', // required
+ *   Type: 'SMS' || 'VOICE' || 'EMAIL', // required
  *   DeliveryAddress: { // ContactChannelAddress
- *     SimpleAddress: "STRING_VALUE",
+ *     SimpleAddress: 'STRING_VALUE',
  *   },
  *   DeferActivation: true || false,
- *   IdempotencyToken: "STRING_VALUE",
+ *   IdempotencyToken: 'STRING_VALUE',
  * };
  * const command = new CreateContactChannelCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateContactChannelResult
+ *   ContactChannelArn: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param CreateContactChannelCommandInput - {@link CreateContactChannelCommandInput}
@@ -78,6 +83,8 @@ export interface CreateContactChannelCommandOutput extends CreateContactChannelR
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
  *          service.</p>
  *
+ * @throws {@link SSMContactsServiceException}
+ * <p>Base exception class for all service exceptions from SSMContacts service.</p>
  *
  */
 export class CreateContactChannelCommand extends $Command<

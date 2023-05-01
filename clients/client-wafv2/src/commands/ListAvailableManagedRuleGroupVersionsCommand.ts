@@ -45,18 +45,30 @@ export interface ListAvailableManagedRuleGroupVersionsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WAFV2Client, ListAvailableManagedRuleGroupVersionsCommand } from "@aws-sdk/client-wafv2"; // ES Modules import
- * // const { WAFV2Client, ListAvailableManagedRuleGroupVersionsCommand } = require("@aws-sdk/client-wafv2"); // CommonJS import
+ * import { WAFV2Client, ListAvailableManagedRuleGroupVersionsCommand } from '@aws-sdk/client-wafv2'; // ES Modules import
+ * // const { WAFV2Client, ListAvailableManagedRuleGroupVersionsCommand } = require('@aws-sdk/client-wafv2'); // CommonJS import
  * const client = new WAFV2Client(config);
  * const input = { // ListAvailableManagedRuleGroupVersionsRequest
- *   VendorName: "STRING_VALUE", // required
- *   Name: "STRING_VALUE", // required
- *   Scope: "CLOUDFRONT" || "REGIONAL", // required
- *   NextMarker: "STRING_VALUE",
- *   Limit: Number("int"),
+ *   VendorName: 'STRING_VALUE', // required
+ *   Name: 'STRING_VALUE', // required
+ *   Scope: 'CLOUDFRONT' || 'REGIONAL', // required
+ *   NextMarker: 'STRING_VALUE',
+ *   Limit: Number('int'),
  * };
  * const command = new ListAvailableManagedRuleGroupVersionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListAvailableManagedRuleGroupVersionsResponse
+ *   NextMarker: 'STRING_VALUE',
+ *   Versions: [ // ManagedRuleGroupVersions
+ *     { // ManagedRuleGroupVersion
+ *       Name: 'STRING_VALUE',
+ *       LastUpdateTimestamp: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   CurrentDefaultVersion: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListAvailableManagedRuleGroupVersionsCommandInput - {@link ListAvailableManagedRuleGroupVersionsCommandInput}
@@ -99,6 +111,8 @@ export interface ListAvailableManagedRuleGroupVersionsCommandOutput
  *        just need to wait a few minutes. It can take from a few seconds to a number of minutes
  *        for changes to propagate. </p>
  *
+ * @throws {@link WAFV2ServiceException}
+ * <p>Base exception class for all service exceptions from WAFV2 service.</p>
  *
  */
 export class ListAvailableManagedRuleGroupVersionsCommand extends $Command<

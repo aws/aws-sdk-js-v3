@@ -45,24 +45,35 @@ export interface DescribeSubscribersForNotificationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BudgetsClient, DescribeSubscribersForNotificationCommand } from "@aws-sdk/client-budgets"; // ES Modules import
- * // const { BudgetsClient, DescribeSubscribersForNotificationCommand } = require("@aws-sdk/client-budgets"); // CommonJS import
+ * import { BudgetsClient, DescribeSubscribersForNotificationCommand } from '@aws-sdk/client-budgets'; // ES Modules import
+ * // const { BudgetsClient, DescribeSubscribersForNotificationCommand } = require('@aws-sdk/client-budgets'); // CommonJS import
  * const client = new BudgetsClient(config);
  * const input = { // DescribeSubscribersForNotificationRequest
- *   AccountId: "STRING_VALUE", // required
- *   BudgetName: "STRING_VALUE", // required
+ *   AccountId: 'STRING_VALUE', // required
+ *   BudgetName: 'STRING_VALUE', // required
  *   Notification: { // Notification
- *     NotificationType: "STRING_VALUE", // required
- *     ComparisonOperator: "STRING_VALUE", // required
- *     Threshold: Number("double"), // required
- *     ThresholdType: "STRING_VALUE",
- *     NotificationState: "STRING_VALUE",
+ *     NotificationType: 'STRING_VALUE', // required
+ *     ComparisonOperator: 'STRING_VALUE', // required
+ *     Threshold: Number('double'), // required
+ *     ThresholdType: 'STRING_VALUE',
+ *     NotificationState: 'STRING_VALUE',
  *   },
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new DescribeSubscribersForNotificationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeSubscribersForNotificationResponse
+ *   Subscribers: [ // Subscribers
+ *     { // Subscriber
+ *       SubscriptionType: 'STRING_VALUE', // required
+ *       Address: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeSubscribersForNotificationCommandInput - {@link DescribeSubscribersForNotificationCommandInput}
@@ -94,6 +105,8 @@ export interface DescribeSubscribersForNotificationCommandOutput
  *       The number of API requests has exceeded the maximum allowed API request throttling limit for the account.
  *     </p>
  *
+ * @throws {@link BudgetsServiceException}
+ * <p>Base exception class for all service exceptions from Budgets service.</p>
  *
  */
 export class DescribeSubscribersForNotificationCommand extends $Command<

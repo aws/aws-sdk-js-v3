@@ -36,19 +36,27 @@ export interface ListBuildBatchesCommandOutput extends ListBuildBatchesOutput, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeBuildClient, ListBuildBatchesCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
- * // const { CodeBuildClient, ListBuildBatchesCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import
+ * import { CodeBuildClient, ListBuildBatchesCommand } from '@aws-sdk/client-codebuild'; // ES Modules import
+ * // const { CodeBuildClient, ListBuildBatchesCommand } = require('@aws-sdk/client-codebuild'); // CommonJS import
  * const client = new CodeBuildClient(config);
  * const input = { // ListBuildBatchesInput
  *   filter: { // BuildBatchFilter
- *     status: "STRING_VALUE",
+ *     status: 'STRING_VALUE',
  *   },
- *   maxResults: Number("int"),
- *   sortOrder: "STRING_VALUE",
- *   nextToken: "STRING_VALUE",
+ *   maxResults: Number('int'),
+ *   sortOrder: 'STRING_VALUE',
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new ListBuildBatchesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListBuildBatchesOutput
+ *   ids: [ // BuildBatchIds
+ *     'STRING_VALUE',
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListBuildBatchesCommandInput - {@link ListBuildBatchesCommandInput}
@@ -60,6 +68,8 @@ export interface ListBuildBatchesCommandOutput extends ListBuildBatchesOutput, _
  * @throws {@link InvalidInputException} (client fault)
  *  <p>The input value that was provided is not valid.</p>
  *
+ * @throws {@link CodeBuildServiceException}
+ * <p>Base exception class for all service exceptions from CodeBuild service.</p>
  *
  */
 export class ListBuildBatchesCommand extends $Command<

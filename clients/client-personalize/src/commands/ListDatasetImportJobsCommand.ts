@@ -41,16 +41,32 @@ export interface ListDatasetImportJobsCommandOutput extends ListDatasetImportJob
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PersonalizeClient, ListDatasetImportJobsCommand } from "@aws-sdk/client-personalize"; // ES Modules import
- * // const { PersonalizeClient, ListDatasetImportJobsCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
+ * import { PersonalizeClient, ListDatasetImportJobsCommand } from '@aws-sdk/client-personalize'; // ES Modules import
+ * // const { PersonalizeClient, ListDatasetImportJobsCommand } = require('@aws-sdk/client-personalize'); // CommonJS import
  * const client = new PersonalizeClient(config);
  * const input = { // ListDatasetImportJobsRequest
- *   datasetArn: "STRING_VALUE",
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   datasetArn: 'STRING_VALUE',
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new ListDatasetImportJobsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListDatasetImportJobsResponse
+ *   datasetImportJobs: [ // DatasetImportJobs
+ *     { // DatasetImportJobSummary
+ *       datasetImportJobArn: 'STRING_VALUE',
+ *       jobName: 'STRING_VALUE',
+ *       status: 'STRING_VALUE',
+ *       creationDateTime: new Date('TIMESTAMP'),
+ *       lastUpdatedDateTime: new Date('TIMESTAMP'),
+ *       failureReason: 'STRING_VALUE',
+ *       importMode: 'FULL' || 'INCREMENTAL',
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListDatasetImportJobsCommandInput - {@link ListDatasetImportJobsCommandInput}
@@ -65,6 +81,8 @@ export interface ListDatasetImportJobsCommandOutput extends ListDatasetImportJob
  * @throws {@link InvalidNextTokenException} (client fault)
  *  <p>The token is not valid.</p>
  *
+ * @throws {@link PersonalizeServiceException}
+ * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
  */
 export class ListDatasetImportJobsCommand extends $Command<

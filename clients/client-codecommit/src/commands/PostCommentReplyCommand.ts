@@ -36,16 +36,36 @@ export interface PostCommentReplyCommandOutput extends PostCommentReplyOutput, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeCommitClient, PostCommentReplyCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
- * // const { CodeCommitClient, PostCommentReplyCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
+ * import { CodeCommitClient, PostCommentReplyCommand } from '@aws-sdk/client-codecommit'; // ES Modules import
+ * // const { CodeCommitClient, PostCommentReplyCommand } = require('@aws-sdk/client-codecommit'); // CommonJS import
  * const client = new CodeCommitClient(config);
  * const input = { // PostCommentReplyInput
- *   inReplyTo: "STRING_VALUE", // required
- *   clientRequestToken: "STRING_VALUE",
- *   content: "STRING_VALUE", // required
+ *   inReplyTo: 'STRING_VALUE', // required
+ *   clientRequestToken: 'STRING_VALUE',
+ *   content: 'STRING_VALUE', // required
  * };
  * const command = new PostCommentReplyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PostCommentReplyOutput
+ *   comment: { // Comment
+ *     commentId: 'STRING_VALUE',
+ *     content: 'STRING_VALUE',
+ *     inReplyTo: 'STRING_VALUE',
+ *     creationDate: new Date('TIMESTAMP'),
+ *     lastModifiedDate: new Date('TIMESTAMP'),
+ *     authorArn: 'STRING_VALUE',
+ *     deleted: true || false,
+ *     clientRequestToken: 'STRING_VALUE',
+ *     callerReactions: [ // CallerReactions
+ *       'STRING_VALUE',
+ *     ],
+ *     reactionCounts: { // ReactionCountsMap
+ *       '<keys>': Number('int'),
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param PostCommentReplyCommandInput - {@link PostCommentReplyCommandInput}
@@ -84,6 +104,8 @@ export interface PostCommentReplyCommandOutput extends PostCommentReplyOutput, _
  * @throws {@link InvalidCommentIdException} (client fault)
  *  <p>The comment ID is not in a valid format. Make sure that you have provided the full comment ID.</p>
  *
+ * @throws {@link CodeCommitServiceException}
+ * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
  */
 export class PostCommentReplyCommand extends $Command<

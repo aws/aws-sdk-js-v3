@@ -36,20 +36,42 @@ export interface ListCheckSummariesCommandOutput extends ListCheckSummariesOutpu
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WellArchitectedClient, ListCheckSummariesCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
- * // const { WellArchitectedClient, ListCheckSummariesCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
+ * import { WellArchitectedClient, ListCheckSummariesCommand } from '@aws-sdk/client-wellarchitected'; // ES Modules import
+ * // const { WellArchitectedClient, ListCheckSummariesCommand } = require('@aws-sdk/client-wellarchitected'); // CommonJS import
  * const client = new WellArchitectedClient(config);
  * const input = { // ListCheckSummariesInput
- *   WorkloadId: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
- *   LensArn: "STRING_VALUE", // required
- *   PillarId: "STRING_VALUE", // required
- *   QuestionId: "STRING_VALUE", // required
- *   ChoiceId: "STRING_VALUE", // required
+ *   WorkloadId: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
+ *   LensArn: 'STRING_VALUE', // required
+ *   PillarId: 'STRING_VALUE', // required
+ *   QuestionId: 'STRING_VALUE', // required
+ *   ChoiceId: 'STRING_VALUE', // required
  * };
  * const command = new ListCheckSummariesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListCheckSummariesOutput
+ *   CheckSummaries: [ // CheckSummaries
+ *     { // CheckSummary
+ *       Id: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *       Provider: 'TRUSTED_ADVISOR',
+ *       Description: 'STRING_VALUE',
+ *       UpdatedAt: new Date('TIMESTAMP'),
+ *       LensArn: 'STRING_VALUE',
+ *       PillarId: 'STRING_VALUE',
+ *       QuestionId: 'STRING_VALUE',
+ *       ChoiceId: 'STRING_VALUE',
+ *       Status: 'OKAY' || 'WARNING' || 'ERROR' || 'NOT_AVAILABLE' || 'FETCH_FAILED',
+ *       AccountSummary: { // AccountSummary
+ *         '<keys>': Number('int'),
+ *       },
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListCheckSummariesCommandInput - {@link ListCheckSummariesCommandInput}
@@ -73,6 +95,8 @@ export interface ListCheckSummariesCommandOutput extends ListCheckSummariesOutpu
  * @throws {@link ValidationException} (client fault)
  *  <p>The user input is not valid.</p>
  *
+ * @throws {@link WellArchitectedServiceException}
+ * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
  */
 export class ListCheckSummariesCommand extends $Command<

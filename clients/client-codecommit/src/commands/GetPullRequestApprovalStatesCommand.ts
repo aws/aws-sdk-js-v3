@@ -42,15 +42,25 @@ export interface GetPullRequestApprovalStatesCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeCommitClient, GetPullRequestApprovalStatesCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
- * // const { CodeCommitClient, GetPullRequestApprovalStatesCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
+ * import { CodeCommitClient, GetPullRequestApprovalStatesCommand } from '@aws-sdk/client-codecommit'; // ES Modules import
+ * // const { CodeCommitClient, GetPullRequestApprovalStatesCommand } = require('@aws-sdk/client-codecommit'); // CommonJS import
  * const client = new CodeCommitClient(config);
  * const input = { // GetPullRequestApprovalStatesInput
- *   pullRequestId: "STRING_VALUE", // required
- *   revisionId: "STRING_VALUE", // required
+ *   pullRequestId: 'STRING_VALUE', // required
+ *   revisionId: 'STRING_VALUE', // required
  * };
  * const command = new GetPullRequestApprovalStatesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetPullRequestApprovalStatesOutput
+ *   approvals: [ // ApprovalList
+ *     { // Approval
+ *       userArn: 'STRING_VALUE',
+ *       approvalState: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetPullRequestApprovalStatesCommandInput - {@link GetPullRequestApprovalStatesCommandInput}
@@ -89,6 +99,8 @@ export interface GetPullRequestApprovalStatesCommandOutput
  * @throws {@link RevisionIdRequiredException} (client fault)
  *  <p>A revision ID is required, but was not provided.</p>
  *
+ * @throws {@link CodeCommitServiceException}
+ * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
  */
 export class GetPullRequestApprovalStatesCommand extends $Command<

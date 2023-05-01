@@ -36,14 +36,17 @@ export interface DeleteResourcePolicyCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SchemasClient, DeleteResourcePolicyCommand } from "@aws-sdk/client-schemas"; // ES Modules import
- * // const { SchemasClient, DeleteResourcePolicyCommand } = require("@aws-sdk/client-schemas"); // CommonJS import
+ * import { SchemasClient, DeleteResourcePolicyCommand } from '@aws-sdk/client-schemas'; // ES Modules import
+ * // const { SchemasClient, DeleteResourcePolicyCommand } = require('@aws-sdk/client-schemas'); // CommonJS import
  * const client = new SchemasClient(config);
  * const input = { // DeleteResourcePolicyRequest
- *   RegistryName: "STRING_VALUE",
+ *   RegistryName: 'STRING_VALUE',
  * };
  * const command = new DeleteResourcePolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteResourcePolicyCommandInput - {@link DeleteResourcePolicyCommandInput}
@@ -64,6 +67,8 @@ export interface DeleteResourcePolicyCommandOutput extends __MetadataBearer {}
  *
  * @throws {@link UnauthorizedException} (client fault)
  *
+ * @throws {@link SchemasServiceException}
+ * <p>Base exception class for all service exceptions from Schemas service.</p>
  *
  */
 export class DeleteResourcePolicyCommand extends $Command<

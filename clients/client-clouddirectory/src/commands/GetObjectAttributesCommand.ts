@@ -36,25 +36,45 @@ export interface GetObjectAttributesCommandOutput extends GetObjectAttributesRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudDirectoryClient, GetObjectAttributesCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
- * // const { CloudDirectoryClient, GetObjectAttributesCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
+ * import { CloudDirectoryClient, GetObjectAttributesCommand } from '@aws-sdk/client-clouddirectory'; // ES Modules import
+ * // const { CloudDirectoryClient, GetObjectAttributesCommand } = require('@aws-sdk/client-clouddirectory'); // CommonJS import
  * const client = new CloudDirectoryClient(config);
  * const input = { // GetObjectAttributesRequest
- *   DirectoryArn: "STRING_VALUE", // required
+ *   DirectoryArn: 'STRING_VALUE', // required
  *   ObjectReference: { // ObjectReference
- *     Selector: "STRING_VALUE",
+ *     Selector: 'STRING_VALUE',
  *   },
- *   ConsistencyLevel: "SERIALIZABLE" || "EVENTUAL",
+ *   ConsistencyLevel: 'SERIALIZABLE' || 'EVENTUAL',
  *   SchemaFacet: { // SchemaFacet
- *     SchemaArn: "STRING_VALUE",
- *     FacetName: "STRING_VALUE",
+ *     SchemaArn: 'STRING_VALUE',
+ *     FacetName: 'STRING_VALUE',
  *   },
  *   AttributeNames: [ // AttributeNameList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new GetObjectAttributesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetObjectAttributesResponse
+ *   Attributes: [ // AttributeKeyAndValueList
+ *     { // AttributeKeyAndValue
+ *       Key: { // AttributeKey
+ *         SchemaArn: 'STRING_VALUE', // required
+ *         FacetName: 'STRING_VALUE', // required
+ *         Name: 'STRING_VALUE', // required
+ *       },
+ *       Value: { // TypedAttributeValue Union: only one key present
+ *         StringValue: 'STRING_VALUE',
+ *         BinaryValue: 'BLOB_VALUE',
+ *         BooleanValue: true || false,
+ *         NumberValue: 'STRING_VALUE',
+ *         DatetimeValue: new Date('TIMESTAMP'),
+ *       },
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param GetObjectAttributesCommandInput - {@link GetObjectAttributesCommandInput}
@@ -92,6 +112,8 @@ export interface GetObjectAttributesCommandOutput extends GetObjectAttributesRes
  *  <p>Indicates that your request is malformed in some manner. See the exception
  *       message.</p>
  *
+ * @throws {@link CloudDirectoryServiceException}
+ * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
  */
 export class GetObjectAttributesCommand extends $Command<

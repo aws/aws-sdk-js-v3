@@ -40,14 +40,17 @@ export interface DeleteNamedQueryCommandOutput extends DeleteNamedQueryOutput, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AthenaClient, DeleteNamedQueryCommand } from "@aws-sdk/client-athena"; // ES Modules import
- * // const { AthenaClient, DeleteNamedQueryCommand } = require("@aws-sdk/client-athena"); // CommonJS import
+ * import { AthenaClient, DeleteNamedQueryCommand } from '@aws-sdk/client-athena'; // ES Modules import
+ * // const { AthenaClient, DeleteNamedQueryCommand } = require('@aws-sdk/client-athena'); // CommonJS import
  * const client = new AthenaClient(config);
  * const input = { // DeleteNamedQueryInput
- *   NamedQueryId: "STRING_VALUE", // required
+ *   NamedQueryId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteNamedQueryCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteNamedQueryCommandInput - {@link DeleteNamedQueryCommandInput}
@@ -64,6 +67,8 @@ export interface DeleteNamedQueryCommandOutput extends DeleteNamedQueryOutput, _
  *  <p>Indicates that something is wrong with the input to the request. For example, a
  *             required parameter may be missing or out of range.</p>
  *
+ * @throws {@link AthenaServiceException}
+ * <p>Base exception class for all service exceptions from Athena service.</p>
  *
  */
 export class DeleteNamedQueryCommand extends $Command<

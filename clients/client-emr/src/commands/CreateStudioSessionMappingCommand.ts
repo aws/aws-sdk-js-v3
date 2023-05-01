@@ -40,18 +40,21 @@ export interface CreateStudioSessionMappingCommandOutput extends __MetadataBeare
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EMRClient, CreateStudioSessionMappingCommand } from "@aws-sdk/client-emr"; // ES Modules import
- * // const { EMRClient, CreateStudioSessionMappingCommand } = require("@aws-sdk/client-emr"); // CommonJS import
+ * import { EMRClient, CreateStudioSessionMappingCommand } from '@aws-sdk/client-emr'; // ES Modules import
+ * // const { EMRClient, CreateStudioSessionMappingCommand } = require('@aws-sdk/client-emr'); // CommonJS import
  * const client = new EMRClient(config);
  * const input = { // CreateStudioSessionMappingInput
- *   StudioId: "STRING_VALUE", // required
- *   IdentityId: "STRING_VALUE",
- *   IdentityName: "STRING_VALUE",
- *   IdentityType: "USER" || "GROUP", // required
- *   SessionPolicyArn: "STRING_VALUE", // required
+ *   StudioId: 'STRING_VALUE', // required
+ *   IdentityId: 'STRING_VALUE',
+ *   IdentityName: 'STRING_VALUE',
+ *   IdentityType: 'USER' || 'GROUP', // required
+ *   SessionPolicyArn: 'STRING_VALUE', // required
  * };
  * const command = new CreateStudioSessionMappingCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param CreateStudioSessionMappingCommandInput - {@link CreateStudioSessionMappingCommandInput}
@@ -67,6 +70,8 @@ export interface CreateStudioSessionMappingCommandOutput extends __MetadataBeare
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception occurs when there is something wrong with user input.</p>
  *
+ * @throws {@link EMRServiceException}
+ * <p>Base exception class for all service exceptions from EMR service.</p>
  *
  */
 export class CreateStudioSessionMappingCommand extends $Command<

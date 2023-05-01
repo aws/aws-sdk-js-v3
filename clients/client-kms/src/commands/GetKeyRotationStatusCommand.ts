@@ -88,14 +88,19 @@ export interface GetKeyRotationStatusCommandOutput extends GetKeyRotationStatusR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KMSClient, GetKeyRotationStatusCommand } from "@aws-sdk/client-kms"; // ES Modules import
- * // const { KMSClient, GetKeyRotationStatusCommand } = require("@aws-sdk/client-kms"); // CommonJS import
+ * import { KMSClient, GetKeyRotationStatusCommand } from '@aws-sdk/client-kms'; // ES Modules import
+ * // const { KMSClient, GetKeyRotationStatusCommand } = require('@aws-sdk/client-kms'); // CommonJS import
  * const client = new KMSClient(config);
  * const input = { // GetKeyRotationStatusRequest
- *   KeyId: "STRING_VALUE", // required
+ *   KeyId: 'STRING_VALUE', // required
  * };
  * const command = new GetKeyRotationStatusCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetKeyRotationStatusResponse
+ *   KeyRotationEnabled: true || false,
+ * };
+ *
  * ```
  *
  * @param GetKeyRotationStatusCommandInput - {@link GetKeyRotationStatusCommandInput}
@@ -142,6 +147,8 @@ export interface GetKeyRotationStatusCommandOutput extends GetKeyRotationStatusR
  *  <p>The request was rejected because a specified parameter is not supported or a specified
  *       resource is not valid for this operation.</p>
  *
+ * @throws {@link KMSServiceException}
+ * <p>Base exception class for all service exceptions from KMS service.</p>
  *
  * @example To retrieve the rotation status for a KMS key
  * ```javascript

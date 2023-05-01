@@ -36,17 +36,25 @@ export interface ListAppliedSchemaArnsCommandOutput extends ListAppliedSchemaArn
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudDirectoryClient, ListAppliedSchemaArnsCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
- * // const { CloudDirectoryClient, ListAppliedSchemaArnsCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
+ * import { CloudDirectoryClient, ListAppliedSchemaArnsCommand } from '@aws-sdk/client-clouddirectory'; // ES Modules import
+ * // const { CloudDirectoryClient, ListAppliedSchemaArnsCommand } = require('@aws-sdk/client-clouddirectory'); // CommonJS import
  * const client = new CloudDirectoryClient(config);
  * const input = { // ListAppliedSchemaArnsRequest
- *   DirectoryArn: "STRING_VALUE", // required
- *   SchemaArn: "STRING_VALUE",
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   DirectoryArn: 'STRING_VALUE', // required
+ *   SchemaArn: 'STRING_VALUE',
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListAppliedSchemaArnsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListAppliedSchemaArnsResponse
+ *   SchemaArns: [ // Arns
+ *     'STRING_VALUE',
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListAppliedSchemaArnsCommandInput - {@link ListAppliedSchemaArnsCommandInput}
@@ -80,6 +88,8 @@ export interface ListAppliedSchemaArnsCommandOutput extends ListAppliedSchemaArn
  *  <p>Indicates that your request is malformed in some manner. See the exception
  *       message.</p>
  *
+ * @throws {@link CloudDirectoryServiceException}
+ * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
  */
 export class ListAppliedSchemaArnsCommand extends $Command<

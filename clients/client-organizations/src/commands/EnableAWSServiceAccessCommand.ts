@@ -55,14 +55,17 @@ export interface EnableAWSServiceAccessCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OrganizationsClient, EnableAWSServiceAccessCommand } from "@aws-sdk/client-organizations"; // ES Modules import
- * // const { OrganizationsClient, EnableAWSServiceAccessCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
+ * import { OrganizationsClient, EnableAWSServiceAccessCommand } from '@aws-sdk/client-organizations'; // ES Modules import
+ * // const { OrganizationsClient, EnableAWSServiceAccessCommand } = require('@aws-sdk/client-organizations'); // CommonJS import
  * const client = new OrganizationsClient(config);
  * const input = { // EnableAWSServiceAccessRequest
- *   ServicePrincipal: "STRING_VALUE", // required
+ *   ServicePrincipal: 'STRING_VALUE', // required
  * };
  * const command = new EnableAWSServiceAccessCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param EnableAWSServiceAccessCommandInput - {@link EnableAWSServiceAccessCommandInput}
@@ -401,6 +404,8 @@ export interface EnableAWSServiceAccessCommandOutput extends __MetadataBearer {}
  * @throws {@link UnsupportedAPIEndpointException} (client fault)
  *  <p>This action isn't available in the current Amazon Web Services Region.</p>
  *
+ * @throws {@link OrganizationsServiceException}
+ * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
  */
 export class EnableAWSServiceAccessCommand extends $Command<

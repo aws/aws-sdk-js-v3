@@ -36,25 +36,34 @@ export interface CreateEmailTemplateCommandOutput extends CreateEmailTemplateRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PinpointClient, CreateEmailTemplateCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
- * // const { PinpointClient, CreateEmailTemplateCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
+ * import { PinpointClient, CreateEmailTemplateCommand } from '@aws-sdk/client-pinpoint'; // ES Modules import
+ * // const { PinpointClient, CreateEmailTemplateCommand } = require('@aws-sdk/client-pinpoint'); // CommonJS import
  * const client = new PinpointClient(config);
  * const input = { // CreateEmailTemplateRequest
  *   EmailTemplateRequest: { // EmailTemplateRequest
- *     DefaultSubstitutions: "STRING_VALUE",
- *     HtmlPart: "STRING_VALUE",
- *     RecommenderId: "STRING_VALUE",
- *     Subject: "STRING_VALUE",
+ *     DefaultSubstitutions: 'STRING_VALUE',
+ *     HtmlPart: 'STRING_VALUE',
+ *     RecommenderId: 'STRING_VALUE',
+ *     Subject: 'STRING_VALUE',
  *     tags: { // MapOf__string
- *       "<keys>": "STRING_VALUE",
+ *       '<keys>': 'STRING_VALUE',
  *     },
- *     TemplateDescription: "STRING_VALUE",
- *     TextPart: "STRING_VALUE",
+ *     TemplateDescription: 'STRING_VALUE',
+ *     TextPart: 'STRING_VALUE',
  *   },
- *   TemplateName: "STRING_VALUE", // required
+ *   TemplateName: 'STRING_VALUE', // required
  * };
  * const command = new CreateEmailTemplateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateEmailTemplateResponse
+ *   CreateTemplateMessageBody: { // CreateTemplateMessageBody
+ *     Arn: 'STRING_VALUE',
+ *     Message: 'STRING_VALUE',
+ *     RequestID: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateEmailTemplateCommandInput - {@link CreateEmailTemplateCommandInput}
@@ -78,6 +87,8 @@ export interface CreateEmailTemplateCommandOutput extends CreateEmailTemplateRes
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Provides information about an API request or response.</p>
  *
+ * @throws {@link PinpointServiceException}
+ * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
  */
 export class CreateEmailTemplateCommand extends $Command<

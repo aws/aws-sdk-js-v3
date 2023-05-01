@@ -59,93 +59,187 @@ export interface GetReservationPurchaseRecommendationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CostExplorerClient, GetReservationPurchaseRecommendationCommand } from "@aws-sdk/client-cost-explorer"; // ES Modules import
- * // const { CostExplorerClient, GetReservationPurchaseRecommendationCommand } = require("@aws-sdk/client-cost-explorer"); // CommonJS import
+ * import { CostExplorerClient, GetReservationPurchaseRecommendationCommand } from '@aws-sdk/client-cost-explorer'; // ES Modules import
+ * // const { CostExplorerClient, GetReservationPurchaseRecommendationCommand } = require('@aws-sdk/client-cost-explorer'); // CommonJS import
  * const client = new CostExplorerClient(config);
  * const input = { // GetReservationPurchaseRecommendationRequest
- *   AccountId: "STRING_VALUE",
- *   Service: "STRING_VALUE", // required
+ *   AccountId: 'STRING_VALUE',
+ *   Service: 'STRING_VALUE', // required
  *   Filter: { // Expression
  *     Or: [ // Expressions
  *       {
  *         Or: [
- *           "<Expression>",
+ *           '<Expression>',
  *         ],
  *         And: [
- *           "<Expression>",
+ *           '<Expression>',
  *         ],
- *         Not: "<Expression>",
+ *         Not: '<Expression>',
  *         Dimensions: { // DimensionValues
- *           Key: "AZ" || "INSTANCE_TYPE" || "LINKED_ACCOUNT" || "LINKED_ACCOUNT_NAME" || "OPERATION" || "PURCHASE_TYPE" || "REGION" || "SERVICE" || "SERVICE_CODE" || "USAGE_TYPE" || "USAGE_TYPE_GROUP" || "RECORD_TYPE" || "OPERATING_SYSTEM" || "TENANCY" || "SCOPE" || "PLATFORM" || "SUBSCRIPTION_ID" || "LEGAL_ENTITY_NAME" || "DEPLOYMENT_OPTION" || "DATABASE_ENGINE" || "CACHE_ENGINE" || "INSTANCE_TYPE_FAMILY" || "BILLING_ENTITY" || "RESERVATION_ID" || "RESOURCE_ID" || "RIGHTSIZING_TYPE" || "SAVINGS_PLANS_TYPE" || "SAVINGS_PLAN_ARN" || "PAYMENT_OPTION" || "AGREEMENT_END_DATE_TIME_AFTER" || "AGREEMENT_END_DATE_TIME_BEFORE" || "INVOICING_ENTITY" || "ANOMALY_TOTAL_IMPACT_ABSOLUTE" || "ANOMALY_TOTAL_IMPACT_PERCENTAGE",
+ *           Key: 'AZ' || 'INSTANCE_TYPE' || 'LINKED_ACCOUNT' || 'LINKED_ACCOUNT_NAME' || 'OPERATION' || 'PURCHASE_TYPE' || 'REGION' || 'SERVICE' || 'SERVICE_CODE' || 'USAGE_TYPE' || 'USAGE_TYPE_GROUP' || 'RECORD_TYPE' || 'OPERATING_SYSTEM' || 'TENANCY' || 'SCOPE' || 'PLATFORM' || 'SUBSCRIPTION_ID' || 'LEGAL_ENTITY_NAME' || 'DEPLOYMENT_OPTION' || 'DATABASE_ENGINE' || 'CACHE_ENGINE' || 'INSTANCE_TYPE_FAMILY' || 'BILLING_ENTITY' || 'RESERVATION_ID' || 'RESOURCE_ID' || 'RIGHTSIZING_TYPE' || 'SAVINGS_PLANS_TYPE' || 'SAVINGS_PLAN_ARN' || 'PAYMENT_OPTION' || 'AGREEMENT_END_DATE_TIME_AFTER' || 'AGREEMENT_END_DATE_TIME_BEFORE' || 'INVOICING_ENTITY' || 'ANOMALY_TOTAL_IMPACT_ABSOLUTE' || 'ANOMALY_TOTAL_IMPACT_PERCENTAGE',
  *           Values: [ // Values
- *             "STRING_VALUE",
+ *             'STRING_VALUE',
  *           ],
  *           MatchOptions: [ // MatchOptions
- *             "EQUALS" || "ABSENT" || "STARTS_WITH" || "ENDS_WITH" || "CONTAINS" || "CASE_SENSITIVE" || "CASE_INSENSITIVE" || "GREATER_THAN_OR_EQUAL",
+ *             'EQUALS' || 'ABSENT' || 'STARTS_WITH' || 'ENDS_WITH' || 'CONTAINS' || 'CASE_SENSITIVE' || 'CASE_INSENSITIVE' || 'GREATER_THAN_OR_EQUAL',
  *           ],
  *         },
  *         Tags: { // TagValues
- *           Key: "STRING_VALUE",
+ *           Key: 'STRING_VALUE',
  *           Values: [
- *             "STRING_VALUE",
+ *             'STRING_VALUE',
  *           ],
  *           MatchOptions: [
- *             "EQUALS" || "ABSENT" || "STARTS_WITH" || "ENDS_WITH" || "CONTAINS" || "CASE_SENSITIVE" || "CASE_INSENSITIVE" || "GREATER_THAN_OR_EQUAL",
+ *             'EQUALS' || 'ABSENT' || 'STARTS_WITH' || 'ENDS_WITH' || 'CONTAINS' || 'CASE_SENSITIVE' || 'CASE_INSENSITIVE' || 'GREATER_THAN_OR_EQUAL',
  *           ],
  *         },
  *         CostCategories: { // CostCategoryValues
- *           Key: "STRING_VALUE",
+ *           Key: 'STRING_VALUE',
  *           Values: [
- *             "STRING_VALUE",
+ *             'STRING_VALUE',
  *           ],
  *           MatchOptions: [
- *             "EQUALS" || "ABSENT" || "STARTS_WITH" || "ENDS_WITH" || "CONTAINS" || "CASE_SENSITIVE" || "CASE_INSENSITIVE" || "GREATER_THAN_OR_EQUAL",
+ *             'EQUALS' || 'ABSENT' || 'STARTS_WITH' || 'ENDS_WITH' || 'CONTAINS' || 'CASE_SENSITIVE' || 'CASE_INSENSITIVE' || 'GREATER_THAN_OR_EQUAL',
  *           ],
  *         },
  *       },
  *     ],
  *     And: [
- *       "<Expression>",
+ *       '<Expression>',
  *     ],
- *     Not: "<Expression>",
+ *     Not: '<Expression>',
  *     Dimensions: {
- *       Key: "AZ" || "INSTANCE_TYPE" || "LINKED_ACCOUNT" || "LINKED_ACCOUNT_NAME" || "OPERATION" || "PURCHASE_TYPE" || "REGION" || "SERVICE" || "SERVICE_CODE" || "USAGE_TYPE" || "USAGE_TYPE_GROUP" || "RECORD_TYPE" || "OPERATING_SYSTEM" || "TENANCY" || "SCOPE" || "PLATFORM" || "SUBSCRIPTION_ID" || "LEGAL_ENTITY_NAME" || "DEPLOYMENT_OPTION" || "DATABASE_ENGINE" || "CACHE_ENGINE" || "INSTANCE_TYPE_FAMILY" || "BILLING_ENTITY" || "RESERVATION_ID" || "RESOURCE_ID" || "RIGHTSIZING_TYPE" || "SAVINGS_PLANS_TYPE" || "SAVINGS_PLAN_ARN" || "PAYMENT_OPTION" || "AGREEMENT_END_DATE_TIME_AFTER" || "AGREEMENT_END_DATE_TIME_BEFORE" || "INVOICING_ENTITY" || "ANOMALY_TOTAL_IMPACT_ABSOLUTE" || "ANOMALY_TOTAL_IMPACT_PERCENTAGE",
+ *       Key: 'AZ' || 'INSTANCE_TYPE' || 'LINKED_ACCOUNT' || 'LINKED_ACCOUNT_NAME' || 'OPERATION' || 'PURCHASE_TYPE' || 'REGION' || 'SERVICE' || 'SERVICE_CODE' || 'USAGE_TYPE' || 'USAGE_TYPE_GROUP' || 'RECORD_TYPE' || 'OPERATING_SYSTEM' || 'TENANCY' || 'SCOPE' || 'PLATFORM' || 'SUBSCRIPTION_ID' || 'LEGAL_ENTITY_NAME' || 'DEPLOYMENT_OPTION' || 'DATABASE_ENGINE' || 'CACHE_ENGINE' || 'INSTANCE_TYPE_FAMILY' || 'BILLING_ENTITY' || 'RESERVATION_ID' || 'RESOURCE_ID' || 'RIGHTSIZING_TYPE' || 'SAVINGS_PLANS_TYPE' || 'SAVINGS_PLAN_ARN' || 'PAYMENT_OPTION' || 'AGREEMENT_END_DATE_TIME_AFTER' || 'AGREEMENT_END_DATE_TIME_BEFORE' || 'INVOICING_ENTITY' || 'ANOMALY_TOTAL_IMPACT_ABSOLUTE' || 'ANOMALY_TOTAL_IMPACT_PERCENTAGE',
  *       Values: [
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *       MatchOptions: [
- *         "EQUALS" || "ABSENT" || "STARTS_WITH" || "ENDS_WITH" || "CONTAINS" || "CASE_SENSITIVE" || "CASE_INSENSITIVE" || "GREATER_THAN_OR_EQUAL",
+ *         'EQUALS' || 'ABSENT' || 'STARTS_WITH' || 'ENDS_WITH' || 'CONTAINS' || 'CASE_SENSITIVE' || 'CASE_INSENSITIVE' || 'GREATER_THAN_OR_EQUAL',
  *       ],
  *     },
  *     Tags: {
- *       Key: "STRING_VALUE",
+ *       Key: 'STRING_VALUE',
  *       Values: [
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *       MatchOptions: [
- *         "EQUALS" || "ABSENT" || "STARTS_WITH" || "ENDS_WITH" || "CONTAINS" || "CASE_SENSITIVE" || "CASE_INSENSITIVE" || "GREATER_THAN_OR_EQUAL",
+ *         'EQUALS' || 'ABSENT' || 'STARTS_WITH' || 'ENDS_WITH' || 'CONTAINS' || 'CASE_SENSITIVE' || 'CASE_INSENSITIVE' || 'GREATER_THAN_OR_EQUAL',
  *       ],
  *     },
  *     CostCategories: {
- *       Key: "STRING_VALUE",
- *       Values: "<Values>",
- *       MatchOptions: "<MatchOptions>",
+ *       Key: 'STRING_VALUE',
+ *       Values: '<Values>',
+ *       MatchOptions: '<MatchOptions>',
  *     },
  *   },
- *   AccountScope: "PAYER" || "LINKED",
- *   LookbackPeriodInDays: "SEVEN_DAYS" || "THIRTY_DAYS" || "SIXTY_DAYS",
- *   TermInYears: "ONE_YEAR" || "THREE_YEARS",
- *   PaymentOption: "NO_UPFRONT" || "PARTIAL_UPFRONT" || "ALL_UPFRONT" || "LIGHT_UTILIZATION" || "MEDIUM_UTILIZATION" || "HEAVY_UTILIZATION",
+ *   AccountScope: 'PAYER' || 'LINKED',
+ *   LookbackPeriodInDays: 'SEVEN_DAYS' || 'THIRTY_DAYS' || 'SIXTY_DAYS',
+ *   TermInYears: 'ONE_YEAR' || 'THREE_YEARS',
+ *   PaymentOption: 'NO_UPFRONT' || 'PARTIAL_UPFRONT' || 'ALL_UPFRONT' || 'LIGHT_UTILIZATION' || 'MEDIUM_UTILIZATION' || 'HEAVY_UTILIZATION',
  *   ServiceSpecification: { // ServiceSpecification
  *     EC2Specification: { // EC2Specification
- *       OfferingClass: "STANDARD" || "CONVERTIBLE",
+ *       OfferingClass: 'STANDARD' || 'CONVERTIBLE',
  *     },
  *   },
- *   PageSize: Number("int"),
- *   NextPageToken: "STRING_VALUE",
+ *   PageSize: Number('int'),
+ *   NextPageToken: 'STRING_VALUE',
  * };
  * const command = new GetReservationPurchaseRecommendationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetReservationPurchaseRecommendationResponse
+ *   Metadata: { // ReservationPurchaseRecommendationMetadata
+ *     RecommendationId: 'STRING_VALUE',
+ *     GenerationTimestamp: 'STRING_VALUE',
+ *   },
+ *   Recommendations: [ // ReservationPurchaseRecommendations
+ *     { // ReservationPurchaseRecommendation
+ *       AccountScope: 'PAYER' || 'LINKED',
+ *       LookbackPeriodInDays: 'SEVEN_DAYS' || 'THIRTY_DAYS' || 'SIXTY_DAYS',
+ *       TermInYears: 'ONE_YEAR' || 'THREE_YEARS',
+ *       PaymentOption: 'NO_UPFRONT' || 'PARTIAL_UPFRONT' || 'ALL_UPFRONT' || 'LIGHT_UTILIZATION' || 'MEDIUM_UTILIZATION' || 'HEAVY_UTILIZATION',
+ *       ServiceSpecification: { // ServiceSpecification
+ *         EC2Specification: { // EC2Specification
+ *           OfferingClass: 'STANDARD' || 'CONVERTIBLE',
+ *         },
+ *       },
+ *       RecommendationDetails: [ // ReservationPurchaseRecommendationDetails
+ *         { // ReservationPurchaseRecommendationDetail
+ *           AccountId: 'STRING_VALUE',
+ *           InstanceDetails: { // InstanceDetails
+ *             EC2InstanceDetails: { // EC2InstanceDetails
+ *               Family: 'STRING_VALUE',
+ *               InstanceType: 'STRING_VALUE',
+ *               Region: 'STRING_VALUE',
+ *               AvailabilityZone: 'STRING_VALUE',
+ *               Platform: 'STRING_VALUE',
+ *               Tenancy: 'STRING_VALUE',
+ *               CurrentGeneration: true || false,
+ *               SizeFlexEligible: true || false,
+ *             },
+ *             RDSInstanceDetails: { // RDSInstanceDetails
+ *               Family: 'STRING_VALUE',
+ *               InstanceType: 'STRING_VALUE',
+ *               Region: 'STRING_VALUE',
+ *               DatabaseEngine: 'STRING_VALUE',
+ *               DatabaseEdition: 'STRING_VALUE',
+ *               DeploymentOption: 'STRING_VALUE',
+ *               LicenseModel: 'STRING_VALUE',
+ *               CurrentGeneration: true || false,
+ *               SizeFlexEligible: true || false,
+ *             },
+ *             RedshiftInstanceDetails: { // RedshiftInstanceDetails
+ *               Family: 'STRING_VALUE',
+ *               NodeType: 'STRING_VALUE',
+ *               Region: 'STRING_VALUE',
+ *               CurrentGeneration: true || false,
+ *               SizeFlexEligible: true || false,
+ *             },
+ *             ElastiCacheInstanceDetails: { // ElastiCacheInstanceDetails
+ *               Family: 'STRING_VALUE',
+ *               NodeType: 'STRING_VALUE',
+ *               Region: 'STRING_VALUE',
+ *               ProductDescription: 'STRING_VALUE',
+ *               CurrentGeneration: true || false,
+ *               SizeFlexEligible: true || false,
+ *             },
+ *             ESInstanceDetails: { // ESInstanceDetails
+ *               InstanceClass: 'STRING_VALUE',
+ *               InstanceSize: 'STRING_VALUE',
+ *               Region: 'STRING_VALUE',
+ *               CurrentGeneration: true || false,
+ *               SizeFlexEligible: true || false,
+ *             },
+ *           },
+ *           RecommendedNumberOfInstancesToPurchase: 'STRING_VALUE',
+ *           RecommendedNormalizedUnitsToPurchase: 'STRING_VALUE',
+ *           MinimumNumberOfInstancesUsedPerHour: 'STRING_VALUE',
+ *           MinimumNormalizedUnitsUsedPerHour: 'STRING_VALUE',
+ *           MaximumNumberOfInstancesUsedPerHour: 'STRING_VALUE',
+ *           MaximumNormalizedUnitsUsedPerHour: 'STRING_VALUE',
+ *           AverageNumberOfInstancesUsedPerHour: 'STRING_VALUE',
+ *           AverageNormalizedUnitsUsedPerHour: 'STRING_VALUE',
+ *           AverageUtilization: 'STRING_VALUE',
+ *           EstimatedBreakEvenInMonths: 'STRING_VALUE',
+ *           CurrencyCode: 'STRING_VALUE',
+ *           EstimatedMonthlySavingsAmount: 'STRING_VALUE',
+ *           EstimatedMonthlySavingsPercentage: 'STRING_VALUE',
+ *           EstimatedMonthlyOnDemandCost: 'STRING_VALUE',
+ *           EstimatedReservationCostForLookbackPeriod: 'STRING_VALUE',
+ *           UpfrontCost: 'STRING_VALUE',
+ *           RecurringStandardMonthlyCost: 'STRING_VALUE',
+ *         },
+ *       ],
+ *       RecommendationSummary: { // ReservationPurchaseRecommendationSummary
+ *         TotalEstimatedMonthlySavingsAmount: 'STRING_VALUE',
+ *         TotalEstimatedMonthlySavingsPercentage: 'STRING_VALUE',
+ *         CurrencyCode: 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ *   NextPageToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetReservationPurchaseRecommendationCommandInput - {@link GetReservationPurchaseRecommendationCommandInput}
@@ -163,6 +257,8 @@ export interface GetReservationPurchaseRecommendationCommandOutput
  * @throws {@link LimitExceededException} (client fault)
  *  <p>You made too many calls in a short period of time. Try again later.</p>
  *
+ * @throws {@link CostExplorerServiceException}
+ * <p>Base exception class for all service exceptions from CostExplorer service.</p>
  *
  */
 export class GetReservationPurchaseRecommendationCommand extends $Command<

@@ -44,16 +44,27 @@ export interface ListDelegatedServicesForAccountCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OrganizationsClient, ListDelegatedServicesForAccountCommand } from "@aws-sdk/client-organizations"; // ES Modules import
- * // const { OrganizationsClient, ListDelegatedServicesForAccountCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
+ * import { OrganizationsClient, ListDelegatedServicesForAccountCommand } from '@aws-sdk/client-organizations'; // ES Modules import
+ * // const { OrganizationsClient, ListDelegatedServicesForAccountCommand } = require('@aws-sdk/client-organizations'); // CommonJS import
  * const client = new OrganizationsClient(config);
  * const input = { // ListDelegatedServicesForAccountRequest
- *   AccountId: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   AccountId: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListDelegatedServicesForAccountCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListDelegatedServicesForAccountResponse
+ *   DelegatedServices: [ // DelegatedServices
+ *     { // DelegatedService
+ *       ServicePrincipal: 'STRING_VALUE',
+ *       DelegationEnabledDate: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListDelegatedServicesForAccountCommandInput - {@link ListDelegatedServicesForAccountCommandInput}
@@ -396,6 +407,8 @@ export interface ListDelegatedServicesForAccountCommandOutput
  * @throws {@link UnsupportedAPIEndpointException} (client fault)
  *  <p>This action isn't available in the current Amazon Web Services Region.</p>
  *
+ * @throws {@link OrganizationsServiceException}
+ * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
  */
 export class ListDelegatedServicesForAccountCommand extends $Command<

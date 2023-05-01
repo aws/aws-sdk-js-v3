@@ -36,24 +36,42 @@ export interface CreateDevicePoolCommandOutput extends CreateDevicePoolResult, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DeviceFarmClient, CreateDevicePoolCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
- * // const { DeviceFarmClient, CreateDevicePoolCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
+ * import { DeviceFarmClient, CreateDevicePoolCommand } from '@aws-sdk/client-device-farm'; // ES Modules import
+ * // const { DeviceFarmClient, CreateDevicePoolCommand } = require('@aws-sdk/client-device-farm'); // CommonJS import
  * const client = new DeviceFarmClient(config);
  * const input = { // CreateDevicePoolRequest
- *   projectArn: "STRING_VALUE", // required
- *   name: "STRING_VALUE", // required
- *   description: "STRING_VALUE",
+ *   projectArn: 'STRING_VALUE', // required
+ *   name: 'STRING_VALUE', // required
+ *   description: 'STRING_VALUE',
  *   rules: [ // Rules // required
  *     { // Rule
- *       attribute: "ARN" || "PLATFORM" || "FORM_FACTOR" || "MANUFACTURER" || "REMOTE_ACCESS_ENABLED" || "REMOTE_DEBUG_ENABLED" || "APPIUM_VERSION" || "INSTANCE_ARN" || "INSTANCE_LABELS" || "FLEET_TYPE" || "OS_VERSION" || "MODEL" || "AVAILABILITY",
- *       operator: "EQUALS" || "LESS_THAN" || "LESS_THAN_OR_EQUALS" || "GREATER_THAN" || "GREATER_THAN_OR_EQUALS" || "IN" || "NOT_IN" || "CONTAINS",
- *       value: "STRING_VALUE",
+ *       attribute: 'ARN' || 'PLATFORM' || 'FORM_FACTOR' || 'MANUFACTURER' || 'REMOTE_ACCESS_ENABLED' || 'REMOTE_DEBUG_ENABLED' || 'APPIUM_VERSION' || 'INSTANCE_ARN' || 'INSTANCE_LABELS' || 'FLEET_TYPE' || 'OS_VERSION' || 'MODEL' || 'AVAILABILITY',
+ *       operator: 'EQUALS' || 'LESS_THAN' || 'LESS_THAN_OR_EQUALS' || 'GREATER_THAN' || 'GREATER_THAN_OR_EQUALS' || 'IN' || 'NOT_IN' || 'CONTAINS',
+ *       value: 'STRING_VALUE',
  *     },
  *   ],
- *   maxDevices: Number("int"),
+ *   maxDevices: Number('int'),
  * };
  * const command = new CreateDevicePoolCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateDevicePoolResult
+ *   devicePool: { // DevicePool
+ *     arn: 'STRING_VALUE',
+ *     name: 'STRING_VALUE',
+ *     description: 'STRING_VALUE',
+ *     type: 'CURATED' || 'PRIVATE',
+ *     rules: [ // Rules
+ *       { // Rule
+ *         attribute: 'ARN' || 'PLATFORM' || 'FORM_FACTOR' || 'MANUFACTURER' || 'REMOTE_ACCESS_ENABLED' || 'REMOTE_DEBUG_ENABLED' || 'APPIUM_VERSION' || 'INSTANCE_ARN' || 'INSTANCE_LABELS' || 'FLEET_TYPE' || 'OS_VERSION' || 'MODEL' || 'AVAILABILITY',
+ *         operator: 'EQUALS' || 'LESS_THAN' || 'LESS_THAN_OR_EQUALS' || 'GREATER_THAN' || 'GREATER_THAN_OR_EQUALS' || 'IN' || 'NOT_IN' || 'CONTAINS',
+ *         value: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     maxDevices: Number('int'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateDevicePoolCommandInput - {@link CreateDevicePoolCommandInput}
@@ -74,6 +92,8 @@ export interface CreateDevicePoolCommandOutput extends CreateDevicePoolResult, _
  * @throws {@link ServiceAccountException} (client fault)
  *  <p>There was a problem with the service account.</p>
  *
+ * @throws {@link DeviceFarmServiceException}
+ * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
  * @example To create a new device pool
  * ```javascript

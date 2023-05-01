@@ -38,31 +38,55 @@ export interface CreateWorkspaceBundleCommandOutput extends CreateWorkspaceBundl
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkSpacesClient, CreateWorkspaceBundleCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
- * // const { WorkSpacesClient, CreateWorkspaceBundleCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
+ * import { WorkSpacesClient, CreateWorkspaceBundleCommand } from '@aws-sdk/client-workspaces'; // ES Modules import
+ * // const { WorkSpacesClient, CreateWorkspaceBundleCommand } = require('@aws-sdk/client-workspaces'); // CommonJS import
  * const client = new WorkSpacesClient(config);
  * const input = { // CreateWorkspaceBundleRequest
- *   BundleName: "STRING_VALUE", // required
- *   BundleDescription: "STRING_VALUE", // required
- *   ImageId: "STRING_VALUE", // required
+ *   BundleName: 'STRING_VALUE', // required
+ *   BundleDescription: 'STRING_VALUE', // required
+ *   ImageId: 'STRING_VALUE', // required
  *   ComputeType: { // ComputeType
- *     Name: "VALUE" || "STANDARD" || "PERFORMANCE" || "POWER" || "GRAPHICS" || "POWERPRO" || "GRAPHICSPRO" || "GRAPHICS_G4DN" || "GRAPHICSPRO_G4DN",
+ *     Name: 'VALUE' || 'STANDARD' || 'PERFORMANCE' || 'POWER' || 'GRAPHICS' || 'POWERPRO' || 'GRAPHICSPRO' || 'GRAPHICS_G4DN' || 'GRAPHICSPRO_G4DN',
  *   },
  *   UserStorage: { // UserStorage
- *     Capacity: "STRING_VALUE",
+ *     Capacity: 'STRING_VALUE',
  *   },
  *   RootStorage: { // RootStorage
- *     Capacity: "STRING_VALUE",
+ *     Capacity: 'STRING_VALUE',
  *   },
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE",
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new CreateWorkspaceBundleCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateWorkspaceBundleResult
+ *   WorkspaceBundle: { // WorkspaceBundle
+ *     BundleId: 'STRING_VALUE',
+ *     Name: 'STRING_VALUE',
+ *     Owner: 'STRING_VALUE',
+ *     Description: 'STRING_VALUE',
+ *     ImageId: 'STRING_VALUE',
+ *     RootStorage: { // RootStorage
+ *       Capacity: 'STRING_VALUE',
+ *     },
+ *     UserStorage: { // UserStorage
+ *       Capacity: 'STRING_VALUE',
+ *     },
+ *     ComputeType: { // ComputeType
+ *       Name: 'VALUE' || 'STANDARD' || 'PERFORMANCE' || 'POWER' || 'GRAPHICS' || 'POWERPRO' || 'GRAPHICSPRO' || 'GRAPHICS_G4DN' || 'GRAPHICSPRO_G4DN',
+ *     },
+ *     LastUpdatedTime: new Date('TIMESTAMP'),
+ *     CreationTime: new Date('TIMESTAMP'),
+ *     State: 'AVAILABLE' || 'PENDING' || 'ERROR',
+ *     BundleType: 'REGULAR' || 'STANDBY',
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateWorkspaceBundleCommandInput - {@link CreateWorkspaceBundleCommandInput}
@@ -89,6 +113,8 @@ export interface CreateWorkspaceBundleCommandOutput extends CreateWorkspaceBundl
  * @throws {@link ResourceUnavailableException} (client fault)
  *  <p>The specified resource is not available.</p>
  *
+ * @throws {@link WorkSpacesServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
  */
 export class CreateWorkspaceBundleCommand extends $Command<

@@ -36,16 +36,21 @@ export interface RemoveProfilePermissionCommandOutput extends RemoveProfilePermi
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SignerClient, RemoveProfilePermissionCommand } from "@aws-sdk/client-signer"; // ES Modules import
- * // const { SignerClient, RemoveProfilePermissionCommand } = require("@aws-sdk/client-signer"); // CommonJS import
+ * import { SignerClient, RemoveProfilePermissionCommand } from '@aws-sdk/client-signer'; // ES Modules import
+ * // const { SignerClient, RemoveProfilePermissionCommand } = require('@aws-sdk/client-signer'); // CommonJS import
  * const client = new SignerClient(config);
  * const input = { // RemoveProfilePermissionRequest
- *   profileName: "STRING_VALUE", // required
- *   revisionId: "STRING_VALUE", // required
- *   statementId: "STRING_VALUE", // required
+ *   profileName: 'STRING_VALUE', // required
+ *   revisionId: 'STRING_VALUE', // required
+ *   statementId: 'STRING_VALUE', // required
  * };
  * const command = new RemoveProfilePermissionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // RemoveProfilePermissionResponse
+ *   revisionId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param RemoveProfilePermissionCommandInput - {@link RemoveProfilePermissionCommandInput}
@@ -73,6 +78,8 @@ export interface RemoveProfilePermissionCommandOutput extends RemoveProfilePermi
  * @throws {@link ValidationException} (client fault)
  *  <p>You signing certificate could not be validated.</p>
  *
+ * @throws {@link SignerServiceException}
+ * <p>Base exception class for all service exceptions from Signer service.</p>
  *
  */
 export class RemoveProfilePermissionCommand extends $Command<

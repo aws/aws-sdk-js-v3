@@ -46,61 +46,149 @@ export interface UpdateTableReplicaAutoScalingCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DynamoDBClient, UpdateTableReplicaAutoScalingCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
- * // const { DynamoDBClient, UpdateTableReplicaAutoScalingCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
+ * import { DynamoDBClient, UpdateTableReplicaAutoScalingCommand } from '@aws-sdk/client-dynamodb'; // ES Modules import
+ * // const { DynamoDBClient, UpdateTableReplicaAutoScalingCommand } = require('@aws-sdk/client-dynamodb'); // CommonJS import
  * const client = new DynamoDBClient(config);
  * const input = { // UpdateTableReplicaAutoScalingInput
  *   GlobalSecondaryIndexUpdates: [ // GlobalSecondaryIndexAutoScalingUpdateList
  *     { // GlobalSecondaryIndexAutoScalingUpdate
- *       IndexName: "STRING_VALUE",
+ *       IndexName: 'STRING_VALUE',
  *       ProvisionedWriteCapacityAutoScalingUpdate: { // AutoScalingSettingsUpdate
- *         MinimumUnits: Number("long"),
- *         MaximumUnits: Number("long"),
+ *         MinimumUnits: Number('long'),
+ *         MaximumUnits: Number('long'),
  *         AutoScalingDisabled: true || false,
- *         AutoScalingRoleArn: "STRING_VALUE",
+ *         AutoScalingRoleArn: 'STRING_VALUE',
  *         ScalingPolicyUpdate: { // AutoScalingPolicyUpdate
- *           PolicyName: "STRING_VALUE",
+ *           PolicyName: 'STRING_VALUE',
  *           TargetTrackingScalingPolicyConfiguration: { // AutoScalingTargetTrackingScalingPolicyConfigurationUpdate
  *             DisableScaleIn: true || false,
- *             ScaleInCooldown: Number("int"),
- *             ScaleOutCooldown: Number("int"),
- *             TargetValue: Number("double"), // required
+ *             ScaleInCooldown: Number('int'),
+ *             ScaleOutCooldown: Number('int'),
+ *             TargetValue: Number('double'), // required
  *           },
  *         },
  *       },
  *     },
  *   ],
- *   TableName: "STRING_VALUE", // required
+ *   TableName: 'STRING_VALUE', // required
  *   ProvisionedWriteCapacityAutoScalingUpdate: {
- *     MinimumUnits: Number("long"),
- *     MaximumUnits: Number("long"),
+ *     MinimumUnits: Number('long'),
+ *     MaximumUnits: Number('long'),
  *     AutoScalingDisabled: true || false,
- *     AutoScalingRoleArn: "STRING_VALUE",
+ *     AutoScalingRoleArn: 'STRING_VALUE',
  *     ScalingPolicyUpdate: {
- *       PolicyName: "STRING_VALUE",
+ *       PolicyName: 'STRING_VALUE',
  *       TargetTrackingScalingPolicyConfiguration: {
  *         DisableScaleIn: true || false,
- *         ScaleInCooldown: Number("int"),
- *         ScaleOutCooldown: Number("int"),
- *         TargetValue: Number("double"), // required
+ *         ScaleInCooldown: Number('int'),
+ *         ScaleOutCooldown: Number('int'),
+ *         TargetValue: Number('double'), // required
  *       },
  *     },
  *   },
  *   ReplicaUpdates: [ // ReplicaAutoScalingUpdateList
  *     { // ReplicaAutoScalingUpdate
- *       RegionName: "STRING_VALUE", // required
+ *       RegionName: 'STRING_VALUE', // required
  *       ReplicaGlobalSecondaryIndexUpdates: [ // ReplicaGlobalSecondaryIndexAutoScalingUpdateList
  *         { // ReplicaGlobalSecondaryIndexAutoScalingUpdate
- *           IndexName: "STRING_VALUE",
- *           ProvisionedReadCapacityAutoScalingUpdate: "<AutoScalingSettingsUpdate>",
+ *           IndexName: 'STRING_VALUE',
+ *           ProvisionedReadCapacityAutoScalingUpdate: '<AutoScalingSettingsUpdate>',
  *         },
  *       ],
- *       ReplicaProvisionedReadCapacityAutoScalingUpdate: "<AutoScalingSettingsUpdate>",
+ *       ReplicaProvisionedReadCapacityAutoScalingUpdate: '<AutoScalingSettingsUpdate>',
  *     },
  *   ],
  * };
  * const command = new UpdateTableReplicaAutoScalingCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateTableReplicaAutoScalingOutput
+ *   TableAutoScalingDescription: { // TableAutoScalingDescription
+ *     TableName: 'STRING_VALUE',
+ *     TableStatus: 'CREATING' || 'UPDATING' || 'DELETING' || 'ACTIVE' || 'INACCESSIBLE_ENCRYPTION_CREDENTIALS' || 'ARCHIVING' || 'ARCHIVED',
+ *     Replicas: [ // ReplicaAutoScalingDescriptionList
+ *       { // ReplicaAutoScalingDescription
+ *         RegionName: 'STRING_VALUE',
+ *         GlobalSecondaryIndexes: [ // ReplicaGlobalSecondaryIndexAutoScalingDescriptionList
+ *           { // ReplicaGlobalSecondaryIndexAutoScalingDescription
+ *             IndexName: 'STRING_VALUE',
+ *             IndexStatus: 'CREATING' || 'UPDATING' || 'DELETING' || 'ACTIVE',
+ *             ProvisionedReadCapacityAutoScalingSettings: { // AutoScalingSettingsDescription
+ *               MinimumUnits: Number('long'),
+ *               MaximumUnits: Number('long'),
+ *               AutoScalingDisabled: true || false,
+ *               AutoScalingRoleArn: 'STRING_VALUE',
+ *               ScalingPolicies: [ // AutoScalingPolicyDescriptionList
+ *                 { // AutoScalingPolicyDescription
+ *                   PolicyName: 'STRING_VALUE',
+ *                   TargetTrackingScalingPolicyConfiguration: { // AutoScalingTargetTrackingScalingPolicyConfigurationDescription
+ *                     DisableScaleIn: true || false,
+ *                     ScaleInCooldown: Number('int'),
+ *                     ScaleOutCooldown: Number('int'),
+ *                     TargetValue: Number('double'), // required
+ *                   },
+ *                 },
+ *               ],
+ *             },
+ *             ProvisionedWriteCapacityAutoScalingSettings: {
+ *               MinimumUnits: Number('long'),
+ *               MaximumUnits: Number('long'),
+ *               AutoScalingDisabled: true || false,
+ *               AutoScalingRoleArn: 'STRING_VALUE',
+ *               ScalingPolicies: [
+ *                 {
+ *                   PolicyName: 'STRING_VALUE',
+ *                   TargetTrackingScalingPolicyConfiguration: {
+ *                     DisableScaleIn: true || false,
+ *                     ScaleInCooldown: Number('int'),
+ *                     ScaleOutCooldown: Number('int'),
+ *                     TargetValue: Number('double'), // required
+ *                   },
+ *                 },
+ *               ],
+ *             },
+ *           },
+ *         ],
+ *         ReplicaProvisionedReadCapacityAutoScalingSettings: {
+ *           MinimumUnits: Number('long'),
+ *           MaximumUnits: Number('long'),
+ *           AutoScalingDisabled: true || false,
+ *           AutoScalingRoleArn: 'STRING_VALUE',
+ *           ScalingPolicies: [
+ *             {
+ *               PolicyName: 'STRING_VALUE',
+ *               TargetTrackingScalingPolicyConfiguration: {
+ *                 DisableScaleIn: true || false,
+ *                 ScaleInCooldown: Number('int'),
+ *                 ScaleOutCooldown: Number('int'),
+ *                 TargetValue: Number('double'), // required
+ *               },
+ *             },
+ *           ],
+ *         },
+ *         ReplicaProvisionedWriteCapacityAutoScalingSettings: {
+ *           MinimumUnits: Number('long'),
+ *           MaximumUnits: Number('long'),
+ *           AutoScalingDisabled: true || false,
+ *           AutoScalingRoleArn: 'STRING_VALUE',
+ *           ScalingPolicies: [
+ *             {
+ *               PolicyName: 'STRING_VALUE',
+ *               TargetTrackingScalingPolicyConfiguration: {
+ *                 DisableScaleIn: true || false,
+ *                 ScaleInCooldown: Number('int'),
+ *                 ScaleOutCooldown: Number('int'),
+ *                 TargetValue: Number('double'), // required
+ *               },
+ *             },
+ *           ],
+ *         },
+ *         ReplicaStatus: 'CREATING' || 'CREATION_FAILED' || 'UPDATING' || 'DELETING' || 'ACTIVE' || 'REGION_DISABLED' || 'INACCESSIBLE_ENCRYPTION_CREDENTIALS',
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateTableReplicaAutoScalingCommandInput - {@link UpdateTableReplicaAutoScalingCommandInput}
@@ -134,6 +222,8 @@ export interface UpdateTableReplicaAutoScalingCommandOutput
  *  <p>The operation tried to access a nonexistent table or index. The resource might not
  *             be specified correctly, or its status might not be <code>ACTIVE</code>.</p>
  *
+ * @throws {@link DynamoDBServiceException}
+ * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
  */
 export class UpdateTableReplicaAutoScalingCommand extends $Command<

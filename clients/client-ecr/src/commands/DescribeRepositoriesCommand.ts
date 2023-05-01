@@ -36,19 +36,41 @@ export interface DescribeRepositoriesCommandOutput extends DescribeRepositoriesR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ECRClient, DescribeRepositoriesCommand } from "@aws-sdk/client-ecr"; // ES Modules import
- * // const { ECRClient, DescribeRepositoriesCommand } = require("@aws-sdk/client-ecr"); // CommonJS import
+ * import { ECRClient, DescribeRepositoriesCommand } from '@aws-sdk/client-ecr'; // ES Modules import
+ * // const { ECRClient, DescribeRepositoriesCommand } = require('@aws-sdk/client-ecr'); // CommonJS import
  * const client = new ECRClient(config);
  * const input = { // DescribeRepositoriesRequest
- *   registryId: "STRING_VALUE",
+ *   registryId: 'STRING_VALUE',
  *   repositoryNames: [ // RepositoryNameList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new DescribeRepositoriesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeRepositoriesResponse
+ *   repositories: [ // RepositoryList
+ *     { // Repository
+ *       repositoryArn: 'STRING_VALUE',
+ *       registryId: 'STRING_VALUE',
+ *       repositoryName: 'STRING_VALUE',
+ *       repositoryUri: 'STRING_VALUE',
+ *       createdAt: new Date('TIMESTAMP'),
+ *       imageTagMutability: 'STRING_VALUE',
+ *       imageScanningConfiguration: { // ImageScanningConfiguration
+ *         scanOnPush: true || false,
+ *       },
+ *       encryptionConfiguration: { // EncryptionConfiguration
+ *         encryptionType: 'STRING_VALUE', // required
+ *         kmsKey: 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeRepositoriesCommandInput - {@link DescribeRepositoriesCommandInput}
@@ -68,6 +90,8 @@ export interface DescribeRepositoriesCommandOutput extends DescribeRepositoriesR
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server-side issue.</p>
  *
+ * @throws {@link ECRServiceException}
+ * <p>Base exception class for all service exceptions from ECR service.</p>
  *
  * @example To describe all repositories in the current account
  * ```javascript

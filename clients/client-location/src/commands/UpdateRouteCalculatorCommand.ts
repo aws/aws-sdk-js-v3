@@ -36,16 +36,23 @@ export interface UpdateRouteCalculatorCommandOutput extends UpdateRouteCalculato
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LocationClient, UpdateRouteCalculatorCommand } from "@aws-sdk/client-location"; // ES Modules import
- * // const { LocationClient, UpdateRouteCalculatorCommand } = require("@aws-sdk/client-location"); // CommonJS import
+ * import { LocationClient, UpdateRouteCalculatorCommand } from '@aws-sdk/client-location'; // ES Modules import
+ * // const { LocationClient, UpdateRouteCalculatorCommand } = require('@aws-sdk/client-location'); // CommonJS import
  * const client = new LocationClient(config);
  * const input = { // UpdateRouteCalculatorRequest
- *   CalculatorName: "STRING_VALUE", // required
- *   PricingPlan: "STRING_VALUE",
- *   Description: "STRING_VALUE",
+ *   CalculatorName: 'STRING_VALUE', // required
+ *   PricingPlan: 'STRING_VALUE',
+ *   Description: 'STRING_VALUE',
  * };
  * const command = new UpdateRouteCalculatorCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateRouteCalculatorResponse
+ *   CalculatorName: 'STRING_VALUE', // required
+ *   CalculatorArn: 'STRING_VALUE', // required
+ *   UpdateTime: new Date('TIMESTAMP'), // required
+ * };
+ *
  * ```
  *
  * @param UpdateRouteCalculatorCommandInput - {@link UpdateRouteCalculatorCommandInput}
@@ -70,6 +77,8 @@ export interface UpdateRouteCalculatorCommandOutput extends UpdateRouteCalculato
  * @throws {@link ValidationException} (client fault)
  *  <p>The input failed to meet the constraints specified by the AWS service. </p>
  *
+ * @throws {@link LocationServiceException}
+ * <p>Base exception class for all service exceptions from Location service.</p>
  *
  */
 export class UpdateRouteCalculatorCommand extends $Command<

@@ -49,15 +49,25 @@ export interface PutDashboardCommandOutput extends PutDashboardOutput, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudWatchClient, PutDashboardCommand } from "@aws-sdk/client-cloudwatch"; // ES Modules import
- * // const { CloudWatchClient, PutDashboardCommand } = require("@aws-sdk/client-cloudwatch"); // CommonJS import
+ * import { CloudWatchClient, PutDashboardCommand } from '@aws-sdk/client-cloudwatch'; // ES Modules import
+ * // const { CloudWatchClient, PutDashboardCommand } = require('@aws-sdk/client-cloudwatch'); // CommonJS import
  * const client = new CloudWatchClient(config);
  * const input = { // PutDashboardInput
- *   DashboardName: "STRING_VALUE", // required
- *   DashboardBody: "STRING_VALUE", // required
+ *   DashboardName: 'STRING_VALUE', // required
+ *   DashboardBody: 'STRING_VALUE', // required
  * };
  * const command = new PutDashboardCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutDashboardOutput
+ *   DashboardValidationMessages: [ // DashboardValidationMessages
+ *     { // DashboardValidationMessage
+ *       DataPath: 'STRING_VALUE',
+ *       Message: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param PutDashboardCommandInput - {@link PutDashboardCommandInput}
@@ -72,6 +82,8 @@ export interface PutDashboardCommandOutput extends PutDashboardOutput, __Metadat
  * @throws {@link InternalServiceFault} (server fault)
  *  <p>Request processing has failed due to some unknown error, exception, or failure.</p>
  *
+ * @throws {@link CloudWatchServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatch service.</p>
  *
  */
 export class PutDashboardCommand extends $Command<

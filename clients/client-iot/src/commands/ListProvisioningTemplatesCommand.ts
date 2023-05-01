@@ -37,15 +37,31 @@ export interface ListProvisioningTemplatesCommandOutput extends ListProvisioning
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTClient, ListProvisioningTemplatesCommand } from "@aws-sdk/client-iot"; // ES Modules import
- * // const { IoTClient, ListProvisioningTemplatesCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * import { IoTClient, ListProvisioningTemplatesCommand } from '@aws-sdk/client-iot'; // ES Modules import
+ * // const { IoTClient, ListProvisioningTemplatesCommand } = require('@aws-sdk/client-iot'); // CommonJS import
  * const client = new IoTClient(config);
  * const input = { // ListProvisioningTemplatesRequest
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new ListProvisioningTemplatesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListProvisioningTemplatesResponse
+ *   templates: [ // ProvisioningTemplateListing
+ *     { // ProvisioningTemplateSummary
+ *       templateArn: 'STRING_VALUE',
+ *       templateName: 'STRING_VALUE',
+ *       description: 'STRING_VALUE',
+ *       creationDate: new Date('TIMESTAMP'),
+ *       lastModifiedDate: new Date('TIMESTAMP'),
+ *       enabled: true || false,
+ *       type: 'FLEET_PROVISIONING' || 'JITP',
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListProvisioningTemplatesCommandInput - {@link ListProvisioningTemplatesCommandInput}
@@ -66,6 +82,8 @@ export interface ListProvisioningTemplatesCommandOutput extends ListProvisioning
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this operation.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class ListProvisioningTemplatesCommand extends $Command<

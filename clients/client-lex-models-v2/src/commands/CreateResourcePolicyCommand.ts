@@ -37,15 +37,21 @@ export interface CreateResourcePolicyCommandOutput extends CreateResourcePolicyR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LexModelsV2Client, CreateResourcePolicyCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
- * // const { LexModelsV2Client, CreateResourcePolicyCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
+ * import { LexModelsV2Client, CreateResourcePolicyCommand } from '@aws-sdk/client-lex-models-v2'; // ES Modules import
+ * // const { LexModelsV2Client, CreateResourcePolicyCommand } = require('@aws-sdk/client-lex-models-v2'); // CommonJS import
  * const client = new LexModelsV2Client(config);
  * const input = { // CreateResourcePolicyRequest
- *   resourceArn: "STRING_VALUE", // required
- *   policy: "STRING_VALUE", // required
+ *   resourceArn: 'STRING_VALUE', // required
+ *   policy: 'STRING_VALUE', // required
  * };
  * const command = new CreateResourcePolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateResourcePolicyResponse
+ *   resourceArn: 'STRING_VALUE',
+ *   revisionId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateResourcePolicyCommandInput - {@link CreateResourcePolicyCommandInput}
@@ -78,6 +84,8 @@ export interface CreateResourcePolicyCommandOutput extends CreateResourcePolicyR
  *  <p>One of the input parameters in your request isn't valid. Check the
  *          parameters and try your request again.</p>
  *
+ * @throws {@link LexModelsV2ServiceException}
+ * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
  */
 export class CreateResourcePolicyCommand extends $Command<

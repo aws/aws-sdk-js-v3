@@ -36,17 +36,30 @@ export interface ListContactsCommandOutput extends ListContactsResult, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMContactsClient, ListContactsCommand } from "@aws-sdk/client-ssm-contacts"; // ES Modules import
- * // const { SSMContactsClient, ListContactsCommand } = require("@aws-sdk/client-ssm-contacts"); // CommonJS import
+ * import { SSMContactsClient, ListContactsCommand } from '@aws-sdk/client-ssm-contacts'; // ES Modules import
+ * // const { SSMContactsClient, ListContactsCommand } = require('@aws-sdk/client-ssm-contacts'); // CommonJS import
  * const client = new SSMContactsClient(config);
  * const input = { // ListContactsRequest
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
- *   AliasPrefix: "STRING_VALUE",
- *   Type: "PERSONAL" || "ESCALATION" || "ONCALL_SCHEDULE",
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
+ *   AliasPrefix: 'STRING_VALUE',
+ *   Type: 'PERSONAL' || 'ESCALATION' || 'ONCALL_SCHEDULE',
  * };
  * const command = new ListContactsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListContactsResult
+ *   NextToken: 'STRING_VALUE',
+ *   Contacts: [ // ContactsList
+ *     { // Contact
+ *       ContactArn: 'STRING_VALUE', // required
+ *       Alias: 'STRING_VALUE', // required
+ *       DisplayName: 'STRING_VALUE',
+ *       Type: 'PERSONAL' || 'ESCALATION' || 'ONCALL_SCHEDULE', // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListContactsCommandInput - {@link ListContactsCommandInput}
@@ -68,6 +81,8 @@ export interface ListContactsCommandOutput extends ListContactsResult, __Metadat
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
  *          service.</p>
  *
+ * @throws {@link SSMContactsServiceException}
+ * <p>Base exception class for all service exceptions from SSMContacts service.</p>
  *
  */
 export class ListContactsCommand extends $Command<

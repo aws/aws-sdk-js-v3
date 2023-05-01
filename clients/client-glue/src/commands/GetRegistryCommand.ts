@@ -36,17 +36,27 @@ export interface GetRegistryCommandOutput extends GetRegistryResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlueClient, GetRegistryCommand } from "@aws-sdk/client-glue"; // ES Modules import
- * // const { GlueClient, GetRegistryCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * import { GlueClient, GetRegistryCommand } from '@aws-sdk/client-glue'; // ES Modules import
+ * // const { GlueClient, GetRegistryCommand } = require('@aws-sdk/client-glue'); // CommonJS import
  * const client = new GlueClient(config);
  * const input = { // GetRegistryInput
  *   RegistryId: { // RegistryId
- *     RegistryName: "STRING_VALUE",
- *     RegistryArn: "STRING_VALUE",
+ *     RegistryName: 'STRING_VALUE',
+ *     RegistryArn: 'STRING_VALUE',
  *   },
  * };
  * const command = new GetRegistryCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetRegistryResponse
+ *   RegistryName: 'STRING_VALUE',
+ *   RegistryArn: 'STRING_VALUE',
+ *   Description: 'STRING_VALUE',
+ *   Status: 'AVAILABLE' || 'DELETING',
+ *   CreatedTime: 'STRING_VALUE',
+ *   UpdatedTime: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetRegistryCommandInput - {@link GetRegistryCommandInput}
@@ -67,6 +77,8 @@ export interface GetRegistryCommandOutput extends GetRegistryResponse, __Metadat
  * @throws {@link InvalidInputException} (client fault)
  *  <p>The input provided was not valid.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class GetRegistryCommand extends $Command<

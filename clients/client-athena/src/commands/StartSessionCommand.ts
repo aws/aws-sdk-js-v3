@@ -37,26 +37,32 @@ export interface StartSessionCommandOutput extends StartSessionResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AthenaClient, StartSessionCommand } from "@aws-sdk/client-athena"; // ES Modules import
- * // const { AthenaClient, StartSessionCommand } = require("@aws-sdk/client-athena"); // CommonJS import
+ * import { AthenaClient, StartSessionCommand } from '@aws-sdk/client-athena'; // ES Modules import
+ * // const { AthenaClient, StartSessionCommand } = require('@aws-sdk/client-athena'); // CommonJS import
  * const client = new AthenaClient(config);
  * const input = { // StartSessionRequest
- *   Description: "STRING_VALUE",
- *   WorkGroup: "STRING_VALUE", // required
+ *   Description: 'STRING_VALUE',
+ *   WorkGroup: 'STRING_VALUE', // required
  *   EngineConfiguration: { // EngineConfiguration
- *     CoordinatorDpuSize: Number("int"),
- *     MaxConcurrentDpus: Number("int"), // required
- *     DefaultExecutorDpuSize: Number("int"),
+ *     CoordinatorDpuSize: Number('int'),
+ *     MaxConcurrentDpus: Number('int'), // required
+ *     DefaultExecutorDpuSize: Number('int'),
  *     AdditionalConfigs: { // ParametersMap
- *       "<keys>": "STRING_VALUE",
+ *       '<keys>': 'STRING_VALUE',
  *     },
  *   },
- *   NotebookVersion: "STRING_VALUE",
- *   SessionIdleTimeoutInMinutes: Number("int"),
- *   ClientRequestToken: "STRING_VALUE",
+ *   NotebookVersion: 'STRING_VALUE',
+ *   SessionIdleTimeoutInMinutes: Number('int'),
+ *   ClientRequestToken: 'STRING_VALUE',
  * };
  * const command = new StartSessionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartSessionResponse
+ *   SessionId: 'STRING_VALUE',
+ *   State: 'CREATING' || 'CREATED' || 'IDLE' || 'BUSY' || 'TERMINATING' || 'TERMINATED' || 'DEGRADED' || 'FAILED',
+ * };
+ *
  * ```
  *
  * @param StartSessionCommandInput - {@link StartSessionCommandInput}
@@ -82,6 +88,8 @@ export interface StartSessionCommandOutput extends StartSessionResponse, __Metad
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Indicates that the request was throttled.</p>
  *
+ * @throws {@link AthenaServiceException}
+ * <p>Base exception class for all service exceptions from Athena service.</p>
  *
  */
 export class StartSessionCommand extends $Command<

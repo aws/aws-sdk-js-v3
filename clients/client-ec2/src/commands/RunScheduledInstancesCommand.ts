@@ -45,38 +45,38 @@ export interface RunScheduledInstancesCommandOutput extends RunScheduledInstance
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, RunScheduledInstancesCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, RunScheduledInstancesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, RunScheduledInstancesCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, RunScheduledInstancesCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // RunScheduledInstancesRequest
- *   ClientToken: "STRING_VALUE",
+ *   ClientToken: 'STRING_VALUE',
  *   DryRun: true || false,
- *   InstanceCount: Number("int"),
+ *   InstanceCount: Number('int'),
  *   LaunchSpecification: { // ScheduledInstancesLaunchSpecification
  *     BlockDeviceMappings: [ // ScheduledInstancesBlockDeviceMappingSet
  *       { // ScheduledInstancesBlockDeviceMapping
- *         DeviceName: "STRING_VALUE",
+ *         DeviceName: 'STRING_VALUE',
  *         Ebs: { // ScheduledInstancesEbs
  *           DeleteOnTermination: true || false,
  *           Encrypted: true || false,
- *           Iops: Number("int"),
- *           SnapshotId: "STRING_VALUE",
- *           VolumeSize: Number("int"),
- *           VolumeType: "STRING_VALUE",
+ *           Iops: Number('int'),
+ *           SnapshotId: 'STRING_VALUE',
+ *           VolumeSize: Number('int'),
+ *           VolumeType: 'STRING_VALUE',
  *         },
- *         NoDevice: "STRING_VALUE",
- *         VirtualName: "STRING_VALUE",
+ *         NoDevice: 'STRING_VALUE',
+ *         VirtualName: 'STRING_VALUE',
  *       },
  *     ],
  *     EbsOptimized: true || false,
  *     IamInstanceProfile: { // ScheduledInstancesIamInstanceProfile
- *       Arn: "STRING_VALUE",
- *       Name: "STRING_VALUE",
+ *       Arn: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
  *     },
- *     ImageId: "STRING_VALUE", // required
- *     InstanceType: "STRING_VALUE",
- *     KernelId: "STRING_VALUE",
- *     KeyName: "STRING_VALUE",
+ *     ImageId: 'STRING_VALUE', // required
+ *     InstanceType: 'STRING_VALUE',
+ *     KernelId: 'STRING_VALUE',
+ *     KeyName: 'STRING_VALUE',
  *     Monitoring: { // ScheduledInstancesMonitoring
  *       Enabled: true || false,
  *     },
@@ -84,44 +84,51 @@ export interface RunScheduledInstancesCommandOutput extends RunScheduledInstance
  *       { // ScheduledInstancesNetworkInterface
  *         AssociatePublicIpAddress: true || false,
  *         DeleteOnTermination: true || false,
- *         Description: "STRING_VALUE",
- *         DeviceIndex: Number("int"),
+ *         Description: 'STRING_VALUE',
+ *         DeviceIndex: Number('int'),
  *         Groups: [ // ScheduledInstancesSecurityGroupIdSet
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
- *         Ipv6AddressCount: Number("int"),
+ *         Ipv6AddressCount: Number('int'),
  *         Ipv6Addresses: [ // ScheduledInstancesIpv6AddressList
  *           { // ScheduledInstancesIpv6Address
- *             Ipv6Address: "STRING_VALUE",
+ *             Ipv6Address: 'STRING_VALUE',
  *           },
  *         ],
- *         NetworkInterfaceId: "STRING_VALUE",
- *         PrivateIpAddress: "STRING_VALUE",
+ *         NetworkInterfaceId: 'STRING_VALUE',
+ *         PrivateIpAddress: 'STRING_VALUE',
  *         PrivateIpAddressConfigs: [ // PrivateIpAddressConfigSet
  *           { // ScheduledInstancesPrivateIpAddressConfig
  *             Primary: true || false,
- *             PrivateIpAddress: "STRING_VALUE",
+ *             PrivateIpAddress: 'STRING_VALUE',
  *           },
  *         ],
- *         SecondaryPrivateIpAddressCount: Number("int"),
- *         SubnetId: "STRING_VALUE",
+ *         SecondaryPrivateIpAddressCount: Number('int'),
+ *         SubnetId: 'STRING_VALUE',
  *       },
  *     ],
  *     Placement: { // ScheduledInstancesPlacement
- *       AvailabilityZone: "STRING_VALUE",
- *       GroupName: "STRING_VALUE",
+ *       AvailabilityZone: 'STRING_VALUE',
+ *       GroupName: 'STRING_VALUE',
  *     },
- *     RamdiskId: "STRING_VALUE",
+ *     RamdiskId: 'STRING_VALUE',
  *     SecurityGroupIds: [
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
- *     SubnetId: "STRING_VALUE",
- *     UserData: "STRING_VALUE",
+ *     SubnetId: 'STRING_VALUE',
+ *     UserData: 'STRING_VALUE',
  *   },
- *   ScheduledInstanceId: "STRING_VALUE", // required
+ *   ScheduledInstanceId: 'STRING_VALUE', // required
  * };
  * const command = new RunScheduledInstancesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // RunScheduledInstancesResult
+ *   InstanceIdSet: [ // InstanceIdSet
+ *     'STRING_VALUE',
+ *   ],
+ * };
+ *
  * ```
  *
  * @param RunScheduledInstancesCommandInput - {@link RunScheduledInstancesCommandInput}
@@ -130,6 +137,8 @@ export interface RunScheduledInstancesCommandOutput extends RunScheduledInstance
  * @see {@link RunScheduledInstancesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @example To launch a Scheduled Instance in a VPC
  * ```javascript

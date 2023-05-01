@@ -39,15 +39,18 @@ export interface DeleteLifecycleHookCommandOutput extends DeleteLifecycleHookAns
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AutoScalingClient, DeleteLifecycleHookCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
- * // const { AutoScalingClient, DeleteLifecycleHookCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
+ * import { AutoScalingClient, DeleteLifecycleHookCommand } from '@aws-sdk/client-auto-scaling'; // ES Modules import
+ * // const { AutoScalingClient, DeleteLifecycleHookCommand } = require('@aws-sdk/client-auto-scaling'); // CommonJS import
  * const client = new AutoScalingClient(config);
  * const input = { // DeleteLifecycleHookType
- *   LifecycleHookName: "STRING_VALUE", // required
- *   AutoScalingGroupName: "STRING_VALUE", // required
+ *   LifecycleHookName: 'STRING_VALUE', // required
+ *   AutoScalingGroupName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteLifecycleHookCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteLifecycleHookCommandInput - {@link DeleteLifecycleHookCommandInput}
@@ -60,6 +63,8 @@ export interface DeleteLifecycleHookCommandOutput extends DeleteLifecycleHookAns
  *  <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group,
  *             instance, or load balancer).</p>
  *
+ * @throws {@link AutoScalingServiceException}
+ * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
  * @example To delete a lifecycle hook
  * ```javascript

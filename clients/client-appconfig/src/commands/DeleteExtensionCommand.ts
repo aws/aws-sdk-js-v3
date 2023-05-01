@@ -37,15 +37,18 @@ export interface DeleteExtensionCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppConfigClient, DeleteExtensionCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
- * // const { AppConfigClient, DeleteExtensionCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import
+ * import { AppConfigClient, DeleteExtensionCommand } from '@aws-sdk/client-appconfig'; // ES Modules import
+ * // const { AppConfigClient, DeleteExtensionCommand } = require('@aws-sdk/client-appconfig'); // CommonJS import
  * const client = new AppConfigClient(config);
  * const input = { // DeleteExtensionRequest
- *   ExtensionIdentifier: "STRING_VALUE", // required
- *   VersionNumber: Number("int"),
+ *   ExtensionIdentifier: 'STRING_VALUE', // required
+ *   VersionNumber: Number('int'),
  * };
  * const command = new DeleteExtensionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteExtensionCommandInput - {@link DeleteExtensionCommandInput}
@@ -63,6 +66,8 @@ export interface DeleteExtensionCommandOutput extends __MetadataBearer {}
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The requested resource could not be found.</p>
  *
+ * @throws {@link AppConfigServiceException}
+ * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
  */
 export class DeleteExtensionCommand extends $Command<

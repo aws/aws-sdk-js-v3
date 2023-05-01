@@ -55,22 +55,27 @@ export interface CreateExperimentCommandOutput extends CreateExperimentResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, CreateExperimentCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, CreateExperimentCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, CreateExperimentCommand } from '@aws-sdk/client-sagemaker'; // ES Modules import
+ * // const { SageMakerClient, CreateExperimentCommand } = require('@aws-sdk/client-sagemaker'); // CommonJS import
  * const client = new SageMakerClient(config);
  * const input = { // CreateExperimentRequest
- *   ExperimentName: "STRING_VALUE", // required
- *   DisplayName: "STRING_VALUE",
- *   Description: "STRING_VALUE",
+ *   ExperimentName: 'STRING_VALUE', // required
+ *   DisplayName: 'STRING_VALUE',
+ *   Description: 'STRING_VALUE',
  *   Tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreateExperimentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateExperimentResponse
+ *   ExperimentArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateExperimentCommandInput - {@link CreateExperimentCommandInput}
@@ -83,6 +88,8 @@ export interface CreateExperimentCommandOutput extends CreateExperimentResponse,
  *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many
  *             training jobs created. </p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class CreateExperimentCommand extends $Command<

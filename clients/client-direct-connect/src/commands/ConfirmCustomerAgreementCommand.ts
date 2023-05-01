@@ -38,14 +38,19 @@ export interface ConfirmCustomerAgreementCommandOutput extends ConfirmCustomerAg
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DirectConnectClient, ConfirmCustomerAgreementCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
- * // const { DirectConnectClient, ConfirmCustomerAgreementCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
+ * import { DirectConnectClient, ConfirmCustomerAgreementCommand } from '@aws-sdk/client-direct-connect'; // ES Modules import
+ * // const { DirectConnectClient, ConfirmCustomerAgreementCommand } = require('@aws-sdk/client-direct-connect'); // CommonJS import
  * const client = new DirectConnectClient(config);
  * const input = { // ConfirmCustomerAgreementRequest
- *   agreementName: "STRING_VALUE",
+ *   agreementName: 'STRING_VALUE',
  * };
  * const command = new ConfirmCustomerAgreementCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ConfirmCustomerAgreementResponse
+ *   status: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ConfirmCustomerAgreementCommandInput - {@link ConfirmCustomerAgreementCommandInput}
@@ -60,6 +65,8 @@ export interface ConfirmCustomerAgreementCommandOutput extends ConfirmCustomerAg
  * @throws {@link DirectConnectServerException} (server fault)
  *  <p>A server-side error occurred.</p>
  *
+ * @throws {@link DirectConnectServiceException}
+ * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
  */
 export class ConfirmCustomerAgreementCommand extends $Command<

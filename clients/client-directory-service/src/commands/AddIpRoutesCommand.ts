@@ -43,21 +43,24 @@ export interface AddIpRoutesCommandOutput extends AddIpRoutesResult, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DirectoryServiceClient, AddIpRoutesCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
- * // const { DirectoryServiceClient, AddIpRoutesCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
+ * import { DirectoryServiceClient, AddIpRoutesCommand } from '@aws-sdk/client-directory-service'; // ES Modules import
+ * // const { DirectoryServiceClient, AddIpRoutesCommand } = require('@aws-sdk/client-directory-service'); // CommonJS import
  * const client = new DirectoryServiceClient(config);
  * const input = { // AddIpRoutesRequest
- *   DirectoryId: "STRING_VALUE", // required
+ *   DirectoryId: 'STRING_VALUE', // required
  *   IpRoutes: [ // IpRoutes // required
  *     { // IpRoute
- *       CidrIp: "STRING_VALUE",
- *       Description: "STRING_VALUE",
+ *       CidrIp: 'STRING_VALUE',
+ *       Description: 'STRING_VALUE',
  *     },
  *   ],
  *   UpdateSecurityGroupForDirectoryControllers: true || false,
  * };
  * const command = new AddIpRoutesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param AddIpRoutesCommandInput - {@link AddIpRoutesCommandInput}
@@ -88,6 +91,8 @@ export interface AddIpRoutesCommandOutput extends AddIpRoutesResult, __MetadataB
  * @throws {@link ServiceException} (server fault)
  *  <p>An exception has occurred in Directory Service.</p>
  *
+ * @throws {@link DirectoryServiceServiceException}
+ * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
  */
 export class AddIpRoutesCommand extends $Command<

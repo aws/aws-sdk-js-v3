@@ -46,26 +46,56 @@ export interface CreateAcceleratorCommandOutput extends CreateAcceleratorRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlobalAcceleratorClient, CreateAcceleratorCommand } from "@aws-sdk/client-global-accelerator"; // ES Modules import
- * // const { GlobalAcceleratorClient, CreateAcceleratorCommand } = require("@aws-sdk/client-global-accelerator"); // CommonJS import
+ * import { GlobalAcceleratorClient, CreateAcceleratorCommand } from '@aws-sdk/client-global-accelerator'; // ES Modules import
+ * // const { GlobalAcceleratorClient, CreateAcceleratorCommand } = require('@aws-sdk/client-global-accelerator'); // CommonJS import
  * const client = new GlobalAcceleratorClient(config);
  * const input = { // CreateAcceleratorRequest
- *   Name: "STRING_VALUE", // required
- *   IpAddressType: "IPV4" || "DUAL_STACK",
+ *   Name: 'STRING_VALUE', // required
+ *   IpAddressType: 'IPV4' || 'DUAL_STACK',
  *   IpAddresses: [ // IpAddresses
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   Enabled: true || false,
- *   IdempotencyToken: "STRING_VALUE", // required
+ *   IdempotencyToken: 'STRING_VALUE', // required
  *   Tags: [ // Tags
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CreateAcceleratorCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateAcceleratorResponse
+ *   Accelerator: { // Accelerator
+ *     AcceleratorArn: 'STRING_VALUE',
+ *     Name: 'STRING_VALUE',
+ *     IpAddressType: 'IPV4' || 'DUAL_STACK',
+ *     Enabled: true || false,
+ *     IpSets: [ // IpSets
+ *       { // IpSet
+ *         IpFamily: 'STRING_VALUE',
+ *         IpAddresses: [ // IpAddresses
+ *           'STRING_VALUE',
+ *         ],
+ *         IpAddressFamily: 'IPv4' || 'IPv6',
+ *       },
+ *     ],
+ *     DnsName: 'STRING_VALUE',
+ *     Status: 'DEPLOYED' || 'IN_PROGRESS',
+ *     CreatedTime: new Date('TIMESTAMP'),
+ *     LastModifiedTime: new Date('TIMESTAMP'),
+ *     DualStackDnsName: 'STRING_VALUE',
+ *     Events: [ // AcceleratorEvents
+ *       { // AcceleratorEvent
+ *         Message: 'STRING_VALUE',
+ *         Timestamp: new Date('TIMESTAMP'),
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateAcceleratorCommandInput - {@link CreateAcceleratorCommandInput}
@@ -83,6 +113,8 @@ export interface CreateAcceleratorCommandOutput extends CreateAcceleratorRespons
  * @throws {@link LimitExceededException} (client fault)
  *  <p>Processing your request would cause you to exceed an Global Accelerator limit.</p>
  *
+ * @throws {@link GlobalAcceleratorServiceException}
+ * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
  */
 export class CreateAcceleratorCommand extends $Command<

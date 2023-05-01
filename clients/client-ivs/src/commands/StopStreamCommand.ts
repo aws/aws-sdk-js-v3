@@ -43,14 +43,17 @@ export interface StopStreamCommandOutput extends StopStreamResponse, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IvsClient, StopStreamCommand } from "@aws-sdk/client-ivs"; // ES Modules import
- * // const { IvsClient, StopStreamCommand } = require("@aws-sdk/client-ivs"); // CommonJS import
+ * import { IvsClient, StopStreamCommand } from '@aws-sdk/client-ivs'; // ES Modules import
+ * // const { IvsClient, StopStreamCommand } = require('@aws-sdk/client-ivs'); // CommonJS import
  * const client = new IvsClient(config);
  * const input = { // StopStreamRequest
- *   channelArn: "STRING_VALUE", // required
+ *   channelArn: 'STRING_VALUE', // required
  * };
  * const command = new StopStreamCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param StopStreamCommandInput - {@link StopStreamCommandInput}
@@ -74,6 +77,8 @@ export interface StopStreamCommandOutput extends StopStreamResponse, __MetadataB
  * @throws {@link ValidationException} (client fault)
  *  <p/>
  *
+ * @throws {@link IvsServiceException}
+ * <p>Base exception class for all service exceptions from Ivs service.</p>
  *
  */
 export class StopStreamCommand extends $Command<

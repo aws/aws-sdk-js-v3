@@ -38,27 +38,44 @@ export interface SearchEntitiesCommandOutput extends SearchEntitiesResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTThingsGraphClient, SearchEntitiesCommand } from "@aws-sdk/client-iotthingsgraph"; // ES Modules import
- * // const { IoTThingsGraphClient, SearchEntitiesCommand } = require("@aws-sdk/client-iotthingsgraph"); // CommonJS import
+ * import { IoTThingsGraphClient, SearchEntitiesCommand } from '@aws-sdk/client-iotthingsgraph'; // ES Modules import
+ * // const { IoTThingsGraphClient, SearchEntitiesCommand } = require('@aws-sdk/client-iotthingsgraph'); // CommonJS import
  * const client = new IoTThingsGraphClient(config);
  * const input = { // SearchEntitiesRequest
  *   entityTypes: [ // EntityTypes // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   filters: [ // EntityFilters
  *     { // EntityFilter
- *       name: "STRING_VALUE",
+ *       name: 'STRING_VALUE',
  *       value: [ // EntityFilterValues
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
- *   namespaceVersion: Number("long"),
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
+ *   namespaceVersion: Number('long'),
  * };
  * const command = new SearchEntitiesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SearchEntitiesResponse
+ *   descriptions: [ // EntityDescriptions
+ *     { // EntityDescription
+ *       id: 'STRING_VALUE',
+ *       arn: 'STRING_VALUE',
+ *       type: 'STRING_VALUE',
+ *       createdAt: new Date('TIMESTAMP'),
+ *       definition: { // DefinitionDocument
+ *         language: 'STRING_VALUE', // required
+ *         text: 'STRING_VALUE', // required
+ *       },
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param SearchEntitiesCommandInput - {@link SearchEntitiesCommandInput}
@@ -76,6 +93,8 @@ export interface SearchEntitiesCommandOutput extends SearchEntitiesResponse, __M
  * @throws {@link ThrottlingException} (client fault)
  *  <p></p>
  *
+ * @throws {@link IoTThingsGraphServiceException}
+ * <p>Base exception class for all service exceptions from IoTThingsGraph service.</p>
  *
  */
 export class SearchEntitiesCommand extends $Command<

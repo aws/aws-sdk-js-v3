@@ -41,14 +41,19 @@ export interface DeleteRepositoryCommandOutput extends DeleteRepositoryOutput, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeCommitClient, DeleteRepositoryCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
- * // const { CodeCommitClient, DeleteRepositoryCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
+ * import { CodeCommitClient, DeleteRepositoryCommand } from '@aws-sdk/client-codecommit'; // ES Modules import
+ * // const { CodeCommitClient, DeleteRepositoryCommand } = require('@aws-sdk/client-codecommit'); // CommonJS import
  * const client = new CodeCommitClient(config);
  * const input = { // DeleteRepositoryInput
- *   repositoryName: "STRING_VALUE", // required
+ *   repositoryName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteRepositoryCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteRepositoryOutput
+ *   repositoryId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DeleteRepositoryCommandInput - {@link DeleteRepositoryCommandInput}
@@ -84,6 +89,8 @@ export interface DeleteRepositoryCommandOutput extends DeleteRepositoryOutput, _
  * @throws {@link RepositoryNameRequiredException} (client fault)
  *  <p>A repository name is required, but was not specified.</p>
  *
+ * @throws {@link CodeCommitServiceException}
+ * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
  */
 export class DeleteRepositoryCommand extends $Command<

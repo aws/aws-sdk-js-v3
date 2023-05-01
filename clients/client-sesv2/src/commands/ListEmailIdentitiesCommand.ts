@@ -39,15 +39,28 @@ export interface ListEmailIdentitiesCommandOutput extends ListEmailIdentitiesRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SESv2Client, ListEmailIdentitiesCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
- * // const { SESv2Client, ListEmailIdentitiesCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
+ * import { SESv2Client, ListEmailIdentitiesCommand } from '@aws-sdk/client-sesv2'; // ES Modules import
+ * // const { SESv2Client, ListEmailIdentitiesCommand } = require('@aws-sdk/client-sesv2'); // CommonJS import
  * const client = new SESv2Client(config);
  * const input = { // ListEmailIdentitiesRequest
- *   NextToken: "STRING_VALUE",
- *   PageSize: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   PageSize: Number('int'),
  * };
  * const command = new ListEmailIdentitiesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListEmailIdentitiesResponse
+ *   EmailIdentities: [ // IdentityInfoList
+ *     { // IdentityInfo
+ *       IdentityType: 'EMAIL_ADDRESS' || 'DOMAIN' || 'MANAGED_DOMAIN',
+ *       IdentityName: 'STRING_VALUE',
+ *       SendingEnabled: true || false,
+ *       VerificationStatus: 'PENDING' || 'SUCCESS' || 'FAILED' || 'TEMPORARY_FAILURE' || 'NOT_STARTED',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListEmailIdentitiesCommandInput - {@link ListEmailIdentitiesCommandInput}
@@ -62,6 +75,8 @@ export interface ListEmailIdentitiesCommandOutput extends ListEmailIdentitiesRes
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Too many requests have been made to the operation.</p>
  *
+ * @throws {@link SESv2ServiceException}
+ * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
  */
 export class ListEmailIdentitiesCommand extends $Command<

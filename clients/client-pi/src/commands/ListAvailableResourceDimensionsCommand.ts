@@ -41,20 +41,40 @@ export interface ListAvailableResourceDimensionsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PIClient, ListAvailableResourceDimensionsCommand } from "@aws-sdk/client-pi"; // ES Modules import
- * // const { PIClient, ListAvailableResourceDimensionsCommand } = require("@aws-sdk/client-pi"); // CommonJS import
+ * import { PIClient, ListAvailableResourceDimensionsCommand } from '@aws-sdk/client-pi'; // ES Modules import
+ * // const { PIClient, ListAvailableResourceDimensionsCommand } = require('@aws-sdk/client-pi'); // CommonJS import
  * const client = new PIClient(config);
  * const input = { // ListAvailableResourceDimensionsRequest
- *   ServiceType: "RDS" || "DOCDB", // required
- *   Identifier: "STRING_VALUE", // required
+ *   ServiceType: 'RDS' || 'DOCDB', // required
+ *   Identifier: 'STRING_VALUE', // required
  *   Metrics: [ // DimensionsMetricList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListAvailableResourceDimensionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListAvailableResourceDimensionsResponse
+ *   MetricDimensions: [ // MetricDimensionsList
+ *     { // MetricDimensionGroups
+ *       Metric: 'STRING_VALUE',
+ *       Groups: [ // DimensionGroupDetailList
+ *         { // DimensionGroupDetail
+ *           Group: 'STRING_VALUE',
+ *           Dimensions: [ // DimensionDetailList
+ *             { // DimensionDetail
+ *               Identifier: 'STRING_VALUE',
+ *             },
+ *           ],
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListAvailableResourceDimensionsCommandInput - {@link ListAvailableResourceDimensionsCommandInput}
@@ -72,6 +92,8 @@ export interface ListAvailableResourceDimensionsCommandOutput
  * @throws {@link NotAuthorizedException} (client fault)
  *  <p>The user is not authorized to perform this request.</p>
  *
+ * @throws {@link PIServiceException}
+ * <p>Base exception class for all service exceptions from PI service.</p>
  *
  */
 export class ListAvailableResourceDimensionsCommand extends $Command<

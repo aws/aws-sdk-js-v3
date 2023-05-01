@@ -36,16 +36,30 @@ export interface ListMapRunsCommandOutput extends ListMapRunsOutput, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SFNClient, ListMapRunsCommand } from "@aws-sdk/client-sfn"; // ES Modules import
- * // const { SFNClient, ListMapRunsCommand } = require("@aws-sdk/client-sfn"); // CommonJS import
+ * import { SFNClient, ListMapRunsCommand } from '@aws-sdk/client-sfn'; // ES Modules import
+ * // const { SFNClient, ListMapRunsCommand } = require('@aws-sdk/client-sfn'); // CommonJS import
  * const client = new SFNClient(config);
  * const input = { // ListMapRunsInput
- *   executionArn: "STRING_VALUE", // required
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   executionArn: 'STRING_VALUE', // required
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new ListMapRunsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListMapRunsOutput
+ *   mapRuns: [ // MapRunList // required
+ *     { // MapRunListItem
+ *       executionArn: 'STRING_VALUE', // required
+ *       mapRunArn: 'STRING_VALUE', // required
+ *       stateMachineArn: 'STRING_VALUE', // required
+ *       startDate: new Date('TIMESTAMP'), // required
+ *       stopDate: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListMapRunsCommandInput - {@link ListMapRunsCommandInput}
@@ -63,6 +77,8 @@ export interface ListMapRunsCommandOutput extends ListMapRunsOutput, __MetadataB
  * @throws {@link InvalidToken} (client fault)
  *  <p>The provided token is not valid.</p>
  *
+ * @throws {@link SFNServiceException}
+ * <p>Base exception class for all service exceptions from SFN service.</p>
  *
  */
 export class ListMapRunsCommand extends $Command<

@@ -102,103 +102,103 @@ export interface StartConversationCommandOutput extends StartConversationRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LexRuntimeV2Client, StartConversationCommand } from "@aws-sdk/client-lex-runtime-v2"; // ES Modules import
- * // const { LexRuntimeV2Client, StartConversationCommand } = require("@aws-sdk/client-lex-runtime-v2"); // CommonJS import
+ * import { LexRuntimeV2Client, StartConversationCommand } from '@aws-sdk/client-lex-runtime-v2'; // ES Modules import
+ * // const { LexRuntimeV2Client, StartConversationCommand } = require('@aws-sdk/client-lex-runtime-v2'); // CommonJS import
  * const client = new LexRuntimeV2Client(config);
  * const input = { // StartConversationRequest
- *   botId: "STRING_VALUE", // required
- *   botAliasId: "STRING_VALUE", // required
- *   localeId: "STRING_VALUE", // required
- *   sessionId: "STRING_VALUE", // required
- *   conversationMode: "AUDIO" || "TEXT",
+ *   botId: 'STRING_VALUE', // required
+ *   botAliasId: 'STRING_VALUE', // required
+ *   localeId: 'STRING_VALUE', // required
+ *   sessionId: 'STRING_VALUE', // required
+ *   conversationMode: 'AUDIO' || 'TEXT',
  *   requestEventStream: { // StartConversationRequestEventStream Union: only one key present
  *     ConfigurationEvent: { // ConfigurationEvent
  *       requestAttributes: { // StringMap
- *         "<keys>": "STRING_VALUE",
+ *         '<keys>': 'STRING_VALUE',
  *       },
- *       responseContentType: "STRING_VALUE", // required
+ *       responseContentType: 'STRING_VALUE', // required
  *       sessionState: { // SessionState
  *         dialogAction: { // DialogAction
- *           type: "Close" || "ConfirmIntent" || "Delegate" || "ElicitIntent" || "ElicitSlot" || "None", // required
- *           slotToElicit: "STRING_VALUE",
- *           slotElicitationStyle: "Default" || "SpellByLetter" || "SpellByWord",
+ *           type: 'Close' || 'ConfirmIntent' || 'Delegate' || 'ElicitIntent' || 'ElicitSlot' || 'None', // required
+ *           slotToElicit: 'STRING_VALUE',
+ *           slotElicitationStyle: 'Default' || 'SpellByLetter' || 'SpellByWord',
  *           subSlotToElicit: { // ElicitSubSlot
- *             name: "STRING_VALUE", // required
+ *             name: 'STRING_VALUE', // required
  *             subSlotToElicit: {
- *               name: "STRING_VALUE", // required
- *               subSlotToElicit: "<ElicitSubSlot>",
+ *               name: 'STRING_VALUE', // required
+ *               subSlotToElicit: '<ElicitSubSlot>',
  *             },
  *           },
  *         },
  *         intent: { // Intent
- *           name: "STRING_VALUE", // required
+ *           name: 'STRING_VALUE', // required
  *           slots: { // Slots
- *             "<keys>": { // Slot
+ *             '<keys>': { // Slot
  *               value: { // Value
- *                 originalValue: "STRING_VALUE",
- *                 interpretedValue: "STRING_VALUE", // required
+ *                 originalValue: 'STRING_VALUE',
+ *                 interpretedValue: 'STRING_VALUE', // required
  *                 resolvedValues: [ // StringList
- *                   "STRING_VALUE",
+ *                   'STRING_VALUE',
  *                 ],
  *               },
- *               shape: "Scalar" || "List" || "Composite",
+ *               shape: 'Scalar' || 'List' || 'Composite',
  *               values: [ // Values
  *                 {
  *                   value: {
- *                     originalValue: "STRING_VALUE",
- *                     interpretedValue: "STRING_VALUE", // required
+ *                     originalValue: 'STRING_VALUE',
+ *                     interpretedValue: 'STRING_VALUE', // required
  *                     resolvedValues: [
- *                       "STRING_VALUE",
+ *                       'STRING_VALUE',
  *                     ],
  *                   },
- *                   shape: "Scalar" || "List" || "Composite",
+ *                   shape: 'Scalar' || 'List' || 'Composite',
  *                   values: [
- *                     "<Slot>",
+ *                     '<Slot>',
  *                   ],
  *                   subSlots: {
- *                     "<keys>": "<Slot>",
+ *                     '<keys>': '<Slot>',
  *                   },
  *                 },
  *               ],
- *               subSlots: "<Slots>",
+ *               subSlots: '<Slots>',
  *             },
  *           },
- *           state: "Failed" || "Fulfilled" || "InProgress" || "ReadyForFulfillment" || "Waiting" || "FulfillmentInProgress",
- *           confirmationState: "Confirmed" || "Denied" || "None",
+ *           state: 'Failed' || 'Fulfilled' || 'InProgress' || 'ReadyForFulfillment' || 'Waiting' || 'FulfillmentInProgress',
+ *           confirmationState: 'Confirmed' || 'Denied' || 'None',
  *         },
  *         activeContexts: [ // ActiveContextsList
  *           { // ActiveContext
- *             name: "STRING_VALUE", // required
+ *             name: 'STRING_VALUE', // required
  *             timeToLive: { // ActiveContextTimeToLive
- *               timeToLiveInSeconds: Number("int"), // required
- *               turnsToLive: Number("int"), // required
+ *               timeToLiveInSeconds: Number('int'), // required
+ *               turnsToLive: Number('int'), // required
  *             },
  *             contextAttributes: { // ActiveContextParametersMap // required
- *               "<keys>": "STRING_VALUE",
+ *               '<keys>': 'STRING_VALUE',
  *             },
  *           },
  *         ],
  *         sessionAttributes: {
- *           "<keys>": "STRING_VALUE",
+ *           '<keys>': 'STRING_VALUE',
  *         },
- *         originatingRequestId: "STRING_VALUE",
+ *         originatingRequestId: 'STRING_VALUE',
  *         runtimeHints: { // RuntimeHints
  *           slotHints: { // SlotHintsIntentMap
- *             "<keys>": { // SlotHintsSlotMap
- *               "<keys>": { // RuntimeHintDetails
+ *             '<keys>': { // SlotHintsSlotMap
+ *               '<keys>': { // RuntimeHintDetails
  *                 runtimeHintValues: [ // RuntimeHintValuesList
  *                   { // RuntimeHintValue
- *                     phrase: "STRING_VALUE", // required
+ *                     phrase: 'STRING_VALUE', // required
  *                   },
  *                 ],
  *                 subSlotHints: {
- *                   "<keys>": {
+ *                   '<keys>': {
  *                     runtimeHintValues: [
  *                       {
- *                         phrase: "STRING_VALUE", // required
+ *                         phrase: 'STRING_VALUE', // required
  *                       },
  *                     ],
- *                     subSlotHints: "<SlotHintsSlotMap>",
+ *                     subSlotHints: '<SlotHintsSlotMap>',
  *                   },
  *                 },
  *               },
@@ -208,53 +208,243 @@ export interface StartConversationCommandOutput extends StartConversationRespons
  *       },
  *       welcomeMessages: [ // Messages
  *         { // Message
- *           content: "STRING_VALUE",
- *           contentType: "CustomPayload" || "ImageResponseCard" || "PlainText" || "SSML", // required
+ *           content: 'STRING_VALUE',
+ *           contentType: 'CustomPayload' || 'ImageResponseCard' || 'PlainText' || 'SSML', // required
  *           imageResponseCard: { // ImageResponseCard
- *             title: "STRING_VALUE", // required
- *             subtitle: "STRING_VALUE",
- *             imageUrl: "STRING_VALUE",
+ *             title: 'STRING_VALUE', // required
+ *             subtitle: 'STRING_VALUE',
+ *             imageUrl: 'STRING_VALUE',
  *             buttons: [ // ButtonsList
  *               { // Button
- *                 text: "STRING_VALUE", // required
- *                 value: "STRING_VALUE", // required
+ *                 text: 'STRING_VALUE', // required
+ *                 value: 'STRING_VALUE', // required
  *               },
  *             ],
  *           },
  *         },
  *       ],
  *       disablePlayback: true || false,
- *       eventId: "STRING_VALUE",
- *       clientTimestampMillis: Number("long"),
+ *       eventId: 'STRING_VALUE',
+ *       clientTimestampMillis: Number('long'),
  *     },
  *     AudioInputEvent: { // AudioInputEvent
- *       audioChunk: "BLOB_VALUE",
- *       contentType: "STRING_VALUE", // required
- *       eventId: "STRING_VALUE",
- *       clientTimestampMillis: Number("long"),
+ *       audioChunk: 'BLOB_VALUE',
+ *       contentType: 'STRING_VALUE', // required
+ *       eventId: 'STRING_VALUE',
+ *       clientTimestampMillis: Number('long'),
  *     },
  *     DTMFInputEvent: { // DTMFInputEvent
- *       inputCharacter: "STRING_VALUE", // required
- *       eventId: "STRING_VALUE",
- *       clientTimestampMillis: Number("long"),
+ *       inputCharacter: 'STRING_VALUE', // required
+ *       eventId: 'STRING_VALUE',
+ *       clientTimestampMillis: Number('long'),
  *     },
  *     TextInputEvent: { // TextInputEvent
- *       text: "STRING_VALUE", // required
- *       eventId: "STRING_VALUE",
- *       clientTimestampMillis: Number("long"),
+ *       text: 'STRING_VALUE', // required
+ *       eventId: 'STRING_VALUE',
+ *       clientTimestampMillis: Number('long'),
  *     },
  *     PlaybackCompletionEvent: { // PlaybackCompletionEvent
- *       eventId: "STRING_VALUE",
- *       clientTimestampMillis: Number("long"),
+ *       eventId: 'STRING_VALUE',
+ *       clientTimestampMillis: Number('long'),
  *     },
  *     DisconnectionEvent: { // DisconnectionEvent
- *       eventId: "STRING_VALUE",
- *       clientTimestampMillis: Number("long"),
+ *       eventId: 'STRING_VALUE',
+ *       clientTimestampMillis: Number('long'),
  *     },
  *   },
  * };
  * const command = new StartConversationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartConversationResponse
+ *   responseEventStream: { // StartConversationResponseEventStream Union: only one key present
+ *     PlaybackInterruptionEvent: { // PlaybackInterruptionEvent
+ *       eventReason: 'DTMF_START_DETECTED' || 'TEXT_DETECTED' || 'VOICE_START_DETECTED',
+ *       causedByEventId: 'STRING_VALUE',
+ *       eventId: 'STRING_VALUE',
+ *     },
+ *     TranscriptEvent: { // TranscriptEvent
+ *       transcript: 'STRING_VALUE',
+ *       eventId: 'STRING_VALUE',
+ *     },
+ *     IntentResultEvent: { // IntentResultEvent
+ *       inputMode: 'Text' || 'Speech' || 'DTMF',
+ *       interpretations: [ // Interpretations
+ *         { // Interpretation
+ *           nluConfidence: { // ConfidenceScore
+ *             score: Number('double'),
+ *           },
+ *           sentimentResponse: { // SentimentResponse
+ *             sentiment: 'MIXED' || 'NEGATIVE' || 'NEUTRAL' || 'POSITIVE',
+ *             sentimentScore: { // SentimentScore
+ *               positive: Number('double'),
+ *               negative: Number('double'),
+ *               neutral: Number('double'),
+ *               mixed: Number('double'),
+ *             },
+ *           },
+ *           intent: { // Intent
+ *             name: 'STRING_VALUE', // required
+ *             slots: { // Slots
+ *               '<keys>': { // Slot
+ *                 value: { // Value
+ *                   originalValue: 'STRING_VALUE',
+ *                   interpretedValue: 'STRING_VALUE', // required
+ *                   resolvedValues: [ // StringList
+ *                     'STRING_VALUE',
+ *                   ],
+ *                 },
+ *                 shape: 'Scalar' || 'List' || 'Composite',
+ *                 values: [ // Values
+ *                   {
+ *                     value: {
+ *                       originalValue: 'STRING_VALUE',
+ *                       interpretedValue: 'STRING_VALUE', // required
+ *                       resolvedValues: [
+ *                         'STRING_VALUE',
+ *                       ],
+ *                     },
+ *                     shape: 'Scalar' || 'List' || 'Composite',
+ *                     values: [
+ *                       '<Slot>',
+ *                     ],
+ *                     subSlots: {
+ *                       '<keys>': '<Slot>',
+ *                     },
+ *                   },
+ *                 ],
+ *                 subSlots: '<Slots>',
+ *               },
+ *             },
+ *             state: 'Failed' || 'Fulfilled' || 'InProgress' || 'ReadyForFulfillment' || 'Waiting' || 'FulfillmentInProgress',
+ *             confirmationState: 'Confirmed' || 'Denied' || 'None',
+ *           },
+ *         },
+ *       ],
+ *       sessionState: { // SessionState
+ *         dialogAction: { // DialogAction
+ *           type: 'Close' || 'ConfirmIntent' || 'Delegate' || 'ElicitIntent' || 'ElicitSlot' || 'None', // required
+ *           slotToElicit: 'STRING_VALUE',
+ *           slotElicitationStyle: 'Default' || 'SpellByLetter' || 'SpellByWord',
+ *           subSlotToElicit: { // ElicitSubSlot
+ *             name: 'STRING_VALUE', // required
+ *             subSlotToElicit: {
+ *               name: 'STRING_VALUE', // required
+ *               subSlotToElicit: '<ElicitSubSlot>',
+ *             },
+ *           },
+ *         },
+ *         intent: {
+ *           name: 'STRING_VALUE', // required
+ *           slots: '<Slots>',
+ *           state: 'Failed' || 'Fulfilled' || 'InProgress' || 'ReadyForFulfillment' || 'Waiting' || 'FulfillmentInProgress',
+ *           confirmationState: 'Confirmed' || 'Denied' || 'None',
+ *         },
+ *         activeContexts: [ // ActiveContextsList
+ *           { // ActiveContext
+ *             name: 'STRING_VALUE', // required
+ *             timeToLive: { // ActiveContextTimeToLive
+ *               timeToLiveInSeconds: Number('int'), // required
+ *               turnsToLive: Number('int'), // required
+ *             },
+ *             contextAttributes: { // ActiveContextParametersMap // required
+ *               '<keys>': 'STRING_VALUE',
+ *             },
+ *           },
+ *         ],
+ *         sessionAttributes: { // StringMap
+ *           '<keys>': 'STRING_VALUE',
+ *         },
+ *         originatingRequestId: 'STRING_VALUE',
+ *         runtimeHints: { // RuntimeHints
+ *           slotHints: { // SlotHintsIntentMap
+ *             '<keys>': { // SlotHintsSlotMap
+ *               '<keys>': { // RuntimeHintDetails
+ *                 runtimeHintValues: [ // RuntimeHintValuesList
+ *                   { // RuntimeHintValue
+ *                     phrase: 'STRING_VALUE', // required
+ *                   },
+ *                 ],
+ *                 subSlotHints: {
+ *                   '<keys>': {
+ *                     runtimeHintValues: [
+ *                       {
+ *                         phrase: 'STRING_VALUE', // required
+ *                       },
+ *                     ],
+ *                     subSlotHints: '<SlotHintsSlotMap>',
+ *                   },
+ *                 },
+ *               },
+ *             },
+ *           },
+ *         },
+ *       },
+ *       requestAttributes: {
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *       sessionId: 'STRING_VALUE',
+ *       eventId: 'STRING_VALUE',
+ *       recognizedBotMember: { // RecognizedBotMember
+ *         botId: 'STRING_VALUE', // required
+ *         botName: 'STRING_VALUE',
+ *       },
+ *     },
+ *     TextResponseEvent: { // TextResponseEvent
+ *       messages: [ // Messages
+ *         { // Message
+ *           content: 'STRING_VALUE',
+ *           contentType: 'CustomPayload' || 'ImageResponseCard' || 'PlainText' || 'SSML', // required
+ *           imageResponseCard: { // ImageResponseCard
+ *             title: 'STRING_VALUE', // required
+ *             subtitle: 'STRING_VALUE',
+ *             imageUrl: 'STRING_VALUE',
+ *             buttons: [ // ButtonsList
+ *               { // Button
+ *                 text: 'STRING_VALUE', // required
+ *                 value: 'STRING_VALUE', // required
+ *               },
+ *             ],
+ *           },
+ *         },
+ *       ],
+ *       eventId: 'STRING_VALUE',
+ *     },
+ *     AudioResponseEvent: { // AudioResponseEvent
+ *       audioChunk: 'BLOB_VALUE',
+ *       contentType: 'STRING_VALUE',
+ *       eventId: 'STRING_VALUE',
+ *     },
+ *     HeartbeatEvent: { // HeartbeatEvent
+ *       eventId: 'STRING_VALUE',
+ *     },
+ *     AccessDeniedException: { // AccessDeniedException
+ *       message: 'STRING_VALUE', // required
+ *     },
+ *     ResourceNotFoundException: { // ResourceNotFoundException
+ *       message: 'STRING_VALUE', // required
+ *     },
+ *     ValidationException: { // ValidationException
+ *       message: 'STRING_VALUE', // required
+ *     },
+ *     ThrottlingException: { // ThrottlingException
+ *       message: 'STRING_VALUE', // required
+ *     },
+ *     InternalServerException: { // InternalServerException
+ *       message: 'STRING_VALUE', // required
+ *     },
+ *     ConflictException: { // ConflictException
+ *       message: 'STRING_VALUE', // required
+ *     },
+ *     DependencyFailedException: { // DependencyFailedException
+ *       message: 'STRING_VALUE', // required
+ *     },
+ *     BadGatewayException: { // BadGatewayException
+ *       message: 'STRING_VALUE', // required
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param StartConversationCommandInput - {@link StartConversationCommandInput}
@@ -275,6 +465,8 @@ export interface StartConversationCommandOutput extends StartConversationRespons
  * @throws {@link ValidationException} (client fault)
  *  <p></p>
  *
+ * @throws {@link LexRuntimeV2ServiceException}
+ * <p>Base exception class for all service exceptions from LexRuntimeV2 service.</p>
  *
  */
 export class StartConversationCommand extends $Command<

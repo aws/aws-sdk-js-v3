@@ -39,35 +39,62 @@ export interface ListCoverageCommandOutput extends ListCoverageResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GuardDutyClient, ListCoverageCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
- * // const { GuardDutyClient, ListCoverageCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
+ * import { GuardDutyClient, ListCoverageCommand } from '@aws-sdk/client-guardduty'; // ES Modules import
+ * // const { GuardDutyClient, ListCoverageCommand } = require('@aws-sdk/client-guardduty'); // CommonJS import
  * const client = new GuardDutyClient(config);
  * const input = { // ListCoverageRequest
- *   DetectorId: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   DetectorId: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  *   FilterCriteria: { // CoverageFilterCriteria
  *     FilterCriterion: [ // CoverageFilterCriterionList
  *       { // CoverageFilterCriterion
- *         CriterionKey: "ACCOUNT_ID" || "CLUSTER_NAME" || "RESOURCE_TYPE" || "COVERAGE_STATUS" || "ADDON_VERSION",
+ *         CriterionKey: 'ACCOUNT_ID' || 'CLUSTER_NAME' || 'RESOURCE_TYPE' || 'COVERAGE_STATUS' || 'ADDON_VERSION',
  *         FilterCondition: { // CoverageFilterCondition
  *           Equals: [ // Equals
- *             "STRING_VALUE",
+ *             'STRING_VALUE',
  *           ],
  *           NotEquals: [ // NotEquals
- *             "STRING_VALUE",
+ *             'STRING_VALUE',
  *           ],
  *         },
  *       },
  *     ],
  *   },
  *   SortCriteria: { // CoverageSortCriteria
- *     AttributeName: "ACCOUNT_ID" || "CLUSTER_NAME" || "COVERAGE_STATUS" || "ISSUE" || "ADDON_VERSION" || "UPDATED_AT",
- *     OrderBy: "ASC" || "DESC",
+ *     AttributeName: 'ACCOUNT_ID' || 'CLUSTER_NAME' || 'COVERAGE_STATUS' || 'ISSUE' || 'ADDON_VERSION' || 'UPDATED_AT',
+ *     OrderBy: 'ASC' || 'DESC',
  *   },
  * };
  * const command = new ListCoverageCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListCoverageResponse
+ *   Resources: [ // CoverageResources // required
+ *     { // CoverageResource
+ *       ResourceId: 'STRING_VALUE',
+ *       DetectorId: 'STRING_VALUE',
+ *       AccountId: 'STRING_VALUE',
+ *       ResourceDetails: { // CoverageResourceDetails
+ *         EksClusterDetails: { // CoverageEksClusterDetails
+ *           ClusterName: 'STRING_VALUE',
+ *           CoveredNodes: Number('long'),
+ *           CompatibleNodes: Number('long'),
+ *           AddonDetails: { // AddonDetails
+ *             AddonVersion: 'STRING_VALUE',
+ *             AddonStatus: 'STRING_VALUE',
+ *           },
+ *         },
+ *         ResourceType: 'EKS',
+ *       },
+ *       CoverageStatus: 'HEALTHY' || 'UNHEALTHY',
+ *       Issue: 'STRING_VALUE',
+ *       UpdatedAt: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListCoverageCommandInput - {@link ListCoverageCommandInput}
@@ -82,6 +109,8 @@ export interface ListCoverageCommandOutput extends ListCoverageResponse, __Metad
  * @throws {@link InternalServerErrorException} (server fault)
  *  <p>An internal server error exception object.</p>
  *
+ * @throws {@link GuardDutyServiceException}
+ * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
  */
 export class ListCoverageCommand extends $Command<

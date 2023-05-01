@@ -38,16 +38,38 @@ export interface BatchGetSecurityControlsCommandOutput extends BatchGetSecurityC
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SecurityHubClient, BatchGetSecurityControlsCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
- * // const { SecurityHubClient, BatchGetSecurityControlsCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
+ * import { SecurityHubClient, BatchGetSecurityControlsCommand } from '@aws-sdk/client-securityhub'; // ES Modules import
+ * // const { SecurityHubClient, BatchGetSecurityControlsCommand } = require('@aws-sdk/client-securityhub'); // CommonJS import
  * const client = new SecurityHubClient(config);
  * const input = { // BatchGetSecurityControlsRequest
  *   SecurityControlIds: [ // StringList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new BatchGetSecurityControlsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BatchGetSecurityControlsResponse
+ *   SecurityControls: [ // SecurityControls // required
+ *     { // SecurityControl
+ *       SecurityControlId: 'STRING_VALUE', // required
+ *       SecurityControlArn: 'STRING_VALUE', // required
+ *       Title: 'STRING_VALUE', // required
+ *       Description: 'STRING_VALUE', // required
+ *       RemediationUrl: 'STRING_VALUE', // required
+ *       SeverityRating: 'LOW' || 'MEDIUM' || 'HIGH' || 'CRITICAL', // required
+ *       SecurityControlStatus: 'ENABLED' || 'DISABLED', // required
+ *     },
+ *   ],
+ *   UnprocessedIds: [ // UnprocessedSecurityControls
+ *     { // UnprocessedSecurityControl
+ *       SecurityControlId: 'STRING_VALUE', // required
+ *       ErrorCode: 'INVALID_INPUT' || 'ACCESS_DENIED' || 'NOT_FOUND' || 'LIMIT_EXCEEDED', // required
+ *       ErrorReason: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param BatchGetSecurityControlsCommandInput - {@link BatchGetSecurityControlsCommandInput}
@@ -70,6 +92,8 @@ export interface BatchGetSecurityControlsCommandOutput extends BatchGetSecurityC
  *  <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services
  *          account or throttling limits. The error code describes the limit exceeded.</p>
  *
+ * @throws {@link SecurityHubServiceException}
+ * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
  */
 export class BatchGetSecurityControlsCommand extends $Command<

@@ -38,19 +38,34 @@ export interface SearchFlowExecutionsCommandOutput extends SearchFlowExecutionsR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTThingsGraphClient, SearchFlowExecutionsCommand } from "@aws-sdk/client-iotthingsgraph"; // ES Modules import
- * // const { IoTThingsGraphClient, SearchFlowExecutionsCommand } = require("@aws-sdk/client-iotthingsgraph"); // CommonJS import
+ * import { IoTThingsGraphClient, SearchFlowExecutionsCommand } from '@aws-sdk/client-iotthingsgraph'; // ES Modules import
+ * // const { IoTThingsGraphClient, SearchFlowExecutionsCommand } = require('@aws-sdk/client-iotthingsgraph'); // CommonJS import
  * const client = new IoTThingsGraphClient(config);
  * const input = { // SearchFlowExecutionsRequest
- *   systemInstanceId: "STRING_VALUE", // required
- *   flowExecutionId: "STRING_VALUE",
- *   startTime: new Date("TIMESTAMP"),
- *   endTime: new Date("TIMESTAMP"),
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   systemInstanceId: 'STRING_VALUE', // required
+ *   flowExecutionId: 'STRING_VALUE',
+ *   startTime: new Date('TIMESTAMP'),
+ *   endTime: new Date('TIMESTAMP'),
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new SearchFlowExecutionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SearchFlowExecutionsResponse
+ *   summaries: [ // FlowExecutionSummaries
+ *     { // FlowExecutionSummary
+ *       flowExecutionId: 'STRING_VALUE',
+ *       status: 'STRING_VALUE',
+ *       systemInstanceId: 'STRING_VALUE',
+ *       flowTemplateId: 'STRING_VALUE',
+ *       createdAt: new Date('TIMESTAMP'),
+ *       updatedAt: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param SearchFlowExecutionsCommandInput - {@link SearchFlowExecutionsCommandInput}
@@ -71,6 +86,8 @@ export interface SearchFlowExecutionsCommandOutput extends SearchFlowExecutionsR
  * @throws {@link ThrottlingException} (client fault)
  *  <p></p>
  *
+ * @throws {@link IoTThingsGraphServiceException}
+ * <p>Base exception class for all service exceptions from IoTThingsGraph service.</p>
  *
  */
 export class SearchFlowExecutionsCommand extends $Command<

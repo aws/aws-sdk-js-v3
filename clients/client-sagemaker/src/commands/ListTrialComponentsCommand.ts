@@ -55,22 +55,66 @@ export interface ListTrialComponentsCommandOutput extends ListTrialComponentsRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, ListTrialComponentsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, ListTrialComponentsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, ListTrialComponentsCommand } from '@aws-sdk/client-sagemaker'; // ES Modules import
+ * // const { SageMakerClient, ListTrialComponentsCommand } = require('@aws-sdk/client-sagemaker'); // CommonJS import
  * const client = new SageMakerClient(config);
  * const input = { // ListTrialComponentsRequest
- *   ExperimentName: "STRING_VALUE",
- *   TrialName: "STRING_VALUE",
- *   SourceArn: "STRING_VALUE",
- *   CreatedAfter: new Date("TIMESTAMP"),
- *   CreatedBefore: new Date("TIMESTAMP"),
- *   SortBy: "Name" || "CreationTime",
- *   SortOrder: "Ascending" || "Descending",
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   ExperimentName: 'STRING_VALUE',
+ *   TrialName: 'STRING_VALUE',
+ *   SourceArn: 'STRING_VALUE',
+ *   CreatedAfter: new Date('TIMESTAMP'),
+ *   CreatedBefore: new Date('TIMESTAMP'),
+ *   SortBy: 'Name' || 'CreationTime',
+ *   SortOrder: 'Ascending' || 'Descending',
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListTrialComponentsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTrialComponentsResponse
+ *   TrialComponentSummaries: [ // TrialComponentSummaries
+ *     { // TrialComponentSummary
+ *       TrialComponentName: 'STRING_VALUE',
+ *       TrialComponentArn: 'STRING_VALUE',
+ *       DisplayName: 'STRING_VALUE',
+ *       TrialComponentSource: { // TrialComponentSource
+ *         SourceArn: 'STRING_VALUE', // required
+ *         SourceType: 'STRING_VALUE',
+ *       },
+ *       Status: { // TrialComponentStatus
+ *         PrimaryStatus: 'InProgress' || 'Completed' || 'Failed' || 'Stopping' || 'Stopped',
+ *         Message: 'STRING_VALUE',
+ *       },
+ *       StartTime: new Date('TIMESTAMP'),
+ *       EndTime: new Date('TIMESTAMP'),
+ *       CreationTime: new Date('TIMESTAMP'),
+ *       CreatedBy: { // UserContext
+ *         UserProfileArn: 'STRING_VALUE',
+ *         UserProfileName: 'STRING_VALUE',
+ *         DomainId: 'STRING_VALUE',
+ *         IamIdentity: { // IamIdentity
+ *           Arn: 'STRING_VALUE',
+ *           PrincipalId: 'STRING_VALUE',
+ *           SourceIdentity: 'STRING_VALUE',
+ *         },
+ *       },
+ *       LastModifiedTime: new Date('TIMESTAMP'),
+ *       LastModifiedBy: {
+ *         UserProfileArn: 'STRING_VALUE',
+ *         UserProfileName: 'STRING_VALUE',
+ *         DomainId: 'STRING_VALUE',
+ *         IamIdentity: {
+ *           Arn: 'STRING_VALUE',
+ *           PrincipalId: 'STRING_VALUE',
+ *           SourceIdentity: 'STRING_VALUE',
+ *         },
+ *       },
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListTrialComponentsCommandInput - {@link ListTrialComponentsCommandInput}
@@ -82,6 +126,8 @@ export interface ListTrialComponentsCommandOutput extends ListTrialComponentsRes
  * @throws {@link ResourceNotFound} (client fault)
  *  <p>Resource being access is not found.</p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class ListTrialComponentsCommand extends $Command<

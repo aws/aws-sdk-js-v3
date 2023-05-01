@@ -47,25 +47,47 @@ export interface CreateCustomRoutingEndpointGroupCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlobalAcceleratorClient, CreateCustomRoutingEndpointGroupCommand } from "@aws-sdk/client-global-accelerator"; // ES Modules import
- * // const { GlobalAcceleratorClient, CreateCustomRoutingEndpointGroupCommand } = require("@aws-sdk/client-global-accelerator"); // CommonJS import
+ * import { GlobalAcceleratorClient, CreateCustomRoutingEndpointGroupCommand } from '@aws-sdk/client-global-accelerator'; // ES Modules import
+ * // const { GlobalAcceleratorClient, CreateCustomRoutingEndpointGroupCommand } = require('@aws-sdk/client-global-accelerator'); // CommonJS import
  * const client = new GlobalAcceleratorClient(config);
  * const input = { // CreateCustomRoutingEndpointGroupRequest
- *   ListenerArn: "STRING_VALUE", // required
- *   EndpointGroupRegion: "STRING_VALUE", // required
+ *   ListenerArn: 'STRING_VALUE', // required
+ *   EndpointGroupRegion: 'STRING_VALUE', // required
  *   DestinationConfigurations: [ // CustomRoutingDestinationConfigurations // required
  *     { // CustomRoutingDestinationConfiguration
- *       FromPort: Number("int"), // required
- *       ToPort: Number("int"), // required
+ *       FromPort: Number('int'), // required
+ *       ToPort: Number('int'), // required
  *       Protocols: [ // CustomRoutingProtocols // required
- *         "TCP" || "UDP",
+ *         'TCP' || 'UDP',
  *       ],
  *     },
  *   ],
- *   IdempotencyToken: "STRING_VALUE", // required
+ *   IdempotencyToken: 'STRING_VALUE', // required
  * };
  * const command = new CreateCustomRoutingEndpointGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateCustomRoutingEndpointGroupResponse
+ *   EndpointGroup: { // CustomRoutingEndpointGroup
+ *     EndpointGroupArn: 'STRING_VALUE',
+ *     EndpointGroupRegion: 'STRING_VALUE',
+ *     DestinationDescriptions: [ // CustomRoutingDestinationDescriptions
+ *       { // CustomRoutingDestinationDescription
+ *         FromPort: Number('int'),
+ *         ToPort: Number('int'),
+ *         Protocols: [ // Protocols
+ *           'TCP' || 'UDP',
+ *         ],
+ *       },
+ *     ],
+ *     EndpointDescriptions: [ // CustomRoutingEndpointDescriptions
+ *       { // CustomRoutingEndpointDescription
+ *         EndpointId: 'STRING_VALUE',
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateCustomRoutingEndpointGroupCommandInput - {@link CreateCustomRoutingEndpointGroupCommandInput}
@@ -98,6 +120,8 @@ export interface CreateCustomRoutingEndpointGroupCommandOutput
  * @throws {@link ListenerNotFoundException} (client fault)
  *  <p>The listener that you specified doesn't exist.</p>
  *
+ * @throws {@link GlobalAcceleratorServiceException}
+ * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
  */
 export class CreateCustomRoutingEndpointGroupCommand extends $Command<

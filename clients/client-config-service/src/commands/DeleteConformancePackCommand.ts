@@ -39,14 +39,17 @@ export interface DeleteConformancePackCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConfigServiceClient, DeleteConformancePackCommand } from "@aws-sdk/client-config-service"; // ES Modules import
- * // const { ConfigServiceClient, DeleteConformancePackCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
+ * import { ConfigServiceClient, DeleteConformancePackCommand } from '@aws-sdk/client-config-service'; // ES Modules import
+ * // const { ConfigServiceClient, DeleteConformancePackCommand } = require('@aws-sdk/client-config-service'); // CommonJS import
  * const client = new ConfigServiceClient(config);
  * const input = { // DeleteConformancePackRequest
- *   ConformancePackName: "STRING_VALUE", // required
+ *   ConformancePackName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteConformancePackCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteConformancePackCommandInput - {@link DeleteConformancePackCommandInput}
@@ -84,6 +87,8 @@ export interface DeleteConformancePackCommandOutput extends __MetadataBearer {}
  *             </li>
  *          </ul>
  *
+ * @throws {@link ConfigServiceServiceException}
+ * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
  */
 export class DeleteConformancePackCommand extends $Command<

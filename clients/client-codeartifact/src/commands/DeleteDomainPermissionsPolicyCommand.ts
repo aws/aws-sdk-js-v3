@@ -43,16 +43,25 @@ export interface DeleteDomainPermissionsPolicyCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeartifactClient, DeleteDomainPermissionsPolicyCommand } from "@aws-sdk/client-codeartifact"; // ES Modules import
- * // const { CodeartifactClient, DeleteDomainPermissionsPolicyCommand } = require("@aws-sdk/client-codeartifact"); // CommonJS import
+ * import { CodeartifactClient, DeleteDomainPermissionsPolicyCommand } from '@aws-sdk/client-codeartifact'; // ES Modules import
+ * // const { CodeartifactClient, DeleteDomainPermissionsPolicyCommand } = require('@aws-sdk/client-codeartifact'); // CommonJS import
  * const client = new CodeartifactClient(config);
  * const input = { // DeleteDomainPermissionsPolicyRequest
- *   domain: "STRING_VALUE", // required
- *   domainOwner: "STRING_VALUE",
- *   policyRevision: "STRING_VALUE",
+ *   domain: 'STRING_VALUE', // required
+ *   domainOwner: 'STRING_VALUE',
+ *   policyRevision: 'STRING_VALUE',
  * };
  * const command = new DeleteDomainPermissionsPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteDomainPermissionsPolicyResult
+ *   policy: { // ResourcePolicy
+ *     resourceArn: 'STRING_VALUE',
+ *     revision: 'STRING_VALUE',
+ *     document: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param DeleteDomainPermissionsPolicyCommandInput - {@link DeleteDomainPermissionsPolicyCommandInput}
@@ -89,6 +98,8 @@ export interface DeleteDomainPermissionsPolicyCommandOutput
  *       The operation did not succeed because a parameter in the request was sent with an invalid value.
  *     </p>
  *
+ * @throws {@link CodeartifactServiceException}
+ * <p>Base exception class for all service exceptions from Codeartifact service.</p>
  *
  */
 export class DeleteDomainPermissionsPolicyCommand extends $Command<

@@ -39,19 +39,32 @@ export interface DeleteSchemaVersionsCommandOutput extends DeleteSchemaVersionsR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlueClient, DeleteSchemaVersionsCommand } from "@aws-sdk/client-glue"; // ES Modules import
- * // const { GlueClient, DeleteSchemaVersionsCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * import { GlueClient, DeleteSchemaVersionsCommand } from '@aws-sdk/client-glue'; // ES Modules import
+ * // const { GlueClient, DeleteSchemaVersionsCommand } = require('@aws-sdk/client-glue'); // CommonJS import
  * const client = new GlueClient(config);
  * const input = { // DeleteSchemaVersionsInput
  *   SchemaId: { // SchemaId
- *     SchemaArn: "STRING_VALUE",
- *     SchemaName: "STRING_VALUE",
- *     RegistryName: "STRING_VALUE",
+ *     SchemaArn: 'STRING_VALUE',
+ *     SchemaName: 'STRING_VALUE',
+ *     RegistryName: 'STRING_VALUE',
  *   },
- *   Versions: "STRING_VALUE", // required
+ *   Versions: 'STRING_VALUE', // required
  * };
  * const command = new DeleteSchemaVersionsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteSchemaVersionsResponse
+ *   SchemaVersionErrors: [ // SchemaVersionErrorList
+ *     { // SchemaVersionErrorItem
+ *       VersionNumber: Number('long'),
+ *       ErrorDetails: { // ErrorDetails
+ *         ErrorCode: 'STRING_VALUE',
+ *         ErrorMessage: 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DeleteSchemaVersionsCommandInput - {@link DeleteSchemaVersionsCommandInput}
@@ -72,6 +85,8 @@ export interface DeleteSchemaVersionsCommandOutput extends DeleteSchemaVersionsR
  * @throws {@link InvalidInputException} (client fault)
  *  <p>The input provided was not valid.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class DeleteSchemaVersionsCommand extends $Command<

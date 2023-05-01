@@ -39,15 +39,18 @@ export interface DeactivatePipelineCommandOutput extends DeactivatePipelineOutpu
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DataPipelineClient, DeactivatePipelineCommand } from "@aws-sdk/client-data-pipeline"; // ES Modules import
- * // const { DataPipelineClient, DeactivatePipelineCommand } = require("@aws-sdk/client-data-pipeline"); // CommonJS import
+ * import { DataPipelineClient, DeactivatePipelineCommand } from '@aws-sdk/client-data-pipeline'; // ES Modules import
+ * // const { DataPipelineClient, DeactivatePipelineCommand } = require('@aws-sdk/client-data-pipeline'); // CommonJS import
  * const client = new DataPipelineClient(config);
  * const input = { // DeactivatePipelineInput
- *   pipelineId: "STRING_VALUE", // required
+ *   pipelineId: 'STRING_VALUE', // required
  *   cancelActive: true || false,
  * };
  * const command = new DeactivatePipelineCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeactivatePipelineCommandInput - {@link DeactivatePipelineCommandInput}
@@ -68,6 +71,8 @@ export interface DeactivatePipelineCommandOutput extends DeactivatePipelineOutpu
  * @throws {@link PipelineNotFoundException} (client fault)
  *  <p>The specified pipeline was not found. Verify that you used the correct user and account identifiers.</p>
  *
+ * @throws {@link DataPipelineServiceException}
+ * <p>Base exception class for all service exceptions from DataPipeline service.</p>
  *
  */
 export class DeactivatePipelineCommand extends $Command<

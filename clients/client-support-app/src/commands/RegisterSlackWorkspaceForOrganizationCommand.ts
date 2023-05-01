@@ -74,14 +74,21 @@ export interface RegisterSlackWorkspaceForOrganizationCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SupportAppClient, RegisterSlackWorkspaceForOrganizationCommand } from "@aws-sdk/client-support-app"; // ES Modules import
- * // const { SupportAppClient, RegisterSlackWorkspaceForOrganizationCommand } = require("@aws-sdk/client-support-app"); // CommonJS import
+ * import { SupportAppClient, RegisterSlackWorkspaceForOrganizationCommand } from '@aws-sdk/client-support-app'; // ES Modules import
+ * // const { SupportAppClient, RegisterSlackWorkspaceForOrganizationCommand } = require('@aws-sdk/client-support-app'); // CommonJS import
  * const client = new SupportAppClient(config);
  * const input = { // RegisterSlackWorkspaceForOrganizationRequest
- *   teamId: "STRING_VALUE", // required
+ *   teamId: 'STRING_VALUE', // required
  * };
  * const command = new RegisterSlackWorkspaceForOrganizationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // RegisterSlackWorkspaceForOrganizationResult
+ *   teamId: 'STRING_VALUE',
+ *   teamName: 'STRING_VALUE',
+ *   accountType: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param RegisterSlackWorkspaceForOrganizationCommandInput - {@link RegisterSlackWorkspaceForOrganizationCommandInput}
@@ -132,6 +139,8 @@ export interface RegisterSlackWorkspaceForOrganizationCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>Your request input doesn't meet the constraints that the Amazon Web Services Support App specifies.</p>
  *
+ * @throws {@link SupportAppServiceException}
+ * <p>Base exception class for all service exceptions from SupportApp service.</p>
  *
  */
 export class RegisterSlackWorkspaceForOrganizationCommand extends $Command<

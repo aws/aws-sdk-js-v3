@@ -43,74 +43,82 @@ export interface CreateJobTemplateCommandOutput extends CreateJobTemplateRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EMRContainersClient, CreateJobTemplateCommand } from "@aws-sdk/client-emr-containers"; // ES Modules import
- * // const { EMRContainersClient, CreateJobTemplateCommand } = require("@aws-sdk/client-emr-containers"); // CommonJS import
+ * import { EMRContainersClient, CreateJobTemplateCommand } from '@aws-sdk/client-emr-containers'; // ES Modules import
+ * // const { EMRContainersClient, CreateJobTemplateCommand } = require('@aws-sdk/client-emr-containers'); // CommonJS import
  * const client = new EMRContainersClient(config);
  * const input = { // CreateJobTemplateRequest
- *   name: "STRING_VALUE", // required
- *   clientToken: "STRING_VALUE", // required
+ *   name: 'STRING_VALUE', // required
+ *   clientToken: 'STRING_VALUE', // required
  *   jobTemplateData: { // JobTemplateData
- *     executionRoleArn: "STRING_VALUE", // required
- *     releaseLabel: "STRING_VALUE", // required
+ *     executionRoleArn: 'STRING_VALUE', // required
+ *     releaseLabel: 'STRING_VALUE', // required
  *     configurationOverrides: { // ParametricConfigurationOverrides
  *       applicationConfiguration: [ // ConfigurationList
  *         { // Configuration
- *           classification: "STRING_VALUE", // required
+ *           classification: 'STRING_VALUE', // required
  *           properties: { // SensitivePropertiesMap
- *             "<keys>": "STRING_VALUE",
+ *             '<keys>': 'STRING_VALUE',
  *           },
  *           configurations: [
  *             {
- *               classification: "STRING_VALUE", // required
+ *               classification: 'STRING_VALUE', // required
  *               properties: {
- *                 "<keys>": "STRING_VALUE",
+ *                 '<keys>': 'STRING_VALUE',
  *               },
- *               configurations: "<ConfigurationList>",
+ *               configurations: '<ConfigurationList>',
  *             },
  *           ],
  *         },
  *       ],
  *       monitoringConfiguration: { // ParametricMonitoringConfiguration
- *         persistentAppUI: "STRING_VALUE",
+ *         persistentAppUI: 'STRING_VALUE',
  *         cloudWatchMonitoringConfiguration: { // ParametricCloudWatchMonitoringConfiguration
- *           logGroupName: "STRING_VALUE",
- *           logStreamNamePrefix: "STRING_VALUE",
+ *           logGroupName: 'STRING_VALUE',
+ *           logStreamNamePrefix: 'STRING_VALUE',
  *         },
  *         s3MonitoringConfiguration: { // ParametricS3MonitoringConfiguration
- *           logUri: "STRING_VALUE",
+ *           logUri: 'STRING_VALUE',
  *         },
  *       },
  *     },
  *     jobDriver: { // JobDriver
  *       sparkSubmitJobDriver: { // SparkSubmitJobDriver
- *         entryPoint: "STRING_VALUE", // required
+ *         entryPoint: 'STRING_VALUE', // required
  *         entryPointArguments: [ // EntryPointArguments
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
- *         sparkSubmitParameters: "STRING_VALUE",
+ *         sparkSubmitParameters: 'STRING_VALUE',
  *       },
  *       sparkSqlJobDriver: { // SparkSqlJobDriver
- *         entryPoint: "STRING_VALUE",
- *         sparkSqlParameters: "STRING_VALUE",
+ *         entryPoint: 'STRING_VALUE',
+ *         sparkSqlParameters: 'STRING_VALUE',
  *       },
  *     },
  *     parameterConfiguration: { // TemplateParameterConfigurationMap
- *       "<keys>": { // TemplateParameterConfiguration
- *         type: "NUMBER" || "STRING",
- *         defaultValue: "STRING_VALUE",
+ *       '<keys>': { // TemplateParameterConfiguration
+ *         type: 'NUMBER' || 'STRING',
+ *         defaultValue: 'STRING_VALUE',
  *       },
  *     },
  *     jobTags: { // TagMap
- *       "<keys>": "STRING_VALUE",
+ *       '<keys>': 'STRING_VALUE',
  *     },
  *   },
  *   tags: {
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
- *   kmsKeyArn: "STRING_VALUE",
+ *   kmsKeyArn: 'STRING_VALUE',
  * };
  * const command = new CreateJobTemplateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateJobTemplateResponse
+ *   id: 'STRING_VALUE',
+ *   name: 'STRING_VALUE',
+ *   arn: 'STRING_VALUE',
+ *   createdAt: new Date('TIMESTAMP'),
+ * };
+ *
  * ```
  *
  * @param CreateJobTemplateCommandInput - {@link CreateJobTemplateCommandInput}
@@ -128,6 +136,8 @@ export interface CreateJobTemplateCommandOutput extends CreateJobTemplateRespons
  * @throws {@link ValidationException} (client fault)
  *  <p>There are invalid parameters in the client request.</p>
  *
+ * @throws {@link EMRContainersServiceException}
+ * <p>Base exception class for all service exceptions from EMRContainers service.</p>
  *
  */
 export class CreateJobTemplateCommand extends $Command<

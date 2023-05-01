@@ -40,18 +40,21 @@ export interface UntagStreamCommandOutput extends UntagStreamOutput, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KinesisVideoClient, UntagStreamCommand } from "@aws-sdk/client-kinesis-video"; // ES Modules import
- * // const { KinesisVideoClient, UntagStreamCommand } = require("@aws-sdk/client-kinesis-video"); // CommonJS import
+ * import { KinesisVideoClient, UntagStreamCommand } from '@aws-sdk/client-kinesis-video'; // ES Modules import
+ * // const { KinesisVideoClient, UntagStreamCommand } = require('@aws-sdk/client-kinesis-video'); // CommonJS import
  * const client = new KinesisVideoClient(config);
  * const input = { // UntagStreamInput
- *   StreamARN: "STRING_VALUE",
- *   StreamName: "STRING_VALUE",
+ *   StreamARN: 'STRING_VALUE',
+ *   StreamName: 'STRING_VALUE',
  *   TagKeyList: [ // TagKeyList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new UntagStreamCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UntagStreamCommandInput - {@link UntagStreamCommandInput}
@@ -76,6 +79,8 @@ export interface UntagStreamCommandOutput extends UntagStreamOutput, __MetadataB
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Amazon Kinesis Video Streams can't find the stream that you specified.</p>
  *
+ * @throws {@link KinesisVideoServiceException}
+ * <p>Base exception class for all service exceptions from KinesisVideo service.</p>
  *
  */
 export class UntagStreamCommand extends $Command<

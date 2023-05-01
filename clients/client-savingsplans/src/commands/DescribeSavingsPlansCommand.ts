@@ -36,32 +36,63 @@ export interface DescribeSavingsPlansCommandOutput extends DescribeSavingsPlansR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SavingsplansClient, DescribeSavingsPlansCommand } from "@aws-sdk/client-savingsplans"; // ES Modules import
- * // const { SavingsplansClient, DescribeSavingsPlansCommand } = require("@aws-sdk/client-savingsplans"); // CommonJS import
+ * import { SavingsplansClient, DescribeSavingsPlansCommand } from '@aws-sdk/client-savingsplans'; // ES Modules import
+ * // const { SavingsplansClient, DescribeSavingsPlansCommand } = require('@aws-sdk/client-savingsplans'); // CommonJS import
  * const client = new SavingsplansClient(config);
  * const input = { // DescribeSavingsPlansRequest
  *   savingsPlanArns: [ // SavingsPlanArnList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   savingsPlanIds: [ // SavingsPlanIdList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  *   states: [ // SavingsPlanStateList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   filters: [ // SavingsPlanFilterList
  *     { // SavingsPlanFilter
- *       name: "STRING_VALUE",
+ *       name: 'STRING_VALUE',
  *       values: [ // ListOfStrings
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
  * };
  * const command = new DescribeSavingsPlansCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeSavingsPlansResponse
+ *   savingsPlans: [ // SavingsPlanList
+ *     { // SavingsPlan
+ *       offeringId: 'STRING_VALUE',
+ *       savingsPlanId: 'STRING_VALUE',
+ *       savingsPlanArn: 'STRING_VALUE',
+ *       description: 'STRING_VALUE',
+ *       start: 'STRING_VALUE',
+ *       end: 'STRING_VALUE',
+ *       state: 'STRING_VALUE',
+ *       region: 'STRING_VALUE',
+ *       ec2InstanceFamily: 'STRING_VALUE',
+ *       savingsPlanType: 'STRING_VALUE',
+ *       paymentOption: 'STRING_VALUE',
+ *       productTypes: [ // SavingsPlanProductTypeList
+ *         'STRING_VALUE',
+ *       ],
+ *       currency: 'STRING_VALUE',
+ *       commitment: 'STRING_VALUE',
+ *       upfrontPaymentAmount: 'STRING_VALUE',
+ *       recurringPaymentAmount: 'STRING_VALUE',
+ *       termDurationInSeconds: Number('long'),
+ *       tags: { // TagMap
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeSavingsPlansCommandInput - {@link DescribeSavingsPlansCommandInput}
@@ -76,6 +107,8 @@ export interface DescribeSavingsPlansCommandOutput extends DescribeSavingsPlansR
  * @throws {@link ValidationException} (client fault)
  *  <p>One of the input parameters is not valid.</p>
  *
+ * @throws {@link SavingsplansServiceException}
+ * <p>Base exception class for all service exceptions from Savingsplans service.</p>
  *
  */
 export class DescribeSavingsPlansCommand extends $Command<

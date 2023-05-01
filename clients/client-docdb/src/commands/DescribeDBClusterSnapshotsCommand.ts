@@ -36,28 +36,56 @@ export interface DescribeDBClusterSnapshotsCommandOutput extends DBClusterSnapsh
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DocDBClient, DescribeDBClusterSnapshotsCommand } from "@aws-sdk/client-docdb"; // ES Modules import
- * // const { DocDBClient, DescribeDBClusterSnapshotsCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
+ * import { DocDBClient, DescribeDBClusterSnapshotsCommand } from '@aws-sdk/client-docdb'; // ES Modules import
+ * // const { DocDBClient, DescribeDBClusterSnapshotsCommand } = require('@aws-sdk/client-docdb'); // CommonJS import
  * const client = new DocDBClient(config);
  * const input = { // DescribeDBClusterSnapshotsMessage
- *   DBClusterIdentifier: "STRING_VALUE",
- *   DBClusterSnapshotIdentifier: "STRING_VALUE",
- *   SnapshotType: "STRING_VALUE",
+ *   DBClusterIdentifier: 'STRING_VALUE',
+ *   DBClusterSnapshotIdentifier: 'STRING_VALUE',
+ *   SnapshotType: 'STRING_VALUE',
  *   Filters: [ // FilterList
  *     { // Filter
- *       Name: "STRING_VALUE", // required
+ *       Name: 'STRING_VALUE', // required
  *       Values: [ // FilterValueList // required
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
- *   MaxRecords: Number("int"),
- *   Marker: "STRING_VALUE",
+ *   MaxRecords: Number('int'),
+ *   Marker: 'STRING_VALUE',
  *   IncludeShared: true || false,
  *   IncludePublic: true || false,
  * };
  * const command = new DescribeDBClusterSnapshotsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DBClusterSnapshotMessage
+ *   Marker: 'STRING_VALUE',
+ *   DBClusterSnapshots: [ // DBClusterSnapshotList
+ *     { // DBClusterSnapshot
+ *       AvailabilityZones: [ // AvailabilityZones
+ *         'STRING_VALUE',
+ *       ],
+ *       DBClusterSnapshotIdentifier: 'STRING_VALUE',
+ *       DBClusterIdentifier: 'STRING_VALUE',
+ *       SnapshotCreateTime: new Date('TIMESTAMP'),
+ *       Engine: 'STRING_VALUE',
+ *       Status: 'STRING_VALUE',
+ *       Port: Number('int'),
+ *       VpcId: 'STRING_VALUE',
+ *       ClusterCreateTime: new Date('TIMESTAMP'),
+ *       MasterUsername: 'STRING_VALUE',
+ *       EngineVersion: 'STRING_VALUE',
+ *       SnapshotType: 'STRING_VALUE',
+ *       PercentProgress: Number('int'),
+ *       StorageEncrypted: true || false,
+ *       KmsKeyId: 'STRING_VALUE',
+ *       DBClusterSnapshotArn: 'STRING_VALUE',
+ *       SourceDBClusterSnapshotArn: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeDBClusterSnapshotsCommandInput - {@link DescribeDBClusterSnapshotsCommandInput}
@@ -70,6 +98,8 @@ export interface DescribeDBClusterSnapshotsCommandOutput extends DBClusterSnapsh
  *  <p>
  *             <code>DBClusterSnapshotIdentifier</code> doesn't refer to an existing cluster snapshot. </p>
  *
+ * @throws {@link DocDBServiceException}
+ * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
  */
 export class DescribeDBClusterSnapshotsCommand extends $Command<

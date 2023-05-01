@@ -36,15 +36,25 @@ export interface ListSchedulingPoliciesCommandOutput extends ListSchedulingPolic
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BatchClient, ListSchedulingPoliciesCommand } from "@aws-sdk/client-batch"; // ES Modules import
- * // const { BatchClient, ListSchedulingPoliciesCommand } = require("@aws-sdk/client-batch"); // CommonJS import
+ * import { BatchClient, ListSchedulingPoliciesCommand } from '@aws-sdk/client-batch'; // ES Modules import
+ * // const { BatchClient, ListSchedulingPoliciesCommand } = require('@aws-sdk/client-batch'); // CommonJS import
  * const client = new BatchClient(config);
  * const input = { // ListSchedulingPoliciesRequest
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new ListSchedulingPoliciesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListSchedulingPoliciesResponse
+ *   schedulingPolicies: [ // SchedulingPolicyListingDetailList
+ *     { // SchedulingPolicyListingDetail
+ *       arn: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListSchedulingPoliciesCommandInput - {@link ListSchedulingPoliciesCommandInput}
@@ -61,6 +71,8 @@ export interface ListSchedulingPoliciesCommandOutput extends ListSchedulingPolic
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server issue.</p>
  *
+ * @throws {@link BatchServiceException}
+ * <p>Base exception class for all service exceptions from Batch service.</p>
  *
  */
 export class ListSchedulingPoliciesCommand extends $Command<

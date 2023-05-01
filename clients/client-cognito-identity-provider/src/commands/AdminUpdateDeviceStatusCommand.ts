@@ -46,17 +46,20 @@ export interface AdminUpdateDeviceStatusCommandOutput extends AdminUpdateDeviceS
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CognitoIdentityProviderClient, AdminUpdateDeviceStatusCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
- * // const { CognitoIdentityProviderClient, AdminUpdateDeviceStatusCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
+ * import { CognitoIdentityProviderClient, AdminUpdateDeviceStatusCommand } from '@aws-sdk/client-cognito-identity-provider'; // ES Modules import
+ * // const { CognitoIdentityProviderClient, AdminUpdateDeviceStatusCommand } = require('@aws-sdk/client-cognito-identity-provider'); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
  * const input = { // AdminUpdateDeviceStatusRequest
- *   UserPoolId: "STRING_VALUE", // required
- *   Username: "STRING_VALUE", // required
- *   DeviceKey: "STRING_VALUE", // required
- *   DeviceRememberedStatus: "remembered" || "not_remembered",
+ *   UserPoolId: 'STRING_VALUE', // required
+ *   Username: 'STRING_VALUE', // required
+ *   DeviceKey: 'STRING_VALUE', // required
+ *   DeviceRememberedStatus: 'remembered' || 'not_remembered',
  * };
  * const command = new AdminUpdateDeviceStatusCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param AdminUpdateDeviceStatusCommandInput - {@link AdminUpdateDeviceStatusCommandInput}
@@ -89,6 +92,8 @@ export interface AdminUpdateDeviceStatusCommandOutput extends AdminUpdateDeviceS
  * @throws {@link UserNotFoundException} (client fault)
  *  <p>This exception is thrown when a user isn't found.</p>
  *
+ * @throws {@link CognitoIdentityProviderServiceException}
+ * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
  */
 export class AdminUpdateDeviceStatusCommand extends $Command<

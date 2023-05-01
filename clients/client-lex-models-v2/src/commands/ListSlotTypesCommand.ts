@@ -36,31 +36,49 @@ export interface ListSlotTypesCommandOutput extends ListSlotTypesResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LexModelsV2Client, ListSlotTypesCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
- * // const { LexModelsV2Client, ListSlotTypesCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
+ * import { LexModelsV2Client, ListSlotTypesCommand } from '@aws-sdk/client-lex-models-v2'; // ES Modules import
+ * // const { LexModelsV2Client, ListSlotTypesCommand } = require('@aws-sdk/client-lex-models-v2'); // CommonJS import
  * const client = new LexModelsV2Client(config);
  * const input = { // ListSlotTypesRequest
- *   botId: "STRING_VALUE", // required
- *   botVersion: "STRING_VALUE", // required
- *   localeId: "STRING_VALUE", // required
+ *   botId: 'STRING_VALUE', // required
+ *   botVersion: 'STRING_VALUE', // required
+ *   localeId: 'STRING_VALUE', // required
  *   sortBy: { // SlotTypeSortBy
- *     attribute: "SlotTypeName" || "LastUpdatedDateTime", // required
- *     order: "Ascending" || "Descending", // required
+ *     attribute: 'SlotTypeName' || 'LastUpdatedDateTime', // required
+ *     order: 'Ascending' || 'Descending', // required
  *   },
  *   filters: [ // SlotTypeFilters
  *     { // SlotTypeFilter
- *       name: "SlotTypeName" || "ExternalSourceType", // required
+ *       name: 'SlotTypeName' || 'ExternalSourceType', // required
  *       values: [ // FilterValues // required
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
- *       operator: "CO" || "EQ", // required
+ *       operator: 'CO' || 'EQ', // required
  *     },
  *   ],
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new ListSlotTypesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListSlotTypesResponse
+ *   botId: 'STRING_VALUE',
+ *   botVersion: 'STRING_VALUE',
+ *   localeId: 'STRING_VALUE',
+ *   slotTypeSummaries: [ // SlotTypeSummaryList
+ *     { // SlotTypeSummary
+ *       slotTypeId: 'STRING_VALUE',
+ *       slotTypeName: 'STRING_VALUE',
+ *       description: 'STRING_VALUE',
+ *       parentSlotTypeSignature: 'STRING_VALUE',
+ *       lastUpdatedDateTime: new Date('TIMESTAMP'),
+ *       slotTypeCategory: 'Custom' || 'Extended' || 'ExternalGrammar' || 'Composite',
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListSlotTypesCommandInput - {@link ListSlotTypesCommandInput}
@@ -84,6 +102,8 @@ export interface ListSlotTypesCommandOutput extends ListSlotTypesResponse, __Met
  *  <p>One of the input parameters in your request isn't valid. Check the
  *          parameters and try your request again.</p>
  *
+ * @throws {@link LexModelsV2ServiceException}
+ * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
  */
 export class ListSlotTypesCommand extends $Command<

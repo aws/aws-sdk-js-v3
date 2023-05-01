@@ -36,15 +36,23 @@ export interface GetBranchCommandOutput extends GetBranchOutput, __MetadataBeare
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeCommitClient, GetBranchCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
- * // const { CodeCommitClient, GetBranchCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
+ * import { CodeCommitClient, GetBranchCommand } from '@aws-sdk/client-codecommit'; // ES Modules import
+ * // const { CodeCommitClient, GetBranchCommand } = require('@aws-sdk/client-codecommit'); // CommonJS import
  * const client = new CodeCommitClient(config);
  * const input = { // GetBranchInput
- *   repositoryName: "STRING_VALUE",
- *   branchName: "STRING_VALUE",
+ *   repositoryName: 'STRING_VALUE',
+ *   branchName: 'STRING_VALUE',
  * };
  * const command = new GetBranchCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetBranchOutput
+ *   branch: { // BranchInfo
+ *     branchName: 'STRING_VALUE',
+ *     commitId: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetBranchCommandInput - {@link GetBranchCommandInput}
@@ -92,6 +100,8 @@ export interface GetBranchCommandOutput extends GetBranchOutput, __MetadataBeare
  * @throws {@link RepositoryNameRequiredException} (client fault)
  *  <p>A repository name is required, but was not specified.</p>
  *
+ * @throws {@link CodeCommitServiceException}
+ * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
  */
 export class GetBranchCommand extends $Command<

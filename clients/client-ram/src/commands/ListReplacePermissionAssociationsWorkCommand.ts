@@ -46,19 +46,37 @@ export interface ListReplacePermissionAssociationsWorkCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RAMClient, ListReplacePermissionAssociationsWorkCommand } from "@aws-sdk/client-ram"; // ES Modules import
- * // const { RAMClient, ListReplacePermissionAssociationsWorkCommand } = require("@aws-sdk/client-ram"); // CommonJS import
+ * import { RAMClient, ListReplacePermissionAssociationsWorkCommand } from '@aws-sdk/client-ram'; // ES Modules import
+ * // const { RAMClient, ListReplacePermissionAssociationsWorkCommand } = require('@aws-sdk/client-ram'); // CommonJS import
  * const client = new RAMClient(config);
  * const input = { // ListReplacePermissionAssociationsWorkRequest
  *   workIds: [ // ReplacePermissionAssociationsWorkIdList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   status: "IN_PROGRESS" || "COMPLETED" || "FAILED",
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   status: 'IN_PROGRESS' || 'COMPLETED' || 'FAILED',
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new ListReplacePermissionAssociationsWorkCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListReplacePermissionAssociationsWorkResponse
+ *   replacePermissionAssociationsWorks: [ // ReplacePermissionAssociationsWorkList
+ *     { // ReplacePermissionAssociationsWork
+ *       id: 'STRING_VALUE',
+ *       fromPermissionArn: 'STRING_VALUE',
+ *       fromPermissionVersion: 'STRING_VALUE',
+ *       toPermissionArn: 'STRING_VALUE',
+ *       toPermissionVersion: 'STRING_VALUE',
+ *       status: 'IN_PROGRESS' || 'COMPLETED' || 'FAILED',
+ *       statusMessage: 'STRING_VALUE',
+ *       creationTime: new Date('TIMESTAMP'),
+ *       lastUpdatedTime: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListReplacePermissionAssociationsWorkCommandInput - {@link ListReplacePermissionAssociationsWorkCommandInput}
@@ -82,6 +100,8 @@ export interface ListReplacePermissionAssociationsWorkCommandOutput
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The operation failed because the service isn't available. Try again later.</p>
  *
+ * @throws {@link RAMServiceException}
+ * <p>Base exception class for all service exceptions from RAM service.</p>
  *
  */
 export class ListReplacePermissionAssociationsWorkCommand extends $Command<

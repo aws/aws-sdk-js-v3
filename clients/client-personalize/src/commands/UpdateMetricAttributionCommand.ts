@@ -36,31 +36,36 @@ export interface UpdateMetricAttributionCommandOutput extends UpdateMetricAttrib
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PersonalizeClient, UpdateMetricAttributionCommand } from "@aws-sdk/client-personalize"; // ES Modules import
- * // const { PersonalizeClient, UpdateMetricAttributionCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
+ * import { PersonalizeClient, UpdateMetricAttributionCommand } from '@aws-sdk/client-personalize'; // ES Modules import
+ * // const { PersonalizeClient, UpdateMetricAttributionCommand } = require('@aws-sdk/client-personalize'); // CommonJS import
  * const client = new PersonalizeClient(config);
  * const input = { // UpdateMetricAttributionRequest
  *   addMetrics: [ // MetricAttributes
  *     { // MetricAttribute
- *       eventType: "STRING_VALUE", // required
- *       metricName: "STRING_VALUE", // required
- *       expression: "STRING_VALUE", // required
+ *       eventType: 'STRING_VALUE', // required
+ *       metricName: 'STRING_VALUE', // required
+ *       expression: 'STRING_VALUE', // required
  *     },
  *   ],
  *   removeMetrics: [ // MetricAttributesNamesList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   metricsOutputConfig: { // MetricAttributionOutput
  *     s3DataDestination: { // S3DataConfig
- *       path: "STRING_VALUE", // required
- *       kmsKeyArn: "STRING_VALUE",
+ *       path: 'STRING_VALUE', // required
+ *       kmsKeyArn: 'STRING_VALUE',
  *     },
- *     roleArn: "STRING_VALUE", // required
+ *     roleArn: 'STRING_VALUE', // required
  *   },
- *   metricAttributionArn: "STRING_VALUE",
+ *   metricAttributionArn: 'STRING_VALUE',
  * };
  * const command = new UpdateMetricAttributionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateMetricAttributionResponse
+ *   metricAttributionArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateMetricAttributionCommandInput - {@link UpdateMetricAttributionCommandInput}
@@ -81,6 +86,8 @@ export interface UpdateMetricAttributionCommandOutput extends UpdateMetricAttrib
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Could not find the specified resource.</p>
  *
+ * @throws {@link PersonalizeServiceException}
+ * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
  */
 export class UpdateMetricAttributionCommand extends $Command<

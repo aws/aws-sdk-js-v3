@@ -75,17 +75,33 @@ export interface ListHostedZonesByVPCCommandOutput extends ListHostedZonesByVPCR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Route53Client, ListHostedZonesByVPCCommand } from "@aws-sdk/client-route-53"; // ES Modules import
- * // const { Route53Client, ListHostedZonesByVPCCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
+ * import { Route53Client, ListHostedZonesByVPCCommand } from '@aws-sdk/client-route-53'; // ES Modules import
+ * // const { Route53Client, ListHostedZonesByVPCCommand } = require('@aws-sdk/client-route-53'); // CommonJS import
  * const client = new Route53Client(config);
  * const input = { // ListHostedZonesByVPCRequest
- *   VPCId: "STRING_VALUE", // required
- *   VPCRegion: "us-east-1" || "us-east-2" || "us-west-1" || "us-west-2" || "eu-west-1" || "eu-west-2" || "eu-west-3" || "eu-central-1" || "eu-central-2" || "ap-east-1" || "me-south-1" || "us-gov-west-1" || "us-gov-east-1" || "us-iso-east-1" || "us-iso-west-1" || "us-isob-east-1" || "me-central-1" || "ap-southeast-1" || "ap-southeast-2" || "ap-southeast-3" || "ap-south-1" || "ap-south-2" || "ap-northeast-1" || "ap-northeast-2" || "ap-northeast-3" || "eu-north-1" || "sa-east-1" || "ca-central-1" || "cn-north-1" || "af-south-1" || "eu-south-1" || "eu-south-2" || "ap-southeast-4", // required
- *   MaxItems: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   VPCId: 'STRING_VALUE', // required
+ *   VPCRegion: 'us-east-1' || 'us-east-2' || 'us-west-1' || 'us-west-2' || 'eu-west-1' || 'eu-west-2' || 'eu-west-3' || 'eu-central-1' || 'eu-central-2' || 'ap-east-1' || 'me-south-1' || 'us-gov-west-1' || 'us-gov-east-1' || 'us-iso-east-1' || 'us-iso-west-1' || 'us-isob-east-1' || 'me-central-1' || 'ap-southeast-1' || 'ap-southeast-2' || 'ap-southeast-3' || 'ap-south-1' || 'ap-south-2' || 'ap-northeast-1' || 'ap-northeast-2' || 'ap-northeast-3' || 'eu-north-1' || 'sa-east-1' || 'ca-central-1' || 'cn-north-1' || 'af-south-1' || 'eu-south-1' || 'eu-south-2' || 'ap-southeast-4', // required
+ *   MaxItems: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListHostedZonesByVPCCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListHostedZonesByVPCResponse
+ *   HostedZoneSummaries: [ // HostedZoneSummaries // required
+ *     { // HostedZoneSummary
+ *       HostedZoneId: 'STRING_VALUE', // required
+ *       Name: 'STRING_VALUE', // required
+ *       Owner: { // HostedZoneOwner
+ *         OwningAccount: 'STRING_VALUE',
+ *         OwningService: 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ *   MaxItems: Number('int'), // required
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListHostedZonesByVPCCommandInput - {@link ListHostedZonesByVPCCommandInput}
@@ -101,6 +117,8 @@ export interface ListHostedZonesByVPCCommandOutput extends ListHostedZonesByVPCR
  *  <p>The value that you specified to get the second or subsequent page of results is
  * 			invalid.</p>
  *
+ * @throws {@link Route53ServiceException}
+ * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
  */
 export class ListHostedZonesByVPCCommand extends $Command<

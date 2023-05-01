@@ -41,15 +41,32 @@ export interface ListByoipCidrsCommandOutput extends ListByoipCidrsResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlobalAcceleratorClient, ListByoipCidrsCommand } from "@aws-sdk/client-global-accelerator"; // ES Modules import
- * // const { GlobalAcceleratorClient, ListByoipCidrsCommand } = require("@aws-sdk/client-global-accelerator"); // CommonJS import
+ * import { GlobalAcceleratorClient, ListByoipCidrsCommand } from '@aws-sdk/client-global-accelerator'; // ES Modules import
+ * // const { GlobalAcceleratorClient, ListByoipCidrsCommand } = require('@aws-sdk/client-global-accelerator'); // CommonJS import
  * const client = new GlobalAcceleratorClient(config);
  * const input = { // ListByoipCidrsRequest
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListByoipCidrsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListByoipCidrsResponse
+ *   ByoipCidrs: [ // ByoipCidrs
+ *     { // ByoipCidr
+ *       Cidr: 'STRING_VALUE',
+ *       State: 'PENDING_PROVISIONING' || 'READY' || 'PENDING_ADVERTISING' || 'ADVERTISING' || 'PENDING_WITHDRAWING' || 'PENDING_DEPROVISIONING' || 'DEPROVISIONED' || 'FAILED_PROVISION' || 'FAILED_ADVERTISING' || 'FAILED_WITHDRAW' || 'FAILED_DEPROVISION',
+ *       Events: [ // ByoipCidrEvents
+ *         { // ByoipCidrEvent
+ *           Message: 'STRING_VALUE',
+ *           Timestamp: new Date('TIMESTAMP'),
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListByoipCidrsCommandInput - {@link ListByoipCidrsCommandInput}
@@ -70,6 +87,8 @@ export interface ListByoipCidrsCommandOutput extends ListByoipCidrsResponse, __M
  * @throws {@link InvalidNextTokenException} (client fault)
  *  <p>There isn't another item to return.</p>
  *
+ * @throws {@link GlobalAcceleratorServiceException}
+ * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
  */
 export class ListByoipCidrsCommand extends $Command<

@@ -74,24 +74,29 @@ export interface UpdateGeoMatchSetCommandOutput extends UpdateGeoMatchSetRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WAFClient, UpdateGeoMatchSetCommand } from "@aws-sdk/client-waf"; // ES Modules import
- * // const { WAFClient, UpdateGeoMatchSetCommand } = require("@aws-sdk/client-waf"); // CommonJS import
+ * import { WAFClient, UpdateGeoMatchSetCommand } from '@aws-sdk/client-waf'; // ES Modules import
+ * // const { WAFClient, UpdateGeoMatchSetCommand } = require('@aws-sdk/client-waf'); // CommonJS import
  * const client = new WAFClient(config);
  * const input = { // UpdateGeoMatchSetRequest
- *   GeoMatchSetId: "STRING_VALUE", // required
- *   ChangeToken: "STRING_VALUE", // required
+ *   GeoMatchSetId: 'STRING_VALUE', // required
+ *   ChangeToken: 'STRING_VALUE', // required
  *   Updates: [ // GeoMatchSetUpdates // required
  *     { // GeoMatchSetUpdate
- *       Action: "STRING_VALUE", // required
+ *       Action: 'STRING_VALUE', // required
  *       GeoMatchConstraint: { // GeoMatchConstraint
- *         Type: "STRING_VALUE", // required
- *         Value: "STRING_VALUE", // required
+ *         Type: 'STRING_VALUE', // required
+ *         Value: 'STRING_VALUE', // required
  *       },
  *     },
  *   ],
  * };
  * const command = new UpdateGeoMatchSetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateGeoMatchSetResponse
+ *   ChangeToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateGeoMatchSetCommandInput - {@link UpdateGeoMatchSetCommandInput}
@@ -209,6 +214,8 @@ export interface UpdateGeoMatchSetCommandOutput extends UpdateGeoMatchSetRespons
  * @throws {@link WAFStaleDataException} (client fault)
  *  <p>The operation failed because you tried to create, update, or delete an object by using a change token that has already been used.</p>
  *
+ * @throws {@link WAFServiceException}
+ * <p>Base exception class for all service exceptions from WAF service.</p>
  *
  */
 export class UpdateGeoMatchSetCommand extends $Command<

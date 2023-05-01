@@ -38,14 +38,17 @@ export interface DeleteLanguageModelCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { TranscribeClient, DeleteLanguageModelCommand } from "@aws-sdk/client-transcribe"; // ES Modules import
- * // const { TranscribeClient, DeleteLanguageModelCommand } = require("@aws-sdk/client-transcribe"); // CommonJS import
+ * import { TranscribeClient, DeleteLanguageModelCommand } from '@aws-sdk/client-transcribe'; // ES Modules import
+ * // const { TranscribeClient, DeleteLanguageModelCommand } = require('@aws-sdk/client-transcribe'); // CommonJS import
  * const client = new TranscribeClient(config);
  * const input = { // DeleteLanguageModelRequest
- *   ModelName: "STRING_VALUE", // required
+ *   ModelName: 'STRING_VALUE', // required
  * };
  * const command = new DeleteLanguageModelCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param DeleteLanguageModelCommandInput - {@link DeleteLanguageModelCommandInput}
@@ -68,6 +71,8 @@ export interface DeleteLanguageModelCommandOutput extends __MetadataBearer {}
  *  <p>You've either sent too many requests or your input file is too long. Wait before
  *             retrying your request, or use a smaller file and try your request again.</p>
  *
+ * @throws {@link TranscribeServiceException}
+ * <p>Base exception class for all service exceptions from Transcribe service.</p>
  *
  */
 export class DeleteLanguageModelCommand extends $Command<

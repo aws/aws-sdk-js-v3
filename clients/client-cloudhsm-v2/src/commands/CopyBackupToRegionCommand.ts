@@ -36,21 +36,31 @@ export interface CopyBackupToRegionCommandOutput extends CopyBackupToRegionRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudHSMV2Client, CopyBackupToRegionCommand } from "@aws-sdk/client-cloudhsm-v2"; // ES Modules import
- * // const { CloudHSMV2Client, CopyBackupToRegionCommand } = require("@aws-sdk/client-cloudhsm-v2"); // CommonJS import
+ * import { CloudHSMV2Client, CopyBackupToRegionCommand } from '@aws-sdk/client-cloudhsm-v2'; // ES Modules import
+ * // const { CloudHSMV2Client, CopyBackupToRegionCommand } = require('@aws-sdk/client-cloudhsm-v2'); // CommonJS import
  * const client = new CloudHSMV2Client(config);
  * const input = { // CopyBackupToRegionRequest
- *   DestinationRegion: "STRING_VALUE", // required
- *   BackupId: "STRING_VALUE", // required
+ *   DestinationRegion: 'STRING_VALUE', // required
+ *   BackupId: 'STRING_VALUE', // required
  *   TagList: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Key: 'STRING_VALUE', // required
+ *       Value: 'STRING_VALUE', // required
  *     },
  *   ],
  * };
  * const command = new CopyBackupToRegionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CopyBackupToRegionResponse
+ *   DestinationBackup: { // DestinationBackup
+ *     CreateTimestamp: new Date('TIMESTAMP'),
+ *     SourceRegion: 'STRING_VALUE',
+ *     SourceBackup: 'STRING_VALUE',
+ *     SourceCluster: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param CopyBackupToRegionCommandInput - {@link CopyBackupToRegionCommandInput}
@@ -80,6 +90,8 @@ export interface CopyBackupToRegionCommandOutput extends CopyBackupToRegionRespo
  * @throws {@link CloudHsmTagException} (client fault)
  *  <p>The request was rejected because of a tagging failure. Verify the tag conditions in all applicable policies, and then retry the request.</p>
  *
+ * @throws {@link CloudHSMV2ServiceException}
+ * <p>Base exception class for all service exceptions from CloudHSMV2 service.</p>
  *
  */
 export class CopyBackupToRegionCommand extends $Command<

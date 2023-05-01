@@ -43,16 +43,29 @@ export interface ListPartnerEventSourceAccountsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EventBridgeClient, ListPartnerEventSourceAccountsCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
- * // const { EventBridgeClient, ListPartnerEventSourceAccountsCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
+ * import { EventBridgeClient, ListPartnerEventSourceAccountsCommand } from '@aws-sdk/client-eventbridge'; // ES Modules import
+ * // const { EventBridgeClient, ListPartnerEventSourceAccountsCommand } = require('@aws-sdk/client-eventbridge'); // CommonJS import
  * const client = new EventBridgeClient(config);
  * const input = { // ListPartnerEventSourceAccountsRequest
- *   EventSourceName: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   Limit: Number("int"),
+ *   EventSourceName: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
+ *   Limit: Number('int'),
  * };
  * const command = new ListPartnerEventSourceAccountsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListPartnerEventSourceAccountsResponse
+ *   PartnerEventSourceAccounts: [ // PartnerEventSourceAccountList
+ *     { // PartnerEventSourceAccount
+ *       Account: 'STRING_VALUE',
+ *       CreationTime: new Date('TIMESTAMP'),
+ *       ExpirationTime: new Date('TIMESTAMP'),
+ *       State: 'PENDING' || 'ACTIVE' || 'DELETED',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListPartnerEventSourceAccountsCommandInput - {@link ListPartnerEventSourceAccountsCommandInput}
@@ -70,6 +83,8 @@ export interface ListPartnerEventSourceAccountsCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>An entity that you specified does not exist.</p>
  *
+ * @throws {@link EventBridgeServiceException}
+ * <p>Base exception class for all service exceptions from EventBridge service.</p>
  *
  */
 export class ListPartnerEventSourceAccountsCommand extends $Command<

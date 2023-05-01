@@ -41,19 +41,19 @@ export interface PutDataSetRefreshPropertiesCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { QuickSightClient, PutDataSetRefreshPropertiesCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
- * // const { QuickSightClient, PutDataSetRefreshPropertiesCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * import { QuickSightClient, PutDataSetRefreshPropertiesCommand } from '@aws-sdk/client-quicksight'; // ES Modules import
+ * // const { QuickSightClient, PutDataSetRefreshPropertiesCommand } = require('@aws-sdk/client-quicksight'); // CommonJS import
  * const client = new QuickSightClient(config);
  * const input = { // PutDataSetRefreshPropertiesRequest
- *   AwsAccountId: "STRING_VALUE", // required
- *   DataSetId: "STRING_VALUE", // required
+ *   AwsAccountId: 'STRING_VALUE', // required
+ *   DataSetId: 'STRING_VALUE', // required
  *   DataSetRefreshProperties: { // DataSetRefreshProperties
  *     RefreshConfiguration: { // RefreshConfiguration
  *       IncrementalRefresh: { // IncrementalRefresh
  *         LookbackWindow: { // LookbackWindow
- *           ColumnName: "STRING_VALUE", // required
- *           Size: Number("long"), // required
- *           SizeUnit: "HOUR" || "DAY" || "WEEK", // required
+ *           ColumnName: 'STRING_VALUE', // required
+ *           Size: Number('long'), // required
+ *           SizeUnit: 'HOUR' || 'DAY' || 'WEEK', // required
  *         },
  *       },
  *     },
@@ -61,6 +61,12 @@ export interface PutDataSetRefreshPropertiesCommandOutput
  * };
  * const command = new PutDataSetRefreshPropertiesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutDataSetRefreshPropertiesResponse
+ *   RequestId: 'STRING_VALUE',
+ *   Status: Number('int'),
+ * };
+ *
  * ```
  *
  * @param PutDataSetRefreshPropertiesCommandInput - {@link PutDataSetRefreshPropertiesCommandInput}
@@ -96,6 +102,8 @@ export interface PutDataSetRefreshPropertiesCommandOutput
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Access is throttled.</p>
  *
+ * @throws {@link QuickSightServiceException}
+ * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
 export class PutDataSetRefreshPropertiesCommand extends $Command<

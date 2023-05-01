@@ -37,14 +37,31 @@ export interface DeleteGlobalNetworkCommandOutput extends DeleteGlobalNetworkRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { NetworkManagerClient, DeleteGlobalNetworkCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
- * // const { NetworkManagerClient, DeleteGlobalNetworkCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
+ * import { NetworkManagerClient, DeleteGlobalNetworkCommand } from '@aws-sdk/client-networkmanager'; // ES Modules import
+ * // const { NetworkManagerClient, DeleteGlobalNetworkCommand } = require('@aws-sdk/client-networkmanager'); // CommonJS import
  * const client = new NetworkManagerClient(config);
  * const input = { // DeleteGlobalNetworkRequest
- *   GlobalNetworkId: "STRING_VALUE", // required
+ *   GlobalNetworkId: 'STRING_VALUE', // required
  * };
  * const command = new DeleteGlobalNetworkCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteGlobalNetworkResponse
+ *   GlobalNetwork: { // GlobalNetwork
+ *     GlobalNetworkId: 'STRING_VALUE',
+ *     GlobalNetworkArn: 'STRING_VALUE',
+ *     Description: 'STRING_VALUE',
+ *     CreatedAt: new Date('TIMESTAMP'),
+ *     State: 'PENDING' || 'AVAILABLE' || 'DELETING' || 'UPDATING',
+ *     Tags: [ // TagList
+ *       { // Tag
+ *         Key: 'STRING_VALUE',
+ *         Value: 'STRING_VALUE',
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param DeleteGlobalNetworkCommandInput - {@link DeleteGlobalNetworkCommandInput}
@@ -72,6 +89,8 @@ export interface DeleteGlobalNetworkCommandOutput extends DeleteGlobalNetworkRes
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints.</p>
  *
+ * @throws {@link NetworkManagerServiceException}
+ * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
  */
 export class DeleteGlobalNetworkCommand extends $Command<

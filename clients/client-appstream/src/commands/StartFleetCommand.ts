@@ -36,14 +36,17 @@ export interface StartFleetCommandOutput extends StartFleetResult, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppStreamClient, StartFleetCommand } from "@aws-sdk/client-appstream"; // ES Modules import
- * // const { AppStreamClient, StartFleetCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
+ * import { AppStreamClient, StartFleetCommand } from '@aws-sdk/client-appstream'; // ES Modules import
+ * // const { AppStreamClient, StartFleetCommand } = require('@aws-sdk/client-appstream'); // CommonJS import
  * const client = new AppStreamClient(config);
  * const input = { // StartFleetRequest
- *   Name: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
  * };
  * const command = new StartFleetCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param StartFleetCommandInput - {@link StartFleetCommandInput}
@@ -76,6 +79,8 @@ export interface StartFleetCommandOutput extends StartFleetResult, __MetadataBea
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link AppStreamServiceException}
+ * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
  */
 export class StartFleetCommand extends $Command<

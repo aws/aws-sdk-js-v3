@@ -36,35 +36,41 @@ export interface CreateScriptCommandOutput extends CreateScriptResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlueClient, CreateScriptCommand } from "@aws-sdk/client-glue"; // ES Modules import
- * // const { GlueClient, CreateScriptCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * import { GlueClient, CreateScriptCommand } from '@aws-sdk/client-glue'; // ES Modules import
+ * // const { GlueClient, CreateScriptCommand } = require('@aws-sdk/client-glue'); // CommonJS import
  * const client = new GlueClient(config);
  * const input = { // CreateScriptRequest
  *   DagNodes: [ // DagNodes
  *     { // CodeGenNode
- *       Id: "STRING_VALUE", // required
- *       NodeType: "STRING_VALUE", // required
+ *       Id: 'STRING_VALUE', // required
+ *       NodeType: 'STRING_VALUE', // required
  *       Args: [ // CodeGenNodeArgs // required
  *         { // CodeGenNodeArg
- *           Name: "STRING_VALUE", // required
- *           Value: "STRING_VALUE", // required
+ *           Name: 'STRING_VALUE', // required
+ *           Value: 'STRING_VALUE', // required
  *           Param: true || false,
  *         },
  *       ],
- *       LineNumber: Number("int"),
+ *       LineNumber: Number('int'),
  *     },
  *   ],
  *   DagEdges: [ // DagEdges
  *     { // CodeGenEdge
- *       Source: "STRING_VALUE", // required
- *       Target: "STRING_VALUE", // required
- *       TargetParameter: "STRING_VALUE",
+ *       Source: 'STRING_VALUE', // required
+ *       Target: 'STRING_VALUE', // required
+ *       TargetParameter: 'STRING_VALUE',
  *     },
  *   ],
- *   Language: "PYTHON" || "SCALA",
+ *   Language: 'PYTHON' || 'SCALA',
  * };
  * const command = new CreateScriptCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateScriptResponse
+ *   PythonScript: 'STRING_VALUE',
+ *   ScalaCode: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateScriptCommandInput - {@link CreateScriptCommandInput}
@@ -82,6 +88,8 @@ export interface CreateScriptCommandOutput extends CreateScriptResponse, __Metad
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class CreateScriptCommand extends $Command<

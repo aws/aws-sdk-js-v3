@@ -52,15 +52,27 @@ export interface ListApplicationsCommandOutput extends ListApplicationsResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KinesisAnalyticsClient, ListApplicationsCommand } from "@aws-sdk/client-kinesis-analytics"; // ES Modules import
- * // const { KinesisAnalyticsClient, ListApplicationsCommand } = require("@aws-sdk/client-kinesis-analytics"); // CommonJS import
+ * import { KinesisAnalyticsClient, ListApplicationsCommand } from '@aws-sdk/client-kinesis-analytics'; // ES Modules import
+ * // const { KinesisAnalyticsClient, ListApplicationsCommand } = require('@aws-sdk/client-kinesis-analytics'); // CommonJS import
  * const client = new KinesisAnalyticsClient(config);
  * const input = { // ListApplicationsRequest
- *   Limit: Number("int"),
- *   ExclusiveStartApplicationName: "STRING_VALUE",
+ *   Limit: Number('int'),
+ *   ExclusiveStartApplicationName: 'STRING_VALUE',
  * };
  * const command = new ListApplicationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListApplicationsResponse
+ *   ApplicationSummaries: [ // ApplicationSummaries // required
+ *     { // ApplicationSummary
+ *       ApplicationName: 'STRING_VALUE', // required
+ *       ApplicationARN: 'STRING_VALUE', // required
+ *       ApplicationStatus: 'STRING_VALUE', // required
+ *     },
+ *   ],
+ *   HasMoreApplications: true || false, // required
+ * };
+ *
  * ```
  *
  * @param ListApplicationsCommandInput - {@link ListApplicationsCommandInput}
@@ -69,6 +81,8 @@ export interface ListApplicationsCommandOutput extends ListApplicationsResponse,
  * @see {@link ListApplicationsCommandOutput} for command's `response` shape.
  * @see {@link KinesisAnalyticsClientResolvedConfig | config} for KinesisAnalyticsClient's `config` shape.
  *
+ * @throws {@link KinesisAnalyticsServiceException}
+ * <p>Base exception class for all service exceptions from KinesisAnalytics service.</p>
  *
  */
 export class ListApplicationsCommand extends $Command<

@@ -40,15 +40,33 @@ export interface AssociatePackageCommandOutput extends AssociatePackageResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElasticsearchServiceClient, AssociatePackageCommand } from "@aws-sdk/client-elasticsearch-service"; // ES Modules import
- * // const { ElasticsearchServiceClient, AssociatePackageCommand } = require("@aws-sdk/client-elasticsearch-service"); // CommonJS import
+ * import { ElasticsearchServiceClient, AssociatePackageCommand } from '@aws-sdk/client-elasticsearch-service'; // ES Modules import
+ * // const { ElasticsearchServiceClient, AssociatePackageCommand } = require('@aws-sdk/client-elasticsearch-service'); // CommonJS import
  * const client = new ElasticsearchServiceClient(config);
  * const input = { // AssociatePackageRequest
- *   PackageID: "STRING_VALUE", // required
- *   DomainName: "STRING_VALUE", // required
+ *   PackageID: 'STRING_VALUE', // required
+ *   DomainName: 'STRING_VALUE', // required
  * };
  * const command = new AssociatePackageCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AssociatePackageResponse
+ *   DomainPackageDetails: { // DomainPackageDetails
+ *     PackageID: 'STRING_VALUE',
+ *     PackageName: 'STRING_VALUE',
+ *     PackageType: 'TXT-DICTIONARY',
+ *     LastUpdated: new Date('TIMESTAMP'),
+ *     DomainName: 'STRING_VALUE',
+ *     DomainPackageStatus: 'ASSOCIATING' || 'ASSOCIATION_FAILED' || 'ACTIVE' || 'DISSOCIATING' || 'DISSOCIATION_FAILED',
+ *     PackageVersion: 'STRING_VALUE',
+ *     ReferencePath: 'STRING_VALUE',
+ *     ErrorDetails: { // ErrorDetails
+ *       ErrorType: 'STRING_VALUE',
+ *       ErrorMessage: 'STRING_VALUE',
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param AssociatePackageCommandInput - {@link AssociatePackageCommandInput}
@@ -75,6 +93,8 @@ export interface AssociatePackageCommandOutput extends AssociatePackageResponse,
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception for missing / invalid input fields. Gives http status code of 400.</p>
  *
+ * @throws {@link ElasticsearchServiceServiceException}
+ * <p>Base exception class for all service exceptions from ElasticsearchService service.</p>
  *
  */
 export class AssociatePackageCommand extends $Command<

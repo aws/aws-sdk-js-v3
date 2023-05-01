@@ -41,20 +41,39 @@ export interface ListPipesCommandOutput extends ListPipesResponse, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PipesClient, ListPipesCommand } from "@aws-sdk/client-pipes"; // ES Modules import
- * // const { PipesClient, ListPipesCommand } = require("@aws-sdk/client-pipes"); // CommonJS import
+ * import { PipesClient, ListPipesCommand } from '@aws-sdk/client-pipes'; // ES Modules import
+ * // const { PipesClient, ListPipesCommand } = require('@aws-sdk/client-pipes'); // CommonJS import
  * const client = new PipesClient(config);
  * const input = { // ListPipesRequest
- *   NamePrefix: "STRING_VALUE",
- *   DesiredState: "STRING_VALUE",
- *   CurrentState: "STRING_VALUE",
- *   SourcePrefix: "STRING_VALUE",
- *   TargetPrefix: "STRING_VALUE",
- *   NextToken: "STRING_VALUE",
- *   Limit: Number("int"),
+ *   NamePrefix: 'STRING_VALUE',
+ *   DesiredState: 'STRING_VALUE',
+ *   CurrentState: 'STRING_VALUE',
+ *   SourcePrefix: 'STRING_VALUE',
+ *   TargetPrefix: 'STRING_VALUE',
+ *   NextToken: 'STRING_VALUE',
+ *   Limit: Number('int'),
  * };
  * const command = new ListPipesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListPipesResponse
+ *   Pipes: [ // PipeList
+ *     { // Pipe
+ *       Name: 'STRING_VALUE',
+ *       Arn: 'STRING_VALUE',
+ *       DesiredState: 'STRING_VALUE',
+ *       CurrentState: 'STRING_VALUE',
+ *       StateReason: 'STRING_VALUE',
+ *       CreationTime: new Date('TIMESTAMP'),
+ *       LastModifiedTime: new Date('TIMESTAMP'),
+ *       Source: 'STRING_VALUE',
+ *       Target: 'STRING_VALUE',
+ *       Enrichment: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListPipesCommandInput - {@link ListPipesCommandInput}
@@ -72,6 +91,8 @@ export interface ListPipesCommandOutput extends ListPipesResponse, __MetadataBea
  * @throws {@link ValidationException} (client fault)
  *  <p>Indicates that an error has occurred while performing a validate operation.</p>
  *
+ * @throws {@link PipesServiceException}
+ * <p>Base exception class for all service exceptions from Pipes service.</p>
  *
  */
 export class ListPipesCommand extends $Command<

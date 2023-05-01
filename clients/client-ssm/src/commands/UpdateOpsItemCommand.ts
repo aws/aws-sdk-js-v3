@@ -41,44 +41,47 @@ export interface UpdateOpsItemCommandOutput extends UpdateOpsItemResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMClient, UpdateOpsItemCommand } from "@aws-sdk/client-ssm"; // ES Modules import
- * // const { SSMClient, UpdateOpsItemCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * import { SSMClient, UpdateOpsItemCommand } from '@aws-sdk/client-ssm'; // ES Modules import
+ * // const { SSMClient, UpdateOpsItemCommand } = require('@aws-sdk/client-ssm'); // CommonJS import
  * const client = new SSMClient(config);
  * const input = { // UpdateOpsItemRequest
- *   Description: "STRING_VALUE",
+ *   Description: 'STRING_VALUE',
  *   OperationalData: { // OpsItemOperationalData
- *     "<keys>": { // OpsItemDataValue
- *       Value: "STRING_VALUE",
- *       Type: "SearchableString" || "String",
+ *     '<keys>': { // OpsItemDataValue
+ *       Value: 'STRING_VALUE',
+ *       Type: 'SearchableString' || 'String',
  *     },
  *   },
  *   OperationalDataToDelete: [ // OpsItemOpsDataKeysList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   Notifications: [ // OpsItemNotifications
  *     { // OpsItemNotification
- *       Arn: "STRING_VALUE",
+ *       Arn: 'STRING_VALUE',
  *     },
  *   ],
- *   Priority: Number("int"),
+ *   Priority: Number('int'),
  *   RelatedOpsItems: [ // RelatedOpsItems
  *     { // RelatedOpsItem
- *       OpsItemId: "STRING_VALUE", // required
+ *       OpsItemId: 'STRING_VALUE', // required
  *     },
  *   ],
- *   Status: "Open" || "InProgress" || "Resolved" || "Pending" || "TimedOut" || "Cancelling" || "Cancelled" || "Failed" || "CompletedWithSuccess" || "CompletedWithFailure" || "Scheduled" || "RunbookInProgress" || "PendingChangeCalendarOverride" || "ChangeCalendarOverrideApproved" || "ChangeCalendarOverrideRejected" || "PendingApproval" || "Approved" || "Rejected" || "Closed",
- *   OpsItemId: "STRING_VALUE", // required
- *   Title: "STRING_VALUE",
- *   Category: "STRING_VALUE",
- *   Severity: "STRING_VALUE",
- *   ActualStartTime: new Date("TIMESTAMP"),
- *   ActualEndTime: new Date("TIMESTAMP"),
- *   PlannedStartTime: new Date("TIMESTAMP"),
- *   PlannedEndTime: new Date("TIMESTAMP"),
- *   OpsItemArn: "STRING_VALUE",
+ *   Status: 'Open' || 'InProgress' || 'Resolved' || 'Pending' || 'TimedOut' || 'Cancelling' || 'Cancelled' || 'Failed' || 'CompletedWithSuccess' || 'CompletedWithFailure' || 'Scheduled' || 'RunbookInProgress' || 'PendingChangeCalendarOverride' || 'ChangeCalendarOverrideApproved' || 'ChangeCalendarOverrideRejected' || 'PendingApproval' || 'Approved' || 'Rejected' || 'Closed',
+ *   OpsItemId: 'STRING_VALUE', // required
+ *   Title: 'STRING_VALUE',
+ *   Category: 'STRING_VALUE',
+ *   Severity: 'STRING_VALUE',
+ *   ActualStartTime: new Date('TIMESTAMP'),
+ *   ActualEndTime: new Date('TIMESTAMP'),
+ *   PlannedStartTime: new Date('TIMESTAMP'),
+ *   PlannedEndTime: new Date('TIMESTAMP'),
+ *   OpsItemArn: 'STRING_VALUE',
  * };
  * const command = new UpdateOpsItemCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UpdateOpsItemCommandInput - {@link UpdateOpsItemCommandInput}
@@ -109,6 +112,8 @@ export interface UpdateOpsItemCommandOutput extends UpdateOpsItemResponse, __Met
  * @throws {@link OpsItemNotFoundException} (client fault)
  *  <p>The specified OpsItem ID doesn't exist. Verify the ID and try again.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class UpdateOpsItemCommand extends $Command<

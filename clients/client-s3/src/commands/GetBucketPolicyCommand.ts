@@ -58,15 +58,20 @@ export interface GetBucketPolicyCommandOutput extends GetBucketPolicyOutput, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { S3Client, GetBucketPolicyCommand } from "@aws-sdk/client-s3"; // ES Modules import
- * // const { S3Client, GetBucketPolicyCommand } = require("@aws-sdk/client-s3"); // CommonJS import
+ * import { S3Client, GetBucketPolicyCommand } from '@aws-sdk/client-s3'; // ES Modules import
+ * // const { S3Client, GetBucketPolicyCommand } = require('@aws-sdk/client-s3'); // CommonJS import
  * const client = new S3Client(config);
  * const input = { // GetBucketPolicyRequest
- *   Bucket: "STRING_VALUE", // required
- *   ExpectedBucketOwner: "STRING_VALUE",
+ *   Bucket: 'STRING_VALUE', // required
+ *   ExpectedBucketOwner: 'STRING_VALUE',
  * };
  * const command = new GetBucketPolicyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetBucketPolicyOutput
+ *   Policy: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetBucketPolicyCommandInput - {@link GetBucketPolicyCommandInput}
@@ -75,6 +80,8 @@ export interface GetBucketPolicyCommandOutput extends GetBucketPolicyOutput, __M
  * @see {@link GetBucketPolicyCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
+ * @throws {@link S3ServiceException}
+ * <p>Base exception class for all service exceptions from S3 service.</p>
  *
  * @example To get bucket policy
  * ```javascript

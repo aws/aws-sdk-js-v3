@@ -36,19 +36,37 @@ export interface UpdateScalingParametersCommandOutput extends UpdateScalingParam
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudSearchClient, UpdateScalingParametersCommand } from "@aws-sdk/client-cloudsearch"; // ES Modules import
- * // const { CloudSearchClient, UpdateScalingParametersCommand } = require("@aws-sdk/client-cloudsearch"); // CommonJS import
+ * import { CloudSearchClient, UpdateScalingParametersCommand } from '@aws-sdk/client-cloudsearch'; // ES Modules import
+ * // const { CloudSearchClient, UpdateScalingParametersCommand } = require('@aws-sdk/client-cloudsearch'); // CommonJS import
  * const client = new CloudSearchClient(config);
  * const input = { // UpdateScalingParametersRequest
- *   DomainName: "STRING_VALUE", // required
+ *   DomainName: 'STRING_VALUE', // required
  *   ScalingParameters: { // ScalingParameters
- *     DesiredInstanceType: "STRING_VALUE",
- *     DesiredReplicationCount: Number("int"),
- *     DesiredPartitionCount: Number("int"),
+ *     DesiredInstanceType: 'STRING_VALUE',
+ *     DesiredReplicationCount: Number('int'),
+ *     DesiredPartitionCount: Number('int'),
  *   },
  * };
  * const command = new UpdateScalingParametersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateScalingParametersResponse
+ *   ScalingParameters: { // ScalingParametersStatus
+ *     Options: { // ScalingParameters
+ *       DesiredInstanceType: 'STRING_VALUE',
+ *       DesiredReplicationCount: Number('int'),
+ *       DesiredPartitionCount: Number('int'),
+ *     },
+ *     Status: { // OptionStatus
+ *       CreationDate: new Date('TIMESTAMP'), // required
+ *       UpdateDate: new Date('TIMESTAMP'), // required
+ *       UpdateVersion: Number('int'),
+ *       State: 'STRING_VALUE', // required
+ *       PendingDeletion: true || false,
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateScalingParametersCommandInput - {@link UpdateScalingParametersCommandInput}
@@ -76,6 +94,8 @@ export interface UpdateScalingParametersCommandOutput extends UpdateScalingParam
  * @throws {@link ValidationException} (client fault)
  *  <p>The request was rejected because it has invalid parameters.</p>
  *
+ * @throws {@link CloudSearchServiceException}
+ * <p>Base exception class for all service exceptions from CloudSearch service.</p>
  *
  */
 export class UpdateScalingParametersCommand extends $Command<

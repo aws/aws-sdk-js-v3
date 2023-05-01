@@ -36,15 +36,21 @@ export interface UpdateGatewayInstanceCommandOutput extends UpdateGatewayInstanc
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MediaConnectClient, UpdateGatewayInstanceCommand } from "@aws-sdk/client-mediaconnect"; // ES Modules import
- * // const { MediaConnectClient, UpdateGatewayInstanceCommand } = require("@aws-sdk/client-mediaconnect"); // CommonJS import
+ * import { MediaConnectClient, UpdateGatewayInstanceCommand } from '@aws-sdk/client-mediaconnect'; // ES Modules import
+ * // const { MediaConnectClient, UpdateGatewayInstanceCommand } = require('@aws-sdk/client-mediaconnect'); // CommonJS import
  * const client = new MediaConnectClient(config);
  * const input = { // UpdateGatewayInstanceRequest
- *   BridgePlacement: "AVAILABLE" || "LOCKED",
- *   GatewayInstanceArn: "STRING_VALUE", // required
+ *   BridgePlacement: 'AVAILABLE' || 'LOCKED',
+ *   GatewayInstanceArn: 'STRING_VALUE', // required
  * };
  * const command = new UpdateGatewayInstanceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateGatewayInstanceResponse
+ *   BridgePlacement: 'AVAILABLE' || 'LOCKED',
+ *   GatewayInstanceArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateGatewayInstanceCommandInput - {@link UpdateGatewayInstanceCommandInput}
@@ -74,6 +80,8 @@ export interface UpdateGatewayInstanceCommandOutput extends UpdateGatewayInstanc
  * @throws {@link TooManyRequestsException} (client fault)
  *  Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
  *
+ * @throws {@link MediaConnectServiceException}
+ * <p>Base exception class for all service exceptions from MediaConnect service.</p>
  *
  */
 export class UpdateGatewayInstanceCommand extends $Command<

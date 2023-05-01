@@ -45,18 +45,55 @@ export interface GetCommentsForComparedCommitCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeCommitClient, GetCommentsForComparedCommitCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
- * // const { CodeCommitClient, GetCommentsForComparedCommitCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
+ * import { CodeCommitClient, GetCommentsForComparedCommitCommand } from '@aws-sdk/client-codecommit'; // ES Modules import
+ * // const { CodeCommitClient, GetCommentsForComparedCommitCommand } = require('@aws-sdk/client-codecommit'); // CommonJS import
  * const client = new CodeCommitClient(config);
  * const input = { // GetCommentsForComparedCommitInput
- *   repositoryName: "STRING_VALUE", // required
- *   beforeCommitId: "STRING_VALUE",
- *   afterCommitId: "STRING_VALUE", // required
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   repositoryName: 'STRING_VALUE', // required
+ *   beforeCommitId: 'STRING_VALUE',
+ *   afterCommitId: 'STRING_VALUE', // required
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new GetCommentsForComparedCommitCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetCommentsForComparedCommitOutput
+ *   commentsForComparedCommitData: [ // CommentsForComparedCommitData
+ *     { // CommentsForComparedCommit
+ *       repositoryName: 'STRING_VALUE',
+ *       beforeCommitId: 'STRING_VALUE',
+ *       afterCommitId: 'STRING_VALUE',
+ *       beforeBlobId: 'STRING_VALUE',
+ *       afterBlobId: 'STRING_VALUE',
+ *       location: { // Location
+ *         filePath: 'STRING_VALUE',
+ *         filePosition: Number('long'),
+ *         relativeFileVersion: 'STRING_VALUE',
+ *       },
+ *       comments: [ // Comments
+ *         { // Comment
+ *           commentId: 'STRING_VALUE',
+ *           content: 'STRING_VALUE',
+ *           inReplyTo: 'STRING_VALUE',
+ *           creationDate: new Date('TIMESTAMP'),
+ *           lastModifiedDate: new Date('TIMESTAMP'),
+ *           authorArn: 'STRING_VALUE',
+ *           deleted: true || false,
+ *           clientRequestToken: 'STRING_VALUE',
+ *           callerReactions: [ // CallerReactions
+ *             'STRING_VALUE',
+ *           ],
+ *           reactionCounts: { // ReactionCountsMap
+ *             '<keys>': Number('int'),
+ *           },
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetCommentsForComparedCommitCommandInput - {@link GetCommentsForComparedCommitCommandInput}
@@ -110,6 +147,8 @@ export interface GetCommentsForComparedCommitCommandOutput
  * @throws {@link RepositoryNameRequiredException} (client fault)
  *  <p>A repository name is required, but was not specified.</p>
  *
+ * @throws {@link CodeCommitServiceException}
+ * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
  */
 export class GetCommentsForComparedCommitCommand extends $Command<

@@ -45,19 +45,41 @@ export interface ListFirewallRuleGroupAssociationsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Route53ResolverClient, ListFirewallRuleGroupAssociationsCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
- * // const { Route53ResolverClient, ListFirewallRuleGroupAssociationsCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
+ * import { Route53ResolverClient, ListFirewallRuleGroupAssociationsCommand } from '@aws-sdk/client-route53resolver'; // ES Modules import
+ * // const { Route53ResolverClient, ListFirewallRuleGroupAssociationsCommand } = require('@aws-sdk/client-route53resolver'); // CommonJS import
  * const client = new Route53ResolverClient(config);
  * const input = { // ListFirewallRuleGroupAssociationsRequest
- *   FirewallRuleGroupId: "STRING_VALUE",
- *   VpcId: "STRING_VALUE",
- *   Priority: Number("int"),
- *   Status: "COMPLETE" || "DELETING" || "UPDATING",
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   FirewallRuleGroupId: 'STRING_VALUE',
+ *   VpcId: 'STRING_VALUE',
+ *   Priority: Number('int'),
+ *   Status: 'COMPLETE' || 'DELETING' || 'UPDATING',
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListFirewallRuleGroupAssociationsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListFirewallRuleGroupAssociationsResponse
+ *   NextToken: 'STRING_VALUE',
+ *   FirewallRuleGroupAssociations: [ // FirewallRuleGroupAssociations
+ *     { // FirewallRuleGroupAssociation
+ *       Id: 'STRING_VALUE',
+ *       Arn: 'STRING_VALUE',
+ *       FirewallRuleGroupId: 'STRING_VALUE',
+ *       VpcId: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *       Priority: Number('int'),
+ *       MutationProtection: 'ENABLED' || 'DISABLED',
+ *       ManagedOwnerName: 'STRING_VALUE',
+ *       Status: 'COMPLETE' || 'DELETING' || 'UPDATING',
+ *       StatusMessage: 'STRING_VALUE',
+ *       CreatorRequestId: 'STRING_VALUE',
+ *       CreationTime: 'STRING_VALUE',
+ *       ModificationTime: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListFirewallRuleGroupAssociationsCommandInput - {@link ListFirewallRuleGroupAssociationsCommandInput}
@@ -79,6 +101,8 @@ export interface ListFirewallRuleGroupAssociationsCommandOutput
  *  <p>You have provided an invalid command. Supported values are <code>ADD</code>,
  * 			<code>REMOVE</code>, or <code>REPLACE</code> a domain.</p>
  *
+ * @throws {@link Route53ResolverServiceException}
+ * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
  */
 export class ListFirewallRuleGroupAssociationsCommand extends $Command<

@@ -48,16 +48,22 @@ export interface SendSerialConsoleSSHPublicKeyCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2InstanceConnectClient, SendSerialConsoleSSHPublicKeyCommand } from "@aws-sdk/client-ec2-instance-connect"; // ES Modules import
- * // const { EC2InstanceConnectClient, SendSerialConsoleSSHPublicKeyCommand } = require("@aws-sdk/client-ec2-instance-connect"); // CommonJS import
+ * import { EC2InstanceConnectClient, SendSerialConsoleSSHPublicKeyCommand } from '@aws-sdk/client-ec2-instance-connect'; // ES Modules import
+ * // const { EC2InstanceConnectClient, SendSerialConsoleSSHPublicKeyCommand } = require('@aws-sdk/client-ec2-instance-connect'); // CommonJS import
  * const client = new EC2InstanceConnectClient(config);
  * const input = { // SendSerialConsoleSSHPublicKeyRequest
- *   InstanceId: "STRING_VALUE", // required
- *   SerialPort: Number("int"),
- *   SSHPublicKey: "STRING_VALUE", // required
+ *   InstanceId: 'STRING_VALUE', // required
+ *   SerialPort: Number('int'),
+ *   SSHPublicKey: 'STRING_VALUE', // required
  * };
  * const command = new SendSerialConsoleSSHPublicKeyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SendSerialConsoleSSHPublicKeyResponse
+ *   RequestId: 'STRING_VALUE',
+ *   Success: true || false,
+ * };
+ *
  * ```
  *
  * @param SendSerialConsoleSSHPublicKeyCommandInput - {@link SendSerialConsoleSSHPublicKeyCommandInput}
@@ -105,6 +111,8 @@ export interface SendSerialConsoleSSHPublicKeyCommandOutput
  *  <p>The requests were made too frequently and have been throttled. Wait a while and try again.
  *             To increase the limit on your request frequency, contact AWS Support.</p>
  *
+ * @throws {@link EC2InstanceConnectServiceException}
+ * <p>Base exception class for all service exceptions from EC2InstanceConnect service.</p>
  *
  */
 export class SendSerialConsoleSSHPublicKeyCommand extends $Command<

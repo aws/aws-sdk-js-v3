@@ -36,17 +36,27 @@ export interface UpdateApiKeyCommandOutput extends UpdateApiKeyResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppSyncClient, UpdateApiKeyCommand } from "@aws-sdk/client-appsync"; // ES Modules import
- * // const { AppSyncClient, UpdateApiKeyCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
+ * import { AppSyncClient, UpdateApiKeyCommand } from '@aws-sdk/client-appsync'; // ES Modules import
+ * // const { AppSyncClient, UpdateApiKeyCommand } = require('@aws-sdk/client-appsync'); // CommonJS import
  * const client = new AppSyncClient(config);
  * const input = { // UpdateApiKeyRequest
- *   apiId: "STRING_VALUE", // required
- *   id: "STRING_VALUE", // required
- *   description: "STRING_VALUE",
- *   expires: Number("long"),
+ *   apiId: 'STRING_VALUE', // required
+ *   id: 'STRING_VALUE', // required
+ *   description: 'STRING_VALUE',
+ *   expires: Number('long'),
  * };
  * const command = new UpdateApiKeyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateApiKeyResponse
+ *   apiKey: { // ApiKey
+ *     id: 'STRING_VALUE',
+ *     description: 'STRING_VALUE',
+ *     expires: Number('long'),
+ *     deletes: Number('long'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateApiKeyCommandInput - {@link UpdateApiKeyCommandInput}
@@ -75,6 +85,8 @@ export interface UpdateApiKeyCommandOutput extends UpdateApiKeyResponse, __Metad
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You aren't authorized to perform this operation.</p>
  *
+ * @throws {@link AppSyncServiceException}
+ * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
  */
 export class UpdateApiKeyCommand extends $Command<

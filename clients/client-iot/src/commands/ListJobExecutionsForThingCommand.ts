@@ -37,19 +37,37 @@ export interface ListJobExecutionsForThingCommandOutput extends ListJobExecution
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTClient, ListJobExecutionsForThingCommand } from "@aws-sdk/client-iot"; // ES Modules import
- * // const { IoTClient, ListJobExecutionsForThingCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * import { IoTClient, ListJobExecutionsForThingCommand } from '@aws-sdk/client-iot'; // ES Modules import
+ * // const { IoTClient, ListJobExecutionsForThingCommand } = require('@aws-sdk/client-iot'); // CommonJS import
  * const client = new IoTClient(config);
  * const input = { // ListJobExecutionsForThingRequest
- *   thingName: "STRING_VALUE", // required
- *   status: "QUEUED" || "IN_PROGRESS" || "SUCCEEDED" || "FAILED" || "TIMED_OUT" || "REJECTED" || "REMOVED" || "CANCELED",
- *   namespaceId: "STRING_VALUE",
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
- *   jobId: "STRING_VALUE",
+ *   thingName: 'STRING_VALUE', // required
+ *   status: 'QUEUED' || 'IN_PROGRESS' || 'SUCCEEDED' || 'FAILED' || 'TIMED_OUT' || 'REJECTED' || 'REMOVED' || 'CANCELED',
+ *   namespaceId: 'STRING_VALUE',
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
+ *   jobId: 'STRING_VALUE',
  * };
  * const command = new ListJobExecutionsForThingCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListJobExecutionsForThingResponse
+ *   executionSummaries: [ // JobExecutionSummaryForThingList
+ *     { // JobExecutionSummaryForThing
+ *       jobId: 'STRING_VALUE',
+ *       jobExecutionSummary: { // JobExecutionSummary
+ *         status: 'QUEUED' || 'IN_PROGRESS' || 'SUCCEEDED' || 'FAILED' || 'TIMED_OUT' || 'REJECTED' || 'REMOVED' || 'CANCELED',
+ *         queuedAt: new Date('TIMESTAMP'),
+ *         startedAt: new Date('TIMESTAMP'),
+ *         lastUpdatedAt: new Date('TIMESTAMP'),
+ *         executionNumber: Number('long'),
+ *         retryAttempt: Number('int'),
+ *       },
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListJobExecutionsForThingCommandInput - {@link ListJobExecutionsForThingCommandInput}
@@ -70,6 +88,8 @@ export interface ListJobExecutionsForThingCommandOutput extends ListJobExecution
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The rate exceeds the limit.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class ListJobExecutionsForThingCommand extends $Command<

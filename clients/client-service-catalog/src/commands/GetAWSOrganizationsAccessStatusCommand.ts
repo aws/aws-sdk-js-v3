@@ -42,12 +42,17 @@ export interface GetAWSOrganizationsAccessStatusCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ServiceCatalogClient, GetAWSOrganizationsAccessStatusCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
- * // const { ServiceCatalogClient, GetAWSOrganizationsAccessStatusCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
+ * import { ServiceCatalogClient, GetAWSOrganizationsAccessStatusCommand } from '@aws-sdk/client-service-catalog'; // ES Modules import
+ * // const { ServiceCatalogClient, GetAWSOrganizationsAccessStatusCommand } = require('@aws-sdk/client-service-catalog'); // CommonJS import
  * const client = new ServiceCatalogClient(config);
  * const input = {};
  * const command = new GetAWSOrganizationsAccessStatusCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetAWSOrganizationsAccessStatusOutput
+ *   AccessStatus: 'ENABLED' || 'UNDER_CHANGE' || 'DISABLED',
+ * };
+ *
  * ```
  *
  * @param GetAWSOrganizationsAccessStatusCommandInput - {@link GetAWSOrganizationsAccessStatusCommandInput}
@@ -62,6 +67,8 @@ export interface GetAWSOrganizationsAccessStatusCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link ServiceCatalogServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
  */
 export class GetAWSOrganizationsAccessStatusCommand extends $Command<

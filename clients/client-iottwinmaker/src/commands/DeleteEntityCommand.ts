@@ -36,16 +36,21 @@ export interface DeleteEntityCommandOutput extends DeleteEntityResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTTwinMakerClient, DeleteEntityCommand } from "@aws-sdk/client-iottwinmaker"; // ES Modules import
- * // const { IoTTwinMakerClient, DeleteEntityCommand } = require("@aws-sdk/client-iottwinmaker"); // CommonJS import
+ * import { IoTTwinMakerClient, DeleteEntityCommand } from '@aws-sdk/client-iottwinmaker'; // ES Modules import
+ * // const { IoTTwinMakerClient, DeleteEntityCommand } = require('@aws-sdk/client-iottwinmaker'); // CommonJS import
  * const client = new IoTTwinMakerClient(config);
  * const input = { // DeleteEntityRequest
- *   workspaceId: "STRING_VALUE", // required
- *   entityId: "STRING_VALUE", // required
+ *   workspaceId: 'STRING_VALUE', // required
+ *   entityId: 'STRING_VALUE', // required
  *   isRecursive: true || false,
  * };
  * const command = new DeleteEntityCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeleteEntityResponse
+ *   state: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param DeleteEntityCommandInput - {@link DeleteEntityCommandInput}
@@ -69,6 +74,8 @@ export interface DeleteEntityCommandOutput extends DeleteEntityResponse, __Metad
  * @throws {@link ValidationException} (client fault)
  *  <p>Failed</p>
  *
+ * @throws {@link IoTTwinMakerServiceException}
+ * <p>Base exception class for all service exceptions from IoTTwinMaker service.</p>
  *
  */
 export class DeleteEntityCommand extends $Command<

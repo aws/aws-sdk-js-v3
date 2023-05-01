@@ -41,15 +41,50 @@ export interface SyncDeploymentJobCommandOutput extends SyncDeploymentJobRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RoboMakerClient, SyncDeploymentJobCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
- * // const { RoboMakerClient, SyncDeploymentJobCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
+ * import { RoboMakerClient, SyncDeploymentJobCommand } from '@aws-sdk/client-robomaker'; // ES Modules import
+ * // const { RoboMakerClient, SyncDeploymentJobCommand } = require('@aws-sdk/client-robomaker'); // CommonJS import
  * const client = new RoboMakerClient(config);
  * const input = { // SyncDeploymentJobRequest
- *   clientRequestToken: "STRING_VALUE", // required
- *   fleet: "STRING_VALUE", // required
+ *   clientRequestToken: 'STRING_VALUE', // required
+ *   fleet: 'STRING_VALUE', // required
  * };
  * const command = new SyncDeploymentJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // SyncDeploymentJobResponse
+ *   arn: 'STRING_VALUE',
+ *   fleet: 'STRING_VALUE',
+ *   status: 'STRING_VALUE',
+ *   deploymentConfig: { // DeploymentConfig
+ *     concurrentDeploymentPercentage: Number('int'),
+ *     failureThresholdPercentage: Number('int'),
+ *     robotDeploymentTimeoutInSeconds: Number('long'),
+ *     downloadConditionFile: { // S3Object
+ *       bucket: 'STRING_VALUE', // required
+ *       key: 'STRING_VALUE', // required
+ *       etag: 'STRING_VALUE',
+ *     },
+ *   },
+ *   deploymentApplicationConfigs: [ // DeploymentApplicationConfigs
+ *     { // DeploymentApplicationConfig
+ *       application: 'STRING_VALUE', // required
+ *       applicationVersion: 'STRING_VALUE', // required
+ *       launchConfig: { // DeploymentLaunchConfig
+ *         packageName: 'STRING_VALUE', // required
+ *         preLaunchFile: 'STRING_VALUE',
+ *         launchFile: 'STRING_VALUE', // required
+ *         postLaunchFile: 'STRING_VALUE',
+ *         environmentVariables: { // EnvironmentVariableMap
+ *           '<keys>': 'STRING_VALUE',
+ *         },
+ *       },
+ *     },
+ *   ],
+ *   failureReason: 'STRING_VALUE',
+ *   failureCode: 'STRING_VALUE',
+ *   createdAt: new Date('TIMESTAMP'),
+ * };
+ *
  * ```
  *
  * @param SyncDeploymentJobCommandInput - {@link SyncDeploymentJobCommandInput}
@@ -82,6 +117,8 @@ export interface SyncDeploymentJobCommandOutput extends SyncDeploymentJobRespons
  * @throws {@link ThrottlingException} (client fault)
  *  <p>AWS RoboMaker is temporarily unable to process the request. Try your call again.</p>
  *
+ * @throws {@link RoboMakerServiceException}
+ * <p>Base exception class for all service exceptions from RoboMaker service.</p>
  *
  */
 export class SyncDeploymentJobCommand extends $Command<

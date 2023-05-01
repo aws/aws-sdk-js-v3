@@ -36,39 +36,44 @@ export interface CreatePackageImportJobCommandOutput extends CreatePackageImport
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PanoramaClient, CreatePackageImportJobCommand } from "@aws-sdk/client-panorama"; // ES Modules import
- * // const { PanoramaClient, CreatePackageImportJobCommand } = require("@aws-sdk/client-panorama"); // CommonJS import
+ * import { PanoramaClient, CreatePackageImportJobCommand } from '@aws-sdk/client-panorama'; // ES Modules import
+ * // const { PanoramaClient, CreatePackageImportJobCommand } = require('@aws-sdk/client-panorama'); // CommonJS import
  * const client = new PanoramaClient(config);
  * const input = { // CreatePackageImportJobRequest
- *   JobType: "STRING_VALUE", // required
+ *   JobType: 'STRING_VALUE', // required
  *   InputConfig: { // PackageImportJobInputConfig
  *     PackageVersionInputConfig: { // PackageVersionInputConfig
  *       S3Location: { // S3Location
- *         Region: "STRING_VALUE",
- *         BucketName: "STRING_VALUE", // required
- *         ObjectKey: "STRING_VALUE", // required
+ *         Region: 'STRING_VALUE',
+ *         BucketName: 'STRING_VALUE', // required
+ *         ObjectKey: 'STRING_VALUE', // required
  *       },
  *     },
  *   },
  *   OutputConfig: { // PackageImportJobOutputConfig
  *     PackageVersionOutputConfig: { // PackageVersionOutputConfig
- *       PackageName: "STRING_VALUE", // required
- *       PackageVersion: "STRING_VALUE", // required
+ *       PackageName: 'STRING_VALUE', // required
+ *       PackageVersion: 'STRING_VALUE', // required
  *       MarkLatest: true || false,
  *     },
  *   },
- *   ClientToken: "STRING_VALUE", // required
+ *   ClientToken: 'STRING_VALUE', // required
  *   JobTags: [ // JobTagsList
  *     { // JobResourceTags
- *       ResourceType: "STRING_VALUE", // required
+ *       ResourceType: 'STRING_VALUE', // required
  *       Tags: { // TagMap // required
- *         "<keys>": "STRING_VALUE",
+ *         '<keys>': 'STRING_VALUE',
  *       },
  *     },
  *   ],
  * };
  * const command = new CreatePackageImportJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreatePackageImportJobResponse
+ *   JobId: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param CreatePackageImportJobCommandInput - {@link CreatePackageImportJobCommandInput}
@@ -89,6 +94,8 @@ export interface CreatePackageImportJobCommandOutput extends CreatePackageImport
  * @throws {@link ValidationException} (client fault)
  *  <p>The request contains an invalid parameter value.</p>
  *
+ * @throws {@link PanoramaServiceException}
+ * <p>Base exception class for all service exceptions from Panorama service.</p>
  *
  */
 export class CreatePackageImportJobCommand extends $Command<

@@ -39,20 +39,26 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTFleetHubClient, CreateApplicationCommand } from "@aws-sdk/client-iotfleethub"; // ES Modules import
- * // const { IoTFleetHubClient, CreateApplicationCommand } = require("@aws-sdk/client-iotfleethub"); // CommonJS import
+ * import { IoTFleetHubClient, CreateApplicationCommand } from '@aws-sdk/client-iotfleethub'; // ES Modules import
+ * // const { IoTFleetHubClient, CreateApplicationCommand } = require('@aws-sdk/client-iotfleethub'); // CommonJS import
  * const client = new IoTFleetHubClient(config);
  * const input = { // CreateApplicationRequest
- *   applicationName: "STRING_VALUE", // required
- *   applicationDescription: "STRING_VALUE",
- *   clientToken: "STRING_VALUE",
- *   roleArn: "STRING_VALUE", // required
+ *   applicationName: 'STRING_VALUE', // required
+ *   applicationDescription: 'STRING_VALUE',
+ *   clientToken: 'STRING_VALUE',
+ *   roleArn: 'STRING_VALUE', // required
  *   tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new CreateApplicationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateApplicationResponse
+ *   applicationId: 'STRING_VALUE', // required
+ *   applicationArn: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param CreateApplicationCommandInput - {@link CreateApplicationCommandInput}
@@ -73,6 +79,8 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The rate exceeds the limit.</p>
  *
+ * @throws {@link IoTFleetHubServiceException}
+ * <p>Base exception class for all service exceptions from IoTFleetHub service.</p>
  *
  */
 export class CreateApplicationCommand extends $Command<

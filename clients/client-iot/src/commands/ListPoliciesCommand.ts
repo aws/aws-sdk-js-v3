@@ -37,16 +37,27 @@ export interface ListPoliciesCommandOutput extends ListPoliciesResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTClient, ListPoliciesCommand } from "@aws-sdk/client-iot"; // ES Modules import
- * // const { IoTClient, ListPoliciesCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * import { IoTClient, ListPoliciesCommand } from '@aws-sdk/client-iot'; // ES Modules import
+ * // const { IoTClient, ListPoliciesCommand } = require('@aws-sdk/client-iot'); // CommonJS import
  * const client = new IoTClient(config);
  * const input = { // ListPoliciesRequest
- *   marker: "STRING_VALUE",
- *   pageSize: Number("int"),
+ *   marker: 'STRING_VALUE',
+ *   pageSize: Number('int'),
  *   ascendingOrder: true || false,
  * };
  * const command = new ListPoliciesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListPoliciesResponse
+ *   policies: [ // Policies
+ *     { // Policy
+ *       policyName: 'STRING_VALUE',
+ *       policyArn: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   nextMarker: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListPoliciesCommandInput - {@link ListPoliciesCommandInput}
@@ -70,6 +81,8 @@ export interface ListPoliciesCommandOutput extends ListPoliciesResponse, __Metad
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this operation.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class ListPoliciesCommand extends $Command<

@@ -52,20 +52,26 @@ export interface PutSnapshotBlockCommandOutput extends PutSnapshotBlockResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EBSClient, PutSnapshotBlockCommand } from "@aws-sdk/client-ebs"; // ES Modules import
- * // const { EBSClient, PutSnapshotBlockCommand } = require("@aws-sdk/client-ebs"); // CommonJS import
+ * import { EBSClient, PutSnapshotBlockCommand } from '@aws-sdk/client-ebs'; // ES Modules import
+ * // const { EBSClient, PutSnapshotBlockCommand } = require('@aws-sdk/client-ebs'); // CommonJS import
  * const client = new EBSClient(config);
  * const input = { // PutSnapshotBlockRequest
- *   SnapshotId: "STRING_VALUE", // required
- *   BlockIndex: Number("int"), // required
- *   BlockData: "STREAMING_BLOB_VALUE", // required
- *   DataLength: Number("int"), // required
- *   Progress: Number("int"),
- *   Checksum: "STRING_VALUE", // required
- *   ChecksumAlgorithm: "STRING_VALUE", // required
+ *   SnapshotId: 'STRING_VALUE', // required
+ *   BlockIndex: Number('int'), // required
+ *   BlockData: 'STREAMING_BLOB_VALUE', // required
+ *   DataLength: Number('int'), // required
+ *   Progress: Number('int'),
+ *   Checksum: 'STRING_VALUE', // required
+ *   ChecksumAlgorithm: 'STRING_VALUE', // required
  * };
  * const command = new PutSnapshotBlockCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PutSnapshotBlockResponse
+ *   Checksum: 'STRING_VALUE',
+ *   ChecksumAlgorithm: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param PutSnapshotBlockCommandInput - {@link PutSnapshotBlockCommandInput}
@@ -93,6 +99,8 @@ export interface PutSnapshotBlockCommandOutput extends PutSnapshotBlockResponse,
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints of the EBS direct APIs.</p>
  *
+ * @throws {@link EBSServiceException}
+ * <p>Base exception class for all service exceptions from EBS service.</p>
  *
  */
 export class PutSnapshotBlockCommand extends $Command<

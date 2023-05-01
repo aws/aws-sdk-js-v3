@@ -47,26 +47,42 @@ export interface DescribeHostReservationOfferingsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, DescribeHostReservationOfferingsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, DescribeHostReservationOfferingsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, DescribeHostReservationOfferingsCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, DescribeHostReservationOfferingsCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // DescribeHostReservationOfferingsRequest
  *   Filter: [ // FilterList
  *     { // Filter
- *       Name: "STRING_VALUE",
+ *       Name: 'STRING_VALUE',
  *       Values: [ // ValueStringList
- *         "STRING_VALUE",
+ *         'STRING_VALUE',
  *       ],
  *     },
  *   ],
- *   MaxDuration: Number("int"),
- *   MaxResults: Number("int"),
- *   MinDuration: Number("int"),
- *   NextToken: "STRING_VALUE",
- *   OfferingId: "STRING_VALUE",
+ *   MaxDuration: Number('int'),
+ *   MaxResults: Number('int'),
+ *   MinDuration: Number('int'),
+ *   NextToken: 'STRING_VALUE',
+ *   OfferingId: 'STRING_VALUE',
  * };
  * const command = new DescribeHostReservationOfferingsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeHostReservationOfferingsResult
+ *   NextToken: 'STRING_VALUE',
+ *   OfferingSet: [ // HostOfferingSet
+ *     { // HostOffering
+ *       CurrencyCode: 'USD',
+ *       Duration: Number('int'),
+ *       HourlyPrice: 'STRING_VALUE',
+ *       InstanceFamily: 'STRING_VALUE',
+ *       OfferingId: 'STRING_VALUE',
+ *       PaymentOption: 'AllUpfront' || 'PartialUpfront' || 'NoUpfront',
+ *       UpfrontPrice: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeHostReservationOfferingsCommandInput - {@link DescribeHostReservationOfferingsCommandInput}
@@ -75,6 +91,8 @@ export interface DescribeHostReservationOfferingsCommandOutput
  * @see {@link DescribeHostReservationOfferingsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class DescribeHostReservationOfferingsCommand extends $Command<

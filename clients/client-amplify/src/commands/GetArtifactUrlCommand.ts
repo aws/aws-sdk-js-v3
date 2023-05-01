@@ -36,14 +36,20 @@ export interface GetArtifactUrlCommandOutput extends GetArtifactUrlResult, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AmplifyClient, GetArtifactUrlCommand } from "@aws-sdk/client-amplify"; // ES Modules import
- * // const { AmplifyClient, GetArtifactUrlCommand } = require("@aws-sdk/client-amplify"); // CommonJS import
+ * import { AmplifyClient, GetArtifactUrlCommand } from '@aws-sdk/client-amplify'; // ES Modules import
+ * // const { AmplifyClient, GetArtifactUrlCommand } = require('@aws-sdk/client-amplify'); // CommonJS import
  * const client = new AmplifyClient(config);
  * const input = { // GetArtifactUrlRequest
- *   artifactId: "STRING_VALUE", // required
+ *   artifactId: 'STRING_VALUE', // required
  * };
  * const command = new GetArtifactUrlCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetArtifactUrlResult
+ *   artifactId: 'STRING_VALUE', // required
+ *   artifactUrl: 'STRING_VALUE', // required
+ * };
+ *
  * ```
  *
  * @param GetArtifactUrlCommandInput - {@link GetArtifactUrlCommandInput}
@@ -67,6 +73,8 @@ export interface GetArtifactUrlCommandOutput extends GetArtifactUrlResult, __Met
  * @throws {@link UnauthorizedException} (client fault)
  *  <p> An operation failed due to a lack of access. </p>
  *
+ * @throws {@link AmplifyServiceException}
+ * <p>Base exception class for all service exceptions from Amplify service.</p>
  *
  */
 export class GetArtifactUrlCommand extends $Command<

@@ -45,14 +45,17 @@ export interface CancelJobCommandOutput extends CancelJobResponse, __MetadataBea
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElasticTranscoderClient, CancelJobCommand } from "@aws-sdk/client-elastic-transcoder"; // ES Modules import
- * // const { ElasticTranscoderClient, CancelJobCommand } = require("@aws-sdk/client-elastic-transcoder"); // CommonJS import
+ * import { ElasticTranscoderClient, CancelJobCommand } from '@aws-sdk/client-elastic-transcoder'; // ES Modules import
+ * // const { ElasticTranscoderClient, CancelJobCommand } = require('@aws-sdk/client-elastic-transcoder'); // CommonJS import
  * const client = new ElasticTranscoderClient(config);
  * const input = { // CancelJobRequest
- *   Id: "STRING_VALUE", // required
+ *   Id: 'STRING_VALUE', // required
  * };
  * const command = new CancelJobCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param CancelJobCommandInput - {@link CancelJobCommandInput}
@@ -80,6 +83,8 @@ export interface CancelJobCommandOutput extends CancelJobResponse, __MetadataBea
  * @throws {@link ValidationException} (client fault)
  *  <p>One or more required parameter values were not provided in the request.</p>
  *
+ * @throws {@link ElasticTranscoderServiceException}
+ * <p>Base exception class for all service exceptions from ElasticTranscoder service.</p>
  *
  */
 export class CancelJobCommand extends $Command<

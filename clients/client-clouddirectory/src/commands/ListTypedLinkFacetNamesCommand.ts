@@ -37,16 +37,24 @@ export interface ListTypedLinkFacetNamesCommandOutput extends ListTypedLinkFacet
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudDirectoryClient, ListTypedLinkFacetNamesCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
- * // const { CloudDirectoryClient, ListTypedLinkFacetNamesCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
+ * import { CloudDirectoryClient, ListTypedLinkFacetNamesCommand } from '@aws-sdk/client-clouddirectory'; // ES Modules import
+ * // const { CloudDirectoryClient, ListTypedLinkFacetNamesCommand } = require('@aws-sdk/client-clouddirectory'); // CommonJS import
  * const client = new CloudDirectoryClient(config);
  * const input = { // ListTypedLinkFacetNamesRequest
- *   SchemaArn: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   SchemaArn: 'STRING_VALUE', // required
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new ListTypedLinkFacetNamesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTypedLinkFacetNamesResponse
+ *   FacetNames: [ // TypedLinkNameList
+ *     'STRING_VALUE',
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListTypedLinkFacetNamesCommandInput - {@link ListTypedLinkFacetNamesCommandInput}
@@ -80,6 +88,8 @@ export interface ListTypedLinkFacetNamesCommandOutput extends ListTypedLinkFacet
  *  <p>Indicates that your request is malformed in some manner. See the exception
  *       message.</p>
  *
+ * @throws {@link CloudDirectoryServiceException}
+ * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
  */
 export class ListTypedLinkFacetNamesCommand extends $Command<

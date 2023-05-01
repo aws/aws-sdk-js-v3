@@ -38,25 +38,30 @@ export interface StreamJournalToKinesisCommandOutput extends StreamJournalToKine
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { QLDBClient, StreamJournalToKinesisCommand } from "@aws-sdk/client-qldb"; // ES Modules import
- * // const { QLDBClient, StreamJournalToKinesisCommand } = require("@aws-sdk/client-qldb"); // CommonJS import
+ * import { QLDBClient, StreamJournalToKinesisCommand } from '@aws-sdk/client-qldb'; // ES Modules import
+ * // const { QLDBClient, StreamJournalToKinesisCommand } = require('@aws-sdk/client-qldb'); // CommonJS import
  * const client = new QLDBClient(config);
  * const input = { // StreamJournalToKinesisRequest
- *   LedgerName: "STRING_VALUE", // required
- *   RoleArn: "STRING_VALUE", // required
+ *   LedgerName: 'STRING_VALUE', // required
+ *   RoleArn: 'STRING_VALUE', // required
  *   Tags: { // Tags
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
- *   InclusiveStartTime: new Date("TIMESTAMP"), // required
- *   ExclusiveEndTime: new Date("TIMESTAMP"),
+ *   InclusiveStartTime: new Date('TIMESTAMP'), // required
+ *   ExclusiveEndTime: new Date('TIMESTAMP'),
  *   KinesisConfiguration: { // KinesisConfiguration
- *     StreamArn: "STRING_VALUE", // required
+ *     StreamArn: 'STRING_VALUE', // required
  *     AggregationEnabled: true || false,
  *   },
- *   StreamName: "STRING_VALUE", // required
+ *   StreamName: 'STRING_VALUE', // required
  * };
  * const command = new StreamJournalToKinesisCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StreamJournalToKinesisResponse
+ *   StreamId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param StreamJournalToKinesisCommandInput - {@link StreamJournalToKinesisCommandInput}
@@ -74,6 +79,8 @@ export interface StreamJournalToKinesisCommandOutput extends StreamJournalToKine
  * @throws {@link ResourcePreconditionNotMetException} (client fault)
  *  <p>The operation failed because a condition wasn't satisfied in advance.</p>
  *
+ * @throws {@link QLDBServiceException}
+ * <p>Base exception class for all service exceptions from QLDB service.</p>
  *
  */
 export class StreamJournalToKinesisCommand extends $Command<

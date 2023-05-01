@@ -44,22 +44,38 @@ export interface UpdateAppVersionAppComponentCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ResiliencehubClient, UpdateAppVersionAppComponentCommand } from "@aws-sdk/client-resiliencehub"; // ES Modules import
- * // const { ResiliencehubClient, UpdateAppVersionAppComponentCommand } = require("@aws-sdk/client-resiliencehub"); // CommonJS import
+ * import { ResiliencehubClient, UpdateAppVersionAppComponentCommand } from '@aws-sdk/client-resiliencehub'; // ES Modules import
+ * // const { ResiliencehubClient, UpdateAppVersionAppComponentCommand } = require('@aws-sdk/client-resiliencehub'); // CommonJS import
  * const client = new ResiliencehubClient(config);
  * const input = { // UpdateAppVersionAppComponentRequest
- *   appArn: "STRING_VALUE", // required
- *   id: "STRING_VALUE", // required
- *   name: "STRING_VALUE",
- *   type: "STRING_VALUE",
+ *   appArn: 'STRING_VALUE', // required
+ *   id: 'STRING_VALUE', // required
+ *   name: 'STRING_VALUE',
+ *   type: 'STRING_VALUE',
  *   additionalInfo: { // AdditionalInfoMap
- *     "<keys>": [ // AdditionalInfoValueList
- *       "STRING_VALUE",
+ *     '<keys>': [ // AdditionalInfoValueList
+ *       'STRING_VALUE',
  *     ],
  *   },
  * };
  * const command = new UpdateAppVersionAppComponentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateAppVersionAppComponentResponse
+ *   appArn: 'STRING_VALUE', // required
+ *   appVersion: 'STRING_VALUE', // required
+ *   appComponent: { // AppComponent
+ *     name: 'STRING_VALUE', // required
+ *     type: 'STRING_VALUE', // required
+ *     id: 'STRING_VALUE',
+ *     additionalInfo: { // AdditionalInfoMap
+ *       '<keys>': [ // AdditionalInfoValueList
+ *         'STRING_VALUE',
+ *       ],
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateAppVersionAppComponentCommandInput - {@link UpdateAppVersionAppComponentCommandInput}
@@ -92,6 +108,8 @@ export interface UpdateAppVersionAppComponentCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>This exception occurs when a request is not valid.</p>
  *
+ * @throws {@link ResiliencehubServiceException}
+ * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
  */
 export class UpdateAppVersionAppComponentCommand extends $Command<

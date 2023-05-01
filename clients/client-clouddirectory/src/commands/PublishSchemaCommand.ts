@@ -36,17 +36,22 @@ export interface PublishSchemaCommandOutput extends PublishSchemaResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudDirectoryClient, PublishSchemaCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
- * // const { CloudDirectoryClient, PublishSchemaCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
+ * import { CloudDirectoryClient, PublishSchemaCommand } from '@aws-sdk/client-clouddirectory'; // ES Modules import
+ * // const { CloudDirectoryClient, PublishSchemaCommand } = require('@aws-sdk/client-clouddirectory'); // CommonJS import
  * const client = new CloudDirectoryClient(config);
  * const input = { // PublishSchemaRequest
- *   DevelopmentSchemaArn: "STRING_VALUE", // required
- *   Version: "STRING_VALUE", // required
- *   MinorVersion: "STRING_VALUE",
- *   Name: "STRING_VALUE",
+ *   DevelopmentSchemaArn: 'STRING_VALUE', // required
+ *   Version: 'STRING_VALUE', // required
+ *   MinorVersion: 'STRING_VALUE',
+ *   Name: 'STRING_VALUE',
  * };
  * const command = new PublishSchemaCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // PublishSchemaResponse
+ *   PublishedSchemaArn: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param PublishSchemaCommandInput - {@link PublishSchemaCommandInput}
@@ -80,6 +85,8 @@ export interface PublishSchemaCommandOutput extends PublishSchemaResponse, __Met
  *  <p>Indicates that your request is malformed in some manner. See the exception
  *       message.</p>
  *
+ * @throws {@link CloudDirectoryServiceException}
+ * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
  */
 export class PublishSchemaCommand extends $Command<

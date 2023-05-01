@@ -40,15 +40,50 @@ export interface DescribeModelCardCommandOutput extends DescribeModelCardRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, DescribeModelCardCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, DescribeModelCardCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, DescribeModelCardCommand } from '@aws-sdk/client-sagemaker'; // ES Modules import
+ * // const { SageMakerClient, DescribeModelCardCommand } = require('@aws-sdk/client-sagemaker'); // CommonJS import
  * const client = new SageMakerClient(config);
  * const input = { // DescribeModelCardRequest
- *   ModelCardName: "STRING_VALUE", // required
- *   ModelCardVersion: Number("int"),
+ *   ModelCardName: 'STRING_VALUE', // required
+ *   ModelCardVersion: Number('int'),
  * };
  * const command = new DescribeModelCardCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeModelCardResponse
+ *   ModelCardArn: 'STRING_VALUE', // required
+ *   ModelCardName: 'STRING_VALUE', // required
+ *   ModelCardVersion: Number('int'), // required
+ *   Content: 'STRING_VALUE', // required
+ *   ModelCardStatus: 'Draft' || 'PendingReview' || 'Approved' || 'Archived', // required
+ *   SecurityConfig: { // ModelCardSecurityConfig
+ *     KmsKeyId: 'STRING_VALUE',
+ *   },
+ *   CreationTime: new Date('TIMESTAMP'), // required
+ *   CreatedBy: { // UserContext
+ *     UserProfileArn: 'STRING_VALUE',
+ *     UserProfileName: 'STRING_VALUE',
+ *     DomainId: 'STRING_VALUE',
+ *     IamIdentity: { // IamIdentity
+ *       Arn: 'STRING_VALUE',
+ *       PrincipalId: 'STRING_VALUE',
+ *       SourceIdentity: 'STRING_VALUE',
+ *     },
+ *   },
+ *   LastModifiedTime: new Date('TIMESTAMP'),
+ *   LastModifiedBy: {
+ *     UserProfileArn: 'STRING_VALUE',
+ *     UserProfileName: 'STRING_VALUE',
+ *     DomainId: 'STRING_VALUE',
+ *     IamIdentity: {
+ *       Arn: 'STRING_VALUE',
+ *       PrincipalId: 'STRING_VALUE',
+ *       SourceIdentity: 'STRING_VALUE',
+ *     },
+ *   },
+ *   ModelCardProcessingStatus: 'DeleteInProgress' || 'DeletePending' || 'ContentDeleted' || 'ExportJobsDeleted' || 'DeleteCompleted' || 'DeleteFailed',
+ * };
+ *
  * ```
  *
  * @param DescribeModelCardCommandInput - {@link DescribeModelCardCommandInput}
@@ -60,6 +95,8 @@ export interface DescribeModelCardCommandOutput extends DescribeModelCardRespons
  * @throws {@link ResourceNotFound} (client fault)
  *  <p>Resource being access is not found.</p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class DescribeModelCardCommand extends $Command<

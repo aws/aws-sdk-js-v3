@@ -36,14 +36,53 @@ export interface DescribePipelineExecutionCommandOutput extends DescribePipeline
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, DescribePipelineExecutionCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, DescribePipelineExecutionCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, DescribePipelineExecutionCommand } from '@aws-sdk/client-sagemaker'; // ES Modules import
+ * // const { SageMakerClient, DescribePipelineExecutionCommand } = require('@aws-sdk/client-sagemaker'); // CommonJS import
  * const client = new SageMakerClient(config);
  * const input = { // DescribePipelineExecutionRequest
- *   PipelineExecutionArn: "STRING_VALUE", // required
+ *   PipelineExecutionArn: 'STRING_VALUE', // required
  * };
  * const command = new DescribePipelineExecutionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribePipelineExecutionResponse
+ *   PipelineArn: 'STRING_VALUE',
+ *   PipelineExecutionArn: 'STRING_VALUE',
+ *   PipelineExecutionDisplayName: 'STRING_VALUE',
+ *   PipelineExecutionStatus: 'Executing' || 'Stopping' || 'Stopped' || 'Failed' || 'Succeeded',
+ *   PipelineExecutionDescription: 'STRING_VALUE',
+ *   PipelineExperimentConfig: { // PipelineExperimentConfig
+ *     ExperimentName: 'STRING_VALUE',
+ *     TrialName: 'STRING_VALUE',
+ *   },
+ *   FailureReason: 'STRING_VALUE',
+ *   CreationTime: new Date('TIMESTAMP'),
+ *   LastModifiedTime: new Date('TIMESTAMP'),
+ *   CreatedBy: { // UserContext
+ *     UserProfileArn: 'STRING_VALUE',
+ *     UserProfileName: 'STRING_VALUE',
+ *     DomainId: 'STRING_VALUE',
+ *     IamIdentity: { // IamIdentity
+ *       Arn: 'STRING_VALUE',
+ *       PrincipalId: 'STRING_VALUE',
+ *       SourceIdentity: 'STRING_VALUE',
+ *     },
+ *   },
+ *   LastModifiedBy: {
+ *     UserProfileArn: 'STRING_VALUE',
+ *     UserProfileName: 'STRING_VALUE',
+ *     DomainId: 'STRING_VALUE',
+ *     IamIdentity: {
+ *       Arn: 'STRING_VALUE',
+ *       PrincipalId: 'STRING_VALUE',
+ *       SourceIdentity: 'STRING_VALUE',
+ *     },
+ *   },
+ *   ParallelismConfiguration: { // ParallelismConfiguration
+ *     MaxParallelExecutionSteps: Number('int'), // required
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribePipelineExecutionCommandInput - {@link DescribePipelineExecutionCommandInput}
@@ -55,6 +94,8 @@ export interface DescribePipelineExecutionCommandOutput extends DescribePipeline
  * @throws {@link ResourceNotFound} (client fault)
  *  <p>Resource being access is not found.</p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class DescribePipelineExecutionCommand extends $Command<

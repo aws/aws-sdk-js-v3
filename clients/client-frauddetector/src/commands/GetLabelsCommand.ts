@@ -41,16 +41,30 @@ export interface GetLabelsCommandOutput extends GetLabelsResult, __MetadataBeare
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FraudDetectorClient, GetLabelsCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
- * // const { FraudDetectorClient, GetLabelsCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
+ * import { FraudDetectorClient, GetLabelsCommand } from '@aws-sdk/client-frauddetector'; // ES Modules import
+ * // const { FraudDetectorClient, GetLabelsCommand } = require('@aws-sdk/client-frauddetector'); // CommonJS import
  * const client = new FraudDetectorClient(config);
  * const input = { // GetLabelsRequest
- *   name: "STRING_VALUE",
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   name: 'STRING_VALUE',
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new GetLabelsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetLabelsResult
+ *   labels: [ // labelList
+ *     { // Label
+ *       name: 'STRING_VALUE',
+ *       description: 'STRING_VALUE',
+ *       lastUpdatedTime: 'STRING_VALUE',
+ *       createdTime: 'STRING_VALUE',
+ *       arn: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetLabelsCommandInput - {@link GetLabelsCommandInput}
@@ -74,6 +88,8 @@ export interface GetLabelsCommandOutput extends GetLabelsResult, __MetadataBeare
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception indicating a specified value is not allowed.</p>
  *
+ * @throws {@link FraudDetectorServiceException}
+ * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
  */
 export class GetLabelsCommand extends $Command<

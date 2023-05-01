@@ -37,29 +37,46 @@ export interface ListProtectionGroupsCommandOutput extends ListProtectionGroupsR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ShieldClient, ListProtectionGroupsCommand } from "@aws-sdk/client-shield"; // ES Modules import
- * // const { ShieldClient, ListProtectionGroupsCommand } = require("@aws-sdk/client-shield"); // CommonJS import
+ * import { ShieldClient, ListProtectionGroupsCommand } from '@aws-sdk/client-shield'; // ES Modules import
+ * // const { ShieldClient, ListProtectionGroupsCommand } = require('@aws-sdk/client-shield'); // CommonJS import
  * const client = new ShieldClient(config);
  * const input = { // ListProtectionGroupsRequest
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  *   InclusionFilters: { // InclusionProtectionGroupFilters
  *     ProtectionGroupIds: [ // ProtectionGroupIdFilters
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     Patterns: [ // ProtectionGroupPatternFilters
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     ResourceTypes: [ // ProtectedResourceTypeFilters
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *     Aggregations: [ // ProtectionGroupAggregationFilters
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *   },
  * };
  * const command = new ListProtectionGroupsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListProtectionGroupsResponse
+ *   ProtectionGroups: [ // ProtectionGroups // required
+ *     { // ProtectionGroup
+ *       ProtectionGroupId: 'STRING_VALUE', // required
+ *       Aggregation: 'STRING_VALUE', // required
+ *       Pattern: 'STRING_VALUE', // required
+ *       ResourceType: 'STRING_VALUE',
+ *       Members: [ // ProtectionGroupMembers // required
+ *         'STRING_VALUE',
+ *       ],
+ *       ProtectionGroupArn: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListProtectionGroupsCommandInput - {@link ListProtectionGroupsCommandInput}
@@ -77,6 +94,8 @@ export interface ListProtectionGroupsCommandOutput extends ListProtectionGroupsR
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Exception indicating the specified resource does not exist. If available, this exception includes details in additional properties. </p>
  *
+ * @throws {@link ShieldServiceException}
+ * <p>Base exception class for all service exceptions from Shield service.</p>
  *
  */
 export class ListProtectionGroupsCommand extends $Command<

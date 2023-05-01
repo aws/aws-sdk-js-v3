@@ -83,17 +83,25 @@ export interface UpdateShardCountCommandOutput extends UpdateShardCountOutput, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KinesisClient, UpdateShardCountCommand } from "@aws-sdk/client-kinesis"; // ES Modules import
- * // const { KinesisClient, UpdateShardCountCommand } = require("@aws-sdk/client-kinesis"); // CommonJS import
+ * import { KinesisClient, UpdateShardCountCommand } from '@aws-sdk/client-kinesis'; // ES Modules import
+ * // const { KinesisClient, UpdateShardCountCommand } = require('@aws-sdk/client-kinesis'); // CommonJS import
  * const client = new KinesisClient(config);
  * const input = { // UpdateShardCountInput
- *   StreamName: "STRING_VALUE",
- *   TargetShardCount: Number("int"), // required
- *   ScalingType: "UNIFORM_SCALING", // required
- *   StreamARN: "STRING_VALUE",
+ *   StreamName: 'STRING_VALUE',
+ *   TargetShardCount: Number('int'), // required
+ *   ScalingType: 'UNIFORM_SCALING', // required
+ *   StreamARN: 'STRING_VALUE',
  * };
  * const command = new UpdateShardCountCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateShardCountOutput
+ *   StreamName: 'STRING_VALUE',
+ *   CurrentShardCount: Number('int'),
+ *   TargetShardCount: Number('int'),
+ *   StreamARN: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param UpdateShardCountCommandInput - {@link UpdateShardCountCommandInput}
@@ -127,6 +135,8 @@ export interface UpdateShardCountCommandOutput extends UpdateShardCountOutput, _
  *             capacity mode. This API is only supported for data streams with the provisioned capacity
  *             mode. </p>
  *
+ * @throws {@link KinesisServiceException}
+ * <p>Base exception class for all service exceptions from Kinesis service.</p>
  *
  */
 export class UpdateShardCountCommand extends $Command<

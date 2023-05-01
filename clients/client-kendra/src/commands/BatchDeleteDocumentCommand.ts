@@ -40,21 +40,32 @@ export interface BatchDeleteDocumentCommandOutput extends BatchDeleteDocumentRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KendraClient, BatchDeleteDocumentCommand } from "@aws-sdk/client-kendra"; // ES Modules import
- * // const { KendraClient, BatchDeleteDocumentCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
+ * import { KendraClient, BatchDeleteDocumentCommand } from '@aws-sdk/client-kendra'; // ES Modules import
+ * // const { KendraClient, BatchDeleteDocumentCommand } = require('@aws-sdk/client-kendra'); // CommonJS import
  * const client = new KendraClient(config);
  * const input = { // BatchDeleteDocumentRequest
- *   IndexId: "STRING_VALUE", // required
+ *   IndexId: 'STRING_VALUE', // required
  *   DocumentIdList: [ // DocumentIdList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   DataSourceSyncJobMetricTarget: { // DataSourceSyncJobMetricTarget
- *     DataSourceId: "STRING_VALUE", // required
- *     DataSourceSyncJobId: "STRING_VALUE",
+ *     DataSourceId: 'STRING_VALUE', // required
+ *     DataSourceSyncJobId: 'STRING_VALUE',
  *   },
  * };
  * const command = new BatchDeleteDocumentCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BatchDeleteDocumentResponse
+ *   FailedDocuments: [ // BatchDeleteDocumentResponseFailedDocuments
+ *     { // BatchDeleteDocumentResponseFailedDocument
+ *       Id: 'STRING_VALUE',
+ *       ErrorCode: 'InternalError' || 'InvalidRequest',
+ *       ErrorMessage: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param BatchDeleteDocumentCommandInput - {@link BatchDeleteDocumentCommandInput}
@@ -87,6 +98,8 @@ export interface BatchDeleteDocumentCommandOutput extends BatchDeleteDocumentRes
  *  <p>The input fails to satisfy the constraints set by the Amazon Kendra service.
  *             Please provide the correct input and try again.</p>
  *
+ * @throws {@link KendraServiceException}
+ * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
  */
 export class BatchDeleteDocumentCommand extends $Command<

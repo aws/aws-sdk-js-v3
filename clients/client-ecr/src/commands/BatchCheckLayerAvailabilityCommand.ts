@@ -45,18 +45,37 @@ export interface BatchCheckLayerAvailabilityCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ECRClient, BatchCheckLayerAvailabilityCommand } from "@aws-sdk/client-ecr"; // ES Modules import
- * // const { ECRClient, BatchCheckLayerAvailabilityCommand } = require("@aws-sdk/client-ecr"); // CommonJS import
+ * import { ECRClient, BatchCheckLayerAvailabilityCommand } from '@aws-sdk/client-ecr'; // ES Modules import
+ * // const { ECRClient, BatchCheckLayerAvailabilityCommand } = require('@aws-sdk/client-ecr'); // CommonJS import
  * const client = new ECRClient(config);
  * const input = { // BatchCheckLayerAvailabilityRequest
- *   registryId: "STRING_VALUE",
- *   repositoryName: "STRING_VALUE", // required
+ *   registryId: 'STRING_VALUE',
+ *   repositoryName: 'STRING_VALUE', // required
  *   layerDigests: [ // BatchedOperationLayerDigestList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new BatchCheckLayerAvailabilityCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BatchCheckLayerAvailabilityResponse
+ *   layers: [ // LayerList
+ *     { // Layer
+ *       layerDigest: 'STRING_VALUE',
+ *       layerAvailability: 'STRING_VALUE',
+ *       layerSize: Number('long'),
+ *       mediaType: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   failures: [ // LayerFailureList
+ *     { // LayerFailure
+ *       layerDigest: 'STRING_VALUE',
+ *       failureCode: 'STRING_VALUE',
+ *       failureReason: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param BatchCheckLayerAvailabilityCommandInput - {@link BatchCheckLayerAvailabilityCommandInput}
@@ -76,6 +95,8 @@ export interface BatchCheckLayerAvailabilityCommandOutput
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server-side issue.</p>
  *
+ * @throws {@link ECRServiceException}
+ * <p>Base exception class for all service exceptions from ECR service.</p>
  *
  */
 export class BatchCheckLayerAvailabilityCommand extends $Command<

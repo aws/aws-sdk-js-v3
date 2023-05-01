@@ -40,24 +40,38 @@ export interface AssociateS3ResourcesCommandOutput extends AssociateS3ResourcesR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MacieClient, AssociateS3ResourcesCommand } from "@aws-sdk/client-macie"; // ES Modules import
- * // const { MacieClient, AssociateS3ResourcesCommand } = require("@aws-sdk/client-macie"); // CommonJS import
+ * import { MacieClient, AssociateS3ResourcesCommand } from '@aws-sdk/client-macie'; // ES Modules import
+ * // const { MacieClient, AssociateS3ResourcesCommand } = require('@aws-sdk/client-macie'); // CommonJS import
  * const client = new MacieClient(config);
  * const input = { // AssociateS3ResourcesRequest
- *   memberAccountId: "STRING_VALUE",
+ *   memberAccountId: 'STRING_VALUE',
  *   s3Resources: [ // S3ResourcesClassification // required
  *     { // S3ResourceClassification
- *       bucketName: "STRING_VALUE", // required
- *       prefix: "STRING_VALUE",
+ *       bucketName: 'STRING_VALUE', // required
+ *       prefix: 'STRING_VALUE',
  *       classificationType: { // ClassificationType
- *         oneTime: "STRING_VALUE", // required
- *         continuous: "STRING_VALUE", // required
+ *         oneTime: 'STRING_VALUE', // required
+ *         continuous: 'STRING_VALUE', // required
  *       },
  *     },
  *   ],
  * };
  * const command = new AssociateS3ResourcesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // AssociateS3ResourcesResult
+ *   failedS3Resources: [ // FailedS3Resources
+ *     { // FailedS3Resource
+ *       failedItem: { // S3Resource
+ *         bucketName: 'STRING_VALUE', // required
+ *         prefix: 'STRING_VALUE',
+ *       },
+ *       errorCode: 'STRING_VALUE',
+ *       errorMessage: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param AssociateS3ResourcesCommandInput - {@link AssociateS3ResourcesCommandInput}
@@ -80,6 +94,8 @@ export interface AssociateS3ResourcesCommandOutput extends AssociateS3ResourcesR
  *  <p>(Discontinued) The request was rejected because it attempted to create resources beyond the current
  *       Amazon Web Services account quotas. The error code describes the quota exceeded.</p>
  *
+ * @throws {@link MacieServiceException}
+ * <p>Base exception class for all service exceptions from Macie service.</p>
  *
  */
 export class AssociateS3ResourcesCommand extends $Command<

@@ -36,16 +36,33 @@ export interface DescribeJobLogItemsCommandOutput extends DescribeJobLogItemsRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MgnClient, DescribeJobLogItemsCommand } from "@aws-sdk/client-mgn"; // ES Modules import
- * // const { MgnClient, DescribeJobLogItemsCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
+ * import { MgnClient, DescribeJobLogItemsCommand } from '@aws-sdk/client-mgn'; // ES Modules import
+ * // const { MgnClient, DescribeJobLogItemsCommand } = require('@aws-sdk/client-mgn'); // CommonJS import
  * const client = new MgnClient(config);
  * const input = { // DescribeJobLogItemsRequest
- *   jobID: "STRING_VALUE", // required
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   jobID: 'STRING_VALUE', // required
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  * };
  * const command = new DescribeJobLogItemsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeJobLogItemsResponse
+ *   items: [ // JobLogs
+ *     { // JobLog
+ *       logDateTime: 'STRING_VALUE',
+ *       event: 'STRING_VALUE',
+ *       eventData: { // JobLogEventData
+ *         sourceServerID: 'STRING_VALUE',
+ *         conversionServerID: 'STRING_VALUE',
+ *         targetInstanceID: 'STRING_VALUE',
+ *         rawError: 'STRING_VALUE',
+ *       },
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeJobLogItemsCommandInput - {@link DescribeJobLogItemsCommandInput}
@@ -60,6 +77,8 @@ export interface DescribeJobLogItemsCommandOutput extends DescribeJobLogItemsRes
  * @throws {@link ValidationException} (client fault)
  *  <p>Validate exception.</p>
  *
+ * @throws {@link MgnServiceException}
+ * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
  */
 export class DescribeJobLogItemsCommand extends $Command<

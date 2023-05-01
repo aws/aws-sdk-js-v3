@@ -106,21 +106,29 @@ export interface GenerateDataKeyPairWithoutPlaintextCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KMSClient, GenerateDataKeyPairWithoutPlaintextCommand } from "@aws-sdk/client-kms"; // ES Modules import
- * // const { KMSClient, GenerateDataKeyPairWithoutPlaintextCommand } = require("@aws-sdk/client-kms"); // CommonJS import
+ * import { KMSClient, GenerateDataKeyPairWithoutPlaintextCommand } from '@aws-sdk/client-kms'; // ES Modules import
+ * // const { KMSClient, GenerateDataKeyPairWithoutPlaintextCommand } = require('@aws-sdk/client-kms'); // CommonJS import
  * const client = new KMSClient(config);
  * const input = { // GenerateDataKeyPairWithoutPlaintextRequest
  *   EncryptionContext: { // EncryptionContextType
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
- *   KeyId: "STRING_VALUE", // required
- *   KeyPairSpec: "RSA_2048" || "RSA_3072" || "RSA_4096" || "ECC_NIST_P256" || "ECC_NIST_P384" || "ECC_NIST_P521" || "ECC_SECG_P256K1" || "SM2", // required
+ *   KeyId: 'STRING_VALUE', // required
+ *   KeyPairSpec: 'RSA_2048' || 'RSA_3072' || 'RSA_4096' || 'ECC_NIST_P256' || 'ECC_NIST_P384' || 'ECC_NIST_P521' || 'ECC_SECG_P256K1' || 'SM2', // required
  *   GrantTokens: [ // GrantTokenList
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new GenerateDataKeyPairWithoutPlaintextCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GenerateDataKeyPairWithoutPlaintextResponse
+ *   PrivateKeyCiphertextBlob: 'BLOB_VALUE',
+ *   PublicKey: 'BLOB_VALUE',
+ *   KeyId: 'STRING_VALUE',
+ *   KeyPairSpec: 'RSA_2048' || 'RSA_3072' || 'RSA_4096' || 'ECC_NIST_P256' || 'ECC_NIST_P384' || 'ECC_NIST_P521' || 'ECC_SECG_P256K1' || 'SM2',
+ * };
+ *
  * ```
  *
  * @param GenerateDataKeyPairWithoutPlaintextCommandInput - {@link GenerateDataKeyPairWithoutPlaintextCommandInput}
@@ -194,6 +202,8 @@ export interface GenerateDataKeyPairWithoutPlaintextCommandOutput
  *  <p>The request was rejected because a specified parameter is not supported or a specified
  *       resource is not valid for this operation.</p>
  *
+ * @throws {@link KMSServiceException}
+ * <p>Base exception class for all service exceptions from KMS service.</p>
  *
  * @example To generate an asymmetric data key pair without a plaintext key
  * ```javascript

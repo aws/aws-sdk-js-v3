@@ -42,19 +42,46 @@ export interface BatchGetCollectionCommandOutput extends BatchGetCollectionRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OpenSearchServerlessClient, BatchGetCollectionCommand } from "@aws-sdk/client-opensearchserverless"; // ES Modules import
- * // const { OpenSearchServerlessClient, BatchGetCollectionCommand } = require("@aws-sdk/client-opensearchserverless"); // CommonJS import
+ * import { OpenSearchServerlessClient, BatchGetCollectionCommand } from '@aws-sdk/client-opensearchserverless'; // ES Modules import
+ * // const { OpenSearchServerlessClient, BatchGetCollectionCommand } = require('@aws-sdk/client-opensearchserverless'); // CommonJS import
  * const client = new OpenSearchServerlessClient(config);
  * const input = { // BatchGetCollectionRequest
  *   ids: [ // CollectionIds
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  *   names: [ // CollectionNames
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new BatchGetCollectionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BatchGetCollectionResponse
+ *   collectionDetails: [ // CollectionDetails
+ *     { // CollectionDetail
+ *       id: 'STRING_VALUE',
+ *       name: 'STRING_VALUE',
+ *       status: 'STRING_VALUE',
+ *       type: 'STRING_VALUE',
+ *       description: 'STRING_VALUE',
+ *       arn: 'STRING_VALUE',
+ *       kmsKeyArn: 'STRING_VALUE',
+ *       createdDate: Number('long'),
+ *       lastModifiedDate: Number('long'),
+ *       collectionEndpoint: 'STRING_VALUE',
+ *       dashboardEndpoint: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   collectionErrorDetails: [ // CollectionErrorDetails
+ *     { // CollectionErrorDetail
+ *       id: 'STRING_VALUE',
+ *       name: 'STRING_VALUE',
+ *       errorMessage: 'STRING_VALUE',
+ *       errorCode: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param BatchGetCollectionCommandInput - {@link BatchGetCollectionCommandInput}
@@ -70,6 +97,8 @@ export interface BatchGetCollectionCommandOutput extends BatchGetCollectionRespo
  *  <p>Thrown when the HTTP request contains invalid input or is missing required
  *             input.</p>
  *
+ * @throws {@link OpenSearchServerlessServiceException}
+ * <p>Base exception class for all service exceptions from OpenSearchServerless service.</p>
  *
  */
 export class BatchGetCollectionCommand extends $Command<

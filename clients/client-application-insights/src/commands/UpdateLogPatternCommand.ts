@@ -40,18 +40,29 @@ export interface UpdateLogPatternCommandOutput extends UpdateLogPatternResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ApplicationInsightsClient, UpdateLogPatternCommand } from "@aws-sdk/client-application-insights"; // ES Modules import
- * // const { ApplicationInsightsClient, UpdateLogPatternCommand } = require("@aws-sdk/client-application-insights"); // CommonJS import
+ * import { ApplicationInsightsClient, UpdateLogPatternCommand } from '@aws-sdk/client-application-insights'; // ES Modules import
+ * // const { ApplicationInsightsClient, UpdateLogPatternCommand } = require('@aws-sdk/client-application-insights'); // CommonJS import
  * const client = new ApplicationInsightsClient(config);
  * const input = { // UpdateLogPatternRequest
- *   ResourceGroupName: "STRING_VALUE", // required
- *   PatternSetName: "STRING_VALUE", // required
- *   PatternName: "STRING_VALUE", // required
- *   Pattern: "STRING_VALUE",
- *   Rank: Number("int"),
+ *   ResourceGroupName: 'STRING_VALUE', // required
+ *   PatternSetName: 'STRING_VALUE', // required
+ *   PatternName: 'STRING_VALUE', // required
+ *   Pattern: 'STRING_VALUE',
+ *   Rank: Number('int'),
  * };
  * const command = new UpdateLogPatternCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateLogPatternResponse
+ *   ResourceGroupName: 'STRING_VALUE',
+ *   LogPattern: { // LogPattern
+ *     PatternSetName: 'STRING_VALUE',
+ *     PatternName: 'STRING_VALUE',
+ *     Pattern: 'STRING_VALUE',
+ *     Rank: Number('int'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateLogPatternCommandInput - {@link UpdateLogPatternCommandInput}
@@ -72,6 +83,8 @@ export interface UpdateLogPatternCommandOutput extends UpdateLogPatternResponse,
  * @throws {@link ValidationException} (client fault)
  *  <p>The parameter is not valid.</p>
  *
+ * @throws {@link ApplicationInsightsServiceException}
+ * <p>Base exception class for all service exceptions from ApplicationInsights service.</p>
  *
  */
 export class UpdateLogPatternCommand extends $Command<

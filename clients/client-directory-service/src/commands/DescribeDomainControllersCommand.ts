@@ -36,19 +36,38 @@ export interface DescribeDomainControllersCommandOutput extends DescribeDomainCo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DirectoryServiceClient, DescribeDomainControllersCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
- * // const { DirectoryServiceClient, DescribeDomainControllersCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
+ * import { DirectoryServiceClient, DescribeDomainControllersCommand } from '@aws-sdk/client-directory-service'; // ES Modules import
+ * // const { DirectoryServiceClient, DescribeDomainControllersCommand } = require('@aws-sdk/client-directory-service'); // CommonJS import
  * const client = new DirectoryServiceClient(config);
  * const input = { // DescribeDomainControllersRequest
- *   DirectoryId: "STRING_VALUE", // required
+ *   DirectoryId: 'STRING_VALUE', // required
  *   DomainControllerIds: [ // DomainControllerIds
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   NextToken: "STRING_VALUE",
- *   Limit: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   Limit: Number('int'),
  * };
  * const command = new DescribeDomainControllersCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeDomainControllersResult
+ *   DomainControllers: [ // DomainControllers
+ *     { // DomainController
+ *       DirectoryId: 'STRING_VALUE',
+ *       DomainControllerId: 'STRING_VALUE',
+ *       DnsIpAddr: 'STRING_VALUE',
+ *       VpcId: 'STRING_VALUE',
+ *       SubnetId: 'STRING_VALUE',
+ *       AvailabilityZone: 'STRING_VALUE',
+ *       Status: 'Creating' || 'Active' || 'Impaired' || 'Restoring' || 'Deleting' || 'Deleted' || 'Failed',
+ *       StatusReason: 'STRING_VALUE',
+ *       LaunchTime: new Date('TIMESTAMP'),
+ *       StatusLastUpdatedDateTime: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeDomainControllersCommandInput - {@link DescribeDomainControllersCommandInput}
@@ -75,6 +94,8 @@ export interface DescribeDomainControllersCommandOutput extends DescribeDomainCo
  * @throws {@link UnsupportedOperationException} (client fault)
  *  <p>The operation is not supported.</p>
  *
+ * @throws {@link DirectoryServiceServiceException}
+ * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
  */
 export class DescribeDomainControllersCommand extends $Command<

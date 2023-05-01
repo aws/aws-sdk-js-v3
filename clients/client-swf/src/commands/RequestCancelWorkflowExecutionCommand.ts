@@ -77,16 +77,19 @@ export interface RequestCancelWorkflowExecutionCommandOutput extends __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SWFClient, RequestCancelWorkflowExecutionCommand } from "@aws-sdk/client-swf"; // ES Modules import
- * // const { SWFClient, RequestCancelWorkflowExecutionCommand } = require("@aws-sdk/client-swf"); // CommonJS import
+ * import { SWFClient, RequestCancelWorkflowExecutionCommand } from '@aws-sdk/client-swf'; // ES Modules import
+ * // const { SWFClient, RequestCancelWorkflowExecutionCommand } = require('@aws-sdk/client-swf'); // CommonJS import
  * const client = new SWFClient(config);
  * const input = { // RequestCancelWorkflowExecutionInput
- *   domain: "STRING_VALUE", // required
- *   workflowId: "STRING_VALUE", // required
- *   runId: "STRING_VALUE",
+ *   domain: 'STRING_VALUE', // required
+ *   workflowId: 'STRING_VALUE', // required
+ *   runId: 'STRING_VALUE',
  * };
  * const command = new RequestCancelWorkflowExecutionCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param RequestCancelWorkflowExecutionCommandInput - {@link RequestCancelWorkflowExecutionCommandInput}
@@ -101,6 +104,8 @@ export interface RequestCancelWorkflowExecutionCommandOutput extends __MetadataB
  * @throws {@link UnknownResourceFault} (client fault)
  *  <p>Returned when the named resource cannot be found with in the scope of this operation (region or domain). This could happen if the named resource was never created or is no longer available for this operation.</p>
  *
+ * @throws {@link SWFServiceException}
+ * <p>Base exception class for all service exceptions from SWF service.</p>
  *
  */
 export class RequestCancelWorkflowExecutionCommand extends $Command<

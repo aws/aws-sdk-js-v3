@@ -46,18 +46,35 @@ export interface ListTapesCommandOutput extends ListTapesOutput, __MetadataBeare
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { StorageGatewayClient, ListTapesCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
- * // const { StorageGatewayClient, ListTapesCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
+ * import { StorageGatewayClient, ListTapesCommand } from '@aws-sdk/client-storage-gateway'; // ES Modules import
+ * // const { StorageGatewayClient, ListTapesCommand } = require('@aws-sdk/client-storage-gateway'); // CommonJS import
  * const client = new StorageGatewayClient(config);
  * const input = { // ListTapesInput
  *   TapeARNs: [ // TapeARNs
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
- *   Marker: "STRING_VALUE",
- *   Limit: Number("int"),
+ *   Marker: 'STRING_VALUE',
+ *   Limit: Number('int'),
  * };
  * const command = new ListTapesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListTapesOutput
+ *   TapeInfos: [ // TapeInfos
+ *     { // TapeInfo
+ *       TapeARN: 'STRING_VALUE',
+ *       TapeBarcode: 'STRING_VALUE',
+ *       TapeSizeInBytes: Number('long'),
+ *       TapeStatus: 'STRING_VALUE',
+ *       GatewayARN: 'STRING_VALUE',
+ *       PoolId: 'STRING_VALUE',
+ *       RetentionStartDate: new Date('TIMESTAMP'),
+ *       PoolEntryDate: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   Marker: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListTapesCommandInput - {@link ListTapesCommandInput}
@@ -74,6 +91,8 @@ export interface ListTapesCommandOutput extends ListTapesOutput, __MetadataBeare
  *  <p>An exception occurred because an invalid gateway request was issued to the service. For
  *          more information, see the error and message fields.</p>
  *
+ * @throws {@link StorageGatewayServiceException}
+ * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
  */
 export class ListTapesCommand extends $Command<

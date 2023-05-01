@@ -43,17 +43,54 @@ export interface QueryAssistantCommandOutput extends QueryAssistantResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WisdomClient, QueryAssistantCommand } from "@aws-sdk/client-wisdom"; // ES Modules import
- * // const { WisdomClient, QueryAssistantCommand } = require("@aws-sdk/client-wisdom"); // CommonJS import
+ * import { WisdomClient, QueryAssistantCommand } from '@aws-sdk/client-wisdom'; // ES Modules import
+ * // const { WisdomClient, QueryAssistantCommand } = require('@aws-sdk/client-wisdom'); // CommonJS import
  * const client = new WisdomClient(config);
  * const input = { // QueryAssistantRequest
- *   assistantId: "STRING_VALUE", // required
- *   queryText: "STRING_VALUE", // required
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   assistantId: 'STRING_VALUE', // required
+ *   queryText: 'STRING_VALUE', // required
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new QueryAssistantCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // QueryAssistantResponse
+ *   results: [ // QueryResultsList // required
+ *     { // ResultData
+ *       resultId: 'STRING_VALUE', // required
+ *       document: { // Document
+ *         contentReference: { // ContentReference
+ *           knowledgeBaseArn: 'STRING_VALUE',
+ *           knowledgeBaseId: 'STRING_VALUE',
+ *           contentArn: 'STRING_VALUE',
+ *           contentId: 'STRING_VALUE',
+ *         },
+ *         title: { // DocumentText
+ *           text: 'STRING_VALUE',
+ *           highlights: [ // Highlights
+ *             { // Highlight
+ *               beginOffsetInclusive: Number('int'),
+ *               endOffsetExclusive: Number('int'),
+ *             },
+ *           ],
+ *         },
+ *         excerpt: {
+ *           text: 'STRING_VALUE',
+ *           highlights: [
+ *             {
+ *               beginOffsetInclusive: Number('int'),
+ *               endOffsetExclusive: Number('int'),
+ *             },
+ *           ],
+ *         },
+ *       },
+ *       relevanceScore: Number('double'),
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param QueryAssistantCommandInput - {@link QueryAssistantCommandInput}
@@ -71,6 +108,8 @@ export interface QueryAssistantCommandOutput extends QueryAssistantResponse, __M
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by a service.</p>
  *
+ * @throws {@link WisdomServiceException}
+ * <p>Base exception class for all service exceptions from Wisdom service.</p>
  *
  */
 export class QueryAssistantCommand extends $Command<

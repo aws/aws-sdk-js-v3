@@ -36,16 +36,38 @@ export interface DescribeClusterTracksCommandOutput extends TrackListMessage, __
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RedshiftClient, DescribeClusterTracksCommand } from "@aws-sdk/client-redshift"; // ES Modules import
- * // const { RedshiftClient, DescribeClusterTracksCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * import { RedshiftClient, DescribeClusterTracksCommand } from '@aws-sdk/client-redshift'; // ES Modules import
+ * // const { RedshiftClient, DescribeClusterTracksCommand } = require('@aws-sdk/client-redshift'); // CommonJS import
  * const client = new RedshiftClient(config);
  * const input = { // DescribeClusterTracksMessage
- *   MaintenanceTrackName: "STRING_VALUE",
- *   MaxRecords: Number("int"),
- *   Marker: "STRING_VALUE",
+ *   MaintenanceTrackName: 'STRING_VALUE',
+ *   MaxRecords: Number('int'),
+ *   Marker: 'STRING_VALUE',
  * };
  * const command = new DescribeClusterTracksCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // TrackListMessage
+ *   MaintenanceTracks: [ // TrackList
+ *     { // MaintenanceTrack
+ *       MaintenanceTrackName: 'STRING_VALUE',
+ *       DatabaseVersion: 'STRING_VALUE',
+ *       UpdateTargets: [ // EligibleTracksToUpdateList
+ *         { // UpdateTarget
+ *           MaintenanceTrackName: 'STRING_VALUE',
+ *           DatabaseVersion: 'STRING_VALUE',
+ *           SupportedOperations: [ // SupportedOperationList
+ *             { // SupportedOperation
+ *               OperationName: 'STRING_VALUE',
+ *             },
+ *           ],
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   Marker: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeClusterTracksCommandInput - {@link DescribeClusterTracksCommandInput}
@@ -60,6 +82,8 @@ export interface DescribeClusterTracksCommandOutput extends TrackListMessage, __
  * @throws {@link UnauthorizedOperation} (client fault)
  *  <p>Your account is not authorized to perform the requested operation.</p>
  *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class DescribeClusterTracksCommand extends $Command<

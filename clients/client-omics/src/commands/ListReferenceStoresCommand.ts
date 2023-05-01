@@ -36,20 +36,38 @@ export interface ListReferenceStoresCommandOutput extends ListReferenceStoresRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OmicsClient, ListReferenceStoresCommand } from "@aws-sdk/client-omics"; // ES Modules import
- * // const { OmicsClient, ListReferenceStoresCommand } = require("@aws-sdk/client-omics"); // CommonJS import
+ * import { OmicsClient, ListReferenceStoresCommand } from '@aws-sdk/client-omics'; // ES Modules import
+ * // const { OmicsClient, ListReferenceStoresCommand } = require('@aws-sdk/client-omics'); // CommonJS import
  * const client = new OmicsClient(config);
  * const input = { // ListReferenceStoresRequest
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   maxResults: Number('int'),
+ *   nextToken: 'STRING_VALUE',
  *   filter: { // ReferenceStoreFilter
- *     name: "STRING_VALUE",
- *     createdAfter: new Date("TIMESTAMP"),
- *     createdBefore: new Date("TIMESTAMP"),
+ *     name: 'STRING_VALUE',
+ *     createdAfter: new Date('TIMESTAMP'),
+ *     createdBefore: new Date('TIMESTAMP'),
  *   },
  * };
  * const command = new ListReferenceStoresCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListReferenceStoresResponse
+ *   nextToken: 'STRING_VALUE',
+ *   referenceStores: [ // ReferenceStoreDetailList // required
+ *     { // ReferenceStoreDetail
+ *       arn: 'STRING_VALUE', // required
+ *       id: 'STRING_VALUE', // required
+ *       name: 'STRING_VALUE',
+ *       description: 'STRING_VALUE',
+ *       sseConfig: { // SseConfig
+ *         type: 'STRING_VALUE', // required
+ *         keyArn: 'STRING_VALUE',
+ *       },
+ *       creationTime: new Date('TIMESTAMP'), // required
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param ListReferenceStoresCommandInput - {@link ListReferenceStoresCommandInput}
@@ -73,6 +91,8 @@ export interface ListReferenceStoresCommandOutput extends ListReferenceStoresRes
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link OmicsServiceException}
+ * <p>Base exception class for all service exceptions from Omics service.</p>
  *
  */
 export class ListReferenceStoresCommand extends $Command<

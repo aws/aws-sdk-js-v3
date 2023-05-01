@@ -40,16 +40,74 @@ export interface UpdateNetworkSiteCommandOutput extends UpdateNetworkSiteRespons
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PrivateNetworksClient, UpdateNetworkSiteCommand } from "@aws-sdk/client-privatenetworks"; // ES Modules import
- * // const { PrivateNetworksClient, UpdateNetworkSiteCommand } = require("@aws-sdk/client-privatenetworks"); // CommonJS import
+ * import { PrivateNetworksClient, UpdateNetworkSiteCommand } from '@aws-sdk/client-privatenetworks'; // ES Modules import
+ * // const { PrivateNetworksClient, UpdateNetworkSiteCommand } = require('@aws-sdk/client-privatenetworks'); // CommonJS import
  * const client = new PrivateNetworksClient(config);
  * const input = { // UpdateNetworkSiteRequest
- *   networkSiteArn: "STRING_VALUE", // required
- *   clientToken: "STRING_VALUE",
- *   description: "STRING_VALUE",
+ *   networkSiteArn: 'STRING_VALUE', // required
+ *   clientToken: 'STRING_VALUE',
+ *   description: 'STRING_VALUE',
  * };
  * const command = new UpdateNetworkSiteCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateNetworkSiteResponse
+ *   networkSite: { // NetworkSite
+ *     networkSiteArn: 'STRING_VALUE', // required
+ *     networkSiteName: 'STRING_VALUE', // required
+ *     description: 'STRING_VALUE',
+ *     status: 'STRING_VALUE', // required
+ *     statusReason: 'STRING_VALUE',
+ *     networkArn: 'STRING_VALUE', // required
+ *     pendingPlan: { // SitePlan
+ *       resourceDefinitions: [ // NetworkResourceDefinitions
+ *         { // NetworkResourceDefinition
+ *           type: 'STRING_VALUE', // required
+ *           options: [ // Options
+ *             { // NameValuePair
+ *               name: 'STRING_VALUE', // required
+ *               value: 'STRING_VALUE',
+ *             },
+ *           ],
+ *           count: Number('int'), // required
+ *         },
+ *       ],
+ *       options: [
+ *         {
+ *           name: 'STRING_VALUE', // required
+ *           value: 'STRING_VALUE',
+ *         },
+ *       ],
+ *     },
+ *     currentPlan: {
+ *       resourceDefinitions: [
+ *         {
+ *           type: 'STRING_VALUE', // required
+ *           options: [
+ *             {
+ *               name: 'STRING_VALUE', // required
+ *               value: 'STRING_VALUE',
+ *             },
+ *           ],
+ *           count: Number('int'), // required
+ *         },
+ *       ],
+ *       options: [
+ *         {
+ *           name: 'STRING_VALUE', // required
+ *           value: 'STRING_VALUE',
+ *         },
+ *       ],
+ *     },
+ *     createdAt: new Date('TIMESTAMP'),
+ *     availabilityZone: 'STRING_VALUE',
+ *     availabilityZoneId: 'STRING_VALUE',
+ *   },
+ *   tags: { // TagMap
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateNetworkSiteCommandInput - {@link UpdateNetworkSiteCommandInput}
@@ -67,6 +125,8 @@ export interface UpdateNetworkSiteCommandOutput extends UpdateNetworkSiteRespons
  * @throws {@link ValidationException} (client fault)
  *  <p>The request failed validation.</p>
  *
+ * @throws {@link PrivateNetworksServiceException}
+ * <p>Base exception class for all service exceptions from PrivateNetworks service.</p>
  *
  */
 export class UpdateNetworkSiteCommand extends $Command<

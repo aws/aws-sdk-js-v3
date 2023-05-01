@@ -45,17 +45,31 @@ export interface BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandOut
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeCommitClient, BatchDisassociateApprovalRuleTemplateFromRepositoriesCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
- * // const { CodeCommitClient, BatchDisassociateApprovalRuleTemplateFromRepositoriesCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
+ * import { CodeCommitClient, BatchDisassociateApprovalRuleTemplateFromRepositoriesCommand } from '@aws-sdk/client-codecommit'; // ES Modules import
+ * // const { CodeCommitClient, BatchDisassociateApprovalRuleTemplateFromRepositoriesCommand } = require('@aws-sdk/client-codecommit'); // CommonJS import
  * const client = new CodeCommitClient(config);
  * const input = { // BatchDisassociateApprovalRuleTemplateFromRepositoriesInput
- *   approvalRuleTemplateName: "STRING_VALUE", // required
+ *   approvalRuleTemplateName: 'STRING_VALUE', // required
  *   repositoryNames: [ // RepositoryNameList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new BatchDisassociateApprovalRuleTemplateFromRepositoriesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // BatchDisassociateApprovalRuleTemplateFromRepositoriesOutput
+ *   disassociatedRepositoryNames: [ // RepositoryNameList // required
+ *     'STRING_VALUE',
+ *   ],
+ *   errors: [ // BatchDisassociateApprovalRuleTemplateFromRepositoriesErrorsList // required
+ *     { // BatchDisassociateApprovalRuleTemplateFromRepositoriesError
+ *       repositoryName: 'STRING_VALUE',
+ *       errorCode: 'STRING_VALUE',
+ *       errorMessage: 'STRING_VALUE',
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandInput - {@link BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandInput}
@@ -98,6 +112,8 @@ export interface BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandOut
  * @throws {@link RepositoryNamesRequiredException} (client fault)
  *  <p>At least one repository name object is required, but was not specified.</p>
  *
+ * @throws {@link CodeCommitServiceException}
+ * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
  */
 export class BatchDisassociateApprovalRuleTemplateFromRepositoriesCommand extends $Command<

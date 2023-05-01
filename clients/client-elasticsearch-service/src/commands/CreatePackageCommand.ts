@@ -40,20 +40,38 @@ export interface CreatePackageCommandOutput extends CreatePackageResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElasticsearchServiceClient, CreatePackageCommand } from "@aws-sdk/client-elasticsearch-service"; // ES Modules import
- * // const { ElasticsearchServiceClient, CreatePackageCommand } = require("@aws-sdk/client-elasticsearch-service"); // CommonJS import
+ * import { ElasticsearchServiceClient, CreatePackageCommand } from '@aws-sdk/client-elasticsearch-service'; // ES Modules import
+ * // const { ElasticsearchServiceClient, CreatePackageCommand } = require('@aws-sdk/client-elasticsearch-service'); // CommonJS import
  * const client = new ElasticsearchServiceClient(config);
  * const input = { // CreatePackageRequest
- *   PackageName: "STRING_VALUE", // required
- *   PackageType: "TXT-DICTIONARY", // required
- *   PackageDescription: "STRING_VALUE",
+ *   PackageName: 'STRING_VALUE', // required
+ *   PackageType: 'TXT-DICTIONARY', // required
+ *   PackageDescription: 'STRING_VALUE',
  *   PackageSource: { // PackageSource
- *     S3BucketName: "STRING_VALUE",
- *     S3Key: "STRING_VALUE",
+ *     S3BucketName: 'STRING_VALUE',
+ *     S3Key: 'STRING_VALUE',
  *   },
  * };
  * const command = new CreatePackageCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreatePackageResponse
+ *   PackageDetails: { // PackageDetails
+ *     PackageID: 'STRING_VALUE',
+ *     PackageName: 'STRING_VALUE',
+ *     PackageType: 'TXT-DICTIONARY',
+ *     PackageDescription: 'STRING_VALUE',
+ *     PackageStatus: 'COPYING' || 'COPY_FAILED' || 'VALIDATING' || 'VALIDATION_FAILED' || 'AVAILABLE' || 'DELETING' || 'DELETED' || 'DELETE_FAILED',
+ *     CreatedAt: new Date('TIMESTAMP'),
+ *     LastUpdatedAt: new Date('TIMESTAMP'),
+ *     AvailablePackageVersion: 'STRING_VALUE',
+ *     ErrorDetails: { // ErrorDetails
+ *       ErrorType: 'STRING_VALUE',
+ *       ErrorMessage: 'STRING_VALUE',
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreatePackageCommandInput - {@link CreatePackageCommandInput}
@@ -83,6 +101,8 @@ export interface CreatePackageCommandOutput extends CreatePackageResponse, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception for missing / invalid input fields. Gives http status code of 400.</p>
  *
+ * @throws {@link ElasticsearchServiceServiceException}
+ * <p>Base exception class for all service exceptions from ElasticsearchService service.</p>
  *
  */
 export class CreatePackageCommand extends $Command<

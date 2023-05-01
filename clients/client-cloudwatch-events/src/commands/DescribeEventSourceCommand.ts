@@ -37,14 +37,24 @@ export interface DescribeEventSourceCommandOutput extends DescribeEventSourceRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudWatchEventsClient, DescribeEventSourceCommand } from "@aws-sdk/client-cloudwatch-events"; // ES Modules import
- * // const { CloudWatchEventsClient, DescribeEventSourceCommand } = require("@aws-sdk/client-cloudwatch-events"); // CommonJS import
+ * import { CloudWatchEventsClient, DescribeEventSourceCommand } from '@aws-sdk/client-cloudwatch-events'; // ES Modules import
+ * // const { CloudWatchEventsClient, DescribeEventSourceCommand } = require('@aws-sdk/client-cloudwatch-events'); // CommonJS import
  * const client = new CloudWatchEventsClient(config);
  * const input = { // DescribeEventSourceRequest
- *   Name: "STRING_VALUE", // required
+ *   Name: 'STRING_VALUE', // required
  * };
  * const command = new DescribeEventSourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeEventSourceResponse
+ *   Arn: 'STRING_VALUE',
+ *   CreatedBy: 'STRING_VALUE',
+ *   CreationTime: new Date('TIMESTAMP'),
+ *   ExpirationTime: new Date('TIMESTAMP'),
+ *   Name: 'STRING_VALUE',
+ *   State: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeEventSourceCommandInput - {@link DescribeEventSourceCommandInput}
@@ -62,6 +72,8 @@ export interface DescribeEventSourceCommandOutput extends DescribeEventSourceRes
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>An entity that you specified does not exist.</p>
  *
+ * @throws {@link CloudWatchEventsServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatchEvents service.</p>
  *
  */
 export class DescribeEventSourceCommand extends $Command<

@@ -36,17 +36,20 @@ export interface SwapEnvironmentCNAMEsCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElasticBeanstalkClient, SwapEnvironmentCNAMEsCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
- * // const { ElasticBeanstalkClient, SwapEnvironmentCNAMEsCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
+ * import { ElasticBeanstalkClient, SwapEnvironmentCNAMEsCommand } from '@aws-sdk/client-elastic-beanstalk'; // ES Modules import
+ * // const { ElasticBeanstalkClient, SwapEnvironmentCNAMEsCommand } = require('@aws-sdk/client-elastic-beanstalk'); // CommonJS import
  * const client = new ElasticBeanstalkClient(config);
  * const input = { // SwapEnvironmentCNAMEsMessage
- *   SourceEnvironmentId: "STRING_VALUE",
- *   SourceEnvironmentName: "STRING_VALUE",
- *   DestinationEnvironmentId: "STRING_VALUE",
- *   DestinationEnvironmentName: "STRING_VALUE",
+ *   SourceEnvironmentId: 'STRING_VALUE',
+ *   SourceEnvironmentName: 'STRING_VALUE',
+ *   DestinationEnvironmentId: 'STRING_VALUE',
+ *   DestinationEnvironmentName: 'STRING_VALUE',
  * };
  * const command = new SwapEnvironmentCNAMEsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param SwapEnvironmentCNAMEsCommandInput - {@link SwapEnvironmentCNAMEsCommandInput}
@@ -55,6 +58,8 @@ export interface SwapEnvironmentCNAMEsCommandOutput extends __MetadataBearer {}
  * @see {@link SwapEnvironmentCNAMEsCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
+ * @throws {@link ElasticBeanstalkServiceException}
+ * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
  * @example To swap environment CNAMES
  * ```javascript

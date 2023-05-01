@@ -45,18 +45,34 @@ export interface ModifyTransitGatewayPrefixListReferenceCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, ModifyTransitGatewayPrefixListReferenceCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, ModifyTransitGatewayPrefixListReferenceCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, ModifyTransitGatewayPrefixListReferenceCommand } from '@aws-sdk/client-ec2'; // ES Modules import
+ * // const { EC2Client, ModifyTransitGatewayPrefixListReferenceCommand } = require('@aws-sdk/client-ec2'); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // ModifyTransitGatewayPrefixListReferenceRequest
- *   TransitGatewayRouteTableId: "STRING_VALUE", // required
- *   PrefixListId: "STRING_VALUE", // required
- *   TransitGatewayAttachmentId: "STRING_VALUE",
+ *   TransitGatewayRouteTableId: 'STRING_VALUE', // required
+ *   PrefixListId: 'STRING_VALUE', // required
+ *   TransitGatewayAttachmentId: 'STRING_VALUE',
  *   Blackhole: true || false,
  *   DryRun: true || false,
  * };
  * const command = new ModifyTransitGatewayPrefixListReferenceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ModifyTransitGatewayPrefixListReferenceResult
+ *   TransitGatewayPrefixListReference: { // TransitGatewayPrefixListReference
+ *     TransitGatewayRouteTableId: 'STRING_VALUE',
+ *     PrefixListId: 'STRING_VALUE',
+ *     PrefixListOwnerId: 'STRING_VALUE',
+ *     State: 'pending' || 'available' || 'modifying' || 'deleting',
+ *     Blackhole: true || false,
+ *     TransitGatewayAttachment: { // TransitGatewayPrefixListAttachment
+ *       TransitGatewayAttachmentId: 'STRING_VALUE',
+ *       ResourceType: 'vpc' || 'vpn' || 'direct-connect-gateway' || 'connect' || 'peering' || 'tgw-peering',
+ *       ResourceId: 'STRING_VALUE',
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param ModifyTransitGatewayPrefixListReferenceCommandInput - {@link ModifyTransitGatewayPrefixListReferenceCommandInput}
@@ -65,6 +81,8 @@ export interface ModifyTransitGatewayPrefixListReferenceCommandOutput
  * @see {@link ModifyTransitGatewayPrefixListReferenceCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class ModifyTransitGatewayPrefixListReferenceCommand extends $Command<

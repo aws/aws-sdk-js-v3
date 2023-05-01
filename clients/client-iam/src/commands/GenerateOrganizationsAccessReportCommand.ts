@@ -174,15 +174,20 @@ export interface GenerateOrganizationsAccessReportCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IAMClient, GenerateOrganizationsAccessReportCommand } from "@aws-sdk/client-iam"; // ES Modules import
- * // const { IAMClient, GenerateOrganizationsAccessReportCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * import { IAMClient, GenerateOrganizationsAccessReportCommand } from '@aws-sdk/client-iam'; // ES Modules import
+ * // const { IAMClient, GenerateOrganizationsAccessReportCommand } = require('@aws-sdk/client-iam'); // CommonJS import
  * const client = new IAMClient(config);
  * const input = { // GenerateOrganizationsAccessReportRequest
- *   EntityPath: "STRING_VALUE", // required
- *   OrganizationsPolicyId: "STRING_VALUE",
+ *   EntityPath: 'STRING_VALUE', // required
+ *   OrganizationsPolicyId: 'STRING_VALUE',
  * };
  * const command = new GenerateOrganizationsAccessReportCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GenerateOrganizationsAccessReportResponse
+ *   JobId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GenerateOrganizationsAccessReportCommandInput - {@link GenerateOrganizationsAccessReportCommandInput}
@@ -195,6 +200,8 @@ export interface GenerateOrganizationsAccessReportCommandOutput
  *  <p>The request failed because the maximum number of concurrent requests for this account are
  *       already running.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  * @example To generate a service last accessed data report for an organizational unit
  * ```javascript

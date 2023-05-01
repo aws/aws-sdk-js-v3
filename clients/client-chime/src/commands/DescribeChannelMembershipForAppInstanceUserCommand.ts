@@ -52,16 +52,34 @@ export interface DescribeChannelMembershipForAppInstanceUserCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeClient, DescribeChannelMembershipForAppInstanceUserCommand } from "@aws-sdk/client-chime"; // ES Modules import
- * // const { ChimeClient, DescribeChannelMembershipForAppInstanceUserCommand } = require("@aws-sdk/client-chime"); // CommonJS import
+ * import { ChimeClient, DescribeChannelMembershipForAppInstanceUserCommand } from '@aws-sdk/client-chime'; // ES Modules import
+ * // const { ChimeClient, DescribeChannelMembershipForAppInstanceUserCommand } = require('@aws-sdk/client-chime'); // CommonJS import
  * const client = new ChimeClient(config);
  * const input = { // DescribeChannelMembershipForAppInstanceUserRequest
- *   ChannelArn: "STRING_VALUE", // required
- *   AppInstanceUserArn: "STRING_VALUE", // required
- *   ChimeBearer: "STRING_VALUE",
+ *   ChannelArn: 'STRING_VALUE', // required
+ *   AppInstanceUserArn: 'STRING_VALUE', // required
+ *   ChimeBearer: 'STRING_VALUE',
  * };
  * const command = new DescribeChannelMembershipForAppInstanceUserCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeChannelMembershipForAppInstanceUserResponse
+ *   ChannelMembership: { // ChannelMembershipForAppInstanceUserSummary
+ *     ChannelSummary: { // ChannelSummary
+ *       Name: 'STRING_VALUE',
+ *       ChannelArn: 'STRING_VALUE',
+ *       Mode: 'UNRESTRICTED' || 'RESTRICTED',
+ *       Privacy: 'PUBLIC' || 'PRIVATE',
+ *       Metadata: 'STRING_VALUE',
+ *       LastMessageTimestamp: new Date('TIMESTAMP'),
+ *     },
+ *     AppInstanceUserMembershipSummary: { // AppInstanceUserMembershipSummary
+ *       Type: 'DEFAULT' || 'HIDDEN',
+ *       ReadMarkerTimestamp: new Date('TIMESTAMP'),
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeChannelMembershipForAppInstanceUserCommandInput - {@link DescribeChannelMembershipForAppInstanceUserCommandInput}
@@ -88,6 +106,8 @@ export interface DescribeChannelMembershipForAppInstanceUserCommandOutput
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeServiceException}
+ * <p>Base exception class for all service exceptions from Chime service.</p>
  *
  */
 export class DescribeChannelMembershipForAppInstanceUserCommand extends $Command<

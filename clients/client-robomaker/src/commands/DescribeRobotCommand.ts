@@ -41,14 +41,30 @@ export interface DescribeRobotCommandOutput extends DescribeRobotResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RoboMakerClient, DescribeRobotCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
- * // const { RoboMakerClient, DescribeRobotCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
+ * import { RoboMakerClient, DescribeRobotCommand } from '@aws-sdk/client-robomaker'; // ES Modules import
+ * // const { RoboMakerClient, DescribeRobotCommand } = require('@aws-sdk/client-robomaker'); // CommonJS import
  * const client = new RoboMakerClient(config);
  * const input = { // DescribeRobotRequest
- *   robot: "STRING_VALUE", // required
+ *   robot: 'STRING_VALUE', // required
  * };
  * const command = new DescribeRobotCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeRobotResponse
+ *   arn: 'STRING_VALUE',
+ *   name: 'STRING_VALUE',
+ *   fleetArn: 'STRING_VALUE',
+ *   status: 'STRING_VALUE',
+ *   greengrassGroupId: 'STRING_VALUE',
+ *   createdAt: new Date('TIMESTAMP'),
+ *   architecture: 'STRING_VALUE',
+ *   lastDeploymentJob: 'STRING_VALUE',
+ *   lastDeploymentTime: new Date('TIMESTAMP'),
+ *   tags: { // TagMap
+ *     '<keys>': 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param DescribeRobotCommandInput - {@link DescribeRobotCommandInput}
@@ -70,6 +86,8 @@ export interface DescribeRobotCommandOutput extends DescribeRobotResponse, __Met
  * @throws {@link ThrottlingException} (client fault)
  *  <p>AWS RoboMaker is temporarily unable to process the request. Try your call again.</p>
  *
+ * @throws {@link RoboMakerServiceException}
+ * <p>Base exception class for all service exceptions from RoboMaker service.</p>
  *
  */
 export class DescribeRobotCommand extends $Command<

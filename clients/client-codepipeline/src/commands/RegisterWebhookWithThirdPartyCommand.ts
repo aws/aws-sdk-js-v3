@@ -42,14 +42,17 @@ export interface RegisterWebhookWithThirdPartyCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodePipelineClient, RegisterWebhookWithThirdPartyCommand } from "@aws-sdk/client-codepipeline"; // ES Modules import
- * // const { CodePipelineClient, RegisterWebhookWithThirdPartyCommand } = require("@aws-sdk/client-codepipeline"); // CommonJS import
+ * import { CodePipelineClient, RegisterWebhookWithThirdPartyCommand } from '@aws-sdk/client-codepipeline'; // ES Modules import
+ * // const { CodePipelineClient, RegisterWebhookWithThirdPartyCommand } = require('@aws-sdk/client-codepipeline'); // CommonJS import
  * const client = new CodePipelineClient(config);
  * const input = { // RegisterWebhookWithThirdPartyInput
- *   webhookName: "STRING_VALUE",
+ *   webhookName: 'STRING_VALUE',
  * };
  * const command = new RegisterWebhookWithThirdPartyCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param RegisterWebhookWithThirdPartyCommandInput - {@link RegisterWebhookWithThirdPartyCommandInput}
@@ -65,6 +68,8 @@ export interface RegisterWebhookWithThirdPartyCommandOutput
  *  <p>The specified webhook was entered in an invalid format or cannot be
  *             found.</p>
  *
+ * @throws {@link CodePipelineServiceException}
+ * <p>Base exception class for all service exceptions from CodePipeline service.</p>
  *
  */
 export class RegisterWebhookWithThirdPartyCommand extends $Command<

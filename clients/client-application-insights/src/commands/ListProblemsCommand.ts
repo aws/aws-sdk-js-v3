@@ -40,19 +40,43 @@ export interface ListProblemsCommandOutput extends ListProblemsResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ApplicationInsightsClient, ListProblemsCommand } from "@aws-sdk/client-application-insights"; // ES Modules import
- * // const { ApplicationInsightsClient, ListProblemsCommand } = require("@aws-sdk/client-application-insights"); // CommonJS import
+ * import { ApplicationInsightsClient, ListProblemsCommand } from '@aws-sdk/client-application-insights'; // ES Modules import
+ * // const { ApplicationInsightsClient, ListProblemsCommand } = require('@aws-sdk/client-application-insights'); // CommonJS import
  * const client = new ApplicationInsightsClient(config);
  * const input = { // ListProblemsRequest
- *   ResourceGroupName: "STRING_VALUE",
- *   StartTime: new Date("TIMESTAMP"),
- *   EndTime: new Date("TIMESTAMP"),
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
- *   ComponentName: "STRING_VALUE",
+ *   ResourceGroupName: 'STRING_VALUE',
+ *   StartTime: new Date('TIMESTAMP'),
+ *   EndTime: new Date('TIMESTAMP'),
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
+ *   ComponentName: 'STRING_VALUE',
  * };
  * const command = new ListProblemsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListProblemsResponse
+ *   ProblemList: [ // ProblemList
+ *     { // Problem
+ *       Id: 'STRING_VALUE',
+ *       Title: 'STRING_VALUE',
+ *       Insights: 'STRING_VALUE',
+ *       Status: 'STRING_VALUE',
+ *       AffectedResource: 'STRING_VALUE',
+ *       StartTime: new Date('TIMESTAMP'),
+ *       EndTime: new Date('TIMESTAMP'),
+ *       SeverityLevel: 'STRING_VALUE',
+ *       ResourceGroupName: 'STRING_VALUE',
+ *       Feedback: { // Feedback
+ *         '<keys>': 'STRING_VALUE',
+ *       },
+ *       RecurringCount: Number('long'),
+ *       LastRecurrenceTime: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ *   ResourceGroupName: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListProblemsCommandInput - {@link ListProblemsCommandInput}
@@ -70,6 +94,8 @@ export interface ListProblemsCommandOutput extends ListProblemsResponse, __Metad
  * @throws {@link ValidationException} (client fault)
  *  <p>The parameter is not valid.</p>
  *
+ * @throws {@link ApplicationInsightsServiceException}
+ * <p>Base exception class for all service exceptions from ApplicationInsights service.</p>
  *
  */
 export class ListProblemsCommand extends $Command<

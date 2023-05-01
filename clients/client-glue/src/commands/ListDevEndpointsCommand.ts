@@ -41,18 +41,26 @@ export interface ListDevEndpointsCommandOutput extends ListDevEndpointsResponse,
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlueClient, ListDevEndpointsCommand } from "@aws-sdk/client-glue"; // ES Modules import
- * // const { GlueClient, ListDevEndpointsCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * import { GlueClient, ListDevEndpointsCommand } from '@aws-sdk/client-glue'; // ES Modules import
+ * // const { GlueClient, ListDevEndpointsCommand } = require('@aws-sdk/client-glue'); // CommonJS import
  * const client = new GlueClient(config);
  * const input = { // ListDevEndpointsRequest
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  *   Tags: { // TagsMap
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  * };
  * const command = new ListDevEndpointsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListDevEndpointsResponse
+ *   DevEndpointNames: [ // DevEndpointNameList
+ *     'STRING_VALUE',
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListDevEndpointsCommandInput - {@link ListDevEndpointsCommandInput}
@@ -73,6 +81,8 @@ export interface ListDevEndpointsCommandOutput extends ListDevEndpointsResponse,
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class ListDevEndpointsCommand extends $Command<

@@ -52,38 +52,38 @@ export interface StartDocumentAnalysisCommandOutput extends StartDocumentAnalysi
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { TextractClient, StartDocumentAnalysisCommand } from "@aws-sdk/client-textract"; // ES Modules import
- * // const { TextractClient, StartDocumentAnalysisCommand } = require("@aws-sdk/client-textract"); // CommonJS import
+ * import { TextractClient, StartDocumentAnalysisCommand } from '@aws-sdk/client-textract'; // ES Modules import
+ * // const { TextractClient, StartDocumentAnalysisCommand } = require('@aws-sdk/client-textract'); // CommonJS import
  * const client = new TextractClient(config);
  * const input = { // StartDocumentAnalysisRequest
  *   DocumentLocation: { // DocumentLocation
  *     S3Object: { // S3Object
- *       Bucket: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *       Version: "STRING_VALUE",
+ *       Bucket: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *       Version: 'STRING_VALUE',
  *     },
  *   },
  *   FeatureTypes: [ // FeatureTypes // required
- *     "TABLES" || "FORMS" || "QUERIES" || "SIGNATURES",
+ *     'TABLES' || 'FORMS' || 'QUERIES' || 'SIGNATURES',
  *   ],
- *   ClientRequestToken: "STRING_VALUE",
- *   JobTag: "STRING_VALUE",
+ *   ClientRequestToken: 'STRING_VALUE',
+ *   JobTag: 'STRING_VALUE',
  *   NotificationChannel: { // NotificationChannel
- *     SNSTopicArn: "STRING_VALUE", // required
- *     RoleArn: "STRING_VALUE", // required
+ *     SNSTopicArn: 'STRING_VALUE', // required
+ *     RoleArn: 'STRING_VALUE', // required
  *   },
  *   OutputConfig: { // OutputConfig
- *     S3Bucket: "STRING_VALUE", // required
- *     S3Prefix: "STRING_VALUE",
+ *     S3Bucket: 'STRING_VALUE', // required
+ *     S3Prefix: 'STRING_VALUE',
  *   },
- *   KMSKeyId: "STRING_VALUE",
+ *   KMSKeyId: 'STRING_VALUE',
  *   QueriesConfig: { // QueriesConfig
  *     Queries: [ // Queries // required
  *       { // Query
- *         Text: "STRING_VALUE", // required
- *         Alias: "STRING_VALUE",
+ *         Text: 'STRING_VALUE', // required
+ *         Alias: 'STRING_VALUE',
  *         Pages: [ // QueryPages
- *           "STRING_VALUE",
+ *           'STRING_VALUE',
  *         ],
  *       },
  *     ],
@@ -91,6 +91,11 @@ export interface StartDocumentAnalysisCommandOutput extends StartDocumentAnalysi
  * };
  * const command = new StartDocumentAnalysisCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // StartDocumentAnalysisResponse
+ *   JobId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param StartDocumentAnalysisCommandInput - {@link StartDocumentAnalysisCommandInput}
@@ -155,6 +160,8 @@ export interface StartDocumentAnalysisCommandOutput extends StartDocumentAnalysi
  *  <p>The format of the input document isn't supported. Documents for operations can be in
  *          PNG, JPEG, PDF, or TIFF format.</p>
  *
+ * @throws {@link TextractServiceException}
+ * <p>Base exception class for all service exceptions from Textract service.</p>
  *
  */
 export class StartDocumentAnalysisCommand extends $Command<

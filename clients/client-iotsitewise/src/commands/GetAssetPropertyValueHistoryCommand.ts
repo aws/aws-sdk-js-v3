@@ -52,24 +52,44 @@ export interface GetAssetPropertyValueHistoryCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTSiteWiseClient, GetAssetPropertyValueHistoryCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
- * // const { IoTSiteWiseClient, GetAssetPropertyValueHistoryCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
+ * import { IoTSiteWiseClient, GetAssetPropertyValueHistoryCommand } from '@aws-sdk/client-iotsitewise'; // ES Modules import
+ * // const { IoTSiteWiseClient, GetAssetPropertyValueHistoryCommand } = require('@aws-sdk/client-iotsitewise'); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
  * const input = { // GetAssetPropertyValueHistoryRequest
- *   assetId: "STRING_VALUE",
- *   propertyId: "STRING_VALUE",
- *   propertyAlias: "STRING_VALUE",
- *   startDate: new Date("TIMESTAMP"),
- *   endDate: new Date("TIMESTAMP"),
+ *   assetId: 'STRING_VALUE',
+ *   propertyId: 'STRING_VALUE',
+ *   propertyAlias: 'STRING_VALUE',
+ *   startDate: new Date('TIMESTAMP'),
+ *   endDate: new Date('TIMESTAMP'),
  *   qualities: [ // Qualities
- *     "GOOD" || "BAD" || "UNCERTAIN",
+ *     'GOOD' || 'BAD' || 'UNCERTAIN',
  *   ],
- *   timeOrdering: "ASCENDING" || "DESCENDING",
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   timeOrdering: 'ASCENDING' || 'DESCENDING',
+ *   nextToken: 'STRING_VALUE',
+ *   maxResults: Number('int'),
  * };
  * const command = new GetAssetPropertyValueHistoryCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetAssetPropertyValueHistoryResponse
+ *   assetPropertyValueHistory: [ // AssetPropertyValueHistory // required
+ *     { // AssetPropertyValue
+ *       value: { // Variant
+ *         stringValue: 'STRING_VALUE',
+ *         integerValue: Number('int'),
+ *         doubleValue: Number('double'),
+ *         booleanValue: true || false,
+ *       },
+ *       timestamp: { // TimeInNanos
+ *         timeInSeconds: Number('long'), // required
+ *         offsetInNanos: Number('int'),
+ *       },
+ *       quality: 'GOOD' || 'BAD' || 'UNCERTAIN',
+ *     },
+ *   ],
+ *   nextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param GetAssetPropertyValueHistoryCommandInput - {@link GetAssetPropertyValueHistoryCommandInput}
@@ -97,6 +117,8 @@ export interface GetAssetPropertyValueHistoryCommandOutput
  *       on.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
  *
+ * @throws {@link IoTSiteWiseServiceException}
+ * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
  */
 export class GetAssetPropertyValueHistoryCommand extends $Command<

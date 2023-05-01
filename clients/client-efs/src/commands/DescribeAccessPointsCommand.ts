@@ -39,17 +39,54 @@ export interface DescribeAccessPointsCommandOutput extends DescribeAccessPointsR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EFSClient, DescribeAccessPointsCommand } from "@aws-sdk/client-efs"; // ES Modules import
- * // const { EFSClient, DescribeAccessPointsCommand } = require("@aws-sdk/client-efs"); // CommonJS import
+ * import { EFSClient, DescribeAccessPointsCommand } from '@aws-sdk/client-efs'; // ES Modules import
+ * // const { EFSClient, DescribeAccessPointsCommand } = require('@aws-sdk/client-efs'); // CommonJS import
  * const client = new EFSClient(config);
  * const input = { // DescribeAccessPointsRequest
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
- *   AccessPointId: "STRING_VALUE",
- *   FileSystemId: "STRING_VALUE",
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
+ *   AccessPointId: 'STRING_VALUE',
+ *   FileSystemId: 'STRING_VALUE',
  * };
  * const command = new DescribeAccessPointsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeAccessPointsResponse
+ *   AccessPoints: [ // AccessPointDescriptions
+ *     { // AccessPointDescription
+ *       ClientToken: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *       Tags: [ // Tags
+ *         { // Tag
+ *           Key: 'STRING_VALUE', // required
+ *           Value: 'STRING_VALUE', // required
+ *         },
+ *       ],
+ *       AccessPointId: 'STRING_VALUE',
+ *       AccessPointArn: 'STRING_VALUE',
+ *       FileSystemId: 'STRING_VALUE',
+ *       PosixUser: { // PosixUser
+ *         Uid: Number('long'), // required
+ *         Gid: Number('long'), // required
+ *         SecondaryGids: [ // SecondaryGids
+ *           Number('long'),
+ *         ],
+ *       },
+ *       RootDirectory: { // RootDirectory
+ *         Path: 'STRING_VALUE',
+ *         CreationInfo: { // CreationInfo
+ *           OwnerUid: Number('long'), // required
+ *           OwnerGid: Number('long'), // required
+ *           Permissions: 'STRING_VALUE', // required
+ *         },
+ *       },
+ *       OwnerId: 'STRING_VALUE',
+ *       LifeCycleState: 'creating' || 'available' || 'updating' || 'deleting' || 'deleted' || 'error',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeAccessPointsCommandInput - {@link DescribeAccessPointsCommandInput}
@@ -73,6 +110,8 @@ export interface DescribeAccessPointsCommandOutput extends DescribeAccessPointsR
  * @throws {@link InternalServerError} (server fault)
  *  <p>Returned if an error occurred on the server side.</p>
  *
+ * @throws {@link EFSServiceException}
+ * <p>Base exception class for all service exceptions from EFS service.</p>
  *
  */
 export class DescribeAccessPointsCommand extends $Command<

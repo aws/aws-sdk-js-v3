@@ -38,25 +38,25 @@ export interface SetIdentityPoolRolesCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CognitoIdentityClient, SetIdentityPoolRolesCommand } from "@aws-sdk/client-cognito-identity"; // ES Modules import
- * // const { CognitoIdentityClient, SetIdentityPoolRolesCommand } = require("@aws-sdk/client-cognito-identity"); // CommonJS import
+ * import { CognitoIdentityClient, SetIdentityPoolRolesCommand } from '@aws-sdk/client-cognito-identity'; // ES Modules import
+ * // const { CognitoIdentityClient, SetIdentityPoolRolesCommand } = require('@aws-sdk/client-cognito-identity'); // CommonJS import
  * const client = new CognitoIdentityClient(config);
  * const input = { // SetIdentityPoolRolesInput
- *   IdentityPoolId: "STRING_VALUE", // required
+ *   IdentityPoolId: 'STRING_VALUE', // required
  *   Roles: { // RolesMap // required
- *     "<keys>": "STRING_VALUE",
+ *     '<keys>': 'STRING_VALUE',
  *   },
  *   RoleMappings: { // RoleMappingMap
- *     "<keys>": { // RoleMapping
- *       Type: "STRING_VALUE", // required
- *       AmbiguousRoleResolution: "STRING_VALUE",
+ *     '<keys>': { // RoleMapping
+ *       Type: 'STRING_VALUE', // required
+ *       AmbiguousRoleResolution: 'STRING_VALUE',
  *       RulesConfiguration: { // RulesConfigurationType
  *         Rules: [ // MappingRulesList // required
  *           { // MappingRule
- *             Claim: "STRING_VALUE", // required
- *             MatchType: "STRING_VALUE", // required
- *             Value: "STRING_VALUE", // required
- *             RoleARN: "STRING_VALUE", // required
+ *             Claim: 'STRING_VALUE', // required
+ *             MatchType: 'STRING_VALUE', // required
+ *             Value: 'STRING_VALUE', // required
+ *             RoleARN: 'STRING_VALUE', // required
  *           },
  *         ],
  *       },
@@ -65,6 +65,9 @@ export interface SetIdentityPoolRolesCommandOutput extends __MetadataBearer {}
  * };
  * const command = new SetIdentityPoolRolesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param SetIdentityPoolRolesCommandInput - {@link SetIdentityPoolRolesCommandInput}
@@ -96,6 +99,8 @@ export interface SetIdentityPoolRolesCommandOutput extends __MetadataBearer {}
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Thrown when a request is throttled.</p>
  *
+ * @throws {@link CognitoIdentityServiceException}
+ * <p>Base exception class for all service exceptions from CognitoIdentity service.</p>
  *
  */
 export class SetIdentityPoolRolesCommand extends $Command<

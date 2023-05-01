@@ -37,19 +37,34 @@ export interface DeletePackageCommandOutput extends DeletePackageResult, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeartifactClient, DeletePackageCommand } from "@aws-sdk/client-codeartifact"; // ES Modules import
- * // const { CodeartifactClient, DeletePackageCommand } = require("@aws-sdk/client-codeartifact"); // CommonJS import
+ * import { CodeartifactClient, DeletePackageCommand } from '@aws-sdk/client-codeartifact'; // ES Modules import
+ * // const { CodeartifactClient, DeletePackageCommand } = require('@aws-sdk/client-codeartifact'); // CommonJS import
  * const client = new CodeartifactClient(config);
  * const input = { // DeletePackageRequest
- *   domain: "STRING_VALUE", // required
- *   domainOwner: "STRING_VALUE",
- *   repository: "STRING_VALUE", // required
- *   format: "npm" || "pypi" || "maven" || "nuget" || "generic", // required
- *   namespace: "STRING_VALUE",
- *   package: "STRING_VALUE", // required
+ *   domain: 'STRING_VALUE', // required
+ *   domainOwner: 'STRING_VALUE',
+ *   repository: 'STRING_VALUE', // required
+ *   format: 'npm' || 'pypi' || 'maven' || 'nuget' || 'generic', // required
+ *   namespace: 'STRING_VALUE',
+ *   package: 'STRING_VALUE', // required
  * };
  * const command = new DeletePackageCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DeletePackageResult
+ *   deletedPackage: { // PackageSummary
+ *     format: 'npm' || 'pypi' || 'maven' || 'nuget' || 'generic',
+ *     namespace: 'STRING_VALUE',
+ *     package: 'STRING_VALUE',
+ *     originConfiguration: { // PackageOriginConfiguration
+ *       restrictions: { // PackageOriginRestrictions
+ *         publish: 'ALLOW' || 'BLOCK', // required
+ *         upstream: 'ALLOW' || 'BLOCK', // required
+ *       },
+ *     },
+ *   },
+ * };
+ *
  * ```
  *
  * @param DeletePackageCommandInput - {@link DeletePackageCommandInput}
@@ -86,6 +101,8 @@ export interface DeletePackageCommandOutput extends DeletePackageResult, __Metad
  *       The operation did not succeed because a parameter in the request was sent with an invalid value.
  *     </p>
  *
+ * @throws {@link CodeartifactServiceException}
+ * <p>Base exception class for all service exceptions from Codeartifact service.</p>
  *
  */
 export class DeletePackageCommand extends $Command<

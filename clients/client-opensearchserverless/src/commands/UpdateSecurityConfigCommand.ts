@@ -42,23 +42,41 @@ export interface UpdateSecurityConfigCommandOutput extends UpdateSecurityConfigR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OpenSearchServerlessClient, UpdateSecurityConfigCommand } from "@aws-sdk/client-opensearchserverless"; // ES Modules import
- * // const { OpenSearchServerlessClient, UpdateSecurityConfigCommand } = require("@aws-sdk/client-opensearchserverless"); // CommonJS import
+ * import { OpenSearchServerlessClient, UpdateSecurityConfigCommand } from '@aws-sdk/client-opensearchserverless'; // ES Modules import
+ * // const { OpenSearchServerlessClient, UpdateSecurityConfigCommand } = require('@aws-sdk/client-opensearchserverless'); // CommonJS import
  * const client = new OpenSearchServerlessClient(config);
  * const input = { // UpdateSecurityConfigRequest
- *   id: "STRING_VALUE", // required
- *   configVersion: "STRING_VALUE", // required
- *   description: "STRING_VALUE",
+ *   id: 'STRING_VALUE', // required
+ *   configVersion: 'STRING_VALUE', // required
+ *   description: 'STRING_VALUE',
  *   samlOptions: { // SamlConfigOptions
- *     metadata: "STRING_VALUE", // required
- *     userAttribute: "STRING_VALUE",
- *     groupAttribute: "STRING_VALUE",
- *     sessionTimeout: Number("int"),
+ *     metadata: 'STRING_VALUE', // required
+ *     userAttribute: 'STRING_VALUE',
+ *     groupAttribute: 'STRING_VALUE',
+ *     sessionTimeout: Number('int'),
  *   },
- *   clientToken: "STRING_VALUE",
+ *   clientToken: 'STRING_VALUE',
  * };
  * const command = new UpdateSecurityConfigCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateSecurityConfigResponse
+ *   securityConfigDetail: { // SecurityConfigDetail
+ *     id: 'STRING_VALUE',
+ *     type: 'STRING_VALUE',
+ *     configVersion: 'STRING_VALUE',
+ *     description: 'STRING_VALUE',
+ *     samlOptions: { // SamlConfigOptions
+ *       metadata: 'STRING_VALUE', // required
+ *       userAttribute: 'STRING_VALUE',
+ *       groupAttribute: 'STRING_VALUE',
+ *       sessionTimeout: Number('int'),
+ *     },
+ *     createdDate: Number('long'),
+ *     lastModifiedDate: Number('long'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateSecurityConfigCommandInput - {@link UpdateSecurityConfigCommandInput}
@@ -82,6 +100,8 @@ export interface UpdateSecurityConfigCommandOutput extends UpdateSecurityConfigR
  *  <p>Thrown when the HTTP request contains invalid input or is missing required
  *             input.</p>
  *
+ * @throws {@link OpenSearchServerlessServiceException}
+ * <p>Base exception class for all service exceptions from OpenSearchServerless service.</p>
  *
  */
 export class UpdateSecurityConfigCommand extends $Command<

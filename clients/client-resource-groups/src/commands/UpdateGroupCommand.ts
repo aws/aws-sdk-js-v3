@@ -48,16 +48,25 @@ export interface UpdateGroupCommandOutput extends UpdateGroupOutput, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ResourceGroupsClient, UpdateGroupCommand } from "@aws-sdk/client-resource-groups"; // ES Modules import
- * // const { ResourceGroupsClient, UpdateGroupCommand } = require("@aws-sdk/client-resource-groups"); // CommonJS import
+ * import { ResourceGroupsClient, UpdateGroupCommand } from '@aws-sdk/client-resource-groups'; // ES Modules import
+ * // const { ResourceGroupsClient, UpdateGroupCommand } = require('@aws-sdk/client-resource-groups'); // CommonJS import
  * const client = new ResourceGroupsClient(config);
  * const input = { // UpdateGroupInput
- *   GroupName: "STRING_VALUE",
- *   Group: "STRING_VALUE",
- *   Description: "STRING_VALUE",
+ *   GroupName: 'STRING_VALUE',
+ *   Group: 'STRING_VALUE',
+ *   Description: 'STRING_VALUE',
  * };
  * const command = new UpdateGroupCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateGroupOutput
+ *   Group: { // Group
+ *     GroupArn: 'STRING_VALUE', // required
+ *     Name: 'STRING_VALUE', // required
+ *     Description: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateGroupCommandInput - {@link UpdateGroupCommandInput}
@@ -85,6 +94,8 @@ export interface UpdateGroupCommandOutput extends UpdateGroupOutput, __MetadataB
  *  <p>You've exceeded throttling limits by making too many requests in a period of
  *             time.</p>
  *
+ * @throws {@link ResourceGroupsServiceException}
+ * <p>Base exception class for all service exceptions from ResourceGroups service.</p>
  *
  */
 export class UpdateGroupCommand extends $Command<

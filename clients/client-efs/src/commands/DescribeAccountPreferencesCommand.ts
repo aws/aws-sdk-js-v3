@@ -37,15 +37,26 @@ export interface DescribeAccountPreferencesCommandOutput extends DescribeAccount
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EFSClient, DescribeAccountPreferencesCommand } from "@aws-sdk/client-efs"; // ES Modules import
- * // const { EFSClient, DescribeAccountPreferencesCommand } = require("@aws-sdk/client-efs"); // CommonJS import
+ * import { EFSClient, DescribeAccountPreferencesCommand } from '@aws-sdk/client-efs'; // ES Modules import
+ * // const { EFSClient, DescribeAccountPreferencesCommand } = require('@aws-sdk/client-efs'); // CommonJS import
  * const client = new EFSClient(config);
  * const input = { // DescribeAccountPreferencesRequest
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   NextToken: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
  * };
  * const command = new DescribeAccountPreferencesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeAccountPreferencesResponse
+ *   ResourceIdPreference: { // ResourceIdPreference
+ *     ResourceIdType: 'LONG_ID' || 'SHORT_ID',
+ *     Resources: [ // Resources
+ *       'FILE_SYSTEM' || 'MOUNT_TARGET',
+ *     ],
+ *   },
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param DescribeAccountPreferencesCommandInput - {@link DescribeAccountPreferencesCommandInput}
@@ -57,6 +68,8 @@ export interface DescribeAccountPreferencesCommandOutput extends DescribeAccount
  * @throws {@link InternalServerError} (server fault)
  *  <p>Returned if an error occurred on the server side.</p>
  *
+ * @throws {@link EFSServiceException}
+ * <p>Base exception class for all service exceptions from EFS service.</p>
  *
  */
 export class DescribeAccountPreferencesCommand extends $Command<

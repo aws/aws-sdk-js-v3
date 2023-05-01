@@ -44,20 +44,61 @@ export interface CreateKeyPairCommandOutput extends CreateKeyPairResult, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LightsailClient, CreateKeyPairCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
- * // const { LightsailClient, CreateKeyPairCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
+ * import { LightsailClient, CreateKeyPairCommand } from '@aws-sdk/client-lightsail'; // ES Modules import
+ * // const { LightsailClient, CreateKeyPairCommand } = require('@aws-sdk/client-lightsail'); // CommonJS import
  * const client = new LightsailClient(config);
  * const input = { // CreateKeyPairRequest
- *   keyPairName: "STRING_VALUE", // required
+ *   keyPairName: 'STRING_VALUE', // required
  *   tags: [ // TagList
  *     { // Tag
- *       key: "STRING_VALUE",
- *       value: "STRING_VALUE",
+ *       key: 'STRING_VALUE',
+ *       value: 'STRING_VALUE',
  *     },
  *   ],
  * };
  * const command = new CreateKeyPairCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateKeyPairResult
+ *   keyPair: { // KeyPair
+ *     name: 'STRING_VALUE',
+ *     arn: 'STRING_VALUE',
+ *     supportCode: 'STRING_VALUE',
+ *     createdAt: new Date('TIMESTAMP'),
+ *     location: { // ResourceLocation
+ *       availabilityZone: 'STRING_VALUE',
+ *       regionName: 'us-east-1' || 'us-east-2' || 'us-west-1' || 'us-west-2' || 'eu-west-1' || 'eu-west-2' || 'eu-west-3' || 'eu-central-1' || 'ca-central-1' || 'ap-south-1' || 'ap-southeast-1' || 'ap-southeast-2' || 'ap-northeast-1' || 'ap-northeast-2' || 'eu-north-1',
+ *     },
+ *     resourceType: 'ContainerService' || 'Instance' || 'StaticIp' || 'KeyPair' || 'InstanceSnapshot' || 'Domain' || 'PeeredVpc' || 'LoadBalancer' || 'LoadBalancerTlsCertificate' || 'Disk' || 'DiskSnapshot' || 'RelationalDatabase' || 'RelationalDatabaseSnapshot' || 'ExportSnapshotRecord' || 'CloudFormationStackRecord' || 'Alarm' || 'ContactMethod' || 'Distribution' || 'Certificate' || 'Bucket',
+ *     tags: [ // TagList
+ *       { // Tag
+ *         key: 'STRING_VALUE',
+ *         value: 'STRING_VALUE',
+ *       },
+ *     ],
+ *     fingerprint: 'STRING_VALUE',
+ *   },
+ *   publicKeyBase64: 'STRING_VALUE',
+ *   privateKeyBase64: 'STRING_VALUE',
+ *   operation: { // Operation
+ *     id: 'STRING_VALUE',
+ *     resourceName: 'STRING_VALUE',
+ *     resourceType: 'ContainerService' || 'Instance' || 'StaticIp' || 'KeyPair' || 'InstanceSnapshot' || 'Domain' || 'PeeredVpc' || 'LoadBalancer' || 'LoadBalancerTlsCertificate' || 'Disk' || 'DiskSnapshot' || 'RelationalDatabase' || 'RelationalDatabaseSnapshot' || 'ExportSnapshotRecord' || 'CloudFormationStackRecord' || 'Alarm' || 'ContactMethod' || 'Distribution' || 'Certificate' || 'Bucket',
+ *     createdAt: new Date('TIMESTAMP'),
+ *     location: {
+ *       availabilityZone: 'STRING_VALUE',
+ *       regionName: 'us-east-1' || 'us-east-2' || 'us-west-1' || 'us-west-2' || 'eu-west-1' || 'eu-west-2' || 'eu-west-3' || 'eu-central-1' || 'ca-central-1' || 'ap-south-1' || 'ap-southeast-1' || 'ap-southeast-2' || 'ap-northeast-1' || 'ap-northeast-2' || 'eu-north-1',
+ *     },
+ *     isTerminal: true || false,
+ *     operationDetails: 'STRING_VALUE',
+ *     operationType: 'DeleteKnownHostKeys' || 'DeleteInstance' || 'CreateInstance' || 'StopInstance' || 'StartInstance' || 'RebootInstance' || 'OpenInstancePublicPorts' || 'PutInstancePublicPorts' || 'CloseInstancePublicPorts' || 'AllocateStaticIp' || 'ReleaseStaticIp' || 'AttachStaticIp' || 'DetachStaticIp' || 'UpdateDomainEntry' || 'DeleteDomainEntry' || 'CreateDomain' || 'DeleteDomain' || 'CreateInstanceSnapshot' || 'DeleteInstanceSnapshot' || 'CreateInstancesFromSnapshot' || 'CreateLoadBalancer' || 'DeleteLoadBalancer' || 'AttachInstancesToLoadBalancer' || 'DetachInstancesFromLoadBalancer' || 'UpdateLoadBalancerAttribute' || 'CreateLoadBalancerTlsCertificate' || 'DeleteLoadBalancerTlsCertificate' || 'AttachLoadBalancerTlsCertificate' || 'CreateDisk' || 'DeleteDisk' || 'AttachDisk' || 'DetachDisk' || 'CreateDiskSnapshot' || 'DeleteDiskSnapshot' || 'CreateDiskFromSnapshot' || 'CreateRelationalDatabase' || 'UpdateRelationalDatabase' || 'DeleteRelationalDatabase' || 'CreateRelationalDatabaseFromSnapshot' || 'CreateRelationalDatabaseSnapshot' || 'DeleteRelationalDatabaseSnapshot' || 'UpdateRelationalDatabaseParameters' || 'StartRelationalDatabase' || 'RebootRelationalDatabase' || 'StopRelationalDatabase' || 'EnableAddOn' || 'DisableAddOn' || 'PutAlarm' || 'GetAlarms' || 'DeleteAlarm' || 'TestAlarm' || 'CreateContactMethod' || 'GetContactMethods' || 'SendContactMethodVerification' || 'DeleteContactMethod' || 'CreateDistribution' || 'UpdateDistribution' || 'DeleteDistribution' || 'ResetDistributionCache' || 'AttachCertificateToDistribution' || 'DetachCertificateFromDistribution' || 'UpdateDistributionBundle' || 'SetIpAddressType' || 'CreateCertificate' || 'DeleteCertificate' || 'CreateContainerService' || 'UpdateContainerService' || 'DeleteContainerService' || 'CreateContainerServiceDeployment' || 'CreateContainerServiceRegistryLogin' || 'RegisterContainerImage' || 'DeleteContainerImage' || 'CreateBucket' || 'DeleteBucket' || 'CreateBucketAccessKey' || 'DeleteBucketAccessKey' || 'UpdateBucketBundle' || 'UpdateBucket' || 'SetResourceAccessForBucket' || 'UpdateInstanceMetadataOptions' || 'StartGUISession' || 'StopGUISession',
+ *     status: 'NotStarted' || 'Started' || 'Failed' || 'Completed' || 'Succeeded',
+ *     statusChangedAt: new Date('TIMESTAMP'),
+ *     errorCode: 'STRING_VALUE',
+ *     errorDetails: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param CreateKeyPairCommandInput - {@link CreateKeyPairCommandInput}
@@ -96,6 +137,8 @@ export interface CreateKeyPairCommandOutput extends CreateKeyPairResult, __Metad
  * @throws {@link UnauthenticatedException} (client fault)
  *  <p>Lightsail throws this exception when the user has not been authenticated.</p>
  *
+ * @throws {@link LightsailServiceException}
+ * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
  */
 export class CreateKeyPairCommand extends $Command<

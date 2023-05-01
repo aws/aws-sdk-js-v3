@@ -45,17 +45,29 @@ export interface ListAttachedRolePoliciesCommandOutput extends ListAttachedRoleP
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IAMClient, ListAttachedRolePoliciesCommand } from "@aws-sdk/client-iam"; // ES Modules import
- * // const { IAMClient, ListAttachedRolePoliciesCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * import { IAMClient, ListAttachedRolePoliciesCommand } from '@aws-sdk/client-iam'; // ES Modules import
+ * // const { IAMClient, ListAttachedRolePoliciesCommand } = require('@aws-sdk/client-iam'); // CommonJS import
  * const client = new IAMClient(config);
  * const input = { // ListAttachedRolePoliciesRequest
- *   RoleName: "STRING_VALUE", // required
- *   PathPrefix: "STRING_VALUE",
- *   Marker: "STRING_VALUE",
- *   MaxItems: Number("int"),
+ *   RoleName: 'STRING_VALUE', // required
+ *   PathPrefix: 'STRING_VALUE',
+ *   Marker: 'STRING_VALUE',
+ *   MaxItems: Number('int'),
  * };
  * const command = new ListAttachedRolePoliciesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListAttachedRolePoliciesResponse
+ *   AttachedPolicies: [ // attachedPoliciesListType
+ *     { // AttachedPolicy
+ *       PolicyName: 'STRING_VALUE',
+ *       PolicyArn: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   IsTruncated: true || false,
+ *   Marker: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListAttachedRolePoliciesCommandInput - {@link ListAttachedRolePoliciesCommandInput}
@@ -76,6 +88,8 @@ export interface ListAttachedRolePoliciesCommandOutput extends ListAttachedRoleP
  *  <p>The request processing has failed because of an unknown error, exception or
  *       failure.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  */
 export class ListAttachedRolePoliciesCommand extends $Command<

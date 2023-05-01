@@ -36,12 +36,32 @@ export interface DescribeOperatingSystemsCommandOutput extends DescribeOperating
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OpsWorksClient, DescribeOperatingSystemsCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
- * // const { OpsWorksClient, DescribeOperatingSystemsCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
+ * import { OpsWorksClient, DescribeOperatingSystemsCommand } from '@aws-sdk/client-opsworks'; // ES Modules import
+ * // const { OpsWorksClient, DescribeOperatingSystemsCommand } = require('@aws-sdk/client-opsworks'); // CommonJS import
  * const client = new OpsWorksClient(config);
  * const input = {};
  * const command = new DescribeOperatingSystemsCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // DescribeOperatingSystemsResponse
+ *   OperatingSystems: [ // OperatingSystems
+ *     { // OperatingSystem
+ *       Name: 'STRING_VALUE',
+ *       Id: 'STRING_VALUE',
+ *       Type: 'STRING_VALUE',
+ *       ConfigurationManagers: [ // OperatingSystemConfigurationManagers
+ *         { // OperatingSystemConfigurationManager
+ *           Name: 'STRING_VALUE',
+ *           Version: 'STRING_VALUE',
+ *         },
+ *       ],
+ *       ReportedName: 'STRING_VALUE',
+ *       ReportedVersion: 'STRING_VALUE',
+ *       Supported: true || false,
+ *     },
+ *   ],
+ * };
+ *
  * ```
  *
  * @param DescribeOperatingSystemsCommandInput - {@link DescribeOperatingSystemsCommandInput}
@@ -50,6 +70,8 @@ export interface DescribeOperatingSystemsCommandOutput extends DescribeOperating
  * @see {@link DescribeOperatingSystemsCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
  *
+ * @throws {@link OpsWorksServiceException}
+ * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
  */
 export class DescribeOperatingSystemsCommand extends $Command<

@@ -50,15 +50,28 @@ export interface GetUICustomizationCommandOutput extends GetUICustomizationRespo
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CognitoIdentityProviderClient, GetUICustomizationCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
- * // const { CognitoIdentityProviderClient, GetUICustomizationCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
+ * import { CognitoIdentityProviderClient, GetUICustomizationCommand } from '@aws-sdk/client-cognito-identity-provider'; // ES Modules import
+ * // const { CognitoIdentityProviderClient, GetUICustomizationCommand } = require('@aws-sdk/client-cognito-identity-provider'); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
  * const input = { // GetUICustomizationRequest
- *   UserPoolId: "STRING_VALUE", // required
- *   ClientId: "STRING_VALUE",
+ *   UserPoolId: 'STRING_VALUE', // required
+ *   ClientId: 'STRING_VALUE',
  * };
  * const command = new GetUICustomizationCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetUICustomizationResponse
+ *   UICustomization: { // UICustomizationType
+ *     UserPoolId: 'STRING_VALUE',
+ *     ClientId: 'STRING_VALUE',
+ *     ImageUrl: 'STRING_VALUE',
+ *     CSS: 'STRING_VALUE',
+ *     CSSVersion: 'STRING_VALUE',
+ *     LastModifiedDate: new Date('TIMESTAMP'),
+ *     CreationDate: new Date('TIMESTAMP'),
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetUICustomizationCommandInput - {@link GetUICustomizationCommandInput}
@@ -85,6 +98,8 @@ export interface GetUICustomizationCommandOutput extends GetUICustomizationRespo
  *  <p>This exception is thrown when the user has made too many requests for a given
  *             operation.</p>
  *
+ * @throws {@link CognitoIdentityProviderServiceException}
+ * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
  */
 export class GetUICustomizationCommand extends $Command<

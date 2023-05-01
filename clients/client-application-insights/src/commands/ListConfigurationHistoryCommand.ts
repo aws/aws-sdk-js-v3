@@ -53,19 +53,34 @@ export interface ListConfigurationHistoryCommandOutput extends ListConfiguration
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ApplicationInsightsClient, ListConfigurationHistoryCommand } from "@aws-sdk/client-application-insights"; // ES Modules import
- * // const { ApplicationInsightsClient, ListConfigurationHistoryCommand } = require("@aws-sdk/client-application-insights"); // CommonJS import
+ * import { ApplicationInsightsClient, ListConfigurationHistoryCommand } from '@aws-sdk/client-application-insights'; // ES Modules import
+ * // const { ApplicationInsightsClient, ListConfigurationHistoryCommand } = require('@aws-sdk/client-application-insights'); // CommonJS import
  * const client = new ApplicationInsightsClient(config);
  * const input = { // ListConfigurationHistoryRequest
- *   ResourceGroupName: "STRING_VALUE",
- *   StartTime: new Date("TIMESTAMP"),
- *   EndTime: new Date("TIMESTAMP"),
- *   EventStatus: "STRING_VALUE",
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   ResourceGroupName: 'STRING_VALUE',
+ *   StartTime: new Date('TIMESTAMP'),
+ *   EndTime: new Date('TIMESTAMP'),
+ *   EventStatus: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListConfigurationHistoryCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListConfigurationHistoryResponse
+ *   EventList: [ // ConfigurationEventList
+ *     { // ConfigurationEvent
+ *       MonitoredResourceARN: 'STRING_VALUE',
+ *       EventStatus: 'STRING_VALUE',
+ *       EventResourceType: 'STRING_VALUE',
+ *       EventTime: new Date('TIMESTAMP'),
+ *       EventDetail: 'STRING_VALUE',
+ *       EventResourceName: 'STRING_VALUE',
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListConfigurationHistoryCommandInput - {@link ListConfigurationHistoryCommandInput}
@@ -83,6 +98,8 @@ export interface ListConfigurationHistoryCommandOutput extends ListConfiguration
  * @throws {@link ValidationException} (client fault)
  *  <p>The parameter is not valid.</p>
  *
+ * @throws {@link ApplicationInsightsServiceException}
+ * <p>Base exception class for all service exceptions from ApplicationInsights service.</p>
  *
  */
 export class ListConfigurationHistoryCommand extends $Command<

@@ -36,14 +36,37 @@ export interface GetContactCommandOutput extends GetContactResponse, __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AlexaForBusinessClient, GetContactCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
- * // const { AlexaForBusinessClient, GetContactCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
+ * import { AlexaForBusinessClient, GetContactCommand } from '@aws-sdk/client-alexa-for-business'; // ES Modules import
+ * // const { AlexaForBusinessClient, GetContactCommand } = require('@aws-sdk/client-alexa-for-business'); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
  * const input = { // GetContactRequest
- *   ContactArn: "STRING_VALUE", // required
+ *   ContactArn: 'STRING_VALUE', // required
  * };
  * const command = new GetContactCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // GetContactResponse
+ *   Contact: { // Contact
+ *     ContactArn: 'STRING_VALUE',
+ *     DisplayName: 'STRING_VALUE',
+ *     FirstName: 'STRING_VALUE',
+ *     LastName: 'STRING_VALUE',
+ *     PhoneNumber: 'STRING_VALUE',
+ *     PhoneNumbers: [ // PhoneNumberList
+ *       { // PhoneNumber
+ *         Number: 'STRING_VALUE', // required
+ *         Type: 'STRING_VALUE', // required
+ *       },
+ *     ],
+ *     SipAddresses: [ // SipAddressList
+ *       { // SipAddress
+ *         Uri: 'STRING_VALUE', // required
+ *         Type: 'STRING_VALUE', // required
+ *       },
+ *     ],
+ *   },
+ * };
+ *
  * ```
  *
  * @param GetContactCommandInput - {@link GetContactCommandInput}
@@ -55,6 +78,8 @@ export interface GetContactCommandOutput extends GetContactResponse, __MetadataB
  * @throws {@link NotFoundException} (client fault)
  *  <p>The resource is not found.</p>
  *
+ * @throws {@link AlexaForBusinessServiceException}
+ * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  */
 export class GetContactCommand extends $Command<

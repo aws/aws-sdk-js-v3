@@ -47,38 +47,43 @@ export interface CreateDataSourceFromRDSCommandOutput extends CreateDataSourceFr
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MachineLearningClient, CreateDataSourceFromRDSCommand } from "@aws-sdk/client-machine-learning"; // ES Modules import
- * // const { MachineLearningClient, CreateDataSourceFromRDSCommand } = require("@aws-sdk/client-machine-learning"); // CommonJS import
+ * import { MachineLearningClient, CreateDataSourceFromRDSCommand } from '@aws-sdk/client-machine-learning'; // ES Modules import
+ * // const { MachineLearningClient, CreateDataSourceFromRDSCommand } = require('@aws-sdk/client-machine-learning'); // CommonJS import
  * const client = new MachineLearningClient(config);
  * const input = { // CreateDataSourceFromRDSInput
- *   DataSourceId: "STRING_VALUE", // required
- *   DataSourceName: "STRING_VALUE",
+ *   DataSourceId: 'STRING_VALUE', // required
+ *   DataSourceName: 'STRING_VALUE',
  *   RDSData: { // RDSDataSpec
  *     DatabaseInformation: { // RDSDatabase
- *       InstanceIdentifier: "STRING_VALUE", // required
- *       DatabaseName: "STRING_VALUE", // required
+ *       InstanceIdentifier: 'STRING_VALUE', // required
+ *       DatabaseName: 'STRING_VALUE', // required
  *     },
- *     SelectSqlQuery: "STRING_VALUE", // required
+ *     SelectSqlQuery: 'STRING_VALUE', // required
  *     DatabaseCredentials: { // RDSDatabaseCredentials
- *       Username: "STRING_VALUE", // required
- *       Password: "STRING_VALUE", // required
+ *       Username: 'STRING_VALUE', // required
+ *       Password: 'STRING_VALUE', // required
  *     },
- *     S3StagingLocation: "STRING_VALUE", // required
- *     DataRearrangement: "STRING_VALUE",
- *     DataSchema: "STRING_VALUE",
- *     DataSchemaUri: "STRING_VALUE",
- *     ResourceRole: "STRING_VALUE", // required
- *     ServiceRole: "STRING_VALUE", // required
- *     SubnetId: "STRING_VALUE", // required
+ *     S3StagingLocation: 'STRING_VALUE', // required
+ *     DataRearrangement: 'STRING_VALUE',
+ *     DataSchema: 'STRING_VALUE',
+ *     DataSchemaUri: 'STRING_VALUE',
+ *     ResourceRole: 'STRING_VALUE', // required
+ *     ServiceRole: 'STRING_VALUE', // required
+ *     SubnetId: 'STRING_VALUE', // required
  *     SecurityGroupIds: [ // EDPSecurityGroupIds // required
- *       "STRING_VALUE",
+ *       'STRING_VALUE',
  *     ],
  *   },
- *   RoleARN: "STRING_VALUE", // required
+ *   RoleARN: 'STRING_VALUE', // required
  *   ComputeStatistics: true || false,
  * };
  * const command = new CreateDataSourceFromRDSCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // CreateDataSourceFromRDSOutput
+ *   DataSourceId: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param CreateDataSourceFromRDSCommandInput - {@link CreateDataSourceFromRDSCommandInput}
@@ -96,6 +101,8 @@ export interface CreateDataSourceFromRDSCommandOutput extends CreateDataSourceFr
  * @throws {@link InvalidInputException} (client fault)
  *  <p>An error on the client occurred. Typically, the cause is an invalid input value.</p>
  *
+ * @throws {@link MachineLearningServiceException}
+ * <p>Base exception class for all service exceptions from MachineLearning service.</p>
  *
  */
 export class CreateDataSourceFromRDSCommand extends $Command<

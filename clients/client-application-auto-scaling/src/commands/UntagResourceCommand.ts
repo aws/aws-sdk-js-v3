@@ -41,17 +41,20 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ApplicationAutoScalingClient, UntagResourceCommand } from "@aws-sdk/client-application-auto-scaling"; // ES Modules import
- * // const { ApplicationAutoScalingClient, UntagResourceCommand } = require("@aws-sdk/client-application-auto-scaling"); // CommonJS import
+ * import { ApplicationAutoScalingClient, UntagResourceCommand } from '@aws-sdk/client-application-auto-scaling'; // ES Modules import
+ * // const { ApplicationAutoScalingClient, UntagResourceCommand } = require('@aws-sdk/client-application-auto-scaling'); // CommonJS import
  * const client = new ApplicationAutoScalingClient(config);
  * const input = { // UntagResourceRequest
- *   ResourceARN: "STRING_VALUE", // required
+ *   ResourceARN: 'STRING_VALUE', // required
  *   TagKeys: [ // TagKeyList // required
- *     "STRING_VALUE",
+ *     'STRING_VALUE',
  *   ],
  * };
  * const command = new UntagResourceCommand(input);
  * const response = await client.send(command);
+ * /**
+ * {};
+ *
  * ```
  *
  * @param UntagResourceCommandInput - {@link UntagResourceCommandInput}
@@ -67,6 +70,8 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  *  <p>An exception was thrown for a validation issue. Review the available parameters for the
  *          API request.</p>
  *
+ * @throws {@link ApplicationAutoScalingServiceException}
+ * <p>Base exception class for all service exceptions from ApplicationAutoScaling service.</p>
  *
  * @example To remove a tag from a scalable target
  * ```javascript

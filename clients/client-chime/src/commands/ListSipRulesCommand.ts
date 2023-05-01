@@ -36,16 +36,39 @@ export interface ListSipRulesCommandOutput extends ListSipRulesResponse, __Metad
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeClient, ListSipRulesCommand } from "@aws-sdk/client-chime"; // ES Modules import
- * // const { ChimeClient, ListSipRulesCommand } = require("@aws-sdk/client-chime"); // CommonJS import
+ * import { ChimeClient, ListSipRulesCommand } from '@aws-sdk/client-chime'; // ES Modules import
+ * // const { ChimeClient, ListSipRulesCommand } = require('@aws-sdk/client-chime'); // CommonJS import
  * const client = new ChimeClient(config);
  * const input = { // ListSipRulesRequest
- *   SipMediaApplicationId: "STRING_VALUE",
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   SipMediaApplicationId: 'STRING_VALUE',
+ *   MaxResults: Number('int'),
+ *   NextToken: 'STRING_VALUE',
  * };
  * const command = new ListSipRulesCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // ListSipRulesResponse
+ *   SipRules: [ // SipRuleList
+ *     { // SipRule
+ *       SipRuleId: 'STRING_VALUE',
+ *       Name: 'STRING_VALUE',
+ *       Disabled: true || false,
+ *       TriggerType: 'ToPhoneNumber' || 'RequestUriHostname',
+ *       TriggerValue: 'STRING_VALUE',
+ *       TargetApplications: [ // SipRuleTargetApplicationList
+ *         { // SipRuleTargetApplication
+ *           SipMediaApplicationId: 'STRING_VALUE',
+ *           Priority: Number('int'),
+ *           AwsRegion: 'STRING_VALUE',
+ *         },
+ *       ],
+ *       CreatedTimestamp: new Date('TIMESTAMP'),
+ *       UpdatedTimestamp: new Date('TIMESTAMP'),
+ *     },
+ *   ],
+ *   NextToken: 'STRING_VALUE',
+ * };
+ *
  * ```
  *
  * @param ListSipRulesCommandInput - {@link ListSipRulesCommandInput}
@@ -72,6 +95,8 @@ export interface ListSipRulesCommandOutput extends ListSipRulesResponse, __Metad
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeServiceException}
+ * <p>Base exception class for all service exceptions from Chime service.</p>
  *
  */
 export class ListSipRulesCommand extends $Command<

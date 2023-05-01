@@ -36,26 +36,34 @@ export interface UpdateVoiceTemplateCommandOutput extends UpdateVoiceTemplateRes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PinpointClient, UpdateVoiceTemplateCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
- * // const { PinpointClient, UpdateVoiceTemplateCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
+ * import { PinpointClient, UpdateVoiceTemplateCommand } from '@aws-sdk/client-pinpoint'; // ES Modules import
+ * // const { PinpointClient, UpdateVoiceTemplateCommand } = require('@aws-sdk/client-pinpoint'); // CommonJS import
  * const client = new PinpointClient(config);
  * const input = { // UpdateVoiceTemplateRequest
  *   CreateNewVersion: true || false,
- *   TemplateName: "STRING_VALUE", // required
- *   Version: "STRING_VALUE",
+ *   TemplateName: 'STRING_VALUE', // required
+ *   Version: 'STRING_VALUE',
  *   VoiceTemplateRequest: { // VoiceTemplateRequest
- *     Body: "STRING_VALUE",
- *     DefaultSubstitutions: "STRING_VALUE",
- *     LanguageCode: "STRING_VALUE",
+ *     Body: 'STRING_VALUE',
+ *     DefaultSubstitutions: 'STRING_VALUE',
+ *     LanguageCode: 'STRING_VALUE',
  *     tags: { // MapOf__string
- *       "<keys>": "STRING_VALUE",
+ *       '<keys>': 'STRING_VALUE',
  *     },
- *     TemplateDescription: "STRING_VALUE",
- *     VoiceId: "STRING_VALUE",
+ *     TemplateDescription: 'STRING_VALUE',
+ *     VoiceId: 'STRING_VALUE',
  *   },
  * };
  * const command = new UpdateVoiceTemplateCommand(input);
  * const response = await client.send(command);
+ * /**
+ * { // UpdateVoiceTemplateResponse
+ *   MessageBody: { // MessageBody
+ *     Message: 'STRING_VALUE',
+ *     RequestID: 'STRING_VALUE',
+ *   },
+ * };
+ *
  * ```
  *
  * @param UpdateVoiceTemplateCommandInput - {@link UpdateVoiceTemplateCommandInput}
@@ -85,6 +93,8 @@ export interface UpdateVoiceTemplateCommandOutput extends UpdateVoiceTemplateRes
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Provides information about an API request or response.</p>
  *
+ * @throws {@link PinpointServiceException}
+ * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
  */
 export class UpdateVoiceTemplateCommand extends $Command<
